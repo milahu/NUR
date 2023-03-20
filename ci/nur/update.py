@@ -63,9 +63,12 @@ def update(repo: Repo) -> Repo:
     repo, locked_version, repo_path = prefetch(repo)
 
     if repo_path:
+        logger.info(f"Repository {repo.name}: Updated locked_version from {repo.locked_version} to {locked_version}")
+        repo.locked_version = locked_version
         eval_repo(repo, repo_path)
+    else:
+        logger.info(f"Repository {repo.name}: No change in locked_version {repo.locked_version}")
 
-    repo.locked_version = locked_version
     return repo
 
 
