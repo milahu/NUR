@@ -31,6 +31,10 @@ class LockedVersion:
             d["submodules"] = self.submodules
         return d
 
+    def __repr__(self) -> str:
+        # git is content-addressed, so rev is a global identifier
+        return self.rev
+
 
 class RepoType(Enum):
     GITHUB = auto()
