@@ -6,6 +6,6 @@ class NurError(Exception):
 
 
 class EvalError(NurError):
-    def __init__(self, message: str, stdout: Optional[str]):
+    def __init__(self, message: str, stdout: Optional[str] = None):
         super().__init__(message)
         self.stdout = stdout or None
