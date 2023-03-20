@@ -4,6 +4,7 @@ import subprocess
 import tempfile
 from argparse import Namespace
 from pathlib import Path
+import shutil
 
 from .error import EvalError
 from .manifest import Repo, load_manifest, update_lock_file
@@ -16,11 +17,13 @@ logger = logging.getLogger(__name__)
 def eval_repo(repo: Repo, repo_path: Path) -> None:
     with tempfile.TemporaryDirectory() as d:
         eval_path = Path(d).joinpath("default.nix")
+        evalrepo_path = Path(d).joinpath("evalRepo.nix")
+        shutil.copyfile(EVALREPO_PATH, evalrepo_path)
         with open(eval_path, "w") as f:
             f.write(
                 f"""
                     with import <nixpkgs> {{}};
-                    import {EVALREPO_PATH} {{
+                    import {evalrepo_path} {{
                         name = "{repo.name}";
                         url = "{repo.url}";
                         src = {repo_path.joinpath(repo.file)};
@@ -44,7 +47,7 @@ def eval_repo(repo: Repo, repo_path: Path) -> None:
             "-I", f"nixpkgs={nixpkgs_path()}",
             "-I", str(repo_path),
             "-I", str(eval_path),
-            "-I", str(EVALREPO_PATH),
+            "-I", str(evalrepo_path),
         ]
         # fmt: on
 
