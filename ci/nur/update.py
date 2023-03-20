@@ -48,7 +48,7 @@ def eval_repo(repo: Repo, repo_path: Path) -> None:
         ]
         # fmt: on
 
-        logger.info(f"Evaluate repository {repo.name}")
+        logger.info(f"Evaluating repository {repo.name}")
         env = dict(PATH=os.environ["PATH"], NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM="1")
         proc = subprocess.Popen(cmd, env=env, stdout=subprocess.DEVNULL)
         try:
