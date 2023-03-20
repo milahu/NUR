@@ -25,11 +25,35 @@ class GitPrefetcher:
         self.repo = repo
 
     def latest_commit(self) -> str:
-        data = subprocess.check_output(
-            ["git", "ls-remote", self.repo.url.geturl(), self.repo.branch or "HEAD"],
-            env={**os.environ, "GIT_ASKPASS": "", "GIT_TERMINAL_PROMPT": "0"},
+        cmd = ["git", "ls-remote", self.repo.url.geturl(), self.repo.branch or "HEAD"]
+        proc = subprocess.Popen(
+            cmd,
+            # setting these envs produces false errors:
+            # false error: fatal: could not read Username for 'https://github.com': terminal prompts disabled
+            # true error: remote: Repository not found.\nfatal: repository 'https://github.com/x/y' not found
+            #env={**os.environ, "GIT_ASKPASS": "", "GIT_TERMINAL_PROMPT": "0"},
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            encoding="utf8",
         )
-        return data.decode().split(maxsplit=1)[0]
+        try:
+            stdout, stderr = proc.communicate(timeout=30)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            raise NurError(
+                f"Timeout expired while prefetching git repository {self.repo.url.geturl()}"
+            )
+        if proc.returncode != 0:
+            raise NurError(
+                f"Failed to prefetch git repository {self.repo.url.geturl()}: {stderr}"
+            )
+        commit = stdout.split(sep="\t")[0]
+        if len(commit) != 40:
+            raise NurError(
+                f"git ls-remote did not return a git commit hash. actual output:\n{stdout}"
+            )
+        return commit
 
     def prefetch(self, ref: str) -> Tuple[str, Path]:
         cmd = ["nix-prefetch-git"]
