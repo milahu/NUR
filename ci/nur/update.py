@@ -94,6 +94,6 @@ def update_command(args: Namespace) -> None:
             logger.error(f"repository {repo.name} failed to evaluate: {err}")
         except Exception:
             # for non-evaluation errors we want the stack trace
-            logger.exception(f"Failed to updated repository {repo.name}")
+            logger.exception(f"Failed to update repository {repo.name}")
 
     update_lock_file(manifest.repos, LOCK_PATH)
