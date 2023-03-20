@@ -20,13 +20,13 @@ def eval_repo(repo: Repo, repo_path: Path) -> None:
             f.write(
                 f"""
                     with import <nixpkgs> {{}};
-import {EVALREPO_PATH} {{
-  name = "{repo.name}";
-  url = "{repo.url}";
-  src = {repo_path.joinpath(repo.file)};
-  inherit pkgs lib;
-}}
-"""
+                    import {EVALREPO_PATH} {{
+                        name = "{repo.name}";
+                        url = "{repo.url}";
+                        src = {repo_path.joinpath(repo.file)};
+                        inherit pkgs lib;
+                    }}
+                """
             )
 
         # fmt: off
