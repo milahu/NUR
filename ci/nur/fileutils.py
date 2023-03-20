@@ -19,6 +19,7 @@ def to_path(path: PathType) -> Path:
 
 def write_json_file(data: Any, path: PathType) -> None:
     path = to_path(path)
+    os.makedirs(path.parent, exist_ok=True)
     f = NamedTemporaryFile(mode="w+", prefix=path.name, dir=str(path.parent))
     with f as tmp_file:
         json.dump(data, tmp_file, indent=4, sort_keys=True)

@@ -1,3 +1,4 @@
+import os
 import json
 from enum import Enum, auto
 from pathlib import Path
@@ -5,6 +6,7 @@ from typing import Dict, List, Optional, Any
 from urllib.parse import ParseResult, urlparse
 
 from .fileutils import PathType, to_path, write_json_file
+from .error import EvalError
 
 Url = ParseResult
 
@@ -63,6 +65,8 @@ class Repo:
         file_: Optional[str],
         branch: Optional[str],
         locked_version: Optional[LockedVersion],
+        eval_error_version: Optional[LockedVersion],
+        eval_error_text: Optional[str],
     ) -> None:
         self.name = name
         self.url = url
@@ -73,6 +77,9 @@ class Repo:
             self.file = file_
         self.branch = branch
         self.locked_version = None
+        self.new_version = None
+        self.eval_error_version = None
+        self.eval_error_text = None
 
         if (
             locked_version is not None
@@ -80,6 +87,10 @@ class Repo:
             and locked_version.submodules == submodules
         ):
             self.locked_version = locked_version
+
+        if eval_error_version and eval_error_text:
+            self.eval_error_version = eval_error_version
+            self.eval_error_text = eval_error_text
 
         self.supplied_type = supplied_type
         self.computed_type = RepoType.from_repo(self, supplied_type)
@@ -137,6 +148,19 @@ def load_locked_versions(path: Path) -> Dict[str, LockedVersion]:
         return {}
 
 
+def load_text_file(path: PathType) -> Optional[str]:
+    if path.exists():
+        #print(f"manifest load_text_file: loading file: {path}")
+        with open(path, encoding="utf8") as f:
+            return f.read()
+    #else: print(f"manifest load_text_file: no such file: {path}")
+    return None
+
+
+def load_eval_error_text(eval_errors_path: str, name: str):
+    return load_text_file(to_path(eval_errors_path).joinpath(f"{name}.txt"))
+
+
 def update_lock_file(repos: List[Repo], path: Path) -> None:
     locked_repos = {}
     for repo in repos:
@@ -146,8 +170,33 @@ def update_lock_file(repos: List[Repo], path: Path) -> None:
     write_json_file(dict(repos=locked_repos), path)
 
 
-def load_manifest(manifest_path: PathType, lock_path: PathType) -> Manifest:
+# TODO refactor with update_lock_file
+def update_eval_errors_lock_file(repos: List[Repo], path: Path) -> None:
+    locked_repos = {}
+    for repo in repos:
+        if repo.eval_error_version:
+            locked_repos[repo.name] = repo.eval_error_version.as_json()
+
+    write_json_file(dict(repos=locked_repos), path)
+
+
+def update_eval_errors(repos: List[Repo], path: Path) -> None:
+    for repo in repos:
+        error_message_path = path.joinpath(f"{repo.name}.txt")
+        if repo.eval_error_text:
+            #print("manifest update_eval_errors: writing error message:", error_message_path)
+            with open(error_message_path, "w", encoding="utf8") as f:
+                f.write(repo.eval_error_text)
+        else:
+            if error_message_path.exists():
+                #print("manifest update_eval_errors: deleting old error message:", error_message_path)
+                os.unlink(error_message_path)
+                # TODO git clean
+
+
+def load_manifest(manifest_path: PathType, lock_path: PathType, eval_errors_lock_path: PathType, eval_errors_path: PathType) -> Manifest:
     locked_versions = load_locked_versions(to_path(lock_path))
+    eval_error_versions = load_locked_versions(to_path(eval_errors_lock_path))
 
     with open(manifest_path) as f:
         data = json.load(f)
@@ -160,6 +209,8 @@ def load_manifest(manifest_path: PathType, lock_path: PathType) -> Manifest:
         file_ = repo.get("file", "default.nix")
         type_ = repo.get("type", None)
         locked_version = locked_versions.get(name)
-        repos.append(Repo(name, url, submodules, type_, file_, branch_, locked_version))
+        eval_error_version = eval_error_versions.get(name)
+        eval_error_text = load_eval_error_text(eval_errors_path, name)
+        repos.append(Repo(name, url, submodules, type_, file_, branch_, locked_version, eval_error_version, eval_error_text))
 
     return Manifest(repos)

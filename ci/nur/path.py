@@ -33,6 +33,8 @@ ROOT = _find_root()
 LOCK_PATH = ROOT.joinpath("repos.json.lock")
 MANIFEST_PATH = ROOT.joinpath("repos.json")
 EVALREPO_PATH = ROOT.joinpath("lib/evalRepo.nix")
+EVAL_ERRORS_PATH = ROOT.joinpath("eval-errors")
+EVAL_ERRORS_LOCK_PATH = ROOT.joinpath("eval-errors/repos.json.lock")
 
 _NIXPKGS_PATH = None
 

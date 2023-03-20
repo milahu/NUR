@@ -88,7 +88,16 @@ def prefetch(repo: Repo) -> Tuple[Repo, LockedVersion, Optional[Path]]:
         prefetcher = GitPrefetcher(repo)
 
     commit = prefetcher.latest_commit()
+
+    # FIXME also check equality for repo.submodules
+
     locked_version = repo.locked_version
+    if locked_version is not None:
+        if locked_version.rev == commit:
+            return repo, locked_version, None
+
+    # TODO refactor with repo.locked_version
+    locked_version = repo.eval_error_version
     if locked_version is not None:
         if locked_version.rev == commit:
             return repo, locked_version, None

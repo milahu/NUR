@@ -1,6 +1,11 @@
+from typing import Optional
+
+
 class NurError(Exception):
     pass
 
 
 class EvalError(NurError):
-    pass
+    def __init__(self, message: str, stdout: Optional[str]):
+        super().__init__(message)
+        self.stdout = stdout or None
