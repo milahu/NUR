@@ -11,6 +11,7 @@ from typing import Dict, List, Optional
 from .fileutils import chdir, write_json_file
 from .manifest import Repo, load_manifest, update_lock_file
 from .path import LOCK_PATH, MANIFEST_PATH, ROOT
+from .process import prctl_set_pdeathsig
 
 logger = logging.getLogger(__name__)
 
@@ -32,7 +33,10 @@ def repo_source(name: str) -> str:
 
 
 def repo_changed() -> bool:
-    diff_cmd = subprocess.Popen(["git", "diff", "--staged", "--exit-code"])
+    diff_cmd = subprocess.Popen(
+        ["git", "diff", "--staged", "--exit-code"],
+        preexec_fn=lambda: prctl_set_pdeathsig(),
+    )
     return diff_cmd.wait() == 1
 
 

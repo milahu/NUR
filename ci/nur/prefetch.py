@@ -12,6 +12,7 @@ import pickle
 from .error import NurError, RepoNotFoundError
 from .manifest import LockedVersion, Repo, RepoType
 from .path import PREFETCH_CACHE_PATH
+from .process import prctl_set_pdeathsig
 
 Url = ParseResult
 
@@ -42,6 +43,7 @@ class GitPrefetcher:
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             encoding="utf8",
+            preexec_fn=lambda: prctl_set_pdeathsig(),
         )
         try:
             stdout, stderr = proc.communicate(timeout=30)
@@ -70,7 +72,12 @@ class GitPrefetcher:
         if self.repo.branch:
             cmd += ["--rev", f"refs/heads/{self.repo.branch}"]
         cmd += [self.repo.url.geturl()]
-        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        proc = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            preexec_fn=lambda: prctl_set_pdeathsig(),
+        )
         try:
             stdout, stderr = proc.communicate(timeout=30)
         except subprocess.TimeoutExpired:

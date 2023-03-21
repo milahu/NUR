@@ -12,6 +12,7 @@ from .error import EvalError, RepoNotFoundError
 from .manifest import Repo, load_manifest, update_lock_file, update_eval_errors, update_eval_errors_lock_file
 from .path import ROOT, EVALREPO_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH, LOCK_PATH, MANIFEST_PATH, nixpkgs_path
 from .prefetch import prefetch
+from .process import prctl_set_pdeathsig
 
 logger = logging.getLogger(__name__)
 
@@ -62,6 +63,7 @@ def eval_repo(repo: Repo, repo_path: Path) -> None:
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT, # combine stderr and stdout
             encoding="utf8",
+            preexec_fn=lambda: prctl_set_pdeathsig(),
         )
         try:
             (stdout, _stderr) = proc.communicate(timeout=15)
