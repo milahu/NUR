@@ -1,19 +1,31 @@
+# timings:
+# 1m serial
+# 2m20 multiproc N=2
+# 5m50 multiproc N=1
+
 import logging
 import os
 import subprocess
+import multiprocessing
 import tempfile
 from argparse import Namespace
 from pathlib import Path
 import shutil
 import secrets
 import time
+import pickle
+import copy
 
 from .error import EvalError, RepoNotFoundError
 from .manifest import Repo, load_manifest, update_lock_file, update_eval_errors, update_eval_errors_lock_file
-from .path import ROOT, EVALREPO_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH, LOCK_PATH, MANIFEST_PATH, nixpkgs_path
+from .path import ROOT, EVALREPO_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH, LOCK_PATH, MANIFEST_PATH, PREFETCH_CACHE_PATH, nixpkgs_path
 from .prefetch import prefetch
 from .process import prctl_set_pdeathsig
 
+logging.basicConfig(
+    format="%(asctime)s %(filename)s:%(lineno)d %(levelname)s: %(message)s",
+    level=logging.INFO,
+)
 logger = logging.getLogger(__name__)
 
 
@@ -78,18 +90,13 @@ def eval_repo(repo: Repo, repo_path: Path) -> None:
             raise EvalError(f"Repository {repo.name} does not evaluate:\n$ {' '.join(cmd)}", stdout)
 
 
-def update(repo: Repo) -> Repo:
-    t1 = time.time()
-    _cached_repo, new_version, repo_path = prefetch(repo)
+def update2(repo: Repo, prefetch_result) -> Repo:
+    _cached_repo, new_version, repo_path = prefetch_result
+
     # workaround for cached prefetch. cache key is only repo.name
     if new_version == repo.locked_version:
         repo_path = None
-    t2 = time.time()
-    dt = t2 - t1
-    if dt > 0.05:
-        # read cache: 0.002
-        # fetch: 1.0
-        logger.info(f"Repository {repo.name}: prefetch: dt = {dt}")
+
     repo.new_version = new_version
 
     if repo.eval_error_version == new_version:
@@ -109,20 +116,98 @@ def update(repo: Repo) -> Repo:
     return repo
 
 
+def prefetch_worker(args):
+    repo, prefetch_cache = args
+    result, error = None, None
+    t1 = time.time()
+    if repo.name in prefetch_cache:
+        entry = prefetch_cache[repo.name]
+        expire = 60 * 60 # 60 minutes
+        time_expired = time.time() - expire
+        if entry.get("time") > time_expired:
+            # not expired -> cache hit
+            result = entry.get("result")
+            error = entry.get("error")
+    if result == None and error == None:
+        # cache miss
+        try:
+            # TODO capture output of subprocess
+            result = prefetch(repo)
+        except Exception as err:
+            error = err
+    t2 = time.time()
+    dt = t2 - t1
+    #if dt > 0.05:
+    #    # read cache: 0.002
+    #    # fetch: 1.0
+    #logger.info(f"Repository {repo.name}: Prefetch done after {dt:.2f} seconds")
+    return repo, result, error
+
+
 def update_command(args: Namespace) -> None:
     logging.basicConfig(level=logging.INFO)
 
     manifest = load_manifest(MANIFEST_PATH, LOCK_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH)
 
+    prefetch_cache_file = PREFETCH_CACHE_PATH
+
+    # readonly cache: we read every key only once per run
+    readonly_prefetch_cache = {}
+    try:
+        logger.info(f"reading cache file {prefetch_cache_file} ...")
+        with open(prefetch_cache_file, "rb") as f:
+            readonly_prefetch_cache = pickle.load(f)
+            logger.info(f"readonly cache keys: {readonly_prefetch_cache.keys()}")
+            expire = 60 * 60 # 60 minutes
+            time_expired = time.time() - expire
+            # fix: RuntimeError: dictionary changed size during iteration
+            #for key in cache:
+            for key in list(readonly_prefetch_cache.keys()):
+                entry = readonly_prefetch_cache[key]
+                if entry.get("time") < time_expired:
+                    del readonly_prefetch_cache[key]
+            logger.info(f"reading cache file {prefetch_cache_file} done")
+    except (IOError, ValueError) as err:
+        # no such file, etc
+        logger.info(f"reading cache file {prefetch_cache_file} failed: {err}")
+        pass
+
+    # writable cache
+    prefetch_cache = copy.deepcopy(readonly_prefetch_cache)
+    logger.info(f"cache keys: {prefetch_cache.keys()}")
+
+    prefetch_repos = manifest.repos
     debug_nur_repo = os.getenv("DEBUG_NUR_REPO")
+    if debug_nur_repo:
+        prefetch_repos = list(filter(lambda repo: repo.name == debug_nur_repo, prefetch_repos))
 
-    logger.info(f"Looping repos")
+    # keep 1 cpu for nix-env, 1 cpu for system
+    #prefetch_pool_size = max(1, os.cpu_count() - 2)
+    prefetch_pool_size = 1
+    logger.info(f"Starting prefetch with {prefetch_pool_size} workers")
+    prefetch_pool = multiprocessing.Pool(processes=prefetch_pool_size)
 
-    for repo in manifest.repos:
-        if debug_nur_repo and repo.name != debug_nur_repo:
+    prefetch_args = zip(prefetch_repos, [readonly_prefetch_cache for _ in prefetch_repos])
+
+    for repo, prefetch_result, prefetch_error in prefetch_pool.imap_unordered(prefetch_worker, prefetch_args):
+        if repo.name not in prefetch_cache:
+            # write cache
+            logger.info(f"Repository {repo.name}: Writing prefetch cache")
+            prefetch_cache[repo.name] = {
+                "time": time.time(),
+                "value": prefetch_result,
+                "error": prefetch_error,
+            }
+            #logger.info(f"cache keys: {prefetch_cache.keys()}")
+            with open(prefetch_cache_file, "wb") as f:
+                pickle.dump(prefetch_cache, f)
+
+        if prefetch_error:
+            # TODO cache prefetch errors?
+            logger.exception(f"Repository {repo.name}: Prefetch failed: {prefetch_error}")
             continue
         try:
-            update(repo)
+            update2(repo, prefetch_result)
             repo.eval_error_version = None
             repo.eval_error_text = None
         except EvalError as err:
@@ -136,9 +221,10 @@ def update_command(args: Namespace) -> None:
             logger.error(f"repository {repo.name} failed to evaluate: {err}")
             repo.eval_error_version = repo.new_version
             repo.eval_error_text = err.stdout
-        except RepoNotFoundError as err:
-            # Do not print stack traces
-            logger.error(f"repository {repo.name} failed to prefetch: {err}")
+        # this is a prefetch error
+        #except RepoNotFoundError as err:
+        #    # Do not print stack traces
+        #    logger.error(f"repository {repo.name} failed to prefetch: {err}")
         except Exception:
             # for non-evaluation errors we want the stack trace
             logger.exception(f"Failed to update repository {repo.name}")

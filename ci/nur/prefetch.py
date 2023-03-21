@@ -16,6 +16,10 @@ from .process import prctl_set_pdeathsig
 
 Url = ParseResult
 
+logging.basicConfig(
+    format="%(asctime)s %(filename)s:%(lineno)d %(levelname)s: %(message)s",
+    level=logging.INFO,
+)
 logger = logging.getLogger(__name__)
 
 
@@ -172,7 +176,9 @@ def persist_to_file(cache_file, get_key, expire=60*60):
     return decorator
 
 
-@persist_to_file(PREFETCH_CACHE_PATH, lambda repo: repo.name)
+
+#@persist_to_file(PREFETCH_CACHE_PATH, lambda repo: repo.name)
+
 def prefetch(repo: Repo) -> Tuple[Repo, LockedVersion, Optional[Path]]:
     prefetcher: GitPrefetcher
     if repo.type == RepoType.GITHUB:
