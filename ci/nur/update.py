@@ -103,7 +103,7 @@ def update(repo: Repo) -> Repo:
     eval_repo(repo, repo_path)
 
     if repo.locked_version != new_version:
-        logger.info(f"Repository {repo.name}: Done eval. Updated locked_version from {repo.locked_version} to {new_version}")
+        logger.info(f"Repository {repo.name}: Done eval. Updated locked_version to {new_version}")
         repo.locked_version = new_version
 
     return repo
