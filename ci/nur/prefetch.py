@@ -102,11 +102,15 @@ class GitPrefetcher:
 
 class GithubPrefetcher(GitPrefetcher):
     def prefetch(self, ref: str) -> Tuple[str, Path]:
+        if self.repo.submodules:
+            return super().prefetch(self, ref)
         return nix_prefetch_zip(f"{self.repo.url.geturl()}/archive/{ref}.tar.gz")
 
 
 class GitlabPrefetcher(GitPrefetcher):
     def prefetch(self, ref: str) -> Tuple[str, Path]:
+        if self.repo.submodules:
+            return super().prefetch(self, ref)
         hostname = self.repo.url.hostname
         assert (
             hostname is not None
