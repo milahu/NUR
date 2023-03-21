@@ -66,6 +66,7 @@ def eval_repo(repo: Repo, repo_path: Path) -> None:
         try:
             (stdout, _stderr) = proc.communicate(timeout=15)
         except subprocess.TimeoutExpired:
+            proc.kill()
             raise EvalError(f"evaluation for {repo.name} timed out of after 15 seconds")
         if proc.returncode != 0:
             # normalize tempdir path
