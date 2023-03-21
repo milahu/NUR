@@ -60,22 +60,22 @@ def eval_repo(repo: Repo, repo_path: Path) -> None:
         proc = subprocess.Popen(
             cmd,
             env=env,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT, # combine stderr and stdout
+            stdout=subprocess.DEVNULL, # ignore stdout <items>...</items>
+            stderr=subprocess.PIPE, # combine stderr and stdout
             encoding="utf8",
             preexec_fn=lambda: prctl_set_pdeathsig(),
         )
         try:
-            (stdout, _stderr) = proc.communicate(timeout=15)
+            (_stdout, stderr) = proc.communicate(timeout=15)
         except subprocess.TimeoutExpired:
             proc.kill()
             raise EvalError(f"evaluation for {repo.name} timed out of after 15 seconds")
         if proc.returncode != 0:
             # normalize tempdir path
-            stdout = stdout.replace(str(d), "/tmp/nur-update")
+            stderr = stderr.replace(str(d), "/tmp/nur-update")
             # print only new errors. old errors are stored in EVAL_ERRORS_PATH
-            print(stdout)
-            raise EvalError(f"Repository {repo.name} does not evaluate:\n$ {' '.join(cmd)}", stdout)
+            print(stderr)
+            raise EvalError(f"Repository {repo.name} does not evaluate:\n$ {' '.join(cmd)}", stderr)
 
 
 def update(repo: Repo) -> Repo:
