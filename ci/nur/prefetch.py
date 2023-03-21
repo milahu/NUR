@@ -1,3 +1,4 @@
+import logging
 import json
 import os
 import re
@@ -5,11 +6,16 @@ import subprocess
 from pathlib import Path
 from typing import Optional, Tuple
 from urllib.parse import ParseResult
+import time
+import pickle
 
-from .error import NurError
+from .error import NurError, RepoNotFoundError
 from .manifest import LockedVersion, Repo, RepoType
+from .path import PREFETCH_CACHE_PATH
 
 Url = ParseResult
+
+logger = logging.getLogger(__name__)
 
 
 def nix_prefetch_zip(url: str) -> Tuple[str, Path]:
@@ -45,6 +51,8 @@ class GitPrefetcher:
                 f"Timeout expired while prefetching git repository {self.repo.url.geturl()}"
             )
         if proc.returncode != 0:
+            if proc.returncode == 128 and stderr.startswith("remote: Repository not found."):
+                raise RepoNotFoundError(f"Not found git repository {self.repo.url.geturl()}")
             raise NurError(
                 f"Failed to prefetch git repository {self.repo.url.geturl()}: {stderr}"
             )
@@ -102,6 +110,62 @@ class GitlabPrefetcher(GitPrefetcher):
         return nix_prefetch_zip(url)
 
 
+# default expire: 60 minutes
+def persist_to_file(cache_file, get_key, expire=60*60):
+    cache = {}
+    try:
+        logger.debug(f"persist_to_file: reading cache file {cache_file} ...")
+        with open(cache_file, "rb") as f:
+            cache = pickle.load(f)
+            logger.debug(f"persist_to_file: cache keys: {cache.keys()}")
+            time_expired = time.time() - expire
+            # fix: RuntimeError: dictionary changed size during iteration
+            #for key in cache:
+            for key in list(cache.keys()):
+                entry = cache[key]
+                if entry.get("time") < time_expired:
+                    del cache[key]
+            logger.debug(f"persist_to_file: reading cache file {cache_file} done")
+    except (IOError, ValueError) as err:
+        # no such file, etc
+        logger.debug(f"persist_to_file: reading cache file {cache_file} failed: {err}")
+        pass
+    def decorator(original_func):
+        def new_func(param):
+            key = get_key(param)
+            time_expired = time.time() - expire
+            if key in cache and cache[key].get("time") < time_expired:
+                # expire cache entry
+                logger.debug(f"persist_to_file: cache expired for key: {key}")
+                del cache[key]
+            if key not in cache:
+                # write cache
+                #logger.debug(f"persist_to_file: cache miss for key: {key}")
+                value = None
+                error = None
+                try:
+                    value = original_func(param)
+                except Exception as e:
+                    error = e
+                cache[key] = {
+                    "time": time.time(),
+                    "value": value,
+                    "error": error,
+                }
+                #logger.debug(f"persist_to_file: writing cache file {cache_file}")
+                with open(cache_file, "wb") as f:
+                    pickle.dump(cache, f)
+            #else: logger.debug(f"persist_to_file: cache hit for key: {key}")
+            # read cache
+            error = cache[key].get("error")
+            if error:
+                raise error
+            return cache[key].get("value")
+        return new_func
+    return decorator
+
+
+@persist_to_file(PREFETCH_CACHE_PATH, lambda repo: repo.name)
 def prefetch(repo: Repo) -> Tuple[Repo, LockedVersion, Optional[Path]]:
     prefetcher: GitPrefetcher
     if repo.type == RepoType.GITHUB:

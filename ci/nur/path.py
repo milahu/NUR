@@ -35,6 +35,7 @@ MANIFEST_PATH = ROOT.joinpath("repos.json")
 EVALREPO_PATH = ROOT.joinpath("lib/evalRepo.nix")
 EVAL_ERRORS_PATH = ROOT.joinpath("eval-errors")
 EVAL_ERRORS_LOCK_PATH = ROOT.joinpath("eval-errors/repos.json.lock")
+PREFETCH_CACHE_PATH = ROOT.joinpath("prefetch-cache.pickle")
 
 _NIXPKGS_PATH = None
 

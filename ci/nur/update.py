@@ -6,8 +6,9 @@ from argparse import Namespace
 from pathlib import Path
 import shutil
 import secrets
+import time
 
-from .error import EvalError
+from .error import EvalError, RepoNotFoundError
 from .manifest import Repo, load_manifest, update_lock_file, update_eval_errors, update_eval_errors_lock_file
 from .path import ROOT, EVALREPO_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH, LOCK_PATH, MANIFEST_PATH, nixpkgs_path
 from .prefetch import prefetch
@@ -75,7 +76,17 @@ def eval_repo(repo: Repo, repo_path: Path) -> None:
 
 
 def update(repo: Repo) -> Repo:
-    repo, new_version, repo_path = prefetch(repo)
+    t1 = time.time()
+    _cached_repo, new_version, repo_path = prefetch(repo)
+    # workaround for cached prefetch. cache key is only repo.name
+    if new_version == repo.locked_version:
+        repo_path = None
+    t2 = time.time()
+    dt = t2 - t1
+    if dt > 0.05:
+        # read cache: 0.002
+        # fetch: 1.0
+        logger.info(f"Repository {repo.name}: prefetch: dt = {dt}")
     repo.new_version = new_version
 
     if repo.eval_error_version == new_version:
@@ -102,6 +113,8 @@ def update_command(args: Namespace) -> None:
 
     debug_nur_repo = os.getenv("DEBUG_NUR_REPO")
 
+    logger.info(f"Looping repos")
+
     for repo in manifest.repos:
         if debug_nur_repo and repo.name != debug_nur_repo:
             continue
@@ -120,6 +133,9 @@ def update_command(args: Namespace) -> None:
             logger.error(f"repository {repo.name} failed to evaluate: {err}")
             repo.eval_error_version = repo.new_version
             repo.eval_error_text = err.stdout
+        except RepoNotFoundError as err:
+            # Do not print stack traces
+            logger.error(f"repository {repo.name} failed to prefetch: {err}")
         except Exception:
             # for non-evaluation errors we want the stack trace
             logger.exception(f"Failed to update repository {repo.name}")
