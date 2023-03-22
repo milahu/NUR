@@ -7,6 +7,7 @@ from pathlib import Path
 import shutil
 import secrets
 import time
+import cProfile, pstats, io
 
 from .error import EvalError, RepoNotFoundError
 from .manifest import Repo, load_manifest, update_lock_file, update_eval_errors, update_eval_errors_lock_file
@@ -109,7 +110,7 @@ def update(repo: Repo) -> Repo:
     return repo
 
 
-def update_command(args: Namespace) -> None:
+def update_command_inner(args: Namespace) -> None:
     logging.basicConfig(level=logging.INFO)
 
     manifest = load_manifest(MANIFEST_PATH, LOCK_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH)
@@ -147,3 +148,19 @@ def update_command(args: Namespace) -> None:
         update_lock_file(manifest.repos, LOCK_PATH)
         update_eval_errors_lock_file(manifest.repos, EVAL_ERRORS_LOCK_PATH)
         update_eval_errors(manifest.repos, EVAL_ERRORS_PATH)
+
+
+def update_command(args: Namespace) -> None:
+    do_profile = True
+
+    if not do_profile:
+        return update_command_inner(args)
+
+    pr = cProfile.Profile()
+    pr.enable()
+    update_command_inner(args)
+    pr.disable()
+    s = io.StringIO()
+    ps = pstats.Stats(pr, stream=s).sort_stats(pstats.SortKey.CUMULATIVE)
+    ps.print_stats()
+    print(s.getvalue())
