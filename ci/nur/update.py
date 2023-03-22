@@ -71,7 +71,9 @@ def eval_repo(repo: Repo, repo_path: Path) -> None:
             (_stdout, stderr) = proc.communicate(timeout=15)
         except subprocess.TimeoutExpired:
             proc.kill()
-            raise EvalError(f"evaluation for {repo.name} timed out of after 15 seconds")
+            # pass second argument to EvalError, to cache the error in eval-errors/
+            msg = f"evaluation timed out of after 15 seconds"
+            raise EvalError(msg, f"nur.update: {msg}")
         if proc.returncode != 0:
             # normalize tempdir path
             stderr = stderr.replace(str(d), "/tmp/nur-update")
