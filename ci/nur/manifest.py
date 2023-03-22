@@ -4,11 +4,16 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Dict, List, Optional, Any
 from urllib.parse import ParseResult, urlparse
+import logging
 
 from .fileutils import PathType, to_path, write_json_file
 from .error import EvalError
+from .path import ROOT
 
 Url = ParseResult
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 class LockedVersion:
@@ -80,6 +85,10 @@ class Repo:
         self.new_version = None
         self.eval_error_version = None
         self.eval_error_text = None
+        self.fetch_time = 0
+        self.eval_time = 0
+        self.error = None
+        self.done = False
 
         if (
             locked_version is not None

@@ -12,9 +12,10 @@ import cProfile, pstats, io
 from .error import EvalError, RepoNotFoundError
 from .manifest import Repo, load_manifest, update_lock_file, update_eval_errors, update_eval_errors_lock_file
 from .path import ROOT, EVALREPO_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH, LOCK_PATH, MANIFEST_PATH, nixpkgs_path
-from .prefetch import prefetch
+from .prefetch import prefetch, update_version_github_repos
 from .process import prctl_set_pdeathsig
 
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
@@ -83,44 +84,61 @@ def eval_repo(repo: Repo, repo_path: Path) -> None:
 
 
 def update(repo: Repo) -> Repo:
-    t1 = time.time()
     _cached_repo, new_version, repo_path = prefetch(repo)
+
     # workaround for cached prefetch. cache key is only repo.name
-    if new_version == repo.locked_version:
+    if new_version == repo.locked_version: # TODO compare new_version.rev etc
         repo_path = None
-    t2 = time.time()
-    dt = t2 - t1
-    if dt > 0.05:
-        # read cache: 0.002
-        # fetch: 1.0
-        logger.info(f"Repository {repo.name}: prefetch: dt = {dt}")
+
     repo.new_version = new_version
 
     if repo.eval_error_version == new_version:
         eval_error_path = os.path.relpath(EVAL_ERRORS_PATH.joinpath(f"{repo.name}.txt"), ROOT)
-        raise EvalError(f"Repository {repo.name} did not evaluate in a previous run with version {repo.eval_error_version}. See error message in {eval_error_path}", repo.eval_error_text)
+        #raise EvalError(f"Repository {repo.name} did not evaluate in a previous run with version {repo.eval_error_version}. See error message in {eval_error_path}", repo.eval_error_text)
+        #raise EvalError(f"Eval failed before at {repo.eval_error_version}. See {eval_error_path}", repo.eval_error_text)
+        raise EvalError(f"Eval failed before, see {eval_error_path}", repo.eval_error_text)
 
     if not repo_path:
-        logger.info(f"Repository {repo.name}: Skipped eval. No change in locked_version {repo.locked_version}")
+        logger.debug(f"Repository {repo.name}: Skipped eval. No change in version {repo.locked_version}")
         return repo
 
-    eval_repo(repo, repo_path)
+    t1 = time.time()
+    try:
+        eval_repo(repo, repo_path)
+    except Exception:
+        t2 = time.time()
+        repo.eval_time = t2 - t1
+        raise
+    t2 = time.time()
+    repo.eval_time = t2 - t1
 
     if repo.locked_version != new_version:
-        logger.info(f"Repository {repo.name}: Done eval. Updated locked_version to {new_version}")
+        logger.info(f"Repository {repo.name}: Done eval. Updated version to {new_version}")
         repo.locked_version = new_version
 
     return repo
 
 
 def update_command_inner(args: Namespace) -> None:
-    logging.basicConfig(level=logging.INFO)
+
+    t1_update = time.time()
 
     manifest = load_manifest(MANIFEST_PATH, LOCK_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH)
 
     debug_nur_repo = os.getenv("DEBUG_NUR_REPO")
 
-    logger.info(f"Looping repos")
+    total_eval_time = 0
+    total_fetch_time = 0
+
+    logger.info(f"Updating {len(manifest.repos)} repos")
+
+    # currently, 225 of 246 repos are github repos = 90%
+    # TODO fetch other repos in parallel. asyncio?
+    t1 = time.time()
+    update_version_github_repos(manifest.repos)
+    t2 = time.time()
+    dt = t2 - t1
+    total_fetch_time += dt
 
     for repo in manifest.repos:
         if debug_nur_repo and repo.name != debug_nur_repo:
@@ -147,15 +165,26 @@ def update_command_inner(args: Namespace) -> None:
             # for non-evaluation errors we want the stack trace
             logger.exception(f"Failed to update repository {repo.name}")
 
-        # TODO update only the current repo
-        # TODO write less often
-        update_lock_file(manifest.repos, LOCK_PATH)
-        update_eval_errors_lock_file(manifest.repos, EVAL_ERRORS_LOCK_PATH)
-        update_eval_errors(manifest.repos, EVAL_ERRORS_PATH)
+        total_eval_time += repo.eval_time
+        total_fetch_time += repo.fetch_time
+
+    # write after every repo: 150s
+    # write once: 100s
+    # TODO write on KeyboardInterrupt so we can stop and resume
+    update_lock_file(manifest.repos, LOCK_PATH)
+    update_eval_errors_lock_file(manifest.repos, EVAL_ERRORS_LOCK_PATH)
+    update_eval_errors(manifest.repos, EVAL_ERRORS_PATH)
+
+    t2_update = time.time()
+    dt_update = t2_update - t1_update
+    logger.info(f"Total fetch time: {total_fetch_time:.2f} seconds")
+    logger.info(f"Total eval time: {total_eval_time:.2f} seconds")
+    logger.info(f"Total time: {dt_update:.2f} seconds")
 
 
 def update_command(args: Namespace) -> None:
     do_profile = False
+    #do_profile = True
 
     if not do_profile:
         return update_command_inner(args)
