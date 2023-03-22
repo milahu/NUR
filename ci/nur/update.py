@@ -19,6 +19,7 @@ logger = logging.getLogger(__name__)
 
 
 def eval_repo(repo: Repo, repo_path: Path) -> None:
+    # TODO use nix.py bindings for eval https://github.com/NixOS/nix/pull/7735
     temp_suffix = secrets.token_hex(nbytes=16)
     with tempfile.TemporaryDirectory(temp_suffix) as d:
         eval_path = Path(d).joinpath("default.nix")
@@ -145,6 +146,7 @@ def update_command_inner(args: Namespace) -> None:
             logger.exception(f"Failed to update repository {repo.name}")
 
         # TODO update only the current repo
+        # TODO write less often
         update_lock_file(manifest.repos, LOCK_PATH)
         update_eval_errors_lock_file(manifest.repos, EVAL_ERRORS_LOCK_PATH)
         update_eval_errors(manifest.repos, EVAL_ERRORS_PATH)
