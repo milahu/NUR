@@ -191,15 +191,17 @@ def update_eval_errors_lock_file(repos: List[Repo], path: Path) -> None:
 
 def update_eval_errors(repos: List[Repo], path: Path) -> None:
     for repo in repos:
-        error_message_path = path.joinpath(f"{repo.name}.txt")
+        eval_error_path = path.joinpath(f"{repo.name}.txt")
+        eval_error_relpath = os.path.relpath(eval_error_path, ROOT)
+
         if repo.eval_error_text:
-            #print("manifest update_eval_errors: writing error message:", error_message_path)
-            with open(error_message_path, "w", encoding="utf8") as f:
+            logger.debug(f"Writing error message: {eval_error_relpath}")
+            with open(eval_error_path, "w", encoding="utf8") as f:
                 f.write(repo.eval_error_text)
         else:
-            if error_message_path.exists():
-                #print("manifest update_eval_errors: deleting old error message:", error_message_path)
-                os.unlink(error_message_path)
+            if eval_error_path.exists():
+                logger.info(f"Deleting old error message: {eval_error_relpath}")
+                os.unlink(eval_error_path)
                 # TODO git clean
 
 
