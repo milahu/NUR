@@ -153,7 +153,7 @@ def update_command_inner(args: Namespace) -> None:
 
 
 def update_command(args: Namespace) -> None:
-    do_profile = True
+    do_profile = False
 
     if not do_profile:
         return update_command_inner(args)
