@@ -69,12 +69,6 @@ def commit_repo(repo: Repo, message: str, path: Path) -> Repo:
     return repo
 
 
-def repo_link(path: Path) -> str:
-    commit = subprocess.check_output(["git", "-C", path, "rev-parse", "HEAD"])
-    rev = commit.decode("utf-8").strip()[:10]
-    return f"https://github.com/nix-community/nur-combined/commit/{rev}"
-
-
 def update_combined_repo(
     combined_repo: Optional[Repo], repo: Repo, path: Path
 ) -> Optional[Repo]:
@@ -83,7 +77,7 @@ def update_combined_repo(
 
     new_rev = repo.locked_version.rev
     if combined_repo is None:
-        message = f"{repo.name}: init at {new_rev[:10]} ({repo_link(path)})"
+        message = f"{repo.name}: init at {new_rev}"
         repo = commit_repo(repo, message, path)
         return repo
 
