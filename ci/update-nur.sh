@@ -13,9 +13,27 @@ nix run "${DIR}#" -- update
 
 cd ${DIR}/..
 
+# API_TOKEN_GITHUB needs write access to both repos
+# TODO modify only the result repo
+
+this_repo_url=$THIS_REPO_URL
+if [ -z "$this_repo_url" ]; then
+  this_repo_url=github.com/$GITHUB_REPOSITORY
+  echo "using default this_repo_url: $this_repo_url"
+  this_repo_url=https://$API_TOKEN_GITHUB@$this_repo_url
+fi
+
+result_repo_url=$RESULT_REPO_URL
+if [ -z "$result_repo_url" ]; then
+  result_repo_url=github.com/$GITHUB_REPOSITORY_OWNER/nur-combined
+  echo "using default result_repo_url: $result_repo_url"
+  result_repo_url=https://$API_TOKEN_GITHUB@$result_repo_url
+fi
+
 git clone \
   --single-branch \
-  "https://$API_TOKEN_GITHUB@github.com/nix-community/nur-combined.git"
+  $result_repo_url \
+  nur-combined
 
 nix run "${DIR}#" -- combine nur-combined
 
@@ -27,7 +45,7 @@ else
   git commit -m "automatic update"
   # in case we are getting overtaken by a different job
   git pull --rebase origin master
-  git push "https://$API_TOKEN_GITHUB@github.com/nix-community/NUR" HEAD:master
+  git push $this_repo_url HEAD:master
 fi
 
 git -C nur-combined pull --rebase origin master
