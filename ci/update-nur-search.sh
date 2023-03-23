@@ -54,7 +54,7 @@ git clone \
   nur-search \
 || git -C nur-search pull
 
-git -C nur-search fetch --depth=1 gh-pages:gh-pages
+git -C nur-search fetch origin gh-pages:gh-pages --depth=1
 
 nix run --quiet "${DIR}#" -- index nur-combined > nur-search/data/packages.json
 
