@@ -40,7 +40,7 @@ git clone \
 nix run --quiet "${DIR}#" -- combine nur-combined
 
 set +x # hide output of "git diff"
-if [[ -z "$(git diff --exit-code)" ]]; then
+if [[ -z "$(git status --porcelain)" ]]; then
   echo "No changes to the output on this push; exiting."
 else
   set -x
