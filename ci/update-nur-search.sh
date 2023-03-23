@@ -20,7 +20,7 @@ git clone --single-branch "https://${API_TOKEN_GITHUB:-git}@github.com/nix-commu
 
 git clone --recurse-submodules "https://${API_TOKEN_GITHUB:-git}@github.com/nix-community/nur-search.git" || git -C nur-search pull
 
-nix run "${DIR}#" -- index nur-combined > nur-search/data/packages.json
+nix run --quiet "${DIR}#" -- index nur-combined > nur-search/data/packages.json
 
 # rebuild and publish nur-search repository
 # -----------------------------------------

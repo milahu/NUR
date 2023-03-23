@@ -14,7 +14,7 @@ black --check .
 flake8 .
 
 cd "${DIR}/.."
-nix run "${DIR}#" -- format-manifest
+nix run --quiet "${DIR}#" -- format-manifest
 if [ -n "$(git diff --exit-code repos.json)" ]; then
     echo "repos.json was not formatted before committing repos.json:" >&2
     git diff --exit-code repos.json
@@ -22,5 +22,5 @@ if [ -n "$(git diff --exit-code repos.json)" ]; then
     exit 1
 fi
 
-nix run "${DIR}#" -- update
+nix run --quiet "${DIR}#" -- update
 nix-build

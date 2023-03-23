@@ -9,7 +9,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 source ${DIR}/lib/setup-git.sh
 set -x
 
-nix run "${DIR}#" -- update
+nix run --quiet "${DIR}#" -- update
 
 cd ${DIR}/..
 
@@ -37,7 +37,7 @@ git clone \
   $result_repo_url \
   nur-combined
 
-nix run "${DIR}#" -- combine nur-combined
+nix run --quiet "${DIR}#" -- combine nur-combined
 
 if [[ -z "$(git diff --exit-code)" ]]; then
   echo "No changes to the output on this push; exiting."
