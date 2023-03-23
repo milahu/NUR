@@ -18,7 +18,11 @@ logger = logging.getLogger(__name__)
 
 def load_combined_repos(path: Path) -> Dict[str, Repo]:
     combined_manifest = load_manifest(
-        path.joinpath("repos.json"), path.joinpath("repos.json.lock")
+        # TODO use paths from path.py with a different ROOT path
+        path.joinpath("repos.json"),
+        path.joinpath("repos.json.lock"),
+        path.joinpath("eval-errors/repos.json.lock"),
+        path.joinpath("eval-errors"),
     )
     repos = {}
     for repo in combined_manifest.repos:
