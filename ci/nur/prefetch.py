@@ -238,9 +238,11 @@ def prefetch(repo: Repo) -> Tuple[Repo, LockedVersion, Optional[Path]]:
 
 def update_version_github_repos(repos):
     # timing: 8 seconds for 224 repos = 0.035 sec/repo. 30x faster than 1.0 sec/repo
-    github_api_token = os.getenv("API_TOKEN_GITHUB")
+    # note: this must be a "classic" token for general use
+    # https://github.com/settings/tokens
+    github_api_token = os.getenv("GRAPHQL_TOKEN_GITHUB")
     if not github_api_token:
-        logger.info("missing env API_TOKEN_GITHUB for graphql, using slow update")
+        logger.info("missing env GRAPHQL_TOKEN_GITHUB, using slow update")
         return
     def filter_fn(repo):
         return (
