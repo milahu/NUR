@@ -54,4 +54,4 @@ fi
 set -x
 
 git -C nur-combined pull --rebase origin master
-git -C nur-combined push origin HEAD:master
+git -C nur-combined push $result_repo_url HEAD:master
