@@ -23,6 +23,7 @@ jobs:
       run: ./ci/update-nur.sh
       env:
         API_TOKEN_GITHUB: '${{ secrets.API_TOKEN_GITHUB }}'
+        GRAPHQL_TOKEN_GITHUB: '${{ secrets.GRAPHQL_TOKEN_GITHUB }}'
   update_search:
     runs-on: ubuntu-latest
     needs: update_nur
