@@ -30,15 +30,9 @@ def load_combined_repos(path: Path) -> Dict[str, Repo]:
     return repos
 
 
-def repo_source(name: str) -> str:
-    cmd = ["nix-build", str(ROOT), "--no-out-link", "-A", f"repo-sources.{name}"]
-    out = subprocess.check_output(cmd)
-    return out.strip().decode("utf-8")
-
-
-def repo_changed() -> bool:
+def capture_check_call(args: List[str]):
     proc = subprocess.Popen(
-        ["git", "status", "--porcelain"],
+        args,
         preexec_fn=lambda: prctl_set_pdeathsig(),
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -50,16 +44,26 @@ def repo_changed() -> bool:
         proc.kill()
         raise
     if proc.returncode != 0:
-        raise Exception(f"git status returned exit code {proc.returncode}. stderr:\n{stderr}")
+        raise Exception(f"command {args[0]} returned exit code {proc.returncode}. stderr:\n{stderr}")
+    return proc, stdout, stderr
+
+
+def repo_source(name: str) -> str:
+    cmd = ["nix-build", str(ROOT), "--no-out-link", "-A", f"repo-sources.{name}"]
+    proc, stdout, stderr = capture_check_call(cmd)
+    return stdout.strip()
+
+
+def repo_changed() -> bool:
+    proc, stdout, stderr = capture_check_call(["git", "status", "--porcelain"])
     return stdout.strip() != ""
 
 
 def commit_files(files: List[str], message: str) -> None:
-    cmd = ["git", "add"]
-    cmd.extend(files)
-    subprocess.check_call(cmd)
+    capture_check_call(["git", "add"] + files)
+
     if repo_changed():
-        subprocess.check_call(["git", "commit", "-m", message])
+        capture_check_call(["git", "commit", "-m", message])
 
 
 def commit_repo(repo: Repo, message: str, path: Path) -> Repo:
@@ -166,7 +170,7 @@ def setup_combined() -> None:
 
     if not Path(".git").exists():
         cmd = ["git", "init", "."]
-        subprocess.check_call(cmd)
+        capture_check_call(cmd)
 
     if not os.path.exists(manifest_path):
         write_json_file(dict(repos={}), manifest_path)
