@@ -16,18 +16,24 @@ cd ${DIR}/..
 # API_TOKEN_GITHUB needs write access to both repos
 # TODO modify only the result repo
 
+api_user_github=$API_USER_GITHUB
+if [ -z "$api_user_github" ]; then
+  api_user_github=$GITHUB_REPOSITORY_OWNER
+  echo "using default api_user_github: $api_user_github"
+fi
+
 this_repo_url=$THIS_REPO_URL
 if [ -z "$this_repo_url" ]; then
   this_repo_url=github.com/$GITHUB_REPOSITORY
   echo "using default this_repo_url: $this_repo_url"
-  this_repo_url=https://$API_TOKEN_GITHUB@$this_repo_url
+  this_repo_url=https://$api_user_github:$API_TOKEN_GITHUB@$this_repo_url
 fi
 
 result_repo_url=$RESULT_REPO_URL
 if [ -z "$result_repo_url" ]; then
   result_repo_url=github.com/$GITHUB_REPOSITORY_OWNER/nur-combined
   echo "using default result_repo_url: $result_repo_url"
-  result_repo_url=https://$API_TOKEN_GITHUB@$result_repo_url
+  result_repo_url=https://$api_user_github:$API_TOKEN_GITHUB@$result_repo_url
 fi
 
 result_repo_depth=${RESULT_REPO_DEPTH:-1}

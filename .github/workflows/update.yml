@@ -24,6 +24,7 @@ jobs:
       env:
         # https://github.com/your_name/NUR/settings/secrets/actions
         API_TOKEN_GITHUB: '${{ secrets.API_TOKEN_GITHUB }}'
+        API_USER_GITHUB: '${{ secrets.API_USER_GITHUB }}'
         GRAPHQL_TOKEN_GITHUB: '${{ secrets.GRAPHQL_TOKEN_GITHUB }}'
   update_search:
     runs-on: ubuntu-latest
