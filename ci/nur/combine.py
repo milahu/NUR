@@ -182,8 +182,11 @@ def setup_combined() -> None:
 
 
 def combine_command(args: Namespace) -> None:
+    logger.info(f"combine_command")
     combined_path = Path(args.directory)
 
     with chdir(combined_path):
+        logger.info(f"setup_combined")
         setup_combined()
+    logger.info(f"update_combined")
     update_combined(combined_path)
