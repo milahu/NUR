@@ -13,6 +13,7 @@ from .manifest import Repo, load_manifest, update_lock_file
 from .path import LOCK_PATH, MANIFEST_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH, ROOT
 from .process import prctl_set_pdeathsig
 
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
@@ -146,6 +147,7 @@ def update_combined(path: Path) -> None:
             combined_repo = combined_repos[repo.name]
             del combined_repos[repo.name]
         try:
+            logger.info(f"update_combined_repo {repo.name}")
             new_repo = update_combined_repo(combined_repo, repo, repos_path)
         except Exception:
             logger.exception(f"Failed to updated repository {repo.name}")
