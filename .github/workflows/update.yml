@@ -22,6 +22,7 @@ jobs:
     - name: update nur / nur-combined
       run: ./ci/update-nur.sh
       env:
+        # https://github.com/your_name/NUR/settings/secrets/actions
         API_TOKEN_GITHUB: '${{ secrets.API_TOKEN_GITHUB }}'
         GRAPHQL_TOKEN_GITHUB: '${{ secrets.GRAPHQL_TOKEN_GITHUB }}'
   update_search:
