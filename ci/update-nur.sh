@@ -39,9 +39,11 @@ git clone \
 
 nix run --quiet "${DIR}#" -- combine nur-combined
 
+set +x # hide output of "git diff"
 if [[ -z "$(git diff --exit-code)" ]]; then
   echo "No changes to the output on this push; exiting."
 else
+  set -x
   git add --all repos.json*
   git add eval-errors/
   git commit -m "automatic update"
@@ -49,6 +51,7 @@ else
   git pull --rebase origin master
   git push $this_repo_url HEAD:master
 fi
+set -x
 
 git -C nur-combined pull --rebase origin master
 git -C nur-combined push origin HEAD:master
