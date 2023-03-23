@@ -288,7 +288,7 @@ def update_version_github_repos(repos):
         return
     #print("data:"); print(data)
 
-    for error in data["errors"]:
+    for error in data.get("errors", []):
         if len(error["path"]) != 1:
             logger.error(f'unexpected path length {len(error["path"])} in path {error["path"]}')
             continue
