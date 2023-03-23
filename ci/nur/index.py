@@ -8,9 +8,14 @@ from tempfile import NamedTemporaryFile
 from typing import Any, Dict
 
 
+repo_owner = os.getenv("GITHUB_REPOSITORY_OWNER") or "nix-community"
+combined_repo_name = os.getenv("COMBINED_REPO_NAME") or "nur-combined"
+nur_repo_name = os.getenv("NUR_REPO_NAME") or "NUR"
+
+
 def resolve_source(pkg: Dict, repo: str, url: str) -> str:
     # TODO commit hash
-    prefix = f"https://github.com/nix-community/nur-combined/tree/master/repos/{repo}"
+    prefix = f"https://github.com/{repo_owner}/{combined_repo_name}/tree/master/repos/{repo}"
     position = pkg["meta"].get("position", None)
     if position is not None and position.startswith("/nix/store"):
         path_str, line = position.rsplit(":", 1)
@@ -22,7 +27,7 @@ def resolve_source(pkg: Dict, repo: str, url: str) -> str:
         # TODO find commit hash
         prefixes = {
             "nixpkgs": "https://github.com/nixos/nixpkgs/tree/master/",
-            "nur": "https://github.com/nix-community/nur-combined/tree/master/",
+            "nur": f"https://github.com/{repo_owner}/{combined_repo_name}/tree/master/",
         }
         stripped = path.parts[4:]
         if path.parts[3].endswith("source"):
@@ -39,7 +44,7 @@ def resolve_source(pkg: Dict, repo: str, url: str) -> str:
         elif stripped[0] not in prefixes:
             print(path, file=sys.stderr)
             print(
-                f"we could not find {stripped} , you can file an issue at https://github.com/nix-community/NUR/issues to the indexing file if you think this is a mistake",
+                f"we could not find {stripped} , you can file an issue at https://github.com/{repo_owner}/{nur_repo_name}/issues to the indexing file if you think this is a mistake",
                 file=sys.stderr,
             )
             return prefix
@@ -47,9 +52,9 @@ def resolve_source(pkg: Dict, repo: str, url: str) -> str:
             attr_path = "/".join(stripped[1:])
             location = f"{prefixes[stripped[0]]}{attr_path}"
             return f"{location}#L{line}"
-    elif position is not None and "nur-combined" in position:
+    elif position is not None and combined_repo_name in position:
         path_str, line = position.rsplit(":", 1)
-        stripped = path_str.partition(f"nur-combined/repos/{repo}")[2]
+        stripped = path_str.partition(f"{combined_repo_name}/repos/{repo}")[2]
         return f"{prefix}{stripped}#L{line}"
     else:
         return prefix
