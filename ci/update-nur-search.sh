@@ -67,7 +67,7 @@ if [[ ! -z "$(git status --porcelain)" ]]; then
     git commit -m "automatic update package.json"
     git pull --rebase origin master
     git push origin master
-    nix-shell --run "make clean && make && make publish"
+    nix-shell --quiet --run "make clean && make && make publish"
 else
     set -x
     echo "nothings changed will not commit anything"
