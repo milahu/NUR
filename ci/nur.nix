@@ -1,8 +1,10 @@
-{ buildPythonApplication, lib, nix-prefetch-git, git, nix, glibcLocales }:
+{ buildPythonApplication, lib, nix-prefetch-git, git, nix, glibcLocales, requests }:
 
 buildPythonApplication {
   name = "nur";
   src = ./.;
+
+  propagatedBuildInputs = [ requests ];
 
   doCheck = false;
 
