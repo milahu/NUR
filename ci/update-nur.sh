@@ -30,7 +30,7 @@ if [ -z "$result_repo_url" ]; then
   result_repo_url=https://$API_TOKEN_GITHUB@$result_repo_url
 fi
 
-result_repo_depth=${RESULT_REPO_DEPTH:-10}
+result_repo_depth=${RESULT_REPO_DEPTH:-1}
 git clone \
   --depth=$result_repo_depth \
   --single-branch \
