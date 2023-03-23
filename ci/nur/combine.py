@@ -37,11 +37,21 @@ def repo_source(name: str) -> str:
 
 
 def repo_changed() -> bool:
-    diff_cmd = subprocess.Popen(
-        ["git", "diff", "--staged", "--exit-code"],
+    proc = subprocess.Popen(
+        ["git", "status", "--porcelain"],
         preexec_fn=lambda: prctl_set_pdeathsig(),
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        encoding="utf8",
     )
-    return diff_cmd.wait() == 1
+    try:
+        stdout, stderr = proc.communicate(timeout=30)
+    except subprocess.TimeoutExpired:
+        proc.kill()
+        raise
+    if proc.returncode != 0:
+        raise Exception(f"git status returned exit code {proc.returncode}. stderr:\n{stderr}")
+    return stdout.strip() != ""
 
 
 def commit_files(files: List[str], message: str) -> None:
