@@ -61,14 +61,16 @@ nix run --quiet "${DIR}#" -- index nur-combined > nur-search/data/packages.json
 # rebuild and publish nur-search repository
 # -----------------------------------------
 
+force_nur_search_update=${FORCE_NUR_SEARCH_UPDATE:-false}
 cd nur-search
 set +x # hide output of "git status"
-if [[ ! -z "$(git status --porcelain)" ]]; then
+if [[ ! -z "$(git status --porcelain)" ]] || $force_nur_search_update; then
     set -x
     git add ./data/packages.json
-    git commit -m "automatic update package.json"
+    git commit -m "automatic update package.json" || true
     git pull --rebase origin master
     git push origin master
+    echo generating html
     nix-shell --quiet --run "make clean && make && make publish"
 else
     set -x

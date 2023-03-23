@@ -40,3 +40,4 @@ jobs:
       run: ./ci/update-nur-search.sh
       env:
         API_TOKEN_GITHUB: '${{ secrets.API_TOKEN_GITHUB }}'
+        FORCE_NUR_SEARCH_UPDATE: '${{ vars.FORCE_NUR_SEARCH_UPDATE }}'
