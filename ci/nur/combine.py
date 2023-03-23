@@ -117,7 +117,7 @@ def update_manifest(repos: List[Repo], path: Path) -> None:
 
 
 def update_combined(path: Path) -> None:
-    manifest = load_manifest(MANIFEST_PATH, LOCK_PATH)
+    manifest = load_manifest(MANIFEST_PATH, LOCK_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH)
 
     combined_repos = load_combined_repos(path)
 
