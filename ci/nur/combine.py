@@ -10,7 +10,7 @@ from typing import Dict, List, Optional
 
 from .fileutils import chdir, write_json_file
 from .manifest import Repo, load_manifest, update_lock_file
-from .path import LOCK_PATH, MANIFEST_PATH, ROOT
+from .path import LOCK_PATH, MANIFEST_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH, ROOT
 from .process import prctl_set_pdeathsig
 
 logger = logging.getLogger(__name__)
