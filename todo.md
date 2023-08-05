@@ -73,7 +73,7 @@ git filter-repo --path eval-errors/ --refs nur-eval-errors --force
 #### remove moved files from branches based on master branch
 
 ```sh
-for branch in parallel-fetch; do
+for branch in parallel-fetch python37 quiet-builds; do
   # create backup branch
   git branch --copy $branch $branch-with-removed-files
 
@@ -150,3 +150,35 @@ git push $your_name gh-pages -u
 ### 5. visit nur-search on github pages
 
 https://your_name.github.io/nur-search/
+
+## git push error: RPC failed; HTTP 408 curl 18 HTTP/2 stream 7 was reset
+
+```
+$ git push milahu gh-pages
+Enumerating objects: 828, done.
+Counting objects: 100% (828/828), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (266/266), done.
+Writing objects: 100% (828/828), 4.80 MiB | 2.38 MiB/s, done.
+Total 828 (delta 301), reused 793 (delta 286), pack-reused 0
+error: RPC failed; HTTP 408 curl 18 HTTP/2 stream 7 was reset
+send-pack: unexpected disconnect while reading sideband packet
+fatal: the remote end hung up unexpectedly
+Everything up-to-date
+```
+
+fix:
+
+```
+git config http.postBuffer 524288000
+```
+
+https://stackoverflow.com/questions/22369200/git-pull-push-error-rpc-failed-result-22-http-code-408
+
+## push branches
+
+```sh
+for branch in master gh-pages nur-combined nur-eval-errors nur-repos nur-repos-lock nur-search parallel-fetch python37 quiet-builds; do
+  git push --force milahu $branch
+done
+```
