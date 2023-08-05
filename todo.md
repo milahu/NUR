@@ -182,3 +182,14 @@ for branch in master gh-pages nur-combined nur-eval-errors nur-repos nur-repos-l
   git push --force milahu $branch
 done
 ```
+
+## remove empty commits
+
+these were used to trigger CI runs
+
+TODO use a better way to trigger CI runs
+
+```
+# remove empty commits in all branches
+git filter-repo --prune-empty always
+```
