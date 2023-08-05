@@ -9,13 +9,15 @@ from typing import Any, Dict
 
 
 repo_owner = os.getenv("GITHUB_REPOSITORY_OWNER") or "nix-community"
-combined_repo_name = os.getenv("COMBINED_REPO_NAME") or "nur-combined"
+# TODO use COMBINED_REPO_URL like in ci/update-nur-search.sh, dont require github
+combined_repo_name = os.getenv("COMBINED_REPO_NAME") or "NUR"
+combined_repo_branch = os.getenv("COMBINED_REPO_BRANCH") or "nur-combined"
 nur_repo_name = os.getenv("NUR_REPO_NAME") or "NUR"
 
 
 def resolve_source(pkg: Dict, repo: str, url: str) -> str:
     # TODO commit hash
-    prefix = f"https://github.com/{repo_owner}/{combined_repo_name}/tree/master/repos/{repo}"
+    prefix = f"https://github.com/{repo_owner}/{combined_repo_name}/tree/{combined_repo_branch}/repos/{repo}"
     position = pkg["meta"].get("position", None)
     if position is not None and position.startswith("/nix/store"):
         path_str, line = position.rsplit(":", 1)
@@ -27,7 +29,7 @@ def resolve_source(pkg: Dict, repo: str, url: str) -> str:
         # TODO find commit hash
         prefixes = {
             "nixpkgs": "https://github.com/nixos/nixpkgs/tree/master/",
-            "nur": f"https://github.com/{repo_owner}/{combined_repo_name}/tree/master/",
+            "nur": f"https://github.com/{repo_owner}/{combined_repo_name}/tree/{combined_repo_branch}/",
         }
         stripped = path.parts[4:]
         if path.parts[3].endswith("source"):
