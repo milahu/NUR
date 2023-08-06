@@ -384,6 +384,12 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     # fix repo url in hugo config
     sed -i "s|https://github.com/nix-community/NUR|https://github.com/$GITHUB_REPOSITORY|" config.toml
 
+    # FIXME: documentation links are broken on nested pages
+    # documentation links work only on the homepage
+    # blame hugo config:
+    # baseURL = "./"
+    # relativeURLs = true
+
     echo generating html files in public/
     # FIXME: WARN  found no layout file for "html" for kind "page": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
     time \
