@@ -117,31 +117,6 @@ set -x
 
 
 
-if false; then
-#cd "$NUR_REPO_PATH/ci"
-# TODO why "--quiet"?
-echo building the nur python app
-# ci/flake.nix
-# ci/nur.nix
-nur_app_path=$(
-time \
-nix build --quiet "$NUR_REPO_PATH/ci#"
-)
-# debug
-echo "nur_app_path: $nur_app_path"
-ls $nur_app_path
-find $nur_app_path -type f
-#cd "$NUR_REPO_PATH"
-# TODO use $nur_app_path instead of "nix run"
-else
-# avoid "nix build"
-# requests should be in PYTHONPATH
-# debug
-echo $PYTHONPATH | tr : $'\n'
-fi
-
-
-
 echo running update...
 time \
 python3 -m ci.nur update
