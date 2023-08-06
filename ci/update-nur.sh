@@ -370,6 +370,7 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     grep -HnE ".*" data/packages.json || true
     if [[ "$(stat -c%s data/packages.json)" == "0" ]]; then
       echo "warning: data/packages.json is empty"
+      echo "TODO: dont run ./scripts/generate_pages.py"
     fi
     stat public || true # stat: cannot statx 'public': No such file or directory
     #
