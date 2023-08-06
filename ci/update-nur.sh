@@ -1,7 +1,12 @@
 #!/usr/bin/env nix-shell
-#!nix-shell --quiet -p git -p nix -p bash -p hugo -i bash
+#!nix-shell --quiet -p git -p nix -p bash -p hugo -p python3 -p python3.pkgs.requests -i bash
 
 # TODO? make "nix run" and "nix build" faster
+
+# TODO? use something more lightweight than hugo
+# $ du -sh /nix/store/56c796m1nr81chwv54ic2rcrnc7j30z4-hugo-0.114.0
+# 57M     /nix/store/56c796m1nr81chwv54ic2rcrnc7j30z4-hugo-0.114.0
+
 
 # github env:
 # https://docs.github.com/en/actions/learn-github-actions/variables
@@ -112,6 +117,7 @@ set -x
 
 
 
+if false; then
 #cd "$NUR_REPO_PATH/ci"
 # TODO why "--quiet"?
 echo building the nur python app
@@ -127,12 +133,19 @@ ls $nur_app_path
 find $nur_app_path -type f
 #cd "$NUR_REPO_PATH"
 # TODO use $nur_app_path instead of "nix run"
+else
+# avoid "nix build"
+# requests should be in PYTHONPATH
+# debug
+echo $PYTHONPATH | tr : $'\n'
+fi
 
 
 
 echo running update...
 time \
-nix run --quiet "$NUR_REPO_PATH/ci#" -- update
+python3 -m ci.nur update
+#nix run --quiet "$NUR_REPO_PATH/ci#" -- update
 
 cd "$NUR_REPO_PATH"
 
@@ -168,7 +181,8 @@ fi
 
 echo running combine...
 time \
-nix run --quiet "$NUR_REPO_PATH/ci#" -- combine nur-combined
+python3 -m ci.nur combine nur-combined
+#nix run --quiet "$NUR_REPO_PATH/ci#" -- combine nur-combined
 
 set +x # hide output of "git diff"
 if [[ -z "$(git status --porcelain)" ]]; then
@@ -322,7 +336,8 @@ fi
 
 echo running index...
 time \
-nix run --quiet "$NUR_REPO_PATH/ci#" -- index nur-combined > nur-search/data/packages.json
+python3 -m ci.nur index nur-combined > nur-search/data/packages.json
+#nix run --quiet "$NUR_REPO_PATH/ci#" -- index nur-combined > nur-search/data/packages.json
 
 # rebuild and publish nur-search repository
 # -----------------------------------------
