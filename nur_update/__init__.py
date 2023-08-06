@@ -29,7 +29,7 @@ def api_headers() -> Dict[str, str]:
     }
 
 
-URL = "https://api.github.com/repos/nix-community/NUR"
+URL = os.environ.get("GITHUB_API_URL", "https://api.github.com/repos/nix-community/NUR")
 
 
 def last_build_time() -> Optional[datetime]:
