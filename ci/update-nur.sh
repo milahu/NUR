@@ -194,7 +194,7 @@ git -C nur-combined push origin HEAD:master
 else
 # monorepo-with-branches
 time \
-git -C nur-combined pull --rebase origin nur-combined:nur-combined --depth=1
+git -C nur-combined pull --rebase origin nur-combined --depth=1
 time \
 git push origin nur-combined:nur-combined
 fi
@@ -333,9 +333,6 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     git -C nur-search push origin master
     else
     # monorepo-with-branches
-    # ! [rejected]        nur-search -> nur-search  (non-fast-forward)
-    #time \
-    #git -C nur-search pull --rebase origin nur-search:nur-search --depth=1
     time \
     git -C nur-search pull --rebase origin nur-search --depth=1
     time \
@@ -384,7 +381,7 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
 
     echo committing html files in public/
     git -C public add --all
-    git -C public commit -m "Publishing to gh-pages"
+    git -C public commit -m "Publishing to gh-pages" || true
 
     # publish:
     echo pushing gh-pages branch
