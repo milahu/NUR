@@ -3,7 +3,7 @@ all: public
 	./scripts/generate_pages.py
 	find content/ -type f
 	echo cleaning public/
-	rm -rf rm -rf public/*
+	rm -rf public/*
 	ls -A public/
 	echo generating html files in public/
 	hugo
