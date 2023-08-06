@@ -419,6 +419,7 @@ if [[ ! -z "$(git -C nur-search-data status --porcelain)" ]] || $force_nur_searc
     #find public/ -type f
 
     # disable jekyll in github "pages build and deployment" workflow
+    # with jekyll, the workflow takes about 60 seconds
     touch public/.nojekyll
 
     echo committing html files in public/
