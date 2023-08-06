@@ -56,3 +56,7 @@ def main() -> None:
     logging.basicConfig(level=LOG_LEVELS[args.log_level])
 
     args.func(args)
+
+
+if __name__ == "__main__":
+    main()
