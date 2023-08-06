@@ -324,40 +324,33 @@ nix run --quiet "${DIR}#" -- index nur-combined > nur-search/data/packages.json
 # -----------------------------------------
 
 force_nur_search_update=${FORCE_NUR_SEARCH_UPDATE:-false}
-cd nur-search
 set +x # hide output of "git status"
-if [[ ! -z "$(git status --porcelain)" ]] || $force_nur_search_update; then
+if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_update; then
     set -x
     time \
-    git add ./data/packages.json
+    git -C nur-search add ./data/packages.json
     time \
-    git commit -m "automatic update package.json" || true
+    git -C nur-search commit -m "automatic update package.json" || true
     # TODO dynamic branch name
     if false; then
     # multirepos
     time \
-    git pull --rebase origin master
+    git -C nur-search pull --rebase origin master
     time \
-    git push origin master
+    git -C nur-search push origin master
     else
     # monorepo-with-branches
-
-    # FIXME: fatal: cannot change to 'nur-search': No such file or directory
-    # debug
-    set -x
-    pwd
-    ls
-    git branch
-
     time \
     git -C nur-search pull --rebase origin nur-search:nur-search --depth=1
     time \
-    git push origin nur-search
+    git -C nur-search push origin nur-search
     fi
     echo generating html
+    cd nur-search # TODO avoid?
     # run nur-search/Makefile
     time \
     nix-shell --quiet --run "make clean && make && make publish"
+    cd ..
 else
     set -x
     echo "nothings changed will not commit anything"
