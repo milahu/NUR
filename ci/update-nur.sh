@@ -51,9 +51,11 @@ set -x
 pwd
 git branch
 git log --oneline
+
+
+
+# hide password in logs
 set +x
-
-
 
 api_user_github=$API_USER_GITHUB
 if [ -z "$api_user_github" ]; then
@@ -68,6 +70,8 @@ this_repo_url=https://$api_user_github:$API_TOKEN_GITHUB@$this_repo_url
 
 # set user and password for "git push"
 git remote set-url origin $this_repo_url
+
+set -x
 
 
 
@@ -98,28 +102,17 @@ ln -sr nur-repos-lock/repos.json.lock repos.json.lock
 
 # based on ci/update-nur.sh
 
-# TODO simpler?
-# why not just DIR="$(dirname "$0")"
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-
-# debug
-echo "DIR  = $DIR"
-echo "DIR2 = $(readlink -f "$(dirname "$0")")"
-# DIR  = /home/runner/work/NUR/NUR/ci
-# DIR2 = ./ci
-
-
-# TODO use root path of NUR repo instead of $DIR
-#NUR_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}/.." )" >/dev/null && pwd )"
+# absolute path of NUR repo
+DIR="$(readlink -f "$(dirname "$0")")"
+NUR_REPO_PATH="$(readlink -f "$(dirname "$0")/..")"
 
 set -x
 
 echo running update...
 time \
-nix run --quiet "${DIR}#" -- update
+nix run --quiet "$NUR_REPO_PATH/ci#" -- update
 
-# go to repo root
-cd ${DIR}/..
+cd "$NUR_REPO_PATH"
 
 # API_TOKEN_GITHUB needs write access to both repos
 # TODO modify only the result repo
@@ -153,7 +146,7 @@ fi
 
 echo running combine...
 time \
-nix run --quiet "${DIR}#" -- combine nur-combined
+nix run --quiet "$NUR_REPO_PATH/ci#" -- combine nur-combined
 
 set +x # hide output of "git diff"
 if [[ -z "$(git status --porcelain)" ]]; then
@@ -222,16 +215,16 @@ fi
 # TODO why? what?
 echo building package.json for nur-search
 
-cd "${DIR}"
+cd "$NUR_REPO_PATH/ci"
 
 # TODO why "--quiet"?
 
 # TODO what is the default build target?
 
 time \
-nix build --quiet "${DIR}#"
+nix build --quiet "$NUR_REPO_PATH/ci#"
 
-cd "${DIR}/.."
+cd "$NUR_REPO_PATH"
 
 
 
@@ -318,7 +311,7 @@ fi
 
 echo running index...
 time \
-nix run --quiet "${DIR}#" -- index nur-combined > nur-search/data/packages.json
+nix run --quiet "$NUR_REPO_PATH/ci#" -- index nur-combined > nur-search/data/packages.json
 
 # rebuild and publish nur-search repository
 # -----------------------------------------
@@ -344,7 +337,7 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     #time \
     #git -C nur-search pull --rebase origin nur-search:nur-search --depth=1
     time \
-    git -C nur-search pull --rebase origin --depth=1
+    git -C nur-search pull --rebase origin nur-search --depth=1
     time \
     git -C nur-search push origin nur-search
     fi
@@ -366,7 +359,7 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     set -x
     pwd
     ls
-    stat public || true
+    stat public || true # stat: cannot statx 'public': No such file or directory
     #
     echo mounting gh-pages branch to public/
     # TODO why prune?
@@ -385,6 +378,7 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     ls -A public/
 
     echo generating html files in public/
+    # FIXME: WARN  found no layout file for "html" for kind "page": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
     hugo
     find public/ -type f
 
