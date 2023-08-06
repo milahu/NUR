@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell --quiet -p git -p nix -p bash -i bash
+#!nix-shell --quiet -p git -p nix -p bash -p hugo -i bash
 
 # github env:
 # https://docs.github.com/en/actions/learn-github-actions/variables
@@ -348,11 +348,60 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     time \
     git -C nur-search push origin nur-search
     fi
+
     echo generating html
+
     cd nur-search # TODO avoid?
+    # install packages in nur-search/default.nix: hugo
     # run nur-search/Makefile
-    time \
-    nix-shell --quiet --run "make clean && make && make publish"
+    #time \
+    #nix-shell --quiet --run "make clean && make && make publish"
+
+
+
+    # based on nur-search/Makefile
+
+    # public:
+    # debug
+    set -x
+    pwd
+    ls
+    stat public || true
+    #
+    echo mounting gh-pages branch to public/
+    # TODO why prune?
+    #git worktree prune
+    # no: fatal: 'gh-pages' is already checked out at '/home/runner/work/NUR/NUR/gh-pages'
+    #git worktree add public gh-pages
+    ln -s ../gh-pages public
+
+    # all: public
+    echo generating md files in content/
+    ./scripts/generate_pages.py
+    find content/ -type f
+
+    echo cleaning public/
+    rm -rf public/*
+    ls -A public/
+
+    echo generating html files in public/
+    hugo
+    find public/ -type f
+
+    echo committing html files in public/
+    git -C public add --all
+    git -C public commit -m "Publishing to gh-pages"
+
+    # publish:
+    echo pushing gh-pages branch
+    git -C public push origin gh-pages
+
+    # clean:
+    #echo removing public/
+    #rm -rf public
+
+
+
     cd ..
 else
     set -x
