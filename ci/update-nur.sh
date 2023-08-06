@@ -368,10 +368,12 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     ls data/packages.json
     stat data/packages.json
     grep -HnE ".*" data/packages.json || true
+
     if [[ "$(stat -c%s data/packages.json)" == "0" ]]; then
-      echo "warning: data/packages.json is empty"
-      echo "TODO: dont run ./scripts/generate_pages.py"
-    fi
+      echo "warning: data/packages.json is empty, not updating gh-pages"
+    else
+    # FIXME indent
+    echo "updating gh-pages"
     stat public || true # stat: cannot statx 'public': No such file or directory
     #
     echo mounting gh-pages branch to public/
@@ -407,6 +409,7 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     # clean:
     #echo removing public/
     #rm -rf public
+    fi
 
 
 
