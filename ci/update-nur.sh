@@ -198,7 +198,7 @@ git -C nur-combined push origin HEAD:master
 else
 # monorepo-with-branches
 time \
-git pull --rebase origin nur-combined:nur-combined --depth=1
+git -C nur-combined pull --rebase origin --depth=1
 time \
 git push origin nur-combined:nur-combined
 fi
@@ -339,7 +339,7 @@ if [[ ! -z "$(git status --porcelain)" ]] || $force_nur_search_update; then
     else
     # monorepo-with-branches
     time \
-    git pull --rebase origin nur-search:nur-search --depth=1
+    git -C nur-search pull --rebase origin --depth=1
     time \
     git push origin nur-search
     fi
