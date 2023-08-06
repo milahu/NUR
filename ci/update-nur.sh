@@ -388,6 +388,9 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     # debug
     #find public/ -type f
 
+    # disable jekyll in github "pages build and deployment" workflow
+    touch public/.nojekyll
+
     echo committing html files in public/
     git -C public add --all
     git -C public commit -m "Publishing to gh-pages" || true
