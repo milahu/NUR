@@ -53,6 +53,24 @@ git branch
 git log --oneline
 set +x
 
+
+
+api_user_github=$API_USER_GITHUB
+if [ -z "$api_user_github" ]; then
+  api_user_github=$GITHUB_REPOSITORY_OWNER
+  echo "using default api_user_github: $api_user_github"
+fi
+
+this_repo_url=github.com/$GITHUB_REPOSITORY
+
+# add user and password
+this_repo_url=https://$api_user_github:$API_TOKEN_GITHUB@$this_repo_url
+
+# set user and password for "git push"
+git remote set-url origin $this_repo_url
+
+
+
 # no. main branch is fetched by .github/workflows/update.yml
 #mkdir NUR
 #cd NUR
@@ -103,12 +121,6 @@ cd ${DIR}/..
 # API_TOKEN_GITHUB needs write access to both repos
 # TODO modify only the result repo
 
-api_user_github=$API_USER_GITHUB
-if [ -z "$api_user_github" ]; then
-  api_user_github=$GITHUB_REPOSITORY_OWNER
-  echo "using default api_user_github: $api_user_github"
-fi
-
 # nur-combined is already fetched
 if false; then
 this_repo_url=$THIS_REPO_URL
@@ -147,6 +159,8 @@ if [[ -z "$(git status --porcelain)" ]]; then
   exit
 else
   set -x
+  if false; then
+  # multirepos
   git add --all repos.json*
   git add nur-eval-errors/
   git commit -m "automatic update"
@@ -155,6 +169,22 @@ else
   git pull --rebase origin master
   time \
   git push $this_repo_url HEAD:master
+  else
+  git -C nur-repos add repos.json
+  git -C nur-repos commit -m "automatic update"
+
+  git -C nur-repos-lock add repos.json.lock
+  git -C nur-repos-lock commit -m "automatic update"
+
+  git -C nur-eval-errors add .
+  git -C nur-eval-errors commit -m "automatic update"
+
+  echo fetching branches: nur-repos nur-repos-lock nur-eval-errors
+  git fetch origin nur-repos nur-repos-lock nur-eval-errors --depth=1
+
+  echo pushing branches: nur-repos nur-repos-lock nur-eval-errors
+  git push origin nur-repos:nur-repos nur-repos-lock:nur-repos-lock nur-eval-errors:nur-eval-errors
+  fi
 fi
 set -x
 
