@@ -85,8 +85,9 @@ set -x
 #echo fetching branches: $main_branch ${extra_branches[@]}
 echo fetching branches: ${extra_branches[@]}
 #git fetch --depth=1 origin $main_branch ${extra_branches[@]}
+# note: nur-search has a git module for hugo theme
 time \
-git fetch --depth=1 origin ${extra_branches[@]}
+git fetch --depth=1 origin ${extra_branches[@]} --recurse-submodules=yes
 #echo mounting main branch: $main_branch
 #git checkout $main_branch
 for branch in ${extra_branches[@]}; do
