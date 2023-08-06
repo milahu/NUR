@@ -340,8 +340,11 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     git -C nur-search push origin master
     else
     # monorepo-with-branches
+    # ! [rejected]        nur-search -> nur-search  (non-fast-forward)
+    #time \
+    #git -C nur-search pull --rebase origin nur-search:nur-search --depth=1
     time \
-    git -C nur-search pull --rebase origin nur-search:nur-search --depth=1
+    git -C nur-search pull --rebase origin --depth=1
     time \
     git -C nur-search push origin nur-search
     fi
