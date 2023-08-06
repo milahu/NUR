@@ -117,17 +117,9 @@ set -x
 
 
 
-# FIXME: python3: No module named ci.nur.__main__; 'ci.nur' is a package and cannot be directly executed
-pwd
-ls
-ls ci
-ls ci/nur
-ls ci/nur/__init__.py
-python3 -m ci.nur.__init__ update
-
 echo running update...
 time \
-python3 -m ci.nur update
+python3 -m ci.nur.__init__ update
 #nix run --quiet "$NUR_REPO_PATH/ci#" -- update
 
 cd "$NUR_REPO_PATH"
@@ -164,7 +156,7 @@ fi
 
 echo running combine...
 time \
-python3 -m ci.nur combine nur-combined
+python3 -m ci.nur.__init__ combine nur-combined
 #nix run --quiet "$NUR_REPO_PATH/ci#" -- combine nur-combined
 
 set +x # hide output of "git diff"
@@ -319,7 +311,7 @@ fi
 
 echo running index...
 time \
-python3 -m ci.nur index nur-combined > nur-search/data/packages.json
+python3 -m ci.nur.__init__ index nur-combined > nur-search/data/packages.json
 #nix run --quiet "$NUR_REPO_PATH/ci#" -- index nur-combined > nur-search/data/packages.json
 
 # rebuild and publish nur-search repository
