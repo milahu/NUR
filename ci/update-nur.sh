@@ -1,6 +1,13 @@
 #!/usr/bin/env nix-shell
 #!nix-shell --quiet -p git -p nix -p bash -p hugo -p python3 -p python3.pkgs.requests -i bash
 
+# FIXME slow: this bash script runs for 7 seconds, nix-shell takes 27 seconds to install dependencies
+# dependencies are fetched from cache.nixos.org on every workflow run
+# TODO cache nix store on github?
+#   https://github.com/cachix/install-nix-action/issues/56 - Cache /nix/store between jobs
+#     https://github.com/cachix/install-nix-action/issues/56#issuecomment-1240991760 - nix-store --export; nix-store --import
+# TODO install dependencies as debian packages?
+
 # debug
 echo ci/update-nur.sh: start time: $(date +"%F %T.%N")
 
