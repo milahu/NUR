@@ -104,7 +104,10 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 # debug
 echo "DIR  = $DIR"
-echo "DIR2 = $(dirname "$0")"
+echo "DIR2 = $(readlink -f "$(dirname "$0")")"
+# DIR  = /home/runner/work/NUR/NUR/ci
+# DIR2 = ./ci
+
 
 # TODO use root path of NUR repo instead of $DIR
 #NUR_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}/.." )" >/dev/null && pwd )"
@@ -198,7 +201,7 @@ git -C nur-combined push origin HEAD:master
 else
 # monorepo-with-branches
 time \
-git -C nur-combined pull --rebase origin --depth=1
+git -C nur-combined pull --rebase origin nur-combined:nur-combined --depth=1
 time \
 git push origin nur-combined:nur-combined
 fi
@@ -338,8 +341,16 @@ if [[ ! -z "$(git status --porcelain)" ]] || $force_nur_search_update; then
     git push origin master
     else
     # monorepo-with-branches
+
+    # FIXME: fatal: cannot change to 'nur-search': No such file or directory
+    # debug
+    set -x
+    pwd
+    ls
+    git branch
+
     time \
-    git -C nur-search pull --rebase origin --depth=1
+    git -C nur-search pull --rebase origin nur-search:nur-search --depth=1
     time \
     git push origin nur-search
     fi
