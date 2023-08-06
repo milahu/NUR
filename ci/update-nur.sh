@@ -85,14 +85,21 @@ set -x
 #echo fetching branches: $main_branch ${extra_branches[@]}
 echo fetching branches: ${extra_branches[@]}
 #git fetch --depth=1 origin $main_branch ${extra_branches[@]}
-# note: nur-search has a git module for hugo theme
+branch_args=()
+for branch in ${extra_branches[@]}; do
+  branch_args+=($branch:$branch)
+done
 time \
-git fetch --depth=1 origin ${extra_branches[@]} --recurse-submodules=yes
+git fetch --depth=1 origin ${branch_args[@]}
 #echo mounting main branch: $main_branch
 #git checkout $main_branch
 for branch in ${extra_branches[@]}; do
   echo mounting extra branch: $branch
   git worktree add $branch $branch
+
+  # fetch submodules
+  # nur-search has a git module for hugo theme
+  git -C $branch submodule update --init --depth=1 --recursive
 done
 
 #MANIFEST_PATH=repos.json
