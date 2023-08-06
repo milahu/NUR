@@ -309,6 +309,11 @@ fi
 
 # update
 
+# debug
+set -x
+pwd
+ls
+
 echo running index...
 time \
 python3 -m ci.nur.__init__ index nur-combined > nur-search/data/packages.json
@@ -355,8 +360,14 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     # public:
     # debug
     set -x
-    pwd
+    pwd # /home/runner/work/NUR/NUR/nur-search
     ls
+    ls data
+    # FIXME: json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+    # empty data/packages.json?
+    ls data/packages.json
+    stat data/packages.json
+    grep -HnE "*" data/packages.json
     stat public || true # stat: cannot statx 'public': No such file or directory
     #
     echo mounting gh-pages branch to public/
