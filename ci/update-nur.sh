@@ -59,7 +59,7 @@ PREFETCH_CACHE_PATH=$ROOT/prefetch-cache.pickle
 main_branch=master
 
 # skip branches: nur-packages-template nur-update
-extra_branches=(gh-pages nur-combined nur-eval-errors nur-repos nur-repos-lock nur-search)
+extra_branches=(gh-pages nur-combined nur-eval-errors nur-repos nur-repos-lock nur-search nur-search-data)
 
 
 
@@ -325,35 +325,42 @@ ls
 
 echo running index...
 time \
-python3 -m ci.nur.__init__ index nur-combined > nur-search/data/packages.json
+python3 -m ci.nur.__init__ index nur-combined > nur-search-data/data/packages.json
 
 # rebuild and publish nur-search repository
 # -----------------------------------------
 
 force_nur_search_update=${FORCE_NUR_SEARCH_UPDATE:-false}
 set +x # hide output of "git status"
-if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_update; then
+if [[ ! -z "$(git -C nur-search-data status --porcelain)" ]] || $force_nur_search_update; then
     set -x
     time \
-    git -C nur-search add ./data/packages.json
+    git -C nur-search-data add data/packages.json
     time \
-    git -C nur-search commit -m "automatic update package.json" || true
+    git -C nur-search-data commit -m "automatic update package.json" || true
     # TODO dynamic branch name
     if false; then
     # multirepos
     time \
-    git -C nur-search pull --rebase origin master
+    git -C nur-search-data pull --rebase origin master
     time \
-    git -C nur-search push origin master
+    git -C nur-search-data push origin master
     else
     # monorepo-with-branches
     time \
-    git -C nur-search pull --rebase origin nur-search --depth=1
+    git -C nur-search-data pull --rebase origin nur-search-data --depth=1
     time \
-    git -C nur-search push origin nur-search
+    git -C nur-search-data push origin nur-search-data
     fi
 
     echo generating html
+
+    if [ -e nur-search/data ]; then
+      echo "error: nur-search/data exists:"
+      stat nur-search/data
+      exit 1
+    fi
+    ln -sr nur-search-data/data nur-search/data
 
     cd nur-search # TODO avoid?
     # install packages in nur-search/default.nix: hugo
