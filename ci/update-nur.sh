@@ -391,6 +391,9 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     # fix repo url in hugo config
     sed -i "s|https://github.com/nix-community/NUR|https://github.com/$GITHUB_REPOSITORY|" config.toml
 
+    # fix repo url in hugo contents
+    sed -i "s|https://github.com/nix-community/NUR|https://github.com/$GITHUB_REPOSITORY|g" index.json content/_index.md
+
     # FIXME: documentation links are broken on nested pages
     # documentation links work only on the homepage
     # blame hugo config:
