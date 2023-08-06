@@ -1,8 +1,6 @@
 #!/usr/bin/env nix-shell
 #!nix-shell --quiet -p git -p nix -p bash -p hugo -p python3 -p python3.pkgs.requests -i bash
 
-# TODO? make "nix run" and "nix build" faster
-
 # TODO? use something more lightweight than hugo
 # $ du -sh /nix/store/56c796m1nr81chwv54ic2rcrnc7j30z4-hugo-0.114.0
 # 57M     /nix/store/56c796m1nr81chwv54ic2rcrnc7j30z4-hugo-0.114.0
@@ -52,12 +50,6 @@ main_branch=master
 
 # skip branches: nur-packages-template nur-update
 extra_branches=(gh-pages nur-combined nur-eval-errors nur-repos nur-repos-lock nur-search)
-
-# debug
-set -x
-pwd
-git branch
-git log --oneline
 
 
 
@@ -120,7 +112,6 @@ set -x
 echo running update...
 time \
 python3 -m ci.nur.__init__ update
-#nix run --quiet "$NUR_REPO_PATH/ci#" -- update
 
 cd "$NUR_REPO_PATH"
 
@@ -157,12 +148,10 @@ fi
 echo running combine...
 time \
 python3 -m ci.nur.__init__ combine nur-combined
-#nix run --quiet "$NUR_REPO_PATH/ci#" -- combine nur-combined
 
 set +x # hide output of "git diff"
 if [[ -z "$(git status --porcelain)" ]]; then
   echo "No changes to the output on this push; exiting."
-  # TODO exit?
   exit
 else
   set -x
@@ -314,14 +303,9 @@ set -x
 pwd
 ls
 
-# debug
-python3 -m ci.nur.__init__ || true
-python3 -m ci.nur.__init__ --help || true
-
 echo running index...
 time \
 python3 -m ci.nur.__init__ index nur-combined > nur-search/data/packages.json
-#nix run --quiet "$NUR_REPO_PATH/ci#" -- index nur-combined > nur-search/data/packages.json
 
 # rebuild and publish nur-search repository
 # -----------------------------------------
