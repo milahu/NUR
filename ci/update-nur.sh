@@ -171,13 +171,13 @@ else
   git push $this_repo_url HEAD:master
   else
   git -C nur-repos add repos.json
-  git -C nur-repos commit -m "automatic update"
+  git -C nur-repos commit -m "automatic update" || true
 
   git -C nur-repos-lock add repos.json.lock
-  git -C nur-repos-lock commit -m "automatic update"
+  git -C nur-repos-lock commit -m "automatic update" || true
 
   git -C nur-eval-errors add .
-  git -C nur-eval-errors commit -m "automatic update"
+  git -C nur-eval-errors commit -m "automatic update" || true
 
   echo fetching branches: nur-repos nur-repos-lock nur-eval-errors
   git fetch origin nur-repos nur-repos-lock nur-eval-errors --depth=1
