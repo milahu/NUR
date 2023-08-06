@@ -117,6 +117,14 @@ set -x
 
 
 
+# FIXME: python3: No module named ci.nur.__main__; 'ci.nur' is a package and cannot be directly executed
+pwd
+ls
+ls ci
+ls ci/nur
+ls ci/nur/__init__.py
+python3 -m ci.nur.__init__ update
+
 echo running update...
 time \
 python3 -m ci.nur update
