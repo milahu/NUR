@@ -84,6 +84,37 @@ for branch in parallel-fetch python37 quiet-builds; do
 done
 ```
 
+#### nur-search: move data/ to a separate branch: nur-search-data
+
+```sh
+# this will take some time...
+git fetch https://github.com/nix-community/nur-search master:upstream-nur-search
+
+# create nur-search-data branch
+git branch --copy upstream-nur-search nur-search-data
+
+# keep only data/ in nur-search-data branch history
+git filter-repo --path data/ --refs nur-search-data --force
+
+# create nur-search branch
+git branch --move nur-search nur-search-bak
+git branch --copy upstream-nur-search nur-search
+
+# remove data/ from nur-search branch history
+git filter-repo --invert-paths --path data/ --refs nur-search --force
+```
+
+```
+# TODO keep only the data folder
+# TODO remove the data folder
+
+# TODO future: delete old history of the nur-search-data branch
+
+# TODO future: delete old history of the nur-repos-lock branch
+
+# "delete old history" but keep commit hashes (dont rewrite git history, add graft commit?)
+```
+
 ### move everything to one repo
 
 is there a hard requirement for nur-combined? (TODO "nur-combined repo" or "nur-combined branch"?)
@@ -100,6 +131,12 @@ git fetch nur-search-repo gh-pages:gh-pages
 
 git remote add nur-combined-repo https://github.com/milahu/nur-combined
 git fetch nur-combined-repo master:nur-combined
+
+git remote add nur-update-repo https://github.com/nix-community/nur-update
+git fetch nur-update-repo master:nur-update
+
+git remote add nur-packages-template-repo https://github.com/nix-community/nur-packages-template
+git fetch nur-packages-template-repo master:nur-packages-template
 ```
 
 ### use relative links in generated html, so it also works with github pages
@@ -178,18 +215,118 @@ https://stackoverflow.com/questions/22369200/git-pull-push-error-rpc-failed-resu
 ## push branches
 
 ```sh
-for branch in master gh-pages nur-combined nur-eval-errors nur-repos nur-repos-lock nur-search parallel-fetch python37 quiet-builds; do
+for branch in master gh-pages nur-combined nur-eval-errors nur-repos nur-repos-lock nur-search nur-search-data nur-update nur-packages-template  parallel-fetch python37 quiet-builds; do
   git push --force milahu $branch
 done
 ```
 
 ## remove empty commits
 
-these were used to trigger CI runs
-
-TODO use a better way to trigger CI runs
+these were used to trigger github workflow runs
 
 ```
 # remove empty commits in all branches
 git filter-repo --prune-empty always
+```
+
+### manually run a github workflow
+
+solved: nur-update/nur_update/__init__.py
+
+https://github.com/nix-community/nur-update
+
+nur-update was hosted on herokuapp.com, but heroku stopped their free plans
+
+currently, nur-update is hosted on nix-community.org
+
+alternatives to heroku:
+
+- https://www.makeuseof.com/heroku-alternatives-free-full-stack-hosting/
+   - https://render.com/ is a unified cloud to build and run all your apps and websites. It has free TLS certificates, a global CDN, DDoS protection, private networks, and auto deploys from Git. Render’s free plan for services supports web services with HTTP/2 and full TLS. Render supports custom docker containers and background workers. You can use it to host web apps in Node.js, the server-side JavaScript environment. It also has support for other languages, including Python, Golang, Rust, Ruby, and Elixir. Using Render’s free plans, you can spin up web services and databases at zero cost. However, these plans have certain usage limits and are designed to help build personal projects and explore new tech.
+   - https://www.cyclic.sh/ is a good alternative to Heroku due to its modern cloud architecture with serverless hosting, an easy onboarding experience, and an existing free tier. Cyclic is ideal for hosting full-stack MERN apps. Its free tier features up to 100,000 API requests with fast builds and 1GB runtime memory. Using Cyclic’s free tier gives you an edge over competitors when it comes to inactivity delay. Platforms like Heroku and Render take approximately 30 seconds to restart a service after a period of inactivity. In contrast, this service takes approximately 200ms according to Cyclic’s benchmarks.
+   - https://railway.app/ also offers a free tier like Heroku, which features 512 MB RAM, a shared CPU/container, and 1GB of disk space. It also offers unlimited inbound network bandwidth, multiple custom domains with SSL, and $5 or 500 hours of usage.
+   - https://deta.space/ is a personal cloud platform for hosting web applications. Deta Space offers fully managed servers, data, and security to each app deployed on the platform, similar to other cloud service providers. Deta Space currently does not have a paid tier. Their platform is free by default and currently has no limits to their wide range of use cases.
+   - https://fly.io/ is a platform that allows you to host and run small applications for free. Unlike other alternatives to Heroku, Fly.io doesn't have a "free tier". However, they offer free resource allowances.
+- https://codeless.co/heroku-alternatives/
+
+... but its simpler to avoid such a public nur-update service.
+users should be happy, when the update workflow runs every 60 minutes
+
+alternative to nur-update:
+eval-test.sh for local development of user repos.
+FIXME eval-test.sh still gives different results than the update workflow
+
+alternative to nur-update:
+add another workflow with higher frequency (example: every 20 minutes),
+which checks some condition, and then runs the update workflow
+
+alternative to nur-update:
+make the update workflow more efficient,
+so we can run it more often, for example every 20 minutes
+
+<blockquote>
+
+## Example
+
+```
+$ curl -XPOST https://nur-update.herokuapp.com/update?repo=mic92
+```
+
+</blockquote>
+
+deprecated: scripts/run-update-workflow-manually.sh
+
+https://github.com/nix-community/NUR#update-nurs-lock-file-after-updating-your-repository
+
+<blockquote>
+
+### Update NUR's lock file after updating your repository
+
+By default we only check for repository updates once a day with an automatic
+github action to update our lock file `repos.json.lock`.
+To update NUR faster, you can use our service at https://nur-update.nix-community.org/
+after you have pushed an update to your repository, e.g.:
+
+```console
+curl -XPOST https://nur-update.nix-community.org/update?repo=mic92
+```
+
+Check out the [github page](https://github.com/nix-community/nur-update#nur-update-endpoint) for further details
+
+</blockquote>
+
+#### website
+
+- https://github.com/milahu/NUR/actions/workflows/update.yml
+- run workflow
+- run workflow
+
+#### api
+
+https://stackoverflow.com/questions/60419257/is-it-possible-to-manually-run-a-github-workflow
+
+https://docs.github.com/en/free-pro-team@latest/rest/actions/workflows?apiVersion=2022-11-28#create-a-workflow-dispatch-event
+
+```
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/workflows/WORKFLOW_ID/dispatches \
+  -d '{"ref":"topic-branch","inputs":{"name":"Mona the Octocat","home":"San Francisco, CA"}}'
+```
+
+> workflow_id (Required): The ID of the workflow. You can also pass the workflow file name as a string.
+
+for rate-limiting, we also need a list of the latest workflow runs:
+
+https://docs.github.com/en/free-pro-team@latest/rest/actions/workflow-runs?apiVersion=2022-11-28#list-workflow-runs-for-a-workflow
+
+```
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/workflows/WORKFLOW_ID/runs
 ```
