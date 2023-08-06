@@ -351,8 +351,6 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     else
     # FIXME indent
     echo "updating gh-pages"
-    stat public || true # stat: cannot statx 'public': No such file or directory
-    #
     echo mounting gh-pages branch to public/
     # TODO why prune?
     #git worktree prune
