@@ -83,14 +83,15 @@ callPackage (nur.repo-sources."%s" + "/%s") {}
         f.flush()
         env = os.environ.copy()
         env.update(NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM="1")
-        query_cmd = ["nix-env", "-qa", "*", "--json", "-f", str(f.name)]
+        query_cmd = ["nix-env", "-qa", "*", "--json", "--meta", "-f", str(f.name)]
         try:
+            # TODO? encoding="utf8"
             out = subprocess.check_output(query_cmd, env=env)
         except subprocess.CalledProcessError:
             print(f"failed to evaluate {repo}", file=sys.stderr)
             return {}
 
-        # debug
+        # debug: KeyError: 'meta'
         print(f"done evaluating {repo}: {out}", file=sys.stderr)
 
         raw_pkgs = json.loads(out)
