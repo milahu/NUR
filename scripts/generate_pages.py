@@ -2,6 +2,7 @@
 
 import json
 import os
+import sys
 import shutil
 from pathlib import Path
 from typing import Any, DefaultDict, Dict, List
@@ -99,6 +100,12 @@ def main() -> None:
     download_readme()
 
     with open(ROOT.joinpath("data", "packages.json")) as f:
+        if f.read(1) == '':
+            # packages.json is empty
+            # json.load(f) would fail with json.decoder.JSONDecodeError
+            logger.info("packages.json is empty -> exit")
+            sys.exit()
+        f.seek(0)
         repos: DefaultDict[str, List[Package]] = DefaultDict(list)
         packages = json.load(f)
         pkg_count = 0
