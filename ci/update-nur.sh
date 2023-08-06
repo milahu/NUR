@@ -109,6 +109,10 @@ for branch in ${extra_branches[@]}; do
   git -C $branch submodule update --init --depth=1 --recursive
 done
 
+# unmount branch:
+# git -C $branch submodule deinit --all --force
+# git worktree remove $branch --force
+
 #MANIFEST_PATH=repos.json
 ln -sr nur-repos/repos.json repos.json
 
