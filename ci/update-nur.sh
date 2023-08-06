@@ -361,7 +361,8 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     # all: public
     echo generating md files in content/
     ./scripts/generate_pages.py
-    find content/ -type f
+    # debug
+    #find content/ -type f
 
     echo cleaning public/
     rm -rf public/*
@@ -371,7 +372,8 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     # FIXME: WARN  found no layout file for "html" for kind "page": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
     time \
     hugo
-    find public/ -type f
+    # debug
+    #find public/ -type f
 
     echo committing html files in public/
     git -C public add --all
