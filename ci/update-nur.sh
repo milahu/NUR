@@ -367,7 +367,10 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     # empty data/packages.json?
     ls data/packages.json
     stat data/packages.json
-    grep -HnE "*" data/packages.json
+    grep -HnE ".*" data/packages.json || true
+    if [[ "$(stat -c%s data/packages.json)" == "0" ]]; then
+      echo "warning: data/packages.json is empty"
+    fi
     stat public || true # stat: cannot statx 'public': No such file or directory
     #
     echo mounting gh-pages branch to public/
