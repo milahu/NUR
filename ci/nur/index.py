@@ -90,6 +90,9 @@ callPackage (nur.repo-sources."%s" + "/%s") {}
             print(f"failed to evaluate {repo}", file=sys.stderr)
             return {}
 
+        # debug
+        print(f"done evaluating {repo}: {out}", file=sys.stderr)
+
         raw_pkgs = json.loads(out)
         pkgs = {}
         for name, pkg in raw_pkgs.items():
