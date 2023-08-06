@@ -103,7 +103,7 @@ def main() -> None:
         if f.read(1) == '':
             # packages.json is empty
             # json.load(f) would fail with json.decoder.JSONDecodeError
-            logger.error("packages.json is empty -> exit")
+            logger.error("packages.json is empty")
             sys.exit(1)
         f.seek(0)
         repos: DefaultDict[str, List[Package]] = DefaultDict(list)
