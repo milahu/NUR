@@ -314,6 +314,10 @@ set -x
 pwd
 ls
 
+# debug
+python3 -m ci.nur.__init__ || true
+python3 -m ci.nur.__init__ --help || true
+
 echo running index...
 time \
 python3 -m ci.nur.__init__ index nur-combined > nur-search/data/packages.json
@@ -358,17 +362,6 @@ if [[ ! -z "$(git -C nur-search status --porcelain)" ]] || $force_nur_search_upd
     # based on nur-search/Makefile
 
     # public:
-    # debug
-    set -x
-    pwd # /home/runner/work/NUR/NUR/nur-search
-    ls
-    ls data
-    # FIXME: json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-    # empty data/packages.json?
-    ls data/packages.json
-    stat data/packages.json
-    grep -HnE ".*" data/packages.json || true
-
     if [[ "$(stat -c%s data/packages.json)" == "0" ]]; then
       echo "warning: data/packages.json is empty, not updating gh-pages"
     else
