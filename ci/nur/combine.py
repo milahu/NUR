@@ -22,8 +22,8 @@ def load_combined_repos(path: Path) -> Dict[str, Repo]:
         # TODO use paths from path.py with a different ROOT path
         path.joinpath("repos.json"),
         path.joinpath("repos.json.lock"),
-        path.joinpath("eval-errors/repos.json.lock"),
-        path.joinpath("eval-errors"),
+        path.joinpath("nur-eval-errors/repos.json.lock"),
+        path.joinpath("nur-eval-errors"),
     )
     repos = {}
     for repo in combined_manifest.repos:

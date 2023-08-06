@@ -26,8 +26,8 @@ ROOT=.
 LOCK_PATH=$ROOT/repos.json.lock
 MANIFEST_PATH=$ROOT/repos.json
 EVALREPO_PATH=$ROOT/lib/evalRepo.nix
-EVAL_ERRORS_PATH=$ROOT/eval-errors
-EVAL_ERRORS_LOCK_PATH=$ROOT/eval-errors/repos.json.lock
+EVAL_ERRORS_PATH=$ROOT/nur-eval-errors
+EVAL_ERRORS_LOCK_PATH=$ROOT/nur-eval-errors/repos.json.lock
 PREFETCH_CACHE_PATH=$ROOT/prefetch-cache.pickle
 
 # TODO? support both versions: multirepos and monorepo-with-branches
@@ -75,10 +75,6 @@ ln -sr nur-repos/repos.json repos.json
 
 #LOCK_PATH=repos.json.lock
 ln -sr nur-repos-lock/repos.json.lock repos.json.lock
-
-# FIXME rename eval-errors to nur-eval-errors
-#EVAL_ERRORS_PATH=eval-errors
-ln -sr nur-eval-errors eval-errors
 
 
 
@@ -152,7 +148,7 @@ if [[ -z "$(git status --porcelain)" ]]; then
 else
   set -x
   git add --all repos.json*
-  git add eval-errors/
+  git add nur-eval-errors/
   git commit -m "automatic update"
   # in case we are getting overtaken by a different job
   time \
