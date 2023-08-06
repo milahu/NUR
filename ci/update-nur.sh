@@ -1,6 +1,9 @@
 #!/usr/bin/env nix-shell
 #!nix-shell --quiet -p git -p nix -p bash -p hugo -p python3 -p python3.pkgs.requests -i bash
 
+# debug
+echo ci/update-nur.sh: start time: $(date +"%F %T.%N")
+
 # TODO? use something more lightweight than hugo
 # $ du -sh /nix/store/56c796m1nr81chwv54ic2rcrnc7j30z4-hugo-0.114.0
 # 57M     /nix/store/56c796m1nr81chwv54ic2rcrnc7j30z4-hugo-0.114.0
@@ -152,6 +155,8 @@ python3 -m ci.nur.__init__ combine nur-combined
 set +x # hide output of "git diff"
 if [[ -z "$(git status --porcelain)" ]]; then
   echo "No changes to the output on this push; exiting."
+  # debug
+  echo ci/update-nur.sh: end time: $(date +"%F %T.%N")
   exit
 else
   set -x
@@ -395,3 +400,6 @@ else
     set -x
     echo "nothings changed will not commit anything"
 fi
+
+# debug
+echo ci/update-nur.sh: end time: $(date +"%F %T.%N")
