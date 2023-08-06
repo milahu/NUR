@@ -1,6 +1,8 @@
 #!/usr/bin/env nix-shell
 #!nix-shell --quiet -p git -p nix -p bash -p hugo -i bash
 
+# TODO? make "nix run" and "nix build" faster
+
 # github env:
 # https://docs.github.com/en/actions/learn-github-actions/variables
 # GITHUB_REPOSITORY=nix-community/NUR
@@ -108,6 +110,26 @@ NUR_REPO_PATH="$(readlink -f "$(dirname "$0")/..")"
 
 set -x
 
+
+
+#cd "$NUR_REPO_PATH/ci"
+# TODO why "--quiet"?
+echo building the nur python app
+# ci/flake.nix
+# ci/nur.nix
+nur_app_path=$(
+time \
+nix build --quiet "$NUR_REPO_PATH/ci#"
+)
+# debug
+echo "nur_app_path: $nur_app_path"
+ls $nur_app_path
+find $nur_app_path -type f
+#cd "$NUR_REPO_PATH"
+# TODO use $nur_app_path instead of "nix run"
+
+
+
 echo running update...
 time \
 nix run --quiet "$NUR_REPO_PATH/ci#" -- update
@@ -214,17 +236,6 @@ fi
 
 # TODO why? what?
 echo building package.json for nur-search
-
-cd "$NUR_REPO_PATH/ci"
-
-# TODO why "--quiet"?
-
-# TODO what is the default build target?
-
-time \
-nix build --quiet "$NUR_REPO_PATH/ci#"
-
-cd "$NUR_REPO_PATH"
 
 
 
