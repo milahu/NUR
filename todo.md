@@ -330,3 +330,59 @@ curl -L \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/repos/OWNER/REPO/actions/workflows/WORKFLOW_ID/runs
 ```
+
+## avoid nix commands
+
+because nix commands are slow, generally.
+
+### avoid 'nix build'
+
+we will run python code directly, so no need to create a nix package
+
+```diff
+-nix build --quiet "$NUR_REPO_PATH/ci#"
+```
+
+### avoid 'nix run'
+
+#### install dependencies in the nix shell of ci/update-nur.sh
+
+```diff
+ #!/usr/bin/env nix-shell
+-#!nix-shell --quiet -p git -p nix -p bash -p hugo -i bash
++#!nix-shell --quiet -p git -p nix -p bash -p hugo -p python3 -p python3.pkgs.requests -i bash
+```
+
+#### fix python code
+
+maybe the old python code would work with `python3 -m ci.nur.__init__:main` but meh, lets fix it
+
+```diff
+--- a/ci/nur/__init__.py
++++ b/ci/nur/__init__.py
+@@ -56,3 +56,7 @@ def main() -> None:
+     logging.basicConfig(level=LOG_LEVELS[args.log_level])
+ 
+     args.func(args)
++
++
++if __name__ == "__main__":
++    main()
+```
+
+#### run python code directly in ci/update-nur.sh
+
+```diff
+-nix run --quiet "$NUR_REPO_PATH/ci#" -- update
++python3 -m ci.nur.__init__ update
+```
+
+```diff
+-nix run --quiet "$NUR_REPO_PATH/ci#" -- combine nur-combined
++python3 -m ci.nur.__init__ combine nur-combined
+```
+
+```diff
+-nix run --quiet "$NUR_REPO_PATH/ci#" -- index nur-combined > nur-search/data/packages.json
++python3 -m ci.nur.__init__ index nur-combined > nur-search/data/packages.json
+```
