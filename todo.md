@@ -139,6 +139,24 @@ git remote add nur-packages-template-repo https://github.com/nix-community/nur-p
 git fetch nur-packages-template-repo master:nur-packages-template
 ```
 
+also move the repo `nur-packages-template` to a branch of the `NUR` repo.
+but then, people cannot use the github webinterface to create a fork of `nur-packages-template`.
+instead, people have to manually clone the `nur-packages-template` branch
+to the `master` branch of their `nur-packages` repo.
+we cannot push a shallow clone to a new repo on github, so we create a new repo:
+
+```
+git clone https://github.com/milahu/NUR --branch nur-packages-template --depth=1 nur-packages
+cd nur-packages
+h=$(git rev-parse HEAD)
+rm -rf .git
+git init
+git add .
+git commit -m $'init\n\nfrom:\n\nrepo: https://github.com/milahu/NUR\nbranch: nur-packages-template\ncommit: '$h
+git remote add github https://github.com/$USER/nur-packages
+git push github -u main
+```
+
 ### use relative links in generated html, so it also works with github pages
 
 ### show a recursive list of packages
