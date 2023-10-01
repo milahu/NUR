@@ -386,3 +386,28 @@ maybe the old python code would work with `python3 -m ci.nur.__init__:main` but 
 -nix run --quiet "$NUR_REPO_PATH/ci#" -- index nur-combined > nur-search/data/packages.json
 +python3 -m ci.nur.__init__ index nur-combined > nur-search/data/packages.json
 ```
+
+## fix the PR workflow
+
+currently, the PR workflow fails if a repo gives eval errors
+
+but the PR workflow should not care about these eval errors
+
+example: https://github.com/nix-community/NUR/pull/592
+there, the eval fails because of timeout
+
+## use same filesystem layout as nixpkgs
+
+move packages from default.nix to pkgs/top-level/all-packages.nix
+
+this should be the default filesystem layout in https://github.com/nix-community/nur-packages-template
+to make nur-packages compatible with nixpkgs
+
+examples in https://github.com/nix-community/nur-combined
+
+```
+$ find . -name all-packages.nix
+./repos/xeals/pkgs/top-level/all-packages.nix
+./repos/bb010g/pkgs/top-level/all-packages.nix
+./repos/nexromancers/pkgs/top-level/all-packages.nix
+```
