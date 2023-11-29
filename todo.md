@@ -429,3 +429,14 @@ $ find . -name all-packages.nix
 ./repos/bb010g/pkgs/top-level/all-packages.nix
 ./repos/nexromancers/pkgs/top-level/all-packages.nix
 ```
+
+### generate a better website
+
+current website: http://nur.nix-community.org/
+
+currently, the search function sucks
+
+either use a proper javascript search engine
+
+or render a simple html page with all repos and all packages
+so i can search that page with Control-F
