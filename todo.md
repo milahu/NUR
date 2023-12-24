@@ -440,3 +440,15 @@ either use a proper javascript search engine
 
 or render a simple html page with all repos and all packages
 so i can search that page with Control-F
+
+### on eval error, keep previous version
+
+this seems to be implemented, but only partially
+
+in [my nur-packages](https://github.com/milahu/nur-packages)
+repo, i had some eval error
+which caused my repo to be unlisted from the
+[nur website](http://nur.nix-community.org/)
+
+im afraid i did overwrite the error-causing version
+with a git force-push, so cannot reproduce for now
