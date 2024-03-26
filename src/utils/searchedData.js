@@ -21,7 +21,7 @@ export function searchData({
 
 
 ) {
-  if (!prevSearch.value) pageNo.value = 0;
+  if (!prevSearch.value) pageNo.value = 1;
 
   prevSearch.value = true;
 
