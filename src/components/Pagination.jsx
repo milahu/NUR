@@ -1,4 +1,4 @@
-import { component$, useStylesScoped$, $, useComputed$ } from '@builder.io/qwik';
+import { component$, useSignal, useStylesScoped$, $, useComputed$ } from '@builder.io/qwik';
 
 
 
@@ -12,15 +12,6 @@ export const Pagination = component$((props) => {
   const totalPage = useComputed$(() => {
     return Math.ceil((props.totalPosts.value / props.postPerPage.value)) || 1;
   });
-
-  const changePosts = $((e) => {
-    props.postPerPage.value = e.target.value ;
-    props.postPerPageSelectedIndex.value = props.postPerPageValues.indexOf(props.postPerPage.value);
-  })
-
-  const changePageNo = $((e) => {
-    props.pageNo.value = e.target.value ;
-  })
 
   const decPage = $(() => {
     if (props.pageNo.value > 1) props.pageNo.value--;
@@ -38,20 +29,35 @@ export const Pagination = component$((props) => {
     if(props.pageNo.value !== totalPage.value) props.pageNo.value = totalPage.value;
   })
 
+  const postPerPageLast = useSignal(props.postPerPage.value);
+
+  const postPerPageChange = $(() => {
+    // scale pageNo to keep the first row in focus
+    const firstRowIdx = postPerPageLast.value * (props.pageNo.value - 1);
+    const totalPage2 = Math.ceil((props.totalPosts.value / props.postPerPage.value)) || 1;
+    const pageNo2 = Math.floor(Math.min(totalPage2, (firstRowIdx / props.postPerPage.value) + 1));
+    //console.log(`postPerPage: ${postPerPageLast.value} -> ${props.postPerPage.value}`);
+    //console.log(`totalPage: ${totalPage.value} -> ${totalPage2}`);
+    //console.log(`firstRowIdx: ${firstRowIdx}`);
+    //console.log(`pageNo: ${props.pageNo.value} -> ${pageNo2}`);
+    props.pageNo.value = pageNo2;
+    postPerPageLast.value = props.postPerPage.value;
+  });
+
   return (
     <div class='page-cont'>
 
       <div class='post-select'>
         <div>Rows per page </div>
-        <select bind:value={props.postPerPage}>
-          {props.postPerPageValues.map(postPerPage => (
-            <option selected={postPerPage == props.postPerPage.value}>{postPerPage}</option>
+        <select bind:value={props.postPerPage} onChange$={postPerPageChange}>
+          {props.postPerPageValues.map((postPerPage, idx) => (
+            <option key={idx} selected={postPerPage == props.postPerPage.value}>{postPerPage}</option>
           ))}
         </select>
       </div>
 
       <div>
-        <div class='select-page'>Page <input onInput$={changePageNo} value={props.pageNo.value} type='number' min={1} max={totalPage.value} /> of {totalPage.value}</div>
+        <div class='select-page'>Page <input bind:value={props.pageNo} type='number' min={1} max={totalPage.value} /> of {totalPage.value}</div>
       </div>
 
       <div class='btn-cont'>
