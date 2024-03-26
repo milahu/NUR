@@ -22,9 +22,10 @@ export function sortData({
 
 ) {
   const initialSearchKey = searchBy.value;
-  if (!sortKey.value) return tableData;
 
   if (tableData.length === 0) tableData = data;
+
+  if (sortKey.value === undefined) return tableData;
 
   totalPosts.value = data.length;
   if(prevSearch.value) {
