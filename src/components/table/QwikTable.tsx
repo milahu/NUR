@@ -37,7 +37,7 @@ export const QwikTable = component$((props: tableProps) => {
   const sortOrder = useSignal<string>('asc');
   const sortKey = useSignal<string>(props.header[0].key);
   const pageNo = useSignal<number>(0);
-  const postPerPage = useSignal<number>(10);
+  const postPerPage = useSignal<number>(100);
   const totalPosts = useSignal<number>(props.data.length);
   const searchBy = useSignal<string>(props.header[0].key);
   const searchInp = useSignal<string>('');
@@ -93,6 +93,12 @@ export const QwikTable = component$((props: tableProps) => {
         searchInp={searchInp}
         title={props.title}
         headerImg={props.headerImg}
+      />
+
+      <Pagination
+        pageNo={pageNo}
+        postPerPage={postPerPage}
+        totalPosts={totalPosts}
       />
 
       <table>
