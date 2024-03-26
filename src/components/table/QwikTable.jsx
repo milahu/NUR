@@ -34,11 +34,29 @@ export const QwikTable = component$((props) => {
   );
   useStylesScoped$(AppCSS);
 
+  const postPerPageValues = [
+    10,
+    20,
+    30,
+    50,
+    100,
+    200,
+    300,
+    500,
+    1000,
+    2000,
+    3000,
+    5000,
+    10000,
+  ];
+
+  const postPerPageDefaultValue = 100;
+
   const sortOrder = useSignal('asc');
   //const sortKey = useSignal(props.header[0].key);
   const sortKey = useSignal(undefined); // perf: dont sort by default
   const pageNo = useSignal(1);
-  const postPerPage = useSignal(100);
+  const postPerPage = useSignal(postPerPageDefaultValue);
   const totalPosts = useSignal(props.data.length);
   const searchBy = useSignal(props.header[0].key);
   const searchInp = useSignal('');
@@ -99,6 +117,7 @@ export const QwikTable = component$((props) => {
 
       <Pagination
         pageNo={pageNo}
+        postPerPageValues={postPerPageValues}
         postPerPage={postPerPage}
         totalPosts={totalPosts}
       />
@@ -117,6 +136,7 @@ export const QwikTable = component$((props) => {
 
       <Pagination
         pageNo={pageNo}
+        postPerPageValues={postPerPageValues}
         postPerPage={postPerPage}
         totalPosts={totalPosts}
       />

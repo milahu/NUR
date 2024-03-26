@@ -15,6 +15,7 @@ export const Pagination = component$((props) => {
 
   const changePosts = $((e) => {
     props.postPerPage.value = e.target.value ;
+    props.postPerPageSelectedIndex.value = props.postPerPageValues.indexOf(props.postPerPage.value);
   })
 
   const changePageNo = $((e) => {
@@ -42,17 +43,10 @@ export const Pagination = component$((props) => {
 
       <div class='post-select'>
         <div>Rows per page </div>
-        <select onInput$={changePosts}>
-          <option>10</option>
-          <option>20</option>
-          <option>50</option>
-          <option selected>100</option>
-          <option>200</option>
-          <option>500</option>
-          <option>1000</option>
-          <option>2000</option>
-          <option>5000</option>
-          <option>10000</option>
+        <select bind:value={props.postPerPage}>
+          {props.postPerPageValues.map(postPerPage => (
+            <option selected={postPerPage == props.postPerPage.value}>{postPerPage}</option>
+          ))}
         </select>
       </div>
 
