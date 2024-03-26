@@ -27,7 +27,9 @@ export function searchData({
 
   const searchedData = [];
   data.forEach((row) => {
-    if ((row[searchBy.value].toString()).toLowerCase().indexOf(searchInp.value.toLowerCase()) === -1) {
+    const val = row[searchBy.value];
+    if (val === undefined || val === null) return;
+    if ((val.toString()).toLowerCase().indexOf(searchInp.value.toLowerCase()) === -1) {
       // do nothing
     } else {
       searchedData.push(row)
