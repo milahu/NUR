@@ -1,18 +1,18 @@
-import { Signal, component$, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import { Search } from '../Search';
 
-interface headerProps {
-  headers: {
-    key: string,
-    label: string
-  }[],
-  searchBy: Signal<string>,
-  searchInp: Signal<string>,
-  title: string,
-  headerImg?: string
-}
 
-export const Header = component$((props: headerProps) => {
+
+
+
+
+
+
+
+
+
+
+export const Header = component$((props) => {
   useStylesScoped$(AppCSS);
   return (
     <div class='table-top'>

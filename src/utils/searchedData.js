@@ -1,4 +1,4 @@
-import { Signal } from "@builder.io/qwik";
+
 
 export function searchData({
   data,
@@ -9,24 +9,24 @@ export function searchData({
   searchBy,
   searchInp,
   prevSearch
-}: {
-  data: {
-    [key: string]: string | number | null | undefined
-  }[];
-  pageNo: Signal<number>;
-  sortKey: Signal<string>;
-  sortOrder: Signal<string>;
-  totalPosts: Signal<number>;
-  searchBy: Signal<string>;
-  searchInp: Signal<string>;
-  prevSearch: Signal<boolean>;
-}) {
+}
+
+
+
+
+
+
+
+
+
+
+) {
   if (!prevSearch.value) pageNo.value = 0;
 
   prevSearch.value = true;
 
-  const searchedData: any[] = [];
-  data.forEach((row: any) => {
+  const searchedData = [];
+  data.forEach((row) => {
     if ((row[searchBy.value].toString()).toLowerCase().indexOf(searchInp.value.toLowerCase()) === -1) {
       // do nothing
     } else {
@@ -34,7 +34,7 @@ export function searchData({
     }
   })
 
-  const finalData = searchedData.sort((a: any, b: any) => {
+  const finalData = searchedData.sort((a, b) => {
     return a[sortKey.value] > b[sortKey.value] ? 1 : -1;
   });
 

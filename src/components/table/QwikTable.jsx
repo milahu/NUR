@@ -6,19 +6,19 @@ import { sortData } from '../../utils/sortData';
 import { searchData } from '../../utils/searchedData';
 import { Header } from '../header/Header';
 
-interface tableProps {
-  header: {
-    key: string,
-    label: string
-  }[],
-  data: {
-    [key: string]: string | number | null | undefined
-  }[],
-  title: string,
-  headerImg?: string
-}
 
-export const QwikTable = component$((props: tableProps) => {
+
+
+
+
+
+
+
+
+
+
+
+export const QwikTable = component$((props) => {
   useStyles$(`
     table {
       border-collapse: collapse;
@@ -34,14 +34,14 @@ export const QwikTable = component$((props: tableProps) => {
   );
   useStylesScoped$(AppCSS);
 
-  const sortOrder = useSignal<string>('asc');
-  const sortKey = useSignal<string>(props.header[0].key);
-  const pageNo = useSignal<number>(0);
-  const postPerPage = useSignal<number>(100);
-  const totalPosts = useSignal<number>(props.data.length);
-  const searchBy = useSignal<string>(props.header[0].key);
-  const searchInp = useSignal<string>('');
-  const prevSearch = useSignal<boolean>(false);
+  const sortOrder = useSignal('asc');
+  const sortKey = useSignal(props.header[0].key);
+  const pageNo = useSignal(0);
+  const postPerPage = useSignal(100);
+  const totalPosts = useSignal(props.data.length);
+  const searchBy = useSignal(props.header[0].key);
+  const searchInp = useSignal('');
+  const prevSearch = useSignal(false);
 
   const finalData = useStore({
     items: props.data

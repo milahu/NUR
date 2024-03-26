@@ -1,19 +1,19 @@
-import { Signal, component$, useComputed$, useStylesScoped$ } from '@builder.io/qwik';
+import { component$, useComputed$, useStylesScoped$ } from '@builder.io/qwik';
 import { isImage } from '../../utils/imageBool';
 
-interface bodyProps {
-  data: {
-    [key: string]: string | number | null | undefined
-  }[],
-  pageNo: Signal<number>,
-  postPerPage: Signal<number>
-}
 
-type cellType = {
-  [key: string]: string | number | null | undefined;
-}
 
-export const TableBody = component$((props: bodyProps) => {
+
+
+
+
+
+
+
+
+
+
+export const TableBody = component$((props) => {
   useStylesScoped$(AppCSS);
 
   const computedPosts = useComputed$(() => {
@@ -27,13 +27,13 @@ export const TableBody = component$((props: bodyProps) => {
 
   return (
     <tbody>
-      {computedPosts.value.map((cell: cellType) => {
+      {computedPosts.value.map((cell) => {
         const keys = Object.keys(cell);
         return (
           <tr key={cell[keys[0]]}>
             {keys.map((item, i) => {
               if (isImage(cell[item])) {
-                const imgSrc = cell[item] as string;
+                const imgSrc = cell[item] ;
                 return (
                   <td key={i}>
                     <img width={50} height={50} src={imgSrc} />

@@ -1,25 +1,25 @@
-import { Signal, component$, useStylesScoped$ } from '@builder.io/qwik';
+import { component$, useStylesScoped$ } from '@builder.io/qwik';
 import { SortButton } from '../SortButton';
 
-interface HeaderProps {
-  header: {
-    key: string,
-    label: string
-  }[],
-  sortOrder: Signal<string>,
-  sortKey: Signal<string>
-}
 
-type cellType = {
-  [key: string]: string | number | null | undefined;
-}
 
-export const TableHead = component$((props: HeaderProps) => {
+
+
+
+
+
+
+
+
+
+
+
+export const TableHead = component$((props) => {
   useStylesScoped$(AppCSS);
   return (
     <thead>
       <tr>
-        {props.header.map((cell: cellType, i) => {
+        {props.header.map((cell, i) => {
           return (
             <td key={i}>
               {cell[Object.keys(cell)[1]]}

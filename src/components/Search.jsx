@@ -1,23 +1,23 @@
-import { $, Signal, component$, useStylesScoped$ } from '@builder.io/qwik';
+import { $, component$, useStylesScoped$ } from '@builder.io/qwik';
 
-interface searchProps {
-  headers: {
-    key: string,
-    label: string
-  }[],
-  searchBy: Signal<string>,
-  searchInp: Signal<string>
-}
 
-export const Search = component$(( props: searchProps) => {
+
+
+
+
+
+
+
+
+export const Search = component$(( props) => {
   useStylesScoped$(AppCSS);
 
-  const setSearchBy = $((e: any) => {
+  const setSearchBy = $((e) => {
     console.log(e.target.value)
     props.searchBy.value = e.target.value;
   })
 
-  const setSearchInp = $((e: any) => {
+  const setSearchInp = $((e) => {
     props.searchInp.value = e.target.value;
   })
 

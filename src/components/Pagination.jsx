@@ -1,24 +1,24 @@
-import { Signal, component$, useStylesScoped$, $, useComputed$ } from '@builder.io/qwik';
+import { component$, useStylesScoped$, $, useComputed$ } from '@builder.io/qwik';
 
-interface pageProps {
-  pageNo: Signal<number>,
-  postPerPage: Signal<number>,
-  totalPosts: Signal<number>
-}
 
-export const Pagination = component$((props: pageProps) => {
+
+
+
+
+
+export const Pagination = component$((props) => {
   useStylesScoped$(AppCSS);
 
   const totalPage = useComputed$(() => {
     return Math.ceil((props.totalPosts.value / props.postPerPage.value)) - 1;
   });
 
-  const changePosts = $((e: any) => {
-    props.postPerPage.value = e.target.value as number;
+  const changePosts = $((e) => {
+    props.postPerPage.value = e.target.value ;
   })
 
-  const changePageNo = $((e: any) => {
-    props.pageNo.value = e.target.value as number;
+  const changePageNo = $((e) => {
+    props.pageNo.value = e.target.value ;
   })
 
   const decPage = $(() => {

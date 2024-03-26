@@ -1,12 +1,12 @@
-import { component$, useOn, useStylesScoped$, $, Signal } from '@builder.io/qwik';
+import { component$, useOn, useStylesScoped$, $, } from '@builder.io/qwik';
 
-interface typeProps {
-  cellKey: string | number | null | undefined,
-  sortOrder: Signal<string>,
-  sortKey: Signal<string | number | null | undefined>
-}
 
-export const SortButton = component$((props: typeProps) => {
+
+
+
+
+
+export const SortButton = component$((props) => {
   useStylesScoped$(AppCSS);
   useOn(
     'click',
