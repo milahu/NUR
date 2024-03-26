@@ -10,7 +10,7 @@ export const Pagination = component$((props) => {
   useStylesScoped$(AppCSS);
 
   const totalPage = useComputed$(() => {
-    return Math.ceil((props.totalPosts.value / props.postPerPage.value)) - 1;
+    return Math.ceil((props.totalPosts.value / props.postPerPage.value));
   });
 
   const changePosts = $((e) => {
@@ -22,7 +22,7 @@ export const Pagination = component$((props) => {
   })
 
   const decPage = $(() => {
-    if (props.pageNo.value !== 0) props.pageNo.value--;
+    if (props.pageNo.value > 1) props.pageNo.value--;
   })
 
   const incPage = $(() => {
@@ -30,7 +30,7 @@ export const Pagination = component$((props) => {
   })
 
   const setFirstPage = $(() => {
-    if(props.pageNo.value !== 0) props.pageNo.value = 0;
+    if(props.pageNo.value !== 1) props.pageNo.value = 1;
   })
 
   const setLastPage = $(() => {
@@ -57,11 +57,11 @@ export const Pagination = component$((props) => {
       </div>
 
       <div>
-        <div class='select-page'>Page <input onInput$={changePageNo} value={props.pageNo.value} type='number' min={0} max={totalPage.value} /> of {totalPage.value}</div>
+        <div class='select-page'>Page <input onInput$={changePageNo} value={props.pageNo.value} type='number' min={1} max={totalPage.value} /> of {totalPage.value}</div>
       </div>
 
       <div class='btn-cont'>
-        <button disabled={props.pageNo.value === 0} onClick$={setFirstPage}>
+        <button disabled={props.pageNo.value === 1} onClick$={setFirstPage}>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
         </button>
         <button onClick$={decPage}>

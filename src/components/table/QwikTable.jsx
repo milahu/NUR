@@ -37,7 +37,7 @@ export const QwikTable = component$((props) => {
   const sortOrder = useSignal('asc');
   //const sortKey = useSignal(props.header[0].key);
   const sortKey = useSignal(undefined); // perf: dont sort by default
-  const pageNo = useSignal(0);
+  const pageNo = useSignal(1);
   const postPerPage = useSignal(100);
   const totalPosts = useSignal(props.data.length);
   const searchBy = useSignal(props.header[0].key);

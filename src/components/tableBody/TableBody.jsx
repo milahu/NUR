@@ -17,8 +17,9 @@ export const TableBody = component$((props) => {
   useStylesScoped$(AppCSS);
 
   const computedPosts = useComputed$(() => {
-    return props.data.slice((props.pageNo.value * props.postPerPage.value),
-      ((props.pageNo.value * props.postPerPage.value)
+    const pageIdx = props.pageNo.value - 1;
+    return props.data.slice((pageIdx * props.postPerPage.value),
+      ((pageIdx * props.postPerPage.value)
         + parseInt(props.postPerPage.value.toString())))
   })
 
