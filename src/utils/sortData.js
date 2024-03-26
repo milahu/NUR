@@ -7,6 +7,7 @@ export function sortData({
   sortOrder,
   totalPosts,
   prevSearch,
+  searchInp,
   searchBy
 }
 
@@ -23,7 +24,7 @@ export function sortData({
 ) {
   const initialSearchKey = searchBy.value;
 
-  if (tableData.length === 0) tableData = data;
+  if (tableData.length === 0 || searchInp.value === '') tableData = data;
 
   totalPosts.value = tableData.length;
 

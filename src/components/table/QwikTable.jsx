@@ -55,6 +55,7 @@ export const QwikTable = component$((props) => {
     sortOrder: sortOrder,
     totalPosts: totalPosts,
     prevSearch: prevSearch,
+    searchInp: searchInp,
     searchBy: searchBy
   }))
 
