@@ -10,7 +10,7 @@ export const Pagination = component$((props) => {
   useStylesScoped$(AppCSS);
 
   const totalPage = useComputed$(() => {
-    return Math.ceil((props.totalPosts.value / props.postPerPage.value));
+    return Math.ceil((props.totalPosts.value / props.postPerPage.value)) || 1;
   });
 
   const changePosts = $((e) => {
