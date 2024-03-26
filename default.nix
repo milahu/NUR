@@ -5,8 +5,11 @@
 }:
 
 let
-  manifest = (builtins.fromJSON (builtins.readFile ./repos.json)).repos;
-  lockedRevisions = (builtins.fromJSON (builtins.readFile ./repos.json.lock)).repos;
+  #manifest = (builtins.fromJSON (builtins.readFile ./repos.json)).repos;
+  #lockedRevisions = (builtins.fromJSON (builtins.readFile ./repos.json.lock)).repos;
+
+  manifest = (builtins.fromJSON (builtins.readFile ./nur-repos/repos.json)).repos;
+  lockedRevisions = (builtins.fromJSON (builtins.readFile ./nur-repos-lock/repos.json.lock)).repos;
 
   inherit (nurpkgs) lib;
 
