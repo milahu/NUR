@@ -25,9 +25,10 @@ export function sortData({
 
   if (tableData.length === 0) tableData = data;
 
+  totalPosts.value = tableData.length;
+
   if (sortKey.value === undefined) return tableData;
 
-  totalPosts.value = data.length;
   if(prevSearch.value) {
     prevSearch.value = false;
     tableData = data;
