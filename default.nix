@@ -1,3 +1,5 @@
+# this file will be copied to nur-combined/default.nix
+
 { nurpkgs ? import <nixpkgs> {} # For nixpkgs dependencies used by NUR itself
   # Dependencies to call NUR repos with
 , pkgs ? null
@@ -5,11 +7,8 @@
 }:
 
 let
-  #manifest = (builtins.fromJSON (builtins.readFile ./repos.json)).repos;
-  #lockedRevisions = (builtins.fromJSON (builtins.readFile ./repos.json.lock)).repos;
-
-  manifest = (builtins.fromJSON (builtins.readFile ./nur-repos/repos.json)).repos;
-  lockedRevisions = (builtins.fromJSON (builtins.readFile ./nur-repos-lock/repos.json.lock)).repos;
+  manifest = (builtins.fromJSON (builtins.readFile ./repos.json)).repos;
+  lockedRevisions = (builtins.fromJSON (builtins.readFile ./repos.json.lock)).repos;
 
   inherit (nurpkgs) lib;
 
