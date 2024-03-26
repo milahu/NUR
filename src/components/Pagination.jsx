@@ -46,7 +46,7 @@ export const Pagination = component$((props) => {
           <option>10</option>
           <option>20</option>
           <option>50</option>
-          <option>100</option>
+          <option selected>100</option>
           <option>200</option>
           <option>500</option>
           <option>1000</option>
