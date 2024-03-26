@@ -57,7 +57,7 @@ let
       sha256 = aether-sha256;
     } + "/aether-core"; # the go.mod file is in /aether-core
 
-    vendorSha256 = "042q726cnvz8igjkkw22qh7196wfhpy2k3d0xhmdpjqp6rfryy9m";
+    vendorHash = "042q726cnvz8igjkkw22qh7196wfhpy2k3d0xhmdpjqp6rfryy9m";
     runVend = true; # rewrite vendor folder?
 
     # fix: mkdir /homeless-shelter: permission denied
@@ -105,7 +105,7 @@ stdenv.mkDerivation rec {
     homepage = "https://getaether.net/";
     downloadPage = "https://getaether.net/download/";
     license = licenses.agpl3Only;
-    maintainers = with maintainers; [ maxhille ];
+    maintainers = with maintainers; [ ];
     # other platforms could be supported by building from source
     platforms = [ "x86_64-linux" ];
   };
