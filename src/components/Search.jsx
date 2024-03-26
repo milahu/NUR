@@ -1,4 +1,4 @@
-import { $, component$, useStylesScoped$ } from '@builder.io/qwik';
+import { $, component$, useStylesScoped$, useSignal } from '@builder.io/qwik';
 
 
 
@@ -17,6 +17,15 @@ export const Search = component$(( props) => {
     props.searchBy.value = e.target.value;
   })
 
+  // https://qwik.dev/docs/cookbook/debouncer/
+  const debounce = (fn, delay) => {
+    const timeoutId = useSignal();
+    return $((args) => {
+      clearTimeout(timeoutId.value);
+      timeoutId.value = Number(setTimeout(() => fn(args), delay));
+    });
+  };
+
   const setSearchInp = $((e) => {
     props.searchInp.value = e.target.value;
   })
@@ -29,7 +38,7 @@ export const Search = component$(( props) => {
           <option key={i} value={item.key}>{item.label}</option>
         ))}
         </select>
-      <input onInput$={setSearchInp} class='search-inp' placeholder='search' />
+      <input onInput$={debounce(setSearchInp, 500)} class='search-inp' placeholder='search' />
     </div>
   );
 });
