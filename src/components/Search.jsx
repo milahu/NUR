@@ -26,7 +26,7 @@ export const Search = component$(( props) => {
       Search by
       <select onInput$={setSearchBy}>
         {props.headers.map((item, i) => (
-          <option key={i}>{item.key}</option>
+          <option key={i}>{item.label}</option>
         ))}
         </select>
       <input onInput$={setSearchInp} class='search-inp' placeholder='search' />
