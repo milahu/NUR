@@ -3,11 +3,11 @@ import shutil
 import sys
 from argparse import Namespace
 
-from .path import ROOT
+from .path import MANIFEST_PATH
 
 
 def format_manifest_command(args: Namespace) -> None:
-    path = ROOT.joinpath("repos.json")
+    path = MANIFEST_PATH
     manifest = json.load(open(path))
     for name, repo in manifest.get("repos", []).items():
         if "url" not in repo:

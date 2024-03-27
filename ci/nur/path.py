@@ -29,21 +29,32 @@ def _find_root() -> Path:
             root = new_root
 
 
-ROOT = _find_root()
-LOCK_PATH = ROOT.joinpath("repos.json.lock")
-MANIFEST_PATH = ROOT.joinpath("repos.json")
-EVALREPO_PATH = ROOT.joinpath("lib/evalRepo.nix")
-EVAL_ERRORS_PATH = ROOT.joinpath("nur-eval-errors")
-EVAL_ERRORS_LOCK_PATH = ROOT.joinpath("nur-eval-errors/repos.json.lock")
-PREFETCH_CACHE_PATH = ROOT.joinpath("prefetch-cache.pickle")
+# note: we need to resolve absolute paths so later we can chdir
+ROOT_PATH = Path(os.environ.get("ROOT_PATH", _find_root())).resolve()
+DEFAULT_NIX_PATH = Path(os.environ.get("DEFAULT_NIX_PATH", ROOT_PATH.joinpath("default.nix"))).resolve()
+MANIFEST_LIB_PATH = Path(os.environ.get("MANIFEST_LIB_PATH", ROOT_PATH.joinpath("lib"))).resolve()
+LOCK_PATH = Path(os.environ.get("LOCK_PATH", ROOT_PATH.joinpath("repos.json.lock"))).resolve()
+MANIFEST_PATH = Path(os.environ.get("MANIFEST_PATH", ROOT_PATH.joinpath("repos.json"))).resolve()
+EVALREPO_PATH = Path(os.environ.get("EVALREPO_PATH", ROOT_PATH.joinpath("lib/evalRepo.nix"))).resolve()
+EVAL_ERRORS_PATH = Path(os.environ.get("EVAL_ERRORS_PATH", ROOT_PATH.joinpath("nur-eval-errors"))).resolve()
+EVAL_ERRORS_LOCK_PATH = Path(os.environ.get("EVAL_ERRORS_LOCK_PATH", ROOT_PATH.joinpath("nur-eval-errors/repos.json.lock"))).resolve()
+PREFETCH_CACHE_PATH = Path(os.environ.get("PREFETCH_CACHE_PATH", ROOT_PATH.joinpath("prefetch-cache.pickle"))).resolve()
 
-_NIXPKGS_PATH = None
+_NIXPKGS_PATH = os.environ.get("NIXPKGS_PATH", None)
 
 
 def nixpkgs_path() -> str:
     global _NIXPKGS_PATH
     if _NIXPKGS_PATH is not None:
         return _NIXPKGS_PATH
+
+    if "NIX_PATH" in os.environ:
+        for item in os.environ["NIX_PATH"].split(":"):
+            if item.startswith("nixpkgs=/"):
+                path = item[8:]
+                _NIXPKGS_PATH = str(Path(path).resolve())
+                return _NIXPKGS_PATH
+
     cmd = ["nix-instantiate", "--find-file", "nixpkgs"]
     path = subprocess.check_output(cmd).decode("utf-8").strip()
     _NIXPKGS_PATH = str(Path(path).resolve())

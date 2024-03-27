@@ -10,7 +10,7 @@ from typing import Dict, List, Optional
 
 from .fileutils import chdir, write_json_file
 from .manifest import Repo, load_manifest, update_lock_file
-from .path import LOCK_PATH, MANIFEST_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH, ROOT
+from .path import LOCK_PATH, MANIFEST_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH, ROOT_PATH, DEFAULT_NIX_PATH, MANIFEST_LIB_PATH
 from .process import prctl_set_pdeathsig
 
 logging.basicConfig(level=logging.INFO)
@@ -22,8 +22,11 @@ def load_combined_repos(path: Path) -> Dict[str, Repo]:
         # TODO use paths from path.py with a different ROOT path
         path.joinpath("repos.json"),
         path.joinpath("repos.json.lock"),
-        path.joinpath("nur-eval-errors/repos.json.lock"),
-        path.joinpath("nur-eval-errors"),
+        # no. these files are not in nur-combined/
+        #path.joinpath("nur-eval-errors/repos.json.lock"),
+        #path.joinpath("nur-eval-errors"),
+        EVAL_ERRORS_LOCK_PATH,
+        EVAL_ERRORS_PATH,
     )
     repos = {}
     for repo in combined_manifest.repos:
@@ -50,7 +53,7 @@ def capture_check_call(args: List[str]):
 
 
 def repo_source(name: str) -> str:
-    cmd = ["nix-build", str(ROOT), "--no-out-link", "-A", f"repo-sources.{name}"]
+    cmd = ["nix-build", str(ROOT_PATH), "--no-out-link", "-A", f"repo-sources.{name}"]
     proc, stdout, stderr = capture_check_call(cmd)
     return stdout.strip()
 
@@ -178,9 +181,10 @@ def setup_combined() -> None:
         write_json_file(dict(repos={}), manifest_path)
 
     manifest_lib = "lib"
-    copy_tree(str(ROOT.joinpath("lib")), manifest_lib, preserve_symlinks=1)
+    copy_tree(str(MANIFEST_LIB_PATH), manifest_lib, preserve_symlinks=1)
+
     default_nix = "default.nix"
-    shutil.copy(ROOT.joinpath("default.nix"), default_nix)
+    shutil.copy(DEFAULT_NIX_PATH, default_nix)
 
     vcs_files = [manifest_path, manifest_lib, default_nix]
 

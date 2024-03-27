@@ -8,7 +8,7 @@ import logging
 
 from .fileutils import PathType, to_path, write_json_file
 from .error import EvalError
-from .path import ROOT
+from .path import ROOT_PATH
 
 Url = ParseResult
 
@@ -192,7 +192,7 @@ def update_eval_errors_lock_file(repos: List[Repo], path: Path) -> None:
 def update_eval_errors(repos: List[Repo], path: Path) -> None:
     for repo in repos:
         eval_error_path = path.joinpath(f"{repo.name}.txt")
-        eval_error_relpath = os.path.relpath(eval_error_path, ROOT)
+        eval_error_relpath = os.path.relpath(eval_error_path, ROOT_PATH)
 
         if repo.eval_error_text:
             logger.debug(f"Writing error message: {eval_error_relpath}")

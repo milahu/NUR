@@ -6,7 +6,7 @@ from typing import List
 from .combine import combine_command
 from .format_manifest import format_manifest_command
 from .index import index_command
-from .path import ROOT
+from .path import ROOT_PATH
 from .update import update_command
 
 LOG_LEVELS = dict(
@@ -38,7 +38,7 @@ def parse_arguments(argv: List[str]) -> argparse.Namespace:
     update.set_defaults(func=update_command)
 
     index = subparsers.add_parser("index")
-    index.add_argument("directory", default=ROOT)
+    index.add_argument("directory", default=ROOT_PATH)
     index.set_defaults(func=index_command)
 
     args = parser.parse_args(argv[1:])

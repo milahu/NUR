@@ -11,7 +11,7 @@ import cProfile, pstats, io
 
 from .error import EvalError, RepoNotFoundError
 from .manifest import Repo, load_manifest, update_lock_file, update_eval_errors, update_eval_errors_lock_file
-from .path import ROOT, EVALREPO_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH, LOCK_PATH, MANIFEST_PATH, nixpkgs_path
+from .path import ROOT_PATH, EVALREPO_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH, LOCK_PATH, MANIFEST_PATH, nixpkgs_path
 from .prefetch import prefetch, update_version_github_repos
 from .process import prctl_set_pdeathsig
 
@@ -93,7 +93,7 @@ def update(repo: Repo) -> Repo:
     repo.new_version = new_version
 
     if repo.eval_error_version == new_version:
-        eval_error_path = os.path.relpath(EVAL_ERRORS_PATH.joinpath(f"{repo.name}.txt"), ROOT)
+        eval_error_path = os.path.relpath(EVAL_ERRORS_PATH.joinpath(f"{repo.name}.txt"), ROOT_PATH)
         #raise EvalError(f"Repository {repo.name} did not evaluate in a previous run with version {repo.eval_error_version}. See error message in {eval_error_path}", repo.eval_error_text)
         #raise EvalError(f"Eval failed before at {repo.eval_error_version}. See {eval_error_path}", repo.eval_error_text)
         raise EvalError(f"Eval failed before, see {eval_error_path}", repo.eval_error_text)
