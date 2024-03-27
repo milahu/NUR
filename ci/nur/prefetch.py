@@ -18,7 +18,6 @@ from .process import prctl_set_pdeathsig
 
 Url = ParseResult
 
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 

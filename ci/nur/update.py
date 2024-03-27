@@ -15,7 +15,6 @@ from .path import ROOT_PATH, EVALREPO_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_P
 from .prefetch import prefetch, update_version_github_repos
 from .process import prctl_set_pdeathsig
 
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 

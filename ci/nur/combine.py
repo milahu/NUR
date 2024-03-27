@@ -13,7 +13,6 @@ from .manifest import Repo, load_manifest, update_lock_file
 from .path import LOCK_PATH, MANIFEST_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH, ROOT_PATH, DEFAULT_NIX_PATH, MANIFEST_LIB_PATH
 from .process import prctl_set_pdeathsig
 
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 

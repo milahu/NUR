@@ -12,7 +12,6 @@ from .path import ROOT_PATH
 
 Url = ParseResult
 
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
