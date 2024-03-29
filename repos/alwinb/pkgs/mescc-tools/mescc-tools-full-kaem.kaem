@@ -1,0 +1,161 @@
+#!/usr/bin/env bash
+# Mes --- Maxwell Equations of Software
+# Copyright © 2021 Alwin Berger
+# Copyright © 2017,2019 Jan Nieuwenhuizen <janneke@gnu.org>
+# Copyright © 2017,2019 Jeremiah Orians
+#
+# This file is part of Mes.
+#
+# Mes is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or (at
+# your option) any later version.
+#
+# Mes is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Mes.  If not, see <http://www.gnu.org/licenses/>.
+
+#########################################################################
+# Phase-9c create Nix $out						#
+# This script will be run by a fully functional kaem!			#
+# Therefore it can use environment variables to place the binaries	#
+# It's Job is to create the output path and place our artifacts there   #
+# since catm does not preserve permissions we need to do redundant work	#
+#########################################################################
+
+./mkdirm ${out}
+./mkdirm ${out}/bin
+
+# Repeat building some mescc-tools to $out
+./hex2-1 --architecture x86 \
+	--little-endian \
+	--base-address 0x8048000 \
+	-f ${m2libc}/x86/ELF-x86-debug.hex2 \
+	-f hold_over_M1.hex2 \
+	-o ${out}/bin/M1
+
+./hex2-1 --architecture x86 \
+	--little-endian \
+	--base-address 0x8048000 \
+	-f ${m2libc}/x86/ELF-x86-debug.hex2 \
+	-f hold_over_hex2.hex2 \
+	-o ${out}/bin/hex2
+
+./hex2 --architecture x86 \
+	--little-endian \
+	-f hold_over_kaem.hex2 \
+	--base-address 0x8048000 \
+	-o ${out}/bin/kaem
+
+##################################################
+# Phase-12 Build final blood-elf from C sources  #
+##################################################
+./M2 --architecture x86 \
+	-f ${m2libc}/sys/types.h \
+	-f ${m2libc}/stddef.h \
+	-f ${m2libc}/x86/Linux/unistd.h \
+	-f ${m2libc}/stdlib.c \
+	-f ${m2libc}/x86/Linux/fcntl.h \
+	-f ${m2libc}/stdio.c \
+	-f ${m2libc}/bootstrappable.c \
+	-f ${mescctools}/blood-elf.c \
+	--debug \
+	-o blood-elf.M1
+
+./blood-elf-0 -f blood-elf.M1 -o blood-elf-footer.M1
+${out}/bin/M1 --architecture x86 \
+	--little-endian \
+	-f ${m2libc}/x86/x86_defs.M1 \
+	-f ${m2libc}/x86/libc-full.M1 \
+	-f blood-elf.M1 \
+	-f blood-elf-footer.M1 \
+	-o hold
+
+${out}/bin/hex2 --architecture x86 \
+	--little-endian \
+	--base-address 0x8048000 \
+	-f ${m2libc}/x86/ELF-x86-debug.hex2 \
+	-f hold \
+	-o ${out}/bin/blood-elf
+
+# Now we have our shipping debuggable blood-elf, the rest will be down hill from
+# here as we have ALL of the core pieces of compiling and assembling debuggable
+# programs in a debuggable form with corresponding C source code.
+
+#############################################
+# Phase-13 Build get_machine from C sources #
+#############################################
+./M2 --architecture x86 \
+	-f ${m2libc}/sys/types.h \
+	-f ${m2libc}/stddef.h \
+	-f ${m2libc}/x86/Linux/unistd.h \
+	-f ${m2libc}/stdlib.c \
+	-f ${m2libc}/x86/Linux/fcntl.h \
+	-f ${m2libc}/stdio.c \
+	-f ${m2libc}/bootstrappable.c \
+	-f ${mescctools}/get_machine.c \
+	--debug \
+	-o get_machine.M1
+
+${out}/bin/blood-elf -f get_machine.M1 -o get_machine-footer.M1
+
+${out}/bin/M1 --architecture x86 \
+	--little-endian \
+	-f ${m2libc}/x86/x86_defs.M1 \
+	-f ${m2libc}/x86/libc-full.M1 \
+	-f get_machine.M1 \
+	-f get_machine-footer.M1 \
+	-o hold
+
+${out}/bin/hex2 --architecture x86 \
+	--little-endian \
+	--base-address 0x8048000 \
+	-f ${m2libc}/x86/ELF-x86-debug.hex2 \
+	-f hold \
+	-o ${out}/bin/get_machine
+
+############################################
+# Phase-14 Build M2-Planet from M2-Planet  #
+############################################
+./M2 --architecture x86 \
+	-f ${m2libc}/sys/types.h \
+	-f ${m2libc}/stddef.h \
+	-f ${m2libc}/x86/Linux/unistd.h \
+	-f ${m2libc}/stdlib.c \
+	-f ${m2libc}/x86/Linux/fcntl.h \
+	-f ${m2libc}/stdio.c \
+	-f ${m2libc}/bootstrappable.c \
+	-f ${m2planet}/cc.h \
+	-f ${m2planet}/cc_globals.c \
+	-f ${m2planet}/cc_reader.c \
+	-f ${m2planet}/cc_strings.c \
+	-f ${m2planet}/cc_types.c \
+	-f ${m2planet}/cc_core.c \
+	-f ${m2planet}/cc_macro.c \
+	-f ${m2planet}/cc.c \
+	--debug \
+	-o M2.M1
+
+${out}/bin/blood-elf -f M2.M1 -o M2-footer.M1
+
+${out}/bin/M1 --architecture x86 \
+	--little-endian \
+	-f ${m2libc}/x86/x86_defs.M1 \
+	-f ${m2libc}/x86/libc-full.M1 \
+	-f M2.M1 \
+	-f M2-footer.M1 \
+	-o hold
+
+${out}/bin/hex2 --architecture x86 \
+	--little-endian \
+	--base-address 0x8048000 \
+	-f ${m2libc}/x86/ELF-x86-debug.hex2 \
+	-f hold \
+	-o ${out}/bin/M2-Planet
+
+# Congrats you successfully completed the bootstrap of mescc-tools;
+# the resulting binaries that you want are in bin
