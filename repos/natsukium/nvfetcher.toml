@@ -1,0 +1,52 @@
+[copyq-darwin]
+src.github = "hluk/CopyQ"
+src.prefix = "v"
+fetch.url = "https://github.com/hluk/CopyQ/releases/download/v$ver/CopyQ-macos-12-m1.dmg.zip"
+
+[emacs-plus]
+src.git = "https://github.com/d12frosted/homebrew-emacs-plus"
+src.branch = "master"
+fetch.github = "d12frosted/homebrew-emacs-plus"
+
+[nixfmt]
+src.git = "https://github.com/NixOS/nixfmt"
+src.branch = "master"
+fetch.github = "NixOS/nixfmt"
+
+[nixpkgs-review]
+src.git = "https://github.com/natsukium/nixpkgs-review"
+src.branch = "r-rmcgibbo-1"
+fetch.github = "natsukium/nixpkgs-review"
+
+[nowplaying-cli]
+src.github = "kirtan-shah/nowplaying-cli"
+src.prefix = "v"
+fetch.url = "https://github.com/kirtan-shah/nowplaying-cli/archive/v$ver.tar.gz"
+
+[qmk-toolbox]
+src.github = "qmk/qmk_toolbox"
+fetch.url = "https://github.com/qmk/qmk_toolbox/releases/download/$ver/QMK.Toolbox.app.zip"
+
+[qutebrowser-darwin]
+src.github = "qutebrowser/qutebrowser"
+src.prefix = "v"
+fetch.url = "https://github.com/qutebrowser/qutebrowser/releases/download/v$ver/qutebrowser-$ver.dmg"
+
+[sbarlua]
+src.git = "https://github.com/FelixKratz/SbarLua"
+src.branch = "main"
+fetch.github = "FelixKratz/SbarLua"
+
+[skkeleton]
+src.git = "https://github.com/vim-skk/skkeleton"
+src.branch = "main"
+fetch.github = "vim-skk/skkeleton"
+
+[vim-startuptime]
+src.github = "rhysd/vim-startuptime"
+src.prefix = "v"
+fetch.url = "https://github.com/rhysd/vim-startuptime/archive/v$ver.tar.gz"
+
+[vivaldi-darwin]
+src.archpkg = "vivaldi"
+fetch.url = "https://downloads.vivaldi.com/stable/Vivaldi.$ver.universal.dmg"
