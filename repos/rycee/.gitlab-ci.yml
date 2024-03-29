@@ -1,0 +1,97 @@
+image: nixos/nix:2.18.1
+
+variables:
+  # Pinned 2024-01-16.
+  NIX_PATH: "nixpkgs=https://github.com/NixOS/nixpkgs/archive/9b19f5e77dd906cb52dade0b7bd280339d2a1f3d.tar.gz"
+
+# stages:
+#   - build
+#   - deploy
+
+# pages:
+#   stage: deploy
+#   script:
+#     - mkdir public
+#     - cp ci/redirect-manual.html public/index.html
+#     - echo "/nur-expressions/* /nur-expressions/index.html 200" > public/_redirects
+#   artifacts:
+#     paths:
+#       - public
+#   only:
+#     refs:
+#       - pushes
+#     variables:
+#       - $CI_COMMIT_REF_NAME == "master"
+
+Build NUR:
+  stage: build
+  before_script:
+    - nix-env -f '<nixpkgs>' -iA cachix curl
+    - cachix use rycee
+  script:
+    - nix-build ci.nix -A buildOutputs
+    - nix --experimental-features 'nix-command' eval -f default.nix hmModules
+    - nix --experimental-features 'nix-command' eval -f default.nix lib
+    - nix --experimental-features 'nix-command' eval -f default.nix modules
+    - nix --experimental-features 'nix-command' eval -f default.nix ndModules
+    - nix --experimental-features 'nix-command' eval -f default.nix overlays
+    - |
+      if [ "$CI_COMMIT_REF_NAME" = "master" -a -n "$CACHIX_SIGNING_KEY" ] ; then
+        nix-build ci.nix -A cacheOutputs | cachix push rycee
+        curl -sfSL -XPOST https://nur-update.nix-community.org/update?repo=rycee || true
+      else
+        echo Not master
+      fi
+  only:
+    - pushes
+
+Update Firefox addons:
+  stage: build
+  variables:
+    ADDONS_INPUT: pkgs/firefox-addons/addons.json
+    ADDONS_OUTPUT: pkgs/firefox-addons/generated-firefox-addons.nix
+    REMOTE_URL: https://nur-updates:$RYBOT_TOKEN@gitlab.com/$CI_PROJECT_PATH.git
+  before_script:
+    - nix-env -f '<nixpkgs>' -iA cachix
+    - cachix use rycee
+    - nix-env -f . -iA mozilla-addons-to-nix
+    - git remote set-url origin $REMOTE_URL
+    - git config --global user.email 'rybot@rycee.net'
+    - git config --global user.name 'rybot'
+  script:
+    - git pull --ff-only origin $CI_COMMIT_REF_NAME
+    - mozilla-addons-to-nix $ADDONS_INPUT $ADDONS_OUTPUT
+    - |
+      if [ "$(git status --porcelain --untracked-files=no)" ] ; then
+        git commit -m "Automatic update of Firefox addons" $ADDONS_OUTPUT
+        git push origin HEAD:$CI_COMMIT_REF_NAME
+      else
+        echo No changes to push
+      fi
+  only:
+    - schedules
+
+Update Home Manager:
+  stage: build
+  variables:
+    FETCH_DATA: pkgs/home-manager/$HM_BRANCH.json
+    REMOTE_URL: https://nur-updates:$RYBOT_TOKEN@gitlab.com/rycee/nur-expressions.git
+  before_script:
+    - git remote set-url origin $REMOTE_URL
+    - git config --global user.email 'rybot@rycee.net'
+    - git config --global user.name 'rybot'
+  script:
+    - git pull --ff-only origin $CI_COMMIT_REF_NAME
+    - ./ci/prefetch-home-manager --rev $HM_COMMIT_SHA > $FETCH_DATA
+    - |
+      if git add -v $FETCH_DATA | grep -q add ; then
+        git commit -m "Automatic update of Home Manager"
+        git push origin HEAD:$CI_COMMIT_REF_NAME
+      else
+        echo No changes to push
+      fi
+  only:
+    refs:
+      - pipelines
+    variables:
+      - $HM_BRANCH
