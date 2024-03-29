@@ -1,0 +1,13 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index 59c77c4..31e26b5 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -309,7 +309,7 @@ pub fn run(tool: Tool, matches: ArgMatches) -> Result<i32> {
+         tool_args.extend(args);
+     }
+ 
+-    let mut lltool = Command::new(format!("rust-{}", tool.name()));
++    let mut lltool = Command::new(format!("{}", tool.name()));
+ 
+     if tool == Tool::Objdump {
+         let ctxt = if let Some(artifact) = &target_artifact {
