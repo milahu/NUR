@@ -1,0 +1,41 @@
+image: nixos/latest
+packages:
+  - unstable.cachix
+  - unstable.nixpkgs-fmt
+  - unstable.shellcheck
+repositories:
+  unstable: https://nixos.org/channels/nixpkgs-unstable
+sources:
+  - https://git.sr.ht/~priegger/nur-packages
+secrets:
+  - 979bc696-35ff-421b-a46e-99f04e657a87 # cachix-priegger
+environment:
+  CACHIX_CACHE: priegger
+tasks:
+  - setup: |
+      set -o pipefail
+      cachix use "${CACHIX_CACHE}" --mode user-nixconf
+  - lint: |
+      cd nur-packages
+      find . -name '*.nix' -exec nixpkgs-fmt --check {} +
+      find . -name '*.sh' -exec shellcheck {} +
+  - build: |
+      cd nur-packages
+
+      cachix watch-exec "${CACHIX_CACHE}" nix-build -- ci.nix -A buildOutputs
+
+      nix --extra-experimental-features nix-command eval -f nur.nix 'lib'
+      nix --extra-experimental-features nix-command eval -f nur.nix 'modules'
+      nix --extra-experimental-features nix-command eval -f nur.nix 'overlays'
+
+      nix-build -E 'with import <nixpkgs>{}; (callPackage ./default.nix {})'
+  - test: |
+      cd nur-packages
+      for test in tests/*.nix; do cachix watch-exec "${CACHIX_CACHE}" nix-build -- --no-out-link "${test}"; done
+  - deploy: |
+      cd nur-packages
+      [ "$(git rev-parse HEAD)" = "$(git rev-parse master)" ] || complete-build
+triggers:
+  - action: email
+    condition: failure
+    to: Philipp Riegger <philipp@riegger.name>
