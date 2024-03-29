@@ -194,9 +194,17 @@ def update_eval_errors(repos: List[Repo], path: Path) -> None:
         eval_error_relpath = os.path.relpath(eval_error_path, ROOT_PATH)
 
         if repo.eval_error_text:
-            logger.debug(f"Writing error message: {eval_error_relpath}")
-            with open(eval_error_path, "w", encoding="utf8") as f:
-                f.write(repo.eval_error_text)
+            write_error = True
+            if eval_error_path.exists():
+                with open(eval_error_path, "r") as f:
+                    old_eval_error_text = f.read()
+                if old_eval_error_text == repo.eval_error_text:
+                    write_error = False
+                old_eval_error_text = None
+            if write_error:
+                logger.debug(f"Writing error message: {eval_error_relpath}")
+                with open(eval_error_path, "w") as f:
+                    f.write(repo.eval_error_text)
         else:
             if eval_error_path.exists():
                 logger.info(f"Deleting old error message: {eval_error_relpath}")
