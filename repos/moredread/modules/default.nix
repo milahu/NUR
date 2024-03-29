@@ -1,0 +1,3 @@
+{
+  throttled = ./throttled;
+}
