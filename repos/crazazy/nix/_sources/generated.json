@@ -1,0 +1,131 @@
+{
+    "cakeml": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "cakeml",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "sha256": "sha256-etPOxeW9jY3kltsqoj8jthmggDt8eQdmJcF0p3YDACs=",
+            "type": "tarball",
+            "url": "https://github.com/CakeML/cakeml/releases/download/v2274/cake-x64-64.tar.gz"
+        },
+        "version": "v2274"
+    },
+    "enso": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "enso",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-0SwVAgdE6KfSK1O8bdG+A1FylMr2xnlvxnPmCnHjbNU=",
+            "type": "url",
+            "url": "https://github.com/enso-org/enso/releases/download/2023.2.1-nightly.2023.12.1/enso-linux-2023.2.1-nightly.2023.12.1.AppImage"
+        },
+        "version": "2023.2.1-nightly.2023.12.1"
+    },
+    "guile-config": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "guile-config",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "sha256": "sha256-8Ma2pzqR8il+8H6WVbYLpKBk2rh3aKBr1mvvzdpCNPc=",
+            "type": "tarball",
+            "url": "https://gitlab.com/a-sassmannshausen/guile-config/-/archive/0.5.0/guile-config-0.5.0.tar.gz"
+        },
+        "version": "0.5.0"
+    },
+    "guile-hall": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "guile-hall",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "sha256": "sha256-TUCN8kW44X6iGbSJURurcz/Tc2eCH1xgmXH1sMOMOXs=",
+            "type": "tarball",
+            "url": "https://gitlab.com/a-sassmannshausen/guile-hall/-/archive/0.4.1/guile-hall-0.4.1.tar.gz"
+        },
+        "version": "0.4.1"
+    },
+    "seamonkey": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "seamonkey",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "sha256": "sha256-qU9D17IqKabwg/riR9SQCgS3RZk5HcunOwVCHw4gzI4=",
+            "type": "tarball",
+            "url": "https://archive.seamonkey-project.org/releases/2.53.18.1/linux-x86_64/en-US/seamonkey-2.53.18.1.en-US.linux-x86_64.tar.bz2"
+        },
+        "version": "2.53.18.1"
+    },
+    "trufflesqueak": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "trufflesqueak",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-wdFfNHgcRYKMOVbfjo2j8IRu5+izMNQK1tUXX1vFwtA=",
+            "type": "url",
+            "url": "https://github.com/hpi-swa/trufflesqueak/releases/download/23.1.0/trufflesqueak-23.1.0-linux-amd64.tar.gz"
+        },
+        "version": "23.1.0"
+    },
+    "trufflesqueak-image": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "trufflesqueak-image",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-/9rbH9hEHSgaOUbSHpDCdmCX4m+myxVIgG6Nf5r85Zg=",
+            "type": "url",
+            "url": "https://github.com/hpi-swa/trufflesqueak/releases/download/23.1.0/TruffleSqueakImage-23.1.0.zip"
+        },
+        "version": "23.1.0"
+    },
+    "wasmfxtime": {
+        "cargoLocks": {
+            "./Cargo.lock": [
+                "./wasmfxtime-e94bae2e320fbfd9d3f1e52945ad12e00e0a6ec8/./Cargo.lock",
+                {
+                    "wasm-encoder-0.41.0": "sha256-JyIO9jOn/5ibnL+6dSrwuoV9jz7hY+1HuVc3ye0r4+I=",
+                    "wit-bindgen-0.16.0": "sha256-j4QpPNa4G4VknvDipECzPCEsrL0G9aX9/810otzfAwI="
+                }
+            ]
+        },
+        "date": "2024-02-09",
+        "extract": null,
+        "name": "wasmfxtime",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": true,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "wasmfx",
+            "repo": "wasmfxtime",
+            "rev": "e94bae2e320fbfd9d3f1e52945ad12e00e0a6ec8",
+            "sha256": "sha256-xQk9SsZXsQ5koFh9eG1y+ju4x+vDfR1+ig/V7Rmwb54=",
+            "type": "github"
+        },
+        "version": "e94bae2e320fbfd9d3f1e52945ad12e00e0a6ec8"
+    }
+}

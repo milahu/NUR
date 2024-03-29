@@ -1,0 +1,65 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Submodule status update
+
+# Controls when the action will run. 
+on:
+  # triggers the update every wednesday
+  schedule:
+    - cron: 0 0 * * 3
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  update:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Update submodules
+        run: |
+          git config user.name "Monorepo bot :D"
+          git config user.email "Monobot@noreply.github.com"
+          git submodule update --init --remote --depth 1
+          git add dep/
+          git commit -m "Updated submodules"
+          git submodule deinit --all
+          git submodule > SUBMODULE_STATUS
+          if [[ -z "$(git diff --exit-code)" ]]; then
+            echo "Nothing to update"
+          else
+            git add SUBMODULE_STATUS
+            git commit -m "Updated submodule status file"
+          fi
+          
+        env:
+          API_GITHUB_TOKEN: ${{secrets.API_GITHUB_TOKEN}}
+        
+      - name: Push to master
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        
+      - name: Compile monorepo
+        run: |
+          git submodule update --init --depth 1 dep/nixpkgs
+          tar -czf ../monorepo.tar.gz .
+          mv ../monorepo.tar.gz .
+        
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: monorepo-file
+          path: ./monorepo.tar.gz
+      
