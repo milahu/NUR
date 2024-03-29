@@ -1,0 +1,95 @@
+{
+  "nodes": {
+    "dmenu": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1600225289,
+        "narHash": "sha256-Kqhf7+kl+izCyrcwW6LaNrbYFh23j1nmBN+7/ebOlA0=",
+        "owner": "ethancedwards",
+        "repo": "dmenu-config",
+        "rev": "9cd6fe49998b48aa1b97e8b66d8895624b0ac897",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "ethancedwards",
+        "repo": "dmenu-config",
+        "type": "gitlab"
+      }
+    },
+    "firefox-addons-generator": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1628544335,
+        "narHash": "sha256-pwEJESWamrnbwv6vMoczciFIaew3uf5MYTqd0E5wE3o=",
+        "owner": "rycee",
+        "repo": "nixpkgs-firefox-addons",
+        "rev": "af6ac3ea7f0050485c3887b7c76e751b7dc4d471",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "rycee",
+        "repo": "nixpkgs-firefox-addons",
+        "type": "gitlab"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1630074300,
+        "narHash": "sha256-BFM7OiXRs0RvSUZd6NCGAKWVPn3VodgYQ4TUQXxbMBU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "21c937f8cb1e6adcfeb36dfd6c90d9d9bfab1d28",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "dmenu": "dmenu",
+        "firefox-addons-generator": "firefox-addons-generator",
+        "nixpkgs": "nixpkgs",
+        "st": "st",
+        "sysfo": "sysfo"
+      }
+    },
+    "st": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1618617232,
+        "narHash": "sha256-aAkLLrZkwKsQWRTxJRbjrdLbeq01eMrvQhldF5kQBTk=",
+        "owner": "ethancedwards",
+        "repo": "st-config",
+        "rev": "8dfefc7d84c4aa1785cd583fd027b90fd9df9771",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "ethancedwards",
+        "repo": "st-config",
+        "type": "gitlab"
+      }
+    },
+    "sysfo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1621648397,
+        "narHash": "sha256-9e9ILzbTelNVeJ38Ns/Gcy+A7tgDanrA/dnammJrQmQ=",
+        "owner": "ethancedwards8",
+        "repo": "sysfo",
+        "rev": "9ad6469b1c12712d00e1eac460d04f54f1404e50",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ethancedwards8",
+        "repo": "sysfo",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
