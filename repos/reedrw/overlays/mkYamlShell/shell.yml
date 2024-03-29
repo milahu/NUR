@@ -1,0 +1,14 @@
+name: mkYamlShell
+
+packages:
+  - hello
+
+env:
+  FOO: "BAR"
+
+aliases:
+  hi: hello
+  testing: echo "This is a test!"
+
+run: |
+  hello
