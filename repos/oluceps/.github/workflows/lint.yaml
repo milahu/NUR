@@ -1,0 +1,23 @@
+jobs:
+  check:
+    name: lint
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v26
+
+      - name: Show
+        run: |
+          nix flake show --all-systems
+
+name: lint
+on: 
+  pull_request:
+    branches: ["*"]
+  push:
+    branches: ["main", "trival"]
+          
+
