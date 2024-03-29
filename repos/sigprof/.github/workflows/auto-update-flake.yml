@@ -1,0 +1,77 @@
+name: auto-update-flake
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Nominally 06:11 GMT+3, but actual start times apparently suffer from delays
+    - cron: '11 3 * * *'
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  CI_NIX_INSTALL_URL: https://releases.nixos.org/nix/nix-2.18.1/install
+  NIX_CONFIG: access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.generate_matrix.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.2
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@8887e596b4ee1134dae06b98d573bd674693f47c
+        with:
+          install_url: ${{ env.CI_NIX_INSTALL_URL }}
+
+      - name: Generate matrix from flake inputs
+        id: generate_matrix
+        run: |
+          # Generate matrix from flake inputs
+          matrix="$(nix flake metadata --json | jq -rcM '.locks.nodes.root.inputs | {input: keys}')"
+          printf 'matrix=%s\n' "$matrix" >> $GITHUB_OUTPUT
+
+  update:
+    needs:
+      - setup
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix: ${{ fromJSON(needs.setup.outputs.matrix) }}
+    env:
+      automerge: ${{ (matrix.input == 'nixpkgs') || (matrix.input == 'nixos-unstable') }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.2
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@8887e596b4ee1134dae06b98d573bd674693f47c
+        with:
+          install_url: ${{ env.CI_NIX_INSTALL_URL }}
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Generate a GitHub token
+        id: token
+        uses: tibdex/github-app-token@v2.1.0
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Update ${{ matrix.input }}
+        uses: cpcloud/flake-update-action@v2.0.1
+        with:
+          dependency: ${{ matrix.input }}
+          pull-request-token: ${{ steps.token.outputs.token }}
+          pull-request-author: "sigprof[bot] <108069352+sigprof[bot]@users.noreply.github.com>"
+          pull-request-labels: "autorebase:opt-in"
+          delete-branch: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request-branch-prefix: auto-update/flake/
+          automerge: ${{ env.automerge }}

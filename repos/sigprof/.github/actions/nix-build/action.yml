@@ -1,0 +1,168 @@
+name: 'Build Nix derivations'
+description: >
+  Install Nix, set up binary caching using Cachix, then build Nix derivations
+  according to the specification in JSON format.  After the build finishes,
+  save any build logs produced by Nix in an artifact.
+
+inputs:
+  item:
+    required: true
+    description: The item to build specified in the JSON format.
+  system:
+    required: true
+    description: Nix system name.
+  channel:
+    required: false
+    description: Nixpkgs channel (used for NUR packages).
+
+  # Inputs passed to `cachix/install-nix-action`.
+  nix-install-url:
+    required: false
+    description: 'Installation URL that will contain a script to install Nix.'
+  nix-install-options:
+    required: false
+    description: 'Additional installer flags passed to the Nix installer script.'
+  nix-path:
+    required: false
+    description: 'Set NIX_PATH environment variable.'
+  nix-extra-config:
+    required: false
+    description: 'gets appended to `/etc/nix/nix.conf` if passed.'
+
+  # Inputs passed to `cachix/cachix-action`.
+  cachix-name:
+    required: false
+    description: 'Name of a Cachix cache to push and pull/substitute'
+  cachix-extra-pull-names:
+    required: false
+    description: 'Comma-separated list of names for extra Cachix caches to pull/substitute'
+  cachix-auth-token:
+    required: false
+    description: 'Authentication token for Cachix, needed only for private cache access'
+  cachix-signing-key:
+    required: false
+    description: 'Signing key secret retrieved after creating binary cache on https://cachix.org'
+  cachix-skip-push:
+    required: false
+    description: 'Set to true to disable pushing build results to the cache'
+  #cachix-paths-to-push:
+  #  required: false
+  #  description: 'Whitespace-separated list of paths to push. Leave empty to push every build result.'
+  cachix-push-filter:
+    required: false
+    description: >
+      Regular expression to exclude derivations for the cache push, for example
+      "(-source$|nixpkgs\.tar\.gz$)".
+      Warning: this filter does not guarantee it will not get pushed in case
+      the path is part of the closure of something that will get pushed.
+  #cachix-args:
+  #  required: false
+  #  description: 'Extra command-line arguments to pass to cachix. If empty, defaults to -j8'
+  cachix-install-command:
+    required: false
+    description: 'Override the default cachix installation method'
+
+runs:
+  using: composite
+  steps:
+    - name: Install Nix
+      uses: cachix/install-nix-action@8887e596b4ee1134dae06b98d573bd674693f47c
+      with:
+        install_url: ${{ inputs.nix-install-url }}
+        install_options: ${{ inputs.nix-install-options }}
+        nix_path: ${{ inputs.nix-path }}
+        extra_nix_config: ${{ inputs.nix-extra-config }}
+
+    - name: Setup Cachix
+      uses: cachix/cachix-action@v14
+      if: inputs.cachix-name
+      with:
+        name: ${{ inputs.cachix-name }}
+        extraPullNames: ${{ inputs.cachix-extra-pull-names }}
+        authToken: ${{ inputs.cachix-auth-token }}
+        signingKey: ${{ inputs.cachix-signing-key }}
+        skipPush: ${{ inputs.cachix-skip-push }}
+        #pathsToPush: ${{ inputs.cachix-paths-to-push }}
+        pushFilter: ${{ inputs.cachix-push-filter }}
+        #cachixArgs: ${{ inputs.cachix-args }}
+        installCommand: ${{ inputs.cachix-install-command }}
+        useDaemon: false
+
+    - name: Build
+      shell: bash
+      env:
+        ITEM: ${{ inputs.item }}
+        SYSTEM: ${{ inputs.system }}
+        CHANNEL: ${{ inputs.channel }}
+      run: |
+        # Build script
+
+        # Remove unrelated build logs left by the Nix installer
+        sudo rm -rf /nix/var/log/nix/drvs/* ||:
+
+        if [ -n "$CHANNEL" ]; then
+          export NIX_PATH="nixpkgs=channel:$CHANNEL"
+        fi
+        echo "::group::Determining arguments for 'nix build'"
+        build_args="$(
+          jq -rn --arg system "$SYSTEM" '
+            env.ITEM | fromjson |
+              ([.nurPackages[]]? | ["-f default.nix"] + . | .[])?,
+              (.packages[] | @text ".#packages."+$system+".\(.)")?,
+              (.checks[] | @text ".#checks."+$system+".\(.)")?,
+              (.hosts[] | @text ".#nixosConfigurations.\(.).config.system.build.toplevel")?
+          '
+        )"
+        printf '  %s\n' $build_args
+        echo "::endgroup::"
+        echo "::group::Creating derivations for build"
+        build_output="$( nix build --show-trace --dry-run --json $build_args )"
+        drv_list="$(
+          printf '%s' "$build_output" | jq -r '.[].drvPath'
+        )"
+        echo "::endgroup::"
+        echo "::group::Derivation list:"
+        printf '  %s\n' $drv_list
+        echo "::endgroup::"
+        echo "::group::Building derivations"
+        build_result=0
+        #
+        # Use `nix-build-uncached` from the locked version of `nixpkgs`.
+        #
+        # WARNING: Do not use `builtins.getFlake (toString ./.)` - while it
+        # seems to work, it does not detect that the current directory is a Git
+        # checkout and copies the whole contents of the directory, including
+        # `.git` and any untracked files, into the Nix store, using an unique
+        # hash every time; then this store item may be pushed into Cachix,
+        # polluting the cache and leaking the contents of `.git` including any
+        # auth tokens that might be there.  The proper `git+file:` URL for the
+        # current flake may be obtained from `nix flake metadata`.
+        #
+        flake_url="$( nix flake metadata --json | jq -r '.url' )"
+        current_system="$( nix eval --raw --impure --expr 'builtins.currentSystem' )"
+        nix shell --expr "(builtins.getFlake \"$flake_url\").inputs.nixpkgs.legacyPackages.\"$current_system\".nix-build-uncached" \
+          -c nix-build-uncached $drv_list || build_result=$?
+        echo "::endgroup::"
+        echo "::group::Saving build logs"
+        mkdir -p .build/logs
+        ( cd /nix/var/log/nix/drvs && find . -type f; ) |
+          while read log_src; do
+            log_src="${log_src##./}"
+            log_dst="${log_src//\//}"
+            log_dst="${log_dst//[\\\":<>|*?]/_}"
+            printf '%s\n' "$log_dst"
+            cp /nix/var/log/nix/drvs/"$log_src" .build/logs/"$log_dst" || touch .build/logs_fail
+          done
+        echo "::endgroup::"
+        if [ -f .build/logs_fail ]; then
+          echo "Warning: Some log files could not be copied" 1>&2
+        fi
+        exit $build_result
+
+    - name: Upload build logs
+      if: always()
+      uses: actions/upload-artifact@v4.3.1
+      with:
+        name: build-logs-${{inputs.system}}-${{github.job}}-${{strategy.job-index}}
+        path: ".build/logs/*"
+        if-no-files-found: ignore
