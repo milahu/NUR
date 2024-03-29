@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# [EXPERIMENT] nix-build but uses callPackage to import the nix file instead of only importing it
+
+FILENAME="$1"
+if [ -z "$FILENAME" ]; then
+    FILENAME=default.nix
+fi
+FILENAME="$(realpath "$FILENAME")"
+
+tempfile="$(mktemp).nix"
+
+{
+echo '{ pkgs ? import <nixpkgs> {} }:'
+echo "pkgs.callPackage "$FILENAME" {}"
+} > $tempfile
+
+nix-build $tempfile "$@"
+
+rm $tempfile

@@ -1,0 +1,6 @@
+#!/usr/bin/env -S sd nix shell
+#!nix-shell -i bash -p appimage-wrap
+
+# launch an appimage
+
+appimage-wrap "$@"
