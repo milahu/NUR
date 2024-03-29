@@ -1,0 +1,36 @@
+version: ~> 1.0
+import: nix-community/nix-travis-ci:nix.yml@main
+
+sudo: false
+
+# Getting Travis' Xenial image to work with Let's Encrypt's 2021-10+ ISRG Root
+# X1-verified certs did *not* want to happen, so just freakin' use Focal Fossa
+dist: focal
+
+env:
+  global:
+    - CACHIX_CACHE=shados-nur-packages
+    - NUR_REPO=shados
+    - EXTRA_NIX_CONFIG=extra-nix.conf
+
+matrix:
+  include:
+    - env: NIX_CHANNEL=https://nixos.org/channels/nixpkgs-unstable
+    - env: NIX_CHANNEL=https://nixos.org/channels/nixos-unstable
+    # - env: NIX_CHANNEL=https://nixos.org/channels/nixos-20.03
+
+before_install:
+  - |
+    cat << '' > extra-nix.conf
+    experimental-features = nix-command
+
+script:
+  - nix-build travis.nix -A buildOutputs
+  - nix eval -f default.nix 'lib'
+  - nix eval -f default.nix 'modules'
+  - nix eval -f default.nix 'overlays'
+
+after_success:
+  - if [ -n "${CACHIX_CACHE}" ]; then nix-build travis.nix -A cacheOutputs | cachix push "${CACHIX_CACHE}"; fi
+  - if [[ "cron" != "${TRAVIS_EVENT_TYPE}" && "false" = "${TRAVIS_PULL_REQUEST}" && "master" = "${TRAVIS_BRANCH}" ]]; then
+      curl -XPOST "https://nur-update.nix-community.org/update?repo=${NUR_REPO}"; fi
