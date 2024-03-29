@@ -1,0 +1,3 @@
+{
+  minidlna = ./minidlna.nix;
+}
