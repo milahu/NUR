@@ -1,0 +1,22 @@
+name: Build all
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install Nix
+      uses: cachix/install-nix-action@v17
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Build all packages
+      run: nix-build
+
+    - name: Update NUR
+      run: curl -XPOST https://nur-update.herokuapp.com/update?repo=dtn7

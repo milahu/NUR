@@ -1,0 +1,31 @@
+name: Update dtn7-go
+
+on: repository_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install Nix
+      uses: cachix/install-nix-action@v17
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Update dtn7-go packages
+      run: ./update-dtn7-go.sh
+
+    - name: Commit and Push
+      uses: github-actions-x/commit@v2.9
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        push-branch: 'master'
+        commit-message: 'dtn7-go: automated version bump'
+        rebase: true
+        name: 'update-dtn7-go.sh'
+
+    - name: Update NUR
+      run: curl -XPOST https://nur-update.herokuapp.com/update?repo=dtn7
