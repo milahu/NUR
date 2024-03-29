@@ -1,0 +1,34 @@
+name: Update repos
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '1 3 * * *'
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install nix
+        uses: cachix/install-nix-action@v25
+        with:
+          nix_path: 'nixpkgs=channel:nixos-23.11'
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - name: Update packages
+        run: |
+          # shuf as github might rate-limit the api to fetch latest version
+          echo fluent-theme gh-issues-to-rss nn quickserve toffee tojson \
+          traffic sirus prosemd-lsp |
+          tr ' ' '\n' | shuf | xargs -L1 ./_scripts/autoupdate
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        if: always()
+        with:
+          commit-message: Update packages
+          title: Update packages
+          body: Update version of packages
+          branch: update-packages
+          token: ${{ secrets.REPO_SCOPED_PAT }} # need this to trigger CI
