@@ -1,0 +1,5 @@
+{
+
+  lsd = ./programs/lsd.nix;
+
+}
