@@ -1,0 +1,3 @@
+{
+  awscli = import ./awscli.nix;
+}

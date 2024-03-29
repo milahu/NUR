@@ -1,0 +1,29 @@
+name: Update Flake inputs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  update-nixpkgs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: DeterminateSystems/nix-installer-action@v10
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: DeterminateSystems/magic-nix-cache-action@v4
+
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@v21
+        id: update_flakes
+        with:
+          pr-title: "chore(deps): update flake.lock"
+          pr-labels: dependencies
