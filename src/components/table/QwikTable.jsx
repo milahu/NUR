@@ -100,7 +100,8 @@ export const QwikTable = component$((props) => {
     track(() => prevSearch.value)
 
     if (searchInp.value === '')
-      sortedData().then(res => finalData.items = res);
+      //sortedData().then(res => finalData.items = res) // FIXME no change
+      sortedData().then(res => finalData.items = res.slice()) // workaround
     else
       searchedData().then(res => finalData.items = res);
   })
