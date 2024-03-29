@@ -1,0 +1,80 @@
+---
+format_version: '11'
+default_step_lib_source: 'https://github.com/bitrise-io/bitrise-steplib.git'
+project_type: other
+workflows:
+  primary:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@6: {}
+    - script@1:
+        title: Install Nix
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -euo pipefail
+
+            sh <(curl -L https://nixos.org/nix/install)
+
+            echo "trusted-users = root $(whoami)" | sudo tee -a /etc/nix/nix.conf
+            sudo launchctl kickstart -kp system/org.nixos.nix-daemon
+
+            mkdir -p ~/.config/nix
+            echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
+
+            set +u
+            . "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
+
+            nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
+
+            nix-env -iA cachix -f https://cachix.org/api/v1/install
+            cachix use "lightquantum"
+    - script@1:
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            . "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
+            set -euo pipefail
+
+            bash ./utils/list-nix-store.sh > /tmp/store-path-pre-build
+
+            nix-env -f . -qa \* --meta --xml \
+            --allowed-uris https:// \
+            --option restrict-eval true \
+            --option allow-import-from-derivation true \
+            --drv-path --show-trace \
+            -I nixpkgs=$(nix-instantiate --find-file nixpkgs) \
+            -I $PWD
+        title: Test
+    - script@1:
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            . "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
+            set -euo pipefail
+
+            nix shell -f '<nixpkgs>' nix-build-uncached -c nix-build-uncached ci.nix -A cacheOutputs
+
+            PUSH_PATHS=$(comm -13 <(sort /tmp/store-path-pre-build) <(bash ./utils/list-nix-store.sh))
+            echo "Pushing:\n$PUSH_PATHS"
+            echo $PUSH_PATHS | cachix push "lightquantum"
+        title: Push Cache
+    - script@1:
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            curl -XPOST "https://nur-update.herokuapp.com/update?repo=lightquantum"
+        title: Notify NUR
+meta:
+  bitrise.io:
+    stack: osx-xcode-14.1.x
+    machine_type_id: g2-m1.8core
+trigger_map:
+- push_branch: master
+  workflow: primary
+app:
+  envs:
+  - opts:
+      is_expand: false
+    NIX_PATH: 'nixpkgs=channel:nixpkgs-unstable'
