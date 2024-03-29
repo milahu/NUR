@@ -1,0 +1,12 @@
+--- a/install.sh	2020-07-26 01:07:06.117288245 +0200
++++ b/install.sh	2020-07-26 01:09:05.722279683 +0200
+@@ -25,8 +25,6 @@
+ cp -r ./* /tmp/assistinstall
+ cd /tmp/assistinstall || die "failed to create tmp file"
+ 
+-git pull
+-
+ [ -e "${ASSISTPREFIX}"/usr/bin ] || mkdir -p "${ASSISTPREFIX}"/usr/bin
+ [ -e "${ASSISTPREFIX}"/usr/share/instantassist ] || mkdir -p "${ASSISTPREFIX}"/usr/share/instantassist
+ 
+ echo "installing instantassist binary"
