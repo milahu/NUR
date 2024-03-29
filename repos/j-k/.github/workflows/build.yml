@@ -1,0 +1,55 @@
+name: "Build and populate cache"
+on:
+  pull_request:
+    paths:
+      - "**.nix"
+      - .github/workflows/build.yml
+  push:
+    branches: [master]
+    paths:
+      - "**.nix"
+      - .github/workflows/build.yml
+  schedule:
+    # Random time so not all repositories are build at once:
+    - cron: "10 1 * * *"
+jobs:
+  tests:
+    strategy:
+      matrix:
+        nurRepo: [j-k]
+        cachixName: [j-k-nur]
+        nixPath:
+          - nixpkgs=channel:nixos-unstable
+          - nixpkgs=channel:nixpkgs-unstable
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3.0.2
+      - name: Install nix
+        uses: cachix/install-nix-action@v17
+        with:
+          nix_path: ${{ matrix.nixPath }}
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - name: Show nixpkgs version
+        run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
+      - name: Setup cachix
+        uses: cachix/cachix-action@v10
+        with:
+          name: ${{ matrix.cachixName }}
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+      - name: Check evaluation
+        run: |
+          nix-env -f . -qa \* --meta --xml \
+            --allowed-uris https://static.rust-lang.org \
+            --option restrict-eval true \
+            --option allow-import-from-derivation true \
+            --drv-path --show-trace \
+            -I nixpkgs=$(nix-instantiate --find-file nixpkgs) \
+            -I $PWD > /dev/null
+      - name: Build nix packages
+        run: nix shell nixpkgs#nix-build-uncached -c nix-build-uncached ci.nix -A cacheOutputs
+      - name: Trigger NUR update
+        if: matrix.nurRepo == 'j-k' && github.ref == 'refs/heads/master'
+        run: curl -XPOST "https://nur-update.herokuapp.com/update?repo=${{ matrix.nurRepo }}"
