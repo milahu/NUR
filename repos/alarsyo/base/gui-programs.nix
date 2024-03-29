@@ -1,0 +1,89 @@
+{
+  pkgs,
+  lib,
+  config,
+  options,
+  ...
+}: let
+  inherit
+    (lib)
+    mkEnableOption
+    mkIf
+    optional
+    ;
+in {
+  options.my.gui = {
+    enable = mkEnableOption "System has some kind of screen attached";
+    isNvidia = mkEnableOption "System a NVIDIA GPU";
+  };
+
+  config = mkIf config.my.gui.enable {
+    my.displayManager.sddm.enable = true;
+
+    programs.gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryFlavor = "qt";
+    };
+
+    services = {
+      xserver = {
+        enable = true;
+        # NOTE: could use `mkOptionDefault` but this feels more explicit
+        videoDrivers =
+          if config.my.gui.isNvidia
+          then ["nvidia"]
+          else options.services.xserver.videoDrivers.default;
+        layout = "fr";
+        xkbVariant = "us";
+        libinput = {
+          enable = true;
+          touchpad = {
+            naturalScrolling = true;
+          };
+        };
+      };
+
+      logind.lidSwitch = "ignore";
+
+      printing = {
+        enable = true;
+        cups-pdf.enable = true;
+      };
+    };
+
+    environment.systemPackages = builtins.attrValues {
+      inherit
+        (pkgs)
+        arandr
+        discord
+        feh
+        ffmpeg
+        gimp-with-plugins
+        imagemagick
+        mpv
+        obs-studio
+        pavucontrol
+        spotify
+        tdesktop
+        thunderbird
+        virt-manager
+        xcolor
+        zathura
+        ;
+
+      inherit (pkgs.libsForQt5) okular;
+    };
+
+    networking.networkmanager.enable = true;
+    programs.nm-applet.enable = true;
+    programs.steam.enable = true;
+
+    # this is necessary to set GTK stuff in home manager
+    # FIXME: better interdependency between this and the home part
+    programs.dconf.enable = true;
+
+    # NOTE: needed for home emacs configuration
+    nixpkgs.config.input-fonts.acceptLicense = true;
+  };
+}
