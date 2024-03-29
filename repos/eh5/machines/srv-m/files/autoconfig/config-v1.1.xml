@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<clientConfig version="1.1">
+  {{$mailaddr := placeholder "http.request.uri.query.emailaddress"}}
+  <emailProvider id="eh5.me">
+    <domain>eh5.me</domain>
+    <domain>sokka.cn</domain>
+
+    <displayName>eh5's Mail</displayName>
+    <displayShortName>eh5's Mail</displayShortName>
+
+    <incomingServer type="imap">
+      <hostname>mail.eh5.me</hostname>
+      <port>993</port>
+      <socketType>SSL</socketType>
+      {{if $mailaddr}}
+      <username>{{$mailaddr}}</username>
+      {{end}}
+      <authentication>password-cleartext</authentication>
+    </incomingServer>
+
+    <outgoingServer type="smtp">
+      <hostname>mail.eh5.me</hostname>
+      <port>465</port>
+      <socketType>SSL</socketType>
+      {{if $mailaddr}}
+      <username>{{$mailaddr}}</username>
+      {{end}}
+      <authentication>password-cleartext</authentication>
+    </outgoingServer>
+    <documentation url="https://mail.eh5.me">
+      <descr lang="zh">文档</descr>
+      <descr lang="en">Documentation</descr>
+    </documentation>
+  </emailProvider>
+
+  <addressBook type="carddav">
+    <username>{{$mailaddr}}</username>
+    <authentication>http-basic</authentication>
+    <serverURL>https://mail.eh5.me/SOGo/dav</serverURL>
+  </addressBook>
+
+  <calendar type="caldav">
+    <username>{{$mailaddr}}</username>
+    <authentication>http-basic</authentication>
+    <serverURL>https://mail.eh5.me/SOGo/dav</serverURL>
+  </calendar>
+
+  <webMail>
+    <loginPage url="https://mail.eh5.me/SOGo" />
+  </webMail>
+</clientConfig>
