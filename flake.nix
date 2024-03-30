@@ -1,3 +1,21 @@
+/*
+  NOTE this flake.nix is only a compatibility layer
+  to make default.nix work with flakes
+
+  if you use this flake.nix to add extra inputs
+  then these inputs are not reachable from default.nix
+  so your repo will fail to eval in NUR/ci/nur/update.py
+
+  to make extra inputs reachable for default.nix
+  you can add them as gitmodules:
+
+    git submodule add https://... pkgs/somepkg
+
+  to enable gitmodules, add this to repos.json:
+
+    { "submodules": true }
+*/
+
 {
   description = "My personal NUR repository";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
