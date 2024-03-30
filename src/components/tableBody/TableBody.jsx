@@ -28,24 +28,7 @@ export const TableBody = component$((props) => {
 
   return (
     <tbody>
-      {computedPosts.value.map((cell) => {
-        const keys = Object.keys(cell);
-        return (
-          <tr key={cell[keys[0]]}>
-            {keys.map((item, i) => {
-              if (isImage(cell[item])) {
-                const imgSrc = cell[item] ;
-                return (
-                  <td key={i}>
-                    <img width={50} height={50} src={imgSrc} />
-                  </td>)
-              } else {
-                return <td key={i}>{cell[item]}</td>
-              }
-            })}
-          </tr>
-        );
-      })}
+      {computedPosts.value.map(row => props.renderBodyRow(row))}
     </tbody>
   );
 });

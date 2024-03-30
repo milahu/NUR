@@ -131,6 +131,7 @@ export const QwikTable = component$((props) => {
         />
         <TableBody
           data={finalData.items}
+          renderBodyRow={props.renderBodyRow}
           pageNo={pageNo}
           postPerPage={postPerPage} />
       </table>
