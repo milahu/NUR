@@ -15,10 +15,11 @@ combined_repo_branch = os.getenv("COMBINED_REPO_BRANCH") or "nur-combined"
 nur_repo_name = os.getenv("NUR_REPO_NAME") or "NUR"
 
 
-def resolve_source(pkg: Dict, repo: str, url: str) -> str:
+def resolve_source(pkg: Dict, repo: str, url: str, combined_repo_path: Path) -> str:
     # TODO commit hash
     prefix = f"https://github.com/{repo_owner}/{combined_repo_name}/tree/{combined_repo_branch}/repos/{repo}"
     position = pkg["meta"].get("position", None)
+    this_repo_path = str(combined_repo_path.joinpath("repos", repo).resolve())
     if position is not None and position.startswith("/nix/store"):
         path_str, line = position.rsplit(":", 1)
         path = Path(path_str)
@@ -54,9 +55,9 @@ def resolve_source(pkg: Dict, repo: str, url: str) -> str:
             attr_path = "/".join(stripped[1:])
             location = f"{prefixes[stripped[0]]}{attr_path}"
             return f"{location}#L{line}"
-    elif position is not None and combined_repo_name in position:
+    elif position is not None and position.startswith(this_repo_path):
         path_str, line = position.rsplit(":", 1)
-        stripped = path_str.partition(f"{combined_repo_name}/repos/{repo}")[2]
+        stripped = path_str[len(this_repo_path):]
         return f"{prefix}{stripped}#L{line}"
     else:
         return prefix
@@ -65,6 +66,7 @@ def resolve_source(pkg: Dict, repo: str, url: str) -> str:
 def index_repo(
     directory: Path, repo: str, expression_file: str, url: str
 ) -> Dict[str, Any]:
+    combined_repo_path = directory
     default_nix = directory.joinpath("default.nix").resolve()
     expr = """
 with import <nixpkgs> {};
@@ -99,7 +101,7 @@ callPackage (nur.repo-sources."%s" + "/%s") {}
         for name, pkg in raw_pkgs.items():
             pkg["_attr"] = name
             pkg["_repo"] = repo
-            pkg["meta"]["position"] = resolve_source(pkg, repo, url)
+            pkg["meta"]["position"] = resolve_source(pkg, repo, url, combined_repo_path)
             pkgs[f"nur.repos.{repo}.{name}"] = pkg
 
         return pkgs
