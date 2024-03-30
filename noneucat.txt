@@ -1,0 +1,134 @@
+error:
+       … from call site
+
+         at /nix/store/8pm8b9has6rr0h4rxmx8rwcd4i12yc43-nur-packages/default.nix:8:22:
+
+            7|   codemadness-frontends = pkgs.callPackage ./pkgs/codemadness-frontends/default.nix { };
+            8|   ffmpeg-full-cuda = pkgs.callPackage ./pkgs/ffmpeg-full-cuda/default.nix { };
+             |                      ^
+            9|   geoclue2-demos = pkgs.callPackage ./pkgs/geoclue2-demos/default.nix { };
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+          152|   */
+          153|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+          154|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+
+          439|     { # TODO: Should we add call-time "type" checking like built in?
+          440|       __functor = self: f;
+             |       ^
+          441|       __functionArgs = args;
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+
+           95|     in
+           96|     mirrorArgs (origArgs:
+             |                 ^
+           97|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
+
+           97|     let
+           98|       result = f origArgs;
+             |                ^
+           99|
+
+       … while calling anonymous lambda
+
+         at /nix/store/8pm8b9has6rr0h4rxmx8rwcd4i12yc43-nur-packages/pkgs/ffmpeg-full-cuda/default.nix:1:1:
+
+            1| { ffmpeg-full, cudatoolkit }:
+             | ^
+            2|
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+
+          439|     { # TODO: Should we add call-time "type" checking like built in?
+          440|       __functor = self: f;
+             |       ^
+          441|       __functionArgs = args;
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:104:34:
+
+          103|       # Re-call the function but with different arguments
+          104|       overrideArgs = mirrorArgs (newArgs: makeOverridable f (overrideWith newArgs));
+             |                                  ^
+          105|       # Change the result of the function call by applying g to it
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+
+          439|     { # TODO: Should we add call-time "type" checking like built in?
+          440|       __functor = self: f;
+             |       ^
+          441|       __functionArgs = args;
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+
+           95|     in
+           96|     mirrorArgs (origArgs:
+             |                 ^
+           97|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+
+          439|     { # TODO: Should we add call-time "type" checking like built in?
+          440|       __functor = self: f;
+             |       ^
+          441|       __functionArgs = args;
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:106:56:
+
+          105|       # Change the result of the function call by applying g to it
+          106|       overrideResult = g: makeOverridable (mirrorArgs (args: g (f args))) origArgs;
+             |                                                        ^
+          107|     in
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:106:62:
+
+          105|       # Change the result of the function call by applying g to it
+          106|       overrideResult = g: makeOverridable (mirrorArgs (args: g (f args))) origArgs;
+             |                                                              ^
+          107|     in
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:113:29:
+
+          112|           ${if result ? overrideAttrs then "overrideAttrs" else null} = fdrv:
+          113|             overrideResult (x: x.overrideAttrs fdrv);
+             |                             ^
+          114|         }
+
+       error: function 'anonymous lambda' called with unexpected argument 'nonfreeLicensing'
+
+       at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/development/libraries/ffmpeg/generic.nix:3:1:
+
+            2|
+            3| { lib, stdenv, buildPackages, removeReferencesTo, addOpenGLRunpath, pkg-config, perl, texinfo, yasm
+             | ^
+            4|

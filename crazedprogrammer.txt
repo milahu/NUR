@@ -1,0 +1,63 @@
+error:
+       … from call site
+
+         at /nix/store/vgin2maxqmjrxv72w7sdn69flrbynj8h-source/pkgs/overlays/custom.nix:13:21:
+
+           12|   chip8 = super.callPackage ../custom/chip8.nix {};
+           13|   esp32-toolchain = super.callPackage ../custom/esp32-toolchain.nix {};
+             |                     ^
+           14|   compton-latest = super.callPackage ../custom/compton-latest.nix {};
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+          152|   */
+          153|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+          154|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:166:10:
+
+          165|         # Filter out arguments that have a default value
+          166|         (filterAttrs (name: value: ! value)
+             |          ^
+          167|         # Filter out arguments that would be passed
+
+       … while calling 'filterAttrs'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:419:5:
+
+          418|     # The attribute set to filter
+          419|     set:
+             |     ^
+          420|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:156:15:
+
+          155|       f = if isFunction fn then fn else import fn;
+          156|       fargs = functionArgs f;
+             |               ^
+          157|
+
+       … while calling 'functionArgs'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:450:18:
+
+          449|   */
+          450|   functionArgs = f:
+             |                  ^
+          451|     if f ? __functor
+
+       error: undefined variable 'lib'
+
+       at /nix/store/vgin2maxqmjrxv72w7sdn69flrbynj8h-source/pkgs/custom/esp32-toolchain.nix:35:15:
+
+           34|
+           35|   meta = with lib; {
+             |               ^
+           36|     description = "ESP32 toolchain";

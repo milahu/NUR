@@ -1,0 +1,20 @@
+error:
+       … from call site
+
+         at /nix/store/ns5lf53yl2fg1sqvqns7svsn1qcjldnk-source/default.nix:35:10:
+
+           34|
+           35|   dptf = pkgs.callPackage ./pkgs/dptf {
+             |          ^
+           36|     stdenv = pkgs.gcc7Stdenv;
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+          152|   */
+          153|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+          154|     let
+
+       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "readline6" at /nix/store/ns5lf53yl2fg1sqvqns7svsn1qcjldnk-source/pkgs/dptf/default.nix:3, did you mean "readline", "readline63" or "headlines"?'

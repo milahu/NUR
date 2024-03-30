@@ -1,0 +1,20 @@
+error:
+       … from call site
+
+         at /nix/store/y6qmc9njscy9rh6qzm0jjnkxk0qbqi6m-NUR/default.nix:6:18:
+
+            5|   lmt = pkgs.callPackage ./lmt/package.nix {};
+            6|   carapace-bin = pkgs.callPackage ./carapace/package.nix {};
+             |                  ^
+            7|
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+          152|   */
+          153|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+          154|     let
+
+       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "buildGo118Module" at /nix/store/y6qmc9njscy9rh6qzm0jjnkxk0qbqi6m-NUR/carapace/package.nix:1, did you mean "buildGo119Module", "buildGo120Module" or "buildGo121Module"?'

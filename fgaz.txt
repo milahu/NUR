@@ -1,0 +1,20 @@
+error:
+       … from call site
+
+         at /nix/store/2w2hgv5amydk4zq7v8jhhbjqgpkvkawn-source/default.nix:22:19:
+
+           21|   gnubiff = pkgs.callPackage ./pkgs/gnubiff { };
+           22|   maya-calendar = pkgs.callPackage ./pkgs/maya-calendar { };
+             |                   ^
+           23|   ly = pkgs.callPackage ./pkgs/ly { };
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+          152|   */
+          153|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+          154|     let
+
+       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "vala_0_40" at /nix/store/2w2hgv5amydk4zq7v8jhhbjqgpkvkawn-source/pkgs/maya-calendar/default.nix:2, did you mean "vala_0_48", "vala_0_54" or "vala_0_56"?'

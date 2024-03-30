@@ -1,0 +1,43 @@
+trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
+error:
+       … while querying the derivation named 'embgit-0.6.0'
+
+       … while calling the 'derivationStrict' builtin
+
+         at /builtin/derivation.nix:9:12: (source not available)
+
+       … while evaluating derivation 'embgit-0.6.0'
+         whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
+
+       … while evaluating attribute 'configurePhase' of derivation 'embgit-0.6.0'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/go/module.nix:162:5:
+
+          161|
+          162|     configurePhase = args.configurePhase or (''
+             |     ^
+          163|       runHook preConfigure
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/go/module.nix:170:10:
+
+          169|       cd "$modRoot"
+          170|     '' + lib.optionalString (vendorHash != null) ''
+             |          ^
+          171|       ${if proxyVendor then ''
+
+       … while calling 'optionalString'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/strings.nix:257:5:
+
+          256|     # String to return if condition is true
+          257|     string: if cond then string else "";
+             |     ^
+          258|
+
+       … while evaluating derivation 'embgit-0.6.0-go-modules'
+         whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
+
+       error: unknown hash algorithm ' sha256'
+Try 'nix-env --help' for more information.

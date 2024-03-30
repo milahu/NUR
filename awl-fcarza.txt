@@ -1,0 +1,20 @@
+error:
+       … from call site
+
+         at /nix/store/3zzx017blppm1yn60wa0y764d0hpcbs1-source/default.nix:21:17:
+
+           20|   dask = pkgs.python3Packages.callPackage ./pkgs/development/python-modules/dask { };
+           21|   distributed = pkgs.python3Packages.callPackage ./pkgs/development/python-modules/distributed { };
+             |                 ^
+           22|   dask-ml = pkgs.python3Packages.callPackage ./pkgs/development/python-modules/dask-ml { };
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+          152|   */
+          153|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+          154|     let
+
+       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "futures" at /nix/store/3zzx017blppm1yn60wa0y764d0hpcbs1-source/pkgs/development/python-modules/distributed/default.nix:23, did you mean "future", "authres" or "fixtures"?'

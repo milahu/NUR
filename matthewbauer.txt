@@ -1,0 +1,37 @@
+error:
+       … while calling a functor (an attribute set with a '__functor' attribute)
+
+         at /nix/store/k8hjiilzrnic8i1s9ix0sgj752vb67p1-source/default.nix:51:24:
+
+           50|
+           51|     firefox-beta-bin = pkgs.wrapFirefox firefox-beta-bin-unwrapped {
+             |                        ^
+           52|       browserName = "firefox";
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+
+          439|     { # TODO: Should we add call-time "type" checking like built in?
+          440|       __functor = self: f;
+             |       ^
+          441|       __functionArgs = args;
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+
+           95|     in
+           96|     mirrorArgs (origArgs:
+             |                 ^
+           97|     let
+
+       error: function 'wrapper' called with unexpected argument 'name'
+
+       at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/applications/networking/browsers/firefox/wrapper.nix:29:5:
+
+           28|   wrapper =
+           29|     { applicationName ? browser.binaryName or (lib.getName browser)
+             |     ^
+           30|     , pname ? applicationName
+       Did you mean pname?

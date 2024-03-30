@@ -1,0 +1,21 @@
+error:
+       … while evaluating the file '/tmp/nur-update/default.nix':
+
+       … from call site
+
+         at /tmp/nur-update/default.nix:3:21:
+
+            2|                     with import <nixpkgs> {};
+            3|                     import /tmp/nur-update/evalRepo.nix {
+             |                     ^
+            4|                         name = "geonix";
+
+       … while calling anonymous lambda
+
+         at /tmp/nur-update/evalRepo.nix:1:1:
+
+            1| { name
+             | ^
+            2| , url
+
+       error: access to URI 'https://github.com/edolstra/flake-compat/archive/0f9255e01c2351cc7d116c072cb317785dd33b33.tar.gz' is forbidden in restricted mode

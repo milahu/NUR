@@ -1,0 +1,20 @@
+error:
+       … from call site
+
+         at /nix/store/fz3hs44p9hrhfx76adz09ji2p41qjy2k-source/default.nix:8:21:
+
+            7|     kernelOrgToolchains = callPackage ./kernel-org-toolchains {};
+            8|     ubootDevShell = callPackage ./u-boot-dev-shell/shell.nix {};
+             |                     ^
+            9|     buildmanConfig = callPackage ./u-boot-dev-shell/buildman-config.nix {};
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+          152|   */
+          153|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+          154|     let
+
+       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "iasl" at /nix/store/fz3hs44p9hrhfx76adz09ji2p41qjy2k-source/u-boot-dev-shell/shell.nix:1, did you mean "asl", "isl" or "acl"?'

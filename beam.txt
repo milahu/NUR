@@ -1,0 +1,313 @@
+error:
+       … from call site
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/top-level/beam-packages.nix:5:12:
+
+            4| let
+            5|   erlang = util.recurseIntoAttrs
+             |            ^
+            6|     (callPackage ../development/interpreters/erlang/all-versions.nix {
+
+       … while calling 'recurseIntoAttrs'
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/lib/util.nix:58:22:
+
+           57|   # This helper not exists nixpkgs-20.03
+           58|   recurseIntoAttrs = attrs: attrs // { recurseForDerivations = true; };
+             |                      ^
+           59|
+
+       … from call site
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/top-level/beam-packages.nix:6:6:
+
+            5|   erlang = util.recurseIntoAttrs
+            6|     (callPackage ../development/interpreters/erlang/all-versions.nix {
+             |      ^
+            7|       inherit util;
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+          152|   */
+          153|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+          154|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+
+          439|     { # TODO: Should we add call-time "type" checking like built in?
+          440|       __functor = self: f;
+             |       ^
+          441|       __functionArgs = args;
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+
+           95|     in
+           96|     mirrorArgs (origArgs:
+             |                 ^
+           97|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
+
+           97|     let
+           98|       result = f origArgs;
+             |                ^
+           99|
+
+       … while calling anonymous lambda
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/interpreters/erlang/all-versions.nix:1:1:
+
+            1| { pkgs, fetchpatch, callPackage, wxGTK30, openssl_1_1, lib, util }:
+             | ^
+            2|
+
+       … from call site
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/interpreters/erlang/all-versions.nix:31:4:
+
+           30|
+           31| in util.mergeListOfAttrs releasesPerMajorVersion
+             |    ^
+           32|
+
+       … while calling 'mergeListOfAttrs'
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/lib/util.nix:54:22:
+
+           53|
+           54|   mergeListOfAttrs = listOfAttrs:
+             |                      ^
+           55|     builtins.foldl' (acc: attrs: acc // attrs) { } listOfAttrs;
+
+       … while calling anonymous lambda
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/lib/util.nix:55:27:
+
+           54|   mergeListOfAttrs = listOfAttrs:
+           55|     builtins.foldl' (acc: attrs: acc // attrs) { } listOfAttrs;
+             |                           ^
+           56|
+
+       … while calling anonymous lambda
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/interpreters/erlang/all-versions.nix:28:10:
+
+           27|   releasesPerMajorVersion =
+           28|     map (r: callPackage r { inherit beamLib util deriveErlangFeatureVariants; })
+             |          ^
+           29|     majorVersions;
+
+       … from call site
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/interpreters/erlang/all-versions.nix:28:13:
+
+           27|   releasesPerMajorVersion =
+           28|     map (r: callPackage r { inherit beamLib util deriveErlangFeatureVariants; })
+             |             ^
+           29|     majorVersions;
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+          152|   */
+          153|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+          154|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+
+          439|     { # TODO: Should we add call-time "type" checking like built in?
+          440|       __functor = self: f;
+             |       ^
+          441|       __functionArgs = args;
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+
+           95|     in
+           96|     mirrorArgs (origArgs:
+             |                 ^
+           97|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
+
+           97|     let
+           98|       result = f origArgs;
+             |                ^
+           99|
+
+       … while calling anonymous lambda
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/interpreters/erlang/R23/default.nix:1:1:
+
+            1| { lib, openssl_1_1, wxGTK30, beamLib, util, deriveErlangFeatureVariants }:
+             | ^
+            2|
+
+       … from call site
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/interpreters/erlang/R23/default.nix:24:4:
+
+           23|
+           24| in util.mergeListOfAttrs variantsPerReleases
+             |    ^
+           25|
+
+       … while calling 'mergeListOfAttrs'
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/lib/util.nix:54:22:
+
+           53|
+           54|   mergeListOfAttrs = listOfAttrs:
+             |                      ^
+           55|     builtins.foldl' (acc: attrs: acc // attrs) { } listOfAttrs;
+
+       … while calling anonymous lambda
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/lib/util.nix:55:27:
+
+           54|   mergeListOfAttrs = listOfAttrs:
+           55|     builtins.foldl' (acc: attrs: acc // attrs) { } listOfAttrs;
+             |                           ^
+           56|
+
+       … while calling anonymous lambda
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/interpreters/erlang/R23/default.nix:22:10:
+
+           21|   variantsPerReleases =
+           22|     map (r: deriveErlangFeatureVariants r buildOpts variantOpts) releases;
+             |          ^
+           23|
+
+       … from call site
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/interpreters/erlang/R23/default.nix:22:13:
+
+           21|   variantsPerReleases =
+           22|     map (r: deriveErlangFeatureVariants r buildOpts variantOpts) releases;
+             |             ^
+           23|
+
+       … while calling 'deriveErlangFeatureVariants'
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/interpreters/erlang/all-versions.nix:18:53:
+
+           17|
+           18|   deriveErlangFeatureVariants = release: buildOpts: variantOpts:
+             |                                                     ^
+           19|     let basePkg = beamLib.callErlang release buildOpts;
+
+       … from call site
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/interpreters/erlang/all-versions.nix:20:8:
+
+           19|     let basePkg = beamLib.callErlang release buildOpts;
+           20|     in lib.attrsets.mapAttrs' (overrideFeature basePkg) variantOpts;
+             |        ^
+           21|
+
+       … while calling 'mapAttrs''
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:632:5:
+
+          631|     # Attribute set to map over.
+          632|     set:
+             |     ^
+          633|     listToAttrs (map (attr: f attr set.${attr}) (attrNames set));
+
+       … from call site
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/interpreters/erlang/all-versions.nix:8:17:
+
+            7|     let
+            8|       pkgPath = util.makePkgPath "v" basePkg.version featureString;
+             |                 ^
+            9|       pkgName = util.makePkgName "erlang-" basePkg.version featureString;
+
+       … while calling 'makePkgPath'
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/lib/util.nix:45:34:
+
+           44|
+           45|   makePkgPath = prefix: version: features:
+             |                                  ^
+           46|     "${prefix}${snakeVersion version}${makeFeatureString features "_"}";
+
+       … from call site
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/lib/util.nix:46:17:
+
+           45|   makePkgPath = prefix: version: features:
+           46|     "${prefix}${snakeVersion version}${makeFeatureString features "_"}";
+             |                 ^
+           47|
+
+       … while calling 'snakeVersion'
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/lib/util.nix:36:18:
+
+           35|
+           36|   snakeVersion = version:
+             |                  ^
+           37|     builtins.replaceStrings [ "." "-" ] [ "_" "_" ] version;
+
+       … from call site
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/interpreters/erlang/all-versions.nix:19:19:
+
+           18|   deriveErlangFeatureVariants = release: buildOpts: variantOpts:
+           19|     let basePkg = beamLib.callErlang release buildOpts;
+             |                   ^
+           20|     in lib.attrsets.mapAttrs' (overrideFeature basePkg) variantOpts;
+
+       … while calling 'callErlang'
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/beam-modules/lib.nix:28:21:
+
+           27|   */
+           28|   callErlang = drv: args:
+             |                     ^
+           29|     let builder = callPackage ../interpreters/erlang/generic-builder.nix args;
+
+       … from call site
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/beam-modules/lib.nix:30:8:
+
+           29|     let builder = callPackage ../interpreters/erlang/generic-builder.nix args;
+           30|     in callPackage drv { mkDerivation = pkgs.makeOverridable builder; };
+             |        ^
+           31|
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/beam-modules/lib.nix:6:35:
+
+            5|   # Similar to callPackageWith/callPackage, but without makeOverridable
+            6|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+            7|     let
+
+       error: attribute 'lib' missing
+
+       at /nix/store/5g2lnpalpml9hyxzjz5lsffjv84hz3m9-source/pkgs/development/beam-modules/lib.nix:9:39:
+
+            8|       f = if pkgs.lib.isFunction fn then fn else import fn;
+            9|       auto = builtins.intersectAttrs (stdenv.lib.functionArgs f) autoArgs;
+             |                                       ^
+           10|     in f (auto // args);

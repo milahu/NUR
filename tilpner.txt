@@ -1,0 +1,32 @@
+error:
+       … while evaluating the 'name' attribute of a derivation
+
+         at «none»:0: (source not available)
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:370:9:
+
+          369|         in
+          370|         lib.strings.sanitizeDerivationName (
+             |         ^
+          371|           if attrs ? name
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/strings.nix:1174:3:
+
+         1173|   in
+         1174|   string:
+             |   ^
+         1175|   # First detect the common case of already valid strings, to speed those up
+
+       error: attribute 'pname' missing
+
+       at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/development/lua-modules/generic/default.nix:14:40:
+
+           13|     attrs // {
+           14|       name = "lua${lua.luaversion}-" + attrs.pname + "-" + attrs.version;
+             |                                        ^
+           15|
+       Did you mean name?

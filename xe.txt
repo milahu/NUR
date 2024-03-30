@@ -1,0 +1,22 @@
+trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
+trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
+error:
+       … from call site
+
+         at /nix/store/q1ccknbv9zhr0a99n7mxkgk91gr11lpb-source/default.nix:56:24:
+
+           55|   # binary programs
+           56|   microsoft-edge-dev = pkgs.callPackage ./pkgs/microsoft-edge-dev { };
+             |                        ^
+           57|
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+          152|   */
+          153|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+          154|     let
+
+       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "at_spi2_atk" at /nix/store/q1ccknbv9zhr0a99n7mxkgk91gr11lpb-source/pkgs/microsoft-edge-dev/default.nix:15, did you mean "at-spi2-atk"?'

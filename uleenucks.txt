@@ -1,0 +1,67 @@
+error:
+       … while querying the derivation named 'alacritty-0.8.0'
+
+       … in the condition of the assert statement
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:267:17:
+
+          266|     in commonAttrs // {
+          267|       drvPath = assert condition; drv.drvPath;
+             |                 ^
+          268|       outPath = assert condition; drv.outPath;
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:535:14:
+
+          534|   meta = checkMeta.commonMeta { inherit validity attrs pos references; };
+          535|   validity = checkMeta.assertValidity { inherit meta attrs; };
+             |              ^
+          536|
+
+       … while calling 'assertValidity'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:484:20:
+
+          483|
+          484|   assertValidity = { meta, attrs }: let
+             |                    ^
+          485|       validity = checkValidity attrs;
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:485:18:
+
+          484|   assertValidity = { meta, attrs }: let
+          485|       validity = checkValidity attrs;
+             |                  ^
+          486|       inherit (validity) valid;
+
+       … while calling 'checkValidity'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:385:19:
+
+          384|   # Along with a boolean flag for each reason
+          385|   checkValidity = attrs:
+             |                   ^
+          386|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:430:13:
+
+          429|     # Please also update the type in /pkgs/top-level/config.nix alongside this.
+          430|     else if hasNoMaintainers attrs then
+             |             ^
+          431|       { valid = "warn"; reason = "maintainerless"; errormsg = "has no maintainers"; }
+
+       … while calling 'hasNoMaintainers'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:91:22:
+
+           90|
+           91|   hasNoMaintainers = attrs:
+             |                      ^
+           92|     attrs ? meta.maintainers && (length attrs.meta.maintainers) == 0;
+
+       error: value is a string while a list was expected

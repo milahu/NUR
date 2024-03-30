@@ -1,0 +1,24 @@
+trace: Nixpkgs version : 24.05pre-git,
+  Nixos Version : master,
+  Local Usage : false
+trace: warning: buildVimPluginFrom2Nix is deprecated: use buildVimPlugin instead
+error:
+       … while calling the 'import' builtin
+
+         at /nix/store/9scjvsqivswh1hyc3iygp9n0l61v4x3w-source/default.nix:37:19:
+
+           36|   kdeApplications = pkgs.libsForQt5.kdeApplications;
+           37|   drogonNixPkgs = import (fetchTarball {
+             |                   ^
+           38|     url = "https://github.com/NixOS/NixPkgs/archive/cd0fa6156f486c583988d334202946ffa4b9ebe8.tar.gz";
+
+       … while calling the 'fetchTarball' builtin
+
+         at /nix/store/9scjvsqivswh1hyc3iygp9n0l61v4x3w-source/default.nix:37:27:
+
+           36|   kdeApplications = pkgs.libsForQt5.kdeApplications;
+           37|   drogonNixPkgs = import (fetchTarball {
+             |                           ^
+           38|     url = "https://github.com/NixOS/NixPkgs/archive/cd0fa6156f486c583988d334202946ffa4b9ebe8.tar.gz";
+
+       error: access to URI 'https://github.com/NixOS/NixPkgs/archive/cd0fa6156f486c583988d334202946ffa4b9ebe8.tar.gz' is forbidden in restricted mode

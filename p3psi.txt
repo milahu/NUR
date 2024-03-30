@@ -1,0 +1,110 @@
+error:
+       … while querying the derivation named 'stm8flash-1.0'
+
+       … in the condition of the assert statement
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:267:17:
+
+          266|     in commonAttrs // {
+          267|       drvPath = assert condition; drv.drvPath;
+             |                 ^
+          268|       outPath = assert condition; drv.outPath;
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:535:14:
+
+          534|   meta = checkMeta.commonMeta { inherit validity attrs pos references; };
+          535|   validity = checkMeta.assertValidity { inherit meta attrs; };
+             |              ^
+          536|
+
+       … while calling 'assertValidity'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:484:20:
+
+          483|
+          484|   assertValidity = { meta, attrs }: let
+             |                    ^
+          485|       validity = checkValidity attrs;
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:485:18:
+
+          484|   assertValidity = { meta, attrs }: let
+          485|       validity = checkValidity attrs;
+             |                  ^
+          486|       inherit (validity) valid;
+
+       … while calling 'checkValidity'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:385:19:
+
+          384|   # Along with a boolean flag for each reason
+          385|   checkValidity = attrs:
+             |                   ^
+          386|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:404:13:
+
+          403|     # --- Put checks that can be ignored here ---
+          404|     else if hasDeniedUnfreeLicense attrs && !(hasAllowlistedLicense attrs) then
+             |             ^
+          405|       { valid = "no"; reason = "unfree"; errormsg = "has an unfree license (‘${showLicense attrs.meta.license}’)"; }
+
+       … while calling 'hasDeniedUnfreeLicense'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:113:28:
+
+          112|   # `allowUnfreePredicate` function.
+          113|   hasDeniedUnfreeLicense = attrs:
+             |                            ^
+          114|     hasUnfreeLicense attrs &&
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:114:5:
+
+          113|   hasDeniedUnfreeLicense = attrs:
+          114|     hasUnfreeLicense attrs &&
+             |     ^
+          115|     !allowUnfree &&
+
+       … while calling 'hasUnfreeLicense'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:89:22:
+
+           88|
+           89|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
+             |                      ^
+           90|
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:89:49:
+
+           88|
+           89|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
+             |                                                 ^
+           90|
+
+       … while calling 'isUnfree'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:80:14:
+
+           79|
+           80|   isUnfree = licenses:
+             |              ^
+           81|     if isAttrs licenses then !licenses.free or true
+
+       error: attribute 'lib' missing
+
+       at /nix/store/spxfm6lfidahkvb2q3mb4yk54880rwh5-source/pkgs/stm8flash/default.nix:24:15:
+
+           23|
+           24|   meta = with stdenv.lib; {
+             |               ^
+           25|     description = "program your stm8 devices with SWIM/stlinkv(1,2)";

@@ -1,0 +1,73 @@
+error:
+       … while evaluating the file '/tmp/nur-update/default.nix':
+
+       … from call site
+
+         at /tmp/nur-update/default.nix:3:21:
+
+            2|                     with import <nixpkgs> {};
+            3|                     import /tmp/nur-update/evalRepo.nix {
+             |                     ^
+            4|                         name = "aasg";
+
+       … while calling anonymous lambda
+
+         at /tmp/nur-update/evalRepo.nix:1:1:
+
+            1| { name
+             | ^
+            2| , url
+
+       … from call site
+
+         at /tmp/nur-update/evalRepo.nix:33:11:
+
+           32|     might result in infinite recursion when used with NixOS modules.
+           33|   '' else expr (builtins.intersectAttrs args passedArgs)
+             |           ^
+           34|
+
+       … while calling anonymous lambda
+
+         at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/default.nix:1:1:
+
+            1| { pkgs ? import <nixpkgs> { } }:
+             | ^
+            2|
+
+       … from call site
+
+         at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/default.nix:3:6:
+
+            2|
+            3| with import ./lib/extension.nix { inherit (pkgs) lib; };
+             |      ^
+            4| let
+
+       … while calling anonymous lambda
+
+         at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/lib/extension.nix:1:1:
+
+            1| { lib }:
+             | ^
+            2| /*
+
+       … from call site
+
+         at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/lib/extension.nix:8:1:
+
+            7| in
+            8| aasgLib.updateNewRecursive lib aasgLib
+             | ^
+            9|
+
+       … while calling 'updateNewRecursive'
+
+         at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/lib/attrsets.nix:89:30:
+
+           88|    */
+           89|   updateNewRecursive = into: new:
+             |                              ^
+           90|     let
+
+       error: attrsets have the following attributes in common: concatMapAttrs

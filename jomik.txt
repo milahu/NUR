@@ -1,0 +1,198 @@
+error:
+       … from call site
+
+         at /nix/store/r09mxdjap6alsfm5yqjla7rl5q6jr40m-source/default.nix:10:17:
+
+            9|         name = replaceStrings [".nix"] [""] name;
+           10|         value = action (dir + ("/" + name));
+             |                 ^
+           11|       })
+
+       … while calling anonymous lambda
+
+         at /nix/store/r09mxdjap6alsfm5yqjla7rl5q6jr40m-source/default.nix:15:26:
+
+           14|   callPackage = (pkgs.extend (self: super: pkgs')).callPackage;
+           15|   pkgs' = listDirectory (p: callPackage p {}) ./pkgs;
+             |                          ^
+           16| in pkgs' // {
+
+       … from call site
+
+         at /nix/store/r09mxdjap6alsfm5yqjla7rl5q6jr40m-source/default.nix:15:29:
+
+           14|   callPackage = (pkgs.extend (self: super: pkgs')).callPackage;
+           15|   pkgs' = listDirectory (p: callPackage p {}) ./pkgs;
+             |                             ^
+           16| in pkgs' // {
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+          152|   */
+          153|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+          154|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+
+          439|     { # TODO: Should we add call-time "type" checking like built in?
+          440|       __functor = self: f;
+             |       ^
+          441|       __functionArgs = args;
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+
+           95|     in
+           96|     mirrorArgs (origArgs:
+             |                 ^
+           97|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
+
+           97|     let
+           98|       result = f origArgs;
+             |                ^
+           99|
+
+       … while calling anonymous lambda
+
+         at /nix/store/r09mxdjap6alsfm5yqjla7rl5q6jr40m-source/pkgs/diagnostic-languageserver.nix:1:1:
+
+            1| { lib, callPackage, fetchFromGitHub, npm-buildpackage }:
+             | ^
+            2|
+
+       … from call site
+
+         at /nix/store/r09mxdjap6alsfm5yqjla7rl5q6jr40m-source/default.nix:10:17:
+
+            9|         name = replaceStrings [".nix"] [""] name;
+           10|         value = action (dir + ("/" + name));
+             |                 ^
+           11|       })
+
+       … while calling anonymous lambda
+
+         at /nix/store/r09mxdjap6alsfm5yqjla7rl5q6jr40m-source/default.nix:15:26:
+
+           14|   callPackage = (pkgs.extend (self: super: pkgs')).callPackage;
+           15|   pkgs' = listDirectory (p: callPackage p {}) ./pkgs;
+             |                          ^
+           16| in pkgs' // {
+
+       … from call site
+
+         at /nix/store/r09mxdjap6alsfm5yqjla7rl5q6jr40m-source/default.nix:15:29:
+
+           14|   callPackage = (pkgs.extend (self: super: pkgs')).callPackage;
+           15|   pkgs' = listDirectory (p: callPackage p {}) ./pkgs;
+             |                             ^
+           16| in pkgs' // {
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+          152|   */
+          153|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+          154|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+
+          439|     { # TODO: Should we add call-time "type" checking like built in?
+          440|       __functor = self: f;
+             |       ^
+          441|       __functionArgs = args;
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+
+           95|     in
+           96|     mirrorArgs (origArgs:
+             |                 ^
+           97|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
+
+           97|     let
+           98|       result = f origArgs;
+             |                ^
+           99|
+
+       … while calling anonymous lambda
+
+         at /nix/store/r09mxdjap6alsfm5yqjla7rl5q6jr40m-source/pkgs/npm-buildpackage.nix:1:1:
+
+            1| { callPackage, fetchFromGitHub}:
+             | ^
+            2|
+
+       … from call site
+
+         at /nix/store/r09mxdjap6alsfm5yqjla7rl5q6jr40m-source/pkgs/npm-buildpackage.nix:3:1:
+
+            2|
+            3| callPackage (fetchFromGitHub {
+             | ^
+            4|   owner = "serokell";
+
+       … while calling 'callPackageWith'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+          152|   */
+          153|   callPackageWith = autoArgs: fn: args:
+             |                                   ^
+          154|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:166:10:
+
+          165|         # Filter out arguments that have a default value
+          166|         (filterAttrs (name: value: ! value)
+             |          ^
+          167|         # Filter out arguments that would be passed
+
+       … while calling 'filterAttrs'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:419:5:
+
+          418|     # The attribute set to filter
+          419|     set:
+             |     ^
+          420|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:156:15:
+
+          155|       f = if isFunction fn then fn else import fn;
+          156|       fargs = functionArgs f;
+             |               ^
+          157|
+
+       … while calling 'functionArgs'
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:450:18:
+
+          449|   */
+          450|   functionArgs = f:
+             |                  ^
+          451|     if f ? __functor
+
+       error: path '/nix/store/fv1j5wkis007vk6v2w6cdvw1vydmwy83-source.drv' is not valid

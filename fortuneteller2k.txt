@@ -1,0 +1,89 @@
+error:
+       … while calling a functor (an attribute set with a '__functor' attribute)
+
+         at /nix/store/f27hnj623pmii4414j2c6dh6v5zivbv5-source/default.nix:21:28:
+
+           20|
+           21|   awesome-git = with pkgs; (awesome.overrideAttrs (old: rec {
+             |                            ^
+           22|     src = fetchFromGitHub {
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+
+          439|     { # TODO: Should we add call-time "type" checking like built in?
+          440|       __functor = self: f;
+             |       ^
+          441|       __functionArgs = args;
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:104:34:
+
+          103|       # Re-call the function but with different arguments
+          104|       overrideArgs = mirrorArgs (newArgs: makeOverridable f (overrideWith newArgs));
+             |                                  ^
+          105|       # Change the result of the function call by applying g to it
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+
+          439|     { # TODO: Should we add call-time "type" checking like built in?
+          440|       __functor = self: f;
+             |       ^
+          441|       __functionArgs = args;
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+
+           95|     in
+           96|     mirrorArgs (origArgs:
+             |                 ^
+           97|     let
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+
+          439|     { # TODO: Should we add call-time "type" checking like built in?
+          440|       __functor = self: f;
+             |       ^
+          441|       __functionArgs = args;
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:106:56:
+
+          105|       # Change the result of the function call by applying g to it
+          106|       overrideResult = g: makeOverridable (mirrorArgs (args: g (f args))) origArgs;
+             |                                                        ^
+          107|     in
+
+       … from call site
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:106:62:
+
+          105|       # Change the result of the function call by applying g to it
+          106|       overrideResult = g: makeOverridable (mirrorArgs (args: g (f args))) origArgs;
+             |                                                              ^
+          107|     in
+
+       … while calling anonymous lambda
+
+         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:113:29:
+
+          112|           ${if result ? overrideAttrs then "overrideAttrs" else null} = fdrv:
+          113|             overrideResult (x: x.overrideAttrs fdrv);
+             |                             ^
+          114|         }
+
+       error: function 'anonymous lambda' called with unexpected argument 'luaPackages'
+
+       at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/applications/window-managers/awesome/default.nix:1:1:
+
+            1| { lib, stdenv, fetchFromGitHub, fetchpatch
+             | ^
+            2| , lua, cairo, librsvg, cmake, imagemagick, pkg-config, gdk-pixbuf
