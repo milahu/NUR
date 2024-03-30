@@ -22,6 +22,8 @@ let
 in
   if lib.pathExists localPath then
     localPath
+  else if true then
+    throw "missing localPath ${localPath}"
   else if lib.hasPrefix "https://github.com" attr.url && !submodules then
     fetchzip {
       url = "${attr.url}/archive/${revision.rev}.zip";
