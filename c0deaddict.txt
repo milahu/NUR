@@ -1,25 +1,25 @@
 trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
 error:
-       … while querying the derivation named 'gcfflasher'
+… while querying the derivation named 'gcfflasher'
 
-       … while calling the 'derivationStrict' builtin
+… while calling the 'derivationStrict' builtin
 
-         at /builtin/derivation.nix:9:12: (source not available)
+  at /builtin/derivation.nix:9:12: (source not available)
 
-       … while evaluating derivation 'gcfflasher'
-         whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
+… while evaluating derivation 'gcfflasher'
+  whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
 
-       … while evaluating attribute 'src' of derivation 'gcfflasher'
+… while evaluating attribute 'src' of derivation 'gcfflasher'
 
-         at /nix/store/4zl6y40splb1dxp4racqvv0iarf1xn0a-source/pkgs/gcfflasher/default.nix:7:3:
+  at /nix/store/4zl6y40splb1dxp4racqvv0iarf1xn0a-source/pkgs/gcfflasher/default.nix:7:3:
 
-            6|
-            7|   src = fetchFromGitHub {
-             |   ^
-            8|     owner = "dresden-elektronik";
+     6|
+     7|   src = fetchFromGitHub {
+      |   ^
+     8|     owner = "dresden-elektronik";
 
-       … while evaluating derivation 'source'
-         whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
+… while evaluating derivation 'source'
+  whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
 
-       error: unknown hash algorithm 'hash'
+error: unknown hash algorithm 'hash'
 Try 'nix-env --help' for more information.

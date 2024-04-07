@@ -1,22 +1,22 @@
 error:
-       … while querying the derivation named 'emacs-dfb0ba7'
+… while querying the derivation named 'emacs-dfb0ba7'
 
-       … while calling the 'derivationStrict' builtin
+… while calling the 'derivationStrict' builtin
 
-         at /builtin/derivation.nix:9:12: (source not available)
+  at /builtin/derivation.nix:9:12: (source not available)
 
-       … while evaluating derivation 'emacs-dfb0ba7'
-         whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
+… while evaluating derivation 'emacs-dfb0ba7'
+  whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
 
-       … while evaluating attribute 'patches' of derivation 'emacs-dfb0ba7'
+… while evaluating attribute 'patches' of derivation 'emacs-dfb0ba7'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:464:14:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:464:14:
 
-          463|
-          464|       inherit patches;
-             |              ^
-          465|
+   463|
+   464|       inherit patches;
+      |              ^
+   465|
 
-       error: list index 1 is out of bounds
+error: list index 1 is out of bounds
 
-       at «none»:0: (source not available)
+at «none»:0: (source not available)

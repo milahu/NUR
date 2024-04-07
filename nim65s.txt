@@ -1,56 +1,25 @@
 error:
-… from call site
+… while evaluating the 'name' attribute of a derivation
 
-  at /nix/store/8pm8b9has6rr0h4rxmx8rwcd4i12yc43-nur-packages/default.nix:8:22:
-
-     7|   codemadness-frontends = pkgs.callPackage ./pkgs/codemadness-frontends/default.nix { };
-     8|   ffmpeg-full-cuda = pkgs.callPackage ./pkgs/ffmpeg-full-cuda/default.nix { };
-      |                      ^
-     9|   geoclue2-demos = pkgs.callPackage ./pkgs/geoclue2-demos/default.nix { };
-
-… while calling 'callPackageWith'
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
-
-   152|   */
-   153|   callPackageWith = autoArgs: fn: args:
-      |                                   ^
-   154|     let
+  at «none»:0: (source not available)
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:370:9:
 
-   439|     { # TODO: Should we add call-time "type" checking like built in?
-   440|       __functor = self: f;
-      |       ^
-   441|       __functionArgs = args;
+   369|         in
+   370|         lib.strings.sanitizeDerivationName (
+      |         ^
+   371|           if attrs ? name
 
 … while calling anonymous lambda
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/strings.nix:1174:3:
 
-    95|     in
-    96|     mirrorArgs (origArgs:
-      |                 ^
-    97|     let
-
-… from call site
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
-
-    97|     let
-    98|       result = f origArgs;
-      |                ^
-    99|
-
-… while calling anonymous lambda
-
-  at /nix/store/8pm8b9has6rr0h4rxmx8rwcd4i12yc43-nur-packages/pkgs/ffmpeg-full-cuda/default.nix:1:1:
-
-     1| { ffmpeg-full, cudatoolkit }:
-      | ^
-     2|
+  1173|   in
+  1174|   string:
+      |   ^
+  1175|   # First detect the common case of already valid strings, to speed those up
 
 … from call site
 
@@ -124,11 +93,10 @@ error:
       |                             ^
    114|         }
 
-error: function 'anonymous lambda' called with unexpected argument 'nonfreeLicensing'
+error: function 'anonymous lambda' called with unexpected argument 'wlroots'
 
-at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/development/libraries/ffmpeg/generic.nix:3:1:
+at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/by-name/sw/sway-unwrapped/package.nix:1:1:
 
-     2|
-     3| { lib, stdenv, buildPackages, removeReferencesTo, addOpenGLRunpath, pkg-config, perl, texinfo, yasm
+     1| { lib, stdenv, fetchFromGitHub, fetchpatch, substituteAll, swaybg
       | ^
-     4|
+     2| , meson, ninja, pkg-config, wayland-scanner, scdoc

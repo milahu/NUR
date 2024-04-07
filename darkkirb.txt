@@ -1,1171 +1,1171 @@
 error:
-       … from call site
+… from call site
 
-         at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/default.nix:11:21:
+  at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/default.nix:11:21:
 
-           10|   flake = (lib.importFlake {inherit (pkgs) system;}).defaultNix;
-           11|   pkgsWithOverlay = pkgs.appendOverlays [(import ./overlay.nix pkgs.system)];
-             |                     ^
-           12| in
+    10|   flake = (lib.importFlake {inherit (pkgs) system;}).defaultNix;
+    11|   pkgsWithOverlay = pkgs.appendOverlays [(import ./overlay.nix pkgs.system)];
+      |                     ^
+    12| in
 
-       … while calling 'appendOverlays'
+… while calling 'appendOverlays'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/stage.nix:249:22:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/stage.nix:249:22:
 
-          248|     # in one go when calling Nixpkgs, for performance and simplicity.
-          249|     appendOverlays = extraOverlays:
-             |                      ^
-          250|       if extraOverlays == []
+   248|     # in one go when calling Nixpkgs, for performance and simplicity.
+   249|     appendOverlays = extraOverlays:
+      |                      ^
+   250|       if extraOverlays == []
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/stage.nix:252:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/stage.nix:252:12:
 
-          251|       then self
-          252|       else nixpkgsFun { overlays = args.overlays ++ extraOverlays; };
-             |            ^
-          253|
+   251|       then self
+   252|       else nixpkgsFun { overlays = args.overlays ++ extraOverlays; };
+      |            ^
+   253|
 
-       … while calling 'nixpkgsFun'
+… while calling 'nixpkgsFun'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:128:16:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:128:16:
 
-          127|   # experience here.)
-          128|   nixpkgsFun = newArgs: import ./. (args // newArgs);
-             |                ^
-          129|
+   127|   # experience here.)
+   128|   nixpkgsFun = newArgs: import ./. (args // newArgs);
+      |                ^
+   129|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:128:25:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:128:25:
 
-          127|   # experience here.)
-          128|   nixpkgsFun = newArgs: import ./. (args // newArgs);
-             |                         ^
-          129|
+   127|   # experience here.)
+   128|   nixpkgsFun = newArgs: import ./. (args // newArgs);
+      |                         ^
+   129|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:19:1:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:19:1:
 
-           18|
-           19| { # The system packages will be built on. See the manual for the
-             | ^
-           20|   # subtle division of labor between these two `*System`s and the three
+    18|
+    19| { # The system packages will be built on. See the manual for the
+      | ^
+    20|   # subtle division of labor between these two `*System`s and the three
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:144:4:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:144:4:
 
-          143|
-          144| in checked pkgs
-             |    ^
-          145|
+   143|
+   144| in checked pkgs
+      |    ^
+   145|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:58:108:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:58:108:
 
-           57|     throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list."
-           58|     lib.foldr (x: throwIfNot (lib.isFunction x) "All crossOverlays passed to nixpkgs must be functions.") (r: r) crossOverlays
-             |                                                                                                            ^
-           59|     ;
+    57|     throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list."
+    58|     lib.foldr (x: throwIfNot (lib.isFunction x) "All crossOverlays passed to nixpkgs must be functions.") (r: r) crossOverlays
+      |                                                                                                            ^
+    59|     ;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:142:10:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:142:10:
 
-          141|
-          142|   pkgs = boot stages;
-             |          ^
-          143|
+   141|
+   142|   pkgs = boot stages;
+      |          ^
+   143|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:42:1:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:42:1:
 
-           41| # other words, this does a foldr not foldl.
-           42| stageFuns: let
-             | ^
-           43|
+    41| # other words, this does a foldr not foldl.
+    42| stageFuns: let
+      | ^
+    43|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:142:4:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:142:4:
 
-          141|
-          142| in dfold folder postStage (_: {}) withAllowCustomOverrides
-             |    ^
-          143|
+   141|
+   142| in dfold folder postStage (_: {}) withAllowCustomOverrides
+      |    ^
+   143|
 
-       … while calling 'dfold'
+… while calling 'dfold'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:60:27:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:60:27:
 
-           59|   */
-           60|   dfold = op: lnul: rnul: list:
-             |                           ^
-           61|     let
+    59|   */
+    60|   dfold = op: lnul: rnul: list:
+      |                           ^
+    61|     let
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:72:13:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:72:13:
 
-           71|       lapp = lnul cur;
-           72|       cur = go lapp 0;
-             |             ^
-           73|     in cur;
+    71|       lapp = lnul cur;
+    72|       cur = go lapp 0;
+      |             ^
+    73|     in cur;
 
-       … while calling 'go'
+… while calling 'go'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
 
-           62|       len = builtins.length list;
-           63|       go = pred: n:
-             |                  ^
-           64|         if n == len
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
 
-           67|           # Note the cycle -- call-by-need ensures finite fold.
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-             |                  ^
-           69|           succ = go cur (n + 1);
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
 
-       … while calling 'folder'
+… while calling 'folder'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
 
-           88|   # debugging purposes.
-           89|   folder = nextStage: stageFun: prevStage: let
-             |                                 ^
-           90|     args = stageFun prevStage;
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
 
-           89|   folder = nextStage: stageFun: prevStage: let
-           90|     args = stageFun prevStage;
-             |            ^
-           91|     args' = args // {
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
 
-           78|   withAllowCustomOverrides = lib.lists.imap1
-           79|     (index: stageFun: prevStage:
-             |                       ^
-           80|       # So true by default for only the first element because one
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
 
-           83|       { allowCustomOverrides = index == 1; }
-           84|       // (stageFun prevStage))
-             |           ^
-           85|     (lib.lists.reverseList stageFuns);
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:682:4:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:682:4:
 
-          681|   # This "no-op" stage is just a place to put the assertions about stage5.
-          682|   (prevStage:
-             |    ^
-          683|     # previous stage5 stdenv; see stage3 comment regarding gcc,
+   681|   # This "no-op" stage is just a place to put the assertions about stage5.
+   682|   (prevStage:
+      |    ^
+   683|     # previous stage5 stdenv; see stage3 comment regarding gcc,
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:685:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:685:12:
 
-          684|     # which applies here as well.
-          685|     assert isBuiltByNixpkgsCompiler prevStage.binutils-unwrapped;
-             |            ^
-          686|     assert isBuiltByNixpkgsCompiler prevStage.${localSystem.libc};
+   684|     # which applies here as well.
+   685|     assert isBuiltByNixpkgsCompiler prevStage.binutils-unwrapped;
+      |            ^
+   686|     assert isBuiltByNixpkgsCompiler prevStage.${localSystem.libc};
 
-       … while calling 'isBuiltByNixpkgsCompiler'
+… while calling 'isBuiltByNixpkgsCompiler'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:5:
 
-          106|   isBuiltByNixpkgsCompiler =
-          107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
-             |     ^
-          108|   isBuiltByBootstrapFilesCompiler =
+   106|   isBuiltByNixpkgsCompiler =
+   107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |     ^
+   108|   isBuiltByBootstrapFilesCompiler =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:10:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:10:
 
-          106|   isBuiltByNixpkgsCompiler =
-          107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
-             |          ^
-          108|   isBuiltByBootstrapFilesCompiler =
+   106|   isBuiltByNixpkgsCompiler =
+   107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |          ^
+   108|   isBuiltByBootstrapFilesCompiler =
 
-       … while calling 'isFromNixpkgs'
+… while calling 'isFromNixpkgs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:19:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:19:
 
-          102|
-          103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
-             |                   ^
-          104|   isFromBootstrapFiles =
+   102|
+   103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                   ^
+   104|   isFromBootstrapFiles =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:26:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:26:
 
-          102|
-          103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
-             |                          ^
-          104|   isFromBootstrapFiles =
+   102|
+   103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                          ^
+   104|   isFromBootstrapFiles =
 
-       … while calling 'isFromBootstrapFiles'
+… while calling 'isFromBootstrapFiles'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
 
-          104|   isFromBootstrapFiles =
-          105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
-             |     ^
-          106|   isBuiltByNixpkgsCompiler =
+   104|   isFromBootstrapFiles =
+   105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   106|   isBuiltByNixpkgsCompiler =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
 
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-           69|           succ = go cur (n + 1);
-             |                  ^
-           70|         in cur;
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
 
-       … while calling 'go'
+… while calling 'go'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
 
-           62|       len = builtins.length list;
-           63|       go = pred: n:
-             |                  ^
-           64|         if n == len
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
 
-           67|           # Note the cycle -- call-by-need ensures finite fold.
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-             |                  ^
-           69|           succ = go cur (n + 1);
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
 
-       … while calling 'folder'
+… while calling 'folder'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
 
-           88|   # debugging purposes.
-           89|   folder = nextStage: stageFun: prevStage: let
-             |                                 ^
-           90|     args = stageFun prevStage;
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
 
-           89|   folder = nextStage: stageFun: prevStage: let
-           90|     args = stageFun prevStage;
-             |            ^
-           91|     args' = args // {
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
 
-           78|   withAllowCustomOverrides = lib.lists.imap1
-           79|     (index: stageFun: prevStage:
-             |                       ^
-           80|       # So true by default for only the first element because one
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
 
-           83|       { allowCustomOverrides = index == 1; }
-           84|       // (stageFun prevStage))
-             |           ^
-           85|     (lib.lists.reverseList stageFuns);
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:590:4:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:590:4:
 
-          589|   #
-          590|   (prevStage:
-             |    ^
-          591|     # previous stage4 stdenv; see stage3 comment regarding gcc,
+   589|   #
+   590|   (prevStage:
+      |    ^
+   591|     # previous stage4 stdenv; see stage3 comment regarding gcc,
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:593:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:593:12:
 
-          592|     # which applies here as well.
-          593|     assert isBuiltByNixpkgsCompiler prevStage.binutils-unwrapped;
-             |            ^
-          594|     assert isBuiltByNixpkgsCompiler prevStage.${localSystem.libc};
+   592|     # which applies here as well.
+   593|     assert isBuiltByNixpkgsCompiler prevStage.binutils-unwrapped;
+      |            ^
+   594|     assert isBuiltByNixpkgsCompiler prevStage.${localSystem.libc};
 
-       … while calling 'isBuiltByNixpkgsCompiler'
+… while calling 'isBuiltByNixpkgsCompiler'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:5:
 
-          106|   isBuiltByNixpkgsCompiler =
-          107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
-             |     ^
-          108|   isBuiltByBootstrapFilesCompiler =
+   106|   isBuiltByNixpkgsCompiler =
+   107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |     ^
+   108|   isBuiltByBootstrapFilesCompiler =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:10:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:10:
 
-          106|   isBuiltByNixpkgsCompiler =
-          107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
-             |          ^
-          108|   isBuiltByBootstrapFilesCompiler =
+   106|   isBuiltByNixpkgsCompiler =
+   107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |          ^
+   108|   isBuiltByBootstrapFilesCompiler =
 
-       … while calling 'isFromNixpkgs'
+… while calling 'isFromNixpkgs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:19:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:19:
 
-          102|
-          103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
-             |                   ^
-          104|   isFromBootstrapFiles =
+   102|
+   103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                   ^
+   104|   isFromBootstrapFiles =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:26:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:26:
 
-          102|
-          103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
-             |                          ^
-          104|   isFromBootstrapFiles =
+   102|
+   103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                          ^
+   104|   isFromBootstrapFiles =
 
-       … while calling 'isFromBootstrapFiles'
+… while calling 'isFromBootstrapFiles'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
 
-          104|   isFromBootstrapFiles =
-          105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
-             |     ^
-          106|   isBuiltByNixpkgsCompiler =
+   104|   isFromBootstrapFiles =
+   105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   106|   isBuiltByNixpkgsCompiler =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
 
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-           69|           succ = go cur (n + 1);
-             |                  ^
-           70|         in cur;
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
 
-       … while calling 'go'
+… while calling 'go'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
 
-           62|       len = builtins.length list;
-           63|       go = pred: n:
-             |                  ^
-           64|         if n == len
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
 
-           67|           # Note the cycle -- call-by-need ensures finite fold.
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-             |                  ^
-           69|           succ = go cur (n + 1);
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
 
-       … while calling 'folder'
+… while calling 'folder'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
 
-           88|   # debugging purposes.
-           89|   folder = nextStage: stageFun: prevStage: let
-             |                                 ^
-           90|     args = stageFun prevStage;
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
 
-           89|   folder = nextStage: stageFun: prevStage: let
-           90|     args = stageFun prevStage;
-             |            ^
-           91|     args' = args // {
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
 
-           78|   withAllowCustomOverrides = lib.lists.imap1
-           79|     (index: stageFun: prevStage:
-             |                       ^
-           80|       # So true by default for only the first element because one
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
 
-           83|       { allowCustomOverrides = index == 1; }
-           84|       // (stageFun prevStage))
-             |           ^
-           85|     (lib.lists.reverseList stageFuns);
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:528:4:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:528:4:
 
-          527|   #
-          528|   (prevStage:
-             |    ^
-          529|     # previous stage3 stdenv:
+   527|   #
+   528|   (prevStage:
+      |    ^
+   529|     # previous stage3 stdenv:
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:530:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:530:12:
 
-          529|     # previous stage3 stdenv:
-          530|     assert isBuiltByNixpkgsCompiler prevStage.binutils-unwrapped;
-             |            ^
-          531|     assert isBuiltByNixpkgsCompiler prevStage.${localSystem.libc};
+   529|     # previous stage3 stdenv:
+   530|     assert isBuiltByNixpkgsCompiler prevStage.binutils-unwrapped;
+      |            ^
+   531|     assert isBuiltByNixpkgsCompiler prevStage.${localSystem.libc};
 
-       … while calling 'isBuiltByNixpkgsCompiler'
+… while calling 'isBuiltByNixpkgsCompiler'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:5:
 
-          106|   isBuiltByNixpkgsCompiler =
-          107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
-             |     ^
-          108|   isBuiltByBootstrapFilesCompiler =
+   106|   isBuiltByNixpkgsCompiler =
+   107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |     ^
+   108|   isBuiltByBootstrapFilesCompiler =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:10:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:10:
 
-          106|   isBuiltByNixpkgsCompiler =
-          107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
-             |          ^
-          108|   isBuiltByBootstrapFilesCompiler =
+   106|   isBuiltByNixpkgsCompiler =
+   107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |          ^
+   108|   isBuiltByBootstrapFilesCompiler =
 
-       … while calling 'isFromNixpkgs'
+… while calling 'isFromNixpkgs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:19:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:19:
 
-          102|
-          103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
-             |                   ^
-          104|   isFromBootstrapFiles =
+   102|
+   103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                   ^
+   104|   isFromBootstrapFiles =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:26:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:26:
 
-          102|
-          103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
-             |                          ^
-          104|   isFromBootstrapFiles =
+   102|
+   103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                          ^
+   104|   isFromBootstrapFiles =
 
-       … while calling 'isFromBootstrapFiles'
+… while calling 'isFromBootstrapFiles'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
 
-          104|   isFromBootstrapFiles =
-          105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
-             |     ^
-          106|   isBuiltByNixpkgsCompiler =
+   104|   isFromBootstrapFiles =
+   105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   106|   isBuiltByNixpkgsCompiler =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
 
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-           69|           succ = go cur (n + 1);
-             |                  ^
-           70|         in cur;
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
 
-       … while calling 'go'
+… while calling 'go'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
 
-           62|       len = builtins.length list;
-           63|       go = pred: n:
-             |                  ^
-           64|         if n == len
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
 
-           67|           # Note the cycle -- call-by-need ensures finite fold.
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-             |                  ^
-           69|           succ = go cur (n + 1);
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
 
-       … while calling 'folder'
+… while calling 'folder'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
 
-           88|   # debugging purposes.
-           89|   folder = nextStage: stageFun: prevStage: let
-             |                                 ^
-           90|     args = stageFun prevStage;
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
 
-           89|   folder = nextStage: stageFun: prevStage: let
-           90|     args = stageFun prevStage;
-             |            ^
-           91|     args' = args // {
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
 
-           78|   withAllowCustomOverrides = lib.lists.imap1
-           79|     (index: stageFun: prevStage:
-             |                       ^
-           80|       # So true by default for only the first element because one
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
 
-           83|       { allowCustomOverrides = index == 1; }
-           84|       // (stageFun prevStage))
-             |           ^
-           85|     (lib.lists.reverseList stageFuns);
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:486:4:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:486:4:
 
-          485|   # binutils and rest of the bootstrap tools, including GCC.
-          486|   (prevStage:
-             |    ^
-          487|     # previous stage2 stdenv:
+   485|   # binutils and rest of the bootstrap tools, including GCC.
+   486|   (prevStage:
+      |    ^
+   487|     # previous stage2 stdenv:
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:488:19:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:488:19:
 
-          487|     # previous stage2 stdenv:
-          488|     assert        isBuiltByNixpkgsCompiler prevStage.binutils-unwrapped;
-             |                   ^
-          489|     assert        isBuiltByNixpkgsCompiler prevStage.${localSystem.libc};
+   487|     # previous stage2 stdenv:
+   488|     assert        isBuiltByNixpkgsCompiler prevStage.binutils-unwrapped;
+      |                   ^
+   489|     assert        isBuiltByNixpkgsCompiler prevStage.${localSystem.libc};
 
-       … while calling 'isBuiltByNixpkgsCompiler'
+… while calling 'isBuiltByNixpkgsCompiler'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:5:
 
-          106|   isBuiltByNixpkgsCompiler =
-          107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
-             |     ^
-          108|   isBuiltByBootstrapFilesCompiler =
+   106|   isBuiltByNixpkgsCompiler =
+   107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |     ^
+   108|   isBuiltByBootstrapFilesCompiler =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:10:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:107:10:
 
-          106|   isBuiltByNixpkgsCompiler =
-          107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
-             |          ^
-          108|   isBuiltByBootstrapFilesCompiler =
+   106|   isBuiltByNixpkgsCompiler =
+   107|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |          ^
+   108|   isBuiltByBootstrapFilesCompiler =
 
-       … while calling 'isFromNixpkgs'
+… while calling 'isFromNixpkgs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:19:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:19:
 
-          102|
-          103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
-             |                   ^
-          104|   isFromBootstrapFiles =
+   102|
+   103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                   ^
+   104|   isFromBootstrapFiles =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:26:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:26:
 
-          102|
-          103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
-             |                          ^
-          104|   isFromBootstrapFiles =
+   102|
+   103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                          ^
+   104|   isFromBootstrapFiles =
 
-       … while calling 'isFromBootstrapFiles'
+… while calling 'isFromBootstrapFiles'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
 
-          104|   isFromBootstrapFiles =
-          105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
-             |     ^
-          106|   isBuiltByNixpkgsCompiler =
+   104|   isFromBootstrapFiles =
+   105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   106|   isBuiltByNixpkgsCompiler =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
 
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-           69|           succ = go cur (n + 1);
-             |                  ^
-           70|         in cur;
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
 
-       … while calling 'go'
+… while calling 'go'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
 
-           62|       len = builtins.length list;
-           63|       go = pred: n:
-             |                  ^
-           64|         if n == len
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
 
-           67|           # Note the cycle -- call-by-need ensures finite fold.
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-             |                  ^
-           69|           succ = go cur (n + 1);
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
 
-       … while calling 'folder'
+… while calling 'folder'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
 
-           88|   # debugging purposes.
-           89|   folder = nextStage: stageFun: prevStage: let
-             |                                 ^
-           90|     args = stageFun prevStage;
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
 
-           89|   folder = nextStage: stageFun: prevStage: let
-           90|     args = stageFun prevStage;
-             |            ^
-           91|     args' = args // {
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
 
-           78|   withAllowCustomOverrides = lib.lists.imap1
-           79|     (index: stageFun: prevStage:
-             |                       ^
-           80|       # So true by default for only the first element because one
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
 
-           83|       { allowCustomOverrides = index == 1; }
-           84|       // (stageFun prevStage))
-             |           ^
-           85|     (lib.lists.reverseList stageFuns);
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:400:4:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:400:4:
 
-          399|   #
-          400|   (prevStage:
-             |    ^
-          401|     # previous stage1 stdenv:
+   399|   #
+   400|   (prevStage:
+      |    ^
+   401|     # previous stage1 stdenv:
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:402:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:402:12:
 
-          401|     # previous stage1 stdenv:
-          402|     assert isBuiltByBootstrapFilesCompiler prevStage.binutils-unwrapped;
-             |            ^
-          403|     assert            isFromBootstrapFiles prevStage."${localSystem.libc}";
+   401|     # previous stage1 stdenv:
+   402|     assert isBuiltByBootstrapFilesCompiler prevStage.binutils-unwrapped;
+      |            ^
+   403|     assert            isFromBootstrapFiles prevStage."${localSystem.libc}";
 
-       … while calling 'isBuiltByBootstrapFilesCompiler'
+… while calling 'isBuiltByBootstrapFilesCompiler'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:109:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:109:5:
 
-          108|   isBuiltByBootstrapFilesCompiler =
-          109|     pkg: isFromNixpkgs pkg && isFromBootstrapFiles pkg.stdenv.cc.cc;
-             |     ^
-          110|
+   108|   isBuiltByBootstrapFilesCompiler =
+   109|     pkg: isFromNixpkgs pkg && isFromBootstrapFiles pkg.stdenv.cc.cc;
+      |     ^
+   110|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:109:10:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:109:10:
 
-          108|   isBuiltByBootstrapFilesCompiler =
-          109|     pkg: isFromNixpkgs pkg && isFromBootstrapFiles pkg.stdenv.cc.cc;
-             |          ^
-          110|
+   108|   isBuiltByBootstrapFilesCompiler =
+   109|     pkg: isFromNixpkgs pkg && isFromBootstrapFiles pkg.stdenv.cc.cc;
+      |          ^
+   110|
 
-       … while calling 'isFromNixpkgs'
+… while calling 'isFromNixpkgs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:19:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:19:
 
-          102|
-          103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
-             |                   ^
-          104|   isFromBootstrapFiles =
+   102|
+   103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                   ^
+   104|   isFromBootstrapFiles =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:26:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:26:
 
-          102|
-          103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
-             |                          ^
-          104|   isFromBootstrapFiles =
+   102|
+   103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                          ^
+   104|   isFromBootstrapFiles =
 
-       … while calling 'isFromBootstrapFiles'
+… while calling 'isFromBootstrapFiles'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
 
-          104|   isFromBootstrapFiles =
-          105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
-             |     ^
-          106|   isBuiltByNixpkgsCompiler =
+   104|   isFromBootstrapFiles =
+   105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   106|   isBuiltByNixpkgsCompiler =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
 
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-           69|           succ = go cur (n + 1);
-             |                  ^
-           70|         in cur;
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
 
-       … while calling 'go'
+… while calling 'go'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
 
-           62|       len = builtins.length list;
-           63|       go = pred: n:
-             |                  ^
-           64|         if n == len
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
 
-           67|           # Note the cycle -- call-by-need ensures finite fold.
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-             |                  ^
-           69|           succ = go cur (n + 1);
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
 
-       … while calling 'folder'
+… while calling 'folder'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
 
-           88|   # debugging purposes.
-           89|   folder = nextStage: stageFun: prevStage: let
-             |                                 ^
-           90|     args = stageFun prevStage;
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
 
-           89|   folder = nextStage: stageFun: prevStage: let
-           90|     args = stageFun prevStage;
-             |            ^
-           91|     args' = args // {
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
 
-           78|   withAllowCustomOverrides = lib.lists.imap1
-           79|     (index: stageFun: prevStage:
-             |                       ^
-           80|       # So true by default for only the first element because one
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
 
-           83|       { allowCustomOverrides = index == 1; }
-           84|       // (stageFun prevStage))
-             |           ^
-           85|     (lib.lists.reverseList stageFuns);
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:321:4:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:321:4:
 
-          320|   # is not part of the final stdenv.
-          321|   (prevStage:
-             |    ^
-          322|     assert isBuiltByBootstrapFilesCompiler prevStage.binutils-unwrapped;
+   320|   # is not part of the final stdenv.
+   321|   (prevStage:
+      |    ^
+   322|     assert isBuiltByBootstrapFilesCompiler prevStage.binutils-unwrapped;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:322:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:322:12:
 
-          321|   (prevStage:
-          322|     assert isBuiltByBootstrapFilesCompiler prevStage.binutils-unwrapped;
-             |            ^
-          323|     assert            isFromBootstrapFiles prevStage."${localSystem.libc}";
+   321|   (prevStage:
+   322|     assert isBuiltByBootstrapFilesCompiler prevStage.binutils-unwrapped;
+      |            ^
+   323|     assert            isFromBootstrapFiles prevStage."${localSystem.libc}";
 
-       … while calling 'isBuiltByBootstrapFilesCompiler'
+… while calling 'isBuiltByBootstrapFilesCompiler'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:109:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:109:5:
 
-          108|   isBuiltByBootstrapFilesCompiler =
-          109|     pkg: isFromNixpkgs pkg && isFromBootstrapFiles pkg.stdenv.cc.cc;
-             |     ^
-          110|
+   108|   isBuiltByBootstrapFilesCompiler =
+   109|     pkg: isFromNixpkgs pkg && isFromBootstrapFiles pkg.stdenv.cc.cc;
+      |     ^
+   110|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:109:10:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:109:10:
 
-          108|   isBuiltByBootstrapFilesCompiler =
-          109|     pkg: isFromNixpkgs pkg && isFromBootstrapFiles pkg.stdenv.cc.cc;
-             |          ^
-          110|
+   108|   isBuiltByBootstrapFilesCompiler =
+   109|     pkg: isFromNixpkgs pkg && isFromBootstrapFiles pkg.stdenv.cc.cc;
+      |          ^
+   110|
 
-       … while calling 'isFromNixpkgs'
+… while calling 'isFromNixpkgs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:19:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:19:
 
-          102|
-          103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
-             |                   ^
-          104|   isFromBootstrapFiles =
+   102|
+   103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                   ^
+   104|   isFromBootstrapFiles =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:26:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:103:26:
 
-          102|
-          103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
-             |                          ^
-          104|   isFromBootstrapFiles =
+   102|
+   103|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                          ^
+   104|   isFromBootstrapFiles =
 
-       … while calling 'isFromBootstrapFiles'
+… while calling 'isFromBootstrapFiles'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
 
-          104|   isFromBootstrapFiles =
-          105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
-             |     ^
-          106|   isBuiltByNixpkgsCompiler =
+   104|   isFromBootstrapFiles =
+   105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   106|   isBuiltByNixpkgsCompiler =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
 
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-           69|           succ = go cur (n + 1);
-             |                  ^
-           70|         in cur;
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
 
-       … while calling 'go'
+… while calling 'go'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
 
-           62|       len = builtins.length list;
-           63|       go = pred: n:
-             |                  ^
-           64|         if n == len
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
 
-           67|           # Note the cycle -- call-by-need ensures finite fold.
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-             |                  ^
-           69|           succ = go cur (n + 1);
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
 
-       … while calling 'folder'
+… while calling 'folder'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
 
-           88|   # debugging purposes.
-           89|   folder = nextStage: stageFun: prevStage: let
-             |                                 ^
-           90|     args = stageFun prevStage;
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:90:12:
 
-           89|   folder = nextStage: stageFun: prevStage: let
-           90|     args = stageFun prevStage;
-             |            ^
-           91|     args' = args // {
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:79:23:
 
-           78|   withAllowCustomOverrides = lib.lists.imap1
-           79|     (index: stageFun: prevStage:
-             |                       ^
-           80|       # So true by default for only the first element because one
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:84:11:
 
-           83|       { allowCustomOverrides = index == 1; }
-           84|       // (stageFun prevStage))
-             |           ^
-           85|     (lib.lists.reverseList stageFuns);
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:284:4:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:284:4:
 
-          283|   # overrides attribute and the inherit syntax.
-          284|   (prevStage:
-             |    ^
-          285|     # previous stage0 stdenv:
+   283|   # overrides attribute and the inherit syntax.
+   284|   (prevStage:
+      |    ^
+   285|     # previous stage0 stdenv:
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:286:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:286:12:
 
-          285|     # previous stage0 stdenv:
-          286|     assert isFromBootstrapFiles prevStage.binutils.bintools;
-             |            ^
-          287|     assert isFromBootstrapFiles prevStage."${localSystem.libc}";
+   285|     # previous stage0 stdenv:
+   286|     assert isFromBootstrapFiles prevStage.binutils.bintools;
+      |            ^
+   287|     assert isFromBootstrapFiles prevStage."${localSystem.libc}";
 
-       … while calling 'isFromBootstrapFiles'
+… while calling 'isFromBootstrapFiles'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/linux/default.nix:105:5:
 
-          104|   isFromBootstrapFiles =
-          105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
-             |     ^
-          106|   isBuiltByNixpkgsCompiler =
+   104|   isFromBootstrapFiles =
+   105|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   106|   isBuiltByNixpkgsCompiler =
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:69:18:
 
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-           69|           succ = go cur (n + 1);
-             |                  ^
-           70|         in cur;
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
 
-       … while calling 'go'
+… while calling 'go'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:63:18:
 
-           62|       len = builtins.length list;
-           63|       go = pred: n:
-             |                  ^
-           64|         if n == len
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:68:18:
 
-           67|           # Note the cycle -- call-by-need ensures finite fold.
-           68|           cur  = op pred (builtins.elemAt list n) succ;
-             |                  ^
-           69|           succ = go cur (n + 1);
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
 
-       … while calling 'folder'
+… while calling 'folder'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:89:33:
 
-           88|   # debugging purposes.
-           89|   folder = nextStage: stageFun: prevStage: let
-             |                                 ^
-           90|     args = stageFun prevStage;
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:101:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/booter.nix:101:12:
 
-          100|       then args'
-          101|       else allPackages ((builtins.removeAttrs args' ["selfBuild"]) // {
-             |            ^
-          102|         adjacentPackages = if args.selfBuild or true then null else rec {
+   100|       then args'
+   101|       else allPackages ((builtins.removeAttrs args' ["selfBuild"]) // {
+      |            ^
+   102|         adjacentPackages = if args.selfBuild or true then null else rec {
 
-       … while calling 'allPackages'
+… while calling 'allPackages'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:132:17:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:132:17:
 
-          131|   # sets. Only apply arguments which no stdenv would want to override.
-          132|   allPackages = newArgs: import ./stage.nix ({
-             |                 ^
-          133|     inherit lib nixpkgsFun;
+   131|   # sets. Only apply arguments which no stdenv would want to override.
+   132|   allPackages = newArgs: import ./stage.nix ({
+      |                 ^
+   133|     inherit lib nixpkgsFun;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:132:26:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:132:26:
 
-          131|   # sets. Only apply arguments which no stdenv would want to override.
-          132|   allPackages = newArgs: import ./stage.nix ({
-             |                          ^
-          133|     inherit lib nixpkgsFun;
+   131|   # sets. Only apply arguments which no stdenv would want to override.
+   132|   allPackages = newArgs: import ./stage.nix ({
+      |                          ^
+   133|     inherit lib nixpkgsFun;
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/stage.nix:19:1:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/stage.nix:19:1:
 
-           18|
-           19| { ## Misc parameters kept the same for all stages
-             | ^
-           20|   ##
+    18|
+    19| { ## Misc parameters kept the same for all stages
+      | ^
+    20|   ##
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/stage.nix:299:3:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/stage.nix:299:3:
 
-          298|   # Return the complete set of packages.
-          299|   lib.fix toFix
-             |   ^
-          300|
+   298|   # Return the complete set of packages.
+   299|   lib.fix toFix
+      |   ^
+   300|
 
-       … while calling 'fix'
+… while calling 'fix'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:75:9:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:75:9:
 
-           74|   */
-           75|   fix = f: let x = f x; in x;
-             |         ^
-           76|
+    74|   */
+    75|   fix = f: let x = f x; in x;
+      |         ^
+    76|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:75:20:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:75:20:
 
-           74|   */
-           75|   fix = f: let x = f x; in x;
-             |                    ^
-           76|
+    74|   */
+    75|   fix = f: let x = f x; in x;
+      |                    ^
+    76|
 
-       … while calling 'extends'
+… while calling 'extends'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:249:7:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:249:7:
 
-          248|     (
-          249|       final:
-             |       ^
-          250|       let
+   248|     (
+   249|       final:
+      |       ^
+   250|       let
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:251:16:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:251:16:
 
-          250|       let
-          251|         prev = f final;
-             |                ^
-          252|       in
+   250|       let
+   251|         prev = f final;
+      |                ^
+   252|       in
 
-       … while calling 'extends'
+… while calling 'extends'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:249:7:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:249:7:
 
-          248|     (
-          249|       final:
-             |       ^
-          250|       let
+   248|     (
+   249|       final:
+      |       ^
+   250|       let
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:253:15:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:253:15:
 
-          252|       in
-          253|       prev // overlay final prev
-             |               ^
-          254|     );
+   252|       in
+   253|       prev // overlay final prev
+      |               ^
+   254|     );
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/overlay.nix:4:15:
+  at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/overlay.nix:4:15:
 
-            3| # configuration.
-            4| system: self: super: let
-             |               ^
-            5|   lib = import ./lib {pkgs = super;}; # functions
+     3| # configuration.
+     4| system: self: super: let
+      |               ^
+     5|   lib = import ./lib {pkgs = super;}; # functions
 
-       … from call site
+… from call site
 
-         at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/overlay.nix:135:3:
+  at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/overlay.nix:135:3:
 
-          134| in
-          135|   super.lib.composeManyExtensions overlays self super
-             |   ^
-          136|
+   134| in
+   135|   super.lib.composeManyExtensions overlays self super
+      |   ^
+   136|
 
-       … while calling 'composeExtensions'
+… while calling 'composeExtensions'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:262:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:262:18:
 
-          261|   composeExtensions =
-          262|     f: g: final: prev:
-             |                  ^
-          263|       let fApplied = f final prev;
+   261|   composeExtensions =
+   262|     f: g: final: prev:
+      |                  ^
+   263|       let fApplied = f final prev;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:263:22:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:263:22:
 
-          262|     f: g: final: prev:
-          263|       let fApplied = f final prev;
-             |                      ^
-          264|           prev' = prev // fApplied;
+   262|     f: g: final: prev:
+   263|       let fApplied = f final prev;
+      |                      ^
+   264|           prev' = prev // fApplied;
 
-       … while calling 'getFlakeOverlay'
+… while calling 'getFlakeOverlay'
 
-         at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/overlay.nix:14:47:
+  at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/overlay.nix:14:47:
 
-           13|
-           14|   getFlakeOverlay = flakeName: overlay: self: super: (getFlake flakeName).outputs.overlays.${overlay} self super;
-             |                                               ^
-           15|
+    13|
+    14|   getFlakeOverlay = flakeName: overlay: self: super: (getFlake flakeName).outputs.overlays.${overlay} self super;
+      |                                               ^
+    15|
 
-       … from call site
+… from call site
 
-         at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/overlay.nix:14:55:
+  at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/overlay.nix:14:55:
 
-           13|
-           14|   getFlakeOverlay = flakeName: overlay: self: super: (getFlake flakeName).outputs.overlays.${overlay} self super;
-             |                                                       ^
-           15|
+    13|
+    14|   getFlakeOverlay = flakeName: overlay: self: super: (getFlake flakeName).outputs.overlays.${overlay} self super;
+      |                                                       ^
+    15|
 
-       … while calling 'getFlake'
+… while calling 'getFlake'
 
-         at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/overlay.nix:8:14:
+  at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/overlay.nix:8:14:
 
-            7|
-            8|   getFlake = flakeName: let
-             |              ^
-            9|     lib = import ./lib {pkgs = super;};
+     7|
+     8|   getFlake = flakeName: let
+      |              ^
+     9|     lib = import ./lib {pkgs = super;};
 
-       … from call site
+… from call site
 
-         at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/overlay.nix:10:14:
+  at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/overlay.nix:10:14:
 
-            9|     lib = import ./lib {pkgs = super;};
-           10|     flake = (lib.importFlake {inherit system;}).defaultNix;
-             |              ^
-           11|   in
+     9|     lib = import ./lib {pkgs = super;};
+    10|     flake = (lib.importFlake {inherit system;}).defaultNix;
+      |              ^
+    11|   in
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/lib/importFlake.nix:1:1:
+  at /nix/store/0znq9587jjv8zib7fn2z2rxpnb2f2hks-nix-packages/lib/importFlake.nix:1:1:
 
-            1| {system}: let
-             | ^
-            2|   lock = builtins.fromJSON (builtins.readFile ../flake.lock);
+     1| {system}: let
+      | ^
+     2|   lock = builtins.fromJSON (builtins.readFile ../flake.lock);
 
-       error: access to URI 'https://github.com/edolstra/flake-compat/archive/4f910c9827911b1ec2bf26b5a062cd09f8d89f85.tar.gz' is forbidden in restricted mode
+error: access to URI 'https://github.com/edolstra/flake-compat/archive/4f910c9827911b1ec2bf26b5a062cd09f8d89f85.tar.gz' is forbidden in restricted mode

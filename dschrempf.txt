@@ -1,22 +1,22 @@
 error:
-       … while evaluating the file '/tmp/nur-update/default.nix':
+… while evaluating the file '/tmp/nur-update/default.nix':
 
-       … from call site
+… from call site
 
-         at /tmp/nur-update/default.nix:3:21:
+  at /tmp/nur-update/default.nix:3:21:
 
-            2|                     with import <nixpkgs> {};
-            3|                     import /tmp/nur-update/evalRepo.nix {
-             |                     ^
-            4|                         name = "dschrempf";
+     2|                     with import <nixpkgs> {};
+     3|                     import /tmp/nur-update/evalRepo.nix {
+      |                     ^
+     4|                         name = "dschrempf";
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /tmp/nur-update/evalRepo.nix:1:1:
+  at /tmp/nur-update/evalRepo.nix:1:1:
 
-            1| { name
-             | ^
-            2| , url
+     1| { name
+      | ^
+     2| , url
 
-       error: NUR repository dschrempf is using the deprecated callPackage syntax which
-       might result in infinite recursion when used with NixOS modules.
+error: NUR repository dschrempf is using the deprecated callPackage syntax which
+might result in infinite recursion when used with NixOS modules.

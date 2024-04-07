@@ -1,65 +1,65 @@
 error:
-       … while calling 'flip'
+… while calling 'flip'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:148:16:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:148:16:
 
-          147|   */
-          148|   flip = f: a: b: f b a;
-             |                ^
-          149|
+   147|   */
+   148|   flip = f: a: b: f b a;
+      |                ^
+   149|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:148:19:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:148:19:
 
-          147|   */
-          148|   flip = f: a: b: f b a;
-             |                   ^
-          149|
+   147|   */
+   148|   flip = f: a: b: f b a;
+      |                   ^
+   149|
 
-       … while calling 'callPackage'
+… while calling 'callPackage'
 
-         at /nix/store/phqjxvh7iz1mm47gdygbvk0qgaxarrqf-source/default.nix:4:23:
+  at /nix/store/phqjxvh7iz1mm47gdygbvk0qgaxarrqf-source/default.nix:4:23:
 
-            3|   # This callPackage will try to detect obsolete overrides.
-            4|   callPackage = path: args: let
-             |                       ^
-            5|     override =  super.callPackage path args;
+     3|   # This callPackage will try to detect obsolete overrides.
+     4|   callPackage = path: args: let
+      |                       ^
+     5|     override =  super.callPackage path args;
 
-       … from call site
+… from call site
 
-         at /nix/store/phqjxvh7iz1mm47gdygbvk0qgaxarrqf-source/default.nix:6:16:
+  at /nix/store/phqjxvh7iz1mm47gdygbvk0qgaxarrqf-source/default.nix:6:16:
 
-            5|     override =  super.callPackage path args;
-            6|     upstream = optionalAttrs (override ? "name")
-             |                ^
-            7|       (super.${(parseDrvName override.name).name} or {});
+     5|     override =  super.callPackage path args;
+     6|     upstream = optionalAttrs (override ? "name")
+      |                ^
+     7|       (super.${(parseDrvName override.name).name} or {});
 
-       … while calling 'optionalAttrs'
+… while calling 'optionalAttrs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:819:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:819:5:
 
-          818|     # The attribute set to return if `cond` is `true`.
-          819|     as:
-             |     ^
-          820|     if cond then as else {};
+   818|     # The attribute set to return if `cond` is `true`.
+   819|     as:
+      |     ^
+   820|     if cond then as else {};
 
-       … from call site
+… from call site
 
-         at /nix/store/phqjxvh7iz1mm47gdygbvk0qgaxarrqf-source/default.nix:5:17:
+  at /nix/store/phqjxvh7iz1mm47gdygbvk0qgaxarrqf-source/default.nix:5:17:
 
-            4|   callPackage = path: args: let
-            5|     override =  super.callPackage path args;
-             |                 ^
-            6|     upstream = optionalAttrs (override ? "name")
+     4|   callPackage = path: args: let
+     5|     override =  super.callPackage path args;
+      |                 ^
+     6|     upstream = optionalAttrs (override ? "name")
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "chapter-marker" at /nix/store/phqjxvh7iz1mm47gdygbvk0qgaxarrqf-source/awesomecfg/default.nix:9'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "chapter-marker" at /nix/store/phqjxvh7iz1mm47gdygbvk0qgaxarrqf-source/awesomecfg/default.nix:9'

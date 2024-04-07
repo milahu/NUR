@@ -1,90 +1,90 @@
 error:
-       … while querying the derivation named 'neovim-gtk-unstable-0.2.0'
+… while querying the derivation named 'neovim-gtk-unstable-0.2.0'
 
-       … while calling the 'derivationStrict' builtin
+… while calling the 'derivationStrict' builtin
 
-         at /builtin/derivation.nix:9:12: (source not available)
+  at /builtin/derivation.nix:9:12: (source not available)
 
-       … while evaluating derivation 'neovim-gtk-unstable-0.2.0'
-         whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
+… while evaluating derivation 'neovim-gtk-unstable-0.2.0'
+  whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
 
-       … while evaluating attribute 'buildInputs' of derivation 'neovim-gtk-unstable-0.2.0'
+… while evaluating attribute 'buildInputs' of derivation 'neovim-gtk-unstable-0.2.0'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:399:7:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:399:7:
 
-          398|       depsHostHost                = elemAt (elemAt dependencies 1) 0;
-          399|       buildInputs                 = elemAt (elemAt dependencies 1) 1;
-             |       ^
-          400|       depsTargetTarget            = elemAt (elemAt dependencies 2) 0;
+   398|       depsHostHost                = elemAt (elemAt dependencies 1) 0;
+   399|       buildInputs                 = elemAt (elemAt dependencies 1) 1;
+      |       ^
+   400|       depsTargetTarget            = elemAt (elemAt dependencies 2) 0;
 
-       … while calling 'getOutput'
+… while calling 'getOutput'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:1083:23:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:1083:23:
 
-         1082|   */
-         1083|   getOutput = output: pkg:
-             |                       ^
-         1084|     if ! pkg ? outputSpecified || ! pkg.outputSpecified
+  1082|   */
+  1083|   getOutput = output: pkg:
+      |                       ^
+  1084|     if ! pkg ? outputSpecified || ! pkg.outputSpecified
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:298:13:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:298:13:
 
-          297|       (map (drv: drv.__spliced.hostHost or drv) (checkDependencyList "depsHostHost" depsHostHost))
-          298|       (map (drv: drv.__spliced.hostTarget or drv) (checkDependencyList "buildInputs" buildInputs'))
-             |             ^
-          299|     ]
+   297|       (map (drv: drv.__spliced.hostHost or drv) (checkDependencyList "depsHostHost" depsHostHost))
+   298|       (map (drv: drv.__spliced.hostTarget or drv) (checkDependencyList "buildInputs" buildInputs'))
+      |             ^
+   299|     ]
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:165:29:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:165:29:
 
-          164|   */
-          165|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
-             |                             ^
-          166|
+   164|   */
+   165|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
+      |                             ^
+   166|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:165:32:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:165:32:
 
-          164|   */
-          165|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
-             |                                ^
-          166|
+   164|   */
+   165|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
+      |                                ^
+   166|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:265:73:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:265:73:
 
-          264|   checkDependencyList = checkDependencyList' [];
-          265|   checkDependencyList' = positions: name: deps: flip imap1 deps (index: dep:
-             |                                                                         ^
-          266|     if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
+   264|   checkDependencyList = checkDependencyList' [];
+   265|   checkDependencyList' = positions: name: deps: flip imap1 deps (index: dep:
+      |                                                                         ^
+   266|     if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:266:8:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:266:8:
 
-          265|   checkDependencyList' = positions: name: deps: flip imap1 deps (index: dep:
-          266|     if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
-             |        ^
-          267|     else if isList dep then checkDependencyList' ([index] ++ positions) name dep
+   265|   checkDependencyList' = positions: name: deps: flip imap1 deps (index: dep:
+   266|     if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
+      |        ^
+   267|     else if isList dep then checkDependencyList' ([index] ++ positions) name dep
 
-       … while calling 'isDerivation'
+… while calling 'isDerivation'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:780:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:780:5:
 
-          779|     # Value to check.
-          780|     value: value.type or null == "derivation";
-             |     ^
-          781|
+   779|     # Value to check.
+   780|     value: value.type or null == "derivation";
+      |     ^
+   781|
 
-       error: attribute 'vte' missing
+error: attribute 'vte' missing
 
-       at /nix/store/zv6sp6flb15ziipymn4i6ksxzbvrdrg0-source/pkgs/neovim-gtk/default.nix:19:24:
+at /nix/store/zv6sp6flb15ziipymn4i6ksxzbvrdrg0-source/pkgs/neovim-gtk/default.nix:19:24:
 
-           18|
-           19|   buildInputs = [ gtk3 gnome3.vte ];
-             |                        ^
-           20|
+    18|
+    19|   buildInputs = [ gtk3 gnome3.vte ];
+      |                        ^
+    20|

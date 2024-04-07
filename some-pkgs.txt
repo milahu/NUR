@@ -1,75 +1,75 @@
 error:
-       … while evaluating the file '/tmp/nur-update/default.nix':
+… while evaluating the file '/tmp/nur-update/default.nix':
 
-       … from call site
+… from call site
 
-         at /tmp/nur-update/default.nix:3:21:
+  at /tmp/nur-update/default.nix:3:21:
 
-            2|                     with import <nixpkgs> {};
-            3|                     import /tmp/nur-update/evalRepo.nix {
-             |                     ^
-            4|                         name = "some-pkgs";
+     2|                     with import <nixpkgs> {};
+     3|                     import /tmp/nur-update/evalRepo.nix {
+      |                     ^
+     4|                         name = "some-pkgs";
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /tmp/nur-update/evalRepo.nix:1:1:
+  at /tmp/nur-update/evalRepo.nix:1:1:
 
-            1| { name
-             | ^
-            2| , url
+     1| { name
+      | ^
+     2| , url
 
-       … from call site
+… from call site
 
-         at /tmp/nur-update/evalRepo.nix:33:11:
+  at /tmp/nur-update/evalRepo.nix:33:11:
 
-           32|     might result in infinite recursion when used with NixOS modules.
-           33|   '' else expr (builtins.intersectAttrs args passedArgs)
-             |           ^
-           34|
+    32|     might result in infinite recursion when used with NixOS modules.
+    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+      |           ^
+    34|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/default.nix:2:1:
+  at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/default.nix:2:1:
 
-            1| # Use pkgs provided by NUR
-            2| { pkgs ? import <nixpkgs> { } }:
-             | ^
-            3|
+     1| # Use pkgs provided by NUR
+     2| { pkgs ? import <nixpkgs> { } }:
+      | ^
+     3|
 
-       … from call site
+… from call site
 
-         at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/flake.nix:57:18:
+  at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/flake.nix:57:18:
 
-           56|
-           57|       newAttrs = forAllSystems (system:
-             |                  ^
-           58|         pkgs.${system}.some-pkgs // pkgs.${system}.some-pkgs.some-pkgs-py);
+    56|
+    57|       newAttrs = forAllSystems (system:
+      |                  ^
+    58|         pkgs.${system}.some-pkgs // pkgs.${system}.some-pkgs.some-pkgs-py);
 
-       … while calling 'forAllSystems'
+… while calling 'forAllSystems'
 
-         at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/flake.nix:26:23:
+  at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/flake.nix:26:23:
 
-           25|         ];
-           26|       forAllSystems = f: lib.genAttrs systems (system: f system);
-             |                       ^
-           27|
+    25|         ];
+    26|       forAllSystems = f: lib.genAttrs systems (system: f system);
+      |                       ^
+    27|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/compat.nix:179:25:
+  at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/compat.nix:179:25:
 
-          178|           inputs = builtins.mapAttrs
-          179|             (inputName: inputSpec: allNodes.${resolveInput inputSpec})
-             |                         ^
-          180|             (node.inputs or { });
+   178|           inputs = builtins.mapAttrs
+   179|             (inputName: inputSpec: allNodes.${resolveInput inputSpec})
+      |                         ^
+   180|             (node.inputs or { });
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/compat.nix:165:13:
+  at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/compat.nix:165:13:
 
-          164|     builtins.mapAttrs
-          165|       (key: node:
-             |             ^
-          166|         let
+   164|     builtins.mapAttrs
+   165|       (key: node:
+      |             ^
+   166|         let
 
-       error: access to URI 'https://api.github.com/repos/NixOS/nixpkgs/tarball/2c92367fc6afb7df4700782bccae881d81e02de9' is forbidden in restricted mode
+error: access to URI 'https://api.github.com/repos/NixOS/nixpkgs/tarball/2c92367fc6afb7df4700782bccae881d81e02de9' is forbidden in restricted mode

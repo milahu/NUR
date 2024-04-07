@@ -1,20 +1,20 @@
 error:
-       … from call site
+… from call site
 
-         at /nix/store/0iq1h82pby4s5f9hcrysqrwbn28ghjp7-source/default.nix:29:25:
+  at /nix/store/0iq1h82pby4s5f9hcrysqrwbn28ghjp7-source/default.nix:29:25:
 
-           28|   clocktimer = pkgs.callPackage ./pkgs/clocktimer { lib = mylib; };
-           29|   fragments-of-euclid = pkgs.callPackage ./pkgs/fragments-of-euclid { lib = mylib; };
-             |                         ^
-           30|   freediag = pkgs.callPackage ./pkgs/freediag { lib = mylib; };
+    28|   clocktimer = pkgs.callPackage ./pkgs/clocktimer { lib = mylib; };
+    29|   fragments-of-euclid = pkgs.callPackage ./pkgs/fragments-of-euclid { lib = mylib; };
+      |                         ^
+    30|   freediag = pkgs.callPackage ./pkgs/freediag { lib = mylib; };
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "gdk_pixbuf" at /nix/store/0iq1h82pby4s5f9hcrysqrwbn28ghjp7-source/pkgs/fragments-of-euclid/default.nix:9, did you mean "gdk-pixbuf"?'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "gdk_pixbuf" at /nix/store/0iq1h82pby4s5f9hcrysqrwbn28ghjp7-source/pkgs/fragments-of-euclid/default.nix:9, did you mean "gdk-pixbuf"?'

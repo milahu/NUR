@@ -1,0 +1,73 @@
+trace: package found: /nix/store/zjz4l3m0n6c83vyybym921qdc5rbhzrn-package.nix
+trace: package found: /nix/store/gw4rln5d9rrn51jcci8sk99iw2x16552-package.nix
+error:
+… while calling anonymous lambda
+
+  at /nix/store/n8lv1vwbdzl1iiq7ssshbhdbdcbbgxf8-source/lib/default.nix:16:12:
+
+    15|   callDir = basePath: extraArgs: mapAttrs
+    16|     (name: type:
+      |            ^
+    17|       let
+
+… from call site
+
+  at /nix/store/n8lv1vwbdzl1iiq7ssshbhdbdcbbgxf8-source/lib/default.nix:21:59:
+
+    20|         (if type == "directory" && pathExists pkgPath
+    21|          then builtins.trace "package found: ${pkgPath}" (pkgs.callPackage pkgPath extraArgs)
+      |                                                           ^
+    22|          else {}))
+
+… while calling 'callPackageWith'
+
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
+
+… from call site
+
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+
+   439|     { # TODO: Should we add call-time "type" checking like built in?
+   440|       __functor = self: f;
+      |       ^
+   441|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+
+    95|     in
+    96|     mirrorArgs (origArgs:
+      |                 ^
+    97|     let
+
+… from call site
+
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
+
+    97|     let
+    98|       result = f origArgs;
+      |                ^
+    99|
+
+… while calling anonymous lambda
+
+  at /nix/store/n8lv1vwbdzl1iiq7ssshbhdbdcbbgxf8-source/pkgs/by-name/jonesforth/package.nix:1:1:
+
+     1| { lib
+      | ^
+     2| , stdenv
+
+error: function 'writeShellApplication' called with unexpected argument 'derivationArgs'
+
+at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/trivial-builders/default.nix:269:5:
+
+   268|   writeShellApplication =
+   269|     { name
+      |     ^
+   270|     , text

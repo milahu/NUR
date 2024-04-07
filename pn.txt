@@ -1,21 +1,21 @@
 trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
 error:
-       … from call site
+… from call site
 
-         at /nix/store/jjl4fv1djbb1ws4kd2pmygmflvh5r99k-source/default.nix:39:9:
+  at /nix/store/jjl4fv1djbb1ws4kd2pmygmflvh5r99k-source/default.nix:39:9:
 
-           38|   st = pkgs.callPackage ./pkgs/larbs/st { };
-           39|   dwm = pkgs.callPackage ./pkgs/larbs/dwm { };
-             |         ^
-           40|   dwmblocks = pkgs.callPackage ./pkgs/larbs/dwmblocks { };
+    38|   st = pkgs.callPackage ./pkgs/larbs/st { };
+    39|   dwm = pkgs.callPackage ./pkgs/larbs/dwm { };
+      |         ^
+    40|   dwmblocks = pkgs.callPackage ./pkgs/larbs/dwmblocks { };
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "xlibs" at /nix/store/jjl4fv1djbb1ws4kd2pmygmflvh5r99k-source/pkgs/larbs/dwm/default.nix:1, did you mean "blis", "bliss" or "clib"?'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "xlibs" at /nix/store/jjl4fv1djbb1ws4kd2pmygmflvh5r99k-source/pkgs/larbs/dwm/default.nix:1, did you mean "blis", "bliss" or "clib"?'

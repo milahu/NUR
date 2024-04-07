@@ -1,171 +1,171 @@
 error:
-       … while evaluating the attribute 'vimExtraPlugins'
+… while evaluating the attribute 'vimExtraPlugins'
 
-         at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/overrides.nix:434:3:
+  at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/overrides.nix:434:3:
 
-          433| {
-          434|   vimExtraPlugins = prev.vimExtraPlugins.extend (lib.composeManyExtensions [
-             |   ^
-          435|     markBrokenPackages
+   433| {
+   434|   vimExtraPlugins = prev.vimExtraPlugins.extend (lib.composeManyExtensions [
+      |   ^
+   435|     markBrokenPackages
 
-       … while evaluating the attribute 'vimExtraPlugins.extend'
+… while evaluating the attribute 'vimExtraPlugins.extend'
 
-         at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/overlay.nix:9:5:
+  at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/overlay.nix:9:5:
 
-            8|   in {
-            9|     vimExtraPlugins = final.lib.makeExtensible (_: final.lib.recurseIntoAttrs origin);
-             |     ^
-           10|   })
+     8|   in {
+     9|     vimExtraPlugins = final.lib.makeExtensible (_: final.lib.recurseIntoAttrs origin);
+      |     ^
+    10|   })
 
-       … from call site
+… from call site
 
-         at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/overlay.nix:9:23:
+  at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/overlay.nix:9:23:
 
-            8|   in {
-            9|     vimExtraPlugins = final.lib.makeExtensible (_: final.lib.recurseIntoAttrs origin);
-             |                       ^
-           10|   })
+     8|   in {
+     9|     vimExtraPlugins = final.lib.makeExtensible (_: final.lib.recurseIntoAttrs origin);
+      |                       ^
+    10|   })
 
-       … while calling 'makeExtensibleWithCustomName'
+… while calling 'makeExtensibleWithCustomName'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:306:48:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:306:48:
 
-          305|   */
-          306|   makeExtensibleWithCustomName = extenderName: rattrs:
-             |                                                ^
-          307|     fix' (self: (rattrs self) // {
+   305|   */
+   306|   makeExtensibleWithCustomName = extenderName: rattrs:
+      |                                                ^
+   307|     fix' (self: (rattrs self) // {
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:307:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:307:5:
 
-          306|   makeExtensibleWithCustomName = extenderName: rattrs:
-          307|     fix' (self: (rattrs self) // {
-             |     ^
-          308|       ${extenderName} = f: makeExtensibleWithCustomName extenderName (extends f rattrs);
+   306|   makeExtensibleWithCustomName = extenderName: rattrs:
+   307|     fix' (self: (rattrs self) // {
+      |     ^
+   308|       ${extenderName} = f: makeExtensibleWithCustomName extenderName (extends f rattrs);
 
-       … while calling 'fix''
+… while calling 'fix''
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:84:10:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:84:10:
 
-           83|   */
-           84|   fix' = f: let x = f x // { __unfix__ = f; }; in x;
-             |          ^
-           85|
+    83|   */
+    84|   fix' = f: let x = f x // { __unfix__ = f; }; in x;
+      |          ^
+    85|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:84:21:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:84:21:
 
-           83|   */
-           84|   fix' = f: let x = f x // { __unfix__ = f; }; in x;
-             |                     ^
-           85|
+    83|   */
+    84|   fix' = f: let x = f x // { __unfix__ = f; }; in x;
+      |                     ^
+    85|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:307:11:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:307:11:
 
-          306|   makeExtensibleWithCustomName = extenderName: rattrs:
-          307|     fix' (self: (rattrs self) // {
-             |           ^
-          308|       ${extenderName} = f: makeExtensibleWithCustomName extenderName (extends f rattrs);
+   306|   makeExtensibleWithCustomName = extenderName: rattrs:
+   307|     fix' (self: (rattrs self) // {
+      |           ^
+   308|       ${extenderName} = f: makeExtensibleWithCustomName extenderName (extends f rattrs);
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:307:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:307:18:
 
-          306|   makeExtensibleWithCustomName = extenderName: rattrs:
-          307|     fix' (self: (rattrs self) // {
-             |                  ^
-          308|       ${extenderName} = f: makeExtensibleWithCustomName extenderName (extends f rattrs);
+   306|   makeExtensibleWithCustomName = extenderName: rattrs:
+   307|     fix' (self: (rattrs self) // {
+      |                  ^
+   308|       ${extenderName} = f: makeExtensibleWithCustomName extenderName (extends f rattrs);
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/overlay.nix:9:49:
+  at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/overlay.nix:9:49:
 
-            8|   in {
-            9|     vimExtraPlugins = final.lib.makeExtensible (_: final.lib.recurseIntoAttrs origin);
-             |                                                 ^
-           10|   })
+     8|   in {
+     9|     vimExtraPlugins = final.lib.makeExtensible (_: final.lib.recurseIntoAttrs origin);
+      |                                                 ^
+    10|   })
 
-       … from call site
+… from call site
 
-         at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/overlay.nix:9:52:
+  at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/overlay.nix:9:52:
 
-            8|   in {
-            9|     vimExtraPlugins = final.lib.makeExtensible (_: final.lib.recurseIntoAttrs origin);
-             |                                                    ^
-           10|   })
+     8|   in {
+     9|     vimExtraPlugins = final.lib.makeExtensible (_: final.lib.recurseIntoAttrs origin);
+      |                                                    ^
+    10|   })
 
-       … while calling 'recurseIntoAttrs'
+… while calling 'recurseIntoAttrs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:1169:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:1169:5:
 
-         1168|     # An attribute set to scan for derivations.
-         1169|     attrs:
-             |     ^
-         1170|     attrs // { recurseForDerivations = true; };
+  1168|     # An attribute set to scan for derivations.
+  1169|     attrs:
+      |     ^
+  1170|     attrs // { recurseForDerivations = true; };
 
-       … from call site
+… from call site
 
-         at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/overlay.nix:5:14:
+  at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/overlay.nix:5:14:
 
-            4|   (self: super: let
-            5|     origin = self.callPackage ./pkgs/vim-plugins.nix {
-             |              ^
-            6|       inherit (self.vimUtils) buildVimPluginFrom2Nix;
+     4|   (self: super: let
+     5|     origin = self.callPackage ./pkgs/vim-plugins.nix {
+      |              ^
+     6|       inherit (self.vimUtils) buildVimPluginFrom2Nix;
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:166:10:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:166:10:
 
-          165|         # Filter out arguments that have a default value
-          166|         (filterAttrs (name: value: ! value)
-             |          ^
-          167|         # Filter out arguments that would be passed
+   165|         # Filter out arguments that have a default value
+   166|         (filterAttrs (name: value: ! value)
+      |          ^
+   167|         # Filter out arguments that would be passed
 
-       … while calling 'filterAttrs'
+… while calling 'filterAttrs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:419:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:419:5:
 
-          418|     # The attribute set to filter
-          419|     set:
-             |     ^
-          420|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
+   418|     # The attribute set to filter
+   419|     set:
+      |     ^
+   420|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:156:15:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:156:15:
 
-          155|       f = if isFunction fn then fn else import fn;
-          156|       fargs = functionArgs f;
-             |               ^
-          157|
+   155|       f = if isFunction fn then fn else import fn;
+   156|       fargs = functionArgs f;
+      |               ^
+   157|
 
-       … while calling 'functionArgs'
+… while calling 'functionArgs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:450:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:450:18:
 
-          449|   */
-          450|   functionArgs = f:
-             |                  ^
-          451|     if f ? __functor
+   449|   */
+   450|   functionArgs = f:
+      |                  ^
+   451|     if f ? __functor
 
-       error: attribute 'vim-nightfly-colors' already defined at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/pkgs/vim-plugins.nix:1327:3
+error: attribute 'vim-nightfly-colors' already defined at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/pkgs/vim-plugins.nix:1327:3
 
-       at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/pkgs/vim-plugins.nix:1340:3:
+at /nix/store/zj20wp6xwzrlswg4izjiv4n0ffy3fn6y-nur-packages/ext/nixpkgs-vim-extra-plugins/pkgs/vim-plugins.nix:1340:3:
 
-         1339|   };
-         1340|   vim-nightfly-colors = buildVimPluginFrom2Nix {
-             |   ^
-         1341|     pname = "vim-nightfly-colors";
+  1339|   };
+  1340|   vim-nightfly-colors = buildVimPluginFrom2Nix {
+      |   ^
+  1341|     pname = "vim-nightfly-colors";

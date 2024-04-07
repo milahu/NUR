@@ -1,92 +1,92 @@
 error:
-       … while querying the derivation named 'iosevka-nerd-2.1.0'
+… while querying the derivation named 'iosevka-nerd-2.1.0'
 
-       … in the condition of the assert statement
+… in the condition of the assert statement
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:267:17:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:267:17:
 
-          266|     in commonAttrs // {
-          267|       drvPath = assert condition; drv.drvPath;
-             |                 ^
-          268|       outPath = assert condition; drv.outPath;
+   266|     in commonAttrs // {
+   267|       drvPath = assert condition; drv.drvPath;
+      |                 ^
+   268|       outPath = assert condition; drv.outPath;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:535:14:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:535:14:
 
-          534|   meta = checkMeta.commonMeta { inherit validity attrs pos references; };
-          535|   validity = checkMeta.assertValidity { inherit meta attrs; };
-             |              ^
-          536|
+   534|   meta = checkMeta.commonMeta { inherit validity attrs pos references; };
+   535|   validity = checkMeta.assertValidity { inherit meta attrs; };
+      |              ^
+   536|
 
-       … while calling 'assertValidity'
+… while calling 'assertValidity'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:484:20:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:484:20:
 
-          483|
-          484|   assertValidity = { meta, attrs }: let
-             |                    ^
-          485|       validity = checkValidity attrs;
+   483|
+   484|   assertValidity = { meta, attrs }: let
+      |                    ^
+   485|       validity = checkValidity attrs;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:485:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:485:18:
 
-          484|   assertValidity = { meta, attrs }: let
-          485|       validity = checkValidity attrs;
-             |                  ^
-          486|       inherit (validity) valid;
+   484|   assertValidity = { meta, attrs }: let
+   485|       validity = checkValidity attrs;
+      |                  ^
+   486|       inherit (validity) valid;
 
-       … while calling 'checkValidity'
+… while calling 'checkValidity'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:385:19:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:385:19:
 
-          384|   # Along with a boolean flag for each reason
-          385|   checkValidity = attrs:
-             |                   ^
-          386|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+   384|   # Along with a boolean flag for each reason
+   385|   checkValidity = attrs:
+      |                   ^
+   386|     # Check meta attribute types first, to make sure it is always called even when there are other issues
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:412:40:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:412:40:
 
-          411|       { valid = "no"; reason = "broken"; errormsg = "is marked as broken"; }
-          412|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
-             |                                        ^
-          413|       let toPretty = lib.generators.toPretty {
+   411|       { valid = "no"; reason = "broken"; errormsg = "is marked as broken"; }
+   412|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
+      |                                        ^
+   413|       let toPretty = lib.generators.toPretty {
 
-       … while calling 'hasUnsupportedPlatform'
+… while calling 'hasUnsupportedPlatform'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:97:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:97:5:
 
-           96|   hasUnsupportedPlatform =
-           97|     pkg: !(lib.meta.availableOn hostPlatform pkg);
-             |     ^
-           98|
+    96|   hasUnsupportedPlatform =
+    97|     pkg: !(lib.meta.availableOn hostPlatform pkg);
+      |     ^
+    98|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:97:12:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:97:12:
 
-           96|   hasUnsupportedPlatform =
-           97|     pkg: !(lib.meta.availableOn hostPlatform pkg);
-             |            ^
-           98|
+    96|   hasUnsupportedPlatform =
+    97|     pkg: !(lib.meta.availableOn hostPlatform pkg);
+      |            ^
+    98|
 
-       … while calling 'availableOn'
+… while calling 'availableOn'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/meta.nix:116:27:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/meta.nix:116:27:
 
-          115|   */
-          116|   availableOn = platform: pkg:
-             |                           ^
-          117|     ((!pkg?meta.platforms) || any (platformMatch platform) pkg.meta.platforms) &&
+   115|   */
+   116|   availableOn = platform: pkg:
+      |                           ^
+   117|     ((!pkg?meta.platforms) || any (platformMatch platform) pkg.meta.platforms) &&
 
-       error: attribute 'lib' missing
+error: attribute 'lib' missing
 
-       at /nix/store/mp2ijdkc0bchwlp5kclr4m8hjf3x4064-source/pkgs/iosevka-nerd-font/default.nix:15:15:
+at /nix/store/mp2ijdkc0bchwlp5kclr4m8hjf3x4064-source/pkgs/iosevka-nerd-font/default.nix:15:15:
 
-           14|
-           15|   meta = with stdenv.lib; {
-             |               ^
-           16|     homepage = "https://github.com/ryanoasis/nerd-fonts";
+    14|
+    15|   meta = with stdenv.lib; {
+      |               ^
+    16|     homepage = "https://github.com/ryanoasis/nerd-fonts";

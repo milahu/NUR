@@ -1,20 +1,20 @@
 error:
-       … from call site
+… from call site
 
-         at /nix/store/355kjdhph5czm0a3w1vdbvm5yj495hw1-NUR/default.nix:30:33:
+  at /nix/store/355kjdhph5czm0a3w1vdbvm5yj495hw1-NUR/default.nix:30:33:
 
-           29|
-           30|   matrix-appservice-minecraft = pkgs.callPackage ./pkgs/matrix-appservice-minecraft { };
-             |                                 ^
-           31|
+    29|
+    30|   matrix-appservice-minecraft = pkgs.callPackage ./pkgs/matrix-appservice-minecraft { };
+      |                                 ^
+    31|
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "nodejs-12_x" at /nix/store/355kjdhph5czm0a3w1vdbvm5yj495hw1-NUR/pkgs/matrix-appservice-minecraft/default.nix:1, did you mean "nodejs-14_x", "nodejs-16_x" or "nodejs-18_x"?'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "nodejs-12_x" at /nix/store/355kjdhph5czm0a3w1vdbvm5yj495hw1-NUR/pkgs/matrix-appservice-minecraft/default.nix:1, did you mean "nodejs-14_x", "nodejs-16_x" or "nodejs-18_x"?'

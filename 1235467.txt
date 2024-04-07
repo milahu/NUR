@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at /nix/store/irsfchrs0n0zn456djksxv1ly1vyl8rr-source/default.nix:73:19:
+  at /nix/store/dwl1z40g58hawb7di6z0n187zjppl0a0-source/default.nix:78:9:
 
-    72|
-    73|     kittel-koat = callPackage ./pkgs/kittel-koat {
-      |                   ^
-    74|       ocamlPackages = pkgs.ocaml-ng.ocamlPackages_4_03;
+    77|   #openmw = pkgs.libsForQt5.callPackage ./pkgs/Overrides/openmw {};
+    78|   qcm = pkgs.qt6.callPackage ./pkgs/Overrides/qcm {};
+      |         ^
+    79|   mpv = pkgs.wrapMpv (pkgs.mpv.unwrapped.override { cddaSupport = true; }) {};
 
 … while calling 'callPackageWith'
 
@@ -46,17 +46,18 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/irsfchrs0n0zn456djksxv1ly1vyl8rr-source/pkgs/kittel-koat/default.nix:1:1:
+  at /nix/store/dwl1z40g58hawb7di6z0n187zjppl0a0-source/pkgs/Overrides/qcm/default.nix:1:1:
 
-     1| { stdenv, git, fetchgit, ocamlPackages, makeWrapper, z3 }:
+     1| { stdenv
       | ^
-     2|
+     2| , pkgs
 
-error: attribute 'buildOcaml' missing
+error: attribute 'qcm' missing
 
-at /nix/store/irsfchrs0n0zn456djksxv1ly1vyl8rr-source/pkgs/kittel-koat/default.nix:6:1:
+at /nix/store/dwl1z40g58hawb7di6z0n187zjppl0a0-source/pkgs/Overrides/qcm/default.nix:9:1:
 
-     5| in
-     6| ocamlPackages.buildOcaml rec {
+     8| in
+     9| pkgs.qcm.overrideAttrs (
       | ^
-     7|   name = "kittel-koat";
+    10|   prev: rec {
+Did you mean one of ecm, lcm, ocm, pcm or qc?

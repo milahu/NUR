@@ -1,110 +1,110 @@
 error:
-       … while querying the derivation named 'fuji-cam-wifi-tool-master'
+… while querying the derivation named 'fuji-cam-wifi-tool-master'
 
-       … in the condition of the assert statement
+… in the condition of the assert statement
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:267:17:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:267:17:
 
-          266|     in commonAttrs // {
-          267|       drvPath = assert condition; drv.drvPath;
-             |                 ^
-          268|       outPath = assert condition; drv.outPath;
+   266|     in commonAttrs // {
+   267|       drvPath = assert condition; drv.drvPath;
+      |                 ^
+   268|       outPath = assert condition; drv.outPath;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:535:14:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:535:14:
 
-          534|   meta = checkMeta.commonMeta { inherit validity attrs pos references; };
-          535|   validity = checkMeta.assertValidity { inherit meta attrs; };
-             |              ^
-          536|
+   534|   meta = checkMeta.commonMeta { inherit validity attrs pos references; };
+   535|   validity = checkMeta.assertValidity { inherit meta attrs; };
+      |              ^
+   536|
 
-       … while calling 'assertValidity'
+… while calling 'assertValidity'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:484:20:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:484:20:
 
-          483|
-          484|   assertValidity = { meta, attrs }: let
-             |                    ^
-          485|       validity = checkValidity attrs;
+   483|
+   484|   assertValidity = { meta, attrs }: let
+      |                    ^
+   485|       validity = checkValidity attrs;
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:485:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:485:18:
 
-          484|   assertValidity = { meta, attrs }: let
-          485|       validity = checkValidity attrs;
-             |                  ^
-          486|       inherit (validity) valid;
+   484|   assertValidity = { meta, attrs }: let
+   485|       validity = checkValidity attrs;
+      |                  ^
+   486|       inherit (validity) valid;
 
-       … while calling 'checkValidity'
+… while calling 'checkValidity'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:385:19:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:385:19:
 
-          384|   # Along with a boolean flag for each reason
-          385|   checkValidity = attrs:
-             |                   ^
-          386|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+   384|   # Along with a boolean flag for each reason
+   385|   checkValidity = attrs:
+      |                   ^
+   386|     # Check meta attribute types first, to make sure it is always called even when there are other issues
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:404:13:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:404:13:
 
-          403|     # --- Put checks that can be ignored here ---
-          404|     else if hasDeniedUnfreeLicense attrs && !(hasAllowlistedLicense attrs) then
-             |             ^
-          405|       { valid = "no"; reason = "unfree"; errormsg = "has an unfree license (‘${showLicense attrs.meta.license}’)"; }
+   403|     # --- Put checks that can be ignored here ---
+   404|     else if hasDeniedUnfreeLicense attrs && !(hasAllowlistedLicense attrs) then
+      |             ^
+   405|       { valid = "no"; reason = "unfree"; errormsg = "has an unfree license (‘${showLicense attrs.meta.license}’)"; }
 
-       … while calling 'hasDeniedUnfreeLicense'
+… while calling 'hasDeniedUnfreeLicense'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:113:28:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:113:28:
 
-          112|   # `allowUnfreePredicate` function.
-          113|   hasDeniedUnfreeLicense = attrs:
-             |                            ^
-          114|     hasUnfreeLicense attrs &&
+   112|   # `allowUnfreePredicate` function.
+   113|   hasDeniedUnfreeLicense = attrs:
+      |                            ^
+   114|     hasUnfreeLicense attrs &&
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:114:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:114:5:
 
-          113|   hasDeniedUnfreeLicense = attrs:
-          114|     hasUnfreeLicense attrs &&
-             |     ^
-          115|     !allowUnfree &&
+   113|   hasDeniedUnfreeLicense = attrs:
+   114|     hasUnfreeLicense attrs &&
+      |     ^
+   115|     !allowUnfree &&
 
-       … while calling 'hasUnfreeLicense'
+… while calling 'hasUnfreeLicense'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:89:22:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:89:22:
 
-           88|
-           89|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
-             |                      ^
-           90|
+    88|
+    89|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
+      |                      ^
+    90|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:89:49:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:89:49:
 
-           88|
-           89|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
-             |                                                 ^
-           90|
+    88|
+    89|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
+      |                                                 ^
+    90|
 
-       … while calling 'isUnfree'
+… while calling 'isUnfree'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:80:14:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:80:14:
 
-           79|
-           80|   isUnfree = licenses:
-             |              ^
-           81|     if isAttrs licenses then !licenses.free or true
+    79|
+    80|   isUnfree = licenses:
+      |              ^
+    81|     if isAttrs licenses then !licenses.free or true
 
-       error: attribute 'lib' missing
+error: attribute 'lib' missing
 
-       at /nix/store/zvhlwpc2yvw11pqws8slll93cnf8g7jz-source/pkgs/fuji-cam-wifi-tool/default.nix:20:15:
+at /nix/store/zvhlwpc2yvw11pqws8slll93cnf8g7jz-source/pkgs/fuji-cam-wifi-tool/default.nix:20:15:
 
-           19|
-           20|   meta = with stdenv.lib; {
-             |               ^
-           21|     description =
+    19|
+    20|   meta = with stdenv.lib; {
+      |               ^
+    21|     description =

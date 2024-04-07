@@ -1,20 +1,20 @@
 error:
-       … from call site
+… from call site
 
-         at /nix/store/8v30x33crsa3pmf335w1nqvll60wlqy3-source/default.nix:6:13:
+  at /nix/store/8v30x33crsa3pmf335w1nqvll60wlqy3-source/default.nix:6:13:
 
-            5|
-            6|   badwolf = pkgs.callPackage ./pkgs/badwolf {};
-             |             ^
-            7| }
+     5|
+     6|   badwolf = pkgs.callPackage ./pkgs/badwolf {};
+      |             ^
+     7| }
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "perl534Packages" at /nix/store/8v30x33crsa3pmf335w1nqvll60wlqy3-source/pkgs/badwolf/default.nix:7, did you mean "perl536Packages" or "perl538Packages"?'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "perl534Packages" at /nix/store/8v30x33crsa3pmf335w1nqvll60wlqy3-source/pkgs/badwolf/default.nix:7, did you mean "perl536Packages" or "perl538Packages"?'

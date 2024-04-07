@@ -1,93 +1,93 @@
 error:
-       … while evaluating the file '/tmp/nur-update/default.nix':
+… while evaluating the file '/tmp/nur-update/default.nix':
 
-       … from call site
+… from call site
 
-         at /tmp/nur-update/default.nix:3:21:
+  at /tmp/nur-update/default.nix:3:21:
 
-            2|                     with import <nixpkgs> {};
-            3|                     import /tmp/nur-update/evalRepo.nix {
-             |                     ^
-            4|                         name = "pschuprikov";
+     2|                     with import <nixpkgs> {};
+     3|                     import /tmp/nur-update/evalRepo.nix {
+      |                     ^
+     4|                         name = "pschuprikov";
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /tmp/nur-update/evalRepo.nix:1:1:
+  at /tmp/nur-update/evalRepo.nix:1:1:
 
-            1| { name
-             | ^
-            2| , url
+     1| { name
+      | ^
+     2| , url
 
-       … from call site
+… from call site
 
-         at /tmp/nur-update/evalRepo.nix:33:11:
+  at /tmp/nur-update/evalRepo.nix:33:11:
 
-           32|     might result in infinite recursion when used with NixOS modules.
-           33|   '' else expr (builtins.intersectAttrs args passedArgs)
-             |           ^
-           34|
+    32|     might result in infinite recursion when used with NixOS modules.
+    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+      |           ^
+    34|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/k99dgjy684nk3wg8zip2pifpn61xjrw7-source/default.nix:3:4:
+  at /nix/store/k99dgjy684nk3wg8zip2pifpn61xjrw7-source/default.nix:3:4:
 
-            2|   mvn2nix = import (fetchTarball "https://github.com/fzakaria/mvn2nix/archive/master.tar.gz") {};
-            3| in { nixpkgsPath ? <nixpkgs>, pkgs ? import nixpkgsPath { } }:
-             |    ^
-            4| let
+     2|   mvn2nix = import (fetchTarball "https://github.com/fzakaria/mvn2nix/archive/master.tar.gz") {};
+     3| in { nixpkgsPath ? <nixpkgs>, pkgs ? import nixpkgsPath { } }:
+      |    ^
+     4| let
 
-       … from call site
+… from call site
 
-         at /nix/store/k99dgjy684nk3wg8zip2pifpn61xjrw7-source/default.nix:11:11:
+  at /nix/store/k99dgjy684nk3wg8zip2pifpn61xjrw7-source/default.nix:11:11:
 
-           10|
-           11|   scope = lib.makeScope pkgs.newScope (self: rec {
-             |           ^
-           12|     # The `lib`, `modules`, and `overlay` names are special
+    10|
+    11|   scope = lib.makeScope pkgs.newScope (self: rec {
+      |           ^
+    12|     # The `lib`, `modules`, and `overlay` names are special
 
-       … while calling 'makeScope'
+… while calling 'makeScope'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:321:25:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:321:25:
 
-          320|   */
-          321|   makeScope = newScope: f:
-             |                         ^
-          322|     let self = f self // {
+   320|   */
+   321|   makeScope = newScope: f:
+      |                         ^
+   322|     let self = f self // {
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:322:16:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:322:16:
 
-          321|   makeScope = newScope: f:
-          322|     let self = f self // {
-             |                ^
-          323|           newScope = scope: newScope (self // scope);
+   321|   makeScope = newScope: f:
+   322|     let self = f self // {
+      |                ^
+   323|           newScope = scope: newScope (self // scope);
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/k99dgjy684nk3wg8zip2pifpn61xjrw7-source/default.nix:11:40:
+  at /nix/store/k99dgjy684nk3wg8zip2pifpn61xjrw7-source/default.nix:11:40:
 
-           10|
-           11|   scope = lib.makeScope pkgs.newScope (self: rec {
-             |                                        ^
-           12|     # The `lib`, `modules`, and `overlay` names are special
+    10|
+    11|   scope = lib.makeScope pkgs.newScope (self: rec {
+      |                                        ^
+    12|     # The `lib`, `modules`, and `overlay` names are special
 
-       … from call site
+… from call site
 
-         at /nix/store/k99dgjy684nk3wg8zip2pifpn61xjrw7-source/default.nix:240:8:
+  at /nix/store/k99dgjy684nk3wg8zip2pifpn61xjrw7-source/default.nix:240:8:
 
-          239|     hprotoc = pkgs.haskellPackages.callPackage ./pkgs/hprotoc { };
-          240|   } // lib.optionalAttrs (!(pkgs ? buildMavenRepositoryFromLockFile)) mvn2nix);
-             |        ^
-          241| in scope.packages scope
+   239|     hprotoc = pkgs.haskellPackages.callPackage ./pkgs/hprotoc { };
+   240|   } // lib.optionalAttrs (!(pkgs ? buildMavenRepositoryFromLockFile)) mvn2nix);
+      |        ^
+   241| in scope.packages scope
 
-       … while calling 'optionalAttrs'
+… while calling 'optionalAttrs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:819:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:819:5:
 
-          818|     # The attribute set to return if `cond` is `true`.
-          819|     as:
-             |     ^
-          820|     if cond then as else {};
+   818|     # The attribute set to return if `cond` is `true`.
+   819|     as:
+      |     ^
+   820|     if cond then as else {};
 
-       error: access to URI 'https://github.com/fzakaria/mvn2nix/archive/master.tar.gz' is forbidden in restricted mode
+error: access to URI 'https://github.com/fzakaria/mvn2nix/archive/master.tar.gz' is forbidden in restricted mode

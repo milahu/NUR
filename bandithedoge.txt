@@ -1,335 +1,334 @@
-trace: warning: swift-mesonlsp-bin has been renamed to mesonlsp-bin
 error:
-       … from call site
+… from call site
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/default.nix:42:18:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/default.nix:17:21:
 
-           41|     treeSitterGrammars = callPackages ./treeSitterGrammars;
-           42|     vimPlugins = callPackages ./vimPlugins;
-             |                  ^
-           43|     xplrPlugins = callPackages ./xplrPlugins;
+    16|     dpf-plugins = callPackage' ./dpf-plugins;
+    17|     emacsPackages = callPackages ./emacsPackages;
+      |                     ^
+    18|     fennel-language-server = callPackage' ./fennel-language-server;
 
-       … while calling 'callPackages'
+… while calling 'callPackages'
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/default.nix:8:18:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/default.nix:8:18:
 
-            7|
-            8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
-             |                  ^
-            9|
+     7|
+     8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
+      |                  ^
+     9|
 
-       … from call site
+… from call site
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/default.nix:8:23:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/default.nix:8:23:
 
-            7|
-            8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
-             |                       ^
-            9|
+     7|
+     8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
+      |                       ^
+     9|
 
-       … while calling 'recurseIntoAttrs'
+… while calling 'recurseIntoAttrs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:1169:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:1169:5:
 
-         1168|     # An attribute set to scan for derivations.
-         1169|     attrs:
-             |     ^
-         1170|     attrs // { recurseForDerivations = true; };
+  1168|     # An attribute set to scan for derivations.
+  1169|     attrs:
+      |     ^
+  1170|     attrs // { recurseForDerivations = true; };
 
-       … from call site
+… from call site
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/default.nix:8:50:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/default.nix:8:50:
 
-            7|
-            8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
-             |                                                  ^
-            9|
+     7|
+     8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
+      |                                                  ^
+     9|
 
-       … while calling 'callPackage''
+… while calling 'callPackage''
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/default.nix:2:18:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/default.nix:2:18:
 
-            1| {pkgs, ...}: let
-            2|   callPackage' = pkg:
-             |                  ^
-            3|     pkgs.callPackage pkg {
+     1| {pkgs, ...}: let
+     2|   callPackage' = pkg:
+      |                  ^
+     3|     pkgs.callPackage pkg {
 
-       … from call site
+… from call site
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/default.nix:3:5:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/default.nix:3:5:
 
-            2|   callPackage' = pkg:
-            3|     pkgs.callPackage pkg {
-             |     ^
-            4|       inherit pkgs callPackage';
+     2|   callPackage' = pkg:
+     3|     pkgs.callPackage pkg {
+      |     ^
+     4|       inherit pkgs callPackage';
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
 
-          439|     { # TODO: Should we add call-time "type" checking like built in?
-          440|       __functor = self: f;
-             |       ^
-          441|       __functionArgs = args;
+   439|     { # TODO: Should we add call-time "type" checking like built in?
+   440|       __functor = self: f;
+      |       ^
+   441|       __functionArgs = args;
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
 
-           95|     in
-           96|     mirrorArgs (origArgs:
-             |                 ^
-           97|     let
+    95|     in
+    96|     mirrorArgs (origArgs:
+      |                 ^
+    97|     let
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
 
-           97|     let
-           98|       result = f origArgs;
-             |                ^
-           99|
+    97|     let
+    98|       result = f origArgs;
+      |                ^
+    99|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/default.nix:1:1:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:1:1:
 
-            1| {pkgs, ...}: let
-             | ^
-            2|   sources = import ./nix/_sources.nix;
+     1| {pkgs, ...}: let
+      | ^
+     2|   sources = import ./nix/_sources.nix;
 
-       … from call site
+… from call site
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/default.nix:4:4:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:4:4:
 
-            3| in
-            4|   (pkgs.lib.makeExtensible (_:
-             |    ^
-            5|     pkgs.lib.attrsets.mapAttrs'
+     3| in
+     4|   (pkgs.lib.makeExtensible (_:
+      |    ^
+     5|     pkgs.lib.attrsets.mapAttrs'
 
-       … while calling 'makeExtensibleWithCustomName'
+… while calling 'makeExtensibleWithCustomName'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:306:48:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:306:48:
 
-          305|   */
-          306|   makeExtensibleWithCustomName = extenderName: rattrs:
-             |                                                ^
-          307|     fix' (self: (rattrs self) // {
+   305|   */
+   306|   makeExtensibleWithCustomName = extenderName: rattrs:
+      |                                                ^
+   307|     fix' (self: (rattrs self) // {
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:307:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:307:5:
 
-          306|   makeExtensibleWithCustomName = extenderName: rattrs:
-          307|     fix' (self: (rattrs self) // {
-             |     ^
-          308|       ${extenderName} = f: makeExtensibleWithCustomName extenderName (extends f rattrs);
+   306|   makeExtensibleWithCustomName = extenderName: rattrs:
+   307|     fix' (self: (rattrs self) // {
+      |     ^
+   308|       ${extenderName} = f: makeExtensibleWithCustomName extenderName (extends f rattrs);
 
-       … while calling 'fix''
+… while calling 'fix''
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:84:10:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:84:10:
 
-           83|   */
-           84|   fix' = f: let x = f x // { __unfix__ = f; }; in x;
-             |          ^
-           85|
+    83|   */
+    84|   fix' = f: let x = f x // { __unfix__ = f; }; in x;
+      |          ^
+    85|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:84:21:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:84:21:
 
-           83|   */
-           84|   fix' = f: let x = f x // { __unfix__ = f; }; in x;
-             |                     ^
-           85|
+    83|   */
+    84|   fix' = f: let x = f x // { __unfix__ = f; }; in x;
+      |                     ^
+    85|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:307:11:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:307:11:
 
-          306|   makeExtensibleWithCustomName = extenderName: rattrs:
-          307|     fix' (self: (rattrs self) // {
-             |           ^
-          308|       ${extenderName} = f: makeExtensibleWithCustomName extenderName (extends f rattrs);
+   306|   makeExtensibleWithCustomName = extenderName: rattrs:
+   307|     fix' (self: (rattrs self) // {
+      |           ^
+   308|       ${extenderName} = f: makeExtensibleWithCustomName extenderName (extends f rattrs);
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:307:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/fixed-points.nix:307:18:
 
-          306|   makeExtensibleWithCustomName = extenderName: rattrs:
-          307|     fix' (self: (rattrs self) // {
-             |                  ^
-          308|       ${extenderName} = f: makeExtensibleWithCustomName extenderName (extends f rattrs);
+   306|   makeExtensibleWithCustomName = extenderName: rattrs:
+   307|     fix' (self: (rattrs self) // {
+      |                  ^
+   308|       ${extenderName} = f: makeExtensibleWithCustomName extenderName (extends f rattrs);
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/default.nix:4:29:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:4:29:
 
-            3| in
-            4|   (pkgs.lib.makeExtensible (_:
-             |                             ^
-            5|     pkgs.lib.attrsets.mapAttrs'
+     3| in
+     4|   (pkgs.lib.makeExtensible (_:
+      |                             ^
+     5|     pkgs.lib.attrsets.mapAttrs'
 
-       … from call site
+… from call site
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/default.nix:5:5:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:5:5:
 
-            4|   (pkgs.lib.makeExtensible (_:
-            5|     pkgs.lib.attrsets.mapAttrs'
-             |     ^
-            6|     (name: src: let
+     4|   (pkgs.lib.makeExtensible (_:
+     5|     pkgs.lib.attrsets.mapAttrs'
+      |     ^
+     6|     (name: src: let
 
-       … while calling 'mapAttrs''
+… while calling 'mapAttrs''
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:632:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:632:5:
 
-          631|     # Attribute set to map over.
-          632|     set:
-             |     ^
-          633|     listToAttrs (map (attr: f attr set.${attr}) (attrNames set));
+   631|     # Attribute set to map over.
+   632|     set:
+      |     ^
+   633|     listToAttrs (map (attr: f attr set.${attr}) (attrNames set));
 
-       … from call site
+… from call site
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/default.nix:19:6:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:28:6:
 
-           18|       }))
-           19|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
-             |      ^
-           20|   .extend (import ./_overrides.nix {inherit pkgs;})
+    27|       }))
+    28|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+      |      ^
+    29|   .extend (import ./_overrides.nix {inherit pkgs;})
 
-       … while calling 'filterAttrs'
+… while calling 'filterAttrs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:419:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:419:5:
 
-          418|     # The attribute set to filter
-          419|     set:
-             |     ^
-          420|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
+   418|     # The attribute set to filter
+   419|     set:
+      |     ^
+   420|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:420:29:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:420:29:
 
-          419|     set:
-          420|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
-             |                             ^
-          421|
+   419|     set:
+   420|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
+      |                             ^
+   421|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:420:62:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:420:62:
 
-          419|     set:
-          420|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
-             |                                                              ^
-          421|
+   419|     set:
+   420|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
+      |                                                              ^
+   421|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/default.nix:19:31:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:28:31:
 
-           18|       }))
-           19|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
-             |                               ^
-           20|   .extend (import ./_overrides.nix {inherit pkgs;})
+    27|       }))
+    28|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+      |                               ^
+    29|   .extend (import ./_overrides.nix {inherit pkgs;})
 
-       … from call site
+… from call site
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/default.nix:19:34:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:28:34:
 
-           18|       }))
-           19|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
-             |                                  ^
-           20|   .extend (import ./_overrides.nix {inherit pkgs;})
+    27|       }))
+    28|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+      |                                  ^
+    29|   .extend (import ./_overrides.nix {inherit pkgs;})
 
-       … while calling 'isStorePath'
+… while calling 'isStorePath'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/strings.nix:1012:17:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/strings.nix:1012:17:
 
-         1011|   */
-         1012|   isStorePath = x:
-             |                 ^
-         1013|     if isStringLike x then
+  1011|   */
+  1012|   isStorePath = x:
+      |                 ^
+  1013|     if isStringLike x then
 
-       … from call site
+… from call site
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/nix/_sources.nix:210:33:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:223:33:
 
-          209|           "The values in sources.json should not have an 'outPath' attribute"
-          210|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
-             |                                 ^
-          211|     )
+   222|           "The values in sources.json should not have an 'outPath' attribute"
+   223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
+      |                                 ^
+   224|     )
 
-       … while calling 'replace'
+… while calling 'replace'
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/nix/_sources.nix:127:19:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:139:19:
 
-          126|   # the path directly as opposed to the fetched source.
-          127|   replace = name: drv: let
-             |                   ^
-          128|     saneName = stringAsChars (c:
+   138|   # the path directly as opposed to the fetched source.
+   139|   replace = name: drv: let
+      |                   ^
+   140|     saneName = stringAsChars (c:
 
-       … from call site
+… from call site
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/nix/_sources.nix:210:47:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:223:47:
 
-          209|           "The values in sources.json should not have an 'outPath' attribute"
-          210|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
-             |                                               ^
-          211|     )
+   222|           "The values in sources.json should not have an 'outPath' attribute"
+   223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
+      |                                               ^
+   224|     )
 
-       … while calling 'fetch'
+… while calling 'fetch'
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/nix/_sources.nix:108:23:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:120:23:
 
-          107|   # The actual fetching function.
-          108|   fetch = pkgs: name: spec:
-             |                       ^
-          109|     if ! builtins.hasAttr "type" spec
+   119|   # The actual fetching function.
+   120|   fetch = pkgs: name: spec:
+      |                       ^
+   121|     if ! builtins.hasAttr "type" spec
 
-       … from call site
+… from call site
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/nix/_sources.nix:114:10:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:126:10:
 
-          113|     else if spec.type == "tarball"
-          114|     then fetch_tarball pkgs name spec
-             |          ^
-          115|     else if spec.type == "git"
+   125|     else if spec.type == "tarball"
+   126|     then fetch_tarball pkgs name spec
+      |          ^
+   127|     else if spec.type == "git"
 
-       … while calling 'fetch_tarball'
+… while calling 'fetch_tarball'
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/nix/_sources.nix:21:31:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:21:31:
 
-           20|
-           21|   fetch_tarball = pkgs: name: spec: let
-             |                               ^
-           22|     name' = sanitizeName name + "-src";
+    20|
+    21|   fetch_tarball = pkgs: name: spec: let
+      |                               ^
+    22|     name' = sanitizeName name + "-src";
 
-       … from call site
+… from call site
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/nix/_sources.nix:26:7:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:26:7:
 
-           25|     then
-           26|       builtins_fetchTarball {
-             |       ^
-           27|         name = name';
+    25|     then
+    26|       builtins_fetchTarball {
+      |       ^
+    27|         name = name';
 
-       … while calling 'builtins_fetchTarball'
+… while calling 'builtins_fetchTarball'
 
-         at /nix/store/lc70mh1mmjgylih1w4sq51v1ncsrpnvq-source/pkgs/vimPlugins/nix/_sources.nix:179:27:
+  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:191:27:
 
-          178|   # fetchTarball version that is compatible between all the versions of Nix
-          179|   builtins_fetchTarball = {
-             |                           ^
-          180|     url,
+   190|   # fetchTarball version that is compatible between all the versions of Nix
+   191|   builtins_fetchTarball = {
+      |                           ^
+   192|     url,
 
-       error: access to URI 'https://github.com/numToStr/Comment.nvim/archive/0236521ea582747b58869cb72f70ccfa967d2e89.tar.gz' is forbidden in restricted mode
+error: access to URI 'https://github.com/lastquestion/explain-pause-mode/archive/2356c8c3639cbeeb9751744dbe737267849b4b51.tar.gz' is forbidden in restricted mode

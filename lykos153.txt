@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at /nix/store/vgin2maxqmjrxv72w7sdn69flrbynj8h-source/pkgs/overlays/custom.nix:13:21:
+  at /nix/store/dwczkrvrrkw4afgdsrgl8vbqnr8bf1n0-source/default.nix:39:17:
 
-    12|   chip8 = super.callPackage ../custom/chip8.nix {};
-    13|   esp32-toolchain = super.callPackage ../custom/esp32-toolchain.nix {};
-      |                     ^
-    14|   compton-latest = super.callPackage ../custom/compton-latest.nix {};
+    38|   cntb-bin = pkgs.callPackage ./pkgs/cntb-bin { };
+    39|   rofi-blocks = pkgs.callPackage ./pkgs/rofi-blocks { };
+      |                 ^
+    40|   coord = pkgs.callPackage ./pkgs/coord { };
 
 … while calling 'callPackageWith'
 
@@ -53,11 +53,4 @@ error:
       |                  ^
    451|     if f ? __functor
 
-error: undefined variable 'lib'
-
-at /nix/store/vgin2maxqmjrxv72w7sdn69flrbynj8h-source/pkgs/custom/esp32-toolchain.nix:35:15:
-
-    34|
-    35|   meta = with lib; {
-      |               ^
-    36|     description = "ESP32 toolchain";
+error: getting status of '/nix/store/dwczkrvrrkw4afgdsrgl8vbqnr8bf1n0-source/pkgs/rofi-blocks': No such file or directory

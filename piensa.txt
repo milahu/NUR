@@ -1,20 +1,20 @@
 error:
-       … from call site
+… from call site
 
-         at /nix/store/ly8shr35934qjhppkbwv351xc6lv8n6n-source/default.nix:13:13:
+  at /nix/store/ly8shr35934qjhppkbwv351xc6lv8n6n-source/default.nix:13:13:
 
-           12|   imposm = pkgs.callPackage ./pkgs/imposm { };
-           13|   blender = pkgs.callPackage ./pkgs/blender { };
-             |             ^
-           14|   kepler = pkgs.callPackage ./pkgs/kepler { };
+    12|   imposm = pkgs.callPackage ./pkgs/imposm { };
+    13|   blender = pkgs.callPackage ./pkgs/blender { };
+      |             ^
+    14|   kepler = pkgs.callPackage ./pkgs/kepler { };
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "libGLU_combined" at /nix/store/ly8shr35934qjhppkbwv351xc6lv8n6n-source/pkgs/blender/default.nix:4'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "libGLU_combined" at /nix/store/ly8shr35934qjhppkbwv351xc6lv8n6n-source/pkgs/blender/default.nix:4'

@@ -1,20 +1,20 @@
 error:
-       … from call site
+… from call site
 
-         at /nix/store/df8hizmyfr3kvk4pzy5jfknxrdd5dlva-source/default.nix:13:11:
+  at /nix/store/df8hizmyfr3kvk4pzy5jfknxrdd5dlva-source/default.nix:13:11:
 
-           12|
-           13|   bsnes = pkgs.callPackage ./pkgs/bsnes {
-             |           ^
-           14|     inherit (pkgs.qt5) qtbase wrapQtAppsHook;
+    12|
+    13|   bsnes = pkgs.callPackage ./pkgs/bsnes {
+      |           ^
+    14|     inherit (pkgs.qt5) qtbase wrapQtAppsHook;
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "libudev" at /nix/store/df8hizmyfr3kvk4pzy5jfknxrdd5dlva-source/pkgs/bsnes/default.nix:3, did you mean "libgudev", "libuev" or "libaudec"?'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "libudev" at /nix/store/df8hizmyfr3kvk4pzy5jfknxrdd5dlva-source/pkgs/bsnes/default.nix:3, did you mean "libgudev", "libuev" or "libaudec"?'

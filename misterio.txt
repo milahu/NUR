@@ -1,21 +1,21 @@
 error:
-       … while evaluating the file '/tmp/nur-update/default.nix':
+… while evaluating the file '/tmp/nur-update/default.nix':
 
-       … from call site
+… from call site
 
-         at /tmp/nur-update/default.nix:3:21:
+  at /tmp/nur-update/default.nix:3:21:
 
-            2|                     with import <nixpkgs> {};
-            3|                     import /tmp/nur-update/evalRepo.nix {
-             |                     ^
-            4|                         name = "misterio";
+     2|                     with import <nixpkgs> {};
+     3|                     import /tmp/nur-update/evalRepo.nix {
+      |                     ^
+     4|                         name = "misterio";
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /tmp/nur-update/evalRepo.nix:1:1:
+  at /tmp/nur-update/evalRepo.nix:1:1:
 
-            1| { name
-             | ^
-            2| , url
+     1| { name
+      | ^
+     2| , url
 
-       error: getting status of '/nix/store/hw0n9x08iylmqym74s88hi92zchl4jha-nix-config/default.nix': No such file or directory
+error: getting status of '/nix/store/hw0n9x08iylmqym74s88hi92zchl4jha-nix-config/default.nix': No such file or directory

@@ -1,93 +1,93 @@
 error:
-       … while evaluating the file '/tmp/nur-update/default.nix':
+… while evaluating the file '/tmp/nur-update/default.nix':
 
-       … from call site
+… from call site
 
-         at /tmp/nur-update/default.nix:3:21:
+  at /tmp/nur-update/default.nix:3:21:
 
-            2|                     with import <nixpkgs> {};
-            3|                     import /tmp/nur-update/evalRepo.nix {
-             |                     ^
-            4|                         name = "kreisys";
+     2|                     with import <nixpkgs> {};
+     3|                     import /tmp/nur-update/evalRepo.nix {
+      |                     ^
+     4|                         name = "kreisys";
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /tmp/nur-update/evalRepo.nix:1:1:
+  at /tmp/nur-update/evalRepo.nix:1:1:
 
-            1| { name
-             | ^
-            2| , url
+     1| { name
+      | ^
+     2| , url
 
-       … from call site
+… from call site
 
-         at /tmp/nur-update/evalRepo.nix:33:11:
+  at /tmp/nur-update/evalRepo.nix:33:11:
 
-           32|     might result in infinite recursion when used with NixOS modules.
-           33|   '' else expr (builtins.intersectAttrs args passedArgs)
-             |           ^
-           34|
+    32|     might result in infinite recursion when used with NixOS modules.
+    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+      |           ^
+    34|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/default.nix:9:1:
+  at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/default.nix:9:1:
 
-            8|
-            9| { pkgs ? import sources.nixpkgs args, sources ? import nix/sources.nix
-             | ^
-           10| , system ? builtins.currentSystem, ... }@args:
+     8|
+     9| { pkgs ? import sources.nixpkgs args, sources ? import nix/sources.nix
+      | ^
+    10| , system ? builtins.currentSystem, ... }@args:
 
-       … from call site
+… from call site
 
-         at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/nix/sources.nix:118:31:
+  at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/nix/sources.nix:118:31:
 
-          117|         else
-          118|           spec // { outPath = fetch config.pkgs name spec; }
-             |                               ^
-          119|     ) config.sources;
+   117|         else
+   118|           spec // { outPath = fetch config.pkgs name spec; }
+      |                               ^
+   119|     ) config.sources;
 
-       … while calling 'fetch'
+… while calling 'fetch'
 
-         at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/nix/sources.nix:70:23:
+  at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/nix/sources.nix:70:23:
 
-           69|   # The actual fetching function.
-           70|   fetch = pkgs: name: spec:
-             |                       ^
-           71|
+    69|   # The actual fetching function.
+    70|   fetch = pkgs: name: spec:
+      |                       ^
+    71|
 
-       … from call site
+… from call site
 
-         at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/nix/sources.nix:75:41:
+  at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/nix/sources.nix:75:41:
 
-           74|     else if spec.type == "file" then fetch_file pkgs spec
-           75|     else if spec.type == "tarball" then fetch_tarball pkgs spec
-             |                                         ^
-           76|     else if spec.type == "git" then fetch_git spec
+    74|     else if spec.type == "file" then fetch_file pkgs spec
+    75|     else if spec.type == "tarball" then fetch_tarball pkgs spec
+      |                                         ^
+    76|     else if spec.type == "git" then fetch_git spec
 
-       … while calling 'fetch_tarball'
+… while calling 'fetch_tarball'
 
-         at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/nix/sources.nix:15:25:
+  at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/nix/sources.nix:15:25:
 
-           14|
-           15|   fetch_tarball = pkgs: spec:
-             |                         ^
-           16|     if spec.builtin or true then
+    14|
+    15|   fetch_tarball = pkgs: spec:
+      |                         ^
+    16|     if spec.builtin or true then
 
-       … from call site
+… from call site
 
-         at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/nix/sources.nix:17:7:
+  at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/nix/sources.nix:17:7:
 
-           16|     if spec.builtin or true then
-           17|       builtins_fetchTarball { inherit (spec) url sha256; }
-             |       ^
-           18|     else
+    16|     if spec.builtin or true then
+    17|       builtins_fetchTarball { inherit (spec) url sha256; }
+      |       ^
+    18|     else
 
-       … while calling 'builtins_fetchTarball'
+… while calling 'builtins_fetchTarball'
 
-         at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/nix/sources.nix:91:27:
+  at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/nix/sources.nix:91:27:
 
-           90|   # fetchTarball version that is compatible between all the versions of Nix
-           91|   builtins_fetchTarball = { url, sha256 }@attrs:
-             |                           ^
-           92|     let
+    90|   # fetchTarball version that is compatible between all the versions of Nix
+    91|   builtins_fetchTarball = { url, sha256 }@attrs:
+      |                           ^
+    92|     let
 
-       error: access to URI 'https://github.com/NixOS/nixpkgs-channels/archive/b47873026c7e356a340d0e1de7789d4e8428ac66.tar.gz' is forbidden in restricted mode
+error: access to URI 'https://github.com/NixOS/nixpkgs-channels/archive/b47873026c7e356a340d0e1de7789d4e8428ac66.tar.gz' is forbidden in restricted mode

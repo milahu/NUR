@@ -110,25 +110,25 @@ evaluating file '/nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/tools/t
 evaluating file '/nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/tools/text/gawk/default.nix'
 evaluating file '/nix/store/5h30mx5r4d92m3g78lwdnm9l371i2ln9-nix-agordoj/flake.nix'
 error:
-       … while evaluating the file '/tmp/nur-update/default.nix':
+… while evaluating the file '/tmp/nur-update/default.nix':
 
-       … from call site
+… from call site
 
-         at /tmp/nur-update/default.nix:3:21:
+  at /tmp/nur-update/default.nix:3:21:
 
-            2|                     with import <nixpkgs> {};
-            3|                     import /tmp/nur-update/evalRepo.nix {
-             |                     ^
-            4|                         name = "wolfangaukang";
+     2|                     with import <nixpkgs> {};
+     3|                     import /tmp/nur-update/evalRepo.nix {
+      |                     ^
+     4|                         name = "wolfangaukang";
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /tmp/nur-update/evalRepo.nix:1:1:
+  at /tmp/nur-update/evalRepo.nix:1:1:
 
-            1| { name
-             | ^
-            2| , url
+     1| { name
+      | ^
+     2| , url
 
-       error: 'functionArgs' requires a function
+error: 'functionArgs' requires a function
 
-       at «none»:0: (source not available)
+at «none»:0: (source not available)

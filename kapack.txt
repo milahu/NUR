@@ -1,91 +1,91 @@
 error:
-       … from call site
+… from call site
 
-         at /nix/store/5mjhcgpphxnr5q00h3hgavqss1mj0m7a-source/nur.nix:85:17:
+  at /nix/store/5mjhcgpphxnr5q00h3hgavqss1mj0m7a-source/nur.nix:85:17:
 
-           84|
-           85|   go-swagger  = pkgs.callPackage ./pkgs/go-swagger { };
-             |                 ^
-           86|
+    84|
+    85|   go-swagger  = pkgs.callPackage ./pkgs/go-swagger { };
+      |                 ^
+    86|
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
 
-          439|     { # TODO: Should we add call-time "type" checking like built in?
-          440|       __functor = self: f;
-             |       ^
-          441|       __functionArgs = args;
+   439|     { # TODO: Should we add call-time "type" checking like built in?
+   440|       __functor = self: f;
+      |       ^
+   441|       __functionArgs = args;
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
 
-           95|     in
-           96|     mirrorArgs (origArgs:
-             |                 ^
-           97|     let
+    95|     in
+    96|     mirrorArgs (origArgs:
+      |                 ^
+    97|     let
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
 
-           97|     let
-           98|       result = f origArgs;
-             |                ^
-           99|
+    97|     let
+    98|       result = f origArgs;
+      |                ^
+    99|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/5mjhcgpphxnr5q00h3hgavqss1mj0m7a-source/pkgs/go-swagger/default.nix:1:1:
+  at /nix/store/5mjhcgpphxnr5q00h3hgavqss1mj0m7a-source/pkgs/go-swagger/default.nix:1:1:
 
-            1| { lib, buildGoPackage, fetchFromGitHub }:
-             | ^
-            2|
+     1| { lib, buildGoPackage, fetchFromGitHub }:
+      | ^
+     2|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
 
-          439|     { # TODO: Should we add call-time "type" checking like built in?
-          440|       __functor = self: f;
-             |       ^
-          441|       __functionArgs = args;
+   439|     { # TODO: Should we add call-time "type" checking like built in?
+   440|       __functor = self: f;
+      |       ^
+   441|       __functionArgs = args;
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/go/package.nix:4:1:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/go/package.nix:4:1:
 
-            3|
-            4| { buildInputs ? []
-             | ^
-            5| , nativeBuildInputs ? []
+     3|
+     4| { buildInputs ? []
+      | ^
+     5| , nativeBuildInputs ? []
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/go/package.nix:286:1:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/go/package.nix:286:1:
 
-          285| in
-          286| lib.warnIf (buildFlags != "" || buildFlagsArray != "")
-             | ^
-          287|   "Use the `ldflags` and/or `tags` attributes instead of `buildFlags`/`buildFlagsArray`"
+   285| in
+   286| lib.warnIf (buildFlags != "" || buildFlagsArray != "")
+      | ^
+   287|   "Use the `ldflags` and/or `tags` attributes instead of `buildFlags`/`buildFlagsArray`"
 
-       … while calling 'warnIf'
+… while calling 'warnIf'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:367:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:367:18:
 
-          366|   */
-          367|   warnIf = cond: msg: if cond then warn msg else x: x;
-             |                  ^
-          368|
+   366|   */
+   367|   warnIf = cond: msg: if cond then warn msg else x: x;
+      |                  ^
+   368|
 
-       error: value is a string while a list was expected
+error: value is a string while a list was expected

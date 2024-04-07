@@ -1,56 +1,56 @@
 error:
-       … from call site
+… from call site
 
-         at /nix/store/4zr2nrbph1bs68psx45kjh3zc3clmmi4-nur-packages/default.nix:38:13:
+  at /nix/store/4zr2nrbph1bs68psx45kjh3zc3clmmi4-nur-packages/default.nix:38:13:
 
-           37|   onlyoffice-desktopeditors = pkgs.callPackage ./pkgs/onlyoffice-desktopeditors { };
-           38|   foliate = pkgs.callPackage ./pkgs/foliate { };
-             |             ^
-           39|   krankerl = pkgs.callPackage ./pkgs/krankerl { };
+    37|   onlyoffice-desktopeditors = pkgs.callPackage ./pkgs/onlyoffice-desktopeditors { };
+    38|   foliate = pkgs.callPackage ./pkgs/foliate { };
+      |             ^
+    39|   krankerl = pkgs.callPackage ./pkgs/krankerl { };
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:166:10:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:166:10:
 
-          165|         # Filter out arguments that have a default value
-          166|         (filterAttrs (name: value: ! value)
-             |          ^
-          167|         # Filter out arguments that would be passed
+   165|         # Filter out arguments that have a default value
+   166|         (filterAttrs (name: value: ! value)
+      |          ^
+   167|         # Filter out arguments that would be passed
 
-       … while calling 'filterAttrs'
+… while calling 'filterAttrs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:419:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:419:5:
 
-          418|     # The attribute set to filter
-          419|     set:
-             |     ^
-          420|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
+   418|     # The attribute set to filter
+   419|     set:
+      |     ^
+   420|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:156:15:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:156:15:
 
-          155|       f = if isFunction fn then fn else import fn;
-          156|       fargs = functionArgs f;
-             |               ^
-          157|
+   155|       f = if isFunction fn then fn else import fn;
+   156|       fargs = functionArgs f;
+      |               ^
+   157|
 
-       … while calling 'functionArgs'
+… while calling 'functionArgs'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:450:18:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:450:18:
 
-          449|   */
-          450|   functionArgs = f:
-             |                  ^
-          451|     if f ? __functor
+   449|   */
+   450|   functionArgs = f:
+      |                  ^
+   451|     if f ? __functor
 
-       error: getting status of '/nix/store/4zr2nrbph1bs68psx45kjh3zc3clmmi4-nur-packages/pkgs/foliate': No such file or directory
+error: getting status of '/nix/store/4zr2nrbph1bs68psx45kjh3zc3clmmi4-nur-packages/pkgs/foliate': No such file or directory

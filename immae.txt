@@ -1,20 +1,20 @@
 error:
-       … from call site
+… from call site
 
-         at /nix/store/yxzd48knwirycs8ajlld3lqslvcasn6h-NUR/pkgs/default.nix:38:18:
+  at /nix/store/yxzd48knwirycs8ajlld3lqslvcasn6h-NUR/pkgs/default.nix:38:18:
 
-           37|   cardano-cli = callPackage ./crypto/cardano-cli {};
-           38|   iota-cli-app = callPackage ./crypto/iota-cli-app { inherit mylibs; };
-             |                  ^
-           39|   sia = callPackage ./crypto/sia {};
+    37|   cardano-cli = callPackage ./crypto/cardano-cli {};
+    38|   iota-cli-app = callPackage ./crypto/iota-cli-app { inherit mylibs; };
+      |                  ^
+    39|   sia = callPackage ./crypto/sia {};
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "nodejs-10_x" at /nix/store/yxzd48knwirycs8ajlld3lqslvcasn6h-NUR/pkgs/crypto/iota-cli-app/default.nix:1, did you mean "nodejs-14_x", "nodejs-16_x" or "nodejs-18_x"?'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "nodejs-10_x" at /nix/store/yxzd48knwirycs8ajlld3lqslvcasn6h-NUR/pkgs/crypto/iota-cli-app/default.nix:1, did you mean "nodejs-14_x", "nodejs-16_x" or "nodejs-18_x"?'

@@ -1,0 +1,21 @@
+trace: 「我书写，则为我命令。我陈述，则为我规定。」
+error:
+… from call site
+
+  at /nix/store/mqx5wb19mlcx6j7idqy0vvkfk8rbnmgk-source/default.nix:30:37:
+
+    29|
+    30|   maa-assistant-arknights-nightly = pkgs.callPackage ./pkgs/maa-assistant-arknights { };
+      |                                     ^
+    31|
+
+… while calling 'callPackageWith'
+
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "maa-assistant-arknights" at /nix/store/mqx5wb19mlcx6j7idqy0vvkfk8rbnmgk-source/pkgs/maa-assistant-arknights/default.nix:2'

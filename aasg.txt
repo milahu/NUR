@@ -1,73 +1,73 @@
 error:
-       … while evaluating the file '/tmp/nur-update/default.nix':
+… while evaluating the file '/tmp/nur-update/default.nix':
 
-       … from call site
+… from call site
 
-         at /tmp/nur-update/default.nix:3:21:
+  at /tmp/nur-update/default.nix:3:21:
 
-            2|                     with import <nixpkgs> {};
-            3|                     import /tmp/nur-update/evalRepo.nix {
-             |                     ^
-            4|                         name = "aasg";
+     2|                     with import <nixpkgs> {};
+     3|                     import /tmp/nur-update/evalRepo.nix {
+      |                     ^
+     4|                         name = "aasg";
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /tmp/nur-update/evalRepo.nix:1:1:
+  at /tmp/nur-update/evalRepo.nix:1:1:
 
-            1| { name
-             | ^
-            2| , url
+     1| { name
+      | ^
+     2| , url
 
-       … from call site
+… from call site
 
-         at /tmp/nur-update/evalRepo.nix:33:11:
+  at /tmp/nur-update/evalRepo.nix:33:11:
 
-           32|     might result in infinite recursion when used with NixOS modules.
-           33|   '' else expr (builtins.intersectAttrs args passedArgs)
-             |           ^
-           34|
+    32|     might result in infinite recursion when used with NixOS modules.
+    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+      |           ^
+    34|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/default.nix:1:1:
+  at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/default.nix:1:1:
 
-            1| { pkgs ? import <nixpkgs> { } }:
-             | ^
-            2|
+     1| { pkgs ? import <nixpkgs> { } }:
+      | ^
+     2|
 
-       … from call site
+… from call site
 
-         at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/default.nix:3:6:
+  at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/default.nix:3:6:
 
-            2|
-            3| with import ./lib/extension.nix { inherit (pkgs) lib; };
-             |      ^
-            4| let
+     2|
+     3| with import ./lib/extension.nix { inherit (pkgs) lib; };
+      |      ^
+     4| let
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/lib/extension.nix:1:1:
+  at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/lib/extension.nix:1:1:
 
-            1| { lib }:
-             | ^
-            2| /*
+     1| { lib }:
+      | ^
+     2| /*
 
-       … from call site
+… from call site
 
-         at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/lib/extension.nix:8:1:
+  at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/lib/extension.nix:8:1:
 
-            7| in
-            8| aasgLib.updateNewRecursive lib aasgLib
-             | ^
-            9|
+     7| in
+     8| aasgLib.updateNewRecursive lib aasgLib
+      | ^
+     9|
 
-       … while calling 'updateNewRecursive'
+… while calling 'updateNewRecursive'
 
-         at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/lib/attrsets.nix:89:30:
+  at /nix/store/f89rly98nxxinxwzxgybd53nqadhccjp-nixexprs/lib/attrsets.nix:89:30:
 
-           88|    */
-           89|   updateNewRecursive = into: new:
-             |                              ^
-           90|     let
+    88|    */
+    89|   updateNewRecursive = into: new:
+      |                              ^
+    90|     let
 
-       error: attrsets have the following attributes in common: concatMapAttrs
+error: attrsets have the following attributes in common: concatMapAttrs

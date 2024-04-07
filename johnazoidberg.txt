@@ -1,20 +1,20 @@
 error:
-       … from call site
+… from call site
 
-         at /nix/store/l11ihxk3h2flgr0qplxv65qcq04kqyrl-source/default.nix:41:17:
+  at /nix/store/l11ihxk3h2flgr0qplxv65qcq04kqyrl-source/default.nix:41:17:
 
-           40|
-           41|   python-oath = pkgs.callPackage ./pkgs/python-oath.nix {};
-             |                 ^
-           42|
+    40|
+    41|   python-oath = pkgs.callPackage ./pkgs/python-oath.nix {};
+      |                 ^
+    42|
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "python36Packages" at /nix/store/l11ihxk3h2flgr0qplxv65qcq04kqyrl-source/pkgs/python-oath.nix:1, did you mean "python38Packages", "python39Packages" or "python3Packages"?'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "python36Packages" at /nix/store/l11ihxk3h2flgr0qplxv65qcq04kqyrl-source/pkgs/python-oath.nix:1, did you mean "python38Packages", "python39Packages" or "python3Packages"?'

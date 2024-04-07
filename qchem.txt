@@ -1,55 +1,55 @@
 error:
-       … while evaluating the file '/tmp/nur-update/default.nix':
+… while evaluating the file '/tmp/nur-update/default.nix':
 
-       … from call site
+… from call site
 
-         at /tmp/nur-update/default.nix:3:21:
+  at /tmp/nur-update/default.nix:3:21:
 
-            2|                     with import <nixpkgs> {};
-            3|                     import /tmp/nur-update/evalRepo.nix {
-             |                     ^
-            4|                         name = "qchem";
+     2|                     with import <nixpkgs> {};
+     3|                     import /tmp/nur-update/evalRepo.nix {
+      |                     ^
+     4|                         name = "qchem";
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /tmp/nur-update/evalRepo.nix:1:1:
+  at /tmp/nur-update/evalRepo.nix:1:1:
 
-            1| { name
-             | ^
-            2| , url
+     1| { name
+      | ^
+     2| , url
 
-       … from call site
+… from call site
 
-         at /tmp/nur-update/evalRepo.nix:33:11:
+  at /tmp/nur-update/evalRepo.nix:33:11:
 
-           32|     might result in infinite recursion when used with NixOS modules.
-           33|   '' else expr (builtins.intersectAttrs args passedArgs)
-             |           ^
-           34|
+    32|     might result in infinite recursion when used with NixOS modules.
+    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+      |           ^
+    34|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/d0rfrgbbn1wyh4dz5gx2bcgzc37yh0ds-source/nur.nix:1:1:
+  at /nix/store/a4f0prh4x1pyj0dxqd77q34dl94g4vns-source/nur.nix:1:1:
 
-            1| { pkgs ? import <nixpkgs> {}
-             | ^
-            2| , lib ? pkgs.lib
+     1| { pkgs ? import <nixpkgs> {}
+      | ^
+     2| , lib ? pkgs.lib
 
-       … from call site
+… from call site
 
-         at /nix/store/d0rfrgbbn1wyh4dz5gx2bcgzc37yh0ds-source/nur.nix:6:13:
+  at /nix/store/a4f0prh4x1pyj0dxqd77q34dl94g4vns-source/nur.nix:6:13:
 
-            5| let
-            6|   nixpkgs = import ./nixpkgs-pin.nix pkgs;
-             |             ^
-            7|
+     5| let
+     6|   nixpkgs = import ./nixpkgs-pin.nix pkgs;
+      |             ^
+     7|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/d0rfrgbbn1wyh4dz5gx2bcgzc37yh0ds-source/nixpkgs-pin.nix:1:1:
+  at /nix/store/a4f0prh4x1pyj0dxqd77q34dl94g4vns-source/nixpkgs-pin.nix:1:1:
 
-            1| pkgs:
-             | ^
-            2|
+     1| pkgs:
+      | ^
+     2|
 
-       error: path '/nix/store/r0g7n2i9j6mks7jczmgys7jww35wr9bq-source.drv' is not valid
+error: path '/nix/store/r0g7n2i9j6mks7jczmgys7jww35wr9bq-source.drv' is not valid

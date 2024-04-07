@@ -1,221 +1,221 @@
 error:
-       … while querying the derivation named 'eww-wayland-unstable-2021-06-02'
+… while querying the derivation named 'eww-wayland-unstable-2021-06-02'
 
-       … while calling the 'derivationStrict' builtin
+… while calling the 'derivationStrict' builtin
 
-         at /builtin/derivation.nix:9:12: (source not available)
+  at /builtin/derivation.nix:9:12: (source not available)
 
-       … while evaluating derivation 'eww-wayland-unstable-2021-06-02'
-         whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
+… while evaluating derivation 'eww-wayland-unstable-2021-06-02'
+  whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
 
-       … while evaluating attribute 'cargoDeps' of derivation 'eww-wayland-unstable-2021-06-02'
+… while evaluating attribute 'cargoDeps' of derivation 'eww-wayland-unstable-2021-06-02'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/rust/build-rust-package/default.nix:101:10:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/rust/build-rust-package/default.nix:101:10:
 
-          100| } // {
-          101|   inherit buildAndTestSubdir cargoDeps;
-             |          ^
-          102|
+   100| } // {
+   101|   inherit buildAndTestSubdir cargoDeps;
+      |          ^
+   102|
 
-       … while evaluating derivation 'eww-wayland-unstable-2021-06-02-vendor.tar.gz'
-         whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
+… while evaluating derivation 'eww-wayland-unstable-2021-06-02-vendor.tar.gz'
+  whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
 
-       … while evaluating attribute 'nativeBuildInputs' of derivation 'eww-wayland-unstable-2021-06-02-vendor.tar.gz'
+… while evaluating attribute 'nativeBuildInputs' of derivation 'eww-wayland-unstable-2021-06-02-vendor.tar.gz'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:396:7:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:396:7:
 
-          395|       depsBuildBuild              = elemAt (elemAt dependencies 0) 0;
-          396|       nativeBuildInputs           = elemAt (elemAt dependencies 0) 1;
-             |       ^
-          397|       depsBuildTarget             = elemAt (elemAt dependencies 0) 2;
+   395|       depsBuildBuild              = elemAt (elemAt dependencies 0) 0;
+   396|       nativeBuildInputs           = elemAt (elemAt dependencies 0) 1;
+      |       ^
+   397|       depsBuildTarget             = elemAt (elemAt dependencies 0) 2;
 
-       … while calling 'getOutput'
+… while calling 'getOutput'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:1083:23:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:1083:23:
 
-         1082|   */
-         1083|   getOutput = output: pkg:
-             |                       ^
-         1084|     if ! pkg ? outputSpecified || ! pkg.outputSpecified
+  1082|   */
+  1083|   getOutput = output: pkg:
+      |                       ^
+  1084|     if ! pkg ? outputSpecified || ! pkg.outputSpecified
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:293:13:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:293:13:
 
-          292|       (map (drv: drv.__spliced.buildBuild or drv) (checkDependencyList "depsBuildBuild" depsBuildBuild))
-          293|       (map (drv: drv.__spliced.buildHost or drv) (checkDependencyList "nativeBuildInputs" nativeBuildInputs'))
-             |             ^
-          294|       (map (drv: drv.__spliced.buildTarget or drv) (checkDependencyList "depsBuildTarget" depsBuildTarget))
+   292|       (map (drv: drv.__spliced.buildBuild or drv) (checkDependencyList "depsBuildBuild" depsBuildBuild))
+   293|       (map (drv: drv.__spliced.buildHost or drv) (checkDependencyList "nativeBuildInputs" nativeBuildInputs'))
+      |             ^
+   294|       (map (drv: drv.__spliced.buildTarget or drv) (checkDependencyList "depsBuildTarget" depsBuildTarget))
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:165:29:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:165:29:
 
-          164|   */
-          165|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
-             |                             ^
-          166|
+   164|   */
+   165|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
+      |                             ^
+   166|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:165:32:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:165:32:
 
-          164|   */
-          165|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
-             |                                ^
-          166|
+   164|   */
+   165|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
+      |                                ^
+   166|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:265:73:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:265:73:
 
-          264|   checkDependencyList = checkDependencyList' [];
-          265|   checkDependencyList' = positions: name: deps: flip imap1 deps (index: dep:
-             |                                                                         ^
-          266|     if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
+   264|   checkDependencyList = checkDependencyList' [];
+   265|   checkDependencyList' = positions: name: deps: flip imap1 deps (index: dep:
+      |                                                                         ^
+   266|     if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:266:8:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:266:8:
 
-          265|   checkDependencyList' = positions: name: deps: flip imap1 deps (index: dep:
-          266|     if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
-             |        ^
-          267|     else if isList dep then checkDependencyList' ([index] ++ positions) name dep
+   265|   checkDependencyList' = positions: name: deps: flip imap1 deps (index: dep:
+   266|     if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
+      |        ^
+   267|     else if isList dep then checkDependencyList' ([index] ++ positions) name dep
 
-       … while calling 'isDerivation'
+… while calling 'isDerivation'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:780:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:780:5:
 
-          779|     # Value to check.
-          780|     value: value.type or null == "derivation";
-             |     ^
-          781|
+   779|     # Value to check.
+   780|     value: value.type or null == "derivation";
+      |     ^
+   781|
 
-       … from call site
+… from call site
 
-         at /nix/store/mjbyfcgkl63zc367zx7xixhqwh8bhsm0-source/default.nix:11:18:
+  at /nix/store/mjbyfcgkl63zc367zx7xixhqwh8bhsm0-source/default.nix:11:18:
 
-           10|
-           11|   rust-overlay = import pkgs.path {
-             |                  ^
-           12|     inherit (pkgs) system;
+    10|
+    11|   rust-overlay = import pkgs.path {
+      |                  ^
+    12|     inherit (pkgs) system;
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/impure.nix:14:1:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/impure.nix:14:1:
 
-           13|
-           14| { # We put legacy `system` into `localSystem`, if `localSystem` was not passed.
-             | ^
-           15|   # If neither is passed, assume we are building packages on the current
+    13|
+    14| { # We put legacy `system` into `localSystem`, if `localSystem` was not passed.
+      | ^
+    15|   # If neither is passed, assume we are building packages on the current
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/impure.nix:87:1:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/impure.nix:87:1:
 
-           86|
-           87| import ./. (builtins.removeAttrs args [ "system" ] // {
-             | ^
-           88|   inherit config overlays localSystem;
+    86|
+    87| import ./. (builtins.removeAttrs args [ "system" ] // {
+      | ^
+    88|   inherit config overlays localSystem;
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:19:1:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:19:1:
 
-           18|
-           19| { # The system packages will be built on. See the manual for the
-             | ^
-           20|   # subtle division of labor between these two `*System`s and the three
+    18|
+    19| { # The system packages will be built on. See the manual for the
+      | ^
+    20|   # subtle division of labor between these two `*System`s and the three
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:55:5:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:55:5:
 
-           54|   checked =
-           55|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list."
-             |     ^
-           56|     lib.foldr (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.") (r: r) overlays
+    54|   checked =
+    55|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list."
+      |     ^
+    56|     lib.foldr (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.") (r: r) overlays
 
-       … while calling 'foldr'
+… while calling 'foldr'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:53:20:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:53:20:
 
-           52|   */
-           53|   foldr = op: nul: list:
-             |                    ^
-           54|     let
+    52|   */
+    53|   foldr = op: nul: list:
+      |                    ^
+    54|     let
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:60:8:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:60:8:
 
-           59|         else op (elemAt list n) (fold' (n + 1));
-           60|     in fold' 0;
-             |        ^
-           61|
+    59|         else op (elemAt list n) (fold' (n + 1));
+    60|     in fold' 0;
+      |        ^
+    61|
 
-       … while calling 'fold''
+… while calling 'fold''
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:56:15:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:56:15:
 
-           55|       len = length list;
-           56|       fold' = n:
-             |               ^
-           57|         if n == len
+    55|       len = length list;
+    56|       fold' = n:
+      |               ^
+    57|         if n == len
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:59:14:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:59:14:
 
-           58|         then nul
-           59|         else op (elemAt list n) (fold' (n + 1));
-             |              ^
-           60|     in fold' 0;
+    58|         then nul
+    59|         else op (elemAt list n) (fold' (n + 1));
+      |              ^
+    60|     in fold' 0;
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:56:16:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:56:16:
 
-           55|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list."
-           56|     lib.foldr (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.") (r: r) overlays
-             |                ^
-           57|     throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list."
+    55|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list."
+    56|     lib.foldr (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.") (r: r) overlays
+      |                ^
+    57|     throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list."
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:56:19:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:56:19:
 
-           55|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list."
-           56|     lib.foldr (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.") (r: r) overlays
-             |                   ^
-           57|     throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list."
+    55|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list."
+    56|     lib.foldr (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.") (r: r) overlays
+      |                   ^
+    57|     throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list."
 
-       … while calling 'throwIfNot'
+… while calling 'throwIfNot'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:396:22:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:396:22:
 
-          395|   */
-          396|   throwIfNot = cond: msg: if cond then x: x else throw msg;
-             |                      ^
-          397|
+   395|   */
+   396|   throwIfNot = cond: msg: if cond then x: x else throw msg;
+      |                      ^
+   397|
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:56:31:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/top-level/default.nix:56:31:
 
-           55|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list."
-           56|     lib.foldr (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.") (r: r) overlays
-             |                               ^
-           57|     throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list."
+    55|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list."
+    56|     lib.foldr (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.") (r: r) overlays
+      |                               ^
+    57|     throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list."
 
-       … while calling 'isFunction'
+… while calling 'isFunction'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:458:16:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:458:16:
 
-          457|   */
-          458|   isFunction = f: builtins.isFunction f ||
-             |                ^
-          459|     (f ? __functor && isFunction (f.__functor f));
+   457|   */
+   458|   isFunction = f: builtins.isFunction f ||
+      |                ^
+   459|     (f ? __functor && isFunction (f.__functor f));
 
-       error: path '/nix/store/v6qkw8xyavaz36gy8kgzfmmgzl0y7z6w-rust-overlay-src.drv' is not valid
+error: path '/nix/store/v6qkw8xyavaz36gy8kgzfmmgzl0y7z6w-rust-overlay-src.drv' is not valid

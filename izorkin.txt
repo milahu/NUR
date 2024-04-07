@@ -1,27 +1,27 @@
 error:
-       … while querying the derivation named 'php-7.2.34'
+… while querying the derivation named 'php-7.2.34'
 
-       … while calling the 'derivationStrict' builtin
+… while calling the 'derivationStrict' builtin
 
-         at /builtin/derivation.nix:9:12: (source not available)
+  at /builtin/derivation.nix:9:12: (source not available)
 
-       … while evaluating derivation 'php-7.2.34'
-         whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
+… while evaluating derivation 'php-7.2.34'
+  whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
 
-       … while evaluating attribute 'configureFlags' of derivation 'php-7.2.34'
+… while evaluating attribute 'configureFlags' of derivation 'php-7.2.34'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:410:7:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:410:7:
 
-          409|       # This parameter is sometimes a string, sometimes null, and sometimes a list, yuck
-          410|       configureFlags =
-             |       ^
-          411|         configureFlags
+   409|       # This parameter is sometimes a string, sometimes null, and sometimes a list, yuck
+   410|       configureFlags =
+      |       ^
+   411|         configureFlags
 
-       error: attribute 'dev' missing
+error: attribute 'dev' missing
 
-       at /nix/store/kqsb2zc0qppkvr52627bifirf7113131-source/pkgs/development/php/default.nix:175:59:
+at /nix/store/kqsb2zc0qppkvr52627bifirf7113131-source/pkgs/development/php/default.nix:175:59:
 
-          174|       # Misc flags
-          175|       ++ optional argon2Support "--with-password-argon2=${libargon2.dev}"
-             |                                                           ^
-          176|       ++ optional cgotoSupport "--enable-re2c-cgoto"
+   174|       # Misc flags
+   175|       ++ optional argon2Support "--with-password-argon2=${libargon2.dev}"
+      |                                                           ^
+   176|       ++ optional cgotoSupport "--enable-re2c-cgoto"

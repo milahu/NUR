@@ -1,80 +1,80 @@
 error:
-       … from call site
+… from call site
 
-         at /nix/store/gcw0r62cjyhkyk59h12hq5x3vi2h0a3r-source/pkgs/default.nix:14:22:
+  at /nix/store/gcw0r62cjyhkyk59h12hq5x3vi2h0a3r-source/pkgs/default.nix:14:22:
 
-           13|   firefoxPlugins = pkgs.recurseIntoAttrs (pkgs.callPackage ./firefox-plugins { });
-           14|   firefox-hardened = pkgs.callPackage ./firefox-hardened { inherit pkgs; };
-             |                      ^
-           15|   firefox-hardened-wayland = pkgs.callPackage ./firefox-hardened { inherit pkgs; forceWayland = true; };
+    13|   firefoxPlugins = pkgs.recurseIntoAttrs (pkgs.callPackage ./firefox-plugins { });
+    14|   firefox-hardened = pkgs.callPackage ./firefox-hardened { inherit pkgs; };
+      |                      ^
+    15|   firefox-hardened-wayland = pkgs.callPackage ./firefox-hardened { inherit pkgs; forceWayland = true; };
 
-       … while calling 'callPackageWith'
+… while calling 'callPackageWith'
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
 
-          152|   */
-          153|   callPackageWith = autoArgs: fn: args:
-             |                                   ^
-          154|     let
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
 
-          439|     { # TODO: Should we add call-time "type" checking like built in?
-          440|       __functor = self: f;
-             |       ^
-          441|       __functionArgs = args;
+   439|     { # TODO: Should we add call-time "type" checking like built in?
+   440|       __functor = self: f;
+      |       ^
+   441|       __functionArgs = args;
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
 
-           95|     in
-           96|     mirrorArgs (origArgs:
-             |                 ^
-           97|     let
+    95|     in
+    96|     mirrorArgs (origArgs:
+      |                 ^
+    97|     let
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
 
-           97|     let
-           98|       result = f origArgs;
-             |                ^
-           99|
+    97|     let
+    98|       result = f origArgs;
+      |                ^
+    99|
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/gcw0r62cjyhkyk59h12hq5x3vi2h0a3r-source/pkgs/firefox-hardened/default.nix:1:1:
+  at /nix/store/gcw0r62cjyhkyk59h12hq5x3vi2h0a3r-source/pkgs/firefox-hardened/default.nix:1:1:
 
-            1| { pkgs, unwrappedFirefox ? pkgs.firefox-esr-unwrapped, forceWayland ? false, nixExtensions ? [ ], ... }:
-             | ^
-            2| pkgs.wrapFirefox unwrappedFirefox {
+     1| { pkgs, unwrappedFirefox ? pkgs.firefox-esr-unwrapped, forceWayland ? false, nixExtensions ? [ ], ... }:
+      | ^
+     2| pkgs.wrapFirefox unwrappedFirefox {
 
-       … from call site
+… from call site
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
 
-          439|     { # TODO: Should we add call-time "type" checking like built in?
-          440|       __functor = self: f;
-             |       ^
-          441|       __functionArgs = args;
+   439|     { # TODO: Should we add call-time "type" checking like built in?
+   440|       __functor = self: f;
+      |       ^
+   441|       __functionArgs = args;
 
-       … while calling anonymous lambda
+… while calling anonymous lambda
 
-         at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
 
-           95|     in
-           96|     mirrorArgs (origArgs:
-             |                 ^
-           97|     let
+    95|     in
+    96|     mirrorArgs (origArgs:
+      |                 ^
+    97|     let
 
-       error: function 'wrapper' called with unexpected argument 'forceWayland'
+error: function 'wrapper' called with unexpected argument 'forceWayland'
 
-       at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/applications/networking/browsers/firefox/wrapper.nix:29:5:
+at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/applications/networking/browsers/firefox/wrapper.nix:29:5:
 
-           28|   wrapper =
-           29|     { applicationName ? browser.binaryName or (lib.getName browser)
-             |     ^
-           30|     , pname ? applicationName
+    28|   wrapper =
+    29|     { applicationName ? browser.binaryName or (lib.getName browser)
+      |     ^
+    30|     , pname ? applicationName
