@@ -46,33 +46,78 @@ driver = webdriver.Chrome(
     # options=options,
     service=service
 )
+
+driver.delete_all_cookies()
+driver.execute_cdp_cmd('Storage.clearDataForOrigin', {
+    "origin": '*',
+    "storageTypes": 'all',
+})
+
 print('[*] Login', file=stderr)
 driver.get("https://intl.fusionsolar.huawei.com/pvmswebsite/login/build/index.html#/LOGIN")
-driver.find_element(By.CSS_SELECTOR, "div#username > input").send_keys(args.user)
-password_input = driver.find_element(By.CSS_SELECTOR, "div#password > input")
+time.sleep(10)
+driver.find_element(By.CSS_SELECTOR, "div#username input").send_keys(args.user)
+password_input = driver.find_element(By.CSS_SELECTOR, "div#password input")
 password_input.send_keys(args.password)
 password_input.send_keys(Keys.ENTER)
 time.sleep(10)
-print('[*] Homepage', file=stderr)
-driver.get("https://intl.fusionsolar.huawei.com")
-time.sleep(10)
-print('[*] Tentando listar estações', file=stderr)
-stations = driver.find_elements(By.CSS_SELECTOR, "tbody.ant-table-tbody a.nco-home-list-text-ellipsis")
-print('stations', stations, file=stderr)
+
+cooke_close_buttons = driver.find_elements(By.CSS_SELECTOR, "i.cookiePolicy-icon")
+for cooke_close_button in cooke_close_buttons:
+    print('[*] Fechando diálogo de cookie ocupando espaço', file=stderr)
+    cooke_close_button.click()
+
+shitty_modal_candidates = driver.find_elements(By.CSS_SELECTOR, "div.dpdesign-modal.nco-privacy-confirm-modal")
+if len(shitty_modal_candidates) > 0:
+    print('[*] Encontrada porcaria de modal para autorização de espionagem', file=stderr)
+    shitty_modal = shitty_modal_candidates[0]
+    shitty_checkbox = shitty_modal.find_element(By.CSS_SELECTOR, "input")
+    if shitty_checkbox.is_selected:
+        shitty_checkbox.click()
+    shitty_button = shitty_modal.find_element(By.CSS_SELECTOR, "button")
+    time.sleep(1)
+
+    shitty_button.click()
+    time.sleep(10)
+
+stations_data = []
+remaining_trys = 5
+
+while len(stations_data) == 0:
+    # if 'view/station' in driver.current_url:
+    #     print('[*] Redirecionamento corno realizado, pulando etapa', file=stderr)
+    #     print('[*] URL do redirecionamento corno: ', driver.current_url)
+    #     stations_data.append(dict(
+    #         url=driver.current_url,
+    #         name="Unica",
+    #     ))
+    #     break
+    print('[*] Homepage', file=stderr)
+    driver.get("https://intl.fusionsolar.huawei.com")
+    time.sleep(10)
+    print('[*] Tentando listar estações', file=stderr)
+    stations = driver.find_elements(By.CSS_SELECTOR, "a.nco-home-list-text-ellipsis")
+    print('stations', stations, file=stderr)
+    if len(stations) == 0:
+        print("[*] Zero estações encontradas, tentando de novo", file=stderr)
+        remaining_trys -= 1
+        print("[*] URL atual: ", driver.current_url, file=stderr)
+        if remaining_trys == 0:
+            print('[*] Sem estações, desistindo...', file=stderr)
+            exit(1)
+    for station in stations:
+        station_data = dict(
+            url=station.get_attribute('href'),
+            name=station.text 
+        )
+        print(station_data, file=stderr)
+        stations_data.append(station_data)
 
 email_text = []
 
 email_text.append("Quantidade de energia produzida em cada base")
 email_text.append("")
 
-stations_data = []
-for station in stations:
-    station_data = dict(
-        url=station.get_attribute('href'),
-        name=station.text 
-    )
-    print(station_data, file=stderr)
-    stations_data.append(station_data)
 
 attachments = []
 for station in stations_data:
@@ -83,7 +128,7 @@ for station in stations_data:
     time.sleep(10)
     the_canvas = driver.find_element(By.CSS_SELECTOR, ".nco-single-energy-body canvas")
     canvas_b64 = driver.execute_script("return arguments[0].toDataURL('image/png').substring(21);", the_canvas)
-    amount_produced = float(driver.find_element(By.CSS_SELECTOR, "span.value").text)
+    amount_produced = float(driver.find_element(By.CSS_SELECTOR, "span.value").text.replace(',', '.'))
     email_text.append(f"{station_name}: {amount_produced}kWh")
     print(f'[*] Produzido hoje: {amount_produced}kWh', file=stderr)
     print(f'[*] Salvando dados da estação "{station_name}"', file=stderr)
@@ -110,6 +155,8 @@ if len(smtp_port) == 0:
     smtp_port = 465
 else:
     smtp_port = int(smtp_port[0])
+
+print('[*] Enviando emails', file=stderr)
 
 with smtplib.SMTP_SSL(smtp_server, smtp_port, context=context) as server:
     server.login(args.smtp_user, args.smtp_passwd)

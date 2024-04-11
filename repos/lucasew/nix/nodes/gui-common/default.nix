@@ -1,7 +1,13 @@
-{pkgs, lib, global, ...}:
+{
+  pkgs,
+  lib,
+  global,
+  ...
+}:
 let
   inherit (global) username;
-in {
+in
+{
   imports = [
     ../common
     ./gui-variants
@@ -25,7 +31,7 @@ in {
   ];
 
   systemd.extraConfig = ''
-  DefaultTimeoutStartSec=10s
+    DefaultTimeoutStartSec=10s
   '';
 
   environment.systemPackages = with pkgs; [
@@ -33,7 +39,8 @@ in {
     parallel
     home-manager
     paper-icon-theme
-    p7zip unzip # archiving
+    p7zip
+    unzip # archiving
     pv
     # Extra
     distrobox # plan b
@@ -61,7 +68,7 @@ in {
   programs.gnupg.agent = {
     enable = true;
     # enableSSHSupport = true;
-    pinentryFlavor = "gnome3";
+    pinentryPackage = pkgs.pinentry-gnome3;
   };
 
   # Users
