@@ -1,0 +1,18 @@
+# see https://github.com/hfg-gmuend/openmoji/blob/master/helpers/generate-fonts-runner.sh#L46
+
+output_file = "$source/build/$saturation/OpenMoji-$saturation-$method.ttf"
+color_format = "$method"
+
+ascender = $ascender
+descender = $descender
+
+[axis.wght]
+name = "Weight"
+default = 400
+
+[master.regular]
+style_name = "Regular"
+srcs = ["$source/$saturation/svg/*.svg"]
+
+[master.regular.position]
+wght = 400
