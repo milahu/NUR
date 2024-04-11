@@ -1,14 +1,44 @@
-# nur-packages
+# nixos-config
 
-**My personal [NUR](https://github.com/nix-community/NUR) repository**
+My NixOS configuration/dotfiles/rules.
 
-<!-- Remove this if you don't use github actions -->
-![Build and populate cache](https://github.com/slaier/nur-packages/workflows/Build%20and%20populate%20cache/badge.svg)
+## Programs
 
-<!--
-Uncomment this if you use travis:
+The `modules` dir contains details about the programs that need additional
+configurations. Other programs that can be simply included in
+`environment.systemPackages` are placed in `hosts/*/default.nix`.
 
-[![Build Status](https://travis-ci.com/<YOUR_TRAVIS_USERNAME>/nur-packages.svg?branch=master)](https://travis-ci.com/<YOUR_TRAVIS_USERNAME>/nur-packages)
--->
-[![Cachix Cache](https://img.shields.io/badge/cachix-slaier-blue.svg)](https://slaier.cachix.org)
+| Type           | Program                                             |
+| -------------- | --------------------------------------------------- |
+| Editor         | [Vscode](https://code.visualstudio.com/)            |
+| Launcher       | [Rofi-wayland](https://github.com/lbonn/rofi)       |
+| Shell          | [Fish](https://fishshell.com/)                      |
+| Status Bar     | [Waybar](https://github.com/alexays/waybar)         |
+| Terminal       | [Alacritty](https://github.com/alacritty/alacritty) |
+| Window Manager | [Sway](https://swaywm.org/)                         |
+| Browser        | [Firefox](http://www.mozilla.com/en-US/firefox/)    |
+| Music Player   | [Spotify](https://www.spotify.com/)                 |
 
+## Themes
+
+| Type          | Name                                                                                                                    |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| GTK Theme     | [Orchis](https://github.com/vinceliuice/Orchis-theme)                                                                   |
+| Terminal Font | [FantasqueSansMono Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FantasqueSansMono) |
+
+## Structure
+
+Here is an overview of the folders' structure:
+
+- `hosts`: The NixOS configurations.
+- `lib`: Some utils to build outputs in `default.nix` and `flake.nix`.
+- `modules`: Configurations of programs.
+  - `**/default.nix`: NixOS module.
+  - `**/home.nix`: Home manager module.
+  - `**/overlay.nix`: NixOS overlay.
+  - `**/package.nix`: Package source.
+  - `**/packages.nix`: Package set source.
+  - `**/update.sh`: The shell script to update package's version.
+- `outputs`: Flake outputs.
+- `default.nix`: NUR main.
+- `flake.nix`: Flake main.

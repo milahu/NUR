@@ -1,66 +1,44 @@
 name: Update inputs
 on:
   schedule:
-    # rebuild at 8:12 on Friday
-    - cron: "12 8 * * 5"
+    # rebuild at 8:11 on Friday
+    - cron: "11 8 * * 5"
   workflow_dispatch:
 jobs:
   update_inputs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: main
       - name: Install nix
-        uses: cachix/install-nix-action@v20
+        uses: cachix/install-nix-action@v26
         with:
-          nix_path: "nixpkgs=channel:nixos-22.11"
-      - uses: cachix/cachix-action@v12
+          nix_path: nixpkgs=channel:nixos-23.11
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
         with:
-          name: slaier
-          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-      - name: Prepare
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update inputs
         run: |
-          git checkout -B wip-update-inputs
           git config user.name "dependabot[bot]"
           git config user.email "<49699333+dependabot[bot]@users.noreply.github.com>"
-      - name: Update flake lock
-        run: |
-          nix flake update --commit-lock-file --commit-lockfile-summary "nix(deps): update inputs"
-      - name: Update nvfetcher sources
-        working-directory: ./pkgs
-        run: |
-          nix shell nixpkgs#nvfetcher -c nvfetcher -l changelog.txt
-          git add _sources
-      - name: Update firefox addons
-        working-directory: ./pkgs/firefox-addons
-        run: |
-          nix run git+https://git.sr.ht/~rycee/mozilla-addons-to-nix -- addons.json addons.nix
-          git add addons.nix
-      - name: Push
-        run: |
-          nvfetcher=$(<./pkgs/changelog.txt)
-          if [[ -n "$nvfetcher" ]]; then
-            nvfetcher="Nvfetcher updates:"$'\n\n'"$nvfetcher"
-          fi
-          commit_msg=$(git log --format=%B main..HEAD)
-          if [[ -n "$commit_msg" ]]; then
-            git reset --soft HEAD^
-          else
-            commit_msg="nix(deps): update inputs"
-          fi
-          commit_msg="$commit_msg"$'\n\n'"$nvfetcher"
-          git commit -m "$commit_msg"
-          git push origin wip-update-inputs --force-with-lease
+          nix develop .#update --command just update &
+          nix flake update --commit-lock-file --commit-lockfile-summary "nix(deps): update inputs" &
+          wait
+          git add .
+          git commit --amend --no-edit
+          git push origin HEAD:wip-update-inputs --force-with-lease
       - name: Trigger Workflow
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              workflow_id: 'build.yml',
+              workflow_id: 'test.yml',
               ref: 'wip-update-inputs',
             })
