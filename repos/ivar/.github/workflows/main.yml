@@ -1,0 +1,59 @@
+name: "Update and build packages, and populate cache"
+on:
+  pull_request:
+  push:
+  schedule:
+    - cron:  '50 6 * * *'
+    - cron:  '51 12 * * *'
+    - cron:  '52 18 * * *'
+    - cron:  '53 23 * * *'
+    - cron:  '15 0 * * *'
+jobs:
+  build:
+    environment:
+      name: cachix
+    strategy:
+      matrix:
+        nurRepo:
+          - ivar
+        cachixName:
+          - ivar
+        nixPath:
+          - nixpkgs=channel:nixpkgs-unstable
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2.3.4
+    - name: Update repository
+      run: git pull -f
+    - name: Install nix
+      uses: cachix/install-nix-action@v13
+      with:
+        nix_path: "${{ matrix.nixPath }}"
+    - name: Show nixpkgs version
+      run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
+    - name: Setup cachix
+      uses: cachix/cachix-action@v10
+      if: ${{ matrix.cachixName != '<YOUR_CACHIX_NAME>' }}
+      with:
+        name: ${{ matrix.cachixName }}
+        signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+    - name: Update packages
+      run: |
+        cd ryujinx
+        echo Now attempting to update Ryujinx
+        ./updater.sh
+        cd ../yuzu
+        echo Now attempting to update yuzu
+        ./updater.sh
+    - name: Build nix packages
+      run: nix run --quiet -I 'nixpkgs=channel:nixpkgs-unstable' nixpkgs.nix-build-uncached -c nix-build-uncached ci.nix -A cacheOutputs
+    - name: Push changes
+      uses: actions-x/commit@v2
+      with:
+        name: gh-actions
+        message: Update packages to their latest version
+        files: ryujinx/default.nix ryujinx/deps.nix yuzu/default.nix
+    - name: Trigger NUR update
+      if: ${{ matrix.nurRepo != '<YOUR_REPO_NAME>' }}
+      run: curl -XPOST "https://nur-update.herokuapp.com/update?repo=${{ matrix.nurRepo }}"
