@@ -1,7 +1,7 @@
 error:
 … from call site
 
-  at /nix/store/wz7dkzjx5nrdvdyzk7jrp87avr6q1x4z-source/pkgs/default.nix:49:19:
+  at /nix/store/jcyhgw6bhbw4lria4di9nhwz2kff4nbr-source/pkgs/default.nix:49:19:
 
     48|
     49|   anytype-heart = callPackage ./development/libraries/anytype-heart { };
@@ -17,4 +17,4 @@ error:
       |                                   ^
    154|     let
 
-error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "protoc-gen-js" at /nix/store/wz7dkzjx5nrdvdyzk7jrp87avr6q1x4z-source/pkgs/development/libraries/anytype-heart/default.nix:6, did you mean "protoc-gen-go"?'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "protoc-gen-js" at /nix/store/jcyhgw6bhbw4lria4di9nhwz2kff4nbr-source/pkgs/development/libraries/anytype-heart/default.nix:6, did you mean "protoc-gen-go"?'

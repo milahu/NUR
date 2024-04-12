@@ -1,7 +1,7 @@
 error:
 … from call site
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/default.nix:17:21:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/default.nix:17:21:
 
     16|     dpf-plugins = callPackage' ./dpf-plugins;
     17|     emacsPackages = callPackages ./emacsPackages;
@@ -10,7 +10,7 @@ error:
 
 … while calling 'callPackages'
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/default.nix:8:18:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/default.nix:8:18:
 
      7|
      8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
@@ -19,7 +19,7 @@ error:
 
 … from call site
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/default.nix:8:23:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/default.nix:8:23:
 
      7|
      8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
@@ -37,7 +37,7 @@ error:
 
 … from call site
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/default.nix:8:50:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/default.nix:8:50:
 
      7|
      8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
@@ -46,7 +46,7 @@ error:
 
 … while calling 'callPackage''
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/default.nix:2:18:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/default.nix:2:18:
 
      1| {pkgs, ...}: let
      2|   callPackage' = pkg:
@@ -55,7 +55,7 @@ error:
 
 … from call site
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/default.nix:3:5:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/default.nix:3:5:
 
      2|   callPackage' = pkg:
      3|     pkgs.callPackage pkg {
@@ -100,7 +100,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:1:1:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/default.nix:1:1:
 
      1| {pkgs, ...}: let
       | ^
@@ -108,7 +108,7 @@ error:
 
 … from call site
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:4:4:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/default.nix:4:4:
 
      3| in
      4|   (pkgs.lib.makeExtensible (_:
@@ -171,7 +171,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:4:29:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/default.nix:4:29:
 
      3| in
      4|   (pkgs.lib.makeExtensible (_:
@@ -180,7 +180,7 @@ error:
 
 … from call site
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:5:5:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/default.nix:5:5:
 
      4|   (pkgs.lib.makeExtensible (_:
      5|     pkgs.lib.attrsets.mapAttrs'
@@ -198,7 +198,7 @@ error:
 
 … from call site
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:28:6:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/default.nix:28:6:
 
     27|       }))
     28|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
@@ -234,7 +234,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:28:31:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/default.nix:28:31:
 
     27|       }))
     28|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
@@ -243,7 +243,7 @@ error:
 
 … from call site
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/default.nix:28:34:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/default.nix:28:34:
 
     27|       }))
     28|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
@@ -261,7 +261,7 @@ error:
 
 … from call site
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:223:33:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/nix/_sources.nix:223:33:
 
    222|           "The values in sources.json should not have an 'outPath' attribute"
    223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
@@ -270,7 +270,7 @@ error:
 
 … while calling 'replace'
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:139:19:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/nix/_sources.nix:139:19:
 
    138|   # the path directly as opposed to the fetched source.
    139|   replace = name: drv: let
@@ -279,7 +279,7 @@ error:
 
 … from call site
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:223:47:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/nix/_sources.nix:223:47:
 
    222|           "The values in sources.json should not have an 'outPath' attribute"
    223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
@@ -288,7 +288,7 @@ error:
 
 … while calling 'fetch'
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:120:23:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/nix/_sources.nix:120:23:
 
    119|   # The actual fetching function.
    120|   fetch = pkgs: name: spec:
@@ -297,7 +297,7 @@ error:
 
 … from call site
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:126:10:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/nix/_sources.nix:126:10:
 
    125|     else if spec.type == "tarball"
    126|     then fetch_tarball pkgs name spec
@@ -306,7 +306,7 @@ error:
 
 … while calling 'fetch_tarball'
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:21:31:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/nix/_sources.nix:21:31:
 
     20|
     21|   fetch_tarball = pkgs: name: spec: let
@@ -315,7 +315,7 @@ error:
 
 … from call site
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:26:7:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/nix/_sources.nix:26:7:
 
     25|     then
     26|       builtins_fetchTarball {
@@ -324,7 +324,7 @@ error:
 
 … while calling 'builtins_fetchTarball'
 
-  at /nix/store/m0g6apj035fskm4mrgn1lvcckrhqdyx5-source/pkgs/emacsPackages/nix/_sources.nix:191:27:
+  at /nix/store/rnjbd8avjz7lhy7ra2bx90kgzqc8cifp-source/pkgs/emacsPackages/nix/_sources.nix:191:27:
 
    190|   # fetchTarball version that is compatible between all the versions of Nix
    191|   builtins_fetchTarball = {

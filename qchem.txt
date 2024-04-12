@@ -29,7 +29,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/a4f0prh4x1pyj0dxqd77q34dl94g4vns-source/nur.nix:1:1:
+  at /nix/store/zp3kkc81d2rin16bak2mlncv3f3mcvl2-source/nur.nix:1:1:
 
      1| { pkgs ? import <nixpkgs> {}
       | ^
@@ -37,7 +37,7 @@ error:
 
 … from call site
 
-  at /nix/store/a4f0prh4x1pyj0dxqd77q34dl94g4vns-source/nur.nix:6:13:
+  at /nix/store/zp3kkc81d2rin16bak2mlncv3f3mcvl2-source/nur.nix:6:13:
 
      5| let
      6|   nixpkgs = import ./nixpkgs-pin.nix pkgs;
@@ -46,7 +46,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/a4f0prh4x1pyj0dxqd77q34dl94g4vns-source/nixpkgs-pin.nix:1:1:
+  at /nix/store/zp3kkc81d2rin16bak2mlncv3f3mcvl2-source/nixpkgs-pin.nix:1:1:
 
      1| pkgs:
       | ^

@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at /nix/store/dwl1z40g58hawb7di6z0n187zjppl0a0-source/default.nix:78:9:
+  at /nix/store/rp952ccy8hs3l8vr8fk92r01bhzwd890-source/default.nix:80:9:
 
-    77|   #openmw = pkgs.libsForQt5.callPackage ./pkgs/Overrides/openmw {};
-    78|   qcm = pkgs.qt6.callPackage ./pkgs/Overrides/qcm {};
+    79|   #openmw = pkgs.libsForQt5.callPackage ./pkgs/Overrides/openmw {};
+    80|   qcm = pkgs.qt6.callPackage ./pkgs/Overrides/qcm {};
       |         ^
-    79|   mpv = pkgs.wrapMpv (pkgs.mpv.unwrapped.override { cddaSupport = true; }) {};
+    81|   mpv = pkgs.wrapMpv (pkgs.mpv.unwrapped.override { cddaSupport = true; }) {};
 
 … while calling 'callPackageWith'
 
@@ -46,7 +46,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/dwl1z40g58hawb7di6z0n187zjppl0a0-source/pkgs/Overrides/qcm/default.nix:1:1:
+  at /nix/store/rp952ccy8hs3l8vr8fk92r01bhzwd890-source/pkgs/Overrides/qcm/default.nix:1:1:
 
      1| { stdenv
       | ^
@@ -54,7 +54,7 @@ error:
 
 error: attribute 'qcm' missing
 
-at /nix/store/dwl1z40g58hawb7di6z0n187zjppl0a0-source/pkgs/Overrides/qcm/default.nix:9:1:
+at /nix/store/rp952ccy8hs3l8vr8fk92r01bhzwd890-source/pkgs/Overrides/qcm/default.nix:9:1:
 
      8| in
      9| pkgs.qcm.overrideAttrs (

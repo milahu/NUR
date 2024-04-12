@@ -1,7 +1,7 @@
 error:
 … from call site
 
-  at /nix/store/yk8jgf63ia07ky6rfazzfd3p4b97fdrs-source/pkgs/default.nix:3:16:
+  at /nix/store/y4n7b4mi29ngn8fyksbaq760mz28dabd-source/pkgs/default.nix:3:16:
 
      2| pkgs.lib.makeScope pkgs.newScope (pkgs: {
      3|   bt-migrate = pkgs.callPackage ./bt-migrate { };
@@ -17,4 +17,4 @@ error:
       |                                   ^
    154|     let
 
-error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "jsoncons" at /nix/store/yk8jgf63ia07ky6rfazzfd3p4b97fdrs-source/pkgs/bt-migrate/default.nix:8'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "jsoncons" at /nix/store/y4n7b4mi29ngn8fyksbaq760mz28dabd-source/pkgs/bt-migrate/default.nix:8'

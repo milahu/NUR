@@ -2,12 +2,12 @@ trace: 「我书写，则为我命令。我陈述，则为我规定。」
 error:
 … from call site
 
-  at /nix/store/mqx5wb19mlcx6j7idqy0vvkfk8rbnmgk-source/default.nix:30:37:
+  at /nix/store/gfk5xny6ikksxdh5zwddi82j36y8b041-source/default.nix:29:37:
 
-    29|
-    30|   maa-assistant-arknights-nightly = pkgs.callPackage ./pkgs/maa-assistant-arknights { };
+    28|
+    29|   maa-assistant-arknights-nightly = pkgs.callPackage ./pkgs/maa-assistant-arknights { };
       |                                     ^
-    31|
+    30|
 
 … while calling 'callPackageWith'
 
@@ -18,4 +18,4 @@ error:
       |                                   ^
    154|     let
 
-error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "maa-assistant-arknights" at /nix/store/mqx5wb19mlcx6j7idqy0vvkfk8rbnmgk-source/pkgs/maa-assistant-arknights/default.nix:2'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "maa-assistant-arknights" at /nix/store/gfk5xny6ikksxdh5zwddi82j36y8b041-source/pkgs/maa-assistant-arknights/default.nix:2'
