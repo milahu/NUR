@@ -3,22 +3,46 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    systems.url = "github:nix-systems/default";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-stable.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+        gitignore.follows = "gitignore";
+        flake-compat.follows = "";
+      };
+    };
+
+    # Indirect
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
+
+    gitignore = {
+      url = "github:hercules-ci/gitignore.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs, flake-parts, ... }@inputs:
+    {
+      nixpkgs,
+      systems,
+      flake-parts,
+      pre-commit-hooks,
+      ...
+    }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
+      systems = import systems;
 
       perSystem =
         {
@@ -29,8 +53,8 @@
           ...
         }:
         {
-          legacyPackages = import ./. { inherit pkgs; };
-          packages = nixpkgs.lib.filterAttrs (_: nixpkgs.lib.isDerivation) config.legacyPackages;
+          legacyPackages = pkgs.callPackage ./packages { };
+          packages = lib.filterAttrs (_: lib.isDerivation) config.legacyPackages;
 
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
@@ -39,6 +63,11 @@
               nix-output-monitor
               nix-tree
             ];
+
+            shellHook = ''
+              ${config.checks.pre-commit-check.shellHook}
+              just --list
+            '';
           };
 
           apps.update = {
@@ -47,7 +76,7 @@
               pkgs.writeShellApplication {
                 name = "update";
                 text = ''
-                  nix-shell "${nixpkgs.outPath}/maintainers/scripts/update.nix" \
+                  nix-shell --show-trace "${nixpkgs.outPath}/maintainers/scripts/update.nix" \
                     --arg include-overlays "[(import ./overlay.nix)]" \
                     --arg predicate '(
                       let prefix = builtins.toPath ./packages; prefixLen = builtins.stringLength prefix;
@@ -56,6 +85,21 @@
                 '';
               }
             );
+          };
+
+          checks = {
+            pre-commit-check = pre-commit-hooks.lib.${system}.run {
+              src = ./.;
+              hooks = {
+                # Nix
+                nixfmt = {
+                  enable = true;
+                  package = config.formatter;
+                };
+                deadnix.enable = true;
+                statix.enable = true;
+              };
+            };
           };
 
           formatter = pkgs.nixfmt-rfc-style;

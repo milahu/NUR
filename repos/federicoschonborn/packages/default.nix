@@ -1,46 +1,53 @@
 {
   pkgs ? import <nixpkgs> { },
 }:
-let
-  self = {
-    bsdutils = pkgs.callPackage ./bsdutils { inherit (self) libxo; };
-    cargo-aoc = pkgs.callPackage ./cargo-aoc { };
-    fastfetch = pkgs.callPackage ./fastfetch { };
-    firefox-gnome-theme = pkgs.callPackage ./firefox-gnome-theme { };
-    flyaway = pkgs.callPackage ./flyaway { };
-    gtatool = pkgs.callPackage ./gtatool { inherit (self) libgta teem; };
-    inko = pkgs.callPackage ./inko { };
-    kuroko = pkgs.callPackage ./kuroko { };
-    libgta = pkgs.callPackage ./libgta { };
-    libtgd = pkgs.callPackage ./libtgd { inherit (self) libgta; };
-    libxo = pkgs.callPackage ./libxo { };
-    magpie-wayland = pkgs.callPackage ./magpie-wayland { inherit (self) wlroots_0_17; };
-    minesector = pkgs.callPackage ./minesector { };
-    mucalc = pkgs.callPackage ./mucalc { };
-    opensurge = pkgs.callPackage ./opensurge { inherit (self) surgescript; };
-    qv = pkgs.qt6.callPackage ./qv { inherit (self) libtgd; };
-    srb2p = pkgs.callPackage ./srb2p { };
-    surgescript = pkgs.callPackage ./surgescript { };
-    teem = pkgs.callPackage ./teem { };
-    thunderbird-gnome-theme = pkgs.callPackage ./thunderbird-gnome-theme { };
-    wisp = pkgs.callPackage ./wisp { };
+
+pkgs.lib.makeScope pkgs.newScope (
+  self:
+  let
+    inherit (self) callPackage;
+  in
+  {
+    bsdutils = callPackage ./bsdutils { };
+    cargo-aoc = callPackage ./cargo-aoc { };
+    fastfetch = callPackage ./fastfetch { };
+    firefox-gnome-theme = callPackage ./firefox-gnome-theme { };
+    flyaway = callPackage ./flyaway { };
+    gtatool = callPackage ./gtatool { };
+    inko = callPackage ./inko { };
+    kuroko = callPackage ./kuroko { };
+    libgta = callPackage ./libgta { };
+    libtgd = callPackage ./libtgd { };
+    libxo = callPackage ./libxo { };
+    magpie-wayland = callPackage ./magpie-wayland { };
+    mii-emu = callPackage ./mii-emu { };
+    minesector = callPackage ./minesector { };
+    mucalc = callPackage ./mucalc { };
+    opensurge = callPackage ./opensurge { };
+    qv = callPackage ./qv { };
+    raze = callPackage ./raze { };
+    srb2p = callPackage ./srb2p { };
+    surgescript = callPackage ./surgescript { };
+    teem = callPackage ./teem { };
+    thunderbird-gnome-theme = callPackage ./thunderbird-gnome-theme { };
+    unnamed-sdvx-clone = callPackage ./unnamed-sdvx-clone { };
+    wisp = callPackage ./wisp { };
 
     # Backports
-    wlroots_0_17 =
-      pkgs.wlroots_0_17 or (pkgs.wlroots.overrideAttrs (prevAttrs: {
-        version = "0.17.2";
-        src = pkgs.fetchFromGitLab {
-          domain = "gitlab.freedesktop.org";
-          owner = "wlroots";
-          repo = "wlroots";
-          rev = "6dce6ae2ed92544b9758b194618e21f4c97f1d6b";
-          hash = "sha256-Of9qykyVnBURc5A2pvCMm7sLbnuuG7OPWLxodQLN2Xg=";
-        };
-        buildInputs = (prevAttrs.buildInputs or [ ]) ++ [
-          pkgs.hwdata
-          pkgs.libdisplay-info
-        ];
-      }));
+    wlroots_0_17 = pkgs.wlroots.overrideAttrs (prevAttrs: {
+      version = "0.17.2";
+      src = pkgs.fetchFromGitLab {
+        domain = "gitlab.freedesktop.org";
+        owner = "wlroots";
+        repo = "wlroots";
+        rev = "6dce6ae2ed92544b9758b194618e21f4c97f1d6b";
+        hash = "sha256-Of9qykyVnBURc5A2pvCMm7sLbnuuG7OPWLxodQLN2Xg=";
+      };
+      buildInputs = (prevAttrs.buildInputs or [ ]) ++ [
+        pkgs.hwdata
+        pkgs.libdisplay-info
+      ];
+    });
 
     # Variants
     fastfetchMinimal =
@@ -144,6 +151,15 @@ let
           withTiff = true;
         };
 
+    razeFull =
+      (self.raze.overrideAttrs (prevAttrs: {
+        pname = "${prevAttrs.pname}-full";
+        meta = prevAttrs.meta // {
+          description = "${prevAttrs.meta.description} (with all features enabled)";
+        };
+      })).override
+        { withGtk3 = true; };
+
     teemFull =
       (self.teem.overrideAttrs (prevAttrs: {
         pname = "${prevAttrs.pname}-full";
@@ -189,6 +205,5 @@ let
           withPng = true;
           withZlib = true;
         };
-  };
-in
-self
+  }
+)
