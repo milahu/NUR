@@ -1,0 +1,15 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash -p nettools -p systemd
+
+target="$1"
+shift
+
+host="$(hostname)"
+if [ "$host" = "$target" ]
+then
+  shutdown now "$@"
+else
+  echo "WRONG MACHINE. you're on $host."
+  exit 1
+fi
+

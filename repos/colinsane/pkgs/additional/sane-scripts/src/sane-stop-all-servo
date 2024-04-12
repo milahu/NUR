@@ -1,0 +1,47 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash -p systemd
+sudo systemctl stop \
+  bitcoind-mainnet \
+  coturn \
+  dovecot2 \
+  duplicity \
+  duplicity.timer \
+  ejabberd \
+  gitea \
+  goaccess \
+  i2p \
+  jackett \
+  jellyfin \
+  kiwix-serve \
+  komga \
+  lemmy \
+  lemmy-ui \
+  matrix-appservice-irc\
+  matrix-synapse \
+  mautrix-signal \
+  monero \
+  mx-puppet-discord \
+  navidrome \
+  nginx \
+  nix-serve \
+  ntfy-sh \
+  opendkin \
+  phpfpm-freshrss \
+  pict-rs \
+  pleroma \
+  postfix \
+  postgresql \
+  prosody \
+  sftpgo \
+  signald \
+  slskd \
+  systemctl \
+  tor \
+  transmission \
+  trust-dns-hn \
+  trust-dns-hn-resolver \
+  trust-dns-lan \
+  trust-dns-wan \
+  wireguard-wg-ovpns \
+
+# TODO: stop the freshrss timer

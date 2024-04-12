@@ -1,0 +1,104 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i python3 -p "python3.withPackages (ps: [ ps.sane-lib.ssdp ])" -p inetutils -p miniupnpc
+
+'''
+USAGE: sane-ip-port-forward [options] [proto:port[:desc]]*
+
+options:
+  -v:  verbose (show info messages)
+  -vv: more verbose (show debug messages)
+  -h:  show this help messages
+  -d <int>: lease for the given duration in seconds (default: {DEFAULT_LEASE_SEC})
+
+proto:port[:desc]:
+  proto is `udp` or `tcp` (case insensitive)
+  port is any integer 1-65535 inclusive
+  desc is some public description of the port forward (for humans trying to understand a network config)
+'''
+
+DEFAULT_LEASE_SEC = 86400
+
+import logging
+import subprocess
+import sys
+
+from sane_ssdp import get_any_wan, forward_port
+
+class BadCliArgs(Exception):
+    def __init__(self, msg: str = None):
+        helpstr = __doc__.format(DEFAULT_LEASE_SEC=DEFAULT_LEASE_SEC).strip()
+        if msg:
+            super().__init__(f"{msg}\n\n{helpstr}")
+        else:
+            super().__init__(helpstr)
+
+def try_parse_port(s: str):
+    """
+    `udp:53` -> ["udp", 53, ""]
+    `tcp:65535:my description` -> ["tcp", 65535, "my description"]
+    """
+    s = s.strip()
+
+    def split_at_colon(s_: str):
+        next_colon = s_.find(":")
+        return s_[:next_colon], s_[next_colon+1:]
+
+    if ":" not in s: return  # invalid format
+    proto, rest = split_at_colon(s)
+
+    if ":" in rest:
+        portstr, desc = split_at_colon(rest)
+    else:
+        portstr = rest
+        desc = ""
+
+    try:
+        proto, port = proto.lower(), int(portstr)
+        assert proto in ["tcp", "udp"]
+        assert 0 < port < 65536
+        return proto, port, desc
+    except Exception:
+        pass
+
+def parse_args(argv: "List[str]") -> "List[('udp'|'tcp', port: int, description: str)]":
+    """
+    returns (list of forwards, lease duration)
+    where:
+    - list of forwards is [('udp'|'tcp', port: int, description: str)]
+    - lease duration is seconds: int
+    """
+    forwards = []
+    duration = DEFAULT_LEASE_SEC
+    unparsed = sys.argv[1:][::-1]
+    while unparsed:
+        arg = unparsed.pop()
+        if arg == "-h":
+            raise BadCliArgs()
+        if arg == "-v":
+            logging.getLogger().setLevel(logging.INFO)
+        elif arg == "-vv":
+            logging.getLogger().setLevel(logging.DEBUG)
+        elif arg == "-d" and unparsed:
+            d = unparsed.pop()
+            try:
+                duration = int(d)
+            except Exception:
+                raise BadCliArgs(f"invalid CLI argument: -d {d!r}")
+        elif try_parse_port(arg):
+            forwards.append(try_parse_port(arg))
+        else:
+            raise BadCliArgs(f"invalid CLI argument: {arg!r}")
+    return forwards, duration
+
+if __name__ == '__main__':
+    logging.basicConfig()
+
+    try:
+        forwards, duration = parse_args(sys.argv)
+    except BadCliArgs as e:
+        print(e)
+        sys.exit(1)
+
+    root_device, lan, _wan = get_any_wan(cached=True)
+    for (proto, port, reason) in forwards:
+        forward_port(root_device, proto, port, lan_ip=lan, reason=reason, duration=duration)

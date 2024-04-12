@@ -1,0 +1,117 @@
+/* to show active config: `rofi -dump-config`
+ * to show keybindings: `rofi -show keys`
+ * to show theme config: `rofi -dump-theme`
+ * - for live theme switching: `rofi-theme-selector`
+ */
+
+configuration {
+  modes: "combi";
+  font: "mono 20";
+  show-icons: true;
+  kb-accept-entry: "Return,KP_Enter,XF86PowerOff";
+  kb-row-up: "Up,XF86AudioRaiseVolume";
+  kb-row-down: "Down,XF86AudioLowerVolume";
+  cache-dir: "~/.cache/rofi";
+
+  /* to position rofi to the top of the screen: */
+  /* location: 2; */
+
+  combi {
+    /* this is rendered in the filter box, here we disable it */
+    display-name: "";
+  }
+  /* combi-display-format: "{mode} {text}"; */
+  /* combi-display-format: "{text}"; */
+  combi-display-format: "{mode}{text}";
+  combi-modes: "filebrowser,drun";
+
+  drun {
+    display-name: " ";
+  }
+  drun-use-desktop-cache: true;
+
+  filebrowser {
+    /* directory: filebrowser starting directory. leave unset to start at the last directory. */
+    /* directory: "/home"; */
+
+    /* display-name: text to prepend in combi mode */
+    display-name: "/";
+    /* `command` is the prefix to prepend (along with a space) *before* passing it off to `run-command` */
+    command: "xdg-open";
+    directories-first: true;
+    /* sorting-method: name/atime/ctime/mtime */
+    sorting-method: "name";
+    show-hidden: false;
+  }
+
+  run {
+    display-name: "run ";
+  }
+  /* launch applications via my own launcher, which directs them through to xdg-desktop-portal */
+  run-command: "rofi-run-command '{app_id}.desktop' {cmd}";
+}
+
+/* theme */
+* {
+  /* my own variables */
+  bg: #1d1721;       /* slight purple */
+  fg0: #d8d8d8;      /* inactive text (light grey) */
+  fg1: #ffffff;      /* active text (white) */
+  accent0: #1f5e54;  /* darker but saturated teal */
+  accent1: #418379;  /* teal (matches nixos-bg) */
+  accent2: #5b938a;  /* brighter but muted teal */
+
+  /* map my variables to variables rofi uses internally */
+  background-color: var(accent0);
+  background: var(accent0);
+  /* foreground: non-alternating text, scrollbar, borders, separators */
+  foreground: var(fg0);
+
+  /* override derived styles */
+  alternate-active-background: var(accent0);
+  alternate-normal-background: var(accent0);
+  alternate-active-foreground: var(fg0);
+  alternate-normal-foreground: var(fg0);
+  border-color: var(accent0);
+  text-color: var(fg0);
+  selected-active-background: var(accent1);
+  selected-normal-background: var(accent1);
+  selected-active-foreground: var(fg1);
+  selected-normal-foreground: var(fg1);
+  separatorcolor: var(accent1);
+}
+entry {
+  placeholder: "";
+  text-color: var(fg1);
+}
+num-rows, num-filtered-rows {
+  text-color: var(fg0);
+}
+prompt, textbox-prompt-colon {
+  /* hide */
+  text-color: var(accent0);
+}
+scrollbar {
+  handle-color: var(accent2);
+}
+window {
+  /* rofi supports very complex calculations here */
+  /* one may even read environment variables (useful for knowing if screen is rotated?) */
+  /* `calc(... min 100%)` ensures it never overflows */
+  /* rofi is aware of the top bar (waybar) and any virtual keyboards,
+   * so e.g. height: 100% will occupy 100% of the height *not* allocated to bars/kbds.
+   * however with y-offset, it becomes possible to overflow */
+
+  width: calc(960 min 100%);
+  /* 520px @ font size 20 gives 13 rows + filter */
+  /* 482px @ font size 20 gives 12 rows + filter */
+  /* 446px @ font size 20 gives 11 rows + filter */
+  /* 90.5% @ font size 20, sway scale 2.0, moby in landscape mode: gives 7 rows + filter */
+  height: calc(446 min 90.5%);
+
+  /* anchor the *north* edge of the window at the *north* location of the screen */
+  anchor: north;
+  location: north;
+  /* 11.2% lines up nicely with Firefox */
+  y-offset: 11.2%;
+}

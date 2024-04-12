@@ -1,0 +1,401 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i python3 -p "python3.withPackages (ps: [ ps.mutagen ])"
+#
+# mutagen docs:
+# - <https://mutagen.readthedocs.io/en/latest/>
+
+from dataclasses import dataclass
+
+import argparse
+import logging
+import os.path
+import mutagen.easyid3
+import mutagen.flac
+import mutagen.mp3
+import mutagen.oggopus
+import mutagen.oggvorbis
+
+logger = logging.getLogger(__name__)
+
+def clean_for_loose_compare(a: str) -> str:
+    a = a.strip().lower()
+    if a.startswith("the "):
+        a = a[len("the "):]
+
+    # goal is to help merge path-extracted tags with embedded tags.
+    # it's common for a tag to have some rich characters which can't be represented in a file.
+    # so just remove rich characters, but in a way which doesn't become useless when faced with primarily non-latin names
+    omitable = '. &()[];:'
+    unomitable = 'abcdefghijklmnopqrstuvwxyz0123456789'
+
+    a = "".join(c for c in a if c not in omitable)
+    cleaned = "".join(c for c in a if c in unomitable)
+    if len(cleaned) >= 0.5 * len(a):
+        return cleaned
+    else:
+        # we cleaned a *suspicious* amount, probably erroneously.
+        # likely a non-english album/artist/track
+        return a
+
+def loose_compare_str(a: str, b: str) -> bool:
+    return clean_for_loose_compare(a) == clean_for_loose_compare(b)
+
+def loose_compare_lists(a: list[str], b: list[str]) -> bool:
+    a = sorted(clean_for_loose_compare(i) for i in a)
+    b = sorted(clean_for_loose_compare(i) for i in b)
+    return a == b
+
+@dataclass
+class Tags:
+    # format matches mutagen's
+    # these tags could be technically valid, but semantically invalid
+    #   e.g. a tracknumber that's not a number
+    artist: list[str]
+    album: list[str]
+    title: list[str]
+    albumartist: list[str]
+    tracknumber: list[str]
+
+    def __init__(
+        self,
+        artist: list[str] = None,
+        album: list[str] = None,
+        title: list[str] = None,
+        albumartist: list[str] = None,
+        tracknumber: list[str] = None,
+    ):
+        self.artist = artist or []
+        self.album = album or []
+        self.title = title or []
+        self.albumartist = albumartist or []
+        self.tracknumber = tracknumber or []
+
+
+    def __repr__(self) -> str:
+        return f"artist:{self.artist}/{self.albumartist}, album:{self.album}, title:{self.title}, trackno:{self.tracknumber}"
+
+    def union(self, fallback: 'Tags') -> 'Tags':
+        def merge_field(primary: list[str], secondary: list[str]) -> list[str]:
+            # primary_lower = [i.lower() for i in primary]
+            # return primary + [i for i in secondary if i.lower() not in primary_lower]
+            return primary or secondary
+
+
+        artist=merge_field(self.artist, fallback.artist)
+        album=merge_field(self.album, fallback.album)
+        title=merge_field(self.title, fallback.title)
+        albumartist=merge_field(self.albumartist, fallback.albumartist)
+        tracknumber=merge_field(self.tracknumber, fallback.tracknumber)
+
+        if artist == albumartist:
+            # if extraneous, then keep the album artist whatever it originally was
+            albumartist = self.albumartist
+
+        return Tags(
+            artist=artist,
+            album=album,
+            title=title,
+            albumartist=albumartist,
+            tracknumber=tracknumber,
+        )
+
+    def trim_fields(self) -> None:
+        if len(self.title) == 1:
+            self.title = [ self.title[0].strip() ]
+        if len(self.artist) == 1:
+            self.artist = [ self.artist[0].strip() ]
+        if len(self.albumartist) == 1:
+            self.albumartist = [ self.albumartist[0].strip() ]
+        if len(self.album) == 1:
+            self.album = [ self.album[0].strip() ]
+
+    def expand_shorthands(self) -> None:
+        va = ["V.A.", "Various"]
+
+        for i, a in enumerate(self.artist):
+            if a in va:
+                self.artist[i] = "Various Artists"
+
+        for i, a in enumerate(self.albumartist):
+            if a in va:
+                self.albumartist[i] = "Various Artists"
+
+    def promote_albumartist(self) -> None:
+        """
+        1. replace shorthands like "V.A." with "Various Artists".
+        2. if there's only an album artist, and no track artist, turn the album artist into the track artist.
+        3. if the artist and album artist are nearly identical, try to merge them.
+        """
+
+        if loose_compare_lists(self.artist, self.albumartist):
+            # arist & album artist are nearly identical:
+            # probably guessed one of them from filename, which was lacking certain symbols of the actual artist.
+            # recover whichever of these fields had the fewer characters removed (i.e. is longest)
+            if len("".join(self.artist)) > len("".join(self.albumartist)):
+                self.artist = self.albumartist = self.artist
+            else:
+                self.artist = self.albumartist = self.albumartist
+
+        if self.artist == []:
+            self.artist = self.albumartist
+            self.albumartist = []
+
+    def rewrite_singles(self) -> None:
+        """ idiom is for singles to belong to self-titled album. else each artist's singles get merged into one massive album """
+        if len(self.album) != 1:
+            return
+
+        for artist in self.albumartist[::-1] + self.artist[::-1]:
+            if loose_compare_str(self.album[0], "Singles") or loose_compare_str(self.album[0], artist):
+                self.album = [ artist ]
+
+    @staticmethod
+    def from_path(p: str) -> 'Tags':
+        """
+        path cases:
+        - artist/album/track
+        - label/artist - album/track  (in this case "label" is ignored)
+        track naming:
+        - could have many fields. the title will always be last. trackno could be embedded or not.
+        - title (handled)
+        - artist - track (handled)
+        - album - track (handled)
+        - trackno - track (handled)
+        - trackno - artist - track (handled)
+        - album - artist - title (for Various Artists/compilation albums) (handled)
+        - artist - album - trackno title (not handled)
+        track numbering:
+        - 01, 02, ...
+        - 1-01, 1-02, ... 2-01, 2-02, ...  (for A-side/B-side)
+        additionally, clean the path before this logic:
+        - ./artist/album/track -> artist/album/track
+        """
+        tags = Tags()
+        def parse_trackno(trackno: str) -> None:
+            tags.tracknumber = [trackno.lstrip('0')]
+
+        def parse_title(title: str) -> None:
+            new_title = title
+            # maybe the filename has some identifier (e.g. soundcloud): remove it
+            while new_title and new_title[-1] in '0123456789':
+                new_title = new_title[:-1]
+            if new_title and new_title[-1] == '-':
+                new_title = new_title[:-1]
+            if len(title) - len(new_title) < 5:
+                # we stripped too little, probably not an identifier. undo it.
+                new_title = title
+            tags.title = [ new_title ]
+
+        def parse_track(track: str) -> None:
+            track = os.path.splitext(track)[0]
+            track_parts = [p.strip() for p in track.split(' - ')]
+            if len(track_parts) == 1:
+                parse_title(track)
+            elif len(track_parts) == 2:
+                if tags.albumartist and loose_compare_str(track_parts[0], tags.albumartist[0]):
+                    parse_title(track_parts[1])
+                elif tags.album and loose_compare_str(track_parts[0], tags.album[0]):
+                    # less common, but sometimes `album - track`
+                    parse_title(track_parts[1])
+                elif all(l in '0123456789-' for l in track_parts[0]):
+                    parse_trackno(track_parts[0])
+                    parse_title(track_parts[1])
+            elif len(track_parts) == 3:
+                if all(l in '0123456789-' for l in track_parts[0]):
+                    parse_trackno(track_parts[0])
+                    tags.artist = [track_parts[1]]  # explicitly not album artist, but track artist
+                    parse_title(track_parts[2])
+                elif tags.album == [ track_parts[0] ]:
+                    tags.artist = [track_parts[1]]
+                    parse_title(track_parts[2])
+
+        def parse_album(album: str) -> None:
+            album_parts = [p.strip() for p in album.split(' - ')]
+            if len(album_parts) == 1:
+                # artist/album/track
+                tags.album = [album]
+            elif len(album_parts) == 2:
+                # artist/artist-album/track
+                tags.albumartist = [album_parts[0]]
+                tags.album = [album_parts[1]]
+
+        comps = [c for c in p.split('/') if c != '.']
+
+        if len(comps) == 3:
+            tags.albumartist = [comps[0]]
+            parse_album(comps[1])
+            parse_track(comps[2])
+        elif len(comps) == 2:
+            tags.albumartist = [comps[0]]
+            parse_track(comps[1])
+
+        return tags
+
+
+
+class AudioFile:
+    def __init__(self, path_: str):
+        self.path_ = path_
+        self.muta = None
+
+        _base, ext = os.path.splitext(path_)
+        try:
+            # TODO: handle:
+            # - .m4a
+            # - .wav
+            # - .wma
+            if ext == '.flac':
+                self.muta = mutagen.flac.Open(path_)
+            elif ext == '.aac':
+                # TODO: this seems to only read tags, and not create them?
+                self.muta = mutagen.easyid3.EasyID3(path_)
+            elif ext == '.mp3':
+                self.muta = mutagen.mp3.EasyMP3(path_)
+            elif ext == '.ogg':
+                self.muta = mutagen.oggvorbis.OggVorbis(path_)
+            elif ext == '.opus':
+                self.muta = mutagen.oggopus.OggOpus(path_)
+            else:
+                logger.debug(f"no metadata handler for {path_}")
+        except Exception as e:
+            logger.warning(f"failed to open {path_}: {e}")
+
+    @staticmethod
+    def new(path_: str) -> 'AudioFile':
+        f = AudioFile(path_)
+        if f.muta is not None:
+            return f
+
+    def tags_on_disk(self) -> Tags:
+        return Tags(
+            artist=self.muta.get('artist', []) if self.muta else [],
+            album=self.muta.get('album', []) if self.muta else [],
+            title=self.muta.get('title', []) if self.muta else [],
+            albumartist=self.muta.get('albumartist', []) if self.muta else [],
+            tracknumber=self.muta.get('tracknumber', []) if self.muta else [],
+        )
+
+    def write_tags(self, tags: Tags) -> bool:
+        if self.muta is None:
+            logger.debug(f"not writing tags: no metadata handler: {self.path_}")
+            return False
+
+        def set_tag(name: str, val: list):
+            if val:
+                self.muta[name] = val
+            elif name in self.muta:
+                del self.muta[name]
+
+        set_tag('artist', tags.artist)
+        set_tag('album', tags.album)
+        set_tag('title', tags.title)
+        set_tag('albumartist', tags.albumartist)
+        set_tag('tracknumber', tags.tracknumber)
+
+        logger.debug(f"writing full tags: {self.muta}")
+
+        self.muta.save()
+
+class Tagger:
+    def __init__(self, dry_run: bool, force: bool, manual_tags: Tags):
+        self.dry_run = dry_run
+        self.force = force
+        self.manual_tags = manual_tags
+
+    def tag_file(self, path_: str) -> None:
+        file_ = AudioFile.new(path_)
+        if not file_:
+            logger.debug(f"skipping unsupported file: {path_}")
+            return
+
+        old_tags = file_.tags_on_disk()
+        path_tags = Tags.from_path(path_)
+        additional_tags = self.manual_tags.union(path_tags)
+        if self.force:
+            new_tags = additional_tags.union(old_tags)
+        else:
+            new_tags = old_tags.union(additional_tags)
+        new_tags = new_tags.union(self.manual_tags)
+        new_tags.trim_fields()
+        new_tags.expand_shorthands()
+        new_tags.promote_albumartist()
+        new_tags.rewrite_singles()
+
+        if new_tags == old_tags:
+            return self.skip_unchanged(path_, old_tags)
+
+        self.show_tagdif(path_, old_tags, new_tags)
+
+        if self.confirm():
+            if self.guard_dry_run("writing tags"):
+                file_.write_tags(new_tags)
+
+    def tag_file_tree(self, root: str) -> None:
+        for dir_, subdirs, files_ in os.walk(root):
+            for f in files_:
+                self.tag_file(os.path.join(dir_, f))
+
+    def tag_file_or_tree(self, path_: str) -> None:
+        if os.path.isdir(path_):
+            self.tag_file_tree(path_)
+        else:
+            self.tag_file(path_)
+
+    def show_tagdif(self, path_: str, old_tags: Tags, new_tags: Tags):
+        logger.info(f"updating tags for {path_}")
+        logger.info(f"    {old_tags}")
+        logger.info(f" -> {new_tags}")
+
+    def skip_unchanged(self, path_: str, tags: Tags):
+        logger.debug(f"skipping unchanged {path_}")
+        logger.debug(f"    {tags}")
+
+    def confirm(self) -> bool:
+        # TODO: actually prompt
+        return True
+
+    def guard_dry_run(self, msg: str) -> bool:
+        if self.dry_run:
+            print(f"dry run: not {msg}")
+            return False
+
+        return True
+
+
+def main():
+    logging.basicConfig()
+    logging.getLogger().setLevel(logging.INFO)
+
+    parser = argparse.ArgumentParser(description="augment music tags based on library path")
+    parser.add_argument("path", nargs="+", help="relative path to a file to tag")
+    parser.add_argument('--dry-run', action='store_true')
+    parser.add_argument('--force', action='store_true', help="give higher credence to path-based and manual tags than any existing tags")
+    parser.add_argument('--verbose', action='store_true')
+    parser.add_argument('--album', help="manually specify the tag")
+    parser.add_argument('--album-artist', help="manually specify the tag")
+    parser.add_argument('--artist', help="manually specify the tag")
+    parser.add_argument('--title', help="manually specify the tag")
+
+    args = parser.parse_args()
+
+    if args.verbose:
+        logging.getLogger().setLevel(logging.DEBUG)
+
+    manual_tags = Tags(
+        album=[args.album] if args.album else [],
+        albumartist=[args.album_artist] if args.album_artist else [],
+        artist=[args.artist] if args.artist else [],
+        title=[args.title] if args.title else [],
+    )
+
+    tagger = Tagger(
+        dry_run=args.dry_run,
+        force=args.force,
+        manual_tags=manual_tags
+    )
+
+    for p in args.path:
+        tagger.tag_file_or_tree(p)
+
+if __name__ == '__main__':
+    main()

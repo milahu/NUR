@@ -1,0 +1,26 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i python3 -p "python3.withPackages (ps: [ ps.sane-lib.bt ])" -p sane-scripts.lib.bt.propagatedBuildInputs
+# vim: set filetype=python :
+
+import argparse
+import logging
+
+from sane_bt import TransmissionApi
+
+
+def main():
+    logging.basicConfig()
+    logging.getLogger().setLevel(logging.INFO)
+
+    parser = argparse.ArgumentParser(description="remove a torrent and trash its data")
+    TransmissionApi.add_arguments(parser)
+    parser.add_argument("torrent", help="numerical ID of the torrent in the transmission list (see sane-bt-show)")
+
+    args = parser.parse_args()
+    bt_api = TransmissionApi.from_arguments(args)
+    torrent = args.torrent
+
+    bt_api.rm_torrent(torrent)
+
+if __name__ == "__main__":
+    main()
