@@ -567,7 +567,7 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
   unarr = callPackage ./pkgs/tools/archivers/unarr/unarr.nix { };
 
-  zip = callPackage ./pkgs/tools/archivers/zip { };
+  zip-with-bzip2 = callPackage ./pkgs/tools/archivers/zip { };
 
   # https://github.com/NixOS/nixpkgs/pull/244713
   # libarchive: 3.6.2 -> 3.7.0
@@ -732,6 +732,12 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   vdhcoapp = callPackage ./pkgs/tools/video/vdhcoapp { };
 
   mpv-downmix-gui = python3.pkgs.callPackage ./pkgs/tools/video/mpv-downmix-gui/mpv-downmix-gui.nix { };
+
+  zenity = callPackage ./pkgs/development/tools/misc/zenity/zenity.nix { };
+
+  writable-nix-store = callPackage ./pkgs/development/tools/misc/writable-nix-store { };
+
+  qaac-bin = callPackage ./pkgs/applications/audio/qaac-bin { };
 
 }
 
