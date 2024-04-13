@@ -50,7 +50,7 @@ export COMBINED_REPOS_PATH=$ROOT/nur-combined
 
 # branches of the NUR repo
 main_branch=master
-extra_branches=(gh-pages nur-combined nur-eval-errors nur-repos nur-repos-lock nur-search-html)
+extra_branches=(gh-pages nur-combined nur-eval-results nur-eval-errors nur-repos nur-repos-lock nur-search-html)
 
 # required envs
 if ! [ -v API_TOKEN_GITHUB ]; then echo "error: missing env API_TOKEN_GITHUB"; exit 1; fi
