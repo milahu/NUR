@@ -1,9 +1,11 @@
 name: "Update"
 on:
   workflow_dispatch:
-  #schedule:
-  #  # chosen by fair dice rolling
-  #  - cron:  '40 * * * *'
+  schedule:
+    #- cron:  '0 * * * *' # every hour
+    #- cron:  '0 */6 * * *' # every 6 hours
+    #- cron:  '0 */12 * * *' # every 12 hours
+    - cron:  '0 0 * * *' # every day
   push:
     branches:
       - master
