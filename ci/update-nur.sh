@@ -1,3 +1,6 @@
+#!/usr/bin/env nix-shell
+#!nix-shell --quiet -i bash -p python3 python3.pkgs.requests python3.pkgs.aiohttp nix-prefetch-git
+
 #!/usr/bin/env bash
 
 echo ci/update-nur.sh: start time: $(date +"%F %T.%N")
