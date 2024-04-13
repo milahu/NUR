@@ -23,7 +23,7 @@ jobs:
         extra_nix_config: |
           experimental-features = nix-command flakes
     - name: update nur / nur-combined
-      run: ./ci/update-nur.sh
+      run: date ; ./ci/update-nur.sh
       env:
         # https://github.com/your_name/NUR/settings/secrets/actions
         API_TOKEN_GITHUB: '${{ secrets.API_TOKEN_GITHUB }}'
