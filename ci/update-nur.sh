@@ -2,6 +2,9 @@
 
 echo ci/update-nur.sh: start time: $(date +"%F %T.%N")
 
+# add nix-prefetch-git
+export PATH=$PATH:$PWD/scripts
+
 # check dependencies
 for bin in git nix python3 jq rsync nix-prefetch-git nix-prefetch-url; do
   if ! command -v $bin >/dev/null; then
