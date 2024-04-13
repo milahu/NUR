@@ -1,6 +1,8 @@
 # todo
 
-## done
+
+
+# done
 
 - cache eval errors
 - cache eval timeout errors
@@ -8,7 +10,7 @@
 - make NUR more forking-friendly: in CI, use dynamic repo urls
 - make CI logs much less verbose: use `nix --quiet` to hide output of git
 
-## todo
+
 
 ### make update more efficient
 
@@ -84,6 +86,8 @@ for branch in parallel-fetch python37 quiet-builds; do
 done
 ```
 
+
+
 #### nur-search: move data/ to a separate branch: nur-search-data
 
 ```sh
@@ -114,6 +118,8 @@ git filter-repo --invert-paths --path data/ --refs nur-search --force
 
 # "delete old history" but keep commit hashes (dont rewrite git history, add graft commit?)
 ```
+
+
 
 ### move everything to one repo
 
@@ -157,7 +163,11 @@ git remote add github https://github.com/$USER/nur-packages
 git push github -u main
 ```
 
+
+
 ### use relative links in generated html, so it also works with github pages
+
+
 
 ### show a recursive list of packages
 
@@ -178,13 +188,19 @@ but it works in other repos:
          - `nur.repos.nagy.python3Packages.asyncer`
          - `nur.repos.nagy.lispPackages.cl-opengl`
 
-## how to fork NUR
+
+
+## fork NUR
+
+
 
 ### 1. fork these repos
 
 - https://github.com/nix-community/NUR
 - https://github.com/nix-community/nur-combined
 - https://github.com/nix-community/nur-search
+
+
 
 ### 1a. also clone the "gh-pages" branch of the nur-search repo
 
@@ -196,15 +212,25 @@ git commit -m "init orphan branch"
 git push $your_name gh-pages -u
 ```
 
+
+
 ### 2. enable github actions in the NUR repo
+
+
 
 ### 3. enable scheduled github actions in the NUR repo
 
+
+
 ### 4. wait for the next CI run
+
+
 
 ### 5. visit nur-search on github pages
 
 https://your_name.github.io/nur-search/
+
+
 
 ## git push error: RPC failed; HTTP 408 curl 18 HTTP/2 stream 7 was reset
 
@@ -230,6 +256,8 @@ git config http.postBuffer 524288000
 
 https://stackoverflow.com/questions/22369200/git-pull-push-error-rpc-failed-result-22-http-code-408
 
+
+
 ## push branches
 
 ```sh
@@ -237,6 +265,8 @@ for branch in master gh-pages nur-combined nur-eval-errors nur-repos nur-repos-l
   git push --force milahu $branch
 done
 ```
+
+
 
 ## remove empty commits
 
@@ -246,6 +276,8 @@ these were used to trigger github workflow runs
 # remove empty commits in all branches
 git filter-repo --prune-empty always
 ```
+
+
 
 ### manually run a github workflow
 
@@ -313,11 +345,15 @@ Check out the [github page](https://github.com/nix-community/nur-update#nur-upda
 
 </blockquote>
 
+
+
 #### website
 
 - https://github.com/milahu/NUR/actions/workflows/update.yml
 - run workflow
 - run workflow
+
+
 
 #### api
 
@@ -349,11 +385,22 @@ curl -L \
   https://api.github.com/repos/OWNER/REPO/actions/workflows/WORKFLOW_ID/runs
 ```
 
-## avoid nix commands
+
+
+### avoid nix commands
 
 because nix commands are slow, generally.
 
-### avoid 'nix build'
+ci/update-nur.sh runs for 7 seconds, nix-shell takes 27 seconds to install dependencies
+
+```
+#!/usr/bin/env nix-shell
+#!nix-shell --quiet -p git -p nix -p bash -p hugo -p python3 -p python3.pkgs.requests -i bash
+```
+
+
+
+#### avoid 'nix build'
 
 we will run python code directly, so no need to create a nix package
 
@@ -361,7 +408,11 @@ we will run python code directly, so no need to create a nix package
 -nix build --quiet "$NUR_REPO_PATH/ci#"
 ```
 
-### avoid 'nix run'
+
+
+#### avoid 'nix run'
+
+
 
 #### install dependencies in the nix shell of ci/update-nur.sh
 
@@ -370,6 +421,8 @@ we will run python code directly, so no need to create a nix package
 -#!nix-shell --quiet -p git -p nix -p bash -p hugo -i bash
 +#!nix-shell --quiet -p git -p nix -p bash -p hugo -p python3 -p python3.pkgs.requests -i bash
 ```
+
+
 
 #### fix python code
 
@@ -388,6 +441,8 @@ maybe the old python code would work with `python3 -m ci.nur.__init__:main` but 
 +    main()
 ```
 
+
+
 #### run python code directly in ci/update-nur.sh
 
 ```diff
@@ -405,7 +460,9 @@ maybe the old python code would work with `python3 -m ci.nur.__init__:main` but 
 +python3 -m ci.nur.__init__ index nur-combined > nur-search/data/packages.json
 ```
 
-## fix the PR workflow
+
+
+### fix the PR workflow
 
 currently, the PR workflow fails if a repo gives eval errors
 
@@ -414,7 +471,9 @@ but the PR workflow should not care about these eval errors
 example: https://github.com/nix-community/NUR/pull/592
 there, the eval fails because of timeout
 
-## use same filesystem layout as nixpkgs
+
+
+### use same filesystem layout as nixpkgs
 
 move packages from default.nix to pkgs/top-level/all-packages.nix
 
@@ -430,16 +489,7 @@ $ find . -name all-packages.nix
 ./repos/nexromancers/pkgs/top-level/all-packages.nix
 ```
 
-### generate a better website
 
-current website: http://nur.nix-community.org/
-
-currently, the search function sucks
-
-either use a proper javascript search engine
-
-or render a simple html page with all repos and all packages
-so i can search that page with Control-F
 
 ### on eval error, keep previous version
 
@@ -452,3 +502,58 @@ which caused my repo to be unlisted from the
 
 im afraid i did overwrite the error-causing version
 with a git force-push, so cannot reproduce for now
+
+
+
+### generate a better website
+
+current website: http://nur.nix-community.org/
+
+currently, the search function sucks
+
+either use a proper javascript search engine
+
+or render a simple html page with all repos and all packages
+so i can search that page with Control-F
+
+
+
+### disable push protection
+
+some repos contain secerts (GitHub Personal Access Token)
+
+by default, github blocks "git push" with secrets
+
+```
+error: GH013: Repository rule violations found for refs/heads/nur-combined.
+```
+
+but i dont care, not my problem
+
+https://github.com/settings/security_analysis -> Push protection for yourself -> disable
+
+https://docs.github.com/en/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection
+
+https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning
+
+https://docs.github.com/en/code-security/secret-scanning/push-protection-for-users
+
+
+
+### remove deleted repos
+
+these repos are either deleted or private
+
+anyway, they dont belong in NUR
+
+```
+0d9c25226 remove thilobillerbeck
+e5c5dbbe3 remove smolsnail
+a370969f5 remove procyon
+c66e97c72 remove pamplemousse
+485730456 remove nodeselector
+654ea0916 remove joshuafern
+41b161558 remove infinitivewitch
+6cb04d737 remove imsofi
+d5b745457 remove andersontorres
+```
