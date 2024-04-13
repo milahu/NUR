@@ -162,7 +162,7 @@ else
   #echo fetching branches: nur-repos nur-repos-lock nur-eval-errors gh-pages
   #git fetch --depth=1 origin nur-repos nur-repos-lock nur-eval-errors gh-pages nur-combined
 
-  branches="nur-repos nur-repos-lock nur-eval-errors gh-pages nur-combined"
+  branches="nur-repos nur-repos-lock nur-eval-results nur-eval-errors gh-pages nur-combined"
   echo pushing branches: $branches
   git push origin $branches
 fi
