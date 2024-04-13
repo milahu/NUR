@@ -85,7 +85,13 @@ callPackage (nur.repo-sources."%s" + "/%s") {}
         f.flush()
         env = os.environ.copy()
         env.update(NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM="1")
-        query_cmd = ["nix-env", "-qa", "*", "--json", "--meta", "-f", str(f.name)]
+        query_cmd = [
+            "nix-env",
+            "-qa", "*",
+            "--json",
+            "--meta",
+            "-f", str(f.name)
+        ]
         try:
             # TODO? encoding="utf8"
             out = subprocess.check_output(query_cmd, env=env)

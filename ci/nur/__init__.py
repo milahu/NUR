@@ -55,10 +55,20 @@ def parse_arguments(argv: List[str]) -> argparse.Namespace:
 
 def main() -> None:
     args = parse_arguments(sys.argv)
-    logging.basicConfig(level=LOG_LEVELS[args.log_level])
+    logging.basicConfig(
+        level=LOG_LEVELS[args.log_level],
+        #format='%(asctime)s %(name)s %(module)s %(filename)s %(lineno)d %(funcName)s %(message)s',
+        format='%(asctime)s %(filename)s:%(lineno)d %(funcName)s %(message)s',
+    )
+
+    # fix: ModuleNotFoundError: No module named 'nur'
+    # when running: python3 -m ci.nur.__init__ update
+    import os; sys.path.append(os.path.dirname(os.path.dirname(sys.argv[0])))
 
     cmd = args.subcommand
-    module = importlib.import_module('nur.'+ cmd)
+    module = importlib.import_module('nur.' + cmd)
+    # no. later: ModuleNotFoundError: No module named 'nur'
+    #module = importlib.import_module('ci.nur.' + cmd)
     func = getattr(module, f"{cmd}_command")
     return func(args)
 

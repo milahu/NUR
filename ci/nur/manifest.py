@@ -17,21 +17,28 @@ logger = logging.getLogger(__name__)
 
 class LockedVersion:
     def __init__(
-        self, url: Url, rev: str, sha256: str, submodules: bool = False
+        #self, url: Url, rev: str, sha256: str, submodules: bool = False
+        self, url: Url, rev: str, sha256: str, submodules: bool = False, date: str = None
     ) -> None:
         self.url = url
         self.rev = rev
         self.sha256 = sha256
         self.submodules = submodules
+        self.date = date
 
     def __eq__(self, other: Any) -> bool:
         if type(other) is type(self):
-            return self.__dict__ == other.__dict__
+            # no. date can be missing
+            #return self.__dict__ == other.__dict__
+            return self.sha256 == other.sha256
         return False
 
     def as_json(self) -> Dict[str, Any]:
         d = dict(
-            url=self.url.geturl(), rev=self.rev, sha256=self.sha256
+            url=self.url.geturl(),
+            rev=self.rev,
+            sha256=self.sha256,
+            date=self.date,
         )  # type: Dict[str, Any]
         if self.submodules:
             d["submodules"] = self.submodules
@@ -59,6 +66,9 @@ class RepoType(Enum):
             return RepoType.GIT
 
 
+
+# TODO use prefetch-cache.json -> make "class Repo" json-serializable
+
 class Repo:
     def __init__(
         self,
@@ -69,6 +79,7 @@ class Repo:
         file_: Optional[str],
         branch: Optional[str],
         locked_version: Optional[LockedVersion],
+        #eval_result_json: Optional[str],
         eval_error_version: Optional[LockedVersion],
         eval_error_text: Optional[str],
     ) -> None:
@@ -82,12 +93,16 @@ class Repo:
         self.branch = branch
         self.locked_version = None
         self.new_version = None
+        #self.eval_result_json = eval_result_packages_json
+        self.eval_result_packages_json = None
         self.eval_error_version = None
         self.eval_error_text = None
         self.fetch_time = 0
         self.eval_time = 0
         self.error = None
         self.done = False
+        self.eval_repo_path = None
+        self.nur_combined_rev = None
 
         if (
             locked_version is not None
@@ -227,6 +242,8 @@ def load_manifest(manifest_path: PathType, lock_path: PathType, eval_errors_lock
         file_ = repo.get("file", "default.nix")
         type_ = repo.get("type", None)
         locked_version = locked_versions.get(name)
+        #eval_results_path = ...
+        #eval_result_json = load_text_file(eval_results_path.joinpath(name + ".json"))
         eval_error_version = eval_error_versions.get(name)
         eval_error_text = load_eval_error_text(eval_errors_path, name)
         repos.append(Repo(name, url, submodules, type_, file_, branch_, locked_version, eval_error_version, eval_error_text))

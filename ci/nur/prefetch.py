@@ -10,6 +10,7 @@ import time
 import pickle
 from datetime import datetime, timezone
 import requests
+import shlex
 
 from .error import NurError, RepoNotFoundError
 from .manifest import LockedVersion, Repo, RepoType
@@ -34,11 +35,19 @@ class GitPrefetcher:
         self.repo = repo
 
     def latest_commit(self) -> str:
+        if self.repo.new_version:
+            # read cache from update_version_github_repos, update_version_git_repos, ...
+            return self.repo.new_version.rev
         repo = self.repo
         t1 = time.time()
+        # TODO shortcut + parallel fetch with aiohttp
+        # a: https://gitlab.com/repos-holder/nur-packages
+        # b: https://gitlab.com/repos-holder/nur-packages.git/info/refs?service=git-upload-pack
         cmd = ["git", "ls-remote", self.repo.url.geturl(), self.repo.branch or "HEAD"]
+        logger.debug(f"repo {self.repo.name}: running: {shlex.join(cmd)}")
         proc = subprocess.Popen(
             cmd,
+            # trace http traffic of git: GIT_CURL_VERBOSE=1 GIT_TRACE=1 git
             # setting these envs produces false errors:
             # false error: fatal: could not read Username for 'https://github.com': terminal prompts disabled
             # true error: remote: Repository not found.\nfatal: repository 'https://github.com/x/y' not found
@@ -77,13 +86,31 @@ class GitPrefetcher:
         #logger.info(f"Repository {repo.name}: prefetcher.latest_commit done after {dt}")
         return commit
 
+    def latest_commit_date(self) -> Optional[str]:
+        if self.repo.new_version:
+            # use version from update_version_github_repos
+            # do this here to also support github repos with submodules
+            #logger.debug(f"GitPrefetcher.latest_commit_date: repo {self.repo.name} -> {self.repo.new_version.date}")
+            return self.repo.new_version.date
+        #logger.debug(f"GitPrefetcher.latest_commit_date: repo {self.repo.name} -> None")
+        return None
+
     def prefetch(self, ref: str) -> Tuple[str, Path]:
         cmd = ["nix-prefetch-git"]
+        # no. when fetching by rev, "fetch zip" is better than "git clone"
+        # also, with leave-dotGit, we get a different sha256
+        # -> fetch the author date separately via graphQL
+        """
+        # get author date of last commit
+        # git -c 'safe.directory=*' -C /nix/store/1r9vwfwybvgzw4k39q3fwwrcvws212x3-nur-packages log -n1 --format=%ad
+        cmd += ["--leave-dotGit"]
+        """
         if self.repo.submodules:
             cmd += ["--fetch-submodules"]
         if self.repo.branch:
             cmd += ["--rev", f"refs/heads/{self.repo.branch}"]
         cmd += [self.repo.url.geturl()]
+        logger.debug(f"running: {shlex.join(cmd)}")
         proc = subprocess.Popen(
             cmd,
             stdout=subprocess.PIPE,
@@ -103,13 +130,36 @@ class GitPrefetcher:
                 f"Failed to prefetch git repository {self.repo.url.geturl()}: {stderr.decode('utf-8')}"
             )
 
+        """
+        logger.debug(f"stdout: {stdout.decode('utf8')}")
+        logger.debug(f"stderr: {stderr.decode('utf8')}")
+        """
+
         metadata = json.loads(stdout)
+
+        # obsolete. path is in metadata
+        """
         lines = stderr.decode("utf-8").split("\n")
         repo_path = re.search("path is (.+)", lines[-5])
         assert repo_path is not None
         path = Path(repo_path.group(1))
+        """
+
+        path = Path(metadata["path"])
         sha256 = metadata["sha256"]
+
+        # TODO check if f"{path}/.git" exists
+        """
+        # git -c 'safe.directory=*' -C /path/to/repo log -n1 --format=%aI
+        # https://stackoverflow.com/questions/72978485 # git safe.directory
+        args = ["git", "-c", "safe.directory=*", "-C", path, "log", "-n1", "--format=%aI"]
+        date = subprocess.run(args).stdout.strip()
+        logger.debug(f"date: {date}")
+        """
+
         return sha256, path
+        #return sha256, path, date
+
 
 
 class GithubPrefetcher(GitPrefetcher):
@@ -117,11 +167,7 @@ class GithubPrefetcher(GitPrefetcher):
         if self.repo.submodules:
             return super().prefetch(self, ref)
         return nix_prefetch_zip(f"{self.repo.url.geturl()}/archive/{ref}.tar.gz")
-    def latest_commit(self):
-        if self.repo.new_version:
-            # use version from update_version_github_repos
-            return self.repo.new_version.rev
-        return super().latest_commit()
+
 
 
 class GitlabPrefetcher(GitPrefetcher):
@@ -145,7 +191,7 @@ def persist_to_file(cache_file, get_key, expire=60*60):
         logger.debug(f"persist_to_file: reading cache file {cache_file} ...")
         with open(cache_file, "rb") as f:
             cache = pickle.load(f)
-            logger.debug(f"persist_to_file: cache keys: {cache.keys()}")
+            #logger.debug(f"persist_to_file: cache keys: {cache.keys()}")
             time_expired = time.time() - expire
             # fix: RuntimeError: dictionary changed size during iteration
             #for key in cache:
@@ -159,20 +205,21 @@ def persist_to_file(cache_file, get_key, expire=60*60):
         logger.debug(f"persist_to_file: reading cache file {cache_file} failed: {err}")
         pass
     def decorator(original_func):
-        def new_func(param):
+        def new_func(param, **kwargs):
             key = get_key(param)
             time_expired = time.time() - expire
-            if key in cache and cache[key].get("time") < time_expired:
+            force = kwargs.get("force", False)
+            if not force and key in cache and cache[key].get("time") < time_expired:
                 # expire cache entry
                 logger.debug(f"persist_to_file: cache expired for key: {key}")
                 del cache[key]
-            if key not in cache:
+            if force or key not in cache:
                 # write cache
                 #logger.debug(f"persist_to_file: cache miss for key: {key}")
                 value = None
                 error = None
                 try:
-                    value = original_func(param)
+                    value = original_func(param, **kwargs)
                 except Exception as e:
                     error = e
                 cache[key] = {
@@ -194,7 +241,7 @@ def persist_to_file(cache_file, get_key, expire=60*60):
 
 
 @persist_to_file(PREFETCH_CACHE_PATH, lambda repo: repo.name)
-def prefetch(repo: Repo) -> Tuple[Repo, LockedVersion, Optional[Path]]:
+def prefetch(repo: Repo, force=False) -> Tuple[Repo, LockedVersion, Optional[Path]]:
     prefetcher: GitPrefetcher
     if repo.type == RepoType.GITHUB:
         prefetcher = GithubPrefetcher(repo)
@@ -203,22 +250,33 @@ def prefetch(repo: Repo) -> Tuple[Repo, LockedVersion, Optional[Path]]:
     else:
         prefetcher = GitPrefetcher(repo)
 
+    # TODO when do we set repo.new_version
+    # repo.new_version = ...
     commit = prefetcher.latest_commit()
+    date = prefetcher.latest_commit_date()
+    #date = repo.new_version.date
 
     # FIXME also check equality for repo.submodules
 
     locked_version = repo.locked_version
-    if locked_version is not None:
+    if not force and locked_version is not None:
         if locked_version.rev == commit:
-            #logger.info(f"Repository {repo.name}: Up to date at {commit}")
+            #logger.debug(f"Repository {repo.name}: Up to date at {commit}")
             return repo, locked_version, None
 
     # TODO refactor with repo.locked_version
     locked_version = repo.eval_error_version
-    if locked_version is not None:
+    if not force and locked_version is not None:
         if locked_version.rev == commit:
-            #logger.info(f"Repository {repo.name}: Up to date at {commit} (previous eval error)")
+            #logger.debug(f"Repository {repo.name}: Up to date at {commit} (previous eval error)")
             return repo, locked_version, None
+
+    """
+    logger.debug(f"Repository {repo.name}: repo.eval_error_version = {repo.eval_error_version}")
+    logger.debug(f"Repository {repo.name}: repo.locked_version     = {repo.locked_version}")
+    logger.debug(f"Repository {repo.name}: commit                  = {commit}")
+    logger.debug(f"Repository {repo.name}: force                   = {force}")
+    """
 
     #logger.info(f"Repository {repo.name}: Version changed from {locked_version and locked_version.rev} to {commit}. Fetching ...")
     logger.info(f"Repository {repo.name}: Fetching new version {commit}")
@@ -232,59 +290,219 @@ def prefetch(repo: Repo) -> Tuple[Repo, LockedVersion, Optional[Path]]:
     repo.fetch_time += dt
     #logger.info(f"Repository {repo.name}: prefetcher.prefetch done after {dt}")
 
-    return repo, LockedVersion(repo.url, commit, sha256, repo.submodules), path
+    return repo, LockedVersion(repo.url, commit, sha256, repo.submodules, date), path
 
 
-def update_version_github_repos(repos):
+
+import asyncio
+import aiohttp
+import io
+
+
+
+async def update_version_git_repos(repos, aiohttp_session, filter_repos_fn):
+
+    git_repos = list(filter(filter_repos_fn, repos))
+
+    debug_nur_repo = os.getenv("DEBUG_NUR_REPO")
+    if debug_nur_repo:
+        def filter_fn(repo):
+            return repo.name == debug_nur_repo
+        git_repos = list(filter(filter_fn, git_repos))
+
+    if len(git_repos) == 0:
+        return
+
+    logger.debug(f"Updating versions of {len(git_repos)} git repos")
+    #logger.debug(f"Updating versions of {len(git_repos)} git repos: {list(map(lambda r: r.name, git_repos))}")
+
+    # TODO shortcut + parallel fetch with aiohttp
+    # a: https://gitlab.com/repos-holder/nur-packages
+    # b: https://gitlab.com/repos-holder/nur-packages.git/info/refs?service=git-upload-pack
+
+    # parse smart server reply
+    # https://git-scm.com/docs/gitprotocol-http#_smart_clients
+    # https://willschenk.com/howto/2021/interacting_with_git_via_http/
+    # https://github.com/jelmer/dulwich/blob/ee0223452ddad06224fbfbda668d9f8fce23ee24/dulwich/client.py#L501
+    def read_git_upload_pack(_bytes):
+        bio = io.BytesIO(_bytes)
+        seen_capabitilities = False
+        while True:
+            head = bio.read(4)
+            if head == b"":
+                return
+            size = int(head, 16)
+            if size == 0:
+                continue # ignore empty lines
+            line = bio.read(size - 4)
+            # assume: server sends capabitilities only once
+            if not seen_capabitilities:
+                parts = line.split(b"\0")
+                if len(parts) > 1:
+                    seen_capabitilities = True
+                    line = parts[0] # ignore capabitilities
+            yield line.rstrip()
+
+    async def repo_set_new_version(repo):
+        url = repo.url.geturl()
+        if url.endswith("/"):
+            url = url[:-1]
+        # sr.ht fails with ".git" urls
+        # gitlab redirects to ".git" urls
+        if url.endswith(".git"):
+            url = url[:-4]
+        url += "/info/refs?service=git-upload-pack"
+
+        async with aiohttp_session.get(url) as response:
+            if response.status != 200:
+                logger.debug(f"repo {repo.name}: failed to fetch new version from {url}")
+                return
+            _bytes = await response.read()
+
+        commit = None
+
+        for line in read_git_upload_pack(_bytes):
+
+            #logger.debug(f"repo {repo.name}: git_upload_pack line {line}")
+
+            if line == None:
+                continue
+
+            if line[0] == b"#"[0]:
+                continue
+
+            rev, ref = line.decode("ascii").split(" ")
+
+            if not repo.branch:
+                # use the first rev. ref == "HEAD"
+                commit = rev
+                break
+
+            if ref == f"refs/heads/{repo.branch}":
+                commit = rev
+                break
+
+        if commit == None:
+            logger.debug(f"repo {repo.name}: not found latest rev")
+            return
+
+        #logger.debug(f"repo {repo.name}: found latest rev {commit}")
+
+        commit_date = None
+
+        repo.new_version = LockedVersion(repo.url.geturl(), commit, None, repo.submodules, commit_date)
+
+    #if len(git_repos) > 0: git_repos = [ git_repos[0] ] # debug
+
+    await asyncio.gather(*map(asyncio.create_task, map(repo_set_new_version, git_repos)))
+
+
+
+async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
     # timing: 8 seconds for 224 repos = 0.035 sec/repo. 30x faster than 1.0 sec/repo
     # note: this must be a "classic" token for general use
     # https://github.com/settings/tokens
-    github_api_token = os.getenv("GRAPHQL_TOKEN_GITHUB")
-    if not github_api_token:
-        logger.info("missing env GRAPHQL_TOKEN_GITHUB, using slow update")
+
+    # update without graphql: 15 minutes
+    # update with graphql: 15 seconds -> 60x faster
+
+    # FIXME repos should be dict, not list
+
+    # TODO cache, similar to persist_to_file
+
+    github_repos = list(filter(filter_repos_fn, repos))
+
+    debug_nur_repo = os.getenv("DEBUG_NUR_REPO")
+    if debug_nur_repo:
+        def filter_fn(repo):
+            return repo.name == debug_nur_repo
+        github_repos = list(filter(filter_fn, github_repos))
+
+    if len(github_repos) == 0:
         return
-    def filter_fn(repo):
-        return (
-            repo.url.geturl().startswith("https://github.com/")
-        )
-    github_repos = list(filter(filter_fn, repos))
-    logger.info(f"Updating versions of {len(github_repos)} Github repos")
+
+    GITHUB_GRAPHQL_CACHE_PATH = "github-graphql-cache.json"
+
+    github_graphql_cache_max_age = 10*60 # 10 minutes
+
+    def file_age(filepath):
+        return time.time() - os.path.getmtime(filepath)
+
+    def is_valid_cache(path, max_age):
+        if not os.path.exists(path):
+            return False
+        return (file_age(path) <= max_age)
 
     def get_repo_id(s):
         return int(s[1:]) # "r123" -> 123
 
-    query = "query{\n"
-    done_first = False
-    # TODO future: split into multiple smaller queries
-    for repo_id, repo in enumerate(github_repos):
-        if done_first:
-            query += ",\n"
-        else:
-            done_first = True
-        owner, name = repo.url.geturl().split("/")[3:5]
-        query += f'r{repo_id}:'
-        query += f'repository(owner:"{owner}",name:"{name}")'
-        query += "{defaultBranchRef{target{... on Commit{oid}}}}"
-    query += "\n}"
-    t1 = time.time()
-    response = requests.post(
-        url="https://api.github.com/graphql",
-        json={"query": query}, # TODO send as plain text?
-        headers={"Authorization": f"token {github_api_token}"}
-    )
-    if "X-RateLimit-Used" in response.headers:
-        logger.debug("Github ratelimit status: Used %s of %s requests. Next reset in %s minutes" % (
-            response.headers["X-RateLimit-Used"],
-            response.headers["X-RateLimit-Limit"],
-            datetime.fromtimestamp(int(response.headers["X-RateLimit-Reset"]) - time.time(), tz=timezone.utc).strftime("%M:%S")
-        ))
-    t2 = time.time()
-    dt = t2 - t1
-    logger.debug(f"Github GraphQL query done in {dt:.2} seconds")
-    data = response.json()
-    if response.status_code != 200:
-        logger.error(f'Github GraphQL query failed with HTTP status {response.status_code}: {data}')
-        return
+    if is_valid_cache(GITHUB_GRAPHQL_CACHE_PATH, 10*60):
+        # read cache
+        logger.debug(f"reading repo.new_version from cache {GITHUB_GRAPHQL_CACHE_PATH}")
+        with open(GITHUB_GRAPHQL_CACHE_PATH) as f:
+            data = json.load(f)
+
+    else:
+        github_api_token = os.getenv("GRAPHQL_TOKEN_GITHUB")
+        if not github_api_token:
+            logger.info("missing env GRAPHQL_TOKEN_GITHUB, using slow update")
+            return
+
+        logger.info(f"Updating versions of {len(github_repos)} Github repos")
+
+        query = "query{\n"
+        done_first = False
+        # TODO future: split into multiple smaller queries
+        # TODO what about non-github repos? use graphQL API of codeberg.org etc?
+        for repo_id, repo in enumerate(github_repos):
+            if done_first:
+                query += ",\n"
+            else:
+                done_first = True
+            # test query:
+            # {r0:repository(owner:"milahu",name:"nur-packages"){defaultBranchRef{target{... on Commit{oid,authoredDate}}}}}
+            # https://docs.github.com/en/graphql/overview/explorer
+            owner, name = repo.url.geturl().split("/")[3:5]
+            query += f'r{repo_id}:'
+            query += f'repository(owner:"{owner}",name:"{name}")'
+            #query += "{defaultBranchRef{target{... on Commit{oid}}}}"
+            query += "{defaultBranchRef{target{... on Commit{oid,authoredDate}}}}"
+        query += "\n}"
+        t1 = time.time()
+        response = requests.post(
+            url="https://api.github.com/graphql",
+            json={"query": query}, # TODO send as plain text?
+            headers={"Authorization": f"token {github_api_token}"}
+        )
+        if "X-RateLimit-Used" in response.headers:
+            logger.debug("Github ratelimit status: Used %s of %s requests. Next reset in %s minutes" % (
+                response.headers["X-RateLimit-Used"],
+                response.headers["X-RateLimit-Limit"],
+                datetime.fromtimestamp(int(response.headers["X-RateLimit-Reset"]) - time.time(), tz=timezone.utc).strftime("%M:%S")
+            ))
+        t2 = time.time()
+        dt = t2 - t1
+        logger.debug(f"Github GraphQL query done in {dt:.2} seconds")
+        data = response.json()
+        if response.status_code != 200:
+            logger.error(f'Github GraphQL query failed with HTTP status {response.status_code}: {data}')
+            return
+
+        new_dict = dict()
+        for item_key, item in data["data"].items():
+            if not item:
+                # error. already handled in the previous loop
+                continue
+            repo_id = get_repo_id(item_key)
+            repo = github_repos[repo_id]
+            new_dict[repo.name] = item
+        data["data"] = new_dict
+
+        # write cache
+        logger.debug(f"writing cache {GITHUB_GRAPHQL_CACHE_PATH}")
+        with open(GITHUB_GRAPHQL_CACHE_PATH, "w") as f:
+            json.dump(data, f)
+
     #print("data:"); print(data)
 
     for error in data.get("errors", []):
@@ -294,14 +512,28 @@ def update_version_github_repos(repos):
         repo_id = get_repo_id(error["path"][0])
         repo = github_repos[repo_id]
         repo.error = RepoNotFoundError("Github GraphQL error: " + error["message"])
-    for item_key, item in data["data"].items():
+
+    #for item_key, item in data["data"].items():
+    for repo_name, item in data["data"].items():
         if not item:
             # error. already handled in the previous loop
             continue
-        repo_id = get_repo_id(item_key)
-        repo = github_repos[repo_id]
+        #repo_id = get_repo_id(item_key)
+        #repo = github_repos[repo_id]
+
+        # FIXME repos should be dict, not list
+        #repo = repos[repo_name]
+        repo = next((r for r in repos if r.name == repo_name), None)
+        if repo == None:
+            continue
+
         commit = item["defaultBranchRef"]["target"]["oid"]
-        repo.new_version = LockedVersion(repo.url.geturl(), commit, None, repo.submodules)
+        #repo.new_version = LockedVersion(repo.url.geturl(), commit, None, repo.submodules)
+        commit_date = item["defaultBranchRef"]["target"]["authoredDate"]
+        # example: 2024-04-11T12:18:16Z
+        #logger.debug(f"repo {repo.name}: commit_date = {commit_date} -> setting repo.new_version")
+        repo.new_version = LockedVersion(repo.url.geturl(), commit, None, repo.submodules, commit_date)
+        #logger.debug(f"repo {repo.name}: repo.new_version.date = {repo.new_version.date}")
         if repo.new_version == repo.locked_version:
             logger.info(f"Repository {repo.name}: Done. No change in version {repo.locked_version.rev}")
             repo.done = True

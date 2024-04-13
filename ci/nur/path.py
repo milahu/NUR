@@ -36,9 +36,12 @@ MANIFEST_LIB_PATH = Path(os.environ.get("MANIFEST_LIB_PATH", ROOT_PATH.joinpath(
 LOCK_PATH = Path(os.environ.get("LOCK_PATH", ROOT_PATH.joinpath("repos.json.lock"))).resolve()
 MANIFEST_PATH = Path(os.environ.get("MANIFEST_PATH", ROOT_PATH.joinpath("repos.json"))).resolve()
 EVALREPO_PATH = Path(os.environ.get("EVALREPO_PATH", ROOT_PATH.joinpath("lib/evalRepo.nix"))).resolve()
+EVAL_RESULTS_PATH = Path(os.environ.get("EVAL_RESULTS_PATH", ROOT_PATH.joinpath("nur-eval-results"))).resolve()
 EVAL_ERRORS_PATH = Path(os.environ.get("EVAL_ERRORS_PATH", ROOT_PATH.joinpath("nur-eval-errors"))).resolve()
 EVAL_ERRORS_LOCK_PATH = Path(os.environ.get("EVAL_ERRORS_LOCK_PATH", ROOT_PATH.joinpath("nur-eval-errors/repos.json.lock"))).resolve()
+# TODO use prefetch-cache.json -> make "class Repo" json-serializable
 PREFETCH_CACHE_PATH = Path(os.environ.get("PREFETCH_CACHE_PATH", ROOT_PATH.joinpath("prefetch-cache.pickle"))).resolve()
+COMBINED_REPOS_PATH = Path(os.environ.get("COMBINED_REPOS_PATH", ROOT_PATH.joinpath("nur-combined"))).resolve()
 
 _NIXPKGS_PATH = os.environ.get("NIXPKGS_PATH", None)
 
