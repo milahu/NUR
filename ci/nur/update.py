@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 
 #def eval_repo(repo: Repo, repo_path: Path) -> None:
 def eval_repo(repo: Repo, repo_path: Path) -> str:
-    logger.debug(f"eval_repo: repo_path = {repo_path}")
+    #logger.debug(f"eval_repo: repo_path = {repo_path}")
     # TODO use nix.py bindings for eval https://github.com/NixOS/nix/pull/7735
     # TODO(milahu) why?
     temp_suffix = secrets.token_hex(nbytes=16)
@@ -428,7 +428,7 @@ def update_command_inner(args: Namespace) -> None:
               "nur_combined_rev": repo.nur_combined_rev,
               "packages": json.loads(repo.eval_result_packages_json),
           }
-          logger.debug(f"writing {eval_result_path}")
+          #logger.debug(f"writing {eval_result_path}")
           with open(eval_result_path, "w") as f:
               #json.dump(eval_result, f) # too verbose
               # write compact json
