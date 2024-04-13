@@ -22,6 +22,8 @@ jobs:
         nix_path: nixpkgs=channel:nixpkgs-unstable
         extra_nix_config: |
           experimental-features = nix-command flakes
+    #- uses: DeterminateSystems/nix-installer-action@main
+    - uses: DeterminateSystems/magic-nix-cache-action@main
     - name: update nur / nur-combined
       run: date ; ./ci/update-nur.sh
       env:
