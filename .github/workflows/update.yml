@@ -24,6 +24,11 @@ jobs:
           experimental-features = nix-command flakes
     #- uses: DeterminateSystems/nix-installer-action@main
     - uses: DeterminateSystems/magic-nix-cache-action@main
+    - uses: actions/setup-python@v5
+      with:
+        #python-version: '3.10'
+        cache: 'pip' # caching pip dependencies
+    - run: pip install requests aiohttp
     - name: update nur / nur-combined
       run: date ; ./ci/update-nur.sh
       env:
