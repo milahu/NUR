@@ -23,7 +23,7 @@ jobs:
         extra_nix_config: |
           experimental-features = nix-command flakes
     #- uses: DeterminateSystems/nix-installer-action@main
-    - uses: DeterminateSystems/magic-nix-cache-action@main
+    #- uses: DeterminateSystems/magic-nix-cache-action@main
     - uses: actions/setup-python@v5
       with:
         #python-version: '3.10'
