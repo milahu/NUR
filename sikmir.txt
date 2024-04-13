@@ -1,0 +1,20 @@
+error:
+… from call site
+
+  at /nix/store/qczshijw8h21frin991snyk4xyni65bd-source/pkgs/default.nix:548:13:
+
+   547|     lbm = callPackage ./suckless/lbm { };
+   548|     lchat = callPackage ./suckless/lchat { };
+      |             ^
+   549|     lel = callPackage ./suckless/lel { };
+
+… while calling 'callPackageWith'
+
+  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+
+   152|   */
+   153|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   154|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "libgrapheme" at /nix/store/qczshijw8h21frin991snyk4xyni65bd-source/pkgs/suckless/lchat/default.nix:1'
