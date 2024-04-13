@@ -419,6 +419,19 @@ def update_command_inner(args: Namespace) -> None:
           import json
           def round_float(f):
               return round(f * 1000) / 1000
+          eval_result_packages = json.loads(repo.eval_result_packages_json)
+          # normalize positions
+          position_prefix = str(repo.eval_repo_path) + "/"
+          for key in eval_result_packages:
+              pkg = eval_result_packages[key]
+              if not "meta" in pkg:
+                  continue
+              if not "position" in pkg["meta"]:
+                  continue
+              pos = pkg["meta"]["position"]
+              if not pos.startswith(position_prefix):
+                  continue
+              pkg["meta"]["position"] = pos[len(position_prefix):]
           eval_result = {
               "name": repo.name,
               "fetch_time": round_float(repo.fetch_time),
@@ -426,7 +439,7 @@ def update_command_inner(args: Namespace) -> None:
               "source": repo.locked_version.as_json(),
               "source_storepath": str(repo.eval_repo_path),
               "nur_combined_rev": repo.nur_combined_rev,
-              "packages": json.loads(repo.eval_result_packages_json),
+              "packages": eval_result_packages,
           }
           #logger.debug(f"writing {eval_result_path}")
           with open(eval_result_path, "w") as f:
