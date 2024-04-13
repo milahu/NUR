@@ -436,6 +436,7 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
     def get_repo_id(s):
         return int(s[1:]) # "r123" -> 123
 
+    """
     if is_valid_cache(GITHUB_GRAPHQL_CACHE_PATH, 10*60):
         # read cache
         logger.debug(f"reading repo.new_version from cache {GITHUB_GRAPHQL_CACHE_PATH}")
@@ -443,6 +444,8 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
             data = json.load(f)
 
     else:
+    """
+    if True:
         github_api_token = os.getenv("GRAPHQL_TOKEN_GITHUB")
         if not github_api_token:
             logger.info("missing env GRAPHQL_TOKEN_GITHUB, using slow update")
@@ -498,10 +501,12 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
             new_dict[repo.name] = item
         data["data"] = new_dict
 
+        """
         # write cache
         logger.debug(f"writing cache {GITHUB_GRAPHQL_CACHE_PATH}")
         with open(GITHUB_GRAPHQL_CACHE_PATH, "w") as f:
             json.dump(data, f)
+        """
 
     #print("data:"); print(data)
 
