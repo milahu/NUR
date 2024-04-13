@@ -1,6 +1,3 @@
-#!/usr/bin/env nix-shell
-#!nix-shell --quiet -i bash -p nix-prefetch-git
-
 #!/usr/bin/env bash
 
 echo ci/update-nur.sh: start time: $(date +"%F %T.%N")
