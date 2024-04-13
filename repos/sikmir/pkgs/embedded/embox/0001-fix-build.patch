@@ -1,0 +1,36 @@
+diff --git i/mk/flags.mk w/mk/flags.mk
+index 522274885..35745d98c 100644
+--- i/mk/flags.mk
++++ w/mk/flags.mk
+@@ -13,14 +13,14 @@ BUILD_DEPS_CPPFLAGS_AFTER ?=
+ BUILD_DEPS_LDFLAGS ?=
+ 
+ CROSS_COMPILE ?=
+-CXX     ?= $(CROSS_COMPILE)g++
+-AR      ?= $(CROSS_COMPILE)ar
+-AS      ?= $(CROSS_COMPILE)as
+-LD      ?= $(CROSS_COMPILE)ld
+-NM      ?= $(CROSS_COMPILE)nm
+-OBJDUMP ?= $(CROSS_COMPILE)objdump
+-OBJCOPY ?= $(CROSS_COMPILE)objcopy
+-SIZE    ?= $(CROSS_COMPILE)size
++CXX     = $(CROSS_COMPILE)g++
++AR      = $(CROSS_COMPILE)ar
++AS      = $(CROSS_COMPILE)as
++LD      = $(CROSS_COMPILE)ld
++NM      = $(CROSS_COMPILE)nm
++OBJDUMP = $(CROSS_COMPILE)objdump
++OBJCOPY = $(CROSS_COMPILE)objcopy
++SIZE    = $(CROSS_COMPILE)size
+ 
+ ifeq ($(COMPILER),clang)
+ CC      := clang
+@@ -29,7 +29,7 @@ else
+ CC      := $(CROSS_COMPILE)gcc
+ LIBGCC_FINDER=$(CC) $(CFLAGS)
+ endif
+-CPP     ?= $(CC) -E
++CPP     = $(CC) -E
+ 
+ CPPFLAGS += -D__EMBOX_VERSION__=\"$(EMBOX_VERSION)\"
+ 

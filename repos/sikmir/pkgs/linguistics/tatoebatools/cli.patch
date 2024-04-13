@@ -1,0 +1,37 @@
+diff --git c/setup.py i/setup.py
+index 387f33e..b8d2cd0 100644
+--- c/setup.py
++++ i/setup.py
+@@ -26,10 +26,13 @@ setuptools.setup(
+     python_requires=">=3.8.0",
+     install_requires=[
+         "beautifulsoup4>=4.12.2",
++        "click",
+         "importlib-resources>=6.1.1;python_version<'3.9'",
+         "pandas>=2.0.3",
+         "requests>=2.31.0",
+         "SQLAlchemy>=2.0.23",
+         "tqdm>=4.66.1",
++        "xdg-base-dirs",
+     ],
++    entry_points={"console_scripts": "parallel_corpus=tatoebatools.cli:parallel_corpus"},
+ )
+diff --git c/tatoebatools/cli.py i/tatoebatools/cli.py
+new file mode 100644
+index 0000000..76a4ef0
+--- /dev/null
++++ i/tatoebatools/cli.py
+@@ -0,0 +1,13 @@
++import click
++from xdg_base_dirs import xdg_data_home
++from tatoebatools import ParallelCorpus, tatoeba
++
++tatoeba.dir = xdg_data_home() / "tatoebatools"
++
++@click.command(short_help="Parallel corpus")
++@click.argument('source_language')
++@click.argument('target_language')
++@click.option('--update', type=click.BOOL, default=False)
++def parallel_corpus(source_language, target_language, update):
++    for sentence, translation in ParallelCorpus(source_language, target_language, update):
++        print("%s\t%s" % (sentence.text, translation.text));

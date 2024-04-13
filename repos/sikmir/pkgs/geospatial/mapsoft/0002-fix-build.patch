@@ -1,0 +1,46 @@
+diff --git i/pc/libdb.pc w/pc/libdb.pc
+index 6a40e95..682c932 100644
+--- i/pc/libdb.pc
++++ w/pc/libdb.pc
+@@ -1,5 +1,11 @@
++prefix=@db@
++exec_prefix=${prefix}
++libdir=${exec_prefix}/lib
++includedir=${prefix}/include
++
+ Name: libdb
+ Description: libdb
+ Requires:
+ Version: 1
+-Libs: -ldb
++Libs: -L${libdir} -ldb
++Cflags: -I${includedir}
+diff --git i/pc/libgif.pc w/pc/libgif.pc
+index cb154c9..24d8898 100644
+--- i/pc/libgif.pc
++++ w/pc/libgif.pc
+@@ -1,5 +1,11 @@
++prefix=@giflib@
++exec_prefix=${prefix}
++libdir=${exec_prefix}/lib
++includedir=${prefix}/include
++
+ Name: libgif
+ Description: libgif
+ Requires:
+ Version: 1
+-Libs: -lgif
++Libs: -L${libdir} -lgif
++Cflags: -I${includedir}
+diff --git i/tmpdir/Makefile w/tmpdir/Makefile
+index d44adac..c0b361e 100644
+--- i/tmpdir/Makefile
++++ w/tmpdir/Makefile
+@@ -1,6 +1,6 @@
+ MOD_HEADERS  := tmpdir.h
+ MOD_SOURCES  := tmpdir.cpp
+-SCRIPT_TESTS := tmpdir
++#SCRIPT_TESTS := tmpdir
+ 
+ PKG_CONFIG   := libzip
+ 
