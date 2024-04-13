@@ -12,7 +12,9 @@ jq -c -n '
           # nur-combined url
           _nurUrl: (if .value.meta.position == null then null else (
             #"'$nur_combined_repos_url'" + $i.name + "/" + .value.meta.position[($i.source_storepath | length):]
-            "'$nur_combined_blob_url'" + $i.nur_combined_rev + "/repos/" + $i.name + (
+            # no. permalinks produce too much diff noise in gh-pages
+            #"'$nur_combined_blob_url'" + $i.nur_combined_rev + "/repos/" + $i.name + (
+            "'$nur_combined_repos_url'" + $i.name + (
               .value.meta.position[($i.source_storepath | length):] | sub(":(?<x>[0-9]+)$"; "#L\(.x)")
             )
           ) end),
