@@ -445,8 +445,9 @@ def update_command_inner(args: Namespace) -> None:
           with open(eval_result_path, "w") as f:
               #json.dump(eval_result, f) # too verbose
               # write compact json
-              #json.dump(eval_result, f, indent=0, separators=(',', ':')) # only newlines
-              json.dump(eval_result, f, indent=None, separators=(',', ':')) # no whitespace
+              json.dump(eval_result, f, indent=0, separators=(',', ':')) # only newlines
+              # no. this looks ugly in github diff
+              #json.dump(eval_result, f, indent=None, separators=(',', ':')) # no whitespace
           # TODO git add
           # git -C nur-eval-results add 0x4A6F.json
           # git -C nur-eval-results add .
