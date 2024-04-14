@@ -468,8 +468,10 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
             owner, name = repo.url.geturl().split("/")[3:5]
             query += f'r{repo_id}:'
             query += f'repository(owner:"{owner}",name:"{name}")'
-            query += "{defaultBranchRef{target{... on Commit{oid}}}}"
-            #query += "{defaultBranchRef{target{... on Commit{oid,authoredDate}}}}"
+            # adding authoredDate has no effect on performance
+            # the query takes about 6 to 8 seconds for 300 repos
+            #query += "{defaultBranchRef{target{... on Commit{oid}}}}"
+            query += "{defaultBranchRef{target{... on Commit{oid,authoredDate}}}}"
         query += "\n}"
         t1 = time.time()
         response = requests.post(
