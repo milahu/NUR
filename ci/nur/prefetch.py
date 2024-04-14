@@ -468,8 +468,8 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
             owner, name = repo.url.geturl().split("/")[3:5]
             query += f'r{repo_id}:'
             query += f'repository(owner:"{owner}",name:"{name}")'
-            #query += "{defaultBranchRef{target{... on Commit{oid}}}}"
-            query += "{defaultBranchRef{target{... on Commit{oid,authoredDate}}}}"
+            query += "{defaultBranchRef{target{... on Commit{oid}}}}"
+            #query += "{defaultBranchRef{target{... on Commit{oid,authoredDate}}}}"
         query += "\n}"
         t1 = time.time()
         response = requests.post(
@@ -534,7 +534,7 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
 
         commit = item["defaultBranchRef"]["target"]["oid"]
         #repo.new_version = LockedVersion(repo.url.geturl(), commit, None, repo.submodules)
-        commit_date = item["defaultBranchRef"]["target"]["authoredDate"]
+        commit_date = item["defaultBranchRef"]["target"].get("authoredDate")
         # example: 2024-04-11T12:18:16Z
         #logger.debug(f"repo {repo.name}: commit_date = {commit_date} -> setting repo.new_version")
         repo.new_version = LockedVersion(repo.url.geturl(), commit, None, repo.submodules, commit_date)
