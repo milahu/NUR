@@ -106,7 +106,9 @@ def eval_repo(repo: Repo, repo_path: Path) -> str:
 def update(repo: Repo) -> Repo:
 
     force_eval = False
-    #force_eval = True
+
+    if os.environ.get("NUR_FORCE_EVAL") == "1":
+        force_eval = True
 
     eval_result_path = EVAL_RESULTS_PATH.joinpath(f"{repo.name}.json")
     eval_error_path = EVAL_ERRORS_PATH.joinpath(f"{repo.name}.txt")
@@ -301,6 +303,7 @@ def update_command_inner(args: Namespace) -> None:
             logger.error(f"repository {repo.name} failed to prefetch: {err}")
         except Exception:
             # for non-evaluation errors we want the stack trace
+            # example: NIX_PATH is unset
             logger.exception(f"Failed to update repository {repo.name}")
 
         total_eval_time += repo.eval_time
