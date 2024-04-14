@@ -89,6 +89,7 @@ in
       "tree"
       "usbutils"  # lsusb
       "util-linux"  # lsblk, lscpu, etc
+      "valgrind"
       "wget"
       "wirelesstools"  # iwlist
       # "xq"  # jq for XML
@@ -108,7 +109,6 @@ in
     #   - debugging?
     consoleUtils = declPackageSet [
       "alsaUtils"  # for aplay, speaker-test
-      "strings"
       # "cdrtools"
       # "clinfo"
       # "dmidecode"
@@ -137,6 +137,7 @@ in
       "nmon"
       # "node2nix"
       # "oathToolkit"  # for oathtool
+      "objdump"
       # "ponymix"
       "pulsemixer"
       "python3-repl"
@@ -149,6 +150,7 @@ in
       "sops"  # for manually viewing secrets; outside `sane-secrets` (TODO: improve sane-secrets!)
       "speedtest-cli"
       # "ssh-to-age"
+      "strings"
       "sudo"
       # "tageditor"  # music tagging
       # "unar"
@@ -749,7 +751,7 @@ in
     ];
 
     qemu.sandbox.enable = false;  #< it's a launcher
-    qemu.slowToBuild = true;
+    qemu.buildCost = 1;
 
     rsync.sandbox.method = "bwrap";
     rsync.sandbox.net = "clearnet";
@@ -873,6 +875,8 @@ in
       "/sys/devices"
       "/sys/bus/usb"
     ];
+
+    valgrind = {};
 
     visidata.sandbox.method = "bwrap";  # TODO:sandbox: untested
     visidata.sandbox.autodetectCliPaths = true;

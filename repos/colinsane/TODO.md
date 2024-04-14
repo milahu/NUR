@@ -1,4 +1,7 @@
 ## BUGS
+- schlock (moby) doesn't seem to actually run
+- mpv: no way to exit fullscreen video on moby
+  - uosc hides controls on FS, and touch doesn't support unhiding
 - i accidentally create sub-splits in sway all the time
   - especially on moby => unusable
   - like toplevel is split L/R, and then the L is a tabbed view and the R is a tabbed view
@@ -37,6 +40,7 @@
 
 ## IMPROVEMENTS:
 ### security/resilience
+- add FTPS support for WAN users of uninsane.org (and possibly require it?)
 - validate duplicity backups!
 - encrypt more ~ dirs (~/archives, ~/records, ..?)
   - best to do this after i know for sure i have good backups
@@ -64,6 +68,7 @@
   - integrate `nix check` into Gitea actions?
 
 ### user experience
+- give `mpv` better `nice`ness?
 - xdg-desktop-portal shouldn't kill children on exit
   - *maybe* a job for `setsid -f`?
 - replace starship prompt with something more efficient
@@ -88,6 +93,7 @@
   - numberlink (generic name for Flow Free). not packaged in Nix
   - Neverball (https://neverball.org/screenshots.php). nix: as `neverball`
   - blurble (https://linuxphoneapps.org/games/app.drey.blurble/). nix: not as of 2024-02-05
+  - Trivia Quiz (https://linuxphoneapps.org/games/io.github.nokse22.trivia-quiz/)
 
 #### moby
 - fix cpuidle (gets better power consumption): <https://xnux.eu/log/077.html>

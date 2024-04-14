@@ -33,6 +33,14 @@ in [
   # and can be found with `nix-repl  > :lf .  > lastModifiedDate`
 
   (fetchpatch' {
+    # NECESSARY FOR DINO CALLS TO WORK ON AARCH64: <https://gitlab.freedesktop.org/gstreamer/orc/-/issues/64>
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/291661";
+    title = "orc: 0.4.36 -> 0.4.38";
+    hash = "sha256-ULav0vt3QlI8lKcCVKP986H/GjBZqUYLwOHJ3XppAeo=";
+    merged.staging = "20240406000000";
+  })
+
+  (fetchpatch' {
     prUrl = "https://github.com/NixOS/nixpkgs/pull/298001";
     saneCommit = "d599839060400762a67d2c01d15b102ffe75e703";
     title = "gnupg: fix cross compilation";
