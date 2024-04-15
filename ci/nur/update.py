@@ -298,16 +298,11 @@ def update_command_inner(args: Namespace) -> None:
         except EvalError as err:
             err.stdout = err.stdout.replace("\n       ", "\n") # remove indent
 
-            # normalize positions in repo.eval_error_text
-            # for this nur-packages repo, show paths relative to the repo root
-            err.stdout = err.stdout.replace(repo.eval_repo_path, ".")
-            # normalize nixpkgs paths from /nix/store/.../pkgs/... to nixpkgs:pkgs/...
-            err.stdout = err.stdout.replace(nixpkgs_path + "/", "nixpkgs:")
-
             err_lines = err.stdout.strip().split("\n")
             main_err_line = next((x for x in err_lines if x.startswith("error: ")), None)
             if main_err_line == None:
                 main_err_line = err.stdout
+
             if repo.locked_version is None:
                 # likely a repository added in a pull request, make it fatal then
                 if not str(err).startswith("Eval failed before"):
@@ -315,11 +310,20 @@ def update_command_inner(args: Namespace) -> None:
                         f"repository {repo.name} failed to evaluate: {str(err)}. {main_err_line}. This repo is not yet in our lock file!!!!"
                     )
                 raise
+
             # Do not print stack traces
             if not str(err).startswith("Eval failed before"):
                 logger.error(f"repository {repo.name} failed to evaluate: {str(err)}. {main_err_line}")
+
+            # normalize positions in repo.eval_error_text
+            # for this nur-packages repo, show paths relative to the repo root
+            err.stdout = err.stdout.replace(repo.eval_repo_path, ".")
+            # normalize nixpkgs paths from /nix/store/.../pkgs/... to nixpkgs:pkgs/...
+            err.stdout = err.stdout.replace(nixpkgs_path + "/", "nixpkgs:")
+
             repo.eval_error_version = repo.new_version
             repo.eval_error_text = err.stdout
+
         except RepoNotFoundError as err:
             # Do not print stack traces
             logger.error(f"repository {repo.name} failed to prefetch: {err}")
