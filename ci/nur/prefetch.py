@@ -490,7 +490,8 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
         logger.debug(f"Github GraphQL query done in {dt:.2} seconds")
         data = response.json()
         if response.status_code != 200:
-            logger.error(f'Github GraphQL query failed with HTTP status {response.status_code}: {data}')
+            logger.error(f'Github GraphQL query failed with HTTP status {response.status_code}: {data} -> falling back to update_version_git_repos')
+            await update_version_git_repos(repos, aiohttp_session, filter_repos_fn)
             return
 
         new_dict = dict()
