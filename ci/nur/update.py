@@ -297,6 +297,14 @@ def update_command_inner(args: Namespace) -> None:
 
         except EvalError as err:
             err.stdout = err.stdout.replace("\n       ", "\n") # remove indent
+
+            # normalize positions in repo.eval_error_text
+            # for this nur-packages repo, show paths relative to the repo root
+            position_prefix = str(repo.eval_repo_path) + "/"
+            err.stdout = err.stdout.replace(position_prefix, "")
+            # normalize nixpkgs paths from /nix/store/.../pkgs/... to nixpkgs:pkgs/...
+            err.stdout = err.stdout.replace(nixpkgs_path + "/", "nixpkgs:")
+
             err_lines = err.stdout.strip().split("\n")
             main_err_line = next((x for x in err_lines if x.startswith("error: ")), None)
             if main_err_line == None:
