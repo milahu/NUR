@@ -451,6 +451,27 @@ def update_command_inner(args: Namespace) -> None:
               json.dump(eval_result, f, indent=0, separators=(',', ':')) # only newlines
               # no. this looks ugly in github diff
               #json.dump(eval_result, f, indent=None, separators=(',', ':')) # no whitespace
+
+          # check size of eval_result
+          # github: soft limit 50MB, hard limit 100MB
+          # currently the largest eval_result (repo rycee) has 1MB
+          # one outlier (repo dguibert) produces 110MB
+          max_eval_result_size = 5 * 1024 * 1024 # 5MiB
+          eval_result_size = os.path.getsize(eval_result_path)
+          if eval_result_size > max_eval_result_size:
+              # eval failed: eval_result is too large
+              os.unlink(eval_result_path)
+              repo.eval_result_packages_json = None
+              repo.eval_error_version = repo.new_version
+              #repo.eval_error_text = "nur.update: evaluation timed out of after 15 seconds"
+              eval_result_size_mib = eval_result_size / (1024 * 1024)
+              max_eval_result_size_mib = max_eval_result_size / (1024 * 1024)
+              repo.eval_error_text = (
+                  f"nur.update: eval_result is too large. "
+                  f"actual: {eval_result_size_mib:.2f} MiB. "
+                  f"max: {max_eval_result_size_mib:.2f} MiB"
+              )
+
           # TODO git add
           # git -C nur-eval-results add 0x4A6F.json
           # git -C nur-eval-results add .
