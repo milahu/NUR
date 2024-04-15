@@ -1,7 +1,7 @@
 error:
 … from call site
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/default.nix:17:21:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/default.nix:17:21:
 
     16|     dpf-plugins = callPackage' ./dpf-plugins;
     17|     emacsPackages = callPackages ./emacsPackages;
@@ -10,7 +10,7 @@ error:
 
 … while calling 'callPackages'
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/default.nix:8:18:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/default.nix:8:18:
 
      7|
      8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
@@ -19,7 +19,7 @@ error:
 
 … from call site
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/default.nix:8:23:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/default.nix:8:23:
 
      7|
      8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
@@ -28,7 +28,7 @@ error:
 
 … while calling 'recurseIntoAttrs'
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/attrsets.nix:1939:5:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/attrsets.nix:1939:5:
 
   1938|   recurseIntoAttrs =
   1939|     attrs:
@@ -37,7 +37,7 @@ error:
 
 … from call site
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/default.nix:8:50:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/default.nix:8:50:
 
      7|
      8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
@@ -46,7 +46,7 @@ error:
 
 … while calling 'callPackage''
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/default.nix:2:18:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/default.nix:2:18:
 
      1| {pkgs, ...}: let
      2|   callPackage' = pkg:
@@ -55,7 +55,7 @@ error:
 
 … from call site
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/default.nix:3:5:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/default.nix:3:5:
 
      2|   callPackage' = pkg:
      3|     pkgs.callPackage pkg {
@@ -64,7 +64,7 @@ error:
 
 … while calling 'callPackageWith'
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/customisation.nix:212:35:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/customisation.nix:212:35:
 
    211|   */
    212|   callPackageWith = autoArgs: fn: args:
@@ -73,7 +73,7 @@ error:
 
 … from call site
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/trivial.nix:895:7:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/trivial.nix:895:7:
 
    894|     { # TODO: Should we add call-time "type" checking like built in?
    895|       __functor = self: f;
@@ -82,7 +82,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/customisation.nix:136:17:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/customisation.nix:136:17:
 
    135|     in
    136|     mirrorArgs (origArgs:
@@ -91,7 +91,7 @@ error:
 
 … from call site
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/customisation.nix:138:16:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/customisation.nix:138:16:
 
    137|     let
    138|       result = f origArgs;
@@ -100,7 +100,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/default.nix:1:1:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/default.nix:1:1:
 
      1| {pkgs, ...}: let
       | ^
@@ -108,7 +108,7 @@ error:
 
 … from call site
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/default.nix:4:4:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/default.nix:4:4:
 
      3| in
      4|   (pkgs.lib.makeExtensible (_:
@@ -117,7 +117,7 @@ error:
 
 … while calling 'makeExtensibleWithCustomName'
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/fixed-points.nix:305:48:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/fixed-points.nix:305:48:
 
    304|   */
    305|   makeExtensibleWithCustomName = extenderName: rattrs:
@@ -126,7 +126,7 @@ error:
 
 … from call site
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/fixed-points.nix:306:5:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/fixed-points.nix:306:5:
 
    305|   makeExtensibleWithCustomName = extenderName: rattrs:
    306|     fix' (self: (rattrs self) // {
@@ -135,7 +135,7 @@ error:
 
 … while calling 'fix''
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/fixed-points.nix:84:10:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/fixed-points.nix:84:10:
 
     83|   */
     84|   fix' = f: let x = f x // { __unfix__ = f; }; in x;
@@ -144,7 +144,7 @@ error:
 
 … from call site
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/fixed-points.nix:84:21:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/fixed-points.nix:84:21:
 
     83|   */
     84|   fix' = f: let x = f x // { __unfix__ = f; }; in x;
@@ -153,7 +153,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/fixed-points.nix:306:11:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/fixed-points.nix:306:11:
 
    305|   makeExtensibleWithCustomName = extenderName: rattrs:
    306|     fix' (self: (rattrs self) // {
@@ -162,7 +162,7 @@ error:
 
 … from call site
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/fixed-points.nix:306:18:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/fixed-points.nix:306:18:
 
    305|   makeExtensibleWithCustomName = extenderName: rattrs:
    306|     fix' (self: (rattrs self) // {
@@ -171,7 +171,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/default.nix:4:29:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/default.nix:4:29:
 
      3| in
      4|   (pkgs.lib.makeExtensible (_:
@@ -180,7 +180,7 @@ error:
 
 … from call site
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/default.nix:5:5:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/default.nix:5:5:
 
      4|   (pkgs.lib.makeExtensible (_:
      5|     pkgs.lib.attrsets.mapAttrs'
@@ -189,7 +189,7 @@ error:
 
 … while calling 'mapAttrs''
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/attrsets.nix:1023:5:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/attrsets.nix:1023:5:
 
   1022|     f:
   1023|     set:
@@ -198,7 +198,7 @@ error:
 
 … from call site
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/default.nix:28:6:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/default.nix:28:6:
 
     27|       }))
     28|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
@@ -207,7 +207,7 @@ error:
 
 … while calling 'filterAttrs'
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/attrsets.nix:646:5:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/attrsets.nix:646:5:
 
    645|     pred:
    646|     set:
@@ -216,7 +216,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/attrsets.nix:647:29:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/attrsets.nix:647:29:
 
    646|     set:
    647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
@@ -225,7 +225,7 @@ error:
 
 … from call site
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/attrsets.nix:647:62:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/attrsets.nix:647:62:
 
    646|     set:
    647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
@@ -234,7 +234,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/default.nix:28:31:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/default.nix:28:31:
 
     27|       }))
     28|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
@@ -243,7 +243,7 @@ error:
 
 … from call site
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/default.nix:28:34:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/default.nix:28:34:
 
     27|       }))
     28|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
@@ -252,7 +252,7 @@ error:
 
 … while calling 'isStorePath'
 
-  at /nix/store/q185vf1rcj76g4lw0dmjkxidwz8gcd2b-source/lib/strings.nix:1023:17:
+  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/strings.nix:1023:17:
 
   1022|   */
   1023|   isStorePath = x:
@@ -261,7 +261,7 @@ error:
 
 … from call site
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/nix/_sources.nix:223:33:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/nix/_sources.nix:223:33:
 
    222|           "The values in sources.json should not have an 'outPath' attribute"
    223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
@@ -270,7 +270,7 @@ error:
 
 … while calling 'replace'
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/nix/_sources.nix:139:19:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/nix/_sources.nix:139:19:
 
    138|   # the path directly as opposed to the fetched source.
    139|   replace = name: drv: let
@@ -279,7 +279,7 @@ error:
 
 … from call site
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/nix/_sources.nix:223:47:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/nix/_sources.nix:223:47:
 
    222|           "The values in sources.json should not have an 'outPath' attribute"
    223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
@@ -288,7 +288,7 @@ error:
 
 … while calling 'fetch'
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/nix/_sources.nix:120:23:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/nix/_sources.nix:120:23:
 
    119|   # The actual fetching function.
    120|   fetch = pkgs: name: spec:
@@ -297,7 +297,7 @@ error:
 
 … from call site
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/nix/_sources.nix:126:10:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/nix/_sources.nix:126:10:
 
    125|     else if spec.type == "tarball"
    126|     then fetch_tarball pkgs name spec
@@ -306,7 +306,7 @@ error:
 
 … while calling 'fetch_tarball'
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/nix/_sources.nix:21:31:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/nix/_sources.nix:21:31:
 
     20|
     21|   fetch_tarball = pkgs: name: spec: let
@@ -315,7 +315,7 @@ error:
 
 … from call site
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/nix/_sources.nix:26:7:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/nix/_sources.nix:26:7:
 
     25|     then
     26|       builtins_fetchTarball {
@@ -324,7 +324,7 @@ error:
 
 … while calling 'builtins_fetchTarball'
 
-  at /nix/store/i4p1v79dg7fzpsgfh8zhbf3yl7h4xl17-source/pkgs/emacsPackages/nix/_sources.nix:191:27:
+  at /nix/store/130miwqvn9g594qdiz0j4x0r9m6swayn-source/pkgs/emacsPackages/nix/_sources.nix:191:27:
 
    190|   # fetchTarball version that is compatible between all the versions of Nix
    191|   builtins_fetchTarball = {
