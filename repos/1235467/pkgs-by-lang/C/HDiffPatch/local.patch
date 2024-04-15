@@ -1,0 +1,51 @@
+diff --git a/Makefile b/Makefile
+index be7128b..57281d6 100644
+--- a/Makefile
++++ b/Makefile
+@@ -57,7 +57,7 @@ else
+ 	HPATCH_OBJ += bsdiff_wrapper/bspatch_wrapper.o
+ endif
+
+-MD5_PATH := ../libmd5
++MD5_PATH := libmd5
+ ifeq ($(DIR_DIFF),0)
+ else
+   ifeq ($(MD5),0)
+@@ -66,7 +66,7 @@ else
+   endif
+ endif
+
+-LZMA_PATH := ../lzma/C
++LZMA_PATH := lzma/C
+ ifeq ($(LZMA),1)
+   # https://www.7-zip.org  https://github.com/sisong/lzma
+   HPATCH_OBJ += $(LZMA_PATH)/LzmaDec.o \
+@@ -115,7 +115,7 @@ else
+   endif
+ endif
+
+-ZSTD_PATH := ../zstd/lib
++ZSTD_PATH := zstd/lib
+ ifeq ($(ZSTD),1) # https://github.com/sisong/zstd
+   HPATCH_OBJ += $(ZSTD_PATH)/common/debug.o \
+   				$(ZSTD_PATH)/common/entropy_common.o \
+@@ -369,7 +369,7 @@ else
+   DEL_HDIFF_OBJ := $(HDIFF_OBJ)
+ endif
+ INSTALL_X := install -m 0755
+-INSTALL_BIN := $(DESTDIR)/usr/local/bin
++INSTALL_BIN := $(DESTDIR)/usr/bin
+
+ mostlyclean: hpatchz hdiffz
+ 	$(RM) $(DEL_HDIFF_OBJ)
+@@ -377,8 +377,8 @@ clean:
+ 	$(RM) libhdiffpatch.a hpatchz hdiffz $(DEL_HDIFF_OBJ)
+
+ install: all
+-	$(INSTALL_X) hdiffz $(INSTALL_BIN)/hdiffz
+-	$(INSTALL_X) hpatchz $(INSTALL_BIN)/hpatchz
++# 	$(INSTALL_X) hdiffz $(INSTALL_BIN)/hdiffz
++# 	$(INSTALL_X) hpatchz $(INSTALL_BIN)/hpatchz
+
+ uninstall:
+ 	$(RM)  $(INSTALL_BIN)/hdiffz  $(INSTALL_BIN)/hpatchz

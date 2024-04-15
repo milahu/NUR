@@ -1,0 +1,13 @@
+diff --git a/sway/main.c b/sway/main.c
+index 85bc2f1..e1a0731 100755
+--- a/sway/main.c
++++ b/sway/main.c
+@@ -255,7 +255,7 @@ static const char usage[] =
+ 	"\n";
+ 
+ int main(int argc, char **argv) {
+-	static bool verbose = false, debug = false, validate = false, allow_unsupported_gpu = false;
++	static bool verbose = false, debug = false, validate = false, allow_unsupported_gpu = true;
+ 
+ 	char *config_path = NULL;
+ 
