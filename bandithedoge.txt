@@ -28,7 +28,7 @@ error:
 
 … while calling 'recurseIntoAttrs'
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/attrsets.nix:1939:5:
+  at nixpkgs:lib/attrsets.nix:1939:5:
 
   1938|   recurseIntoAttrs =
   1939|     attrs:
@@ -64,7 +64,7 @@ error:
 
 … while calling 'callPackageWith'
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/customisation.nix:212:35:
+  at nixpkgs:lib/customisation.nix:212:35:
 
    211|   */
    212|   callPackageWith = autoArgs: fn: args:
@@ -73,7 +73,7 @@ error:
 
 … from call site
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/trivial.nix:895:7:
+  at nixpkgs:lib/trivial.nix:895:7:
 
    894|     { # TODO: Should we add call-time "type" checking like built in?
    895|       __functor = self: f;
@@ -82,7 +82,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/customisation.nix:136:17:
+  at nixpkgs:lib/customisation.nix:136:17:
 
    135|     in
    136|     mirrorArgs (origArgs:
@@ -91,7 +91,7 @@ error:
 
 … from call site
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/customisation.nix:138:16:
+  at nixpkgs:lib/customisation.nix:138:16:
 
    137|     let
    138|       result = f origArgs;
@@ -117,7 +117,7 @@ error:
 
 … while calling 'makeExtensibleWithCustomName'
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/fixed-points.nix:305:48:
+  at nixpkgs:lib/fixed-points.nix:305:48:
 
    304|   */
    305|   makeExtensibleWithCustomName = extenderName: rattrs:
@@ -126,7 +126,7 @@ error:
 
 … from call site
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/fixed-points.nix:306:5:
+  at nixpkgs:lib/fixed-points.nix:306:5:
 
    305|   makeExtensibleWithCustomName = extenderName: rattrs:
    306|     fix' (self: (rattrs self) // {
@@ -135,7 +135,7 @@ error:
 
 … while calling 'fix''
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/fixed-points.nix:84:10:
+  at nixpkgs:lib/fixed-points.nix:84:10:
 
     83|   */
     84|   fix' = f: let x = f x // { __unfix__ = f; }; in x;
@@ -144,7 +144,7 @@ error:
 
 … from call site
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/fixed-points.nix:84:21:
+  at nixpkgs:lib/fixed-points.nix:84:21:
 
     83|   */
     84|   fix' = f: let x = f x // { __unfix__ = f; }; in x;
@@ -153,7 +153,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/fixed-points.nix:306:11:
+  at nixpkgs:lib/fixed-points.nix:306:11:
 
    305|   makeExtensibleWithCustomName = extenderName: rattrs:
    306|     fix' (self: (rattrs self) // {
@@ -162,7 +162,7 @@ error:
 
 … from call site
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/fixed-points.nix:306:18:
+  at nixpkgs:lib/fixed-points.nix:306:18:
 
    305|   makeExtensibleWithCustomName = extenderName: rattrs:
    306|     fix' (self: (rattrs self) // {
@@ -189,7 +189,7 @@ error:
 
 … while calling 'mapAttrs''
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/attrsets.nix:1023:5:
+  at nixpkgs:lib/attrsets.nix:1023:5:
 
   1022|     f:
   1023|     set:
@@ -207,7 +207,7 @@ error:
 
 … while calling 'filterAttrs'
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/attrsets.nix:646:5:
+  at nixpkgs:lib/attrsets.nix:646:5:
 
    645|     pred:
    646|     set:
@@ -216,7 +216,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/attrsets.nix:647:29:
+  at nixpkgs:lib/attrsets.nix:647:29:
 
    646|     set:
    647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
@@ -225,7 +225,7 @@ error:
 
 … from call site
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/attrsets.nix:647:62:
+  at nixpkgs:lib/attrsets.nix:647:62:
 
    646|     set:
    647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
@@ -252,7 +252,7 @@ error:
 
 … while calling 'isStorePath'
 
-  at /nix/store/7qd8klzdigjz6h17g0k17wshw2nknrwi-source/lib/strings.nix:1023:17:
+  at nixpkgs:lib/strings.nix:1023:17:
 
   1022|   */
   1023|   isStorePath = x:
