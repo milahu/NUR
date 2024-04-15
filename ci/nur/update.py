@@ -64,7 +64,7 @@ def eval_repo(repo: Repo, repo_path: Path) -> str:
             "--option", "allow-import-from-derivation", "true",
             "--drv-path",
             "--show-trace",
-            "-I", f"nixpkgs={nixpkgs_path()}",
+            "-I", f"nixpkgs={nixpkgs_path}",
             "-I", str(repo_path),
             "-I", str(eval_path),
             "-I", str(evalrepo_path),

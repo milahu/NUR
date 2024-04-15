@@ -45,8 +45,7 @@ COMBINED_REPOS_PATH = Path(os.environ.get("COMBINED_REPOS_PATH", ROOT_PATH.joinp
 
 _NIXPKGS_PATH = os.environ.get("NIXPKGS_PATH", None)
 
-
-def nixpkgs_path() -> str:
+def get_nixpkgs_path() -> str:
     global _NIXPKGS_PATH
     if _NIXPKGS_PATH is not None:
         return _NIXPKGS_PATH
@@ -63,3 +62,5 @@ def nixpkgs_path() -> str:
     _NIXPKGS_PATH = str(Path(path).resolve())
 
     return _NIXPKGS_PATH
+
+nixpkgs_path = get_nixpkgs_path()
