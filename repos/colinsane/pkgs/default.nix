@@ -26,7 +26,6 @@ let
     chatty-latest = callPackage ./additional/chatty-latest { };
     codemadness-frontends = callPackage ./additional/codemadness-frontends { };
     codemadness-frontends_0_6 = codemadness-frontends.v0_6;
-    coppwr = callPackage ./additional/coppwr { };
     delfin = callPackage ./additional/delfin { };
     eg25-control = callPackage ./additional/eg25-control { };
     eg25-manager = callPackage ./additional/eg25-manager { };
