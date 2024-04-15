@@ -183,6 +183,8 @@ def update(repo: Repo) -> Repo:
     # git -C COMBINED_REPOS_PATH commit -m ...
     '''
 
+    repo.eval_repo_path = repo_path
+
     t1 = time.time()
     try:
         # TODO merge ci/nur/index.py into here
@@ -193,8 +195,6 @@ def update(repo: Repo) -> Repo:
         raise
     t2 = time.time()
     repo.eval_time = t2 - t1
-
-    repo.eval_repo_path = repo_path
 
     # TODO store repo.eval_time in nur-eval-times, similar to nur-eval-errors
     # or join these into nur-eval-results
