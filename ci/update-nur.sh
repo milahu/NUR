@@ -132,8 +132,13 @@ python3 -m ci.nur.__init__ update
 
 echo building gh-pages
 
-./nur-search-html/build.sh <(./scripts/join-eval-results.sh) >gh-pages/index.html
-rsync ./nur-search-html/tablefilter.min.* ./gh-pages/
+if ./nur-search-html/build.sh <(./scripts/join-eval-results.sh) >gh-pages-index.html.tmp; then
+  mv gh-pages-index.html.tmp gh-pages/index.html
+  rsync ./nur-search-html/tablefilter.min.* ./gh-pages/
+else
+  rm gh-pages-index.html.tmp
+  echo "FIXME: nur-search-html/build.sh failed"
+fi
 
 if false; then
   # multirepos
