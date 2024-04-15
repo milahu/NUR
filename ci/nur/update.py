@@ -109,7 +109,7 @@ def eval_repo(repo: Repo, repo_path: Path) -> str:
             raise EvalError(msg, f"nur.update: {msg}")
         if proc.returncode != 0:
             # normalize tempdir path
-            stderr = stderr.replace(str(d), "/tmp/nur-update")
+            stderr = stderr.replace(str(d), ".")
             # no. errors are too verbose.
             # print only the main_err_line and write full errors to nur-eval-errors/
             # print only new errors. old errors are stored in EVAL_ERRORS_PATH
@@ -300,8 +300,7 @@ def update_command_inner(args: Namespace) -> None:
 
             # normalize positions in repo.eval_error_text
             # for this nur-packages repo, show paths relative to the repo root
-            position_prefix = str(repo.eval_repo_path) + "/"
-            err.stdout = err.stdout.replace(position_prefix, "")
+            err.stdout = err.stdout.replace(repo.eval_repo_path, ".")
             # normalize nixpkgs paths from /nix/store/.../pkgs/... to nixpkgs:pkgs/...
             err.stdout = err.stdout.replace(nixpkgs_path + "/", "nixpkgs:")
 
