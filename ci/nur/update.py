@@ -71,8 +71,23 @@ def eval_repo(repo: Repo, repo_path: Path) -> str:
         ]
         # fmt: on
 
-        #eval_timeout = 15
-        eval_timeout = 60
+        # 60 seconds eval timeout is too much on a fast machine
+        # usually timeout means that the repos is too large
+        # for example because it contains all packages from nixpkgs
+        # bad default.nix example:
+        """
+            {
+              pkgs ? import <nixpkgs> { }
+            }:
+            # problem: all packages from nixpkgs are copied
+            # fix: remove "pkgs //"
+            pkgs // {
+              some-package = callPackage ./pkgs/some-package { };
+            }
+        """
+
+        eval_timeout = 15
+        #eval_timeout = 60
 
         logger.info(f"Evaluating repository {repo.name}")
         env = dict(PATH=os.environ["PATH"], NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM="1")
