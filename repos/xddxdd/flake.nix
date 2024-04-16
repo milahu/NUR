@@ -22,10 +22,10 @@
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
-        ./flake-modules/ci-outputs.nix
-        ./flake-modules/commands.nix
-        ./flake-modules/modules-test-nixos-config.nix
-        ./flake-modules/nixpkgs-options.nix
+        ./flake-modules/_internal/ci-outputs.nix
+        ./flake-modules/_internal/commands.nix
+        ./flake-modules/_internal/modules-test-nixos-config.nix
+        ./flake-modules/_internal/nixpkgs-options.nix
       ];
 
       systems = [
@@ -44,6 +44,11 @@
             };
         };
 
+        flakeModules = {
+          auto-apps-shell = import ./flake-modules/auto-apps-shell.nix;
+          auto-colmena-hive = import ./flake-modules/auto-colmena-hive.nix;
+        };
+
         nixosModules = {
           setupOverlay =
             { config, ... }:
@@ -52,7 +57,9 @@
             };
           kata-containers = import ./modules/kata-containers.nix;
           openssl-oqs-provider = import ./modules/openssl-oqs-provider.nix;
+          plasma-desktop-lyrics = import ./modules/plasma-desktop-lyrics.nix;
           qemu-user-static-binfmt = import ./modules/qemu-user-static-binfmt.nix;
+          wireguard-remove-lingering-links = import ./modules/wireguard-remove-lingering-links.nix;
         };
       };
 

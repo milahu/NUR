@@ -67,6 +67,7 @@ mkScope (
       asterisk = pkg ./lantian-customized/asterisk { };
       attic-telnyx-compatible = ifNotNUR (pkg ./lantian-customized/attic-telnyx-compatible { });
       coredns = pkg ./lantian-customized/coredns { };
+      firefox-icon-mikozilla-fireyae = pkg ./lantian-customized/firefox-icon-mikozilla-fireyae { };
       librime-with-plugins = pkg ./lantian-customized/librime-with-plugins { };
       nbfc-linux = pkg ./lantian-customized/nbfc-linux { };
       nginx = pkg ./lantian-customized/nginx { };
@@ -166,6 +167,8 @@ mkScope (
     phpmyadmin = pkg ./uncategorized/phpmyadmin { };
     phppgadmin = pkg ./uncategorized/phppgadmin { };
     plasma-desktop-lyrics = pkg ./uncategorized/plasma-desktop-lyrics { };
+    plasma-desktop-lyrics-plasmoid = pkg ./uncategorized/plasma-desktop-lyrics-plasmoid { };
+    plasma-panel-transparency-toggle = pkg ./uncategorized/plasma-panel-transparency-toggle { };
     procps4 = pkg ./uncategorized/procps4 { };
     pterodactyl-wings = pkg ./uncategorized/pterodactyl-wings { };
     py-rcon = pkg ./uncategorized/py-rcon { };
