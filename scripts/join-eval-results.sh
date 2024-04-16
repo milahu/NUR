@@ -1,7 +1,12 @@
 #!/bin/sh
 
-nur_combined_blob_url='https://github.com/milahu/NUR/blob/'
-nur_combined_repos_url="$nur_combined_blob_url"'nur-combined/repos/'
+# no. use relative links with <base href="https://github.com/milahu/NUR/blob/nur-combined/repos/">
+
+#nur_combined_blob_url='https://github.com/milahu/NUR/blob/'
+#nur_combined_repos_url="$nur_combined_blob_url"'nur-combined/repos/'
+
+nur_combined_blob_url=''
+nur_combined_repos_url=''
 
 jq -c -n '
   reduce inputs as $i (
