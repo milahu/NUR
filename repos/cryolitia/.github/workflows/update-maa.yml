@@ -1,0 +1,59 @@
+name: "Update Maa"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/update-maa.yml"
+      - "pkgs/maa-assistant-arknights/update.sh"
+  schedule:
+    # rebuild everyday at 2:51
+    # TIP: Choose a random time here so not all repositories are build at once:
+    # https://www.random.org/clock-times/?num=1&earliest=01%3A00&latest=08%3A00&interval=5&format=html&rnd=new
+    - cron:  '41 2 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.gitUpdate.outputs.result }}
+    steps:
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: DeterminateSystems/flake-checker-action@main
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+
+      - name: Setup Git
+        run: |
+          git config --global user.name "$GITHUB_ACTOR"
+          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git show -s
+
+      - name: Update MaaAssistantArknights
+        continue-on-error: true
+        id: gitUpdate
+        run: |
+          cd pkgs/maa-assistant-arknights
+          ./update.sh
+
+          set +e
+
+          git add .
+          git status
+          git commit -m "MaaAssistantArknights update: $(date +'%Y-%m-%dT%H:%M:%S')"
+          echo "result=$?" >> "$GITHUB_OUTPUT"
+          git push
+
+  build:
+    needs: [ sync ]
+    if: needs.sync.outputs.result == '0'
+    uses: ./.github/workflows/build.yml
+
