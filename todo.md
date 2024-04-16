@@ -2,6 +2,97 @@
 
 
 
+## limit repo sizes
+
+https://github.com/nix-community/NUR/issues/133  
+Size limits on repos?
+
+> I suppose we would need a history rewrite to undo this.
+
+anyway, the history of nur-combined should be truncated regularly
+
+similar to  
+https://github.com/rust-lang/crates-io-cargo-teams/issues/47  
+When should we next squash the index?
+
+repo sizes...
+
+```
+$ du -sh nur-combined/
+106M    nur-combined/
+
+$ du -sh nur-combined/repos/* | sort -h | tail -n10
+1.3M    nur-combined/repos/linyinfeng
+1.8M    nur-combined/repos/arc
+2.7M    nur-combined/repos/crazazy
+2.9M    nur-combined/repos/xddxdd
+3.7M    nur-combined/repos/lucasew
+4.0M    nur-combined/repos/sikmir
+6.9M    nur-combined/repos/mipmip
+7.6M    nur-combined/repos/milahu
+8.0M    nur-combined/repos/colinsane
+11M     nur-combined/repos/oluceps
+```
+
+the removed Ma27/nixexprs repo had 34 MB
+
+i would suggest a hard limit of 100 MB per repo  
+like github's maximum file size  
+github repos: soft limit 5 GB, hard limit 10 GB  
+
+... or we limit the total size of nur-combined  
+to something like 1 GB  
+and the largest repo is removed first
+
+in my repo, by far the largest files are lockfiles  
+package-lock.json  
+mvn2nix-lock.json  
+now it makes sense why npmlock2nix is not used in nixpkgs...
+
+
+
+## write source date to nur-repos-lock/repos.json.lock
+
+this was working before...
+
+authoredDate is fetched from github graphQL
+
+should be set as repo.new_version.date
+
+ci/nur/prefetch.py
+
+```
+        commit = item["defaultBranchRef"]["target"]["oid"]
+        commit_date = item["defaultBranchRef"]["target"]["authoredDate"]
+        repo.new_version = LockedVersion(repo.url.geturl(), commit, None, repo.submodules, commit_date)
+```
+
+
+
+## further reduce CI time
+
+noop time is 30 seconds
+
+noop = no updates, no evals, all repos are up to date
+
+with DeterminateSystems/magic-nix-cache-action
+
+- 3 seconds for cachix/install-nix-action
+- 8 seconds for DeterminateSystems/magic-nix-cache-action
+- 2 seconds to fetch git branches
+- 6 seconds for github graphql query
+
+without DeterminateSystems/magic-nix-cache-action
+
+- 3 seconds for cachix/install-nix-action
+- 2 seconds for python
+- 5 seconds for pip install
+- 12 seconds for ci/update-nur.sh
+  - 2 seconds to fetch git branches
+  - 7 seconds for github graphql query
+
+
+
 # done
 
 - cache eval errors
@@ -18,7 +109,19 @@ https://github.com/nix-community/NUR/issues/351
 
 running bin/nur update is too expensive
 
+
+
 ### merge tasks update/eval/index to use maximum caching
+
+fixed issue:
+
+https://github.com/nix-community/NUR/issues/240  
+[nur-search] repo does evaluate when generating nur-combined but does not evaluate on nur-search update
+
+nur-update and nur-index used different arguments to call nix-env  
+fixed by joining nur-index into nur-update
+
+
 
 ### move all code to NUR, remove "automatic update" commits from git history
 
@@ -393,6 +496,12 @@ because nix commands are slow, generally.
 
 ci/update-nur.sh runs for 7 seconds, nix-shell takes 27 seconds to install dependencies
 
+install python deps with actions/setup-python@v5 and "pip install"
+
+use nix-prefetch-git from scripts/nix-prefetch-git.sh from nixpkgs/pkgs/build-support/fetchgit/nix-prefetch-git
+
+remove nix-shell shebang from ci/update-nur.sh
+
 ```
 #!/usr/bin/env nix-shell
 #!nix-shell --quiet -p git -p nix -p bash -p hugo -p python3 -p python3.pkgs.requests -i bash
@@ -556,4 +665,47 @@ c66e97c72 remove pamplemousse
 41b161558 remove infinitivewitch
 6cb04d737 remove imsofi
 d5b745457 remove andersontorres
+```
+
+
+
+## limit eval result sizes
+
+the dguibert/nur-packages repo had this in /default.nix
+
+```nix
+{
+ pkgs ? import <nixpkgs> { }
+}:
+# problem: all packages from nixpkgs are copied
+# fix: remove "pkgs //"
+pkgs // {
+ some-package = callPackage ./pkgs/some-package { };
+}
+```
+
+... which either resulted in an eval timeout  
+or created an eval result json of 110 MB  
+(github files: hard limit 100 MB)
+
+so in update.py i added
+
+```
+max_eval_result_size = 5 * 1024 * 1024 # 5MiB
+```
+
+currently the largest eval_result (repo rycee) has 1MB
+
+```
+$ du -sh nur-eval-results/* | sort -h | tail -n10
+96K     nur-eval-results/colinsane.json
+100K    nur-eval-results/arc.json
+104K    nur-eval-results/foolnotion.json
+120K    nur-eval-results/drewrisinger.json
+296K    nur-eval-results/milahu.json
+420K    nur-eval-results/xddxdd.json
+436K    nur-eval-results/sigprof.json
+596K    nur-eval-results/izorkin.json
+608K    nur-eval-results/sikmir.json
+916K    nur-eval-results/rycee.json
 ```
