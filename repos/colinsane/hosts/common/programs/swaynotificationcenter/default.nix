@@ -33,6 +33,19 @@ in
     };
   };
 
+  sane.programs.swaync-fbcli = {
+    packageUnwrapped = pkgs.static-nix-shell.mkBash {
+      pname = "swaync-fbcli";
+      srcRoot = ./.;
+      pkgs = [
+        "feedbackd"
+        "procps"
+        "swaynotificationcenter"
+        "util-linux"
+      ];
+    };
+  };
+
   sane.programs.swaynotificationcenter = {
     configOption = with lib; mkOption {
       type = types.submodule {
@@ -50,7 +63,24 @@ in
     };
 
     # prevent dbus from automatically activating swaync so i can manage it as a systemd service instead
-    packageUnwrapped = pkgs.rmDbusServices pkgs.swaynotificationcenter;
+    packageUnwrapped = pkgs.rmDbusServices (pkgs.swaynotificationcenter.overrideAttrs (upstream: {
+      version = "0.10.1-unstable-2024-04-16";
+      # toggling the panel on 0.10.1 sometimes causes toggle-buttons to toggle.
+      # this is fixed post-0.10.1.
+      # see: <https://github.com/ErikReider/SwayNotificationCenter/issues/405>
+      src = lib.warnIf (lib.versionOlder "0.10.1" upstream.version) "swaync: safe to unpin" pkgs.fetchFromGitHub {
+        owner = "ErikReider";
+        repo = "SwayNotificationCenter";
+        rev = "8cb9be59708bb051616d7e14d9fa0b87b86985af";
+        hash = "sha256-UAegyzqutGulp6H7KplEfwHV0MfFfOHgYNNu+AQHx3g=";
+      };
+    }));
+
+    suggestedPrograms = [
+      "feedbackd"
+      "swaync-fbcli"  #< used to sound ringer
+      "swaync-service-dispatcher"  #< used when toggling buttons
+    ];
 
     sandbox.method = "bwrap";
     sandbox.whitelistAudio = true;
@@ -89,11 +119,6 @@ in
     # so, explicitly specify the desired backend.
     # the glib code which consumes this is `g_notification_backend_new_default`, calling into `_g_io_module_get_default_type`.
     env.GNOTIFICATION_BACKEND = "freedesktop";
-
-    suggestedPrograms = [
-      "feedbackd"
-      "swaync-service-dispatcher"  #< used when toggling buttons
-    ];
 
     fs.".config/swaync/style.css".symlink.target = ./style.css;
     fs.".config/swaync/config.json".symlink.text = builtins.toJSON {
