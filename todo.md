@@ -49,6 +49,16 @@ package-lock.json
 mvn2nix-lock.json  
 now it makes sense why npmlock2nix is not used in nixpkgs...
 
+repo size of nixpkgs
+
+```
+$ git -C nixpkgs rev-parse HEAD
+5672bc9dbf9d88246ddab5ac454e82318d094bb8/
+
+$ du -sh nixpkgs
+377M    nixpkgs
+```
+
 
 
 ## write source date to nur-repos-lock/repos.json.lock
