@@ -709,3 +709,34 @@ $ du -sh nur-eval-results/* | sort -h | tail -n10
 608K    nur-eval-results/sikmir.json
 916K    nur-eval-results/rycee.json
 ```
+
+
+
+## add first class support for nix flakes
+
+currently some nur repos are based on nix flakes  
+but currently, nur update treats all repos as based on default.nix
+
+this leads to eval errors in nur-update
+
+```
+$ grep "error: access to URI" nur-eval-errors/*
+nur-eval-errors/bandithedoge.txt:error: access to URI 'https://github.com/lastquestion/explain-pause-mode/archive/2356c8c3639cbeeb9751744dbe737267849b4b51.tar.gz' is forbidden in restricted mode
+nur-eval-errors/darkkirb.txt:error: access to URI 'https://github.com/edolstra/flake-compat/archive/4f910c9827911b1ec2bf26b5a062cd09f8d89f85.tar.gz' is forbidden in restricted mode
+nur-eval-errors/geonix.txt:error: access to URI 'https://github.com/edolstra/flake-compat/archive/0f9255e01c2351cc7d116c072cb317785dd33b33.tar.gz' is forbidden in restricted mode
+nur-eval-errors/kreisys.txt:error: access to URI 'https://github.com/NixOS/nixpkgs-channels/archive/b47873026c7e356a340d0e1de7789d4e8428ac66.tar.gz' is forbidden in restricted mode
+nur-eval-errors/pschuprikov.txt:error: access to URI 'https://github.com/fzakaria/mvn2nix/archive/master.tar.gz' is forbidden in restricted mode
+nur-eval-errors/shamilton.txt:error: access to URI 'https://github.com/NixOS/NixPkgs/archive/cd0fa6156f486c583988d334202946ffa4b9ebe8.tar.gz' is forbidden in restricted mode
+nur-eval-errors/some-pkgs.txt:error: access to URI 'https://api.github.com/repos/NixOS/nixpkgs/tarball/2c92367fc6afb7df4700782bccae881d81e02de9' is forbidden in restricted mode
+nur-eval-errors/vroad.txt:error: access to URI 'https://github.com/edolstra/flake-compat/archive/35bb57c0c8d8b62bbfd284272c928ceb64ddbde9.tar.gz' is forbidden in restricted mode
+nur-eval-errors/yellowonion.txt:error: access to URI 'https://github.com/edolstra/flake-compat/archive/35bb57c0c8d8b62bbfd284272c928ceb64ddbde9.tar.gz' is forbidden in restricted mode
+```
+
+upstream issues
+
+- https://github.com/nix-community/NUR/issues/571
+- https://github.com/nix-community/NUR/issues/174
+- https://github.com/nix-community/NUR/issues/331
+
+personally, i dont use flakes  
+because pinning everything is a waste of disk space
