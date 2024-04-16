@@ -135,7 +135,6 @@ git branch --copy master master-bak-with-nur-repos-lock
 
 # create nur-repos-lock branch
 git branch --copy master nur-repos-lock
-
 # remove repos.json.lock from master branch history
 git filter-repo --invert-paths --path repos.json.lock --refs master --force
 
@@ -740,3 +739,20 @@ upstream issues
 
 personally, i dont use flakes  
 because pinning everything is a waste of disk space
+
+
+
+## normalize nix store paths
+
+the actual nix store paths change with every update  
+which creates lots of diff noise in nur-eval-results and nur-eval-errors
+
+fix:
+
+- normalize the repo path to `.`
+  - example: replace `/nix/store/xxx-nur-packages/default.nix` with `./default.nix`
+- normalize the nixpkgs path to `<nixpkgs>`
+  - example: replace `/nix/store/xxx-source/default.nix` with `<nixpkgs>/default.nix`
+
+nur-eval-errors also contains source positions (line and column number) like `default.nix:12:34`
+which still create diff noise, but less noise than from nix store paths
