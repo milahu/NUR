@@ -1,0 +1,34 @@
+# C/C++ binary files
+*.so
+*.o
+*.a
+*.out
+
+# Python files
+env/
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Build system files
+compile_commands.json
+
+# Debugger files
+.gdb_history
+
+# LSP cache
+.clangd/
+
+# Swap and backup files
+*~
+~.swp
+
+# Direnv files
+.envrc
+.direnv/
+
+# Project-local neovim configuration files
+.nvim.lua
+.nvimrc
