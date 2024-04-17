@@ -5,8 +5,7 @@
 ## Setup
 
 1. Click on [Use this template](https://github.com/nix-community/nur-packages-template/generate) to start a repo based on this template. (Do _not_ fork it.)
-2. Add your packages to the [pkgs](./pkgs) directory and to
-   [default.nix](./default.nix)
+2. Add your packages to [pkgs/](pkgs/) and to [pkgs/top-level/](pkgs/top-level/)
    * Remember to mark the broken packages as `broken = true;` in the `meta`
      attribute, or travis (and consequently caching) will fail!
    * Library functions, modules and overlays go in the respective directories
@@ -25,13 +24,17 @@
 
 **My personal [NUR](https://github.com/nix-community/NUR) repository**
 
-<!-- Remove this if you don't use github actions -->
-![Build and populate cache](https://github.com/<YOUR-GITHUB-USER>/nur-packages/workflows/Build%20and%20populate%20cache/badge.svg)
-
+<!-- use github actions -->
 <!--
-Uncomment this if you use travis:
+![Build and populate cache](https://github.com/<YOUR-GITHUB-USER>/nur-packages/workflows/Build%20and%20populate%20cache/badge.svg)
+-->
 
+<!-- use travis -->
+<!--
 [![Build Status](https://travis-ci.com/<YOUR_TRAVIS_USERNAME>/nur-packages.svg?branch=master)](https://travis-ci.com/<YOUR_TRAVIS_USERNAME>/nur-packages)
 -->
-[![Cachix Cache](https://img.shields.io/badge/cachix-<YOUR_CACHIX_CACHE_NAME>-blue.svg)](https://<YOUR_CACHIX_CACHE_NAME>.cachix.org)
 
+<!-- use cachix -->
+<!--
+[![Cachix Cache](https://img.shields.io/badge/cachix-<YOUR_CACHIX_CACHE_NAME>-blue.svg)](https://<YOUR_CACHIX_CACHE_NAME>.cachix.org)
+-->
