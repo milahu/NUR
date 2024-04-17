@@ -103,6 +103,34 @@ without DeterminateSystems/magic-nix-cache-action
 
 
 
+## add NUR to repology.org
+
+https://repology.org/repositories/statistics/total
+
+to compare, number of packages on 2024-04-17
+
+- nixpkgs unstable: 91857
+- AUR: 73494
+- Debian Unstable: 37106
+- GNU Guix: 27194
+- PyPI: 18697
+- Gentoo: 17790
+- Homebrew: 6814
+- NUR: 4806
+- Chocolatey: 3132
+
+https://libraries.io/platforms
+
+http://www.modulecounts.com/
+
+- NPM: 4M packages
+- Maven: 600K packages
+- Go: 500K packages
+- PyPi: 500K packages
+- Cargo: 150K packages
+
+
+
 # done
 
 - cache eval errors
