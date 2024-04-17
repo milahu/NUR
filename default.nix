@@ -7,6 +7,9 @@
 #     nix-build . -A mypackage
 
 # based on xeals/default.nix
+# for more examples see nur-combined
+# https://github.com/nix-community/nur-combined
+# https://github.com/milahu/NUR/tree/nur-combined
 
 { pkgs ? import <nixpkgs> { } }:
 
