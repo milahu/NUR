@@ -133,6 +133,12 @@ http://www.modulecounts.com/
 
 # done
 
+
+
+<details>
+
+
+
 - cache eval errors
 - cache eval timeout errors
 - use graphql to batch-update versions of github repos: 10 instead of 200 seconds
@@ -794,3 +800,7 @@ fix:
 
 nur-eval-errors also contains source positions (line and column number) like `default.nix:12:34`
 which still create diff noise, but less noise than from nix store paths
+
+
+
+</details>
