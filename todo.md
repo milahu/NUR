@@ -803,4 +803,12 @@ which still create diff noise, but less noise than from nix store paths
 
 
 
+## update nur-packages-template
+
+- add by-name path format
+- add python3Packages scope
+- add nodePackages scope
+
+
+
 </details>
