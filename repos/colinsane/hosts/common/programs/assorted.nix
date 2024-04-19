@@ -63,6 +63,7 @@ in
       "jq"
       "killall"
       "less"
+      "lftp"
       # "libcap_ng"  # for `netcap`
       "lsof"
       # "miniupnpc"
@@ -618,6 +619,7 @@ in
     losslesscut-bin.sandbox.whitelistX = true;
 
     lsof.sandbox.method = "capshonly";  # lsof doesn't sandbox under bwrap or even landlock w/ full access to /
+    lsof.sandbox.capabilities = [ "dac_override" "sys_ptrace" ];
 
     lua = {};
 

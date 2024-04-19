@@ -7,7 +7,10 @@
 # debugging:
 # - soulseek is just *flaky*. if you see e.g. DNS errors, even though you can't replicate them via `dig` or `getent ahostsv4`, just give it 10 minutes to work out:
 #   - "Soulseek.AddressException: Failed to resolve address 'vps.slsknet.org': Resource temporarily unavailable"
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
+
+# TODO: re-enable once i'm satisfied this isn't escaping the net sandbox
+lib.mkIf false
 {
   sane.persist.sys.byStore.plaintext = [
     { user = "slskd"; group = "media"; path = "/var/lib/slskd"; method = "bind"; }
@@ -68,12 +71,12 @@
     # flags.volatile = true;  # store searches and active transfers in RAM (completed transfers still go to disk). rec for btrfs/zfs
   };
 
-  systemd.services.slskd = {
-    serviceConfig = {
-      # run this behind the OVPN static VPN
-      NetworkNamespacePath = "/run/netns/ovpns";
-      Restart = lib.mkForce "always";  # exits "success" when it fails to connect to soulseek server
-      RestartSec = "60s";
-    };
+  systemd.services.slskd.serviceConfig = {
+    # run this behind the OVPN static VPN
+    NetworkNamespacePath = "/run/netns/ovpns";
+    ExecStartPre = [ "${lib.getExe pkgs.sane-scripts.ip-check} --no-upnp --expect 185.157.162.178" ];  # abort if public IP is not as expected
+
+    Restart = lib.mkForce "always";  # exits "success" when it fails to connect to soulseek server
+    RestartSec = "60s";
   };
 }
