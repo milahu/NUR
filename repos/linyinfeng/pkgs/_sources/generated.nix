@@ -94,16 +94,16 @@
   };
   mstickereditor = {
     pname = "mstickereditor";
-    version = "v0.3.5";
+    version = "v0.3.6";
     src = fetchFromGitHub {
       owner = "LuckyTurtleDev";
       repo = "mstickereditor";
-      rev = "v0.3.5";
+      rev = "v0.3.6";
       fetchSubmodules = false;
-      sha256 = "sha256-yRUeAN24jsO+lgAuN2mqr6WHKLpd1mXTwI0Choh1Ecs=";
+      sha256 = "sha256-Q4NL8CSGYlwBfN9FQZCcVagDFEc1jHMlCFdCedob+x0=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./mstickereditor-v0.3.5/Cargo.lock;
+      lockFile = ./mstickereditor-v0.3.6/Cargo.lock;
       outputHashes = {
 
       };
@@ -252,16 +252,16 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "dc4f52d4d0896fbaa7c9535903dc9d141de655ac";
+    version = "7d348f6a48ff1c9c0d232b5b58f8c36544c9705c";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "dc4f52d4d0896fbaa7c9535903dc9d141de655ac";
+      rev = "7d348f6a48ff1c9c0d232b5b58f8c36544c9705c";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-mE0AgBcdCPc7inN/EywZjEYrV3mW8GHMQHttIjpphi8=";
+      sha256 = "sha256-15qD3ktz1pf8jSeJDeyZ1J8a/RQMyVWHTF56nW0F46c=";
     };
-    date = "2024-04-17";
+    date = "2024-04-19";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
@@ -466,16 +466,16 @@
   };
   waybar-git = {
     pname = "waybar-git";
-    version = "dd092a5fc11b373b4c73ff7e4fb902c09d87e955";
+    version = "8ef4ddd7efa2b29a455f38dbb7eeddf4002f304d";
     src = fetchgit {
       url = "https://github.com/Alexays/Waybar.git";
-      rev = "dd092a5fc11b373b4c73ff7e4fb902c09d87e955";
+      rev = "8ef4ddd7efa2b29a455f38dbb7eeddf4002f304d";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-2XKcteKRQQp4h/RNXIWDalk788FqpaW/5UkeoxZyRqE=";
+      sha256 = "sha256-qdmbDl9lixq4I6tI+8NdUgOxCMHqUp0H6LZjm8b+e24=";
     };
-    date = "2024-04-17";
+    date = "2024-04-18";
   };
   yacd = {
     pname = "yacd";
