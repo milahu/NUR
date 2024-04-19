@@ -125,7 +125,11 @@ in
     firefox = cp ./pkgs/custom/firefox;
     tixati = cp ./pkgs/custom/tixati.nix;
     vscode = cp ./pkgs/custom/vscode;
-    rofi = cp ./pkgs/custom/rofi.nix;
+    rofi_xorg = cp ./pkgs/custom/rofi.nix;
+    rofi = final.custom.rofi_xorg;
+    rofi_wayland = prev.callPackage ./pkgs/custom/rofi.nix {
+      rofi = final.rofi-wayland;
+    };
     pidgin = cp ./pkgs/custom/pidgin.nix;
     send2kindle = cp ./pkgs/custom/send2kindle.nix;
     retroarch = cp ./pkgs/custom/retroarch.nix;
@@ -157,7 +161,7 @@ in
   });
 
   script-directory-wrapper = final.writeShellScriptBin "sdw" ''
-    PATH=$PATH:${final.script-directory}/bin:${final.bash}/bin
+    PATH=$PATH:${final.script-directory}/bin:/run/current-system/sw/bin
     export SD_ROOT="$(SD_ROOT=${../bin} sd d root)/bin"
     sd "$@"
   '';

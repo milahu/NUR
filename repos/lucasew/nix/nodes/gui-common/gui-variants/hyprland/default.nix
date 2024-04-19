@@ -13,7 +13,13 @@
   ];
 
   config = lib.mkIf config.programs.hyprland.enable {
-    programs.hyprland.xwayland.enable = true;
+    programs.hyprland = {
+      xwayland.enable = true;
+      portalPackage = pkgs.xdg-desktop-portal-wlr // {
+        override = args: pkgs.xdg-desktop-portal-wlr.override (builtins.removeAttrs args ["hyprland"]);
+      };
+    };
+
     services.xserver.enable = true;
 
     services.dunst.enable = true;
@@ -28,7 +34,8 @@
 
     systemd.user.services.nm-applet = {
       path = with pkgs; [ networkmanagerapplet ];
-      script = "nm-applet";
+      script = "exec nm-applet";
+      restartIfChanged = true;
     };
     systemd.user.services.blueberry-tray = {
       path = with pkgs; [
@@ -38,6 +45,7 @@
         }))
       ];
       script = "blueberry-tray; while true; do sleep 3600; done";
+      restartIfChanged = true;
     };
 
     systemd.user.services.swayidle = {
@@ -48,6 +56,7 @@
         config.programs.hyprland.package
         playerctl
       ];
+      restartIfChanged = true;
       script =
         with pkgs.custom.colors.colors;
         let
@@ -89,7 +98,7 @@
           ];
         in
         ''
-          swayidle -w -d \
+          exec swayidle -w -d \
             idlehint 600 \
             timeout 605 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' \
             lock 'swaylock -f ${lib.concatStringsSep " " swaylock-list-args}' \
@@ -131,18 +140,10 @@
     };
 
     systemd.user.services.polkit-agent = {
-      script = "${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1";
-    };
-
-    xdg.portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-      ];
+      script = "exec ${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1";
     };
 
     environment.systemPackages = with pkgs; [
-      custom.rofi
       swaylock
       gnome.eog # eye of gnome
       xfce.ristretto
@@ -151,6 +152,8 @@
       brightnessctl
       gscreenshot
       xwaylandvideobridge
+      wl-clipboard
+      custom.rofi_wayland
     ];
   };
 }
