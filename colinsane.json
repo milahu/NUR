@@ -1,15 +1,15 @@
 {
 "name":"colinsane",
-"fetch_time":1.209,
-"eval_time":0.394,
+"fetch_time":1.09,
+"eval_time":0.393,
 "source":{
 "url":"https://git.uninsane.org/colin/nix-files",
-"rev":"9a9ffcbea9402d4e62cefe6dc3603bb50fef5063",
-"sha256":"05rfm7dxi7pkmgn16al5gsvjifmqbvnzr12xwb1jxidigmxfggdi",
+"rev":"f59f13588f2f68c0f7f6a321ae7449d74a6b1af6",
+"sha256":"0qfrybysc5k8rnx9q1wgv7asgqi9l2rlrrp1gic84wnqz9p0wv16",
 "date":null
 },
-"source_storepath":"/nix/store/ycpwccjgify29f65y2s415hs2gv8skrp-nix-files",
-"nur_combined_rev":"5edd5f9855193d6b4fd8f05fc0cef8d64c1cbaaf",
+"source_storepath":"/nix/store/gdzggd0kqc8hb9gh0gwdzn9fgy8has18-nix-files",
+"nur_combined_rev":"8472d4317da2faa90e3a992c3fa66323a36595fd",
 "packages":{
 "blast-ugjka":{
 "meta":{
@@ -172,7 +172,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/tools/security/browserpass/default.nix:68",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/tools/security/browserpass/default.nix:68",
 "unfree":false,
 "unsupported":false
 },
@@ -194,7 +194,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/build-support/trivial-builders/default.nix:68",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/build-support/trivial-builders/default.nix:68",
 "unfree":false,
 "unsupported":false
 },
@@ -267,7 +267,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/applications/networking/instant-messengers/chatty/default.nix:82",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/applications/networking/instant-messengers/chatty/default.nix:82",
 "unfree":false,
 "unsupported":false
 },
@@ -463,7 +463,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/by-name/de/delfin/package.nix:70",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/by-name/de/delfin/package.nix:70",
 "unfree":false,
 "unsupported":false
 },
@@ -481,6 +481,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"eg25-control",
 "name":"eg25-control-0.1.0",
 "outputsToInstall":[
 "out"
@@ -563,7 +564,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/build-support/trivial-builders/default.nix:68",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/build-support/trivial-builders/default.nix:68",
 "unfree":false,
 "unsupported":false
 },
@@ -581,6 +582,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"update.py",
 "name":"update-0.1.0",
 "outputsToInstall":[
 "out"
@@ -1219,7 +1221,7 @@
 "armv7a-darwin"
 ],
 "broken":false,
-"changelog":"https://www.mozilla.org/en-US/firefox/125.0/releasenotes/",
+"changelog":"https://www.mozilla.org/en-US/firefox/125.0.1/releasenotes/",
 "description":"A web browser built from Firefox source tree",
 "homepage":"http://www.mozilla.com/en-US/firefox/",
 "insecure":false,
@@ -1255,7 +1257,7 @@
 }
 ],
 "maxSilent":14400,
-"name":"firefox-unwrapped-125.0",
+"name":"firefox-unwrapped-125.0.1",
 "outputsToInstall":[
 "out"
 ],
@@ -1305,11 +1307,11 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/applications/networking/browsers/firefox/packages.nix:17",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/applications/networking/browsers/firefox/packages.nix:17",
 "unfree":false,
 "unsupported":false
 },
-"name":"firefox-unwrapped-125.0",
+"name":"firefox-unwrapped-125.0.1",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -1318,7 +1320,7 @@
 },
 "pname":"firefox-unwrapped",
 "system":"x86_64-linux",
-"version":"125.0"
+"version":"125.0.1"
 },
 "flare-signal-nixified":{
 "meta":{
@@ -1341,7 +1343,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/build-support/rust/build-rust-crate/default.nix:273",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/build-support/rust/build-rust-crate/default.nix:273",
 "unfree":false,
 "unsupported":false
 },
@@ -1490,7 +1492,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/build-support/rust/build-rust-crate/default.nix:273",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/build-support/rust/build-rust-crate/default.nix:273",
 "unfree":false,
 "unsupported":false
 },
@@ -1659,7 +1661,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/tools/filesystems/gocryptfs/default.nix:62",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/tools/filesystems/gocryptfs/default.nix:62",
 "unfree":false,
 "unsupported":false
 },
@@ -1810,7 +1812,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/build-support/trivial-builders/default.nix:472",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/build-support/trivial-builders/default.nix:472",
 "unfree":false,
 "unsupported":false
 },
@@ -1832,7 +1834,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/build-support/trivial-builders/default.nix:472",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/build-support/trivial-builders/default.nix:472",
 "unfree":false,
 "unsupported":false
 },
@@ -1945,7 +1947,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/applications/editors/helix/default.nix:34",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/applications/editors/helix/default.nix:34",
 "unfree":false,
 "unsupported":false
 },
@@ -2005,7 +2007,7 @@
 "x86_64-darwin",
 "x86_64-linux"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/servers/jackett/default.nix:42",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/servers/jackett/default.nix:42",
 "unfree":false,
 "unsupported":false
 },
@@ -2076,7 +2078,7 @@
 "x86_64-darwin",
 "aarch64-linux"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/applications/video/jellyfin-media-player/default.nix:99",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/applications/video/jellyfin-media-player/default.nix:99",
 "unfree":false,
 "unsupported":false
 },
@@ -2205,7 +2207,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/build-support/trivial-builders/default.nix:534",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/build-support/trivial-builders/default.nix:534",
 "unfree":false,
 "unsupported":false
 },
@@ -2366,7 +2368,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/applications/display-managers/lightdm-mobile-greeter/default.nix:52",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/applications/display-managers/lightdm-mobile-greeter/default.nix:52",
 "unfree":false,
 "unsupported":false
 },
@@ -2866,7 +2868,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/development/interpreters/python/cpython/default.nix:651",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/development/interpreters/python/cpython/default.nix:651",
 "unfree":false,
 "unsupported":false
 },
@@ -2948,6 +2950,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"rtl8723cs-wowlan",
 "name":"rtl8723cs-wowlan-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3088,6 +3091,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-open-desktop",
 "name":"sane-open-desktop-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3134,6 +3138,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-screenshot",
 "name":"sane-screenshot-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3160,7 +3165,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/build-support/trivial-builders/default.nix:472",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/build-support/trivial-builders/default.nix:472",
 "unfree":false,
 "unsupported":false
 },
@@ -3178,6 +3183,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-backup-ls",
 "name":"sane-backup-ls-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3200,6 +3206,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-backup-restore",
 "name":"sane-backup-restore-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3222,6 +3229,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-bt-add",
 "name":"sane-bt-add-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3244,6 +3252,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-bt-rm",
 "name":"sane-bt-rm-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3266,6 +3275,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-bt-search",
 "name":"sane-bt-search-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3288,6 +3298,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-bt-show",
 "name":"sane-bt-show-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3310,6 +3321,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-clone",
 "name":"sane-clone-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3332,6 +3344,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-deadlines",
 "name":"sane-deadlines-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3354,6 +3367,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-dev-cargo-loop",
 "name":"sane-dev-cargo-loop-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3376,6 +3390,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-find-dotfiles",
 "name":"sane-find-dotfiles-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3398,6 +3413,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-ip-check",
 "name":"sane-ip-check-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3420,6 +3436,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-ip-port-forward",
 "name":"sane-ip-port-forward-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3442,6 +3459,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-private-change-passwd",
 "name":"sane-private-change-passwd-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3464,6 +3482,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-private-do",
 "name":"sane-private-do-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3486,6 +3505,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-private-init",
 "name":"sane-private-init-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3508,6 +3528,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-private-lock",
 "name":"sane-private-lock-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3530,6 +3551,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-private-unlock",
 "name":"sane-private-unlock-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3552,6 +3574,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-rcp",
 "name":"sane-rcp-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3574,6 +3597,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-reboot",
 "name":"sane-reboot-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3596,6 +3620,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-reclaim-boot-space",
 "name":"sane-reclaim-boot-space-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3618,6 +3643,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-reclaim-disk-space",
 "name":"sane-reclaim-disk-space-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3640,6 +3666,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-secrets-dump",
 "name":"sane-secrets-dump-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3662,6 +3689,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-secrets-unlock",
 "name":"sane-secrets-unlock-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3684,6 +3712,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-secrets-update-keys",
 "name":"sane-secrets-update-keys-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3706,6 +3735,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-shutdown",
 "name":"sane-shutdown-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3728,6 +3758,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-stop-all-servo",
 "name":"sane-stop-all-servo-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3750,6 +3781,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-sudo-redirect",
 "name":"sane-sudo-redirect-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3772,6 +3804,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-sync-from-iphone",
 "name":"sane-sync-from-iphone-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3794,6 +3827,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-sync-music",
 "name":"sane-sync-music-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3816,6 +3850,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-tag-music",
 "name":"sane-tag-music-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3838,6 +3873,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-vpn",
 "name":"sane-vpn-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3860,6 +3896,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-which",
 "name":"sane-which-0.1.0",
 "outputsToInstall":[
 "out"
@@ -3882,6 +3919,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"sane-wipe",
 "name":"sane-wipe-0.1.0",
 "outputsToInstall":[
 "out"
@@ -4643,7 +4681,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/build-support/trivial-builders/default.nix:534",
+"position":"/nix/store/ppmldvnsfzssh6ywgyysqd6lr404abyc-source/pkgs/build-support/trivial-builders/default.nix:534",
 "unfree":false,
 "unsupported":false
 },
