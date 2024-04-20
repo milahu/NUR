@@ -1,15 +1,16 @@
 {
 "name":"abszero",
-"fetch_time":0.398,
-"eval_time":0.291,
+"fetch_time":0.373,
+"eval_time":0.294,
 "source":{
 "url":"https://github.com/Weathercold/nixfiles",
-"rev":"117ca284fac36aa0db1476b0c9a91012014baf78",
-"sha256":"04hisvxcjz3s2mkkmlas5g2s81hrq86iyqyrvyg5711nl2fl9n93",
-"date":null
+"rev":"c882bd21782c14211cdbc740b45230c834f60d81",
+"sha256":"1k0xdssih3lqirzccgd9gvxm4z5afibnvlk92rykxcgxw73vpbdh",
+"date":"2024-04-20T08:15:00Z"
 },
-"source_storepath":"/nix/store/bl6nyimz9fq9hpd36lyrhkg5k9zfx4qa-source",
-"nur_combined_rev":"3f3e0fff3bc264c3e10c2d4757719040ed9c32fc",
+"source_storepath":"/nix/store/hhvhwcm7bmm308hrpkqdd4gkajw5qhz8-source",
+"nixpkgs_storepath":"/nix/store/syfrdvq5h5a7an2znp8my18r6rw2a4gw-source",
+"nur_combined_rev":"0c53f6c464192b1f98a8ee5417b4ad8513cbd07e",
 "packages":{
 "anki-bin-qt6":{
 "meta":{
@@ -20,7 +21,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/vqasd7149azyzx5lrga5d4px54zi91h8-source/pkgs/build-support/trivial-builders/default.nix:472",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:472",
 "unfree":false,
 "unsupported":false
 },
@@ -42,7 +43,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/vqasd7149azyzx5lrga5d4px54zi91h8-source/pkgs/build-support/trivial-builders/default.nix:472",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:472",
 "unfree":false,
 "unsupported":false
 },
@@ -167,7 +168,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/ca/catppuccin-wallpapers/package.nix:53",
+"position":"./pkgs/ca/catppuccin-wallpapers/package.nix:53",
 "unfree":false,
 "unsupported":false
 },
@@ -204,7 +205,7 @@
 "name":"Jos\u00e9 Romildo Malaquias"
 }
 ],
-"name":"colloid-gtk-theme-1cf28eac2023b336daf6b415d0a498a69d5fea56",
+"name":"colloid-gtk-theme-5fc2ecc24992ac5b18d2a748d951569b69a47b71",
 "outputsToInstall":[
 "out"
 ],
@@ -254,18 +255,18 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"/nix/store/vqasd7149azyzx5lrga5d4px54zi91h8-source/pkgs/data/themes/colloid-gtk-theme/default.nix:67",
+"position":"<nixpkgs> + /pkgs/data/themes/colloid-gtk-theme/default.nix:67",
 "unfree":false,
 "unsupported":false
 },
-"name":"colloid-gtk-theme-1cf28eac2023b336daf6b415d0a498a69d5fea56",
+"name":"colloid-gtk-theme-5fc2ecc24992ac5b18d2a748d951569b69a47b71",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"colloid-gtk-theme",
 "system":"x86_64-linux",
-"version":"1cf28eac2023b336daf6b415d0a498a69d5fea56"
+"version":"5fc2ecc24992ac5b18d2a748d951569b69a47b71"
 },
 "noita_save_manager":{
 "meta":{
@@ -356,7 +357,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/no/noita_save_manager/package.nix:58",
+"position":"./pkgs/no/noita_save_manager/package.nix:58",
 "unfree":false,
 "unsupported":false
 },
@@ -397,7 +398,7 @@
 "name":"Kiran Ostrolenk"
 }
 ],
-"name":"nu_scripts-b95f260bb41b5950dbd1c9519261081f206124b2",
+"name":"nu_scripts-dfdd5692d78e05e1a8fd69fdf75557c11342303a",
 "outputsToInstall":[
 "out"
 ],
@@ -447,16 +448,16 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"/nix/store/vqasd7149azyzx5lrga5d4px54zi91h8-source/pkgs/shells/nushell/nu_scripts/default.nix:30",
+"position":"<nixpkgs> + /pkgs/shells/nushell/nu_scripts/default.nix:30",
 "unfree":false,
 "unsupported":false
 },
-"name":"nu_scripts-b95f260bb41b5950dbd1c9519261081f206124b2",
+"name":"nu_scripts-dfdd5692d78e05e1a8fd69fdf75557c11342303a",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"nu_scripts-b95f260bb41b5950dbd1c9519261081f206124b2",
+"pname":"nu_scripts-dfdd5692d78e05e1a8fd69fdf75557c11342303a",
 "system":"x86_64-linux",
 "version":""
 },
@@ -528,7 +529,7 @@
 "x86_64-linux",
 "aarch64-linux"
 ],
-"position":"/nix/store/vqasd7149azyzx5lrga5d4px54zi91h8-source/pkgs/applications/misc/obsidian/default.nix:18",
+"position":"<nixpkgs> + /pkgs/applications/misc/obsidian/default.nix:18",
 "unfree":true,
 "unsupported":false
 },
@@ -652,7 +653,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/pa/palgen/package.nix:21",
+"position":"./pkgs/pa/palgen/package.nix:21",
 "unfree":false,
 "unsupported":false
 },
@@ -708,7 +709,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/pl/plymouth-themes/package.nix:45",
+"position":"./pkgs/pl/plymouth-themes/package.nix:45",
 "unfree":false,
 "unsupported":false
 },
@@ -834,7 +835,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/v2/v2ray-rules-dat/package.nix:52",
+"position":"./pkgs/v2/v2ray-rules-dat/package.nix:52",
 "unfree":false,
 "unsupported":false
 },
@@ -975,7 +976,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/wi/win2xcur/package.nix:19",
+"position":"./pkgs/wi/win2xcur/package.nix:19",
 "unfree":true,
 "unsupported":false
 },

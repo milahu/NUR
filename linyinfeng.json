@@ -1,15 +1,16 @@
 {
 "name":"linyinfeng",
-"fetch_time":0.41,
-"eval_time":0.98,
+"fetch_time":0.374,
+"eval_time":1.006,
 "source":{
 "url":"https://github.com/linyinfeng/nur-packages",
-"rev":"b3c637b8257ee8d27aae3a456958122b0ff992a3",
-"sha256":"1cadsgfjjsbvy0avxn8k4ipxarsc6vn2c9d7pc89ww9zbq4njfds",
-"date":null
+"rev":"48561ef5c0810cfacd3a81f49dc144f4a8ed9999",
+"sha256":"1alqw63l45f8z1939yvj9s1m6j8jbrx8sjnqj9y2b75xdmpcmi35",
+"date":"2024-04-20T06:14:58Z"
 },
-"source_storepath":"/nix/store/15f3qm4qlb80wj85xfdv17fc8wk3r67d-source",
-"nur_combined_rev":"b3c641268fd78bf61fb43d499fc5deb04ec82c94",
+"source_storepath":"/nix/store/lszyqnjpnddhzipj2dv3ifk0ry3gmbxw-source",
+"nixpkgs_storepath":"/nix/store/syfrdvq5h5a7an2znp8my18r6rw2a4gw-source",
+"nur_combined_rev":"a6fb4dd21c56178766cd663474a25fc40f3e7682",
 "packages":{
 "activate-dpt":{
 "meta":{
@@ -38,7 +39,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/activate-dpt/default.nix:25",
+"position":"./pkgs/activate-dpt/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -106,7 +107,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/aws-s3-reverse-proxy/default.nix:26",
+"position":"./pkgs/aws-s3-reverse-proxy/default.nix:26",
 "unfree":false,
 "unsupported":false
 },
@@ -174,7 +175,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/aws-sigv4-proxy/default.nix:14",
+"position":"./pkgs/aws-sigv4-proxy/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -206,7 +207,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/canokey-udev-rules/default.nix:15",
+"position":"./pkgs/canokey-udev-rules/default.nix:15",
 "unfree":false,
 "unsupported":false
 },
@@ -274,7 +275,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/cf-terraforming/default.nix:34",
+"position":"./pkgs/cf-terraforming/default.nix:34",
 "unfree":false,
 "unsupported":false
 },
@@ -307,7 +308,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"pkgs/dev-packages/nvfetcher-self/nvfetcher-self.nix:9",
+"position":"./pkgs/dev-packages/nvfetcher-self/nvfetcher-self.nix:9",
 "unfree":false,
 "unsupported":false
 },
@@ -341,7 +342,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"/nix/store/vqasd7149azyzx5lrga5d4px54zi91h8-source/pkgs/build-support/trivial-builders/default.nix:68",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:68",
 "unfree":false,
 "unsupported":false
 },
@@ -430,7 +431,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"pkgs/dot-tar/default.nix:23",
+"position":"./pkgs/dot-tar/default.nix:23",
 "unfree":false,
 "unsupported":false
 },
@@ -533,7 +534,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/dpt-rp1-py/default.nix:27",
+"position":"./pkgs/dpt-rp1-py/default.nix:27",
 "unfree":false,
 "unsupported":false
 },
@@ -603,7 +604,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/easylpac/default.nix:60",
+"position":"./pkgs/easylpac/default.nix:60",
 "unfree":false,
 "unsupported":false
 },
@@ -719,7 +720,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/emacs-packages/pyim-greatdict/default.nix:15",
+"position":"./pkgs/emacs-packages/pyim-greatdict/default.nix:15",
 "unfree":true,
 "unsupported":false
 },
@@ -760,7 +761,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/fish-plugins/bang-bang/default.nix:11",
+"position":"./pkgs/fish-plugins/bang-bang/default.nix:11",
 "unfree":false,
 "unsupported":false
 },
@@ -801,7 +802,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/fish-plugins/git/default.nix:11",
+"position":"./pkgs/fish-plugins/git/default.nix:11",
 "unfree":false,
 "unsupported":false
 },
@@ -842,7 +843,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/fish-plugins/replay/default.nix:11",
+"position":"./pkgs/fish-plugins/replay/default.nix:11",
 "unfree":false,
 "unsupported":false
 },
@@ -886,7 +887,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"pkgs/icalingua-plus-plus/default.nix:58",
+"position":"./pkgs/icalingua-plus-plus/default.nix:58",
 "unfree":false,
 "unsupported":false
 },
@@ -939,7 +940,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/lpac/default.nix:44",
+"position":"./pkgs/lpac/default.nix:44",
 "unfree":false,
 "unsupported":false
 },
@@ -1007,7 +1008,7 @@
 "aarch64-darwin",
 "armv7a-darwin"
 ],
-"position":"pkgs/matrix-chatgpt-bot/default.nix:53",
+"position":"./pkgs/matrix-chatgpt-bot/default.nix:53",
 "unfree":false,
 "unsupported":false
 },
@@ -1075,7 +1076,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/matrix-media-repo/default.nix:45",
+"position":"./pkgs/matrix-media-repo/default.nix:45",
 "unfree":false,
 "unsupported":false
 },
@@ -1143,7 +1144,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/matrix-qq/default.nix:36",
+"position":"./pkgs/matrix-qq/default.nix:36",
 "unfree":false,
 "unsupported":false
 },
@@ -1211,7 +1212,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/matrix-wechat/default.nix:35",
+"position":"./pkgs/matrix-wechat/default.nix:35",
 "unfree":false,
 "unsupported":false
 },
@@ -1299,7 +1300,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"pkgs/minio-latest/default.nix:70",
+"position":"./pkgs/minio-latest/default.nix:70",
 "unfree":false,
 "unsupported":false
 },
@@ -1388,7 +1389,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"pkgs/mstickereditor/default.nix:31",
+"position":"./pkgs/mstickereditor/default.nix:31",
 "unfree":false,
 "unsupported":false
 },
@@ -1411,7 +1412,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/vqasd7149azyzx5lrga5d4px54zi91h8-source/pkgs/build-support/trivial-builders/default.nix:68",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:68",
 "unfree":false,
 "unsupported":false
 },
@@ -1434,7 +1435,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/vqasd7149azyzx5lrga5d4px54zi91h8-source/pkgs/build-support/trivial-builders/default.nix:68",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:68",
 "unfree":false,
 "unsupported":false
 },
@@ -1502,7 +1503,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/rcon-cli/default.nix:33",
+"position":"./pkgs/rcon-cli/default.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -1570,7 +1571,7 @@
 "aarch64-darwin",
 "armv7a-darwin"
 ],
-"position":"/nix/store/vqasd7149azyzx5lrga5d4px54zi91h8-source/pkgs/development/libraries/librime/default.nix:32",
+"position":"<nixpkgs> + /pkgs/development/libraries/librime/default.nix:32",
 "unfree":false,
 "unsupported":false
 },
@@ -1611,7 +1612,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-bopomofo/default.nix:40",
+"position":"./pkgs/rime-packages/rime-bopomofo/default.nix:40",
 "unfree":false,
 "unsupported":false
 },
@@ -1652,7 +1653,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-cangjie/default.nix:37",
+"position":"./pkgs/rime-packages/rime-cangjie/default.nix:37",
 "unfree":false,
 "unsupported":false
 },
@@ -1704,7 +1705,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-cantonese/default.nix:49",
+"position":"./pkgs/rime-packages/rime-cantonese/default.nix:49",
 "unfree":false,
 "unsupported":false
 },
@@ -1745,7 +1746,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-double-pinyin/default.nix:40",
+"position":"./pkgs/rime-packages/rime-double-pinyin/default.nix:40",
 "unfree":false,
 "unsupported":false
 },
@@ -1786,7 +1787,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-emoji/default.nix:17",
+"position":"./pkgs/rime-packages/rime-emoji/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -1827,7 +1828,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-essay/default.nix:18",
+"position":"./pkgs/rime-packages/rime-essay/default.nix:18",
 "unfree":false,
 "unsupported":false
 },
@@ -1864,22 +1865,22 @@
 "name":"Lin Yinfeng"
 }
 ],
-"name":"rime-ice-7d348f6a48ff1c9c0d232b5b58f8c36544c9705c",
+"name":"rime-ice-d3bbbef8f5696a3afc20ab6736d5e0cbe9b69051",
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-ice/default.nix:115",
+"position":"./pkgs/rime-packages/rime-ice/default.nix:115",
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-7d348f6a48ff1c9c0d232b5b58f8c36544c9705c",
+"name":"rime-ice-d3bbbef8f5696a3afc20ab6736d5e0cbe9b69051",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"rime-ice",
+"pname":"rime-ice-d3bbbef8f5696a3afc20ab6736d5e0cbe9b69051",
 "system":"x86_64-linux",
-"version":"7d348f6a48ff1c9c0d232b5b58f8c36544c9705c"
+"version":""
 },
 "rimePackages.rime-loengfan":{
 "meta":{
@@ -1909,7 +1910,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-loengfan/default.nix:37",
+"position":"./pkgs/rime-packages/rime-loengfan/default.nix:37",
 "unfree":false,
 "unsupported":false
 },
@@ -1950,7 +1951,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-luna-pinyin/default.nix:34",
+"position":"./pkgs/rime-packages/rime-luna-pinyin/default.nix:34",
 "unfree":false,
 "unsupported":false
 },
@@ -1991,7 +1992,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-pinyin-simp/default.nix:34",
+"position":"./pkgs/rime-packages/rime-pinyin-simp/default.nix:34",
 "unfree":false,
 "unsupported":false
 },
@@ -2032,7 +2033,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-prelude/default.nix:18",
+"position":"./pkgs/rime-packages/rime-prelude/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
@@ -2073,7 +2074,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-quick/default.nix:34",
+"position":"./pkgs/rime-packages/rime-quick/default.nix:34",
 "unfree":false,
 "unsupported":false
 },
@@ -2114,7 +2115,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-stroke/default.nix:34",
+"position":"./pkgs/rime-packages/rime-stroke/default.nix:34",
 "unfree":false,
 "unsupported":false
 },
@@ -2155,7 +2156,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-terra-pinyin/default.nix:34",
+"position":"./pkgs/rime-packages/rime-terra-pinyin/default.nix:34",
 "unfree":false,
 "unsupported":false
 },
@@ -2196,7 +2197,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-wubi/default.nix:33",
+"position":"./pkgs/rime-packages/rime-wubi/default.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -2237,7 +2238,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/rime-packages/rime-wugniu/default.nix:33",
+"position":"./pkgs/rime-packages/rime-wugniu/default.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -2259,7 +2260,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/vqasd7149azyzx5lrga5d4px54zi91h8-source/pkgs/build-support/trivial-builders/default.nix:68",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:68",
 "unfree":false,
 "unsupported":false
 },
@@ -2328,7 +2329,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/ssl-handshake/default.nix:33",
+"position":"./pkgs/ssl-handshake/default.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -2417,7 +2418,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"pkgs/swayosd/default.nix:40",
+"position":"./pkgs/swayosd/default.nix:40",
 "unfree":false,
 "unsupported":false
 },
@@ -2520,7 +2521,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/synapse-s3-storage-provider/default.nix:31",
+"position":"./pkgs/synapse-s3-storage-provider/default.nix:31",
 "unfree":false,
 "unsupported":false
 },
@@ -2624,7 +2625,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/telegram-send/default.nix:24",
+"position":"./pkgs/telegram-send/default.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -2714,7 +2715,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"pkgs/tg-send/default.nix:21",
+"position":"./pkgs/tg-send/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
@@ -2755,7 +2756,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/trojan/default.nix:24",
+"position":"./pkgs/trojan/default.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -2787,7 +2788,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/vlmcsd/default.nix:35",
+"position":"./pkgs/vlmcsd/default.nix:35",
 "unfree":false,
 "unsupported":false
 },
@@ -2831,7 +2832,7 @@
 "loongarch64-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/wemeet/default.nix:121",
+"position":"./pkgs/wemeet/default.nix:121",
 "unfree":true,
 "unsupported":false
 },
@@ -2872,7 +2873,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/yacd/default.nix:16",
+"position":"./pkgs/yacd/default.nix:16",
 "unfree":false,
 "unsupported":false
 },
@@ -2961,7 +2962,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"pkgs/zeronsd/default.nix:24",
+"position":"./pkgs/zeronsd/default.nix:24",
 "unfree":false,
 "unsupported":false
 },
