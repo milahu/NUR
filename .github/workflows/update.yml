@@ -13,7 +13,7 @@ jobs:
   update_nur:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         # TODO what does "depth 0" mean? deep clone?
         #fetch-depth: '0'
@@ -29,10 +29,10 @@ jobs:
     #- uses: DeterminateSystems/magic-nix-cache-action@main
     - uses: actions/setup-python@v5
       with:
-        #python-version: '3.10'
+        python-version: '3.10'
         cache: 'pip' # caching pip dependencies
     - run: pip install requests aiohttp
-    - name: update nur / nur-combined
+    - name: update nur
       run: date ; ./ci/update-nur.sh
       env:
         # https://github.com/your_name/NUR/settings/secrets/actions
