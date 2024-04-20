@@ -39,15 +39,15 @@
   };
   candy = {
     pname = "candy";
-    version = "7936ba78c559c60ec3633096863ffd37ec8d0e78";
+    version = "b0b5726a157fb3611db7ada9a7a4b4ac3388f26a";
     src = fetchFromGitHub {
       owner = "lanthora";
       repo = "candy";
-      rev = "7936ba78c559c60ec3633096863ffd37ec8d0e78";
+      rev = "b0b5726a157fb3611db7ada9a7a4b4ac3388f26a";
       fetchSubmodules = false;
-      sha256 = "sha256-ekLf4v0QBRYcnAIuJ4IY8D7MGsMBZNpl/eo2+sUfDOM=";
+      sha256 = "sha256-JwMrgenv3x3bFzN5p7MEvPfQ0QyVJuyWmwvwfnfZ9ns=";
     };
-    date = "2024-04-15";
+    date = "2024-04-19";
   };
   forkgram = {
     pname = "forkgram";
@@ -63,15 +63,15 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "82222342f10a7eff0ec9be972153e740d0f95213";
+    version = "4d0a63523751a590a521fd873f770825023069ae";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "82222342f10a7eff0ec9be972153e740d0f95213";
+      rev = "4d0a63523751a590a521fd873f770825023069ae";
       fetchSubmodules = true;
-      sha256 = "sha256-I5lVMFMtNtMhtewHMxSUJxldnecGmNczDLTGgeH7VMI=";
+      sha256 = "sha256-oyM067Ry1hnx9qt/jntqF94AuvOvT0iQEmac5T0HFfA=";
     };
-    date = "2024-04-17";
+    date = "2024-04-19";
   };
   idntag = {
     pname = "idntag";
@@ -267,16 +267,16 @@
   };
   suyu = {
     pname = "suyu";
-    version = "91db3e88e5329cb3dda250e0827f26ace810abab";
+    version = "dfb9f06e5c46f251e4208adf1d4861e85b1d5eea";
     src = fetchgit {
       url = "https://git.suyu.dev/suyu/suyu";
-      rev = "91db3e88e5329cb3dda250e0827f26ace810abab";
+      rev = "dfb9f06e5c46f251e4208adf1d4861e85b1d5eea";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-JPO11UkBbf5WsIfsoZyOVP8n8jI2H3HF4kSVtkIplp0=";
+      sha256 = "sha256-Jycpnfnx71alnxu+KgnOvaO26diEspx3O1dhA9OGflI=";
     };
-    date = "2024-04-18";
+    date = "2024-04-19";
   };
   sway-im = {
     pname = "sway-im";
