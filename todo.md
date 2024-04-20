@@ -131,6 +131,33 @@ http://www.modulecounts.com/
 
 
 
+## remove nur-eval-results
+
+pro: reduce disk space
+
+con: increase CPU time
+
+nur-eval-results is useful for caching the eval results
+
+without nur-eval-results we would have to eval every repo in every CI run  
+or we would need a smarter update (incremental update) for gh-pages/index.html  
+for example by grouping packages by repo, and by only updating the changed parts
+
+```html
+<table>
+  <tbody id="repo-user1">
+    <tr>...</tr>
+    <tr>...</tr>
+  </tbody>
+  <tbody id="repo-user2">
+    <tr>...</tr>
+    <tr>...</tr>
+  </tbody>
+</table>
+```
+
+
+
 # done
 
 
