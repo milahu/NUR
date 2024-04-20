@@ -17,10 +17,12 @@
   # Alphabetical sorting
   amdgpud           = pkgs.callPackage ./pkgs/amdgpud { };
   amdgpu-clocks     = pkgs.callPackage ./pkgs/amdgpu-clocks { };
+  imhex-bin         = pkgs.callPackage ./pkgs/imhex/appimage.nix { };
   inotify-consumers = pkgs.callPackage ./pkgs/inotify-consumers {};
   lilipod           = pkgs.callPackage ./pkgs/lilipod { };
   memtest-vulkan    = pkgs.callPackage ./pkgs/memtest-vulkan { };
   ntfs2btrfs        = pkgs.callPackage ./pkgs/ntfs2btrfs { };
+  obsidian-bin      = pkgs.callPackage ./pkgs/obsidian/appimage.nix { };
   plank-themes      = pkgs.callPackage ./pkgs/plank-themes { };
   qemu-3dfx         = pkgs.callPackage ./pkgs/qemu-3dfx { };
   rustdesk-bin      = pkgs.callPackage ./pkgs/rustdesk/appimage.nix { };
