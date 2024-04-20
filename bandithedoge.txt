@@ -4,45 +4,9 @@ error:
   at ./pkgs/default.nix:17:21:
 
     16|     dpf-plugins = callPackage' ./dpf-plugins;
-    17|     emacsPackages = callPackages ./emacsPackages;
+    17|     emacsPackages = callPackage' ./emacsPackages;
       |                     ^
     18|     fennel-language-server = callPackage' ./fennel-language-server;
-
-… while calling 'callPackages'
-
-  at ./pkgs/default.nix:8:18:
-
-     7|
-     8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
-      |                  ^
-     9|
-
-… from call site
-
-  at ./pkgs/default.nix:8:23:
-
-     7|
-     8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
-      |                       ^
-     9|
-
-… while calling 'recurseIntoAttrs'
-
-  at <nixpkgs> + /lib/attrsets.nix:1939:5:
-
-  1938|   recurseIntoAttrs =
-  1939|     attrs:
-      |     ^
-  1940|     attrs // { recurseForDerivations = true; };
-
-… from call site
-
-  at ./pkgs/default.nix:8:50:
-
-     7|
-     8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
-      |                                                  ^
-     9|
 
 … while calling 'callPackage''
 
@@ -189,12 +153,12 @@ error:
 
 … while calling 'mapAttrs''
 
-  at <nixpkgs> + /lib/attrsets.nix:1023:5:
+  at <nixpkgs> + /lib/attrsets.nix:1057:5:
 
-  1022|     f:
-  1023|     set:
+  1056|     f:
+  1057|     set:
       |     ^
-  1024|     listToAttrs (map (attr: f attr set.${attr}) (attrNames set));
+  1058|     listToAttrs (map (attr: f attr set.${attr}) (attrNames set));
 
 … from call site
 
