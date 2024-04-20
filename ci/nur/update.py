@@ -452,6 +452,11 @@ def update_command_inner(args: Namespace) -> None:
               return round(f * 1000) / 1000
           eval_result_packages = json.loads(repo.eval_result_packages_json)
           # normalize positions
+          def normalize_paths(s):
+              s = s.replace(str(repo.eval_repo_path), ".")
+              s = s.replace(str(nixpkgs_path), "<nixpkgs> + ")
+              # TODO more?
+              return s
           position_prefix = str(repo.eval_repo_path) + "/"
           for key in eval_result_packages:
               pkg = eval_result_packages[key]
@@ -459,16 +464,15 @@ def update_command_inner(args: Namespace) -> None:
                   continue
               if not "position" in pkg["meta"]:
                   continue
-              pos = pkg["meta"]["position"]
-              if not pos.startswith(position_prefix):
-                  continue
-              pkg["meta"]["position"] = pos[len(position_prefix):]
+              pkg["meta"]["position"] = normalize_paths(pkg["meta"]["position"])
           eval_result = {
               "name": repo.name,
               "fetch_time": round_float(repo.fetch_time),
               "eval_time": round_float(repo.eval_time),
               "source": repo.locked_version.as_json(),
               "source_storepath": str(repo.eval_repo_path),
+              #"nixpkgs_rev": TODO,
+              "nixpkgs_storepath": str(nixpkgs_path),
               "nur_combined_rev": repo.nur_combined_rev,
               "packages": eval_result_packages,
           }
