@@ -336,6 +336,8 @@ git remote add github https://github.com/$USER/nur-packages
 git push github -u main
 ```
 
+see also [scripts/init-nur-packages.sh](scripts/init-nur-packages.sh)
+
 
 
 ### use relative links in generated html, so it also works with github pages
