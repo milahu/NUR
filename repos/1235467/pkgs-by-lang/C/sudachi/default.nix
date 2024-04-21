@@ -121,4 +121,7 @@ stdenv.mkDerivation rec {
   postInstall = ''
     install -Dm444 $src/dist/72-sudachi-input.rules $out/lib/udev/rules.d/72-sudachi-input.rules
   '';
+  meta = with lib; {
+    broken = true;
+  };
 }
