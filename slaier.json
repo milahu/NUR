@@ -1,15 +1,16 @@
 {
 "name":"slaier",
-"fetch_time":0.381,
-"eval_time":0.202,
+"fetch_time":0.683,
+"eval_time":0.219,
 "source":{
 "url":"https://github.com/slaier/nixos-config",
-"rev":"8bbb5a4869660ddcaf206d73bab2ce9856a041e7",
-"sha256":"0qj3h47iy2gydj2nixnr0fz5s61s0s462iw091yvyilxx8lvpxbs",
-"date":null
+"rev":"71889f36d23758c35a0bf9f84b744dd7c4f5ed50",
+"sha256":"1kb9k6pz8czvaqi4dcqp2llqj43zgqcl1jw2yz0bpkx8w81xrn38",
+"date":"2024-04-21T00:13:52Z"
 },
-"source_storepath":"/nix/store/q9kpl014wknvvq4avh1mabg805maq1mz-source",
-"nur_combined_rev":"2c244fb569b93bf1d9890680aae5a00023c13058",
+"source_storepath":"/nix/store/6zzxi6p36amz649fklinnp8yi1vaiw43-source",
+"nixpkgs_storepath":"/nix/store/j82dx2pw58s0rnwm6zr2xvfjz1sj08yy-source",
+"nur_combined_rev":"6123cb2dd61c277a39d698bc3afe970e68ec8991",
 "packages":{
 "vscode-extensions.grafana.vscode-jsonnet":{
 "meta":{
@@ -20,7 +21,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/vqasd7149azyzx5lrga5d4px54zi91h8-source/pkgs/applications/editors/vscode/extensions/vscode-utils.nix:67",
+"position":"<nixpkgs> + /pkgs/applications/editors/vscode/extensions/vscode-utils.nix:67",
 "unfree":false,
 "unsupported":false
 },
@@ -42,7 +43,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/vqasd7149azyzx5lrga5d4px54zi91h8-source/pkgs/applications/editors/vscode/extensions/vscode-utils.nix:67",
+"position":"<nixpkgs> + /pkgs/applications/editors/vscode/extensions/vscode-utils.nix:67",
 "unfree":false,
 "unsupported":false
 },
@@ -75,7 +76,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"modules/firefox/wavefox/package.nix:22",
+"position":"./modules/firefox/wavefox/package.nix:22",
 "unfree":false,
 "unsupported":false
 },

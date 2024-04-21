@@ -1,15 +1,16 @@
 {
 "name":"tarantoj",
-"fetch_time":0.193,
-"eval_time":0.267,
+"fetch_time":0.513,
+"eval_time":0.274,
 "source":{
 "url":"https://github.com/tarantoj/nur-packages",
-"rev":"fc238b793cc5552878030e61b8a3434a3eb3f67a",
-"sha256":"1s71h4xrrszmcv70p8pbacyi52zjj3glf2lv436pcy4q7c268675",
-"date":"2024-04-16T07:29:45Z"
+"rev":"e4d855c6210af3ead0a0d6e6680510fa5a235a32",
+"sha256":"094arhxd7rx5snw92qg9b2qks5hqavbg3wcrylncc74dkm0sy065",
+"date":"2024-04-21T01:34:39Z"
 },
-"source_storepath":"/nix/store/ys6c5i5i9x7jd56mwlwr60r49xvr015m-source",
-"nur_combined_rev":"b1e6bd87984aa3c6e75416ba86dd6556e20ed6f2",
+"source_storepath":"/nix/store/243r01ywr9jnbchqwhjwm1zw9kr3784q-source",
+"nixpkgs_storepath":"/nix/store/j82dx2pw58s0rnwm6zr2xvfjz1sj08yy-source",
+"nur_combined_rev":"0afffbc301fe168574d0ed2dce096de06949d55c",
 "packages":{
 "fw-fanctrl":{
 "meta":{
@@ -67,7 +68,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"pkgs/fw-fanctrl/default.nix:60",
+"position":"./pkgs/fw-fanctrl/default.nix:60",
 "unfree":false,
 "unsupported":false
 },
@@ -84,7 +85,7 @@
 "gitignore":{
 "meta":{
 "homepage":"https://github.com/github/gitignore",
-"position":"pkgs/gitignore/default.nix:5"
+"position":"./pkgs/gitignore/default.nix:5"
 },
 "name":"source",
 "outputName":"out",
@@ -120,7 +121,7 @@
 "x86_64-darwin",
 "x86_64-linux"
 ],
-"position":"pkgs/jetbrains-resharper-cli/default.nix:15",
+"position":"./pkgs/jetbrains-resharper-cli/default.nix:15",
 "unfree":true,
 "unsupported":false
 },
@@ -158,7 +159,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"pkgs/nudelta/default.nix:17",
+"position":"./pkgs/nudelta/default.nix:17",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -266,7 +267,7 @@
 "aarch64-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/yuzu/mainline.nix:170",
+"position":"./pkgs/yuzu/mainline.nix:170",
 "unfree":false,
 "unsupported":false
 },
@@ -368,7 +369,7 @@
 "aarch64-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/yuzu/early-access/default.nix:36",
+"position":"./pkgs/yuzu/early-access/default.nix:36",
 "unfree":false,
 "unsupported":false
 },
