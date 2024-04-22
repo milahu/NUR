@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd "$(dirname "$0")/.."
+
 # no. use relative links with <base href="https://github.com/milahu/NUR/blob/nur-combined/repos/">
 
 #nur_combined_blob_url='https://github.com/milahu/NUR/blob/'
