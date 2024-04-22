@@ -11,6 +11,7 @@ import time
 import cProfile, pstats, io
 from distutils.dir_util import copy_tree
 import shlex
+import json
 
 shlex_join_bak = shlex.join
 def shlex_join(args):
@@ -337,6 +338,19 @@ def update_command_inner(args: Namespace) -> None:
         total_eval_time += repo.eval_time
         total_fetch_time += repo.fetch_time
 
+        eval_result_packages = None
+
+        # treat empty repo as eval error
+        if repo.eval_result_packages_json:
+            eval_result_packages = json.loads(repo.eval_result_packages_json)
+            if len(eval_result_packages) == 0:
+                repo.eval_result_packages_json = None
+                eval_result_packages = None
+                repo.eval_error_version = repo.new_version
+                repo.eval_error_text = (
+                    f"nur.update: no packages in this repo"
+                )
+
         if repo.eval_result_packages_json:
           # eval was successful
 
@@ -447,10 +461,8 @@ def update_command_inner(args: Namespace) -> None:
           #if repo.fetch_time == 0.0:
 
           eval_result_path = EVAL_RESULTS_PATH.joinpath(f"{repo.name}.json")
-          import json
           def round_float(f):
               return round(f * 1000) / 1000
-          eval_result_packages = json.loads(repo.eval_result_packages_json)
           # normalize positions
           def normalize_paths(s):
               s = s.replace(str(repo.eval_repo_path), ".")
