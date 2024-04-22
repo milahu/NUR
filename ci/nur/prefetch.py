@@ -448,6 +448,8 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
     if True:
         github_api_token = os.getenv("GRAPHQL_TOKEN_GITHUB")
         if not github_api_token:
+            github_api_token = os.getenv("API_TOKEN_GITHUB")
+        if not github_api_token:
             logger.info("missing env GRAPHQL_TOKEN_GITHUB, using slow update")
             return
 
