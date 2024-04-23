@@ -25,7 +25,6 @@
 * reflac
 * rescrobbled
 * sakaya
-* swgp-go
 * vkbasalt older version
 * waylyrics
 * kagi-cli-shortcut

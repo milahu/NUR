@@ -39,7 +39,7 @@ rec {
 
   # Go
   open-snell = pkgs.callPackage ./pkgs-by-lang/Go/open-snell { };
-  swgp-go = pkgs.callPackage ./pkgs-by-lang/Go/swgp-go { };
+  #swgp-go = pkgs.callPackage ./pkgs-by-lang/Go/swgp-go { };
 
   # Python
   idntag = pkgs.callPackage ./pkgs-by-lang/Python/idntag { };
@@ -59,7 +59,7 @@ rec {
   #yumekey = pkgs.callPackage ./pkgs-by-lang/C/yumekey {};
   yuzu-early-access = pkgs.qt6.callPackage ./pkgs-by-lang/C/yuzu { };
   nbfc-linux = pkgs.callPackage ./pkgs-by-lang/C/nbfc-linux {};
-  sudachi = pkgs.qt6.callPackage ./pkgs-by-lang/C/sudachi {};
+  #sudachi = pkgs.qt6.callPackage ./pkgs-by-lang/C/sudachi {};
 
   # Shell
   reflac = pkgs.callPackage ./pkgs-by-lang/Shell/reflac { };
