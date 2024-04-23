@@ -1,24 +1,34 @@
 {
 "name":"cryolitia",
-"fetch_time":0.581,
-"eval_time":0.237,
+"fetch_time":0.388,
+"eval_time":0.81,
 "source":{
 "url":"https://github.com/Cryolitia/nur-packages",
-"rev":"e3b06619b323e505111ed371dd764b33aaaa395e",
-"sha256":"03zhj28f86caiv9gkrr976az907hb56nhbl5ph2jbqny55rlyb6j",
+"rev":"67dfc2ab882a77c3e463517fda3a4c3701bcdc7e",
+"sha256":"1s5272qx1p8iv6fqkv4gzpync12s53x9rgsbf503nn1fx2pjk813",
 "date":null
 },
-"source_storepath":"/nix/store/v9v9jv2ci5rsf8w57pgw32drgkddb1hf-source",
-"nixpkgs_storepath":"/nix/store/z4rbswv01zg4hg73y52fayv5cziqg58k-source",
-"nur_combined_rev":"f56f584012c415965601ee41e0db7cda4d24aff7",
+"source_storepath":"/nix/store/jylvxdy36z0h03119x83na9g28jdv2bl-source",
+"nixpkgs_storepath":"/nix/store/0hn8rlw356hi423gplwasalb47b2s4gf-source",
+"nur_combined_rev":"c8abe0ff2e28361263fdee3afda0b5093bb5f15d",
 "packages":{
 "maa-assistant-arknights-nightly":{
 "meta":{
 "available":true,
 "broken":false,
+"buildInputs":null,
+"cmakeFlags":[
+"-DCMAKE_BUILD_TYPE:STRING=None",
+"-DUSE_MAADEPS:BOOL=FALSE",
+"-DBUILD_SHARED_LIBS:BOOL=TRUE",
+"-DINSTALL_RESOURCE:BOOL=TRUE",
+"-DINSTALL_PYTHON:BOOL=TRUE",
+"-DMAA_VERSION:STRING=v5.2.1"
+],
+"insecure":false,
+"meta":{
 "description":"An Arknights assistant",
 "homepage":"https://github.com/MaaAssistantArknights/MaaAssistantArknights",
-"insecure":false,
 "license":{
 "deprecated":false,
 "free":true,
@@ -40,10 +50,6 @@
 ],
 "name":"Beiyan Cryolitia"
 }
-],
-"name":"maa-assistant-arknights-5.2.1",
-"outputsToInstall":[
-"out"
 ],
 "platforms":[
 "aarch64-linux",
@@ -67,10 +73,22 @@
 "s390-linux",
 "s390x-linux",
 "x86_64-linux"
+]
+},
+"name":"maa-assistant-arknights-5.2.1",
+"nativeBuildInputs":null,
+"outputsToInstall":[
+"out"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/ma/maa-assistant-arknights/package.nix:93",
+"passthru":null,
+"pname":"maa-assistant-arknights",
+"position":"<nixpkgs> + /pkgs/by-name/ma/maa-assistant-arknights/package.nix:23",
+"postInstall":"mkdir -p $out/share/maa-assistant-arknights\nmv $out/{Python,resource} $out/share/maa-assistant-arknights\n",
+"postPatch":"substituteInPlace CMakeLists.txt \\\n  --replace-fail 'RUNTIME DESTINATION .' ' ' \\\n  --replace-fail 'LIBRARY DESTINATION .' ' ' \\\n  --replace-fail 'PUBLIC_HEADER DESTINATION .' ' '\n\nsubstituteInPlace CMakeLists.txt \\\n  --replace-fail 'find_package(asio ' '# find_package(asio ' \\\n  --replace-fail 'asio::asio' ' '\n\nshopt -s globstar nullglob\n\nsubstituteInPlace src/MaaCore/**/{*.h,*.cpp,*.hpp,*.cc} \\\n  --replace 'onnxruntime/core/session/' \"\"\nsubstituteInPlace CMakeLists.txt \\\n  --replace-fail 'ONNXRuntime' 'onnxruntime'\n\ncp -v /nix/store/i77x3519gs8ldmlrwahmmklq9ali02yh-fastdeploy-ppocr-0-unstable-2023-10-09-cmake/Findonnxruntime.cmake cmake/\n",
+"src":null,
 "unfree":false,
-"unsupported":false
+"unsupported":false,
+"version":"5.2.1"
 },
 "name":"maa-assistant-arknights-5.2.1",
 "outputName":"out",
