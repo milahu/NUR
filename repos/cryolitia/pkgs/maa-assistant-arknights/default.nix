@@ -1,6 +1,7 @@
 { lib
 , maa-assistant-arknights
 , fetchFromGitHub
+, stdenv
 }:
 
 let
@@ -13,5 +14,9 @@ in
     repo = "MaaAssistantArknights";
     rev = "v${sources.beta.version}";
     sha256 = sources.beta.hash;
+  };
+  # https://github.com/NixOS/nixpkgs/issues/306042
+  meta = oldAttrs // {
+    broken = stdenv.buildPlatform != stdenv.hostPlatform;
   };
 }))
