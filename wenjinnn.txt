@@ -1,0 +1,11 @@
+error:
+… while querying the derivation named 'hiddify-next-1.1.1'
+
+error: undefined variable 'wenjinnn'
+
+at ./pkgs/hiddify-next/default.nix:36:39:
+
+    35|     platforms = [ "x86_64-linux" ];
+    36|     maintainers = with maintainers; [ wenjinnn ];
+      |                                       ^
+    37|     mainProgram = "hiddify";
