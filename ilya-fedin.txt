@@ -1,7 +1,7 @@
 error:
 … from call site
 
-  at /nix/store/aaj3rh23q3dvw33hwwgarfbhjgw4f3cx-source/default.nix:114:40:
+  at ./default.nix:114:40:
 
    113|
    114|   kotatogram-desktop-with-patched-qt = desktop-app.with-patched-qt kotatogram-desktop;
@@ -10,7 +10,7 @@ error:
 
 … while calling 'with-patched-qt'
 
-  at /nix/store/aaj3rh23q3dvw33hwwgarfbhjgw4f3cx-source/default.nix:81:23:
+  at ./default.nix:81:23:
 
     80|
     81|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
@@ -19,7 +19,7 @@ error:
 
 … from call site
 
-  at /nix/store/aaj3rh23q3dvw33hwwgarfbhjgw4f3cx-source/default.nix:81:29:
+  at ./default.nix:81:29:
 
     80|
     81|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
@@ -28,43 +28,43 @@ error:
 
 … while calling 'foldr'
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:53:20:
+  at <nixpkgs> + /lib/lists.nix:121:20:
 
-    52|   */
-    53|   foldr = op: nul: list:
+   120|   */
+   121|   foldr = op: nul: list:
       |                    ^
-    54|     let
+   122|     let
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:60:8:
+  at <nixpkgs> + /lib/lists.nix:128:8:
 
-    59|         else op (elemAt list n) (fold' (n + 1));
-    60|     in fold' 0;
+   127|         else op (elemAt list n) (fold' (n + 1));
+   128|     in fold' 0;
       |        ^
-    61|
+   129|
 
 … while calling 'fold''
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:56:15:
+  at <nixpkgs> + /lib/lists.nix:124:15:
 
-    55|       len = length list;
-    56|       fold' = n:
+   123|       len = length list;
+   124|       fold' = n:
       |               ^
-    57|         if n == len
+   125|         if n == len
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:59:14:
+  at <nixpkgs> + /lib/lists.nix:127:14:
 
-    58|         then nul
-    59|         else op (elemAt list n) (fold' (n + 1));
+   126|         then nul
+   127|         else op (elemAt list n) (fold' (n + 1));
       |              ^
-    60|     in fold' 0;
+   128|     in fold' 0;
 
 … while calling anonymous lambda
 
-  at /nix/store/aaj3rh23q3dvw33hwwgarfbhjgw4f3cx-source/default.nix:81:74:
+  at ./default.nix:81:74:
 
     80|
     81|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
@@ -73,16 +73,16 @@ error:
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+  at <nixpkgs> + /lib/trivial.nix:895:7:
 
-   439|     { # TODO: Should we add call-time "type" checking like built in?
-   440|       __functor = self: f;
+   894|     { # TODO: Should we add call-time "type" checking like built in?
+   895|       __functor = self: f;
       |       ^
-   441|       __functionArgs = args;
+   896|       __functionArgs = args;
 
 … while calling anonymous lambda
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/replace-dependency.nix:20:1:
+  at <nixpkgs> + /pkgs/build-support/replace-dependency.nix:20:1:
 
     19| # (and all of its dependencies) without rebuilding further.
     20| { drv, oldDependency, newDependency, verbose ? true }:
@@ -90,47 +90,47 @@ error:
     21|
 
 … while evaluating derivation 'references.nix'
-  whose name attribute is located at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:352:7
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:331:7
 
 … while evaluating attribute 'exportReferencesGraph' of derivation 'references.nix'
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/replace-dependency.nix:26:59:
+  at <nixpkgs> + /pkgs/build-support/replace-dependency.nix:37:59:
 
-    25|   warn = if verbose then builtins.trace else (x: y: y);
-    26|   references = import (runCommandLocal "references.nix" { exportReferencesGraph = [ "graph" drv ]; } ''
+    36|   warn = if verbose then builtins.trace else (x: y: y);
+    37|   references = import (runCommandLocal "references.nix" { exportReferencesGraph = [ "graph" drv ]; } ''
       |                                                           ^
-    27|     (echo {
+    38|     (echo {
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:59:34:
+  at <nixpkgs> + /lib/lists.nix:127:34:
 
-    58|         then nul
-    59|         else op (elemAt list n) (fold' (n + 1));
+   126|         then nul
+   127|         else op (elemAt list n) (fold' (n + 1));
       |                                  ^
-    60|     in fold' 0;
+   128|     in fold' 0;
 
 … while calling 'fold''
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:56:15:
+  at <nixpkgs> + /lib/lists.nix:124:15:
 
-    55|       len = length list;
-    56|       fold' = n:
+   123|       len = length list;
+   124|       fold' = n:
       |               ^
-    57|         if n == len
+   125|         if n == len
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/lists.nix:59:14:
+  at <nixpkgs> + /lib/lists.nix:127:14:
 
-    58|         then nul
-    59|         else op (elemAt list n) (fold' (n + 1));
+   126|         then nul
+   127|         else op (elemAt list n) (fold' (n + 1));
       |              ^
-    60|     in fold' 0;
+   128|     in fold' 0;
 
 … while calling anonymous lambda
 
-  at /nix/store/aaj3rh23q3dvw33hwwgarfbhjgw4f3cx-source/default.nix:81:74:
+  at ./default.nix:81:74:
 
     80|
     81|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
@@ -139,20 +139,20 @@ error:
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+  at <nixpkgs> + /lib/trivial.nix:895:7:
 
-   439|     { # TODO: Should we add call-time "type" checking like built in?
-   440|       __functor = self: f;
+   894|     { # TODO: Should we add call-time "type" checking like built in?
+   895|       __functor = self: f;
       |       ^
-   441|       __functionArgs = args;
+   896|       __functionArgs = args;
 
 … while calling anonymous lambda
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/replace-dependency.nix:20:1:
+  at <nixpkgs> + /pkgs/build-support/replace-dependency.nix:20:1:
 
     19| # (and all of its dependencies) without rebuilding further.
     20| { drv, oldDependency, newDependency, verbose ? true }:
       | ^
     21|
 
-error: path '/nix/store/v9isgvsnn2y22gc146yfszywq359fj92-references.nix.drv' is not valid
+error: path '/nix/store/r89dz4axjf8lrxx020vlfdvr1iz7qj2r-references.nix.drv' is not valid
