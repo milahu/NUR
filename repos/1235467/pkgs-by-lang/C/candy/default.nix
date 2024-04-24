@@ -19,7 +19,6 @@ let
   sources = pkgs.callPackage ../../../_sources/generated.nix { };
 in
 stdenv.mkDerivation rec {
-  # 指定包名和版本
   inherit (sources.candy) version src;
   pname = "candy";
 #    preConfigure = ''
@@ -45,9 +44,4 @@ stdenv.mkDerivation rec {
   BuildInputs = [
  openssl boost ];
 
-  #cmakeFlags = [
-  #  "-DCMAKE_BUILD_TYPE=Release"
-  #];
-
-  # stdenv.mkDerivation 自动帮你完成其余的步骤
 }

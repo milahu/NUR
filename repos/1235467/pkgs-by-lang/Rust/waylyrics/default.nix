@@ -9,8 +9,8 @@ rustPlatform.buildRustPackage rec
 
   cargoLock.lockFile = "${sources.waylyrics.src}/Cargo.lock";
   cargoLock.outputHashes = {
-    "ncmapi-0.1.13" = "sha256-gwFMmMzQywlsQC2GljgLwXoP2Cca0r24iEDmV0k/xG0=";
-    "qqmusic-rs-0.1.0" = "sha256-woLsO0n+m3EBUI+PRLio7iLp0UPQSliWK0djCSZEaZc=";
+    #"ncmapi-0.1.13" = "sha256-gwFMmMzQywlsQC2GljgLwXoP2Cca0r24iEDmV0k/xG0=";
+    #"qqmusic-rs-0.1.0" = "sha256-woLsO0n+m3EBUI+PRLio7iLp0UPQSliWK0djCSZEaZc=";
   };
 
   nativeBuildInputs = [ pkg-config wrapGAppsHook4 ];

@@ -20,5 +20,6 @@ appimageTools.wrapType2 rec {
   meta = with lib; {
     description = "Hydrogen Music";
     platforms = [ "x86_64-linux" ];
+    license = licenses.mit;
   };
 }
