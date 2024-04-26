@@ -4,27 +4,27 @@ error:
   at ./pkgs/default.nix:17:21:
 
     16|     dpf-plugins = callPackage' ./dpf-plugins;
-    17|     emacsPackages = callPackage' ./emacsPackages;
+    17|     emacsPackages = pkgs.lib.recurseIntoAttrs (pkgs.callPackage ./emacsPackages {});
       |                     ^
     18|     fennel-language-server = callPackage' ./fennel-language-server;
 
-… while calling 'callPackage''
+… while calling 'recurseIntoAttrs'
 
-  at ./pkgs/default.nix:2:18:
+  at <nixpkgs> + /lib/attrsets.nix:1973:5:
 
-     1| {pkgs, ...}: let
-     2|   callPackage' = pkg:
-      |                  ^
-     3|     pkgs.callPackage pkg {
+  1972|   recurseIntoAttrs =
+  1973|     attrs:
+      |     ^
+  1974|     attrs // { recurseForDerivations = true; };
 
 … from call site
 
-  at ./pkgs/default.nix:3:5:
+  at ./pkgs/default.nix:17:48:
 
-     2|   callPackage' = pkg:
-     3|     pkgs.callPackage pkg {
-      |     ^
-     4|       inherit pkgs callPackage';
+    16|     dpf-plugins = callPackage' ./dpf-plugins;
+    17|     emacsPackages = pkgs.lib.recurseIntoAttrs (pkgs.callPackage ./emacsPackages {});
+      |                                                ^
+    18|     fennel-language-server = callPackage' ./fennel-language-server;
 
 … while calling 'callPackageWith'
 
@@ -162,12 +162,12 @@ error:
 
 … from call site
 
-  at ./pkgs/emacsPackages/default.nix:28:6:
+  at ./pkgs/emacsPackages/default.nix:29:6:
 
-    27|       }))
-    28|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+    28|       }))
+    29|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
       |      ^
-    29|   .extend (import ./_overrides.nix {inherit pkgs;})
+    30|   .extend (import ./_overrides.nix {inherit pkgs;})
 
 … while calling 'filterAttrs'
 
@@ -198,21 +198,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/emacsPackages/default.nix:28:31:
+  at ./pkgs/emacsPackages/default.nix:29:31:
 
-    27|       }))
-    28|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+    28|       }))
+    29|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
       |                               ^
-    29|   .extend (import ./_overrides.nix {inherit pkgs;})
+    30|   .extend (import ./_overrides.nix {inherit pkgs;})
 
 … from call site
 
-  at ./pkgs/emacsPackages/default.nix:28:34:
+  at ./pkgs/emacsPackages/default.nix:29:34:
 
-    27|       }))
-    28|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+    28|       }))
+    29|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
       |                                  ^
-    29|   .extend (import ./_overrides.nix {inherit pkgs;})
+    30|   .extend (import ./_overrides.nix {inherit pkgs;})
 
 … while calling 'isStorePath'
 
@@ -295,4 +295,4 @@ error:
       |                           ^
    192|     url,
 
-error: access to URI 'https://github.com/emacs-languagetool/eglot-ltex/archive/b61e36fad79c03ef3c1acc3c3366df7fc223aed8.tar.gz' is forbidden in restricted mode
+error: access to URI 'https://github.com/fargiolas/clangd-inactive-regions.el/archive/3b248e0684b88acb0ea75542d919e67df8baae41.tar.gz' is forbidden in restricted mode
