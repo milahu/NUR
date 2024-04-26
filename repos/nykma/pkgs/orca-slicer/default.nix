@@ -17,11 +17,12 @@ let
 in
 appimageTools.wrapType2 {
   inherit pname version src;
-  name = pname;
 
   extraPkgs = pkgs: with pkgs; [
     webkitgtk
     gst_all_1.gstreamer # For camera streaming. TODO: need test
+    gst_all_1.gst-libav
+    gst_all_1.gst-plugins-bad
   ];
   extraInstallCommands = ''
                          install -m 444 -D ${extractedContents}/OrcaSlicer.desktop $out/share/applications/OrcaSlicer.desktop
