@@ -1,15 +1,16 @@
 {
 "name":"clefru",
-"fetch_time":0.253,
-"eval_time":0.279,
+"fetch_time":0.24,
+"eval_time":0.227,
 "source":{
 "url":"https://github.com/clefru/nur-packages",
-"rev":"03b9c2eea02d06b55310b9c0f9c4448c376ea404",
-"sha256":"0wc2icqa018w0kci9n3xyldrygg91nm5n5k3bmdsfpi5fmm2ns6m",
-"date":"2024-04-16T04:25:29Z"
+"rev":"674204ef52934b2f2bc662ae252aa3b1eb4f1246",
+"sha256":"1l05x39xgq79jd4nmm2v1j5471q0zj68c9ibdlx20z7vx1y45p3m",
+"date":null
 },
-"source_storepath":"/nix/store/d61v92z358c07say037lnjvcmarx3lqf-source",
-"nur_combined_rev":"29d91281fcd9759363aa8e91109d686c5e7e5818",
+"source_storepath":"/nix/store/01dkpsdwh0bxscqknykrh8850zq8bh3b-source",
+"nixpkgs_storepath":"/nix/store/1xkswyy6kzcxqqdbhdn8kihgjmw3c9hd-source",
+"nur_combined_rev":"37e0c734b44fd05ae098c47b5b3494b2af8b25d6",
 "packages":{
 "beam-wallet":{
 "meta":{
@@ -31,7 +32,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/beam/default.nix:36",
+"position":"./pkgs/beam/default.nix:36",
 "unfree":false,
 "unsupported":false
 },
@@ -112,7 +113,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"pkgs/grin/grin.nix:34",
+"position":"./pkgs/grin/grin.nix:34",
 "unfree":false,
 "unsupported":false
 },
@@ -193,7 +194,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"pkgs/grin/grin-miner.nix:36",
+"position":"./pkgs/grin/grin-miner.nix:36",
 "unfree":false,
 "unsupported":false
 },
@@ -225,7 +226,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/gtk-v4l/default.nix:12",
+"position":"./pkgs/gtk-v4l/default.nix:12",
 "unfree":false,
 "unsupported":false
 },
@@ -247,7 +248,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"/nix/store/cpavh1gqb612didi2ymlwp4afiap09s3-source/pkgs/build-support/trivial-builders/default.nix:68",
+"position":"<nixpkgs> + /lib/attrsets.nix:984",
 "unfree":false,
 "unsupported":false
 },
@@ -271,7 +272,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/linux-sgx/default.nix:42",
+"position":"./pkgs/linux-sgx/default.nix:42",
 "unfree":false,
 "unsupported":false
 },
@@ -302,7 +303,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/minionpro/default.nix:98",
+"position":"./pkgs/minionpro/default.nix:98",
 "unfree":true,
 "unsupported":false
 },
@@ -412,7 +413,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/noise-suppression-for-voice/default.nix:19",
+"position":"./pkgs/noise-suppression-for-voice/default.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -436,7 +437,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/parsecgaming/default.nix:62",
+"position":"./pkgs/parsecgaming/default.nix:62",
 "unfree":false,
 "unsupported":false
 },
@@ -537,7 +538,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/quantlib/default.nix:9",
+"position":"./pkgs/quantlib/default.nix:9",
 "unfree":false,
 "unsupported":false
 },
@@ -632,7 +633,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/python-pkgs/quantlib/default.nix:34",
+"position":"./pkgs/python-pkgs/quantlib/default.nix:34",
 "unfree":false,
 "unsupported":false
 },
@@ -742,7 +743,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/rnnoise/default.nix:19",
+"position":"./pkgs/rnnoise/default.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -774,7 +775,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/scanbuttond/default.nix:16",
+"position":"./pkgs/scanbuttond/default.nix:16",
 "unfree":false,
 "unsupported":false
 },
@@ -796,7 +797,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/usbreset/default.nix:4",
+"position":"./pkgs/usbreset/default.nix:4",
 "unfree":false,
 "unsupported":false
 },
