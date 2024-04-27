@@ -1,0 +1,93 @@
+error:
+… while evaluating the file './default.nix':
+
+… from call site
+
+  at ./default.nix:3:21:
+
+     2|                     with import <nixpkgs> {};
+     3|                     import ./evalRepo.nix {
+      |                     ^
+     4|                         name = "eownerdead";
+
+… while calling anonymous lambda
+
+  at ./evalRepo.nix:1:1:
+
+     1| { name
+      | ^
+     2| , url
+
+… from call site
+
+  at ./evalRepo.nix:33:11:
+
+    32|     might result in infinite recursion when used with NixOS modules.
+    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+      |           ^
+    34|
+
+… while calling anonymous lambda
+
+  at ./default.nix:2:1:
+
+     1| # Packages for NUR
+     2| { pkgs ? import <nixpkgs> { } }:
+      | ^
+     3| let
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:2:23:
+
+     1|
+     2| lockFileStr: rootSrc: rootSubdir:
+      |                       ^
+     3|
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:10:13:
+
+     9|     builtins.mapAttrs
+    10|       (key: node:
+      |             ^
+    11|         let
+
+… from call site
+
+  at /call-flake.nix:47:21:
+
+    46|
+    47|           outputs = flake.outputs (inputs // { self = result; });
+      |                     ^
+    48|
+
+… while calling 'outputs'
+
+  at /nix/store/g296kyfbigw4w0qbwy74861gd60mccwk-source/flake.nix:25:13:
+
+    24|
+    25|   outputs = inputs@{ self, parts, ... }:
+      |             ^
+    26|     parts.lib.mkFlake { inherit inputs; } rec {
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:25:25:
+
+    24|           inputs = builtins.mapAttrs
+    25|             (inputName: inputSpec: allNodes.${resolveInput inputSpec})
+      |                         ^
+    26|             (node.inputs or {});
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:10:13:
+
+     9|     builtins.mapAttrs
+    10|       (key: node:
+      |             ^
+    11|         let
+
+error: access to URI 'github:hercules-ci/flake-parts/9126214d0a59633752a136528f5f3b9aa8565b7d' is forbidden in restricted mode
