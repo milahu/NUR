@@ -94,13 +94,13 @@
   };
   lpac = {
     pname = "lpac";
-    version = "v2.0.0";
+    version = "v2.0.1";
     src = fetchFromGitHub {
       owner = "estkme-group";
       repo = "lpac";
-      rev = "v2.0.0";
+      rev = "v2.0.1";
       fetchSubmodules = false;
-      sha256 = "sha256-trOT5g8RhjltUeGDe8zNFuKb//mClvpPm/mC/NgdW4c=";
+      sha256 = "sha256-jIQeNj+WOvPtc1qbcydk8c8PO6x2/AG413RJVB3JnOI=";
     };
   };
   mstickereditor = {
@@ -263,16 +263,16 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "96aba1af5a34a1dceb4aa2c53c8fbe2c0f23b94a";
+    version = "b0c91af4c37f252e8a77264d0a365642e9c8ec71";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "96aba1af5a34a1dceb4aa2c53c8fbe2c0f23b94a";
+      rev = "b0c91af4c37f252e8a77264d0a365642e9c8ec71";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-8Z7Qt5SgpUI7REetLArw2qYCsq1mrzGt82IBK9rqq6A=";
+      sha256 = "sha256-hK8+H9oQH8hvYWBLDLoPUkw8yEiEPFLPKFe06CSSU9w=";
     };
-    date = "2024-04-25";
+    date = "2024-04-26";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
