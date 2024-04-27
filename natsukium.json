@@ -1,15 +1,16 @@
 {
 "name":"natsukium",
-"fetch_time":0.466,
-"eval_time":0.872,
+"fetch_time":0.312,
+"eval_time":0.822,
 "source":{
 "url":"https://github.com/natsukium/nur-packages",
-"rev":"e0dd2fb3e1a9c1192cc2543607124694599b4174",
-"sha256":"1d8w6b8b55xlazjqzf0zynizxja2x9ryk4zxwfr9sy7cydhvawsk",
+"rev":"3067234f4ac3c9258b29548f27f996f49f018762",
+"sha256":"0g6lk7ib1cify55bnzz7y9ybjbpx27fawyz4iiyhl9z8d9pshksd",
 "date":null
 },
-"source_storepath":"/nix/store/22b13f360ymzh3avz5r50v7g29gpf3yx-source",
-"nur_combined_rev":"5a7951155a62923cb1eddb4174e9ee33096a13e8",
+"source_storepath":"/nix/store/c7nn1gh7h2dab68p3fpwswxffhv5wcik-source",
+"nixpkgs_storepath":"/nix/store/v466hqszpfnwv2g57gz5ljf3bq39q8kf-source",
+"nur_combined_rev":"52fc8bf381d0fce4f9e90a5b01ef4a5f03b1922b",
 "packages":{
 "bclm":{
 "meta":{
@@ -51,7 +52,7 @@
 "aarch64-darwin",
 "armv7a-darwin"
 ],
-"position":"pkgs/bclm/default.nix:47",
+"position":"./pkgs/bclm/default.nix:47",
 "unfree":false,
 "unsupported":true
 },
@@ -126,7 +127,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/colima/default.nix:18",
+"position":"./pkgs/colima/default.nix:18",
 "unfree":false,
 "unsupported":false
 },
@@ -162,7 +163,7 @@
 "platforms":[
 "aarch64-darwin"
 ],
-"position":"pkgs/copyq/default.nix:33",
+"position":"./pkgs/copyq/default.nix:33",
 "unfree":false,
 "unsupported":true
 },
@@ -238,7 +239,7 @@
 "aarch64-darwin",
 "armv7a-darwin"
 ],
-"position":"pkgs/emacs-plus/default.nix:20",
+"position":"./pkgs/emacs-plus/default.nix:20",
 "unfree":false,
 "unsupported":true
 },
@@ -317,7 +318,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"pkgs/data/fonts/liga-hackgen/default.nix:40",
+"position":"./pkgs/data/fonts/liga-hackgen/default.nix:40",
 "unfree":false,
 "unsupported":false
 },
@@ -396,7 +397,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"pkgs/data/fonts/liga-hackgen/default.nix:40",
+"position":"./pkgs/data/fonts/liga-hackgen/default.nix:40",
 "unfree":false,
 "unsupported":false
 },
@@ -475,7 +476,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"pkgs/ligaturizer/default.nix:43",
+"position":"./pkgs/ligaturizer/default.nix:43",
 "unfree":false,
 "unsupported":false
 },
@@ -505,7 +506,7 @@
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
 "mainProgram":"nixfmt",
-"name":"nixfmt-0.6.0-rfc-2024-04-16",
+"name":"nixfmt-0.6.0-rfc-2024-04-19",
 "outputsToInstall":[
 "bin"
 ],
@@ -586,11 +587,11 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/development/haskell-modules/hackage-packages.nix:216118",
+"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:216236",
 "unfree":false,
 "unsupported":false
 },
-"name":"nixfmt-0.6.0-rfc-2024-04-16",
+"name":"nixfmt-0.6.0-rfc-2024-04-19",
 "outputName":"bin",
 "outputs":{
 "bin":null,
@@ -599,7 +600,7 @@
 },
 "pname":"nixfmt",
 "system":"x86_64-linux",
-"version":"0.6.0-rfc-2024-04-16"
+"version":"0.6.0-rfc-2024-04-19"
 },
 "nixpkgs-review":{
 "meta":{
@@ -706,7 +707,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/nixpkgs-review/default.nix:19",
+"position":"./pkgs/nixpkgs-review/default.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -746,7 +747,7 @@
 "aarch64-darwin",
 "armv7a-darwin"
 ],
-"position":"pkgs/nowplaying-cli/default.nix:21",
+"position":"./pkgs/nowplaying-cli/default.nix:21",
 "unfree":false,
 "unsupported":true
 },
@@ -802,7 +803,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/psipred/default.nix:38",
+"position":"./pkgs/psipred/default.nix:38",
 "unfree":false,
 "unsupported":false
 },
@@ -841,7 +842,7 @@
 "aarch64-darwin",
 "armv7a-darwin"
 ],
-"position":"pkgs/qmk-toolbox/default.nix:26",
+"position":"./pkgs/qmk-toolbox/default.nix:26",
 "unfree":false,
 "unsupported":true
 },
@@ -880,7 +881,7 @@
 "aarch64-darwin",
 "armv7a-darwin"
 ],
-"position":"pkgs/qutebrowser/default.nix:23",
+"position":"./pkgs/qutebrowser/default.nix:23",
 "unfree":false,
 "unsupported":true
 },
@@ -982,7 +983,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/rofi-rbw/default.nix:14",
+"position":"./pkgs/rofi-rbw/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -1022,7 +1023,7 @@
 "aarch64-darwin",
 "armv7a-darwin"
 ],
-"position":"pkgs/sbarlua/default.nix:23",
+"position":"./pkgs/sbarlua/default.nix:23",
 "unfree":false,
 "unsupported":true
 },
@@ -1097,7 +1098,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/vim-startuptime/default.nix:25",
+"position":"./pkgs/vim-startuptime/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -1207,7 +1208,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/vim-plugins/skkeleton/default.nix:14",
+"position":"./pkgs/vim-plugins/skkeleton/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -1317,7 +1318,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/vim-plugins/vim-edgemotion/default.nix:20",
+"position":"./pkgs/vim-plugins/vim-edgemotion/default.nix:20",
 "unfree":false,
 "unsupported":false
 },
@@ -1396,7 +1397,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"pkgs/vim-plugins/vim-pydocstring/default.nix:26",
+"position":"./pkgs/vim-plugins/vim-pydocstring/default.nix:26",
 "unfree":false,
 "unsupported":false
 },
@@ -1436,7 +1437,7 @@
 "name":"Tomoya Otabi"
 }
 ],
-"name":"vivaldi-6.6.3271.61",
+"name":"vivaldi-6.7.3329.17",
 "outputsToInstall":[
 "out"
 ],
@@ -1446,18 +1447,18 @@
 "aarch64-darwin",
 "armv7a-darwin"
 ],
-"position":"pkgs/vivaldi/default.nix:28",
+"position":"./pkgs/vivaldi/default.nix:28",
 "unfree":true,
 "unsupported":true
 },
-"name":"vivaldi-6.6.3271.61",
+"name":"vivaldi-6.7.3329.17",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vivaldi",
 "system":"x86_64-linux",
-"version":"6.6.3271.61"
+"version":"6.7.3329.17"
 }
 }
 }

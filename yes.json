@@ -1,15 +1,16 @@
 {
 "name":"yes",
-"fetch_time":0.457,
-"eval_time":0.272,
+"fetch_time":0.346,
+"eval_time":0.249,
 "source":{
 "url":"https://github.com/SamLukeYes/nix-custom-packages",
-"rev":"1bd4fbe63081c1f3f9e106c7732bf620f27b4aab",
-"sha256":"1fgmz7lqvr26y85yn0kwndk1pbv7az8kha47g92qk3l78qg1pjg3",
+"rev":"63c8673d5830989fc07b5a312fabbee19dcfe858",
+"sha256":"0s7hcsxx7388aj84kgzchzm27qpl4l4l6qm7877g3rywksay16mv",
 "date":null
 },
-"source_storepath":"/nix/store/ix4zl75wkrfii9rl9f94kx61rjy5cp0f-source",
-"nur_combined_rev":"12e025866ccfcf93abb076570bb26ed8dac46eb4",
+"source_storepath":"/nix/store/hikadhzpl1qjh0dya6najwhbbzvl4r2d-source",
+"nixpkgs_storepath":"/nix/store/v466hqszpfnwv2g57gz5ljf3bq39q8kf-source",
+"nur_combined_rev":"25d043454f8677c855401a9afa6bc733cf0b0d77",
 "packages":{
 "iptux":{
 "meta":{
@@ -79,7 +80,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"iptux/default.nix:42",
+"position":"./iptux/default.nix:42",
 "unfree":false,
 "unsupported":false
 },
@@ -112,7 +113,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"ludii/default.nix:48",
+"position":"./ludii/default.nix:48",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -170,7 +171,7 @@
 "aarch64-darwin",
 "armv7a-darwin"
 ],
-"position":"nodePackages/node-packages.nix:2670",
+"position":"./nodePackages/node-packages.nix:2670",
 "unfree":false,
 "unsupported":false
 },
@@ -220,11 +221,6 @@
 "github":"cko",
 "githubId":68239,
 "name":"Christine Koppelt"
-},
-{
-"github":"marsam",
-"githubId":65531,
-"name":"Mario Rodas"
 }
 ],
 "name":"nodejs-18.20.2",
@@ -258,7 +254,7 @@
 "aarch64-darwin",
 "armv7a-darwin"
 ],
-"position":"/nix/store/rj1iwgjwgspnvskh6b32hhng9lfghh5l-source/pkgs/development/web/nodejs/v18.nix:22",
+"position":"<nixpkgs> + /pkgs/development/web/nodejs/v18.nix:22",
 "unfree":false,
 "unsupported":false
 },
@@ -311,7 +307,7 @@
 "aarch64-darwin",
 "armv7a-darwin"
 ],
-"position":"nodePackages/node-packages.nix:2937",
+"position":"./nodePackages/node-packages.nix:2937",
 "unfree":false,
 "unsupported":false
 },
@@ -347,7 +343,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"wechat-devtools/default.nix:34",
+"position":"./wechat-devtools/default.nix:33",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -448,7 +444,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"xonsh-direnv/default.nix:17",
+"position":"./xonsh-direnv/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
