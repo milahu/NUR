@@ -21,7 +21,9 @@ checkActive() {
       systemctl is-active "$service.service" > /dev/null && echo true || echo false
       ;;
     s6)
-      s6-svstat -o wantedup "$XDG_RUNTIME_DIR/s6/live/servicedirs/$service"
+      # simulate a dry-run start. if no actions would be performed, then the service is up.
+      # alternative is s6-svstat, but that doesn't support oneshots
+      test -z "$(s6-rc -n 0 -b start "$service")" && echo true || echo false
       ;;
   esac
 }
@@ -32,7 +34,7 @@ startService() {
       /run/wrappers/bin/sudo systemctl start "$service"
       ;;
     s6)
-      s6-rc start "$service"
+      s6-rc -b start "$service"
       ;;
   esac
 }
@@ -43,7 +45,7 @@ stopService() {
       /run/wrappers/bin/sudo systemctl stop "$service"
       ;;
     s6)
-      s6-rc stop "$service"
+      s6-rc -b stop "$service"
       ;;
   esac
 }

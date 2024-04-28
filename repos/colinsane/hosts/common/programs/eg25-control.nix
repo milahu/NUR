@@ -1,9 +1,11 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   cfg = config.sane.programs.eg25-control;
 in
 {
   sane.programs.eg25-control = {
+    suggestedPrograms = [ "modemmanager" ];
+
     services.eg25-control-powered = {
       description = "eg25-control-powered: power to the Qualcomm eg25 modem used by PinePhone";
       startCommand = "eg25-control --power-on --verbose";
@@ -45,6 +47,7 @@ in
     requires = [ "network-online.target" ];
     # wantedBy = [ "network-online.target" ]; # auto-start immediately after boot
   };
+
   users = lib.mkIf cfg.enabled {
     groups.eg25-control = {};
     users.eg25-control = {
@@ -61,4 +64,11 @@ in
     # to persist agps data, i think.
     { user = "eg25-control"; group = "eg25-control"; path = "/var/lib/eg25-control"; }
   ];
+  services.udev.extraRules = let
+    chmod = "${pkgs.coreutils}/bin/chmod";
+    chown = "${pkgs.coreutils}/bin/chown";
+  in ''
+    # make Modem controllable by user
+    DRIVER=="modem-power", RUN+="${chmod} g+w /sys%p/powered", RUN+="${chown} :networkmanager /sys%p/powered"
+  '';
 }

@@ -8,13 +8,12 @@
 
 let
   pname = "browserpass-extension";
-  version = "3.7.2-2023-06-18";
+  version = "3.8.0";
   src = fetchFromGitHub {
     owner = "browserpass";
     repo = "browserpass-extension";
-    # rev = version;
-    rev = "858cc821d20df9102b8040b78d79893d4b7af352";
-    hash = "sha256-m1JmwAKsYyfKLYbtfBn3IKT48Af5Az34BXmJQ1tYaz4=";
+    rev = version;
+    hash = "sha256-7mGOqJh7TzaPLHoYoD6KD72xqaFR0+54Bi5VEHspwFE=";
   };
   # src = fetchFromGitea {
   #   domain = "git.uninsane.org";
@@ -29,8 +28,6 @@ let
     pname = "${pname}-modules";
     packageJSON = ./package.json;
     yarnLock = ./yarn.lock;
-    # yarnNix is auto-generated. to update: leave unset, then query the package deps and copy it out of the store.
-    yarnNix = ./yarn.nix;
     # the following also works, but because it's IFD it's not allowed by some users, like NUR.
     # packageJSON = "${src}/src/package.json";
     # yarnLock = "${src}/src/yarn.lock";

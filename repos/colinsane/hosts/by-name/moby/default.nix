@@ -116,14 +116,6 @@
   # enable rotation sensor
   hardware.sensor.iio.enable = true;
 
-  # TODO: move elsewhere...
-  systemd.services.ModemManager.serviceConfig = {
-    # N.B.: the extra "" in ExecStart serves to force upstream ExecStart to be ignored
-    ExecStart = [ "" "${pkgs.modemmanager}/bin/ModemManager --debug" ];
-    # --debug sets DEBUG level logging: so reset
-    ExecStartPost = [ "${pkgs.modemmanager}/bin/mmcli --set-logging=INFO" ];
-  };
-
   services.udev.extraRules = let
     chmod = "${pkgs.coreutils}/bin/chmod";
     chown = "${pkgs.coreutils}/bin/chown";
@@ -134,8 +126,5 @@
 
     # make Pinephone front LEDs writable by user.
     SUBSYSTEM=="leds", DEVPATH=="*/*:indicator", RUN+="${chmod} g+w /sys%p/brightness", RUN+="${chown} :video /sys%p/brightness"
-
-    # make Modem controllable by user
-    DRIVER=="modem-power", RUN+="${chmod} g+w /sys%p/powered", RUN+="${chown} :networkmanager /sys%p/powered"
   '';
 }

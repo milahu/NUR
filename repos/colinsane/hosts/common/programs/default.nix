@@ -74,11 +74,13 @@
     ./megapixels.nix
     ./mepo.nix
     ./mimeo
+    ./modemmanager.nix
     ./mopidy.nix
     ./mpv
     ./msmtp.nix
     ./nautilus.nix
     ./neovim.nix
+    ./networkmanager.nix
     ./newsflash.nix
     ./nheko.nix
     ./nicotine-plus.nix
@@ -130,6 +132,7 @@
     ./wine.nix
     ./wireplumber.nix
     ./wireshark.nix
+    ./wpa_supplicant.nix
     ./wvkbd.nix
     ./xarchiver.nix
     ./xdg-desktop-portal.nix

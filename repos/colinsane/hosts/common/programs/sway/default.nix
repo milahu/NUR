@@ -130,6 +130,7 @@ in
       "fontconfig"
       # "gnome.gnome-bluetooth"  # XXX(2023/05/14): broken
       # "gnome.gnome-control-center"  # XXX(2023/06/28): depends on webkitgtk4_1
+      "networkmanager"
       "pipewire"
       "playerctl"  # for waybar & particularly to have playerctld running
       "rofi"  # menu/launcher
@@ -258,7 +259,6 @@ in
 
 
   # TODO: this can go elsewhere
-  networking.networkmanager.enable = lib.mkIf cfg.enabled true;
   hardware.bluetooth.enable = lib.mkIf cfg.enabled true;
   services.blueman.enable = lib.mkIf cfg.enabled true;
 

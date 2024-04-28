@@ -68,7 +68,7 @@ let
   # - "longrun"
   # - "bundle"
   # - "oneshot"?
-  serviceToFs = { name, check, contents, depends, finish, run, type }: let
+  serviceToFs = { name, check, contents, depends, down, finish, run, up, type }: let
     logger = serviceToFs' {
       name = "logger:${name}";
       consumerFor = name;
@@ -76,10 +76,11 @@ let
       type = "longrun";
     };
   in (serviceToFs' {
-    inherit name check depends finish run type;
+    inherit name check depends down finish run type up;
     contents = maybe (type == "bundle") contents;
-    producerFor = maybe (type != "bundle") "logger:${name}";
-  }) // (lib.optionalAttrs (type != "bundle") logger);
+    # XXX: apparently `oneshot` services can't have loggers: only `longrun` can log.
+    producerFor = maybe (type == "longrun") "logger:${name}";
+  }) // (lib.optionalAttrs (type == "longrun") logger);
 
   serviceToFs'= {
     name,
@@ -88,11 +89,44 @@ let
     consumerFor ? null,
     contents ? null,  #< bundle contents
     depends ? [],
+    up ? null,
     finish ? null,
     producerFor ? null,
     run ? null,
+    down ? null,
   }: let
     maybe-notify = lib.optionalString (check != null) "s6-notifyoncheck -n 0 ";
+    makeAbortable = op: maybe-notify: cli: ''
+      #!/bin/sh
+      log() {
+        printf 's6[%s/%s]: %s\n' '${name}' '${op}' "$1" | tee /dev/stderr
+      }
+      log "preparing"
+
+      # s6 is too gentle when i ask it to stop a service,
+      # so explicitly kill children on exit.
+      # see: <https://stackoverflow.com/a/2173421>
+      # before changing this, test that the new version actually kills a service with `s6-rc down <svcname>`
+      down() {
+        log "trapped on abort signal"
+        # "trap -": to avoid recursing
+        trap - SIGINT SIGQUIT SIGTERM
+        log "killing process group"
+        # "kill 0" means kill the current process group (i.e. all descendants)
+        kill 0
+        exit 0
+      }
+      trap down SIGINT SIGQUIT SIGTERM
+
+      log "handoff"
+      # run the service from $HOME by default.
+      # particularly, this impacts things like "what directory does my terminal open in".
+      # N.B. do not run the notifier from $HOME, else it won't know where to find the `data/check` program.
+      # N.B. must be run with `&` + `wait`, else we lose the ability to `trap`.
+      ${maybe-notify}env --chdir="$HOME" ${cli} <&0 &
+      wait
+      log "exiting"
+    '';
   in {
     "${name}".dir = {
       "type".text = type;
@@ -117,37 +151,11 @@ let
       '';
       "notification-fd".text = maybe (check != null) "3";
       "producer-for".text = maybe (producerFor != null) producerFor;
-      "run".executable = maybe (run != null) ''
-        #!/bin/sh
-        log() {
-          printf 's6[%s]: %s\n' '${name}' "$1" | tee /dev/stderr
-        }
-        log "preparing"
-
-        # s6 is too gentle when i ask it to stop a service,
-        # so explicitly kill children on exit.
-        # see: <https://stackoverflow.com/a/2173421>
-        # before changing this, test that the new version actually kills a service with `s6-rc down <svcname>`
-        down() {
-          log "trapped on abort signal"
-          # "trap -": to avoid recursing
-          trap - SIGINT SIGQUIT SIGTERM
-          log "killing process group"
-          # "kill 0" means kill the current process group (i.e. all descendants)
-          kill 0
-          exit 0
-        }
-        trap down SIGINT SIGQUIT SIGTERM
-
-        log "starting"
-        # run the service from $HOME by default.
-        # particularly, this impacts things like "what directory does my terminal open in".
-        # N.B. do not run the notifier from $HOME, else it won't know where to find the `data/check` program.
-        # N.B. must be run with `&` + `wait`, else we lose the ability to `trap`.
-        ${maybe-notify}env --chdir="$HOME" ${run} <&0 &
-        wait
-        log "exiting"
-      '';
+      "run".executable = maybe (run != null) (makeAbortable "run" maybe-notify run);
+      # oneshot transitions are stored inline in the database, and so can't use #!/bin/sh so easily
+      "down".text = maybe (down != null) down;
+      "up".text = maybe (up != null) up;
+      # "up".executable = maybe (up != null) (makeAbortable "up" "" up);
     };
   };
 
@@ -212,7 +220,8 @@ let
       --replace-fail 's6-fdholder-daemon -1 -i data/rules -- s' 's6-fdholder-daemon -1 -i data/rules -- ${livedir}/servicedirs/s6rc-fdholder/s' \
       --replace-fail 's6-ipcclient -l0 -- s' 's6-ipcclient -l0 -- ${livedir}/servicedirs/s6rc-fdholder/s'
     substituteInPlace "s6rc-oneshot-runner/run" \
-      --replace-fail 's6-ipcserver-socketbinder -- s' 's6-ipcserver-socketbinder -- ${livedir}/servicedirs/s6rc-oneshot-runner/s'
+      --replace-fail 's6-ipcserver-socketbinder -- s' 's6-ipcserver-socketbinder -- ${livedir}/servicedirs/s6rc-oneshot-runner/s' \
+      --replace-fail 's6-rc-oneshot-run -l ../.. ' 's6-rc-oneshot-run -l ${livedir} '
     ln -s "${livedir}/servicedirs/s6rc-fdholder/s" s6rc-fdholder/s
     ln -s "${livedir}/servicedirs/s6rc-fdholder/s.lock" s6rc-fdholder/s.lock
     ln -s "${livedir}/servicedirs/s6rc-oneshot-runner/s" s6rc-oneshot-runner/s
@@ -233,14 +242,17 @@ let
       depends = service.depends ++ builtins.attrNames (
         lib.filterAttrs (_: cfg: lib.elem name cfg.dependencyOf) services
       );
-      finish = service.cleanupCommand;
-      inherit (if service.startCommand != null then
-          { type="oneshot"; run = service.startCommand; }
-        else if service.command != null then
-          { type="longshot"; run = service.command; }
-        else
-          { type="bundle"; run = null; }
-      ) type run;
+      down = maybe (type == "oneshot") service.cleanupCommand;
+      finish = maybe (type == "longrun") service.cleanupCommand;
+      run = service.command;
+      up = service.startCommand;
+      type = if service.startCommand != null then
+        "oneshot"
+      else if service.command != null then
+        "longrun"
+      else
+        "bundle"
+      ;
     })
     services
   ;
