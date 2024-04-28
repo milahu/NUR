@@ -1,16 +1,16 @@
 {
 "name":"mloeper",
-"fetch_time":0.46,
-"eval_time":0.261,
+"fetch_time":0.259,
+"eval_time":0.259,
 "source":{
 "url":"https://github.com/MartinLoeper/nur",
-"rev":"3d470567ce962b166487e5dab24fac326835e472",
-"sha256":"10fbpjzd8fjzgp247hxvj2d71zdcgqfbnk3xbm2r87gj7gyrh1al",
-"date":null
+"rev":"308924cbc16028e1783d761b5483b1d4cdeeebd6",
+"sha256":"1kcd9y8jx4fdz991ykrjr75lsdpplgf6qz3xfkkdfjc1wzak02y4",
+"date":"2024-04-27T20:40:43Z"
 },
-"source_storepath":"/nix/store/mj0pspd8nggmjbwwwrnwps2p2pfdf97p-source",
-"nixpkgs_storepath":"/nix/store/v466hqszpfnwv2g57gz5ljf3bq39q8kf-source",
-"nur_combined_rev":"34e1faf8b19f5a6c394d2c0859845598010076d0",
+"source_storepath":"/nix/store/28cx83azjwk8865mi4x06ddnis0ylddq-source",
+"nixpkgs_storepath":"/nix/store/nvpxncbpwmdxs4nnjdgyxphzdzpc8db8-source",
+"nur_combined_rev":"696f05e32635e058248801f74de5dbe8e99a1cc1",
 "packages":{
 "atlas-cli":{
 "meta":{
@@ -88,6 +88,9 @@
 },
 "cli-microsoft365":{
 "meta":{
+"aliases":[
+"m365"
+],
 "available":true,
 "broken":false,
 "description":"CLI for Microsoft 365",
@@ -111,7 +114,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/cli-microsoft365/default.nix:50",
+"position":"./pkgs/cli-microsoft365/default.nix:54",
 "unfree":false,
 "unsupported":false
 },
