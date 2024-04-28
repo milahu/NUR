@@ -1,0 +1,1154 @@
+error:
+… while evaluating the file './default.nix':
+
+… from call site
+
+  at ./default.nix:3:21:
+
+     2|                     with import <nixpkgs> {};
+     3|                     import ./evalRepo.nix {
+      |                     ^
+     4|                         name = "nix-geht";
+
+… while calling anonymous lambda
+
+  at ./evalRepo.nix:1:1:
+
+     1| { name
+      | ^
+     2| , url
+
+… from call site
+
+  at ./evalRepo.nix:33:11:
+
+    32|     might result in infinite recursion when used with NixOS modules.
+    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+      |           ^
+    34|
+
+… while calling anonymous lambda
+
+  at ./default.nix:1:1:
+
+     1| {
+      | ^
+     2|   system ? builtins.currentSystem,
+
+… from call site
+
+  at ./default.nix:11:13:
+
+    10|
+    11|   newpkgs = pkgs.extend metaOverlay;
+      |             ^
+    12|
+
+… while calling 'extend'
+
+  at <nixpkgs> + /pkgs/top-level/stage.nix:272:14:
+
+   271|     # Prefer appendOverlays if used repeatedly.
+   272|     extend = f: self.appendOverlays [f];
+      |              ^
+   273|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/stage.nix:272:17:
+
+   271|     # Prefer appendOverlays if used repeatedly.
+   272|     extend = f: self.appendOverlays [f];
+      |                 ^
+   273|
+
+… while calling 'appendOverlays'
+
+  at <nixpkgs> + /pkgs/top-level/stage.nix:260:22:
+
+   259|     # in one go when calling Nixpkgs, for performance and simplicity.
+   260|     appendOverlays = extraOverlays:
+      |                      ^
+   261|       if extraOverlays == []
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/stage.nix:263:12:
+
+   262|       then self
+   263|       else nixpkgsFun { overlays = args.overlays ++ extraOverlays; };
+      |            ^
+   264|
+
+… while calling 'nixpkgsFun'
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:128:16:
+
+   127|   # experience here.)
+   128|   nixpkgsFun = newArgs: import ./. (args // newArgs);
+      |                ^
+   129|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:128:25:
+
+   127|   # experience here.)
+   128|   nixpkgsFun = newArgs: import ./. (args // newArgs);
+      |                         ^
+   129|
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:19:1:
+
+    18|
+    19| { # The system packages will be built on. See the manual for the
+      | ^
+    20|   # subtle division of labor between these two `*System`s and the three
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:144:4:
+
+   143|
+   144| in checked pkgs
+      |    ^
+   145|
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:58:108:
+
+    57|     throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list."
+    58|     lib.foldr (x: throwIfNot (lib.isFunction x) "All crossOverlays passed to nixpkgs must be functions.") (r: r) crossOverlays
+      |                                                                                                            ^
+    59|     ;
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:142:10:
+
+   141|
+   142|   pkgs = boot stages;
+      |          ^
+   143|
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:42:1:
+
+    41| # other words, this does a foldr not foldl.
+    42| stageFuns: let
+      | ^
+    43|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:142:4:
+
+   141|
+   142| in dfold folder postStage (_: {}) withAllowCustomOverrides
+      |    ^
+   143|
+
+… while calling 'dfold'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:60:27:
+
+    59|   */
+    60|   dfold = op: lnul: rnul: list:
+      |                           ^
+    61|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:72:13:
+
+    71|       lapp = lnul cur;
+    72|       cur = go lapp 0;
+      |             ^
+    73|     in cur;
+
+… while calling 'go'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:63:18:
+
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:68:18:
+
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
+
+… while calling 'folder'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:89:33:
+
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:90:12:
+
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:79:23:
+
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:84:11:
+
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:689:4:
+
+   688|   # This "no-op" stage is just a place to put the assertions about stage5.
+   689|   (prevStage:
+      |    ^
+   690|     # previous stage5 stdenv; see stage3 comment regarding gcc,
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:692:12:
+
+   691|     # which applies here as well.
+   692|     assert isBuiltByNixpkgsCompiler prevStage.binutils-unwrapped;
+      |            ^
+   693|     assert isBuiltByNixpkgsCompiler prevStage.${localSystem.libc};
+
+… while calling 'isBuiltByNixpkgsCompiler'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:108:5:
+
+   107|   isBuiltByNixpkgsCompiler =
+   108|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |     ^
+   109|   isBuiltByBootstrapFilesCompiler =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:108:10:
+
+   107|   isBuiltByNixpkgsCompiler =
+   108|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |          ^
+   109|   isBuiltByBootstrapFilesCompiler =
+
+… while calling 'isFromNixpkgs'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:104:19:
+
+   103|
+   104|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                   ^
+   105|   isFromBootstrapFiles =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:104:26:
+
+   103|
+   104|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                          ^
+   105|   isFromBootstrapFiles =
+
+… while calling 'isFromBootstrapFiles'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:106:5:
+
+   105|   isFromBootstrapFiles =
+   106|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   107|   isBuiltByNixpkgsCompiler =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:69:18:
+
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
+
+… while calling 'go'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:63:18:
+
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:68:18:
+
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
+
+… while calling 'folder'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:89:33:
+
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:90:12:
+
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:79:23:
+
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:84:11:
+
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:595:4:
+
+   594|   #
+   595|   (prevStage:
+      |    ^
+   596|     # previous stage4 stdenv; see stage3 comment regarding gcc,
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:598:12:
+
+   597|     # which applies here as well.
+   598|     assert isBuiltByNixpkgsCompiler prevStage.binutils-unwrapped;
+      |            ^
+   599|     assert isBuiltByNixpkgsCompiler prevStage.${localSystem.libc};
+
+… while calling 'isBuiltByNixpkgsCompiler'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:108:5:
+
+   107|   isBuiltByNixpkgsCompiler =
+   108|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |     ^
+   109|   isBuiltByBootstrapFilesCompiler =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:108:10:
+
+   107|   isBuiltByNixpkgsCompiler =
+   108|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |          ^
+   109|   isBuiltByBootstrapFilesCompiler =
+
+… while calling 'isFromNixpkgs'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:104:19:
+
+   103|
+   104|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                   ^
+   105|   isFromBootstrapFiles =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:104:26:
+
+   103|
+   104|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                          ^
+   105|   isFromBootstrapFiles =
+
+… while calling 'isFromBootstrapFiles'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:106:5:
+
+   105|   isFromBootstrapFiles =
+   106|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   107|   isBuiltByNixpkgsCompiler =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:69:18:
+
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
+
+… while calling 'go'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:63:18:
+
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:68:18:
+
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
+
+… while calling 'folder'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:89:33:
+
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:90:12:
+
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:79:23:
+
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:84:11:
+
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:539:4:
+
+   538|   #
+   539|   (prevStage:
+      |    ^
+   540|     # previous stage3 stdenv:
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:541:12:
+
+   540|     # previous stage3 stdenv:
+   541|     assert isBuiltByNixpkgsCompiler prevStage.binutils-unwrapped;
+      |            ^
+   542|     assert isBuiltByNixpkgsCompiler prevStage.${localSystem.libc};
+
+… while calling 'isBuiltByNixpkgsCompiler'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:108:5:
+
+   107|   isBuiltByNixpkgsCompiler =
+   108|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |     ^
+   109|   isBuiltByBootstrapFilesCompiler =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:108:10:
+
+   107|   isBuiltByNixpkgsCompiler =
+   108|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |          ^
+   109|   isBuiltByBootstrapFilesCompiler =
+
+… while calling 'isFromNixpkgs'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:104:19:
+
+   103|
+   104|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                   ^
+   105|   isFromBootstrapFiles =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:104:26:
+
+   103|
+   104|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                          ^
+   105|   isFromBootstrapFiles =
+
+… while calling 'isFromBootstrapFiles'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:106:5:
+
+   105|   isFromBootstrapFiles =
+   106|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   107|   isBuiltByNixpkgsCompiler =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:69:18:
+
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
+
+… while calling 'go'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:63:18:
+
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:68:18:
+
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
+
+… while calling 'folder'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:89:33:
+
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:90:12:
+
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:79:23:
+
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:84:11:
+
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:497:4:
+
+   496|   # binutils and rest of the bootstrap tools, including GCC.
+   497|   (prevStage:
+      |    ^
+   498|     # previous stage2 stdenv:
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:499:19:
+
+   498|     # previous stage2 stdenv:
+   499|     assert        isBuiltByNixpkgsCompiler prevStage.binutils-unwrapped;
+      |                   ^
+   500|     assert        isBuiltByNixpkgsCompiler prevStage.${localSystem.libc};
+
+… while calling 'isBuiltByNixpkgsCompiler'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:108:5:
+
+   107|   isBuiltByNixpkgsCompiler =
+   108|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |     ^
+   109|   isBuiltByBootstrapFilesCompiler =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:108:10:
+
+   107|   isBuiltByNixpkgsCompiler =
+   108|     pkg: isFromNixpkgs pkg && isFromNixpkgs pkg.stdenv.cc.cc;
+      |          ^
+   109|   isBuiltByBootstrapFilesCompiler =
+
+… while calling 'isFromNixpkgs'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:104:19:
+
+   103|
+   104|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                   ^
+   105|   isFromBootstrapFiles =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:104:26:
+
+   103|
+   104|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                          ^
+   105|   isFromBootstrapFiles =
+
+… while calling 'isFromBootstrapFiles'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:106:5:
+
+   105|   isFromBootstrapFiles =
+   106|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   107|   isBuiltByNixpkgsCompiler =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:69:18:
+
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
+
+… while calling 'go'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:63:18:
+
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:68:18:
+
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
+
+… while calling 'folder'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:89:33:
+
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:90:12:
+
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:79:23:
+
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:84:11:
+
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:411:4:
+
+   410|   #
+   411|   (prevStage:
+      |    ^
+   412|     # previous stage1 stdenv:
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:413:12:
+
+   412|     # previous stage1 stdenv:
+   413|     assert isBuiltByBootstrapFilesCompiler prevStage.binutils-unwrapped;
+      |            ^
+   414|     assert            isFromBootstrapFiles prevStage."${localSystem.libc}";
+
+… while calling 'isBuiltByBootstrapFilesCompiler'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:110:5:
+
+   109|   isBuiltByBootstrapFilesCompiler =
+   110|     pkg: isFromNixpkgs pkg && isFromBootstrapFiles pkg.stdenv.cc.cc;
+      |     ^
+   111|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:110:10:
+
+   109|   isBuiltByBootstrapFilesCompiler =
+   110|     pkg: isFromNixpkgs pkg && isFromBootstrapFiles pkg.stdenv.cc.cc;
+      |          ^
+   111|
+
+… while calling 'isFromNixpkgs'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:104:19:
+
+   103|
+   104|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                   ^
+   105|   isFromBootstrapFiles =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:104:26:
+
+   103|
+   104|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                          ^
+   105|   isFromBootstrapFiles =
+
+… while calling 'isFromBootstrapFiles'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:106:5:
+
+   105|   isFromBootstrapFiles =
+   106|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   107|   isBuiltByNixpkgsCompiler =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:69:18:
+
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
+
+… while calling 'go'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:63:18:
+
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:68:18:
+
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
+
+… while calling 'folder'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:89:33:
+
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:90:12:
+
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:79:23:
+
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:84:11:
+
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:324:4:
+
+   323|   # is not part of the final stdenv.
+   324|   (prevStage:
+      |    ^
+   325|     assert isBuiltByBootstrapFilesCompiler prevStage.binutils-unwrapped;
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:325:12:
+
+   324|   (prevStage:
+   325|     assert isBuiltByBootstrapFilesCompiler prevStage.binutils-unwrapped;
+      |            ^
+   326|     assert            isFromBootstrapFiles prevStage."${localSystem.libc}";
+
+… while calling 'isBuiltByBootstrapFilesCompiler'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:110:5:
+
+   109|   isBuiltByBootstrapFilesCompiler =
+   110|     pkg: isFromNixpkgs pkg && isFromBootstrapFiles pkg.stdenv.cc.cc;
+      |     ^
+   111|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:110:10:
+
+   109|   isBuiltByBootstrapFilesCompiler =
+   110|     pkg: isFromNixpkgs pkg && isFromBootstrapFiles pkg.stdenv.cc.cc;
+      |          ^
+   111|
+
+… while calling 'isFromNixpkgs'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:104:19:
+
+   103|
+   104|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                   ^
+   105|   isFromBootstrapFiles =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:104:26:
+
+   103|
+   104|   isFromNixpkgs = pkg: !(isFromBootstrapFiles pkg);
+      |                          ^
+   105|   isFromBootstrapFiles =
+
+… while calling 'isFromBootstrapFiles'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:106:5:
+
+   105|   isFromBootstrapFiles =
+   106|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   107|   isBuiltByNixpkgsCompiler =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:69:18:
+
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
+
+… while calling 'go'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:63:18:
+
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:68:18:
+
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
+
+… while calling 'folder'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:89:33:
+
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:90:12:
+
+    89|   folder = nextStage: stageFun: prevStage: let
+    90|     args = stageFun prevStage;
+      |            ^
+    91|     args' = args // {
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:79:23:
+
+    78|   withAllowCustomOverrides = lib.lists.imap1
+    79|     (index: stageFun: prevStage:
+      |                       ^
+    80|       # So true by default for only the first element because one
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:84:11:
+
+    83|       { allowCustomOverrides = index == 1; }
+    84|       // (stageFun prevStage))
+      |           ^
+    85|     (lib.lists.reverseList stageFuns);
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:287:4:
+
+   286|   # overrides attribute and the inherit syntax.
+   287|   (prevStage:
+      |    ^
+   288|     # previous stage0 stdenv:
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:289:12:
+
+   288|     # previous stage0 stdenv:
+   289|     assert isFromBootstrapFiles prevStage.binutils.bintools;
+      |            ^
+   290|     assert isFromBootstrapFiles prevStage."${localSystem.libc}";
+
+… while calling 'isFromBootstrapFiles'
+
+  at <nixpkgs> + /pkgs/stdenv/linux/default.nix:106:5:
+
+   105|   isFromBootstrapFiles =
+   106|     pkg: pkg.passthru.isFromBootstrapFiles or false;
+      |     ^
+   107|   isBuiltByNixpkgsCompiler =
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:69:18:
+
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+    69|           succ = go cur (n + 1);
+      |                  ^
+    70|         in cur;
+
+… while calling 'go'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:63:18:
+
+    62|       len = builtins.length list;
+    63|       go = pred: n:
+      |                  ^
+    64|         if n == len
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:68:18:
+
+    67|           # Note the cycle -- call-by-need ensures finite fold.
+    68|           cur  = op pred (builtins.elemAt list n) succ;
+      |                  ^
+    69|           succ = go cur (n + 1);
+
+… while calling 'folder'
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:89:33:
+
+    88|   # debugging purposes.
+    89|   folder = nextStage: stageFun: prevStage: let
+      |                                 ^
+    90|     args = stageFun prevStage;
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/booter.nix:101:12:
+
+   100|       then args'
+   101|       else allPackages ((builtins.removeAttrs args' ["selfBuild"]) // {
+      |            ^
+   102|         adjacentPackages = if args.selfBuild or true then null else rec {
+
+… while calling 'allPackages'
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:132:17:
+
+   131|   # sets. Only apply arguments which no stdenv would want to override.
+   132|   allPackages = newArgs: import ./stage.nix ({
+      |                 ^
+   133|     inherit lib nixpkgsFun;
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:132:26:
+
+   131|   # sets. Only apply arguments which no stdenv would want to override.
+   132|   allPackages = newArgs: import ./stage.nix ({
+      |                          ^
+   133|     inherit lib nixpkgsFun;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/top-level/stage.nix:19:1:
+
+    18|
+    19| { ## Misc parameters kept the same for all stages
+      | ^
+    20|   ##
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/stage.nix:324:3:
+
+   323|   # Return the complete set of packages.
+   324|   lib.fix toFix
+      |   ^
+   325|
+
+… while calling 'fix'
+
+  at <nixpkgs> + /lib/fixed-points.nix:75:9:
+
+    74|   */
+    75|   fix = f: let x = f x; in x;
+      |         ^
+    76|
+
+… from call site
+
+  at <nixpkgs> + /lib/fixed-points.nix:75:20:
+
+    74|   */
+    75|   fix = f: let x = f x; in x;
+      |                    ^
+    76|
+
+… while calling 'extends'
+
+  at <nixpkgs> + /lib/fixed-points.nix:248:7:
+
+   247|     (
+   248|       final:
+      |       ^
+   249|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/fixed-points.nix:250:16:
+
+   249|       let
+   250|         prev = f final;
+      |                ^
+   251|       in
+
+… while calling 'extends'
+
+  at <nixpkgs> + /lib/fixed-points.nix:248:7:
+
+   247|     (
+   248|       final:
+      |       ^
+   249|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/fixed-points.nix:252:15:
+
+   251|       in
+   252|       prev // overlay final prev
+      |               ^
+   253|     );
+
+… while calling 'metaOverlay'
+
+  at ./default.nix:7:23:
+
+     6|
+     7|   metaOverlay = self: super:
+      |                       ^
+     8|     with super.lib;
+
+error: getting status of './overlays': No such file or directory

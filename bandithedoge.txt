@@ -1,12 +1,31 @@
+trace: warning: swift-mesonlsp-bin has been renamed to mesonlsp-bin
 error:
 … from call site
 
-  at ./pkgs/default.nix:17:21:
+  at ./pkgs/default.nix:45:18:
 
-    16|     dpf-plugins = callPackage' ./dpf-plugins;
-    17|     emacsPackages = pkgs.lib.recurseIntoAttrs (pkgs.callPackage ./emacsPackages {});
-      |                     ^
-    18|     fennel-language-server = callPackage' ./fennel-language-server;
+    44|     treeSitterGrammars = callPackages ./treeSitterGrammars;
+    45|     vimPlugins = callPackages ./vimPlugins;
+      |                  ^
+    46|     xplrPlugins = callPackages ./xplrPlugins;
+
+… while calling 'callPackages'
+
+  at ./pkgs/default.nix:8:18:
+
+     7|
+     8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
+      |                  ^
+     9|
+
+… from call site
+
+  at ./pkgs/default.nix:8:23:
+
+     7|
+     8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
+      |                       ^
+     9|
 
 … while calling 'recurseIntoAttrs'
 
@@ -19,12 +38,30 @@ error:
 
 … from call site
 
-  at ./pkgs/default.nix:17:48:
+  at ./pkgs/default.nix:8:50:
 
-    16|     dpf-plugins = callPackage' ./dpf-plugins;
-    17|     emacsPackages = pkgs.lib.recurseIntoAttrs (pkgs.callPackage ./emacsPackages {});
-      |                                                ^
-    18|     fennel-language-server = callPackage' ./fennel-language-server;
+     7|
+     8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
+      |                                                  ^
+     9|
+
+… while calling 'callPackage''
+
+  at ./pkgs/default.nix:2:18:
+
+     1| {pkgs, ...}: let
+     2|   callPackage' = pkg:
+      |                  ^
+     3|     pkgs.callPackage pkg {
+
+… from call site
+
+  at ./pkgs/default.nix:3:5:
+
+     2|   callPackage' = pkg:
+     3|     pkgs.callPackage pkg {
+      |     ^
+     4|       inherit pkgs callPackage';
 
 … while calling 'callPackageWith'
 
@@ -64,7 +101,7 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/emacsPackages/default.nix:1:1:
+  at ./pkgs/vimPlugins/default.nix:1:1:
 
      1| {pkgs, ...}: let
       | ^
@@ -72,7 +109,7 @@ error:
 
 … from call site
 
-  at ./pkgs/emacsPackages/default.nix:4:4:
+  at ./pkgs/vimPlugins/default.nix:4:4:
 
      3| in
      4|   (pkgs.lib.makeExtensible (_:
@@ -135,7 +172,7 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/emacsPackages/default.nix:4:29:
+  at ./pkgs/vimPlugins/default.nix:4:29:
 
      3| in
      4|   (pkgs.lib.makeExtensible (_:
@@ -144,7 +181,7 @@ error:
 
 … from call site
 
-  at ./pkgs/emacsPackages/default.nix:5:5:
+  at ./pkgs/vimPlugins/default.nix:5:5:
 
      4|   (pkgs.lib.makeExtensible (_:
      5|     pkgs.lib.attrsets.mapAttrs'
@@ -162,12 +199,12 @@ error:
 
 … from call site
 
-  at ./pkgs/emacsPackages/default.nix:29:6:
+  at ./pkgs/vimPlugins/default.nix:19:6:
 
-    28|       }))
-    29|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+    18|       }))
+    19|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
       |      ^
-    30|   .extend (import ./_overrides.nix {inherit pkgs;})
+    20|   .extend (import ./_overrides.nix {inherit pkgs;})
 
 … while calling 'filterAttrs'
 
@@ -198,21 +235,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/emacsPackages/default.nix:29:31:
+  at ./pkgs/vimPlugins/default.nix:19:31:
 
-    28|       }))
-    29|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+    18|       }))
+    19|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
       |                               ^
-    30|   .extend (import ./_overrides.nix {inherit pkgs;})
+    20|   .extend (import ./_overrides.nix {inherit pkgs;})
 
 … from call site
 
-  at ./pkgs/emacsPackages/default.nix:29:34:
+  at ./pkgs/vimPlugins/default.nix:19:34:
 
-    28|       }))
-    29|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+    18|       }))
+    19|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
       |                                  ^
-    30|   .extend (import ./_overrides.nix {inherit pkgs;})
+    20|   .extend (import ./_overrides.nix {inherit pkgs;})
 
 … while calling 'isStorePath'
 
@@ -225,52 +262,52 @@ error:
 
 … from call site
 
-  at ./pkgs/emacsPackages/nix/_sources.nix:223:33:
+  at ./pkgs/vimPlugins/nix/_sources.nix:210:33:
 
-   222|           "The values in sources.json should not have an 'outPath' attribute"
-   223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
+   209|           "The values in sources.json should not have an 'outPath' attribute"
+   210|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
       |                                 ^
-   224|     )
+   211|     )
 
 … while calling 'replace'
 
-  at ./pkgs/emacsPackages/nix/_sources.nix:139:19:
+  at ./pkgs/vimPlugins/nix/_sources.nix:127:19:
 
-   138|   # the path directly as opposed to the fetched source.
-   139|   replace = name: drv: let
+   126|   # the path directly as opposed to the fetched source.
+   127|   replace = name: drv: let
       |                   ^
-   140|     saneName = stringAsChars (c:
+   128|     saneName = stringAsChars (c:
 
 … from call site
 
-  at ./pkgs/emacsPackages/nix/_sources.nix:223:47:
+  at ./pkgs/vimPlugins/nix/_sources.nix:210:47:
 
-   222|           "The values in sources.json should not have an 'outPath' attribute"
-   223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
+   209|           "The values in sources.json should not have an 'outPath' attribute"
+   210|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
       |                                               ^
-   224|     )
+   211|     )
 
 … while calling 'fetch'
 
-  at ./pkgs/emacsPackages/nix/_sources.nix:120:23:
+  at ./pkgs/vimPlugins/nix/_sources.nix:108:23:
 
-   119|   # The actual fetching function.
-   120|   fetch = pkgs: name: spec:
+   107|   # The actual fetching function.
+   108|   fetch = pkgs: name: spec:
       |                       ^
-   121|     if ! builtins.hasAttr "type" spec
+   109|     if ! builtins.hasAttr "type" spec
 
 … from call site
 
-  at ./pkgs/emacsPackages/nix/_sources.nix:126:10:
+  at ./pkgs/vimPlugins/nix/_sources.nix:114:10:
 
-   125|     else if spec.type == "tarball"
-   126|     then fetch_tarball pkgs name spec
+   113|     else if spec.type == "tarball"
+   114|     then fetch_tarball pkgs name spec
       |          ^
-   127|     else if spec.type == "git"
+   115|     else if spec.type == "git"
 
 … while calling 'fetch_tarball'
 
-  at ./pkgs/emacsPackages/nix/_sources.nix:21:31:
+  at ./pkgs/vimPlugins/nix/_sources.nix:21:31:
 
     20|
     21|   fetch_tarball = pkgs: name: spec: let
@@ -279,7 +316,7 @@ error:
 
 … from call site
 
-  at ./pkgs/emacsPackages/nix/_sources.nix:26:7:
+  at ./pkgs/vimPlugins/nix/_sources.nix:26:7:
 
     25|     then
     26|       builtins_fetchTarball {
@@ -288,11 +325,11 @@ error:
 
 … while calling 'builtins_fetchTarball'
 
-  at ./pkgs/emacsPackages/nix/_sources.nix:191:27:
+  at ./pkgs/vimPlugins/nix/_sources.nix:179:27:
 
-   190|   # fetchTarball version that is compatible between all the versions of Nix
-   191|   builtins_fetchTarball = {
+   178|   # fetchTarball version that is compatible between all the versions of Nix
+   179|   builtins_fetchTarball = {
       |                           ^
-   192|     url,
+   180|     url,
 
-error: access to URI 'https://github.com/fargiolas/clangd-inactive-regions.el/archive/3b248e0684b88acb0ea75542d919e67df8baae41.tar.gz' is forbidden in restricted mode
+error: access to URI 'https://github.com/numToStr/Comment.nvim/archive/0236521ea582747b58869cb72f70ccfa967d2e89.tar.gz' is forbidden in restricted mode
