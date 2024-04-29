@@ -1,13 +1,15 @@
 trace: warning: swift-mesonlsp-bin has been renamed to mesonlsp-bin
+trace: warning: lua-dev.nvim has been renamed to neodev.nvim
+trace: warning: null-ls.nvim has been discontinued, consider switching to none-ls.nvim
 error:
 … from call site
 
-  at ./pkgs/default.nix:45:18:
+  at ./pkgs/default.nix:46:19:
 
-    44|     treeSitterGrammars = callPackages ./treeSitterGrammars;
     45|     vimPlugins = callPackages ./vimPlugins;
-      |                  ^
     46|     xplrPlugins = callPackages ./xplrPlugins;
+      |                   ^
+    47|     zrythm = callPackage' ./zrythm;
 
 … while calling 'callPackages'
 
@@ -101,7 +103,7 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/vimPlugins/default.nix:1:1:
+  at ./pkgs/xplrPlugins/default.nix:1:1:
 
      1| {pkgs, ...}: let
       | ^
@@ -109,12 +111,12 @@ error:
 
 … from call site
 
-  at ./pkgs/vimPlugins/default.nix:4:4:
+  at ./pkgs/xplrPlugins/default.nix:4:4:
 
      3| in
-     4|   (pkgs.lib.makeExtensible (_:
+     4|   (pkgs.lib.makeExtensible
       |    ^
-     5|     pkgs.lib.attrsets.mapAttrs'
+     5|     (_:
 
 … while calling 'makeExtensibleWithCustomName'
 
@@ -172,21 +174,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/vimPlugins/default.nix:4:29:
+  at ./pkgs/xplrPlugins/default.nix:5:6:
 
-     3| in
-     4|   (pkgs.lib.makeExtensible (_:
-      |                             ^
-     5|     pkgs.lib.attrsets.mapAttrs'
+     4|   (pkgs.lib.makeExtensible
+     5|     (_:
+      |      ^
+     6|       pkgs.lib.mapAttrs' (name: src:
 
 … from call site
 
-  at ./pkgs/vimPlugins/default.nix:5:5:
+  at ./pkgs/xplrPlugins/default.nix:6:7:
 
-     4|   (pkgs.lib.makeExtensible (_:
-     5|     pkgs.lib.attrsets.mapAttrs'
-      |     ^
-     6|     (name: src: let
+     5|     (_:
+     6|       pkgs.lib.mapAttrs' (name: src:
+      |       ^
+     7|         pkgs.lib.nameValuePair
 
 … while calling 'mapAttrs''
 
@@ -199,12 +201,12 @@ error:
 
 … from call site
 
-  at ./pkgs/vimPlugins/default.nix:19:6:
+  at ./pkgs/xplrPlugins/default.nix:17:8:
 
-    18|       }))
-    19|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
-      |      ^
-    20|   .extend (import ./_overrides.nix {inherit pkgs;})
+    16|         }))
+    17|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+      |        ^
+    18|   .extend (pkgs.callPackage ./_overrides.nix {})
 
 … while calling 'filterAttrs'
 
@@ -235,21 +237,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/vimPlugins/default.nix:19:31:
+  at ./pkgs/xplrPlugins/default.nix:17:33:
 
-    18|       }))
-    19|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
-      |                               ^
-    20|   .extend (import ./_overrides.nix {inherit pkgs;})
+    16|         }))
+    17|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+      |                                 ^
+    18|   .extend (pkgs.callPackage ./_overrides.nix {})
 
 … from call site
 
-  at ./pkgs/vimPlugins/default.nix:19:34:
+  at ./pkgs/xplrPlugins/default.nix:17:36:
 
-    18|       }))
-    19|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
-      |                                  ^
-    20|   .extend (import ./_overrides.nix {inherit pkgs;})
+    16|         }))
+    17|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+      |                                    ^
+    18|   .extend (pkgs.callPackage ./_overrides.nix {})
 
 … while calling 'isStorePath'
 
@@ -262,52 +264,52 @@ error:
 
 … from call site
 
-  at ./pkgs/vimPlugins/nix/_sources.nix:210:33:
+  at ./pkgs/xplrPlugins/nix/_sources.nix:223:33:
 
-   209|           "The values in sources.json should not have an 'outPath' attribute"
-   210|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
+   222|           "The values in sources.json should not have an 'outPath' attribute"
+   223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
       |                                 ^
-   211|     )
+   224|     )
 
 … while calling 'replace'
 
-  at ./pkgs/vimPlugins/nix/_sources.nix:127:19:
+  at ./pkgs/xplrPlugins/nix/_sources.nix:139:19:
 
-   126|   # the path directly as opposed to the fetched source.
-   127|   replace = name: drv: let
+   138|   # the path directly as opposed to the fetched source.
+   139|   replace = name: drv: let
       |                   ^
-   128|     saneName = stringAsChars (c:
+   140|     saneName = stringAsChars (c:
 
 … from call site
 
-  at ./pkgs/vimPlugins/nix/_sources.nix:210:47:
+  at ./pkgs/xplrPlugins/nix/_sources.nix:223:47:
 
-   209|           "The values in sources.json should not have an 'outPath' attribute"
-   210|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
+   222|           "The values in sources.json should not have an 'outPath' attribute"
+   223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
       |                                               ^
-   211|     )
+   224|     )
 
 … while calling 'fetch'
 
-  at ./pkgs/vimPlugins/nix/_sources.nix:108:23:
+  at ./pkgs/xplrPlugins/nix/_sources.nix:120:23:
 
-   107|   # The actual fetching function.
-   108|   fetch = pkgs: name: spec:
+   119|   # The actual fetching function.
+   120|   fetch = pkgs: name: spec:
       |                       ^
-   109|     if ! builtins.hasAttr "type" spec
+   121|     if ! builtins.hasAttr "type" spec
 
 … from call site
 
-  at ./pkgs/vimPlugins/nix/_sources.nix:114:10:
+  at ./pkgs/xplrPlugins/nix/_sources.nix:126:10:
 
-   113|     else if spec.type == "tarball"
-   114|     then fetch_tarball pkgs name spec
+   125|     else if spec.type == "tarball"
+   126|     then fetch_tarball pkgs name spec
       |          ^
-   115|     else if spec.type == "git"
+   127|     else if spec.type == "git"
 
 … while calling 'fetch_tarball'
 
-  at ./pkgs/vimPlugins/nix/_sources.nix:21:31:
+  at ./pkgs/xplrPlugins/nix/_sources.nix:21:31:
 
     20|
     21|   fetch_tarball = pkgs: name: spec: let
@@ -316,7 +318,7 @@ error:
 
 … from call site
 
-  at ./pkgs/vimPlugins/nix/_sources.nix:26:7:
+  at ./pkgs/xplrPlugins/nix/_sources.nix:26:7:
 
     25|     then
     26|       builtins_fetchTarball {
@@ -325,11 +327,11 @@ error:
 
 … while calling 'builtins_fetchTarball'
 
-  at ./pkgs/vimPlugins/nix/_sources.nix:179:27:
+  at ./pkgs/xplrPlugins/nix/_sources.nix:191:27:
 
-   178|   # fetchTarball version that is compatible between all the versions of Nix
-   179|   builtins_fetchTarball = {
+   190|   # fetchTarball version that is compatible between all the versions of Nix
+   191|   builtins_fetchTarball = {
       |                           ^
-   180|     url,
+   192|     url,
 
-error: access to URI 'https://github.com/numToStr/Comment.nvim/archive/0236521ea582747b58869cb72f70ccfa967d2e89.tar.gz' is forbidden in restricted mode
+error: access to URI 'https://github.com/sayanarijit/alacritty.xplr/archive/96d291c15a5731bbd6550ec0b90d3e529041ca36.tar.gz' is forbidden in restricted mode
