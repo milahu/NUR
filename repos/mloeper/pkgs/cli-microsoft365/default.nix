@@ -7,6 +7,8 @@
 , nodejs_18
 , makeWrapper
 , defaultBrowserBinaryPath ? "${pkgs.firefox}/bin/firefox"
+, installShellFiles
+, gnugrep
 , ...
 }:
 
@@ -28,7 +30,8 @@ stdenv.mkDerivation
     hash = "sha256-0grJccby3FIL6iIZ4gXEgX5hVsdnGNMr2EwRuJXyq+4=";
   };
 
-  buildInputs = [ nodejs makeWrapper ];
+  nativeBuildInputs = [ makeWrapper installShellFiles ];
+  buildInputs = [ nodejs ];
 
   buildPhase = ''
     ln -s ${nodeDependencies}/lib/node_modules ./node_modules
@@ -46,7 +49,23 @@ stdenv.mkDerivation
     ln -s ${nodeDependencies}/lib/node_modules $out/node_modules
 
     # create cli binary
-    makeWrapper ${nodejs}/bin/node $out/bin/m365 --add-flags "$out/dist/index.js" --set BROWSER "${defaultBrowserBinaryPath}" --inherit-argv0 --set PATH ${lib.makeBinPath [ nodejs xsel ]}
+    # TODO(mloeper): create binaries for m365_chili and microsoft365
+    makeWrapper ${nodejs}/bin/node $out/bin/m365 --add-flags "$out/dist/index.js" --set XDG_CURRENT_DESKTOP X-Generic --set BROWSER "${defaultBrowserBinaryPath}" --inherit-argv0 --set PATH ${lib.makeBinPath [ nodejs xsel gnugrep ]}
+    makeWrapper ${nodejs}/bin/node $out/bin/m365_comp --add-flags "$out/dist/autocomplete.js" --inherit-argv0 --set PATH ${lib.makeBinPath [ nodejs ]}
+
+    runHook postInstall
+  '';
+
+  postInstall = ''
+    FAKE_HOME="$NIX_BUILD_TOP/fake-home"
+    mkdir -p "$FAKE_HOME"
+    mkdir -p "$NIX_BUILD_TOP/share/completions"
+
+    SHELL=bash HOME="$FAKE_HOME" $out/bin/m365 cli completion sh setup
+    
+    # note: completion does not work atm... zsh does not find it and bash says 'm365_comp: command not found'
+    installShellCompletion --bash --cmd m365 "$FAKE_HOME/.m365_comp/completion.sh"
+    installShellCompletion --zsh --cmd m365 "$FAKE_HOME/.m365_comp/completion.sh"
   '';
 
   meta = with lib; {
@@ -58,6 +77,5 @@ stdenv.mkDerivation
     license = licenses.mit;
     platforms = [ "x86_64-linux" ];
     mainProgram = "m365";
-    aliases = [ "m365" ];
   };
 }
