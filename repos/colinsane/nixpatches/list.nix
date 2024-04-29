@@ -32,6 +32,20 @@ in [
   # etc, where "date" is like "20240228181608"
   # and can be found with `nix-repl  > :lf .  > lastModifiedDate`
 
+  # branch: wip-ffado-cross
+  (fetchpatch' {
+    title = "dbus_cplusplus: support cross compilation";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/307420";
+    saneCommit = "f59a0e42ece4a1f9af4be3bd09e488b970670207";
+    hash = "sha256-sMfLKzKVb+gyTUkeVP3irPu6YYk+TGFei6kxoZnujfE=";
+  })
+  (fetchpatch' {
+    # TODO: send out for review (after jtolnar's stuff is merged)
+    title = "ffado: support cross compilation";
+    saneCommit = "b0b57ad3c723a74d566f6420dffdb1a7d05304e2";
+    hash = "sha256-NwTZJG/+ngzR4IrYOd07KxMybHbYLmDcw4RSIrpbx3U=";
+  })
+
   (fetchpatch' {
     # see: <https://github.com/NixOS/nixpkgs/pull/284562#issuecomment-2079104081>
     title = "nixos/lemmy: fix nginx backend to proxy needed headers";

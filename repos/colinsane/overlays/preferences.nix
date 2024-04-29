@@ -44,14 +44,14 @@
     squeekboard = null;
   };
 
-  pipewire = super.pipewire.override {
-    # avoid a dep on python3.10-PyQt5, which has mixed qt5 versions.
-    # this means we lose firewire support (oh well..?)
-    # N.B.: ffado is already disabled for cross builds: this is only to prevent weird `targetPackages` related stuff.
-    # try `nix build '.#hostPkgs.moby.megapixels'` for example
-    ffadoSupport = false;
-    # ffado = null;
-  };
+  # pipewire = super.pipewire.override {
+  #   # avoid a dep on python3.10-PyQt5, which has mixed qt5 versions.
+  #   # this means we lose firewire support (oh well..?)
+  #   # N.B.: ffado is already disabled for cross builds: this is only to prevent weird `targetPackages` related stuff.
+  #   # try `nix build '.#hostPkgs.moby.megapixels'` for example
+  #   ffadoSupport = false;
+  #   # ffado = null;
+  # };
 
   # pythonPackagesExtensions = super.pythonPackagesExtensions ++ [
   #   (pySelf: pySuper: {

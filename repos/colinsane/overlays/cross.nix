@@ -965,16 +965,6 @@ in with final; {
   #   gnome_vfs = useEmulatedStdenv super.gnome_vfs;
   # });
 
-  # 2024/02/27: upstreaming is blocked on python3Packages.eyeD3
-  gpodder = prev.gpodder.overridePythonAttrs (upstream: {
-    # fix gobject-introspection overrides import that otherwise fails on launch
-    nativeBuildInputs = upstream.nativeBuildInputs ++ [
-      buildPackages.gobject-introspection
-    ];
-    buildInputs = lib.remove gobject-introspection upstream.buildInputs;
-    strictDeps = true;
-  });
-
   # out for PR: <https://github.com/NixOS/nixpkgs/pull/263182>
   # hspell = prev.hspell.overrideAttrs (upstream: {
   #   # build perl is needed by the Makefile,
@@ -1590,30 +1580,6 @@ in with final; {
       runHook postBuild
     '';
   });
-
-  pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
-    (py-final: py-prev: {
-      # 2024/02/27: upstreaming is unblocked  (eyeD3 is a dep of gpodder)
-      # out for review: <https://github.com/NixOS/nixpkgs/pull/307214>
-      eyed3 = py-prev.eyed3.overrideAttrs (orig: {
-        # weird double-wrapping of the output executable, but somehow with the build python ends up on PYTHONPATH
-        postInstall = "";
-      });
-
-      # h5py = py-prev.h5py.overridePythonAttrs (orig: {
-      #   # XXX: can't upstream until its dependency, hdf5, is fixed. that looks TRICKY.
-      #   # - the `setup_configure.py` in h5py tries to dlopen (and call into) the hdf5 lib to query the version and detect features like MPI
-      #   # - it could be patched with ~10 LoC in the HDF5LibWrapper class.
-      #   #
-      #   # expose numpy and hdf5 as available at build time
-      #   nativeBuildInputs = orig.nativeBuildInputs ++ orig.propagatedBuildInputs ++ orig.buildInputs;
-      #   buildInputs = [];
-      #   # HDF5_DIR = "${hdf5}";
-      # });
-      # skia-pathops = ?
-      #   it tries to call `cc` during the build, but can't find it.
-    })
-  ];
 
   # qt5 = let
   #   emulatedQt5 = prev.qt5.override {
