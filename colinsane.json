@@ -1,16 +1,16 @@
 {
 "name":"colinsane",
-"fetch_time":1.867,
-"eval_time":0.388,
+"fetch_time":1.627,
+"eval_time":0.376,
 "source":{
 "url":"https://git.uninsane.org/colin/nix-files",
-"rev":"d4d06d037c75fd98521a140823668fa1c6f6d7b2",
-"sha256":"05ppjzsq21l0yq0llslxszqx2n9qfx9100qxn025bllfv89341ah",
+"rev":"46d1a49f0f207ed0d2f6f94f33499a859b30326e",
+"sha256":"04njg6023jvz4v4jn73v7wsmcnkpwy70cjwx46s1458cwvq0pvsk",
 "date":null
 },
-"source_storepath":"/nix/store/pbshjqznn6i7f758207nsjq004hl49v0-nix-files",
-"nixpkgs_storepath":"/nix/store/0p4hnavhz0nydx2l8crjjrzr35yc4rjr-source",
-"nur_combined_rev":"e85b04b248b99f7e9fad7c4bcfd0369459c32b18",
+"source_storepath":"/nix/store/7ivv5xdhxikmzqmk3mv9klg7j6dciv7m-nix-files",
+"nixpkgs_storepath":"/nix/store/fmir5mmhv6by6akwk5671yrmh15ml4bp-source",
+"nur_combined_rev":"61c8b8cb6a142789f96e05e99cd15ff12f072992",
 "packages":{
 "blast-ugjka":{
 "meta":{
@@ -1403,12 +1403,6 @@
 "name":"Daniel \u0218erb\u0103nescu"
 },
 {
-"email":"max@ine.dev",
-"github":"amaxine",
-"githubId":35892750,
-"name":"Maxine Aubrey"
-},
-{
 "email":"mail@anselmschueler.com",
 "github":"schuelermine",
 "githubId":48802534,
@@ -2252,7 +2246,7 @@
 "description":"The goal of Landlock is to enable to restrict ambient rights (e.g. global filesystem access) for a set of processes.\n",
 "homepage":"https://landlock.io",
 "insecure":false,
-"name":"landlock-sandboxer-6.6.28",
+"name":"landlock-sandboxer-6.6.29",
 "outputsToInstall":[
 "out"
 ],
@@ -2260,14 +2254,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"landlock-sandboxer-6.6.28",
+"name":"landlock-sandboxer-6.6.29",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"landlock-sandboxer",
 "system":"x86_64-linux",
-"version":"6.6.28"
+"version":"6.6.29"
 },
 "ldd-aarch64":{
 "meta":{
@@ -2893,14 +2887,6 @@
 },
 "longDescription":"Python is a remarkably powerful dynamic programming language that\nis used in a wide variety of application domains. Some of its key\ndistinguishing features include: clear, readable syntax; strong\nintrospection capabilities; intuitive object orientation; natural\nexpression of procedural code; full modularity, supporting\nhierarchical packages; exception-based error handling; and very\nhigh level dynamic data types.\n",
 "mainProgram":"python3.11",
-"maintainers":[
-{
-"email":"fridh@fridh.nl",
-"github":"FRidh",
-"githubId":2129135,
-"name":"Frederik Rietdijk"
-}
-],
 "name":"python3-3.11.9",
 "outputsToInstall":[
 "out"
