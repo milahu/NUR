@@ -30,32 +30,34 @@ in
     wantedBy = [ "network-online.target" ];
   };
 
-  environment.etc."NetworkManager/NetworkManager.conf".text = lib.mkIf cfg.enabled ''
-    # TODO: much of this is likely not needed.
-    [connection]
-    ethernet.cloned-mac-address=preserve
-    wifi.cloned-mac-address=preserve
-    wifi.powersave=null
+  environment.etc = lib.mkIf cfg.enabled {
+    "NetworkManager/NetworkManager.conf".text = ''
+      # TODO: much of this is likely not needed.
+      [connection]
+      ethernet.cloned-mac-address=preserve
+      wifi.cloned-mac-address=preserve
+      wifi.powersave=null
 
-    [device]
-    wifi.backend=wpa_supplicant
-    wifi.scan-rand-mac-address=true
+      [device]
+      wifi.backend=wpa_supplicant
+      wifi.scan-rand-mac-address=true
 
-    [keyfile]
-    # keyfile.path: where to check for connection credentials
-    path=/var/lib/NetworkManager/system-connections
-    unmanaged-devices=null
+      [keyfile]
+      # keyfile.path: where to check for connection credentials
+      path=/var/lib/NetworkManager/system-connections
+      unmanaged-devices=null
 
-    [logging]
-    audit=false
-    level=WARN
+      [logging]
+      audit=false
+      level=WARN
 
-    [main]
-    dhcp=internal
-    dns=systemd-resolved
-    plugins=keyfile
-    rc-manager=unmanaged
-  '';
+      [main]
+      dhcp=internal
+      dns=systemd-resolved
+      plugins=keyfile
+      rc-manager=unmanaged
+    '';
+  };
   hardware.wirelessRegulatoryDatabase = lib.mkIf cfg.enabled true;
   networking.useDHCP = lib.mkIf cfg.enabled false;
   users.groups = lib.mkIf cfg.enabled {

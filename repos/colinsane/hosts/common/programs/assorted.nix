@@ -176,6 +176,7 @@ in
       "ffmpeg"
       "go2tv"  # cast videos to UPNP/DLNA device (i.e. tv).
       "imagemagick"
+      "sane-cast"  # cast videos to UPNP/DLNA, with compatibility
       "sox"
       "yt-dlp"
     ];

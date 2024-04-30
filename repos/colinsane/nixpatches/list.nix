@@ -34,12 +34,6 @@ in [
 
   # branch: wip-ffado-cross
   (fetchpatch' {
-    title = "dbus_cplusplus: support cross compilation";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/307420";
-    saneCommit = "f59a0e42ece4a1f9af4be3bd09e488b970670207";
-    hash = "sha256-sMfLKzKVb+gyTUkeVP3irPu6YYk+TGFei6kxoZnujfE=";
-  })
-  (fetchpatch' {
     # TODO: send out for review (after jtolnar's stuff is merged)
     title = "ffado: support cross compilation";
     saneCommit = "b0b57ad3c723a74d566f6420dffdb1a7d05304e2";
@@ -52,13 +46,6 @@ in [
     prUrl = "https://github.com/NixOS/nixpkgs/pull/306984";
     saneCommit = "bd87a38b86f889a6902a356ab415eeead881766b";
     hash = "sha256-53X4ssdp02C8NOUL5mlbhR7qwE9/KWp6iLmz1ljJopE=";
-  })
-
-  (fetchpatch' {
-    title = "libjxl: fix cross compilation by only conditionally enabling plugins";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/306127";
-    saneCommit = "044b3342d1500fb2b741e87e4d10894f4d8fd716";
-    hash = "sha256-1DHw9AZSRlCkVq2ZullKPHAAHKIbuj5H0TL1l5OgEkE=";
   })
 
   (fetchpatch' {
