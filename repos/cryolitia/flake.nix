@@ -35,8 +35,13 @@
         rust-overlay.follows = "rust-overlay";
       };
     };
+
+    gpd-fan-driver = {
+      url = "github:Cryolitia/gpd-fan-driver";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs, gpd-linuxcontrols, rust-overlay, ... }:
+  outputs = { self, nixpkgs, gpd-linuxcontrols, rust-overlay, gpd-fan-driver, ... }:
     let
       systems = [
         "x86_64-linux"
@@ -78,7 +83,7 @@
         if (builtins.elem system systems-linux) then
           import ./nix/linux-specific.nix
             {
-              inherit pkgs;
+              inherit pkgs gpd-fan-driver;
             } else { }
       )
       )));
@@ -89,7 +94,7 @@
 
       lib = import ./lib { pkgs = nixpkgs; };
 
-      nixosModules = import ./modules;
+      nixosModules = import ./modules { inherit gpd-fan-driver; };
 
       ciJobs = {
         default = lib.filterNurAttrs "x86_64-linux" packages.x86_64-linux;
