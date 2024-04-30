@@ -10,18 +10,18 @@ jobs:
   nvfetcher:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.3.0
+    - uses: actions/checkout@v4.1.4
       with:
           fetch-depth: 0
     - name: Cache nvfetcher
-      uses: actions/cache@v3.2.6
+      uses: actions/cache@v4.0.2
       with:
         path: ~/.local/share/nvfetcher
         key: ${{ runner.os }}-nvfetcher
     - uses: cachix/install-nix-action@v20
       with:
         nix_path: nixpkgs=channel:nixos-unstable
-    - uses: cachix/cachix-action@v12
+    - uses: cachix/cachix-action@v14
       with:
         name: hakutaku-cache
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
@@ -35,6 +35,6 @@ jobs:
 
     - name: Commit changes
       #if: ${{ env.COMMIT_MSG != null }}
-      uses: stefanzweifel/git-auto-commit-action@v4
+      uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: update pkgs
