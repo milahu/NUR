@@ -104,6 +104,9 @@ in
       "/mnt/servo/media"
       "/mnt/servo/playground"
     ];
+    sandbox.extraConfig = [
+      "--sane-sandbox-keep-namespace" "pid"  # for sane-open to toggle keyboard
+    ];
 
     fs.".config/rofi/config.rasi".symlink.target = ./config.rasi;
     persist.byStore.cryptClearOnBoot = [
@@ -118,12 +121,12 @@ in
     packageUnwrapped = pkgs.static-nix-shell.mkBash {
       pname = "rofi-run-command";
       srcRoot = ./.;
-      pkgs = [ "sane-open-desktop" "xdg-utils" ];
+      pkgs = [ "sane-open" ];
     };
     sandbox.enable = false;  #< trivial script, and all our deps are sandboxed
 
     suggestedPrograms = [
-      "sane-open-desktop"
+      "sane-open"
       "xdg-utils"
     ];
   };

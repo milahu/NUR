@@ -88,17 +88,18 @@ in
       pname = "sane-input-handler";
       srcRoot = ./.;
       pkgs = {
-        inherit (pkgs) coreutils killall playerctl procps sane-open-desktop util-linux wireplumber;
+        inherit (pkgs) coreutils jq killall playerctl procps sane-open util-linux wireplumber;
         sway = config.sane.programs.sway.package.sway-unwrapped;
       };
     };
     suggestedPrograms = [
       "bonsai"
       # dependencies which get pulled in unconditionally:
+      "jq"
       "killall"
       "playerctl"
       "procps"
-      "sane-open-desktop"
+      "sane-open"
       "sway"
       "wireplumber"
       # optional integrations:

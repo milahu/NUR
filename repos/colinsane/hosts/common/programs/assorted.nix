@@ -765,9 +765,19 @@ in
 
     sane-die-with-parent.sandbox.enable = false;  #< it's a launcher; can't sandbox
 
-    sane-open-desktop.sandbox.enable = false;  #< trivial script, and all our deps are sandboxed
-    sane-open-desktop.suggestedPrograms = [
+    sane-open.sandbox.method = "bwrap";
+    sane-open.sandbox.autodetectCliPaths = "existing";  # for when opening a file
+    sane-open.sandbox.whitelistDbus = [ "user" ];
+    sane-open.sandbox.extraConfig = [
+      "--sane-sandbox-keep-namespace" "pid"  # to toggle keyboard
+    ];
+    sane-open.sandbox.extraHomePaths = [
+      ".local/share/applications"
+    ];
+    sane-open.sandbox.extraRuntimePaths = [ "sway" ];
+    sane-open.suggestedPrograms = [
       "gdbus"
+      "xdg-utils"
     ];
 
     screen.sandbox.enable = false;  #< tty; needs to run anything

@@ -2,19 +2,11 @@
 { config, lib, pkgs, ... }:
 
 let
+  dyn-dns = config.sane.services.dyn-dns;
   nativeAddrs = lib.mapAttrs (_name: builtins.head) config.sane.dns.zones."uninsane.org".inet.A;
   bindOvpn = "10.0.1.5";
-in lib.mkMerge [
+in
 {
-  services.trust-dns.enable = true;
-
-  # don't bind to IPv6 until i explicitly test that stack
-  services.trust-dns.settings.listen_addrs_ipv6 = [];
-  services.trust-dns.quiet = true;
-  # FIXME(2023/11/26): services.trust-dns.debug doesn't log requests: use RUST_LOG=debug env for that.
-  # - see: <https://github.com/hickory-dns/hickory-dns/issues/2082>
-  # services.trust-dns.debug = true;
-
   sane.ports.ports."53" = {
     protocol = [ "udp" "tcp" ];
     visibleTo.lan = true;
@@ -66,23 +58,6 @@ in lib.mkMerge [
 
   services.trust-dns.settings.zones = [ "uninsane.org" ];
 
-  # TODO: can i transform this into some sort of service group?
-  # have `systemctl restart trust-dns.service` restart all the individual services?
-  systemd.services.trust-dns.serviceConfig = {
-    DynamicUser = lib.mkForce false;
-    User = "trust-dns";
-    Group = "trust-dns";
-    wantedBy = lib.mkForce [];
-  };
-  systemd.services.trust-dns.enable = false;
-
-  users.groups.trust-dns = {};
-  users.users.trust-dns = {
-    group = "trust-dns";
-    isSystemUser = true;
-  };
-
-  # sane.services.dyn-dns.restartOnChange = [ "trust-dns.service" ];
 
   networking.nat.enable = true;
   networking.nat.extraCommands = ''
@@ -107,98 +82,73 @@ in lib.mkMerge [
     visibleTo.lan = true;
     description = "colin-redirected-dns-for-lan-namespace";
   };
-}
-{
-  systemd.services =
-    let
-      sed = "${pkgs.gnused}/bin/sed";
-      stateDir = "/var/lib/trust-dns";
-      zoneTemplate = pkgs.writeText "uninsane.org.zone.in" config.sane.dns.zones."uninsane.org".rendered;
 
-      zoneDirFor = flavor: "${stateDir}/${flavor}";
-      zoneFor = flavor: "${zoneDirFor flavor}/uninsane.org.zone";
-      mkTrustDnsService = opts: flavor: let
-        flags = let baseCfg = config.services.trust-dns; in
-          (lib.optional baseCfg.debug "--debug") ++ (lib.optional baseCfg.quiet "--quiet");
-        flagsStr = builtins.concatStringsSep " " flags;
 
-        anative = nativeAddrs."servo.${flavor}";
-
-        toml = pkgs.formats.toml { };
-        configTemplate = opts.config or (toml.generate "trust-dns-${flavor}.toml" (
-          (
-            lib.filterAttrsRecursive (_: v: v != null) config.services.trust-dns.settings
-          ) // {
-            listen_addrs_ipv4 = opts.listen or [ anative ];
-          }
-        ));
-        configFile = "${stateDir}/${flavor}-config.toml";
-
-        port = opts.port or 53;
-      in {
-        description = "trust-dns Domain Name Server (serving ${flavor})";
-        unitConfig.Documentation = "https://trust-dns.org/";
-
-        preStart = ''
-          wan=$(cat '${config.sane.services.dyn-dns.ipPath}')
-          ${sed} s/%AWAN%/$wan/ ${configTemplate} > ${configFile}
-        '' + lib.optionalString (!opts ? config) ''
-          mkdir -p ${zoneDirFor flavor}
-          ${sed} \
-            -e s/%CNAMENATIVE%/servo.${flavor}/ \
-            -e s/%ANATIVE%/${anative}/ \
-            -e s/%AWAN%/$wan/ \
-            -e s/%AOVPNS%/185.157.162.178/ \
-            ${zoneTemplate} > ${zoneFor flavor}
-        '';
-        serviceConfig = config.systemd.services.trust-dns.serviceConfig // {
-          ExecStart = ''
-            ${pkgs.trust-dns}/bin/${pkgs.trust-dns.meta.mainProgram} \
-            --port ${builtins.toString port} \
-            --zonedir ${zoneDirFor flavor}/ \
-            --config ${configFile} ${flagsStr}
-          '';
-        };
-
-        after = [ "network.target" ];
-        wantedBy = [ "multi-user.target" ];
-      };
-    in {
-      trust-dns-wan = mkTrustDnsService { listen = [ nativeAddrs."servo.lan" bindOvpn ]; } "wan";
-      trust-dns-lan = mkTrustDnsService { port = 1053; } "lan";
-      trust-dns-hn = mkTrustDnsService { port = 1053; } "hn";
-      trust-dns-hn-resolver = mkTrustDnsService {
-        config = pkgs.writeText "hn-resolver-config.toml" ''
-          # i host a resolver in the wireguard VPN so that clients can resolve DNS through the VPN.
-          # (that's what this file achieves).
-          #
-          # one would expect this resolver could host the authoritative zone for `uninsane.org`, and then forward everything else to the system resolver...
-          # and while that works for `dig`, it breaks for `nslookup` (and so `ssh`, etc).
-          #
-          # DNS responses include a flag for if the responding server is the authority of the zone queried.
-          # it seems that default Linux stub resolvers either:
-          # - expect DNSSEC when the response includes that bit, or
-          # - expect A records to be in the `answer` section instead of `additional` section.
-          # or perhaps something more nuanced. but for `nslookup` to be reliable, it has to talk to an
-          # instance of trust-dns which is strictly a resolver, with no authority.
-          # hence, this config: a resolver which forwards to the actual authority.
-
-          listen_addrs_ipv4 = ["${nativeAddrs."servo.hn"}"]
-          listen_addrs_ipv6 = []
-
-          [[zones]]
-          zone = "uninsane.org"
-          zone_type = "Forward"
-          stores = { type = "forward", name_servers = [{ socket_addr = "${nativeAddrs."servo.hn"}:1053", protocol = "udp", trust_nx_responses = true }] }
-
-          [[zones]]
-          # forward the root zone to the local DNS resolver
-          zone = "."
-          zone_type = "Forward"
-          stores = { type = "forward", name_servers = [{ socket_addr = "127.0.0.53:53", protocol = "udp", trust_nx_responses = true }] }
-        '';
-      } "hn-resolver";
+  sane.services.trust-dns.enable = true;
+  sane.services.trust-dns.instances = let
+    mkSubstitutions = flavor: {
+      "%AWAN%" = "$(cat '${dyn-dns.ipPath}')";
+      "%CNAMENATIVE%" = "servo.${flavor}";
+      "%ANATIVE%" = nativeAddrs."servo.${flavor}";
+      "%AOVPNS%" = "185.157.162.178";
     };
+  in
+  {
+    wan = {
+      substitutions = mkSubstitutions "wan";
+      listenAddrs = [
+        nativeAddrs."servo.lan"
+        bindOvpn
+      ];
+    };
+    lan = {
+      substitutions = mkSubstitutions "lan";
+      listenAddrs = [ nativeAddrs."servo.lan" ];
+      port = 1053;
+    };
+    hn = {
+      substitutions = mkSubstitutions "hn";
+      listenAddrs = [ nativeAddrs."servo.hn" ];
+      port = 1053;
+    };
+    hn-resolver = {
+      # don't need %AWAN% here because we forward to the hn instance.
+      listenAddrs = [ nativeAddrs."servo.hn" ];
+      extraConfig = {
+        zones = [
+          {
+            zone = "uninsane.org";
+            zone_type = "Forward";
+            stores = {
+              type = "forward";
+              name_servers = [
+                {
+                  socket_addr = "${nativeAddrs."servo.hn"}:1053";
+                  protocol = "udp";
+                  trust_nx_responses = true;
+                }
+              ];
+            };
+          }
+          {
+            # forward the root zone to the local DNS resolver
+            zone = ".";
+            zone_type = "Forward";
+            stores = {
+              type = "forward";
+              name_servers = [
+                {
+                  socket_addr = "127.0.0.53:53";
+                  protocol = "udp";
+                  trust_nx_responses = true;
+                }
+              ];
+            };
+          }
+        ];
+      };
+    };
+  };
 
   sane.services.dyn-dns.restartOnChange = [
     "trust-dns-wan.service"
@@ -207,4 +157,3 @@ in lib.mkMerge [
     # "trust-dns-hn-resolver.service"  # doesn't need restart because it doesn't know about WAN IP
   ];
 }
-]

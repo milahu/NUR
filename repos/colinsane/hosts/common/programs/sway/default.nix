@@ -136,7 +136,7 @@ in
       "rofi"  # menu/launcher
       "rofi-snippets"
       "sane-screenshot"
-      "sane-open-desktop"
+      "sane-open"
       # "splatmoji"  # used by sway config
       "sway-contrib.grimshot"  # used by sway config
       "swayidle"  # enable if you need it

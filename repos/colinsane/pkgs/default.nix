@@ -60,7 +60,7 @@ let
     rtl8723cs-wowlan = callPackage ./additional/rtl8723cs-wowlan { };
     sane-cast = callPackage ./additional/sane-cast { };
     sane-die-with-parent = callPackage ./additional/sane-die-with-parent { };
-    sane-open-desktop = callPackage ./additional/sane-open-desktop { };
+    sane-open = callPackage ./additional/sane-open { };
     sane-sandboxed = callPackage ./additional/sane-sandboxed { };
     sane-screenshot = callPackage ./additional/sane-screenshot { };
     sane-scripts = lib.recurseIntoAttrs (callPackage ./additional/sane-scripts { });

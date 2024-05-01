@@ -1,0 +1,150 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash -p glib -p jq -p procps -p sway -p util-linux -p xdg-utils
+
+set -e
+
+usage() {
+  echo "usage: sane-open [options] <org.my.desktop | /path/to/file>"
+  echo "given some resource, ask the xdg-desktop-portal service to open it"
+  echo "this could be either the name of an application, or a URI identifying a file"
+  echo
+  echo "options:"
+  echo "--auto-keyboard: toggle the virtual keyboard state to whatever's preferred by the app"
+  echo "--application <thing.desktop>: open the desktop file (by name, not path)"
+  echo "--file </path/to/file>: open the file using the default mime handler"
+  exit $1
+}
+
+configureKeyboardFor_application() {
+  case "$1" in
+    Alacritty.desktop)
+      setKeyboard show
+      ;;
+    rofi.desktop)
+      setKeyboard showIfRoom
+      ;;
+    rofi-filebrowser.desktop)
+      setKeyboard showIfRoom
+      ;;
+    rofi-snippets.desktop)
+      setKeyboard showIfRoom
+      ;;
+    sane-screenshot.desktop)
+      # leave unchanged
+      ;;
+    xdg-terminal-exec.desktop)
+      setKeyboard show
+      ;;
+    *)
+      setKeyboard hide
+      ;;
+  esac
+}
+
+configureKeyboardFor_file() {
+  local mime=$(xdg-mime query filetype "$1")
+  local application=$(xdg-mime query default "$mime")
+  configureKeyboardFor_application "$application"
+}
+
+open_application() {
+  gdbus call --session --timeout 10 \
+    --dest org.freedesktop.portal.Desktop \
+    --object-path /org/freedesktop/portal/desktop \
+    --method org.freedesktop.portal.DynamicLauncher.Launch \
+    "$1" {}
+}
+open_file() {
+  # open the file, and then pass the fd to dbus
+  exec 3<> "$1"
+  gdbus call --session --timeout 10 \
+    --dest org.freedesktop.portal.Desktop \
+    --object-path /org/freedesktop/portal/desktop \
+    --method org.freedesktop.portal.OpenURI.OpenFile \
+    '' 3 "{'ask': <false>}"
+}
+
+
+isLandscape() {
+  # success if all outputs are landscape
+  swaymsg -t get_outputs --raw \
+    | jq --exit-status '. | all(.transform == "90" or .transform == "270")' \
+    > /dev/null
+}
+
+_keyboardPid=
+setKeyboard() {
+  if [ -z "$KEYBOARD" ]; then
+    return
+  fi
+  if [ -z "$_keyboardPid" ]; then
+    _keyboardPid=$(pidof "$KEYBOARD")
+    if [ -z "$_keyboardPid" ]; then
+      return
+    fi
+  fi
+  _setKeyboard "$1"
+}
+_setKeyboard() {
+  case "$1" in
+    "show")
+      # `env` so that we get the util-linux `kill` binary instead of bash's builtin
+      env kill -s USR2 "$_keyboardPid"
+      ;;
+    "showIfRoom")
+      isLandscape && _setKeyboard "hide" || _setKeyboard "show"
+      ;;
+    "hide")
+      env kill -s USR1 "$_keyboardPid"
+      ;;
+  esac
+}
+
+
+## ARGUMENT PARSING
+
+autoKeyboard=
+resource=
+resourceType=
+while [ $# -gt 0 ]; do
+  arg="$1"
+  shift
+  case "$arg" in
+    "--auto-keyboard")
+      autoKeyboard=1
+      ;;
+    "--help")
+      usage 0
+      ;;
+    "--application")
+      resourceType="application"
+      ;;
+    "--file")
+      resourceType="file"
+      ;;
+    *)
+      if [ $# -ne 0 ]; then
+        usage 1
+      fi
+      resource="$arg"
+      ;;
+  esac
+done
+
+if [ -z "$resourceType" ]; then
+  if [ -e "$HOME/.local/share/applications/$resource" ]; then
+    resourceType=application
+  else
+    resourceType=file
+  fi
+fi
+
+
+## TOPLEVEL LOGIC
+
+if [ -n "$autoKeyboard" ]; then
+  # do in parallel to avoid delaying app launch
+  configureKeyboardFor_"$resourceType" "$resource" &
+fi
+
+open_"$resourceType" "$resource"

@@ -77,13 +77,13 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 
 #### special functions
-bindsym Print exec sane-open-desktop sane-screenshot.desktop
-bindsym $mod+Print exec sane-open-desktop sane-screenshot.desktop
-bindsym $mod+l exec sane-open-desktop swaylock.desktop
-bindsym $mod+s exec sane-open-desktop rofi-snippets.desktop
-# bindsym $mod+slash exec sane-open-desktop splatmoji.desktop
-bindsym $mod+d exec sane-open-desktop rofi.desktop
-bindsym $mod+Return exec sane-open-desktop xdg-terminal-exec.desktop
+bindsym Print exec sane-open sane-screenshot.desktop
+bindsym $mod+Print exec sane-open sane-screenshot.desktop
+bindsym $mod+l exec sane-open swaylock.desktop
+bindsym $mod+s exec sane-open rofi-snippets.desktop
+# bindsym $mod+slash exec sane-open splatmoji.desktop
+bindsym $mod+d exec sane-open rofi.desktop
+bindsym $mod+Return exec sane-open xdg-terminal-exec.desktop
 
 bindsym $mod+Shift+q kill
 # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'

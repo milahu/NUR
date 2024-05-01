@@ -20,7 +20,7 @@ let
         how many seconds of idle time before triggering the command.
       '';
     };
-    config.command = lib.mkIf (config.desktop != null) "sane-open-desktop ${config.desktop}";
+    config.command = lib.mkIf (config.desktop != null) "sane-open --application ${config.desktop}";
   });
   screenOff = pkgs.writeShellScriptBin "screen-off" ''
     swaymsg -- output '*' power false
