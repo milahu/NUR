@@ -4,12 +4,12 @@ trace: warning: null-ls.nvim has been discontinued, consider switching to none-l
 error:
 … from call site
 
-  at ./pkgs/default.nix:46:19:
+  at ./pkgs/default.nix:47:19:
 
-    45|     vimPlugins = callPackages ./vimPlugins;
-    46|     xplrPlugins = callPackages ./xplrPlugins;
+    46|     vimPlugins = callPackages ./vimPlugins;
+    47|     xplrPlugins = callPackages ./xplrPlugins;
       |                   ^
-    47|     zrythm = callPackage' ./zrythm;
+    48|     zrythm = callPackage' ./zrythm;
 
 … while calling 'callPackages'
 
