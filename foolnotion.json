@@ -1,15 +1,16 @@
 {
 "name":"foolnotion",
-"fetch_time":0.21,
-"eval_time":0.261,
+"fetch_time":0.288,
+"eval_time":0.273,
 "source":{
 "url":"https://github.com/foolnotion/nur-pkg",
-"rev":"69c19f4deef8a291a4f61aa166898e6de12aede2",
-"sha256":"09y47gi0hjqhkixk5n21cn7i5vv3miqh4ibqm2lmh4xj9kyy7yfg",
-"date":"2024-04-16T08:55:04Z"
+"rev":"eae6690e3cf1f5866ed0713b82b0d0d2b5575bcb",
+"sha256":"02nzvw1yxws9picgxxn44wj462yrv9ia9avv77nhmg4c34z7phz7",
+"date":null
 },
-"source_storepath":"/nix/store/jbjb8la65p6gbqrf1jzxk3d6imgnh6k6-source",
-"nur_combined_rev":"26fb65ea97e98ae5f5fabdb9e3399872e6148b7f",
+"source_storepath":"/nix/store/c98ndcym9v8rqcyihv2d41cd868l1dbl-source",
+"nixpkgs_storepath":"/nix/store/fmir5mmhv6by6akwk5671yrmh15ml4bp-source",
+"nur_combined_rev":"33128329518a54ea42f6fc6863ff9f5a238a2780",
 "packages":{
 "aria-csv":{
 "meta":{
@@ -108,7 +109,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/aria-csv/default.nix:17",
+"position":"./pkgs/aria-csv/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -186,7 +187,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"pkgs/asmjit/default.nix:20",
+"position":"./pkgs/asmjit/default.nix:20",
 "unfree":false,
 "unsupported":false
 },
@@ -296,7 +297,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/autodiff/default.nix:24",
+"position":"./pkgs/autodiff/default.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -335,7 +336,7 @@
 "x86_64-darwin",
 "aarch64-linux"
 ],
-"position":"pkgs/berserk/default.nix:41",
+"position":"./pkgs/berserk/default.nix:41",
 "unfree":false,
 "unsupported":false
 },
@@ -445,7 +446,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/boost-hana/default.nix:17",
+"position":"./pkgs/boost-hana/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -555,7 +556,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/byte-lite/default.nix:17",
+"position":"./pkgs/byte-lite/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -665,7 +666,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"pkgs/cmake-init/default.nix:21",
+"position":"./pkgs/cmake-init/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
@@ -776,7 +777,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"pkgs/cmaketools/default.nix:21",
+"position":"./pkgs/cmaketools/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
@@ -887,7 +888,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/cpp-flux/default.nix:22",
+"position":"./pkgs/cpp-flux/default.nix:22",
 "unfree":false,
 "unsupported":false
 },
@@ -997,7 +998,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/cpp-lazy/default.nix:21",
+"position":"./pkgs/cpp-lazy/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
@@ -1107,7 +1108,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/cpp-sort/default.nix:22",
+"position":"./pkgs/cpp-sort/default.nix:22",
 "unfree":false,
 "unsupported":false
 },
@@ -1217,7 +1218,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/cppitertools/default.nix:17",
+"position":"./pkgs/cppitertools/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -1259,7 +1260,7 @@
 "name":"Bogdan Burlacu"
 }
 ],
-"name":"cpptrace-0.5.2",
+"name":"cpptrace-0.5.3",
 "outputsToInstall":[
 "out"
 ],
@@ -1340,18 +1341,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/cpptrace/default.nix:24",
+"position":"./pkgs/cpptrace/default.nix:24",
 "unfree":false,
 "unsupported":false
 },
-"name":"cpptrace-0.5.2",
+"name":"cpptrace-0.5.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cpptrace",
 "system":"x86_64-linux",
-"version":"0.5.2"
+"version":"0.5.3"
 },
 "cutechess-qt6":{
 "meta":{
@@ -1450,7 +1451,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/cutechess/default.nix:21",
+"position":"./pkgs/cutechess/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
@@ -1545,7 +1546,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/eli5/default.nix:19",
+"position":"./pkgs/eli5/default.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -1624,7 +1625,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"pkgs/eovim/default.nix:26",
+"position":"./pkgs/eovim/default.nix:26",
 "unfree":false,
 "unsupported":false
 },
@@ -1734,7 +1735,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/eve/default.nix:19",
+"position":"./pkgs/eve/default.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -1844,7 +1845,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/expected-lite/default.nix:17",
+"position":"./pkgs/expected-lite/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -1954,7 +1955,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/fast_float/default.nix:17",
+"position":"./pkgs/fast_float/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -2064,7 +2065,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/fastor/default.nix:19",
+"position":"./pkgs/fastor/default.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -2174,7 +2175,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/fplus/default.nix:17",
+"position":"./pkgs/fplus/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -2284,7 +2285,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/gch-small-vector/default.nix:19",
+"position":"./pkgs/gch-small-vector/default.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -2321,7 +2322,7 @@
 "x86_64-linux",
 "i686-linux"
 ],
-"position":"pkgs/koivisto/default.nix:32",
+"position":"./pkgs/koivisto/default.nix:32",
 "unfree":false,
 "unsupported":false
 },
@@ -2431,7 +2432,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/lexy/default.nix:23",
+"position":"./pkgs/lexy/default.nix:23",
 "unfree":false,
 "unsupported":false
 },
@@ -2460,7 +2461,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"name":"libassert-2.0.1",
+"name":"libassert-2.0.2",
 "outputsToInstall":[
 "out"
 ],
@@ -2541,18 +2542,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/libassert/default.nix:23",
+"position":"./pkgs/libassert/default.nix:23",
 "unfree":false,
 "unsupported":false
 },
-"name":"libassert-2.0.1",
+"name":"libassert-2.0.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"libassert",
 "system":"x86_64-linux",
-"version":"2.0.1"
+"version":"2.0.2"
 },
 "libdwarf":{
 "meta":{
@@ -2627,7 +2628,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"pkgs/libdwarf/default.nix:4",
+"position":"./pkgs/libdwarf/default.nix:4",
 "unfree":false,
 "unsupported":false
 },
@@ -2737,7 +2738,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/libnano/default.nix:29",
+"position":"./pkgs/libnano/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
@@ -2816,7 +2817,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"pkgs/linasm/default.nix:35",
+"position":"./pkgs/linasm/default.nix:35",
 "unfree":false,
 "unsupported":false
 },
@@ -2894,7 +2895,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"pkgs/mathpresso/default.nix:35",
+"position":"./pkgs/mathpresso/default.nix:35",
 "unfree":false,
 "unsupported":false
 },
@@ -3004,7 +3005,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/mdspan/default.nix:24",
+"position":"./pkgs/mdspan/default.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -3114,7 +3115,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/mppp/default.nix:18",
+"position":"./pkgs/mppp/default.nix:18",
 "unfree":false,
 "unsupported":false
 },
@@ -3224,7 +3225,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/nanobind/default.nix:24",
+"position":"./pkgs/nanobind/default.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -3334,7 +3335,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/ned14-outcome/default.nix:31",
+"position":"./pkgs/ned14-outcome/default.nix:31",
 "unfree":false,
 "unsupported":false
 },
@@ -3444,7 +3445,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/ned14-quickcpplib/default.nix:30",
+"position":"./pkgs/ned14-quickcpplib/default.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -3554,7 +3555,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/ned14-status-code/default.nix:18",
+"position":"./pkgs/ned14-status-code/default.nix:18",
 "unfree":false,
 "unsupported":false
 },
@@ -3593,7 +3594,7 @@
 "x86_64-darwin",
 "x86_64-linux"
 ],
-"position":"pkgs/nlr/default.nix:26",
+"position":"./pkgs/nlr/default.nix:26",
 "unfree":false,
 "unsupported":false
 },
@@ -3703,7 +3704,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/pareto/default.nix:25",
+"position":"./pkgs/pareto/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -3813,7 +3814,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/pegtl/default.nix:24",
+"position":"./pkgs/pegtl/default.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -3908,7 +3909,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/pmlb/default.nix:19",
+"position":"./pkgs/pmlb/default.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -4019,7 +4020,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/pratt-parser/default.nix:21",
+"position":"./pkgs/pratt-parser/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
@@ -4114,7 +4115,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/pyoperon/default.nix:20",
+"position":"./pkgs/pyoperon/default.nix:20",
 "unfree":false,
 "unsupported":false
 },
@@ -4225,7 +4226,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/q5go/default.nix:23",
+"position":"./pkgs/q5go/default.nix:23",
 "unfree":false,
 "unsupported":false
 },
@@ -4289,7 +4290,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/qpdfview/default.nix:61",
+"position":"./pkgs/qpdfview/default.nix:61",
 "unfree":false,
 "unsupported":false
 },
@@ -4353,7 +4354,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/qpdfview/default.nix:61",
+"position":"./pkgs/qpdfview/default.nix:61",
 "unfree":false,
 "unsupported":false
 },
@@ -4463,7 +4464,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/robin-hood-hashing/default.nix:19",
+"position":"./pkgs/robin-hood-hashing/default.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -4581,7 +4582,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/scid/default.nix:31",
+"position":"./pkgs/scid/default.nix:31",
 "unfree":false,
 "unsupported":false
 },
@@ -4691,7 +4692,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/scnlib/default.nix:28",
+"position":"./pkgs/scnlib/default.nix:28",
 "unfree":false,
 "unsupported":false
 },
@@ -4801,7 +4802,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/seq/default.nix:23",
+"position":"./pkgs/seq/default.nix:23",
 "unfree":false,
 "unsupported":false
 },
@@ -4931,7 +4932,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/simdutf_4/default.nix:33",
+"position":"./pkgs/simdutf_4/default.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -5041,7 +5042,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/sleef/default.nix:25",
+"position":"./pkgs/sleef/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -5151,7 +5152,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/span-lite/default.nix:17",
+"position":"./pkgs/span-lite/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -5261,7 +5262,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/taskflow/default.nix:28",
+"position":"./pkgs/taskflow/default.nix:28",
 "unfree":false,
 "unsupported":false
 },
@@ -5371,7 +5372,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/tessil-robin-map/default.nix:17",
+"position":"./pkgs/tessil-robin-map/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -5481,7 +5482,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/tlx/default.nix:22",
+"position":"./pkgs/tlx/default.nix:22",
 "unfree":false,
 "unsupported":false
 },
@@ -5591,7 +5592,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/trng/default.nix:24",
+"position":"./pkgs/trng/default.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -5701,7 +5702,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/unordered_dense/default.nix:17",
+"position":"./pkgs/unordered_dense/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -5811,7 +5812,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/vdt/default.nix:17",
+"position":"./pkgs/vdt/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -5921,7 +5922,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/vectorclass/default.nix:36",
+"position":"./pkgs/vectorclass/default.nix:36",
 "unfree":false,
 "unsupported":false
 },
@@ -6031,7 +6032,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/vstat/default.nix:19",
+"position":"./pkgs/vstat/default.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -6141,7 +6142,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/xad/default.nix:24",
+"position":"./pkgs/xad/default.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -6251,7 +6252,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"pkgs/xxhash_cpp/default.nix:17",
+"position":"./pkgs/xxhash_cpp/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
