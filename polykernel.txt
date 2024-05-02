@@ -1,0 +1,66 @@
+error:
+… while evaluating the file './default.nix':
+
+… from call site
+
+  at ./default.nix:3:21:
+
+     2|                     with import <nixpkgs> {};
+     3|                     import ./evalRepo.nix {
+      |                     ^
+     4|                         name = "polykernel";
+
+… while calling anonymous lambda
+
+  at ./evalRepo.nix:1:1:
+
+     1| { name
+      | ^
+     2| , url
+
+… while calling anonymous lambda
+
+  at ./dev/flake-compat.nix:160:13:
+
+   159|     builtins.mapAttrs
+   160|       (key: node:
+      |             ^
+   161|         let
+
+… from call site
+
+  at ./dev/flake-compat.nix:196:21:
+
+   195|
+   196|           outputs = flake.outputs (inputs // { self = result; });
+      |                     ^
+   197|
+
+… while calling 'outputs'
+
+  at ./flake.nix:16:13:
+
+    15|
+    16|   outputs = inputs:
+      |             ^
+    17|     inputs.flake-parts.lib.mkFlake { inherit inputs; } (
+
+… while calling anonymous lambda
+
+  at ./dev/flake-compat.nix:174:25:
+
+   173|           inputs = builtins.mapAttrs
+   174|             (inputName: inputSpec: allNodes.${resolveInput inputSpec})
+      |                         ^
+   175|             (node.inputs or {});
+
+… while calling anonymous lambda
+
+  at ./dev/flake-compat.nix:160:13:
+
+   159|     builtins.mapAttrs
+   160|       (key: node:
+      |             ^
+   161|         let
+
+error: access to URI 'https://api.github.com/repos/hercules-ci/flake-parts/tarball/9126214d0a59633752a136528f5f3b9aa8565b7d' is forbidden in restricted mode
