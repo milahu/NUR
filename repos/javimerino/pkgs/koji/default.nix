@@ -5,7 +5,6 @@
 , lib
 , python3Packages
   #, rpm
-, python-requests-gssapi
 , system
 , tzdata
 }:
@@ -19,13 +18,14 @@ python3Packages.buildPythonApplication rec {
   };
   patches = [
     ./test_load_plugins-mock_expand_user.patch
+    ./disable-test_instance.patch
   ];
 
   propagatedBuildInputs = with python3Packages; [
     dateutil
     psycopg2
     requests
-    python-requests-gssapi
+    requests-gssapi
     rpm
     six
   ];
@@ -58,6 +58,7 @@ python3Packages.buildPythonApplication rec {
   '';
 
   meta = with lib; {
+    broken = versionOlder lib.version "24.05pre"; # koji depends on python3.requests-gssapi, which is not present in 23.11
     description = "A flexible, secure, and reproducible way to build RPM-based software.";
     homepage = "https://pagure.io/koji/";
     maintainers = with maintainers; [ javimerino ];
