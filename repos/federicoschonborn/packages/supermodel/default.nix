@@ -64,7 +64,7 @@ stdenv.mkDerivation {
     mainProgram = "supermodel";
     description = "Sega Model 3 arcade machine emulator";
     homepage = "https://github.com/trzy/Supermodel";
-    maintainers = [ lib.maintainers.federicoschonborn ];
+    # maintainers = [ lib.maintainers.federicoschonborn ];
     license = lib.licenses.gpl3Plus;
   };
 }

@@ -111,6 +111,6 @@ stdenv.mkDerivation (finalAttrs: {
     description = "A set of commands that manipulate GTAs on various levels";
     homepage = "https://marlam.de/gta/";
     license = lib.licenses.gpl3Plus;
-    maintainers = with lib.maintainers; [ federicoschonborn ];
+    # maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })

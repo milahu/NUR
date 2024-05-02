@@ -2,7 +2,11 @@
   pkgs ? import <nixpkgs> { },
 }:
 
-pkgs.lib.makeScope pkgs.newScope (
+let
+  inherit (pkgs) lib;
+in
+
+lib.makeScope pkgs.newScope (
   self:
   let
     inherit (self) callPackage;
@@ -35,6 +39,8 @@ pkgs.lib.makeScope pkgs.newScope (
     thunderbird-gnome-theme = callPackage ./thunderbird-gnome-theme { };
     unnamed-sdvx-clone = callPackage ./unnamed-sdvx-clone { };
     wisp = callPackage ./wisp { };
+    yyjson =
+      if lib.versionAtLeast pkgs.yyjson.version "0.9.0" then pkgs.yyjson else callPackage ./yyjson { };
 
     # Backports
     wlroots_0_17 = pkgs.wlroots.overrideAttrs (prevAttrs: {

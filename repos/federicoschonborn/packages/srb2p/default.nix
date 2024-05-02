@@ -82,6 +82,6 @@ stdenv.mkDerivation (finalAttrs: {
     description = "SRB2P is a recreation of Persona's general gameplay into Sonic Robo Blast 2";
     homepage = "https://git.do.srb2.org/SinnamonLat/SRB2";
     license = lib.licenses.gpl2Only;
-    maintainers = with lib.maintainers; [ federicoschonborn ];
+    # maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })

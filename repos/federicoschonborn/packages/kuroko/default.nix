@@ -25,6 +25,6 @@ stdenv.mkDerivation (finalAttrs: {
     description = "Dialect of Python with explicit variable declaration and block scoping, with a lightweight and easy-to-embed bytecode compiler and interpreter";
     homepage = "https://github.com/kuroko-lang/kuroko";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ federicoschonborn ];
+    # maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })

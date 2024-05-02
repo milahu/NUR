@@ -16,13 +16,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "raze";
-  version = "1.10.1";
+  version = "1.10.2";
 
   src = fetchFromGitHub {
     owner = "ZDoom";
     repo = "Raze";
     rev = finalAttrs.version;
-    hash = "sha256-ATz5DsyUpAmaisZHIqr8hUV3tJk6E+qYdzLs86wZrMU=";
+    hash = "sha256-8kr+BLwfTQ0kx6TMqu1AUxiCgvwJd2urZqJ09FH48lo=";
   };
 
   nativeBuildInputs = [
@@ -46,6 +46,6 @@ stdenv.mkDerivation (finalAttrs: {
     description = "Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood, Shadow Warrior, Redneck Rampage and Powerslave/Exhumed";
     homepage = "https://github.com/ZDoom/Raze";
     license = lib.licenses.gpl2;
-    maintainers = [ lib.maintainers.federicoschonborn ];
+    # maintainers = [ lib.maintainers.federicoschonborn ];
   };
 })

@@ -36,6 +36,6 @@ rustPlatform.buildRustPackage {
       asl20
       mit
     ];
-    maintainers = with lib.maintainers; [ federicoschonborn ];
+    # maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 }

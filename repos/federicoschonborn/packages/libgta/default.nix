@@ -41,6 +41,6 @@ stdenv.mkDerivation (finalAttrs: {
     description = "A library that reads and writes GTA files, with interfaces in C and C++";
     homepage = "https://marlam.de/gta/";
     license = lib.licenses.lgpl21Plus;
-    maintainers = with lib.maintainers; [ federicoschonborn ];
+    # maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })

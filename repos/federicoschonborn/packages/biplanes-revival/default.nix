@@ -43,6 +43,6 @@ stdenv.mkDerivation (finalAttrs: {
     description = "An old cellphone arcade recreated for PC";
     homepage = "https://github.com/regular-dev/biplanes-revival";
     license = lib.licenses.gpl3Plus;
-    maintainers = [ lib.maintainers.federicoschonborn ];
+    # maintainers = [ lib.maintainers.federicoschonborn ];
   };
 })
