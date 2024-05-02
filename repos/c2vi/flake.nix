@@ -42,7 +42,8 @@
     networkmanager.url = "github:c2vi/nixos-networkmanager-profiles";
 
     robotnix = {
-      url = "github:nix-community/robotnix";
+      #url = "github:nix-community/robotnix";
+      url = "github:c2vi/robotnix/two_lineageos_fixes";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -320,6 +321,18 @@
 
     robotnixConfigurations = rec {
       "phone" = inputs.robotnix.lib.robotnixSystem (import ./hosts/phone/default.nix);
+      "phone-emulator" = inputs.robotnix.lib.robotnixSystem {
+        productName = nixpkgs.legacyPackages.x86_64-linux.lib.mkForce "sdk_phone_x86_64";
+        imports = [
+          (import ./hosts/phone/default.nix)
+        ];
+      };
+      "phone-emulator-arm" = inputs.robotnix.lib.robotnixSystem {
+        productName = nixpkgs.legacyPackages.x86_64-linux.lib.mkForce "sdk_phone_arm64";
+        imports = [
+          (import ./hosts/phone/default.nix)
+        ];
+      };
     };
 
     nixOnDroidConfigurations = rec {
