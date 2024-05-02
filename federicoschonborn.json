@@ -1,16 +1,16 @@
 {
 "name":"federicoschonborn",
-"fetch_time":2.12,
-"eval_time":0.234,
+"fetch_time":0.925,
+"eval_time":0.229,
 "source":{
 "url":"https://codeberg.org/FedericoSchonborn/nur-packages",
-"rev":"65f23ea1e067f3283588a3508b0bdd82cb686195",
-"sha256":"0pax52vnza2d8jv3afhm5g0rmgr4ldaf0bqpxyl50rnkihp1bakn",
+"rev":"84c0ca1a692bf2e01d5bb6f3d6d8bcae1efc36b8",
+"sha256":"1bsky9f6aspnjc9ii2ghbds4vqlbaf7bpgp7ylsknpqg622fx2q0",
 "date":null
 },
-"source_storepath":"/nix/store/aw4swz16863wshda3j5pfl0x1hg5qg6n-nur-packages",
-"nixpkgs_storepath":"/nix/store/fmb2gkj0jyd4nzi7xzkp5k1c9pz45v5s-source",
-"nur_combined_rev":"637f7f943279168d1f80229358968dabc807a3a7",
+"source_storepath":"/nix/store/4safslrsygm46saqrdimyp9w185jaf3d-nur-packages",
+"nixpkgs_storepath":"/nix/store/8dlmwwrn7p9272r1mh860cm4y7nvnfkb-source",
+"nur_combined_rev":"a6e92951bd66ab4138aab47ff6138b300adeb618",
 "packages":{
 "biplanes-revival":{
 "meta":{
@@ -29,20 +29,6 @@
 "url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
 },
 "mainProgram":"BiplanesRevival",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"biplanes-revival-1.1",
 "outputsToInstall":[
 "out"
@@ -76,20 +62,6 @@
 "spdxId":"BSD-3-Clause",
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"bsdutils-13.2",
 "outputsToInstall":[
 "out"
@@ -146,20 +118,6 @@
 }
 ],
 "mainProgram":"cargo-aoc",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"cargo-aoc-0.3.7",
 "outputsToInstall":[
 "out"
@@ -218,7 +176,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/fastfetch-cli/fastfetch/blob/2.10.2/CHANGELOG.md",
+"changelog":"https://github.com/fastfetch-cli/fastfetch/blob/2.11.0/CHANGELOG.md",
 "description":"Like neofetch, but much faster because written in C",
 "homepage":"https://github.com/fastfetch-cli/fastfetch",
 "insecure":false,
@@ -232,21 +190,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "mainProgram":"fastfetch",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
-"name":"fastfetch-2.10.2",
+"name":"fastfetch-2.11.0",
 "outputsToInstall":[
 "out"
 ],
@@ -254,20 +198,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"fastfetch-2.10.2",
+"name":"fastfetch-2.11.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fastfetch",
 "system":"x86_64-linux",
-"version":"2.10.2"
+"version":"2.11.0"
 },
 "fastfetchMinimal":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/fastfetch-cli/fastfetch/blob/2.10.2/CHANGELOG.md",
+"changelog":"https://github.com/fastfetch-cli/fastfetch/blob/2.11.0/CHANGELOG.md",
 "description":"Like neofetch, but much faster because written in C (with all features disabled)",
 "homepage":"https://github.com/fastfetch-cli/fastfetch",
 "insecure":false,
@@ -281,36 +225,22 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "mainProgram":"fastfetch",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
-"name":"fastfetch-minimal-2.10.2",
+"name":"fastfetch-minimal-2.11.0",
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/default.nix:60",
+"position":"./packages/default.nix:66",
 "unfree":false,
 "unsupported":false
 },
-"name":"fastfetch-minimal-2.10.2",
+"name":"fastfetch-minimal-2.11.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fastfetch-minimal",
 "system":"x86_64-linux",
-"version":"2.10.2"
+"version":"2.11.0"
 },
 "firefox-gnome-theme":{
 "meta":{
@@ -328,21 +258,7 @@
 "spdxId":"Unlicense",
 "url":"https://spdx.org/licenses/Unlicense.html"
 },
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
-"name":"firefox-gnome-theme-124",
+"name":"firefox-gnome-theme-125",
 "outputsToInstall":[
 "out"
 ],
@@ -350,14 +266,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"firefox-gnome-theme-124",
+"name":"firefox-gnome-theme-125",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"firefox-gnome-theme",
 "system":"x86_64-linux",
-"version":"124"
+"version":"125"
 },
 "flyaway":{
 "meta":{
@@ -376,20 +292,6 @@
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "mainProgram":"flyaway",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"flyaway-0-unstable-2023-07-04",
 "outputsToInstall":[
 "out"
@@ -447,20 +349,6 @@
 "url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
 },
 "mainProgram":"gta",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"gtatool-2.4.0",
 "outputsToInstall":[
 "out"
@@ -495,25 +383,11 @@
 "url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
 },
 "mainProgram":"gta",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"gtatool-full-2.4.0",
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/default.nix:97",
+"position":"./packages/default.nix:103",
 "unfree":false,
 "unsupported":false
 },
@@ -555,20 +429,6 @@
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
 "mainProgram":"inko",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"inko-0.14.0",
 "outputsToInstall":[
 "out"
@@ -626,20 +486,6 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "mainProgram":"kuroko",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"kuroko-1.4.0",
 "outputsToInstall":[
 "out"
@@ -673,20 +519,6 @@
 "spdxId":"LGPL-2.1-or-later",
 "url":"https://spdx.org/licenses/LGPL-2.1-or-later.html"
 },
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"libgta-1.2.1",
 "outputsToInstall":[
 "out"
@@ -721,20 +553,6 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "mainProgram":"tgd",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"libtgd-4.2",
 "outputsToInstall":[
 "out"
@@ -769,25 +587,11 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "mainProgram":"tgd",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"libtgd-full-4.2",
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/default.nix:130",
+"position":"./packages/default.nix:136",
 "unfree":false,
 "unsupported":false
 },
@@ -817,20 +621,6 @@
 "url":"https://spdx.org/licenses/BSD-2-Clause.html"
 },
 "mainProgram":"xo",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"libxo-1.7.5",
 "outputsToInstall":[
 "out"
@@ -888,20 +678,6 @@
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "mainProgram":"magpie-wm",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"magpie-wayland-0.9.3-unstable-2024-04-13",
 "outputsToInstall":[
 "out"
@@ -960,20 +736,6 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "mainProgram":"mii_emu_gl",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"mii-emu-1.8",
 "outputsToInstall":[
 "out"
@@ -1008,20 +770,6 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "mainProgram":"minesector",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"minesector-1.1.5",
 "outputsToInstall":[
 "out"
@@ -1056,20 +804,6 @@
 "url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
 },
 "mainProgram":"mucalc",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"mucalc-2.1",
 "outputsToInstall":[
 "out"
@@ -1104,20 +838,6 @@
 "spdxId":"GPL-3.0-only",
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"opensurge-0.6.0.3",
 "outputsToInstall":[
 "out"
@@ -1151,20 +871,6 @@
 "spdxId":"GPL-2.0-or-later",
 "url":"https://spdx.org/licenses/GPL-2.0-or-later.html"
 },
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"pseint-20240122",
 "outputsToInstall":[
 "out"
@@ -1199,20 +905,6 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "mainProgram":"qv",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"qv-5.1",
 "outputsToInstall":[
 "out"
@@ -1247,21 +939,7 @@
 "url":"https://spdx.org/licenses/GPL-2.0.html"
 },
 "mainProgram":"raze",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
-"name":"raze-1.10.1",
+"name":"raze-1.10.2",
 "outputsToInstall":[
 "out"
 ],
@@ -1269,14 +947,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"raze-1.10.1",
+"name":"raze-1.10.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"raze",
 "system":"x86_64-linux",
-"version":"1.10.1"
+"version":"1.10.2"
 },
 "razeFull":{
 "meta":{
@@ -1295,36 +973,22 @@
 "url":"https://spdx.org/licenses/GPL-2.0.html"
 },
 "mainProgram":"raze",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
-"name":"raze-full-1.10.1",
+"name":"raze-full-1.10.2",
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/default.nix:161",
+"position":"./packages/default.nix:167",
 "unfree":false,
 "unsupported":false
 },
-"name":"raze-full-1.10.1",
+"name":"raze-full-1.10.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"raze-full",
 "system":"x86_64-linux",
-"version":"1.10.1"
+"version":"1.10.2"
 },
 "srb2p":{
 "meta":{
@@ -1343,20 +1007,6 @@
 "url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "mainProgram":"lsdlsrb2",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"srb2p-1.3.6",
 "outputsToInstall":[
 "out"
@@ -1391,20 +1041,6 @@
 "url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
 },
 "mainProgram":"supermodel",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"supermodel-0-unstable-2024-04-05",
 "outputsToInstall":[
 "out"
@@ -1440,20 +1076,6 @@
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "mainProgram":"surgescript",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"surgescript-0.5.6.1",
 "outputsToInstall":[
 "out"
@@ -1487,20 +1109,6 @@
 "spdxId":"LGPL-2.1-or-later",
 "url":"https://spdx.org/licenses/LGPL-2.1-or-later.html"
 },
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"teem-1.11.0",
 "outputsToInstall":[
 "out"
@@ -1534,25 +1142,11 @@
 "spdxId":"LGPL-2.1-or-later",
 "url":"https://spdx.org/licenses/LGPL-2.1-or-later.html"
 },
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"teem-experimental-1.11.0",
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/default.nix:186",
+"position":"./packages/default.nix:192",
 "unfree":false,
 "unsupported":false
 },
@@ -1581,25 +1175,11 @@
 "spdxId":"LGPL-2.1-or-later",
 "url":"https://spdx.org/licenses/LGPL-2.1-or-later.html"
 },
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"teem-experimental-full-1.11.0",
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/default.nix:198",
+"position":"./packages/default.nix:204",
 "unfree":false,
 "unsupported":false
 },
@@ -1628,25 +1208,11 @@
 "spdxId":"LGPL-2.1-or-later",
 "url":"https://spdx.org/licenses/LGPL-2.1-or-later.html"
 },
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"teem-full-1.11.0",
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/default.nix:170",
+"position":"./packages/default.nix:176",
 "unfree":false,
 "unsupported":false
 },
@@ -1675,20 +1241,6 @@
 "spdxId":"Unlicense",
 "url":"https://spdx.org/licenses/Unlicense.html"
 },
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"thunderbird-gnome-theme-0-unstable-2024-03-18",
 "outputsToInstall":[
 "out"
@@ -1723,20 +1275,6 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "mainProgram":"usc-game",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"unnamed-sdvx-clone-0.5.0",
 "outputsToInstall":[
 "out"
@@ -1771,20 +1309,6 @@
 "url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
 },
 "mainProgram":"wisp",
-"maintainers":[
-{
-"email":"federicoschonborn@disroot.org",
-"github":"FedericoSchonborn",
-"githubId":62166915,
-"keys":[
-{
-"fingerprint":"C43F 4052 D289 3B73 33F8  0259 E4F6 F544 DE9E 29E8"
-}
-],
-"matrix":"@FedericoDSchonborn:matrix.org",
-"name":"Federico Dami\u00e1n Schonborn"
-}
-],
 "name":"wisp-1.0.11",
 "outputsToInstall":[
 "out"
@@ -1806,7 +1330,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://gitlab.freedesktop.org/wlroots/wlroots/-/tags/0.17.2",
+"changelog":"https://gitlab.freedesktop.org/wlroots/wlroots/-/tags/0.17.3",
 "description":"A modular Wayland compositor library",
 "homepage":"https://gitlab.freedesktop.org/wlroots/wlroots/",
 "insecure":false,
@@ -1889,6 +1413,118 @@
 "pname":"wlroots",
 "system":"x86_64-linux",
 "version":"0.17.2"
+},
+"yyjson":{
+"meta":{
+"available":true,
+"broken":false,
+"changelog":"https://github.com/ibireme/yyjson/blob/0.9.0/CHANGELOG.md",
+"description":"The fastest JSON library in C",
+"homepage":"https://github.com/ibireme/yyjson",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"maintainers":[],
+"name":"yyjson-0.9.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"i686-cygwin",
+"x86_64-cygwin",
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin",
+"i686-freebsd13",
+"x86_64-freebsd13",
+"aarch64-genode",
+"i686-genode",
+"x86_64-genode",
+"x86_64-solaris",
+"javascript-ghcjs",
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"mmix-mmixware",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"aarch64_be-none",
+"aarch64-none",
+"arm-none",
+"armv6l-none",
+"avr-none",
+"i686-none",
+"microblaze-none",
+"microblazeel-none",
+"mips-none",
+"mips64-none",
+"msp430-none",
+"or1k-none",
+"m68k-none",
+"powerpc-none",
+"powerpcle-none",
+"riscv32-none",
+"riscv64-none",
+"rx-none",
+"s390-none",
+"s390x-none",
+"vc4-none",
+"x86_64-none",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox",
+"wasm64-wasi",
+"wasm32-wasi",
+"x86_64-windows",
+"i686-windows"
+],
+"position":"<nixpkgs> + /pkgs/development/libraries/yyjson/default.nix:23",
+"unfree":false,
+"unsupported":false
+},
+"name":"yyjson-0.9.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"yyjson",
+"system":"x86_64-linux",
+"version":"0.9.0"
 }
 }
 }
