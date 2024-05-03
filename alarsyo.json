@@ -1,15 +1,16 @@
 {
 "name":"alarsyo",
-"fetch_time":0.281,
-"eval_time":0.228,
+"fetch_time":0.273,
+"eval_time":0.242,
 "source":{
 "url":"https://github.com/alarsyo/nixos-config",
-"rev":"279fecb93b1c31de3e2b2577f320ec02baf1d390",
-"sha256":"1mhkqmnb47ymq51r643x499d1d01m47wch8jym6m60f7rva8z4gn",
+"rev":"b12753161ba9b51b1d89ade11431d66bd591a84b",
+"sha256":"18bwwaawpqbl73kmw23a5msn42xi94hbsq0434r4ibdlknp9npz3",
 "date":null
 },
-"source_storepath":"/nix/store/zqqb75x4b78nkzzcmbvxn9ink4zq2wsk-source",
-"nur_combined_rev":"c59fb1b5f6d5084f57df1c509353aeb970e29992",
+"source_storepath":"/nix/store/fxvrviry9ic5r4l3lkrwa5c27ifqna6d-source",
+"nixpkgs_storepath":"/nix/store/8l8qfp1nixnhyzgx9fm43vbldnp60v95-source",
+"nur_combined_rev":"ad062151de9d63c2475a404b4edb3fcc71cc208c",
 "packages":{
 "ansel":{
 "meta":{
@@ -55,7 +56,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"pkgs/ansel/default.nix:149",
+"position":"./pkgs/ansel/default.nix:149",
 "unfree":false,
 "unsupported":false
 },
@@ -88,7 +89,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/grafana-dashboards/nginx.nix:33",
+"position":"./pkgs/grafana-dashboards/nginx.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -121,7 +122,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/grafana-dashboards/node-exporter.nix:33",
+"position":"./pkgs/grafana-dashboards/node-exporter.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -154,7 +155,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/kaleidoscope-udev-rules/default.nix:32",
+"position":"./pkgs/kaleidoscope-udev-rules/default.nix:32",
 "unfree":false,
 "unsupported":false
 },
@@ -176,7 +177,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/sddm-sugar-candy/default.nix:8",
+"position":"./pkgs/sddm-sugar-candy/default.nix:8",
 "unfree":false,
 "unsupported":false
 },
@@ -198,7 +199,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"pkgs/spot/default.nix:9",
+"position":"./pkgs/spot/default.nix:9",
 "unfree":false,
 "unsupported":false
 },

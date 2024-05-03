@@ -1,16 +1,16 @@
 {
 "name":"kira-bruneau",
-"fetch_time":0.25,
-"eval_time":0.414,
+"fetch_time":0.299,
+"eval_time":0.422,
 "source":{
 "url":"https://gitlab.com/kira-bruneau/nur-packages",
-"rev":"a3aa83c68b6294a9834afb06b0d9e45e7505e150",
-"sha256":"0wqms4n8pr0ab6q05v6yl72722wxhainkx8glx9c2pj0q3bzbvpk",
+"rev":"8e794d0d44f278cd9c55e68cdd774aa6b033589c",
+"sha256":"1mngzf1905z6i391c3xifm5sy6qhcx6f8zy1w28iqg38lgn5sjcw",
 "date":null
 },
-"source_storepath":"/nix/store/1yb5l5qx9l5mdzsl37pqrkfmc9a46gnx-source",
-"nixpkgs_storepath":"/nix/store/8dlmwwrn7p9272r1mh860cm4y7nvnfkb-source",
-"nur_combined_rev":"ddadd41f45117a37a28dc72431d3ae758b94b113",
+"source_storepath":"/nix/store/z7divyp4s3ssd97zh6jvcsasa34yjky1-source",
+"nixpkgs_storepath":"/nix/store/8l8qfp1nixnhyzgx9fm43vbldnp60v95-source",
+"nur_combined_rev":"e326749bde5bc7b2b25dc39db5dcdfef9f7e9ae1",
 "packages":{
 "anytype":{
 "meta":{
@@ -36,7 +36,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-0.39.0",
+"name":"anytype-0.40.8",
 "outputsToInstall":[
 "out"
 ],
@@ -63,24 +63,24 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/development/tools/misc/anytype/default.nix:137",
+"position":"./pkgs/development/tools/misc/anytype/default.nix:128",
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-0.39.0",
+"name":"anytype-0.40.8",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype",
 "system":"x86_64-linux",
-"version":"0.39.0"
+"version":"0.40.8"
 },
 "anytype-heart":{
 "meta":{
 "available":false,
 "broken":false,
-"changelog":"https://github.com/anyproto/anytype-heart/releases/tag/v0.32.1",
+"changelog":"https://github.com/anyproto/anytype-heart/releases/tag/v0.33.2",
 "description":"Shared library for Anytype clients",
 "homepage":"https://github.com/anyproto/anytype-heart",
 "insecure":false,
@@ -100,7 +100,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-heart-0.32.1",
+"name":"anytype-heart-0.33.2",
 "outputsToInstall":[
 "out"
 ],
@@ -131,14 +131,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-heart-0.32.1",
+"name":"anytype-heart-0.33.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype-heart",
 "system":"x86_64-linux",
-"version":"0.32.1"
+"version":"0.33.2"
 },
 "anytype-nmh":{
 "meta":{
@@ -164,7 +164,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-0.39.0",
+"name":"anytype-0.40.8",
 "outputsToInstall":[
 "out"
 ],
@@ -195,14 +195,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-nmh-0.39.0",
+"name":"anytype-nmh-0.40.8",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype-nmh",
 "system":"x86_64-linux",
-"version":"0.39.0"
+"version":"0.40.8"
 },
 "ccache":{
 "meta":{
@@ -249,8 +249,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -488,7 +488,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-acm-20240424.1125",
+"name":"emacs-acm-20240502.1108",
 "outputsToInstall":[
 "out"
 ],
@@ -499,8 +499,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -573,14 +573,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-acm-20240424.1125",
+"name":"emacs-acm-20240502.1108",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-acm",
 "system":"x86_64-linux",
-"version":"20240424.1125"
+"version":"20240502.1108"
 },
 "emacsPackages.acm-terminal":{
 "meta":{
@@ -617,8 +617,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -730,7 +730,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-lsp-bridge-20240424.1125",
+"name":"emacs-lsp-bridge-20240502.1108",
 "outputsToInstall":[
 "out"
 ],
@@ -741,8 +741,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -815,14 +815,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-lsp-bridge-20240424.1125",
+"name":"emacs-lsp-bridge-20240502.1108",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-lsp-bridge",
 "system":"x86_64-linux",
-"version":"20240424.1125"
+"version":"20240502.1108"
 },
 "gamemode":{
 "meta":{
@@ -1175,8 +1175,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -1445,8 +1445,8 @@
 "x86_64-darwin",
 "i686-darwin",
 "aarch64-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv6l-linux",
@@ -1618,8 +1618,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -1714,8 +1714,8 @@
 "x86_64-darwin",
 "i686-darwin",
 "aarch64-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv6l-linux",
@@ -1804,8 +1804,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -2501,7 +2501,7 @@
 "name":"Michael Weiss"
 }
 ],
-"name":"swaylock-fprintd-unstable-2023-01-30",
+"name":"swaylock-fprintd-0-unstable-2023-01-30",
 "outputsToInstall":[
 "out"
 ],
@@ -2532,14 +2532,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"swaylock-fprintd-unstable-2023-01-30",
+"name":"swaylock-fprintd-0-unstable-2023-01-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"swaylock-fprintd-unstable",
+"pname":"swaylock-fprintd",
 "system":"x86_64-linux",
-"version":"2023-01-30"
+"version":"0-unstable-2023-01-30"
 },
 "texlab":{
 "meta":{
@@ -2596,8 +2596,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -2715,8 +2715,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -3190,8 +3190,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -3316,8 +3316,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -3442,8 +3442,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
