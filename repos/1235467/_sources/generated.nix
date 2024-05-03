@@ -39,15 +39,15 @@
   };
   bypy = {
     pname = "bypy";
-    version = "1f72ccca44b696e9a5b66c6ec0afd58040961f0f";
+    version = "9e1530725f93d941d82596895d6fc36738f72f1c";
     src = fetchFromGitHub {
       owner = "houtianze";
       repo = "bypy";
-      rev = "1f72ccca44b696e9a5b66c6ec0afd58040961f0f";
+      rev = "9e1530725f93d941d82596895d6fc36738f72f1c";
       fetchSubmodules = false;
-      sha256 = "sha256-WTvhA1jI3twxbw3WxsoRddmRvfozx9372mIjEQql07Q=";
+      sha256 = "sha256-dZclceNcTVrjzm5VSvQz088q2M46zMImk8BA7/iIYUk=";
     };
-    date = "2024-03-31";
+    date = "2024-05-02";
   };
   candy = {
     pname = "candy";
@@ -75,27 +75,27 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "ed58cc4c31c21e09ee780d0df818afe935181cd9";
+    version = "02bfb2857ee0562bc95cd1f604570967250aa129";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "ed58cc4c31c21e09ee780d0df818afe935181cd9";
+      rev = "02bfb2857ee0562bc95cd1f604570967250aa129";
       fetchSubmodules = true;
-      sha256 = "sha256-0YI1Tw37fW9yMYnRjOCv7bF1vxrUcdem7130wWQVQn8=";
+      sha256 = "sha256-bfRYIOr7T4MISItdtI3dxtdvFk18RilpxRMRCAZkJxQ=";
     };
     date = "2024-05-01";
   };
   hyprwayland-scanner = {
     pname = "hyprwayland-scanner";
-    version = "672a965162114409e70bfefd95809fdfe67df283";
+    version = "c8c2151c607a036ddfc790f5f70237ab984266aa";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "hyprwayland-scanner";
-      rev = "672a965162114409e70bfefd95809fdfe67df283";
+      rev = "c8c2151c607a036ddfc790f5f70237ab984266aa";
       fetchSubmodules = true;
-      sha256 = "sha256-WxDNz4WjCbyDjKehdwVrYoapvhMwmWl70CU/Y8JvfIs=";
+      sha256 = "sha256-zzkb5vc4n/YI5KHrMie7oMZlgCKxs7zm/ybVXNL02Z0=";
     };
-    date = "2024-04-29";
+    date = "2024-05-01";
   };
   idntag = {
     pname = "idntag";
@@ -111,25 +111,25 @@
   };
   koboldcpp = {
     pname = "koboldcpp";
-    version = "593f08bb78ab6035f91cc7aa753975254f30ed82";
+    version = "3c2bd8aad3e269ec35f1037adc835eea729c0bdb";
     src = fetchFromGitHub {
       owner = "LostRuins";
       repo = "koboldcpp";
-      rev = "593f08bb78ab6035f91cc7aa753975254f30ed82";
+      rev = "3c2bd8aad3e269ec35f1037adc835eea729c0bdb";
       fetchSubmodules = true;
-      sha256 = "sha256-LAAINN49gjJPye3rfbA8oh29/qcVVk99SSRZD8WQNKQ=";
+      sha256 = "sha256-teY6CUC/MprseWdWiHD0Ty3a1VBq4tPtEYB3HX5hk1k=";
     };
-    date = "2024-04-20";
+    date = "2024-05-01";
   };
   llamafile = {
     pname = "llamafile";
-    version = "2af3b88fee64ca69d68a66d9246567ff713ae762";
+    version = "0bdea60a92b18461ff71433af888fe831bc5c3ed";
     src = fetchFromGitHub {
       owner = "Mozilla-Ocho";
       repo = "llamafile";
-      rev = "2af3b88fee64ca69d68a66d9246567ff713ae762";
+      rev = "0bdea60a92b18461ff71433af888fe831bc5c3ed";
       fetchSubmodules = false;
-      sha256 = "sha256-I1UQIvdpFTlWEIV1CFsKLj8PxNgSJtDZq7EsKGKKMgM=";
+      sha256 = "sha256-oEpEJvrWlYROiTd+Wg3QVizFT6ACAgSnqH3vEm5LIok=";
     };
     date = "2024-04-30";
   };
