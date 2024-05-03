@@ -153,6 +153,7 @@ in
         self.sshfs
         self.vlc
         self.xclip
+        self.xdotool
         self.xsel
         self.zlib
         self.zoom-us
