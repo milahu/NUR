@@ -22,7 +22,7 @@ you might specifically be interested in these files (elaborated further in #key-
 - my way of deploying dotfiles/configuring programs per-user:
   - [modules/fs/](./modules/fs/default.nix)
   - [modules/programs/](./modules/programs/default.nix)
-  - [modules/users.nix](./modules/users.nix)
+  - [modules/users/](./modules/users/default.nix)
 
 [nixpkgs]: https://github.com/NixOS/nixpkgs
 [sops]: https://github.com/Mic92/sops-nix
@@ -109,9 +109,10 @@ i.e. you might find value in using these in your own config:
     - `sane.programs.firefox.sandbox.whitelistWayland = true;  # allow it to render a wayland window`
     - `sane.programs.firefox.sandbox.extraHomePaths = [ "Downloads" ];  # allow it read/write access to ~/Downloads`
     - integrated with `fs` and `persist` modules so that programs' config files and persisted data stores are linked into the sandbox w/o any extra involvement.
-- `modules/users.nix`
+- `modules/users/`
   - convenience layer atop the above modules so that you can just write
     `fs.".config/git"` instead of `fs."/home/colin/.config/git"`
+  - per-user services managed by [s6-rc](https://www.skarnet.org/software/s6-rc/)
 
 some things in here could easily find broader use. if you would find benefit in
 them being factored out of my config, message me and we could work to make that happen.

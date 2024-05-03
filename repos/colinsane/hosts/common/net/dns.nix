@@ -19,7 +19,7 @@
 #
 # namespacing:
 # - each namespace can use a different /etc/resolv.conf to specify different DNS servers (see `firejail --dns=...`)
-# - nscd breaks namespacing: the host nscd is unaware of the guest's /etc/resolv.conf, and so direct's the guest's DNS requests to the host's servers.
+# - nscd breaks namespacing: the host nscd is unaware of the guest's /etc/resolv.conf, and so directs the guest's DNS requests to the host's servers.
 #   - this is fixed by either `firejail --blacklist=/var/run/nscd/socket`, or disabling nscd altogether.
 { lib, ... }:
 {
