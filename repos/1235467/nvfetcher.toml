@@ -116,6 +116,16 @@ src.git = "https://aur.archlinux.org/sway-im"
 fetch.git = "https://aur.archlinux.org/sway-im"
 git.fetchSubmodules = true
 
+[sway-im-git]
+src.git = "https://aur.archlinux.org/sway-im-git"
+fetch.git = "https://aur.archlinux.org/sway-im-git"
+git.fetchSubmodules = true
+
+[sway]
+src.git = "https://github.com/swaywm/sway"
+fetch.github = "swaywm/sway"
+git.fetchSubmodules = true
+
 [hyprland]
 src.git = "https://github.com/hyprwm/Hyprland"
 fetch.github = "hyprwm/Hyprland"
@@ -130,3 +140,25 @@ git.fetchSubmodules = true
 src.git = "https://github.com/pot-app/pot-desktop"
 fetch.github = "pot-app/pot-desktop"
 git.fetchSubmodules = true
+
+# Overrides deps
+[wlroots]
+src.git = "https://gitlab.freedesktop.org/wlroots/wlroots"
+fetch.git = "https://gitlab.freedesktop.org/wlroots/wlroots"
+git.fetchSubmodules = true
+
+[wayland]
+src.git = "https://gitlab.freedesktop.org/wayland/wayland"
+fetch.git = "https://gitlab.freedesktop.org/wayland/wayland"
+git.fetchSubmodules = true
+
+[wayland-protocols]
+src.git = "https://gitlab.freedesktop.org/wayland/wayland-protocols"
+fetch.git = "https://gitlab.freedesktop.org/wayland/wayland-protocols"
+git.fetchSubmodules = true
+
+[libdrm]
+src.git = "https://gitlab.freedesktop.org/mesa/drm"
+fetch.git = "https://gitlab.freedesktop.org/mesa/drm"
+git.fetchSubmodules = true
+

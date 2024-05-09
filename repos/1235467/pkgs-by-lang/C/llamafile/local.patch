@@ -1,0 +1,19 @@
+diff --git a/build/config.mk b/build/config.mk
+index fc0297f..90202ce 100644
+--- a/build/config.mk
++++ b/build/config.mk
+@@ -2,7 +2,7 @@
+ #── vi: set noet ft=make ts=8 sw=8 fenc=utf-8 :vi ────────────────────┘
+ 
+ PREFIX = /usr/local
+-COSMOCC = .cosmocc/3.3.4
++COSMOCC = cosmocc
+ TOOLCHAIN = $(COSMOCC)/bin/cosmo
+ 
+ AR = $(TOOLCHAIN)ar
+@@ -51,4 +51,4 @@ clean:; rm -rf o
+ distclean:; rm -rf o .cosmocc
+ 
+ .cosmocc/3.3.4:
+-	build/download-cosmocc.sh $@ 3.3.4 98e5b361c525603f5296351e0c11820fd25908b52fe1ce8ff394d66b1537a259
++	#build/download-cosmocc.sh $@ 3.3.4 98e5b361c525603f5296351e0c11820fd25908b52fe1ce8ff394d66b1537a259

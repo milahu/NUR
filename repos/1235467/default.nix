@@ -61,6 +61,7 @@ rec {
   yuzu-early-access = pkgs.qt6.callPackage ./pkgs-by-lang/C/yuzu { };
   nbfc-linux = pkgs.callPackage ./pkgs-by-lang/C/nbfc-linux {};
   #sudachi = pkgs.qt6.callPackage ./pkgs-by-lang/C/sudachi {};
+  llamafile = pkgs.callPackage ./pkgs-by-lang/C/llamafile {};
 
   # Shell
   reflac = pkgs.callPackage ./pkgs-by-lang/Shell/reflac { };
@@ -81,6 +82,7 @@ rec {
   qcm = pkgs.qt6.callPackage ./pkgs/Overrides/qcm {};
   mpv = pkgs.wrapMpv (pkgs.mpv.unwrapped.override { cddaSupport = true; }) {scripts = [ pkgs.mpvScripts.mpris ];};
   sway-im = pkgs.callPackage ./pkgs/Overrides/sway-im {};
+  sway-git = pkgs.callPackage ./pkgs/Overrides/sway-git {};
   #hyprland = pkgs.callPackage ./pkgs/Overrides/hyprland {};
   pot = pkgs.callPackage ./pkgs/Overrides/pot {};
 
