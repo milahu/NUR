@@ -172,15 +172,15 @@
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "2786939b5a35e9207ee6cf05c396eeec9f2360e0";
+    version = "c6e17e01f6475a1ce29b03827091a9d757a7a7b2";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "2786939b5a35e9207ee6cf05c396eeec9f2360e0";
+      rev = "c6e17e01f6475a1ce29b03827091a9d757a7a7b2";
       fetchSubmodules = false;
-      sha256 = "sha256-Q9TVqOwMaYX6rTuN1x5h8pAcnfd995L+RA1cNQjzv30=";
+      sha256 = "sha256-QpONnM54pN5GrZtoMMQ9c3jngU5j5bF1DEFR3/mVwrs=";
     };
-    date = "2024-05-01";
+    date = "2024-05-07";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -502,15 +502,15 @@
   };
   i915-sriov-dkms = {
     pname = "i915-sriov-dkms";
-    version = "d2b3b6e374c2f1799fb5bc07aad1f4ed5d058919";
+    version = "3d7a1b3fa4706d8da316d8e794d54db96856a2b9";
     src = fetchFromGitHub {
       owner = "strongtz";
       repo = "i915-sriov-dkms";
-      rev = "d2b3b6e374c2f1799fb5bc07aad1f4ed5d058919";
+      rev = "3d7a1b3fa4706d8da316d8e794d54db96856a2b9";
       fetchSubmodules = false;
-      sha256 = "sha256-VyFAvAtIqX+tDvjkpAzWPgKiX5xuIAzsac1xorAz9vk=";
+      sha256 = "sha256-TJk0zmXA2sUhbDu0jsA/1kFeIba8ZIZ0a4joPK4v8Ck=";
     };
-    date = "2024-04-28";
+    date = "2024-05-08";
   };
   jproxy = {
     pname = "jproxy";
@@ -576,15 +576,15 @@
   };
   liboqs = {
     pname = "liboqs";
-    version = "9c8db18ec164492c352fe5748a8badc9f4ce3156";
+    version = "a5ec23cf19763d36a558b8358345823ae45d57e5";
     src = fetchFromGitHub {
       owner = "open-quantum-safe";
       repo = "liboqs";
-      rev = "9c8db18ec164492c352fe5748a8badc9f4ce3156";
+      rev = "a5ec23cf19763d36a558b8358345823ae45d57e5";
       fetchSubmodules = false;
-      sha256 = "sha256-/BHe1nIiRMdcr33iGLB8NkB6I1qQi1Q3mtAcBFMZDas=";
+      sha256 = "sha256-RdI5WbjRS6SRqLXP9v56KQp5w9zqJw9dUjK4XM9WtoE=";
     };
-    date = "2024-04-25";
+    date = "2024-05-07";
   };
   libqcef = {
     pname = "libqcef";
@@ -612,15 +612,15 @@
   };
   librime-lua = {
     pname = "librime-lua";
-    version = "cb1152c4bb3be910ad26d67470fbc5ff21570cb5";
+    version = "43229d766f1e0f3198f61dc9d2e38bc1f921387f";
     src = fetchFromGitHub {
       owner = "hchunhui";
       repo = "librime-lua";
-      rev = "cb1152c4bb3be910ad26d67470fbc5ff21570cb5";
+      rev = "43229d766f1e0f3198f61dc9d2e38bc1f921387f";
       fetchSubmodules = false;
-      sha256 = "sha256-E6pczxHzSY15J1YrTWvWNutN+o/oShTofcv9UdBbzwA=";
+      sha256 = "sha256-JdT47lb3+HrDq3xbcm2nNHfL4/wg7h+ei+MMF6SbsGg=";
     };
-    date = "2024-05-02";
+    date = "2024-05-03";
   };
   librime-octagram = {
     pname = "librime-octagram";
@@ -648,13 +648,13 @@
   };
   linux-xanmod = {
     pname = "linux-xanmod";
-    version = "6.8.8-xanmod1";
+    version = "6.8.9-xanmod1";
     src = fetchFromGitHub {
       owner = "xanmod";
       repo = "linux";
-      rev = "6.8.8-xanmod1";
+      rev = "6.8.9-xanmod1";
       fetchSubmodules = false;
-      sha256 = "sha256-6fT9vRjHw775m4ySUAUWU9R0dz/cWYYdZsPCwZjGiXM=";
+      sha256 = "sha256-OUlT/fiwLGTPnr/7gneyZBio/l8KAWopcJqTpSjBMl0=";
     };
   };
   linux-xanmod-6_0 = {
@@ -681,13 +681,13 @@
   };
   linux-xanmod-6_6 = {
     pname = "linux-xanmod-6_6";
-    version = "6.6.29-xanmod1";
+    version = "6.6.30-xanmod1";
     src = fetchFromGitHub {
       owner = "xanmod";
       repo = "linux";
-      rev = "6.6.29-xanmod1";
+      rev = "6.6.30-xanmod1";
       fetchSubmodules = false;
-      sha256 = "sha256-Be2VaW0DQDS0FJUwXM627QaNgrn1B3Hbyq+PiKb7b+k=";
+      sha256 = "sha256-fQATjYekxV/+24mqyel3bYfgUMN4NhOHR9yyL6L5bl0=";
     };
   };
   nbfc-linux-lantian = {
@@ -881,15 +881,15 @@
   };
   openssl-oqs-provider = {
     pname = "openssl-oqs-provider";
-    version = "86605d767a0c7de9462ce4eb70891f8d5e8e248f";
+    version = "d82c5c4ca3afb8c085e14b170cb9d21a21795bc5";
     src = fetchFromGitHub {
       owner = "open-quantum-safe";
       repo = "oqs-provider";
-      rev = "86605d767a0c7de9462ce4eb70891f8d5e8e248f";
+      rev = "d82c5c4ca3afb8c085e14b170cb9d21a21795bc5";
       fetchSubmodules = false;
-      sha256 = "sha256-Phg6R1muKTKmQdSMGwG7D9g/FmdbqHnmTUsvR9bL3PU=";
+      sha256 = "sha256-gYWQ++DYFXNSLVmOjcQ3J6bMtxb3pN0EHl6ysX2GMKg=";
     };
-    date = "2024-04-27";
+    date = "2024-05-08";
   };
   osdlyrics = {
     pname = "osdlyrics";
@@ -904,15 +904,15 @@
   };
   ovpn-dco = {
     pname = "ovpn-dco";
-    version = "2aa7f931803f81d2745b0cefafb63654a35cc3d5";
+    version = "879d252672dc4554e035df367b67ad04102f4247";
     src = fetchFromGitHub {
       owner = "OpenVPN";
       repo = "ovpn-dco";
-      rev = "2aa7f931803f81d2745b0cefafb63654a35cc3d5";
+      rev = "879d252672dc4554e035df367b67ad04102f4247";
       fetchSubmodules = false;
-      sha256 = "sha256-Iupo1wdZwel/Q8GvP2MPOhoLK3uBj5JAbT1/Fib/Bsk=";
+      sha256 = "sha256-H+x44+rhXXi0HiAWreIY/9D9cFKfiX++ZZkTTE0pCak=";
     };
-    date = "2024-02-02";
+    date = "2024-05-06";
   };
   palworld-exporter = {
     pname = "palworld-exporter";
@@ -1018,13 +1018,13 @@
   };
   pterodactyl-wings = {
     pname = "pterodactyl-wings";
-    version = "v1.11.11";
+    version = "v1.11.13";
     src = fetchFromGitHub {
       owner = "pterodactyl";
       repo = "wings";
-      rev = "v1.11.11";
+      rev = "v1.11.13";
       fetchSubmodules = false;
-      sha256 = "sha256-7rpnPKeFZM6QZfiI1Vp7ibCdBNTOo7stf8lNZlN4I4M=";
+      sha256 = "sha256-UpYUHWM2J8nH+srdKSpFQEaPx2Rj2+YdphV8jJXcoBU=";
     };
   };
   py-rcon = {
@@ -1165,15 +1165,15 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "e9a730f7f464d5fc38b6f69c68598763017afa09";
+    version = "bcfcb57c89f4d073cb3f41dd101a7cb7452856c6";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "e9a730f7f464d5fc38b6f69c68598763017afa09";
+      rev = "bcfcb57c89f4d073cb3f41dd101a7cb7452856c6";
       fetchSubmodules = false;
-      sha256 = "sha256-yulh2p5gynaRNsCHrKqZPEbUFVvyF4bJwsegb6rJkcU=";
+      sha256 = "sha256-j51Dp48GcBbtMM8OKkZUbjo+dLSIHA52mjOCe07wUcU=";
     };
-    date = "2024-05-02";
+    date = "2024-05-08";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
