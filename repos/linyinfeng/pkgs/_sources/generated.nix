@@ -75,10 +75,10 @@
   };
   icalingua-plus-plus = {
     pname = "icalingua-plus-plus";
-    version = "v2.11.8";
+    version = "v2.11.9";
     src = fetchurl {
-      url = "https://github.com/icalingua-plus-plus/icalingua-plus-plus/releases/download/v2.11.8/app-x86_64.asar";
-      sha256 = "sha256-9J9pWqxLW+pAfKftUiY/en4/JcA1y1SbYZDz3zRJO2M=";
+      url = "https://github.com/icalingua-plus-plus/icalingua-plus-plus/releases/download/v2.11.9/app-x86_64.asar";
+      sha256 = "sha256-uA53HjQIYzHiqwJa3BN8yO98s/zMAg3L6oBDSU3m4mI=";
     };
   };
   linux-intel-lts = {
@@ -263,16 +263,16 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "e9a730f7f464d5fc38b6f69c68598763017afa09";
+    version = "bcfcb57c89f4d073cb3f41dd101a7cb7452856c6";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "e9a730f7f464d5fc38b6f69c68598763017afa09";
+      rev = "bcfcb57c89f4d073cb3f41dd101a7cb7452856c6";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-yulh2p5gynaRNsCHrKqZPEbUFVvyF4bJwsegb6rJkcU=";
+      sha256 = "sha256-j51Dp48GcBbtMM8OKkZUbjo+dLSIHA52mjOCe07wUcU=";
     };
-    date = "2024-05-02";
+    date = "2024-05-08";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
@@ -488,16 +488,16 @@
   };
   waybar-git = {
     pname = "waybar-git";
-    version = "79ae530bd29cb561d6f48773e894dd62fe353b7f";
+    version = "2ead1bbf84ff0fdb7234b1d9332c3b3a3bb8b799";
     src = fetchgit {
       url = "https://github.com/Alexays/Waybar.git";
-      rev = "79ae530bd29cb561d6f48773e894dd62fe353b7f";
+      rev = "2ead1bbf84ff0fdb7234b1d9332c3b3a3bb8b799";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-WkPX/ybQXNSOBM+k0mevYDj2pWM5kiSyn2jLYzK/G4c=";
+      sha256 = "sha256-xfub0h9BRxk4XetBqZdsqg0Zl1dvXQRLpXPLb3YYJaM=";
     };
-    date = "2024-05-02";
+    date = "2024-05-07";
   };
   yacd = {
     pname = "yacd";
