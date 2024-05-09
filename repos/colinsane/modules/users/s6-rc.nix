@@ -124,8 +124,10 @@ let
       # N.B. do not run the notifier from $HOME, else it won't know where to find the `data/check` program.
       # N.B. must be run with `&` + `wait`, else we lose the ability to `trap`.
       ${maybe-notify}env --chdir="$HOME" ${cli} <&0 &
-      wait
-      log "exiting"
+      wait $!
+      status=$?
+      log "exiting; propagating status: $status"
+      exit "$status"
     '';
   in {
     "${name}".dir = {
@@ -231,6 +233,10 @@ let
     ln -s "${livedir}/servicedirs/.s6-svscan" .
   '';
 
+  concatNonNullLines = lines: lib.concatStringsSep "\n" (
+    lib.filter (line: line != null) lines
+  );
+
   # transform the `user.services` attrset into a s6 services list.
   s6SvcsFromConfigServices = services: lib.mapAttrsToList
     (name: service: rec {
@@ -243,7 +249,17 @@ let
         lib.filterAttrs (_: cfg: lib.elem name cfg.dependencyOf) services
       );
       down = maybe (type == "oneshot") service.cleanupCommand;
-      finish = maybe (type == "longrun") service.cleanupCommand;
+      finish = maybe (type == "longrun") (concatNonNullLines [
+        service.cleanupCommand
+        (maybe (service.restartCondition == "on-failure") ''
+          if [ "$1" -eq 0 ]; then
+            printf "service exited 0: not restarting\n"
+            s6-rc stop "$3"
+          else
+            printf "service exited non-zero: restarting (code: %d)\n" "$1"
+          fi
+        '')
+      ]);
       run = service.command;
       up = service.startCommand;
       type = if service.startCommand != null then

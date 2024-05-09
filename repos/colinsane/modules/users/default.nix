@@ -83,6 +83,18 @@ let
           this is expanded as a shell expression, and may contain variables like `$HOME`, etc.
         '';
       };
+
+      restartCondition = mkOption {
+        type = types.enum [ "always" "on-failure" ];
+        default = "always";
+        description = ''
+          when `command` exits, under which condition should it be restarted v.s. should the service be considered down.
+          - "always":  restart the service whenever it exits.
+          - "on-failure"  restart the service only if `command` exits non-zero.
+
+          note that service restarts are not instantaneous, but have some delay (e.g. 1s).
+        '';
+      };
     };
     config = {
       readiness.waitCommand = lib.mkMerge [

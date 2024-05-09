@@ -143,6 +143,7 @@
     ./zathura.nix
     ./zeal.nix
     ./zecwallet-lite.nix
+    ./zulip.nix
     ./zsh
   ];
 

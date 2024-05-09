@@ -175,6 +175,7 @@ in
       "wireshark"  # could maybe ship the cli as sysadmin pkg
       # "xterm"  # requires Xwayland
       # "zecwallet-lite"  # x86-only
+      "zulip"
     ]
   );
 

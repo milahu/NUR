@@ -444,6 +444,11 @@ in
     "gnome.gnome-disk-utility".sandbox.method = "bwrap";
     "gnome.gnome-disk-utility".sandbox.whitelistDbus = [ "system" ];
     "gnome.gnome-disk-utility".sandbox.whitelistWayland = true;
+    "gnome.gnome-disk-utility".sandbox.extraHomePaths = [
+      "tmp"
+      "use/iso"
+      # TODO: probably need /dev and such
+    ];
 
     # seahorse: dump gnome-keyring secrets.
     # N.B.: it can also manage ~/.ssh keys, but i explicitly don't add those to the sandbox for now.

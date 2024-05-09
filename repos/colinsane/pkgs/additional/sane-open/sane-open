@@ -15,6 +15,12 @@ usage() {
   exit $1
 }
 
+log() {
+  if [ -n "$SANE_OPEN_DEBUG" ]; then
+    printf 'sane-open: %s\n' "$1" >&2
+  fi
+}
+
 configureKeyboardFor_application() {
   case "$1" in
     Alacritty.desktop)
@@ -48,6 +54,7 @@ configureKeyboardFor_file() {
 }
 
 open_application() {
+  log "open_application: '$1'"
   gdbus call --session --timeout 10 \
     --dest org.freedesktop.portal.Desktop \
     --object-path /org/freedesktop/portal/desktop \
@@ -56,6 +63,7 @@ open_application() {
 }
 open_file() {
   # open the file, and then pass the fd to dbus
+  log "open_file: '$1'"
   exec 3<> "$1"
   gdbus call --session --timeout 10 \
     --dest org.freedesktop.portal.Desktop \
@@ -75,11 +83,13 @@ isLandscape() {
 _keyboardPid=
 setKeyboard() {
   if [ -z "$KEYBOARD" ]; then
+    log "KEYBOARD is not set"
     return
   fi
   if [ -z "$_keyboardPid" ]; then
     _keyboardPid=$(pidof "$KEYBOARD")
     if [ -z "$_keyboardPid" ]; then
+      log "KEYBOARD ($KEYBOARD) instance is not found"
       return
     fi
   fi
@@ -88,6 +98,7 @@ setKeyboard() {
 _setKeyboard() {
   case "$1" in
     "show")
+      log "show keyboard $_keyboardPid"
       # `env` so that we get the util-linux `kill` binary instead of bash's builtin
       env kill -s USR2 "$_keyboardPid"
       ;;
@@ -95,6 +106,7 @@ _setKeyboard() {
       isLandscape && _setKeyboard "hide" || _setKeyboard "show"
       ;;
     "hide")
+      log "hide keyboard $_keyboardPid"
       env kill -s USR1 "$_keyboardPid"
       ;;
   esac
@@ -133,8 +145,16 @@ done
 
 if [ -z "$resourceType" ]; then
   if [ -e "$HOME/.local/share/applications/$resource" ]; then
+    log "detected resourceType=application"
+    resourceType=application
+  elif [ -e "$resource" ]; then
+    log "detected resourceType=file"
+    resourceType=file
+  elif [[ "$resource" == *.desktop ]]; then
+    log "detected resourceType=application (warning: '$resource' is not visible on disk)"
     resourceType=application
   else
+    log "detected resourceType=file (warning: '$resource' is not visible on disk)"
     resourceType=file
   fi
 fi
