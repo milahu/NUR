@@ -1,16 +1,16 @@
 {
 "name":"sikmir",
-"fetch_time":0.421,
-"eval_time":0.414,
+"fetch_time":0.518,
+"eval_time":0.413,
 "source":{
 "url":"https://github.com/sikmir/nur-packages",
-"rev":"41aa73cb9b3b236513f477f6d778adb302e501be",
-"sha256":"0zm4bmz7q82gnj1wp5s0y50n3gsmwynxzqnl8vz4m7na27rnc8yy",
+"rev":"bb4cf630ea85534f2ce6c74535f96ab91a9c7ffe",
+"sha256":"0fad7w06h5nahfq3lwxizx0mbahvi666g8r7c19z8s84ifydk6qp",
 "date":null
 },
-"source_storepath":"/nix/store/6yp04gc88lw8pw668h27yqkij8pgczl4-source",
-"nixpkgs_storepath":"/nix/store/8l8qfp1nixnhyzgx9fm43vbldnp60v95-source",
-"nur_combined_rev":"db914f1e69af3984d7fa0537b20d5311424ad827",
+"source_storepath":"/nix/store/z86alnnb0hbaiqqvwxiy7d07f7yg9mpb-source",
+"nixpkgs_storepath":"/nix/store/02p1b2x426n3gr86ysvb7j0bigyc8v6g-source",
+"nur_combined_rev":"6bf4a58d7fa4f0093210b5ecc2f281ef7a9e640e",
 "packages":{
 "aamath":{
 "meta":{
@@ -2000,7 +2000,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"chasquid-1.13.0",
+"name":"chasquid-1.14.0",
 "outputsToInstall":[
 "out"
 ],
@@ -2035,14 +2035,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"chasquid-1.13.0",
+"name":"chasquid-1.14.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"chasquid",
 "system":"x86_64-linux",
-"version":"1.13.0"
+"version":"1.14.0"
 },
 "chdk":{
 "meta":{
@@ -12649,7 +12649,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"imposm-0.11.1",
+"name":"imposm-0.12.0",
 "outputsToInstall":[
 "out"
 ],
@@ -12684,14 +12684,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"imposm-0.11.1",
+"name":"imposm-0.12.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"imposm",
 "system":"x86_64-linux",
-"version":"0.11.1"
+"version":"0.12.0"
 },
 "imscript":{
 "meta":{
@@ -15738,8 +15738,8 @@
 },
 "linrad":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"Software defined radio receiver for x11",
 "homepage":"http://www.sm5bsz.com/linuxdsp/linrad.htm",
 "insecure":false,
@@ -15766,7 +15766,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"linrad-2023-11-12",
+"name":"linrad-2024-04-26",
 "outputsToInstall":[
 "out"
 ],
@@ -15800,14 +15800,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linrad-2023-11-12",
+"name":"linrad-2024-04-26",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"linrad",
 "system":"x86_64-linux",
-"version":"2023-11-12"
+"version":"2024-04-26"
 },
 "localtileserver":{
 "meta":{
@@ -17330,7 +17330,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"mbutiles-0.1.0",
+"name":"mbutiles-0.1.0-unstable-2024-04-12",
 "outputsToInstall":[
 "out"
 ],
@@ -17371,18 +17371,18 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/geospatial/mbutiles/default.nix:22",
+"position":"./pkgs/geospatial/mbutiles/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
-"name":"mbutiles-0.1.0",
+"name":"mbutiles-0.1.0-unstable-2024-04-12",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"mbutiles",
 "system":"x86_64-linux",
-"version":"0.1.0"
+"version":"0.1.0-unstable-2024-04-12"
 },
 "md2html":{
 "meta":{
@@ -19326,7 +19326,7 @@
 "x86_64-darwin",
 "x86_64-linux"
 ],
-"position":"./pkgs/mqtt/mqtt-explorer/default.nix:52",
+"position":"./pkgs/mqtt/mqtt-explorer/default.nix:58",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -23290,7 +23290,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"plotjuggler-3.8.8",
+"name":"plotjuggler-3.9.2",
 "outputsToInstall":[
 "out"
 ],
@@ -23344,14 +23344,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"plotjuggler-3.8.8",
+"name":"plotjuggler-3.9.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"plotjuggler",
 "system":"x86_64-linux",
-"version":"3.8.8"
+"version":"3.9.2"
 },
 "pmtiles":{
 "meta":{
@@ -24517,7 +24517,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.11-pygnssutils-1.0.21",
+"name":"python3.11-pygnssutils-1.0.26",
 "outputsToInstall":[
 "out"
 ],
@@ -24556,7 +24556,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-pygnssutils-1.0.21",
+"name":"python3.11-pygnssutils-1.0.26",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -24564,7 +24564,7 @@
 },
 "pname":"python3.11-pygnssutils",
 "system":"x86_64-linux",
-"version":"1.0.21"
+"version":"1.0.26"
 },
 "pygpsclient":{
 "meta":{
@@ -25175,7 +25175,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.11-pyrtcm-1.0.16",
+"name":"python3.11-pyrtcm-1.0.19",
 "outputsToInstall":[
 "out"
 ],
@@ -25214,7 +25214,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-pyrtcm-1.0.16",
+"name":"python3.11-pyrtcm-1.0.19",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -25222,7 +25222,7 @@
 },
 "pname":"python3.11-pyrtcm",
 "system":"x86_64-linux",
-"version":"1.0.16"
+"version":"1.0.19"
 },
 "pysheds":{
 "meta":{
@@ -25395,7 +25395,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.11-pyspartn-0.2.0-alpha",
+"name":"python3.11-pyspartn-0.4.0-beta",
 "outputsToInstall":[
 "out"
 ],
@@ -25434,7 +25434,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-pyspartn-0.2.0-alpha",
+"name":"python3.11-pyspartn-0.4.0-beta",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -25442,7 +25442,7 @@
 },
 "pname":"python3.11-pyspartn",
 "system":"x86_64-linux",
-"version":"0.2.0-alpha"
+"version":"0.4.0-beta"
 },
 "pystac":{
 "meta":{
@@ -32614,7 +32614,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"tatoeba-2024-04-27",
+"name":"tatoeba-2024-05-04",
 "outputsToInstall":[
 "out"
 ],
@@ -32702,14 +32702,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tatoeba-2024-04-27",
+"name":"tatoeba-2024-05-04",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tatoeba",
 "system":"x86_64-linux",
-"version":"2024-04-27"
+"version":"2024-05-04"
 },
 "tatoebatools":{
 "meta":{
@@ -36433,7 +36433,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"zed-0.132.5",
+"name":"zed-0.134.2",
 "outputsToInstall":[
 "out"
 ],
@@ -36453,14 +36453,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"zed-0.132.5",
+"name":"zed-0.134.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zed",
 "system":"x86_64-linux",
-"version":"0.132.5"
+"version":"0.134.2"
 }
 }
 }
