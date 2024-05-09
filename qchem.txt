@@ -1,18 +1,18 @@
 error:
-… while evaluating the file '/tmp/nur-update/default.nix':
+… while evaluating the file './default.nix':
 
 … from call site
 
-  at /tmp/nur-update/default.nix:3:21:
+  at ./default.nix:3:21:
 
      2|                     with import <nixpkgs> {};
-     3|                     import /tmp/nur-update/evalRepo.nix {
+     3|                     import ./evalRepo.nix {
       |                     ^
      4|                         name = "qchem";
 
 … while calling anonymous lambda
 
-  at /tmp/nur-update/evalRepo.nix:1:1:
+  at ./evalRepo.nix:1:1:
 
      1| { name
       | ^
@@ -20,7 +20,7 @@ error:
 
 … from call site
 
-  at /tmp/nur-update/evalRepo.nix:33:11:
+  at ./evalRepo.nix:33:11:
 
     32|     might result in infinite recursion when used with NixOS modules.
     33|   '' else expr (builtins.intersectAttrs args passedArgs)
@@ -29,7 +29,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/zp3kkc81d2rin16bak2mlncv3f3mcvl2-source/nur.nix:1:1:
+  at ./nur.nix:1:1:
 
      1| { pkgs ? import <nixpkgs> {}
       | ^
@@ -37,7 +37,7 @@ error:
 
 … from call site
 
-  at /nix/store/zp3kkc81d2rin16bak2mlncv3f3mcvl2-source/nur.nix:6:13:
+  at ./nur.nix:6:13:
 
      5| let
      6|   nixpkgs = import ./nixpkgs-pin.nix pkgs;
@@ -46,10 +46,10 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/zp3kkc81d2rin16bak2mlncv3f3mcvl2-source/nixpkgs-pin.nix:1:1:
+  at ./nixpkgs-pin.nix:1:1:
 
      1| pkgs:
       | ^
      2|
 
-error: path '/nix/store/r0g7n2i9j6mks7jczmgys7jww35wr9bq-source.drv' is not valid
+error: path '/nix/store/ysz457mkqm0ggnxk6qm9mcdhdp2dyz7w-source.drv' is not valid
