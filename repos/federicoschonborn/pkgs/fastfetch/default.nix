@@ -6,7 +6,7 @@
   ninja,
   pkg-config,
   python3,
-  yyjson,
+  yyjson_0_9,
   nix-update-script,
 
   enableVulkan ? stdenv.isLinux || stdenv.isDarwin || stdenv.isBSD || stdenv.isCygwin,
@@ -62,13 +62,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "fastfetch";
-  version = "2.11.0";
+  version = "2.11.2";
 
   src = fetchFromGitHub {
     owner = "fastfetch-cli";
     repo = "fastfetch";
     rev = finalAttrs.version;
-    hash = "sha256-/j0dRnApP5PQV4qVkqM6WlFdSZHlBTheaoWXSd2YP5k=";
+    hash = "sha256-tEra2I65gn7D64KKKQX/xzNL6/lasJ0jVSzlrE9cIKc=";
   };
 
   nativeBuildInputs = [
@@ -79,7 +79,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   buildInputs =
-    [ yyjson ]
+    [ yyjson_0_9 ]
     ++ lib.optional enableVulkan vulkan-loader
     ++ lib.optional enableWayland wayland
     ++ lib.optional (enableXcb || enableXcbRandr) xorg.libxcb

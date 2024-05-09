@@ -54,7 +54,7 @@
           ...
         }:
         {
-          legacyPackages = pkgs.callPackage ./packages { };
+          legacyPackages = pkgs.callPackage ./. { };
           packages = lib.filterAttrs (_: lib.isDerivation) config.legacyPackages;
 
           devShells.default = pkgs.mkShell {
