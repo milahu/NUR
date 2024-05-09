@@ -3,7 +3,8 @@
   inputs = {
 
     ## MAIN NIXPKGS
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";       # GNOME 43.2
+    nixpkgs-2211.url = "github:NixOS/nixpkgs/nixos-22.11";       # GNOME 43.2
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";       # GNOME 43.2
     #nixpkgs-2305.url = "github:NixOS/nixpkgs/nixos-23.05";  # GNOME 44.2?
     nixpkgs-2311.url = "github:NixOS/nixpkgs/nixos-23.11";  # GNOME 45.2
 
@@ -13,7 +14,7 @@
     nixpkgs-share-preview-03.url = "github:raboof/nixpkgs?ref=share-preview-init-at-0.3.0";
 
     ## HOME MANAGER
-    home-manager.url = "github:nix-community/home-manager/release-22.11";
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     #home-manager-main.url = "github:nix-community/home-manager";
@@ -34,6 +35,7 @@
     self,
     home-manager,
     nixpkgs,
+    nixpkgs-2211,
     nixpkgs-2311,
     peerix,
     unstable,
@@ -95,8 +97,8 @@
 
     homeConfigurations = {
       "pim@adevintamac" = home-manager.lib.homeManagerConfiguration {
-        modules = [ 
-        (import ./home/pim/home-machine-adevinta.nix) 
+        modules = [
+        (import ./home/pim/home-machine-adevinta.nix)
         ];
         pkgs = pkgsForSystem "x86_64-darwin";
         extraSpecialArgs = {
@@ -146,6 +148,7 @@
 
           defaults = { pkgs, ... }: {
             _module.args.unstable = importFromChannelForSystem system unstable;
+            _module.args.pkgs-2211 = importFromChannelForSystem system nixpkgs-2211;
             _module.args.pkgs-2311 = importFromChannelForSystem system nixpkgs-2311;
             #_module.args.pkgs-inkscape13 = importFromChannelForSystem system nixpkgs-inkscape13;
             _module.args.pkgs-share-preview-03 = importFromChannelForSystem system nixpkgs-share-preview-03;
@@ -158,16 +161,16 @@
         in [
           ./hosts/rodin/configuration.nix
           defaults
-          peerix.nixosModules.peerix {
-              services.peerix = {
-                enable = true;
-                package = peerix.packages.x86_64-linux.peerix;
-                openFirewall = true; # UDP/12304
-                privateKeyFile = ./hosts/lego1/peerix-private;
-                publicKeyFile =  ./hosts/lego1/peerix-public;
-                publicKey = peerixPubkeys;
-              };
-            }
+#          peerix.nixosModules.peerix {
+#              services.peerix = {
+#                enable = true;
+#                package = peerix.packages.x86_64-linux.peerix;
+#                openFirewall = true; # UDP/12304
+#                privateKeyFile = ./hosts/lego1/peerix-private;
+#                publicKeyFile =  ./hosts/lego1/peerix-public;
+#                publicKey = peerixPubkeys;
+#              };
+#            }
 
           agenixBin
           agenix.nixosModules.default
@@ -212,16 +215,16 @@
           in [
             defaults
             ./hosts/lego1/configuration.nix
-            peerix.nixosModules.peerix {
-              services.peerix = {
-                enable = true;
-                package = peerix.packages.x86_64-linux.peerix;
-                openFirewall = true; # UDP/12304
-                privateKeyFile = ./hosts/lego1/peerix-private;
-                publicKeyFile =  ./hosts/lego1/peerix-public;
-                publicKey = peerixPubkeys;
-              };
-            }
+#            peerix.nixosModules.peerix {
+#              services.peerix = {
+#                enable = true;
+#                package = peerix.packages.x86_64-linux.peerix;
+#                openFirewall = true; # UDP/12304
+#                privateKeyFile = ./hosts/lego1/peerix-private;
+#                publicKeyFile =  ./hosts/lego1/peerix-public;
+#                publicKey = peerixPubkeys;
+#              };
+#            }
 
             { environment.systemPackages = [ agenix.packages."${system}".default ]; }
             agenix.nixosModules.default
