@@ -59,13 +59,16 @@ in
     }).overrideAttrs (upstream: {
       # i'm updating experimentally to see if it improves call performance.
       # i don't *think* this is actually necessary; i don't notice any difference.
-      version = "0.4.3-unstable-2024-04-01";
+      version = "0.4.3-unstable-2024-04-28";
       src = lib.warnIf (lib.versionOlder "0.4.3" upstream.version) "dino update: safe to remove sane patches" pkgs.fetchFromGitHub {
         owner = "dino";
         repo = "dino";
-        rev = "d9fa4daa6a7d16f5f0e2183a77ee2d07849dd9f3";
-        hash = "sha256-vJBIMsMLlK8Aw19fD2aFNtegXkjOqEgb3m1hi3fE5DE=";
+        rev = "657502955567dd538e56f300e075c7db52e25d74";
+        hash = "sha256-SApJy9FgxxLOB5A/zGtpdFZtSqSiS03vggRrCte1tFE=";
       };
+      # avoid double-application of upstreamed patches
+      # https://github.com/NixOS/nixpkgs/pull/309265
+      patches = [];
       checkPhase = ''
         runHook preCheck
         ./xmpp-vala-test

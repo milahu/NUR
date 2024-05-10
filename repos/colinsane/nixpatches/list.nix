@@ -32,12 +32,19 @@ in [
   # etc, where "date" is like "20240228181608"
   # and can be found with `nix-repl  > :lf .  > lastModifiedDate`
 
+  (fetchpatch' {
+    # TODO: send upstream
+    title = "python3Packages.dbus-python: fix build when doInstallCheck=false";
+    saneCommit = "4d4d0310402b8a7f9273dff448522f01b722a60c";
+    hash = "sha256-3fAobeHbM/IHZzhfAqSKhPy1l28F6MbQBp8rSVX2Lrg=";
+  })
+
   # branch: wip-ffado-cross
   (fetchpatch' {
     # TODO: send out for review (after jtolnar's stuff is merged)
     title = "ffado: support cross compilation";
-    saneCommit = "b0b57ad3c723a74d566f6420dffdb1a7d05304e2";
-    hash = "sha256-NwTZJG/+ngzR4IrYOd07KxMybHbYLmDcw4RSIrpbx3U=";
+    saneCommit = "001fe13a735cb9c6fad80525531e863f949e1495";
+    hash = "sha256-rVsFR8vRTHqFJgDQFHI/E0LtllqKr79FyR92HPeLUb8=";
   })
 
   (fetchpatch' {
@@ -46,20 +53,6 @@ in [
     prUrl = "https://github.com/NixOS/nixpkgs/pull/306984";
     saneCommit = "bd87a38b86f889a6902a356ab415eeead881766b";
     hash = "sha256-53X4ssdp02C8NOUL5mlbhR7qwE9/KWp6iLmz1ljJopE=";
-  })
-
-  (fetchpatch' {
-    title = "sway/hyprland: cross compilation fixes";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/292415";
-    hash = "sha256-e4yZGMBjL8gSa6cEZ87Txe4+GPhYelyE7IRd4TlV0qc=";
-  })
-
-  (fetchpatch' {
-    title = "gcr: remove build gnupg from runtime closure";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/263158";
-    saneCommit = "8c71ab22c6df4e5ce290e131a7769688b0c5a017";
-    # hash = "sha256-9PNKzNlJ62WAq6H+tqlt0spFZ1DPP1hHmpx0YPuieFE=";
-    hash = "sha256-6hUdsExHSMHy6FMY1+OLtVmKpRwysGIVkcDpYv7RRBk=";
   })
 
   # 2024/02/25: still outstanding; merge conflicts
@@ -149,14 +142,7 @@ in [
     hash = "sha256-RUw88u7CI2C1IpRUhGbdYamHsPT1jBV0ROyVvzLWdv8=";
   })
   (fetchpatch' {
-    title = "libgnt: 2.14.1 -> 2.14.3";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/246937";
-    saneCommit = "ecd423195d72036a209912868ad02742cb4b6fcd";
-    # hash = "sha256-u4V/UHNtd2c3+FppuJ5LeLNSV8ZaLe8cqj8HmcW2a/0=";
-    hash = "sha256-Tymh8r75pcoEzsqkU0wzm+vK137P2pEEilgNIyM8udQ=";
-  })
-  (fetchpatch' {
-    # TODO: send for review once the libgnt patch above is merged
+    # TODO: send for review (it should be unblocked as of 2024/05/08)
     title = "pidgin: support cross compilation";
     saneCommit = "caacbcc54e217f5ee9281422777a7f712765f71a";
     hash = "sha256-UyZaNNp84zKShuo6zu0nfZ2FygHGcmV63Ww4Y4CtCF0=";
@@ -165,8 +151,7 @@ in [
   (fetchpatch' {
     title = "libgweather: enable introspection on cross builds";
     prUrl = "https://github.com/NixOS/nixpkgs/pull/251956";
-    saneCommit = "7a2d0a90cc558ea71dfc78356e61b0675b995634";
-    hash = "sha256-4x1yJgrgmyqYiF+u3A9BrcbNQPQ270c+/jFBYsJoFfI=";
+    hash = "sha256-IW+0u5lytIPU3xhgGtYgexXUrS2VFXAV6GC50jJS5ak=";
   })
 
   # for raspberry pi: allow building u-boot for rpi 4{,00}

@@ -16,17 +16,16 @@ let
       redirect-tty
     ];
     text = ''
-      # TODO: if unl0kr or the redirection fails unexpectedly, this will sit here indefinitely
-      #       (well, user can use /dev/stdin to auth -- if that's wired to a usable input device)
-      # could either:
+      # TODO: make this more robust to failure.
+      # - if `unl0kr` fails, then the second `redirect-tty` sends a newline to `login`, causing it to exit and the service fails.
+      # - if `redirect-tty` fails, then... the service is left hanging.
+      # possible alternatives:
       # - wait on `unl0kr` to complete _before_ starting `login`, and re-introduce a timeout to `login`
       #   i.e. `pw=$(unl0kr); (sleep 1 && echo "$pw" | redirect-tty "/dev/(tty)") &; login -p <user>`
       #   but modified to not leak pword to CLI
       # - implement some sort of watchdog (e.g. detect spawned children?)
       # - set a timeout at the outer scope (which gets canceled upon successful login)
-
-      redirect-tty "/dev/${tty}" unl0kr &
-      # login -p: preserve environment
+      bash -c 'redirect-tty "/dev/${tty}" unl0kr ; sleep 2 ; redirect-tty "/dev/${tty}" echo ""' &
       login -p ${cfg.config.user}
     '';
   };

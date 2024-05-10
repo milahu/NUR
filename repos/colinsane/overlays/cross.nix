@@ -75,6 +75,9 @@ let
       pkg
     );
 
+  typelibPath = pkgs: lib.concatStringsSep ":" (builtins.map (p: "${lib.getLib p}/lib/girepository-1.0") pkgs);
+
+
   emulated = mkEmulated final prev;
 
   linuxMinimal = final.linux.override {
@@ -499,7 +502,15 @@ in with final; {
     postPatch = (upstream.postPatch or "") + ''
       substituteInPlace data/resources/meson.build --replace \
         "find_program('blueprint-compiler')" \
-        "'env', 'GI_TYPELIB_PATH=${buildPackages.gdk-pixbuf.out}/lib/girepository-1.0:${buildPackages.harfbuzz.out}/lib/girepository-1.0:${buildPackages.gtk4.out}/lib/girepository-1.0:${buildPackages.graphene}/lib/girepository-1.0:${buildPackages.libadwaita}/lib/girepository-1.0:${buildPackages.pango.out}/lib/girepository-1.0', find_program('blueprint-compiler')"
+        "'env', 'GI_TYPELIB_PATH=${typelibPath [
+          buildPackages.gdk-pixbuf
+          buildPackages.glib
+          buildPackages.graphene
+          buildPackages.gtk4
+          buildPackages.harfbuzz
+          buildPackages.libadwaita
+          buildPackages.pango
+        ]}', find_program('blueprint-compiler')"
     '';
     # error: "<dialect> is not allowed to refer to the following paths: <build python>"
     # dialect's meson build script sets host binaries to use build PYTHON
@@ -791,9 +802,20 @@ in with final; {
     postPatch = (upstream.postPatch or "") + ''
       substituteInPlace data/meson.build --replace \
         "find_program('blueprint-compiler')" \
-        "'env', 'GI_TYPELIB_PATH=${buildPackages.gdk-pixbuf.out}/lib/girepository-1.0:${buildPackages.harfbuzz.out}/lib/girepository-1.0:${buildPackages.gtk4.out}/lib/girepository-1.0:${buildPackages.graphene}/lib/girepository-1.0:${buildPackages.libadwaita}/lib/girepository-1.0:${buildPackages.pango.out}/lib/girepository-1.0', find_program('blueprint-compiler')"
+        "'env', 'GI_TYPELIB_PATH=${typelibPath [
+          buildPackages.gdk-pixbuf
+          buildPackages.glib
+          buildPackages.graphene
+          buildPackages.gtk4
+          buildPackages.harfbuzz
+          buildPackages.libadwaita
+          buildPackages.pango
+        ]}', find_program('blueprint-compiler')"
     '';
   });
+
+  # 2024/05/08: fix: "meson.build:85:11: ERROR: Dependency "dbus-1" not found, tried pkgconfig".
+  gnome-online-accounts = mvToBuildInputs [ dbus ] prev.gnome-online-accounts;
 
   gnome = prev.gnome.overrideScope (self: super: {
     evolution-data-server = super.evolution-data-server.overrideAttrs (upstream: {
@@ -1070,7 +1092,15 @@ in with final; {
     postPatch = (upstream.postPatch or "") + ''
       substituteInPlace data/meson.build --replace \
         "find_program('blueprint-compiler')" \
-        "'env', 'GI_TYPELIB_PATH=${buildPackages.gdk-pixbuf.out}/lib/girepository-1.0:${buildPackages.harfbuzz.out}/lib/girepository-1.0:${buildPackages.gtk4.out}/lib/girepository-1.0:${buildPackages.graphene}/lib/girepository-1.0:${buildPackages.libadwaita}/lib/girepository-1.0:${buildPackages.pango.out}/lib/girepository-1.0', find_program('blueprint-compiler')"
+        "'env', 'GI_TYPELIB_PATH=${typelibPath [
+          buildPackages.gdk-pixbuf
+          buildPackages.glib
+          buildPackages.graphene
+          buildPackages.gtk4
+          buildPackages.harfbuzz
+          buildPackages.libadwaita
+          buildPackages.pango
+        ]}', find_program('blueprint-compiler')"
     '';
   });
 
@@ -1834,7 +1864,15 @@ in with final; {
         substituteInPlace src/meson.build \
           --replace-fail \
             "find_program('blueprint-compiler')" \
-            "'env', 'GI_TYPELIB_PATH=${buildPackages.gdk-pixbuf.out}/lib/girepository-1.0:${buildPackages.harfbuzz.out}/lib/girepository-1.0:${buildPackages.gtk4.out}/lib/girepository-1.0:${buildPackages.graphene}/lib/girepository-1.0:${buildPackages.libadwaita}/lib/girepository-1.0:${buildPackages.pango.out}/lib/girepository-1.0', find_program('blueprint-compiler')" \
+            "'env', 'GI_TYPELIB_PATH=${typelibPath [
+              buildPackages.gdk-pixbuf
+              buildPackages.glib
+              buildPackages.graphene
+              buildPackages.gtk4
+              buildPackages.harfbuzz
+              buildPackages.libadwaita
+              buildPackages.pango
+            ]}', find_program('blueprint-compiler')" \
           --replace-fail \
             "meson.project_build_root() / cargo_output" \
             "meson.project_build_root() / 'src' / '${rust.envVars.rustHostPlatformSpec}' / rust_target / meson.project_name()"
@@ -1900,8 +1938,15 @@ in with final; {
     postPatch = (upstream.postPatch or "") + ''
       substituteInPlace src/meson.build \
         --replace "find_program('gjs').full_path()" "'${gjs}/bin/gjs'" \
-        --replace "gjspack," "'env', 'GI_TYPELIB_PATH=${buildPackages.gdk-pixbuf.out}/lib/girepository-1.0:${buildPackages.harfbuzz.out}/lib/girepository-1.0:${buildPackages.gtk4.out}/lib/girepository-1.0:${buildPackages.graphene}/lib/girepository-1.0:${buildPackages.libadwaita}/lib/girepository-1.0:${buildPackages.pango.out}/lib/girepository-1.0', '${buildPackages.gjs}/bin/gjs', '-m', gjspack,"
-
+        --replace "gjspack," "'env', 'GI_TYPELIB_PATH=${typelibPath [
+          buildPackages.gdk-pixbuf
+          buildPackages.glib
+          buildPackages.graphene
+          buildPackages.gtk4
+          buildPackages.harfbuzz
+          buildPackages.libadwaita
+          buildPackages.pango
+        ]}', '${buildPackages.gjs}/bin/gjs', '-m', gjspack,"
     '';
   });
 

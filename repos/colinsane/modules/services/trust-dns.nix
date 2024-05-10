@@ -52,6 +52,8 @@ let
     description = "trust-dns Domain Name Server (serving ${flavor})";
     unitConfig.Documentation = "https://trust-dns.org/";
 
+    wantedBy = [ "default.target" ];
+
     preStart = lib.concatStringsSep "\n" (
       [''
         mkdir -p "/var/lib/trust-dns/${flavor}"
