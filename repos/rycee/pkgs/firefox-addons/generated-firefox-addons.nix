@@ -653,10 +653,10 @@
     };
     "betterttv" = buildFirefoxXpiAddon {
       pname = "betterttv";
-      version = "7.5.20";
+      version = "7.5.21";
       addonId = "firefox@betterttv.net";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4277452/betterttv-7.5.20.xpi";
-      sha256 = "75760d0112b6b6865fb9b4679e8e538b1b2dd3c331cb63e70e8190841b917e02";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4280264/betterttv-7.5.21.xpi";
+      sha256 = "0d4433ff975d3c0a0f2f9cb447887558936b0a00357d1a2fab7c731271142892";
       meta = with lib;
       {
         homepage = "https://betterttv.com";
@@ -1069,10 +1069,10 @@
     };
     "chatgptbox" = buildFirefoxXpiAddon {
       pname = "chatgptbox";
-      version = "2.5.3";
+      version = "2.5.4";
       addonId = "{b764208e-0a98-436d-a599-c1baa044f829}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4281187/chatgptbox-2.5.3.xpi";
-      sha256 = "06fa881efd41a028b28ea5d4cec9a6d47629514c13b3a7ffe0bb2dd9e2375c52";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4284099/chatgptbox-2.5.4.xpi";
+      sha256 = "8be19d7d847f647d7eedc4b73056910db7d232355514b463fdea708d6cbf3706";
       meta = with lib;
       {
         homepage = "https://github.com/josStorer/chatGPTBox";
@@ -1085,6 +1085,7 @@
           "unlimitedStorage"
           "tabs"
           "webRequest"
+          "https://*.chatgpt.com/*"
           "https://*.openai.com/"
           "https://*.bing.com/"
           "wss://*.bing.com/*"
@@ -4673,10 +4674,10 @@
     };
     "immersive-translate" = buildFirefoxXpiAddon {
       pname = "immersive-translate";
-      version = "1.4.12";
+      version = "1.5.1";
       addonId = "{5efceaa7-f3a2-4e59-a54b-85319448e305}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4269967/immersive_translate-1.4.12.xpi";
-      sha256 = "25b245320c52bf2bf0b43f55af3fbb3bf21346af4327bf68e89a36d79bf25129";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4280246/immersive_translate-1.5.1.xpi";
+      sha256 = "02a54aadd2ec24844f57a0478b2947ef5b73f0f4fa591ed7b16e74439bb02793";
       meta = with lib;
       {
         homepage = "https://immersivetranslate.com";
@@ -7243,10 +7244,10 @@
     };
     "okta-browser-plugin" = buildFirefoxXpiAddon {
       pname = "okta-browser-plugin";
-      version = "6.29.0";
+      version = "6.30.0";
       addonId = "plugin@okta.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4250756/okta_browser_plugin-6.29.0.xpi";
-      sha256 = "9b3624a8af8b9068b2f8af58b3c0b9b8ccca5ba7e82fbb6df3058fc6f019c424";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4280859/okta_browser_plugin-6.30.0.xpi";
+      sha256 = "ceb0a877144f1255e706dbab11bb07da3facf1503e2f02375d9cbd83d7ff25cf";
       meta = with lib;
       {
         homepage = "https://www.okta.com";
@@ -7574,10 +7575,10 @@
     };
     "passff" = buildFirefoxXpiAddon {
       pname = "passff";
-      version = "1.16";
+      version = "1.17";
       addonId = "passff@invicem.pro";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4202971/passff-1.16.xpi";
-      sha256 = "ac410a2fbdaa3a43ae3f0ec01056bc0b037b4441a9e38d2cc330f186c8fce112";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4284061/passff-1.17.xpi";
+      sha256 = "fe447ebab2741166bdeb505274724649c9146de454d74599419ff3b2a73cdfbe";
       meta = with lib;
       {
         homepage = "https://github.com/passff/passff";
