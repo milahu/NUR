@@ -126,7 +126,7 @@ in
       "blueberry"  # GUI bluetooth manager
       "brightnessctl"
       "conky"  # for a nice background
-      "fcitx5"  # input method; emoji
+      # "fcitx5"  # input method; emoji  # TODO(2024/05/10): this broke 2-ish weeks ago, glitches input into any textbox, possibly only when xwayland is enabled?
       "fontconfig"
       # "gnome.gnome-bluetooth"  # XXX(2023/05/14): broken
       # "gnome.gnome-control-center"  # XXX(2023/06/28): depends on webkitgtk4_1

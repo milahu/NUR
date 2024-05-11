@@ -110,7 +110,9 @@ usage() {
   usageDescription
   echo ""
   echo "regions:"
-  echo "$vpns"
+  for v in "${vpns[@]}"; do
+    echo "- $v"
+  done
 
   test -n "$rc" && exit "$rc"
 }

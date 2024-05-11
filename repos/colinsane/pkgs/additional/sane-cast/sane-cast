@@ -135,14 +135,7 @@ class Go2TvDriver:
         os.execvp("go2tv", cli_args)
 
 
-def choose_device(devices: list[Device]) -> Device | None:
-    if not devices:
-        logger.info("no devices found!")
-        return
-
-    if len(devices) == 1:
-        return devices[0]
-
+def ask_device(devices: list[Device]) -> Device | None:
     dev = None
     while dev is None:
         # TODO: use a GUI menu like zenity?
@@ -163,12 +156,20 @@ def choose_device(devices: list[Device]) -> Device | None:
 
     return dev
 
+def get_default_device(devices: list[Device]) -> Device | None:
+    if not devices:
+        logger.info("no devices found!")
+
+    if len(devices) == 1:
+        return devices[0]
+
 def main():
     logging.basicConfig()
     logging.getLogger().setLevel(logging.INFO)
 
     parser = argparse.ArgumentParser(description="cast media to a DLNA receiver in range")
     parser.add_argument("--verbose", action="store_true", help="more logging")
+    parser.add_argument("--always-ask", action="store_true", help="always ask which device to cast to, regardless how many are available")
     parser.add_argument("media", help="file or URL to send to the DLNA device")
 
     args = parser.parse_args()
@@ -180,7 +181,9 @@ def main():
     go2tv.scan_devices()
     devices = go2tv.rank_devices()
 
-    dev = choose_device(devices)
+    dev = get_default_device(devices)
+    if dev is None or args.always_ask:
+        dev = ask_device(devices)
     if dev:
         go2tv.cast_to(dev, args.media)
 
