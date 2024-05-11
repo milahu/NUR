@@ -16,8 +16,8 @@ stdenv.mkDerivation rec {
   enableParallelBuilding = true;
 
   nativeBuildInputs = [
-  #cmake
-  autoreconfHook
+    #cmake
+    autoreconfHook
   ];
   BuildInputs = [
   ];

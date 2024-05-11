@@ -22,12 +22,12 @@ stdenv.mkDerivation rec {
   };
   #dontFixCmake = true;
   sourceRoot = "${src.name}/source";
-  nativeBuildInputs = [ openssl bzip2 libffi zlib  cmake ];
-#    buildPhase = ''
-#    ls
-#      ${pkgs.cmake}/bin/cmake .
-#      '';
-installPhase = ''
+  nativeBuildInputs = [ openssl bzip2 libffi zlib cmake ];
+  #    buildPhase = ''
+  #    ls
+  #      ${pkgs.cmake}/bin/cmake .
+  #      '';
+  installPhase = ''
     mkdir -p $out/bin
     mkdir -p $out/lib
     cp svkey_artefacts/Release/svkey $out/bin/

@@ -5,7 +5,7 @@
 }:
 let
   mainProgram = "Forkgram";
-  sources = pkgs.callPackage ../../../_sources/generated.nix {};
+  sources = pkgs.callPackage ../../../_sources/generated.nix { };
 in
 pkgs.telegram-desktop.overrideAttrs (
   prev: rec {

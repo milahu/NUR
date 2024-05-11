@@ -16,10 +16,10 @@ stdenv.mkDerivation rec {
   enableParallelBuilding = true;
 
   nativeBuildInputs = with pkgs; [
-  pkg-config
-  cmake
-  meson
-  pugixml
+    pkg-config
+    cmake
+    meson
+    pugixml
   ];
   BuildInputs = with pkgs; [
   ];

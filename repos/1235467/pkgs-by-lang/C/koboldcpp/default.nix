@@ -24,16 +24,16 @@ stdenv.mkDerivation rec {
   # 指定包名和版本
   pname = "koboldcpp";
   inherit (sources.koboldcpp) version src;
-#   version = "5174f9de7b9d30dc12174a865c0cef612658f5aa";
-#
-#   # 从 GitHub 下载源代码
-#   src = fetchFromGitHub {
-#     owner = "LostRuins";
-#     repo = "koboldcpp";
-#     rev = "5174f9de7b9d30dc12174a865c0cef612658f5aa";
-#     sha256 = "sha256-KEzxxRWUnEwK5ObNEFKEzEa6go1BRfFWP81v4BD0ssg=";
-#     fetchSubmodules = true;
-#   };
+  #   version = "5174f9de7b9d30dc12174a865c0cef612658f5aa";
+  #
+  #   # 从 GitHub 下载源代码
+  #   src = fetchFromGitHub {
+  #     owner = "LostRuins";
+  #     repo = "koboldcpp";
+  #     rev = "5174f9de7b9d30dc12174a865c0cef612658f5aa";
+  #     sha256 = "sha256-KEzxxRWUnEwK5ObNEFKEzEa6go1BRfFWP81v4BD0ssg=";
+  #     fetchSubmodules = true;
+  #   };
   #   koboldcpp7B = writeShellApplication {
   #     name = "koboldcpp-7B";
   #     runtimeInputs = [ openblas clblast ocl-icd python3 ];
@@ -58,6 +58,6 @@ stdenv.mkDerivation rec {
     wrapProgram $out/bin/koboldcpp --prefix PATH : ${lib.makeBinPath [python3 openblas vulkan-loader clblast ocl-icd]}
   '';
   # 将 CMake 加入编译环境，用来生成 Makefile
-  nativeBuildInputs = [ pkg-config openblas clblast ocl-icd makeWrapper vulkan-headers vulkan-utility-libraries vulkan-loader];
-  BuildInputs = [ python3 cmake vulkan-headers vulkan-utility-libraries vulkan-loader];
+  nativeBuildInputs = [ pkg-config openblas clblast ocl-icd makeWrapper vulkan-headers vulkan-utility-libraries vulkan-loader ];
+  BuildInputs = [ python3 cmake vulkan-headers vulkan-utility-libraries vulkan-loader ];
 }

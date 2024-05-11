@@ -1,11 +1,11 @@
-{ lib, writeShellApplication,pkgs,  stdenv,... }:
+{ lib, writeShellApplication, pkgs, stdenv, ... }:
 
 let
   nvfetcher = writeShellApplication rec {
-  name = "nvfetcher";
-  text = ''
-  ${pkgs.nvfetcher}/bin/nvfetcher -c nvfetcher.toml -o _sources
-  '';
+    name = "nvfetcher";
+    text = ''
+      ${pkgs.nvfetcher}/bin/nvfetcher -c nvfetcher.toml -o _sources
+    '';
   };
 
 in

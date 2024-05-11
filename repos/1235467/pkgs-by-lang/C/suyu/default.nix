@@ -39,7 +39,7 @@
 let
   nx_tzdb = pkgs.callPackage ../../../_deps/yuzu/nx_tzdb.nix { };
   compat-list = pkgs.callPackage ../../../_deps/yuzu/compat-list.nix { };
-  sources = pkgs.callPackage ../../../_sources/generated.nix {};
+  sources = pkgs.callPackage ../../../_sources/generated.nix { };
 in
 stdenv.mkDerivation rec {
   pname = "suyu";
@@ -100,7 +100,7 @@ stdenv.mkDerivation rec {
   dontFixCmake = true;
 
   cmakeFlags = [
-     # actually has a noticeable performance impact
+    # actually has a noticeable performance impact
     "-DSUYU_ENABLE_LTO=ON"
 
     # build with qt6

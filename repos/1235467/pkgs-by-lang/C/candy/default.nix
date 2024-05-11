@@ -21,27 +21,29 @@ in
 stdenv.mkDerivation rec {
   inherit (sources.candy) version src;
   pname = "candy";
-#    preConfigure = ''
-#     mkdir -p build/_deps
-#     cp -r ${IXWebSocket} build/_deps/ixwebsocket-src
-#     chmod -R +w build/_deps/
-#   '';
+  #    preConfigure = ''
+  #     mkdir -p build/_deps
+  #     cp -r ${IXWebSocket} build/_deps/ixwebsocket-src
+  #     chmod -R +w build/_deps/
+  #   '';
   doCheck = false;
   enableParallelBuilding = true;
 
   nativeBuildInputs = [
-  pkg-config
-  cmake
-  spdlog
-  libconfig
-  git
-  poco
-  zlib
-  boost
-  openssl
-  uriparser
- ];
+    pkg-config
+    cmake
+    spdlog
+    libconfig
+    git
+    poco
+    zlib
+    boost
+    openssl
+    uriparser
+  ];
   BuildInputs = [
- openssl boost ];
+    openssl
+    boost
+  ];
 
 }

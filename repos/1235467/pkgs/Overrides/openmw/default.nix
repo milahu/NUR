@@ -9,6 +9,6 @@ in
 pkgs.openmw.overrideAttrs (
   prev: rec {
     inherit (sources.openmw) version src;
-    buildInputs = prev.buildInputs ++ (with pkgs; [libsForQt5.qt5.qttools collada]);
+    buildInputs = prev.buildInputs ++ (with pkgs; [ libsForQt5.qt5.qttools collada ]);
   }
 )

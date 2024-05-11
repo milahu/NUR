@@ -25,10 +25,11 @@ stdenv.mkDerivation rec {
     urls = [
       "https://archive.basilisk-browser.org/2024.02.03/linux/x86_64/gtk3/basilisk-${version}.linux-x86_64-gtk${if withGTK3 then "3" else "2"}.tar.xz"
     ];
-    hash = if withGTK3 then
-      "sha256-QtTgQRDXCU4xxUysgN2PTEHBx1F7B/DlXBVQuqv6U68="
-    else
-      "";
+    hash =
+      if withGTK3 then
+        "sha256-QtTgQRDXCU4xxUysgN2PTEHBx1F7B/DlXBVQuqv6U68="
+      else
+        "";
   };
 
   preferLocalBuild = true;
@@ -51,66 +52,68 @@ stdenv.mkDerivation rec {
     gtk3
   ];
 
-  desktopItems = [(makeDesktopItem rec {
-    name = "basilisk-bin";
-    desktopName = "Basilisk Web Browser";
-    comment = "Browse the World Wide Web";
-    keywords = [
-      "Internet"
-      "WWW"
-      "Browser"
-      "Web"
-      "Explorer"
-    ];
-    exec = "basilisk %u";
-    terminal = false;
-    type = "Application";
-    icon = "basilisk";
-    categories = [
-      "Network"
-      "WebBrowser"
-    ];
-    mimeTypes = [
-      "text/html"
-      "text/xml"
-      "application/xhtml+xml"
-      "application/xml"
-      "application/rss+xml"
-      "application/rdf+xml"
-      "image/gif"
-      "image/jpeg"
-      "image/png"
-      "x-scheme-handler/http"
-      "x-scheme-handler/https"
-      "x-scheme-handler/ftp"
-      "x-scheme-handler/chrome"
-      "video/webm"
-      "application/x-xpinstall"
-    ];
-    startupNotify = true;
-    startupWMClass = "Basilisk";
-    extraConfig = {
-      X-MultipleArgs = "false";
-    };
-    actions = {
-      "NewTab" = {
-        name = "Open new tab";
-        exec = "basilisk -new-tab https://start.palemoon.org";
+  desktopItems = [
+    (makeDesktopItem rec {
+      name = "basilisk-bin";
+      desktopName = "Basilisk Web Browser";
+      comment = "Browse the World Wide Web";
+      keywords = [
+        "Internet"
+        "WWW"
+        "Browser"
+        "Web"
+        "Explorer"
+      ];
+      exec = "basilisk %u";
+      terminal = false;
+      type = "Application";
+      icon = "basilisk";
+      categories = [
+        "Network"
+        "WebBrowser"
+      ];
+      mimeTypes = [
+        "text/html"
+        "text/xml"
+        "application/xhtml+xml"
+        "application/xml"
+        "application/rss+xml"
+        "application/rdf+xml"
+        "image/gif"
+        "image/jpeg"
+        "image/png"
+        "x-scheme-handler/http"
+        "x-scheme-handler/https"
+        "x-scheme-handler/ftp"
+        "x-scheme-handler/chrome"
+        "video/webm"
+        "application/x-xpinstall"
+      ];
+      startupNotify = true;
+      startupWMClass = "Basilisk";
+      extraConfig = {
+        X-MultipleArgs = "false";
       };
-      "NewWindow" = {
-        name = "Open new window";
-        exec = "basilisk -new-window";
+      actions = {
+        "NewTab" = {
+          name = "Open new tab";
+          exec = "basilisk -new-tab https://start.palemoon.org";
+        };
+        "NewWindow" = {
+          name = "Open new window";
+          exec = "basilisk -new-window";
+        };
+        "NewPrivateWindow" = {
+          name = "Open new private window";
+          exec = "basilisk -private-window";
+        };
+        "ProfileManager" = {
+          name = "Open the Profile Manager";
+          exec = "basilisk --ProfileManager";
+        };
       };
-      "NewPrivateWindow" = {
-        name = "Open new private window";
-        exec = "basilisk -private-window";
-      };
-      "ProfileManager" = {
-        name = "Open the Profile Manager";
-        exec = "basilisk --ProfileManager";
-      };
-    };
-  })];
+    })
+  ];
 
   dontConfigure = true;
   dontBuild = true;
@@ -181,6 +184,6 @@ stdenv.mkDerivation rec {
     sourceProvenance = with sourceTypes; [ binaryNativeCode ];
     mainProgram = "basilisk";
     platforms = [ "x86_64-linux" ];
-    hydraPlatforms = [];
+    hydraPlatforms = [ ];
   };
 }
