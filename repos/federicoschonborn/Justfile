@@ -37,7 +37,7 @@ build-unstable +PACKAGES:
 
 # Build one or more packages against the stable channel.
 build-stable +PACKAGES:
-    @env NIX_FLAGS="$NIX_FLAGS --inputs-from . --override-input nixpkgs nixpkgs-stable" {{ just }} build {{ PACKAGES }}
+    @env NIX_FLAGS="$NIX_FLAGS --inputs-from . --override-input nixpkgs nixpkgs-stable" {{ just }} build-unstable {{ PACKAGES }}
 
 # Rebuild one or more packages against both channels.
 rebuild +PACKAGES: (rebuild-unstable PACKAGES) (rebuild-stable PACKAGES)

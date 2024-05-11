@@ -81,7 +81,7 @@
                   nix-shell --show-trace "${nixpkgs.outPath}/maintainers/scripts/update.nix" \
                     --arg include-overlays "[(import ./overlay.nix)]" \
                     --arg predicate '(
-                      let prefix = builtins.toPath ./packages; prefixLen = builtins.stringLength prefix;
+                      let prefix = builtins.toPath ./pkgs; prefixLen = builtins.stringLength prefix;
                       in (_: p: p.meta?position && (builtins.substring 0 prefixLen p.meta.position) == prefix)
                     )'
                 '';
