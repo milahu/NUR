@@ -711,10 +711,10 @@
     };
     "bibbot" = buildFirefoxXpiAddon {
       pname = "bibbot";
-      version = "0.36.0";
+      version = "0.37.0";
       addonId = "voebbot@stefanwehrmeyer.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4255347/bibbot-0.36.0.xpi";
-      sha256 = "4a35eeb9ac6eaed1d99456769c66c06e78d5a3832030186cb8805d907e60ca1b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4284684/bibbot-0.37.0.xpi";
+      sha256 = "ca346b70870800db914f625db3fa6d31b5d9a9c65377aefe56b50471ce59641a";
       meta = with lib;
       {
         homepage = "https://github.com/stefanw/bibbot";
@@ -783,6 +783,8 @@
           "https://www.manager-magazin.de/*"
           "https://www.nwzonline.de/*"
           "https://www.saarbruecker-zeitung.de/*"
+          "https://www.idowa.de/*"
+          "https://www.aachener-zeitung.de/*"
         ];
         platforms = platforms.all;
       };
@@ -1831,10 +1833,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "126.0.20240506.203248";
+      version = "126.0.20240509.170740";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4283313/deutsch_de_language_pack-126.0.20240506.203248.xpi";
-      sha256 = "663b868ecce7d27ebe6e1c58b94ba516dfc4e758900c7992397e92603534087c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4284769/deutsch_de_language_pack-126.0.20240509.170740.xpi";
+      sha256 = "d96e2e18a7e94f0706d5ce5e8582065635f436daea43808a6f19793139b00956";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -2027,10 +2029,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.35.1";
+      version = "2.35.2";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4282709/dualsub-2.35.1.xpi";
-      sha256 = "a3f6eb2fda565f6ce559775372ddc56a0f51a58109bd3d7e2bccbf6d1dd45919";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4284858/dualsub-2.35.2.xpi";
+      sha256 = "731b626233632bcc4e8fb4776ff8dd9dfd30980ba614239da3f286f313719aaf";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -2786,10 +2788,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "126.0.20240506.203248";
+      version = "126.0.20240509.170740";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4283283/francais_language_pack-126.0.20240506.203248.xpi";
-      sha256 = "56ce6773631092c1be931fedfe6cc019f893780927b157f80c6595bd6e2924aa";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4284790/francais_language_pack-126.0.20240509.170740.xpi";
+      sha256 = "5efe770a518d43db60c400a82b18c1b98346f43cad008103194a28632badea2b";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4748,10 +4750,10 @@
     };
     "indie-wiki-buddy" = buildFirefoxXpiAddon {
       pname = "indie-wiki-buddy";
-      version = "3.7.0";
+      version = "3.7.1";
       addonId = "{cb31ec5d-c49a-4e5a-b240-16c767444f62}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4279027/indie_wiki_buddy-3.7.0.xpi";
-      sha256 = "2aafeefa58b20f540d3344e1fd13ff437b64f6ea764dc76f26cdfec2307fda5f";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4281778/indie_wiki_buddy-3.7.1.xpi";
+      sha256 = "c59057b3b654f6f19f43bed8c22c522f6304626b832ee881aa97e59cb45a246a";
       meta = with lib;
       {
         homepage = "https://getindie.wiki/";
@@ -8465,6 +8467,25 @@
         platforms = platforms.all;
       };
     };
+    "protoots" = buildFirefoxXpiAddon {
+      pname = "protoots";
+      version = "1.2.2";
+      addonId = "protoots@trans.rights";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4154844/protoots-1.2.2.xpi";
+      sha256 = "461c1c9b406b0df8e439b804b0e0bdd2ae831e76cfc733f21a135f47854dd1c5";
+      meta = with lib;
+      {
+        homepage = "https://github.com/ItsVipra/ProToots";
+        description = "puts pronouns next to usernames on mastodon";
+        license = licenses.osl3;
+        mozPermissions = [
+          "storage"
+          "https://en.pronouns.page/api/*"
+          "*://*/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "purpleadblock" = buildFirefoxXpiAddon {
       pname = "purpleadblock";
       version = "2.6.5";
@@ -10812,7 +10833,7 @@
       meta = with lib;
       {
         homepage = "http://www.downloadhelper.net/";
-        description = "The easy way to download and convert Web videos from hundreds of YouTube-like sites.";
+        description = "Download videos from the web. Easy, smart, no tracking.";
         license = {
           shortName = "vdh";
           fullName = "Custom License for Video DownloadHelper";
