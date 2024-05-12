@@ -123,10 +123,10 @@
     };
     "adnauseam" = buildFirefoxXpiAddon {
       pname = "adnauseam";
-      version = "3.21.0";
+      version = "3.21.4";
       addonId = "adnauseam@rednoise.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4244829/adnauseam-3.21.0.xpi";
-      sha256 = "cde20f691dfa1dcc8a77d4d64e7e0618fe277f4a8f62d72d884ac4b5d0a8f3b8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4282819/adnauseam-3.21.4.xpi";
+      sha256 = "a29a137c530be59612ebfbe0b13f1a9105bfe47cb868d1db4e51a9e7a0e9fa81";
       meta = with lib;
       {
         homepage = "https://adnauseam.io";
@@ -238,6 +238,28 @@
         description = "Reveal the anchors in a webpage";
         license = licenses.gpl3;
         mozPermissions = [ "activeTab" "storage" "contextMenus" ];
+        platforms = platforms.all;
+      };
+    };
+    "angular-devtools" = buildFirefoxXpiAddon {
+      pname = "angular-devtools";
+      version = "1.0.16";
+      addonId = "{20a9bb38-ed7c-4faf-9aaf-7c5d241fd747}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4284189/angular_devtools-1.0.16.xpi";
+      sha256 = "8e62abf3c513e88641fa2a00d32ca7e5eadb17f40ee1517686c8d3ef112f34aa";
+      meta = with lib;
+      {
+        homepage = "https://angular.dev/tools/devtools/";
+        description = "Angular DevTools extends Firefox DevTools adding Angular specific debugging and profiling capabilities.";
+        license = licenses.mit;
+        mozPermissions = [
+          "activeTab"
+          "http://*/*"
+          "https://*/*"
+          "file:///*"
+          "devtools"
+          "<all_urls>"
+        ];
         platforms = platforms.all;
       };
     };
@@ -2561,10 +2583,10 @@
     };
     "floccus" = buildFirefoxXpiAddon {
       pname = "floccus";
-      version = "5.1.0";
+      version = "5.1.1";
       addonId = "floccus@handmadeideas.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4282487/floccus-5.1.0.xpi";
-      sha256 = "21ed631b1597f05087b13bb171ccd38091171fdc9e5fc9ed16d4d37f700f03b5";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4285060/floccus-5.1.1.xpi";
+      sha256 = "b32e76d33dd03454134e95495754158cf22974c674315dc2462024f97c27b850";
       meta = with lib;
       {
         homepage = "https://floccus.org";
@@ -5659,10 +5681,10 @@
     };
     "localcdn" = buildFirefoxXpiAddon {
       pname = "localcdn";
-      version = "2.6.66";
+      version = "2.6.67";
       addonId = "{b86e4813-687a-43e6-ab65-0bde4ab75758}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4264034/localcdn_fork_of_decentraleyes-2.6.66.xpi";
-      sha256 = "1a174a8529a95c6af85765880abb3f69e9dba1a887267cc9c6a4b86a0523bb6f";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4282737/localcdn_fork_of_decentraleyes-2.6.67.xpi";
+      sha256 = "db8c9bfd93b8eba7d526c1de0b730cde9f7564d1b9445e2e9f2d3d28e1d6045b";
       meta = with lib;
       {
         homepage = "https://www.localcdn.org";
@@ -8686,10 +8708,10 @@
     };
     "reddit-enhancement-suite" = buildFirefoxXpiAddon {
       pname = "reddit-enhancement-suite";
-      version = "5.24.4";
+      version = "5.24.6";
       addonId = "jid1-xUfzOsOFlzSOXg@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4257183/reddit_enhancement_suite-5.24.4.xpi";
-      sha256 = "86cf6958c54604b9f1dcc7e925c1c18bdf3ed2a8e098608964527e6b359d057c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4282309/reddit_enhancement_suite-5.24.6.xpi";
+      sha256 = "8065fa2d119e6f6bde2a0d7d2e1696e45709a1583de63bb700eeaa31876f146a";
       meta = with lib;
       {
         homepage = "https://redditenhancementsuite.com/";
@@ -8875,10 +8897,10 @@
     };
     "rsspreview" = buildFirefoxXpiAddon {
       pname = "rsspreview";
-      version = "3.31";
+      version = "3.32";
       addonId = "{7799824a-30fe-4c67-8b3e-7094ea203c94}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4281629/rsspreview-3.31.xpi";
-      sha256 = "e043f36f649a2b99c484756effd6afa0038d403f94a610242f519e9d560f712f";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4285059/rsspreview-3.32.xpi";
+      sha256 = "4b1d0886d7bd71e347c238732cf4d945b5649eb2decfeedb632c7a0f86f1dde7";
       meta = with lib;
       {
         homepage = "https://github.com/aureliendavid/rsspreview";
@@ -9878,10 +9900,10 @@
     };
     "tampermonkey" = buildFirefoxXpiAddon {
       pname = "tampermonkey";
-      version = "5.1.0";
+      version = "5.1.1";
       addonId = "firefox@tampermonkey.net";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4250678/tampermonkey-5.1.0.xpi";
-      sha256 = "939a7b0573cc795eae2dea017b187ddb135d1778bf26f1c513215674512a040b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4282688/tampermonkey-5.1.1.xpi";
+      sha256 = "31e05e99fdd3f196bb5e529173f94b0a7b5a18727818a8d2a10ea375df8550ed";
       meta = with lib;
       {
         homepage = "https://tampermonkey.net";
@@ -11246,10 +11268,10 @@
     };
     "wappalyzer" = buildFirefoxXpiAddon {
       pname = "wappalyzer";
-      version = "6.10.68";
+      version = "6.10.69";
       addonId = "wappalyzer@crunchlabz.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4239079/wappalyzer-6.10.68.xpi";
-      sha256 = "13331af05825be9c3cd61074bb26b6cd006a8f839879f747142d6a19e34deddc";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4282900/wappalyzer-6.10.69.xpi";
+      sha256 = "c1aac3b1e0be09a0e576908a2bee83fa83522ffc0b0c60bf3f7d06a4c8009f2f";
       meta = with lib;
       {
         homepage = "https://www.wappalyzer.com";
