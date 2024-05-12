@@ -363,6 +363,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
         inherit spiral;
       };
 
+      guibot = callPackage ./pkgs/python3/pkgs/guibot { };
+
     #}))); # python3.pkgs
 
   #}))); # python3
@@ -785,6 +787,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   # fix: browse files for file upload makes tor browser hang with periodic flashes
   # https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/42561
   tor-browser_13_0_13 = callPackage ./pkgs/applications/networking/browsers/tor-browser { };
+
+  bash2py = callPackage ./pkgs/development/tools/bash2py { };
 
 }
 
