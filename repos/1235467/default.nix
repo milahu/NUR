@@ -63,6 +63,9 @@ rec {
   #sudachi = pkgs.qt6.callPackage ./pkgs-by-lang/C/sudachi {};
   llamafile = pkgs.callPackage ./pkgs-by-lang/C/llamafile { };
 
+  # Nodejs
+  gateway = pkgs.callPackage ./pkgs-by-lang/Node/gateway {};
+
   # Shell
   reflac = pkgs.callPackage ./pkgs-by-lang/Shell/reflac { };
 
