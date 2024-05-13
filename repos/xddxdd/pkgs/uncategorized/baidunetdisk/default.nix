@@ -70,8 +70,7 @@ let
   };
 in
 stdenv.mkDerivation {
-  pname = "baidunetdisk";
-  version = "4.17.7";
+  inherit (sources.baidunetdisk) pname version;
   dontUnpack = true;
 
   nativeBuildInputs = [
@@ -85,8 +84,7 @@ stdenv.mkDerivation {
       --add-flags "--no-sandbox" \
       --add-flags "${dist}/resources/app.asar"
 
-    mkdir -p $out/share/icons/hicolor/scalable/apps
-    ln -s ${dist}/baidunetdisk.svg $out/share/icons/hicolor/scalable/apps/baidunetdisk.svg
+    install -Dm644 ${dist}/baidunetdisk.svg $out/share/icons/hicolor/scalable/apps/baidunetdisk.svg
   '';
 
   desktopItems = [

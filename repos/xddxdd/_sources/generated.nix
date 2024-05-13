@@ -127,8 +127,19 @@
     pname = "bilibili";
     version = "1.13.2-2";
     src = fetchurl {
-      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.13.2-2/io.github.msojocs.bilibili_1.13.2-2_amd64.deb";
-      sha256 = "sha256-hwnrzbnlt9Z9cOqo/li1nvsrGv62ovMfybNVadIlk/Y=";
+      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.13.2-2/bilibili-asar-v1.13.2-2.tar.gz";
+      sha256 = "sha256-DluiTp7fGnFBbaPD89pzIUGV0yh6fIgcFlQdzi6aVNM=";
+    };
+  };
+  bilibili-src = {
+    pname = "bilibili-src";
+    version = "v1.13.2-2";
+    src = fetchFromGitHub {
+      owner = "msojocs";
+      repo = "bilibili-linux";
+      rev = "v1.13.2-2";
+      fetchSubmodules = false;
+      sha256 = "sha256-jfjuQWTxlNTE6M7eRxy58wXGcrULle8aVmmle/K0DAU=";
     };
   };
   bird-lg-go = {
@@ -391,6 +402,14 @@
       sha256 = "sha256-cYFMKZxpi69gVWqyZUltCL0ZwcfIABNsJKqAhN2TTSg=";
     };
   };
+  ftp-proxy = {
+    pname = "ftp-proxy";
+    version = "1.2.3";
+    src = fetchurl {
+      url = "http://www.ftpproxy.org/download/ftpproxy-1.2.3.tgz";
+      sha256 = "sha256-36r+iOaKEA9DMHBufEW+eoiRlEu1+VsYaWvK957l1uU=";
+    };
+  };
   genshin-checkin-helper = {
     pname = "genshin-checkin-helper";
     version = "b9e36543bfe5b042e015463e5d0398cd234cba90";
@@ -433,6 +452,14 @@
     src = fetchurl {
       url = "https://dl.google.com/linux/earth/deb/pool/main/g/google-earth-pro-stable/google-earth-pro-stable_7.3.6.9796-r0_amd64.deb";
       sha256 = "sha256-Wv2jPGN7LC5T32WdX3W1BfGYrcXTNWTI1Wv+PmD0gNM=";
+    };
+  };
+  gopherus = {
+    pname = "gopherus";
+    version = "1.2.2";
+    src = fetchurl {
+      url = "https://gopherus.sourceforge.net/gopherus-1.2.2.tar.xz";
+      sha256 = "sha256-7l/7ZK5KQ/V2Ym02Sbc0qAGov36P4P0hVWzIzbQzipo=";
     };
   };
   grasscutter = {
@@ -1257,6 +1284,22 @@
       sha256 = "sha256-Q7Zv/e296zPcmB+lshBsEXEhtt7TAfRjGgy09uBGxHA=";
     };
     date = "2016-12-18";
+  };
+  suwayomi-server = {
+    pname = "suwayomi-server";
+    version = "v1.0.0/Suwayomi-Server-v1.0.0-r1498";
+    src = fetchurl {
+      url = "https://github.com/Suwayomi/Suwayomi-Server/releases/download/v1.0.0/Suwayomi-Server-v1.0.0-r1498.jar";
+      sha256 = "sha256-CskVYc+byfn3mNzbOX1fCXPpjihtWpoRGBpXDY378c0=";
+    };
+  };
+  svp = {
+    pname = "svp";
+    version = "4.6.263";
+    src = fetchurl {
+      url = "https://www.svp-team.com/files/svp4-linux.4.6.263.tar.bz2";
+      sha256 = "sha256-HyRDVFHVmTan/Si3QjGQpC3za30way10d0Hk79oXG98=";
+    };
   };
   th-hak = {
     pname = "th-hak";
