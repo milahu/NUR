@@ -10423,10 +10423,10 @@
     };
     "tubearchivist-companion" = buildFirefoxXpiAddon {
       pname = "tubearchivist-companion";
-      version = "0.2.2";
+      version = "0.3.0";
       addonId = "{08f0f80f-2b26-4809-9267-287a5bdda2da}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4193054/tubearchivist_companion-0.2.2.xpi";
-      sha256 = "07b936486ca00d2d74a749819ae304468ba5f163392ad482b22ca931d97e85aa";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4285447/tubearchivist_companion-0.3.0.xpi";
+      sha256 = "92a0f56294375e96a2b2c97b3a5f6b8ec65ff0dbaddcdbb7e1ff433a6b188b5b";
       meta = with lib;
       {
         homepage = "https://github.com/tubearchivist/browser-extension";
