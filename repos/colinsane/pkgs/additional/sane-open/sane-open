@@ -26,6 +26,18 @@ configureKeyboardFor_application() {
     Alacritty.desktop)
       setKeyboard show
       ;;
+    app.drey.Dialect.desktop)
+      setKeyboard showIfRoom
+      ;;
+    com.github.hugolabe.Wike.desktop)
+      setKeyboard showIfRoom
+      ;;
+    # io.github.lainsce.Notejot.desktop)
+    #   setKeyboard showIfRoom
+    #   ;;
+    org.gnome.Epiphany.desktop)
+      setKeyboard showIfRoom
+      ;;
     rofi.desktop)
       setKeyboard showIfRoom
       ;;
