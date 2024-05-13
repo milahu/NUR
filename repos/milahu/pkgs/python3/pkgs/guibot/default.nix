@@ -16,7 +16,7 @@
 #, opencv-contrib-python
 , torch
 , torchvision
-#, vncdotool
+, vncdotool
 , pyautogui
 , pyscreeze
 , serpent
@@ -93,7 +93,7 @@ buildPythonPackage rec {
     #opencv-contrib-python
     torch
     torchvision
-    #vncdotool
+    vncdotool
     pyautogui
     # NOTE: These decared version of Pillow has issues with the latest Pyscreeze 0.1.30 thus there is a restrain on Pyscreeze installation
     pyscreeze
