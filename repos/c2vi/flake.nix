@@ -43,7 +43,7 @@
 
     robotnix = {
       #url = "github:nix-community/robotnix";
-      url = "github:c2vi/robotnix/two_lineageos_fixes";
+      url = "github:c2vi/robotnix";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -335,6 +335,15 @@
           (import ./hosts/phone/default.nix)
         ];
       };
+      "s9" = inputs.robotnix.lib.robotnixSystem {
+        device = "starlte";
+        flavor = "lineageos";
+      };
+      "vanilla" = inputs.robotnix.lib.robotnixSystem {
+        device = "x86_64";
+        productName = "sdk_x86_64";
+        flavor = "vanilla";
+      };
     };
 
     nixOnDroidConfigurations = rec {
@@ -467,5 +476,6 @@
     overlays = {
       static = import ./overlays/static-overlay.nix;
     };
+    inherit inputs;
 	};
 }
