@@ -43,16 +43,23 @@ let
         makeProfile = pkgs.callPackage ./make-sandbox-profile.nix { };
         makeSandboxed = pkgs.callPackage ./make-sandboxed.nix { sane-sandboxed = config.sane.programs.sane-sandboxed.package; };
 
-        # removeStorePaths: [ str ] -> [ str ], but remove store paths, because nix evals aren't allowed to contain any (for purity reasons?)
-        removeStorePaths = paths: lib.filter (p: !(lib.hasPrefix "/nix/store" p)) paths;
+        # derefSymlinks: [ str ] -> [ str ]: for each path which is a symlink (or a child of a symlink'd dir), dereference one layer of symlink. else, return the path unchanged.
+        derefSymlinks = paths: builtins.map (fs-lib.derefSymlink config.sane.fs) paths;
+        # given some paths, walk all of these and keep only the paths/ancestors which are symlinks
+        keepOnlySymlinks = paths: lib.filter
+          (p: ((config.sane.fs."${builtins.unsafeDiscardStringContext p}" or {}).symlink or null) != null)
+          (lib.concatMap (p: path-lib.walk "/" p) paths)
+        ;
+        # expandSymlinksOnce: [ str ] -> [ str ]
+        #   dereference all the paths once, union with the original path set, and then filter out everything that's not a symlink.
+        expandSymlinksOnce = paths: keepOnlySymlinks (lib.unique (paths ++ derefSymlinks paths));
+        symlinksClosure = paths: lib.converge expandSymlinksOnce paths;
 
-        makeCanonical = paths: builtins.map path-lib.realpath paths;
-        # derefSymlinks: [ str ] -> [ str ]: for each path which is a symlink (or a child of a symlink'd dir), dereference one layer of symlink. else, drop it from the list.
-        derefSymlinks' = paths: builtins.map (fs-lib.derefSymlinkOrNull config.sane.fs) paths;
-        derefSymlinks = paths: lib.filter (p: p != null) (derefSymlinks' paths);
-        # expandSymlinksOnce: [ str ] -> [ str ], returning all the original paths plus dereferencing any symlinks and adding their targets to this list.
-        expandSymlinksOnce = paths: lib.unique (paths ++ removeStorePaths (makeCanonical (derefSymlinks paths)));
-        expandSymlinks = paths: lib.converge expandSymlinksOnce paths;
+        # symlinkToAttrs: [ str ] -> Attrs  such that `attrs."${symlink}" = symlinkTarget`.
+        symlinksToAttrs = paths: lib.genAttrs
+          paths
+          (p: config.sane.fs."${p}".symlink.target)
+        ;
 
         vpn = lib.findSingle (v: v.default) null null (builtins.attrValues config.sane.vpn);
 
@@ -101,7 +108,39 @@ let
             vpn.dns
           else
             null;
-          allowedPaths = expandSymlinks allowedPaths;
+          inherit allowedPaths;
+
+          symlinkCache = {
+            "/bin/sh" = config.environment.binsh;
+            "${builtins.unsafeDiscardStringContext config.environment.binsh}" = "bash";
+            "/usr/bin/env" = config.environment.usrbinenv;
+            "${builtins.unsafeDiscardStringContext config.environment.usrbinenv}" = "coreutils";
+
+            # "/run/current-system" = "${config.system.build.toplevel}";
+            # XXX: /run/current-system symlink can't be cached without forcing regular mass rebuilds:
+            # mount it as if it were a directory instead.
+            "/run/current-system" = "";
+          } // lib.optionalAttrs config.hardware.opengl.enable {
+            "/run/opengl-driver" = let
+              gl = config.hardware.opengl;
+              # from: <repo:nixos/nixpkgs:nixos/modules/hardware/opengl.nix>
+              package = pkgs.buildEnv {
+                name = "opengl-drivers";
+                paths = [ gl.package ] ++ gl.extraPackages;
+              };
+            in "${package}";
+          } // lib.optionalAttrs (config.hardware.opengl.enable && config.hardware.opengl.driSupport32Bit) {
+            "/run/opengl-driver-32" = let
+              gl = config.hardware.opengl;
+              # from: <repo:nixos/nixpkgs:nixos/modules/hardware/opengl.nix>
+              package = pkgs.buildEnv {
+                name = "opengl-drivers-32bit";
+                paths = [ gl.package32 ] ++ gl.extraPackages32;
+              };
+            in "${package}";
+          } // (
+            symlinksToAttrs (symlinksClosure allowedPaths)
+          );
         };
         defaultProfile = sandboxProfilesFor config.sane.defaultUser;
         makeSandboxedArgs = {
@@ -258,11 +297,15 @@ let
         '';
       };
       buildCost = mkOption {
-        type = types.enum [ 0 1 2 ];
+        type = types.enum [ 0 1 2 3 ];
         default = 0;
         description = ''
           whether this package is very slow, or has unique dependencies which are very slow to build.
           marking packages like this can be used to achieve faster, but limited, rebuilds/deploys (by omitting the package).
+          - 0: this package is necessary for baseline usability
+          - 1: this package is a nice-to-have, and not too costly to build
+          - 2: this package is a nice-to-have, but costly to build (e.g. `libreoffice`, some webkitgtk-based things)
+          - 3: this package is costly to build, and could go without (some lesser-used webkitgtk-based things)
         '';
       };
       sandbox.net = mkOption {

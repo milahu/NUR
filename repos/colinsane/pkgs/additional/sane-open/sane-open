@@ -41,6 +41,9 @@ configureKeyboardFor_application() {
     rofi.desktop)
       setKeyboard showIfRoom
       ;;
+    rofi-applications.desktop)
+      setKeyboard showIfRoom
+      ;;
     rofi-filebrowser.desktop)
       setKeyboard showIfRoom
       ;;
@@ -76,12 +79,41 @@ open_application() {
 open_file() {
   # open the file, and then pass the fd to dbus
   log "open_file: '$1'"
-  exec 3<> "$1"
+  exec 3< "$1"
   gdbus call --session --timeout 10 \
     --dest org.freedesktop.portal.Desktop \
     --object-path /org/freedesktop/portal/desktop \
     --method org.freedesktop.portal.OpenURI.OpenFile \
     '' 3 "{'ask': <false>}"
+}
+open_desktopFile() {
+  log "open_desktopFile: '$1'"
+  # open_application (i.e. the DynamicLauncher portal) only understands applications by their
+  # .desktop filename (relative to ~/.local/share/applications) -- not by their full path.
+  # therefore, see if this .desktop file is equivalent to anything in ~/.local/share/applications.
+  local path="$1"
+  if [[ "${path:0:1}" != "/" ]]; then
+    path="$PWD/$path"
+  fi
+  if [[ "$path" == $HOME/.local/share/applications/*.desktop ]]; then
+    open_application "$(basename "$path")"
+    return
+  fi
+
+  # the given path doesn't exist in ~/.local/share/applications: check if it's a symlink which
+  # derefs to an application
+  local target="$(readlink "$path")"
+  if [ -z "$target" ]; then
+    log "open_desktopFile: '$path' does not deref to anything in ~/.local/share/applications: falling back to heuristics"
+    # assume that the deref'd name matches the application name.
+    # there's nothing *guaranteeing* this, but i have yet to see it fail.
+    open_application "$(basename "$path")"
+    return
+  fi
+  if [[ "${target:0:1}" != "/" ]]; then
+    target="$(dirname "$path")/$target"
+  fi
+  open_desktopFile "$target"
 }
 
 
@@ -142,6 +174,9 @@ while [ $# -gt 0 ]; do
       ;;
     "--application")
       resourceType="application"
+      ;;
+    "--desktop-file")
+      resourceType="desktopFile"
       ;;
     "--file")
       resourceType="file"

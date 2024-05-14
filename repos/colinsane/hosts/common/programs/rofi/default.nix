@@ -48,6 +48,13 @@ let
         exec = "rofi -combi-modes filebrowser -show";
         desktopName = "rofi filebrowser";
       })
+      (pkgs.makeDesktopItem {
+        name = "rofi-applications";
+        exec = "rofi -combi-modes drun -show";
+        desktopName = "rofi applications";
+        mimeTypes = [ "application/x-desktop" ];
+        noDisplay = true;
+      })
     ];
   });
   # rofi-emoji = pkgs.rofi-emoji.override {
@@ -85,6 +92,7 @@ in
     sandbox.whitelistWayland = true;
     sandbox.extraHomePaths = [
       ".local/share/applications"  #< to locate .desktop files
+      "Apps"  #< provide a means to transition from the filebrowser to the app launcher
       "Books/local"
       "Books/servo"
       "Music"
@@ -109,6 +117,7 @@ in
     ];
 
     fs.".config/rofi/config.rasi".symlink.target = ./config.rasi;
+    fs."Apps".symlink.target = ".local/share/applications/rofi-applications.desktop";
     persist.byStore.cryptClearOnBoot = [
       # this gets us a few things:
       # - file browser remembers its last directory

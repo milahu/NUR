@@ -57,6 +57,7 @@ in
           desktopName = "Mimeo";
           exec = "mimeo %U";
           comment = "Open files by MIME-type or file name using regular expressions.";
+          noDisplay = true;
         })
       ];
 

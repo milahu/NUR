@@ -79,7 +79,7 @@ in
     # "gnome.gnome-system-monitor"
     # "gnome.gnome-terminal"  # works on phosh
     "gnome.gnome-weather"
-    "gnome.seahorse"  # keyring/secret manager
+    # "gnome.seahorse"  # keyring/secret manager
     "gnome-frog"  # OCR/QR decoder
     "gpodder"
     # "gthumb"
@@ -159,7 +159,7 @@ in
       "libreoffice"  # TODO: replace with an office suite that uses saner packaging?
       "losslesscut-bin"  # x86-only
       # "makemkv"  # x86-only
-      "monero-gui"  # x86-only
+      # "monero-gui"  # x86-only
       # "mumble"
       # "nheko"  # Matrix chat client
       # "nicotine-plus"  # soulseek client. before re-enabling this, get it to run without firejail.
@@ -175,7 +175,7 @@ in
       "wireshark"  # could maybe ship the cli as sysadmin pkg
       # "xterm"  # requires Xwayland
       # "zecwallet-lite"  # x86-only
-      "zulip"
+      # "zulip"
     ]
   );
 

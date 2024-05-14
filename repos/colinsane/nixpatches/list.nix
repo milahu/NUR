@@ -33,10 +33,31 @@ in [
   # and can be found with `nix-repl  > :lf .  > lastModifiedDate`
 
   (fetchpatch' {
+    title = "curl-impersonate: fix darwin build and make cross-compilation work";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/310386";
+    hash = "sha256-feMOgQRrY2t7sYMjqXCo2WCe/J+Kr1ah+DznajQZsDM=";
+  })
+
+  (fetchpatch' {
+    title = "hyprland: fix cross compilation";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/311408";
+    hash = "sha256-OU5XT/BEmZu1TPXSLKfEgdkoGXRETvJ9dePCeHrFl6o=";
+  })
+
+  (fetchpatch' {
+    # TODO: send upstream after successful deployment
+    title = "gnome.gnome-keyring: support cross compilation";
+    # prUrl = "https://github.com/uninsane/nixpkgs/pull/new/pr-gnome-keyring-cross";
+    saneCommit = "56bc064c0fa39614dfd1048daae4a59e4131df56";
+    hash = "sha256-LZW3CNhcOU+YPTPt/4Ltxyiqo/6SdlIOQADmni4pDM4=";
+  })
+
+  (fetchpatch' {
     # TODO: send upstream
-    title = "python3Packages.dbus-python: fix build when doInstallCheck=false";
-    saneCommit = "4d4d0310402b8a7f9273dff448522f01b722a60c";
-    hash = "sha256-3fAobeHbM/IHZzhfAqSKhPy1l28F6MbQBp8rSVX2Lrg=";
+    title = "python3Packages.dbus-python: fix cross";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/310609";
+    hash = "sha256-QCRCotIlHgJn4lo4Qdrh2cJMqqcVGLAE9WSJ4nCQvyk=";
+    merged.staging = "20240510160000";
   })
 
   # branch: wip-ffado-cross
@@ -55,11 +76,37 @@ in [
     hash = "sha256-53X4ssdp02C8NOUL5mlbhR7qwE9/KWp6iLmz1ljJopE=";
   })
 
-  # 2024/02/25: still outstanding; merge conflicts
+  (fetchpatch' {
+    title = "libgweather: enable introspection on cross builds";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/251956";
+    hash = "sha256-IW+0u5lytIPU3xhgGtYgexXUrS2VFXAV6GC50jJS5ak=";
+  })
+
+  # 2024/02/25: still outstanding
   # (fetchpatch' {
   #   title = "hspell: remove build perl from runtime closure";
   #   prUrl = "https://github.com/NixOS/nixpkgs/pull/263182";
   #   hash = "sha256-Wau+PB+EUQDvWX8Kycw1sNrM3GkPVjKSS4niIDI0sjM=";
+  # })
+
+  # (fetchpatch' {
+  #   title = "gthumb: make the webservices feature be optional";
+  #   prUrl = "https://github.com/NixOS/nixpkgs/pull/240602";
+  #   saneCommit = "e83130f2770c314b2a482e1792b010da66cdd5de";
+  #   hash = "sha256-GlYWpOVZvr0oFAs4RdSUf7LJD3FmGsCaTm32GPhbBfc=";
+  # })
+  # (fetchpatch' {
+  #   # TODO: send for review once hspell fix is merged <https://github.com/NixOS/nixpkgs/pull/263182>
+  #   # this patch works as-is, but hspell keeps a ref to build perl and thereby pollutes this closure as well.
+  #   title = "gtkspell2: support cross compilation";
+  #   saneCommit = "56348833b4411e9fe2016c24c7fc4af1e3c1d28a";
+  #   hash = "sha256-RUw88u7CI2C1IpRUhGbdYamHsPT1jBV0ROyVvzLWdv8=";
+  # })
+  # (fetchpatch' {
+  #   # TODO: send for review (it should be unblocked as of 2024/05/08)
+  #   title = "pidgin: support cross compilation";
+  #   saneCommit = "caacbcc54e217f5ee9281422777a7f712765f71a";
+  #   hash = "sha256-UyZaNNp84zKShuo6zu0nfZ2FygHGcmV63Ww4Y4CtCF0=";
   # })
 
   # (fetchpatch' {
@@ -128,36 +175,10 @@ in [
   #   hash = "sha256-eTwEbVULYjmOW7zUFcTUqvBZqUFjHTKFhvmU2m3XQeo=";
   # })
 
-  (fetchpatch' {
-    title = "gthumb: make the webservices feature be optional";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/240602";
-    saneCommit = "e83130f2770c314b2a482e1792b010da66cdd5de";
-    hash = "sha256-GlYWpOVZvr0oFAs4RdSUf7LJD3FmGsCaTm32GPhbBfc=";
-  })
-  (fetchpatch' {
-    # TODO: send for review once hspell fix is merged <https://github.com/NixOS/nixpkgs/pull/263182>
-    # this patch works as-is, but hspell keeps a ref to build perl and thereby pollutes this closure as well.
-    title = "gtkspell2: support cross compilation";
-    saneCommit = "56348833b4411e9fe2016c24c7fc4af1e3c1d28a";
-    hash = "sha256-RUw88u7CI2C1IpRUhGbdYamHsPT1jBV0ROyVvzLWdv8=";
-  })
-  (fetchpatch' {
-    # TODO: send for review (it should be unblocked as of 2024/05/08)
-    title = "pidgin: support cross compilation";
-    saneCommit = "caacbcc54e217f5ee9281422777a7f712765f71a";
-    hash = "sha256-UyZaNNp84zKShuo6zu0nfZ2FygHGcmV63Ww4Y4CtCF0=";
-  })
-
-  (fetchpatch' {
-    title = "libgweather: enable introspection on cross builds";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/251956";
-    hash = "sha256-IW+0u5lytIPU3xhgGtYgexXUrS2VFXAV6GC50jJS5ak=";
-  })
-
   # for raspberry pi: allow building u-boot for rpi 4{,00}
   # TODO: remove after upstreamed: https://github.com/NixOS/nixpkgs/pull/176018
   #   (it's a dupe of https://github.com/NixOS/nixpkgs/pull/112677 )
-  ./02-rpi4-uboot.patch
+  # ./02-rpi4-uboot.patch
 
   # (fetchpatch' {
   #   title = "gnustep: remove `rec` to support `overrideScope`";

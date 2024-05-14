@@ -13,6 +13,6 @@ in
     ];
 
     fs.".config/wireshark".dir = {};
-    buildCost = 1;
+    buildCost = 2;
   };
 }

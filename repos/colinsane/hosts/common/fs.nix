@@ -107,7 +107,8 @@ let
     ftp = common ++ fuseColin ++ [
       # "ftpfs_debug=2"
       "user=colin:ipauth"
-      "connect_timeout=10"
+      # connect_timeout=10: casting shows to T.V. fails partway through about half the time
+      "connect_timeout=20"
     ];
   };
   remoteHome = host: {

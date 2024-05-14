@@ -121,7 +121,7 @@
             nixpkgs.hostPlatform.system = target;
           })
           (optionalAttrs (variant == "light") {
-            sane.maxBuildCost = 1;
+            sane.maxBuildCost = 2;
           })
           (optionalAttrs (variant == "min") {
             sane.maxBuildCost = 0;

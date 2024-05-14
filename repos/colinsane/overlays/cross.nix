@@ -387,7 +387,7 @@ in with final; {
   #     });
   #   };
 
-  # 2024/02/27: upstreaming is unblocked
+  # 2024/05/13: upstreaming is unblocked; out for review: <https://github.com/NixOS/nixpkgs/pull/305241>
   appstream = prev.appstream.overrideAttrs (upstream: {
     # fixes: "Message: Native appstream required for cross-building"
     # error introduced in:
@@ -815,11 +815,12 @@ in with final; {
   });
 
   # 2024/05/08: fix: "meson.build:85:11: ERROR: Dependency "dbus-1" not found, tried pkgconfig".
+  # 2024/05/13: upstreaming is bloked by dbus-python (fixed in staging), appstream (out for PR)
   gnome-online-accounts = mvToBuildInputs [ dbus ] prev.gnome-online-accounts;
 
   gnome = prev.gnome.overrideScope (self: super: {
     evolution-data-server = super.evolution-data-server.overrideAttrs (upstream: {
-      # 2023/12/08: upstreaming is unblocked, but depends on webkitgtk 4.1
+      # 2024/05/13: upstreaming is blocked by appstream (out for PR), libgweather (out for PR)
       cmakeFlags = upstream.cmakeFlags ++ [
         "-DCMAKE_CROSSCOMPILING_EMULATOR=${stdenv.hostPlatform.emulator buildPackages}"
         "-DENABLE_TESTS=no"
@@ -872,12 +873,13 @@ in with final; {
     # fixes "subprojects/gvc/meson.build:30:0: ERROR: Program 'glib-mkenums mkenums' not found or not executable"
     # gnome-control-center = mvToNativeInputs [ glib ] super.gnome-control-center;
 
-    gnome-keyring = super.gnome-keyring.overrideAttrs (orig: {
-      # 2024/02/27: upstreaming is unblocked
-      # this seems to work in practice, but leaves gkr with a reference to the build openssl, sqlite, xz, libxcrypt, glibc
-      # fixes "configure.ac:374: error: possibly undefined macro: AM_PATH_LIBGCRYPT"
-      nativeBuildInputs = orig.nativeBuildInputs ++ [ libgcrypt openssh glib ];
-    });
+    # gnome-keyring = super.gnome-keyring.overrideAttrs (orig: {
+    #   # 2024/02/27: upstreaming is unblocked; implemented but not for PR
+    #   # - <https://github.com/uninsane/nixpkgs/pull/new/pr-gnome-keyring-cross>
+    #   # this seems to work in practice, but leaves gkr with a reference to the build openssl, sqlite, xz, libxcrypt, glibc
+    #   # fixes "configure.ac:374: error: possibly undefined macro: AM_PATH_LIBGCRYPT"
+    #   nativeBuildInputs = orig.nativeBuildInputs ++ [ libgcrypt openssh glib ];
+    # });
     gnome-maps = super.gnome-maps.overrideAttrs (upstream: {
       # 2023/11/21: upstreaming is blocked by libshumate, qtsvg (via pipewire/ffado)
       postPatch = (upstream.postPatch or "") + ''
@@ -997,6 +999,7 @@ in with final; {
   #   '';
   # });
 
+  # hyprland = mvToNativeInputs [ hwdata ] prev.hyprland;
   # hyprland = prev.hyprland.overrideAttrs (_: {
   #   depsBuildBuild = [ pkg-config ];
   # });
@@ -2072,12 +2075,12 @@ in with final; {
 
   # 2024/02/29: upstreaming is blocked on libei (unless Xwayland config option is disabled in nixpkgs)
   #             out for PR: <https://github.com/NixOS/nixpkgs/pull/292415>
-  wlroots = prev.wlroots.overrideAttrs (upstream: {
-    nativeBuildInputs = (upstream.nativeBuildInputs or []) ++ [
-      # incorrectly specified as `buildInputs` in nixpkgs.
-      hwdata
-    ];
-  });
+  # wlroots = prev.wlroots.overrideAttrs (upstream: {
+  #   nativeBuildInputs = (upstream.nativeBuildInputs or []) ++ [
+  #     # incorrectly specified as `buildInputs` in nixpkgs.
+  #     hwdata
+  #   ];
+  # });
 
   # wrapFirefox = prev.wrapFirefox.override {
   #   buildPackages = buildPackages // {
@@ -2091,15 +2094,16 @@ in with final; {
   #   };
   # };
 
-  wrapNeovimUnstable = neovim: config: (prev.wrapNeovimUnstable neovim config).overrideAttrs (upstream: {
-    # nvim wrapper has a sanity check that the plugins will load correctly.
-    # this is effectively a check phase and should be rewritten as such
-    postBuild = lib.replaceStrings
-      [ "! $out/bin/nvim-wrapper" ]
-      # [ "${stdenv.hostPlatform.emulator buildPackages} $out/bin/nvim-wrapper" ]
-      [ "false && $out/bin/nvim-wrapper" ]
-      upstream.postBuild;
-  });
+  # fixes `hostPrograms.moby.neovim` (but breaks eval of `hostPkgs.moby.neovim` :o)
+  # wrapNeovimUnstable = neovim: config: (prev.wrapNeovimUnstable neovim config).overrideAttrs (upstream: {
+  #   # nvim wrapper has a sanity check that the plugins will load correctly.
+  #   # this is effectively a check phase and should be rewritten as such
+  #   postBuild = lib.replaceStrings
+  #     [ "! $out/bin/nvim-wrapper" ]
+  #     # [ "${stdenv.hostPlatform.emulator buildPackages} $out/bin/nvim-wrapper" ]
+  #     [ "false && $out/bin/nvim-wrapper" ]
+  #     upstream.postBuild;
+  # });
 
   # 2023/07/30: upstreaming is blocked on unar (gnustep), unless i also make that optional
   xarchiver = mvToNativeInputs [ libxslt ] prev.xarchiver;

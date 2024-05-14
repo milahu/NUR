@@ -37,6 +37,9 @@ profileDirs=()
 isDisable=
 # isDryRun: don't actually execute the program or sandbox: just print the command which would be run (and which the user may run from their own shell)
 isDryRun=
+# linkCache: associative array mapping canonical symlinks to canonical targets
+# used to speed up `readlink` operations
+declare -A linkCache
 
 ### values derived directly from $argv
 # cliArgs: the actual command we'll be running inside the sandbox
@@ -120,6 +123,9 @@ usage() {
   echo '      shorthand for `--sane-sandbox-path $PWD`'
   echo '  --sane-sandbox-profile <profile>'
   echo '  --sane-sandbox-profile-dir <dir>'
+  echo '  --sane-sandbox-cache-symlink <from> <to>'
+  echo '      assume that <from> is a symlink to <to>'
+  echo '      performance optimization to avoid spawning a readlink subshell'
   echo
   echo 'the following environment variables are also considered and propagated to children:'
   echo '  SANE_SANDBOX_DISABLE=1'
@@ -135,45 +141,77 @@ usage() {
 
 ## UTILITIES/BOILERPLATE
 
+# `relativeToPwd out-var path`
+# if `path` is absolute, returns `path`
+# otherwise, joins `path` onto `$PWD`
+relativeToPwd() {
+  local outvar="$1"
+  local path="$2"
+  if [ "${path:0:1}" == "/" ]; then
+    declare -g "$outvar"="$path"
+  else
+    declare -g "$outvar"="$PWD/path"
+  fi
+}
+
+# `splitHead <headVar> <tailVar> <input>`: write the top-level directory to `headVar` and set `tailVar` to the remaining path.
+# input is assumed to be a full path.
+# both outputs inherit the leading slash (except if the path has only one item, in which case `tailVar=`.
+# example: splitHead myHead myTail /path/to/thing
+#   myHead=/path
+#   myTail=/to/thing
+# example: splitHead myHead myTail /top
+#   myHead=/top
+#   myTail=
+splitHead() {
+  local outHead="$1"
+  local outTail="$2"
+  local path="$3"
+
+  # chomp leading `/`
+  path="${path:1}"
+  local leadingComp="${path%%/*}"
+  local compLen="${#leadingComp}"
+  local tail="${path:$compLen}"
+
+  declare -g "$outHead"="/$leadingComp"
+  declare -g "$outTail"="$tail"
+}
+
 # `normPath outVar "$path"`
 # remove duplicate //, reduce '.' and '..' (naively).
 # expects a full path as input
 # chomps trailing slashes.
 # does not resolve symlinks, nor check for existence of any component of the path.
 normPath() {
-  _npOut="$1"
-  _npUnparsed="$2"
-  _npComps=()
-  while [ -n "$_npUnparsed" ]; do
-    # chomp leading `/`
-    _npUnparsed="${_npUnparsed:1}"
-    # split into <first></re/st/...>
-    # in the case of `//`, or more, _npThisComp is empty,
-    # and we push nothing to _npComps,
-    # but we're guaranteed to make progress.
-    _npThisComp="${_npUnparsed%%/*}"
-    _npThisLen="${#_npThisComp}"
-    _npUnparsed="${_npUnparsed:$_npThisLen}"
-    if [ "$_npThisComp" = ".." ]; then
+  local outVar="$1"
+  local unparsed="$2"
+  local comps=()
+  while [ -n "$unparsed" ]; do
+    splitHead _npThisComp _npUnparsed "$unparsed"
+    unparsed="$_npUnparsed"
+    local thisComp="$_npThisComp"
+
+    if [ "$thisComp" = "/.." ]; then
       # "go up" path component => delete the leaf dir (if any)
-      if [ ${#_npComps[@]} -ne 0 ]; then
-        unset _npComps[-1]
+      if [ ${#comps[@]} -ne 0 ]; then
+        unset comps[-1]
       fi
-    elif [ "$_npThisComp" != "." ] && [ -n "$_npThisComp" ]; then
+    elif [ "$thisComp" != "/." ] && [ "$thisComp" != "/" ] && [ "$thisComp" != "" ]; then
       # normal, non-empty path component => append it
-      _npComps+=("$_npThisComp")
+      comps+=("$thisComp")
     fi
   done
 
   # join the components
-  if [ ${#_npComps[@]} -eq 0 ]; then
-    declare -g "$_npOut"="/"
+  if [ ${#comps[@]} -eq 0 ]; then
+    declare -g "$outVar"="/"
   else
-    _npJoined=
-    for _npComp in "${_npComps[@]}"; do
-      _npJoined="$_npJoined/$_npComp"
+    local joined=
+    for comp in "${comps[@]}"; do
+      joined="$joined$comp"
     done
-    declare -g "$_npOut"="$_npJoined"
+    declare -g "$outVar"="$joined"
   fi
 }
 
@@ -226,6 +264,80 @@ urldecode() {
   declare -g "$outVar"="$(echo -e "${i//%/\\x}")"
 }
 
+# `contains needle ${haystack[0]} ${haystack[1]} ...`
+# evals `true` if the first argument is equal to any of the other args
+contains() {
+  local needle="$1"
+  shift
+  for item in "$@"; do
+    if [ "$needle" = "$item" ]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+# `readlinkOnce outVar path`: writes the link target to outVar
+# or sets outVar="" if path isn't a link.
+# unlink `derefOnce`, this only acts if the leaf of `path` is a symlink,
+# not if it's an ordinary entry within a symlinked directory.
+readlinkOnce() {
+  local outVar="$1"
+  local path="$2"
+  local linkTarget=
+  if [ -v "linkCache["$path"]" ]; then
+    linkTarget="${linkCache["$path"]}"
+  elif [ -L "$path" ]; then
+    # path is a link, but not in the cache
+    linkTarget="$(readlink "$path")"
+    # insert it into the cache, in case we traverse it again
+    linkCache["$path"]="$linkTarget"
+  else
+    # remember for later that this path doesn't represent a link.
+    # empty target is used to indicate a non-symlink (i.e. ordinary file/directory).
+    #   i think a symlink can *technically* point to "" (via `symlink` syscall), but `ln -s` doesn't allow it
+    linkCache["$path"]=
+  fi
+  declare -g "$outVar"="$linkTarget"
+}
+
+# `derefOnce outVar path`: walks from `/` to `path` and derefs the first symlink it encounters.
+# the dereferenced equivalent of `path` is written to `outVar`.
+# the dereferenced path may yet contain more unresolved symlinks.
+# if no links are encountered, then `outVar` is set empty.
+derefOnce() {
+  local outVar="$1"
+  local source="$2"
+  local target=
+
+  local walked=
+  local unwalked="$source"
+  while [ -n "$unwalked" ]; do
+    splitHead _head _unwalked "$unwalked"
+    unwalked="$_unwalked"
+    walked="$walked$_head"
+
+    readlinkOnce _linkTarget "$walked"
+    if [ -n "$_linkTarget" ]; then
+      target="$_linkTarget$unwalked"
+      break
+    fi
+  done
+
+  # make absolute
+  if [ -n "$target" ]; then
+    if [ "${target:0:1}" != "/" ]; then
+      # `walked` is a relative link.
+      # then, the link is relative to the parent directory of `walked`
+      target="$walked/../$target"
+    fi
+    # canonicalize
+    normPath _normTarget "$target"
+    target="$_normTarget"
+  fi
+  declare -g "$outVar"="$target"
+}
+
 
 ## HELPERS
 
@@ -237,21 +349,21 @@ loadProfileByPath() {
 }
 
 tryLoadProfileByName() {
-  _profile="$1"
-  if [ "${_profile:0:1}" = "/" ]; then
+  local profile="$1"
+  if [ "${profile:0:1}" = "/" ]; then
     # absolute path to profile.
     # consider it an error if it doesn't exist.
     # in general, prefer to use `--sane-sandbox-profile-dir` and specify the profile by name.
     # doing so maximizes compatibility with anything else that uses the name, like firejail.
-    loadProfileByPath "$_profile"
+    loadProfileByPath "$profile"
   else
-    profilesNamed+=("$_profile")
+    profilesNamed+=("$profile")
 
-    for _profileDir in "${profileDirs[@]}"; do
-      _profilePath="$_profileDir/$_profile.profile"
-      debug "try profile at path: '$_profilePath'"
-      if [ -f "$_profilePath" ]; then
-        loadProfileByPath "$_profilePath"
+    for profileDir in "${profileDirs[@]}"; do
+      local profilePath="$profileDir/$profile.profile"
+      debug "try profile at path: '$profilePath'"
+      if [ -f "$profilePath" ]; then
+        loadProfileByPath "$profilePath"
         break
       fi
     done
@@ -265,64 +377,66 @@ initDefaultProfileDirs() {
 }
 
 # subroutine of `tryArgAsPath` for after the arg has been converted into a valid (but possibly not existing) path.
-# adds an entry to `cliPathArgs` and evals `true` on success;
+# adds an entry to `paths` and evals `true` on success;
 # evals `false` if the path couldn't be added, for any reason.
-cliPathArgs=()
 tryPath() {
-  _path="$1"
-  _how="$2"
+  local path="$1"
+  local how="$2"
 
-  if [ "$_how" = "existing" ]; then
+  if [ "$how" = "existing" ]; then
     # the caller wants to access either a file, or a directory (possibly a symlink to such a thing)
-    if [ -e "$_path" ]; then
-      cliPathArgs+=("$_path")
-      true
+    if [ -e "$path" ]; then
+      relativeToPwd _absPath "$path"
+      paths+=("$_absPath")
+      return 0
     fi
-    false
-  elif [ "$_how" = "existingFile" ]; then
+    return 1
+  elif [ "$how" = "existingFile" ]; then
     # the caller wants to access a file, and explicitly *not* a directory (though it could be a symlink *to a file*)
-    if [ -f "$_path" ]; then
-      cliPathArgs+=("$_path")
-      true
+    if [ -f "$path" ]; then
+      relativeToPwd _absPath "$path"
+      paths+=("$_absPath")
+      return 0
     fi
-    false
-  elif [ "$_how" = "parent" ]; then
+    return 1
+  elif [ "$how" = "parent" ]; then
     # the caller wants access to the entire directory containing this directory regardless of the file's existence.
-    parent _tryPathParent "$_path"
+    parent _tryPathParent "$path"
     tryPath "$_tryPathParent" "existing"
-  elif [ "$_how" = "existingOrParent" ]; then
+  elif [ "$how" = "existingOrParent" ]; then
     # the caller wants access to the path, or write access to the parent directory so it may create the path if it doesn't exist.
-    tryPath "$_path" "existing" || tryPath "$_path" "parent"
-  elif [ "$_how" = "existingFileOrParent" ]; then
+    tryPath "$path" "existing" || tryPath "$path" "parent"
+  elif [ "$how" = "existingFileOrParent" ]; then
     # the caller wants access to the file, or write access to the parent directory so it may create the file if it doesn't exist.
-    tryPath "$_path" "existingFile" || tryPath "$_path" "parent"
+    tryPath "$path" "existingFile" || tryPath "$path" "parent"
   fi
 }
 
-# if the argument looks path-like, then add it to cliPathArgs.
+# if the argument looks path-like, then add it to paths.
 # this function ingests absolute, relative, or file:///-type URIs.
-# but it converts any such path into an absolute path before adding it to cliPathArgs.
+# but it converts any such path into an absolute path before adding it to paths.
 tryArgAsPath() {
-  _arg="$1"
-  _how="$2"
-  _path=
-  if [ "${_arg:0:1}" = "/" ]; then
+  local arg="$1"
+  local how="$2"
+  path=
+  if [ "${arg:0:1}" = "/" ]; then
     # absolute path
-    _path="$_arg"
-  elif [ "${_arg:0:8}" = "file:///" ]; then
+    path="$arg"
+  elif [ "${arg:0:8}" = "file:///" ]; then
     # URI to an absolute path which is presumably on this vfs
     # commonly found when xdg-open/mimeo passes a path on to an application
     # if URIs to relative paths exist, this implementation doesn't support them
-    urldecode _path "${_arg:7}"
-  elif [ "${_path:0:1}" = "-" ]; then
+    urldecode _path "${arg:7}"
+    path="$_path"
+  elif [ "${path:0:1}" = "-" ]; then
     # 99% chance it's a CLI argument. if not, use `./-<...>`
     return
   else
     # assume relative path
-    _path="$PWD/$_arg"
+    _path="$PWD/$arg"
   fi
 
-  tryPath "$_path" "$_how"
+  tryPath "$path" "$how"
 }
 
 
@@ -332,9 +446,9 @@ tryArgAsPath() {
 parseArgsExtra=()
 parseArgs() {
   while [ "$#" -ne 0 ]; do
-    _arg="$1"
+    local arg="$1"
     shift
-    case "$_arg" in
+    case "$arg" in
       (--)
         # rest of args are for the CLI, and not for us.
         # consider two cases:
@@ -384,9 +498,9 @@ parseArgs() {
         shift
         ;;
       (--sane-sandbox-cap)
-        _cap="$1"
+        local cap="$1"
         shift
-        capabilities+=("$_cap")
+        capabilities+=("$cap")
         ;;
       (--sane-sandbox-portal)
         # instruct glib/gtk apps to perform actions such as opening external files via dbus calls to org.freedesktop.portal.*.
@@ -401,41 +515,41 @@ parseArgs() {
         ;;
       (--sane-sandbox-dns)
         # N.B.: these named temporary variables ensure that "set -x" causes $1 to be printed
-        _dns="$1"
+        local dns="$1"
         shift
-        dns+=("$_dns")
+        dns+=("$dns")
         ;;
       (--sane-sandbox-firejail-arg)
-        _fjFlag="$1"
+        local fjFlag="$1"
         shift
-        firejailFlags+=("$_fjFlag")
+        firejailFlags+=("$fjFlag")
         ;;
       (--sane-sandbox-bwrap-arg)
-        _bwrapFlag="$1"
+        local bwrapFlag="$1"
         shift
-        bwrapFlags+=("$_bwrapFlag")
+        bwrapFlags+=("$bwrapFlag")
         ;;
       (--sane-sandbox-net)
         net="$1"
         shift
         ;;
       (--sane-sandbox-keep-namespace)
-        _namespace="$1"
+        local namespace="$1"
         shift
-        if [ "$_namespace" = all ]; then
+        if [ "$namespace" = all ]; then
           keepNamespace+=("cgroup" "ipc" "pid" "uts")
         else
-          keepNamespace+=("$_namespace")
+          keepNamespace+=("$namespace")
         fi
         ;;
       (--sane-sandbox-path)
-        _path="$1"
+        local path="$1"
         shift
-        paths+=("$_path")
+        relativeToPwd _absPath "$path"
+        paths+=("$_absPath")
         ;;
       (--sane-sandbox-add-pwd)
-        _path="$PWD"
-        paths+=("$_path")
+        paths+=("$PWD")
         ;;
       (--sane-sandbox-profile)
         # load the profile *immediately*, inline.
@@ -446,12 +560,20 @@ parseArgs() {
       (--sane-sandbox-profile-dir)
         # add another directory in which to search for profiles,
         # and give it *greater* precedence than the existing search directories (i.e. override the default profile)
-        _dir="$1"
+        local dir="$1"
         shift
-        profileDirs=("$_dir" "${profileDirs[@]}")
+        profileDirs=("$dir" "${profileDirs[@]}")
+        ;;
+      (--sane-sandbox-cache-symlink)
+        local from="$1"
+        shift
+        local to="$1"
+        shift
+        relativeToPwd _absFrom "$from"
+        linkCache["$_absFrom"]="$to"
         ;;
       (*)
-        parseArgsExtra+=("$_arg")
+        parseArgsExtra+=("$arg")
         ;;
     esac
   done
@@ -485,12 +607,12 @@ firejailIngestProfile() {
     firejailName="$1"
   fi
   if [ -z "$firejailProfile" ]; then
-    _fjProfileDirs=(@firejailProfileDirs@)
-    for _fjProfileDir in "${_fjProfileDirs[@]}"; do
-      _fjProfile="$_fjProfileDir/$1.profile"
-      debug "try firejail profile at path: '$_fjProfile'"
-      if [ -f "$_fjProfile" ]; then
-        firejailProfile="$_fjProfile"
+    local fjProfileDirs=(@firejailProfileDirs@)
+    for fjProfileDir in "${fjProfileDirs[@]}"; do
+      local fjProfile="$fjProfileDir/$1.profile"
+      debug "try firejail profile at path: '$fjProfile'"
+      if [ -f "$fjProfile" ]; then
+        firejailProfile="$fjProfile"
       fi
     done
   fi
@@ -538,7 +660,15 @@ bwrapIngestPath() {
   # may be possible to place ever mount in a subdir, and mount the super dir?
   # or maybe configure remote mounts to somehow never hang.
   # test -r "$1" && bwrapFlags+=("--dev-bind-try" "$1" "$1")
-  bwrapFlags+=("--dev-bind-try" "$1" "$1")
+
+  # N.B.: test specifically whether this path is a link, not whether it's a non-symlink under a symlink'd dir.
+  # this way, the filetype of this path is *always* the same both inside and outside the sandbox.
+  readlinkOnce linkTarget "$1"
+  if [ -n "$linkTarget" ]; then
+    bwrapFlags+=("--symlink" "$linkTarget" "$1")
+  else
+    bwrapFlags+=("--dev-bind-try" "$1" "$1")
+  fi
 
   # default to virtualizing a few directories in a way that's safe (doesn't impact outside environment)
   # and maximizes compatibility with apps. but if explicitly asked for the directory, then remove the virtual
@@ -752,13 +882,8 @@ noneGetCli() {
 #   so allow access to it.
 maybeAutodetectPaths() {
   if [ -n "$autodetect" ]; then
-    for _arg in "${cliArgs[@]:1}"; do
-      tryArgAsPath "$_arg" "$autodetect"
-    done
-    for _path in "${cliPathArgs[@]}"; do
-      # TODO: might want to also mount the directory *above* this file,
-      # to access e.g. adjacent album art in the media's folder.
-      paths+=("$_path")
+    for arg in "${cliArgs[@]:1}"; do
+      tryArgAsPath "$arg" "$autodetect"
     done
   fi
 }
@@ -769,41 +894,55 @@ maybeAutodetectPaths() {
 #   for more sophisticated (i.e. complex) backends like firejail, this may break subpaths which were blacklisted earlier.
 canonicalizePaths() {
   # remove '//' and simplify '.', '..' paths, into canonical absolute logical paths.
-  _normPaths=()
-  for _path in "${paths[@]}"; do
-    normPath _canonPath "$_path"
-    _normPaths+=("$_canonPath")
+  local canonPaths=()
+  for path in "${paths[@]}"; do
+    normPath _canonPath "$path"
+    canonPaths+=("$_canonPath")
   done
-
+  paths=("${canonPaths[@]}")
+}
+expandLink() {
+  derefOnce _linkTarget "$1"
+  if [ -n "$_linkTarget" ]; then
+    # add + expand the symlink further, but take care to avoid infinite recursion
+    if ! contains "$_linkTarget" "${paths[@]}"; then
+      paths+=("$_linkTarget")
+      expandLink "$_linkTarget"
+    fi
+  fi
+}
+### expand `paths` until it contains no symlinks whose target isn't also in `paths`
+expandLinks() {
+  for path in "${paths[@]}"; do
+    expandLink "$path"
+  done
+}
+removeSubpaths() {
   # remove subpaths, but the result might include duplicates.
-  _toplevelPaths=()
-  for _path in "${_normPaths[@]}"; do
-    _isSubpath=
-    for _other in "${_normPaths[@]}"; do
-      if [[ "$_path" =~ ^$_other/.* ]] || [ "$_other" = "/" ] && [ "$_path" != "/" ]; then
-        # N.B.: $_path lacks a trailing slash, so this never matches self.
-        # UNLESS $_path or $_other is exactly `/`, which we special-case.
-        _isSubpath=1
+  # TODO: make this not be O(n^2)!
+  local toplevelPaths=()
+  for path in "${paths[@]}"; do
+    local isSubpath=
+    for other in "${paths[@]}"; do
+      if [[ "$path" =~ ^$other/.* ]] || [ "$other" = "/" ] && [ "$path" != "/" ]; then
+        # N.B.: $path lacks a trailing slash, so this never matches self.
+        # UNLESS $path or $other is exactly `/`, which we special-case.
+        isSubpath=1
       fi
     done
-    if [ -z "$_isSubpath" ]; then
-      _toplevelPaths+=("$_path")
+    if [ -z "$isSubpath" ]; then
+      toplevelPaths+=("$path")
     fi
   done
 
   # remove duplicated paths.
-  canonicalizedPaths=()
-  for _path in "${_toplevelPaths[@]}"; do
-    _isAlreadyListed=
-    for _other in "${canonicalizedPaths[@]}"; do
-      if [ "$_path" = "$_other" ]; then
-        _isAlreadyListed=1
-      fi
-    done
-    if [ -z "$_isAlreadyListed" ]; then
-      canonicalizedPaths+=("$_path")
+  local canonicalizedPaths=()
+  for path in "${toplevelPaths[@]}"; do
+    if ! contains "$path" "${canonicalizedPaths[@]}"; then
+      canonicalizedPaths+=("$path")
     fi
   done
+  paths=("${canonicalizedPaths[@]}")
 }
 
 
@@ -826,28 +965,28 @@ parseArgsAndEnvironment() {
 ### convert generic args into sandbox-specific args
 # order matters: for firejail, early args override the later --profile args
 ingestForBackend() {
-  for _path in "${canonicalizedPaths[@]}"; do
-    "$method"IngestPath "$_path"
+  for path in "${paths[@]}"; do
+    "$method"IngestPath "$path"
   done
 
-  for _cap in "${capabilities[@]}"; do
-    "$method"IngestCapability "$_cap"
+  for cap in "${capabilities[@]}"; do
+    "$method"IngestCapability "$cap"
   done
 
   if [ -n "$net" ]; then
     "$method"IngestNet "$net"
   fi
 
-  for _addr in "${dns[@]}"; do
-    "$method"IngestDns "$_addr"
+  for addr in "${dns[@]}"; do
+    "$method"IngestDns "$addr"
   done
 
-  for _ns in "${keepNamespace[@]}"; do
-    "$method"IngestKeepNamespace "$_ns"
+  for ns in "${keepNamespace[@]}"; do
+    "$method"IngestKeepNamespace "$ns"
   done
 
-  for _prof in "${profilesNamed[@]}"; do
-    "$method"IngestProfile "$_prof"
+  for prof in "${profilesNamed[@]}"; do
+    "$method"IngestProfile "$prof"
   done
 }
 
@@ -872,6 +1011,8 @@ if [ -z "$isDisable" ]; then
   "$method"Setup
   maybeAutodetectPaths
   canonicalizePaths
+  expandLinks
+  removeSubpaths
 
   ingestForBackend
   "$method"GetCli

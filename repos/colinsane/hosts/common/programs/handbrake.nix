@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   sane.programs.handbrake = {
+    buildCost = 1;
+
     sandbox.method = "landlock";  #< also supports bwrap, but landlock ensures we don't write to non-mounted tmpfs dir
     sandbox.whitelistDbus = [ "user" ];  # notifications
     sandbox.whitelistWayland = true;

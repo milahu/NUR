@@ -4,6 +4,7 @@
 { pkgName
 , method
 , allowedPaths ? []
+, symlinkCache ? {}
 , autodetectCliPaths ? false
 , capabilities ? []
 , dns ? null
@@ -17,6 +18,13 @@ let
     p
   ];
   allowPaths = paths: lib.flatten (builtins.map allowPath paths);
+
+  cacheLink = from: to: [
+    "--sane-sandbox-cache-symlink"
+    from
+    to
+  ];
+  cacheLinks = links: lib.flatten (lib.mapAttrsToList cacheLink links);
 
   capabilityFlags = lib.flatten (builtins.map (c: [ "--sane-sandbox-cap" c ]) capabilities);
 
@@ -38,6 +46,7 @@ let
     ++ capabilityFlags
     ++ lib.optionals (autodetectCliPaths != null) [ "--sane-sandbox-autodetect" autodetectCliPaths ]
     ++ lib.optionals whitelistPwd [ "--sane-sandbox-add-pwd" ]
+    ++ cacheLinks symlinkCache
     ++ extraConfig;
 
 in

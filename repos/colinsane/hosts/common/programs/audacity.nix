@@ -14,6 +14,8 @@
       };
     };
 
+    buildCost = 1;
+
     sandbox.method = "bwrap";
     sandbox.whitelistAudio = true;
     sandbox.whitelistWayland = true;

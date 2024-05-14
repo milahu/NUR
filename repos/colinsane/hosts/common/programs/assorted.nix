@@ -215,6 +215,7 @@ in
 
     backblaze-b2 = {};
 
+    blanket.buildCost = 1;
     blanket.sandbox.method = "bwrap";
     blanket.sandbox.whitelistAudio = true;
     # blanket.sandbox.whitelistDbus = [ "user" ];  # TODO: untested
@@ -267,13 +268,14 @@ in
     ddrescue.sandbox.method = "landlock";  # TODO:sandbox: untested
     ddrescue.sandbox.autodetectCliPaths = "existingOrParent";
 
-    # auth token, preferences
+    delfin.buildCost = 1;
     delfin.sandbox.method = "bwrap";
     delfin.sandbox.whitelistAudio = true;
     delfin.sandbox.whitelistDbus = [ "user" ];  # else `mpris` plugin crashes the player
     delfin.sandbox.whitelistDri = true;
     delfin.sandbox.whitelistWayland = true;
     delfin.sandbox.net = "clearnet";
+    # auth token, preferences
     delfin.persist.byStore.private = [ ".config/delfin" ];
 
     dig.sandbox.method = "bwrap";
@@ -314,11 +316,13 @@ in
 
     eg25-control = {};
 
+    electrum.buildCost = 1;
     electrum.sandbox.method = "bwrap";  # TODO:sandbox: untested
     electrum.sandbox.net = "all";  # TODO: probably want to make this run behind a VPN, always
     electrum.sandbox.whitelistWayland = true;
     electrum.persist.byStore.cryptClearOnBoot = [ ".electrum" ];  #< TODO: use XDG dirs!
 
+    endless-sky.buildCost = 1;
     endless-sky.persist.byStore.plaintext = [ ".local/share/endless-sky" ];
     endless-sky.sandbox.method = "bwrap";
     endless-sky.sandbox.whitelistAudio = true;
@@ -357,6 +361,7 @@ in
       ".persist/plaintext"
     ];
 
+    ffmpeg.buildCost = 1;
     ffmpeg.sandbox.method = "bwrap";
     ffmpeg.sandbox.autodetectCliPaths = "existingFileOrParent";  # it outputs uncreated files -> parent dir needs mounting
 
@@ -374,6 +379,7 @@ in
 
     fluffychat-moby.persist.byStore.plaintext = [ ".local/share/chat.fluffy.fluffychat" ];
 
+    font-manager.buildCost = 1;
     font-manager.sandbox.method = "bwrap";
     font-manager.sandbox.whitelistWayland = true;
     font-manager.packageUnwrapped = pkgs.rmDbusServicesInPlace (pkgs.font-manager.override {
@@ -410,6 +416,7 @@ in
     # TODO: we can populate gh's stuff statically; it even lets us use the same oauth across machines
     gh.persist.byStore.private = [ ".config/gh" ];
 
+    gimp.buildCost = 1;
     gimp.sandbox.method = "bwrap";
     gimp.sandbox.whitelistX = true;
     gimp.sandbox.whitelistWayland = true;
@@ -429,18 +436,22 @@ in
       "/tmp"  # "Cannot open display:" if it can't mount /tmp 👀
     ];
 
+    "gnome.gnome-calculator".buildCost = 1;
     "gnome.gnome-calculator".sandbox.method = "bwrap";
     "gnome.gnome-calculator".sandbox.whitelistWayland = true;
 
+    "gnome.gnome-calendar".buildCost = 1;
     # gnome-calendar surely has data to persist, but i use it strictly to do date math, not track events.
     "gnome.gnome-calendar".sandbox.method = "bwrap";
     "gnome.gnome-calendar".sandbox.whitelistWayland = true;
 
+    "gnome.gnome-clocks".buildCost = 1;
     "gnome.gnome-clocks".sandbox.method = "bwrap";
     "gnome.gnome-clocks".sandbox.whitelistWayland = true;
     "gnome.gnome-clocks".suggestedPrograms = [ "dconf" ];
 
     # gnome-disks
+    "gnome.gnome-disk-utility".buildCost = 1;
     "gnome.gnome-disk-utility".sandbox.method = "bwrap";
     "gnome.gnome-disk-utility".sandbox.whitelistDbus = [ "system" ];
     "gnome.gnome-disk-utility".sandbox.whitelistWayland = true;
@@ -451,15 +462,18 @@ in
     ];
 
     # seahorse: dump gnome-keyring secrets.
+    "gnome.seahorse".buildCost = 1;
     # N.B.: it can also manage ~/.ssh keys, but i explicitly don't add those to the sandbox for now.
     "gnome.seahorse".sandbox.method = "bwrap";
     "gnome.seahorse".sandbox.whitelistDbus = [ "user" ];
     "gnome.seahorse".sandbox.whitelistWayland = true;
 
+    gnome-2048.buildCost = 1;
     gnome-2048.sandbox.method = "bwrap";
     gnome-2048.sandbox.whitelistWayland = true;
     gnome-2048.persist.byStore.plaintext = [ ".local/share/gnome-2048/scores" ];
 
+    gnome-frog.buildCost = 1;
     gnome-frog.sandbox.method = "bwrap";
     gnome-frog.sandbox.whitelistWayland = true;
     gnome-frog.sandbox.whitelistDbus = [ "user" ];
@@ -486,6 +500,7 @@ in
     # 1. no number may appear unshaded more than once in the same row/column
     # 2. no two shaded tiles can be direct N/S/E/W neighbors
     # - win once (1) and (2) are satisfied
+    "gnome.hitori".buildCost = 1;
     "gnome.hitori".sandbox.method = "bwrap";
     "gnome.hitori".sandbox.whitelistWayland = true;
 
@@ -515,6 +530,7 @@ in
     grim.sandbox.autodetectCliPaths = "existingOrParent";
     grim.sandbox.whitelistWayland = true;
 
+    hase.buildCost = 1;
     hase.sandbox.method = "bwrap";
     hase.sandbox.net = "clearnet";
     hase.sandbox.whitelistAudio = true;
@@ -535,6 +551,7 @@ in
     # N.B.: inetutils' `ping` is shadowed by iputils' ping (by nixos, intentionally).
     inetutils.sandbox.method = "landlock";  # want to keep the same netns, at least.
 
+    inkscape.buildCost = 1;
     inkscape.sandbox.method = "bwrap";
     inkscape.sandbox.whitelistWayland = true;
     inkscape.sandbox.extraHomePaths = [
@@ -586,6 +603,7 @@ in
       "/proc"
     ];
 
+    krita.buildCost = 1;
     krita.sandbox.method = "bwrap";
     krita.sandbox.whitelistWayland = true;
     krita.sandbox.autodetectCliPaths = "existing";
@@ -606,6 +624,7 @@ in
     libnotify.sandbox.method = "bwrap";
     libnotify.sandbox.whitelistDbus = [ "user" ];  # notify-send
 
+    losslesscut-bin.buildCost = 1;
     losslesscut-bin.sandbox.method = "bwrap";
     losslesscut-bin.sandbox.extraHomePaths = [
       "Music"
@@ -630,6 +649,7 @@ in
     mercurial.sandbox.whitelistPwd = true;
 
     # actual monero blockchain (not wallet/etc; safe to delete, just slow to regenerate)
+    monero-gui.buildCost = 1;
     # XXX: is it really safe to persist this? it doesn't have info that could de-anonymize if captured?
     monero-gui.persist.byStore.plaintext = [ ".bitmonero" ];
     monero-gui.sandbox.method = "bwrap";
@@ -638,6 +658,7 @@ in
       "records/finance/cryptocurrencies/monero"
     ];
 
+    mumble.buildCost = 1;
     mumble.persist.byStore.private = [ ".local/share/Mumble" ];
 
     nano.sandbox.method = "bwrap";
@@ -741,6 +762,7 @@ in
     pulsemixer.sandbox.method = "landlock";
     pulsemixer.sandbox.whitelistAudio = true;
 
+    pwvucontrol.buildCost = 1;
     pwvucontrol.sandbox.method = "bwrap";
     pwvucontrol.sandbox.whitelistAudio = true;
     pwvucontrol.sandbox.whitelistDri = true;  # else perf on moby is unusable
@@ -758,7 +780,7 @@ in
     ];
 
     qemu.sandbox.enable = false;  #< it's a launcher
-    qemu.buildCost = 1;
+    qemu.buildCost = 2;
 
     rsync.sandbox.method = "bwrap";
     rsync.sandbox.net = "clearnet";
@@ -770,27 +792,13 @@ in
 
     sane-die-with-parent.sandbox.enable = false;  #< it's a launcher; can't sandbox
 
-    sane-open.sandbox.method = "bwrap";
-    sane-open.sandbox.autodetectCliPaths = "existing";  # for when opening a file
-    sane-open.sandbox.whitelistDbus = [ "user" ];
-    sane-open.sandbox.extraConfig = [
-      "--sane-sandbox-keep-namespace" "pid"  # to toggle keyboard
-    ];
-    sane-open.sandbox.extraHomePaths = [
-      ".local/share/applications"
-    ];
-    sane-open.sandbox.extraRuntimePaths = [ "sway" ];
-    sane-open.suggestedPrograms = [
-      "gdbus"
-      "xdg-utils"
-    ];
-
     screen.sandbox.enable = false;  #< tty; needs to run anything
 
     sequoia.sandbox.method = "bwrap";  # TODO:sandbox: untested
     sequoia.sandbox.whitelistPwd = true;
     sequoia.sandbox.autodetectCliPaths = true;
 
+    shattered-pixel-dungeon.buildCost = 1;
     shattered-pixel-dungeon.persist.byStore.plaintext = [ ".local/share/.shatteredpixel/shattered-pixel-dungeon" ];
     shattered-pixel-dungeon.sandbox.method = "bwrap";
     shattered-pixel-dungeon.sandbox.whitelistAudio = true;
@@ -798,6 +806,7 @@ in
     shattered-pixel-dungeon.sandbox.whitelistWayland = true;
 
     # printer/filament settings
+    slic3r.buildCost = 1;
     slic3r.persist.byStore.plaintext = [ ".Slic3r" ];
 
     slurp.sandbox.method = "bwrap";
@@ -818,6 +827,7 @@ in
       "knowledge"
     ];
 
+    soundconverter.buildCost = 1;
     soundconverter.sandbox.method = "bwrap";
     soundconverter.sandbox.whitelistWayland = true;
     soundconverter.sandbox.extraHomePaths = [
@@ -835,6 +845,7 @@ in
     sox.sandbox.autodetectCliPaths = "existingFileOrParent";
     sox.sandbox.whitelistAudio = true;
 
+    space-cadet-pinball.buildCost = 1;
     space-cadet-pinball.persist.byStore.plaintext = [ ".local/share/SpaceCadetPinball" ];
     space-cadet-pinball.sandbox.method = "bwrap";
     space-cadet-pinball.sandbox.whitelistAudio = true;
@@ -855,6 +866,7 @@ in
     subversion.sandbox.whitelistPwd = true;
     sudo.sandbox.enable = false;
 
+    superTux.buildCost = 1;
     superTux.sandbox.method = "bwrap";
     superTux.sandbox.wrapperType = "inplace";  # package Makefile incorrectly installs to $out/games/superTux instead of $out/share/games
     superTux.sandbox.whitelistAudio = true;
@@ -873,12 +885,14 @@ in
 
     tdesktop.persist.byStore.private = [ ".local/share/TelegramDesktop" ];
 
+    tokodon.buildCost = 1;
     tokodon.persist.byStore.private = [ ".cache/KDE/tokodon" ];
 
     tree.sandbox.method = "landlock";
     tree.sandbox.autodetectCliPaths = true;
     tree.sandbox.whitelistPwd = true;
 
+    tumiki-fighters.buildCost = 1;
     tumiki-fighters.sandbox.method = "bwrap";
     tumiki-fighters.sandbox.whitelistAudio = true;
     tumiki-fighters.sandbox.whitelistDri = true;  #< not strictly necessary, but triples CPU perf
@@ -897,6 +911,7 @@ in
       "/sys/bus/usb"
     ];
 
+    valgrind.buildCost = 1;
     valgrind.sandbox.enable = false;  #< it's a launcher: can't sandbox
 
     visidata.sandbox.method = "bwrap";  # TODO:sandbox: untested
@@ -905,6 +920,7 @@ in
     # `vulkaninfo`, `vkcube`
     vulkan-tools.sandbox.method = "landlock";
 
+    vvvvvv.buildCost = 1;
     vvvvvv.sandbox.method = "bwrap";
     vvvvvv.sandbox.whitelistAudio = true;
     vvvvvv.sandbox.whitelistDri = true;  #< playable without, but burns noticably more CPU
@@ -925,6 +941,7 @@ in
     wget.sandbox.net = "all";
     wget.sandbox.whitelistPwd = true;  # saves to pwd by default
 
+    whalebird.buildCost = 1;
     whalebird.persist.byStore.private = [ ".config/Whalebird" ];
 
     # `wg`, `wg-quick`

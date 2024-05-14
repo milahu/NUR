@@ -37,7 +37,7 @@ in
     # fs.".config/geary".dir = {};
     # fs.".local/share/folks".dir = {};
 
-    buildCost = 2;  # uses webkitgtk 4.1
+    buildCost = 3;  # uses webkitgtk 4.1
     persist.byStore.private = [
       # attachments, and email -- contained in a sqlite db
       ".local/share/geary"
