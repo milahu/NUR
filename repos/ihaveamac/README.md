@@ -38,6 +38,8 @@ Put this in your NixOS configuration:
   ];
 ```
 
+**Note:** Make sure you set the nixpkgs input for the NUR (or this repo) to follow the same version of nixpkgs used for the NixOS system. Otherwise you may get an error such as "detected mismatched Qt dependencies".
+
 ## Home Manager modules
 
 ### services.lnshot.enable
