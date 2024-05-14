@@ -7547,10 +7547,10 @@
     };
     "pakkujs" = buildFirefoxXpiAddon {
       pname = "pakkujs";
-      version = "2024.5.3";
+      version = "2024.5.4";
       addonId = "{646d57f4-d65c-4f0d-8e80-5800b92cfdaa}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4279830/pakkujs-2024.5.3.xpi";
-      sha256 = "e7dd3392a1d823845014aaa00bad5ad6916c20f2189a5001c3a8d4a7f1b054b3";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4285808/pakkujs-2024.5.4.xpi";
+      sha256 = "a79abc6c8867af7a1b249fe8d10dd83e183876569555073938fe241bf740cb91";
       meta = with lib;
       {
         homepage = "http://s.xmcp.ltd/pakkujs/?src=amo_homepage";
@@ -11766,10 +11766,10 @@
     };
     "yomitan" = buildFirefoxXpiAddon {
       pname = "yomitan";
-      version = "24.4.16.0";
+      version = "24.5.5.0";
       addonId = "{6b733b82-9261-47ee-a595-2dda294a4d08}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4266306/yomitan-24.4.16.0.xpi";
-      sha256 = "43fe52301aaefc51abb9525f3ec906dc0642c4562370f30a33ee4ae82c3c19f6";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4285904/yomitan-24.5.5.0.xpi";
+      sha256 = "f2de4ad1ee89f7a60ba8e164171d74ca187fa00e4332df62bae3e2fcee2c21d9";
       meta = with lib;
       {
         homepage = "https://github.com/themoeway/yomitan";
