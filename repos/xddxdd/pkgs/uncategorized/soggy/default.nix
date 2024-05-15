@@ -7,7 +7,7 @@
   protobufc,
   lua5_3_compat,
   ...
-}@args:
+}:
 stdenv.mkDerivation rec {
   inherit (sources.soggy) pname version src;
   enableParallelBuilding = true;
@@ -32,6 +32,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
+    maintainers = with lib.maintainers; [ xddxdd ];
     description = "Experimental server emulator for a game I forgot its name";
     homepage = "https://github.com/LDAsuku/soggy";
     license = licenses.agpl3Only;

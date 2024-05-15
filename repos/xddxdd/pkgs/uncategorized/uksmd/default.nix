@@ -10,7 +10,7 @@
   systemd,
   ninja,
   ...
-}@args:
+}:
 stdenv.mkDerivation rec {
   inherit (sources.uksmd) pname version src;
   nativeBuildInputs = [
@@ -32,6 +32,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
+    maintainers = with lib.maintainers; [ xddxdd ];
     description = "Userspace KSM helper daemon";
     homepage = "https://github.com/CachyOS/uksmd";
     license = licenses.gpl3Only;

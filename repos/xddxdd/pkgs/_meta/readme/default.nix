@@ -70,7 +70,7 @@ let
     '';
 
   uncategorizedOutput = packageSetOutput "(Uncategorized)" "" (
-    lib.filterAttrs (n: v: (builtins.tryEval v).success && isIndependentDerivation v) nurPackages
+    lib.filterAttrs (_n: v: (builtins.tryEval v).success && isIndependentDerivation v) nurPackages
   );
 
   packageSetsOutput = builtins.concatStringsSep "\n" (
@@ -157,6 +157,7 @@ writeTextFile {
     ${packageSetsOutput}
   '';
   meta = {
+    maintainers = with lib.maintainers; [ xddxdd ];
     description = "README.md for Lan Tian's NUR Repo";
     homepage = "https://github.com/xddxdd/nur-packages";
     license = lib.licenses.unlicense;

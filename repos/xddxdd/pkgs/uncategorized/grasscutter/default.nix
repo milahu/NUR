@@ -6,9 +6,8 @@
   jre_headless,
   procps,
   makeWrapper,
-  writeScript,
   ...
-}@args:
+}:
 let
   resources = sources.grasscutter-resources.src;
   keystore = fetchurl {
@@ -51,6 +50,7 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = with lib; {
+    maintainers = with lib.maintainers; [ xddxdd ];
     description = "A server software reimplementation for a certain anime game.";
     homepage = "https://github.com/Grasscutters/Grasscutter";
     license = with licenses; [ agpl3Only ];

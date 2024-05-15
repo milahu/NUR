@@ -5,7 +5,7 @@
   jre_headless,
   makeWrapper,
   ...
-}@args:
+}:
 stdenvNoCC.mkDerivation rec {
   pname = "hath";
   version = "1.6.2";
@@ -29,6 +29,7 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = with lib; {
+    maintainers = with lib.maintainers; [ xddxdd ];
     description = "Hentai@Home";
     homepage = "https://e-hentai.org/";
     license = licenses.gpl3Only;

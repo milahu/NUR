@@ -11,7 +11,7 @@
   libdbusmenu,
   libglvnd,
   ...
-}@args:
+}:
 ################################################################################
 # Mostly based on baidnetdisk-electron package from AUR:
 # https://aur.archlinux.org/packages/baidunetdisk-electron
@@ -108,6 +108,7 @@ stdenv.mkDerivation {
   ];
 
   meta = with lib; {
+    maintainers = with lib.maintainers; [ xddxdd ];
     description = "Baidu Netdisk";
     homepage = "https://pan.baidu.com/";
     platforms = [ "x86_64-linux" ];

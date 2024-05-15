@@ -32,7 +32,7 @@
   xorg,
   wayland,
   ...
-}@args:
+}:
 ################################################################################
 # Mostly based on wechat-uos-bwrap package from AUR:
 # https://aur.archlinux.org/packages/wechat-uos-bwrap
@@ -128,7 +128,7 @@ let
   fhs = buildFHSUserEnvBubblewrap {
     name = "wechat-uos";
     targetPkgs =
-      pkgs:
+      _pkgs:
       [
         license
         resource
@@ -220,6 +220,7 @@ stdenv.mkDerivation {
   ];
 
   meta = with lib; {
+    maintainers = with lib.maintainers; [ xddxdd ];
     description =
       if enableSandbox then
         "WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap)"

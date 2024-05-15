@@ -29,7 +29,7 @@
   udev,
   xorg,
   ...
-}@args:
+}:
 # Modified from:
 # - https://github.com/NixOS-CN/flakes/blob/main/packages/netease-cloud-music/default.nix
 # - https://github.com/Freed-Wu/nur-packages/blob/main/pkgs/applications/audio/netease-cloud-music/default.nix
@@ -114,6 +114,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = {
+    maintainers = with lib.maintainers; [ xddxdd ];
     description = "NetEase Cloud Music Linux Client (package script adapted from NixOS-CN and Freed-Wu)";
     homepage = "https://music.163.com";
     platforms = [ "x86_64-linux" ];

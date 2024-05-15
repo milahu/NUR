@@ -58,7 +58,7 @@
   util-linux,
   xorg,
   ...
-}@args:
+}:
 ################################################################################
 # Mostly based on dingtalk-bin package from AUR:
 # https://aur.archlinux.org/packages/dingtalk-bin
@@ -249,6 +249,7 @@ stdenv.mkDerivation rec {
   ];
 
   meta = with lib; {
+    maintainers = with lib.maintainers; [ xddxdd ];
     description = "钉钉";
     homepage = "https://www.dingtalk.com/";
     platforms = [ "x86_64-linux" ];

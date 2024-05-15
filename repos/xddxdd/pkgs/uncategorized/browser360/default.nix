@@ -184,7 +184,7 @@ let
 
   fhs = buildFHSEnv {
     name = "browser360";
-    targetPkgs = pkgs: libraries;
+    targetPkgs = _pkgs: libraries;
     runScript = builtins.toString (
       writeShellScript "browser360" ''
         ${coreutils}/bin/install -Dm666 ${distPkg}/opt/apps/com.360.browser-stable/files/components/professional.qcert /var/lib/browser360/professional.qcert
@@ -238,6 +238,7 @@ stdenv.mkDerivation {
   '';
 
   meta = with lib; {
+    maintainers = with lib.maintainers; [ xddxdd ];
     description = "360 Browser";
     homepage = "https://browser.360.net/gc/index.html";
     platforms = [

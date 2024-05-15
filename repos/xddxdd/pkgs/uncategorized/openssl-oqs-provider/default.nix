@@ -7,7 +7,7 @@
   openssl_3_0,
   python3,
   ...
-}@args:
+}:
 stdenv.mkDerivation rec {
   inherit (sources.openssl-oqs-provider) pname version src;
 
@@ -49,6 +49,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
+    maintainers = with lib.maintainers; [ xddxdd ];
     description = "OpenSSL 3 provider containing post-quantum algorithms";
     homepage = "https://openquantumsafe.org";
     license = with licenses; [ mit ];
