@@ -20,5 +20,7 @@ in
   ];
   BuildInputs = with pkgs; [
   ];
-
+  postInstall = ''
+  cp $out/bin/@portkey-ai/gateway $out/bin/portkey-ai-gateway
+  '';
 }
