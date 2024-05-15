@@ -813,10 +813,10 @@
     };
     "bitwarden" = buildFirefoxXpiAddon {
       pname = "bitwarden";
-      version = "2024.4.1";
+      version = "2024.4.2";
       addonId = "{446900e4-71c2-419f-a6a7-df9c091e268b}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4263752/bitwarden_password_manager-2024.4.1.xpi";
-      sha256 = "1ba1e66cb9a4ee3bf80a81fc31348b04162385455d2b02f9902473e3931d9693";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4282854/bitwarden_password_manager-2024.4.2.xpi";
+      sha256 = "19caac7131a37e558204c1f61cf1459502cc624b0284dc5837112c4742917da0";
       meta = with lib;
       {
         homepage = "https://bitwarden.com";
@@ -834,8 +834,8 @@
           "idle"
           "webRequest"
           "webRequestBlocking"
+          "webNavigation"
           "file:///*"
-          "https://*/*"
           "https://lastpass.com/export.php"
         ];
         platforms = platforms.all;
@@ -1855,10 +1855,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "126.0.20240509.170740";
+      version = "127.0.20240513.155137";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4284769/deutsch_de_language_pack-126.0.20240509.170740.xpi";
-      sha256 = "d96e2e18a7e94f0706d5ce5e8582065635f436daea43808a6f19793139b00956";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4286253/deutsch_de_language_pack-127.0.20240513.155137.xpi";
+      sha256 = "2189128ea49e1d3283e317aeaec30a4fa7f9fc8fb5496ec2ecbd13d1282547ad";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -2051,10 +2051,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.35.2";
+      version = "2.36.0";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4284858/dualsub-2.35.2.xpi";
-      sha256 = "731b626233632bcc4e8fb4776ff8dd9dfd30980ba614239da3f286f313719aaf";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4286541/dualsub-2.36.0.xpi";
+      sha256 = "089a410713ac5e30a1db6aff6b651f9b5d8abeb72195ac6c0b382d028470b278";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -2074,18 +2074,13 @@
           "https://www.ardmediathek.de/*"
           "https://www.bbc.co.uk/*"
           "https://www.bilibili.com/*"
-          "https://www.channel4.com/*"
           "https://www.coupangplay.com/*"
           "https://www.coursera.org/*"
           "https://www.hulu.com/*"
           "https://www.iflix.com/*"
           "https://www.iq.com/*"
-          "https://www.itv.com/*"
-          "https://www.paramountplus.com/*"
-          "https://www.peacocktv.com/*"
           "https://www.primevideo.com/*"
           "https://www.raiplay.it/*"
-          "https://www.ted.com/*"
           "https://www.udemy.com/*"
           "https://www.viki.com/*"
           "https://www.youku.tv/*"
@@ -2810,10 +2805,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "126.0.20240509.170740";
+      version = "127.0.20240513.155137";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4284790/francais_language_pack-126.0.20240509.170740.xpi";
-      sha256 = "5efe770a518d43db60c400a82b18c1b98346f43cad008103194a28632badea2b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4286296/francais_language_pack-127.0.20240513.155137.xpi";
+      sha256 = "3843d7f6d848577f56f263b4538852ecd327e241b8233c76436433a34ff047dd";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4727,10 +4722,10 @@
     };
     "improved-tube" = buildFirefoxXpiAddon {
       pname = "improved-tube";
-      version = "4.805";
+      version = "4.928";
       addonId = "{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4251792/youtube_addon-4.805.xpi";
-      sha256 = "fc6567c9bffb8716dca252a225e69744a4017ae0ddd6f3a60ce9e52106bddb7e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4285226/youtube_addon-4.928.xpi";
+      sha256 = "afd750157ba9aa4024f2812b28c0f6421eff7931cc1056eb7d049432348eeeb8";
       meta = with lib;
       {
         homepage = "https://github.com/code4charity/YouTube-Extension/";
@@ -10443,10 +10438,10 @@
     };
     "ublacklist" = buildFirefoxXpiAddon {
       pname = "ublacklist";
-      version = "8.5.1";
+      version = "8.6.0";
       addonId = "@ublacklist";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4242219/ublacklist-8.5.1.xpi";
-      sha256 = "9836d32df703337b5c5c83d56cc477e26d7fe3d6bfd2cc5d31dc78ccaf9dbbe7";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4282471/ublacklist-8.6.0.xpi";
+      sha256 = "fd35698f162758741af72e90002c32dac2e2414567542818f3d9eb2bcaa5f45f";
       meta = with lib;
       {
         homepage = "https://iorate.github.io/ublacklist/";
@@ -10697,10 +10692,10 @@
     };
     "ublock-origin-lite" = buildFirefoxXpiAddon {
       pname = "ublock-origin-lite";
-      version = "2024.4.8.931";
+      version = "2024.5.13.839";
       addonId = "uBOLite@raymondhill.net";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4261761/ublock_origin_lite-2024.4.8.931.xpi";
-      sha256 = "cb2edf390dcd89f3ee36a4db34fd2d6fc9bd6a5095c914acb8818e2e85d9294d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4286100/ublock_origin_lite-2024.5.13.839.xpi";
+      sha256 = "41cde6015c946c5f6bc1d121717946d62d6a7cf9f7ae43ba5dac3eada4e94ff4";
       meta = with lib;
       {
         homepage = "https://github.com/uBlockOrigin/uBOL-home";

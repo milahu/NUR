@@ -50,14 +50,14 @@ in packages // {
     };
   };
 
-  bypass-paywalls-clean = let version = "3.6.6.0";
+  bypass-paywalls-clean = let version = "3.6.8.0";
   in buildFirefoxXpiAddon {
     pname = "bypass-paywalls-clean";
     inherit version;
     addonId = "magnolia@12.34";
     url =
       "https://github.com/bpc-clone/bpc_updates/releases/download/latest/bypass_paywalls_clean-${version}.xpi";
-    sha256 = "sha256-yjJFJcoV9OzfO++jIyB1z7aZBqZ7Iq7uPJtEG74G8V4=";
+    sha256 = "sha256-50YRZdG4ZkWciGerfNZEHPQK2CqaxKM2Ow9Ad2TtSHI=";
     meta = with lib; {
       homepage = "https://twitter.com/Magnolia1234B";
       description = "Bypass Paywalls of (custom) news sites";
