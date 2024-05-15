@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "sdr-modem";
-  version = "1.0.108";
+  version = "1.0.126";
 
   src = fetchFromGitHub {
     owner = "dernasherbrezon";
     repo = "sdr-modem";
     rev = finalAttrs.version;
-    hash = "sha256-9uQeTnamFJD8UpwJ7Kj6TRJquWQ9fp6xa5gvi/NNn0U=";
+    hash = "sha256-j3T8LJq7B4GL41tAr6RfDla9hu2+BQTVTi96LnEo0iw=";
   };
 
   nativeBuildInputs = [ cmake pkg-config ];

@@ -221,6 +221,7 @@ lib.makeScope newScope (
     mbtiles2osmand = callPackage ./geospatial/mbtiles2osmand { };
     mbutiles = callPackage ./geospatial/mbutiles { };
     mobroute = callPackage ./geospatial/mobroute { };
+    mobsql = callPackage ./geospatial/mobsql { };
     morecantile = callPackage ./geospatial/morecantile { };
     orbisgis = callPackage ./geospatial/orbisgis { jre = pkgs.jre8; };
     ossim = callPackage ./geospatial/ossim { };

@@ -14,13 +14,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "rtlsdr-airband";
-  version = "4.2.0";
+  version = "5.0.9";
 
   src = fetchFromGitHub {
     owner = "charlie-foxtrot";
     repo = "RTLSDR-Airband";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-Dw+HyTAf33LK++71Wyrf694p1djHWT5cSkTnSga+/y8=";
+    hash = "sha256-Rgsxim7FESVt1ZnVJFvVfMqJMgzVCfP1yBDBBO4zEsE=";
   };
 
   nativeBuildInputs = [ cmake pkg-config ];

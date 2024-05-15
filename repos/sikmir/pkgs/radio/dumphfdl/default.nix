@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "dumphfdl";
-  version = "1.6.0";
+  version = "1.6.1";
 
   src = fetchFromGitHub {
     owner = "szpajder";
     repo = "dumphfdl";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-DfHQdZrns3V7WfzAZaoK2vIvE1o4fBcZ4AvvGNFgrfQ=";
+    hash = "sha256-M4WjcGA15Kp+Hpp+I2Ndcx+oBqaGxEeQLTPcSlugLwQ=";
   };
 
   nativeBuildInputs = [ cmake pkg-config ];

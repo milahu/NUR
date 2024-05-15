@@ -28,7 +28,7 @@ python3Packages.buildPythonPackage rec {
     xyzservices
   ];
 
-  checkInputs = with python3Packages; [ pytestCheckHook ];
+  nativeCheckInputs = with python3Packages; [ pytestCheckHook ];
 
   doCheck = false;
 

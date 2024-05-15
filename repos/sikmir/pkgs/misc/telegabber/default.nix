@@ -2,17 +2,17 @@
 
 buildGoModule rec {
   pname = "telegabber";
-  version = "1.8.2";
+  version = "1.9.5";
 
   src = fetchFromGitea {
     domain = "dev.narayana.im";
     owner = "narayana";
     repo = "telegabber";
     rev = "v${version}";
-    hash = "sha256-dU+pqHKu9I/zSWqaM6gcZp9+ncyZAICi5y392tQoh9c=";
+    hash = "sha256-PCCo271B/SIF9n/6ohG5sA8fQeLDtTIoovs09CXdRm0=";
   };
 
-  vendorHash = "sha256-AW4LycYBL5sSbZbn2sVsxq2k7dGBmwjXKnWgy3+dptI=";
+  vendorHash = "sha256-3qSa6yJXSjrmTIBrulCnZMZzqNtpkzpzWeYAzHl8uUM=";
 
   buildInputs = [ openssl tdlib zlib ];
 
