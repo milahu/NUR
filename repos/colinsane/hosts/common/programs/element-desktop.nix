@@ -9,7 +9,7 @@
   sane.programs.element-desktop = {
     packageUnwrapped = (pkgs.element-desktop.override {
       # use pre-built electron because otherwise it takes 4 hrs to build from source.
-      electron = pkgs.electron_28-bin;
+      electron = pkgs.electron-bin;
     }).overrideAttrs (upstream: {
       # fix to use wayland instead of Xwayland:
       # - replace `NIXOS_OZONE_WL` non-empty check with `WAYLAND_DISPLAY`

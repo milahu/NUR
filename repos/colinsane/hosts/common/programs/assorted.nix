@@ -445,11 +445,6 @@ in
     "gnome.gnome-calendar".sandbox.method = "bwrap";
     "gnome.gnome-calendar".sandbox.whitelistWayland = true;
 
-    "gnome.gnome-clocks".buildCost = 1;
-    "gnome.gnome-clocks".sandbox.method = "bwrap";
-    "gnome.gnome-clocks".sandbox.whitelistWayland = true;
-    "gnome.gnome-clocks".suggestedPrograms = [ "dconf" ];
-
     # gnome-disks
     "gnome.gnome-disk-utility".buildCost = 1;
     "gnome.gnome-disk-utility".sandbox.method = "bwrap";

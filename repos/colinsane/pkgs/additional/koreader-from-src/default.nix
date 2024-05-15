@@ -71,14 +71,14 @@
 , zsync
 }:
 let
-  version = "2024.03";
+  version = "2024.04";
   src = fetchFromGitHub {
     owner = "koreader";
     repo = "koreader";
     name = "koreader";  # needed because `srcs = ` in the outer derivation is a list
     fetchSubmodules = true;
     rev = "v${version}";
-    hash = "sha256-/51pOGSAoaS0gOKlqNKruwaKY5qylzCpeNUrWyzYTpA=";
+    hash = "sha256-BQnKoTj90wWZNxGn1C9iL8y1tozqdEHMgQDfQZo2axg=";
   };
 
   fbink-src-ko = fetchFromGitHub {
@@ -116,8 +116,8 @@ let
     owner = "koreader";
     repo = "libk2pdfopt";
     name = "libk2pdfopt";  # where to unpack this in `srcs`
-    rev = "09f1e011a618c8ec06b4caa67079682119d2aaa7";
-    hash = "sha256-37sZ46dG6Z1Wk7NrhKAKl5j9r1bN6g01cd5Iyt/2coM=";
+    rev = "47caea57aaf6200fc2b24669b6417fe6919926b7";
+    hash = "sha256-8Em4neXTovhrTb+GBhs6kDFEdsQSt5KiYoHURwdtjPQ=";
   };
 
   lodepng-src-ko = fetchFromGitHub {
@@ -400,8 +400,10 @@ let
   '';
 
   # DO_STRIP=0 else it'll try to strip our externally built libraries, and error because those live in the nix store.
+  # PARALLEL_LOAD=1 else `ninja` does weird things (it's something parallelism related).
   makeFlags = ''
     TARGET=${target} DEBIAN=1 SHELL=sh VERBOSE=1 \
+      PARALLEL_LOAD=1 \
       DO_STRIP=0 \
       ${makefileDefs} \
   '';

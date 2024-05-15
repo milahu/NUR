@@ -84,7 +84,7 @@ let
             "/etc"  #< especially for /etc/profiles/per-user/$USER/bin
             "/run/current-system"  #< for basics like `ls`, and all this program's `suggestedPrograms` (/run/current-system/sw/bin)
             "/run/wrappers"  #< SUID wrappers, in this case so that firejail can be re-entrant. TODO: remove!
-            "/run/systemd/resolve"  #< to allow reading /etc/resolv.conf, which ultimately symlinks here
+            # "/run/systemd/resolve"  #< to allow reading /etc/resolv.conf, which ultimately symlinks here (if using systemd-resolved)
             # /run/opengl-driver is a symlink into /nix/store; needed by e.g. mpv
             "/run/opengl-driver"
             "/run/opengl-driver-32"  #< XXX: doesn't exist on aarch64?
@@ -635,8 +635,8 @@ in
       default = {};
     };
     sane.maxBuildCost = mkOption {
-      type = types.enum [ 0 1 2 ];
-      default = 2;
+      type = types.enum [ 0 1 2 3 ];
+      default = 3;
       description = ''
         max build cost of programs to ship.
         set to 0 to get the fastest, but most restrictive build.

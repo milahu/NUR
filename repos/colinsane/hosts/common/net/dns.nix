@@ -21,8 +21,13 @@
 # - each namespace can use a different /etc/resolv.conf to specify different DNS servers (see `firejail --dns=...`)
 # - nscd breaks namespacing: the host nscd is unaware of the guest's /etc/resolv.conf, and so directs the guest's DNS requests to the host's servers.
 #   - this is fixed by either `firejail --blacklist=/var/run/nscd/socket`, or disabling nscd altogether.
-{ lib, ... }:
+{ config, lib, ... }:
+lib.mkMerge [
 {
+  sane.services.trust-dns.enable = lib.mkDefault config.sane.services.trust-dns.asSystemResolver;
+  sane.services.trust-dns.asSystemResolver = lib.mkDefault true;
+}
+(lib.mkIf (!config.sane.services.trust-dns.asSystemResolver) {
   # use systemd's stub resolver.
   # /etc/resolv.conf isn't sophisticated enough to use different servers per net namespace (or link).
   # instead, running the stub resolver on a known address in the root ns lets us rewrite packets
@@ -44,7 +49,8 @@
     # stub resolver (just forwards upstream) lives on 127.0.0.54
     "127.0.0.53"
   ];
-
+})
+{
   # nscd -- the Name Service Caching Daemon -- caches DNS query responses
   # in a way that's unaware of my VPN routing, so routes are frequently poor against
   # services which advertise different IPs based on geolocation.
@@ -65,3 +71,4 @@
   services.nscd.enable = false;
   system.nssModules = lib.mkForce [];
 }
+]

@@ -26,36 +26,54 @@ in
     };
   };
 
-  systemd.services.NetworkManager-wait-online = lib.mkIf cfg.enabled{
+  systemd.services.NetworkManager-wait-online = lib.mkIf cfg.enabled {
     wantedBy = [ "network-online.target" ];
   };
 
-  environment.etc = lib.mkIf cfg.enabled {
-    "NetworkManager/NetworkManager.conf".text = ''
-      # TODO: much of this is likely not needed.
-      [connection]
-      ethernet.cloned-mac-address=preserve
-      wifi.cloned-mac-address=preserve
-      wifi.powersave=null
+  systemd.services.NetworkManager-dispatcher = lib.mkIf cfg.enabled {
+    wantedBy = [ "NetworkManager.service" ];
+    # to debug, add NM_DISPATCHER_DEBUG_LOG=1
+    serviceConfig.ExecStart = [
+      ""  # first blank line is to clear the upstream `ExecStart` field.
+      "${cfg.package}/libexec/nm-dispatcher --persist"  # --persist is needed for it to actually run as a daemon
+    ];
+    serviceConfig.Restart = "always";
+    serviceConfig.RestartSec = "1s";
+  };
 
+  environment.etc = lib.mkIf cfg.enabled {
+    "NetworkManager/system-connections".source = "/var/lib/NetworkManager/system-connections";
+    "NetworkManager/NetworkManager.conf".text = ''
       [device]
+      # wifi.backend: wpa_supplicant or iwd
       wifi.backend=wpa_supplicant
       wifi.scan-rand-mac-address=true
 
-      [keyfile]
-      # keyfile.path: where to check for connection credentials
-      path=/var/lib/NetworkManager/system-connections
-      unmanaged-devices=null
-
       [logging]
       audit=false
-      level=WARN
+      # level: TRACE, DEBUG, INFO, WARN, ERR, OFF
+      level=INFO
+      # domain=...
 
       [main]
+      # dhcp:
+      # - `internal` (default)
+      # - `dhclient` (requires dhclient to be installed)
+      # - `dhcpcd`   (requires dhcpcd to be installed)
       dhcp=internal
-      dns=systemd-resolved
+      # dns:
+      # - `default`: update /etc/resolv.conf with nameservers provided by the active connection
+      # - `none`: NM won't update /etc/resolv.conf
+      # - `systemd-resolved`: push DNS config to systemd-resolved
+      # - `dnsmasq`: run a local caching nameserver
+      dns=none
       plugins=keyfile
+      # rc-manager: how NM should write to /etc/resolv.conf
+      # - may also write /var/lib/NetworkManager/resolv.conf
       rc-manager=unmanaged
+      # systemd-resolved: send DNS config to systemd-resolved?
+      systemd-resolved=false
+      # debug=...  (see also: NM_DEBUG env var)
     '';
   };
   hardware.wirelessRegulatoryDatabase = lib.mkIf cfg.enabled true;

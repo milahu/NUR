@@ -48,9 +48,7 @@ in
       description = "signal-desktop Signal Messenger client";
       # depends = [ "graphical-session" ];
       partOf = lib.mkIf cfg.config.autostart [ "graphical-session" ];
-
-      # for some reason the --ozone-platform-hint=auto flag fails when signal-desktop is launched from a service
-      command = "env NIXOS_OZONE_WL=1 signal-desktop";
+      command = "signal-desktop";
     };
   };
 }

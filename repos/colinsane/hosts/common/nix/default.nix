@@ -65,10 +65,10 @@
 
   # ensure new deployments have a source of this repo with which they can bootstrap.
   # this however changes on every commit and can be slow to copy for e.g. `moby`.
-  environment.etc."nixos" = lib.mkIf (config.sane.maxBuildCost >= 2) {
+  environment.etc."nixos" = lib.mkIf (config.sane.maxBuildCost >= 3) {
     source = ../../..;
   };
-  environment.etc."nix/registry.json" = lib.mkIf (config.sane.maxBuildCost < 2) {
+  environment.etc."nix/registry.json" = lib.mkIf (config.sane.maxBuildCost < 3) {
     enable = false;
   };
 

@@ -16,7 +16,7 @@
       '';
     });
 
-    persist.private = [
+    persist.byStore.private = [
       ".local/share/s6/logs"
     ];
 

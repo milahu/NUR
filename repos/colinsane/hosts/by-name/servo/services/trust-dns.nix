@@ -96,58 +96,58 @@ in
   {
     wan = {
       substitutions = mkSubstitutions "wan";
-      listenAddrs = [
+      listenAddrsIpv4 = [
         nativeAddrs."servo.lan"
         bindOvpn
       ];
     };
     lan = {
       substitutions = mkSubstitutions "lan";
-      listenAddrs = [ nativeAddrs."servo.lan" ];
+      listenAddrsIpv4 = [ nativeAddrs."servo.lan" ];
       port = 1053;
     };
     hn = {
       substitutions = mkSubstitutions "hn";
-      listenAddrs = [ nativeAddrs."servo.hn" ];
+      listenAddrsIpv4 = [ nativeAddrs."servo.hn" ];
       port = 1053;
     };
-    hn-resolver = {
-      # don't need %AWAN% here because we forward to the hn instance.
-      listenAddrs = [ nativeAddrs."servo.hn" ];
-      extraConfig = {
-        zones = [
-          {
-            zone = "uninsane.org";
-            zone_type = "Forward";
-            stores = {
-              type = "forward";
-              name_servers = [
-                {
-                  socket_addr = "${nativeAddrs."servo.hn"}:1053";
-                  protocol = "udp";
-                  trust_nx_responses = true;
-                }
-              ];
-            };
-          }
-          {
-            # forward the root zone to the local DNS resolver
-            zone = ".";
-            zone_type = "Forward";
-            stores = {
-              type = "forward";
-              name_servers = [
-                {
-                  socket_addr = "127.0.0.53:53";
-                  protocol = "udp";
-                  trust_nx_responses = true;
-                }
-              ];
-            };
-          }
-        ];
-      };
-    };
+    # hn-resolver = {
+    #   # don't need %AWAN% here because we forward to the hn instance.
+    #   listenAddrsIpv4 = [ nativeAddrs."servo.hn" ];
+    #   extraConfig = {
+    #     zones = [
+    #       {
+    #         zone = "uninsane.org";
+    #         zone_type = "Forward";
+    #         stores = {
+    #           type = "forward";
+    #           name_servers = [
+    #             {
+    #               socket_addr = "${nativeAddrs."servo.hn"}:1053";
+    #               protocol = "udp";
+    #               trust_nx_responses = true;
+    #             }
+    #           ];
+    #         };
+    #       }
+    #       {
+    #         # forward the root zone to the local DNS resolver
+    #         zone = ".";
+    #         zone_type = "Forward";
+    #         stores = {
+    #           type = "forward";
+    #           name_servers = [
+    #             {
+    #               socket_addr = "127.0.0.53:53";
+    #               protocol = "udp";
+    #               trust_nx_responses = true;
+    #             }
+    #           ];
+    #         };
+    #       }
+    #     ];
+    #   };
+    # };
   };
 
   sane.services.dyn-dns.restartOnChange = [

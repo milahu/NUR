@@ -39,21 +39,13 @@ in [
   })
 
   (fetchpatch' {
-    title = "hyprland: fix cross compilation";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/311408";
-    hash = "sha256-OU5XT/BEmZu1TPXSLKfEgdkoGXRETvJ9dePCeHrFl6o=";
-  })
-
-  (fetchpatch' {
-    # TODO: send upstream after successful deployment
     title = "gnome.gnome-keyring: support cross compilation";
-    # prUrl = "https://github.com/uninsane/nixpkgs/pull/new/pr-gnome-keyring-cross";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/311773";
     saneCommit = "56bc064c0fa39614dfd1048daae4a59e4131df56";
-    hash = "sha256-LZW3CNhcOU+YPTPt/4Ltxyiqo/6SdlIOQADmni4pDM4=";
+    hash = "sha256-UURRlqtCmA2UzaiuQabFCjQ/Duvu5UxStHAhweutk5s=";
   })
 
   (fetchpatch' {
-    # TODO: send upstream
     title = "python3Packages.dbus-python: fix cross";
     prUrl = "https://github.com/NixOS/nixpkgs/pull/310609";
     hash = "sha256-QCRCotIlHgJn4lo4Qdrh2cJMqqcVGLAE9WSJ4nCQvyk=";

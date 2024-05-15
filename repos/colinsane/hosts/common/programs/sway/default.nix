@@ -135,6 +135,7 @@ in
       "playerctl"  # for waybar & particularly to have playerctld running
       "rofi"  # menu/launcher
       "rofi-snippets"
+      "s6-rc"  # used by sway config
       "sane-screenshot"
       "sane-open"
       # "splatmoji"  # used by sway config

@@ -75,6 +75,8 @@
 # HOW TO UPDATE
 # - `nix run '.#update.pkgs.signal-desktop-from-src'`
 # - delete `env.yarnOfflineCache.hash` and rebuild it
+# - check signal-desktop's package.json for new ringrtc/nodejs
+# - if sqlcipher fails then update sqlcipherTarball url/hash (rare)
 
 
 { lib
@@ -86,7 +88,7 @@
 , bash
 , buildPackages
 , cups
-, electron_27-bin
+, electron-bin
 , fetchurl
 , fetchFromGitHub
 , fetchYarnDeps
@@ -103,10 +105,10 @@
 , libxslt
 , makeShellWrapper
 , mesa
-, nodejs_18
 , nspr
 , nss
 , pango
+, pkgs
 , python3
 # , sqlite
 # , sqlcipher
@@ -116,12 +118,12 @@
 , yarn
 }:
 let
-  version = "7.0.0";
+  version = "7.8.0";
 
   ringrtcPrebuild = fetchurl {
     # version is found in signal-desktop's package.json as "@signalapp/ringrtc"
-    url = "https://build-artifacts.signal.org/libraries/ringrtc-desktop-build-v2.36.0.tar.gz";
-    hash = "sha256-BIp+2V0PVmRqAA4mXt28utAMOAY4GrRELP8tfETf3Ns=";
+    url = "https://build-artifacts.signal.org/libraries/ringrtc-desktop-build-v2.41.0.tar.gz";
+    hash = "sha256-UOVK2zGwxAkR6CwBknMjI6voULSZD0eUzMmaCiG/hbQ=";
   };
   sqlcipherTarball = fetchurl {
     # this is a dependency of better-sqlite3.
@@ -130,6 +132,21 @@ let
     url = "https://build-artifacts.signal.org/desktop/sqlcipher-4.5.5-fts5-fix--3.0.7--0.2.1-ef53ea45ed92b928ecfd33c552d8d405263e86e63dec38e1ec63e1b0193b630b.tar.gz";
     hash = "sha256-71PqRe2SuSjs/TPFUtjUBSY+huY97Djh7GPhsBk7Yws=";
   };
+  # TODO: possibly i could instead use nodejs-slim (npm-less nodejs)
+  # mkNodeJs = pkgs: pkgs.nodejs_20.overrideAttrs (upstream:
+  #   let
+  #     # build with the same nodejs upstream expects in package.json (it will error if the version here is incorrect)
+  #     version = "20.9.0";
+  #     hash = "sha256-oj2WgQq/BFVCazSdR85TEPMwlbe8BXG5zFEPSBw6RRk=";
+  #   in {
+  #     inherit version;
+  #     src = fetchurl {
+  #       url = "https://nodejs.org/dist/v${version}/node-v${version}.tar.xz";
+  #       inherit hash;
+  #     };
+  #   }
+  # );
+  mkNodeJs = pkgs: pkgs.nodejs;
 
   # signal-fts5-extension = callPackage ./fts5-extension { };
   # bettersqlitePatch = substituteAll {
@@ -148,42 +165,23 @@ let
     repo = "Signal-Desktop";
     leaveDotGit = true;  # signal calculates the release date via `git`
     rev = "v${version}";
-    hash = "sha256-iIPDUMFGL2a6JKblSTY05nPSDhF4b4AvyO2k0NY9UJE=";
+    hash = "sha256-CBcLk54cu4PGGZbQsPeYjjWnRFmFPxM9+mxLdQKCPP0=";
   };
-  mkNodeJs = nodejs: nodejs.overrideAttrs (upstream:
-    let
-      # build with the same nodejs upstream expects in package.json (it will error if the version here is incorrect)
-      version = "18.18.2";
-      hash = "sha256-ckni8K+UPsOFmVBPSyor0x+5OHhykbbMymyLrfAeO1Y=";
-    in {
-      inherit version;
-      src = fetchurl {
-        url = "https://nodejs.org/dist/v${version}/node-v${version}.tar.xz";
-        inherit hash;
-      };
-    }
-  );
   yarnOfflineCache = fetchYarnDeps {
     yarnLock = "${src}/yarn.lock";
-    hash = "sha256-+IFzjTv3ghyFu0MRca2SO+tzeQPJGVW/KyWf7SdCmtQ=";
+    hash = "sha256-ImkJyphN0YfXOUuU14HII/3798kbQ4iwgXr600k4PHU=";
   };
 
-  nodejs' = mkNodeJs nodejs_18;
-  # TODO: possibly i could instead use nodejs-slim (npm-less nodejs)
-  buildNodejs = mkNodeJs buildPackages.nodejs_18;
+  nodejs' = mkNodeJs pkgs;
+  buildNodejs = mkNodeJs buildPackages;
 
   buildYarn = buildPackages.yarn.override { nodejs = buildNodejs; };
 
-  # package.json locks electron to 25.y.z
-  # element-desktop uses electron_26
-  # nixpkgs has `electron` defaulted to electron_27
-  # alpine builds signal-desktop using its default electron version, i.e. 27.0.2
-  # verified working:
-  # - electron-bin  (26)
-  # - electron_27-bin (builds, haven't extensively tested the runtime)
+  # note that `package.json` locks the electron version, but we seem to not be strictly beholden to that.
+  # prefer to use the same electron version as everywhere else, and a `-bin` version to avoid 4hr rebuilds.
   # the non-bin varieties *seem* to ship the wrong `electron.headers` property.
   # - maybe they can work if i manually DL and ship the corresponding headers
-  electron' = electron_27-bin;
+  electron' = electron-bin;
 
   buildNpmArch = if stdenv.buildPlatform.isAarch64 then "arm64" else "x64";
   hostNpmArch = if stdenv.hostPlatform.isAarch64 then "arm64" else "x64";
@@ -247,6 +245,9 @@ stdenv.mkDerivation rec {
   # NIX_DEBUG = 6;
 
   postPatch = ''
+    # unpin nodejs. i should probably *try* to keep these vaguely in sync, but it seems to work decently with these out of sync too (at least, if the major versions match?)
+    sed -i 's/"node": .*/"node": "${nodejs'.version}"/' package.json
+
     # fixes build failure:
     # > Fusing electron at /build/source/release/linux-unpacked/signal-desktop inspect-arguments=false
     # >   ⨯ EACCES: permission denied, open '/build/source/release/linux-unpacked/signal-desktop'  failedTask=build stackTrace=Error: EACCES: permission denied, open '/build/source/release/linux-unpacked/signal-desktop'
@@ -344,6 +345,9 @@ stdenv.mkDerivation rec {
     # yarn generate:
     yarn build-module-protobuf --offline --frozen-lockfile
     yarn build:esbuild --offline --frozen-lockfile
+    # yarn build:dns-fallback --offline --frozen-lockfile  # requires network
+    yarn build:icu-types --offline --frozen-lockfile
+    yarn build:compact-locales --offline --frozen-lockfile
     yarn sass
     yarn get-expire-time
     yarn copy-components
@@ -389,7 +393,7 @@ stdenv.mkDerivation rec {
       --add-flags $out/lib/Signal/resources/app.asar \
       --suffix PATH : ${lib.makeBinPath [ xdg-utils ]} \
       --add-flags --ozone-platform-hint=auto \
-      --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-features=WaylandWindowDecorations}}" \
+      --add-flags "\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-features=WaylandWindowDecorations}" \
       --inherit-argv0
   '';
 

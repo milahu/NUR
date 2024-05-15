@@ -285,7 +285,7 @@ readlinkOnce() {
   local outVar="$1"
   local path="$2"
   local linkTarget=
-  if [ -v "linkCache["$path"]" ]; then
+  if [ -v linkCache["$path"] ]; then
     linkTarget="${linkCache["$path"]}"
   elif [ -L "$path" ]; then
     # path is a link, but not in the cache

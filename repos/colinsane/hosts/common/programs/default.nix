@@ -48,6 +48,7 @@
     ./gdbus.nix
     ./geary.nix
     ./git.nix
+    ./gnome-clocks.nix
     ./gnome-feeds.nix
     ./gnome-keyring
     ./gnome-maps.nix
