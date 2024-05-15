@@ -15,9 +15,9 @@
   hmModules = import ./hm-modules;           # Home Manager modules.
 
   # My software.
-  netcatchat       = pkgs.callPackage ./pkgs/netcatchat {};
+  netcatchat       = pkgs.callPackage ./pkgs/netcatchat       {};
   cobol-dvd-thingy = pkgs.callPackage ./pkgs/cobol-dvd-thingy {};
-  bitmasher        = pkgs.callPackage ./pkgs/bitmasher {};
-  ilo-li-sina      = pkgs.callPackage ./pkgs/ilo-li-sina {};
-  cowsaypl         = pkgs.callPackage ./pkgs/cowsaypl {};
+  bitmasher        = pkgs.callPackage ./pkgs/bitmasher        {};
+  cowsaypl         = pkgs.callPackage ./pkgs/cowsaypl         {};
+  ahd              = pkgs.callPackage ./pkgs/ahd              {};
 }
