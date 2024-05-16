@@ -225,8 +225,8 @@ lib.makeScope newScope (
     morecantile = callPackage ./geospatial/morecantile { };
     orbisgis = callPackage ./geospatial/orbisgis { jre = pkgs.jre8; };
     ossim = callPackage ./geospatial/ossim { };
-    pmtiles = callPackage ./geospatial/pmtiles { };
     pipfile = callPackage ./geospatial/pipfile { };
+    pmtiles = callPackage ./geospatial/pmtiles { };
     polyvectorization = libsForQt5.callPackage ./geospatial/polyvectorization { };
     py-staticmaps = callPackage ./geospatial/py-staticmaps { };
     pysheds = callPackage ./geospatial/pysheds { };

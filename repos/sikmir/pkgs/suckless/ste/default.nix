@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromSourcehut, redo-apenwarr }:
+{ lib, stdenv, fetchFromSourcehut }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "ste";
@@ -11,20 +11,9 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-rtwM2UZ+ncA5SPg5yt1HlacasdhTov6emiUnByE6VHM=";
   };
 
-  nativeBuildInputs = [ redo-apenwarr ];
+  FALLBACKVER = finalAttrs.version;
 
-  buildPhase = ''
-    runHook preBuild
-    export FALLBACKVER=${finalAttrs.version}
-    redo all
-    runHook postBuild
-  '';
-
-  installPhase = ''
-    runHook preInstall
-    PREFIX=$out redo install
-    runHook postInstall
-  '';
+  installFlags = [ "PREFIX=$(out)" ];
 
   meta = with lib; {
     description = "Simple table editor";

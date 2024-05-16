@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromSourcehut, redo-apenwarr }:
+{ lib, stdenv, fetchFromSourcehut }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "sled";
@@ -11,21 +11,9 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-7x3siICVeB/ZKeopOWtcdBEwvWYcTm4bcnuPsIsWm5Y=";
   };
 
-  nativeBuildInputs = [ redo-apenwarr ];
+  FALLBACKVER = finalAttrs.version;
 
-  buildPhase = ''
-    runHook preBuild
-    export FALLBACKVER=${finalAttrs.version}
-    export FALLBACKDATE=1970-01-01
-    redo all
-    runHook postBuild
-  '';
-
-  installPhase = ''
-    runHook preInstall
-    PREFIX=$out redo install
-    runHook postInstall
-  '';
+  installFlags = [ "PREFIX=$(out)" ];
 
   meta = with lib; {
     description = "Simple text editor";
@@ -35,5 +23,6 @@ stdenv.mkDerivation (finalAttrs: {
     platforms = platforms.linux;
     skip.ci = stdenv.isDarwin;
     mainProgram = "sled";
+    broken = true;
   };
 })

@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromSourcehut, redo-apenwarr }:
+{ lib, stdenv, fetchFromSourcehut }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "poe";
@@ -11,21 +11,9 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-fQSn/nm9N8RFz/MPKtEU/aCHTGy3J9W0oSGH+siVDmg=";
   };
 
-  nativeBuildInputs = [ redo-apenwarr ];
+  FALLBACKVER = finalAttrs.version;
 
-  buildPhase = ''
-    runHook preBuild
-    export FALLBACKVER=${finalAttrs.version}
-    export FALLBACKDATE=1970-01-01
-    POE_CC=$CC redo all
-    runHook postBuild
-  '';
-
-  installPhase = ''
-    runHook preInstall
-    PREFIX=$out redo install
-    runHook postInstall
-  '';
+  installFlags = [ "PREFIX=$(out)" ];
 
   meta = with lib; {
     description = ".po file editor";
