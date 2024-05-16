@@ -7,7 +7,7 @@
 
 rustPlatform.buildRustPackage {
   pname = "moss";
-  version = "nightly-20240510-004926-unstable-2024-05-05";
+  version = "nightly-20240514-005034-unstable-2024-05-05";
 
   src = fetchFromGitHub {
     owner = "serpent-os";
@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage {
     hash = "sha256-gds6HDH4RVXSQXgRZq241TF/AaoINPOSYNbAlZZ8WWM=";
   };
 
-  cargoHash = "sha256-JibO+o2awu6sEqjzuzyU333E/nRmSDyCXQJdwMsolQw=";
+  cargoHash = "sha256-CDBSATK9grySyLSdh/tYt9TMtA/K81qNDJkwej/dugY=";
 
   passthru.updateScript = nix-update-script {
     extraArgs = [
