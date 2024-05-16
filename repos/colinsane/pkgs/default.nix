@@ -61,10 +61,10 @@ let
     sane-cast = callPackage ./additional/sane-cast { };
     sane-die-with-parent = callPackage ./additional/sane-die-with-parent { };
     sane-open = callPackage ./additional/sane-open { };
-    sane-sandboxed = callPackage ./additional/sane-sandboxed { };
     sane-screenshot = callPackage ./additional/sane-screenshot { };
     sane-scripts = lib.recurseIntoAttrs (callPackage ./additional/sane-scripts { });
     sane-weather = callPackage ./additional/sane-weather { };
+    sanebox = callPackage ./additional/sanebox { };
     schlock = callPackage ./additional/schlock { };
     signal-desktop-from-src = callPackage ./additional/signal-desktop-from-src { };
     static-nix-shell = callPackage ./additional/static-nix-shell { };

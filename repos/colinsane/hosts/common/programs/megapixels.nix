@@ -48,7 +48,7 @@
     sandbox.extraConfig = [
       # XXX(2024/04/21): without this it fails to convert .dng -> .jpg.
       #   "bwrap: open /proc/34/ns/ns failed: No such file or directory"
-      "--sane-sandbox-keep-namespace" "pid"
+      "--sanebox-keep-namespace" "pid"
     ];
 
     suggestedPrograms = [ "dconf" ];  #< not sure if necessary

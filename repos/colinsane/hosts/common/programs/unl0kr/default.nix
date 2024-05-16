@@ -136,10 +136,10 @@ in
       serviceConfig.ExecStart = "${pkgs.util-linux}/bin/agetty --login-program '${cfg.config.launcher}/bin/unl0kr-login' --noclear --skip-login --keep-baud ${tty} 115200,38400,9600 $TERM";
 
       path = [
-        # necessary for `sane-sandboxed` to be found. TODO: add this to every systemd service.
+        # necessary for `sanebox` to be found. TODO: add this to every systemd service.
         "/run/current-system/sw"  # `/bin` is appended
       ];
-      # needed to find sane-sandbox profiles (TODO: add this to every service)
+      # needed to find sanebox profiles (TODO: add this to every service)
       environment.XDG_DATA_DIRS = "/run/current-system/sw/share";
 
       serviceConfig.Type = "simple";

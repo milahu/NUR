@@ -61,7 +61,7 @@
     - <https://github.com/flatpak/xdg-dbus-proxy>
   - remove `.ssh` access from Firefox!
     - limit access to `~/knowledge/secrets` through an agent that requires GUI approval, so a firefox exploit can't steal all my logins
-  - port sane-sandboxed to a compiled language (hare?)
+  - port sanebox to a compiled language (hare?)
     - it adds like 50-70ms launch time _on my laptop_. i'd hate to know how much that is on the pinephone.
   - remove /run/wrappers from the sandbox path
     - they're mostly useless when using no-new-privs, just an opportunity to forget to specify deps

@@ -113,7 +113,7 @@ in
     sandbox.whitelistDbus = [ "user" ];  #< to launch applications
     sandbox.extraRuntimePaths = [ "sway" ];
     sandbox.extraConfig = [
-      "--sane-sandbox-keep-namespace" "pid"
+      "--sanebox-keep-namespace" "pid"
     ];
   };
 

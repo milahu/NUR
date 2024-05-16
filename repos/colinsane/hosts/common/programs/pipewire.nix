@@ -61,7 +61,7 @@ in
     # ];
     sandbox.wrapperType = "inplace";  #< its config files refer to its binaries by full path
     sandbox.extraConfig = [
-      "--sane-sandbox-keep-namespace" "pid"
+      "--sanebox-keep-namespace" "pid"
     ];
     sandbox.capabilities = [
       # if rtkit isn't present, and sandboxing is via landlock, these capabilities allow pipewire to claim higher scheduling priority

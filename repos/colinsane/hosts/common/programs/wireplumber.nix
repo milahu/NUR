@@ -22,7 +22,7 @@
     ];
     # sandbox.extraConfig = [
     #   # needed if i want rtkit to grant this higher scheduling priority
-    #   "--sane-sandbox-keep-namespace" "pid"
+    #   "--sanebox-keep-namespace" "pid"
     # ];
 
     suggestedPrograms = [ "alsa-ucm-conf" ];

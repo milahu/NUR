@@ -2,16 +2,16 @@
 , buildPackages
 , runCommandLocal
 , runtimeShell
-, sane-sandboxed
+, sanebox
 , symlinkJoin
 , writeShellScriptBin
 , writeTextFile
 }:
 let
-  fakeSaneSandboxed = writeShellScriptBin "sane-sandboxed" ''
-    # behave like the real sane-sandboxed with SANE_SANDBOX_DISABLE=1,
-    # but in a manner which avoids taking a dependency on the real sane-sandboxed.
-    # the primary use for this is to allow a package's `check` phase to work even when sane-sandboxed isn't available.
+  fakeSaneSandboxed = writeShellScriptBin "sanebox" ''
+    # behave like the real sanebox with SANEBOX_DISABLE=1,
+    # but in a manner which avoids taking a dependency on the real sanebox.
+    # the primary use for this is to allow a package's `check` phase to work even when sanebox isn't available.
     _origArgs=($@)
 
     # throw away all arguments until we find the path to the binary which is being sandboxed
@@ -19,12 +19,12 @@ let
       shift
     done
     if [ "$#" -eq 0 ]; then
-      >&2 echo "sane-sandbox: failed to parse args: ''${_origArgs[*]}"
+      >&2 echo "sanebox (mock): failed to parse args: ''${_origArgs[*]}"
       exit 1
     fi
 
-    if [ -z "$SANE_SANDBOX_DISABLE" ]; then
-      >&2 echo "sane-sandbox: not called with SANE_SANDBOX_DISABLE=1; unsure how to sandbox: ''${_origArgs[*]}"
+    if [ -z "$SANEBOX_DISABLE" ]; then
+      >&2 echo "sanebox (mock): not called with SANEBOX_DISABLE=1; unsure how to sandbox: ''${_origArgs[*]}"
       exit 1
     fi
     # assume that every argument after the binary name is an argument for the binary and not for the sandboxer.
@@ -39,14 +39,14 @@ let
 
   # take an existing package, which may have a `bin/` folder as well as `share/` etc,
   # and patch the `bin/` items in-place
-  sandboxBinariesInPlace = sane-sandboxed': extraSandboxArgsStr: pkgName: pkg: pkg.overrideAttrs (unwrapped: {
+  sandboxBinariesInPlace = sanebox': extraSandboxArgsStr: pkgName: pkg: pkg.overrideAttrs (unwrapped: {
     # disable the sandbox and inject a minimal fake sandboxer which understands that flag,
     # in order to support packages which invoke sandboxed apps in their check phase.
     # note that it's not just for packages which invoke their *own* binaries in check phase,
     # but also packages which invoke OTHER PACKAGES' sandboxed binaries.
     # hence, put the fake sandbox in nativeBuildInputs instead of nativeCheckInputs.
     env = (unwrapped.env or {}) // {
-      SANE_SANDBOX_DISABLE = 1;
+      SANEBOX_DISABLE = 1;
     };
     # TODO: handle multi-output packages; until then, squash lib into the main output, particularly for `libexec`.
     # (this line here only affects `inplace` style wrapping)
@@ -55,7 +55,7 @@ let
       fakeSaneSandboxed
     ];
     disallowedReferences = (unwrapped.disallowedReferences or []) ++ [
-      # the fake sandbox gates itself behind SANE_SANDBOX_DISABLE, so if it did end up deployed
+      # the fake sandbox gates itself behind SANEBOX_DISABLE, so if it did end up deployed
       # then it wouldn't permit anything not already permitted. but it would still be annoying.
       fakeSaneSandboxed
     ];
@@ -79,7 +79,7 @@ let
           mv "$_dir/$_name" "$_dir/.sandboxed/"
         fi
         echo '#!${runtimeShell}' > "$_dir/$_name"
-        echo 'exec ${sane-sandboxed'} --sane-sandbox-profile ${pkgName}' "$_dir/.sandboxed/$_name" '"$@"' >> "$_dir/$_name"
+        echo 'exec ${sanebox'} --sanebox-profile ${pkgName}' "$_dir/.sandboxed/$_name" '"$@"' >> "$_dir/$_name"
         chmod +x "$_dir/$_name"
       }
 
@@ -227,9 +227,9 @@ let
         _numExec=0
         _checkExecutable() {
           echo "checking if $1 is sandboxed"
-          PATH="${finalAttrs.finalPackage}/bin:${sane-sandboxed}/bin:$PATH" \
-            SANE_SANDBOX_DISABLE=1 \
-            "$1" --sane-sandbox-replace-cli echo "printing for test" \
+          PATH="${finalAttrs.finalPackage}/bin:${sanebox}/bin:$PATH" \
+            SANEBOX_DISABLE=1 \
+            "$1" --sanebox-replace-cli echo "printing for test" \
             | grep "printing for test"
           _numExec=$(( $_numExec + 1 ))
         }
@@ -270,12 +270,12 @@ let
   make-sandboxed = { pkgName, package, wrapperType, embedSandboxer ? false, extraSandboxerArgs ? [], passthru ? {} }@args:
   let
     unsandboxed = package;
-    sane-sandboxed' = if embedSandboxer then
+    sanebox' = if embedSandboxer then
       # optionally hard-code the sandboxer. this forces rebuilds, but allows deep iteration w/o deploys.
-      lib.getExe sane-sandboxed
+      lib.getExe sanebox
     else
       #v prefer to load by bin name to reduce rebuilds
-      sane-sandboxed.meta.mainProgram
+      sanebox.meta.mainProgram
     ;
 
     extraSandboxerArgsStr = lib.escapeShellArgs extraSandboxerArgs;
@@ -288,14 +288,14 @@ let
     # regardless of which one is chosen here, all other options are exposed via `passthru`.
     sandboxedBy = {
       inplace = sandboxBinariesInPlace
-        sane-sandboxed'
+        sanebox'
         extraSandboxerArgsStr
         pkgName
         (makeHookable unsandboxed);
 
       wrappedDerivation = let
         sandboxedBin = sandboxBinariesInPlace
-          sane-sandboxed'
+          sanebox'
           extraSandboxerArgsStr
           pkgName
           (symlinkBinaries pkgName unsandboxed);

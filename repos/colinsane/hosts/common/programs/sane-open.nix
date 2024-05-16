@@ -5,7 +5,7 @@
     sandbox.autodetectCliPaths = "existing";  # for when opening a file
     sandbox.whitelistDbus = [ "user" ];
     sandbox.extraConfig = [
-      "--sane-sandbox-keep-namespace" "pid"  # to toggle keyboard
+      "--sanebox-keep-namespace" "pid"  # to toggle keyboard
     ];
     sandbox.extraHomePaths = [
       ".local/share/applications"

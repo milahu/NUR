@@ -14,7 +14,7 @@ debug() {
 }
 
 # if requested, enable debugging as early as possible
-if [ -n "$SANE_SANDBOX_DEBUG" ]; then
+if [ -n "$SANEBOX_DEBUG" ]; then
   enableDebug
 fi
 
@@ -84,57 +84,57 @@ firejailFlags=()
 bwrapFlags=()
 
 usage() {
-  echo 'sane-sandboxed: run a program inside a sandbox'
-  echo 'USAGE: sane-sandboxed [sandbox-arg ...] program [sandbox-arg|program-arg ...] [--] [program-arg ...]'
+  echo 'sanebox: run a program inside a sandbox'
+  echo 'USAGE: sanebox [sandbox-arg ...] program [sandbox-arg|program-arg ...] [--] [program-arg ...]'
   echo ''
   echo 'sandbox args and program args may be intermixed, but the first `--` anywhere signals the end of the sandbox args and the start of program args'
   echo
   echo 'sandbox args:'
-  echo '  --sane-sandbox-help'
+  echo '  --sanebox-help'
   echo '      show this message'
-  echo '  --sane-sandbox-debug'
+  echo '  --sanebox-debug'
   echo '      print debug messages to stderr'
-  echo '  --sane-sandbox-replace-cli <bin>'
+  echo '  --sanebox-replace-cli <bin>'
   echo '      invoke <bin> under the sandbox instead of any program previously listed'
   echo '      also clears and earlier arguments intended for the program'
-  echo '  --sane-sandbox-disable'
+  echo '  --sanebox-disable'
   echo '      invoke the program directly, instead of inside a sandbox'
-  echo '  --sane-sandbox-dry-run'
+  echo '  --sanebox-dry-run'
   echo '      show what would be `exec`uted but do not perform any action'
-  echo '  --sane-sandbox-method <bwrap|capshonly|firejail|landlock|none>'
+  echo '  --sanebox-method <bwrap|capshonly|firejail|landlock|none>'
   echo '      use a specific sandboxer'
-  echo '  --sane-sandbox-autodetect <existing|existingFile|existingFileOrParent|existingOrParent|parent>'
+  echo '  --sanebox-autodetect <existing|existingFile|existingFileOrParent|existingOrParent|parent>'
   echo '      add files which appear later as CLI arguments into the sandbox'
-  echo '  --sane-sandbox-cap <sys_admin|net_raw|net_admin|...>'
+  echo '  --sanebox-cap <sys_admin|net_raw|net_admin|...>'
   echo '      allow the sandboxed program to use the provided linux capability (both inside and outside the sandbox)'
-  echo '  --sane-sandbox-portal'
+  echo '  --sanebox-portal'
   echo '      set environment variables so that the sandboxed program will attempt to use xdg-desktop-portal for operations like opening files'
-  echo '  --sane-sandbox-no-portal'
-  echo '      undo a previous `--sane-sandbox-portal` arg'
-  echo '  --sane-sandbox-dns <server>'
-  echo '  --sane-sandbox-firejail-arg <arg>'
-  echo '  --sane-sandbox-bwrap-arg <arg>'
-  echo '  --sane-sandbox-net <iface>'
-  echo '  --sane-sandbox-keep-namespace <cgroup|ipc|pid|uts|all>'
+  echo '  --sanebox-no-portal'
+  echo '      undo a previous `--sanebox-portal` arg'
+  echo '  --sanebox-dns <server>'
+  echo '  --sanebox-firejail-arg <arg>'
+  echo '  --sanebox-bwrap-arg <arg>'
+  echo '  --sanebox-net <iface>'
+  echo '  --sanebox-keep-namespace <cgroup|ipc|pid|uts|all>'
   echo '      do not unshare the provided linux namespace'
-  echo '  --sane-sandbox-path <path>'
+  echo '  --sanebox-path <path>'
   echo '      allow access to the host <path> within the sandbox'
-  echo '  --sane-sandbox-add-pwd'
-  echo '      shorthand for `--sane-sandbox-path $PWD`'
-  echo '  --sane-sandbox-profile <profile>'
-  echo '  --sane-sandbox-profile-dir <dir>'
-  echo '  --sane-sandbox-cache-symlink <from> <to>'
+  echo '  --sanebox-add-pwd'
+  echo '      shorthand for `--sanebox-path $PWD`'
+  echo '  --sanebox-profile <profile>'
+  echo '  --sanebox-profile-dir <dir>'
+  echo '  --sanebox-cache-symlink <from> <to>'
   echo '      assume that <from> is a symlink to <to>'
   echo '      performance optimization to avoid spawning a readlink subshell'
   echo
   echo 'the following environment variables are also considered and propagated to children:'
-  echo '  SANE_SANDBOX_DISABLE=1'
-  echo '      equivalent to `--sane-sandbox-disable`'
-  echo '  SANE_SANDBOX_DEBUG=1'
-  echo '      equivalent to `--sane-sandbox-debug`, but activates earlier'
-  echo '  SANE_SANDBOX_PREPEND=...'
+  echo '  SANEBOX_DISABLE=1'
+  echo '      equivalent to `--sanebox-disable`'
+  echo '  SANEBOX_DEBUG=1'
+  echo '      equivalent to `--sanebox-debug`, but activates earlier'
+  echo '  SANEBOX_PREPEND=...'
   echo '      act as though the provided arg string appeared at the start of the CLI'
-  echo '  SANE_SANDBOX_APPEND=...'
+  echo '  SANEBOX_APPEND=...'
   echo '      act as though the provided arg string appeared at the end of the CLI'
 }
 
@@ -342,7 +342,7 @@ derefOnce() {
 ## HELPERS
 
 loadProfileByPath() {
-  # profile format is simply a list of arguments one would pass to this sane-sandboxed script itself,
+  # profile format is simply a list of arguments one would pass to this sanebox script itself,
   # with one argument per line
   readarray -t _profArgs < "$1"
   parseArgs "${_profArgs[@]}"
@@ -353,7 +353,7 @@ tryLoadProfileByName() {
   if [ "${profile:0:1}" = "/" ]; then
     # absolute path to profile.
     # consider it an error if it doesn't exist.
-    # in general, prefer to use `--sane-sandbox-profile-dir` and specify the profile by name.
+    # in general, prefer to use `--sanebox-profile-dir` and specify the profile by name.
     # doing so maximizes compatibility with anything else that uses the name, like firejail.
     loadProfileByPath "$profile"
   else
@@ -372,7 +372,7 @@ tryLoadProfileByName() {
 
 initDefaultProfileDirs() {
   for d in ${XDG_DATA_DIRS//:/ }; do
-    profileDirs+=("$d/sane-sandboxed/profiles")
+    profileDirs+=("$d/sanebox/profiles")
   done
 }
 
@@ -452,8 +452,8 @@ parseArgs() {
       (--)
         # rest of args are for the CLI, and not for us.
         # consider two cases:
-        # - sane-sandboxed --sane-sandbox-flag1 -- /nix/store/.../mpv --arg0 arg1
-        # - sane-sandboxed /nix/store/.../mpv --arg0 -- arg1
+        # - sanebox --sanebox-flag1 -- /nix/store/.../mpv --arg0 arg1
+        # - sanebox /nix/store/.../mpv --arg0 -- arg1
         # in the first case, we swallow the -- and treat the rest as CLI args.
         # in the second case, the -- is *probably* intended for the application.
         #    but it could be meant for us. do the most conservative thing here
@@ -466,30 +466,30 @@ parseArgs() {
         parseArgsExtra+=("$@")
         break
         ;;
-      (--sane-sandbox-help)
+      (--sanebox-help)
         usage
         exit 0
         ;;
-      (--sane-sandbox-debug)
+      (--sanebox-debug)
         enableDebug
         ;;
-      (--sane-sandbox-replace-cli)
+      (--sanebox-replace-cli)
         # keep the sandbox flags, but clear any earlier CLI args.
-        # this lets the user do things like `mpv --sane-sandbox-replace-cli sh` to enter a shell
+        # this lets the user do things like `mpv --sanebox-replace-cli sh` to enter a shell
         # with the sandbox that `mpv` would see.
         parseArgsExtra=()
         ;;
-      (--sane-sandbox-disable)
+      (--sanebox-disable)
         isDisable=1
         ;;
-      (--sane-sandbox-dry-run)
+      (--sanebox-dry-run)
         isDryRun=1
         ;;
-      (--sane-sandbox-method)
+      (--sanebox-method)
         method="$1"
         shift
         ;;
-      (--sane-sandbox-autodetect)
+      (--sanebox-autodetect)
         # autodetect: crawl the CLI program's args & bind any which look like paths into the sandbox.
         # this is handy for e.g. media players or document viewers.
         # it's best combined with some two-tiered thing.
@@ -497,43 +497,43 @@ parseArgs() {
         autodetect="$1"
         shift
         ;;
-      (--sane-sandbox-cap)
+      (--sanebox-cap)
         local cap="$1"
         shift
         capabilities+=("$cap")
         ;;
-      (--sane-sandbox-portal)
+      (--sanebox-portal)
         # instruct glib/gtk apps to perform actions such as opening external files via dbus calls to org.freedesktop.portal.*.
         # note that GIO_USE_PORTALS primarily acts as a *fallback*: apps only open files via the portal if they don't know how to themelves.
         # this switch is typically accompanied by removing all MIME associations from the app's view, then.
         # GTK_USE_PORTALS is the old name, beginning to be phased out as of 2023-10-02
         portalEnv=("GIO_USE_PORTALS=1" "GTK_USE_PORTAL=1" "NIXOS_XDG_OPEN_USE_PORTAL=1")
         ;;
-      (--sane-sandbox-no-portal)
-        # override a previous --sane-sandbox-portal call
+      (--sanebox-no-portal)
+        # override a previous --sanebox-portal call
         portalEnv=()
         ;;
-      (--sane-sandbox-dns)
+      (--sanebox-dns)
         # N.B.: these named temporary variables ensure that "set -x" causes $1 to be printed
         local dns="$1"
         shift
         dns+=("$dns")
         ;;
-      (--sane-sandbox-firejail-arg)
+      (--sanebox-firejail-arg)
         local fjFlag="$1"
         shift
         firejailFlags+=("$fjFlag")
         ;;
-      (--sane-sandbox-bwrap-arg)
+      (--sanebox-bwrap-arg)
         local bwrapFlag="$1"
         shift
         bwrapFlags+=("$bwrapFlag")
         ;;
-      (--sane-sandbox-net)
+      (--sanebox-net)
         net="$1"
         shift
         ;;
-      (--sane-sandbox-keep-namespace)
+      (--sanebox-keep-namespace)
         local namespace="$1"
         shift
         if [ "$namespace" = all ]; then
@@ -542,29 +542,29 @@ parseArgs() {
           keepNamespace+=("$namespace")
         fi
         ;;
-      (--sane-sandbox-path)
+      (--sanebox-path)
         local path="$1"
         shift
         relativeToPwd _absPath "$path"
         paths+=("$_absPath")
         ;;
-      (--sane-sandbox-add-pwd)
+      (--sanebox-add-pwd)
         paths+=("$PWD")
         ;;
-      (--sane-sandbox-profile)
+      (--sanebox-profile)
         # load the profile *immediately*, inline.
         # this way, user arguments which come later on the CLI can override any profile config, v.s. if profile loading were defered.
         tryLoadProfileByName "$1"
         shift
         ;;
-      (--sane-sandbox-profile-dir)
+      (--sanebox-profile-dir)
         # add another directory in which to search for profiles,
         # and give it *greater* precedence than the existing search directories (i.e. override the default profile)
         local dir="$1"
         shift
         profileDirs=("$dir" "${profileDirs[@]}")
         ;;
-      (--sane-sandbox-cache-symlink)
+      (--sanebox-cache-symlink)
         local from="$1"
         shift
         local to="$1"
@@ -952,14 +952,14 @@ removeSubpaths() {
 
 ### parse arguments, with consideration of any which may be injected via the environment
 parseArgsAndEnvironment() {
-  if [ -n "$SANE_SANDBOX_DISABLE" ]; then
+  if [ -n "$SANEBOX_DISABLE" ]; then
     isDisable=1
   fi
 
-  test -n "$SANE_SANDBOX_PREPEND" && parseArgs $SANE_SANDBOX_PREPEND
+  test -n "$SANEBOX_PREPEND" && parseArgs $SANEBOX_PREPEND
   parseArgs "$@"
   cliArgs+=("${parseArgsExtra[@]}")
-  test -n "$SANE_SANDBOX_APPEND" && parseArgs $SANE_SANDBOX_APPEND
+  test -n "$SANEBOX_APPEND" && parseArgs $SANEBOX_APPEND
 }
 
 ### convert generic args into sandbox-specific args
@@ -998,13 +998,13 @@ initDefaultProfileDirs
 parseArgsAndEnvironment "$@"
 
 # variables meant to be inherited
-# N.B.: SANE_SANDBOX_DEBUG FREQUENTLY BREAKS APPLICATIONS WHICH PARSE STDOUT
+# N.B.: SANEBOX_DEBUG FREQUENTLY BREAKS APPLICATIONS WHICH PARSE STDOUT
 # example is wireshark parsing stdout of dumpcap;
-# in such a case invoke the app with --sane-sandbox-debug instead of the env var.
-export SANE_SANDBOX_DEBUG="$SANE_SANDBOX_DEBUG"
-export SANE_SANDBOX_DISABLE="$SANE_SANDBOX_DISABLE"
-export SANE_SANDBOX_PREPEND="$SANE_SANDBOX_PREPEND"
-export SANE_SANDBOX_APPEND="$SANE_SANDBOX_APPEND"
+# in such a case invoke the app with --sanebox-debug instead of the env var.
+export SANEBOX_DEBUG="$SANEBOX_DEBUG"
+export SANEBOX_DISABLE="$SANEBOX_DISABLE"
+export SANEBOX_PREPEND="$SANEBOX_PREPEND"
+export SANEBOX_APPEND="$SANEBOX_APPEND"
 
 if [ -z "$isDisable" ]; then
   # method-specific setup could add additional paths that need binding, so do that before canonicalization

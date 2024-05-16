@@ -113,7 +113,7 @@ in
       "/mnt/servo/playground"
     ];
     sandbox.extraConfig = [
-      "--sane-sandbox-keep-namespace" "pid"  # for sane-open to toggle keyboard
+      "--sanebox-keep-namespace" "pid"  # for sane-open to toggle keyboard
     ];
 
     fs.".config/rofi/config.rasi".symlink.target = ./config.rasi;

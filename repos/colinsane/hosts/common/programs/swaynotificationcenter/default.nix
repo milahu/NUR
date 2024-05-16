@@ -109,7 +109,7 @@ in
     ];
     sandbox.extraConfig = [
       # systemctl calls seem to require same pid namespace
-      "--sane-sandbox-keep-namespace" "pid"
+      "--sanebox-keep-namespace" "pid"
     ];
 
     # glib/gio applications support many notification backends ("portal", "gtk", "freedesktop", ...).

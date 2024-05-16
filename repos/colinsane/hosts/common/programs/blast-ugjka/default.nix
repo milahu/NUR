@@ -42,7 +42,7 @@ in
     sandbox.extraConfig = [
       # else it fails to reap its children (or, maybe, it fails to hook its parent's death signal?)
       # might be possible to remove this, but kinda hard to see a clean way.
-      "--sane-sandbox-keep-namespace" "pid"
+      "--sanebox-keep-namespace" "pid"
     ];
     suggestedPrograms = [ "blast-ugjka" "sane-die-with-parent" ];
   };

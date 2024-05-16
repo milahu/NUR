@@ -389,7 +389,7 @@ in
 
     forkstat.sandbox.method = "landlock";  #< doesn't seem to support bwrap
     forkstat.sandbox.extraConfig = [
-      "--sane-sandbox-keep-namespace" "pid"
+      "--sanebox-keep-namespace" "pid"
     ];
     forkstat.sandbox.extraPaths = [
       "/proc"
@@ -744,7 +744,7 @@ in
     # procps: free, pgrep, pidof, pkill, ps, pwait, top, uptime, couple others
     procps.sandbox.method = "bwrap";
     procps.sandbox.extraConfig = [
-      "--sane-sandbox-keep-namespace" "pid"
+      "--sanebox-keep-namespace" "pid"
     ];
 
     pstree.sandbox.method = "landlock";

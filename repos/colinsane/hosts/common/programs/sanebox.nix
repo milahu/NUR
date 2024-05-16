@@ -3,8 +3,8 @@ let
   cfg = config.sane.programs;
 in
 {
-  sane.programs.sane-sandboxed = {
-    packageUnwrapped = pkgs.sane-sandboxed.override {
+  sane.programs.sanebox = {
+    packageUnwrapped = pkgs.sanebox.override {
       bubblewrap = cfg.bubblewrap.package;
       firejail = cfg.firejail.package;
       landlock-sandboxer = pkgs.landlock-sandboxer.override {

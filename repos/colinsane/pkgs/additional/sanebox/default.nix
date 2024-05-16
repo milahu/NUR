@@ -5,26 +5,26 @@
 , landlock-sandboxer
 , libcap
 , substituteAll
-, profileDir ? "/share/sane-sandboxed/profiles"
+, profileDir ? "/share/sanebox/profiles"
 }:
 
 let
-  sane-sandboxed = substituteAll {
-    src = ./sane-sandboxed;
+  sanebox = substituteAll {
+    src = ./sanebox;
     inherit bash bubblewrap firejail libcap;
     landlockSandboxer = landlock-sandboxer;
     firejailProfileDirs = "/run/current-system/sw/etc/firejail /etc/firejail ${firejail}/etc/firejail";
   };
   self = stdenv.mkDerivation {
-    pname = "sane-sandboxed";
+    pname = "sanebox";
     version = "0.1";
 
-    src = sane-sandboxed;
+    src = sanebox;
     dontUnpack = true;
 
     buildPhase = ''
       runHook preBuild
-      substituteAll "$src" sane-sandboxed \
+      substituteAll "$src" sanebox \
         --replace-fail '@out@' "$out"
       runHook postBuild
     '';
@@ -33,7 +33,7 @@ let
       runHook preInstall
       install -d "$out"
       install -d "$out/bin"
-      install -m 755 sane-sandboxed $out/bin/sane-sandboxed
+      install -m 755 sanebox $out/bin/sanebox
       runHook postInstall
     '';
 
@@ -42,7 +42,7 @@ let
       withProfiles = profiles: self.overrideAttrs (base: {
         inherit profiles;
         postInstall = (base.postInstall or "") + ''
-          install -d $out/share/sane-sandboxed
+          install -d $out/share/sanebox
           ln -s "${profiles}/${profileDir}" "$out/${profileDir}"
         '';
       });
@@ -55,7 +55,7 @@ let
         1. to abstract over the particular sandbox implementation (bwrap, firejail, ...).
         2. to modify sandbox settings without forcing a rebuild of the sandboxed package.
       '';
-      mainProgram = "sane-sandboxed";
+      mainProgram = "sanebox";
     };
   };
 in self

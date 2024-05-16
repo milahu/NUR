@@ -14,44 +14,44 @@
 }:
 let
   allowPath = p: [
-    "--sane-sandbox-path"
+    "--sanebox-path"
     p
   ];
   allowPaths = paths: lib.flatten (builtins.map allowPath paths);
 
   cacheLink = from: to: [
-    "--sane-sandbox-cache-symlink"
+    "--sanebox-cache-symlink"
     from
     to
   ];
   cacheLinks = links: lib.flatten (lib.mapAttrsToList cacheLink links);
 
-  capabilityFlags = lib.flatten (builtins.map (c: [ "--sane-sandbox-cap" c ]) capabilities);
+  capabilityFlags = lib.flatten (builtins.map (c: [ "--sanebox-cap" c ]) capabilities);
 
   netItems = lib.optionals (netDev != null) [
-    "--sane-sandbox-net"
+    "--sanebox-net"
     netDev
   ] ++ lib.optionals (dns != null) (
     lib.flatten (builtins.map
-      (addr: [ "--sane-sandbox-dns" addr ])
+      (addr: [ "--sanebox-dns" addr ])
       dns
     )
   );
 
   sandboxFlags = [
-    "--sane-sandbox-method" method
+    "--sanebox-method" method
   ]
     ++ netItems
     ++ allowPaths allowedPaths
     ++ capabilityFlags
-    ++ lib.optionals (autodetectCliPaths != null) [ "--sane-sandbox-autodetect" autodetectCliPaths ]
-    ++ lib.optionals whitelistPwd [ "--sane-sandbox-add-pwd" ]
+    ++ lib.optionals (autodetectCliPaths != null) [ "--sanebox-autodetect" autodetectCliPaths ]
+    ++ lib.optionals whitelistPwd [ "--sanebox-add-pwd" ]
     ++ cacheLinks symlinkCache
     ++ extraConfig;
 
 in
   writeTextFile {
     name = "${pkgName}-sandbox-profiles";
-    destination = "/share/sane-sandboxed/profiles/${pkgName}.profile";
+    destination = "/share/sanebox/profiles/${pkgName}.profile";
     text = builtins.concatStringsSep "\n" sandboxFlags;
   }

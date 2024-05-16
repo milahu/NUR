@@ -41,7 +41,7 @@ let
     else
       let
         makeProfile = pkgs.callPackage ./make-sandbox-profile.nix { };
-        makeSandboxed = pkgs.callPackage ./make-sandboxed.nix { sane-sandboxed = config.sane.programs.sane-sandboxed.package; };
+        makeSandboxed = pkgs.callPackage ./make-sandboxed.nix { sanebox = config.sane.programs.sanebox.package; };
 
         # derefSymlinks: [ str ] -> [ str ]: for each path which is a symlink (or a child of a symlink'd dir), dereference one layer of symlink. else, return the path unchanged.
         derefSymlinks = paths: builtins.map (fs-lib.derefSymlink config.sane.fs) paths;
@@ -84,11 +84,12 @@ let
             "/etc"  #< especially for /etc/profiles/per-user/$USER/bin
             "/run/current-system"  #< for basics like `ls`, and all this program's `suggestedPrograms` (/run/current-system/sw/bin)
             "/run/wrappers"  #< SUID wrappers, in this case so that firejail can be re-entrant. TODO: remove!
-            # "/run/systemd/resolve"  #< to allow reading /etc/resolv.conf, which ultimately symlinks here (if using systemd-resolved)
             # /run/opengl-driver is a symlink into /nix/store; needed by e.g. mpv
             "/run/opengl-driver"
             "/run/opengl-driver-32"  #< XXX: doesn't exist on aarch64?
             "/usr/bin/env"
+          ] ++ lib.optionals (config.services.resolved.enable) [
+            "/run/systemd/resolve"  #< to allow reading /etc/resolv.conf, which ultimately symlinks here (if using systemd-resolved)
           ] ++ lib.optionals (builtins.elem "system" sandbox.whitelistDbus) [ "/run/dbus/system_bus_socket" ]
             ++ sandbox.extraPaths ++ fullHomePaths ++ fullRuntimePaths;
         in makeProfile {
@@ -159,7 +160,7 @@ let
               # useful to iterate a package's sandbox config without redeploying.
               embedSandboxer = true;
               extraSandboxerArgs = [
-                "--sane-sandbox-profile-dir" "${defaultProfile}/share/sane-sandboxed/profiles"
+                "--sanebox-profile-dir" "${defaultProfile}/share/sanebox/profiles"
               ];
             });
             withEmbeddedSandboxerOnly = makeSandboxed (makeSandboxedArgs // {
@@ -466,9 +467,9 @@ let
         description = ''
           extra arguments to pass to the sandbox wrapper.
           example: [
-            "--sane-sandbox-firejail-arg"
+            "--sanebox-firejail-arg"
             "--whitelist=''${HOME}/.ssh"
-            "--sane-sandbox-firejail-arg"
+            "--sanebox-firejail-arg"
             "--keep-dev-shm"
           ]
         '';
@@ -530,7 +531,7 @@ let
         ++ lib.optionals config.sandbox.whitelistS6 [ "s6" ]  # TODO: this allows re-writing the services themselves: don't allow that!
       ;
       sandbox.extraConfig = lib.mkIf config.sandbox.usePortal [
-        "--sane-sandbox-portal"
+        "--sanebox-portal"
       ];
     };
   });
@@ -666,8 +667,8 @@ in
     in lib.mkMerge [
       (take (sane-lib.mkTypedMerge take configs))
       {
-        environment.pathsToLink = [ "/share/sane-sandboxed" ];
-        sane.programs.sane-sandboxed.enableFor.system = true;
+        environment.pathsToLink = [ "/share/sanebox" ];
+        sane.programs.sanebox.enableFor.system = true;
         # expose the pkgs -- as available to the system -- as a build target.
         system.build.pkgs = pkgs;
       }

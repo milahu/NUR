@@ -66,12 +66,19 @@ in
       # - `none`: NM won't update /etc/resolv.conf
       # - `systemd-resolved`: push DNS config to systemd-resolved
       # - `dnsmasq`: run a local caching nameserver
-      dns=none
+      dns=${if config.services.resolved.enable then
+        "systemd-resolved"
+      else if config.sane.services.trust-dns.enable && config.sane.services.trust-dns.asSystemResolver then
+        "none"
+      else
+        "internal"
+      }
       plugins=keyfile
       # rc-manager: how NM should write to /etc/resolv.conf
-      # - may also write /var/lib/NetworkManager/resolv.conf
+      # - regardless of this setting, NM will write /var/lib/NetworkManager/resolv.conf
       rc-manager=unmanaged
       # systemd-resolved: send DNS config to systemd-resolved?
+      # this setting has no effect if dns="systemd-resolved"; it's supplementary, not absolute.
       systemd-resolved=false
       # debug=...  (see also: NM_DEBUG env var)
     '';

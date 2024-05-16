@@ -97,7 +97,7 @@ vpnDo() {
   debug "vpnDo with:"
   debug "  bridgeDevice='$bridgeDevice'"
   debug "  dns='$dns'"
-  # TODO: switch to bwrap, or `sane-sandboxed`!
+  # TODO: switch to bwrap, or `sanebox`!
   firejail --noprofile --net="$bridgeDevice" --dns="$dns" "$@"
 }
 
