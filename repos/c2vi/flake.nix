@@ -422,6 +422,7 @@
       #});
 
 			cbm = nixpkgs.legacyPackages.x86_64-linux.callPackage ./mods/cbm.nix { };
+			mac-telnet = nixpkgs.legacyPackages.x86_64-linux.callPackage ./mods/mac-telnet.nix { };
 			run-vm = specialArgs.pkgs.writeScriptBin "run-vm" ''
 				${self.nixosConfigurations.hpm.config.system.build.vm}/bin/run-hpm-vm -m 4G -cpu host -smp 4
         '';
