@@ -1,0 +1,62 @@
+error:
+… from call site
+
+  at ./default.nix:33:10:
+
+    32|
+    33|   kwok = pkgs.callPackage ./pkgs/kwok/default.nix {
+      |          ^
+    34|     inherit sources;
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:212:35:
+
+   211|   */
+   212|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   213|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:895:7:
+
+   894|     { # TODO: Should we add call-time "type" checking like built in?
+   895|       __functor = self: f;
+      |       ^
+   896|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:136:17:
+
+   135|     in
+   136|     mirrorArgs (origArgs:
+      |                 ^
+   137|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:138:16:
+
+   137|     let
+   138|       result = f origArgs;
+      |                ^
+   139|
+
+… while calling anonymous lambda
+
+  at ./pkgs/kwok/default.nix:1:1:
+
+     1| { pkgs ? (
+      | ^
+     2|     let
+
+error: attribute 'buildGoApplication' missing
+
+at ./pkgs/kwok/default.nix:12:24:
+
+    11|   )
+    12| , buildGoApplication ? pkgs.buildGoApplication
+      |                        ^
+    13| , sources ? pkgs.callPackage ../../_sources/generated.nix {}
