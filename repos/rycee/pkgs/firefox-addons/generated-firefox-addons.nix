@@ -68,10 +68,10 @@
     };
     "adblocker-ultimate" = buildFirefoxXpiAddon {
       pname = "adblocker-ultimate";
-      version = "3.8.21";
+      version = "3.8.25";
       addonId = "adblockultimate@adblockultimate.net";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4236795/adblocker_ultimate-3.8.21.xpi";
-      sha256 = "6de30ea68d966d6fb6c388aa6bbe8ea6c16c7f0a7d6339ea00c50e3e4999ce89";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4283621/adblocker_ultimate-3.8.25.xpi";
+      sha256 = "374e082dd1bdf6abdd09ae3e6efe461ccc230759095586bcaac7d9ba91ebf2a4";
       meta = with lib;
       {
         homepage = "https://adblockultimate.net";
@@ -2578,10 +2578,10 @@
     };
     "floccus" = buildFirefoxXpiAddon {
       pname = "floccus";
-      version = "5.1.1";
+      version = "5.1.2.1";
       addonId = "floccus@handmadeideas.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4285060/floccus-5.1.1.xpi";
-      sha256 = "b32e76d33dd03454134e95495754158cf22974c674315dc2462024f97c27b850";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4286809/floccus-5.1.2.1.xpi";
+      sha256 = "884ea26719f150299bb5f2a7adba00424d1db8e2d44ccdcdd0d149bd292a537c";
       meta = with lib;
       {
         homepage = "https://floccus.org";
@@ -2862,10 +2862,10 @@
     };
     "ghostery" = buildFirefoxXpiAddon {
       pname = "ghostery";
-      version = "8.12.9";
+      version = "8.12.10";
       addonId = "firefox@ghostery.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4264747/ghostery-8.12.9.xpi";
-      sha256 = "270f168e645bdcca96f6d3c6e2a3a9055758ae8103dd6fac45cf4eeac8e618ff";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4283747/ghostery-8.12.10.xpi";
+      sha256 = "29247d3526fa0c21c8389655555a71e5f66955133501c5f4c492d724cabedfc8";
       meta = with lib;
       {
         homepage = "http://www.ghostery.com/";
@@ -4693,10 +4693,10 @@
     };
     "immersive-translate" = buildFirefoxXpiAddon {
       pname = "immersive-translate";
-      version = "1.5.1";
+      version = "1.5.2";
       addonId = "{5efceaa7-f3a2-4e59-a54b-85319448e305}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4280246/immersive_translate-1.5.1.xpi";
-      sha256 = "02a54aadd2ec24844f57a0478b2947ef5b73f0f4fa591ed7b16e74439bb02793";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4284465/immersive_translate-1.5.2.xpi";
+      sha256 = "cacdc59e04ef3675242566d663ec2dec516e4ba78f0730bb2871c56c6d4ff962";
       meta = with lib;
       {
         homepage = "https://immersivetranslate.com";
@@ -8388,10 +8388,10 @@
     };
     "pronoundb" = buildFirefoxXpiAddon {
       pname = "pronoundb";
-      version = "0.14.4";
+      version = "0.14.5";
       addonId = "firefox-addon@pronoundb.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4265542/pronoundb-0.14.4.xpi";
-      sha256 = "a8841abca87356def610defece4a5cc236b9660fc3da69fa7cf3ff281409e4be";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4286934/pronoundb-0.14.5.xpi";
+      sha256 = "db1d30550fb5cb27502d09e971b2c1e234167f6e0ad9aeb15ec78efb59c0a8d3";
       meta = with lib;
       {
         homepage = "https://pronoundb.org";
@@ -8400,11 +8400,13 @@
         mozPermissions = [
           "activeTab"
           "storage"
+          "https://*.pronoundb.org/*"
           "https://*.discord.com/*"
           "https://*.github.com/*"
           "https://*.modrinth.com/*"
           "https://*.twitch.tv/*"
           "https://*.twitter.com/*"
+          "https://*.x.com/*"
         ];
         platforms = platforms.all;
       };
@@ -9349,10 +9351,10 @@
     };
     "snowflake" = buildFirefoxXpiAddon {
       pname = "snowflake";
-      version = "0.8.1";
+      version = "0.8.2";
       addonId = "{b11bea1f-a888-4332-8d8a-cec2be7d24b9}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4270088/torproject_snowflake-0.8.1.xpi";
-      sha256 = "3cc8974834ecc2a3e5a5b26eb6aa2634187f4b7386694d50bec2b9f825ab87af";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4285140/torproject_snowflake-0.8.2.xpi";
+      sha256 = "ae6982633927fca270b6c44939cee62c1fee17e0a20104f5a0e3e4967e1a6031";
       meta = with lib;
       {
         homepage = "https://snowflake.torproject.org/";
