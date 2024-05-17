@@ -1426,10 +1426,10 @@
     };
     "competitive-companion" = buildFirefoxXpiAddon {
       pname = "competitive-companion";
-      version = "2.52.0";
+      version = "2.52.1";
       addonId = "{74e326aa-c645-4495-9287-b6febc5565a7}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4261954/competitive_companion-2.52.0.xpi";
-      sha256 = "26b4752872310c13e02631f671dd023b7d0348ee9db62c132d3d965a39835736";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4287624/competitive_companion-2.52.1.xpi";
+      sha256 = "04f5e8a8b36478d9315892bba70875dea9e02868fdaf9f08c9c28e550015d765";
       meta = with lib;
       {
         homepage = "https://github.com/jmerle/competitive-companion";
@@ -1527,10 +1527,10 @@
     };
     "control-panel-for-twitter" = buildFirefoxXpiAddon {
       pname = "control-panel-for-twitter";
-      version = "3.24.0";
+      version = "4.0.0";
       addonId = "{5cce4ab5-3d47-41b9-af5e-8203eea05245}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4261485/control_panel_for_twitter-3.24.0.xpi";
-      sha256 = "d4595f71e21f3911a0babcfa287be084dac0e6ea742991b05b3c318669b68368";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4287043/control_panel_for_twitter-4.0.0.xpi";
+      sha256 = "43be61888f41e403601161b9061b338c6df720b2a4578861c39d4045a3d2de49";
       meta = with lib;
       {
         homepage = "https://github.com/insin/control-panel-for-twitter";
@@ -1540,6 +1540,8 @@
           "storage"
           "https://twitter.com/*"
           "https://mobile.twitter.com/*"
+          "https://x.com/*"
+          "https://mobile.x.com/*"
         ];
         platforms = platforms.all;
       };
@@ -1774,10 +1776,10 @@
     };
     "dashlane" = buildFirefoxXpiAddon {
       pname = "dashlane";
-      version = "6.2417.2";
+      version = "6.2420.0";
       addonId = "jetpack-extension@dashlane.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4268423/dashlane-6.2417.2.xpi";
-      sha256 = "bf452715825ee52a91b835ee27e22c0d098a9d7bc7515f8fb0c09bfb3da4a17b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4286016/dashlane-6.2420.0.xpi";
+      sha256 = "696d031970a082b87cb5e02802df68ae62658e1d6db7a3a800f5bd5bbcad2a3a";
       meta = with lib;
       {
         homepage = "https://www.dashlane.com";
@@ -1855,10 +1857,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "127.0.20240513.155137";
+      version = "127.0.20240515.91746";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4286253/deutsch_de_language_pack-127.0.20240513.155137.xpi";
-      sha256 = "2189128ea49e1d3283e317aeaec30a4fa7f9fc8fb5496ec2ecbd13d1282547ad";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4287231/deutsch_de_language_pack-127.0.20240515.91746.xpi";
+      sha256 = "92cbb53e46caeac4e14b58c2f5a079948f29ffd33d04ac87738a232e530e697a";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -2051,10 +2053,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.36.0";
+      version = "2.36.1";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4286541/dualsub-2.36.0.xpi";
-      sha256 = "089a410713ac5e30a1db6aff6b651f9b5d8abeb72195ac6c0b382d028470b278";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4287132/dualsub-2.36.1.xpi";
+      sha256 = "a132abcc3f42ced2b37cbdf30e0c5e2d5e3a9cc327b790ea339f37d3c1985792";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -2805,10 +2807,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "127.0.20240513.155137";
+      version = "127.0.20240515.91746";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4286296/francais_language_pack-127.0.20240513.155137.xpi";
-      sha256 = "3843d7f6d848577f56f263b4538852ecd327e241b8233c76436433a34ff047dd";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4287285/francais_language_pack-127.0.20240515.91746.xpi";
+      sha256 = "a013be956eadfce4429ecaff6b466c6eee7ce199145a1bf6d6e2cd9487326851";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -8621,10 +8623,10 @@
     };
     "re-enable-right-click" = buildFirefoxXpiAddon {
       pname = "re-enable-right-click";
-      version = "0.5.5";
+      version = "0.5.6";
       addonId = "{278b0ae0-da9d-4cc6-be81-5aa7f3202672}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4235187/re_enable_right_click-0.5.5.xpi";
-      sha256 = "d6ded992a5fabc546c3c3d718d3daf4c2fc1408baa122ef3f9a964b39c6e451a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4286059/re_enable_right_click-0.5.6.xpi";
+      sha256 = "d1238d7e3b1795256bc76084950a7591f13f55432f7d0cddf2137185fe49b2e3";
       meta = with lib;
       {
         homepage = "http://add0n.com/allow-right-click.html";
@@ -9218,21 +9220,21 @@
     };
     "simple-translate" = buildFirefoxXpiAddon {
       pname = "simple-translate";
-      version = "2.8.2";
+      version = "3.0.0";
       addonId = "simple-translate@sienori";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4165189/simple_translate-2.8.2.xpi";
-      sha256 = "8e8c3af0ffadfd3ff9928355e7be2292befe6c4f0e483f7c37c2d9a34a54f345";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4286113/simple_translate-3.0.0.xpi";
+      sha256 = "c9e36d1d8e32a223da367bdc83133f2436103eb5f16460c7cce2096376e78b68";
       meta = with lib;
       {
         homepage = "https://simple-translate.sienori.com";
         description = "Quickly translate selected or typed text on web pages. Supports Google Translate and DeepL API.";
         license = licenses.mpl20;
         mozPermissions = [
-          "<all_urls>"
           "storage"
           "contextMenus"
           "http://*/*"
           "https://*/*"
+          "<all_urls>"
         ];
         platforms = platforms.all;
       };
@@ -10420,10 +10422,10 @@
     };
     "tubearchivist-companion" = buildFirefoxXpiAddon {
       pname = "tubearchivist-companion";
-      version = "0.3.0";
+      version = "0.3.1";
       addonId = "{08f0f80f-2b26-4809-9267-287a5bdda2da}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4285447/tubearchivist_companion-0.3.0.xpi";
-      sha256 = "92a0f56294375e96a2b2c97b3a5f6b8ec65ff0dbaddcdbb7e1ff433a6b188b5b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4287554/tubearchivist_companion-0.3.1.xpi";
+      sha256 = "8a94d136013a0f4d886179b2eec560195b6610b5ae4f8e4035f63f31d97b2951";
       meta = with lib;
       {
         homepage = "https://github.com/tubearchivist/browser-extension";
