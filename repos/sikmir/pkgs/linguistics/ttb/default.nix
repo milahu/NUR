@@ -25,5 +25,6 @@ rustPlatform.buildRustPackage rec {
     license = licenses.free;
     maintainers = [ maintainers.sikmir ];
     mainProgram = "ttb";
+    broken = true;
   };
 }

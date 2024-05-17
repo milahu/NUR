@@ -12,6 +12,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   postPatch = ''
+    patchShebangs tools
     substituteInPlace Makefile \
       --replace-warn "MAKEFLAGS" "#MAKEFLAGS" \
       --replace-warn " clang " " \$(CC) "

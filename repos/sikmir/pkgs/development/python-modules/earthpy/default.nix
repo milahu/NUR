@@ -2,13 +2,13 @@
 
 python3Packages.buildPythonPackage rec {
   pname = "earthpy";
-  version = "0.9.2";
+  version = "0.9.4";
 
   src = fetchFromGitHub {
     owner = "earthlab";
     repo = "earthpy";
     rev = "v${version}";
-    hash = "sha256-LMKExIyhtI+gqcxBxhBPWKMyMHr/mJEJwQRSlNUXQP8=";
+    hash = "sha256-MCyeFXtjOqnVarSUk7Z/+Y5oNhYLlxznjWHQOCgUOIc=";
   };
 
   propagatedBuildInputs = with python3Packages; [

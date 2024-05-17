@@ -22,6 +22,8 @@ rustPlatform.buildRustPackage rec {
 
   buildInputs = lib.optional stdenv.isDarwin darwin.apple_sdk.frameworks.SystemConfiguration;
 
+  cargoBuildFlags = [ "--package" "bbox-server" "--package" "bbox-tile-server" ];
+
   meta = with lib; {
     description = "BBOX services";
     inherit (src.meta) homepage;
