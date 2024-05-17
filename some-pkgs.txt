@@ -1,18 +1,18 @@
 error:
-… while evaluating the file '/tmp/nur-update/default.nix':
+… while evaluating the file './default.nix':
 
 … from call site
 
-  at /tmp/nur-update/default.nix:3:21:
+  at ./default.nix:3:21:
 
      2|                     with import <nixpkgs> {};
-     3|                     import /tmp/nur-update/evalRepo.nix {
+     3|                     import ./evalRepo.nix {
       |                     ^
      4|                         name = "some-pkgs";
 
 … while calling anonymous lambda
 
-  at /tmp/nur-update/evalRepo.nix:1:1:
+  at ./evalRepo.nix:1:1:
 
      1| { name
       | ^
@@ -20,7 +20,7 @@ error:
 
 … from call site
 
-  at /tmp/nur-update/evalRepo.nix:33:11:
+  at ./evalRepo.nix:33:11:
 
     32|     might result in infinite recursion when used with NixOS modules.
     33|   '' else expr (builtins.intersectAttrs args passedArgs)
@@ -29,7 +29,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/default.nix:2:1:
+  at ./default.nix:2:1:
 
      1| # Use pkgs provided by NUR
      2| { pkgs ? import <nixpkgs> { } }:
@@ -38,7 +38,7 @@ error:
 
 … from call site
 
-  at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/flake.nix:57:18:
+  at ./flake.nix:57:18:
 
     56|
     57|       newAttrs = forAllSystems (system:
@@ -47,7 +47,7 @@ error:
 
 … while calling 'forAllSystems'
 
-  at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/flake.nix:26:23:
+  at ./flake.nix:26:23:
 
     25|         ];
     26|       forAllSystems = f: lib.genAttrs systems (system: f system);
@@ -56,7 +56,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/compat.nix:179:25:
+  at ./compat.nix:179:25:
 
    178|           inputs = builtins.mapAttrs
    179|             (inputName: inputSpec: allNodes.${resolveInput inputSpec})
@@ -65,7 +65,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/3alldgsr7258gr3d3phpxwcp2q96vr8s-source/compat.nix:165:13:
+  at ./compat.nix:165:13:
 
    164|     builtins.mapAttrs
    165|       (key: node:
