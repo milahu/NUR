@@ -10,13 +10,13 @@
 
 stdenv.mkDerivation (final: rec {
   pname = "bip39";
-  version = "0.2.0";
+  version = "0.2.1";
 
   src = fetchFromGitHub {
     owner = "kugland";
     repo = "bip39";
     rev = "v${version}";
-    hash = "sha256-FIa1/3s1Hwunyi7YkYIM3ObeBG4YD/pX4usoo2OV60I=";
+    hash = "sha256-CMKexq0xkAWHQ1KJnXyQxbVQHDAc6Oql73eQ4IAviCE=";
   };
 
   nativeBuildInputs = [ pkg-config meson ninja ];
@@ -30,6 +30,6 @@ stdenv.mkDerivation (final: rec {
     homepage = "";
     license = licenses.mit;
     platforms = platforms.unix;
-    maintainers = with maintainers; [ kugland ];
+    maintainers = with maintainers; [ ];
   };
 })
