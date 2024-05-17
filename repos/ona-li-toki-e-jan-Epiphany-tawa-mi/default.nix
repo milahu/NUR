@@ -20,4 +20,7 @@
   bitmasher        = pkgs.callPackage ./pkgs/bitmasher        {};
   cowsaypl         = pkgs.callPackage ./pkgs/cowsaypl         {};
   ahd              = pkgs.callPackage ./pkgs/ahd              {};
+
+  # Others' software.
+  tube = pkgs.callPackage ./pkgs/tube {};
 }
