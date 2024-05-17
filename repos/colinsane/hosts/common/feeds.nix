@@ -244,6 +244,7 @@ let
   images = [
     (fromDb "catandgirl.com" // img // humor)
     (fromDb "davidrevoy.com" // img // art)
+    (fromDb "grumpy.website" // img // humor)
     (fromDb "miniature-calendar.com" // img // art // daily)
     (fromDb "pbfcomics.com" // img // humor)
     (fromDb "poorlydrawnlines.com/feed" // img // humor)

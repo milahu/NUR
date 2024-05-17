@@ -32,7 +32,6 @@ fi
 
 ## MUTABLE GLOBAL VARIABLES AND HELPER FUNCTIONS
 
-profileDirs=()
 # isDisable: set non-empty to invoke the binary without any sandboxing
 isDisable=
 # isDryRun: don't actually execute the program or sandbox: just print the command which would be run (and which the user may run from their own shell)
@@ -76,8 +75,6 @@ net=
 dns=()
 # list of `VAR=VALUE` environment variables to add to the sandboxed program's environment
 portalEnv=()
-# profilesNamed: list of profile names we've successfully loaded
-profilesNamed=()
 
 # arguments to forward onto a specific backend (if that backend is active)
 firejailFlags=()
@@ -119,13 +116,13 @@ usage() {
   echo '      do not unshare the provided linux namespace'
   echo '  --sanebox-path <path>'
   echo '      allow access to the host <path> within the sandbox'
+  echo '      path is interpreted relative to the working directory if not absolute'
+  echo '  --sanebox-home-path <path>'
+  echo '      allow access to the host <path>, relative to HOME'
+  echo '  --sanebox-run-path <path>'
+  echo '      allow access to the host <path>, relative to XDG_RUNTIME_DIR'
   echo '  --sanebox-add-pwd'
   echo '      shorthand for `--sanebox-path $PWD`'
-  echo '  --sanebox-profile <profile>'
-  echo '  --sanebox-profile-dir <dir>'
-  echo '  --sanebox-cache-symlink <from> <to>'
-  echo '      assume that <from> is a symlink to <to>'
-  echo '      performance optimization to avoid spawning a readlink subshell'
   echo
   echo 'the following environment variables are also considered and propagated to children:'
   echo '  SANEBOX_DISABLE=1'
@@ -341,41 +338,6 @@ derefOnce() {
 
 ## HELPERS
 
-loadProfileByPath() {
-  # profile format is simply a list of arguments one would pass to this sanebox script itself,
-  # with one argument per line
-  readarray -t _profArgs < "$1"
-  parseArgs "${_profArgs[@]}"
-}
-
-tryLoadProfileByName() {
-  local profile="$1"
-  if [ "${profile:0:1}" = "/" ]; then
-    # absolute path to profile.
-    # consider it an error if it doesn't exist.
-    # in general, prefer to use `--sanebox-profile-dir` and specify the profile by name.
-    # doing so maximizes compatibility with anything else that uses the name, like firejail.
-    loadProfileByPath "$profile"
-  else
-    profilesNamed+=("$profile")
-
-    for profileDir in "${profileDirs[@]}"; do
-      local profilePath="$profileDir/$profile.profile"
-      debug "try profile at path: '$profilePath'"
-      if [ -f "$profilePath" ]; then
-        loadProfileByPath "$profilePath"
-        break
-      fi
-    done
-  fi
-}
-
-initDefaultProfileDirs() {
-  for d in ${XDG_DATA_DIRS//:/ }; do
-    profileDirs+=("$d/sanebox/profiles")
-  done
-}
-
 # subroutine of `tryArgAsPath` for after the arg has been converted into a valid (but possibly not existing) path.
 # adds an entry to `paths` and evals `true` on success;
 # evals `false` if the path couldn't be added, for any reason.
@@ -548,29 +510,18 @@ parseArgs() {
         relativeToPwd _absPath "$path"
         paths+=("$_absPath")
         ;;
+      (--sanebox-home-path)
+        local path="$1"
+        shift
+        paths+=("$HOME/$path")
+        ;;
+      (--sanebox-run-path)
+        local path="$1"
+        shift
+        paths+=("$XDG_RUNTIME_DIR/$path")
+        ;;
       (--sanebox-add-pwd)
         paths+=("$PWD")
-        ;;
-      (--sanebox-profile)
-        # load the profile *immediately*, inline.
-        # this way, user arguments which come later on the CLI can override any profile config, v.s. if profile loading were defered.
-        tryLoadProfileByName "$1"
-        shift
-        ;;
-      (--sanebox-profile-dir)
-        # add another directory in which to search for profiles,
-        # and give it *greater* precedence than the existing search directories (i.e. override the default profile)
-        local dir="$1"
-        shift
-        profileDirs=("$dir" "${profileDirs[@]}")
-        ;;
-      (--sanebox-cache-symlink)
-        local from="$1"
-        shift
-        local to="$1"
-        shift
-        relativeToPwd _absFrom "$from"
-        linkCache["$_absFrom"]="$to"
         ;;
       (*)
         parseArgsExtra+=("$arg")
@@ -581,9 +532,6 @@ parseArgs() {
 
 
 ## FIREJAIL BACKEND
-
-firejailName=
-firejailProfile=
 
 firejailSetup() {
   debug "firejailSetup: noop"
@@ -602,29 +550,8 @@ firejailIngestDns() {
 firejailIngestKeepNamespace() {
   debug "firejailIngestKeepNamespace: noop"
 }
-firejailIngestProfile() {
-  if [ -z "$firejailName" ]; then
-    firejailName="$1"
-  fi
-  if [ -z "$firejailProfile" ]; then
-    local fjProfileDirs=(@firejailProfileDirs@)
-    for fjProfileDir in "${fjProfileDirs[@]}"; do
-      local fjProfile="$fjProfileDir/$1.profile"
-      debug "try firejail profile at path: '$fjProfile'"
-      if [ -f "$fjProfile" ]; then
-        firejailProfile="$fjProfile"
-      fi
-    done
-  fi
-}
 
 firejailGetCli() {
-  if [ -n "$firejailName" ]; then
-    firejailFlags+=("--join-or-start=$firejailName")
-  fi
-  if [ -n "$firejailProfile" ]; then
-    firejailFlags+=("--profile=$firejailProfile")
-  fi
   locate _firejail "firejail" "@firejail@/bin/firejail"
   cliArgs=(
     "$_firejail" "${firejailFlags[@]}" --
@@ -705,9 +632,6 @@ bwrapIngestKeepNamespace() {
       ;;
   esac
 }
-bwrapIngestProfile() {
-  debug "bwrapIngestProfile: stubbed"
-}
 bwrapIngestCapability() {
   bwrapFlags+=("--cap-add" "cap_$1")
 }
@@ -781,9 +705,6 @@ landlockIngestNet() {
 landlockIngestKeepNamespace() {
   debug "landlockIngestKeepNamespace: noop"
 }
-landlockIngestProfile() {
-  debug "landlockIngestProfile: stubbed"
-}
 landlockIngestCapability() {
   capshonlyIngestCapability "$1"
 }
@@ -818,9 +739,6 @@ capshonlyIngestNet() {
 }
 capshonlyIngestKeepNamespace() {
   debug "capshonlyIngestKeepNamespace: noop"
-}
-capshonlyIngestProfile() {
-  debug "capshonlyIngestProfile: stubbed"
 }
 capshonlyIngestCapability() {
   # N.B. `capsh` parsing of `--caps=X` arg is idiosyncratic:
@@ -865,9 +783,6 @@ noneIngestNet() {
 noneIngestKeepNamespace() {
   :
 }
-noneIngestProfile() {
-  :
-}
 noneIngestCapability() {
   :
 }
@@ -877,6 +792,17 @@ noneGetCli() {
 
 
 ## ARGUMENT POST-PROCESSING
+
+loadLinkCache() {
+  # readarray -t: reads some file into an array; each line becomes one element
+  readarray -t _linkCacheArray < /etc/sanebox/symlink-cache
+  for link in "${_linkCacheArray[@]}"; do
+    # XXX: bash doesn't give a good way to escape the tab character, but that's what we're splitting on here.
+    local from="${link%%	*}"
+    local to="${link##*	}"
+    linkCache["$from"]="$to"
+  done
+}
 
 ### autodetect: if one of the CLI args looks like a path, that could be an input or output file
 #   so allow access to it.
@@ -963,7 +889,6 @@ parseArgsAndEnvironment() {
 }
 
 ### convert generic args into sandbox-specific args
-# order matters: for firejail, early args override the later --profile args
 ingestForBackend() {
   for path in "${paths[@]}"; do
     "$method"IngestPath "$path"
@@ -984,17 +909,12 @@ ingestForBackend() {
   for ns in "${keepNamespace[@]}"; do
     "$method"IngestKeepNamespace "$ns"
   done
-
-  for prof in "${profilesNamed[@]}"; do
-    "$method"IngestProfile "$prof"
-  done
 }
 
 
 ## TOPLEVEL EXECUTION
 #  no code evaluated before this point should be dependent on user args / environment.
 
-initDefaultProfileDirs
 parseArgsAndEnvironment "$@"
 
 # variables meant to be inherited
@@ -1007,6 +927,7 @@ export SANEBOX_PREPEND="$SANEBOX_PREPEND"
 export SANEBOX_APPEND="$SANEBOX_APPEND"
 
 if [ -z "$isDisable" ]; then
+  loadLinkCache
   # method-specific setup could add additional paths that need binding, so do that before canonicalization
   "$method"Setup
   maybeAutodetectPaths

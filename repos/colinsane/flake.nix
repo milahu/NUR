@@ -113,7 +113,6 @@
         modules = [
           {
             nixpkgs.buildPlatform.system = local;
-            # nixpkgs.config.replaceStdenv = { pkgs }: pkgs.ccacheStdenv;
           }
           (optionalAttrs (local != target) {
             # XXX(2023/12/11): cache.nixos.org uses `system = ...` instead of `hostPlatform.system`, and that choice impacts the closure of every package.
@@ -290,7 +289,7 @@
             # - sandbox friendliness (especially: `git` doesn't have to be run as root)
 
             if [ -n "$addr" ]; then
-              sudo nix store sign -r -k /run/secrets/nix_serve_privkey "$storePath"
+              sudo nix store sign -r -k /run/secrets/nix_signing_key "$storePath"
               # add more `-v` for more verbosity (up to 5).
               # builders-use-substitutes false: optimizes so that the remote machine doesn't try to get paths from its substituters.
               #   we already have all paths here, and the remote substitution is slow to check and SERIOUSLY flaky on moby in particular.

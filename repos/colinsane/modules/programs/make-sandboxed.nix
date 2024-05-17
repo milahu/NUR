@@ -79,7 +79,7 @@ let
           mv "$_dir/$_name" "$_dir/.sandboxed/"
         fi
         echo '#!${runtimeShell}' > "$_dir/$_name"
-        echo 'exec ${sanebox'} --sanebox-profile ${pkgName}' "$_dir/.sandboxed/$_name" '"$@"' >> "$_dir/$_name"
+        echo 'exec ${sanebox'}' ${extraSandboxArgsStr} "$_dir/.sandboxed/$_name" '"$@"' >> "$_dir/$_name"
         chmod +x "$_dir/$_name"
       }
 

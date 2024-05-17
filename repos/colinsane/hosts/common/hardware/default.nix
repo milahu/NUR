@@ -80,14 +80,12 @@
   # - query details with `sudo cpupower frequency-info`
   powerManagement.cpuFreqGovernor = "ondemand";
 
-  services.logind.extraConfig = ''
-    # see: `man logind.conf`
-    # don’t shutdown when power button is short-pressed (commonly done an accident, or by cats).
-    #   but do on long-press: useful to gracefully power-off server.
-    HandlePowerKey=lock
-    HandlePowerKeyLongPress=poweroff
-    HandleLidSwitch=lock
-  '';
+  # see: `man logind.conf`
+  # don’t shutdown when power button is short-pressed (commonly done an accident, or by cats).
+  #   but do on long-press: useful to gracefully power-off server.
+  services.logind.powerKey = "lock";
+  services.logind.powerKeyLongPress = "poweroff";
+  services.logind.lidSwitch = "lock";
 
   # services.snapper.configs = {
   #   root = {

@@ -2,8 +2,6 @@
 let
   saneCfg = config.sane;
   cfg = config.sane.programs;
-  fs-lib = sane-lib.fs;
-  path-lib = sane-lib.path;
 
   # create a map:
   # {
@@ -40,60 +38,31 @@ let
       package
     else
       let
-        makeProfile = pkgs.callPackage ./make-sandbox-profile.nix { };
+        makeSandboxArgs = pkgs.callPackage ./make-sandbox-args.nix { };
         makeSandboxed = pkgs.callPackage ./make-sandboxed.nix { sanebox = config.sane.programs.sanebox.package; };
-
-        # derefSymlinks: [ str ] -> [ str ]: for each path which is a symlink (or a child of a symlink'd dir), dereference one layer of symlink. else, return the path unchanged.
-        derefSymlinks = paths: builtins.map (fs-lib.derefSymlink config.sane.fs) paths;
-        # given some paths, walk all of these and keep only the paths/ancestors which are symlinks
-        keepOnlySymlinks = paths: lib.filter
-          (p: ((config.sane.fs."${builtins.unsafeDiscardStringContext p}" or {}).symlink or null) != null)
-          (lib.concatMap (p: path-lib.walk "/" p) paths)
-        ;
-        # expandSymlinksOnce: [ str ] -> [ str ]
-        #   dereference all the paths once, union with the original path set, and then filter out everything that's not a symlink.
-        expandSymlinksOnce = paths: keepOnlySymlinks (lib.unique (paths ++ derefSymlinks paths));
-        symlinksClosure = paths: lib.converge expandSymlinksOnce paths;
-
-        # symlinkToAttrs: [ str ] -> Attrs  such that `attrs."${symlink}" = symlinkTarget`.
-        symlinksToAttrs = paths: lib.genAttrs
-          paths
-          (p: config.sane.fs."${p}".symlink.target)
-        ;
 
         vpn = lib.findSingle (v: v.default) null null (builtins.attrValues config.sane.vpn);
 
-        sandboxProfilesFor = userName: let
-          homeDir = config.sane.users."${userName}".home;
-          uid = config.users.users."${userName}".uid;
-          xdgRuntimeDir = "/run/user/${builtins.toString uid}";
-          fullHomePaths = lib.optionals (userName != null) (
-            builtins.map
-              (p: path-lib.concat [ homeDir p ])
-              (builtins.attrNames fs ++ builtins.attrNames persist.byPath ++ sandbox.extraHomePaths)
-          );
-          fullRuntimePaths = lib.optionals (userName != null) (
-            builtins.map
-              (p: path-lib.concat [ xdgRuntimeDir p ])
-              sandbox.extraRuntimePaths
-          );
-          allowedPaths = [
-            "/nix/store"
-            "/bin/sh"
+        allowedHomePaths = builtins.attrNames fs ++ builtins.attrNames persist.byPath ++ sandbox.extraHomePaths;
+        allowedRunPaths = sandbox.extraRuntimePaths;
+        allowedPaths = [
+          "/nix/store"
+          "/bin/sh"
 
-            "/etc"  #< especially for /etc/profiles/per-user/$USER/bin
-            "/run/current-system"  #< for basics like `ls`, and all this program's `suggestedPrograms` (/run/current-system/sw/bin)
-            "/run/wrappers"  #< SUID wrappers, in this case so that firejail can be re-entrant. TODO: remove!
-            # /run/opengl-driver is a symlink into /nix/store; needed by e.g. mpv
-            "/run/opengl-driver"
-            "/run/opengl-driver-32"  #< XXX: doesn't exist on aarch64?
-            "/usr/bin/env"
-          ] ++ lib.optionals (config.services.resolved.enable) [
-            "/run/systemd/resolve"  #< to allow reading /etc/resolv.conf, which ultimately symlinks here (if using systemd-resolved)
-          ] ++ lib.optionals (builtins.elem "system" sandbox.whitelistDbus) [ "/run/dbus/system_bus_socket" ]
-            ++ sandbox.extraPaths ++ fullHomePaths ++ fullRuntimePaths;
-        in makeProfile {
-          inherit pkgName;
+          "/etc"  #< especially for /etc/profiles/per-user/$USER/bin
+          "/run/current-system"  #< for basics like `ls`, and all this program's `suggestedPrograms` (/run/current-system/sw/bin)
+          "/run/wrappers"  #< SUID wrappers, in this case so that firejail can be re-entrant. TODO: remove!
+          # /run/opengl-driver is a symlink into /nix/store; needed by e.g. mpv
+          "/run/opengl-driver"
+          "/run/opengl-driver-32"  #< XXX: doesn't exist on aarch64?
+          "/usr/bin/env"
+        ] ++ lib.optionals (config.services.resolved.enable) [
+          "/run/systemd/resolve"  #< to allow reading /etc/resolv.conf, which ultimately symlinks here (if using systemd-resolved)
+        ] ++ lib.optionals (builtins.elem "system" sandbox.whitelistDbus) [ "/run/dbus/system_bus_socket" ]
+          ++ sandbox.extraPaths
+        ;
+
+        sandboxArgs = makeSandboxArgs {
           inherit (sandbox)
             autodetectCliPaths
             capabilities
@@ -109,66 +78,17 @@ let
             vpn.dns
           else
             null;
-          inherit allowedPaths;
-
-          symlinkCache = {
-            "/bin/sh" = config.environment.binsh;
-            "${builtins.unsafeDiscardStringContext config.environment.binsh}" = "bash";
-            "/usr/bin/env" = config.environment.usrbinenv;
-            "${builtins.unsafeDiscardStringContext config.environment.usrbinenv}" = "coreutils";
-
-            # "/run/current-system" = "${config.system.build.toplevel}";
-            # XXX: /run/current-system symlink can't be cached without forcing regular mass rebuilds:
-            # mount it as if it were a directory instead.
-            "/run/current-system" = "";
-          } // lib.optionalAttrs config.hardware.opengl.enable {
-            "/run/opengl-driver" = let
-              gl = config.hardware.opengl;
-              # from: <repo:nixos/nixpkgs:nixos/modules/hardware/opengl.nix>
-              package = pkgs.buildEnv {
-                name = "opengl-drivers";
-                paths = [ gl.package ] ++ gl.extraPackages;
-              };
-            in "${package}";
-          } // lib.optionalAttrs (config.hardware.opengl.enable && config.hardware.opengl.driSupport32Bit) {
-            "/run/opengl-driver-32" = let
-              gl = config.hardware.opengl;
-              # from: <repo:nixos/nixpkgs:nixos/modules/hardware/opengl.nix>
-              package = pkgs.buildEnv {
-                name = "opengl-drivers-32bit";
-                paths = [ gl.package32 ] ++ gl.extraPackages32;
-              };
-            in "${package}";
-          } // (
-            symlinksToAttrs (symlinksClosure allowedPaths)
-          );
+          inherit allowedPaths allowedHomePaths allowedRunPaths;
         };
-        defaultProfile = sandboxProfilesFor config.sane.defaultUser;
-        makeSandboxedArgs = {
+      in
+        makeSandboxed {
           inherit pkgName package;
           inherit (sandbox)
             embedSandboxer
             wrapperType
           ;
-        };
-      in
-        makeSandboxed (makeSandboxedArgs // {
-          passthru = {
-            inherit sandboxProfilesFor;
-            withEmbeddedSandboxer = makeSandboxed (makeSandboxedArgs // {
-              # embed the sandboxer AND a profile, whichever profile the package would have if installed by the default user.
-              # useful to iterate a package's sandbox config without redeploying.
-              embedSandboxer = true;
-              extraSandboxerArgs = [
-                "--sanebox-profile-dir" "${defaultProfile}/share/sanebox/profiles"
-              ];
-            });
-            withEmbeddedSandboxerOnly = makeSandboxed (makeSandboxedArgs // {
-              # embed the sandboxer but no profile. useful pretty much only for testing changes within the actual sandboxer.
-              embedSandboxer = true;
-            });
-          };
-        })
+          extraSandboxerArgs = sandboxArgs;
+        }
   );
   pkgSpec = with lib; types.submodule ({ config, name, ... }: {
     options = {
@@ -562,18 +482,14 @@ let
 
     # conditionally add to system PATH and env
     environment = lib.optionalAttrs (p.enabled && p.enableFor.system) {
-      systemPackages = lib.optionals (p.package != null) (
-        [ p.package ] ++ lib.optional (p.sandbox.enable && p.sandbox.method != null) (p.package.passthru.sandboxProfilesFor null)
-      );
+      systemPackages = lib.optionals (p.package != null) [ p.package ];
       # sessionVariables are set by PAM, as opposed to environment.variables which goes in /etc/profile
       sessionVariables = p.env;
     };
 
     # conditionally add to user(s) PATH
     users.users = lib.mapAttrs (userName: en: {
-      packages = lib.optionals (p.package != null && en && p.enabled) (
-        [ p.package ] ++ lib.optional (p.sandbox.enable && p.sandbox.method != null) (p.package.passthru.sandboxProfilesFor userName)
-      );
+      packages = lib.optionals (p.package != null && en && p.enabled) [ p.package ];
     }) p.enableFor.user;
 
     # conditionally persist relevant user dirs and create files
@@ -667,7 +583,6 @@ in
     in lib.mkMerge [
       (take (sane-lib.mkTypedMerge take configs))
       {
-        environment.pathsToLink = [ "/share/sanebox" ];
         sane.programs.sanebox.enableFor.system = true;
         # expose the pkgs -- as available to the system -- as a build target.
         system.build.pkgs = pkgs;

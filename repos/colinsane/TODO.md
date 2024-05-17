@@ -1,21 +1,16 @@
 ## BUGS
-- moby: my mobile ISP is adding spoofed AAAA records that break things like wireguard
-  - it only does this when i use their DNS resolvers though: if i run my own recursive resolver, they won't mess with it.
-- moby: mpv uosc always starts at 40% volume
-  - is this just mpv remembering its last-played volume?
-- moby: rofi crashes sporadically
+- moby: megapixels doesn't load in sandbox
+- when moby wlan is explicitly set down (via ip link set wlan0 down), /var/lib/trust-dns/dhcp-configs doesn't get reset
+- trust-dns: can't recursively resolve api.mangadex.org
+  - and *sometimes* apple.com fails
+- sandbox: `ip netns exec ovpns bash`: doesn't work
 - mpv: no way to exit fullscreen video on moby
   - uosc hides controls on FS, and touch doesn't support unhiding
-- i accidentally create sub-splits in sway all the time
-  - especially on moby => unusable
-  - like toplevel is split L/R, and then the L is a tabbed view and the R is a tabbed view
 - Signal restart loop drains battery
   - decrease s6 restart time?
 - `ssh` access doesn't grant same linux capabilities as login
 - ringer (i.e. dino incoming call) doesn't prevent moby from sleeping
 - sway mouse/kb hotplug doesn't work
-- `nix` operations from lappy hang when `desko` is unreachable
-  - could at least direct the cache to `http://desko-hn:5001`
 - sysvol (volume overlay): when casting with `blast`, sysvol doesn't react to volume changes
 
 ## REFACTORING:
@@ -36,15 +31,16 @@
 
 ### upstreaming
 - add updateScripts to all my packages in nixpkgs
-- REVIEW/integrate jellyfin dataDir config: <https://github.com/NixOS/nixpkgs/pull/233617>
 
 #### upstreaming to non-nixpkgs repos
 - gtk: build schemas even on cross compilation: <https://github.com/NixOS/nixpkgs/pull/247844>
 
 
 ## IMPROVEMENTS:
+- systemd/journalctl: use a less shit pager
+  - there's an env var for it: SYSTEMD_PAGER? and a flag for journalctl
+
 ### security/resilience
-- add FTPS support for WAN users of uninsane.org (and possibly require it?)
 - validate duplicity backups!
 - encrypt more ~ dirs (~/archives, ~/records, ..?)
   - best to do this after i know for sure i have good backups
@@ -73,7 +69,6 @@
 
 ### user experience
 - rofi: sort items case-insensitively
-- give `mpv` better `nice`ness?
 - xdg-desktop-portal shouldn't kill children on exit
   - *maybe* a job for `setsid -f`?
 - replace starship prompt with something more efficient
