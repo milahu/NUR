@@ -62,6 +62,7 @@ let
     maintainers = with maintainers; [ sikmir ];
     platforms = builtins.attrNames srcs;
     mainProgram = "mqtt-explorer";
+    skip.ci = true;
   };
 in
 if stdenv.isDarwin

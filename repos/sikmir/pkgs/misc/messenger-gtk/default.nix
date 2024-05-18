@@ -61,6 +61,7 @@ stdenv.mkDerivation rec {
     changelog = "https://git.gnunet.org/messenger-gtk.git/tree/ChangeLog?h=v${version}";
     license = licenses.agpl3Plus;
     maintainers = [ maintainers.sikmir ];
-    platforms = platforms.unix;
+    platforms = platforms.linux;
+    skip.ci = stdenv.isDarwin;
   };
 }
