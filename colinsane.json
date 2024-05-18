@@ -1,16 +1,16 @@
 {
 "name":"colinsane",
-"fetch_time":1.063,
-"eval_time":0.384,
+"fetch_time":1.934,
+"eval_time":0.367,
 "source":{
 "url":"https://git.uninsane.org/colin/nix-files",
-"rev":"157af52112d134a34bc90f27c8de90621d0dcc18",
-"sha256":"065ccagvvzrrkx2hdxy6vq5zg3chfi1qr2r3aspjz4grv3mxki93",
+"rev":"7bb7a24b22387c77bef1c5670d706e2a66717fc4",
+"sha256":"0a6lbh26hihjsc399yzyhlym9101gc8psllyym1zr87vl948ljvr",
 "date":null
 },
-"source_storepath":"/nix/store/dmggq84wify28lja394v6x3r36gpa194-nix-files",
-"nixpkgs_storepath":"/nix/store/5xh68i5w7xbpl718k4003n2cwli14cl8-source",
-"nur_combined_rev":"e9e52990635cac3b88d533a6b857f8d7fde0a40b",
+"source_storepath":"/nix/store/74ay5fk440cvb29wjh9rfjy7zx31micb-nix-files",
+"nixpkgs_storepath":"/nix/store/69fi1l88631zbr10s6jdib54a79kj9qz-source",
+"nur_combined_rev":"cf82cba0e23104f2d843a4dc725cefe9602fe5a4",
 "packages":{
 "blast-ugjka":{
 "meta":{
@@ -2254,6 +2254,7 @@
 "description":"The goal of Landlock is to enable to restrict ambient rights (e.g. global filesystem access) for a set of processes.\n",
 "homepage":"https://landlock.io",
 "insecure":false,
+"mainProgram":"sandboxer",
 "name":"landlock-sandboxer-6.6.30",
 "outputsToInstall":[
 "out"
@@ -4061,7 +4062,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sanebox/default.nix:52",
+"position":"./pkgs/additional/sanebox/default.nix:40",
 "unfree":false,
 "unsupported":false
 },
