@@ -695,10 +695,10 @@
     };
     "beyond-20" = buildFirefoxXpiAddon {
       pname = "beyond-20";
-      version = "2.9.2";
+      version = "2.9.3";
       addonId = "beyond20@kakaroto.homelinux.net";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4269920/beyond_20-2.9.2.xpi";
-      sha256 = "dab3670f4ae5b8e67c9be07f28d6b9a10318d6534f146a94a970a68a376599e7";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4285259/beyond_20-2.9.3.xpi";
+      sha256 = "7e3562638ae3e902432f97bc7746c7d2deb3bd2a1faac82da7adb1530f53ac8d";
       meta = with lib;
       {
         homepage = "https://beyond20.here-for-more.info";
@@ -1093,10 +1093,10 @@
     };
     "chatgptbox" = buildFirefoxXpiAddon {
       pname = "chatgptbox";
-      version = "2.5.4";
+      version = "2.5.5";
       addonId = "{b764208e-0a98-436d-a599-c1baa044f829}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4284099/chatgptbox-2.5.4.xpi";
-      sha256 = "8be19d7d847f647d7eedc4b73056910db7d232355514b463fdea708d6cbf3706";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4287936/chatgptbox-2.5.5.xpi";
+      sha256 = "e675a54d5a0852708fc4ab0f429de3f82f273ba49f31f80b7a9b50e910ebffd2";
       meta = with lib;
       {
         homepage = "https://github.com/josStorer/chatGPTBox";
@@ -1754,10 +1754,10 @@
     };
     "darkreader" = buildFirefoxXpiAddon {
       pname = "darkreader";
-      version = "4.9.84";
+      version = "4.9.85";
       addonId = "addon@darkreader.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4278339/darkreader-4.9.84.xpi";
-      sha256 = "d418b40fc2cb69cfffabf6cc291f2cc5ca4c9d6a99e46562b44f4e2c0148374c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4286925/darkreader-4.9.85.xpi";
+      sha256 = "28180bd8b970c4b9f961bda310df271d1e26a7cdf4ff01c94239f2fca3079d05";
       meta = with lib;
       {
         homepage = "https://darkreader.org/";
@@ -2100,10 +2100,10 @@
     };
     "duckduckgo-privacy-essentials" = buildFirefoxXpiAddon {
       pname = "duckduckgo-privacy-essentials";
-      version = "2024.3.11";
+      version = "2024.4.26";
       addonId = "jid1-ZAdIEUB7XOzOJw@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4248904/duckduckgo_for_firefox-2024.3.11.xpi";
-      sha256 = "705babc0c33f76cf9642015e5dfec8c62f94fe227592d4206c3c039cb25bb44c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4286002/duckduckgo_for_firefox-2024.4.26.xpi";
+      sha256 = "41b607ab971bcf5ef66ac2d84f1d932ad53a95214d421bea08946cbb1aee5bb1";
       meta = with lib;
       {
         homepage = "https://duckduckgo.com/app";
@@ -2393,10 +2393,10 @@
     };
     "faststream" = buildFirefoxXpiAddon {
       pname = "faststream";
-      version = "1.3.6";
+      version = "1.3.7";
       addonId = "faststream@andrews";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4279917/faststream-1.3.6.xpi";
-      sha256 = "7b400fea809790f46d3340c4637d1fd9ab96104dafb5c06c7b662eb1ea0f2f00";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4287714/faststream-1.3.7.xpi";
+      sha256 = "167e9e16e29fc590a6000fe3422ed413d75400a32697d62c0691dc3c1438d7b9";
       meta = with lib;
       {
         homepage = "https://faststream.online/";
@@ -4724,10 +4724,10 @@
     };
     "improved-tube" = buildFirefoxXpiAddon {
       pname = "improved-tube";
-      version = "4.928";
+      version = "4.930";
       addonId = "{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4285226/youtube_addon-4.928.xpi";
-      sha256 = "afd750157ba9aa4024f2812b28c0f6421eff7931cc1056eb7d049432348eeeb8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4286631/youtube_addon-4.930.xpi";
+      sha256 = "a469e3a608023601c476958656dc4b5ab267c6ee5ca0d1c22f27cc55fdb01a01";
       meta = with lib;
       {
         homepage = "https://github.com/code4charity/YouTube-Extension/";
@@ -5294,10 +5294,10 @@
     };
     "keepassxc-browser" = buildFirefoxXpiAddon {
       pname = "keepassxc-browser";
-      version = "1.9.0.3";
+      version = "1.9.0.5";
       addonId = "keepassxc-browser@keepassxc.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4257616/keepassxc_browser-1.9.0.3.xpi";
-      sha256 = "f153b29f6a05f7cb1fc83952f75f55e803573229800df737fa831d1f877c943e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4285762/keepassxc_browser-1.9.0.5.xpi";
+      sha256 = "bd490bf3ed6f6eab49538c248e895f7a4d2ec5e30deb9b06ca30d19e0198e369";
       meta = with lib;
       {
         homepage = "https://keepassxc.org/";
@@ -5648,10 +5648,10 @@
     };
     "linkding-extension" = buildFirefoxXpiAddon {
       pname = "linkding-extension";
-      version = "1.9.0";
+      version = "1.9.1";
       addonId = "{61a05c39-ad45-4086-946f-32adb0a40a9d}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4250843/linkding_extension-1.9.0.xpi";
-      sha256 = "65fc0af6603630c631f9e82e2520537f3d9769b9ab747514bee8ddb65baaca6e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4287764/linkding_extension-1.9.1.xpi";
+      sha256 = "74ad759cb76a37506a399cd057374724473fe42cbc83d7f776ff83eb60eeff26";
       meta = with lib;
       {
         homepage = "https://github.com/sissbruecker/linkding-extension/";
@@ -8415,10 +8415,10 @@
     };
     "proton-pass" = buildFirefoxXpiAddon {
       pname = "proton-pass";
-      version = "1.16.7";
+      version = "1.17.2";
       addonId = "78272b6fa58f4a1abaac99321d503a20@proton.me";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4267054/proton_pass-1.16.7.xpi";
-      sha256 = "29a44d48a794a87860f4ceeae1e27d1cb493f42194741041a94bc2caf9f40e7f";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4283566/proton_pass-1.17.2.xpi";
+      sha256 = "316bed5674120b71a4ad039daf4e6f59b35741b1d278a8df0ec105ba47a2bb80";
       meta = with lib;
       {
         homepage = "https://proton.me";
@@ -8896,10 +8896,10 @@
     };
     "rsspreview" = buildFirefoxXpiAddon {
       pname = "rsspreview";
-      version = "3.32";
+      version = "3.32.1";
       addonId = "{7799824a-30fe-4c67-8b3e-7094ea203c94}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4285059/rsspreview-3.32.xpi";
-      sha256 = "4b1d0886d7bd71e347c238732cf4d945b5649eb2decfeedb632c7a0f86f1dde7";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4288011/rsspreview-3.32.1.xpi";
+      sha256 = "6c5c67279b30e9fb5d9a7579a8f8d8c9b0f66790cadf177d1324e51cca9dfe64";
       meta = with lib;
       {
         homepage = "https://github.com/aureliendavid/rsspreview";
