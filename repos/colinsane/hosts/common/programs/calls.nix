@@ -7,7 +7,7 @@
 # - message @cheogram.com "reset sip account"  (this is not destructive, despite the name)
 # - the bot will reply with auto-generated username/password plus a SIP server endpoint.
 #   just copy those into gnome-calls' GUI configurator
-# - now gnome-calls can do outbound calls. inbound calls requires more chatting with the help bot
+# - now gnome-calls can do outbound calls. inbound calls can be routed by messaging the bot: "configure calls"
 #
 # my setup here is still very WIP.
 # open questions:
@@ -25,7 +25,7 @@ in
       type = types.submodule {
         options.autostart = mkOption {
           type = types.bool;
-          default = false;
+          default = true;
         };
       };
     };
@@ -36,9 +36,11 @@ in
       ".local/share/calls"  # call "records"
       # .local/share/folks  # contacts?
     ];
+    # this is only the username/endpoint: the actual password appears to be stored in gnome-keyring
     secrets.".config/calls/sip-account.cfg" = ../../../secrets/common/gnome_calls_sip-account.cfg.bin;
     suggestedPrograms = [
       "feedbackd"  # needs `phone-incoming-call`, in particular
+      "gnome-keyring"  # to remember the password
     ];
 
     services.gnome-calls = {

@@ -323,9 +323,15 @@ class AudioFile:
         except Exception as e:
             logger.warning(f"failed to open {path_}: {e}")
 
+    def __repr__(self) -> str:
+        return self.path_
+
     @staticmethod
-    def new(path_: str) -> 'AudioFile':
-        f = AudioFile(path_)
+    def new(f: 'str | AudioFile | None') -> 'AudioFile | None':
+        if f is None:
+            return None
+        if not isinstance(f, AudioFile):
+            f = AudioFile(f)
         if f.muta is not None:
             return f
 
@@ -365,7 +371,7 @@ class Tagger:
         self.force = force
         self.manual_tags = manual_tags
 
-    def show(self, path_: str) -> None:
+    def show(self, path_: str | AudioFile) -> None:
         file_ = AudioFile.new(path_)
         if not file_:
             logger.debug(f"skipping unsupported file: {path_}")
@@ -374,6 +380,14 @@ class Tagger:
         tags = file_.tags_on_disk()
         logger.info(f"tags for {path_}:")
         logger.info(f"  {tags}")
+
+    def is_sufficiently_tagged(self, file_: str | AudioFile) -> bool:
+        file_ = AudioFile.new(file_)
+        if not file_:
+            return False
+        tags = file_.tags_on_disk()
+        # N.B.: track number isn't wholly necessary; just a nice-to-have.
+        return (tags.artist or tags.albumartist) and tags.album and tags.title
 
     def tag_file(self, path_: str) -> None:
         file_ = AudioFile.new(path_)
@@ -460,7 +474,7 @@ def main():
     logging.basicConfig()
     logging.getLogger().setLevel(logging.INFO)
 
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(usage=__doc__)
     parser.add_argument('--dry-run', action='store_true')
     parser.add_argument('--verbose', action='store_true')
     parser.add_argument('--album', help="manually specify the tag")
@@ -469,11 +483,15 @@ def main():
     parser.add_argument('--title', help="manually specify the tag")
     parser.add_argument('--trackno', help="manually specify the tag")
 
-    subparsers = parser.add_subparsers(help="operation")
+    subparsers = parser.add_subparsers(help="what to do")
 
     show_parser = subparsers.add_parser("show")
     show_parser.set_defaults(subcommand="show")
     show_parser.add_argument("path", nargs="+", help="relative path to a file or directory to show")
+
+    print_missing_parser = subparsers.add_parser("print-missing")
+    print_missing_parser.set_defaults(subcommand="print_missing")
+    print_missing_parser.add_argument("path", nargs="+", help="relative path to a file or directory to validate tags for")
 
     fix_tags_parser = subparsers.add_parser("fix-tags")
     fix_tags_parser.set_defaults(subcommand="fix_tags")
@@ -507,6 +525,11 @@ def main():
     if args.subcommand == "show":
         for p in files:
             tagger.show(p)
+    elif args.subcommand == "print_missing":
+        for p in files:
+            f = AudioFile.new(p)
+            if not tagger.is_sufficiently_tagged(f):
+                tagger.show(f)
     elif args.subcommand == "fix_tags":
         for p in files:
             tagger.tag_file(p)
@@ -514,6 +537,8 @@ def main():
         for p in files:
             print(p)
             tagger.fix_path(p)
+    else:
+        assert False, f"unrecognized command {args.subcommand}"
 
 
 

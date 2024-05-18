@@ -4,6 +4,7 @@
 - trust-dns: can't recursively resolve api.mangadex.org
   - and *sometimes* apple.com fails
 - sandbox: `ip netns exec ovpns bash`: doesn't work
+- sandbox: link cache means that if i update ~/.config/... files inline, sandboxed programs still see the old version
 - mpv: no way to exit fullscreen video on moby
   - uosc hides controls on FS, and touch doesn't support unhiding
 - Signal restart loop drains battery

@@ -7,55 +7,42 @@
 , substituteAll
 , profileDir ? "/share/sanebox/profiles"
 }:
+stdenv.mkDerivation {
+  pname = "sanebox";
+  version = "0.1";
 
-let
-  sanebox = substituteAll {
-    src = ./sanebox;
-    inherit bash bubblewrap firejail libcap;
-    landlockSandboxer = landlock-sandboxer;
-    firejailProfileDirs = "/run/current-system/sw/etc/firejail /etc/firejail ${firejail}/etc/firejail";
-  };
-  self = stdenv.mkDerivation {
-    pname = "sanebox";
-    version = "0.1";
+  src = ./sanebox;
+  dontUnpack = true;
 
-    src = sanebox;
-    dontUnpack = true;
+  buildInputs = [
+    bash  # for cross builds, to ensure #!/bin/sh is substituted
+  ];
 
-    buildPhase = ''
-      runHook preBuild
-      substituteAll "$src" sanebox \
-        --replace-fail '@out@' "$out"
-      runHook postBuild
+  buildPhase = ''
+    runHook preBuild
+    substitute $src sanebox \
+      --replace-fail '@bwrap@' '${lib.getExe bubblewrap}' \
+      --replace-fail '@firejail@' '${lib.getExe' firejail "firejail"}' \
+      --replace-fail '@landlockSandboxer@' '${lib.getExe landlock-sandboxer}' \
+      --replace-fail '@capsh@' '${lib.getExe' libcap "capsh"}'
+    runHook postBuild
+  '';
+
+  installPhase = ''
+    runHook preInstall
+    install -d "$out"
+    install -d "$out/bin"
+    install -m 755 sanebox $out/bin/sanebox
+    runHook postInstall
+  '';
+
+  meta = {
+    description = ''
+      helper program to run some other program in a sandbox.
+      factoring this out allows:
+      1. to abstract over the particular sandbox implementation (bwrap, firejail, ...).
+      2. to modify sandbox settings without forcing a rebuild of the sandboxed package.
     '';
-
-    installPhase = ''
-      runHook preInstall
-      install -d "$out"
-      install -d "$out/bin"
-      install -m 755 sanebox $out/bin/sanebox
-      runHook postInstall
-    '';
-
-    passthru = {
-      inherit landlock-sandboxer;
-      withProfiles = profiles: self.overrideAttrs (base: {
-        inherit profiles;
-        postInstall = (base.postInstall or "") + ''
-          install -d $out/share/sanebox
-          ln -s "${profiles}/${profileDir}" "$out/${profileDir}"
-        '';
-      });
-    };
-
-    meta = {
-      description = ''
-        helper program to run some other program in a sandbox.
-        factoring this out allows:
-        1. to abstract over the particular sandbox implementation (bwrap, firejail, ...).
-        2. to modify sandbox settings without forcing a rebuild of the sandboxed package.
-      '';
-      mainProgram = "sanebox";
-    };
+    mainProgram = "sanebox";
   };
-in self
+}

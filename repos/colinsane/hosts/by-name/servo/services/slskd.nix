@@ -9,8 +9,6 @@
 #   - "Soulseek.AddressException: Failed to resolve address 'vps.slsknet.org': Resource temporarily unavailable"
 { config, lib, pkgs, ... }:
 
-# TODO: re-enable once i'm satisfied this isn't escaping the net sandbox
-lib.mkIf false
 {
   sane.persist.sys.byStore.plaintext = [
     { user = "slskd"; group = "media"; path = "/var/lib/slskd"; method = "bind"; }

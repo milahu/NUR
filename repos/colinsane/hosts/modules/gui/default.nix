@@ -56,6 +56,7 @@ in
   sane.programs.guiBaseApps = declPackageSet [
     # "abaddon"  # discord client
     "alacritty"  # terminal emulator
+    "calls"  # gnome calls (dialer/handler)
     "dconf"  # required by many packages, but not well-documented :(
     # "delfin"  # Jellyfin client
     "dialect"  # language translation
@@ -110,7 +111,6 @@ in
   ];
 
   sane.programs.handheldGuiApps = declPackageSet [
-    # "calls"  # gnome calls (dialer/handler)
     # "celluloid"  # mpv frontend
     # "chatty"  # matrix/xmpp/irc client  (2023/12/29: disabled because broken cross build)
     "cozy"  # audiobook player

@@ -74,6 +74,14 @@ in
         rev = "8cb9be59708bb051616d7e14d9fa0b87b86985af";
         hash = "sha256-UAegyzqutGulp6H7KplEfwHV0MfFfOHgYNNu+AQHx3g=";
       };
+
+      postPatch = (upstream.postPatch or "") + ''
+        # Gtk3 by default won't pack more than 7 items into one row of a FlowBox.
+        # but i want tighter control over my icon placement than that:
+        substituteInPlace src/controlCenter/widgets/buttonsGrid/buttonsGrid.vala --replace-fail \
+          'container.set_selection_mode' \
+          'container.max_children_per_line = 8; container.set_selection_mode'
+        '';
     }));
 
     suggestedPrograms = [
@@ -188,8 +196,10 @@ in
             buttons.vpn
           ] ++ lib.optionals config.sane.programs.calls.config.autostart [
             buttons.gnome-calls
-          ] ++ lib.optionals config.sane.programs."gnome.geary".enabled [
-            buttons.geary
+          ] ++ lib.optionals config.sane.programs.dino.enabled [
+            buttons.dino
+          ] ++ lib.optionals config.sane.programs.fractal.enabled [
+            buttons.fractal
           # ] ++ lib.optionals config.sane.programs.abaddon.enabled [
           #   # XXX: disabled in favor of dissent: abaddon has troubles auto-connecting at start
           #   buttons.abaddon
@@ -197,10 +207,8 @@ in
             buttons.dissent
           ] ++ lib.optionals config.sane.programs.signal-desktop.enabled [
             buttons.signal-desktop
-          ] ++ lib.optionals config.sane.programs.dino.enabled [
-            buttons.dino
-          ] ++ lib.optionals config.sane.programs.fractal.enabled [
-            buttons.fractal
+          ] ++ lib.optionals config.sane.programs."gnome.geary".enabled [
+            buttons.geary
           ];
         };
         dnd = {

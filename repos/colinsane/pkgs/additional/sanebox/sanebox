@@ -1,4 +1,12 @@
-#!@bash@/bin/bash
+#!/bin/sh
+
+## BUILD-TIME SUBSTITUTIONS
+### <bin>_FALLBACK: if `<bin>` isn't on PATH, then use this instead
+FIREJAIL_FALLBACK='@firejail@'
+BWRAP_FALLBACK='@bwrap@'
+LANDLOCK_SANDBOXER_FALLBACK='@landlockSandboxer@'
+CAPSH_FALLBACK='@capsh@'
+
 
 ## EARLY DEBUG HOOKS
 
@@ -10,7 +18,9 @@ enableDebug() {
 }
 
 debug() {
-  [ -n "$isDebug" ] && printf "[debug] %s" "$1" >&2
+  if [ -n "$isDebug" ]; then
+    printf "[debug] %s" "$1" >&2
+  fi
 }
 
 # if requested, enable debugging as early as possible
@@ -142,8 +152,8 @@ usage() {
 # if `path` is absolute, returns `path`
 # otherwise, joins `path` onto `$PWD`
 relativeToPwd() {
-  local outvar="$1"
-  local path="$2"
+  local outvar=$1
+  local path=$2
   if [ "${path:0:1}" == "/" ]; then
     declare -g "$outvar"="$path"
   else
@@ -161,15 +171,15 @@ relativeToPwd() {
 #   myHead=/top
 #   myTail=
 splitHead() {
-  local outHead="$1"
-  local outTail="$2"
-  local path="$3"
+  local outHead=$1
+  local outTail=$2
+  local path=$3
 
   # chomp leading `/`
-  path="${path:1}"
-  local leadingComp="${path%%/*}"
-  local compLen="${#leadingComp}"
-  local tail="${path:$compLen}"
+  path=${path:1}
+  local leadingComp=${path%%/*}
+  local compLen=${#leadingComp}
+  local tail=${path:$compLen}
 
   declare -g "$outHead"="/$leadingComp"
   declare -g "$outTail"="$tail"
@@ -181,23 +191,27 @@ splitHead() {
 # chomps trailing slashes.
 # does not resolve symlinks, nor check for existence of any component of the path.
 normPath() {
-  local outVar="$1"
-  local unparsed="$2"
+  local outVar=$1
+  local unparsed=$2
   local comps=()
   while [ -n "$unparsed" ]; do
     splitHead _npThisComp _npUnparsed "$unparsed"
-    unparsed="$_npUnparsed"
-    local thisComp="$_npThisComp"
+    unparsed=$_npUnparsed
+    local thisComp=$_npThisComp
 
-    if [ "$thisComp" = "/.." ]; then
-      # "go up" path component => delete the leaf dir (if any)
-      if [ ${#comps[@]} -ne 0 ]; then
-        unset comps[-1]
-      fi
-    elif [ "$thisComp" != "/." ] && [ "$thisComp" != "/" ] && [ "$thisComp" != "" ]; then
-      # normal, non-empty path component => append it
-      comps+=("$thisComp")
-    fi
+    case $thisComp in
+      (/..)
+        # "go up" path component => delete the leaf dir (if any)
+        if [ ${#comps[@]} -ne 0 ]; then
+          unset comps[-1]
+        fi
+        ;;
+      (/. | / | "") ;;
+      (*)
+        # normal, non-empty path component => append it
+        comps+=("$thisComp")
+        ;;
+    esac
   done
 
   # join the components
@@ -206,7 +220,7 @@ normPath() {
   else
     local joined=
     for comp in "${comps[@]}"; do
-      joined="$joined$comp"
+      joined=$joined$comp
     done
     declare -g "$outVar"="$joined"
   fi
@@ -250,21 +264,22 @@ locate() {
 # `urldecode outVar <uri>`
 # convert e.g. `file:///Local%20Users/foo.mp3` to `file:///Local Users/foo.mp3`
 urldecode() {
-  local outVar="$1"
+  local outVar=$1
   shift
 
   # source: <https://stackoverflow.com/q/6250698>
   # replace each `+` with space
-  local i="${*//+/ }"
+  local i=${*//+/ }
   # then replace each `%` with `\x`
   # and have `echo` evaluate the escape sequences
-  declare -g "$outVar"="$(echo -e "${i//%/\\x}")"
+  local decoded=$(echo -e "${i//%/\\x}")
+  declare -g "$outVar"="$decoded"
 }
 
 # `contains needle ${haystack[0]} ${haystack[1]} ...`
 # evals `true` if the first argument is equal to any of the other args
 contains() {
-  local needle="$1"
+  local needle=$1
   shift
   for item in "$@"; do
     if [ "$needle" = "$item" ]; then
@@ -279,21 +294,21 @@ contains() {
 # unlink `derefOnce`, this only acts if the leaf of `path` is a symlink,
 # not if it's an ordinary entry within a symlinked directory.
 readlinkOnce() {
-  local outVar="$1"
-  local path="$2"
+  local outVar=$1
+  local path=$2
   local linkTarget=
-  if [ -v linkCache["$path"] ]; then
-    linkTarget="${linkCache["$path"]}"
+  if [ -v linkCache[$path] ]; then
+    linkTarget=${linkCache[$path]}
   elif [ -L "$path" ]; then
     # path is a link, but not in the cache
-    linkTarget="$(readlink "$path")"
+    linkTarget=$(readlink "$path")
     # insert it into the cache, in case we traverse it again
-    linkCache["$path"]="$linkTarget"
+    linkCache[$path]=$linkTarget
   else
     # remember for later that this path doesn't represent a link.
     # empty target is used to indicate a non-symlink (i.e. ordinary file/directory).
     #   i think a symlink can *technically* point to "" (via `symlink` syscall), but `ln -s` doesn't allow it
-    linkCache["$path"]=
+    linkCache[$path]=
   fi
   declare -g "$outVar"="$linkTarget"
 }
@@ -303,34 +318,34 @@ readlinkOnce() {
 # the dereferenced path may yet contain more unresolved symlinks.
 # if no links are encountered, then `outVar` is set empty.
 derefOnce() {
-  local outVar="$1"
-  local source="$2"
+  local outVar=$1
+  local source=$2
   local target=
 
   local walked=
-  local unwalked="$source"
+  local unwalked=$source
   while [ -n "$unwalked" ]; do
     splitHead _head _unwalked "$unwalked"
-    unwalked="$_unwalked"
-    walked="$walked$_head"
+    unwalked=$_unwalked
+    walked=$walked$_head
 
     readlinkOnce _linkTarget "$walked"
     if [ -n "$_linkTarget" ]; then
-      target="$_linkTarget$unwalked"
+      target=$_linkTarget$unwalked
       break
     fi
   done
 
   # make absolute
   if [ -n "$target" ]; then
-    if [ "${target:0:1}" != "/" ]; then
+    if [ "${target:0:1}" != / ]; then
       # `walked` is a relative link.
       # then, the link is relative to the parent directory of `walked`
-      target="$walked/../$target"
+      target=$walked/../$target
     fi
     # canonicalize
     normPath _normTarget "$target"
-    target="$_normTarget"
+    target=$_normTarget
   fi
   declare -g "$outVar"="$target"
 }
@@ -342,61 +357,72 @@ derefOnce() {
 # adds an entry to `paths` and evals `true` on success;
 # evals `false` if the path couldn't be added, for any reason.
 tryPath() {
-  local path="$1"
-  local how="$2"
+  local path=$1
+  local how=$2
 
-  if [ "$how" = "existing" ]; then
-    # the caller wants to access either a file, or a directory (possibly a symlink to such a thing)
-    if [ -e "$path" ]; then
-      relativeToPwd _absPath "$path"
-      paths+=("$_absPath")
-      return 0
-    fi
-    return 1
-  elif [ "$how" = "existingFile" ]; then
-    # the caller wants to access a file, and explicitly *not* a directory (though it could be a symlink *to a file*)
-    if [ -f "$path" ]; then
-      relativeToPwd _absPath "$path"
-      paths+=("$_absPath")
-      return 0
-    fi
-    return 1
-  elif [ "$how" = "parent" ]; then
-    # the caller wants access to the entire directory containing this directory regardless of the file's existence.
-    parent _tryPathParent "$path"
-    tryPath "$_tryPathParent" "existing"
-  elif [ "$how" = "existingOrParent" ]; then
-    # the caller wants access to the path, or write access to the parent directory so it may create the path if it doesn't exist.
-    tryPath "$path" "existing" || tryPath "$path" "parent"
-  elif [ "$how" = "existingFileOrParent" ]; then
-    # the caller wants access to the file, or write access to the parent directory so it may create the file if it doesn't exist.
-    tryPath "$path" "existingFile" || tryPath "$path" "parent"
-  fi
+  case $how in
+    (existing)
+      # the caller wants to access either a file, or a directory (possibly a symlink to such a thing)
+      if [ -e "$path" ]; then
+        relativeToPwd _absPath "$path"
+        paths+=("$_absPath")
+        return 0
+      fi
+      return 1
+      ;;
+    (existingFile)
+      # the caller wants to access a file, and explicitly *not* a directory (though it could be a symlink *to a file*)
+      if [ -f "$path" ]; then
+        relativeToPwd _absPath "$path"
+        paths+=("$_absPath")
+        return 0
+      fi
+      return 1
+      ;;
+    (parent)
+      # the caller wants access to the entire directory containing this directory regardless of the file's existence.
+      parent _tryPathParent "$path"
+      tryPath "$_tryPathParent" "existing"
+      ;;
+    (existingOrParent)
+      # the caller wants access to the path, or write access to the parent directory so it may create the path if it doesn't exist.
+      tryPath "$path" "existing" || tryPath "$path" "parent"
+      ;;
+    (existingFileOrParent)
+      # the caller wants access to the file, or write access to the parent directory so it may create the file if it doesn't exist.
+      tryPath "$path" "existingFile" || tryPath "$path" "parent"
+      ;;
+  esac
 }
 
 # if the argument looks path-like, then add it to paths.
 # this function ingests absolute, relative, or file:///-type URIs.
 # but it converts any such path into an absolute path before adding it to paths.
 tryArgAsPath() {
-  local arg="$1"
-  local how="$2"
-  path=
-  if [ "${arg:0:1}" = "/" ]; then
-    # absolute path
-    path="$arg"
-  elif [ "${arg:0:8}" = "file:///" ]; then
-    # URI to an absolute path which is presumably on this vfs
-    # commonly found when xdg-open/mimeo passes a path on to an application
-    # if URIs to relative paths exist, this implementation doesn't support them
-    urldecode _path "${arg:7}"
-    path="$_path"
-  elif [ "${path:0:1}" = "-" ]; then
-    # 99% chance it's a CLI argument. if not, use `./-<...>`
-    return
-  else
-    # assume relative path
-    _path="$PWD/$arg"
-  fi
+  local arg=$1
+  local how=$2
+  local path=
+  case $arg in
+    (/*)
+      # absolute path
+      path=$arg
+      ;;
+    (file:///*)
+      # URI to an absolute path which is presumably on this vfs
+      # commonly found when xdg-open/mimeo passes a path on to an application
+      # if URIs to relative paths exist, this implementation doesn't support them
+      urldecode _path "${arg:7}"
+      path=$_path
+      ;;
+    (-*)
+      # 99% chance it's a CLI argument. if not, use `./-<...>`
+      return
+      ;;
+    (*)
+      # assume relative path
+      path=$PWD/$arg
+      ;;
+  esac
 
   tryPath "$path" "$how"
 }
@@ -408,9 +434,9 @@ tryArgAsPath() {
 parseArgsExtra=()
 parseArgs() {
   while [ "$#" -ne 0 ]; do
-    local arg="$1"
+    local arg=$1
     shift
-    case "$arg" in
+    case $arg in
       (--)
         # rest of args are for the CLI, and not for us.
         # consider two cases:
@@ -448,7 +474,7 @@ parseArgs() {
         isDryRun=1
         ;;
       (--sanebox-method)
-        method="$1"
+        method=$1
         shift
         ;;
       (--sanebox-autodetect)
@@ -456,11 +482,11 @@ parseArgs() {
         # this is handy for e.g. media players or document viewers.
         # it's best combined with some two-tiered thing.
         #   e.g. first drop to the broadest path set of interest (Music,Videos,tmp, ...), then drop via autodetect.
-        autodetect="$1"
+        autodetect=$1
         shift
         ;;
       (--sanebox-cap)
-        local cap="$1"
+        local cap=$1
         shift
         capabilities+=("$cap")
         ;;
@@ -477,27 +503,28 @@ parseArgs() {
         ;;
       (--sanebox-dns)
         # N.B.: these named temporary variables ensure that "set -x" causes $1 to be printed
-        local dns="$1"
+        local dns=$1
         shift
         dns+=("$dns")
         ;;
       (--sanebox-firejail-arg)
-        local fjFlag="$1"
+        local fjFlag=$1
         shift
         firejailFlags+=("$fjFlag")
         ;;
       (--sanebox-bwrap-arg)
-        local bwrapFlag="$1"
+        local bwrapFlag=$1
         shift
         bwrapFlags+=("$bwrapFlag")
         ;;
       (--sanebox-net)
-        net="$1"
+        net=$1
         shift
         ;;
       (--sanebox-keep-namespace)
-        local namespace="$1"
+        local namespace=$1
         shift
+        # TODO: should this include `net` namespace??
         if [ "$namespace" = all ]; then
           keepNamespace+=("cgroup" "ipc" "pid" "uts")
         else
@@ -505,18 +532,18 @@ parseArgs() {
         fi
         ;;
       (--sanebox-path)
-        local path="$1"
+        local path=$1
         shift
         relativeToPwd _absPath "$path"
         paths+=("$_absPath")
         ;;
       (--sanebox-home-path)
-        local path="$1"
+        local path=$1
         shift
         paths+=("$HOME/$path")
         ;;
       (--sanebox-run-path)
-        local path="$1"
+        local path=$1
         shift
         paths+=("$XDG_RUNTIME_DIR/$path")
         ;;
@@ -539,7 +566,12 @@ firejailSetup() {
 firejailIngestPath() {
   # XXX: firejail flat-out refuses to whitelist certain root paths
   #      this exception list is non-exhaustive
-  [ "$1" != "/bin" ] && [ "$1" != "/etc" ] && firejailFlags+=("--noblacklist=$1" "--whitelist=$1")
+  case $1 in
+    (/bin | /etc) ;;
+    (*)
+      firejailFlags+=("--noblacklist=$1" "--whitelist=$1")
+      ;;
+  esac
 }
 firejailIngestNet() {
   firejailFlags+=("--net=$1")
@@ -552,7 +584,7 @@ firejailIngestKeepNamespace() {
 }
 
 firejailGetCli() {
-  locate _firejail "firejail" "@firejail@/bin/firejail"
+  locate _firejail "firejail" "$FIREJAIL_FALLBACK"
   cliArgs=(
     "$_firejail" "${firejailFlags[@]}" --
     env "${portalEnv[@]}" "${cliArgs[@]}"
@@ -600,24 +632,29 @@ bwrapIngestPath() {
   # default to virtualizing a few directories in a way that's safe (doesn't impact outside environment)
   # and maximizes compatibility with apps. but if explicitly asked for the directory, then remove the virtual
   # device and bind it as normal.
-  if [ "$1" = / ]; then
-    bwrapVirtualizeDev=()
-    bwrapVirtualizeProc=()
-    bwrapVirtualizeTmp=()
-  elif [ "$1" = /dev ]; then
-    bwrapVirtualizeDev=()
-  elif [ "$1" = /proc ]; then
-    bwrapVirtualizeProc=()
-  elif [ "$1" = /tmp ]; then
-    bwrapVirtualizeTmp=()
-  fi
+  case $1 in
+    (/)
+      bwrapVirtualizeDev=()
+      bwrapVirtualizeProc=()
+      bwrapVirtualizeTmp=()
+      ;;
+    (/dev)
+      bwrapVirtualizeDev=()
+      ;;
+    (/proc)
+      bwrapVirtualizeProc=()
+      ;;
+    (/tmp)
+      bwrapVirtualizeTmp=()
+      ;;
+  esac
 }
 bwrapIngestNet() {
   debug "bwrapIngestNet: enabling full net access for '$1' because don't know how to restrict it more narrowly"
   bwrapUnshareNet=()
 }
 bwrapIngestKeepNamespace() {
-  case "$1" in
+  case $1 in
     (cgroup)
       bwrapUnshareCgroup=()
       ;;
@@ -645,7 +682,7 @@ bwrapGetCli() {
   # --unshare-cgroup
   # --unshare-uts
   # --unshare-user (implicit to every non-suid call to bwrap)
-  locate _bwrap "bwrap" "@bubblewrap@/bin/bwrap"
+  locate _bwrap "bwrap" "$BWRAP_FALLBACK"
   cliArgs=(
     "$_bwrap" "${bwrapUnshareCgroup[@]}" "${bwrapUnshareIpc[@]}"
       "${bwrapUnshareNet[@]}" "${bwrapUnsharePid[@]}"
@@ -668,7 +705,7 @@ landlockSetup() {
   # typical failure mode:
   # - /tmp: application can't perform its task
   # - /dev/{null,random,urandom,zero}: application warns but works around it
-  paths+=(\
+  paths+=(
     /dev/null
     /dev/random
     /dev/urandom
@@ -693,9 +730,9 @@ landlockIngestPath() {
     # sandboxer will error if that part fails.
     if [ -z "$landlockPaths" ]; then
       # avoid leading :, which would otherwise cause a "no such file" error.
-      landlockPaths="$1"
+      landlockPaths=$1
     else
-      landlockPaths="$landlockPaths:$1"
+      landlockPaths=$landlockPaths:$1
     fi
   fi
 }
@@ -713,8 +750,8 @@ landlockGetCli() {
   # so trampoline through `capsh` as well, to drop privs.
   # N.B: capsh passes its arg to bash (via /nix/store/.../bash), which means you have to `-c "my command"` to
   # invoke the actual user command.
-  locate _sandboxer "sandboxer" "@landlockSandboxer@/bin/sandboxer"
-  locate _capsh "capsh" "@libcap@/bin/capsh"
+  locate _sandboxer "sandboxer" "$LANDLOCK_SANDBOXER_FALLBACK"
+  locate _capsh "capsh" "$CAPSH_FALLBACK"
   cliArgs=(env LL_FS_RO= LL_FS_RW="$landlockPaths"
     "$_sandboxer"
     "$_capsh" "--caps=$capshCapsArg" --no-new-privs --shell="/usr/bin/env" -- "${portalEnv[@]}" "${cliArgs[@]}"
@@ -752,9 +789,9 @@ capshonlyIngestCapability() {
   # therefore, only grant it those capabilities i know will succeed.
   if capsh "--has-p=cap_$1" 2>/dev/null; then
     if [ -z "$capshCapsArg" ]; then
-      capshCapsArg="cap_$1=eip"
+      capshCapsArg=cap_$1=eip
     else
-      capshCapsArg="cap_$1,$capshCapsArg"
+      capshCapsArg=cap_$1,$capshCapsArg
     fi
   else
     debug "capsh: don't have capability $1"
@@ -762,7 +799,7 @@ capshonlyIngestCapability() {
 }
 
 capshonlyGetCli() {
-  locate _capsh "capsh" "@libcap@/bin/capsh"
+  locate _capsh "capsh" "$CAPSH_FALLBACK"
   cliArgs=(
     "$_capsh" "--caps=$capshCapsArg" --no-new-privs --shell="/usr/bin/env" -- "${portalEnv[@]}" "${cliArgs[@]}"
   )
@@ -798,9 +835,9 @@ loadLinkCache() {
   readarray -t _linkCacheArray < /etc/sanebox/symlink-cache
   for link in "${_linkCacheArray[@]}"; do
     # XXX: bash doesn't give a good way to escape the tab character, but that's what we're splitting on here.
-    local from="${link%%	*}"
-    local to="${link##*	}"
-    linkCache["$from"]="$to"
+    local from=${link%%	*}
+    local to=${link##*	}
+    linkCache[$from]=$to
   done
 }
 
@@ -850,7 +887,7 @@ removeSubpaths() {
   for path in "${paths[@]}"; do
     local isSubpath=
     for other in "${paths[@]}"; do
-      if [[ "$path" =~ ^$other/.* ]] || [ "$other" = "/" ] && [ "$path" != "/" ]; then
+      if [[ "$path" =~ ^"$other"/ ]] || ( [ "$other" = / ] && [ "$path" != / ] ); then
         # N.B.: $path lacks a trailing slash, so this never matches self.
         # UNLESS $path or $other is exactly `/`, which we special-case.
         isSubpath=1
@@ -882,10 +919,16 @@ parseArgsAndEnvironment() {
     isDisable=1
   fi
 
-  test -n "$SANEBOX_PREPEND" && parseArgs $SANEBOX_PREPEND
+  if [ -n "$SANEBOX_PREPEND" ]; then
+    parseArgs $SANEBOX_PREPEND
+  fi
+
   parseArgs "$@"
   cliArgs+=("${parseArgsExtra[@]}")
-  test -n "$SANEBOX_APPEND" && parseArgs $SANEBOX_APPEND
+
+  if [ -n "$SANEBOX_APPEND" ]; then
+    parseArgs $SANEBOX_APPEND
+  fi
 }
 
 ### convert generic args into sandbox-specific args
@@ -921,10 +964,10 @@ parseArgsAndEnvironment "$@"
 # N.B.: SANEBOX_DEBUG FREQUENTLY BREAKS APPLICATIONS WHICH PARSE STDOUT
 # example is wireshark parsing stdout of dumpcap;
 # in such a case invoke the app with --sanebox-debug instead of the env var.
-export SANEBOX_DEBUG="$SANEBOX_DEBUG"
-export SANEBOX_DISABLE="$SANEBOX_DISABLE"
-export SANEBOX_PREPEND="$SANEBOX_PREPEND"
-export SANEBOX_APPEND="$SANEBOX_APPEND"
+export SANEBOX_DEBUG=$SANEBOX_DEBUG
+export SANEBOX_DISABLE=$SANEBOX_DISABLE
+export SANEBOX_PREPEND=$SANEBOX_PREPEND
+export SANEBOX_APPEND=$SANEBOX_APPEND
 
 if [ -z "$isDisable" ]; then
   loadLinkCache

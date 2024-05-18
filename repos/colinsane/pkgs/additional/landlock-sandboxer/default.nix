@@ -41,6 +41,7 @@ stdenv.mkDerivation rec {
       The goal of Landlock is to enable to restrict ambient rights (e.g. global filesystem access) for a set of processes.
     '';
     homepage = "https://landlock.io";
+    mainProgram = "sandboxer";
   };
 }
 
