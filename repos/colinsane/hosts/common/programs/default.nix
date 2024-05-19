@@ -14,6 +14,7 @@
     ./bonsai.nix
     ./brave.nix
     ./bubblewrap.nix
+    ./callaudiod.nix
     ./calls.nix
     ./cantata.nix
     ./catt.nix

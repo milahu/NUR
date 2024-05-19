@@ -15,7 +15,7 @@
   };
 
   sane.roles.build-machine.enable = true;
-  sane.zsh.showDeadlines = false;  # ~/knowledge doesn't always exist
+  sane.programs.zsh.config.showDeadlines = false;  # ~/knowledge doesn't always exist
   sane.programs.consoleUtils.suggestedPrograms = [
     "consoleMediaUtils"  # notably, for go2tv / casting
     "pcConsoleUtils"

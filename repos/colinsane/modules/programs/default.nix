@@ -78,7 +78,10 @@ let
             vpn.dns
           else
             null;
-          inherit allowedPaths allowedHomePaths allowedRunPaths;
+          # the sandboxer should understand how to work with duplicated paths, but it's annoying => `lib.unique`
+          allowedPaths = lib.unique allowedPaths;
+          allowedHomePaths = lib.unique allowedHomePaths;
+          allowedRunPaths = lib.unique allowedRunPaths;
         };
       in
         makeSandboxed {
@@ -449,6 +452,21 @@ let
         ++ lib.optionals (builtins.elem "user" config.sandbox.whitelistDbus) [ "bus" ]
         ++ lib.optionals config.sandbox.whitelistWayland [ "wayland" ]  # app can still communicate with wayland server w/o this, if it has net access
         ++ lib.optionals config.sandbox.whitelistS6 [ "s6" ]  # TODO: this allows re-writing the services themselves: don't allow that!
+      ;
+      sandbox.extraHomePaths = let
+        whitelistDir = dir: lib.optionals (lib.any (p: lib.hasPrefix "${dir}/" p) (builtins.attrNames config.fs)) [
+          dir
+        ];
+        mainProgram = (config.packageUnwrapped.meta or {}).mainProgram or null;
+      in
+        # assume the program is free to access any files in ~/.config/<name>, ~/.local/share/<name> -- if those exist.
+        # the benefit of this is that the program will see updates to its files made *outside* of the sandbox,
+        # allowing e.g. manual modification of ~/.config/FOO/thing.json to be seen by the program.
+        whitelistDir ".config/${name}"
+        ++ whitelistDir ".local/share/${name}"
+        # some packages, e.g. swaynotificationcenter, store the config under the binary name instead of the package name
+        ++ lib.optionals (mainProgram != null) (whitelistDir ".config/${mainProgram}")
+        ++ lib.optionals (mainProgram != null) (whitelistDir ".local/share/${mainProgram}")
       ;
       sandbox.extraConfig = lib.mkIf config.sandbox.usePortal [
         "--sanebox-portal"

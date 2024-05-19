@@ -887,7 +887,7 @@ removeSubpaths() {
   for path in "${paths[@]}"; do
     local isSubpath=
     for other in "${paths[@]}"; do
-      if [[ "$path" =~ ^"$other"/ ]] || ( [ "$other" = / ] && [ "$path" != / ] ); then
+      if [[ "$path" =~ ^"$other"/ ]] || [ "$other" = / -a "$path" != / ]; then
         # N.B.: $path lacks a trailing slash, so this never matches self.
         # UNLESS $path or $other is exactly `/`, which we special-case.
         isSubpath=1

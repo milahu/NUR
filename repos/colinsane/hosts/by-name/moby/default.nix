@@ -21,7 +21,7 @@
 
   sane.roles.client = true;
   sane.roles.handheld = true;
-  sane.zsh.showDeadlines = false;  # unlikely to act on them when in shell
+  sane.programs.zsh.config.showDeadlines = false;  # unlikely to act on them when in shell
   sane.services.wg-home.enable = true;
   sane.services.wg-home.ip = config.sane.hosts.by-name."moby".wg-home.ip;
 

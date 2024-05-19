@@ -34,6 +34,7 @@
     postBuild = ''
       runHook postFixup
     '';
+    meta = pkg.meta or {};
   });
 
   # like rmDbusServices, but do it by patching the derivation instead of wrapping it.

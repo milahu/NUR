@@ -19,8 +19,9 @@ set $default_workspace_layout @workspace_layout@
 
 set $out_tv "LG Electronics LG TV 0x01010101"
 set $out_projector "MS Telematica TV 0x00000001"
-set $out_desko_1 "LG Electronics LG ULTRAWIDE 0x00004E94"
-set $out_desko_2 "Samsung Electric Company S22C300 0x00007F35"
+# TODO: these 0x... numbers change on occassion: i should ignore them.
+set $out_desko_1 "LG Electronics LG ULTRAWIDE 0x000C4694"
+set $out_desko_2 "Samsung Electric Company S22C300 0x5A365335"
 set $out_lappy "BOE 0x0637 Unknown"
 # DSI-1 a.k.a. "Unknown Unknown Unknown"
 set $out_moby "DSI-1"
@@ -161,12 +162,13 @@ workspace TV output $out_tv $out_projector
 for_window [workspace="TV"] fullscreen enable
 
 # mostly, messengers belong on WS 1
+assign [app_id="abaddon"] workspace number 1
+assign [app_id="geary"] workspace number 1
+assign [app_id="gnome-calls"] workspace number 1
 assign [app_id="im.dino.Dino"] workspace number 1
 assign [app_id="org.gnome.Fractal"] workspace number 1
-assign [app_id="geary"] workspace number 1
 assign [app_id="signal"] workspace number 1
 assign [app_id="so.libdb.dissent"]  workspace number 1
-assign [app_id="abaddon"] workspace number 1
 
 # window display settings
 # force KOReader to always display a titlebar, even when the only window being rendered.

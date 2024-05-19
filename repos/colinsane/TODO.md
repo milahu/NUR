@@ -1,6 +1,8 @@
 ## BUGS
 - moby: megapixels doesn't load in sandbox
 - when moby wlan is explicitly set down (via ip link set wlan0 down), /var/lib/trust-dns/dhcp-configs doesn't get reset
+  - `ip monitor` can detect those manual link state changes (NM-dispatcher it seems cannot)
+  - or try dnsmasq?
 - trust-dns: can't recursively resolve api.mangadex.org
   - and *sometimes* apple.com fails
 - sandbox: `ip netns exec ovpns bash`: doesn't work
