@@ -1,37 +1,38 @@
 { lib, stdenv, fetchFromGitHub, python3Packages }:
 
 python3Packages.buildPythonPackage rec {
-  pname = "pystac";
-  version = "1.9.0";
+  pname = "rioxarray";
+  version = "0.15.5";
   pyproject = true;
 
   src = fetchFromGitHub {
-    owner = "stac-utils";
-    repo = "pystac";
-    rev = "v${version}";
-    hash = "sha256-LbHeEA/F96nVejsNVMR/zrIgIyrBxHiinHcLzk68uA0=";
+    owner = "corteva";
+    repo = "rioxarray";
+    rev = version;
+    hash = "sha256-bumFZQktgUqo2lyoLtDXkh6Vv5oS/wobqYpvNYy7La0=";
   };
 
   build-system = with python3Packages; [ setuptools ];
 
   propagatedBuildInputs = with python3Packages; [
-    python-dateutil
+    packaging
+    rasterio
+    xarray
+    pyproj
+    numpy
   ];
 
+  doCheck = false;
   nativeCheckInputs = with python3Packages; [
-    html5lib
-    jsonschema
+    dask
+    netcdf4
     pytestCheckHook
-    pytest-cov
-    pytest-mock
-    pytest-recording
-    requests-mock
   ];
 
-  pythonImportsCheck = [ "pystac" ];
+  pythonImportsCheck = [ "rioxarray" ];
 
   meta = with lib; {
-    description = "Python library for working with any SpatioTemporal Asset Catalog (STAC)";
+    description = "geospatial xarray extension powered by rasterio";
     inherit (src.meta) homepage;
     license = licenses.asl20;
     maintainers = [ maintainers.sikmir ];

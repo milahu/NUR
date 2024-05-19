@@ -13,7 +13,7 @@ python3Packages.buildPythonPackage rec {
     hash = "sha256-Pkw21EOjRiIhdZvCY6JJ2T2yjShF9Io4NAQZIIjeKpU=";
   };
 
-  nativeBuildInputs = with python3Packages; [ setuptools-scm ];
+  build-system = with python3Packages; [ setuptools-scm ];
 
   SETUPTOOLS_SCM_PRETEND_VERSION = version;
 

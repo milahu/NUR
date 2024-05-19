@@ -12,7 +12,7 @@ python3Packages.buildPythonPackage rec {
     hash = "sha256-GKSh/lM5Bhmqw26ZfLQyRJMWfI8I9dGTkqDdr2CXZTs=";
   };
 
-  nativeBuildInputs = with python3Packages; [ setuptools ];
+  build-system = with python3Packages; [ setuptools ];
 
   pythonImportsCheck = [ "pyrtcm" ];
 

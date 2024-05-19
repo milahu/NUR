@@ -12,7 +12,7 @@ python3Packages.buildPythonPackage rec {
     hash = "sha256-l5KPBPODfeQdZIW3kjoj4ImhokFKjxyiB7r57Ryqj0g=";
   };
 
-  nativeBuildInputs = with python3Packages; [ poetry-core ];
+  build-system = with python3Packages; [ poetry-core ];
 
   propagatedBuildInputs = with python3Packages; [ deprecated pexpect pyte ];
 

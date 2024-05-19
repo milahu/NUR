@@ -248,6 +248,7 @@ lib.makeScope newScope (
     rio-mucho = callPackage ./geospatial/rio-mucho { };
     rio-stac = callPackage ./geospatial/rio-stac { };
     rio-tiler = callPackage ./geospatial/rio-tiler { };
+    rioxarray = callPackage ./geospatial/rioxarray { };
     rsgislib = callPackage ./geospatial/rsgislib { };
     sasplanet = callPackage ./geospatial/sasplanet { };
     server-thread = callPackage ./geospatial/server-thread { };
@@ -412,6 +413,7 @@ lib.makeScope newScope (
     shellprof = callPackage ./misc/shellprof { };
     socketcand = callPackage ./misc/socketcand { };
     subprocess = callPackage ./misc/subprocess { };
+    tabiew = callPackage ./misc/tabiew { };
     tcvt = callPackage ./misc/tcvt { };
     telegabber = callPackage ./misc/telegabber { };
     telegram-send = callPackage ./misc/telegram-send { };
@@ -513,6 +515,7 @@ lib.makeScope newScope (
     ### RADIO
 
     acarsdec = callPackage ./radio/acarsdec { };
+    adsb_deku = callPackage ./radio/adsb_deku { };
     ais-catcher = callPackage ./radio/ais-catcher { };
     aprsc = callPackage ./radio/aprsc { };
     dumphfdl = callPackage ./radio/dumphfdl { };

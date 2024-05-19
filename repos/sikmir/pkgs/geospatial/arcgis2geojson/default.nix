@@ -17,7 +17,7 @@ python3Packages.buildPythonApplication rec {
       --replace-fail "poetry.masonry" "poetry.core.masonry"
   '';
 
-  nativeBuildInputs = with python3Packages; [ poetry-core ];
+  build-system = with python3Packages; [ poetry-core ];
 
   meta = with lib; {
     description = "A Python library for converting ArcGIS JSON to GeoJSON";

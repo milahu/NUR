@@ -12,7 +12,7 @@ python3Packages.buildPythonApplication rec {
     hash = "sha256-iKM+tEEOtSkwDdkBN+n35q3D2IBi7a/bnY/fSlGDowU=";
   };
 
-  nativeBuildInputs = with python3Packages; [ poetry-core ];
+  build-system = with python3Packages; [ poetry-core ];
 
   propagatedBuildInputs = with python3Packages; [
     mercantile
