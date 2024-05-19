@@ -1857,10 +1857,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "127.0.20240515.91746";
+      version = "127.0.20240517.91915";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4287231/deutsch_de_language_pack-127.0.20240515.91746.xpi";
-      sha256 = "92cbb53e46caeac4e14b58c2f5a079948f29ffd33d04ac87738a232e530e697a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4288461/deutsch_de_language_pack-127.0.20240517.91915.xpi";
+      sha256 = "132adfe55c17416a5a2a12c3ac84472897f07bc993b3c10db7a19bd168b2bba2";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -2053,10 +2053,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.36.1";
+      version = "2.37.0";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4287132/dualsub-2.36.1.xpi";
-      sha256 = "a132abcc3f42ced2b37cbdf30e0c5e2d5e3a9cc327b790ea339f37d3c1985792";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4288223/dualsub-2.37.0.xpi";
+      sha256 = "cdd027984fcc27996611360fa6e2768b8be3f7f5302f6313eb3f26c566f03811";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -2807,10 +2807,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "127.0.20240515.91746";
+      version = "127.0.20240517.91915";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4287285/francais_language_pack-127.0.20240515.91746.xpi";
-      sha256 = "a013be956eadfce4429ecaff6b466c6eee7ce199145a1bf6d6e2cd9487326851";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4288449/francais_language_pack-127.0.20240517.91915.xpi";
+      sha256 = "144caaa32694b66a3a12850b1f626d8be4ec0daeff740b6d2269cbf9975df35c";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4695,10 +4695,10 @@
     };
     "immersive-translate" = buildFirefoxXpiAddon {
       pname = "immersive-translate";
-      version = "1.5.2";
+      version = "1.5.5";
       addonId = "{5efceaa7-f3a2-4e59-a54b-85319448e305}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4284465/immersive_translate-1.5.2.xpi";
-      sha256 = "cacdc59e04ef3675242566d663ec2dec516e4ba78f0730bb2871c56c6d4ff962";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4287468/immersive_translate-1.5.5.xpi";
+      sha256 = "ca7100e585dba307c7143ca4778856f62da19c0a54c25acddeb06341bc43e753";
       meta = with lib;
       {
         homepage = "https://immersivetranslate.com";
@@ -9263,10 +9263,10 @@
     };
     "single-file" = buildFirefoxXpiAddon {
       pname = "single-file";
-      version = "1.22.47";
+      version = "1.22.48";
       addonId = "{531906d3-e22f-4a6c-a102-8057b88a1a63}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4264820/single_file-1.22.47.xpi";
-      sha256 = "66020eb464cb4868434546ebc3b6bc110dd1810b677f3a1c50046cb9eec53368";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4286096/single_file-1.22.48.xpi";
+      sha256 = "3166308728700d081b5b7c1d4b04b5b5c5bdf6d9b204501800cca015b233c012";
       meta = with lib;
       {
         homepage = "https://github.com/gildas-lormeau/SingleFile";
@@ -10696,10 +10696,10 @@
     };
     "ublock-origin-lite" = buildFirefoxXpiAddon {
       pname = "ublock-origin-lite";
-      version = "2024.5.13.839";
+      version = "2024.5.17.961";
       addonId = "uBOLite@raymondhill.net";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4286100/ublock_origin_lite-2024.5.13.839.xpi";
-      sha256 = "41cde6015c946c5f6bc1d121717946d62d6a7cf9f7ae43ba5dac3eada4e94ff4";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4288677/ublock_origin_lite-2024.5.17.961.xpi";
+      sha256 = "a564b44df61b3a7bec8dc0459474b67bc43548f8d0b0d57db00c2a904ab4f4f9";
       meta = with lib;
       {
         homepage = "https://github.com/uBlockOrigin/uBOL-home";
