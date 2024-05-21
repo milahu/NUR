@@ -18,6 +18,8 @@ let
     "-DLIBOQS_DIR=${liboqs}"
     "-DLIBOQS_SHARED=ON"
     "-DBUILD_SHARED_LIBS=ON"
+    "-DCMAKE_SKIP_BUILD_RPATH=ON"
+    "-DCMAKE_SKIP_INSTALL_RPATH=ON"
   ] ++ lib.optionals stdenv.isLinux [ "-DCMAKE_OSX_ARCHITECTURES=" ];
 in
 buildGoModule {
@@ -36,7 +38,7 @@ buildGoModule {
 
   preBuild =
     ''
-        export cmakeFlags="${builtins.concatStringsSep " " cmakeFlags}"
+      export cmakeFlags="${builtins.concatStringsSep " " cmakeFlags}"
       cmakeConfigurePhase
     ''
     + lib.optionalString (stdenv.buildPlatform != stdenv.hostPlatform) ''
@@ -70,7 +72,6 @@ buildGoModule {
   ];
 
   meta = with lib; {
-    broken = true;
     maintainers = with lib.maintainers; [ xddxdd ];
     description = "Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs";
     homepage = "https://openquantumsafe.org";

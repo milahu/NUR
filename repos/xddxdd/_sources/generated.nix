@@ -125,21 +125,21 @@
   };
   bilibili = {
     pname = "bilibili";
-    version = "1.13.2-2";
+    version = "1.13.4-1";
     src = fetchurl {
-      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.13.2-2/bilibili-asar-v1.13.2-2.tar.gz";
-      sha256 = "sha256-DluiTp7fGnFBbaPD89pzIUGV0yh6fIgcFlQdzi6aVNM=";
+      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.13.4-1/bilibili-asar-v1.13.4-1.tar.gz";
+      sha256 = "sha256-PTe8wL+fNMnoyIEiC+Thk/mOVdLHTnvWuH5TRl+SbWk=";
     };
   };
   bilibili-src = {
     pname = "bilibili-src";
-    version = "v1.13.2-2";
+    version = "v1.13.4-1";
     src = fetchFromGitHub {
       owner = "msojocs";
       repo = "bilibili-linux";
-      rev = "v1.13.2-2";
+      rev = "v1.13.4-1";
       fetchSubmodules = false;
-      sha256 = "sha256-jfjuQWTxlNTE6M7eRxy58wXGcrULle8aVmmle/K0DAU=";
+      sha256 = "sha256-NRRP6uTs1sU94PNhhdNaZM2smTmK6lHLI5qxjXxrtMo=";
     };
   };
   bird-lg-go = {
@@ -382,13 +382,13 @@
   };
   flaresolverr = {
     pname = "flaresolverr";
-    version = "v3.3.17";
+    version = "v3.3.18";
     src = fetchFromGitHub {
       owner = "FlareSolverr";
       repo = "FlareSolverr";
-      rev = "v3.3.17";
+      rev = "v3.3.18";
       fetchSubmodules = false;
-      sha256 = "sha256-mCHR9DP+Dprp06W/yIccqdNvwgruSqZokVwRhmGvz8A=";
+      sha256 = "sha256-VpW3Rvn4UZAV02ymbZPo5baeDIFNGWx7VA5254Hhw1E=";
     };
   };
   flasgger = {
@@ -639,15 +639,15 @@
   };
   librime-lua = {
     pname = "librime-lua";
-    version = "43229d766f1e0f3198f61dc9d2e38bc1f921387f";
+    version = "7be6974b6d81c116bba39f6707dc640f6636fa4e";
     src = fetchFromGitHub {
       owner = "hchunhui";
       repo = "librime-lua";
-      rev = "43229d766f1e0f3198f61dc9d2e38bc1f921387f";
+      rev = "7be6974b6d81c116bba39f6707dc640f6636fa4e";
       fetchSubmodules = false;
-      sha256 = "sha256-JdT47lb3+HrDq3xbcm2nNHfL4/wg7h+ei+MMF6SbsGg=";
+      sha256 = "sha256-jsrnAFE99d0U0LdddTL7G1p416qJfSNR935TZFH3Swk=";
     };
-    date = "2024-05-03";
+    date = "2024-05-19";
   };
   librime-octagram = {
     pname = "librime-octagram";
@@ -830,13 +830,13 @@
   };
   noise-suppression-for-voice = {
     pname = "noise-suppression-for-voice";
-    version = "v1.03";
+    version = "v1.10";
     src = fetchFromGitHub {
       owner = "werman";
       repo = "noise-suppression-for-voice";
-      rev = "v1.03";
+      rev = "v1.10";
       fetchSubmodules = false;
-      sha256 = "sha256-1DgrpGYF7G5Zr9vbgtKm/Yv0HSdI7LrFYPSGKYNnNDQ=";
+      sha256 = "sha256-sfwHd5Fl2DIoGuPDjELrPp5KpApZJKzQikCJmCzhtY8=";
     };
   };
   nullfs = {
@@ -1432,13 +1432,13 @@
   };
   vs-rife = {
     pname = "vs-rife";
-    version = "v4.2.0";
+    version = "v5.0.0";
     src = fetchFromGitHub {
       owner = "HolyWu";
       repo = "vs-rife";
-      rev = "v4.2.0";
+      rev = "v5.0.0";
       fetchSubmodules = false;
-      sha256 = "sha256-6mmH3HK9HgnbAHUHQyIhpRzA5rrznqM0WmAovD6VrQg=";
+      sha256 = "sha256-DJQW7W8ntL7GQVy2AXPAJQXrLFbnplVojM0q4oPh1gw=";
     };
   };
   wechat-uos = {

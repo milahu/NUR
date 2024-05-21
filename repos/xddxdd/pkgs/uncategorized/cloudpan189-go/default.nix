@@ -7,8 +7,10 @@
   ...
 }:
 let
-  cmd = buildGoModule rec {
-    inherit (sources.cloudpan189-go) pname version src;
+  inherit (sources.cloudpan189-go) pname version;
+  cmd = buildGoModule {
+    inherit pname version;
+    inherit (sources.cloudpan189-go) src;
     vendorHash = "sha256-6t4wJqUGJneR6Hv7Dotr4P9MTA1oQcCe/ujDojS0g8s=";
 
     # Dirty way to fix dependency issue
@@ -28,7 +30,7 @@ let
   '';
 in
 stdenvNoCC.mkDerivation {
-  inherit (sources.cloudpan189-go) pname version;
+  inherit pname version;
   dontUnpack = true;
   postInstall = ''
     install -Dm755 ${startScript} $out/bin/cloudpan189-go
@@ -36,7 +38,7 @@ stdenvNoCC.mkDerivation {
 
   meta = with lib; {
     maintainers = with lib.maintainers; [ xddxdd ];
-    description = "天翼云盘命令行客户端(CLI)，基于GO语言实现";
+    description = "CLI for China Telecom 189 Cloud Drive service, implemented in Go";
     homepage = "https://github.com/tickstep/cloudpan189-go";
     license = licenses.asl20;
   };
