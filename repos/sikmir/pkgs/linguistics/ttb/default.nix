@@ -1,4 +1,10 @@
-{ lib, stdenv, rustPlatform, fetchFromGitHub, SystemConfiguration }:
+{
+  lib,
+  stdenv,
+  rustPlatform,
+  fetchFromGitHub,
+  SystemConfiguration,
+}:
 
 rustPlatform.buildRustPackage rec {
   pname = "ttb";

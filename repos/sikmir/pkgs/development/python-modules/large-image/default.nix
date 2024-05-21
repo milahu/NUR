@@ -1,4 +1,8 @@
-{ lib, python3Packages, fetchFromGitHub }:
+{
+  lib,
+  python3Packages,
+  fetchFromGitHub,
+}:
 
 python3Packages.buildPythonPackage rec {
   pname = "large-image";
@@ -15,7 +19,13 @@ python3Packages.buildPythonPackage rec {
 
   SETUPTOOLS_SCM_PRETEND_VERSION = version;
 
-  propagatedBuildInputs = with python3Packages; [ cachetools palettable pillow psutil numpy ];
+  propagatedBuildInputs = with python3Packages; [
+    cachetools
+    palettable
+    pillow
+    psutil
+    numpy
+  ];
 
   doCheck = false;
 

@@ -1,4 +1,11 @@
-{ lib, stdenv, python3Packages, fetchFromGitHub, cykhash, pyrobuf }:
+{
+  lib,
+  stdenv,
+  python3Packages,
+  fetchFromGitHub,
+  cykhash,
+  pyrobuf,
+}:
 
 python3Packages.buildPythonPackage rec {
   pname = "pyrosm";

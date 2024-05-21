@@ -1,4 +1,10 @@
-{ lib, fetchFromGitHub, python3Packages, pyspartn, pyubx2 }:
+{
+  lib,
+  fetchFromGitHub,
+  python3Packages,
+  pyspartn,
+  pyubx2,
+}:
 
 python3Packages.buildPythonPackage rec {
   pname = "pygnssutils";

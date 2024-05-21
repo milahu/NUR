@@ -1,4 +1,11 @@
-{ lib, stdenv, fetchFromGitHub, python3Packages, morecantile, cogdumper }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  python3Packages,
+  morecantile,
+  cogdumper,
+}:
 
 python3Packages.buildPythonPackage rec {
   pname = "rio-cogeo";
@@ -24,7 +31,10 @@ python3Packages.buildPythonPackage rec {
 
   doCheck = false;
 
-  nativeCheckInputs = with python3Packages; [ pytestCheckHook cogdumper ];
+  nativeCheckInputs = with python3Packages; [
+    pytestCheckHook
+    cogdumper
+  ];
 
   meta = with lib; {
     description = "Cloud Optimized GeoTIFF creation and validation plugin for rasterio";

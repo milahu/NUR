@@ -1,4 +1,13 @@
-{ lib, stdenv, fetchFromGitHub, python3Packages, morecantile, pystac, color-operations, rioxarray }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  python3Packages,
+  morecantile,
+  pystac,
+  color-operations,
+  rioxarray,
+}:
 
 python3Packages.buildPythonPackage rec {
   pname = "rio-tiler";
@@ -25,7 +34,10 @@ python3Packages.buildPythonPackage rec {
     color-operations
   ];
 
-  nativeCheckInputs = with python3Packages; [ pytestCheckHook rioxarray ];
+  nativeCheckInputs = with python3Packages; [
+    pytestCheckHook
+    rioxarray
+  ];
 
   pythonImportsCheck = [ "rio_tiler" ];
 

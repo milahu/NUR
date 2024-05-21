@@ -1,14 +1,15 @@
-{ lib
-, stdenv
-, fetchFromSourcehut
-, installShellFiles
-, libpng
-, libjpeg
-, libtiff
-, libwebp
-, fftwFloat
-, libX11
-, gsl
+{
+  lib,
+  stdenv,
+  fetchFromSourcehut,
+  installShellFiles,
+  libpng,
+  libjpeg,
+  libtiff,
+  libwebp,
+  fftwFloat,
+  libX11,
+  gsl,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -24,9 +25,20 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [ installShellFiles ];
 
-  buildInputs = [ libpng libjpeg libtiff libwebp fftwFloat libX11 gsl ];
+  buildInputs = [
+    libpng
+    libjpeg
+    libtiff
+    libwebp
+    fftwFloat
+    libX11
+    gsl
+  ];
 
-  makeFlags = [ "DISABLE_HDF5=1" "full" ];
+  makeFlags = [
+    "DISABLE_HDF5=1"
+    "full"
+  ];
 
   env.NIX_CFLAGS_COMPILE = "-Wno-error=implicit-function-declaration";
 

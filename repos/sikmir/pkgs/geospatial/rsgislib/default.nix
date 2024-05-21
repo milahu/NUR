@@ -1,4 +1,16 @@
-{ lib, stdenv, fetchFromGitHub, cmake, boost, gdal, gsl, hdf5, kealib, muparser, python3 }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  cmake,
+  boost,
+  gdal,
+  gsl,
+  hdf5,
+  kealib,
+  muparser,
+  python3,
+}:
 
 stdenv.mkDerivation rec {
   pname = "rsgislib";
@@ -13,7 +25,15 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ cmake ];
 
-  buildInputs = [ boost gdal gsl hdf5 kealib muparser python3 ];
+  buildInputs = [
+    boost
+    gdal
+    gsl
+    hdf5
+    kealib
+    muparser
+    python3
+  ];
 
   meta = with lib; {
     description = "Remote Sensing and GIS Software Library";

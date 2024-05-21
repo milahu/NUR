@@ -1,10 +1,11 @@
-{ lib
-, fetchFromGitHub
-, python3Packages
-, jsonseq
-, supermercado
-, testers
-, tilesets-cli
+{
+  lib,
+  fetchFromGitHub,
+  python3Packages,
+  jsonseq,
+  supermercado,
+  testers,
+  tilesets-cli,
 }:
 
 python3Packages.buildPythonApplication rec {
@@ -33,11 +34,12 @@ python3Packages.buildPythonApplication rec {
     geojson
   ];
 
-  nativeCheckInputs = with python3Packages; [ pytestCheckHook supermercado ];
+  nativeCheckInputs = with python3Packages; [
+    pytestCheckHook
+    supermercado
+  ];
 
-  passthru.tests.version = testers.testVersion {
-    package = tilesets-cli;
-  };
+  passthru.tests.version = testers.testVersion { package = tilesets-cli; };
 
   meta = with lib; {
     description = "CLI for interacting with the Mapbox Tilesets API";

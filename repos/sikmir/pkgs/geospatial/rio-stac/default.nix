@@ -1,4 +1,10 @@
-{ lib, stdenv, fetchFromGitHub, python3Packages, pystac }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  python3Packages,
+  pystac,
+}:
 
 python3Packages.buildPythonPackage rec {
   pname = "rio-stac";
@@ -19,11 +25,12 @@ python3Packages.buildPythonPackage rec {
     pystac
   ];
 
-  nativeCheckInputs = with python3Packages; [ pytestCheckHook jsonschema ];
-
-  disabledTests = [
-    "test_create_item"
+  nativeCheckInputs = with python3Packages; [
+    pytestCheckHook
+    jsonschema
   ];
+
+  disabledTests = [ "test_create_item" ];
 
   meta = with lib; {
     description = "Create STAC item from raster datasets";

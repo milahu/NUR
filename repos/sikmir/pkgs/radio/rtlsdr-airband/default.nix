@@ -1,15 +1,16 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, cmake
-, pkg-config
-, fftwFloat
-, lame
-, libconfig
-, libshout
-, pulseaudio
-, rtl-sdr
-, soapysdr
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  cmake,
+  pkg-config,
+  fftwFloat,
+  lame,
+  libconfig,
+  libshout,
+  pulseaudio,
+  rtl-sdr,
+  soapysdr,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -23,13 +24,22 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-Rgsxim7FESVt1ZnVJFvVfMqJMgzVCfP1yBDBBO4zEsE=";
   };
 
-  nativeBuildInputs = [ cmake pkg-config ];
-
-  buildInputs = [ fftwFloat lame libconfig libshout pulseaudio rtl-sdr soapysdr ];
-
-  cmakeFlags = [
-    (lib.cmakeBool "NFM" true)
+  nativeBuildInputs = [
+    cmake
+    pkg-config
   ];
+
+  buildInputs = [
+    fftwFloat
+    lame
+    libconfig
+    libshout
+    pulseaudio
+    rtl-sdr
+    soapysdr
+  ];
+
+  cmakeFlags = [ (lib.cmakeBool "NFM" true) ];
 
   meta = with lib; {
     description = "Multichannel AM/NFM demodulator";

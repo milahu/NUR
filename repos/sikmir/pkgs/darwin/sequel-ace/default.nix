@@ -1,4 +1,9 @@
-{ lib, stdenvNoCC, fetchfromgh, unzip }:
+{
+  lib,
+  stdenvNoCC,
+  fetchfromgh,
+  unzip,
+}:
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "sequel-ace";

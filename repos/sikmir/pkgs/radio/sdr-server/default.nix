@@ -1,4 +1,15 @@
-{ lib, stdenv, fetchFromGitHub, cmake, pkg-config, check, libconfig, librtlsdr, volk, zlib }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  cmake,
+  pkg-config,
+  check,
+  libconfig,
+  librtlsdr,
+  volk,
+  zlib,
+}:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "sdr-server";
@@ -11,9 +22,18 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-7X8woFT0PoIfnwcBwhPRJ4ZijtlZDBsCrTUhxbozrjI=";
   };
 
-  nativeBuildInputs = [ cmake pkg-config ];
+  nativeBuildInputs = [
+    cmake
+    pkg-config
+  ];
 
-  buildInputs = [ check libconfig librtlsdr volk zlib ];
+  buildInputs = [
+    check
+    libconfig
+    librtlsdr
+    volk
+    zlib
+  ];
 
   installPhase = ''
     install -Dm755 sdr_server -t $out/bin

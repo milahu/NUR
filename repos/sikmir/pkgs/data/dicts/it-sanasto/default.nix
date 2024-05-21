@@ -1,4 +1,11 @@
-{ lib, stdenvNoCC, fetchFromGitHub, dict, pandoc, stardict-tools }:
+{
+  lib,
+  stdenvNoCC,
+  fetchFromGitHub,
+  dict,
+  pandoc,
+  stardict-tools,
+}:
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "it-sanasto";
@@ -11,7 +18,11 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     hash = "sha256-+YLKG4kqflWkRdrER0A7GRYXluZpuf1TO0zyk3gVzU4=";
   };
 
-  nativeBuildInputs = [ dict pandoc stardict-tools ];
+  nativeBuildInputs = [
+    dict
+    pandoc
+    stardict-tools
+  ];
 
   buildPhase = ''
     for i in *.md; do

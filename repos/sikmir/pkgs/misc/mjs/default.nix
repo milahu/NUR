@@ -1,4 +1,9 @@
-{ lib, stdenv, fetchFromGitHub, python3 }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  python3,
+}:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "mjs";
@@ -20,7 +25,10 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [ python3 ];
 
-  makeFlags = [ "DOCKER_GCC=" "DOCKER_CLANG=" ];
+  makeFlags = [
+    "DOCKER_GCC="
+    "DOCKER_CLANG="
+  ];
 
   installPhase = ''
     install -Dm755 build/mjs -t $out/bin

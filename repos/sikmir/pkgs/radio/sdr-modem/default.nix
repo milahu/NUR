@@ -1,4 +1,15 @@
-{ lib, stdenv, fetchFromGitHub, cmake, pkg-config, check, libconfig, libiio, volk, protobufc }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  cmake,
+  pkg-config,
+  check,
+  libconfig,
+  libiio,
+  volk,
+  protobufc,
+}:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "sdr-modem";
@@ -11,9 +22,18 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-j3T8LJq7B4GL41tAr6RfDla9hu2+BQTVTi96LnEo0iw=";
   };
 
-  nativeBuildInputs = [ cmake pkg-config ];
+  nativeBuildInputs = [
+    cmake
+    pkg-config
+  ];
 
-  buildInputs = [ check libconfig libiio volk protobufc ];
+  buildInputs = [
+    check
+    libconfig
+    libiio
+    volk
+    protobufc
+  ];
 
   installPhase = ''
     install -Dm755 sdr_modem -t $out/bin

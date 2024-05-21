@@ -1,4 +1,9 @@
-{ lib, fetchFromGitHub, python3Packages, pygnssutils }:
+{
+  lib,
+  fetchFromGitHub,
+  python3Packages,
+  pygnssutils,
+}:
 
 python3Packages.buildPythonApplication rec {
   pname = "pygpsclient";

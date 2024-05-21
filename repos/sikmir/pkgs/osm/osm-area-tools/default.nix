@@ -1,15 +1,16 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, cmake
-, boost
-, bzip2
-, expat
-, gdal
-, libosmium
-, protozero
-, sqlite
-, zlib
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  cmake,
+  boost,
+  bzip2,
+  expat,
+  gdal,
+  libosmium,
+  protozero,
+  sqlite,
+  zlib,
 }:
 
 stdenv.mkDerivation {

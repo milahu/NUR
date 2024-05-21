@@ -1,4 +1,10 @@
-{ lib, stdenv, fetchfromgh, jre, makeWrapper }:
+{
+  lib,
+  stdenv,
+  fetchfromgh,
+  jre,
+  makeWrapper,
+}:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "mqtt-cli";

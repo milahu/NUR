@@ -1,4 +1,9 @@
-{ lib, stdenv, fetchurl, osmium-tool }:
+{
+  lib,
+  stdenv,
+  fetchurl,
+  osmium-tool,
+}:
 
 stdenv.mkDerivation rec {
   pname = "osm-extracts";

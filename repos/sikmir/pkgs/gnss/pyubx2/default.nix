@@ -1,4 +1,9 @@
-{ lib, fetchFromGitHub, python3Packages, pyrtcm }:
+{
+  lib,
+  fetchFromGitHub,
+  python3Packages,
+  pyrtcm,
+}:
 
 python3Packages.buildPythonPackage rec {
   pname = "pyubx2";

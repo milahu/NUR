@@ -1,4 +1,18 @@
-{ lib, stdenv, fetchFromGitHub, cmake, pkg-config, fftwFloat, glib, libacars, libconfig, liquid-dsp, soapysdr, sqlite, zeromq }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  cmake,
+  pkg-config,
+  fftwFloat,
+  glib,
+  libacars,
+  libconfig,
+  liquid-dsp,
+  soapysdr,
+  sqlite,
+  zeromq,
+}:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "dumphfdl";
@@ -11,9 +25,21 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-M4WjcGA15Kp+Hpp+I2Ndcx+oBqaGxEeQLTPcSlugLwQ=";
   };
 
-  nativeBuildInputs = [ cmake pkg-config ];
+  nativeBuildInputs = [
+    cmake
+    pkg-config
+  ];
 
-  buildInputs = [ fftwFloat glib libacars libconfig liquid-dsp soapysdr sqlite zeromq ];
+  buildInputs = [
+    fftwFloat
+    glib
+    libacars
+    libconfig
+    liquid-dsp
+    soapysdr
+    sqlite
+    zeromq
+  ];
 
   meta = with lib; {
     description = "Multichannel HFDL decoder";

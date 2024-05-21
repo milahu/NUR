@@ -1,4 +1,10 @@
-{ lib, stdenv, fetchFromGitHub, cmake, hdf5 }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  cmake,
+  hdf5,
+}:
 
 stdenv.mkDerivation rec {
   pname = "kealib";

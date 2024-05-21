@@ -1,4 +1,10 @@
-{ lib, buildGoModule, fetchFromSourcehut, scdoc, installShellFiles }:
+{
+  lib,
+  buildGoModule,
+  fetchFromSourcehut,
+  scdoc,
+  installShellFiles,
+}:
 
 buildGoModule rec {
   pname = "mdtohtml";
@@ -11,7 +17,10 @@ buildGoModule rec {
     hash = "sha256-qvd4Iz+1uNT1Y/DkHGRYBVCLeIpleQ58Ua4eSYv+ilQ=";
   };
 
-  nativeBuildInputs = [ scdoc installShellFiles ];
+  nativeBuildInputs = [
+    scdoc
+    installShellFiles
+  ];
 
   vendorHash = "sha256-b+xQpGSN6F79qTDqVpyEsEQGNgcR1/l7pzwIxqgTcic=";
 

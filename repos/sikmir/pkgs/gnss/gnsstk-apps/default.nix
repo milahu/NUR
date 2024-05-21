@@ -1,4 +1,10 @@
-{ lib, stdenv, fetchFromGitHub, cmake, gnsstk }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  cmake,
+  gnsstk,
+}:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "gnsstk-apps";
