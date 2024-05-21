@@ -371,6 +371,14 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       audalign = callPackage ./pkgs/python3/pkgs/audalign { };
 
+      restview = callPackage ./pkgs/python3/pkgs/restview { };
+
+      stpl = callPackage ./pkgs/python3/pkgs/stpl { };
+
+      syncstart = callPackage ./pkgs/python3/pkgs/syncstart { };
+
+      scikits-audiolab = callPackage ./pkgs/python3/pkgs/scikits-audiolab { };
+
     #}))); # python3.pkgs
 
   #}))); # python3
