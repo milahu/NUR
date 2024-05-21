@@ -1,48 +1,49 @@
 { lib
-, mkDerivation
+, stdenv
 , fetchFromGitHub
 , cmake
 , extra-cmake-modules
 , kdecoration
-, qtx11extras
 , kcoreaddons
 , kguiaddons
 , kconfigwidgets
 , kiconthemes
 , kwindowsystem
 , kwayland
-, kirigami2
+, kirigami
 , frameworkintegration
 , kcmutils
+, wrapQtAppsHook
+, qtsvg
 }:
 
-mkDerivation rec {
+stdenv.mkDerivation rec {
   pname = "klassy";
-  version = "5.2.breeze5.27.11";
+  version = "6.1.breeze6.0.3";
 
   src = fetchFromGitHub {
     owner = "paulmcauley";
     repo = pname;
     rev = version;
-    sha256 = "sha256-r8jGC7oWMgLWfG84IKKuL/RILk6G05AjAh0pnuaVcuI=";
+    sha256 = "sha256-D8vjc8LT+pn6Qzn9cSRL/TihrLZN4Y+M3YiNLPrrREc=";
   };
 
-  extraCmakeFlags = [ "-DBUILD_TESTING=OFF" ];
+  cmakeFlags = [ "-DBUILD_TESTING=OFF" "-DBUILD_QT5=OFF" ];
 
-  nativeBuildInputs = [ cmake extra-cmake-modules ];
+  nativeBuildInputs = [ cmake extra-cmake-modules wrapQtAppsHook ];
 
   buildInputs = [
     kdecoration
-    qtx11extras
     kcoreaddons
     kguiaddons
     kconfigwidgets
     kiconthemes
     kwayland
     kwindowsystem
-    kirigami2
+    kirigami
     frameworkintegration
     kcmutils
+    qtsvg
   ];
 
   meta = with lib; {
