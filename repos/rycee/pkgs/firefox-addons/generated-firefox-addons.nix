@@ -1652,10 +1652,10 @@
     };
     "copy-selected-tabs-to-clipboard" = buildFirefoxXpiAddon {
       pname = "copy-selected-tabs-to-clipboard";
-      version = "1.6.3";
+      version = "1.6.4";
       addonId = "copy-selected-tabs-to-clipboard@piro.sakura.ne.jp";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4262355/copy_selected_tabs_to_clipboar-1.6.3.xpi";
-      sha256 = "a1d9481084c753a5c5915c6bb8125c7a749f918a5ffbfb1f273e93a88858f28f";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4288962/copy_selected_tabs_to_clipboar-1.6.4.xpi";
+      sha256 = "eaf9aefff52437e7d23580661e7fbc669975e103b66b225c39980d998599325c";
       meta = with lib;
       {
         description = "Provides ability to copy title and URL of selected tabs to the clipboard.";
@@ -2053,10 +2053,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.37.0";
+      version = "2.37.1";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4288223/dualsub-2.37.0.xpi";
-      sha256 = "cdd027984fcc27996611360fa6e2768b8be3f7f5302f6313eb3f26c566f03811";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4289230/dualsub-2.37.1.xpi";
+      sha256 = "9c0bf8f5137beb7cb8a6968b1aefbe1d82ca63755e1dd9ec82618125ea5bfee7";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -2580,10 +2580,10 @@
     };
     "floccus" = buildFirefoxXpiAddon {
       pname = "floccus";
-      version = "5.1.2.1";
+      version = "5.1.3.1";
       addonId = "floccus@handmadeideas.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4286809/floccus-5.1.2.1.xpi";
-      sha256 = "884ea26719f150299bb5f2a7adba00424d1db8e2d44ccdcdd0d149bd292a537c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4289094/floccus-5.1.3.1.xpi";
+      sha256 = "5b4b176fecc1554d48968111c1116743c3ad5c8678035ef4064ba333953af4b1";
       meta = with lib;
       {
         homepage = "https://floccus.org";
@@ -3641,10 +3641,10 @@
     };
     "hover-zoom-plus" = buildFirefoxXpiAddon {
       pname = "hover-zoom-plus";
-      version = "1.0.216";
+      version = "1.0.217";
       addonId = "{92e6fe1c-6e1d-44e1-8bc6-d309e59406af}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4280841/hover_zoom_plus-1.0.216.xpi";
-      sha256 = "1d23e81bbe774b8661e96b04613af0d5295df119d6df0490c67af5157df5aaa0";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4289072/hover_zoom_plus-1.0.217.xpi";
+      sha256 = "cfa7cdca131114ed5743737a1e73a6cfc7308c0406c64155b3c54d6f77b71763";
       meta = with lib;
       {
         homepage = "https://github.com/extesy/hoverzoom/";
@@ -3924,6 +3924,7 @@
           "*://*.flixster.com/*"
           "*://*.rottentomatoes.com/*"
           "*://*.gamespot.com/*"
+          "*://*.x.com/*"
           "*://*.twitter.com/*"
           "*://*.tweetdeck.com/*"
           "*://*.ravelry.com/*"
@@ -4599,6 +4600,16 @@
           "*://*.defense.gov/*"
           "*://*.mil/*"
           "*://*.la-croix.com/*"
+          "*://*.routard.com/*"
+          "*://podcasts.apple.com/*"
+          "*://apps.apple.com/*"
+          "*://books.apple.com/*"
+          "*://music.apple.com/*"
+          "*://*.monuments-nationaux.fr/*"
+          "*://*.phys.org/*"
+          "*://*.medicalxpress.com/*"
+          "*://*.sciencex.com/*"
+          "*://*.techxplore.com/*"
         ];
         platforms = platforms.all;
       };
