@@ -1857,10 +1857,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "127.0.20240517.91915";
+      version = "127.0.20240520.91901";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4288461/deutsch_de_language_pack-127.0.20240517.91915.xpi";
-      sha256 = "132adfe55c17416a5a2a12c3ac84472897f07bc993b3c10db7a19bd168b2bba2";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4289783/deutsch_de_language_pack-127.0.20240520.91901.xpi";
+      sha256 = "3700bb25ee52e08b1c456efc15861adad6bb6edda20bceeb8003ec3e7c2f0d62";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -2807,10 +2807,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "127.0.20240517.91915";
+      version = "127.0.20240520.91901";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4288449/francais_language_pack-127.0.20240517.91915.xpi";
-      sha256 = "144caaa32694b66a3a12850b1f626d8be4ec0daeff740b6d2269cbf9975df35c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4289740/francais_language_pack-127.0.20240520.91901.xpi";
+      sha256 = "601a52e0195767a7ca6f808ba2852aae9d6b0691df6bf9bcb04dac503f2abbdb";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
