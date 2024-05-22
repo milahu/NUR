@@ -5,19 +5,22 @@
   cmake,
   ninja,
   allegro5,
+  libglvnd,
   surgescript,
+  physfs,
+  xorg,
   nix-update-script,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "opensurge";
-  version = "0.6.0.3";
+  version = "0.6.1";
 
   src = fetchFromGitHub {
     owner = "alemart";
     repo = "opensurge";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-pawdanCGUzezGlHMia3fpdtNU1FI04uJUYEctRkWKno=";
+    hash = "sha256-3bqbU8vGtPyTEM80sYpCP9IByP6KjaytuzV/tt6oi0o=";
   };
 
   nativeBuildInputs = [
@@ -27,7 +30,10 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     allegro5
+    libglvnd
+    physfs
     surgescript
+    xorg.libX11
   ];
 
   cmakeFlags = [

@@ -9,13 +9,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "surgescript";
-  version = "0.5.6.1";
+  version = "0.6.0";
 
   src = fetchFromGitHub {
     owner = "alemart";
     repo = "surgescript";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-0mgfam1zJfDGG558Vo1TysE2ehPD30XCP/j3GMnqN9w=";
+    hash = "sha256-TQKNcuSaVy4ifJZqEE5DO1Y9UzpvZItZEuNviEAgYZ4=";
   };
 
   nativeBuildInputs = [

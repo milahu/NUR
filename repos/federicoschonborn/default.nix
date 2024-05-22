@@ -26,7 +26,6 @@ pkgs.lib.makeScope pkgs.newScope (self: {
   libtgd = self.callPackage ./pkgs/libtgd { };
   libxo = self.callPackage ./pkgs/libxo { };
   magpie-wayland = self.callPackage ./pkgs/magpie-wayland { };
-  moss = self.callPackage ./pkgs/moss { };
   mii-emu = self.callPackage ./pkgs/mii-emu { };
   minesector = self.callPackage ./pkgs/minesector { };
   mucalc = self.callPackage ./pkgs/mucalc { };
