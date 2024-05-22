@@ -2,7 +2,7 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "iosevka-minoko-term";
-  version = "0.1.1";
+  version = "0.1.2";
 
   src = fetchzip {
     url = "https://github.com/ShadowRZ/iosevka-minoko/releases/download/v${version}/PkgTTF-IosevkaMinokoTerm.zip";
