@@ -10,26 +10,26 @@
   autoPatchelfHook
 }:
 let
-  version = "0.23.0";
+  version = "0.24.0";
   sources = {
     "x86_64-linux" = {
       url = "https://github.com/foundry-rs/starknet-foundry/releases/download/v${version}/starknet-foundry-v${version}-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "0rvvwvgncadcdfl50pb6sbh8zm9gvn99x1b0pj94qj4jz0prjxzl";
+      sha256 = "0172b8lxcjik5frwsh521pw0ra9qva96fmvzgpmi6p8wj6aqbw2r";
     };
 
     "aarch64-linux" = {
       url = "https://github.com/foundry-rs/starknet-foundry/releases/download/v${version}/starknet-foundry-v${version}-aarch64-unknown-linux-gnu.tar.gz";
-      sha256 = "0zhsc0dp0ska0hn2skf0hcxpb4f59xb4ngisfm1pzfpkvjq9bdsj";
+      sha256 = "02bgcqx5d85xc533jdvsvzhzfxnifq78x1hlk5ajmgdzwbacskvk";
     };
 
     "x86_64-darwin" = {
       url = "https://github.com/foundry-rs/starknet-foundry/releases/download/v${version}/starknet-foundry-v${version}-x86_64-apple-darwin.tar.gz";
-      sha256 = "03xigfaqj3n8arvd2ag8b3nab047s7a2k19z5qc7z7r4rg28bzcp";
+      sha256 = "0wmhmrs552jrmxbfk7nq2pv32rll6pq0jxr7zli0aqb10l01jyhq";
     };
 
     "aarch64-darwin" = {
       url = "https://github.com/foundry-rs/starknet-foundry/releases/download/v${version}/starknet-foundry-v${version}-aarch64-apple-darwin.tar.gz";
-      sha256 = "1h670wj9fmmpzn01mgv9c5n34pi7n7x6ik17yz939k17qypqjmdn";
+      sha256 = "14sicjkl3d4vj31rvkvb4qp0807021v1yk82z4jscjq3smj56i90";
     };
   };
 
