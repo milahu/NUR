@@ -1392,10 +1392,10 @@
     };
     "codecov" = buildFirefoxXpiAddon {
       pname = "codecov";
-      version = "0.4.2";
+      version = "0.4.4";
       addonId = "{f3924b0d-e29f-4593-b605-084b3d71ed9d}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4256340/codecov-0.4.2.xpi";
-      sha256 = "6f083fab41bdb2e924e20f4539e4dc8f92ca5bb1e266f7f500c0e67e82f97f39";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4290613/codecov-0.4.4.xpi";
+      sha256 = "4f63a0c0619d9b62a8d49ae4a9c3d3e96483594698e66eb13294dc6be401f961";
       meta = with lib;
       {
         homepage = "https://about.codecov.io";
@@ -1808,10 +1808,10 @@
     };
     "dearrow" = buildFirefoxXpiAddon {
       pname = "dearrow";
-      version = "1.5.11";
+      version = "1.6";
       addonId = "deArrow@ajay.app";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4254118/dearrow-1.5.11.xpi";
-      sha256 = "14d1ad17d2c5dc165649128799e14099f010fa6cda6dfd553ddb0030f8cd50b0";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4287785/dearrow-1.6.xpi";
+      sha256 = "38124394fdfc56bd735f0f5d53155a59e635a07693462685acded98a448d34d9";
       meta = with lib;
       {
         homepage = "https://dearrow.ajay.app";
@@ -2053,10 +2053,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.37.1";
+      version = "2.38.0";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4289230/dualsub-2.37.1.xpi";
-      sha256 = "9c0bf8f5137beb7cb8a6968b1aefbe1d82ca63755e1dd9ec82618125ea5bfee7";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4290309/dualsub-2.38.0.xpi";
+      sha256 = "a432d35d47435143f698e4138aa5713a4c7788d633ca71a65e6ad2bfd34db835";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -2580,10 +2580,10 @@
     };
     "floccus" = buildFirefoxXpiAddon {
       pname = "floccus";
-      version = "5.1.3.1";
+      version = "5.1.4.2";
       addonId = "floccus@handmadeideas.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4289094/floccus-5.1.3.1.xpi";
-      sha256 = "5b4b176fecc1554d48968111c1116743c3ad5c8678035ef4064ba333953af4b1";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4290382/floccus-5.1.4.2.xpi";
+      sha256 = "bc71a182e6a62b0b9ee596fa92eafb09bf1d0a7d0d1b6f5b8d4bbad3abbb949c";
       meta = with lib;
       {
         homepage = "https://floccus.org";
@@ -10246,10 +10246,10 @@
     };
     "tree-style-tab" = buildFirefoxXpiAddon {
       pname = "tree-style-tab";
-      version = "4.0.14";
+      version = "4.0.15";
       addonId = "treestyletab@piro.sakura.ne.jp";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4265667/tree_style_tab-4.0.14.xpi";
-      sha256 = "a15ff154a48d50899f1abe3aaf553bfab2df7391ac0912eab428611224dc259c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4290043/tree_style_tab-4.0.15.xpi";
+      sha256 = "edcf2c8509786ee0c6f93579e25b1b491223f96bc0ba9bc08fd5852cb4c5f02e";
       meta = with lib;
       {
         homepage = "http://piro.sakura.ne.jp/xul/_treestyletab.html.en";
@@ -11776,10 +11776,10 @@
     };
     "yomitan" = buildFirefoxXpiAddon {
       pname = "yomitan";
-      version = "24.5.5.0";
+      version = "24.5.14.1";
       addonId = "{6b733b82-9261-47ee-a595-2dda294a4d08}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4285904/yomitan-24.5.5.0.xpi";
-      sha256 = "f2de4ad1ee89f7a60ba8e164171d74ca187fa00e4332df62bae3e2fcee2c21d9";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4290609/yomitan-24.5.14.1.xpi";
+      sha256 = "e851913747225396f629f86d5773150b38269739209e4524081467244be1b208";
       meta = with lib;
       {
         homepage = "https://github.com/themoeway/yomitan";
