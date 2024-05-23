@@ -30,6 +30,7 @@ pkgs.lib.makeScope pkgs.newScope (self: {
   minesector = self.callPackage ./pkgs/minesector { };
   mucalc = self.callPackage ./pkgs/mucalc { };
   opensurge = self.callPackage ./pkgs/opensurge { };
+  plasma-camera = self.callPackage ./pkgs/plasma-camera { };
   pseint = self.callPackage ./pkgs/pseint { };
   qv = self.callPackage ./pkgs/qv { };
   raze = self.callPackage ./pkgs/raze { };
