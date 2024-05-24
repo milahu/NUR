@@ -2,6 +2,7 @@
   picom,
   pcre2,
   fetchFromGitHub,
+  unstableGitUpdater,
 }:
 picom.overrideAttrs (old: {
   pname = "picom-ft-labs";
@@ -16,8 +17,12 @@ picom.overrideAttrs (old: {
 
   buildInputs = old.buildInputs ++ [pcre2];
 
-  meta = old.meta // {
-    description = "A fork of Picom with more than 10 unique animation supported picom fork (open window, tag change, fading ...)";
-    homepage = "https://github.com/FT-Labs/picom";
-  };
+  passthru.updateScript = unstableGitUpdater {};
+
+  meta =
+    old.meta
+    // {
+      description = "A fork of Picom with more than 10 unique animation supported picom fork (open window, tag change, fading ...)";
+      homepage = "https://github.com/FT-Labs/picom";
+    };
 })
