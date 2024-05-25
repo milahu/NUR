@@ -94,13 +94,13 @@
   };
   linux-intel-mainline-tracking = {
     pname = "linux-intel-mainline-tracking";
-    version = "mainline-tracking-v6.9-linux-240515T034653Z";
+    version = "mainline-tracking-v6.9-linux-240522T015352Z";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "mainline-tracking";
-      rev = "mainline-tracking-v6.9-linux-240515T034653Z";
+      rev = "mainline-tracking-v6.9-linux-240522T015352Z";
       fetchSubmodules = false;
-      sha256 = "sha256-JNzj41f6PnnTjydpgyAsj3LI/Vr3Lvo1yZsme14uwMU=";
+      sha256 = "sha256-frnR+Zacj/w0PPWWjAKx0AsSASNO8KO6jr0MEa1ZMLU=";
     };
   };
   lpac = {
@@ -300,16 +300,16 @@
   };
   rime-luna-pinyin = {
     pname = "rime-luna-pinyin";
-    version = "79aeae200a7370720be98232844c0715f277e1c0";
+    version = "44e555d1090a56d62a41a58153088406bcf87abd";
     src = fetchgit {
       url = "https://github.com/rime/rime-luna-pinyin.git";
-      rev = "79aeae200a7370720be98232844c0715f277e1c0";
+      rev = "44e555d1090a56d62a41a58153088406bcf87abd";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-+pqjpYfXTdou8EofFsjUyArOs+CjJchwXbMVhGFxbhs=";
+      sha256 = "sha256-a4E/jFGr8XbNaLnEZF3eOOCsmSC9xDwvU/Edo8p6FOQ=";
     };
-    date = "2023-02-04";
+    date = "2024-05-24";
   };
   rime-pinyin-simp = {
     pname = "rime-pinyin-simp";
@@ -499,16 +499,16 @@
   };
   waybar-git = {
     pname = "waybar-git";
-    version = "35a9ca476dc2595c28fd1d3a34cc26be4f14077a";
+    version = "63bb338343cad3337726739704b75d1b0b13a8a5";
     src = fetchgit {
       url = "https://github.com/Alexays/Waybar.git";
-      rev = "35a9ca476dc2595c28fd1d3a34cc26be4f14077a";
+      rev = "63bb338343cad3337726739704b75d1b0b13a8a5";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-GyeGeOjA8NLxFoUnResKuyUsBzgwNHTm4n9XIr6prz8=";
+      sha256 = "sha256-eONd42t7DJocW/ajBQCo8aY1tUSmLiB7HjR30JOTFYU=";
     };
-    date = "2024-05-22";
+    date = "2024-05-24";
   };
   yacd = {
     pname = "yacd";
