@@ -1,30 +1,30 @@
 error:
 … from call site
 
-  at ./default.nix:114:40:
+  at ./default.nix:116:40:
 
-   113|
-   114|   kotatogram-desktop-with-patched-qt = desktop-app.with-patched-qt kotatogram-desktop;
-      |                                        ^
    115|
+   116|   kotatogram-desktop-with-patched-qt = desktop-app.with-patched-qt kotatogram-desktop;
+      |                                        ^
+   117|
 
 … while calling 'with-patched-qt'
 
-  at ./default.nix:81:23:
+  at ./default.nix:83:23:
 
-    80|
-    81|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    82|
+    83|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
       |                       ^
-    82|       replaceDependency { inherit oldDependency newDependency drv; }
+    84|       replaceDependency { inherit oldDependency newDependency drv; }
 
 … from call site
 
-  at ./default.nix:81:29:
+  at ./default.nix:83:29:
 
-    80|
-    81|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    82|
+    83|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
       |                             ^
-    82|       replaceDependency { inherit oldDependency newDependency drv; }
+    84|       replaceDependency { inherit oldDependency newDependency drv; }
 
 … while calling 'foldr'
 
@@ -64,12 +64,12 @@ error:
 
 … while calling anonymous lambda
 
-  at ./default.nix:81:74:
+  at ./default.nix:83:74:
 
-    80|
-    81|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    82|
+    83|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
       |                                                                          ^
-    82|       replaceDependency { inherit oldDependency newDependency drv; }
+    84|       replaceDependency { inherit oldDependency newDependency drv; }
 
 … from call site
 
@@ -130,12 +130,12 @@ error:
 
 … while calling anonymous lambda
 
-  at ./default.nix:81:74:
+  at ./default.nix:83:74:
 
-    80|
-    81|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    82|
+    83|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
       |                                                                          ^
-    82|       replaceDependency { inherit oldDependency newDependency drv; }
+    84|       replaceDependency { inherit oldDependency newDependency drv; }
 
 … from call site
 
@@ -155,4 +155,4 @@ error:
       | ^
     21|
 
-error: path '/nix/store/286y4a08ya188bxdmvbsv39l2bxjwj4n-references.nix.drv' is not valid
+error: path '/nix/store/yr4mp5a57ww5nn36wlwaqzzjwfyi4nmk-references.nix.drv' is not valid
