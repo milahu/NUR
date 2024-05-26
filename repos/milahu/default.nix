@@ -381,6 +381,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       tor2web = callPackage ./pkgs/python3/pkgs/tor2web { };
 
+      aia = callPackage ./pkgs/python3/pkgs/aia { };
+
     #}))); # python3.pkgs
 
   #}))); # python3
@@ -808,6 +810,12 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   tor-browser_13_0_13 = callPackage ./pkgs/applications/networking/browsers/tor-browser { };
 
   bash2py = callPackage ./pkgs/development/tools/bash2py { };
+
+  cert-chain-resolver = cert-chain-resolver-bash;
+
+  cert-chain-resolver-go = callPackage ./pkgs/tools/networking/cert-chain-resolver { };
+
+  cert-chain-resolver-bash = callPackage ./pkgs/tools/networking/cert-chain-resolver/bash.nix { };
 
 }
 
