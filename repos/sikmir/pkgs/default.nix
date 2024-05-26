@@ -379,6 +379,7 @@ lib.makeScope newScope (
     pvs-studio = callPackage ./misc/pvs-studio { };
     qasync = callPackage ./misc/qasync { };
     qoiview = callPackage ./misc/qoiview { };
+    qstudio = callPackage ./misc/qstudio { };
     repolocli = callPackage ./misc/repolocli { };
     rhttp = callPackage ./misc/rhttp { };
     riffraff = callPackage ./misc/riffraff { };
