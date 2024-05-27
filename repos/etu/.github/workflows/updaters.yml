@@ -2,11 +2,15 @@
 name: Updaters
 'on':
   schedule:
-    - cron: '13 1 * * *'
+    - cron: '13 1 * * *'  # 01:13 UTC every day
+  workflow_dispatch:
 
 jobs:
   updater:
     runs-on: ubuntu-22.04
+
+    permissions:
+      contents: write
 
     strategy:
       matrix:
