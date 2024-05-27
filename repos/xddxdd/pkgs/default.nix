@@ -78,6 +78,7 @@ mkScope (
       coredns = pkg ./lantian-customized/coredns { };
       firefox-icon-mikozilla-fireyae = pkg ./lantian-customized/firefox-icon-mikozilla-fireyae { };
       librime-with-plugins = pkg ./lantian-customized/librime-with-plugins { };
+      llama-cpp = pkg ./lantian-customized/llama-cpp { };
       nbfc-linux = pkg ./lantian-customized/nbfc-linux { };
       nginx = pkg ./lantian-customized/nginx { };
       transmission-with-webui = pkg ./lantian-customized/transmission-with-webui { };
@@ -195,14 +196,17 @@ mkScope (
     rime-moegirl = pkg ./uncategorized/rime-moegirl { };
     rime-zhwiki = pkg ./uncategorized/rime-zhwiki { };
     route-chain = pkg ./uncategorized/route-chain { };
+    runpod-python = pkg ./uncategorized/runpod-python { };
+    runpodctl = pkg ./uncategorized/runpodctl { };
     sam-toki-mouse-cursors = pkg ./uncategorized/sam-toki-mouse-cursors { };
-    smartrent_py = pkg ./uncategorized/smartrent_py { };
     sgx-software-enable = pkg ./uncategorized/sgx-software-enable { };
+    smartrent_py = pkg ./uncategorized/smartrent_py { };
     soggy = pkg ./uncategorized/soggy { };
     space-cadet-pinball-full-tilt = pkg ./uncategorized/space-cadet-pinball-full-tilt { };
     svp = pkg ./uncategorized/svp { };
     svp-mpv = pkg ./uncategorized/svp/mpv.nix { };
     suwayomi-server = pkg ./uncategorized/suwayomi-server { };
+    tqdm-loggable = pkg ./uncategorized/tqdm-loggable { };
     uesave = pkg ./uncategorized/uesave { };
     uksmd = pkg ./uncategorized/uksmd { };
     undetected-chromedriver = pkg ./uncategorized/undetected-chromedriver { };
