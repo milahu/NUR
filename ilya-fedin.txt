@@ -1,30 +1,30 @@
 error:
 … from call site
 
-  at ./default.nix:116:40:
+  at ./default.nix:123:40:
 
-   115|
-   116|   kotatogram-desktop-with-patched-qt = desktop-app.with-patched-qt kotatogram-desktop;
+   122|
+   123|   kotatogram-desktop-with-patched-qt = desktop-app.with-patched-qt kotatogram-desktop;
       |                                        ^
-   117|
+   124|
 
 … while calling 'with-patched-qt'
 
-  at ./default.nix:83:23:
+  at ./default.nix:90:23:
 
-    82|
-    83|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    89|
+    90|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
       |                       ^
-    84|       replaceDependency { inherit oldDependency newDependency drv; }
+    91|       replaceDependency { inherit oldDependency newDependency drv; }
 
 … from call site
 
-  at ./default.nix:83:29:
+  at ./default.nix:90:29:
 
-    82|
-    83|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    89|
+    90|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
       |                             ^
-    84|       replaceDependency { inherit oldDependency newDependency drv; }
+    91|       replaceDependency { inherit oldDependency newDependency drv; }
 
 … while calling 'foldr'
 
@@ -64,12 +64,12 @@ error:
 
 … while calling anonymous lambda
 
-  at ./default.nix:83:74:
+  at ./default.nix:90:74:
 
-    82|
-    83|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    89|
+    90|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
       |                                                                          ^
-    84|       replaceDependency { inherit oldDependency newDependency drv; }
+    91|       replaceDependency { inherit oldDependency newDependency drv; }
 
 … from call site
 
@@ -130,12 +130,12 @@ error:
 
 … while calling anonymous lambda
 
-  at ./default.nix:83:74:
+  at ./default.nix:90:74:
 
-    82|
-    83|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    89|
+    90|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
       |                                                                          ^
-    84|       replaceDependency { inherit oldDependency newDependency drv; }
+    91|       replaceDependency { inherit oldDependency newDependency drv; }
 
 … from call site
 
@@ -155,4 +155,124 @@ error:
       | ^
     21|
 
-error: path '/nix/store/rz520qz7r1n5b5g2734nb8mwmi88iyzz-references.nix.drv' is not valid
+… from call site
+
+  at <nixpkgs> + /pkgs/build-support/replace-dependency.nix:93:77:
+
+    92|   drvHash = discard (toString drv);
+    93| in assert (stringLength (drvName (toString oldDependency)) == stringLength (drvName (toString newDependency)));
+      |                                                                             ^
+    94| rewriteMemo.${drvHash} or (warn "replace-dependency.nix: Derivation ${drvHash} does not depend on ${discard (toString oldDependency)}" drv)
+
+… while calling 'drvName'
+
+  at <nixpkgs> + /pkgs/build-support/replace-dependency.nix:72:13:
+
+    71|
+    72|   drvName = drv:
+      |             ^
+    73|     discard (substring 33 (stringLength (builtins.baseNameOf drv)) (builtins.baseNameOf drv));
+
+… while evaluating derivation 'qtwayland-6.7.1'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:331:7
+
+… while evaluating attribute 'propagatedBuildInputs' of derivation 'qtwayland-6.7.1'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:385:7:
+
+   384|       depsHostHostPropagated      = elemAt (elemAt propagatedDependencies 1) 0;
+   385|       propagatedBuildInputs       = elemAt (elemAt propagatedDependencies 1) 1;
+      |       ^
+   386|       depsTargetTargetPropagated  = elemAt (elemAt propagatedDependencies 2) 0;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:321:13:
+
+   320|       (map (drv: getDev drv.__spliced.hostHost or drv) (checkDependencyList "depsHostHostPropagated" depsHostHostPropagated))
+   321|       (map (drv: getDev drv.__spliced.hostTarget or drv) (checkDependencyList "propagatedBuildInputs" propagatedBuildInputs))
+      |             ^
+   322|     ]
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:321:18:
+
+   320|       (map (drv: getDev drv.__spliced.hostHost or drv) (checkDependencyList "depsHostHostPropagated" depsHostHostPropagated))
+   321|       (map (drv: getDev drv.__spliced.hostTarget or drv) (checkDependencyList "propagatedBuildInputs" propagatedBuildInputs))
+      |                  ^
+   322|     ]
+
+… while calling 'getOutput'
+
+  at <nixpkgs> + /lib/attrsets.nix:1796:23:
+
+  1795|   */
+  1796|   getOutput = output: pkg:
+      |                       ^
+  1797|     if ! pkg ? outputSpecified || ! pkg.outputSpecified
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/lists.nix:334:29:
+
+   333|   */
+   334|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
+      |                             ^
+   335|
+
+… from call site
+
+  at <nixpkgs> + /lib/lists.nix:334:32:
+
+   333|   */
+   334|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
+      |                                ^
+   335|
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:276:15:
+
+   275|     imap1
+   276|       (index: dep:
+      |               ^
+   277|         if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:277:12:
+
+   276|       (index: dep:
+   277|         if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
+      |            ^
+   278|         else if isList dep then checkDependencyList' ([index] ++ positions) name dep
+
+… while calling 'isDerivation'
+
+  at <nixpkgs> + /lib/attrsets.nix:1283:5:
+
+  1282|   isDerivation =
+  1283|     value: value.type or null == "derivation";
+      |     ^
+  1284|
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:895:7:
+
+   894|     { # TODO: Should we add call-time "type" checking like built in?
+   895|       __functor = self: f;
+      |       ^
+   896|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/build-support/replace-dependency.nix:20:1:
+
+    19| # (and all of its dependencies) without rebuilding further.
+    20| { drv, oldDependency, newDependency, verbose ? true }:
+      | ^
+    21|
+
+error: path '/nix/store/vbljhraca4wb5pcfw59dlw74qrgk194p-references.nix.drv' is not valid
