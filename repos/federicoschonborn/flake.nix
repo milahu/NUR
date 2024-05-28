@@ -11,12 +11,11 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nixpkgs-stable.follows = "nixpkgs-stable";
-        gitignore.follows = "gitignore";
         flake-compat.follows = "";
       };
     };
@@ -26,11 +25,6 @@
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
     };
-
-    gitignore = {
-      url = "github:hercules-ci/gitignore.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -38,7 +32,7 @@
       nixpkgs,
       systems,
       flake-parts,
-      pre-commit-hooks,
+      git-hooks,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -89,7 +83,7 @@
           };
 
           checks = {
-            pre-commit-check = pre-commit-hooks.lib.${system}.run {
+            pre-commit-check = git-hooks.lib.${system}.run {
               src = ./.;
               hooks = {
                 # Nix
