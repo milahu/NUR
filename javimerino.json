@@ -1,16 +1,16 @@
 {
 "name":"javimerino",
-"fetch_time":0.315,
-"eval_time":0.258,
+"fetch_time":0.253,
+"eval_time":0.261,
 "source":{
 "url":"https://github.com/JaviMerino/nur-packages",
-"rev":"a0b9db6fc8089273b326a358266a3a20e7bda46c",
-"sha256":"1c85w33bxp42155sv42ykcn3wrb4ijlwgigzglqkqyc1m2blah6p",
+"rev":"5b2f7a77f27c4f3d0fad0382b0456be07c329559",
+"sha256":"0v37hkapj5b8fyr1ha6f85bzrcz86n9c41wda1vppmr0xkyj7p4f",
 "date":null
 },
-"source_storepath":"/nix/store/rmfw076imnzg2c5w6i7xi63dbhzn7n9g-source",
-"nixpkgs_storepath":"/nix/store/ap2lxx0778q6mk8has11aanyg64hm23g-source",
-"nur_combined_rev":"39b9d9d043344f5c9c88416b7627fcc3bdf56b52",
+"source_storepath":"/nix/store/gv0iifmb1jgm0g4p1vgv4z1xp6qfk64x-source",
+"nixpkgs_storepath":"/nix/store/mf3q4brz73gij9c3ry8mnj4b64q0cjpc-source",
+"nur_combined_rev":"e0aca286c575934db2467a09ef41fd5d9c07a402",
 "packages":{
 "ack-results-parser":{
 "meta":{
@@ -226,7 +226,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"TODO",
+"description":"Test LLMs to write emails",
 "homepage":"https://github.com/JaviMerino/mail_replyer",
 "insecure":false,
 "isBuildPythonPackage":[
@@ -260,6 +260,15 @@
 "x86_64-windows",
 "i686-windows"
 ],
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
 "maintainers":[
 {
 "email":"merino.jav@gmail.com",
@@ -847,6 +856,48 @@
 "pname":"rpmlint",
 "system":"x86_64-linux",
 "version":"2.5.0"
+},
+"say":{
+"meta":{
+"available":false,
+"broken":true,
+"description":"Simple CLI for converting text to speech using piper-tts",
+"homepage":"https://github.com/JaviMerino/mail_replyer",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"mainProgram":"say",
+"maintainers":[
+{
+"email":"merino.jav@gmail.com",
+"github":"JaviMerino",
+"githubId":44926,
+"name":"Javi Merino"
+}
+],
+"name":"say",
+"outputsToInstall":[
+"out"
+],
+"position":"./pkgs/say/default.nix:29",
+"unfree":false,
+"unsupported":false
+},
+"name":"say",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"say",
+"system":"x86_64-linux",
+"version":""
 },
 "xr":{
 "meta":{
