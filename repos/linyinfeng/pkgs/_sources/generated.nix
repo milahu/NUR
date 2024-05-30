@@ -75,10 +75,10 @@
   };
   icalingua-plus-plus = {
     pname = "icalingua-plus-plus";
-    version = "v2.12.0";
+    version = "v2.12.3";
     src = fetchurl {
-      url = "https://github.com/icalingua-plus-plus/icalingua-plus-plus/releases/download/v2.12.0/app-x86_64.asar";
-      sha256 = "sha256-GfhXvFio1+1TiOw5mJc5g7ohBsx1Hi7Mc0XpYtSN+ms=";
+      url = "https://github.com/icalingua-plus-plus/icalingua-plus-plus/releases/download/v2.12.3/app-x86_64.asar";
+      sha256 = "sha256-8+BnZoBaTzqLiG7gpxa8Jv5Vt8QJ1DJ8sN1EtyLiXIE=";
     };
   };
   linux-intel-lts = {
@@ -499,16 +499,16 @@
   };
   waybar-git = {
     pname = "waybar-git";
-    version = "0d518cb5a30756a0fd6927d1b90db768e9425a7d";
+    version = "9332697ec1f7e66892deea7a2b56f2ab8a48ac28";
     src = fetchgit {
       url = "https://github.com/Alexays/Waybar.git";
-      rev = "0d518cb5a30756a0fd6927d1b90db768e9425a7d";
+      rev = "9332697ec1f7e66892deea7a2b56f2ab8a48ac28";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-ngLr2zf6FBWez+1p/JsanXVg7cgbKLvs7DDDBK97WWU=";
+      sha256 = "sha256-6i20OlKIY38jVETYh3hTF/fnbxV0SZTl2OWxvdkV0VU=";
     };
-    date = "2024-05-28";
+    date = "2024-05-29";
   };
   yacd = {
     pname = "yacd";
