@@ -2,35 +2,35 @@
 # vim: set ft=nix ts=2 sw=2 sts=2 et sta
 {
 system ? builtins.currentSystem
-, pkgs
 , lib
 , fetchurl
 , installShellFiles
+, stdenvNoCC
 }:
 let
   shaMap = {
-    i686-linux = "1wfcx3rh1nnsllq8i6d90hlxak1harv88n8ky485kx1lcx5gs5km";
-    x86_64-linux = "0640xxpd4rw54r4hfdwr0zh6v3w3l3f7x5vzz0bnshay0xjljcs0";
-    armv6l-linux = "11k8hpifa07lj016nj28gzm609abpb3zsipmsqrlskizjj0jlmbk";
-    armv7l-linux = "10z6s4n3h4y2ychqrkx01dvxjwppcrr22vxg2hlcs9m1yc29nbrw";
-    aarch64-linux = "1a84qc94qrc240dz8mq0l6cm8in24131spsgplggwn0nw8p5w5ig";
-    x86_64-darwin = "1dzrl59zfbrhhmbccj1fgsgnbxbx5z2axbirmnsdh0kbsrzgb2hx";
-    aarch64-darwin = "1jdkx2g1jmfgi5b17vid4dmckgsp3mrf6fcfbrs0bqmlayp2y25w";
+    i686-linux = "0jb90pngqq7lx5bvifp9aljcqsc7xac8907j96vywc5k4prwfr3v";
+    x86_64-linux = "19vbjd03z4g706vys06hf6nv6sjy80vn1c86ig9w9dphligg8krq";
+    armv6l-linux = "10bz4ivg6nkabncf8xyyhr7688xhk8c055az45yxnsqlbzizvl3b";
+    armv7l-linux = "0knxllcam3yjnixwz540qnbpxxcc1fqmh1fq980djj28inq5fc81";
+    aarch64-linux = "0r59jc7h27x5giqbjh3wz9bipklc58bdj72px7lkfqn4z7gmh7y3";
+    x86_64-darwin = "195m4nlx8hr7dhyvyw4c4mcah32a253c286j9jnpvplv5bczi9qx";
+    aarch64-darwin = "0g18b7j8ma12s9hh8p0v4v1qa6z3r65yn0svvgw4cdq3g3nc882h";
   };
 
   urlMap = {
-    i686-linux = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.0/nginx-prometheus-exporter_1.1.0_linux_386.tar.gz";
-    x86_64-linux = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.0/nginx-prometheus-exporter_1.1.0_linux_amd64.tar.gz";
-    armv6l-linux = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.0/nginx-prometheus-exporter_1.1.0_linux_armv6.tar.gz";
-    armv7l-linux = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.0/nginx-prometheus-exporter_1.1.0_linux_armv7.tar.gz";
-    aarch64-linux = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.0/nginx-prometheus-exporter_1.1.0_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.0/nginx-prometheus-exporter_1.1.0_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.0/nginx-prometheus-exporter_1.1.0_darwin_arm64.tar.gz";
+    i686-linux = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.1/nginx-prometheus-exporter_1.1.1_linux_386.tar.gz";
+    x86_64-linux = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.1/nginx-prometheus-exporter_1.1.1_linux_amd64.tar.gz";
+    armv6l-linux = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.1/nginx-prometheus-exporter_1.1.1_linux_armv6.tar.gz";
+    armv7l-linux = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.1/nginx-prometheus-exporter_1.1.1_linux_armv7.tar.gz";
+    aarch64-linux = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.1/nginx-prometheus-exporter_1.1.1_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.1/nginx-prometheus-exporter_1.1.1_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v1.1.1/nginx-prometheus-exporter_1.1.1_darwin_arm64.tar.gz";
   };
 in
-pkgs.stdenv.mkDerivation {
+stdenvNoCC.mkDerivation {
   pname = "nginx-prometheus-exporter";
-  version = "1.1.0";
+  version = "1.1.1";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
