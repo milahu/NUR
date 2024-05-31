@@ -1,16 +1,16 @@
 {
 "name":"nim65s",
-"fetch_time":0.223,
-"eval_time":0.253,
+"fetch_time":0.224,
+"eval_time":0.271,
 "source":{
 "url":"https://github.com/nim65s/nur-packages",
-"rev":"64e21b935d14a024686fefc468cc1d3e962d8d19",
-"sha256":"1qpyllawa86n7mzip69a7jm71r448dk1k5b29b20r2gjk6w7qsld",
+"rev":"0608faf60c67144ac863a5340f8be89346d1224f",
+"sha256":"0p8cxxp0svsz6i1aln6k3i9khhkmz865rm90j4pbbj6fphdd772d",
 "date":null
 },
-"source_storepath":"/nix/store/2w4zgzs1hdxxizmy8nqjhk0xkn2axmdi-source",
-"nixpkgs_storepath":"/nix/store/0hn8rlw356hi423gplwasalb47b2s4gf-source",
-"nur_combined_rev":"e0c361f5e9c933b64c3766b066bbebba5c0859bd",
+"source_storepath":"/nix/store/yg2f3v5r62pc0rx5g2x1bchdgaqn1q4d-source",
+"nixpkgs_storepath":"/nix/store/59wccdvzfrqzqn4cs0v3r2lnb4hwj9yf-source",
+"nur_combined_rev":"9b3b5e7c0e2edf2f75b981686f9930db5b82432f",
 "packages":{
 "gepetto-viewer":{
 "meta":{
@@ -299,8 +299,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -434,8 +434,8 @@
 "i686-darwin",
 "aarch64-darwin",
 "armv7a-darwin",
-"i686-freebsd13",
-"x86_64-freebsd13",
+"i686-freebsd",
+"x86_64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -858,7 +858,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/swaywm/sway/releases/tag/24.05pre615144.69ee1d82f1fa",
+"changelog":"https://github.com/swaywm/sway/releases/tag/1.9",
 "description":"An i3-compatible tiling Wayland compositor",
 "homepage":"https://swaywm.org",
 "insecure":false,
@@ -923,7 +923,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/sw/sway-unwrapped/package.nix:79",
+"position":"<nixpkgs> + /pkgs/by-name/sw/sway-unwrapped/package.nix:81",
 "unfree":false,
 "unsupported":false
 },
