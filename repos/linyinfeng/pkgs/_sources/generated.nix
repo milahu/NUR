@@ -83,24 +83,24 @@
   };
   linux-intel-lts = {
     pname = "linux-intel-lts";
-    version = "lts-v6.6.30-linux-240517T123905Z";
+    version = "lts-v6.6.31-linux-240527T181730Z";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "linux-intel-lts";
-      rev = "lts-v6.6.30-linux-240517T123905Z";
+      rev = "lts-v6.6.31-linux-240527T181730Z";
       fetchSubmodules = false;
-      sha256 = "sha256-G87D60EtDW12MMmRCN1STXvW59mMokDl0QLeEUVa11c=";
+      sha256 = "sha256-dlsV9bRilvSeHusoPZ5kWdbUPJ9sXTKkhaakk2980FM=";
     };
   };
   linux-intel-mainline-tracking = {
     pname = "linux-intel-mainline-tracking";
-    version = "mainline-tracking-v6.9-linux-240522T015352Z";
+    version = "mainline-tracking-v6.9-linux-240529T040051Z";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "mainline-tracking";
-      rev = "mainline-tracking-v6.9-linux-240522T015352Z";
+      rev = "mainline-tracking-v6.9-linux-240529T040051Z";
       fetchSubmodules = false;
-      sha256 = "sha256-frnR+Zacj/w0PPWWjAKx0AsSASNO8KO6jr0MEa1ZMLU=";
+      sha256 = "sha256-qbnmg33mr6uD0LqpbZYpZW0gPxVmRNJY92lJq73vTLU=";
     };
   };
   lpac = {
@@ -274,16 +274,16 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "9c4399aae28a43b4a0a2e85a346ebff30d2a5347";
+    version = "c5b8efc6adcb3acf55e876a0123812e6e627569f";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "9c4399aae28a43b4a0a2e85a346ebff30d2a5347";
+      rev = "c5b8efc6adcb3acf55e876a0123812e6e627569f";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-lUemdXtRS4u4bAxaFlvv+E3w3KIp1I0vnuM/adrx61Q=";
+      sha256 = "sha256-BRFT4uh1aIz8VpEnj0IyPqGPhwH3E1uXyIUcfua4API=";
     };
-    date = "2024-05-27";
+    date = "2024-05-30";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
@@ -499,16 +499,16 @@
   };
   waybar-git = {
     pname = "waybar-git";
-    version = "9332697ec1f7e66892deea7a2b56f2ab8a48ac28";
+    version = "1a1a61e917af09ae4e505b61aa8f0e2da7a649ef";
     src = fetchgit {
       url = "https://github.com/Alexays/Waybar.git";
-      rev = "9332697ec1f7e66892deea7a2b56f2ab8a48ac28";
+      rev = "1a1a61e917af09ae4e505b61aa8f0e2da7a649ef";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-6i20OlKIY38jVETYh3hTF/fnbxV0SZTl2OWxvdkV0VU=";
+      sha256 = "sha256-T98m2cEAQv2QgDFtURhuAgT+yUPdbKu1DXWeiSVLqTs=";
     };
-    date = "2024-05-29";
+    date = "2024-05-30";
   };
   yacd = {
     pname = "yacd";
