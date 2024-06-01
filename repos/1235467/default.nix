@@ -27,7 +27,6 @@ rec {
   ab-av1 = pkgs.callPackage ./pkgs-by-lang/Rust/ab-av1 { };
   Anime4k-rs = pkgs.callPackage ./pkgs-by-lang/Rust/Anime4k-rs { };
   av1an = pkgs.callPackage ./pkgs-by-lang/Rust/av1an { };
-  #DownOnSpot = pkgs.callPackage ./pkgs-by-lang/Rust/DownOnSpot { };
   ncmdump-rs = pkgs.callPackage ./pkgs-by-lang/Rust/ncmdump.rs { };
   onedrive-fuse = pkgs.callPackage ./pkgs-by-lang/Rust/onedrive-fuse { };
   rescrobbled = pkgs.callPackage ./pkgs-by-lang/Rust/rescrobbled { };
@@ -39,7 +38,7 @@ rec {
 
   # Go
   open-snell = pkgs.callPackage ./pkgs-by-lang/Go/open-snell { };
-  #swgp-go = pkgs.callPackage ./pkgs-by-lang/Go/swgp-go { };
+
 
   # Python
   idntag = pkgs.callPackage ./pkgs-by-lang/Python/idntag { };
@@ -56,12 +55,8 @@ rec {
   koboldcpp = pkgs.callPackage ./pkgs-by-lang/C/koboldcpp { };
   Penguin-Subtitle-Player = pkgs.libsForQt5.callPackage ./pkgs-by-lang/C/Penguin-Subtitle-Player { };
   suyu = pkgs.qt6.callPackage ./pkgs-by-lang/C/suyu { };
-  #vkbasalt = pkgs.callPackage ./pkgs-by-lang/C/vkbasalt {};
-  #yumekey = pkgs.callPackage ./pkgs-by-lang/C/yumekey {};
   yuzu-early-access = pkgs.qt6.callPackage ./pkgs-by-lang/C/yuzu { };
   nbfc-linux = pkgs.callPackage ./pkgs-by-lang/C/nbfc-linux { };
-  #sudachi = pkgs.qt6.callPackage ./pkgs-by-lang/C/sudachi {};
-  llamafile = pkgs.callPackage ./pkgs-by-lang/C/llamafile { };
 
   # Nodejs
   gateway = pkgs.callPackage ./pkgs-by-lang/Node/gateway {};
@@ -81,14 +76,10 @@ rec {
 
   # Overrides
   forkgram = pkgs.qt6.callPackage ./pkgs/Overrides/forkgram { };
-  #openmw = pkgs.libsForQt5.callPackage ./pkgs/Overrides/openmw {};
   qcm = pkgs.qt6.callPackage ./pkgs/Overrides/qcm { };
   mpv = pkgs.wrapMpv (pkgs.mpv.unwrapped.override { cddaSupport = true; }) { scripts = [ pkgs.mpvScripts.mpris ]; };
   sway-im = pkgs.callPackage ./pkgs/Overrides/sway-im { };
-  #sway-git = pkgs.callPackage ./pkgs/Overrides/sway-git {};
-  #hyprland = pkgs.callPackage ./pkgs/Overrides/hyprland {};
-  pot = pkgs.callPackage ./pkgs/Overrides/pot { };
-  sway-stable = pkgs-stable.sway;
+
 
   # System Fonts override
   JetBrainsMono-nerdfonts = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
@@ -96,4 +87,13 @@ rec {
   # Garnix generate cache
   mongodb = pkgs-stable.mongodb;
   cudatoolkit = pkgs.cudaPackages_12.cudatoolkit;
+
+  # Broken
+  #sudachi = pkgs.qt6.callPackage ./pkgs-by-lang/C/sudachi {};
+  #llamafile = pkgs.callPackage ./pkgs-by-lang/C/llamafile { };
+  #yumekey = pkgs.callPackage ./pkgs-by-lang/C/yumekey {};
+  #pot = pkgs.callPackage ./pkgs/Overrides/pot { };
+  #openmw = pkgs.libsForQt5.callPackage ./pkgs/Overrides/openmw {};
+  #swgp-go = pkgs.callPackage ./pkgs-by-lang/Go/swgp-go { };
+  #DownOnSpot = pkgs.callPackage ./pkgs-by-lang/Rust/DownOnSpot { };
 }
