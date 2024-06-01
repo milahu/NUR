@@ -19,21 +19,15 @@ let
   isBuildable = p: !(p.meta.broken or false) && p.meta.license.free or true;
   isCacheable = p: !(p.preferLocalBuild or false);
   shouldRecurseForDerivations = p: builtins.isAttrs p && p.recurseForDerivations or false;
-
-  nameValuePair = n: v: {
-    name = n;
-    value = v;
-  };
-
   concatMap = builtins.concatMap or (f: xs: builtins.concatLists (builtins.map f xs));
 
-  flattenPkgs =
+  flattenPackages =
     s:
     let
       f =
         p:
         if shouldRecurseForDerivations p then
-          flattenPkgs p
+          flattenPackages p
         else if isDerivation p then
           [ p ]
         else
@@ -43,27 +37,28 @@ let
 
   outputsOf = p: builtins.map (o: p.${o}) p.outputs;
 
-  nurAttrs = import ./default.nix { inherit pkgs; };
+  nurAttrs = import ./. { inherit pkgs; };
 
-  nurPkgs = flattenPkgs (
+  allPackages = flattenPackages (
     builtins.listToAttrs (
-      builtins.map (n: nameValuePair n nurAttrs.${n}) (
-        builtins.filter (n: !isReserved n) (builtins.attrNames nurAttrs)
-      )
+      builtins.map (name: {
+        inherit name;
+        value = nurAttrs.${name};
+      }) (builtins.filter (n: !isReserved n) (builtins.attrNames nurAttrs))
     )
   );
 
-  buildPkgs = builtins.filter isBuildable nurPkgs;
-  cachePkgs = builtins.filter isCacheable buildPkgs;
+  buildPackages = builtins.filter isBuildable allPackages;
+  cachePackages = builtins.filter isCacheable buildPackages;
 
-  buildOutputs = concatMap outputsOf buildPkgs;
-  cacheOutputs = concatMap outputsOf cachePkgs;
+  buildOutputs = concatMap outputsOf buildPackages;
+  cacheOutputs = concatMap outputsOf cachePackages;
 in
 
 {
   inherit
-    buildPkgs
-    cachePkgs
+    buildPackages
+    cachePackages
     buildOutputs
     cacheOutputs
     ;

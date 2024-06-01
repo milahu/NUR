@@ -11,11 +11,11 @@ build-all: build-all-unstable build-all-stable
 
 # Build all packages against the unstable channel.
 build-all-unstable:
-    nom build -L ${NIX_FLAGS[@]} --no-link --impure --expr 'import ./ci.nix { pkgs = import (builtins.getFlake "nixpkgs") {}; }' cacheOutputs --inputs-from .
+    nom build -L ${NIX_FLAGS[@]} --no-link --impure --expr 'import ./ci.nix { pkgs = import (builtins.getFlake "nixpkgs") { }; }' cacheOutputs --inputs-from .
 
 # Build all packages against the stable channel.
 build-all-stable:
-    nom build -L ${NIX_FLAGS[@]} --no-link --impure --expr 'import ./ci.nix { pkgs = import (builtins.getFlake "nixpkgs-stable") {}; }' cacheOutputs --inputs-from .
+    nom build -L ${NIX_FLAGS[@]} --no-link --impure --expr 'import ./ci.nix { pkgs = import (builtins.getFlake "nixpkgs-stable") { }; }' cacheOutputs --inputs-from .
 
 # Rebuild all packages against both channels.
 rebuild-all: rebuild-all-unstable rebuild-all-stable

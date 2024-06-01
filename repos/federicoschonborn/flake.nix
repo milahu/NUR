@@ -3,8 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
-    systems.url = "github:nix-systems/default";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
+
+    systems = {
+      url = "path:./systems.nix";
+      flake = false;
+    };
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -47,7 +51,26 @@
           ...
         }:
         {
-          legacyPackages = pkgs.callPackage ./. { };
+          _module.args.pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfreePredicate =
+              p:
+              builtins.elem (lib.getName p) [
+                "eppa-neobun"
+                "eppa-neocube"
+                "renere-spinny-blobcats"
+                "renere-spinny-blobfoxes"
+                "renere-spinny-blobs"
+                "volpeon-drgn"
+                "volpeon-floof"
+                "volpeon-gphn"
+                "volpeon-neocat"
+                "volpeon-neofox"
+                "volpeon-vlpn"
+              ];
+          };
+
+          legacyPackages = pkgs.callPackage ./pkgs { };
           packages = lib.filterAttrs (_: lib.isDerivation) config.legacyPackages;
 
           devShells.default = pkgs.mkShell {

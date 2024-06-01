@@ -6,16 +6,12 @@ _: prev:
 
 let
   isReserved = n: n == "lib" || n == "overlays" || n == "modules";
-  nameValuePair = n: v: {
-    name = n;
-    value = v;
-  };
-
-  nurAttrs = import ./default.nix { pkgs = prev; };
+  nurAttrs = import ./. { pkgs = prev; };
 in
 
 builtins.listToAttrs (
-  builtins.map (n: nameValuePair n nurAttrs.${n}) (
-    builtins.filter (n: !isReserved n) (builtins.attrNames nurAttrs)
-  )
+  builtins.map (name: {
+    inherit name;
+    value = nurAttrs.${name};
+  }) (builtins.filter (n: !isReserved n) (builtins.attrNames nurAttrs))
 )
