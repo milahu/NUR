@@ -63,39 +63,39 @@
   };
   forkgram = {
     pname = "forkgram";
-    version = "a2a09f1164a48010bcbe79afd0d3e6fe73acb2c4";
+    version = "3f3e3be09d33e7c646260134cb3bad0f324a0d62";
     src = fetchFromGitHub {
       owner = "forkgram";
       repo = "tdesktop";
-      rev = "a2a09f1164a48010bcbe79afd0d3e6fe73acb2c4";
+      rev = "3f3e3be09d33e7c646260134cb3bad0f324a0d62";
       fetchSubmodules = true;
-      sha256 = "sha256-4h7Jv46pg0XUjCsezJL1IEi8JBHjCBA+Ud3yVS920UQ=";
+      sha256 = "sha256-5jAUtgEtoPwd0j1XaDle3xmLSh98mwpS40H/XHvCrcw=";
     };
-    date = "2024-05-29";
+    date = "2024-06-01";
   };
   hyprland = {
     pname = "hyprland";
-    version = "a60c7283e677ed81a466d1c0c864c8a05e192cac";
+    version = "a54ab301602e205f273969c093cf494d38ba4a98";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "a60c7283e677ed81a466d1c0c864c8a05e192cac";
+      rev = "a54ab301602e205f273969c093cf494d38ba4a98";
       fetchSubmodules = true;
-      sha256 = "sha256-kuVKS98JUgJ71Z3sRUo+YnQgmX8xdXoZZbBPyIZMWYs=";
+      sha256 = "sha256-PQF/ng2hSQsKKsn4N+4RmVu+4ljzsrSsrAm5Yp7wADM=";
     };
-    date = "2024-05-29";
+    date = "2024-05-31";
   };
   hyprwayland-scanner = {
     pname = "hyprwayland-scanner";
-    version = "6fdc0ceac9c7288a8f8ff38d64c2be4b3be66ef7";
+    version = "89b337424bfdf8e4698837632085d415ca41b8fc";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "hyprwayland-scanner";
-      rev = "6fdc0ceac9c7288a8f8ff38d64c2be4b3be66ef7";
+      rev = "89b337424bfdf8e4698837632085d415ca41b8fc";
       fetchSubmodules = true;
-      sha256 = "sha256-kW/K8Ou7hoKhMXtrJM07WSAI04zEZmSEqTM7xPe0GbE=";
+      sha256 = "sha256-E5s+yEDIxsMTiCX0qwMuPzKQ4ME+73U9flxq6hM6Cw8=";
     };
-    date = "2024-05-29";
+    date = "2024-05-31";
   };
   idntag = {
     pname = "idntag";
@@ -303,15 +303,15 @@
   };
   sudachi = {
     pname = "sudachi";
-    version = "786d8e2618616db7677bf6f877fe6468dc292fe1";
+    version = "50ad68316dd1fdd7a4d00be3022241eebfd8d4b9";
     src = fetchFromGitHub {
       owner = "sudachi-emu";
       repo = "sudachi";
-      rev = "786d8e2618616db7677bf6f877fe6468dc292fe1";
+      rev = "50ad68316dd1fdd7a4d00be3022241eebfd8d4b9";
       fetchSubmodules = true;
-      sha256 = "sha256-6msCocrbh3wpxDix3J+tApddi8Zrpirta6fo+7arBLI=";
+      sha256 = "sha256-ZjOvUesthXFssaqnNBC0TBN/lHd9qkalOCGYg7dpEhU=";
     };
-    date = "2024-05-28";
+    date = "2024-06-01";
   };
   suyu = {
     pname = "suyu";
@@ -416,15 +416,15 @@
   };
   wlroots = {
     pname = "wlroots";
-    version = "862a0b4826ffbae0e269e0b203c6cd41770ef9a7";
+    version = "6e6c4408d36ddad705458ca4b2e301192f7963fd";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/wlroots/wlroots";
-      rev = "862a0b4826ffbae0e269e0b203c6cd41770ef9a7";
+      rev = "6e6c4408d36ddad705458ca4b2e301192f7963fd";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-fyHzcBUnkOuo1oQQIGXcVpn+cHGNFMXsZZ9MUNckqzU=";
+      sha256 = "sha256-8mKLFnGORhq6U4bX4m6XD8v2oemuI/WqkF8ACehOIdo=";
     };
-    date = "2024-05-28";
+    date = "2024-05-31";
   };
 }
