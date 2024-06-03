@@ -119,7 +119,7 @@ in
         self.direnv
         self.discord
         self.dunst
-        self.emacs29
+        self.emacs
         self.gcc
         self.gitAndTools.gitFull
         self.gitAndTools.hub
@@ -133,7 +133,7 @@ in
         self.ledger
         self.libnotify # for nofify-send
         self.mupdf
-        self.nixopsUnstable
+        #self.nixopsUnstable
         self.nixos-option
         self.nixpkgs-fmt
         self.nixpkgs-review
