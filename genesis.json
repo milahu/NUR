@@ -1,16 +1,16 @@
 {
 "name":"genesis",
-"fetch_time":0.607,
-"eval_time":0.249,
+"fetch_time":0.723,
+"eval_time":0.261,
 "source":{
 "url":"https://github.com/bignaux/nur-packages",
-"rev":"7603c854752a0657fc786f0dd6c24c6f2c954b6e",
-"sha256":"0bzv4lzpd44f7ffpylz6rarfvdhy9kp4ar9b3627fd1xqd6s9djz",
-"date":"2024-06-01T13:04:43Z"
+"rev":"a2788d71c3b965419033b17a936503b21cbed4f3",
+"sha256":"0l6f8kg174sbiw84jjmgn15b7x0mri3fr5lqljd2yr5rjh9bkf5m",
+"date":"2024-06-02T16:24:13Z"
 },
-"source_storepath":"/nix/store/pllig13scw0nn3i5y16mdfakizzqbvkn-source",
+"source_storepath":"/nix/store/v5v7ha9d2k4464lgj5b36s4w1xdykifk-source",
 "nixpkgs_storepath":"/nix/store/7nfhfhnpac3jv9rg19cvxbdnz8c9dw9g-source",
-"nur_combined_rev":"e0f082f188def94e16b49556c0e14a1ae48c6318",
+"nur_combined_rev":"bce06d592d46b3fa60bbb9a1123b9f30aef29b34",
 "packages":{
 "caprice32":{
 "meta":{
@@ -197,7 +197,7 @@
 "emulicious":{
 "meta":{
 "available":false,
-"broken":true,
+"broken":false,
 "description":"Game Boy, Game Boy Color, Master System, Game Gear and MSX emulator",
 "homepage":"https://emulicious.net/",
 "insecure":false,
@@ -224,7 +224,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/emulicious/default.nix:51",
+"position":"./pkgs/emulicious/default.nix:26",
 "unfree":true,
 "unsupported":false
 },
@@ -433,7 +433,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/gbdk-2020/default.nix:37",
+"position":"./pkgs/gbdk-2020/default.nix:51",
 "unfree":false,
 "unsupported":false
 },
@@ -561,7 +561,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/gbdk-2020-sdcc/default.nix:103",
+"position":"./pkgs/gbdk-2020-sdcc/default.nix:108",
 "unfree":false,
 "unsupported":false
 },

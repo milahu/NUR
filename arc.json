@@ -1,16 +1,16 @@
 {
 "name":"arc",
-"fetch_time":0.84,
-"eval_time":0.434,
+"fetch_time":0.891,
+"eval_time":0.417,
 "source":{
 "url":"https://github.com/arcnmx/nixexprs",
-"rev":"bc39d83c74ea2f797190718f322bd2796f5cdd5e",
-"sha256":"0qng3y5cbdn5yj88xl64wvzw44xgvwjyjq4bv8gp10x4hs1xz5w5",
-"date":"2024-05-25T20:46:43Z"
+"rev":"af6d1c84da566c93a6a74a9c1cbc65e6292f033c",
+"sha256":"1654v0a71692pi8p4lhnx6m2i0gpfbsqgahbn63xjhgfg9xdj0wz",
+"date":"2024-06-03T00:44:17Z"
 },
-"source_storepath":"/nix/store/fybqyhjs2bbgjkwzjhrs2lw3lnk0jcdi-source",
-"nixpkgs_storepath":"/nix/store/g713xdl0g5bdjfrrxlg0ld05m36hsh1j-source",
-"nur_combined_rev":"8398316f3abf44aa0c64954853cbac24374de48b",
+"source_storepath":"/nix/store/fm84sfjj5lywnhgr7nghf4rrarlf2jzb-source",
+"nixpkgs_storepath":"/nix/store/7nfhfhnpac3jv9rg19cvxbdnz8c9dw9g-source",
+"nur_combined_rev":"fdf6dcb81a5ffd8422c3fc4bd5721c0c254c6847",
 "packages":{
 "packages.benc":{
 "meta":{
@@ -1126,7 +1126,7 @@
 "name":"John Garcia"
 }
 ],
-"name":"electrum-4.5.4",
+"name":"electrum-4.5.5",
 "outputsToInstall":[
 "out"
 ],
@@ -1207,11 +1207,11 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/applications/misc/electrum/default.nix:175",
+"position":"<nixpkgs> + /pkgs/applications/misc/electrum/default.nix:151",
 "unfree":false,
 "unsupported":false
 },
-"name":"electrum-4.5.4",
+"name":"electrum-4.5.5",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -1219,7 +1219,7 @@
 },
 "pname":"electrum",
 "system":"x86_64-linux",
-"version":"4.5.4"
+"version":"4.5.5"
 },
 "packages.emxc":{
 "meta":{
@@ -1326,7 +1326,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"forcefully-remove-bootfb-6.6.31-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.32-2018-02-08",
 "outputsToInstall":[
 "bin"
 ],
@@ -1357,7 +1357,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"forcefully-remove-bootfb-6.6.31-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.32-2018-02-08",
 "outputName":"bin",
 "outputs":{
 "bin":null,
@@ -1365,7 +1365,7 @@
 },
 "pname":"forcefully-remove-bootfb",
 "system":"x86_64-linux",
-"version":"6.6.31-2018-02-08"
+"version":"6.6.32-2018-02-08"
 },
 "packages.generateLinuxConfig":{
 "meta":{
@@ -1445,7 +1445,9 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux"
+"x86_64-linux",
+"wasm64-wasi",
+"wasm32-wasi"
 ],
 "position":"./pkgs/git/git-annex-remote-b2/default.nix:3",
 "unfree":false,
@@ -2571,7 +2573,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.31-2021.04.21",
+"name":"ryzen-smu-6.6.32-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -3405,7 +3407,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:149",
+"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:150",
 "unfree":false,
 "unsupported":false
 },
@@ -3528,7 +3530,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre631163.47e03a624662",
+"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre633168.6132b0f6e344",
 "description":"Mail indexer",
 "homepage":"https://notmuchmail.org/",
 "insecure":false,
@@ -4553,7 +4555,7 @@
 "name":"Jamie Quigley"
 }
 ],
-"name":"rnnoise-plugin-1.03",
+"name":"rnnoise-plugin-1.10",
 "outputsToInstall":[
 "out"
 ],
@@ -4638,14 +4640,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rnnoise-plugin-1.03",
+"name":"rnnoise-plugin-1.10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rnnoise-plugin",
 "system":"x86_64-linux",
-"version":"1.03"
+"version":"1.10"
 },
 "packages.rust-analyzer-unwrapped-mimalloc":{
 "meta":{
@@ -4930,7 +4932,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.31-2021.04.21",
+"name":"ryzen-smu-6.6.32-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -4975,7 +4977,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.31-2021.04.21",
+"name":"ryzen-smu-6.6.32-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5006,21 +5008,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ryzen-smu-6.6.31-2021.04.21",
+"name":"ryzen-smu-6.6.32-2021.04.21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ryzen-smu",
 "system":"x86_64-linux",
-"version":"6.6.31-2021.04.21"
+"version":"6.6.32-2021.04.21"
 },
 "packages.ryzen-smu-monitor_cpu":{
 "meta":{
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.31-2021.04.21",
+"name":"ryzen-smu-6.6.32-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5096,7 +5098,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"name":"ryzen-smu-6.6.31-2021.04.21",
+"name":"ryzen-smu-6.6.32-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5418,7 +5420,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://weechat.org/files/doc/weechat/ChangeLog-4.2.2.html",
+"changelog":"https://weechat.org/files/doc/weechat/ChangeLog-4.3.0.html",
 "description":"Fast, light and extensible chat client",
 "homepage":"https://weechat.org/",
 "insecure":false,
@@ -5447,7 +5449,7 @@
 "name":"Na\u00efm Favier"
 }
 ],
-"name":"weechat-4.2.2",
+"name":"weechat-4.3.0",
 "outputsToInstall":[
 "out"
 ],
@@ -5501,14 +5503,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"weechat-bin-env-4.2.2",
+"name":"weechat-bin-env-4.3.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"weechat-bin-env",
 "system":"x86_64-linux",
-"version":"4.2.2"
+"version":"4.3.0"
 },
 "packages.weechat-matrix":{
 "meta":{
@@ -5788,7 +5790,9 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux"
+"x86_64-linux",
+"wasm64-wasi",
+"wasm32-wasi"
 ],
 "position":"./pkgs/public/yggdrasil-address.nix:8",
 "unfree":false,
