@@ -30,17 +30,14 @@ rec {
   cockpit-machines = callPackage ./pkgs/cockpit/machines.nix {};
   cockpit-client = callPackage ./pkgs/cockpit/client.nix {};
   libvirt-dbus = callPackage ./pkgs/libvirt-dbus.nix {};
-  libidn = callPackage ./pkgs/libidn.nix {};
   gitupdate = callPackage ./pkgs/gitupdate.nix {};
   homer = callPackage ./pkgs/homer.nix {};
   gtk3-nocsd = callPackage ./pkgs/gtk3-nocsd.nix {};
   aml-upgrade-package-extract = callPackage ./pkgs/aml-upgrade-package-extract.nix {};
   dsdt = callPackage ./pkgs/dsdt.nix;
-  ath10k-firmware = callPackage ./pkgs/ath10k-firmware.nix {};
   cubesuite = callPackage ./pkgs/cubesuite.nix { wrapWine = pkgs.nur.repos.lucasew.packages.wrapWine or null; };
   hostapd = callPackage ./pkgs/hostapd {};
   steamlink = callPackage ./pkgs/steamlink.nix {};
-  sunshine = callPackage ./pkgs/sunshine {};
   ydcmd = callPackage ./pkgs/ydcmd.nix {};
   modplay = callPackage ./pkgs/modplay.nix {};
 }
