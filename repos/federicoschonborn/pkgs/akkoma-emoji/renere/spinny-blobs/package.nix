@@ -3,7 +3,7 @@
   stdenvNoCC,
   runCommand,
   fetchFromGitLab,
-  nix-update-script,
+# nix-update-script,
 }:
 
 stdenvNoCC.mkDerivation (finalAttrs: {
@@ -55,12 +55,12 @@ stdenvNoCC.mkDerivation (finalAttrs: {
           cp ${finalAttrs.finalPackage}/spinny_fox*.gif $out
         '';
 
-    updateScript = nix-update-script {
-      extraArgs = [
-        "--version"
-        "branch"
-      ];
-    };
+    # updateScript = nix-update-script {
+    #   extraArgs = [
+    #     "--version"
+    #     "branch"
+    #   ];
+    # };
   };
 
   meta = {

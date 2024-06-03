@@ -70,7 +70,7 @@
               ];
           };
 
-          legacyPackages = pkgs.callPackage ./pkgs { };
+          legacyPackages = pkgs.callPackage ./. { };
           packages = lib.filterAttrs (_: lib.isDerivation) config.legacyPackages;
 
           devShells.default = pkgs.mkShell {
@@ -96,6 +96,7 @@
                 text = ''
                   nix-shell --show-trace "${nixpkgs.outPath}/maintainers/scripts/update.nix" \
                     --arg include-overlays "[(import ./overlay.nix)]" \
+                    --arg keep-going 'true' \
                     --arg predicate '(
                       let prefix = builtins.toPath ./pkgs; prefixLen = builtins.stringLength prefix;
                       in (_: p: p.meta?position && (builtins.substring 0 prefixLen p.meta.position) == prefix)

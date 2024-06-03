@@ -1,27 +1,18 @@
 { lib, pkgs }:
 
 {
-  volpeon = lib.makeScope pkgs.newScope (
-    self:
-    lib.packagesFromDirectoryRecursive {
-      inherit (self) callPackage;
-      directory = ./volpeon;
-    }
-  );
+  volpeon = lib.packagesFromDirectoryRecursive {
+    inherit (pkgs) callPackage;
+    directory = ./volpeon;
+  };
 
-  eppa = lib.makeScope pkgs.newScope (
-    self:
-    lib.packagesFromDirectoryRecursive {
-      inherit (self) callPackage;
-      directory = ./eppa;
-    }
-  );
+  eppa = lib.packagesFromDirectoryRecursive {
+    inherit (pkgs) callPackage;
+    directory = ./eppa;
+  };
 
-  renere = lib.makeScope pkgs.newScope (
-    self:
-    lib.packagesFromDirectoryRecursive {
-      inherit (self) callPackage;
-      directory = ./renere;
-    }
-  );
+  renere = lib.packagesFromDirectoryRecursive {
+    inherit (pkgs) callPackage;
+    directory = ./renere;
+  };
 }
