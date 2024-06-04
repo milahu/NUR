@@ -38,6 +38,39 @@ in
     #   FallbackDNS=1.1.1.1 9.9.9.9
     # '';
 
+    # tun-sea config
+    sane.dns.zones."uninsane.org".inet.A."doof.tunnel" = "205.201.63.12";
+    sane.dns.zones."uninsane.org".inet.AAAA."doof.tunnel" = "2602:fce8:106::51";
+    networking.wireguard.interfaces.wg-doof = let
+      ip = "${pkgs.iproute2}/bin/ip";
+    in {
+      privateKeyFile = config.sops.secrets.wg_doof_privkey.path;
+      # wg is active only in this namespace.
+      # run e.g. ip netns exec doof <some command like ping/curl/etc, it'll go through wg>
+      #   sudo ip netns exec doof ping www.google.com
+      interfaceNamespace = "doof";
+      ips = [
+        "205.201.63.12/32"
+        "2602:fce8:106::51/128"
+      ];
+      peers = [
+        {
+          publicKey = "nuESyYEJ3YU0hTZZgAd7iHBz1ytWBVM5PjEL1VEoTkU=";
+          # TODO: configure DNS within the doof ns and use tun-sea.doof.net endpoint
+          # endpoint = "tun-sea.doof.net:53263";
+          endpoint = "205.201.63.44:53263";
+          allowedIPs = [ "0.0.0.0/0" "::/0" ];
+          persistentKeepalive = 25; #< keep the NAT alive
+        }
+      ];
+      preSetup = ''
+        ${ip} netns add doof || (test -e /run/netns/doof && echo "doof already exists")
+      '';
+      postShutdown = ''
+        ${ip} netns delete doof || echo "couldn't delete doof"
+      '';
+    };
+
     # OVPN CONFIG (https://www.ovpn.com):
     # DOCS: https://nixos.wiki/wiki/WireGuard
     # if you `systemctl restart wireguard-wg-ovpns`, make sure to also restart any other services in `NetworkNamespacePath = .../ovpns`.

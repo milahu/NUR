@@ -317,11 +317,8 @@
               commandArgv = pkg.updateScript.command or pkg.updateScript;
               command = pkgs.lib.escapeShellArgs commandArgv;
             in builtins.toString (pkgs.writeShellScript "update-${strAttrPath}" ''
-              export UPDATE_NIX_NAME=${pkg.name}
-              export UPDATE_NIX_PNAME=${pkg.pname}
-              export UPDATE_NIX_OLD_VERSION=${pkg.version}
-              export UPDATE_NIX_ATTR_PATH=${strAttrPath}
-              ${command}
+              set -x
+              env UPDATE_NIX_NAME=${pkg.name} UPDATE_NIX_PNAME=${pkg.pname} UPDATE_NIX_OLD_VERSION=${pkg.version} UPDATE_NIX_ATTR_PATH=${strAttrPath} ${command}
             '');
           };
           mkUpdatersNoAliases = opts: basePath: pkgs.lib.concatMapAttrs

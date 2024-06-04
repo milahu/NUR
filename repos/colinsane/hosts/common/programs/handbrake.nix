@@ -17,7 +17,7 @@
 
     # disable expensive sambda dependency; i don't use it.
     packageUnwrapped = pkgs.handbrake.override {
-      ffmpeg-full = pkgs.ffmpeg-full.override {
+      ffmpeg_7-full = pkgs.ffmpeg_7-full.override {
         withSamba = false;
       };
     };

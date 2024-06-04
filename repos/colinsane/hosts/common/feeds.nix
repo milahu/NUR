@@ -86,6 +86,7 @@ let
     (fromDb "lexfridman.com/podcast" // rat)
     (fromDb "mapspodcast.libsyn.com" // uncat)  # Multidisciplinary Association for Psychedelic Studies
     (fromDb "microarch.club" // tech)
+    (fromDb "mintcast.org" // tech)
     (fromDb "omegataupodcast.net" // tech)  # 3/4 German; 1/4 eps are English
     (fromDb "omny.fm/shows/cool-people-who-did-cool-stuff" // pol)  # Maggie Killjoy -- referenced by Cory Doctorow
     (fromDb "omny.fm/shows/money-stuff-the-podcast")  # Matt Levine
@@ -191,6 +192,7 @@ let
     (fromDb "uninsane.org" // tech)
     (fromDb "unintendedconsequenc.es" // rat)
     (fromDb "vitalik.eth.limo" // tech)  # Vitalik Buterin
+    (fromDb "weekinethereumnews.com" // tech)
     (fromDb "willow.phantoma.online")  # wizard@xyzzy.link
     (fromDb "xn--gckvb8fzb.com" // tech)
     (mkSubstack "astralcodexten" // rat // daily)  # Scott Alexander

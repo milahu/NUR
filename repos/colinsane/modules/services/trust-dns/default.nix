@@ -35,7 +35,7 @@ let
         '';
         example = {
           "%CNAMESELF%" = "lappy";
-          "%AWAN%" = ''"$(cat /var/www/wan.txt)"'';
+          "%AWAN%" = ''"$(cat /var/uninsane/wan.txt)"'';
         };
       };
       includes = mkOption {
@@ -117,9 +117,9 @@ let
       '') dns.zones
     );
 
-    serviceConfig = config.systemd.services.trust-dns.serviceConfig // {
+    serviceConfig = (config.systemd.services.hickory-dns or config.systemd.services.trust-dns).serviceConfig // {
       ExecStart = lib.escapeShellArgs ([
-        "${config.services.trust-dns.package}/bin/${config.services.trust-dns.package.meta.mainProgram}"
+        "${lib.getExe config.services.trust-dns.package}"
         "--port"     (builtins.toString port)
         "--zonedir"  "/var/lib/trust-dns/${flavor}"
         "--config"   "${configPath}"
@@ -131,7 +131,10 @@ let
       # servo/dyn-dns needs /var/lib/uninsane/wan.txt.
       # this might not exist on other systems,
       # so just bind the deepest path which is guaranteed to exist.
-      ReadOnlyPaths = [ "/var/lib" ];
+      ReadOnlyPaths = [ "/var/lib" ];  #< TODO: scope this down!
+    } // lib.optionalAttrs cfg.asSystemResolver {
+      # allow the group to write trust-dns state (needed by NetworkManager hook)
+      StateDirectoryMode = "775";
     };
   };
 in
@@ -181,9 +184,10 @@ in
           rev = "67649863faf2e08f63963a96a491a4025aaf8ed6";
           hash = "sha256-vmVY8C0cCCFxy/4+g1vKZsAD5lMaufIExnFaSVVAhGM=";
         };
-        cargoHash = "sha256-FEjNxv1iu27SXQhz1+Aehs4es8VxT1BPz5uZq8TcG/k=";
+        cargoHash = "sha256-NoWrQgTPOp99pEs73VQrfeU3m8fny2s20Mf9qxwiPtQ=";
       });
     };
+    services.trust-dns.settings.directory = "/var/lib/trust-dns";
 
     users.groups.trust-dns = {};
     users.users.trust-dns = {
@@ -193,6 +197,18 @@ in
 
     systemd.services = lib.mkMerge [
       {
+        hickory-dns.enable = false;
+        hickory-dns.serviceConfig = {
+          DynamicUser = lib.mkForce false;
+          User = "trust-dns";
+          Group = "trust-dns";
+          wantedBy = lib.mkForce [];
+          # there can be a lot of restarts as interfaces toggle,
+          # particularly around the DHCP/NetworkManager stuff.
+          StartLimitBurst = 60;
+          StateDirectory = lib.mkForce "trust-dns";
+        };
+
         trust-dns.enable = false;
         trust-dns.serviceConfig = {
           DynamicUser = lib.mkForce false;
@@ -202,6 +218,7 @@ in
           # there can be a lot of restarts as interfaces toggle,
           # particularly around the DHCP/NetworkManager stuff.
           StartLimitBurst = 60;
+          StateDirectory = lib.mkForce "trust-dns";
         };
         # trust-dns.unitConfig.StartLimitIntervalSec = 60;
       }
@@ -214,9 +231,22 @@ in
       )
     ];
 
+    # run a hook whenever networking details change, so the DNS zone can be updated to reflect this
     environment.etc."NetworkManager/dispatcher.d/60-trust-dns-nmhook" = lib.mkIf cfg.asSystemResolver {
       source = "${trust-dns-nmhook}/bin/trust-dns-nmhook";
     };
+
+    # allow NetworkManager (via trust-dns-nmhook) to restart trust-dns when necessary
+    # - source: <https://stackoverflow.com/questions/61480914/using-policykit-to-allow-non-root-users-to-start-and-stop-a-service>
+    security.polkit.extraConfig = lib.mkIf cfg.asSystemResolver ''
+      polkit.addRule(function(action, subject) {
+        if (subject.isInGroup("trust-dns") &&
+            action.id == "org.freedesktop.systemd1.manage-units" &&
+            action.lookup("unit") == "trust-dns-localhost.service") {
+          return polkit.Result.YES;
+        }
+      });
+    '';
 
     sane.services.trust-dns.instances.localhost = lib.mkIf cfg.asSystemResolver {
       listenAddrsIpv4 = [ "127.0.0.1" ];

@@ -1,7 +1,4 @@
 # Pinephone
-# other setups to reference:
-# - <https://hamblingreen.gitlab.io/2022/03/02/my-pinephone-setup.html>
-#   - sxmo Arch user. lots of app recommendations
 #
 # wikis, resources, ...:
 # - Linux Phone Apps: <https://linuxphoneapps.org/>
@@ -24,6 +21,8 @@
   sane.programs.zsh.config.showDeadlines = false;  # unlikely to act on them when in shell
   sane.services.wg-home.enable = true;
   sane.services.wg-home.ip = config.sane.hosts.by-name."moby".wg-home.ip;
+  sane.ovpn.addrV4 = "172.24.87.255";
+  # sane.ovpn.addrV6 = "fd00:0000:1337:cafe:1111:1111:18cd:a72b";
 
   # XXX colin: phosh doesn't work well with passwordless login,
   # so set this more reliable default password should anything go wrong
@@ -32,7 +31,6 @@
 
   sops.secrets.colin-passwd.neededForUsers = true;
 
-  # sane.gui.sxmo.enable = true;
   sane.programs.sway.enableFor.user.colin = true;
   sane.programs.swaylock.enableFor.user.colin = false;  #< not usable on touch
   sane.programs.schlock.enableFor.user.colin = true;
@@ -110,7 +108,7 @@
   '';
 
   # enable rotation sensor
-  hardware.sensor.iio.enable = true;
+  # hardware.sensor.iio.enable = true;
 
   services.udev.extraRules = let
     chmod = "${pkgs.coreutils}/bin/chmod";

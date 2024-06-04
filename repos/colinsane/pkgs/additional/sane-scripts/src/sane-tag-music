@@ -1,5 +1,6 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i python3 -p "python3.withPackages (ps: [ ps.mutagen ])"
+# vim: set filetype=python :
 #
 # mutagen docs:
 # - <https://mutagen.readthedocs.io/en/latest/>
@@ -161,6 +162,7 @@ class Tags:
                     if int(trackno) <= int(last):
                         self.tracknumber[i] = trackno.lstrip('0')
                 except: pass
+        self.tracknumber = [ t for t in self.tracknumber if t != '' ]
 
     def expand_shorthands(self) -> None:
         va = ["V.A.", "Various"]

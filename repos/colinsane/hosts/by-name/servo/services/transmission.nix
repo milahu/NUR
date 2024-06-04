@@ -82,6 +82,7 @@ let
     '';
   };
 in
+lib.mkIf false  #< TODO: re-enable once confident of sandboxing
 {
   sane.persist.sys.byStore.plaintext = [
     # TODO: mode? we need this specifically for the stats tracking in .config/

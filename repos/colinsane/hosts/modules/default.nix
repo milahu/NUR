@@ -3,7 +3,6 @@
 {
   imports = [
     ./derived-secrets
-    ./gui
     ./hosts.nix
     ./nixcache.nix
     ./roles

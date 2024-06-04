@@ -1,0 +1,60 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash -p curl -p dig -p iputils -p lftp -p openssh
+
+echo "this script will check that uninsane.org is baseline operational"
+echo "it doesn't check all services, just the most critical ones"
+echo ""
+
+last_error=0
+check() {
+  local label=$1
+  shift
+  printf "checking %s\n" "$label"
+  "$@" > /dev/null
+  local rc=$?
+  if [ $rc -ne 0 ]; then
+    last_error=$rc
+    printf "FAILED CHECK '%s'\n" "$label" >&2
+    echo "  $@" >&2
+  fi
+  return $rc
+}
+
+check "self-test" false 2> /dev/null
+if [ $last_error -eq 0 ]; then
+  echo "SELF-TEST FAILED" >&2
+  echo "SELF-TEST FAILED"
+  exit 1
+fi
+last_error=0
+
+
+check "uninsane.org. DNS" nslookup uninsane.org.
+check "uninsane.org. DNS via external resolver" nslookup uninsane.org. 1.1.1.1
+check "uninsane.org. bootstrap DNS" nslookup uninsane.org. ovpns.uninsane.org
+
+check "https://uninsane.org online" curl --silent --fail-with-body https://uninsane.org
+check "https://matrix.uninsane.org online" curl --silent --fail-with-body https://matrix.uninsane.org
+check "https://fed.uninsane.org online" curl --silent --fail-with-body https://fed.uninsane.org
+
+check "uninsane.org DMARC record" nslookup -querytype=TXT _dmarc.uninsane.org.
+
+check "servo-hn wireguard network" ping -c 1 -W 3 servo-hn
+
+check "git.uninsane.org" git ls-remote origin --quiet
+
+check "ftp://uninsane.org" lftpget ftp://uninsane.org/README.md && rm README.md
+
+echo ""
+echo "systemctl --failed:"
+ssh uninsane.org systemctl -q --failed
+
+echo ""
+if [ $last_error -eq 0 ]; then
+  echo "SUCCESS"
+  echo "now manually test email services:"
+  echo "- <https://www.appmaildev.com/en/dkim>"
+else
+  echo "FAILED"
+  exit $last_error
+fi

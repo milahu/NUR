@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i python3 -p "python3.withPackages (ps: [  ])"
+#!nix-shell -i python3 -p "python3.withPackages (ps: [ ps.passlib ])"
 # vim: set filetype=python :
 #
 # available environment variables:
@@ -37,9 +37,9 @@
 # - it seems (empirically) that a user can't cd above their home directory.
 #   though i don't have a reference for that in the docs.
 
-import crypt
 import json
 import os
+import passlib.hosts
 
 from hmac import compare_digest
 
@@ -112,10 +112,8 @@ def isWireguard(ip: str) -> bool:
 
 def isTrustedCred(password: str) -> bool:
   for cred in TRUSTED_CREDS:
-    _, method, salt, hash_ = cred.split("$")
-    # assert method == "6", f"unrecognized crypt entry: {cred}"
-    if crypt.crypt(password, f"${method}${salt}") == cred:
-        return True
+    if passlib.hosts.linux_context.verify(password, cred):
+      return True
 
   return False
 

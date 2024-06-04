@@ -13,6 +13,10 @@
   sane.programs.callaudiod = {
     packageUnwrapped = pkgs.rmDbusServices pkgs.callaudiod;
 
+    # probably more needed once i enable proper sandboxing, but for now this ensures the service isn't started too early!
+    sandbox.whitelistAudio = true;
+    sandbox.whitelistDbus = [ "user" ];
+
     services.callaudiod = {
       description = "callaudiod: dbus service to switch audio profiles and mute microphone";
       partOf = [ "default" ];

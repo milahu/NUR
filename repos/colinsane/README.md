@@ -16,7 +16,6 @@ building [hosts/](./hosts/) will require [sops][sops].
 
 you might specifically be interested in these files (elaborated further in #key-points-of-interest):
 - ~~[`sxmo-utils`](./pkgs/additional/sxmo-utils/default.nix)~~
-  - ~~[example SXMO deployment](./hosts/modules/gui/sxmo/default.nix)~~
   - these files will remain until my config settles down, but i no longer use or maintain SXMO.
 - [my implementation of impermanence](./modules/persist/default.nix)
 - my way of deploying dotfiles/configuring programs per-user:

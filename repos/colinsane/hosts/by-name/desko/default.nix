@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ./fs.nix
@@ -11,6 +11,8 @@
   # don't enable wifi by default: it messes with connectivity.
   # systemd.services.iwd.enable = false;
   # systemd.services.wpa_supplicant.enable = false;
+  sane.programs.wpa_supplicant.enableFor.user.colin = lib.mkForce false;
+  sane.programs.wpa_supplicant.enableFor.system = lib.mkForce false;
 
   sops.secrets.colin-passwd.neededForUsers = true;
 
@@ -20,11 +22,12 @@
   sane.roles.pc = true;
   sane.services.wg-home.enable = true;
   sane.services.wg-home.ip = config.sane.hosts.by-name."desko".wg-home.ip;
+  sane.ovpn.addrV4 = "172.26.55.21";
+  # sane.ovpn.addrV6 = "fd00:0000:1337:cafe:1111:1111:20c1:a73c";
   sane.services.duplicity.enable = true;
 
   sane.nixcache.remote-builders.desko = false;
 
-  sane.programs.cups.enableFor.user.colin = true;
   sane.programs.sway.enableFor.user.colin = true;
   sane.programs.iphoneUtils.enableFor.user.colin = true;
   sane.programs.steam.enableFor.user.colin = true;

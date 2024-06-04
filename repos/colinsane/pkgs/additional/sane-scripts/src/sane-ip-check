@@ -1,5 +1,6 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i python3 -p "python3.withPackages (ps: [ ps.requests ps.sane-lib.ssdp ])" -p miniupnpc
+# vim: set filetype=python :
 """
 sane-ip-check: query the IP address of this machine as seen by an external Internet host.
 """

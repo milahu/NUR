@@ -1,5 +1,8 @@
 { lib
+, stdenv
 , buildPackages
+, file
+, gnugrep
 , runCommandLocal
 , runtimeShell
 , sanebox
@@ -95,20 +98,27 @@ let
         done
       }
 
-      if [ -e "$out/bin" ]; then
-        crawlAndWrap "$out/bin"
-      fi
-      if [ -e "$out/libexec" ]; then
-        crawlAndWrap "$out/libexec"
-      fi
+      for output in $outputs; do
+        local outdir=''${!output}
+        echo "scanning output '$output' at $outdir for binaries to sandbox"
+        if [ -e "$outdir/bin" ]; then
+          crawlAndWrap "$outdir/bin"
+        fi
+        if [ -e "$outdir/libexec" ]; then
+          crawlAndWrap "$outdir/libexec"
+        fi
+      done
     '';
   });
 
   # there are certain `meta` fields we care to preserve from the original package (priority),
   # and others we *can't* preserve (outputsToInstall).
-  extractMeta = pkg: if (pkg ? meta) && (pkg.meta ? priority) then {
-    inherit (pkg.meta) priority;
-  } else {};
+  extractMeta = pkg: let
+    meta = pkg.meta or {};
+  in
+    (lib.optionalAttrs (meta ? priority) { inherit (meta) priority; })
+    // (lib.optionalAttrs (meta ? mainProgram) { inherit (meta) mainProgram; })
+  ;
 
   # helper used for `wrapperType == "wrappedDerivation"` which simply symlinks all a package's binaries into a new derivation
   symlinkBinaries = pkgName: package: (runCommandLocal "${pkgName}-bin-only" {} ''
@@ -116,6 +126,10 @@ let
     if [ -e "${package}/bin" ]; then
       mkdir -p "$out/bin"
       ${buildPackages.xorg.lndir}/bin/lndir "${package}/bin" "$out/bin"
+    fi
+    if [ "$(readlink ${package}/sbin)" == "bin" ]; then
+      # weird packages like wpa_supplicant depend on a sbin/ -> bin symlink in their service files
+      ln -s bin "$out/sbin"
     fi
     if [ -e "${package}/libexec" ]; then
       mkdir -p "$out/libexec"
@@ -128,7 +142,7 @@ let
     meta = extractMeta package;
   });
 
-  # helper used for `wrapperType == "wrappedDerivation"` which ensures that and copied/symlinked share/ files (like .desktop) files
+  # helper used for `wrapperType == "wrappedDerivation"` which ensures that any copied/symlinked share/ files (like .desktop) files
   # don't point to the unwrapped binaries.
   # other important files it preserves:
   # - share/applications
@@ -136,6 +150,7 @@ let
   # - share/icons
   # - share/man
   # - share/mime
+  # - {etc,lib,share}/systemd
   fixHardcodedRefs = unsandboxed: sandboxedBin: unsandboxedNonBin: unsandboxedNonBin.overrideAttrs (prevAttrs: {
     postInstall = (prevAttrs.postInstall or "") + ''
       trySubstitute() {
@@ -155,17 +170,17 @@ let
       # fixup a few files i understand well enough
       for d in \
         $out/etc/xdg/autostart/*.desktop \
-        $out/lib/systemd/user/*.service \
         $out/share/applications/*.desktop \
-        $out/share/dbus-1/services/*.service \
-        $out/share/systemd/user/*.service \
+        $out/share/dbus-1/{services,system-services}/*.service \
+        $out/{etc,lib,share}/systemd/{system,user}/*.service \
       ; do
-        # dbus and desktop files
-        trySubstitute "$d" "Exec=%s/bin/"
-        trySubstitute "$d" "Exec=%s/libexec/"
-        # systemd service files
-        trySubstitute "$d" "ExecStart=%s/bin/"
-        trySubstitute "$d" "ExecStart=%s/libexec/"
+        # Exec: dbus and desktop files
+        # ExecStart,ExecReload: systemd service files
+        for key in Exec ExecStart ExecReload; do
+          for binLoc in bin libexec sbin; do
+            trySubstitute "$d" "$key=%s/$binLoc/"
+          done
+        done
       done
     '';
     passthru = (prevAttrs.passthru or {}) // {
@@ -220,43 +235,59 @@ let
       priority = ((prevAttrs.meta or {}).priority or 0) - 1;
     };
     passthru = (prevAttrs.passthru or {}) // extraPassthru // {
-      checkSandboxed = runCommandLocal "${pkgName}-check-sandboxed" {} ''
+      checkSandboxed = runCommandLocal "${pkgName}-check-sandboxed" {
+        nativeBuildInputs = [ file gnugrep sanebox ];
+        buildInputs = builtins.map (out: finalAttrs.finalPackage."${out}") (finalAttrs.outputs or [ "out" ]);
+      } ''
         set -e
         # invoke each binary in a way only the sandbox wrapper will recognize,
         # ensuring that every binary has in fact been wrapped.
         _numExec=0
         _checkExecutable() {
-          echo "checking if $1 is sandboxed"
-          PATH="${finalAttrs.finalPackage}/bin:${sanebox}/bin:$PATH" \
-            SANEBOX_DISABLE=1 \
-            "$1" --sanebox-replace-cli echo "printing for test" \
+          local dir="$1"
+          local binname="$2"
+          echo "checking if $dir/$binname is sandboxed"
+          # XXX: call by full path because some binaries (e.g. util-linux) would otherwise
+          # be shadowed by things the nix builder implicitly puts on PATH.
+          # additionally, call via qemu and manually specify the interpreter *if the file has one*.
+          # if the file doesn't have an interpreter, assume it's directly invokable by qemu (hence, the intentional lack of quotes around `interpreter`)
+          set -x
+          local realbin="$(realpath $dir/$binname)"
+          local interpreter=$(file "$realbin" | grep --only-matching "a /nix/.* script" | cut -d" " -f2 || echo "")
+          ${stdenv.hostPlatform.emulator buildPackages} $interpreter "$dir/$binname" --sanebox-replace-cli echo "printing for test" \
             | grep "printing for test"
           _numExec=$(( $_numExec + 1 ))
         }
         _checkDir() {
-          for b in $(ls "$1"); do
-            if [ -d "$1/$b" ]; then
+          local dir="$1"
+          for b in $(ls "$dir"); do
+            if [ -d "$dir/$b" ]; then
               if [ "$b" != .sandboxed ]; then
-                _checkDir "$1/$b"
+                _checkDir "$dir/$b"
               fi
-            elif [ -x "$1/$b" ]; then
-              _checkExecutable "$1/$b"
+            elif [ -x "$dir/$b" ]; then
+              _checkExecutable "$dir" "$b"
             else
               test -n "$CHECK_DIR_NON_BIN"
             fi
           done
         }
 
-        # *everything* in the bin dir should be a wrapped executable
-        if [ -e "${finalAttrs.finalPackage}/bin" ]; then
-          _checkDir "${finalAttrs.finalPackage}/bin"
-        fi
+        for outDir in $buildInputs; do
+          echo "starting crawl from package output: $outDir"
+          # *everything* in the bin dir should be a wrapped executable
+          if [ -e "$outDir/bin" ]; then
+            echo "checking toplevel dir at $outDir/bin"
+            _checkDir "$outDir/bin"
+          fi
 
-        # the libexec dir is 90% wrapped executables, but sometimes also .so/.la objects.
-        # note that this directory isn't flat
-        if [ -e "${finalAttrs.finalPackage}/libexec" ]; then
-          CHECK_DIR_NON_BIN=1 _checkDir "${finalAttrs.finalPackage}/libexec"
-        fi
+          # the libexec dir is 90% wrapped executables, but sometimes also .so/.la objects.
+          # note that this directory isn't flat
+          if [ -e "$outDir/libexec" ]; then
+            echo "checking toplevel dir at $outDir/libexec"
+            CHECK_DIR_NON_BIN=1 _checkDir "$outDir/libexec"
+          fi
+        done
 
         echo "successfully tested $_numExec binaries"
         test "$_numExec" -ne 0

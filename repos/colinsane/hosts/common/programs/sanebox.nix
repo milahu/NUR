@@ -18,7 +18,8 @@ in
   sane.programs.sanebox = {
     packageUnwrapped = pkgs.sanebox.override {
       bubblewrap = cfg.bubblewrap.package;
-      firejail = cfg.firejail.package;
+      passt = cfg.passt.package;
+      libcap = cfg.libcap.package;
       landlock-sandboxer = pkgs.landlock-sandboxer.override {
         # not strictly necessary (landlock ABI is versioned), however when sandboxer version != kernel version,
         # the sandboxer may nag about one or the other wanting to be updated.

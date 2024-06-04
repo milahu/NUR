@@ -1,0 +1,35 @@
+#!/bin/sh
+
+inputs=()
+addInputs() {
+  case $1 in
+    (safe)
+      inputs+=(uninsane-dot-org nixpkgs-unpatched nixpkgs-next-unpatched sops-nix)
+      ;;
+    (unsafe)
+      # these tend to break more frequently
+      inputs+=(mobile-nixos nixpkgs-wayland)
+      ;;
+    (*)
+      echo "unknown input '$1'"
+      exit 1
+      ;;
+  esac
+}
+
+case "$1" in
+  (all|"")
+    addInputs "safe"
+    addInputs "unsafe"
+    ;;
+  (*)
+    addInputs "$1"
+    ;;
+esac
+
+echo "updating:" "${inputs[@]}"
+nixFlags=()
+for i in "${inputs[@]}"; do
+  nixFlags+=("--update-input" "$i")
+done
+nix flake lock "${nixFlags[@]}"

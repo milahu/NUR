@@ -151,8 +151,29 @@ in
           EOF
         '';
       };
+      neovim-unwrapped' = with pkgs; (neovim-unwrapped.override {
+        # optional: `neovim` defaults to luajit when not manually wrapping
+        lua = luajit;
+      }).overrideAttrs (upstream: {
+        # fix cross compilation:
+        # - neovim vendors lua `mpack` library,
+        #   which it tries to build for the wrong platform
+        #   and its vendored version has diverged in symbol names anyway
+        postPatch = (upstream.postPatch or "") + ''
+          substituteInPlace src/nvim/generators/preload.lua --replace-fail \
+            "require 'nlua0'" "
+              vim.mpack = require 'mpack'
+              vim.mpack.encode = vim.mpack.pack
+              vim.mpack.decode = vim.mpack.unpack
+              vim.lpeg = require 'lpeg'
+            "
+        '' + lib.optionalString (!stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
+          substituteInPlace runtime/CMakeLists.txt --replace-fail \
+            'COMMAND $<TARGET_FILE:nvim_bin>' 'COMMAND ${pkgs.stdenv.hostPlatform.emulator pkgs.buildPackages} $<TARGET_FILE:nvim_bin>'
+        '';
+      });
     in pkgs.wrapNeovimUnstable
-      pkgs.neovim-unwrapped
+      neovim-unwrapped'
       # XXX(2024/05/13): manifestRc must be null for cross-compilation to work.
       #   wrapper invokes `neovim` with all plugins enabled at build time i guess to generate caches and stuff?
       #   alternative is to emulate `nvim-wrapper` during build.

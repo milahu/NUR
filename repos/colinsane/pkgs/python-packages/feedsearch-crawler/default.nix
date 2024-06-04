@@ -40,9 +40,9 @@ buildPythonPackage rec {
 
   postPatch = ''
     substituteInPlace pyproject.toml \
-      --replace 'w3lib = "^1.22.0"' 'w3lib = "*"' \
-      --replace 'aiodns = "^2.0.0"' 'aiodns = "*"' \
-      --replace 'uvloop = "^0.15.2"' 'uvloop = "*"'
+      --replace-fail 'w3lib = "^1.22.0"' 'w3lib = "*"' \
+      --replace-fail 'aiodns = "^2.0.0"' 'aiodns = "*"' \
+      --replace-fail 'uvloop = "^0.15.2"' 'uvloop = "*"'
   '';
 
   propagatedBuildInputs = [

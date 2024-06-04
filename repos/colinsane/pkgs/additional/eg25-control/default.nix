@@ -2,5 +2,5 @@
 static-nix-shell.mkPython3Bin {
   pname = "eg25-control";
   srcRoot = ./.;
-  pkgs = [ "curl" "modemmanager" ];
+  pkgs = [ "curl" "modemmanager-split.mmcli" ];
 }

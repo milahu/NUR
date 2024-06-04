@@ -9,10 +9,12 @@
     ./animatch.nix
     ./assorted.nix
     ./audacity.nix
+    ./ausyscall.nix
     ./bemenu.nix
     ./blast-ugjka
     ./bonsai.nix
     ./brave.nix
+    ./brightnessctl.nix
     ./bubblewrap.nix
     ./callaudiod.nix
     ./calls.nix
@@ -24,6 +26,7 @@
     ./cozy.nix
     ./cups.nix
     ./curlftpfs.nix
+    ./dbus.nix
     ./dconf.nix
     ./deadd-notification-center
     ./dialect.nix
@@ -34,11 +37,11 @@
     ./element-desktop.nix
     ./engrampa.nix
     ./epiphany.nix
+    ./errno.nix
     ./evince.nix
     ./fcitx5.nix
     ./feedbackd.nix
     ./firefox.nix
-    ./firejail.nix
     ./flare-signal.nix
     ./fontconfig.nix
     ./fractal.nix
@@ -57,6 +60,7 @@
     ./go2tv.nix
     ./gpodder.nix
     ./grimshot.nix
+    ./gst-device-monitor.nix
     ./gthumb.nix
     ./gvfs.nix
     ./handbrake.nix
@@ -76,17 +80,17 @@
     ./megapixels.nix
     ./mepo.nix
     ./mimeo
-    ./modemmanager.nix
+    ./mmcli.nix
     ./mopidy.nix
     ./mpv
     ./msmtp.nix
     ./nautilus.nix
     ./neovim.nix
-    ./networkmanager.nix
     ./newsflash.nix
     ./nheko.nix
     ./nicotine-plus.nix
     ./nix-index.nix
+    ./nmcli.nix
     ./notejot.nix
     ./ntfy-sh.nix
     ./objdump.nix
@@ -106,9 +110,12 @@
     ./sane-open.nix
     ./sane-screenshot.nix
     ./sane-scripts.nix
+    ./sane-theme.nix
     ./sanebox.nix
     ./schlock.nix
+    ./seatd.nix
     ./sfeed.nix
+    ./shadow.nix
     ./signal-desktop.nix
     ./splatmoji.nix
     ./spot.nix
@@ -135,7 +142,6 @@
     ./wine.nix
     ./wireplumber.nix
     ./wireshark.nix
-    ./wpa_supplicant.nix
     ./wvkbd.nix
     ./xarchiver.nix
     ./xdg-desktop-portal.nix

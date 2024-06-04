@@ -204,7 +204,7 @@ let
   # to decrease sandbox escaping, i want to run s6-svscan on a read-only directory
   # so other programs can't edit the service scripts.
   # in practice, that means putting the servicedirs in /nix/store, and linking selective pieces of state
-  # towards /run/user/{uid}/s6/live/..., the latter is shared with s6-rc.
+  # towards $XDG_RUNTIME_DIR/s6/live/..., the latter is shared with s6-rc.
   mkScanDir = livedir: compiled: pkgs.runCommandLocal "s6-scandir" { } ''
     cp -R "${compiled}/servicedirs" "$out"
     cd "$out"
@@ -287,7 +287,7 @@ let
     services
   ;
 
-  # create a template s6 "live" dir, which can be copied at runtime in /run/user/{uid}/s6/live.
+  # create a template s6 "live" dir, which can be copied at runtime in $XDG_RUNTIME_DIR/s6/live.
   # this is like a minimal versio of `s6-rc-init`, but tightly coupled to my setup
   # wherein the scandir is external and selectively links back to the livedir
   mkLiveDir = compiled: pkgs.runCommandLocal "s6-livedir" {} ''
@@ -322,8 +322,8 @@ in
         )
       );
       compiled = compileServices sources;
-      uid = config'.users.users."${name}".uid;
-      scanDir = mkScanDir "/run/user/${builtins.toString uid}/s6/live" compiled;
+      xdg_runtime_dir = "/run/user/${name}";
+      scanDir = mkScanDir "${xdg_runtime_dir}/s6/live" compiled;
       liveDir = mkLiveDir compiled;
     in {
       fs.".config/s6/live".symlink.target = liveDir;

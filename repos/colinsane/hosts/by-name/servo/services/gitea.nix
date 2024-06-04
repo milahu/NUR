@@ -90,6 +90,8 @@
     ];
   };
 
+  services.openssh.settings.UsePAM = true;  #< required for `git` user to authenticate
+
   # hosted git (web view and for `git <cmd>` use
   # TODO: enable publog?
   services.nginx.virtualHosts."git.uninsane.org" = {

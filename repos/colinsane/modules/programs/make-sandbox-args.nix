@@ -7,6 +7,7 @@
 , capabilities ? []
 , dns ? null
 , netDev ? null
+, netGateway ? null
 , whitelistPwd ? false
 , extraConfig ? []
 }:
@@ -20,8 +21,11 @@ let
   capabilityFlags = lib.flatten (builtins.map (c: [ "--sanebox-cap" c ]) capabilities);
 
   netItems = lib.optionals (netDev != null) [
-    "--sanebox-net"
+    "--sanebox-net-dev"
     netDev
+  ] ++ lib.optionals (netGateway != null) [
+    "--sanebox-net-gateway"
+    netGateway
   ] ++ lib.optionals (dns != null) (
     lib.flatten (builtins.map
       (addr: [ "--sanebox-dns" addr ])

@@ -8,6 +8,9 @@
       "dev"  # for developing anything web-related
       "tmp"
     ];
+    sandbox.extraPaths = [
+      "/tmp"  # needed particularly if run from `sane-vpn do`
+    ];
     sandbox.whitelistAudio = true;
     sandbox.whitelistDri = true;
     sandbox.whitelistWayland = true;

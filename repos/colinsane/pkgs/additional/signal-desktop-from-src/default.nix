@@ -255,7 +255,7 @@ stdenv.mkDerivation rec {
     # notably: ELECTRON_RUN_AS_NODE, cookie encryption, NODE_OPTIONS env var, --inspect-* CLI args, app.asar validation
     # skipping the fuse process seems relatively inconsequential
     substituteInPlace ts/scripts/after-pack.ts \
-      --replace 'await fuseElectron' '//await fuseElectron'
+      --replace-fail 'await fuseElectron' '//await fuseElectron'
   '';
 
   configurePhase = ''

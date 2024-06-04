@@ -1,5 +1,6 @@
 { lib, pkgs, ... }:
 
+lib.mkIf false  #< TODO: re-enable once confident of sandboxing
 {
   sane.persist.sys.byStore.plaintext = [
     # TODO: mode? we only need this to save Indexer creds ==> migrate to config?

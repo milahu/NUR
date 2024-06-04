@@ -20,6 +20,8 @@ let
     sane-lib = import ../modules/lib final';
 
     ### ADDITIONAL PACKAGES
+    alsa-ucm-pinephone-manjaro = callPackage ./additional/alsa-ucm-pinephone-manjaro { };
+    alsa-ucm-pinephone-pmos = callPackage ./additional/alsa-ucm-pinephone-pmos { };
     blast-ugjka = callPackage ./additional/blast-ugjka { };
     bootpart-uefi-x86_64 = callPackage ./additional/bootpart-uefi-x86_64 { };
     cargoDocsetHook = callPackage ./additional/cargo-docset/hook.nix { };
@@ -32,6 +34,7 @@ let
     feeds = lib.recurseIntoAttrs (callPackage ./additional/feeds { });
     firefox-extensions = lib.recurseIntoAttrs (callPackage ./additional/firefox-extensions { });
     flare-signal-nixified = callPackage ./additional/flare-signal-nixified { };
+    fractal-nixified = callPackage ./additional/fractal-nixified { };
     geary-gtk4 = callPackage ./additional/geary-gtk4 { };
     gopass-native-messaging-host = callPackage ./additional/gopass-native-messaging-host { };
     gpodder-adaptive = callPackage ./additional/gpodder-adaptive { };
@@ -46,18 +49,25 @@ let
     ldd-aarch64 = callPackage ./additional/ldd-aarch64 { };
     lemoa = callPackage ./additional/lemoa { };
     lemmy-lemonade = callPackage ./additional/lemonade { };  # XXX: nixpkgs already has a `lemonade` pkg
+    libdng = callPackage ./additional/libdng { };
+    libmegapixels = callPackage ./additional/libmegapixels { };
     lightdm-mobile-greeter = callPackage ./additional/lightdm-mobile-greeter { };
     linux-firmware-megous = callPackage ./additional/linux-firmware-megous { };
     # XXX: eval error: need to port past linux_6_4
     # linux-manjaro = callPackage ./additional/linux-manjaro { };
     linux-megous = callPackage ./additional/linux-megous { };
+    linux-postmarketos = callPackage ./additional/linux-postmarketos { };
     mcg = callPackage ./additional/mcg { };
+    megapixels-next = callPackage ./additional/megapixels-next { };
+    modemmanager-split = callPackage ./additional/modemmanager-split { };
     mx-sanebot = callPackage ./additional/mx-sanebot { };
+    networkmanager-split = callPackage ./additional/networkmanager-split { };
     peerswap = callPackage ./additional/peerswap { };
     phog = callPackage ./additional/phog { };
     pipeline = callPackage ./additional/pipeline { };
     rtl8723cs-firmware = callPackage ./additional/rtl8723cs-firmware { };
     rtl8723cs-wowlan = callPackage ./additional/rtl8723cs-wowlan { };
+    sane-backgrounds = callPackage ./additional/sane-backgrounds { };
     sane-cast = callPackage ./additional/sane-cast { };
     sane-die-with-parent = callPackage ./additional/sane-die-with-parent { };
     sane-open = callPackage ./additional/sane-open { };
@@ -72,17 +82,21 @@ let
     swaylock-mobile = callPackage ./additional/swaylock-mobile { };
     swaylock-plugin = callPackage ./additional/swaylock-plugin { };
     sxmo_swaylock = callPackage ./additional/sxmo_swaylock { };
+    sxmo-suspend = callPackage ./additional/sxmo-suspend { };
     sxmo-utils = callPackage ./additional/sxmo-utils { };
     sysvol = callPackage ./additional/sysvol { };
     tow-boot-pinephone = callPackage ./additional/tow-boot-pinephone { };
     tree-sitter-nix-shell = callPackage ./additional/tree-sitter-nix-shell { };
     trivial-builders = lib.recurseIntoAttrs (callPackage ./additional/trivial-builders { });
+    uassets = callPackage ./additional/uassets { };
     wvkbd-mk = callPackage ./additional/wvkbd-mk { };
     inherit (trivial-builders)
       copyIntoOwnPackage
+      deepLinkIntoOwnPackage
       linkIntoOwnPackage
       rmDbusServices
       rmDbusServicesInPlace
+      runCommandLocalOverridable
     ;
     unftp = callPackage ./additional/unftp { };
     where-am-i = callPackage ./additional/where-am-i { };
@@ -90,8 +104,6 @@ let
 
     # packages i haven't used for a while, may or may not still work
     # fluffychat-moby = callPackage ./additional/fluffychat-moby { };
-    fractal-latest = callPackage ./additional/fractal-latest { };
-    fractal-nixified = callPackage ./additional/fractal-nixified { };
     # kaiteki = callPackage ./additional/kaiteki { };
 
     # old rpi packages that may or may not still work

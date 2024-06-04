@@ -34,6 +34,7 @@ in
     ];
 
     sysadminUtils = declPackageSet [
+      "ausyscall"
       "bridge-utils"  # for brctl; debug linux "bridge" inet devices
       "btrfs-progs"
       "cacert.unbundled"  # some services require unbundled /etc/ssl/certs
@@ -43,6 +44,7 @@ in
       "dtc"  # device tree [de]compiler
       "e2fsprogs"  # resize2fs
       "efibootmgr"
+      "errno"
       "ethtool"
       "fatresize"
       "fd"
@@ -66,13 +68,17 @@ in
       "lftp"
       # "libcap_ng"  # for `netcap`
       "lsof"
+      "man-pages"
+      "man-pages-posix"
       # "miniupnpc"
+      "mmcli"
       "nano"
       #  "ncdu"  # ncurses disk usage. doesn't cross compile (zig)
       "neovim"
       "netcat"
       "nethogs"
       "nmap"
+      "nmcli"
       "nvme-cli"  # nvme
       # "openssl"
       "parted"
@@ -207,6 +213,175 @@ in
       # "tree-sitter"
     ];
 
+    gameApps = declPackageSet [
+      "animatch"
+      "gnome-2048"
+      "gnome.hitori"  # like sudoku
+    ];
+
+    pcGameApps = declPackageSet [
+      # "andyetitmoves" # TODO: fix build!
+      # "armagetronad"  # tron/lightcycles; WAN and LAN multiplayer
+      "celeste64"
+      # "cutemaze"      # meh: trivial maze game; qt6 and keyboard-only
+      # "cuyo"          # trivial puyo-puyo clone
+      "endless-sky"     # space merchantilism/exploration
+      # "factorio"
+      "frozen-bubble"   # WAN + LAN + 1P/2P bubble bobble
+      "hase"            # WAN worms game
+      # "hedgewars"     # WAN + LAN worms game (5~10 people online at any moment; <https://hedgewars.org>)
+      # "libremines"    # meh: trivial minesweeper; qt6
+      # "mario0"        # SMB + portal
+      # "mindustry"
+      # "minesweep-rs"  # CLI minesweeper
+      # "nethack"
+      # "osu-lazer"
+      # "pinball"       # 3d pinball; kb/mouse. old sourceforge project
+      # "powermanga"    # STYLISH space invaders derivative (keyboard-only)
+      "shattered-pixel-dungeon"  # doesn't cross compile
+      "space-cadet-pinball"  # LMB/RMB controls (bindable though. volume buttons?)
+      "superTux"  # keyboard-only controls
+      "superTuxKart"  # poor FPS on pinephone
+      "tumiki-fighters" # keyboard-only
+      "vvvvvv"  # keyboard-only controls
+      # "wine"
+    ];
+
+    guiApps = declPackageSet [
+      # package sets
+      "gameApps"
+      "guiBaseApps"
+    ];
+
+    guiBaseApps = declPackageSet [
+      # "abaddon"  # discord client
+      "alacritty"  # terminal emulator
+      "calls"  # gnome calls (dialer/handler)
+      "dbus"
+      "dconf"  # required by many packages, but not well-documented :(
+      # "delfin"  # Jellyfin client
+      "dialect"  # language translation
+      "dino"  # XMPP client
+      "dissent"  # Discord client (formerly known as: gtkcord4)
+      # "emote"
+      # "evince"  # PDF viewer
+      # "flare-signal"  # gtk4 signal client
+      # "foliate"  # e-book reader
+      "fractal"  # matrix client
+      "g4music"  # local music player
+      # "gnome.cheese"
+      # "gnome-feeds"  # RSS reader (with claimed mobile support)
+      # "gnome.file-roller"
+      "gnome.geary"  # adaptive e-mail client; uses webkitgtk 4.1
+      "gnome.gnome-calculator"
+      "gnome.gnome-calendar"
+      "gnome.gnome-clocks"
+      "gnome.gnome-maps"
+      # "gnome-podcasts"
+      # "gnome.gnome-system-monitor"
+      # "gnome.gnome-terminal"  # works on phosh
+      "gnome.gnome-weather"
+      # "gnome.seahorse"  # keyring/secret manager
+      "gnome-frog"  # OCR/QR decoder
+      "gpodder"
+      "gst-device-monitor"  # for debugging audio/video
+      # "gthumb"
+      # "lemoa"  # lemmy app
+      "libcamera"  # for `cam` binary (useful for debugging cameras)
+      "libnotify"  # for notify-send; debugging
+      # "lollypop"
+      "loupe"  # image viewer
+      "mate.engrampa"  # archive manager
+      "mepo"  # maps viewer
+      "mpv"
+      "networkmanagerapplet"  # for nm-connection-editor: it's better than not having any gui!
+      "ntfy-sh"  # notification service
+      # "newsflash"  # RSS viewer
+      "pavucontrol"
+      "pwvucontrol"  # pipewire version of pavu
+      # "picard"  # music tagging
+      # "libsForQt5.plasmatube"  # Youtube player
+      "signal-desktop"
+      "snapshot"  # camera app
+      "spot"  # Gnome Spotify client
+      # "sublime-music"
+      # "tdesktop"  # broken on phosh
+      # "tokodon"
+      "tuba"  # mastodon/pleroma client (stores pw in keyring)
+      "vulkan-tools"  # vulkaninfo
+      # "whalebird"  # pleroma client (Electron). input is broken on phosh.
+      "xdg-terminal-exec"
+      "zathura"  # PDF/CBZ/ePUB viewer
+    ];
+
+    handheldGuiApps = declPackageSet [
+      # "celluloid"  # mpv frontend
+      # "chatty"  # matrix/xmpp/irc client  (2023/12/29: disabled because broken cross build)
+      "cozy"  # audiobook player
+      "epiphany"  # gnome's web browser
+      # "iotas"  # note taking app
+      "komikku"
+      "koreader"
+      "megapixels"  # camera app
+      "notejot"  # note taking, e.g. shopping list
+      "planify"  # todo-tracker/planner
+      "portfolio-filemanager"
+      "tangram"  # web browser
+      "wike"  # Wikipedia Reader
+      "xarchiver"  # archiver, backup option for when engrampa UI overflows screen and is unusale (xarchiver UI fails in different ways)
+    ];
+
+    pcGuiApps = declPackageSet [
+      # package sets
+      "pcGameApps"
+      "pcTuiApps"
+      ####
+      "audacity"
+      # "blanket"  # ambient noise generator
+      "brave"  # for the integrated wallet -- as a backup
+      # "cantata"  # music player (mpd frontend)
+      # "chromium"  # chromium takes hours to build. brave is chromium-based, distributed in binary form, so prefer it.
+      # "cups"
+      "discord"  # x86-only
+      "electrum"
+      "element-desktop"
+      "firefox"
+      "font-manager"
+      # "gajim"  # XMPP client. cross build tries to import host gobject-introspection types (2023/09/01)
+      "gimp"  # broken on phosh
+      # "gnome.dconf-editor"
+      # "gnome.file-roller"
+      "gnome.gnome-disk-utility"
+      "gnome.nautilus"  # file browser
+      # "gnome.totem"  # video player, supposedly supports UPnP
+      "handbrake"
+      "inkscape"
+      # "jellyfin-media-player"
+      "kdenlive"
+      # "kid3"  # audio tagging
+      "krita"
+      "libreoffice"  # TODO: replace with an office suite that uses saner packaging?
+      "losslesscut-bin"  # x86-only
+      # "makemkv"  # x86-only
+      # "monero-gui"  # x86-only
+      # "mumble"
+      # "nheko"  # Matrix chat client
+      # "nicotine-plus"  # soulseek client. before re-enabling this make sure it's properly sandboxed!
+      # "obsidian"
+      # "openscad"  # 3d modeling
+      # "rhythmbox"  # local music player
+      # "slic3r"
+      "soundconverter"
+      "spotify"  # x86-only
+      "steam"
+      "tor-browser"  # x86-only
+      # "vlc"
+      "wireshark"  # could maybe ship the cli as sysadmin pkg
+      # "xterm"  # requires Xwayland
+      # "zecwallet-lite"  # x86-only
+      # "zulip"
+    ];
+
 
     # INDIVIDUAL PACKAGE DEFINITIONS
 
@@ -233,14 +408,6 @@ in
 
     bridge-utils.sandbox.method = "bwrap";  #< bwrap, landlock: both work
     bridge-utils.sandbox.net = "all";
-
-    brightnessctl.sandbox.method = "landlock";  # also bwrap, but landlock is more responsive
-    brightnessctl.sandbox.extraPaths = [
-      "/sys/class/backlight"
-      "/sys/class/leds"
-      "/sys/devices"
-    ];
-    brightnessctl.sandbox.whitelistDbus = [ "system" ];
 
     btrfs-progs.sandbox.method = "bwrap";  #< bwrap, landlock: both work
     btrfs-progs.sandbox.autodetectCliPaths = "existing";  # e.g. `btrfs filesystem df /my/fs`
@@ -302,7 +469,7 @@ in
     ];
 
     dtc.sandbox.method = "bwrap";
-    dtc.sandbox.autodetectCliPaths = true;  # TODO:sandbox: untested
+    dtc.sandbox.autodetectCliPaths = "existingFile";  # TODO:sandbox: untested
 
     duplicity = {};
 
@@ -338,10 +505,9 @@ in
     ethtool.sandbox.capabilities = [ "net_admin" ];
 
     # eza `ls` replacement
-    # landlock is OK, only `whitelistPwd` doesn't make the intermediate symlinks traversable, so it breaks on e.g. ~/Videos/servo/Shows/foo
     # eza.sandbox.method = "landlock";
-    eza.sandbox.method = "bwrap";
-    eza.sandbox.autodetectCliPaths = true;
+    eza.sandbox.method = "bwrap";  #< note that bwrap causes `/proc` files to be listed differently (e.g. `eza /proc/sys/net/ipv6/conf/`)
+    eza.sandbox.autodetectCliPaths = "existing";
     eza.sandbox.whitelistPwd = true;
     eza.sandbox.extraHomePaths = [
       # so that e.g. `eza -l ~` can show which symlink exist
@@ -353,7 +519,7 @@ in
     fatresize.sandbox.autodetectCliPaths = "parent";  # /dev/sda1 -> needs /dev/sda
 
     fd.sandbox.method = "landlock";
-    fd.sandbox.autodetectCliPaths = true;
+    fd.sandbox.autodetectCliPaths = "existing";
     fd.sandbox.whitelistPwd = true;
     fd.sandbox.extraHomePaths = [
       # let it follow symlinks to non-sensitive data
@@ -366,10 +532,10 @@ in
     ffmpeg.sandbox.autodetectCliPaths = "existingFileOrParent";  # it outputs uncreated files -> parent dir needs mounting
 
     file.sandbox.method = "bwrap";
-    file.sandbox.autodetectCliPaths = true;
+    file.sandbox.autodetectCliPaths = "existing";  #< file OR directory, yes
 
     findutils.sandbox.method = "bwrap";
-    findutils.sandbox.autodetectCliPaths = true;
+    findutils.sandbox.autodetectCliPaths = "existing";
     findutils.sandbox.whitelistPwd = true;
     findutils.sandbox.extraHomePaths = [
       # let it follow symlinks to non-sensitive data
@@ -388,9 +554,7 @@ in
     });
 
     forkstat.sandbox.method = "landlock";  #< doesn't seem to support bwrap
-    forkstat.sandbox.extraConfig = [
-      "--sanebox-keep-namespace" "pid"
-    ];
+    forkstat.sandbox.isolatePids = false;
     forkstat.sandbox.extraPaths = [
       "/proc"
     ];
@@ -404,7 +568,7 @@ in
 
     gawk.sandbox.method = "bwrap";  # TODO:sandbox: untested
     gawk.sandbox.wrapperType = "inplace";  # /share/gawk libraries refer to /libexec
-    gawk.sandbox.autodetectCliPaths = true;
+    gawk.sandbox.autodetectCliPaths = "existingFile";
 
     gdb.sandbox.enable = false;  # gdb doesn't sandbox well. i don't know how you could.
     # gdb.sandbox.method = "landlock";  # permission denied when trying to attach, even as root
@@ -500,7 +664,7 @@ in
     "gnome.hitori".sandbox.whitelistWayland = true;
 
     gnugrep.sandbox.method = "bwrap";
-    gnugrep.sandbox.autodetectCliPaths = true;
+    gnugrep.sandbox.autodetectCliPaths = "existing";
     gnugrep.sandbox.whitelistPwd = true;
     gnugrep.sandbox.extraHomePaths = [
       # let it follow symlinks to non-sensitive data
@@ -508,7 +672,6 @@ in
       ".persist/plaintext"
     ];
 
-    # sed: there is an edgecase of `--file=<foo>`, wherein `foo` won't be whitelisted.
     gnused.sandbox.method = "bwrap";
     gnused.sandbox.autodetectCliPaths = "existingFile";
     gnused.sandbox.whitelistPwd = true;  #< `-i` flag creates a temporary file in pwd (?) and then moves it.
@@ -534,7 +697,7 @@ in
 
     # hdparm: has to be run as sudo. e.g. `sudo hdparm -i /dev/sda`
     hdparm.sandbox.method = "bwrap";
-    hdparm.sandbox.autodetectCliPaths = true;
+    hdparm.sandbox.autodetectCliPaths = "existingFile";
 
     host.sandbox.method = "landlock";
     host.sandbox.net = "all";  #< technically, only needs to contact localhost's DNS server
@@ -568,14 +731,17 @@ in
     ];
     iotop.sandbox.capabilities = [ "net_admin" ];
 
-    # provides `ip`, `routel`, others
-    iproute2.sandbox.method = "landlock";
-    iproute2.sandbox.net = "all";
-    iproute2.sandbox.capabilities = [ "net_admin" ];
-    iproute2.sandbox.extraPaths = [
-      "/run/netns"  # for `ip netns ...` to work
-      "/var/run/netns"
-    ];
+    # provides `ip`, `routel`, `bridge`, others.
+    # landlock works fine for most of these, but `ip netns exec` wants to attach to an existing namespace
+    # and that means we can't use ANY sandboxer for it.
+    iproute2.sandbox.enable = false;
+    # iproute2.sandbox.net = "all";
+    # iproute2.sandbox.capabilities = [ "net_admin" ];
+    # iproute2.sandbox.extraPaths = [
+    #   "/run/netns"  # for `ip netns ...` to work, but maybe not needed anymore?
+    #   "/sys/class/net"  # for `ip netns ...` to work
+    #   "/var/run/netns"
+    # ];
 
     iptables.sandbox.method = "landlock";
     iptables.sandbox.net = "all";
@@ -614,6 +780,9 @@ in
       "tmp"
     ];
 
+    libcamera = {};
+
+    libcap.sandbox.enable = false;  #< for `capsh`, which i use as a sandboxer
     libcap_ng.sandbox.enable = false;  # there's something about /proc/$pid/fd which breaks `readlink`/stat with every sandbox technique (except capsh-only)
 
     libnotify.sandbox.method = "bwrap";
@@ -638,6 +807,9 @@ in
     lsof.sandbox.capabilities = [ "dac_override" "sys_ptrace" ];
 
     lua = {};
+
+    man-pages.sandbox.enable = false;
+    man-pages-posix.sandbox.enable = false;
 
     mercurial.sandbox.method = "bwrap";  # TODO:sandbox: untested
     mercurial.sandbox.net = "clearnet";
@@ -681,8 +853,14 @@ in
     nixpkgs-review.sandbox.wrapperType = "inplace";  #< shell completions use full paths
     nixpkgs-review.sandbox.net = "clearnet";
     nixpkgs-review.sandbox.whitelistPwd = true;
+    nixpkgs-review.sandbox.extraHomePaths = [
+      ".config/git"  #< it needs to know commiter name/email, even if not posting
+    ];
     nixpkgs-review.sandbox.extraPaths = [
       "/nix"
+    ];
+    nixpkgs-review.persist.byStore.cryptClearOnBoot = [
+      ".cache/nixpkgs-review"  #< help it not exhaust / tmpfs
     ];
 
     nmap.sandbox.method = "bwrap";
@@ -711,6 +889,8 @@ in
 
     # settings (electron app)
     obsidian.persist.byStore.plaintext = [ ".config/obsidian" ];
+
+    passt.sandbox.enable = false;  #< sandbox helper (netns specifically)
 
     parted.sandbox.method = "landlock";
     parted.sandbox.extraPaths = [
@@ -743,9 +923,7 @@ in
 
     # procps: free, pgrep, pidof, pkill, ps, pwait, top, uptime, couple others
     procps.sandbox.method = "bwrap";
-    procps.sandbox.extraConfig = [
-      "--sanebox-keep-namespace" "pid"
-    ];
+    procps.sandbox.isolatePids = false;
 
     pstree.sandbox.method = "landlock";
     pstree.sandbox.extraPaths = [
@@ -783,15 +961,21 @@ in
 
     rustc = {};
 
-    sane-cast = {};  #< TODO: sandbox this the same way i sandbox go2tv
+    sane-cast.sandbox.method = "bwrap";
+    sane-cast.sandbox.net = "clearnet";
+    sane-cast.sandbox.autodetectCliPaths = "existingFile";
+    sane-cast.suggestedPrograms = [ "go2tv" ];
 
     sane-die-with-parent.sandbox.enable = false;  #< it's a launcher; can't sandbox
+
+    sane-weather.sandbox.method = "bwrap";
+    sane-weather.sandbox.net = "clearnet";
 
     screen.sandbox.enable = false;  #< tty; needs to run anything
 
     sequoia.sandbox.method = "bwrap";  # TODO:sandbox: untested
     sequoia.sandbox.whitelistPwd = true;
-    sequoia.sandbox.autodetectCliPaths = true;
+    sequoia.sandbox.autodetectCliPaths = "existingFileOrParent";  # supports `-o <file-to-create>`
 
     shattered-pixel-dungeon.buildCost = 1;
     shattered-pixel-dungeon.persist.byStore.plaintext = [ ".local/share/.shatteredpixel/shattered-pixel-dungeon" ];
@@ -812,6 +996,10 @@ in
     smartmontools.sandbox.wrapperType = "inplace";  # ships a script in /etc that calls into its bin
     smartmontools.sandbox.autodetectCliPaths = "existing";
     smartmontools.sandbox.capabilities = [ "sys_rawio" ];
+
+    # snapshot camera, based on libcamera
+    # TODO: enable dma heaps for more efficient buffer sharing: <https://gitlab.com/postmarketOS/pmaports/-/issues/2789>
+    snapshot = {};
 
     sops.sandbox.method = "bwrap";  # TODO:sandbox: untested
     sops.sandbox.extraHomePaths = [
@@ -884,7 +1072,7 @@ in
     tokodon.persist.byStore.private = [ ".cache/KDE/tokodon" ];
 
     tree.sandbox.method = "landlock";
-    tree.sandbox.autodetectCliPaths = true;
+    tree.sandbox.autodetectCliPaths = "existing";
     tree.sandbox.whitelistPwd = true;
 
     tumiki-fighters.buildCost = 1;
@@ -951,6 +1139,8 @@ in
     wl-clipboard.sandbox.whitelistWayland = true;
 
     wtype = {};
+    wtype.sandbox.method = "bwrap";
+    wtype.sandbox.whitelistWayland = true;
 
     xwayland.sandbox.method = "bwrap";
     xwayland.sandbox.wrapperType = "inplace";  #< consumers use it as a library (e.g. wlroots)
@@ -969,7 +1159,44 @@ in
     zfs = {};
   };
 
-  programs.feedbackd = lib.mkIf config.sane.programs.feedbackd.enabled {
+  sane.persist.sys.byStore.plaintext = lib.mkIf config.sane.programs.guiApps.enabled [
+    # "/var/lib/alsa"                # preserve output levels, default devices
+    { path = "/var/lib/systemd/backlight"; method = "bind"; }   # backlight brightness; bind because systemd T_T
+  ];
+
+  systemd.services."systemd-backlight@" = lib.mkIf config.sane.programs.guiApps.enabled {
+    after = [
+      "ensure-var-lib-systemd-backlight.service"
+    ];
+    wants = [
+      "ensure-var-lib-systemd-backlight.service"
+    ];
+  };
+
+  hardware.opengl = lib.mkIf config.sane.programs.guiApps.enabled ({
     enable = true;
+    driSupport = lib.mkDefault true;
+  } // (lib.optionalAttrs pkgs.stdenv.isx86_64 {
+    # for 32 bit applications
+    # upstream nixpkgs forbids setting driSupport32Bit unless specifically x86_64 (so aarch64 isn't allowed)
+    driSupport32Bit = lib.mkDefault true;
+  }));
+
+  system.activationScripts.notifyActive = lib.mkIf config.sane.programs.guiApps.enabled {
+    text = lib.concatStringsSep "\n" ([
+        ''
+          tryNotifyUser() {
+            local user="$1"
+            local new_path="$PATH:${pkgs.sudo}/bin:${pkgs.libnotify}/bin"
+            local version="$(cat $systemConfig/nixos-version)"
+            PATH="$new_path" sudo -u "$user" \
+              env PATH="$new_path" NIXOS_VERSION="$version" /bin/sh -c \
+              '. $HOME/.profile; dbus_file="$XDG_RUNTIME_DIR/bus"; if [ -z "$DBUS_SESSION_BUS_ADDRESS" ] && [ -e "$dbus_file" ]; then export DBUS_SESSION_BUS_ADDRESS="unix:path=$dbus_file"; fi ; if [ -n "$DBUS_SESSION_BUS_ADDRESS" ]; then notify-send "nixos activated" "version: $NIXOS_VERSION" ; fi'
+          }
+        ''
+      ] ++ lib.mapAttrsToList
+        (user: en: lib.optionalString en "tryNotifyUser ${user}")
+        config.sane.programs.guiApps.enableFor.user
+    );
   };
 }

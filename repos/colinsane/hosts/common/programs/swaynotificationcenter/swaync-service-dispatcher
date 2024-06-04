@@ -1,13 +1,12 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p s6 -p s6-rc -p systemd
+#!nix-shell -i bash -p s6 -p s6-rc
 
 # for default $PATH to take precedence over nix-shell PATH if invoked interactively,
 # otherwise we invoke a s6-rc which does not know where to find files.
 export PATH="/etc/profiles/per-user/$(whoami)/bin:/run/current-system/sw/bin:$PATH"
 
 action="$1"
-type="$2"
-service="$3"
+service="$2"
 
 log() {
   if [ -n "$SWAYNC_DEBUG" ]; then
@@ -16,38 +15,17 @@ log() {
 }
 
 checkActive() {
-  case "$type" in
-    systemd)
-      systemctl is-active "$service.service" > /dev/null && echo true || echo false
-      ;;
-    s6)
-      # simulate a dry-run start. if no actions would be performed, then the service is up.
-      # alternative is s6-svstat, but that doesn't support oneshots
-      test -z "$(s6-rc -n 0 -b start "$service")" && echo true || echo false
-      ;;
-  esac
+  # simulate a dry-run start. if no actions would be performed, then the service is up.
+  # alternative is s6-svstat, but that doesn't support oneshots
+  test -z "$(s6-rc -n 0 -b start "$service")" && echo true || echo false
 }
 startService() {
   log "startService: $service"
-  case "$type" in
-    systemd)
-      /run/wrappers/bin/sudo systemctl start "$service"
-      ;;
-    s6)
-      s6-rc -b start "$service"
-      ;;
-  esac
+  s6-rc -b start "$service"
 }
 stopService() {
   log "stopService: $service"
-  case "$type" in
-    systemd)
-      /run/wrappers/bin/sudo systemctl stop "$service"
-      ;;
-    s6)
-      s6-rc -b stop "$service"
-      ;;
-  esac
+  s6-rc -b stop "$service"
 }
 
 case "$action" in

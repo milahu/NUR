@@ -39,7 +39,8 @@ let
     else
       let
         makeSandboxArgs = pkgs.callPackage ./make-sandbox-args.nix { };
-        makeSandboxed = pkgs.callPackage ./make-sandboxed.nix { sanebox = config.sane.programs.sanebox.package; };
+        # makeSandboxed = pkgs.callPackage ./make-sandboxed.nix { sanebox = config.sane.programs.sanebox.package; };
+        makeSandboxed = pkgs.callPackage ./make-sandboxed.nix { };
 
         vpn = lib.findSingle (v: v.default) null null (builtins.attrValues config.sane.vpn);
 
@@ -51,7 +52,7 @@ let
 
           "/etc"  #< especially for /etc/profiles/per-user/$USER/bin
           "/run/current-system"  #< for basics like `ls`, and all this program's `suggestedPrograms` (/run/current-system/sw/bin)
-          "/run/wrappers"  #< SUID wrappers, in this case so that firejail can be re-entrant. TODO: remove!
+          # "/run/wrappers"  #< SUID wrappers. they don't mean much inside a namespace.
           # /run/opengl-driver is a symlink into /nix/store; needed by e.g. mpv
           "/run/opengl-driver"
           "/run/opengl-driver-32"  #< XXX: doesn't exist on aarch64?
@@ -71,9 +72,13 @@ let
             whitelistPwd
           ;
           netDev = if sandbox.net == "vpn" then
-            vpn.bridgeDevice
+            vpn.name
           else
             sandbox.net;
+          netGateway = if sandbox.net == "vpn" then
+            vpn.addrV4
+          else
+            null;
           dns = if sandbox.net == "vpn" then
             vpn.dns
           else
@@ -212,13 +217,31 @@ let
         '';
       };
       services = mkOption {
-        type = types.attrsOf types.anything; # options.sane.users.value.type;
+        type = options.sane.user._options.services.type;
         default = {};
         description = ''
           user services to define if this package is enabled.
           acts as noop for root-enabled packages.
           see `sane.users.<user>.services` for options;
         '';
+        # TODO: this `apply` should by moved to where we pass the `services` down to `sane.users`
+        apply = lib.mapAttrs (svcName: svcCfg:
+          svcCfg // lib.optionalAttrs (builtins.tryEval svcCfg.description).success {
+            # ensure service dependencies based on what a service's program whitelists.
+            # only do this for the services which are *defined* by this program though (i.e. `scvCfg ? description`)
+            # so as to avoid idioms like when sway adds `graphical-session.partOf = default`
+            depends = svcCfg.depends
+              ++ lib.optionals (svcName != "dbus" && builtins.elem "user" config.sandbox.whitelistDbus) [
+              "dbus"
+            ] ++ lib.optionals ((!builtins.elem "wayland" svcCfg.partOf) && config.sandbox.whitelistWayland) [
+              "wayland"
+            ] ++ lib.optionals ((!builtins.elem "x11" svcCfg.partOf) && config.sandbox.whitelistX) [
+              "x11"
+            ] ++ lib.optionals ((!builtins.elem "sound" svcCfg.partOf) && config.sandbox.whitelistAudio) [
+              "sound"
+            ];
+          }
+        );
       };
       buildCost = mkOption {
         type = types.enum [ 0 1 2 3 ];
@@ -250,7 +273,7 @@ let
         '';
       };
       sandbox.method = mkOption {
-        type = types.nullOr (types.enum [ "bwrap" "capshonly" "firejail" "landlock" ]);
+        type = types.nullOr (types.enum [ "bwrap" "capshonly" "pastaonly" "landlock" ]);
         default = null;  #< TODO: default to something non-null
         description = ''
           how/whether to sandbox all binaries in the package.
@@ -303,6 +326,13 @@ let
         description = ''
           list of Linux capabilities the program needs. lowercase, and without the cap_ prefix.
           e.g. sandbox.capabilities = [ "net_admin" "net_raw" ];
+        '';
+      };
+      sandbox.isolatePids = mkOption {
+        type = types.bool;
+        default = true;
+        description = ''
+          whether to place the process in a new PID namespace, if the sandboxer supports that.
         '';
       };
       sandbox.whitelistAudio = mkOption {
@@ -390,10 +420,8 @@ let
         description = ''
           extra arguments to pass to the sandbox wrapper.
           example: [
-            "--sanebox-firejail-arg"
-            "--whitelist=''${HOME}/.ssh"
-            "--sanebox-firejail-arg"
-            "--keep-dev-shm"
+            "--sanebox-dns"
+            "1.1.1.1"
           ]
         '';
       };
@@ -429,9 +457,14 @@ let
         null
       else
         wrapPkg name config config.packageUnwrapped
-        ;
-      suggestedPrograms = lib.optionals (config.sandbox.method == "bwrap") [ "bubblewrap" ]
-        ++ lib.optionals (config.sandbox.method == "firejail") [ "firejail" ];
+      ;
+      suggestedPrograms = lib.optionals (config.sandbox.method == "bwrap") [
+        "bubblewrap" "passt"
+      ] ++ lib.optionals (config.sandbox.method == "pastaonly") [
+        "passt"
+      ] ++ lib.optionals (config.sandbox.method == "capshonly") [
+        "libcap"
+      ];
       # declare a fs dependency for each secret, but don't specify how to populate it yet.
       #   can't populate it here because it varies per-user.
       # this gets the symlink into the sandbox, but not the actual secret.
@@ -450,7 +483,7 @@ let
       sandbox.extraRuntimePaths =
         lib.optionals config.sandbox.whitelistAudio [ "pipewire" "pulse" ]  # this includes pipewire/pipewire-0-manager: is that ok?
         ++ lib.optionals (builtins.elem "user" config.sandbox.whitelistDbus) [ "bus" ]
-        ++ lib.optionals config.sandbox.whitelistWayland [ "wayland" ]  # app can still communicate with wayland server w/o this, if it has net access
+        ++ lib.optionals config.sandbox.whitelistWayland [ "wl" ]  # app can still communicate with wayland server w/o this, if it has net access
         ++ lib.optionals config.sandbox.whitelistS6 [ "s6" ]  # TODO: this allows re-writing the services themselves: don't allow that!
       ;
       sandbox.extraHomePaths = let
@@ -468,8 +501,10 @@ let
         ++ lib.optionals (mainProgram != null) (whitelistDir ".config/${mainProgram}")
         ++ lib.optionals (mainProgram != null) (whitelistDir ".local/share/${mainProgram}")
       ;
-      sandbox.extraConfig = lib.mkIf config.sandbox.usePortal [
+      sandbox.extraConfig = lib.optionals config.sandbox.usePortal [
         "--sanebox-portal"
+      ] ++ lib.optionals (!config.sandbox.isolatePids) [
+        "--sanebox-keep-namespace" "pid"
       ];
     };
   });

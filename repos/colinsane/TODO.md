@@ -1,23 +1,33 @@
 ## BUGS
-- moby: megapixels doesn't load in sandbox
+- `rmDbusServices` may break sandboxing
+  - e.g. if the package ships a systemd unit which references $out, then make-sandboxed won't properly update that unit.
+  - `rmDbusServicesInPlace` is not affected
+- moby: touchscreen input is still enabled when screen is off
 - when moby wlan is explicitly set down (via ip link set wlan0 down), /var/lib/trust-dns/dhcp-configs doesn't get reset
   - `ip monitor` can detect those manual link state changes (NM-dispatcher it seems cannot)
   - or try dnsmasq?
 - trust-dns: can't recursively resolve api.mangadex.org
   - and *sometimes* apple.com fails
-- sandbox: `ip netns exec ovpns bash`: doesn't work
 - sandbox: link cache means that if i update ~/.config/... files inline, sandboxed programs still see the old version
+- mpv: audiocast has mpv sending its output to the builtin speakers unless manually changed
 - mpv: no way to exit fullscreen video on moby
   - uosc hides controls on FS, and touch doesn't support unhiding
 - Signal restart loop drains battery
   - decrease s6 restart time?
 - `ssh` access doesn't grant same linux capabilities as login
 - ringer (i.e. dino incoming call) doesn't prevent moby from sleeping
-- sway mouse/kb hotplug doesn't work
 - sysvol (volume overlay): when casting with `blast`, sysvol doesn't react to volume changes
+- moby: kaslr is effectively disabled
+  - `dmesg | grep "KASLR disabled due to lack of seed"`
+  - fix by adding `kaslrseed` to uboot script before `booti`
+    - <https://github.com/armbian/build/pull/4352>
+    - not sure how that's supposed to work with tow-boot; maybe i should just update tow-boot
+- moby: bpf is effectively disabled?
+  - `dmesg | grep 'systemd[1]: bpf-lsm: Failed to load BPF object: No such process'`
+  - `dmesg | grep 'hid_bpf: error while preloading HID BPF dispatcher: -22'`
 
 ## REFACTORING:
-- REMOVE DEPRECATED `crypt` from sftpgo_auth_hook
+- add import checks to my Python nix-shell scripts
 - consolidate ~/dev and ~/ref
   - ~/dev becomes a link to ~/ref/cat/mine
 - fold hosts/common/home/ssh.nix -> hosts/common/users/colin.nix
@@ -42,6 +52,10 @@
 ## IMPROVEMENTS:
 - systemd/journalctl: use a less shit pager
   - there's an env var for it: SYSTEMD_PAGER? and a flag for journalctl
+- kernels: ship the same kernel on every machine
+  - then i can tune the kernels for hardening, without duplicating that work 4 times
+- zfs: replace this with something which doesn't require a custom kernel build
+- mpv: add media looping controls (e.g. loop song, loop playlist)
 
 ### security/resilience
 - validate duplicity backups!
@@ -62,13 +76,16 @@
     - limit access to `~/knowledge/secrets` through an agent that requires GUI approval, so a firefox exploit can't steal all my logins
   - port sanebox to a compiled language (hare?)
     - it adds like 50-70ms launch time _on my laptop_. i'd hate to know how much that is on the pinephone.
-  - remove /run/wrappers from the sandbox path
-    - they're mostly useless when using no-new-privs, just an opportunity to forget to specify deps
 - make dconf stuff less monolithic
   - i.e. per-app dconf profiles for those which need it. possible static config.
 - canaries for important services
   - e.g. daily email checks; daily backup checks
   - integrate `nix check` into Gitea actions?
+
+#### sudo-free world
+- `systemctl restart FOO`: needs `sudo`
+- `systemctl daemon-reload`: needs sudo
+- `watch ifconfig`: needs `SANEBOX_DISABLE=1`
 
 ### user experience
 - rofi: sort items case-insensitively
@@ -84,7 +101,7 @@
   - offline docs viewer (gtk): <https://github.com/workbenchdev/Biblioteca>
   - some type of games manager/launcher
     - Gnome Highscore (retro games)?: <https://gitlab.gnome.org/World/highscore>
-  - better maps for mobile (Osmin (QtQuick)? Pure Maps (Qt/Kirigami)? Gnome Maps is improved in 45)
+  - better maps for mobile (Osmin (QtQuick)? Pure Maps (Qt/Kirigami)?
   - note-taking app: <https://linuxphoneapps.org/categories/note-taking/>
   - OSK overlay specifically for mobile gaming
     - i.e. mock joysticks, for use with SuperTux and SuperTuxKart
@@ -113,6 +130,7 @@
   - direct mepo to prefer gpsd, with fallback to geoclue, for better accuracy?
   - configure geoclue to do some smoothing?
   - manually do smoothing, as some layer between mepo and geoclue/gpsd?
+- moby: port `freshen-agps` timer service to s6 (maybe i want some `s6-cron` or something)
 - moby: show battery state on ssh login
 - moby: improve gPodder launch time
 - moby: theme GTK apps (i.e. non-adwaita styles)
@@ -141,6 +159,10 @@
 
 ### perf
 - debug nixos-rebuild times
+  - use `systemctl list-jobs` to show what's being waited on
+  - i think it's `systemd-networkd-wait-online.service` that's blocking this?
+    - i wonder what interface it's waiting for. i should use `--ignore=...` to ignore interfaces i don't care about.
+  - also `wireguard-wg-home.target` when net is offline
 - add `pkgs.impure-cached.<foo>` package set to build things with ccache enabled
   - every package here can be auto-generated, and marked with some env var so that it doesn't pollute the pure package set
   - would be super handy for package prototyping!

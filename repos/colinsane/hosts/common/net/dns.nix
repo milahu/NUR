@@ -1,7 +1,6 @@
 # things to consider when changing these parameters:
 # - temporary VPN access (`sane-vpn up ...`)
 # - servo `ovpns` namespace (it *relies* on /etc/resolv.conf mentioning 127.0.0.53)
-# - jails: `firejail --net=br-ovpnd-us --noprofile --dns=46.227.67.134 ping 1.1.1.1`
 #
 # components:
 # - /etc/nsswitch.conf:
@@ -18,9 +17,9 @@
 #   - modern implementations hardcodes `127.0.0.53` and then systemd-resolved proxies everything (and caches).
 #
 # namespacing:
-# - each namespace can use a different /etc/resolv.conf to specify different DNS servers (see `firejail --dns=...`)
+# - each namespace may use a different /etc/resolv.conf to specify different DNS servers
 # - nscd breaks namespacing: the host nscd is unaware of the guest's /etc/resolv.conf, and so directs the guest's DNS requests to the host's servers.
-#   - this is fixed by either `firejail --blacklist=/var/run/nscd/socket`, or disabling nscd altogether.
+#   - this is fixed by either removing `/var/run/nscd/socket` from the namespace, or disabling nscd altogether.
 { config, lib, ... }:
 lib.mkMerge [
 {
@@ -33,7 +32,7 @@ lib.mkMerge [
   # instead, running the stub resolver on a known address in the root ns lets us rewrite packets
   # in servo's ovnps namespace to use the provider's DNS resolvers.
   # a weakness is we can only query 1 NS at a time (unless we were to clone the packets?)
-  # TODO: rework servo's netns to use `firejail`, which is capable of spoofing /etc/resolv.conf.
+  # TODO: improve trust-dns recursive resolver and then remove this
   services.resolved.enable = true;  #< to disable, set ` = lib.mkForce false`, as other systemd features default to enabling `resolved`.
   # without DNSSEC:
   # - dig matrix.org => works

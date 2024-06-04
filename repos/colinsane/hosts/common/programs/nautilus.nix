@@ -10,9 +10,9 @@
       ]);
     }));
 
-    suggestedPrograms = [
-      "gvfs"  # browse ftp://, etc
-    ];
+    # suggestedPrograms = [
+    #   "gvfs"  # browse ftp://, etc  (TODO: fix!)
+    # ];
 
     sandbox.method = "bwrap";
     sandbox.whitelistDbus = [ "user" ];  # for portals launching apps
@@ -36,11 +36,11 @@
       "/tmp"
       "/var"
     ];
-    sandbox.extraRuntimePaths = [
-      # not sure if these are actually necessary
-      "gvfs"
-      "gvfsd"
-    ];
+    # sandbox.extraRuntimePaths = [
+    #   # not sure if these are actually necessary
+    #   "gvfs"
+    #   "gvfsd"
+    # ];
 
     mime.priority = 150;  #< default is 100, so higher means we fall-back to other apps that might be more specialized
     mime.associations = {

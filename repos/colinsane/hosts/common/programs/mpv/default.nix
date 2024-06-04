@@ -5,6 +5,8 @@
 # - <https://github.com/mpv-player/mpv/wiki>
 # extensions i use:
 # - <https://github.com/jonniek/mpv-playlistmanager>
+# - <https://github.com/ekisu/mpv-webm>
+# - <https://github.com/mfcc64/mpv-scripts/blob/master/visualizer.lua>
 # other extensions that could be useful:
 # - list: <https://github.com/stax76/awesome-mpv>
 # - list: <https://nudin.github.io/mpv-script-directory/>
@@ -124,6 +126,15 @@ let
           '"cycle fullscreen",'
     '';
   });
+  visualizer = pkgs.mpvScripts.visualizer.overrideAttrs (upstream: {
+    postPatch = (upstream.postPatch or "") + ''
+      # don't have the script register its own keybinding: i'll do it manually via input.conf.
+      # substituteInPlace visualizer.lua --replace-fail \
+      #   'mp.add_key_binding' '-- mp.add_key_binding'
+      substituteInPlace visualizer.lua --replace-fail \
+        'cycle_key = "c"' 'cycle_key = "v"'
+    '';
+  });
   mpv-unwrapped = pkgs.mpv-unwrapped.overrideAttrs (upstream: {
     version = "0.37.0-unstable-2024-03-31";
     src = lib.warnIf (lib.versionOlder "0.37.0" upstream.version) "mpv outdated; remove patch?" pkgs.fetchFromGitHub {
@@ -148,7 +159,9 @@ in
         scripts = [
           pkgs.mpvScripts.mpris
           pkgs.mpvScripts.mpv-playlistmanager
+          pkgs.mpvScripts.mpv-webm
           uosc
+          visualizer
           # pkgs.mpv-uosc-latest
         ];
         # extraMakeWrapperArgs = lib.optionals (cfg.config.vo != null) [
@@ -190,7 +203,7 @@ in
     ];
 
     sandbox.method = "bwrap";
-    sandbox.autodetectCliPaths = true;
+    sandbox.autodetectCliPaths = "parent";  #< especially for subtitle downloader; also nice for viewing albums
     sandbox.net = "all";
     sandbox.whitelistAudio = true;
     sandbox.whitelistDbus = [ "user" ];  #< mpris
@@ -213,6 +226,9 @@ in
       # for `watch_later`
       ".local/state/mpv"
     ];
+    persist.byStore.private = [
+      "Videos/mpv"
+    ];
     fs.".config/mpv/scripts/sane_cast/main.lua".symlink.target = ./sane_cast/main.lua;
     fs.".config/mpv/scripts/sane_sysvol/main.lua".symlink.target = ./sane_sysvol/main.lua;
     fs.".config/mpv/scripts/sane_sysvol/non_blocking_popen.lua".symlink.target = ./sane_sysvol/non_blocking_popen.lua;
@@ -222,6 +238,8 @@ in
     fs.".config/mpv/script-opts/console.conf".symlink.target = ./console.conf;
     fs.".config/mpv/script-opts/uosc.conf".symlink.target = ./uosc.conf;
     fs.".config/mpv/script-opts/playlistmanager.conf".symlink.target = ./playlistmanager.conf;
+    fs.".config/mpv/script-opts/webm.conf".symlink.target = ./webm.conf;
+    fs.".config/mpv/script-opts/visualizer.conf".symlink.target = ./visualizer.conf;
 
     # mime.priority = 200;  # default = 100; 200 means to yield to other apps
     mime.priority = 50;  # default = 100; 50 in order to take precedence over vlc.

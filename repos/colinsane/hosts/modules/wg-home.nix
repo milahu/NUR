@@ -17,6 +17,9 @@ let
     persistentKeepalive = 25;
     # allows wireguard to notice DNS/hostname changes, with this much effective TTL.
     dynamicEndpointRefreshSeconds = 600;
+    # the refresh fails (because e.g. DNS fails to resolve), try it again this soon instead.
+    # defaults to the same as dynamicEndpointRefreshSeconds, but i think setting it that high stalls my nix switches!
+    dynamicEndpointRefreshRestartSeconds = 10;
   });
   # make separate peers to route each given host
   mkClientPeers = hosts: builtins.map (p: mkPeer {

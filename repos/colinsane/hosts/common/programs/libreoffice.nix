@@ -8,7 +8,7 @@
     packageUnwrapped = pkgs.libreoffice-fresh;
     sandbox.method = "bwrap";
     sandbox.whitelistWayland = true;
-    sandbox.autodetectCliPaths = true;
+    sandbox.autodetectCliPaths = "existingFile";
     sandbox.extraHomePaths = [
       # allow a spot to save files.
       # with bwrap sandboxing, saving to e.g. ~/ succeeds but the data is inaccessible outside the sandbox,

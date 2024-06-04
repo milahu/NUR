@@ -1,5 +1,6 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i bash -p coreutils -p jq -p killall -p playerctl -p procps -p sane-open -p sway -p util-linux -p wireplumber
+# vim: set filetype=bash :
 
 # input map considerations
 # - using compound actions causes delays.
@@ -59,6 +60,24 @@ VOL_INCR=5
 KEYBOARD="${KEYBOARD:-wvkbd-mobintl}"
 
 action="$1"
+
+showHelp() {
+  echo "usage: sane-input-handler <action>"
+  echo ""
+  echo "where action is one of:"
+  echo "- power_tap_{1,2}"
+  echo "- power_hold"
+  echo "- power_tap_1_hold"
+  echo "- power_and_volup"
+  echo "- power_and_voldown"
+  echo "- power_then_volup"
+  echo "- power_then_voldown"
+  echo "- volup_tap_{1,2,3}"
+  echo "- volup_hold_{1,2,3}"
+  echo "- voldown_tap_{1,2,3}"
+  echo "- voldown_hold_{1,2,3}"
+  echo "- voldown_start"
+}
 
 log() {
   printf "sane-input-handler: %s\n" "$1"
@@ -241,19 +260,31 @@ dispatchInhibited() {
   esac
 }
 
-_isAllOn="$(isAllOn && echo 1 || true)"
+dispatchToplevel() {
+  _isAllOn="$(isAllOn && echo 1 || true)"
 
-if [ -z "$_isAllOn" ]; then
-  dispatchOff
-else
-  _isInhibited="$(isInhibited && echo 1 || true)"
-  if [ -n "$_isInhibited" ]; then
-    dispatchInhibited
+  if [ -z "$_isAllOn" ]; then
+    dispatchOff
   else
-    dispatchOn
+    _isInhibited="$(isInhibited && echo 1 || true)"
+    if [ -n "$_isInhibited" ]; then
+      dispatchInhibited
+    else
+      dispatchOn
+    fi
   fi
-fi
 
-dispatchDefault
+  dispatchDefault
+}
 
-handleWith unmapped
+case "$action" in
+  (--help)
+    showHelp
+    exit 0
+    ;;
+  (*)
+    dispatchToplevel
+    handleWith unmapped
+    ;;
+esac
+

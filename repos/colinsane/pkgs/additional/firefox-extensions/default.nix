@@ -1,13 +1,16 @@
 { stdenv
 , callPackage
+, concatTextFile
 , fetchurl
 , gnused
 , jq
 , lib
 , newScope
 , nix-update-script
+, runCommandLocal
 , strip-nondeterminism
 , unzip
+, writers
 , writeScript
 , zip
 }:
@@ -72,6 +75,9 @@ let
       unwrapped = addon;
       withAttrs = attrs: wrapAddon addon (args // attrs);
       withPostPatch = postPatch: final.passthru.withAttrs { inherit postPatch; };
+      withPassthru = passthru: (wrapAddon addon args).overrideAttrs (base: {
+        passthru = base.passthru // passthru;
+      });
       # given an addon, repackage it without some `perm`ission
       withoutPermission = perm: final.passthru.withPostPatch ''
         for m in manifest.json manifest_v2.json manifest_v3.json; do
@@ -133,8 +139,8 @@ in (lib.makeScope newScope (self: with self; {
       extid = "webextension@metamask.io";
       pname = "ether-metamask";
       url = "https://github.com/MetaMask/metamask-extension/releases/download/v${version}/metamask-firefox-${version}.zip";
-      version = "11.14.0";
-      hash = "sha256-VXfJndT+MDEPbIJGjyCxdbMtwPRojgxjwQdY59ygZGc=";
+      version = "11.16.0";
+      hash = "sha256-GqogHIqPneZ/Ngpf5ICm/LSMB3PIC2OjdZYZ5FSKJrk=";
     };
     fx_cast = fetchVersionedAddon rec {
       extid = "fx_cast@matt.tf";
@@ -154,15 +160,15 @@ in (lib.makeScope newScope (self: with self; {
       extid = "sponsorBlocker@ajay.app";
       pname = "sponsorblock";
       url = "https://github.com/ajayyy/SponsorBlock/releases/download/${version}/FirefoxSignedInstaller.xpi";
-      version = "5.5.9";
-      hash = "sha256-lyBrszbjdfMOWZbYwE6DjNtM8wq0Vv1eCcobBKNelWw=";
+      version = "5.6";
+      hash = "sha256-7HnWgGxDtkr0LXIGec+V1ACV/hhKAa3zII+SgMC7GSo=";
     };
     ublacklist = fetchVersionedAddon rec {
       extid = "@ublacklist";
       pname = "ublacklist";
       url = "https://github.com/iorate/ublacklist/releases/download/v${version}/ublacklist-v${version}-firefox.zip";
-      version = "8.5.1";
-      hash = "sha256-GLBB/in/RY2AQWph7/O5cQQEXZN9W9tJS/kqUD2IEck=";
+      version = "8.7.0";
+      hash = "sha256-70hdLWU8kfu7VO//aXeBi6HO6LvY20vT61zDw/pdQIg=";
     };
     ublock-origin = fetchVersionedAddon rec {
       extid = "uBlock0@raymondhill.net";
@@ -170,8 +176,8 @@ in (lib.makeScope newScope (self: with self; {
       # N.B.: a handful of versions are released unsigned
       # url = "https://github.com/gorhill/uBlock/releases/download/${version}/uBlock0_${version}.signed.xpi";
       url = "https://github.com/gorhill/uBlock/releases/download/${version}/uBlock0_${version}.firefox.signed.xpi";
-      version = "1.57.3b3";
-      hash = "sha256-mwSikDhqNt7h6CMOowooaxrEpZca62YDmOhmC72K9co=";
+      version = "1.58.0";
+      hash = "sha256-RwxWmUpxdNshV4rc5ZixWKXcCXDIfFz+iJrGMr0wheo=";
     };
   };
 })).overrideScope (self: super:
@@ -191,5 +197,46 @@ in (lib.makeScope newScope (self: with self; {
       substituteInPlace js/*.js \
         --replace 'alreadyInstalled:!1' 'alreadyInstalled:!0'
     '';
+
+    ublock-origin = wrapped.ublock-origin.withPassthru {
+      # `makeConfig` produces a .json file meant to go at
+      # ~/.mozilla/managed-storage/uBlock0@raymondhill.net.json
+      # this is not formally documented anywhere, but is referenced from a few places:
+      # - <https://github.com/gorhill/uBlock/issues/2986#issuecomment-364035002>
+      # - <https://www.reddit.com/r/uBlockOrigin/comments/16bzb11/configuring_ublock_origin_for_nix_users_just_in/>
+      # - <https://www.reddit.com/r/sysadmin/comments/8lwmbo/guide_deploying_ublock_origin_with_preset/>
+      #
+      # a large part of why i do this is to configure the filters statically,
+      # so that they don't have to be fetched on every boot.
+      makeConfig = { filterFiles }: let
+        mergedFilters = concatTextFile {
+          name = "ublock-origin-filters-merged.txt";
+          files = filterFiles;
+          destination = "/share/filters/ublock-origin-filters-merged.txt";
+        };
+        baseConfig = writers.writeJSON "uBlock0@raymondhill.net.json" {
+          name = "uBlock0@raymondhill.net";
+          description = "ignored";
+          type = "storage";
+          data = {
+            adminSettings = {
+              #^ adminSettings dictionary uses the same schema as the "backup to file" option in settings.
+              userSettings = {
+                # default settings are found: <repo:gorhill/uBlock:src/js/background.js>  (userSettingsDefault)
+                advancedUserEnabled = true;
+                autoUpdate = false;
+                # don't block page load when waiting for filter load
+                suspendUntilListsAreLoaded = false;
+              };
+              selectedFilterLists = [ "user-filters" ];
+              # there's an array version of this field too, if preferable
+              filters = "";  #< WILL BE SUBSTITUTED DURING BUILD
+            };
+          };
+        };
+      in runCommandLocal "ublock-origin-config" { nativeBuildInputs = [ jq ]; } ''
+        cat ${baseConfig} | jq 'setpath(["data", "adminSettings", "userFilters"]; $filterText)' --rawfile filterText ${mergedFilters}/share/filters/ublock-origin-filters-merged.txt > $out
+      '';
+    };
   }
 )

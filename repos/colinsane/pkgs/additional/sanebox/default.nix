@@ -1,7 +1,8 @@
 { lib, stdenv
 , bash
 , bubblewrap
-, firejail
+, coreutils
+, passt
 , landlock-sandboxer
 , libcap
 , substituteAll
@@ -22,9 +23,10 @@ stdenv.mkDerivation {
     runHook preBuild
     substitute $src sanebox \
       --replace-fail '@bwrap@' '${lib.getExe bubblewrap}' \
-      --replace-fail '@firejail@' '${lib.getExe' firejail "firejail"}' \
       --replace-fail '@landlockSandboxer@' '${lib.getExe landlock-sandboxer}' \
-      --replace-fail '@capsh@' '${lib.getExe' libcap "capsh"}'
+      --replace-fail '@capsh@' '${lib.getExe' libcap "capsh"}' \
+      --replace-fail '@pasta@' '${lib.getExe' passt "pasta"}' \
+      --replace-fail '@env@' '${lib.getExe' coreutils "env"}'
     runHook postBuild
   '';
 
@@ -36,11 +38,21 @@ stdenv.mkDerivation {
     runHook postInstall
   '';
 
+  passthru = {
+    runtimeDeps = [
+      bubblewrap
+      coreutils
+      landlock-sandboxer
+      libcap
+      passt
+    ];
+  };
+
   meta = {
     description = ''
       helper program to run some other program in a sandbox.
       factoring this out allows:
-      1. to abstract over the particular sandbox implementation (bwrap, firejail, ...).
+      1. to abstract over the particular sandbox implementation (bwrap, landlock, ...).
       2. to modify sandbox settings without forcing a rebuild of the sandboxed package.
     '';
     mainProgram = "sanebox";

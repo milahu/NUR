@@ -249,6 +249,10 @@ let
           luajson
           luasocket
         ];
+        # don't ship lua-Spore binaries: they drag in a whole copy of cmake
+        postInstall = ''
+          rm -rf "$out/bin"
+        '';
       };
     } // luaPkgs;
   in ps;

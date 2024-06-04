@@ -13,14 +13,16 @@
     ];
     group = "users";
     extraGroups = [
+      "audio"  # for wireplumber, so i can access devices without logind
       "clightning"  # servo, for clightning-cli
       "dialout"  # required for modem access (moby)
       "export"  # to read filesystem exports (servo)
       "feedbackd"  # moby, so `fbcli` can control vibrator and LEDs
-      "input"  # for /dev/input/<xyz>: sxmo
+      "input"  # for /dev/input/<xyz>... TODO:is this still necessary?
       "media"  # servo
       "networkmanager"
       "nixbuild"
+      "seat"  # for sway, if using seatd
       "systemd-journal"  # allows to view other user's journals (esp system users)
       "transmission"  # servo
       "video"  # mobile; for LEDs & maybe for camera?

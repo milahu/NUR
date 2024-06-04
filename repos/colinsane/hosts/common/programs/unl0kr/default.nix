@@ -9,13 +9,12 @@ let
   };
   launcher = pkgs.writeShellApplication {
     name = "unl0kr-login";
-    runtimeInputs = [
-      # TODO: since this invokes `login`, adding these deps to PATH is questionable
-      cfg.package
-      pkgs.shadow
-      redirect-tty
-    ];
     text = ''
+      extraPath=/run/current-system/sw/bin:/bin:${lib.makeBinPath [ cfg.package config.sane.programs.shadow.package redirect-tty ]}
+      locate() {
+        PATH=$PATH:$extraPath command -v "$1"
+      }
+
       # TODO: make this more robust to failure.
       # - if `unl0kr` fails, then the second `redirect-tty` sends a newline to `login`, causing it to exit and the service fails.
       # - if `redirect-tty` fails, then... the service is left hanging.
@@ -25,8 +24,12 @@ let
       #   but modified to not leak pword to CLI
       # - implement some sort of watchdog (e.g. detect spawned children?)
       # - set a timeout at the outer scope (which gets canceled upon successful login)
-      bash -c 'redirect-tty "/dev/${tty}" unl0kr ; sleep 2 ; redirect-tty "/dev/${tty}" echo ""' &
-      login -p ${cfg.config.user}
+      PATH=$PATH:$extraPath sh -c 'redirect-tty "/dev/${tty}" unl0kr ; sleep 2 ; redirect-tty "/dev/${tty}" echo ""' &
+
+      # N.B.: invoke `login` by full path instead of modifying `PATH`,
+      # because we don't want the user session to inherit the PATH of this script!
+      _login="$(locate login)"
+      "$_login" -p ${cfg.config.user}
     '';
   };
 in
@@ -82,29 +85,21 @@ in
       };
     };
 
-    fs.".profile".symlink.text = lib.mkMerge [
-      (lib.mkBefore ''
-        # setup primarySessionCommands here and let any other nix config populate it later
-        primarySessionCommands=()
-        initPrimarySession() {
-          for c in "''${primarySessionCommands[@]}"; do
-            eval "$c"
-          done
-        }
-      '')
-      # lib.mkAfter so that launching the DE happens *after* any other .profile setup.
-      (lib.mkAfter ''
-        # if already running a desktop environment, or if running from ssh, then `tty` will show /dev/pts/NN.
-        if [ "$(tty)" = "/dev/${tty}" ]; then
-          if (( ''${#primarySessionCommands[@]} )); then
-            echo "launching primary session commands in ${builtins.toString cfg.config.delay}s: ''${primarySessionCommands[*]}"
-            # if the `sleep` call here is `Ctrl+C'd`, then it'll exit false and the desktop isn't launched.
-            sleep ${builtins.toString cfg.config.delay} && \
-              initPrimarySession
-          fi
-        fi
-      '')
+    suggestedPrograms = [
+      "shadow"  #< for login
     ];
+
+    fs.".profile".symlink.text = ''
+      unl0krCheck() {
+        # if already running a desktop environment, or if running from ssh, then `tty` will show /dev/pts/NN.
+        # if the `sleep` call is `Ctrl+C'd`, then it'll exit false and the session commands won't be launched
+        [ "$(tty)" = "/dev/${tty}" ] && (( ''${#primarySessionCommands[@]} )) \
+          && echo "launching primary session commands in ${builtins.toString cfg.config.delay}s: ''${primarySessionCommands[*]}" \
+          && sleep ${builtins.toString cfg.config.delay}
+      }
+      primarySessionChecks+=('unl0krCheck')
+
+    '';
 
     # N.B.: this sandboxing applies to `unl0kr` itself -- the on-screen-keyboard;
     #       NOT to the wrapper which invokes `login`.

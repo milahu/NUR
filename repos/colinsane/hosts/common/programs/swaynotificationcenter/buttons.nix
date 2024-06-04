@@ -8,11 +8,11 @@
 
 { pkgs }:
 let
-  serviceButton = svcType: name: label: {
+  serviceButton = name: label: {
     inherit label;
     type = "toggle";
-    command = "swaync-service-dispatcher toggle ${svcType} ${name}";
-    update-command = "swaync-service-dispatcher print ${svcType} ${name}";
+    command = "swaync-service-dispatcher toggle ${name}";
+    update-command = "swaync-service-dispatcher print ${name}";
     active = true;
   };
 in
@@ -46,15 +46,14 @@ in
   #   🇲 𝐌  ₘ  m̄  m⃞  m̋⃞  M⃞  󰫺 󰬔
   # - discord
   #     󰙯 󰊴 󰺷 🎮
-  gps = serviceButton "s6" "eg25-control-gps" "";
-  cell-modem = serviceButton "s6" "eg25-control-powered" "󰺐";
-  vpn = serviceButton "systemd" "wg-quick-vpn-servo" "vpn::hn";
+  gps = serviceButton "eg25-control-gps" "";
+  cell-modem = serviceButton "eg25-control-powered" "󰺐";
 
-  gnome-calls = serviceButton "s6" "gnome-calls" "";
-  geary = serviceButton "s6" "geary" "";
-  abaddon = serviceButton "s6" "abaddon" " ";
-  dissent = serviceButton "s6" "dissent" " ";
-  signal-desktop = serviceButton "s6" "signal-desktop" "󰭻";
-  dino = serviceButton "s6" "dino" "󰟿";
-  fractal = serviceButton "s6" "fractal" "[m]";
+  gnome-calls = serviceButton "gnome-calls" "";
+  geary = serviceButton "geary" "";
+  abaddon = serviceButton "abaddon" " ";
+  dissent = serviceButton "dissent" " ";
+  signal-desktop = serviceButton "signal-desktop" "󰭻";
+  dino = serviceButton "dino" "󰟿";
+  fractal = serviceButton "fractal" "[m]";
 }

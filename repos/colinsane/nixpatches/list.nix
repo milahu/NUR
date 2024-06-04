@@ -33,23 +33,29 @@ in [
   # and can be found with `nix-repl  > :lf .  > lastModifiedDate`
 
   (fetchpatch' {
-    title = "curl-impersonate: fix darwin build and make cross-compilation work";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/310386";
-    hash = "sha256-feMOgQRrY2t7sYMjqXCo2WCe/J+Kr1ah+DznajQZsDM=";
+    title = "networkmanager: 1.46.0 → 1.48.0";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/316417";
+    hash = "sha256-LfQyB3tzQa3UNyZl9HWCuoyBznIhinodlTL6TnPn0Uk=";
   })
 
   (fetchpatch' {
-    title = "gnome.gnome-keyring: support cross compilation";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/311773";
-    saneCommit = "56bc064c0fa39614dfd1048daae4a59e4131df56";
-    hash = "sha256-UURRlqtCmA2UzaiuQabFCjQ/Duvu5UxStHAhweutk5s=";
+    title = "nixos/networkmanager: split ModemManager bits into own module";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/316824";
+    hash = "sha256-u0hd2VfEcqkhs4xgv1gF6sXqnVJYVRgmSKBrmYUw29c=";
+    # saneCommit = "23bfba9b76757ffc00fc2be810009dcf92e2eaf2";
+    # hash = "sha256-cn6ihwO3MyzdpVoJoQNKAHyo8GuGvFP6vr//7r9pzjE=";
   })
 
   (fetchpatch' {
-    title = "python3Packages.dbus-python: fix cross";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/310609";
-    hash = "sha256-QCRCotIlHgJn4lo4Qdrh2cJMqqcVGLAE9WSJ4nCQvyk=";
-    merged.staging = "20240510160000";
+    title = "trust-dns: rebrand as hickory-dns";
+    saneCommit = "a7613d50c58b5612a7b806ce1375d8bf0485ab55";
+    hash = "sha256-N4DfNhCeg9etVeTPVzJ73CwiZzf43SozK8nrfXIm0uQ=";
+  })
+
+  (fetchpatch' {
+    title = "passt: support cross compilation";
+    saneCommit = "3ef36d3aa139f94e8716b0721856c5808937c9f2";
+    hash = "sha256-hAaFHlJdx1GjQIJG5zxTBHm+CbmR/zlKUB9eyxPQbOg=";
   })
 
   # branch: wip-ffado-cross

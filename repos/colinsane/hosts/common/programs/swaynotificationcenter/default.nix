@@ -10,7 +10,7 @@
 # configuration:
 # - defaults: /run/current-system/etc/profiles/per-user/colin/etc/xdg/swaync/
 # - `man 5 swaync`
-# - view document tree: `GTK_DEBUG=interactive swaync`  (`systemctl stop --user swaync` first)
+# - view document tree: `GTK_DEBUG=interactive swaync`  (`s6 stop swaync` first)
 # - examples:
 #   - thread: <https://github.com/ErikReider/SwayNotificationCenter/discussions/183>
 #   - buttons-grid and menubar: <https://gist.github.com/JannisPetschenka/fb00eec3efea9c7fff8c38a01ce5d507>
@@ -28,9 +28,10 @@ in
       pkgs = [
         "s6"
         "s6-rc"
-        "systemd"
       ];
     };
+    sandbox.method = "bwrap";
+    sandbox.whitelistS6 = true;
   };
 
   sane.programs.swaync-fbcli = {
@@ -44,6 +45,9 @@ in
         "util-linux"
       ];
     };
+    sandbox.method = "bwrap";
+    sandbox.whitelistDbus = [ "user" ];
+    sandbox.isolatePids = false;  # `swaync-fbcli stop` needs to be able to find the corresponding `swaync-fbcli start` process
   };
 
   sane.programs.swaynotificationcenter = {
@@ -62,7 +66,7 @@ in
       default = {};
     };
 
-    # prevent dbus from automatically activating swaync so i can manage it as a systemd service instead
+    # prevent dbus from automatically activating swaync so i can manage it as a service instead
     packageUnwrapped = pkgs.rmDbusServices (pkgs.swaynotificationcenter.overrideAttrs (upstream: {
       version = "0.10.1-unstable-2024-04-16";
       # toggling the panel on 0.10.1 sometimes causes toggle-buttons to toggle.
@@ -101,23 +105,6 @@ in
     sandbox.extraPaths = [
       "/sys/class/backlight"
       "/sys/devices"
-    ];
-    sandbox.extraRuntimePaths = [
-      # systemd/private allows one to `systemctl --user {status,start,stop,...}`
-      # notably, it does *not* allow for `systemd-run` (that's dbus: org.freedesktop.systemd1.Manager.StartTransientUnit).
-      # that doesn't necessarily mean this is entirely safe against privilege escalation though.
-      # TODO: audit the safety of this systemd sandboxing.
-      # few alternatives:
-      # - superd
-      # - simply `xdg-open app://dino`, etc. `pkill` to stop, `pgrep` to query.
-      # - more robust: `xdg-open sane-service://start?service=dino`
-      #   - still need `pgrep` to query if it's running, or have the service mark a pid file
-      # - dbus activation for each app
-      "systemd/private"
-    ];
-    sandbox.extraConfig = [
-      # systemctl calls seem to require same pid namespace
-      "--sanebox-keep-namespace" "pid"
     ];
 
     # glib/gio applications support many notification backends ("portal", "gtk", "freedesktop", ...).
@@ -192,8 +179,6 @@ in
           lib.optionals config.sane.programs.eg25-control.enabled [
             buttons.gps
             buttons.cell-modem
-          ] ++ lib.optionals false [
-            buttons.vpn
           ] ++ lib.optionals config.sane.programs.calls.config.autostart [
             buttons.gnome-calls
           ] ++ lib.optionals config.sane.programs.dino.enabled [

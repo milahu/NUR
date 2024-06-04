@@ -5,7 +5,7 @@
 #   - use as a launcher/file browser
 # - `rofi -sidebar-mode`
 #   - separate tabs for filebrowser, drun, etc.
-# - `rofi -pid /run/user/$UID/rofi.pid -replace`
+# - `rofi -pid $XDG_RUNTIME_DIR/rofi.pid -replace`
 #   - single-instance mode
 #   - pid is probably optional, just need `-replace`.
 #
@@ -112,9 +112,7 @@ in
       "/mnt/servo/media"
       "/mnt/servo/playground"
     ];
-    sandbox.extraConfig = [
-      "--sanebox-keep-namespace" "pid"  # for sane-open to toggle keyboard
-    ];
+    sandbox.isolatePids = false; # for sane-open to toggle keyboard
 
     fs.".config/rofi/config.rasi".symlink.target = ./config.rasi;
     fs."Apps".symlink.target = ".local/share/applications/rofi-applications.desktop";
@@ -160,15 +158,15 @@ in
         })
       ];
     };
-    # if i could remove the sed, then maybe possible to not sandbox.
-    sandbox.method = "bwrap";
-    sandbox.whitelistWayland = true;
-    sandbox.extraHomePaths = [
-      ".cache/rofi"
-      ".config/rofi/config.rasi"
-    ];
+    sandbox.enable = false; # all dependencies are sandboxed
+    # sandbox.method = "bwrap";
+    # sandbox.whitelistWayland = true;
+    # sandbox.extraHomePaths = [
+    #   ".cache/rofi"
+    #   ".config/rofi/config.rasi"
+    # ];
 
-    suggestedPrograms = [ "rofi" ];
+    suggestedPrograms = [ "gnused" "rofi" "wtype" ];
 
     fs.".config/rofi-snippets/public.txt".symlink.target = ./snippets.txt;
     secrets.".config/rofi-snippets/private.txt" = ../../../../secrets/common/snippets.txt.bin;

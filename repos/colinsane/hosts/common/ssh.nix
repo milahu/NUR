@@ -25,10 +25,21 @@ in
     enable = true;
     settings.PermitRootLogin = "no";
     settings.PasswordAuthentication = false;
+    settings.UsePAM = lib.mkDefault false;  #< notably, disables systemd session tracking; incidentally disables pam_mount, etc.
   };
   sane.ports.ports."22" = {
     protocol = [ "tcp" ];
     visibleTo.lan = true;
     description = lib.mkDefault "colin-ssh";
   };
+
+  # sane.services.dropbear = {
+  #   enable = true;
+  #   port = 1022;
+  # };
+  # sane.ports.ports."1022" = {
+  #   protocol = [ "tcp" ];
+  #   visibleTo.lan = true;
+  #   description = lib.mkDefault "colin-dropbear-ssh";
+  # };
 }

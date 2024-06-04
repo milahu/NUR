@@ -4,6 +4,9 @@
 { ... }:
 
 {
+  # partially supported in nixpkgs  <repo:nixos/nixpkgs:nixos/modules/misc/ids.nix>
+  sane.ids.networkmanager.uid = 57;  #< nixpkgs unofficially reserves this, to match networkmanager's gid
+
   # legacy servo users, some are inconvenient to migrate
   sane.ids.dhcpcd.gid = 991;
   sane.ids.dhcpcd.uid = 992;
@@ -18,7 +21,7 @@
   sane.ids.matrix-appservice-irc.uid = 993;
   sane.ids.matrix-appservice-irc.gid = 992;
 
-  # greetd (used by sway)
+  # greetd (legacy)
   sane.ids.greeter.uid = 999;
   sane.ids.greeter.gid = 999;
 
@@ -78,6 +81,7 @@
 
   # found on graphical hosts
   sane.ids.nm-iodine.uid = 2101;  # desko/moby/lappy
+  sane.ids.seat.gid = 2102;
 
   # found on desko host
   # from services.usbmuxd

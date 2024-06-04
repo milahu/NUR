@@ -2,10 +2,11 @@
 
 ## BUILD-TIME SUBSTITUTIONS
 ### <bin>_FALLBACK: if `<bin>` isn't on PATH, then use this instead
-FIREJAIL_FALLBACK='@firejail@'
 BWRAP_FALLBACK='@bwrap@'
 LANDLOCK_SANDBOXER_FALLBACK='@landlockSandboxer@'
 CAPSH_FALLBACK='@capsh@'
+PASTA_FALLBACK='@pasta@'
+ENV_FALLBACK='@env@'
 
 
 ## EARLY DEBUG HOOKS
@@ -57,7 +58,7 @@ cliArgs=()
 # - "bwrap"
 # - "landlock"
 # - "capshonly"
-# - "firejail"
+# - "pastaonly"
 # - "none"
 method=
 # autodetect: set non-empty to add any path-like entities intended for the binary's CLI, into its sandbox.
@@ -80,14 +81,16 @@ capabilities=()
 # - "all": as if all the above were specified
 keepNamespace=()
 # name of some network device to make available to the sandbox, if any.
-net=
-# list of IP addresses to use for DNS servers inside the sandbox (firejail only)
+# or "all" to keep all devices available
+netDev=
+# IPv4 address of the default gateway associated with the bridged network device (usually that's just the VPN's IP addr)
+netGateway=
+# list of IP addresses to use for DNS servers inside the sandbox (not supported by all backends)
 dns=()
 # list of `VAR=VALUE` environment variables to add to the sandboxed program's environment
 portalEnv=()
 
 # arguments to forward onto a specific backend (if that backend is active)
-firejailFlags=()
 bwrapFlags=()
 
 usage() {
@@ -108,7 +111,7 @@ usage() {
   echo '      invoke the program directly, instead of inside a sandbox'
   echo '  --sanebox-dry-run'
   echo '      show what would be `exec`uted but do not perform any action'
-  echo '  --sanebox-method <bwrap|capshonly|firejail|landlock|none>'
+  echo '  --sanebox-method <bwrap|capshonly|pastaonly|landlock|none>'
   echo '      use a specific sandboxer'
   echo '  --sanebox-autodetect <existing|existingFile|existingFileOrParent|existingOrParent|parent>'
   echo '      add files which appear later as CLI arguments into the sandbox'
@@ -118,10 +121,10 @@ usage() {
   echo '      set environment variables so that the sandboxed program will attempt to use xdg-desktop-portal for operations like opening files'
   echo '  --sanebox-no-portal'
   echo '      undo a previous `--sanebox-portal` arg'
-  echo '  --sanebox-dns <server>'
-  echo '  --sanebox-firejail-arg <arg>'
   echo '  --sanebox-bwrap-arg <arg>'
-  echo '  --sanebox-net <iface>'
+  echo '  --sanebox-net-dev <iface>'
+  echo '  --sanebox-net-gateway <ip-address>'
+  echo '  --sanebox-dns <server>'
   echo '  --sanebox-keep-namespace <cgroup|ipc|pid|uts|all>'
   echo '      do not unshare the provided linux namespace'
   echo '  --sanebox-path <path>'
@@ -252,13 +255,17 @@ parent() {
 
 # `locate outVar <bin-name> </path/to/default>` => if `<bin-name>` is on PATH, then return that, else </path/to/default>
 locate() {
-  # N.B.: explicitly avoid returning the output of `command -v`, for optimization.
-  # unlike other bash builtins, `x="$(command -v y)"` forks, whereas just `command -v y` does not.
-  if command -v "$2" > /dev/null; then
-    declare -g "$1"="$2"
-  else
-    declare -g "$1"="$3"
-  fi
+  local outVar="$1"
+  local bin="$2"
+  local loc="$3"
+  # N.B.: `bin=$(command -v $bin)` would make more sense, but it forks.
+  for dir in ${PATH//:/ }; do
+    if [ -e "$dir/$bin" ]; then
+      loc="$dir/$bin"
+      break
+    fi
+  done
+  declare -g "$outVar"="$loc"
 }
 
 # `urldecode outVar <uri>`
@@ -297,7 +304,7 @@ readlinkOnce() {
   local outVar=$1
   local path=$2
   local linkTarget=
-  if [ -v linkCache[$path] ]; then
+  if [ -v "linkCache[$path]" ]; then
     linkTarget=${linkCache[$path]}
   elif [ -L "$path" ]; then
     # path is a link, but not in the cache
@@ -401,6 +408,8 @@ tryPath() {
 tryArgAsPath() {
   local arg=$1
   local how=$2
+  # norecurseFlag is used internally by this function when it recurses
+  local norecurseFlag=$3
   local path=
   case $arg in
     (/*)
@@ -414,12 +423,27 @@ tryArgAsPath() {
       urldecode _path "${arg:7}"
       path=$_path
       ;;
-    (-*)
-      # 99% chance it's a CLI argument. if not, use `./-<...>`
-      return
-      ;;
     (*)
-      # assume relative path
+      # could be a CLI argument or a relative path
+      # want to handle:
+      # - `--file=$path`
+      # - `file=$path`
+      # - `$path`
+      if [ -z "$norecurseFlag" ]; then
+        local pathInFlag=${arg#*=}
+        if [ "$pathInFlag" != "$arg" ]; then
+          tryArgAsPath "$pathInFlag" "$how" --norecurse
+          # 0.01% chance this was a path which contained an equal sign and not a flag, but don't handle that for now:
+          return
+        fi
+      fi
+
+      if [ "${arg:0:1}" = "-" ]; then
+        # 99% chance it's a CLI argument. if not, use `./-<...>`
+        return
+      fi
+
+      # try it as a relative path
       path=$PWD/$arg
       ;;
   esac
@@ -486,6 +510,7 @@ parseArgs() {
         shift
         ;;
       (--sanebox-cap)
+        # N.B.: these named temporary variables ensure that "set -x" causes $1 to be printed
         local cap=$1
         shift
         capabilities+=("$cap")
@@ -501,25 +526,23 @@ parseArgs() {
         # override a previous --sanebox-portal call
         portalEnv=()
         ;;
-      (--sanebox-dns)
-        # N.B.: these named temporary variables ensure that "set -x" causes $1 to be printed
-        local dns=$1
-        shift
-        dns+=("$dns")
-        ;;
-      (--sanebox-firejail-arg)
-        local fjFlag=$1
-        shift
-        firejailFlags+=("$fjFlag")
-        ;;
       (--sanebox-bwrap-arg)
         local bwrapFlag=$1
         shift
         bwrapFlags+=("$bwrapFlag")
         ;;
-      (--sanebox-net)
-        net=$1
+      (--sanebox-net-dev)
+        netDev=$1
         shift
+        ;;
+      (--sanebox-net-gateway)
+        netGateway=$1
+        shift
+        ;;
+      (--sanebox-dns)
+        local dnsServer=$1
+        shift
+        dns+=("$dnsServer")
         ;;
       (--sanebox-keep-namespace)
         local namespace=$1
@@ -558,40 +581,6 @@ parseArgs() {
 }
 
 
-## FIREJAIL BACKEND
-
-firejailSetup() {
-  debug "firejailSetup: noop"
-}
-firejailIngestPath() {
-  # XXX: firejail flat-out refuses to whitelist certain root paths
-  #      this exception list is non-exhaustive
-  case $1 in
-    (/bin | /etc) ;;
-    (*)
-      firejailFlags+=("--noblacklist=$1" "--whitelist=$1")
-      ;;
-  esac
-}
-firejailIngestNet() {
-  firejailFlags+=("--net=$1")
-}
-firejailIngestDns() {
-  firejailFlags+=("--dns=$1")
-}
-firejailIngestKeepNamespace() {
-  debug "firejailIngestKeepNamespace: noop"
-}
-
-firejailGetCli() {
-  locate _firejail "firejail" "$FIREJAIL_FALLBACK"
-  cliArgs=(
-    "$_firejail" "${firejailFlags[@]}" --
-    env "${portalEnv[@]}" "${cliArgs[@]}"
-  )
-}
-
-
 ## BUBBLEWRAP BACKEND
 
 bwrapUnshareCgroup=(--unshare-cgroup)
@@ -602,6 +591,7 @@ bwrapUnshareUts=(--unshare-uts)
 bwrapVirtualizeDev=(--dev /dev)
 bwrapVirtualizeProc=(--proc /proc)
 bwrapVirtualizeTmp=(--tmpfs /tmp)
+bwrapUsePasta=
 
 bwrapSetup() {
   debug "bwrapSetup: noop"
@@ -649,9 +639,21 @@ bwrapIngestPath() {
       ;;
   esac
 }
-bwrapIngestNet() {
-  debug "bwrapIngestNet: enabling full net access for '$1' because don't know how to restrict it more narrowly"
+bwrapIngestNetDev() {
+  local dev="$1"
   bwrapUnshareNet=()
+  if [ "$dev" != "all" ]; then
+    bwrapUsePasta=1
+    pastaonlyIngestNetDev "$dev"
+  fi
+}
+bwrapIngestNetGateway() {
+  bwrapUsePasta=1
+  pastaonlyIngestNetGateway "$1"
+}
+bwrapIngestDns() {
+  bwrapUsePasta=1
+  pastaonlyIngestDns "$1"
 }
 bwrapIngestKeepNamespace() {
   case $1 in
@@ -683,14 +685,29 @@ bwrapGetCli() {
   # --unshare-uts
   # --unshare-user (implicit to every non-suid call to bwrap)
   locate _bwrap "bwrap" "$BWRAP_FALLBACK"
+  locate _env "env" "$ENV_FALLBACK"
+  if [ -n "$bwrapUsePasta" ]; then
+    # pasta drops us into an environment where we're root, but some apps complain if run as root.
+    # TODO: this really belongs on the `pastaonlyGetCli` side.
+    # TODO: i think we need to add `/dev/net/tun` to the namespace for nested pasta calls to work?
+    bwrapFlags+=(
+      # --unshare-user is necessary for --uid to work when called as pseudo root
+      --unshare-user
+      --uid "$UID"
+      --gid "${GROUPS[0]}"
+    )
+  fi
   cliArgs=(
     "$_bwrap" "${bwrapUnshareCgroup[@]}" "${bwrapUnshareIpc[@]}"
       "${bwrapUnshareNet[@]}" "${bwrapUnsharePid[@]}"
-      "${bwrapUnshareUser[@]}" "${bwrapUnshareUts[@]}"
+      "${bwrapUnshareUts[@]}"
       "${bwrapVirtualizeDev[@]}" "${bwrapVirtualizeProc[@]}" "${bwrapVirtualizeTmp[@]}"
       "${bwrapFlags[@]}" --
-    env "${portalEnv[@]}" "${cliArgs[@]}"
+    "$_env" "${portalEnv[@]}" "${cliArgs[@]}"
   )
+  if [ -n "$bwrapUsePasta" ]; then
+    pastaonlyGetCli
+  fi
 }
 
 
@@ -736,8 +753,14 @@ landlockIngestPath() {
     fi
   fi
 }
-landlockIngestNet() {
-  debug "landlockIngestNet: '$1': stubbed (landlock network is always unrestricted)"
+landlockIngestNetDev() {
+  debug "landlockIngestNetDev: '$1': stubbed (landlock network is always unrestricted)"
+}
+landlockIngestNetGateway() {
+  debug "landlockIngestNetGateway: noop"
+}
+landlockIngestDns() {
+  debug "landlockIngestDns: noop"
 }
 landlockIngestKeepNamespace() {
   debug "landlockIngestKeepNamespace: noop"
@@ -752,9 +775,10 @@ landlockGetCli() {
   # invoke the actual user command.
   locate _sandboxer "sandboxer" "$LANDLOCK_SANDBOXER_FALLBACK"
   locate _capsh "capsh" "$CAPSH_FALLBACK"
-  cliArgs=(env LL_FS_RO= LL_FS_RW="$landlockPaths"
+  locate _env "env" "$ENV_FALLBACK"
+  cliArgs=("$_env" LL_FS_RO= LL_FS_RW="$landlockPaths"
     "$_sandboxer"
-    "$_capsh" "--caps=$capshCapsArg" --no-new-privs --shell="/usr/bin/env" -- "${portalEnv[@]}" "${cliArgs[@]}"
+    "$_capsh" "--caps=$capshCapsArg" --no-new-privs --shell="$_env" -- "${portalEnv[@]}" "${cliArgs[@]}"
   )
 }
 
@@ -771,8 +795,14 @@ capshonlySetup() {
 capshonlyIngestPath() {
   debug "capshonlyIngestPath: stubbed"
 }
-capshonlyIngestNet() {
-  debug "capshonlyIngestNet: '$1': stubbed (capsh network is always unrestricted)"
+capshonlyIngestNetDev() {
+  debug "capshonlyIngestNetDev: '$1': stubbed (capsh network is always unrestricted)"
+}
+capshonlyIngestNetGateway() {
+  debug "capshonlyIngestNetGateway: '$1': stubbed (capsh network is always unrestricted)"
+}
+capshonlyIngestDns() {
+  debug "capshonlyIngestDns: '$1': stubbed (capsh network is always unrestricted)"
 }
 capshonlyIngestKeepNamespace() {
   debug "capshonlyIngestKeepNamespace: noop"
@@ -800,8 +830,60 @@ capshonlyIngestCapability() {
 
 capshonlyGetCli() {
   locate _capsh "capsh" "$CAPSH_FALLBACK"
+  locate _env "env" "$ENV_FALLBACK"
   cliArgs=(
-    "$_capsh" "--caps=$capshCapsArg" --no-new-privs --shell="/usr/bin/env" -- "${portalEnv[@]}" "${cliArgs[@]}"
+    "$_capsh" "--caps=$capshCapsArg" --no-new-privs --shell="$_env" -- "${portalEnv[@]}" "${cliArgs[@]}"
+  )
+}
+
+
+## PASTA-ONLY BACKEND
+# this backend exists mostly as a helper for the bwrap backend
+
+pastaArgs=()
+pastaNetSetup=
+pastaonlySetup() {
+  debug "pastaonlySetup: noop"
+}
+pastaonlyIngestPath() {
+  debug "pastaonlyIngestPath: noop"
+}
+pastaonlyIngestNetDev() {
+  local dev=$1
+  case $dev in
+    (all)
+      ;;
+    (*)
+      pastaArgs+=(--outbound-if4 "$dev")
+      ;;
+  esac
+}
+pastaonlyIngestNetGateway() {
+  pastaArgs+=(--gateway "$1")
+}
+pastaonlyIngestDns() {
+  # NAT DNS requests to localhost to the VPN's DNS resolver
+  # claim the whole 127.0.0.x space, because some setups place the DNS on a different address of localhost.
+  pastaNetSetup="iptables -A OUTPUT -t nat -p udp --dport 53 -m iprange --dst-range 127.0.0.1-127.0.0.255 -j DNAT --to-destination $1:53; $pastaNetSetup"
+  pastaNetSetup="ip addr del 127.0.0.1/8 dev lo; $pastaNetSetup"
+}
+pastaonlyIngestKeepNamespace() {
+  :
+}
+pastaonlyIngestCapability() {
+  :
+}
+pastaonlyGetCli() {
+  cliArgs=(
+    "/bin/sh" "-c"
+    "$pastaNetSetup exec"' "$0" "$@"'
+    "${cliArgs[@]}"
+  )
+  locate _pasta "pasta" "$PASTA_FALLBACK"
+  cliArgs=(
+    "$_pasta" --ipv4-only -U none -T none --config-net
+      "${pastaArgs[@]}" --
+    "${cliArgs[@]}"
   )
 }
 
@@ -814,7 +896,13 @@ noneSetup() {
 noneIngestPath() {
   :
 }
-noneIngestNet() {
+noneIngestNetDev() {
+  :
+}
+noneIngestNetGateway() {
+  :
+}
+noneIngestDns() {
   :
 }
 noneIngestKeepNamespace() {
@@ -831,6 +919,12 @@ noneGetCli() {
 ## ARGUMENT POST-PROCESSING
 
 loadLinkCache() {
+  if ! [ -e /etc/sanebox/symlink-cache ]; then
+    # don't error if the link cache is inaccessible.
+    # this can happen during nix builds e.g.
+    return
+  fi
+
   # readarray -t: reads some file into an array; each line becomes one element
   readarray -t _linkCacheArray < /etc/sanebox/symlink-cache
   for link in "${_linkCacheArray[@]}"; do
@@ -854,7 +948,6 @@ maybeAutodetectPaths() {
 ### path sorting: if the app has access both to /FOO and /FOO/BAR, some backends get confused.
 #   notably bwrap, --bind /FOO /FOO followed by --bind /FOO/BAR /FOO/BAR results in /FOO being accessible but /FOO/BAR *not*.
 #   so reduce the paths to the minimal set which includes those requested.
-#   for more sophisticated (i.e. complex) backends like firejail, this may break subpaths which were blacklisted earlier.
 canonicalizePaths() {
   # remove '//' and simplify '.', '..' paths, into canonical absolute logical paths.
   local canonPaths=()
@@ -941,8 +1034,12 @@ ingestForBackend() {
     "$method"IngestCapability "$cap"
   done
 
-  if [ -n "$net" ]; then
-    "$method"IngestNet "$net"
+  if [ -n "$netDev" ]; then
+    "$method"IngestNetDev "$netDev"
+  fi
+
+  if [ -n "$netGateway" ]; then
+    "$method"IngestNetGateway "$netGateway"
   fi
 
   for addr in "${dns[@]}"; do

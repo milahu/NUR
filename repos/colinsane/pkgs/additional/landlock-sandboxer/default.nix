@@ -15,11 +15,16 @@ stdenv.mkDerivation rec {
   version = linux.version;
   src = linux.src;
 
-  NIX_DEBUG = 6;
-
   buildInputs = [
     linuxHeaders  # to get the right linux headers!
   ];
+
+  # starting in 6.9, the sandboxer prints diagnostics on startup,
+  # which is annoying, and also risks breaking some users
+  postPatch = ''
+    substituteInPlace samples/landlock/sandboxer.c \
+      --replace 'fprintf(stderr, "Executing the sandboxed command...\n");' ""
+  '';
 
   # sourceRoot = "linux-${version}/samples/landlock";
   preBuild = ''

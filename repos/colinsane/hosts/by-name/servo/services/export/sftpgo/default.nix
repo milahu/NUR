@@ -12,6 +12,7 @@ let
   external_auth_hook = pkgs.static-nix-shell.mkPython3Bin {
     pname = "external_auth_hook";
     srcRoot = ./.;
+    pyPkgs = [ "passlib" ];
   };
   # Client initiates a FTP "control connection" on port 21.
   # - this handles the client -> server commands, and the server -> client status, but not the actual data
@@ -59,18 +60,8 @@ in
     enable = true;
     group = "export";
 
-    package = lib.warnIf (lib.versionOlder "2.5.6" pkgs.sftpgo.version) "sftpgo update: safe to use nixpkgs' sftpgo but keep my own `patches`" pkgs.buildGoModule {
-      inherit (pkgs.sftpgo) name ldflags nativeBuildInputs doCheck subPackages postInstall passthru meta;
-      version = "2.5.6-unstable-2024-04-18";
-      src = pkgs.fetchFromGitHub {
-        # need to use > 2.5.6 for sftpgo_safe_fileinfo.patch to apply
-        owner = "drakkan";
-        repo = "sftpgo";
-        rev = "950cf67e4c03a12c7e439802cabbb0b42d4ee5f5";
-        hash = "sha256-UfiFd9NK3DdZ1J+FPGZrM7r2mo9xlKi0dsSlLEinYXM=";
-      };
-      vendorHash = "sha256-n1/9A2em3BCtFX+132ualh4NQwkwewMxYIMOphJEamg=";
-      patches = (pkgs.sftpgo.patches or []) ++ [
+    package = pkgs.sftpgo.overrideAttrs (upstream: {
+      patches = (upstream.patches or []) ++ [
         # fix for compatibility with kodi:
         # ftp LIST operation returns entries over-the-wire like:
         # - dgrwxrwxr-x 1 ftp ftp            9 Apr  9 15:05 Videos
@@ -79,7 +70,7 @@ in
         # the full set of bits, from which i filter, is found here: <https://pkg.go.dev/io/fs#FileMode>
         ./safe_fileinfo.patch
       ];
-    };
+    });
 
     settings = {
       ftpd = {
