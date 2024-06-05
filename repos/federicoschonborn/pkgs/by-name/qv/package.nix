@@ -11,13 +11,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "qv";
-  version = "5.1";
+  version = "5.2";
 
   src = fetchFromGitHub {
     owner = "marlam";
     repo = "qv-mirror";
     rev = "qv-${finalAttrs.version}";
-    hash = "sha256-zrpbpifk0cPbdaXfX7I75BFOuTLaoj59lx0aXKOoU8g=";
+    hash = "sha256-EZT2DU6jqERj+Uf0T4Xx3dnbDD4nEgidmV0L5wyWTaY=";
   };
 
   nativeBuildInputs = [
