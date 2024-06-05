@@ -107,6 +107,14 @@ in
               default font (for e.g. window titles)
             '';
           };
+          locker = mkOption {
+            type = types.str;
+            default = "swaylock";
+            description = ''
+              name of program to use as the screenlocker
+            '';
+            example = "schlock";
+          };
           mod = mkOption {
             type = types.str;
             default = "Mod4";
@@ -152,7 +160,6 @@ in
       # "splatmoji"  # used by sway config
       "sway-contrib.grimshot"  # used by sway config
       "swayidle"  # enable if you need it
-      "swaylock"  # used by sway config
       "swaynotificationcenter"  # notification daemon
       "sysvol"  # volume notifier
       "unl0kr"  # greeter
@@ -179,6 +186,8 @@ in
       # xdg-desktop-portal-wlr provides portals for screenshots/screen sharing
       "xdg-desktop-portal-wlr"
       "xdg-terminal-exec"  # used by sway config
+    ] ++ [
+      cfg.config.locker
     ];
 
     sandbox.method = "bwrap";
@@ -220,6 +229,7 @@ in
       inherit (cfg.config)
         extra_lines
         font
+        locker
         mod
         workspace_layout
       ;

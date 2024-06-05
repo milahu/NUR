@@ -16,6 +16,7 @@ set $volume_up wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 set $volume_down wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 set $mute wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 set $default_workspace_layout @workspace_layout@
+set $locker @locker@
 
 set $out_tv "LG Electronics LG TV 0x01010101"
 set $out_projector "MS Telematica TV 0x00000001"
@@ -79,7 +80,7 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 #### special functions
 bindsym Print exec sane-open --application sane-screenshot.desktop
 bindsym $mod+Print exec sane-open --application sane-screenshot.desktop
-bindsym $mod+l exec s6-rc -b start swaylock
+bindsym $mod+l exec s6-rc -b start $locker
 bindsym $mod+s exec sane-open --application rofi-snippets.desktop
 # bindsym $mod+slash exec sane-open splatmoji.desktop
 bindsym $mod+d exec sane-open --application rofi.desktop

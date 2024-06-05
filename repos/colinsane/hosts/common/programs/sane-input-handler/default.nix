@@ -85,7 +85,7 @@ in
       "playerctl"
       "procps"
       "sane-open"
-      "sway"
+      # "sway"  #< TODO: circular dependency :-(
       "wireplumber"
       # optional integrations:
       "megapixels"

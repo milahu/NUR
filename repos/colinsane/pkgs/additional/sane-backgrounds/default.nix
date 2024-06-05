@@ -1,3 +1,8 @@
+# NixOS backgrounds:
+# - <https://github.com/NixOS/nixos-artwork>
+#   - <https://github.com/NixOS/nixos-artwork/issues/50>  (colorful; unmerged)
+#   - <https://github.com/NixOS/nixos-artwork/pull/60/files>  (desktop-oriented; clean; unmerged)
+# - <https://itsfoss.com/content/images/2023/04/nixos-tutorials.png>
 { stdenv
 , inkscape
 }:

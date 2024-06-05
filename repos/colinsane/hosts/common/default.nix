@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
+    ./boot.nix
     ./feeds.nix
     ./fs.nix
-    ./hardware
     ./home
     ./hosts.nix
     ./ids.nix
@@ -13,11 +13,17 @@
     ./persist.nix
     ./polyunfill.nix
     ./programs
+    ./quirks.nix
     ./secrets.nix
     ./ssh.nix
     ./systemd.nix
     ./users
   ];
+
+
+  # docs: https://nixos.org/manual/nixos/stable/options.html#opt-system.stateVersion
+  # this affects where nixos modules look for stateful data which might have been migrated across releases.
+  system.stateVersion = "21.11";
 
   sane.nixcache.enable-trusted-keys = true;
   sane.nixcache.enable = lib.mkDefault true;

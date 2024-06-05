@@ -52,7 +52,4 @@
     # TODO: ALLOW_USERS doesn't seem to work. still need `sudo snapper -c nix list`
     ALLOW_USERS = [ "colin" ];
   };
-
-  # docs: https://nixos.org/manual/nixos/stable/options.html#opt-system.stateVersion
-  system.stateVersion = "21.05";
 }

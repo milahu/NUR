@@ -7,19 +7,6 @@ let
   haltTimeout = 10;
 in
 {
-  systemd.extraConfig = ''
-    # DefaultTimeoutStopSec defaults to 90s, and frequently blocks overall system shutdown.
-    DefaultTimeoutStopSec=${builtins.toString haltTimeout}
-  '';
-
-  services.journald.extraConfig = ''
-    # docs: `man journald.conf`
-    # merged journald config is deployed to /etc/systemd/journald.conf
-    [Journal]
-    # disable journal compression because the underlying fs is compressed
-    Compress=no
-  '';
-
   # allow ordinary users to `reboot` or `shutdown`.
   # source: <https://nixos.wiki/wiki/Polkit>
   security.polkit.extraConfig = ''
@@ -37,5 +24,25 @@ in
         return polkit.Result.YES;
       }
     })
+  '';
+
+  services.journald.extraConfig = ''
+    # docs: `man journald.conf`
+    # merged journald config is deployed to /etc/systemd/journald.conf
+    [Journal]
+    # disable journal compression because the underlying fs is compressed
+    Compress=no
+  '';
+
+  # see: `man logind.conf`
+  # don’t shutdown when power button is short-pressed (commonly done an accident, or by cats).
+  #   but do on long-press: useful to gracefully power-off server.
+  services.logind.powerKey = "lock";
+  services.logind.powerKeyLongPress = "poweroff";
+  services.logind.lidSwitch = "lock";
+
+  systemd.extraConfig = ''
+    # DefaultTimeoutStopSec defaults to 90s, and frequently blocks overall system shutdown.
+    DefaultTimeoutStopSec=${builtins.toString haltTimeout}
   '';
 }

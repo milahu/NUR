@@ -9,16 +9,13 @@
 { config, pkgs, lib, ... }:
 {
   imports = [
-    ./bootloader.nix
     ./fs.nix
     ./gps.nix
-    ./kernel.nix
-    ./polyfill.nix
   ];
 
+  sane.hal.pine64.enable = true;
   sane.roles.client = true;
   sane.roles.handheld = true;
-  sane.programs.zsh.config.showDeadlines = false;  # unlikely to act on them when in shell
   sane.services.wg-home.enable = true;
   sane.services.wg-home.ip = config.sane.hosts.by-name."moby".wg-home.ip;
   sane.ovpn.addrV4 = "172.24.87.255";
@@ -32,11 +29,6 @@
   sops.secrets.colin-passwd.neededForUsers = true;
 
   sane.programs.sway.enableFor.user.colin = true;
-  sane.programs.swaylock.enableFor.user.colin = false;  #< not usable on touch
-  sane.programs.schlock.enableFor.user.colin = true;
-  sane.programs.swayidle.config.actions.screenoff.delay = 300;
-  sane.programs.swayidle.config.actions.screenoff.enable = true;
-  sane.programs.sane-input-handler.enableFor.user.colin = true;
   sane.programs.blueberry.enableFor.user.colin = false;  # bluetooth manager: doesn't cross compile!
   sane.programs.fcitx5.enableFor.user.colin = false;  # does not cross compile
   sane.programs.mercurial.enableFor.user.colin = false;  # does not cross compile
@@ -52,10 +44,6 @@
   # sane.programs."gnome.geary".config.autostart = true;
   # sane.programs.calls.config.autostart = true;
 
-  sane.programs.firefox.mime.priority = 300;  # prefer other browsers when possible
-  # HACK/TODO: make `programs.P.env.VAR` behave according to `mime.priority`
-  sane.programs.firefox.env = lib.mkForce {};
-  sane.programs.epiphany.env.BROWSER = "epiphany";
   sane.programs.pipewire.config = {
     # tune so Dino doesn't drop audio
     # there's seemingly two buffers for the mic (see: <https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/FAQ#pipewire-buffering-explained>)
@@ -76,49 +64,4 @@
   # /boot space is at a premium. default was 20.
   # even 10 can be too much
   boot.loader.generic-extlinux-compatible.configurationLimit = 8;
-  # mobile.bootloader.enable = false;
-  # mobile.boot.stage-1.enable = false;
-  # boot.initrd.systemd.enable = false;
-  # boot.initrd.services.swraid.enable = false;  # attempt to fix dm_mod stuff
-
-  # hardware.firmware makes the referenced files visible to the kernel, for whenever a driver explicitly asks for them.
-  # these files are visible from userspace by following `/sys/module/firmware_class/parameters/path`
-  #
-  # mobile-nixos' /lib/firmware includes:
-  #   rtl_bt          (bluetooth)
-  #   anx7688-fw.bin  (USB-C chip: power negotiation, HDMI/dock)
-  #   ov5640_af.bin   (camera module)
-  # hardware.firmware = [ config.mobile.device.firmware ];
-  # hardware.firmware = [ pkgs.rtl8723cs-firmware ];
-  hardware.firmware = [
-    (pkgs.linux-firmware-megous.override {
-      # rtl_bt = false probably means no bluetooth connectivity.
-      # N.B.: DON'T RE-ENABLE without first confirming that wake-on-lan works during suspend (rtcwake).
-      # it seems the rtl_bt stuff ("bluetooth coexist") might make wake-on-LAN radically more flaky.
-      rtl_bt = false;
-    })
-  ];
-
-  system.stateVersion = "21.11";
-
-  # defined: https://www.freedesktop.org/software/systemd/man/machine-info.html
-  # XXX colin: not sure which, if any, software makes use of this
-  environment.etc."machine-info".text = ''
-    CHASSIS="handset"
-  '';
-
-  # enable rotation sensor
-  # hardware.sensor.iio.enable = true;
-
-  services.udev.extraRules = let
-    chmod = "${pkgs.coreutils}/bin/chmod";
-    chown = "${pkgs.coreutils}/bin/chown";
-  in ''
-    # make Pinephone flashlight writable by user.
-    # taken from postmarketOS: <repo:postmarketOS/pmaports:device/main/device-pine64-pinephone/60-flashlight.rules>
-    SUBSYSTEM=="leds", DEVPATH=="*/*:flash", RUN+="${chmod} g+w /sys%p/brightness /sys%p/flash_strobe", RUN+="${chown} :video /sys%p/brightness /sys%p/flash_strobe"
-
-    # make Pinephone front LEDs writable by user.
-    SUBSYSTEM=="leds", DEVPATH=="*/*:indicator", RUN+="${chmod} g+w /sys%p/brightness", RUN+="${chown} :video /sys%p/brightness"
-  '';
 }

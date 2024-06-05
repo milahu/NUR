@@ -1,7 +1,14 @@
-{ lib, pkgs, ... }:
-
+{ config, lib, pkgs, ... }:
+let
+  cfg = config.sane.hal.x86_64;
+in
 {
-  config = lib.mkIf (pkgs.system == "x86_64-linux") {
+  options = {
+    sane.hal.x86_64.enable = (lib.mkEnableOption "x86_64-specific hardware support") // {
+      default = pkgs.system == "x86_64-linux";
+    };
+  };
+  config = lib.mkIf cfg.enable {
     boot.initrd.availableKernelModules = [
       "xhci_pci" "ahci" "sd_mod" "sdhci_pci"  # nixos-generate-config defaults
       "usb_storage"   # rpi needed this to boot from usb storage, i think.

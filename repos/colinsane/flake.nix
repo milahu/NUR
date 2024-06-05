@@ -495,7 +495,11 @@
             program = builtins.toString (pkgs.writeShellScript "sync-to-moby" ''
               sudo mount /mnt/moby/home
               sudo mount /mnt/desko/home
+              sudo mount /mnt/servo/media/Books
+              # copy photos/screenshots from moby to desko:
               ${pkgs.rsync}/bin/rsync -arv --exclude servo-macros /mnt/moby/home/Pictures/ /mnt/desko/home/Pictures/moby/
+              # copy books from servo to moby; delete old/untracked ones, but keep KOreader state files (sdr)
+              ${pkgs.rsync}/bin/rsync -arv --delete --exclude unprocessed --exclude '*.sdr' /mnt/servo/media/Books/ /mnt/moby/home/Books/local/servo/
               # N.B.: limited by network/disk -> reduce job count to improve pause/resume behavior
               ${pkgs.sane-scripts.sync-music}/bin/sane-sync-music --compress --compat --jobs 4 /mnt/servo/media/Music /mnt/moby/home/Music "$@"
             '');

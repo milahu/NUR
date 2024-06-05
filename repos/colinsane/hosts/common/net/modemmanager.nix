@@ -32,15 +32,33 @@
     # serviceConfig.Restart = "on-abort";
     # serviceConfig.StandardError = "null";
     # serviceConfig.CapabilityBoundingSet = "CAP_SYS_ADMIN CAP_NET_ADMIN";
-    # serviceConfig.ProtectSystem = true;
-    # serviceConfig.ProtectHome = true;
+    # serviceConfig.ProtectSystem = true;  # makes empty: /boot, /usr
+    # serviceConfig.ProtectHome = true;  # makes empty: /home, /root, /run/user
     # serviceConfig.PrivateTmp = true;
     # serviceConfig.RestrictAddressFamilies = "AF_NETLINK AF_UNIX AF_QIPCRTR";
     # serviceConfig.NoNewPrivileges = true;
 
-    # TODO: sandbox more aggressively
-    # - CAP_NET_ADMIN *only*?
-    # it needs these paths:
+    serviceConfig.CapabilityBoundingSet = [ "CAP_NET_ADMIN" ];  #< TODO: make sure this is *really* taking effect, and isn't supplemental to upstream's `CAP_SYS_ADMIN` setting
+    serviceConfig.LockPersonality = true;
+    # serviceConfig.PrivateUsers = true;  #< untried, not likely to work since it needs capabilities
+    serviceConfig.PrivateTmp = true;
+    serviceConfig.ProtectClock = true;  # syscall filter to prevent changing the RTC
+    serviceConfig.ProtectControlGroups = true;
+    serviceConfig.ProtectHome = true;  # makes empty: /home, /root, /run/user
+    serviceConfig.ProtectHostname = true;  # prevents changing hostname
+    serviceConfig.ProtectKernelLogs = true;  # disable /proc/kmsg, /dev/kmsg
+    serviceConfig.ProtectKernelModules = true;  # syscall filter to prevent module calls
+    serviceConfig.ProtectKernelTunables = true;
+    serviceConfig.ProtectSystem = "strict";  # makes read-only all but /dev, /proc, /sys
+    serviceConfig.RestrictAddressFamilies = [
+      "AF_NETLINK"
+      "AF_QIPCRTR"
+      "AF_UNIX"
+    ];
+    serviceConfig.RestrictSUIDSGID = true;
+    serviceConfig.SystemCallArchitectures = "native";  # prevents e.g. aarch64 syscalls in the event that the kernel is multi-architecture.
+
+    # from earlier `landlock` sandboxing, i know it needs these directories:
     # - # "/"
     # - "/dev" #v modem-power + net are not enough
     # - # "/dev/modem-power"

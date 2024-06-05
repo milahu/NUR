@@ -34,7 +34,4 @@
     SUBVOLUME = "/nix";
     ALLOW_USERS = [ "colin" ];
   };
-
-  # docs: https://nixos.org/manual/nixos/stable/options.html#opt-system.stateVersion
-  system.stateVersion = "21.05";
 }
