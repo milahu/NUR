@@ -23,15 +23,15 @@
   };
   nixfmt = {
     pname = "nixfmt";
-    version = "3bcb63c13e7aaf0b8e14081cf0c14c44f62e840a";
+    version = "c67a7b65906bd2432730929bd0e4957659c95b8e";
     src = fetchFromGitHub {
       owner = "NixOS";
       repo = "nixfmt";
-      rev = "3bcb63c13e7aaf0b8e14081cf0c14c44f62e840a";
+      rev = "c67a7b65906bd2432730929bd0e4957659c95b8e";
       fetchSubmodules = false;
-      sha256 = "sha256-8QWhKKqpHSlHuvFW8wdWTbG0pJ6XtuxZQ3HhR4uPbRA=";
+      sha256 = "sha256-Ig9/AAiY41c4qVCBYQ6ovVAt+4AJjSJCHdEoSvkGwA0=";
     };
-    date = "2024-05-14";
+    date = "2024-05-28";
   };
   nixpkgs-review = {
     pname = "nixpkgs-review";
@@ -63,10 +63,10 @@
   };
   qutebrowser-darwin = {
     pname = "qutebrowser-darwin";
-    version = "3.1.0";
+    version = "3.2.0";
     src = fetchurl {
-      url = "https://github.com/qutebrowser/qutebrowser/releases/download/v3.1.0/qutebrowser-3.1.0.dmg";
-      sha256 = "sha256-AvuuwUnxMcr2ekZ/O1FL/4IizV1aTMhXNrbf1SwNY7U=";
+      url = "https://github.com/qutebrowser/qutebrowser/releases/download/v3.2.0/qutebrowser-3.2.0.dmg";
+      sha256 = "sha256-IhCS+bf4FTaSFFpw3knUm+NZUZaJLD9xIMxabf0nFUE=";
     };
   };
   sbarlua = {
@@ -103,10 +103,10 @@
   };
   vivaldi-darwin = {
     pname = "vivaldi-darwin";
-    version = "6.7.3329.35";
+    version = "6.7.3329.39";
     src = fetchurl {
-      url = "https://downloads.vivaldi.com/stable/Vivaldi.6.7.3329.35.universal.dmg";
-      sha256 = "sha256-xYm7I46S0VM2VpFCsKlywDKi1TkimF3Gys7T8XSysxg=";
+      url = "https://downloads.vivaldi.com/stable/Vivaldi.6.7.3329.39.universal.dmg";
+      sha256 = "sha256-m5TgEUNr8N1uMguZowt6/9N2UpZZeuM/qzJVQ3XoC6M=";
     };
   };
 }
