@@ -1,16 +1,16 @@
 {
 "name":"Nick1296",
-"fetch_time":0.339,
-"eval_time":0.205,
+"fetch_time":0.254,
+"eval_time":0.206,
 "source":{
 "url":"https://github.com/Nick1296/nur-packages",
-"rev":"c5d3b2034fcb07216145be50714919ba03afc9f4",
-"sha256":"00588dsl6xkvx980r7sqysam5wxrd1vmrk23szz7n8ghprz2w8lc",
+"rev":"4a123820bf46a67fe5190362a4778a949eeb2c81",
+"sha256":"0v1x4lbqc5iwh02rnz4qkm69nw654zgsz9awqf7ir2swphcp39nf",
 "date":null
 },
-"source_storepath":"/nix/store/yab0b04rd6znw8i9yy96j67fp1m0wkvp-source",
-"nixpkgs_storepath":"/nix/store/ap2lxx0778q6mk8has11aanyg64hm23g-source",
-"nur_combined_rev":"4c551ffa9004f46f5d3992c6e79b7acdf0f9007d",
+"source_storepath":"/nix/store/pxg13dhrdv31h896mfsmh7qdpphm8wjs-source",
+"nixpkgs_storepath":"/nix/store/h27fd2y9p62r93fmjdjpbji6lr1a2a8s-source",
+"nur_combined_rev":"0dad65486170d8a19b05beb069e6565407086364",
 "packages":{
 "sweet-theme":{
 "meta":{
@@ -54,12 +54,54 @@
 "system":"x86_64-linux",
 "version":"11062023"
 },
+"utterly-nord-plasma-theme":{
+"meta":{
+"available":true,
+"branch":"master",
+"broken":false,
+"description":"A Slick and Modern Global theme for KDE Plasma utilizing the Nord Color Palette with transparency and blur in UI ",
+"downloadPage":"https://github.com/HimDek/Utterly-Nord-Plasma",
+"homepage":"https://himdek.com/Utterly-Nord-Plasma/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
+},
+"longDescription":"This package has most of the features working, testing might be needed for login animations and sddm theme",
+"name":"utterly-nord-plasma-theme-3.2",
+"outputsToInstall":[
+"out"
+],
+"position":"./pkgs/utterly-nord-plasma-theme/default.nix:61",
+"sourceProvenance":[
+{
+"isSource":true,
+"shortName":"fromSource"
+}
+],
+"unfree":false,
+"unsupported":false
+},
+"name":"utterly-nord-plasma-theme-3.2",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"utterly-nord-plasma-theme",
+"system":"x86_64-linux",
+"version":"3.2"
+},
 "utterly-round-plasma-style":{
 "meta":{
 "available":true,
 "branch":"master",
 "broken":false,
-"description":"A rounded Desktop theme and Window borders for Plasma 5 that follows any color scheme",
+"description":"A Desktop Theme for KDE Plasma that follows all color scheme ",
 "downloadPage":"https://github.com/HimDek/Utterly-Round-Plasma-Style",
 "homepage":"https://himdek.com/Utterly-Round-Plasma-Style/",
 "insecure":false,
@@ -100,7 +142,7 @@
 "available":true,
 "branch":"master",
 "broken":false,
-"description":"A Dark Bluish and Blurry Global theme for Plasma 5",
+"description":"A Slick and Modern Global theme for KDE Plasma utilizing the Sweet Color Palette with transparency and blur in UI ",
 "downloadPage":"https://github.com/HimDek/Utterly-Sweet-Plasma",
 "homepage":"https://himdek.com/Utterly-Sweet-Plasma/",
 "insecure":false,
@@ -114,11 +156,11 @@
 "url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"This package has most of the feature working, testing might be needed for login animations and sddm theme",
-"name":"utterly-sweet-plasma-theme-2.1",
+"name":"utterly-sweet-plasma-theme-3.2",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/utterly-sweet-plasma-theme/default.nix:56",
+"position":"./pkgs/utterly-sweet-plasma-theme/default.nix:55",
 "sourceProvenance":[
 {
 "isSource":true,
@@ -128,14 +170,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"utterly-sweet-plasma-theme-2.1",
+"name":"utterly-sweet-plasma-theme-3.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"utterly-sweet-plasma-theme",
 "system":"x86_64-linux",
-"version":"2.1"
+"version":"3.2"
 },
 "vivado-2017-4":{
 "meta":{
@@ -222,6 +264,28 @@
 "out":null
 },
 "pname":"vivado2019.2.1",
+"system":"x86_64-linux",
+"version":""
+},
+"vivado-2019-2-1-fhs":{
+"meta":{
+"available":true,
+"broken":false,
+"insecure":false,
+"name":"vivado2019.2.1_fhs",
+"outputsToInstall":[
+"out"
+],
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:68",
+"unfree":false,
+"unsupported":false
+},
+"name":"vivado2019.2.1_fhs",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"vivado2019.2.1_fhs",
 "system":"x86_64-linux",
 "version":""
 }
