@@ -133,13 +133,30 @@ def update(repo: Repo) -> Repo:
 
     _cached_repo, new_version, repo_path = prefetch(repo, force=force_eval)
 
-    #logger.debug(f"new_version.date = {new_version.date}")
+    """
+    2024-04-22 11:11:47,212 prefetch.py:282 prefetch Repository erosanix: Fetching new version 2528ec614c3c77bdd4cec435eb99670a449d0f6b
+
+    2024-04-22 11:11:49,080 update.py:140 update repo_path = /nix/store/mr0qjxl94mz7a6b9g4p2fwxylx6vkxqq-source
+
+    error: path '/nix/store/wbdi8lzim1blxywdm0qicbxsiwy4x1hn-source.drv' is not valid
+    """
+
+    #if False:
+    if True:
+        logger.debug(f"new_version.rev = {new_version.rev}")
+        logger.debug(f"new_version.date = {new_version.date}")
+        logger.debug(f"repo_path = {repo_path}")
 
     # workaround for cached prefetch. cache key is only repo.name
     if not force_eval and new_version == repo.locked_version:
         repo_path = None
 
     repo.new_version = new_version
+
+    if repo.locked_version == None:
+        # repo was added only to repos.json but not to repos.json.lock
+        # add repo to repos.json.lock
+        repo.locked_version = repo.new_version
 
     """
     logger.debug(f"repo.locked_version     = {repo.locked_version}")
@@ -157,6 +174,18 @@ def update(repo: Repo) -> Repo:
     if not repo_path:
         #logger.debug(f"Repository {repo.name}: Skipped eval. No change in version {repo.locked_version}")
         return repo
+
+    # scan repo for secrets
+    # prevent "git push" error: GH013: Repository rule violations found for refs/heads/nur-combined.
+    # Push cannot contain secrets
+    # GitHub Personal Access Token
+    # https://docs.github.com/en/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection
+    # https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning
+    # Push protection for users is on by default, but you can disable the feature at any time through your personal account settings.
+    # For more information, see "Push protection for users."
+    # https://docs.github.com/en/code-security/secret-scanning/push-protection-for-users
+    # https://github.com/settings/security_analysis # Push protection for yourself -> disable
+    # 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
 
     '''
     # update repo source in nur-combined
@@ -305,7 +334,15 @@ def update_command_inner(args: Namespace) -> None:
                 main_err_line = err.stdout
 
             if repo.locked_version is None:
-                # likely a repository added in a pull request, make it fatal then
+                # repo was added only to repos.json but not to repos.json.lock
+
+                """
+                $ nix-env -f /run/user/1000/tmp198sh1_vee3abb06a96f0b4c00a30d30aea7f69a/default.nix -qa * --meta --json --allowed-uris https://static.rust-lang.org --option restrict-eval true --option allow-import-from-derivation true --drv-path --show-trace -I nixpkgs=/nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source -I /nix/store/mr0qjxl94mz7a6b9g4p2fwxylx6vkxqq-source -I /run/user/1000/tmp198sh1_vee3abb06a96f0b4c00a30d30aea7f69a/default.nix -I /run/user/1000/tmp198sh1_vee3abb06a96f0b4c00a30d30aea7f69a/evalRepo.nix
+                error: path '/nix/store/wbdi8lzim1blxywdm0qicbxsiwy4x1hn-source.drv' is not valid. This repo is not yet in our lock file!!!!
+
+                -> def update(
+                """
+
                 if not str(err).startswith("Eval failed before"):
                     logger.error(
                         f"repository {repo.name} failed to evaluate: {str(err)}. {main_err_line}. This repo is not yet in our lock file!!!!"
@@ -352,6 +389,7 @@ def update_command_inner(args: Namespace) -> None:
                 )
 
         if repo.eval_result_packages_json:
+          # FIXME indent
           # eval was successful
 
           # update this repo in nur-combined

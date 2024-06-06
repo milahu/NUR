@@ -353,11 +353,15 @@ async def update_version_git_repos(repos, aiohttp_session, filter_repos_fn):
             url = url[:-4]
         url += "/info/refs?service=git-upload-pack"
 
-        async with aiohttp_session.get(url) as response:
-            if response.status != 200:
-                logger.debug(f"repo {repo.name}: failed to fetch new version from {url}")
-                return
-            _bytes = await response.read()
+        try:
+            async with aiohttp_session.get(url) as response:
+                if response.status != 200:
+                    logger.debug(f"repo {repo.name}: failed to fetch new version from {url}: http status {response.status}")
+                    return
+                _bytes = await response.read()
+        except Exception as exc:
+            logger.debug(f"repo {repo.name}: failed to fetch new version from {url}: {exc}")
+            return
 
         commit = None
 

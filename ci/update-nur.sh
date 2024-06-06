@@ -78,12 +78,19 @@ git remote set-url origin $this_repo_url
 
 
 
+set -x
+
+
+
 echo fetching branches: ${extra_branches[@]}
 #git fetch --depth=1 origin $main_branch ${extra_branches[@]}
 branch_args=()
 for branch in ${extra_branches[@]}; do
-  #branch_args+=($branch:$branch)
-  branch_args+=($branch)
+  if ! git rev-parse refs/heads/$branch >/dev/null 2>&1; then
+    # init branch
+    #branch_args+=($branch:$branch)
+    branch_args+=($branch)
+  fi
 done
 time \
 git fetch --depth=1 origin ${branch_args[@]}
@@ -95,8 +102,17 @@ for branch in ${extra_branches[@]}; do
     # check if this dir is a mounted git worktree
     worktree_path=$(readlink -f "$PWD/$branch")
     if git worktree list | grep -q "^$worktree_path "; then
-      git -C $branch reset --hard HEAD
+      #git -C $branch reset --hard HEAD
+      # fix: fatal: It seems that there is already a rebase-merge directory
+      [ -d ".git/worktrees/$branch/rebase-merge" ] &&
+        rm -rf ".git/worktrees/$branch/rebase-merge"
+      # fix: error: unable to unlink old $file: Permission denied
+      find $branch '!' -perm +w -print0 |
+        xargs -0 -r chmod +w
+      git -C $branch reset --hard $branch
       git -C $branch clean -fdx
+      # update local branch
+      git -C $branch pull origin $branch
       continue
     fi
     echo "error: path exists: $PWD/$branch"
