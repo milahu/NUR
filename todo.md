@@ -158,6 +158,42 @@ for example by grouping packages by repo, and by only updating the changed parts
 
 
 
+## use sqlite for the packages index
+
+instead of a large html `<table>` in gh-pages/index.html
+which takes 20 seconds to load,
+use a dynamic single page app to render a sqlite table,
+allowing to search, sort, filter, paginate.
+
+dynamic single page app, based on sqlite and solidjs
+
+- https://github.com/sql-js/sql.js
+  - https://www.npmjs.com/browse/depended/sql.js
+    - https://www.npmjs.com/package/jeep-sqlite
+    - https://www.npmjs.com/package/gist-sqlite
+    - https://www.npmjs.com/package/rosbag_next
+    - https://www.npmjs.com/package/@squill/sqlite3-browser
+- https://sqlite.org/wasm/doc/trunk/demo-123.md
+  - https://sqlite.org/wasm/doc/trunk/demo-123.html
+- https://github.com/jepiqueau/capacitor-solid-sqlite
+  - https://www.npmjs.com/package/@capacitor-community/sqlite
+  - https://capacitorjs.com/docs
+- https://github.com/fimbres/astro-chat
+- https://riffle.systems/essays/prelude/
+  - A research project aiming to simplify app development by using databases for client-side state management.
+
+also add a command-line client for offline use,
+because html and javascript is slow.
+
+example:
+
+```
+$ nur-search cowsay
+nur.repos.someuser.cowsay  cowsay-3.7.0  A program which generates ASCII pictures of a cow with a message
+```
+
+
+
 # done
 
 
