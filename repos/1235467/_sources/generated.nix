@@ -51,15 +51,15 @@
   };
   candy = {
     pname = "candy";
-    version = "46cae2a23d3487872eb1ea2f66fe82e80b698490";
+    version = "08dbbec0cb29d9b970814df484c29e5df18ad9b3";
     src = fetchFromGitHub {
       owner = "lanthora";
       repo = "candy";
-      rev = "46cae2a23d3487872eb1ea2f66fe82e80b698490";
+      rev = "08dbbec0cb29d9b970814df484c29e5df18ad9b3";
       fetchSubmodules = false;
-      sha256 = "sha256-fhTrzpOEB1E8tywOp+soN22Fr6dSVez4MKRhZCpnJxI=";
+      sha256 = "sha256-LlBlGUsbyXZj6AeJt6okz1PwFGOjZN+5X2Tw4X4tMjw=";
     };
-    date = "2024-06-04";
+    date = "2024-06-05";
   };
   forkgram = {
     pname = "forkgram";
@@ -75,15 +75,15 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "098ac916a6314a2b731532e0c85f357e3cf90d2f";
+    version = "c95845b1488b4bd63e901cbdc4cb68c27a45971b";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "098ac916a6314a2b731532e0c85f357e3cf90d2f";
+      rev = "c95845b1488b4bd63e901cbdc4cb68c27a45971b";
       fetchSubmodules = true;
-      sha256 = "sha256-ObX7qHLYwCDrKVi6Log7Uh3powuyR4lL/4txOiENpgI=";
+      sha256 = "sha256-1oVVblacE6uQztHTTPG6NoUzj5RErIRbmDoVNWnG6xg=";
     };
-    date = "2024-06-04";
+    date = "2024-06-05";
   };
   hyprwayland-scanner = {
     pname = "hyprwayland-scanner";
@@ -136,15 +136,15 @@
   };
   llamafile = {
     pname = "llamafile";
-    version = "8e23c73d1ec953737a6baa3656b0bab7e237bf64";
+    version = "1c08faddd237a9b323149331b9214ac50ab13dda";
     src = fetchFromGitHub {
       owner = "Mozilla-Ocho";
       repo = "llamafile";
-      rev = "8e23c73d1ec953737a6baa3656b0bab7e237bf64";
+      rev = "1c08faddd237a9b323149331b9214ac50ab13dda";
       fetchSubmodules = false;
-      sha256 = "sha256-w4ZRqeLZps7upKAERTorVmNKTlkyvU8ri0fQUCEhMgE=";
+      sha256 = "sha256-q58I7E4mIBoDAtb81PTBedpXbOaBF8exmKVOxCF/lT4=";
     };
-    date = "2024-06-03";
+    date = "2024-06-05";
   };
   nbfc-linux = {
     pname = "nbfc-linux";
@@ -196,15 +196,15 @@
   };
   openmw = {
     pname = "openmw";
-    version = "1ed27e1855ea6b4ff566ce105b4af641a27a872f";
+    version = "8a6d3ea4473504cdaf46360579161639fd4b02e7";
     src = fetchFromGitHub {
       owner = "OpenMW";
       repo = "openmw";
-      rev = "1ed27e1855ea6b4ff566ce105b4af641a27a872f";
+      rev = "8a6d3ea4473504cdaf46360579161639fd4b02e7";
       fetchSubmodules = true;
-      sha256 = "sha256-ihJheurCXLqxdWJeCOuBNC64RPy9CHQAN7Es0QXXojs=";
+      sha256 = "sha256-Gzin9siRYrdeZKX+ZVFX3xij7gAH8XPHoa+45ScbF9w=";
     };
-    date = "2024-06-04";
+    date = "2024-06-05";
   };
   portkey = {
     pname = "portkey";
