@@ -1,128 +1,21 @@
-trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
-trace: warning: Use the `ldflags` and/or `tags` attributes instead of `buildFlags`/`buildFlagsArray`
-trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
-trace: warning: Use the `ldflags` and/or `tags` attributes instead of `buildFlags`/`buildFlagsArray`
-trace: warning: Use the `ldflags` and/or `tags` attributes instead of `buildFlags`/`buildFlagsArray`
-trace: warning: Use the `ldflags` and/or `tags` attributes instead of `buildFlags`/`buildFlagsArray`
-trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
-trace: warning: Use the `ldflags` and/or `tags` attributes instead of `buildFlags`/`buildFlagsArray`
-trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
-trace: warning: Use the `ldflags` and/or `tags` attributes instead of `buildFlags`/`buildFlagsArray`
-trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
-trace: warning: Use the `ldflags` and/or `tags` attributes instead of `buildFlags`/`buildFlagsArray`
-trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
-trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
-trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
-trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
-trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
-trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
 error:
-… while querying the derivation named 'crc-1.10.0'
-
-… in the condition of the assert statement
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:267:17:
-
-   266|     in commonAttrs // {
-   267|       drvPath = assert condition; drv.drvPath;
-      |                 ^
-   268|       outPath = assert condition; drv.outPath;
+… while evaluating the file './default.nix':
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:535:14:
+  at ./default.nix:3:21:
 
-   534|   meta = checkMeta.commonMeta { inherit validity attrs pos references; };
-   535|   validity = checkMeta.assertValidity { inherit meta attrs; };
-      |              ^
-   536|
+     2|                     with import <nixpkgs> {};
+     3|                     import ./evalRepo.nix {
+      |                     ^
+     4|                         name = "vdemeester";
 
-… while calling 'assertValidity'
+… while calling anonymous lambda
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:484:20:
+  at ./evalRepo.nix:1:1:
 
-   483|
-   484|   assertValidity = { meta, attrs }: let
-      |                    ^
-   485|       validity = checkValidity attrs;
+     1| { name
+      | ^
+     2| , url
 
-… from call site
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:485:18:
-
-   484|   assertValidity = { meta, attrs }: let
-   485|       validity = checkValidity attrs;
-      |                  ^
-   486|       inherit (validity) valid;
-
-… while calling 'checkValidity'
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:385:19:
-
-   384|   # Along with a boolean flag for each reason
-   385|   checkValidity = attrs:
-      |                   ^
-   386|     # Check meta attribute types first, to make sure it is always called even when there are other issues
-
-… from call site
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:404:13:
-
-   403|     # --- Put checks that can be ignored here ---
-   404|     else if hasDeniedUnfreeLicense attrs && !(hasAllowlistedLicense attrs) then
-      |             ^
-   405|       { valid = "no"; reason = "unfree"; errormsg = "has an unfree license (‘${showLicense attrs.meta.license}’)"; }
-
-… while calling 'hasDeniedUnfreeLicense'
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:113:28:
-
-   112|   # `allowUnfreePredicate` function.
-   113|   hasDeniedUnfreeLicense = attrs:
-      |                            ^
-   114|     hasUnfreeLicense attrs &&
-
-… from call site
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:114:5:
-
-   113|   hasDeniedUnfreeLicense = attrs:
-   114|     hasUnfreeLicense attrs &&
-      |     ^
-   115|     !allowUnfree &&
-
-… while calling 'hasUnfreeLicense'
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:89:22:
-
-    88|
-    89|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
-      |                      ^
-    90|
-
-… from call site
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:89:49:
-
-    88|
-    89|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
-      |                                                 ^
-    90|
-
-… while calling 'isUnfree'
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:80:14:
-
-    79|
-    80|   isUnfree = licenses:
-      |              ^
-    81|     if isAttrs licenses then !licenses.free or true
-
-error: attribute 'lib' missing
-
-at /nix/store/rblbymjzj44jpmi6xvdmy7qjy84lmxdl-source/pkgs/crc/default.nix:37:19:
-
-    36|
-    37|       meta = with stdenv.lib; {
-      |                   ^
-    38|         homepage = https://github.com/code-ready/crc;
+error: getting status of './pkgs': No such file or directory
