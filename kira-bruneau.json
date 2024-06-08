@@ -1,16 +1,16 @@
 {
 "name":"kira-bruneau",
-"fetch_time":0.346,
-"eval_time":0.408,
+"fetch_time":0.245,
+"eval_time":0.415,
 "source":{
 "url":"https://gitlab.com/kira-bruneau/nur-packages",
-"rev":"8005c521845e2289054902284eb14c018a322a42",
-"sha256":"1p1wjhal322m1qk7akxzj8zrm82mjj6fp12rgyli4vs9jxxb648m",
+"rev":"9464c79b62e112be2afb5bf7478d8f348e293e77",
+"sha256":"1vjmzdy248y8kqmm57d9m4jfgmvsyzd9bvx822dxm7ji891d6kly",
 "date":null
 },
-"source_storepath":"/nix/store/sp68k5zdyiwxzzngvzr2dny2ablpmm8g-source",
-"nixpkgs_storepath":"/nix/store/7nfhfhnpac3jv9rg19cvxbdnz8c9dw9g-source",
-"nur_combined_rev":"52f1e294532e03a3eea1affa39122a9c54135c91",
+"source_storepath":"/nix/store/jlspd4haysa3g8vjz7np86f997mdpqsy-source",
+"nixpkgs_storepath":"/nix/store/h7jjar4fz2nirgvhzn9w8w811dkg07gd-source",
+"nur_combined_rev":"3b789d64c4a38a9efafd415cf8f4d76dccf32674",
 "packages":{
 "anytype":{
 "meta":{
@@ -208,7 +208,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://ccache.dev/releasenotes.html#_ccache_4_9_1",
+"changelog":"https://ccache.dev/releasenotes.html#_ccache_4_10",
 "description":"Compiler cache for fast recompilation of C/C++ code",
 "downloadPage":"https://ccache.dev/download.html",
 "homepage":"https://ccache.dev",
@@ -237,7 +237,7 @@
 "name":"Ryan Burns"
 }
 ],
-"name":"ccache-4.9.1",
+"name":"ccache-4.10",
 "outputsToInstall":[
 "out",
 "man"
@@ -288,11 +288,11 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/by-name/cc/ccache/package.nix:131",
+"position":"./pkgs/by-name/cc/ccache/package.nix:173",
 "unfree":false,
 "unsupported":false
 },
-"name":"ccache-4.9.1",
+"name":"ccache-4.10",
 "outputName":"out",
 "outputs":{
 "man":null,
@@ -300,7 +300,7 @@
 },
 "pname":"ccache",
 "system":"x86_64-linux",
-"version":"4.9.1"
+"version":"4.10"
 },
 "clonehero":{
 "meta":{
@@ -488,7 +488,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-acm-20240601.1149",
+"name":"emacs-acm-20240606.130",
 "outputsToInstall":[
 "out"
 ],
@@ -573,14 +573,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-acm-20240601.1149",
+"name":"emacs-acm-20240606.130",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-acm",
 "system":"x86_64-linux",
-"version":"20240601.1149"
+"version":"20240606.130"
 },
 "emacsPackages.acm-terminal":{
 "meta":{
@@ -730,7 +730,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-lsp-bridge-20240601.1149",
+"name":"emacs-lsp-bridge-20240606.130",
 "outputsToInstall":[
 "out"
 ],
@@ -811,18 +811,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/applications/editors/emacs/elisp-packages/manual-packages/lsp-bridge/default.nix:109",
+"position":"./pkgs/applications/editors/emacs/elisp-packages/manual-packages/lsp-bridge/default.nix:111",
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-lsp-bridge-20240601.1149",
+"name":"emacs-lsp-bridge-20240606.130",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-lsp-bridge",
 "system":"x86_64-linux",
-"version":"20240601.1149"
+"version":"20240606.130"
 },
 "gamemode":{
 "meta":{
@@ -1772,7 +1772,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.savannah.gnu.org/cgit/poke.git/plain/ChangeLog?h=releases/poke-4.0",
+"changelog":"https://git.savannah.gnu.org/cgit/poke.git/plain/ChangeLog?h=releases/poke-4.1",
 "description":"Interactive, extensible editor for binary data",
 "homepage":"http://www.jemarch.net/poke",
 "insecure":false,
@@ -1800,7 +1800,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"poke-4.0",
+"name":"poke-4.1",
 "outputsToInstall":[
 "out",
 "man"
@@ -1855,7 +1855,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"poke-4.0",
+"name":"poke-4.1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -1866,7 +1866,7 @@
 },
 "pname":"poke",
 "system":"x86_64-linux",
-"version":"4.0"
+"version":"4.1"
 },
 "pokemmo-installer":{
 "meta":{
