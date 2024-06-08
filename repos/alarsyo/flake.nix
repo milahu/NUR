@@ -5,7 +5,7 @@
       type = "github";
       owner = "NixOS";
       repo = "nixpkgs";
-      ref = "nixos-23.11";
+      ref = "nixos-24.05";
     };
 
     nixpkgs-unstable-small = {
@@ -25,7 +25,7 @@
       type = "github";
       owner = "nix-community";
       repo = "home-manager";
-      ref = "release-23.11";
+      ref = "release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -62,21 +62,11 @@
     {
       nixosModules = {
         home = {
+          home-manager.backupFileExtension = "hm-backup";
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.alarsyo = import ./home;
           home-manager.verbose = true;
-        };
-        nix-path = {
-          nix = {
-            nixPath = [
-              "nixpkgs=${inputs.nixpkgs}"
-            ];
-            registry = {
-              nixpkgs.flake = inputs.nixpkgs;
-              unstable.flake = inputs.nixpkgs-unstable-small;
-            };
-          };
         };
       };
 
@@ -140,20 +130,6 @@
                   # })
                 ];
               }
-            ]
-            ++ sharedModules;
-        };
-
-        hephaestus = nixpkgs.lib.nixosSystem rec {
-          inherit system;
-          modules =
-            [
-              ./hephaestus.nix
-
-              inputs.nixos-hardware.nixosModules.common-cpu-amd
-              inputs.nixos-hardware.nixosModules.common-gpu-amd
-              inputs.nixos-hardware.nixosModules.common-pc-laptop
-              inputs.nixos-hardware.nixosModules.common-pc-ssd
             ]
             ++ sharedModules;
         };
