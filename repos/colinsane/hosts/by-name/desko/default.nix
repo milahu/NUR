@@ -35,7 +35,6 @@
   sane.programs."gnome.geary".config.autostart = true;
   sane.programs.signal-desktop.config.autostart = true;
 
-  boot.loader.efi.canTouchEfiVariables = false;
   sane.image.extraBootFiles = [ pkgs.bootpart-uefi-x86_64 ];
 
   # needed to use libimobiledevice/ifuse, for iphone sync

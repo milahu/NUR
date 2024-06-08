@@ -1,5 +1,6 @@
 { callPackage, pkgs }:
 {
+  depthcharge-tools = callPackage ./depthcharge-tools { };
   feedsearch-crawler = callPackage ./feedsearch-crawler { };
   pa-dlna = callPackage ./pa-dlna { };
   pyln-bolt7 = callPackage ./pyln-bolt7 { };

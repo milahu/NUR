@@ -279,7 +279,7 @@ in
     sane.image.extraGPTPadding = 16 * 1024 * 1024;
     sane.image.firstPartGap = 0;
     sane.image.installBootloader = ''
-      dd if=${pkgs.tow-boot-pinephone}/Tow-Boot.noenv.bin of=$out/nixos.img bs=1024 seek=8 conv=notrunc
+      dd if=${pkgs.tow-boot-pinephone}/Tow-Boot.noenv.bin of=$out bs=1024 seek=8 conv=notrunc
     '';
 
     sane.programs.swaynotificationcenter.config = {

@@ -529,24 +529,24 @@ let
       "program ${name} specified no `sandbox.method`; please configure a method, or set sandbox.enable = false."
     ];
 
-    system.checks = lib.optionals (p.enabled && p.sandbox.enable && p.sandbox.method != null && p.package != null) [
+    system.checks = lib.mkIf (p.enabled && p.sandbox.enable && p.sandbox.method != null && p.package != null) [
       p.package.passthru.checkSandboxed
     ];
 
     # conditionally add to system PATH and env
     environment = lib.optionalAttrs (p.enabled && p.enableFor.system) {
-      systemPackages = lib.optionals (p.package != null) [ p.package ];
+      systemPackages = lib.mkIf (p.package != null) [ p.package ];
       # sessionVariables are set by PAM, as opposed to environment.variables which goes in /etc/profile
       sessionVariables = p.env;
     };
 
     # conditionally add to user(s) PATH
     users.users = lib.mapAttrs (userName: en: {
-      packages = lib.optionals (p.package != null && en && p.enabled) [ p.package ];
+      packages = lib.mkIf (p.package != null && en && p.enabled) [ p.package ];
     }) p.enableFor.user;
 
     # conditionally persist relevant user dirs and create files
-    sane.users = lib.mapAttrs (user: en: lib.optionalAttrs (en && p.enabled) {
+    sane.users = lib.mapAttrs (user: en: lib.mkIf (en && p.enabled) {
       inherit (p) persist services;
       environment = p.env;
       fs = lib.mkMerge [
@@ -578,7 +578,7 @@ let
 
     # make secrets available for each user
     sops.secrets = lib.concatMapAttrs
-      (user: en: lib.optionalAttrs (en && p.enabled) (
+      (user: en: lib.mkIf (en && p.enabled) (
         lib.mapAttrs'
           (homePath: src: {
             # TODO: use the user's *actual* home directory, don't guess.

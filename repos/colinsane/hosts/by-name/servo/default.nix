@@ -38,7 +38,6 @@
   # using root here makes sure we always have an escape hatch
   services.getty.autologinUser = "root";
 
-  boot.loader.efi.canTouchEfiVariables = false;
   sane.image.extraBootFiles = [ pkgs.bootpart-uefi-x86_64 ];
 
   # both transmission and ipfs try to set different net defaults.

@@ -56,7 +56,8 @@ let
     # XXX: eval error: need to port past linux_6_4
     # linux-manjaro = callPackage ./additional/linux-manjaro { };
     linux-megous = callPackage ./additional/linux-megous { };
-    linux-postmarketos = callPackage ./additional/linux-postmarketos { };
+    linux-postmarketos = callPackage ./additional/linux-postmarketos { };  #< TODO: rename -> linux-postmarketos-allwinner
+    linux-postmarketos-exynos5 = callPackage ./additional/linux-postmarketos-exynos5 { };
     mcg = callPackage ./additional/mcg { };
     megapixels-next = callPackage ./additional/megapixels-next { };
     modemmanager-split = callPackage ./additional/modemmanager-split { };

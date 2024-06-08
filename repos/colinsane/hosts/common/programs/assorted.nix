@@ -240,6 +240,7 @@ in
       # "powermanga"    # STYLISH space invaders derivative (keyboard-only)
       "shattered-pixel-dungeon"  # doesn't cross compile
       "space-cadet-pinball"  # LMB/RMB controls (bindable though. volume buttons?)
+      "steam"
       "superTux"  # keyboard-only controls
       "superTuxKart"  # poor FPS on pinephone
       "tumiki-fighters" # keyboard-only
@@ -373,7 +374,6 @@ in
       # "slic3r"
       "soundconverter"
       "spotify"  # x86-only
-      "steam"
       "tor-browser"  # x86-only
       # "vlc"
       "wireshark"  # could maybe ship the cli as sysadmin pkg

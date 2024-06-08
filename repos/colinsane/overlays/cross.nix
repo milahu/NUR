@@ -698,6 +698,12 @@ in with final; {
   #   ];
   # });
 
+  # upstreaming: <https://github.com/NixOS/nixpkgs/pull/317477>
+  libvpx = prev.libvpx.overrideAttrs (upstream: {
+    # fails building neon extensions for armv7l; see <https://github.com/NixOS/nixpkgs/issues/208746>
+    configureFlags = builtins.map (lib.replaceStrings [ "armv7l-linux-gcc" ] [ "armv7-linux-gcc" ]) upstream.configureFlags;
+  });
+
   # 2024/05/31: upstreaming blocked on qtsvg, libgweather, appstream, glycin-loaders
   loupe = prev.loupe.overrideAttrs (upstream: {
     postPatch = (upstream.postPatch or "") + ''
@@ -1223,6 +1229,7 @@ in with final; {
   # });
 
   # 2024/05/31: upstreaming is unblocked
+  # implemented: <https://github.com/NixOS/nixpkgs/pull/315119>
   webp-pixbuf-loader = prev.webp-pixbuf-loader.overrideAttrs (upstream: {
     # fixes: "Builder called die: Cannot wrap '/nix/store/kpp8qhzdjqgvw73llka5gpnsj0l4jlg8-gdk-pixbuf-aarch64-unknown-linux-gnu-2.42.10/bin/gdk-pixbuf-thumbnailer' because it is not an executable file"
     # gdk-pixbuf doesn't create a `bin/` directory when cross-compiling, breaks some thumbnailing stuff.

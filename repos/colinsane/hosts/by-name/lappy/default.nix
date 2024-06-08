@@ -13,7 +13,6 @@
   # sane.ovpn.addrV6 = "fd00:0000:1337:cafe:1111:1111:0332:aa96/128";
 
   # sane.guest.enable = true;
-  boot.loader.efi.canTouchEfiVariables = false;
   sane.image.extraBootFiles = [ pkgs.bootpart-uefi-x86_64 ];
 
   sane.programs.stepmania.enableFor.user.colin = true;

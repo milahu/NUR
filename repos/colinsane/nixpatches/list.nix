@@ -32,6 +32,13 @@ in [
   # etc, where "date" is like "20240228181608"
   # and can be found with `nix-repl  > :lf .  > lastModifiedDate`
 
+  # TODO: apply this once it's fixed for aarch64
+  # (fetchpatch' {
+  #   title = "libvpx: fix cross compiling for armv7";
+  #   prUrl = "https://github.com/NixOS/nixpkgs/pull/317477";
+  #   hash = "sha256-5W/5/u2CXJJEgTjPx/do6SRZ6WEfhlAi/qXYS/Lsb14=";
+  # })
+
   (fetchpatch' {
     title = "networkmanager: 1.46.0 → 1.48.0";
     prUrl = "https://github.com/NixOS/nixpkgs/pull/316417";

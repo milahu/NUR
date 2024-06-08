@@ -1,14 +1,68 @@
 #!/bin/sh
 
+showHelp() {
+  echo "update: updates flake inputs"
+  echo "usage: update [flags] [input [input ...]]"
+  echo ""
+  echo "flags:"
+  echo "  --help"
+  echo "  --dry-run"
+  echo "inputs:"
+  echo "  all: update every input"
+  echo "  safe: update inputs which rarely break the build, or are trivial to patch"
+  echo "  unsafe: update inputs which may be annoying to patch if they break the build"
+  echo "  nixpkgs"
+  echo "  next"
+}
+
 inputs=()
+dryRun=
+
+parseArgs() {
+  for arg in "$@"; do
+    case $arg in
+      (--help)
+        showHelp
+        exit 1
+        ;;
+      (--dry-run)
+        dryRun=1
+        ;;
+      (*)
+        addInputs "$arg"
+        ;;
+    esac
+  done
+  # if no inputs were specified, assume "all"
+  if [ ${#inputs} -eq 0 ]; then
+    addInputs all
+  fi
+}
+
+# add $1 to `inputs` array, after parsing it
 addInputs() {
   case $1 in
+    (all)
+      addInputs safe
+      addInputs unsafe
+      ;;
+    (next)
+      addInputs nixpkgs-next-unpatched
+      addInputs nixpkgs-staging-unpatched
+      ;;
     (safe)
-      inputs+=(uninsane-dot-org nixpkgs-unpatched nixpkgs-next-unpatched sops-nix)
+      addInputs next
+      addInputs nixpkgs-unpatched
+      addInputs sops-nix
+      addInputs uninsane-dot-org
       ;;
     (unsafe)
       # these tend to break more frequently
-      inputs+=(mobile-nixos nixpkgs-wayland)
+      addInputs mobile-nixos
+      addInputs nixpkgs-wayland
+      ;;
+    (mobile-nixos|nixpkgs-next-unpatched|nixpkgs-staging-unpatched|nixpkgs-unpatched|nixpkgs-wayland|sops-nix|uninsane-dot-org)
+      inputs+=("$1")
       ;;
     (*)
       echo "unknown input '$1'"
@@ -17,19 +71,21 @@ addInputs() {
   esac
 }
 
-case "$1" in
-  (all|"")
-    addInputs "safe"
-    addInputs "unsafe"
-    ;;
-  (*)
-    addInputs "$1"
-    ;;
-esac
+# exec $@, unless we're in a dry-run in which case just print what would be done
+doEffect() {
+  if [ -n "$dryRun" ]; then
+    echo "dry-run: $*"
+  else
+    "$@"
+  fi
+}
+
+parseArgs "$@"
 
 echo "updating:" "${inputs[@]}"
 nixFlags=()
 for i in "${inputs[@]}"; do
   nixFlags+=("--update-input" "$i")
 done
-nix flake lock "${nixFlags[@]}"
+
+doEffect nix flake lock "${nixFlags[@]}"

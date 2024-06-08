@@ -347,6 +347,15 @@ let
         }
       ];
     };
+    matrix-sdk-ui = crates.matrix-sdk-ui // {
+      dependencies = lib.forEach crates.matrix-sdk-ui.dependencies (d:
+        if d.name == "matrix-sdk" then d // {
+          # XXX(2024/06/04): experimental-oidc feature drags in p384, which fails armv7l cross
+          features = lib.remove "experimental-oidc" d.features;
+        } else
+          d
+      );
+    };
   };
 
   cargoNix = import ./Cargo.nix {

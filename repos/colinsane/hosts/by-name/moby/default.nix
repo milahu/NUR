@@ -60,7 +60,6 @@
     max-quantum = 8192;
   };
 
-  boot.loader.efi.canTouchEfiVariables = false;
   # /boot space is at a premium. default was 20.
   # even 10 can be too much
   boot.loader.generic-extlinux-compatible.configurationLimit = 8;

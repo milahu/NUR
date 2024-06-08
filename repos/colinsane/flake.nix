@@ -44,7 +44,7 @@
     # <https://github.com/nixos/nixpkgs/tree/nixos-unstable>
     # nixpkgs-unpatched.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-unpatched.url = "github:nixos/nixpkgs?ref=master";
-    # nixpkgs-unpatched.url = "github:nixos/nixpkgs?ref=nixos-staging";
+    nixpkgs-staging-unpatched.url = "github:nixos/nixpkgs?ref=staging";
     # nixpkgs-unpatched.url = "github:nixos/nixpkgs?ref=nixos-staging-next";
     nixpkgs-next-unpatched.url = "github:nixos/nixpkgs?ref=staging-next";
 
@@ -81,6 +81,7 @@
     self,
     nixpkgs-unpatched,
     nixpkgs-next-unpatched ? nixpkgs-unpatched,
+    nixpkgs-staging-unpatched ? nixpkgs-unpatched,
     nixpkgs-wayland,
     mobile-nixos,
     sops-nix,
@@ -97,16 +98,25 @@
       # mapAttrs but without the `name` argument
       mapAttrValues = f: mapAttrs (_: f);
 
+      # TODO: rename the various nixpkgs inputs to make this part more straightforward
+      unpatchedNixpkgsByBranch = {
+        master = nixpkgs-unpatched;
+        staging-next = nixpkgs-next-unpatched;
+        staging = nixpkgs-staging-unpatched;
+      };
       # rather than apply our nixpkgs patches as a flake input, do that here instead.
       # this (temporarily?) resolves the bad UX wherein a subflake residing in the same git
       # repo as the main flake causes the main flake to have an unstable hash.
-      patchNixpkgs = variant: nixpkgs: (import ./nixpatches/flake.nix).outputs {
-        inherit variant nixpkgs;
-        self = patchNixpkgs variant nixpkgs;
+      # TODO: rename `variant` -> `branch`
+      patchNixpkgs = variant: (import ./nixpatches/flake.nix).outputs {
+        inherit variant;
+        nixpkgs = unpatchedNixpkgsByBranch."${variant}";
+        self = patchNixpkgs variant;
       };
 
-      nixpkgs' = patchNixpkgs "master" nixpkgs-unpatched;
-      nixpkgsCompiledBy = system: nixpkgs'.legacyPackages."${system}";
+      nixpkgs' = patchNixpkgs "master";
+      nixpkgsCompiledBy = { system, variant ? "master" }:
+        (patchNixpkgs variant).legacyPackages."${system}";
 
       evalHost = { name, local, target, variant ? null, nixpkgs ? nixpkgs' }: nixpkgs.lib.nixosSystem {
         system = target;
@@ -117,7 +127,22 @@
           (optionalAttrs (local != target) {
             # XXX(2023/12/11): cache.nixos.org uses `system = ...` instead of `hostPlatform.system`, and that choice impacts the closure of every package.
             # so avoid specifying hostPlatform.system on non-cross builds, so i can use upstream caches.
-            nixpkgs.hostPlatform.system = target;
+            # nixpkgs.hostPlatform.system = target;
+            nixpkgs.hostPlatform = {
+              system = target;
+            } // optionalAttrs (target == "armv7a-linux") {
+              # as i desperately try to shrink the initramfs...
+              config = "armv7a-unknown-linux-musleabihf";
+              gcc = {
+                # arch = "armv7-a";
+                cpu = "cortex-a15";
+                fpu = "neon-vfpv4";
+                float-abi = "hard";
+              };
+              linux-kernel = {
+                target = "zImage";
+              };
+            };
           })
           (optionalAttrs (variant == "light") {
             sane.maxBuildCost = 2;
@@ -144,18 +169,27 @@
           desko-light = { name = "desko";  local = "x86_64-linux"; target = "x86_64-linux";  variant = "light"; };
           lappy       = { name = "lappy";  local = "x86_64-linux"; target = "x86_64-linux";  };
           lappy-light = { name = "lappy";  local = "x86_64-linux"; target = "x86_64-linux";  variant = "light"; };
-          lappy-min =   { name = "lappy";  local = "x86_64-linux"; target = "x86_64-linux";  variant = "min"; };
+          lappy-min   = { name = "lappy";  local = "x86_64-linux"; target = "x86_64-linux";  variant = "min"; };
           moby        = { name = "moby";   local = "x86_64-linux"; target = "aarch64-linux"; };
           moby-light  = { name = "moby";   local = "x86_64-linux"; target = "aarch64-linux"; variant = "light"; };
-          moby-min  =   { name = "moby";   local = "x86_64-linux"; target = "aarch64-linux"; variant = "min"; };
+          moby-min    = { name = "moby";   local = "x86_64-linux"; target = "aarch64-linux"; variant = "min"; };
+          # crappy is technically armv7a, and armv7l uses only a _subset_ of the available ISA.
+          # but flakes don't expose that as a target.
+          crappy      = { name = "crappy"; local = "x86_64-linux"; target = "armv7l-linux"; };
+          crappy-min  = { name = "crappy"; local = "x86_64-linux"; target = "armv7l-linux"; variant = "min"; };
+          crappy-musl = { name = "crappy"; local = "x86_64-linux"; target = "armv7a-linux"; variant = "min"; };
           rescue      = { name = "rescue"; local = "x86_64-linux"; target = "x86_64-linux";  };
         };
         hostsNext = mapAttrs' (h: v: {
           name = "${h}-next";
-          value = v // { nixpkgs = patchNixpkgs "staging-next" nixpkgs-next-unpatched; };
+          value = v // { nixpkgs = patchNixpkgs "staging-next"; };
+        }) hosts;
+        hostsStaging = mapAttrs' (h: v: {
+          name = "${h}-staging";
+          value = v // { nixpkgs = patchNixpkgs "staging"; };
         }) hosts;
       in mapAttrValues evalHost (
-        hosts // hostsNext
+        hosts // hostsNext // hostsStaging
       );
 
       # unofficial output
@@ -222,12 +256,26 @@
       # this includes both our native packages and all the nixpkgs packages.
       legacyPackages =
         let
-          allPkgsFor = sys: (nixpkgsCompiledBy sys).appendOverlays [
-            self.overlays.passthru self.overlays.pkgs
-          ];
+          allPkgsFor = variant: additionalOverlays: system:
+            (nixpkgsCompiledBy { inherit system variant; })
+            .appendOverlays (
+              [
+                self.overlays.passthru
+                self.overlays.pkgs
+              ] ++ additionalOverlays
+            );
+          allPkgsFor' = system: allPkgsFor
+            "master"
+            [(self: super: {
+              # build `pkgsNext.FOO` to build the package FOO from nixpkgs staging-next branch
+              pkgsNext = allPkgsFor "staging-next" [] system;
+              pkgsStaging = allPkgsFor "staging" [] system;
+            })]
+            system
+          ;
         in {
-          x86_64-linux = allPkgsFor "x86_64-linux";
-          aarch64-linux = allPkgsFor "aarch64-linux";
+          x86_64-linux = allPkgsFor' "x86_64-linux";
+          aarch64-linux = allPkgsFor' "aarch64-linux";
         };
 
       # extract only our own packages from the full set.
@@ -250,7 +298,7 @@
         )
         # self.legacyPackages;
         {
-          x86_64-linux = (nixpkgsCompiledBy "x86_64-linux").appendOverlays [
+          x86_64-linux = (nixpkgsCompiledBy { system = "x86_64-linux"; }).appendOverlays [
             self.overlays.passthru
           ];
         }
@@ -635,6 +683,19 @@
           path = ./templates/env/python-data;
           description = "python environment for data processing";
         };
+
+        pkgs.make = {
+          # initialize with:
+          # - `nix flake init -t '/home/colin/dev/nixos/#pkgs.make'`
+          path = ./templates/pkgs/make;
+          description = "default Makefile-based derivation";
+        };
+        pkgs.python = {
+          # initialize with:
+          # - `nix flake init -t '/home/colin/dev/nixos/#pkgs.python'`
+          path = ./templates/pkgs/python;
+          description = "python package";
+        };
         pkgs.rust-inline = {
           # initialize with:
           # - `nix flake init -t '/home/colin/dev/nixos/#pkgs.rust-inline'`
@@ -646,12 +707,6 @@
           # - `nix flake init -t '/home/colin/dev/nixos/#pkgs.rust'`
           path = ./templates/pkgs/rust;
           description = "rust package fit to ship in nixpkgs";
-        };
-        pkgs.make = {
-          # initialize with:
-          # - `nix flake init -t '/home/colin/dev/nixos/#pkgs.make'`
-          path = ./templates/pkgs/make;
-          description = "default Makefile-based derivation";
         };
       };
     };
