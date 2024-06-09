@@ -42,7 +42,7 @@
           enableXfconf = false;
           enableSqlite3 = false;
           enableRpm = false;
-          enableImagemagick7 = false;
+          enableImagemagick = false;
           enableChafa = false;
           enableZlib = false;
           enableEgl = false;

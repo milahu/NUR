@@ -9,7 +9,7 @@ stdenvNoCC.mkDerivation {
   version = "0-unstable-2024-05-02";
 
   src = fetchzip {
-    url = "https://mooi.moe/assets/emoji/neobun.zip";
+    url = "https://hofnarretje.eu/assets/emoji/neobun.zip";
     hash = "sha256-TCzMVu04zWtLyaOmN28Pp3v5V6k1/5QqGm5Gw/tTntg=";
   };
 

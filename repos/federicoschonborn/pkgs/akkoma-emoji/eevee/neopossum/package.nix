@@ -5,12 +5,12 @@
 }:
 
 stdenvNoCC.mkDerivation {
-  pname = "eppa-neocube";
-  version = "0-unstable-2024-05-25";
+  pname = "eevee-neopossum";
+  version = "0-unstable-2024-03-04";
 
   src = fetchzip {
-    url = "https://hofnarretje.eu/assets/emoji/neocube.zip";
-    hash = "sha256-8+0QVl+6zSZ98VixT1WP0XMZ7Cf55o42tZmG73RVqrg=";
+    url = "https://skunks.gay/download/neopossum-256px_v0.5.zip";
+    hash = "sha256-md1CKmw+UroixUdW+AceXdGQmzcwT+KkZt3AnYx/xFw=";
   };
 
   installPhase = ''
@@ -23,7 +23,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = {
-    description = "A set of emojis featuring a familiar cube";
+    description = "A set of emojis featuring a bun";
     homepage = "https://mooi.moe/emoji.html";
     license = lib.licenses.unfree; # TODO: ?
     platforms = lib.platforms.all;

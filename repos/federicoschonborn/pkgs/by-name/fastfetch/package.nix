@@ -9,7 +9,12 @@
   yyjson,
   nix-update-script,
 
-  enableVulkan ? stdenv.isLinux || stdenv.isDarwin || stdenv.isBSD || stdenv.isCygwin,
+  enableVulkan ?
+    stdenv.isLinux
+    || stdenv.isDarwin
+    || stdenv.isBSD
+    || stdenv.hostPlatform.isWindows
+    || stdenv.hostPlatform.isAndroid,
   vulkan-loader,
   enableWayland ? stdenv.isLinux || stdenv.isBSD,
   wayland,
@@ -32,11 +37,12 @@
   sqlite,
   enableRpm ? stdenv.isLinux,
   rpm,
-  enableImagemagick7 ? stdenv.isLinux || stdenv.isDarwin || stdenv.isBSD || stdenv.isCygwin,
+  enableImagemagick ?
+    stdenv.isLinux || stdenv.isDarwin || stdenv.isBSD || stdenv.hostPlatform.isWindows,
   imagemagick,
-  enableChafa ? enableImagemagick7,
+  enableChafa ? enableImagemagick,
   chafa,
-  enableZlib ? enableImagemagick7,
+  enableZlib ? enableImagemagick,
   zlib,
   enableEgl ? stdenv.isLinux || stdenv.isBSD,
   libGL,
@@ -44,12 +50,12 @@
   libglvnd,
   enableOsmesa ? stdenv.isLinux || stdenv.isBSD,
   mesa,
-  enableOpencl ? stdenv.isLinux || stdenv.isBSD,
+  enableOpencl ? stdenv.isLinux || stdenv.isBSD || stdenv.hostPlatform.isWindows,
   ocl-icd,
   opencl-headers,
   enableLibnm ? stdenv.isLinux,
   networkmanager,
-  enableFreetype ? false, # Android
+  enableFreetype ? stdenv.hostPlatform.isAndroid,
   freetype,
   enablePulse ? stdenv.isLinux,
   pulseaudio,
@@ -62,13 +68,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "fastfetch";
-  version = "2.14.0";
+  version = "2.15.0";
 
   src = fetchFromGitHub {
     owner = "fastfetch-cli";
     repo = "fastfetch";
     rev = finalAttrs.version;
-    hash = "sha256-RJDRxH9VKNxBSfoFl1rDTeKKyLC3C09F0Z3ksJoMDRk=";
+    hash = "sha256-0kReN7FKrcRhxUuwZoArLTW2F1q40Wbp9/hRoDjKZHs=";
   };
 
   nativeBuildInputs = [
@@ -92,7 +98,7 @@ stdenv.mkDerivation (finalAttrs: {
     ++ lib.optional enableXfconf xfce.xfconf
     ++ lib.optional enableSqlite3 sqlite
     ++ lib.optional enableRpm rpm
-    ++ lib.optional enableImagemagick7 imagemagick
+    ++ lib.optional enableImagemagick imagemagick
     ++ lib.optional enableChafa chafa
     ++ lib.optional enableZlib zlib
     ++ lib.optional enableEgl libGL
@@ -124,7 +130,8 @@ stdenv.mkDerivation (finalAttrs: {
     (lib.cmakeBool "ENABLE_XFCONF" enableXfconf)
     (lib.cmakeBool "ENABLE_SQLITE3" enableSqlite3)
     (lib.cmakeBool "ENABLE_RPM" enableRpm)
-    (lib.cmakeBool "ENABLE_IMAGEMAGICK7" enableImagemagick7)
+    (lib.cmakeBool "ENABLE_IMAGEMAGICK7" enableImagemagick)
+    (lib.cmakeBool "ENABLE_IMAGEMAGICK6" false)
     (lib.cmakeBool "ENABLE_CHAFA" enableChafa)
     (lib.cmakeBool "ENABLE_ZLIB" enableZlib)
     (lib.cmakeBool "ENABLE_EGL" enableEgl)

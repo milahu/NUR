@@ -56,11 +56,23 @@
             config.allowUnfreePredicate =
               p:
               builtins.elem (lib.getName p) [
+                "eevee-neopossum"
                 "eppa-neobun"
                 "eppa-neocube"
+                "fotoente-neodino"
+                "fotoente-neohaj"
+                "fotoente-neomilk"
+                "fotoente-neotrain"
                 "renere-spinny-blobcats"
                 "renere-spinny-blobfoxes"
                 "renere-spinny-blobs"
+                "olivvybee-blobbee"
+                "olivvybee-fox"
+                "olivvybee-neobread"
+                "olivvybee-neocat"
+                "olivvybee-neodlr"
+                "olivvybee-neofox"
+                "olivvybee-neossb"
                 "volpeon-drgn"
                 "volpeon-floof"
                 "volpeon-gphn"

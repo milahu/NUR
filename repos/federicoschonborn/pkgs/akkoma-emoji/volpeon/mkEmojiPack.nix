@@ -4,13 +4,19 @@
   fetchzip,
 }:
 
+{
+  name,
+  version,
+  hash,
+}:
+
 stdenvNoCC.mkDerivation {
-  pname = "volpeon-neofox";
-  version = "1.3";
+  pname = "volpeon-${name}";
+  inherit version;
 
   src = fetchzip {
-    url = "https://volpeon.ink/emojis/neofox/neofox.zip";
-    hash = "sha256-zHbiRiEOwGlmm9TRvL25ngCK04rJHzYsLxz2PUjf3GA=";
+    url = "https://volpeon.ink/emojis/${name}/${name}.zip";
+    inherit hash;
     stripRoot = false;
   };
 
@@ -24,8 +30,8 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = {
-    description = "Neofox emoji pack";
-    homepage = "https://volpeon.ink/emojis/neofox/";
+    description = "${name} emoji pack";
+    homepage = "https://volpeon.ink/emojis/${name}/";
     license = lib.licenses.cc-by-nc-sa-40;
     platforms = lib.platforms.all;
     # maintainers = [ lib.maintainers.federicoschonborn ];
