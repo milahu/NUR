@@ -183,13 +183,13 @@
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "eb8a8f404430fc7680582634da39e7b4fd59bf06";
+    version = "4f3269f67b5d86b9c65c1e013ae6da20aa44e791";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "eb8a8f404430fc7680582634da39e7b4fd59bf06";
+      rev = "4f3269f67b5d86b9c65c1e013ae6da20aa44e791";
       fetchSubmodules = false;
-      sha256 = "sha256-A7hUBH5EO0URFxGggIR3D36tV3JBGK9SsXybGnH3XB8=";
+      sha256 = "sha256-Q/0ceiz+m62MPsDj0VNy5HJWTENupCnyNcQiuRfsK4E=";
     };
     date = "2024-06-07";
   };
@@ -539,6 +539,17 @@
     };
     date = "2024-05-08";
   };
+  imewlconverter = {
+    pname = "imewlconverter";
+    version = "v3.1.0";
+    src = fetchFromGitHub {
+      owner = "studyzy";
+      repo = "imewlconverter";
+      rev = "v3.1.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-TSB0SmRoI79nlGlFm/+FQ8GymhCEkuNKX0NXHHw0u8s=";
+    };
+  };
   jproxy = {
     pname = "jproxy";
     version = "v3.4.1";
@@ -603,15 +614,14 @@
   };
   liboqs = {
     pname = "liboqs";
-    version = "971173ad82327ede5027b6d48e81bcaff92f417c";
+    version = "0.10.1";
     src = fetchFromGitHub {
       owner = "open-quantum-safe";
       repo = "liboqs";
-      rev = "971173ad82327ede5027b6d48e81bcaff92f417c";
+      rev = "0.10.1";
       fetchSubmodules = false;
-      sha256 = "sha256-eRHLL/t/yMQgpA4YqTks5dyR7OwO5iz1I4CFNFwIP6M=";
+      sha256 = "sha256-zsSKFUs75K0Byxh3KVCZ8lIOf/vpbyMJXfk6fa2u+aE=";
     };
-    date = "2024-06-05";
   };
   libqcef = {
     pname = "libqcef";
@@ -1199,6 +1209,14 @@
       sha256 = "sha256-zLzQXSsKwgr7OsyYllyoLNSF9q4mJA5ZYD7v7oagfaE=";
     };
     date = "2022-08-28";
+  };
+  rime-custom-pinyin-dictionary = {
+    pname = "rime-custom-pinyin-dictionary";
+    version = "20240517";
+    src = fetchurl {
+      url = "https://github.com/wuhgit/CustomPinyinDictionary/releases/download/assets/CustomPinyinDictionary_Fcitx_20240517.tar.gz";
+      sha256 = "sha256-zZfhRcBQQFcGGy1fiNdA//IOXoMiyasUUDcUcYFDUj0=";
+    };
   };
   rime-dict = {
     pname = "rime-dict";
