@@ -51,13 +51,13 @@
   };
   candy = {
     pname = "candy";
-    version = "7429ad17c1968a18935014c32e70429d6c0811e5";
+    version = "437806b309d78284cbd08b55ef6eea155a72154c";
     src = fetchFromGitHub {
       owner = "lanthora";
       repo = "candy";
-      rev = "7429ad17c1968a18935014c32e70429d6c0811e5";
+      rev = "437806b309d78284cbd08b55ef6eea155a72154c";
       fetchSubmodules = false;
-      sha256 = "sha256-A5kukIChhV4nJroJA6Qi2yEtHMtbPvXHY6o55d6vAKo=";
+      sha256 = "sha256-jwDH7ot7xWCWsj/r8jV6G8J45NMcOA6J+S5ZopWRx0I=";
     };
     date = "2024-06-08";
   };
@@ -75,15 +75,15 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "c31d9ef4172452f6f219f91d9b87a24d91f0cf3a";
+    version = "9994b73ad0af5c9ba5fc4058234cea77d0a1ddb1";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "c31d9ef4172452f6f219f91d9b87a24d91f0cf3a";
+      rev = "9994b73ad0af5c9ba5fc4058234cea77d0a1ddb1";
       fetchSubmodules = true;
-      sha256 = "sha256-rU23X1kppflHachNGlwjjVNtz5haTVgFAUrrQjRE1o0=";
+      sha256 = "sha256-+ltqQfQljE9L0x743LkYtkjHjJqPQmumEGeA8GZ4DoQ=";
     };
-    date = "2024-06-07";
+    date = "2024-06-08";
   };
   hyprwayland-scanner = {
     pname = "hyprwayland-scanner";
@@ -136,27 +136,27 @@
   };
   llamafile = {
     pname = "llamafile";
-    version = "842a421c67fdf909d6cd8690b1204894add5a4eb";
+    version = "c38feb4f4896216458b77665aca532897476c040";
     src = fetchFromGitHub {
       owner = "Mozilla-Ocho";
       repo = "llamafile";
-      rev = "842a421c67fdf909d6cd8690b1204894add5a4eb";
+      rev = "c38feb4f4896216458b77665aca532897476c040";
       fetchSubmodules = false;
-      sha256 = "sha256-QYRn3mWLttB3spCKtBOHb53RpcPIBmjdqXX9vsljWEk=";
+      sha256 = "sha256-XdLOfty1fzEk66zXLD974tiaQbTTfupFmU9aioNZrHw=";
     };
-    date = "2024-06-06";
+    date = "2024-06-07";
   };
   nbfc-linux = {
     pname = "nbfc-linux";
-    version = "b444993529ade53672712d2666d23d3fab0e09e4";
+    version = "ca28f09ee0bab786a16f937fd07ea031ee43f130";
     src = fetchFromGitHub {
       owner = "nbfc-linux";
       repo = "nbfc-linux";
-      rev = "b444993529ade53672712d2666d23d3fab0e09e4";
+      rev = "ca28f09ee0bab786a16f937fd07ea031ee43f130";
       fetchSubmodules = false;
-      sha256 = "sha256-6QGtOsyB1EUnLtfAbgDAmeRlAMy4sR27AicEgPec+pA=";
+      sha256 = "sha256-1tLW/xEh01y8BjVbgIa95DkYWf7CDVSo/lI/1U28Xs8=";
     };
-    date = "2024-06-07";
+    date = "2024-06-08";
   };
   ncmdump_rs = {
     pname = "ncmdump_rs";
@@ -196,15 +196,15 @@
   };
   openmw = {
     pname = "openmw";
-    version = "176e6490c560082ef6617e88aacd473667c3c45e";
+    version = "9087de1596b67f710b4b6de0f7e7e184166d2b78";
     src = fetchFromGitHub {
       owner = "OpenMW";
       repo = "openmw";
-      rev = "176e6490c560082ef6617e88aacd473667c3c45e";
+      rev = "9087de1596b67f710b4b6de0f7e7e184166d2b78";
       fetchSubmodules = true;
-      sha256 = "sha256-SqxXKg53DvNCGAxRKy7qLRS7gqebhAPPmYiRn085Q3E=";
+      sha256 = "sha256-5FBA5XYsjECR88MEfalNHcHC31Qqp8Nc7ozJ10eEQCM=";
     };
-    date = "2024-06-07";
+    date = "2024-06-08";
   };
   portkey = {
     pname = "portkey";
