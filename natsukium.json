@@ -1,16 +1,16 @@
 {
 "name":"natsukium",
-"fetch_time":0.226,
-"eval_time":0.785,
+"fetch_time":0.431,
+"eval_time":0.844,
 "source":{
 "url":"https://github.com/natsukium/nur-packages",
-"rev":"b2888d6238f61eb61f3ce6e136634fd870e3b0c0",
-"sha256":"074ndjzdlhq6sj8l2x7csgm86whybl7s1h5mlzl36y41qvh2hsvm",
-"date":"2024-06-08T19:14:58Z"
+"rev":"ee9d2201f08928c48df9958f67237de0390345d3",
+"sha256":"1xcg38ggv5cl7jh57pq6pivvbi7gg72xr1sqsdjwx6dysf36626p",
+"date":null
 },
-"source_storepath":"/nix/store/7ab2vc8dhsirrgdxnmw8wb7q9ah4bsf5-source",
-"nixpkgs_storepath":"/nix/store/p1jd5gjrm63i761flgjnjvgjld0cs7dr-source",
-"nur_combined_rev":"70004c5eabe621df3cde7aa822c7bcf4d881ffde",
+"source_storepath":"/nix/store/fgxpcm3igzvwrds5wfab45ynymyff209-source",
+"nixpkgs_storepath":"/nix/store/kzrin076varhg207gr372xidn5657l2c-source",
+"nur_combined_rev":"d57bd79883c324d8d7d4955eae1c3c983b52a479",
 "packages":{
 "bclm":{
 "meta":{
@@ -69,7 +69,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Patched colima which supports xdg base directory on darwin",
+"description":"Container runtimes with minimal setup",
 "homepage":"https://github.com/abiosoft/colima",
 "insecure":false,
 "license":{
@@ -96,7 +96,7 @@
 "name":"Thibault Gagnaux"
 }
 ],
-"name":"colima-0.6.9-1",
+"name":"colima-0.6.9",
 "outputsToInstall":[
 "out"
 ],
@@ -129,22 +129,22 @@
 "wasm64-wasi",
 "wasm32-wasi"
 ],
-"position":"./pkgs/colima/default.nix:18",
+"position":"<nixpkgs> + /pkgs/applications/virtualization/colima/default.nix:67",
 "unfree":false,
 "unsupported":false
 },
-"name":"colima-0.6.9-1",
+"name":"colima-0.6.9",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"colima",
 "system":"x86_64-linux",
-"version":"0.6.9-1"
+"version":"0.6.9"
 },
 "copyq":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"Clipboard Manager with Advanced Features",
 "homepage":"https://hluk.github.io/CopyQ",
@@ -158,23 +158,53 @@
 "spdxId":"GPL-3.0-only",
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
-"name":"copyq-8.0.0",
+"mainProgram":"copyq",
+"maintainers":[
+{
+"email":"artturin@artturin.com",
+"github":"Artturin",
+"githubId":56650223,
+"matrix":"@artturin:matrix.org",
+"name":"Artturi N"
+}
+],
+"name":"CopyQ-8.0.0",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
-"aarch64-darwin"
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux"
 ],
-"position":"./pkgs/copyq/default.nix:33",
+"position":"<nixpkgs> + /pkgs/applications/misc/copyq/default.nix:59",
 "unfree":false,
-"unsupported":true
+"unsupported":false
 },
-"name":"copyq-8.0.0",
+"name":"CopyQ-8.0.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"copyq",
+"pname":"CopyQ",
 "system":"x86_64-linux",
 "version":"8.0.0"
 },
@@ -495,8 +525,9 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"nixfmt adoped rfc101/166 style",
-"homepage":"https://github.com/NixOS/nixfmt",
+"description":"An opinionated formatter for Nix",
+"homepage":"https://hackage.haskell.org/package/nixfmt",
+"hydraPlatforms":[],
 "insecure":false,
 "license":{
 "deprecated":false,
@@ -508,7 +539,7 @@
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
 "mainProgram":"nixfmt",
-"name":"nixfmt-0.6.0-rfc-2024-05-28",
+"name":"nixfmt-0.6.0",
 "outputsToInstall":[
 "bin"
 ],
@@ -593,7 +624,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nixfmt-0.6.0-rfc-2024-05-28",
+"name":"nixfmt-0.6.0",
 "outputName":"bin",
 "outputs":{
 "bin":null,
@@ -602,15 +633,15 @@
 },
 "pname":"nixfmt",
 "system":"x86_64-linux",
-"version":"0.6.0-rfc-2024-05-28"
+"version":"0.6.0"
 },
 "nixpkgs-review":{
 "meta":{
 "available":true,
 "broken":false,
 "changelog":"https://github.com/Mic92/nixpkgs-review/releases/tag/2.10.4",
-"description":"Patched version of nixpkgs-review with additional features",
-"homepage":"https://github.com/natsukium/nixpkgs-review",
+"description":"Review pull-requests on https://github.com/NixOS/nixpkgs",
+"homepage":"https://github.com/Mic92/nixpkgs-review",
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
@@ -674,7 +705,7 @@
 "name":"J\u00f6rg Thalheim"
 }
 ],
-"name":"nixpkgs-review-2.10.4-fork-2024-02-20",
+"name":"nixpkgs-review-2.10.4",
 "outputsToInstall":[
 "out"
 ],
@@ -709,11 +740,11 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/nixpkgs-review/default.nix:19",
+"position":"<nixpkgs> + /pkgs/tools/package-management/nixpkgs-review/default.nix:64",
 "unfree":false,
 "unsupported":false
 },
-"name":"nixpkgs-review-2.10.4-fork-2024-02-20",
+"name":"nixpkgs-review-2.10.4",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -721,46 +752,7 @@
 },
 "pname":"nixpkgs-review",
 "system":"x86_64-linux",
-"version":"2.10.4-fork-2024-02-20"
-},
-"nowplaying-cli":{
-"meta":{
-"available":false,
-"broken":false,
-"description":"A commandline utility for currently playing media for macOS",
-"homepage":"https://github.com/kirtan-shah/nowplaying-cli",
-"insecure":false,
-"license":{
-"deprecated":true,
-"free":true,
-"fullName":"GNU General Public License v3.0",
-"redistributable":true,
-"shortName":"gpl3",
-"spdxId":"GPL-3.0",
-"url":"https://spdx.org/licenses/GPL-3.0.html"
-},
-"name":"nowplaying-cli-1.2.1",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"armv7a-darwin"
-],
-"position":"./pkgs/nowplaying-cli/default.nix:21",
-"unfree":false,
-"unsupported":true
-},
-"name":"nowplaying-cli-1.2.1",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"nowplaying-cli",
-"system":"x86_64-linux",
-"version":"1.2.1"
+"version":"2.10.4"
 },
 "psipred":{
 "meta":{
@@ -859,37 +851,113 @@
 },
 "qutebrowser":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
+"changelog":"https://github.com/qutebrowser/qutebrowser/blob/v3.2.0/doc/changelog.asciidoc",
 "description":"Keyboard-focused browser with a minimal GUI",
 "homepage":"https://github.com/qutebrowser/qutebrowser",
 "insecure":false,
+"isBuildPythonPackage":[
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin",
+"i686-cygwin",
+"x86_64-cygwin",
+"x86_64-windows",
+"i686-windows"
+],
 "license":{
-"deprecated":true,
+"deprecated":false,
 "free":true,
-"fullName":"GNU General Public License v3.0",
+"fullName":"GNU General Public License v3.0 or later",
 "redistributable":true,
-"shortName":"gpl3",
-"spdxId":"GPL-3.0",
-"url":"https://spdx.org/licenses/GPL-3.0.html"
+"shortName":"gpl3Plus",
+"spdxId":"GPL-3.0-or-later",
+"url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
 },
+"mainProgram":"qutebrowser",
+"maintainers":[
+{
+"email":"ars.seroka@gmail.com",
+"github":"jagajaga",
+"githubId":2179419,
+"name":"Arseniy Seroka"
+},
+{
+"email":"rnhmjoj@inventati.org",
+"github":"rnhmjoj",
+"githubId":2817565,
+"keys":[
+{
+"fingerprint":"92B2 904F D293 C94D C4C9  3E6B BFBA F4C9 75F7 6450"
+}
+],
+"matrix":"@rnhmjoj:maxwell.ydns.eu",
+"name":"Michele Guerini Rocco"
+},
+{
+"email":"ebzzry@ebzzry.io",
+"github":"ebzzry",
+"githubId":7875,
+"name":"Rommel Martinez"
+},
+{
+"email":"rschuetz17@gmail.com",
+"github":"dotlambda",
+"githubId":6806011,
+"matrix":"@robert:funklause.de",
+"name":"Robert Sch\u00fctz"
+},
+{
+"email":"tim.deh@pm.me",
+"github":"nrdxp",
+"githubId":34083928,
+"matrix":"@timdeh:matrix.org",
+"name":"Tim DeHerrera"
+}
+],
 "name":"qutebrowser-3.2.0",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin"
+"aarch64-linux",
+"armv7a-linux",
+"armv7l-linux",
+"x86_64-linux"
 ],
-"position":"./pkgs/qutebrowser/default.nix:23",
+"position":"<nixpkgs> + /pkgs/applications/networking/browsers/qutebrowser/default.nix:127",
 "unfree":false,
-"unsupported":true
+"unsupported":false
 },
 "name":"qutebrowser-3.2.0",
 "outputName":"out",
 "outputs":{
+"dist":null,
 "out":null
 },
 "pname":"qutebrowser",
@@ -900,8 +968,8 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Patched version of rofi-rbw with fuzzel support",
-"homepage":"https://github.com/natsukium/rofi-rbw",
+"description":"Rofi frontend for Bitwarden",
+"homepage":"https://github.com/fdw/rofi-rbw",
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
@@ -985,7 +1053,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/rofi-rbw/default.nix:16",
+"position":"<nixpkgs> + /pkgs/applications/misc/rofi-rbw/default.nix:68",
 "unfree":false,
 "unsupported":false
 },
@@ -1414,11 +1482,11 @@
 "system":"x86_64-linux",
 "version":"2.5.0"
 },
-"vivaldi-bin":{
+"vivaldi":{
 "meta":{
 "available":false,
 "broken":false,
-"description":"A Browser for our Friends powerful and personal",
+"description":"A Browser for our Friends, powerful and personal",
 "homepage":"https://vivaldi.com",
 "insecure":false,
 "license":{
@@ -1430,39 +1498,44 @@
 },
 "maintainers":[
 {
-"email":"nixpkgs@natsukium.com",
-"github":"natsukium",
-"githubId":25083790,
-"keys":[
+"email":"slawek@otwiera.cz",
+"github":"otwieracz",
+"githubId":108072,
+"name":"Slawomir Gonet"
+},
 {
-"fingerprint":"3D14 6004 004C F882 D519  6CD4 9EA4 5A31 DB99 4C53"
+"email":"github@badi.sh",
+"github":"badmutex",
+"githubId":35324,
+"name":"Badi' Abdul-Wahid"
 }
 ],
-"name":"Tomoya Otabi"
-}
-],
-"name":"vivaldi-6.7.3329.39",
+"name":"vivaldi-6.7.3329.35",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"armv7a-darwin"
+"x86_64-linux",
+"aarch64-linux"
 ],
-"position":"./pkgs/vivaldi/default.nix:43",
+"position":"<nixpkgs> + /pkgs/applications/networking/browsers/vivaldi/default.nix:127",
+"sourceProvenance":[
+{
+"isSource":false,
+"shortName":"binaryNativeCode"
+}
+],
 "unfree":true,
-"unsupported":true
+"unsupported":false
 },
-"name":"vivaldi-6.7.3329.39",
+"name":"vivaldi-6.7.3329.35",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vivaldi",
 "system":"x86_64-linux",
-"version":"6.7.3329.39"
+"version":"6.7.3329.35"
 }
 }
 }
