@@ -1,0 +1,8 @@
+error: attribute 'wrapMpv' missing
+
+at ./default.nix:80:9:
+
+    79|   qcm = pkgs.qt6.callPackage ./pkgs/Overrides/qcm { };
+    80|   mpv = pkgs.wrapMpv (pkgs.mpv.unwrapped.override { cddaSupport = true; }) { scripts = [ pkgs.mpvScripts.mpris ]; };
+      |         ^
+    81|   sway-im = pkgs.callPackage ./pkgs/Overrides/sway-im { };

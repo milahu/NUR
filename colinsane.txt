@@ -1,21 +1,21 @@
 error:
 … while calling anonymous lambda
 
-  at ./pkgs/default.nix:179:15:
+  at ./pkgs/default.nix:181:15:
 
-   178|     // (lib.mapAttrs
-   179|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
+   180|     // (lib.mapAttrs
+   181|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
       |               ^
-   180|         unpatched."${pname}"
+   182|         unpatched."${pname}"
 
 … from call site
 
-  at ./pkgs/default.nix:62:20:
+  at ./pkgs/default.nix:63:20:
 
-    61|     megapixels-next = callPackage ./additional/megapixels-next { };
-    62|     mobile-nixos = callPackage ./additional/mobile-nixos { };
+    62|     megapixels-next = callPackage ./additional/megapixels-next { };
+    63|     mobile-nixos = callPackage ./additional/mobile-nixos { };
       |                    ^
-    63|     modemmanager-split = callPackage ./additional/modemmanager-split { };
+    64|     modemmanager-split = callPackage ./additional/modemmanager-split { };
 
 … while calling 'callPackageWith'
 
