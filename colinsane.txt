@@ -65,7 +65,7 @@ error:
 
   at ./pkgs/additional/mobile-nixos/default.nix:16:4:
 
-    15|   final = pkgs.appendOverlays [ overlay ];
+    15|   final = pkgs.extend overlay;
     16| in src.overrideAttrs (base: {
       |    ^
     17|   # passthru only mobile-nixos' own packages -- not the whole nixpkgs-with-mobile-nixos-as-overlay:
