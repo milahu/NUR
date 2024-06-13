@@ -1,16 +1,16 @@
 {
 "name":"kira-bruneau",
-"fetch_time":0.26,
-"eval_time":0.386,
+"fetch_time":0.397,
+"eval_time":0.416,
 "source":{
 "url":"https://gitlab.com/kira-bruneau/nur-packages",
-"rev":"8499d2ef987448e94054341d5ea1b9bfd513f6ee",
-"sha256":"1pjrbbv2jzy9ld9v6y7vcdjdwc3i9f1dsv2yazh4sgyq8jwr41q9",
+"rev":"2fb09bcdd1db3fba89c258444eacc35c71f4c878",
+"sha256":"1k4dglzsmdi4g89s4krznbrzb0pn5zxx94mcrs7nv7ynh3dibypp",
 "date":null
 },
-"source_storepath":"/nix/store/z4dl7rznlmn23gk3xfjyyrj8kpj1l6rf-source",
-"nixpkgs_storepath":"/nix/store/p1jd5gjrm63i761flgjnjvgjld0cs7dr-source",
-"nur_combined_rev":"fbd642fb09914fda2b6df0c4187d12db572c3a4c",
+"source_storepath":"/nix/store/qf0mwbzsnjnjn21ycx3z8p10m3v0y8d0-source",
+"nixpkgs_storepath":"/nix/store/66465fqnn61lwwqw0w7nr5y9cq8ipz3h-source",
+"nur_combined_rev":"124fd3e94d89db0b01529926e3212ec76f726b01",
 "packages":{
 "anytype":{
 "meta":{
@@ -36,7 +36,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-0.40.9",
+"name":"anytype-0.41.0",
 "outputsToInstall":[
 "out"
 ],
@@ -67,20 +67,20 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-0.40.9",
+"name":"anytype-0.41.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype",
 "system":"x86_64-linux",
-"version":"0.40.9"
+"version":"0.41.0"
 },
 "anytype-heart":{
 "meta":{
 "available":false,
 "broken":false,
-"changelog":"https://github.com/anyproto/anytype-heart/releases/tag/v0.33.6",
+"changelog":"https://github.com/anyproto/anytype-heart/releases/tag/v0.34.0",
 "description":"Shared library for Anytype clients",
 "homepage":"https://github.com/anyproto/anytype-heart",
 "insecure":false,
@@ -100,7 +100,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-heart-0.33.6",
+"name":"anytype-heart-0.34.0",
 "outputsToInstall":[
 "out"
 ],
@@ -131,14 +131,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-heart-0.33.6",
+"name":"anytype-heart-0.34.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype-heart",
 "system":"x86_64-linux",
-"version":"0.33.6"
+"version":"0.34.0"
 },
 "anytype-nmh":{
 "meta":{
@@ -164,7 +164,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-0.40.9",
+"name":"anytype-0.41.0",
 "outputsToInstall":[
 "out"
 ],
@@ -195,14 +195,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-nmh-0.40.9",
+"name":"anytype-nmh-0.41.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype-nmh",
 "system":"x86_64-linux",
-"version":"0.40.9"
+"version":"0.41.0"
 },
 "ccache":{
 "meta":{
@@ -488,7 +488,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-acm-20240608.837",
+"name":"emacs-acm-20240612.1425",
 "outputsToInstall":[
 "out"
 ],
@@ -573,14 +573,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-acm-20240608.837",
+"name":"emacs-acm-20240612.1425",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-acm",
 "system":"x86_64-linux",
-"version":"20240608.837"
+"version":"20240612.1425"
 },
 "emacsPackages.acm-terminal":{
 "meta":{
@@ -704,7 +704,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"A blazingly fast LSP client for Emacs",
+"description":"Blazingly fast LSP client for Emacs",
 "homepage":"https://github.com/manateelazycat/lsp-bridge",
 "insecure":false,
 "license":{
@@ -730,7 +730,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-lsp-bridge-20240608.837",
+"name":"emacs-lsp-bridge-20240612.1425",
 "outputsToInstall":[
 "out"
 ],
@@ -815,14 +815,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-lsp-bridge-20240608.837",
+"name":"emacs-lsp-bridge-20240612.1425",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-lsp-bridge",
 "system":"x86_64-linux",
-"version":"20240608.837"
+"version":"20240612.1425"
 },
 "gamemode":{
 "meta":{
@@ -899,7 +899,7 @@
 "available":true,
 "broken":false,
 "changelog":"https://github.com/gadget-inc/ggt/releases/tag/v1.0.3",
-"description":"The command-line interface for Gadget",
+"description":"Command-line interface for Gadget",
 "homepage":"https://docs.gadget.dev/guides/development-tools/cli",
 "insecure":false,
 "license":{
@@ -1075,7 +1075,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"An opensource project that aims to create a Graphical UI to help manage Linux overlays",
+"description":"Opensource project that aims to create a Graphical UI to help manage Linux overlays",
 "homepage":"https://github.com/benjamimgois/goverlay",
 "insecure":false,
 "license":{
@@ -1143,7 +1143,7 @@
 "available":true,
 "broken":false,
 "changelog":"https://github.com/Shopify/krane/blob/main/CHANGELOG.md",
-"description":"A command-line tool that helps you ship changes to a Kubernetes namespace and understand the result",
+"description":"Command-line tool that helps you ship changes to a Kubernetes namespace and understand the result",
 "homepage":"https://github.com/Shopify/krane",
 "insecure":false,
 "license":{
@@ -1327,7 +1327,7 @@
 "available":true,
 "broken":false,
 "changelog":"https://github.com/flightlessmango/MangoHud/releases/tag/v0.7.2",
-"description":"A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more",
+"description":"Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more",
 "homepage":"https://github.com/flightlessmango/MangoHud",
 "insecure":false,
 "license":{
@@ -1386,7 +1386,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/tools/graphics/mangohud/default.nix:246",
+"position":"./pkgs/tools/graphics/mangohud/default.nix:247",
 "unfree":false,
 "unsupported":false
 },
@@ -1584,7 +1584,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"A modern feed reader designed for the GNOME desktop",
+"description":"Modern feed reader designed for the GNOME desktop",
 "homepage":"https://gitlab.com/news-flash/news_flash_gtk",
 "insecure":false,
 "license":{
@@ -1689,7 +1689,7 @@
 }
 ],
 "broken":false,
-"description":"A multi-threaded PDF password cracking utility equipped with commonly encountered password format builders and dictionary attacks",
+"description":"Multi-threaded PDF password cracking utility equipped with commonly encountered password format builders and dictionary attacks",
 "homepage":"https://github.com/mufeedvh/pdfrip",
 "insecure":false,
 "license":{
@@ -1940,7 +1940,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"A simple wrapper for running Winetricks commands for Proton-enabled games",
+"description":"Simple wrapper for running Winetricks commands for Proton-enabled games",
 "homepage":"https://github.com/Matoking/protontricks",
 "insecure":false,
 "isBuildPythonPackage":[
@@ -2018,7 +2018,7 @@
 "available":true,
 "broken":false,
 "changelog":"https://github.com/microsoft/debugpy/releases/tag/v1.8.1",
-"description":"An implementation of the Debug Adapter Protocol for Python",
+"description":"Implementation of the Debug Adapter Protocol for Python",
 "homepage":"https://github.com/microsoft/debugpy",
 "insecure":false,
 "isBuildPythonPackage":[
@@ -2413,7 +2413,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"An open-source, instant-replay solution for Linux",
+"description":"Open-source, instant-replay solution for Linux",
 "homepage":"https://github.com/matanui159/ReplaySorcery",
 "insecure":false,
 "license":{
@@ -2565,7 +2565,7 @@
 ],
 "broken":false,
 "changelog":"https://github.com/latex-lsp/texlab/blob/v5.16.1/CHANGELOG.md",
-"description":"An implementation of the Language Server Protocol for LaTeX",
+"description":"Implementation of the Language Server Protocol for LaTeX",
 "homepage":"https://github.com/latex-lsp/texlab",
 "insecure":false,
 "license":{
@@ -2692,7 +2692,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"An SDDM theme",
+"description":"SDDM theme",
 "homepage":"https://github.com/eayus/sddm-theme-clairvoyance",
 "insecure":false,
 "license":{
@@ -2822,7 +2822,7 @@
 ],
 "broken":false,
 "changelog":"https://github.com/NiceneNerd/ukmm/blob/refs/tags/v0.11.1/CHANGELOG.md",
-"description":"A new mod manager for The Legend of Zelda: Breath of the Wild",
+"description":"New mod manager for The Legend of Zelda: Breath of the Wild",
 "homepage":"https://github.com/NiceneNerd/ukmm",
 "insecure":false,
 "license":{
@@ -2951,7 +2951,7 @@
 "meta":{
 "available":false,
 "broken":true,
-"description":"An online virtual universe consisting of several 3D worlds",
+"description":"Online virtual universe consisting of several 3D worlds",
 "homepage":"https://www.virtualparadise.org",
 "insecure":false,
 "license":{
@@ -2994,7 +2994,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"A Vulkan post processing layer for Linux",
+"description":"Vulkan post processing layer for Linux",
 "homepage":"https://github.com/DadSchoorse/vkBasalt",
 "insecure":false,
 "license":{
@@ -3059,7 +3059,7 @@
 "available":true,
 "broken":false,
 "changelog":"https://github.com/robbert-vdh/yabridge/blob/5.1.0/CHANGELOG.md",
-"description":"A modern and transparent way to use Windows VST2 and VST3 plugins on Linux",
+"description":"Modern and transparent way to use Windows VST2 and VST3 plugins on Linux",
 "homepage":"https://github.com/robbert-vdh/yabridge",
 "insecure":false,
 "license":{
@@ -3115,7 +3115,7 @@
 ],
 "broken":false,
 "changelog":"https://github.com/robbert-vdh/yabridge/blob/5.1.0/CHANGELOG.md",
-"description":"A small, optional utility to help set up and update yabridge for several directories at once",
+"description":"Small, optional utility to help set up and update yabridge for several directories at once",
 "homepage":"https://github.com/robbert-vdh/yabridge/tree/5.1.0/tools/yabridgectl",
 "insecure":false,
 "license":{
