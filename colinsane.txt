@@ -1,12 +1,12 @@
 error:
 … while calling anonymous lambda
 
-  at ./pkgs/default.nix:181:15:
+  at ./pkgs/default.nix:182:15:
 
-   180|     // (lib.mapAttrs
-   181|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
+   181|     // (lib.mapAttrs
+   182|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
       |               ^
-   182|         unpatched."${pname}"
+   183|         unpatched."${pname}"
 
 … from call site
 
@@ -28,12 +28,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:895:7:
+  at <nixpkgs> + /lib/trivial.nix:955:7:
 
-   894|     { # TODO: Should we add call-time "type" checking like built in?
-   895|       __functor = self: f;
+   954|     { # TODO: Should we add call-time "type" checking like built in?
+   955|       __functor = self: f;
       |       ^
-   896|       __functionArgs = args;
+   956|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -99,12 +99,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:895:7:
+  at <nixpkgs> + /lib/trivial.nix:955:7:
 
-   894|     { # TODO: Should we add call-time "type" checking like built in?
-   895|       __functor = self: f;
+   954|     { # TODO: Should we add call-time "type" checking like built in?
+   955|       __functor = self: f;
       |       ^
-   896|       __functionArgs = args;
+   956|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -117,12 +117,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:895:7:
+  at <nixpkgs> + /lib/trivial.nix:955:7:
 
-   894|     { # TODO: Should we add call-time "type" checking like built in?
-   895|       __functor = self: f;
+   954|     { # TODO: Should we add call-time "type" checking like built in?
+   955|       __functor = self: f;
       |       ^
-   896|       __functionArgs = args;
+   956|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -223,4 +223,4 @@ error:
       |                                           ^
    340|     let
 
-error: path '/nix/store/iia06gq5afmcm0kl0756pcpi29ac90yg-source.drv' is not valid
+error: path '/nix/store/49469mkip84rbb9qvg0gkx0a6arfy4zh-source.drv' is not valid
