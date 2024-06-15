@@ -1,16 +1,16 @@
 {
 "name":"cryolitia",
-"fetch_time":0.481,
-"eval_time":0.225,
+"fetch_time":0.273,
+"eval_time":0.236,
 "source":{
 "url":"https://github.com/Cryolitia/nur-packages",
-"rev":"325a3f41531bfa2e38deddc7ba3e15fc34ecea37",
-"sha256":"1y1aahmka86gwdc9mqls9b4raccdjh1l28xn4m47md27va0942fm",
+"rev":"b5cd447422fba4cb50a4fdedeeabf0f976ff6b60",
+"sha256":"0pph6c8i7mn9xhgw74a5vl39vf15qlpiq6n0r842kisphka0nknf",
 "date":null
 },
-"source_storepath":"/nix/store/riyg4mxbzwn99f0hmski4zh46403m96v-source",
-"nixpkgs_storepath":"/nix/store/kzrin076varhg207gr372xidn5657l2c-source",
-"nur_combined_rev":"82ecf5fd2ce285e029d71402c094fe192b1c100b",
+"source_storepath":"/nix/store/d510spjnxamirin1qsf3sd9mfz7rgbv1-source",
+"nixpkgs_storepath":"/nix/store/fbpmdjqyp2h5girxkdagkraq68gav4ks-source",
+"nur_combined_rev":"dab20646a3491c26b98f7079bdb0e76b57cae232",
 "packages":{
 "gnome-shell-fix-preedit-cursor":{
 "meta":{
@@ -102,7 +102,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"An Arknights assistant",
+"description":"Arknights assistant",
 "homepage":"https://github.com/MaaAssistantArknights/MaaAssistantArknights",
 "insecure":false,
 "license":{
@@ -152,9 +152,13 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux"
+"x86_64-linux",
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/ma/maa-assistant-arknights/package.nix:73",
+"position":"<nixpkgs> + /pkgs/by-name/ma/maa-assistant-arknights/package.nix:82",
 "unfree":false,
 "unsupported":false
 },
@@ -182,7 +186,7 @@
 }
 ],
 "broken":false,
-"description":"A simple CLI for MAA by Rust",
+"description":"Simple CLI for MAA by Rust",
 "homepage":"https://github.com/MaaAssistantArknights/maa-cli",
 "insecure":false,
 "license":{
@@ -233,9 +237,13 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux"
+"x86_64-linux",
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/ma/maa-cli/package.nix:65",
+"position":"<nixpkgs> + /pkgs/by-name/ma/maa-cli/package.nix:79",
 "unfree":false,
 "unsupported":false
 },

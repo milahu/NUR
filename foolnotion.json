@@ -1,16 +1,16 @@
 {
 "name":"foolnotion",
-"fetch_time":0.46,
-"eval_time":0.268,
+"fetch_time":0.328,
+"eval_time":0.274,
 "source":{
 "url":"https://github.com/foolnotion/nur-pkg",
-"rev":"3695bd2ca15bb864ddc05b2b4c0ef10f5671b7cd",
-"sha256":"13zvgz187gk5cvs2civajbpa4h6qqvcy7d8pcbvqjh8l7b564mmq",
+"rev":"77e86b5991ee09780564982ddd19ae8d22641469",
+"sha256":"0g56p8l5ndvg2chj9nvf4gam4062j62397l4j2di6jgzyhk65dnl",
 "date":null
 },
-"source_storepath":"/nix/store/a14z3y35wx1vr3grpi2dg57nj8mnkh35-source",
-"nixpkgs_storepath":"/nix/store/risrxkaglrp5aizis2dspz2i0d9kgsg8-source",
-"nur_combined_rev":"f5da6ac7476a5a1880dec4d116e8c901ca22eef1",
+"source_storepath":"/nix/store/zklx8y8kpc3aa9p85q2wp2xb0lixi0rv-source",
+"nixpkgs_storepath":"/nix/store/fbpmdjqyp2h5girxkdagkraq68gav4ks-source",
+"nur_combined_rev":"8efca64db11e5bb903c8b9f5a97dd7bb83bda977",
 "packages":{
 "aria-csv":{
 "meta":{
@@ -605,7 +605,9 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -716,7 +718,9 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1390,7 +1394,9 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1434,7 +1440,9 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "position":"./pkgs/eli5/default.nix:19",
 "unfree":false,
@@ -3132,8 +3140,8 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Library to eliminate all the tedious hassle when making state-of-the-art C++ 14 - 23 libraries.",
-"homepage":"https://github.com/ned14/quickcpplib",
+"description":"Reference implementation for proposed SG14 status_code",
+"homepage":"https://github.com/ned14/status-code",
 "insecure":false,
 "license":{
 "deprecated":false,
@@ -3533,7 +3541,9 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -3577,7 +3587,9 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "position":"./pkgs/pmlb/default.nix:19",
 "unfree":false,
