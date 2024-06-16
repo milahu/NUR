@@ -31,10 +31,8 @@ in {
       environment = {
         systemPackages = with pkgs; with pkgs.nur.repos.dukzcry; [
           jellyfin-media-player
-          cockpit-client
         ];
       };
-      services.tor.enable = lib.mkForce false;
       virtualisation.spiceUSBRedirection.enable = true;
       systemd.sockets.cups.wantedBy = mkForce [];
       systemd.services.cups.wantedBy = mkForce [];
