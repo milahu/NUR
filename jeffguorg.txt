@@ -19,12 +19,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:895:7:
+  at <nixpkgs> + /lib/trivial.nix:955:7:
 
-   894|     { # TODO: Should we add call-time "type" checking like built in?
-   895|       __functor = self: f;
+   954|     { # TODO: Should we add call-time "type" checking like built in?
+   955|       __functor = self: f;
       |       ^
-   896|       __functionArgs = args;
+   956|       __functionArgs = args;
 
 … while calling anonymous lambda
 
