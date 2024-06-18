@@ -96,6 +96,7 @@ in
         self.tree
         self.unzip
         self.wget
+        self.xorg.xeyes
         self.xorg.xmodmap
         self.xterm
         self.zoxide
