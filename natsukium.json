@@ -1,16 +1,16 @@
 {
 "name":"natsukium",
-"fetch_time":0.431,
-"eval_time":0.844,
+"fetch_time":0.376,
+"eval_time":0.854,
 "source":{
 "url":"https://github.com/natsukium/nur-packages",
-"rev":"ee9d2201f08928c48df9958f67237de0390345d3",
-"sha256":"1xcg38ggv5cl7jh57pq6pivvbi7gg72xr1sqsdjwx6dysf36626p",
+"rev":"47cf66136ec5eaae9460395407c9058cb15906b3",
+"sha256":"18bq1pfiksi87qa3gczz0n9y98bn4zpwyzwsawinlz6cj6mr1kxz",
 "date":null
 },
-"source_storepath":"/nix/store/fgxpcm3igzvwrds5wfab45ynymyff209-source",
-"nixpkgs_storepath":"/nix/store/kzrin076varhg207gr372xidn5657l2c-source",
-"nur_combined_rev":"d57bd79883c324d8d7d4955eae1c3c983b52a479",
+"source_storepath":"/nix/store/w3gg50hsgagp3baddmylsjs26cjl2yxf-source",
+"nixpkgs_storepath":"/nix/store/mwyjbv58x55f6x020x5qasc4cf5gfng8-source",
+"nur_combined_rev":"a1489b08c51b6ffaffee6c19c3aae370603e378a",
 "packages":{
 "bclm":{
 "meta":{
@@ -620,7 +620,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:218930",
+"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:219015",
 "unfree":false,
 "unsupported":false
 },
@@ -639,7 +639,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/Mic92/nixpkgs-review/releases/tag/2.10.4",
+"changelog":"https://github.com/Mic92/nixpkgs-review/releases/tag/2.10.5",
 "description":"Review pull-requests on https://github.com/NixOS/nixpkgs",
 "homepage":"https://github.com/Mic92/nixpkgs-review",
 "insecure":false,
@@ -672,7 +672,9 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -705,7 +707,7 @@
 "name":"J\u00f6rg Thalheim"
 }
 ],
-"name":"nixpkgs-review-2.10.4",
+"name":"nixpkgs-review-2.10.5",
 "outputsToInstall":[
 "out"
 ],
@@ -738,13 +740,15 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "position":"<nixpkgs> + /pkgs/tools/package-management/nixpkgs-review/default.nix:64",
 "unfree":false,
 "unsupported":false
 },
-"name":"nixpkgs-review-2.10.4",
+"name":"nixpkgs-review-2.10.5",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -752,7 +756,7 @@
 },
 "pname":"nixpkgs-review",
 "system":"x86_64-linux",
-"version":"2.10.4"
+"version":"2.10.5"
 },
 "psipred":{
 "meta":{
@@ -826,7 +830,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"name":"qmk-toolbox-0.3.2",
+"name":"qmk-toolbox-0.3.3",
 "outputsToInstall":[
 "out"
 ],
@@ -840,14 +844,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"qmk-toolbox-0.3.2",
+"name":"qmk-toolbox-0.3.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qmk-toolbox",
 "system":"x86_64-linux",
-"version":"0.3.2"
+"version":"0.3.3"
 },
 "qutebrowser":{
 "meta":{
@@ -886,7 +890,9 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1000,7 +1006,9 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1199,7 +1207,7 @@
 "spdxId":"Zlib",
 "url":"https://spdx.org/licenses/Zlib.html"
 },
-"name":"vimplugin-skkeleton-unstable-2024-06-07",
+"name":"vimplugin-skkeleton-unstable-2024-06-16",
 "outputsToInstall":[
 "out"
 ],
@@ -1284,14 +1292,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"vimplugin-skkeleton-unstable-2024-06-07",
+"name":"vimplugin-skkeleton-unstable-2024-06-16",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vimplugin-skkeleton-unstable",
 "system":"x86_64-linux",
-"version":"2024-06-07"
+"version":"2024-06-16"
 },
 "vimPlugins.vim-edgemotion":{
 "meta":{
@@ -1486,7 +1494,7 @@
 "meta":{
 "available":false,
 "broken":false,
-"description":"A Browser for our Friends, powerful and personal",
+"description":"Browser for our Friends, powerful and personal",
 "homepage":"https://vivaldi.com",
 "insecure":false,
 "license":{
@@ -1510,7 +1518,7 @@
 "name":"Badi' Abdul-Wahid"
 }
 ],
-"name":"vivaldi-6.7.3329.35",
+"name":"vivaldi-6.7.3329.41",
 "outputsToInstall":[
 "out"
 ],
@@ -1528,14 +1536,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"vivaldi-6.7.3329.35",
+"name":"vivaldi-6.7.3329.41",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vivaldi",
 "system":"x86_64-linux",
-"version":"6.7.3329.35"
+"version":"6.7.3329.41"
 }
 }
 }
