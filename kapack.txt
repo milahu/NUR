@@ -1,52 +1,52 @@
 error:
 … from call site
 
-  at /nix/store/5mjhcgpphxnr5q00h3hgavqss1mj0m7a-source/nur.nix:85:17:
+  at ./nur.nix:87:17:
 
-    84|
-    85|   go-swagger  = pkgs.callPackage ./pkgs/go-swagger { };
-      |                 ^
     86|
+    87|   go-swagger  = pkgs.callPackage ./pkgs/go-swagger { };
+      |                 ^
+    88|
 
 … while calling 'callPackageWith'
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at <nixpkgs> + /lib/customisation.nix:212:35:
 
-   152|   */
-   153|   callPackageWith = autoArgs: fn: args:
+   211|   */
+   212|   callPackageWith = autoArgs: fn: args:
       |                                   ^
-   154|     let
+   213|     let
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+  at <nixpkgs> + /lib/trivial.nix:955:7:
 
-   439|     { # TODO: Should we add call-time "type" checking like built in?
-   440|       __functor = self: f;
+   954|     { # TODO: Should we add call-time "type" checking like built in?
+   955|       __functor = self: f;
       |       ^
-   441|       __functionArgs = args;
+   956|       __functionArgs = args;
 
 … while calling anonymous lambda
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:96:17:
+  at <nixpkgs> + /lib/customisation.nix:136:17:
 
-    95|     in
-    96|     mirrorArgs (origArgs:
+   135|     in
+   136|     mirrorArgs (origArgs:
       |                 ^
-    97|     let
+   137|     let
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:98:16:
+  at <nixpkgs> + /lib/customisation.nix:138:16:
 
-    97|     let
-    98|       result = f origArgs;
+   137|     let
+   138|       result = f origArgs;
       |                ^
-    99|
+   139|
 
 … while calling anonymous lambda
 
-  at /nix/store/5mjhcgpphxnr5q00h3hgavqss1mj0m7a-source/pkgs/go-swagger/default.nix:1:1:
+  at ./pkgs/go-swagger/default.nix:1:1:
 
      1| { lib, buildGoPackage, fetchFromGitHub }:
       | ^
@@ -54,16 +54,16 @@ error:
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:440:7:
+  at <nixpkgs> + /lib/trivial.nix:955:7:
 
-   439|     { # TODO: Should we add call-time "type" checking like built in?
-   440|       __functor = self: f;
+   954|     { # TODO: Should we add call-time "type" checking like built in?
+   955|       __functor = self: f;
       |       ^
-   441|       __functionArgs = args;
+   956|       __functionArgs = args;
 
 … while calling anonymous lambda
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/go/package.nix:4:1:
+  at <nixpkgs> + /pkgs/build-support/go/package.nix:4:1:
 
      3|
      4| { buildInputs ? []
@@ -72,20 +72,20 @@ error:
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/build-support/go/package.nix:286:1:
+  at <nixpkgs> + /pkgs/build-support/go/package.nix:288:1:
 
-   285| in
-   286| lib.warnIf (buildFlags != "" || buildFlagsArray != "")
+   287| in
+   288| lib.warnIf (buildFlags != "" || buildFlagsArray != "")
       | ^
-   287|   "Use the `ldflags` and/or `tags` attributes instead of `buildFlags`/`buildFlagsArray`"
+   289|   "`buildFlags`/`buildFlagsArray` are deprecated and will be removed in the 24.11 release. Use the `ldflags` and/or `tags` attributes instead"
 
 … while calling 'warnIf'
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:367:18:
+  at <nixpkgs> + /lib/trivial.nix:789:18:
 
-   366|   */
-   367|   warnIf = cond: msg: if cond then warn msg else x: x;
+   788|   */
+   789|   warnIf = cond: msg: if cond then warn msg else x: x;
       |                  ^
-   368|
+   790|
 
 error: value is a string while a list was expected

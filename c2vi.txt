@@ -6,7 +6,7 @@ error:
     15|       hash = "sha256-xFc8J8tlw6i+FbTC05nrlvQIXRmguFzDqh+SQOR54TE=";
     16|     }; in pkgs.callPackage "${repo}/default.nix" {};
       |           ^
-    17| }
+    17|
 
 … while calling 'callPackageWith'
 
@@ -46,11 +46,11 @@ error:
 
 … while calling 'functionArgs'
 
-  at <nixpkgs> + /lib/trivial.nix:913:18:
+  at <nixpkgs> + /lib/trivial.nix:973:18:
 
-   912|   */
-   913|   functionArgs = f:
+   972|   */
+   973|   functionArgs = f:
       |                  ^
-   914|     if f ? __functor
+   974|     if f ? __functor
 
-error: path '/nix/store/iw2brjqv5v4ii71fakiyhl8y3hnp1bcp-source.drv' is not valid
+error: path '/nix/store/sph0vqgv1vb1mkkm44hw8k9n86mbm4j7-source.drv' is not valid
