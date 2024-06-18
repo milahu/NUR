@@ -18,7 +18,6 @@
       "linux-firmware-r8152"
       { }
       ''
-        install -TDm644 ${./files/rtl8153a-4.fw} $out/lib/firmware/rtl_nic/rtl8153a-4.fw
         install -TDm644 ${./files/rtl8153b-2.fw} $out/lib/firmware/rtl_nic/rtl8153b-2.fw
       ''
     )
@@ -76,6 +75,10 @@
   };
 
   powerManagement.cpuFreqGovernor = "schedutil";
+
+  services.udev.extraRules =
+    ''ACTION=="add" SUBSYSTEM=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="8153", '' +
+    ''RUN+="${pkgs.rtl8152-led-ctrl}/bin/rtl8152-led-ctrl set --device %s{busnum}:%s{devnum}"'';
 
   services.lvm.enable = false;
 
