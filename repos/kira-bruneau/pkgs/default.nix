@@ -48,10 +48,7 @@ in
 {
   inherit callPackage;
 
-  anytype = callPackage ./development/tools/misc/anytype {
-    # electron_28 fails with: Process start error:  Error: spawn ENOTDIR
-    electron = electron_27;
-  };
+  anytype = callPackage ./development/tools/misc/anytype { electron = electron_30; };
 
   anytype-heart = callPackage ./development/libraries/anytype-heart { };
 
