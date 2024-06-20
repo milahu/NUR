@@ -35,22 +35,13 @@ let
           patches = [ ];
         };
       };
-  omniorb = pkgs.python3Packages.callPackage ./pkgs/omniorb { };
-  omniorbpy = pkgs.python3Packages.callPackage ./pkgs/omniorbpy { };
-  osgqt = pkgs.callPackage ./pkgs/osgqt { };
-  qgv = pkgs.libsForQt5.callPackage ./pkgs/qgv { };
   collada-dom = pkgs.callPackage ./pkgs/collada-dom { };
-  osg-dae = pkgs.openscenegraph.override {
-    colladaSupport = true;
-    opencollada = collada-dom;
-  };
-  osgqt-dae = osgqt.override { openscenegraph = osg-dae; };
-  gepetto-viewer-base = pkgs.callPackage ./pkgs/gepetto-viewer-base {
-    inherit osg-dae osgqt-dae qgv;
-  };
+  qgv = pkgs.libsForQt5.callPackage ./pkgs/qgv { };
+  osgqt = pkgs.callPackage ./pkgs/osgqt { };
+  gepetto-viewer-base = pkgs.callPackage ./pkgs/gepetto-viewer-base { inherit osgqt qgv; };
   py-gepetto-viewer-base = pkgs.python3Packages.toPythonModule gepetto-viewer-base;
   gepetto-viewer-corba = pkgs.callPackage ./pkgs/gepetto-viewer-corba {
-    inherit gepetto-viewer-base omniorb omniorbpy;
+    inherit gepetto-viewer-base;
   };
   py-gepetto-viewer-corba = pkgs.python3Packages.toPythonModule gepetto-viewer-corba;
   gepetto-viewer = pkgs.callPackage ./pkgs/gepetto-viewer {
@@ -67,6 +58,7 @@ let
   #}
   #);
 
+  proxsuite = pkgs.callPackage ./pkgs/proxsuite { };
   hpp-centroidal-dynamics = pkgs.callPackage ./pkgs/hpp-centroidal-dynamics { };
   py-hpp-centroidal-dynamics = pkgs.python3Packages.toPythonModule (
     pkgs.callPackage ./pkgs/hpp-centroidal-dynamics { pythonSupport = true; }
@@ -99,10 +91,21 @@ let
   hpp-constraints = pkgs.callPackage ./pkgs/hpp-constraints { inherit hpp-pinocchio hpp-statistics; };
   hpp-baxter = pkgs.callPackage ./pkgs/hpp-baxter { };
   hpp-core = pkgs.callPackage ./pkgs/hpp-core {
-    inherit hpp-constraints hpp-pinocchio hpp-statistics;
+    inherit
+      hpp-constraints
+      hpp-pinocchio
+      hpp-statistics
+      proxsuite
+      ;
   };
   hpp-manipulation = pkgs.callPackage ./pkgs/hpp-manipulation {
     inherit hpp-core hpp-universal-robot;
+  };
+  hpp-manipulation-urdf = pkgs.callPackage ./pkgs/hpp-manipulation-urdf { inherit hpp-manipulation; };
+  hpp-corbaserver = pkgs.callPackage ./pkgs/hpp-corbaserver { inherit hpp-core hpp-template-corba; };
+  hpp-romeo = pkgs.callPackage ./pkgs/hpp-romeo { inherit hpp-corbaserver; };
+  hpp-manipulation-corba = pkgs.callPackage ./pkgs/hpp-manipulation-corba {
+    inherit hpp-corbaserver hpp-manipulation-urdf;
   };
 in
 {
@@ -113,24 +116,26 @@ in
     py-gepetto-viewer-base
     gepetto-viewer-corba
     py-gepetto-viewer-corba
-    omniorb
-    omniorbpy
     ndcurves
-    osg-dae
-    osgqt-dae
+    osgqt
     hpp-centroidal-dynamics
     hpp-bezier-com-traj
     hpp-util
     hpp-environments
     hpp-statistics
     hpp-template-corba
-    #hpp-pinocchio
-    #hpp-constraints
+    hpp-pinocchio
+    hpp-constraints
+    hpp-corbaserver
     hpp-baxter
-    #hpp-core
-    #hpp-manipulation
+    hpp-core
+    hpp-manipulation
+    hpp-manipulation-corba
+    hpp-manipulation-urdf
+    hpp-romeo
     hpp-universal-robot
     #multicontact-api
+    proxsuite
     #py-multicontact-api
     py-ndcurves
     py-hpp-centroidal-dynamics
@@ -138,7 +143,9 @@ in
     qgv
     ;
 
-  gruppled-white-lite-cursors = pkgs.callPackage ./pkgs/gruppled-lite-cursors { theme = "gruppled_white_lite"; };
+  gruppled-white-lite-cursors = pkgs.callPackage ./pkgs/gruppled-lite-cursors {
+    theme = "gruppled_white_lite";
+  };
   sauce-code-pro = pkgs.nerdfonts.override { fonts = [ "SourceCodePro" ]; };
   sway-lone-titlebar = pkgs.sway.override { sway-unwrapped = sway-lone-titlebar-unwrapped; };
 }
