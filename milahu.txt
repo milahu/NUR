@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./default.nix:863:20:
+  at ./default.nix:867:20:
 
-   862|
-   863|     imagename2id = callPackage ./pkgs/tools/misc/freetz/pkgs/imagename2id { };
+   866|
+   867|     imagename2id = callPackage ./pkgs/tools/misc/freetz/pkgs/imagename2id { };
       |                    ^
-   864|
+   868|
 
 … while calling 'callPackageWith'
 
@@ -46,11 +46,11 @@ error:
 
 … while calling 'functionArgs'
 
-  at <nixpkgs> + /lib/trivial.nix:913:18:
+  at <nixpkgs> + /lib/trivial.nix:973:18:
 
-   912|   */
-   913|   functionArgs = f:
+   972|   */
+   973|   functionArgs = f:
       |                  ^
-   914|     if f ? __functor
+   974|     if f ? __functor
 
 error: getting status of './pkgs/tools/misc/freetz/pkgs/imagename2id': No such file or directory

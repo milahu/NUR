@@ -1,0 +1,80 @@
+error:
+… from call site
+
+  at ./default.nix:18:5:
+
+    17|   firefox-addons =
+    18|     pkgs.recurseIntoAttrs (pkgs.callPackage ./pkgs/firefox-addons { });
+      |     ^
+    19|
+
+… while calling 'recurseIntoAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:1973:5:
+
+  1972|   recurseIntoAttrs =
+  1973|     attrs:
+      |     ^
+  1974|     attrs // { recurseForDerivations = true; };
+
+… from call site
+
+  at ./default.nix:18:28:
+
+    17|   firefox-addons =
+    18|     pkgs.recurseIntoAttrs (pkgs.callPackage ./pkgs/firefox-addons { });
+      |                            ^
+    19|
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:212:35:
+
+   211|   */
+   212|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   213|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:955:7:
+
+   954|     { # TODO: Should we add call-time "type" checking like built in?
+   955|       __functor = self: f;
+      |       ^
+   956|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:136:17:
+
+   135|     in
+   136|     mirrorArgs (origArgs:
+      |                 ^
+   137|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:138:16:
+
+   137|     let
+   138|       result = f origArgs;
+      |                ^
+   139|
+
+… while calling anonymous lambda
+
+  at ./pkgs/firefox-addons/default.nix:1:1:
+
+     1| { fetchurl, lib, stdenv }@args:
+      | ^
+     2|
+
+error: attribute 'export-tabs-urls-and-titles' already defined at ./pkgs/firefox-addons/generated-firefox-addons.nix:2484:5
+
+at ./pkgs/firefox-addons/generated-firefox-addons.nix:2499:5:
+
+  2498|     };
+  2499|     "export-tabs-urls-and-titles" = buildFirefoxXpiAddon {
+      |     ^
+  2500|       pname = "export-tabs-urls-and-titles";
