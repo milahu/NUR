@@ -1,4 +1,5 @@
 # FIXME: This still needs a disabled sandbox to build
+# upstream issue: https://github.com/espressif/idf-component-manager/issues/54
 {
   callPackage,
   fetchFromGitHub,
