@@ -10,71 +10,90 @@
   nix-update-script,
 
   enableVulkan ?
-    stdenv.isLinux
-    || stdenv.isDarwin
-    || stdenv.isBSD
+    stdenv.hostPlatform.isLinux
+    || stdenv.hostPlatform.isDarwin
+    || stdenv.hostPlatform.isBSD
     || stdenv.hostPlatform.isWindows
-    || stdenv.hostPlatform.isAndroid,
+    || stdenv.hostPlatform.isAndroid
+    || stdenv.hostPlatform.isSunOS,
   vulkan-loader,
-  enableWayland ? stdenv.isLinux || stdenv.isBSD,
+  enableWayland ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isBSD,
   wayland,
-  enableXcb ? stdenv.isLinux || stdenv.isBSD,
-  enableXcbRandr ? stdenv.isLinux || stdenv.isBSD,
-  enableXrandr ? stdenv.isLinux || stdenv.isBSD,
-  enableX11 ? stdenv.isLinux || stdenv.isBSD,
+  enableXcbRandr ?
+    stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isBSD || stdenv.hostPlatform.isSunOS,
+  enableXcb ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isBSD || stdenv.hostPlatform.isSunOS,
+  enableXrandr ?
+    stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isBSD || stdenv.hostPlatform.isSunOS,
+  enableX11 ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isBSD || stdenv.hostPlatform.isSunOS,
   xorg,
-  enableDrm ? stdenv.isLinux || stdenv.isBSD,
+  enableDrm ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isBSD || stdenv.hostPlatform.isSunOS,
   libdrm,
-  enableGio ? stdenv.isLinux || stdenv.isBSD,
+  enableGio ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isBSD || stdenv.hostPlatform.isSunOS,
   glib,
-  enableDconf ? stdenv.isLinux || stdenv.isBSD,
+  enableDconf ?
+    stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isBSD || stdenv.hostPlatform.isSunOS,
   dconf,
-  enableDbus ? stdenv.isLinux || stdenv.isBSD,
+  enableDbus ?
+    stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isBSD || stdenv.hostPlatform.isSunOS,
   dbus,
-  enableXfconf ? stdenv.isLinux || stdenv.isBSD,
+  enableXfconf ?
+    stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isBSD || stdenv.hostPlatform.isSunOS,
   xfce,
-  enableSqlite3 ? stdenv.isLinux || stdenv.isBSD || stdenv.isDarwin,
+  enableSqlite3 ?
+    stdenv.hostPlatform.isLinux
+    || stdenv.hostPlatform.isBSD
+    || stdenv.hostPlatform.isDarwin
+    || stdenv.hostPlatform.isSunOS,
   sqlite,
-  enableRpm ? stdenv.isLinux,
+  enableRpm ? stdenv.hostPlatform.isLinux,
   rpm,
   enableImagemagick ?
-    stdenv.isLinux || stdenv.isDarwin || stdenv.isBSD || stdenv.hostPlatform.isWindows,
+    stdenv.hostPlatform.isLinux
+    || stdenv.hostPlatform.isDarwin
+    || stdenv.hostPlatform.isBSD
+    || stdenv.hostPlatform.isWindows
+    || stdenv.hostPlatform.isSunOS,
   imagemagick,
   enableChafa ? enableImagemagick,
   chafa,
   enableZlib ? enableImagemagick,
   zlib,
-  enableEgl ? stdenv.isLinux || stdenv.isBSD,
+  enableEgl ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isBSD || stdenv.hostPlatform.isSunOS,
   libGL,
-  enableGlx ? stdenv.isLinux || stdenv.isBSD,
+  enableGlx ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isBSD || stdenv.hostPlatform.isSunOS,
   libglvnd,
-  enableOsmesa ? stdenv.isLinux || stdenv.isBSD,
+  enableOsmesa ?
+    stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isBSD || stdenv.hostPlatform.isSunOS,
   mesa,
-  enableOpencl ? stdenv.isLinux || stdenv.isBSD || stdenv.hostPlatform.isWindows,
+  enableOpencl ?
+    stdenv.hostPlatform.isLinux
+    || stdenv.hostPlatform.isBSD
+    || stdenv.hostPlatform.isWindows
+    || stdenv.hostPlatform.isSunOS,
   ocl-icd,
   opencl-headers,
-  enableLibnm ? stdenv.isLinux,
+  enableLibnm ? stdenv.hostPlatform.isLinux,
   networkmanager,
   enableFreetype ? stdenv.hostPlatform.isAndroid,
   freetype,
-  enablePulse ? stdenv.isLinux,
+  enablePulse ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isSunOS,
   pulseaudio,
-  enableDdcutil ? stdenv.isLinux,
+  enableDdcutil ? stdenv.hostPlatform.isLinux,
   ddcutil,
-  enableDirectxHeaders ? stdenv.isLinux,
+  enableDirectxHeaders ? stdenv.hostPlatform.isLinux,
   directx-headers,
   enableProprietaryGpuDriverApi ? true,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "fastfetch";
-  version = "2.15.0";
+  version = "2.16.0";
 
   src = fetchFromGitHub {
     owner = "fastfetch-cli";
     repo = "fastfetch";
     rev = finalAttrs.version;
-    hash = "sha256-0kReN7FKrcRhxUuwZoArLTW2F1q40Wbp9/hRoDjKZHs=";
+    hash = "sha256-dfgRRh8yJUDkMgl32ddx8iQElwRt0hCBsObud7rbTYQ=";
   };
 
   nativeBuildInputs = [
