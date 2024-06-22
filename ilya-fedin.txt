@@ -1,30 +1,30 @@
 error:
 … from call site
 
-  at ./default.nix:123:40:
+  at ./default.nix:111:40:
 
-   122|
-   123|   kotatogram-desktop-with-patched-qt = desktop-app.with-patched-qt kotatogram-desktop;
+   110|
+   111|   kotatogram-desktop-with-patched-qt = desktop-app.with-patched-qt kotatogram-desktop;
       |                                        ^
-   124|
+   112|
 
 … while calling 'with-patched-qt'
 
-  at ./default.nix:90:23:
+  at ./default.nix:80:23:
 
-    89|
-    90|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    79|
+    80|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
       |                       ^
-    91|       replaceDependency { inherit oldDependency newDependency drv; }
+    81|       replaceDependency { inherit oldDependency newDependency drv; }
 
 … from call site
 
-  at ./default.nix:90:29:
+  at ./default.nix:80:29:
 
-    89|
-    90|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    79|
+    80|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
       |                             ^
-    91|       replaceDependency { inherit oldDependency newDependency drv; }
+    81|       replaceDependency { inherit oldDependency newDependency drv; }
 
 … while calling 'foldr'
 
@@ -64,21 +64,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./default.nix:90:74:
+  at ./default.nix:80:74:
 
-    89|
-    90|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    79|
+    80|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
       |                                                                          ^
-    91|       replaceDependency { inherit oldDependency newDependency drv; }
+    81|       replaceDependency { inherit oldDependency newDependency drv; }
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:895:7:
+  at <nixpkgs> + /lib/trivial.nix:955:7:
 
-   894|     { # TODO: Should we add call-time "type" checking like built in?
-   895|       __functor = self: f;
+   954|     { # TODO: Should we add call-time "type" checking like built in?
+   955|       __functor = self: f;
       |       ^
-   896|       __functionArgs = args;
+   956|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -130,21 +130,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./default.nix:90:74:
+  at ./default.nix:80:74:
 
-    89|
-    90|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    79|
+    80|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
       |                                                                          ^
-    91|       replaceDependency { inherit oldDependency newDependency drv; }
+    81|       replaceDependency { inherit oldDependency newDependency drv; }
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:895:7:
+  at <nixpkgs> + /lib/trivial.nix:955:7:
 
-   894|     { # TODO: Should we add call-time "type" checking like built in?
-   895|       __functor = self: f;
+   954|     { # TODO: Should we add call-time "type" checking like built in?
+   955|       __functor = self: f;
       |       ^
-   896|       __functionArgs = args;
+   956|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -259,12 +259,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:895:7:
+  at <nixpkgs> + /lib/trivial.nix:955:7:
 
-   894|     { # TODO: Should we add call-time "type" checking like built in?
-   895|       __functor = self: f;
+   954|     { # TODO: Should we add call-time "type" checking like built in?
+   955|       __functor = self: f;
       |       ^
-   896|       __functionArgs = args;
+   956|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -275,4 +275,4 @@ error:
       | ^
     21|
 
-error: path '/nix/store/vbljhraca4wb5pcfw59dlw74qrgk194p-references.nix.drv' is not valid
+error: path '/nix/store/3s447xr47xnzb3xh2s82p0wqm60qp28w-references.nix.drv' is not valid
