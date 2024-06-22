@@ -1,16 +1,16 @@
 {
 "name":"arc",
-"fetch_time":0.549,
-"eval_time":0.418,
+"fetch_time":0.41,
+"eval_time":0.422,
 "source":{
 "url":"https://github.com/arcnmx/nixexprs",
-"rev":"625cc299098ac8cea904f2777d0cdf9a191b9e7d",
-"sha256":"0n91c5kmmg23kmkq876x50r6qlax4yzird2ii44v7pgcsvbjh1ry",
+"rev":"e3a546552c8a5a512caa321933e0af3f36da94c1",
+"sha256":"1w66bbldma1rlavkxczn5ika74cz2kdqlfh8kgkjx92k54klzzhw",
 "date":null
 },
-"source_storepath":"/nix/store/29bbybdnpj94xxpd0azpy5kih9r9vxxj-source",
-"nixpkgs_storepath":"/nix/store/kzrin076varhg207gr372xidn5657l2c-source",
-"nur_combined_rev":"e3b1d94dc2f922b1fb0969b6a245793545205246",
+"source_storepath":"/nix/store/ixrw4xnga98jln3cs31kj6xkf1fj8faj-source",
+"nixpkgs_storepath":"/nix/store/59c8grklv3mdi8dyb2hc5s3hxmrkcqd1-source",
+"nur_combined_rev":"953e3cee26b1f1a99ba3b0f6c3a5774503ccb8e2",
 "packages":{
 "packages.benc":{
 "meta":{
@@ -1083,7 +1083,9 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1326,7 +1328,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"forcefully-remove-bootfb-6.6.32-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.34-2018-02-08",
 "outputsToInstall":[
 "bin"
 ],
@@ -1357,7 +1359,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"forcefully-remove-bootfb-6.6.32-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.34-2018-02-08",
 "outputName":"bin",
 "outputs":{
 "bin":null,
@@ -1365,7 +1367,7 @@
 },
 "pname":"forcefully-remove-bootfb",
 "system":"x86_64-linux",
-"version":"6.6.32-2018-02-08"
+"version":"6.6.34-2018-02-08"
 },
 "packages.generateLinuxConfig":{
 "meta":{
@@ -2216,7 +2218,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"An open source small-footprint implementation of the Tcl programming language",
+"description":"Open source small-footprint implementation of the Tcl programming language",
 "homepage":"http://jim.tcl.tk/",
 "insecure":false,
 "license":{
@@ -2573,7 +2575,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.32-2021.04.21",
+"name":"ryzen-smu-6.6.34-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -2617,7 +2619,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"A KVM Frame Relay (KVMFR) implementation",
+"description":"KVM Frame Relay (KVMFR) implementation",
 "homepage":"https://looking-glass.io/",
 "insecure":false,
 "license":{
@@ -2680,7 +2682,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"A KVM Frame Relay (KVMFR) implementation",
+"description":"KVM Frame Relay (KVMFR) implementation",
 "homepage":"https://looking-glass.io/",
 "insecure":false,
 "license":{
@@ -3037,7 +3039,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"A flexible, powerful daemon for playing music",
+"description":"Flexible, powerful daemon for playing music",
 "homepage":"https://www.musicpd.org/",
 "insecure":false,
 "license":{
@@ -3211,7 +3213,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/mumble/default.nix:50",
+"position":"<nixpkgs> + /pkgs/applications/networking/mumble/default.nix:39",
 "unfree":false,
 "unsupported":false
 },
@@ -3523,7 +3525,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre636695.cd18e2ae9ab8",
+"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre641585.9b10b8f00cb5",
 "description":"Mail indexer",
 "homepage":"https://notmuchmail.org/",
 "insecure":false,
@@ -4242,7 +4244,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"A generic and open source machine emulator and virtualizer",
+"description":"Generic and open source machine emulator and virtualizer",
 "homepage":"https://www.qemu.org/",
 "insecure":false,
 "license":{
@@ -4302,7 +4304,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/virtualization/qemu/default.nix:273",
+"position":"<nixpkgs> + /pkgs/applications/virtualization/qemu/default.nix:275",
 "unfree":false,
 "unsupported":false
 },
@@ -4511,7 +4513,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"A real-time noise suppression plugin for voice based on Xiph's RNNoise",
+"description":"Real-time noise suppression plugin for voice based on Xiph's RNNoise",
 "homepage":"https://github.com/werman/noise-suppression-for-voice",
 "insecure":false,
 "license":{
@@ -4657,7 +4659,7 @@
 }
 ],
 "broken":false,
-"description":"A modular compiler frontend for the Rust language",
+"description":"Modular compiler frontend for the Rust language",
 "homepage":"https://rust-analyzer.github.io",
 "insecure":false,
 "license":[
@@ -4694,7 +4696,7 @@
 "name":"oxalica"
 }
 ],
-"name":"rust-analyzer-unwrapped-2024-04-29",
+"name":"rust-analyzer-unwrapped-2024-06-11",
 "outputsToInstall":[
 "out"
 ],
@@ -4743,14 +4745,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rust-analyzer-unwrapped-2024-04-29",
+"name":"rust-analyzer-unwrapped-2024-06-11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rust-analyzer-unwrapped",
 "system":"x86_64-linux",
-"version":"2024-04-29"
+"version":"2024-06-11"
 },
 "packages.rustdoc-stripper":{
 "meta":{
@@ -4925,7 +4927,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.32-2021.04.21",
+"name":"ryzen-smu-6.6.34-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -4970,7 +4972,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.32-2021.04.21",
+"name":"ryzen-smu-6.6.34-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5001,21 +5003,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ryzen-smu-6.6.32-2021.04.21",
+"name":"ryzen-smu-6.6.34-2021.04.21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ryzen-smu",
 "system":"x86_64-linux",
-"version":"6.6.32-2021.04.21"
+"version":"6.6.34-2021.04.21"
 },
 "packages.ryzen-smu-monitor_cpu":{
 "meta":{
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.32-2021.04.21",
+"name":"ryzen-smu-6.6.34-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5089,9 +5091,11 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
-"name":"ryzen-smu-6.6.32-2021.04.21",
+"name":"ryzen-smu-6.6.34-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5310,7 +5314,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"The most popular clone of the VI editor",
+"description":"Most popular clone of the VI editor",
 "homepage":"http://www.vim.org",
 "insecure":false,
 "license":{
@@ -5344,7 +5348,7 @@
 "name":"Philip Taron"
 }
 ],
-"name":"vim-full-9.1.0377",
+"name":"vim-full-9.1.0412",
 "outputsToInstall":[
 "out",
 "xxd"
@@ -5399,7 +5403,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"vim-full-9.1.0377",
+"name":"vim-full-9.1.0412",
 "outputName":"out",
 "outputs":{
 "out":null,
@@ -5407,7 +5411,7 @@
 },
 "pname":"vim-full",
 "system":"x86_64-linux",
-"version":"9.1.0377"
+"version":"9.1.0412"
 },
 "packages.weechat-arc":{
 "meta":{
@@ -5539,7 +5543,9 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "name":"weechat-matrix-2022.09.08",
 "outputsToInstall":[
@@ -5574,7 +5580,9 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "position":"./pkgs/public/weechat/default.nix:4",
 "unfree":false,
@@ -5617,7 +5625,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"A modular session / policy manager for PipeWire",
+"description":"Modular session / policy manager for PipeWire",
 "homepage":"https://pipewire.org",
 "insecure":false,
 "license":{
