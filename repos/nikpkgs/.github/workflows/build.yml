@@ -31,6 +31,9 @@ jobs:
         # CACHIX_AUTH_TOKEN secret in your repository secrets settings in
         # Github found at
         # https://github.com/<your_githubname>/nur-packages/settings/secrets
+        system:
+          - x86_64-linux
+          - aarch64-linux
         cachixName:
           - nikpkgs
         nixPath:
@@ -48,6 +51,7 @@ jobs:
         extra_nix_config: |
           experimental-features = nix-command flakes
           access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+          extra-platforms = i686-linux aarch64-linux arm-linux
     - name: Show nixpkgs version
       run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
     - name: Setup cachix
