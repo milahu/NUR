@@ -22,8 +22,8 @@ tee beta-src.nix << EOF
 EOF
 
 # Also upgrade to the latest NixOS channel for building talon
-branch="release-23.11"
+branch="release-24.05"
 channel=$(git ls-remote https://github.com/nixos/nixpkgs $branch | awk '{print $1}')
-sed -i "s|^channel.*|channel='https://github.com/NixOS/nixpkgs/archive/$channel.tar.gz'  # $(date -I) from NixOS $branch|" talon
+sed -i "s|^channel.*|channel='https://github.com/NixOS/nixpkgs/archive/$channel.tar.gz'  # NixOS $branch as of $(date -I)|" talon
 
 talon
