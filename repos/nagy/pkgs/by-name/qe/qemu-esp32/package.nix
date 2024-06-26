@@ -33,13 +33,13 @@
       ...
     }:
     {
-      version = "8.2.0";
+      version = "9.0.0";
 
       src = fetchFromGitHub {
         owner = "espressif";
         repo = "qemu";
-        rev = "esp-develop-8.2.0-20240122";
-        hash = "sha256-Aa4+d5zCIz+hbUj5kGl4AwvApYfgP9C1nPI2Q5vAvEk=";
+        rev = "esp-develop-9.0.0-20240606";
+        hash = "sha256-+mwNM2aA6aIhOScYu0bb6Nozf6/mtRVajFZOVucCOSk=";
         nativeBuildInputs = [
           cacert
           git
