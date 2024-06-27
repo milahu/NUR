@@ -2,16 +2,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "snapshotfs";
-  version = "0.4.0";
+  version = "0.4.2";
 
   src = fetchFromGitHub {
     owner = "DCsunset";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-T9H+VABfDmqM9TG+M/ou63p6Tht9wnDYiQkC/87KiqM=";
+    hash = "sha256-SAq2IH3N9yYbhlo/hYrUU0472rlgVGr4K2iMRuc0tIo=";
   };
 
-  cargoHash = "sha256-pDz1csiJ20iJ6rkVpFIfy2HQpWxC6iELdoYE6ws7ZLI=";
+  cargoHash = "sha256-ya0ri7myQ9bRsSBmKrUMZ5I988hWzdhYF3brHF4gVTo=";
 
   meta = with lib; {
     description = "A fuse-based read-only filesystem to provide a snapshot view (tar archives) of directories or files without actually creating the archives";

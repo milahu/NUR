@@ -2,19 +2,19 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "transformfs";
-  version = "0.1.0";
+  version = "0.2.0";
 
   src = fetchFromGitHub {
     owner = "DCsunset";
     repo = "transformfs";
     rev = "refs/tags/v${version}";
-    hash = "sha256-xdH/QvNvlsauV6rlkbCzWggohw9hdMcaEU3sGrYCGh0=";
+    hash = "sha256-3pl0ZSwWtEETx1dSzqty3Sr+VKwDHLcfjmDDSWZJ27c=";
   };
 
   nativeBuildInputs = [
     makeWrapper
   ];
-  cargoHash = "sha256-vhi89MAkj/AVRjTlQ2NnoNhc9cJRNa/N1znDcopOsiQ=";
+  cargoHash = "sha256-OooLQUfATdrfANy1SnlDgN1vw3Z5QDvjcRfhDwijKXE=";
 
   # reference: https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/filesystems/gocryptfs/default.nix
   postInstall = ''
