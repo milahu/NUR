@@ -143,6 +143,7 @@ in
         self.nodePackages.pyright
         self.nodePackages.vscode-json-languageserver
         self.nodejs
+        self.ollama
         self.pavucontrol
         self.pdsh
         self.realvnc-vnc-viewer

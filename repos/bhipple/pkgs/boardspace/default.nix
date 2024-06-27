@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   pname = "boardspace";
-  version = "unstable-2024-04-07";
+  version = "unstable-2024-06-26";
 
   src = fetchurl {
     url = "https://www.boardspace.net/java/jws/boardspace.jar";
-    hash = "sha256-XQ/RfUmLqHa4/2j6XVuDX9iYxnXX7KMlMjx6jodFFH8=";
+    hash = "sha256-x0+1dL+iWlkJRg/kYO755quIAX61o1vtgt41nCyLFwc=";
   };
 
   buildInputs = [ makeWrapper openjdk ];
