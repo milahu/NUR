@@ -1,0 +1,11 @@
+error:
+… while querying the derivation named 'burpsuite-2023.10.1.1'
+
+error: undefined variable 'arcayr'
+
+at ./pkgs/burpsuite/generic.nix:79:39:
+
+    78|     mainProgram = bin;
+    79|     maintainers = with maintainers; [ arcayr bennofs ];
+      |                                       ^
+    80|   };
