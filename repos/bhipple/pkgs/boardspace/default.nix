@@ -6,7 +6,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://www.boardspace.net/java/jws/boardspace.jar";
-    hash = "sha256-x0+1dL+iWlkJRg/kYO755quIAX61o1vtgt41nCyLFwc=";
+    hash = "sha256-NqRjyv1Ctei6zEl2bbJSdF/d5pKqiXomOMfXnjzZjXE=";
   };
 
   buildInputs = [ makeWrapper openjdk ];
