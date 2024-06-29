@@ -23,12 +23,6 @@
         flake-compat.follows = "";
       };
     };
-
-    # Indirect
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-      inputs.systems.follows = "systems";
-    };
   };
 
   outputs =
@@ -40,6 +34,8 @@
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [ git-hooks.flakeModule ];
+
       systems = import systems;
 
       perSystem =
@@ -88,15 +84,13 @@
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
               jq
-              just
               nix-inspect
-              nix-output-monitor
               nix-tree
+              nushell
             ];
 
             shellHook = ''
-              ${config.checks.pre-commit-check.shellHook}
-              just --list
+              ${config.pre-commit.installationScript}
             '';
           };
 
@@ -107,6 +101,7 @@
                 name = "update";
                 text = ''
                   nix-shell --show-trace "${nixpkgs.outPath}/maintainers/scripts/update.nix" \
+                    --arg commit 'true' \
                     --arg include-overlays "[(import ./overlay.nix)]" \
                     --arg keep-going 'true' \
                     --arg predicate '(
@@ -118,18 +113,16 @@
             );
           };
 
-          checks = {
-            pre-commit-check = git-hooks.lib.${system}.run {
-              src = ./.;
-              hooks = {
-                # Nix
-                nixfmt = {
-                  enable = true;
-                  package = config.formatter;
-                };
-                deadnix.enable = true;
-                statix.enable = true;
+          pre-commit = {
+            check.enable = true;
+            settings.hooks = {
+              # Nix
+              nixfmt = {
+                enable = true;
+                package = config.formatter;
               };
+              deadnix.enable = true;
+              statix.enable = true;
             };
           };
 

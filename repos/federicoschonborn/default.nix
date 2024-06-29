@@ -54,7 +54,6 @@
           enablePulse = false;
           enableDdcutil = false;
           enableDirectxHeaders = false;
-          enableProprietaryGpuDriverApi = false;
         };
 
     gtatoolFull =

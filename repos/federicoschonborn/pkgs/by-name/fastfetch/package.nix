@@ -69,6 +69,7 @@
     stdenv.hostPlatform.isLinux
     || stdenv.hostPlatform.isBSD
     || stdenv.hostPlatform.isWindows
+    || stdenv.hostPlatform.isAndroid
     || stdenv.hostPlatform.isSunOS,
   ocl-icd,
   opencl-headers,
@@ -82,18 +83,17 @@
   ddcutil,
   enableDirectxHeaders ? stdenv.hostPlatform.isLinux,
   directx-headers,
-  enableProprietaryGpuDriverApi ? true,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "fastfetch";
-  version = "2.16.0";
+  version = "2.17.0";
 
   src = fetchFromGitHub {
     owner = "fastfetch-cli";
     repo = "fastfetch";
     rev = finalAttrs.version;
-    hash = "sha256-dfgRRh8yJUDkMgl32ddx8iQElwRt0hCBsObud7rbTYQ=";
+    hash = "sha256-QK3AlB6tT1pl2qNX/DWPQzpjs9+EhJO9gHtNTNOE41E=";
   };
 
   nativeBuildInputs = [
@@ -162,7 +162,6 @@ stdenv.mkDerivation (finalAttrs: {
     (lib.cmakeBool "ENABLE_PULSE" enablePulse)
     (lib.cmakeBool "ENABLE_DDCUTIL" enableDdcutil)
     (lib.cmakeBool "ENABLE_DIRECTX_HEADERS" enableDirectxHeaders)
-    (lib.cmakeBool "ENABLE_PROPRIETARY_GPU_DRIVER_API" enableProprietaryGpuDriverApi)
   ];
 
   passthru.updateScript = nix-update-script { };

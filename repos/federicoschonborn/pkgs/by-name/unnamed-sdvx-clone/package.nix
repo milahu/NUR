@@ -7,6 +7,7 @@
   curl,
   freetype,
   libarchive,
+  libcpr,
   libjpeg,
   libogg,
   libvorbis,
@@ -18,13 +19,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "unnamed-sdvx-clone";
-  version = "0.5.0";
+  version = "0.6.0";
 
   src = fetchFromGitHub {
     owner = "Drewol";
     repo = "unnamed-sdvx-clone";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-PiX6R9v6Ris5B89TFCf6Mebe95SGGAdYcryxUTxAZ1E=";
+    hash = "sha256-wuf7xZztoxzNQJzlJOfH/Dc25/717NevBx7E0RDybho=";
     fetchSubmodules = true;
   };
 
@@ -37,6 +38,7 @@ stdenv.mkDerivation (finalAttrs: {
     curl
     freetype
     libarchive
+    libcpr
     libjpeg
     libogg
     libvorbis
@@ -45,13 +47,7 @@ stdenv.mkDerivation (finalAttrs: {
     SDL2
   ];
 
-  postInstall = ''
-    mkdir -p $out/bin $out/share/unnamed-sdvx-clone
-    cp -r ../bin/. $out/share/unnamed-sdvx-clone
-    ln -s $out/share/unnamed-sdvx-clone/usc-game $out/bin/usc-game
-  '';
-
-  env.NIX_CFLAGS_COMPILE = "-Wno-error";
+  cmakeFlags = [ (lib.cmakeBool "USE_SYSTEM_CPR" true) ];
 
   passthru.updateScript = nix-update-script { };
 
