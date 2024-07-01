@@ -1,12 +1,12 @@
 error:
 … while calling anonymous lambda
 
-  at ./pkgs/default.nix:192:15:
+  at ./pkgs/default.nix:193:15:
 
-   191|     // (lib.mapAttrs
-   192|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
+   192|     // (lib.mapAttrs
+   193|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
       |               ^
-   193|         unpatched."${pname}"
+   194|         unpatched."${pname}"
 
 … from call site
 
