@@ -1,1 +1,65 @@
-{"name":"endle","fetch_time":1.19,"eval_time":1.542,"source":{"url":"https://github.com/Endle/nur-packages","rev":"c8c419eb65c7e558b0f3b0a13960cfb1fe0e4e12","sha256":"1h8smh3d89dyn47gapxgqwdirlclka40z19vw27cnqxanl7v28p5","date":null},"source_storepath":"/nix/store/k9havhqmfdfbz1a79i5359w5208c62d0-source","nur_combined_rev":"3349ca1ba2148eb0b40d9e5fafcca0b1e1e09ddf","packages":{"xcodegen":{"meta":{"available":false,"broken":false,"description":"A Swift command line tool for generating your Xcode project","homepage":"https://github.com/yonaskolb/XcodeGen","insecure":false,"license":{"deprecated":false,"free":true,"fullName":"MIT License","redistributable":true,"shortName":"mit","spdxId":"MIT","url":"https://spdx.org/licenses/MIT.html"},"longDescription":"XcodeGen is a command line tool written in Swift that generates your Xcode project using your folder structure and a project spec.\n","maintainers":[{"email":"lizhenbo@yahoo.com","github":"Endle","githubId":3221521,"matrix":"@zhenbo:matrix.org","name":"Zhenbo Li"}],"name":"xcodegen-2.39.1","outputsToInstall":["out"],"platforms":["x86_64-darwin","i686-darwin","aarch64-darwin","armv7a-darwin"],"position":"pkgs/xcodegen/default.nix:47","unfree":false,"unsupported":true},"name":"xcodegen-2.39.1","outputName":"out","outputs":{"out":null},"pname":"xcodegen","system":"x86_64-linux","version":"2.39.1"}}}
+{
+"name":"endle",
+"fetch_time":0.332,
+"eval_time":0.223,
+"source":{
+"url":"https://github.com/Endle/nur-packages",
+"rev":"26bbb79dce1269c4463c56ec0de16055435178b9",
+"sha256":"09b1c5w5xg4xinp24kx9a5ra9iw0289hvn7q4ng02zs8swf3dmlr",
+"date":"2024-06-30T14:52:23Z"
+},
+"source_storepath":"/nix/store/h4fpgfnjbni06w6aw6kn2m384c9m3xpb-source",
+"nixpkgs_storepath":"/nix/store/g8vc1hjmnfa48n416ygc270rv8if21nh-source",
+"nur_combined_rev":"aab98c848172702a291fbbce8eb132c48d3034cc",
+"packages":{
+"xcodegen":{
+"meta":{
+"available":false,
+"broken":false,
+"description":"A Swift command line tool for generating your Xcode project",
+"homepage":"https://github.com/yonaskolb/XcodeGen",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"longDescription":"XcodeGen is a command line tool written in Swift that generates your Xcode project using your folder structure and a project spec.\n",
+"maintainers":[
+{
+"email":"lizhenbo@yahoo.com",
+"github":"Endle",
+"githubId":3221521,
+"matrix":"@zhenbo:matrix.org",
+"name":"Zhenbo Li"
+}
+],
+"name":"xcodegen-2.39.1",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin"
+],
+"position":"./pkgs/xcodegen/default.nix:47",
+"unfree":false,
+"unsupported":true
+},
+"name":"xcodegen-2.39.1",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"xcodegen",
+"system":"x86_64-linux",
+"version":"2.39.1"
+}
+}
+}
