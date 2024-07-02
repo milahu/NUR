@@ -59,7 +59,16 @@ stdenv.mkDerivation {
     description = "A test compositor to gain familiarity with Wayland and wlroots";
     homepage = "https://gitlab.com/serebit/flyaway";
     license = lib.licenses.asl20;
-    platforms = lib.platforms.all;
-    # maintainers = [ lib.maintainers.federicoschonborn ];
+    platforms = lib.platforms.unix;
+    maintainers = [
+      (lib.maintainers.federicoschonborn or {
+        name = "Federico Damián Schonborn";
+        email = "federicoschonborn@disroot.org";
+        matrix = "FedericoDSchonborn:matrix.org";
+        github = "FedericoSchonborn";
+        githubId = 62166915;
+      }
+      )
+    ];
   };
 }

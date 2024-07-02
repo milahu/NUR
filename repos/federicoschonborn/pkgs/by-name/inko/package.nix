@@ -6,16 +6,16 @@
   libxml2,
   ncurses,
   zlib,
-  llvmPackages_15,
+  llvmPackages_16,
   nix-update-script,
 }:
 let
-  version = "0.14.0";
+  version = "0.15.0";
   src = fetchFromGitHub {
     owner = "inko-lang";
     repo = "inko";
     rev = "v${version}";
-    hash = "sha256-6NnTqc9V/Ck4Dzo6ZcWLpCNQQVym55gQ3q7w+0DXiDc=";
+    hash = "sha256-Iojv8pTyILYpLFnoTlgUGmlfWWH0DgsGBRxzd3oRNwA=";
   };
 in
 rustPlatform.buildRustPackage {
@@ -26,9 +26,6 @@ rustPlatform.buildRustPackage {
 
   cargoLock = {
     lockFile = ./Cargo.lock;
-    outputHashes = {
-      "inkwell-0.2.0" = "sha256-E1DpyNlmPmD455Gxtnl2OJ/nvr0nj+xhlFNAj3lEccA=";
-    };
   };
 
   buildInputs = [
@@ -38,7 +35,7 @@ rustPlatform.buildRustPackage {
     zlib
   ];
 
-  env.LLVM_SYS_150_PREFIX = llvmPackages_15.llvm.dev;
+  env.LLVM_SYS_160_PREFIX = llvmPackages_16.llvm.dev;
 
   # Some of the tests require git to be installed.
   doCheck = false;
@@ -52,6 +49,15 @@ rustPlatform.buildRustPackage {
     changelog = "https://github.com/inko-lang/inko/blob/${src.rev}/CHANGELOG.md";
     license = lib.licenses.mpl20;
     platforms = lib.platforms.all;
-    # maintainers = [ lib.maintainers.federicoschonborn ];
+    maintainers = [
+      (lib.maintainers.federicoschonborn or {
+        name = "Federico Damián Schonborn";
+        email = "federicoschonborn@disroot.org";
+        matrix = "FedericoDSchonborn:matrix.org";
+        github = "FedericoSchonborn";
+        githubId = 62166915;
+      }
+      )
+    ];
   };
 }

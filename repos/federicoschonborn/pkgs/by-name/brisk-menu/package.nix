@@ -45,7 +45,16 @@ stdenv.mkDerivation rec {
       gpl2Only
       cc-by-sa-40
     ];
-    platforms = lib.platforms.all;
-    # maintainers = [ lib.maintainers.federicoschonborn ];
+    platforms = lib.platforms.unix;
+    maintainers = [
+      (lib.maintainers.federicoschonborn or {
+        name = "Federico Damián Schonborn";
+        email = "federicoschonborn@disroot.org";
+        matrix = "FedericoDSchonborn:matrix.org";
+        github = "FedericoSchonborn";
+        githubId = 62166915;
+      }
+      )
+    ];
   };
 }

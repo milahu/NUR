@@ -30,6 +30,15 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/Juniper/libxo";
     license = lib.licenses.bsd2;
     platforms = lib.platforms.all;
-    # maintainers = [ lib.maintainers.federicoschonborn ];
+    maintainers = [
+      (lib.maintainers.federicoschonborn or {
+        name = "Federico Damián Schonborn";
+        email = "federicoschonborn@disroot.org";
+        matrix = "FedericoDSchonborn:matrix.org";
+        github = "FedericoSchonborn";
+        githubId = 62166915;
+      }
+      )
+    ];
   };
 })

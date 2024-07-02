@@ -32,6 +32,15 @@ stdenv.mkDerivation (finalAttrs: {
     changelog = "https://github.com/alemart/surgescript/blob/${finalAttrs.src.rev}/CHANGES.md";
     license = lib.licenses.asl20;
     platforms = lib.platforms.all;
-    # maintainers = [ lib.maintainers.federicoschonborn ];
+    maintainers = [
+      (lib.maintainers.federicoschonborn or {
+        name = "Federico Damián Schonborn";
+        email = "federicoschonborn@disroot.org";
+        matrix = "FedericoDSchonborn:matrix.org";
+        github = "FedericoSchonborn";
+        githubId = 62166915;
+      }
+      )
+    ];
   };
 })

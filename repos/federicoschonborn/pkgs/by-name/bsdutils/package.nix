@@ -50,7 +50,16 @@ stdenv.mkDerivation (finalAttrs: {
     description = "Alternative to GNU coreutils using software from FreeBSD";
     homepage = "https://github.com/dcantrell/bsdutils";
     license = lib.licenses.bsd3;
-    platforms = lib.platforms.all;
-    # maintainers = [ lib.maintainers.federicoschonborn ];
+    platforms = lib.platforms.unix;
+    maintainers = [
+      (lib.maintainers.federicoschonborn or {
+        name = "Federico Damián Schonborn";
+        email = "federicoschonborn@disroot.org";
+        matrix = "FedericoDSchonborn:matrix.org";
+        github = "FedericoSchonborn";
+        githubId = 62166915;
+      }
+      )
+    ];
   };
 })

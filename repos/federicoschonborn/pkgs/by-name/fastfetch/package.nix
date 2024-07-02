@@ -87,13 +87,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "fastfetch";
-  version = "2.17.0";
+  version = "2.17.1";
 
   src = fetchFromGitHub {
     owner = "fastfetch-cli";
     repo = "fastfetch";
     rev = finalAttrs.version;
-    hash = "sha256-QK3AlB6tT1pl2qNX/DWPQzpjs9+EhJO9gHtNTNOE41E=";
+    hash = "sha256-2mEte32Tc0iE4R1gN+MPnd33L43ykLSNdaIWq5JzBaQ=";
   };
 
   nativeBuildInputs = [
@@ -173,6 +173,15 @@ stdenv.mkDerivation (finalAttrs: {
     changelog = "https://github.com/fastfetch-cli/fastfetch/blob/${finalAttrs.src.rev}/CHANGELOG.md";
     license = lib.licenses.mit;
     platforms = lib.platforms.all;
-    # maintainers = [ lib.maintainers.federicoschonborn ];
+    maintainers = [
+      (lib.maintainers.federicoschonborn or {
+        name = "Federico Damián Schonborn";
+        email = "federicoschonborn@disroot.org";
+        matrix = "FedericoDSchonborn:matrix.org";
+        github = "FedericoSchonborn";
+        githubId = 62166915;
+      }
+      )
+    ];
   };
 })

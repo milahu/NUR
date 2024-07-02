@@ -47,7 +47,16 @@ stdenv.mkDerivation (finalAttrs: {
     description = "Wisp turns indentation based syntax into Lisp";
     homepage = "https://www.draketo.de/software/wisp";
     license = lib.licenses.gpl3Plus;
-    platforms = lib.platforms.all;
-    # maintainers = [ lib.maintainers.federicoschonborn ];
+    inherit (guile.meta) platforms;
+    maintainers = [
+      (lib.maintainers.federicoschonborn or {
+        name = "Federico Damián Schonborn";
+        email = "federicoschonborn@disroot.org";
+        matrix = "FedericoDSchonborn:matrix.org";
+        github = "FedericoSchonborn";
+        githubId = 62166915;
+      }
+      )
+    ];
   };
 })

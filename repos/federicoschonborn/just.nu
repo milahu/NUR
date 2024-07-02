@@ -1,7 +1,7 @@
 #!/usr/bin/env nu
 
 const nix_flags = [--verbose --print-build-logs --log-format multiline-with-logs --inputs-from .]
-let current_system = (uname | get machine | str downcase) + "-" + (uname | get kernel-name | str downcase)
+let current_system = uname | $"($in.machine)-($in.kernel-name)" | str downcase
 
 def --wrapped nix [...rest] {
     print $"^nix ($rest) ($nix_flags)"
@@ -37,11 +37,11 @@ def "main build" [...packages: string] {
 }
 
 def "main build-unstable" [...packages: string] {
-    nix-unstable build ...($packages | each { ".#" + $in })
+    nix-unstable build ...($packages | each { $".#($in)" })
 }
 
 def "main build-stable" [...packages: string] {
-    nix-stable build ...($packages | each { ".#" + $in })
+    nix-stable build ...($packages | each { $".#($in)" })
 }
 
 def "main rebuild" [...packages: string] {
@@ -50,11 +50,11 @@ def "main rebuild" [...packages: string] {
 }
 
 def "main rebuild-unstable" [...packages: string] {
-    nix-unstable build --rebuild ...($packages | each { ".#" + $in })
+    nix-unstable build --rebuild ...($packages | each { $".#($in)" })
 }
 
 def "main rebuild-stable" [...packages: string] {
-    nix-stable build --rebuild ...($packages | each { ".#" + $in })
+    nix-stable build --rebuild ...($packages | each { $".#($in)" })
 }
 
 def "main rebuild-all" [] {
@@ -71,11 +71,11 @@ def "main rebuild-all-stable" [] {
 }
 
 def "main run-unstable" [package: string] {
-    nix-unstable run (".#" + $package)
+    nix-unstable run $".#($package)"
 }
 
 def "main run-stable" [package: string] {
-    nix-stable run (".#" + $package)
+    nix-stable run $".#($package)"
 }
 
 def "main update" [] {
@@ -84,11 +84,20 @@ def "main update" [] {
 }
 
 def "main tree" [package: string] {
-    nix-tree (".#" + $package)
+    nix-tree $".#($package)"
 }
 
 def "main inspect" [] {
     nix-inspect --path .
+}
+
+def "main generate-program-list" [] {
+    nix run ".#generate-program-list"
+}
+
+def "main generate-readme" [] {
+    main generate-program-list
+    nix run ".#generate-readme"
 }
 
 def main [] {}

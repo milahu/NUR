@@ -97,6 +97,15 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://marlam.de/tgd/";
     license = lib.licenses.mit;
     platforms = lib.platforms.all;
-    # maintainers = [ lib.maintainers.federicoschonborn ];
+    maintainers = [
+      (lib.maintainers.federicoschonborn or {
+        name = "Federico Damián Schonborn";
+        email = "federicoschonborn@disroot.org";
+        matrix = "FedericoDSchonborn:matrix.org";
+        github = "FedericoSchonborn";
+        githubId = 62166915;
+      }
+      )
+    ];
   };
 })
