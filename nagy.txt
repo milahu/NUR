@@ -1,0 +1,38 @@
+error:
+… while evaluating the file './default.nix':
+
+… from call site
+
+  at ./default.nix:3:21:
+
+     2|                     with import <nixpkgs> {};
+     3|                     import ./evalRepo.nix {
+      |                     ^
+     4|                         name = "nagy";
+
+… while calling anonymous lambda
+
+  at ./evalRepo.nix:1:1:
+
+     1| { name
+      | ^
+     2| , url
+
+… from call site
+
+  at ./evalRepo.nix:33:11:
+
+    32|     might result in infinite recursion when used with NixOS modules.
+    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+      |           ^
+    34|
+
+… while calling anonymous lambda
+
+  at ./default.nix:1:1:
+
+     1| {
+      | ^
+     2|   pkgs ? import <nixpkgs> { },
+
+error: path '/nix/store/maws0kk76jsxvrn11ybq1iz18hs5p51i-0rjnwna89sxf9hyljasq2jv15n9dlkxf-source' is not valid
