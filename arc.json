@@ -1,16 +1,16 @@
 {
 "name":"arc",
-"fetch_time":0.304,
-"eval_time":0.423,
+"fetch_time":0.319,
+"eval_time":0.428,
 "source":{
 "url":"https://github.com/arcnmx/nixexprs",
-"rev":"3b861e91acd3ea56d3eb26bf17f1d3e3acb5b304",
-"sha256":"192yick9w07mqsw3gqcqiwc7mxcga7qv7yzk7m6ijb8l2d4v5j0n",
+"rev":"5165118a5c43addcaace24579f0e62f5d1a792a7",
+"sha256":"1f40pz3rd9pja64alqq2xmadqbvhwx3r4gcga5sc7sfnq9fwsj0i",
 "date":null
 },
-"source_storepath":"/nix/store/c80aa7iv1y4vi4gw9hic3nkvk08a9fyx-source",
-"nixpkgs_storepath":"/nix/store/s5rbqby304hxryiq46jqalsc1vm8asim-source",
-"nur_combined_rev":"99eeee7e2d75719ee5d6999fce2600aa986b2c85",
+"source_storepath":"/nix/store/zixacfgmv5b1s27ng8hyv0qv5xkjf3kk-source",
+"nixpkgs_storepath":"/nix/store/0rjnwna89sxf9hyljasq2jv15n9dlkxf-source",
+"nur_combined_rev":"f6e0d9ceeaefcf773534120db5b849d28bfb09f3",
 "packages":{
 "packages.benc":{
 "meta":{
@@ -1328,7 +1328,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"forcefully-remove-bootfb-6.6.35-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.36-2018-02-08",
 "outputsToInstall":[
 "bin"
 ],
@@ -1359,7 +1359,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"forcefully-remove-bootfb-6.6.35-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.36-2018-02-08",
 "outputName":"bin",
 "outputs":{
 "bin":null,
@@ -1367,7 +1367,7 @@
 },
 "pname":"forcefully-remove-bootfb",
 "system":"x86_64-linux",
-"version":"6.6.35-2018-02-08"
+"version":"6.6.36-2018-02-08"
 },
 "packages.generateLinuxConfig":{
 "meta":{
@@ -2575,7 +2575,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.35-2021.04.21",
+"name":"ryzen-smu-6.6.36-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -3213,7 +3213,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/mumble/default.nix:39",
+"position":"<nixpkgs> + /pkgs/applications/networking/mumble/default.nix:40",
 "unfree":false,
 "unsupported":false
 },
@@ -3351,7 +3351,7 @@
 "name":"Artturi N"
 }
 ],
-"name":"nix-readline-2.18.2",
+"name":"nix-readline-2.18.4",
 "outputsToInstall":[
 "out",
 "man"
@@ -3406,7 +3406,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nix-readline-2.18.2",
+"name":"nix-readline-2.18.4",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -3417,7 +3417,7 @@
 },
 "pname":"nix-readline",
 "system":"x86_64-linux",
-"version":"2.18.2"
+"version":"2.18.4"
 },
 "packages.nix-readline-2_3":{
 "meta":{
@@ -3444,13 +3444,6 @@
 "github":"flokli",
 "githubId":183879,
 "name":"Florian Klink"
-},
-{
-"email":"ryan@lahfa.xyz",
-"github":"RaitoBezarius",
-"githubId":314564,
-"matrix":"@raitobezarius:matrix.org",
-"name":"Ryan Lahfa"
 }
 ],
 "name":"nix-readline-2.3.18",
@@ -3525,7 +3518,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre642175.90338afd6177",
+"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre645983.b9014df496d5",
 "description":"Mail indexer",
 "homepage":"https://notmuchmail.org/",
 "insecure":false,
@@ -4696,7 +4689,7 @@
 "name":"oxalica"
 }
 ],
-"name":"rust-analyzer-unwrapped-2024-06-11",
+"name":"rust-analyzer-unwrapped-2024-06-24",
 "outputsToInstall":[
 "out"
 ],
@@ -4745,14 +4738,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rust-analyzer-unwrapped-2024-06-11",
+"name":"rust-analyzer-unwrapped-2024-06-24",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rust-analyzer-unwrapped",
 "system":"x86_64-linux",
-"version":"2024-06-11"
+"version":"2024-06-24"
 },
 "packages.rustdoc-stripper":{
 "meta":{
@@ -4927,7 +4920,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.35-2021.04.21",
+"name":"ryzen-smu-6.6.36-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -4972,7 +4965,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.35-2021.04.21",
+"name":"ryzen-smu-6.6.36-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5003,21 +4996,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ryzen-smu-6.6.35-2021.04.21",
+"name":"ryzen-smu-6.6.36-2021.04.21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ryzen-smu",
 "system":"x86_64-linux",
-"version":"6.6.35-2021.04.21"
+"version":"6.6.36-2021.04.21"
 },
 "packages.ryzen-smu-monitor_cpu":{
 "meta":{
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.35-2021.04.21",
+"name":"ryzen-smu-6.6.36-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5095,7 +5088,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"name":"ryzen-smu-6.6.35-2021.04.21",
+"name":"ryzen-smu-6.6.36-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5417,7 +5410,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://weechat.org/files/doc/weechat/ChangeLog-4.3.2.html",
+"changelog":"https://weechat.org/files/doc/weechat/ChangeLog-4.3.3.html",
 "description":"Fast, light and extensible chat client",
 "homepage":"https://weechat.org/",
 "insecure":false,
@@ -5446,7 +5439,7 @@
 "name":"Na\u00efm Favier"
 }
 ],
-"name":"weechat-4.3.2",
+"name":"weechat-4.3.3",
 "outputsToInstall":[
 "out"
 ],
@@ -5500,14 +5493,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"weechat-bin-env-4.3.2",
+"name":"weechat-bin-env-4.3.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"weechat-bin-env",
 "system":"x86_64-linux",
-"version":"4.3.2"
+"version":"4.3.3"
 },
 "packages.weechat-matrix":{
 "meta":{
