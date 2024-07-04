@@ -11,6 +11,7 @@
 (qemu.override {
   hostCpuTargets = [ "xtensa-softmmu" ];
   capstoneSupport = false;
+  guestAgentSupport = false;
 
   # no need for graphics
   gtkSupport = false;
@@ -65,13 +66,6 @@
         + ''
           substituteInPlace meson.build \
             --replace-fail config-tool pkg-config
-        '';
-
-      # dangling symlink
-      postInstall =
-        postInstall
-        + ''
-          rm $out/bin/qemu-kvm
         '';
 
       meta = meta // {
