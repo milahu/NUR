@@ -1,16 +1,16 @@
 {
 "name":"nagy",
-"fetch_time":0.331,
-"eval_time":1.019,
+"fetch_time":0.575,
+"eval_time":0.931,
 "source":{
 "url":"https://github.com/nagy/nur-packages",
-"rev":"e674275512dc97754b47ff04c8c2cb76f0274d76",
-"sha256":"0cyc6y0cndxbb34ar0lwsvwjhldl67p2jmivy80j1fzdaq83pmi1",
+"rev":"525ecdea89c9af098360b199700d4e5d758fa68e",
+"sha256":"1clbs3rlw9hgb01vdiplvsh7s8ljy3bg5c66ki8d30a18bizb525",
 "date":null
 },
-"source_storepath":"/nix/store/sgxxdlw6rb6y35lk1vl1aa8i5rjsmgfw-source",
-"nixpkgs_storepath":"/nix/store/g8vc1hjmnfa48n416ygc270rv8if21nh-source",
-"nur_combined_rev":"391d55174a44c249bb05227035d80406fba7b6db",
+"source_storepath":"/nix/store/4lb63haia5drq1flmgxipaxq85zdpmzg-source",
+"nixpkgs_storepath":"/nix/store/dpj7ixjm96xl2vj5rfz4ynspnjkls5vc-source",
+"nur_combined_rev":"d6350bd1cf789f35a3dd5be644fa23dc94e0a506",
 "packages":{
 "apertium":{
 "meta":{
@@ -1611,66 +1611,6 @@
 "pname":"libzstd-seek",
 "system":"x86_64-linux",
 "version":"1.2.0"
-},
-"lispPackages.cl-opengl":{
-"meta":{
-"available":true,
-"broken":false,
-"hydraPlatforms":[],
-"insecure":false,
-"maintainers":[
-{
-"email":"7c6f434c@mail.ru",
-"github":"7c6f434c",
-"githubId":1891350,
-"name":"Michael Raskin"
-},
-{
-"email":"luke@snabb.co",
-"github":"lukego",
-"githubId":13791,
-"name":"Luke Gorrie"
-},
-{
-"email":"danielnagy@posteo.de",
-"github":"nagy",
-"githubId":692274,
-"keys":[
-{
-"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
-}
-],
-"name":"Daniel Nagy"
-},
-{
-"email":"galkowskikasper@gmail.com",
-"github":"Uthar",
-"githubId":15697697,
-"name":"Kasper Ga\u0142kowski"
-},
-{
-"email":"hraban@0brg.net",
-"github":"hraban",
-"githubId":137852,
-"name":"Hraban Luyat"
-}
-],
-"name":"sbcl-cl-opengl-20191130-git",
-"outputsToInstall":[
-"out"
-],
-"position":"<nixpkgs> + /pkgs/development/lisp-modules/imported.nix:21347",
-"unfree":false,
-"unsupported":false
-},
-"name":"sbcl-cl-opengl-20191130-git",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"sbcl-cl-opengl",
-"system":"x86_64-linux",
-"version":"20191130-git"
 },
 "lispPackages.cl-raylib":{
 "meta":{
@@ -4535,7 +4475,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/by-name/qe/qemu-esp32/package.nix:78",
+"position":"./pkgs/by-name/qe/qemu-esp32/package.nix:72",
 "unfree":false,
 "unsupported":false
 },
@@ -4543,7 +4483,6 @@
 "outputName":"out",
 "outputs":{
 "debug":null,
-"ga":null,
 "out":null
 },
 "pname":"qemu",
