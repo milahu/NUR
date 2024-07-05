@@ -1,18 +1,18 @@
 error:
-… while evaluating the file '/tmp/nur-update/default.nix':
+… while evaluating the file './default.nix':
 
 … from call site
 
-  at /tmp/nur-update/default.nix:3:21:
+  at ./default.nix:3:21:
 
      2|                     with import <nixpkgs> {};
-     3|                     import /tmp/nur-update/evalRepo.nix {
+     3|                     import ./evalRepo.nix {
       |                     ^
      4|                         name = "pschuprikov";
 
 … while calling anonymous lambda
 
-  at /tmp/nur-update/evalRepo.nix:1:1:
+  at ./evalRepo.nix:1:1:
 
      1| { name
       | ^
@@ -20,7 +20,7 @@ error:
 
 … from call site
 
-  at /tmp/nur-update/evalRepo.nix:33:11:
+  at ./evalRepo.nix:33:11:
 
     32|     might result in infinite recursion when used with NixOS modules.
     33|   '' else expr (builtins.intersectAttrs args passedArgs)
@@ -29,7 +29,7 @@ error:
 
 … while calling anonymous lambda
 
-  at /nix/store/k99dgjy684nk3wg8zip2pifpn61xjrw7-source/default.nix:3:4:
+  at ./default.nix:3:4:
 
      2|   mvn2nix = import (fetchTarball "https://github.com/fzakaria/mvn2nix/archive/master.tar.gz") {};
      3| in { nixpkgsPath ? <nixpkgs>, pkgs ? import nixpkgsPath { } }:
@@ -38,7 +38,7 @@ error:
 
 … from call site
 
-  at /nix/store/k99dgjy684nk3wg8zip2pifpn61xjrw7-source/default.nix:11:11:
+  at ./default.nix:11:11:
 
     10|
     11|   scope = lib.makeScope pkgs.newScope (self: rec {
@@ -47,25 +47,25 @@ error:
 
 … while calling 'makeScope'
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:321:25:
+  at <nixpkgs> + /lib/customisation.nix:541:25:
 
-   320|   */
-   321|   makeScope = newScope: f:
+   540|   */
+   541|   makeScope = newScope: f:
       |                         ^
-   322|     let self = f self // {
+   542|     let self = f self // {
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:322:16:
+  at <nixpkgs> + /lib/customisation.nix:542:16:
 
-   321|   makeScope = newScope: f:
-   322|     let self = f self // {
+   541|   makeScope = newScope: f:
+   542|     let self = f self // {
       |                ^
-   323|           newScope = scope: newScope (self // scope);
+   543|           newScope = scope: newScope (self // scope);
 
 … while calling anonymous lambda
 
-  at /nix/store/k99dgjy684nk3wg8zip2pifpn61xjrw7-source/default.nix:11:40:
+  at ./default.nix:11:40:
 
     10|
     11|   scope = lib.makeScope pkgs.newScope (self: rec {
@@ -74,20 +74,20 @@ error:
 
 … from call site
 
-  at /nix/store/k99dgjy684nk3wg8zip2pifpn61xjrw7-source/default.nix:240:8:
+  at ./default.nix:244:8:
 
-   239|     hprotoc = pkgs.haskellPackages.callPackage ./pkgs/hprotoc { };
-   240|   } // lib.optionalAttrs (!(pkgs ? buildMavenRepositoryFromLockFile)) mvn2nix);
+   243|     hprotoc = pkgs.haskellPackages.callPackage ./pkgs/hprotoc { };
+   244|   } // lib.optionalAttrs (!(pkgs ? buildMavenRepositoryFromLockFile)) mvn2nix);
       |        ^
-   241| in scope.packages scope
+   245| in scope.packages scope
 
 … while calling 'optionalAttrs'
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:819:5:
+  at <nixpkgs> + /lib/attrsets.nix:1352:5:
 
-   818|     # The attribute set to return if `cond` is `true`.
-   819|     as:
+  1351|     cond:
+  1352|     as:
       |     ^
-   820|     if cond then as else {};
+  1353|     if cond then as else {};
 
 error: access to URI 'https://github.com/fzakaria/mvn2nix/archive/master.tar.gz' is forbidden in restricted mode
