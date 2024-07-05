@@ -5,11 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
 
-    systems = {
-      url = "path:./systems.nix";
-      flake = false;
-    };
-
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -28,7 +23,6 @@
   outputs =
     {
       nixpkgs,
-      systems,
       flake-parts,
       git-hooks,
       ...
@@ -36,7 +30,16 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [ git-hooks.flakeModule ];
 
-      systems = import systems;
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "i686-linux"
+        "armv6l-linux"
+        "armv7l-linux"
+
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
 
       perSystem =
         {
@@ -81,7 +84,7 @@
             };
           };
 
-          legacyPackages = pkgs.callPackage ./. { };
+          legacyPackages = import ./. { inherit pkgs; };
           packages = lib.filterAttrs (_: lib.isDerivation) config.legacyPackages;
 
           devShells.default = pkgs.mkShell {
@@ -120,7 +123,7 @@
                         builtins.mapAttrs (name: value: ''
                           if test -d ${value}/bin; then
                             echo '  "${name}": ' >> meta/program-list.json
-                            ${lib.getExe pkgs.nushell} -c 'ls --short-names --long ${value}/bin | where type == "file" and mode =~ "x" | get name | to json' >> meta/program-list.json
+                            ${lib.getExe pkgs.nushell} -c 'ls --short-names --long ${value}/bin | where type == "file" and mode =~ "x" | get name | sort | to json' >> meta/program-list.json
                             echo ',' >> meta/program-list.json
                           fi
                         '') config.packages

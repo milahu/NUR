@@ -194,7 +194,7 @@ Alternative to GNU coreutils using software from FreeBSD.
     Package details
   </summary>
 
-- Programs provided: `split`, `nl`, `printf`, `cat`, `nohup`, `pr`, `echo`, `pathchk`, `bc`, `unexpand`, `tail`, `truncate`, `fmt`, `who`, `xargs`, `sed`, `cut`, `csplit`, `wc`, `mknod`, `du`, `rm`, `hexdump`, `pwd`, `find`, `env`, `ln`, `join`, `stdbuf`, `test`, `dc`, `date`, `tr`, `tty`, `dd`, `mkfifo`, `uniq`, `timeout`, `uname`, `cksum`, `cp`, `chown`, `printenv`, `install`, `yes`, `id`, `mv`, `hostname`, `tsort`, `dirname`, `mktemp`, `users`, `basename`, `which`, `logname`, `comm`, `realpath`, `tee`, `rmdir`, `chmod`, `sort`, `expr`, `head`, `true`, `fold`, `nice`, `stat`, `expand`, `ls`, `sync`, `kill`, `factor`, `df`, `stty`, `seq`, `chroot`, `paste`, `sleep`, `false`, `mkdir`, `touch`
+- Programs provided: `basename`, `bc`, `cat`, `chmod`, `chown`, `chroot`, `cksum`, `comm`, `cp`, `csplit`, `cut`, `date`, `dc`, `dd`, `df`, `dirname`, `du`, `echo`, `env`, `expand`, `expr`, `factor`, `false`, `find`, `fmt`, `fold`, `head`, `hexdump`, `hostname`, `id`, `install`, `join`, `kill`, `ln`, `logname`, `ls`, `mkdir`, `mkfifo`, `mknod`, `mktemp`, `mv`, `nice`, `nl`, `nohup`, `paste`, `pathchk`, `pr`, `printenv`, `printf`, `pwd`, `realpath`, `rm`, `rmdir`, `sed`, `seq`, `sleep`, `sort`, `split`, `stat`, `stdbuf`, `stty`, `sync`, `tail`, `tee`, `test`, `timeout`, `touch`, `tr`, `true`, `truncate`, `tsort`, `tty`, `uname`, `unexpand`, `uniq`, `users`, `wc`, `which`, `who`, `xargs`, `yes`
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -352,10 +352,10 @@ Cargo Advent of Code Helper.
 Like neofetch, but much faster because written in C.
 
 - Name: `fastfetch`
-- Version: 2.17.1
+- Version: 2.17.2
 - Outputs: **`out`**
 - [🌐 Homepage](https://github.com/fastfetch-cli/fastfetch)
-- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/blob/2.17.1/CHANGELOG.md)
+- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/blob/2.17.2/CHANGELOG.md)
 - [📦 Source](./pkgs/by-name/fastfetch/package.nix#L171)
 - License: [`MIT`](https://spdx.org/licenses/MIT.html "MIT License")
 
@@ -454,11 +454,11 @@ Like neofetch, but much faster because written in C.
 Like neofetch, but much faster because written in C (with all features disabled).
 
 - Name: `fastfetch-minimal`
-- Version: 2.17.1
+- Version: 2.17.2
 - Outputs: **`out`**
 - [🌐 Homepage](https://github.com/fastfetch-cli/fastfetch)
-- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/blob/2.17.1/CHANGELOG.md)
-- [📦 Source](./default.nix#L27)
+- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/blob/2.17.2/CHANGELOG.md)
+- [📦 Source](./default.nix#L28)
 - License: [`MIT`](https://spdx.org/licenses/MIT.html "MIT License")
 
 <!-- markdownlint-disable-next-line no-inline-html -->
@@ -830,7 +830,7 @@ A set of commands that manipulate GTAs on various levels (with all features enab
 - Version: 2.4.0
 - Outputs: **`out`**
 - [🌐 Homepage](https://marlam.de/gta/)
-- [📦 Source](./default.nix#L63)
+- [📦 Source](./default.nix#L64)
 - License: [`GPL-3.0-or-later`](https://spdx.org/licenses/GPL-3.0-or-later.html "GNU General Public License v3.0 or later")
 
 <!-- markdownlint-disable-next-line no-inline-html -->
@@ -1144,7 +1144,7 @@ Dialect of Python with explicit variable declaration and block scoping, with a l
     Package details
   </summary>
 
-- Programs provided: `krk-sandbox`, `krk-args`, `krk-demo`, `krk-debug-stats`, **`kuroko`**, `krk-compile`
+- Programs provided: `krk-args`, `krk-compile`, `krk-debug-stats`, `krk-demo`, `krk-sandbox`, **`kuroko`**
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -1436,7 +1436,7 @@ A library to make working with multidimensional arrays in C++ easy (with all fea
 - Version: 4.3
 - Outputs: **`out`**
 - [🌐 Homepage](https://marlam.de/tgd/)
-- [📦 Source](./default.nix#L96)
+- [📦 Source](./default.nix#L97)
 - License: [`MIT`](https://spdx.org/licenses/MIT.html "MIT License")
 
 <!-- markdownlint-disable-next-line no-inline-html -->
@@ -1547,7 +1547,7 @@ Library for emitting text, XML, JSON, or HTML output.
     Package details
   </summary>
 
-- Programs provided: `xopo`, `xohtml`, `xolint`, `libxo-config`, **`xo`**
+- Programs provided: `libxo-config`, **`xo`**, `xohtml`, `xolint`, `xopo`
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -1635,7 +1635,7 @@ Library for emitting text, XML, JSON, or HTML output.
 wlroots-based Wayland compositor designed for the Budgie Desktop.
 
 - Name: `magpie-wayland`
-- Version: 0.9.3-unstable-2024-06-24
+- Version: 0.9.3-unstable-2024-07-02
 - Outputs: **`out`**
 - [🌐 Homepage](https://github.com/BuddiesOfBudgie/magpie)
 - [📦 Source](./pkgs/by-name/magpie-wayland/package.nix#L57)
@@ -2516,7 +2516,7 @@ Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood
 - Version: 1.10.2
 - Outputs: **`out`**
 - [🌐 Homepage](https://github.com/ZDoom/Raze)
-- [📦 Source](./default.nix#L127)
+- [📦 Source](./default.nix#L128)
 - License: [`GPL-2.0`](https://spdx.org/licenses/GPL-2.0.html "GNU General Public License v2.0")
 
 <!-- markdownlint-disable-next-line no-inline-html -->
@@ -2830,7 +2830,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
     Package details
   </summary>
 
-- Programs provided: `overrgb`, `miter`, `unu`, `tend`, `ilk`, `vprobe`, `gprobe`, `nrrdSanity`, `mrender`, `puller`
+- Programs provided: `gprobe`, `ilk`, `miter`, `mrender`, `nrrdSanity`, `overrgb`, `puller`, `tend`, `unu`, `vprobe`
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -2921,7 +2921,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Version: 1.11.0
 - Outputs: **`out`**
 - [🌐 Homepage](https://teem.sourceforge.net/)
-- [📦 Source](./default.nix#L152)
+- [📦 Source](./default.nix#L153)
 - License: [`LGPL-2.1-or-later`](https://spdx.org/licenses/LGPL-2.1-or-later.html "GNU Lesser General Public License v2.1 or later")
 
 <!-- markdownlint-disable-next-line no-inline-html -->
@@ -2931,7 +2931,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
     Package details
   </summary>
 
-- Programs provided: `overrgb`, `qbert`, `miter`, `unu`, `cubic`, `tend`, `ilk`, `vprobe`, `gprobe`, `talkweb`, `nrrdSanity`, `spots`, `undos`, `pprobe`, `deconv`, `ninspect`, `ungantry`, `airSanity`, `gkms`, `mrender`, `emap`, `puller`
+- Programs provided: `airSanity`, `cubic`, `deconv`, `emap`, `gkms`, `gprobe`, `ilk`, `miter`, `mrender`, `ninspect`, `nrrdSanity`, `overrgb`, `pprobe`, `puller`, `qbert`, `spots`, `talkweb`, `tend`, `undos`, `ungantry`, `unu`, `vprobe`
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -3022,7 +3022,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Version: 1.11.0
 - Outputs: **`out`**
 - [🌐 Homepage](https://teem.sourceforge.net/)
-- [📦 Source](./default.nix#L164)
+- [📦 Source](./default.nix#L165)
 - License: [`LGPL-2.1-or-later`](https://spdx.org/licenses/LGPL-2.1-or-later.html "GNU Lesser General Public License v2.1 or later")
 
 <!-- markdownlint-disable-next-line no-inline-html -->
@@ -3032,7 +3032,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
     Package details
   </summary>
 
-- Programs provided: `overrgb`, `qbert`, `miter`, `unu`, `cubic`, `tend`, `ilk`, `vprobe`, `gprobe`, `talkweb`, `nrrdSanity`, `spots`, `undos`, `pprobe`, `deconv`, `ninspect`, `ungantry`, `airSanity`, `gkms`, `mrender`, `emap`, `puller`
+- Programs provided: `airSanity`, `cubic`, `deconv`, `emap`, `gkms`, `gprobe`, `ilk`, `miter`, `mrender`, `ninspect`, `nrrdSanity`, `overrgb`, `pprobe`, `puller`, `qbert`, `spots`, `talkweb`, `tend`, `undos`, `ungantry`, `unu`, `vprobe`
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -3123,7 +3123,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Version: 1.11.0
 - Outputs: **`out`**
 - [🌐 Homepage](https://teem.sourceforge.net/)
-- [📦 Source](./default.nix#L136)
+- [📦 Source](./default.nix#L137)
 - License: [`LGPL-2.1-or-later`](https://spdx.org/licenses/LGPL-2.1-or-later.html "GNU Lesser General Public License v2.1 or later")
 
 <!-- markdownlint-disable-next-line no-inline-html -->
@@ -3133,7 +3133,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
     Package details
   </summary>
 
-- Programs provided: `overrgb`, `miter`, `unu`, `tend`, `ilk`, `vprobe`, `gprobe`, `nrrdSanity`, `mrender`, `puller`
+- Programs provided: `gprobe`, `ilk`, `miter`, `mrender`, `nrrdSanity`, `overrgb`, `puller`, `tend`, `unu`, `vprobe`
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -3435,7 +3435,7 @@ Wisp turns indentation based syntax into Lisp.
     Package details
   </summary>
 
-- Programs provided: `wisp2lisp`, **`wisp`**
+- Programs provided: **`wisp`**, `wisp2lisp`
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
