@@ -1,22 +1,28 @@
 { lib, pkgs }:
 
 {
-  eevee = lib.packagesFromDirectoryRecursive {
-    inherit (pkgs) callPackage;
-    directory = ./eevee;
-  };
+  eevee = pkgs.recurseIntoAttrs (
+    lib.packagesFromDirectoryRecursive {
+      inherit (pkgs) callPackage;
+      directory = ./eevee;
+    }
+  );
 
-  eppa = lib.packagesFromDirectoryRecursive {
-    inherit (pkgs) callPackage;
-    directory = ./eppa;
-  };
+  eppa = pkgs.recurseIntoAttrs (
+    lib.packagesFromDirectoryRecursive {
+      inherit (pkgs) callPackage;
+      directory = ./eppa;
+    }
+  );
 
-  fotoente = lib.packagesFromDirectoryRecursive {
-    inherit (pkgs) callPackage;
-    directory = ./fotoente;
-  };
+  fotoente = pkgs.recurseIntoAttrs (
+    lib.packagesFromDirectoryRecursive {
+      inherit (pkgs) callPackage;
+      directory = ./fotoente;
+    }
+  );
 
-  olivvybee =
+  olivvybee = pkgs.recurseIntoAttrs (
     let
       mkEmojiPack = pkgs.callPackage ./olivvybee/mkEmojiPack.nix { };
     in
@@ -31,14 +37,17 @@
       neodlr = "sha256-4algyDuhPgmm7BGuaPQCEeZOcQYWB0eMQ5jY1bpgNeU=";
       neofox = "sha256-AvnM27ovf7AfeHSa4MmrVLjzBzLGOgY5dVesmb0LkQs=";
       neossb = "sha256-+4pHxLriFcB8Ryq44nim4sn4E7ENVaMEftsda67Vt7c=";
-    };
+    }
+  );
 
-  renere = lib.packagesFromDirectoryRecursive {
-    inherit (pkgs) callPackage;
-    directory = ./renere;
-  };
+  renere = pkgs.recurseIntoAttrs (
+    lib.packagesFromDirectoryRecursive {
+      inherit (pkgs) callPackage;
+      directory = ./renere;
+    }
+  );
 
-  volpeon =
+  volpeon = pkgs.recurseIntoAttrs (
     let
       mkEmojiPack = pkgs.callPackage ./volpeon/mkEmojiPack.nix { };
     in
@@ -70,5 +79,6 @@
         version = "1.1";
         hash = "sha256-NNBNGS9S2iZCj76xJ6PJdxyHCfpP+yoYVuX8ORzpYrs=";
       };
-    };
+    }
+  );
 }

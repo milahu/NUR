@@ -7,7 +7,7 @@
 
 stdenvNoCC.mkDerivation {
   pname = "fotoente-neomilk";
-  version = "0-unstable-2024-05-19";
+  version = "0-unstable-2024-05-26";
 
   src = fetchFromGitea {
     domain = "codeberg.org";

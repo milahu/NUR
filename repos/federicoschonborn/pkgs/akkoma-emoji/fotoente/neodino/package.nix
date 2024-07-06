@@ -7,14 +7,14 @@
 
 stdenvNoCC.mkDerivation {
   pname = "fotoente-neodino";
-  version = "0-unstable-2024-05-19";
+  version = "0-unstable-2024-06-08";
 
   src = fetchFromGitea {
     domain = "codeberg.org";
     owner = "fotoente";
     repo = "neodino";
-    rev = "c625e202c38a3df196afd57608bdab7a14012e0f";
-    hash = "sha256-bdQO7NZbAgf5LPi9H/9zdXeNx0TbaCdh7Ml5nChR8UM=";
+    rev = "39efa5e7226a73e68200ba8e6ef35d36bc1dce4a";
+    hash = "sha256-NAFKFuPXXHBMXiPae/VYgFT2uCgb0RP/HpTIE2P1efA=";
   };
 
   installPhase = ''

@@ -6,6 +6,552 @@ Personal [NUR](https://github.com/nix-community/NUR) repository.
 
 ## Packages
 
+### `akkoma-emoji.eevee.neopossum`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+A set of emojis featuring a bun.
+
+- Name: `eevee-neopossum`
+- Version: 0-unstable-2024-03-04
+- Outputs: **`out`**
+- [🌐 Homepage](https://mooi.moe/emoji.html)
+- [📦 Source](./pkgs/akkoma-emoji/eevee/neopossum/package.nix#L26)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.eppa.neobun`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+A set of emojis featuring a bun.
+
+- Name: `eppa-neobun`
+- Version: 0-unstable-2024-05-02
+- Outputs: **`out`**
+- [🌐 Homepage](https://mooi.moe/emoji.html)
+- [📦 Source](./pkgs/akkoma-emoji/eppa/neobun/package.nix#L26)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.eppa.neocube`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+A set of emojis featuring a familiar cube.
+
+- Name: `eppa-neocube`
+- Version: 0-unstable-2024-05-25
+- Outputs: **`out`**
+- [🌐 Homepage](https://mooi.moe/emoji.html)
+- [📦 Source](./pkgs/akkoma-emoji/eppa/neocube/package.nix#L26)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.fotoente.neodino`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+Source files for the neodino emoji.
+
+- Name: `fotoente-neodino`
+- Version: 0-unstable-2024-06-08
+- Outputs: **`out`**
+- [🌐 Homepage](https://codeberg.org/fotoente/neodino)
+- [📦 Source](./pkgs/akkoma-emoji/fotoente/neodino/package.nix#L37)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.fotoente.neohaj`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+Source files for the neohaj emoji.
+
+- Name: `fotoente-neohaj`
+- Version: 0-unstable-2024-06-08
+- Outputs: **`out`**
+- [🌐 Homepage](https://codeberg.org/fotoente/neohaj)
+- [📦 Source](./pkgs/akkoma-emoji/fotoente/neohaj/package.nix#L37)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.fotoente.neomilk`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+Source files for the neomilk emoji.
+
+- Name: `fotoente-neomilk`
+- Version: 0-unstable-2024-05-26
+- Outputs: **`out`**
+- [🌐 Homepage](https://codeberg.org/fotoente/neomilk)
+- [📦 Source](./pkgs/akkoma-emoji/fotoente/neomilk/package.nix#L37)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.fotoente.neotrain`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+Source files for the neotrain emoji.
+
+- Name: `fotoente-neotrain`
+- Version: 0-unstable-2024-05-20
+- Outputs: **`out`**
+- [🌐 Homepage](https://codeberg.org/fotoente/neotrain)
+- [📦 Source](./pkgs/akkoma-emoji/fotoente/neotrain/package.nix#L37)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.olivvybee.blobbee`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+Various emoji packs I've made.
+
+- Name: `olivvybee-blobbee`
+- Version: 2024.06.21.1
+- Outputs: **`out`**
+- [🌐 Homepage](https://github.com/olivvybee/emojis)
+- [📦 Source](./pkgs/akkoma-emoji/olivvybee/mkEmojiPack.nix#L32)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.olivvybee.fox`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+Various emoji packs I've made.
+
+- Name: `olivvybee-fox`
+- Version: 2024.06.21.1
+- Outputs: **`out`**
+- [🌐 Homepage](https://github.com/olivvybee/emojis)
+- [📦 Source](./pkgs/akkoma-emoji/olivvybee/mkEmojiPack.nix#L32)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.olivvybee.neobread`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+Various emoji packs I've made.
+
+- Name: `olivvybee-neobread`
+- Version: 2024.06.21.1
+- Outputs: **`out`**
+- [🌐 Homepage](https://github.com/olivvybee/emojis)
+- [📦 Source](./pkgs/akkoma-emoji/olivvybee/mkEmojiPack.nix#L32)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.olivvybee.neocat`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+Various emoji packs I've made.
+
+- Name: `olivvybee-neocat`
+- Version: 2024.06.21.1
+- Outputs: **`out`**
+- [🌐 Homepage](https://github.com/olivvybee/emojis)
+- [📦 Source](./pkgs/akkoma-emoji/olivvybee/mkEmojiPack.nix#L32)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.olivvybee.neodlr`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+Various emoji packs I've made.
+
+- Name: `olivvybee-neodlr`
+- Version: 2024.06.21.1
+- Outputs: **`out`**
+- [🌐 Homepage](https://github.com/olivvybee/emojis)
+- [📦 Source](./pkgs/akkoma-emoji/olivvybee/mkEmojiPack.nix#L32)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.olivvybee.neofox`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+Various emoji packs I've made.
+
+- Name: `olivvybee-neofox`
+- Version: 2024.06.21.1
+- Outputs: **`out`**
+- [🌐 Homepage](https://github.com/olivvybee/emojis)
+- [📦 Source](./pkgs/akkoma-emoji/olivvybee/mkEmojiPack.nix#L32)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.olivvybee.neossb`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+Various emoji packs I've made.
+
+- Name: `olivvybee-neossb`
+- Version: 2024.06.21.1
+- Outputs: **`out`**
+- [🌐 Homepage](https://github.com/olivvybee/emojis)
+- [📦 Source](./pkgs/akkoma-emoji/olivvybee/mkEmojiPack.nix#L32)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.renere.spinny-blobs`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+these are the spinny (pride) blobs of life.
+
+- Name: `renere-spinny-blobs`
+- Version: 0-unstable-2023-12-23
+- Outputs: **`out`**, `blobcatsOnly`, `blobfoxesOnly`
+- [🌐 Homepage](https://gitlab.com/renere/spinny_blobs)
+- [📦 Source](./pkgs/akkoma-emoji/renere/spinny-blobs/package.nix#L46)
+- License: Unfree
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.volpeon.drgn`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+drgn emoji pack.
+
+- Name: `volpeon-drgn`
+- Version: 3.1
+- Outputs: **`out`**
+- [🌐 Homepage](https://volpeon.ink/emojis/drgn/)
+- [📦 Source](./pkgs/akkoma-emoji/volpeon/mkEmojiPack.nix#L33)
+- License: Creative Commons Attribution Non Commercial Share Alike 4.0
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.volpeon.floof`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+floof emoji pack.
+
+- Name: `volpeon-floof`
+- Version: 1.0
+- Outputs: **`out`**
+- [🌐 Homepage](https://volpeon.ink/emojis/floof/)
+- [📦 Source](./pkgs/akkoma-emoji/volpeon/mkEmojiPack.nix#L33)
+- License: Creative Commons Attribution Non Commercial Share Alike 4.0
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.volpeon.gphn`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+gphn emoji pack.
+
+- Name: `volpeon-gphn`
+- Version: 1.2
+- Outputs: **`out`**
+- [🌐 Homepage](https://volpeon.ink/emojis/gphn/)
+- [📦 Source](./pkgs/akkoma-emoji/volpeon/mkEmojiPack.nix#L33)
+- License: Creative Commons Attribution Non Commercial Share Alike 4.0
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.volpeon.neocat`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+neocat emoji pack.
+
+- Name: `volpeon-neocat`
+- Version: 1.1
+- Outputs: **`out`**
+- [🌐 Homepage](https://volpeon.ink/emojis/neocat/)
+- [📦 Source](./pkgs/akkoma-emoji/volpeon/mkEmojiPack.nix#L33)
+- License: Creative Commons Attribution Non Commercial Share Alike 4.0
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.volpeon.neofox`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+neofox emoji pack.
+
+- Name: `volpeon-neofox`
+- Version: 1.3
+- Outputs: **`out`**
+- [🌐 Homepage](https://volpeon.ink/emojis/neofox/)
+- [📦 Source](./pkgs/akkoma-emoji/volpeon/mkEmojiPack.nix#L33)
+- License: Creative Commons Attribution Non Commercial Share Alike 4.0
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `akkoma-emoji.volpeon.vlpn`
+
+🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.
+
+vlpn emoji pack.
+
+- Name: `volpeon-vlpn`
+- Version: 1.1
+- Outputs: **`out`**
+- [🌐 Homepage](https://volpeon.ink/emojis/vlpn/)
+- [📦 Source](./pkgs/akkoma-emoji/volpeon/mkEmojiPack.nix#L33)
+- License: Creative Commons Attribution Non Commercial Share Alike 4.0
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
 ### `biplanes-revival`
 
 An old cellphone arcade recreated for PC.
@@ -28,83 +574,7 @@ An old cellphone arcade recreated for PC.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `brisk-menu`
@@ -128,52 +598,7 @@ An efficient menu for the MATE Desktop.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `x86_64-solaris`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `x86_64-solaris`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`
 </details>
 
 ### `bsdutils`
@@ -198,52 +623,7 @@ Alternative to GNU coreutils using software from FreeBSD.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `x86_64-solaris`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `x86_64-solaris`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`
 </details>
 
 ### `cargo-aoc`
@@ -268,83 +648,7 @@ Cargo Advent of Code Helper.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `fastfetch`
@@ -370,83 +674,7 @@ Like neofetch, but much faster because written in C.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `fastfetchMinimal`
@@ -472,83 +700,7 @@ Like neofetch, but much faster because written in C (with all features disabled)
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `firefox-gnome-theme`
@@ -572,83 +724,7 @@ A GNOME theme for Firefox.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `flyaway`
@@ -673,52 +749,7 @@ A test compositor to gain familiarity with Wayland and wlroots.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `x86_64-solaris`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `x86_64-solaris`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`
 </details>
 
 ### `gtatool`
@@ -743,83 +774,7 @@ A set of commands that manipulate GTAs on various levels.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `gtatoolFull`
@@ -844,83 +799,7 @@ A set of commands that manipulate GTAs on various levels (with all features enab
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `inko`
@@ -946,83 +825,7 @@ A language for building concurrent software with confidence.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `kiview`
@@ -1047,83 +850,7 @@ Quick file preview for Dolphin.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `kuroko`
@@ -1148,83 +875,7 @@ Dialect of Python with explicit variable declaration and block scoping, with a l
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `libgta`
@@ -1248,83 +899,7 @@ A library that reads and writes GTA files, with interfaces in C and C++.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `libtgd`
@@ -1349,83 +924,7 @@ A library to make working with multidimensional arrays in C++ easy.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `libtgdFull`
@@ -1450,83 +949,7 @@ A library to make working with multidimensional arrays in C++ easy (with all fea
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `libxo`
@@ -1551,83 +974,7 @@ Library for emitting text, XML, JSON, or HTML output.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `magpie-wayland`
@@ -1635,7 +982,7 @@ Library for emitting text, XML, JSON, or HTML output.
 wlroots-based Wayland compositor designed for the Budgie Desktop.
 
 - Name: `magpie-wayland`
-- Version: 0.9.3-unstable-2024-07-02
+- Version: 0.9.3-unstable-2024-07-05
 - Outputs: **`out`**
 - [🌐 Homepage](https://github.com/BuddiesOfBudgie/magpie)
 - [📦 Source](./pkgs/by-name/magpie-wayland/package.nix#L57)
@@ -1652,52 +999,7 @@ wlroots-based Wayland compositor designed for the Budgie Desktop.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `x86_64-solaris`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `x86_64-solaris`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`
 </details>
 
 ### `mii-emu`
@@ -1723,83 +1025,7 @@ MII Apple //e Emulator for Linux.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `minesector`
@@ -1824,83 +1050,7 @@ Snazzy Minesweeper-based game built with SDL2.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `mucalc`
@@ -1925,83 +1075,7 @@ A convenient calculator for the command line.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `opensurge`
@@ -2026,83 +1100,7 @@ A fun 2D retro platformer inspired by Sonic games and a game creation system.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `plasma-camera`
@@ -2127,83 +1125,7 @@ Camera application for Plasma Mobile.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `pseint`
@@ -2227,83 +1149,7 @@ A tool for learning programming basis with a simple Spanish pseudocode.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `qv`
@@ -2328,83 +1174,7 @@ A a viewer for 2D data such as images, sensor data, simulations, renderings and 
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `raze`
@@ -2429,83 +1199,7 @@ Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `razeFull`
@@ -2530,83 +1224,7 @@ Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `supermodel`
@@ -2631,83 +1249,7 @@ Sega Model 3 arcade machine emulator.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `surgescript`
@@ -2733,83 +1275,7 @@ A scripting language for games.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `teem`
@@ -2834,83 +1300,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `teemExperimental`
@@ -2935,83 +1325,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `teemExperimentalFull`
@@ -3036,83 +1350,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `teemFull`
@@ -3137,83 +1375,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `thunderbird-gnome-theme`
@@ -3237,83 +1399,7 @@ A GNOME theme for Thunderbird.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `unnamed-sdvx-clone`
@@ -3338,83 +1424,7 @@ A game based on K-Shoot MANIA and Sound Voltex.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
 ### `wisp`
@@ -3439,81 +1449,5 @@ Wisp turns indentation based syntax into Lisp.
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
-- Platforms:
-  - `i686-cygwin`
-  - `x86_64-cygwin`
-  - `x86_64-darwin`
-  - `i686-darwin`
-  - `aarch64-darwin`
-  - `armv7a-darwin`
-  - `i686-freebsd`
-  - `x86_64-freebsd`
-  - `aarch64-genode`
-  - `i686-genode`
-  - `x86_64-genode`
-  - `x86_64-solaris`
-  - `javascript-ghcjs`
-  - `aarch64-linux`
-  - `armv5tel-linux`
-  - `armv6l-linux`
-  - `armv7a-linux`
-  - `armv7l-linux`
-  - `i686-linux`
-  - `loongarch64-linux`
-  - `m68k-linux`
-  - `microblaze-linux`
-  - `microblazeel-linux`
-  - `mips-linux`
-  - `mips64-linux`
-  - `mips64el-linux`
-  - `mipsel-linux`
-  - `powerpc64-linux`
-  - `powerpc64le-linux`
-  - `riscv32-linux`
-  - `riscv64-linux`
-  - `s390-linux`
-  - `s390x-linux`
-  - `x86_64-linux`
-  - `mmix-mmixware`
-  - `aarch64-netbsd`
-  - `armv6l-netbsd`
-  - `armv7a-netbsd`
-  - `armv7l-netbsd`
-  - `i686-netbsd`
-  - `m68k-netbsd`
-  - `mipsel-netbsd`
-  - `powerpc-netbsd`
-  - `riscv32-netbsd`
-  - `riscv64-netbsd`
-  - `x86_64-netbsd`
-  - `aarch64_be-none`
-  - `aarch64-none`
-  - `arm-none`
-  - `armv6l-none`
-  - `avr-none`
-  - `i686-none`
-  - `microblaze-none`
-  - `microblazeel-none`
-  - `mips-none`
-  - `mips64-none`
-  - `msp430-none`
-  - `or1k-none`
-  - `m68k-none`
-  - `powerpc-none`
-  - `powerpcle-none`
-  - `riscv32-none`
-  - `riscv64-none`
-  - `rx-none`
-  - `s390-none`
-  - `s390x-none`
-  - `vc4-none`
-  - `x86_64-none`
-  - `i686-openbsd`
-  - `x86_64-openbsd`
-  - `x86_64-redox`
-  - `wasm64-wasi`
-  - `wasm32-wasi`
-  - `x86_64-windows`
-  - `i686-windows`
-
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>

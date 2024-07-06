@@ -7,14 +7,14 @@
 
 stdenvNoCC.mkDerivation {
   pname = "fotoente-neohaj";
-  version = "0-unstable-2024-05-19";
+  version = "0-unstable-2024-06-08";
 
   src = fetchFromGitea {
     domain = "codeberg.org";
     owner = "fotoente";
     repo = "neohaj";
-    rev = "ac1ecc95243d0ab1cbff9ed7ac1f6636ee239019";
-    hash = "sha256-oneTxHooasdOHQIwEGp0e9YjHCLfDoyBXveIH212zLs=";
+    rev = "0e423b38a22504ee541e3ce036a4bfe45586ff5f";
+    hash = "sha256-2etDJHGx7DVkgh5uK3YrHIldHQfdDV3FZ6suKVc3yR8=";
   };
 
   installPhase = ''

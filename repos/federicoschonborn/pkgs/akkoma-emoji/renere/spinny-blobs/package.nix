@@ -1,14 +1,19 @@
 {
   lib,
   stdenvNoCC,
-  runCommand,
   fetchFromGitLab,
 # nix-update-script,
 }:
 
-stdenvNoCC.mkDerivation (finalAttrs: {
+stdenvNoCC.mkDerivation {
   pname = "renere-spinny-blobs";
   version = "0-unstable-2023-12-23";
+
+  outputs = [
+    "out"
+    "blobcatsOnly"
+    "blobfoxesOnly"
+  ];
 
   src = fetchFromGitLab {
     owner = "renere";
@@ -20,41 +25,15 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   installPhase = ''
     runHook preInstall
 
-    mkdir -p $out
+    mkdir -p $out $blobcatsOnly $blobfoxesOnly
     cp render/{cat,fox}/trimmed/*.gif $out
+    cp render/cat/trimmed/*.gif $blobcatsOnly
+    cp render/fox/trimmed/*.gif $blobfoxesOnly
 
     runHook postInstall
   '';
 
   passthru = {
-    onlyBlobcats =
-      runCommand "renere-spinny-blobcats"
-        {
-          inherit (finalAttrs) version;
-
-          meta = finalAttrs.meta // {
-            description = finalAttrs.meta.description + " (blobcats only)";
-          };
-        }
-        ''
-          mkdir -p $out
-          cp ${finalAttrs.finalPackage}/spinny_cat*.gif $out
-        '';
-
-    onlyBlobfoxes =
-      runCommand "renere-spinny-blobfoxes"
-        {
-          inherit (finalAttrs) version;
-
-          meta = finalAttrs.meta // {
-            description = finalAttrs.meta.description + " (blobfoxes only)";
-          };
-        }
-        ''
-          mkdir -p $out
-          cp ${finalAttrs.finalPackage}/spinny_fox*.gif $out
-        '';
-
     # updateScript = nix-update-script {
     #   extraArgs = [
     #     "--version"
@@ -79,4 +58,4 @@ stdenvNoCC.mkDerivation (finalAttrs: {
       )
     ];
   };
-})
+}

@@ -85,7 +85,7 @@
           };
 
           legacyPackages = import ./. { inherit pkgs; };
-          packages = lib.filterAttrs (_: lib.isDerivation) config.legacyPackages;
+          packages = import ./flattenTree.nix config.legacyPackages;
 
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
@@ -93,10 +93,7 @@
               nix-inspect
               nix-tree
               nushell
-              (writeScriptBin "just" ''
-                #!${lib.getExe nushell}
-                ${builtins.readFile ./just.nu}
-              '')
+              (writers.writeNuBin "just" (builtins.readFile ./just.nu))
             ];
 
             shellHook = ''
@@ -200,7 +197,7 @@
 
                               licenseSection =
                                 let
-                                  formatLicense = x: "[`${x.spdxId}`](${x.url} '${x.fullName}')";
+                                  formatLicense = x: if x.free then "[`${x.spdxId}`](${x.url} '${x.fullName}')" else x.fullName;
                                 in
                                 lib.optionalString (licenses != null) (
                                   "- License${if builtins.length licenses > 1 then "s" else ""}: "
@@ -244,10 +241,10 @@
 
                               platformsSection =
                                 let
-                                  formatPlatform = x: "  - `${x}`\n";
+                                  formatPlatform = x: "`${x}`";
                                 in
                                 lib.optionalString (platforms != [ ]) (
-                                  "- Platforms:\n" + (builtins.concatStringsSep "" (builtins.map formatPlatform platforms)) + "\n"
+                                  "- Platforms: " + (builtins.concatStringsSep ", " (builtins.map formatPlatform platforms))
                                 );
                             in
                             ''
