@@ -5,12 +5,12 @@
 }:
 
 stdenvNoCC.mkDerivation {
-  pname = "eppa-neocube";
-  version = "0-unstable-2024-05-25";
+  name = "mahiwa-neorat";
 
   src = fetchzip {
-    url = "https://hofnarretje.eu/assets/emoji/neocube.zip";
-    hash = "sha256-8+0QVl+6zSZ98VixT1WP0XMZ7Cf55o42tZmG73RVqrg=";
+    url = "https://emoji-repo.absturztau.be/repo/neorat.zip";
+    hash = "sha256-MwOxj1Kb0tVjpHy5C7E5dAXdiUSetH4iQUpz/q1Opbo=";
+    stripRoot = false;
   };
 
   installPhase = ''
@@ -23,8 +23,8 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = {
-    description = "A set of emojis featuring a familiar cube";
-    homepage = "https://mooi.moe/emoji.html";
+    description = "A set of emojis featuring a rat";
+    homepage = "https://mahiwa.monster/gift.html";
     license = lib.licenses.unfree; # TODO: ?
     platforms = lib.platforms.all;
     maintainers = [ lib.maintainers.federicoschonborn ];

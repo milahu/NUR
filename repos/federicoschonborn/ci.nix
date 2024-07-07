@@ -37,7 +37,7 @@ let
 
   outputsOf = p: builtins.map (o: p.${o}) p.outputs;
 
-  nurAttrs = import ./. { inherit pkgs; };
+  nurAttrs = import ./default.nix { inherit pkgs; };
 
   allPackages = flattenPackages (
     builtins.listToAttrs (

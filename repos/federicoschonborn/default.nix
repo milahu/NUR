@@ -8,17 +8,16 @@
 
 {
   pkgs ? import <nixpkgs> { },
+  lib ? pkgs.lib,
 }:
-
-let
-  inherit (pkgs) lib;
-in
 
 lib.makeScope pkgs.newScope (
   self:
   {
+    lib = import ./lib { inherit pkgs; };
+
     # Sets
-    akkoma-emoji = pkgs.recurseIntoAttrs (self.callPackage ./pkgs/akkoma-emoji { });
+    akkoma-emoji = lib.recurseIntoAttrs (self.callPackage ./pkgs/akkoma-emoji { inherit self; });
 
     # Variants
     fastfetchMinimal =

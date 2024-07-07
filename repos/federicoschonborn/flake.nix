@@ -64,6 +64,7 @@
                   "fotoente-neohaj"
                   "fotoente-neomilk"
                   "fotoente-neotrain"
+                  "mahiwa-neorat"
                   "renere-spinny-blobcats"
                   "renere-spinny-blobfoxes"
                   "renere-spinny-blobs"
@@ -84,7 +85,7 @@
             };
           };
 
-          legacyPackages = import ./. { inherit pkgs; };
+          legacyPackages = import ./default.nix { inherit pkgs; };
           packages = import ./flattenTree.nix config.legacyPackages;
 
           devShells.default = pkgs.mkShell {
@@ -116,15 +117,13 @@
                       echo "{" > meta/program-list.json
                     ''
                     + (builtins.concatStringsSep "\n" (
-                      builtins.attrValues (
-                        builtins.mapAttrs (name: value: ''
-                          if test -d ${value}/bin; then
-                            echo '  "${name}": ' >> meta/program-list.json
-                            ${lib.getExe pkgs.nushell} -c 'ls --short-names --long ${value}/bin | where type == "file" and mode =~ "x" | get name | sort | to json' >> meta/program-list.json
-                            echo ',' >> meta/program-list.json
-                          fi
-                        '') config.packages
-                      )
+                      lib.mapAttrsToList (name: value: ''
+                        if test -d ${value}/bin; then
+                          echo '  "${name}": ' >> meta/program-list.json
+                          ${lib.getExe pkgs.nushell} -c 'ls --short-names --long ${value}/bin | where type == "file" and mode =~ "x" | get name | sort | to json' >> meta/program-list.json
+                          echo ',' >> meta/program-list.json
+                        fi
+                      '') config.packages
                     ))
                     + ''
                       echo "}" >> meta/program-list.json
@@ -136,153 +135,138 @@
                   let
                     packageList = pkgs.writeText "package-list.md" (
                       builtins.concatStringsSep "\n" (
-                        builtins.attrValues (
-                          builtins.mapAttrs (
-                            name: value:
-                            let
-                              programList = lib.importJSON meta/program-list.json;
-                              programs = programList.${name} or [ ];
+                        lib.mapAttrsToList (
+                          name: value:
+                          let
+                            programList = lib.importJSON meta/program-list.json;
+                            programs = programList.${name} or [ ];
 
-                              description = value.meta.description or "";
-                              longDescription = value.meta.longDescription or "";
-                              outputs = value.outputs or [ ];
-                              homepage = value.meta.homepage or "";
-                              changelog = value.meta.changelog or "";
-                              position = value.meta.position or "";
-                              licenses = lib.toList (value.meta.license or [ ]);
-                              maintainers = value.meta.maintainers or [ ];
-                              platforms = value.meta.platforms or [ ];
-                              mainProgram = value.meta.mainProgram or "";
-                              broken = value.meta.broken or false;
-                              unfree = value.meta.unfree or false;
+                            description = value.meta.description or "";
+                            longDescription = value.meta.longDescription or "";
+                            outputs = value.outputs or [ ];
+                            homepage = value.meta.homepage or "";
+                            changelog = value.meta.changelog or "";
+                            position = value.meta.position or "";
+                            licenses = lib.toList (value.meta.license or [ ]);
+                            maintainers = value.meta.maintainers or [ ];
+                            platforms = value.meta.platforms or [ ];
+                            mainProgram = value.meta.mainProgram or "";
+                            broken = value.meta.broken or false;
+                            unfree = value.meta.unfree or false;
 
-                              brokenSection =
-                                if broken then
-                                  "💥 This package has been marked as **broken**! You may need to set `allowBroken = true`.\n\n"
-                                else
-                                  "";
+                            brokenIndicator = lib.optionalString broken " (💥 Broken)";
+                            unfreeIndicator = lib.optionalString unfree " (🔒 Unfree)";
 
-                              unfreeSection =
-                                if unfree then
-                                  "🔒 This package has been marked as **unfree**! You may need to set `allowUnfree = true`.\n\n"
-                                else
-                                  "";
+                            nameSection = "- Name: `${value.pname or value.name}`";
 
-                              descriptionSection = if longDescription != "" then longDescription else "${description}.";
+                            versionSection = lib.optionalString (value ? version) "- Version: ${value.version}";
 
-                              outputsSection =
-                                let
-                                  formatOutput = x: if x == value.outputName then "**`${x}`**" else "`${x}`";
-                                in
-                                lib.optionalString (outputs != [ ]) (
-                                  "- Outputs: " + (builtins.concatStringsSep ", " (builtins.map formatOutput outputs)) + "\n"
-                                );
+                            descriptionSection = if longDescription != "" then longDescription else "${description}.";
 
-                              homepageSection = lib.optionalString (homepage != "") "- [🌐 Homepage](${homepage})\n";
+                            outputsSection =
+                              let
+                                formatOutput = x: if x == value.outputName then "**`${x}`**" else "`${x}`";
+                              in
+                              lib.optionalString (outputs != [ ]) (
+                                "- Outputs: " + (builtins.concatStringsSep ", " (builtins.map formatOutput outputs))
+                              );
 
-                              changelogSection = lib.optionalString (changelog != "") "- [📰 Changelog](${changelog})\n";
+                            homepageSection = lib.optionalString (homepage != "") "- [Homepage](${homepage})";
 
-                              sourceSection =
-                                let
-                                  formatPosition =
-                                    x:
-                                    let
-                                      parts = builtins.match "/nix/store/.{32}-source/(.+):([[:digit:]]+)" x;
-                                      path = builtins.elemAt parts 0;
-                                      line = builtins.elemAt parts 1;
-                                    in
-                                    "./${path}#L${line}";
-                                in
-                                lib.optionalString (position != "") "- [📦 Source](${formatPosition position})\n";
+                            changelogSection = lib.optionalString (changelog != "") "- [Changelog](${changelog})";
 
-                              licenseSection =
-                                let
-                                  formatLicense = x: if x.free then "[`${x.spdxId}`](${x.url} '${x.fullName}')" else x.fullName;
-                                in
-                                lib.optionalString (licenses != null) (
-                                  "- License${if builtins.length licenses > 1 then "s" else ""}: "
-                                  + (builtins.concatStringsSep ", " (builtins.map formatLicense licenses))
-                                  + "\n"
-                                );
+                            sourceSection =
+                              let
+                                formatPosition =
+                                  x:
+                                  let
+                                    parts = builtins.match "/nix/store/.{32}-source/(.+):([[:digit:]]+)" x;
+                                    path = builtins.elemAt parts 0;
+                                    line = builtins.elemAt parts 1;
+                                  in
+                                  "./${path}#L${line}";
+                              in
+                              lib.optionalString (position != "") "- [Source](${formatPosition position})";
 
-                              programsSection =
-                                let
-                                  formatProgram = x: if x == mainProgram then "**`${x}`**" else "`${x}`";
-                                in
-                                lib.optionalString (programs != [ ]) (
-                                  "- Programs provided: "
-                                  + (builtins.concatStringsSep ", " (builtins.map formatProgram programs))
-                                  + "\n"
-                                );
+                            licenseSection =
+                              let
+                                formatLicense = x: if x ? url then "[`${x.fullName}`](${x.url})" else x.fullName;
+                              in
+                              lib.optionalString (licenses != null) (
+                                "- License${if builtins.length licenses > 1 then "s" else ""}: "
+                                + (builtins.concatStringsSep ", " (builtins.map formatLicense licenses))
+                              );
 
-                              maintainersSection =
-                                let
-                                  formatMaintainer =
-                                    x:
-                                    let
-                                      name = if x ? github then "[${x.name}](https://github.com/${x.github})" else x.name;
-                                      email = if x ? email then " <[`${x.email}`](mailto:${x.email})>" else "";
-                                    in
-                                    "  - ${name}${email}\n";
-                                  allMaintainersLink =
-                                    if builtins.any (x: x ? email) maintainers then
-                                      "  - [✉️ Mail to all maintainers](mailto:"
-                                      + (builtins.concatStringsSep "," (builtins.map (x: x.email or null) maintainers))
-                                      + ")"
-                                    else
-                                      "";
-                                in
-                                lib.optionalString (maintainers != [ ]) (
-                                  "- Maintainers:\n"
-                                  + (builtins.concatStringsSep "" (builtins.map formatMaintainer maintainers))
-                                  + allMaintainersLink
-                                  + "\n"
-                                );
+                            programsSection =
+                              let
+                                formatProgram = x: if x == mainProgram then "**`${x}`**" else "`${x}`";
+                              in
+                              lib.optionalString (programs != [ ]) (
+                                "- Programs provided: " + (builtins.concatStringsSep ", " (builtins.map formatProgram programs))
+                              );
 
-                              platformsSection =
-                                let
-                                  formatPlatform = x: "`${x}`";
-                                in
-                                lib.optionalString (platforms != [ ]) (
-                                  "- Platforms: " + (builtins.concatStringsSep ", " (builtins.map formatPlatform platforms))
-                                );
-                            in
-                            ''
-                              ### `${name}`
+                            maintainersSection =
+                              let
+                                formatMaintainer =
+                                  x:
+                                  let
+                                    formattedName = if x ? github then "[${x.name}](https://github.com/${x.github})" else x.name;
+                                    formattedEmail = lib.optionalString (x ? email) " <[`${x.email}`](mailto:${x.email})>";
+                                  in
+                                  "  - ${formattedName}${formattedEmail}\n";
+                                allMaintainersLink =
+                                  if builtins.any (x: x ? email) maintainers then
+                                    "  - [✉️ Mail to all maintainers](mailto:"
+                                    + (builtins.concatStringsSep "," (builtins.map (x: x.email or null) maintainers))
+                                    + ")"
+                                  else
+                                    "";
+                              in
+                              lib.optionalString (maintainers != [ ]) (
+                                "- Maintainers:\n"
+                                + (builtins.concatStringsSep "" (builtins.map formatMaintainer maintainers))
+                                + allMaintainersLink
+                              );
 
-                            ''
-                            + brokenSection
-                            + unfreeSection
-                            + descriptionSection
-                            + ''
+                            platformsSection =
+                              let
+                                formatPlatform = x: "`${x}`";
+                              in
+                              lib.optionalString (platforms != [ ]) (
+                                "- Platforms: " + (builtins.concatStringsSep ", " (builtins.map formatPlatform platforms))
+                              );
+                          in
+                          builtins.concatStringsSep "\n" (
+                            builtins.filter (x: x != "") [
+                              ''
+                                ### `${name}`${unfreeIndicator}${brokenIndicator}
+                              ''
+                              descriptionSection
+                              nameSection
+                              versionSection
+                              homepageSection
+                              changelogSection
+                              licenseSection
+                              maintainersSection
+                              ''
 
-                              - Name: `${value.pname}`
-                              - Version: ${value.version}
-                            ''
-                            + outputsSection
-                            + homepageSection
-                            + changelogSection
-                            + sourceSection
-                            + licenseSection
-                            + ''
-
-                              <!-- markdownlint-disable-next-line no-inline-html -->
-                              <details>
                                 <!-- markdownlint-disable-next-line no-inline-html -->
-                                <summary>
-                                  Package details
-                                </summary>
-
-                            ''
-                            + programsSection
-                            + maintainersSection
-                            + platformsSection
-                            + ''
-
-                              </details>
-                            ''
-                          ) config.packages
-                        )
+                                <details>
+                                  <!-- markdownlint-disable-next-line no-inline-html -->
+                                  <summary>
+                                    Package details
+                                  </summary>
+                              ''
+                              sourceSection
+                              outputsSection
+                              programsSection
+                              platformsSection
+                              ''
+                                </details>
+                              ''
+                            ]
+                          )
+                        ) config.packages
                       )
                     );
                   in

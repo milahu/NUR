@@ -23,8 +23,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "BuddiesOfBudgie";
     repo = "magpie";
-    rev = "f9ac0e54a6710e6ecb76dd7ad1eb817dc2413c02";
-    hash = "sha256-kRWW7Fcj7wiIPHj0PV9h2MWnoMBuT+GKM14Rvm9yhAI=";
+    rev = "3eb92dee4d3e963531271e6e42f56f66301421b7";
+    hash = "sha256-M+jCLYgT//1JaprLh2BIn4kFmuq1lBn/nI0xDrACg1w=";
   };
 
   nativeBuildInputs = [
@@ -58,15 +58,6 @@ stdenv.mkDerivation {
     homepage = "https://github.com/BuddiesOfBudgie/magpie";
     license = lib.licenses.asl20;
     platforms = lib.platforms.unix;
-    maintainers = [
-      (lib.maintainers.federicoschonborn or {
-        name = "Federico Damián Schonborn";
-        email = "federicoschonborn@disroot.org";
-        matrix = "FedericoDSchonborn:matrix.org";
-        github = "FedericoSchonborn";
-        githubId = 62166915;
-      }
-      )
-    ];
+    maintainers = [ lib.maintainers.federicoschonborn ];
   };
 }

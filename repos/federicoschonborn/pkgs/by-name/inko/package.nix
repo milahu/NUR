@@ -49,15 +49,6 @@ rustPlatform.buildRustPackage {
     changelog = "https://github.com/inko-lang/inko/blob/${src.rev}/CHANGELOG.md";
     license = lib.licenses.mpl20;
     platforms = lib.platforms.all;
-    maintainers = [
-      (lib.maintainers.federicoschonborn or {
-        name = "Federico Damián Schonborn";
-        email = "federicoschonborn@disroot.org";
-        matrix = "FedericoDSchonborn:matrix.org";
-        github = "FedericoSchonborn";
-        githubId = 62166915;
-      }
-      )
-    ];
+    maintainers = [ lib.maintainers.federicoschonborn ];
   };
 }

@@ -1,30 +1,37 @@
-{ lib, pkgs }:
+{ self, lib }:
 
 {
-  eevee = pkgs.recurseIntoAttrs (
+  eevee = lib.recurseIntoAttrs (
     lib.packagesFromDirectoryRecursive {
-      inherit (pkgs) callPackage;
+      inherit (self) callPackage;
       directory = ./eevee;
     }
   );
 
-  eppa = pkgs.recurseIntoAttrs (
+  eppa = lib.recurseIntoAttrs (
     lib.packagesFromDirectoryRecursive {
-      inherit (pkgs) callPackage;
+      inherit (self) callPackage;
       directory = ./eppa;
     }
   );
 
-  fotoente = pkgs.recurseIntoAttrs (
+  fotoente = lib.recurseIntoAttrs (
     lib.packagesFromDirectoryRecursive {
-      inherit (pkgs) callPackage;
+      inherit (self) callPackage;
       directory = ./fotoente;
     }
   );
 
-  olivvybee = pkgs.recurseIntoAttrs (
+  mahiwa = lib.recurseIntoAttrs (
+    lib.packagesFromDirectoryRecursive {
+      inherit (self) callPackage;
+      directory = ./mahiwa;
+    }
+  );
+
+  olivvybee = lib.recurseIntoAttrs (
     let
-      mkEmojiPack = pkgs.callPackage ./olivvybee/mkEmojiPack.nix { };
+      mkEmojiPack = self.callPackage ./olivvybee/mkEmojiPack.nix { };
     in
     {
       inherit mkEmojiPack;
@@ -40,16 +47,16 @@
     }
   );
 
-  renere = pkgs.recurseIntoAttrs (
+  renere = lib.recurseIntoAttrs (
     lib.packagesFromDirectoryRecursive {
-      inherit (pkgs) callPackage;
+      inherit (self) callPackage;
       directory = ./renere;
     }
   );
 
-  volpeon = pkgs.recurseIntoAttrs (
+  volpeon = lib.recurseIntoAttrs (
     let
-      mkEmojiPack = pkgs.callPackage ./volpeon/mkEmojiPack.nix { };
+      mkEmojiPack = self.callPackage ./volpeon/mkEmojiPack.nix { };
     in
     {
       inherit mkEmojiPack;

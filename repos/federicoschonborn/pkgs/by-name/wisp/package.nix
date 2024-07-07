@@ -48,15 +48,6 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://www.draketo.de/software/wisp";
     license = lib.licenses.gpl3Plus;
     inherit (guile.meta) platforms;
-    maintainers = [
-      (lib.maintainers.federicoschonborn or {
-        name = "Federico Damián Schonborn";
-        email = "federicoschonborn@disroot.org";
-        matrix = "FedericoDSchonborn:matrix.org";
-        github = "FedericoSchonborn";
-        githubId = 62166915;
-      }
-      )
-    ];
+    maintainers = [ lib.maintainers.federicoschonborn ];
   };
 })

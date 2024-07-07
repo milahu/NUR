@@ -39,15 +39,6 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://invent.kde.org/plasma-mobile/plasma-camera";
     license = lib.licenses.gpl3Only;
     platforms = lib.platforms.all;
-    maintainers = [
-      (lib.maintainers.federicoschonborn or {
-        name = "Federico Damián Schonborn";
-        email = "federicoschonborn@disroot.org";
-        matrix = "FedericoDSchonborn:matrix.org";
-        github = "FedericoSchonborn";
-        githubId = 62166915;
-      }
-      )
-    ];
+    maintainers = [ lib.maintainers.federicoschonborn ];
   };
 })

@@ -16,13 +16,13 @@
 
 stdenv.mkDerivation {
   pname = "supermodel";
-  version = "0-unstable-2024-06-13";
+  version = "0-unstable-2024-07-05";
 
   src = fetchFromGitHub {
     owner = "trzy";
     repo = "Supermodel";
-    rev = "19612e1b13844227003ad25a83e98854926b2cac";
-    hash = "sha256-f29ds3UT3fHmnBnzVxuGEJdZaTTMjuh57VmKIUscXkg=";
+    rev = "ee5d6523c85f5fe8eb61768f10edfdc3b5f9858f";
+    hash = "sha256-F1Ojrokfg+hpvsBrYW4KX4NDzCFG/OkC8Ci+YSQFEk0=";
   };
 
   buildInputs = [
@@ -66,15 +66,6 @@ stdenv.mkDerivation {
     homepage = "https://github.com/trzy/Supermodel";
     license = lib.licenses.gpl3Plus;
     platforms = lib.platforms.all;
-    maintainers = [
-      (lib.maintainers.federicoschonborn or {
-        name = "Federico Damián Schonborn";
-        email = "federicoschonborn@disroot.org";
-        matrix = "FedericoDSchonborn:matrix.org";
-        github = "FedericoSchonborn";
-        githubId = 62166915;
-      }
-      )
-    ];
+    maintainers = [ lib.maintainers.federicoschonborn ];
   };
 }

@@ -6,7 +6,7 @@ _: prev:
 
 let
   isReserved = n: n == "lib" || n == "overlays" || n == "modules";
-  nurAttrs = import ./. { pkgs = prev; };
+  nurAttrs = import ./default.nix { pkgs = prev; };
 in
 
 builtins.listToAttrs (
