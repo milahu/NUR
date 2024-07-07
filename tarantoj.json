@@ -1,16 +1,16 @@
 {
 "name":"tarantoj",
-"fetch_time":0.322,
-"eval_time":0.265,
+"fetch_time":0.339,
+"eval_time":0.243,
 "source":{
 "url":"https://github.com/tarantoj/nur-packages",
-"rev":"77e716c2914863c3fa24b8be4cb53492e6516162",
-"sha256":"1khyzhd4br9r4dx5z2wvpvh5c8dxhaaw6rl2hazn6ajnikghq399",
-"date":"2024-06-30T04:07:41Z"
+"rev":"68301e99c43590ab2ee603fb066a29a7a859ab02",
+"sha256":"0xnc70mmwyzh1j1cwq8y2z7zsg7a12ypcmdgcgl40vwc1naqrd5i",
+"date":null
 },
-"source_storepath":"/nix/store/fpwds476sl1scxk2prl4mrfz7231jsnw-source",
-"nixpkgs_storepath":"/nix/store/g8vc1hjmnfa48n416ygc270rv8if21nh-source",
-"nur_combined_rev":"b0f66121a696ca795055ddc267e7c3143b60ca44",
+"source_storepath":"/nix/store/66rw0nlf7750m6r4myg7igp6vdc0r21w-source",
+"nixpkgs_storepath":"/nix/store/7b99s7sqszbxwv6nz8m28j8l7lzbnz42-source",
+"nur_combined_rev":"5a0b0798712d5c8705e5bb38ea4c7fd0e543aa14",
 "packages":{
 "dotnet-t4":{
 "meta":{
@@ -267,39 +267,6 @@
 ],
 "longDescription":"An experimental Nintendo Switch emulator written in C++.\nUsing the mainline branch is recommended for general usage.\nUsing the early-access branch is recommended if you would like to try out experimental features, with a cost of stability.\n",
 "mainProgram":"yuzu",
-"maintainers":[
-{
-"email":"ashley@kira64.xyz",
-"github":"kira64xyz",
-"githubId":84152630,
-"name":"Ashley Chiara"
-},
-{
-"email":"ivar.scholten@protonmail.com",
-"github":"IvarWithoutBones",
-"githubId":41924494,
-"name":"Ivar"
-},
-{
-"email":"joshuafern@protonmail.com",
-"github":"JoshuaFern",
-"githubId":4300747,
-"name":"Joshua Fern"
-},
-{
-"email":"nixos@sbruder.de",
-"github":"sbruder",
-"githubId":15986681,
-"name":"Simon Bruder"
-},
-{
-"email":"me@0upti.me",
-"github":"K900",
-"githubId":386765,
-"matrix":"@k900:0upti.me",
-"name":"Ilya K."
-}
-],
 "name":"yuzu-1727",
 "outputsToInstall":[
 "out"
@@ -308,7 +275,7 @@
 "aarch64-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/yuzu/mainline.nix:170",
+"position":"./pkgs/yuzu/mainline.nix:171",
 "unfree":false,
 "unsupported":false
 },
@@ -369,39 +336,6 @@
 ],
 "longDescription":"An experimental Nintendo Switch emulator written in C++.\nUsing the mainline branch is recommended for general usage.\nUsing the early-access branch is recommended if you would like to try out experimental features, with a cost of stability.\n",
 "mainProgram":"yuzu",
-"maintainers":[
-{
-"email":"ashley@kira64.xyz",
-"github":"kira64xyz",
-"githubId":84152630,
-"name":"Ashley Chiara"
-},
-{
-"email":"ivar.scholten@protonmail.com",
-"github":"IvarWithoutBones",
-"githubId":41924494,
-"name":"Ivar"
-},
-{
-"email":"joshuafern@protonmail.com",
-"github":"JoshuaFern",
-"githubId":4300747,
-"name":"Joshua Fern"
-},
-{
-"email":"nixos@sbruder.de",
-"github":"sbruder",
-"githubId":15986681,
-"name":"Simon Bruder"
-},
-{
-"email":"me@0upti.me",
-"github":"K900",
-"githubId":386765,
-"matrix":"@k900:0upti.me",
-"name":"Ilya K."
-}
-],
 "name":"yuzu-early-access-4174",
 "outputsToInstall":[
 "out"
