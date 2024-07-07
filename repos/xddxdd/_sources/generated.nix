@@ -183,13 +183,13 @@
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "685cd13f7ecf3b3f70d9b8f2cb2f6c93d2cf2c5c";
+    version = "ca45187df94af6f6f68ee51cbf7adbcdd509c6d6";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "685cd13f7ecf3b3f70d9b8f2cb2f6c93d2cf2c5c";
+      rev = "ca45187df94af6f6f68ee51cbf7adbcdd509c6d6";
       fetchSubmodules = false;
-      sha256 = "sha256-AbYNCRHtt0TjAECKxV0/g47IOE7RABkoIrVTb1Oc7dE=";
+      sha256 = "sha256-mPZPwUSNeY7+PPFtNV9JJojeAqgUydUyrwB+lRGUFLs=";
     };
     date = "2024-07-05";
   };
@@ -689,13 +689,13 @@
   };
   linux-xanmod = {
     pname = "linux-xanmod";
-    version = "6.9.7-xanmod1";
+    version = "6.9.8-xanmod1";
     src = fetchFromGitHub {
       owner = "xanmod";
       repo = "linux";
-      rev = "6.9.7-xanmod1";
+      rev = "6.9.8-xanmod1";
       fetchSubmodules = false;
-      sha256 = "sha256-hmVcwC1PHjyCw43IpJ99y72qFXSX5lbbh6+1TqdXzag=";
+      sha256 = "sha256-rSwvVt+DW7rc//aY6Ho8mllUy/3MKuAs/71UG+p07Iw=";
     };
   };
   linux-xanmod-6_0 = {
@@ -722,37 +722,36 @@
   };
   linux-xanmod-6_6 = {
     pname = "linux-xanmod-6_6";
-    version = "6.6.36-xanmod1";
+    version = "6.6.37-xanmod1";
     src = fetchFromGitHub {
       owner = "xanmod";
       repo = "linux";
-      rev = "6.6.36-xanmod1";
+      rev = "6.6.37-xanmod1";
       fetchSubmodules = false;
-      sha256 = "sha256-8L8e5iP4pvIvgqHmQYhFRCbgLvuFOXr7nkBe0VnuCzw=";
+      sha256 = "sha256-EoGRWCa0nqokUzhq+WcmY1RRFv9uDvmrGdXCqZxTJ/U=";
     };
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b3314";
+    version = "b3325";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      rev = "b3314";
+      rev = "b3325";
       fetchSubmodules = false;
-      sha256 = "sha256-pb9sP05429PurvyGA0RIhegdNJX0r1LCPFgwz6OYWH4=";
+      sha256 = "sha256-dlo8PDlF3+kWzovDykd+V9go/xlrltEyFgUlMQn/Vbg=";
     };
   };
   lyrica = {
     pname = "lyrica";
-    version = "36c2b372f2cd9ee772631a1b29adc47a4f1bab60";
+    version = "v0.5";
     src = fetchFromGitHub {
       owner = "chiyuki0325";
       repo = "lyrica";
-      rev = "36c2b372f2cd9ee772631a1b29adc47a4f1bab60";
+      rev = "v0.5";
       fetchSubmodules = false;
-      sha256 = "sha256-KUzN9ExIPMoUUCrxPUN/qErb211RQISBVdgCascPAyM=";
+      sha256 = "sha256-5AHZeSVIGQRlCE5T4cVyfRIqdRvVdSfTeJSaPGQuYNA=";
     };
-    date = "2024-07-05";
   };
   nbfc-linux-lantian = {
     pname = "nbfc-linux-lantian";
@@ -805,6 +804,18 @@
       sha256 = "sha256-PJHKt7w72lYFAb2OSswX7QyLnSY0jB93DkBxGk8AwD4=";
     };
     date = "2023-05-17";
+  };
+  nginx-module-geoip2 = {
+    pname = "nginx-module-geoip2";
+    version = "445df24ef3781e488cee3dfe8a1e111997fc1dfe";
+    src = fetchFromGitHub {
+      owner = "leev";
+      repo = "ngx_http_geoip2_module";
+      rev = "445df24ef3781e488cee3dfe8a1e111997fc1dfe";
+      fetchSubmodules = false;
+      sha256 = "sha256-aO+ff+3fQ9FJgjkVdWUqsSS6ctHq/TXvyGRasW6fXcA=";
+    };
+    date = "2024-04-02";
   };
   nginx-module-stream-sts = {
     pname = "nginx-module-stream-sts";
@@ -1115,34 +1126,34 @@
   };
   qemu-user-static-amd64 = {
     pname = "qemu-user-static-amd64";
-    version = "8.2.5+ds-2";
+    version = "9.0.1+ds-1";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_8.2.5+ds-2_amd64.deb";
-      sha256 = "sha256-Khcoot7+RzPJurGlK4e5ttFGEjkvUrl+XTJ+yH04WTY=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_9.0.1+ds-1_amd64.deb";
+      sha256 = "sha256-ek0cVLdQoTfcO9v5bmlJVJBicZUUFvtAKh3CnCDujXI=";
     };
   };
   qemu-user-static-arm64 = {
     pname = "qemu-user-static-arm64";
-    version = "8.2.5+ds-2";
+    version = "9.0.1+ds-1";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_8.2.5+ds-2_arm64.deb";
-      sha256 = "sha256-EcQ6mTpwNcO5C8DBNHaxwnQeUJ0pWDliEAUb+qsj6Vs=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_9.0.1+ds-1_arm64.deb";
+      sha256 = "sha256-pVcWrUgmWWjVgCzLoz04vWaKeoliFoDFA8zv6ynGxuA=";
     };
   };
   qemu-user-static-armhf = {
     pname = "qemu-user-static-armhf";
-    version = "8.2.5+ds-2";
+    version = "9.0.1+ds-1";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_8.2.5+ds-2_armhf.deb";
-      sha256 = "sha256-cp3e9bctDVb8lAgg1w0T9umaHukxyGkJyFY/5W1B/Bo=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_9.0.1+ds-1_armhf.deb";
+      sha256 = "sha256-BtNiwIYkcvR2yc/B8Ct9tbebprYDvAIPBmaFjJDuGuA=";
     };
   };
   qemu-user-static-i386 = {
     pname = "qemu-user-static-i386";
-    version = "8.2.5+ds-2";
+    version = "9.0.1+ds-1";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_8.2.5+ds-2_i386.deb";
-      sha256 = "sha256-FnS7n8DKGCnBR7OUM/RpKMFsTr0+6W8yLPnJbXZewgk=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_9.0.1+ds-1_i386.deb";
+      sha256 = "sha256-xV8S9MXUuarcJHAdkRxd/q7gDdPtfBhCIJXuqOA9Ivw=";
     };
   };
   qq-amd64 = {
@@ -1526,18 +1537,18 @@
   };
   wine-wechat-x64 = {
     pname = "wine-wechat-x64";
-    version = "3.9.11.17";
+    version = "3.9.11.19";
     src = fetchurl {
-      url = "https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.11.17/WeChatSetup-3.9.11.17.exe";
-      sha256 = "sha256-u+1fAcC1H+XSylNVFZ93meQe1y11AJynmk/3dRSYnh8=";
+      url = "https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.11.19/WeChatSetup-3.9.11.19.exe";
+      sha256 = "sha256-JD83Q7fANTEE3/0YWqbXVEB+ezHDhA4w/cXsZtfxwRs=";
     };
   };
   wine-wechat-x86 = {
     pname = "wine-wechat-x86";
-    version = "3.9.11.16";
+    version = "3.9.11.18";
     src = fetchurl {
-      url = "https://github.com/tom-snow/wechat-windows-versions-x86/releases/download/v3.9.11.16/WeChatSetupX86-3.9.11.16.exe";
-      sha256 = "sha256-5km0phah5FCUhY0RHLEwbAjLc7d0NxgFDJOyuSV1zoQ=";
+      url = "https://github.com/tom-snow/wechat-windows-versions-x86/releases/download/v3.9.11.18/WeChatSetupX86-3.9.11.18.exe";
+      sha256 = "sha256-BGBdGFpnvIThbLRjHAtZ6Cze+rUXx3NcbCaswvHF2Kg=";
     };
   };
   xstatic-asciinema-player = {
