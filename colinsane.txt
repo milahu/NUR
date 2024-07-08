@@ -1,21 +1,21 @@
 error:
 … while calling anonymous lambda
 
-  at ./pkgs/default.nix:195:15:
+  at ./pkgs/default.nix:196:15:
 
-   194|     // (lib.mapAttrs
-   195|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
+   195|     // (lib.mapAttrs
+   196|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
       |               ^
-   196|         unpatched."${pname}"
+   197|         unpatched."${pname}"
 
 … from call site
 
-  at ./pkgs/default.nix:65:20:
+  at ./pkgs/default.nix:66:20:
 
-    64|     megapixels-next = callPackage ./additional/megapixels-next { };
-    65|     mobile-nixos = callPackage ./additional/mobile-nixos { };
+    65|     megapixels-next = callPackage ./additional/megapixels-next { };
+    66|     mobile-nixos = callPackage ./additional/mobile-nixos { };
       |                    ^
-    66|     modemmanager-split = callPackage ./additional/modemmanager-split { };
+    67|     modemmanager-split = callPackage ./additional/modemmanager-split { };
 
 … while calling 'callPackageWith'
 
@@ -198,21 +198,21 @@ error:
 
 … while calling 'mkDerivationSimple'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:511:1:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:512:1:
 
-   510| # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
-   511| {
+   511| # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   512| {
       | ^
-   512|
+   513|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:588:1:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:589:1:
 
-   587|
-   588| extendDerivation
+   588|
+   589| extendDerivation
       | ^
-   589|   validity.handled
+   590|   validity.handled
 
 … while calling 'extendDerivation'
 
@@ -223,4 +223,4 @@ error:
       |                                           ^
    340|     let
 
-error: path '/nix/store/49469mkip84rbb9qvg0gkx0a6arfy4zh-source.drv' is not valid
+error: path '/nix/store/8rwvxg49risrq087isqk6swfzs0yp8q3-source.drv' is not valid
