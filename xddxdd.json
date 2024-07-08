@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.393,
-"eval_time":0.539,
+"fetch_time":0.63,
+"eval_time":0.56,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"a8d3137229f9363faed9ece400c3e438938dc4dd",
-"sha256":"1yziwwlhi86ivysyr52pf1rr44n1ir1x9mns1vvj1raiyn7jnw2p",
+"rev":"788fdfeda29e152e31a67d2dfe9827acfa31e612",
+"sha256":"1far08p73c7plhs8z9rq3x0b0y0lp6a32b49lrqr84l8w7csmrf1",
 "date":null
 },
-"source_storepath":"/nix/store/af994iqz9c4p61nx8s5mvbdfhc114wzc-source",
-"nixpkgs_storepath":"/nix/store/7b99s7sqszbxwv6nz8m28j8l7lzbnz42-source",
-"nur_combined_rev":"55858872caf85c9e120b14fb6f6764d0eb09e4ef",
+"source_storepath":"/nix/store/i58gjblqr3168cda64885s4nf8di1871-source",
+"nixpkgs_storepath":"/nix/store/p1xk9n1mv6jrd9q7h3f3936x3kyllqcb-source",
+"nur_combined_rev":"34331440fcaaa3be71ed9338025413b21757cd8e",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -590,7 +590,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.11-bepasty-1.2.1",
+"name":"python3.12-bepasty-1.2.1",
 "outputsToInstall":[
 "out"
 ],
@@ -631,13 +631,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-bepasty-1.2.1",
+"name":"python3.12-bepasty-1.2.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-bepasty",
+"pname":"python3.12-bepasty",
 "system":"x86_64-linux",
 "version":"1.2.1"
 },
@@ -1221,7 +1221,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.11-click-loglevel-0.5.0",
+"name":"python3.12-click-loglevel-0.5.0",
 "outputsToInstall":[
 "out"
 ],
@@ -1262,13 +1262,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-click-loglevel-0.5.0",
+"name":"python3.12-click-loglevel-0.5.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-click-loglevel",
+"pname":"python3.12-click-loglevel",
 "system":"x86_64-linux",
 "version":"0.5.0"
 },
@@ -2397,7 +2397,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.11-flasgger-0.9.5",
+"name":"python3.12-flasgger-0.9.5",
 "outputsToInstall":[
 "out"
 ],
@@ -2438,13 +2438,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-flasgger-0.9.5",
+"name":"python3.12-flasgger-0.9.5",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-flasgger",
+"pname":"python3.12-flasgger",
 "system":"x86_64-linux",
 "version":"0.9.5"
 },
@@ -2682,7 +2682,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.11-genshinhelper2-unstable-2023-05-22",
+"name":"python3.12-genshinhelper2-unstable-2023-05-22",
 "outputsToInstall":[
 "out"
 ],
@@ -2723,13 +2723,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-genshinhelper2-unstable-2023-05-22",
+"name":"python3.12-genshinhelper2-unstable-2023-05-22",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-genshinhelper2-unstable",
+"pname":"python3.12-genshinhelper2-unstable",
 "system":"x86_64-linux",
 "version":"2023-05-22"
 },
@@ -3474,7 +3474,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.36",
+"name":"linux-6.6.37",
 "outputsToInstall":[
 "out"
 ],
@@ -3506,7 +3506,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.36",
+"name":"linux-6.6.37",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -3514,7 +3514,56 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.36"
+"version":"6.6.37"
+},
+"kikoplay":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"KikoPlay - NOT ONLY A Full-Featured Danmu Player \u4e0d\u4ec5\u4ec5\u662f\u5168\u529f\u80fd\u5f39\u5e55\u64ad\u653e\u5668 ",
+"homepage":"https://kikoplay.fun",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v3.0 only",
+"redistributable":true,
+"shortName":"gpl3Only",
+"spdxId":"GPL-3.0-only",
+"url":"https://spdx.org/licenses/GPL-3.0-only.html"
+},
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"kikoplay-1.0.3",
+"outputsToInstall":[
+"out"
+],
+"position":"./pkgs/uncategorized/kikoplay/default.nix:62",
+"unfree":false,
+"unsupported":false
+},
+"name":"kikoplay-1.0.3",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"kikoplay",
+"system":"x86_64-linux",
+"version":"1.0.3"
 },
 "konnect":{
 "meta":{
@@ -3854,7 +3903,7 @@
 "name":"Philip Taron"
 }
 ],
-"name":"llama-cpp-3325",
+"name":"llama-cpp-3328",
 "outputsToInstall":[
 "out"
 ],
@@ -3908,14 +3957,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-3325",
+"name":"llama-cpp-3328",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"3325"
+"version":"3328"
 },
 "lantianCustomized.nbfc-linux":{
 "meta":{
@@ -3998,22 +4047,22 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"nginx-lantian-1.25.3.1",
+"name":"nginx-lantian-unstable-2024-06-26",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/lantian-customized/nginx/default.nix:177",
+"position":"./pkgs/lantian-customized/nginx/default.nix:178",
 "unfree":false,
 "unsupported":false
 },
-"name":"nginx-lantian-1.25.3.1",
+"name":"nginx-lantian-unstable-2024-06-26",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"nginx-lantian",
+"pname":"nginx-lantian-unstable",
 "system":"x86_64-linux",
-"version":"1.25.3.1"
+"version":"2024-06-26"
 },
 "lantianCustomized.transmission-with-webui":{
 "meta":{
@@ -11102,7 +11151,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.11-onepush-unstable-2023-11-28",
+"name":"python3.12-onepush-unstable-2023-11-28",
 "outputsToInstall":[
 "out"
 ],
@@ -11143,13 +11192,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-onepush-unstable-2023-11-28",
+"name":"python3.12-onepush-unstable-2023-11-28",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-onepush-unstable",
+"pname":"python3.12-onepush-unstable",
 "system":"x86_64-linux",
 "version":"2023-11-28"
 },
@@ -25007,7 +25056,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.11-py-rcon-1.3.0",
+"name":"python3.12-py-rcon-1.3.0",
 "outputsToInstall":[
 "out"
 ],
@@ -25048,13 +25097,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-py-rcon-1.3.0",
+"name":"python3.12-py-rcon-1.3.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-py-rcon",
+"pname":"python3.12-py-rcon",
 "system":"x86_64-linux",
 "version":"1.3.0"
 },
@@ -25298,6 +25347,55 @@
 "pname":"qemu-user-static",
 "system":"x86_64-linux",
 "version":"9.0.1+ds-1"
+},
+"qhttpengine":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"HTTP server for Qt applications",
+"homepage":"https://github.com/nitroshare/qhttpengine",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"qhttpengine-unstable-2018-03-22",
+"outputsToInstall":[
+"out"
+],
+"position":"./pkgs/uncategorized/qhttpengine/default.nix:21",
+"unfree":false,
+"unsupported":false
+},
+"name":"qhttpengine-unstable-2018-03-22",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"qhttpengine-unstable",
+"system":"x86_64-linux",
+"version":"2018-03-22"
 },
 "qq":{
 "meta":{
@@ -25953,7 +26051,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.11-runpod-python-1.6.2",
+"name":"python3.12-runpod-python-1.6.2",
 "outputsToInstall":[
 "out"
 ],
@@ -25994,13 +26092,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-runpod-python-1.6.2",
+"name":"python3.12-runpod-python-1.6.2",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-runpod-python",
+"pname":"python3.12-runpod-python",
 "system":"x86_64-linux",
 "version":"1.6.2"
 },
@@ -26251,7 +26349,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.11-smartrent_py-0.4.0",
+"name":"python3.12-smartrent_py-0.4.0",
 "outputsToInstall":[
 "out"
 ],
@@ -26292,13 +26390,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-smartrent_py-0.4.0",
+"name":"python3.12-smartrent_py-0.4.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-smartrent_py",
+"pname":"python3.12-smartrent_py",
 "system":"x86_64-linux",
 "version":"0.4.0"
 },
@@ -27068,7 +27166,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.11-tqdm-loggable-0.2",
+"name":"python3.12-tqdm-loggable-0.2",
 "outputsToInstall":[
 "out"
 ],
@@ -27109,13 +27207,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-tqdm-loggable-0.2",
+"name":"python3.12-tqdm-loggable-0.2",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-tqdm-loggable",
+"pname":"python3.12-tqdm-loggable",
 "system":"x86_64-linux",
 "version":"0.2"
 },
@@ -27437,7 +27535,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.11-undetected-chromedriver-unstable-2024-02-17",
+"name":"python3.12-undetected-chromedriver-unstable-2024-02-17",
 "outputsToInstall":[
 "out"
 ],
@@ -27478,13 +27576,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-undetected-chromedriver-unstable-2024-02-17",
+"name":"python3.12-undetected-chromedriver-unstable-2024-02-17",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-undetected-chromedriver-unstable",
+"pname":"python3.12-undetected-chromedriver-unstable",
 "system":"x86_64-linux",
 "version":"2024-02-17"
 },
@@ -27866,7 +27964,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.11-xstatic-asciinema-player-2.6.1.1",
+"name":"python3.12-xstatic-asciinema-player-2.6.1.1",
 "outputsToInstall":[
 "out"
 ],
@@ -27907,13 +28005,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-xstatic-asciinema-player-2.6.1.1",
+"name":"python3.12-xstatic-asciinema-player-2.6.1.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-xstatic-asciinema-player",
+"pname":"python3.12-xstatic-asciinema-player",
 "system":"x86_64-linux",
 "version":"2.6.1.1"
 },
@@ -27984,7 +28082,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.11-xstatic-font-awesome-4.7.0.0",
+"name":"python3.12-xstatic-font-awesome-4.7.0.0",
 "outputsToInstall":[
 "out"
 ],
@@ -28025,13 +28123,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-xstatic-font-awesome-4.7.0.0",
+"name":"python3.12-xstatic-font-awesome-4.7.0.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-xstatic-font-awesome",
+"pname":"python3.12-xstatic-font-awesome",
 "system":"x86_64-linux",
 "version":"4.7.0.0"
 }
