@@ -85,7 +85,7 @@ Or, use variables from this repository in case I change them:
 ## Packages
 
 <details>
-<summary>Package set: (Uncategorized) (124 packages)</summary>
+<summary>Package set: (Uncategorized) (126 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -139,6 +139,7 @@ Or, use variables from this repository in case I change them:
 |  | `kata-image` | [kata-image](https://github.com/kata-containers/kata-containers) | 3.6.0 | Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-images/default.nix) |
 |  | `kata-runtime` | [kata-runtime](https://github.com/kata-containers/kata-containers) | 3.6.0 | Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-runtime/default.nix) |
 |  | `kernel` | [linux](https://www.kernel.org/) | 6.6.36 | The Linux kernel (with patches: bridge-stp-helper, request-key-helper) |
+|  | `kikoplay` | [kikoplay](https://kikoplay.fun) | 1.0.3 | KikoPlay - NOT ONLY A Full-Featured Danmu Player 不仅仅是全功能弹幕播放器  |
 |  | `konnect` | [konnect](https://github.com/Kopano-dev/konnect) | 0.34.0 | Kopano Konnect implements an OpenID provider (OP) with integrated web login and consent forms. |
 |  | `ldap-auth-proxy` | [ldap-auth-proxy](https://github.com/pinepain/ldap-auth-proxy) | unstable-2020-07-29 | A simple drop-in HTTP proxy for transparent LDAP authentication which is also a HTTP auth backend. |
 |  | `libnftnl-fullcone` | [libnftnl](https://netfilter.org/projects/libnftnl/) | 1.2.6 | Userspace library providing a low-level netlink API to the in-kernel nf_tables subsystem |
@@ -178,6 +179,7 @@ Or, use variables from this repository in case I change them:
 |  | `qbittorrent-enhanced-edition` | [qbittorrent-enhanced-edition](https://www.qbittorrent.org) | release-4.6.5.10 | Featureful free software BitTorrent client |
 |  | `qbittorrent-enhanced-edition-nox` | [qbittorrent-enhanced-edition](https://www.qbittorrent.org) | release-4.6.5.10 | Featureful free software BitTorrent client |
 |  | `qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 9.0.1+ds-1 | A generic and open source machine emulator and virtualizer |
+|  | `qhttpengine` | [qhttpengine](https://github.com/nitroshare/qhttpengine) | unstable-2018-03-22 | HTTP server for Qt applications |
 |  | `qq` | [qq](https://im.qq.com/linuxqq/index.html) | 3.2.9 | QQ for Linux |
 |  | `qqmusic` | [qqmusic](https://y.qq.com/) | 1.1.5 | Tencent QQ Music |
 |  | `r8125` | [r8125](https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software) | 9.013.02-2 | Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface |
@@ -269,9 +271,9 @@ Or, use variables from this repository in case I change them:
 |  | `lantianCustomized.coredns` | [coredns](https://github.com/xddxdd/coredns) | 1.11.1 | CoreDNS with Lan Tian's modifications |
 |  | `lantianCustomized.firefox-icon-mikozilla-fireyae` | [firefox-icon-mikozilla-fireyae](https://www.reddit.com/r/Genshin_Impact/comments/x73g4p/mikozilla_fireyae/) |  | Custom icon "Mikozilla Fireyae" for Firefox |
 |  | `lantianCustomized.librime-with-plugins` | [librime](https://rime.im/) | 1.11.2 | Librime with plugins (librime-charcode, librime-lua, librime-octagram, librime-proto) |
-|  | `lantianCustomized.llama-cpp` | [llama-cpp](https://github.com/ggerganov/llama.cpp/) | 3325 | Port of Facebook's LLaMA model in C/C++ |
+|  | `lantianCustomized.llama-cpp` | [llama-cpp](https://github.com/ggerganov/llama.cpp/) | 3328 | Port of Facebook's LLaMA model in C/C++ |
 |  | `lantianCustomized.nbfc-linux` | [nbfc-linux-lantian](https://github.com/xddxdd/nbfc-linux) | unstable-2022-06-13 | NoteBook FanControl ported to Linux (with Lan Tian's modifications) |
-|  | `lantianCustomized.nginx` | [nginx-lantian](https://openresty.org) | 1.25.3.1 | OpenResty with Lan Tian modifications |
+|  | `lantianCustomized.nginx` | [nginx-lantian](https://openresty.org) | unstable-2024-06-26 | OpenResty with Lan Tian modifications |
 |  | `lantianCustomized.transmission-with-webui` | [transmission](https://www.transmissionbt.com/) | 4.0.6 | Fast, easy and free BitTorrent client |
 </details>
 

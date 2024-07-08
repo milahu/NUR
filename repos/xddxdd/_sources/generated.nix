@@ -581,6 +581,41 @@
       sha256 = "sha256-1BiFnhI9BO3XHnnI9TIhPlKB7HFwuXzf48+FSHGH1g8=";
     };
   };
+  kikoplay = {
+    pname = "kikoplay";
+    version = "1.0.3";
+    src = fetchFromGitHub {
+      owner = "KikoPlayProject";
+      repo = "KikoPlay";
+      rev = "1.0.3";
+      fetchSubmodules = false;
+      sha256 = "sha256-y+sT0aHDvKFNaJIxnGxDXZXUiCzuXVF7FPc8t//RMW4=";
+    };
+  };
+  kikoplay-app = {
+    pname = "kikoplay-app";
+    version = "504e402573c47abf1a10fff60b54e9c7273e48b3";
+    src = fetchFromGitHub {
+      owner = "KikoPlayProject";
+      repo = "KikoPlayApp";
+      rev = "504e402573c47abf1a10fff60b54e9c7273e48b3";
+      fetchSubmodules = false;
+      sha256 = "sha256-TA4FC0SMk0b5Ibv78yRwBPZky0t8QC/ulTElia8ZzFM=";
+    };
+    date = "2024-06-04";
+  };
+  kikoplay-script = {
+    pname = "kikoplay-script";
+    version = "361aae4de60ab7636b3086d5ad2b7a63903a219b";
+    src = fetchFromGitHub {
+      owner = "KikoPlayProject";
+      repo = "KikoPlayScript";
+      rev = "361aae4de60ab7636b3086d5ad2b7a63903a219b";
+      fetchSubmodules = false;
+      sha256 = "sha256-XLxnbhQoytDLE3dRFVxQtfFuTGQcqvYTBPzeqwTy5BQ=";
+    };
+    date = "2024-06-29";
+  };
   konnect = {
     pname = "konnect";
     version = "v0.34.0";
@@ -733,13 +768,13 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b3325";
+    version = "b3328";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      rev = "b3325";
+      rev = "b3328";
       fetchSubmodules = false;
-      sha256 = "sha256-dlo8PDlF3+kWzovDykd+V9go/xlrltEyFgUlMQn/Vbg=";
+      sha256 = "sha256-2qH184Idnnt0Fw1t9VpTQIBuVe511pwTzxQazml5CqE=";
     };
   };
   lyrica = {
@@ -936,11 +971,15 @@
   };
   openresty = {
     pname = "openresty";
-    version = "1.25.3.1";
-    src = fetchurl {
-      url = "https://github.com/openresty/openresty/releases/download/v1.25.3.1/openresty-1.25.3.1.tar.gz";
-      sha256 = "sha256-MuwaJTpaEyUDVaB1/mW31j7EXFYLviEzUPCZKlfNed8=";
+    version = "09efae3e6a51aa90228c58a179e7bbbdaf76ddf2";
+    src = fetchFromGitHub {
+      owner = "openresty";
+      repo = "openresty";
+      rev = "09efae3e6a51aa90228c58a179e7bbbdaf76ddf2";
+      fetchSubmodules = false;
+      sha256 = "sha256-Ec8jlWVitKeTeWUX3o69gN8koNoJBDM3qbblc6lEZb4=";
     };
+    date = "2024-06-26";
   };
   openssl-oqs = {
     pname = "openssl-oqs";
@@ -1155,6 +1194,18 @@
       url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_9.0.1+ds-1_i386.deb";
       sha256 = "sha256-xV8S9MXUuarcJHAdkRxd/q7gDdPtfBhCIJXuqOA9Ivw=";
     };
+  };
+  qhttpengine = {
+    pname = "qhttpengine";
+    version = "43f55df51623621ed3efb4e42c7894586d988667";
+    src = fetchFromGitHub {
+      owner = "nitroshare";
+      repo = "qhttpengine";
+      rev = "43f55df51623621ed3efb4e42c7894586d988667";
+      fetchSubmodules = false;
+      sha256 = "sha256-XO56DUKyUIOhp+xpArMeoNHmlgAld9tUFMCY+tjyI4M=";
+    };
+    date = "2018-03-22";
   };
   qq-amd64 = {
     pname = "qq-amd64";
