@@ -9,6 +9,7 @@
 
   packages = {
     basiliskii-bin = callPackage' ./basiliskii-bin;
+    bitdos-bin = callPackage' ./bitdos-bin;
     cardinal = callPackage' ./cardinal;
     cinelerra-gg-bin = callPackage' ./cinelerra-gg-bin;
     clap-info = callPackage' ./clap-info;
@@ -25,6 +26,7 @@
     ildaeil = callPackage' ./ildaeil;
     keepmenu = callPackage' ./keepmenu;
     kiwmi = callPackage' ./kiwmi;
+    lamb = callPackage' ./lamb;
     luaPackages = callPackages ./luaPackages;
     luakit = callPackage' ./luakit;
     lv2vst = callPackage' ./lv2vst;
@@ -43,6 +45,7 @@
     sheepshaver-bin = callPackage' ./sheepshaver-bin;
     symbols-nerd-font = callPackage' ./symbols-nerd-font;
     tal = callPackages ./tal;
+    tonelib = callPackages ./tonelib;
     treeSitterGrammars = callPackages ./treeSitterGrammars;
     vgmtrans = callPackage' ./vgmtrans;
     vimPlugins = callPackages ./vimPlugins;
