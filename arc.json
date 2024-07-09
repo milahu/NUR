@@ -1,16 +1,16 @@
 {
 "name":"arc",
-"fetch_time":0.319,
-"eval_time":0.428,
+"fetch_time":0.322,
+"eval_time":0.465,
 "source":{
 "url":"https://github.com/arcnmx/nixexprs",
-"rev":"5165118a5c43addcaace24579f0e62f5d1a792a7",
-"sha256":"1f40pz3rd9pja64alqq2xmadqbvhwx3r4gcga5sc7sfnq9fwsj0i",
+"rev":"0067d9ff3aa5ce2f4e3c64a534494aa2700fcff1",
+"sha256":"0n2z5mxzfchs9zijaacxw1kkn8jyva243wd76fs9zb72jc7bwsns",
 "date":null
 },
-"source_storepath":"/nix/store/zixacfgmv5b1s27ng8hyv0qv5xkjf3kk-source",
-"nixpkgs_storepath":"/nix/store/0rjnwna89sxf9hyljasq2jv15n9dlkxf-source",
-"nur_combined_rev":"f6e0d9ceeaefcf773534120db5b849d28bfb09f3",
+"source_storepath":"/nix/store/hj09hzckswlfar356gh6ml8rs2yqyzms-source",
+"nixpkgs_storepath":"/nix/store/pydpvrzln1np9574vyjgjk3r6kmbv3a0-source",
+"nur_combined_rev":"2f6fcbb74195c820d4a01da05e5e15a2d923229d",
 "packages":{
 "packages.benc":{
 "meta":{
@@ -1328,7 +1328,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"forcefully-remove-bootfb-6.6.36-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.37-2018-02-08",
 "outputsToInstall":[
 "bin"
 ],
@@ -1359,7 +1359,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"forcefully-remove-bootfb-6.6.36-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.37-2018-02-08",
 "outputName":"bin",
 "outputs":{
 "bin":null,
@@ -1367,7 +1367,7 @@
 },
 "pname":"forcefully-remove-bootfb",
 "system":"x86_64-linux",
-"version":"6.6.36-2018-02-08"
+"version":"6.6.37-2018-02-08"
 },
 "packages.generateLinuxConfig":{
 "meta":{
@@ -2575,7 +2575,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.36-2021.04.21",
+"name":"ryzen-smu-6.6.37-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -3022,7 +3022,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/customized/default.nix:611",
+"position":"./pkgs/customized/default.nix:621",
 "unfree":false,
 "unsupported":false
 },
@@ -3157,8 +3157,8 @@
 },
 "packages.mumble-develop":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"Low-latency, high quality voice chat software",
 "homepage":"https://mumble.info",
 "insecure":false,
@@ -3518,7 +3518,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre645983.b9014df496d5",
+"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre650191.ab82a9612aa4",
 "description":"Mail indexer",
 "homepage":"https://notmuchmail.org/",
 "insecure":false,
@@ -4920,7 +4920,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.36-2021.04.21",
+"name":"ryzen-smu-6.6.37-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -4965,7 +4965,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.36-2021.04.21",
+"name":"ryzen-smu-6.6.37-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -4996,21 +4996,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ryzen-smu-6.6.36-2021.04.21",
+"name":"ryzen-smu-6.6.37-2021.04.21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ryzen-smu",
 "system":"x86_64-linux",
-"version":"6.6.36-2021.04.21"
+"version":"6.6.37-2021.04.21"
 },
 "packages.ryzen-smu-monitor_cpu":{
 "meta":{
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.36-2021.04.21",
+"name":"ryzen-smu-6.6.37-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5088,7 +5088,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"name":"ryzen-smu-6.6.36-2021.04.21",
+"name":"ryzen-smu-6.6.37-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5341,7 +5341,7 @@
 "name":"Philip Taron"
 }
 ],
-"name":"vim-full-9.1.0412",
+"name":"vim-full-9.1.0509",
 "outputsToInstall":[
 "out",
 "xxd"
@@ -5396,7 +5396,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"vim-full-9.1.0412",
+"name":"vim-full-9.1.0509",
 "outputName":"out",
 "outputs":{
 "out":null,
@@ -5404,13 +5404,13 @@
 },
 "pname":"vim-full",
 "system":"x86_64-linux",
-"version":"9.1.0412"
+"version":"9.1.0509"
 },
 "packages.weechat-arc":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://weechat.org/files/doc/weechat/ChangeLog-4.3.3.html",
+"changelog":"https://weechat.org/files/doc/weechat/ChangeLog-4.3.4.html",
 "description":"Fast, light and extensible chat client",
 "homepage":"https://weechat.org/",
 "insecure":false,
@@ -5439,7 +5439,7 @@
 "name":"Na\u00efm Favier"
 }
 ],
-"name":"weechat-4.3.3",
+"name":"weechat-4.3.4",
 "outputsToInstall":[
 "out"
 ],
@@ -5493,14 +5493,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"weechat-bin-env-4.3.3",
+"name":"weechat-bin-env-4.3.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"weechat-bin-env",
 "system":"x86_64-linux",
-"version":"4.3.3"
+"version":"4.3.4"
 },
 "packages.weechat-matrix":{
 "meta":{
@@ -5686,7 +5686,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"xkeyboard-config-arc-2.41",
+"name":"xkeyboard-config-arc-2.42",
 "outputsToInstall":[
 "out"
 ],
@@ -5741,14 +5741,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"xkeyboard-config-arc-2.41",
+"name":"xkeyboard-config-arc-2.42",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"xkeyboard-config-arc",
 "system":"x86_64-linux",
-"version":"2.41"
+"version":"2.42"
 },
 "packages.yggdrasil-address":{
 "meta":{
@@ -5800,6 +5800,29 @@
 "pname":"yggdrasil-address",
 "system":"x86_64-linux",
 "version":"0.0.1"
+},
+"packages.youtube-dlp":{
+"meta":{
+"available":true,
+"broken":false,
+"insecure":false,
+"mainProgram":"youtube-dl",
+"name":"youtube-dl",
+"outputsToInstall":[
+"out"
+],
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:68",
+"unfree":false,
+"unsupported":false
+},
+"name":"youtube-dl",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"youtube-dl",
+"system":"x86_64-linux",
+"version":""
 },
 "packages.zsh-completions-abduco":{
 "meta":{

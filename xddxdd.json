@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.63,
-"eval_time":0.56,
+"fetch_time":0.41,
+"eval_time":0.551,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"788fdfeda29e152e31a67d2dfe9827acfa31e612",
-"sha256":"1far08p73c7plhs8z9rq3x0b0y0lp6a32b49lrqr84l8w7csmrf1",
+"rev":"20721f91ade69debaa3372f5b9250718bc69fb17",
+"sha256":"09yb7sac0a9bpayjv95lrzf4ipvcllhb87ybpdvwpps8l737lz9a",
 "date":null
 },
-"source_storepath":"/nix/store/i58gjblqr3168cda64885s4nf8di1871-source",
-"nixpkgs_storepath":"/nix/store/p1xk9n1mv6jrd9q7h3f3936x3kyllqcb-source",
-"nur_combined_rev":"34331440fcaaa3be71ed9338025413b21757cd8e",
+"source_storepath":"/nix/store/dvx4bbm0hg7y6zwpjqaddaxp8gf7lc47-source",
+"nixpkgs_storepath":"/nix/store/pydpvrzln1np9574vyjgjk3r6kmbv3a0-source",
+"nur_combined_rev":"7efebff6e7dcd6b6dd9afefecb0c0266d0eee2aa",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -199,6 +199,7 @@
 "url":"https://spdx.org/licenses/GPL-2.0-or-later.html"
 },
 "longDescription":"aMule is an eMule-like client for the eD2k and Kademlia\nnetworks, supporting multiple platforms.  Currently aMule\n(officially) supports a wide variety of platforms and operating\nsystems, being compatible with more than 60 different\nhardware+OS configurations.  aMule is entirely free, its\nsourcecode released under the GPL just like eMule, and includes\nno adware or spyware as is often found in proprietary P2P\napplications.\n",
+"mainProgram":"amule",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -461,6 +462,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"mainProgram":"BaiduPCS-Go",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -510,7 +512,7 @@
 "wasm64-wasi",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/baidupcs-go/default.nix:14",
+"position":"./pkgs/uncategorized/baidupcs-go/default.nix:15",
 "unfree":false,
 "unsupported":false
 },
@@ -574,6 +576,7 @@
 "url":"https://spdx.org/licenses/BSD-2-Clause.html"
 }
 ],
+"mainProgram":"bepasty-server",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -627,7 +630,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"./pkgs/uncategorized/bepasty/default.nix:37",
+"position":"./pkgs/uncategorized/bepasty/default.nix:38",
 "unfree":false,
 "unsupported":false
 },
@@ -704,6 +707,7 @@
 "spdxId":"GPL-3.0-only",
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
+"mainProgram":"frontend",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -753,7 +757,7 @@
 "wasm64-wasi",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/bird-lg-go/default.nix:16",
+"position":"./pkgs/uncategorized/bird-lg-go/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -782,6 +786,7 @@
 "spdxId":"GPL-3.0-only",
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
+"mainProgram":"proxy",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -831,7 +836,7 @@
 "wasm64-wasi",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/bird-lgproxy-go/default.nix:16",
+"position":"./pkgs/uncategorized/bird-lgproxy-go/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -889,6 +894,7 @@
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 }
 ],
+"mainProgram":"bssl",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -938,7 +944,7 @@
 "wasm64-wasi",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/boringssl-oqs/default.nix:76",
+"position":"./pkgs/uncategorized/boringssl-oqs/default.nix:77",
 "unfree":false,
 "unsupported":false
 },
@@ -1075,6 +1081,7 @@
 "spdxId":"LGPL-2.0",
 "url":"https://spdx.org/licenses/LGPL-2.0.html"
 },
+"mainProgram":"extract_chmLib",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -2118,6 +2125,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"mainProgram":"EtherGuard-VPN",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -2167,7 +2175,7 @@
 "wasm64-wasi",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/etherguard/default.nix:14",
+"position":"./pkgs/uncategorized/etherguard/default.nix:15",
 "unfree":false,
 "unsupported":false
 },
@@ -2464,6 +2472,7 @@
 "spdxId":"GPL-2.0-only",
 "url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
+"mainProgram":"ftp.proxy",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -2484,7 +2493,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/ftp-proxy/default.nix:20",
+"position":"./pkgs/uncategorized/ftp-proxy/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
@@ -2666,6 +2675,7 @@
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 }
 ],
+"mainProgram":"genshinhelper",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -2719,7 +2729,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"./pkgs/uncategorized/genshinhelper2/default.nix:25",
+"position":"./pkgs/uncategorized/genshinhelper2/default.nix:26",
 "unfree":false,
 "unsupported":false
 },
@@ -2825,6 +2835,7 @@
 "redistributable":false,
 "shortName":"unfree"
 },
+"mainProgram":"googleearth-pro",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -3182,6 +3193,7 @@
 "spdxId":"GPL-3.0-only",
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
+"mainProgram":"ImeWlConverterCmd",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -3208,7 +3220,7 @@
 "x86_64-darwin",
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/imewlconverter/default.nix:18",
+"position":"./pkgs/uncategorized/imewlconverter/default.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -3532,6 +3544,7 @@
 "spdxId":"GPL-3.0-only",
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
+"mainProgram":"KikoPlay",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -3552,7 +3565,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/kikoplay/default.nix:62",
+"position":"./pkgs/uncategorized/kikoplay/default.nix:63",
 "unfree":false,
 "unsupported":false
 },
@@ -3581,6 +3594,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"mainProgram":"konnectd",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -3630,7 +3644,7 @@
 "wasm64-wasi",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/konnect/default.nix:12",
+"position":"./pkgs/uncategorized/konnect/default.nix:13",
 "unfree":false,
 "unsupported":false
 },
@@ -3903,7 +3917,7 @@
 "name":"Philip Taron"
 }
 ],
-"name":"llama-cpp-3328",
+"name":"llama-cpp-3342",
 "outputsToInstall":[
 "out"
 ],
@@ -3957,14 +3971,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-3328",
+"name":"llama-cpp-3342",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"3328"
+"version":"3342"
 },
 "lantianCustomized.nbfc-linux":{
 "meta":{
@@ -10345,6 +10359,7 @@
 "redistributable":true,
 "shortName":"unfreeRedistributable"
 },
+"mainProgram":"lyrica",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -10406,7 +10421,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/lyrica/default.nix:28",
+"position":"./pkgs/uncategorized/lyrica/default.nix:29",
 "unfree":true,
 "unsupported":false
 },
@@ -10949,6 +10964,7 @@
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 }
 ],
+"mainProgram":"nvlax_encode",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -10969,7 +10985,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/nvlax/default.nix:112",
+"position":"./pkgs/uncategorized/nvlax/default.nix:113",
 "unfree":false,
 "unsupported":false
 },
@@ -11000,6 +11016,7 @@
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 }
 ],
+"mainProgram":"nvlax_encode",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -11020,7 +11037,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/nvlax/default.nix:112",
+"position":"./pkgs/uncategorized/nvlax/default.nix:113",
 "unfree":false,
 "unsupported":false
 },
@@ -23837,6 +23854,7 @@
 "spdxId":"OpenSSL",
 "url":"https://spdx.org/licenses/OpenSSL.html"
 },
+"mainProgram":"openssl",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -23934,7 +23952,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/uncategorized/openssl-oqs/default.nix:140",
+"position":"./pkgs/uncategorized/openssl-oqs/default.nix:141",
 "unfree":false,
 "unsupported":false
 },
@@ -24171,6 +24189,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 }
 ],
+"mainProgram":"palworld_exporter",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -24224,7 +24243,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"./pkgs/uncategorized/palworld-exporter/default.nix:34",
+"position":"./pkgs/uncategorized/palworld-exporter/default.nix:35",
 "unfree":false,
 "unsupported":false
 },
@@ -24633,6 +24652,7 @@
 "redistributable":true,
 "shortName":"unfreeRedistributable"
 },
+"mainProgram":"lyrica",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -24694,7 +24714,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/lyrica/default.nix:28",
+"position":"./pkgs/uncategorized/lyrica/default.nix:29",
 "unfree":true,
 "unsupported":false
 },
@@ -24819,6 +24839,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"mainProgram":"poclcc",
 "maintainers":[
 {
 "email":"jan.solanti@paivola.fi",
@@ -24848,7 +24869,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/pocl/default.nix:64",
+"position":"./pkgs/uncategorized/pocl/default.nix:65",
 "unfree":false,
 "unsupported":false
 },
@@ -24877,6 +24898,7 @@
 "spdxId":"GPL-2.0-only",
 "url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
+"mainProgram":"ps",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -24897,7 +24919,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/procps4/default.nix:19",
+"position":"./pkgs/uncategorized/procps4/default.nix:20",
 "priority":11,
 "unfree":false,
 "unsupported":false
@@ -24927,6 +24949,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"mainProgram":"wings",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -24976,7 +24999,7 @@
 "wasm64-wasi",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/pterodactyl-wings/default.nix:12",
+"position":"./pkgs/uncategorized/pterodactyl-wings/default.nix:13",
 "unfree":false,
 "unsupported":false
 },
@@ -25040,6 +25063,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 }
 ],
+"mainProgram":"rcon-shell",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -25093,7 +25117,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"./pkgs/uncategorized/py-rcon/default.nix:15",
+"position":"./pkgs/uncategorized/py-rcon/default.nix:16",
 "unfree":false,
 "unsupported":false
 },
@@ -25124,6 +25148,7 @@
 "spdxId":"GPL-2.0-or-later",
 "url":"https://spdx.org/licenses/GPL-2.0-or-later.html"
 },
+"mainProgram":"qbittorrent",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -25220,6 +25245,7 @@
 "spdxId":"GPL-2.0-or-later",
 "url":"https://spdx.org/licenses/GPL-2.0-or-later.html"
 },
+"mainProgram":"qbittorrent-nox",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -25315,6 +25341,7 @@
 "spdxId":"GPL-2.0-or-later",
 "url":"https://spdx.org/licenses/GPL-2.0-or-later.html"
 },
+"mainProgram":"qemu-amd64-static",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -25335,7 +25362,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/qemu-user-static/default.nix:29",
+"position":"./pkgs/uncategorized/qemu-user-static/default.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -26034,7 +26061,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"mainProgram":"runpod-python",
+"mainProgram":"runpod",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -26648,6 +26675,7 @@
 "redistributable":false,
 "shortName":"unfree"
 },
+"mainProgram":"SVPManager",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -26671,7 +26699,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/svp/default.nix:158",
+"position":"./pkgs/uncategorized/svp/default.nix:159",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -27150,6 +27178,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"mainProgram":"manual-tests",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -27203,7 +27232,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"./pkgs/uncategorized/tqdm-loggable/default.nix:19",
+"position":"./pkgs/uncategorized/tqdm-loggable/default.nix:20",
 "unfree":false,
 "unsupported":false
 },
@@ -27244,6 +27273,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"mainProgram":"uesave",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -27305,7 +27335,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/uesave/default.nix:13",
+"position":"./pkgs/uncategorized/uesave/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -27345,6 +27375,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"mainProgram":"uesave",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -27406,7 +27437,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/uesave/0_3_0.nix:14",
+"position":"./pkgs/uncategorized/uesave/0_3_0.nix:15",
 "unfree":false,
 "unsupported":false
 },
@@ -27603,7 +27634,7 @@
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
 "longDescription":"WebDriver is an open source tool for automated testing of webapps across\nmany browsers. It provides capabilities for navigating to web pages, user\ninput, JavaScript execution, and more. ChromeDriver is a standalone\nserver that implements the W3C WebDriver standard.\n",
-"mainProgram":"chromedriver",
+"mainProgram":"undetected_chromedriver",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -27629,7 +27660,7 @@
 "x86_64-darwin",
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/undetected-chromedriver-bin/default.nix:58",
+"position":"./pkgs/uncategorized/undetected-chromedriver-bin/default.nix:59",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -27711,6 +27742,7 @@
 "redistributable":true,
 "shortName":"unfreeRedistributable"
 },
+"mainProgram":"wechat-uos",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -27734,7 +27766,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/wechat-uos/default.nix:224",
+"position":"./pkgs/uncategorized/wechat-uos/default.nix:225",
 "unfree":true,
 "unsupported":false
 },
@@ -27761,6 +27793,7 @@
 "redistributable":true,
 "shortName":"unfreeRedistributable"
 },
+"mainProgram":"wechat-uos",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -27784,7 +27817,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/wechat-uos/default.nix:224",
+"position":"./pkgs/uncategorized/wechat-uos/default.nix:225",
 "unfree":true,
 "unsupported":false
 },
