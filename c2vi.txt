@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./nur.nix:6:9:
+  at ./nur.nix:18:11:
 
-     5|
-     6|   cbm = pkgs.callPackage ./mods/cbm.nix {};
-      |         ^
-     7|
+    17|       hash = "sha256-xFc8J8tlw6i+FbTC05nrlvQIXRmguFzDqh+SQOR54TE=";
+    18|     }; in pkgs.callPackage "${repo}/default.nix" {};
+      |           ^
+    19|
 
 … while calling 'callPackageWith'
 
@@ -53,4 +53,4 @@ error:
       |                  ^
    974|     if f ? __functor
 
-error: getting status of './mods/cbm.nix': No such file or directory
+error: path '/nix/store/9ri5496hjvgw0dmdv1snqd4zl5n34yhx-source.drv' is not valid
