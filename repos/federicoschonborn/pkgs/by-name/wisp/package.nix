@@ -49,5 +49,7 @@ stdenv.mkDerivation (finalAttrs: {
     license = lib.licenses.gpl3Plus;
     inherit (guile.meta) platforms;
     maintainers = [ lib.maintainers.federicoschonborn ];
+    # TODO: What...
+    broken = true;
   };
 })

@@ -138,7 +138,7 @@
                         lib.mapAttrsToList (
                           name: value:
                           let
-                            programList = lib.importJSON meta/program-list.json;
+                            programList = lib.importJSON ./meta/program-list.json;
                             programs = programList.${name} or [ ];
 
                             description = value.meta.description or "";
