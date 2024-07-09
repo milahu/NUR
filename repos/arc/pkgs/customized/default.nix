@@ -257,7 +257,9 @@ let
       inherit FindPythonInterpreter;
 
       meta = old.meta or { } // {
-        broken = old.meta.broken or false;
+        # TODO: fix!
+        #broken = old.meta.broken or false;
+        broken = true;
       };
 
       patches = [ ];
@@ -382,11 +384,14 @@ let
       ];
     });
 
-    electrum-cli = { lib, electrum, python3Packages }: let
-      electrum-cli = electrum.override { enableQt = false; };
+    electrum-cli = { lib, electrum, python3Packages, python311Packages ? python3Packages }: let
+      electrum-cli = electrum.override {
+        enableQt = false;
+        python3 = python311Packages.python;
+      };
     in electrum-cli.overridePythonAttrs (old: {
       propagatedBuildInputs = old.propagatedBuildInputs
-        ++ lib.optional (lib.versionOlder electrum.version "4.5.3") python3Packages.pyperclip;
+        ++ lib.optional (lib.versionOlder electrum.version "4.5.3") python311Packages.pyperclip;
 
       # work around nixpkgs breakage
       doCheck = false;
@@ -419,7 +424,11 @@ let
       doCheck = !hostPlatform.isDarwin;
     });
 
-    mpd-youtube-dl = { lib, mpd, fetchpatch, makeWrapper, youtube-dl }: mpd.overrideAttrs (old: let
+    youtube-dlp = { writeShellScriptBin, yt-dlp, lib }: writeShellScriptBin "youtube-dl" ''
+      exec ${lib.getExe yt-dlp} "$@"
+    '';
+
+    mpd-youtube-dl = { lib, mpd, fetchpatch, makeWrapper, writeShellScriptBin, youtube-dlp ? youtube-dl, youtube-dl ? null }: mpd.overrideAttrs (old: let
       patchVersion =
         if lib.versionOlder old.version "0.22" then "0.21.25"
         else if lib.versionOlder old.version "0.22.1" then "0.22"
@@ -449,7 +458,7 @@ let
 
       mesonFlags = old.mesonFlags ++ [ "-Dyoutube-dl=enabled" ];
       nativeBuildInputs = old.nativeBuildInputs ++ [ makeWrapper ];
-      depsPath = lib.makeBinPath [ youtube-dl ];
+      depsPath = lib.makeBinPath [ youtube-dlp ];
       postInstall = ''
         wrapProgram $out/bin/mpd --prefix PATH : $depsPath
       '';
@@ -466,10 +475,11 @@ let
       patches = old.patches or [ ] ++ [ ./mpd_clientlib-buffer.patch ];
     });
 
-    qemu-vfio = { qemu, fetchpatch, lib, fetchurl, perl }: (qemu.override {
+    qemu-vfio = { qemu, fetchpatch, lib, fetchurl, perl, python311Packages ? pythonPackages, pythonPackages }: (qemu.override {
       gtkSupport = false;
       smartcardSupport = false;
       smbdSupport = true;
+      python3Packages = python311Packages;
       hostCpuTargets = [
         "${qemu.stdenv.hostPlatform.qemuArch}-softmmu"
         "aarch64-linux-user" "aarch64-softmmu"
