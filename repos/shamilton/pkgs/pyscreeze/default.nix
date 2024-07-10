@@ -5,9 +5,15 @@
 , scrot
 , gnome-screenshot
 , which
-, nix-gitignore
+, nixosVersion
+, util-linux
+, xorg
 }:
-
+let
+  xlib-fixed = if nixosVersion == "master" then  python3Packages.xlib.override {
+    nose = python3Packages.pynose;
+  } else python3Packages.xlib;
+in
 python3Packages.buildPythonPackage rec {
   pname = "PyScreeze";
   version = "2023-06-14";
@@ -25,7 +31,7 @@ python3Packages.buildPythonPackage rec {
   propagatedBuildInputs = with python3Packages; [
     pillow
   ];
-  checkInputs = with python3Packages; [ pytest xlib scrot pillow gnome-screenshot which ];
+  checkInputs = with python3Packages; [ pytest xlib-fixed scrot pillow gnome-screenshot which ];
 
   doCheck = true;
   checkPhase = ''

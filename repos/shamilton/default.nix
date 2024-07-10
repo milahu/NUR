@@ -21,18 +21,6 @@
 }:
 let
   lib = pkgs.lib;
-  python_with_openpyxl305 = with pkgs; python3.override {
-    packageOverrides = with python3Packages; self: super: {
-      openpyxl = openpyxl.overrideAttrs (old: {
-        version = "3.0.5";
-        src = fetchPypi {
-          pname = "openpyxl";
-          version = "3.0.5";
-          sha256 = "06y7lbqnn0ga2x55az4hkqfs202fl6mkv3m5h0js2a01cnd1zq8q";
-        };
-      });
-    };
-  };
   kdeApplications = pkgs.libsForQt5.kdeApplications;
   # drogonNixPkgs = import (fetchTarball {
   #   url = "https://github.com/NixOS/NixPkgs/archive/cd0fa6156f486c583988d334202946ffa4b9ebe8.tar.gz";
@@ -106,7 +94,7 @@ pkgs.lib.traceValFn (x:
     inherit (self)ssh2-python;
   };
   pdf2timetable = pkgs.callPackage ./pkgs/Pdf2TimeTable {
-    inherit (python_with_openpyxl305.pkgs) buildPythonPackage numpy openpyxl pandas pypdf2 click;
+    inherit (pkgs.python3Packages) buildPythonPackage numpy openpyxl pandas pypdf2 click;
     inherit (self) tabula-py;
   };
   phidget22 = pkgs.callPackage ./pkgs/phidget22 { };
@@ -128,7 +116,9 @@ pkgs.lib.traceValFn (x:
   };
   python3-xlib = pkgs.callPackage ./pkgs/python3-xlib { };
   pyrect = pkgs.callPackage ./pkgs/pyrect { };
-  pyscreeze = pkgs.callPackage ./pkgs/pyscreeze { inherit (pkgs.gnome) gnome-screenshot; };
+  pyscreeze = pkgs.callPackage ./pkgs/pyscreeze ((
+    if nixosVersion == "master" then  { inherit (pkgs.gnome) gnome-screenshot; } else {}
+  ) // { inherit nixosVersion; });
   pytweening = pkgs.callPackage ./pkgs/pytweening { };
   pymecavideo = pkgs.callPackage ./pkgs/pymecavideo {
     inherit (pkgs.qt6) qttools wrapQtAppsHook;
@@ -190,13 +180,13 @@ pkgs.lib.traceValFn (x:
   smtprelay = pkgs.callPackage ./pkgs/smtprelay { inherit (pkgs) buildGoModule; };
   spectacle-clipboard = pkgs.libsForQt5.callPackage ./pkgs/spectacle-clipboard { };
   splat = pkgs.callPackage ./pkgs/splat { };
-  ssh-python = pkgs.callPackage ./pkgs/ssh-python { };
+  ssh-python = with pkgs.python310Packages; pkgs.callPackage ./pkgs/ssh-python { python3Packages = pkgs.python310Packages; inherit pythonAtLeast; };
   ssh2-python = pkgs.callPackage ./pkgs/ssh2-python { };
   sync-database = pkgs.callPackage ./pkgs/sync-database {
     inherit (self) parallel-ssh merge-keepass;
   };
   tabula-py = pkgs.callPackage ./pkgs/tabula-py {
-    inherit (python_with_openpyxl305.pkgs) buildPythonPackage fetchPypi distro numpy pandas setuptools_scm setuptools;
+    inherit (pkgs.python3Packages) buildPythonPackage fetchPypi distro numpy pandas setuptools_scm setuptools;
   };
   tfk-api-unoconv = pkgs.callPackage ./pkgs/tfk-api-unoconv {
     inherit nixosVersion;
@@ -292,6 +282,8 @@ rec {
   };
   pyzo = pkgs.callPackage ./pkgs/pyzo {
     shellPython = self.mypython;
+    python3 = pkgs.python311;
+    python3Packages = pkgs.python311Packages;
   };
 } //
 # Derivations not supported on NUR
