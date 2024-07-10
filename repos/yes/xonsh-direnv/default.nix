@@ -1,21 +1,28 @@
 { lib
 , python3
-, fetchPypi
+, fetchFromGitHub
 }:
 
 python3.pkgs.buildPythonPackage rec {
   pname = "xonsh-direnv";
-  version = "1.6.1";
+  version = "1.7.0";
   format = "setuptools";
 
-  src = fetchPypi {
-    inherit pname version;
-    hash = "sha256-Nt8Da1EtMVWZ9mbBDjys7HDutLYifwoQ1HVmI5CN2Ww=";
+  src = fetchFromGitHub {
+    owner = "greg-hellings";
+    repo = "xonsh-direnv";
+    rev = version;
+    hash = "sha256-LPSYUK07TQuTI+u0EmUuGL48znUfRDVGEIS/mmzcETU=";
   };
+
+  postPatch = ''
+    substituteInPlace xontrib/direnv.xsh \
+      --replace-fail "\$DIRENV_DIR" "__xonsh__.env['DIRENV_DIR']"
+  '';
 
   meta = with lib; {
     description = "Direnv support for the xonsh shell";
-    homepage = "https://github.com/74th/xonsh-direnv";
+    homepage = "https://github.com/greg-hellings/xonsh-direnv";
     license = licenses.mit;
   };
 }
