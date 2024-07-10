@@ -1,38 +1,30 @@
 {
   lib,
   stdenv,
-  fetchhg,
-  autoreconfHook,
+  fetchzip,
   pkg-config,
-  python3,
   makeWrapper,
   guile,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "wisp";
-  version = "1.0.11";
+  version = "1.0.12";
 
-  src = fetchhg {
-    url = "https://hg.sr.ht/~arnebab/wisp";
-    rev = "v${finalAttrs.version}";
-    hash = "sha256-J2heXIJhef2egrBUawp65r8VGkhh7lmEnzyqAEDpXPA=";
+  src = fetchzip {
+    url = "https://www.draketo.de/software/wisp-${finalAttrs.version}.tar.gz";
+    hash = "sha256-LUHsOHhxZ9Qs2v3miuVwppnHcXBV5Gloa5s5nTevaIc=";
   };
 
   nativeBuildInputs = [
-    autoreconfHook
-    guile
     pkg-config
-    python3
     makeWrapper
   ];
 
   buildInputs = [ guile ];
 
-  makeFlags = [ "GUILE_AUTO_COMPILE=0" ];
-
   postPatch = ''
-    patchShebangs bootstrap.sh bootstrap-reader.sh
+    patchShebangs bootstrap-reader.sh
   '';
 
   postFixup = ''
@@ -49,7 +41,5 @@ stdenv.mkDerivation (finalAttrs: {
     license = lib.licenses.gpl3Plus;
     inherit (guile.meta) platforms;
     maintainers = [ lib.maintainers.federicoschonborn ];
-    # TODO: What...
-    broken = true;
   };
 })
