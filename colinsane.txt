@@ -198,21 +198,21 @@ error:
 
 … while calling 'mkDerivationSimple'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:512:1:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:514:1:
 
-   511| # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
-   512| {
+   513| # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   514| {
       | ^
-   513|
+   515|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:589:1:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:591:1:
 
-   588|
-   589| extendDerivation
+   590|
+   591| extendDerivation
       | ^
-   590|   validity.handled
+   592|   validity.handled
 
 … while calling 'extendDerivation'
 
