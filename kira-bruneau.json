@@ -1,16 +1,16 @@
 {
 "name":"kira-bruneau",
-"fetch_time":0.296,
-"eval_time":0.382,
+"fetch_time":0.35,
+"eval_time":0.37,
 "source":{
 "url":"https://gitlab.com/kira-bruneau/nur-packages",
-"rev":"8b6bb3c4280e5cc0168faaf85ffbc1adfac05e16",
-"sha256":"1c8bjp9rx565y3i29gk4g3jiia82dn205qaa7qxv3vz62mvc87a9",
+"rev":"a3569f52edb30f8a5342aa98b8877a26c4a139b0",
+"sha256":"1ml56387nxpzk5yw5npkx8vi8zwczis3rim03c8jiywjn65h1750",
 "date":null
 },
-"source_storepath":"/nix/store/1i2w16wy8wykilnm77msdmjzfr8j8asd-source",
-"nixpkgs_storepath":"/nix/store/7b99s7sqszbxwv6nz8m28j8l7lzbnz42-source",
-"nur_combined_rev":"af79cfdc84c0b2a7c04a3b5a2e04502e61f6318e",
+"source_storepath":"/nix/store/9as3c180wnjqy1zi2jw2rbxgbp66qxij-source",
+"nixpkgs_storepath":"/nix/store/babk1p0sr4nib5n335cyn29n2a68bsmf-source",
+"nur_combined_rev":"5cb4b7060efb367337b9e9edf6faab25648d8653",
 "packages":{
 "anytype":{
 "meta":{
@@ -815,7 +815,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/applications/editors/emacs/elisp-packages/manual-packages/lsp-bridge/default.nix:111",
+"position":"./pkgs/applications/editors/emacs/elisp-packages/manual-packages/lsp-bridge/default.nix:112",
 "unfree":false,
 "unsupported":false
 },
@@ -2083,7 +2083,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"python3.11-debugpy-1.8.2",
+"name":"python3.12-debugpy-1.8.2",
 "outputsToInstall":[
 "out"
 ],
@@ -2099,13 +2099,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-debugpy-1.8.2",
+"name":"python3.12-debugpy-1.8.2",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-debugpy",
+"pname":"python3.12-debugpy",
 "system":"x86_64-linux",
 "version":"1.8.2"
 },
@@ -2167,7 +2167,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"python3.11-pygls-1.3.1",
+"name":"python3.12-pygls-1.3.1",
 "outputsToInstall":[
 "out"
 ],
@@ -2204,17 +2204,17 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"./pkgs/development/python-modules/pygls/default.nix:65",
+"position":"./pkgs/development/python-modules/pygls/default.nix:63",
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-pygls-1.3.1",
+"name":"python3.12-pygls-1.3.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-pygls",
+"pname":"python3.12-pygls",
 "system":"x86_64-linux",
 "version":"1.3.1"
 },
@@ -2276,7 +2276,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"python3.11-pytest-datadir-1.5.0",
+"name":"python3.12-pytest-datadir-1.5.0",
 "outputsToInstall":[
 "out"
 ],
@@ -2317,13 +2317,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-pytest-datadir-1.5.0",
+"name":"python3.12-pytest-datadir-1.5.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-pytest-datadir",
+"pname":"python3.12-pytest-datadir",
 "system":"x86_64-linux",
 "version":"1.5.0"
 },
@@ -2384,7 +2384,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"python3.11-vdf-3.4",
+"name":"python3.12-vdf-3.4",
 "outputsToInstall":[
 "out"
 ],
@@ -2425,13 +2425,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.11-vdf-3.4",
+"name":"python3.12-vdf-3.4",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.11-vdf",
+"pname":"python3.12-vdf",
 "system":"x86_64-linux",
 "version":"3.4"
 },
@@ -2504,7 +2504,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v24.11pre648010.4284c2b73c8b",
+"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v24.11pre651257.aa9461550594",
 "description":"Nintendo Switch emulator written in C++",
 "homepage":"https://sudachi-emu.com",
 "insecure":false,
@@ -2563,7 +2563,7 @@
 "aarch64-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/by-name/su/sudachi/package.nix:169",
+"position":"./pkgs/by-name/su/sudachi/package.nix:168",
 "unfree":false,
 "unsupported":false
 },
@@ -2666,7 +2666,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/latex-lsp/texlab/blob/v5.18.0/CHANGELOG.md",
+"changelog":"https://github.com/latex-lsp/texlab/blob/v5.19.0/CHANGELOG.md",
 "description":"Implementation of the Language Server Protocol for LaTeX",
 "homepage":"https://github.com/latex-lsp/texlab",
 "insecure":false,
@@ -2694,7 +2694,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"texlab-5.18.0",
+"name":"texlab-5.19.0",
 "outputsToInstall":[
 "out",
 "man"
@@ -2780,7 +2780,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"texlab-5.18.0",
+"name":"texlab-5.19.0",
 "outputName":"out",
 "outputs":{
 "man":null,
@@ -2788,7 +2788,7 @@
 },
 "pname":"texlab",
 "system":"x86_64-linux",
-"version":"5.18.0"
+"version":"5.19.0"
 },
 "themes.sddm.clairvoyance":{
 "meta":{
@@ -3512,8 +3512,8 @@
 },
 "zynaddsubfx-ntk":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"High quality software synthesizer (NTK GUI)",
 "homepage":"https://zynaddsubfx.sourceforge.io",
 "insecure":false,
