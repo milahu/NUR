@@ -62,7 +62,7 @@ stdenv.mkDerivation rec {
 
   depsBuildBuild = [ buildPackages.stdenv.cc ];
 
-  nativeBuildInputs = [ makeWrapper removeReferencesTo pkg-config flex bison meson ninja perl python3 python3.pkgs.sphinx python3.pkgs.sphinx-rtd-theme ]
+  nativeBuildInputs = [ makeWrapper removeReferencesTo pkg-config flex bison meson ninja perl python3 python3.pkgs.sphinx python3.pkgs.sphinx-rtd-theme python3.pkgs.distlib ]
     ++ lib.optionals gtkSupport [ wrapGAppsHook ]
     ++ [ git ];
 
@@ -247,5 +247,9 @@ stdenv.mkDerivation rec {
     # I just made modifications
     platforms = platforms.unix;
     priority = 10; # Prefer virtiofsd from the virtiofsd package.
+
+    # NixOS 24.11 changed something python and it broke this entire package
+    # I am giving up
+    broken = true;
   };
 }
