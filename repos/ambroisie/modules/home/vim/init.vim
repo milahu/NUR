@@ -38,10 +38,10 @@ set tabstop=8
 
 " File parameters {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Disable backups, we have source control for that
-set nobackup
-" Disable swapfiles too
-set noswapfile
+" Enable swap files
+set swapfile
+" And undo files
+set undofile
 " }}}
 
 " UI and UX parameters {{{
