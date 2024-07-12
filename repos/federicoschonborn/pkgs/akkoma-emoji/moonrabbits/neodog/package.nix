@@ -5,16 +5,14 @@
   nix-update-script,
 }:
 
-{ name, hash }:
-
 stdenvNoCC.mkDerivation (finalAttrs: {
-  pname = "olivvybee-${name}";
-  version = "2024.07.07.1";
+  pname = "moonrabbits-neodog";
+  version = "1.1.0";
 
   src = fetchzip {
-    url = "https://github.com/olivvybee/emojis/releases/download/${finalAttrs.version}/${name}.tar.gz";
-    inherit hash;
+    url = "https://git.gay/moonrabbits/neodog/releases/download/${finalAttrs.version}/neodog.tar.gz";
     stripRoot = false;
+    hash = "sha256-CbK/tDAvNVC4LSZuTCNHRKnQO0TiV2i9m8fitJvM848=";
   };
 
   installPhase = ''
@@ -29,9 +27,9 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   passthru.updateScript = nix-update-script { };
 
   meta = {
-    description = "Various emoji packs from Liv Asch";
-    homepage = "https://github.com/olivvybee/emojis";
-    license = lib.licenses.unfree; # TODO: ?
+    description = "Neodog emojis by @moonrabbits@shonk.phite.ro";
+    homepage = "https://git.gay/moonrabbits/neodog";
+    license = lib.licenses.cc-by-nc-sa-40;
     platforms = lib.platforms.all;
     maintainers = [ lib.maintainers.federicoschonborn ];
   };
