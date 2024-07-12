@@ -1,0 +1,45 @@
+error:
+… while evaluating the file './default.nix':
+
+… from call site
+
+  at ./default.nix:3:21:
+
+     2|                     with import <nixpkgs> {};
+     3|                     import ./evalRepo.nix {
+      |                     ^
+     4|                         name = "dcsunset";
+
+… while calling anonymous lambda
+
+  at ./evalRepo.nix:1:1:
+
+     1| { name
+      | ^
+     2| , url
+
+… from call site
+
+  at ./evalRepo.nix:33:11:
+
+    32|     might result in infinite recursion when used with NixOS modules.
+    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+      |           ^
+    34|
+
+… while calling anonymous lambda
+
+  at ./default.nix:9:1:
+
+     8|
+     9| { pkgs ? import <nixpkgs> { } }:
+      | ^
+    10|
+
+error: function 'anonymous lambda' called without required argument 'lib'
+
+at ./lib/default.nix:1:1:
+
+     1| { lib }:
+      | ^
+     2|
