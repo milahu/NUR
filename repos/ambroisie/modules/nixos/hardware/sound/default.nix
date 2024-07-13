@@ -54,6 +54,9 @@ in
 
     # Pulseaudio setup
     (lib.mkIf cfg.pulse.enable {
+      # ALSA
+      sound.enable = true;
+
       hardware.pulseaudio.enable = true;
     })
   ]);
