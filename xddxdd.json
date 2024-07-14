@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.497,
-"eval_time":0.532,
+"fetch_time":0.405,
+"eval_time":0.528,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"51e27689e6778ba2c0ae28670a7bd6dd2c958e3c",
-"sha256":"14qdimca30q1sg6yd591mw8l399ydj5wmgys8l2d0nhp4zfzc0rv",
+"rev":"aee2018b2ea925deec3698036c17a468763e605e",
+"sha256":"0ma4mx8mgmfr4ywa4qjriyxkd6cvgswsb2l6l1frwvl3k10rajc4",
 "date":null
 },
-"source_storepath":"/nix/store/80g3fmzdypyss7bq9sdmix9dp8brqd3k-source",
-"nixpkgs_storepath":"/nix/store/1aldqsxyaaq38pnhdmp1s0i9rbkr8yd8-source",
-"nur_combined_rev":"f560291eccc60277c3dfaa8db82866174748f1b7",
+"source_storepath":"/nix/store/gs33w8spii122idqmkw3wxqy1y00n7hp-source",
+"nixpkgs_storepath":"/nix/store/7lz8k1xmxg4yv72bssl870zz375nc5cz-source",
+"nur_combined_rev":"1aa4375c21cbebc18e5ad4338bee46aee4c03d13",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -3486,7 +3486,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.37",
+"name":"linux-6.6.39",
 "outputsToInstall":[
 "out"
 ],
@@ -3518,7 +3518,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.37",
+"name":"linux-6.6.39",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -3526,7 +3526,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.37"
+"version":"6.6.39"
 },
 "kikoplay":{
 "meta":{
@@ -4165,7 +4165,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/p2p/transmission/4.nix:165",
+"position":"<nixpkgs> + /pkgs/applications/networking/p2p/transmission/4.nix:180",
 "unfree":false,
 "unsupported":false
 },
@@ -24016,6 +24016,87 @@
 "pname":"openssl-oqs-provider-unstable",
 "system":"x86_64-linux",
 "version":"2024-06-26"
+},
+"openvswitch-dpdk":{
+"meta":{
+"available":true,
+"broken":false,
+"changelog":"https://www.openvswitch.org/releases/NEWS-3.3.0.txt",
+"description":"Multilayer virtual switch",
+"homepage":"https://www.openvswitch.org/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
+"longDescription":"Open vSwitch is a production quality, multilayer virtual switch\nlicensed under the open source Apache 2.0 license. It is\ndesigned to enable massive network automation through\nprogrammatic extension, while still supporting standard\nmanagement interfaces and protocols (e.g. NetFlow, sFlow, SPAN,\nRSPAN, CLI, LACP, 802.1ag). In addition, it is designed to\nsupport distribution across multiple physical servers similar\nto VMware's vNetwork distributed vswitch or Cisco's Nexus 1000V.\n",
+"maintainers":[
+{
+"email":"happy.plan4249@valkor.net",
+"github":"adamcstephens",
+"githubId":2071575,
+"matrix":"@adam:valkor.net",
+"name":"Adam C. Stephens"
+},
+{
+"email":"kmcopper@danwin1210.me",
+"github":"kmcopper",
+"githubId":57132115,
+"name":"Kyle Copperfield"
+},
+{
+"email":"dev.espinetfrancois@gmail.com",
+"github":"netixx",
+"githubId":1488603,
+"name":"Fran\u00e7ois Espinet"
+}
+],
+"name":"openvswitch-dpdk-3.3.0",
+"outputsToInstall":[
+"out",
+"man"
+],
+"platforms":[
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"<nixpkgs> + /pkgs/by-name/op/openvswitch/generic.nix:134",
+"unfree":false,
+"unsupported":false
+},
+"name":"openvswitch-dpdk-3.3.0",
+"outputName":"out",
+"outputs":{
+"man":null,
+"out":null
+},
+"pname":"openvswitch-dpdk",
+"system":"x86_64-linux",
+"version":"3.3.0"
 },
 "osdlyrics":{
 "meta":{
