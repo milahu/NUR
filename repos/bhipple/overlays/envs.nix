@@ -1,9 +1,6 @@
 self: super:
 let
   brh-python = self.python3.withPackages (ps: with ps; [
-    beancount
-    duckduckgo-search # for course.fast.ai
-    fastai
     ipdb
     ipython
     jupytext
@@ -115,7 +112,7 @@ in
         self.aspell
         self.autoflake
         self.bind
-        self.boardspace
+        #self.boardspace
         self.clang-tools
         self.direnv
         self.discord
@@ -134,7 +131,6 @@ in
         self.ledger
         self.libnotify # for nofify-send
         self.mupdf
-        #self.nixopsUnstable
         self.nixos-option
         self.nixpkgs-fmt
         self.nixpkgs-review
