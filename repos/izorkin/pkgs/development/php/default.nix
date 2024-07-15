@@ -172,7 +172,7 @@ let
       ++ optional (!phpdbgSupport) "--disable-phpdbg"
 
       # Misc flags
-      ++ optional argon2Support "--with-password-argon2=${libargon2.dev}"
+      ++ optional argon2Support "--with-password-argon2=${libargon2}"
       ++ optional cgotoSupport "--enable-re2c-cgoto"
       ++ optional (!ipv6Support) "--disable-ipv6"
       ++ optional (pearSupport && libxml2Support) "--with-pear"
