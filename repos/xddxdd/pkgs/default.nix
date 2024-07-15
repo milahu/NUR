@@ -51,6 +51,7 @@ mkScope (
     mergePkgs = self.callPackage ../helpers/merge-pkgs.nix {
       enableWrapper =
         !(builtins.elem mode [
+          "ci"
           "nur"
           "legacy"
         ]);
@@ -114,6 +115,7 @@ mkScope (
     # Other packages
     amule-dlp = pkg ./uncategorized/amule-dlp { };
     asterisk-g72x = pkg ./uncategorized/asterisk-g72x { };
+    axiom-syslog-proxy = pkg ./uncategorized/axiom-syslog-proxy { };
     baidunetdisk = pkg ./uncategorized/baidunetdisk { };
     baidupcs-go = pkg ./uncategorized/baidupcs-go { };
     bepasty = pkg ./uncategorized/bepasty { };
@@ -150,6 +152,7 @@ mkScope (
     grasscutter = pkg ./uncategorized/grasscutter { };
     hath = pkg ./uncategorized/hath { };
     hesuvi-hrir = pkg ./uncategorized/hesuvi-hrir { };
+    hi3-ii-martian-font = pkg ./uncategorized/hi3-ii-martian-font { };
     hoyo-glyphs = pkg ./uncategorized/hoyo-glyphs { };
     imewlconverter = pkg ./uncategorized/imewlconverter { };
     jproxy = pkg ./uncategorized/jproxy { };
@@ -183,8 +186,6 @@ mkScope (
     peerbanhelper = pkg ./uncategorized/peerbanhelper { };
     phpmyadmin = pkg ./uncategorized/phpmyadmin { };
     phppgadmin = pkg ./uncategorized/phppgadmin { };
-    plasma-desktop-lyrics = pkg ./uncategorized/lyrica { };
-    plasma-desktop-lyrics-plasmoid = pkg ./uncategorized/lyrica-plasmoid { };
     plasma-panel-transparency-toggle = pkg ./uncategorized/plasma-panel-transparency-toggle { };
     pocl = pkg ./uncategorized/pocl { };
     procps4 = pkg ./uncategorized/procps4 { };
