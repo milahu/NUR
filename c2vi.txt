@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./nur.nix:18:11:
+  at ./nur.nix:20:11:
 
-    17|       hash = "sha256-xFc8J8tlw6i+FbTC05nrlvQIXRmguFzDqh+SQOR54TE=";
-    18|     }; in pkgs.callPackage "${repo}/default.nix" {};
+    19|       hash = "sha256-xFc8J8tlw6i+FbTC05nrlvQIXRmguFzDqh+SQOR54TE=";
+    20|     }; in pkgs.callPackage "${repo}/default.nix" {};
       |           ^
-    19|
+    21|
 
 … while calling 'callPackageWith'
 
