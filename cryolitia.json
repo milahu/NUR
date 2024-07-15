@@ -1,16 +1,16 @@
 {
 "name":"cryolitia",
-"fetch_time":0.409,
-"eval_time":0.233,
+"fetch_time":0.36,
+"eval_time":0.253,
 "source":{
 "url":"https://github.com/Cryolitia/nur-packages",
-"rev":"f2085c4e226294458997dfffadc9f16de1e66936",
-"sha256":"1mcbrdcwymkj60l5h9gg50240if7bpmi4hf2lxbaxbr782184m0v",
+"rev":"4c445a9fba6be7fcacd00bf09910e70ca9870cfc",
+"sha256":"1wvb0s75ab2j9las7qhjv6wqwfnva1ka0nxvij8hrjm7b1lgs67w",
 "date":null
 },
-"source_storepath":"/nix/store/5i9rvs3mhll4k68gs8w3vr8nzfzwzcgn-source",
-"nixpkgs_storepath":"/nix/store/ni6a37q5ppfdfyp8vh704w7spqk5ffcc-source",
-"nur_combined_rev":"ac650f7f5610ea70964f25d49cfab6bcbae73849",
+"source_storepath":"/nix/store/4gb62vq5lpl5c77xmlas8v8pz384fxk4-source",
+"nixpkgs_storepath":"/nix/store/hzr28lsbfx94b5b5ccps455z57ym6vqm-source",
+"nur_combined_rev":"d883c30f20e0ec7906a1863fbd800e0f5cc8d3ae",
 "packages":{
 "gnome-shell-fix-preedit-cursor":{
 "meta":{
@@ -247,14 +247,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"maa-cli-0.4.8-beta.2",
+"name":"maa-cli-0.4.8-beta.2.alpha.1+sha.333f31a",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"maa-cli",
 "system":"x86_64-linux",
-"version":"0.4.8-beta.2"
+"version":"0.4.8-beta.2.alpha.1+sha.333f31a"
 },
 "maa-x":{
 "meta":{
@@ -426,8 +426,8 @@
 },
 "mutter-text-input-v1":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"GNOME mutter with https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/3751",
 "homepage":"https://gitlab.gnome.org/GNOME/mutter",
 "insecure":false,
@@ -518,7 +518,7 @@
 "meta":{
 "available":false,
 "broken":true,
-"changelog":"https://github.com/microsoft/onnxruntime/releases/tag/v1.16.3",
+"changelog":"https://github.com/microsoft/onnxruntime/releases/tag/v1.18.1",
 "description":"Cross-platform, high performance scoring engine for ML models",
 "homepage":"https://github.com/microsoft/onnxruntime",
 "insecure":false,
@@ -552,14 +552,14 @@
 "name":"Christian Bourjau"
 }
 ],
-"name":"onnxruntime-1.16.3",
+"name":"onnxruntime-1.18.1",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/development/libraries/onnxruntime/default.nix:234",
+"position":"<nixpkgs> + /pkgs/development/libraries/onnxruntime/default.nix:251",
 "unfree":false,
 "unsupported":false
 },
@@ -776,7 +776,7 @@
 "name":"Masum Reza"
 }
 ],
-"name":"vscode-1.91.0",
+"name":"vscode-1.91.1",
 "outputsToInstall":[
 "out"
 ],
@@ -791,14 +791,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"vscode-1.91.0",
+"name":"vscode-1.91.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vscode",
 "system":"x86_64-linux",
-"version":"1.91.0"
+"version":"1.91.1"
 }
 }
 }
