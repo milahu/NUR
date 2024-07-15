@@ -41,22 +41,4 @@ rec {
       "PUBKEY_DIR=${pkgs.nur.repos.dukzcry.wireless-regdb}/lib/crda/pubkeys"
     ];
   });
-} // optionalAttrs ((config.services.vpn.enable or false) && (config.services.vpn.tor.enable or false) && (config.services.vpn.tor.onion or false)) {
-  tor = super.tor.overrideAttrs (oldAttrs: rec {
-    pname = "tor";
-    version = "0.4.8.10";
-    src = pkgs.fetchurl {
-      urls = [
-        "http://mirror.oldsql.cc/tor/dist/${pname}-${version}.tar.gz"
-        "https://tor.ybti.net/dist/${pname}-${version}.tar.gz"
-        "https://tor.eprci.net/dist/${pname}-${version}.tar.gz"
-      ];
-      sha256 = "sha256-5ii0+rcO20cncVsjzykxN1qfdoWsCPLFnqSYoXhGOoY=";
-    };
-    postPatch = ''
-      ${oldAttrs.postPatch}
-      substituteInPlace src/feature/client/addressmap.c \
-        --replace "if (bits > max_prefix_bits) {" "if (0) {"
-    '';
-  });
 }
