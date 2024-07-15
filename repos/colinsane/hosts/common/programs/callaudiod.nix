@@ -13,7 +13,7 @@
   sane.programs.callaudiod = {
     packageUnwrapped = pkgs.rmDbusServices pkgs.callaudiod;
 
-    # probably more needed once i enable proper sandboxing, but for now this ensures the service isn't started too early!
+    sandbox.method = "bwrap";
     sandbox.whitelistAudio = true;
     sandbox.whitelistDbus = [ "user" ];
 

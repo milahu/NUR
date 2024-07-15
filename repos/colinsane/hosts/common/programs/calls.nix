@@ -24,7 +24,7 @@ in
       };
     };
 
-    packageUnwrapped = pkgs.calls.overrideAttrs (upstream: {
+    packageUnwrapped = pkgs.rmDbusServicesInPlace (pkgs.calls.overrideAttrs (upstream: {
       patches = (upstream.patches or []) ++ [
         (pkgs.fetchpatch {
           # usability improvement... if the UI is visible, then i can receive calls. otherwise, i can't!
@@ -33,10 +33,10 @@ in
           hash = "sha256-NoVQV2TlkCcsBt0uwSyK82hBKySUW4pADrJVfLFvWgU=";
         })
       ];
-    });
+    }));
 
     sandbox.method = "bwrap";
-    sandbox.net = "clearnet";
+    sandbox.net = "vpn.wg-home";  #< XXX(2024/07/05): my cell carrier seems to block RTP, so tunnel it.
     sandbox.whitelistAudio = true;
     sandbox.whitelistDbus = [ "user" ];  # necessary for secrets, at the minimum
     sandbox.whitelistWayland = true;

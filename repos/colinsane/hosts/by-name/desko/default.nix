@@ -10,9 +10,13 @@
 
   # don't enable wifi by default: it messes with connectivity.
   # systemd.services.iwd.enable = false;
+  # networking.wireless.enable = false;
   # systemd.services.wpa_supplicant.enable = false;
-  sane.programs.wpa_supplicant.enableFor.user.colin = lib.mkForce false;
-  sane.programs.wpa_supplicant.enableFor.system = lib.mkForce false;
+  # sane.programs.wpa_supplicant.enableFor.user.colin = lib.mkForce false;
+  # sane.programs.wpa_supplicant.enableFor.system = lib.mkForce false;
+  # don't auto-connect to wifi networks
+  # see: <https://networkmanager.dev/docs/api/latest/NetworkManager.conf.html#device-spec>
+  networking.networkmanager.unmanaged = [ "type:wifi" ];
 
   sops.secrets.colin-passwd.neededForUsers = true;
 
@@ -32,8 +36,13 @@
   sane.programs.iphoneUtils.enableFor.user.colin = true;
   sane.programs.steam.enableFor.user.colin = true;
 
-  sane.programs."gnome.geary".config.autostart = true;
+  sane.programs.geary.config.autostart = true;
   sane.programs.signal-desktop.config.autostart = true;
+
+  sane.programs.nwg-panel.config = {
+    battery = false;
+    brightness = false;
+  };
 
   sane.image.extraBootFiles = [ pkgs.bootpart-uefi-x86_64 ];
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p s6 -p s6-rc
+#!nix-shell -i bash -p bash -p s6 -p s6-rc
 
 # for default $PATH to take precedence over nix-shell PATH if invoked interactively,
 # otherwise we invoke a s6-rc which does not know where to find files.
@@ -17,7 +17,12 @@ log() {
 checkActive() {
   # simulate a dry-run start. if no actions would be performed, then the service is up.
   # alternative is s6-svstat, but that doesn't support oneshots
-  test -z "$(s6-rc -n 0 -b start "$service")" && echo true || echo false
+  local s6Output=$(s6-rc -n 0 -b start "$service")
+  if [ -z "$s6Output" ]; then
+    echo true
+  else
+    echo false
+  fi
 }
 startService() {
   log "startService: $service"

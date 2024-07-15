@@ -4,14 +4,14 @@
 let
   dyn-dns = config.sane.services.dyn-dns;
   nativeAddrs = lib.mapAttrs (_name: builtins.head) config.sane.dns.zones."uninsane.org".inet.A;
-  bindOvpn = "10.0.1.5";
 in
 {
   sane.ports.ports."53" = {
     protocol = [ "udp" "tcp" ];
     visibleTo.lan = true;
-    visibleTo.wan = true;
-    visibleTo.ovpn = true;
+    # visibleTo.wan = true;
+    visibleTo.ovpns = true;
+    visibleTo.doof = true;
     description = "colin-dns-hosting";
   };
 
@@ -39,6 +39,7 @@ in
     CNAME."native" = "%CNAMENATIVE%";
     A."@" =      "%ANATIVE%";
     A."servo.wan" = "%AWAN%";
+    A."servo.doof" = "%ADOOF%";
     A."servo.lan" = config.sane.hosts.by-name."servo".lan-ip;
     A."servo.hn" = config.sane.hosts.by-name."servo".wg-home.ip;
 
@@ -46,9 +47,9 @@ in
     # it's best that we keep this identical, or a superset of, what org. lists as our NS.
     # so, org. can specify ns2/ns3 as being to the VPN, with no mention of ns1. we provide ns1 here.
     A."ns1" =    "%ANATIVE%";
-    A."ns2" =    "185.157.162.178";
-    A."ns3" =    "185.157.162.178";
-    A."ovpns" =  "185.157.162.178";
+    A."ns2" =    "%ADOOF%";
+    A."ns3" =    "%AOVPNS%";
+    A."ovpns" =  "%AOVPNS%";
     NS."@" = [
       "ns1.uninsane.org."
       "ns2.uninsane.org."
@@ -59,101 +60,91 @@ in
   services.trust-dns.settings.zones = [ "uninsane.org" ];
 
 
-  networking.nat.enable = true;
-  networking.nat.extraCommands = ''
-    # redirect incoming DNS requests from LAN addresses
-    #   to the LAN-specialized DNS service
-    # N.B.: use the `nixos-*` chains instead of e.g. PREROUTING
-    #   because they get cleanly reset across activations or `systemctl restart firewall`
-    #   instead of accumulating cruft
-    iptables -t nat -A nixos-nat-pre -p udp --dport 53 \
-      -m iprange --src-range 10.78.76.0-10.78.79.255 \
-      -j DNAT --to-destination :1053
-    iptables -t nat -A nixos-nat-pre -p tcp --dport 53 \
-      -m iprange --src-range 10.78.76.0-10.78.79.255 \
-      -j DNAT --to-destination :1053
-  '';
-  sane.ports.ports."1053" = {
-    # because the NAT above redirects in nixos-nat-pre, LAN requests behave as though they arrived on the external interface at the redirected port.
-    # TODO: try nixos-nat-post instead?
-    # TODO: or, don't NAT from port 53 -> port 1053, but rather nat from LAN addr to a loopback addr.
-    # - this is complicated in that loopback is a different interface than eth0, so rewriting the destination address would cause the packets to just be dropped by the interface
-    protocol = [ "udp" "tcp" ];
-    visibleTo.lan = true;
-    description = "colin-redirected-dns-for-lan-namespace";
-  };
+  networking.nat.enable = true;  #< TODO: try removing this?
+  # networking.nat.extraCommands = ''
+  #   # redirect incoming DNS requests from LAN addresses
+  #   #   to the LAN-specialized DNS service
+  #   # N.B.: use the `nixos-*` chains instead of e.g. PREROUTING
+  #   #   because they get cleanly reset across activations or `systemctl restart firewall`
+  #   #   instead of accumulating cruft
+  #   iptables -t nat -A nixos-nat-pre -p udp --dport 53 \
+  #     -m iprange --src-range 10.78.76.0-10.78.79.255 \
+  #     -j DNAT --to-destination :1053
+  #   iptables -t nat -A nixos-nat-pre -p tcp --dport 53 \
+  #     -m iprange --src-range 10.78.76.0-10.78.79.255 \
+  #     -j DNAT --to-destination :1053
+  # '';
+  # sane.ports.ports."1053" = {
+  #   # because the NAT above redirects in nixos-nat-pre, LAN requests behave as though they arrived on the external interface at the redirected port.
+  #   # TODO: try nixos-nat-post instead?
+  #   # TODO: or, don't NAT from port 53 -> port 1053, but rather nat from LAN addr to a loopback addr.
+  #   # - this is complicated in that loopback is a different interface than eth0, so rewriting the destination address would cause the packets to just be dropped by the interface
+  #   protocol = [ "udp" "tcp" ];
+  #   visibleTo.lan = true;
+  #   description = "colin-redirected-dns-for-lan-namespace";
+  # };
 
 
   sane.services.trust-dns.enable = true;
   sane.services.trust-dns.instances = let
     mkSubstitutions = flavor: {
+      "%ADOOF%" = config.sane.netns.doof.netnsPubIpv4;
+      "%ANATIVE%" = nativeAddrs."servo.${flavor}";
+      "%AOVPNS%" = config.sane.netns.ovpns.netnsPubIpv4;
       "%AWAN%" = "$(cat '${dyn-dns.ipPath}')";
       "%CNAMENATIVE%" = "servo.${flavor}";
-      "%ANATIVE%" = nativeAddrs."servo.${flavor}";
-      "%AOVPNS%" = "185.157.162.178";
     };
   in
   {
-    wan = {
-      substitutions = mkSubstitutions "wan";
+    doof = {
+      substitutions = mkSubstitutions "doof";
       listenAddrsIpv4 = [
-        nativeAddrs."servo.lan"
-        bindOvpn
+        config.sane.netns.doof.hostVethIpv4
+        config.sane.netns.ovpns.hostVethIpv4
       ];
-    };
-    lan = {
-      substitutions = mkSubstitutions "lan";
-      listenAddrsIpv4 = [ nativeAddrs."servo.lan" ];
-      port = 1053;
     };
     hn = {
       substitutions = mkSubstitutions "hn";
       listenAddrsIpv4 = [ nativeAddrs."servo.hn" ];
-      port = 1053;
+      enableRecursiveResolver = true;  #< allow wireguard clients to use this as their DNS resolver
+      # extraConfig = {
+      #   zones = [
+      #     {
+      #       # forward the root zone to the local DNS resolver
+      #       # to allow wireguard clients to use this as their DNS resolver
+      #       zone = ".";
+      #       zone_type = "Forward";
+      #       stores = {
+      #         type = "forward";
+      #         name_servers = [
+      #           {
+      #             socket_addr = "127.0.0.53:53";
+      #             protocol = "udp";
+      #             trust_nx_responses = true;
+      #           }
+      #         ];
+      #       };
+      #     }
+      #   ];
+      # };
     };
-    # hn-resolver = {
-    #   # don't need %AWAN% here because we forward to the hn instance.
-    #   listenAddrsIpv4 = [ nativeAddrs."servo.hn" ];
-    #   extraConfig = {
-    #     zones = [
-    #       {
-    #         zone = "uninsane.org";
-    #         zone_type = "Forward";
-    #         stores = {
-    #           type = "forward";
-    #           name_servers = [
-    #             {
-    #               socket_addr = "${nativeAddrs."servo.hn"}:1053";
-    #               protocol = "udp";
-    #               trust_nx_responses = true;
-    #             }
-    #           ];
-    #         };
-    #       }
-    #       {
-    #         # forward the root zone to the local DNS resolver
-    #         zone = ".";
-    #         zone_type = "Forward";
-    #         stores = {
-    #           type = "forward";
-    #           name_servers = [
-    #             {
-    #               socket_addr = "127.0.0.53:53";
-    #               protocol = "udp";
-    #               trust_nx_responses = true;
-    #             }
-    #           ];
-    #         };
-    #       }
-    #     ];
-    #   };
+    lan = {
+      substitutions = mkSubstitutions "lan";
+      listenAddrsIpv4 = [ nativeAddrs."servo.lan" ];
+      # port = 1053;
+    };
+    # wan = {
+    #   substitutions = mkSubstitutions "wan";
+    #   listenAddrsIpv4 = [
+    #     nativeAddrs."servo.lan"
+    #   ];
     # };
   };
 
   sane.services.dyn-dns.restartOnChange = [
-    "trust-dns-wan.service"
-    "trust-dns-lan.service"
+    "trust-dns-doof.service"
     "trust-dns-hn.service"
-    # "trust-dns-hn-resolver.service"  # doesn't need restart because it doesn't know about WAN IP
+    "trust-dns-lan.service"
+    # "trust-dns-wan.service"
   ];
 }

@@ -46,6 +46,7 @@ in {
   };
   systemd.services.lemmy.environment = {
     RUST_BACKTRACE = "full";
+    RUST_LOG = "warn";
     # RUST_LOG = "debug";
     # RUST_LOG = "trace";
     # upstream defaults LEMMY_DATABASE_URL = "postgres:///lemmy?host=/run/postgresql";

@@ -111,11 +111,11 @@ in
     vfatUuidFromFs = fs: builtins.replaceStrings ["-"] [""] (uuidFromFs fs);
 
     fsBuilderMapBoot = {
-      "vfat" = pkgs.imageBuilder.fileSystem.makeESP;
+      "vfat" = pkgs.mobile-nixos.imageBuilder.fileSystem.makeESP;
     };
     fsBuilderMapNix = {
-      "ext4" = pkgs.imageBuilder.fileSystem.makeExt4;
-      "btrfs" = pkgs.imageBuilder.fileSystem.makeBtrfs;
+      "ext4" = pkgs.mobile-nixos.imageBuilder.fileSystem.makeExt4;
+      "btrfs" = pkgs.mobile-nixos.imageBuilder.fileSystem.makeBtrfs;
     };
 
     bootFsImg = fsBuilderMapBoot."${bootFs.fsType}" {
@@ -162,7 +162,7 @@ in
         cp -v ${closureInfo}/registration ./nix-path-registration
       '';
     };
-    img = (pkgs.imageBuilder.diskImage.makeGPT {
+    img = (pkgs.mobile-nixos.imageBuilder.diskImage.makeGPT {
       name = "nixos";
       diskID = vfatUuidFromFs bootFs;
       # leave some space for firmware
@@ -170,7 +170,7 @@ in
       # Tow-Boot manages to do that; not sure how.
       headerHole = cfg.extraGPTPadding;
       partitions = [
-        (pkgs.imageBuilder.gap cfg.firstPartGap)
+        (pkgs.mobile-nixos.imageBuilder.gap cfg.firstPartGap)
       ] ++ lib.optionals (cfg.platformPartSize != null) [
         {
           name = "kernel";  #< TODO: is it safe to rename this?

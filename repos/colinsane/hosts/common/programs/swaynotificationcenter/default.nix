@@ -14,6 +14,12 @@
 # - examples:
 #   - thread: <https://github.com/ErikReider/SwayNotificationCenter/discussions/183>
 #   - buttons-grid and menubar: <https://gist.github.com/JannisPetschenka/fb00eec3efea9c7fff8c38a01ce5d507>
+#
+# limitations:
+# - brightness slider always reports correct value, but can only *change* the brightness under systemd logind.
+#   - <repo:ErikReider/SwayNotificationCenter:src/controlCenter/widgets/backlight/backlightUtil.vala>
+#   - could be made to work, by writing to /sys/class/backlight/... (the file it reads)
+#
 { config, lib, pkgs, ... }:
 let
   cfg = config.sane.programs.swaynotificationcenter;
@@ -32,6 +38,7 @@ in
     };
     sandbox.method = "bwrap";
     sandbox.whitelistS6 = true;
+    sandbox.isolatePids = false;  #< XXX: not sure why, but swaync segfaults under load without this!
   };
 
   sane.programs.swaync-fbcli = {
@@ -61,6 +68,8 @@ in
               name of entry in /sys/class/backlight which indicates the primary backlight.
             '';
           };
+          enableBacklight = mkEnableOption "include a backlight slider in the swaync dropdown (requires an active session with systemd-logind)";
+          enableMpris = (mkEnableOption "show the currently playing media in the swaync dropdown, and navigation buttons") // { default = true; };
         };
       };
       default = {};
@@ -116,27 +125,14 @@ in
     env.GNOTIFICATION_BACKEND = "freedesktop";
 
     fs.".config/swaync/style.css".symlink.target = ./style.css;
-    fs.".config/swaync/config.json".symlink.text = builtins.toJSON {
+    fs.".config/swaync/config.json".symlink.target = pkgs.writers.writeJSON "config.json" {
       "$schema" = "/etc/xdg/swaync/configSchema.json";
-      positionX = "right";
-      positionY = "top";
-      layer = "overlay";
+      control-center-height = 600;
       control-center-layer = "top";
-      layer-shell = true;
-      cssPriority = "user";  # "application"|"user". "user" in order to override the system gtk theme.
-      control-center-margin-top = 0;
       control-center-margin-bottom = 0;
-      control-center-margin-right = 0;
       control-center-margin-left = 0;
-      notification-2fa-action = true;
-      notification-inline-replies = false;
-      notification-icon-size = 64;
-      notification-body-image-height = 100;
-      notification-body-image-width = 200;
-      timeout = 30;
-      timeout-low = 5;
-      timeout-critical = 0;
-      fit-to-screen = true;  #< have notification center take full vertical screen space
+      control-center-margin-right = 0;
+      control-center-margin-top = 0;
       # control-center-width:
       # pinephone native display is 720 x 1440
       # - for compositor scale=2.0 => 360
@@ -144,14 +140,28 @@ in
       # - for compositor scale=1.6 => 450
       # if it's set to something wider than the screen, then it overflows and items aren't visible.
       control-center-width = 360;
-      control-center-height = 600;
-      notification-window-width = 360;
-      keyboard-shortcuts = true;
-      image-visibility = "when-available";
-      transition-time = 100;
-      hide-on-clear = true;  #< hide control center when clicking "clear all"
+      cssPriority = "user";  # "application"|"user". "user" in order to override the system gtk theme.
+      fit-to-screen = true;  #< have notification center take full vertical screen space
       hide-on-action = true;
+      hide-on-clear = true;  #< hide control center when clicking "clear all"
+      image-visibility = "when-available";
+      keyboard-shortcuts = true;
+      layer = "overlay";
+      layer-shell = true;
+      notification-2fa-action = true;
+      notification-body-image-height = 100;
+      notification-body-image-width = 200;
+      notification-icon-size = 64;
+      notification-inline-replies = false;
+      notification-window-width = 360;
+      positionX = "right";
+      positionY = "top";
       script-fail-notify = true;
+      timeout = 30;
+      timeout-critical = 0;
+      timeout-low = 5;
+      transition-time = 100;
+
       inherit scripts;
       widgets = [
         # what to show in the notification center (and in which order).
@@ -164,9 +174,13 @@ in
         "dnd"
         "inhibitors"
         "buttons-grid"
+      ] ++ lib.optionals cfg.config.enableBacklight [
         "backlight"
+      ] ++ [
         "volume"
+      ] ++ lib.optionals cfg.config.enableMpris [
         "mpris"
+      ] ++ [
         "notifications"
       ];
       widget-config = {
@@ -192,7 +206,7 @@ in
             buttons.dissent
           ] ++ lib.optionals config.sane.programs.signal-desktop.enabled [
             buttons.signal-desktop
-          ] ++ lib.optionals config.sane.programs."gnome.geary".enabled [
+          ] ++ lib.optionals config.sane.programs.geary.enabled [
             buttons.geary
           ];
         };
@@ -228,7 +242,10 @@ in
       depends = [ "sound" ]; #< TODO: else it will NEVER see the pulse socket in its sandbox
       partOf = [ "graphical-session" ];
 
-      command = "env G_MESSAGES_DEBUG=all swaync";
+      # N.B.: G_MESSAGES_DEBUG=all breaks DND mode:
+      #       messages are still hidden, but are not silent!
+      # command = "env G_MESSAGES_DEBUG=all SWAYNC_DEBUG=1 swaync";
+      command = "swaync";
       readiness.waitDbus = "org.freedesktop.Notifications";
     };
   };

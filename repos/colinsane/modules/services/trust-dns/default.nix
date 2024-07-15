@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  trust-dns-nmhook = pkgs.static-nix-shell.mkPython3Bin {
+  trust-dns-nmhook = pkgs.static-nix-shell.mkPython3 {
     pname = "trust-dns-nmhook";
     srcRoot = ./.;
   };
@@ -87,16 +87,30 @@ let
 
   mkSystemdService = flavor: { includes, listenAddrsIpv4, listenAddrsIpv6, port, substitutions, extraConfig, ... }: let
     sed = "${pkgs.gnused}/bin/sed";
-    configTemplate = toml.generate "trust-dns-${flavor}.toml" (
-      (
-        lib.filterAttrsRecursive (_: v: v != null) config.services.trust-dns.settings
-      ) // {
-        listen_addrs_ipv4 = listenAddrsIpv4;
-        listen_addrs_ipv6 = listenAddrsIpv6;
-      } // extraConfig
-    );
+    baseConfig = (
+      lib.filterAttrsRecursive (_: v: v != null) config.services.trust-dns.settings
+    ) // {
+      listen_addrs_ipv4 = listenAddrsIpv4;
+      listen_addrs_ipv6 = listenAddrsIpv6;
+    };
+    configTemplate = toml.generate "trust-dns-${flavor}.toml" (baseConfig //
+      (lib.mapAttrs (k: v:
+        if k == "zones" then
+          # append to the baseConfig instead of overriding it
+          (baseConfig."${k}" or []) ++ v
+        else
+          v
+      )
+      extraConfig
+    ));
     configPath = "/var/lib/trust-dns/${flavor}-config.toml";
-    sedArgs = lib.mapAttrsToList (key: value: ''-e "s/${key}/${value}/g"'') substitutions;
+    sedArgs = builtins.map (key: ''-e "s/${key}/${substitutions."${key}"}/g"'') (
+      # HACK: %ANATIVE% often expands to one of the other subtitutions (e.g. %AWAN%)
+      # so we must expand it *first*.
+      lib.sortOn
+        (k: if k == "%ANATIVE%" then 0 else 1)
+        (builtins.attrNames substitutions)
+    );
     subs = lib.concatStringsSep " " sedArgs;
   in {
     description = "trust-dns Domain Name Server (serving ${flavor})";

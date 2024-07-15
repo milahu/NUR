@@ -44,19 +44,19 @@ in
           # XXX: /run/current-system symlink can't be cached without forcing regular mass rebuilds:
           # mount it as if it were a directory instead.
           "/run/current-system" = "";
-        } // lib.optionalAttrs config.hardware.opengl.enable {
+        } // lib.optionalAttrs config.hardware.graphics.enable {
           "/run/opengl-driver" = let
-            gl = config.hardware.opengl;
-            # from: <repo:nixos/nixpkgs:nixos/modules/hardware/opengl.nix>
+            gl = config.hardware.graphics;
+            # from: <repo:nixos/nixpkgs:nixos/modules/hardware/graphics.nix>
             package = pkgs.buildEnv {
               name = "opengl-drivers";
               paths = [ gl.package ] ++ gl.extraPackages;
             };
           in "${package}";
-        } // lib.optionalAttrs (config.hardware.opengl.enable && config.hardware.opengl.driSupport32Bit) {
+        } // lib.optionalAttrs (config.hardware.graphics.enable && config.hardware.graphics.enable32Bit) {
           "/run/opengl-driver-32" = let
-            gl = config.hardware.opengl;
-            # from: <repo:nixos/nixpkgs:nixos/modules/hardware/opengl.nix>
+            gl = config.hardware.graphics;
+            # from: <repo:nixos/nixpkgs:nixos/modules/hardware/graphics.nix>
             package = pkgs.buildEnv {
               name = "opengl-drivers-32bit";
               paths = [ gl.package32 ] ++ gl.extraPackages32;

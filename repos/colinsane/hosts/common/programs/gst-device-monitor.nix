@@ -20,5 +20,14 @@
         pkgs.pipewire  #< required for Video/Source (video4linux)
       ];
     });
+
+    sandbox.method = "bwrap";
+    sandbox.whitelistAudio = true;
+    sandbox.extraPaths = [
+      "/dev"  # tried, but failed to narrow this down (moby)
+      "/run/udev/data"
+      "/sys/class/video4linux"
+      "/sys/devices"
+    ];
   };
 }

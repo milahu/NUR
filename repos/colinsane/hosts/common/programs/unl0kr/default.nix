@@ -3,7 +3,7 @@ let
   cfg = config.sane.programs.unl0kr;
 
   tty = "tty${builtins.toString cfg.config.vt}";
-  redirect-tty = pkgs.static-nix-shell.mkPython3Bin {
+  redirect-tty = pkgs.static-nix-shell.mkPython3 {
     pname = "redirect-tty";
     srcRoot = ./.;
   };
@@ -14,6 +14,15 @@ let
       locate() {
         PATH=$PATH:$extraPath command -v "$1"
       }
+
+      # give some time for the framebuffer device to appear;
+      # unl0kr depends on it but doesn't know to wait for it.
+      for _ in $(seq 25); do
+        if [ -e /dev/fb0 ]; then
+          break
+        fi
+        sleep 0.2
+      done
 
       # TODO: make this more robust to failure.
       # - if `unl0kr` fails, then the second `redirect-tty` sends a newline to `login`, causing it to exit and the service fails.
@@ -134,8 +143,6 @@ in
         # necessary for `sanebox` to be found. TODO: add this to every systemd service.
         "/run/current-system/sw"  # `/bin` is appended
       ];
-      # needed to find sanebox profiles (TODO: add this to every service)
-      environment.XDG_DATA_DIRS = "/run/current-system/sw/share";
 
       serviceConfig.Type = "simple";
       serviceConfig.Restart = "always";

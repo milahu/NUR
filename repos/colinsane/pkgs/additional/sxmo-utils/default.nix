@@ -107,6 +107,7 @@ let
     xdotool
   ] ++ lib.optionals preferXdgOpen [ xdg-utils ];
 in
+  lib.warn "sxmo-utils from nur.colinsane is no longer maintained and will be removed in the future. consider pointing to a different upstream or copying the package into your own config."
 stdenv.mkDerivation rec {
   pname = "sxmo-utils";
   version = "unstable-2024-02-05";

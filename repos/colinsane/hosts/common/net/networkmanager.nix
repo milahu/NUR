@@ -2,15 +2,21 @@
 let
   # networkmanager = pkgs.networkmanager;
   networkmanager = pkgs.networkmanager.overrideAttrs (upstream: {
-    src = pkgs.fetchFromGitea {
-      domain = "git.uninsane.org";
-      owner = "colin";
-      repo = "NetworkManager";
-      # patched to fix polkit permissions (with `nmcli`) when NetworkManager runs as user networkmanager
-      rev = "dev-sane-1.48.0";
-      hash = "sha256-vGmOKtwVItxjYioZJlb1og3K6u9s4rcmDnjAPLBC3ao=";
-    };
-    # patches = [];
+    # src = pkgs.fetchFromGitea {
+    #   domain = "git.uninsane.org";
+    #   owner = "colin";
+    #   repo = "NetworkManager";
+    #   # patched to fix polkit permissions (with `nmcli`) when NetworkManager runs as user networkmanager
+    #   rev = "dev-sane-1.48.0";
+    #   hash = "sha256-vGmOKtwVItxjYioZJlb1og3K6u9s4rcmDnjAPLBC3ao=";
+    # };
+    patches = (upstream.patches or []) ++ [
+      (pkgs.fetchpatch {
+        name = "polkit: add owner annotations to all actions";
+        url = "https://git.uninsane.org/colin/NetworkManager/commit/a01293861fa24201ffaeb84c07f1c71136c49759.patch";
+        hash = "sha256-th1/M2slo7rjkVBwETZII53Lmhyw8OMS0aT9QYI5Uvk=";
+      })
+    ];
   });
   # split the package into `daemon` and `nmcli` outputs, because the networkmanager *service*
   # doesn't need `nmcli`/`nmtui` tooling

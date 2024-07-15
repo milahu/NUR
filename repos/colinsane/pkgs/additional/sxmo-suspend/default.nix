@@ -1,5 +1,5 @@
 { static-nix-shell }:
-static-nix-shell.mkPython3Bin {
+static-nix-shell.mkPython3 {
   # name is `sxmo_suspend.sh` because that's the binary this intends to replace
   pname = "sxmo_suspend.sh";
   srcRoot = ./.;

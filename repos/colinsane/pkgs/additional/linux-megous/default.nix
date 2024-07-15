@@ -256,6 +256,7 @@ let
   # while `kernelPatches` callarg is a list.
   # weird idiom, means we have to access pkgs.kernelPatches to access the actual patch directory:
   extraKernelPatches = pkgs."linux_${major}_${minor}".kernelPatches ++ [
+    ./pinephone-1_2b-af8133j.patch
     # (patchDefconfig kernelConfig)
     # wake on wireless lan (WOWLAN) patches:
     # see: <https://gist.github.com/Peetz0r/bf8fd93a60962b4afcf2daeb4305da40>
@@ -390,4 +391,9 @@ in (buildLinux {
   #   so, this option has no effect when `autoModules` is false.
   # the benefit i think is mostly that such modules get automatically included in the initrd?
   preferBuiltin = withFullConfig;
-})
+}) // {
+  # XXX(2024/07/01): fix the magnetometer for pinephone 1.2b (breaks pp 1.2)
+  # see: <https://gitlab.com/postmarketOS/pmaports/-/issues/1945>
+  # long-term fix is to unify the pinephone 1.2 and 1.2b dts files and have u-boot select which of the two magnetometers to enable.
+  passthruPatches.af8133j = ./pinephone-1_2b-af8133j.patch;
+}

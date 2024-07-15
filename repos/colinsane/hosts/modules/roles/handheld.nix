@@ -45,6 +45,9 @@
       actions.screenoff.delay = 300;
       actions.screenoff.enable = true;
     };
+    sane.programs.swaynotificationcenter.config = {
+      enableMpris = false;  #< consumes too much screen real-estate
+    };
 
     sane.programs.waybar.config = {
       fontSize = 14;
@@ -55,6 +58,17 @@
       modules.perf = false;
       modules.windowTitle = false;
       # TODO: show modem state
+    };
+    sane.programs.nwg-panel.config = {
+      fontSize = 14;
+      height = 26;
+      windowIcon = false;
+      windowTitle = false;
+      mediaPrevNext = false;
+      mediaTitle = false;
+      sysload = false;
+      workspaceNumbers = [ "1" "2" "3" "4" "5" ];
+      workspaceHideEmpty = false;
     };
 
     sane.programs.zsh.config.showDeadlines = false;  # unlikely to act on them when in shell

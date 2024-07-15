@@ -54,7 +54,7 @@
     options = [ "acl" ];  #< not sure if this `acl` flag is actually necessary. it mounts without it.
   };
   # services.zfs.zed = ... # TODO: zfs can send me emails when disks fail
-  sane.programs.sysadminUtils.suggestedPrograms = [ "zfs" ];
+  sane.programs.sysadminUtils.suggestedPrograms = [ "zfs-tools" ];
 
   sane.persist.stores."ext" = {
     origin = "/mnt/pool/persist";

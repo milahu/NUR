@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p sane-open
+#!nix-shell -i bash -p bash -p sane-open
 
 # use:
 # rofi-run-command <handler>.desktop [cmd [args ...]]
@@ -16,7 +16,8 @@ binArgs=("$@")
 if [ "$desktop" != .desktop ]; then
   exec sane-open --auto-keyboard --application "$desktop"
 elif [ "$binary" = "xdg-open" ]; then
-  exec sane-open --auto-keyboard --file "${binArgs[@]}"
+  # the file we want to open could be a symlink to a .desktop file, so omit `--file` and let sane-open figure that part out for itself:
+  exec sane-open --auto-keyboard "${binArgs[@]}"
 fi
 
 printf "no .desktop file, and unexpected binary; not invoking: %s %s\n" "$binary" "${binArgs[*]}" >&2

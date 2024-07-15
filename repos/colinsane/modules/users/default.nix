@@ -209,6 +209,7 @@ let
         # hence do that early:
         # TODO: consider moving XDG_RUNTIME_DIR to $HOME/.run
         fs.".config/environment.d/10-sane-baseline.conf".symlink.text = ''
+          HOME=/home/${name}
           XDG_RUNTIME_DIR=/run/user/${name}
         '';
         fs.".config/environment.d/20-sane-nixos-users.conf".symlink.text =

@@ -25,6 +25,9 @@ in
     sandbox.method = "bwrap";
     sandbox.net = "clearnet";
     sandbox.whitelistAudio = true;
+    sandbox.whitelistDbus = [
+      "user"  # so i can click on links
+    ];
     sandbox.whitelistWayland = true;
     sandbox.extraHomePaths = [
       "Music"
@@ -43,6 +46,8 @@ in
     persist.byStore.private = [
       ".config/Signal"
     ];
+
+    buildCost = 1;
 
     services.signal-desktop = {
       description = "signal-desktop Signal Messenger client";

@@ -9,7 +9,7 @@
     ./ids.nix
     ./machine-id.nix
     ./net
-    ./nix
+    ./nix.nix
     ./persist.nix
     ./polyunfill.nix
     ./programs
@@ -31,9 +31,6 @@
   sane.root-on-tmpfs = lib.mkDefault true;
   sane.programs.sysadminUtils.enableFor.system = lib.mkDefault true;
   sane.programs.consoleUtils.enableFor.user.colin = lib.mkDefault true;
-
-  nixpkgs.config.allowUnfree = true;  # NIXPKGS_ALLOW_UNFREE=1
-  nixpkgs.config.allowBroken = true;  # NIXPKGS_ALLOW_BROKEN=1
 
   # time.timeZone = "America/Los_Angeles";
   time.timeZone = "Etc/UTC";  # DST is too confusing for me => use a stable timezone

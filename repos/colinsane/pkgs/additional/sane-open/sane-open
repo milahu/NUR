@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p glib -p jq -p procps -p sway -p util-linux -p xdg-utils
+#!nix-shell -i bash -p bash -p glib -p jq -p procps -p sway -p util-linux -p xdg-utils
 
 set -e
 
@@ -22,47 +22,55 @@ log() {
 }
 
 configureKeyboardFor_application() {
+  log "configureKeyboardFor_application: $1"
   case "$1" in
-    Alacritty.desktop)
+    (Alacritty.desktop)
       setKeyboard show
       ;;
-    app.drey.Dialect.desktop)
+    (app.drey.Dialect.desktop)
       setKeyboard showIfRoom
       ;;
-    com.github.hugolabe.Wike.desktop)
+    (com.github.hugolabe.Wike.desktop)
       setKeyboard showIfRoom
       ;;
-    # io.github.lainsce.Notejot.desktop)
+    # (io.github.lainsce.Notejot.desktop)
     #   setKeyboard showIfRoom
     #   ;;
-    org.gnome.Epiphany.desktop)
+    (networkmanager_dmenu.desktop)
       setKeyboard showIfRoom
       ;;
-    rofi.desktop)
+    (org.gnome.Epiphany.desktop)
       setKeyboard showIfRoom
       ;;
-    rofi-applications.desktop)
+    (rofi.desktop)
       setKeyboard showIfRoom
       ;;
-    rofi-filebrowser.desktop)
+    (rofi-applications.desktop)
       setKeyboard showIfRoom
       ;;
-    rofi-snippets.desktop)
+    (rofi-filebrowser.desktop)
       setKeyboard showIfRoom
       ;;
-    sane-screenshot.desktop)
+    (rofi-snippets.desktop)
+      setKeyboard showIfRoom
+      ;;
+    (sane-screenshot.desktop)
       # leave unchanged
       ;;
-    xdg-terminal-exec.desktop)
+    (xdg-terminal-exec.desktop)
       setKeyboard show
       ;;
-    *)
+    (youtube-tui.desktop)
+      setKeyboard show
+      ;;
+    (*)
       setKeyboard hide
       ;;
   esac
 }
 
 configureKeyboardFor_file() {
+  log "configureKeyboardFor_file: $1"
   local mime=$(xdg-mime query filetype "$1")
   local application=$(xdg-mime query default "$mime")
   configureKeyboardFor_application "$application"
@@ -84,10 +92,24 @@ open_file() {
     --dest org.freedesktop.portal.Desktop \
     --object-path /org/freedesktop/portal/desktop \
     --method org.freedesktop.portal.OpenURI.OpenFile \
-    '' 3 "{'ask': <false>}"
+    "" 3 "{'ask': <false>}"
 }
 open_desktopFile() {
   log "open_desktopFile: '$1'"
+  local target=$(tryAsDesktopFile "$1")
+  if [ -n "$target" ]; then
+    open_application "$target"
+  else
+    log "open_desktopFile: '$path' does not deref to anything in ~/.local/share/applications: falling back to heuristics"
+    # assume that the deref'd name matches the application name.
+    # there's nothing *guaranteeing* this, but i have yet to see it fail.
+    local target=$(basename "$path")
+    open_application "$target"
+  fi
+}
+
+# evaluate truthy and print desktop name as `FOO.desktop` if the provided file is a .desktop file suitable for open_application.
+tryAsDesktopFile() {
   # open_application (i.e. the DynamicLauncher portal) only understands applications by their
   # .desktop filename (relative to ~/.local/share/applications) -- not by their full path.
   # therefore, see if this .desktop file is equivalent to anything in ~/.local/share/applications.
@@ -96,24 +118,21 @@ open_desktopFile() {
     path="$PWD/$path"
   fi
   if [[ "$path" == $HOME/.local/share/applications/*.desktop ]]; then
-    open_application "$(basename "$path")"
+    echo $(basename "$path")
     return
   fi
-
   # the given path doesn't exist in ~/.local/share/applications: check if it's a symlink which
   # derefs to an application
-  local target="$(readlink "$path")"
-  if [ -z "$target" ]; then
-    log "open_desktopFile: '$path' does not deref to anything in ~/.local/share/applications: falling back to heuristics"
-    # assume that the deref'd name matches the application name.
-    # there's nothing *guaranteeing* this, but i have yet to see it fail.
-    open_application "$(basename "$path")"
-    return
+  local target=$(readlink "$path")
+  if [ -n "$target" ]; then
+    log "tryAsDesktopFile: deref'd $1 -> $target"
+    if [[ "${target:0:1}" != "/" ]]; then
+      target=$(dirname "$path")/$target
+    fi
+    tryAsDesktopFile "$target"
+  else
+    log "tryAsDesktopFile: '$path' does not deref to anything in ~/.local/share/applications"
   fi
-  if [[ "${target:0:1}" != "/" ]]; then
-    target="$(dirname "$path")/$target"
-  fi
-  open_desktopFile "$target"
 }
 
 
@@ -127,7 +146,7 @@ isLandscape() {
 _keyboardPid=
 setKeyboard() {
   if [ -z "$KEYBOARD" ]; then
-    log "KEYBOARD is not set"
+    log "KEYBOARD is not set: not setting keyboard $1"
     return
   fi
   if [ -z "$_keyboardPid" ]; then
@@ -191,13 +210,16 @@ while [ $# -gt 0 ]; do
 done
 
 if [ -z "$resourceType" ]; then
-  if [ -e "$HOME/.local/share/applications/$resource" ]; then
+  asApplication=$(tryAsDesktopFile "$resource")
+  if [ -n "$asApplication" ]; then
     log "detected resourceType=application"
     resourceType=application
+    resource=$asApplication
   elif [ -e "$resource" ]; then
     log "detected resourceType=file"
     resourceType=file
   elif [[ "$resource" == *.desktop ]]; then
+    # XXX(2024/07/02): this is probably dead code
     log "detected resourceType=application (warning: '$resource' is not visible on disk)"
     resourceType=application
   else

@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i python3 -p "python3.withPackages (ps: [  ])" -p curl -p modemmanager-split.mmcli
+#!nix-shell -i python3 -p curl -p modemmanager-split.mmcli -p python3
 
 # this script should run after ModemManager.service is started.
 # typical invocation is `eg25-control --power-on --enable-gps`.
@@ -8,6 +8,15 @@
 #
 # this script downloads assisted GPS (AGPS) data via the system's default gateway (i.e. WiFi)
 # and shares that with the modem. this quickens the process of acquiring a GPS fix.
+# AGPS data includes an almanac and "ephemeris" [Wikipedia-GPS_signals#Navigation_message]
+# - Almanac: valid for 2 weeks; status & low-res orbital info for *all* satellites.
+#   - used to know which GPS signals to *search* for.
+#   - every sat broadcasts the global almanac over 12.5min cycles.
+# - Ephemeris: valid for 4 hours; precise orbital info for each satellite.
+#   - takes 30s to learn this info w/o AGPS data.
+#   - every sat broadcasts *its own* ephemeris over 30s cycles.
+#
+# [Wikipedia-GPS_signals#Navigation_message]: https://en.wikipedia.org/wiki/GPS_signals#Navigation_message
 #
 # the script may also configure other parts of the modem as `eg25-manager` does.
 # these options are less tested: see `--help` for more.

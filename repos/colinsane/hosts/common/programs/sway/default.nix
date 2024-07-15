@@ -28,7 +28,7 @@ let
       passthru.sway-unwrapped = configuredSway;
     };
 
-  wlroots = (pkgs.waylandPkgs.wlroots.override {
+  wlroots = (pkgs.nixpkgs-wayland.wlroots.override {
     # wlroots seems to launch Xwayland itself, and i can't easily just do that myself externally.
     # so in order for the Xwayland it launches to be sandboxed, i need to patch the sandboxed version in here.
     xwayland = config.sane.programs.xwayland.package;
@@ -60,7 +60,7 @@ let
     '';
   });
   swayPackage = wrapSway (
-    (pkgs.waylandPkgs.sway-unwrapped.override {
+    (pkgs.nixpkgs-wayland.sway-unwrapped.override {
       inherit wlroots;
       # about xwayland:
       # - required by many electron apps, though some electron apps support NIXOS_OZONE_WL=1 for native wayland.
@@ -148,6 +148,8 @@ in
       "fontconfig"
       # "gnome.gnome-bluetooth"  # XXX(2023/05/14): broken
       # "gnome.gnome-control-center"  # XXX(2023/06/28): depends on webkitgtk4_1
+      "networkmanager_dmenu"
+      "nwg-panel"
       "pipewire"
       "playerctl"  # for waybar & particularly to have playerctld running
       "rofi"  # menu/launcher
@@ -161,9 +163,10 @@ in
       "sway-contrib.grimshot"  # used by sway config
       "swayidle"  # enable if you need it
       "swaynotificationcenter"  # notification daemon
-      "sysvol"  # volume notifier
+      "switchboard"  # network/bluetooth/sound control panel
+      "syshud"  # volume notifier
       "unl0kr"  # greeter
-      "waybar"  # used by sway config
+      # "waybar"
       "wdisplays"  # like xrandr
       "wireplumber"  # used by sway config
       "wl-clipboard"
@@ -196,6 +199,7 @@ in
     sandbox.whitelistAudio = true;  # it runs playerctl directly
     sandbox.whitelistDbus = [ "system" "user" ];  # to e.g. launch apps
     sandbox.whitelistDri = true;
+    sandbox.whitelistS6 = true;  #< for Super+L to start the screen locker service
     sandbox.whitelistX = true;  # sway invokes xwayland itself
     sandbox.whitelistWayland = true;
     sandbox.extraRuntimePaths = [
@@ -225,7 +229,7 @@ in
     '';
 
     fs.".config/sway/config".symlink.target = pkgs.substituteAll {
-      src = ./sway-config;
+      src = ./config;
       inherit (cfg.config)
         extra_lines
         font

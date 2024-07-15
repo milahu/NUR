@@ -2,6 +2,8 @@
 
 # .❄️≡We|_c0m3 7o m`/ f14k≡❄️.
 
+(er, it's not a flake anymore. welcome to my nix files.)
+
 ## What's Here
 
 this is the top-level repo from which i configure/deploy all my NixOS machines:
@@ -29,11 +31,7 @@ you might specifically be interested in these files (elaborated further in #key-
 
 ## Using This Repo In Your Own Config
 
-this should be a pretty "standard" flake. just reference it, and import either
-- `nixosModules.sane` (for the modules)
-- `overlays.pkgs` (for the packages)
-
-or follow the instructions [here][NUR] to use it via the Nix User Repositories.
+follow the instructions [here][NUR] to access my packages through the Nix User Repositories.
 
 [NUR]: https://nur.nix-community.org/
 
@@ -41,19 +39,15 @@ or follow the instructions [here][NUR] to use it via the Nix User Repositories.
 - `doc/`
   - instructions for tasks i find myself doing semi-occasionally in this repo.
 - `hosts/`
-  - the bulk of config which isn't factored with external use in mind.
+  - configs which aren't factored with external use in mind.
   - that is, if you were to add this repo to a flake.nix for your own use,
     you won't likely be depending on anything in this directory.
 - `integrations/`
-  - code intended for consumption by external tools (e.g. the Nix User Repos)
+  - code intended for consumption by external tools (e.g. the Nix User Repos).
 - `modules/`
-  - config which is gated behind `enable` flags, in similar style to nixpkgs'
-    `nixos/` directory.
-  - if you depend on this repo, it's most likely for something in this directory.
-- `nixpatches/`
-  - literally, diffs i apply atop upstream nixpkgs before performing further eval.
+  - config which is gated behind `enable` flags, in similar style to nixpkgs' `nixos/` directory.
+  - if you depend on this repo for anything besides packages, it's most likely for something in this directory.
 - `overlays/`
-  - exposed via the `overlays` output in `flake.nix`.
   - predominantly a list of `callPackage` directives.
 - `pkgs/`
   - derivations for things not yet packaged in nixpkgs.
@@ -61,13 +55,12 @@ or follow the instructions [here][NUR] to use it via the Nix User Repositories.
   - inline code for wholly custom packages (e.g. `pkgs/additional/sane-scripts/` for CLI tools
     that are highly specific to my setup).
 - `scripts/`
-  - scripts which aren't reachable on a deployed system, but may aid manual deployments
+  - scripts which aren't reachable on a deployed system, but may aid manual deployments.
 - `secrets/`
   - encrypted keys, API tokens, anything which one or more of my machines needs
     read access to but shouldn't be world-readable.
-  - not much to see here
+  - not much to see here.
 - `templates/`
-  - exposed via the `templates` output in `flake.nix`.
   - used to instantiate short-lived environments.
   - used to auto-fill the boiler-plate portions of new packages.
 

@@ -39,8 +39,8 @@
   boot.loader.grub.enable = lib.mkDefault false;
   boot.loader.generic-extlinux-compatible.enable = lib.mkDefault true;
 
-  # non-free firmware
-  hardware.enableRedistributableFirmware = true;
+  hardware.enableAllFirmware = true;  # firmware with licenses that don't allow for redistribution. fuck lawyers, fuck IP, give me the goddamn firmware.
+  # hardware.enableRedistributableFirmware = true;  # proprietary but free-to-distribute firmware (extraneous to `enableAllFirmware` option)
 
   # default is 252274, which is too low particularly for servo.
   # manifests as spurious "No space left on device" when trying to install watches,

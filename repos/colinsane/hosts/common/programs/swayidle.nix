@@ -44,7 +44,13 @@ let
   });
   screenOff = pkgs.writeShellScriptBin "screen-off" ''
     swaymsg -- output '*' power false
-    swaymsg -- input type:touch events disabled
+    # XXX(2024/06/09): `type:touch` method is documented, but now silently fails
+    # swaymsg -- input type:touch events disabled
+
+    local inputs=$(swaymsg -t get_inputs --raw | jq '. | map(select(.type == "touch")) | map(.identifier) | join(" ")' --raw-output)
+    for id in "''${inputs[@]}"; do
+      swaymsg -- input "$id" events disabled
+    done
   '';
 in
 {
@@ -73,6 +79,11 @@ in
       enable = lib.mkDefault cfg.actions.lock.command != "";
       command = lib.mkDefault "";
     };
+
+    suggestedPrograms = [
+      "jq"
+      # "sway"  #< required, but circular dep
+    ];
 
     sandbox.method = "bwrap";
     sandbox.whitelistDbus = [ "user" ];  #< might need system too, for inhibitors

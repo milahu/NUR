@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i python3 -p "python3.withPackages (ps: [  ])" -p go2tv
+#!nix-shell -i python3 -p go2tv -p python3
 # vim: set filetype=python :
 """
 cast media (local video or audio files) to a device on the same network

@@ -77,6 +77,9 @@
 # - delete `env.yarnOfflineCache.hash` and rebuild it
 # - check signal-desktop's package.json for new ringrtc/nodejs
 # - if sqlcipher fails then update sqlcipherTarball url/hash (rare)
+# errors which can be safely ignored:
+# - "Error: Could not detect abi for version 30.1.1 and runtime electron.  Updating "node-abi" might help solve this issue if it is a new release of electron"
+#   - <https://github.com/signalapp/Signal-Desktop/pull/6889>
 
 
 { lib
@@ -118,12 +121,12 @@
 , yarn
 }:
 let
-  version = "7.8.0";
+  version = "7.14.0";
 
   ringrtcPrebuild = fetchurl {
     # version is found in signal-desktop's package.json as "@signalapp/ringrtc"
-    url = "https://build-artifacts.signal.org/libraries/ringrtc-desktop-build-v2.41.0.tar.gz";
-    hash = "sha256-UOVK2zGwxAkR6CwBknMjI6voULSZD0eUzMmaCiG/hbQ=";
+    url = "https://build-artifacts.signal.org/libraries/ringrtc-desktop-build-v2.44.0.tar.gz";
+    hash = "sha256-pxfwfEpz6kOlvNcAmnCcwUncKAql8dDPnWUcDV6rWag=";
   };
   sqlcipherTarball = fetchurl {
     # this is a dependency of better-sqlite3.
@@ -165,11 +168,11 @@ let
     repo = "Signal-Desktop";
     leaveDotGit = true;  # signal calculates the release date via `git`
     rev = "v${version}";
-    hash = "sha256-CBcLk54cu4PGGZbQsPeYjjWnRFmFPxM9+mxLdQKCPP0=";
+    hash = "sha256-lsINz704lEU4W17ZPC0sR40FveUzn19/6B7K7f9B7do=";
   };
   yarnOfflineCache = fetchYarnDeps {
     yarnLock = "${src}/yarn.lock";
-    hash = "sha256-ImkJyphN0YfXOUuU14HII/3798kbQ4iwgXr600k4PHU=";
+    hash = "sha256-fAnAnpY+23T+u+HAK230/ebUhJQ+KYHK328HLL49qZA=";
   };
 
   nodejs' = mkNodeJs pkgs;
@@ -198,7 +201,22 @@ stdenv.mkDerivation rec {
     # - without this, signal can be started with `signal-desktop & ; sleep 5; signal-desktop`
     #   - the second instance wakes the first one, and then exits
     ./show-on-launch.patch
+    ./no-mac-screen-share.patch
   ];
+
+  postPatch = ''
+    # unpin nodejs. i should probably *try* to keep these vaguely in sync, but it seems to work decently with these out of sync too (at least, if the major versions match?)
+    sed -i 's/"node": .*/"node": "${nodejs'.version}"/' package.json
+
+    # fixes build failure:
+    # > Fusing electron at /build/source/release/linux-unpacked/signal-desktop inspect-arguments=false
+    # >   ⨯ EACCES: permission denied, open '/build/source/release/linux-unpacked/signal-desktop'  failedTask=build stackTrace=Error: EACCES: permission denied, open '/build/source/release/linux-unpacked/signal-desktop'
+    # electron "fusing" (electron.flipFuses) seems to be configuring which functionality electron will support at runtime.
+    # notably: ELECTRON_RUN_AS_NODE, cookie encryption, NODE_OPTIONS env var, --inspect-* CLI args, app.asar validation
+    # skipping the fuse process seems relatively inconsequential
+    substituteInPlace ts/scripts/after-pack.ts \
+      --replace-fail 'await fuseElectron' '//await fuseElectron'
+  '';
 
   nativeBuildInputs = [
     autoPatchelfHook
@@ -244,20 +262,6 @@ stdenv.mkDerivation rec {
 
   # NIX_DEBUG = 6;
 
-  postPatch = ''
-    # unpin nodejs. i should probably *try* to keep these vaguely in sync, but it seems to work decently with these out of sync too (at least, if the major versions match?)
-    sed -i 's/"node": .*/"node": "${nodejs'.version}"/' package.json
-
-    # fixes build failure:
-    # > Fusing electron at /build/source/release/linux-unpacked/signal-desktop inspect-arguments=false
-    # >   ⨯ EACCES: permission denied, open '/build/source/release/linux-unpacked/signal-desktop'  failedTask=build stackTrace=Error: EACCES: permission denied, open '/build/source/release/linux-unpacked/signal-desktop'
-    # electron "fusing" (electron.flipFuses) seems to be configuring which functionality electron will support at runtime.
-    # notably: ELECTRON_RUN_AS_NODE, cookie encryption, NODE_OPTIONS env var, --inspect-* CLI args, app.asar validation
-    # skipping the fuse process seems relatively inconsequential
-    substituteInPlace ts/scripts/after-pack.ts \
-      --replace-fail 'await fuseElectron' '//await fuseElectron'
-  '';
-
   configurePhase = ''
     runHook preConfigure
 
@@ -299,11 +303,13 @@ stdenv.mkDerivation rec {
     pushd node_modules/@signalapp/ringrtc/
       tar -xzf ./scripts/prebuild.tar.gz
     popd
+
     cp ${sqlcipherTarball} node_modules/@signalapp/better-sqlite3/deps/sqlcipher.tar.gz
     pushd node_modules/@signalapp/better-sqlite3
       # node-gyp isn't consistently linked into better-sqlite's `node_modules` (maybe due to version mismatch with sinal-desktop's node-gyp?)
       PATH="$PATH:$(pwd)/../../.bin" yarn --offline build-release
     popd
+
     pushd node_modules/@signalapp/libsignal-client
       yarn node-gyp-build
     popd
@@ -400,8 +406,8 @@ stdenv.mkDerivation rec {
   passthru = {
     # inherit bettersqlitePatch signal-fts5-extension;
     updateScript = gitUpdater {
-      # TODO: prevent update to betas
       rev-prefix = "v";
+      ignoredVersions = "beta";
     };
     nodejs = nodejs';
     buildYarn = buildYarn;

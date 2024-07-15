@@ -83,7 +83,7 @@ in
       "jq"
       "killall"
       "playerctl"
-      "procps"
+      "procps"  #< TODO: reduce to just those parts of procps which are really needed
       "sane-open"
       # "sway"  #< TODO: circular dependency :-(
       "wireplumber"

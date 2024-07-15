@@ -162,8 +162,10 @@ in
 
     "sane-scripts.reboot".sandbox = {
       method = "bwrap";
+      whitelistDbus = [
+        "system"
+      ];
       extraPaths = [
-        "/run/dbus"
         "/run/systemd"
       ];
     };
@@ -181,6 +183,7 @@ in
         ".config/sops"
       ];
     };
+    "sane-scripts.secrets-unlock".fs.".config/sops".dir = {};
 
     # sane-secrets-dump is a thin wrapper around sops + some utilities.
     # really i should sandbox just the utilities
@@ -200,13 +203,23 @@ in
 
     "sane-scripts.shutdown".sandbox = {
       method = "bwrap";
+      whitelistDbus = [
+        "system"
+      ];
       extraPaths = [
-        "/run/dbus"
         "/run/systemd"
       ];
     };
 
-    "sane-scripts.stop-all-servo" = {};
+    "sane-scripts.stop-all-servo".sandbox = {
+      method = "bwrap";
+      whitelistDbus = [
+        "system"
+      ];
+      extraPaths = [
+        "/run/systemd"
+      ];
+    };
 
     # if `tee` isn't trustworthy we have bigger problems
     "sane-scripts.sudo-redirect".sandbox.enable = false;
@@ -217,6 +230,7 @@ in
     "sane-scripts.tag-music".sandbox = {
       method = "bwrap";
       autodetectCliPaths = "existing";
+      whitelistPwd = true;  # for music renaming
     };
 
     "sane-scripts.vpn".fs = lib.foldl'
@@ -279,5 +293,6 @@ in
         ".persist/private/.mozilla"
       ];
     };
+    "sane-scripts.wipe".suggestedPrograms = [ "pkill" ];
   };
 }

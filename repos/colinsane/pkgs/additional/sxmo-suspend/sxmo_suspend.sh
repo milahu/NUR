@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i python3 -p "python3.withPackages (ps: [  ])" -p rtl8723cs-wowlan -p util-linux
+#!nix-shell -i python3 -p python3 -p rtl8723cs-wowlan -p util-linux
 """
 replacement `sxmo_suspend.sh` hook for the [SXMO](https://sxmo.org) desktop
 which integrates with [ntfy](https://ntfy.sh) in order to stay in deep sleep

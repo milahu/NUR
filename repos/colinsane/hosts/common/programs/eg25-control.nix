@@ -6,6 +6,17 @@ in
   sane.programs.eg25-control = {
     suggestedPrograms = [ "mmcli" ];
 
+    sandbox.method = "bwrap";
+    sandbox.extraPaths = [
+      "/sys/class/modem-power"
+      "/sys/devices"
+      # "/var/lib/eg25-control"
+    ];
+    sandbox.net = "all";  #< for downloading the almanac
+    sandbox.whitelistDbus = [
+      "system"  #< used by `mmcli`
+    ];
+
     services.eg25-control-powered = {
       description = "eg25-control-powered: power to the Qualcomm eg25 modem used by PinePhone";
       startCommand = "eg25-control --power-on --verbose";

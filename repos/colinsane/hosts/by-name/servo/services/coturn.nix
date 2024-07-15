@@ -36,7 +36,8 @@
 #   - rb = received bytes
 #   - sp = sent packets
 #   - sb = sent bytes
-{ lib, ... }:
+
+{ config, lib, ... }:
 let
   # TURN port range (inclusive).
   # default coturn behavior is to use the upper quarter of all ports. i.e. 49152 - 65535.
@@ -55,7 +56,7 @@ in
   #       protocol = [ "tcp" "udp" ];
   #       # visibleTo.lan = true;
   #       # visibleTo.wan = true;
-  #       visibleTo.ovpn = true;  # forward traffic from the VPN to the root NS
+  #       visibleTo.ovpns = true;  # forward traffic from the VPN to the root NS
   #       description = "colin-stun-turn";
   #     };
   #     "5349" = {
@@ -63,7 +64,7 @@ in
   #       protocol = [ "tcp" ];
   #       # visibleTo.lan = true;
   #       # visibleTo.wan = true;
-  #       visibleTo.ovpn = true;
+  #       visibleTo.ovpns = true;
   #       description = "colin-stun-turn-over-tls";
   #     };
   #   }
@@ -76,7 +77,7 @@ in
   #       protocol = [ "tcp" "udp" ];
   #       # visibleTo.lan = true;
   #       # visibleTo.wan = true;
-  #       visibleTo.ovpn = true;
+  #       visibleTo.ovpns = true;
   #       description = "colin-turn-${builtins.toString count}-of-${builtins.toString numPorts}";
   #     };
   #   })
@@ -130,11 +131,11 @@ in
     "verbose"
     # "Verbose"  #< even MORE verbosity than "verbose"  (it's TOO MUCH verbosity really)
     "no-multicast-peers"  # disables sending to IPv4 broadcast addresses (e.g. 224.0.0.0/3)
-    # "listening-ip=10.0.1.5" "external-ip=185.157.162.178"  #< 2024/04/25: works, if running in root namespace
-    "listening-ip=185.157.162.178" "external-ip=185.157.162.178"
+    # "listening-ip=${config.sane.netns.ovpns.hostVethIpv4}" "external-ip=${config.sane.netns.ovpns.netnsPubIpv4}"  #< 2024/04/25: works, if running in root namespace
+    "listening-ip=${config.sane.netns.ovpns.netnsPubIpv4}" "external-ip=${config.sane.netns.ovpns.netnsPubIpv4}"
 
     # old attempts:
-    # "external-ip=185.157.162.178/10.0.1.5"
+    # "external-ip=${config.sane.netns.ovpns.netnsPubIpv4}/${config.sane.netns.ovpns.hostVethIpv4}"
     # "listening-ip=10.78.79.51"  # can be specified multiple times; omit for *
     # "external-ip=97.113.128.229/10.78.79.51"
     # "external-ip=97.113.128.229"

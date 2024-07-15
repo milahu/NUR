@@ -1,6 +1,7 @@
 { stdenv
 , fetchFromGitHub
 , fetchFromGitea
+, fetchYarnDeps
 , mkYarnModules
 , nodejs
 , zip
@@ -26,14 +27,15 @@ let
   browserpass-extension-yarn-modules = mkYarnModules {
     inherit version;
     pname = "${pname}-modules";
-    packageJSON = ./package.json;
-    yarnLock = ./yarn.lock;
-    # the following also works, but because it's IFD it's not allowed by some users, like NUR.
-    # packageJSON = "${src}/src/package.json";
-    # yarnLock = "${src}/src/yarn.lock";
+    packageJSON = "${src}/src/package.json";
+    yarnLock = "${src}/src/yarn.lock";
+    offlineCache = fetchYarnDeps {
+      yarnLock = ./yarn.lock;
+      hash = "sha256-JOmvjMGtnMn6YfwiMpaePO86O6/E5a1jvNQ9PloG8ec=";
+    };
   };
 in stdenv.mkDerivation {
-  inherit pname version src;
+  inherit pname src version;
 
   nativeBuildInputs = [ nodejs zip ];
 

@@ -1,14 +1,16 @@
-{ lib
-, stdenv
-, buildPackages
-, file
-, gnugrep
-, runCommandLocal
-, runtimeShell
-, sanebox
-, symlinkJoin
-, writeShellScriptBin
-, writeTextFile
+{
+  lib,
+  stdenv,
+  buildPackages,
+  file,
+  gnugrep,
+  makeBinaryWrapper,
+  runCommandLocal,
+  runtimeShell,
+  sanebox,
+  symlinkJoin,
+  writeShellScriptBin,
+  writeTextFile,
 }:
 let
   fakeSaneSandboxed = writeShellScriptBin "sanebox" ''
@@ -42,7 +44,7 @@ let
 
   # take an existing package, which may have a `bin/` folder as well as `share/` etc,
   # and patch the `bin/` items in-place
-  sandboxBinariesInPlace = sanebox': extraSandboxArgsStr: pkgName: pkg: pkg.overrideAttrs (unwrapped: {
+  sandboxBinariesInPlace = sanebox': extraSandboxArgs: pkgName: pkg: pkg.overrideAttrs (unwrapped: {
     # disable the sandbox and inject a minimal fake sandboxer which understands that flag,
     # in order to support packages which invoke sandboxed apps in their check phase.
     # note that it's not just for packages which invoke their *own* binaries in check phase,
@@ -54,9 +56,12 @@ let
     # TODO: handle multi-output packages; until then, squash lib into the main output, particularly for `libexec`.
     # (this line here only affects `inplace` style wrapping)
     outputs = lib.remove "lib" (unwrapped.outputs or [ "out" ]);
-    nativeBuildInputs = (unwrapped.nativeBuildInputs or []) ++ [
+    nativeBuildInputs = [
+      # the ordering here is specific: inject our deps BEFORE the unwrapped program's
+      # so that the unwrapped's take precendence and we limit interference (e.g. makeWrapper impl)
       fakeSaneSandboxed
-    ];
+      makeBinaryWrapper
+    ] ++ (unwrapped.nativeBuildInputs or []);
     disallowedReferences = (unwrapped.disallowedReferences or []) ++ [
       # the fake sandbox gates itself behind SANEBOX_DISABLE, so if it did end up deployed
       # then it wouldn't permit anything not already permitted. but it would still be annoying.
@@ -64,14 +69,29 @@ let
     ];
 
     postFixup = (unwrapped.postFixup or "") + ''
+      assertExecutable() {
+        # my programs refer to sanebox by name, not path, which triggers an over-eager assertion in nixpkgs (so, mask that)
+        :
+      }
+      makeDocumentedCWrapper() {
+        # this is identical to nixpkgs' implementation, only replace execv with execvp, the latter which looks for the executable on PATH.
+        local src docs
+        src=$(makeCWrapper "$@")
+        src="''${src/return execv(/return execvp(}"
+        docs=$(docstring "$@")
+        printf '%s\n\n' "$src"
+        printf '%s\n' "$docs"
+      }
+
       sandboxWrap() {
         local _dir="$1"
         local _name="$2"
 
-        # N.B.: unlike `makeWrapper`, we place the unwrapped binary in a subdirectory and *preserve its name*.
+        # N.B.: unlike stock `wrapProgram`, we place the unwrapped binary in a subdirectory and *preserve its name*.
         # the upside of this is that for applications which read "$0" to decide what to do (e.g. busybox, git)
         # they work as expected without any special hacks.
-        # if desired, makeWrapper-style naming could be achieved by leveraging `exec -a <original_name>`.
+        # if desired, makeWrapper-style naming could be achieved by leveraging `exec -a <original_name>`
+        # or `make-wrapper --inherit-argv0`
         mkdir -p "$_dir/.sandboxed"
         if [[ "$(readlink $_dir/$_name)" =~ ^\.\./ ]]; then
           # relative links which ascend a directory (into a non-bin/ directory)
@@ -81,9 +101,7 @@ let
         else
           mv "$_dir/$_name" "$_dir/.sandboxed/"
         fi
-        echo '#!${runtimeShell}' > "$_dir/$_name"
-        echo 'exec ${sanebox'}' ${extraSandboxArgsStr} "$_dir/.sandboxed/$_name" '"$@"' >> "$_dir/$_name"
-        chmod +x "$_dir/$_name"
+        makeBinaryWrapper ${sanebox'} "$_dir/$_name" ${lib.escapeShellArgs (lib.flatten (builtins.map (f: [ "--add-flags" f ]) extraSandboxArgs))} --add-flags "$_dir/.sandboxed/$_name"
       }
 
       crawlAndWrap() {
@@ -254,7 +272,7 @@ let
           set -x
           local realbin="$(realpath $dir/$binname)"
           local interpreter=$(file "$realbin" | grep --only-matching "a /nix/.* script" | cut -d" " -f2 || echo "")
-          ${stdenv.hostPlatform.emulator buildPackages} $interpreter "$dir/$binname" --sanebox-replace-cli echo "printing for test" \
+          ${stdenv.hostPlatform.emulator buildPackages} $interpreter "$dir/$binname" --sanebox-net-dev all --sanebox-dns default --sanebox-net-gateway default --sanebox-replace-cli echo "printing for test" \
             | grep "printing for test"
           _numExec=$(( $_numExec + 1 ))
         }
@@ -309,8 +327,6 @@ let
       sanebox.meta.mainProgram
     ;
 
-    extraSandboxerArgsStr = lib.escapeShellArgs extraSandboxerArgs;
-
     # two ways i could wrap a package in a sandbox:
     # 1. package.overrideAttrs, with `postFixup`.
     # 2. pkgs.symlinkJoin, creating an entirely new package which calls into the inner binaries.
@@ -320,14 +336,14 @@ let
     sandboxedBy = {
       inplace = sandboxBinariesInPlace
         sanebox'
-        extraSandboxerArgsStr
+        extraSandboxerArgs
         pkgName
         (makeHookable unsandboxed);
 
       wrappedDerivation = let
         sandboxedBin = sandboxBinariesInPlace
           sanebox'
-          extraSandboxerArgsStr
+          extraSandboxerArgs
           pkgName
           (symlinkBinaries pkgName unsandboxed);
         sandboxedNonBin = sandboxNonBinaries pkgName unsandboxed sandboxedBin;

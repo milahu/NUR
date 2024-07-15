@@ -10,6 +10,7 @@
     ./assorted.nix
     ./audacity.nix
     ./ausyscall.nix
+    ./avahi.nix
     ./bemenu.nix
     ./blast-ugjka
     ./bonsai.nix
@@ -45,12 +46,16 @@
     ./flare-signal.nix
     ./fontconfig.nix
     ./fractal.nix
+    ./free.nix
     ./frozen-bubble.nix
     ./fwupd.nix
     ./g4music.nix
     ./gajim.nix
+    ./gdb.nix
     ./gdbus.nix
     ./geary.nix
+    ./geoclue-demo-agent.nix
+    ./geoclue2.nix
     ./git.nix
     ./gnome-clocks.nix
     ./gnome-feeds.nix
@@ -59,6 +64,8 @@
     ./gnome-weather.nix
     ./go2tv.nix
     ./gpodder.nix
+    ./gpsd.nix
+    ./gps-share.nix
     ./grimshot.nix
     ./gst-device-monitor.nix
     ./gthumb.nix
@@ -66,9 +73,11 @@
     ./handbrake.nix
     ./helix.nix
     ./htop
+    ./iio-sensor-proxy.nix
     ./imagemagick.nix
     ./jellyfin-media-player.nix
     ./kdenlive.nix
+    ./keymapp.nix
     ./komikku.nix
     ./koreader
     ./less.nix
@@ -86,6 +95,7 @@
     ./msmtp.nix
     ./nautilus.nix
     ./neovim.nix
+    ./networkmanager_dmenu
     ./newsflash.nix
     ./nheko.nix
     ./nicotine-plus.nix
@@ -93,14 +103,21 @@
     ./nmcli.nix
     ./notejot.nix
     ./ntfy-sh.nix
+    ./nwg-panel
     ./objdump.nix
     ./obsidian.nix
     ./offlineimap.nix
+    ./ols.nix
     ./open-in-mpv.nix
+    ./pactl.nix
+    ./pidof.nix
     ./pipewire.nix
+    ./pkill.nix
     ./planify.nix
     ./portfolio-filemanager.nix
     ./playerctl.nix
+    ./ps.nix
+    ./qmk-udev-rules.nix
     ./rhythmbox.nix
     ./ripgrep.nix
     ./rofi
@@ -110,8 +127,10 @@
     ./sane-open.nix
     ./sane-screenshot.nix
     ./sane-scripts.nix
+    ./sane-sysload.nix
     ./sane-theme.nix
     ./sanebox.nix
+    ./satellite.nix
     ./schlock.nix
     ./seatd.nix
     ./sfeed.nix
@@ -130,14 +149,19 @@
     ./swayidle.nix
     ./swaylock.nix
     ./swaynotificationcenter
-    ./sysvol.nix
+    ./switchboard.nix
+    ./syshud.nix
     ./tangram.nix
     ./tor-browser.nix
     ./tuba.nix
     ./unl0kr
+    ./via.nix
+    ./visidata.nix
     ./vlc.nix
+    ./wally-cli.nix
     ./waybar
     ./waylock.nix
+    ./where-am-i.nix
     ./wike.nix
     ./wine.nix
     ./wireplumber.nix
@@ -149,10 +173,13 @@
     ./xdg-desktop-portal-wlr.nix
     ./xdg-terminal-exec.nix
     ./xdg-utils.nix
+    ./youtube-tui.nix
     ./zathura.nix
     ./zeal.nix
     ./zecwallet-lite.nix
     ./zulip.nix
+    ./zsa-udev-rules.nix
+    ./zfs-tools.nix
     ./zsh
   ];
 

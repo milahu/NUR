@@ -84,7 +84,7 @@ keepNamespace=()
 # or "all" to keep all devices available
 netDev=
 # IPv4 address of the default gateway associated with the bridged network device (usually that's just the VPN's IP addr)
-netGateway=
+netGateway=default
 # list of IP addresses to use for DNS servers inside the sandbox (not supported by all backends)
 dns=()
 # list of `VAR=VALUE` environment variables to add to the sandboxed program's environment
@@ -122,7 +122,7 @@ usage() {
   echo '  --sanebox-no-portal'
   echo '      undo a previous `--sanebox-portal` arg'
   echo '  --sanebox-bwrap-arg <arg>'
-  echo '  --sanebox-net-dev <iface>'
+  echo '  --sanebox-net-dev <iface>|all'
   echo '  --sanebox-net-gateway <ip-address>'
   echo '  --sanebox-dns <server>'
   echo '  --sanebox-keep-namespace <cgroup|ipc|pid|uts|all>'
@@ -542,7 +542,11 @@ parseArgs() {
       (--sanebox-dns)
         local dnsServer=$1
         shift
-        dns+=("$dnsServer")
+        if [ "$dnsServer" = default ]; then
+          dns=()
+        else
+          dns+=("$dnsServer")
+        fi
         ;;
       (--sanebox-keep-namespace)
         local namespace=$1
@@ -881,7 +885,7 @@ pastaonlyGetCli() {
   )
   locate _pasta "pasta" "$PASTA_FALLBACK"
   cliArgs=(
-    "$_pasta" --ipv4-only -U none -T none --config-net
+    "$_pasta" --ipv4-only -U none -T none -u none -t none --config-net
       "${pastaArgs[@]}" --
     "${cliArgs[@]}"
   )
@@ -1038,7 +1042,7 @@ ingestForBackend() {
     "$method"IngestNetDev "$netDev"
   fi
 
-  if [ -n "$netGateway" ]; then
+  if [ "$netGateway" != default ]; then
     "$method"IngestNetGateway "$netGateway"
   fi
 

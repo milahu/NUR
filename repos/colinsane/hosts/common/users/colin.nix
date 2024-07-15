@@ -22,6 +22,8 @@
       "media"  # servo
       "networkmanager"
       "nixbuild"
+      "plugdev"  # desko, for ZSA/QMK/udev
+      "render"  # for crappy, /dev/dri/render*
       "seat"  # for sway, if using seatd
       "systemd-journal"  # allows to view other user's journals (esp system users)
       "transmission"  # servo

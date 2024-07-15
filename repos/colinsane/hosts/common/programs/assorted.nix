@@ -50,12 +50,14 @@ in
       "fd"
       "file"
       "forkstat"  # monitor every spawned/forked process
+      "free"
       # "fwupd"
       "gawk"
       "gdb"  # to debug segfaults
       "git"
       "gptfdisk"  # gdisk
       "hdparm"
+      "hping"
       "htop"
       "iftop"
       "inetutils"  # for telnet
@@ -84,6 +86,7 @@ in
       "parted"
       "pciutils"
       "powertop"
+      "ps"
       "pstree"
       "ripgrep"
       "s6-rc"  # service manager
@@ -97,6 +100,7 @@ in
       "usbutils"  # lsusb
       "util-linux"  # lsblk, lscpu, etc
       "valgrind"
+      "watch"
       "wget"
       "wirelesstools"  # iwlist
       # "xq"  # jq for XML
@@ -148,11 +152,12 @@ in
       # "ponymix"
       "pulsemixer"
       "python3-repl"
-      # "python3Packages.eyeD3"  # music tagging
+      # "python3.pkgs.eyeD3"  # music tagging
       "ripgrep"  # needed as a user package so that its user-level config file can be installed
       "rsync"
       "sane-scripts.bittorrent"
       "sane-scripts.cli"
+      "sc-im"
       # "snapper"
       "sops"  # for manually viewing secrets; outside `sane-secrets` (TODO: improve sane-secrets!)
       "speedtest-cli"
@@ -172,8 +177,12 @@ in
       # "gh"  # MS GitHub cli
       "nix-index"
       "nixpkgs-review"
+      "qmk-udev-rules"
       "sane-scripts.dev"
       "sequoia"
+      # "via"
+      "wally-cli"
+      # "zsa-udev-rules"
     ];
 
     consoleMediaUtils = declPackageSet [
@@ -273,27 +282,28 @@ in
       # "gnome.cheese"
       # "gnome-feeds"  # RSS reader (with claimed mobile support)
       # "gnome.file-roller"
-      "gnome.geary"  # adaptive e-mail client; uses webkitgtk 4.1
-      "gnome.gnome-calculator"
-      "gnome.gnome-calendar"
+      "geary"  # adaptive e-mail client; uses webkitgtk 4.1
+      "gnome-calculator"
+      "gnome-calendar"
       "gnome.gnome-clocks"
       "gnome.gnome-maps"
       # "gnome-podcasts"
       # "gnome.gnome-system-monitor"
       # "gnome.gnome-terminal"  # works on phosh
       "gnome.gnome-weather"
-      # "gnome.seahorse"  # keyring/secret manager
+      # "seahorse"  # keyring/secret manager
       "gnome-frog"  # OCR/QR decoder
       "gpodder"
-      "gst-device-monitor"  # for debugging audio/video
+      # "gst-device-monitor"  # for debugging audio/video
       # "gthumb"
       # "lemoa"  # lemmy app
-      "libcamera"  # for `cam` binary (useful for debugging cameras)
+      # "libcamera"  # for `cam` binary (useful for debugging cameras)
       "libnotify"  # for notify-send; debugging
       # "lollypop"
       "loupe"  # image viewer
       "mate.engrampa"  # archive manager
       "mepo"  # maps viewer
+      # "mesa-demos"  # for eglinfo, glxinfo & other testing tools
       "mpv"
       "networkmanagerapplet"  # for nm-connection-editor: it's better than not having any gui!
       "ntfy-sh"  # notification service
@@ -303,7 +313,7 @@ in
       # "picard"  # music tagging
       # "libsForQt5.plasmatube"  # Youtube player
       "signal-desktop"
-      "snapshot"  # camera app
+      # "snapshot"  # camera app
       "spot"  # Gnome Spotify client
       # "sublime-music"
       # "tdesktop"  # broken on phosh
@@ -312,13 +322,14 @@ in
       "vulkan-tools"  # vulkaninfo
       # "whalebird"  # pleroma client (Electron). input is broken on phosh.
       "xdg-terminal-exec"
+      "youtube-tui"
       "zathura"  # PDF/CBZ/ePUB viewer
     ];
 
     handheldGuiApps = declPackageSet [
       # "celluloid"  # mpv frontend
       # "chatty"  # matrix/xmpp/irc client  (2023/12/29: disabled because broken cross build)
-      "cozy"  # audiobook player
+      # "cozy"  # audiobook player
       "epiphany"  # gnome's web browser
       # "iotas"  # note taking app
       "komikku"
@@ -344,7 +355,7 @@ in
       # "chromium"  # chromium takes hours to build. brave is chromium-based, distributed in binary form, so prefer it.
       # "cups"
       "discord"  # x86-only
-      "electrum"
+      # "electrum"
       "element-desktop"
       "firefox"
       "font-manager"
@@ -352,13 +363,14 @@ in
       "gimp"  # broken on phosh
       # "gnome.dconf-editor"
       # "gnome.file-roller"
-      "gnome.gnome-disk-utility"
-      "gnome.nautilus"  # file browser
+      "gnome-disk-utility"
+      "nautilus"  # file browser
       # "gnome.totem"  # video player, supposedly supports UPnP
-      "handbrake"
+      # "handbrake"  #< TODO: fix build
       "inkscape"
       # "jellyfin-media-player"
       "kdenlive"
+      # "keymapp"
       # "kid3"  # audio tagging
       "krita"
       "libreoffice"  # TODO: replace with an office suite that uses saner packaging?
@@ -390,6 +402,12 @@ in
 
     backblaze-b2 = {};
 
+    bitcoind.sandbox.method = "bwrap";
+    bitcoind.sandbox.extraHomePaths = [
+      ".config/bitcoin/bitcoin.conf"
+    ];
+    bitcoind.sandbox.net = "all";  # actually needs only localhost
+
     blanket.buildCost = 1;
     blanket.sandbox.method = "bwrap";
     blanket.sandbox.whitelistAudio = true;
@@ -417,6 +435,16 @@ in
     cargo.persist.byStore.plaintext = [ ".cargo" ];
 
     clang = {};
+
+    clightning.sandbox.method = "bwrap";
+    clightning.sandbox.extraHomePaths = [
+      ".lightning/bitcoin/lightning-rpc"
+    ];
+
+    clightning-sane.sandbox.method = "bwrap";
+    clightning-sane.sandbox.extraPaths = [
+      "/var/lib/clightning/bitcoin/lightning-rpc"
+    ];
 
     # cryptsetup: typical use is `cryptsetup open /dev/loopxyz mappedName`, and creates `/dev/mapper/mappedName`
     cryptsetup.sandbox.method = "landlock";
@@ -570,10 +598,6 @@ in
     gawk.sandbox.wrapperType = "inplace";  # /share/gawk libraries refer to /libexec
     gawk.sandbox.autodetectCliPaths = "existingFile";
 
-    gdb.sandbox.enable = false;  # gdb doesn't sandbox well. i don't know how you could.
-    # gdb.sandbox.method = "landlock";  # permission denied when trying to attach, even as root
-    gdb.sandbox.autodetectCliPaths = true;
-
     geoclue2-with-demo-agent = {};
 
     # MS GitHub stores auth token in .config
@@ -600,32 +624,37 @@ in
       "/tmp"  # "Cannot open display:" if it can't mount /tmp 👀
     ];
 
-    "gnome.gnome-calculator".buildCost = 1;
-    "gnome.gnome-calculator".sandbox.method = "bwrap";
-    "gnome.gnome-calculator".sandbox.whitelistWayland = true;
+    gnome-calculator.buildCost = 1;
+    gnome-calculator.sandbox.method = "bwrap";
+    gnome-calculator.sandbox.whitelistWayland = true;
 
-    "gnome.gnome-calendar".buildCost = 1;
+    gnome-calendar.buildCost = 1;
     # gnome-calendar surely has data to persist, but i use it strictly to do date math, not track events.
-    "gnome.gnome-calendar".sandbox.method = "bwrap";
-    "gnome.gnome-calendar".sandbox.whitelistWayland = true;
+    gnome-calendar.sandbox.method = "bwrap";
+    gnome-calendar.sandbox.whitelistWayland = true;
 
     # gnome-disks
-    "gnome.gnome-disk-utility".buildCost = 1;
-    "gnome.gnome-disk-utility".sandbox.method = "bwrap";
-    "gnome.gnome-disk-utility".sandbox.whitelistDbus = [ "system" ];
-    "gnome.gnome-disk-utility".sandbox.whitelistWayland = true;
-    "gnome.gnome-disk-utility".sandbox.extraHomePaths = [
+    gnome-disk-utility.buildCost = 1;
+    gnome-disk-utility.sandbox.method = "bwrap";
+    gnome-disk-utility.sandbox.whitelistDbus = [ "system" ];
+    gnome-disk-utility.sandbox.whitelistWayland = true;
+    gnome-disk-utility.sandbox.extraHomePaths = [
       "tmp"
       "use/iso"
       # TODO: probably need /dev and such
     ];
 
+    hping.sandbox.method = "landlock";
+    hping.sandbox.net = "all";
+    hping.sandbox.capabilities = [ "net_raw" ];
+    hping.sandbox.autodetectCliPaths = "existingFile";  # for sending packet data from file
+
     # seahorse: dump gnome-keyring secrets.
-    "gnome.seahorse".buildCost = 1;
-    # N.B.: it can also manage ~/.ssh keys, but i explicitly don't add those to the sandbox for now.
-    "gnome.seahorse".sandbox.method = "bwrap";
-    "gnome.seahorse".sandbox.whitelistDbus = [ "user" ];
-    "gnome.seahorse".sandbox.whitelistWayland = true;
+    seahorse.buildCost = 1;
+    # N.B. it can lso manage ~/.ssh keys, but i explicitly don't add those to the sandbox for now.
+    seahorse.sandbox.method = "bwrap";
+    seahorse.sandbox.whitelistDbus = [ "user" ];
+    seahorse.sandbox.whitelistWayland = true;
 
     gnome-2048.buildCost = 1;
     gnome-2048.sandbox.method = "bwrap";
@@ -815,6 +844,11 @@ in
     mercurial.sandbox.net = "clearnet";
     mercurial.sandbox.whitelistPwd = true;
 
+    mesa-demos.sandbox.method = "bwrap";
+    mesa-demos.sandbox.whitelistDri = true;
+    mesa-demos.sandbox.whitelistWayland = true;
+    mesa-demos.sandbox.whitelistX = true;
+
     # actual monero blockchain (not wallet/etc; safe to delete, just slow to regenerate)
     monero-gui.buildCost = 1;
     # XXX: is it really safe to persist this? it doesn't have info that could de-anonymize if captured?
@@ -943,7 +977,9 @@ in
 
     python3-repl.packageUnwrapped = pkgs.python3.withPackages (ps: with ps; [
       psutil
+      pykakasi
       requests
+      unidecode
     ]);
     python3-repl.sandbox.method = "bwrap";
     python3-repl.sandbox.net = "clearnet";
@@ -970,6 +1006,9 @@ in
 
     sane-weather.sandbox.method = "bwrap";
     sane-weather.sandbox.net = "clearnet";
+
+    sc-im.sandbox.method = "bwrap";
+    sc-im.sandbox.autodetectCliPaths = "existingFile";
 
     screen.sandbox.enable = false;  #< tty; needs to run anything
 
@@ -1017,7 +1056,9 @@ in
       "Music"
       "tmp"
       "use"
+      ".config/dconf"
     ];
+    soundconverter.sandbox.whitelistDbus = [ "user" ];  # for dconf
     soundconverter.sandbox.extraPaths = [
       "/mnt/servo/media/Music"
       "/mnt/servo/media/games"
@@ -1097,9 +1138,6 @@ in
     valgrind.buildCost = 1;
     valgrind.sandbox.enable = false;  #< it's a launcher: can't sandbox
 
-    visidata.sandbox.method = "bwrap";  # TODO:sandbox: untested
-    visidata.sandbox.autodetectCliPaths = true;
-
     # `vulkaninfo`, `vkcube`
     vulkan-tools.sandbox.method = "landlock";
 
@@ -1116,6 +1154,8 @@ in
       # little-used feature, but you can save web pages :)
       "tmp"
     ];
+
+    watch.sandbox.enable = false;  #< it executes the command it's given
 
     wdisplays.sandbox.method = "bwrap";
     wdisplays.sandbox.whitelistWayland = true;
@@ -1155,8 +1195,6 @@ in
     yt-dlp.sandbox.method = "bwrap";  # TODO:sandbox: untested
     yt-dlp.sandbox.net = "all";
     yt-dlp.sandbox.whitelistPwd = true;  # saves to pwd by default
-
-    zfs = {};
   };
 
   sane.persist.sys.byStore.plaintext = lib.mkIf config.sane.programs.guiApps.enabled [
@@ -1173,13 +1211,12 @@ in
     ];
   };
 
-  hardware.opengl = lib.mkIf config.sane.programs.guiApps.enabled ({
+  hardware.graphics = lib.mkIf config.sane.programs.guiApps.enabled ({
     enable = true;
-    driSupport = lib.mkDefault true;
   } // (lib.optionalAttrs pkgs.stdenv.isx86_64 {
     # for 32 bit applications
-    # upstream nixpkgs forbids setting driSupport32Bit unless specifically x86_64 (so aarch64 isn't allowed)
-    driSupport32Bit = lib.mkDefault true;
+    # upstream nixpkgs forbids setting enable32Bit unless specifically x86_64 (so aarch64 isn't allowed)
+    enable32Bit = lib.mkDefault true;
   }));
 
   system.activationScripts.notifyActive = lib.mkIf config.sane.programs.guiApps.enabled {

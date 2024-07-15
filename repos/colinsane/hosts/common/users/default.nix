@@ -21,6 +21,7 @@ in
   ];
 
   users.groups.media = {};
+  users.groups.plugdev = {};
 
   # Users are exactly these specified here;
   # old ones will be deleted (from /etc/passwd, etc) upon upgrade.

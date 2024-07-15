@@ -115,6 +115,7 @@ in
   programs.zsh = lib.mkIf cfg.enabled {
     enable = true;
     shellAliases = {
+      ":fg" = "fg";
       ":q" = "exit";
       # common typos
       "cd.." = "cd ..";
@@ -127,6 +128,7 @@ in
       "ll" = "eza --long --time-style=long-iso";
       # overcome poor defaults
       "lsof" = "lsof -P";  #< lsof: use port *numbers*, not names
+      "quit" = "exit";
       "tcpdump" = "tcpdump -n";  #< tcpdump: use port *numbers*, not names
     };
     setOptions = [
@@ -186,7 +188,7 @@ in
       };
 
       function switch() {
-        nix run '.#deploy.self'
+        ~/nixos/scripts/deploy "$@"
       }
     '';
 

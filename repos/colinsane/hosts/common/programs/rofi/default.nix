@@ -55,6 +55,12 @@ let
         mimeTypes = [ "application/x-desktop" ];
         noDisplay = true;
       })
+      (pkgs.makeDesktopItem {
+        name = "close";
+        exec = "true";
+        desktopName = "Close Menu";
+        mimeTypes = [ "application/x-desktop" ];
+      })
     ];
   });
   # rofi-emoji = pkgs.rofi-emoji.override {
@@ -116,6 +122,8 @@ in
 
     fs.".config/rofi/config.rasi".symlink.target = ./config.rasi;
     fs."Apps".symlink.target = ".local/share/applications/rofi-applications.desktop";
+    fs."WiFi".symlink.target = ".local/share/applications/networkmanager_dmenu.desktop";
+    fs."close".symlink.target = ".local/share/applications/close.desktop";  #< provide an escape from the file browser
     persist.byStore.cryptClearOnBoot = [
       # this gets us a few things:
       # - file browser remembers its last directory

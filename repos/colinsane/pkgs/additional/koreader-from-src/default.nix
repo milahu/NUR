@@ -36,7 +36,7 @@
 , git
 , libtool
 , luajit
-, makeWrapper
+, makeBinaryWrapper
 , pkg-config
 , stdenv
 , symlinkJoin
@@ -482,7 +482,7 @@ stdenv.mkDerivation rec {
     cmake  # for koreader/base submodule
     git
     libtool
-    makeWrapper
+    makeBinaryWrapper
     pkg-config
   ];
   buildInputs = [

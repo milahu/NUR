@@ -7,9 +7,12 @@ let
   haltTimeout = 10;
 in
 {
-  # allow ordinary users to `reboot` or `shutdown`.
-  # source: <https://nixos.wiki/wiki/Polkit>
   security.polkit.extraConfig = ''
+    /* allow ordinary users to:
+     * - reboot
+     * - shutdown
+     * source: <https://nixos.wiki/wiki/Polkit>
+     */
     polkit.addRule(function(action, subject) {
       if (
         subject.isInGroup("users")
@@ -21,6 +24,19 @@ in
           )
         )
       {
+        return polkit.Result.YES;
+      }
+    })
+
+    /* allow members of wheel to:
+     * - systemctl daemon-reload
+     * - systemctl stop|start|restart SERVICE
+     */
+    polkit.addRule(function(action, subject) {
+      if (subject.isInGroup("wheel") && (
+        action.id == "org.freedesktop.systemd1.reload-daemon" ||
+        action.id == "org.freedesktop.systemd1.manage-units"
+      )) {
         return polkit.Result.YES;
       }
     })
@@ -40,6 +56,11 @@ in
   services.logind.powerKey = "lock";
   services.logind.powerKeyLongPress = "poweroff";
   services.logind.lidSwitch = "lock";
+  # under logind, 'uaccess' tag would grant the logged in user access to a device.
+  # outside logind, map uaccess tag -> plugdev group to grant that access.
+  services.udev.extraRules = ''
+    TAG=="uaccess" GROUP="plugdev"
+  '';
 
   systemd.extraConfig = ''
     # DefaultTimeoutStopSec defaults to 90s, and frequently blocks overall system shutdown.

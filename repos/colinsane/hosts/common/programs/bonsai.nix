@@ -111,7 +111,7 @@ in
       '';
     });
 
-    fs.".config/bonsai/bonsai_tree.json".symlink.text = builtins.toJSON cfg.config.transitions;
+    fs.".config/bonsai/bonsai_tree.json".symlink.target = pkgs.writers.writeJSON "bonsai_tree.json" cfg.config.transitions;
 
     sandbox.method = "bwrap";
     sandbox.extraRuntimePaths = [

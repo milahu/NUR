@@ -130,6 +130,53 @@ in with final; {
     # ];
   });
 
+  # bamf: required via pantheon.switchboard -> wingpanel -> gala
+  # bamf = prev.bamf.overrideAttrs (upstream: {
+  #   # "You must have gtk-doc >= 1.0 installed to build documentation"
+  #   depsBuildBuild = (upstream.depsBuildBuild or []) ++ [
+  #     pkg-config  #< to find gtk-doc
+  #     (buildPackages.python3.withPackages (ps: with ps; [ lxml ])) # Tests
+  #   ];
+  #   # nativeBuildInputs = [
+  #   #   # (python3.withPackages (ps: with ps; [ lxml ])) # Tests
+  #   #   autoreconfHook
+  #   #   dbus
+  #   #   docbook_xsl
+  #   #   gnome.gnome-common
+  #   #   gobject-introspection
+  #   #   gtk-doc
+  #   #   pkg-config
+  #   #   vala
+  #   #   which
+  #   #   wrapGAppsHook3
+  #   #   xorg.xorgserver
+  #   # ] ++ [
+  #   # nativeBuildInputs = lib.tail upstream.nativeBuildInputs ++ [
+  #   nativeBuildInputs = (
+  #     lib.filter (p:
+  #       !lib.hasPrefix python3.pname (p.name or p.pname or "") &&
+  #       # ... i can't figure out where it's getting libX11 from :|
+  #       (p.pname or "") != xorg.xorgserver.pname &&
+  #       (p.pname or "") != gnome.gnome-common.pname
+  #     )
+  #     upstream.nativeBuildInputs
+  #   ) ++ [
+  #     buildPackages.gettext  #< for msgfmt
+  #   ];
+
+  #   buildInputs = upstream.buildInputs ++ [
+  #     xorg.xorgserver  #< upstream incorrectly places this in `nativeBuildInputs`
+  #   ];
+
+  #   # nativeBuildInputs = upstream.nativeBuildInputs ++ [
+  #   #   (python3.pythonOnBuildForHost.withPackages (ps: with ps; [ lxml ])) # Tests
+  #   # ];
+  #   configureFlags = [
+  #     "--enable-gtk-doc"
+  #     # "--enable-headless-tests"  #< can't test when cross compiling
+  #   ];
+  # });
+
   # binutils = prev.binutils.override {
   #   # fix that resulting binary files would specify build #!sh as their interpreter.
   #   # dtrx is the primary beneficiary of this.
@@ -211,6 +258,47 @@ in with final; {
   #   # future: we can specify 'action-if-cross-compiling' to actually invoke the test programs:
   #   # <https://www.gnu.org/software/autoconf/manual/autoconf-2.63/html_node/Runtime.html>
   # };
+
+  evolution-data-server = prev.evolution-data-server.overrideAttrs (upstream: {
+    # 2024/05/31: upstreaming is blocked by appstream (out for PR), libgweather (out for PR)
+    cmakeFlags = upstream.cmakeFlags ++ [
+      "-DCMAKE_CROSSCOMPILING_EMULATOR=${stdenv.hostPlatform.emulator buildPackages}"
+      "-DENABLE_TESTS=no"
+      "-DGETTEXT_MSGFMT_EXECUTABLE=${lib.getBin buildPackages.gettext}/bin/msgfmt"
+      "-DGETTEXT_MSGMERGE_EXECUTABLE=${lib.getBin buildPackages.gettext}/bin/msgmerge"
+      "-DGETTEXT_XGETTEXT_EXECUTABLE=${lib.getBin buildPackages.gettext}/bin/xgettext"
+      "-DGLIB_COMPILE_RESOURCES=${lib.getDev buildPackages.glib}/bin/glib-compile-resources"
+      "-DGLIB_COMPILE_SCHEMAS=${lib.getDev buildPackages.glib}/bin/glib-compile-schemas"
+    ];
+    postPatch = (upstream.postPatch or "") + ''
+      substituteInPlace src/addressbook/libebook-contacts/CMakeLists.txt --replace-fail \
+        'COMMAND ''${CMAKE_CURRENT_BINARY_DIR}/gen-western-table' \
+        'COMMAND ${stdenv.hostPlatform.emulator buildPackages} ''${CMAKE_CURRENT_BINARY_DIR}/gen-western-table' 
+      substituteInPlace src/camel/CMakeLists.txt --replace-fail \
+        'COMMAND ''${CMAKE_CURRENT_BINARY_DIR}/camel-gen-tables' \
+        'COMMAND ${stdenv.hostPlatform.emulator buildPackages} ''${CMAKE_CURRENT_BINARY_DIR}/camel-gen-tables'
+    '';
+    # N.B.: the deps are funky even without cross compiling.
+    # upstream probably wants to replace pcre with pcre2, and maybe provide perl
+    # nativeBuildInputs = upstream.nativeBuildInputs ++ [
+    #   perl  # fixes "The 'perl' not found, not installing csv2vcard"
+    #   # glib
+    #   # libiconv
+    #   # iconv
+    # ];
+    # buildInputs = upstream.buildInputs ++ [
+    #   pcre2  # fixes: "Package 'libpcre2-8', required by 'glib-2.0', not found"
+    #   mount  # fails to fix: "Package 'mount', required by 'gio-2.0', not found"
+    # ];
+  });
+
+  fd = prev.fd.overrideAttrs (base: {
+    # fix that shell completion installation wants to run host fd
+    postInstall = lib.replaceStrings
+      [ "$out/bin/fd" ]
+      [ "${stdenv.hostPlatform.emulator buildPackages} $out/bin/fd" ]
+      base.postInstall;
+  });
 
   # 2024/05/31: upstreaming is unblocked
   # firejail = prev.firejail.overrideAttrs (upstream: {
@@ -319,6 +407,15 @@ in with final; {
     ];
   });
 
+  # 2024/05/31: upstreaming is blocked by qtsvg, appstream (out for review), libgweather (out for review)
+  geary = prev.geary.overrideAttrs (upstream: {
+    buildInputs = upstream.buildInputs ++ [
+      # glib
+      appstream-glib
+      libxml2
+    ];
+  });
+
   # 2024/05/31: upstreaming is unblocked
   glycin-loaders = prev.glycin-loaders.overrideAttrs (upstream: {
     nativeBuildInputs = upstream.nativeBuildInputs ++ [
@@ -365,51 +462,9 @@ in with final; {
   gnome-online-accounts = mvToBuildInputs [ dbus ] prev.gnome-online-accounts;
 
   gnome = prev.gnome.overrideScope (self: super: {
-    evolution-data-server = super.evolution-data-server.overrideAttrs (upstream: {
-      # 2024/05/31: upstreaming is blocked by appstream (out for PR), libgweather (out for PR)
-      cmakeFlags = upstream.cmakeFlags ++ [
-        "-DCMAKE_CROSSCOMPILING_EMULATOR=${stdenv.hostPlatform.emulator buildPackages}"
-        "-DENABLE_TESTS=no"
-        "-DGETTEXT_MSGFMT_EXECUTABLE=${lib.getBin buildPackages.gettext}/bin/msgfmt"
-        "-DGETTEXT_MSGMERGE_EXECUTABLE=${lib.getBin buildPackages.gettext}/bin/msgmerge"
-        "-DGETTEXT_XGETTEXT_EXECUTABLE=${lib.getBin buildPackages.gettext}/bin/xgettext"
-        "-DGLIB_COMPILE_RESOURCES=${lib.getDev buildPackages.glib}/bin/glib-compile-resources"
-        "-DGLIB_COMPILE_SCHEMAS=${lib.getDev buildPackages.glib}/bin/glib-compile-schemas"
-      ];
-      postPatch = (upstream.postPatch or "") + ''
-        substituteInPlace src/addressbook/libebook-contacts/CMakeLists.txt --replace-fail \
-          'COMMAND ''${CMAKE_CURRENT_BINARY_DIR}/gen-western-table' \
-          'COMMAND ${stdenv.hostPlatform.emulator buildPackages} ''${CMAKE_CURRENT_BINARY_DIR}/gen-western-table' 
-        substituteInPlace src/camel/CMakeLists.txt --replace-fail \
-          'COMMAND ''${CMAKE_CURRENT_BINARY_DIR}/camel-gen-tables' \
-          'COMMAND ${stdenv.hostPlatform.emulator buildPackages} ''${CMAKE_CURRENT_BINARY_DIR}/camel-gen-tables'
-      '';
-      # N.B.: the deps are funky even without cross compiling.
-      # upstream probably wants to replace pcre with pcre2, and maybe provide perl
-      # nativeBuildInputs = upstream.nativeBuildInputs ++ [
-      #   perl  # fixes "The 'perl' not found, not installing csv2vcard"
-      #   # glib
-      #   # libiconv
-      #   # iconv
-      # ];
-      # buildInputs = upstream.buildInputs ++ [
-      #   pcre2  # fixes: "Package 'libpcre2-8', required by 'glib-2.0', not found"
-      #   mount  # fails to fix: "Package 'mount', required by 'gio-2.0', not found"
-      # ];
-    });
-
     # 2024/05/31: upstreaming is blocked on appstream (out for review), gnome-user-share (apache-httpd, webp-pixbuf-loader), qtsvg
     # fixes: "src/meson.build:106:0: ERROR: Program 'glib-compile-resources' not found or not executable"
     # file-roller = mvToNativeInputs [ glib ] super.file-roller;
-
-    # 2024/05/31: upstreaming is blocked by qtsvg, appstream (out for review), libgweather (out for review)
-    geary = super.geary.overrideAttrs (upstream: {
-      buildInputs = upstream.buildInputs ++ [
-        # glib
-        appstream-glib
-        libxml2
-      ];
-    });
 
     # 2024/05/31: upstreaming is blocked by a LOT: qtbase, qtsvg, webp-pixbuf-loader, libgweather, gnome-color-manager, appstream, apache-httpd, ibus
     # fixes "subprojects/gvc/meson.build:30:0: ERROR: Program 'glib-mkenums mkenums' not found or not executable"
@@ -421,9 +476,6 @@ in with final; {
         # fixes: "ERROR: Program 'gjs' not found or not executable"
         substituteInPlace meson.build \
           --replace-fail "find_program('gjs')" "find_program('${gjs}/bin/gjs')"
-        # fixes missing `gapplication` binary when not on PATH (needed for non-cross build too)
-        substituteInPlace data/org.gnome.Maps.desktop.in.in \
-          --replace-fail "gapplication" "${glib.bin}/bin/gapplication"
       '';
     });
     # gnome-shell = super.gnome-shell.overrideAttrs (orig: {
@@ -463,6 +515,12 @@ in with final; {
           --replace-fail "disabled_plugins = []" "disabled_plugins = ['power']"
       '';
     });
+    # gnome-settings-daemon43 = super.gnome-settings-daemon43.overrideAttrs (orig: {
+    #   postPatch = orig.postPatch + ''
+    #     substituteInPlace plugins/meson.build \
+    #       --replace-fail "disabled_plugins = []" "disabled_plugins = ['power']"
+    #   '';
+    # });
 
     # 2023/08/01: upstreaming is blocked on argyllcms, gnome-keyring, gnome-clocks, ibus, libavif, webp-pixbuf-loader (gnome-shell)
     # fixes: "gdbus-codegen not found or executable"
@@ -698,12 +756,6 @@ in with final; {
   #   ];
   # });
 
-  # upstreaming: <https://github.com/NixOS/nixpkgs/pull/317477>
-  libvpx = prev.libvpx.overrideAttrs (upstream: {
-    # fails building neon extensions for armv7l; see <https://github.com/NixOS/nixpkgs/issues/208746>
-    configureFlags = builtins.map (lib.replaceStrings [ "armv7l-linux-gcc" ] [ "armv7-linux-gcc" ]) upstream.configureFlags;
-  });
-
   # 2024/05/31: upstreaming blocked on qtsvg, libgweather, appstream, glycin-loaders
   loupe = prev.loupe.overrideAttrs (upstream: {
     postPatch = (upstream.postPatch or "") + ''
@@ -715,9 +767,9 @@ in with final; {
 
   # 2024/05/31: upstreaming blocked on qtsvg, appstream, maybe others
   mepo = (prev.mepo.override {
-    # nixpkgs mepo correctly puts `zig_0_11.hook` in nativeBuildInputs,
+    # nixpkgs mepo correctly puts `zig_0_12.hook` in nativeBuildInputs,
     # but for some reason that tries to use the host zig instead of the build zig.
-    zig_0_11 = buildPackages.zig_0_11;
+    zig_0_12 = buildPackages.zig_0_12;
   }).overrideAttrs (upstream: {
     dontUseZigCheck = true;
     nativeBuildInputs = upstream.nativeBuildInputs ++ [
@@ -862,6 +914,30 @@ in with final; {
   #   ];
   #   # buildInputs = lib.remove gnupg upstream.buildInputs;
   # });
+
+  pantheon = prev.pantheon.overrideScope (self: super: {
+    # 2024/06/13: upstreaming is blocked by qtsvg/ffado
+    switchboard-plug-network = super.switchboard-plug-network.overrideAttrs (upstream: {
+      nativeBuildInputs = upstream.nativeBuildInputs ++ [
+        buildPackages.gettext  # <for msgfmt
+      ];
+    });
+    # 2024/06/13: upstreaming is unblocked; implemented on `pr-cross-switchboard-plugs-sound` branch
+    switchboard-plug-sound = super.switchboard-plug-sound.overrideAttrs (upstream: {
+      # depsBuildBuild = (upstream.depsBuildBuild or []) ++ [
+      #   pkg-config  #< so that it can find the right gettext/msgfmt
+      # ];
+      # everything requires an extra `buildPackages` than if i patched this inside nixpkgs itself: not sure why!
+      nativeBuildInputs = upstream.nativeBuildInputs ++ [
+        buildPackages.gettext  #< for msgfmt
+        # gettext  #< for msgfmt
+        buildPackages.glib
+      ];
+      env.PKG_CONFIG_GIO_2_0_GLIB_COMPILE_RESOURCES = "${lib.getDev buildPackages.buildPackages.glib}/bin/glib-compile-resources";
+
+      strictDeps = true;
+    });
+  });
 
   # fixes (meson) "Program 'glib-mkenums mkenums' not found or not executable"
   # 2024/05/31: upstreaming is blocked on appstream, libgweather, qtsvg
@@ -1105,6 +1181,14 @@ in with final; {
   #   ];
   # });
 
+  starship = prev.starship.overrideAttrs (base: {
+    # fix that shell completion installation wants to run host starship
+    postInstall = lib.replaceStrings
+      [ "$out/bin/starship" ]
+      [ "${stdenv.hostPlatform.emulator buildPackages} $out/bin/starship" ]
+      base.postInstall;
+  });
+
   # 2024/05/31: upstreaming is blocked by qtsvg, appstream
   tangram = prev.tangram.overrideAttrs (upstream: {
     # blueprint-compiler runs on the build machine, but tries to load gobject-introspection types meant for the host.
@@ -1141,17 +1225,6 @@ in with final; {
   #     '';
   #   });
   # };
-
-  # 2024/05/31: upstreaming is unblocked
-  # - problem is fixed in a newer version of the package anyway, just needs updating (repo migration)
-  # fixes: "Run-time dependency scdoc found: NO (tried pkgconfig)"
-  unl0kr = prev.unl0kr.overrideAttrs (upstream: {
-    postPatch = (upstream.postPatch or "") + ''
-      substituteInPlace meson.build \
-        --replace-fail "scdoc = dependency('scdoc')" "" \
-        --replace-fail "scdoc.get_pkgconfig_variable('scdoc')" "'scdoc'"
-    '';
-  });
 
   # 2024/05/31: upstreaming is blocked on hdf5, thrift, others
   # visidata = prev.visidata.override {

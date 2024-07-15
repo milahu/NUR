@@ -22,8 +22,7 @@
 
   sane.ports.ports."50300" = {
     protocol = [ "tcp" ];
-    # not visible to WAN: i run this in a separate netns
-    visibleTo.ovpn = true;
+    # visibleTo.ovpns = true;  #< not needed: it runs in the ovpns namespace
     description = "colin-soulseek";
   };
 
@@ -33,7 +32,7 @@
     forceSSL = true;
     enableACME = true;
     locations."/" = {
-      proxyPass = "http://10.0.1.6:5030";
+      proxyPass = "http://${config.sane.netns.ovpns.netnsVethIpv4}:5030";
       proxyWebsockets = true;
     };
   };
@@ -72,7 +71,7 @@
   systemd.services.slskd.serviceConfig = {
     # run this behind the OVPN static VPN
     NetworkNamespacePath = "/run/netns/ovpns";
-    ExecStartPre = [ "${lib.getExe pkgs.sane-scripts.ip-check} --no-upnp --expect 185.157.162.178" ];  # abort if public IP is not as expected
+    ExecStartPre = [ "${lib.getExe pkgs.sane-scripts.ip-check} --no-upnp --expect ${config.sane.netns.ovpns.netnsPubIpv4}" ];  # abort if public IP is not as expected
 
     Restart = lib.mkForce "always";  # exits "success" when it fails to connect to soulseek server
     RestartSec = "60s";

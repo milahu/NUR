@@ -95,7 +95,7 @@ in
 
     packageUnwrapped = pkgs.bemenu.overrideAttrs (upstream: {
       nativeBuildInputs = (upstream.nativeBuildInputs or []) ++ [
-        pkgs.makeWrapper
+        pkgs.makeBinaryWrapper
       ];
       # can alternatively be specified as CLI flags
       postInstall = (upstream.postInstall or "") + ''

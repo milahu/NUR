@@ -11,12 +11,12 @@ in
     # kernel compatibility (2024/05/22: 03dab630)
     # - linux-megous: boots to ssh, desktop
     #   - camera apps: megapixels (no cameras found), snapshot (no cameras found)
-    # - linux-postmarketos: boots to ssh. desktop ONLY if "anx7688" is in the initrd.availableKernelModules.
+    # - linux-postmarketos-allwinner: boots to ssh. desktop ONLY if "anx7688" is in the initrd.availableKernelModules.
     #   - camera apps: megapixels (both rear and front cameras work), `cam -l` (finds only the rear camera), snapshot (no cameras found)
     # - linux-megous.override { withMegiPinephoneConfig = true; }: NO SSH, NO SIGNS OF LIFE
     # - linux-megous.override { withFullConfig = false; }: boots to ssh, no desktop
     #
-    boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux-postmarketos.override {
+    boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux-postmarketos-allwinner.override {
       withModemPower = true;
     });
     # boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux-megous;
@@ -30,23 +30,24 @@ in
     # boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
 
     # nixpkgs.hostPlatform.linux-kernel becomes stdenv.hostPlatform.linux-kernel
-    nixpkgs.hostPlatform.linux-kernel = {
-      # defaults:
-      name = "aarch64-multiplatform";
-      # baseConfig: defaults to "defconfig";
-      # baseConfig = "pinephone_defconfig";  #< N.B.: ignored by `pkgs.linux-megous`
-      DTB = true;  #< DTB: compile device tree blobs
-      # autoModules (default: true): for config options not manually specified, answer `m` to anything which supports it.
-      # - this effectively builds EVERY MODULE SUPPORTED.
-      autoModules = true;  #< N.B.: ignored by `pkgs.linux-megous`
-      # preferBuiltin (default: false; true for rpi): for config options which default to `Y` upstream, build them as `Y` (overriding `autoModules`)
-      # preferBuiltin = false;
+    # ^ but only if using flakes (or rather, if *not* using `nixpkgs.nixos` to construct the host config)
+    # nixpkgs.hostPlatform.linux-kernel = {
+    #   # defaults:
+    #   name = "aarch64-multiplatform";
+    #   # baseConfig: defaults to "defconfig";
+    #   # baseConfig = "pinephone_defconfig";  #< N.B.: ignored by `pkgs.linux-megous`
+    #   DTB = true;  #< DTB: compile device tree blobs
+    #   # autoModules (default: true): for config options not manually specified, answer `m` to anything which supports it.
+    #   # - this effectively builds EVERY MODULE SUPPORTED.
+    #   autoModules = true;  #< N.B.: ignored by `pkgs.linux-megous`
+    #   # preferBuiltin (default: false; true for rpi): for config options which default to `Y` upstream, build them as `Y` (overriding `autoModules`)
+    #   # preferBuiltin = false;
 
-      # build a compressed kernel image: without this i run out of /boot space in < 10 generations
-      # target = "Image";  # <-- default
-      target = "Image.gz";  # <-- compress the kernel image
-      # target = "zImage";  # <-- confuses other parts of nixos :-(
-    };
+    #   # build a compressed kernel image: without this i run out of /boot space in < 10 generations
+    #   # target = "Image";  # <-- default
+    #   target = "Image.gz";  # <-- compress the kernel image
+    #   # target = "zImage";  # <-- confuses other parts of nixos :-(
+    # };
 
     # boot.initrd.kernelModules = [
     #   "drm"  #< force drm to be plugged
@@ -259,9 +260,6 @@ in
       })
     ];
 
-    # enable rotation sensor
-    # hardware.sensor.iio.enable = true;
-
     ## TOW-BOOT: <https://tow-boot.org>
     # docs (pinephone specific): <https://github.com/Tow-Boot/Tow-Boot/tree/development/boards/pine64-pinephoneA64>
     # LED and button behavior is defined here: <https://github.com/Tow-Boot/Tow-Boot/blob/development/modules/tow-boot/phone-ux.nix>
@@ -279,9 +277,16 @@ in
     sane.image.extraGPTPadding = 16 * 1024 * 1024;
     sane.image.firstPartGap = 0;
     sane.image.installBootloader = ''
-      dd if=${pkgs.tow-boot-pinephone}/Tow-Boot.noenv.bin of=$out bs=1024 seek=8 conv=notrunc
+      dd if=${pkgs.u-boot-pinephone}/u-boot-sunxi-with-spl.bin of=$out bs=1024 seek=8 conv=notrunc
     '';
+    # sane.image.installBootloader = ''
+    #   dd if=${pkgs.tow-boot-pinephone}/Tow-Boot.noenv.bin of=$out bs=1024 seek=8 conv=notrunc
+    # '';
 
+    sane.programs.geoclue2.suggestedPrograms = [
+      "gps-share"
+    ];
+    sane.programs.nwg-panel.config.torch = "white:flash";
     sane.programs.swaynotificationcenter.config = {
       backlight = "backlight";  # /sys/class/backlight/*backlight*/brightness
     };

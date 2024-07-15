@@ -106,7 +106,7 @@ let
       yaru-theme
       zuki-themes
     ;
-    inherit (pkgs.gnome)
+    inherit (pkgs)
       adwaita-icon-theme
       gnome-themes-extra
     ;
@@ -120,11 +120,11 @@ let
       Dracula-cursors = dracula-theme;
     };
     cursor-theme = {
-      Adwaita = gnome.adwaita-icon-theme;
+      Adwaita = adwaita-icon-theme;
     };
     gtk-theme = {
-      Adwaita = gnome.gnome-themes-extra;  # gtk-3.0
-      Adwaita-dark = gnome.gnome-themes-extra;  # gtk-3.0
+      Adwaita = gnome-themes-extra;  # gtk-3.0
+      Adwaita-dark = gnome-themes-extra;  # gtk-3.0
       Arc = arc-theme;  # gtk-4.0
       Arc-Dark = arc-theme;  # gtk-4.0
       Arc-Darker = arc-theme;  # gtk-4.0
@@ -137,7 +137,7 @@ let
       Fluent-Dark-compact = fluent-gtk-theme;  # gtk-4.0
       Fluent-Light = fluent-gtk-theme;  # gtk-4.0
       Fluent-Light-compact = fluent-gtk-theme;  # gtk-4.0,  NICE!
-      HighContrast = gnome.gnome-themes-extra;  # gtk-3.0
+      HighContrast = gnome-themes-extra;  # gtk-3.0
       Matcha-light-azul = matcha-gtk-theme;  # gtk-4.0,  NICE!
       Matcha-light-sea = matcha-gtk-theme;  # gtk-4.0,  NICE!
       # additional Matcha-* omitted
@@ -182,13 +182,13 @@ let
       # - that's probably why so many themes here also symlink Adwaita
       # my accounting of "adwaita coverage" seems to be overoptimistic somehow
       # maybe some apps bundle adwaita themselves
-      Adwaita = gnome.adwaita-icon-theme;
+      Adwaita = adwaita-icon-theme;
       Arc = arc-icon-theme;  # 4.5/5, meh icon for "vertical ellipsis". 3/5 adwaita coverage
       elementary-xfce = elementary-xfce-icon-theme;  # does not cross compile (2023/10/03)
       elementary-xfce-dark = elementary-xfce-icon-theme;
       elementary-xfce-darker = elementary-xfce-icon-theme;
       elementary-xfce-darkest = elementary-xfce-icon-theme;
-      HighContrast = gnome.gnome-themes-extra;  # 5/5. 5/5 adwaita coverage (4/5 cross)
+      HighContrast = gnome-themes-extra;  # 5/5. 5/5 adwaita coverage (4/5 cross)
       Humanity = humanity-icon-theme;  # 5/5. 5/5 adwaita coverage (3.5/5 cross, unique in which icons work)
       Humanity-Dark = humanity-icon-theme;
       kora = kora-icon-theme;

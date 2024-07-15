@@ -1,11 +1,13 @@
 { stdenv
 , callPackage
 , concatTextFile
+, fetchpatch
 , fetchurl
 , gnused
 , jq
 , lib
 , newScope
+, nix-update
 , nix-update-script
 , runCommandLocal
 , strip-nondeterminism
@@ -15,6 +17,18 @@
 , zip
 }:
 let
+  nix-update' = nix-update.overrideAttrs (upstream: {
+    patches = (upstream.patches or []) ++ [
+      (fetchpatch {
+        # u-block releases betas, and worse, deletes them later.
+        # i don't know how to ignore them through the nix-update-script API,
+        # but this patch handles that.
+        name = "github: Use API to properly tag prereleases";
+        url = "https://github.com/Mic92/nix-update/pull/246.patch";
+        hash = "sha256-cwajliS1YMEcS2MtrKtpNn64rWHjwNDLI49LKhnlQYM=";
+      })
+    ];
+  });
   wrapAddon = addon: args:
   let
     extid = addon.passthru.extid;
@@ -111,15 +125,7 @@ let
       cp $src $out
     '';
 
-    passthru.updateScript = nix-update-script {
-      extraArgs = [
-        # uBlock mixes X.YY.ZbN and X.YY.ZrcN style.
-        # default nix-update accepts the former but rejects the later as unstable.
-        # that's problematic because beta releases later get pulled.
-        # ideally i'd reject both, but i don't know how.
-        "--version=unstable"
-      ];
-    };
+    passthru.updateScript = (nix-update-script.override { nix-update = nix-update'; }) { };
     passthru.extid = extid;
   };
 
@@ -139,8 +145,8 @@ in (lib.makeScope newScope (self: with self; {
       extid = "webextension@metamask.io";
       pname = "ether-metamask";
       url = "https://github.com/MetaMask/metamask-extension/releases/download/v${version}/metamask-firefox-${version}.zip";
-      version = "11.16.0";
-      hash = "sha256-GqogHIqPneZ/Ngpf5ICm/LSMB3PIC2OjdZYZ5FSKJrk=";
+      version = "attributions-v11.16.15";
+      hash = "sha256-M+Qkz9N35oGZRKEv/legPB2ARqJmBFL/H26zfnHFtbU=";
     };
     fx_cast = fetchVersionedAddon rec {
       extid = "fx_cast@matt.tf";
@@ -153,22 +159,22 @@ in (lib.makeScope newScope (self: with self; {
       extid = "i2ppb@eyedeekay.github.io";
       pname = "i2p-in-private-browsing";
       url = "https://github.com/eyedeekay/I2P-in-Private-Browsing-Mode-Firefox/releases/download/${version}/i2ppb@eyedeekay.github.io.xpi";
-      version = "1.49";
-      hash = "sha256-LnR5z3fqNJywlr/khFdV4qloKGQhbxNZQvWCEgz97DU=";
+      version = "2.5.9";
+      hash = "sha256-Vfy/DafNOv2Q1KRGOxI7M32wSMuFsnLhb2yg92xmOh4=";
     };
     sponsorblock = fetchVersionedAddon rec {
       extid = "sponsorBlocker@ajay.app";
       pname = "sponsorblock";
       url = "https://github.com/ajayyy/SponsorBlock/releases/download/${version}/FirefoxSignedInstaller.xpi";
-      version = "5.6";
-      hash = "sha256-7HnWgGxDtkr0LXIGec+V1ACV/hhKAa3zII+SgMC7GSo=";
+      version = "5.7";
+      hash = "sha256-ZP1ygz9pkai4/RQ6IP/Sty0NN2sDiDA7d7Ke8GyZmy0=";
     };
     ublacklist = fetchVersionedAddon rec {
       extid = "@ublacklist";
       pname = "ublacklist";
       url = "https://github.com/iorate/ublacklist/releases/download/v${version}/ublacklist-v${version}-firefox.zip";
-      version = "8.7.0";
-      hash = "sha256-70hdLWU8kfu7VO//aXeBi6HO6LvY20vT61zDw/pdQIg=";
+      version = "8.8.3";
+      hash = "sha256-bwHpUKyUQrvjBRrQUp2CY1vVhmxOOvLS8T4J9/P1J88=";
     };
     ublock-origin = fetchVersionedAddon rec {
       extid = "uBlock0@raymondhill.net";
@@ -176,8 +182,8 @@ in (lib.makeScope newScope (self: with self; {
       # N.B.: a handful of versions are released unsigned
       # url = "https://github.com/gorhill/uBlock/releases/download/${version}/uBlock0_${version}.signed.xpi";
       url = "https://github.com/gorhill/uBlock/releases/download/${version}/uBlock0_${version}.firefox.signed.xpi";
-      version = "1.58.0";
-      hash = "sha256-RwxWmUpxdNshV4rc5ZixWKXcCXDIfFz+iJrGMr0wheo=";
+      version = "1.58.1b12";
+      hash = "sha256-/IaYge1kml3BDVexCMehEHiJ29lXtYZrNbaIheWZh1k=";
     };
   };
 })).overrideScope (self: super:

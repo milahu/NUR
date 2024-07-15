@@ -10,7 +10,6 @@
 {
   imports = [
     ./fs.nix
-    ./gps.nix
   ];
 
   sane.hal.pine64.enable = true;
@@ -29,6 +28,7 @@
   sops.secrets.colin-passwd.neededForUsers = true;
 
   sane.programs.sway.enableFor.user.colin = true;
+  sane.programs.sway.config.mod = "Mod1";  #< alt key instead of Super
   sane.programs.blueberry.enableFor.user.colin = false;  # bluetooth manager: doesn't cross compile!
   sane.programs.fcitx5.enableFor.user.colin = false;  # does not cross compile
   sane.programs.mercurial.enableFor.user.colin = false;  # does not cross compile
@@ -36,12 +36,12 @@
 
   # enabled for easier debugging
   sane.programs.eg25-control.enableFor.user.colin = true;
-  sane.programs.rtl8723cs-wowlan.enableFor.user.colin = true;
+  # sane.programs.rtl8723cs-wowlan.enableFor.user.colin = true;
 
   # sane.programs.ntfy-sh.config.autostart = true;
   sane.programs.dino.config.autostart = true;
-  # sane.programs.signal-desktop.config.autostart = true;  # TODO: enable once electron stops derping.
-  # sane.programs."gnome.geary".config.autostart = true;
+  sane.programs.signal-desktop.config.autostart = true;
+  # sane.programs.geary.config.autostart = true;
   # sane.programs.calls.config.autostart = true;
 
   sane.programs.pipewire.config = {

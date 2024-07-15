@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p coreutils -p jq -p killall -p playerctl -p procps -p sane-open -p sway -p util-linux -p wireplumber
+#!nix-shell -i bash -p bash -p coreutils -p jq -p killall -p playerctl -p procps -p sane-open -p sway -p util-linux -p wireplumber
 # vim: set filetype=bash :
 
 # input map considerations
@@ -85,21 +85,38 @@ log() {
 
 ## HELPERS
 
-isTouchOn() {
-  # success if all touch inputs have their events enabled
+# swaySetOutput true|false
+# turns the display on or off
+swaySetOutput() {
+  swaymsg -- output '*' power "$1"
+}
+# swaySetTouch enabled|disabled
+# turns touch input on or off
+swaySetTouch() {
+  # XXX(2024/06/09): `type:touch` method is documented, but now silently fails
+  # swaymsg -- input type:touch events "$1"
+
+  local inputs=$(swaymsg -t get_inputs --raw | jq '. | map(select(.type == "touch")) | map(.identifier) | join(" ")' --raw-output)
+  for id in "${inputs[@]}"; do
+    swaymsg -- input "$id" events "$1"
+  done
+}
+
+# success if all touch inputs have their events enabled
+swayGetTouch() {
   swaymsg -t get_inputs --raw \
     | jq --exit-status '. | map(select(.type == "touch")) | all(.libinput.send_events == "enabled")' \
     > /dev/null
 }
-isScreenOn() {
-  # success if all outputs have power
+# success if all outputs have power
+swayGetOutput() {
   swaymsg -t get_outputs --raw \
     | jq --exit-status '. | all(.power)' \
     > /dev/null
 }
 
 isAllOn() {
-  isTouchOn && isScreenOn
+  swayGetOutput && swayGetTouch
 }
 
 isInhibited() {
@@ -134,12 +151,12 @@ unmapped() {
 }
 
 allOn() {
-  swaymsg -- output '*' power true
-  swaymsg -- input type:touch events enabled
+  swaySetOutput true
+  swaySetTouch enabled
 }
 allOff() {
-  swaymsg -- output '*' power false
-  swaymsg -- input type:touch events disabled
+  swaySetOutput false
+  swaySetTouch disabled
 }
 
 toggleKeyboard() {

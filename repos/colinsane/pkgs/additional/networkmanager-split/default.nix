@@ -14,4 +14,7 @@
   meta = base.meta // {
     outputsToInstall = [ ];
   };
+  passthru = {
+    inherit networkmanager;
+  };
 })

@@ -7,12 +7,11 @@
     ./services
   ];
 
-  sane.programs = {
-    # for administering services
-    freshrss.enableFor.user.colin = true;
-    matrix-synapse.enableFor.user.colin = true;
-    signaldctl.enableFor.user.colin = true;
-  };
+  # for administering services
+  sane.programs.clightning-sane.enableFor.user.colin = true;
+  # sane.programs.freshrss.enableFor.user.colin = true;
+  # sane.programs.signaldctl.enableFor.user.colin = true;
+  # sane.programs.matrix-synapse.enableFor.user.colin = true;
 
   sane.roles.build-machine.enable = true;
   sane.programs.zsh.config.showDeadlines = false;  # ~/knowledge doesn't always exist

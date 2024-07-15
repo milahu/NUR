@@ -42,7 +42,13 @@ let
         # makeSandboxed = pkgs.callPackage ./make-sandboxed.nix { sanebox = config.sane.programs.sanebox.package; };
         makeSandboxed = pkgs.callPackage ./make-sandboxed.nix { };
 
-        vpn = lib.findSingle (v: v.default) null null (builtins.attrValues config.sane.vpn);
+        vpn = if sandbox.net == "vpn" then
+          lib.findSingle (v: v.default) null null (builtins.attrValues config.sane.vpn)
+        else if sandbox.net == "vpn.wg-home" then
+          config.sane.vpn.wg-home
+        else
+          null
+        ;
 
         allowedHomePaths = builtins.attrNames fs ++ builtins.attrNames persist.byPath ++ sandbox.extraHomePaths;
         allowedRunPaths = sandbox.extraRuntimePaths;
@@ -57,10 +63,13 @@ let
           "/run/opengl-driver"
           "/run/opengl-driver-32"  #< XXX: doesn't exist on aarch64?
           "/usr/bin/env"
-        ] ++ lib.optionals (config.services.resolved.enable) [
+        ] ++ lib.optionals (sandbox.net == "all" && config.services.resolved.enable) [
           "/run/systemd/resolve"  #< to allow reading /etc/resolv.conf, which ultimately symlinks here (if using systemd-resolved)
-        ] ++ lib.optionals (builtins.elem "system" sandbox.whitelistDbus) [ "/run/dbus/system_bus_socket" ]
-          ++ sandbox.extraPaths
+        ] ++ lib.optionals (sandbox.net == "all" && config.services.avahi.enable) [
+          "/var/run/avahi-daemon"  #< yes, it has to be "/var/run/...". required for nss (e.g. `getent hosts desko.local`)
+        ] ++ lib.optionals (builtins.elem "system" sandbox.whitelistDbus) [
+          "/var/run/dbus/system_bus_socket"  #< XXX: use /var/run/..., for the rare program which requires that (i.e. avahi users)
+        ] ++ sandbox.extraPaths
         ;
 
         sandboxArgs = makeSandboxArgs {
@@ -71,15 +80,15 @@ let
             method
             whitelistPwd
           ;
-          netDev = if sandbox.net == "vpn" then
+          netDev = if vpn != null then
             vpn.name
           else
             sandbox.net;
-          netGateway = if sandbox.net == "vpn" then
+          netGateway = if vpn != null then
             vpn.addrV4
           else
             null;
-          dns = if sandbox.net == "vpn" then
+          dns = if vpn != null then
             vpn.dns
           else
             null;
@@ -231,7 +240,7 @@ let
             # only do this for the services which are *defined* by this program though (i.e. `scvCfg ? description`)
             # so as to avoid idioms like when sway adds `graphical-session.partOf = default`
             depends = svcCfg.depends
-              ++ lib.optionals (svcName != "dbus" && builtins.elem "user" config.sandbox.whitelistDbus) [
+              ++ lib.optionals (svcName != "dbus" && builtins.elem "user" config.sandbox.whitelistDbus && cfg.dbus.enabled) [
               "dbus"
             ] ++ lib.optionals ((!builtins.elem "wayland" svcCfg.partOf) && config.sandbox.whitelistWayland) [
               "wayland"
@@ -259,7 +268,7 @@ let
         type = types.coercedTo
           types.str
           (s: if s == "clearnet" || s == "localhost" then "all" else s)
-          (types.enum [ null "all" "vpn" ]);
+          (types.enum [ null "all" "vpn" "vpn.wg-home" ]);
         default = null;
         description = ''
           how this app should have its network traffic routed.
@@ -269,6 +278,7 @@ let
           - "localhost": only needs access to other services running on this host.
             currently, just an alias for "all".
           - "vpn": to route all traffic over the default VPN.
+          - "vpn.wg-home": to route all traffic over the wg-home VPN.
           - null: to maximally isolate from the network.
         '';
       };

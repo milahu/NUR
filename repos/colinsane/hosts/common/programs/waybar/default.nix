@@ -110,7 +110,7 @@ in
     };
 
     services.waybar = {
-      description = "swaybar graphical header bar/tray for sway";
+      description = "waybar status/topbar for sway";
       partOf = [ "graphical-session" ];
 
       # env G_MESSAGES_DEBUG=all

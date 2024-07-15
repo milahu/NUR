@@ -1,14 +1,16 @@
 # debugging:
 # - `journalctl -u systemd-networkd`
+# - `networkctl --help`
 #
 # docs:
 # - wireguard (nixos): <https://nixos.wiki/wiki/WireGuard#Setting_up_WireGuard_with_systemd-networkd>
 # - wireguard (arch): <https://wiki.archlinux.org/title/WireGuard>
 #
-# to route all internet traffic through a VPN endpoint, run `systemctl start vpn-${vpnName}`
+# to route all internet traffic through a VPN endpoint, run `sane-vpn up ${vpnName}`
 # to route an application's traffic through a VPN: `sane-vpn do ${vpnName} ${command[@]}`
 # to show the routing table: `ip rule`
 # to show the NAT rules used for bridging: `sudo iptables -t nat --list-rules -v`
+# to force a peer address change (e.g. DNS change): `wg set "${interface}" peer "${publicKey}" endpoint "${endpoint}"`
 #
 # the rough idea here is:
 # 1. each VPN has an IP address: if we originate a packet, and the source address is the VPN's address, then it gets routed over the VPN trivially.
@@ -43,22 +45,27 @@ let
       };
       fwmark = mkOption {
         type = types.int;
+        internal = true;
       };
       # priority*: used externally, by e.g. `sane-vpn`
       priorityMain = mkOption {
         type = types.int;
+        internal = true;
       };
       priorityWgTable = mkOption {
         type = types.int;
+        internal = true;
       };
       priorityFwMark = mkOption {
         type = types.int;
+        internal = true;
       };
       isDefault = mkOption {
         type = types.bool;
         description = ''
           read-only value: set based on whichever VPN has the lowest id.
         '';
+        internal = true;
       };
       endpoint = mkOption {
         type = types.str;
@@ -79,6 +86,14 @@ let
           IP address of my end of the VPN.
           e.g. "172.27.12.34"
         '';
+      };
+      subnetV4 = mkOption {
+        type = types.nullOr types.str;
+        description = ''
+          subnet dictating the range of IPs which should ALWAYS be routed through this VPN, no matter the system-wide settings.
+        '';
+        example = "24";
+        default = null;
       };
       dns = mkOption {
         type = types.listOf types.str;
@@ -108,7 +123,7 @@ let
       priorityFwMark = config.id + 300;
     };
   });
-  mkVpnConfig = name: { id, dns, endpoint, publicKey, addrV4, privateKeyFile, priorityMain, priorityWgTable, priorityFwMark, fwmark, ... }: {
+  mkVpnConfig = name: { addrV4, dns, endpoint, fwmark, id, priorityMain, priorityWgTable, priorityFwMark, privateKeyFile, publicKey, subnetV4, ... }: {
     assertions = [
       {
         assertion = (lib.count (c: c.id == id) (builtins.attrValues cfg)) == 1;
@@ -127,14 +142,12 @@ let
         FirewallMark = fwmark;
       };
       wireguardPeers = [{
-        wireguardPeerConfig = {
-          AllowedIPs = [
-            "0.0.0.0/0"
-            "::/0"
-          ];
-          Endpoint = endpoint;
-          PublicKey = publicKey;
-        };
+        AllowedIPs = [
+          "0.0.0.0/0"
+          "::/0"
+        ];
+        Endpoint = endpoint;
+        PublicKey = publicKey;
       }];
     };
 
@@ -149,19 +162,42 @@ let
       # Domains = ~.: system DNS queries are sent to this link's DNS server
       # networkConfig.Domains = "~.";
       routes = [{
-        routeConfig.Table = id;
-        routeConfig.Scope = "link";
-        routeConfig.Destination = "0.0.0.0/0";
-        routeConfig.Source = addrV4;
+        Table = id;
+        Scope = "link";
+        Destination = "0.0.0.0/0";
+        Source = addrV4;
+      }] ++ lib.optionals (subnetV4 != null) [{
+        Scope = "link";
+        Destination = "${addrV4}/${subnetV4}";
+        Source = addrV4;
       }];
       # RequiredForOnline => should `systemd-networkd-wait-online` fail if this network can't come up?
       linkConfig.RequiredForOnline = false;
     };
+    systemd.network.config.networkConfig.ManageForeignRoutingPolicyRules = false;
 
     # linux will drop inbound packets if it thinks a reply to that packet wouldn't exit via the same interface (rpfilter).
     # wg-quick has a solution via `iptables -j CONNMARK`, and that does work for system-wide VPNs,
     # but i couldn't get that to work for netns with SNAT, so set rpfilter to "loose".
     networking.firewall.checkReversePath = "loose";
+
+    systemd.services."${name}-refresh" = {
+      # periodically re-apply peers, to ensure DNS mappings stay fresh
+      # borrowed from <repo:nixos/nixpkgs:nixos/modules/services/networking/wireguard.nix>
+      wantedBy = [ "network.target" ];
+      path = with pkgs; [ wireguard-tools ];
+      serviceConfig.Restart = "always";
+      serviceConfig.RestartSec = "60"; #< retry delay when we fail (because e.g. there's no network)
+      serviceConfig.Type = "simple";
+      unitConfig.StartLimitIntervalSec = 0;
+      script = ''
+        while wg set ${name} peer ${publicKey} endpoint ${endpoint}; do
+          echo "${name} set to:" "$(wg show ${name} endpoints)"
+          # in the normal case that DNS resolves, and whatnot, sleep before the next attempt
+          sleep 180
+        done
+      '';
+    };
 
     # networking.firewall.extraCommands = with pkgs; ''
     #   # wireguard packet marking. without this, rpfilter drops responses from a wireguard VPN

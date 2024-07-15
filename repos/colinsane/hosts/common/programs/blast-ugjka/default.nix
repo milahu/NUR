@@ -31,7 +31,7 @@ in
 
   sane.programs.blast-to-default = {
     # helper to deal with blast's interactive CLI
-    packageUnwrapped = pkgs.static-nix-shell.mkPython3Bin {
+    packageUnwrapped = pkgs.static-nix-shell.mkPython3 {
       pname = "blast-to-default";
       pkgs = [ "blast-ugjka" ];
       srcRoot = ./.;

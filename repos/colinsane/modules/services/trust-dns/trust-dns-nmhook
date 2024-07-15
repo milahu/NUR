@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i python3 -p "python3.withPackages (ps: [  ])" -p systemd
+#!nix-shell -i python3 -p python3 -p systemd
 # vim: set filetype=python :
 
 # /etc/NetworkManager/dispatcher.d/trust-dns-nmhook:

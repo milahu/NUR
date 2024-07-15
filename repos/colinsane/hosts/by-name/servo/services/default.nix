@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./calibre.nix
     ./coturn.nix
     ./cryptocurrencies
     ./email
@@ -26,7 +25,7 @@
     ./postgres.nix
     ./prosody
     ./slskd.nix
-    ./transmission.nix
+    ./transmission
     ./trust-dns.nix
     ./wikipedia.nix
   ];

@@ -2,21 +2,18 @@
 - `rmDbusServices` may break sandboxing
   - e.g. if the package ships a systemd unit which references $out, then make-sandboxed won't properly update that unit.
   - `rmDbusServicesInPlace` is not affected
-- moby: touchscreen input is still enabled when screen is off
 - when moby wlan is explicitly set down (via ip link set wlan0 down), /var/lib/trust-dns/dhcp-configs doesn't get reset
   - `ip monitor` can detect those manual link state changes (NM-dispatcher it seems cannot)
   - or try dnsmasq?
 - trust-dns: can't recursively resolve api.mangadex.org
+  - nor `m.wikipedia.org` (`dyna.wikipedia.org`)
   - and *sometimes* apple.com fails
 - sandbox: link cache means that if i update ~/.config/... files inline, sandboxed programs still see the old version
 - mpv: audiocast has mpv sending its output to the builtin speakers unless manually changed
 - mpv: no way to exit fullscreen video on moby
   - uosc hides controls on FS, and touch doesn't support unhiding
-- Signal restart loop drains battery
-  - decrease s6 restart time?
 - `ssh` access doesn't grant same linux capabilities as login
-- ringer (i.e. dino incoming call) doesn't prevent moby from sleeping
-- sysvol (volume overlay): when casting with `blast`, sysvol doesn't react to volume changes
+- syshud (volume overlay): when casting with `blast`, syshud doesn't react to volume changes
 - moby: kaslr is effectively disabled
   - `dmesg | grep "KASLR disabled due to lack of seed"`
   - fix by adding `kaslrseed` to uboot script before `booti`
@@ -25,6 +22,12 @@
 - moby: bpf is effectively disabled?
   - `dmesg | grep 'systemd[1]: bpf-lsm: Failed to load BPF object: No such process'`
   - `dmesg | grep 'hid_bpf: error while preloading HID BPF dispatcher: -22'`
+- `s6` is not re-entrant
+  - so if the desktop crashes, the login process from `unl0kr` fails to re-launch the GUI
+- nwg-panel will sometimes create nested bars (happens maybe when i turn an external display off, then on?)
+- wg-home is unreachable for a couple minutes when switching between LAN/WAN/3G
+  - because the endpoint DNS changes.
+  - causes calls to not transfer from WiFi -> cellular.
 
 ## REFACTORING:
 - add import checks to my Python nix-shell scripts
@@ -64,6 +67,8 @@
 - /mnt/desko/home, etc, shouldn't include secrets (~/private)
   - 95% of its use is for remote media access and stuff which isn't in VCS (~/records)
 - port all sane.programs to be sandboxed
+  - sandbox `curlftpfs`
+  - sandbox `sshfs-fuse`
   - enforce that all `environment.packages` has a sandbox profile (or explicitly opts out)
   - revisit "non-sandboxable" apps and check that i'm not actually just missing mountpoints
     - LL_FS_RW=/ isn't enough -- need all mount points like `=/:/proc:/sys:...`.
@@ -78,31 +83,26 @@
     - it adds like 50-70ms launch time _on my laptop_. i'd hate to know how much that is on the pinephone.
 - make dconf stuff less monolithic
   - i.e. per-app dconf profiles for those which need it. possible static config.
-- canaries for important services
-  - e.g. daily email checks; daily backup checks
-  - integrate `nix check` into Gitea actions?
-
-#### sudo-free world
-- `systemctl restart FOO`: needs `sudo`
-- `systemctl daemon-reload`: needs sudo
-- `watch ifconfig`: needs `SANEBOX_DISABLE=1`
+  - flatpak/spectrum has some stuff to proxy dconf per-app
 
 ### user experience
 - rofi: sort items case-insensitively
-- xdg-desktop-portal shouldn't kill children on exit
-  - *maybe* a job for `setsid -f`?
 - replace starship prompt with something more efficient
   - watch `forkstat`: it does way too much
-- cleanup waybar so that it's not invoking playerctl every 2 seconds
+- cleanup waybar/nwg-panel so that it's not invoking playerctl every 2 seconds
+  - nwg-panel: doesn't know that virtual-desktop 10/TV exists
 - install apps:
+  - compass viewer (moby)
+    - <https://gitlab.com/lgtrombetta/compass> (not in nixpkgs as of 2024/07/14)
   - display QR codes for WiFi endpoints: <https://linuxphoneapps.org/apps/noappid.wisperwind.wifi2qr/>
   - shopping list (not in nixpkgs): <https://linuxphoneapps.org/apps/ro.hume.cosmin.shoppinglist/>
   - offline Wikipedia (or, add to `wike`)
   - offline docs viewer (gtk): <https://github.com/workbenchdev/Biblioteca>
   - some type of games manager/launcher
     - Gnome Highscore (retro games)?: <https://gitlab.gnome.org/World/highscore>
-  - better maps for mobile (Osmin (QtQuick)? Pure Maps (Qt/Kirigami)?
+  - better maps for mobile (Osmin (QtQuick)? Pure Maps (Qt/Kirigami)?)
   - note-taking app: <https://linuxphoneapps.org/categories/note-taking/>
+    - Folio is nice, uses standard markdown, though it only supports flat repos
   - OSK overlay specifically for mobile gaming
     - i.e. mock joysticks, for use with SuperTux and SuperTuxKart
 - install mobile-friendly games:
@@ -123,13 +123,11 @@
   - don't show MPRIS if no players detected
     - this is a problem of playerctld, i guess
   - add option to change audio output
-  - fix colors (red alert) to match overall theme
 - moby: tune GPS
-  - run only geoclue, and not gpsd, to save power?
+  - fix iio-sensor-proxy magnetometer scaling
   - tune QGPS setting in eg25-control, for less jitter?
-  - direct mepo to prefer gpsd, with fallback to geoclue, for better accuracy?
   - configure geoclue to do some smoothing?
-  - manually do smoothing, as some layer between mepo and geoclue/gpsd?
+  - manually do smoothing, as some layer between mepo and geoclue?
 - moby: port `freshen-agps` timer service to s6 (maybe i want some `s6-cron` or something)
 - moby: show battery state on ssh login
 - moby: improve gPodder launch time
@@ -156,13 +154,9 @@
 - email: fix so that local mail doesn't go to junk
   - git sendmail flow adds the DKIM signatures, but gets delivered locally w/o having the sig checked, so goes into Junk
   - could change junk filter from "no DKIM success" to explicit "DKIM failed"
+  - add an auto-reply address (e.g. `reply-test@uninsane.org`) which reflects all incoming mail; use this (or a friend running this) for liveness checks
 
 ### perf
-- debug nixos-rebuild times
-  - use `systemctl list-jobs` to show what's being waited on
-  - i think it's `systemd-networkd-wait-online.service` that's blocking this?
-    - i wonder what interface it's waiting for. i should use `--ignore=...` to ignore interfaces i don't care about.
-  - also `wireguard-wg-home.target` when net is offline
 - add `pkgs.impure-cached.<foo>` package set to build things with ccache enabled
   - every package here can be auto-generated, and marked with some env var so that it doesn't pollute the pure package set
   - would be super handy for package prototyping!
