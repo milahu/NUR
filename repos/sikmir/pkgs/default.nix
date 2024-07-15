@@ -108,6 +108,7 @@ lib.makeScope newScope (
     portolan = callPackage ./development/python-modules/portolan { };
     pyarrow_ops = callPackage ./development/python-modules/pyarrow_ops { };
     pymbtiles = callPackage ./development/python-modules/pymbtiles { };
+    pytest-docker-fixtures = callPackage ./development/python-modules/pytest-docker-fixtures { };
     pytest-mp = callPackage ./development/python-modules/pytest-mp { };
     pytest-shell-utilities = callPackage ./development/python-modules/pytest-shell-utilities { };
     pytest-skip-markers = callPackage ./development/python-modules/pytest-skip-markers { };
@@ -190,6 +191,7 @@ lib.makeScope newScope (
     elevation = callPackage ./geospatial/elevation { click = click-6-7; };
     garmindev = callPackage ./geospatial/qlandkartegt/garmindev.nix { };
     geoarrow-c = callPackage ./geospatial/geoarrow-c { };
+    geoarrow-pandas = callPackage ./geospatial/geoarrow-pandas { };
     geoarrow-pyarrow = callPackage ./geospatial/geoarrow-pyarrow { };
     geojson-pydantic = callPackage ./geospatial/geojson-pydantic { };
     geowebcache = callPackage ./geospatial/geowebcache { };
@@ -389,6 +391,7 @@ lib.makeScope newScope (
     telegabber = callPackage ./misc/telegabber { };
     telegram-send = callPackage ./misc/telegram-send { };
     telnetpp = callPackage ./misc/telnetpp { };
+    terminalpp = callPackage ./misc/terminalpp { };
     tinyflux = callPackage ./misc/tinyflux { };
     tlstunnel = callPackage ./misc/tlstunnel { };
     turbo = callPackage ./misc/turbo { };
@@ -399,6 +402,8 @@ lib.makeScope newScope (
     xfractint = callPackage ./misc/xfractint { };
     xtr = callPackage ./misc/xtr { };
     youtimetrack = callPackage ./misc/youtimetrack { };
+    zwave-js-server = callPackage ./misc/zwave-js-server { };
+    zwave-js-ui = callPackage ./misc/zwave-js-ui { };
 
     ### MQTT
 
@@ -421,6 +426,7 @@ lib.makeScope newScope (
     mqtt-to-influxdb = callPackage ./mqtt/mqtt-to-influxdb { };
     mqtt-to-influxdb-forwarder = callPackage ./mqtt/mqtt-to-influxdb-forwarder { };
     nanosdk = callPackage ./mqtt/nanosdk { };
+    pytest-mqtt = callPackage ./mqtt/pytest-mqtt { };
     rmqtt = callPackage ./mqtt/rmqtt { };
     rumqtt = callPackage ./mqtt/rumqtt { };
 
@@ -455,6 +461,7 @@ lib.makeScope newScope (
     osmdbt = callPackage ./osm/osmdbt { };
     osmium-surplus = callPackage ./osm/osmium-surplus { };
     osmosis = callPackage ./osm/osmosis { };
+    osmptparser = callPackage ./osm/osmptparser { };
     osmwalkthrough = callPackage ./osm/osmwalkthrough { };
     overpassforge = callPackage ./osm/overpassforge { };
     phyghtmap = callPackage ./osm/phyghtmap { };
