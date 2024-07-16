@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p acl -p bash -p coreutils -p findutils -p rsync -p util-linux
+#!nix-shell -i bash -p acl -p bash -p coreutils -p findutils -p rsync
 
 # transmission invokes this with no args, and the following env vars:
 # - TR_TORRENT_DIR: full path to the folder i told transmission to download it to.
@@ -7,7 +7,6 @@
 # optionally:
 # - TR_DRY_RUN=1
 # - TR_DEBUG=1
-# - TR_NO_HARDLINK=1
 
 DOWNLOAD_DIR=/var/media/torrents
 
@@ -67,10 +66,3 @@ destructive find "$MEDIA_DIR/" -type f \(\
   -o -iname 'YIFY*.com.txt' \
   -o -iname 'YTS*.com.txt' \
   \) -exec rm {} \;
-
-if ! [ -n "${TR_NO_HARDLINK}" ]; then
-  # dedupe the whole media library.
-  # yeah, a bit excessive: move this to a cron job if that's problematic
-  #   or make it run with only 1/N probability, etc.
-  destructive hardlink /var/media --reflink=always --ignore-time --verbose
-fi

@@ -31,7 +31,6 @@ let
       "coreutils"
       "findutils"
       "rsync"
-      "util-linux"
     ];
   };
 in
@@ -107,16 +106,31 @@ in
     script-torrent-done-filename = "${torrent-done}/bin/torrent-done";
   };
 
-  systemd.services.transmission.after = [ "wireguard-wg-ovpns.service" ];
-  systemd.services.transmission.partOf = [ "wireguard-wg-ovpns.service" ];
-  systemd.services.transmission.serviceConfig = {
+  systemd.services.transmission = {
+    after = [ "wireguard-wg-ovpns.service" ];
+    partOf = [ "wireguard-wg-ovpns.service" ];
+    environment.TR_DEBUG = "1";
     # run this behind the OVPN static VPN
-    NetworkNamespacePath = "/run/netns/ovpns";
-    ExecStartPre = [ "${lib.getExe pkgs.sane-scripts.ip-check} --no-upnp --expect ${config.sane.netns.ovpns.netnsPubIpv4}" ];  # abort if public IP is not as expected
+    serviceConfig.NetworkNamespacePath = "/run/netns/ovpns";
+    serviceConfig.ExecStartPre = [ "${lib.getExe pkgs.sane-scripts.ip-check} --no-upnp --expect ${config.sane.netns.ovpns.netnsPubIpv4}" ];  # abort if public IP is not as expected
 
-    Restart = "on-failure";
-    RestartSec = "30s";
-    BindPaths = [ "/var/media" ];  #< so it can move completed torrents into the media library
+    serviceConfig.Restart = "on-failure";
+    serviceConfig.RestartSec = "30s";
+    serviceConfig.BindPaths = [ "/var/media" ];  #< so it can move completed torrents into the media library
+    serviceConfig.SystemCallFilter = lib.mkForce [
+      # the torrent-done script does stuff which fails the nixos default syscall filter.
+      # allow a bunch of stuff, speculatively, to hopefully fix that:
+      "@aio"
+      "@basic-io"
+      "@chown"
+      "@file-system"
+      "@io-event"
+      "@process"
+      "@sandbox"
+      "@sync"
+      "@system-service"
+      "quotactl"
+    ];
   };
 
   # service to automatically backup torrents i add to transmission
