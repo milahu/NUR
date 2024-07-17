@@ -1,16 +1,16 @@
 {
 "name":"arc",
-"fetch_time":0.322,
-"eval_time":0.465,
+"fetch_time":0.537,
+"eval_time":0.441,
 "source":{
 "url":"https://github.com/arcnmx/nixexprs",
-"rev":"0067d9ff3aa5ce2f4e3c64a534494aa2700fcff1",
-"sha256":"0n2z5mxzfchs9zijaacxw1kkn8jyva243wd76fs9zb72jc7bwsns",
+"rev":"158921b420fe8866b5201f74a0868230bc4b9e9d",
+"sha256":"0pqvdf87lg157xh6fbbfd93nrc45p96a6q81a6yglphq7i9lbf2c",
 "date":null
 },
-"source_storepath":"/nix/store/hj09hzckswlfar356gh6ml8rs2yqyzms-source",
-"nixpkgs_storepath":"/nix/store/pydpvrzln1np9574vyjgjk3r6kmbv3a0-source",
-"nur_combined_rev":"2f6fcbb74195c820d4a01da05e5e15a2d923229d",
+"source_storepath":"/nix/store/j2kbrab9b99ifs763yva89zzzgramjjv-source",
+"nixpkgs_storepath":"/nix/store/jsq6z6c065ci2dih3af9q4ggkqd7ha4n-source",
+"nur_combined_rev":"ff7c86c0c3bae9887490b9f4a830643d91a1c2d8",
 "packages":{
 "packages.benc":{
 "meta":{
@@ -1209,7 +1209,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/applications/misc/electrum/default.nix:151",
+"position":"<nixpkgs> + /pkgs/applications/misc/electrum/default.nix:150",
 "unfree":false,
 "unsupported":false
 },
@@ -1328,7 +1328,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"forcefully-remove-bootfb-6.6.37-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.40-2018-02-08",
 "outputsToInstall":[
 "bin"
 ],
@@ -1359,7 +1359,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"forcefully-remove-bootfb-6.6.37-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.40-2018-02-08",
 "outputName":"bin",
 "outputs":{
 "bin":null,
@@ -1367,7 +1367,7 @@
 },
 "pname":"forcefully-remove-bootfb",
 "system":"x86_64-linux",
-"version":"6.6.37-2018-02-08"
+"version":"6.6.40-2018-02-08"
 },
 "packages.generateLinuxConfig":{
 "meta":{
@@ -2243,12 +2243,6 @@
 "githubId":8182846,
 "matrix":"@fgaz:matrix.org",
 "name":"Francesco Gazzetta"
-},
-{
-"email":"rahul@gopinath.org",
-"github":"vrthra",
-"githubId":70410,
-"name":"Rahul Gopinath"
 }
 ],
 "name":"jimtcl-minimal-0.82",
@@ -2575,7 +2569,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.37-2021.04.21",
+"name":"ryzen-smu-6.6.40-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -3351,7 +3345,7 @@
 "name":"Artturi N"
 }
 ],
-"name":"nix-readline-2.18.4",
+"name":"nix-readline-2.18.5",
 "outputsToInstall":[
 "out",
 "man"
@@ -3402,11 +3396,11 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:150",
+"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:152",
 "unfree":false,
 "unsupported":false
 },
-"name":"nix-readline-2.18.4",
+"name":"nix-readline-2.18.5",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -3417,7 +3411,7 @@
 },
 "pname":"nix-readline",
 "system":"x86_64-linux",
-"version":"2.18.4"
+"version":"2.18.5"
 },
 "packages.nix-readline-2_3":{
 "meta":{
@@ -3497,7 +3491,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:136",
+"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:138",
 "unfree":false,
 "unsupported":false
 },
@@ -3518,7 +3512,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre650191.ab82a9612aa4",
+"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre653845.9355fa86e6f2",
 "description":"Mail indexer",
 "homepage":"https://notmuchmail.org/",
 "insecure":false,
@@ -3836,9 +3830,13 @@
 "x86_64-netbsd",
 "i686-openbsd",
 "x86_64-openbsd",
-"x86_64-redox"
+"x86_64-redox",
+"i686-cygwin",
+"x86_64-cygwin",
+"x86_64-windows",
+"i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/development/embedded/openocd/default.nix:64",
+"position":"<nixpkgs> + /pkgs/development/embedded/openocd/default.nix:70",
 "unfree":false,
 "unsupported":false
 },
@@ -4689,7 +4687,7 @@
 "name":"oxalica"
 }
 ],
-"name":"rust-analyzer-unwrapped-2024-06-24",
+"name":"rust-analyzer-unwrapped-2024-07-01",
 "outputsToInstall":[
 "out"
 ],
@@ -4738,14 +4736,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rust-analyzer-unwrapped-2024-06-24",
+"name":"rust-analyzer-unwrapped-2024-07-01",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rust-analyzer-unwrapped",
 "system":"x86_64-linux",
-"version":"2024-06-24"
+"version":"2024-07-01"
 },
 "packages.rustdoc-stripper":{
 "meta":{
@@ -4920,7 +4918,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.37-2021.04.21",
+"name":"ryzen-smu-6.6.40-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -4965,7 +4963,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.37-2021.04.21",
+"name":"ryzen-smu-6.6.40-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -4996,21 +4994,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ryzen-smu-6.6.37-2021.04.21",
+"name":"ryzen-smu-6.6.40-2021.04.21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ryzen-smu",
 "system":"x86_64-linux",
-"version":"6.6.37-2021.04.21"
+"version":"6.6.40-2021.04.21"
 },
 "packages.ryzen-smu-monitor_cpu":{
 "meta":{
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.37-2021.04.21",
+"name":"ryzen-smu-6.6.40-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5088,7 +5086,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"name":"ryzen-smu-6.6.37-2021.04.21",
+"name":"ryzen-smu-6.6.40-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
