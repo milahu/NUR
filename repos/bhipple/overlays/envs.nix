@@ -13,6 +13,7 @@ let
     python-lsp-server
     scipy
     seaborn
+    selenium
     yapf
   ]);
 
@@ -66,6 +67,7 @@ in
         brh-python
         self.bat
         self.bc
+        self.chromedriver
         self.coreutils
         self.curl
         self.fd
@@ -75,6 +77,7 @@ in
         self.git-crypt
         self.gitui
         self.gnutar
+        self.google-chrome
         self.htop
         self.hwinfo
         self.jq
