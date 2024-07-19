@@ -83,6 +83,7 @@
     ./koreader
     ./less.nix
     ./lftp.nix
+    ./lgtrombetta-compass.nix
     ./libreoffice.nix
     ./lemoa.nix
     ./loupe.nix
@@ -90,6 +91,7 @@
     ./megapixels.nix
     ./mepo.nix
     ./mimeo
+    ./mimetype.nix
     ./mmcli.nix
     ./mopidy.nix
     ./mpv
