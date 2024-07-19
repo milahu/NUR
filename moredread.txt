@@ -1,0 +1,111 @@
+error:
+… while querying the derivation named 'implicitcad-0.4.0.0'
+
+… in the left operand of the AND (&&) operator
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:496:7:
+
+   495|       available = validity.valid != "no"
+   496|       && (if config.checkMetaRecursively or false
+      |       ^
+   497|       then all (d: d.meta.available or true) references
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:568:14:
+
+   567|   };
+   568|   validity = checkMeta.assertValidity { inherit meta attrs; };
+      |              ^
+   569|
+
+… while calling 'assertValidity'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:501:20:
+
+   500|
+   501|   assertValidity = { meta, attrs }: let
+      |                    ^
+   502|       validity = checkValidity attrs;
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:502:18:
+
+   501|   assertValidity = { meta, attrs }: let
+   502|       validity = checkValidity attrs;
+      |                  ^
+   503|       inherit (validity) valid;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:400:5:
+
+   399|     in
+   400|     attrs:
+      |     ^
+   401|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:414:13:
+
+   413|     # --- Put checks that can be ignored here ---
+   414|     else if hasDeniedUnfreeLicense attrs && !(hasAllowlistedLicense attrs) then
+      |             ^
+   415|       { valid = "no"; reason = "unfree"; errormsg = "has an unfree license (‘${showLicense attrs.meta.license}’)"; }
+
+… while calling 'hasDeniedUnfreeLicense'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:121:28:
+
+   120|   # `allowUnfreePredicate` function.
+   121|   hasDeniedUnfreeLicense = attrs:
+      |                            ^
+   122|     hasUnfreeLicense attrs &&
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:122:5:
+
+   121|   hasDeniedUnfreeLicense = attrs:
+   122|     hasUnfreeLicense attrs &&
+      |     ^
+   123|     !allowUnfree &&
+
+… while calling 'hasUnfreeLicense'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:97:22:
+
+    96|
+    97|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
+      |                      ^
+    98|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:97:49:
+
+    96|
+    97|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
+      |                                                 ^
+    98|
+
+… while calling 'isUnfree'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:88:14:
+
+    87|
+    88|   isUnfree = licenses:
+      |              ^
+    89|     if isAttrs licenses then !licenses.free or true
+
+error: attribute 'agpl3' missing
+
+at ./pkgs/implicitcad/default.nix:111:13:
+
+   110|   description = "Warning: experimental package, might change at any time. Math-inspired programmatic 2&3D CAD, also known as extopenscad";
+   111|   license = lib.licenses.agpl3;
+      |             ^
+   112|   broken = true;
+Did you mean one of gpl3, lgpl3, afl3, gpl2 or lgpl2?
