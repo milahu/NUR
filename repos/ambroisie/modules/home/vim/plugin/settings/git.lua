@@ -43,7 +43,6 @@ local keys = {
         -- Actions
         b = { gitsigns.toggle_current_line_blame, "Toggle blame virtual text" },
         d = { gitsigns.diffthis, "Diff buffer" },
-        -- stylua: ignore
         D = { utils.partial(gitsigns.diffthis, "~"), "Diff buffer against last commit" },
         g = { "<cmd>Git<CR>", "Git status" },
         h = { gitsigns.toggle_deleted, "Show deleted hunks" },
@@ -67,7 +66,6 @@ local objects = {
 local visual = {
     ["ih"] = { gitsigns.select_hunk, "Git hunk" },
 
-    -- Only the actual command can make use of the visual selection...
     ["<leader>g"] = {
         name = "Git",
         p = { gitsigns.preview_hunk, "Preview selection" },
