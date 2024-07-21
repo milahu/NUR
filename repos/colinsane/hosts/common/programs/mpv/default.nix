@@ -137,6 +137,11 @@ let
   });
 in
 {
+  sane.programs.sofa-default = {
+    packageUnwrapped = pkgs.sofacoustics.listen.irc_1052.asDefault;
+    sandbox.enable = false;  #< data only
+  };
+
   sane.programs.mpv = {
     packageUnwrapped = pkgs.mpv-unwrapped.wrapper {
       mpv = pkgs.mpv-unwrapped.override rec {
@@ -144,6 +149,11 @@ in
         # i use enable52Compat in order to get `table.unpack`.
         # i think using `luajit` here instead of `lua` is optional, just i get better perf with it :)
         lua = pkgs.luajit.override { enable52Compat = true; self = lua; };
+        # ship a ffmpeg with sofa enabled, for surround-sound downmixing
+        # ffmpeg = pkgs.ffmpeg-full;
+        ffmpeg = pkgs.ffmpeg.override {
+          withMysofa = true;
+        };
       };
       scripts = [
         pkgs.mpvScripts.mpris
@@ -189,6 +199,7 @@ in
       "sane-cast"
       "sane-die-with-parent"
       "xdg-terminal-exec"
+      "sofa-default"
     ];
 
     sandbox.method = "bwrap";
@@ -247,6 +258,12 @@ in
     mime.urlAssociations."^https?://(m\.)?(www\.)?youtube.com/shorts/.+" = "mpv.desktop";
     mime.urlAssociations."^https?://(m\.)?(www\.)?youtube.com/v/.+" = "mpv.desktop";
     mime.urlAssociations."^https?://(m\.)?(www\.)?youtube.com/watch\?.*v=.+" = "mpv.desktop";
+    #v Loupe image viewer can't open URIs, so use mpv instead
+    mime.urlAssociations."^https?://i\.imgur.com/.+" = "mpv.desktop";
   };
+
+  environment.pathsToLink = lib.mkIf cfg.enabled [
+    "/share/libmysofa"
+  ];
 }
 
