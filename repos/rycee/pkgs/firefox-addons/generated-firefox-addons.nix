@@ -660,6 +660,20 @@
         platforms = platforms.all;
       };
     };
+    "awesome-rss" = buildFirefoxXpiAddon {
+      pname = "awesome-rss";
+      version = "1.3.6resigned1";
+      addonId = "{97d566da-42c5-4ef4-a03b-5a2e5f7cbcb2}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4272927/awesome_rss-1.3.6resigned1.xpi";
+      sha256 = "383981387b37cba3ba1931235dfa58cb8b76ec7dff6195d1adbfde221a26c36b";
+      meta = with lib;
+      {
+        description = "Puts an RSS/Atom subscribe button back in URL bar.\n\nSupports \"Live Bookmarks\" (built-in), Feedly, &amp; Inoreader";
+        license = licenses.gpl3;
+        mozPermissions = [ "tabs" "storage" "<all_urls>" ];
+        platforms = platforms.all;
+      };
+    };
     "batchcamp" = buildFirefoxXpiAddon {
       pname = "batchcamp";
       version = "1.4.6";
@@ -1134,6 +1148,38 @@
         platforms = platforms.all;
       };
     };
+    "capital-one-eno" = buildFirefoxXpiAddon {
+      pname = "capital-one-eno";
+      version = "4.4.0";
+      addonId = "{4d5b7a5e-5232-9e45-97f4-f8e1ca2626e5}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4260140/capital_one_eno-4.4.0.xpi";
+      sha256 = "5b2447a8a620b44367082147603a3b6fb939b6edfe7d52a116b1a4155080dd12";
+      meta = with lib;
+      {
+        homepage = "https://www.capitalone.com/applications/eno/virtualnumbers/";
+        description = "Shop more securely through your desktop browser with Eno®, your Capital One® assistant.";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [
+          "activeTab"
+          "tabs"
+          "storage"
+          "cookies"
+          "webRequest"
+          "webRequestBlocking"
+          "alarms"
+          "https://*.capitalone.com/*"
+          "http://*.capitalone.com/*"
+          "https://*/*"
+          "http://*/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "capture-print" = buildFirefoxXpiAddon {
       pname = "capture-print";
       version = "0.2.1";
@@ -1502,10 +1548,10 @@
     };
     "codecov" = buildFirefoxXpiAddon {
       pname = "codecov";
-      version = "0.4.4";
+      version = "0.4.5";
       addonId = "{f3924b0d-e29f-4593-b605-084b3d71ed9d}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4290613/codecov-0.4.4.xpi";
-      sha256 = "4f63a0c0619d9b62a8d49ae4a9c3d3e96483594698e66eb13294dc6be401f961";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4322718/codecov-0.4.5.xpi";
+      sha256 = "9d806094000cfa9e9e14f6f1d58fbaa1b3553ab7f0466d762ea1cef799d76871";
       meta = with lib;
       {
         homepage = "https://about.codecov.io";
@@ -1986,10 +2032,10 @@
     };
     "dashlane" = buildFirefoxXpiAddon {
       pname = "dashlane";
-      version = "6.2428.0";
+      version = "6.2429.4";
       addonId = "jetpack-extension@dashlane.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4315807/dashlane-6.2428.0.xpi";
-      sha256 = "e72bfc4cc2a5d689cebb800a187cba8d1b9b0090f5ca01367993c1bbaf50d7ad";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4321180/dashlane-6.2429.4.xpi";
+      sha256 = "3852c1431d63d919dab1243ebed4aad4a68d153a8d8225f19caaf6ec7b2c3e55";
       meta = with lib;
       {
         homepage = "https://www.dashlane.com";
@@ -2067,10 +2113,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "129.0.20240717.91810";
+      version = "129.0.20240719.91629";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4321283/deutsch_de_language_pack-129.0.20240717.91810.xpi";
-      sha256 = "86adcfa6ba4bd91d0f017e81af8534f4f18957049a08dfd99197869f67a1be72";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4322432/deutsch_de_language_pack-129.0.20240719.91629.xpi";
+      sha256 = "fd5fdee648e9d01b0156fa8d971e344b5abe89cd7e7c7826c15ea1dc9df7fa9b";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -2595,6 +2641,60 @@
         platforms = platforms.all;
       };
     };
+    "fakespot-fake-reviews-amazon" = buildFirefoxXpiAddon {
+      pname = "fakespot-fake-reviews-amazon";
+      version = "1.3.2";
+      addonId = "{44df5123-f715-9146-bfaa-c6e8d4461d44}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4312344/fakespot_fake_reviews_amazon-1.3.2.xpi";
+      sha256 = "d090b800ae611890792c6211ce8b70d50d10b1ed23d28b92e6ebbe95775e2d0a";
+      meta = with lib;
+      {
+        description = "Protect yourself from bad sellers and fake reviews on Amazon and more!";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [
+          "identity"
+          "unlimitedStorage"
+          "http://*/*"
+          "https://*/*"
+          "activeTab"
+          "tabs"
+          "storage"
+          "cookies"
+          "*://*.fakespot.com/*"
+          "*://*.fakespot.local/*"
+          "*://*.amazon.com.au/*"
+          "*://*.amazon.co.uk/*"
+          "*://*.amazon.ca/*"
+          "*://*.amazon.us/*"
+          "*://*.amazon.com/*"
+          "*://*.amazon.in/*"
+          "*://*.amazon.de/*"
+          "*://*.amazon.fr/*"
+          "*://*.amazon.it/*"
+          "*://*.amazon.es/*"
+          "*://*.amazon.co.jp/*"
+          "*://*.ebay.com/*"
+          "*://*.ebay.co.uk/*"
+          "*://*.ebay.com.au/*"
+          "*://*.ebay.us/*"
+          "*://*.ebay.ca/*"
+          "*://*.walmart.com/*"
+          "*://*.google.com/search*"
+          "*://*.bestbuy.com/*"
+          "*://*.sephora.com/*"
+          "*://*.flipkart.com/*"
+          "*://*.flipkart.in/*"
+          "*://*.homedepot.com/*"
+          "<all_urls>"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "fastforwardteam" = buildFirefoxXpiAddon {
       pname = "fastforwardteam";
       version = "0.2383";
@@ -2619,10 +2719,10 @@
     };
     "faststream" = buildFirefoxXpiAddon {
       pname = "faststream";
-      version = "1.3.13";
+      version = "1.3.14";
       addonId = "faststream@andrews";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4321026/faststream-1.3.13.xpi";
-      sha256 = "21b224a416a667a8700161089bf7950cc7d8e44b5c4546244f8d8009c52296bd";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4322229/faststream-1.3.14.xpi";
+      sha256 = "e0a16ff255ab043c3cc49ba14ea515d33aa9a2bbb52ba44b9ea37b4178b54645";
       meta = with lib;
       {
         homepage = "https://faststream.online/";
@@ -3070,10 +3170,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "129.0.20240717.91810";
+      version = "129.0.20240719.91629";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4321345/francais_language_pack-129.0.20240717.91810.xpi";
-      sha256 = "f602f2fb3f4052c2a2a2f8a7349e1d45133e11df3a095de6fc6104604c6a5c1a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4322456/francais_language_pack-129.0.20240719.91629.xpi";
+      sha256 = "757ed6f3cf8c3c54fe9e40737abb8006df55a13f4747a260b74f68b9ab8483e3";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -3102,6 +3202,21 @@
           "tabs"
           "storage"
         ];
+        platforms = platforms.all;
+      };
+    };
+    "geminize" = buildFirefoxXpiAddon {
+      pname = "geminize";
+      version = "1.0.4";
+      addonId = "{c72d8561-58ba-4250-b5b2-13cfea0b6c4e}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3708150/geminize-1.0.4.xpi";
+      sha256 = "2a65389bde2db1333a8341b147a9919daf1356876771195d7c20f61e75ebc139";
+      meta = with lib;
+      {
+        homepage = "https://gitlab.com/nocylah/geminize";
+        description = "Explore Project Gemini sites from Firefox!";
+        license = licenses.mit;
+        mozPermissions = [ "activeTab" "storage" "webNavigation" ];
         platforms = platforms.all;
       };
     };
@@ -7897,6 +8012,29 @@
         platforms = platforms.all;
       };
     };
+    "passbolt" = buildFirefoxXpiAddon {
+      pname = "passbolt";
+      version = "4.8.2";
+      addonId = "passbolt@passbolt.com";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4304662/passbolt-4.8.2.xpi";
+      sha256 = "546f46b6a6994ff50a486731046ec089b964a2cf9234cba4a551417bb7a409b0";
+      meta = with lib;
+      {
+        homepage = "https://www.passbolt.com";
+        description = "Passbolt is an open source password manager designed for collaboration. Securely create, manage and monitor your passwords. Share them instantly with your team.";
+        mozPermissions = [
+          "activeTab"
+          "clipboardWrite"
+          "tabs"
+          "storage"
+          "unlimitedStorage"
+          "*://*/*"
+          "alarms"
+          "cookies"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "passff" = buildFirefoxXpiAddon {
       pname = "passff";
       version = "1.19.5";
@@ -8211,10 +8349,10 @@
     };
     "privacy-badger" = buildFirefoxXpiAddon {
       pname = "privacy-badger";
-      version = "2024.6.14";
+      version = "2024.7.17";
       addonId = "jid1-MnnxcxisBPnSXQ@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4303450/privacy_badger17-2024.6.14.xpi";
-      sha256 = "2abc0343d14151cadc48ad83d4b945c0b49adf19c802fdc9738ec55f38b98e29";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4321653/privacy_badger17-2024.7.17.xpi";
+      sha256 = "f7afc15d305966bafc9215f600acb0815c84402b7b8c763493387d19415deb0d";
       meta = with lib;
       {
         homepage = "https://privacybadger.org/";
@@ -8769,6 +8907,21 @@
         description = "Create, manage and switch between browser profiles seamlessly.";
         license = licenses.gpl3;
         mozPermissions = [ "storage" "nativeMessaging" "tabs" ];
+        platforms = platforms.all;
+      };
+    };
+    "prometheus-formatter" = buildFirefoxXpiAddon {
+      pname = "prometheus-formatter";
+      version = "3.1.0";
+      addonId = "prometheus-formatter@frederic-hemberger.de";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4166150/prometheus_formatter-3.1.0.xpi";
+      sha256 = "2796e4a48ee6f813859ea252fe50dd0ab895bb570da4cb3caa3702d2f3413b22";
+      meta = with lib;
+      {
+        homepage = "https://github.com/fhemberger/prometheus-formatter";
+        description = "Makes plain Prometheus/OpenMetrics endpoints easier to read.";
+        license = licenses.mit;
+        mozPermissions = [ "storage" "http://*/*" "https://*/*" ];
         platforms = platforms.all;
       };
     };
@@ -10072,10 +10225,10 @@
     };
     "steam-database" = buildFirefoxXpiAddon {
       pname = "steam-database";
-      version = "4.3.1";
+      version = "4.4";
       addonId = "firefox-extension@steamdb.info";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4316998/steam_database-4.3.1.xpi";
-      sha256 = "c708bc0a673cbb4322102ef53730067edc1eda311394bbbe423781ca0076bc72";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4321888/steam_database-4.4.xpi";
+      sha256 = "a44bb1367e86f5c4ea5662851d4dc46201b45f19fe3b2dcd05d64ebc84d214ab";
       meta = with lib;
       {
         homepage = "https://steamdb.info/";
@@ -11352,6 +11505,32 @@
         platforms = platforms.all;
       };
     };
+    "untrap-for-youtube" = buildFirefoxXpiAddon {
+      pname = "untrap-for-youtube";
+      version = "7.4";
+      addonId = "{2662ff67-b302-4363-95f3-b050218bd72c}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4320623/untrap_for_youtube-7.4.xpi";
+      sha256 = "4dece800eedbe5e79fd21c75089bda61d5a4806922e9c988aba227991037aed2";
+      meta = with lib;
+      {
+        homepage = "http://untrap.app";
+        description = "Hide YouTube recommendations, shorts, comments, suggestions, related videos, trending and other distractions.";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [
+          "storage"
+          "activeTab"
+          "*://*.youtube.com/*"
+          "*://www.youtube.com/*"
+          "*://m.youtube.com/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "unwanted-twitch" = buildFirefoxXpiAddon {
       pname = "unwanted-twitch";
       version = "24.3.30";
@@ -11400,6 +11579,20 @@
       {
         description = "This extension allows you to toggle userchrome.css styles on-the-fly with buttons and hotkeys.";
         license = licenses.mit;
+        mozPermissions = [ "notifications" "storage" ];
+        platforms = platforms.all;
+      };
+    };
+    "userchrome-toggle-extended" = buildFirefoxXpiAddon {
+      pname = "userchrome-toggle-extended";
+      version = "1.5";
+      addonId = "userchrome-toggle-extended@n2ezr.ru";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4295256/userchrome_toggle_extended-1.5.xpi";
+      sha256 = "246778f3da3543bb324cf69e0b551e8bec745f9774fa6813789194b7b46197e4";
+      meta = with lib;
+      {
+        description = "This extension allows you to toggle userchrome.css styles on-the-fly with buttons and hotkeys. You'll be able to switch up to six styles";
+        license = licenses.mpl20;
         mozPermissions = [ "notifications" "storage" ];
         platforms = platforms.all;
       };
@@ -11788,7 +11981,7 @@
       meta = with lib;
       {
         homepage = "https://w2g.tv";
-        description = "The official Watch2Gether Firefox extension allows you to share content from a supported site (Youtube, Vimeo, ...) directly into a Watch2Gether room. The new W2gSync feature allows you to sync-watch videos from any website on Watch2Gether.";
+        description = "With Watch2Gether you can watch videos together with your friends. Enhance your Watch2Gether experience with our official browser extension.";
         license = {
           shortName = "w2g.tv";
           fullName = "Watch2Gether Terms of Use";
