@@ -7,6 +7,7 @@
   - or try dnsmasq?
 - trust-dns can't resolve `abs.twimg.com`
 - trust-dns can't resolve `social.kernel.org`
+- trust-dns can't resolve my rsync.net address
 - sandbox: link cache means that if i update ~/.config/... files inline, sandboxed programs still see the old version
 - mpv: audiocast has mpv sending its output to the builtin speakers unless manually changed
 - mpv: no way to exit fullscreen video on moby
@@ -92,8 +93,6 @@
 - cleanup waybar/nwg-panel so that it's not invoking playerctl every 2 seconds
   - nwg-panel: doesn't know that virtual-desktop 10/TV exists
 - install apps:
-  - compass viewer (moby)
-    - <https://gitlab.com/lgtrombetta/compass> (not in nixpkgs as of 2024/07/14)
   - display QR codes for WiFi endpoints: <https://linuxphoneapps.org/apps/noappid.wisperwind.wifi2qr/>
   - shopping list (not in nixpkgs): <https://linuxphoneapps.org/apps/ro.hume.cosmin.shoppinglist/>
   - offline Wikipedia (or, add to `wike`)
