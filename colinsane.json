@@ -1,16 +1,16 @@
 {
 "name":"colinsane",
-"fetch_time":1.379,
-"eval_time":0.396,
+"fetch_time":1.092,
+"eval_time":0.423,
 "source":{
 "url":"https://git.uninsane.org/colin/nix-files",
-"rev":"fccb48cc2d8d5878b45d517f7f3864446b900e9e",
-"sha256":"12zjpz9j1f0n93wm39yx45xq9iarn3137gzgzrmrpcdna74qc24v",
+"rev":"6e3a790a46f6f728683f34a00241dbc598c248f3",
+"sha256":"0czzkcddzb4kww2jpidyyq9cqzf61la1ihjn0hp31kya2qrzymbs",
 "date":null
 },
-"source_storepath":"/nix/store/kavqsyz51dida38lwkkszmrmghfrjkns-nix-files",
-"nixpkgs_storepath":"/nix/store/08d53aah3qvf0zqjr1shzl3f62r9i278-source",
-"nur_combined_rev":"11e43c04cae222c4c5023c4384529b9b3dc07855",
+"source_storepath":"/nix/store/7i84dcjxb8n8mwasi84lrysjid82ikff-nix-files",
+"nixpkgs_storepath":"/nix/store/mbq17diwa38x96apmjp8maap2qf1yk01-source",
+"nur_combined_rev":"0f7b16e5a7395202dc7d50c17e88544777109f48",
 "packages":{
 "alsa-ucm-pinephone-manjaro":{
 "meta":{
@@ -4405,29 +4405,6 @@
 "system":"x86_64-linux",
 "version":"0.1.0"
 },
-"pkgs.sane-scripts.private-change-passwd":{
-"meta":{
-"available":true,
-"broken":false,
-"insecure":false,
-"mainProgram":"sane-private-change-passwd",
-"name":"sane-private-change-passwd-0.1.0",
-"outputsToInstall":[
-"out"
-],
-"position":"./pkgs/additional/static-nix-shell/default.nix:87",
-"unfree":false,
-"unsupported":false
-},
-"name":"sane-private-change-passwd-0.1.0",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"sane-private-change-passwd",
-"system":"x86_64-linux",
-"version":"0.1.0"
-},
 "pkgs.sane-scripts.private-do":{
 "meta":{
 "available":true,
@@ -5027,7 +5004,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/signalapp/Signal-Desktop/releases/tag/v7.14.0",
+"changelog":"https://github.com/signalapp/Signal-Desktop/releases/tag/v7.16.0",
 "description":"Private, simple, and secure messenger",
 "homepage":"https://signal.org/",
 "insecure":false,
@@ -5041,22 +5018,49 @@
 "url":"https://spdx.org/licenses/AGPL-3.0-only.html"
 },
 "longDescription":"Signal Desktop is an Electron application that links with your\n\"Signal Android\" or \"Signal iOS\" app.\n",
-"name":"signal-desktop-from-src-7.14.0",
+"name":"signal-desktop-from-src-7.16.0",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/signal-desktop-from-src/default.nix:418",
+"platforms":[
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin"
+],
+"position":"./pkgs/additional/signal-desktop-from-src/default.nix:377",
 "unfree":false,
 "unsupported":false
 },
-"name":"signal-desktop-from-src-7.14.0",
+"name":"signal-desktop-from-src-7.16.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"signal-desktop-from-src",
 "system":"x86_64-linux",
-"version":"7.14.0"
+"version":"7.16.0"
 },
 "pkgs.sofacoustics.ari-all":{
 "meta":{
@@ -5089,7 +5093,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5111,7 +5115,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5133,7 +5137,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5155,7 +5159,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5177,7 +5181,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5199,7 +5203,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5221,7 +5225,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5243,7 +5247,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5265,7 +5269,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5287,7 +5291,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5309,7 +5313,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5331,7 +5335,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5353,7 +5357,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5375,7 +5379,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5397,7 +5401,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5419,7 +5423,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5441,7 +5445,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5463,7 +5467,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5485,7 +5489,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5507,7 +5511,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5529,7 +5533,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5551,7 +5555,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5573,7 +5577,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5595,7 +5599,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5617,7 +5621,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5639,7 +5643,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5661,7 +5665,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5683,7 +5687,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5705,7 +5709,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5727,7 +5731,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5749,7 +5753,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5771,7 +5775,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5793,7 +5797,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5815,7 +5819,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5837,7 +5841,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5859,7 +5863,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5881,7 +5885,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5903,7 +5907,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5925,7 +5929,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5947,7 +5951,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5969,7 +5973,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -5991,7 +5995,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6013,7 +6017,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6035,7 +6039,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6057,7 +6061,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6079,7 +6083,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6101,7 +6105,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6123,7 +6127,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6145,7 +6149,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6167,7 +6171,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6189,7 +6193,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6211,7 +6215,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6233,7 +6237,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6255,7 +6259,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6277,7 +6281,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6299,7 +6303,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6321,7 +6325,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6343,7 +6347,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6365,7 +6369,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6387,7 +6391,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6409,7 +6413,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6431,7 +6435,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6453,7 +6457,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6475,7 +6479,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6497,7 +6501,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6519,7 +6523,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6541,7 +6545,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6563,7 +6567,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6585,7 +6589,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6607,7 +6611,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6629,7 +6633,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6651,7 +6655,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6673,7 +6677,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6695,7 +6699,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6717,7 +6721,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6739,7 +6743,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6761,7 +6765,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6783,7 +6787,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6805,7 +6809,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6827,7 +6831,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6849,7 +6853,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6871,7 +6875,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6893,7 +6897,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6915,7 +6919,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6937,7 +6941,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6959,7 +6963,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -6981,7 +6985,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7003,7 +7007,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7025,7 +7029,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7047,7 +7051,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7069,7 +7073,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7091,7 +7095,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7113,7 +7117,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7135,7 +7139,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7157,7 +7161,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7179,7 +7183,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7201,7 +7205,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7223,7 +7227,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7245,7 +7249,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7267,7 +7271,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7289,7 +7293,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7311,7 +7315,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7333,7 +7337,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7355,7 +7359,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7377,7 +7381,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7399,7 +7403,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7421,7 +7425,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7443,7 +7447,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7465,7 +7469,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7487,7 +7491,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7509,7 +7513,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7531,7 +7535,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7553,7 +7557,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7575,7 +7579,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7597,7 +7601,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7619,7 +7623,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7641,7 +7645,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7663,7 +7667,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7685,7 +7689,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7707,7 +7711,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7729,7 +7733,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7751,7 +7755,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7773,7 +7777,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7795,7 +7799,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7817,7 +7821,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7839,7 +7843,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7861,7 +7865,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7883,7 +7887,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7905,7 +7909,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7927,7 +7931,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7949,7 +7953,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7971,7 +7975,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -7993,7 +7997,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8015,7 +8019,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8037,7 +8041,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8059,7 +8063,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8081,7 +8085,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8103,7 +8107,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8125,7 +8129,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8147,7 +8151,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8169,7 +8173,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8191,7 +8195,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8213,7 +8217,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8235,7 +8239,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8257,7 +8261,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8279,7 +8283,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8301,7 +8305,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8323,7 +8327,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8345,7 +8349,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8367,7 +8371,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8389,7 +8393,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8411,7 +8415,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8433,7 +8437,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8455,7 +8459,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8477,7 +8481,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8499,7 +8503,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8521,7 +8525,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8543,7 +8547,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8565,7 +8569,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8587,7 +8591,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8609,7 +8613,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8631,7 +8635,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8653,7 +8657,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8675,7 +8679,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8697,7 +8701,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8719,7 +8723,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8741,7 +8745,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8763,7 +8767,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8785,7 +8789,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8807,7 +8811,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8829,7 +8833,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8851,7 +8855,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8873,7 +8877,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8895,7 +8899,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8917,7 +8921,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8939,7 +8943,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -8961,7 +8965,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9005,7 +9009,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9027,7 +9031,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9049,7 +9053,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9071,7 +9075,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9093,7 +9097,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9115,7 +9119,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9137,7 +9141,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9159,7 +9163,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9181,7 +9185,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9203,7 +9207,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9225,7 +9229,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9247,7 +9251,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9269,7 +9273,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9291,7 +9295,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9313,7 +9317,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9335,7 +9339,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9357,7 +9361,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9379,7 +9383,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9401,7 +9405,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9423,7 +9427,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9445,7 +9449,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9467,7 +9471,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9489,7 +9493,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9511,7 +9515,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9533,7 +9537,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9555,7 +9559,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9577,7 +9581,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9599,7 +9603,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9621,7 +9625,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9643,7 +9647,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9665,7 +9669,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9687,7 +9691,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9709,7 +9713,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9731,7 +9735,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9753,7 +9757,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9775,7 +9779,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9797,7 +9801,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9819,7 +9823,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9841,7 +9845,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9863,7 +9867,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9885,7 +9889,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9907,7 +9911,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9929,7 +9933,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9951,7 +9955,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9973,7 +9977,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -9995,7 +9999,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10017,7 +10021,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10039,7 +10043,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10061,7 +10065,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10083,7 +10087,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10105,7 +10109,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10149,7 +10153,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10171,7 +10175,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10193,7 +10197,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10215,7 +10219,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10237,7 +10241,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10259,7 +10263,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10281,7 +10285,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10303,7 +10307,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10325,7 +10329,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10347,7 +10351,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10369,7 +10373,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10391,7 +10395,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10413,7 +10417,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10435,7 +10439,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10457,7 +10461,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10479,7 +10483,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10501,7 +10505,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10523,7 +10527,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10545,7 +10549,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10567,7 +10571,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10589,7 +10593,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10611,7 +10615,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10633,7 +10637,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10655,7 +10659,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10677,7 +10681,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10699,7 +10703,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10721,7 +10725,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10743,7 +10747,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10765,7 +10769,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10787,7 +10791,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10809,7 +10813,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10831,7 +10835,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10853,7 +10857,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10875,7 +10879,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10897,7 +10901,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10919,7 +10923,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10941,7 +10945,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10963,7 +10967,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -10985,7 +10989,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11007,7 +11011,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11029,7 +11033,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11051,7 +11055,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11073,7 +11077,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11095,7 +11099,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11117,7 +11121,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11139,7 +11143,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11161,7 +11165,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11183,7 +11187,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11205,7 +11209,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11227,7 +11231,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11249,7 +11253,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11271,7 +11275,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11293,7 +11297,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11315,7 +11319,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11337,7 +11341,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11359,7 +11363,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11381,7 +11385,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11403,7 +11407,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11425,7 +11429,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11447,7 +11451,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11469,7 +11473,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11491,7 +11495,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11513,7 +11517,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11535,7 +11539,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sofacoustics/default.nix:12",
+"position":"./pkgs/additional/sofacoustics/default.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -11909,7 +11913,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/additional/sxmo-utils/default.nix:249",
+"position":"./pkgs/additional/sxmo-utils/default.nix:250",
 "unfree":false,
 "unsupported":false
 },
@@ -12166,7 +12170,7 @@
 "name":"Colin Sane"
 }
 ],
-"name":"uassets-0-unstable-2024-07-19",
+"name":"uassets-0-unstable-2024-07-21",
 "outputsToInstall":[
 "out"
 ],
@@ -12174,14 +12178,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"uassets-0-unstable-2024-07-19",
+"name":"uassets-0-unstable-2024-07-21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uassets",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-07-19"
+"version":"0-unstable-2024-07-21"
 },
 "pkgs.unftp":{
 "meta":{
