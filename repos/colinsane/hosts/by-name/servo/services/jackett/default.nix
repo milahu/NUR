@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  cfg = config.services.jackett;
+in
 {
   sane.persist.sys.byStore.plaintext = [
     # TODO: mode? we only need this to save Indexer creds ==> migrate to config?
@@ -13,9 +16,9 @@
     # run this behind the OVPN static VPN
     NetworkNamespacePath = "/run/netns/ovpns";
     ExecStartPre = [ "${lib.getExe pkgs.sane-scripts.ip-check} --no-upnp --expect ${config.sane.netns.ovpns.netnsPubIpv4}" ];  # abort if public IP is not as expected
-
-    # patch jackett to listen on the public interfaces
-    # ExecStart = lib.mkForce "${pkgs.jackett}/bin/Jackett --NoUpdates --DataFolder /var/lib/jackett/.config/Jackett --ListenPublic";
+    # patch in `--ListenPublic` so that it's reachable from the netns veth.
+    # this also makes it reachable from the VPN pub address. oh well.
+    ExecStart = lib.mkForce "${cfg.package}/bin/Jackett --ListenPublic --NoUpdates --DataFolder '${cfg.dataDir}'";
   };
 
   # jackett torrent search
