@@ -75,21 +75,21 @@
   };
   icalingua-plus-plus = {
     pname = "icalingua-plus-plus";
-    version = "v2.12.8";
+    version = "v2.12.9";
     src = fetchurl {
-      url = "https://github.com/icalingua-plus-plus/icalingua-plus-plus/releases/download/v2.12.8/app-x86_64.asar";
-      sha256 = "sha256-Rh6IDGPdaAsuNLEE7mTrLmY2fQlaEH3QUCVNiO4+QDg=";
+      url = "https://github.com/icalingua-plus-plus/icalingua-plus-plus/releases/download/v2.12.9/app-x86_64.asar";
+      sha256 = "sha256-AgGhfZSiiIKjiwFfMW94mrLHaTTtwEQYn/K4/wCW3wM=";
     };
   };
   linux-intel-lts = {
     pname = "linux-intel-lts";
-    version = "lts-v6.6.36-linux-240710T031018Z";
+    version = "lts-v6.6.40-linux-240717T053512Z";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "linux-intel-lts";
-      rev = "lts-v6.6.36-linux-240710T031018Z";
+      rev = "lts-v6.6.40-linux-240717T053512Z";
       fetchSubmodules = false;
-      sha256 = "sha256-PV5MOOll6ePwd2nkF5VMA48+YY6VlToEER7NQdjyiB4=";
+      sha256 = "sha256-qI2ZGKyQaH3auSzVFeT6niPG8oSwqekpBCKzGtRqaog=";
     };
   };
   linux-intel-mainline-tracking = {
