@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.531,
-"eval_time":0.551,
+"fetch_time":0.409,
+"eval_time":0.527,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"25cb45b67ccc789506f0529753b8927955ef89af",
-"sha256":"0idpykhzd5yx9b6z56zkwm7zlac4x70i0hn83x78mgh4fzrsbxw3",
+"rev":"a0180cb7a99b854b37059e1e35aa142506401779",
+"sha256":"1kyss9qyk6qv5wnnrc0vl6rm4fqvi13xwikzqwmyki6s4237cbc3",
 "date":null
 },
-"source_storepath":"/nix/store/6fzy7pjnrgywm5691s6y03gskgarf2rh-source",
+"source_storepath":"/nix/store/23891li3r7vf80kl1lv5dmin360aqx0r-source",
 "nixpkgs_storepath":"/nix/store/cz2g4v8269qd66yxwr0cldk5q7qp0rpx-source",
-"nur_combined_rev":"cf5c5d743e497a566ffca45e458cdc695acaaab5",
+"nur_combined_rev":"e5d4593eafe5c3ea587d9ddb355c5c5241d5c477",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -4082,7 +4082,7 @@
 "name":"Philip Taron"
 }
 ],
-"name":"llama-cpp-3436",
+"name":"llama-cpp-3442",
 "outputsToInstall":[
 "out"
 ],
@@ -4136,14 +4136,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-3436",
+"name":"llama-cpp-3442",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"3436"
+"version":"3442"
 },
 "lantianCustomized.nbfc-linux":{
 "meta":{
@@ -18370,6 +18370,7 @@
 "platforms":[
 "aarch64-linux",
 "ppc64le-linux",
+"s390x-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:114",
@@ -19280,6 +19281,7 @@
 "platforms":[
 "aarch64-linux",
 "ppc64le-linux",
+"s390x-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:114",
@@ -19448,8 +19450,10 @@
 ],
 "platforms":[
 "aarch64-linux",
+"armv7l-linux",
 "ppc64le-linux",
 "riscv64-linux",
+"s390x-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:114",
@@ -19619,8 +19623,10 @@
 ],
 "platforms":[
 "aarch64-linux",
+"armv7l-linux",
 "ppc64le-linux",
 "riscv64-linux",
+"s390x-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:114",
@@ -20644,6 +20650,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"ppc64le-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:114",
@@ -21426,6 +21433,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"ppc64le-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:114",
@@ -21481,6 +21489,7 @@
 "platforms":[
 "aarch64-linux",
 "ppc64le-linux",
+"s390x-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:114",
@@ -22391,6 +22400,7 @@
 "platforms":[
 "aarch64-linux",
 "ppc64le-linux",
+"s390x-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:114",
@@ -22445,8 +22455,10 @@
 ],
 "platforms":[
 "aarch64-linux",
+"armv7l-linux",
 "ppc64le-linux",
 "riscv64-linux",
+"s390x-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:114",
@@ -22616,8 +22628,10 @@
 ],
 "platforms":[
 "aarch64-linux",
+"armv7l-linux",
 "ppc64le-linux",
 "riscv64-linux",
+"s390x-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:114",
@@ -23527,6 +23541,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"ppc64le-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:114",
@@ -24308,6 +24323,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"ppc64le-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:114",
@@ -24996,7 +25012,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"peerbanhelper-5.0.6",
+"name":"peerbanhelper-5.0.7",
 "outputsToInstall":[
 "out"
 ],
@@ -25004,14 +25020,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"peerbanhelper-5.0.6",
+"name":"peerbanhelper-5.0.7",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"peerbanhelper",
 "system":"x86_64-linux",
-"version":"5.0.6"
+"version":"5.0.7"
 },
 "phpmyadmin":{
 "meta":{

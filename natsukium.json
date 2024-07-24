@@ -1,16 +1,16 @@
 {
 "name":"natsukium",
-"fetch_time":0.23,
-"eval_time":0.856,
+"fetch_time":0.227,
+"eval_time":0.838,
 "source":{
 "url":"https://github.com/natsukium/nur-packages",
-"rev":"aa64c161a828411defb06e7aea8ac36fed63b55b",
-"sha256":"02kny1mf7qig5wdwykjaf4icfb0b6nv8y2r2yp7hwhang87cwkpi",
+"rev":"3afe5d1f1a97dd934646d2a4416ac71c21165a61",
+"sha256":"0xj5p36f2naip70xjbv59x4f63q3rxp2a6x2cmcli8z618bfklpf",
 "date":null
 },
-"source_storepath":"/nix/store/0kb9mvmzssca0vkvfxmc6prixdxm4nla-source",
-"nixpkgs_storepath":"/nix/store/vy9d8rzmvl2a13lz1hmwcz8s5lkw10nx-source",
-"nur_combined_rev":"1a934e04dc159740aa8e82cb206fcfb3f2914ba6",
+"source_storepath":"/nix/store/592gvrck103l9zgf88h0agazfygyfg6c-source",
+"nixpkgs_storepath":"/nix/store/cz2g4v8269qd66yxwr0cldk5q7qp0rpx-source",
+"nur_combined_rev":"7fbdd558ea370cbf686914a99ee83aff1f0c32e0",
 "packages":{
 "bclm":{
 "meta":{
@@ -96,7 +96,7 @@
 "name":"Thibault Gagnaux"
 }
 ],
-"name":"colima-0.6.9",
+"name":"colima-0.6.10",
 "outputsToInstall":[
 "out"
 ],
@@ -127,20 +127,22 @@
 "s390x-linux",
 "x86_64-linux",
 "wasm64-wasi",
-"wasm32-wasi"
+"wasm32-wasi",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "position":"<nixpkgs> + /pkgs/applications/virtualization/colima/default.nix:67",
 "unfree":false,
 "unsupported":false
 },
-"name":"colima-0.6.9",
+"name":"colima-0.6.10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"colima",
 "system":"x86_64-linux",
-"version":"0.6.9"
+"version":"0.6.10"
 },
 "copyq":{
 "meta":{
@@ -956,7 +958,7 @@
 "armv7l-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/browsers/qutebrowser/default.nix:127",
+"position":"<nixpkgs> + /pkgs/applications/networking/browsers/qutebrowser/default.nix:129",
 "unfree":false,
 "unsupported":false
 },
@@ -1176,7 +1178,9 @@
 "s390x-linux",
 "x86_64-linux",
 "wasm64-wasi",
-"wasm32-wasi"
+"wasm32-wasi",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "position":"./pkgs/vim-startuptime/default.nix:25",
 "unfree":false,
