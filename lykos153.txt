@@ -1,7 +1,7 @@
 error:
 … from call site
 
-  at /nix/store/dwczkrvrrkw4afgdsrgl8vbqnr8bf1n0-source/default.nix:39:17:
+  at ./default.nix:39:17:
 
     38|   cntb-bin = pkgs.callPackage ./pkgs/cntb-bin { };
     39|   rofi-blocks = pkgs.callPackage ./pkgs/rofi-blocks { };
@@ -10,47 +10,47 @@ error:
 
 … while calling 'callPackageWith'
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at <nixpkgs> + /lib/customisation.nix:212:35:
 
-   152|   */
-   153|   callPackageWith = autoArgs: fn: args:
+   211|   */
+   212|   callPackageWith = autoArgs: fn: args:
       |                                   ^
-   154|     let
+   213|     let
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:166:10:
+  at <nixpkgs> + /lib/customisation.nix:225:10:
 
-   165|         # Filter out arguments that have a default value
-   166|         (filterAttrs (name: value: ! value)
+   224|         # Filter out arguments that have a default value
+   225|         (filterAttrs (name: value: ! value)
       |          ^
-   167|         # Filter out arguments that would be passed
+   226|         # Filter out arguments that would be passed
 
 … while calling 'filterAttrs'
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/attrsets.nix:419:5:
+  at <nixpkgs> + /lib/attrsets.nix:646:5:
 
-   418|     # The attribute set to filter
-   419|     set:
+   645|     pred:
+   646|     set:
       |     ^
-   420|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
+   647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
 
 … from call site
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:156:15:
+  at <nixpkgs> + /lib/customisation.nix:215:15:
 
-   155|       f = if isFunction fn then fn else import fn;
-   156|       fargs = functionArgs f;
+   214|       f = if isFunction fn then fn else import fn;
+   215|       fargs = functionArgs f;
       |               ^
-   157|
+   216|
 
 … while calling 'functionArgs'
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/trivial.nix:450:18:
+  at <nixpkgs> + /lib/trivial.nix:973:18:
 
-   449|   */
-   450|   functionArgs = f:
+   972|   */
+   973|   functionArgs = f:
       |                  ^
-   451|     if f ? __functor
+   974|     if f ? __functor
 
-error: getting status of '/nix/store/dwczkrvrrkw4afgdsrgl8vbqnr8bf1n0-source/pkgs/rofi-blocks': No such file or directory
+error: getting status of './pkgs/rofi-blocks': No such file or directory
