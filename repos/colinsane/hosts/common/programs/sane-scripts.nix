@@ -175,6 +175,16 @@ in
       ];
     };
     "sane-scripts.secrets-unlock".fs.".config/sops".dir = {};
+    # automatically unlock the secrets at login.
+    # the alternative is to do it on-demand, which means giving lots of stuff access to my ssh key.
+    "sane-scripts.secrets-unlock".fs.".profile".symlink.text = ''
+      maybeUnlockSecrets() {
+        if test -f ~/.ssh/id_ed25519; then
+          sane-secrets-unlock
+        fi
+      }
+      sessionCommands+=('maybeUnlockSecrets')
+    '';
 
     # sane-secrets-dump is a thin wrapper around sops + some utilities.
     # really i should sandbox just the utilities
@@ -254,6 +264,13 @@ in
       # capabilities = [ "net_admin" ];
       # extraHomePaths = [ ".config/sane-vpn" ];
     };
+    "sane-scripts.vpn".suggestedPrograms = [
+      "gnugrep"
+      "gnused"
+      "iproute2"
+      "nmcli"
+      "sane-scripts.ip-check"
+    ];
 
     "sane-scripts.which".sandbox.method = "bwrap";
 
