@@ -73,12 +73,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:955:7:
+  at <nixpkgs> + /lib/trivial.nix:957:7:
 
-   954|     { # TODO: Should we add call-time "type" checking like built in?
-   955|       __functor = self: f;
+   956|     { # TODO: Should we add call-time "type" checking like built in?
+   957|       __functor = self: f;
       |       ^
-   956|       __functionArgs = args;
+   958|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -139,12 +139,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:955:7:
+  at <nixpkgs> + /lib/trivial.nix:957:7:
 
-   954|     { # TODO: Should we add call-time "type" checking like built in?
-   955|       __functor = self: f;
+   956|     { # TODO: Should we add call-time "type" checking like built in?
+   957|       __functor = self: f;
       |       ^
-   956|       __functionArgs = args;
+   958|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -205,12 +205,12 @@ error:
 
 … while calling 'getOutput'
 
-  at <nixpkgs> + /lib/attrsets.nix:1796:23:
+  at <nixpkgs> + /lib/attrsets.nix:1797:23:
 
-  1795|   */
-  1796|   getOutput = output: pkg:
+  1796|   */
+  1797|   getOutput = output: pkg:
       |                       ^
-  1797|     if ! pkg ? outputSpecified || ! pkg.outputSpecified
+  1798|     if ! pkg ? outputSpecified || ! pkg.outputSpecified
 
 … while calling anonymous lambda
 
@@ -259,12 +259,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:955:7:
+  at <nixpkgs> + /lib/trivial.nix:957:7:
 
-   954|     { # TODO: Should we add call-time "type" checking like built in?
-   955|       __functor = self: f;
+   956|     { # TODO: Should we add call-time "type" checking like built in?
+   957|       __functor = self: f;
       |       ^
-   956|       __functionArgs = args;
+   958|       __functionArgs = args;
 
 … while calling anonymous lambda
 
