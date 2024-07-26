@@ -110,25 +110,26 @@
 
             generate-readme.program =
               let
+                # 😱
+                programList = lib.importJSON (
+                  pkgs.runCommand "program-list.json" { } ''
+                    { ${
+                      builtins.concatStringsSep "\n" (
+                        lib.mapAttrsToList (name: value: ''
+                          if test -d ${value}/bin; then
+                            ${lib.getExe pkgs.jq} -n '{"${name}": $ARGS.positional}' --args $(find ${value}/bin -type f -executable -not -name ".*" -printf "%f\n" | sort)
+                          fi
+                        '') config.packages
+                      )
+                    } } | ${lib.getExe pkgs.jq} -s add > $out
+                  ''
+                );
+
                 packageList = pkgs.writeText "package-list.md" (
                   builtins.concatStringsSep "\n" (
                     lib.mapAttrsToList (
                       name: value:
                       let
-                        # 😱
-                        programList = lib.importJSON (
-                          pkgs.runCommand "program-list.json" { } ''
-                            { ${
-                              builtins.concatStringsSep "\n" (
-                                lib.mapAttrsToList (name: value: ''
-                                  if test -d ${value}/bin; then
-                                    ${lib.getExe pkgs.jq} -n '{"${name}": $ARGS.positional}' --args $(find ${value}/bin -type f -executable -not -name ".*" -printf "%f\n" | sort)
-                                  fi
-                                '') config.packages
-                              )
-                            } } | ${lib.getExe pkgs.jq} -s add > $out
-                          ''
-                        );
                         programs = programList.${name} or [ ];
 
                         description = value.meta.description or "";
@@ -144,12 +145,17 @@
                         broken = value.meta.broken or false;
                         unfree = value.meta.unfree or false;
 
-                        brokenIndicator = lib.optionalString broken " (💥 Broken)";
-                        unfreeIndicator = lib.optionalString unfree " (🔒 Unfree)";
+                        brokenSection = lib.optionalString broken ''
+                          **💥 NOTE:** This package has been marked as broken.
+                        '';
 
-                        nameSection = "- Name: `${value.pname or value.name}`";
+                        unfreeSection = lib.optionalString unfree ''
+                          **🔒 NOTE:** This package has an unfree license.
+                        '';
 
-                        versionSection = lib.optionalString (value ? version) "- Version: ${value.version}";
+                        pnameSection = "- Name: `${value.pname or value.name}`";
+
+                        versionSection = lib.optionalString (value ? version) "- Version: `${value.version}`";
 
                         descriptionSection = if longDescription != "" then longDescription else "${description}.";
 
@@ -158,14 +164,14 @@
                             formatOutput = x: if x == value.outputName then "**`${x}`**" else "`${x}`";
                           in
                           lib.optionalString (outputs != [ ]) (
-                            "- Outputs: " + (builtins.concatStringsSep ", " (builtins.map formatOutput outputs))
+                            "- Outputs: " + (lib.concatMapStringsSep ", " formatOutput outputs)
                           );
 
                         homepageSection = lib.optionalString (homepage != "") "- [Homepage](${homepage})";
 
                         changelogSection = lib.optionalString (changelog != "") "- [Changelog](${changelog})";
 
-                        sourceSection =
+                        positionSection =
                           let
                             formatPosition =
                               x:
@@ -174,17 +180,20 @@
                                 path = builtins.elemAt parts 0;
                                 line = builtins.elemAt parts 1;
                               in
-                              "./${path}#L${line}";
+                              if builtins.pathExists (lib.path.append ./. path) then
+                                "./${path}#L${line}"
+                              else
+                                "https://github.com/NixOS/nixpkgs/blob/${nixpkgs.shortRev}/${path}#L${line}";
                           in
                           lib.optionalString (position != "") "- [Source](${formatPosition position})";
 
                         licenseSection =
                           let
-                            formatLicense = x: if x ? url then "[`${x.fullName}`](${x.url})" else x.fullName;
+                            formatLicense = x: if x ? url then "[`${x.spdxId}`](${x.url} '${x.fullName}')" else x.fullName;
                           in
                           lib.optionalString (licenses != null) (
                             "- License${if builtins.length licenses > 1 then "s" else ""}: "
-                            + (builtins.concatStringsSep ", " (builtins.map formatLicense licenses))
+                            + (lib.concatMapStringsSep ", " formatLicense licenses)
                           );
 
                         programsSection =
@@ -192,7 +201,7 @@
                             formatProgram = x: if x == mainProgram then "**`${x}`**" else "`${x}`";
                           in
                           lib.optionalString (programs != [ ]) (
-                            "- Programs provided: " + (builtins.concatStringsSep ", " (builtins.map formatProgram programs))
+                            "- Programs provided: " + (lib.concatMapStringsSep ", " formatProgram programs)
                           );
 
                         maintainersSection =
@@ -207,15 +216,13 @@
                             allMaintainersLink =
                               if builtins.any (x: x ? email) maintainers then
                                 "  - [✉️ Mail to all maintainers](mailto:"
-                                + (builtins.concatStringsSep "," (builtins.map (x: x.email or null) maintainers))
+                                + (lib.concatMapStringsSep "," (x: x.email or null) maintainers)
                                 + ")"
                               else
                                 "";
                           in
                           lib.optionalString (maintainers != [ ]) (
-                            "- Maintainers:\n"
-                            + (builtins.concatStringsSep "" (builtins.map formatMaintainer maintainers))
-                            + allMaintainersLink
+                            "- Maintainers:\n" + (lib.concatMapStringsSep "" formatMaintainer maintainers) + allMaintainersLink
                           );
 
                         platformsSection =
@@ -223,20 +230,23 @@
                             formatPlatform = x: "`${x}`";
                           in
                           lib.optionalString (platforms != [ ]) (
-                            "- Platforms: " + (builtins.concatStringsSep ", " (builtins.map formatPlatform platforms))
+                            "- Platforms: " + (lib.concatMapStringsSep ", " formatPlatform platforms)
                           );
                       in
                       builtins.concatStringsSep "\n" (
                         builtins.filter (x: x != "") [
                           ''
-                            ### `${name}`${unfreeIndicator}${brokenIndicator}
+                            ### `${name}`
                           ''
+                          brokenSection
+                          unfreeSection
                           descriptionSection
-                          nameSection
+                          pnameSection
                           versionSection
                           homepageSection
                           changelogSection
                           licenseSection
+                          positionSection
                           maintainersSection
                           ''
 
@@ -247,7 +257,6 @@
                                 Package details
                               </summary>
                           ''
-                          sourceSection
                           outputsSection
                           programsSection
                           platformsSection
@@ -293,6 +302,10 @@
               };
               deadnix.enable = true;
               statix.enable = true;
+              generate-readme = {
+                enable = true;
+                entry = "nix run --print-build-logs .#generate-readme";
+              };
             };
           };
 
