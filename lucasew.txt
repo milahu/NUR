@@ -64,11 +64,11 @@ error:
 
 … while calling 'functionArgs'
 
-  at <nixpkgs> + /lib/trivial.nix:973:18:
+  at <nixpkgs> + /lib/trivial.nix:975:18:
 
-   972|   */
-   973|   functionArgs = f:
+   974|   */
+   975|   functionArgs = f:
       |                  ^
-   974|     if f ? __functor
+   976|     if f ? __functor
 
 error: getting status of './nix/pkgs/c4me': No such file or directory

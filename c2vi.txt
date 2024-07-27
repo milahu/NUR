@@ -46,11 +46,11 @@ error:
 
 … while calling 'functionArgs'
 
-  at <nixpkgs> + /lib/trivial.nix:973:18:
+  at <nixpkgs> + /lib/trivial.nix:975:18:
 
-   972|   */
-   973|   functionArgs = f:
+   974|   */
+   975|   functionArgs = f:
       |                  ^
-   974|     if f ? __functor
+   976|     if f ? __functor
 
 error: path '/nix/store/9ri5496hjvgw0dmdv1snqd4zl5n34yhx-source.drv' is not valid
