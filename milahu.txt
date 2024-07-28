@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./default.nix:924:15:
+  at ./default.nix:932:15:
 
-   923|
-   924|   basicswap = pkgs.python3.pkgs.callPackage ./pkgs/applications/blockchains/basicswap {
+   931|
+   932|   basicswap = pkgs.python3.pkgs.callPackage ./pkgs/applications/blockchains/basicswap {
       |               ^
-   925|     # FIXME scope
+   933|     # FIXME scope
 
 … while calling 'callPackageWith'
 
@@ -19,12 +19,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:955:7:
+  at <nixpkgs> + /lib/trivial.nix:957:7:
 
-   954|     { # TODO: Should we add call-time "type" checking like built in?
-   955|       __functor = self: f;
+   956|     { # TODO: Should we add call-time "type" checking like built in?
+   957|       __functor = self: f;
       |       ^
-   956|       __functionArgs = args;
+   958|       __functionArgs = args;
 
 … while calling anonymous lambda
 
