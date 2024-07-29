@@ -320,6 +320,7 @@ lib.makeScope newScope (
 
     aamath = callPackage ./misc/aamath { };
     acp = callPackage ./misc/acp { };
+    ajv-cli = callPackage ./misc/ajv-cli { };
     apibackuper = callPackage ./misc/apibackuper { };
     arduinojson = callPackage ./misc/arduinojson { };
     ascii-dash = callPackage ./misc/ascii-dash { };
@@ -420,10 +421,11 @@ lib.makeScope newScope (
     mqtt-benchmark = callPackage ./mqtt/mqtt-benchmark { };
     mqtt-c = callPackage ./mqtt/mqtt-c { };
     mqtt-cli = callPackage ./mqtt/mqtt-cli { };
-    mqtt-explorer = callPackage ./mqtt/mqtt-explorer { };
     mqtt-launcher = callPackage ./mqtt/mqtt-launcher { };
+    mqtt-logger = callPackage ./mqtt/mqtt-logger { };
     mqtt-proxy = callPackage ./mqtt/mqtt-proxy { };
     mqtt-shell = callPackage ./mqtt/mqtt-shell { };
+    mqtt-stats = callPackage ./mqtt/mqtt-stats { };
     mqtt-to-influxdb = callPackage ./mqtt/mqtt-to-influxdb { };
     mqtt-to-influxdb-forwarder = callPackage ./mqtt/mqtt-to-influxdb-forwarder { };
     nanosdk = callPackage ./mqtt/nanosdk { };
