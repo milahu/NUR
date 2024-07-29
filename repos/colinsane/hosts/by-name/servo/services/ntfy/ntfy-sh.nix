@@ -30,7 +30,7 @@ let
   altPort = 2587;
 in
 {
-  sane.persist.sys.byStore.plaintext = [
+  sane.persist.sys.byStore.private = [
     # not 100% necessary to persist this, but ntfy does keep a 12hr (by default) cache
     # for pushing notifications to users who become offline.
     # ACLs also live here.
@@ -46,7 +46,7 @@ in
     # defaults to 45s.
     # note that the client may still do its own TCP-level keepalives, typically every 30s
     keepalive-interval = "15m";
-    log-level = "trace";  # trace, debug, info (default), warn, error
+    log-level = "info";  # trace, debug, info (default), warn, error
     auth-default-access = "deny-all";
   };
   systemd.services.ntfy-sh.serviceConfig.DynamicUser = lib.mkForce false;
