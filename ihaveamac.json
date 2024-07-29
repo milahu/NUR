@@ -1,16 +1,16 @@
 {
 "name":"ihaveamac",
-"fetch_time":0.334,
-"eval_time":0.252,
+"fetch_time":0.433,
+"eval_time":0.261,
 "source":{
 "url":"https://github.com/ihaveamac/nur-packages",
-"rev":"211070129f724ef3396722e5808b34f3723bd3a5",
-"sha256":"16n512b7cdq78qyiaba4y3wrw1k5wpq30kdmz71s06pwnvyf6j47",
+"rev":"d66830a151d7921c8d94a27bcbe4965841a12aea",
+"sha256":"1rp2pv1y4yc8087cfiis6pq488isgiavkkvk6h5hqpb7b4sl5d7h",
 "date":null
 },
-"source_storepath":"/nix/store/yc7zfivvhrgrk5bwp4y1xhg2cfc1mscx-source",
-"nixpkgs_storepath":"/nix/store/d9jki91881gr7q8rdl747gw4wg8d298c-source",
-"nur_combined_rev":"dc5189cd9a71eb9e2e59d3e8734d959a22947630",
+"source_storepath":"/nix/store/aa744j81n4gxnv8n0mr1s8ispibn3wdq-source",
+"nixpkgs_storepath":"/nix/store/a7166hzf3ia1qpg6h483bli7pi8k4hff-source",
+"nur_combined_rev":"0e6ccfd00dd81f6e3a24b2c65c85d6c1494039b2",
 "packages":{
 "_3dslink":{
 "meta":{
@@ -892,6 +892,7 @@
 "description":"The collaborative editing software that runs Wikipedia",
 "homepage":"https://www.mediawiki.org/",
 "insecure":false,
+"knownVulnerabilities":[],
 "license":{
 "deprecated":false,
 "free":true,
@@ -982,7 +983,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/mediawiki/default.nix:35",
+"position":"./pkgs/mediawiki/default.nix:36",
 "unfree":false,
 "unsupported":false
 },
@@ -997,11 +998,14 @@
 },
 "mediawiki_1_40":{
 "meta":{
-"available":true,
+"available":false,
 "broken":false,
 "description":"The collaborative editing software that runs Wikipedia",
 "homepage":"https://www.mediawiki.org/",
-"insecure":false,
+"insecure":true,
+"knownVulnerabilities":[
+"MediaWiki 1.40 has been end-of-life since 2024-06-28."
+],
 "license":{
 "deprecated":false,
 "free":true,
@@ -1092,7 +1096,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/mediawiki/default.nix:35",
+"position":"./pkgs/mediawiki/default.nix:36",
 "unfree":false,
 "unsupported":false
 },
@@ -1112,6 +1116,7 @@
 "description":"The collaborative editing software that runs Wikipedia",
 "homepage":"https://www.mediawiki.org/",
 "insecure":false,
+"knownVulnerabilities":[],
 "license":{
 "deprecated":false,
 "free":true,
@@ -1202,7 +1207,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/mediawiki/default.nix:35",
+"position":"./pkgs/mediawiki/default.nix:36",
 "unfree":false,
 "unsupported":false
 },
@@ -1222,6 +1227,7 @@
 "description":"The collaborative editing software that runs Wikipedia",
 "homepage":"https://www.mediawiki.org/",
 "insecure":false,
+"knownVulnerabilities":[],
 "license":{
 "deprecated":false,
 "free":true,
@@ -1312,7 +1318,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/mediawiki/default.nix:35",
+"position":"./pkgs/mediawiki/default.nix:36",
 "unfree":false,
 "unsupported":false
 },
