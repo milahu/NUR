@@ -427,6 +427,25 @@ git push $your_name gh-pages -u
 
 ### 2. enable github actions in the NUR repo
 
+add github token
+
+personally, i prefer classic github tokens without expiration,
+so i dont have to update the token every year (every 2 years?)
+
+generate a new token at https://github.com/settings/tokens > Generate new token (classic)
+
+- expiration: no expiration
+- scope: repo
+
+copy this token and use it for
+
+https://github.com/milahu/NUR > settings > security > secrets > actions > Repository secrets
+
+- API_TOKEN_GITHUB
+- GRAPHQL_TOKEN_GITHUB
+
+test: manually run the "update" workflow at https://github.com/milahu/NUR/actions/workflows/update.yml > run workflow
+
 
 
 ### 3. enable scheduled github actions in the NUR repo
