@@ -38,12 +38,6 @@ in {
     nginx.enable = true;
   };
 
-  systemd.services.lemmy.serviceConfig = {
-    # fix to use a normal user so we can configure perms correctly
-    DynamicUser = mkForce false;
-    User = "lemmy";
-    Group = "lemmy";
-  };
   systemd.services.lemmy.environment = {
     RUST_BACKTRACE = "full";
     RUST_LOG = "error";
@@ -74,6 +68,73 @@ in {
 
   sane.dns.zones."uninsane.org".inet.CNAME."lemmy" = "native";
 
+  systemd.services.lemmy = {
+    # fix to use a normal user so we can configure perms correctly
+    # XXX(2024-07-28): this hasn't been rigorously tested:
+    # possible that i've set something too strict and won't notice right away
+    serviceConfig.DynamicUser = mkForce false;
+    serviceConfig.User = "lemmy";
+    serviceConfig.Group = "lemmy";
+
+    # hardening (systemd-analyze security lemmy)
+    # a handful of these are specified in upstream nixpkgs, but mostly not
+    serviceConfig.LockPersonality = true;
+    serviceConfig.NoNewPrivileges = true;
+    serviceConfig.MemoryDenyWriteExecute = true;
+    serviceConfig.PrivateDevices = true;
+    serviceConfig.PrivateMounts = true;
+    serviceConfig.PrivateTmp = true;
+    serviceConfig.PrivateUsers = true;
+    serviceConfig.ProcSubset = "pid";
+
+    serviceConfig.ProtectClock = true;
+    serviceConfig.ProtectControlGroups = true;
+    serviceConfig.ProtectHome = true;
+    serviceConfig.ProtectHostname = true;
+    serviceConfig.ProtectKernelLogs = true;
+    serviceConfig.ProtectKernelModules = true;
+    serviceConfig.ProtectKernelTunables = true;
+    serviceConfig.ProtectProc = "invisible";
+    serviceConfig.ProtectSystem = "strict";
+    serviceConfig.RemoveIPC = true;
+    serviceConfig.RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6";
+
+    serviceConfig.RestrictNamespaces = true;
+    serviceConfig.RestrictSUIDSGID = true;
+    serviceConfig.SystemCallArchitectures = "native";
+    serviceConfig.SystemCallFilter = [ "@system-service" ];
+  };
+
+  systemd.services.lemmy-ui = {
+    # hardening (systemd-analyze security lemmy-ui)
+    # TODO: upstream into nixpkgs
+    serviceConfig.LockPersonality = true;
+    serviceConfig.NoNewPrivileges = true;
+    # serviceConfig.MemoryDenyWriteExecute = true;  #< it uses v8, JIT
+    serviceConfig.PrivateDevices = true;
+    serviceConfig.PrivateMounts = true;
+    serviceConfig.PrivateTmp = true;
+    serviceConfig.PrivateUsers = true;
+    serviceConfig.ProcSubset = "pid";
+
+    serviceConfig.ProtectClock = true;
+    serviceConfig.ProtectControlGroups = true;
+    serviceConfig.ProtectHome = true;
+    serviceConfig.ProtectHostname = true;
+    serviceConfig.ProtectKernelLogs = true;
+    serviceConfig.ProtectKernelModules = true;
+    serviceConfig.ProtectKernelTunables = true;
+    serviceConfig.ProtectProc = "invisible";
+    serviceConfig.ProtectSystem = "strict";
+    serviceConfig.RemoveIPC = true;
+    serviceConfig.RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6";
+
+    serviceConfig.RestrictNamespaces = true;
+    serviceConfig.RestrictSUIDSGID = true;
+    serviceConfig.SystemCallArchitectures = "native";
+    serviceConfig.SystemCallFilter = [ "@system-service" "@pkey" "@sandbox" ];
+  };
+
   #v DO NOT REMOVE: defaults to 0.3, instead of latest, so always need to explicitly set this.
   services.pict-rs.package = pict-rs;
 
@@ -83,10 +144,38 @@ in {
   # - via CLI flags (overrides everything above)
   # some of the CLI flags have defaults, making it the only actual way to configure certain things even when docs claim otherwise.
   # CLI args: <https://git.asonix.dog/asonix/pict-rs#user-content-running>
-  systemd.services.pict-rs.serviceConfig.ExecStart = lib.mkForce (lib.concatStringsSep " " [
-    "${lib.getBin pict-rs}/bin/pict-rs run"
-    "--media-video-max-frame-count" (builtins.toString (30*60*60))
-    "--media-process-timeout 120"
-    "--media-video-allow-audio"  # allow audio
-  ]);
+  systemd.services.pict-rs = {
+    serviceConfig.ExecStart = lib.mkForce (lib.concatStringsSep " " [
+      "${lib.getBin pict-rs}/bin/pict-rs run"
+      "--media-video-max-frame-count" (builtins.toString (30*60*60))
+      "--media-process-timeout 120"
+      "--media-video-allow-audio"  # allow audio
+    ]);
+
+    # hardening (systemd-analyze security pict-rs)
+    # TODO: upstream into nixpkgs
+    serviceConfig.LockPersonality = true;
+    serviceConfig.NoNewPrivileges = true;
+    serviceConfig.MemoryDenyWriteExecute = true;
+    serviceConfig.PrivateDevices = true;
+    serviceConfig.PrivateMounts = true;
+    serviceConfig.PrivateTmp = true;
+    serviceConfig.PrivateUsers = true;
+    serviceConfig.ProcSubset = "pid";
+    serviceConfig.ProtectClock = true;
+    serviceConfig.ProtectControlGroups = true;
+    serviceConfig.ProtectHome = true;
+    serviceConfig.ProtectHostname = true;
+    serviceConfig.ProtectKernelLogs = true;
+    serviceConfig.ProtectKernelModules = true;
+    serviceConfig.ProtectKernelTunables = true;
+    serviceConfig.ProtectProc = "invisible";
+    serviceConfig.ProtectSystem = "strict";
+    serviceConfig.RemoveIPC = true;
+    serviceConfig.RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6";
+    serviceConfig.RestrictNamespaces = true;
+    serviceConfig.RestrictSUIDSGID = true;
+    serviceConfig.SystemCallArchitectures = "native";
+    serviceConfig.SystemCallFilter = [ "@system-service" ];
+  };
 }

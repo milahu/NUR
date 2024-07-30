@@ -7,7 +7,7 @@
 # to run it in a oci-container: <https://github.com/barrucadu/nixfiles/blob/master/services/pleroma.nix>
 #
 # admin frontend: <https://fed.uninsane.org/pleroma/admin>
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   logLevel = "warn";
@@ -143,18 +143,45 @@ in
     pkgs.postfix
   ];
 
-  systemd.services.pleroma.serviceConfig = {
+  systemd.services.pleroma = {
     # postgres can be slow to service early requests, preventing pleroma from starting on the first try
-    Restart = "on-failure";
-    RestartSec = "10s";
-  };
+    serviceConfig.Restart = "on-failure";
+    serviceConfig.RestartSec = "10s";
 
-  # systemd.services.pleroma.serviceConfig = {
-  #   # required for sendmail. see https://git.pleroma.social/pleroma/pleroma/-/issues/2259
-  #   NoNewPrivileges = lib.mkForce false;
-  #   PrivateTmp = lib.mkForce false;
-  #   CapabilityBoundingSet = lib.mkForce "~";
-  # };
+    # hardening (systemd-analyze security pleroma)
+    # XXX(2024-07-28): this hasn't been rigorously tested:
+    # possible that i've set something too strict and won't notice right away
+    # make sure to test:
+    # - image/media uploading
+    serviceConfig.CapabilityBoundingSet = "~CAP_SYS_ADMIN";  #< TODO: reduce this. try: CAP_SYS_NICE CAP_DAC_READ_SEARCH CAP_SYS_CHROOT CAP_SETGID CAP_SETUID
+    serviceConfig.LockPersonality = true;
+    serviceConfig.NoNewPrivileges = true;
+    serviceConfig.MemoryDenyWriteExecute = true;
+    serviceConfig.PrivateDevices = lib.mkForce true;  #< dunno why nixpkgs has this set false; it seems to work as true
+    serviceConfig.PrivateMounts = true;
+    serviceConfig.PrivateTmp = true;
+    serviceConfig.PrivateUsers = true;
+
+    serviceConfig.ProtectProc = "invisible";
+    serviceConfig.ProcSubset = "all";  #< needs /proc/sys/kernel/overflowuid for bwrap
+
+    serviceConfig.ProtectClock = true;
+    serviceConfig.ProtectControlGroups = true;
+    serviceConfig.ProtectHome = true;
+    serviceConfig.ProtectKernelModules = true;
+    serviceConfig.ProtectSystem = lib.mkForce "strict";
+    serviceConfig.RemoveIPC = true;
+    serviceConfig.RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6 AF_NETLINK";
+
+    serviceConfig.RestrictSUIDSGID = true;
+    serviceConfig.SystemCallArchitectures = "native";
+    serviceConfig.SystemCallFilter = [ "@system-service" "@mount" "@sandbox" ];  #< "sandbox" might not actually be necessary
+
+    serviceConfig.ProtectHostname = false;  #< else brap can't mount /proc
+    serviceConfig.ProtectKernelLogs = false;  #< else breaks exiftool  ("bwrap: Can't mount proc on /newroot/proc: Operation not permitted")
+    serviceConfig.ProtectKernelTunables = false;  #< else breaks exiftool
+    serviceConfig.RestrictNamespaces = false;  # media uploads require bwrap
+  };
 
   # this is required to allow pleroma to send email.
   # raw `sendmail` works, but i think pleroma's passing it some funny flags or something, idk.
