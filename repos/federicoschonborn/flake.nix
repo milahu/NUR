@@ -41,6 +41,10 @@
         "aarch64-darwin"
       ];
 
+      flake = {
+        lib = import ./lib { inherit (nixpkgs) lib; };
+      };
+
       perSystem =
         {
           lib,
@@ -57,6 +61,7 @@
               allowUnfreePredicate =
                 p:
                 builtins.elem (lib.getName p) [
+                  # akkoma-emoji
                   "av70-neomouse"
                   "eevee-neopossum"
                   "eppa-neobun"
@@ -67,26 +72,28 @@
                   "fotoente-neotrain"
                   "mahiwa-neorat"
                   "moonrabbits-neodog"
-                  "renere-spinny-blobcats"
-                  "renere-spinny-blobfoxes"
-                  "renere-spinny-blobs"
                   "olivvybee-blobbee"
                   "olivvybee-fox"
                   "olivvybee-neobread"
                   "olivvybee-neodlr"
                   "olivvybee-neofriends"
                   "olivvybee-neossb"
+                  "renere-spinny-blobcats"
+                  "renere-spinny-blobfoxes"
+                  "renere-spinny-blobs"
                   "volpeon-drgn"
                   "volpeon-floof"
                   "volpeon-gphn"
                   "volpeon-neocat"
                   "volpeon-neofox"
                   "volpeon-vlpn"
+
+                  "super-mario-127"
                 ];
             };
           };
 
-          legacyPackages = import ./. { inherit system pkgs; };
+          legacyPackages = import ./. { inherit lib pkgs system; };
           packages = import ./flattenTree.nix config.legacyPackages;
 
           devShells.default = pkgs.mkShell {

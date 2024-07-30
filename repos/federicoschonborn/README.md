@@ -145,7 +145,7 @@ Source files for the neodino emoji.
 Source files for the neohaj emoji.
 
 - Name: `fotoente-neohaj`
-- Version: `0-unstable-2024-07-14`
+- Version: `0-unstable-2024-07-29`
 - [Homepage](https://codeberg.org/fotoente/neohaj)
 - License: Unfree
 - [Source](./pkgs/akkoma-emoji/fotoente/neohaj/package.nix#L37)
@@ -739,7 +739,7 @@ Like neofetch, but much faster because written in C (with all features disabled)
 - [Homepage](https://github.com/fastfetch-cli/fastfetch)
 - [Changelog](https://github.com/fastfetch-cli/fastfetch/blob/2.20.0/CHANGELOG.md)
 - License: [`MIT`](https://spdx.org/licenses/MIT.html "MIT License")
-- [Source](./default.nix#L62)
+- [Source](./default.nix#L59)
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -888,7 +888,7 @@ A set of commands that manipulate GTAs on various levels (with all features enab
 - Version: `2.4.0`
 - [Homepage](https://marlam.de/gta/)
 - License: [`GPL-3.0-or-later`](https://spdx.org/licenses/GPL-3.0-or-later.html "GNU General Public License v3.0 or later")
-- [Source](./default.nix#L98)
+- [Source](./default.nix#L95)
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -1038,7 +1038,7 @@ A library to make working with multidimensional arrays in C++ easy (with all fea
 - Version: `4.3`
 - [Homepage](https://marlam.de/tgd/)
 - License: [`MIT`](https://spdx.org/licenses/MIT.html "MIT License")
-- [Source](./default.nix#L131)
+- [Source](./default.nix#L128)
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -1363,7 +1363,7 @@ Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood
 - Version: `1.10.2`
 - [Homepage](https://github.com/ZDoom/Raze)
 - License: [`GPL-2.0`](https://spdx.org/licenses/GPL-2.0.html "GNU General Public License v2.0")
-- [Source](./default.nix#L162)
+- [Source](./default.nix#L159)
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -1380,12 +1380,39 @@ Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood
 - Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
 </details>
 
+### `super-mario-127`
+
+**🔒 NOTE:** This package has an unfree license.
+
+Fan sequel to Super Mario 63.
+
+- Name: `super-mario-127`
+- Version: `0.8.0`
+- [Homepage](https://charpurrr.itch.io/super-mario-127)
+- License: Unfree
+- [Source](./pkgs/by-name/super-mario-127/package.nix#L59)
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Outputs: **`out`**
+- Programs provided: **`super-mario-127`**
+- Platforms: `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`
+</details>
+
 ### `supermodel`
 
 Sega Model 3 arcade machine emulator.
 
 - Name: `supermodel`
-- Version: `0-unstable-2024-07-26`
+- Version: `0-unstable-2024-07-29`
 - [Homepage](https://github.com/trzy/Supermodel)
 - License: [`GPL-3.0-or-later`](https://spdx.org/licenses/GPL-3.0-or-later.html "GNU General Public License v3.0 or later")
 - [Source](./pkgs/by-name/supermodel/package.nix#L65)
@@ -1464,7 +1491,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Version: `1.11.0`
 - [Homepage](https://teem.sourceforge.net/)
 - License: [`LGPL-2.1-or-later`](https://spdx.org/licenses/LGPL-2.1-or-later.html "GNU Lesser General Public License v2.1 or later")
-- [Source](./default.nix#L187)
+- [Source](./default.nix#L184)
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -1489,7 +1516,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Version: `1.11.0`
 - [Homepage](https://teem.sourceforge.net/)
 - License: [`LGPL-2.1-or-later`](https://spdx.org/licenses/LGPL-2.1-or-later.html "GNU Lesser General Public License v2.1 or later")
-- [Source](./default.nix#L199)
+- [Source](./default.nix#L196)
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -1514,7 +1541,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Version: `1.11.0`
 - [Homepage](https://teem.sourceforge.net/)
 - License: [`LGPL-2.1-or-later`](https://spdx.org/licenses/LGPL-2.1-or-later.html "GNU Lesser General Public License v2.1 or later")
-- [Source](./default.nix#L171)
+- [Source](./default.nix#L168)
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
   - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
@@ -1639,7 +1666,7 @@ Fastest JSON library in C.
 - [Homepage](https://github.com/ibireme/yyjson)
 - [Changelog](https://github.com/ibireme/yyjson/blob/0.10.0/CHANGELOG.md)
 - License: [`MIT`](https://spdx.org/licenses/MIT.html "MIT License")
-- [Source](https://github.com/NixOS/nixpkgs/blob/733453a/pkgs/development/libraries/yyjson/default.nix#L23)
+- [Source](https://github.com/NixOS/nixpkgs/blob/038fb46/pkgs/development/libraries/yyjson/default.nix#L23)
 - Maintainers:
   - [Yohann Boniface](https://github.com/Sigmanificient) <[`sigmanificient@gmail.com`](mailto:sigmanificient@gmail.com)>
   - [✉️ Mail to all maintainers](mailto:sigmanificient@gmail.com)
