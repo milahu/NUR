@@ -1,16 +1,16 @@
 {
 "name":"mrtnvgr",
-"fetch_time":0.476,
-"eval_time":0.248,
+"fetch_time":0.443,
+"eval_time":0.265,
 "source":{
 "url":"https://github.com/mrtnvgr/nurpkgs",
-"rev":"d981c0bde88270ff29d6012ae187415d6d2dba3f",
-"sha256":"1wlvzxphm700jianb8fl6slbg71rdbl9rwj5238acsmhy1h2a7c3",
+"rev":"028b7488a87313506353569f7d1eb34e09096d76",
+"sha256":"0ldcssh71s8yvjcqh0cizrxngcjgn426pa34x7n8457sw8617mzw",
 "date":null
 },
-"source_storepath":"/nix/store/adq8dy3yn13l8xhrixigvbdb4jm9hksx-source",
-"nixpkgs_storepath":"/nix/store/fn9260w87md0bni27zy9vyimc9y29gkv-source",
-"nur_combined_rev":"d0aed6774752f13b58860e914e5d6b107289984c",
+"source_storepath":"/nix/store/ypbfh42l5r2qv49f7lxfcnzz93hfy5m7-source",
+"nixpkgs_storepath":"/nix/store/a7166hzf3ia1qpg6h483bli7pi8k4hff-source",
+"nur_combined_rev":"4b4b93d25f85e433540e2a0424b6b02d4a2b5995",
 "packages":{
 "artworks":{
 "meta":{
@@ -710,7 +710,9 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -722,7 +724,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "mainProgram":"nam",
-"name":"neural-amp-modeler-0.8.4",
+"name":"neural-amp-modeler-0.9.0",
 "outputsToInstall":[
 "out"
 ],
@@ -807,7 +809,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"neural-amp-modeler-0.8.4",
+"name":"neural-amp-modeler-0.9.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -815,7 +817,7 @@
 },
 "pname":"neural-amp-modeler",
 "system":"x86_64-linux",
-"version":"0.8.4"
+"version":"0.9.0"
 },
 "neural-amp-modeler-lv2":{
 "meta":{
@@ -1044,7 +1046,7 @@
 "name":"Franz Pletz"
 }
 ],
-"name":"obs-studio-30.1.2",
+"name":"obs-studio-30.2.2",
 "outputsToInstall":[
 "out"
 ],
@@ -1053,18 +1055,18 @@
 "i686-linux",
 "aarch64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/video/obs-studio/default.nix:194",
+"position":"<nixpkgs> + /pkgs/applications/video/obs-studio/default.nix:197",
 "unfree":false,
 "unsupported":false
 },
-"name":"wrapped-obs-studio-30.1.2",
+"name":"wrapped-obs-studio-30.2.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"wrapped-obs-studio",
 "system":"x86_64-linux",
-"version":"30.1.2"
+"version":"30.2.2"
 },
 "reaper-sws-extension":{
 "meta":{
