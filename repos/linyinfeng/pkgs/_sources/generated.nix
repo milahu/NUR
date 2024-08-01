@@ -83,13 +83,13 @@
   };
   linux-intel-lts = {
     pname = "linux-intel-lts";
-    version = "lts-v6.6.41-linux-240722T155543Z";
+    version = "lts-v6.6.43-linux-240729T053450Z";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "linux-intel-lts";
-      rev = "lts-v6.6.41-linux-240722T155543Z";
+      rev = "lts-v6.6.43-linux-240729T053450Z";
       fetchSubmodules = false;
-      sha256 = "sha256-3sVROVHP9mQubzJ2Nd/lzlNFbtnHg+kW4vkx0pclBRY=";
+      sha256 = "sha256-LXsTMHWChEKUjt+JsdVUQM4KC8HxhiSbvEUfcdBGCEk=";
     };
   };
   linux-intel-mainline-tracking = {
@@ -284,17 +284,17 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "eec59685c451c7f9ce28aa2cdf06caa5ccf940c0";
+    version = "3c9dd7d77d46a4de2e455356b13623163e2288a7";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "eec59685c451c7f9ce28aa2cdf06caa5ccf940c0";
+      rev = "3c9dd7d77d46a4de2e455356b13623163e2288a7";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-ZeNN5qFgync0OTKHJvs6wBTt4EHvM72wFSVT/R87I1I=";
+      sha256 = "sha256-ttKLZfNkHu8dWSUYPYSHJhC7KS++dW6JoPZaxupe3hk=";
     };
-    date = "2024-07-30";
+    date = "2024-08-01";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
