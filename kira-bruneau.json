@@ -1,16 +1,16 @@
 {
 "name":"kira-bruneau",
-"fetch_time":0.326,
-"eval_time":0.389,
+"fetch_time":0.338,
+"eval_time":0.37,
 "source":{
 "url":"https://gitlab.com/kira-bruneau/nur-packages",
-"rev":"70faf3b4b9f2bab5e4a4cb98c4d8f8372019f557",
-"sha256":"0vnibim2wi8p9694njgcg1a2wjxgyb6lcaaa8g4crkwdfaq6r0ck",
+"rev":"cd1fd85cec6f6c9ded6f1e492230c8e1ea6d737a",
+"sha256":"182jy4zvrc87jsq973fhn7zabi6v864al9x427iwczkdd7hcaciz",
 "date":null
 },
-"source_storepath":"/nix/store/58krspjx63s856slmzkwriv6g4ijd8d4-source",
-"nixpkgs_storepath":"/nix/store/a7166hzf3ia1qpg6h483bli7pi8k4hff-source",
-"nur_combined_rev":"ac71771d986ef2af49b41ac7049e3647f28b5dfb",
+"source_storepath":"/nix/store/pb0rlvxl0lak80xs2l4d22bd9ksp5nr8-source",
+"nixpkgs_storepath":"/nix/store/11zypp5sl1yyr3kmf552dbx27hmbfmvd-source",
+"nur_combined_rev":"d482697a1bc6b659555c8c13e34b279acb4cc327",
 "packages":{
 "anytype":{
 "meta":{
@@ -492,7 +492,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-acm-0-unstable-2024-07-27",
+"name":"emacs-acm-0-unstable-2024-08-01",
 "outputsToInstall":[
 "out"
 ],
@@ -573,18 +573,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm/default.nix:19",
+"position":"./pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm/package.nix:19",
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-acm-0-unstable-2024-07-27",
+"name":"emacs-acm-0-unstable-2024-08-01",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-acm",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-07-27"
+"version":"0-unstable-2024-08-01"
 },
 "emacsPackages.acm-terminal":{
 "meta":{
@@ -691,7 +691,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm-terminal/default.nix:30",
+"position":"./pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm-terminal/package.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -734,7 +734,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-lsp-bridge-0-unstable-2024-07-27",
+"name":"emacs-lsp-bridge-0-unstable-2024-08-01",
 "outputsToInstall":[
 "out"
 ],
@@ -819,14 +819,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-lsp-bridge-0-unstable-2024-07-27",
+"name":"emacs-lsp-bridge-0-unstable-2024-08-01",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-lsp-bridge",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-07-27"
+"version":"0-unstable-2024-08-01"
 },
 "gamemode":{
 "meta":{
@@ -1621,7 +1621,7 @@
 "name":"Felix B\u00fchler"
 }
 ],
-"name":"newsflash-3.3.0",
+"name":"newsflash-3.3.2",
 "outputsToInstall":[
 "out"
 ],
@@ -1671,18 +1671,18 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/applications/networking/feedreaders/newsflash/default.nix:114",
+"position":"./pkgs/applications/networking/feedreaders/newsflash/default.nix:99",
 "unfree":false,
 "unsupported":false
 },
-"name":"newsflash-3.3.0",
+"name":"newsflash-3.3.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"newsflash",
 "system":"x86_64-linux",
-"version":"3.3.0"
+"version":"3.3.2"
 },
 "pdfrip":{
 "meta":{
@@ -2436,7 +2436,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v24.11pre658745.038fb464fcfa",
+"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v24.11pre660607.c3392ad349a5",
 "description":"Nintendo Switch emulator written in C++",
 "homepage":"https://sudachi-emu.com",
 "insecure":false,
@@ -2737,7 +2737,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/NiceneNerd/ukmm/blob/refs/tags/v0.12.1/CHANGELOG.md",
+"changelog":"https://github.com/NiceneNerd/ukmm/blob/refs/tags/v0.13.0/CHANGELOG.md",
 "description":"New mod manager for The Legend of Zelda: Breath of the Wild",
 "homepage":"https://github.com/NiceneNerd/ukmm",
 "insecure":false,
@@ -2759,7 +2759,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"ukmm-0.12.1",
+"name":"ukmm-0.13.0",
 "outputsToInstall":[
 "out"
 ],
@@ -2786,18 +2786,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/tools/games/ukmm/default.nix:76",
+"position":"./pkgs/tools/games/ukmm/default.nix:78",
 "unfree":false,
 "unsupported":false
 },
-"name":"ukmm-0.12.1",
+"name":"ukmm-0.13.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ukmm",
 "system":"x86_64-linux",
-"version":"0.12.1"
+"version":"0.13.0"
 },
 "undistract-me":{
 "meta":{

@@ -1,16 +1,16 @@
 {
 "name":"colinsane",
-"fetch_time":3.048,
-"eval_time":0.404,
+"fetch_time":1.577,
+"eval_time":0.394,
 "source":{
 "url":"https://git.uninsane.org/colin/nix-files",
-"rev":"397b2ae2ead19f2e0075d16612506f30ce8cc161",
-"sha256":"02447wzra5hcbwisnc8ldp3cskmc71fxgcq7spjc67yy1pj5013p",
+"rev":"161f272f415d6fd0fe56a69c501a29f8a1a3228d",
+"sha256":"0jm68246spp4638zmbfgcpia5asrvsw8ijsv3mwkyp7ny91d13hh",
 "date":null
 },
-"source_storepath":"/nix/store/89w193jbnpah174ac0q120cs1l37fcdd-nix-files",
-"nixpkgs_storepath":"/nix/store/a7166hzf3ia1qpg6h483bli7pi8k4hff-source",
-"nur_combined_rev":"c20612f880834576d3a06ec58922fea61cd27bab",
+"source_storepath":"/nix/store/4yqj3az622fnh4nnpfhg145cffl6j4w0-nix-files",
+"nixpkgs_storepath":"/nix/store/11zypp5sl1yyr3kmf552dbx27hmbfmvd-source",
+"nur_combined_rev":"4f4ea5fe71431b6433d55a375fe5ebe9413dabcb",
 "packages":{
 "alsa-ucm-pinephone-manjaro":{
 "meta":{
@@ -408,6 +408,86 @@
 "pname":"chatty-latest-v0.8.0_rc0",
 "system":"x86_64-linux",
 "version":""
+},
+"clightning":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Bitcoin Lightning Network implementation in C",
+"homepage":"https://github.com/ElementsProject/lightning",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"longDescription":"c-lightning is a standard compliant implementation of the Lightning\nNetwork protocol. The Lightning Network is a scalability solution for\nBitcoin, enabling secure and instant transfer of funds between any two\nparties for any amount.\n",
+"maintainers":[
+{
+"email":"jb55@jb55.com",
+"github":"jb55",
+"githubId":45598,
+"name":"William Casarin"
+},
+{
+"email":"pavol@rusnak.io",
+"github":"prusnak",
+"githubId":42201,
+"keys":[
+{
+"fingerprint":"86E6 792F C27B FD47 8860  C110 91F3 B339 B9A0 2A3D"
+}
+],
+"name":"Pavol Rusnak"
+}
+],
+"name":"clightning-24.05",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin"
+],
+"position":"<nixpkgs> + /pkgs/applications/blockchains/clightning/default.nix:73",
+"unfree":false,
+"unsupported":false
+},
+"name":"clightning-24.05",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"clightning",
+"system":"x86_64-linux",
+"version":"24.05"
 },
 "clightning-sane":{
 "meta":{
@@ -855,7 +935,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:478",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
 "unfree":false,
 "unsupported":false
 },
@@ -2065,7 +2145,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:478",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
 "unfree":false,
 "unsupported":false
 },
@@ -2087,7 +2167,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:478",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
 "unfree":false,
 "unsupported":false
 },
@@ -2573,7 +2653,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:540",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:546",
 "unfree":false,
 "unsupported":false
 },
@@ -4056,7 +4136,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:478",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
 "unfree":false,
 "unsupported":false
 },
@@ -5034,7 +5114,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:478",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
 "unfree":false,
 "unsupported":false
 },
@@ -8950,7 +9030,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:478",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
 "unfree":false,
 "unsupported":false
 },
@@ -10094,7 +10174,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:478",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
 "unfree":false,
 "unsupported":false
 },
