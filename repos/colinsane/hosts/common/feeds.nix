@@ -76,6 +76,7 @@ let
     (fromDb "feeds.simplecast.com/wgl4xEgL" // rat)  # Econ Talk
     (fromDb "feeds.simplecast.com/xKJ93w_w" // uncat)  # Atlas Obscura
     (fromDb "feeds.transistor.fm/acquired" // tech)
+    (fromDb "feeds.transistor.fm/complex-systems-with-patrick-mckenzie-patio11" // tech)  # Patrick Mackenzie (from Bits About Money)
     (fromDb "feeds.twit.tv/floss.xml" // tech)
     (fromDb "fulltimenix.com" // tech)
     (fromDb "futureofcoding.org/episodes" // tech)
