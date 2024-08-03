@@ -51,8 +51,43 @@ lib.mkIf config.sane.persist.enable
     noCheck = true;
   };
   # let sane.fs know about our fileSystem and automatically add the appropriate dependencies
-  sane.fs."${origin}".mount = { };
-  sane.fs."${backing}" = sane-lib.fs.wantedDir;
+  sane.fs."${origin}" = {
+    wantedBeforeBy = [ "local-fs.target" ];
+    mount.depends = [
+      config.sane.fs."${backing}".unit
+    ];
+    # hardening (systemd-analyze security mnt-persist-ephemeral.mount)
+    mount.mountConfig.AmbientCapabilities = "";
+    # CAP_LEASE is probably not necessary -- does any fs user use leases?
+    mount.mountConfig.CapabilityBoundingSet = "CAP_SYS_ADMIN CAP_DAC_OVERRIDE CAP_DAC_READ_SEARCH CAP_CHOWN CAP_MKNOD CAP_LEASE CAP_SETGID CAP_SETUID CAP_FOWNER";
+    mount.mountConfig.LockPersonality = true;
+    mount.mountConfig.MemoryDenyWriteExecute = true;
+    mount.mountConfig.NoNewPrivileges = true;
+    mount.mountConfig.ProtectClock = true;
+    mount.mountConfig.ProtectHostname = true;
+    mount.mountConfig.RemoveIPC = true;
+    mount.mountConfig.RestrictAddressFamilies = "AF_UNIX";  # "none" works, but then it can't connect to the logger
+    #VVV this includes anything it reads from, e.g. /bin/sh; /nix/store/...
+    # see `systemd-analyze filesystems` for a full list
+    mount.mountConfig.RestrictFileSystems = "@common-block @basic-api fuse pipefs";
+    mount.mountConfig.RestrictNamespaces = true;
+    mount.mountConfig.RestrictNetworkInterfaces = "";
+    mount.mountConfig.RestrictRealtime = true;
+    mount.mountConfig.RestrictSUIDSGID = true;
+    mount.mountConfig.SystemCallArchitectures = "native";
+    mount.mountConfig.SystemCallFilter = [
+      # unfortunately, i need to keep @network-io (accept, bind, connect, listen, recv, send, socket, ...). not sure why (daemon control socket?).
+      "@system-service" "@mount" "~@cpu-emulation" "~@keyring"
+    ];
+    mount.mountConfig.IPAddressDeny = "any";
+    mount.mountConfig.DevicePolicy = "closed";  # only allow /dev/{null,zero,full,random,urandom}
+    mount.mountConfig.DeviceAllow = "/dev/fuse";
+    mount.mountConfig.SocketBindDeny = "any";
+    # note that anything which requires mount namespaces (ProtectHome, ReadWritePaths, ...) does NOT work.
+    # it's in theory possible, via mount propagation, but systemd provides no way for that.
+    # PrivateNetwork = true  BREAKS the mount action; i think systemd or udev needs that internally to communicate with the service manager?
+  };
+  sane.fs."${backing}".dir = {};
 
   system.fsPackages = [ gocryptfs-ephemeral ];  # fuse needs to find gocryptfs
 }

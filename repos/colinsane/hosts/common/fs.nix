@@ -107,6 +107,9 @@ let
       "connect_timeout=20"
     ];
   };
+
+  ifSshAuthorized = lib.mkIf config.sane.hosts.by-name."${config.networking.hostName}".ssh.authorized;
+
   remoteHome = host: {
     sane.programs.sshfs-fuse.enableFor.system = true;
     fileSystems."/mnt/${host}/home" = {
@@ -126,11 +129,6 @@ let
     systemdName = utils.escapeSystemdPath localPath;
   in {
     sane.programs.curlftpfs.enableFor.system = true;
-    sane.fs."${localPath}" = sane-lib.fs.wanted {
-      dir.acl.user = "colin";
-      dir.acl.group = "users";
-      dir.acl.mode = "0750";
-    };
     fileSystems."${localPath}" = {
       device = "ftp://servo-hn:/${subdir}";
       noCheck = true;
@@ -139,23 +137,52 @@ let
       # fsType = "nfs";
       # options = fsOpts.nfs ++ fsOpts.lazyMount;
     };
-
-    systemd.mounts = let
-      fsEntry = config.fileSystems."${localPath}";
-    in [{
-      #VVV repeat what systemd would ordinarily scrape from /etc/fstab
-      where = localPath;
-      what = fsEntry.device;
-      type = fsEntry.fsType;
-      options = lib.concatStringsSep "," fsEntry.options;
-      after = [ "network-online.target" ];
-      requires = [ "network-online.target" ];
-      wantedBy = [ "default.target" ];  #< TODO: move this into nixos fileSystems
+    sane.fs."${localPath}" = {
+      dir.acl.user = "colin";
+      dir.acl.group = "users";
+      dir.acl.mode = "0750";
+      wantedBy = [ "default.target" ];
+      mount.depends = [ "network-online.target" ];
       #VVV patch so that when the mount fails, we start a timer to remount it.
       #    and for a disconnection after a good mount (onSuccess), restart the timer to be more aggressive
-      onFailure = [ "${systemdName}.timer" ];
-      onSuccess = [ "${systemdName}-restart-timer.target" ];
-    }];
+      mount.unitConfig.OnFailure = [ "${systemdName}.timer" ];
+      mount.unitConfig.OnSuccess = [ "${systemdName}-restart-timer.target" ];
+
+      mount.mountConfig.TimeoutSec = "10s";
+      mount.mountConfig.User = "colin";
+      mount.mountConfig.Group = "users";
+      # hardening (systemd-analyze security mnt-servo-playground.mount)
+      mount.mountConfig.AmbientCapabilities = "CAP_SYS_ADMIN";
+      mount.mountConfig.CapabilityBoundingSet = "CAP_SYS_ADMIN";
+      mount.mountConfig.LockPersonality = true;
+      mount.mountConfig.MemoryDenyWriteExecute = true;
+      mount.mountConfig.NoNewPrivileges = true;
+      mount.mountConfig.ProtectClock = true;
+      mount.mountConfig.ProtectHostname = true;
+      mount.mountConfig.RemoveIPC = true;
+      mount.mountConfig.RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6";
+      #VVV this includes anything it reads from, e.g. /bin/sh; /nix/store/...
+      # see `systemd-analyze filesystems` for a full list
+      mount.mountConfig.RestrictFileSystems = "@common-block @basic-api fuse";
+      mount.mountConfig.RestrictNamespaces = true;
+      mount.mountConfig.RestrictRealtime = true;
+      mount.mountConfig.RestrictSUIDSGID = true;
+      mount.mountConfig.SystemCallArchitectures = "native";
+      mount.mountConfig.SystemCallFilter = [
+        "@system-service"
+        "@mount"
+        "~@chown"
+        "~@cpu-emulation"
+        "~@keyring"
+        # could remove almost all io calls, however one has to keep `open`, and `write`, to communicate with the fuse device.
+        # so that's pretty useless as a way to prevent write access
+      ];
+      mount.mountConfig.IPAddressDeny = "any";
+      mount.mountConfig.IPAddressAllow = "10.0.10.5";
+      mount.mountConfig.DevicePolicy = "closed";  # only allow /dev/{null,zero,full,random,urandom}
+      mount.mountConfig.DeviceAllow = "/dev/fuse";
+    };
+
     systemd.targets."${systemdName}-restart-timer" = {
       # hack unit which, when started, stops the timer (if running), and then starts it again.
       after = [ "${systemdName}.timer" ];
@@ -221,10 +248,10 @@ lib.mkMerge [
     programs.fuse.userAllowOther = true;  #< necessary for `allow_other` or `allow_root` options.
   }
 
-  (remoteHome "crappy")
-  (remoteHome "desko")
-  (remoteHome "lappy")
-  (remoteHome "moby")
+  (ifSshAuthorized (remoteHome "crappy"))
+  (ifSshAuthorized (remoteHome "desko"))
+  (ifSshAuthorized (remoteHome "lappy"))
+  (ifSshAuthorized (remoteHome "moby"))
   # this granularity of servo media mounts is necessary to support sandboxing:
   # for flaky mounts, we can only bind the mountpoint itself into the sandbox,
   # so it's either this or unconditionally bind all of media/.

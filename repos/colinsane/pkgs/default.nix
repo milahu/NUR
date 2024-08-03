@@ -161,10 +161,11 @@ let
     browserpass = callPackage ./patched/browserpass { inherit (unpatched) browserpass; };
     # mozilla keeps nerfing itself and removing configuration options
     firefox-unwrapped = callPackage ./patched/firefox-unwrapped { inherit (unpatched) firefox-unwrapped; };
-    gocryptfs = callPackage ./patched/gocryptfs { inherit (unpatched) gocryptfs; };
+    # gocryptfs = callPackage ./patched/gocryptfs { inherit (unpatched) gocryptfs; };
     helix = callPackage ./patched/helix { inherit (unpatched) helix; };
     # ibus = callPackage ./patched/ibus { inherit (unpatched) ibus; };
     # modemmanager = callPackage ./patched/modemmanager { inherit (unpatched) modemmanager; };
+    passt = import ./patched/passt { inherit (unpatched) passt; };
     playerctl = unpatched.playerctl.overrideAttrs (upstream: {
       patches = (upstream.patches or []) ++ [
         (fetchpatch {
