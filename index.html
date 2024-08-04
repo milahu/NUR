@@ -1991,7 +1991,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Key Managament Server for Object Storage and more</td>
 </tr>
 <tr>
-<td><a href="https://github.com/LostRuins/koboldcpp">koboldcpp-1.71.1</a></td>
+<td><a href="https://github.com/LostRuins/koboldcpp">koboldcpp-1.72</a></td>
 <td><a href="ataraxiasjel">nur.repos.ataraxiasjel.koboldcpp</a></td>
 <td>A simple one-file way to run various GGML models with KoboldAI's UI.</td>
 </tr>
@@ -2016,7 +2016,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>A command line tool for editing and distributing Minecraft modpacks, using a git-friendly TOML format</td>
 </tr>
 <tr>
-<td><a href="https://github.com/containers/prometheus-podman-exporter">prometheus-podman-exporter-1.12.0</a></td>
+<td><a href="https://github.com/containers/prometheus-podman-exporter">prometheus-podman-exporter-1.13.0</a></td>
 <td><a href="ataraxiasjel">nur.repos.ataraxiasjel.prometheus-podman-exporter</a></td>
 <td>Prometheus exporter for podman environments exposing containers, pods, images, volumes and networks information.</td>
 </tr>
@@ -2076,7 +2076,7 @@ h1, h2, h3 { font-weight: normal; }
 <td></td>
 </tr>
 <tr>
-<td><a href="https://rpcs3.net/">rpcs3-0.0.32-16729-a323e753f</a></td>
+<td><a href="https://rpcs3.net/">rpcs3-0.0.32-16738-8f51b0907</a></td>
 <td><a href="ataraxiasjel">nur.repos.ataraxiasjel.rpcs3</a></td>
 <td>PS3 emulator/debugger</td>
 </tr>
@@ -2876,7 +2876,7 @@ h1, h2, h3 { font-weight: normal; }
 <td></td>
 </tr>
 <tr>
-<td>vimplugin-crates-nvim-d1be10c1fcf4adb1eed2f2f510176db035efc68d</td>
+<td>vimplugin-crates-nvim-1c924d5a9ea3496c4e1a02d0d51388ba809f8468</td>
 <td><a href="bandithedoge">nur.repos.bandithedoge.vimPlugins.crates-nvim</a></td>
 <td></td>
 </tr>
@@ -2986,7 +2986,7 @@ h1, h2, h3 { font-weight: normal; }
 <td></td>
 </tr>
 <tr>
-<td>vimplugin-fzf-lua-afcc4b76ad3ab80526b6f1932a1514b22de8c187</td>
+<td>vimplugin-fzf-lua-c59e076dddae6fa85f8a97da8ff5304014ba5768</td>
 <td><a href="bandithedoge">nur.repos.bandithedoge.vimPlugins.fzf-lua</a></td>
 <td></td>
 </tr>
@@ -3081,7 +3081,7 @@ h1, h2, h3 { font-weight: normal; }
 <td></td>
 </tr>
 <tr>
-<td>vimplugin-legendary-nvim-543bbbba4e7b54222362f312e1d2e3dac1eaae75</td>
+<td>vimplugin-legendary-nvim-c89be94fe96dc5eaba67ad9371263bc1eac75044</td>
 <td><a href="bandithedoge">nur.repos.bandithedoge.vimPlugins.legendary-nvim</a></td>
 <td></td>
 </tr>
@@ -4436,6 +4436,11 @@ h1, h2, h3 { font-weight: normal; }
 <td>Libre SCP firmware for Allwinner sunxi SoCs</td>
 </tr>
 <tr>
+<td><a href="https://curlftpfs.sourceforge.net">curlftpfs-0.9.2</a></td>
+<td><a href="colinsane.nix#L37">nur.repos.colinsane.curlftpfs-sane</a></td>
+<td>Filesystem for accessing FTP hosts based on FUSE and libcurl</td>
+</tr>
+<tr>
 <td><a href="https://github.com/alpernebbi/depthcharge-tools">depthcharge-tools-0.6.2</a></td>
 <td><a href="colinsane">nur.repos.colinsane.depthcharge-tools</a></td>
 <td>Tools to manage the Chrome OS bootloader</td>
@@ -4689,6 +4694,11 @@ h1, h2, h3 { font-weight: normal; }
 <td><a href="https://libdng.me.gapixels.me">libdng-unstable-2024-04-28</a></td>
 <td><a href="colinsane">nur.repos.colinsane.libdng</a></td>
 <td>Interface library between libtiff and the world to make sure the output is valid DNG</td>
+</tr>
+<tr>
+<td><a href="https://github.com/libfuse/libfuse">fuse-3.16.2</a></td>
+<td><a href="colinsane">nur.repos.colinsane.libfuse-sane</a></td>
+<td>provides `mount.fuse3.sane`, which behaves identically to `mount.fuse3` except<br>it supports an additional mount flag, `-o pass_fuse_fd`.<br><br>when mounting with `-o pass_fuse_fd`, `mount.fuse3.sane` opens the `/dev/fuse` device (which requires CAP_SYS_ADMIN),<br>and then `exec`s the userspace implementation, which inherits this file descriptor.<br>`mount.fuse3.sane` invokes the userspace implementation with the device argument set to something like `/dev/fd/3`, indicating which fd holds the fuse device.<br><br>the aim of this flag is to provide a clear handoff point at which the filesystem may drop CAP_SYS_ADMIN.<br>in this regard, it's much like `-o drop_privileges`, only it leaves the responsibility for that to the fs impl,<br>in case the fs needs to preserve _other_ privileges besides CAP_SYS_ADMIN.<br></td>
 </tr>
 <tr>
 <td><a href="https://gitlab.com/megapixels-org/libmegapixels">libmegapixels-0.1.0-unstable-2024-05-18</a></td>
@@ -6811,7 +6821,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Arknights assistant</td>
 </tr>
 <tr>
-<td><a href="https://github.com/MaaAssistantArknights/maa-cli">maa-cli-0.4.9-alpha.2+sha.bba0c48</a></td>
+<td><a href="https://github.com/MaaAssistantArknights/maa-cli">maa-cli-0.4.9-beta.1</a></td>
 <td><a href="cryolitia9">nur.repos.cryolitia.maa-cli-nightly</a></td>
 <td>Simple CLI for MAA by Rust</td>
 </tr>
@@ -6851,7 +6861,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Project Trans RIME Dict —— 跨儿计划 RIME 词典</td>
 </tr>
 <tr>
-<td><a href="https://code.visualstudio.com/">vscode-1.91.1</a></td>
+<td><a href="https://code.visualstudio.com/">vscode-1.92.0</a></td>
 <td><a href="cryolitia">nur.repos.cryolitia.vscode-vtuber</a></td>
 <td>VSCode with github.com/Aikoyori/ProgrammingVTuberLogos LOGO</td>
 </tr>
@@ -7896,7 +7906,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Source files for the neodino emoji</td>
 </tr>
 <tr>
-<td><a href="https://codeberg.org/fotoente/neohaj">fotoente-neohaj-0.1</a></td>
+<td><a href="https://codeberg.org/fotoente/neohaj">fotoente-neohaj-0.2</a></td>
 <td><a href="federicoschonborn">nur.repos.federicoschonborn.akkoma-emoji.fotoente.neohaj</a></td>
 <td>Source files for the neohaj emoji</td>
 </tr>
@@ -8146,7 +8156,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Fan sequel to Super Mario 63</td>
 </tr>
 <tr>
-<td><a href="https://github.com/trzy/Supermodel">supermodel-0-unstable-2024-07-29</a></td>
+<td><a href="https://github.com/trzy/Supermodel">supermodel-0-unstable-2024-08-02</a></td>
 <td><a href="federicoschonborn">nur.repos.federicoschonborn.supermodel</a></td>
 <td>Sega Model 3 arcade machine emulator</td>
 </tr>
@@ -14711,7 +14721,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Tool to extract the two ADC channels and the AUX data from the raw capture.</td>
 </tr>
 <tr>
-<td><a href="https://github.com/jaidevd/pyhht">python3.11-pyhht-0.1.0</a></td>
+<td><a href="https://github.com/jaidevd/pyhht">python3.12-pyhht-0.1.0</a></td>
 <td><a href="jitterbug">nur.repos.jitterbug.pyhht</a></td>
 <td>A Python module for the Hilbert Huang Transform.</td>
 </tr>
@@ -14726,7 +14736,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Simple Tape File System (STFS), a file system for tapes and tar files.</td>
 </tr>
 <tr>
-<td><a href="https://github.com/JuniorIsAJitterbug/tbc-video-export">python3.11-tbc-video-export-0.1.1</a></td>
+<td><a href="https://github.com/JuniorIsAJitterbug/tbc-video-export">python3.12-tbc-video-export-0.1.2</a></td>
 <td><a href="jitterbug">nur.repos.jitterbug.tbc-video-export</a></td>
 <td>Cross-platform tool for exporting S-Video and CVBS-type TBC files to standard video files.</td>
 </tr>
@@ -15266,7 +15276,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Run Bash commands replaying changes in Fish</td>
 </tr>
 <tr>
-<td><a href="https://github.com/icalingua-plus-plus/icalingua-plus-plus">icalingua-plus-plus-v2.12.9</a></td>
+<td><a href="https://github.com/icalingua-plus-plus/icalingua-plus-plus">icalingua-plus-plus-v2.12.10</a></td>
 <td><a href="linyinfeng">nur.repos.linyinfeng.icalingua-plus-plus</a></td>
 <td>A Linux client for QQ and more</td>
 </tr>
@@ -15296,7 +15306,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>A Matrix-WeChat puppeting bridge</td>
 </tr>
 <tr>
-<td><a href="https://www.minio.io/">minio-latest-2024-07-31T05-46-26Z</a></td>
+<td><a href="https://www.minio.io/">minio-latest-2024-08-03T04-33-23Z</a></td>
 <td><a href="linyinfeng">nur.repos.linyinfeng.minio-latest</a></td>
 <td>An S3-compatible object storage server</td>
 </tr>
@@ -20306,7 +20316,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Reveal the anchors in a webpage</td>
 </tr>
 <tr>
-<td><a href="https://angular.dev/tools/devtools/">angular-devtools-1.0.16</a></td>
+<td><a href="https://angular.dev/tools/devtools/">angular-devtools-1.0.17</a></td>
 <td><a href="rycee#L297">nur.repos.rycee.firefox-addons.angular-devtools</a></td>
 <td>Angular DevTools extends Firefox DevTools adding Angular specific debugging and profiling capabilities.</td>
 </tr>
@@ -20551,7 +20561,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Automatically open websites in a dedicated container. Simply add rules to map domain or subdomain to your container.</td>
 </tr>
 <tr>
-<td><a href="https://github.com/insin/control-panel-for-twitter">control-panel-for-twitter-4.1.2</a></td>
+<td><a href="https://github.com/insin/control-panel-for-twitter">control-panel-for-twitter-4.1.3</a></td>
 <td><a href="rycee#L1750">nur.repos.rycee.firefox-addons.control-panel-for-twitter</a></td>
 <td>Gives you more control over Twitter and adds missing features and UI improvements</td>
 </tr>
@@ -20781,7 +20791,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Don't waste time with compliance. Use FastForward to skip annoying URL "shorteners".</td>
 </tr>
 <tr>
-<td><a href="https://faststream.online/">faststream-1.3.16</a></td>
+<td><a href="https://faststream.online/">faststream-1.3.17</a></td>
 <td><a href="rycee#L2728">nur.repos.rycee.firefox-addons.faststream</a></td>
 <td>Stream videos without buffering in the browser. An extension that replaces bad video players on the internet with a better, accessible video player designed for your convenience.</td>
 </tr>
@@ -21111,7 +21121,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>The ultimate search extension for Javascript!</td>
 </tr>
 <tr>
-<td>jump-cutter-1.27.2</td>
+<td>jump-cutter-1.27.3</td>
 <td><a href="rycee#L5637">nur.repos.rycee.firefox-addons.jump-cutter</a></td>
 <td>Watch lectures ~1.5x faster by fast-forwarding long pauses between sentences</td>
 </tr>
@@ -21151,7 +21161,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Because good website security shouldn't only be available to mad scientists! Laboratory is a WebExtension that helps you generate a Content Security Policy (CSP) header for your website.</td>
 </tr>
 <tr>
-<td><a href="https://languagetool.org">languagetool-8.10.4</a></td>
+<td><a href="https://languagetool.org">languagetool-8.11.2</a></td>
 <td><a href="rycee#L5830">nur.repos.rycee.firefox-addons.languagetool</a></td>
 <td>With this extension you can check text with the free style and grammar checker LanguageTool. It finds many errors that a simple spell checker cannot detect, like mixing up there/their, a/an, or repeating a word.</td>
 </tr>
@@ -21526,7 +21536,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Polish spell-check dictionary for Firefox, Thunderbird and SeaMonkey.</td>
 </tr>
 <tr>
-<td><a href="https://github.com/polkadot-js/extension">polkadot-js-0.49.3</a></td>
+<td><a href="https://github.com/polkadot-js/extension">polkadot-js-0.50.1</a></td>
 <td><a href="rycee#L8229">nur.repos.rycee.firefox-addons.polkadot-js</a></td>
 <td>Manage your Polkadot accounts outside of dapps. Injects the accounts and allows signs transactions for a specific account.</td>
 </tr>
@@ -22316,23 +22326,23 @@ h1, h2, h3 { font-weight: normal; }
 <td>Replicate old YouTube look and features within the modern layout!</td>
 </tr>
 <tr>
-<td><a href="https://github.com/gurumukhi/youtube-screenshot">youtube-screenshot-button-4.2.0</a></td>
+<td><a href="https://github.com/gurumukhi/youtube-screenshot">youtube-screenshot-button-4.3.0</a></td>
 <td><a href="rycee#L12624">nur.repos.rycee.firefox-addons.youtube-screenshot-button</a></td>
 <td>Take screenshots from YouTube Videos &amp;amp; YouTube Shorts. The addon adds screenshot button &amp;amp; also enables Shift+A shortcut.</td>
 </tr>
 <tr>
 <td>youtube-shorts-block-1.4.1</td>
-<td><a href="rycee#L12643">nur.repos.rycee.firefox-addons.youtube-shorts-block</a></td>
+<td><a href="rycee#L12644">nur.repos.rycee.firefox-addons.youtube-shorts-block</a></td>
 <td>Play the Youtube shorts video as if it were a normal video.<br>and hide "shorts"tab and videos (optional).</td>
 </tr>
 <tr>
 <td>zoom-page-we-19.13</td>
-<td><a href="rycee#L12661">nur.repos.rycee.firefox-addons.zoom-page-we</a></td>
+<td><a href="rycee#L12662">nur.repos.rycee.firefox-addons.zoom-page-we</a></td>
 <td>Zoom web pages (either per-site or per-tab) using full-page zoom, text-only zoom and minimum font size. Fit-to-width zooming can be applied to pages automatically. Fit-to-window scaling  can be applied to small images.</td>
 </tr>
 <tr>
 <td>zoom-redirector-1.0.2</td>
-<td><a href="rycee#L12685">nur.repos.rycee.firefox-addons.zoom-redirector</a></td>
+<td><a href="rycee#L12686">nur.repos.rycee.firefox-addons.zoom-redirector</a></td>
 <td>Zoom Redirector transparently redirects any meeting links to use Zoom's browser based web client.</td>
 </tr>
 <tr>
@@ -26126,7 +26136,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>C++ tools used in taginfo processing</td>
 </tr>
 <tr>
-<td><a href="https://tatoeba.org/">tatoeba-2024-07-27</a></td>
+<td><a href="https://tatoeba.org/">tatoeba-2024-08-03</a></td>
 <td><a href="sikmir">nur.repos.sikmir.tatoeba</a></td>
 <td>Tatoeba is a collection of sentences and translations</td>
 </tr>
@@ -26316,7 +26326,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>The last online dictionary framework you need</td>
 </tr>
 <tr>
-<td><a href="https://zed.dev">zed-0.147.1-pre</a></td>
+<td><a href="https://zed.dev">zed-0.147.2-pre</a></td>
 <td><a href="sikmir">nur.repos.sikmir.zed</a></td>
 <td>High-performance, multiplayer code editor</td>
 </tr>
@@ -27536,7 +27546,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Speech-to-text engine which can run in real time on devices ranging from a Raspberry Pi 4 to high power GPU servers.</td>
 </tr>
 <tr>
-<td><a href="https://www.dingtalk.com/">dingtalk-7.5.20.40705</a></td>
+<td><a href="https://www.dingtalk.com/">dingtalk-7.6.0.40718</a></td>
 <td><a href="xddxdd">nur.repos.xddxdd.dingtalk</a></td>
 <td>钉钉</td>
 </tr>
@@ -27711,7 +27721,7 @@ h1, h2, h3 { font-weight: normal; }
 <td>Librime with plugins (librime-charcode, librime-lua, librime-octagram, librime-proto)</td>
 </tr>
 <tr>
-<td><a href="https://github.com/ggerganov/llama.cpp/">llama-cpp-3504</a></td>
+<td><a href="https://github.com/ggerganov/llama.cpp/">llama-cpp-3505</a></td>
 <td><a href="xddxdd#L159">nur.repos.xddxdd.lantianCustomized.llama-cpp</a></td>
 <td>Port of Facebook's LLaMA model in C/C++</td>
 </tr>
