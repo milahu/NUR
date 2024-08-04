@@ -45,7 +45,7 @@ let
       "gid=100"
     ];
 
-    ssh = common ++ fuse ++ [
+    ssh = common ++ fuseColin ++ [
       "identityfile=/home/colin/.ssh/id_ed25519"
       # i *think* idmap=user means that `colin` on `localhost` and `colin` on the remote are actually treated as the same user, even if their uid/gid differs?
       # i.e., local colin's id is translated to/from remote colin's id on every operation?
@@ -112,16 +112,58 @@ let
 
   remoteHome = host: {
     sane.programs.sshfs-fuse.enableFor.system = true;
+    system.fsPackages = [
+      config.sane.programs.sshfs-fuse.package
+    ];
     fileSystems."/mnt/${host}/home" = {
-      device = "colin@${host}:/home/colin";
-      fsType = "fuse.sshfs";
-      options = fsOpts.sshColin ++ fsOpts.lazyMount;
+      device = "sshfs#colin@${host}:/home/colin";
+      fsType = "fuse3";
+      options = fsOpts.sshColin ++ fsOpts.lazyMount ++ [
+        # drop_privileges: after `mount.fuse3` opens /dev/fuse, it will drop all capabilities before invoking sshfs
+        "drop_privileges"
+      ];
       noCheck = true;
     };
-    sane.fs."/mnt/${host}/home" = sane-lib.fs.wanted {
+    sane.fs."/mnt/${host}/home" = {
       dir.acl.user = "colin";
       dir.acl.group = "users";
       dir.acl.mode = "0700";
+      wantedBy = [ "default.target" ];
+      mount.depends = [ "network-online.target" ];
+      mount.mountConfig.ExecSearchPath = [ "/run/current-system/sw/bin" ];
+      mount.mountConfig.User = "colin";
+      mount.mountConfig.AmbientCapabilities = "CAP_SETPCAP CAP_SYS_ADMIN";
+      # hardening (systemd-analyze security mnt-desko-home.mount):
+      # TODO: i can't use ProtectSystem=full here, because i can't create a new mount space; but...
+      # with drop_privileges, i *could* sandbox the actual `sshfs` program using e.g. bwrap
+      mount.mountConfig.CapabilityBoundingSet = "CAP_SETPCAP CAP_SYS_ADMIN";
+      mount.mountConfig.LockPersonality = true;
+      mount.mountConfig.MemoryDenyWriteExecute = true;
+      mount.mountConfig.NoNewPrivileges = true;
+      mount.mountConfig.ProtectClock = true;
+      mount.mountConfig.ProtectHostname = true;
+      mount.mountConfig.RemoveIPC = true;
+      mount.mountConfig.RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6";
+      #VVV this includes anything it reads from, e.g. /bin/sh; /nix/store/...
+      # see `systemd-analyze filesystems` for a full list
+      mount.mountConfig.RestrictFileSystems = "@common-block @basic-api fuse";
+      mount.mountConfig.RestrictRealtime = true;
+      mount.mountConfig.RestrictSUIDSGID = true;
+      mount.mountConfig.SystemCallArchitectures = "native";
+      mount.mountConfig.SystemCallFilter = [
+        "@system-service"
+        "@mount"
+        "~@chown"
+        "~@cpu-emulation"
+        "~@keyring"
+        # could remove almost all io calls, however one has to keep `open`, and `write`, to communicate with the fuse device.
+        # so that's pretty useless as a way to prevent write access
+      ];
+      mount.mountConfig.IPAddressDeny = "any";
+      mount.mountConfig.IPAddressAllow = "10.0.0.0/8";
+      mount.mountConfig.DevicePolicy = "closed";  # only allow /dev/{null,zero,full,random,urandom}
+      mount.mountConfig.DeviceAllow = "/dev/fuse";
+      # mount.mountConfig.RestrictNamespaces = true;  #< my sshfs sandboxing uses bwrap
     };
   };
   remoteServo = subdir: let
@@ -150,9 +192,8 @@ let
 
       mount.mountConfig.TimeoutSec = "10s";
       mount.mountConfig.User = "colin";
-      mount.mountConfig.Group = "users";
-      # hardening (systemd-analyze security mnt-servo-playground.mount)
       mount.mountConfig.AmbientCapabilities = "CAP_SYS_ADMIN";
+      # hardening (systemd-analyze security mnt-servo-playground.mount)
       mount.mountConfig.CapabilityBoundingSet = "CAP_SYS_ADMIN";
       mount.mountConfig.LockPersonality = true;
       mount.mountConfig.MemoryDenyWriteExecute = true;

@@ -25,6 +25,7 @@ let
     codemadness-frontends = callPackage ./additional/codemadness-frontends { };
     codemadness-frontends_0_6 = codemadness-frontends.v0_6;
     crust-firmware-pinephone = callPackage ./additional/crust-firmware-pinephone { };
+    curlftpfs-sane = callPackage ./additional/curlftpfs-sane { };
     depthcharge-tools = callPackage ./additional/depthcharge-tools { };
     eg25-control = callPackage ./additional/eg25-control { };
     eg25-manager = callPackage ./additional/eg25-manager { };
@@ -52,6 +53,7 @@ let
     lemmy-lemonade = callPackage ./additional/lemonade { };  # XXX: nixpkgs already has a `lemonade` pkg
     lgtrombetta-compass = callPackage ./additional/lgtrombetta-compass { };
     libdng = callPackage ./additional/libdng { };
+    libfuse-sane = callPackage ./additional/libfuse-sane { };
     libmegapixels = callPackage ./additional/libmegapixels { };
     lightdm-mobile-greeter = callPackage ./additional/lightdm-mobile-greeter { };
     linux-exynos5-mainline = callPackage ./additional/linux-exynos5-mainline { };
