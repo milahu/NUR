@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./default.nix:938:15:
+  at ./default.nix:944:15:
 
-   937|
-   938|   basicswap = pkgs.python3.pkgs.callPackage ./pkgs/applications/blockchains/basicswap {
+   943|
+   944|   basicswap = pkgs.python3.pkgs.callPackage ./pkgs/applications/blockchains/basicswap {
       |               ^
-   939|     # FIXME scope
+   945|     # FIXME scope
 
 … while calling 'callPackageWith'
 
