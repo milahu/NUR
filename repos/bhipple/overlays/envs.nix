@@ -1,5 +1,14 @@
 self: super:
 let
+
+  master-src = self.fetchFromGitHub {
+    owner = "NixOS";
+    repo = "nixpkgs";
+    rev = "256df38eef15a7128f13a7d83e496d02ffa263c3";
+    hash = "sha256-73Wt0y1Dn4b73lFSBPOJWCaRU2Njx6lUk1PNeD7b/pc=";
+  };
+  nixpkgs-master = import "${master-src}/default.nix" {};
+
   brh-python = self.python3.withPackages (ps: with ps; [
     ipdb
     ipython
@@ -24,6 +33,17 @@ let
       };
     };
   };
+
+  lsp-tools = [
+    self.clang-tools
+    self.lua-language-server
+    self.nodePackages.bash-language-server
+    self.nodePackages.vscode-json-languageserver
+    self.yaml-language-server
+
+    self.nodePackages.pyright
+    nixpkgs-master.ruff
+  ];
 
 in
 {
@@ -109,14 +129,12 @@ in
   bigEnv = super.hiPrio (
     super.buildEnv {
       name = "bigEnv";
-      paths = [
+      paths = lsp-tools ++ [
         self.alsa-utils
         self.anki-bin
         self.aspell
         self.autoflake
         self.bind
-        #self.boardspace
-        self.clang-tools
         self.direnv
         self.discord
         self.dunst
@@ -138,9 +156,6 @@ in
         self.nixpkgs-fmt
         self.nixpkgs-review
         self.nload
-        self.nodePackages.bash-language-server
-        self.nodePackages.pyright
-        self.nodePackages.vscode-json-languageserver
         self.nodejs
         self.ollama
         self.pavucontrol
