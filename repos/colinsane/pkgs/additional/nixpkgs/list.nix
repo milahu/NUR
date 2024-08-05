@@ -33,6 +33,25 @@ in
   # })
 
   (fetchpatch' {
+    title = "nixos/pam: replace apparmor warnings with assertions";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/332119";
+    saneCommit = "17e5fa9dc3c6d9f1fbfa2b23f6e1ae5c7e17bebd";
+    hash = "sha256-9UrJB/ijXL07H/SESquCCqI1boVoYpDcYqxD+Mx2Mwc=";
+  })
+
+  (fetchpatch' {
+    title = "hareThirdParty.hare-ev: 0-unstable-2024-07-07 -> 0-unstable-2024-07-11";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/328096";
+    hash = "sha256-imCdIJJQ9IMmPbjHwSHqbLF0+1WoTuA53TdgLXGDX4k=";
+  })
+
+  (fetchpatch' {
+    title = "syshud: 0-unstable-2024-07-16 -> 0-unstable-2024-07-29";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/331931";
+    hash = "sha256-TTWkGYaIMowK9OqSLTFELgCit0C5TYoeMyA1AowHjTA=";
+  })
+
+  (fetchpatch' {
     # merged into staging 2024-07-25
     title = "texinfo: set texinfo_cv_sys_iconv_converts_euc_cn=yes when crosscompiling";
     prUrl = "https://github.com/NixOS/nixpkgs/pull/328919";
