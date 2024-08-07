@@ -194,15 +194,15 @@
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "65b6a87e16674f1a22638e7d33883a214e1dce44";
+    version = "8334d5a4da10d60aa37e61f39b919ad0f39cfa7d";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "65b6a87e16674f1a22638e7d33883a214e1dce44";
+      rev = "8334d5a4da10d60aa37e61f39b919ad0f39cfa7d";
       fetchSubmodules = false;
-      sha256 = "sha256-wf4ArCGBRztnRfB/OU2UPT9X+QHbfJHCgwsZS0XwM8o=";
+      sha256 = "sha256-3nYM+scn1Tvb9tSMuXYm/LQ9kiWnwqrEmyDVeolhEp4=";
     };
-    date = "2024-08-04";
+    date = "2024-08-05";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -796,13 +796,13 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b3515";
+    version = "b3529";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      rev = "b3515";
+      rev = "b3529";
       fetchSubmodules = false;
-      sha256 = "sha256-7QqoW+leDvRsUrmte+HEYLWNgS8X0SQ/FKNU9MOOAvg=";
+      sha256 = "sha256-HxTIZ+v/AVeoOOOoUH83emWrg85AXzeSzBhxJB6h0TE=";
     };
   };
   lyrica = {
@@ -814,6 +814,17 @@
       rev = "v0.8";
       fetchSubmodules = false;
       sha256 = "sha256-hjLm4p/GY/TF+p+yV2aKM3z1ctdyw2vqiqiBGffkBU4=";
+    };
+  };
+  mtkclient = {
+    pname = "mtkclient";
+    version = "2.0.1.freeze";
+    src = fetchFromGitHub {
+      owner = "bkerler";
+      repo = "mtkclient";
+      rev = "2.0.1.freeze";
+      fetchSubmodules = false;
+      sha256 = "sha256-y2VCfjds1fN2G9MHYZveT3NQqYF7RO26gBykHY1O6o8=";
     };
   };
   nbfc-linux-lantian = {
@@ -1580,6 +1591,17 @@
       rev = "v1.2.11";
       fetchSubmodules = false;
       sha256 = "sha256-mcqiTqu/KIZ+W9yvZfyFekjRdiVavkHVKVRh0xUytg0=";
+    };
+  };
+  vbmeta-disable-verification = {
+    pname = "vbmeta-disable-verification";
+    version = "v1.0";
+    src = fetchFromGitHub {
+      owner = "libxzr";
+      repo = "vbmeta-disable-verification";
+      rev = "v1.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-ml6RZkl2DT08sfJj9L1SGR6zNgRQ15ph0PPIPgxx7+M=";
     };
   };
   vpp = {

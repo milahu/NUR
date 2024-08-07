@@ -167,6 +167,7 @@ mkScope (
     liboqs = pkg ./uncategorized/liboqs { };
     lyrica = pkg ./uncategorized/lyrica { };
     lyrica-plasmoid = pkg ./uncategorized/lyrica-plasmoid { };
+    mtkclient = pkg ./uncategorized/mtkclient { };
     netboot-xyz = pkg ./uncategorized/netboot-xyz { };
     netease-cloud-music = pkg ./uncategorized/netease-cloud-music { };
     netns-exec = pkg ./uncategorized/netns-exec { };
@@ -220,6 +221,7 @@ mkScope (
     uesave = pkg ./uncategorized/uesave { };
     uesave-0_3_0 = pkg ./uncategorized/uesave/0_3_0.nix { };
     uksmd = pkg ./uncategorized/uksmd { };
+    vbmeta-disable-verification = pkg ./uncategorized/vbmeta-disable-verification { };
     vpp = pkg ./uncategorized/vpp { };
     wechat-uos = pkgs-24_05.callPackage ./uncategorized/wechat-uos {
       sources = nvfetcherLoader ../_sources/generated.nix;
