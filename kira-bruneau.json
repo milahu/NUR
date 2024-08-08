@@ -1,16 +1,16 @@
 {
 "name":"kira-bruneau",
-"fetch_time":0.298,
-"eval_time":0.368,
+"fetch_time":0.371,
+"eval_time":0.377,
 "source":{
 "url":"https://gitlab.com/kira-bruneau/nur-packages",
-"rev":"98a6cc7790d6c7aef08a4b8ec0ccb52ffc91d346",
-"sha256":"0i2qkfrabyq7p80fvvlwlxbymn4675q9i15r0c8a9sns38zfs0jg",
+"rev":"e33c748f12f1675a080aace85b1933943449b563",
+"sha256":"0y4n368qrbqrafriyk4dlpkivwdd172dnprpr6xw3201ars8r30a",
 "date":null
 },
-"source_storepath":"/nix/store/zy40pl1mjq9hd5w2sq6lczkh1hbr4bi6-source",
-"nixpkgs_storepath":"/nix/store/11zypp5sl1yyr3kmf552dbx27hmbfmvd-source",
-"nur_combined_rev":"8a3897a549d1d41e8ee83e0e0a0ae8d31b76b310",
+"source_storepath":"/nix/store/vv51r8csiqgr2khbrphl425f3bvcrsmn-source",
+"nixpkgs_storepath":"/nix/store/vsprd85alarjkrsynqfymg1ilfjss63y-source",
+"nur_combined_rev":"9c8a2f9a3de1603318188d53d1f5b41266ae27dc",
 "packages":{
 "anytype":{
 "meta":{
@@ -36,7 +36,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-0.41.8-hotfix",
+"name":"anytype-0.42.3",
 "outputsToInstall":[
 "out"
 ],
@@ -63,24 +63,24 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/development/tools/misc/anytype/default.nix:147",
+"position":"./pkgs/development/tools/misc/anytype/default.nix:122",
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-0.41.8-hotfix",
+"name":"anytype-0.42.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype",
 "system":"x86_64-linux",
-"version":"0.41.8-hotfix"
+"version":"0.42.3"
 },
 "anytype-heart":{
 "meta":{
 "available":false,
 "broken":false,
-"changelog":"https://github.com/anyproto/anytype-heart/releases/tag/v0.34.3",
+"changelog":"https://github.com/anyproto/anytype-heart/releases/tag/v0.35.0",
 "description":"Shared library for Anytype clients",
 "homepage":"https://github.com/anyproto/anytype-heart",
 "insecure":false,
@@ -100,7 +100,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-heart-0.34.3",
+"name":"anytype-heart-0.35.0",
 "outputsToInstall":[
 "out"
 ],
@@ -131,14 +131,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-heart-0.34.3",
+"name":"anytype-heart-0.35.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype-heart",
 "system":"x86_64-linux",
-"version":"0.34.3"
+"version":"0.35.0"
 },
 "anytype-nmh":{
 "meta":{
@@ -164,7 +164,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-0.41.8-hotfix",
+"name":"anytype-0.42.3",
 "outputsToInstall":[
 "out"
 ],
@@ -195,14 +195,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-nmh-0.41.8-hotfix",
+"name":"anytype-nmh-0.42.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype-nmh",
 "system":"x86_64-linux",
-"version":"0.41.8-hotfix"
+"version":"0.42.3"
 },
 "ccache":{
 "meta":{
@@ -492,7 +492,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-acm-0-unstable-2024-08-01",
+"name":"emacs-acm-0-unstable-2024-08-06",
 "outputsToInstall":[
 "out"
 ],
@@ -577,14 +577,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-acm-0-unstable-2024-08-01",
+"name":"emacs-acm-0-unstable-2024-08-06",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-acm",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-08-01"
+"version":"0-unstable-2024-08-06"
 },
 "emacsPackages.acm-terminal":{
 "meta":{
@@ -734,7 +734,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-lsp-bridge-0-unstable-2024-08-01",
+"name":"emacs-lsp-bridge-0-unstable-2024-08-06",
 "outputsToInstall":[
 "out"
 ],
@@ -819,14 +819,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-lsp-bridge-0-unstable-2024-08-01",
+"name":"emacs-lsp-bridge-0-unstable-2024-08-06",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-lsp-bridge",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-08-01"
+"version":"0-unstable-2024-08-06"
 },
 "gamemode":{
 "meta":{
@@ -902,7 +902,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/gadget-inc/ggt/releases/tag/v1.0.4",
+"changelog":"https://github.com/gadget-inc/ggt/releases/tag/v24.11pre663543.f5129fb42b9c",
 "description":"Command-line interface for Gadget",
 "homepage":"https://docs.gadget.dev/guides/development-tools/cli",
 "insecure":false,
@@ -924,49 +924,22 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"ggt-1.0.4",
+"name":"ggt-1.0.6",
 "outputsToInstall":[
 "out"
 ],
-"platforms":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"armv7a-darwin"
-],
-"position":"./pkgs/development/tools/ggt/default.nix:28",
+"position":"./pkgs/development/tools/ggt/default.nix:45",
 "unfree":false,
 "unsupported":false
 },
-"name":"ggt-1.0.4",
+"name":"ggt-1.0.6",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ggt",
 "system":"x86_64-linux",
-"version":"1.0.4"
+"version":"1.0.6"
 },
 "git-review":{
 "meta":{
@@ -1172,7 +1145,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"krane-3.6.0",
+"name":"krane-3.6.1",
 "outputsToInstall":[
 "out"
 ],
@@ -1257,14 +1230,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"krane-3.6.0",
+"name":"krane-3.6.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"krane",
 "system":"x86_64-linux",
-"version":"3.6.0"
+"version":"3.6.1"
 },
 "linuxPackages.xpadneo":{
 "meta":{
@@ -2436,7 +2409,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v24.11pre660607.c3392ad349a5",
+"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v24.11pre663543.f5129fb42b9c",
 "description":"Nintendo Switch emulator written in C++",
 "homepage":"https://sudachi-emu.com",
 "insecure":false,
@@ -2786,7 +2759,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/tools/games/ukmm/default.nix:78",
+"position":"./pkgs/tools/games/ukmm/default.nix:79",
 "unfree":false,
 "unsupported":false
 },
