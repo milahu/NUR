@@ -1,4 +1,4 @@
-{ lib, buildFHSEnv, writeShellScriptBin, fetchurl, dpkg, stdenv }:
+{ lib, buildFHSEnv, writeShellScriptBin, writeShellScript, fetchurl, dpkg, stdenv }:
 
 let
   version = "10.5.1";
@@ -38,6 +38,7 @@ let
 in
 buildFHSEnv {
   name = "nessus-agent-shell";
+  inherit version;
 
   multiArch = true;
 
@@ -172,7 +173,7 @@ buildFHSEnv {
     attr
   ];
 
-  runScript = ''
+  runScript = writeShellScript "gay-wrapper.sh" ''
     ${exportLDPath}
 
     set -o allexport # Export the following env vars
