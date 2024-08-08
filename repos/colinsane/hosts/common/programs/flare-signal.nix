@@ -1,12 +1,16 @@
 # Flare is a 3rd-party GTK4 Signal app.
 # UI is effectively a clone of Fractal.
 #
-### compatibility:
+### compatibility (2023-10-30):
 # - desko: works fine. pairs, and exchanges contact list (but not message history) with the paired device. exchanges future messages fine.
 # - moby (cross compiled flare-signal-nixified): nope. it pairs, but can only *receive* messages and never *send* them.
 #   - even `rsync`ing the data and keyrings from desko -> moby, still fails in that same manner.
 #   - console shows error messages. quite possibly an endianness mismatch somewhere
 # - moby (partially-emulated flare-signal): works! pairs and can send/receive messages, same as desko.
+### compatibility (2024-08-07):
+# - linking flare to iOS signal "works", but neither side can exchange messages nor contacts
+#   in iOS i see "A message from Colin could not be delivered"
+# - registering as primary device does not work ("you are not authorized", or some such)
 #
 ### debugging:
 # - `RUST_LOG=flare=trace flare`
@@ -18,7 +22,7 @@
 #   ERROR presage::manager] Error opening envelope: ProtobufDecodeError(DecodeError { description: "invalid tag value: 0", stack: [("Content", "data_message")] }), message will be skipped!
 #   ERROR presage::manager] Error opening envelope: ProtobufDecodeError(DecodeError { description: "invalid tag value: 0", stack: [("Content", "data_message")] }), message will be skipped!
 #   ```
-# - this occurs on moby, desko, `flare-signal` and `flare-signal-nixified`
+# - this occurs on moby, desko, `flare-signal` and `flare-signal-nixified` (2023-12-14)
 # - the Websocket error seems to be unrelated, occurs during normal/good operation
 # - related issues: <https://github.com/whisperfish/presage/issues/152>
 #
@@ -28,7 +32,7 @@
 #       No current session
 #   ERROR presage::manager] Error opening envelope: SignalProtocolError(InvalidKyberPreKeyId), message will be skipped!
 #   ```
-# - but signal iOS will still read it.
+# - but signal iOS will still read it (2023-12-14).
 #
 #### HTTP 405 when linking flare to iOS signal:
 # [DEBUG libsignal_service_hyper::push_service] HTTP request PUT https://chat.signal.org/v1/devices/{uuid}.{timestamp?}:{b64-string}
@@ -43,7 +47,7 @@
 #             ),
 #         ),
 #     )
-# flare matrix suggests the signal endpoint has changed:
+# flare matrix suggests the signal endpoint has changed (2023-12-14):
 # - "/v1/device/link instead of confirming via /v1/devices/{I'd}"
 # - this endpoint is declared in libsignal-service-rs (used both by flare and presage)
 #   - libsignal-service/src/provisioning/manager.rs
@@ -73,5 +77,13 @@
       # and it persists some dconf settings (e.g. device name). reset with:
       # - `dconf reset -f /de/schmidhuberj/Flare/`.
     ];
+    #VVV flare complains if its data directory is a symlink, so put it in a subdirectory behind my persistence symlink.
+    env.FLARE_DATA_PATH = "$HOME/.local/share/flare/data";
+    # sandbox.method = "bwrap";
+    # sandbox.net = "clearnet";
+    # sandbox.whitelistWayland = true;
+    # sandbox.whitelistDbus = [
+    #   "user"  # so i can click on links, at least
+    # ];
   };
 }
