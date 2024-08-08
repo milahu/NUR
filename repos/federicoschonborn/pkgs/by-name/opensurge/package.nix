@@ -49,7 +49,8 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/alemart/opensurge";
     changelog = "https://github.com/alemart/opensurge/blob/${finalAttrs.src.rev}/CHANGES.md";
     license = lib.licenses.gpl3Only;
-    platforms = lib.platforms.all;
+    platforms = lib.platforms.unix;
+    badPlatforms = lib.platforms.darwin;
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })

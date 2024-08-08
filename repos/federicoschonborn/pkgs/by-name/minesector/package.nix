@@ -41,7 +41,8 @@ stdenv.mkDerivation (finalAttrs: {
     description = "Snazzy Minesweeper-based game built with SDL2";
     homepage = "https://github.com/grassdne/minesector";
     license = lib.licenses.mit;
-    platforms = lib.platforms.all;
+    platforms = lib.platforms.unix;
+    badPlatforms = lib.platforms.darwin;
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })

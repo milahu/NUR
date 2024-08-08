@@ -42,7 +42,8 @@ stdenv.mkDerivation (finalAttrs: {
     description = "A convenient calculator for the command line";
     homepage = "https://marlam.de/mucalc/";
     license = lib.licenses.gpl3Plus;
-    platforms = lib.platforms.all;
+    platforms = lib.platforms.unix;
+    badPlatforms = lib.platforms.darwin;
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })
