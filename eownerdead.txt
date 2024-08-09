@@ -32,9 +32,9 @@ error:
   at ./default.nix:2:1:
 
      1| # Packages for NUR
-     2| { pkgs ? import <nixpkgs> { } }:
+     2| {
       | ^
-     3| let
+     3|   pkgs ? import <nixpkgs> { },
 
 … while calling anonymous lambda
 
@@ -65,12 +65,12 @@ error:
 
 … while calling 'outputs'
 
-  at /nix/store/i12l01wsqhq63qh1mvadg8bpbaxbvmbn-source/flake.nix:24:13:
+  at /nix/store/vfw6pzv4hqvlafqks6lmmz6nii3pqnsg-source/flake.nix:26:5:
 
-    23|
-    24|   outputs = inputs@{ self, parts, ... }:
-      |             ^
-    25|     parts.lib.mkFlake { inherit inputs; } rec {
+    25|   outputs =
+    26|     inputs@{ self, parts, ... }:
+      |     ^
+    27|     parts.lib.mkFlake { inherit inputs; } rec {
 
 … while calling anonymous lambda
 
