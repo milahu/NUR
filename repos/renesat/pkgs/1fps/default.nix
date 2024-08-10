@@ -6,7 +6,7 @@
 }:
 buildGoModule rec {
   pname = "1fps";
-  version = "0.1.1";
+  version = "0.1.2";
 
   src = fetchFromGitHub {
     owner = "1fpsvideo";
