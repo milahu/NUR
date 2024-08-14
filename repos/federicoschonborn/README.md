@@ -658,7 +658,7 @@ An efficient menu for the MATE Desktop.
 Alternative to GNU coreutils using software from FreeBSD.
 
 - Name: `bsdutils`
-- Version: `13.2`
+- Version: `13.1`
 - [Homepage](https://github.com/dcantrell/bsdutils)
 - License: [`BSD-3-Clause`](https://spdx.org/licenses/BSD-3-Clause.html 'BSD 3-clause "New" or "Revised" License')
 - [Source](./pkgs/by-name/bsdutils/package.nix#L50)
@@ -706,9 +706,9 @@ Cargo Advent of Code Helper.
 Like neofetch, but much faster because written in C.
 
 - Name: `fastfetch`
-- Version: `2.21.0`
+- Version: `2.21.1`
 - [Homepage](https://github.com/fastfetch-cli/fastfetch)
-- [Changelog](https://github.com/fastfetch-cli/fastfetch/blob/2.21.0/CHANGELOG.md)
+- [Changelog](https://github.com/fastfetch-cli/fastfetch/blob/2.21.1/CHANGELOG.md)
 - License: [`MIT`](https://spdx.org/licenses/MIT.html "MIT License")
 - [Source](./pkgs/by-name/fastfetch/package.nix#L176)
 - Maintainers:
@@ -731,9 +731,9 @@ Like neofetch, but much faster because written in C.
 Like neofetch, but much faster because written in C (with all features disabled).
 
 - Name: `fastfetch-minimal`
-- Version: `2.21.0`
+- Version: `2.21.1`
 - [Homepage](https://github.com/fastfetch-cli/fastfetch)
-- [Changelog](https://github.com/fastfetch-cli/fastfetch/blob/2.21.0/CHANGELOG.md)
+- [Changelog](https://github.com/fastfetch-cli/fastfetch/blob/2.21.1/CHANGELOG.md)
 - License: [`MIT`](https://spdx.org/licenses/MIT.html "MIT License")
 - [Source](./default.nix#L45)
 - Maintainers:
@@ -1239,7 +1239,7 @@ Camera application for Plasma Mobile.
 A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell.
 
 - Name: `pnut`
-- Version: `0-unstable-2024-08-07`
+- Version: `0-unstable-2024-08-09`
 - [Homepage](https://github.com/udem-dlteam/pnut)
 - License: [`BSD-2-Clause`](https://spdx.org/licenses/BSD-2-Clause.html 'BSD 2-clause "Simplified" License')
 - [Source](./pkgs/by-name/pnut/package.nix#L44)
@@ -1385,7 +1385,7 @@ Fan sequel to Super Mario 63.
 Sega Model 3 arcade machine emulator.
 
 - Name: `supermodel`
-- Version: `0-unstable-2024-08-02`
+- Version: `0-unstable-2024-08-11`
 - [Homepage](https://github.com/trzy/Supermodel)
 - License: [`GPL-3.0-or-later`](https://spdx.org/licenses/GPL-3.0-or-later.html "GNU General Public License v3.0 or later")
 - [Source](./pkgs/by-name/supermodel/package.nix#L65)
@@ -1573,6 +1573,30 @@ A game based on K-Shoot MANIA and Sound Voltex.
 - Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `x86_64-solaris`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`
 </details>
 
+### `wayneko`
+
+Display an animated neko cat on the bottom of an output.
+
+- Name: `wayneko`
+- Version: `0-unstable-2024-03-29`
+- [Homepage](https://git.sr.ht/~leon_plickat/wayneko)
+- License: [`GPL-3.0-only`](https://spdx.org/licenses/GPL-3.0-only.html "GNU General Public License v3.0 only")
+- [Source](./pkgs/by-name/wayneko/package.nix#L45)
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) <[`federicoschonborn@disroot.org`](mailto:federicoschonborn@disroot.org)>
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Outputs: **`out`**
+- Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `x86_64-solaris`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`
+</details>
+
 ### `wisp`
 
 Wisp turns indentation based syntax into Lisp.
@@ -1595,6 +1619,33 @@ Wisp turns indentation based syntax into Lisp.
 
 - Outputs: **`out`**
 - Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `i686-darwin`, `aarch64-darwin`, `armv7a-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `x86_64-windows`, `i686-windows`
+</details>
+
+### `wlroots_0_16`
+
+Pluggable, composable, unopinionated modules for building a Wayland
+compositor; or about 50,000 lines of code you were going to write anyway.
+
+- Name: `wlroots`
+- Version: `0.16.2`
+- [Homepage](https://gitlab.freedesktop.org/wlroots/wlroots/)
+- [Changelog](https://gitlab.freedesktop.org/wlroots/wlroots/-/tags/0.16.2)
+- License: [`MIT`](https://spdx.org/licenses/MIT.html "MIT License")
+- [Source](./pkgs/by-name/wlroots_0_16/package.nix#L112)
+- Maintainers:
+  - [Michael Weiss](https://github.com/primeos) <[`dev.primeos@gmail.com`](mailto:dev.primeos@gmail.com)>
+  - [Patrick Hilhorst](https://github.com/Synthetica9) <[`nix@hilhorst.be`](mailto:nix@hilhorst.be)>
+  - [✉️ Mail to all maintainers](mailto:dev.primeos@gmail.com,nix@hilhorst.be)
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Package details
+  </summary>
+
+- Outputs: **`out`**, `examples`
+- Platforms: `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`
 </details>
 
 ### `woke`
@@ -1630,7 +1681,7 @@ Fastest JSON library in C.
 - [Homepage](https://github.com/ibireme/yyjson)
 - [Changelog](https://github.com/ibireme/yyjson/blob/0.10.0/CHANGELOG.md)
 - License: [`MIT`](https://spdx.org/licenses/MIT.html "MIT License")
-- [Source](https://github.com/NixOS/nixpkgs/blob/f5129fb/pkgs/development/libraries/yyjson/default.nix#L23)
+- [Source](https://github.com/NixOS/nixpkgs/blob/1967487/pkgs/development/libraries/yyjson/default.nix#L23)
 - Maintainers:
   - [Yohann Boniface](https://github.com/Sigmanificient) <[`sigmanificient@gmail.com`](mailto:sigmanificient@gmail.com)>
   - [✉️ Mail to all maintainers](mailto:sigmanificient@gmail.com)
