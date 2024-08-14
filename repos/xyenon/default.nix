@@ -20,11 +20,18 @@ rec {
 
   go-check = callPackage ./pkgs/go-check { };
   catp = callPackage ./pkgs/catp { };
-  github-copilot-cli = callPackage ./pkgs/github-copilot-cli { };
   immer-unstable = callPackage ./pkgs/immer { };
   zug-unstable = callPackage ./pkgs/zug { };
   lager-unstable = callPackage ./pkgs/lager { inherit immer-unstable zug-unstable; };
-  libkazv = callPackage ./pkgs/libkazv { inherit immer-unstable zug-unstable lager-unstable; };
+  vodozemac-bindings-kazv-unstable = callPackage ./pkgs/vodozemac-bindings-kazv { };
+  libkazv = callPackage ./pkgs/libkazv {
+    inherit
+      immer-unstable
+      zug-unstable
+      lager-unstable
+      vodozemac-bindings-kazv-unstable
+      ;
+  };
   kazv = kdePackages.callPackage ./pkgs/kazv { inherit libkazv; };
   nginxModules = callPackage ./pkgs/nginx/modules { };
   nginxStable =
