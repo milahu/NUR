@@ -2,7 +2,6 @@
   lib,
   buildPythonPackage,
   fetchFromGitHub,
-  pytestCheckHook,
   pythonAtLeast,
   # Deps
   altair,
@@ -25,10 +24,7 @@ buildPythonPackage rec {
     hash = "sha256-EoNbcMOTqyC/nFttQhWQ2iNGxSwZWkbnCL4W3O+D0As=";
   };
 
-  patches = (
-    lib.lists.optional (pythonAtLeast "3.12")
-    ./replace_distutils.patch # Fix for replace deprecated distutils
-  );
+  patches = lib.lists.optional (pythonAtLeast "3.12") ./replace_distutils.patch; # Fix for replace deprecated distutils
 
   sourceRoot = "${src.name}/python/vegafusion";
 

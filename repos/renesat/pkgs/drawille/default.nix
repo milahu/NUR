@@ -1,6 +1,5 @@
 {
   lib,
-  stdenv,
   python3,
 }:
 python3.pkgs.buildPythonPackage rec {

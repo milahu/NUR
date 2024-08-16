@@ -32,6 +32,6 @@
     "1fps" = pkgs.callPackage ./pkgs/1fps {};
     puffin = pkgs.callPackage ./pkgs/puffin {};
   };
-  supportedSystem = name: pkg: builtins.elem system pkg.meta.platforms;
+  supportedSystem = _: pkg: builtins.elem system pkg.meta.platforms;
 in
   (pkgs.lib.filterAttrs supportedSystem packages) // aliases

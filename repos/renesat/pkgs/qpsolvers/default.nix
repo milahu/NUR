@@ -1,6 +1,5 @@
 {
   lib,
-  stdenv,
   python3,
   fetchFromGitHub,
   daqp,
@@ -33,7 +32,7 @@ python3.pkgs.buildPythonPackage rec {
     )
     scipy
     (scs.overrideAttrs (
-      old: {
+      _: {
         src = fetchFromGitHub {
           owner = "bodono";
           repo = "scs-python";

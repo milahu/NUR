@@ -1,10 +1,12 @@
 {
-  nodejs,
-  fetchFromGitLab,
-  pkgs,
-  stdenv,
   lib,
-}: let
+  nix-update-script,
+  fetchFromGitLab,
+  buildNpmPackage,
+  nodejs,
+}:
+buildNpmPackage rec {
+  pname = "math-preview";
   version = "5.1.1";
 
   src = fetchFromGitLab {
@@ -14,22 +16,18 @@
     hash = "sha256-P3TZ/D6D2PvwPV6alSrDEQujzgI8DhK4VOuCC0BCIFo=";
   };
 
-  myNodePackages = import ./node-composition.nix {
-    inherit pkgs nodejs;
-    inherit (stdenv.hostPlatform) system;
+  npmDepsHash = "sha256-GAPhG3haM9UNdj6tCz8I4j7v6rvNbatdu7NjCeENj3s=";
+  dontNpmBuild = true;
+
+  passthru = {
+    updateScript = nix-update-script {};
   };
-in
-  myNodePackages.package.override {
-    inherit version src;
 
-    nativeBuildInputs = [];
-    buildInputs = [];
-
-    meta = with lib; {
-      description = "Emacs preview math inline";
-      license = licenses.gpl3Plus;
-      homepage = "https://gitlab.com/matsievskiysv/math-preview";
-      maintainers = with maintainers; [renesat];
-      platforms = platforms.unix ++ platforms.windows;
-    };
-  }
+  meta = with lib; {
+    description = "Emacs preview math inline";
+    license = licenses.gpl3Plus;
+    homepage = "https://gitlab.com/matsievskiysv/math-preview";
+    maintainers = with maintainers; [renesat];
+    inherit (nodejs.meta) platforms;
+  };
+}

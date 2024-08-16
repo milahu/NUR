@@ -1,6 +1,5 @@
 {
   lib,
-  stdenv,
   python3,
   fetchFromGitHub,
 }:
@@ -26,7 +25,7 @@ python3.pkgs.buildPythonPackage rec {
   propagatedBuildInputs = with python3.pkgs; [
     aiohttp
     (certifi.overrideAttrs (
-      old: rec {
+      _: rec {
         version = "2023.07.22";
         src = fetchFromGitHub {
           owner = "certifi";
