@@ -1,16 +1,16 @@
 {
 "name":"arc",
-"fetch_time":0.331,
-"eval_time":0.429,
+"fetch_time":0.425,
+"eval_time":0.437,
 "source":{
 "url":"https://github.com/arcnmx/nixexprs",
-"rev":"d590cfa39117a4ae716efc5acb6207e95faa06b7",
-"sha256":"02kp623lxcczq1yb7jpswvvk25bhws70k9wpv8zjza5b6nrwqpbb",
+"rev":"30690a11d80fcc8a5fa1b80da07c7f0677b19ea0",
+"sha256":"0cy577xmba2izr72ng943ckjp1drf52dk5bvick8nxygsdibwbdf",
 "date":null
 },
-"source_storepath":"/nix/store/3y3a49bxj444q9asp51sms83xnmjyha2-source",
-"nixpkgs_storepath":"/nix/store/ni3wyc2bbidbnlzqxiahk2j92il8m8pp-source",
-"nur_combined_rev":"09d30a4cb6f3e9dd1f3e89f0d2e8e07fbddedd40",
+"source_storepath":"/nix/store/4m1zyp5a82ln2qwabgydfi6bnxa639x9-source",
+"nixpkgs_storepath":"/nix/store/sappnlhvk000l0qd3f2psm2llzsdymqm-source",
+"nur_combined_rev":"ed568f0c276ca7101d71089ac2ee898b600cd0b9",
 "packages":{
 "packages.benc":{
 "meta":{
@@ -160,7 +160,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/public/crates/default.nix:99",
+"position":"./pkgs/public/crates/default.nix:103",
 "unfree":false,
 "unsupported":false
 },
@@ -234,7 +234,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/public/crates/default.nix:76",
+"position":"./pkgs/public/crates/default.nix:80",
 "unfree":false,
 "unsupported":false
 },
@@ -308,7 +308,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/public/crates/default.nix:124",
+"position":"./pkgs/public/crates/default.nix:128",
 "unfree":false,
 "unsupported":false
 },
@@ -411,7 +411,7 @@
 ],
 "broken":false,
 "insecure":false,
-"name":"cargo-info-0.7.3",
+"name":"cargo-info-0.7.6",
 "outputsToInstall":[
 "out"
 ],
@@ -460,14 +460,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cargo-info-0.7.3",
+"name":"cargo-info-0.7.6",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cargo-info",
 "system":"x86_64-linux",
-"version":"0.7.3"
+"version":"0.7.6"
 },
 "packages.cargo-llvm-lines":{
 "meta":{
@@ -530,7 +530,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/public/crates/default.nix:163",
+"position":"./pkgs/public/crates/default.nix:167",
 "unfree":false,
 "unsupported":false
 },
@@ -604,7 +604,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/public/crates/default.nix:143",
+"position":"./pkgs/public/crates/default.nix:147",
 "unfree":false,
 "unsupported":false
 },
@@ -1328,7 +1328,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"forcefully-remove-bootfb-6.6.44-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.46-2018-02-08",
 "outputsToInstall":[
 "bin"
 ],
@@ -1359,7 +1359,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"forcefully-remove-bootfb-6.6.44-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.46-2018-02-08",
 "outputName":"bin",
 "outputs":{
 "bin":null,
@@ -1367,7 +1367,7 @@
 },
 "pname":"forcefully-remove-bootfb",
 "system":"x86_64-linux",
-"version":"6.6.44-2018-02-08"
+"version":"6.6.46-2018-02-08"
 },
 "packages.generateLinuxConfig":{
 "meta":{
@@ -2440,7 +2440,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/public/crates/default.nix:181",
+"position":"./pkgs/public/crates/default.nix:185",
 "unfree":false,
 "unsupported":false
 },
@@ -2571,7 +2571,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.44-2021.04.21",
+"name":"ryzen-smu-6.6.46-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -3514,7 +3514,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre663275.2a13929e1f19",
+"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre667170.8b908192e642",
 "description":"Mail indexer",
 "homepage":"https://notmuchmail.org/",
 "insecure":false,
@@ -4297,7 +4297,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/virtualization/qemu/default.nix:275",
+"position":"<nixpkgs> + /pkgs/applications/virtualization/qemu/default.nix:297",
 "unfree":false,
 "unsupported":false
 },
@@ -4373,7 +4373,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/public/crates/default.nix:212",
+"position":"./pkgs/public/crates/default.nix:216",
 "unfree":false,
 "unsupported":false
 },
@@ -4689,7 +4689,7 @@
 "name":"oxalica"
 }
 ],
-"name":"rust-analyzer-unwrapped-2024-07-22",
+"name":"rust-analyzer-unwrapped-2024-08-05",
 "outputsToInstall":[
 "out"
 ],
@@ -4738,14 +4738,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rust-analyzer-unwrapped-2024-07-22",
+"name":"rust-analyzer-unwrapped-2024-08-05",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rust-analyzer-unwrapped",
 "system":"x86_64-linux",
-"version":"2024-07-22"
+"version":"2024-08-05"
 },
 "packages.rustdoc-stripper":{
 "meta":{
@@ -4920,7 +4920,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.44-2021.04.21",
+"name":"ryzen-smu-6.6.46-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -4965,7 +4965,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.44-2021.04.21",
+"name":"ryzen-smu-6.6.46-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -4996,21 +4996,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ryzen-smu-6.6.44-2021.04.21",
+"name":"ryzen-smu-6.6.46-2021.04.21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ryzen-smu",
 "system":"x86_64-linux",
-"version":"6.6.44-2021.04.21"
+"version":"6.6.46-2021.04.21"
 },
 "packages.ryzen-smu-monitor_cpu":{
 "meta":{
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.44-2021.04.21",
+"name":"ryzen-smu-6.6.46-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5088,7 +5088,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"name":"ryzen-smu-6.6.44-2021.04.21",
+"name":"ryzen-smu-6.6.46-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
