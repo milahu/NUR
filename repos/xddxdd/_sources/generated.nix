@@ -690,6 +690,18 @@
       sha256 = "sha256-zsSKFUs75K0Byxh3KVCZ8lIOf/vpbyMJXfk6fa2u+aE=";
     };
   };
+  liboqs-unstable = {
+    pname = "liboqs-unstable";
+    version = "fc2264d150d0d94412c6ddb2f955c7077765556d";
+    src = fetchFromGitHub {
+      owner = "open-quantum-safe";
+      repo = "liboqs";
+      rev = "fc2264d150d0d94412c6ddb2f955c7077765556d";
+      fetchSubmodules = false;
+      sha256 = "sha256-z/ZrlhpqvcC3huCBytWt0UrBAQVqGQ7IjsUp1TPVWZY=";
+    };
+    date = "2024-08-12";
+  };
   libqcef = {
     pname = "libqcef";
     version = "ff3448cb3f86f42946d4c9eb01ccaa994f174fe0";
@@ -796,13 +808,13 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b3585";
+    version = "b3593";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      rev = "b3585";
+      rev = "b3593";
       fetchSubmodules = false;
-      sha256 = "sha256-BTnrBKEkDK4pkC8zXVJ80Z15e5FUFNELsPUa7IMw9Jw=";
+      sha256 = "sha256-1qSQA/szPxB+/wU96aUzaNmqOzqdxOv2VHDsgiBYaPY=";
     };
   };
   lyrica = {
@@ -814,6 +826,14 @@
       rev = "v0.8";
       fetchSubmodules = false;
       sha256 = "sha256-hjLm4p/GY/TF+p+yV2aKM3z1ctdyw2vqiqiBGffkBU4=";
+    };
+  };
+  magiskboot = {
+    pname = "magiskboot";
+    version = "v27.0";
+    src = fetchurl {
+      url = "https://github.com/topjohnwu/Magisk/releases/download/v27.0/Magisk-v27.0.apk";
+      sha256 = "sha256-9RG9M9MkKRHQWwk5+RCjEz7yug4P8eCYEo+fPNDBZhA=";
     };
   };
   mtkclient = {
