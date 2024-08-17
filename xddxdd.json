@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.416,
-"eval_time":0.581,
+"fetch_time":0.705,
+"eval_time":0.594,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"72c7fc2cc44fbdb804835a60c091f4a204b6cf4a",
-"sha256":"1vsq4fzm6vl07i8638ql89g6b15gpq70pwzf0yllrzd1hznxc5mm",
+"rev":"1c1b31621602d96953e331ea0f7fe0cd3c87283a",
+"sha256":"0d678diwb78jwdq2wwjn3pnqpl6zxcn61cimrjy6blhk91x0ap2z",
 "date":null
 },
-"source_storepath":"/nix/store/sg04hlv8nk7lbyfsxnnxh76g5p348jdw-source",
+"source_storepath":"/nix/store/2lsv3303zmir8lmd7jwng53spnhxv87j-source",
 "nixpkgs_storepath":"/nix/store/sappnlhvk000l0qd3f2psm2llzsdymqm-source",
-"nur_combined_rev":"39ffd4d6d522dbbc58071eb548062dbfc1947e20",
+"nur_combined_rev":"20808bc2e10a464efe21fe7b320e5719adf628ee",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -4010,7 +4010,7 @@
 "name":"Philip Taron"
 }
 ],
-"name":"llama-cpp-3585",
+"name":"llama-cpp-3593",
 "outputsToInstall":[
 "out"
 ],
@@ -4064,14 +4064,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-3585",
+"name":"llama-cpp-3593",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"3585"
+"version":"3593"
 },
 "lantianCustomized.nbfc-linux":{
 "meta":{
@@ -10241,7 +10241,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"./pkgs/uncategorized/ldap-auth-proxy/default.nix:15",
+"position":"./pkgs/uncategorized/ldap-auth-proxy/default.nix:18",
 "unfree":false,
 "unsupported":false
 },
@@ -10364,7 +10364,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/liboqs/default.nix:39",
+"position":"./pkgs/uncategorized/liboqs/generic.nix:41",
 "unfree":false,
 "unsupported":false
 },
@@ -10376,6 +10376,57 @@
 "pname":"liboqs",
 "system":"x86_64-linux",
 "version":"0.10.1"
+},
+"liboqs-unstable":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"C library for prototyping and experimenting with quantum-resistant cryptography",
+"homepage":"https://openquantumsafe.org",
+"insecure":false,
+"license":[
+{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+}
+],
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"liboqs-unstable-2024-08-12",
+"outputsToInstall":[
+"out"
+],
+"position":"./pkgs/uncategorized/liboqs/generic.nix:41",
+"unfree":false,
+"unsupported":false
+},
+"name":"liboqs-unstable-2024-08-12",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"liboqs-unstable",
+"system":"x86_64-linux",
+"version":"2024-08-12"
 },
 "libqcef":{
 "meta":{
@@ -10575,6 +10626,57 @@
 "pname":"lyrica",
 "system":"x86_64-linux",
 "version":"0.8"
+},
+"magiskboot":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"A tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms.",
+"homepage":"https://topjohnwu.github.io/Magisk/tools.html",
+"insecure":false,
+"license":[
+{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v3.0 only",
+"redistributable":true,
+"shortName":"gpl3Only",
+"spdxId":"GPL-3.0-only",
+"url":"https://spdx.org/licenses/GPL-3.0-only.html"
+}
+],
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"magiskboot-27.0",
+"outputsToInstall":[
+"out"
+],
+"position":"./pkgs/uncategorized/magiskboot/default.nix:44",
+"unfree":false,
+"unsupported":false
+},
+"name":"magiskboot-27.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"magiskboot",
+"system":"x86_64-linux",
+"version":"27.0"
 },
 "mtkclient":{
 "meta":{
@@ -27712,6 +27814,19 @@
 "name":"mpv-with-scripts-0.38.0",
 "outputsToInstall":[
 "out"
+],
+"platforms":[
+"x86_64-cygwin",
+"x86_64-darwin",
+"x86_64-freebsd",
+"x86_64-genode",
+"x86_64-solaris",
+"x86_64-linux",
+"x86_64-netbsd",
+"x86_64-none",
+"x86_64-openbsd",
+"x86_64-redox",
+"x86_64-windows"
 ],
 "position":"<nixpkgs> + /pkgs/applications/video/mpv/wrapper.nix:105",
 "unfree":false,
