@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.43,
-"eval_time":0.599,
+"fetch_time":0.636,
+"eval_time":0.586,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"d90be60513925fef562ca0844f95f084b93f258d",
-"sha256":"0ylcm3ly0cc9agwgnizghp165h3spm55j6x2cvvafs7qrbq984fc",
+"rev":"3eda94c26500e79f2cf0140c28cd14300ccd4be6",
+"sha256":"0wyfn6520v9syjckjvlxnylpp6w3d0ac3za7zp3x9h83l2damdwf",
 "date":null
 },
-"source_storepath":"/nix/store/kdpq4g6fcpidjq3f47zbsb43qk17xwyz-source",
-"nixpkgs_storepath":"/nix/store/6nn9r56d35xjwibwppxq7qh0l38ml1jj-source",
-"nur_combined_rev":"12139d4fdc349a5ff5a14864afd7fbc617f4fe3f",
+"source_storepath":"/nix/store/fx8gablq2ikrpfj07ar2zic7kd28jsim-source",
+"nixpkgs_storepath":"/nix/store/pb6a76bnabikpw9w79rypfzmvhfjqfak-source",
+"nur_combined_rev":"d614af2df62a659301dd9672ea025c6ca5bb3433",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -3977,7 +3977,7 @@
 "armv7a-darwin"
 ],
 "broken":false,
-"description":"Port of Facebook's LLaMA model in C/C++",
+"description":"Inference of Meta's LLaMA model (and others) in pure C/C++",
 "homepage":"https://github.com/ggerganov/llama.cpp/",
 "insecure":false,
 "license":{
@@ -4010,7 +4010,7 @@
 "name":"Philip Taron"
 }
 ],
-"name":"llama-cpp-3600",
+"name":"llama-cpp-3604",
 "outputsToInstall":[
 "out"
 ],
@@ -4064,14 +4064,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-3600",
+"name":"llama-cpp-3604",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"3600"
+"version":"3604"
 },
 "lantianCustomized.nbfc-linux":{
 "meta":{
@@ -4154,7 +4154,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"nginx-lantian-unstable-2024-08-16",
+"name":"nginx-lantian-unstable-2024-08-19",
 "outputsToInstall":[
 "out"
 ],
@@ -4162,14 +4162,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nginx-lantian-unstable-2024-08-16",
+"name":"nginx-lantian-unstable-2024-08-19",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nginx-lantian-unstable",
 "system":"x86_64-linux",
-"version":"2024-08-16"
+"version":"2024-08-19"
 },
 "lantianCustomized.transmission-with-webui":{
 "meta":{
@@ -10411,7 +10411,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"liboqs-unstable-2024-08-12",
+"name":"liboqs-unstable-2024-08-18",
 "outputsToInstall":[
 "out"
 ],
@@ -10419,14 +10419,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"liboqs-unstable-2024-08-12",
+"name":"liboqs-unstable-2024-08-18",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"liboqs-unstable",
 "system":"x86_64-linux",
-"version":"2024-08-12"
+"version":"2024-08-18"
 },
 "libqcef":{
 "meta":{
@@ -10729,6 +10729,7 @@
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 }
 ],
+"mainProgram":"mtk",
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -10782,7 +10783,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"./pkgs/uncategorized/mtkclient/default.nix:45",
+"position":"./pkgs/uncategorized/mtkclient/default.nix:46",
 "unfree":false,
 "unsupported":false
 },
@@ -25140,6 +25141,7 @@
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "longDescription":"Open vSwitch is a production quality, multilayer virtual switch\nlicensed under the open source Apache 2.0 license. It is\ndesigned to enable massive network automation through\nprogrammatic extension, while still supporting standard\nmanagement interfaces and protocols (e.g. NetFlow, sFlow, SPAN,\nRSPAN, CLI, LACP, 802.1ag). In addition, it is designed to\nsupport distribution across multiple physical servers similar\nto VMware's vNetwork distributed vswitch or Cisco's Nexus 1000V.\n",
+"mainProgram":"ovs-vsctl",
 "maintainers":[
 {
 "email":"happy.plan4249@valkor.net",
@@ -25616,7 +25618,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"peerbanhelper-6.0.0",
+"name":"peerbanhelper-6.0.1",
 "outputsToInstall":[
 "out"
 ],
@@ -25624,14 +25626,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"peerbanhelper-6.0.0",
+"name":"peerbanhelper-6.0.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"peerbanhelper",
 "system":"x86_64-linux",
-"version":"6.0.0"
+"version":"6.0.1"
 },
 "phpmyadmin":{
 "meta":{
