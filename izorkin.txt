@@ -1,45 +1,11 @@
 error:
-… from call site
+… while querying the derivation named 'spidermonkey-1.8.5'
 
-  at ./default.nix:31:25:
+error: attribute 'goibhniu' missing
 
-    30|   php-pearweb-phars   = pkgs.callPackage  ./pkgs/development/php/pearweb-phars.nix { };
-    31|   inherit              (pkgs.callPackages ./pkgs/development/php { openssl = pkgs.libressl; inherit bison2; inherit libxml2_2_12; inherit curl; inherit uwimap; inherit php-pearweb-phars; config.php.ldap = false; config.php.pdo_odbc = false; config.php.pgsql = false; config.php.pdo_pgsql = false; config.php.mssql = false; config.php.zts = true; }) php56 php71 php72 php73 php74 php80 php81 php82;
-      |                         ^
-    32|
+at ./pkgs/development/spidermonkey/1.8.5.nix:74:21:
 
-… while calling 'callPackagesWith'
-
-  at <nixpkgs> + /lib/customisation.nix:298:36:
-
-   297|   */
-   298|   callPackagesWith = autoArgs: fn: args:
-      |                                    ^
-   299|     let
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:307:10:
-
-   306|     in
-   307|       if isDerivation pkgs then throw
-      |          ^
-   308|         ("function `callPackages` was called on a *single* derivation "
-
-… while calling 'isDerivation'
-
-  at <nixpkgs> + /lib/attrsets.nix:1283:5:
-
-  1282|   isDerivation =
-  1283|     value: value.type or null == "derivation";
-      |     ^
-  1284|
-
-error: syntax error, unexpected ID, expecting '}'
-
-at ./pkgs/development/php/default.nix:9:1:
-
-     8| , icu60, icu67, icu69
-     9| openldap, cyrus_sasl, libxml2_2_12, libxml2, libmcrypt, libxcrypt, pcre, pcre2
-      | ^
-    10| , unixODBC, postgresql, sqlite, readline, html-tidy
+    73|     # TODO: MPL/GPL/LGPL tri-license.
+    74|     maintainers = [ maintainers.goibhniu ];
+      |                     ^
+    75|     platforms = platforms.linux;
