@@ -11,5 +11,7 @@ pgrep snixembed || snixembed &
 
 mkdir -p /tmp/talon && cd /tmp/talon
 nix build -Lvf $channel talon
+
+nohup audio analog-stereo &
+
 ./result/bin/talon
-#nix run -f $channel talon
