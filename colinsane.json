@@ -1,16 +1,16 @@
 {
 "name":"colinsane",
-"fetch_time":1.543,
-"eval_time":0.436,
+"fetch_time":2.694,
+"eval_time":0.426,
 "source":{
 "url":"https://git.uninsane.org/colin/nix-files",
-"rev":"c8b28580a9e3eaef0e14e927e233b6b6cb287c85",
-"sha256":"0grnjgfnh3wwr1w51g6mn157xpbqw3vbcczvxahvia0k4l63s0q9",
+"rev":"17dcf566f70811f220ea854d5563cb8897d83eab",
+"sha256":"0r5hd0jxl90psqg1jnlfjj3y7f8lv3iwdqfcs2v1fhpwh43kq52p",
 "date":null
 },
-"source_storepath":"/nix/store/5h3ppbxyh0kv0wwp7hmyrfndr2lgmylp-nix-files",
-"nixpkgs_storepath":"/nix/store/pb6a76bnabikpw9w79rypfzmvhfjqfak-source",
-"nur_combined_rev":"bdff928bfa6847f9d8deb726ea0a2526c6878629",
+"source_storepath":"/nix/store/rskzd8xvk9k18vbsngfggil8g5f0raap-nix-files",
+"nixpkgs_storepath":"/nix/store/6m66phq6nc0n3948vhjz66mq884jvzrv-source",
+"nur_combined_rev":"d19542a0d6249dec36b74eb028efa935b56f5e8b",
 "packages":{
 "alsa-ucm-pinephone-manjaro":{
 "meta":{
@@ -329,7 +329,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:68",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:59",
 "unfree":false,
 "unsupported":false
 },
@@ -1015,7 +1015,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:475",
 "unfree":false,
 "unsupported":false
 },
@@ -1758,7 +1758,7 @@
 "armv7a-darwin"
 ],
 "broken":false,
-"changelog":"https://www.mozilla.org/en-US/firefox/129.0.1/releasenotes/",
+"changelog":"https://www.mozilla.org/en-US/firefox/129.0.2/releasenotes/",
 "description":"Web browser built from Firefox source tree",
 "homepage":"http://www.mozilla.com/en-US/firefox/",
 "insecure":false,
@@ -1794,7 +1794,7 @@
 }
 ],
 "maxSilent":14400,
-"name":"firefox-unwrapped-129.0.1",
+"name":"firefox-unwrapped-129.0.2",
 "outputsToInstall":[
 "out"
 ],
@@ -1848,7 +1848,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"firefox-unwrapped-129.0.1",
+"name":"firefox-unwrapped-129.0.2",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -1857,7 +1857,7 @@
 },
 "pname":"firefox-unwrapped",
 "system":"x86_64-linux",
-"version":"129.0.1"
+"version":"129.0.2"
 },
 "flare-signal-nixified":{
 "meta":{
@@ -2165,7 +2165,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:475",
 "unfree":false,
 "unsupported":false
 },
@@ -2187,7 +2187,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:475",
 "unfree":false,
 "unsupported":false
 },
@@ -2647,7 +2647,7 @@
 "homepage":"https://landlock.io",
 "insecure":false,
 "mainProgram":"landlock-sandboxer",
-"name":"landlock-sandboxer-6.10.5",
+"name":"landlock-sandboxer-6.10.6",
 "outputsToInstall":[
 "out"
 ],
@@ -2655,14 +2655,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"landlock-sandboxer-6.10.5",
+"name":"landlock-sandboxer-6.10.6",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"landlock-sandboxer",
 "system":"x86_64-linux",
-"version":"6.10.5"
+"version":"6.10.6"
 },
 "ldd-aarch64":{
 "meta":{
@@ -2673,7 +2673,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:546",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:537",
 "unfree":false,
 "unsupported":false
 },
@@ -4384,7 +4384,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:475",
 "unfree":false,
 "unsupported":false
 },
@@ -5294,7 +5294,7 @@
 "aarch64-darwin",
 "armv7a-darwin"
 ],
-"position":"./pkgs/additional/signal-desktop-from-src/default.nix:377",
+"position":"./pkgs/additional/signal-desktop-from-src/default.nix:378",
 "unfree":false,
 "unsupported":false
 },
@@ -5316,7 +5316,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:475",
 "unfree":false,
 "unsupported":false
 },
@@ -9232,7 +9232,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:475",
 "unfree":false,
 "unsupported":false
 },
@@ -10376,7 +10376,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:484",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:475",
 "unfree":false,
 "unsupported":false
 },
@@ -12189,7 +12189,7 @@
 "name":"Colin Sane"
 }
 ],
-"name":"syshud-0-unstable-2024-08-10",
+"name":"syshud-0-unstable-2024-08-17",
 "outputsToInstall":[
 "out"
 ],
@@ -12216,18 +12216,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/additional/syshud/default.nix:60",
+"position":"./pkgs/additional/syshud/default.nix:61",
 "unfree":false,
 "unsupported":false
 },
-"name":"syshud-0-unstable-2024-08-10",
+"name":"syshud-0-unstable-2024-08-17",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"syshud",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-08-10"
+"version":"0-unstable-2024-08-17"
 },
 "pkgs.tow-boot-pinephone":{
 "meta":{
@@ -12358,7 +12358,7 @@
 "name":"Colin Sane"
 }
 ],
-"name":"uassets-0-unstable-2024-08-13",
+"name":"uassets-0-unstable-2024-08-18",
 "outputsToInstall":[
 "out"
 ],
@@ -12366,14 +12366,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"uassets-0-unstable-2024-08-13",
+"name":"uassets-0-unstable-2024-08-18",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uassets",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-08-13"
+"version":"0-unstable-2024-08-18"
 },
 "pkgs.unftp":{
 "meta":{
