@@ -1,9 +1,21 @@
 {
+  curl,
   curlftpfs,
+  fetchpatch,
   fetchFromGitea,
   fuse3,
 }:
 (curlftpfs.override {
+  curl = curl.overrideAttrs (base: {
+    patches = (base.patches or []) ++ [
+      (fetchpatch {
+        # fix regression in curl 8.8.0 -> 8.9.0 which broke curlftpfs
+        url = "https://github.com/curl/curl/pull/14629.diff";
+        name = "setopt: allow CURLOPT_INTERFACE to be set to NULL";
+        hash = "sha256-cpiw0izhFY74y8xa7KEoQOtD79GBIfrm1hU3sLrObJg=";
+      })
+    ];
+  });
   fuse = fuse3;
 }).overrideAttrs (upstream: {
   # my (master branch) fork includes:
@@ -16,8 +28,8 @@
     domain = "git.uninsane.org";
     owner = "colin";
     repo = "curlftpfs";
-    rev = "fuse3";
-    hash = "sha256-QwGbQuriNwnZscnYBEVp3Td6/ifiA8rtQcvtvmTnpbU=";
+    rev = "master";
+    hash = "sha256-bqkRHV4d1y349yIHAtXPMlfWciVCH/geW73id8aJwUs=";
   };
   # `mount` clears PATH before calling the mount helper (see util-linux/lib/env.c),
   # so the traditional /etc/fstab approach of fstype=fuse and device = curlftpfs#URI doesn't work.

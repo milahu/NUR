@@ -240,7 +240,9 @@ let
         "ftp://servo-hn:/${subdir}"
         "/dev/null"
         "-o"
-        (lib.concatStringsSep "," ([ "exit_after_connect" ] ++ config.fileSystems."${localPath}".options))
+        (lib.concatStringsSep "," ([
+          "exit_after_connect"
+        ] ++ config.fileSystems."${localPath}".options))
       ];
       serviceConfig.RemainAfterExit = true;
       serviceConfig.Type = "oneshot";
