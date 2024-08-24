@@ -72,6 +72,7 @@ let
     (fromDb "feeds.feedburner.com/80000HoursPodcast" // rat)
     (fromDb "feeds.feedburner.com/dancarlin/history" // rat)
     (fromDb "feeds.feedburner.com/radiolab" // pol)  # Radiolab -- also available here, but ONLY OVER HTTP: <http://feeds.wnyc.org/radiolab>
+    (fromDb "feeds.megaphone.fm/GLT1412515089" // pol)  # JRE: Joe Rogan Experience
     (fromDb "feeds.megaphone.fm/behindthebastards" // pol)  # also Maggie Killjoy
     (fromDb "feeds.megaphone.fm/cspantheweekly" // pol)
     (fromDb "feeds.megaphone.fm/recodedecode" // tech)  # The Verge - Decoder
@@ -162,6 +163,7 @@ let
     (fromDb "interconnected.org/home/feed" // rat)  # Matt Webb -- engineering-ish, but dreamy
     (fromDb "jeffgeerling.com" // tech)
     (fromDb "jefftk.com" // tech)
+    (fromDb "justine.lol" // tech)
     (fromDb "jwz.org/blog" // tech // pol)  # DNA lounge guy, loooong-time blogger
     (fromDb "kill-the-newsletter.com/feeds/joh91bv7am2pnznv.xml" // pol)  # Matt Levine - Money Stuff
     (fromDb "kosmosghost.github.io/index.xml" // tech)
