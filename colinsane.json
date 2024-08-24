@@ -1,16 +1,16 @@
 {
 "name":"colinsane",
-"fetch_time":2.652,
-"eval_time":0.456,
+"fetch_time":2.427,
+"eval_time":0.433,
 "source":{
 "url":"https://git.uninsane.org/colin/nix-files",
-"rev":"ec90f5c06631c25a3155e95e6a944dd0afdf4cdd",
-"sha256":"1gjmcxmmfq11x7kf2xk9wcnzpjwfvbwbj60pc44i090lyl25i64y",
+"rev":"5f35eaccd9ee50b58fe6c913795f02441a52f432",
+"sha256":"1hsx1xj4rn305ihsm4aj9s5zabink7zi6x6jcpcz4w5022mx0zlp",
 "date":null
 },
-"source_storepath":"/nix/store/k64df31sg10m2pg7xw46x7wbpj1v9xv5-nix-files",
-"nixpkgs_storepath":"/nix/store/npp0l939bfss61i5zah9shhhfh2jd4nj-source",
-"nur_combined_rev":"9560f30d1fa823130b6fbca14458ece064256335",
+"source_storepath":"/nix/store/b3h8jkacpvcn3dbxb8swnjfmwa3x3j9w-nix-files",
+"nixpkgs_storepath":"/nix/store/g6i9k4319mw7v5asv9sq82bnkm0gkvza-source",
+"nur_combined_rev":"7422f3e6ef163740e75af231b64ae019e98bf5ce",
 "packages":{
 "alsa-ucm-pinephone-manjaro":{
 "meta":{
@@ -327,6 +327,7 @@
 "description":"userspace sandbox helper",
 "insecure":false,
 "longDescription":"run any executable in an isolated environment,\nselectively exposing the specific resources (paths, IPC) it needs.\n",
+"mainProgram":"bunpen",
 "name":"bunpen-0.1.0",
 "outputsToInstall":[
 "out"
@@ -5190,7 +5191,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/additional/sanebox/default.nix:58",
+"position":"./pkgs/additional/sanebox/default.nix:59",
 "unfree":false,
 "unsupported":false
 },
