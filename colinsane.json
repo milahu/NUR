@@ -1,16 +1,16 @@
 {
 "name":"colinsane",
-"fetch_time":1.907,
-"eval_time":0.427,
+"fetch_time":2.895,
+"eval_time":0.42,
 "source":{
 "url":"https://git.uninsane.org/colin/nix-files",
-"rev":"289e9182fded6d9cb83a77b2cfc0ab34943a7389",
-"sha256":"1fby615wz4fg9df3y8jmm7s3b3ndvsggpdaf7amdp3m2a0243vlx",
+"rev":"3994beaa0179dc4e5734a27a377a879335d6eab0",
+"sha256":"07r2gczlz0ckn4mvsdgz0gx3p6aa58x7p9d1024r5xjfby1hdi93",
 "date":null
 },
-"source_storepath":"/nix/store/cw8q87ggc11mpsz0vi205k57lv4qd4r7-nix-files",
+"source_storepath":"/nix/store/2if3qvi4177dxq0p995r7i251cm7sswl-nix-files",
 "nixpkgs_storepath":"/nix/store/waab14dz9rys8gqg2h3g4g4hwdymd0qz-source",
-"nur_combined_rev":"9716611d8334b83d1966864508bdb4295ec2a896",
+"nur_combined_rev":"41e1284cb48100c0d51676831e38b20376a0c918",
 "packages":{
 "alsa-ucm-pinephone-manjaro":{
 "meta":{
@@ -12201,9 +12201,18 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Simple heads up display written in gtkmm 4",
+"description":"simple heads up display written in gtkmm 4",
 "homepage":"https://github.com/System64fumo/syshud",
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Do What The F*ck You Want To Public License",
+"redistributable":true,
+"shortName":"wtfpl",
+"spdxId":"WTFPL",
+"url":"https://spdx.org/licenses/WTFPL.html"
+},
 "mainProgram":"syshud",
 "maintainers":[
 {
@@ -12214,7 +12223,7 @@
 "name":"Colin Sane"
 }
 ],
-"name":"syshud-0-unstable-2024-08-17",
+"name":"syshud-0-unstable-2024-08-24",
 "outputsToInstall":[
 "out"
 ],
@@ -12241,18 +12250,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/additional/syshud/default.nix:61",
+"position":"./pkgs/additional/syshud/default.nix:68",
 "unfree":false,
 "unsupported":false
 },
-"name":"syshud-0-unstable-2024-08-17",
+"name":"syshud-0-unstable-2024-08-24",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"syshud",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-08-17"
+"version":"0-unstable-2024-08-24"
 },
 "pkgs.tow-boot-pinephone":{
 "meta":{
