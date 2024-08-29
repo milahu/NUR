@@ -4,8 +4,7 @@
   fetchzip,
   cmake,
   ninja,
-  withExperimentalApps ? false,
-  withExperimentalLibs ? false, # Only build a static library.
+
   withStatic ? false,
   withBzip2 ? false,
   bzip2,
@@ -18,6 +17,9 @@
   libpng,
   withZlib ? true,
   zlib,
+
+  withExperimentalApps ? false,
+  withExperimentalLibs ? false, # Only build a static library.
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -53,7 +55,6 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://teem.sourceforge.net/";
     license = lib.licenses.lgpl21Plus;
     platforms = lib.platforms.unix;
-    badPlatforms = lib.platforms.aarch64;
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })

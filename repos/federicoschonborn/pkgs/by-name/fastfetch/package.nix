@@ -90,17 +90,20 @@
   ddcutil,
   enableDirectxHeaders ? stdenv.hostPlatform.isLinux,
   directx-headers,
+  enableElf ?
+    stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isFreeBSD || stdenv.hostPlatform.isAndroid,
+  libelf,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "fastfetch";
-  version = "2.21.3";
+  version = "2.22.0";
 
   src = fetchFromGitHub {
     owner = "fastfetch-cli";
     repo = "fastfetch";
     rev = finalAttrs.version;
-    hash = "sha256-AnURAH5tSIwmbLtB7FjjrOODGxrXbMOIqVjIBwOU+lo=";
+    hash = "sha256-ncaBMSV7n4RVA2376ExBv+a8bzuvuMttv3GlNaOH23k=";
   };
 
   nativeBuildInputs = [
@@ -137,7 +140,8 @@ stdenv.mkDerivation (finalAttrs: {
     ++ lib.optional enableFreetype freetype
     ++ lib.optional enablePulse pulseaudio
     ++ lib.optional enableDdcutil ddcutil
-    ++ lib.optional enableDirectxHeaders directx-headers;
+    ++ lib.optional enableDirectxHeaders directx-headers
+    ++ lib.optional enableElf libelf;
 
   cmakeFlags = [
     (lib.cmakeOptionType "filepath" "CMAKE_INSTALL_SYSCONFDIR" "${placeholder "out"}/etc")
@@ -167,6 +171,7 @@ stdenv.mkDerivation (finalAttrs: {
     (lib.cmakeBool "ENABLE_PULSE" enablePulse)
     (lib.cmakeBool "ENABLE_DDCUTIL" enableDdcutil)
     (lib.cmakeBool "ENABLE_DIRECTX_HEADERS" enableDirectxHeaders)
+    (lib.cmakeBool "ENABLE_ELF" enableElf)
   ];
 
   passthru.updateScript = nix-update-script { };
@@ -178,7 +183,6 @@ stdenv.mkDerivation (finalAttrs: {
     changelog = "https://github.com/fastfetch-cli/fastfetch/blob/${finalAttrs.src.rev}/CHANGELOG.md";
     license = lib.licenses.mit;
     platforms = lib.platforms.unix;
-    badPlatforms = lib.platforms.darwin;
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })

@@ -14,7 +14,11 @@
 
 lib.makeScope pkgs.newScope (
   self:
-  {
+  lib.packagesFromDirectoryRecursive {
+    inherit (self) callPackage;
+    directory = ./pkgs/by-name;
+  }
+  // {
     lib = import ./lib { inherit lib; };
 
     # Sets
@@ -191,9 +195,5 @@ lib.makeScope pkgs.newScope (
           withPng = true;
           withZlib = true;
         };
-  }
-  // lib.packagesFromDirectoryRecursive {
-    inherit (self) callPackage;
-    directory = ./pkgs/by-name;
   }
 )
