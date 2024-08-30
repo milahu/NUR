@@ -1851,16 +1851,16 @@
     };
     "copy-link-text" = buildFirefoxXpiAddon {
       pname = "copy-link-text";
-      version = "1.6.4";
+      version = "1.6.5";
       addonId = "{b144be59-6bdc-41e0-9141-9f8d00373d93}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/3883720/copy_link_text_webextension-1.6.4.xpi";
-      sha256 = "21fa5ee67f4e751e9b6f8b37ed75edd3d9d00ae57ea6227eaece965a490b4ce8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4344305/copy_link_text_webextension-1.6.5.xpi";
+      sha256 = "fab82edf1d10ccd8635b710141d930ab80b1f64fc2aa5e61150336d084739456";
       meta = with lib;
       {
         homepage = "https://github.com/def00111/copy-link-text";
         description = "Copy the text of the link.";
         license = licenses.mpl20;
-        mozPermissions = [ "clipboardWrite" "menus" ];
+        mozPermissions = [ "clipboardWrite" "menus" "scripting" ];
         platforms = platforms.all;
       };
     };
@@ -2149,10 +2149,10 @@
     };
     "dictionaries" = buildFirefoxXpiAddon {
       pname = "dictionaries";
-      version = "5.1.4";
+      version = "5.1.5";
       addonId = "revir.qing@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4335078/dictionaries-5.1.4.xpi";
-      sha256 = "f1f179e81b33e5619a2eb789891b37ad350b20d99f963be3721f1280e6fdcbb6";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4344246/dictionaries-5.1.5.xpi";
+      sha256 = "8a8d060c0a6d035a26b78482104abc2cef08efb557cd371093302e25e1338dae";
       meta = with lib;
       {
         homepage = "https://github.com/revir/dictionaries";
@@ -2312,6 +2312,34 @@
           "contextMenus"
           "activeTab"
           "scripting"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "downthemall" = buildFirefoxXpiAddon {
+      pname = "downthemall";
+      version = "4.12.1";
+      addonId = "{DDC359D1-844A-42a7-9AA1-88A850A938A8}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4228862/downthemall-4.12.1.xpi";
+      sha256 = "4e652c23da2560d02246afa3eeeee442b6de3dddb1ee3ce10aaa214e57e676fd";
+      meta = with lib;
+      {
+        homepage = "https://www.downthemall.org/";
+        description = "The Mass Downloader for your browser";
+        license = licenses.gpl2;
+        mozPermissions = [
+          "<all_urls>"
+          "contextMenus"
+          "downloads"
+          "downloads.open"
+          "history"
+          "menus"
+          "notifications"
+          "sessions"
+          "storage"
+          "tabs"
+          "theme"
+          "webNavigation"
         ];
         platforms = platforms.all;
       };
@@ -2642,6 +2670,30 @@
         platforms = platforms.all;
       };
     };
+    "facebook-tracking-removal" = buildFirefoxXpiAddon {
+      pname = "facebook-tracking-removal";
+      version = "1.13.0";
+      addonId = "{bb1b80be-e6b3-40a1-9b6e-9d4073343f0b}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4305679/facebook_tracking_removal-1.13.0.xpi";
+      sha256 = "b0a963fa7f4850514166f26b46fa942efceefbb2876d15f176668548fb8100da";
+      meta = with lib;
+      {
+        homepage = "https://github.com/mgziminsky/FacebookTrackingRemoval";
+        description = "Removes Ads and the user interaction tracking on Facebook™.\nModified elements can optionally have a custom CSS style applied to them so that cleaned items can be more easily identified.";
+        license = licenses.gpl3;
+        mozPermissions = [
+          "alarms"
+          "declarativeNetRequestWithHostAccess"
+          "scripting"
+          "storage"
+          "webNavigation"
+          "*://*.facebook.com/*"
+          "*://*.messenger.com/*"
+          "*://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "fakespot-fake-reviews-amazon" = buildFirefoxXpiAddon {
       pname = "fakespot-fake-reviews-amazon";
       version = "1.3.5";
@@ -2766,6 +2818,35 @@
           "https://*/*"
           "http://*/*"
           "*://*/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "feedbroreader" = buildFirefoxXpiAddon {
+      pname = "feedbroreader";
+      version = "4.16.3";
+      addonId = "{a9c2ad37-e940-4892-8dce-cd73c6cbbc0c}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4254656/feedbroreader-4.16.3.xpi";
+      sha256 = "1d588e721f68bdc965fb44d29376485502c622d5f26de33ca9312328530ade11";
+      meta = with lib;
+      {
+        homepage = "http://nodetics.com/feedbro";
+        description = "Advanced Feed Reader - Read news &amp; blogs or any RSS/Atom/RDF source.";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [
+          "tabs"
+          "http://*/"
+          "https://*/"
+          "storage"
+          "unlimitedStorage"
+          "notifications"
+          "webRequest"
+          "webRequestBlocking"
         ];
         platforms = platforms.all;
       };
@@ -3016,6 +3097,29 @@
           "clipboardWrite"
           "*://*/*"
           "file:///*"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "foxy-gestures" = buildFirefoxXpiAddon {
+      pname = "foxy-gestures";
+      version = "1.2.12";
+      addonId = "{e839c3f9-298e-4cd0-99e0-464431cb7c34}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3855097/foxy_gestures-1.2.12.xpi";
+      sha256 = "f6bd22ab66c779425dbda853a91cd12014dc245f253b7fc822f5c8366f1203ea";
+      meta = with lib;
+      {
+        homepage = "https://github.com/marklieberman/foxygestures";
+        description = "Mouse gestures for Firefox. A web extension alternative to FireGestures created by a long time FireGestures user.";
+        license = licenses.gpl3;
+        mozPermissions = [
+          "browserSettings"
+          "cookies"
+          "contextualIdentities"
+          "sessions"
+          "storage"
+          "tabs"
+          "<all_urls>"
         ];
         platforms = platforms.all;
       };
@@ -3658,6 +3762,20 @@
         description = "Share links with GSConnect, direct to the browser or by SMS. Requires at least v7 of the Gnome Shell extension to function.";
         license = licenses.gpl2;
         mozPermissions = [ "nativeMessaging" "tabs" "contextMenus" ];
+        platforms = platforms.all;
+      };
+    };
+    "gàidhlig-language-pack" = buildFirefoxXpiAddon {
+      pname = "gàidhlig-language-pack";
+      version = "130.0.20240826.200919";
+      addonId = "langpack-gd@firefox.mozilla.org";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4343282/gaidhlig_language_pack-130.0.20240826.200919.xpi";
+      sha256 = "07f871887e80ebe99f7a89a46049561ea0779efe01365239adba670c77a2dab2";
+      meta = with lib;
+      {
+        description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
+        license = licenses.mpl20;
+        mozPermissions = [];
         platforms = platforms.all;
       };
     };
@@ -5007,6 +5125,20 @@
         platforms = platforms.all;
       };
     };
+    "incognito-normal" = buildFirefoxXpiAddon {
+      pname = "incognito-normal";
+      version = "1.2.1resigned1";
+      addonId = "@incognitonormal";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4277691/incognito_normal-1.2.1resigned1.xpi";
+      sha256 = "210270aadc1e3228919de46fafb8fdd74ccd3b3a5e436325ade052c0c7b027d1";
+      meta = with lib;
+      {
+        description = "Quickly switch current tab, link or search text to Google from incognito window to normal window, or vice versa.";
+        license = licenses.mpl20;
+        mozPermissions = [ "tabs" "contextMenus" ];
+        platforms = platforms.all;
+      };
+    };
     "indie-wiki-buddy" = buildFirefoxXpiAddon {
       pname = "indie-wiki-buddy";
       version = "3.10.1";
@@ -5635,10 +5767,10 @@
     };
     "languagetool" = buildFirefoxXpiAddon {
       pname = "languagetool";
-      version = "8.11.7";
+      version = "8.11.8";
       addonId = "languagetool-webextension@languagetool.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4337379/languagetool-8.11.7.xpi";
-      sha256 = "60a3564a300188fd9066e3f331f0350aabbe468a8de6a835d03654c18712afae";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4341696/languagetool-8.11.8.xpi";
+      sha256 = "2f1489f7180303be730ff2b16d6a432d07017c6cffd3fbfc39f37dc809a25fc8";
       meta = with lib;
       {
         homepage = "https://languagetool.org";
@@ -5778,6 +5910,27 @@
         description = "Use LessPass add-on to generate complex passwords and log in  automatically to all your sites";
         license = licenses.gpl3;
         mozPermissions = [ "activeTab" ];
+        platforms = platforms.all;
+      };
+    };
+    "lexicon" = buildFirefoxXpiAddon {
+      pname = "lexicon";
+      version = "1.6.6";
+      addonId = "{b2f51f6b-a485-43dd-bebd-eb1ea3e9d9d2}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4327709/lexicon-1.6.6.xpi";
+      sha256 = "f887335819edff41c00779fd39c4bf941606d04a310a1f5b60f5921d1c78169f";
+      meta = with lib;
+      {
+        homepage = "https://github.com/akvedi/lexicon";
+        description = "Quickly Define Words While You Browse By Just Double Clicking On The Word, Create and Organize Your Own Word Bank With Personal Dictionary";
+        license = licenses.gpl3;
+        mozPermissions = [
+          "storage"
+          "https://www.google.com/"
+          "contextMenus"
+          "activeTab"
+          "<all_urls>"
+        ];
         platforms = platforms.all;
       };
     };
@@ -7248,10 +7401,10 @@
     };
     "noscript" = buildFirefoxXpiAddon {
       pname = "noscript";
-      version = "11.4.34";
+      version = "11.4.35";
       addonId = "{73a6fe31-595d-460b-a920-fcc0f8843232}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4333280/noscript-11.4.34.xpi";
-      sha256 = "e538163118e8e9dcabd6306b8a9abb3fccb556b7d87b68e18aa0997d121ba00a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4343311/noscript-11.4.35.xpi";
+      sha256 = "a448e4c2e0eb7ca5fb1b6d3189bc586b91a7ee6facecdd0424f1bfbf2b3016fb";
       meta = with lib;
       {
         homepage = "https://noscript.net";
@@ -7310,6 +7463,30 @@
           "cookies"
           "https://*.notion.so/"
           "https://*.notion.so/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "nyaa-linker" = buildFirefoxXpiAddon {
+      pname = "nyaa-linker";
+      version = "2.1.0";
+      addonId = "Metacor.Code@gmail.com";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4302266/nyaa_linker-2.1.0.xpi";
+      sha256 = "bf14d229b71360c4c0b01b7a7b364b8c4448134848e417d51f761bf54b0b905a";
+      meta = with lib;
+      {
+        description = "Adds a button to Anime and Manga database websites that opens a relevant Nyaa search";
+        license = licenses.gpl3;
+        mozPermissions = [
+          "storage"
+          "tabs"
+          "*://*.myanimelist.net/*"
+          "*://*.anilist.co/*"
+          "*://*.kitsu.io/*"
+          "*://*.anime-planet.com/*"
+          "*://*.animenewsnetwork.com/encyclopedia/*"
+          "*://*.anidb.net/*"
+          "*://*.livechart.me/*"
         ];
         platforms = platforms.all;
       };
@@ -7405,10 +7582,10 @@
     };
     "old-reddit-redirect" = buildFirefoxXpiAddon {
       pname = "old-reddit-redirect";
-      version = "1.8.1";
+      version = "1.8.2";
       addonId = "{9063c2e9-e07c-4c2c-9646-cfe7ca8d0498}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4182157/old_reddit_redirect-1.8.1.xpi";
-      sha256 = "bd411715bb36bd535a0211a47bd69c73abefac6153164f7e00f5b57971397700";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4342347/old_reddit_redirect-1.8.2.xpi";
+      sha256 = "0b89437d21132be520fbdf8f55a81cc41dd5f6b50c2905b4c43b870718baddf1";
       meta = with lib;
       {
         homepage = "https://github.com/tom-james-watson/old-reddit-redirect";
@@ -9143,10 +9320,10 @@
     };
     "return-youtube-dislikes" = buildFirefoxXpiAddon {
       pname = "return-youtube-dislikes";
-      version = "3.0.0.16";
+      version = "3.0.0.17";
       addonId = "{762f9885-5a13-4abd-9c77-433dcd38b8fd}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4308076/return_youtube_dislikes-3.0.0.16.xpi";
-      sha256 = "46356bf30f6a06fee3497133c0b69a39ab09f393fa7d4c0e4d1c89cee1d020e4";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4342747/return_youtube_dislikes-3.0.0.17.xpi";
+      sha256 = "c9115baa653c22390089fd6f028c88b9ca9c56f25112ff13e497caba984df841";
       meta = with lib;
       {
         description = "Returns ability to see dislike statistics on youtube";
@@ -9282,6 +9459,20 @@
           "notifications"
           "storage"
         ];
+        platforms = platforms.all;
+      };
+    };
+    "scots-language-pack" = buildFirefoxXpiAddon {
+      pname = "scots-language-pack";
+      version = "130.0.20240826.200919";
+      addonId = "langpack-sco@firefox.mozilla.org";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4343325/scots_language_pack-130.0.20240826.200919.xpi";
+      sha256 = "d9a7ae2ab075054d098c130228eb3d5ac94e5e66201781d9e1fe10e6783ad882";
+      meta = with lib;
+      {
+        description = "Firefox Language Pack for Scots (sco)";
+        license = licenses.mpl20;
+        mozPermissions = [];
         platforms = platforms.all;
       };
     };
@@ -10092,6 +10283,30 @@
         description = "Swedish spell-check dictionary.";
         license = licenses.lgpl3;
         mozPermissions = [];
+        platforms = platforms.all;
+      };
+    };
+    "swift-selection-search" = buildFirefoxXpiAddon {
+      pname = "swift-selection-search";
+      version = "3.48.0";
+      addonId = "jid1-KdTtiCj6wxVAFA@jetpack";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3995012/swift_selection_search-3.48.0.xpi";
+      sha256 = "258bc59d93f376fc5bda1d025c22b057f98f7cc9a07b1ca5d16404fbf263be83";
+      meta = with lib;
+      {
+        homepage = "https://github.com/CanisLupus/swift-selection-search";
+        description = "Swiftly access your search engines in a popup panel when you select text in a webpage. Context menu also included!";
+        license = licenses.mit;
+        mozPermissions = [
+          "<all_urls>"
+          "clipboardWrite"
+          "contextMenus"
+          "search"
+          "storage"
+          "webNavigation"
+          "webRequest"
+          "webRequestBlocking"
+        ];
         platforms = platforms.all;
       };
     };
@@ -11326,6 +11541,32 @@
         platforms = platforms.all;
       };
     };
+    "video-resumer" = buildFirefoxXpiAddon {
+      pname = "video-resumer";
+      version = "1.2.4resigned1";
+      addonId = "videoresumer@jetpack";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4270451/video_resumer-1.2.4resigned1.xpi";
+      sha256 = "e098a3acb92dcefa9d751676aad728082a6973fefc801ea47b239a88a828bea1";
+      meta = with lib;
+      {
+        description = "Automatically resumes YouTube videos from where you played them last. Without this extension, for example, when you click through YouTube videos, back and forth, they always start from the beginning.";
+        license = {
+          shortName = "video-resumer";
+          fullName = "Custom License for Video Resumer";
+          url = "https://addons.mozilla.org/en-US/firefox/addon/video-resumer/license/";
+          free = false;
+        };
+        mozPermissions = [
+          "storage"
+          "unlimitedStorage"
+          "alarms"
+          "*://*.youtube.com/*"
+          "*://*.youtube.com/embed/*"
+          "*://*.youtube-nocookie.com/embed/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "videospeed" = buildFirefoxXpiAddon {
       pname = "videospeed";
       version = "0.6.3.3";
@@ -12156,10 +12397,10 @@
     };
     "wikiwand-wikipedia-modernized" = buildFirefoxXpiAddon {
       pname = "wikiwand-wikipedia-modernized";
-      version = "5.1.3";
+      version = "10.0.1";
       addonId = "jid1-D7momAzRw417Ag@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/3694180/wikiwand_wikipedia_modernized-5.1.3.xpi";
-      sha256 = "ed6633af652b1e609aed8660b8251573265d38ee051c9e4c5920dbf19b325d86";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4341711/wikiwand_wikipedia_modernized-10.0.1.xpi";
+      sha256 = "ccd5e25bc14a7ce1ba9ada666e7bdb120b60beaf40c6c8ed77120e549171542a";
       meta = with lib;
       {
         homepage = "http://www.wikiwand.com";
@@ -12170,15 +12411,7 @@
           url = "https://www.wikiwand.com/terms";
           free = false;
         };
-        mozPermissions = [
-          "cookies"
-          "storage"
-          "webNavigation"
-          "webRequest"
-          "webRequestBlocking"
-          "*://*.wikipedia.org/*"
-          "*://*.wikiwand.com/*"
-        ];
+        mozPermissions = [ "webNavigation" "menus" ];
         platforms = platforms.all;
       };
     };
@@ -12301,6 +12534,21 @@
         platforms = platforms.all;
       };
     };
+    "youtube-high-definition" = buildFirefoxXpiAddon {
+      pname = "youtube-high-definition";
+      version = "118.0.5";
+      addonId = "{7b1bf0b6-a1b9-42b0-b75d-252036438bdc}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4169481/youtube_high_definition-118.0.5.xpi";
+      sha256 = "66d24520820ea01056219751f4c42bf49cb7c0a295eb53e63cf28d603ea42d50";
+      meta = with lib;
+      {
+        homepage = "http://barisderin.com/";
+        description = "YouTube High Definition is a powerful tool that automatically plays all YouTube videos in HD, changes video player size, offers auto-stop and mute, and much more.";
+        license = licenses.lgpl3;
+        mozPermissions = [ "storage" "*://*.youtube.com/*" ];
+        platforms = platforms.all;
+      };
+    };
     "youtube-nonstop" = buildFirefoxXpiAddon {
       pname = "youtube-nonstop";
       version = "0.9.2";
@@ -12392,6 +12640,28 @@
           "storage"
           "*://*.youtube.com/*"
           "*://m.youtube.com/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "zoom-image" = buildFirefoxXpiAddon {
+      pname = "zoom-image";
+      version = "2.7.1";
+      addonId = "{b14f4076-e80d-4baa-8c7d-8c65dfd2519c}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3717935/zoom_image-2.7.1.xpi";
+      sha256 = "a4dd818b5a8a99b945de31797715c7d8d7350fcdfb2450ea6aff200d631c8941";
+      meta = with lib;
+      {
+        homepage = "http://crossblade.her.jp/addon/ff_zoomimage/index.php";
+        description = "As though the mouse wheel rotate by the right click on the images, you can do the images extenting / reducing / rotating and so on.\nIt can be expanded regardless of design. Also you can drag zoomed images.";
+        license = licenses.mpl20;
+        mozPermissions = [
+          "contextMenus"
+          "activeTab"
+          "storage"
+          "http://*/*"
+          "https://*/*"
+          "file://*/*"
         ];
         platforms = platforms.all;
       };
