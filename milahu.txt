@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./default.nix:944:15:
+  at ./default.nix:828:18:
 
-   943|
-   944|   basicswap = pkgs.python3.pkgs.callPackage ./pkgs/applications/blockchains/basicswap {
-      |               ^
-   945|     # FIXME scope
+   827|
+   828|   fetchtorrent = callPackage ./pkgs/build-support/fetchtorrent { };
+      |                  ^
+   829|
 
 … while calling 'callPackageWith'
 
@@ -17,29 +17,4 @@ error:
       |                                   ^
    213|     let
 
-… from call site
-
-  at <nixpkgs> + /lib/trivial.nix:957:7:
-
-   956|     { # TODO: Should we add call-time "type" checking like built in?
-   957|       __functor = self: f;
-      |       ^
-   958|       __functionArgs = args;
-
-… while calling anonymous lambda
-
-  at <nixpkgs> + /lib/customisation.nix:136:17:
-
-   135|     in
-   136|     mirrorArgs (origArgs:
-      |                 ^
-   137|     let
-
-error: function 'anonymous lambda' called with unexpected argument 'nano-node'
-
-at ./pkgs/applications/blockchains/basicswap/default.nix:3:1:
-
-     2|
-     3| { lib
-      | ^
-     4| , python3Packages
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "transmission_noSystemd" at ./pkgs/build-support/fetchtorrent/default.nix:1'

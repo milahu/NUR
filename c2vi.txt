@@ -1,56 +1,11 @@
 error:
-… from call site
+… while querying the derivation named 'csv2vcf'
 
-  at ./nur.nix:20:11:
+error: undefined variable 'c2vi'
 
-    19|       hash = "sha256-xFc8J8tlw6i+FbTC05nrlvQIXRmguFzDqh+SQOR54TE=";
-    20|     }; in pkgs.callPackage "${repo}/default.nix" {};
-      |           ^
-    21|
+at ./nur.nix:46:45:
 
-… while calling 'callPackageWith'
-
-  at <nixpkgs> + /lib/customisation.nix:212:35:
-
-   211|   */
-   212|   callPackageWith = autoArgs: fn: args:
-      |                                   ^
-   213|     let
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:225:10:
-
-   224|         # Filter out arguments that have a default value
-   225|         (filterAttrs (name: value: ! value)
-      |          ^
-   226|         # Filter out arguments that would be passed
-
-… while calling 'filterAttrs'
-
-  at <nixpkgs> + /lib/attrsets.nix:646:5:
-
-   645|     pred:
-   646|     set:
-      |     ^
-   647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:215:15:
-
-   214|       f = if isFunction fn then fn else import fn;
-   215|       fargs = functionArgs f;
-      |               ^
-   216|
-
-… while calling 'functionArgs'
-
-  at <nixpkgs> + /lib/trivial.nix:975:18:
-
-   974|   */
-   975|   functionArgs = f:
-      |                  ^
-   976|     if f ? __functor
-
-error: path '/nix/store/rzy0k6si29bzh14d6yy7c7gr1bfy2578-source.drv' is not valid
+    45|       license = licenses.mit;
+    46|       maintainers = with lib.maintainers; [ c2vi ];
+      |                                             ^
+    47|       platforms = platforms.all;
