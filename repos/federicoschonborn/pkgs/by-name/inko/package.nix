@@ -7,11 +7,12 @@
   ncurses,
   zlib,
   llvmPackages_17,
-# nix-update-script,
+  nix-update-script,
 }:
 
 let
   version = "0.16.0";
+
   src = fetchFromGitHub {
     owner = "inko-lang";
     repo = "inko";
@@ -26,9 +27,7 @@ rustPlatform.buildRustPackage {
 
   inherit src;
 
-  cargoLock = {
-    lockFile = ./Cargo.lock;
-  };
+  cargoLock.lockFile = ./Cargo.lock;
 
   buildInputs = [
     libffi
@@ -42,7 +41,7 @@ rustPlatform.buildRustPackage {
   # Some of the tests require git to be installed.
   doCheck = false;
 
-  # passthru.updateScript = nix-update-script { };
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     mainProgram = "inko";
