@@ -24,29 +24,22 @@ rec {
   buildtools = pkgs.callPackage ./buildtools/shell { };
 
   # Rust
-  ab-av1 = pkgs.callPackage ./pkgs-by-lang/Rust/ab-av1 { };
-  Anime4k-rs = pkgs.callPackage ./pkgs-by-lang/Rust/Anime4k-rs { };
-  av1an = pkgs.callPackage ./pkgs-by-lang/Rust/av1an { };
   ncmdump-rs = pkgs.callPackage ./pkgs-by-lang/Rust/ncmdump.rs { };
-  onedrive-fuse = pkgs.callPackage ./pkgs-by-lang/Rust/onedrive-fuse { };
   rescrobbled = pkgs.callPackage ./pkgs-by-lang/Rust/rescrobbled { };
-  sakaya = pkgs.callPackage ./pkgs-by-lang/Rust/sakaya { };
   waylyrics = pkgs.callPackage ./pkgs-by-lang/Rust/waylyrics { };
 
   # Dotnet
   BBDown = pkgs.callPackage ./pkgs-by-lang/Dotnet/BBDown { };
 
   # Go
-  open-snell = pkgs.callPackage ./pkgs-by-lang/Go/open-snell { };
+  #open-snell = pkgs.callPackage ./pkgs-by-lang/Go/open-snell { };
 
 
   # Python
-  idntag = pkgs.callPackage ./pkgs-by-lang/Python/idntag { };
   jjwxcCrawler = pkgs.callPackage ./pkgs-by-lang/Python/jjwxcCrawler { };
   pynat = pkgs.callPackage ./pkgs-by-lang/Python/pynat { };
   pystun3 = pkgs.callPackage ./pkgs-by-lang/Python/pystun3 { };
-  together-cli = pkgs.callPackage ./pkgs-by-lang/Python/together_cli { };
-  bypy = pkgs.callPackage ./pkgs-by-lang/Python/bypy { };
+
 
   # C
   candy = pkgs.callPackage ./pkgs-by-lang/C/candy { };
@@ -56,10 +49,9 @@ rec {
   Penguin-Subtitle-Player = pkgs.libsForQt5.callPackage ./pkgs-by-lang/C/Penguin-Subtitle-Player { };
   suyu = pkgs.qt6.callPackage ./pkgs-by-lang/C/suyu { };
   yuzu-early-access = pkgs.qt6.callPackage ./pkgs-by-lang/C/yuzu { };
-  nbfc-linux = pkgs.callPackage ./pkgs-by-lang/C/nbfc-linux { };
-
+  
   # Nodejs
-  gateway = pkgs.callPackage ./pkgs-by-lang/Node/gateway {};
+  #gateway = pkgs.callPackage ./pkgs-by-lang/Node/gateway {};  #snell opensource server
 
   # Shell
   reflac = pkgs.callPackage ./pkgs-by-lang/Shell/reflac { };
@@ -69,17 +61,15 @@ rec {
   hydrogen-music = pkgs.callPackage ./pkgs/AppImage/hydrogen-music { };
 
   # Bin
-  basilisk = pkgs.callPackage ./pkgs/Bin/basilisk { withGTK3 = true; };
   feishu = pkgs.callPackage ./pkgs/Bin/feishu { };
   wechat = pkgs.callPackage ./pkgs/Bin/wechat { };
   #wemeet = pkgs.callPackage ./pkgs/Bin/wemeet { };
 
   # Overrides
-  forkgram = pkgs.qt6.callPackage ./pkgs/Overrides/forkgram { };
-  qcm = pkgs.qt6.callPackage ./pkgs/Overrides/qcm { };
-  mpv = pkgs.wrapMpv (pkgs.mpv.unwrapped.override { cddaSupport = true; }) { scripts = [ pkgs.mpvScripts.mpris ]; };
-  sway-im = pkgs.callPackage ./pkgs/Overrides/sway-im { };
-
+  mpv = pkgs.mpv-unwrapped.wrapper {
+  mpv = (pkgs.mpv-unwrapped.override { cddaSupport = true; });
+  scripts = [ pkgs.mpvScripts.mpris ];
+};
 
   # System Fonts override
   JetBrainsMono-nerdfonts = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
@@ -89,11 +79,24 @@ rec {
   cudatoolkit = pkgs.cudaPackages_12.cudatoolkit;
 
   # Broken
-  #sudachi = pkgs.qt6.callPackage ./pkgs-by-lang/C/sudachi {};
+  #sudachi = pkgs.qt6.callPackage ./pkgs-by-lang/C/sudachi { };
   #llamafile = pkgs.callPackage ./pkgs-by-lang/C/llamafile { };
-  #yumekey = pkgs.callPackage ./pkgs-by-lang/C/yumekey {};
+  #yumekey = pkgs.callPackage ./pkgs-by-lang/C/yumekey { };
   #pot = pkgs.callPackage ./pkgs/Overrides/pot { };
-  #openmw = pkgs.libsForQt5.callPackage ./pkgs/Overrides/openmw {};
+  #openmw = pkgs.libsForQt5.callPackage ./pkgs/Overrides/openmw { };
   #swgp-go = pkgs.callPackage ./pkgs-by-lang/Go/swgp-go { };
   #DownOnSpot = pkgs.callPackage ./pkgs-by-lang/Rust/DownOnSpot { };
+  #forkgram = pkgs.qt6.callPackage ./pkgs/Overrides/forkgram { };
+  #torzu = pkgs.qt6.callPackage ./pkgs-by-lang/C/torzu { };
+  #ab-av1 = pkgs.callPackage ./pkgs-by-lang/Rust/ab-av1 { };
+  #Anime4k-rs = pkgs.callPackage ./pkgs-by-lang/Rust/Anime4k-rs { };
+  #av1an = pkgs.callPackage ./pkgs-by-lang/Rust/av1an { };
+  #onedrive-fuse = pkgs.callPackage ./pkgs-by-lang/Rust/onedrive-fuse { };
+  #sakaya = pkgs.callPackage ./pkgs-by-lang/Rust/sakaya { };
+  #nbfc-linux = pkgs.callPackage ./pkgs-by-lang/C/nbfc-linux { };
+  #idntag = pkgs.callPackage ./pkgs-by-lang/Python/idntag { };
+  #sway-im = pkgs.callPackage ./pkgs/Overrides/sway-im { };
+  #qcm = pkgs.qt6.callPackage ./pkgs/Overrides/qcm { };
+  #basilisk = pkgs.callPackage ./pkgs/Bin/basilisk { withGTK3 = true; };
+
 }

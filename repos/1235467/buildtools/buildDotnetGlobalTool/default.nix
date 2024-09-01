@@ -5,9 +5,11 @@
   # Name of the nuget package to install, if different from pname
 , nugetName ? pname
   # Hash of the nuget package to install, will be given on first build
+  # nugetHash uses SRI hash and should be preferred
+, nugetHash ? ""
 , nugetSha256 ? ""
   # Additional nuget deps needed by the tool package
-, nugetDeps ? (_: [ ])
+, nugetDeps ? (_: [])
   # Executables to wrap into `$out/bin`, same as in `buildDotnetModule`, but with
   # a default of `pname` instead of null, to avoid auto-wrapping everything
 , executables ? pname
@@ -24,15 +26,16 @@ buildDotnetModule (args // {
   nugetDeps = mkNugetDeps {
     name = pname;
     nugetDeps = { fetchNuGet }: [
-      (fetchNuGet { pname = nugetName; inherit version; sha256 = nugetSha256; })
+      (fetchNuGet { pname = nugetName; inherit version; sha256 = nugetSha256; hash = nugetHash; })
     ] ++ (nugetDeps fetchNuGet);
+    installable = true;
   };
 
-  projectFile = "";
+  dotnetGlobalTool = true;
 
   useDotnetFromEnv = true;
 
-  dontBuld = true;
+  dontBuild = true;
 
   installPhase = ''
     runHook preInstall
