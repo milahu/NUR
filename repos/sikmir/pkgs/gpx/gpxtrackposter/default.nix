@@ -29,6 +29,8 @@ python3Packages.buildPythonApplication {
   postPatch = ''
     substituteInPlace gpxtrackposter/poster.py \
       --replace-fail "self.translate(\"ATHLETE\")" "\"\""
+    substituteInPlace gpxtrackposter/track.py \
+      --replace-fail "from stravalib.model import Activity" "from stravalib.model import DetailedActivity"
     substituteInPlace gpxtrackposter/cli.py \
       --subst-var out
     sed -i 's/~=.*//' requirements.txt
@@ -70,6 +72,5 @@ python3Packages.buildPythonApplication {
     homepage = "https://github.com/flopp/GpxTrackPoster";
     license = lib.licenses.mit;
     maintainers = [ lib.maintainers.sikmir ];
-    broken = true; # https://github.com/stravalib/stravalib/pull/459
   };
 }
