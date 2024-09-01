@@ -1,8 +1,0 @@
-error: attribute 'wrapMpv' missing
-
-at ./default.nix:69:9:
-
-    68|   # Overrides
-    69|   mpv = pkgs.wrapMpv (pkgs.mpv.unwrapped.override { cddaSupport = true; }) { scripts = [ pkgs.mpvScripts.mpris ]; };
-      |         ^
-    70|

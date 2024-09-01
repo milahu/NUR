@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./default.nix:828:18:
+  at ./default.nix:904:20:
 
-   827|
-   828|   fetchtorrent = callPackage ./pkgs/build-support/fetchtorrent { };
-      |                  ^
-   829|
+   903|
+   904|     imagename2id = callPackage ./pkgs/tools/misc/freetz/pkgs/imagename2id { };
+      |                    ^
+   905|
 
 … while calling 'callPackageWith'
 
@@ -17,4 +17,40 @@ error:
       |                                   ^
    213|     let
 
-error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "transmission_noSystemd" at ./pkgs/build-support/fetchtorrent/default.nix:1'
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:225:10:
+
+   224|         # Filter out arguments that have a default value
+   225|         (filterAttrs (name: value: ! value)
+      |          ^
+   226|         # Filter out arguments that would be passed
+
+… while calling 'filterAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:646:5:
+
+   645|     pred:
+   646|     set:
+      |     ^
+   647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:215:15:
+
+   214|       f = if isFunction fn then fn else import fn;
+   215|       fargs = functionArgs f;
+      |               ^
+   216|
+
+… while calling 'functionArgs'
+
+  at <nixpkgs> + /lib/trivial.nix:975:18:
+
+   974|   */
+   975|   functionArgs = f:
+      |                  ^
+   976|     if f ? __functor
+
+error: getting status of './pkgs/tools/misc/freetz/pkgs/imagename2id': No such file or directory
