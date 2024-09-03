@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./default.nix:904:20:
+  at ./default.nix:396:16:
 
-   903|
-   904|     imagename2id = callPackage ./pkgs/tools/misc/freetz/pkgs/imagename2id { };
-      |                    ^
-   905|
+   395|
+   396|       giving = callPackage ./pkgs/python3/pkgs/giving { };
+      |                ^
+   397|
 
 … while calling 'callPackageWith'
 
@@ -17,40 +17,4 @@ error:
       |                                   ^
    213|     let
 
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:225:10:
-
-   224|         # Filter out arguments that have a default value
-   225|         (filterAttrs (name: value: ! value)
-      |          ^
-   226|         # Filter out arguments that would be passed
-
-… while calling 'filterAttrs'
-
-  at <nixpkgs> + /lib/attrsets.nix:646:5:
-
-   645|     pred:
-   646|     set:
-      |     ^
-   647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:215:15:
-
-   214|       f = if isFunction fn then fn else import fn;
-   215|       fargs = functionArgs f;
-      |               ^
-   216|
-
-… while calling 'functionArgs'
-
-  at <nixpkgs> + /lib/trivial.nix:975:18:
-
-   974|   */
-   975|   functionArgs = f:
-      |                  ^
-   976|     if f ? __functor
-
-error: getting status of './pkgs/tools/misc/freetz/pkgs/imagename2id': No such file or directory
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "varname" at ./pkgs/python3/pkgs/giving/default.nix:7'
