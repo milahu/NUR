@@ -1,51 +1,56 @@
 {
   lib,
-  python3,
   fetchFromGitHub,
+  buildPythonPackage,
+  poetry-core,
+  setuptools,
+  aiohttp,
+  certifi,
+  frozenlist,
+  packaging,
+  python,
+  yarl,
+  pytestCheckHook,
+  aresponses,
+  pythonOlder,
 }:
-python3.pkgs.buildPythonPackage rec {
+buildPythonPackage rec {
   pname = "aiolinkding";
-  version = "2023.10.0";
+  version = "2023.12.0";
   format = "pyproject";
 
-  disabled = python3.pythonOlder "3.9";
+  disabled = pythonOlder "3.10";
 
   src = fetchFromGitHub {
     owner = "bachya";
     repo = "aiolinkding";
     rev = version;
-    hash = "sha256-fH2V2gmYuMlqIgWwKh3xXYYtu9bw8Ae7I58yLrYRGXE=";
+    hash = "sha256-1or6sh8mKIBxnRCuxfnslmKyQPCzqURqPgg9NFi1tRI=";
   };
 
   postPatch = ''
+    substituteInPlace pyproject.toml \
+      --replace-fail "poetry>=0.12" "poetry-core>=0.12" \
+      --replace-fail "packaging = \"^23.0\"" "packaging = \"^24.0\""
   '';
 
-  nativeBuildInputs = with python3.pkgs; [poetry-core];
+  build-system = [poetry-core setuptools];
 
-  propagatedBuildInputs = with python3.pkgs; [
+  dependencies = [
     aiohttp
-    (certifi.overrideAttrs (
-      _: rec {
-        version = "2023.07.22";
-        src = fetchFromGitHub {
-          owner = "certifi";
-          repo = "python-certifi";
-          rev = version;
-          hash = "sha256-V3bptJDNMGXlCMg6GHj792IrjfsG9+F/UpQKxeM0QOc=";
-        };
-      }
-    ))
-
+    certifi
+    frozenlist
     packaging
+    python
+    yarl
   ];
 
-  nativeCheckInputs = with python3.pkgs; [
+  nativeCheckInputs = [
     pytestCheckHook
     aresponses
   ];
 
   pytestFlagsArray = [
-    "--fixtures"
     "tests/"
   ];
 

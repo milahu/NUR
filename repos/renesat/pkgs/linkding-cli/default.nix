@@ -1,35 +1,47 @@
 {
   lib,
   python3,
+  buildPythonPackage,
   fetchFromGitHub,
+  ruamel-yaml,
+  aiohttp,
   aiolinkding,
+  frozenlist,
+  multidict,
+  shellingham,
+  typer,
+  yarl,
+  poetry-core,
+  pytestCheckHook,
 }:
-python3.pkgs.buildPythonPackage rec {
+buildPythonPackage rec {
   pname = "linkding-cli";
-  version = "2023.10.0";
+  version = "2024.09.0";
   format = "pyproject";
 
-  disabled = python3.pythonOlder "3.9";
+  disabled = python3.pythonOlder "3.10";
 
   src = fetchFromGitHub {
     owner = "bachya";
     repo = "linkding-cli";
     rev = version;
-    hash = "sha256-IzZvqr4r3y3IEO98EAFah4ZUBAaUVMbF775I/4BQr8w=";
+    hash = "sha256-qGL5Fe8N602Euw2FD1ZiOmyhkxSgxieYR4t1aXCbGJU=";
   };
 
-  nativeBuildInputs = with python3.pkgs; [poetry-core];
+  build-system = [poetry-core];
 
-  propagatedBuildInputs = with python3.pkgs; [
-    aiolinkding
+  dependencies = [
     ruamel-yaml
-    typer
-    rich
+    aiohttp
+    aiolinkding
+    frozenlist
+    multidict
     shellingham
-    colorama
+    typer
+    yarl
   ];
 
-  nativeCheckInputs = with python3.pkgs; [
+  nativeCheckInputs = [
     pytestCheckHook
   ];
 
