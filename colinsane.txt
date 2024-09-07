@@ -1,0 +1,191 @@
+error:
+… from call site
+
+  at ./pkgs/default.nix:109:26:
+
+   108|     signal-desktop-from-src = callPackage ./additional/signal-desktop-from-src { };
+   109|     sm64ex-coop-deluxe = callPackage ./additional/sm64ex-coop-deluxe { };
+      |                          ^
+   110|     sofacoustics = lib.recurseIntoAttrs (callPackage ./additional/sofacoustics { });
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:212:35:
+
+   211|   */
+   212|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   213|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:957:7:
+
+   956|     { # TODO: Should we add call-time "type" checking like built in?
+   957|       __functor = self: f;
+      |       ^
+   958|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:136:17:
+
+   135|     in
+   136|     mirrorArgs (origArgs:
+      |                 ^
+   137|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:138:16:
+
+   137|     let
+   138|       result = f origArgs;
+      |                ^
+   139|
+
+… while calling anonymous lambda
+
+  at ./pkgs/additional/sm64ex-coop-deluxe/default.nix:2:1:
+
+     1| # package taken from: <https://git.uninsane.org/shelvacu/nix-stuff/src/branch/master/coopdx.nix>
+     2| { callPackage
+      | ^
+     3| , fetchFromGitHub
+
+… from call site
+
+  at ./pkgs/additional/sm64ex-coop-deluxe/default.nix:32:5:
+
+    31|   region = "us"; #dx removed support for other regions
+    32| in (callPackage "${nixpkgs}/pkgs/games/sm64ex/generic.nix" {
+      |     ^
+    33|   inherit pname version region;
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:212:35:
+
+   211|   */
+   212|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   213|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:225:10:
+
+   224|         # Filter out arguments that have a default value
+   225|         (filterAttrs (name: value: ! value)
+      |          ^
+   226|         # Filter out arguments that would be passed
+
+… while calling 'filterAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:646:5:
+
+   645|     pred:
+   646|     set:
+      |     ^
+   647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:215:15:
+
+   214|       f = if isFunction fn then fn else import fn;
+   215|       fargs = functionArgs f;
+      |               ^
+   216|
+
+… while calling 'functionArgs'
+
+  at <nixpkgs> + /lib/trivial.nix:975:18:
+
+   974|   */
+   975|   functionArgs = f:
+      |                  ^
+   976|     if f ? __functor
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:214:14:
+
+   213|     let
+   214|       f = if isFunction fn then fn else import fn;
+      |              ^
+   215|       fargs = functionArgs f;
+
+… while calling 'isFunction'
+
+  at <nixpkgs> + /lib/trivial.nix:991:16:
+
+   990|   */
+   991|   isFunction = f: builtins.isFunction f ||
+      |                ^
+   992|     (f ? __functor && isFunction (f.__functor f));
+
+… while calling anonymous lambda
+
+  at ./pkgs/default.nix:199:15:
+
+   198|     // (lib.mapAttrs
+   199|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
+      |               ^
+   200|         unpatched."${pname}"
+
+… from call site
+
+  at ./pkgs/default.nix:78:15:
+
+    77|     newsflash-nixified = callPackage ./additional/newsflash-nixified { };
+    78|     nixpkgs = callPackage ./additional/nixpkgs {
+      |               ^
+    79|       localSystem = stdenv.buildPlatform.system;
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:212:35:
+
+   211|   */
+   212|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   213|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:957:7:
+
+   956|     { # TODO: Should we add call-time "type" checking like built in?
+   957|       __functor = self: f;
+      |       ^
+   958|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:136:17:
+
+   135|     in
+   136|     mirrorArgs (origArgs:
+      |                 ^
+   137|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:138:16:
+
+   137|     let
+   138|       result = f origArgs;
+      |                ^
+   139|
+
+… while calling anonymous lambda
+
+  at ./pkgs/additional/nixpkgs/default.nix:20:1:
+
+    19| # - staging: maybe if no staging-next -> master PR has been cut yet?
+    20| { variant ? "master"
+      | ^
+    21| , doPatch ? true
+
+error: path '/nix/store/klsyhx89cgb2m3qcqfllnxxqv5w9whc9-source.drv' is not valid
