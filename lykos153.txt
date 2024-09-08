@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./default.nix:39:17:
+  at ./default.nix:40:17:
 
-    38|   cntb-bin = pkgs.callPackage ./pkgs/cntb-bin { };
-    39|   rofi-blocks = pkgs.callPackage ./pkgs/rofi-blocks { };
+    39|   cntb-bin = pkgs.callPackage ./pkgs/cntb-bin { };
+    40|   rofi-blocks = pkgs.callPackage ./pkgs/rofi-blocks { };
       |                 ^
-    40|   coord = pkgs.callPackage ./pkgs/coord { };
+    41|   coord = pkgs.callPackage ./pkgs/coord { };
 
 … while calling 'callPackageWith'
 
@@ -46,11 +46,11 @@ error:
 
 … while calling 'functionArgs'
 
-  at <nixpkgs> + /lib/trivial.nix:973:18:
+  at <nixpkgs> + /lib/trivial.nix:975:18:
 
-   972|   */
-   973|   functionArgs = f:
+   974|   */
+   975|   functionArgs = f:
       |                  ^
-   974|     if f ? __functor
+   976|     if f ? __functor
 
 error: getting status of './pkgs/rofi-blocks': No such file or directory
