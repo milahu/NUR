@@ -83,6 +83,7 @@ lib.makeScope newScope (
 
     iso15765-canbus = callPackage ./development/libraries/iso15765-canbus { };
     isotp-c = callPackage ./development/libraries/isotp-c { };
+    jsontoolkit = callPackage ./development/libraries/jsontoolkit { };
     libgnunetchat = callPackage ./development/libraries/libgnunetchat { };
     libshell = callPackage ./development/libraries/libshell { };
     microjson = callPackage ./development/libraries/microjson { };
@@ -390,6 +391,7 @@ lib.makeScope newScope (
     serial-studio-bin = callPackage ./misc/serial-studio/bin.nix { };
     serverpp = callPackage ./misc/serverpp { };
     shellprof = callPackage ./misc/shellprof { };
+    shifu = callPackage ./misc/shifu { };
     socketcand = callPackage ./misc/socketcand { };
     subprocess = callPackage ./misc/subprocess { };
     tcvt = callPackage ./misc/tcvt { };
@@ -400,6 +402,7 @@ lib.makeScope newScope (
     tiny-frpc = callPackage ./misc/tiny-frpc { };
     tinyflux = callPackage ./misc/tinyflux { };
     tlstunnel = callPackage ./misc/tlstunnel { };
+    tsnsrv = callPackage ./misc/tsnsrv { };
     turbo = callPackage ./misc/turbo { };
     tvision = callPackage ./misc/tvision { };
     wik = callPackage ./misc/wik { };
@@ -474,6 +477,7 @@ lib.makeScope newScope (
     planetiler = callPackage ./osm/planetiler { };
     polytiles = callPackage ./osm/polytiles { };
     prettymapp = callPackage ./osm/prettymapp { };
+    py-osm-static-maps = callPackage ./osm/py-osm-static-maps { };
     pyrobuf = callPackage ./osm/pyrobuf { };
     pyrosm = callPackage ./osm/pyrosm { };
     sdlmap = callPackage ./osm/sdlmap { };
