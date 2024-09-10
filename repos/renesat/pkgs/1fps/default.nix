@@ -6,18 +6,18 @@
 }:
 buildGoModule rec {
   pname = "1fps";
-  version = "0.1.2";
+  version = "0.1.10";
 
   src = fetchFromGitHub {
     owner = "1fpsvideo";
     repo = "1fps";
     rev = "v${version}";
-    hash = "sha256-ZWlNvM/Tsa3rT57fE6LdYEs/PUvg5ZJ+C7DITc+0TqU=";
+    hash = "sha256-3uPGFxEWmKQxQWPmotZI29GykUGQDjtDjFPps4QMs0M=";
   };
 
   proxyVendor = true;
 
-  vendorHash = "sha256-q32whfSiwhxkawJdX2DwxE/ozXQ1QTFaxlLxxlQw/uM=";
+  vendorHash = "sha256-J3RGQhjpGURmXOwq19BbbNg5ERrUXHnSG5Id6gX7Nug=";
 
   buildInputs = [
     xorg.libX11
@@ -28,7 +28,8 @@ buildGoModule rec {
   meta = {
     description = "Encrypted Screen Sharing";
     homepage = "https://1fps.video";
-    # license = lib.licenses.custom;
+    # license = lib.licenses.fsl11Asl20;
     maintainers = with lib.maintainers; [renesat];
+    mainProgram = "1fps";
   };
 }

@@ -31,6 +31,7 @@
     linkding-cli = pkgs.python3Packages.callPackage ./pkgs/linkding-cli {inherit aiolinkding;};
     "1fps" = pkgs.callPackage ./pkgs/1fps {};
     puffin = pkgs.callPackage ./pkgs/puffin {};
+    imap-backup = pkgs.callPackage ./pkgs/imap-backup {};
   };
   supportedSystem = _: pkg: builtins.elem system pkg.meta.platforms;
 in
