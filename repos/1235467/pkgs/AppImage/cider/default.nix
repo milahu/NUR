@@ -5,7 +5,7 @@ appimageTools.wrapType2 rec {
   name = "${pname}";
 
   src = pkgs.fetchurl {
-    url = "https://cider.m5y6.c17.e2-5.dev/Cider-${version}.AppImage";
+    url = "https://fly.storage.tigris.dev/cider/Cider-${version}.AppImage";
     sha256 = "sha256-PSOJYaxEGahqX/7XIKkAiObqHwuAu6YI7CF/qc9DOZU=";
   };
 

@@ -51,15 +51,15 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "7c4c402bd7f24241c096d809cc80408a469f15cb";
+    version = "155d44016d0cb11332c454db73d59030cdbd7b13";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "7c4c402bd7f24241c096d809cc80408a469f15cb";
+      rev = "155d44016d0cb11332c454db73d59030cdbd7b13";
       fetchSubmodules = true;
-      sha256 = "sha256-Q1GqTtcLcw26bsF8pWW7Ah/V3/c8F3wDuyVykUBxmL0=";
+      sha256 = "sha256-Dv4XEWRcVFZhBDbj11/zuuXyf7TGHFVU1IGH9W/yPX8=";
     };
-    date = "2024-09-08";
+    date = "2024-09-10";
   };
   hyprwayland-scanner = {
     pname = "hyprwayland-scanner";
@@ -292,16 +292,16 @@
   };
   wayland = {
     pname = "wayland";
-    version = "6c4a695045155583a99f3fbce7bb745f79c2e726";
+    version = "7c6259e9ad7562d824b024975b80e471b365d5fc";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/wayland/wayland";
-      rev = "6c4a695045155583a99f3fbce7bb745f79c2e726";
+      rev = "7c6259e9ad7562d824b024975b80e471b365d5fc";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-bWKZCm5bhgsHm4b9xYJoCcUpDPL6v2DRpsGvAJViCuk=";
+      sha256 = "sha256-gKduVWz8qD2jahbxCnh4+GaRP8oSFDWXpSrIdkS3E2k=";
     };
-    date = "2024-08-18";
+    date = "2024-09-10";
   };
   wayland-protocols = {
     pname = "wayland-protocols";
@@ -330,15 +330,15 @@
   };
   wlroots = {
     pname = "wlroots";
-    version = "1a7981f7c9120d0d0b0cc935d96bdc5a8a39f6bb";
+    version = "96ad414ec9732e32b28f960c3bfa56a7b530b3cd";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/wlroots/wlroots";
-      rev = "1a7981f7c9120d0d0b0cc935d96bdc5a8a39f6bb";
+      rev = "96ad414ec9732e32b28f960c3bfa56a7b530b3cd";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-slEeLmtlPe/quBEiZYyRHvHWR0pqL0E5kZ82jbGisUM=";
+      sha256 = "sha256-udddM2PZfeSJfNkj/BxIgu7Zi1nYpqbIh3owMEtihsI=";
     };
-    date = "2024-09-05";
+    date = "2024-09-09";
   };
 }
