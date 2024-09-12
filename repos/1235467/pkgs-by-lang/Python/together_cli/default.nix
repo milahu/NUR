@@ -14,7 +14,7 @@ pkgs.python3Packages.buildPythonApplication rec {
   doCheck = false;
 
   src = pkgs.fetchzip rec{
-    url = "https://public.m5y6.c17.e2-5.dev/together-0.2.11.tar.gz";
+    url = "https://https://fly.storage.tigris.dev/public/together-0.2.11.tar.gz";
     sha256 = "sha256-aMuGmJAJybBtTaRruj8yMe80mIpIF19r4xW6BgrhV30=";
   };
 
