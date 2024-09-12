@@ -1,16 +1,16 @@
 {
 "name":"ataraxiasjel",
-"fetch_time":0.297,
-"eval_time":0.28,
+"fetch_time":0.49,
+"eval_time":0.27,
 "source":{
 "url":"https://github.com/AtaraxiaSjel/nur",
-"rev":"433c9d20d40ee728f5a57bc18dd70b714a7d2ff3",
-"sha256":"1qlvpb2w1n9gpnxpnsjrl6hcc2rgdm9f7wd8fcxbjvr9cp9k7lnr",
+"rev":"3ba455e62ff705360c88b8e50a63cda3ac471841",
+"sha256":"08rjd9bw6s64w16kajbm48lpbmhkm688fyhxs11m9vy0i1x3vvar",
 "date":null
 },
-"source_storepath":"/nix/store/r1qciv9yqmhcyjmm4calg9gdq593iz46-source",
-"nixpkgs_storepath":"/nix/store/sappnlhvk000l0qd3f2psm2llzsdymqm-source",
-"nur_combined_rev":"e5825fef217d6450f2924368a1cda2c5eae70bf3",
+"source_storepath":"/nix/store/16jipswk9c8is651dfaqklr1kkv5k42z-source",
+"nixpkgs_storepath":"/nix/store/9dk9hzlmk3z2qxmz9d14xikan150pwxj-source",
+"nur_combined_rev":"4572cc82b490cae670bf0322c3dcf7dec8e6a967",
 "packages":{
 "a2ln":{
 "meta":{
@@ -144,7 +144,7 @@
 "name":"Dmitriy"
 }
 ],
-"name":"arkenfox-userjs-126.1",
+"name":"arkenfox-userjs-128.0",
 "outputsToInstall":[
 "out"
 ],
@@ -229,21 +229,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"arkenfox-userjs-126.1",
+"name":"arkenfox-userjs-128.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"arkenfox-userjs",
 "system":"x86_64-linux",
-"version":"126.1"
+"version":"128.0"
 },
 "authentik":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/goauthentik/authentik/releases/tag/version%2F2024.4.2",
-"description":"The authentication glue you need",
+"changelog":"https://github.com/goauthentik/authentik/releases/tag/version%2F2024.6.4",
+"description":"Authentication glue you need",
 "homepage":"https://goauthentik.io/",
 "insecure":false,
 "license":{
@@ -269,18 +269,22 @@
 "name":"Jan van Br\u00fcgge"
 },
 {
-"email":"nix@ataraxiadev.com",
-"github":"AtaraxiaSjel",
-"githubId":5314145,
+"email":"marc.schmitt@risson.space",
+"github":"rissson",
+"githubId":18313093,
 "keys":[
 {
-"fingerprint":"922D A6E7 58A0 FE4C FAB4 E4B2 FD26 6B81 0DF4 8DF2"
+"fingerprint":"8A0E 6A7C 08AB B9DE 67DE  2A13 F6FD 87B1 5C26 3EC9"
+},
+{
+"fingerprint":"C0A7 A9BB 115B C857 4D75  EA99 BBB7 A680 1DF1 E03F"
 }
 ],
-"name":"Dmitriy"
+"matrix":"@risson:lama-corp.space",
+"name":"Marc Schmitt"
 }
 ],
-"name":"authentik-2024.4.2",
+"name":"authentik-2024.6.4",
 "outputsToInstall":[
 "out"
 ],
@@ -307,24 +311,24 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/authentik/package.nix:24",
+"position":"./pkgs/authentik/package.nix:27",
 "unfree":false,
 "unsupported":false
 },
-"name":"authentik-2024.4.2",
+"name":"authentik-2024.6.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"authentik",
 "system":"x86_64-linux",
-"version":"2024.4.2"
+"version":"2024.6.4"
 },
 "authentik-outposts.ldap":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/goauthentik/authentik/releases/tag/version%2F2024.4.2",
+"changelog":"https://github.com/goauthentik/authentik/releases/tag/version%2F2024.6.4",
 "description":"The authentik ldap outpost. Needed for the external ldap API.",
 "homepage":"https://goauthentik.io/docs/providers/ldap/",
 "insecure":false,
@@ -351,18 +355,22 @@
 "name":"Jan van Br\u00fcgge"
 },
 {
-"email":"nix@ataraxiadev.com",
-"github":"AtaraxiaSjel",
-"githubId":5314145,
+"email":"marc.schmitt@risson.space",
+"github":"rissson",
+"githubId":18313093,
 "keys":[
 {
-"fingerprint":"922D A6E7 58A0 FE4C FAB4 E4B2 FD26 6B81 0DF4 8DF2"
+"fingerprint":"8A0E 6A7C 08AB B9DE 67DE  2A13 F6FD 87B1 5C26 3EC9"
+},
+{
+"fingerprint":"C0A7 A9BB 115B C857 4D75  EA99 BBB7 A680 1DF1 E03F"
 }
 ],
-"name":"Dmitriy"
+"matrix":"@risson:lama-corp.space",
+"name":"Marc Schmitt"
 }
 ],
-"name":"authentik-2024.4.2",
+"name":"authentik-2024.6.4",
 "outputsToInstall":[
 "out"
 ],
@@ -393,20 +401,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"authentik-ldap-outpost-2024.4.2",
+"name":"authentik-ldap-outpost-2024.6.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"authentik-ldap-outpost",
 "system":"x86_64-linux",
-"version":"2024.4.2"
+"version":"2024.6.4"
 },
 "authentik-outposts.radius":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/goauthentik/authentik/releases/tag/version%2F2024.4.2",
+"changelog":"https://github.com/goauthentik/authentik/releases/tag/version%2F2024.6.4",
 "description":"Authentik radius outpost which is used for the external radius API",
 "homepage":"https://goauthentik.io/docs/providers/radius/",
 "insecure":false,
@@ -433,18 +441,22 @@
 "name":"Jan van Br\u00fcgge"
 },
 {
-"email":"nix@ataraxiadev.com",
-"github":"AtaraxiaSjel",
-"githubId":5314145,
+"email":"marc.schmitt@risson.space",
+"github":"rissson",
+"githubId":18313093,
 "keys":[
 {
-"fingerprint":"922D A6E7 58A0 FE4C FAB4 E4B2 FD26 6B81 0DF4 8DF2"
+"fingerprint":"8A0E 6A7C 08AB B9DE 67DE  2A13 F6FD 87B1 5C26 3EC9"
+},
+{
+"fingerprint":"C0A7 A9BB 115B C857 4D75  EA99 BBB7 A680 1DF1 E03F"
 }
 ],
-"name":"Dmitriy"
+"matrix":"@risson:lama-corp.space",
+"name":"Marc Schmitt"
 }
 ],
-"name":"authentik-2024.4.2",
+"name":"authentik-2024.6.4",
 "outputsToInstall":[
 "out"
 ],
@@ -475,14 +487,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"authentik-radius-outpost-2024.4.2",
+"name":"authentik-radius-outpost-2024.6.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"authentik-radius-outpost",
 "system":"x86_64-linux",
-"version":"2024.4.2"
+"version":"2024.6.4"
 },
 "bibata-cursors-tokyonight":{
 "meta":{
@@ -842,9 +854,9 @@
 "out"
 ],
 "platforms":[
-"x86_64-linux",
+"aarch64-darwin",
 "aarch64-linux",
-"aarch64-darwin"
+"x86_64-linux"
 ],
 "position":"./pkgs/hoyolab-claim-bot/default.nix:28",
 "unfree":false,
@@ -904,9 +916,9 @@
 "out"
 ],
 "platforms":[
-"x86_64-linux",
+"aarch64-darwin",
 "aarch64-linux",
-"aarch64-darwin"
+"x86_64-linux"
 ],
 "position":"./pkgs/json-liquid-rs/default.nix:23",
 "unfree":false,
@@ -950,7 +962,7 @@
 "name":"Dmitriy"
 }
 ],
-"name":"kes-2024-06-17T15-47-05Z",
+"name":"kes-2024-09-03T10-39-51Z",
 "outputsToInstall":[
 "out"
 ],
@@ -963,14 +975,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"kes-2024-06-17T15-47-05Z",
+"name":"kes-2024-09-03T10-39-51Z",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"kes",
 "system":"x86_64-linux",
-"version":"2024-06-17T15-47-05Z"
+"version":"2024-09-03T10-39-51Z"
 },
 "koboldcpp":{
 "meta":{
@@ -1001,7 +1013,7 @@
 "name":"Dmitriy"
 }
 ],
-"name":"koboldcpp-1.72",
+"name":"koboldcpp-1.74",
 "outputsToInstall":[
 "out"
 ],
@@ -1032,14 +1044,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"koboldcpp-1.72",
+"name":"koboldcpp-1.74",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"koboldcpp",
 "system":"x86_64-linux",
-"version":"1.72"
+"version":"1.74"
 },
 "koboldcpp-rocm":{
 "meta":{
@@ -1070,7 +1082,7 @@
 "name":"Dmitriy"
 }
 ],
-"name":"koboldcpp-rocm-1.72.yr0-ROCm",
+"name":"koboldcpp-rocm-1.74.yr0-ROCm",
 "outputsToInstall":[
 "out"
 ],
@@ -1097,18 +1109,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/koboldcpp-rocm/default.nix:97",
+"position":"./pkgs/koboldcpp-rocm/default.nix:98",
 "unfree":false,
 "unsupported":false
 },
-"name":"koboldcpp-rocm-1.72.yr0-ROCm",
+"name":"koboldcpp-rocm-1.74.yr0-ROCm",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"koboldcpp-rocm",
 "system":"x86_64-linux",
-"version":"1.72.yr0-ROCm"
+"version":"1.74.yr0-ROCm"
 },
 "mpris-ctl":{
 "meta":{
@@ -1139,7 +1151,7 @@
 "name":"Dmitriy"
 }
 ],
-"name":"mpris-ctl-0.9.100",
+"name":"mpris-ctl-1.0.0",
 "outputsToInstall":[
 "out"
 ],
@@ -1170,20 +1182,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"mpris-ctl-0.9.100",
+"name":"mpris-ctl-1.0.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"mpris-ctl",
 "system":"x86_64-linux",
-"version":"0.9.100"
+"version":"1.0.0"
 },
 "ocis-bin":{
 "meta":{
 "available":false,
 "broken":false,
-"changelog":"https://github.com/owncloud/ocis/releases/tag/v6.2.0",
+"changelog":"https://github.com/owncloud/ocis/releases/tag/v6.3.0",
 "description":"ownCloud Infinite Scale Stack",
 "homepage":"https://owncloud.dev/ocis",
 "insecure":false,
@@ -1208,7 +1220,7 @@
 "name":"Dmitriy"
 }
 ],
-"name":"ocis-bin-6.2.0",
+"name":"ocis-bin-6.3.0",
 "outputsToInstall":[
 "out"
 ],
@@ -1229,14 +1241,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"ocis-bin-6.2.0",
+"name":"ocis-bin-6.3.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ocis-bin",
 "system":"x86_64-linux",
-"version":"6.2.0"
+"version":"6.3.0"
 },
 "packwiz":{
 "meta":{
@@ -1268,7 +1280,7 @@
 "name":"Dmitriy"
 }
 ],
-"name":"packwiz-0-unstable-2024-05-27",
+"name":"packwiz-0-unstable-2024-08-28",
 "outputsToInstall":[
 "out"
 ],
@@ -1307,14 +1319,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"packwiz-0-unstable-2024-05-27",
+"name":"packwiz-0-unstable-2024-08-28",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"packwiz",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-05-27"
+"version":"0-unstable-2024-08-28"
 },
 "prometheus-podman-exporter":{
 "meta":{
@@ -1345,7 +1357,7 @@
 "name":"Dmitriy"
 }
 ],
-"name":"prometheus-podman-exporter-1.13.0",
+"name":"prometheus-podman-exporter-1.13.1",
 "outputsToInstall":[
 "out"
 ],
@@ -1384,14 +1396,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"prometheus-podman-exporter-1.13.0",
+"name":"prometheus-podman-exporter-1.13.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"prometheus-podman-exporter",
 "system":"x86_64-linux",
-"version":"1.13.0"
+"version":"1.13.1"
 },
 "proton-ge":{
 "meta":{
@@ -1422,7 +1434,7 @@
 "name":"Dmitriy"
 }
 ],
-"name":"proton-ge-custom-GE-Proton9-11",
+"name":"proton-ge-custom-GE-Proton9-13",
 "outputsToInstall":[
 "out"
 ],
@@ -1434,14 +1446,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"proton-ge-custom-GE-Proton9-11",
+"name":"proton-ge-custom-GE-Proton9-13",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"proton-ge-custom-GE-Proton9",
 "system":"x86_64-linux",
-"version":"11"
+"version":"13"
 },
 "protonhax":{
 "meta":{
@@ -2053,7 +2065,7 @@
 "name":"Dmitriy"
 }
 ],
-"name":"rosepine-gtk-icons-0-unstable-2023-02-20",
+"name":"rosepine-gtk-icons-0-unstable-2024-09-10",
 "outputsToInstall":[
 "out"
 ],
@@ -2138,14 +2150,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rosepine-gtk-icons-0-unstable-2023-02-20",
+"name":"rosepine-gtk-icons-0-unstable-2024-09-10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rosepine-gtk-icons",
 "system":"x86_64-linux",
-"version":"0-unstable-2023-02-20"
+"version":"0-unstable-2024-09-10"
 },
 "rosepine-gtk-theme":{
 "meta":{
@@ -2176,7 +2188,7 @@
 "name":"Dmitriy"
 }
 ],
-"name":"rosepine-gtk-theme-0-unstable-2023-02-20",
+"name":"rosepine-gtk-theme-0-unstable-2024-09-10",
 "outputsToInstall":[
 "out"
 ],
@@ -2261,14 +2273,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rosepine-gtk-theme-0-unstable-2023-02-20",
+"name":"rosepine-gtk-theme-0-unstable-2024-09-10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rosepine-gtk-theme",
 "system":"x86_64-linux",
-"version":"0-unstable-2023-02-20"
+"version":"0-unstable-2024-09-10"
 },
 "roundcubePlugins.carddav":{
 "meta":{
@@ -2360,7 +2372,7 @@
 "name":"Zane van Iperen"
 }
 ],
-"name":"rpcs3-0.0.32-16830-456ff10f0",
+"name":"rpcs3-0.0.33-16892-7e3b8b5cd",
 "outputsToInstall":[
 "out"
 ],
@@ -2368,18 +2380,18 @@
 "x86_64-linux",
 "aarch64-linux"
 ],
-"position":"./pkgs/rpcs3/default.nix:101",
+"position":"./pkgs/rpcs3/default.nix:108",
 "unfree":false,
 "unsupported":false
 },
-"name":"rpcs3-0.0.32-16830-456ff10f0",
+"name":"rpcs3-0.0.33-16892-7e3b8b5cd",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rpcs3",
 "system":"x86_64-linux",
-"version":"0.0.32-16830-456ff10f0"
+"version":"0.0.33-16892-7e3b8b5cd"
 },
 "seadrive-fuse":{
 "meta":{
