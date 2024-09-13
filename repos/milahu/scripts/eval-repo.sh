@@ -51,7 +51,7 @@ echo "repo_name: $repo_name"
 source_repo_path=$(readlink -f .)
 source_repo_url="file://$source_repo_path"
 
-tempdir=$(mktemp -d --suffix=-nur-eval-test)
+tempdir=$(mktemp -d -p /run/user/$UID --suffix=-nur-eval-test)
 
 # create a local clone, so we use only committed files
 repo_path=$tempdir/repo
@@ -70,6 +70,8 @@ git -C $repo_path checkout --quiet $repo_commit
 # when submodules are missing, eval fails with:
 # error: getting status of '/nix/store/...': No such file or directory
 #git -C $repo_path submodule update --init --depth=1 --recursive --recommend-shallow
+
+git -C $repo_path submodule update --init --recursive --recommend-shallow
 
 # the actual value of repo.file is stored in
 # https://github.com/nix-community/NUR/blob/master/repos.json

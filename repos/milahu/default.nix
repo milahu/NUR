@@ -326,6 +326,7 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       crx3 = callPackage ./pkgs/python3/pkgs/crx3/crx3.nix { };
 
+      /*
       # LTS in extended support phase
       django_3 = callPackage ./pkgs/development/python-modules/django/3.nix { };
 
@@ -335,6 +336,7 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       # Pre-release
       django_5 = callPackage ./pkgs/development/python-modules/django/5.nix { };
+      */
 
       fritap = callPackage ./pkgs/python3/pkgs/fritap/fritap.nix { };
 
@@ -383,6 +385,69 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       aia = callPackage ./pkgs/python3/pkgs/aia { };
 
+      decord = callPackage ./pkgs/python3/pkgs/decord { };
+
+      vidgear = callPackage ./pkgs/python3/pkgs/vidgear { };
+
+      bencode2 = callPackage ./pkgs/python3/pkgs/bencode2 { };
+
+      rtorrent-rpc = callPackage ./pkgs/python3/pkgs/rtorrent-rpc { };
+
+      codefind = callPackage ./pkgs/python3/pkgs/codefind { };
+
+      varname = callPackage ./pkgs/python3/pkgs/varname { };
+
+      giving = callPackage ./pkgs/python3/pkgs/giving { };
+
+      ovld = callPackage ./pkgs/python3/pkgs/ovld { };
+
+      jurigged = callPackage ./pkgs/python3/pkgs/jurigged { };
+
+      reloading = callPackage ./pkgs/python3/pkgs/reloading { };
+
+      tbselenium = callPackage ./pkgs/python3/pkgs/tbselenium { };
+
+      python-bidi = callPackage ./pkgs/python3/pkgs/python-bidi { };
+
+      hocr-tools = callPackage ./pkgs/python3/pkgs/hocr-tools { };
+
+      # roman in nixpkgs is outdated
+      roman = callPackage ./pkgs/python3/pkgs/roman { };
+
+      archive-hocr-tools = callPackage ./pkgs/python3/pkgs/archive-hocr-tools { };
+
+      archive-pdf-tools = callPackage ./pkgs/python3/pkgs/archive-pdf-tools { };
+
+      ruff = callPackage ./pkgs/python3/pkgs/ruff {
+        pkgs-ruff = pkgs.ruff;
+      };
+
+      openapi-python-client = callPackage ./pkgs/python3/pkgs/openapi-python-client { };
+
+      gitea-client = callPackage ./pkgs/python3/pkgs/gitea-client { };
+
+      webvtt-py = callPackage ./pkgs/python3/pkgs/webvtt-py { };
+
+      vtt2clean-srt = callPackage ./pkgs/python3/pkgs/vtt2clean-srt { };
+
+      flatbencode = callPackage ./pkgs/python3/pkgs/flatbencode { };
+
+      torf = callPackage ./pkgs/python3/pkgs/torf { };
+
+      torrentool = callPackage ./pkgs/python3/pkgs/torrentool { };
+
+      django-avatar = callPackage ./pkgs/python3/pkgs/django-avatar { };
+
+      django-js-error-hook = callPackage ./pkgs/python3/pkgs/django-js-error-hook { };
+
+      django-npm-mjs = callPackage ./pkgs/python3/pkgs/django-npm-mjs { };
+
+      django-loginas = callPackage ./pkgs/python3/pkgs/django-loginas { };
+
+      django-channels-presence-4_0 = callPackage ./pkgs/python3/pkgs/django-channels-presence-4_0 { };
+
+      prosemirror = callPackage ./pkgs/python3/pkgs/prosemirror { };
+
     #}))); # python3.pkgs
 
   #}))); # python3
@@ -404,6 +469,10 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   chromium-depot-tools = python3Packages.chromium-depot-tools;
 
   flaresolverr = python3Packages.flaresolverr;
+
+  hocr-tools = python3Packages.hocr-tools;
+
+  vtt2clean-srt = python3Packages.vtt2clean-srt;
 
   deno = pkgs.deno // {
     pkgs = (pkgs.deno.pkgs or {}) // (
@@ -749,19 +818,14 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
   e9patch = callPackage ./pkgs/development/tools/e9patch/e9patch.nix { };
 
-  sqlite = callPackage ./pkgs/development/libraries/sqlite { };
+  sqlite-reuse-schema = callPackage ./pkgs/development/libraries/sqlite {
+    sqliteBranch = "reuse-schema";
+  };
 
-  inherit (callPackage ./pkgs/development/libraries/sqlite/tools.nix {
-    inherit (pkgs.darwin.apple_sdk.frameworks) Foundation;
-  }) sqlite-analyzer sqldiff;
-
-  sqlar = callPackage ./pkgs/development/libraries/sqlite/sqlar.nix { };
-
-  sqlite-interactive = (sqlite.override { interactive = true; }).bin;
-
-  sqlite-reuse-schema = sqlite.override { sqliteBranch = "reuse-schema"; };
-
-  sqlite-interactive-reuse-schema = sqlite.override { interactive = true; sqliteBranch = "reuse-schema"; };
+  sqlite-interactive-reuse-schema = callPackage ./pkgs/development/libraries/sqlite {
+    interactive = true;
+    sqliteBranch = "reuse-schema";
+  };
 
   tree-sitter = pkgs.makeOverridable (callPackage ./pkgs/development/tools/parsing/tree-sitter) {
     inherit (pkgs.darwin.apple_sdk.frameworks) Security CoreServices;
@@ -777,7 +841,11 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
   s2e = callPackage ./pkgs/development/libraries/s2e { };
 
-  fetchtorrent = callPackage ./pkgs/build-support/fetchtorrent { };
+  fetchtorrent = callPackage ./pkgs/build-support/fetchtorrent {
+    # this was removed from nixpkgs
+    # TODO how is this solved now in nixpkgs
+    transmission_noSystemd = pkgs.transmission.override { enableSystemd = false; };
+  };
 
   fetchtorrent-aria = callPackage ./pkgs/build-support/fetchtorrent-aria { };
 
@@ -818,6 +886,123 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   cert-chain-resolver-bash = callPackage ./pkgs/tools/networking/cert-chain-resolver/bash.nix { };
 
   yt-dlp = python3.pkgs.callPackage ./pkgs/tools/misc/yt-dlp { };
+
+  swissfileknife = callPackage ./pkgs/tools/misc/swissfileknife { };
+
+  # https://github.com/milahu/nixpkgs/issues/57
+  # squashfsTools: rename to squashfs-tools
+  squashfs-tools = pkgs.squashfsTools;
+
+  pseudo = callPackage ./pkgs/tools/virtualization/pseudo { };
+
+  lunzip = callPackage ./pkgs/tools/archivers/lunzip { };
+
+  kconfig = callPackage ./pkgs/development/tools/kconfig { };
+
+  freetz-tools = freetzPackages.freetz-tools;
+
+  freetz = {
+    pkgs = freetzPackages;
+  };
+
+  freetzPackages = pkgs.recurseIntoAttrs (pkgs.lib.makeScope pkgs.newScope (freetzPackagesSelf: let inherit (freetzPackagesSelf) callPackage; in ({
+
+    freetz = callPackage ./pkgs/tools/misc/freetz/pkgs/freetz { };
+
+    freetz-tools = callPackage ./pkgs/tools/misc/freetz/pkgs/freetz-tools {
+      # FIXME scope
+      pseudo = callPackage ./pkgs/tools/virtualization/pseudo { };
+      lunzip = callPackage ./pkgs/tools/archivers/lunzip { };
+    };
+
+    kconfig = callPackage ./pkgs/tools/misc/freetz/pkgs/kconfig { };
+
+    imagename2id = callPackage ./pkgs/tools/misc/freetz/pkgs/imagename2id { };
+
+    visualise-make = callPackage ./pkgs/tools/misc/freetz/pkgs/visualise-make { };
+
+    swissfileknife = self.swissfileknife;
+
+    tichksum = callPackage ./pkgs/tools/misc/freetz/pkgs/tichksum { };
+
+    lzma2eva = callPackage ./pkgs/tools/misc/freetz/pkgs/lzma2eva { };
+
+    find-squashfs = callPackage ./pkgs/tools/misc/freetz/pkgs/find-squashfs { };
+
+    squashfs-tools-avm-le = callPackage ./pkgs/tools/misc/freetz/pkgs/squashfs-tools-avm {
+      targetEndianness = "LE";
+      # FIXME scope
+      squashfs-tools = pkgs.squashfsTools;
+    };
+
+    squashfs-tools-avm-be = callPackage ./pkgs/tools/misc/freetz/pkgs/squashfs-tools-avm {
+      targetEndianness = "BE";
+      # FIXME scope
+      squashfs-tools = pkgs.squashfsTools;
+    };
+
+    yf-akcarea = callPackage ./pkgs/tools/misc/freetz/pkgs/yf-akcarea { };
+
+  }))); # freetzPackages
+
+  crawlab = callPackage ./pkgs/tools/networking/crawlab { };
+
+  audioalign = callPackage ./pkgs/applications/audio/audioalign { };
+
+  gradle2nix = callPackage ./pkgs/development/tools/gradle2nix { };
+
+  grpc-java = grpc-java-bin;
+
+  # source build
+  grpc-java-src = callPackage ./pkgs/development/tools/grpc-java { };
+
+  # binary build
+  grpc-java-bin = callPackage ./pkgs/development/tools/grpc-java/bin.nix { };
+
+  haveno = callPackage ./pkgs/applications/blockchains/haveno { };
+
+  basicswap = pkgs.python3.pkgs.callPackage ./pkgs/applications/blockchains/basicswap {
+    # FIXME scope
+    inherit nano-node;
+  };
+
+  asmr = callPackage ./pkgs/applications/blockchains/asmr { };
+
+  cpptoml-cryptocode = callPackage ./pkgs/development/libraries/cpptoml-cryptocode { };
+
+  nano-node = pkgs.libsForQt5.callPackage ./pkgs/applications/blockchains/nano-node {
+    # FIXME scope
+    inherit cpptoml-cryptocode;
+  };
+
+  nano-node_26_0 = callPackage ./pkgs/applications/blockchains/nano-node/26.0.nix { };
+
+  diskhash = callPackage ./pkgs/applications/blockchains/diskhash { };
+
+  imagemagick-scripts = callPackage ./pkgs/applications/graphics/imagemagick-scripts { };
+
+  trusearch = callPackage ./pkgs/applications/networking/p2p/trusearch { };
+
+  nano-vanity = callPackage ./pkgs/applications/blockchains/nano-vanity { };
+
+  libcups = callPackage ./pkgs/applications/printing/libcups { };
+
+  pdfio = callPackage ./pkgs/applications/printing/pdfio { };
+
+  ppm2pwg = callPackage ./pkgs/applications/printing/ppm2pwg { };
+
+  prometheus-qbittorrent-exporter = callPackage ./pkgs/servers/monitoring/prometheus/qbittorrent-exporter.nix {
+    # FIXME scope
+    # fix: error: attribute 'pdm-backend' missing @ python3.pkgs.pdm-backend
+    python3 = pkgs.python3;
+  };
+
+  log4c = callPackage ./pkgs/development/libraries/log4c { };
+
+  streamtuner2 = callPackage ./pkgs/applications/audio/streamtuner2 {
+    # FIXME scope
+    inherit (pkgs) python3;
+  };
 
 }
 
