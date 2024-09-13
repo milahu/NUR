@@ -84,18 +84,6 @@
     };
     date = "2018-08-28";
   };
-  attic = {
-    pname = "attic";
-    version = "aec90814a4ecbc40171d57eeef97c5cab4aaa7b4";
-    src = fetchFromGitHub {
-      owner = "zhaofengli";
-      repo = "attic";
-      rev = "aec90814a4ecbc40171d57eeef97c5cab4aaa7b4";
-      fetchSubmodules = false;
-      sha256 = "sha256-nVWCR86XDjx9Tq6RHsNvhD03nNzIeKKc7UTPnXLyrDY=";
-    };
-    date = "2024-09-08";
-  };
   axiom-syslog-proxy = {
     pname = "axiom-syslog-proxy";
     version = "v0.7.2";
@@ -1189,6 +1177,17 @@
     };
     date = "2024-04-17";
   };
+  plasma-smart-video-wallpaper-reborn = {
+    pname = "plasma-smart-video-wallpaper-reborn";
+    version = "v0.4.1";
+    src = fetchFromGitHub {
+      owner = "luisbocanegra";
+      repo = "plasma-smart-video-wallpaper-reborn";
+      rev = "v0.4.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-FdNA4ijvx+v0b4mN9yNH4tYsnFVhUS4nFj0b0LBSy7o=";
+    };
+  };
   pocl = {
     pname = "pocl";
     version = "v6.0";
@@ -1245,32 +1244,32 @@
     pname = "qemu-user-static-amd64";
     version = "9.1.0+ds-3";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_9.1.0+ds-3_amd64.deb";
-      sha256 = "sha256-brhZ0izh2TEEKQOOfyDprT+VnN12gSGr8VK8EvViTqc=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.0+ds-3_amd64.deb";
+      sha256 = "sha256-gUqFdGwzG1IbobHqdPNGxdMYOJjaJG4WnJTy1HTuJyw=";
     };
   };
   qemu-user-static-arm64 = {
     pname = "qemu-user-static-arm64";
     version = "9.1.0+ds-3";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_9.1.0+ds-3_arm64.deb";
-      sha256 = "sha256-sCYo+4oc+F6t44NwnuWTh08RTSnPQ3MvGCyYsFFkrKo=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.0+ds-3_arm64.deb";
+      sha256 = "sha256-kwpZfCwHD7TqAa30VqwFZ71vs9eP0E9aDgBQgQTuMHY=";
     };
   };
   qemu-user-static-armhf = {
     pname = "qemu-user-static-armhf";
     version = "9.1.0+ds-3";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_9.1.0+ds-3_armhf.deb";
-      sha256 = "sha256-eLxWbxqtv+M2lc6zoQhHLf26pyXRBAvh4NR0rSBpRRs=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.0+ds-3_armhf.deb";
+      sha256 = "sha256-VpbfrbHg2O4knKOhtNE1YLLndrBdOfBR4b1qqPt9NCo=";
     };
   };
   qemu-user-static-i386 = {
     pname = "qemu-user-static-i386";
     version = "9.1.0+ds-3";
     src = fetchurl {
-      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_9.1.0+ds-3_i386.deb";
-      sha256 = "sha256-0+nKbuv+mP2lAvre3aAZCeQCnT6Q7paessQs9xESvyQ=";
+      url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_9.1.0+ds-3_i386.deb";
+      sha256 = "sha256-1GMVw1jhxZ6sj59lfQbtwvO6XwiU1EdLLgQRfnXzmds=";
     };
   };
   qhttpengine = {

@@ -26,10 +26,6 @@ fetch.github = "arkadijs/asterisk-g72x"
 src.git = "https://github.com/traud/asterisk-gsm-efr.git"
 fetch.github = "traud/asterisk-gsm-efr"
 
-[attic]
-src.git = "https://github.com/zhaofengli/attic.git"
-fetch.github = "zhaofengli/attic"
-
 [axiom-syslog-proxy]
 src.github = "axiomhq/axiom-syslog-proxy"
 fetch.github = "axiomhq/axiom-syslog-proxy"
@@ -465,6 +461,10 @@ fetch.github = "Fitzgerald-Porthmouth-Koenigsegg/Plangothic"
 src.git = "https://github.com/sanjay-kr-commit/panelTransparencyToggleForPlasma6.git"
 fetch.github = "sanjay-kr-commit/panelTransparencyToggleForPlasma6"
 
+[plasma-smart-video-wallpaper-reborn]
+src.github = "luisbocanegra/plasma-smart-video-wallpaper-reborn"
+fetch.github = "luisbocanegra/plasma-smart-video-wallpaper-reborn"
+
 [pocl]
 src.github = "pocl/pocl"
 fetch.github = "pocl/pocl"
@@ -486,24 +486,24 @@ src.github = "c0re100/qBittorrent-Enhanced-Edition"
 fetch.github = "c0re100/qBittorrent-Enhanced-Edition"
 
 [qemu-user-static-amd64]
-src.webpage = "https://packages.debian.org/sid/amd64/qemu-user-static/download"
-src.regex = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_([^\"]+)_amd64.deb"
-fetch.url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_$ver_amd64.deb"
+src.webpage = "https://packages.debian.org/sid/amd64/qemu-user/download"
+src.regex = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_([^\"]+)_amd64.deb"
+fetch.url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_$ver_amd64.deb"
 
 [qemu-user-static-arm64]
-src.webpage = "https://packages.debian.org/sid/arm64/qemu-user-static/download"
-src.regex = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_([^\"]+)_arm64.deb"
-fetch.url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_$ver_arm64.deb"
+src.webpage = "https://packages.debian.org/sid/arm64/qemu-user/download"
+src.regex = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_([^\"]+)_arm64.deb"
+fetch.url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_$ver_arm64.deb"
 
 [qemu-user-static-armhf]
-src.webpage = "https://packages.debian.org/sid/armhf/qemu-user-static/download"
-src.regex = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_([^\"]+)_armhf.deb"
-fetch.url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_$ver_armhf.deb"
+src.webpage = "https://packages.debian.org/sid/armhf/qemu-user/download"
+src.regex = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_([^\"]+)_armhf.deb"
+fetch.url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_$ver_armhf.deb"
 
 [qemu-user-static-i386]
-src.webpage = "https://packages.debian.org/sid/i386/qemu-user-static/download"
-src.regex = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_([^\"]+)_i386.deb"
-fetch.url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user-static_$ver_i386.deb"
+src.webpage = "https://packages.debian.org/sid/i386/qemu-user/download"
+src.regex = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_([^\"]+)_i386.deb"
+fetch.url = "http://ftp.debian.org/debian/pool/main/q/qemu/qemu-user_$ver_i386.deb"
 
 [qhttpengine]
 src.git = "https://github.com/nitroshare/qhttpengine.git"
