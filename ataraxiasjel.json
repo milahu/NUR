@@ -1,16 +1,16 @@
 {
 "name":"ataraxiasjel",
-"fetch_time":0.291,
-"eval_time":0.271,
+"fetch_time":0.471,
+"eval_time":0.325,
 "source":{
 "url":"https://github.com/AtaraxiaSjel/nur",
-"rev":"6d5509d13ce8eae46058a972186fec68de41a4ec",
-"sha256":"1lvn117r492hn7qx6081w73s6dgwlr820dknhhp37qxws0349qm0",
+"rev":"a01b710c3fbc6e962fe520bf025b1ca9b955a2d6",
+"sha256":"0kcs84cm5mpq6m3qc68v2hnrib2r2fl2c8isccaazsj0mj2yv01x",
 "date":null
 },
-"source_storepath":"/nix/store/grhlwii0qzdd16j2bn1khb81fxan17zy-source",
-"nixpkgs_storepath":"/nix/store/7j2hvllc3wzp79diycj4jcwh4cw3h9r5-source",
-"nur_combined_rev":"4417f668ed6d2f46585ca52fbc1b5afcdb361403",
+"source_storepath":"/nix/store/9zdn992a71l2nfnv5dsj1yjcza9ag7b8-source",
+"nixpkgs_storepath":"/nix/store/fzzk8s73y79i6kyq2wm7xb12jvfsjn5c-source",
+"nur_combined_rev":"5c60af9c7b545a513c38870f90c1ff7e224cbdcf",
 "packages":{
 "a2ln":{
 "meta":{
@@ -61,6 +61,7 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
+"mainProgram":"a2ln",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -621,7 +622,7 @@
 },
 "ceserver":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"Cheat Engine. A development environment focused on modding",
 "homepage":"https://github.com/cheat-engine/cheat-engine",
@@ -633,6 +634,7 @@
 "redistributable":false,
 "shortName":"unfree"
 },
+"mainProgram":"ceserver",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -898,6 +900,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"mainProgram":"json-liquid-rs",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -949,6 +952,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"mainProgram":"kes",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -1000,6 +1004,7 @@
 "spdxId":"AGPL-3.0-only",
 "url":"https://spdx.org/licenses/AGPL-3.0-only.html"
 },
+"mainProgram":"koboldcpp",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -1040,7 +1045,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/koboldcpp/default.nix:146",
+"position":"./pkgs/koboldcpp/default.nix:148",
 "unfree":false,
 "unsupported":false
 },
@@ -1069,6 +1074,7 @@
 "spdxId":"AGPL-3.0-only",
 "url":"https://spdx.org/licenses/AGPL-3.0-only.html"
 },
+"mainProgram":"koboldcpp",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -1109,7 +1115,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/koboldcpp-rocm/default.nix:100",
+"position":"./pkgs/koboldcpp-rocm/default.nix:102",
 "unfree":false,
 "unsupported":false
 },
@@ -1138,6 +1144,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"mainProgram":"mpris-ctl",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -1193,7 +1200,7 @@
 },
 "ocis-bin":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "changelog":"https://github.com/owncloud/ocis/releases/tag/v6.3.0",
 "description":"ownCloud Infinite Scale Stack",
@@ -1344,6 +1351,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"mainProgram":"prometheus-podman-exporter",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -1471,6 +1479,7 @@
 "spdxId":"BSD-3-Clause",
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
+"mainProgram":"protonhax",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -1860,6 +1869,7 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
+"mainProgram":"RealRTCW.x86_64",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -2367,6 +2377,7 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
+"mainProgram":"seadrive",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -2436,6 +2447,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"mainProgram":"superfile",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -2766,6 +2778,7 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
+"mainProgram":"waydroid-script",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -2869,6 +2882,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"mainProgram":"whoogle-search",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -3022,6 +3036,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"mainProgram":"wopiserver",
 "maintainers":[
 {
 "email":"nix@ataraxiadev.com",
