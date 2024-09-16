@@ -1,16 +1,16 @@
 {
 "name":"gabr1sr",
-"fetch_time":0.275,
-"eval_time":0.239,
+"fetch_time":0.438,
+"eval_time":0.318,
 "source":{
 "url":"https://github.com/gabr1sr/nur-packages",
-"rev":"56750ab92b11b1a22e64a8fc46ca6674b562fbee",
-"sha256":"1i7ral63j82s93icp6jqwyknc80vpd7ximhlwydglwa5lpmmvr62",
+"rev":"c5df382f6e7c2d004facbb07989679d1b651abcd",
+"sha256":"0wy64hy2jbkj3855ak5vkq0cmh486dmavyp61yg1a413aay9qy83",
 "date":null
 },
-"source_storepath":"/nix/store/kf9x93hlkxhknzkpin20w4f1rvpaa46i-source",
-"nixpkgs_storepath":"/nix/store/7j2hvllc3wzp79diycj4jcwh4cw3h9r5-source",
-"nur_combined_rev":"7bf1ee2f618ceb9c36a9a91552684b4e6b8fdef0",
+"source_storepath":"/nix/store/m30bd5bv5hz51vwpnrc9mx41b1m94b6x-source",
+"nixpkgs_storepath":"/nix/store/z73x2y39hnyj1lq75ywbqw7qfgmljg4i-source",
+"nur_combined_rev":"6935ee281d85dec04617d1a1273f935dcee77a59",
 "packages":{
 "halmos":{
 "meta":{
@@ -68,7 +68,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/halmos/default.nix:32",
+"position":"./pkgs/halmos/default.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -132,8 +132,8 @@
 },
 "scarb-bin":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"The Cairo package manager",
 "homepage":"https://github.com/software-mansion/scarb",
 "insecure":false,
@@ -156,7 +156,7 @@
 "x86_64-darwin",
 "aarch64-darwin"
 ],
-"position":"./pkgs/scarb-bin/default.nix:91",
+"position":"./pkgs/scarb-bin/default.nix:92",
 "unfree":false,
 "unsupported":false
 },
@@ -171,8 +171,8 @@
 },
 "starknet-foundry-bin":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"Blazing fast toolkit for developing Starknet contracts.",
 "homepage":"https://github.com/foundry-rs/starknet-foundry",
 "insecure":false,
@@ -195,7 +195,7 @@
 "x86_64-darwin",
 "aarch64-darwin"
 ],
-"position":"./pkgs/starknet-foundry-bin/default.nix:86",
+"position":"./pkgs/starknet-foundry-bin/default.nix:87",
 "unfree":false,
 "unsupported":false
 },
