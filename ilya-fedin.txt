@@ -90,7 +90,7 @@ error:
     21|
 
 … while evaluating derivation 'references.nix'
-  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:336:7
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:318:7
 
 … while evaluating attribute 'exportReferencesGraph' of derivation 'references.nix'
 
@@ -174,34 +174,34 @@ error:
     73|     discard (substring 33 (stringLength (builtins.baseNameOf drv)) (builtins.baseNameOf drv));
 
 … while evaluating derivation 'qtwayland-6.7.2'
-  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:336:7
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:318:7
 
 … while evaluating attribute 'propagatedBuildInputs' of derivation 'qtwayland-6.7.2'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:390:7:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:372:7:
 
-   389|       depsHostHostPropagated      = elemAt (elemAt propagatedDependencies 1) 0;
-   390|       propagatedBuildInputs       = elemAt (elemAt propagatedDependencies 1) 1;
+   371|       depsHostHostPropagated      = elemAt (elemAt propagatedDependencies 1) 0;
+   372|       propagatedBuildInputs       = elemAt (elemAt propagatedDependencies 1) 1;
       |       ^
-   391|       depsTargetTargetPropagated  = elemAt (elemAt propagatedDependencies 2) 0;
+   373|       depsTargetTargetPropagated  = elemAt (elemAt propagatedDependencies 2) 0;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:326:13:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:308:13:
 
-   325|       (map (drv: getDev drv.__spliced.hostHost or drv) (checkDependencyList "depsHostHostPropagated" depsHostHostPropagated))
-   326|       (map (drv: getDev drv.__spliced.hostTarget or drv) (checkDependencyList "propagatedBuildInputs" propagatedBuildInputs))
+   307|       (map (drv: getDev drv.__spliced.hostHost or drv) (checkDependencyList "depsHostHostPropagated" depsHostHostPropagated))
+   308|       (map (drv: getDev drv.__spliced.hostTarget or drv) (checkDependencyList "propagatedBuildInputs" propagatedBuildInputs))
       |             ^
-   327|     ]
+   309|     ]
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:326:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:308:18:
 
-   325|       (map (drv: getDev drv.__spliced.hostHost or drv) (checkDependencyList "depsHostHostPropagated" depsHostHostPropagated))
-   326|       (map (drv: getDev drv.__spliced.hostTarget or drv) (checkDependencyList "propagatedBuildInputs" propagatedBuildInputs))
+   307|       (map (drv: getDev drv.__spliced.hostHost or drv) (checkDependencyList "depsHostHostPropagated" depsHostHostPropagated))
+   308|       (map (drv: getDev drv.__spliced.hostTarget or drv) (checkDependencyList "propagatedBuildInputs" propagatedBuildInputs))
       |                  ^
-   327|     ]
+   309|     ]
 
 … while calling 'getOutput'
 
@@ -232,21 +232,21 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:281:15:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:263:15:
 
-   280|     imap1
-   281|       (index: dep:
+   262|     imap1
+   263|       (index: dep:
       |               ^
-   282|         if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
+   264|         if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:282:12:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:264:12:
 
-   281|       (index: dep:
-   282|         if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
+   263|       (index: dep:
+   264|         if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
       |            ^
-   283|         else if isList dep then checkDependencyList' ([index] ++ positions) name dep
+   265|         else if isList dep then checkDependencyList' ([index] ++ positions) name dep
 
 … while calling 'isDerivation'
 
