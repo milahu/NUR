@@ -56,6 +56,8 @@
 
   koivisto = pkgs.callPackage ./pkgs/koivisto { };
 
+  ktl = pkgs.callPackage ./pkgs/ktl { };
+
   lexy = pkgs.callPackage ./pkgs/lexy { };
 
   libdwarf = pkgs.callPackage ./pkgs/libdwarf { };
