@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./pkgs/default.nix:109:26:
+  at ./pkgs/default.nix:110:26:
 
-   108|     signal-desktop-from-src = callPackage ./additional/signal-desktop-from-src { };
-   109|     sm64ex-coop-deluxe = callPackage ./additional/sm64ex-coop-deluxe { };
+   109|     signal-desktop-from-src = callPackage ./additional/signal-desktop-from-src { };
+   110|     sm64ex-coop-deluxe = callPackage ./additional/sm64ex-coop-deluxe { };
       |                          ^
-   110|     sofacoustics = lib.recurseIntoAttrs (callPackage ./additional/sofacoustics { });
+   111|     sofacoustics = lib.recurseIntoAttrs (callPackage ./additional/sofacoustics { });
 
 … while calling 'callPackageWith'
 
@@ -127,21 +127,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/default.nix:199:15:
+  at ./pkgs/default.nix:200:15:
 
-   198|     // (lib.mapAttrs
-   199|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
+   199|     // (lib.mapAttrs
+   200|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
       |               ^
-   200|         unpatched."${pname}"
+   201|         unpatched."${pname}"
 
 … from call site
 
-  at ./pkgs/default.nix:78:15:
+  at ./pkgs/default.nix:79:15:
 
-    77|     newsflash-nixified = callPackage ./additional/newsflash-nixified { };
-    78|     nixpkgs = callPackage ./additional/nixpkgs {
+    78|     newsflash-nixified = callPackage ./additional/newsflash-nixified { };
+    79|     nixpkgs = callPackage ./additional/nixpkgs {
       |               ^
-    79|       localSystem = stdenv.buildPlatform.system;
+    80|       localSystem = stdenv.buildPlatform.system;
 
 … while calling 'callPackageWith'
 
@@ -188,4 +188,4 @@ error:
       | ^
     21| , doPatch ? true
 
-error: path '/nix/store/gz4gwmjajcj1qgpkw4kiz75z32jbmh98-source.drv' is not valid
+error: path '/nix/store/7rdnnrnsj2901qfgg2v71ckxm2akz5g6-source.drv' is not valid
