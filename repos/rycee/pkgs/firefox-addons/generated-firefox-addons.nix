@@ -2046,10 +2046,10 @@
     };
     "dashlane" = buildFirefoxXpiAddon {
       pname = "dashlane";
-      version = "6.2436.1";
+      version = "6.2438.1";
       addonId = "jetpack-extension@dashlane.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4346296/dashlane-6.2436.1.xpi";
-      sha256 = "a252541cd956b6a499c2580f07b8cd060272490a714623afed34cd58745c9bc7";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4354576/dashlane-6.2438.1.xpi";
+      sha256 = "0c7d1badabc87537fe7a0c600a308843000bffc606f907dcb38261150251275d";
       meta = with lib;
       {
         homepage = "https://www.dashlane.com";
@@ -5064,10 +5064,10 @@
     };
     "immersive-translate" = buildFirefoxXpiAddon {
       pname = "immersive-translate";
-      version = "1.9.3";
+      version = "1.9.6";
       addonId = "{5efceaa7-f3a2-4e59-a54b-85319448e305}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4347944/immersive_translate-1.9.3.xpi";
-      sha256 = "55eaeb516bc2c3c58a199d54be79f983898f9d64b60cf1183ee36d1eee9207b4";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4352222/immersive_translate-1.9.6.xpi";
+      sha256 = "78b40c0124deb81103a27e6ca9ccb1048b06adafd2ac71f2ec9ac4bfaba6ead1";
       meta = with lib;
       {
         homepage = "https://immersivetranslate.com";
