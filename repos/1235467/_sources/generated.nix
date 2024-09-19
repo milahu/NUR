@@ -51,15 +51,15 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "9e356562446f44c471ae38a80506a9df039305d6";
+    version = "3c9716acfd00c6ea1b7bcd1dc63f97b51cc09998";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "9e356562446f44c471ae38a80506a9df039305d6";
+      rev = "3c9716acfd00c6ea1b7bcd1dc63f97b51cc09998";
       fetchSubmodules = true;
-      sha256 = "sha256-50vt1snpVwS5lqvvH4p6DHiEWspJUZuJ1kYy1DKtrfM=";
+      sha256 = "sha256-VBXNeRJMaiqbIietRihPYnWA7bFJO2wqqlPg0f9Xfjc=";
     };
-    date = "2024-09-15";
+    date = "2024-09-17";
   };
   hyprwayland-scanner = {
     pname = "hyprwayland-scanner";
@@ -136,15 +136,15 @@
   };
   ncmdump_rs = {
     pname = "ncmdump_rs";
-    version = "81c5d5e1ee9eea5c2084baa64a48953eabeba727";
+    version = "159a80b3de4fd0256f0860260c9e0c847c311bac";
     src = fetchFromGitHub {
       owner = "iqiziqi";
       repo = "ncmdump.rs";
-      rev = "81c5d5e1ee9eea5c2084baa64a48953eabeba727";
+      rev = "159a80b3de4fd0256f0860260c9e0c847c311bac";
       fetchSubmodules = false;
-      sha256 = "sha256-QzPABbPUtYAeJBB0VSvRaFrE+NcfFMtG8SZAU6wTJPc=";
+      sha256 = "sha256-do11HeySNtNCOt9mhlqPwdyjm+86ujfI7n0blSqYtvM=";
     };
-    date = "2024-07-23";
+    date = "2024-09-18";
   };
   onedrive-fuse = {
     pname = "onedrive-fuse";
@@ -255,16 +255,16 @@
   };
   suyu = {
     pname = "suyu";
-    version = "66993e26039ec5afb05c4fdc4eee92bc20605389";
+    version = "42ade6f62a17a87f53bdbd3d2d97ed543db82fb8";
     src = fetchgit {
       url = "https://git.suyu.dev/suyu/suyu";
-      rev = "66993e26039ec5afb05c4fdc4eee92bc20605389";
+      rev = "42ade6f62a17a87f53bdbd3d2d97ed543db82fb8";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-OH1Iz9ifCk7QhFu8B9+K15l58AisX5ohWWC71sNshxo=";
+      sha256 = "sha256-gQuRS09UgfqiBlBXRh+J3zMzmZK2+N4778m4DwtnHZc=";
     };
-    date = "2024-09-15";
+    date = "2024-09-17";
   };
   sway = {
     pname = "sway";
@@ -318,15 +318,15 @@
   };
   waylyrics = {
     pname = "waylyrics";
-    version = "8656de88f3573eeefa871a8a7b9075e4d23c2c92";
+    version = "d98981a55c9eb337a57b461d2ccca020d212a44a";
     src = fetchFromGitHub {
       owner = "waylyrics";
       repo = "waylyrics";
-      rev = "8656de88f3573eeefa871a8a7b9075e4d23c2c92";
+      rev = "d98981a55c9eb337a57b461d2ccca020d212a44a";
       fetchSubmodules = false;
-      sha256 = "sha256-i+D1GaS7y3iY9bhb2gy4lsGr7fETenDSa2UN/0/W9G0=";
+      sha256 = "sha256-hEOjIpoLKvwgDKbgTWBSHIM9H6VoL8ykZ1f4Fi7JbAs=";
     };
-    date = "2024-09-16";
+    date = "2024-09-18";
   };
   wlroots = {
     pname = "wlroots";
