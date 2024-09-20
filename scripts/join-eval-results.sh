@@ -21,18 +21,25 @@ jq -c -n '
             #"'$nur_combined_repos_url'" + $i.name + "/" + .value.meta.position[($i.source_storepath | length):]
             # no. permalinks produce too much diff noise in gh-pages
             #"'$nur_combined_blob_url'" + $i.nur_combined_rev + "/repos/" + $i.name + (
-            "'$nur_combined_repos_url'" + $i.name + (
-              .value.meta.position[($i.source_storepath | length):] | sub(":(?<x>[0-9]+)$"; "#L\(.x)")
+            "'$nur_combined_repos_url'" + $i.name + "/" + (
+              .value.meta.position | sub(":(?<line>[0-9]+)$"; "#L\(.line)")
             )
           ) end),
           # origin repo url
           # FIXME this only works for repos on github.com
           # gitlab and gitea have different url paths... (fuck them!!)
-          _originUrl: (if .value.meta.position == null then null else (
-            $i.source.url + "/blob/" + $i.source.rev + (
-              .value.meta.position[($i.source_storepath | length):] | sub(":(?<x>[0-9]+)$"; "#L\(.x)")
+          _originUrl: (
+            if .value.meta.position == null then null else (
+              .value.meta.position | sub(":(?<line>[0-9]+)$"; "#L\(.line)") | (
+                if .[0:2] == "./" then ($i.source.url + "/blob/" + $i.source.rev + "/" + .[2:])
+                # FIXME use nixpkgs rev instead of "master"
+                elif .[0:12] == "<nixpkgs> + " then ("https://github.com/NixOS/nixpkgs/blob/master" + .[12:])
+                else ($i.source.url + "/blob/" + $i.source.rev + "/" + .)
+                end
+              )
             )
-          ) end),
+            end
+          ),
         })}
       ) | from_entries
     )
