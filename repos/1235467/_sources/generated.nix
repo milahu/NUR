@@ -51,27 +51,27 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "e6cf643f5ab1c1545fb858ab1fd9d7538ef9e0f3";
+    version = "9856378384539e35cd943604e6a4d696a9d25447";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "e6cf643f5ab1c1545fb858ab1fd9d7538ef9e0f3";
+      rev = "9856378384539e35cd943604e6a4d696a9d25447";
       fetchSubmodules = true;
-      sha256 = "sha256-n7EMRe/uMZ4QdM/DWsewc7LLRaR0GGzQIV3uu9BFZbU=";
+      sha256 = "sha256-xaecVNHaxiAXDCUFZzDLMP3jbxpBjQTqT4Bku2z5vGA=";
     };
-    date = "2024-09-18";
+    date = "2024-09-19";
   };
   hyprwayland-scanner = {
     pname = "hyprwayland-scanner";
-    version = "f68f1592552d6ab0a3ebead45a5aaf0ae6ef7ea4";
+    version = "eebf1cb749708050b5803425482a34fd4cb7fa57";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "hyprwayland-scanner";
-      rev = "f68f1592552d6ab0a3ebead45a5aaf0ae6ef7ea4";
+      rev = "eebf1cb749708050b5803425482a34fd4cb7fa57";
       fetchSubmodules = true;
-      sha256 = "sha256-WezCRoSGoK2/dH+tptC85vV8MM1/eXUGiKwAYKNwTzE=";
+      sha256 = "sha256-S4Rv/mykrp4/cE+yeio7uKeUqFqdo7rI5whhuxUhWsU=";
     };
-    date = "2024-09-16";
+    date = "2024-09-19";
   };
   idntag = {
     pname = "idntag";
@@ -318,15 +318,15 @@
   };
   waylyrics = {
     pname = "waylyrics";
-    version = "d98981a55c9eb337a57b461d2ccca020d212a44a";
+    version = "4c0b0f050c6567a9e02498c800748e6382440265";
     src = fetchFromGitHub {
       owner = "waylyrics";
       repo = "waylyrics";
-      rev = "d98981a55c9eb337a57b461d2ccca020d212a44a";
+      rev = "4c0b0f050c6567a9e02498c800748e6382440265";
       fetchSubmodules = false;
-      sha256 = "sha256-hEOjIpoLKvwgDKbgTWBSHIM9H6VoL8ykZ1f4Fi7JbAs=";
+      sha256 = "sha256-bNkfMxuMT+Ho14yH7zoOQmcUya8N896ZOnMjeD/b+8I=";
     };
-    date = "2024-09-18";
+    date = "2024-09-19";
   };
   wlroots = {
     pname = "wlroots";
