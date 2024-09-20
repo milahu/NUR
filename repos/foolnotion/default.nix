@@ -30,6 +30,8 @@
 
   cmake-init = pkgs.python3Packages.callPackage ./pkgs/cmake-init { };
 
+  cmake-utils = pkgs.callPackage ./pkgs/cmake-utils { };
+
   cmaketools = pkgs.python3Packages.callPackage ./pkgs/cmaketools { };
 
   cpp-flux = pkgs.callPackage ./pkgs/cpp-flux { };
@@ -56,7 +58,7 @@
 
   koivisto = pkgs.callPackage ./pkgs/koivisto { };
 
-  ktl = pkgs.callPackage ./pkgs/ktl { };
+  ktl = pkgs.callPackage ./pkgs/ktl { cmake-utils = cmake-utils; };
 
   lexy = pkgs.callPackage ./pkgs/lexy { };
 

@@ -1,17 +1,4 @@
-{ lib, stdenv, fetchFromGitHub, cmake }:
-let
-  cmake-utils = stdenv.mkDerivation rec {
-    name = "cmake-utils";
-    fetchurl = "https://raw.githubusercontent.com/karnkaul/cmake-utils/refs/heads/main/cmake-utils.cmake";
-    src = builtins.fetchurl {
-      url = fetchurl;
-      name = "cmake-utils.cmake";
-      sha256 = "sha256:1y5xjhqx05mwd5iagfcr2kyydib5lvrg7nhm59i3mpyljcyv4lky";
-    };
-    dontUnpack = true;
-    installPhase = "install -D $src $out/" + builtins.baseNameOf fetchurl;
-  };
-in
+{ lib, stdenv, fetchFromGitHub, cmake, cmake-utils }:
 stdenv.mkDerivation rec {
   pname = "ktl";
   version = "1.4.2";
