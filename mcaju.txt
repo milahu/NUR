@@ -1,0 +1,133 @@
+error:
+… from call site
+
+  at ./default.nix:14:21:
+
+    13|   prjxray-tools = pkgs.callPackage ./pkgs/prjxray-tools { };
+    14|   symbiflow-yosys = pkgs.callPackage ./pkgs/symbiflow-yosys { };
+      |                     ^
+    15|   vtr = pkgs.callPackage ./pkgs/vtr { };
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:212:35:
+
+   211|   */
+   212|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   213|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:957:7:
+
+   956|     { # TODO: Should we add call-time "type" checking like built in?
+   957|       __functor = self: f;
+      |       ^
+   958|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:136:17:
+
+   135|     in
+   136|     mirrorArgs (origArgs:
+      |                 ^
+   137|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:138:16:
+
+   137|     let
+   138|       result = f origArgs;
+      |                ^
+   139|
+
+… while calling anonymous lambda
+
+  at ./pkgs/symbiflow-yosys/default.nix:1:1:
+
+     1| { stdenv
+      | ^
+     2| , abc-verifier
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:957:7:
+
+   956|     { # TODO: Should we add call-time "type" checking like built in?
+   957|       __functor = self: f;
+      |       ^
+   958|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:144:34:
+
+   143|       # Re-call the function but with different arguments
+   144|       overrideArgs = mirrorArgs (newArgs: makeOverridable f (overrideWith newArgs));
+      |                                  ^
+   145|       # Change the result of the function call by applying g to it
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:957:7:
+
+   956|     { # TODO: Should we add call-time "type" checking like built in?
+   957|       __functor = self: f;
+      |       ^
+   958|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:136:17:
+
+   135|     in
+   136|     mirrorArgs (origArgs:
+      |                 ^
+   137|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:957:7:
+
+   956|     { # TODO: Should we add call-time "type" checking like built in?
+   957|       __functor = self: f;
+      |       ^
+   958|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:146:56:
+
+   145|       # Change the result of the function call by applying g to it
+   146|       overrideResult = g: makeOverridable (mirrorArgs (args: g (f args))) origArgs;
+      |                                                        ^
+   147|     in
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:146:62:
+
+   145|       # Change the result of the function call by applying g to it
+   146|       overrideResult = g: makeOverridable (mirrorArgs (args: g (f args))) origArgs;
+      |                                                              ^
+   147|     in
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:153:29:
+
+   152|           ${if result ? overrideAttrs then "overrideAttrs" else null} = fdrv:
+   153|             overrideResult (x: x.overrideAttrs fdrv);
+      |                             ^
+   154|         }
+
+error: function 'anonymous lambda' called with unexpected argument 'abc-verifier'
+
+at <nixpkgs> + /pkgs/development/compilers/yosys/default.nix:1:1:
+
+     1| { stdenv
+      | ^
+     2| , lib

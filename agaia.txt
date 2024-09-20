@@ -1,0 +1,11 @@
+error:
+… while querying the derivation named 'lsd-8acaabe'
+
+error: undefined variable 'marsam'
+
+at ./pkgs/lsd-git/default.nix:35:49:
+
+    34|     license = licenses.asl20;
+    35|     maintainers = with maintainers; [ Br1ght0ne marsam zowoq SuperSandro2000 ];
+      |                                                 ^
+    36|   };
