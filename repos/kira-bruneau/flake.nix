@@ -66,9 +66,9 @@
               "nixos/tests/xpadneo.nix"
               "pkgs/applications/audio/zynaddsubfx/default.nix"
               "pkgs/applications/audio/zynaddsubfx/mruby-zest/default.nix"
-              "pkgs/applications/editors/poke/default.nix"
               "pkgs/applications/networking/cluster/krane/default.nix"
               "pkgs/applications/version-management/git-review/default.nix"
+              "pkgs/by-name/po/poke/package.nix"
               "pkgs/development/tools/misc/cmake-language-server/default.nix"
               "pkgs/development/tools/misc/texlab/default.nix"
               "pkgs/games/clonehero/default.nix"
@@ -82,7 +82,6 @@
               "pkgs/tools/graphics/goverlay/default.nix"
               "pkgs/tools/graphics/mangohud/default.nix"
               "pkgs/tools/graphics/vkbasalt/default.nix"
-              "pkgs/tools/package-management/protontricks/default.nix"
             ])
           ) (flake-linter-lib.walkFlake ./.)
         );
