@@ -80,6 +80,8 @@
 
   mppp = pkgs.callPackage ./pkgs/mppp { };
 
+  parallel-hashmap = pkgs.callPackage ./pkgs/parallel-hashmap { };
+
   pareto = pkgs.python3Packages.callPackage ./pkgs/pareto { };
 
   pegtl = pkgs.callPackage ./pkgs/pegtl { };
@@ -87,6 +89,8 @@
   perf-cpp = pkgs.callPackage ./pkgs/perf-cpp { };
 
   pmlb = pkgs.python3Packages.callPackage ./pkgs/pmlb { };
+
+  pmt = pkgs.callPackage ./pkgs/pmt { };
 
   q5go = pkgs.libsForQt5.callPackage ./pkgs/q5go { };
 
