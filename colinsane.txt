@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./pkgs/default.nix:110:26:
+  at ./pkgs/default.nix:109:26:
 
-   109|     signal-desktop-from-src = callPackage ./additional/signal-desktop-from-src { };
-   110|     sm64ex-coop-deluxe = callPackage ./additional/sm64ex-coop-deluxe { };
+   108|     signal-desktop-from-src = callPackage ./additional/signal-desktop-from-src { };
+   109|     sm64ex-coop-deluxe = callPackage ./additional/sm64ex-coop-deluxe { };
       |                          ^
-   111|     sofacoustics = lib.recurseIntoAttrs (callPackage ./additional/sofacoustics { });
+   110|     sofacoustics = lib.recurseIntoAttrs (callPackage ./additional/sofacoustics { });
 
 … while calling 'callPackageWith'
 
@@ -127,21 +127,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/default.nix:200:15:
+  at ./pkgs/default.nix:199:15:
 
-   199|     // (lib.mapAttrs
-   200|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
+   198|     // (lib.mapAttrs
+   199|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
       |               ^
-   201|         unpatched."${pname}"
+   200|         unpatched."${pname}"
 
 … from call site
 
-  at ./pkgs/default.nix:79:15:
+  at ./pkgs/default.nix:78:15:
 
-    78|     newsflash-nixified = callPackage ./additional/newsflash-nixified { };
-    79|     nixpkgs = callPackage ./additional/nixpkgs {
+    77|     newsflash-nixified = callPackage ./additional/newsflash-nixified { };
+    78|     nixpkgs = callPackage ./additional/nixpkgs {
       |               ^
-    80|       localSystem = stdenv.buildPlatform.system;
+    79|       localSystem = stdenv.buildPlatform.system;
 
 … while calling 'callPackageWith'
 
@@ -188,4 +188,4 @@ error:
       | ^
     21| , doPatch ? true
 
-error: path '/nix/store/kljz0kv6ig45qnq12xzv026a90nl2na2-source.drv' is not valid
+error: path '/nix/store/rsh7007b1kxsfszxqwqdmmgq3zz0z5fq-source.drv' is not valid
