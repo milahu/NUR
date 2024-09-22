@@ -143,10 +143,9 @@ src.git = "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls.git"
 fetch.git = "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls.git"
 
 [fcitx5-breeze]
-src.github = "scratch-er/fcitx5-breeze"
-src.from_pattern = "v(.*)"
-src.to_pattern = "\\1"
-fetch.url = "https://github.com/scratch-er/fcitx5-breeze/releases/download/v$ver/fcitx5-breeze-prebuilt-$ver.tar.gz"
+src.webpage = "https://gitlab.com/api/v4/projects/53966606/releases/"
+src.regex = "\"https://gitlab.com/scratch-er/fcitx5-breeze/-/archive/v([0-9\\.]+)/fcitx5-breeze-"
+fetch.url = "https://gitlab.com/scratch-er/fcitx5-breeze/-/archive/v$ver/fcitx5-breeze-v$ver.tar.gz"
 
 [flasgger]
 src.github = "flasgger/flasgger"
@@ -197,32 +196,8 @@ src.git = "https://github.com/Wenti-D/HI3IIMartianFont.git"
 fetch.github = "Wenti-D/HI3IIMartianFont"
 
 [hoyo-glyphs]
-src.git = "https://github.com/SpeedyOrc-C/Hoyo-Glyphs.git"
-fetch.github = "SpeedyOrc-C/Hoyo-Glyphs"
-
-[hoyo-glyphs-font-ainee]
-src.manual = "1.000"
-fetch.url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/font-ainee-1.000/Font-Ainee-1.000.zip"
-
-[hoyo-glyphs-star-rail-neue]
-src.manual = "1.100"
-fetch.url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/star-rail-neue-1.100/Star-Rail-Neue-1.100.zip"
-
-[hoyo-glyphs-teyvat-black]
-src.manual = "1.003"
-fetch.url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/teyvat-black-1.003/Teyvat-Black-1.003.zip"
-
-[hoyo-glyphs-xianzhou-seal]
-src.manual = "1.000"
-fetch.url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/xianzhou-seal-1.000/Xianzhou-Seal-1.000.zip"
-
-[hoyo-glyphs-zzz-a]
-src.manual = "1.000"
-fetch.url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/zzz-a-1.000/ZZZ-A-1.000.zip"
-
-[hoyo-glyphs-zzz-system]
-src.manual = "1.000"
-fetch.url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/zzz-system-1.000/ZZZ-System-1.000.zip"
+src.github = "SpeedyOrc-C/Hoyo-Glyphs"
+fetch.url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/$ver/HoYo-Glyphs-$ver.zip"
 
 [i915-sriov-dkms]
 src.git = "https://github.com/strongtz/i915-sriov-dkms.git"
@@ -340,6 +315,10 @@ fetch.github = "bkerler/mtkclient"
 [nbfc-linux-lantian]
 src.git = "https://github.com/xddxdd/nbfc-linux.git"
 fetch.github = "xddxdd/nbfc-linux"
+
+[ncmdump-rs]
+src.github = "iqiziqi/ncmdump.rs"
+fetch.github = "iqiziqi/ncmdump.rs"
 
 [netboot-xyz-efi]
 src.github = "netbootxyz/netboot.xyz"

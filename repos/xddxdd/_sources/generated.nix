@@ -182,15 +182,15 @@
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "a12bec5a0467eb50cd810597edfc7ad85d38f686";
+    version = "3df5d8653a0636e9e43b010711a5cf55d4f1166b";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "a12bec5a0467eb50cd810597edfc7ad85d38f686";
+      rev = "3df5d8653a0636e9e43b010711a5cf55d4f1166b";
       fetchSubmodules = false;
-      sha256 = "sha256-rFljleoXXn58RD1qQRxxzJS4zfaNJn5Rzyqy8jpgvas=";
+      sha256 = "sha256-AhtIgXuBMgqwTx7uUx2OdtUp77RyFXNiAcKMoAuDHsI=";
     };
-    date = "2024-09-19";
+    date = "2024-09-21";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -375,10 +375,10 @@
   };
   fcitx5-breeze = {
     pname = "fcitx5-breeze";
-    version = "2.0.0";
+    version = "3.1.0";
     src = fetchurl {
-      url = "https://github.com/scratch-er/fcitx5-breeze/releases/download/v2.0.0/fcitx5-breeze-prebuilt-2.0.0.tar.gz";
-      sha256 = "sha256-Xw5oBsxsCzoqXZ3r6koVuVmRAi8Ys9e2CmKxBhLenHM=";
+      url = "https://gitlab.com/scratch-er/fcitx5-breeze/-/archive/v3.1.0/fcitx5-breeze-v3.1.0.tar.gz";
+      sha256 = "sha256-rRVRUY69M5Nz8MwarePlqy2JIOX8MP0nz6Ia2pwmkTA=";
     };
   };
   flasgger = {
@@ -501,62 +501,10 @@
   };
   hoyo-glyphs = {
     pname = "hoyo-glyphs";
-    version = "424f2634d4463cee71eaac34a2e0b9f89366bfac";
-    src = fetchFromGitHub {
-      owner = "SpeedyOrc-C";
-      repo = "Hoyo-Glyphs";
-      rev = "424f2634d4463cee71eaac34a2e0b9f89366bfac";
-      fetchSubmodules = false;
-      sha256 = "sha256-Jy+BHXqXQEtV1AAL2bUYkSg0lQ9qPAWLmV9NLlx8pwM=";
-    };
-    date = "2024-09-12";
-  };
-  hoyo-glyphs-font-ainee = {
-    pname = "hoyo-glyphs-font-ainee";
-    version = "1.000";
+    version = "20240919";
     src = fetchurl {
-      url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/font-ainee-1.000/Font-Ainee-1.000.zip";
-      sha256 = "sha256-sgXvUveqzmDonB5+Q5zJEXYPg8cMimK+shwaWSVFkII=";
-    };
-  };
-  hoyo-glyphs-star-rail-neue = {
-    pname = "hoyo-glyphs-star-rail-neue";
-    version = "1.100";
-    src = fetchurl {
-      url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/star-rail-neue-1.100/Star-Rail-Neue-1.100.zip";
-      sha256 = "sha256-pOTen4C/z8Z3YS3YBgZK63Cf3YI/M+a6a3P7XuvLhGo=";
-    };
-  };
-  hoyo-glyphs-teyvat-black = {
-    pname = "hoyo-glyphs-teyvat-black";
-    version = "1.003";
-    src = fetchurl {
-      url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/teyvat-black-1.003/Teyvat-Black-1.003.zip";
-      sha256 = "sha256-AzaZEyxnmi18T2vQSsR+PZ1yGt5pqyvGKioMn2BStqk=";
-    };
-  };
-  hoyo-glyphs-xianzhou-seal = {
-    pname = "hoyo-glyphs-xianzhou-seal";
-    version = "1.000";
-    src = fetchurl {
-      url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/xianzhou-seal-1.000/Xianzhou-Seal-1.000.zip";
-      sha256 = "sha256-1cXp5ZH6oY6LPdeN7EpiMJzO4SiXmeJTnLLrBPJD4g4=";
-    };
-  };
-  hoyo-glyphs-zzz-a = {
-    pname = "hoyo-glyphs-zzz-a";
-    version = "1.000";
-    src = fetchurl {
-      url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/zzz-a-1.000/ZZZ-A-1.000.zip";
-      sha256 = "sha256-QH+pywg6lDBqXww/sbGw8lH3gY5/xzhf2B1eLwr88bY=";
-    };
-  };
-  hoyo-glyphs-zzz-system = {
-    pname = "hoyo-glyphs-zzz-system";
-    version = "1.000";
-    src = fetchurl {
-      url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/zzz-system-1.000/ZZZ-System-1.000.zip";
-      sha256 = "sha256-HiqwvY3g55qxXIXU+098LaOvu7CZls+w1NdIwYonJ38=";
+      url = "https://github.com/SpeedyOrc-C/HoYo-Glyphs/releases/download/20240919/HoYo-Glyphs-20240919.zip";
+      sha256 = "sha256-62xaYCfk33+sMhNLohhYB7ptxKyloZcqXF0ogzP9CPM=";
     };
   };
   i915-sriov-dkms = {
@@ -600,21 +548,21 @@
   };
   kata-containers = {
     pname = "kata-containers";
-    version = "3.8.0";
+    version = "3.9.0";
     src = fetchFromGitHub {
       owner = "kata-containers";
       repo = "kata-containers";
-      rev = "3.8.0";
+      rev = "3.9.0";
       fetchSubmodules = false;
-      sha256 = "sha256-62qoAMlE62hS02+Bj5HNgNyGVTk7SVLJaqN9GhCWQXc=";
+      sha256 = "sha256-aBcu59LybgZ9xkCDUzZXb60FeClQNG1ivfC6lWQdlb0=";
     };
   };
   kata-image = {
     pname = "kata-image";
-    version = "3.8.0";
+    version = "3.9.0";
     src = fetchurl {
-      url = "https://github.com/kata-containers/kata-containers/releases/download/3.8.0/kata-static-3.8.0-amd64.tar.xz";
-      sha256 = "sha256-gE84P1aVHV3fwdILpkwpj8KLsvbMuvlQFaxyKlQBfi0=";
+      url = "https://github.com/kata-containers/kata-containers/releases/download/3.9.0/kata-static-3.9.0-amd64.tar.xz";
+      sha256 = "sha256-w5z6GusrrS/8HryiLwwdo5SCFIuVBDDTvl5BlGuVFjo=";
     };
   };
   kikoplay = {
@@ -816,13 +764,13 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b3786";
+    version = "b3799";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      rev = "b3786";
+      rev = "b3799";
       fetchSubmodules = false;
-      sha256 = "sha256-nsopZZJ/TepbHaklUzTdIxMa/MfBnMviI7VlN3oojJ4=";
+      sha256 = "sha256-eF3uhHpNY18PGfVgF5l7EmorUcEjPW/FX5gWTXQNbfg=";
     };
   };
   lyrica = {
@@ -866,6 +814,17 @@
       sha256 = "sha256-jKuCBKUm32ulgH0+/be2s+CgeBqTww+4K3RETFFCCOc=";
     };
     date = "2022-06-13";
+  };
+  ncmdump-rs = {
+    pname = "ncmdump-rs";
+    version = "0.8.0";
+    src = fetchFromGitHub {
+      owner = "iqiziqi";
+      repo = "ncmdump.rs";
+      rev = "0.8.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-do11HeySNtNCOt9mhlqPwdyjm+86ujfI7n0blSqYtvM=";
+    };
   };
   netboot-xyz-efi = {
     pname = "netboot-xyz-efi";
@@ -1129,10 +1088,10 @@
   };
   peerbanhelper = {
     pname = "peerbanhelper";
-    version = "v6.2.7";
+    version = "v6.2.8";
     src = fetchurl {
-      url = "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v6.2.7/PeerBanHelper.jar";
-      sha256 = "sha256-2N2G2Dd9mcgI8O3Ph2T7SsaWvK0WYLV8TL5fk1ftOs8=";
+      url = "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v6.2.8/PeerBanHelper.jar";
+      sha256 = "sha256-PrB39gN4+7uzz17qNFkzNX8ugVARS/LDk2dPO2XoA/E=";
     };
   };
   phpmyadmin = {
@@ -1231,13 +1190,13 @@
   };
   qbittorrent-enhanced-edition = {
     pname = "qbittorrent-enhanced-edition";
-    version = "release-4.6.6.10";
+    version = "release-4.6.7.10";
     src = fetchFromGitHub {
       owner = "c0re100";
       repo = "qBittorrent-Enhanced-Edition";
-      rev = "release-4.6.6.10";
+      rev = "release-4.6.7.10";
       fetchSubmodules = false;
-      sha256 = "sha256-mmM/1eU8FTWAciq2rh7fRa96fOkovMk4ScoehnqHdIQ=";
+      sha256 = "sha256-Mr376nH2pE6NMF9IdDhZULwqkRr7472OZnKO86hb6ZI=";
     };
   };
   qemu-user-static-amd64 = {
