@@ -1,147 +1,12 @@
 error:
 … from call site
 
-  at ./pkgs/default.nix:109:26:
+  at ./pkgs/default.nix:70:39:
 
-   108|     signal-desktop-from-src = callPackage ./additional/signal-desktop-from-src { };
-   109|     sm64ex-coop-deluxe = callPackage ./additional/sm64ex-coop-deluxe { };
-      |                          ^
-   110|     sofacoustics = lib.recurseIntoAttrs (callPackage ./additional/sofacoustics { });
-
-… while calling 'callPackageWith'
-
-  at <nixpkgs> + /lib/customisation.nix:212:35:
-
-   211|   */
-   212|   callPackageWith = autoArgs: fn: args:
-      |                                   ^
-   213|     let
-
-… from call site
-
-  at <nixpkgs> + /lib/trivial.nix:957:7:
-
-   956|     { # TODO: Should we add call-time "type" checking like built in?
-   957|       __functor = self: f;
-      |       ^
-   958|       __functionArgs = args;
-
-… while calling anonymous lambda
-
-  at <nixpkgs> + /lib/customisation.nix:136:17:
-
-   135|     in
-   136|     mirrorArgs (origArgs:
-      |                 ^
-   137|     let
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:138:16:
-
-   137|     let
-   138|       result = f origArgs;
-      |                ^
-   139|
-
-… while calling anonymous lambda
-
-  at ./pkgs/additional/sm64ex-coop-deluxe/default.nix:2:1:
-
-     1| # package taken from: <https://git.uninsane.org/shelvacu/nix-stuff/src/branch/master/coopdx.nix>
-     2| { callPackage
-      | ^
-     3| , fetchFromGitHub
-
-… from call site
-
-  at ./pkgs/additional/sm64ex-coop-deluxe/default.nix:32:5:
-
-    31|   region = "us"; #dx removed support for other regions
-    32| in (callPackage "${nixpkgs}/pkgs/games/sm64ex/generic.nix" {
-      |     ^
-    33|   inherit pname version region;
-
-… while calling 'callPackageWith'
-
-  at <nixpkgs> + /lib/customisation.nix:212:35:
-
-   211|   */
-   212|   callPackageWith = autoArgs: fn: args:
-      |                                   ^
-   213|     let
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:225:10:
-
-   224|         # Filter out arguments that have a default value
-   225|         (filterAttrs (name: value: ! value)
-      |          ^
-   226|         # Filter out arguments that would be passed
-
-… while calling 'filterAttrs'
-
-  at <nixpkgs> + /lib/attrsets.nix:646:5:
-
-   645|     pred:
-   646|     set:
-      |     ^
-   647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:215:15:
-
-   214|       f = if isFunction fn then fn else import fn;
-   215|       fargs = functionArgs f;
-      |               ^
-   216|
-
-… while calling 'functionArgs'
-
-  at <nixpkgs> + /lib/trivial.nix:975:18:
-
-   974|   */
-   975|   functionArgs = f:
-      |                  ^
-   976|     if f ? __functor
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:214:14:
-
-   213|     let
-   214|       f = if isFunction fn then fn else import fn;
-      |              ^
-   215|       fargs = functionArgs f;
-
-… while calling 'isFunction'
-
-  at <nixpkgs> + /lib/trivial.nix:991:16:
-
-   990|   */
-   991|   isFunction = f: builtins.isFunction f ||
-      |                ^
-   992|     (f ? __functor && isFunction (f.__functor f));
-
-… while calling anonymous lambda
-
-  at ./pkgs/default.nix:199:15:
-
-   198|     // (lib.mapAttrs
-   199|       (pname: _pkg: if unpatched ? "${pname}" && unpatched."${pname}" ? version && lib.versionAtLeast unpatched."${pname}".version final'.sane."${pname}".version  then
-      |               ^
-   200|         unpatched."${pname}"
-
-… from call site
-
-  at ./pkgs/default.nix:78:15:
-
-    77|     newsflash-nixified = callPackage ./additional/newsflash-nixified { };
-    78|     nixpkgs = callPackage ./additional/nixpkgs {
-      |               ^
-    79|       localSystem = stdenv.buildPlatform.system;
+    69|     linux-postmarketos-exynos5 = callPackage ./additional/linux-postmarketos-exynos5 { };
+    70|     linux-postmarketos-pinephonepro = callPackage ./additional/linux-postmarketos-pinephonepro { };
+      |                                       ^
+    71|     linux-sane-pinephonepro = callPackage ./additional/linux-sane-pinephonepro { };
 
 … while calling 'callPackageWith'
 
@@ -181,11 +46,136 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/additional/nixpkgs/default.nix:20:1:
+  at ./pkgs/additional/linux-postmarketos-pinephonepro/default.nix:1:1:
 
-    19| # - staging: maybe if no staging-next -> master PR has been cut yet?
-    20| { variant ? "master"
+     1| {
       | ^
-    21| , doPatch ? true
+     2|   fetchFromGitLab,
 
-error: path '/nix/store/rsh7007b1kxsfszxqwqdmmgq3zz0z5fq-source.drv' is not valid
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:957:7:
+
+   956|     { # TODO: Should we add call-time "type" checking like built in?
+   957|       __functor = self: f;
+      |       ^
+   958|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:136:17:
+
+   135|     in
+   136|     mirrorArgs (origArgs:
+      |                 ^
+   137|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:138:16:
+
+   137|     let
+   138|       result = f origArgs;
+      |                ^
+   139|
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/manual-config.nix:20:25:
+
+    19|   '').outPath;
+    20| in lib.makeOverridable ({
+      |                         ^
+    21|   # The kernel version
+
+… from call site
+
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/manual-config.nix:419:1:
+
+   418|
+   419| stdenv.mkDerivation ((drvAttrs config stdenv.hostPlatform.linux-kernel kernelPatches configfile) // {
+      | ^
+   420|   inherit pname version;
+
+… while calling 'mkDerivation'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:64:5:
+
+    63|   mkDerivation =
+    64|     fnOrAttrs:
+      |     ^
+    65|       if builtins.isFunction fnOrAttrs
+
+… from call site
+
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/manual-config.nix:419:23:
+
+   418|
+   419| stdenv.mkDerivation ((drvAttrs config stdenv.hostPlatform.linux-kernel kernelPatches configfile) // {
+      |                       ^
+   420|   inherit pname version;
+
+… while calling 'drvAttrs'
+
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/manual-config.nix:69:50:
+
+    68|
+    69|   drvAttrs = config_: kernelConf: kernelPatches: configfile:
+      |                                                  ^
+    70|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/manual-config.nix:131:9:
+
+   130|
+   131|     in (optionalAttrs isModular { outputs = [ "out" "dev" ]; }) // {
+      |         ^
+   132|       passthru = rec {
+
+… while calling 'optionalAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:1352:5:
+
+  1351|     cond:
+  1352|     as:
+      |     ^
+  1353|     if cond then as else {};
+
+… from call site
+
+  at ./pkgs/additional/linux-postmarketos-pinephonepro/default.nix:68:12:
+
+    67|   # if that causes issues, then copy the config inline to this repo.
+    68|   config = sane-kernel-tools.parseDefconfig defconfigStr;
+      |            ^
+    69| }).overrideAttrs (base: {
+
+… while calling 'parseDefconfig'
+
+  at ./pkgs/additional/sane-kernel-tools/default.nix:27:20:
+
+    26|   # results are like ` { CONFIG_FOO = "y"; CONFIG_FOO_BAR = "128"; }`
+    27|   parseDefconfig = wholeStr: let
+      |                    ^
+    28|     lines = lib.splitString "\n" wholeStr;
+
+… from call site
+
+  at ./pkgs/additional/sane-kernel-tools/default.nix:28:13:
+
+    27|   parseDefconfig = wholeStr: let
+    28|     lines = lib.splitString "\n" wholeStr;
+      |             ^
+    29|     parsedItems = lib.concatMap parseDefconfigLine lines;
+
+… while calling 'splitString'
+
+  at <nixpkgs> + /lib/strings.nix:1474:22:
+
+  1473|   */
+  1474|   splitString = sep: s:
+      |                      ^
+  1475|     let
+
+error: path '/nix/store/wqrrxh47589hais9fl2ba5bd1nylr7xn-source.drv' is not valid
