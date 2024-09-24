@@ -56,6 +56,8 @@
 
   gch-small-vector = pkgs.callPackage ./pkgs/gch-small-vector { };
 
+  gtl = pkgs.callPackage ./pkgs/gtl { };
+
   koivisto = pkgs.callPackage ./pkgs/koivisto { };
 
   ktl = pkgs.callPackage ./pkgs/ktl { cmake-utils = cmake-utils; };
