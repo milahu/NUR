@@ -1,15 +1,17 @@
 { lib
+, pkgs
 , buildGoModule
 , fetchFromGitHub
+, makeWrapper
 }:
-buildGoModule {
+buildGoModule rec {
   pname = "diffnav";
-  version = "2024-09-18";
+  version = "0.1.0";
 
   src = fetchFromGitHub {
     owner = "dlvhdr";
     repo = "diffnav";
-    rev = "ea5ccdb02dc1c8fdd12429975e9b6f79c8e43dcd";
+    rev = "v${version}";
     hash = "sha256-y+nODXTZpXdUTQYwqL01rPvD8bHhI48EH1TuEhPAeMU=";
   };
 
@@ -17,6 +19,12 @@ buildGoModule {
 
   postPatch = ''
     sed 's/1.22.6/1.22.5/' -i go.mod
+  '';
+
+  nativeBuildInputs = [ makeWrapper ];
+  postFixup = ''
+    wrapProgram $out/bin/diffnav \
+      --prefix PATH : ${lib.makeBinPath [ pkgs.delta ]}
   '';
 
   doCheck = false;
