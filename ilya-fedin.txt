@@ -73,6 +73,24 @@ error:
 
 … from call site
 
+  at ./default.nix:77:7:
+
+    76|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    77|       replaceDependency { inherit oldDependency newDependency drv; }
+      |       ^
+    78|     ) drv ([
+
+… while calling 'replaceDependency'
+
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1311:23:
+
+  1310|
+  1311|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+      |                       ^
+  1312|     inherit drv verbose;
+
+… from call site
+
   at <nixpkgs> + /lib/trivial.nix:957:7:
 
    956|     { # TODO: Should we add call-time "type" checking like built in?
@@ -82,24 +100,69 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/build-support/replace-dependency.nix:20:1:
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:35:1:
 
-    19| # (and all of its dependencies) without rebuilding further.
-    20| { drv, oldDependency, newDependency, verbose ? true }:
+    34| # The cutoffPackages argument can be used to exempt the problematic packages from the replacement process.
+    35| {
       | ^
-    21|
+    36|   drv,
+
+… from call site
+
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:136:24:
+
+   135|   );
+   136|   relevantReferences = mergeAttrsList (attrValues referencesMemo);
+      |                        ^
+   137|   # Make sure a derivation is returned even when no replacements are actually applied.
+
+… while calling 'mergeAttrsList'
+
+  at <nixpkgs> + /lib/attrsets.nix:1488:20:
+
+  1487|   */
+  1488|   mergeAttrsList = list:
+      |                    ^
+  1489|     let
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:114:5:
+
+   113|   relevantReplacements = filter (
+   114|     { oldDependency, newDependency }:
+      |     ^
+   115|     if toString oldDependency == toString newDependency then
+
+… from call site
+
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:112:20:
+
+   111|       );
+   112|   rootReferences = referencesOf drv;
+      |                    ^
+   113|   relevantReplacements = filter (
+
+… while calling 'referencesOf'
+
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:60:5:
+
+    59|   referencesOf =
+    60|     drv:
+      |     ^
+    61|     import
 
 … while evaluating derivation 'references.nix'
   whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:336:7
 
 … while evaluating attribute 'exportReferencesGraph' of derivation 'references.nix'
 
-  at <nixpkgs> + /pkgs/build-support/replace-dependency.nix:37:59:
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:64:11:
 
-    36|   warn = if verbose then builtins.trace else (x: y: y);
-    37|   references = import (runCommandLocal "references.nix" { exportReferencesGraph = [ "graph" drv ]; } ''
-      |                                                           ^
-    38|     (echo {
+    63|         {
+    64|           exportReferencesGraph = [
+      |           ^
+    65|             "graph"
 
 … from call site
 
@@ -139,6 +202,24 @@ error:
 
 … from call site
 
+  at ./default.nix:77:7:
+
+    76|     with-patched-qt = drv: (lib.foldr ({ oldDependency, newDependency }: drv:
+    77|       replaceDependency { inherit oldDependency newDependency drv; }
+      |       ^
+    78|     ) drv ([
+
+… while calling 'replaceDependency'
+
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1311:23:
+
+  1310|
+  1311|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+      |                       ^
+  1312|     inherit drv verbose;
+
+… from call site
+
   at <nixpkgs> + /lib/trivial.nix:957:7:
 
    956|     { # TODO: Should we add call-time "type" checking like built in?
@@ -148,30 +229,39 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/build-support/replace-dependency.nix:20:1:
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:35:1:
 
-    19| # (and all of its dependencies) without rebuilding further.
-    20| { drv, oldDependency, newDependency, verbose ? true }:
+    34| # The cutoffPackages argument can be used to exempt the problematic packages from the replacement process.
+    35| {
       | ^
-    21|
+    36|   drv,
 
 … from call site
 
-  at <nixpkgs> + /pkgs/build-support/replace-dependency.nix:93:77:
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:136:24:
 
-    92|   drvHash = discard (toString drv);
-    93| in assert (stringLength (drvName (toString oldDependency)) == stringLength (drvName (toString newDependency)));
-      |                                                                             ^
-    94| rewriteMemo.${drvHash} or (warn "replace-dependency.nix: Derivation ${drvHash} does not depend on ${discard (toString oldDependency)}" drv)
+   135|   );
+   136|   relevantReferences = mergeAttrsList (attrValues referencesMemo);
+      |                        ^
+   137|   # Make sure a derivation is returned even when no replacements are actually applied.
 
-… while calling 'drvName'
+… while calling 'mergeAttrsList'
 
-  at <nixpkgs> + /pkgs/build-support/replace-dependency.nix:72:13:
+  at <nixpkgs> + /lib/attrsets.nix:1488:20:
 
-    71|
-    72|   drvName = drv:
-      |             ^
-    73|     discard (substring 33 (stringLength (builtins.baseNameOf drv)) (builtins.baseNameOf drv));
+  1487|   */
+  1488|   mergeAttrsList = list:
+      |                    ^
+  1489|     let
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:114:5:
+
+   113|   relevantReplacements = filter (
+   114|     { oldDependency, newDependency }:
+      |     ^
+   115|     if toString oldDependency == toString newDependency then
 
 … while evaluating derivation 'qtwayland-6.7.2'
   whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:336:7
@@ -259,6 +349,24 @@ error:
 
 … from call site
 
+  at ./default.nix:59:23:
+
+    58|       inherit qtbase;
+    59|       qtdeclarative = replaceDependency {
+      |                       ^
+    60|         oldDependency = qt6.qtbase;
+
+… while calling 'replaceDependency'
+
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1311:23:
+
+  1310|
+  1311|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+      |                       ^
+  1312|     inherit drv verbose;
+
+… from call site
+
   at <nixpkgs> + /lib/trivial.nix:957:7:
 
    956|     { # TODO: Should we add call-time "type" checking like built in?
@@ -268,11 +376,56 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/build-support/replace-dependency.nix:20:1:
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:35:1:
 
-    19| # (and all of its dependencies) without rebuilding further.
-    20| { drv, oldDependency, newDependency, verbose ? true }:
+    34| # The cutoffPackages argument can be used to exempt the problematic packages from the replacement process.
+    35| {
       | ^
-    21|
+    36|   drv,
 
-error: path '/nix/store/9w9vkkgqx1disdq39b2cjaf3pfa2zlyn-references.nix.drv' is not valid
+… from call site
+
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:136:24:
+
+   135|   );
+   136|   relevantReferences = mergeAttrsList (attrValues referencesMemo);
+      |                        ^
+   137|   # Make sure a derivation is returned even when no replacements are actually applied.
+
+… while calling 'mergeAttrsList'
+
+  at <nixpkgs> + /lib/attrsets.nix:1488:20:
+
+  1487|   */
+  1488|   mergeAttrsList = list:
+      |                    ^
+  1489|     let
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:114:5:
+
+   113|   relevantReplacements = filter (
+   114|     { oldDependency, newDependency }:
+      |     ^
+   115|     if toString oldDependency == toString newDependency then
+
+… from call site
+
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:112:20:
+
+   111|       );
+   112|   rootReferences = referencesOf drv;
+      |                    ^
+   113|   relevantReplacements = filter (
+
+… while calling 'referencesOf'
+
+  at <nixpkgs> + /pkgs/build-support/replace-dependencies.nix:60:5:
+
+    59|   referencesOf =
+    60|     drv:
+      |     ^
+    61|     import
+
+error: path '/nix/store/85jkr5b5djrr8g6vxync2n96mnm46c9p-references.nix.drv' is not valid
