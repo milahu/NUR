@@ -1,16 +1,16 @@
 {
 "name":"rewine",
-"fetch_time":0.244,
-"eval_time":0.238,
+"fetch_time":0.392,
+"eval_time":0.252,
 "source":{
 "url":"https://github.com/wineee/nur-packages",
-"rev":"f8854754cac3ca6c2e82d9ec378dadf210906788",
-"sha256":"04ds8kl5dh00pzj5n9pagqp3vkc6pzxcyla35gcrkipjgpcwsn9i",
+"rev":"a5fbac509b3d15f1ef3141dea69a22a0bef49bed",
+"sha256":"0q8f44cg219nrivwbd481ha9idaywsd2j1qymyqv7azzg56d63rr",
 "date":null
 },
-"source_storepath":"/nix/store/klrfxlxhqnasvknzj9lsi6qqrl795yfz-source",
-"nixpkgs_storepath":"/nix/store/mf3q4brz73gij9c3ry8mnj4b64q0cjpc-source",
-"nur_combined_rev":"8a1958bb39893a85ab9f2327b4d839f0184ef9f1",
+"source_storepath":"/nix/store/1dgnkg51ncszi9psnxwnw6kv8r5jx6rm-source",
+"nixpkgs_storepath":"/nix/store/rr4kzh9nbzf1m2l9xvl73m70084xi8sk-source",
+"nur_combined_rev":"6346b02ac44ea67ec36239d39751b6128511cd25",
 "packages":{
 "aliyunpan":{
 "meta":{
@@ -529,7 +529,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:68",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:59",
 "unfree":false,
 "unsupported":false
 },
@@ -1048,7 +1048,11 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux"
+"x86_64-linux",
+"wasm64-wasi",
+"wasm32-wasi",
+"i686-freebsd",
+"x86_64-freebsd"
 ],
 "position":"./pkgs/wlhax/default.nix:21",
 "unfree":false,
