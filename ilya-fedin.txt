@@ -82,12 +82,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1311:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1309:23:
 
-  1310|
-  1311|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+  1308|
+  1309|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1312|     inherit drv verbose;
+  1310|     inherit drv verbose;
 
 … from call site
 
@@ -211,12 +211,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1311:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1309:23:
 
-  1310|
-  1311|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+  1308|
+  1309|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1312|     inherit drv verbose;
+  1310|     inherit drv verbose;
 
 … from call site
 
@@ -358,12 +358,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1311:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1309:23:
 
-  1310|
-  1311|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+  1308|
+  1309|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1312|     inherit drv verbose;
+  1310|     inherit drv verbose;
 
 … from call site
 
