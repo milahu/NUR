@@ -3,47 +3,38 @@
   callPackage,
   lib,
   _meta,
-  newScope,
-  packages,
+  _packages,
   ...
 }:
 let
-  nurPackages = builtins.removeAttrs (lib.makeScope newScope packages) [
-    "newScope"
-    "callPackage"
-    "overrideScope"
-    "overrideScope'"
-    "packages"
-  ];
-
   inherit (callPackage ../../../helpers/flatten-pkgs.nix { })
     isIndependentDerivation
     isHiddenName
+    isTargetPlatform'
     shouldRecurseForDerivations
     flattenPkgs'
     ;
 
   packageSets = lib.filterAttrs (
     n: v: (builtins.tryEval v).success && !(isHiddenName n) && (shouldRecurseForDerivations v)
-  ) nurPackages;
+  ) _packages;
+
+  allPlatforms = [
+    "x86_64-linux"
+    "aarch64-linux"
+  ];
 
   packageList =
     prefix: ps:
     builtins.map
       (
         v:
-        let
-          tags = lib.optional v.broken "Broken"
-          # Golang packages set a lot of architectures
-          # ++ builtins.map (v: "Arch: ${v}") v.platforms
-          ;
-        in
-        "| ${lib.concatMapStringsSep " " (v: "`${v}`") tags} | `${v.path}` | ${
+        "| ${lib.concatMapStringsSep " " (v: "`${v}`") v.tags} | `${v.path}` | ${
           if v.url != null then "[${v.pname}](${v.url})" else v.pname
         } | ${v.version} | ${v.description} |"
       )
       (
-        lib.mapAttrsToList (n: v: {
+        lib.mapAttrsToList (n: v: rec {
           path = n;
           pname = v.pname or v.name or n;
           version = v.version or "";
@@ -51,6 +42,14 @@ let
           broken = v.meta.broken or false;
           platforms = v.meta.platforms or [ ];
           url = v.meta.homepage or null;
+
+          supportAllPlatforms = builtins.foldl' (a: b: a && b) true (
+            builtins.map (p: isTargetPlatform' p v) allPlatforms
+          );
+          platformTags = lib.flatten (
+            builtins.map (p: if isTargetPlatform' p v then [ p ] else [ ]) allPlatforms
+          );
+          tags = (lib.optional broken "Broken") ++ (lib.optionals (!supportAllPlatforms) platformTags);
         }) (flattenPkgs' prefix "." ps)
       );
 
@@ -70,7 +69,7 @@ let
     '';
 
   uncategorizedOutput = packageSetOutput "(Uncategorized)" "" (
-    lib.filterAttrs (_n: v: (builtins.tryEval v).success && isIndependentDerivation v) nurPackages
+    lib.filterAttrs (_n: v: (builtins.tryEval v).success && isIndependentDerivation v) _packages
   );
 
   packageSetsOutput = builtins.concatStringsSep "\n" (

@@ -16,235 +16,177 @@ mode:
   ...
 }:
 let
-  inherit (pkgs) lib;
+  inherit (pkgs.callPackage ../helpers/group.nix { inherit mode; })
+    createCallPackage
+    createCallGroup
+    ifNotCI
+    mergePkgs
+    ;
 
-  ifNotCI = p: if mode == "ci" then null else p;
+  callPackage = createCallPackage self;
+  callGroup = p: mergePkgs (createCallGroup self callPackage p);
 
-  ifNotNUR = p: if mode == "nur" then null else p;
-
-  nvfetcherLoader = pkgs.callPackage ../helpers/nvfetcher-loader.nix { };
-
-  mkScope =
-    f:
-    builtins.removeAttrs
-      (lib.makeScope pkgs.newScope (
-        self:
-        let
-          pkg = self.newScope rec {
-            inherit mkScope nvfetcherLoader;
-            sources = nvfetcherLoader ../_sources/generated.nix;
-          };
-        in
-        f self pkg
-      ))
-      [
-        "newScope"
-        "callPackage"
-        "overrideScope"
-        "overrideScope'"
-        "packages"
-      ];
-in
-mkScope (
-  self: pkg:
-  let
-    # Wrapper will greatly increase NUR evaluation time. Disable on NUR to stay within 15s time limit.
-    mergePkgs = self.callPackage ../helpers/merge-pkgs.nix {
-      enableWrapper =
-        !(builtins.elem mode [
-          "nur"
-          "legacy"
-        ]);
-    };
-
-    meta = import ../helpers/meta.nix;
-  in
-  {
+  self = {
     # Binary cache information
-    _meta = mergePkgs (
-      {
-        howto = pkg ./_meta/howto { };
-        readme = pkg ./_meta/readme { };
-      }
-      // meta
-    );
+    _meta = callGroup ./_meta;
 
     # Package groups
-    asteriskDigiumCodecs = mergePkgs (pkg ./asterisk-digium-codecs { inherit mergePkgs; });
-
-    lantianCustomized = mergePkgs {
-      # Packages with significant customization by Lan Tian
-      asterisk = pkg ./lantian-customized/asterisk { };
-      attic-telnyx-compatible = ifNotNUR (pkg ./lantian-customized/attic-telnyx-compatible { });
-      coredns = pkg ./lantian-customized/coredns { };
-      firefox-icon-mikozilla-fireyae = pkg ./lantian-customized/firefox-icon-mikozilla-fireyae { };
-      librime-with-plugins = pkg ./lantian-customized/librime-with-plugins { };
-      llama-cpp = pkg ./lantian-customized/llama-cpp { };
-      nbfc-linux = pkg ./lantian-customized/nbfc-linux { };
-      nginx = pkg ./lantian-customized/nginx { };
-      transmission-with-webui = pkg ./lantian-customized/transmission-with-webui { };
-    };
-
-    lantianLinuxXanmod = mergePkgs (pkg ./lantian-linux-xanmod { inherit mode; });
-    lantianLinuxXanmodPackages = ifNotCI (
-      mergePkgs (pkg ./lantian-linux-xanmod/packages.nix { inherit mode; })
-    );
-
-    lantianPersonal = ifNotCI (mergePkgs {
-      # Personal packages with no intention to be used by others
-      libltnginx = pkg ./lantian-personal/libltnginx { };
-    });
-
-    nvidia-grid = ifNotCI (mergePkgs (pkg ./nvidia-grid { inherit mergePkgs; }));
-    openj9-ibm-semeru = ifNotCI (mergePkgs (pkg ./openj9-ibm-semeru { }));
-    openjdk-adoptium = ifNotCI (mergePkgs (pkg ./openjdk-adoptium { }));
-    plangothic-fonts = mergePkgs (pkg ./plangothic-fonts { });
-    th-fonts = mergePkgs (pkg ./th-fonts { });
+    asteriskDigiumCodecs = callGroup ./asterisk-digium-codecs;
+    lantianCustomized = callGroup ./lantian-customized;
+    lantianLinuxXanmod = callGroup ./lantian-linux-xanmod;
+    lantianLinuxXanmodPackages = ifNotCI (callGroup ./lantian-linux-xanmod/packages.nix);
+    lantianPersonal = ifNotCI (callGroup ./lantian-personal);
+    nvidia-grid = ifNotCI (callGroup ./nvidia-grid);
+    openj9-ibm-semeru = ifNotCI (callGroup ./openj9-ibm-semeru);
+    openjdk-adoptium = ifNotCI (callGroup ./openjdk-adoptium);
+    plangothic-fonts = callGroup ./plangothic-fonts;
+    th-fonts = callGroup ./th-fonts;
 
     # Kernel modules
-    kernel = pkgs.linux;
-    acpi-ec = pkg ./kernel-modules/acpi-ec { };
-    ast = pkg ./kernel-modules/ast { };
-    cryptodev-unstable = pkg ./kernel-modules/cryptodev-unstable { };
-    dpdk-kmod = pkg ./kernel-modules/dpdk-kmod { };
-    i915-sriov = pkg ./kernel-modules/i915-sriov { };
-    nft-fullcone = pkg ./kernel-modules/nft-fullcone { };
-    nullfsvfs = pkg ./kernel-modules/nullfsvfs { };
-    ovpn-dco = pkg ./kernel-modules/ovpn-dco { };
-    r8125 = pkg ./kernel-modules/r8125 { };
-    r8168 = pkg ./kernel-modules/r8168 { };
+    acpi-ec = callPackage ./kernel-modules/acpi-ec { };
+    ast = callPackage ./kernel-modules/ast { };
+    cryptodev-unstable = callPackage ./kernel-modules/cryptodev-unstable { };
+    dpdk-kmod = callPackage ./kernel-modules/dpdk-kmod { };
+    i915-sriov = callPackage ./kernel-modules/i915-sriov { };
+    nft-fullcone = callPackage ./kernel-modules/nft-fullcone { };
+    nullfsvfs = callPackage ./kernel-modules/nullfsvfs { };
+    ovpn-dco = callPackage ./kernel-modules/ovpn-dco { };
+    r8125 = callPackage ./kernel-modules/r8125 { };
+    r8168 = callPackage ./kernel-modules/r8168 { };
 
     # Other packages
-    amule-dlp = pkg ./uncategorized/amule-dlp { };
-    asterisk-g72x = pkg ./uncategorized/asterisk-g72x { };
-    axiom-syslog-proxy = pkg ./uncategorized/axiom-syslog-proxy { };
-    baidunetdisk = pkg ./uncategorized/baidunetdisk { };
-    baidupcs-go = pkg ./uncategorized/baidupcs-go { };
-    bepasty = pkg ./uncategorized/bepasty { };
-    bilibili = pkg ./uncategorized/bilibili { };
-    bird-lg-go = pkg ./uncategorized/bird-lg-go { };
-    bird-lgproxy-go = pkg ./uncategorized/bird-lgproxy-go { };
-    boringssl-oqs = pkg ./uncategorized/boringssl-oqs { };
-    browser360 = pkg ./uncategorized/browser360 { };
-    calibre-cops = pkg ./uncategorized/calibre-cops { };
-    chmlib-utils = pkg ./uncategorized/chmlib-utils { };
-    click-loglevel = pkg ./uncategorized/click-loglevel { };
-    cloudpan189-go = pkg ./uncategorized/cloudpan189-go { };
-    cockpy = pkg ./uncategorized/cockpy { };
-    decluttarr = pkg ./uncategorized/decluttarr { };
-    deepspeech-gpu = ifNotCI (pkg ./uncategorized/deepspeech-gpu { });
-    deepspeech-wrappers = ifNotCI (pkg ./uncategorized/deepspeech-gpu/wrappers.nix { });
-    dingtalk = pkg ./uncategorized/dingtalk { };
-    dn42-pingfinder = pkg ./uncategorized/dn42-pingfinder { };
-    douban-openapi-server = pkg ./uncategorized/douban-openapi-server { };
-    drone-file-secret = pkg ./uncategorized/drone-file-secret { };
-    drone-vault = pkg ./uncategorized/drone-vault { };
-    electron_11 = pkg ./uncategorized/electron_11 { };
-    etherguard = pkg ./uncategorized/etherguard { };
-    fastapi-dls = pkg ./uncategorized/fastapi-dls { };
-    fcitx5-breeze = pkg ./uncategorized/fcitx5-breeze { };
-    flasgger = pkg ./uncategorized/flasgger { };
-    ftp-proxy = pkg ./uncategorized/ftp-proxy { };
-    genshin-checkin-helper = pkg ./uncategorized/genshin-checkin-helper { };
-    genshinhelper2 = pkg ./uncategorized/genshinhelper2 { };
-    glauth = pkg ./uncategorized/glauth { };
-    google-earth-pro = pkg ./uncategorized/google-earth-pro { };
-    gopherus = pkg ./uncategorized/gopherus { };
-    grasscutter = pkg ./uncategorized/grasscutter { };
-    hath = pkg ./uncategorized/hath { };
-    helium-gateway-rs = pkg ./uncategorized/helium-gateway-rs { };
-    hesuvi-hrir = pkg ./uncategorized/hesuvi-hrir { };
-    hi3-ii-martian-font = pkg ./uncategorized/hi3-ii-martian-font { };
-    hoyo-glyphs = pkg ./uncategorized/hoyo-glyphs { };
-    imewlconverter = pkg ./uncategorized/imewlconverter { };
-    inter-knot = pkg ./uncategorized/inter-knot { };
-    jproxy = pkg ./uncategorized/jproxy { };
-    kaixinsong-fonts = pkg ./uncategorized/kaixinsong-fonts { };
-    kata-image = pkg ./uncategorized/kata-image { };
-    kata-runtime = pkg ./uncategorized/kata-runtime { };
-    kikoplay = pkg ./uncategorized/kikoplay { };
-    konnect = pkg ./uncategorized/konnect { };
-    ldap-auth-proxy = pkg ./uncategorized/ldap-auth-proxy { };
-    libnftnl-fullcone = pkg ./uncategorized/libnftnl-fullcone { };
-    liboqs = pkg ./uncategorized/liboqs { };
-    liboqs-unstable = pkg ./uncategorized/liboqs/unstable.nix { };
-    lyrica = pkg ./uncategorized/lyrica { };
-    lyrica-plasmoid = pkg ./uncategorized/lyrica-plasmoid { };
-    magiskboot = pkg ./uncategorized/magiskboot { };
-    mtkclient = pkg ./uncategorized/mtkclient { };
-    ncmdump-rs = pkg ./uncategorized/ncmdump-rs { };
-    netboot-xyz = pkg ./uncategorized/netboot-xyz { };
-    netease-cloud-music = pkg ./uncategorized/netease-cloud-music { };
-    netns-exec = pkg ./uncategorized/netns-exec { };
-    nftables-fullcone = pkg ./uncategorized/nftables-fullcone { };
-    noise-suppression-for-voice = pkg ./uncategorized/noise-suppression-for-voice { };
-    nullfs = pkg ./uncategorized/nullfs { };
-    nvlax = pkg ./uncategorized/nvlax { };
-    nvlax-530 = pkg ./uncategorized/nvlax/nvidia-530.nix { };
-    oci-arm-host-capacity = pkg ./uncategorized/oci-arm-host-capacity { };
-    onepush = pkg ./uncategorized/onepush { };
-    openssl-oqs-provider = pkg ./uncategorized/openssl-oqs-provider { };
-    openvswitch-dpdk = pkg ./uncategorized/openvswitch-dpdk { };
-    osdlyrics = pkg ./uncategorized/osdlyrics { };
-    palworld-exporter = pkg ./uncategorized/palworld-exporter { };
-    palworld-worldoptions = pkg ./uncategorized/palworld-worldoptions { };
-    payload-dumper-go = pkg ./uncategorized/payload-dumper-go { };
-    peerbanhelper = pkg ./uncategorized/peerbanhelper { };
-    phpmyadmin = pkg ./uncategorized/phpmyadmin { };
-    phppgadmin = pkg ./uncategorized/phppgadmin { };
-    plasma-panel-transparency-toggle = pkg ./uncategorized/plasma-panel-transparency-toggle { };
-    plasma-smart-video-wallpaper-reborn = pkg ./uncategorized/plasma-smart-video-wallpaper-reborn { };
-    pocl = pkg ./uncategorized/pocl { };
-    procps4 = pkg ./uncategorized/procps4 { };
-    pterodactyl-wings = pkg ./uncategorized/pterodactyl-wings { };
-    py-rcon = pkg ./uncategorized/py-rcon { };
-    qbittorrent-enhanced-edition = pkg ./uncategorized/qbittorrent-enhanced-edition { };
-    qbittorrent-enhanced-edition-nox = pkg ./uncategorized/qbittorrent-enhanced-edition/nox.nix { };
-    libqcef = pkg ./uncategorized/libqcef { };
-    qemu-user-static = pkg ./uncategorized/qemu-user-static { };
-    qhttpengine = pkg ./uncategorized/qhttpengine { };
-    qq = pkg ./uncategorized/qq { };
-    qqmusic = pkg ./uncategorized/qqmusic { };
-    rime-aurora-pinyin = pkg ./uncategorized/rime-aurora-pinyin { };
-    rime-custom-pinyin-dictionary = pkg ./uncategorized/rime-custom-pinyin-dictionary { };
-    rime-dict = pkg ./uncategorized/rime-dict { };
-    rime-ice = pkg ./uncategorized/rime-ice { };
-    rime-moegirl = pkg ./uncategorized/rime-moegirl { };
-    rime-zhwiki = pkg ./uncategorized/rime-zhwiki { };
-    route-chain = pkg ./uncategorized/route-chain { };
-    runpod-python = pkg ./uncategorized/runpod-python { };
-    runpodctl = pkg ./uncategorized/runpodctl { };
-    sam-toki-mouse-cursors = pkg ./uncategorized/sam-toki-mouse-cursors { };
-    sgx-software-enable = pkg ./uncategorized/sgx-software-enable { };
-    smartrent_py = pkg ./uncategorized/smartrent_py { };
-    smfc = pkg ./uncategorized/smfc { };
-    soggy = pkg ./uncategorized/soggy { };
-    space-cadet-pinball-full-tilt = pkg ./uncategorized/space-cadet-pinball-full-tilt { };
-    svp = pkg ./uncategorized/svp { };
-    svp-mpv = pkg ./uncategorized/svp/mpv.nix { };
-    sx1302-hal = pkg ./uncategorized/sx1302-hal { };
-    suwayomi-server = pkg ./uncategorized/suwayomi-server { };
-    tqdm-loggable = pkg ./uncategorized/tqdm-loggable { };
-    uesave = pkg ./uncategorized/uesave { };
-    uesave-0_3_0 = pkg ./uncategorized/uesave/0_3_0.nix { };
-    uksmd = pkg ./uncategorized/uksmd { };
-    vbmeta-disable-verification = pkg ./uncategorized/vbmeta-disable-verification { };
-    vgpu-unlock-rs = pkg ./uncategorized/vgpu-unlock-rs { };
-    vpp = pkg ./uncategorized/vpp { };
-    wechat-uos = pkg ./uncategorized/wechat-uos {
-      sources = nvfetcherLoader ../_sources/generated.nix;
-    };
-    wechat-uos-without-sandbox = pkg ./uncategorized/wechat-uos {
-      sources = nvfetcherLoader ../_sources/generated.nix;
+    amule-dlp = callPackage ./uncategorized/amule-dlp { };
+    asterisk-g72x = callPackage ./uncategorized/asterisk-g72x { };
+    axiom-syslog-proxy = callPackage ./uncategorized/axiom-syslog-proxy { };
+    baidunetdisk = callPackage ./uncategorized/baidunetdisk { };
+    baidupcs-go = callPackage ./uncategorized/baidupcs-go { };
+    bepasty = callPackage ./uncategorized/bepasty { };
+    bilibili = callPackage ./uncategorized/bilibili { };
+    bird-lg-go = callPackage ./uncategorized/bird-lg-go { };
+    bird-lgproxy-go = callPackage ./uncategorized/bird-lgproxy-go { };
+    boringssl-oqs = callPackage ./uncategorized/boringssl-oqs { };
+    browser360 = callPackage ./uncategorized/browser360 { };
+    calibre-cops = callPackage ./uncategorized/calibre-cops { };
+    chmlib-utils = callPackage ./uncategorized/chmlib-utils { };
+    click-loglevel = callPackage ./uncategorized/click-loglevel { };
+    cloudpan189-go = callPackage ./uncategorized/cloudpan189-go { };
+    cockpy = callPackage ./uncategorized/cockpy { };
+    decluttarr = callPackage ./uncategorized/decluttarr { };
+    deepspeech-gpu = ifNotCI (callPackage ./uncategorized/deepspeech-gpu { });
+    deepspeech-wrappers = ifNotCI (callPackage ./uncategorized/deepspeech-gpu/wrappers.nix { });
+    dingtalk = callPackage ./uncategorized/dingtalk { };
+    dn42-pingfinder = callPackage ./uncategorized/dn42-pingfinder { };
+    douban-openapi-server = callPackage ./uncategorized/douban-openapi-server { };
+    drone-file-secret = callPackage ./uncategorized/drone-file-secret { };
+    drone-vault = callPackage ./uncategorized/drone-vault { };
+    electron_11 = callPackage ./uncategorized/electron_11 { };
+    etherguard = callPackage ./uncategorized/etherguard { };
+    fastapi-dls = callPackage ./uncategorized/fastapi-dls { };
+    fcitx5-breeze = callPackage ./uncategorized/fcitx5-breeze { };
+    flasgger = callPackage ./uncategorized/flasgger { };
+    ftp-proxy = callPackage ./uncategorized/ftp-proxy { };
+    genshin-checkin-helper = callPackage ./uncategorized/genshin-checkin-helper { };
+    genshinhelper2 = callPackage ./uncategorized/genshinhelper2 { };
+    glauth = callPackage ./uncategorized/glauth { };
+    google-earth-pro = callPackage ./uncategorized/google-earth-pro { };
+    gopherus = callPackage ./uncategorized/gopherus { };
+    grasscutter = callPackage ./uncategorized/grasscutter { };
+    hath = callPackage ./uncategorized/hath { };
+    helium-gateway-rs = callPackage ./uncategorized/helium-gateway-rs { };
+    hesuvi-hrir = callPackage ./uncategorized/hesuvi-hrir { };
+    hi3-ii-martian-font = callPackage ./uncategorized/hi3-ii-martian-font { };
+    hoyo-glyphs = callPackage ./uncategorized/hoyo-glyphs { };
+    imewlconverter = callPackage ./uncategorized/imewlconverter { };
+    inter-knot = callPackage ./uncategorized/inter-knot { };
+    jproxy = callPackage ./uncategorized/jproxy { };
+    kaixinsong-fonts = callPackage ./uncategorized/kaixinsong-fonts { };
+    kata-image = callPackage ./uncategorized/kata-image { };
+    kata-runtime = callPackage ./uncategorized/kata-runtime { };
+    kikoplay = callPackage ./uncategorized/kikoplay { };
+    konnect = callPackage ./uncategorized/konnect { };
+    ldap-auth-proxy = callPackage ./uncategorized/ldap-auth-proxy { };
+    libnftnl-fullcone = callPackage ./uncategorized/libnftnl-fullcone { };
+    liboqs = callPackage ./uncategorized/liboqs { };
+    liboqs-unstable = callPackage ./uncategorized/liboqs/unstable.nix { };
+    lyrica = callPackage ./uncategorized/lyrica { };
+    lyrica-plasmoid = callPackage ./uncategorized/lyrica-plasmoid { };
+    magiskboot = callPackage ./uncategorized/magiskboot { };
+    mtkclient = callPackage ./uncategorized/mtkclient { };
+    ncmdump-rs = callPackage ./uncategorized/ncmdump-rs { };
+    netboot-xyz = callPackage ./uncategorized/netboot-xyz { };
+    netease-cloud-music = callPackage ./uncategorized/netease-cloud-music { };
+    netns-exec = callPackage ./uncategorized/netns-exec { };
+    nftables-fullcone = callPackage ./uncategorized/nftables-fullcone { };
+    noise-suppression-for-voice = callPackage ./uncategorized/noise-suppression-for-voice { };
+    nullfs = callPackage ./uncategorized/nullfs { };
+    nvlax = callPackage ./uncategorized/nvlax { };
+    nvlax-530 = callPackage ./uncategorized/nvlax/nvidia-530.nix { };
+    oci-arm-host-capacity = callPackage ./uncategorized/oci-arm-host-capacity { };
+    onepush = callPackage ./uncategorized/onepush { };
+    openssl-oqs-provider = callPackage ./uncategorized/openssl-oqs-provider { };
+    openvswitch-dpdk = callPackage ./uncategorized/openvswitch-dpdk { };
+    osdlyrics = callPackage ./uncategorized/osdlyrics { };
+    palworld-exporter = callPackage ./uncategorized/palworld-exporter { };
+    palworld-worldoptions = callPackage ./uncategorized/palworld-worldoptions { };
+    payload-dumper-go = callPackage ./uncategorized/payload-dumper-go { };
+    peerbanhelper = callPackage ./uncategorized/peerbanhelper { };
+    phpmyadmin = callPackage ./uncategorized/phpmyadmin { };
+    phppgadmin = callPackage ./uncategorized/phppgadmin { };
+    plasma-panel-transparency-toggle = callPackage ./uncategorized/plasma-panel-transparency-toggle { };
+    plasma-smart-video-wallpaper-reborn =
+      callPackage ./uncategorized/plasma-smart-video-wallpaper-reborn
+        { };
+    pocl = callPackage ./uncategorized/pocl { };
+    procps4 = callPackage ./uncategorized/procps4 { };
+    pterodactyl-wings = callPackage ./uncategorized/pterodactyl-wings { };
+    py-rcon = callPackage ./uncategorized/py-rcon { };
+    qbittorrent-enhanced-edition = callPackage ./uncategorized/qbittorrent-enhanced-edition { };
+    qbittorrent-enhanced-edition-nox =
+      callPackage ./uncategorized/qbittorrent-enhanced-edition/nox.nix
+        { };
+    libqcef = callPackage ./uncategorized/libqcef { };
+    qemu-user-static = callPackage ./uncategorized/qemu-user-static { };
+    qhttpengine = callPackage ./uncategorized/qhttpengine { };
+    qq = callPackage ./uncategorized/qq { };
+    qqmusic = callPackage ./uncategorized/qqmusic { };
+    rime-aurora-pinyin = callPackage ./uncategorized/rime-aurora-pinyin { };
+    rime-custom-pinyin-dictionary = callPackage ./uncategorized/rime-custom-pinyin-dictionary { };
+    rime-dict = callPackage ./uncategorized/rime-dict { };
+    rime-ice = callPackage ./uncategorized/rime-ice { };
+    rime-moegirl = callPackage ./uncategorized/rime-moegirl { };
+    rime-zhwiki = callPackage ./uncategorized/rime-zhwiki { };
+    route-chain = callPackage ./uncategorized/route-chain { };
+    runpod-python = callPackage ./uncategorized/runpod-python { };
+    runpodctl = callPackage ./uncategorized/runpodctl { };
+    sam-toki-mouse-cursors = callPackage ./uncategorized/sam-toki-mouse-cursors { };
+    sgx-software-enable = callPackage ./uncategorized/sgx-software-enable { };
+    smartrent_py = callPackage ./uncategorized/smartrent_py { };
+    smfc = callPackage ./uncategorized/smfc { };
+    soggy = callPackage ./uncategorized/soggy { };
+    space-cadet-pinball-full-tilt = callPackage ./uncategorized/space-cadet-pinball-full-tilt { };
+    svp = callPackage ./uncategorized/svp { };
+    svp-mpv = callPackage ./uncategorized/svp/mpv.nix { };
+    sx1302-hal = callPackage ./uncategorized/sx1302-hal { };
+    suwayomi-server = callPackage ./uncategorized/suwayomi-server { };
+    tqdm-loggable = callPackage ./uncategorized/tqdm-loggable { };
+    uesave = callPackage ./uncategorized/uesave { };
+    uesave-0_3_0 = callPackage ./uncategorized/uesave/0_3_0.nix { };
+    uksmd = callPackage ./uncategorized/uksmd { };
+    vbmeta-disable-verification = callPackage ./uncategorized/vbmeta-disable-verification { };
+    vgpu-unlock-rs = callPackage ./uncategorized/vgpu-unlock-rs { };
+    vpp = callPackage ./uncategorized/vpp { };
+    wechat-uos = callPackage ./uncategorized/wechat-uos { };
+    wechat-uos-without-sandbox = callPackage ./uncategorized/wechat-uos {
       enableSandbox = false;
     };
 
     # Deprecated alias
     wechat-uos-bin = self.wechat-uos;
 
-    wine-wechat = lib.makeOverridable pkg ./uncategorized/wine-wechat { };
-    wine-wechat-x86 = lib.makeOverridable pkg ./uncategorized/wine-wechat-x86 { };
-    xstatic-asciinema-player = pkg ./uncategorized/xstatic-asciinema-player { };
-    xstatic-font-awesome = pkg ./uncategorized/xstatic-font-awesome { };
-  }
-)
+    wine-wechat = callPackage ./uncategorized/wine-wechat { };
+    wine-wechat-x86 = callPackage ./uncategorized/wine-wechat-x86 { };
+    xstatic-asciinema-player = callPackage ./uncategorized/xstatic-asciinema-player { };
+    xstatic-font-awesome = callPackage ./uncategorized/xstatic-font-awesome { };
+  };
+in
+self
