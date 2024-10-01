@@ -1,15 +1,19 @@
-{ lib, stdenv }:
+{ lib, stdenv, fetchFromGitHub }:
 stdenv.mkDerivation rec {
   name = "cmake-utils";
   version = "1.0.1";
-  fetchurl = "https://raw.githubusercontent.com/karnkaul/cmake-utils/refs/tags/v${version}/cmake-utils.cmake";
-  src = builtins.fetchurl {
-    url = fetchurl;
-    name = "cmake-utils.cmake";
-    sha256 = "sha256:1y5xjhqx05mwd5iagfcr2kyydib5lvrg7nhm59i3mpyljcyv4lky";
+
+  src = fetchFromGitHub {
+    owner = "karnkaul";
+    repo = "cmake-utils";
+    rev = "v${version}";
+    hash = "sha256-rpU2iJ6tQ3j3FLccUGTqKKpZZHQIZ8BI3iawMMsk6GY=";
   };
-  dontUnpack = true;
-  installPhase = "install -D $src $out/" + builtins.baseNameOf fetchurl;
+
+  installPhase = ''
+    mkdir $out
+    install -D $src/*.cmake $out/
+  '';
 
   meta = with lib; {
     description = "Utility functions for CMake projects";
