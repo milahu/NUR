@@ -26,13 +26,13 @@ let
     yapf
   ]);
 
-  brh-neovim = self.neovim.override {
-    configure = {
-      packages.myPlugins = {
-        start = [ self.vimPlugins.nvim-treesitter.withAllGrammars ];
-      };
-    };
-  };
+  # nvim ships with these three parsers by default, and gets angry if we desync them from the vendored versions.
+  nvim-grammars = lib.attrNames (removeAttrs pkgs.vimPlugins.nvim-treesitter.grammarPlugins [ "c" "lua" "query" ]);
+  brh-neovim = pkgs.neovim.override {
+     configure.packages.myPlugins.start = [
+       (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: map (n: p."${n}") nvim-grammars))
+     ];
+   };
 
   lsp-tools = [
     self.clang-tools

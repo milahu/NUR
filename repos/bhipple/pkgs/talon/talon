@@ -12,7 +12,8 @@ pgrep snixembed || snixembed &
 mkdir -p /tmp/talon && cd /tmp/talon
 nix build -Lvf $channel talon
 
-nohup audio analog-stereo &
-nohup mic 1 &  # start with a muted microphone
+# turn on headphons and start with a muted microphone
+audio analog-stereo
+mic 0
 
 ./result/bin/talon
