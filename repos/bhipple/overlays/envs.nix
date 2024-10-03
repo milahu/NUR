@@ -27,10 +27,10 @@ let
   ]);
 
   # nvim ships with these three parsers by default, and gets angry if we desync them from the vendored versions.
-  nvim-grammars = lib.attrNames (removeAttrs pkgs.vimPlugins.nvim-treesitter.grammarPlugins [ "c" "lua" "query" ]);
-  brh-neovim = pkgs.neovim.override {
+  nvim-grammars = self.lib.attrNames (removeAttrs self.vimPlugins.nvim-treesitter.grammarPlugins [ "c" "lua" "query" ]);
+  brh-neovim = super.neovim.override {
      configure.packages.myPlugins.start = [
-       (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: map (n: p."${n}") nvim-grammars))
+       (self.vimPlugins.nvim-treesitter.withPlugins (p: map (n: p."${n}") nvim-grammars))
      ];
    };
 
