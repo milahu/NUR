@@ -112,13 +112,13 @@
   };
   llamafile = {
     pname = "llamafile";
-    version = "d617c0bf84e1668563488e12001e8a96af0d88bc";
+    version = "aca02fa00725e8bdffe83f7e43204a438ad08b95";
     src = fetchFromGitHub {
       owner = "Mozilla-Ocho";
       repo = "llamafile";
-      rev = "d617c0bf84e1668563488e12001e8a96af0d88bc";
+      rev = "aca02fa00725e8bdffe83f7e43204a438ad08b95";
       fetchSubmodules = false;
-      sha256 = "sha256-uxYWE9cNvS0YgYS+OrACtBbHYiE7+s95O+aFxGTIp4k=";
+      sha256 = "sha256-FV6VsLEGrcwqAauEjH2gbWbYuxBUA1KUk5flhvxpkVE=";
     };
     date = "2024-09-30";
   };
@@ -318,27 +318,27 @@
   };
   waylyrics = {
     pname = "waylyrics";
-    version = "9326934b7dfa16c27b64ebc3f29336c07510673c";
+    version = "4adb9ad8420987b80e8242ed32b2333e91a869ba";
     src = fetchFromGitHub {
       owner = "waylyrics";
       repo = "waylyrics";
-      rev = "9326934b7dfa16c27b64ebc3f29336c07510673c";
+      rev = "4adb9ad8420987b80e8242ed32b2333e91a869ba";
       fetchSubmodules = false;
-      sha256 = "sha256-x+FxGJOsTaDEoOUAxoVunWszOj932gLes6kQ6wKM3wg=";
+      sha256 = "sha256-7vi0fijum4gTH6VUIYj70VNTLow0VBQNaSsFpDzyQs4=";
     };
     date = "2024-10-01";
   };
   wlroots = {
     pname = "wlroots";
-    version = "3da6fac1f21aa12eeeb55b44b3e1c16b637201f5";
+    version = "ab118042ea393f29ca8907d269370dd8952d5a35";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/wlroots/wlroots";
-      rev = "3da6fac1f21aa12eeeb55b44b3e1c16b637201f5";
+      rev = "ab118042ea393f29ca8907d269370dd8952d5a35";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-vKQ8knFEaMK6uttPBiFneq8Sq+gxjKwWeJj1DbTJ70s=";
+      sha256 = "sha256-+DKcqQXTYhW/uY/0ziYsSUNZL+1FMtqyqslOJYGPTwk=";
     };
-    date = "2024-09-29";
+    date = "2024-10-01";
   };
 }
