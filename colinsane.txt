@@ -1,12 +1,30 @@
 error:
 … from call site
 
-  at ./pkgs/default.nix:79:39:
+  at <nixpkgs> + /lib/filesystem.nix:390:19:
 
-    78|     linux-postmarketos-exynos5 = callPackage ./additional/linux-postmarketos-exynos5 { };
-    79|     linux-postmarketos-pinephonepro = callPackage ./additional/linux-postmarketos-pinephonepro { };
-      |                                       ^
-    80|     linux-sane-pinephonepro = callPackage ./additional/linux-sane-pinephonepro { };
+   389|           name = basename;
+   390|           value = packagesFromDirectory path;
+      |                   ^
+   391|         }
+
+… while calling 'packagesFromDirectory'
+
+  at <nixpkgs> + /lib/filesystem.nix:400:31:
+
+   399|       # set of packages (otherwise).
+   400|       packagesFromDirectory = path:
+      |                               ^
+   401|         let
+
+… from call site
+
+  at <nixpkgs> + /lib/filesystem.nix:405:14:
+
+   404|         if pathExists defaultPackagePath
+   405|         then callPackage defaultPackagePath { }
+      |              ^
+   406|         else mapAttrs'
 
 … while calling 'callPackageWith'
 
@@ -46,7 +64,7 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/additional/linux-postmarketos-pinephonepro/default.nix:1:1:
+  at ./pkgs/by-name/linux-postmarketos-pinephonepro/package.nix:1:1:
 
      1| {
       | ^
@@ -144,7 +162,7 @@ error:
 
 … from call site
 
-  at ./pkgs/additional/linux-postmarketos-pinephonepro/default.nix:68:12:
+  at ./pkgs/by-name/linux-postmarketos-pinephonepro/package.nix:68:12:
 
     67|   # if that causes issues, then copy the config inline to this repo.
     68|   config = sane-kernel-tools.parseDefconfig defconfigStr;
@@ -153,7 +171,7 @@ error:
 
 … while calling 'parseDefconfig'
 
-  at ./pkgs/additional/sane-kernel-tools/default.nix:27:20:
+  at ./pkgs/by-name/sane-kernel-tools/package.nix:27:20:
 
     26|   # results are like ` { CONFIG_FOO = "y"; CONFIG_FOO_BAR = "128"; }`
     27|   parseDefconfig = wholeStr: let
@@ -162,7 +180,7 @@ error:
 
 … from call site
 
-  at ./pkgs/additional/sane-kernel-tools/default.nix:28:13:
+  at ./pkgs/by-name/sane-kernel-tools/package.nix:28:13:
 
     27|   parseDefconfig = wholeStr: let
     28|     lines = lib.splitString "\n" wholeStr;
