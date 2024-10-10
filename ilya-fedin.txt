@@ -82,21 +82,21 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1297:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1295:23:
 
-  1296|
-  1297|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+  1294|
+  1295|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1298|     inherit drv verbose;
+  1296|     inherit drv verbose;
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:957:7:
+  at <nixpkgs> + /lib/trivial.nix:966:7:
 
-   956|     { # TODO: Should we add call-time "type" checking like built in?
-   957|       __functor = self: f;
+   965|     { # TODO: Should we add call-time "type" checking like built in?
+   966|       __functor = self: f;
       |       ^
-   958|       __functionArgs = args;
+   967|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -211,21 +211,21 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1297:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1295:23:
 
-  1296|
-  1297|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+  1294|
+  1295|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1298|     inherit drv verbose;
+  1296|     inherit drv verbose;
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:957:7:
+  at <nixpkgs> + /lib/trivial.nix:966:7:
 
-   956|     { # TODO: Should we add call-time "type" checking like built in?
-   957|       __functor = self: f;
+   965|     { # TODO: Should we add call-time "type" checking like built in?
+   966|       __functor = self: f;
       |       ^
-   958|       __functionArgs = args;
+   967|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -358,21 +358,21 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1297:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1295:23:
 
-  1296|
-  1297|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+  1294|
+  1295|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1298|     inherit drv verbose;
+  1296|     inherit drv verbose;
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:957:7:
+  at <nixpkgs> + /lib/trivial.nix:966:7:
 
-   956|     { # TODO: Should we add call-time "type" checking like built in?
-   957|       __functor = self: f;
+   965|     { # TODO: Should we add call-time "type" checking like built in?
+   966|       __functor = self: f;
       |       ^
-   958|       __functionArgs = args;
+   967|       __functionArgs = args;
 
 … while calling anonymous lambda
 
