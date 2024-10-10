@@ -1,16 +1,16 @@
 {
 "name":"nagy",
-"fetch_time":0.661,
-"eval_time":0.978,
+"fetch_time":0.433,
+"eval_time":1.011,
 "source":{
 "url":"https://github.com/nagy/nur-packages",
-"rev":"950a712acf2150effe634da4127bcd41b5b2c195",
-"sha256":"0v3xz76c5vj115lgkclsbzw61670k0a3zbii1h0jmklafsa5jz0p",
+"rev":"6d4ca3a1f1725bbb9bbe921411e4221eaa97658a",
+"sha256":"0hxhps4s8g5vrhv0rqap1lmghkb22w6h28n64q8n232blrpbqwsz",
 "date":null
 },
-"source_storepath":"/nix/store/vgx31q1r4pzanrjij3nyl5pcjihg8j3l-source",
-"nixpkgs_storepath":"/nix/store/1w649wm409znd7v5r4s680bjqzwp6clk-source",
-"nur_combined_rev":"9200164c82c6be129f9ef46830936b5eecd73b10",
+"source_storepath":"/nix/store/b7awzljs9ijv62rkwlllj3vdws3xc18n-source",
+"nixpkgs_storepath":"/nix/store/nnhnijbn6a0alqgn8nmfs8dsmarbv1dl-source",
+"nur_combined_rev":"aa78dd9595efe8d7988512ca12bc46b0e94acd7d",
 "packages":{
 "apertium":{
 "meta":{
@@ -513,7 +513,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/by-name/fl/flameshow/package.nix:28",
+"position":"./pkgs/by-name/fl/flameshow/package.nix:35",
 "unfree":false,
 "unsupported":false
 },
@@ -1063,7 +1063,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/by-name/jj/jj/package.nix:20",
+"position":"./pkgs/by-name/jj/jj/package.nix:27",
 "unfree":false,
 "unsupported":false
 },
@@ -2441,7 +2441,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"name":"python3.12-asyncer-0.0.7",
+"name":"python3.12-asyncer-0.0.8",
 "outputsToInstall":[
 "out"
 ],
@@ -2495,7 +2495,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-asyncer-0.0.7",
+"name":"python3.12-asyncer-0.0.8",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -2503,7 +2503,7 @@
 },
 "pname":"python3.12-asyncer",
 "system":"x86_64-linux",
-"version":"0.0.7"
+"version":"0.0.8"
 },
 "python3Packages.blender-asset-tracer":{
 "meta":{
@@ -2993,7 +2993,20 @@
 "spdxId":"LGPL-2.1",
 "url":"https://spdx.org/licenses/LGPL-2.1.html"
 },
-"name":"python3.12-dbussy-unstable-2022-09-03",
+"maintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
+"name":"python3.12-dbussy-0-unstable-2024-08-30",
 "outputsToInstall":[
 "out"
 ],
@@ -3020,19 +3033,19 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/python3-packages/dbussy/default.nix:22",
+"position":"./pkgs/python3-packages/dbussy/default.nix:27",
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-dbussy-unstable-2022-09-03",
+"name":"python3.12-dbussy-0-unstable-2024-08-30",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.12-dbussy-unstable",
+"pname":"python3.12-dbussy",
 "system":"x86_64-linux",
-"version":"2022-09-03"
+"version":"0-unstable-2024-08-30"
 },
 "python3Packages.extcolors":{
 "meta":{
@@ -3568,7 +3581,7 @@
 "available":true,
 "broken":false,
 "description":"ELF reader-writer library",
-"homepage":"https://pypi.org/project/makeelf",
+"homepage":"https://pypi.org/project/makeelf/",
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
@@ -3763,7 +3776,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"./pkgs/python3-packages/oauth2token/default.nix:19",
+"position":"./pkgs/python3-packages/oauth2token/default.nix:28",
 "unfree":false,
 "unsupported":false
 },
@@ -4113,7 +4126,7 @@
 "available":true,
 "broken":false,
 "description":"Tool for sorting top level statements in python files",
-"homepage":"https://github.com/bwhmather/ssort/",
+"homepage":"https://github.com/bwhmather/ssort",
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
@@ -4157,6 +4170,20 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"mainProgram":"ssort",
+"maintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "name":"ssort-0.13.0",
 "outputsToInstall":[
 "out"
