@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.0
+        uses: actions/checkout@v4.2.1
 
       - name: Install Nix
         uses: cachix/install-nix-action@3715ab1a11cac9e991980d7b4a28d80c7ebdd8f9
@@ -72,7 +72,7 @@ jobs:
 
       - name: Create a PR
         id: pr
-        uses: peter-evans/create-pull-request@v6.1.0
+        uses: peter-evans/create-pull-request@v7.0.5
         with:
           token: ${{ steps.token.outputs.token }}
           commit-message: "chore(${{ matrix.item }}): Automatic update"
