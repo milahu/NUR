@@ -59,6 +59,7 @@
           _module.args.pkgs = import nixpkgs {
             inherit system;
             config = {
+              # allowAliases = false;
               allowBroken = true;
               allowUnfreePredicate =
                 p:
@@ -134,23 +135,31 @@
                         licenses = lib.toList (value.meta.license or [ ]);
                         maintainers = value.meta.maintainers or [ ];
                         platforms = value.meta.platforms or [ ];
+                        badPlatforms = builtins.filter builtins.isString (value.meta.badPlatforms or [ ]);
                         broken = value.meta.broken or false;
                         unfree = value.meta.unfree or false;
 
+                        versionPart = lib.optionalString (value ? version) " `${value.version}`";
+
                         brokenSection = lib.optionalString broken ''
-                          **💥 NOTE:** This package has been marked as broken.
+                          > [!WARNING]
+                          > 💥 This package has been marked as broken.
+                        '';
+
+                        badPlatformsSection = lib.optionalString (badPlatforms != [ ]) ''
+                          > [!WARNING]
+                          > 💥 This package has been marked as broken in the following platforms:
+                          >
+                          > ${lib.concatMapStringsSep ", " (x: "`${x}`") badPlatforms}
                         '';
 
                         unfreeSection = lib.optionalString unfree ''
-                          **🔒 NOTE:** This package has an unfree license.
+                          > [!WARNING]
+                          > 🔒 This package has an unfree license.
                         '';
 
                         descriptionSection =
-                          "${description}." + lib.optionalString (longDescription != "") "\n\n${longDescription}";
-
-                        pnameSection = "- Name: `${value.pname or value.name}`";
-
-                        versionSection = lib.optionalString (value ? version) "- Version: `${value.version}`";
+                          "${description}.\n" + lib.optionalString (longDescription != "") "\n\n${longDescription}";
 
                         outputsSection =
                           let
@@ -160,9 +169,9 @@
                             "- Outputs: " + (lib.concatMapStringsSep ", " formatOutput outputs)
                           );
 
-                        homepageSection = lib.optionalString (homepage != "") "- [Homepage](${homepage})";
+                        homepagePart = lib.optionalString (homepage != "") " [🌐](${homepage} \"Homepage\")";
 
-                        changelogSection = lib.optionalString (changelog != "") "- [Changelog](${changelog})";
+                        changelogPart = lib.optionalString (changelog != "") " [📰](${changelog} \"Changelog\")";
 
                         positionSection =
                           let
@@ -222,27 +231,24 @@
                       builtins.concatStringsSep "\n" (
                         builtins.filter (x: x != "") [
                           ''
-                            ### `${name}`
+                            ### `${name}`${versionPart}${homepagePart}${changelogPart}
                           ''
-                          brokenSection
-                          unfreeSection
                           descriptionSection
-                          pnameSection
-                          versionSection
-                          homepageSection
-                          changelogSection
-                          licenseSection
-                          positionSection
-                          maintainersSection
+                          brokenSection
+                          badPlatformsSection
+                          unfreeSection
                           ''
 
                             <!-- markdownlint-disable-next-line no-inline-html -->
                             <details>
                               <!-- markdownlint-disable-next-line no-inline-html -->
                               <summary>
-                                Package details
+                                Details
                               </summary>
                           ''
+                          licenseSection
+                          positionSection
+                          maintainersSection
                           outputsSection
                           platformsSection
                           ''
