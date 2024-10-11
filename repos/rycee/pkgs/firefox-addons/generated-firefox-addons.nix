@@ -1535,10 +1535,10 @@
     };
     "click-and-read" = buildFirefoxXpiAddon {
       pname = "click-and-read";
-      version = "3.19.8";
+      version = "3.20.0";
       addonId = "inist.users@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4365233/click_and_read-3.19.8.xpi";
-      sha256 = "cc5ad45918778240ce929af27bc2b4544ee500b9fafaa3c65318856ca3708f5f";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4367656/click_and_read-3.20.0.xpi";
+      sha256 = "2ec136be98721aeadbd0927f33b946d07dddffc2079dbbf9c9d7bf3504b8142f";
       meta = with lib;
       {
         homepage = "https://clickandread.inist.fr/";
@@ -1658,10 +1658,10 @@
     };
     "consent-o-matic" = buildFirefoxXpiAddon {
       pname = "consent-o-matic";
-      version = "1.1.0";
+      version = "1.1.3";
       addonId = "gdpr@cavi.au.dk";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4298698/consent_o_matic-1.1.0.xpi";
-      sha256 = "c23631cdf746fcf2896e99ba0dbc6192bd92c24275d05b0802dc7d7038b4815a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4362793/consent_o_matic-1.1.3.xpi";
+      sha256 = "a3ca5c64ac50376366beb4cce610d0af80e687c8c6a8c21a107c6118059896f8";
       meta = with lib;
       {
         homepage = "https://consentomatic.au.dk/";
@@ -3064,10 +3064,10 @@
     };
     "floccus" = buildFirefoxXpiAddon {
       pname = "floccus";
-      version = "5.3.0.2";
+      version = "5.3.1";
       addonId = "floccus@handmadeideas.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4360762/floccus-5.3.0.2.xpi";
-      sha256 = "25b7cce38a3b96823739b6cf599c07ce1baedad83b30e75340ffd7535a9d4287";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4367114/floccus-5.3.1.xpi";
+      sha256 = "11e917118d059aced688f5ef467782b7a1326297db27ba92ff2379f72e5a43b6";
       meta = with lib;
       {
         homepage = "https://floccus.org";
@@ -3874,6 +3874,35 @@
         platforms = platforms.all;
       };
     };
+    "hcfy" = buildFirefoxXpiAddon {
+      pname = "hcfy";
+      version = "10.14.1";
+      addonId = "{0982b844-4f35-48b7-9811-6832d916f21c}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4334571/hcfy-10.14.1.xpi";
+      sha256 = "3ac441b21c1d5423ea96a7cafd1cbc74bc895990e5d7dfd58167cb43c88fb255";
+      meta = with lib;
+      {
+        homepage = "https://hcfy.ai";
+        description = "一站式划词 / 截图 / 网页全文 / 音视频 AI 翻译扩展，支持谷歌、DeepL、ChatGPT、百度等 9 个国内外主流翻译服务，均可用于全文翻译。能在 PDF 里使用。支持辅助键、快捷键、悬浮取词。";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [
+          "<all_urls>"
+          "contextMenus"
+          "storage"
+          "clipboardWrite"
+          "clipboardRead"
+          "webRequest"
+          "webRequestBlocking"
+          "alarms"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "header-editor" = buildFirefoxXpiAddon {
       pname = "header-editor";
       version = "4.1.1";
@@ -3938,6 +3967,21 @@
           "tabs"
           "webRequest"
         ];
+        platforms = platforms.all;
+      };
+    };
+    "hoarder" = buildFirefoxXpiAddon {
+      pname = "hoarder";
+      version = "1.2.3";
+      addonId = "addon@hoarder.app";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4357468/hoarder-1.2.3.xpi";
+      sha256 = "749f0a83b648a49637d4f7278e05f4eb6e75517ecac1f9846f72f0d2e57bfc6b";
+      meta = with lib;
+      {
+        homepage = "https://hoarder.app";
+        description = "An extension to bookmark links to hoarder.app.";
+        license = licenses.lgpl3;
+        mozPermissions = [ "storage" "tabs" "contextMenus" ];
         platforms = platforms.all;
       };
     };
@@ -7718,10 +7762,10 @@
     };
     "noscript" = buildFirefoxXpiAddon {
       pname = "noscript";
-      version = "11.4.40";
+      version = "11.4.42";
       addonId = "{73a6fe31-595d-460b-a920-fcc0f8843232}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4357325/noscript-11.4.40.xpi";
-      sha256 = "242ead426159d871480a13062cbee08abc97da746cdc5c643aee2692e9adbbb2";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4363712/noscript-11.4.42.xpi";
+      sha256 = "fd2d420afd93829bb6fe30ec6f8ba926d3d54d7583b8bbd822053b8cd13c0472";
       meta = with lib;
       {
         homepage = "https://noscript.net";
@@ -8200,10 +8244,10 @@
     };
     "passbolt" = buildFirefoxXpiAddon {
       pname = "passbolt";
-      version = "4.9.3";
+      version = "4.9.4";
       addonId = "passbolt@passbolt.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4347268/passbolt-4.9.3.xpi";
-      sha256 = "c17926b508f6a5a70e0b0071e9c5a17e97b95d3acbd9ab60b0a54e5af792f9eb";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4363360/passbolt-4.9.4.xpi";
+      sha256 = "c0d1a08695b6fd8dcd036d619205c029a6755bce70fe46ebcd05f7a7969dc4f2";
       meta = with lib;
       {
         homepage = "https://www.passbolt.com";
@@ -9959,10 +10003,10 @@
     };
     "shinigami-eyes" = buildFirefoxXpiAddon {
       pname = "shinigami-eyes";
-      version = "1.0.35";
+      version = "1.0.37";
       addonId = "shinigamieyes@shinigamieyes";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4297364/shinigami_eyes-1.0.35.xpi";
-      sha256 = "da46596783f8cb55c24feb8920843825263178d61be483d588e4e47496f9ca9d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4362425/shinigami_eyes-1.0.37.xpi";
+      sha256 = "e6a7f9833a1c3aa482ebad33388506aac953cff422cee27a46b1511e052f337c";
       meta = with lib;
       {
         homepage = "https://shinigami-eyes.github.io/";
@@ -9979,10 +10023,10 @@
           "*://*.x.com/*"
           "*://*.medium.com/*"
           "*://disqus.com/*"
-          "*://*.tumblr.com/*"
+          "*://tumblr.com/*"
+          "*://www.tumblr.com/*"
           "*://*.wikipedia.org/*"
           "*://*.rationalwiki.org/*"
-          "*://cohost.org/*"
           "*://*.bsky.app/*"
           "*://anarchism.space/*"
           "*://aus.social/*"
@@ -10405,10 +10449,10 @@
     };
     "sponsorblock" = buildFirefoxXpiAddon {
       pname = "sponsorblock";
-      version = "5.9.3";
+      version = "5.9.4";
       addonId = "sponsorBlocker@ajay.app";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4360577/sponsorblock-5.9.3.xpi";
-      sha256 = "ea3d137e458f1a87f406cbb39f3099ee673918c40c1bad5b48bc26e9bfc8be62";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4364207/sponsorblock-5.9.4.xpi";
+      sha256 = "1bff70a70685caaf444b57984a26c910a456bbbcc50d24d2d58a081ba114f7a3";
       meta = with lib;
       {
         homepage = "https://sponsor.ajay.app";
@@ -10426,10 +10470,10 @@
     };
     "startpage-private-search" = buildFirefoxXpiAddon {
       pname = "startpage-private-search";
-      version = "2.0.1";
+      version = "2.0.2";
       addonId = "{20fc2e06-e3e4-4b2b-812b-ab431220cada}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4204954/startpage_private_search-2.0.1.xpi";
-      sha256 = "53d5e5868f1175b43675534b0628ad27ab79c7448c52b71963518fd8320c50b7";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4362482/startpage_private_search-2.0.2.xpi";
+      sha256 = "d0e0008bd76bc7c5edd89998940e4c8a75f17c391af938ba933be7dd2a8e1414";
       meta = with lib;
       {
         description = "This extension protects users from being tracked while allowing them to search the web in complete private mode.";
@@ -10511,10 +10555,10 @@
     };
     "steam-database" = buildFirefoxXpiAddon {
       pname = "steam-database";
-      version = "4.6";
+      version = "4.7";
       addonId = "firefox-extension@steamdb.info";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4350553/steam_database-4.6.xpi";
-      sha256 = "8eae2f65fe7fa0f347433b9618b89d6dd668314b4052145b27152ab94a3781d4";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4363931/steam_database-4.7.xpi";
+      sha256 = "482cf0c66da7e6638451f3ee98c11168f8c31395902227112c00fad3057dc3a5";
       meta = with lib;
       {
         homepage = "https://steamdb.info/";
@@ -11069,10 +11113,10 @@
     };
     "to-deepl" = buildFirefoxXpiAddon {
       pname = "to-deepl";
-      version = "0.9.1";
+      version = "0.9.2";
       addonId = "{db420ff1-427a-4cda-b5e7-7d395b9f16e1}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4350032/to_deepl-0.9.1.xpi";
-      sha256 = "0708e1a529194933f7b707180731fafd573fa877d24ac864b1e10cd988f3d495";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4363104/to_deepl-0.9.2.xpi";
+      sha256 = "73e90921f98370ffc1593e5972dec54074ca0f38879b0c2c9525272c3c27faa9";
       meta = with lib;
       {
         homepage = "https://github.com/xpmn/firefox-to-deepl/";
