@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.51,
-"eval_time":0.582,
+"fetch_time":0.424,
+"eval_time":0.584,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"6374c7f42f87b19f63d72412c2514626fe50db51",
-"sha256":"16psaldadbfli69ydd76sn7r1d3ywmj92nj889yli09figlmq5jn",
+"rev":"a9fbebb8de043ded6683fc2b7a4f9c4cb39430e7",
+"sha256":"03hms2q3395cr5k6va4qvrkmihf7j8v0qmr9663fv2ikpq4xyqyi",
 "date":null
 },
-"source_storepath":"/nix/store/9hf118rghnkb6qfd469lgsbh8fky44hy-source",
+"source_storepath":"/nix/store/90bvgjj420ga95m3k4y0llzkvsbsfivk-source",
 "nixpkgs_storepath":"/nix/store/p7zj9cf6184x2dzvshh1n4dg1ily29dq-source",
-"nur_combined_rev":"6d76fea62917a7fed2a281d900ae4967177b6542",
+"nur_combined_rev":"53fb822a3ff90aeefb0a337248cda3dc23319ea6",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -379,7 +379,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"asterisk-g72x-unstable-2024-09-10",
+"name":"asterisk-g72x-unstable-2024-10-12",
 "outputsToInstall":[
 "out"
 ],
@@ -387,14 +387,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"asterisk-g72x-unstable-2024-09-10",
+"name":"asterisk-g72x-unstable-2024-10-12",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"asterisk-g72x-unstable",
 "system":"x86_64-linux",
-"version":"2024-09-10"
+"version":"2024-10-12"
 },
 "axiom-syslog-proxy":{
 "meta":{
@@ -997,7 +997,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"boringssl-oqs-unstable-2024-09-19",
+"name":"boringssl-oqs-unstable-2024-10-09",
 "outputsToInstall":[
 "bin"
 ],
@@ -1036,7 +1036,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boringssl-oqs-unstable-2024-09-19",
+"name":"boringssl-oqs-unstable-2024-10-09",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -1045,7 +1045,7 @@
 },
 "pname":"boringssl-oqs-unstable",
 "system":"x86_64-linux",
-"version":"2024-09-19"
+"version":"2024-10-09"
 },
 "browser360":{
 "meta":{
@@ -1497,7 +1497,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"cryptodev-linux-unstable-2024-08-26",
+"name":"cryptodev-linux-unstable-2024-10-10",
 "outputsToInstall":[
 "out"
 ],
@@ -1528,14 +1528,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cryptodev-linux-unstable-2024-08-26",
+"name":"cryptodev-linux-unstable-2024-10-10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cryptodev-linux-unstable",
 "system":"x86_64-linux",
-"version":"2024-08-26"
+"version":"2024-10-10"
 },
 "decluttarr":{
 "meta":{
@@ -1571,7 +1571,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"decluttarr-1.48.0",
+"name":"decluttarr-1.48.1",
 "outputsToInstall":[
 "out"
 ],
@@ -1579,14 +1579,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"decluttarr-1.48.0",
+"name":"decluttarr-1.48.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"decluttarr",
 "system":"x86_64-linux",
-"version":"1.48.0"
+"version":"1.48.1"
 },
 "deepspeech-gpu":{
 "meta":{
@@ -3403,7 +3403,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"imewlconverter-3.1.0",
+"name":"imewlconverter-3.1.1",
 "outputsToInstall":[
 "out"
 ],
@@ -3417,14 +3417,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"imewlconverter-3.1.0",
+"name":"imewlconverter-3.1.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"imewlconverter",
 "system":"x86_64-linux",
-"version":"3.1.0"
+"version":"3.1.1"
 },
 "inter-knot":{
 "meta":{
@@ -4146,7 +4146,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"llama-cpp-3899",
+"name":"llama-cpp-3909",
 "outputsToInstall":[
 "out"
 ],
@@ -4200,14 +4200,143 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-3899",
+"name":"llama-cpp-3909",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"3899"
+"version":"3909"
+},
+"lantianCustomized.materialgram":{
+"meta":{
+"available":true,
+"broken":false,
+"changelog":"https://github.com/kukuruzka165/materialgram/releases/tag/v5.6.1.1",
+"description":"Telegram Desktop fork with material icons and some improvements (Without anti-features)",
+"homepage":"https://kukuruzka165.github.io/materialgram/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v3.0 only",
+"redistributable":true,
+"shortName":"gpl3Only",
+"spdxId":"GPL-3.0-only",
+"url":"https://spdx.org/licenses/GPL-3.0-only.html"
+},
+"longDescription":"Telegram Desktop fork with Material Design and other improvements,\nwhich is based on the Telegram API and the MTProto secure protocol.\n",
+"mainProgram":"materialgram",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"materialgram-5.6.1.1",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"i686-cygwin",
+"x86_64-cygwin",
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-genode",
+"i686-genode",
+"x86_64-genode",
+"x86_64-solaris",
+"javascript-ghcjs",
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"mmix-mmixware",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"aarch64_be-none",
+"aarch64-none",
+"arm-none",
+"armv6l-none",
+"avr-none",
+"i686-none",
+"microblaze-none",
+"microblazeel-none",
+"mips-none",
+"mips64-none",
+"msp430-none",
+"or1k-none",
+"m68k-none",
+"powerpc-none",
+"powerpcle-none",
+"riscv32-none",
+"riscv64-none",
+"rx-none",
+"s390-none",
+"s390x-none",
+"vc4-none",
+"x86_64-none",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox",
+"wasm64-wasi",
+"wasm32-wasi",
+"x86_64-windows",
+"i686-windows"
+],
+"position":"./pkgs/lantian-customized/materialgram/default.nix:28",
+"unfree":false,
+"unsupported":false
+},
+"name":"materialgram-5.6.1.1",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"materialgram",
+"system":"x86_64-linux",
+"version":"5.6.1.1"
 },
 "lantianCustomized.nbfc-linux":{
 "meta":{
@@ -4290,7 +4419,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"nginx-lantian-unstable-2024-09-14",
+"name":"nginx-lantian-unstable-2024-10-10",
 "outputsToInstall":[
 "out"
 ],
@@ -4298,14 +4427,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nginx-lantian-unstable-2024-09-14",
+"name":"nginx-lantian-unstable-2024-10-10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nginx-lantian-unstable",
 "system":"x86_64-linux",
-"version":"2024-09-14"
+"version":"2024-10-10"
 },
 "lantianCustomized.transmission-with-webui":{
 "meta":{
@@ -4479,7 +4608,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -4511,7 +4640,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -4519,7 +4648,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.generic-lto":{
 "meta":{
@@ -4584,7 +4713,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -4616,7 +4745,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -4624,7 +4753,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.latest-generic":{
 "meta":{
@@ -4689,7 +4818,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -4721,7 +4850,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -4729,7 +4858,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.latest-generic-lto":{
 "meta":{
@@ -4794,7 +4923,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -4826,7 +4955,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -4834,7 +4963,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.latest-x86_64-v1":{
 "meta":{
@@ -4899,7 +5028,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -4931,7 +5060,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -4939,7 +5068,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.latest-x86_64-v1-lto":{
 "meta":{
@@ -5004,7 +5133,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -5036,7 +5165,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5044,7 +5173,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.latest-x86_64-v2":{
 "meta":{
@@ -5109,7 +5238,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -5141,7 +5270,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5149,7 +5278,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.latest-x86_64-v2-lto":{
 "meta":{
@@ -5214,7 +5343,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -5246,7 +5375,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5254,7 +5383,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.latest-x86_64-v3":{
 "meta":{
@@ -5319,7 +5448,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -5351,7 +5480,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5359,7 +5488,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.latest-x86_64-v3-lto":{
 "meta":{
@@ -5424,7 +5553,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -5456,7 +5585,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5464,7 +5593,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.latest-x86_64-v4":{
 "meta":{
@@ -5529,7 +5658,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -5561,7 +5690,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5569,7 +5698,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.latest-x86_64-v4-lto":{
 "meta":{
@@ -5634,7 +5763,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -5666,7 +5795,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5674,7 +5803,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.lts-generic":{
 "meta":{
@@ -5739,7 +5868,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -5771,7 +5900,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5779,7 +5908,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.lts-generic-lto":{
 "meta":{
@@ -5844,7 +5973,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -5876,7 +6005,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5884,7 +6013,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v1":{
 "meta":{
@@ -5949,7 +6078,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -5981,7 +6110,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5989,7 +6118,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v1-lto":{
 "meta":{
@@ -6054,7 +6183,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6086,7 +6215,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6094,7 +6223,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v2":{
 "meta":{
@@ -6159,7 +6288,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6191,7 +6320,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6199,7 +6328,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v2-lto":{
 "meta":{
@@ -6264,7 +6393,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6296,7 +6425,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6304,7 +6433,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v3":{
 "meta":{
@@ -6369,7 +6498,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6401,7 +6530,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6409,7 +6538,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v3-lto":{
 "meta":{
@@ -6474,7 +6603,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6506,7 +6635,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6514,7 +6643,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v4":{
 "meta":{
@@ -6579,7 +6708,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6611,7 +6740,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6619,7 +6748,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v4-lto":{
 "meta":{
@@ -6684,7 +6813,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6716,7 +6845,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6724,7 +6853,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.v6_0-generic":{
 "meta":{
@@ -8889,7 +9018,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -8921,7 +9050,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -8929,7 +9058,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-generic-lto":{
 "meta":{
@@ -8994,7 +9123,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9026,7 +9155,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9034,7 +9163,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v1":{
 "meta":{
@@ -9099,7 +9228,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9131,7 +9260,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9139,7 +9268,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v1-lto":{
 "meta":{
@@ -9204,7 +9333,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9236,7 +9365,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9244,7 +9373,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v2":{
 "meta":{
@@ -9309,7 +9438,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9341,7 +9470,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9349,7 +9478,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v2-lto":{
 "meta":{
@@ -9414,7 +9543,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9446,7 +9575,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9454,7 +9583,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v3":{
 "meta":{
@@ -9519,7 +9648,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9551,7 +9680,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9559,7 +9688,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v3-lto":{
 "meta":{
@@ -9624,7 +9753,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9656,7 +9785,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9664,7 +9793,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v4":{
 "meta":{
@@ -9729,7 +9858,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9761,7 +9890,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9769,7 +9898,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v4-lto":{
 "meta":{
@@ -9834,7 +9963,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9866,7 +9995,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.54-xanmod1",
+"name":"linux-6.6.56-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9874,7 +10003,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.54-xanmod1"
+"version":"6.6.56-xanmod1"
 },
 "lantianLinuxXanmod.x86_64-v1":{
 "meta":{
@@ -9939,7 +10068,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -9971,7 +10100,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9979,7 +10108,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.x86_64-v1-lto":{
 "meta":{
@@ -10044,7 +10173,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -10076,7 +10205,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10084,7 +10213,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.x86_64-v2":{
 "meta":{
@@ -10149,7 +10278,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -10181,7 +10310,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10189,7 +10318,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.x86_64-v2-lto":{
 "meta":{
@@ -10254,7 +10383,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -10286,7 +10415,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10294,7 +10423,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.x86_64-v3":{
 "meta":{
@@ -10359,7 +10488,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -10391,7 +10520,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10399,7 +10528,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.x86_64-v3-lto":{
 "meta":{
@@ -10464,7 +10593,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -10496,7 +10625,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10504,7 +10633,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.x86_64-v4":{
 "meta":{
@@ -10569,7 +10698,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -10601,7 +10730,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10609,7 +10738,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianLinuxXanmod.x86_64-v4-lto":{
 "meta":{
@@ -10674,7 +10803,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputsToInstall":[
 "out"
 ],
@@ -10706,7 +10835,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2-xanmod1",
+"name":"linux-6.11.3-xanmod2",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10714,7 +10843,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2-xanmod1"
+"version":"6.11.3-xanmod2"
 },
 "lantianPersonal.libltnginx":{
 "meta":{
@@ -11002,7 +11131,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"liboqs-unstable-2024-10-03",
+"name":"liboqs-unstable-2024-10-09",
 "outputsToInstall":[
 "out"
 ],
@@ -11010,14 +11139,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"liboqs-unstable-2024-10-03",
+"name":"liboqs-unstable-2024-10-09",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"liboqs-unstable",
 "system":"x86_64-linux",
-"version":"2024-10-03"
+"version":"2024-10-09"
 },
 "libqcef":{
 "meta":{
@@ -11252,7 +11381,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"magiskboot-27.0",
+"name":"magiskboot-28.0",
 "outputsToInstall":[
 "out"
 ],
@@ -11260,14 +11389,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"magiskboot-27.0",
+"name":"magiskboot-28.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"magiskboot",
 "system":"x86_64-linux",
-"version":"27.0"
+"version":"28.0"
 },
 "mtkclient":{
 "meta":{
@@ -26967,7 +27096,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"peerbanhelper-6.4.1",
+"name":"peerbanhelper-6.4.4",
 "outputsToInstall":[
 "out"
 ],
@@ -26975,14 +27104,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"peerbanhelper-6.4.1",
+"name":"peerbanhelper-6.4.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"peerbanhelper",
 "system":"x86_64-linux",
-"version":"6.4.1"
+"version":"6.4.4"
 },
 "phpmyadmin":{
 "meta":{
@@ -27114,7 +27243,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"plangothic-fonts-allideo-V1.8.5764",
+"name":"plangothic-fonts-allideo-V1.9.5766",
 "outputsToInstall":[
 "out"
 ],
@@ -27122,12 +27251,12 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"plangothic-fonts-allideo-V1.8.5764",
+"name":"plangothic-fonts-allideo-V1.9.5766",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"plangothic-fonts-allideo-V1.8.5764",
+"pname":"plangothic-fonts-allideo-V1.9.5766",
 "system":"x86_64-linux",
 "version":""
 },
@@ -27163,7 +27292,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"plangothic-fonts-fallback-V1.8.5764",
+"name":"plangothic-fonts-fallback-V1.9.5766",
 "outputsToInstall":[
 "out"
 ],
@@ -27171,12 +27300,12 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"plangothic-fonts-fallback-V1.8.5764",
+"name":"plangothic-fonts-fallback-V1.9.5766",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"plangothic-fonts-fallback-V1.8.5764",
+"pname":"plangothic-fonts-fallback-V1.9.5766",
 "system":"x86_64-linux",
 "version":""
 },
@@ -28061,7 +28190,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-ice-unstable-2024-10-09",
+"name":"rime-ice-unstable-2024-10-12",
 "outputsToInstall":[
 "out"
 ],
@@ -28069,14 +28198,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-unstable-2024-10-09",
+"name":"rime-ice-unstable-2024-10-12",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-ice-unstable",
 "system":"x86_64-linux",
-"version":"2024-10-09"
+"version":"2024-10-12"
 },
 "rime-moegirl":{
 "meta":{
@@ -28110,7 +28239,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-moegirl-20240909",
+"name":"rime-moegirl-20241009",
 "outputsToInstall":[
 "out"
 ],
@@ -28118,14 +28247,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-moegirl-20240909",
+"name":"rime-moegirl-20241009",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-moegirl",
 "system":"x86_64-linux",
-"version":"20240909"
+"version":"20241009"
 },
 "rime-zhwiki":{
 "meta":{
