@@ -1,17 +1,17 @@
 {
 "name":"milahu",
-"fetch_time":4.497,
-"eval_time":0.963,
+"fetch_time":7.153,
+"eval_time":0.902,
 "source":{
 "url":"https://github.com/milahu/nur-packages",
-"rev":"ff5ff83edb813b44c5f49c6278836f8d65209ae8",
-"sha256":"1y9qfxrxmql25cgw5mx271ywmcwdcfs08zs55fc7s1i663q4qdvg",
+"rev":"c7f458f4ff37ac2cecdefa72b966d1911a0c3845",
+"sha256":"064m7s6mlax9wqny1018v4q5azn27y53a16l3r1g2bzksklkg259",
 "date":null,
 "submodules":true
 },
-"source_storepath":"/nix/store/c8v0xirwl6dr7kdpmdczfv4ixlh3wsj4-nur-packages",
-"nixpkgs_storepath":"/nix/store/nnhnijbn6a0alqgn8nmfs8dsmarbv1dl-source",
-"nur_combined_rev":"698d85cd2185219976c6d659940bb81348cf4483",
+"source_storepath":"/nix/store/pw2ikcbfhzjvk1liip35a94zgdbgh8li-nur-packages",
+"nixpkgs_storepath":"/nix/store/si69f7yc4755nnnbb53fxfqfy78ss8wl-source",
+"nur_combined_rev":"af3683a8790254f582652c2102455898de0f04ee",
 "packages":{
 "advanced-microcode-patching-shiva":{
 "meta":{
@@ -671,7 +671,7 @@
 },
 "mainProgram":"apt-file",
 "maintainers":[],
-"name":"perl5.38.2-apt-file-3.3",
+"name":"perl5.40.0-apt-file-3.3",
 "outputsToInstall":[
 "out"
 ],
@@ -756,12 +756,12 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"perl5.38.2-apt-file-3.3",
+"name":"perl5.40.0-apt-file-3.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"perl5.38.2-apt-file",
+"pname":"perl5.40.0-apt-file",
 "system":"x86_64-linux",
 "version":"3.3"
 },
@@ -2515,7 +2515,7 @@
 },
 "mainProgram":"courgette",
 "maintainers":[],
-"name":"courgette-129.0.6668.89",
+"name":"courgette-129.0.6668.100",
 "outputsToInstall":[
 "out"
 ],
@@ -2546,14 +2546,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"courgette-129.0.6668.89",
+"name":"courgette-129.0.6668.100",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"courgette",
 "system":"x86_64-linux",
-"version":"129.0.6668.89"
+"version":"129.0.6668.100"
 },
 "cpptoml-cryptocode":{
 "meta":{
@@ -2980,7 +2980,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/denoland/deno/releases/tag/v1.46.3",
+"changelog":"https://github.com/denoland/deno/releases/tag/v2.0.0",
 "description":"Secure runtime for JavaScript and TypeScript",
 "homepage":"https://deno.land/",
 "insecure":false,
@@ -3004,7 +3004,7 @@
 "name":"Jack"
 }
 ],
-"name":"deno-1.46.3",
+"name":"deno-2.0.0",
 "outputsToInstall":[
 "out"
 ],
@@ -3014,18 +3014,18 @@
 "aarch64-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/de/deno/package.nix:95",
+"position":"<nixpkgs> + /pkgs/by-name/de/deno/package.nix:100",
 "unfree":false,
 "unsupported":false
 },
-"name":"deno-1.46.3",
+"name":"deno-2.0.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"deno",
 "system":"x86_64-linux",
-"version":"1.46.3"
+"version":"2.0.0"
 },
 "diskhash":{
 "meta":{
@@ -5726,6 +5726,95 @@
 "system":"x86_64-linux",
 "version":"2.3.0"
 },
+"git-bug":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Distributed bug tracker embedded in Git",
+"homepage":"https://github.com/git-bug/git-bug",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v3.0 or later",
+"redistributable":true,
+"shortName":"gpl3Plus",
+"spdxId":"GPL-3.0-or-later",
+"url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
+},
+"mainProgram":"git-bug",
+"maintainers":[
+{
+"email":"christian@ulrich.earth",
+"github":"royneary",
+"githubId":1942810,
+"name":"Christian Ulrich"
+},
+{
+"email":"d.anzorge@gmail.com",
+"github":"DeeUnderscore",
+"githubId":156239,
+"name":"D Anzorge"
+},
+{
+"github":"sudoforge",
+"githubId":3893293,
+"keys":[
+{
+"fingerprint":"7EBCE51F278D30AE1C34036341BF61468C327D5A"
+}
+],
+"name":"sudoforge"
+}
+],
+"name":"git-bug-0.8.0-unstable-2024-09-05",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin",
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"wasm64-wasi",
+"wasm32-wasi",
+"i686-freebsd",
+"x86_64-freebsd"
+],
+"position":"./pkgs/applications/version-management/git-bug/default.nix:43",
+"unfree":false,
+"unsupported":false
+},
+"name":"git-bug-0.8.0-unstable-2024-09-05",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"git-bug",
+"system":"x86_64-linux",
+"version":"0.8.0-unstable-2024-09-05"
+},
 "git-filter-repo":{
 "meta":{
 "available":true,
@@ -5856,7 +5945,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/git/git/blob/v2.46.0/Documentation/RelNotes/2.46.0.txt",
+"changelog":"https://github.com/git/git/blob/v2.46.1/Documentation/RelNotes/2.46.1.txt",
 "description":"Distributed version control system",
 "homepage":"https://git-scm.com/",
 "insecure":false,
@@ -5906,7 +5995,7 @@
 "name":"Keanu Ashwell"
 }
 ],
-"name":"git-2.46.0",
+"name":"git-2.46.1",
 "outputsToInstall":[
 "out"
 ],
@@ -5991,7 +6080,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"git-2.46.0",
+"name":"git-2.46.1",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -6000,7 +6089,7 @@
 },
 "pname":"git",
 "system":"x86_64-linux",
-"version":"2.46.0"
+"version":"2.46.1"
 },
 "github-downloader":{
 "meta":{
@@ -6121,7 +6210,7 @@
 "x86_64-linux",
 "x86_64-windows"
 ],
-"position":"./pkgs/development/tools/gradle2nix/src/gradle2nix/default.nix:55",
+"position":"./pkgs/development/tools/gradle2nix/src/gradle2nix/nix/gradle2nix.nix:45",
 "unfree":false,
 "unsupported":false
 },
@@ -6457,7 +6546,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/applications/blockchains/haveno/default.nix:465",
+"position":"./pkgs/applications/blockchains/haveno/default.nix:320",
 "unfree":false,
 "unsupported":false
 },
@@ -10802,7 +10891,7 @@
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 }
 ],
-"name":"perl5.38.2-apt-pkg-0.1.40",
+"name":"perl5.40.0-apt-pkg-0.1.40",
 "outputsToInstall":[
 "out"
 ],
@@ -10887,12 +10976,12 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"perl5.38.2-apt-pkg-0.1.40",
+"name":"perl5.40.0-apt-pkg-0.1.40",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"perl5.38.2-apt-pkg",
+"pname":"perl5.40.0-apt-pkg",
 "system":"x86_64-linux",
 "version":"0.1.40"
 },
@@ -11736,7 +11825,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://docs.python.org/release/3.12.5/whatsnew/changelog.html",
+"changelog":"https://docs.python.org/release/3.12.6/whatsnew/changelog.html",
 "description":"High-level dynamically-typed programming language",
 "homepage":"https://www.python.org",
 "insecure":false,
@@ -11771,7 +11860,7 @@
 "name":"Tomoya Otabi"
 }
 ],
-"name":"python3-3.12.5",
+"name":"python3-3.12.6",
 "outputsToInstall":[
 "out"
 ],
@@ -11811,11 +11900,11 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/development/interpreters/python/cpython/default.nix:675",
+"position":"<nixpkgs> + /pkgs/development/interpreters/python/cpython/default.nix:646",
 "unfree":false,
 "unsupported":false
 },
-"name":"python3-3.12.5",
+"name":"python3-3.12.6",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -11823,7 +11912,7 @@
 },
 "pname":"python3",
 "system":"x86_64-linux",
-"version":"3.12.5"
+"version":"3.12.6"
 },
 "python3Packages.aalpy":{
 "meta":{
@@ -18289,7 +18378,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://docs.python.org/release/3.12.5/whatsnew/changelog.html",
+"changelog":"https://docs.python.org/release/3.12.6/whatsnew/changelog.html",
 "description":"High-level dynamically-typed programming language",
 "homepage":"https://www.python.org",
 "insecure":false,
@@ -18324,7 +18413,7 @@
 "name":"Tomoya Otabi"
 }
 ],
-"name":"python3-3.12.5",
+"name":"python3-3.12.6",
 "outputsToInstall":[
 "out"
 ],
@@ -18364,11 +18453,11 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/development/interpreters/python/cpython/default.nix:675",
+"position":"<nixpkgs> + /pkgs/development/interpreters/python/cpython/default.nix:646",
 "unfree":false,
 "unsupported":false
 },
-"name":"python3-3.12.5",
+"name":"python3-3.12.6",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -18376,7 +18465,7 @@
 },
 "pname":"python3",
 "system":"x86_64-linux",
-"version":"3.12.5"
+"version":"3.12.6"
 },
 "python3Packages.reloading":{
 "meta":{
@@ -24865,7 +24954,7 @@
 "name":"Emily Lange"
 }
 ],
-"name":"chromium-unwrapped-129.0.6668.89",
+"name":"chromium-unwrapped-129.0.6668.100",
 "outputsToInstall":[
 "out"
 ],
@@ -24897,14 +24986,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"undetected-chromedriver-129.0.6668.89",
+"name":"undetected-chromedriver-129.0.6668.100",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"undetected-chromedriver",
 "system":"x86_64-linux",
-"version":"129.0.6668.89"
+"version":"129.0.6668.100"
 },
 "vanitygpg":{
 "meta":{
