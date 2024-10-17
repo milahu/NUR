@@ -33,6 +33,7 @@ rec {
 
   # Go
   #open-snell = pkgs.callPackage ./pkgs-by-lang/Go/open-snell { };
+  mieru = pkgs.callPackage ./pkgs-by-lang/Go/mieru { };
 
 
   # Python
@@ -51,8 +52,7 @@ rec {
   yuzu-early-access = pkgs.qt6.callPackage ./pkgs-by-lang/C/yuzu { };
   
   # Nodejs
-  #gateway = pkgs.callPackage ./pkgs-by-lang/Node/gateway {};  #snell opensource server
-
+  
   # Shell
   reflac = pkgs.callPackage ./pkgs-by-lang/Shell/reflac { };
 
@@ -63,7 +63,6 @@ rec {
   # Bin
   feishu = pkgs.callPackage ./pkgs/Bin/feishu { };
   wechat = pkgs.callPackage ./pkgs/Bin/wechat { };
-  #wemeet = pkgs.callPackage ./pkgs/Bin/wemeet { };
 
   # Overrides
   mpv = pkgs.mpv-unwrapped.wrapper {
@@ -84,7 +83,6 @@ rec {
   #yumekey = pkgs.callPackage ./pkgs-by-lang/C/yumekey { };
   #pot = pkgs.callPackage ./pkgs/Overrides/pot { };
   #openmw = pkgs.libsForQt5.callPackage ./pkgs/Overrides/openmw { };
-  #swgp-go = pkgs.callPackage ./pkgs-by-lang/Go/swgp-go { };
   #DownOnSpot = pkgs.callPackage ./pkgs-by-lang/Rust/DownOnSpot { };
   #forkgram = pkgs.qt6.callPackage ./pkgs/Overrides/forkgram { };
   #torzu = pkgs.qt6.callPackage ./pkgs-by-lang/C/torzu { };
