@@ -1,0 +1,92 @@
+error:
+… while querying the derivation named 'reth-1.1.0'
+
+… in the left operand of the AND (&&) operator
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:496:7:
+
+   495|       available = validity.valid != "no"
+   496|       && (if config.checkMetaRecursively or false
+      |       ^
+   497|       then all (d: d.meta.available or true) references
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:570:14:
+
+   569|   };
+   570|   validity = checkMeta.assertValidity { inherit meta attrs; };
+      |              ^
+   571|
+
+… while calling 'assertValidity'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:501:20:
+
+   500|
+   501|   assertValidity = { meta, attrs }: let
+      |                    ^
+   502|       validity = checkValidity attrs;
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:502:18:
+
+   501|   assertValidity = { meta, attrs }: let
+   502|       validity = checkValidity attrs;
+      |                  ^
+   503|       inherit (validity) valid;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:400:5:
+
+   399|     in
+   400|     attrs:
+      |     ^
+   401|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:422:40:
+
+   421|       { valid = "no"; reason = "broken"; errormsg = "is marked as broken"; }
+   422|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
+      |                                        ^
+   423|       let toPretty' = toPretty {
+
+… while calling 'hasUnsupportedPlatform'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:105:5:
+
+   104|   hasUnsupportedPlatform =
+   105|     pkg: !(availableOn hostPlatform pkg);
+      |     ^
+   106|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:105:12:
+
+   104|   hasUnsupportedPlatform =
+   105|     pkg: !(availableOn hostPlatform pkg);
+      |            ^
+   106|
+
+… while calling 'availableOn'
+
+  at <nixpkgs> + /lib/meta.nix:289:27:
+
+   288|   */
+   289|   availableOn = platform: pkg:
+      |                           ^
+   290|     ((!pkg?meta.platforms) || any (platformMatch platform) pkg.meta.platforms) &&
+
+error: attribute 'rust-bin' missing
+
+at ./default.nix:27:40:
+
+    26|   zen-browser = pkgs.callPackage ./pkgs/zen-browser { };
+    27|   reth = pkgs.callPackage ./pkgs/reth { inherit (pkgs) rust-bin; };
+      |                                        ^
+    28|

@@ -82,12 +82,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1295:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1293:23:
 
-  1294|
-  1295|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+  1292|
+  1293|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1296|     inherit drv verbose;
+  1294|     inherit drv verbose;
 
 … from call site
 
@@ -211,12 +211,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1295:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1293:23:
 
-  1294|
-  1295|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+  1292|
+  1293|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1296|     inherit drv verbose;
+  1294|     inherit drv verbose;
 
 … from call site
 
@@ -263,10 +263,10 @@ error:
       |     ^
    115|     if toString oldDependency == toString newDependency then
 
-… while evaluating derivation 'qtwayland-6.7.2'
+… while evaluating derivation 'qtwayland-6.8.0'
   whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:336:7
 
-… while evaluating attribute 'propagatedBuildInputs' of derivation 'qtwayland-6.7.2'
+… while evaluating attribute 'propagatedBuildInputs' of derivation 'qtwayland-6.8.0'
 
   at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:390:7:
 
@@ -358,12 +358,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1295:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1293:23:
 
-  1294|
-  1295|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+  1292|
+  1293|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1296|     inherit drv verbose;
+  1294|     inherit drv verbose;
 
 … from call site
 
@@ -428,4 +428,4 @@ error:
       |     ^
     61|     import
 
-error: path '/nix/store/85jkr5b5djrr8g6vxync2n96mnm46c9p-references.nix.drv' is not valid
+error: path '/nix/store/93pxf1drp5m0w15682jfgwbq1sf5mn9x-references.nix.drv' is not valid

@@ -108,12 +108,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/os-specific/linux/kernel/manual-config.nix:419:1:
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/manual-config.nix:422:1:
 
-   418|
-   419| stdenv.mkDerivation ((drvAttrs config stdenv.hostPlatform.linux-kernel kernelPatches configfile) // {
+   421|
+   422| stdenv.mkDerivation ((drvAttrs config stdenv.hostPlatform.linux-kernel kernelPatches configfile) // {
       | ^
-   420|   inherit pname version;
+   423|   inherit pname version;
 
 … while calling 'mkDerivation'
 
@@ -126,12 +126,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/os-specific/linux/kernel/manual-config.nix:419:23:
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/manual-config.nix:422:23:
 
-   418|
-   419| stdenv.mkDerivation ((drvAttrs config stdenv.hostPlatform.linux-kernel kernelPatches configfile) // {
+   421|
+   422| stdenv.mkDerivation ((drvAttrs config stdenv.hostPlatform.linux-kernel kernelPatches configfile) // {
       |                       ^
-   420|   inherit pname version;
+   423|   inherit pname version;
 
 … while calling 'drvAttrs'
 
@@ -196,4 +196,4 @@ error:
       |                      ^
   1475|     let
 
-error: path '/nix/store/wqrrxh47589hais9fl2ba5bd1nylr7xn-source.drv' is not valid
+error: path '/nix/store/rsgdayyj10jwyk7s0hxk589bbi21sapl-source.drv' is not valid
