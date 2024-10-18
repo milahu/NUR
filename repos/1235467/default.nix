@@ -6,8 +6,9 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{ pkgs ? import <nixpkgs> { }
-, pkgs-stable ? import <nixpkgs> { }
+{
+  pkgs ? import <nixpkgs> { },
+  pkgs-stable ? import <nixpkgs> { },
 }:
 
 rec {
@@ -15,7 +16,6 @@ rec {
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
-
 
   # Eval Helper
   sources = pkgs.callPackage ./_sources/generated.nix { };
@@ -35,12 +35,10 @@ rec {
   #open-snell = pkgs.callPackage ./pkgs-by-lang/Go/open-snell { };
   mieru = pkgs.callPackage ./pkgs-by-lang/Go/mieru { };
 
-
   # Python
   jjwxcCrawler = pkgs.callPackage ./pkgs-by-lang/Python/jjwxcCrawler { };
   pynat = pkgs.callPackage ./pkgs-by-lang/Python/pynat { };
   pystun3 = pkgs.callPackage ./pkgs-by-lang/Python/pystun3 { };
-
 
   # C
   candy = pkgs.callPackage ./pkgs-by-lang/C/candy { };
@@ -50,9 +48,9 @@ rec {
   Penguin-Subtitle-Player = pkgs.libsForQt5.callPackage ./pkgs-by-lang/C/Penguin-Subtitle-Player { };
   suyu = pkgs.qt6.callPackage ./pkgs-by-lang/C/suyu { };
   yuzu-early-access = pkgs.qt6.callPackage ./pkgs-by-lang/C/yuzu { };
-  
+
   # Nodejs
-  
+
   # Shell
   reflac = pkgs.callPackage ./pkgs-by-lang/Shell/reflac { };
 
@@ -66,9 +64,9 @@ rec {
 
   # Overrides
   mpv = pkgs.mpv-unwrapped.wrapper {
-  mpv = (pkgs.mpv-unwrapped.override { cddaSupport = true; });
-  scripts = [ pkgs.mpvScripts.mpris ];
-};
+    mpv = (pkgs.mpv-unwrapped.override { cddaSupport = true; });
+    scripts = [ pkgs.mpvScripts.mpris ];
+  };
 
   # System Fonts override
   JetBrainsMono-nerdfonts = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };

@@ -11,7 +11,5 @@ buildGoModule rec{
   meta = with lib; {
     description = "mieru";
     homepage = "https://github.com/enfein/mieru";
-    #license = licenses.mit;
-    #maintainers = with maintainers; [ bcdarwin ];
   };
 }
