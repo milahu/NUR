@@ -84,13 +84,20 @@
                   "renere-spinny-blobcats"
                   "renere-spinny-blobfoxes"
                   "renere-spinny-blobs"
+                  "volpeon-blobfox"
+                  "volpeon-blobfox_flip"
+                  "volpeon-bunhd"
+                  "volpeon-bunhd_flip"
                   "volpeon-drgn"
                   "volpeon-floof"
+                  "volpeon-fox"
                   "volpeon-gphn"
                   "volpeon-neocat"
                   "volpeon-neofox"
+                  "volpeon-raccoon"
                   "volpeon-vlpn"
 
+                  "lapce-nix"
                   "super-mario-127"
                 ];
             };
@@ -124,34 +131,18 @@
                 packageList = pkgs.writeText "package-list.md" (
                   builtins.concatStringsSep "\n" (
                     lib.mapAttrsToList (
-                      drvPath:
+                      path:
                       {
-                        name ? drvPath,
-                        pname ? name,
-                        version ? "",
-                        outputs ? [ ],
-                        outputName ? "",
+                        passthru ? { },
                         meta ? { },
                         ...
-                      }:
+                      }@attrs:
                       let
-                        description = meta.description or "";
-                        longDescription = meta.longDescription or "";
-                        homepage = meta.homepage or "";
-                        changelog = meta.changelog or "";
-                        position = meta.position or "";
-                        licenses = lib.toList (meta.license or [ ]);
-                        maintainers = meta.maintainers or [ ];
-                        badPlatforms = meta.badPlatforms or [ ];
-                        platforms = lib.subtractLists badPlatforms (meta.platforms or [ ]);
-                        broken = meta.broken or false;
-                        unfree = meta.unfree or false;
+                        versionPart = lib.optionalString (attrs ? version) " `${attrs.version}`";
 
-                        versionPart = lib.optionalString (version != "") " `${version}`";
+                        homepagePart = lib.optionalString (meta ? homepage) " [🌐](${meta.homepage} \"Homepage\")";
 
-                        homepagePart = lib.optionalString (homepage != "") " [🌐](${homepage} \"Homepage\")";
-
-                        changelogPart = lib.optionalString (changelog != "") " [📰](${changelog} \"Changelog\")";
+                        changelogPart = lib.optionalString (meta ? changelog) " [📰](${meta.changelog} \"Changelog\")";
 
                         sourcePart =
                           let
@@ -167,77 +158,81 @@
                               else
                                 "https://github.com/NixOS/nixpkgs/blob/${nixpkgs.shortRev}/${path}#L${line}";
                           in
-                          lib.optionalString (position != "") " [📦](${formatPosition position} \"Source\")";
+                          lib.optionalString (meta ? position) " [📦](${formatPosition meta.position} \"Source\")";
 
-                        brokenSection = lib.optionalString broken ''
+                        brokenSection = lib.optionalString meta.broken ''
                           > [!WARNING]
                           > 💥 This package has been marked as broken.
                         '';
 
-                        unfreeSection = lib.optionalString unfree ''
+                        unfreeSection = lib.optionalString meta.unfree ''
                           > [!WARNING]
                           > 🔒 This package has an unfree license.
                         '';
 
-                        descriptionSection =
-                          "${description}.\n" + lib.optionalString (longDescription != "") "\n\n${longDescription}";
+                        descriptionSection = lib.optionalString (meta ? description) "${meta.description}.\n";
 
-                        pnameSection = "- Name: `${pname}`";
+                        longDescriptionSection = lib.optionalString (meta ? longDescription) "\n\n${meta.longDescription}";
 
-                        outputsSection =
-                          let
-                            formatOutput = x: if x == outputName then "**`${x}`**" else "`${x}`";
-                          in
-                          lib.optionalString (outputs != [ ]) (
-                            "- Outputs: " + (lib.concatMapStringsSep ", " formatOutput outputs)
-                          );
+                        pnameSection = "- Name: `${attrs.pname or attrs.name}`";
 
-                        licenseSection =
-                          let
-                            formatLicense = x: if x ? url then "[`${x.spdxId}`](${x.url} '${x.fullName}')" else x.fullName;
-                          in
-                          lib.optionalString (licenses != null) (
-                            "- License${lib.optionalString (builtins.length licenses > 1) "s"}: "
-                            + (lib.concatMapStringsSep ", " formatLicense licenses)
-                          );
+                        outputsSection = lib.optionalString (attrs ? outputs) (
+                          "- Outputs: "
+                          + (lib.concatMapStringsSep ", " (
+                            x: if attrs ? outputName && x == attrs.outputName then "**`${x}`**" else "`${x}`"
+                          ) attrs.outputs)
+                        );
 
-                        maintainersSection =
-                          let
-                            formatMaintainer =
+                        testsSection = lib.optionalString (passthru ? tests) (
+                          "- Tests: " + (lib.concatMapStringsSep ", " (x: "`${x}`") (builtins.attrNames passthru.tests))
+                        );
+
+                        updateScriptSection = "- Update Script: ${if passthru ? updateScript then "✔️" else "❌"}";
+
+                        sourceProvenanceSection = lib.optionalString (meta ? sourceProvenance) (
+                          "- Source Provenance: "
+                          + (lib.concatMapStringsSep ", " (x: "`${x.shortName}`") meta.sourceProvenance)
+                        );
+
+                        pkgConfigSection = lib.optionalString (meta ? pkgConfigModules) (
+                          "- `pkg-config` Modules: " + (lib.concatMapStringsSep ", " (x: "`${x}.pc`") meta.pkgConfigModules)
+                        );
+
+                        licenseSection = lib.optionalString (meta ? license) (
+                          "- Licenses: "
+                          + (lib.concatMapStringsSep ", " (
+                            x: if x ? url then "[`${x.spdxId}`](${x.url} '${x.fullName}')" else x.fullName
+                          ) (lib.toList meta.license))
+                        );
+
+                        maintainersSection = lib.optionalString (meta ? maintainers) (
+                          "- Maintainers: "
+                          + (
+                            "\n  - "
+                            + (lib.concatMapStringsSep "\n  - " (
                               x:
-                              let
-                                formattedName = if x ? github then "[${x.name}](https://github.com/${x.github})" else x.name;
-                                formattedEmail = lib.optionalString (x ? email) " [✉️](mailto:${x.email})";
-                              in
-                              "${formattedName}${formattedEmail}";
-                            allMaintainersLink =
-                              let
-                                emails = builtins.map (x: x.email) (builtins.filter (x: x ? email) maintainers);
-                              in
-                              lib.optionalString (builtins.length emails > 1) (
-                                "\n  - [✉️ Mail to all maintainers](mailto:" + (builtins.concatStringsSep "," emails) + ")"
-                              );
-                          in
-                          lib.optionalString (maintainers != [ ]) (
-                            "- Maintainer${lib.optionalString (builtins.length maintainers > 1) "s"}:"
-                            + (
-                              if builtins.length maintainers > 1 then
-                                ("\n  - " + (lib.concatMapStringsSep "\n  - " formatMaintainer maintainers) + allMaintainersLink)
-                              else
-                                (" " + (formatMaintainer (builtins.elemAt maintainers 0)))
-                            )
-                          );
+                              (if x ? github then "[${x.name}](https://github.com/${x.github})" else x.name)
+                              + (lib.optionalString (x ? email) " [✉️](mailto:${x.email})")
+                            ) meta.maintainers)
+                            + "\n  - [✉️ Mail to all maintainers](mailto:"
+                            + (builtins.concatStringsSep "," (
+                              builtins.map (x: x.email) (builtins.filter (x: x ? email) meta.maintainers)
+                            ))
+                            + ")"
+                          )
+                        );
 
-                        platformsSection = lib.optionalString (platforms != [ ]) (
-                          "- Platforms: " + (lib.concatMapStringsSep ", " (x: "`${x}`") platforms)
+                        platformsSection = lib.optionalString (meta ? platforms) (
+                          "- Platforms: " + (lib.concatMapStringsSep ", " (x: "`${x}`") meta.platforms)
                         );
                       in
                       builtins.concatStringsSep "\n" (
                         builtins.filter (x: x != "") [
                           ''
-                            ### `${drvPath}`${versionPart}${homepagePart}${changelogPart}${sourcePart}
+                            ### `${path}`${versionPart}${homepagePart}${changelogPart}${sourcePart}
                           ''
                           descriptionSection
+                          longDescriptionSection
                           brokenSection
                           unfreeSection
                           ''
@@ -251,9 +246,13 @@
                           ''
                           pnameSection
                           licenseSection
+                          platformsSection
                           maintainersSection
                           outputsSection
-                          platformsSection
+                          testsSection
+                          updateScriptSection
+                          sourceProvenanceSection
+                          pkgConfigSection
                           ''
                             </details>
                           ''
