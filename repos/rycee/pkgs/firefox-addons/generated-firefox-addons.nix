@@ -1225,10 +1225,10 @@
     };
     "castkodi" = buildFirefoxXpiAddon {
       pname = "castkodi";
-      version = "7.11.0";
+      version = "7.12.0";
       addonId = "castkodi@regseb.github.io";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4314822/castkodi-7.11.0.xpi";
-      sha256 = "ea4334092c3639174d55264ca2ea2a2d260e116b7a70418b2188560790261b64";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4373190/castkodi-7.12.0.xpi";
+      sha256 = "24b0fd96ee2d68e8f597d117c3500243ff3d65c745ecc15c4263227f86be6330";
       meta = with lib;
       {
         homepage = "https://github.com/regseb/castkodi";
@@ -12461,6 +12461,31 @@
           "webRequest"
           "http://*/*"
           "https://*/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "watchmarker-for-youtube" = buildFirefoxXpiAddon {
+      pname = "watchmarker-for-youtube";
+      version = "4.6.1";
+      addonId = "yourect@coderect.com";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4231706/watchmarker_for_youtube-4.6.1.xpi";
+      sha256 = "a9c804bb9af200404bb809d248a50d2c6482bc322dd24914f76fad1cf29a1c80";
+      meta = with lib;
+      {
+        homepage = "http://sniklaus.com/";
+        description = "Automatically mark videos on Youtube that you have already watched.";
+        license = licenses.gpl3;
+        mozPermissions = [
+          "alarms"
+          "downloads"
+          "history"
+          "tabs"
+          "cookies"
+          "webRequest"
+          "webRequestBlocking"
+          "https://www.youtube.com/*"
+          "*://www.youtube.com/*"
         ];
         platforms = platforms.all;
       };
