@@ -821,7 +821,7 @@ Like neofetch, but much faster because written in C.
 - Update Script: ✔️
 </details>
 
-### `fastfetchMinimal` `2.27.1` [🌐](https://github.com/fastfetch-cli/fastfetch "Homepage") [📰](https://github.com/fastfetch-cli/fastfetch/blob/2.27.1/CHANGELOG.md "Changelog") [📦](./default.nix#L52 "Source")
+### `fastfetchMinimal` `2.27.1` [🌐](https://github.com/fastfetch-cli/fastfetch "Homepage") [📰](https://github.com/fastfetch-cli/fastfetch/blob/2.27.1/CHANGELOG.md "Changelog") [📦](./default.nix#L50 "Source")
 
 Like neofetch, but much faster because written in C (with all features disabled).
 
@@ -907,7 +907,7 @@ A set of commands that manipulate GTAs on various levels.
 - Update Script: ❌
 </details>
 
-### `gtatoolFull` `2.4.0` [🌐](https://marlam.de/gta/ "Homepage") [📦](./default.nix#L92 "Source")
+### `gtatoolFull` `2.4.0` [🌐](https://marlam.de/gta/ "Homepage") [📦](./default.nix#L90 "Source")
 
 A set of commands that manipulate GTAs on various levels (with all features enabled).
 
@@ -1624,7 +1624,7 @@ Dart for Lapce: powered by dart language-server.
 - Source Provenance: `binaryBytecode`
 </details>
 
-### `lapcePlugins.lapce-deno` `0.0.1+deno.1.41.0` [🌐](https://plugins.lapce.dev/plugins/panekj/lapce-deno "Homepage") [📦](./pkgs/lapce-plugins/plugins.nix#L10 "Source")
+### `lapcePlugins.lapce-deno` `0.0.1+deno.2.0.2` [🌐](https://plugins.lapce.dev/plugins/panekj/lapce-deno "Homepage") [📦](./pkgs/lapce-plugins/plugins.nix#L10 "Source")
 
 TypeScript, JavaScript and Markdown language support via Deno LSP.
 
@@ -2180,6 +2180,27 @@ Terraform support for Lapce.
   </summary>
 
 - Name: `lapce-plugin-panekj-lapce-terraform-ls`
+- Licenses: [`Apache-2.0`](https://spdx.org/licenses/Apache-2.0.html "Apache License 2.0")
+- Maintainers:
+  - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) [✉️](mailto:federicoschonborn@disroot.org)
+  - [✉️ Mail to all maintainers](mailto:federicoschonborn@disroot.org)
+- Outputs: **`out`**
+- Update Script: ❌
+- Source Provenance: `binaryBytecode`
+</details>
+
+### `lapcePlugins.lapce-tinymist` `0.0.1` [🌐](https://plugins.lapce.dev/plugins/X64D/lapce-tinymist "Homepage") [📦](./pkgs/lapce-plugins/plugins.nix#L10 "Source")
+
+Tinymist for Lapce.
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Details
+  </summary>
+
+- Name: `lapce-plugin-X64D-lapce-tinymist`
 - Licenses: [`Apache-2.0`](https://spdx.org/licenses/Apache-2.0.html "Apache License 2.0")
 - Maintainers:
   - [Federico Damián Schonborn](https://github.com/FedericoSchonborn) [✉️](mailto:federicoschonborn@disroot.org)
@@ -2824,7 +2845,7 @@ A library to make working with multidimensional arrays in C++ easy.
 - Update Script: ❌
 </details>
 
-### `libtgdFull` `4.3` [🌐](https://marlam.de/tgd/ "Homepage") [📦](./default.nix#L127 "Source")
+### `libtgdFull` `4.3` [🌐](https://marlam.de/tgd/ "Homepage") [📦](./default.nix#L125 "Source")
 
 A library to make working with multidimensional arrays in C++ easy (with all features enabled).
 
@@ -2890,7 +2911,7 @@ wlroots-based Wayland compositor designed for the Budgie Desktop.
 - Update Script: ✔️
 </details>
 
-### `mii-emu` `1.95` [🌐](https://github.com/buserror/mii_emu "Homepage") [📰](https://github.com/buserror/mii_emu/blob/v1.95/CHANGELOG.md "Changelog") [📦](./pkgs/by-name/mii-emu/package.nix#L41 "Source")
+### `mii-emu` `1.96` [🌐](https://github.com/buserror/mii_emu "Homepage") [📰](https://github.com/buserror/mii_emu/blob/v1.96/CHANGELOG.md "Changelog") [📦](./pkgs/by-name/mii-emu/package.nix#L41 "Source")
 
 MII Apple //e Emulator for Linux.
 
@@ -3018,7 +3039,7 @@ Camera application for Plasma Mobile.
 - Update Script: ✔️
 </details>
 
-### `pnut` `SLE2024-artifact-unstable-2024-10-11` [🌐](https://github.com/udem-dlteam/pnut "Homepage") [📦](./pkgs/by-name/pnut/package.nix#L44 "Source")
+### `pnut` `SLE2024-artifact-unstable-2024-10-20` [🌐](https://github.com/udem-dlteam/pnut "Homepage") [📦](./pkgs/by-name/pnut/package.nix#L44 "Source")
 
 A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell.
 
@@ -3102,7 +3123,7 @@ Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood
 - Update Script: ✔️
 </details>
 
-### `razeFull` `1.10.2` [🌐](https://github.com/ZDoom/Raze "Homepage") [📦](./default.nix#L160 "Source")
+### `razeFull` `1.10.2` [🌐](https://github.com/ZDoom/Raze "Homepage") [📦](./default.nix#L158 "Source")
 
 Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood, Shadow Warrior, Redneck Rampage and Powerslave/Exhumed (with all features enabled).
 
@@ -3147,7 +3168,7 @@ Fan sequel to Super Mario 63.
 - Update Script: ❌
 </details>
 
-### `supermodel` `0-unstable-2024-10-13` [🌐](https://github.com/trzy/Supermodel "Homepage") [📦](./pkgs/by-name/supermodel/package.nix#L63 "Source")
+### `supermodel` `0-unstable-2024-10-20` [🌐](https://github.com/trzy/Supermodel "Homepage") [📦](./pkgs/by-name/supermodel/package.nix#L63 "Source")
 
 Sega Model 3 arcade machine emulator.
 
@@ -3213,7 +3234,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Update Script: ❌
 </details>
 
-### `teemExperimental` `1.11.0` [🌐](https://teem.sourceforge.net/ "Homepage") [📦](./default.nix#L189 "Source")
+### `teemExperimental` `1.11.0` [🌐](https://teem.sourceforge.net/ "Homepage") [📦](./default.nix#L187 "Source")
 
 A coordinated group of libraries for representing, processing, and visualizing scientific raster data (with experimental libraries and applications enabled).
 
@@ -3235,7 +3256,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Update Script: ❌
 </details>
 
-### `teemExperimentalFull` `1.11.0` [🌐](https://teem.sourceforge.net/ "Homepage") [📦](./default.nix#L203 "Source")
+### `teemExperimentalFull` `1.11.0` [🌐](https://teem.sourceforge.net/ "Homepage") [📦](./default.nix#L201 "Source")
 
 A coordinated group of libraries for representing, processing, and visualizing scientific raster data (with experimental libraries and applications, and all features enabled).
 
@@ -3257,7 +3278,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Update Script: ❌
 </details>
 
-### `teemFull` `1.11.0` [🌐](https://teem.sourceforge.net/ "Homepage") [📦](./default.nix#L171 "Source")
+### `teemFull` `1.11.0` [🌐](https://teem.sourceforge.net/ "Homepage") [📦](./default.nix#L169 "Source")
 
 A coordinated group of libraries for representing, processing, and visualizing scientific raster data (with all features enabled).
 
@@ -3365,7 +3386,7 @@ Detect non-inclusive language in your source code.
 - Update Script: ✔️
 </details>
 
-### `yyjson_0_10` `0.10.0` [🌐](https://github.com/ibireme/yyjson "Homepage") [📰](https://github.com/ibireme/yyjson/blob/0.10.0/CHANGELOG.md "Changelog") [📦](https://github.com/NixOS/nixpkgs/blob/7881fbf/pkgs/development/libraries/yyjson/default.nix#L23 "Source")
+### `yyjson_0_10` `0.10.0` [🌐](https://github.com/ibireme/yyjson "Homepage") [📰](https://github.com/ibireme/yyjson/blob/0.10.0/CHANGELOG.md "Changelog") [📦](https://github.com/NixOS/nixpkgs/blob/ccc0c21/pkgs/development/libraries/yyjson/default.nix#L23 "Source")
 
 Fastest JSON library in C.
 
