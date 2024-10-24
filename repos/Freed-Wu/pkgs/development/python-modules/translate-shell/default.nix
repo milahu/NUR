@@ -14,8 +14,8 @@ buildPythonPackage rec {
     colorama
     keyring
     langdetect
-    # https://github.com/NixOS/nixpkgs/issues/241694
-    # py-notifier
+    jedi
+    py-notifier
     rich
     pystardict
     repl-python-wakatime
