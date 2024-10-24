@@ -1,16 +1,16 @@
 {
 "name":"arc",
-"fetch_time":0.594,
-"eval_time":0.487,
+"fetch_time":0.321,
+"eval_time":0.465,
 "source":{
 "url":"https://github.com/arcnmx/nixexprs",
-"rev":"f6a043fc560b62ce6f207818087736e8c88a912a",
-"sha256":"0vkvaifb4nq3ddfird9zpyfcyjjnf8abfyqysas13mnfm2v2hwaz",
+"rev":"881c6f3075a5502b635876dac730948167022c15",
+"sha256":"15qq8znf2r7707mb34xxff83icls30zma2h139ic33f8a8rbjvd3",
 "date":null
 },
-"source_storepath":"/nix/store/a36spwiqpiskwlmdaf72xcqp6zl93905-source",
-"nixpkgs_storepath":"/nix/store/4c0qsywjf329v4i1hqdimfrz38gkn1jf-source",
-"nur_combined_rev":"3019945f129c99526706d69f394a80f4a6081437",
+"source_storepath":"/nix/store/cmisql8k16pk9j731d7jgig7c0gld8xi-source",
+"nixpkgs_storepath":"/nix/store/j22zqnip8b9p5z24zxybkxmlhc9a6cqb-source",
+"nur_combined_rev":"ada3b3745f03e7f23c6dbdc1b33ab9947b88bc64",
 "packages":{
 "packages.benc":{
 "meta":{
@@ -738,7 +738,7 @@
 "name":"Sandro J\u00e4ckel"
 }
 ],
-"name":"perl5.38.2-ddclient-3.10.0",
+"name":"perl5.40.0-ddclient-3.10.0",
 "outputsToInstall":[
 "out"
 ],
@@ -769,12 +769,12 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"perl5.38.2-ddclient-3.10.0",
+"name":"perl5.40.0-ddclient-3.10.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"perl5.38.2-ddclient",
+"pname":"perl5.40.0-ddclient",
 "system":"x86_64-linux",
 "version":"3.10.0"
 },
@@ -803,7 +803,7 @@
 "name":"Sandro J\u00e4ckel"
 }
 ],
-"name":"perl5.38.2-ddclient-3.10.0",
+"name":"perl5.40.0-ddclient-3.10.0",
 "outputsToInstall":[
 "out"
 ],
@@ -834,12 +834,12 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"perl5.38.2-ddclient-3.10.0",
+"name":"perl5.40.0-ddclient-3.10.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"perl5.38.2-ddclient",
+"pname":"perl5.40.0-ddclient",
 "system":"x86_64-linux",
 "version":"3.10.0"
 },
@@ -1128,7 +1128,7 @@
 "name":"John Garcia"
 }
 ],
-"name":"electrum-4.5.5",
+"name":"electrum-4.5.6",
 "outputsToInstall":[
 "out"
 ],
@@ -1209,11 +1209,11 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/applications/misc/electrum/default.nix:150",
+"position":"<nixpkgs> + /pkgs/applications/misc/electrum/default.nix:113",
 "unfree":false,
 "unsupported":false
 },
-"name":"electrum-4.5.5",
+"name":"electrum-4.5.6",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -1221,7 +1221,7 @@
 },
 "pname":"electrum",
 "system":"x86_64-linux",
-"version":"4.5.5"
+"version":"4.5.6"
 },
 "packages.emxc":{
 "meta":{
@@ -1328,7 +1328,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"forcefully-remove-bootfb-6.6.51-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.57-2018-02-08",
 "outputsToInstall":[
 "bin"
 ],
@@ -1359,7 +1359,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"forcefully-remove-bootfb-6.6.51-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.57-2018-02-08",
 "outputName":"bin",
 "outputs":{
 "bin":null,
@@ -1367,7 +1367,7 @@
 },
 "pname":"forcefully-remove-bootfb",
 "system":"x86_64-linux",
-"version":"6.6.51-2018-02-08"
+"version":"6.6.57-2018-02-08"
 },
 "packages.generateLinuxConfig":{
 "meta":{
@@ -2565,7 +2565,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.51-2021.04.21",
+"name":"ryzen-smu-6.6.57-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -2655,7 +2655,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/virtualization/looking-glass-client/default.nix:95",
+"position":"<nixpkgs> + /pkgs/applications/virtualization/looking-glass-client/default.nix:100",
 "unfree":false,
 "unsupported":false
 },
@@ -2742,7 +2742,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/applications/virtualization/looking-glass-client/default.nix:95",
+"position":"<nixpkgs> + /pkgs/applications/virtualization/looking-glass-client/default.nix:100",
 "unfree":false,
 "unsupported":false
 },
@@ -2901,7 +2901,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/browsers/luakit/default.nix:78",
+"position":"<nixpkgs> + /pkgs/by-name/lu/luakit/package.nix:88",
 "unfree":false,
 "unsupported":false
 },
@@ -3341,7 +3341,7 @@
 "name":"Artturi N"
 }
 ],
-"name":"nix-readline-2.18.5",
+"name":"nix-readline-2.24.9",
 "outputsToInstall":[
 "out",
 "man"
@@ -3392,11 +3392,11 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:152",
+"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:214",
 "unfree":false,
 "unsupported":false
 },
-"name":"nix-readline-2.18.5",
+"name":"nix-readline-2.24.9",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -3407,7 +3407,7 @@
 },
 "pname":"nix-readline",
 "system":"x86_64-linux",
-"version":"2.18.5"
+"version":"2.24.9"
 },
 "packages.nix-readline-2_22":{
 "meta":{
@@ -3506,7 +3506,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:176",
+"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:202",
 "unfree":false,
 "unsupported":false
 },
@@ -3601,7 +3601,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:138",
+"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:164",
 "unfree":false,
 "unsupported":false
 },
@@ -3622,7 +3622,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre682572.658e7223191d",
+"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=24.11pre696114.dfffb2e7a52d",
 "description":"Mail indexer",
 "homepage":"https://notmuchmail.org/",
 "insecure":false,
@@ -3701,7 +3701,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/mailreaders/notmuch/default.nix:169",
+"position":"<nixpkgs> + /pkgs/applications/networking/mailreaders/notmuch/default.nix:168",
 "unfree":false,
 "unsupported":false
 },
@@ -4399,7 +4399,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/virtualization/qemu/default.nix:294",
+"position":"<nixpkgs> + /pkgs/applications/virtualization/qemu/default.nix:305",
 "unfree":false,
 "unsupported":false
 },
@@ -4885,7 +4885,7 @@
 "fingerprint":"92B2 904F D293 C94D C4C9  3E6B BFBA F4C9 75F7 6450"
 }
 ],
-"matrix":"@rnhmjoj:maxwell.ydns.eu",
+"matrix":"@rnhmjoj:eurofusion.eu",
 "name":"Michele Guerini Rocco"
 }
 ],
@@ -4957,7 +4957,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.51-2021.04.21",
+"name":"ryzen-smu-6.6.57-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5002,7 +5002,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.51-2021.04.21",
+"name":"ryzen-smu-6.6.57-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5033,21 +5033,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ryzen-smu-6.6.51-2021.04.21",
+"name":"ryzen-smu-6.6.57-2021.04.21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ryzen-smu",
 "system":"x86_64-linux",
-"version":"6.6.51-2021.04.21"
+"version":"6.6.57-2021.04.21"
 },
 "packages.ryzen-smu-monitor_cpu":{
 "meta":{
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.51-2021.04.21",
+"name":"ryzen-smu-6.6.57-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5125,7 +5125,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"name":"ryzen-smu-6.6.51-2021.04.21",
+"name":"ryzen-smu-6.6.57-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5378,7 +5378,7 @@
 "name":"Philip Taron"
 }
 ],
-"name":"vim-full-9.1.0707",
+"name":"vim-full-9.1.0765",
 "outputsToInstall":[
 "out",
 "xxd"
@@ -5433,7 +5433,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"vim-full-9.1.0707",
+"name":"vim-full-9.1.0765",
 "outputName":"out",
 "outputs":{
 "out":null,
@@ -5441,7 +5441,7 @@
 },
 "pname":"vim-full",
 "system":"x86_64-linux",
-"version":"9.1.0707"
+"version":"9.1.0765"
 },
 "packages.weechat-arc":{
 "meta":{
@@ -5962,7 +5962,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/shells/zsh/default.nix:136",
+"position":"<nixpkgs> + /pkgs/shells/zsh/default.nix:143",
 "unfree":false,
 "unsupported":false
 },
