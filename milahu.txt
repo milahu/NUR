@@ -1,0 +1,20 @@
+error:
+… from call site
+
+  at ./default.nix:38:19:
+
+    37|
+    38|   aether-server = pkgs.libsForQt5.callPackage ./pkgs/aether-server/default.nix { };
+      |                   ^
+    39|
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:212:35:
+
+   211|   */
+   212|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   213|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "electron_11" at ./pkgs/aether-server/default.nix:12, did you mean "electron_31", "electron_24" or "electron_27"?'
