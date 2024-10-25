@@ -51,13 +51,13 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "2b6ff6837e81a3b459f2f3cc366830c420a7a62e";
+    version = "cdac64970e894c3211d94da8925fbf905b52a594";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "2b6ff6837e81a3b459f2f3cc366830c420a7a62e";
+      rev = "cdac64970e894c3211d94da8925fbf905b52a594";
       fetchSubmodules = true;
-      sha256 = "sha256-C/ZfSzQMZ6cgkYrxJ8lKFqG4aPeKauYIwwgRwlNahMI=";
+      sha256 = "sha256-G7wxYAQJYKyO6zEZhh19aGS6xD76VfJFNhcpu9YXEqU=";
     };
     date = "2024-10-23";
   };
@@ -112,15 +112,15 @@
   };
   llamafile = {
     pname = "llamafile";
-    version = "22b2e2c95d53a8abd00591a6e2da5b92be1d59e0";
+    version = "eee4b46268e6e9f803da710587519abdc691bcac";
     src = fetchFromGitHub {
       owner = "Mozilla-Ocho";
       repo = "llamafile";
-      rev = "22b2e2c95d53a8abd00591a6e2da5b92be1d59e0";
+      rev = "eee4b46268e6e9f803da710587519abdc691bcac";
       fetchSubmodules = false;
-      sha256 = "sha256-PXSHZTg2z9J7+0rWCTyMSHXW4rtIbAVSsNHFJrgh/vI=";
+      sha256 = "sha256-XRQzIJhSpUK8U6PczMfXKdi1RbUUcho8mwDJ8E1lhVY=";
     };
-    date = "2024-10-21";
+    date = "2024-10-23";
   };
   mieru = {
     pname = "mieru";
@@ -244,15 +244,15 @@
   };
   sakaya = {
     pname = "sakaya";
-    version = "adfee4aa5f201e4f367d53066dd8928c75d58544";
+    version = "2c7e2b1d4cb46c15405a31d19d424953d04bc233";
     src = fetchFromGitHub {
       owner = "donovanglover";
       repo = "sakaya";
-      rev = "adfee4aa5f201e4f367d53066dd8928c75d58544";
+      rev = "2c7e2b1d4cb46c15405a31d19d424953d04bc233";
       fetchSubmodules = false;
-      sha256 = "sha256-Z5hlE5pRyTmFd7PJVyBzOniTQ13w1DAt9Dkq5Puu5T0=";
+      sha256 = "sha256-XBDfuio/jtqGDfnQI2efCIpl41kHm6KlhzGZCC+Q7cQ=";
     };
-    date = "2024-10-22";
+    date = "2024-10-23";
   };
   suyu = {
     pname = "suyu";
