@@ -82,12 +82,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1293:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1303:23:
 
-  1292|
-  1293|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+  1302|
+  1303|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1294|     inherit drv verbose;
+  1304|     inherit drv verbose;
 
 … from call site
 
@@ -211,12 +211,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1293:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1303:23:
 
-  1292|
-  1293|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+  1302|
+  1303|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1294|     inherit drv verbose;
+  1304|     inherit drv verbose;
 
 … from call site
 
@@ -358,12 +358,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1293:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1303:23:
 
-  1292|
-  1293|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+  1302|
+  1303|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1294|     inherit drv verbose;
+  1304|     inherit drv verbose;
 
 … from call site
 
@@ -428,4 +428,4 @@ error:
       |     ^
     61|     import
 
-error: path '/nix/store/93pxf1drp5m0w15682jfgwbq1sf5mn9x-references.nix.drv' is not valid
+error: path '/nix/store/2hxyhcr4cb4dkyvy4xr77wpvjfhc2d0m-references.nix.drv' is not valid
