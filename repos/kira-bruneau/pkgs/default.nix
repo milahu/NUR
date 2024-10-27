@@ -111,11 +111,6 @@ in
 
   git-review = python3Packages.callPackage ./applications/version-management/git-review { };
 
-  goverlay = callPackage ./tools/graphics/goverlay {
-    inherit (qt5) wrapQtAppsHook;
-    inherit (plasma5Packages) breeze-qt5;
-  };
-
   krane = callPackage ./applications/networking/cluster/krane { };
 
   linuxPackages = recurseIntoAttrs (
@@ -150,10 +145,6 @@ in
   ukmm = callPackage ./tools/games/ukmm { };
 
   undistract-me = callPackage ./shells/bash/undistract-me { };
-
-  virtualparadise = callPackage ./by-name/vi/virtualparadise/package.nix {
-    inherit (qt5) wrapQtAppsHook;
-  };
 
   vkbasalt = callPackage ./tools/graphics/vkbasalt rec {
     vkbasalt32 = pkgsi686Linux.callPackage ./tools/graphics/vkbasalt { inherit vkbasalt32; };
