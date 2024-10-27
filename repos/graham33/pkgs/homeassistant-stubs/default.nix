@@ -1,24 +1,29 @@
 { lib
 , buildPythonPackage
 , fetchFromGitHub
-, poetry-core
+, hatch-vcs
+, hatchling
 , home-assistant
 }:
 
 buildPythonPackage rec {
   pname = "homeassistant-stubs";
-  version = "2024.6.1";
-  format = "pyproject";
+  version = "2024.10.3";
+  pyproject = true;
 
   src = fetchFromGitHub {
     owner = "KapJI";
     repo = pname;
     rev = "${version}";
-    sha256 = "1jk9y149dfaghnqn4r991arh4h9krkb6802qvwdybx10k9kj2g7v";
+    sha256 = "0ddgy8fin27f91y8m7wiysz8mfjwb77ly0k1dzfkqc9kag3jj961";
   };
 
   nativeBuildInputs = [
-    poetry-core
+    hatch-vcs
+  ];
+
+  build-system = [
+    hatchling
   ];
 
   propagatedBuildInputs = [
@@ -26,15 +31,6 @@ buildPythonPackage rec {
   ];
 
   pythonImportsCheck = [ "homeassistant-stubs" ];
-
-  # no tests
-  doCheck = false;
-
-  preFixup = ''
-    # Fix invalid syntax (https://github.com/python/mypy/issues/12441)
-    find $out -name "*.pyi" -print0 | xargs -0 sed -i 's/, \*,/, *args,/g'
-    find $out -name "*.pyi" -print0 | xargs -0 sed -i 's/, \*\*)/, **kwargs)/g'
-  '';
 
   meta = with lib; {
     homepage = "https://github.com/KapJI/homeassistant-stubs";
