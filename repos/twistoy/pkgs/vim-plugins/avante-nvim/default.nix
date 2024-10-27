@@ -14,8 +14,8 @@
   src = fetchFromGitHub {
     owner = "yetone";
     repo = "avante.nvim";
-    rev = "5aec0ba48bb0342c116662aafb6fe58c1cf9d44a";
-    hash = "sha256-FeFCzp4NkFwGspsNLSPkQ1Ti5aMoUtsCKjhId/EN2eA=";
+    rev = "a8e2b9a00c73b11d28857f0f5de79a9022281182";
+    hash = "sha256-72kNp+jH4fUevR1jb8gIOwaG6KvjmCx4B74TzitSSyY=";
   };
 
   meta = with lib; {
@@ -57,6 +57,7 @@ in
       ext = stdenv.hostPlatform.extensions.sharedLibrary;
     in ''
       mkdir -p $out/build
+      ln -s ${avante-nvim-lib}/lib/libavante_repo_map${ext} $out/build/avante_repo_map${ext}
       ln -s ${avante-nvim-lib}/lib/libavante_templates${ext} $out/build/avante_templates${ext}
       ln -s ${avante-nvim-lib}/lib/libavante_tokenizers${ext} $out/build/avante_tokenizers${ext}
     '';
