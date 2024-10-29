@@ -19,10 +19,10 @@ jobs:
         cachixName:
           - mistzzt
         nixPath:
-          - nixpkgs=channel:nixos-unstable
-          - nixpkgs=channel:nixpkgs-unstable
-          - nixpkgs=channel:nixos-23.11
+          - nixpkgs=channel:nixos-24.05
     runs-on: ubuntu-latest
+    env:
+      NIXPKGS_ALLOW_UNFREE: '1'
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
