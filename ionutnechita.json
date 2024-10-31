@@ -1,22 +1,22 @@
 {
 "name":"ionutnechita",
-"fetch_time":0.233,
-"eval_time":0.224,
+"fetch_time":0.27,
+"eval_time":0.235,
 "source":{
 "url":"https://github.com/ionutnechita/ionutnechita-nur-packages",
-"rev":"c212711755d6759f09d46a1cbd97dff0f47b465c",
-"sha256":"03p7vwc494dpf8nzrdzyli18f0ygklnnjii6z0mjs66j979kgzwb",
+"rev":"c4f2432eff9d0ac4544a356611afd1a6f61a77f7",
+"sha256":"10zwq49kq8c7lx6z2zjsybg272x4h42p1vkl5cm89l48b7dc9x3h",
 "date":null
 },
-"source_storepath":"/nix/store/njhf0d51a5f2i3v28w33854q294yfb0d-source",
-"nixpkgs_storepath":"/nix/store/aviwwxrrmzk64irb72zslcigvkixanzi-source",
-"nur_combined_rev":"64e1a345698772ef7ea89e3b044437c3d3d1a7c3",
+"source_storepath":"/nix/store/369xpajgs45mciy1kb3xwp9pj93rigjr-source",
+"nixpkgs_storepath":"/nix/store/wygqy9mfba75714grzs8ykzcgr9dzsgf-source",
+"nur_combined_rev":"426b01d0da97c8343690a627f522b2352c362ead",
 "packages":{
 "linux_sunlight":{
 "meta":{
 "available":true,
 "badPlatforms":[],
-"branch":"6.11",
+"branch":"6.12",
 "broken":false,
 "description":"Sunlight Kernel. Built with custom settings and new features\n                     built to provide a stable, responsive and smooth desktop experience",
 "homepage":"https://www.kernel.org/",
@@ -38,7 +38,7 @@
 "name":"Ionut Nechita"
 }
 ],
-"name":"linux-6.11.2",
+"name":"linux-6.12.0",
 "outputsToInstall":[
 "out"
 ],
@@ -65,12 +65,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/sunlight-kernels/default.nix:20",
+"position":"./pkgs/sunlight-kernels/default.nix:19",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.11.2",
+"name":"linux-6.12.0",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -78,7 +78,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.11.2"
+"version":"6.12.0"
 }
 }
 }
