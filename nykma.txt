@@ -84,9 +84,9 @@ error:
 
 error: attribute 'rust-bin' missing
 
-at ./default.nix:27:40:
+at ./default.nix:38:40:
 
-    26|   zen-browser = pkgs.callPackage ./pkgs/zen-browser { };
-    27|   reth = pkgs.callPackage ./pkgs/reth { inherit (pkgs) rust-bin; };
+    37|   zen-browser = pkgs.callPackage ./pkgs/zen-browser { };
+    38|   reth = pkgs.callPackage ./pkgs/reth { inherit (pkgs) rust-bin; };
       |                                        ^
-    28|
+    39|
