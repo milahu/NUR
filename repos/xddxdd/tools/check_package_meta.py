@@ -88,6 +88,15 @@ def verify_package_meta(package_path: str, meta: dict) -> bool:
     elif description.startswith(" ") or description.endswith(" "):
         print(f"{package_path}: description has space at beginning or end")
         valid = False
+    elif re.match(r"^(a|an|the) ", description.lower(), re.IGNORECASE):
+        print(f"{package_path}: description has article at beginning")
+        valid = False
+    elif re.match(r"^[a-z]", description):
+        print(f"{package_path}: description starts with lower case letter")
+        valid = False
+    elif description.endswith("."):
+        print(f"{package_path}: description has period at end")
+        valid = False
 
     if not meta.get("homepage"):
         print(f"{package_path}: no homepage set")
@@ -138,13 +147,16 @@ def validate_package_content(package_path: str, package: dict) -> bool:
         if not file.startswith(result_path):
             continue
 
-        main_program = package.get("mainProgram") or package_name
-        if os.path.exists(f"{file}/bin") and not os.path.exists(
-            f"{file}/bin/{main_program}"
-        ):
-            print(f"{package_path}: main program {main_program} does not exist")
-            print(os.listdir(f"{file}/bin"))
-            valid = False
+        main_program = package.get("mainProgram")
+        if os.path.exists(f"{file}/bin"):
+            if not main_program:
+                print(f"{package_path}: main program not set")
+                print(os.listdir(f"{file}/bin"))
+                valid = False
+            elif not os.path.exists(f"{file}/bin/{main_program}"):
+                print(f"{package_path}: main program {main_program} does not exist")
+                print(os.listdir(f"{file}/bin"))
+                valid = False
 
     # Cleanup build results
     for file in os.listdir():
