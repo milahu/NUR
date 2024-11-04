@@ -660,20 +660,18 @@
   };
   linux-xanmod = {
     pname = "linux-xanmod";
-    version = "6.11.5-xanmod1";
-    src = fetchFromGitHub {
-      owner = "xanmod";
-      repo = "linux";
-      rev = "6.11.5-xanmod1";
-      hash = "sha256-G4u0LQtIeJ0dNAmjNH0OKihmbkivYVbrbXDB9vPw2xI=";
+    version = "6.11.6-xanmod1";
+    src = fetchgit {
+      url = "https://gitlab.com/xanmod/linux.git";
+      rev = "6.11.6-xanmod1";
+      hash = "sha256-t0kuKK2f8D1vxoX5dJnodTu3aBmzCc8F7tHwVAUHP1M=";
     };
   };
   linux-xanmod-6_0 = {
     pname = "linux-xanmod-6_0";
     version = "6.0.12-xanmod1";
-    src = fetchFromGitHub {
-      owner = "xanmod";
-      repo = "linux";
+    src = fetchgit {
+      url = "https://gitlab.com/xanmod/linux.git";
       rev = "6.0.12-xanmod1";
       hash = "sha256-k3fePBhb2zJfvPupdgenkdqG4sHNu2iv6T01EvOgbCg=";
     };
@@ -681,21 +679,19 @@
   linux-xanmod-6_1 = {
     pname = "linux-xanmod-6_1";
     version = "6.1.77-xanmod1";
-    src = fetchFromGitHub {
-      owner = "xanmod";
-      repo = "linux";
+    src = fetchgit {
+      url = "https://gitlab.com/xanmod/linux.git";
       rev = "6.1.77-xanmod1";
       hash = "sha256-O+XB+avpx9Kkt+7RW6pT5mXMtAVhXNHe+ohgIm1ql8w=";
     };
   };
   linux-xanmod-6_6 = {
     pname = "linux-xanmod-6_6";
-    version = "6.6.58-xanmod1";
-    src = fetchFromGitHub {
-      owner = "xanmod";
-      repo = "linux";
-      rev = "6.6.58-xanmod1";
-      hash = "sha256-PjF3PIGCHWGIGHupu+vkdiyrL4h4KG2X5WmQUlz8Zww=";
+    version = "6.6.59-xanmod1";
+    src = fetchgit {
+      url = "https://gitlab.com/xanmod/linux.git";
+      rev = "6.6.59-xanmod1";
+      hash = "sha256-VImhbdU+WAP0QRnYjHBNKYw5NlMDCBy8HJyP2NQBNHY=";
     };
   };
   llama-cpp = {
@@ -1158,6 +1154,38 @@
       hash = "sha256-fslq2BlNtnUve7enWXzWGc8xUh8clmHs+QjPozjinHM=";
     };
     date = "2023-03-30";
+  };
+  qsp = {
+    pname = "qsp";
+    version = "v5.9.0-b11";
+    src = fetchFromGitHub {
+      owner = "QSPFoundation";
+      repo = "qspgui";
+      rev = "v5.9.0-b11";
+      hash = "sha256-YESHOf8xy5oprHxIaQ1nzeRcj/O92OyGPIA14snknQM=";
+    };
+  };
+  qsp-lib = {
+    pname = "qsp-lib";
+    version = "f972e5895021a170f70648dbbd00ba823e13af46";
+    src = fetchFromGitHub {
+      owner = "QSPFoundation";
+      repo = "qsp";
+      rev = "f972e5895021a170f70648dbbd00ba823e13af46";
+      hash = "sha256-Z9DBTJ4tzk5Ep5E53Hp7f3YYmgocyi4TePKAoqxm+Rc=";
+    };
+    date = "2024-10-29";
+  };
+  qsp-wx = {
+    pname = "qsp-wx";
+    version = "a15ebd6b4235ac50f8037896037d1663";
+    src = fetchFromGitHub {
+      owner = "wxWidgets";
+      repo = "wxWidgets";
+      rev = "a15ebd6b4235ac50f8037896037d1663";
+      fetchSubmodules = true;
+      hash = "sha256-LHCR1WURBgcGtLXQU1b1gtQ4/BdZZQ6ofTYSUDFN8bg=";
+    };
   };
   r8125 = {
     pname = "r8125";

@@ -275,23 +275,28 @@ src.git = "https://github.com/lotem/librime-proto.git"
 fetch.github = "lotem/librime-proto"
 
 [linux-xanmod]
-src.github_tag = "xanmod/linux"
-fetch.github = "xanmod/linux"
+src.webpage = "https://gitlab.com/api/v4/projects/51590166/repository/tags"
+src.regex = "\"name\":\"([^\"]+)\","
+src.include_regex = "^[0-9\\.]+-xanmod.*$"
+fetch.git = "https://gitlab.com/xanmod/linux.git"
 
 [linux-xanmod-6_6]
-src.github_tag = "xanmod/linux"
-src.include_regex = "^6\\.6\\.(.*)"
-fetch.github = "xanmod/linux"
+src.webpage = "https://gitlab.com/api/v4/projects/51590166/repository/tags?search=^6.6."
+src.regex = "\"name\":\"([^\"]+)\","
+src.include_regex = "^6\\.6\\.[0-9]+-xanmod.*$"
+fetch.git = "https://gitlab.com/xanmod/linux.git"
 
 [linux-xanmod-6_1]
-src.github_tag = "xanmod/linux"
-src.include_regex = "^6\\.1\\.(.*)"
-fetch.github = "xanmod/linux"
+src.webpage = "https://gitlab.com/api/v4/projects/51590166/repository/tags?search=^6.1."
+src.regex = "\"name\":\"([^\"]+)\","
+src.include_regex = "^6\\.1\\.[0-9]+-xanmod.*$"
+fetch.git = "https://gitlab.com/xanmod/linux.git"
 
 [linux-xanmod-6_0]
-src.github_tag = "xanmod/linux"
-src.include_regex = "^6\\.0\\.(.*)"
-fetch.github = "xanmod/linux"
+src.webpage = "https://gitlab.com/api/v4/projects/51590166/repository/tags?search=^6.0."
+src.regex = "\"name\":\"([^\"]+)\","
+src.include_regex = "^6\\.0\\.[0-9]+-xanmod.*$"
+fetch.git = "https://gitlab.com/xanmod/linux.git"
 
 [llama-cpp]
 src.github = "ggerganov/llama.cpp"
@@ -495,6 +500,20 @@ fetch.url = "https://dldir1.qq.com/music/clntupate/linux/qqmusic_$ver_amd64.deb"
 [qsc-key-encoder]
 src.git = "https://github.com/Quantum-Safe-Collaboration/qsc-key-encoder.git"
 fetch.github = "Quantum-Safe-Collaboration/qsc-key-encoder"
+
+[qsp]
+src.github = "QSPFoundation/qspgui"
+fetch.github = "QSPFoundation/qspgui"
+
+[qsp-lib]
+src.git = "https://github.com/QSPFoundation/qsp.git"
+fetch.github = "QSPFoundation/qsp"
+
+[qsp-wx]
+src.webpage = "https://raw.githubusercontent.com/QSPFoundation/qspgui/refs/heads/master/CMakeLists-wxWidgets.txt.in"
+src.regex = "GIT_TAG\\s+([0-9a-f]{32})"
+git.fetchSubmodules = true
+fetch.github = "wxWidgets/wxWidgets"
 
 [r8125]
 src.github_tag = "awesometic/realtek-r8125-dkms"
