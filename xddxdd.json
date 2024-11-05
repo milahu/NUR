@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.919,
-"eval_time":0.837,
+"fetch_time":0.647,
+"eval_time":0.872,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"8b96999918aecd775c1725e35c4b5cbf4f7bb212",
-"sha256":"057kd0pn9z5515xdvfsxk46rxvp68cnh3wlgzrg6zd91m9zcgksd",
+"rev":"1ef1b4470b1dd5efe4883d7c7f8e406a5a86cbd3",
+"sha256":"1kwpdg31xh5i4i0jgd30bl10ciw168pc80pbds82l41chx47qbdm",
 "date":null
 },
-"source_storepath":"/nix/store/yqbcdhpmfzj1yzq88x2c4krm2ykfjzlc-source",
+"source_storepath":"/nix/store/fn96p5nwsihwwlwdr6qgrxlf2fm1jscr-source",
 "nixpkgs_storepath":"/nix/store/qd73hf9ydxisxakjj4w6na0qixprh3w2-source",
-"nur_combined_rev":"9f719754cf0a019243728198f0be7233467ddc5b",
+"nur_combined_rev":"22847dbaa31cbbb584aaee57eb1fa2f9e6c988c4",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -28538,6 +28538,56 @@
 "system":"x86_64-linux",
 "version":"1.1.7"
 },
+"qqsp":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"QT Quest Soft Player is a interactive fiction stories and games player (compatible fork of qsp.su)",
+"homepage":"https://github.com/Sonnix1/Qqsp",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"mainProgram":"Qqsp",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"qqsp-1.9",
+"outputsToInstall":[
+"out"
+],
+"position":"./pkgs/uncategorized/qqsp/default.nix:41",
+"unfree":false,
+"unsupported":false
+},
+"name":"qqsp-1.9",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"qqsp",
+"system":"x86_64-linux",
+"version":"1.9"
+},
 "qsp":{
 "meta":{
 "available":true,
@@ -28593,7 +28643,7 @@
 "available":true,
 "broken":false,
 "description":"QSP is an Interactive Fiction development platform (Game Library)",
-"homepage":"https://github.com/QSPFoundation/qspgui",
+"homepage":"https://github.com/QSPFoundation/qsp",
 "insecure":false,
 "license":{
 "deprecated":false,
