@@ -32,12 +32,12 @@ error:
 
 … while calling 'recurseIntoAttrs'
 
-  at <nixpkgs> + /lib/attrsets.nix:2075:5:
+  at <nixpkgs> + /lib/attrsets.nix:2074:5:
 
-  2074|   recurseIntoAttrs =
-  2075|     attrs:
+  2073|   recurseIntoAttrs =
+  2074|     attrs:
       |     ^
-  2076|     attrs // { recurseForDerivations = true; };
+  2075|     attrs // { recurseForDerivations = true; };
 
 … from call site
 
@@ -193,12 +193,12 @@ error:
 
 … while calling 'mapAttrs''
 
-  at <nixpkgs> + /lib/attrsets.nix:1057:5:
+  at <nixpkgs> + /lib/attrsets.nix:1056:5:
 
-  1056|     f:
-  1057|     set:
+  1055|     f:
+  1056|     set:
       |     ^
-  1058|     listToAttrs (map (attr: f attr set.${attr}) (attrNames set));
+  1057|     listToAttrs (map (attr: f attr set.${attr}) (attrNames set));
 
 … from call site
 
@@ -216,24 +216,24 @@ error:
    645|     pred:
    646|     set:
       |     ^
-   647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
+   647|     removeAttrs set (filter (name: ! pred name set.${name}) (attrNames set));
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/attrsets.nix:647:29:
+  at <nixpkgs> + /lib/attrsets.nix:647:30:
 
    646|     set:
-   647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
-      |                             ^
+   647|     removeAttrs set (filter (name: ! pred name set.${name}) (attrNames set));
+      |                              ^
    648|
 
 … from call site
 
-  at <nixpkgs> + /lib/attrsets.nix:647:62:
+  at <nixpkgs> + /lib/attrsets.nix:647:38:
 
    646|     set:
-   647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
-      |                                                              ^
+   647|     removeAttrs set (filter (name: ! pred name set.${name}) (attrNames set));
+      |                                      ^
    648|
 
 … while calling anonymous lambda

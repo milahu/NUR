@@ -51,7 +51,7 @@ error:
    645|     pred:
    646|     set:
       |     ^
-   647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
+   647|     removeAttrs set (filter (name: ! pred name set.${name}) (attrNames set));
 
 … from call site
 
