@@ -1,0 +1,22 @@
+error:
+… while calling the 'import' builtin
+
+  at ./default.nix:20:15:
+
+    19| let
+    20|   dream2nix = import dream2nixSource {};
+      |               ^
+    21| in
+
+… while realising the context of a path
+
+… while calling the 'fetchTarball' builtin
+
+  at ./default.nix:13:5:
+
+    12|   dream2nixSource ?
+    13|     builtins.fetchTarball {
+      |     ^
+    14|       url = "https://github.com/nix-community/dream2nix/tarball/main";
+
+error: access to URI 'https://github.com/nix-community/dream2nix/tarball/main' is forbidden in restricted mode
