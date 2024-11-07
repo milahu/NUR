@@ -1,33 +1,33 @@
 {
 "name":"moraxyc",
-"fetch_time":0.607,
-"eval_time":0.248,
+"fetch_time":0.313,
+"eval_time":0.228,
 "source":{
 "url":"https://github.com/moraxyc/nur-packages",
-"rev":"3accbd2e61e4ef1b24ab23024061446d0077850d",
-"sha256":"1xgs2qm3jcfqb2w7r3v87j5dpgcd48q4f4gqgzznx84jvwrbvvd2",
+"rev":"4693b1f89af2020c95ea615ffbcc2824aa1e1373",
+"sha256":"1msr36mf8svw61mp0y3kkm1bqpmra820fvzir12l03qrh6wkxqsa",
 "date":null
 },
-"source_storepath":"/nix/store/qrxw8m9196mjzh6jila6m67h1ws9j4sf-source",
-"nixpkgs_storepath":"/nix/store/j9i9if1bwcnmhl36rgw34h6kab4ldxai-source",
-"nur_combined_rev":"adfde11b308e80f9a1eafc62bf4b4f9547f6712e",
+"source_storepath":"/nix/store/h4yfjd4alyknacz3mz8agq76y36dhh0c-source",
+"nixpkgs_storepath":"/nix/store/pdn9dllxr7k8afad8669i0ly266ai8qk-source",
+"nur_combined_rev":"0dade9c242863de458a058d8c5e72e3678b75fb2",
 "packages":{
 "alist":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/alist-org/alist/releases/tag/v3.35.0",
-"description":"A file list/WebDAV program that supports multiple storages",
+"changelog":"https://github.com/alist-org/alist/releases/tag/v3.38.0",
+"description":"File list/WebDAV program that supports multiple storages",
 "homepage":"https://github.com/alist-org/alist",
 "insecure":false,
 "license":{
 "deprecated":false,
 "free":true,
-"fullName":"GNU Affero General Public License v3.0 or later",
+"fullName":"GNU Affero General Public License v3.0 only",
 "redistributable":true,
-"shortName":"agpl3Plus",
-"spdxId":"AGPL-3.0-or-later",
-"url":"https://spdx.org/licenses/AGPL-3.0-or-later.html"
+"shortName":"agpl3Only",
+"spdxId":"AGPL-3.0-only",
+"url":"https://spdx.org/licenses/AGPL-3.0-only.html"
 },
 "mainProgram":"alist",
 "maintainers":[
@@ -38,7 +38,7 @@
 "name":"Moraxyc Xu"
 }
 ],
-"name":"alist-3.35.0",
+"name":"alist-3.38.0",
 "outputsToInstall":[
 "out"
 ],
@@ -73,18 +73,28 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"./pkgs/alist/default.nix:74",
+"position":"./pkgs/alist/default.nix:95",
+"sourceProvenance":[
+{
+"isSource":true,
+"shortName":"fromSource"
+},
+{
+"isSource":false,
+"shortName":"binaryBytecode"
+}
+],
 "unfree":false,
 "unsupported":false
 },
-"name":"alist-3.35.0",
+"name":"alist-3.38.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"alist",
 "system":"x86_64-linux",
-"version":"3.35.0"
+"version":"3.38.0"
 },
 "exloli-next":{
 "meta":{

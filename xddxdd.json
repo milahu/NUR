@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.647,
-"eval_time":0.872,
+"fetch_time":0.538,
+"eval_time":0.827,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"1ef1b4470b1dd5efe4883d7c7f8e406a5a86cbd3",
-"sha256":"1kwpdg31xh5i4i0jgd30bl10ciw168pc80pbds82l41chx47qbdm",
+"rev":"c141a17be81f73a2361a17aa963194ad1e6add19",
+"sha256":"007kngq1ifp9i6wsnadrdn7n66d057f19ii5acarrnl0kxrdwdyk",
 "date":null
 },
-"source_storepath":"/nix/store/fn96p5nwsihwwlwdr6qgrxlf2fm1jscr-source",
-"nixpkgs_storepath":"/nix/store/qd73hf9ydxisxakjj4w6na0qixprh3w2-source",
-"nur_combined_rev":"22847dbaa31cbbb584aaee57eb1fa2f9e6c988c4",
+"source_storepath":"/nix/store/5qzjn9fdh0fm59hpgh8vd83vh30s9mb6-source",
+"nixpkgs_storepath":"/nix/store/pdn9dllxr7k8afad8669i0ly266ai8qk-source",
+"nur_combined_rev":"08b4e806af2316767d4474c4c6a0e1139d5e84a3",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -1136,7 +1136,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"calibre-cops-3.3.1",
+"name":"calibre-cops-3.4.5",
 "outputsToInstall":[
 "out"
 ],
@@ -1144,14 +1144,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"calibre-cops-3.3.1",
+"name":"calibre-cops-3.4.5",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"calibre-cops",
 "system":"x86_64-linux",
-"version":"3.3.1"
+"version":"3.4.5"
 },
 "chmlib-utils":{
 "meta":{
@@ -4178,7 +4178,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"llama-cpp-4016",
+"name":"llama-cpp-4034",
 "outputsToInstall":[
 "out"
 ],
@@ -4232,20 +4232,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-4016",
+"name":"llama-cpp-4034",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"4016"
+"version":"4034"
 },
 "lantianCustomized.materialgram":{
 "meta":{
-"available":false,
-"broken":true,
-"changelog":"https://github.com/kukuruzka165/materialgram/releases/tag/v5.6.1.1",
+"available":true,
+"broken":false,
+"changelog":"https://github.com/kukuruzka165/materialgram/releases/tag/v5.7.0.1",
 "description":"Telegram Desktop fork with material icons and some improvements (Without anti-features)",
 "homepage":"https://kukuruzka165.github.io/materialgram/",
 "insecure":false,
@@ -4276,7 +4276,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"materialgram-5.6.1.1",
+"name":"materialgram-unwrapped-5.7.0.1",
 "outputsToInstall":[
 "out"
 ],
@@ -4357,18 +4357,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/lantian-customized/materialgram/default.nix:27",
+"position":"./pkgs/lantian-customized/materialgram/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
-"name":"materialgram-5.6.1.1",
+"name":"materialgram-5.7.0.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"materialgram",
 "system":"x86_64-linux",
-"version":"5.6.1.1"
+"version":"5.7.0.1"
 },
 "lantianCustomized.nbfc-linux":{
 "meta":{
@@ -4451,7 +4451,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"nginx-lantian-unstable-2024-10-10",
+"name":"nginx-lantian-unstable-2024-11-05",
 "outputsToInstall":[
 "out"
 ],
@@ -4459,20 +4459,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nginx-lantian-unstable-2024-10-10",
+"name":"nginx-lantian-unstable-2024-11-05",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nginx-lantian-unstable",
 "system":"x86_64-linux",
-"version":"2024-10-10"
+"version":"2024-11-05"
 },
 "lantianCustomized.telegram-desktop":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/telegramdesktop/tdesktop/releases/tag/v5.6.3",
+"changelog":"https://github.com/telegramdesktop/tdesktop/releases/tag/v5.7.1",
 "description":"Telegram Desktop messaging app (Without anti-features)",
 "homepage":"https://desktop.telegram.org/",
 "insecure":false,
@@ -4503,7 +4503,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"telegram-desktop-5.6.3",
+"name":"telegram-desktop-unwrapped-5.7.1",
 "outputsToInstall":[
 "out"
 ],
@@ -4584,18 +4584,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/lantian-customized/telegram-desktop/default.nix:28",
+"position":"./pkgs/lantian-customized/telegram-desktop/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
-"name":"telegram-desktop-5.6.3",
+"name":"telegram-desktop-5.7.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"telegram-desktop",
 "system":"x86_64-linux",
-"version":"5.6.3"
+"version":"5.7.1"
 },
 "lantianCustomized.transmission-with-webui":{
 "meta":{
@@ -4692,7 +4692,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/p2p/transmission/4.nix:180",
+"position":"<nixpkgs> + /pkgs/applications/networking/p2p/transmission/4.nix:183",
 "unfree":false,
 "unsupported":false
 },
@@ -11167,7 +11167,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"libnftnl-1.2.7",
+"name":"libnftnl-1.2.8",
 "outputsToInstall":[
 "out"
 ],
@@ -11198,14 +11198,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"libnftnl-1.2.7",
+"name":"libnftnl-1.2.8",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"libnftnl",
 "system":"x86_64-linux",
-"version":"1.2.7"
+"version":"1.2.8"
 },
 "liboqs":{
 "meta":{
@@ -11292,7 +11292,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"liboqs-unstable-2024-11-01",
+"name":"liboqs-unstable-2024-11-05",
 "outputsToInstall":[
 "out"
 ],
@@ -11300,14 +11300,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"liboqs-unstable-2024-11-01",
+"name":"liboqs-unstable-2024-11-05",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"liboqs-unstable",
 "system":"x86_64-linux",
-"version":"2024-11-01"
+"version":"2024-11-05"
 },
 "libqcef":{
 "meta":{
@@ -12033,7 +12033,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"nftables-1.1.0",
+"name":"nftables-1.1.1",
 "outputsToInstall":[
 "out"
 ],
@@ -12060,18 +12060,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/nftables/default.nix:46",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/nftables/default.nix:54",
 "unfree":false,
 "unsupported":false
 },
-"name":"nftables-1.1.0",
+"name":"nftables-1.1.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nftables",
 "system":"x86_64-linux",
-"version":"1.1.0"
+"version":"1.1.1"
 },
 "noise-suppression-for-voice":{
 "meta":{
@@ -28022,6 +28022,55 @@
 "system":"x86_64-linux",
 "version":"0.4.1"
 },
+"plasma-yesplaymusic-lyric":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Display YesPlayMusic lyrics on the plasma panel | \u5728KDE plasma\u9762\u677f\u4e2d\u663e\u793aYesPlayMusic\u7684\u6b4c\u8bcd",
+"homepage":"https://github.com/zsiothsu/org.kde.plasma.yesplaymusic-lyrics",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"plasma-yesplaymusic-lyric-unstable-2024-08-10",
+"outputsToInstall":[
+"out"
+],
+"position":"./pkgs/uncategorized/plasma-yesplaymusic-lyric/default.nix:16",
+"unfree":false,
+"unsupported":false
+},
+"name":"plasma-yesplaymusic-lyric-unstable-2024-08-10",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"plasma-yesplaymusic-lyric-unstable",
+"system":"x86_64-linux",
+"version":"2024-08-10"
+},
 "pocl":{
 "meta":{
 "available":true,
@@ -29004,7 +29053,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-ice-unstable-2024-11-01",
+"name":"rime-ice-unstable-2024-11-04",
 "outputsToInstall":[
 "out"
 ],
@@ -29012,14 +29061,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-unstable-2024-11-01",
+"name":"rime-ice-unstable-2024-11-04",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-ice-unstable",
 "system":"x86_64-linux",
-"version":"2024-11-01"
+"version":"2024-11-04"
 },
 "rime-moegirl":{
 "meta":{
@@ -31395,25 +31444,25 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"wechat-uos-1.0.0.241",
+"name":"wechat-uos-4.0.0.21",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/wechat-uos/default.nix:242",
+"position":"./pkgs/uncategorized/wechat-uos/default.nix:279",
 "unfree":true,
 "unsupported":false
 },
-"name":"wechat-uos-1.0.0.241",
+"name":"wechat-uos-4.0.0.21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"wechat-uos",
 "system":"x86_64-linux",
-"version":"1.0.0.241"
+"version":"4.0.0.21"
 },
 "wechat-uos-without-sandbox":{
 "meta":{
@@ -31446,25 +31495,25 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"wechat-uos-1.0.0.241",
+"name":"wechat-uos-4.0.0.21",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/wechat-uos/default.nix:242",
+"position":"./pkgs/uncategorized/wechat-uos/default.nix:279",
 "unfree":true,
 "unsupported":false
 },
-"name":"wechat-uos-1.0.0.241",
+"name":"wechat-uos-4.0.0.21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"wechat-uos",
 "system":"x86_64-linux",
-"version":"1.0.0.241"
+"version":"4.0.0.21"
 },
 "wine-wechat":{
 "meta":{
