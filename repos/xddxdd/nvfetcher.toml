@@ -442,6 +442,10 @@ fetch.github = "sanjay-kr-commit/panelTransparencyToggleForPlasma6"
 src.github = "luisbocanegra/plasma-smart-video-wallpaper-reborn"
 fetch.github = "luisbocanegra/plasma-smart-video-wallpaper-reborn"
 
+[plasma-yesplaymusic-lyric]
+src.git = "https://github.com/zsiothsu/org.kde.plasma.yesplaymusic-lyrics.git"
+fetch.github = "zsiothsu/org.kde.plasma.yesplaymusic-lyrics"
+
 [pocl]
 src.github = "pocl/pocl"
 fetch.github = "pocl/pocl"
@@ -720,7 +724,7 @@ src.include_regex = "^v[0-9.]+$"
 fetch.github = "FDio/vpp"
 
 [wechat-uos]
-src.webpage = "https://aur.archlinux.org/rpc/?v=5&type=info&arg[]=wechat-uos-bwrap"
+src.webpage = "https://aur.archlinux.org/rpc/?v=5&type=info&arg[]=wechat"
 src.regex = "\"Version\":\"([^\"]+)\""
 src.from_pattern = "(.+)-(.+)"
 src.to_pattern = "\\1"
