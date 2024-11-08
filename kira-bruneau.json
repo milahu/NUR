@@ -1,16 +1,16 @@
 {
 "name":"kira-bruneau",
-"fetch_time":0.371,
-"eval_time":0.398,
+"fetch_time":0.277,
+"eval_time":0.426,
 "source":{
 "url":"https://gitlab.com/kira-bruneau/nur-packages",
-"rev":"4764d409bc16fd256020a7ada8e0977afeec0045",
-"sha256":"05r8qc4qln5ciq7zla73wr07z0l0vwgq179ff2iphcsii8hp7dg2",
+"rev":"e4c8216265baaec7022d2f54027a3fe712f029ea",
+"sha256":"1dzpkal3027r1ahbla3hmgfnk3qm8kybjwcnhfmyafnv7j40kiz8",
 "date":null
 },
-"source_storepath":"/nix/store/qzh6ry1vygfghnyd8sqd6f1vyaycsfzb-source",
-"nixpkgs_storepath":"/nix/store/qd73hf9ydxisxakjj4w6na0qixprh3w2-source",
-"nur_combined_rev":"4eb1734155e9e1f4b4f7a24ef2635d61774e692f",
+"source_storepath":"/nix/store/bip3x0p3d9jpfv6bry8vhfdf9bjnacp3-source",
+"nixpkgs_storepath":"/nix/store/lbhx7v2g82b26dq9d3crm99acszfmdd4-source",
+"nur_combined_rev":"abe1966dd74d46f6b475ff1ae15c71d777b0acbe",
 "packages":{
 "anytype":{
 "meta":{
@@ -492,7 +492,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-acm-0-unstable-2024-11-03",
+"name":"emacs-acm-0-unstable-2024-11-06",
 "outputsToInstall":[
 "out"
 ],
@@ -577,14 +577,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-acm-0-unstable-2024-11-03",
+"name":"emacs-acm-0-unstable-2024-11-06",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-acm",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-11-03"
+"version":"0-unstable-2024-11-06"
 },
 "emacsPackages.acm-terminal":{
 "meta":{
@@ -852,7 +852,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-lsp-bridge-0-unstable-2024-11-03",
+"name":"emacs-lsp-bridge-0-unstable-2024-11-06",
 "outputsToInstall":[
 "out"
 ],
@@ -937,14 +937,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-lsp-bridge-0-unstable-2024-11-03",
+"name":"emacs-lsp-bridge-0-unstable-2024-11-06",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-lsp-bridge",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-11-03"
+"version":"0-unstable-2024-11-06"
 },
 "gamemode":{
 "meta":{
@@ -1020,7 +1020,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/gadget-inc/ggt/releases/tag/v24.11pre699031.2d2a9ddbe3f2",
+"changelog":"https://github.com/gadget-inc/ggt/releases/tag/v24.11pre704822.85f7e662eda4",
 "description":"Command-line interface for Gadget",
 "homepage":"https://docs.gadget.dev/guides/development-tools/cli",
 "insecure":false,
@@ -2895,7 +2895,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v24.11pre699031.2d2a9ddbe3f2",
+"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v24.11pre704822.85f7e662eda4",
 "description":"Nintendo Switch emulator written in C++",
 "homepage":"https://sudachi-emu.com",
 "insecure":false,
@@ -3493,7 +3493,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/robbert-vdh/yabridge/blob/5.1.0/CHANGELOG.md",
+"changelog":"https://github.com/robbert-vdh/yabridge/blob/5.1.1/CHANGELOG.md",
 "description":"Modern and transparent way to use Windows VST2 and VST3 plugins on Linux",
 "homepage":"https://github.com/robbert-vdh/yabridge",
 "insecure":false,
@@ -3514,7 +3514,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"yabridge-5.1.0",
+"name":"yabridge-5.1.1",
 "outputsToInstall":[
 "out"
 ],
@@ -3525,14 +3525,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yabridge-5.1.0",
+"name":"yabridge-5.1.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"yabridge",
 "system":"x86_64-linux",
-"version":"5.1.0"
+"version":"5.1.1"
 },
 "yabridgectl":{
 "meta":{
@@ -3549,9 +3549,9 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/robbert-vdh/yabridge/blob/5.1.0/CHANGELOG.md",
+"changelog":"https://github.com/robbert-vdh/yabridge/blob/5.1.1/CHANGELOG.md",
 "description":"Small, optional utility to help set up and update yabridge for several directories at once",
-"homepage":"https://github.com/robbert-vdh/yabridge/tree/5.1.0/tools/yabridgectl",
+"homepage":"https://github.com/robbert-vdh/yabridge/tree/5.1.1/tools/yabridgectl",
 "insecure":false,
 "license":{
 "deprecated":false,
@@ -3571,7 +3571,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"yabridgectl-5.1.0",
+"name":"yabridgectl-5.1.1",
 "outputsToInstall":[
 "out"
 ],
@@ -3582,14 +3582,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yabridgectl-5.1.0",
+"name":"yabridgectl-5.1.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"yabridgectl",
 "system":"x86_64-linux",
-"version":"5.1.0"
+"version":"5.1.1"
 },
 "yarg":{
 "meta":{
