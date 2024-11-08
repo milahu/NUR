@@ -115,7 +115,7 @@
   };
   bilibili = {
     pname = "bilibili";
-    version = "1.14.2-1";
+    version = "v1.14.2-1";
     src = fetchurl {
       url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.14.2-1/bilibili-asar-v1.14.2-1.tar.gz";
       hash = "sha256-S9Ib/hn9Wzl1bFRJcGPDNWONJpbh0zUGcfdHDN7dPfY=";
@@ -170,14 +170,14 @@
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "f7b6796cbaed1f7bd50c08715d77b12d8f306036";
+    version = "30098a173dfb2657df43d31bf7e5e3674f19a694";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "f7b6796cbaed1f7bd50c08715d77b12d8f306036";
-      hash = "sha256-on/A/tcb0f9Iuma/1BledjkzhmE8OSXSRWXf4uo+uoc=";
+      rev = "30098a173dfb2657df43d31bf7e5e3674f19a694";
+      hash = "sha256-23Zh2mYYSQ4geAssvEaaLQnHl28H1RpRL1aqub9SAwQ=";
     };
-    date = "2024-11-04";
+    date = "2024-11-06";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -696,12 +696,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b4034";
+    version = "b4041";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      rev = "b4034";
-      hash = "sha256-n6Q36ha9trUkKWx+8FCHji0PFhskRdPXhZeIGGaXdJY=";
+      rev = "b4041";
+      hash = "sha256-0dS82rUhxx4e3O2+M1OCFhrcEoHsC3GimUGpGIzxuMQ=";
     };
   };
   lyrica = {
@@ -899,6 +899,22 @@
     };
     date = "2024-08-13";
   };
+  one-api-amd64 = {
+    pname = "one-api-amd64";
+    version = "v0.6.8";
+    src = fetchurl {
+      url = "https://github.com/songquanpeng/one-api/releases/download/v0.6.8/one-api";
+      hash = "sha256-vW+VnIyLGgEmHhgeEvXecR/ZeSWQ9DD1s5bZke3JwC8=";
+    };
+  };
+  one-api-arm64 = {
+    pname = "one-api-arm64";
+    version = "v0.6.8";
+    src = fetchurl {
+      url = "https://github.com/songquanpeng/one-api/releases/download/v0.6.8/one-api-arm64";
+      hash = "sha256-iaFzBcAk7XOmkfqHz/v4nx7GmKQ+XxvmJgs46/eCx1M=";
+    };
+  };
   onepush = {
     pname = "onepush";
     version = "8b09e62330ad74ba3221bfc2b080d1732a1dcc55";
@@ -928,7 +944,7 @@
       owner = "open-quantum-safe";
       repo = "oqs-provider";
       rev = "0.7.0";
-      hash = "sha256-2+TpYpZwC8vx6tGgS2waD/BQDfnbq0PJIwvX5wDDBEg=";
+      hash = "sha256-KKZMb6ebaXxLSr5aV0m0VIHj2ofaRYQ0JF5JMAfiEj4=";
     };
   };
   osdlyrics = {
@@ -984,10 +1000,10 @@
   };
   peerbanhelper = {
     pname = "peerbanhelper";
-    version = "7.0.2";
+    version = "7.1.2";
     src = fetchurl {
-      url = "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v7.0.2/PeerBanHelper_7.0.2.zip";
-      hash = "sha256-NJCQV5eRw2V3vHiKhUwrF+N1YN35baynY2svzwn+qVo=";
+      url = "https://github.com/Ghost-chu/PeerBanHelper/releases/download/v7.1.2/PeerBanHelper_7.1.2.zip";
+      hash = "sha256-kS8A+w5MUmiGZT0TQVpOifYG/UdryZfBVFTDQrv8eVc=";
     };
   };
   phpmyadmin = {
@@ -1536,6 +1552,17 @@
       hash = "sha256-mcqiTqu/KIZ+W9yvZfyFekjRdiVavkHVKVRh0xUytg0=";
     };
   };
+  uni-api = {
+    pname = "uni-api";
+    version = "1b4cad3feb59a1c008d2f0a55c8e408502440d05";
+    src = fetchFromGitHub {
+      owner = "yym68686";
+      repo = "uni-api";
+      rev = "1b4cad3feb59a1c008d2f0a55c8e408502440d05";
+      hash = "sha256-J7vIuL9KnD1HtKwYZ3kAtfj0yYeKrvXk9LTvPOQa7zE=";
+    };
+    date = "2024-11-06";
+  };
   unigine-heaven = {
     pname = "unigine-heaven";
     version = "4.0";
@@ -1666,6 +1693,14 @@
     src = fetchurl {
       url = "https://pypi.org/packages/source/X/XStatic-Font-Awesome/XStatic-Font-Awesome-4.7.0.0.tar.gz";
       hash = "sha256-4B+0gMqqfHlj3LMyikcA5jG+9gcNsOi2hYFtIg5oX2w=";
+    };
+  };
+  xue = {
+    pname = "xue";
+    version = "0.0.34";
+    src = fetchurl {
+      url = "https://pypi.org/packages/source/x/xue/xue-0.0.34.tar.gz";
+      hash = "sha256-1fTAmCuZYVOrNihGQZfGK0pwV910KD19KK+MYkuyA3w=";
     };
   };
   zstd-nginx-module = {
