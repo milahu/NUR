@@ -150,6 +150,7 @@ in
         self.icu
         self.imagemagick
         self.ledger
+        self.libheif
         self.libnotify # for nofify-send
         self.mupdf
         self.nixos-option
