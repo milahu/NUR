@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.444,
-"eval_time":0.837,
+"fetch_time":0.634,
+"eval_time":0.838,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"637bc6b7bd7d40b4ec63e14ac49139b1fa79c1b2",
-"sha256":"0az0brv38sviw5y5m67dks5qgkfnch71jd5hw5dx5psdy7vi6cfc",
+"rev":"f3e79d496860b20a3eba3337b7809020e52706fc",
+"sha256":"12jbhgx848zvinqfqffv25wfrc06y97kqzgw2zrzkzdzxv83wf99",
 "date":null
 },
-"source_storepath":"/nix/store/ypsh031lpvlajb3h2gbi9w0qshzdrgc0-source",
+"source_storepath":"/nix/store/fnmy36351am8x59fnp50r21p8iyclbls-source",
 "nixpkgs_storepath":"/nix/store/lbhx7v2g82b26dq9d3crm99acszfmdd4-source",
-"nur_combined_rev":"eb2bb39bae521bdea7604cc07e4875ae8b57c741",
+"nur_combined_rev":"2f3a9d308de1ee8bd578b5133ded2cfc325f70e7",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -1794,7 +1794,7 @@
 "meta":{
 "available":false,
 "broken":false,
-"description":"\u9489\u9489",
+"description":"DingTalk is an enterprise communication and collaboration platform developed by Alibaba Group",
 "homepage":"https://www.dingtalk.com/",
 "insecure":false,
 "license":{
@@ -1827,7 +1827,13 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/dingtalk/default.nix:256",
+"position":"./pkgs/uncategorized/dingtalk/default.nix:260",
+"sourceProvenance":[
+{
+"isSource":false,
+"shortName":"binaryNativeCode"
+}
+],
 "unfree":true,
 "unsupported":false
 },
@@ -2237,7 +2243,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Layer2 version of wireguard with Floyd Warshall implement in go",
+"description":"Layer 2 version of WireGuard with Floyd Warshall implementation in Go",
 "homepage":"https://github.com/KusakabeShi/EtherGuard-VPN",
 "insecure":false,
 "license":{
@@ -2266,7 +2272,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"etherguard-unstable-2024-01-12",
+"name":"etherguard-0.3.5-f5",
 "outputsToInstall":[
 "out"
 ],
@@ -2305,14 +2311,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"etherguard-unstable-2024-01-12",
+"name":"etherguard-0.3.5-f5",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"etherguard-unstable",
+"pname":"etherguard",
 "system":"x86_64-linux",
-"version":"2024-01-12"
+"version":"0.3.5-f5"
 },
 "fastapi-dls":{
 "meta":{
@@ -2817,11 +2823,14 @@
 },
 "glauth":{
 "meta":{
-"available":true,
+"available":false,
 "broken":false,
 "description":"Lightweight LDAP server for development, home use, or CI",
 "homepage":"https://github.com/glauth/glauth",
-"insecure":false,
+"insecure":true,
+"knownVulnerabilities":[
+"glauth is available in nixpkgs by a different maintainer"
+],
 "license":{
 "deprecated":false,
 "free":true,
@@ -2882,7 +2891,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"./pkgs/uncategorized/glauth/default.nix:20",
+"position":"./pkgs/deprecated/glauth/default.nix:20",
 "unfree":false,
 "unsupported":false
 },
@@ -3406,7 +3415,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"\u201d\u6df1\u84dd\u8bcd\u5e93\u8f6c\u6362\u201c \u4e00\u6b3e\u5f00\u6e90\u514d\u8d39\u7684\u8f93\u5165\u6cd5\u8bcd\u5e93\u8f6c\u6362\u7a0b\u5e8f",
+"description":"FOSS program for converting IME dictionaries",
 "homepage":"https://github.com/studyzy/imewlconverter",
 "insecure":false,
 "license":{
@@ -3710,7 +3719,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"KikoPlay - NOT ONLY A Full-Featured Danmu Player \u4e0d\u4ec5\u4ec5\u662f\u5168\u529f\u80fd\u5f39\u5e55\u64ad\u653e\u5668",
+"description":"KikoPlay - NOT ONLY A Full-Featured Danmu Player",
 "homepage":"https://kikoplay.fun",
 "insecure":false,
 "license":{
@@ -3743,7 +3752,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/kikoplay/default.nix:62",
+"position":"./pkgs/uncategorized/kikoplay/default.nix:65",
 "unfree":false,
 "unsupported":false
 },
@@ -4178,7 +4187,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"llama-cpp-4056",
+"name":"llama-cpp-4058",
 "outputsToInstall":[
 "out"
 ],
@@ -4232,14 +4241,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-4056",
+"name":"llama-cpp-4058",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"4056"
+"version":"4058"
 },
 "lantianCustomized.materialgram":{
 "meta":{
@@ -27767,7 +27776,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"peerbanhelper-7.1.2",
+"name":"peerbanhelper-7.1.3",
 "outputsToInstall":[
 "out"
 ],
@@ -27775,14 +27784,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"peerbanhelper-7.1.2",
+"name":"peerbanhelper-7.1.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"peerbanhelper",
 "system":"x86_64-linux",
-"version":"7.1.2"
+"version":"7.1.3"
 },
 "phpmyadmin":{
 "meta":{
@@ -28487,55 +28496,6 @@
 "system":"x86_64-linux",
 "version":"9.1.1+ds-3"
 },
-"qhttpengine":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"HTTP server for Qt applications",
-"homepage":"https://github.com/nitroshare/qhttpengine",
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"maintainers":[
-{
-"email":"b980120@hotmail.com",
-"github":"xddxdd",
-"githubId":5778879,
-"keys":[
-{
-"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
-},
-{
-"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
-}
-],
-"name":"Yuhui Xu"
-}
-],
-"name":"qhttpengine-unstable-2018-03-22",
-"outputsToInstall":[
-"out"
-],
-"position":"./pkgs/uncategorized/qhttpengine/default.nix:20",
-"unfree":false,
-"unsupported":false
-},
-"name":"qhttpengine-unstable-2018-03-22",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"qhttpengine-unstable",
-"system":"x86_64-linux",
-"version":"2018-03-22"
-},
 "qq":{
 "meta":{
 "available":false,
@@ -28624,7 +28584,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/qqmusic/default.nix:136",
+"position":"./pkgs/uncategorized/qqmusic/default.nix:127",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -29109,7 +29069,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-ice-unstable-2024-11-08",
+"name":"rime-ice-unstable-2024-11-10",
 "outputsToInstall":[
 "out"
 ],
@@ -29117,20 +29077,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-unstable-2024-11-08",
+"name":"rime-ice-unstable-2024-11-10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-ice-unstable",
 "system":"x86_64-linux",
-"version":"2024-11-08"
+"version":"2024-11-10"
 },
 "rime-moegirl":{
 "meta":{
 "available":true,
 "broken":false,
-"description":"Releases for dict of zh.moegirl.org.cn",
+"description":"RIME dictionary file for entries from zh.moegirl.org.cn",
 "homepage":"https://github.com/outloudvi/mw2fcitx/releases",
 "insecure":false,
 "license":{
@@ -29158,39 +29118,50 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-moegirl-20241009",
+"name":"rime-moegirl-20241109",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/rime-moegirl/default.nix:20",
+"position":"./pkgs/uncategorized/rime-moegirl/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-moegirl-20241009",
+"name":"rime-moegirl-20241109",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-moegirl",
 "system":"x86_64-linux",
-"version":"20241009"
+"version":"20241109"
 },
 "rime-zhwiki":{
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fcitx 5 Pinyin Dictionary from zh.wikipedia.org",
+"description":"RIME dictionary file for entries from zh.wikipedia.org",
 "homepage":"https://github.com/felixonmars/fcitx5-pinyin-zhwiki",
 "insecure":false,
-"license":{
+"license":[
+{
 "deprecated":false,
 "free":true,
-"fullName":"The Unlicense",
+"fullName":"GNU Free Documentation License v1.3 or later",
 "redistributable":true,
-"shortName":"unlicense",
-"spdxId":"Unlicense",
-"url":"https://spdx.org/licenses/Unlicense.html"
+"shortName":"fdl13Plus",
+"spdxId":"GFDL-1.3-or-later",
+"url":"https://spdx.org/licenses/GFDL-1.3-or-later.html"
 },
+{
+"deprecated":false,
+"free":true,
+"fullName":"Creative Commons Attribution Share Alike 4.0",
+"redistributable":true,
+"shortName":"cc-by-sa-40",
+"spdxId":"CC-BY-SA-4.0",
+"url":"https://spdx.org/licenses/CC-BY-SA-4.0.html"
+}
+],
 "maintainers":[
 {
 "email":"b980120@hotmail.com",
@@ -29207,22 +29178,22 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-zhwiki-20240426",
+"name":"rime-zhwiki-20240909",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/rime-zhwiki/default.nix:20",
+"position":"./pkgs/uncategorized/rime-zhwiki/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-zhwiki-20240426",
+"name":"rime-zhwiki-20240909",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-zhwiki",
 "system":"x86_64-linux",
-"version":"20240426"
+"version":"20240909"
 },
 "route-chain":{
 "meta":{
@@ -30967,7 +30938,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"uni-api-unstable-2024-11-08",
+"name":"uni-api-unstable-2024-11-09",
 "outputsToInstall":[
 "out"
 ],
@@ -30975,14 +30946,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"uni-api-unstable-2024-11-08",
+"name":"uni-api-unstable-2024-11-09",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uni-api-unstable",
 "system":"x86_64-linux",
-"version":"2024-11-08"
+"version":"2024-11-09"
 },
 "unigine-heaven":{
 "meta":{
