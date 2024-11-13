@@ -1,12 +1,14 @@
+trace: evaluation warning: 'buildGoPackage' is deprecated and will be removed for the 25.05 release.
+Please use 'buildGoModule' instead. Tips for migration can be found in the Go section of the nixpkgs manual.
 error:
 … from call site
 
-  at ./nur.nix:87:17:
+  at ./nur.nix:61:10:
 
-    86|
-    87|   go-swagger  = pkgs.callPackage ./pkgs/go-swagger { };
-      |                 ^
-    88|
+    60|
+    61|   dcdb = pkgs.callPackage ./pkgs/dcdb { inherit scylladb-cpp-driver bacnet-stack mosquitto-dcdb; };
+      |          ^
+    62|
 
 … while calling 'callPackageWith'
 
@@ -17,75 +19,4 @@ error:
       |                                   ^
    213|     let
 
-… from call site
-
-  at <nixpkgs> + /lib/trivial.nix:955:7:
-
-   954|     { # TODO: Should we add call-time "type" checking like built in?
-   955|       __functor = self: f;
-      |       ^
-   956|       __functionArgs = args;
-
-… while calling anonymous lambda
-
-  at <nixpkgs> + /lib/customisation.nix:136:17:
-
-   135|     in
-   136|     mirrorArgs (origArgs:
-      |                 ^
-   137|     let
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:138:16:
-
-   137|     let
-   138|       result = f origArgs;
-      |                ^
-   139|
-
-… while calling anonymous lambda
-
-  at ./pkgs/go-swagger/default.nix:1:1:
-
-     1| { lib, buildGoPackage, fetchFromGitHub }:
-      | ^
-     2|
-
-… from call site
-
-  at <nixpkgs> + /lib/trivial.nix:955:7:
-
-   954|     { # TODO: Should we add call-time "type" checking like built in?
-   955|       __functor = self: f;
-      |       ^
-   956|       __functionArgs = args;
-
-… while calling anonymous lambda
-
-  at <nixpkgs> + /pkgs/build-support/go/package.nix:4:1:
-
-     3|
-     4| { buildInputs ? []
-      | ^
-     5| , nativeBuildInputs ? []
-
-… from call site
-
-  at <nixpkgs> + /pkgs/build-support/go/package.nix:288:1:
-
-   287| in
-   288| lib.warnIf (buildFlags != "" || buildFlagsArray != "")
-      | ^
-   289|   "`buildFlags`/`buildFlagsArray` are deprecated and will be removed in the 24.11 release. Use the `ldflags` and/or `tags` attributes instead"
-
-… while calling 'warnIf'
-
-  at <nixpkgs> + /lib/trivial.nix:789:18:
-
-   788|   */
-   789|   warnIf = cond: msg: if cond then warn msg else x: x;
-      |                  ^
-   790|
-
-error: value is a string while a list was expected
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "boost170" at ./pkgs/dcdb/default.nix:1, did you mean "boost175", "boost177" or "boost178"?'
