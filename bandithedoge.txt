@@ -121,21 +121,21 @@ error:
 
 … while calling 'makeExtensibleWithCustomName'
 
-  at <nixpkgs> + /lib/fixed-points.nix:433:19:
+  at <nixpkgs> + /lib/fixed-points.nix:445:19:
 
-   432|   makeExtensibleWithCustomName =
-   433|     extenderName: rattrs:
+   444|   makeExtensibleWithCustomName =
+   445|     extenderName: rattrs:
       |                   ^
-   434|     fix' (
+   446|     fix' (
 
 … from call site
 
-  at <nixpkgs> + /lib/fixed-points.nix:434:5:
+  at <nixpkgs> + /lib/fixed-points.nix:446:5:
 
-   433|     extenderName: rattrs:
-   434|     fix' (
+   445|     extenderName: rattrs:
+   446|     fix' (
       |     ^
-   435|       self:
+   447|       self:
 
 … while calling 'fix''
 
@@ -157,21 +157,21 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/fixed-points.nix:435:7:
+  at <nixpkgs> + /lib/fixed-points.nix:447:7:
 
-   434|     fix' (
-   435|       self:
+   446|     fix' (
+   447|       self:
       |       ^
-   436|       (rattrs self)
+   448|       (rattrs self)
 
 … from call site
 
-  at <nixpkgs> + /lib/fixed-points.nix:436:8:
+  at <nixpkgs> + /lib/fixed-points.nix:448:8:
 
-   435|       self:
-   436|       (rattrs self)
+   447|       self:
+   448|       (rattrs self)
       |        ^
-   437|       // {
+   449|       // {
 
 … while calling anonymous lambda
 
