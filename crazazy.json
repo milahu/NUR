@@ -1,16 +1,16 @@
 {
 "name":"crazazy",
-"fetch_time":0.511,
-"eval_time":0.739,
+"fetch_time":0.479,
+"eval_time":0.72,
 "source":{
 "url":"https://github.com/crazazy/nixos-config",
-"rev":"231d02f4fab2be5790823d8ae6c40e4bd0aa3513",
-"sha256":"1b0r9m7i6pzv05yn81sxavn64lifbskpd33f0x4vxhi4zlmqjrh3",
+"rev":"1256a694a314195a52c5d4e4c277cdffe355aec1",
+"sha256":"1xhzfmp7cj1lc0j5jb82ybkhjj8yd3713mwh81dvyd38275w13zy",
 "date":null
 },
-"source_storepath":"/nix/store/6l77lm1wrvp656k2xkqq8xph3jl46rgk-source",
-"nixpkgs_storepath":"/nix/store/lbhx7v2g82b26dq9d3crm99acszfmdd4-source",
-"nur_combined_rev":"e7667b2ecb26daf0ebfe29d7dbc0ed20c7a4fc62",
+"source_storepath":"/nix/store/wbimq9sbmv12s950df8pw45nk3qqxy4z-source",
+"nixpkgs_storepath":"/nix/store/l3dbi2pc4qiq142vpcnfidfz1r77r77r-source",
+"nur_combined_rev":"9cc1b65879b9306b0d77c99cdcf060728ccbaf54",
 "packages":{
 "cakeml":{
 "meta":{
@@ -143,6 +143,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -275,6 +276,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ]
@@ -373,6 +375,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ]
@@ -473,6 +476,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ]
@@ -572,6 +576,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ]
@@ -672,6 +677,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ]
@@ -772,6 +778,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ]
@@ -872,6 +879,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ]
@@ -972,6 +980,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ]
@@ -1741,10 +1750,11 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:224270",
+"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:224266",
 "unfree":false,
 "unsupported":false
 },
@@ -1923,7 +1933,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v26.0.0/RELEASES.md",
+"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v26.0.1/RELEASES.md",
 "description":"wasmtime WebAssembly runner with support for delmited continuations",
 "homepage":"https://wasmtime.dev/",
 "insecure":false,
@@ -1952,7 +1962,7 @@
 "name":"Matthew Bauer"
 }
 ],
-"name":"wasmtime-26.0.0",
+"name":"wasmtime-26.0.1",
 "outputsToInstall":[
 "out"
 ],
