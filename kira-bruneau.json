@@ -1,16 +1,16 @@
 {
 "name":"kira-bruneau",
-"fetch_time":0.341,
-"eval_time":0.411,
+"fetch_time":0.264,
+"eval_time":0.386,
 "source":{
 "url":"https://gitlab.com/kira-bruneau/nur-packages",
-"rev":"2ed82d75bc2b1dd5bf1e47198ae8bbdc6aa81bb9",
-"sha256":"0ghcs9y7l9zk87xgj6gd82l8vvifgay275fjnp5cr1qf5f7pnkg3",
+"rev":"a16fee4ffd19ee6ae4fb7f64166e1ca00d2de1df",
+"sha256":"1gcbb1ml66c3zcsi2a5a4rhs6k4q0jmpq8v5j795h0sb9b7v6wpy",
 "date":null
 },
-"source_storepath":"/nix/store/8yzwkvh1lm4wgfnzzcac5z998ir6a3v4-source",
-"nixpkgs_storepath":"/nix/store/lbhx7v2g82b26dq9d3crm99acszfmdd4-source",
-"nur_combined_rev":"36800ac2bf3bd7853e80a8e84c81633f6607e505",
+"source_storepath":"/nix/store/0h6qd0v492a6gpq12xidssxpmdhg0460-source",
+"nixpkgs_storepath":"/nix/store/26fz3a49sb9n58cdc5bgsgs1njy72vy1-source",
+"nur_combined_rev":"8e9543bea7cfdaff977796997262f6d16389ecfa",
 "packages":{
 "anytype":{
 "meta":{
@@ -36,7 +36,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-0.43.4",
+"name":"anytype-0.43.6",
 "outputsToInstall":[
 "out"
 ],
@@ -67,20 +67,20 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-0.43.4",
+"name":"anytype-0.43.6",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype",
 "system":"x86_64-linux",
-"version":"0.43.4"
+"version":"0.43.6"
 },
 "anytype-heart":{
 "meta":{
 "available":false,
 "broken":false,
-"changelog":"https://github.com/anyproto/anytype-heart/releases/tag/v0.36.7",
+"changelog":"https://github.com/anyproto/anytype-heart/releases/tag/v0.36.10",
 "description":"Shared library for Anytype clients",
 "homepage":"https://github.com/anyproto/anytype-heart",
 "insecure":false,
@@ -100,7 +100,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-heart-0.36.7",
+"name":"anytype-heart-0.36.10",
 "outputsToInstall":[
 "out"
 ],
@@ -131,14 +131,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-heart-0.36.7",
+"name":"anytype-heart-0.36.10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype-heart",
 "system":"x86_64-linux",
-"version":"0.36.7"
+"version":"0.36.10"
 },
 "anytype-nmh":{
 "meta":{
@@ -164,7 +164,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-0.43.4",
+"name":"anytype-0.43.6",
 "outputsToInstall":[
 "out"
 ],
@@ -195,14 +195,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-nmh-0.43.4",
+"name":"anytype-nmh-0.43.6",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype-nmh",
 "system":"x86_64-linux",
-"version":"0.43.4"
+"version":"0.43.6"
 },
 "ccache":{
 "meta":{
@@ -338,7 +338,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/games/clonehero/default.nix:117",
+"position":"./pkgs/by-name/cl/clonehero/package.nix:117",
 "unfree":true,
 "unsupported":false
 },
@@ -388,6 +388,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -443,6 +444,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -492,7 +494,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-acm-0-unstable-2024-11-06",
+"name":"emacs-acm-0-unstable-2024-11-14",
 "outputsToInstall":[
 "out"
 ],
@@ -570,6 +572,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -577,14 +580,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-acm-0-unstable-2024-11-06",
+"name":"emacs-acm-0-unstable-2024-11-14",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-acm",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-11-06"
+"version":"0-unstable-2024-11-14"
 },
 "emacsPackages.acm-terminal":{
 "meta":{
@@ -688,6 +691,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -806,6 +810,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -852,7 +857,7 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-lsp-bridge-0-unstable-2024-11-06",
+"name":"emacs-lsp-bridge-0-unstable-2024-11-14",
 "outputsToInstall":[
 "out"
 ],
@@ -930,6 +935,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -937,14 +943,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-lsp-bridge-0-unstable-2024-11-06",
+"name":"emacs-lsp-bridge-0-unstable-2024-11-14",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-lsp-bridge",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-11-06"
+"version":"0-unstable-2024-11-14"
 },
 "gamemode":{
 "meta":{
@@ -1020,7 +1026,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/gadget-inc/ggt/releases/tag/v24.11pre704822.85f7e662eda4",
+"changelog":"https://github.com/gadget-inc/ggt/releases/tag/v24.11pre707445.24f0d4acd634",
 "description":"Command-line interface for Gadget",
 "homepage":"https://docs.gadget.dev/guides/development-tools/cli",
 "insecure":false,
@@ -1094,6 +1100,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -1150,6 +1157,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -1274,6 +1282,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -1596,12 +1605,13 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"position":"./pkgs/tools/compression/mozlz4a/default.nix:32",
+"position":"./pkgs/by-name/mo/mozlz4a/package.nix:32",
 "unfree":false,
 "unsupported":false
 },
@@ -1695,7 +1705,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/applications/networking/feedreaders/newsflash/default.nix:99",
+"position":"./pkgs/by-name/ne/newsflash/package.nix:99",
 "unfree":false,
 "unsupported":false
 },
@@ -1976,6 +1986,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -2027,6 +2038,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2107,6 +2119,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2191,6 +2204,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2245,6 +2259,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2300,6 +2315,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2354,6 +2370,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2408,6 +2425,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2462,6 +2480,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2517,6 +2536,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2601,6 +2621,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2655,6 +2676,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2710,6 +2732,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2764,6 +2787,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2818,6 +2842,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2872,6 +2897,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2895,7 +2921,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v24.11pre704822.85f7e662eda4",
+"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v24.11pre707445.24f0d4acd634",
 "description":"Nintendo Switch emulator written in C++",
 "homepage":"https://sudachi-emu.com",
 "insecure":false,
@@ -3299,7 +3325,7 @@
 "mips64el-linux",
 "riscv32-linux"
 ],
-"position":"./pkgs/tools/games/ukmm/default.nix:79",
+"position":"./pkgs/by-name/uk/ukmm/package.nix:79",
 "unfree":false,
 "unsupported":false
 },
@@ -3363,7 +3389,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/shells/bash/undistract-me/default.nix:78",
+"position":"./pkgs/by-name/un/undistract-me/package.nix:78",
 "unfree":false,
 "unsupported":false
 },
@@ -3738,6 +3764,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -3858,6 +3885,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -3978,6 +4006,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
