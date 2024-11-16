@@ -11,6 +11,8 @@
   pkgs-stable ? import <nixpkgs> { },
 }:
 
+
+
 rec {
   # The `lib`, `modules`, and `overlay` names are special
   lib = import ./lib { inherit pkgs; }; # functions
@@ -27,6 +29,7 @@ rec {
   ncmdump-rs = pkgs.callPackage ./pkgs-by-lang/Rust/ncmdump.rs { };
   rescrobbled = pkgs.callPackage ./pkgs-by-lang/Rust/rescrobbled { };
   waylyrics = pkgs.callPackage ./pkgs-by-lang/Rust/waylyrics { };
+  aichat = pkgs.callPackage ./pkgs-by-lang/Rust/aichat { };
 
   # Dotnet
   BBDown = pkgs.callPackage ./pkgs-by-lang/Dotnet/BBDown { };
@@ -75,6 +78,31 @@ rec {
   mongodb = pkgs-stable.mongodb;
   cudatoolkit = pkgs.cudaPackages_12.cudatoolkit;
 
+  # dream2nix
+
+  # dream2nix-packages = dream2nix.lib.importPackages {
+  #   projectRoot = ./.;
+  #   projectRootFile = ".project-root";
+  #   packagesDir = ./pkgs-dream2nix;
+  #   packageSets.nixpkgs = pkgs;
+  # };
+  # aichat = dream2nix.lib.evalModules {
+  #   packageSets.nixpkgs = pkgs;
+  #   modules = [
+  #     # Import our actual package definiton as a dream2nix module from ./default.nix
+  #     ./pkgs-dream2nix/aichat/default.nix
+  #     {
+  #       # Aid dream2nix to find the project root. This setup should also works for mono
+  #       # repos. If you only have a single project, the defaults should be good enough.
+  #       paths.projectRoot = ./.;
+  #       # can be changed to ".git" or "flake.nix" to get rid of .project-root
+  #       paths.projectRootFile = "flake.nix";
+  #       paths.package = ./.;
+  #     }
+  #   ];
+  # };
+
+
   # Broken
   #sudachi = pkgs.qt6.callPackage ./pkgs-by-lang/C/sudachi { };
   #llamafile = pkgs.callPackage ./pkgs-by-lang/C/llamafile { };
@@ -94,5 +122,4 @@ rec {
   #sway-im = pkgs.callPackage ./pkgs/Overrides/sway-im { };
   #qcm = pkgs.qt6.callPackage ./pkgs/Overrides/qcm { };
   #basilisk = pkgs.callPackage ./pkgs/Bin/basilisk { withGTK3 = true; };
-
 }
