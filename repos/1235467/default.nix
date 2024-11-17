@@ -30,6 +30,7 @@ rec {
   rescrobbled = pkgs.callPackage ./pkgs-by-lang/Rust/rescrobbled { };
   waylyrics = pkgs.callPackage ./pkgs-by-lang/Rust/waylyrics { };
   aichat = pkgs.callPackage ./pkgs-by-lang/Rust/aichat { };
+  fww-checkin-rs = pkgs.callPackage ./pkgs-by-lang/Rust/fww-checkin-rs { };
 
   # Dotnet
   BBDown = pkgs.callPackage ./pkgs-by-lang/Dotnet/BBDown { };
