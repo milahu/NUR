@@ -1,16 +1,16 @@
 {
 "name":"ataraxiasjel",
-"fetch_time":0.373,
-"eval_time":0.336,
+"fetch_time":0.701,
+"eval_time":0.303,
 "source":{
 "url":"https://github.com/AtaraxiaSjel/nur",
-"rev":"5540b3fee354cce63a7407da841f6f5b31cf0453",
-"sha256":"1mhaw6nvy2vnk7qgcl3dx1avrq1ny3cykf3zcwyvyqjq5d3wkhy5",
+"rev":"387b48a00051be398162316a8e9f075289f7d22b",
+"sha256":"0vlk6lfnn9f0lhnzyka8xcynxzdc9rw1drgh2rfbhgc4945wv1zv",
 "date":null
 },
-"source_storepath":"/nix/store/didrb8h7gzmnjdaxiqbp5fi6ssx7ghxk-source",
-"nixpkgs_storepath":"/nix/store/lbhx7v2g82b26dq9d3crm99acszfmdd4-source",
-"nur_combined_rev":"27c3ed853c4e5fd84e681fb7d8a2ce821a88616f",
+"source_storepath":"/nix/store/jqxpncnvx35v7r9185hwz1z0n42685fg-source",
+"nixpkgs_storepath":"/nix/store/fnv2dvawhgs2p1vjxkib1r19i2l70aqr-source",
+"nur_combined_rev":"c4776d144c4ed2e951a104d88bcc35e0d86c8a2c",
 "packages":{
 "a2ln":{
 "meta":{
@@ -47,6 +47,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -223,6 +224,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -604,6 +606,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -795,6 +798,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -1018,7 +1022,7 @@
 "name":"Dmitriy"
 }
 ],
-"name":"koboldcpp-1.77",
+"name":"koboldcpp-1.78",
 "outputsToInstall":[
 "out"
 ],
@@ -1049,14 +1053,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"koboldcpp-1.77",
+"name":"koboldcpp-1.78",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"koboldcpp",
 "system":"x86_64-linux",
-"version":"1.77"
+"version":"1.78"
 },
 "koboldcpp-rocm":{
 "meta":{
@@ -1548,6 +1552,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -1607,6 +1612,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -1662,6 +1668,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -1721,6 +1728,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -1775,6 +1783,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -1834,6 +1843,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2030,6 +2040,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -2153,6 +2164,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -2276,6 +2288,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -2590,6 +2603,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -2713,6 +2727,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -2764,6 +2779,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -2868,6 +2884,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
@@ -3022,6 +3039,7 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
