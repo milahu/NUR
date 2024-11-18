@@ -10,8 +10,8 @@ in
       };
     }
     (lib.mkIf cfg.enabled {
-      services.getty.loginProgram = "${cfg.package}/bin/login";
-      security.pam.services.login.startSession = lib.mkForce false;  #< disable systemd integration
+      services.getty.loginProgram = lib.getExe' cfg.package "login";
+      # security.pam.services.login.startSession = lib.mkForce false;  #< disable systemd integration
     })
   ];
 }

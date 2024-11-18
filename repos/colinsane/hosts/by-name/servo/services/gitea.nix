@@ -1,6 +1,6 @@
 # config options: <https://docs.gitea.io/en-us/administration/config-cheat-sheet/>
 # TODO: service shouldn't run as `git` user, but as `gitea`
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   sane.persist.sys.byStore.private = [
@@ -86,7 +86,7 @@
       ENABLED = true;
       FROM = "notify.git@uninsane.org";
       PROTOCOL = "sendmail";
-      SENDMAIL_PATH = "${pkgs.postfix}/bin/sendmail";
+      SENDMAIL_PATH = lib.getExe' pkgs.postfix "sendmail";
       SENDMAIL_ARGS = "--";  # most "sendmail" programs take options, "--" will prevent an email address being interpreted as an option.
     };
     time = {
@@ -101,13 +101,12 @@
     # we need more protos for sendmail to work. i thought it only needed +AF_LOCAL, but that didn't work.
     RestrictAddressFamilies = lib.mkForce "~";
     # add maildrop to allow sendmail to work
-    ReadWritePaths = lib.mkForce [
+    ReadWritePaths = [
       "/var/lib/postfix/queue/maildrop"
-      "/var/lib/gitea"
     ];
   };
 
-  services.openssh.settings.UsePAM = true;  #< required for `git` user to authenticate
+  # services.openssh.settings.UsePAM = true;  #< required for `git` user to authenticate
 
   # hosted git (web view and for `git <cmd>` use
   # TODO: enable publog?

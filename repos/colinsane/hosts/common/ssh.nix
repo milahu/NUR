@@ -23,6 +23,9 @@ in
       # Github actually uses multiple keys -- one per format
       "root@github.com" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
 
+      # documented: <https://docs.gitlab.com/ee/user/gitlab_com/index.html#ssh-known_hosts-entries>
+      "root@gitlab.com" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf";
+
       # documented: <https://www.rsync.net/resources/fingerprints.txt>
       # extract keys with `ssh-keyscan sd1.rsync.net`
       # validate fingerprint with `ssh-keyscan sd1.rsync.net | ssh-keygen -l -f -`
@@ -34,7 +37,7 @@ in
     enable = true;
     settings.PermitRootLogin = "no";
     settings.PasswordAuthentication = false;
-    settings.UsePAM = lib.mkDefault false;  #< notably, disables systemd session tracking; incidentally disables pam_mount, etc.
+    # settings.UsePAM = lib.mkDefault false;  #< notably, disables systemd session tracking; incidentally disables pam_mount, etc.
   };
   sane.ports.ports."22" = {
     protocol = [ "tcp" ];
