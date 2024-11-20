@@ -75,15 +75,15 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "1ba050d603dca644aca48872f62388d794c030b9";
+    version = "47a1650c4810ad3cb3e9f125cb0addf18aa7395c";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "1ba050d603dca644aca48872f62388d794c030b9";
+      rev = "47a1650c4810ad3cb3e9f125cb0addf18aa7395c";
       fetchSubmodules = true;
-      sha256 = "sha256-x6JWWj0hORDNFInxl+/yrRPKNfQjjohwMYzcXRmP40g=";
+      sha256 = "sha256-kIKzl26xgtoF2SOhR5evXAFKP2YTdXk0t3djLYuhOMA=";
     };
-    date = "2024-11-17";
+    date = "2024-11-18";
   };
   hyprwayland-scanner = {
     pname = "hyprwayland-scanner";
@@ -232,15 +232,15 @@
   };
   qcm = {
     pname = "qcm";
-    version = "24fff7ce9cfa44aedd0a49b9960a5204322d2bef";
+    version = "212516d9ffb79756e2aebd01152881b03041fb65";
     src = fetchFromGitHub {
       owner = "hypengw";
       repo = "Qcm";
-      rev = "24fff7ce9cfa44aedd0a49b9960a5204322d2bef";
+      rev = "212516d9ffb79756e2aebd01152881b03041fb65";
       fetchSubmodules = true;
-      sha256 = "sha256-zlxaVnKt0dwlDYSBruvBlfmUVR5ku+Pbun1C0cNEowk=";
+      sha256 = "sha256-LSvu5X5pUcR+RyutFY0Jnx3zW9nKdzOYc8YlLymmqSE=";
     };
-    date = "2024-11-17";
+    date = "2024-11-18";
   };
   reflac = {
     pname = "reflac";
@@ -317,16 +317,16 @@
   };
   wayland = {
     pname = "wayland";
-    version = "f67db75ec118f6ec64e60113dbdecb20b4ea1abd";
+    version = "10df74c240d3cff4bd56bf17ebfc1a54883e00f5";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/wayland/wayland";
-      rev = "f67db75ec118f6ec64e60113dbdecb20b4ea1abd";
+      rev = "10df74c240d3cff4bd56bf17ebfc1a54883e00f5";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-59+WuNJB1qjSslyxI6nj9tut/ULS5uCiOJ/s74H5pAU=";
+      sha256 = "sha256-sk1ktYo05LhwBHPYlhQNjadmae78ss6OMtpdpCbNepY=";
     };
-    date = "2024-10-18";
+    date = "2024-11-18";
   };
   wayland-protocols = {
     pname = "wayland-protocols";
