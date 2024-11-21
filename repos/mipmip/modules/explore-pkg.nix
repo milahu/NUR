@@ -9,7 +9,10 @@
     #cool-retro-term
     rclone
     rclone-browser
+    matterbridge
 
+    #distrobox
+    gnome.gnome-boxes
 
 
   ];
