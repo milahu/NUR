@@ -15,6 +15,8 @@
       lib.mapAttrs toSecret {
         "users/alarsyo-hashed-password" = {};
         "users/root-hashed-password" = {};
+        "gitlab-runner/thanatos-runner-env" = {};
+        "gitlab-runner/thanatos-nix-runner-env" = {};
       };
   };
 }
