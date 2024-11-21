@@ -1,16 +1,16 @@
-trace: evaluation warning: osirus has been moved to the-usual-suspects.osirus
+trace: evaluation warning: osirus has been renamed to dsp56300
 trace: evaluation warning: swift-mesonlsp-bin has been renamed to mesonlsp-bin
 trace: evaluation warning: lua-dev.nvim has been renamed to neodev.nvim
 trace: evaluation warning: null-ls.nvim has been discontinued, consider switching to none-ls.nvim
 error:
 … from call site
 
-  at ./pkgs/default.nix:73:19:
+  at ./pkgs/default.nix:74:19:
 
-    72|     xplrPlugins = callPackages ./xplrPlugins;
-    73|     yaziPlugins = callPackages ./yaziPlugins;
+    73|     xplrPlugins = callPackages ./xplrPlugins;
+    74|     yaziPlugins = callPackages ./yaziPlugins;
       |                   ^
-    74|     zrythm = callPackage' ./zrythm;
+    75|     zrythm = callPackage' ./zrythm;
 
 … while calling 'callPackages'
 
