@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.429,
-"eval_time":0.826,
+"fetch_time":0.465,
+"eval_time":0.824,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"6f20f0845fdc409b4ca12cb942039d1d2299ceed",
-"sha256":"176mbh4xid9js7l517krcr4nxx1mzv7c2sz6gn5nljf6bxrm29k6",
+"rev":"c13a7db3053037dce4a976f3a85b1d2d8f8d82ac",
+"sha256":"1ziziml6mrj7l6qrcp569psb31qh0mfl2z1karssvycfdnlrf5nd",
 "date":null
 },
-"source_storepath":"/nix/store/ql64pbawdczqfs0l7yi97vhin77krwmi-source",
+"source_storepath":"/nix/store/zwl9nkla9wb50crwrdg8wvp6i25jdyzc-source",
 "nixpkgs_storepath":"/nix/store/hx1ad3n2xn28lsdjwc0g2fv8j4qdpamk-source",
-"nur_combined_rev":"0da23392ab22dc875913ae0fc5398a3fe833dc01",
+"nur_combined_rev":"593871cef80608c62724fab064915536af305e23",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -97,7 +97,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/_meta/readme/default.nix:172",
+"position":"./pkgs/_meta/readme/default.nix:182",
 "unfree":false,
 "unsupported":false
 },
@@ -1800,7 +1800,7 @@
 "meta":{
 "available":false,
 "broken":false,
-"description":"DingTalk is an enterprise communication and collaboration platform developed by Alibaba Group",
+"description":"Enterprise communication and collaboration platform developed by Alibaba Group",
 "homepage":"https://www.dingtalk.com/",
 "insecure":false,
 "license":{
@@ -1833,7 +1833,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/dingtalk/default.nix:260",
+"position":"./pkgs/uncategorized/dingtalk/default.nix:223",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -1882,22 +1882,22 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"dn42-pingfinder-1.0.0",
+"name":"dn42-pingfinder-0-unstable-2022-11-06",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/dn42-pingfinder/default.nix:37",
+"position":"./pkgs/uncategorized/dn42-pingfinder/default.nix:35",
 "unfree":true,
 "unsupported":false
 },
-"name":"dn42-pingfinder-1.0.0",
+"name":"dn42-pingfinder-0-unstable-2022-11-06",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"dn42-pingfinder",
 "system":"x86_64-linux",
-"version":"1.0.0"
+"version":"0-unstable-2022-11-06"
 },
 "douban-openapi-server":{
 "meta":{
@@ -1982,7 +1982,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"dpdk-kmod-0-unstable-2023-02-05",
+"name":"dpdk-kmod-0-unstable-2024-11-20",
 "outputsToInstall":[
 "out"
 ],
@@ -2013,14 +2013,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"dpdk-kmod-0-unstable-2023-02-05",
+"name":"dpdk-kmod-0-unstable-2024-11-20",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"dpdk-kmod",
 "system":"x86_64-linux",
-"version":"0-unstable-2023-02-05"
+"version":"0-unstable-2024-11-20"
 },
 "drone-file-secret":{
 "meta":{
@@ -2283,10 +2283,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"armv7a-darwin",
 "aarch64-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -2307,11 +2303,7 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"wasm64-wasi",
-"wasm32-wasi",
-"i686-freebsd",
-"x86_64-freebsd"
+"x86_64-linux"
 ],
 "position":"./pkgs/uncategorized/etherguard/default.nix:14",
 "unfree":false,
@@ -2356,7 +2348,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"fastapi-dls-1.3.12-unstable-2024-11-13",
+"name":"fastapi-dls-1.3.12-unstable-2024-11-22",
 "outputsToInstall":[
 "out"
 ],
@@ -2364,14 +2356,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"fastapi-dls-1.3.12-unstable-2024-11-13",
+"name":"fastapi-dls-1.3.12-unstable-2024-11-22",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fastapi-dls",
 "system":"x86_64-linux",
-"version":"1.3.12-unstable-2024-11-13"
+"version":"1.3.12-unstable-2024-11-22"
 },
 "fcitx5-breeze":{
 "meta":{
@@ -3390,11 +3382,14 @@
 },
 "kata-image":{
 "meta":{
-"available":true,
+"available":false,
 "broken":false,
 "description":"Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-images/default.nix)",
 "homepage":"https://github.com/kata-containers/kata-containers",
-"insecure":false,
+"insecure":true,
+"knownVulnerabilities":[
+"kata-image is available in nixpkgs by a different maintainer"
+],
 "license":{
 "deprecated":false,
 "free":true,
@@ -3424,7 +3419,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/kata-image/default.nix:22",
+"position":"./pkgs/deprecated/kata-image/default.nix:23",
 "unfree":false,
 "unsupported":false
 },
@@ -3439,11 +3434,14 @@
 },
 "kata-runtime":{
 "meta":{
-"available":true,
+"available":false,
 "broken":false,
 "description":"Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-runtime/default.nix)",
 "homepage":"https://github.com/kata-containers/kata-containers",
-"insecure":false,
+"insecure":true,
+"knownVulnerabilities":[
+"kata-runtime is available in nixpkgs by a different maintainer"
+],
 "license":{
 "deprecated":false,
 "free":true,
@@ -3473,7 +3471,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/kata-runtime/default.nix:60",
+"position":"./pkgs/deprecated/kata-runtime/default.nix:60",
 "unfree":false,
 "unsupported":false
 },
@@ -3490,7 +3488,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"KikoPlay - NOT ONLY A Full-Featured Danmu Player",
+"description":"More than a Full-Featured Danmu Player",
 "homepage":"https://kikoplay.fun",
 "insecure":false,
 "license":{
@@ -3523,7 +3521,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/kikoplay/default.nix:65",
+"position":"./pkgs/uncategorized/kikoplay/default.nix:67",
 "unfree":false,
 "unsupported":false
 },
@@ -3958,7 +3956,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"llama-cpp-4142",
+"name":"llama-cpp-4153",
 "outputsToInstall":[
 "out"
 ],
@@ -4012,14 +4010,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-4142",
+"name":"llama-cpp-4153",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"4142"
+"version":"4153"
 },
 "lantianCustomized.materialgram":{
 "meta":{
@@ -4551,7 +4549,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -4578,12 +4576,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -4591,7 +4589,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.generic-lto":{
 "meta":{
@@ -4656,7 +4654,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -4683,12 +4681,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -4696,7 +4694,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.latest-generic":{
 "meta":{
@@ -4761,7 +4759,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -4788,12 +4786,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -4801,7 +4799,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.latest-generic-lto":{
 "meta":{
@@ -4866,7 +4864,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -4893,12 +4891,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -4906,7 +4904,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.latest-x86_64-v1":{
 "meta":{
@@ -4971,7 +4969,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -4998,12 +4996,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5011,7 +5009,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.latest-x86_64-v1-lto":{
 "meta":{
@@ -5076,7 +5074,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -5103,12 +5101,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5116,7 +5114,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.latest-x86_64-v2":{
 "meta":{
@@ -5181,7 +5179,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -5208,12 +5206,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5221,7 +5219,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.latest-x86_64-v2-lto":{
 "meta":{
@@ -5286,7 +5284,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -5313,12 +5311,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5326,7 +5324,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.latest-x86_64-v3":{
 "meta":{
@@ -5391,7 +5389,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -5418,12 +5416,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5431,7 +5429,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.latest-x86_64-v3-lto":{
 "meta":{
@@ -5496,7 +5494,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -5523,12 +5521,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5536,7 +5534,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.latest-x86_64-v4":{
 "meta":{
@@ -5601,7 +5599,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -5628,12 +5626,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5641,7 +5639,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.latest-x86_64-v4-lto":{
 "meta":{
@@ -5706,7 +5704,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -5733,12 +5731,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5746,7 +5744,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.lts-generic":{
 "meta":{
@@ -5811,7 +5809,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -5838,12 +5836,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5851,7 +5849,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.lts-generic-lto":{
 "meta":{
@@ -5916,7 +5914,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -5943,12 +5941,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5956,7 +5954,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v1":{
 "meta":{
@@ -6021,7 +6019,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6048,12 +6046,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6061,7 +6059,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v1-lto":{
 "meta":{
@@ -6126,7 +6124,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6153,12 +6151,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6166,7 +6164,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v2":{
 "meta":{
@@ -6231,7 +6229,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6258,12 +6256,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6271,7 +6269,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v2-lto":{
 "meta":{
@@ -6336,7 +6334,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6363,12 +6361,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6376,7 +6374,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v3":{
 "meta":{
@@ -6441,7 +6439,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6468,12 +6466,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6481,7 +6479,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v3-lto":{
 "meta":{
@@ -6546,7 +6544,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6573,12 +6571,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6586,7 +6584,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v4":{
 "meta":{
@@ -6651,7 +6649,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6678,12 +6676,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6691,7 +6689,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.lts-x86_64-v4-lto":{
 "meta":{
@@ -6756,7 +6754,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6783,12 +6781,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6796,7 +6794,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.v6_0-generic":{
 "meta":{
@@ -6888,7 +6886,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -6993,7 +6991,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -7098,7 +7096,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -7203,7 +7201,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -7308,7 +7306,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -7413,7 +7411,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -7518,7 +7516,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -7623,7 +7621,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -7728,7 +7726,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -7833,7 +7831,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -7938,7 +7936,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -8043,7 +8041,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -8148,7 +8146,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -8253,7 +8251,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -8358,7 +8356,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -8463,7 +8461,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -8568,7 +8566,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -8673,7 +8671,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -8778,7 +8776,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -8883,7 +8881,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
@@ -8961,7 +8959,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -8988,12 +8986,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9001,7 +8999,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-generic-lto":{
 "meta":{
@@ -9066,7 +9064,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9093,12 +9091,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9106,7 +9104,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v1":{
 "meta":{
@@ -9171,7 +9169,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9198,12 +9196,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9211,7 +9209,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v1-lto":{
 "meta":{
@@ -9276,7 +9274,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9303,12 +9301,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9316,7 +9314,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v2":{
 "meta":{
@@ -9381,7 +9379,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9408,12 +9406,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9421,7 +9419,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v2-lto":{
 "meta":{
@@ -9486,7 +9484,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9513,12 +9511,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9526,7 +9524,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v3":{
 "meta":{
@@ -9591,7 +9589,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9618,12 +9616,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9631,7 +9629,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v3-lto":{
 "meta":{
@@ -9696,7 +9694,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9723,12 +9721,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9736,7 +9734,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v4":{
 "meta":{
@@ -9801,7 +9799,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9828,12 +9826,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9841,7 +9839,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-x86_64-v4-lto":{
 "meta":{
@@ -9906,7 +9904,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9933,12 +9931,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.6.62-xanmod1",
+"name":"linux-6.6.63-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9946,7 +9944,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.6.62-xanmod1"
+"version":"6.6.63-xanmod1"
 },
 "lantianLinuxXanmod.x86_64-v1":{
 "meta":{
@@ -10011,7 +10009,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -10038,12 +10036,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10051,7 +10049,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.x86_64-v1-lto":{
 "meta":{
@@ -10116,7 +10114,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -10143,12 +10141,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10156,7 +10154,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.x86_64-v2":{
 "meta":{
@@ -10221,7 +10219,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -10248,12 +10246,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10261,7 +10259,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.x86_64-v2-lto":{
 "meta":{
@@ -10326,7 +10324,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -10353,12 +10351,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10366,7 +10364,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.x86_64-v3":{
 "meta":{
@@ -10431,7 +10429,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -10458,12 +10456,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10471,7 +10469,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.x86_64-v3-lto":{
 "meta":{
@@ -10536,7 +10534,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -10563,12 +10561,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10576,7 +10574,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.x86_64-v4":{
 "meta":{
@@ -10641,7 +10639,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -10668,12 +10666,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10681,7 +10679,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianLinuxXanmod.x86_64-v4-lto":{
 "meta":{
@@ -10746,7 +10744,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -10773,12 +10771,12 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/lantian-linux-xanmod/helpers.nix:169",
+"position":"./pkgs/lantian-linux-xanmod/helpers.nix:171",
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-6.12.0-xanmod1",
+"name":"linux-6.12.1-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -10786,7 +10784,7 @@
 },
 "pname":"linux",
 "system":"x86_64-linux",
-"version":"6.12.0-xanmod1"
+"version":"6.12.1-xanmod1"
 },
 "lantianPersonal.libltnginx":{
 "meta":{
@@ -11074,7 +11072,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"liboqs-0-unstable-2024-11-13",
+"name":"liboqs-0-unstable-2024-11-21",
 "outputsToInstall":[
 "out"
 ],
@@ -11082,14 +11080,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"liboqs-0-unstable-2024-11-13",
+"name":"liboqs-0-unstable-2024-11-21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"liboqs",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-11-13"
+"version":"0-unstable-2024-11-21"
 },
 "libqcef":{
 "meta":{
@@ -27915,7 +27913,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"payload-dumper-go-1.2.2",
+"name":"payload-dumper-go-1.3.0",
 "outputsToInstall":[
 "out"
 ],
@@ -27954,14 +27952,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"payload-dumper-go-1.2.2",
+"name":"payload-dumper-go-1.3.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"payload-dumper-go",
 "system":"x86_64-linux",
-"version":"1.2.2"
+"version":"1.3.0"
 },
 "peerbanhelper":{
 "meta":{
@@ -28907,7 +28905,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"qsp-5.9.0-b11",
+"name":"qsp-5.9.0-b11-unstable-2024-11-20",
 "outputsToInstall":[
 "out"
 ],
@@ -28915,14 +28913,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"qsp-5.9.0-b11",
+"name":"qsp-5.9.0-b11-unstable-2024-11-20",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qsp",
 "system":"x86_64-linux",
-"version":"5.9.0-b11"
+"version":"5.9.0-b11-unstable-2024-11-20"
 },
 "qsp-lib":{
 "meta":{
@@ -28956,7 +28954,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"qsp-lib-0-unstable-2024-11-19",
+"name":"qsp-lib-0-unstable-2024-11-23",
 "outputsToInstall":[
 "out"
 ],
@@ -28964,14 +28962,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"qsp-lib-0-unstable-2024-11-19",
+"name":"qsp-lib-0-unstable-2024-11-23",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qsp-lib",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-11-19"
+"version":"0-unstable-2024-11-23"
 },
 "r8125":{
 "meta":{
@@ -29290,7 +29288,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-ice-0-unstable-2024-11-19",
+"name":"rime-ice-0-unstable-2024-11-22",
 "outputsToInstall":[
 "out"
 ],
@@ -29298,14 +29296,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-0-unstable-2024-11-19",
+"name":"rime-ice-0-unstable-2024-11-22",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-ice",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-11-19"
+"version":"0-unstable-2024-11-22"
 },
 "rime-moegirl":{
 "meta":{
@@ -29532,7 +29530,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-runpod-python-1.7.4",
+"name":"python3.12-runpod-python-1.7.5",
 "outputsToInstall":[
 "out"
 ],
@@ -29574,7 +29572,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-runpod-python-1.7.4",
+"name":"python3.12-runpod-python-1.7.5",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -29582,7 +29580,7 @@
 },
 "pname":"python3.12-runpod-python",
 "system":"x86_64-linux",
-"version":"1.7.4"
+"version":"1.7.5"
 },
 "runpodctl":{
 "meta":{
@@ -31166,7 +31164,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"uni-api-0-unstable-2024-11-19",
+"name":"uni-api-0-unstable-2024-11-21",
 "outputsToInstall":[
 "out"
 ],
@@ -31174,14 +31172,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"uni-api-0-unstable-2024-11-19",
+"name":"uni-api-0-unstable-2024-11-21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uni-api",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-11-19"
+"version":"0-unstable-2024-11-21"
 },
 "unigine-heaven":{
 "meta":{
