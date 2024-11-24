@@ -166,8 +166,8 @@ let
         # N.B.: a handful of versions are released unsigned
         # url = "https://github.com/gorhill/uBlock/releases/download/${version}/uBlock0_${version}.signed.xpi";
         url = "https://github.com/gorhill/uBlock/releases/download/${version}/uBlock0_${version}.firefox.signed.xpi";
-        version = "1.61.1b4";
-        hash = "sha256-tIeqM/SVy90kTY0tkOsRpq5nS1QkGNOVMKnQeWqjUG4=";
+        version = "1.61.3b0";
+        hash = "sha256-SLYQ7ft7+h855CS07jfC7X4PGh+zcMasyox0rt7FTeI=";
       };
     };
 })  ).overrideScope (self: super:
