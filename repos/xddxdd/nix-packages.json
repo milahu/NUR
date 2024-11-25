@@ -477,7 +477,7 @@
   "legacyPackages.x86_64-linux.dn42-pingfinder": {
     "description": "DN42 Pingfinder",
     "pname": "dn42-pingfinder",
-    "version": "0-unstable-2022-11-06"
+    "version": "1.2.1-unstable-2022-11-06"
   },
   "legacyPackages.x86_64-linux.douban-openapi-server": {
     "description": "Douban API server that provides an unofficial APIs for media information gathering",
@@ -518,6 +518,11 @@
     "description": "Fcitx5 theme to match KDE's Breeze style",
     "pname": "fcitx5-breeze",
     "version": "3.1.0"
+  },
+  "legacyPackages.x86_64-linux.flaresolverr-21hsmw": {
+    "description": "Proxy server to bypass Cloudflare protection, with 21hsmw modifications to support nodriver",
+    "pname": "flaresolverr",
+    "version": "21hsmw-0-unstable-2024-11-01"
   },
   "legacyPackages.x86_64-linux.flasgger": {
     "description": "Easy OpenAPI specs and Swagger UI for your Flask API",
@@ -647,7 +652,7 @@
   "legacyPackages.x86_64-linux.lantianCustomized.llama-cpp": {
     "description": "Inference of Meta's LLaMA model (and others) in pure C/C++",
     "pname": "llama-cpp",
-    "version": "4153"
+    "version": "4154"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.materialgram": {
     "description": "Telegram Desktop fork with material icons and some improvements (Without anti-features)",
@@ -674,9 +679,29 @@
     "pname": "transmission",
     "version": "4.0.6"
   },
+  "legacyPackages.x86_64-linux.lantianLinuxCachyOS.latest": {
+    "description": "Linux CachyOS Kernel with Lan Tian Modifications",
+    "pname": "linux-cachyos-latest",
+    "version": "6.12.1"
+  },
+  "legacyPackages.x86_64-linux.lantianLinuxCachyOS.latest-configfile": {
+    "description": "",
+    "pname": "linux-config",
+    "version": "6.12.1"
+  },
+  "legacyPackages.x86_64-linux.lantianLinuxCachyOS.latest-lto": {
+    "description": "Linux CachyOS Kernel with Lan Tian Modifications and Clang+ThinLTO",
+    "pname": "linux-cachyos-latest-lto",
+    "version": "6.12.1"
+  },
+  "legacyPackages.x86_64-linux.lantianLinuxCachyOS.latest-lto-configfile": {
+    "description": "",
+    "pname": "linux-config",
+    "version": "6.12.1"
+  },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-generic",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.generic-configfile": {
@@ -686,7 +711,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.generic-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-generic-lto",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.generic-lto-configfile": {
@@ -696,7 +721,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-latest-generic",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-generic-configfile": {
@@ -706,7 +731,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-generic-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-latest-generic-lto",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-generic-lto-configfile": {
@@ -716,7 +741,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v1": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-latest-x86_64-v1",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v1-configfile": {
@@ -726,7 +751,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v1-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-latest-x86_64-v1-lto",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v1-lto-configfile": {
@@ -736,7 +761,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v2": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-latest-x86_64-v2",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v2-configfile": {
@@ -746,7 +771,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v2-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-latest-x86_64-v2-lto",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v2-lto-configfile": {
@@ -756,7 +781,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v3": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-latest-x86_64-v3",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v3-configfile": {
@@ -766,7 +791,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v3-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-latest-x86_64-v3-lto",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v3-lto-configfile": {
@@ -776,7 +801,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v4": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-latest-x86_64-v4",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v4-configfile": {
@@ -786,7 +811,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v4-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-latest-x86_64-v4-lto",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.latest-x86_64-v4-lto-configfile": {
@@ -796,7 +821,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-lts-generic",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic-configfile": {
@@ -806,7 +831,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-lts-generic-lto",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-generic-lto-configfile": {
@@ -816,7 +841,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v1": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-lts-x86_64-v1",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v1-configfile": {
@@ -826,7 +851,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v1-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-lts-x86_64-v1-lto",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v1-lto-configfile": {
@@ -836,7 +861,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v2": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-lts-x86_64-v2",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v2-configfile": {
@@ -846,7 +871,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v2-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-lts-x86_64-v2-lto",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v2-lto-configfile": {
@@ -856,7 +881,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v3": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-lts-x86_64-v3",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v3-configfile": {
@@ -866,7 +891,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v3-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-lts-x86_64-v3-lto",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v3-lto-configfile": {
@@ -876,7 +901,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v4": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-lts-x86_64-v4",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v4-configfile": {
@@ -886,7 +911,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v4-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-lts-x86_64-v4-lto",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.lts-x86_64-v4-lto-configfile": {
@@ -896,7 +921,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_0-generic",
     "version": "6.0.12-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-generic-configfile": {
@@ -906,7 +931,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-generic-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_0-generic-lto",
     "version": "6.0.12-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-generic-lto-configfile": {
@@ -916,7 +941,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v1": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_0-x86_64-v1",
     "version": "6.0.12-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v1-configfile": {
@@ -926,7 +951,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v1-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_0-x86_64-v1-lto",
     "version": "6.0.12-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v1-lto-configfile": {
@@ -936,7 +961,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v2": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_0-x86_64-v2",
     "version": "6.0.12-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v2-configfile": {
@@ -946,7 +971,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v2-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_0-x86_64-v2-lto",
     "version": "6.0.12-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v2-lto-configfile": {
@@ -956,7 +981,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v3": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_0-x86_64-v3",
     "version": "6.0.12-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v3-configfile": {
@@ -966,7 +991,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v3-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_0-x86_64-v3-lto",
     "version": "6.0.12-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v3-lto-configfile": {
@@ -976,7 +1001,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v4": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_0-x86_64-v4",
     "version": "6.0.12-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v4-configfile": {
@@ -986,7 +1011,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v4-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_0-x86_64-v4-lto",
     "version": "6.0.12-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_0-x86_64-v4-lto-configfile": {
@@ -996,7 +1021,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_1-generic",
     "version": "6.1.77-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-generic-configfile": {
@@ -1006,7 +1031,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-generic-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_1-generic-lto",
     "version": "6.1.77-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-generic-lto-configfile": {
@@ -1016,7 +1041,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v1": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_1-x86_64-v1",
     "version": "6.1.77-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v1-configfile": {
@@ -1026,7 +1051,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v1-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_1-x86_64-v1-lto",
     "version": "6.1.77-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v1-lto-configfile": {
@@ -1036,7 +1061,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v2": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_1-x86_64-v2",
     "version": "6.1.77-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v2-configfile": {
@@ -1046,7 +1071,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v2-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_1-x86_64-v2-lto",
     "version": "6.1.77-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v2-lto-configfile": {
@@ -1056,7 +1081,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v3": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_1-x86_64-v3",
     "version": "6.1.77-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v3-configfile": {
@@ -1066,7 +1091,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v3-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_1-x86_64-v3-lto",
     "version": "6.1.77-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v3-lto-configfile": {
@@ -1076,7 +1101,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v4": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_1-x86_64-v4",
     "version": "6.1.77-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v4-configfile": {
@@ -1086,7 +1111,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v4-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_1-x86_64-v4-lto",
     "version": "6.1.77-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_1-x86_64-v4-lto-configfile": {
@@ -1096,7 +1121,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-generic": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_6-generic",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-generic-configfile": {
@@ -1106,7 +1131,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-generic-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_6-generic-lto",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-generic-lto-configfile": {
@@ -1116,7 +1141,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v1": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_6-x86_64-v1",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v1-configfile": {
@@ -1126,7 +1151,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v1-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_6-x86_64-v1-lto",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v1-lto-configfile": {
@@ -1136,7 +1161,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v2": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_6-x86_64-v2",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v2-configfile": {
@@ -1146,7 +1171,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v2-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_6-x86_64-v2-lto",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v2-lto-configfile": {
@@ -1156,7 +1181,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v3": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_6-x86_64-v3",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v3-configfile": {
@@ -1166,7 +1191,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v3-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_6-x86_64-v3-lto",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v3-lto-configfile": {
@@ -1176,7 +1201,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v4": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_6-x86_64-v4",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v4-configfile": {
@@ -1186,7 +1211,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v4-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-v6_6-x86_64-v4-lto",
     "version": "6.6.63-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.v6_6-x86_64-v4-lto-configfile": {
@@ -1196,7 +1221,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v1": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-x86_64-v1",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v1-configfile": {
@@ -1206,7 +1231,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v1-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-x86_64-v1-lto",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v1-lto-configfile": {
@@ -1216,7 +1241,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v2": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-x86_64-v2",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v2-configfile": {
@@ -1226,7 +1251,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v2-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-x86_64-v2-lto",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v2-lto-configfile": {
@@ -1236,7 +1261,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v3": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-x86_64-v3",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v3-configfile": {
@@ -1246,7 +1271,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v3-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-x86_64-v3-lto",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v3-lto-configfile": {
@@ -1256,7 +1281,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v4": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications",
-    "pname": "linux",
+    "pname": "linux-xanmod-x86_64-v4",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v4-configfile": {
@@ -1266,7 +1291,7 @@
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v4-lto": {
     "description": "Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-    "pname": "linux",
+    "pname": "linux-xanmod-x86_64-v4-lto",
     "version": "6.12.1-xanmod1"
   },
   "legacyPackages.x86_64-linux.lantianLinuxXanmod.x86_64-v4-lto-configfile": {
@@ -1297,7 +1322,7 @@
   "legacyPackages.x86_64-linux.liboqs-unstable": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
     "pname": "liboqs",
-    "version": "0-unstable-2024-11-21"
+    "version": "0-unstable-2024-11-24"
   },
   "legacyPackages.x86_64-linux.libqcef": {
     "description": "Qt5 binding of CEF",
@@ -3497,12 +3522,12 @@
   "legacyPackages.x86_64-linux.qsp": {
     "description": "QSP is an Interactive Fiction development platform (GUI application)",
     "pname": "qsp",
-    "version": "5.9.0-b11-unstable-2024-11-20"
+    "version": "5.9.0-b11-unstable-2024-11-24"
   },
   "legacyPackages.x86_64-linux.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2024-11-23"
+    "version": "0-unstable-2024-11-24"
   },
   "legacyPackages.x86_64-linux.r8125": {
     "description": "Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface",
@@ -3532,7 +3557,7 @@
   "legacyPackages.x86_64-linux.rime-ice": {
     "description": "Rime 配置：雾凇拼音 | 长期维护的简体词库",
     "pname": "rime-ice",
-    "version": "0-unstable-2024-11-22"
+    "version": "0-unstable-2024-11-23"
   },
   "legacyPackages.x86_64-linux.rime-moegirl": {
     "description": "RIME dictionary file for entries from zh.moegirl.org.cn",
@@ -3677,7 +3702,7 @@
   "legacyPackages.x86_64-linux.uni-api": {
     "description": "Unifies the management of LLM APIs. Call multiple backend services through a unified API interface",
     "pname": "uni-api",
-    "version": "0-unstable-2024-11-21"
+    "version": "0-unstable-2024-11-24"
   },
   "legacyPackages.x86_64-linux.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",
@@ -3892,7 +3917,7 @@
   "packages.x86_64-linux.dn42-pingfinder": {
     "description": "DN42 Pingfinder",
     "pname": "dn42-pingfinder",
-    "version": "0-unstable-2022-11-06"
+    "version": "1.2.1-unstable-2022-11-06"
   },
   "packages.x86_64-linux.douban-openapi-server": {
     "description": "Douban API server that provides an unofficial APIs for media information gathering",
@@ -3933,6 +3958,11 @@
     "description": "Fcitx5 theme to match KDE's Breeze style",
     "pname": "fcitx5-breeze",
     "version": "3.1.0"
+  },
+  "packages.x86_64-linux.flaresolverr-21hsmw": {
+    "description": "Proxy server to bypass Cloudflare protection, with 21hsmw modifications to support nodriver",
+    "pname": "flaresolverr",
+    "version": "21hsmw-0-unstable-2024-11-01"
   },
   "packages.x86_64-linux.flasgger": {
     "description": "Easy OpenAPI specs and Swagger UI for your Flask API",
@@ -4039,6 +4069,16 @@
     "pname": "merged-packages",
     "version": ""
   },
+  "packages.x86_64-linux.lantianLinuxCachyOS": {
+    "description": "",
+    "pname": "merged-packages",
+    "version": ""
+  },
+  "packages.x86_64-linux.lantianLinuxCachyOSPackages": {
+    "description": "",
+    "pname": "merged-packages",
+    "version": ""
+  },
   "packages.x86_64-linux.lantianLinuxXanmod": {
     "description": "",
     "pname": "merged-packages",
@@ -4072,7 +4112,7 @@
   "packages.x86_64-linux.liboqs-unstable": {
     "description": "C library for prototyping and experimenting with quantum-resistant cryptography",
     "pname": "liboqs",
-    "version": "0-unstable-2024-11-21"
+    "version": "0-unstable-2024-11-24"
   },
   "packages.x86_64-linux.libqcef": {
     "description": "Qt5 binding of CEF",
@@ -4292,12 +4332,12 @@
   "packages.x86_64-linux.qsp": {
     "description": "QSP is an Interactive Fiction development platform (GUI application)",
     "pname": "qsp",
-    "version": "5.9.0-b11-unstable-2024-11-20"
+    "version": "5.9.0-b11-unstable-2024-11-24"
   },
   "packages.x86_64-linux.qsp-lib": {
     "description": "QSP is an Interactive Fiction development platform (Game Library)",
     "pname": "qsp-lib",
-    "version": "0-unstable-2024-11-23"
+    "version": "0-unstable-2024-11-24"
   },
   "packages.x86_64-linux.r8125": {
     "description": "Linux device driver for Realtek 2.5/5 Gigabit Ethernet controllers with PCI-Express interface",
@@ -4327,7 +4367,7 @@
   "packages.x86_64-linux.rime-ice": {
     "description": "Rime 配置：雾凇拼音 | 长期维护的简体词库",
     "pname": "rime-ice",
-    "version": "0-unstable-2024-11-22"
+    "version": "0-unstable-2024-11-23"
   },
   "packages.x86_64-linux.rime-moegirl": {
     "description": "RIME dictionary file for entries from zh.moegirl.org.cn",
@@ -4432,7 +4472,7 @@
   "packages.x86_64-linux.uni-api": {
     "description": "Unifies the management of LLM APIs. Call multiple backend services through a unified API interface",
     "pname": "uni-api",
-    "version": "0-unstable-2024-11-21"
+    "version": "0-unstable-2024-11-24"
   },
   "packages.x86_64-linux.unigine-heaven": {
     "description": "Extreme performance and stability test for PC hardware: video card, power supply, cooling system",

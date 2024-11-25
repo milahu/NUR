@@ -78,6 +78,10 @@ fetch.url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_$ver-1_
 src.aur = "browser360-bin"
 fetch.url = "https://gedown.360safe.com/gc/signed_com.360.browser-stable_$ver-1_arm64.deb"
 
+[cachyos-kernel]
+src.git = "https://github.com/CachyOS/linux-cachyos.git"
+fetch.github = "CachyOS/linux-cachyos"
+
 [cachyos-kernel-patches]
 src.git = "https://github.com/CachyOS/kernel-patches"
 fetch.github = "CachyOS/kernel-patches"
@@ -133,6 +137,11 @@ fetch.url = "https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/
 src.git = "https://git.lantian.pub/backup/dn42-pingfinder.git"
 fetch.git = "https://git.lantian.pub/backup/dn42-pingfinder.git"
 
+[dn42-pingfinder-stable]
+src.webpage = "https://git.lantian.pub/backup/dn42-pingfinder/raw/branch/master/index.php"
+src.regex = "\\$script_version = '([0-9\\.]+)';"
+fetch.url = "https://example.com"
+
 [douban-openapi-server]
 src.git = "https://github.com/caryyu/douban-openapi-server.git"
 fetch.github = "caryyu/douban-openapi-server"
@@ -170,6 +179,10 @@ fetch.url = "https://gitlab.com/scratch-er/fcitx5-breeze/-/archive/v$ver/fcitx5-
 [flasgger]
 src.github = "flasgger/flasgger"
 fetch.github = "flasgger/flasgger"
+
+[flaresolverr-21hsmw]
+src.git = "https://github.com/21hsmw/FlareSolverr.git"
+fetch.github = "21hsmw/FlareSolverr"
 
 [ftp-proxy]
 src.webpage = "http://www.ftpproxy.org/download/"
