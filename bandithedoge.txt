@@ -5,12 +5,12 @@ trace: evaluation warning: null-ls.nvim has been discontinued, consider switchin
 error:
 … from call site
 
-  at ./pkgs/default.nix:82:19:
+  at ./pkgs/default.nix:84:19:
 
-    81|     xplrPlugins = callPackages ./xplrPlugins;
-    82|     yaziPlugins = callPackages ./yaziPlugins;
+    83|     xplrPlugins = callPackages ./xplrPlugins;
+    84|     yaziPlugins = callPackages ./yaziPlugins;
       |                   ^
-    83|     zl-audio = callPackages ./zl-audio;
+    85|     zl-audio = callPackages ./zl-audio;
 
 … while calling 'callPackages'
 
