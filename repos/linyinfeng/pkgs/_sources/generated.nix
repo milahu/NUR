@@ -19,13 +19,13 @@
   };
   cowrie = {
     pname = "cowrie";
-    version = "v2.5.0";
+    version = "v2.6.1";
     src = fetchFromGitHub {
       owner = "cowrie";
       repo = "cowrie";
-      rev = "v2.5.0";
+      rev = "v2.6.1";
       fetchSubmodules = false;
-      sha256 = "sha256-5nCEH32U81SE2ky0XN6arIGNxKadqYggIz/uVnmXpN8=";
+      sha256 = "sha256-owYce/gt8nyyl3K1PZ9PNAVFo5UZ3jE9JkONiQFOgDI=";
     };
   };
   dot-tar = {
@@ -435,23 +435,23 @@
   };
   swayosd = {
     pname = "swayosd";
-    version = "c21d34d372f0510bfd00f3d81d48eee2fc0589ce";
+    version = "3ccc06a15aad1857270e5b0979d2975643a8f96f";
     src = fetchgit {
       url = "https://github.com/ErikReider/SwayOSD.git";
-      rev = "c21d34d372f0510bfd00f3d81d48eee2fc0589ce";
+      rev = "3ccc06a15aad1857270e5b0979d2975643a8f96f";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-qQZJYx90wzfYkttXamKtCS/IxSRRrFw5tmRrmrZEsps=";
+      sha256 = "sha256-3wJaFM/MyuyFV21iD4+CQH17NG5ZvPFVoxwglNRhe4I=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./swayosd-c21d34d372f0510bfd00f3d81d48eee2fc0589ce/Cargo.lock;
+      lockFile = ./swayosd-3ccc06a15aad1857270e5b0979d2975643a8f96f/Cargo.lock;
       outputHashes = {
 
       };
     };
-    date = "2024-11-20";
+    date = "2024-11-26";
   };
   synapse-s3-storage-provider = {
     pname = "synapse-s3-storage-provider";
