@@ -58,6 +58,15 @@ let
     packageJSON = "${src_idbuilder}/package.json";
   };
 
+  rust-overlay = import (fetchFromGitHub {
+    owner = "oxalica";
+    repo = "rust-overlay";
+    rev = "e19e9d54fac1e53f73411ebe22d19f946b1ba0bd";
+    sha256 = "sha256-pULo7GryzLkqGveWvnNWVz1Kk6EJqvq+HQeSkwvr7DA=";
+  });
+
+  toolchain = (pkgs.extend rust-overlay).rust-bin.nightly."2023-05-24".minimal;
+
   runTimeDeps = with pkgs; [
     gtk3
     glib
@@ -75,7 +84,7 @@ let
 
     jq
     yarn
-    rust-bin.nightly."2023-05-24".minimal
+    toolchain
   ];
 in
 rustPlatform.buildRustPackage {

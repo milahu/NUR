@@ -9,6 +9,15 @@ let
   appVersion = "0.2.0";
   appComment = "Find duplicate images by similarity";
 
+  rust-overlay = import (fetchFromGitHub {
+    owner = "oxalica";
+    repo = "rust-overlay";
+    rev = "e19e9d54fac1e53f73411ebe22d19f946b1ba0bd";
+    sha256 = "sha256-pULo7GryzLkqGveWvnNWVz1Kk6EJqvq+HQeSkwvr7DA=";
+  });
+
+  toolchain = (pkgs.extend rust-overlay).rust-bin.nightly."2024-10-21".minimal;
+
   src = fetchFromGitHub {
     owner = "Thaumy";
     repo = "dup-img-finder";
@@ -16,8 +25,8 @@ let
     hash = "sha256-Ox14MnKoWNYn9WoMM7pSrQhibl/VUoKytbS8PDEnxkk==";
   };
 
-  buildTimeDeps = with pkgs; [
-    rust-bin.nightly."2024-10-21".minimal
+  buildTimeDeps = [
+    toolchain
   ];
 in
 rustPlatform.buildRustPackage {

@@ -9,6 +9,15 @@ let
   appVersion = "0.0.4";
   appComment = "Filter your shell history";
 
+  rust-overlay = import (fetchFromGitHub {
+    owner = "oxalica";
+    repo = "rust-overlay";
+    rev = "e19e9d54fac1e53f73411ebe22d19f946b1ba0bd";
+    sha256 = "sha256-pULo7GryzLkqGveWvnNWVz1Kk6EJqvq+HQeSkwvr7DA=";
+  });
+
+  toolchain = (pkgs.extend rust-overlay).rust-bin.nightly."2024-10-21".minimal;
+
   src = fetchFromGitHub {
     owner = "Thaumy";
     repo = "sh-history-filter";
@@ -16,8 +25,8 @@ let
     sha256 = "sha256-hueHjhY1e6he6p2Lah8/eMb8JO5I58t69HZFBPnjWW4=";
   };
 
-  buildTimeDeps = with pkgs; [
-    rust-bin.nightly."2024-10-21".minimal
+  buildTimeDeps = [
+    toolchain
   ];
 in
 rustPlatform.buildRustPackage {
