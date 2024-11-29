@@ -58,16 +58,18 @@ let
     packageJSON = "${src_idbuilder}/package.json";
   };
 
-  rust-overlay = import (fetchFromGitHub {
-    owner = "oxalica";
-    repo = "rust-overlay";
-    rev = "e19e9d54fac1e53f73411ebe22d19f946b1ba0bd";
-    sha256 = "sha256-pULo7GryzLkqGveWvnNWVz1Kk6EJqvq+HQeSkwvr7DA=";
-  });
+  # rust-overlay = import (fetchFromGitHub {
+  #   owner = "oxalica";
+  #   repo = "rust-overlay";
+  #   rev = "9ea38d547100edcf0da19aaebbdffa2810585495";
+  #   sha256 = "kwKCfmliHIxKuIjnM95TRcQxM/4AAEIZ+4A9nDJ6cJs=";
+  # });
 
-  toolchain = (pkgs.extend rust-overlay).rust-bin.nightly."2023-05-24".minimal;
+  rust-overlay = import ../rust-overlay;
 
-  runTimeDeps = with pkgs; [
+  extended-pkgs = pkgs.extend (rust-overlay);
+
+  runTimeDeps = with extended-pkgs; [
     gtk3
     glib
     dbus
@@ -78,13 +80,13 @@ let
     gdk-pixbuf
   ];
 
-  buildTimeDeps = with pkgs; runTimeDeps ++ [
+  buildTimeDeps = with extended-pkgs; runTimeDeps ++ [
     pkg-config
     appimagekit
 
     jq
     yarn
-    toolchain
+    rust-bin.nightly."2023-05-24".minimal
   ];
 in
 rustPlatform.buildRustPackage {

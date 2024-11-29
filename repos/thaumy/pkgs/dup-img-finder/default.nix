@@ -9,14 +9,16 @@ let
   appVersion = "0.2.0";
   appComment = "Find duplicate images by similarity";
 
-  rust-overlay = import (fetchFromGitHub {
-    owner = "oxalica";
-    repo = "rust-overlay";
-    rev = "e19e9d54fac1e53f73411ebe22d19f946b1ba0bd";
-    sha256 = "sha256-pULo7GryzLkqGveWvnNWVz1Kk6EJqvq+HQeSkwvr7DA=";
-  });
+  # rust-overlay = import (fetchFromGitHub {
+  #   owner = "oxalica";
+  #   repo = "rust-overlay";
+  #   rev = "9ea38d547100edcf0da19aaebbdffa2810585495";
+  #   sha256 = "kwKCfmliHIxKuIjnM95TRcQxM/4AAEIZ+4A9nDJ6cJs=";
+  # });
 
-  toolchain = (pkgs.extend rust-overlay).rust-bin.nightly."2024-10-21".minimal;
+  rust-overlay = import ../rust-overlay;
+
+  extended-pkgs = pkgs.extend (rust-overlay);
 
   src = fetchFromGitHub {
     owner = "Thaumy";
@@ -25,8 +27,8 @@ let
     hash = "sha256-Ox14MnKoWNYn9WoMM7pSrQhibl/VUoKytbS8PDEnxkk==";
   };
 
-  buildTimeDeps = [
-    toolchain
+  buildTimeDeps = with extended-pkgs; [
+    rust-bin.nightly."2023-05-24".minimal
   ];
 in
 rustPlatform.buildRustPackage {
