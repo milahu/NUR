@@ -47,6 +47,7 @@ in
     clock24 = true; # I'm one of those heathens
     escapeTime = 0; # Let vim do its thing instead
     historyLimit = 100000; # Bigger buffer
+    mouse = false; # I dislike mouse support
     terminal = "tmux-256color"; # I want accurate termcap info
 
     plugins = with pkgs.tmuxPlugins; [
@@ -80,6 +81,13 @@ in
     ];
 
     extraConfig = ''
+      # Refresh configuration
+      bind-key -N "Source tmux.conf" R source-file ${config.xdg.configHome}/tmux/tmux.conf \; display-message "Sourced tmux.conf!"
+
+      # Accept sloppy Ctrl key when switching windows, on top of default mapping
+      bind-key -N "Select the previous window" C-p previous-window
+      bind-key -N "Select the next window" C-n next -window
+
       # Better vim mode
       bind-key -T copy-mode-vi 'v' send -X begin-selection
       ${
