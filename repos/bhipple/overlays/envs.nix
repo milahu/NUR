@@ -40,7 +40,7 @@ in
 {
 
   # FIXME: The newer version of ledger has floating point balance issues?
-  # If this ever stops working, just pull it from the NixOS 21.05 channel.
+  # If this ever stops working, just pull it from the NixOS 24.05 channel.
   ledger = (super.ledger.override { usePython = true; }).overrideAttrs (_: rec {
     pname = "ledger";
     version = "3.2.1";
@@ -140,7 +140,6 @@ in
         self.graphviz
         self.icu
         self.imagemagick
-        self.ledger
         self.libheif
         self.libnotify # for nofify-send
         self.mupdf
