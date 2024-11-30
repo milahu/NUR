@@ -1,16 +1,16 @@
 {
 "name":"arc",
-"fetch_time":0.534,
-"eval_time":0.477,
+"fetch_time":0.273,
+"eval_time":0.46,
 "source":{
 "url":"https://github.com/arcnmx/nixexprs",
-"rev":"f2e65ce5318c2fe85c543a9b08bcc22fab1ca233",
-"sha256":"1q3xla7mpimw7v7yzangdq93n0mwh8yf9r4qm0830lkwmpk1px49",
+"rev":"e1cb60ec46eb2dfcdd74492939937dadfdb02bfe",
+"sha256":"1x7g762yl1byzyrz7szvicgv3lmz357zwvk58wq1z2znanqgwnjv",
 "date":null
 },
-"source_storepath":"/nix/store/s2zxyzcypskd63cz1p9g5jl0ph7wd8x0-source",
-"nixpkgs_storepath":"/nix/store/hx1ad3n2xn28lsdjwc0g2fv8j4qdpamk-source",
-"nur_combined_rev":"b41baa23ca9f5ad00c0530b8fdc8225201267a73",
+"source_storepath":"/nix/store/00rinqg0lcrxm6k7dfa1xinz6mmhhd8k-source",
+"nixpkgs_storepath":"/nix/store/npx1ww3dqyhjwzs31p0dxhqj2lwpi5zl-source",
+"nur_combined_rev":"51a151b1ff124d3a3526b7c54681609637916bc7",
 "packages":{
 "packages.benc":{
 "meta":{
@@ -1331,7 +1331,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"forcefully-remove-bootfb-6.6.61-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.63-2018-02-08",
 "outputsToInstall":[
 "bin"
 ],
@@ -1362,7 +1362,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"forcefully-remove-bootfb-6.6.61-2018-02-08",
+"name":"forcefully-remove-bootfb-6.6.63-2018-02-08",
 "outputName":"bin",
 "outputs":{
 "bin":null,
@@ -1370,7 +1370,7 @@
 },
 "pname":"forcefully-remove-bootfb",
 "system":"x86_64-linux",
-"version":"6.6.61-2018-02-08"
+"version":"6.6.63-2018-02-08"
 },
 "packages.generateLinuxConfig":{
 "meta":{
@@ -2507,7 +2507,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.61-2021.04.21",
+"name":"ryzen-smu-6.6.63-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -3334,7 +3334,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:214",
+"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:189",
 "unfree":false,
 "unsupported":false
 },
@@ -3448,7 +3448,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:184",
+"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:183",
 "unfree":false,
 "unsupported":false
 },
@@ -3543,7 +3543,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:164",
+"position":"<nixpkgs> + /pkgs/tools/package-management/nix/default.nix:163",
 "unfree":false,
 "unsupported":false
 },
@@ -3564,7 +3564,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=25.05pre709559.5083ec887760",
+"changelog":"https://git.notmuchmail.org/git?p=notmuch;a=blob_plain;f=NEWS;hb=25.05pre712942.af51545ec9a4",
 "description":"Mail indexer",
 "homepage":"https://notmuchmail.org/",
 "insecure":false,
@@ -3643,7 +3643,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/mailreaders/notmuch/default.nix:168",
+"position":"<nixpkgs> + /pkgs/applications/networking/mailreaders/notmuch/default.nix:170",
 "unfree":false,
 "unsupported":false
 },
@@ -3653,7 +3653,8 @@
 "bindingconfig":null,
 "info":null,
 "man":null,
-"out":null
+"out":null,
+"vim":null
 },
 "pname":"notmuch-arc",
 "system":"x86_64-linux",
@@ -4902,7 +4903,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.61-2021.04.21",
+"name":"ryzen-smu-6.6.63-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -4947,7 +4948,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.61-2021.04.21",
+"name":"ryzen-smu-6.6.63-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -4978,21 +4979,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ryzen-smu-6.6.61-2021.04.21",
+"name":"ryzen-smu-6.6.63-2021.04.21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ryzen-smu",
 "system":"x86_64-linux",
-"version":"6.6.61-2021.04.21"
+"version":"6.6.63-2021.04.21"
 },
 "packages.ryzen-smu-monitor_cpu":{
 "meta":{
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ryzen-smu-6.6.61-2021.04.21",
+"name":"ryzen-smu-6.6.63-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
@@ -5071,7 +5072,7 @@
 "i686-freebsd",
 "x86_64-freebsd"
 ],
-"name":"ryzen-smu-6.6.61-2021.04.21",
+"name":"ryzen-smu-6.6.63-2021.04.21",
 "outputsToInstall":[
 "out"
 ],
