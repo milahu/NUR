@@ -5,30 +5,30 @@ trace: evaluation warning: null-ls.nvim has been discontinued, consider switchin
 error:
 … from call site
 
-  at ./pkgs/default.nix:87:19:
+  at ./pkgs/default.nix:88:19:
 
-    86|     xplrPlugins = callPackages ./xplrPlugins;
-    87|     yaziPlugins = callPackages ./yaziPlugins;
+    87|     xplrPlugins = callPackages ./xplrPlugins;
+    88|     yaziPlugins = callPackages ./yaziPlugins;
       |                   ^
-    88|     zl-audio = callPackages ./zl-audio;
+    89|     ysfx = callPackage' ./ysfx;
 
 … while calling 'callPackages'
 
-  at ./pkgs/default.nix:8:18:
+  at ./pkgs/default.nix:9:18:
 
-     7|
-     8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
+     8|
+     9|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
       |                  ^
-     9|
+    10|
 
 … from call site
 
-  at ./pkgs/default.nix:8:23:
+  at ./pkgs/default.nix:9:23:
 
-     7|
-     8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
+     8|
+     9|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
       |                       ^
-     9|
+    10|
 
 … while calling 'recurseIntoAttrs'
 
@@ -41,12 +41,12 @@ error:
 
 … from call site
 
-  at ./pkgs/default.nix:8:50:
+  at ./pkgs/default.nix:9:50:
 
-     7|
-     8|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
+     8|
+     9|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
       |                                                  ^
-     9|
+    10|
 
 … while calling 'callPackage''
 
