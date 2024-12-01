@@ -1,16 +1,16 @@
 {
 "name":"sikmir",
-"fetch_time":0.623,
-"eval_time":0.409,
+"fetch_time":0.89,
+"eval_time":0.398,
 "source":{
 "url":"https://github.com/sikmir/nur-packages",
-"rev":"0ef9e1bacaff13ca1c2e85944665e7d32b48ffe9",
-"sha256":"1hhlq9c1azv4iwjfz7bpdihazaxzs7bb6aw38dqkdjfwnp5iqp28",
+"rev":"ba251a559382d3812d4d52af47a1ad6ac540607f",
+"sha256":"1dwylpp69084k7vdb20y33965sqy87p2v5nsksn64pa5j90n5bpq",
 "date":null
 },
-"source_storepath":"/nix/store/8ymzbgb05vvxgiwqvy5q6bx7lgmsxhs7-source",
-"nixpkgs_storepath":"/nix/store/vidsfr7r3hpc0fylw7d7sws5nyzavlz1-source",
-"nur_combined_rev":"1ebcf18c1f5811a3f4c77d6045ac385e296c1d51",
+"source_storepath":"/nix/store/23p2sgc8xbrx9dq921n09cc5sp5vj3c9-source",
+"nixpkgs_storepath":"/nix/store/hcilijdy58vaa373rar3wld6rl0wk8kr-source",
+"nur_combined_rev":"8fc751d01de5d3a79b9d05217dd5705f4c8e7dad",
 "packages":{
 "aamath":{
 "meta":{
@@ -222,7 +222,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/acp/default.nix:27",
 "unfree":false,
@@ -372,7 +373,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -433,7 +435,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/agunua/default.nix:37",
 "unfree":false,
@@ -493,6 +496,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -791,7 +795,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -852,7 +857,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/apibackuper/default.nix:29",
 "unfree":false,
@@ -980,7 +986,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1041,7 +1048,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/arcgis2geojson/default.nix:27",
 "unfree":false,
@@ -1100,6 +1108,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -1180,6 +1189,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -1293,7 +1303,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/astronaut/default.nix:40",
 "unfree":false,
@@ -1403,6 +1414,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -1675,7 +1687,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1736,7 +1749,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/bounded-pool-executor/default.nix:21",
 "unfree":false,
@@ -1795,6 +1809,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -1889,6 +1904,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -1978,7 +1994,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2039,7 +2056,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/c2cwsgiutils/default.nix:35",
 "unfree":false,
@@ -2098,6 +2116,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -2191,6 +2210,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -2358,7 +2378,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/chasquid/default.nix:42",
 "unfree":false,
@@ -2416,6 +2437,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -2512,6 +2534,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -2601,7 +2624,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2648,7 +2672,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/click/default.nix:31",
 "unfree":false,
@@ -2703,7 +2728,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2765,7 +2791,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gpx/cmpgpx/default.nix:37",
 "unfree":false,
@@ -2819,7 +2846,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2880,7 +2908,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/cogdumper/default.nix:21",
 "unfree":false,
@@ -2935,7 +2964,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2996,7 +3026,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/cogeo-mosaic/default.nix:47",
 "unfree":false,
@@ -3075,7 +3106,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/comitium/default.nix:35",
 "unfree":false,
@@ -3129,7 +3161,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -3190,7 +3223,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/config-path/default.nix:22",
 "unfree":false,
@@ -3245,7 +3279,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -3306,7 +3341,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/contextily/default.nix:41",
 "unfree":false,
@@ -3538,6 +3574,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -3688,7 +3725,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -3749,7 +3787,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/curses-menu/default.nix:35",
 "unfree":false,
@@ -3804,7 +3843,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -3865,7 +3905,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/cykhash/default.nix:34",
 "unfree":false,
@@ -3983,6 +4024,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -4076,6 +4118,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -4210,6 +4253,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -4307,6 +4351,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -4396,7 +4441,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -4457,7 +4503,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/linguistics/distance/default.nix:25",
 "unfree":false,
@@ -4514,6 +4561,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -4607,6 +4655,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -4728,7 +4777,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -4789,7 +4839,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/docx2csv/default.nix:26",
 "unfree":false,
@@ -5090,6 +5141,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -5183,6 +5235,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -5272,7 +5325,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -5333,7 +5387,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/earthaccess/default.nix:43",
 "unfree":false,
@@ -5388,7 +5443,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -5449,7 +5505,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/earthpy/default.nix:31",
 "unfree":false,
@@ -5577,7 +5634,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -5639,7 +5697,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/elevation/default.nix:64",
 "unfree":false,
@@ -5697,6 +5756,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -5791,6 +5851,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -5888,6 +5949,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -5985,6 +6047,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -6082,6 +6145,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -6179,6 +6243,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -6295,7 +6360,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/emitter/default.nix:29",
 "unfree":false,
@@ -6473,7 +6539,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/exercisediary/default.nix:26",
 "unfree":false,
@@ -6529,6 +6596,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -6620,6 +6688,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -6886,6 +6955,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -7031,7 +7101,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -7092,7 +7163,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gpx/fitdecode/default.nix:23",
 "unfree":false,
@@ -7151,6 +7223,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -7244,6 +7317,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -7335,6 +7409,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -7459,7 +7534,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -7521,7 +7597,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/gaiagpsclient/default.nix:35",
 "unfree":false,
@@ -7576,7 +7653,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -7637,7 +7715,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/garmin/garmin-uploader/default.nix:28",
 "unfree":false,
@@ -7769,6 +7848,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -7960,7 +8040,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -8019,7 +8100,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/gcgn-converter/default.nix:45",
 "unfree":false,
@@ -8078,6 +8160,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -8194,7 +8277,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/gelim/default.nix:39",
 "unfree":false,
@@ -8250,6 +8334,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -8344,6 +8429,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -8457,7 +8543,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/gemgen/default.nix:24",
 "unfree":false,
@@ -8535,7 +8622,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/gemini-ipfs-gateway/default.nix:21",
 "unfree":false,
@@ -8593,6 +8681,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -8706,7 +8795,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/gemreader/default.nix:21",
 "unfree":false,
@@ -8859,7 +8949,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -8897,6 +8988,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -8987,7 +9079,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -9048,7 +9141,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/geoarrow-pandas/default.nix:24",
 "unfree":false,
@@ -9103,7 +9197,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -9164,7 +9259,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/geoarrow-pyarrow/default.nix:31",
 "unfree":false,
@@ -9219,7 +9315,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -9280,7 +9377,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/geojson-pydantic/default.nix:31",
 "unfree":false,
@@ -9339,6 +9437,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -9428,7 +9527,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -9489,7 +9589,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/geotiler/default.nix:37",
 "unfree":false,
@@ -9548,6 +9649,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -9682,6 +9784,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -9775,6 +9878,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -9866,6 +9970,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -10014,6 +10119,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -10127,7 +10233,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/gmnhg/default.nix:21",
 "unfree":false,
@@ -10206,7 +10313,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/gmnigit/default.nix:26",
 "unfree":false,
@@ -10264,6 +10372,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -10357,6 +10466,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -10470,7 +10580,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/go-mqtt-to-influxdb/default.nix:22",
 "unfree":false,
@@ -10548,7 +10659,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/go-staticmaps/default.nix:23",
 "unfree":false,
@@ -10606,6 +10718,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -10750,6 +10863,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -10922,6 +11036,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -11044,6 +11159,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -11137,6 +11253,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -11230,6 +11347,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -11324,6 +11442,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -11475,7 +11594,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -11536,7 +11656,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gpx/gpx-cmd-tools/default.nix:21",
 "unfree":false,
@@ -11591,7 +11712,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -11652,7 +11774,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gpx/gpx-converter/default.nix:36",
 "unfree":false,
@@ -11707,7 +11830,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -11769,7 +11893,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gpx/gpx-interpolate/default.nix:37",
 "unfree":false,
@@ -11825,6 +11950,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -11950,6 +12076,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -12063,7 +12190,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gpx/gpxchart/default.nix:23",
 "unfree":false,
@@ -12121,6 +12249,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -12245,7 +12374,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -12306,7 +12436,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/gpxelevations/default.nix:44",
 "unfree":false,
@@ -12365,6 +12496,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -12458,6 +12590,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -12583,6 +12716,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -12672,7 +12806,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -12733,7 +12868,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gpx/gpxtrackposter/default.nix:70",
 "unfree":false,
@@ -12792,6 +12928,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -12979,7 +13116,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/gssg/default.nix:21",
 "unfree":false,
@@ -13037,6 +13175,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -13161,7 +13300,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -13222,7 +13362,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/linguistics/gt4gd/default.nix:29",
 "unfree":false,
@@ -13281,6 +13422,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -13370,7 +13512,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -13431,7 +13574,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/hardpy/default.nix:43",
 "unfree":false,
@@ -13491,6 +13635,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -13683,6 +13828,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -13772,7 +13918,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -13834,7 +13981,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/huami-token/default.nix:33",
 "unfree":false,
@@ -14100,6 +14248,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -14287,7 +14436,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/ionscale/default.nix:29",
 "unfree":false,
@@ -14365,7 +14515,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/ioxy/default.nix:23",
 "unfree":false,
@@ -14640,6 +14791,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -14788,7 +14940,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/janus-mqtt-proxy/default.nix:30",
 "unfree":false,
@@ -14846,6 +14999,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -14935,7 +15089,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -14996,7 +15151,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/jsonseq/default.nix:21",
 "unfree":false,
@@ -15055,6 +15211,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -15148,6 +15305,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -15241,6 +15399,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -15355,7 +15514,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/kineto/default.nix:21",
 "unfree":false,
@@ -15413,6 +15573,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -15566,6 +15727,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -15694,6 +15856,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -15783,7 +15946,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -15844,7 +16008,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/lazyscraper/default.nix:27",
 "unfree":false,
@@ -15976,6 +16141,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -16069,6 +16235,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -16162,6 +16329,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -16287,6 +16455,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -16454,6 +16623,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -16545,6 +16715,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -16636,6 +16807,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -16727,6 +16899,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -16855,6 +17028,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -17199,6 +17373,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -17361,7 +17536,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -17422,7 +17598,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/localtileserver/default.nix:55",
 "unfree":false,
@@ -17477,7 +17654,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -17538,7 +17716,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/linguistics/lsdreader/default.nix:21",
 "unfree":false,
@@ -17790,6 +17969,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -17879,7 +18059,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -17941,7 +18122,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/map-machine/default.nix:38",
 "unfree":false,
@@ -17996,7 +18178,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -18057,7 +18240,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/map-stylizer/default.nix:44",
 "unfree":false,
@@ -18111,7 +18295,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -18170,7 +18355,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/nakarte/map-tiler/default.nix:60",
 "unfree":false,
@@ -18302,7 +18488,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -18361,7 +18548,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/nakarte/maprec/default.nix:11",
 "unfree":false,
@@ -18416,7 +18604,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -18477,7 +18666,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/maproulette-python-client/default.nix:33",
 "unfree":false,
@@ -18609,6 +18799,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -18703,6 +18894,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -18885,7 +19077,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -18946,7 +19139,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/mbtiles2osmand/default.nix:38",
 "unfree":false,
@@ -19123,7 +19317,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/md2html/default.nix:21",
 "unfree":false,
@@ -19202,7 +19397,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/mdtohtml/default.nix:36",
 "unfree":false,
@@ -19334,6 +19530,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -19497,7 +19694,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -19608,6 +19806,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -19697,7 +19896,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -19758,7 +19958,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/linguistics/mikatools/default.nix:27",
 "unfree":false,
@@ -19813,7 +20014,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -19874,7 +20076,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/mitzasql/default.nix:40",
 "unfree":false,
@@ -19934,6 +20137,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -20048,7 +20252,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/mobroute/default.nix:34",
 "skip":{
@@ -20130,7 +20335,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/mobsql/default.nix:28",
 "skip":{
@@ -20211,7 +20417,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/mochi/default.nix:26",
 "unfree":false,
@@ -20364,7 +20571,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -20425,7 +20633,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/modbus_sim_cli/default.nix:40",
 "unfree":false,
@@ -20480,7 +20689,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -20541,7 +20751,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/modbus_tk/default.nix:21",
 "unfree":false,
@@ -20669,7 +20880,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -20730,7 +20942,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/morse-talk/default.nix:26",
 "unfree":false,
@@ -20809,7 +21022,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/mproxy/default.nix:26",
 "unfree":false,
@@ -20885,7 +21099,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/mqcontrol/default.nix:21",
 "unfree":false,
@@ -20963,7 +21178,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/mqtt-benchmark/default.nix:21",
 "unfree":false,
@@ -21021,6 +21237,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -21172,7 +21389,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -21231,7 +21449,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/mqtt-launcher/default.nix:29",
 "unfree":false,
@@ -21285,7 +21504,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -21346,7 +21566,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/mqtt-logger/default.nix:35",
 "unfree":false,
@@ -21416,7 +21637,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/mqtt-proxy/default.nix:30",
 "unfree":false,
@@ -21494,7 +21716,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/mqtt-shell/default.nix:29",
 "unfree":false,
@@ -21548,7 +21771,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -21609,7 +21833,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/mqtt-stats/default.nix:47",
 "unfree":false,
@@ -21667,6 +21892,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -21756,7 +21982,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -21817,7 +22044,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/mqtt-to-influxdb-forwarder/default.nix:36",
 "unfree":false,
@@ -21873,6 +22101,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -22021,7 +22250,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/musig/default.nix:34",
 "unfree":false,
@@ -22075,7 +22305,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -22137,7 +22368,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/mysql-to-sqlite3/default.nix:33",
 "unfree":false,
@@ -22194,6 +22426,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -22282,6 +22515,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -22375,6 +22609,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -22686,6 +22921,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -22780,6 +23016,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -22893,7 +23130,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/linguistics/odict/default.nix:25",
 "unfree":false,
@@ -22949,6 +23187,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -23062,7 +23301,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"otm-armenia-241125",
+"name":"otm-armenia-241129",
 "outputsToInstall":[
 "out"
 ],
@@ -23075,6 +23314,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -23151,14 +23391,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"otm-armenia-241125",
+"name":"otm-armenia-241129",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"otm-armenia",
 "system":"x86_64-linux",
-"version":"241125"
+"version":"241129"
 },
 "orbisgis":{
 "meta":{
@@ -23337,6 +23577,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -23428,6 +23669,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -23556,6 +23798,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -23649,6 +23892,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -23738,7 +23982,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -23799,7 +24044,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/osm2geojson/default.nix:27",
 "unfree":false,
@@ -23859,6 +24105,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -23984,6 +24231,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -24077,6 +24325,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -24162,6 +24411,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -24407,7 +24657,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -24468,7 +24719,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/osmwalkthrough/default.nix:42",
 "unfree":false,
@@ -24526,6 +24778,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -24616,6 +24869,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -24740,7 +24994,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -24801,7 +25056,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/overpassforge/default.nix:28",
 "unfree":false,
@@ -24856,7 +25112,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -24915,7 +25172,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/nakarte/ozi_map/default.nix:35",
 "unfree":false,
@@ -24970,7 +25228,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -25031,7 +25290,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/phyghtmap/default.nix:34",
 "unfree":false,
@@ -25142,7 +25402,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":[
 {
@@ -25214,7 +25475,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/pipfile/default.nix:24",
 "unfree":false,
@@ -25464,6 +25726,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -25553,7 +25816,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -25614,7 +25878,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/pmtiles/default.nix:21",
 "unfree":false,
@@ -25669,7 +25934,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -25730,7 +25996,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/pnoise/default.nix:23",
 "unfree":false,
@@ -25919,7 +26186,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -25980,7 +26248,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/polytiles/default.nix:27",
 "unfree":false,
@@ -26109,7 +26378,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -26170,7 +26440,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/portolan/default.nix:23",
 "unfree":false,
@@ -26225,7 +26496,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -26286,7 +26558,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/pqdm/default.nix:30",
 "unfree":false,
@@ -26341,7 +26614,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -26402,7 +26676,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/prettymapp/default.nix:34",
 "unfree":false,
@@ -26582,7 +26857,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -26643,7 +26919,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/py-gmi2html/default.nix:20",
 "unfree":false,
@@ -26698,7 +26975,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -26760,7 +27038,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/py-osm-static-maps/default.nix:27",
 "unfree":false,
@@ -26815,7 +27094,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -26876,7 +27156,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/py-staticmaps/default.nix:33",
 "unfree":false,
@@ -26931,7 +27212,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -26992,7 +27274,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/pyarrow_ops/default.nix:30",
 "unfree":false,
@@ -27047,7 +27330,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -27108,7 +27392,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/pycouchdb/default.nix:41",
 "unfree":false,
@@ -27163,7 +27448,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -27224,7 +27510,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gnss/pygnssutils/default.nix:34",
 "unfree":false,
@@ -27279,7 +27566,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -27340,7 +27628,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gnss/pygpsclient/default.nix:31",
 "unfree":false,
@@ -27395,7 +27684,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -27454,7 +27744,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/nakarte/pyimagequant/default.nix:30",
 "unfree":false,
@@ -27509,7 +27800,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -27570,7 +27862,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/pymbtiles/default.nix:21",
 "unfree":false,
@@ -27625,7 +27918,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -27686,7 +27980,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/pyrobuf/default.nix:34",
 "unfree":false,
@@ -27741,7 +28036,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -27802,7 +28098,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/pyrosm/default.nix:38",
 "unfree":false,
@@ -27857,7 +28154,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -27918,7 +28216,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gnss/pyrtcm/default.nix:24",
 "unfree":false,
@@ -27973,7 +28272,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -28034,7 +28334,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/pysheds/default.nix:32",
 "unfree":false,
@@ -28089,7 +28390,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -28150,7 +28452,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gnss/pyspartn/default.nix:26",
 "unfree":false,
@@ -28205,7 +28508,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -28266,7 +28570,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/pytest-docker-fixtures/default.nix:27",
 "unfree":false,
@@ -28321,7 +28626,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -28382,7 +28688,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/pytest-mp/default.nix:35",
 "unfree":false,
@@ -28437,7 +28744,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -28498,7 +28806,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mqtt/pytest-mqtt/default.nix:29",
 "unfree":false,
@@ -28553,7 +28862,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -28614,7 +28924,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/pytest-shell-utilities/default.nix:38",
 "unfree":false,
@@ -28669,7 +28980,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -28730,7 +29042,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/pytest-skip-markers/default.nix:36",
 "unfree":false,
@@ -28785,7 +29098,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -28846,7 +29160,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/python-cmr/default.nix:37",
 "unfree":false,
@@ -28901,7 +29216,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -28962,7 +29278,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/linguistics/pytorchtext/default.nix:50",
 "unfree":false,
@@ -29017,7 +29334,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -29078,7 +29396,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gnss/pyubx2/default.nix:30",
 "unfree":false,
@@ -29133,7 +29452,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -29194,7 +29514,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/qasync/default.nix:21",
 "unfree":false,
@@ -29324,6 +29645,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -29643,6 +29965,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -29764,7 +30087,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -29825,7 +30149,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/qute-gemini/default.nix:27",
 "unfree":false,
@@ -29880,7 +30205,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -29978,6 +30304,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -30239,7 +30566,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -30300,7 +30628,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/linguistics/revtok/default.nix:23",
 "unfree":false,
@@ -30380,7 +30709,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/rhttp/default.nix:21",
 "unfree":false,
@@ -30459,7 +30789,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/riffraff/default.nix:44",
 "unfree":false,
@@ -30513,7 +30844,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -30574,7 +30906,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/rio-cogeo/default.nix:40",
 "unfree":false,
@@ -30629,7 +30962,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -30690,7 +31024,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/rio-color/default.nix:34",
 "unfree":false,
@@ -30745,7 +31080,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -30806,7 +31142,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/rio-mbtiles/default.nix:37",
 "unfree":false,
@@ -30861,7 +31198,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -30922,7 +31260,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/rio-mucho/default.nix:28",
 "unfree":false,
@@ -30977,7 +31316,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -31038,7 +31378,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/rio-stac/default.nix:35",
 "unfree":false,
@@ -31255,6 +31596,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -31383,6 +31725,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -31475,7 +31818,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -31536,7 +31880,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/rst2txt/default.nix:31",
 "unfree":false,
@@ -32001,7 +32346,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -32062,7 +32408,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/s2sphere/default.nix:25",
 "unfree":false,
@@ -32195,6 +32542,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -32349,7 +32697,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/satellite/default.nix:21",
 "unfree":false,
@@ -32553,6 +32902,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -32717,6 +33067,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -32883,6 +33234,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -32976,6 +33328,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -33067,6 +33420,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -33325,7 +33679,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -33386,7 +33741,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/server-thread/default.nix:32",
 "unfree":false,
@@ -33445,6 +33801,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -33558,7 +33915,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gemini/shavit/default.nix:21",
 "unfree":false,
@@ -33612,7 +33970,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -33673,7 +34032,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/shellprof/default.nix:28",
 "unfree":false,
@@ -33752,7 +34112,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/shifu/default.nix:47",
 "unfree":false,
@@ -33808,6 +34169,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -33934,6 +34296,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -34060,6 +34423,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -34331,7 +34695,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -34392,7 +34757,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/smopy/default.nix:28",
 "unfree":false,
@@ -34451,6 +34817,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -34628,6 +34995,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -34721,6 +35089,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -34814,6 +35183,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -34903,7 +35273,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -34964,7 +35335,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/starlette-cramjam/default.nix:31",
 "unfree":false,
@@ -35170,6 +35542,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -35259,7 +35632,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -35320,7 +35694,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/supermercado/default.nix:28",
 "unfree":false,
@@ -35375,7 +35750,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -35436,7 +35812,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/supermorecado/default.nix:29",
 "unfree":false,
@@ -35568,6 +35945,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -35776,6 +36154,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -35854,7 +36233,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"tatoeba-2024-11-16",
+"name":"tatoeba-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -35867,6 +36246,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -35943,14 +36323,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tatoeba-2024-11-16",
+"name":"tatoeba-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tatoeba",
 "system":"x86_64-linux",
-"version":"2024-11-16"
+"version":"2024-11-30"
 },
 "tatoebatools":{
 "meta":{
@@ -35991,7 +36371,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -36052,7 +36433,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/linguistics/tatoebatools/default.nix:47",
 "unfree":false,
@@ -36111,6 +36493,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -36227,7 +36610,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/tcvt/default.nix:27",
 "unfree":false,
@@ -36305,7 +36689,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/telegabber/default.nix:39",
 "unfree":false,
@@ -36359,7 +36744,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -36420,7 +36806,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/telegram-send/default.nix:30",
 "unfree":false,
@@ -36479,6 +36866,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -36572,6 +36960,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -36661,7 +37050,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -36722,7 +37112,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/terracotta/default.nix:54",
 "unfree":false,
@@ -36802,7 +37193,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/tg-spam/default.nix:33",
 "unfree":false,
@@ -36856,7 +37248,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -36917,7 +37310,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/nakarte/thinplatespline/default.nix:23",
 "unfree":false,
@@ -36976,6 +37370,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -37065,7 +37460,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -37126,7 +37522,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/tilecloud/default.nix:65",
 "unfree":false,
@@ -37181,7 +37578,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -37242,7 +37640,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/tilekiln/default.nix:47",
 "unfree":false,
@@ -37297,7 +37696,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -37358,7 +37758,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/osm/tilelog/default.nix:30",
 "unfree":false,
@@ -37413,7 +37814,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -37475,7 +37877,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/tilesets-cli/default.nix:43",
 "unfree":false,
@@ -37556,7 +37959,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/tiny-frpc/default.nix:26",
 "unfree":false,
@@ -37610,7 +38014,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -37671,7 +38076,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/tinyflux/default.nix:28",
 "unfree":false,
@@ -37726,7 +38132,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -37787,7 +38194,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/tinynetrc/default.nix:25",
 "unfree":false,
@@ -37842,7 +38250,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -37903,7 +38312,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/titiler/default.nix:23",
 "unfree":false,
@@ -38034,6 +38444,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -38123,7 +38534,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -38185,7 +38597,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/tpkutils/default.nix:32",
 "unfree":false,
@@ -38240,7 +38653,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -38301,7 +38715,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gpx/trackanimation/default.nix:34",
 "unfree":false,
@@ -38356,7 +38771,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -38415,7 +38831,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/nakarte/tracks_storage_server/default.nix:49",
 "unfree":false,
@@ -38495,7 +38912,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/tsnsrv/default.nix:23",
 "unfree":false,
@@ -38649,6 +39067,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -38740,6 +39159,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -38834,6 +39254,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -38927,6 +39348,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -39040,7 +39462,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/vt2geojson/default.nix:31",
 "unfree":false,
@@ -39098,6 +39521,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -39187,7 +39611,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -39249,7 +39674,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/wik/default.nix:28",
 "unfree":false,
@@ -39304,7 +39730,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -39365,7 +39792,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/linguistics/wikitextprocessor/default.nix:37",
 "unfree":false,
@@ -39420,7 +39848,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -39481,7 +39910,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/linguistics/wiktextract/default.nix:53",
 "unfree":false,
@@ -39536,7 +39966,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -39597,7 +40028,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/linguistics/wiktfinnish/default.nix:23",
 "unfree":false,
@@ -39677,7 +40109,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/geospatial/wms-tiles-downloader/default.nix:48",
 "unfree":false,
@@ -39731,7 +40164,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -39792,7 +40226,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/wptools/default.nix:28",
 "unfree":false,
@@ -40053,7 +40488,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/misc/youtimetrack/default.nix:23",
 "unfree":false,
@@ -40107,7 +40543,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -40168,7 +40605,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/linguistics/zdict/default.nix:27",
 "unfree":false,

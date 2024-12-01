@@ -1,16 +1,16 @@
 {
 "name":"kira-bruneau",
-"fetch_time":0.276,
-"eval_time":0.388,
+"fetch_time":0.317,
+"eval_time":0.386,
 "source":{
 "url":"https://gitlab.com/kira-bruneau/nur-packages",
-"rev":"35d62feb10bf3335cfaf992bc7cdc6906577ff8a",
-"sha256":"13fxzw5vmr0mlnwgkgdirxnbf9b9vwcv8dk38qiilqa74gk10sg1",
+"rev":"a0522a39add7c30b544a5acd5f4c0755d0359184",
+"sha256":"0lq6psqqgdcdlxg2gx0c5cshg2a4cwrbkcy42g1xbcjc3j9ijw2a",
 "date":null
 },
-"source_storepath":"/nix/store/jwg3irpavmzbxa3sbas1qwmc14f45gyz-source",
-"nixpkgs_storepath":"/nix/store/npx1ww3dqyhjwzs31p0dxhqj2lwpi5zl-source",
-"nur_combined_rev":"60ea42effcf2e6e41edfe4a1b3c4e8634bf2a8c2",
+"source_storepath":"/nix/store/98zv944z14q94kzajskfmf3gg3k4y4m0-source",
+"nixpkgs_storepath":"/nix/store/hcilijdy58vaa373rar3wld6rl0wk8kr-source",
+"nur_combined_rev":"e22151ebd0ed10d40237cf7bce301c45e5075e52",
 "packages":{
 "anytype":{
 "meta":{
@@ -251,6 +251,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -471,7 +472,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -527,7 +529,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/tools/misc/cmake-language-server/default.nix:65",
 "unfree":false,
@@ -586,6 +589,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -705,6 +709,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -824,6 +829,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -949,6 +955,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -1105,7 +1112,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/gadget-inc/ggt/releases/tag/v25.05pre712942.af51545ec9a4",
+"changelog":"https://github.com/gadget-inc/ggt/releases/tag/v25.05pre714486.4703b8d2c708",
 "description":"Command-line interface for Gadget",
 "homepage":"https://docs.gadget.dev/guides/development-tools/cli",
 "insecure":false,
@@ -1183,7 +1190,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1240,7 +1248,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/applications/version-management/git-review/default.nix:47",
 "unfree":false,
@@ -1296,6 +1305,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -1429,7 +1439,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/os-specific/linux/xpadneo/default.nix:46",
+"position":"./pkgs/os-specific/linux/xpadneo/default.nix:48",
 "unfree":false,
 "unsupported":false
 },
@@ -1688,7 +1698,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/by-name/mo/mozlz4a/package.nix:32",
 "unfree":false,
@@ -1747,6 +1758,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -1839,13 +1851,6 @@
 },
 "maintainers":[
 {
-"email":"torres.anderson.85@protonmail.com",
-"github":"AndersonTorres",
-"githubId":5954806,
-"matrix":"@anderson_torres:matrix.org",
-"name":"Anderson Torres"
-},
-{
 "email":"kira.bruneau@pm.me",
 "github":"kira-bruneau",
 "githubId":382041,
@@ -1866,6 +1871,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -2023,6 +2029,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -2144,7 +2151,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2225,7 +2233,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2310,7 +2319,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2365,7 +2375,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/pygls/default.nix:61",
 "unfree":false,
@@ -2421,7 +2432,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2476,7 +2488,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/pytest-datadir/default.nix:35",
 "unfree":false,
@@ -2531,7 +2544,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2586,7 +2600,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/vdf/default.nix:43",
 "unfree":false,
@@ -2642,7 +2657,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2727,7 +2743,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2782,7 +2799,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/pygls/default.nix:61",
 "unfree":false,
@@ -2838,7 +2856,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2893,7 +2912,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/pytest-datadir/default.nix:35",
 "unfree":false,
@@ -2948,7 +2968,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -3003,7 +3024,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/development/python-modules/vdf/default.nix:43",
 "unfree":false,
@@ -3023,7 +3045,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v25.05pre712942.af51545ec9a4",
+"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v25.05pre714486.4703b8d2c708",
 "description":"Nintendo Switch emulator written in C++",
 "homepage":"https://sudachi-emu.com",
 "insecure":false,
@@ -3807,6 +3829,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -3928,6 +3951,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -4049,6 +4073,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",

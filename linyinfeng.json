@@ -1,16 +1,16 @@
 {
 "name":"linyinfeng",
-"fetch_time":0.275,
-"eval_time":0.793,
+"fetch_time":0.754,
+"eval_time":0.788,
 "source":{
 "url":"https://github.com/linyinfeng/nur-packages",
-"rev":"0bd4e5820e46fc5dbe87c43621d89b288e274018",
-"sha256":"1x51n64aa003590jzj3q7lrs42pl1csav5abaxy83ipi3rcbc381",
+"rev":"8ab2588aff354ed87d3fdea1b2b55dcbd97062d7",
+"sha256":"147flqac8pmr185cnlvyf9z5qa4dnp0a0a0lb9iyndf0c93s9p0p",
 "date":null
 },
-"source_storepath":"/nix/store/zf5564wbbvgrnnhg3pa18lqqacy1g85b-source",
-"nixpkgs_storepath":"/nix/store/npx1ww3dqyhjwzs31p0dxhqj2lwpi5zl-source",
-"nur_combined_rev":"d2194831b3a3382facca0468ff0e5f8c6f53f26f",
+"source_storepath":"/nix/store/7dc9vmj955b1qskag31c5pv9i7122wjh-source",
+"nixpkgs_storepath":"/nix/store/hcilijdy58vaa373rar3wld6rl0wk8kr-source",
+"nur_combined_rev":"9797c2d4414827042a04b4c3385f265a950beea4",
 "packages":{
 "activate-dpt":{
 "meta":{
@@ -109,7 +109,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/aws-s3-reverse-proxy/default.nix:26",
 "unfree":false,
@@ -181,7 +182,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/aws-sigv4-proxy/default.nix:15",
 "unfree":false,
@@ -285,7 +287,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/cf-terraforming/default.nix:34",
 "unfree":false,
@@ -499,7 +502,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -554,7 +558,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/dpt-rp1-py/default.nix:27",
 "unfree":false,
@@ -628,7 +633,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/easylpac/default.nix:56",
 "unfree":false,
@@ -678,6 +684,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -1105,7 +1112,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/matrix-media-repo/default.nix:45",
 "unfree":false,
@@ -1177,7 +1185,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/matrix-qq/default.nix:36",
 "unfree":false,
@@ -1249,7 +1258,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/matrix-wechat/default.nix:35",
 "unfree":false,
@@ -1302,6 +1312,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -1548,7 +1559,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/rcon-cli/default.nix:33",
 "unfree":false,
@@ -1912,7 +1924,7 @@
 "name":"Lin Yinfeng"
 }
 ],
-"name":"rime-ice-3a34096cc921b34ff4ea4293daaf71c4ac311e58",
+"name":"rime-ice-ed191350b20a0074d177c9431fcb985ba193ef2b",
 "outputsToInstall":[
 "out"
 ],
@@ -1920,14 +1932,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-3a34096cc921b34ff4ea4293daaf71c4ac311e58",
+"name":"rime-ice-ed191350b20a0074d177c9431fcb985ba193ef2b",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"rime-ice",
+"pname":"rime-ice-ed191350b20a0074d177c9431fcb985ba193ef2b",
 "system":"x86_64-linux",
-"version":"3a34096cc921b34ff4ea4293daaf71c4ac311e58"
+"version":""
 },
 "rimePackages.rime-loengfan":{
 "meta":{
@@ -2378,7 +2390,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/ssl-handshake/default.nix:33",
 "unfree":false,
@@ -2473,7 +2486,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2528,7 +2542,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/synapse-s3-storage-provider/default.nix:31",
 "unfree":false,
@@ -2583,7 +2598,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2638,7 +2654,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/telegram-send/default.nix:24",
 "unfree":false,
