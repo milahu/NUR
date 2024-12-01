@@ -43,6 +43,10 @@ in {
         ACTION=="add", SUBSYSTEM=="block", KERNEL=="sd[a-z]", ENV{ID_SERIAL_SHORT}=="WD-WXS2E902C67R", RUN+="${pkgs.hdparm}/bin/hdparm -B 254 /dev/%k"
         ACTION=="add", SUBSYSTEM=="block", KERNEL=="sd[a-z]", ENV{ID_SERIAL_SHORT}=="WWD1JS70", RUN+="${pkgs.hdparm}/bin/hdparm -S 242 /dev/%k"
       '';
+      boot.kernelParams = [
+        "console=tty1"
+        "console=ttyS0,115200"
+      ];
     } // builder))
     (mkIf (cfg.enable && laptop) ({
       hardware.bluetooth.enable = true;
@@ -58,7 +62,7 @@ in {
       programs.light.enable = true;
       users.users.${cfg.user}.extraGroups = [ "video" ];
       services.tlp.enable = true;
-      hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
+      hardware.graphics.extraPackages = [ pkgs.vaapiIntel ];
       # https://github.com/NixOS/nixpkgs/issues/270809
       systemd.services.ModemManager.wantedBy = [ "multi-user.target" "network.target" ];
     } // builder))
@@ -75,8 +79,6 @@ in {
       boot.initrd.kernelModules = [ "amdgpu" ];
       services.udev.extraRules = ''
         ACTION=="add", ATTRS{idVendor}=="1a2c", ATTRS{idProduct}=="2c27", ATTR{power/wakeup}="disabled"
-        # https://github.com/NixOS/nixpkgs/issues/297312
-        SUBSYSTEM=="i2c", DEVPATH=="/devices/pci0000:00/0000:00:03.1/0000:2b:00.0/0000:2c:00.0/0000:2d:00.0/drm/card1/card1-DP-1/i2c-6", ACTION=="add", RUN+="/bin/sh -c 'echo ddcci 0x37 > $sys$devpath/new_device'"
       '';
     })
   ];

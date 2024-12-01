@@ -13,7 +13,7 @@ in {
     nixpkgs.config.packageOverrides = pkgs: {
       vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
     };
-    hardware.opengl = {
+    hardware.graphics = {
       enable = mkDefault true;
       extraPackages = with pkgs; [
         intel-media-driver intel-vaapi-driver vaapiVdpau intel-compute-runtime intel-media-sdk
@@ -26,18 +26,6 @@ in {
     services.radarr.enable = true;
     services.radarr.group = config.services.transmission.group;
     services.jackett.enable = true;
-    # todo: replace with services.flaresolver option
-    systemd.services.flaresolverr = {
-      after = [ "network.target" ];
-      serviceConfig = {
-        User = config.services.jackett.user;
-        Group = config.services.jackett.group;
-        Restart = "always";
-        RestartSec = 5;
-        TimeoutStopSec = 30;
-        ExecStart = "${pkgs.nur.repos.xddxdd.flaresolverr}/bin/flaresolverr";
-      };
-      wantedBy = [ "multi-user.target" ];
-    };
+    services.flaresolverr.enable = true;
   };
 }
