@@ -1,16 +1,16 @@
 {
 "name":"colinsane",
-"fetch_time":2.242,
-"eval_time":1.029,
+"fetch_time":2.616,
+"eval_time":1.046,
 "source":{
 "url":"https://git.uninsane.org/colin/nix-files",
-"rev":"65243100f24b4263f3cd1545799a57f5d578d530",
-"sha256":"1w8fwydzxbic5ipamlzpx4fjrjzzsjyp77545hlwgb7y7avbnpjv",
+"rev":"b5581b57f34c6c9fd8f04c5bffec1dd3c700695f",
+"sha256":"03cax4s3qgrpvw7qxhxr4ylb5vhrd4jfrvhm5bxxq3vn9cb7anz1",
 "date":null
 },
-"source_storepath":"/nix/store/kqfgjh1jz2m6vghzsn4p0vr4q203lbba-nix-files",
-"nixpkgs_storepath":"/nix/store/npx1ww3dqyhjwzs31p0dxhqj2lwpi5zl-source",
-"nur_combined_rev":"8d47df0846f31910f15a432a5c3e4678998b436b",
+"source_storepath":"/nix/store/89zlmfjmxq6399ycxdgg9jks0khzzssa-nix-files",
+"nixpkgs_storepath":"/nix/store/p64f0j07x2js29yvwcbwwl2hp3kisdv0-source",
+"nur_combined_rev":"d60d958ec0dbbf81bd04d45b314cdde8e5b0e966",
 "packages":{
 "alsa-ucm-pinephone-manjaro":{
 "meta":{
@@ -171,6 +171,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -602,6 +603,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -714,6 +716,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -895,7 +898,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/by-name/easylpac/package.nix:49",
 "unfree":false,
@@ -1197,6 +1201,28 @@
 "system":"x86_64-linux",
 "version":"0-unstable-2023-03-03-wrapped"
 },
+"firefox-extensions.default-zoom":{
+"meta":{
+"available":true,
+"broken":false,
+"insecure":false,
+"name":"default-zoom-0.1-wrapped",
+"outputsToInstall":[
+"out"
+],
+"position":"./pkgs/by-name/firefox-extensions/package.nix:32",
+"unfree":false,
+"unsupported":false
+},
+"name":"default-zoom-0.1-wrapped",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"default-zoom",
+"system":"x86_64-linux",
+"version":"0.1-wrapped"
+},
 "firefox-extensions.firefox-xdg-open":{
 "meta":{
 "available":true,
@@ -1290,7 +1316,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"sponsorblock-5.9.6-wrapped",
+"name":"sponsorblock-5.10.1-wrapped",
 "outputsToInstall":[
 "out"
 ],
@@ -1298,14 +1324,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sponsorblock-5.9.6-wrapped",
+"name":"sponsorblock-5.10.1-wrapped",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sponsorblock",
 "system":"x86_64-linux",
-"version":"5.9.6-wrapped"
+"version":"5.10.1-wrapped"
 },
 "firefox-extensions.ublacklist":{
 "meta":{
@@ -1334,7 +1360,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ublock-origin-1.61.3b0-wrapped",
+"name":"ublock-origin-1.61.3b2-wrapped",
 "outputsToInstall":[
 "out"
 ],
@@ -1342,14 +1368,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ublock-origin-1.61.3b0-wrapped",
+"name":"ublock-origin-1.61.3b2-wrapped",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ublock-origin",
 "system":"x86_64-linux",
-"version":"1.61.3b0-wrapped"
+"version":"1.61.3b2-wrapped"
 },
 "firefox-extensions.unwrapped.browserpass-extension":{
 "meta":{
@@ -1450,6 +1476,28 @@
 "pname":"ctrl-shift-c-should-copy",
 "system":"x86_64-linux",
 "version":"0-unstable-2023-03-03"
+},
+"firefox-extensions.unwrapped.default-zoom":{
+"meta":{
+"available":true,
+"broken":false,
+"insecure":false,
+"name":"default-zoom-0.1",
+"outputsToInstall":[
+"out"
+],
+"position":"./pkgs/by-name/firefox-extensions/default-zoom/default.nix:8",
+"unfree":false,
+"unsupported":false
+},
+"name":"default-zoom-0.1",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"default-zoom",
+"system":"x86_64-linux",
+"version":"0.1"
 },
 "firefox-extensions.unwrapped.firefox-xdg-open":{
 "meta":{
@@ -1593,7 +1641,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"sponsorblock-5.9.6",
+"name":"sponsorblock-5.10.1",
 "outputsToInstall":[
 "out"
 ],
@@ -1601,14 +1649,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sponsorblock-5.9.6",
+"name":"sponsorblock-5.10.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sponsorblock",
 "system":"x86_64-linux",
-"version":"5.9.6"
+"version":"5.10.1"
 },
 "firefox-extensions.unwrapped.ublacklist":{
 "meta":{
@@ -1637,7 +1685,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"ublock-origin-1.61.3b0",
+"name":"ublock-origin-1.61.3b2",
 "outputsToInstall":[
 "out"
 ],
@@ -1645,14 +1693,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ublock-origin-1.61.3b0",
+"name":"ublock-origin-1.61.3b2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ublock-origin",
 "system":"x86_64-linux",
-"version":"1.61.3b0"
+"version":"1.61.3b2"
 },
 "flare-signal-nixified":{
 "meta":{
@@ -1881,7 +1929,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -2476,7 +2525,7 @@
 "name":"Colin Sane"
 }
 ],
-"name":"libdng-unstable-2024-08-28",
+"name":"libdng-0.1.1-unstable-2024-11-05",
 "outputsToInstall":[
 "out"
 ],
@@ -2503,18 +2552,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/by-name/libdng/package.nix:38",
+"position":"./pkgs/by-name/libdng/package.nix:41",
 "unfree":false,
 "unsupported":false
 },
-"name":"libdng-unstable-2024-08-28",
+"name":"libdng-0.1.1-unstable-2024-11-05",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"libdng-unstable",
+"pname":"libdng",
 "system":"x86_64-linux",
-"version":"2024-08-28"
+"version":"0.1.1-unstable-2024-11-05"
 },
 "libfuse-sane":{
 "meta":{
@@ -2635,7 +2684,7 @@
 "name":"Colin Sane"
 }
 ],
-"name":"libmegapixels-0.1.0-unstable-2024-09-05",
+"name":"libmegapixels-0.1.0-unstable-2024-11-29",
 "outputsToInstall":[
 "out"
 ],
@@ -2662,18 +2711,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/by-name/libmegapixels/package.nix:47",
+"position":"./pkgs/by-name/libmegapixels/package.nix:50",
 "unfree":false,
 "unsupported":false
 },
-"name":"libmegapixels-0.1.0-unstable-2024-09-05",
+"name":"libmegapixels-0.1.0-unstable-2024-11-29",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"libmegapixels",
 "system":"x86_64-linux",
-"version":"0.1.0-unstable-2024-09-05"
+"version":"0.1.0-unstable-2024-11-29"
 },
 "lightdm-mobile-greeter":{
 "meta":{
@@ -5032,6 +5081,7 @@
 "arm-none",
 "armv6l-none",
 "aarch64-darwin",
+"aarch64-freebsd",
 "aarch64-genode",
 "aarch64-linux",
 "aarch64-netbsd",
@@ -5136,6 +5186,7 @@
 "arm-none",
 "armv6l-none",
 "aarch64-darwin",
+"aarch64-freebsd",
 "aarch64-genode",
 "aarch64-linux",
 "aarch64-netbsd",
@@ -6649,7 +6700,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -7047,7 +7099,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -7910,7 +7963,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -7948,7 +8001,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -7975,18 +8028,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_5_10.facetimehd":{
 "meta":{
@@ -10647,7 +10700,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-5.10.230",
+"name":"nvidia-x11-550.135-5.10.230",
 "outputsToInstall":[
 "bin"
 ],
@@ -10660,7 +10713,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-5.10.230",
+"name":"nvidia-x11-550.135-5.10.230",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -10670,7 +10723,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-5.10.230"
+"version":"550.135-5.10.230"
 },
 "linuxKernel.packages.linux_5_10.nvidia_x11_production_open":{
 "meta":{
@@ -10707,7 +10760,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-5.10.230-550.127.05",
+"name":"nvidia-open-5.10.230-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -10719,14 +10772,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-5.10.230-550.127.05",
+"name":"nvidia-open-5.10.230-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"5.10.230-550.127.05"
+"version":"5.10.230-550.135"
 },
 "linuxKernel.packages.linux_5_10.nvidia_x11_stable_open":{
 "meta":{
@@ -11131,7 +11184,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -12955,6 +13008,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -16084,7 +16138,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -16837,7 +16892,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -16875,7 +16930,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -16902,18 +16957,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_5_10_hardened.facetimehd":{
 "meta":{
@@ -19574,7 +19629,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-5.10.230",
+"name":"nvidia-x11-550.135-5.10.230",
 "outputsToInstall":[
 "bin"
 ],
@@ -19587,7 +19642,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-5.10.230",
+"name":"nvidia-x11-550.135-5.10.230",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -19597,7 +19652,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-5.10.230"
+"version":"550.135-5.10.230"
 },
 "linuxKernel.packages.linux_5_10_hardened.nvidia_x11_production_open":{
 "meta":{
@@ -19634,7 +19689,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-5.10.230-550.127.05",
+"name":"nvidia-open-5.10.230-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -19646,14 +19701,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-5.10.230-550.127.05",
+"name":"nvidia-open-5.10.230-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"5.10.230-550.127.05"
+"version":"5.10.230-550.135"
 },
 "linuxKernel.packages.linux_5_10_hardened.nvidia_x11_stable_open":{
 "meta":{
@@ -19927,7 +19982,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -24604,7 +24659,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -25357,7 +25413,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -25395,7 +25451,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -25422,18 +25478,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_5_15.facetimehd":{
 "meta":{
@@ -28094,7 +28150,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-5.15.173",
+"name":"nvidia-x11-550.135-5.15.173",
 "outputsToInstall":[
 "bin"
 ],
@@ -28107,7 +28163,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-5.15.173",
+"name":"nvidia-x11-550.135-5.15.173",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -28117,7 +28173,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-5.15.173"
+"version":"550.135-5.15.173"
 },
 "linuxKernel.packages.linux_5_15.nvidia_x11_production_open":{
 "meta":{
@@ -28154,7 +28210,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-5.15.173-550.127.05",
+"name":"nvidia-open-5.15.173-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -28166,14 +28222,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-5.15.173-550.127.05",
+"name":"nvidia-open-5.15.173-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"5.15.173-550.127.05"
+"version":"5.15.173-550.135"
 },
 "linuxKernel.packages.linux_5_15.nvidia_x11_stable_open":{
 "meta":{
@@ -28447,7 +28503,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -33124,7 +33180,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -33877,7 +33934,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -33915,7 +33972,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -33942,18 +33999,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_5_15_hardened.facetimehd":{
 "meta":{
@@ -36614,7 +36671,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-5.15.173",
+"name":"nvidia-x11-550.135-5.15.173",
 "outputsToInstall":[
 "bin"
 ],
@@ -36627,7 +36684,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-5.15.173",
+"name":"nvidia-x11-550.135-5.15.173",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -36637,7 +36694,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-5.15.173"
+"version":"550.135-5.15.173"
 },
 "linuxKernel.packages.linux_5_15_hardened.nvidia_x11_production_open":{
 "meta":{
@@ -36674,7 +36731,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-5.15.173-550.127.05",
+"name":"nvidia-open-5.15.173-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -36686,14 +36743,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-5.15.173-550.127.05",
+"name":"nvidia-open-5.15.173-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"5.15.173-550.127.05"
+"version":"5.15.173-550.135"
 },
 "linuxKernel.packages.linux_5_15_hardened.nvidia_x11_stable_open":{
 "meta":{
@@ -36967,7 +37024,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -41644,7 +41701,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -42397,7 +42455,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -42435,7 +42493,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -42462,18 +42520,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_5_4.exfat-nofuse":{
 "meta":{
@@ -45198,7 +45256,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-5.4.286",
+"name":"nvidia-x11-550.135-5.4.286",
 "outputsToInstall":[
 "bin"
 ],
@@ -45211,7 +45269,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-5.4.286",
+"name":"nvidia-x11-550.135-5.4.286",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -45221,7 +45279,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-5.4.286"
+"version":"550.135-5.4.286"
 },
 "linuxKernel.packages.linux_5_4.nvidia_x11_production_open":{
 "meta":{
@@ -45258,7 +45316,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-5.4.286-550.127.05",
+"name":"nvidia-open-5.4.286-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -45270,14 +45328,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-5.4.286-550.127.05",
+"name":"nvidia-open-5.4.286-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"5.4.286-550.127.05"
+"version":"5.4.286-550.135"
 },
 "linuxKernel.packages.linux_5_4.nvidia_x11_stable_open":{
 "meta":{
@@ -45551,7 +45609,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -50255,7 +50313,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -51008,7 +51067,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -51046,7 +51105,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -51073,18 +51132,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_5_4_hardened.exfat-nofuse":{
 "meta":{
@@ -53809,7 +53868,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-5.4.286",
+"name":"nvidia-x11-550.135-5.4.286",
 "outputsToInstall":[
 "bin"
 ],
@@ -53822,7 +53881,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-5.4.286",
+"name":"nvidia-x11-550.135-5.4.286",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -53832,7 +53891,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-5.4.286"
+"version":"550.135-5.4.286"
 },
 "linuxKernel.packages.linux_5_4_hardened.nvidia_x11_production_open":{
 "meta":{
@@ -53869,7 +53928,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-5.4.286-550.127.05",
+"name":"nvidia-open-5.4.286-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -53881,14 +53940,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-5.4.286-550.127.05",
+"name":"nvidia-open-5.4.286-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"5.4.286-550.127.05"
+"version":"5.4.286-550.135"
 },
 "linuxKernel.packages.linux_5_4_hardened.nvidia_x11_stable_open":{
 "meta":{
@@ -54162,7 +54221,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -55858,6 +55917,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -58957,7 +59017,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -59710,7 +59771,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -59748,7 +59809,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -59775,18 +59836,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_6_1.facetimehd":{
 "meta":{
@@ -62447,7 +62508,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.1.119",
+"name":"nvidia-x11-550.135-6.1.119",
 "outputsToInstall":[
 "bin"
 ],
@@ -62460,7 +62521,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.1.119",
+"name":"nvidia-x11-550.135-6.1.119",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -62470,7 +62531,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.1.119"
+"version":"550.135-6.1.119"
 },
 "linuxKernel.packages.linux_6_1.nvidia_x11_production_open":{
 "meta":{
@@ -62507,7 +62568,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.1.119-550.127.05",
+"name":"nvidia-open-6.1.119-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -62519,14 +62580,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.1.119-550.127.05",
+"name":"nvidia-open-6.1.119-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.1.119-550.127.05"
+"version":"6.1.119-550.135"
 },
 "linuxKernel.packages.linux_6_1.nvidia_x11_stable_open":{
 "meta":{
@@ -62800,7 +62861,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -67410,7 +67471,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -68163,7 +68225,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -68201,7 +68263,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -68228,18 +68290,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_6_11.facetimehd":{
 "meta":{
@@ -70900,7 +70962,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.11.10",
+"name":"nvidia-x11-550.135-6.11.10",
 "outputsToInstall":[
 "bin"
 ],
@@ -70913,7 +70975,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.11.10",
+"name":"nvidia-x11-550.135-6.11.10",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -70923,7 +70985,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.11.10"
+"version":"550.135-6.11.10"
 },
 "linuxKernel.packages.linux_6_11.nvidia_x11_production_open":{
 "meta":{
@@ -70960,7 +71022,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.11.10-550.127.05",
+"name":"nvidia-open-6.11.10-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -70972,14 +71034,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.11.10-550.127.05",
+"name":"nvidia-open-6.11.10-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.11.10-550.127.05"
+"version":"6.11.10-550.135"
 },
 "linuxKernel.packages.linux_6_11.nvidia_x11_stable_open":{
 "meta":{
@@ -71253,7 +71315,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -75909,7 +75971,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -76662,7 +76725,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -76700,7 +76763,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -76727,18 +76790,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_6_11_hardened.facetimehd":{
 "meta":{
@@ -79399,7 +79462,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.11.9",
+"name":"nvidia-x11-550.135-6.11.9",
 "outputsToInstall":[
 "bin"
 ],
@@ -79412,7 +79475,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.11.9",
+"name":"nvidia-x11-550.135-6.11.9",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -79422,7 +79485,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.11.9"
+"version":"550.135-6.11.9"
 },
 "linuxKernel.packages.linux_6_11_hardened.nvidia_x11_production_open":{
 "meta":{
@@ -79459,7 +79522,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.11.9-550.127.05",
+"name":"nvidia-open-6.11.9-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -79471,14 +79534,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.11.9-550.127.05",
+"name":"nvidia-open-6.11.9-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.11.9-550.127.05"
+"version":"6.11.9-550.135"
 },
 "linuxKernel.packages.linux_6_11_hardened.nvidia_x11_stable_open":{
 "meta":{
@@ -79752,7 +79815,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -84408,7 +84471,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -85159,9 +85223,9 @@
 },
 "linuxKernel.packages.linux_6_12.evdi":{
 "meta":{
-"available":false,
-"broken":true,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"available":true,
+"broken":false,
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -85199,7 +85263,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -85226,18 +85290,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_6_12.facetimehd":{
 "meta":{
@@ -87898,7 +87962,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.12.1",
+"name":"nvidia-x11-550.135-6.12.1",
 "outputsToInstall":[
 "bin"
 ],
@@ -87911,7 +87975,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.12.1",
+"name":"nvidia-x11-550.135-6.12.1",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -87921,7 +87985,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.12.1"
+"version":"550.135-6.12.1"
 },
 "linuxKernel.packages.linux_6_12.nvidia_x11_production_open":{
 "meta":{
@@ -87958,7 +88022,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.12.1-550.127.05",
+"name":"nvidia-open-6.12.1-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -87970,14 +88034,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.12.1-550.127.05",
+"name":"nvidia-open-6.12.1-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.12.1-550.127.05"
+"version":"6.12.1-550.135"
 },
 "linuxKernel.packages.linux_6_12.nvidia_x11_stable_open":{
 "meta":{
@@ -88251,7 +88315,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -92907,7 +92971,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -93660,7 +93725,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -93698,7 +93763,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -93725,18 +93790,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_6_1_hardened.facetimehd":{
 "meta":{
@@ -96397,7 +96462,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.1.118",
+"name":"nvidia-x11-550.135-6.1.118",
 "outputsToInstall":[
 "bin"
 ],
@@ -96410,7 +96475,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.1.118",
+"name":"nvidia-x11-550.135-6.1.118",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -96420,7 +96485,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.1.118"
+"version":"550.135-6.1.118"
 },
 "linuxKernel.packages.linux_6_1_hardened.nvidia_x11_production_open":{
 "meta":{
@@ -96457,7 +96522,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.1.118-550.127.05",
+"name":"nvidia-open-6.1.118-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -96469,14 +96534,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.1.118-550.127.05",
+"name":"nvidia-open-6.1.118-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.1.118-550.127.05"
+"version":"6.1.118-550.135"
 },
 "linuxKernel.packages.linux_6_1_hardened.nvidia_x11_stable_open":{
 "meta":{
@@ -96750,7 +96815,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -101360,7 +101425,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -102113,7 +102179,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -102151,7 +102217,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -102178,18 +102244,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_6_6.facetimehd":{
 "meta":{
@@ -104850,7 +104916,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.6.63",
+"name":"nvidia-x11-550.135-6.6.63",
 "outputsToInstall":[
 "bin"
 ],
@@ -104863,7 +104929,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.6.63",
+"name":"nvidia-x11-550.135-6.6.63",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -104873,7 +104939,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.6.63"
+"version":"550.135-6.6.63"
 },
 "linuxKernel.packages.linux_6_6.nvidia_x11_production_open":{
 "meta":{
@@ -104910,7 +104976,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.6.63-550.127.05",
+"name":"nvidia-open-6.6.63-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -104922,14 +104988,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.6.63-550.127.05",
+"name":"nvidia-open-6.6.63-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.6.63-550.127.05"
+"version":"6.6.63-550.135"
 },
 "linuxKernel.packages.linux_6_6.nvidia_x11_stable_open":{
 "meta":{
@@ -105203,7 +105269,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -109813,7 +109879,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -110566,7 +110633,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -110604,7 +110671,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -110631,18 +110698,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_6_6_hardened.facetimehd":{
 "meta":{
@@ -113303,7 +113370,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.6.62",
+"name":"nvidia-x11-550.135-6.6.62",
 "outputsToInstall":[
 "bin"
 ],
@@ -113316,7 +113383,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.6.62",
+"name":"nvidia-x11-550.135-6.6.62",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -113326,7 +113393,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.6.62"
+"version":"550.135-6.6.62"
 },
 "linuxKernel.packages.linux_6_6_hardened.nvidia_x11_production_open":{
 "meta":{
@@ -113363,7 +113430,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.6.62-550.127.05",
+"name":"nvidia-open-6.6.62-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -113375,14 +113442,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.6.62-550.127.05",
+"name":"nvidia-open-6.6.62-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.6.62-550.127.05"
+"version":"6.6.62-550.135"
 },
 "linuxKernel.packages.linux_6_6_hardened.nvidia_x11_stable_open":{
 "meta":{
@@ -113656,7 +113723,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -118266,7 +118333,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -119019,7 +119087,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -119057,7 +119125,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -119084,18 +119152,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_hardened.facetimehd":{
 "meta":{
@@ -121756,7 +121824,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.6.62",
+"name":"nvidia-x11-550.135-6.6.62",
 "outputsToInstall":[
 "bin"
 ],
@@ -121769,7 +121837,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.6.62",
+"name":"nvidia-x11-550.135-6.6.62",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -121779,7 +121847,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.6.62"
+"version":"550.135-6.6.62"
 },
 "linuxKernel.packages.linux_hardened.nvidia_x11_production_open":{
 "meta":{
@@ -121816,7 +121884,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.6.62-550.127.05",
+"name":"nvidia-open-6.6.62-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -121828,14 +121896,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.6.62-550.127.05",
+"name":"nvidia-open-6.6.62-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.6.62-550.127.05"
+"version":"6.6.62-550.135"
 },
 "linuxKernel.packages.linux_hardened.nvidia_x11_stable_open":{
 "meta":{
@@ -122109,7 +122177,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -126719,7 +126787,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -127470,9 +127539,9 @@
 },
 "linuxKernel.packages.linux_latest_libre.evdi":{
 "meta":{
-"available":false,
-"broken":true,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"available":true,
+"broken":false,
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -127510,7 +127579,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -127537,18 +127606,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_latest_libre.facetimehd":{
 "meta":{
@@ -130209,7 +130278,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.12.1",
+"name":"nvidia-x11-550.135-6.12.1",
 "outputsToInstall":[
 "bin"
 ],
@@ -130222,7 +130291,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.12.1",
+"name":"nvidia-x11-550.135-6.12.1",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -130232,7 +130301,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.12.1"
+"version":"550.135-6.12.1"
 },
 "linuxKernel.packages.linux_latest_libre.nvidia_x11_production_open":{
 "meta":{
@@ -130269,7 +130338,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.12.1-550.127.05",
+"name":"nvidia-open-6.12.1-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -130281,14 +130350,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.12.1-550.127.05",
+"name":"nvidia-open-6.12.1-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.12.1-550.127.05"
+"version":"6.12.1-550.135"
 },
 "linuxKernel.packages.linux_latest_libre.nvidia_x11_stable_open":{
 "meta":{
@@ -130562,7 +130631,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -135218,7 +135287,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -135971,7 +136041,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -136009,7 +136079,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -136036,18 +136106,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_libre.facetimehd":{
 "meta":{
@@ -138708,7 +138778,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.6.63",
+"name":"nvidia-x11-550.135-6.6.63",
 "outputsToInstall":[
 "bin"
 ],
@@ -138721,7 +138791,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.6.63",
+"name":"nvidia-x11-550.135-6.6.63",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -138731,7 +138801,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.6.63"
+"version":"550.135-6.6.63"
 },
 "linuxKernel.packages.linux_libre.nvidia_x11_production_open":{
 "meta":{
@@ -138768,7 +138838,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.6.63-550.127.05",
+"name":"nvidia-open-6.6.63-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -138780,14 +138850,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.6.63-550.127.05",
+"name":"nvidia-open-6.6.63-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.6.63-550.127.05"
+"version":"6.6.63-550.135"
 },
 "linuxKernel.packages.linux_libre.nvidia_x11_stable_open":{
 "meta":{
@@ -139061,7 +139131,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -143671,7 +143741,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -144424,7 +144495,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -144462,7 +144533,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -144489,18 +144560,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_lqx.facetimehd":{
 "meta":{
@@ -147161,7 +147232,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.11.5",
+"name":"nvidia-x11-550.135-6.11.5",
 "outputsToInstall":[
 "bin"
 ],
@@ -147174,7 +147245,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.11.5",
+"name":"nvidia-x11-550.135-6.11.5",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -147184,7 +147255,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.11.5"
+"version":"550.135-6.11.5"
 },
 "linuxKernel.packages.linux_lqx.nvidia_x11_production_open":{
 "meta":{
@@ -147221,7 +147292,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.11.5-550.127.05",
+"name":"nvidia-open-6.11.5-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -147233,14 +147304,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.11.5-550.127.05",
+"name":"nvidia-open-6.11.5-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.11.5-550.127.05"
+"version":"6.11.5-550.135"
 },
 "linuxKernel.packages.linux_lqx.nvidia_x11_stable_open":{
 "meta":{
@@ -147514,7 +147585,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -152170,7 +152241,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -152923,7 +152995,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -152961,7 +153033,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -152988,18 +153060,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_xanmod.facetimehd":{
 "meta":{
@@ -155660,7 +155732,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.6.63",
+"name":"nvidia-x11-550.135-6.6.63",
 "outputsToInstall":[
 "bin"
 ],
@@ -155673,7 +155745,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.6.63",
+"name":"nvidia-x11-550.135-6.6.63",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -155683,7 +155755,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.6.63"
+"version":"550.135-6.6.63"
 },
 "linuxKernel.packages.linux_xanmod.nvidia_x11_production_open":{
 "meta":{
@@ -155720,7 +155792,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.6.63-550.127.05",
+"name":"nvidia-open-6.6.63-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -155732,14 +155804,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.6.63-550.127.05",
+"name":"nvidia-open-6.6.63-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.6.63-550.127.05"
+"version":"6.6.63-550.135"
 },
 "linuxKernel.packages.linux_xanmod.nvidia_x11_stable_open":{
 "meta":{
@@ -156013,7 +156085,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -160623,7 +160695,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -161376,7 +161449,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -161414,7 +161487,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -161441,18 +161514,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_xanmod_latest.facetimehd":{
 "meta":{
@@ -164113,7 +164186,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.11.10",
+"name":"nvidia-x11-550.135-6.11.10",
 "outputsToInstall":[
 "bin"
 ],
@@ -164126,7 +164199,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.11.10",
+"name":"nvidia-x11-550.135-6.11.10",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -164136,7 +164209,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.11.10"
+"version":"550.135-6.11.10"
 },
 "linuxKernel.packages.linux_xanmod_latest.nvidia_x11_production_open":{
 "meta":{
@@ -164173,7 +164246,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.11.10-550.127.05",
+"name":"nvidia-open-6.11.10-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -164185,14 +164258,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.11.10-550.127.05",
+"name":"nvidia-open-6.11.10-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.11.10-550.127.05"
+"version":"6.11.10-550.135"
 },
 "linuxKernel.packages.linux_xanmod_latest.nvidia_x11_stable_open":{
 "meta":{
@@ -164466,7 +164539,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -169122,7 +169195,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -169875,7 +169949,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -169913,7 +169987,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -169940,18 +170014,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_xanmod_stable.facetimehd":{
 "meta":{
@@ -172612,7 +172686,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.11.10",
+"name":"nvidia-x11-550.135-6.11.10",
 "outputsToInstall":[
 "bin"
 ],
@@ -172625,7 +172699,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.11.10",
+"name":"nvidia-x11-550.135-6.11.10",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -172635,7 +172709,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.11.10"
+"version":"550.135-6.11.10"
 },
 "linuxKernel.packages.linux_xanmod_stable.nvidia_x11_production_open":{
 "meta":{
@@ -172672,7 +172746,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.11.10-550.127.05",
+"name":"nvidia-open-6.11.10-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -172684,14 +172758,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.11.10-550.127.05",
+"name":"nvidia-open-6.11.10-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.11.10-550.127.05"
+"version":"6.11.10-550.135"
 },
 "linuxKernel.packages.linux_xanmod_stable.nvidia_x11_stable_open":{
 "meta":{
@@ -172965,7 +173039,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -177621,7 +177695,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -178374,7 +178449,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7",
+"changelog":"https://github.com/DisplayLink/evdi/releases/tag/v1.14.7-unstable-2024-11-30",
 "description":"Extensible Virtual Display Interface",
 "homepage":"https://www.displaylink.com/",
 "insecure":false,
@@ -178412,7 +178487,7 @@
 "name":"Pol Dellaiera"
 }
 ],
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputsToInstall":[
 "out"
 ],
@@ -178439,18 +178514,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:65",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/evdi/default.nix:73",
 "unfree":false,
 "unsupported":false
 },
-"name":"evdi-1.14.7",
+"name":"evdi-1.14.7-unstable-2024-11-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"evdi",
 "system":"x86_64-linux",
-"version":"1.14.7"
+"version":"1.14.7-unstable-2024-11-30"
 },
 "linuxKernel.packages.linux_zen.facetimehd":{
 "meta":{
@@ -181111,7 +181186,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.127.05-6.11.5",
+"name":"nvidia-x11-550.135-6.11.5",
 "outputsToInstall":[
 "bin"
 ],
@@ -181124,7 +181199,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.127.05-6.11.5",
+"name":"nvidia-x11-550.135-6.11.5",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -181134,7 +181209,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.127.05-6.11.5"
+"version":"550.135-6.11.5"
 },
 "linuxKernel.packages.linux_zen.nvidia_x11_production_open":{
 "meta":{
@@ -181171,7 +181246,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.11.5-550.127.05",
+"name":"nvidia-open-6.11.5-550.135",
 "outputsToInstall":[
 "out"
 ],
@@ -181183,14 +181258,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.11.5-550.127.05",
+"name":"nvidia-open-6.11.5-550.135",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.11.5-550.127.05"
+"version":"6.11.5-550.135"
 },
 "linuxKernel.packages.linux_zen.nvidia_x11_stable_open":{
 "meta":{
@@ -181464,7 +181539,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:72",
+"position":"<nixpkgs> + /pkgs/servers/openafs/1.8/module.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -185562,7 +185637,7 @@
 "name":"Colin Sane"
 }
 ],
-"name":"megapixels-next-unstable-2024-09-03",
+"name":"megapixels-next-1.6.1-unstable-2024-11-04",
 "outputsToInstall":[
 "out"
 ],
@@ -185589,18 +185664,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/by-name/megapixels-next/package.nix:54",
+"position":"./pkgs/by-name/megapixels-next/package.nix:57",
 "unfree":false,
 "unsupported":false
 },
-"name":"megapixels-next-unstable-2024-09-03",
+"name":"megapixels-next-1.6.1-unstable-2024-11-04",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"megapixels-next-unstable",
+"pname":"megapixels-next",
 "system":"x86_64-linux",
-"version":"2024-09-03"
+"version":"1.6.1-unstable-2024-11-04"
 },
 "modemmanager-split":{
 "meta":{
@@ -185733,6 +185808,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -186642,7 +186718,7 @@
 "name":"Colin Sane"
 }
 ],
-"name":"opencellid-0-unstable-2024-11-19",
+"name":"opencellid-0-unstable-2024-11-29",
 "outputsToInstall":[
 "out"
 ],
@@ -186650,14 +186726,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"opencellid-0-unstable-2024-11-19",
+"name":"opencellid-0-unstable-2024-11-29",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"opencellid",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-11-19"
+"version":"0-unstable-2024-11-29"
 },
 "pa-dlna":{
 "meta":{
@@ -194753,7 +194829,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -194814,7 +194891,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/by-name/sublime-music-mobile/package.nix:199",
 "unfree":false,
@@ -195301,7 +195379,7 @@
 "name":"Colin Sane"
 }
 ],
-"name":"uassets-0-unstable-2024-11-26",
+"name":"uassets-0-unstable-2024-12-01",
 "outputsToInstall":[
 "out"
 ],
@@ -195309,14 +195387,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"uassets-0-unstable-2024-11-26",
+"name":"uassets-0-unstable-2024-12-01",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uassets",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-11-26"
+"version":"0-unstable-2024-12-01"
 },
 "pkgs.ubootRaspberryPi4_64bit":{
 "meta":{
