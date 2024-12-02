@@ -6,14 +6,10 @@ pgrep talon && exit 0
 export TERM=xterm-256color
 export NIXPKGS_ALLOW_UNFREE=1
 
-channel='https://github.com/NixOS/nixpkgs/archive/4df2561800d1fb1be56d9d71cddb9a1079b688c2.tar.gz'  # NixOS release-24.05 as of 2024-11-02
+channel='https://github.com/NixOS/nixpkgs/archive/7d6dc5f9861f78d546890fd4dba34c21ce1bb80e.tar.gz'  # NixOS release-24.11 as of 2024-11-29
 pgrep snixembed || snixembed &
 
 mkdir -p /tmp/talon && cd /tmp/talon
 nix build -Lvf $channel talon
-
-# turn on headphons and start with a muted microphone
-audio analog-stereo
-mic 0
 
 ./result/bin/talon

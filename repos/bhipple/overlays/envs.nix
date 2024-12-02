@@ -151,6 +151,7 @@ in
         self.ollama
         self.pavucontrol
         self.pdsh
+        self.pulseaudioFull
         self.remmina
         self.shellcheck
         self.signal-desktop
