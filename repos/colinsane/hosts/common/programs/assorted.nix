@@ -204,8 +204,8 @@ in
     ];
 
     consoleMediaUtils = declPackageSet [
-      # "blast-ugjka"  # cast audio to UPNP/DLNA devices (via pulseaudio sink)
       # "catt"  # cast videos to chromecast
+      # "sblast"  # cast audio to UPNP/DLNA devices (via pulseaudio sink)
       "ffmpeg"
       "go2tv"  # cast videos to UPNP/DLNA device (i.e. tv).
       "imagemagick"
@@ -1030,8 +1030,8 @@ in
 
     sane-cast.sandbox.net = "clearnet";
     sane-cast.sandbox.autodetectCliPaths = "existingFile";
-    sane-cast.sandbox.whitelistAudio = true;  #< for blast audio casting
-    sane-cast.suggestedPrograms = [ "blast-ugjka" "go2tv" ];
+    sane-cast.sandbox.whitelistAudio = true;  #< for sblast audio casting
+    sane-cast.suggestedPrograms = [ "go2tv" "sblast" ];
 
     sane-die-with-parent.sandbox.enable = false;  #< it's a launcher; can't sandbox
 

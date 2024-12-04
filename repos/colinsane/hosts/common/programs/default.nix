@@ -13,7 +13,6 @@
     ./avahi.nix
     ./bemenu.nix
     ./bitcoin-cli.nix
-    ./blast-ugjka
     ./bonsai.nix
     ./brave.nix
     ./brightnessctl.nix
@@ -163,6 +162,7 @@
     ./sane-sysload.nix
     ./sane-theme.nix
     ./satellite.nix
+    ./sblast
     ./schlock.nix
     ./seatd.nix
     ./sfeed.nix

@@ -71,6 +71,12 @@ in
     hash = "sha256-3Yv6Yy1K2dNrrduM2XTEDjSmkysguTbqb8T7mDK2ubI=";
   })
 
+  (fetchpatch' {
+    name = "sblast: init at 0.7.0";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/343460";
+    hash = "sha256-tp6D0XDPAvIv36XNr09bbw1Xs3kodxxKJbNn8NAas0k=";
+  })
+
 
   # (fetchpatch' {
   #   name = "nixos/buffyboard: init";
