@@ -78,6 +78,7 @@ rec {
   # Garnix generate cache
   mongodb = pkgs-stable.mongodb;
   cudatoolkit = pkgs.cudaPackages_12.cudatoolkit;
+  misskey = pkgs.misskey;
 
   # dream2nix
 
