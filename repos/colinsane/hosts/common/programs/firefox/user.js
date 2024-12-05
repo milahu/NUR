@@ -83,7 +83,7 @@ defaultPref("sidebar.visibility", "hide-sidebar");
 defaultPref("browser.uiCustomization.state", `{
   "placements":{
     "unified-extensions-area": ["browserpass_maximbaz_com-browser-action","ublock0_raymondhill_net-browser-action","sponsorblocker_ajay_app-browser-action","magnolia_12_34-browser-action"],
-    "nav-bar":["firefox-view-button","sidebar-button","sidebar-button","back-button","forward-button","urlbar-container","unified-extensions-button"]
+    "nav-bar":["firefox-view-button","sidebar-button","sidebar-button","stop-reload-button","back-button","forward-button","urlbar-container","unified-extensions-button"]
   },
   "currentVersion":20
 }`);
