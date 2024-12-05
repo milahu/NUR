@@ -34,19 +34,7 @@
     || stdenv.hostPlatform.isOpenBSD
     || stdenv.hostPlatform.isNetBSD
     || stdenv.hostPlatform.isSunOS,
-  enableXcb ?
-    stdenv.hostPlatform.isLinux
-    || stdenv.hostPlatform.isFreeBSD
-    || stdenv.hostPlatform.isOpenBSD
-    || stdenv.hostPlatform.isNetBSD
-    || stdenv.hostPlatform.isSunOS,
   enableXrandr ?
-    stdenv.hostPlatform.isLinux
-    || stdenv.hostPlatform.isFreeBSD
-    || stdenv.hostPlatform.isOpenBSD
-    || stdenv.hostPlatform.isNetBSD
-    || stdenv.hostPlatform.isSunOS,
-  enableX11 ?
     stdenv.hostPlatform.isLinux
     || stdenv.hostPlatform.isFreeBSD
     || stdenv.hostPlatform.isOpenBSD
@@ -167,13 +155,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "fastfetch";
-  version = "2.30.1";
+  version = "2.31.0";
 
   src = fetchFromGitHub {
     owner = "fastfetch-cli";
     repo = "fastfetch";
     rev = "refs/tags/${finalAttrs.version}";
-    hash = "sha256-Gt5rsUDi7E2msdHzSbvc8dM2yxwws4Q5GYpHJNg9mGA=";
+    hash = "sha256-CXJbNaCZXt5DJaCRjbPoSo3rfhrOLiMkOEQU0Icdggk=";
   };
 
   outputs = [
@@ -193,9 +181,8 @@ stdenv.mkDerivation (finalAttrs: {
     [ yyjson_0_10 ]
     ++ lib.optional enableVulkan vulkan-loader
     ++ lib.optional enableWayland wayland
-    ++ lib.optional (enableXcb || enableXcbRandr) xorg.libxcb
+    ++ lib.optional enableXcbRandr xorg.libxcb
     ++ lib.optional enableXrandr xorg.libXrandr
-    ++ lib.optional enableX11 xorg.libX11
     ++ lib.optional (enableDrm || enableDrmAmdgpu) libdrm
     ++ lib.optional enableGio glib
     ++ lib.optional enableDconf dconf
@@ -227,10 +214,8 @@ stdenv.mkDerivation (finalAttrs: {
       (lib.cmakeBool "ENABLE_SYSTEM_YYJSON" true)
       (lib.cmakeBool "ENABLE_VULKAN" enableVulkan)
       (lib.cmakeBool "ENABLE_WAYLAND" enableWayland)
-      (lib.cmakeBool "ENABLE_XCB" enableXcb)
       (lib.cmakeBool "ENABLE_XCB_RANDR" enableXcbRandr)
       (lib.cmakeBool "ENABLE_XRANDR" enableXrandr)
-      (lib.cmakeBool "ENABLE_X11" enableX11)
       (lib.cmakeBool "ENABLE_DRM" enableDrm)
       (lib.cmakeBool "ENABLE_DRM_AMDGPU" enableDrmAmdgpu)
       (lib.cmakeBool "ENABLE_GIO" enableGio)

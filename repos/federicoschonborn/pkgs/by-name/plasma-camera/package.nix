@@ -12,14 +12,14 @@
 
 stdenv.mkDerivation {
   pname = "plasma-camera";
-  version = "1.0-unstable-2024-11-11";
+  version = "1.0-unstable-2024-12-02";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "plasma-mobile";
     repo = "plasma-camera";
-    rev = "32d7418d0d18363f9de71c022d51799472df579e";
-    hash = "sha256-j73qttFKFMvQ1nKnTT2r1f7jbiU2ICbsgyb1zi5BcL4=";
+    rev = "edfb27a2730598f29fe9d14d90c870443859892b";
+    hash = "sha256-kdXgp3oiklJ7a1N3ju4+2R/Z3zbLzOg/ZwlK7EaO2iY=";
   };
 
   nativeBuildInputs = [

@@ -26,5 +26,6 @@ runCommand "lapce-plugin-${cleanAuthor}-${cleanName}-${version}.volt"
   }
   ''
     # The /download endpoint returns a Cloudflare URL 🥴
-    curl "$(curl https://plugins.lapce.dev/api/v1/plugins/${author}/${name}/${version}/download)" -o "$out"
+    downloadURL="$(curl https://plugins.lapce.dev/api/v1/plugins/${author}/${name}/${version}/download)"
+    curl $downloadURL -o $out
   ''

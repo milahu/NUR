@@ -799,7 +799,7 @@ Tool to generate flags for your CPU.
 - Update Script: ✔️
 </details>
 
-### `fastfetch` `2.30.1` [🌐](https://github.com/fastfetch-cli/fastfetch "Homepage") [📰](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.30.1 "Changelog") [📦](./pkgs/by-name/fastfetch/package.nix#L271 "Source")
+### `fastfetch` `2.31.0` [🌐](https://github.com/fastfetch-cli/fastfetch "Homepage") [📰](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.31.0 "Changelog") [📦](./pkgs/by-name/fastfetch/package.nix#L256 "Source")
 
 Like neofetch, but much faster because written in C.
 
@@ -821,7 +821,7 @@ Like neofetch, but much faster because written in C.
 - Update Script: ✔️
 </details>
 
-### `fastfetchMinimal` `2.30.1` [🌐](https://github.com/fastfetch-cli/fastfetch "Homepage") [📰](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.30.1 "Changelog") [📦](./default.nix#L49 "Source")
+### `fastfetchMinimal` `2.31.0` [🌐](https://github.com/fastfetch-cli/fastfetch "Homepage") [📰](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.31.0 "Changelog") [📦](./default.nix#L49 "Source")
 
 Like neofetch, but much faster because written in C (with all features disabled).
 
@@ -907,7 +907,7 @@ A set of commands that manipulate GTAs on various levels.
 - Update Script: ✔️
 </details>
 
-### `gtatoolFull` `2.4.0` [🌐](https://marlam.de/gta/ "Homepage") [📦](./default.nix#L89 "Source")
+### `gtatoolFull` `2.4.0` [🌐](https://marlam.de/gta/ "Homepage") [📦](./default.nix#L87 "Source")
 
 A set of commands that manipulate GTAs on various levels (with all features enabled).
 
@@ -1234,6 +1234,20 @@ Dialect of Python with explicit variable declaration and block scoping, with a l
   </summary>
 
 - Name: `lapce-plugin-DissolveDZ-neonight`
+- Outputs: **`out`**
+- Update Script: ❌
+</details>
+
+### `lapcePlugins.du82.monokai-theme-pack` `0.1.7` [🌐](https://plugins.lapce.dev/plugins/du82/monokai-theme-pack "Homepage") [📦](./pkgs/lapce-plugins/mkLapcePlugin.nix#L23 "Source")
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Details
+  </summary>
+
+- Name: `lapce-plugin-du82-monokai-theme-pack`
 - Outputs: **`out`**
 - Update Script: ❌
 </details>
@@ -2402,7 +2416,7 @@ A library to make working with multidimensional arrays in C++ easy.
 - Update Script: ✔️
 </details>
 
-### `libtgdFull` `4.3` [🌐](https://marlam.de/tgd/ "Homepage") [📦](./default.nix#L124 "Source")
+### `libtgdFull` `4.3` [🌐](https://marlam.de/tgd/ "Homepage") [📦](./default.nix#L122 "Source")
 
 A library to make working with multidimensional arrays in C++ easy (with all features enabled).
 
@@ -2575,7 +2589,7 @@ Phonon Backend using MPV Player.
 - Update Script: ✔️
 </details>
 
-### `plasma-camera` `1.0-unstable-2024-11-11` [🌐](https://invent.kde.org/plasma-mobile/plasma-camera "Homepage") [📦](./pkgs/by-name/plasma-camera/package.nix#L52 "Source")
+### `plasma-camera` `1.0-unstable-2024-12-02` [🌐](https://invent.kde.org/plasma-mobile/plasma-camera "Homepage") [📦](./pkgs/by-name/plasma-camera/package.nix#L52 "Source")
 
 Camera application for Plasma Mobile.
 
@@ -2680,7 +2694,7 @@ Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood
 - Update Script: ✔️
 </details>
 
-### `razeFull` `1.10.2` [🌐](https://github.com/ZDoom/Raze "Homepage") [📦](./default.nix#L157 "Source")
+### `razeFull` `1.10.2` [🌐](https://github.com/ZDoom/Raze "Homepage") [📦](./default.nix#L155 "Source")
 
 Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood, Shadow Warrior, Redneck Rampage and Powerslave/Exhumed (with all features enabled).
 
@@ -2791,7 +2805,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Update Script: ❌
 </details>
 
-### `teemExperimental` `1.11.0` [🌐](https://teem.sourceforge.net/ "Homepage") [📦](./default.nix#L186 "Source")
+### `teemExperimental` `1.11.0` [🌐](https://teem.sourceforge.net/ "Homepage") [📦](./default.nix#L184 "Source")
 
 A coordinated group of libraries for representing, processing, and visualizing scientific raster data (with experimental libraries and applications enabled).
 
@@ -2813,7 +2827,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Update Script: ❌
 </details>
 
-### `teemExperimentalFull` `1.11.0` [🌐](https://teem.sourceforge.net/ "Homepage") [📦](./default.nix#L200 "Source")
+### `teemExperimentalFull` `1.11.0` [🌐](https://teem.sourceforge.net/ "Homepage") [📦](./default.nix#L198 "Source")
 
 A coordinated group of libraries for representing, processing, and visualizing scientific raster data (with experimental libraries and applications, and all features enabled).
 
@@ -2835,7 +2849,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 - Update Script: ❌
 </details>
 
-### `teemFull` `1.11.0` [🌐](https://teem.sourceforge.net/ "Homepage") [📦](./default.nix#L168 "Source")
+### `teemFull` `1.11.0` [🌐](https://teem.sourceforge.net/ "Homepage") [📦](./default.nix#L166 "Source")
 
 A coordinated group of libraries for representing, processing, and visualizing scientific raster data (with all features enabled).
 
@@ -2965,7 +2979,7 @@ Detect non-inclusive language in your source code.
 - Update Script: ✔️
 </details>
 
-### `yyjson_0_10` `0.10.0` [🌐](https://github.com/ibireme/yyjson "Homepage") [📰](https://github.com/ibireme/yyjson/blob/0.10.0/CHANGELOG.md "Changelog") [📦](https://github.com/NixOS/nixpkgs/blob/2c27ab2/pkgs/by-name/yy/yyjson/package.nix#L23 "Source")
+### `yyjson_0_10` `0.10.0` [🌐](https://github.com/ibireme/yyjson "Homepage") [📰](https://github.com/ibireme/yyjson/blob/0.10.0/CHANGELOG.md "Changelog") [📦](https://github.com/NixOS/nixpkgs/blob/2c15aa5/pkgs/by-name/yy/yyjson/package.nix#L23 "Source")
 
 Fastest JSON library in C.
 

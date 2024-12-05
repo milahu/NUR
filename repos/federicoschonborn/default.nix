@@ -53,10 +53,8 @@ lib.makeScope pkgs.newScope (
         {
           enableVulkan = false;
           enableWayland = false;
-          enableXcb = false;
           enableXcbRandr = false;
           enableXrandr = false;
-          enableX11 = false;
           enableDrm = false;
           enableDrmAmdgpu = false;
           enableGio = false;
