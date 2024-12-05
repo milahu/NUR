@@ -1,0 +1,137 @@
+error:
+… while calling anonymous lambda
+
+  at ./canon.nix:68:31:
+
+    67|     callPackageAttrs = attrs: extra:
+    68|       builtins.mapAttrs (key: pkg: arc.pkgs.callPackage pkg (self.callPackageOverrides.${key} or { } // extra)) attrs;
+      |                               ^
+    69|   };
+
+… from call site
+
+  at ./canon.nix:68:36:
+
+    67|     callPackageAttrs = attrs: extra:
+    68|       builtins.mapAttrs (key: pkg: arc.pkgs.callPackage pkg (self.callPackageOverrides.${key} or { } // extra)) attrs;
+      |                                    ^
+    69|   };
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:212:35:
+
+   211|   */
+   212|   callPackageWith = autoArgs: fn: args:
+      |                                   ^
+   213|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:966:7:
+
+   965|     { # TODO: Should we add call-time "type" checking like built in?
+   966|       __functor = self: f;
+      |       ^
+   967|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:136:17:
+
+   135|     in
+   136|     mirrorArgs (origArgs:
+      |                 ^
+   137|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:138:16:
+
+   137|     let
+   138|       result = f origArgs;
+      |                ^
+   139|
+
+… while calling 'nix-readline-2_19'
+
+  at ./pkgs/customized/default.nix:64:25:
+
+    63|
+    64|     nix-readline-2_19 = { nix-readline, nix_2_19 ? nixVersions.nix_2_19 or nixVersions.nix_2_18 or nix, nixVersions ? {}, nix, lib }: let
+      |                         ^
+    65|       # every single nix version was removed from nixpkgs in 25.04, so base it off the flake instead for now...
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:966:7:
+
+   965|     { # TODO: Should we add call-time "type" checking like built in?
+   966|       __functor = self: f;
+      |       ^
+   967|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:144:34:
+
+   143|       # Re-call the function but with different arguments
+   144|       overrideArgs = mirrorArgs (newArgs: makeOverridable f (overrideWith newArgs));
+      |                                  ^
+   145|       # Change the result of the function call by applying g to it
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:966:7:
+
+   965|     { # TODO: Should we add call-time "type" checking like built in?
+   966|       __functor = self: f;
+      |       ^
+   967|       __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:136:17:
+
+   135|     in
+   136|     mirrorArgs (origArgs:
+      |                 ^
+   137|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:138:16:
+
+   137|     let
+   138|       result = f origArgs;
+      |                ^
+   139|
+
+… while calling 'nix-readline'
+
+  at ./pkgs/customized/default.nix:13:20:
+
+    12|
+    13|     nix-readline = { nix, readline, fetchurl, lib }: let
+      |                    ^
+    14|       drv = if nix ? override then nix.override {
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:25:25:
+
+    24|           inputs = builtins.mapAttrs
+    25|             (inputName: inputSpec: allNodes.${resolveInput inputSpec})
+      |                         ^
+    26|             (node.inputs or {});
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:10:13:
+
+     9|     builtins.mapAttrs
+    10|       (key: node:
+      |             ^
+    11|         let
+
+error: access to URI 'github:NixOS/nixpkgs/9ba29e2346bc542e9909d1021e8fd7d4b3f64db0' is forbidden in restricted mode
