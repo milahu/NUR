@@ -1,16 +1,16 @@
 {
 "name":"federicoschonborn",
-"fetch_time":2.308,
-"eval_time":0.252,
+"fetch_time":1.302,
+"eval_time":0.253,
 "source":{
 "url":"https://codeberg.org/FedericoSchonborn/nur-packages",
-"rev":"2890ebe812b330fce163d6f605270f554faf3efb",
-"sha256":"0azbw6fw1qyn115386vv8m1fakcyqhyhjd5aym7kw0plz5ilvc1x",
+"rev":"a965861522472a5169e2518e250ae76630510d87",
+"sha256":"1hzdgy47399c57gp7bxn634hq7yjizr9fb3cz0bhk4gxxk6jp0my",
 "date":null
 },
-"source_storepath":"/nix/store/iph8fhw09k3z2bm9585mpazzwifhkwm7-nur-packages",
-"nixpkgs_storepath":"/nix/store/p64f0j07x2js29yvwcbwwl2hp3kisdv0-source",
-"nur_combined_rev":"36f421bb6a35cd27f53467254efe2f72dd74b146",
+"source_storepath":"/nix/store/fdmv4ixlrh188l5sh123gsxj3763akq1-nur-packages",
+"nixpkgs_storepath":"/nix/store/q57cf9m67s1yb8lja49dz2axvcgnqm2z-source",
+"nur_combined_rev":"c7b803c20163346587450403188b965bca70facb",
 "packages":{
 "akkoma-emoji.av70.neomouse":{
 "meta":{
@@ -3971,7 +3971,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/fastfetch-cli/fastfetch/releases/tag/2.30.1",
+"changelog":"https://github.com/fastfetch-cli/fastfetch/releases/tag/2.31.0",
 "description":"Like neofetch, but much faster because written in C",
 "homepage":"https://github.com/fastfetch-cli/fastfetch",
 "insecure":false,
@@ -3994,7 +3994,7 @@
 "name":"Federico Dami\u00e1n Schonborn"
 }
 ],
-"name":"fastfetch-2.30.1",
+"name":"fastfetch-2.31.0",
 "outputsToInstall":[
 "out",
 "man"
@@ -4046,11 +4046,11 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/by-name/fastfetch/package.nix:271",
+"position":"./pkgs/by-name/fastfetch/package.nix:256",
 "unfree":false,
 "unsupported":false
 },
-"name":"fastfetch-2.30.1",
+"name":"fastfetch-2.31.0",
 "outputName":"out",
 "outputs":{
 "man":null,
@@ -4058,13 +4058,13 @@
 },
 "pname":"fastfetch",
 "system":"x86_64-linux",
-"version":"2.30.1"
+"version":"2.31.0"
 },
 "fastfetchMinimal":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/fastfetch-cli/fastfetch/releases/tag/2.30.1",
+"changelog":"https://github.com/fastfetch-cli/fastfetch/releases/tag/2.31.0",
 "description":"Like neofetch, but much faster because written in C (with all features disabled)",
 "homepage":"https://github.com/fastfetch-cli/fastfetch",
 "insecure":false,
@@ -4087,7 +4087,7 @@
 "name":"Federico Dami\u00e1n Schonborn"
 }
 ],
-"name":"fastfetch-minimal-2.30.1",
+"name":"fastfetch-minimal-2.31.0",
 "outputsToInstall":[
 "out",
 "man"
@@ -4143,7 +4143,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"fastfetch-minimal-2.30.1",
+"name":"fastfetch-minimal-2.31.0",
 "outputName":"out",
 "outputs":{
 "man":null,
@@ -4151,7 +4151,7 @@
 },
 "pname":"fastfetch-minimal",
 "system":"x86_64-linux",
-"version":"2.30.1"
+"version":"2.31.0"
 },
 "firefox-gnome-theme":{
 "meta":{
@@ -4532,7 +4532,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./default.nix:89",
+"position":"./default.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -5247,6 +5247,29 @@
 "pname":"lapce-plugin-DissolveDZ-neonight",
 "system":"x86_64-linux",
 "version":"0.1.0"
+},
+"lapcePlugins.du82.monokai-theme-pack":{
+"meta":{
+"available":true,
+"broken":false,
+"homepage":"https://plugins.lapce.dev/plugins/du82/monokai-theme-pack",
+"insecure":false,
+"name":"lapce-plugin-du82-monokai-theme-pack-0.1.7",
+"outputsToInstall":[
+"out"
+],
+"position":"./pkgs/lapce-plugins/mkLapcePlugin.nix:23",
+"unfree":false,
+"unsupported":false
+},
+"name":"lapce-plugin-du82-monokai-theme-pack-0.1.7",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"lapce-plugin-du82-monokai-theme-pack",
+"system":"x86_64-linux",
+"version":"0.1.7"
 },
 "lapcePlugins.dyu.nordyu-theme":{
 "meta":{
@@ -7504,7 +7527,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./default.nix:124",
+"position":"./default.nix:122",
 "unfree":false,
 "unsupported":false
 },
@@ -8209,7 +8232,7 @@
 "name":"Federico Dami\u00e1n Schonborn"
 }
 ],
-"name":"plasma-camera-1.0-unstable-2024-11-11",
+"name":"plasma-camera-1.0-unstable-2024-12-02",
 "outputsToInstall":[
 "out"
 ],
@@ -8264,14 +8287,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"plasma-camera-1.0-unstable-2024-11-11",
+"name":"plasma-camera-1.0-unstable-2024-12-02",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"plasma-camera",
 "system":"x86_64-linux",
-"version":"1.0-unstable-2024-11-11"
+"version":"1.0-unstable-2024-12-02"
 },
 "pnut":{
 "meta":{
@@ -8709,7 +8732,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./default.nix:157",
+"position":"./default.nix:155",
 "unfree":false,
 "unsupported":false
 },
@@ -9159,7 +9182,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./default.nix:186",
+"position":"./default.nix:184",
 "unfree":false,
 "unsupported":false
 },
@@ -9248,7 +9271,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./default.nix:200",
+"position":"./default.nix:198",
 "unfree":false,
 "unsupported":false
 },
@@ -9337,7 +9360,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./default.nix:168",
+"position":"./default.nix:166",
 "unfree":false,
 "unsupported":false
 },

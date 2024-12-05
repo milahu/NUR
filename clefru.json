@@ -1,16 +1,16 @@
 {
 "name":"clefru",
-"fetch_time":0.263,
-"eval_time":0.243,
+"fetch_time":0.329,
+"eval_time":0.247,
 "source":{
 "url":"https://github.com/clefru/nur-packages",
-"rev":"d936deb852e18156ca52167b2a3cbe1ac7fea7d2",
-"sha256":"1dw201dfzkihcm5mp21wd5g4706micw50ifsyp6kq43lr0n3phlz",
+"rev":"058a220b0ddfae6847e3c8cbedeb24ce69d6d83e",
+"sha256":"1qpan1f3wblbkg2nxdr6rzd3aq6zywcjbw0w208c78fhq8q11rnk",
 "date":null
 },
-"source_storepath":"/nix/store/pzibhp5hv82mi0br6pv2k9c4dl842ab9-source",
-"nixpkgs_storepath":"/nix/store/hx1ad3n2xn28lsdjwc0g2fv8j4qdpamk-source",
-"nur_combined_rev":"a3cb379f8bb1a4533e1862e53b714edf852a91f2",
+"source_storepath":"/nix/store/9bxml4is4dvymyk2mjiakddwsc8hzklr-source",
+"nixpkgs_storepath":"/nix/store/q57cf9m67s1yb8lja49dz2axvcgnqm2z-source",
+"nur_combined_rev":"9d655cc3d428e3df94b16fe51dc3e0441ee94eb6",
 "packages":{
 "beam-wallet":{
 "meta":{
@@ -353,6 +353,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -479,6 +480,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -600,7 +602,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -647,7 +650,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/python-pkgs/quantlib/default.nix:34",
 "unfree":false,
@@ -691,6 +695,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",

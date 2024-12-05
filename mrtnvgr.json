@@ -1,16 +1,16 @@
 {
 "name":"mrtnvgr",
-"fetch_time":0.344,
-"eval_time":0.288,
+"fetch_time":0.334,
+"eval_time":0.261,
 "source":{
 "url":"https://github.com/mrtnvgr/nurpkgs",
-"rev":"fbaef202990c50c4a0b7fef7b5dd2e0bb295da8a",
-"sha256":"16bl2bq53af3kwy22pqswkz4wc97rpg6r1s362a488j9dzsvwnri",
+"rev":"8da5b4a5212e02b9d11f630e7e78e76807cc1fcd",
+"sha256":"0k73garrdyayv1m48qrigwffxdkcn8wpzfjlxsl5308a2b7frzkg",
 "date":null
 },
-"source_storepath":"/nix/store/ab5ak007nwpgj9yzzgfjz0mll1ai1k9c-source",
-"nixpkgs_storepath":"/nix/store/nnhnijbn6a0alqgn8nmfs8dsmarbv1dl-source",
-"nur_combined_rev":"1c4dd0385a25837bad31494cb77356d0e8528357",
+"source_storepath":"/nix/store/rn8xh37qapq2fg7nawri8f7mmapphs3l-source",
+"nixpkgs_storepath":"/nix/store/q57cf9m67s1yb8lja49dz2axvcgnqm2z-source",
+"nur_combined_rev":"25a1879b0ef9468eeb74294e9ffdbdf7861c7556",
 "packages":{
 "artworks":{
 "meta":{
@@ -97,92 +97,6 @@
 "pname":"artworks",
 "system":"x86_64-linux",
 "version":"0.2.0"
-},
-"cascadia-code-nerd-font":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts",
-"homepage":"https://nerdfonts.com/",
-"hydraPlatforms":[],
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"longDescription":"Nerd Fonts is a project that attempts to patch as many developer targeted\nand/or used fonts as possible. The patch is to specifically add a high\nnumber of additional glyphs from popular 'iconic fonts' such as Font\nAwesome, Devicons, Octicons, and others.\n",
-"maintainers":[
-{
-"email":"me@doronbehar.com",
-"github":"doronbehar",
-"githubId":10998835,
-"name":"Doron Behar"
-}
-],
-"name":"nerdfonts-3.2.1",
-"outputsToInstall":[
-"out"
-],
-"position":"<nixpkgs> + /pkgs/data/fonts/nerdfonts/default.nix:60",
-"unfree":false,
-"unsupported":false
-},
-"name":"nerdfonts-3.2.1",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"nerdfonts",
-"system":"x86_64-linux",
-"version":"3.2.1"
-},
-"cascadia-mono-nerd-font":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts",
-"homepage":"https://nerdfonts.com/",
-"hydraPlatforms":[],
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"longDescription":"Nerd Fonts is a project that attempts to patch as many developer targeted\nand/or used fonts as possible. The patch is to specifically add a high\nnumber of additional glyphs from popular 'iconic fonts' such as Font\nAwesome, Devicons, Octicons, and others.\n",
-"maintainers":[
-{
-"email":"me@doronbehar.com",
-"github":"doronbehar",
-"githubId":10998835,
-"name":"Doron Behar"
-}
-],
-"name":"nerdfonts-3.2.1",
-"outputsToInstall":[
-"out"
-],
-"position":"<nixpkgs> + /pkgs/data/fonts/nerdfonts/default.nix:60",
-"unfree":false,
-"unsupported":false
-},
-"name":"nerdfonts-3.2.1",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"nerdfonts",
-"system":"x86_64-linux",
-"version":"3.2.1"
 },
 "celeste":{
 "meta":{
@@ -428,10 +342,12 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -456,6 +372,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -521,6 +438,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -568,6 +486,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -633,6 +552,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -712,7 +632,7 @@
 "i686-linux",
 "aarch64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/video/obs-studio/default.nix:197",
+"position":"<nixpkgs> + /pkgs/applications/video/obs-studio/default.nix:209",
 "unfree":false,
 "unsupported":false
 },
@@ -755,6 +675,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -820,6 +741,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -865,6 +787,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -930,6 +853,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
