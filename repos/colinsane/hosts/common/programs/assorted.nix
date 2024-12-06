@@ -77,6 +77,7 @@ in
       "libcap_ng"  # for `netcap`, `pscap`, `captest`
       "libgpiod"  # `gpiodetect`, `gpioinfo`, `gpiomon`, ...
       "lsof"
+      "man-db"  # critical for `man -k` or `apropos` to work
       "man-pages"
       "man-pages-posix"
       # "miniupnpc"
@@ -97,7 +98,6 @@ in
       "picocom"  # serial TTY
       "powertop"
       "procs"  # a better `ps`
-      "ps"
       "pstree"
       "ripgrep"
       "rsync"
@@ -109,6 +109,8 @@ in
       "subversion"
       "tcpdump"
       "tree"
+      "unixtools.ps"
+      "unixtools.sysctl"
       "unixtools.xxd"
       "usbutils"  # lsusb
       "util-linux"  # lsblk, lscpu, etc
@@ -954,6 +956,7 @@ in
     patchelf.sandbox.method = null;  #< TODO: sandbox
 
     pavucontrol.sandbox.whitelistAudio = true;
+    pavucontrol.sandbox.whitelistDri = true;  #< to be a little more responsive
     pavucontrol.sandbox.whitelistWayland = true;
 
     pciutils.sandbox.extraPaths = [
@@ -1158,6 +1161,9 @@ in
     ];
 
     util-linux.sandbox.method = null;  #< TODO: possible to sandbox if i specify a different profile for each of its ~50 binaries
+
+    "unixtools.ps".sandbox.keepPidsAndProc = true;
+    "unixtools.sysctl" = {};  #< XXX: probably not sandboxed correctly for sysctl writes; only for reads
 
     unzip.sandbox.autodetectCliPaths = "existingOrParent";
     unzip.sandbox.whitelistPwd = true;

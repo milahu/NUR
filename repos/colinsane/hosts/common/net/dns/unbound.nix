@@ -67,17 +67,19 @@
     # # threading is probably only rarely helpful
     # services.unbound.settings.server.num-threads = 4;
     #
-    # services.unbound.settings.server.so-rcvbuf = "1m";  #< higher value means less likely to drop client queries
+    # higher so-rcvbuf means less likely to drop client queries...
+    # default is `cat /proc/sys/net/core/wmem_default`, i.e. 208k
+    # services.unbound.settings.server.so-rcvbuf = "1m";
     # services.unbound.settings.server.so-sndbuf = "1m";
     #
     # `prefetch`: prefetch RRs which are about to expire from the cache, to keep them primed.
-    services.unbound.settings.server.prefetch = true;
+    # services.unbound.settings.server.prefetch = true;
 
     # if a resolution fails, or takes excessively long, reply with expired cache entries
     # see: <https://unbound.docs.nlnetlabs.nl/en/latest/topics/core/serve-stale.html#rfc-8767>
-    # services.unbound.settings.server.serve-expired = true;
-    # services.unbound.settings.server.serve-expired-ttl = 86400;  #< don't serve any records more outdated than this
-    # services.unbound.settings.server.serve-expired-client-timeout = 2800;  #< only serve expired records if the client has been waiting this long, ms
+    services.unbound.settings.server.serve-expired = true;
+    services.unbound.settings.server.serve-expired-ttl = 86400;  #< don't serve any records more outdated than this
+    services.unbound.settings.server.serve-expired-client-timeout = 2800;  #< only serve expired records if the client has been waiting this long, ms
 
     # `cache-max-negative-ttl`: intended to limit damage during networking flakes, but instead seems to cause unbound to cache error responses it *wouldn't* otherwise cache
     # services.unbound.settings.server.cache-max-negative-ttl = 60;

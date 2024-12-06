@@ -48,24 +48,13 @@ in
   # })
 
   (fetchpatch' {
-    name = "gnome-maps: fix cross compilation";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/357238";
-    hash = "sha256-o2mwpO2b4vTnoqQYAIHpxK/VOwGXR65p25x3HyDte8k=";
+    name = "apacheHttpdPackages.mod_dnssd: fix cross compilation";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/362066";
+    hash = "sha256-a7gLTrMgb2hExLcI0vHKr7N3FDWAlwkEPmbPCrj/D5w=";
   })
 
   (fetchpatch' {
-    name = "gtk4-layer-shell: fix cross compilation";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/357230";
-    hash = "sha256-v4OUuzpB8kXIU25r20SKtASEUwz/tgxCQQ6WQL1I/N8=";
-  })
-
-  (fetchpatch' {
-    name = "samba: resurrect cross compilation patch";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/357988";
-    hash = "sha256-bVpojIRpJr6PDvsPMsqWGjCV8SWzwJ2hudzSPJcdN4k=";
-  })
-
-  (fetchpatch' {
+    # merged into staging 2024/11/28
     name = "poppler: format, add dependency for glib-mkenums to fix cross building";
     prUrl = "https://github.com/NixOS/nixpkgs/pull/357344";
     hash = "sha256-3Yv6Yy1K2dNrrduM2XTEDjSmkysguTbqb8T7mDK2ubI=";
