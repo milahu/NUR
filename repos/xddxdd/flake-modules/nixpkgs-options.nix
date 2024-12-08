@@ -31,6 +31,11 @@ let
         description = "List of insecure packages to be allowed";
         default = [ ];
       };
+      allowInsecurePredicate = lib.mkOption {
+        type = lib.types.anything;
+        description = "Predicate to check if insecure package is allowed";
+        default = null;
+      };
     };
   };
 in
@@ -48,9 +53,13 @@ in
         lib.mkForce (
           import packages."${n}-patched" {
             inherit system;
-            config = {
-              inherit (v) allowUnfree permittedInsecurePackages;
-            };
+            config =
+              {
+                inherit (v) allowUnfree permittedInsecurePackages;
+              }
+              // lib.optionalAttrs (v.allowInsecurePredicate != null) {
+                inherit (v) allowInsecurePredicate;
+              };
             inherit (v) overlays;
           }
         )
