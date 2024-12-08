@@ -33,6 +33,11 @@ selfPkgs: superPkgs: let
       inherit (pkgs) lib;
     };
 
+    gcc-lua-cdecl = callPackage ./gcc-lua-cdecl.nix {
+      inherit pins;
+      inherit (superPkgs) gcc-lua;
+    };
+
     /* Overrides for generated packages */
     inotify = super.luaLib.overrideLuarocks super.inotify (oa: {
       externalDeps = with selfPkgs; [
