@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.398,
-"eval_time":0.956,
+"fetch_time":1.01,
+"eval_time":0.968,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"3012be4f1d9a92968f7c6bfe0374589c613ab2f6",
-"sha256":"0rjgvq1zgwqrcdlnzn1rpgf003yhayd8nqin9ik18v8sw7m1lvgx",
+"rev":"72044cb2e2c28688d2a9080b10b52b16cdcd5467",
+"sha256":"0lfid5vxnhqhrkl2lg5v0l1411sdylcxj1vp50dvrg0ffw217i1q",
 "date":null
 },
-"source_storepath":"/nix/store/5vh7fq5qzjnl9ial1pgy6a4jkrwhx17f-source",
-"nixpkgs_storepath":"/nix/store/58nlbw2i3rhv1qm5x4r2ghr9jcsfbc94-source",
-"nur_combined_rev":"84da1abe80e85bba700d1449360326a78c998d51",
+"source_storepath":"/nix/store/1chcrs8hfb26wxilxzrmbka1ip48nmxf-source",
+"nixpkgs_storepath":"/nix/store/wfqcs3a1n735ksfgn7asihm34vigsdhc-source",
+"nur_combined_rev":"01663d6131641fdc2d3d18e082e423d3a4f1bdaf",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -97,7 +97,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/_meta/readme/default.nix:182",
+"position":"./pkgs/_meta/readme/default.nix:194",
 "unfree":false,
 "unsupported":false
 },
@@ -2679,7 +2679,7 @@
 "meta":{
 "available":false,
 "broken":false,
-"description":"Lightweight LDAP server for development, home use, or CI",
+"description":"(DEPRECATED: glauth is available in nixpkgs by a different maintainer) Lightweight LDAP server for development, home use, or CI",
 "homepage":"https://github.com/glauth/glauth",
 "insecure":true,
 "knownVulnerabilities":[
@@ -3476,7 +3476,7 @@
 "meta":{
 "available":false,
 "broken":false,
-"description":"Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-images/default.nix)",
+"description":"(DEPRECATED: kata-image is available in nixpkgs by a different maintainer) Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-images/default.nix)",
 "homepage":"https://github.com/kata-containers/kata-containers",
 "insecure":true,
 "knownVulnerabilities":[
@@ -3528,7 +3528,7 @@
 "meta":{
 "available":false,
 "broken":false,
-"description":"Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-runtime/default.nix)",
+"description":"(DEPRECATED: kata-runtime is available in nixpkgs by a different maintainer) Kata Containers is an open source project and community working to build a standard implementation of lightweight Virtual Machines (VMs) that feel and perform like containers, but provide the workload isolation and security advantages of VMs. (Packaging script adapted from https://github.com/TUM-DSE/doctor-cluster-config/blob/0c40be8dd86282122f8f04df738c409ef5e3da1c/pkgs/kata-runtime/default.nix)",
 "homepage":"https://github.com/kata-containers/kata-containers",
 "insecure":true,
 "knownVulnerabilities":[
@@ -4049,7 +4049,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"llama-cpp-4273",
+"name":"llama-cpp-4279",
 "outputsToInstall":[
 "out"
 ],
@@ -4104,14 +4104,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-4273",
+"name":"llama-cpp-4279",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"4273"
+"version":"4279"
 },
 "lantianCustomized.materialgram":{
 "meta":{
@@ -4646,7 +4646,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-xanmod-generic-6.12.2-xanmod1",
+"name":"linux-xanmod-generic-6.12.3-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -4678,7 +4678,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-xanmod-generic-6.12.2-xanmod1",
+"name":"linux-xanmod-generic-6.12.3-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -4686,7 +4686,7 @@
 },
 "pname":"linux-xanmod-generic",
 "system":"x86_64-linux",
-"version":"6.12.2-xanmod1"
+"version":"6.12.3-xanmod1"
 },
 "lantianLinuxXanmod.generic-lto":{
 "meta":{
@@ -4751,7 +4751,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-xanmod-generic-lto-6.12.2-xanmod1",
+"name":"linux-xanmod-generic-lto-6.12.3-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -4783,7 +4783,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-xanmod-generic-lto-6.12.2-xanmod1",
+"name":"linux-xanmod-generic-lto-6.12.3-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -4791,7 +4791,7 @@
 },
 "pname":"linux-xanmod-generic-lto",
 "system":"x86_64-linux",
-"version":"6.12.2-xanmod1"
+"version":"6.12.3-xanmod1"
 },
 "lantianLinuxXanmod.latest-generic":{
 "meta":{
@@ -4856,7 +4856,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-xanmod-latest-generic-6.12.2-xanmod1",
+"name":"linux-xanmod-latest-generic-6.12.3-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -4888,7 +4888,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-xanmod-latest-generic-6.12.2-xanmod1",
+"name":"linux-xanmod-latest-generic-6.12.3-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -4896,7 +4896,7 @@
 },
 "pname":"linux-xanmod-latest-generic",
 "system":"x86_64-linux",
-"version":"6.12.2-xanmod1"
+"version":"6.12.3-xanmod1"
 },
 "lantianLinuxXanmod.latest-generic-lto":{
 "meta":{
@@ -4961,7 +4961,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-xanmod-latest-generic-lto-6.12.2-xanmod1",
+"name":"linux-xanmod-latest-generic-lto-6.12.3-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -4993,7 +4993,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-xanmod-latest-generic-lto-6.12.2-xanmod1",
+"name":"linux-xanmod-latest-generic-lto-6.12.3-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -5001,7 +5001,7 @@
 },
 "pname":"linux-xanmod-latest-generic-lto",
 "system":"x86_64-linux",
-"version":"6.12.2-xanmod1"
+"version":"6.12.3-xanmod1"
 },
 "lantianLinuxXanmod.lts-generic":{
 "meta":{
@@ -9740,7 +9740,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"magiskboot-28.0",
+"name":"magiskboot-28.1",
 "outputsToInstall":[
 "out"
 ],
@@ -9748,14 +9748,96 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"magiskboot-28.0",
+"name":"magiskboot-28.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"magiskboot",
 "system":"x86_64-linux",
-"version":"28.0"
+"version":"28.1"
+},
+"mautrix-gmessages":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Matrix-Google Messages puppeting bridge",
+"homepage":"https://github.com/mautrix/gmessages",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU Affero General Public License v3.0 or later",
+"redistributable":true,
+"shortName":"agpl3Plus",
+"spdxId":"AGPL-3.0-or-later",
+"url":"https://spdx.org/licenses/AGPL-3.0-or-later.html"
+},
+"mainProgram":"mautrix-gmessages",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"mautrix-gmessages-0.5.2",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin",
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"wasm64-wasi",
+"wasm32-wasi",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd"
+],
+"position":"./pkgs/uncategorized/mautrix-gmessages/default.nix:26",
+"unfree":false,
+"unsupported":false
+},
+"name":"mautrix-gmessages-0.5.2",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"mautrix-gmessages",
+"system":"x86_64-linux",
+"version":"0.5.2"
 },
 "mtkclient":{
 "meta":{
@@ -26304,7 +26386,7 @@
 "meta":{
 "available":false,
 "broken":false,
-"description":"Android OTA payload dumper written in Go",
+"description":"(DEPRECATED: payload-dumper-go is available in nixpkgs by a different maintainer) Android OTA payload dumper written in Go",
 "homepage":"https://github.com/ssut/payload-dumper-go",
 "insecure":true,
 "knownVulnerabilities":[
@@ -27812,7 +27894,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-ice-0-unstable-2024-12-06",
+"name":"rime-ice-0-unstable-2024-12-07",
 "outputsToInstall":[
 "out"
 ],
@@ -27820,14 +27902,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-0-unstable-2024-12-06",
+"name":"rime-ice-0-unstable-2024-12-07",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-ice",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-12-06"
+"version":"0-unstable-2024-12-07"
 },
 "rime-moegirl":{
 "meta":{
@@ -29762,7 +29844,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"uni-api-0-unstable-2024-12-03",
+"name":"uni-api-0-unstable-2024-12-07",
 "outputsToInstall":[
 "out"
 ],
@@ -29770,14 +29852,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"uni-api-0-unstable-2024-12-03",
+"name":"uni-api-0-unstable-2024-12-07",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uni-api",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-12-03"
+"version":"0-unstable-2024-12-07"
 },
 "unigine-heaven":{
 "meta":{
@@ -30315,15 +30397,123 @@
 "meta":{
 "available":false,
 "broken":false,
+"description":"(DEPRECATED: wechat-uos is available in nixpkgs. If you still want sandbox functionality, use wechat-uos-sandboxed package.) WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap)",
+"homepage":"https://weixin.qq.com/",
+"insecure":true,
+"knownVulnerabilities":[
+"wechat-uos is available in nixpkgs. If you still want sandbox functionality, use wechat-uos-sandboxed package."
+],
+"license":{
+"deprecated":false,
+"free":false,
+"fullName":"Unfree redistributable",
+"redistributable":true,
+"shortName":"unfreeRedistributable"
+},
+"mainProgram":"wechat-uos",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"wechat-uos-4.0.0.21",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-linux"
+],
+"position":"./pkgs/deprecated/wechat-uos/default.nix:279",
+"unfree":true,
+"unsupported":false
+},
+"name":"wechat-uos-4.0.0.21",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"wechat-uos",
+"system":"x86_64-linux",
+"version":"4.0.0.21"
+},
+"wechat-uos-bin":{
+"meta":{
+"available":false,
+"broken":false,
+"description":"(DEPRECATED: wechat-uos is available in nixpkgs. If you still want sandbox functionality, use wechat-uos-sandboxed package.) WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap)",
+"homepage":"https://weixin.qq.com/",
+"insecure":true,
+"knownVulnerabilities":[
+"wechat-uos is available in nixpkgs. If you still want sandbox functionality, use wechat-uos-sandboxed package."
+],
+"license":{
+"deprecated":false,
+"free":false,
+"fullName":"Unfree redistributable",
+"redistributable":true,
+"shortName":"unfreeRedistributable"
+},
+"mainProgram":"wechat-uos",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"wechat-uos-4.0.0.21",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-linux"
+],
+"position":"./pkgs/deprecated/wechat-uos/default.nix:279",
+"unfree":true,
+"unsupported":false
+},
+"name":"wechat-uos-4.0.0.21",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"wechat-uos",
+"system":"x86_64-linux",
+"version":"4.0.0.21"
+},
+"wechat-uos-sandboxed":{
+"meta":{
+"available":false,
+"broken":false,
 "description":"WeChat desktop with sandbox enabled ($HOME/Documents/WeChat_Data) (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap)",
 "homepage":"https://weixin.qq.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
 "free":false,
-"fullName":"Unfree redistributable",
-"redistributable":true,
-"shortName":"unfreeRedistributable"
+"fullName":"Unfree",
+"redistributable":false,
+"shortName":"unfree"
 },
 "mainProgram":"wechat-uos",
 "maintainers":[
@@ -30342,33 +30532,44 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"wechat-uos-4.0.0.30",
+"name":"wechat-uos-4.0.0.23",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
-"x86_64-linux"
+"x86_64-linux",
+"aarch64-linux",
+"loongarch64-linux"
 ],
-"position":"./pkgs/uncategorized/wechat-uos/default.nix:279",
+"position":"./pkgs/uncategorized/wechat-uos-sandboxed/default.nix:53",
+"sourceProvenance":[
+{
+"isSource":false,
+"shortName":"binaryNativeCode"
+}
+],
 "unfree":true,
 "unsupported":false
 },
-"name":"wechat-uos-4.0.0.30",
+"name":"wechat-uos-4.0.0.23",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"wechat-uos",
 "system":"x86_64-linux",
-"version":"4.0.0.30"
+"version":"4.0.0.23"
 },
 "wechat-uos-without-sandbox":{
 "meta":{
 "available":false,
 "broken":false,
-"description":"WeChat desktop without sandbox (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap)",
+"description":"(DEPRECATED: wechat-uos is available in nixpkgs. If you still want sandbox functionality, use wechat-uos-sandboxed package.) WeChat desktop without sandbox (Adapted from https://aur.archlinux.org/packages/wechat-uos-bwrap)",
 "homepage":"https://weixin.qq.com/",
-"insecure":false,
+"insecure":true,
+"knownVulnerabilities":[
+"wechat-uos is available in nixpkgs. If you still want sandbox functionality, use wechat-uos-sandboxed package."
+],
 "license":{
 "deprecated":false,
 "free":false,
@@ -30393,25 +30594,25 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"wechat-uos-4.0.0.30",
+"name":"wechat-uos-4.0.0.21",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/wechat-uos/default.nix:279",
+"position":"./pkgs/deprecated/wechat-uos/default.nix:279",
 "unfree":true,
 "unsupported":false
 },
-"name":"wechat-uos-4.0.0.30",
+"name":"wechat-uos-4.0.0.21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"wechat-uos",
 "system":"x86_64-linux",
-"version":"4.0.0.30"
+"version":"4.0.0.21"
 },
 "wine-wechat":{
 "meta":{
