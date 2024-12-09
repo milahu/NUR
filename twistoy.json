@@ -1,16 +1,16 @@
 {
 "name":"twistoy",
-"fetch_time":0.28,
-"eval_time":0.244,
+"fetch_time":0.586,
+"eval_time":0.243,
 "source":{
 "url":"https://github.com/TwIStOy/nur-packages",
-"rev":"6dca440cb81230ad40c9f6b5b2f76257fc657332",
-"sha256":"17pm3wabwppq32d8dlv6fbx2519ccrydsj15a7dsas3fnxlm7x53",
+"rev":"6c27455813bc15586b8c3bcc5f1da85c0505aedf",
+"sha256":"10h3x2whsmicd8pnafc2hbbjraq2y7n648mmjzbllk332jpmjqq9",
 "date":null
 },
-"source_storepath":"/nix/store/r19v1vnqchd441mdzgxhsrsmkm4b9r9a-source",
-"nixpkgs_storepath":"/nix/store/qd73hf9ydxisxakjj4w6na0qixprh3w2-source",
-"nur_combined_rev":"9e5951cb3e31a71622be72aa38185efeaf85c8ce",
+"source_storepath":"/nix/store/rrp3cb19darjglyv4zwjyfxicnhxiy3q-source",
+"nixpkgs_storepath":"/nix/store/wfqcs3a1n735ksfgn7asihm34vigsdhc-source",
+"nur_combined_rev":"a17a5e10e110fbb5c0b9854df60fd23cc01cc46d",
 "packages":{
 "distant":{
 "meta":{
@@ -132,10 +132,12 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -178,10 +180,12 @@
 "armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/gersemi/default.nix:30",
 "unfree":false,
@@ -247,7 +251,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/lazygit/default.nix:29",
 "unfree":false,
@@ -376,6 +381,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -441,6 +447,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -475,6 +482,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -540,6 +548,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -576,6 +585,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -641,6 +651,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -677,6 +688,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -742,6 +754,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
