@@ -35,7 +35,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
   ricochet-refresh = pkgs.libsForQt5.callPackage ./pkgs/ricochet-refresh/default.nix { };
 
-  aether-server = pkgs.libsForQt5.callPackage ./pkgs/aether-server/default.nix { };
+  # FIXME Function called without required argument "electron_11"
+  # aether-server = pkgs.libsForQt5.callPackage ./pkgs/aether-server/default.nix { };
 
   archive-org-downloader = python3.pkgs.callPackage ./pkgs/archive-org-downloader/default.nix { };
 
@@ -448,6 +449,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       prosemirror = callPackage ./pkgs/python3/pkgs/prosemirror { };
 
+      rs-chardet = callPackage ./pkgs/python3/pkgs/rs-chardet { };
+
     #}))); # python3.pkgs
 
   #}))); # python3
@@ -839,7 +842,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
   writable-nix-store = callPackage ./pkgs/development/tools/misc/writable-nix-store { };
 
-  s2e = callPackage ./pkgs/development/libraries/s2e { };
+  # FIXME Function called without required argument "llvmPackages_10"
+  # s2e = callPackage ./pkgs/development/libraries/s2e { };
 
   fetchtorrent = callPackage ./pkgs/build-support/fetchtorrent {
     # this was removed from nixpkgs
@@ -1025,6 +1029,14 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   prometheus-script-exporter = callPackage ./pkgs/servers/monitoring/prometheus/script-exporter.nix { };
 
   git-bug = callPackage ./pkgs/applications/version-management/git-bug { };
+
+  gns3Packages = pkgs.dontRecurseIntoAttrs (pkgs.callPackage ./pkgs/applications/networking/gns3 { });
+  gns3-gui = gns3Packages.guiStable;
+  gns3-server = gns3Packages.serverStable;
+
+  fuse-nfs = callPackage ./pkgs/tools/filesystems/fuse-nfs { };
+
+  stream-unrar = callPackage ./pkgs/tools/archivers/stream-unrar { };
 
 }
 
