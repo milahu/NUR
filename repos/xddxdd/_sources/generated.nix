@@ -11,6 +11,14 @@
       hash = "sha256-gDcEzZKtHMULtTtJSDTRH1W9otSB6IC0E6EBF9j6F7Q=";
     };
   };
+  adspower = {
+    pname = "adspower";
+    version = "6.10.20";
+    src = fetchurl {
+      url = "https://version.adspower.net/software/linux-x64-global/AdsPower-Global-6.10.20-x64.deb";
+      hash = "sha256-QGhntFcsvgaRkKpUsW4t+nUDKUmcr+n3hs4tmA/eskI=";
+    };
+  };
   amule-dlp = {
     pname = "amule-dlp";
     version = "7b3a07ab554d95267cca0c4a819b26d8474d6b3b";
@@ -187,25 +195,25 @@
   };
   cachyos-kernel = {
     pname = "cachyos-kernel";
-    version = "84a6510bee6bbbf18e1b6109722f7b622477eaa3";
+    version = "7b9eee64a9cccf65348c44bfac5085f67d28326d";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "linux-cachyos";
-      rev = "84a6510bee6bbbf18e1b6109722f7b622477eaa3";
-      hash = "sha256-s4AuSk2x/MeR76D94I04kls445SWbh/ujUTU8mVmcCU=";
+      rev = "7b9eee64a9cccf65348c44bfac5085f67d28326d";
+      hash = "sha256-J7gZrVA5I4t7AzD5D7lJwlJPDvnsX16Qv18kD+Xx3nM=";
     };
-    date = "2024-12-06";
+    date = "2024-12-07";
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "d0c6a41a9c38b7a189d9d487ffb8a4ccc744e53d";
+    version = "59d3f67b786a97d904b5e9f83b7b688594715208";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "d0c6a41a9c38b7a189d9d487ffb8a4ccc744e53d";
-      hash = "sha256-Zzh6IZV8hJCCpnu86FfXt/dYaiOB/JSltWD5T7vzoY0=";
+      rev = "59d3f67b786a97d904b5e9f83b7b688594715208";
+      hash = "sha256-oSyT/WVvPrxTqAT0UtCVz9u+apJQzUOWDm0CWYrG0lA=";
     };
-    date = "2024-12-06";
+    date = "2024-12-07";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -773,12 +781,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b4279";
+    version = "b4287";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      rev = "b4279";
-      hash = "sha256-kLnLFVGP15ByNHjrJ0ffiF6S4FixFLd7UfCn0r50iVg=";
+      rev = "b4287";
+      hash = "sha256-IN2/DuIXMTwRQI7eHaJ6z40lu1palREmNe6ZAhhNw4M=";
     };
   };
   lyrica = {
@@ -1378,12 +1386,12 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "7ebe0877e8db73815799d6c88f127146a3d09a3c";
+    version = "a0aa1adc556e0cf70195140cc26085687b575f99";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "7ebe0877e8db73815799d6c88f127146a3d09a3c";
-      hash = "sha256-cYivXexjNXfHt0JNDd0DsiACBRJi0N1hizZLuL4PIKw=";
+      rev = "a0aa1adc556e0cf70195140cc26085687b575f99";
+      hash = "sha256-cEQsdPozclEWip4WTVxleFU5x9KMNXq3Y59vLIkT5Zs=";
     };
     date = "2024-12-07";
   };
