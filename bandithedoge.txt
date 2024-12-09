@@ -1,107 +1,68 @@
-trace: evaluation warning: clangd-inactive-regions has been renamed to eglot-inactive-regions
 trace: evaluation warning: osirus has been renamed to dsp56300
 trace: evaluation warning: swift-mesonlsp-bin has been renamed to mesonlsp-bin
-trace: evaluation warning: lua-dev.nvim has been renamed to neodev.nvim
-trace: evaluation warning: null-ls.nvim has been discontinued, consider switching to none-ls.nvim
 error:
 … from call site
 
-  at ./pkgs/default.nix:91:19:
+  at ./pkgs/default.nix:99:19:
 
-    90|     xplrPlugins = callPackages ./xplrPlugins;
-    91|     yaziPlugins = callPackages ./yaziPlugins;
+    98|     xplrPlugins = callPackages' ./xplrPlugins;
+    99|     yaziPlugins = callPackages' ./yaziPlugins;
       |                   ^
-    92|     ysfx = callPackage' ./ysfx;
+   100|     ysfx = callPackage' ./ysfx;
 
-… while calling 'callPackages'
+… while calling 'callPackages''
 
-  at ./pkgs/default.nix:9:18:
+  at ./pkgs/default.nix:11:19:
 
-     8|
-     9|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
-      |                  ^
     10|
+    11|   callPackages' = pkg: pkgs.callPackages pkg (callPackageArgs pkg);
+      |                   ^
+    12|
 
 … from call site
 
-  at ./pkgs/default.nix:9:23:
+  at ./pkgs/default.nix:11:24:
 
-     8|
-     9|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
-      |                       ^
     10|
+    11|   callPackages' = pkg: pkgs.callPackages pkg (callPackageArgs pkg);
+      |                        ^
+    12|
 
-… while calling 'recurseIntoAttrs'
+… while calling 'callPackagesWith'
 
-  at <nixpkgs> + /lib/attrsets.nix:2074:5:
+  at <nixpkgs> + /lib/customisation.nix:298:36:
 
-  2073|   recurseIntoAttrs =
-  2074|     attrs:
+   297|   */
+   298|   callPackagesWith = autoArgs: fn: args:
+      |                                    ^
+   299|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:307:10:
+
+   306|     in
+   307|       if isDerivation pkgs then throw
+      |          ^
+   308|         ("function `callPackages` was called on a *single* derivation "
+
+… while calling 'isDerivation'
+
+  at <nixpkgs> + /lib/attrsets.nix:1282:5:
+
+  1281|   isDerivation =
+  1282|     value: value.type or null == "derivation";
       |     ^
-  2075|     attrs // { recurseForDerivations = true; };
+  1283|
 
 … from call site
 
-  at ./pkgs/default.nix:9:50:
+  at <nixpkgs> + /lib/customisation.nix:304:14:
 
-     8|
-     9|   callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
-      |                                                  ^
-    10|
-
-… while calling 'callPackage''
-
-  at ./pkgs/default.nix:2:18:
-
-     1| {pkgs, ...}: let
-     2|   callPackage' = pkg:
-      |                  ^
-     3|     pkgs.callPackage pkg {
-
-… from call site
-
-  at ./pkgs/default.nix:3:5:
-
-     2|   callPackage' = pkg:
-     3|     pkgs.callPackage pkg {
-      |     ^
-     4|       inherit pkgs callPackage';
-
-… while calling 'callPackageWith'
-
-  at <nixpkgs> + /lib/customisation.nix:212:35:
-
-   211|   */
-   212|   callPackageWith = autoArgs: fn: args:
-      |                                   ^
-   213|     let
-
-… from call site
-
-  at <nixpkgs> + /lib/trivial.nix:966:7:
-
-   965|     { # TODO: Should we add call-time "type" checking like built in?
-   966|       __functor = self: f;
-      |       ^
-   967|       __functionArgs = args;
-
-… while calling anonymous lambda
-
-  at <nixpkgs> + /lib/customisation.nix:136:17:
-
-   135|     in
-   136|     mirrorArgs (origArgs:
-      |                 ^
-   137|     let
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:138:16:
-
-   137|     let
-   138|       result = f origArgs;
-      |                ^
-   139|
+   303|       origArgs = auto // args;
+   304|       pkgs = f origArgs;
+      |              ^
+   305|       mkAttrOverridable = name: _: makeOverridable (mirrorArgs (newArgs: (f newArgs).${name})) origArgs;
 
 … while calling anonymous lambda
 
