@@ -1,14 +1,17 @@
-{ lib, stdenv
-, pkg-config, pins
+{ lib, stdenv, fetchgit
+, pkg-config
 , gmp, lua, gcc
 }:
 let
   gccPluginPath = "/lib/gcc/${stdenv.targetPlatform.config}/${gcc.cc.version}/plugin";
 in stdenv.mkDerivation rec {
   pname = "gcc-lua";
-  version = pins.${pname}.version;
+  version = "unstable-2023-07-17";
 
-  src = pins.${pname}.outPath;
+  src = fetchgit {
+    url = "https://git.colberg.org/peter/${pname}.git";
+    sha256 = "sha256-flnjy4gwZshqcoFNXjDGi3O1i0UeCypmz+k+4UVi+bY=";
+  };
 
   nativeBuildInputs = [
     pkg-config

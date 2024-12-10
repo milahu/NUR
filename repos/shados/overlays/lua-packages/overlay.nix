@@ -34,7 +34,6 @@ selfPkgs: superPkgs: let
     };
 
     gcc-lua-cdecl = callPackage ./gcc-lua-cdecl.nix {
-      inherit pins;
       inherit (superPkgs) gcc-lua;
     };
 

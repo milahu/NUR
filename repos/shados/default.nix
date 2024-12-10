@@ -51,9 +51,7 @@ let repo = rec {
     inherit pins;
   };
 
-  gcc-lua = pkgs.callPackage ./pkgs/gcc-lua {
-    inherit pins;
-  };
+  gcc-lua = pkgs.callPackage ./pkgs/gcc-lua { };
 
   json-yaml = pkgs.callPackage ./pkgs/json-yaml {
     inherit pins;

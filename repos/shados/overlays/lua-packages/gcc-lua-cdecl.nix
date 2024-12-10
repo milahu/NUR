@@ -1,11 +1,15 @@
-{ lib, buildLuaPackage
-, pkg-config, pins , gcc-lua
+{ lib, buildLuaPackage, fetchgit
+, pkg-config
+, gcc-lua
 }:
 buildLuaPackage rec {
   pname = "gcc-lua-cdecl";
-  version = pins.${pname}.version;
+  version = "unstable-2023-08-30";
 
-  src = pins.${pname}.outPath;
+  src = fetchgit {
+    url = "https://git.colberg.org/peter/${pname}.git";
+    sha256 = "sha256-uXnPx2rhzPA3eGsgJJD5c1wICj0/MRYWS14X2vz81lA=";
+  };
 
   preBuild = ''
     set -x
