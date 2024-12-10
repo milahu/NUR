@@ -160,6 +160,7 @@ in
       "rofi-snippets"
       "sane-screenshot"
       "sane-open"
+      "sane-open.clipboard"
       "sane-theme"
       "seatd"
       # "splatmoji"  # used by sway config

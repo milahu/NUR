@@ -5,12 +5,12 @@
 }:
 stdenv.mkDerivation {
   pname = "uassets";
-  version = "0-unstable-2024-12-05";
+  version = "0-unstable-2024-12-08";
   src = fetchFromGitHub {
     owner = "uBlockOrigin";
     repo = "uAssets";
-    rev = "de54b53d42a882f475225c1ed10ec83225a587fb";
-    hash = "sha256-J6eBc6QoBOqjBtzBoueYqJaOUm9/mRYtz0oSSiuBWa4=";
+    rev = "8f18d8c01dee8cdc969cee56fae3ae63ce284a3e";
+    hash = "sha256-qbJRLbE3tknealvbiVwdkWSgqt7KYj4sVab/lMiOFQk=";
   };
 
   dontBuild = true;

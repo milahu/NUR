@@ -205,7 +205,7 @@ def main():
     parser.add_argument("--verbose", action="store_true", help="more logging")
     parser.add_argument("--always-ask", action="store_true", help="always ask which device to cast to, regardless how many are available")
     parser.add_argument("--device", help="filter devices based on if this string is contained in their name (case-insensitive)")
-    parser.add_argument("media", nargs="?", help="file or URL to send to the DLNA device. empty to case just an audio stream")
+    parser.add_argument("media", nargs="?", help="file or URL to send to the DLNA device. empty to cast just an audio stream")
 
     args = parser.parse_args()
 

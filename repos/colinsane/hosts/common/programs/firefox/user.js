@@ -92,6 +92,12 @@ defaultPref("browser.uiCustomization.state", `{
 // 2 to show the window close button (default)
 defaultPref("browser.tabs.inTitlebar", 0);
 
+defaultPref("reader.font_size", 9);  // not the normal meaning of font size: these are discrete options with no gaps, like 1,2,3,...
+defaultPref("reader.font_type", "serif");
+defaultPref("reader.color_scheme", "custom");
+defaultPref("reader.custom_colors.background", "#fff1e5");  //< mimic ft.com colors
+defaultPref("reader.custom_colors.foreground", "#241f31");
+
 // TODO: don't hardcode `colin`
 defaultPref("browser.download.lastDir", "/home/colin/tmp");
 // defaultPref("browser.download.autohideButton", false);  //< optional, to always show DL button

@@ -330,6 +330,7 @@ in
       "powersupply"  # battery viewer
       "pwvucontrol"  # pipewire version of pavu
       # "picard"  # music tagging
+      "sane-color-picker"
       # "seahorse"  # keyring/secret manager
       "signal-desktop"
       "snapshot"  # camera app
@@ -1035,6 +1036,15 @@ in
     sane-cast.sandbox.autodetectCliPaths = "existingFile";
     sane-cast.sandbox.whitelistAudio = true;  #< for sblast audio casting
     sane-cast.suggestedPrograms = [ "go2tv" "sblast" ];
+
+    sane-color-picker.sandbox.whitelistDbus = [ "user" ];  #< required for eyedropper to work
+    sane-color-picker.sandbox.whitelistWayland = true;
+    sane-color-picker.sandbox.keepPidsAndProc = true;  #< required by wl-clipboard
+    sane-color-picker.suggestedPrograms = [
+      "gnugrep"
+      "wl-clipboard"
+      # "zenity"
+    ];
 
     sane-die-with-parent.sandbox.enable = false;  #< it's a launcher; can't sandbox
 
