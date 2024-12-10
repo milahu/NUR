@@ -28,12 +28,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:966:7:
+  at <nixpkgs> + /lib/trivial.nix:1000:7:
 
-   965|     { # TODO: Should we add call-time "type" checking like built in?
-   966|       __functor = self: f;
+   999|     { # TODO: Should we add call-time "type" checking like built in?
+  1000|       __functor = self: f;
       |       ^
-   967|       __functionArgs = args;
+  1001|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -64,12 +64,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:966:7:
+  at <nixpkgs> + /lib/trivial.nix:1000:7:
 
-   965|     { # TODO: Should we add call-time "type" checking like built in?
-   966|       __functor = self: f;
+   999|     { # TODO: Should we add call-time "type" checking like built in?
+  1000|       __functor = self: f;
       |       ^
-   967|       __functionArgs = args;
+  1001|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -82,12 +82,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:966:7:
+  at <nixpkgs> + /lib/trivial.nix:1000:7:
 
-   965|     { # TODO: Should we add call-time "type" checking like built in?
-   966|       __functor = self: f;
+   999|     { # TODO: Should we add call-time "type" checking like built in?
+  1000|       __functor = self: f;
       |       ^
-   967|       __functionArgs = args;
+  1001|       __functionArgs = args;
 
 … while calling anonymous lambda
 

@@ -218,12 +218,12 @@ error:
 
 … while calling 'isStorePath'
 
-  at <nixpkgs> + /lib/strings.nix:2360:17:
+  at <nixpkgs> + /lib/strings.nix:2397:17:
 
-  2359|   */
-  2360|   isStorePath = x:
+  2396|   */
+  2397|   isStorePath = x:
       |                 ^
-  2361|     if isStringLike x then
+  2398|     if isStringLike x then
 
 … from call site
 
@@ -297,4 +297,4 @@ error:
       |                           ^
    192|     url,
 
-error: access to URI 'https://github.com/Sonico98/allmytoes.yazi/archive/e5329138a19615e63bff6a581eb69d1d1eb5d4fe.tar.gz' is forbidden in restricted mode
+error: access to URI 'https://github.com/Sonico98/allmytoes.yazi/archive/a9870513d935680c2d59da7d59b3f91660e2729d.tar.gz' is forbidden in restricted mode
