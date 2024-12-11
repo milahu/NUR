@@ -28,7 +28,7 @@
     system-libvirt = pkgs.libvirt;
   };
 in
-  pkgs.virt-manager.overridePythonAttrs (oldAttrs: rec {
+  pkgs.virt-manager.overrideAttrs (oldAttrs: rec {
     # Build a combined `virt-manager` package which included both the latest
     # version (which supports only some recent `libvirt` versions) and the 2.x
     # version (renamed to `virt-manager-2`).  This is safer than exporting the
@@ -40,9 +40,11 @@ in
     #
     # Using `postFixup` to avoid wrapping the symlink.
     #
-    postFixup = ''
-      ln -s ${virt-manager-2}/bin/virt-manager $out/bin/virt-manager-2
-    '';
+    postFixup =
+      (oldAttrs.postFixup or "")
+      + ''
+        ln -s ${virt-manager-2}/bin/virt-manager $out/bin/virt-manager-2
+      '';
 
     meta = lib.mergeAttrs oldAttrs.meta {
       description = ''
