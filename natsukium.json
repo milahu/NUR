@@ -1,16 +1,16 @@
 {
 "name":"natsukium",
-"fetch_time":0.301,
-"eval_time":0.256,
+"fetch_time":0.293,
+"eval_time":0.255,
 "source":{
 "url":"https://github.com/natsukium/nur-packages",
-"rev":"d536ba5fb8e1aa2fd8e2187edf027f1ccfd70807",
-"sha256":"1id107clwrb0d9l85335237k6w08441b3cjvqfhi16nic6a5y3nk",
+"rev":"2639798d4db0dbda5dd2f4e791525c340cc6ed91",
+"sha256":"1q5xhid71affl8i5pyaz9qgjif0cagqh1x9ipjr5ycj45gni0arj",
 "date":null
 },
-"source_storepath":"/nix/store/c2vs7w1v7i4g2z36dalg25gkwlyr7sb5-source",
-"nixpkgs_storepath":"/nix/store/npx1ww3dqyhjwzs31p0dxhqj2lwpi5zl-source",
-"nur_combined_rev":"5cdf24a148aba6c259e38aeeb6db928c62383ff3",
+"source_storepath":"/nix/store/2zznq3asig75gqsllnzn1rwf16rm1hv7-source",
+"nixpkgs_storepath":"/nix/store/cl6drfj77fv41d1i6zzd264kn47fczzp-source",
+"nur_combined_rev":"eedfb8c88765c363b9108f6b38809041c5417881",
 "packages":{
 "bclm":{
 "meta":{
@@ -388,6 +388,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -467,6 +468,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -546,6 +548,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -636,7 +639,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -705,7 +709,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/ni/nixpkgs-review/package.nix:77",
 "unfree":false,
@@ -856,7 +861,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -973,7 +979,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1108,6 +1115,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -1219,6 +1227,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -1330,6 +1339,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -1417,7 +1427,7 @@
 "x86_64-linux",
 "aarch64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/browsers/vivaldi/default.nix:127",
+"position":"<nixpkgs> + /pkgs/applications/networking/browsers/vivaldi/default.nix:128",
 "sourceProvenance":[
 {
 "isSource":false,
