@@ -15,15 +15,15 @@
   };
   aichat = {
     pname = "aichat";
-    version = "8ef3562c4254961179100d7eb87037c3f3ae5539";
+    version = "2e7ff29e967dba987d9f238f73dcd87a569d2035";
     src = fetchFromGitHub {
       owner = "sigoden";
       repo = "aichat";
-      rev = "8ef3562c4254961179100d7eb87037c3f3ae5539";
+      rev = "2e7ff29e967dba987d9f238f73dcd87a569d2035";
       fetchSubmodules = false;
-      sha256 = "sha256-OxYxkISFjZO+E+NXPTG/bcyMvy2pyymMHdm3EN1+BPA=";
+      sha256 = "sha256-tjKgZg8bjRHuifhq0ZEC+Vv3yyUwCoy2X4PNEIYzLfk=";
     };
-    date = "2024-12-09";
+    date = "2024-12-10";
   };
   av1an = {
     pname = "av1an";
@@ -51,15 +51,15 @@
   };
   candy = {
     pname = "candy";
-    version = "21c3f1254917849c9c01da90d1e3557102092e6a";
+    version = "4c808d96b6c1f8d7356b12254d953d44f7007cb3";
     src = fetchFromGitHub {
       owner = "lanthora";
       repo = "candy";
-      rev = "21c3f1254917849c9c01da90d1e3557102092e6a";
+      rev = "4c808d96b6c1f8d7356b12254d953d44f7007cb3";
       fetchSubmodules = false;
-      sha256 = "sha256-rK6dWFkxQGX+3KA0zSgZ2uR7qgIml5seCzAHvVwjk2A=";
+      sha256 = "sha256-Uk+RR/lo4z0GPXBYU9GUCdidcHwmJSnjTyHj7do/zuk=";
     };
-    date = "2024-12-09";
+    date = "2024-12-10";
   };
   fww-checkin-rs = {
     pname = "fww-checkin-rs";
@@ -75,15 +75,15 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "0a27af8cd190315c1f13363ebd11e83d30455d48";
+    version = "4d05677e8d398b6fa144eae7a98ad4f2a54acb92";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "0a27af8cd190315c1f13363ebd11e83d30455d48";
+      rev = "4d05677e8d398b6fa144eae7a98ad4f2a54acb92";
       fetchSubmodules = true;
-      sha256 = "sha256-hUgv2XxOZu0XFVtwmovS3kplxAt+Jv+CXSxNnSiAtFo=";
+      sha256 = "sha256-/mIDAiJZyC8gcY5CfHQqP40xGvkRVklDEO34AR2TAC8=";
     };
-    date = "2024-12-08";
+    date = "2024-12-10";
   };
   hyprwayland-scanner = {
     pname = "hyprwayland-scanner";
@@ -136,15 +136,15 @@
   };
   llamafile = {
     pname = "llamafile";
-    version = "9b03e32f8a40252f239ee14cb976bcf5ec5f1710";
+    version = "8fa170252e43971703a3f59e887555dbc69a5529";
     src = fetchFromGitHub {
       owner = "Mozilla-Ocho";
       repo = "llamafile";
-      rev = "9b03e32f8a40252f239ee14cb976bcf5ec5f1710";
+      rev = "8fa170252e43971703a3f59e887555dbc69a5529";
       fetchSubmodules = false;
-      sha256 = "sha256-hoqk07hwLbEEy84GVblQGs52MLjqqzB7SAdQF+I3MX0=";
+      sha256 = "sha256-LGHbzcmxbSUqf7OjkCUcvDg+QVowjzfx8i4LObA8++k=";
     };
-    date = "2024-12-05";
+    date = "2024-12-10";
   };
   mieru = {
     pname = "mieru";
