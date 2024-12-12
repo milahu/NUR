@@ -11,7 +11,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromSourcehut {
     owner = "~strahinja";
     repo = "dtree";
-    rev = "v${finalAttrs.version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-MGBJshNiQgwr/0HMm4dm0eUqLHxyYIjBEA5ZdlVmoME=";
   };
 
