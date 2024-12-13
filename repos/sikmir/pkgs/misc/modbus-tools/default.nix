@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitLab {
     owner = "alexs-sh";
     repo = "modbus-tools";
-    tag = "v${version}";
+    rev = "v${version}";
     hash = "sha256-PA8EuZa2jKkd/pn6UGGJ6f7jac1bN2sS2fX3qmYVduQ=";
   };
 
