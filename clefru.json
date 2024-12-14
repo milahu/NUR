@@ -1,16 +1,16 @@
 {
 "name":"clefru",
-"fetch_time":0.329,
-"eval_time":0.247,
+"fetch_time":0.354,
+"eval_time":0.233,
 "source":{
 "url":"https://github.com/clefru/nur-packages",
-"rev":"058a220b0ddfae6847e3c8cbedeb24ce69d6d83e",
-"sha256":"1qpan1f3wblbkg2nxdr6rzd3aq6zywcjbw0w208c78fhq8q11rnk",
+"rev":"4c654b5b9a725b45b266f9d340f7ce17cb312d95",
+"sha256":"0ngfljhh8hli88wpbbqa78x47pwzyr7q5npm6spsqffg4jzlsxdb",
 "date":null
 },
-"source_storepath":"/nix/store/9bxml4is4dvymyk2mjiakddwsc8hzklr-source",
-"nixpkgs_storepath":"/nix/store/q57cf9m67s1yb8lja49dz2axvcgnqm2z-source",
-"nur_combined_rev":"9d655cc3d428e3df94b16fe51dc3e0441ee94eb6",
+"source_storepath":"/nix/store/h658za7pq3kr48xwv35r8jbh3xvww8i3-source",
+"nixpkgs_storepath":"/nix/store/gdvk4xv8rhsac0hxy2vmmgfl3ylcgxr4-source",
+"nur_combined_rev":"eb933529e00237448cf7a2110b8af4a56a5e5d69",
 "packages":{
 "beam-wallet":{
 "meta":{
@@ -28,6 +28,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"mainProgram":"BeamWallet",
 "name":"BeamWallet",
 "outputsToInstall":[
 "out"
@@ -252,6 +253,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"ib-tws",
 "name":"ib-tws",
 "outputsToInstall":[
 "out"
@@ -443,6 +445,7 @@
 "description":"Parsec Gaming Daemon",
 "homepage":"https://www.parsecgaming.com/",
 "insecure":false,
+"mainProgram":"parsecgaming",
 "name":"parsecgaming",
 "outputsToInstall":[
 "out"
