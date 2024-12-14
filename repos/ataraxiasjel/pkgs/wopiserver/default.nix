@@ -5,27 +5,31 @@
   substituteAll,
   setuptools,
   cs3apis,
-  grpcio,
-  grpcio-tools,
+  cs3client,
+  cygrpc,
   flask,
-  pyjwt,
-  requests,
+  grpcio-tools,
+  grpcio,
   more-itertools,
   prometheus-flask-exporter,
+  pyjwt,
+  pyopenssl,
+  requests,
   waitress,
   werkzeug,
+  zipp,
   nix-update-script,
 }:
 buildPythonApplication rec {
   pname = "wopiserver";
-  version = "10.5.1";
+  version = "11.0.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "cs3org";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-KJhNCcYTADALKk8mIUyTjfFglYSg15ZcQcAVAuBa+AU=";
+    hash = "sha256-6qsxbhg0D70HvlkmZBoI9b/WHQgEVFFsrMo6g9bGyFI=";
   };
 
   postPatch =
@@ -45,20 +49,29 @@ buildPythonApplication rec {
         "/etc/wopi" "$out/etc/wopi"
     '';
 
-  buildInputs = [ setuptools ];
+  build-system = [ setuptools ];
 
-  propagatedBuildInputs = [
+  dependencies = [
     cs3apis
+    cs3client
+    cygrpc
+    flask
     grpcio
     grpcio-tools
-    flask
-    pyjwt
-    requests
     more-itertools
     prometheus-flask-exporter
+    pyjwt
+    pyopenssl
+    requests
     waitress
     werkzeug
+    zipp
   ];
+
+  # FIXME: tests
+  # nativeCheckInputs = [
+  #   pytestCheckHook
+  # ];
 
   preInstall = ''
     mkdir -p $out/etc/wopi
