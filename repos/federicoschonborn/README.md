@@ -2979,7 +2979,7 @@ Detect non-inclusive language in your source code.
 - Update Script: ✔️
 </details>
 
-### `yyjson_0_10` `0.10.0` [🌐](https://github.com/ibireme/yyjson "Homepage") [📰](https://github.com/ibireme/yyjson/blob/0.10.0/CHANGELOG.md "Changelog") [📦](https://github.com/NixOS/nixpkgs/blob/2c15aa5/pkgs/by-name/yy/yyjson/package.nix#L23 "Source")
+### `yyjson_0_10` `0.10.0` [🌐](https://github.com/ibireme/yyjson "Homepage") [📰](https://github.com/ibireme/yyjson/blob/0.10.0/CHANGELOG.md "Changelog") [📦](https://github.com/NixOS/nixpkgs/blob/bc27f0f/pkgs/by-name/yy/yyjson/package.nix#L23 "Source")
 
 Fastest JSON library in C.
 
