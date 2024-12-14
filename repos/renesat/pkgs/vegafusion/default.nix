@@ -2,50 +2,53 @@
   lib,
   buildPythonPackage,
   fetchFromGitHub,
-  pythonAtLeast,
+  rustPlatform,
   # Deps
-  altair,
-  pyarrow,
-  pandas,
-  psutil,
+  narwhals,
+  arro3-core,
   protobuf,
-  packaging, # python >= 3.12
-  vl-convert-python, # embed
-  vegafusion-python-embed, # embed
 }:
 buildPythonPackage rec {
   pname = "vegafusion";
-  version = "1.6.5";
+  version = "2.0.1";
+  format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "hex-inc";
     repo = "vegafusion";
     rev = "v${version}";
-    hash = "sha256-EoNbcMOTqyC/nFttQhWQ2iNGxSwZWkbnCL4W3O+D0As=";
+    hash = "sha256-C0PInGAutgCcjaKFiUI5ClMTR6/uvhcMZCtILWBwSF0=";
   };
 
-  patches = lib.lists.optional (pythonAtLeast "3.12") ./replace_distutils.patch; # Fix for replace deprecated distutils
-
-  sourceRoot = "${src.name}/python/vegafusion";
-
-  doCheck = false;
-
-  propagatedBuildInputs =
-    [
-      altair
-      pyarrow
-      pandas
-      psutil
-      protobuf
-    ]
-    ++ lib.lists.optional (pythonAtLeast "3.12") packaging;
-
-  optional-dependencies = {
-    embed = [
-      vegafusion-python-embed
-      vl-convert-python
-    ];
+  cargoDeps = rustPlatform.fetchCargoTarball {
+    inherit src;
+    name = "${pname}-${version}";
+    hash = "sha256-v8NApZw0LYyThuOO++HdbR0eUMJgDR/SeNWAZVKSQfQ=";
   };
+
+  buildAndTestSubdir = "vegafusion-python";
+
+  buildInputs = [protobuf];
+
+  nativeBuildInputs = with rustPlatform; [
+    cargoSetupHook
+    maturinBuildHook
+  ];
+
+  dependencies = [
+    (narwhals.overrideAttrs (_: rec {
+      version = "1.16.0";
+      src = fetchFromGitHub {
+        owner = "narwhals-dev";
+        repo = "narwhals";
+        tag = "v${version}";
+        hash = "sha256-72hwVALYTFNhAnvk9aKxwzP9D5lwk4B9cvan+JIvX/c=";
+      };
+    }))
+    arro3-core
+  ];
+
+  pythonImportsCheck = ["vegafusion"];
 
   meta = with lib; {
     description = "Core tools for using VegaFusion from Python";
