@@ -4,10 +4,6 @@
   # Requires the above overlay, specifies a bunch of Lua packages :)
   lua-packages = import ./lua-packages/overlay.nix;
 
-  # Workaround for https://github.com/NixOS/nixpkgs/issues/44426 python
-  # overrides not being composable...
-  python-overrides = import ./python-overrides.nix;
-  # Requires the above overlay, specifies a bunch of Python packages :)
   python-packages = import ./python-packages/overlay.nix;
 
   # Fixes/workarounds for issues in upstream nixpkgs that I CBF upstreaming (or
@@ -110,25 +106,12 @@
       $browser ${htmlPath}
     '';
   in {
-    nix-help = let
-      # TODO: Look into building the manual from source instead of using the
-      # prebuilt version distributed in the source-distribution-tarball that
-      # the Nix derivation is built from?
-      nixSrc = super.nix.src;
-      manual = super.runCommand "nix-manual-source" {
-      } ''
-        mkdir -p $out/share/doc/nix
-        tar xvf ${nixSrc}
-        mv nix-*/doc/manual/* $out/share/doc/nix/
-      '';
-    in writeHtmlHelper "nix-help" "${manual}/share/doc/nix/manual.html";
-    nixpkgs-help = let
-      # NOTE: There are some interesting variables to extend or overwrite to
-      # affect the produced style:
-      # - HIGHLIGHTJS (env, string)
-      # - xlstFlags (list)
-      # - XMLFORMT_CONFIg (maybe?)
-      manual = super.callPackage (super.path + /doc) { };
-    in writeHtmlHelper "nixpkgs-help" "${manual}/share/doc/nixpkgs/manual.html";
+    nix-help = writeHtmlHelper "nix-help" "${self.nix.doc}/share/doc/nix/manual/index.html";
+    # NOTE: There are some interesting variables to extend or overwrite to
+    # affect the produced style:
+    # - HIGHLIGHTJS (env, string)
+    # - xlstFlags (list)
+    # - XMLFORMT_CONFIg (maybe?)
+    nixpkgs-help = writeHtmlHelper "nixpkgs-help" "${self.nixpkgs-manual}/share/doc/nixpkgs/manual.html";
   };
 }
