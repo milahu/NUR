@@ -11,10 +11,10 @@ builtins.foldl' (
     author = lib.toLower (cleanString plugin.author);
     name = lib.toLower (cleanString plugin.name);
     hashKey = "lapce-plugin-${cleanString plugin.author}-${cleanString plugin.name}-${plugin.version}.volt";
-    hash = hashes.${hashKey};
+    hash = hashes.${hashKey} or null;
   in
   result
-  // {
+  // lib.optionalAttrs (hash != null) {
     ${author} = (result.${author} or (lib.recurseIntoAttrs { })) // {
       ${name} = mkLapcePlugin (plugin // { inherit hash; });
     };

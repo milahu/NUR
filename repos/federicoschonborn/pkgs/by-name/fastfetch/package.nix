@@ -7,9 +7,9 @@
   ninja,
   pkg-config,
   python3,
-  yyjson_0_10,
+  yyjson,
   hwdata,
-  testers,
+  versionCheckHook,
   nix-update-script,
 
   enableVulkan ?
@@ -178,7 +178,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   buildInputs =
-    [ yyjson_0_10 ]
+    [ yyjson ]
     ++ lib.optional enableVulkan vulkan-loader
     ++ lib.optional enableWayland wayland
     ++ lib.optional enableXcbRandr xorg.libxcb
@@ -207,6 +207,8 @@ stdenv.mkDerivation (finalAttrs: {
     ++ lib.optional enableElf libelf
     ++ lib.optional enableLibzfs zfs
     ++ lib.optional enablePciaccess xorg.libpciaccess;
+
+  nativeInstallCheckInputs = [ versionCheckHook ];
 
   cmakeFlags =
     [
@@ -245,11 +247,9 @@ stdenv.mkDerivation (finalAttrs: {
       (lib.cmakeOptionType "filepath" "CUSTOM_AMDGPU_IDS_PATH" "${libdrm}/share/libdrm/amdgpu.ids")
     ];
 
-  passthru = {
-    tests.version = testers.testVersion { package = finalAttrs.finalPackage; };
+  doInstallCheck = true;
 
-    updateScript = nix-update-script { };
-  };
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     mainProgram = "fastfetch";
