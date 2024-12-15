@@ -45,6 +45,16 @@
 
 
 ## IMPROVEMENTS:
+- lack of a mesa shader cache for sandboxed programs DESTROYS PERF
+  - adding ~/.cache/mesa_shader_cache_db to the sandbox massively improves launch time,
+    probably reduces memory use,
+    but has unknown data leak implications.
+  - either (1) pre-populate the shader cache somehow, e.g. <https://gitlab.freedesktop.org/mesa/shader-db>
+    or (2) use a seperate shader cache per-app
+    or (3) disable the mesa cache and see if that actually helps (MESA_SHADER_CACHE_DISABLE=true)
+- tmpfs usage inside bunpen apps is not introspectable/debuggable
+  - app sandboxes could be rooted in, say, `/run/bunpen/$PID`
+    - for a nested sandbox, its vfs could be queried from the root ns at `/run/bunpen/$PID1/run/bunpen/$PID2`
 - sane-deadlines: show day of the week for upcoming items
 - curlftpfs: replace with something better
   - safer (rust? actively maintained? sandboxable?)
