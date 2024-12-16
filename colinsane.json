@@ -1,16 +1,16 @@
 {
 "name":"colinsane",
-"fetch_time":2.045,
-"eval_time":1.061,
+"fetch_time":2.869,
+"eval_time":1.03,
 "source":{
 "url":"https://git.uninsane.org/colin/nix-files",
-"rev":"4d3caba74e73519a2adf0f671a173bf4bef745f5",
-"sha256":"0gd91dnyiw6854b6j0vypq4drijqdii0fm8jd9f7zgxzrg3vkkwg",
+"rev":"60575640fd4a4440d0b907d2b00a856f37f5612d",
+"sha256":"0wcrz13v2dk4pnbzkazwgi0n5aqhxb3azzpn2zk6p3yg9crvmnki",
 "date":null
 },
-"source_storepath":"/nix/store/64di5zaignk4xfg7b2gxfqh2z394wivy-nix-files",
-"nixpkgs_storepath":"/nix/store/gdvk4xv8rhsac0hxy2vmmgfl3ylcgxr4-source",
-"nur_combined_rev":"19219011bf9ab312d1337649963067337d78c519",
+"source_storepath":"/nix/store/vphvbgibd0zls8mf930ipdkg3bk85ing-nix-files",
+"nixpkgs_storepath":"/nix/store/y7cwhqq0fvgmx8rvmcygr8dnbk04yk1a-source",
+"nur_combined_rev":"0b3505c0e4879425ce792c9260cefce6fc1ddb37",
 "packages":{
 "alsa-ucm-pinephone-manjaro":{
 "meta":{
@@ -7105,18 +7105,20 @@
 },
 "linuxKernel.packages.linux_5_10.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -7126,7 +7128,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -7153,18 +7155,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_5_10.chipsec":{
 "meta":{
@@ -8816,7 +8818,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -10862,7 +10864,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-5.10.230",
+"name":"nvidia-x11-550.40.82-5.10.230",
 "outputsToInstall":[
 "bin"
 ],
@@ -10874,7 +10876,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-5.10.230",
+"name":"nvidia-x11-550.40.82-5.10.230",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -10884,7 +10886,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-5.10.230"
+"version":"550.40.82-5.10.230"
 },
 "linuxKernel.packages.linux_5_10.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -10921,7 +10923,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-5.10.230-550.40.81",
+"name":"nvidia-open-5.10.230-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -10933,14 +10935,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-5.10.230-550.40.81",
+"name":"nvidia-open-5.10.230-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"5.10.230-550.40.81"
+"version":"5.10.230-550.40.82"
 },
 "linuxKernel.packages.linux_5_10.nvidiabl":{
 "meta":{
@@ -14836,7 +14838,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -14866,7 +14868,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-5.10.230",
+"name":"zfs-kernel-2.2.7-5.10.230",
 "outputsToInstall":[
 "out"
 ],
@@ -15005,20 +15007,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-5.10.230",
+"name":"zfs-kernel-2.2.7-5.10.230",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-5.10.230"
+"version":"2.2.7-5.10.230"
 },
 "linuxKernel.packages.linux_5_10.zfs_2_1":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -15042,7 +15044,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-5.10.230",
+"name":"zfs-kernel-2.1.16-5.10.230",
 "outputsToInstall":[
 "out"
 ],
@@ -15181,14 +15183,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-5.10.230",
+"name":"zfs-kernel-2.1.16-5.10.230",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-5.10.230"
+"version":"2.1.16-5.10.230"
 },
 "linuxKernel.packages.linux_5_10.zfs_unstable":{
 "meta":{
@@ -16030,18 +16032,20 @@
 },
 "linuxKernel.packages.linux_5_10_hardened.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -16051,7 +16055,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -16078,18 +16082,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_5_10_hardened.chipsec":{
 "meta":{
@@ -17631,7 +17635,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -19677,7 +19681,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-5.10.230",
+"name":"nvidia-x11-550.40.82-5.10.230",
 "outputsToInstall":[
 "bin"
 ],
@@ -19689,7 +19693,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-5.10.230",
+"name":"nvidia-x11-550.40.82-5.10.230",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -19699,7 +19703,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-5.10.230"
+"version":"550.40.82-5.10.230"
 },
 "linuxKernel.packages.linux_5_10_hardened.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -19736,7 +19740,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-5.10.230-550.40.81",
+"name":"nvidia-open-5.10.230-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -19748,14 +19752,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-5.10.230-550.40.81",
+"name":"nvidia-open-5.10.230-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"5.10.230-550.40.81"
+"version":"5.10.230-550.40.82"
 },
 "linuxKernel.packages.linux_5_10_hardened.nvidiabl":{
 "meta":{
@@ -23364,7 +23368,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -23394,7 +23398,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-5.10.230",
+"name":"zfs-kernel-2.2.7-5.10.230",
 "outputsToInstall":[
 "out"
 ],
@@ -23533,20 +23537,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-5.10.230",
+"name":"zfs-kernel-2.2.7-5.10.230",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-5.10.230"
+"version":"2.2.7-5.10.230"
 },
 "linuxKernel.packages.linux_5_10_hardened.zfs_2_1":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -23570,7 +23574,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-5.10.230",
+"name":"zfs-kernel-2.1.16-5.10.230",
 "outputsToInstall":[
 "out"
 ],
@@ -23709,14 +23713,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-5.10.230",
+"name":"zfs-kernel-2.1.16-5.10.230",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-5.10.230"
+"version":"2.1.16-5.10.230"
 },
 "linuxKernel.packages.linux_5_10_hardened.zfs_unstable":{
 "meta":{
@@ -24558,18 +24562,20 @@
 },
 "linuxKernel.packages.linux_5_15.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -24579,7 +24585,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -24606,18 +24612,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_5_15.chipsec":{
 "meta":{
@@ -26159,7 +26165,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -28205,7 +28211,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-5.15.173",
+"name":"nvidia-x11-550.40.82-5.15.173",
 "outputsToInstall":[
 "bin"
 ],
@@ -28217,7 +28223,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-5.15.173",
+"name":"nvidia-x11-550.40.82-5.15.173",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -28227,7 +28233,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-5.15.173"
+"version":"550.40.82-5.15.173"
 },
 "linuxKernel.packages.linux_5_15.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -28264,7 +28270,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-5.15.173-550.40.81",
+"name":"nvidia-open-5.15.173-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -28276,14 +28282,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-5.15.173-550.40.81",
+"name":"nvidia-open-5.15.173-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"5.15.173-550.40.81"
+"version":"5.15.173-550.40.82"
 },
 "linuxKernel.packages.linux_5_15.nvidiabl":{
 "meta":{
@@ -31892,7 +31898,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -31922,7 +31928,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-5.15.173",
+"name":"zfs-kernel-2.2.7-5.15.173",
 "outputsToInstall":[
 "out"
 ],
@@ -32061,20 +32067,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-5.15.173",
+"name":"zfs-kernel-2.2.7-5.15.173",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-5.15.173"
+"version":"2.2.7-5.15.173"
 },
 "linuxKernel.packages.linux_5_15.zfs_2_1":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -32098,7 +32104,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-5.15.173",
+"name":"zfs-kernel-2.1.16-5.15.173",
 "outputsToInstall":[
 "out"
 ],
@@ -32237,14 +32243,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-5.15.173",
+"name":"zfs-kernel-2.1.16-5.15.173",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-5.15.173"
+"version":"2.1.16-5.15.173"
 },
 "linuxKernel.packages.linux_5_15.zfs_unstable":{
 "meta":{
@@ -33086,18 +33092,20 @@
 },
 "linuxKernel.packages.linux_5_15_hardened.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -33107,7 +33115,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -33134,18 +33142,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_5_15_hardened.chipsec":{
 "meta":{
@@ -34687,7 +34695,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -36733,7 +36741,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-5.15.173",
+"name":"nvidia-x11-550.40.82-5.15.173",
 "outputsToInstall":[
 "bin"
 ],
@@ -36745,7 +36753,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-5.15.173",
+"name":"nvidia-x11-550.40.82-5.15.173",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -36755,7 +36763,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-5.15.173"
+"version":"550.40.82-5.15.173"
 },
 "linuxKernel.packages.linux_5_15_hardened.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -36792,7 +36800,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-5.15.173-550.40.81",
+"name":"nvidia-open-5.15.173-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -36804,14 +36812,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-5.15.173-550.40.81",
+"name":"nvidia-open-5.15.173-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"5.15.173-550.40.81"
+"version":"5.15.173-550.40.82"
 },
 "linuxKernel.packages.linux_5_15_hardened.nvidiabl":{
 "meta":{
@@ -40420,7 +40428,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -40450,7 +40458,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-5.15.173",
+"name":"zfs-kernel-2.2.7-5.15.173",
 "outputsToInstall":[
 "out"
 ],
@@ -40589,20 +40597,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-5.15.173",
+"name":"zfs-kernel-2.2.7-5.15.173",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-5.15.173"
+"version":"2.2.7-5.15.173"
 },
 "linuxKernel.packages.linux_5_15_hardened.zfs_2_1":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -40626,7 +40634,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-5.15.173",
+"name":"zfs-kernel-2.1.16-5.15.173",
 "outputsToInstall":[
 "out"
 ],
@@ -40765,14 +40773,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-5.15.173",
+"name":"zfs-kernel-2.1.16-5.15.173",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-5.15.173"
+"version":"2.1.16-5.15.173"
 },
 "linuxKernel.packages.linux_5_15_hardened.zfs_unstable":{
 "meta":{
@@ -41614,18 +41622,20 @@
 },
 "linuxKernel.packages.linux_5_4.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -41635,7 +41645,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -41662,18 +41672,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_5_4.chipsec":{
 "meta":{
@@ -43279,7 +43289,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -45325,7 +45335,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-5.4.286",
+"name":"nvidia-x11-550.40.82-5.4.286",
 "outputsToInstall":[
 "bin"
 ],
@@ -45337,7 +45347,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-5.4.286",
+"name":"nvidia-x11-550.40.82-5.4.286",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -45347,7 +45357,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-5.4.286"
+"version":"550.40.82-5.4.286"
 },
 "linuxKernel.packages.linux_5_4.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -45384,7 +45394,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-5.4.286-550.40.81",
+"name":"nvidia-open-5.4.286-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -45396,14 +45406,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-5.4.286-550.40.81",
+"name":"nvidia-open-5.4.286-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"5.4.286-550.40.81"
+"version":"5.4.286-550.40.82"
 },
 "linuxKernel.packages.linux_5_4.nvidiabl":{
 "meta":{
@@ -49039,7 +49049,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -49069,7 +49079,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-5.4.286",
+"name":"zfs-kernel-2.2.7-5.4.286",
 "outputsToInstall":[
 "out"
 ],
@@ -49208,20 +49218,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-5.4.286",
+"name":"zfs-kernel-2.2.7-5.4.286",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-5.4.286"
+"version":"2.2.7-5.4.286"
 },
 "linuxKernel.packages.linux_5_4.zfs_2_1":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -49245,7 +49255,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-5.4.286",
+"name":"zfs-kernel-2.1.16-5.4.286",
 "outputsToInstall":[
 "out"
 ],
@@ -49384,14 +49394,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-5.4.286",
+"name":"zfs-kernel-2.1.16-5.4.286",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-5.4.286"
+"version":"2.1.16-5.4.286"
 },
 "linuxKernel.packages.linux_5_4.zfs_unstable":{
 "meta":{
@@ -50233,18 +50243,20 @@
 },
 "linuxKernel.packages.linux_5_4_hardened.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -50254,7 +50266,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -50281,18 +50293,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_5_4_hardened.chipsec":{
 "meta":{
@@ -51898,7 +51910,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -53944,7 +53956,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-5.4.286",
+"name":"nvidia-x11-550.40.82-5.4.286",
 "outputsToInstall":[
 "bin"
 ],
@@ -53956,7 +53968,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-5.4.286",
+"name":"nvidia-x11-550.40.82-5.4.286",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -53966,7 +53978,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-5.4.286"
+"version":"550.40.82-5.4.286"
 },
 "linuxKernel.packages.linux_5_4_hardened.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -54003,7 +54015,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-5.4.286-550.40.81",
+"name":"nvidia-open-5.4.286-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -54015,14 +54027,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-5.4.286-550.40.81",
+"name":"nvidia-open-5.4.286-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"5.4.286-550.40.81"
+"version":"5.4.286-550.40.82"
 },
 "linuxKernel.packages.linux_5_4_hardened.nvidiabl":{
 "meta":{
@@ -57750,7 +57762,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -57780,7 +57792,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-5.4.286",
+"name":"zfs-kernel-2.2.7-5.4.286",
 "outputsToInstall":[
 "out"
 ],
@@ -57919,20 +57931,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-5.4.286",
+"name":"zfs-kernel-2.2.7-5.4.286",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-5.4.286"
+"version":"2.2.7-5.4.286"
 },
 "linuxKernel.packages.linux_5_4_hardened.zfs_2_1":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -57956,7 +57968,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-5.4.286",
+"name":"zfs-kernel-2.1.16-5.4.286",
 "outputsToInstall":[
 "out"
 ],
@@ -58095,14 +58107,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-5.4.286",
+"name":"zfs-kernel-2.1.16-5.4.286",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-5.4.286"
+"version":"2.1.16-5.4.286"
 },
 "linuxKernel.packages.linux_5_4_hardened.zfs_unstable":{
 "meta":{
@@ -58944,18 +58956,20 @@
 },
 "linuxKernel.packages.linux_6_1.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -58965,7 +58979,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -58992,18 +59006,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_6_1.chipsec":{
 "meta":{
@@ -60545,7 +60559,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -62591,7 +62605,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.1.119",
+"name":"nvidia-x11-550.40.82-6.1.119",
 "outputsToInstall":[
 "bin"
 ],
@@ -62603,7 +62617,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.1.119",
+"name":"nvidia-x11-550.40.82-6.1.119",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -62613,7 +62627,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.1.119"
+"version":"550.40.82-6.1.119"
 },
 "linuxKernel.packages.linux_6_1.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -62650,7 +62664,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.1.119-550.40.81",
+"name":"nvidia-open-6.1.119-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -62662,14 +62676,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.1.119-550.40.81",
+"name":"nvidia-open-6.1.119-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.1.119-550.40.81"
+"version":"6.1.119-550.40.82"
 },
 "linuxKernel.packages.linux_6_1.nvidiabl":{
 "meta":{
@@ -66211,7 +66225,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -66241,7 +66255,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.1.119",
+"name":"zfs-kernel-2.2.7-6.1.119",
 "outputsToInstall":[
 "out"
 ],
@@ -66380,20 +66394,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.1.119",
+"name":"zfs-kernel-2.2.7-6.1.119",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.1.119"
+"version":"2.2.7-6.1.119"
 },
 "linuxKernel.packages.linux_6_1.zfs_2_1":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -66417,7 +66431,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.1.119",
+"name":"zfs-kernel-2.1.16-6.1.119",
 "outputsToInstall":[
 "out"
 ],
@@ -66556,14 +66570,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.1.119",
+"name":"zfs-kernel-2.1.16-6.1.119",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.1.119"
+"version":"2.1.16-6.1.119"
 },
 "linuxKernel.packages.linux_6_1.zfs_unstable":{
 "meta":{
@@ -67405,18 +67419,20 @@
 },
 "linuxKernel.packages.linux_6_11.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -67426,7 +67442,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -67453,18 +67469,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_6_11.chipsec":{
 "meta":{
@@ -69006,7 +69022,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -71052,7 +71068,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.11.11",
+"name":"nvidia-x11-550.40.82-6.11.11",
 "outputsToInstall":[
 "bin"
 ],
@@ -71064,7 +71080,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.11.11",
+"name":"nvidia-x11-550.40.82-6.11.11",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -71074,7 +71090,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.11.11"
+"version":"550.40.82-6.11.11"
 },
 "linuxKernel.packages.linux_6_11.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -71111,7 +71127,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.11.11-550.40.81",
+"name":"nvidia-open-6.11.11-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -71123,14 +71139,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.11.11-550.40.81",
+"name":"nvidia-open-6.11.11-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.11.11-550.40.81"
+"version":"6.11.11-550.40.82"
 },
 "linuxKernel.packages.linux_6_11.nvidiabl":{
 "meta":{
@@ -74716,9 +74732,9 @@
 },
 "linuxKernel.packages.linux_6_11.zfs":{
 "meta":{
-"available":false,
-"broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"available":true,
+"broken":false,
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -74748,7 +74764,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.11.11",
+"name":"zfs-kernel-2.2.7-6.11.11",
 "outputsToInstall":[
 "out"
 ],
@@ -74887,20 +74903,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.11.11",
+"name":"zfs-kernel-2.2.7-6.11.11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.11.11"
+"version":"2.2.7-6.11.11"
 },
 "linuxKernel.packages.linux_6_11.zfs_2_1":{
 "meta":{
 "available":false,
 "broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -74924,7 +74940,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.11.11",
+"name":"zfs-kernel-2.1.16-6.11.11",
 "outputsToInstall":[
 "out"
 ],
@@ -75063,14 +75079,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.11.11",
+"name":"zfs-kernel-2.1.16-6.11.11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.11.11"
+"version":"2.1.16-6.11.11"
 },
 "linuxKernel.packages.linux_6_11.zfs_unstable":{
 "meta":{
@@ -75912,18 +75928,20 @@
 },
 "linuxKernel.packages.linux_6_11_hardened.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -75933,7 +75951,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -75960,18 +75978,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_6_11_hardened.chipsec":{
 "meta":{
@@ -77513,7 +77531,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -79559,7 +79577,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.11.10",
+"name":"nvidia-x11-550.40.82-6.11.10",
 "outputsToInstall":[
 "bin"
 ],
@@ -79571,7 +79589,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.11.10",
+"name":"nvidia-x11-550.40.82-6.11.10",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -79581,7 +79599,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.11.10"
+"version":"550.40.82-6.11.10"
 },
 "linuxKernel.packages.linux_6_11_hardened.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -79618,7 +79636,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.11.10-550.40.81",
+"name":"nvidia-open-6.11.10-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -79630,14 +79648,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.11.10-550.40.81",
+"name":"nvidia-open-6.11.10-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.11.10-550.40.81"
+"version":"6.11.10-550.40.82"
 },
 "linuxKernel.packages.linux_6_11_hardened.nvidiabl":{
 "meta":{
@@ -83223,9 +83241,9 @@
 },
 "linuxKernel.packages.linux_6_11_hardened.zfs":{
 "meta":{
-"available":false,
-"broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"available":true,
+"broken":false,
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -83255,7 +83273,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.11.10",
+"name":"zfs-kernel-2.2.7-6.11.10",
 "outputsToInstall":[
 "out"
 ],
@@ -83394,20 +83412,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.11.10",
+"name":"zfs-kernel-2.2.7-6.11.10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.11.10"
+"version":"2.2.7-6.11.10"
 },
 "linuxKernel.packages.linux_6_11_hardened.zfs_2_1":{
 "meta":{
 "available":false,
 "broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -83431,7 +83449,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.11.10",
+"name":"zfs-kernel-2.1.16-6.11.10",
 "outputsToInstall":[
 "out"
 ],
@@ -83570,14 +83588,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.11.10",
+"name":"zfs-kernel-2.1.16-6.11.10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.11.10"
+"version":"2.1.16-6.11.10"
 },
 "linuxKernel.packages.linux_6_11_hardened.zfs_unstable":{
 "meta":{
@@ -84419,18 +84437,20 @@
 },
 "linuxKernel.packages.linux_6_12.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -84440,7 +84460,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -84467,18 +84487,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_6_12.chipsec":{
 "meta":{
@@ -86020,7 +86040,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -88066,7 +88086,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.12.4",
+"name":"nvidia-x11-550.40.82-6.12.4",
 "outputsToInstall":[
 "bin"
 ],
@@ -88078,7 +88098,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.12.4",
+"name":"nvidia-x11-550.40.82-6.12.4",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -88088,7 +88108,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.12.4"
+"version":"550.40.82-6.12.4"
 },
 "linuxKernel.packages.linux_6_12.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -88125,7 +88145,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.12.4-550.40.81",
+"name":"nvidia-open-6.12.4-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -88137,14 +88157,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.12.4-550.40.81",
+"name":"nvidia-open-6.12.4-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.12.4-550.40.81"
+"version":"6.12.4-550.40.82"
 },
 "linuxKernel.packages.linux_6_12.nvidiabl":{
 "meta":{
@@ -91730,9 +91750,9 @@
 },
 "linuxKernel.packages.linux_6_12.zfs":{
 "meta":{
-"available":false,
-"broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"available":true,
+"broken":false,
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -91762,7 +91782,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.12.4",
+"name":"zfs-kernel-2.2.7-6.12.4",
 "outputsToInstall":[
 "out"
 ],
@@ -91901,20 +91921,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.12.4",
+"name":"zfs-kernel-2.2.7-6.12.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.12.4"
+"version":"2.2.7-6.12.4"
 },
 "linuxKernel.packages.linux_6_12.zfs_2_1":{
 "meta":{
 "available":false,
 "broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -91938,7 +91958,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.12.4",
+"name":"zfs-kernel-2.1.16-6.12.4",
 "outputsToInstall":[
 "out"
 ],
@@ -92077,14 +92097,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.12.4",
+"name":"zfs-kernel-2.1.16-6.12.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.12.4"
+"version":"2.1.16-6.12.4"
 },
 "linuxKernel.packages.linux_6_12.zfs_unstable":{
 "meta":{
@@ -92926,18 +92946,20 @@
 },
 "linuxKernel.packages.linux_6_1_hardened.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -92947,7 +92969,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -92974,18 +92996,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_6_1_hardened.chipsec":{
 "meta":{
@@ -94527,7 +94549,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -96573,7 +96595,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.1.119",
+"name":"nvidia-x11-550.40.82-6.1.119",
 "outputsToInstall":[
 "bin"
 ],
@@ -96585,7 +96607,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.1.119",
+"name":"nvidia-x11-550.40.82-6.1.119",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -96595,7 +96617,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.1.119"
+"version":"550.40.82-6.1.119"
 },
 "linuxKernel.packages.linux_6_1_hardened.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -96632,7 +96654,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.1.119-550.40.81",
+"name":"nvidia-open-6.1.119-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -96644,14 +96666,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.1.119-550.40.81",
+"name":"nvidia-open-6.1.119-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.1.119-550.40.81"
+"version":"6.1.119-550.40.82"
 },
 "linuxKernel.packages.linux_6_1_hardened.nvidiabl":{
 "meta":{
@@ -100193,7 +100215,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -100223,7 +100245,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.1.119",
+"name":"zfs-kernel-2.2.7-6.1.119",
 "outputsToInstall":[
 "out"
 ],
@@ -100362,20 +100384,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.1.119",
+"name":"zfs-kernel-2.2.7-6.1.119",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.1.119"
+"version":"2.2.7-6.1.119"
 },
 "linuxKernel.packages.linux_6_1_hardened.zfs_2_1":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -100399,7 +100421,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.1.119",
+"name":"zfs-kernel-2.1.16-6.1.119",
 "outputsToInstall":[
 "out"
 ],
@@ -100538,14 +100560,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.1.119",
+"name":"zfs-kernel-2.1.16-6.1.119",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.1.119"
+"version":"2.1.16-6.1.119"
 },
 "linuxKernel.packages.linux_6_1_hardened.zfs_unstable":{
 "meta":{
@@ -101387,18 +101409,20 @@
 },
 "linuxKernel.packages.linux_6_6.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -101408,7 +101432,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -101435,18 +101459,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_6_6.chipsec":{
 "meta":{
@@ -102988,7 +103012,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -105034,7 +105058,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.6.64",
+"name":"nvidia-x11-550.40.82-6.6.64",
 "outputsToInstall":[
 "bin"
 ],
@@ -105046,7 +105070,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.6.64",
+"name":"nvidia-x11-550.40.82-6.6.64",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -105056,7 +105080,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.6.64"
+"version":"550.40.82-6.6.64"
 },
 "linuxKernel.packages.linux_6_6.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -105093,7 +105117,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.6.64-550.40.81",
+"name":"nvidia-open-6.6.64-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -105105,14 +105129,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.6.64-550.40.81",
+"name":"nvidia-open-6.6.64-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.6.64-550.40.81"
+"version":"6.6.64-550.40.82"
 },
 "linuxKernel.packages.linux_6_6.nvidiabl":{
 "meta":{
@@ -108654,7 +108678,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -108684,7 +108708,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.6.64",
+"name":"zfs-kernel-2.2.7-6.6.64",
 "outputsToInstall":[
 "out"
 ],
@@ -108823,20 +108847,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.6.64",
+"name":"zfs-kernel-2.2.7-6.6.64",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.6.64"
+"version":"2.2.7-6.6.64"
 },
 "linuxKernel.packages.linux_6_6.zfs_2_1":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -108860,7 +108884,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.6.64",
+"name":"zfs-kernel-2.1.16-6.6.64",
 "outputsToInstall":[
 "out"
 ],
@@ -108999,14 +109023,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.6.64",
+"name":"zfs-kernel-2.1.16-6.6.64",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.6.64"
+"version":"2.1.16-6.6.64"
 },
 "linuxKernel.packages.linux_6_6.zfs_unstable":{
 "meta":{
@@ -109848,18 +109872,20 @@
 },
 "linuxKernel.packages.linux_6_6_hardened.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -109869,7 +109895,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -109896,18 +109922,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_6_6_hardened.chipsec":{
 "meta":{
@@ -111449,7 +111475,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -113495,7 +113521,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.6.63",
+"name":"nvidia-x11-550.40.82-6.6.63",
 "outputsToInstall":[
 "bin"
 ],
@@ -113507,7 +113533,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.6.63",
+"name":"nvidia-x11-550.40.82-6.6.63",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -113517,7 +113543,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.6.63"
+"version":"550.40.82-6.6.63"
 },
 "linuxKernel.packages.linux_6_6_hardened.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -113554,7 +113580,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.6.63-550.40.81",
+"name":"nvidia-open-6.6.63-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -113566,14 +113592,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.6.63-550.40.81",
+"name":"nvidia-open-6.6.63-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.6.63-550.40.81"
+"version":"6.6.63-550.40.82"
 },
 "linuxKernel.packages.linux_6_6_hardened.nvidiabl":{
 "meta":{
@@ -117115,7 +117141,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -117145,7 +117171,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.6.63",
+"name":"zfs-kernel-2.2.7-6.6.63",
 "outputsToInstall":[
 "out"
 ],
@@ -117284,20 +117310,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.6.63",
+"name":"zfs-kernel-2.2.7-6.6.63",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.6.63"
+"version":"2.2.7-6.6.63"
 },
 "linuxKernel.packages.linux_6_6_hardened.zfs_2_1":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -117321,7 +117347,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.6.63",
+"name":"zfs-kernel-2.1.16-6.6.63",
 "outputsToInstall":[
 "out"
 ],
@@ -117460,14 +117486,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.6.63",
+"name":"zfs-kernel-2.1.16-6.6.63",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.6.63"
+"version":"2.1.16-6.6.63"
 },
 "linuxKernel.packages.linux_6_6_hardened.zfs_unstable":{
 "meta":{
@@ -118309,18 +118335,20 @@
 },
 "linuxKernel.packages.linux_hardened.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -118330,7 +118358,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -118357,18 +118385,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_hardened.chipsec":{
 "meta":{
@@ -119910,7 +119938,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -121956,7 +121984,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.6.63",
+"name":"nvidia-x11-550.40.82-6.6.63",
 "outputsToInstall":[
 "bin"
 ],
@@ -121968,7 +121996,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.6.63",
+"name":"nvidia-x11-550.40.82-6.6.63",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -121978,7 +122006,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.6.63"
+"version":"550.40.82-6.6.63"
 },
 "linuxKernel.packages.linux_hardened.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -122015,7 +122043,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.6.63-550.40.81",
+"name":"nvidia-open-6.6.63-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -122027,14 +122055,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.6.63-550.40.81",
+"name":"nvidia-open-6.6.63-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.6.63-550.40.81"
+"version":"6.6.63-550.40.82"
 },
 "linuxKernel.packages.linux_hardened.nvidiabl":{
 "meta":{
@@ -125576,7 +125604,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -125606,7 +125634,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.6.63",
+"name":"zfs-kernel-2.2.7-6.6.63",
 "outputsToInstall":[
 "out"
 ],
@@ -125745,20 +125773,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.6.63",
+"name":"zfs-kernel-2.2.7-6.6.63",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.6.63"
+"version":"2.2.7-6.6.63"
 },
 "linuxKernel.packages.linux_hardened.zfs_2_1":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -125782,7 +125810,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.6.63",
+"name":"zfs-kernel-2.1.16-6.6.63",
 "outputsToInstall":[
 "out"
 ],
@@ -125921,14 +125949,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.6.63",
+"name":"zfs-kernel-2.1.16-6.6.63",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.6.63"
+"version":"2.1.16-6.6.63"
 },
 "linuxKernel.packages.linux_hardened.zfs_unstable":{
 "meta":{
@@ -126770,18 +126798,20 @@
 },
 "linuxKernel.packages.linux_latest_libre.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -126791,7 +126821,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -126818,18 +126848,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_latest_libre.chipsec":{
 "meta":{
@@ -128371,7 +128401,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -130417,7 +130447,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.12.4",
+"name":"nvidia-x11-550.40.82-6.12.4",
 "outputsToInstall":[
 "bin"
 ],
@@ -130429,7 +130459,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.12.4",
+"name":"nvidia-x11-550.40.82-6.12.4",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -130439,7 +130469,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.12.4"
+"version":"550.40.82-6.12.4"
 },
 "linuxKernel.packages.linux_latest_libre.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -130476,7 +130506,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.12.4-550.40.81",
+"name":"nvidia-open-6.12.4-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -130488,14 +130518,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.12.4-550.40.81",
+"name":"nvidia-open-6.12.4-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.12.4-550.40.81"
+"version":"6.12.4-550.40.82"
 },
 "linuxKernel.packages.linux_latest_libre.nvidiabl":{
 "meta":{
@@ -134081,9 +134111,9 @@
 },
 "linuxKernel.packages.linux_latest_libre.zfs":{
 "meta":{
-"available":false,
-"broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"available":true,
+"broken":false,
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -134113,7 +134143,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.12.4",
+"name":"zfs-kernel-2.2.7-6.12.4",
 "outputsToInstall":[
 "out"
 ],
@@ -134252,20 +134282,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.12.4",
+"name":"zfs-kernel-2.2.7-6.12.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.12.4"
+"version":"2.2.7-6.12.4"
 },
 "linuxKernel.packages.linux_latest_libre.zfs_2_1":{
 "meta":{
 "available":false,
 "broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -134289,7 +134319,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.12.4",
+"name":"zfs-kernel-2.1.16-6.12.4",
 "outputsToInstall":[
 "out"
 ],
@@ -134428,14 +134458,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.12.4",
+"name":"zfs-kernel-2.1.16-6.12.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.12.4"
+"version":"2.1.16-6.12.4"
 },
 "linuxKernel.packages.linux_latest_libre.zfs_unstable":{
 "meta":{
@@ -135277,18 +135307,20 @@
 },
 "linuxKernel.packages.linux_libre.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -135298,7 +135330,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -135325,18 +135357,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_libre.chipsec":{
 "meta":{
@@ -136878,7 +136910,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -138924,7 +138956,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.6.64",
+"name":"nvidia-x11-550.40.82-6.6.64",
 "outputsToInstall":[
 "bin"
 ],
@@ -138936,7 +138968,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.6.64",
+"name":"nvidia-x11-550.40.82-6.6.64",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -138946,7 +138978,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.6.64"
+"version":"550.40.82-6.6.64"
 },
 "linuxKernel.packages.linux_libre.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -138983,7 +139015,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.6.64-550.40.81",
+"name":"nvidia-open-6.6.64-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -138995,14 +139027,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.6.64-550.40.81",
+"name":"nvidia-open-6.6.64-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.6.64-550.40.81"
+"version":"6.6.64-550.40.82"
 },
 "linuxKernel.packages.linux_libre.nvidiabl":{
 "meta":{
@@ -142544,7 +142576,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -142574,7 +142606,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.6.64",
+"name":"zfs-kernel-2.2.7-6.6.64",
 "outputsToInstall":[
 "out"
 ],
@@ -142713,20 +142745,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.6.64",
+"name":"zfs-kernel-2.2.7-6.6.64",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.6.64"
+"version":"2.2.7-6.6.64"
 },
 "linuxKernel.packages.linux_libre.zfs_2_1":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -142750,7 +142782,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.6.64",
+"name":"zfs-kernel-2.1.16-6.6.64",
 "outputsToInstall":[
 "out"
 ],
@@ -142889,14 +142921,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.6.64",
+"name":"zfs-kernel-2.1.16-6.6.64",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.6.64"
+"version":"2.1.16-6.6.64"
 },
 "linuxKernel.packages.linux_libre.zfs_unstable":{
 "meta":{
@@ -143738,18 +143770,20 @@
 },
 "linuxKernel.packages.linux_lqx.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -143759,7 +143793,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -143786,18 +143820,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_lqx.chipsec":{
 "meta":{
@@ -145339,7 +145373,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -147385,7 +147419,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.12.2",
+"name":"nvidia-x11-550.40.82-6.12.2",
 "outputsToInstall":[
 "bin"
 ],
@@ -147397,7 +147431,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.12.2",
+"name":"nvidia-x11-550.40.82-6.12.2",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -147407,7 +147441,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.12.2"
+"version":"550.40.82-6.12.2"
 },
 "linuxKernel.packages.linux_lqx.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -147444,7 +147478,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.12.2-550.40.81",
+"name":"nvidia-open-6.12.2-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -147456,14 +147490,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.12.2-550.40.81",
+"name":"nvidia-open-6.12.2-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.12.2-550.40.81"
+"version":"6.12.2-550.40.82"
 },
 "linuxKernel.packages.linux_lqx.nvidiabl":{
 "meta":{
@@ -151049,9 +151083,9 @@
 },
 "linuxKernel.packages.linux_lqx.zfs":{
 "meta":{
-"available":false,
-"broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"available":true,
+"broken":false,
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -151081,7 +151115,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.12.2",
+"name":"zfs-kernel-2.2.7-6.12.2",
 "outputsToInstall":[
 "out"
 ],
@@ -151220,20 +151254,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.12.2",
+"name":"zfs-kernel-2.2.7-6.12.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.12.2"
+"version":"2.2.7-6.12.2"
 },
 "linuxKernel.packages.linux_lqx.zfs_2_1":{
 "meta":{
 "available":false,
 "broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -151257,7 +151291,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.12.2",
+"name":"zfs-kernel-2.1.16-6.12.2",
 "outputsToInstall":[
 "out"
 ],
@@ -151396,14 +151430,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.12.2",
+"name":"zfs-kernel-2.1.16-6.12.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.12.2"
+"version":"2.1.16-6.12.2"
 },
 "linuxKernel.packages.linux_lqx.zfs_unstable":{
 "meta":{
@@ -152245,18 +152279,20 @@
 },
 "linuxKernel.packages.linux_xanmod.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -152266,7 +152302,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -152293,18 +152329,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_xanmod.chipsec":{
 "meta":{
@@ -153846,7 +153882,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -155892,7 +155928,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.6.63",
+"name":"nvidia-x11-550.40.82-6.6.63",
 "outputsToInstall":[
 "bin"
 ],
@@ -155904,7 +155940,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.6.63",
+"name":"nvidia-x11-550.40.82-6.6.63",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -155914,7 +155950,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.6.63"
+"version":"550.40.82-6.6.63"
 },
 "linuxKernel.packages.linux_xanmod.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -155951,7 +155987,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.6.63-550.40.81",
+"name":"nvidia-open-6.6.63-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -155963,14 +155999,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.6.63-550.40.81",
+"name":"nvidia-open-6.6.63-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.6.63-550.40.81"
+"version":"6.6.63-550.40.82"
 },
 "linuxKernel.packages.linux_xanmod.nvidiabl":{
 "meta":{
@@ -159512,7 +159548,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -159542,7 +159578,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.6.63",
+"name":"zfs-kernel-2.2.7-6.6.63",
 "outputsToInstall":[
 "out"
 ],
@@ -159681,20 +159717,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.6.63",
+"name":"zfs-kernel-2.2.7-6.6.63",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.6.63"
+"version":"2.2.7-6.6.63"
 },
 "linuxKernel.packages.linux_xanmod.zfs_2_1":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -159718,7 +159754,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.6.63",
+"name":"zfs-kernel-2.1.16-6.6.63",
 "outputsToInstall":[
 "out"
 ],
@@ -159857,14 +159893,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.6.63",
+"name":"zfs-kernel-2.1.16-6.6.63",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.6.63"
+"version":"2.1.16-6.6.63"
 },
 "linuxKernel.packages.linux_xanmod.zfs_unstable":{
 "meta":{
@@ -160706,18 +160742,20 @@
 },
 "linuxKernel.packages.linux_xanmod_latest.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -160727,7 +160765,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -160754,18 +160792,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_xanmod_latest.chipsec":{
 "meta":{
@@ -162307,7 +162345,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -164353,7 +164391,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.11.11",
+"name":"nvidia-x11-550.40.82-6.11.11",
 "outputsToInstall":[
 "bin"
 ],
@@ -164365,7 +164403,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.11.11",
+"name":"nvidia-x11-550.40.82-6.11.11",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -164375,7 +164413,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.11.11"
+"version":"550.40.82-6.11.11"
 },
 "linuxKernel.packages.linux_xanmod_latest.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -164412,7 +164450,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.11.11-550.40.81",
+"name":"nvidia-open-6.11.11-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -164424,14 +164462,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.11.11-550.40.81",
+"name":"nvidia-open-6.11.11-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.11.11-550.40.81"
+"version":"6.11.11-550.40.82"
 },
 "linuxKernel.packages.linux_xanmod_latest.nvidiabl":{
 "meta":{
@@ -168017,9 +168055,9 @@
 },
 "linuxKernel.packages.linux_xanmod_latest.zfs":{
 "meta":{
-"available":false,
-"broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"available":true,
+"broken":false,
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -168049,7 +168087,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.11.11",
+"name":"zfs-kernel-2.2.7-6.11.11",
 "outputsToInstall":[
 "out"
 ],
@@ -168188,20 +168226,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.11.11",
+"name":"zfs-kernel-2.2.7-6.11.11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.11.11"
+"version":"2.2.7-6.11.11"
 },
 "linuxKernel.packages.linux_xanmod_latest.zfs_2_1":{
 "meta":{
 "available":false,
 "broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -168225,7 +168263,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.11.11",
+"name":"zfs-kernel-2.1.16-6.11.11",
 "outputsToInstall":[
 "out"
 ],
@@ -168364,14 +168402,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.11.11",
+"name":"zfs-kernel-2.1.16-6.11.11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.11.11"
+"version":"2.1.16-6.11.11"
 },
 "linuxKernel.packages.linux_xanmod_latest.zfs_unstable":{
 "meta":{
@@ -169213,18 +169251,20 @@
 },
 "linuxKernel.packages.linux_xanmod_stable.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -169234,7 +169274,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -169261,18 +169301,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_xanmod_stable.chipsec":{
 "meta":{
@@ -170814,7 +170854,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -172860,7 +172900,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.11.11",
+"name":"nvidia-x11-550.40.82-6.11.11",
 "outputsToInstall":[
 "bin"
 ],
@@ -172872,7 +172912,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.11.11",
+"name":"nvidia-x11-550.40.82-6.11.11",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -172882,7 +172922,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.11.11"
+"version":"550.40.82-6.11.11"
 },
 "linuxKernel.packages.linux_xanmod_stable.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -172919,7 +172959,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.11.11-550.40.81",
+"name":"nvidia-open-6.11.11-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -172931,14 +172971,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.11.11-550.40.81",
+"name":"nvidia-open-6.11.11-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.11.11-550.40.81"
+"version":"6.11.11-550.40.82"
 },
 "linuxKernel.packages.linux_xanmod_stable.nvidiabl":{
 "meta":{
@@ -176524,9 +176564,9 @@
 },
 "linuxKernel.packages.linux_xanmod_stable.zfs":{
 "meta":{
-"available":false,
-"broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"available":true,
+"broken":false,
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -176556,7 +176596,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.11.11",
+"name":"zfs-kernel-2.2.7-6.11.11",
 "outputsToInstall":[
 "out"
 ],
@@ -176695,20 +176735,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.11.11",
+"name":"zfs-kernel-2.2.7-6.11.11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.11.11"
+"version":"2.2.7-6.11.11"
 },
 "linuxKernel.packages.linux_xanmod_stable.zfs_2_1":{
 "meta":{
 "available":false,
 "broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -176732,7 +176772,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.11.11",
+"name":"zfs-kernel-2.1.16-6.11.11",
 "outputsToInstall":[
 "out"
 ],
@@ -176871,14 +176911,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.11.11",
+"name":"zfs-kernel-2.1.16-6.11.11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.11.11"
+"version":"2.1.16-6.11.11"
 },
 "linuxKernel.packages.linux_xanmod_stable.zfs_unstable":{
 "meta":{
@@ -177720,18 +177760,20 @@
 },
 "linuxKernel.packages.linux_zen.ch9344":{
 "meta":{
-"available":false,
+"available":true,
 "broken":false,
 "description":"WCH CH9344/CH348 UART driver",
-"downloadPage":"https://www.wch.cn/downloads/CH9344SER_LINUX_ZIP.html",
+"downloadPage":"https://github.com/WCHSoftGroup/ch9344ser_linux",
 "homepage":"https://www.wch-ic.com/",
 "insecure":false,
 "license":{
 "deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "longDescription":"A kernel module for WinChipHead CH9344/CH348 USB To Multi Serial Ports controller.\n",
 "maintainers":[
@@ -177741,7 +177783,7 @@
 "name":"Makise Kurisu"
 }
 ],
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputsToInstall":[
 "out"
 ],
@@ -177768,18 +177810,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:38",
-"unfree":true,
+"position":"<nixpkgs> + /pkgs/os-specific/linux/ch9344/default.nix:39",
+"unfree":false,
 "unsupported":false
 },
-"name":"ch9344-2.0",
+"name":"ch9344-0-unstable-2024-11-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch9344",
 "system":"x86_64-linux",
-"version":"2.0"
+"version":"0-unstable-2024-11-15"
 },
 "linuxKernel.packages.linux_zen.chipsec":{
 "meta":{
@@ -179321,7 +179363,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:125",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/hyperv-daemons/default.nix:124",
 "unfree":false,
 "unsupported":false
 },
@@ -181367,7 +181409,7 @@
 "name":"Edward Tj\u00f6rnhammar"
 }
 ],
-"name":"nvidia-x11-550.40.81-6.12.2",
+"name":"nvidia-x11-550.40.82-6.12.2",
 "outputsToInstall":[
 "bin"
 ],
@@ -181379,7 +181421,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"nvidia-x11-550.40.81-6.12.2",
+"name":"nvidia-x11-550.40.82-6.12.2",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -181389,7 +181431,7 @@
 },
 "pname":"nvidia-x11",
 "system":"x86_64-linux",
-"version":"550.40.81-6.12.2"
+"version":"550.40.82-6.12.2"
 },
 "linuxKernel.packages.linux_zen.nvidia_x11_vulkan_beta_open":{
 "meta":{
@@ -181426,7 +181468,7 @@
 "name":"Nick Cao"
 }
 ],
-"name":"nvidia-open-6.12.2-550.40.81",
+"name":"nvidia-open-6.12.2-550.40.82",
 "outputsToInstall":[
 "out"
 ],
@@ -181438,14 +181480,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nvidia-open-6.12.2-550.40.81",
+"name":"nvidia-open-6.12.2-550.40.82",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nvidia-open",
 "system":"x86_64-linux",
-"version":"6.12.2-550.40.81"
+"version":"6.12.2-550.40.82"
 },
 "linuxKernel.packages.linux_zen.nvidiabl":{
 "meta":{
@@ -185031,9 +185073,9 @@
 },
 "linuxKernel.packages.linux_zen.zfs":{
 "meta":{
-"available":false,
-"broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.6",
+"available":true,
+"broken":false,
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.2.7",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -185063,7 +185105,7 @@
 "name":"Andrew Marshall"
 }
 ],
-"name":"zfs-kernel-2.2.6-6.12.2",
+"name":"zfs-kernel-2.2.7-6.12.2",
 "outputsToInstall":[
 "out"
 ],
@@ -185202,20 +185244,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.2.6-6.12.2",
+"name":"zfs-kernel-2.2.7-6.12.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.2.6-6.12.2"
+"version":"2.2.7-6.12.2"
 },
 "linuxKernel.packages.linux_zen.zfs_2_1":{
 "meta":{
 "available":false,
 "broken":true,
-"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.15",
+"changelog":"https://github.com/openzfs/zfs/releases/tag/zfs-2.1.16",
 "description":"ZFS Filesystem Linux Kernel Module",
 "homepage":"https://github.com/openzfs/zfs",
 "insecure":false,
@@ -185239,7 +185281,7 @@
 "name":"Ryan Lahfa"
 }
 ],
-"name":"zfs-kernel-2.1.15-6.12.2",
+"name":"zfs-kernel-2.1.16-6.12.2",
 "outputsToInstall":[
 "out"
 ],
@@ -185378,14 +185420,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zfs-kernel-2.1.15-6.12.2",
+"name":"zfs-kernel-2.1.16-6.12.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zfs-kernel",
 "system":"x86_64-linux",
-"version":"2.1.15-6.12.2"
+"version":"2.1.16-6.12.2"
 },
 "linuxKernel.packages.linux_zen.zfs_unstable":{
 "meta":{
