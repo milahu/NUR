@@ -15,13 +15,13 @@
   };
   aichat = {
     pname = "aichat";
-    version = "bad5084e148ae1a392e3ac1ea96a6217f7f02844";
+    version = "bfb87a6669f61eaa80c6822c88a4a60efae106b7";
     src = fetchFromGitHub {
       owner = "sigoden";
       repo = "aichat";
-      rev = "bad5084e148ae1a392e3ac1ea96a6217f7f02844";
+      rev = "bfb87a6669f61eaa80c6822c88a4a60efae106b7";
       fetchSubmodules = false;
-      sha256 = "sha256-4Li2I69yUZ7/TYJbCkqV7YhFac325rvbbYEdC8ycyHM=";
+      sha256 = "sha256-lKFphGZMUMTVhha1Dz/EY1x+ixAqVODfutM1Goelc1w=";
     };
     date = "2024-12-14";
   };
@@ -75,15 +75,15 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "3cba4ba44e7ba3cc8bb67ac71bc61245b5aca347";
+    version = "db249648776875ce3142141d0d3055e43ce606aa";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "3cba4ba44e7ba3cc8bb67ac71bc61245b5aca347";
+      rev = "db249648776875ce3142141d0d3055e43ce606aa";
       fetchSubmodules = true;
-      sha256 = "sha256-2VFpN+qCJWAwn/awPBG8XT7ZY9dJsjDkg2zOLnXbSo4=";
+      sha256 = "sha256-gOSSJHm9LKGTO1VaHy8Rly1OO/cOyiIb+XI6iFEdooI=";
     };
-    date = "2024-12-13";
+    date = "2024-12-15";
   };
   hyprwayland-scanner = {
     pname = "hyprwayland-scanner";
@@ -136,15 +136,15 @@
   };
   llamafile = {
     pname = "llamafile";
-    version = "4158265e6baa627586d043da68d45849ba993604";
+    version = "a8fd4d28c3d2259c98af7035bcdda1a68af6f62c";
     src = fetchFromGitHub {
       owner = "Mozilla-Ocho";
       repo = "llamafile";
-      rev = "4158265e6baa627586d043da68d45849ba993604";
+      rev = "a8fd4d28c3d2259c98af7035bcdda1a68af6f62c";
       fetchSubmodules = false;
-      sha256 = "sha256-l/0hH8j+BkSwitaUWXz3Mc3PnIWqjtzsjavk3gXtvEw=";
+      sha256 = "sha256-7GdTdvWXzkBQmpANC53Y9WWh3gD60b2NXLLkVGxxiiA=";
     };
-    date = "2024-12-13";
+    date = "2024-12-14";
   };
   mieru = {
     pname = "mieru";
