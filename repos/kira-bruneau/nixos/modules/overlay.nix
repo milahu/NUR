@@ -4,6 +4,8 @@
     ./hardware/xpadneo.nix
     ./programs/bash/undistract-me.nix
     ./programs/gamemode.nix
+    ./services/bluetooth-autoconnect.nix
+    ./services/habitica.nix
   ];
 
   disabledModules = [
@@ -11,6 +13,8 @@
     "hardware/xpadneo.nix"
     "programs/bash/undistract-me.nix"
     "programs/gamemode.nix"
+    "services/bluetooth-autoconnect.nix"
+    "services/habitica.nix"
   ];
 
   nixpkgs.overlays = [ (import ../../overlays).default ];

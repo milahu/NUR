@@ -41,7 +41,7 @@ buildNpmPackage rec {
   src = fetchFromGitHub {
     owner = "HabitRPG";
     repo = "habitica";
-    rev = "v${version}";
+    tag = "v${version}";
     hash = "sha256-Ij+3D2Klt/eAOCdJ16+0olqXYCYHC4oALUAwTa/+43w=";
   };
 
@@ -113,7 +113,7 @@ buildNpmPackage rec {
   };
 
   meta = {
-    description = "A habit tracker app which treats your goals like a Role Playing Game";
+    description = "Habit tracker app which treats your goals like a Role Playing Game";
     homepage = "https://github.com/HabitRPG/habitica";
     license = with lib.licenses; [
       gpl3Only # Code
