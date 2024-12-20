@@ -75,15 +75,15 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "5f1df55fcb45a72e92258113685aa9064f6ebf3e";
+    version = "7c43eed2c1e6c56ab56d1bded4a6701b5598b1c3";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "5f1df55fcb45a72e92258113685aa9064f6ebf3e";
+      rev = "7c43eed2c1e6c56ab56d1bded4a6701b5598b1c3";
       fetchSubmodules = true;
-      sha256 = "sha256-vjAZEoZIZKGV/djEEBy3jj7GKcAXY2FuC5a4fB3fxOY=";
+      sha256 = "sha256-9KL9VjBcwEvNMV+PK1SFILOkcCNKN35+x9fw5aO7KJU=";
     };
-    date = "2024-12-17";
+    date = "2024-12-19";
   };
   hyprwayland-scanner = {
     pname = "hyprwayland-scanner";
@@ -123,16 +123,16 @@
   };
   libdrm = {
     pname = "libdrm";
-    version = "38ec7dbd4df3141441afafe5ac62dfc9df36a77e";
+    version = "e7d4b1df2d3f675b478897ab454d635e9b4eb915";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/mesa/drm";
-      rev = "38ec7dbd4df3141441afafe5ac62dfc9df36a77e";
+      rev = "e7d4b1df2d3f675b478897ab454d635e9b4eb915";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-9N3whdhZFQ7Xb2b35muc+Xw+i3y5pWX0jo+pYkYdqTQ=";
+      sha256 = "sha256-YvEq0Bas8DLBMlTD3DK5Xdz5HJGpTLe8UHFoD5Nq/Qo=";
     };
-    date = "2024-12-04";
+    date = "2024-12-18";
   };
   llamafile = {
     pname = "llamafile";
