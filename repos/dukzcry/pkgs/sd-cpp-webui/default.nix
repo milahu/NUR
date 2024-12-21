@@ -16,9 +16,9 @@ stdenv.mkDerivation rec {
     hash = "sha256-4hoVGucC6+ObZuJWnMwNWLv2ytKG2cmqSWn8cGC8hnw=";
   };
 
-  patches = [ ./patch-unix.diff ];
-
   nativeBuildInputs = with python3Packages; [ wrapPython ];
+
+  patches = [ ./fix-broken-sorting.patch ];
 
   installPhase = ''
     mkdir -p $out/${python3Packages.python.sitePackages}
