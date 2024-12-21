@@ -3,10 +3,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    colmena = {
-      url = "github:zhaofengli/colmena";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs =
     {
@@ -16,6 +12,7 @@
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [ ./flake-modules/commands.nix ];
       systems = [
         "x86_64-linux"
         "aarch64-linux"
