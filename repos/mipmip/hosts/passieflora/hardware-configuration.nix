@@ -11,12 +11,36 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-  #boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_11;
+
+  boot.consoleLogLevel = 0;
+  boot.initrd.verbose = false;
+  boot.kernelParams = [
+    "pcie_ports=compat" "intel_iommu=on" "iommu=pt"
+          "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+  ];
+
+  boot.plymouth = {
+      enable = true;
+      theme = "proxzima";
+      themePackages = with pkgs; [
+        # By default we would install all themes
+        plymouth-proxzima-theme
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "rings" ];
+        })
+      ];
+    };
 
   hardware.firmware = [
     (pkgs.stdenvNoCC.mkDerivation (final: {
       name = "brcm-firmware";
-      src = ./firmware/brcm;
+      src = ./firmware-montery/brcm;
       installPhase = ''
         mkdir -p $out/lib/firmware/brcm
         cp ${final.src}/* "$out/lib/firmware/brcm"

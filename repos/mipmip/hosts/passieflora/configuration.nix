@@ -4,14 +4,13 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./sleep.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
 
-  boot.plymouth.enable = true;
-  boot.plymouth.theme = "breeze";
 
   networking.useDHCP = lib.mkDefault true;
   networking.hostName = "passieflora"; # Define your hostname.
@@ -43,6 +42,7 @@
     gnumake
   ];
   services.openssh.enable = true;
+  services.tailscale.enable = true;
 
   system.stateVersion = "24.11";
 
