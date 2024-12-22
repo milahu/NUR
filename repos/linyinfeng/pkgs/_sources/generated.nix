@@ -75,10 +75,10 @@
   };
   icalingua-plus-plus = {
     pname = "icalingua-plus-plus";
-    version = "v2.12.24";
+    version = "v2.12.26";
     src = fetchurl {
-      url = "https://github.com/icalingua-plus-plus/icalingua-plus-plus/releases/download/v2.12.24/app-x86_64.asar";
-      sha256 = "sha256-oZoWMXz0wfLQnHM+MvtMbbVrXBN8bGOyDkPFUfmS1PU=";
+      url = "https://github.com/icalingua-plus-plus/icalingua-plus-plus/releases/download/v2.12.26/app-x86_64.asar";
+      sha256 = "sha256-zJYK3csgoG54RLcuVH/OAfI0yZ306/ObUJOg2fgSpq0=";
     };
   };
   linux-intel-lts = {
@@ -228,17 +228,17 @@
   };
   rime-cantonese = {
     pname = "rime-cantonese";
-    version = "d09fd5b3613585d96514938c5279c09db125887e";
+    version = "301acada061a02d3a0e5533a851a73943e9d7b4e";
     src = fetchgit {
       url = "https://github.com/rime/rime-cantonese.git";
-      rev = "d09fd5b3613585d96514938c5279c09db125887e";
+      rev = "301acada061a02d3a0e5533a851a73943e9d7b4e";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-tnPb4T2P/Zs693gGV+jCmwSLMYAPC1HywjsxsnKSMMI=";
+      sha256 = "sha256-BwVzKiq6rUDxN1up7SjBUz34OTcgkdu7o8B+W0yzk08=";
     };
-    date = "2024-12-18";
+    date = "2024-12-21";
   };
   rime-double-pinyin = {
     pname = "rime-double-pinyin";
@@ -284,17 +284,17 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "3eedb0c6c41e2f6affd1fb1057b44ab420f7c1d2";
+    version = "7e1faeac9ad8f37c64de0c73ab7340dfb80bf818";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "3eedb0c6c41e2f6affd1fb1057b44ab420f7c1d2";
+      rev = "7e1faeac9ad8f37c64de0c73ab7340dfb80bf818";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-vbiytygCiGWY/GHCHqf7Wl+GGE+boMMGS/jh3qVcr0U=";
+      sha256 = "sha256-hYolk8XFZbswM732hlz2WnGGrT41QtDURnzb+pHl1KA=";
     };
-    date = "2024-12-19";
+    date = "2024-12-21";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
