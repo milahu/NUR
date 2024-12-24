@@ -28,21 +28,21 @@ error:
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:212:35:
+  at <nixpkgs> + /lib/customisation.nix:238:19:
 
-   211|   */
-   212|   callPackageWith = autoArgs: fn: args:
-      |                                   ^
-   213|     let
+   237|   callPackageWith =
+   238|     autoArgs: fn: args:
+      |                   ^
+   239|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:225:10:
+  at <nixpkgs> + /lib/customisation.nix:252:11:
 
-   224|         # Filter out arguments that have a default value
-   225|         (filterAttrs (name: value: ! value)
-      |          ^
-   226|         # Filter out arguments that would be passed
+   251|         (
+   252|           filterAttrs (name: value: !value)
+      |           ^
+   253|             # Filter out arguments that would be passed
 
 … while calling 'filterAttrs'
 
@@ -55,12 +55,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:215:15:
+  at <nixpkgs> + /lib/customisation.nix:241:15:
 
-   214|       f = if isFunction fn then fn else import fn;
-   215|       fargs = functionArgs f;
+   240|       f = if isFunction fn then fn else import fn;
+   241|       fargs = functionArgs f;
       |               ^
-   216|
+   242|
 
 … while calling 'functionArgs'
 
