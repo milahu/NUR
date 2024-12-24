@@ -21,10 +21,11 @@ let
   # nvim ships with these three parsers by default, and gets angry if we desync them from the vendored versions.
   nvim-grammars = self.lib.attrNames (removeAttrs self.vimPlugins.nvim-treesitter.grammarPlugins [ "c" "lua" "query" ]);
   brh-neovim = super.neovim.override {
-     configure.packages.myPlugins.start = [
-       (self.vimPlugins.nvim-treesitter.withPlugins (p: map (n: p."${n}") nvim-grammars))
-     ];
-   };
+    configure.customRC = "source $HOME/.config/nvim/init.lua";
+    configure.packages.myPlugins.start = [
+      (self.vimPlugins.nvim-treesitter.withPlugins (p: map (n: p."${n}") nvim-grammars))
+    ];
+  };
 
   lsp-tools = [
     self.clang-tools
@@ -92,7 +93,7 @@ in
         self.htop
         self.hwinfo
         self.jq
-        self.killall  # used by i3
+        self.killall # used by i3
         self.par
         self.pass
         self.pinentry
