@@ -75,13 +75,13 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "5f7ad767dbf0bac9ddd6bf6c825fb9ed7921308a";
+    version = "2e2e2e2cad97eb017ab02f8a67b751e0abe3bb72";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "5f7ad767dbf0bac9ddd6bf6c825fb9ed7921308a";
+      rev = "2e2e2e2cad97eb017ab02f8a67b751e0abe3bb72";
       fetchSubmodules = true;
-      sha256 = "sha256-6uf1g8Kz9E5LuIUNomMwH4dylF74DARc5FgW/DdPXl0=";
+      sha256 = "sha256-L1qUns92rVum958hTKOJuU5wEYJdzZUCMGfYCHZ4fsU=";
     };
     date = "2024-12-23";
   };
@@ -111,15 +111,15 @@
   };
   koboldcpp = {
     pname = "koboldcpp";
-    version = "fd5100c382331f40130ac8d28fd1e39c16bc4d06";
+    version = "5f8f483faec04ea2a89429e151b17403eacb2d9c";
     src = fetchFromGitHub {
       owner = "LostRuins";
       repo = "koboldcpp";
-      rev = "fd5100c382331f40130ac8d28fd1e39c16bc4d06";
+      rev = "5f8f483faec04ea2a89429e151b17403eacb2d9c";
       fetchSubmodules = true;
-      sha256 = "sha256-CgJzYF8FnHk0zKdysGJWLnNo/MND24AbQdjRbDtv0II=";
+      sha256 = "sha256-uxqn4t2dDaVSkVilJOflNbG2Q3fH3Yid8qdEaDGfIcw=";
     };
-    date = "2024-12-21";
+    date = "2024-12-23";
   };
   libdrm = {
     pname = "libdrm";
