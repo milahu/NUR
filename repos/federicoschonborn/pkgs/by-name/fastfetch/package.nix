@@ -151,17 +151,18 @@
   zfs,
   enablePciaccess ?
     stdenv.hostPlatform.isNetBSD || stdenv.hostPlatform.isOpenBSD || stdenv.hostPlatform.isSunOS,
+  buildFlashfetch ? true,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "fastfetch";
-  version = "2.32.1";
+  version = "2.33.0";
 
   src = fetchFromGitHub {
     owner = "fastfetch-cli";
     repo = "fastfetch";
     rev = "refs/tags/${finalAttrs.version}";
-    hash = "sha256-EfnHndj7WPXkL7wxGzeigJ7iE2WdgUf74sPDQhob+Ho=";
+    hash = "sha256-GCUG9b98UmuC/6psDs4PNAoquEWOMz0kl/IBQXRGX5o=";
   };
 
   outputs = [
@@ -239,14 +240,26 @@ stdenv.mkDerivation (finalAttrs: {
       (lib.cmakeBool "ENABLE_ELF" enableElf)
       (lib.cmakeBool "ENABLE_LIBZFS" enableLibzfs)
       (lib.cmakeBool "ENABLE_PCIACCESS" enablePciaccess)
+      (lib.cmakeBool "BUILD_FLASHFETCH" buildFlashfetch)
     ]
     ++ lib.optionals stdenv.hostPlatform.isLinux [
       (lib.cmakeOptionType "filepath" "CUSTOM_PCI_IDS_PATH" "${hwdata}/share/hwdata/pci.ids")
       (lib.cmakeOptionType "filepath" "CUSTOM_AMDGPU_IDS_PATH" "${libdrm}/share/libdrm/amdgpu.ids")
     ];
 
-  nativeInstallCheckInputs = [ versionCheckHook ];
+  postPatch = ''
+    substituteInPlace completions/fastfetch.fish --replace-fail python3 '${python3.interpreter}'
+  '';
 
+  postInstall = ''
+    wrapProgram $out/bin/fastfetch \
+      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath finalAttrs.buildInputs}"
+    wrapProgram $out/bin/flashfetch \
+      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath finalAttrs.buildInputs}"
+  '';
+
+  nativeInstallCheckInputs = [ versionCheckHook ];
+  versionCheckProgramArg = "--version";
   doInstallCheck = true;
 
   passthru.updateScript = nix-update-script { };
@@ -257,7 +270,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/fastfetch-cli/fastfetch";
     changelog = "https://github.com/fastfetch-cli/fastfetch/releases/tag/${finalAttrs.version}";
     license = lib.licenses.mit;
-    platforms = lib.platforms.unix;
+    platforms = lib.platforms.all;
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })
