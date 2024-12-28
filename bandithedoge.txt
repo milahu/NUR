@@ -1,14 +1,15 @@
 trace: evaluation warning: osirus has been renamed to dsp56300
+trace: evaluation warning: raze has been upstreamed to nixpkgs as pkgs.raze
 trace: evaluation warning: swift-mesonlsp-bin has been renamed to mesonlsp-bin
 error:
 … from call site
 
-  at ./pkgs/default.nix:99:19:
+  at ./pkgs/default.nix:100:19:
 
-    98|     xplrPlugins = callPackages' ./xplrPlugins;
-    99|     yaziPlugins = callPackages' ./yaziPlugins;
+    99|     xplrPlugins = callPackages' ./xplrPlugins;
+   100|     yaziPlugins = callPackages' ./yaziPlugins;
       |                   ^
-   100|     ysfx = callPackage' ./ysfx;
+   101|     ysfx = callPackage' ./ysfx;
 
 … while calling 'callPackages''
 
