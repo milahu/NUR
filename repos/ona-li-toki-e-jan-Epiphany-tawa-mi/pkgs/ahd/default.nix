@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = [ cbqn ];
-  buildInputs = [ cbqn ];
+  buildInputs       = [ cbqn ];
 
   buildPhase = ''
     runHook preBuild
