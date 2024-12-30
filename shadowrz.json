@@ -1,16 +1,16 @@
 {
 "name":"shadowrz",
-"fetch_time":0.212,
-"eval_time":0.209,
+"fetch_time":0.248,
+"eval_time":0.202,
 "source":{
 "url":"https://github.com/ShadowRZ/nur-packages",
-"rev":"f988c1d2dcf3f9ff69cde8b413b582365dcc3b17",
-"sha256":"1f797zi6cgyn3a0wvs4jpbw95vdjs8m595s015pgkifdraaqb8ya",
+"rev":"601f2612c6b979fd359a1cccdcf9e62967833aa5",
+"sha256":"0xxdzf4dyxp80xbv3kcrwlgnfiyrw91p5r35gb9j4ld6zha2yvvd",
 "date":null
 },
-"source_storepath":"/nix/store/iiyj3dg1xji2vrzxgl2wr2gy8hibjbxh-source",
+"source_storepath":"/nix/store/6yip7li7q68nakf6vbr1pm0ck9fliw6m-source",
 "nixpkgs_storepath":"/nix/store/glaaa8x183iihi4hqj25am34198i8cm8-source",
-"nur_combined_rev":"a070271fc3823380f3885d84a70065e3ba440b2e",
+"nur_combined_rev":"da30487eb5633c3a394be4f2a054709f0ea18ef2",
 "packages":{
 "iosevka-aile-minoko":{
 "meta":{
@@ -111,7 +111,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/iosevka-aile-minoko/default.nix:24",
+"position":"./pkgs/iosevka-aile-minoko/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
@@ -223,7 +223,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/iosevka-minoko/default.nix:24",
+"position":"./pkgs/iosevka-minoko/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
@@ -335,7 +335,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/iosevka-minoko-e/default.nix:24",
+"position":"./pkgs/iosevka-minoko-e/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
@@ -447,7 +447,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/iosevka-minoko-term/default.nix:24",
+"position":"./pkgs/iosevka-minoko-term/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
@@ -518,7 +518,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/klassy/default.nix:49",
+"position":"./pkgs/klassy/default.nix:53",
 "unfree":false,
 "unsupported":false
 },
@@ -589,7 +589,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/klassy-qt6/default.nix:59",
+"position":"./pkgs/klassy-qt6/default.nix:66",
 "unfree":false,
 "unsupported":false
 },
@@ -604,8 +604,11 @@
 },
 "kose-font":{
 "meta":{
+"available":true,
+"broken":false,
 "description":"A Chinese handwriting font derived from SetoFont / Naikai Font / cjkFonts-AllSeto.",
 "homepage":"https://github.com/lxgw/kose-font",
+"insecure":false,
 "license":{
 "deprecated":false,
 "free":true,
@@ -615,6 +618,10 @@
 "spdxId":"OFL-1.1",
 "url":"https://spdx.org/licenses/OFL-1.1.html"
 },
+"name":"kose-font-20210514",
+"outputsToInstall":[
+"out"
+],
 "platforms":[
 "i686-cygwin",
 "x86_64-cygwin",
@@ -694,7 +701,9 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/kose-font/default.nix:21"
+"position":"./pkgs/kose-font/default.nix:28",
+"unfree":false,
+"unsupported":false
 },
 "name":"kose-font-20210514",
 "outputName":"out",
@@ -804,7 +813,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/maoken-assorted-sans/default.nix:25",
+"position":"./pkgs/maoken-assorted-sans/default.nix:28",
 "unfree":false,
 "unsupported":false
 },
@@ -916,7 +925,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/resource-han-rounded/default.nix:25",
+"position":"./pkgs/resource-han-rounded/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
@@ -972,7 +981,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/sddm-lain-wired-theme/default.nix:20",
+"position":"./pkgs/sddm-lain-wired-theme/default.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -1028,7 +1037,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/sddm-sugar-candy/default.nix:21",
+"position":"./pkgs/sddm-sugar-candy/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
