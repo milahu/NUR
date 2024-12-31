@@ -3,12 +3,12 @@ trace: evaluation warning: swift-mesonlsp-bin has been renamed to mesonlsp-bin
 error:
 … from call site
 
-  at ./pkgs/default.nix:101:19:
+  at ./pkgs/default.nix:102:19:
 
-   100|     xplrPlugins = callPackages' ./xplrPlugins;
-   101|     yaziPlugins = callPackages' ./yaziPlugins;
+   101|     xplrPlugins = callPackages' ./xplrPlugins;
+   102|     yaziPlugins = callPackages' ./yaziPlugins;
       |                   ^
-   102|     ysfx = callPackage' ./ysfx;
+   103|     ysfx = callPackage' ./ysfx;
 
 … while calling 'callPackages''
 

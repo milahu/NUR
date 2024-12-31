@@ -1,0 +1,56 @@
+error:
+… from call site
+
+  at ./pkgs/default.nix:15:45:
+
+    14|     fred                                  = pkgs.callPackage ./pims-projects/fred                           { };
+    15|     embgit                                = pkgs.callPackage ./pims-projects/embgit                         { };
+      |                                             ^
+    16|     mip-rust                              = pkgs.callPackage ./pims-projects/mip-rust                       { };
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:238:19:
+
+   237|   callPackageWith =
+   238|     autoArgs: fn: args:
+      |                   ^
+   239|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:252:11:
+
+   251|         (
+   252|           filterAttrs (name: value: !value)
+      |           ^
+   253|             # Filter out arguments that would be passed
+
+… while calling 'filterAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:646:5:
+
+   645|     pred:
+   646|     set:
+      |     ^
+   647|     removeAttrs set (filter (name: ! pred name set.${name}) (attrNames set));
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:241:15:
+
+   240|       f = if isFunction fn then fn else import fn;
+   241|       fargs = functionArgs f;
+      |               ^
+   242|
+
+… while calling 'functionArgs'
+
+  at <nixpkgs> + /lib/trivial.nix:1018:18:
+
+  1017|   */
+  1018|   functionArgs = f:
+      |                  ^
+  1019|     if f ? __functor
+
+error: getting status of './pkgs/pims-projects/embgit': No such file or directory
