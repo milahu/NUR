@@ -20,29 +20,51 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-{
-  description = "epitaphpkgs Nix package repository";
+{ stdenv
+, fetchFromGitHub
+, lib
+, netcat-openbsd
+, shellcheck
+}:
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+let sourceFile = "netcatchat.sh";
+in
+stdenv.mkDerivation rec {
+  pname   = "netcatchat";
+  version = "1.0.0";
 
-  outputs = { nixpkgs, self, ... }:
-    let inherit (nixpkgs.lib) genAttrs systems;
+  src = fetchFromGitHub {
+    owner = "ona-li-toki-e-jan-Epiphany-tawa-mi";
+    repo  = "netcatchat";
+    rev   = "RELEASE-V${version}";
+    hash  = "sha256-ST706XwdEUlcwXX9xtONkhzlFANybRgJxBVZdVnWoIo=";
+  };
 
-        forAllSystems = f: genAttrs systems.flakeExposed (system: f {
-          pkgs = import nixpkgs { inherit system; };
-        });
-    in {
-      packages = forAllSystems ({ pkgs, ... }:
-        import ./default.nix { inherit pkgs; });
+  doCheck     = true;
+  checkInputs = [ shellcheck ];
+  checkPhase  = ''
+    runHook preCheck
 
-      legacyPackages = self.packages;
+    shellcheck "${sourceFile}"
 
-      overlays.default = final: prev: {
-        epitaphpkgs = self.packages.${prev.system};
-      };
+    runHook postCheck
+  '';
 
-      nixosModules.default = {
-        nixpkgs.overlays = [ self.overlays.default ];
-      };
-    };
+  nativeBuildInputs = [ netcat-openbsd ];
+  installPhase      = ''
+    runHook preInstall
+
+    mkdir -p "$out/bin"
+    cp "${sourceFile}" "$out/bin/${pname}"
+
+    runHook postInstall
+  '';
+
+  meta = with lib; {
+    description = "A simple command-line chat server and client using netcat";
+    homepage    =
+      "https://github.com/ona-li-toki-e-jan-Epiphany-tawa-mi/netcatchat";
+    license     = licenses.mit;
+    mainProgram = pname;
+  };
 }

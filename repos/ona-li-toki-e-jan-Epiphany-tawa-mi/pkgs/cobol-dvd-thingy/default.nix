@@ -20,29 +20,47 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-{
-  description = "epitaphpkgs Nix package repository";
+{ stdenv
+, fetchFromGitHub
+, lib
+, gnu-cobol
+}:
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+stdenv.mkDerivation rec {
+  pname   = "cobol-dvd-thingy";
+  version = "0.2.2";
 
-  outputs = { nixpkgs, self, ... }:
-    let inherit (nixpkgs.lib) genAttrs systems;
+  src = fetchFromGitHub {
+    owner = "ona-li-toki-e-jan-Epiphany-tawa-mi";
+    repo  = "COBOL-DVD-Thingy";
+    rev   = "RELEASE-V${version}";
+    hash  = "sha256-HMkse/I9+wIcDiRC+96/K97TtwlRZkzma1vCdEkO3Ow=";
+  };
 
-        forAllSystems = f: genAttrs systems.flakeExposed (system: f {
-          pkgs = import nixpkgs { inherit system; };
-        });
-    in {
-      packages = forAllSystems ({ pkgs, ... }:
-        import ./default.nix { inherit pkgs; });
+  nativeBuildInputs = [ gnu-cobol.bin ];
+  buildPhase        = ''
+    runHook preBuild
 
-      legacyPackages = self.packages;
+    EXTRA_COBFLAGS='-O3' ./build.sh
 
-      overlays.default = final: prev: {
-        epitaphpkgs = self.packages.${prev.system};
-      };
+    runHook postBuild
+  '';
 
-      nixosModules.default = {
-        nixpkgs.overlays = [ self.overlays.default ];
-      };
-    };
+  buildInputs  = [ gnu-cobol ];
+  installPhase = ''
+    runHook preInstall
+
+    mkdir -p "$out/bin"
+    cp cobol-dvd-thingy "$out/bin/${pname}"
+
+    runHook postInstall
+  '';
+
+  meta = with lib; {
+    description = "Terminal screensaver similar to that of DVD players";
+    homepage    =
+      "https://github.com/ona-li-toki-e-jan-Epiphany-tawa-mi/COBOL-DVD-Thingy";
+    license     = licenses.gpl3Plus;
+    mainProgram = pname;
+  };
 }

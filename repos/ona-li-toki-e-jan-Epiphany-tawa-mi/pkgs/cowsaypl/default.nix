@@ -20,29 +20,54 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-{
-  description = "epitaphpkgs Nix package repository";
+{ stdenv
+, fetchFromGitHub
+, lib
+, gnuapl
+}:
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+stdenv.mkDerivation rec {
+  pname   = "cowsaypl";
+  version = "1.2.3";
 
-  outputs = { nixpkgs, self, ... }:
-    let inherit (nixpkgs.lib) genAttrs systems;
+  src = fetchFromGitHub {
+    owner = "ona-li-toki-e-jan-Epiphany-tawa-mi";
+    repo  = "cowsAyPL";
+    rev   = "RELEASE-V${version}";
+    hash  = "sha256-KUSFKXIUFh9Qu0lyqfHJI26DDkPeRw5gkXYC56UClYo=";
+  };
 
-        forAllSystems = f: genAttrs systems.flakeExposed (system: f {
-          pkgs = import nixpkgs { inherit system; };
-        });
-    in {
-      packages = forAllSystems ({ pkgs, ... }:
-        import ./default.nix { inherit pkgs; });
+  doCheck     = true;
+  checkInputs = [ gnuapl ];
+  checkPhase  = ''
+    runHook preCheck
 
-      legacyPackages = self.packages;
+    apl --script test.apl -- test tests/sources tests/outputs
 
-      overlays.default = final: prev: {
-        epitaphpkgs = self.packages.${prev.system};
-      };
+    runHook postCheck
+  '';
 
-      nixosModules.default = {
-        nixpkgs.overlays = [ self.overlays.default ];
-      };
-    };
+  buildInputs  = [ gnuapl ];
+  installPhase = ''
+    runHook preInstall
+
+    mkdir -p "$out/bin"
+    cp cowsay.apl "$out/bin/${pname}"
+
+    mkdir -p "$out/lib"
+    cp workspaces/fio.apl "$out/lib"
+    sed -e "s|)COPY_ONCE fio.apl|)COPY_ONCE $out/lib/fio.apl|" \
+        -e 's|⊣ ⍎")COPY_ONCE logging.apl"||'                   \
+        -i "$out/bin/${pname}"
+
+    runHook postInstall
+  '';
+
+  meta = with lib; {
+    description = "Cowsay in GNU APL";
+    homepage    =
+      "https://github.com/ona-li-toki-e-jan-Epiphany-tawa-mi/cowsAyPL";
+    license     = licenses.gpl3Plus;
+    mainProgram = pname;
+  };
 }

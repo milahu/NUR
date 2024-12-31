@@ -20,29 +20,41 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-{
-  description = "epitaphpkgs Nix package repository";
+{ stdenv
+, fetchFromGitHub
+, lib
+, zig_0_13
+}:
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+stdenv.mkDerivation rec {
+  pname   = "love-you-mom";
+  version = "0.1.0";
 
-  outputs = { nixpkgs, self, ... }:
-    let inherit (nixpkgs.lib) genAttrs systems;
+  src = fetchFromGitHub {
+    owner = "ona-li-toki-e-jan-Epiphany-tawa-mi";
+    repo  = "love-you-mom";
+    rev   = version;
+    hash  = "sha256-XRPi0FEkjaUVYOXbYjhwf0acANiLZ5pybQiFnpV09m4=";
+  };
 
-        forAllSystems = f: genAttrs systems.flakeExposed (system: f {
-          pkgs = import nixpkgs { inherit system; };
-        });
-    in {
-      packages = forAllSystems ({ pkgs, ... }:
-        import ./default.nix { inherit pkgs; });
+  nativeBuildInputs = [ zig_0_13.hook ];
+  zigBuildFlags     = [ "-Doptimize=ReleaseSafe" ];
 
-      legacyPackages = self.packages;
+  installPhase = ''
+    runHook preInstall
 
-      overlays.default = final: prev: {
-        epitaphpkgs = self.packages.${prev.system};
-      };
+    mkdir -p "$out/bin"
+    cp zig-out/bin/love-you-mom "$out/bin/${pname}"
 
-      nixosModules.default = {
-        nixpkgs.overlays = [ self.overlays.default ];
-      };
-    };
+    runHook postInstall
+  '';
+
+  meta = with lib; {
+    description =
+      "Tells your mom (or dad) that you love them";
+    homepage =
+      "https://github.com/ona-li-toki-e-jan-Epiphany-tawa-mi/love-you-mom";
+    license     = licenses.gpl3Plus;
+    mainProgram = pname;
+  };
 }

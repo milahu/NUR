@@ -20,29 +20,45 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-{
-  description = "epitaphpkgs Nix package repository";
+{ stdenv
+, fetchFromGitHub
+, lib
+}:
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+stdenv.mkDerivation rec {
+  pname   = "bitmasher";
+  version = "7.5385325985";
 
-  outputs = { nixpkgs, self, ... }:
-    let inherit (nixpkgs.lib) genAttrs systems;
+  src = fetchFromGitHub {
+    owner = "ona-li-toki-e-jan-Epiphany-tawa-mi";
+    repo  = "BitMasher";
+    rev   = "RELEASE-V${version}";
+    hash  = "sha256-2bE0QA82yQLa2A8snnhXu8DptDOsnfF/g2bg6SrNwCY=";
+  };
 
-        forAllSystems = f: genAttrs systems.flakeExposed (system: f {
-          pkgs = import nixpkgs { inherit system; };
-        });
-    in {
-      packages = forAllSystems ({ pkgs, ... }:
-        import ./default.nix { inherit pkgs; });
+  buildPhase = ''
+    runHook preBuild
 
-      legacyPackages = self.packages;
+    EXTRA_CFLAGS='-O3' ./build.sh
 
-      overlays.default = final: prev: {
-        epitaphpkgs = self.packages.${prev.system};
-      };
+    runHook postBuild
+  '';
 
-      nixosModules.default = {
-        nixpkgs.overlays = [ self.overlays.default ];
-      };
-    };
+  installPhase = ''
+    runHook preInstall
+
+    mkdir -p "$out/bin"
+    cp bitmasher "$out/bin/${pname}"
+
+    runHook postInstall
+  '';
+
+  meta = with lib; {
+    description =
+      "A fast-paced text adventure game inside a ransomware-infected computer";
+    homepage =
+      "https://github.com/ona-li-toki-e-jan-Epiphany-tawa-mi/BitMasher";
+    license     = licenses.gpl3Plus;
+    mainProgram = pname;
+  };
 }
