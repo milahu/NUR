@@ -190,7 +190,7 @@ src.regex = "\"https://gitlab.com/scratch-er/fcitx5-breeze/-/archive/v([0-9\\.]+
 fetch.url = "https://gitlab.com/scratch-er/fcitx5-breeze/-/archive/v$ver/fcitx5-breeze-v$ver.tar.gz"
 
 [fish-speech]
-src.github = "fishaudio/fish-speech"
+src.github_tag = "fishaudio/fish-speech"
 fetch.github = "fishaudio/fish-speech"
 
 [flasgger]
@@ -343,6 +343,12 @@ fetch.github = "lotem/librime-proto"
 src.webpage = "https://gitlab.com/api/v4/projects/51590166/repository/tags"
 src.regex = "\"name\":\"([^\"]+)\","
 src.include_regex = "^[0-9\\.]+-xanmod.*$"
+fetch.git = "https://gitlab.com/xanmod/linux.git"
+
+[linux-xanmod-6_12]
+src.webpage = "https://gitlab.com/api/v4/projects/51590166/repository/tags?search=^6.12."
+src.regex = "\"name\":\"([^\"]+)\","
+src.include_regex = "^6\\.12\\.[0-9]+-xanmod.*$"
 fetch.git = "https://gitlab.com/xanmod/linux.git"
 
 [linux-xanmod-6_6]
@@ -556,7 +562,8 @@ src.github = "pocl/pocl"
 fetch.github = "pocl/pocl"
 
 [procps4]
-src.archpkg = "procps-ng"
+# src.archpkg = "procps-ng"
+src.manual = "4.0.4"
 fetch.url = "https://sourceforge.net/projects/procps-ng/files/Production/procps-ng-$ver.tar.xz"
 
 [pterodactyl-wings]
