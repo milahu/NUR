@@ -2348,10 +2348,10 @@
     };
     "dictionary-spanish" = buildFirefoxXpiAddon {
       pname = "dictionary-spanish";
-      version = "3.2.8";
+      version = "3.2.9";
       addonId = "es-es@dictionaries.addons.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4158842/diccionario_de_espanol_espana-3.2.8.xpi";
-      sha256 = "645e6070be16e9fe422ffcf1789325f0dd6494c3c57548c4deb717262fb59b72";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4413333/diccionario_de_espanol_espana-3.2.9.xpi";
+      sha256 = "83a8f9117d7224728507d90990a7dfecd84a05aa55f9dd8ccc1bc199a163e739";
       meta = with lib;
       {
         homepage = "http://www.proyectonave.es/productos/extensiones/diccionario-es-ES";
@@ -4140,32 +4140,6 @@
         description = "An extension to bookmark links to hoarder.app.";
         license = licenses.lgpl3;
         mozPermissions = [ "storage" "tabs" "contextMenus" ];
-        platforms = platforms.all;
-      };
-    };
-    "honey" = buildFirefoxXpiAddon {
-      pname = "honey";
-      version = "12.8.4";
-      addonId = "jid1-93CWPmRbVPjRQA@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/3731265/honey-12.8.4.xpi";
-      sha256 = "1abc41b3d81879e8687696bb084ecceb40edec95ffa5b4516ad86185e13114cb";
-      meta = with lib;
-      {
-        homepage = "https://www.joinhoney.com";
-        description = "Automatically find and try coupon codes with 1-click. Works at thousands of stores in the US, Canada, Australia, India and the UK.";
-        license = {
-          shortName = "honeyl";
-          fullName = "Custom License for Honey";
-          url = "https://addons.mozilla.org/en-US/firefox/addon/honey/license/";
-          free = false;
-        };
-        mozPermissions = [
-          "storage"
-          "webRequest"
-          "webRequestBlocking"
-          "http://*/*"
-          "https://*/*"
-        ];
         platforms = platforms.all;
       };
     };
