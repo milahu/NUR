@@ -1,11 +1,15 @@
+derivation 'mysql-5.5.62' has invalid meta attribute 'license'
 error:
 … while querying the derivation named 'spidermonkey-1.8.5'
 
-error: attribute 'goibhniu' missing
+… <borked>
 
-at ./pkgs/development/spidermonkey/1.8.5.nix:74:21:
+error: attribute 'maaintainers' missing
+
+at ./pkgs/development/spidermonkey/1.8.5.nix:74:24:
 
     73|     # TODO: MPL/GPL/LGPL tri-license.
-    74|     maintainers = [ maintainers.goibhniu ];
-      |                     ^
-    75|     platforms = platforms.linux;
+    74|     maintainers = with lib.maaintainers; [ goibhniu ];
+      |                        ^
+    75|     platforms = lib.platforms.linux;
+Did you mean maintainers?

@@ -19,12 +19,12 @@ error:
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:212:35:
+  at <nixpkgs> + /lib/customisation.nix:238:19:
 
-   211|   */
-   212|   callPackageWith = autoArgs: fn: args:
-      |                                   ^
-   213|     let
+   237|   callPackageWith =
+   238|     autoArgs: fn: args:
+      |                   ^
+   239|     let
 
 … from call site
 
@@ -37,21 +37,21 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:136:17:
+  at <nixpkgs> + /lib/customisation.nix:159:7:
 
-   135|     in
-   136|     mirrorArgs (origArgs:
-      |                 ^
-   137|     let
+   158|     mirrorArgs (
+   159|       origArgs:
+      |       ^
+   160|       let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:138:16:
+  at <nixpkgs> + /lib/customisation.nix:161:18:
 
-   137|     let
-   138|       result = f origArgs;
-      |                ^
-   139|
+   160|       let
+   161|         result = f origArgs;
+      |                  ^
+   162|
 
 … while calling 'nix-readline-2_19'
 
@@ -73,12 +73,12 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:144:34:
+  at <nixpkgs> + /lib/customisation.nix:167:36:
 
-   143|       # Re-call the function but with different arguments
-   144|       overrideArgs = mirrorArgs (newArgs: makeOverridable f (overrideWith newArgs));
-      |                                  ^
-   145|       # Change the result of the function call by applying g to it
+   166|         # Re-call the function but with different arguments
+   167|         overrideArgs = mirrorArgs (newArgs: makeOverridable f (overrideWith newArgs));
+      |                                    ^
+   168|         # Change the result of the function call by applying g to it
 
 … from call site
 
@@ -91,21 +91,21 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:136:17:
+  at <nixpkgs> + /lib/customisation.nix:159:7:
 
-   135|     in
-   136|     mirrorArgs (origArgs:
-      |                 ^
-   137|     let
+   158|     mirrorArgs (
+   159|       origArgs:
+      |       ^
+   160|       let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:138:16:
+  at <nixpkgs> + /lib/customisation.nix:161:18:
 
-   137|     let
-   138|       result = f origArgs;
-      |                ^
-   139|
+   160|       let
+   161|         result = f origArgs;
+      |                  ^
+   162|
 
 … while calling 'nix-readline'
 

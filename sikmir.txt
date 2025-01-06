@@ -1,0 +1,20 @@
+error:
+… from call site
+
+  at ./pkgs/default.nix:264:19:
+
+   263|     gpsdate = callPackage ./gnss/gpsdate { };
+   264|     pygnssutils = callPackage ./gnss/pygnssutils { };
+      |                   ^
+   265|     pygpsclient = callPackage ./gnss/pygpsclient { };
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:238:19:
+
+   237|   callPackageWith =
+   238|     autoArgs: fn: args:
+      |                   ^
+   239|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "pyubxutils" at ./pkgs/gnss/pygnssutils/default.nix:7'
