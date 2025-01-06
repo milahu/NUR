@@ -88,6 +88,7 @@ in
       "netcat"
       "nethogs"
       "nix"
+      "nix-tree"
       "nmap"
       "nmcli"
       "nmon"
@@ -914,6 +915,10 @@ in
 
     nixd.sandbox.whitelistPwd = true;
 
+    nix-tree.sandbox.extraPaths = [
+      "/nix/var"
+    ];
+
     nixfmt-rfc-style.sandbox.autodetectCliPaths = "existingDirOrParent";  #< it formats via rename
 
     nixpkgs-hammering.sandbox.whitelistPwd = true;
@@ -1038,6 +1043,7 @@ in
     rsync.sandbox.autodetectCliPaths = "existingOrParent";
     rsync.sandbox.tryKeepUsers = true;  # if running as root, keep the user namespace so that `-a` can set the correct owners, etc
 
+    rust-analyzer.buildCost = 2;
     rust-analyzer.sandbox.whitelistPwd = true;
     rust-analyzer.suggestedPrograms = [
       "cargo"
@@ -1178,6 +1184,7 @@ in
     tree.sandbox.tryKeepUsers = true;
     tree.sandbox.capabilities = [ "dac_read_search" ];
 
+    typescript-language-server.buildCost = 2;
     typescript-language-server.sandbox.whitelistPwd = true;
 
     tumiki-fighters.buildCost = 1;
