@@ -1,16 +1,16 @@
 {
 "name":"foolnotion",
-"fetch_time":0.61,
-"eval_time":0.268,
+"fetch_time":0.318,
+"eval_time":0.283,
 "source":{
 "url":"https://github.com/foolnotion/nur-pkg",
-"rev":"d5c6f7a3df470e19fe9f94b926cd4030b02c2680",
-"sha256":"0lsw71carbijk87isp4fg5gw9rrq14qh0694fy1q91qfwycrg6l2",
+"rev":"30ba4e29e45057077d545de35db1c1fbedb803e6",
+"sha256":"016x12a9kwx27z00z17m67lh2hi6585ka8bjphi1vx77sx8ivmsn",
 "date":null
 },
-"source_storepath":"/nix/store/vil6wlrakc44vsmwcngimghz5bh4fi2z-source",
-"nixpkgs_storepath":"/nix/store/wfqcs3a1n735ksfgn7asihm34vigsdhc-source",
-"nur_combined_rev":"4025a0d3a243cba65543c8a73867265638c35f13",
+"source_storepath":"/nix/store/hqkp3nkfcfs00qz4xmmcb6y9mq0j0477-source",
+"nixpkgs_storepath":"/nix/store/d914s00vb92k2vb72xjp9d58k41dfqx4-source",
+"nur_combined_rev":"31129ff6ff9dcfac2f37bbf4b3b2a1c43fea9525",
 "packages":{
 "aria-csv":{
 "meta":{
@@ -1598,7 +1598,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Simple, portable, and self-contained C++ stacktrace library supporting C++11 and greater",
+"description":"Simple, portable, and self-contained C++ stacktrace library",
 "homepage":"https://github.com/jeremy-rifkin/cpptrace",
 "insecure":false,
 "license":{
@@ -1623,7 +1623,7 @@
 "name":"Bogdan Burlacu"
 }
 ],
-"name":"cpptrace-0.7.2",
+"name":"cpptrace-0.7.5",
 "outputsToInstall":[
 "out"
 ],
@@ -1710,14 +1710,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cpptrace-0.7.2",
+"name":"cpptrace-0.7.5",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cpptrace",
 "system":"x86_64-linux",
-"version":"0.7.2"
+"version":"0.7.5"
 },
 "dynamic-bitset":{
 "meta":{
@@ -3203,8 +3203,8 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Generic header-only C++14 sorting library.",
-"homepage":"https://github.com/Morwenn/cpp-sort",
+"description":"C++ assertion library",
+"homepage":"https://github.com/jeremy-rifkin/libassert",
 "insecure":false,
 "license":{
 "deprecated":false,
@@ -3215,7 +3215,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"name":"libassert-2.1.2",
+"name":"libassert-2.1.4",
 "outputsToInstall":[
 "out"
 ],
@@ -3302,20 +3302,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"libassert-2.1.2",
+"name":"libassert-2.1.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"libassert",
 "system":"x86_64-linux",
-"version":"2.1.2"
+"version":"2.1.4"
 },
 "libdwarf":{
 "meta":{
 "available":true,
 "broken":false,
-"homepage":"https://github.com/jeremy-rifkin/libdwarf-code",
+"description":"Library for reading DWARF2 and DWARF formats",
+"homepage":"https://github.com/davea42/libdwarf-code",
 "insecure":false,
 "license":{
 "deprecated":false,
@@ -3334,7 +3335,7 @@
 "name":"Bo Yang"
 }
 ],
-"name":"libdwarf-0.11.0",
+"name":"libdwarf-0.11.1",
 "outputsToInstall":[
 "out"
 ],
@@ -3385,18 +3386,18 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/libdwarf/default.nix:4",
+"position":"./pkgs/libdwarf/default.nix:16",
 "unfree":false,
 "unsupported":false
 },
-"name":"libdwarf-0.11.0",
+"name":"libdwarf-0.11.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"libdwarf",
 "system":"x86_64-linux",
-"version":"0.11.0"
+"version":"0.11.1"
 },
 "libnano":{
 "meta":{
