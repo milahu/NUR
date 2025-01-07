@@ -29,14 +29,13 @@ fn pasta_restrict(net: resources::net_subset) void = {
   //
   // after that, P can continue on & exec into the user code
 
-  // unshare PID space here so that the fork'd child (pasta) is isolated.
-  // TODO: stronger isolation (mount namespace).
-  // errors::ext::check("[namespace/pasta] unshare PID", rt::ext::unshare(rt::ext::clone_flag::NEWPID));
-
   // grab a handle to the namespaces of the primary process.
   // then we can fork, unshare net (in parent) and refer to that unshared netns
   // in the child (pasta) via ${ns_fd}/net.
-  let ns_fd = errors::ext::check_int("setup_pasta: open /proc/self/ns", rt::open("/proc/self/ns", rt::O_RDONLY, 0o400));
+  let ns_fd = errors::ext::check_int(
+    "setup_pasta: open /proc/self/ns",
+    rt::open("/proc/self/ns", rt::O_RDONLY | rt::O_CLOEXEC, 0o400),
+  );
 
   let (pipe_parent_rd, pipe_child_wr) = unix::pipe()!;
   let (pipe_child_rd, pipe_parent_wr) = unix::pipe()!;

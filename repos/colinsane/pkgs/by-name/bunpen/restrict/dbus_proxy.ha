@@ -38,6 +38,8 @@
 // $ DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/colin/dbus/proxy-1 gdbus call --session --dest=org.gnome.Calls --object-path /org/gnome/Calls --method org.gtk.Application.Activate '[]'
 // # works.
 // # remove either of the `--call` options, and it fails
+// # this less specific proxy option also works:
+// $ xdg-dbus-proxy unix:path=/run/user/colin/dbus/bus /run/user/colin/dbus/proxy-1 --filter '--call=org.gnome.Calls=org.gtk.Application.Activate' '--call=org.gnome.Calls=org.freedesktop.DBus.Introspectable.Introspect'
 // ```
 //
 // proof-of-concept OWN:
@@ -93,8 +95,16 @@ fn dbus_restrict(dbus: resources::dbus_subset, upstream_parent_fd: io::file, dow
   log::printfln("[dbus]: forking: child will launch xdg-dbus-proxy while parent will exec user code");
   match (ps::fork_and_die_with_parent()) {
     case void =>
-      // close the pipe ends which aren't ours
-      io::close(pipe_parent_rd)!;
+      // ~~close the pipe ends which aren't ours~~
+      // actually DON'T: the xdg-dbus-proxy `--fd=FOO` notification option
+      // causes xdg-dbus-proxy to exit when the fd is closed.
+      // we COULD keep the fd open in the parent, but that only works so long as
+      // it stays around as a PID-0 manager, and not in the cases where it
+      // directly exec's the user code.
+      //
+      // so, keep the `--fd=pipe_parent_rd` fd open here, and intentionally let
+      // the xdg-dbus-proxy process inherit that. it'll never be closed so long as the proxy is alive
+      // io::close(pipe_parent_rd)!;
 
       let ns_paths: []path::buffer = [];
       append(ns_paths, path::init("/nix/store")!);
@@ -110,25 +120,24 @@ fn dbus_restrict(dbus: resources::dbus_subset, upstream_parent_fd: io::file, dow
       };
       ns::namespace_restrict(&ns_resources);
 
-      // move the fd's to be one of the special fd's which *don't*
-      // get closed on exec (e.g. /proc/self/fd/0, stdin).
-      // assumed necessary based on pasta; *might not* actually be required here.
-      rt::dup2(upstream_parent_fd, 0)!;
-      io::close(upstream_parent_fd)!;
-      let upstream_fd_path = fmt::asprintf("unix:path=/proc/self/fd/0/{}", path::basename(path::string(downstream_path)));
-
-      rt::dup2(pipe_child_wr, 1)!;
-      io::close(pipe_child_wr)!;
+      // `dup` the fd's we need to share with xdg-dbus-proxy since the originals are O_CLOEXEC.
+      let upstream_parent_fd_nocloexec = rt::dup(upstream_parent_fd)!;
+      let upstream_fd_path = fmt::asprintf(
+        "unix:path=/proc/self/fd/{}/{}",
+        upstream_parent_fd_nocloexec: int,
+        path::basename(path::string(downstream_path)),
+      );
+      let notify_fd_nocloexec = rt::dup(pipe_child_wr)!;
 
       let proxy_args: []str = [];
       append(proxy_args, "xdg-dbus-proxy");
       append(proxy_args, upstream_fd_path);
       append(proxy_args, path::string(downstream_path));
       append(proxy_args, "--filter");
-      append(proxy_args, "--fd=1");
+      append(proxy_args, fmt::asprintf("--fd={}", notify_fd_nocloexec: int));
       // append(proxy_args, "--log");
-      for (let spec .. dbus.talk) {
-        append(proxy_args, fmt::asprintf("--talk={}", spec));
+      for (let spec .. dbus.call) {
+        append(proxy_args, fmt::asprintf("--call={}", spec));
       };
       for (let spec .. dbus.own) {
         append(proxy_args, fmt::asprintf("--own={}", spec));
@@ -151,16 +160,7 @@ fn dbus_restrict(dbus: resources::dbus_subset, upstream_parent_fd: io::file, dow
 
       log::println("[dbus] child signaled readiness: continuing");
 
-      // XXX: DON'T close the pipe: xdg-dbus-proxy docs say it will exit when
-      // the fd is closed.
-      // TODO: make sure this implementation is compatible with non-pid
-      // namespaced invocations! if it isn't, consider alternative synchronizations:
-      // - `write` a HELLO message and block until it's read.
-      // - invoke with `--log` and parse the output.
-      // - pre-create the unix socket _before_ forking here, and somehow pass
-      //   that into xdg-dbus-proxy instead of letting it create its own socket.
-      //
-      // io::close(pipe_parent_rd)!;
+      io::close(pipe_parent_rd)!;
 
     case let e: (os::exec::error | rt::errno) =>
       errors::ext::check("dbus_restrict: fork", e);
