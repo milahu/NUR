@@ -109,6 +109,7 @@ in
         self.tree
         self.unzip
         self.wget
+        self.xorg.xev
         self.xorg.xeyes
         self.xorg.xmodmap
         self.xterm
