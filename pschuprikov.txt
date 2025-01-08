@@ -47,21 +47,21 @@ error:
 
 … while calling 'makeScope'
 
-  at <nixpkgs> + /lib/customisation.nix:541:25:
+  at <nixpkgs> + /lib/customisation.nix:604:15:
 
-   540|   */
-   541|   makeScope = newScope: f:
-      |                         ^
-   542|     let self = f self // {
+   603|   makeScope =
+   604|     newScope: f:
+      |               ^
+   605|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:542:16:
+  at <nixpkgs> + /lib/customisation.nix:606:14:
 
-   541|   makeScope = newScope: f:
-   542|     let self = f self // {
-      |                ^
-   543|           newScope = scope: newScope (self // scope);
+   605|     let
+   606|       self = f self // {
+      |              ^
+   607|         newScope = scope: newScope (self // scope);
 
 … while calling anonymous lambda
 
@@ -83,11 +83,11 @@ error:
 
 … while calling 'optionalAttrs'
 
-  at <nixpkgs> + /lib/attrsets.nix:1352:5:
+  at <nixpkgs> + /lib/attrsets.nix:1351:5:
 
-  1351|     cond:
-  1352|     as:
+  1350|     cond:
+  1351|     as:
       |     ^
-  1353|     if cond then as else {};
+  1352|     if cond then as else {};
 
 error: access to URI 'https://github.com/fzakaria/mvn2nix/archive/master.tar.gz' is forbidden in restricted mode
