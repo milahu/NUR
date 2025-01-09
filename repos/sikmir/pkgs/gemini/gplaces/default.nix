@@ -5,18 +5,19 @@
   pkg-config,
   curl,
   openssl,
-  memstreamHook,
+  libidn2,
+  file,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "gplaces";
-  version = "0.19.7";
+  version = "0.19.8";
 
   src = fetchFromGitHub {
     owner = "dimkr";
     repo = "gplaces";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-u/JO2PNEZhmE068toBLHUJoWOkX4xoOKeIQN1hiCxlg=";
+    hash = "sha256-6BQimygOt+p1WZgpEXK2Icr/SxjF2tmjupJjDT8i5oo=";
     fetchSubmodules = true;
   };
 
@@ -25,9 +26,14 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     curl
     openssl
-  ] ++ lib.optional stdenv.isDarwin memstreamHook;
+    libidn2
+    file # for libmagic
+  ];
 
-  makeFlags = [ "VERSION=${finalAttrs.version}" ];
+  makeFlags = [
+    "CC:=$(CC)"
+    "VERSION=${finalAttrs.version}"
+  ];
 
   installFlags = [ "PREFIX=$(out)" ];
 
