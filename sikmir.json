@@ -1,16 +1,16 @@
 {
 "name":"sikmir",
-"fetch_time":0.585,
-"eval_time":0.418,
+"fetch_time":0.534,
+"eval_time":0.411,
 "source":{
 "url":"https://github.com/sikmir/nur-packages",
-"rev":"b07e5185f3db4f37fadc83bc8d39e27b38ec7de4",
-"sha256":"1bwvkg42gfx2za34fd8vv4lgv2las8g9p1p50w281n41s2xpk4br",
+"rev":"b4becaae518c7f2da88d330d2dd465f10965aedc",
+"sha256":"1ky73gpnqdwg99yjarj163xza63dwcpz1pmkh2a7lr2ap0z3mpw1",
 "date":null
 },
-"source_storepath":"/nix/store/941dfylhrnazsx90bhnjkhrrdnvpikld-source",
-"nixpkgs_storepath":"/nix/store/nvq5sf1crbizmr1cn93z9rvvz8n0sqgw-source",
-"nur_combined_rev":"cd423d1e945cab3afdd230a521ddb8c4c053645d",
+"source_storepath":"/nix/store/3fi3r5rc5042vlzn3qrc2ras4vnn10d2-source",
+"nixpkgs_storepath":"/nix/store/f3rhimlzgi90dzbqi01d1dky5c37f4ic-source",
+"nur_combined_rev":"313057b2dddd998b540303ed8ee274590227b119",
 "packages":{
 "aamath":{
 "meta":{
@@ -483,7 +483,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"ais-catcher-0.58",
+"name":"ais-catcher-0.61",
 "outputsToInstall":[
 "out"
 ],
@@ -538,14 +538,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ais-catcher-0.58",
+"name":"ais-catcher-0.61",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ais-catcher",
 "system":"x86_64-linux",
-"version":"0.58"
+"version":"0.61"
 },
 "ajv-cli":{
 "meta":{
@@ -713,7 +713,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"amused-0.14",
+"name":"amused-0.16",
 "outputsToInstall":[
 "out"
 ],
@@ -747,14 +747,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"amused-0.14",
+"name":"amused-0.16",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"amused",
 "system":"x86_64-linux",
-"version":"0.14"
+"version":"0.16"
 },
 "apibackuper":{
 "meta":{
@@ -2572,7 +2572,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/suckless/chibicc/default.nix:26",
+"position":"./pkgs/suckless/chibicc/default.nix:23",
 "unfree":false,
 "unsupported":false
 },
@@ -5223,7 +5223,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"dumpvdl2-2.3.0",
+"name":"dumpvdl2-2.4.0",
 "outputsToInstall":[
 "out"
 ],
@@ -5278,14 +5278,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"dumpvdl2-2.3.0",
+"name":"dumpvdl2-2.4.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"dumpvdl2",
 "system":"x86_64-linux",
-"version":"2.3.0"
+"version":"2.4.0"
 },
 "earthaccess":{
 "meta":{
@@ -6635,7 +6635,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/suckless/farbfeld-utils/default.nix:51",
+"position":"./pkgs/suckless/farbfeld-utils/default.nix:47",
 "unfree":false,
 "unsupported":false
 },
@@ -6943,7 +6943,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"finalcut-0.9.0",
+"name":"finalcut-0.9.1",
 "outputsToInstall":[
 "out"
 ],
@@ -6998,14 +6998,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"finalcut-0.9.0",
+"name":"finalcut-0.9.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"finalcut",
 "system":"x86_64-linux",
-"version":"0.9.0"
+"version":"0.9.1"
 },
 "finch":{
 "meta":{
@@ -7037,7 +7037,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"finch-1.5.0",
+"name":"finch-1.6.0",
 "outputsToInstall":[
 "out"
 ],
@@ -7054,14 +7054,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"finch-1.5.0",
+"name":"finch-1.6.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"finch",
 "system":"x86_64-linux",
-"version":"1.5.0"
+"version":"1.6.0"
 },
 "fitdecode":{
 "meta":{
@@ -10678,8 +10678,8 @@
 },
 "goestools":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"Tools to work with signals and files from GOES satellites",
 "homepage":"https://pietern.github.io/goestools/",
 "insecure":false,
@@ -11148,7 +11148,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"gplaces-0.19.7",
+"name":"gplaces-0.19.8",
 "outputsToInstall":[
 "out"
 ],
@@ -11199,18 +11199,18 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/gemini/gplaces/default.nix:35",
+"position":"./pkgs/gemini/gplaces/default.nix:41",
 "unfree":false,
 "unsupported":false
 },
-"name":"gplaces-0.19.7",
+"name":"gplaces-0.19.8",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"gplaces",
 "system":"x86_64-linux",
-"version":"0.19.7"
+"version":"0.19.8"
 },
 "gps-sdr-sim":{
 "meta":{
@@ -11242,7 +11242,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"gps-sdr-sim-0-unstable-2024-04-11",
+"name":"gps-sdr-sim-0-unstable-2024-12-23",
 "outputsToInstall":[
 "out"
 ],
@@ -11297,14 +11297,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"gps-sdr-sim-0-unstable-2024-04-11",
+"name":"gps-sdr-sim-0-unstable-2024-12-23",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"gps-sdr-sim",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-04-11"
+"version":"0-unstable-2024-12-23"
 },
 "gps-whatsnew":{
 "meta":{
@@ -11898,7 +11898,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/gpx/gpx-interpolate/default.nix:37",
+"position":"./pkgs/gpx/gpx-interpolate/default.nix:38",
 "unfree":false,
 "unsupported":false
 },
@@ -14237,7 +14237,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"imscript-0-unstable-2024-07-25",
+"name":"imscript-0-unstable-2024-12-31",
 "outputsToInstall":[
 "out"
 ],
@@ -14292,14 +14292,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"imscript-0-unstable-2024-07-25",
+"name":"imscript-0-unstable-2024-12-31",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"imscript",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-07-25"
+"version":"0-unstable-2024-12-31"
 },
 "imsg-compat":{
 "meta":{
@@ -14331,7 +14331,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"imsg-compat-7.4.0",
+"name":"imsg-compat-8.0.0",
 "outputsToInstall":[
 "out"
 ],
@@ -14358,21 +14358,21 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/suckless/imsg-compat/default.nix:28",
+"position":"./pkgs/suckless/imsg-compat/default.nix:30",
 "skip":{
 "ci":false
 },
 "unfree":false,
 "unsupported":false
 },
-"name":"imsg-compat-7.4.0",
+"name":"imsg-compat-8.0.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"imsg-compat",
 "system":"x86_64-linux",
-"version":"7.4.0"
+"version":"8.0.0"
 },
 "ionscale":{
 "meta":{
@@ -15294,7 +15294,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"kealib-1.5.3",
+"name":"kealib-1.6.1",
 "outputsToInstall":[
 "out"
 ],
@@ -15349,14 +15349,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"kealib-1.5.3",
+"name":"kealib-1.6.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"kealib",
 "system":"x86_64-linux",
-"version":"1.5.3"
+"version":"1.6.1"
 },
 "kilo":{
 "meta":{
@@ -15388,7 +15388,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"kilo-0-unstable-2020-07-05",
+"name":"kilo-0-unstable-2025-01-04",
 "outputsToInstall":[
 "out"
 ],
@@ -15443,14 +15443,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"kilo-0-unstable-2020-07-05",
+"name":"kilo-0-unstable-2025-01-04",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"kilo",
 "system":"x86_64-linux",
-"version":"0-unstable-2020-07-05"
+"version":"0-unstable-2025-01-04"
 },
 "kineto":{
 "meta":{
@@ -18883,7 +18883,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"mapsoft2-2.8-alt1",
+"name":"mapsoft2-2.9-alt1",
 "outputsToInstall":[
 "out"
 ],
@@ -18934,21 +18934,21 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/geospatial/mapsoft/2.nix:137",
+"position":"./pkgs/geospatial/mapsoft/2.nix:133",
 "skip":{
 "ci":true
 },
 "unfree":false,
 "unsupported":false
 },
-"name":"mapsoft2-2.8-alt1",
+"name":"mapsoft2-2.9-alt1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"mapsoft2",
 "system":"x86_64-linux",
-"version":"2.8-alt1"
+"version":"2.9-alt1"
 },
 "maptourist":{
 "meta":{
@@ -22693,7 +22693,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"nextvi-0-unstable-2024-09-04",
+"name":"nextvi-0-unstable-2024-12-29",
 "outputsToInstall":[
 "out"
 ],
@@ -22748,14 +22748,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nextvi-0-unstable-2024-09-04",
+"name":"nextvi-0-unstable-2024-12-29",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nextvi",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-09-04"
+"version":"0-unstable-2024-12-29"
 },
 "nmtree":{
 "meta":{
@@ -23398,7 +23398,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"otm-armenia-250101",
+"name":"otm-armenia-250107",
 "outputsToInstall":[
 "out"
 ],
@@ -23488,14 +23488,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"otm-armenia-250101",
+"name":"otm-armenia-250107",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"otm-armenia",
 "system":"x86_64-linux",
-"version":"250101"
+"version":"250107"
 },
 "orbisgis":{
 "meta":{
@@ -26206,7 +26206,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"poe-1.8.2",
+"name":"poe-1.8.6",
 "outputsToInstall":[
 "out"
 ],
@@ -26240,14 +26240,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"poe-1.8.2",
+"name":"poe-1.8.6",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"poe",
 "system":"x86_64-linux",
-"version":"1.8.2"
+"version":"1.8.6"
 },
 "polytiles":{
 "meta":{
@@ -27576,7 +27576,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-pygnssutils-1.1.7",
+"name":"python3.12-pygnssutils-1.1.9",
 "outputsToInstall":[
 "out"
 ],
@@ -27615,11 +27615,11 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/gnss/pygnssutils/default.nix:34",
+"position":"./pkgs/gnss/pygnssutils/default.nix:36",
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-pygnssutils-1.1.7",
+"name":"python3.12-pygnssutils-1.1.9",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -27627,7 +27627,7 @@
 },
 "pname":"python3.12-pygnssutils",
 "system":"x86_64-linux",
-"version":"1.1.7"
+"version":"1.1.9"
 },
 "pygpsclient":{
 "meta":{
@@ -27694,7 +27694,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"pygpsclient-1.4.27",
+"name":"pygpsclient-1.5.1",
 "outputsToInstall":[
 "out"
 ],
@@ -27737,7 +27737,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"pygpsclient-1.4.27",
+"name":"pygpsclient-1.5.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -27745,7 +27745,7 @@
 },
 "pname":"pygpsclient",
 "system":"x86_64-linux",
-"version":"1.4.27"
+"version":"1.5.1"
 },
 "pyimagequant":{
 "meta":{
@@ -28518,7 +28518,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-pyspartn-1.0.4",
+"name":"python3.12-pyspartn-1.0.5",
 "outputsToInstall":[
 "out"
 ],
@@ -28561,7 +28561,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-pyspartn-1.0.4",
+"name":"python3.12-pyspartn-1.0.5",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -28569,7 +28569,7 @@
 },
 "pname":"python3.12-pyspartn",
 "system":"x86_64-linux",
-"version":"1.0.4"
+"version":"1.0.5"
 },
 "pytest-docker-fixtures":{
 "meta":{
@@ -29462,7 +29462,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-pyubx2-1.2.48",
+"name":"python3.12-pyubx2-1.2.49",
 "outputsToInstall":[
 "out"
 ],
@@ -29505,7 +29505,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-pyubx2-1.2.48",
+"name":"python3.12-pyubx2-1.2.49",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -29513,7 +29513,125 @@
 },
 "pname":"python3.12-pyubx2",
 "system":"x86_64-linux",
-"version":"1.2.48"
+"version":"1.2.49"
+},
+"pyubxutils":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Python UBX GNSS device command line utilities",
+"homepage":"https://github.com/semuconsulting/pyubxutils",
+"insecure":false,
+"isBuildPythonPackage":[
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin",
+"i686-cygwin",
+"x86_64-cygwin",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd"
+],
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"redistributable":true,
+"shortName":"bsd3",
+"spdxId":"BSD-3-Clause",
+"url":"https://spdx.org/licenses/BSD-3-Clause.html"
+},
+"maintainers":[
+{
+"email":"sikmir@disroot.org",
+"github":"sikmir",
+"githubId":688044,
+"keys":[
+{
+"fingerprint":"ADF4 C13D 0E36 1240 BD01  9B51 D1DE 6D7F 6936 63A5"
+}
+],
+"matrix":"@sikmir:matrix.org",
+"name":"Nikolay Korotkiy"
+}
+],
+"name":"python3.12-pyubxutils-1.0.2",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin",
+"i686-cygwin",
+"x86_64-cygwin",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd"
+],
+"position":"./pkgs/gnss/pyubxutils/default.nix:30",
+"unfree":false,
+"unsupported":false
+},
+"name":"python3.12-pyubxutils-1.0.2",
+"outputName":"out",
+"outputs":{
+"dist":null,
+"out":null
+},
+"pname":"python3.12-pyubxutils",
+"system":"x86_64-linux",
+"version":"1.0.2"
 },
 "qasync":{
 "meta":{
@@ -30393,7 +30511,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"radiolib-7.0.2",
+"name":"radiolib-7.1.1",
 "outputsToInstall":[
 "out"
 ],
@@ -30448,14 +30566,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"radiolib-7.0.2",
+"name":"radiolib-7.1.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"radiolib",
 "system":"x86_64-linux",
-"version":"7.0.2"
+"version":"7.1.1"
 },
 "render_geojson":{
 "meta":{
@@ -30972,7 +31090,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-rio-cogeo-5.3.6",
+"name":"python3.12-rio-cogeo-5.4.1",
 "outputsToInstall":[
 "out"
 ],
@@ -31015,7 +31133,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-rio-cogeo-5.3.6",
+"name":"python3.12-rio-cogeo-5.4.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -31023,7 +31141,7 @@
 },
 "pname":"python3.12-rio-cogeo",
 "system":"x86_64-linux",
-"version":"5.3.6"
+"version":"5.4.1"
 },
 "rio-color":{
 "meta":{
@@ -31090,7 +31208,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-rio-color-1.0.4",
+"name":"python3.12-rio-color-2.0.1",
 "outputsToInstall":[
 "out"
 ],
@@ -31133,7 +31251,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-rio-color-1.0.4",
+"name":"python3.12-rio-color-2.0.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -31141,7 +31259,7 @@
 },
 "pname":"python3.12-rio-color",
 "system":"x86_64-linux",
-"version":"1.0.4"
+"version":"2.0.1"
 },
 "rio-mbtiles":{
 "meta":{
@@ -31444,7 +31562,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-rio-stac-0.10.0",
+"name":"python3.12-rio-stac-0.10.1",
 "outputsToInstall":[
 "out"
 ],
@@ -31487,7 +31605,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-rio-stac-0.10.0",
+"name":"python3.12-rio-stac-0.10.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -31495,7 +31613,7 @@
 },
 "pname":"python3.12-rio-stac",
 "system":"x86_64-linux",
-"version":"0.10.0"
+"version":"0.10.1"
 },
 "rmqtt":{
 "meta":{
@@ -32845,7 +32963,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"sbase-0-unstable-2024-03-22",
+"name":"sbase-0-unstable-2024-12-09",
 "outputsToInstall":[
 "out"
 ],
@@ -32879,14 +32997,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sbase-0-unstable-2024-03-22",
+"name":"sbase-0-unstable-2024-12-09",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sbase",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-03-22"
+"version":"0-unstable-2024-12-09"
 },
 "scc":{
 "meta":{
@@ -33323,7 +33441,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"sdr-modem-1.0.127",
+"name":"sdr-modem-1.0.129",
 "outputsToInstall":[
 "out"
 ],
@@ -33378,14 +33496,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sdr-modem-1.0.127",
+"name":"sdr-modem-1.0.129",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sdr-modem",
 "system":"x86_64-linux",
-"version":"1.0.127"
+"version":"1.0.129"
 },
 "sdr-server":{
 "meta":{
@@ -34613,8 +34731,8 @@
 },
 "sled":{
 "meta":{
-"available":false,
-"broken":true,
+"available":true,
+"broken":false,
 "description":"Simple text editor",
 "homepage":"https://strahinja.srht.site/sled",
 "insecure":false,
@@ -34642,7 +34760,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"sled-0.13.2",
+"name":"sled-0.19.2",
 "outputsToInstall":[
 "out"
 ],
@@ -34669,21 +34787,21 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/suckless/sled/default.nix:23",
+"position":"./pkgs/suckless/sled/default.nix:28",
 "skip":{
 "ci":false
 },
 "unfree":false,
 "unsupported":false
 },
-"name":"sled-0.13.2",
+"name":"sled-0.19.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sled",
 "system":"x86_64-linux",
-"version":"0.13.2"
+"version":"0.19.2"
 },
 "smallrx":{
 "meta":{
@@ -34957,7 +35075,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/osm/smrender/default.nix:46",
+"position":"./pkgs/osm/smrender/default.nix:44",
 "unfree":false,
 "unsupported":false
 },
@@ -36335,7 +36453,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"tatoeba-2024-12-28",
+"name":"tatoeba-2025-01-04",
 "outputsToInstall":[
 "out"
 ],
@@ -36425,14 +36543,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tatoeba-2024-12-28",
+"name":"tatoeba-2025-01-04",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tatoeba",
 "system":"x86_64-linux",
-"version":"2024-12-28"
+"version":"2025-01-04"
 },
 "tatoebatools":{
 "meta":{
@@ -37588,7 +37706,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"tilecloud-1.12.3",
+"name":"tilecloud-1.12.6",
 "outputsToInstall":[
 "out"
 ],
@@ -37627,11 +37745,11 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/geospatial/tilecloud/default.nix:65",
+"position":"./pkgs/geospatial/tilecloud/default.nix:67",
 "unfree":false,
 "unsupported":false
 },
-"name":"tilecloud-1.12.3",
+"name":"tilecloud-1.12.6",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -37639,7 +37757,7 @@
 },
 "pname":"tilecloud",
 "system":"x86_64-linux",
-"version":"1.12.3"
+"version":"1.12.6"
 },
 "tilekiln":{
 "meta":{
@@ -37706,7 +37824,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"tilekiln-0.6.0",
+"name":"tilekiln-0.6.5",
 "outputsToInstall":[
 "out"
 ],
@@ -37749,7 +37867,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tilekiln-0.6.0",
+"name":"tilekiln-0.6.5",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -37757,7 +37875,7 @@
 },
 "pname":"tilekiln",
 "system":"x86_64-linux",
-"version":"0.6.0"
+"version":"0.6.5"
 },
 "tilelog":{
 "meta":{
@@ -38584,7 +38702,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/gemini/tom/default.nix:49",
+"position":"./pkgs/gemini/tom/default.nix:48",
 "unfree":false,
 "unsupported":false
 },
@@ -40752,7 +40870,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"zed-0.168.0-pre",
+"name":"zed-0.168.2-pre",
 "outputsToInstall":[
 "out"
 ],
@@ -40772,14 +40890,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"zed-0.168.0-pre",
+"name":"zed-0.168.2-pre",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zed",
 "system":"x86_64-linux",
-"version":"0.168.0-pre"
+"version":"0.168.2-pre"
 },
 "zwave-js-ui":{
 "meta":{
