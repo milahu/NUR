@@ -1,48 +1,176 @@
+trace: evaluation warning: destruqtor has been renamed to blepfx.destruqtor
+trace: evaluation warning: osirus has been renamed to dsp56300
+trace: evaluation warning: swift-mesonlsp-bin has been renamed to mesonlsp-bin
 error:
 … from call site
 
-  at ./pkgs/default.nix:26:20:
+  at ./pkgs/default.nix:103:19:
 
-    25|     blocks = callPackage' ./blocks;
-    26|     camomile-bin = callPackage' ./camomile-bin;
-      |                    ^
-    27|     cantata = callPackage' ./cantata;
-
-… while calling 'callPackage''
-
-  at ./pkgs/default.nix:8:18:
-
-     7|
-     8|   callPackage' = pkg:
-      |                  ^
-     9|     pkgs.callPackage pkg (callPackageArgs pkg);
-
-… from call site
-
-  at ./pkgs/default.nix:9:5:
-
-     8|   callPackage' = pkg:
-     9|     pkgs.callPackage pkg (callPackageArgs pkg);
-      |     ^
-    10|
-
-… while calling 'callPackageWith'
-
-  at <nixpkgs> + /lib/customisation.nix:238:19:
-
-   237|   callPackageWith =
-   238|     autoArgs: fn: args:
+   102|     xplrPlugins = callPackages' ./xplrPlugins;
+   103|     yaziPlugins = callPackages' ./yaziPlugins;
       |                   ^
-   239|     let
+   104|     ysfx = callPackage' ./ysfx;
+
+… while calling 'callPackages''
+
+  at ./pkgs/default.nix:11:19:
+
+    10|
+    11|   callPackages' = pkg: pkgs.callPackages pkg (callPackageArgs pkg);
+      |                   ^
+    12|
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:252:11:
+  at ./pkgs/default.nix:11:24:
 
-   251|         (
-   252|           filterAttrs (name: value: !value)
+    10|
+    11|   callPackages' = pkg: pkgs.callPackages pkg (callPackageArgs pkg);
+      |                        ^
+    12|
+
+… while calling 'callPackagesWith'
+
+  at <nixpkgs> + /lib/customisation.nix:338:19:
+
+   337|   callPackagesWith =
+   338|     autoArgs: fn: args:
+      |                   ^
+   339|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:347:8:
+
+   346|     in
+   347|     if isDerivation pkgs then
+      |        ^
+   348|       throw (
+
+… while calling 'isDerivation'
+
+  at <nixpkgs> + /lib/attrsets.nix:1282:5:
+
+  1281|   isDerivation =
+  1282|     value: value.type or null == "derivation";
+      |     ^
+  1283|
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:344:14:
+
+   343|       origArgs = auto // args;
+   344|       pkgs = f origArgs;
+      |              ^
+   345|       mkAttrOverridable = name: _: makeOverridable (mirrorArgs (newArgs: (f newArgs).${name})) origArgs;
+
+… while calling anonymous lambda
+
+  at ./pkgs/yaziPlugins/default.nix:1:1:
+
+     1| {pkgs, ...}: let
+      | ^
+     2|   sources = import ./nix/_sources.nix {inherit pkgs;};
+
+… from call site
+
+  at ./pkgs/yaziPlugins/default.nix:4:4:
+
+     3| in
+     4|   (pkgs.lib.makeExtensible
+      |    ^
+     5|     (_:
+
+… while calling 'makeExtensibleWithCustomName'
+
+  at <nixpkgs> + /lib/fixed-points.nix:445:19:
+
+   444|   makeExtensibleWithCustomName =
+   445|     extenderName: rattrs:
+      |                   ^
+   446|     fix' (
+
+… from call site
+
+  at <nixpkgs> + /lib/fixed-points.nix:446:5:
+
+   445|     extenderName: rattrs:
+   446|     fix' (
+      |     ^
+   447|       self:
+
+… while calling 'fix''
+
+  at <nixpkgs> + /lib/fixed-points.nix:113:5:
+
+   112|   fix' =
+   113|     f:
+      |     ^
+   114|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/fixed-points.nix:115:11:
+
+   114|     let
+   115|       x = f x // {
       |           ^
-   253|             # Filter out arguments that would be passed
+   116|         __unfix__ = f;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/fixed-points.nix:447:7:
+
+   446|     fix' (
+   447|       self:
+      |       ^
+   448|       (rattrs self)
+
+… from call site
+
+  at <nixpkgs> + /lib/fixed-points.nix:448:8:
+
+   447|       self:
+   448|       (rattrs self)
+      |        ^
+   449|       // {
+
+… while calling anonymous lambda
+
+  at ./pkgs/yaziPlugins/default.nix:5:6:
+
+     4|   (pkgs.lib.makeExtensible
+     5|     (_:
+      |      ^
+     6|       pkgs.lib.mapAttrs' (name: src:
+
+… from call site
+
+  at ./pkgs/yaziPlugins/default.nix:6:7:
+
+     5|     (_:
+     6|       pkgs.lib.mapAttrs' (name: src:
+      |       ^
+     7|         pkgs.lib.nameValuePair
+
+… while calling 'mapAttrs''
+
+  at <nixpkgs> + /lib/attrsets.nix:1056:5:
+
+  1055|     f:
+  1056|     set:
+      |     ^
+  1057|     listToAttrs (map (attr: f attr set.${attr}) (attrNames set));
+
+… from call site
+
+  at ./pkgs/yaziPlugins/default.nix:17:8:
+
+    16|         }))
+    17|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+      |        ^
+    18|   .extend (pkgs.callPackage ./_overrides.nix {})
 
 … while calling 'filterAttrs'
 
@@ -53,22 +181,121 @@ error:
       |     ^
    647|     removeAttrs set (filter (name: ! pred name set.${name}) (attrNames set));
 
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/attrsets.nix:647:30:
+
+   646|     set:
+   647|     removeAttrs set (filter (name: ! pred name set.${name}) (attrNames set));
+      |                              ^
+   648|
+
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:241:15:
+  at <nixpkgs> + /lib/attrsets.nix:647:38:
 
-   240|       f = if isFunction fn then fn else import fn;
-   241|       fargs = functionArgs f;
-      |               ^
-   242|
+   646|     set:
+   647|     removeAttrs set (filter (name: ! pred name set.${name}) (attrNames set));
+      |                                      ^
+   648|
 
-… while calling 'functionArgs'
+… while calling anonymous lambda
 
-  at <nixpkgs> + /lib/trivial.nix:1018:18:
+  at ./pkgs/yaziPlugins/default.nix:17:33:
 
-  1017|   */
-  1018|   functionArgs = f:
-      |                  ^
-  1019|     if f ? __functor
+    16|         }))
+    17|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+      |                                 ^
+    18|   .extend (pkgs.callPackage ./_overrides.nix {})
 
-error: getting status of './pkgs/camomile-bin': No such file or directory
+… from call site
+
+  at ./pkgs/yaziPlugins/default.nix:17:36:
+
+    16|         }))
+    17|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+      |                                    ^
+    18|   .extend (pkgs.callPackage ./_overrides.nix {})
+
+… while calling 'isStorePath'
+
+  at <nixpkgs> + /lib/strings.nix:2397:17:
+
+  2396|   */
+  2397|   isStorePath = x:
+      |                 ^
+  2398|     if isStringLike x then
+
+… from call site
+
+  at ./pkgs/yaziPlugins/nix/_sources.nix:223:33:
+
+   222|           "The values in sources.json should not have an 'outPath' attribute"
+   223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
+      |                                 ^
+   224|     )
+
+… while calling 'replace'
+
+  at ./pkgs/yaziPlugins/nix/_sources.nix:139:19:
+
+   138|   # the path directly as opposed to the fetched source.
+   139|   replace = name: drv: let
+      |                   ^
+   140|     saneName = stringAsChars (c:
+
+… from call site
+
+  at ./pkgs/yaziPlugins/nix/_sources.nix:223:47:
+
+   222|           "The values in sources.json should not have an 'outPath' attribute"
+   223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
+      |                                               ^
+   224|     )
+
+… while calling 'fetch'
+
+  at ./pkgs/yaziPlugins/nix/_sources.nix:120:23:
+
+   119|   # The actual fetching function.
+   120|   fetch = pkgs: name: spec:
+      |                       ^
+   121|     if ! builtins.hasAttr "type" spec
+
+… from call site
+
+  at ./pkgs/yaziPlugins/nix/_sources.nix:126:10:
+
+   125|     else if spec.type == "tarball"
+   126|     then fetch_tarball pkgs name spec
+      |          ^
+   127|     else if spec.type == "git"
+
+… while calling 'fetch_tarball'
+
+  at ./pkgs/yaziPlugins/nix/_sources.nix:21:31:
+
+    20|
+    21|   fetch_tarball = pkgs: name: spec: let
+      |                               ^
+    22|     name' = sanitizeName name + "-src";
+
+… from call site
+
+  at ./pkgs/yaziPlugins/nix/_sources.nix:26:7:
+
+    25|     then
+    26|       builtins_fetchTarball {
+      |       ^
+    27|         name = name';
+
+… while calling 'builtins_fetchTarball'
+
+  at ./pkgs/yaziPlugins/nix/_sources.nix:191:27:
+
+   190|   # fetchTarball version that is compatible between all the versions of Nix
+   191|   builtins_fetchTarball = {
+      |                           ^
+   192|     url,
+
+error: access to URI 'https://github.com/Sonico98/allmytoes.yazi/archive/a9870513d935680c2d59da7d59b3f91660e2729d.tar.gz' is forbidden in restricted mode
