@@ -130,6 +130,17 @@ class TxBounds:
 
         return TxBounds(min_msat=self.min_msat, max_msat=new_max)
 
+class Node:
+    def __init__(self, fields: dict):
+        self.fields = fields
+
+    @property
+    def alias(self) -> str:
+        alias = self.fields.get("alias", None)
+        if alias is None:
+            logger.debug(f"node lacks alias field: {self.fields}")
+            alias = self.fields.get("nodeid", None)
+        return alias if alias is not None else "Unknown"
 
 class LocalChannel:
     def __init__(self, channels: list, rpc: "RpcHelper"):
@@ -201,7 +212,7 @@ class LocalChannel:
 
     @property
     def remote_alias(self) -> str:
-        return self.remote_node["alias"]
+        return self.remote_node.alias
 
     @property
     def scid(self) -> str:
@@ -312,10 +323,10 @@ class RpcHelper:
         assert listchan and listchan.get("channels", []) != [], f"bad listchannels for {scid}: {listchan}"
         return LocalChannel(listchan["channels"], self)
 
-    def node(self, id: str) -> dict:
+    def node(self, id: str) -> Node:
         nodes = self.rpc.listnodes(id)["nodes"]
         assert len(nodes) == 1, f"unexpected: multiple nodes for {id}: {nodes}"
-        return nodes[0]
+        return Node(nodes[0])
 
     def peerchannel(self, scid: str, peer_id: str) -> dict:
         peerchannels = self.rpc.listpeerchannels(peer_id)["channels"]
@@ -495,6 +506,14 @@ class LoopJobDone(Enum):
     ABORTED = "ABORTED"
 
 class AbstractLoopRunner:
+    """
+    base class.
+    implementors implement `pop_job` and `finished_job`.
+    this super class coordinates how to call those in a loop:
+    - spawn N threads, each one calls `pop_job` then `finished_job`, in a loop
+    - coordinates completion:
+      - `run_to_completion` waits until a sufficient number (usually just one) of `LoopJobDone` jobs have been received before returning.
+    """
     def __init__(self, looper: LoopRouter, bounds: TxBounds, parallelism: int):
         self.looper = looper
         self.bounds = bounds
@@ -586,6 +605,12 @@ class LoopPairState:
         self.failed_tx_throttler = 0  # increase by one every time we fail, decreases more gradually, when we succeed
 
 class LoopBalancer(AbstractLoopRunner):
+    """
+    keeps context for looping from a specific `out` scid to a specific `in` scid.
+    typically just produces `LoopJob`s indicating how much more we want to loop,
+    but in the case of repeat errors, it may interleave `LoopJobIdle`,
+    and if the channel is very problematic is returns `LoopJobDone.ABORTED`
+    """
     def __init__(self, out: str, in_: str, amount: int, looper: LoopRouter, bounds: TxBounds, parallelism: int=1):
         super().__init__(looper, bounds, parallelism)
         self.state = LoopPairState(out, in_, amount)
@@ -721,6 +746,11 @@ def autobalance_once(rpc: RpcHelper, metrics: Metrics, bounds: TxBounds, paralle
 
 
 def autobalance(rpc: RpcHelper, min_msat: int, max_msat: int, parallelism: int):
+    """
+    balance all channels, repeatedly, until either
+    1. no channels want more inbound liquidity
+    2. or no channels want more outbound liquidity
+    """
     bounds = TxBounds(min_msat=min_msat, max_msat=max_msat)
     metrics = Metrics()
     while not autobalance_once(rpc, metrics, bounds, parallelism):
@@ -734,7 +764,12 @@ def show_status(rpc: RpcHelper, full: bool=False):
         try:
             ch = rpc.localchannel(peerch["short_channel_id"])
         except:
-            print(f"{peerch['peer_id']} scid:{peerch.get('short_channel_id')} state:{peerch['state']} NO CHANNELS")
+            try:
+                node = rpc.node(peerch['peer_id'])
+            except:
+                print(f"node_pubkey({peerch['peer_id']}) scid:{peerch.get('short_channel_id')} state:{peerch['state']} NO CHANNELS")
+            else:
+                print(f"node({node.alias}) scid:{peerch.get('short_channel_id')} state:{peerch['state']} NO CHANNELS")
         else:
             print(ch.to_str(with_scid=True, with_bal_ratio=True, with_payments=True, with_cost=full, with_ppm_theirs=True, with_ppm_mine=True, with_peer_id=full))
 
