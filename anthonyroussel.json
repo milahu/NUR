@@ -1,16 +1,16 @@
 {
 "name":"anthonyroussel",
-"fetch_time":0.289,
-"eval_time":0.247,
+"fetch_time":0.4,
+"eval_time":0.262,
 "source":{
 "url":"https://github.com/anthonyroussel/nur-packages",
-"rev":"baa7959a066f40c581ec0e5e31bf9a299c289513",
-"sha256":"0rwkpwkabbbay0l5j60qrlf6vr5zvp2fj6j51pssd08944nkyimd",
+"rev":"08293d0b519c8b1e2a367a7052567235f94f5fa0",
+"sha256":"095x719p3l3lyf9s73j1gznc2h3lw21zl0rw85aik3yah5vapd6x",
 "date":null
 },
-"source_storepath":"/nix/store/90k38xw6qsac6g14rmk8wkdffnax8376-source",
-"nixpkgs_storepath":"/nix/store/hx1ad3n2xn28lsdjwc0g2fv8j4qdpamk-source",
-"nur_combined_rev":"f67dc03a080494974dd65ce1b18fdd8025625dc5",
+"source_storepath":"/nix/store/f5byl10ymlyyv7h5m60lyzp3lambczlg-source",
+"nixpkgs_storepath":"/nix/store/8a0z7r84vg0gwvwrh8g1cwwczzy0wxi4-source",
+"nur_combined_rev":"009a2dedf2556e5c10b8af133171c8370d9fb32c",
 "packages":{
 "aws-cdk-local":{
 "meta":{
@@ -55,6 +55,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -144,7 +145,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -205,7 +207,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/awscli-local/default.nix:53",
 "unfree":false,
@@ -260,7 +263,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -346,7 +350,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/python-barbicanclient/default.nix:65",
 "unfree":false,
@@ -401,7 +406,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -487,7 +493,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/python-designateclient/default.nix:65",
 "unfree":false,
@@ -532,7 +539,7 @@
 "name":"Anthony Roussel"
 }
 ],
-"name":"shadow-preprod-9.9.10131",
+"name":"shadow-preprod-9.9.10152",
 "outputsToInstall":[
 "out"
 ],
@@ -563,14 +570,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"shadow-preprod-9.9.10131",
+"name":"shadow-preprod-9.9.10152",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"shadow-preprod",
 "system":"x86_64-linux",
-"version":"9.9.10131"
+"version":"9.9.10152"
 },
 "shadow-prod":{
 "meta":{
@@ -670,7 +677,7 @@
 "name":"Anthony Roussel"
 }
 ],
-"name":"shadow-testing-9.9.10134",
+"name":"shadow-testing-9.9.10154",
 "outputsToInstall":[
 "out"
 ],
@@ -701,14 +708,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"shadow-testing-9.9.10134",
+"name":"shadow-testing-9.9.10154",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"shadow-testing",
 "system":"x86_64-linux",
-"version":"9.9.10134"
+"version":"9.9.10154"
 },
 "terraform-local":{
 "meta":{
@@ -749,7 +756,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":true,
@@ -810,7 +818,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/terraform-local/default.nix:26",
 "unfree":false,
