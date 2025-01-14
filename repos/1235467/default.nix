@@ -9,6 +9,7 @@
 {
   pkgs ? import <nixpkgs> { },
   pkgs-stable ? import <nixpkgs> { },
+  pkgs-yuzu ? import <nixpkgs> { },
 }:
 
 
@@ -28,7 +29,7 @@ rec {
   # Rust
   ncmdump-rs = pkgs.callPackage ./pkgs-by-lang/Rust/ncmdump.rs { };
   rescrobbled = pkgs.callPackage ./pkgs-by-lang/Rust/rescrobbled { };
-  waylyrics = pkgs.callPackage ./pkgs-by-lang/Rust/waylyrics { };
+  #waylyrics = pkgs.callPackage ./pkgs-by-lang/Rust/waylyrics { };
   aichat = pkgs.callPackage ./pkgs-by-lang/Rust/aichat { };
   fww-checkin-rs = pkgs.callPackage ./pkgs-by-lang/Rust/fww-checkin-rs { };
 
@@ -37,7 +38,7 @@ rec {
 
   # Go
   #open-snell = pkgs.callPackage ./pkgs-by-lang/Go/open-snell { };
-  mieru = pkgs.callPackage ./pkgs-by-lang/Go/mieru { };
+  #mieru = pkgs.callPackage ./pkgs-by-lang/Go/mieru { };
 
   # Python
   jjwxcCrawler = pkgs.callPackage ./pkgs-by-lang/Python/jjwxcCrawler { };
@@ -50,8 +51,8 @@ rec {
   kagi-cli-shortcut = pkgs.callPackage ./pkgs-by-lang/C/kagi-cli-shortcut { };
   koboldcpp = pkgs.callPackage ./pkgs-by-lang/C/koboldcpp { };
   Penguin-Subtitle-Player = pkgs.libsForQt5.callPackage ./pkgs-by-lang/C/Penguin-Subtitle-Player { };
-  suyu = pkgs.qt6.callPackage ./pkgs-by-lang/C/suyu { };
-  yuzu-early-access = pkgs.qt6.callPackage ./pkgs-by-lang/C/yuzu { };
+  suyu = pkgs-yuzu.qt6.callPackage ./pkgs-by-lang/C/suyu { };
+  yuzu-early-access = pkgs-yuzu.qt6.callPackage ./pkgs-by-lang/C/yuzu { };
 
   # Nodejs
 
@@ -73,7 +74,7 @@ rec {
   };
 
   # System Fonts override
-  JetBrainsMono-nerdfonts = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+  JetBrainsMono-nerdfonts = pkgs.nerd-fonts.jetbrains-mono;
 
   # Garnix generate cache
   mongodb = pkgs-stable.mongodb;

@@ -1,22 +1,18 @@
 { appimageTools, lib, pkgs, }:
 appimageTools.wrapType2 rec {
   pname = "cider";
-  version = "2.4.0";
-  name = "${pname}";
+  version = "2.6.0";
 
   src = pkgs.fetchurl {
-    url = "https://fly.storage.tigris.dev/cider/Cider-${version}.AppImage";
-    sha256 = "sha256-PSOJYaxEGahqX/7XIKkAiObqHwuAu6YI7CF/qc9DOZU=";
+    url = "https://fly.storage.tigris.dev/cider/Cider-${version}-x64.AppImage";
+    sha256 = "sha256-q9ulXYha5PSZbYZ/oxOvGvK5XGn0TlAGMymju5fXwmU=";
   };
 
   extraInstallCommands =
     let
-      contents = appimageTools.extract { inherit name src; };
+      contents = appimageTools.extract { inherit pname src version; };
     in
     ''
-      install -m 444 -D ${contents}/${pname}.desktop -t $out/share/applications
-      substituteInPlace $out/share/applications/${pname}.desktop \
-        --replace 'Exec=AppRun' 'Exec=${pname}'
       cp -r ${contents}/usr/share/icons $out/share
     '';
 

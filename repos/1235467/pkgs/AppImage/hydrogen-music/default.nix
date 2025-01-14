@@ -2,7 +2,6 @@
 appimageTools.wrapType2 rec {
   pname = "hydrogen-music";
   version = "0.5.0";
-  name = "${pname}";
 
   src = fetchurl {
     url = "https://fly.storage.tigris.dev/public-hakutaku/Hydrogen.AppImage";
@@ -11,7 +10,7 @@ appimageTools.wrapType2 rec {
 
   extraInstallCommands =
     let
-      contents = appimageTools.extract { inherit name src; };
+      contents = appimageTools.extract { inherit pname src version; };
     in
     ''
       cp -r ${contents}/usr/share/icons $out/share
