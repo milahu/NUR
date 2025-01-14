@@ -12,12 +12,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:570:14:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:583:14:
 
-   569|   };
-   570|   validity = checkMeta.assertValidity { inherit meta attrs; };
+   582|   };
+   583|   validity = checkMeta.assertValidity { inherit meta attrs; };
       |              ^
-   571|
+   584|
 
 … while calling 'assertValidity'
 
@@ -84,9 +84,9 @@ error:
 
 error: attribute 'targetPlatforms' missing
 
-at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:173:7:
+at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:220:74:
 
-   172|       meta.platforms or lib.platforms.all
-   173|       rustc.targetPlatforms;
-      |       ^
-   174|   };
+   219|       # default to Rust's platforms
+   220|       platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
+      |                                                                          ^
+   221|     };
