@@ -330,16 +330,16 @@
   };
   wayland-protocols = {
     pname = "wayland-protocols";
-    version = "258d8f88f2c8c25a830c6316f87d23ce1a0f12d9";
+    version = "20bcf732a9a173ae7d437882159fb7ababb4713e";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/wayland/wayland-protocols";
-      rev = "258d8f88f2c8c25a830c6316f87d23ce1a0f12d9";
+      rev = "20bcf732a9a173ae7d437882159fb7ababb4713e";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-93X0dLoCgQcJzjBCBS9YHb4fPVa3wC2lixXcxoLuBtM=";
+      sha256 = "sha256-QoCkF4QTHcU6fn6rgr0SiS4jDJJ/HsIl8WjmlIeUK58=";
     };
-    date = "2024-12-22";
+    date = "2025-01-13";
   };
   waylyrics = {
     pname = "waylyrics";

@@ -24,7 +24,7 @@ rec {
   sources = pkgs.callPackage ./_sources/generated.nix { };
 
   # Build Helper
-  buildtools = pkgs.callPackage ./buildtools/shell { };
+  buildtools = pkgs-stable.callPackage ./buildtools/shell { };
 
   # Rust
   ncmdump-rs = pkgs.callPackage ./pkgs-by-lang/Rust/ncmdump.rs { };
