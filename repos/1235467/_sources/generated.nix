@@ -15,13 +15,13 @@
   };
   aichat = {
     pname = "aichat";
-    version = "3783101b916e67a9679e5daf125e8f9747c3a18d";
+    version = "50c60e8097f5148c30295a296063d0fc8391a5f4";
     src = fetchFromGitHub {
       owner = "sigoden";
       repo = "aichat";
-      rev = "3783101b916e67a9679e5daf125e8f9747c3a18d";
+      rev = "50c60e8097f5148c30295a296063d0fc8391a5f4";
       fetchSubmodules = false;
-      sha256 = "sha256-594+e2+XX6AmCXLBj/qGJvRJ72Whw7eU/riIXTKj38M=";
+      sha256 = "sha256-aVAlmOBbE2eS2TPcbfadb23ZlQN8lnJvHWhYqsVUFpc=";
     };
     date = "2025-01-15";
   };
@@ -355,15 +355,15 @@
   };
   wlroots = {
     pname = "wlroots";
-    version = "bcf8e467db76695982485f23fdafeedbec84e3fc";
+    version = "8f56f7ca43257cc05c7c4eb57a0f541e05cf9a79";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/wlroots/wlroots";
-      rev = "bcf8e467db76695982485f23fdafeedbec84e3fc";
+      rev = "8f56f7ca43257cc05c7c4eb57a0f541e05cf9a79";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-+riH/ceRAzWFRX7m6OM5cl0nRtaYvjQu3RwqaVhL9fI=";
+      sha256 = "sha256-kEiQgMZi1Amp5APPwJ/X9yIOEUGN4hZNRGfGCJxllMc=";
     };
-    date = "2025-01-14";
+    date = "2025-01-15";
   };
 }
