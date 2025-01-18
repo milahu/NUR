@@ -1,15 +1,16 @@
 trace: evaluation warning: destruqtor has been renamed to blepfx.destruqtor
+trace: evaluation warning: lamb has been renamed to lamb-bin
 trace: evaluation warning: osirus has been renamed to dsp56300
 trace: evaluation warning: swift-mesonlsp-bin has been renamed to mesonlsp-bin
 error:
 … from call site
 
-  at ./pkgs/default.nix:106:19:
+  at ./pkgs/default.nix:111:19:
 
-   105|     xplrPlugins = callPackages' ./xplrPlugins;
-   106|     yaziPlugins = callPackages' ./yaziPlugins;
+   110|     xplrPlugins = callPackages' ./xplrPlugins;
+   111|     yaziPlugins = callPackages' ./yaziPlugins;
       |                   ^
-   107|     ysfx = callPackage' ./ysfx;
+   112|     ysfx = callPackage' ./ysfx;
 
 … while calling 'callPackages''
 
