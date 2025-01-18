@@ -42,49 +42,27 @@ in {
     };
   };
 
-  # FIXME(NixOS 24.11) Copy pasted from nixpkgs master module, because some needed changes weren't in stable yet.
-  config = mkIf cfg.enable (let
-    settings = {
-      ALLOW_SIGNUP = "false";
-      BASE_URL = "https://mealie.${domain}";
-      TZ = config.time.timeZone;
+  config = mkIf cfg.enable {
+    services.mealie = {
+      inherit listenAddress;
+      inherit (cfg) credentialsFile;
 
-      # Use PostgreSQL
-      DB_ENGINE = "postgres";
+      enable = true;
+      package = pkgs.unstable.mealie;
+      port = cfg.port;
 
-      # Settings for Mealie 1.7+
-      POSTGRES_URL_OVERRIDE = "postgresql://mealie:@/mealie?host=/run/postgresql";
-    };
-  in {
-    systemd.services = {
-      mealie = {
-        after = ["network-online.target" "postgresql.service"];
-        requires = ["postgresql.service"];
-        wants = ["network-online.target"];
-        wantedBy = ["multi-user.target"];
-
-        description = "Mealie, a self hosted recipe manager and meal planner";
-
-        environment =
-          {
-            PRODUCTION = "true";
-            API_PORT = toString cfg.port;
-            BASE_URL = "http://localhost:${toString cfg.port}";
-            DATA_DIR = "/var/lib/mealie";
-            CRF_MODEL_PATH = "/var/lib/mealie/model.crfmodel";
-          }
-          // (builtins.mapAttrs (_: val: toString val) settings);
-
-        serviceConfig = {
-          DynamicUser = true;
-          User = "mealie";
-          ExecStartPre = "${pkg}/libexec/init_db";
-          ExecStart = "${lib.getExe pkg} -b ${listenAddress}:${builtins.toString cfg.port}";
-          EnvironmentFile = lib.mkIf (cfg.credentialsFile != null) cfg.credentialsFile;
-          StateDirectory = "mealie";
-          StandardOutput = "journal";
-        };
+      settings = {
+        ALLOW_SIGNUP = "false";
+        BASE_URL = "https://mealie.${domain}";
+        TZ = config.time.timeZone;
+        DB_ENGINE = "postgres";
+        POSTGRES_URL_OVERRIDE = "postgresql://mealie:@/mealie?host=/run/postgresql";
       };
+    };
+
+    systemd.services.mealie = {
+      after = ["postgresql.service"];
+      requires = ["postgresql.service"];
     };
 
     # Set-up database
@@ -118,5 +96,5 @@ in {
     my.services.restic-backup = {
       paths = ["/var/lib/mealie"];
     };
-  });
+  };
 }
