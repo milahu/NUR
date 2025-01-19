@@ -1,16 +1,16 @@
 {
 "name":"sikmir",
-"fetch_time":0.569,
+"fetch_time":0.496,
 "eval_time":0.411,
 "source":{
 "url":"https://github.com/sikmir/nur-packages",
-"rev":"4d5a4f7e9d1600e1a303d0d9eed17f67aa7297fb",
-"sha256":"0h5lgfmp12xj77kyq0p4mpdzn64lr9qda6zipannsn7fzalz77mg",
+"rev":"0adf4c0c304a0e6914dd4efc579ab70f92f096d4",
+"sha256":"1bij8bpzbp41skj25gzl7q12z97x7ixzlfcqjjqk6d034sv2l7k5",
 "date":null
 },
-"source_storepath":"/nix/store/dfk3g098h5g8agzhpdkj9cljb97b51sk-source",
+"source_storepath":"/nix/store/79ww4f7zbvc38mykr8x264r2i863y5qb-source",
 "nixpkgs_storepath":"/nix/store/zgrs3gp3080qbpd441yrvs7g84kf2ypn-source",
-"nur_combined_rev":"4f87fd3d096b915110a6e36f611ddbb2b4e8c6cb",
+"nur_combined_rev":"ac9625a3751fd311c86b5e832136b8f7b4256794",
 "packages":{
 "aamath":{
 "meta":{
@@ -16685,7 +16685,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.gnunet.org/libgnunetchat.git/tree/ChangeLog?h=v0.5.0",
+"changelog":"https://git.gnunet.org/libgnunetchat.git/tree/ChangeLog?h=v0.5.2",
 "description":"A client-side library for applications to utilize the Messenger service of GNUnet",
 "homepage":"https://www.gnunet.org/",
 "insecure":false,
@@ -16712,7 +16712,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"libgnunetchat-0.5.0",
+"name":"libgnunetchat-0.5.2",
 "outputsToInstall":[
 "out"
 ],
@@ -16767,14 +16767,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"libgnunetchat-0.5.0",
+"name":"libgnunetchat-0.5.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"libgnunetchat",
 "system":"x86_64-linux",
-"version":"0.5.0"
+"version":"0.5.2"
 },
 "libmdbx":{
 "meta":{
@@ -19592,7 +19592,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.gnunet.org/messenger-cli.git/tree/ChangeLog?h=v0.3.0",
+"changelog":"https://git.gnunet.org/messenger-cli.git/tree/ChangeLog?h=v0.3.1",
 "description":"A CLI for the Messenger service of GNUnet",
 "homepage":"https://www.gnunet.org/",
 "insecure":false,
@@ -19619,7 +19619,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"messenger-cli-0.3.0",
+"name":"messenger-cli-0.3.1",
 "outputsToInstall":[
 "out"
 ],
@@ -19674,20 +19674,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"messenger-cli-0.3.0",
+"name":"messenger-cli-0.3.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"messenger-cli",
 "system":"x86_64-linux",
-"version":"0.3.0"
+"version":"0.3.1"
 },
 "messenger-gtk":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.gnunet.org/messenger-gtk.git/tree/ChangeLog?h=v0.10.0",
+"changelog":"https://git.gnunet.org/messenger-gtk.git/tree/ChangeLog?h=v0.10.2",
 "description":"A GTK based GUI for the Messenger service of GNUnet",
 "homepage":"https://www.gnunet.org/",
 "insecure":false,
@@ -19714,7 +19714,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"messenger-gtk-0.10.0",
+"name":"messenger-gtk-0.10.2",
 "outputsToInstall":[
 "out"
 ],
@@ -19741,21 +19741,21 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/misc/messenger-gtk/default.nix:60",
+"position":"./pkgs/misc/messenger-gtk/default.nix:62",
 "skip":{
 "ci":false
 },
 "unfree":false,
 "unsupported":false
 },
-"name":"messenger-gtk-0.10.0",
+"name":"messenger-gtk-0.10.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"messenger-gtk",
 "system":"x86_64-linux",
-"version":"0.10.0"
+"version":"0.10.2"
 },
 "miband4":{
 "meta":{
@@ -20181,7 +20181,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/misc/mitzasql/default.nix:40",
+"position":"./pkgs/misc/mitzasql/default.nix:32",
 "unfree":false,
 "unsupported":false
 },
@@ -23403,7 +23403,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"otm-armenia-250107",
+"name":"otm-armenia-250115",
 "outputsToInstall":[
 "out"
 ],
@@ -23486,21 +23486,21 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/data/maps/opentopomap/default.nix:69",
+"position":"./pkgs/data/maps/opentopomap/default.nix:72",
 "skip":{
 "ci":true
 },
 "unfree":false,
 "unsupported":false
 },
-"name":"otm-armenia-250107",
+"name":"otm-armenia-250115",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"otm-armenia",
 "system":"x86_64-linux",
-"version":"250107"
+"version":"250115"
 },
 "orbisgis":{
 "meta":{
@@ -34381,7 +34381,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"slazav-fi-2025-01-07",
+"name":"slazav-fi-2025-01-16",
 "outputsToInstall":[
 "out"
 ],
@@ -34464,21 +34464,21 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/data/maps/slazav/fi.nix:54",
+"position":"./pkgs/data/maps/slazav/fi.nix:56",
 "skip":{
 "ci":true
 },
 "unfree":false,
 "unsupported":false
 },
-"name":"slazav-fi-2025-01-07",
+"name":"slazav-fi-2025-01-16",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"slazav-fi",
 "system":"x86_64-linux",
-"version":"2025-01-07"
+"version":"2025-01-16"
 },
 "slazav-hr":{
 "meta":{
@@ -34591,7 +34591,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/data/maps/slazav/hr.nix:54",
+"position":"./pkgs/data/maps/slazav/hr.nix:51",
 "skip":{
 "ci":true
 },
@@ -34718,7 +34718,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/data/maps/slazav/podm.nix:54",
+"position":"./pkgs/data/maps/slazav/podm.nix:51",
 "skip":{
 "ci":true
 },
@@ -36458,7 +36458,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"tatoeba-2025-01-11",
+"name":"tatoeba-2025-01-18",
 "outputsToInstall":[
 "out"
 ],
@@ -36548,14 +36548,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tatoeba-2025-01-11",
+"name":"tatoeba-2025-01-18",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tatoeba",
 "system":"x86_64-linux",
-"version":"2025-01-11"
+"version":"2025-01-18"
 },
 "tatoebatools":{
 "meta":{
@@ -38501,7 +38501,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-titiler-0.19.1",
+"name":"python3.12-titiler-0.20.1",
 "outputsToInstall":[
 "out"
 ],
@@ -38544,7 +38544,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-titiler-0.19.1",
+"name":"python3.12-titiler-0.20.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -38552,7 +38552,7 @@
 },
 "pname":"python3.12-titiler",
 "system":"x86_64-linux",
-"version":"0.19.1"
+"version":"0.20.1"
 },
 "tlstunnel":{
 "meta":{
