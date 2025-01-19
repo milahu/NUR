@@ -96,6 +96,7 @@
                   "volpeon-neofox"
                   "volpeon-raccoon"
                   "volpeon-vlpn"
+                  "volpeon-wvrn"
 
                   "super-mario-127"
                 ];
@@ -280,7 +281,7 @@
                           "UPDATE_NIX_OLD_VERSION=${value.version}"
                           "UPDATE_NIX_ATTR_PATH=${name}"
                         ]
-                        ++ (value.updateScript.command or value.updateScript)
+                        ++ (value.updateScript.command or (lib.toList value.updateScript))
                       )}
                     ''
                   else
