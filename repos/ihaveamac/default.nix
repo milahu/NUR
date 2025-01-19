@@ -43,6 +43,26 @@ rec {
   _3dstools = pkgs.callPackage ./pkgs/3dstools { };
   cxitool = pkgs.callPackage ./pkgs/cxitool { };
   launchcontrol = pkgs.callPackage ./pkgs/launchcontrol { };
+  xiv-on-mac = pkgs.callPackage ./pkgs/xiv-on-mac { };
+  testSet = {
+    recurseForDerivations = false;
+    testPackage = pkgs.stdenvNoCC.mkDerivation {
+      name = "test-package";
+
+      dontUnpack = true;
+
+      installPhase = ''
+        echo "#!${pkgs.stdenvNoCC.shell}" > $out
+        echo ${pkgs.lib.escapeShellArg "echo \"This is a test package.\""} >> $out
+        chmod +x $out
+      '';
+
+      meta = with pkgs.lib; {
+        description = "Test package";
+        license = licenses.publicDomain;
+      };
+    };
+  };
 
   mediawiki_1_39 = pkgs.callPackage ./pkgs/mediawiki {
     version = "1.39.11";
