@@ -6,10 +6,10 @@ error:
 
 error: attribute 'maaintainers' missing
 
-at ./pkgs/development/spidermonkey/1.8.5.nix:74:24:
+at ./pkgs/development/spidermonkey/1.8.5.nix:77:24:
 
-    73|     # TODO: MPL/GPL/LGPL tri-license.
-    74|     maintainers = with lib.maaintainers; [ goibhniu ];
+    76|     # TODO: MPL/GPL/LGPL tri-license.
+    77|     maintainers = with lib.maaintainers; [ goibhniu ];
       |                        ^
-    75|     platforms = lib.platforms.linux;
+    78|     platforms = lib.platforms.linux;
 Did you mean maintainers?

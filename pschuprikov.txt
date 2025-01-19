@@ -32,7 +32,7 @@ error:
   at ./default.nix:3:4:
 
      2|   mvn2nix = import (fetchTarball "https://github.com/fzakaria/mvn2nix/archive/master.tar.gz") {};
-     3| in { nixpkgsPath ? <nixpkgs>, pkgs ? import nixpkgsPath { } }:
+     3| in { pkgs ? import <nixpkgs> { } }:
       |    ^
      4| let
 
