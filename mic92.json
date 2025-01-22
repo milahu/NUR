@@ -1,16 +1,16 @@
 {
 "name":"mic92",
-"fetch_time":0.293,
-"eval_time":0.277,
+"fetch_time":0.338,
+"eval_time":0.272,
 "source":{
 "url":"https://github.com/Mic92/nur-packages",
-"rev":"ad067ac2625f8994240c2dc12c1795ec52c52e5a",
-"sha256":"0i0g3qiyal9v205y9na9g23jl5iq547ny84h23mdi9cwlncav0zi",
+"rev":"7ecff711fd512c2d8691867fcd4d2381405d8274",
+"sha256":"0jxi6sndcdr467rxr6sxkbz2yq7zbknwxv0rgkylx63y2x5dprxy",
 "date":null
 },
-"source_storepath":"/nix/store/mjsmqbqlhfm0xw2h4cw1510fmvgkbnxm-source",
-"nixpkgs_storepath":"/nix/store/vidsfr7r3hpc0fylw7d7sws5nyzavlz1-source",
-"nur_combined_rev":"893239a970366e0afcc74dd7c7eeae8c72a33fb9",
+"source_storepath":"/nix/store/ibam87mpd6ckwcbpgcj60h2dr36443r9-source",
+"nixpkgs_storepath":"/nix/store/m7h2iamvm1c3znmrrxdf7n2ncf8miry9-source",
+"nur_combined_rev":"8b187685079259489c66859112473dcabffea7ed",
 "packages":{
 "bing-image-creator":{
 "meta":{
@@ -51,7 +51,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -98,7 +99,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/bing-image-creator/default.nix:28",
 "unfree":false,
@@ -280,7 +282,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/wpa_supplicant/default.nix:141",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/wpa_supplicant/default.nix:166",
 "unfree":false,
 "unsupported":false
 },
@@ -332,7 +334,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -379,7 +382,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/edge-gpt/default.nix:45",
 "unfree":false,
@@ -394,49 +398,6 @@
 "pname":"python3.12-edge-gpt",
 "system":"x86_64-linux",
 "version":"0.13.2"
-},
-"fira-code-pro-nerdfonts":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts",
-"homepage":"https://nerdfonts.com/",
-"hydraPlatforms":[],
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"longDescription":"Nerd Fonts is a project that attempts to patch as many developer targeted\nand/or used fonts as possible. The patch is to specifically add a high\nnumber of additional glyphs from popular 'iconic fonts' such as Font\nAwesome, Devicons, Octicons, and others.\n",
-"maintainers":[
-{
-"email":"me@doronbehar.com",
-"github":"doronbehar",
-"githubId":10998835,
-"name":"Doron Behar"
-}
-],
-"name":"nerdfonts-3.2.1",
-"outputsToInstall":[
-"out"
-],
-"position":"<nixpkgs> + /pkgs/data/fonts/nerdfonts/default.nix:60",
-"unfree":false,
-"unsupported":false
-},
-"name":"nerdfonts-3.2.1",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"nerdfonts",
-"system":"x86_64-linux",
-"version":"3.2.1"
 },
 "gdb-dashboard":{
 "meta":{
@@ -528,6 +489,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -617,6 +579,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -754,6 +717,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -875,7 +839,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mailexporter/default.nix:17",
 "unfree":false,
@@ -929,7 +894,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -976,7 +942,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/mastodon-hnbot/default.nix:17",
 "unfree":false,
@@ -1035,6 +1002,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -1114,6 +1082,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -1203,7 +1172,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1241,6 +1211,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -1416,7 +1387,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1454,6 +1426,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -1544,7 +1517,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1591,7 +1565,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/python-pkgs/gatt.nix:20",
 "unfree":false,
@@ -1646,7 +1621,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1693,7 +1669,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/python-pkgs/jupyterthemes.nix:21",
 "unfree":false,
@@ -1748,7 +1725,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1795,7 +1773,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/python-pkgs/priority.nix:13",
 "unfree":false,
@@ -1850,7 +1829,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -1897,7 +1877,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/python-pkgs/pry.nix:13",
 "unfree":false,
@@ -2004,7 +1985,8 @@
 "x86_64-windows",
 "i686-windows",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "license":{
 "deprecated":false,
@@ -2042,6 +2024,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -2092,49 +2075,6 @@
 "pname":"rspamd-learn-spam-ham",
 "system":"x86_64-linux",
 "version":"1.0.0"
-},
-"source-code-pro-nerdfonts":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts",
-"homepage":"https://nerdfonts.com/",
-"hydraPlatforms":[],
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"longDescription":"Nerd Fonts is a project that attempts to patch as many developer targeted\nand/or used fonts as possible. The patch is to specifically add a high\nnumber of additional glyphs from popular 'iconic fonts' such as Font\nAwesome, Devicons, Octicons, and others.\n",
-"maintainers":[
-{
-"email":"me@doronbehar.com",
-"github":"doronbehar",
-"githubId":10998835,
-"name":"Doron Behar"
-}
-],
-"name":"nerdfonts-3.2.1",
-"outputsToInstall":[
-"out"
-],
-"position":"<nixpkgs> + /pkgs/data/fonts/nerdfonts/default.nix:60",
-"unfree":false,
-"unsupported":false
-},
-"name":"nerdfonts-3.2.1",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"nerdfonts",
-"system":"x86_64-linux",
-"version":"3.2.1"
 },
 "speedscope":{
 "meta":{
@@ -2217,6 +2157,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
@@ -2307,7 +2248,7 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
-"name":"vaultwarden_ldap-1.0.0",
+"name":"vaultwarden_ldap-2.0.2",
 "outputsToInstall":[
 "out"
 ],
@@ -2356,14 +2297,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"vaultwarden_ldap-1.0.0",
+"name":"vaultwarden_ldap-2.0.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vaultwarden_ldap",
 "system":"x86_64-linux",
-"version":"1.0.0"
+"version":"2.0.2"
 },
 "yubikey-touch-detector":{
 "meta":{
@@ -2414,7 +2355,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/yubikey-touch-detector/default.nix:23",
 "unfree":false,
