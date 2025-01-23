@@ -107,7 +107,10 @@ let
       cp $src $out
     '';
 
-    passthru.updateScript = nix-update-script { };
+    passthru.updateScript = nix-update-script {
+      # ignore beta versions
+      extraArgs = [ "--version-regex" "([0-9.]+)" ];
+    };
     passthru.extid = extid;
   };
 
@@ -151,8 +154,8 @@ let
         extid = "sponsorBlocker@ajay.app";
         pname = "sponsorblock";
         url = "https://github.com/ajayyy/SponsorBlock/releases/download/${version}/FirefoxSignedInstaller.xpi";
-        version = "5.11.1";
-        hash = "sha256-T49sSxlzDslir7FnGyctnRn1F6mU57lZxP4QLRFWJFQ=";
+        version = "5.11.3";
+        hash = "sha256-9jUFqSBLriaxdB3U+FdCj8hAn6805UUa7FkxZ/qnQps=";
       };
       ublacklist = fetchVersionedAddon rec {
         extid = "@ublacklist";
