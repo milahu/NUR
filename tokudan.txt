@@ -1,0 +1,20 @@
+error:
+… from call site
+
+  at ./default.nix:24:10:
+
+    23|   superdiskindex = pkgs.callPackage ./pkgs/superdiskindex { };
+    24|   vice = pkgs.callPackage ./pkgs/vice { inherit xa; };
+      |          ^
+    25|   xa = pkgs.callPackage ./pkgs/xa { };
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:238:19:
+
+   237|   callPackageWith =
+   238|     autoArgs: fn: args:
+      |                   ^
+   239|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "pkgconfig" at ./pkgs/vice/default.nix:3, did you mean "pkg-config" or "pkgconf"?'
