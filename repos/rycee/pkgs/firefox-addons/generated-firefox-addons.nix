@@ -97,17 +97,16 @@
     };
     "adaptive-tab-bar-colour" = buildFirefoxXpiAddon {
       pname = "adaptive-tab-bar-colour";
-      version = "2.1.4";
+      version = "2.2.3";
       addonId = "ATBC@EasonWong";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4159211/adaptive_tab_bar_colour-2.1.4.xpi";
-      sha256 = "401e064048826dd627f02043ee04081b7caed191161f3de7cc89c22b4a222ff8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4417939/adaptive_tab_bar_colour-2.2.3.xpi";
+      sha256 = "ef667ce0003317b59f61adb8706766715ffa16b524343ff134d359656d39425a";
       meta = with lib;
       {
         homepage = "https://github.com/easonwong-de/Adaptive-Tab-Bar-Colour";
         description = "Changes the color of Firefox theme to match the website’s appearance.";
         license = licenses.mit;
         mozPermissions = [
-          "activeTab"
           "tabs"
           "theme"
           "storage"
@@ -338,10 +337,10 @@
     };
     "animalese-typing" = buildFirefoxXpiAddon {
       pname = "animalese-typing";
-      version = "1.45.1";
+      version = "1.45.2";
       addonId = "dagexviii.dev@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4422920/animalese_typing-1.45.1.xpi";
-      sha256 = "d41272eeafb1d3c3e2685551f7f3c550573eb554a15e278fdd34de2ce55ea707";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4424252/animalese_typing-1.45.2.xpi";
+      sha256 = "227930642101de655d6b131e892633c162a4ab7f760d1a7d49f26a60846232b1";
       meta = with lib;
       {
         description = "Plays animal crossing villager sounds whenever you type!";
@@ -741,6 +740,31 @@
         description = "Puts an RSS/Atom subscribe button back in URL bar.\n\nSupports \"Live Bookmarks\" (built-in), Feedly, &amp; Inoreader";
         license = licenses.gpl3;
         mozPermissions = [ "tabs" "storage" "<all_urls>" ];
+        platforms = platforms.all;
+      };
+    };
+    "aws-extend-switch-roles3" = buildFirefoxXpiAddon {
+      pname = "aws-extend-switch-roles3";
+      version = "6.0.0";
+      addonId = "aws-extend-switch-roles@toshi.tilfin.com";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4424241/aws_extend_switch_roles3-6.0.0.xpi";
+      sha256 = "28e1cd5ee59dbd40b294f3f1ce25dc3b325c6d1b6e93af640f4478878eaa5945";
+      meta = with lib;
+      {
+        homepage = "https://github.com/tilfinltd/aws-extend-switch-roles";
+        description = "Extend your AWS IAM switching roles. You can set the configuration by aws config format";
+        license = licenses.mit;
+        mozPermissions = [
+          "activeTab"
+          "storage"
+          "https://*.console.aws.amazon.com/*"
+          "https://health.aws.amazon.com/*"
+          "https://lightsail.aws.amazon.com/*"
+          "https://*.console.amazonaws-us-gov.com/*"
+          "https://phd.amazonaws-us-gov.com/*"
+          "https://*.console.amazonaws.cn/*"
+          "https://health.amazonaws.cn/*"
+        ];
         platforms = platforms.all;
       };
     };
@@ -2092,6 +2116,35 @@
         platforms = platforms.all;
       };
     };
+    "cultivate" = buildFirefoxXpiAddon {
+      pname = "cultivate";
+      version = "1.0.48169";
+      addonId = "{348c6313-cb8a-456d-bc65-f9f2ccf57c29}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4296421/cultivate-1.0.48169.xpi";
+      sha256 = "171bdf02f704198c35d35f1ac8433382ee85d3afa8438b8a84a45bb21d96655b";
+      meta = with lib;
+      {
+        homepage = "https://www.wecultivate.us";
+        description = "Detects product's country of origin on Amazon &amp; compares prices across 10,000+ US stores for max savings.";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [
+          "alarms"
+          "cookies"
+          "storage"
+          "unlimitedStorage"
+          "webRequest"
+          "http://*/*"
+          "https://*/*"
+          "*://*.wecultivate.us/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "dark-background-light-text" = buildFirefoxXpiAddon {
       pname = "dark-background-light-text";
       version = "0.7.6";
@@ -2229,10 +2282,10 @@
     };
     "dearrow" = buildFirefoxXpiAddon {
       pname = "dearrow";
-      version = "1.10.1";
+      version = "1.10.2";
       addonId = "deArrow@ajay.app";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4409505/dearrow-1.10.1.xpi";
-      sha256 = "806cbbe7fc3443518a8685da9adabf82edbd3e504598640aeafb0bee6ad5108d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4418631/dearrow-1.10.2.xpi";
+      sha256 = "3021e14ce055876b003cd1b8c559514e177eeb3cff65f402b2530e4473944fbc";
       meta = with lib;
       {
         homepage = "https://dearrow.ajay.app";
@@ -2277,10 +2330,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "134.0.20250120.135430";
+      version = "135.0.20250122.91721";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4423030/deutsch_de_language_pack-134.0.20250120.135430.xpi";
-      sha256 = "05ad2ac8f26add3b73fac44fc5c7dba0fbfdc9b2372bfb87b84b36c398419682";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4424027/deutsch_de_language_pack-135.0.20250122.91721.xpi";
+      sha256 = "87596383165eb26a5597f335a3fac2c4cca78ee8ae143b35079d71622e4d6736";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -2539,10 +2592,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.55.4";
+      version = "2.55.5";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4418265/dualsub-2.55.4.xpi";
-      sha256 = "75c92f19120aa07fe88903227684df042e0752e46503f824f086452b1414182c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4424625/dualsub-2.55.5.xpi";
+      sha256 = "a7ecb8df7edf45b5e828f5d972ffe035a0bc5ed94102aaae484816a46fc54863";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -2702,10 +2755,10 @@
     };
     "elasticvue" = buildFirefoxXpiAddon {
       pname = "elasticvue";
-      version = "1.2.0";
+      version = "1.4.0";
       addonId = "{2879bc11-6e9e-4d73-82c9-1ed8b78df296}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4408853/elasticvue-1.2.0.xpi";
-      sha256 = "ceb0c76dca2aafb744691097b8f73cabeb68cd4d49b54bc1eae8259e50ce1d69";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4424329/elasticvue-1.4.0.xpi";
+      sha256 = "f0d2f1ace46f0be435ab15551f8e888a4c139f8faf61a29bd9c1d08f70c88d28";
       meta = with lib;
       {
         homepage = "https://elasticvue.com/";
@@ -3462,10 +3515,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "134.0.20250120.135430";
+      version = "135.0.20250122.91721";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4422985/francais_language_pack-134.0.20250120.135430.xpi";
-      sha256 = "e4c7bcf1160f5de4e9cc4188cabece5e4eb256133a25337efaf7e3843eb7782e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4424019/francais_language_pack-135.0.20250122.91721.xpi";
+      sha256 = "6d2592c26d52e49f99efa012b410730d60a90b675b8f26e0422f449e9ea72b18";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -3499,10 +3552,10 @@
     };
     "gaidhlig-language-pack" = buildFirefoxXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "134.0.20250120.135430";
+      version = "135.0.20250122.91721";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4423056/gaidhlig_language_pack-134.0.20250120.135430.xpi";
-      sha256 = "c30c65b4fd73ea2eb9931c8ccc754369285dc74ab2df365543d6f26bc892d8e9";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4424017/gaidhlig_language_pack-135.0.20250122.91721.xpi";
+      sha256 = "3ebd9d07afbdb69f261abfd11fbdb08c0a594291f7e99dd7b2fd1847a5ef5696";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -3760,6 +3813,30 @@
           "https://calendar.google.com/*"
           "storage"
           "https://calendar.google.com/calendar/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "google-container" = buildFirefoxXpiAddon {
+      pname = "google-container";
+      version = "1.5.4";
+      addonId = "@contain-google";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3736912/google_container-1.5.4.xpi";
+      sha256 = "47a7c0e85468332a0d949928d8b74376192cde4abaa14280002b3aca4ec814d0";
+      meta = with lib;
+      {
+        homepage = "https://github.com/containers-everywhere/contain-google";
+        description = "THIS IS NOT AN OFFICIAL ADDON FROM MOZILLA!\nIt is a fork of the Facebook Container addon.\n\nPrevent Google from tracking you around the web. The Google Container extension helps you take control and isolate your web activity from Google.";
+        license = licenses.mpl20;
+        mozPermissions = [
+          "<all_urls>"
+          "contextualIdentities"
+          "cookies"
+          "management"
+          "tabs"
+          "webRequestBlocking"
+          "webRequest"
+          "storage"
         ];
         platforms = platforms.all;
       };
@@ -6553,10 +6630,10 @@
     };
     "linkwarden" = buildFirefoxXpiAddon {
       pname = "linkwarden";
-      version = "1.3.0";
+      version = "1.3.1";
       addonId = "jordanlinkwarden@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4419768/linkwarden-1.3.0.xpi";
-      sha256 = "a370332723d46d895e501e92c90e45c8d0401e0133c1cca924e9f22f81b18eb9";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4423886/linkwarden-1.3.1.xpi";
+      sha256 = "ed1fd7cf16fd83531a7580be3758064ae71cc9ed3205afe5c877256922de2646";
       meta = with lib;
       {
         description = "The browser extension for Linkwarden.";
@@ -6576,10 +6653,10 @@
     };
     "localcdn" = buildFirefoxXpiAddon {
       pname = "localcdn";
-      version = "2.6.76";
+      version = "2.6.77";
       addonId = "{b86e4813-687a-43e6-ab65-0bde4ab75758}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4401439/localcdn_fork_of_decentraleyes-2.6.76.xpi";
-      sha256 = "00ce9251e78d82b2cea0db408a50058a26e7eb687d8dfdf2fae77c67c61d49cb";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4418677/localcdn_fork_of_decentraleyes-2.6.77.xpi";
+      sha256 = "22ce6d8e492a82a0f2330b86404e61c3e0214c883e3cafce774918987f181802";
       meta = with lib;
       {
         homepage = "https://www.localcdn.org";
@@ -8266,6 +8343,21 @@
         platforms = platforms.all;
       };
     };
+    "open-in-freedium" = buildFirefoxXpiAddon {
+      pname = "open-in-freedium";
+      version = "1.1.0";
+      addonId = "freedium-browser-extension@wywywywy.com";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4214075/open_in_freedium-1.1.0.xpi";
+      sha256 = "b396390f5c86a4433554f56c4816ef8527b50e1808761e3f9a68d4859192f1a1";
+      meta = with lib;
+      {
+        homepage = "https://github.com/wywywywy/freedium-browser-extension";
+        description = "Easily open Medium articles in Freedium to bypass restrictions";
+        license = licenses.mit;
+        mozPermissions = [ "contextMenus" "storage" ];
+        platforms = platforms.all;
+      };
+    };
     "open-url-in-container" = buildFirefoxXpiAddon {
       pname = "open-url-in-container";
       version = "1.0.3";
@@ -9592,10 +9684,10 @@
     };
     "re-enable-right-click" = buildFirefoxXpiAddon {
       pname = "re-enable-right-click";
-      version = "0.5.6.2";
+      version = "0.6.3";
       addonId = "{278b0ae0-da9d-4cc6-be81-5aa7f3202672}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4300505/re_enable_right_click-0.5.6.2.xpi";
-      sha256 = "c948a2e46d72d27d03323aa4b2a9ed88eeb00c83c84d4bf79063a854ed3baa00";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4418703/re_enable_right_click-0.6.3.xpi";
+      sha256 = "4abf7e5fa49424c6e69fe12fb357f616763f852e7c00bb14ac0c5c46d201e663";
       meta = with lib;
       {
         homepage = "https://webextension.org/listing/allow-right-click.html";
@@ -9604,6 +9696,7 @@
         mozPermissions = [
           "storage"
           "activeTab"
+          "scripting"
           "contextMenus"
           "notifications"
         ];
@@ -10010,10 +10103,10 @@
     };
     "scots-language-pack" = buildFirefoxXpiAddon {
       pname = "scots-language-pack";
-      version = "134.0.20250120.135430";
+      version = "135.0.20250122.91721";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4423027/scots_language_pack-134.0.20250120.135430.xpi";
-      sha256 = "d23ebab5bcc55d5cd45dd337edf5cba44610f6e5231b0969fa2c5596a1cef8e2";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4423984/scots_language_pack-135.0.20250122.91721.xpi";
+      sha256 = "2cad1e75e6f1811a9e3ec81d1ea43b43745263320dff35a3a02336f472cea852";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
@@ -11532,10 +11625,10 @@
     };
     "tree-style-tab" = buildFirefoxXpiAddon {
       pname = "tree-style-tab";
-      version = "4.1.1";
+      version = "4.1.3";
       addonId = "treestyletab@piro.sakura.ne.jp";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4417227/tree_style_tab-4.1.1.xpi";
-      sha256 = "07433d82622184206cea577f1689635f0e74ae3eb378f887fc03ab5f0c26259a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4420652/tree_style_tab-4.1.3.xpi";
+      sha256 = "73e3cde7399ba81c21a0cb08858a92b26e5d8dfe12d84dd4dc83493bba75f804";
       meta = with lib;
       {
         homepage = "http://piro.sakura.ne.jp/xul/_treestyletab.html.en";
@@ -11733,6 +11826,26 @@
           "cookies"
           "https://*.youtube.com/*"
           "https://www.youtube.com/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "twitch-auto-points" = buildFirefoxXpiAddon {
+      pname = "twitch-auto-points";
+      version = "1.2.5";
+      addonId = "{076d8ebb-5df6-48e0-a619-99315c395644}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3783975/twitch_auto_points-1.2.5.xpi";
+      sha256 = "7b11fd334267f61c6f4b2a3ff0450ae227776214790e056cdaf051532eaa8459";
+      meta = with lib;
+      {
+        homepage = "https://github.com/Spring3/twitch-auto-points";
+        description = "Automatic twitch channel points collection";
+        license = licenses.gpl3;
+        mozPermissions = [
+          "activeTab"
+          "storage"
+          "tabs"
+          "https://www.twitch.tv/*"
         ];
         platforms = platforms.all;
       };
@@ -13054,6 +13167,27 @@
         platforms = platforms.all;
       };
     };
+    "webxr-api-emulator" = buildFirefoxXpiAddon {
+      pname = "webxr-api-emulator";
+      version = "0.3.3";
+      addonId = "{c9bd631a-fdc3-488d-b083-0fed11cefb84}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3717226/webxr_api_emulator-0.3.3.xpi";
+      sha256 = "d12b3d35d6a27ddc50a65ebf26ffb83e6fde40546ed277f88e45c1be40da4cca";
+      meta = with lib;
+      {
+        homepage = "https://github.com/MozillaReality/WebXR-emulator-extension";
+        description = "Emulate WebXR devices on your browser";
+        license = licenses.mpl20;
+        mozPermissions = [
+          "file://*/*"
+          "http://*/*"
+          "https://*/*"
+          "storage"
+          "devtools"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "whowrotethat" = buildFirefoxXpiAddon {
       pname = "whowrotethat";
       version = "0.22.2.0";
@@ -13280,6 +13414,30 @@
         description = "Quickly switch videos between YouTube, Piped, Invidious and Chat Replay.";
         license = licenses.mit;
         mozPermissions = [ "tabs" "contextMenus" "storage" ];
+        platforms = platforms.all;
+      };
+    };
+    "youtube-cards" = buildFirefoxXpiAddon {
+      pname = "youtube-cards";
+      version = "1.0.4";
+      addonId = "{fef652df-dd80-450e-b64a-567abeb3aa4b}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4050818/youtube_cards-1.0.4.xpi";
+      sha256 = "e6e983fe3495d9106a6d27efc56acaeff91474af407be3c45236da0df7f142d7";
+      meta = with lib;
+      {
+        homepage = "https://unhook.app";
+        description = "Remove YouTube end cards and end screen recommendation videowall.";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [
+          "storage"
+          "https://*.youtube.com/*"
+          "https://*.youtube-nocookie.com/*"
+        ];
         platforms = platforms.all;
       };
     };
