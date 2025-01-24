@@ -32,21 +32,21 @@ error:
 
 … while calling 'callPackagesWith'
 
-  at <nixpkgs> + /lib/customisation.nix:338:19:
+  at <nixpkgs> + /lib/customisation.nix:340:19:
 
-   337|   callPackagesWith =
-   338|     autoArgs: fn: args:
+   339|   callPackagesWith =
+   340|     autoArgs: fn: args:
       |                   ^
-   339|     let
+   341|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:347:8:
+  at <nixpkgs> + /lib/customisation.nix:349:8:
 
-   346|     in
-   347|     if isDerivation pkgs then
+   348|     in
+   349|     if isDerivation pkgs then
       |        ^
-   348|       throw (
+   350|       throw (
 
 … while calling 'isDerivation'
 
@@ -59,12 +59,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:344:14:
+  at <nixpkgs> + /lib/customisation.nix:346:14:
 
-   343|       origArgs = auto // args;
-   344|       pkgs = f origArgs;
+   345|       origArgs = auto // args;
+   346|       pkgs = f origArgs;
       |              ^
-   345|       mkAttrOverridable = name: _: makeOverridable (mirrorArgs (newArgs: (f newArgs).${name})) origArgs;
+   347|       mkAttrOverridable = name: _: makeOverridable (mirrorArgs (newArgs: (f newArgs).${name})) origArgs;
 
 … while calling anonymous lambda
 
