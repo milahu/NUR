@@ -135,6 +135,7 @@ in
         self.dunst
         self.emacs
         self.gcc
+        self.gitAndTools.git-lfs
         self.gitAndTools.gitFull
         self.gitAndTools.hub
         self.gnome-keyring
