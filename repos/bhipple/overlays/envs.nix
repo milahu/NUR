@@ -134,6 +134,7 @@ in
         self.discord
         self.dunst
         self.emacs
+        self.ffmpeg
         self.gcc
         self.gitAndTools.git-lfs
         self.gitAndTools.gitFull
