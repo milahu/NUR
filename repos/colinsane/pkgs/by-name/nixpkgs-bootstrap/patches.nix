@@ -47,12 +47,6 @@ in
   # })
 
   (fetchpatch' {
-    name = "nautilus: fix cross compilation";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/373662";
-    hash = "sha256-lm/FNd9yaTDGW1NXHjrZc1cP3wyp9LlWH9CfkyViymk=";
-  })
-
-  (fetchpatch' {
     # patch should be safe to remove; keeping it here to track the upstreaming status
     name = "nixos/gitea: don't configure the database if `createDatabase == false`";
     prUrl = "https://github.com/NixOS/nixpkgs/pull/268849";
@@ -65,15 +59,6 @@ in
   #   name = "stepmania: wrap the program so it knows where to find its data files";
   #   saneCommit = "e2022b4caab6dcf031841fcf48752ebeb6837978";
   #   hash = "sha256-43zxnbUJuGXThadHoQRi6cevD7SFSZejWj324V6eBpw=";
-  # })
-
-  # (fetchpatch' {
-  #   # this causes a rebuild of systemd and everything above it:
-  #   # PR against staging is live: <https://github.com/NixOS/nixpkgs/pull/332399>
-  #   name = "libcap: ship the optional 'captree' component";
-  #   prUrl = "https://github.com/NixOS/nixpkgs/pull/332399";
-  #   saneCommit = "30d6d5d6e86c490978b9615a9c685ffd92c81116";
-  #   hash = "sha256-hEcpS7r1K6yb5dcj2evbWajwIQaaSHKdLPQVg1LlCYE=";
   # })
 
   # (fetchpatch' {
@@ -143,22 +128,5 @@ in
   #   saneCommit = "c9b90ef1e17ea21ac779a86994e5d9079a2057b9";
   #   name = "librewolf-pmos-mobile: init";
   #   hash = "sha256-oQEM3EZfAOmfZzDu9faCqyOFZsdHYGn1mVBgkxt68Zg=";
-  # })
-
-  # these probably work, but i don't use them
-  # (fetchpatch' {
-  #   name = "networkmanager-openvpn: support cross compilation";
-  #   saneCommit = "6f53c267fbeb2ff543f075032a7e73af2d4bcb9e";
-  #   hash = "sha256-gq9AyKH7/k2ZVSZ3jpPJPt3uAM+CllXQnaiC1tE1r/8=";
-  # })
-  # (fetchpatch' {
-  #   name = "WIP: networkmanager-sstp: support cross compilation";
-  #   saneCommit = "6de63fe320406ec9a509db721c52b3894a93bda2";
-  #   hash = "sha256-EY3bQuv/80JbpquUJhc89CcYAgN9A9KkpsSitw/684I=";
-  # })
-  # (fetchpatch' {
-  #   name = "WIP: networkmanager-l2tp: support cross compilation";
-  #   saneCommit = "7a4191c570b0e5a1ab257222c26a4a2ecb945037";
-  #   hash = "sha256-FiPJhHGqZ8MFwLY+1t6HgbK6ndomFSYUKvApvrikRHE=";
   # })
 ]
