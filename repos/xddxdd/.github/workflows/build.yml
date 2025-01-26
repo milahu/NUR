@@ -16,6 +16,9 @@ jobs:
         ci-command:
           - ci
           - ci-cuda
+        exclude:
+          - base-image: ubuntu-24.04-arm
+            ci-command: ci-cuda
     runs-on: ${{ matrix.base-image }}
     env:
       GIT_SSL_NO_VERIFY: 'true'
@@ -23,8 +26,8 @@ jobs:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
-          root-reserve-mb: 512
-          swap-size-mb: 1024
+          root-reserve-mb: 8192
+          swap-size-mb: 4096
           build-mount-path: '/nix'
           remove-dotnet: 'true'
           remove-android: 'true'

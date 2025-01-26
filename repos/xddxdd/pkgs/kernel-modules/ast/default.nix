@@ -6,10 +6,10 @@
 }:
 stdenv.mkDerivation rec {
   pname = "ast";
-  version = "1.14.3_3";
+  version = "1.15.1_4";
   src = fetchurl {
     url = "https://www.aspeedtech.com/file/support/Linux_DRM_${version}.tar.gz";
-    sha256 = "sha256-96qFI5zYXxzC/dhyueWVSVwl60ytDBb4iiH6E/E9uRk=";
+    sha256 = "sha256-5TFASIuZIZP7HH1G2r1CM4FPewiF0uaRVzuYa9TTnlM=";
     # Aspeed website has certificate issues
     curlOptsList = [ "-k" ];
   };
@@ -24,7 +24,8 @@ stdenv.mkDerivation rec {
   KSRC = "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build";
   INSTALL_MOD_PATH = placeholder "out";
 
-  inherit (kernel) makeFlags;
+  makeFlags =
+    if lib.hasAttr "moduleMakeFlags" kernel then kernel.moduleMakeFlags else kernel.makeFlags;
   preBuild = ''
     makeFlags="$makeFlags -C ${KSRC} M=$(pwd)"
   '';
@@ -36,5 +37,6 @@ stdenv.mkDerivation rec {
     homepage = "https://www.aspeedtech.com/support_driver/";
     license = lib.licenses.unfree;
     platforms = lib.platforms.linux;
+    broken = lib.versionAtLeast kernel.version "6.12";
   };
 }
