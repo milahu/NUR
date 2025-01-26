@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.407,
-"eval_time":0.94,
+"fetch_time":0.94,
+"eval_time":0.908,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"5363f9cf43dda8516c848eb80b06a7d652e42046",
-"sha256":"1lywbs27wqpxn953bsazh76gvh0wm4jryd6l4aaclmagzqz71cgc",
+"rev":"53ab6d03bddbf9b79fda75ab82269fab3761cada",
+"sha256":"15jdgag2bnhjxgpc76hmf95h3as84n3j8vps3lkb6ncrcb1fxc3y",
 "date":null
 },
-"source_storepath":"/nix/store/sgwsqxnvvyc3frdwrm8wy1iwh9l1rw27-source",
-"nixpkgs_storepath":"/nix/store/1jzny3kbx5k4vfz4dgpjd8zng0fj2vsf-source",
-"nur_combined_rev":"3d7a1dacf4099eeacd6545f2a615da44169201d3",
+"source_storepath":"/nix/store/l6gidbwmklg1y2a4ncl6xbj38ad3dpdy-source",
+"nixpkgs_storepath":"/nix/store/ivanxzwr16lv4lss8b4xf4zs0zp4mz09-source",
+"nur_combined_rev":"091785429cf9e09ccde740b30f76e324f5c19ddf",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -169,7 +169,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/acpi-ec/default.nix:28",
+"position":"./pkgs/kernel-modules/acpi-ec/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
@@ -241,8 +241,8 @@
 },
 "amule-dlp":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"Peer-to-peer client for the eD2K and Kademlia networks (with Dynamic Leech Protection)",
 "homepage":"https://github.com/persmule/amule-dlp",
 "insecure":false,
@@ -340,7 +340,7 @@
 "ast":{
 "meta":{
 "available":false,
-"broken":false,
+"broken":true,
 "description":"Aspeed Graphics Driver",
 "homepage":"https://www.aspeedtech.com/support_driver/",
 "insecure":false,
@@ -367,7 +367,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"ast-1.14.3_3",
+"name":"ast-1.15.1_4",
 "outputsToInstall":[
 "out"
 ],
@@ -394,18 +394,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/ast/default.nix:35",
+"position":"./pkgs/kernel-modules/ast/default.nix:36",
 "unfree":true,
 "unsupported":false
 },
-"name":"ast-1.14.3_3",
+"name":"ast-1.15.1_4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ast",
 "system":"x86_64-linux",
-"version":"1.14.3_3"
+"version":"1.15.1_4"
 },
 "asterisk-g72x":{
 "meta":{
@@ -1114,7 +1114,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"boringssl-oqs-0-unstable-2024-12-20",
+"name":"boringssl-oqs-0-unstable-2025-01-20",
 "outputsToInstall":[
 "bin"
 ],
@@ -1154,7 +1154,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boringssl-oqs-0-unstable-2024-12-20",
+"name":"boringssl-oqs-0-unstable-2025-01-20",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -1163,7 +1163,7 @@
 },
 "pname":"boringssl-oqs",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-12-20"
+"version":"0-unstable-2025-01-20"
 },
 "browser360":{
 "meta":{
@@ -2751,7 +2751,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/dpdk-kmod/default.nix:31",
+"position":"./pkgs/kernel-modules/dpdk-kmod/default.nix:32",
 "unfree":false,
 "unsupported":false
 },
@@ -3218,7 +3218,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"fastapi-dls-1.3.12-unstable-2024-12-16",
+"name":"fastapi-dls-1.3.12-unstable-2025-01-21",
 "outputsToInstall":[
 "out"
 ],
@@ -3226,14 +3226,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"fastapi-dls-1.3.12-unstable-2024-12-16",
+"name":"fastapi-dls-1.3.12-unstable-2025-01-21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fastapi-dls",
 "system":"x86_64-linux",
-"version":"1.3.12-unstable-2024-12-16"
+"version":"1.3.12-unstable-2025-01-21"
 },
 "fcitx5-breeze":{
 "meta":{
@@ -3440,7 +3440,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"flaresolverr-21hsmw-0-unstable-2024-11-01",
+"name":"flaresolverr-21hsmw-0-unstable-2025-01-19",
 "outputsToInstall":[
 "out"
 ],
@@ -3467,18 +3467,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/flaresolverr-21hsmw/default.nix:63",
+"position":"./pkgs/uncategorized/flaresolverr-21hsmw/default.nix:70",
 "unfree":false,
 "unsupported":false
 },
-"name":"flaresolverr-21hsmw-0-unstable-2024-11-01",
+"name":"flaresolverr-21hsmw-0-unstable-2025-01-19",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"flaresolverr",
 "system":"x86_64-linux",
-"version":"21hsmw-0-unstable-2024-11-01"
+"version":"21hsmw-0-unstable-2025-01-19"
 },
 "ftp-proxy":{
 "meta":{
@@ -3600,7 +3600,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-funasr-0-unstable-2025-01-16",
+"name":"python3.12-funasr-0-unstable-2025-01-24",
 "outputsToInstall":[
 "out"
 ],
@@ -3643,7 +3643,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-funasr-0-unstable-2025-01-16",
+"name":"python3.12-funasr-0-unstable-2025-01-24",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3651,7 +3651,7 @@
 },
 "pname":"python3.12-funasr",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-01-16"
+"version":"0-unstable-2025-01-24"
 },
 "glauth":{
 "meta":{
@@ -4380,25 +4380,25 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"i915-sriov-0-unstable-2025-01-03",
+"name":"i915-sriov-0-unstable-2025-01-22",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/i915-sriov/default.nix:28",
+"position":"./pkgs/kernel-modules/i915-sriov/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
-"name":"i915-sriov-0-unstable-2025-01-03",
+"name":"i915-sriov-0-unstable-2025-01-22",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"i915-sriov",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-01-03"
+"version":"0-unstable-2025-01-22"
 },
 "imewlconverter":{
 "meta":{
@@ -4895,7 +4895,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/acpi-ec/default.nix:28",
+"position":"./pkgs/kernel-modules/acpi-ec/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
@@ -4911,7 +4911,7 @@
 "kernel-modules.ast":{
 "meta":{
 "available":false,
-"broken":false,
+"broken":true,
 "description":"Aspeed Graphics Driver",
 "homepage":"https://www.aspeedtech.com/support_driver/",
 "insecure":false,
@@ -4938,7 +4938,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"ast-1.14.3_3",
+"name":"ast-1.15.1_4",
 "outputsToInstall":[
 "out"
 ],
@@ -4965,18 +4965,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/ast/default.nix:35",
+"position":"./pkgs/kernel-modules/ast/default.nix:36",
 "unfree":true,
 "unsupported":false
 },
-"name":"ast-1.14.3_3",
+"name":"ast-1.15.1_4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ast",
 "system":"x86_64-linux",
-"version":"1.14.3_3"
+"version":"1.15.1_4"
 },
 "kernel-modules.cryptodev-unstable":{
 "meta":{
@@ -5109,7 +5109,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/dpdk-kmod/default.nix:31",
+"position":"./pkgs/kernel-modules/dpdk-kmod/default.nix:32",
 "unfree":false,
 "unsupported":false
 },
@@ -5154,25 +5154,25 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"i915-sriov-0-unstable-2025-01-03",
+"name":"i915-sriov-0-unstable-2025-01-22",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/i915-sriov/default.nix:28",
+"position":"./pkgs/kernel-modules/i915-sriov/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
-"name":"i915-sriov-0-unstable-2025-01-03",
+"name":"i915-sriov-0-unstable-2025-01-22",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"i915-sriov",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-01-03"
+"version":"0-unstable-2025-01-22"
 },
 "kernel-modules.nft-fullcone":{
 "meta":{
@@ -5233,7 +5233,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/nft-fullcone/default.nix:30",
+"position":"./pkgs/kernel-modules/nft-fullcone/default.nix:31",
 "unfree":false,
 "unsupported":false
 },
@@ -5305,7 +5305,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/nullfsvfs/default.nix:29",
+"position":"./pkgs/kernel-modules/nullfsvfs/default.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -5447,7 +5447,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/r8125/default.nix:32",
+"position":"./pkgs/kernel-modules/r8125/default.nix:33",
 "unfree":true,
 "unsupported":false
 },
@@ -5517,7 +5517,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/r8168/default.nix:32",
+"position":"./pkgs/kernel-modules/r8168/default.nix:33",
 "unfree":true,
 "unsupported":false
 },
@@ -6044,7 +6044,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"librime-1.12.0",
+"name":"librime-1.13.0",
 "outputsToInstall":[
 "out"
 ],
@@ -6079,14 +6079,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"librime-1.12.0",
+"name":"librime-1.13.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"librime",
 "system":"x86_64-linux",
-"version":"1.12.0"
+"version":"1.13.0"
 },
 "lantianCustomized.llama-cpp":{
 "meta":{
@@ -6127,7 +6127,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"llama-cpp-4508",
+"name":"llama-cpp-4549",
 "outputsToInstall":[
 "out"
 ],
@@ -6178,24 +6178,24 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/ll/llama-cpp/package.nix:193",
+"position":"<nixpkgs> + /pkgs/by-name/ll/llama-cpp/package.nix:196",
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-4508",
+"name":"llama-cpp-4549",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"4508"
+"version":"4549"
 },
 "lantianCustomized.materialgram":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/kukuruzka165/materialgram/releases/tag/v5.9.0.1",
+"changelog":"https://github.com/kukuruzka165/materialgram/releases/tag/v5.10.3.1",
 "description":"Telegram Desktop fork with material icons and some improvements (Without anti-features)",
 "homepage":"https://kukuruzka165.github.io/materialgram/",
 "insecure":false,
@@ -6226,7 +6226,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"materialgram-unwrapped-5.9.0.1",
+"name":"materialgram-unwrapped-5.10.3.1",
 "outputsToInstall":[
 "out"
 ],
@@ -6313,14 +6313,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"materialgram-5.9.0.1",
+"name":"materialgram-5.10.3.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"materialgram",
 "system":"x86_64-linux",
-"version":"5.9.0.1"
+"version":"5.10.3.1"
 },
 "lantianCustomized.nbfc-linux":{
 "meta":{
@@ -6663,426 +6663,6 @@
 "system":"x86_64-linux",
 "version":"4.0.6"
 },
-"lantianLinuxXanmod.generic":{
-"meta":{
-"available":true,
-"badPlatforms":[],
-"broken":false,
-"description":"Linux Xanmod Kernel with Lan Tian Modifications",
-"homepage":"https://www.kernel.org/",
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"GNU General Public License v2.0 only",
-"redistributable":true,
-"shortName":"gpl2Only",
-"spdxId":"GPL-2.0-only",
-"url":"https://spdx.org/licenses/GPL-2.0-only.html"
-},
-"maintainers":[
-{
-"email":"tredwell@tutanota.com",
-"github":"TredwellGit",
-"githubId":61860346,
-"name":"Tredwell"
-},
-{
-"email":"me@0upti.me",
-"github":"K900",
-"githubId":386765,
-"matrix":"@k900:0upti.me",
-"name":"Ilya K."
-},
-{
-"email":"maximilian@mbosch.me",
-"github":"Ma27",
-"githubId":6025220,
-"matrix":"@ma27:nicht-so.sexy",
-"name":"Maximilian Bosch"
-},
-{
-"email":"tim@nequissimus.com",
-"github":"NeQuissimus",
-"githubId":628342,
-"name":"Tim Steinbach"
-},
-{
-"email":"hi@alyssa.is",
-"github":"alyssais",
-"githubId":2768870,
-"keys":[
-{
-"fingerprint":"7573 56D7 79BB B888 773E  415E 736C CDF9 EF51 BD97"
-}
-],
-"matrix":"@qyliss:fairydust.space",
-"name":"Alyssa Ross"
-},
-{
-"email":"aseipp@pobox.com",
-"github":"thoughtpolice",
-"githubId":3416,
-"name":"Austin Seipp"
-}
-],
-"name":"linux-xanmod-generic-6.12.10-xanmod1",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux"
-],
-"position":"./helpers/kernel/default.nix:186",
-"timeout":14400,
-"unfree":false,
-"unsupported":false
-},
-"name":"linux-xanmod-generic-6.12.10-xanmod1",
-"outputName":"out",
-"outputs":{
-"dev":null,
-"out":null
-},
-"pname":"linux-xanmod-generic",
-"system":"x86_64-linux",
-"version":"6.12.10-xanmod1"
-},
-"lantianLinuxXanmod.generic-lto":{
-"meta":{
-"available":true,
-"badPlatforms":[],
-"broken":false,
-"description":"Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-"homepage":"https://www.kernel.org/",
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"GNU General Public License v2.0 only",
-"redistributable":true,
-"shortName":"gpl2Only",
-"spdxId":"GPL-2.0-only",
-"url":"https://spdx.org/licenses/GPL-2.0-only.html"
-},
-"maintainers":[
-{
-"email":"tredwell@tutanota.com",
-"github":"TredwellGit",
-"githubId":61860346,
-"name":"Tredwell"
-},
-{
-"email":"me@0upti.me",
-"github":"K900",
-"githubId":386765,
-"matrix":"@k900:0upti.me",
-"name":"Ilya K."
-},
-{
-"email":"maximilian@mbosch.me",
-"github":"Ma27",
-"githubId":6025220,
-"matrix":"@ma27:nicht-so.sexy",
-"name":"Maximilian Bosch"
-},
-{
-"email":"tim@nequissimus.com",
-"github":"NeQuissimus",
-"githubId":628342,
-"name":"Tim Steinbach"
-},
-{
-"email":"hi@alyssa.is",
-"github":"alyssais",
-"githubId":2768870,
-"keys":[
-{
-"fingerprint":"7573 56D7 79BB B888 773E  415E 736C CDF9 EF51 BD97"
-}
-],
-"matrix":"@qyliss:fairydust.space",
-"name":"Alyssa Ross"
-},
-{
-"email":"aseipp@pobox.com",
-"github":"thoughtpolice",
-"githubId":3416,
-"name":"Austin Seipp"
-}
-],
-"name":"linux-xanmod-generic-lto-6.12.10-xanmod1",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux"
-],
-"position":"./helpers/kernel/default.nix:186",
-"timeout":14400,
-"unfree":false,
-"unsupported":false
-},
-"name":"linux-xanmod-generic-lto-6.12.10-xanmod1",
-"outputName":"out",
-"outputs":{
-"dev":null,
-"out":null
-},
-"pname":"linux-xanmod-generic-lto",
-"system":"x86_64-linux",
-"version":"6.12.10-xanmod1"
-},
-"lantianLinuxXanmod.latest-generic":{
-"meta":{
-"available":true,
-"badPlatforms":[],
-"broken":false,
-"description":"Linux Xanmod Kernel with Lan Tian Modifications",
-"homepage":"https://www.kernel.org/",
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"GNU General Public License v2.0 only",
-"redistributable":true,
-"shortName":"gpl2Only",
-"spdxId":"GPL-2.0-only",
-"url":"https://spdx.org/licenses/GPL-2.0-only.html"
-},
-"maintainers":[
-{
-"email":"tredwell@tutanota.com",
-"github":"TredwellGit",
-"githubId":61860346,
-"name":"Tredwell"
-},
-{
-"email":"me@0upti.me",
-"github":"K900",
-"githubId":386765,
-"matrix":"@k900:0upti.me",
-"name":"Ilya K."
-},
-{
-"email":"maximilian@mbosch.me",
-"github":"Ma27",
-"githubId":6025220,
-"matrix":"@ma27:nicht-so.sexy",
-"name":"Maximilian Bosch"
-},
-{
-"email":"tim@nequissimus.com",
-"github":"NeQuissimus",
-"githubId":628342,
-"name":"Tim Steinbach"
-},
-{
-"email":"hi@alyssa.is",
-"github":"alyssais",
-"githubId":2768870,
-"keys":[
-{
-"fingerprint":"7573 56D7 79BB B888 773E  415E 736C CDF9 EF51 BD97"
-}
-],
-"matrix":"@qyliss:fairydust.space",
-"name":"Alyssa Ross"
-},
-{
-"email":"aseipp@pobox.com",
-"github":"thoughtpolice",
-"githubId":3416,
-"name":"Austin Seipp"
-}
-],
-"name":"linux-xanmod-latest-generic-6.12.10-xanmod1",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux"
-],
-"position":"./helpers/kernel/default.nix:186",
-"timeout":14400,
-"unfree":false,
-"unsupported":false
-},
-"name":"linux-xanmod-latest-generic-6.12.10-xanmod1",
-"outputName":"out",
-"outputs":{
-"dev":null,
-"out":null
-},
-"pname":"linux-xanmod-latest-generic",
-"system":"x86_64-linux",
-"version":"6.12.10-xanmod1"
-},
-"lantianLinuxXanmod.latest-generic-lto":{
-"meta":{
-"available":true,
-"badPlatforms":[],
-"broken":false,
-"description":"Linux Xanmod Kernel with Lan Tian Modifications and Clang+ThinLTO",
-"homepage":"https://www.kernel.org/",
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"GNU General Public License v2.0 only",
-"redistributable":true,
-"shortName":"gpl2Only",
-"spdxId":"GPL-2.0-only",
-"url":"https://spdx.org/licenses/GPL-2.0-only.html"
-},
-"maintainers":[
-{
-"email":"tredwell@tutanota.com",
-"github":"TredwellGit",
-"githubId":61860346,
-"name":"Tredwell"
-},
-{
-"email":"me@0upti.me",
-"github":"K900",
-"githubId":386765,
-"matrix":"@k900:0upti.me",
-"name":"Ilya K."
-},
-{
-"email":"maximilian@mbosch.me",
-"github":"Ma27",
-"githubId":6025220,
-"matrix":"@ma27:nicht-so.sexy",
-"name":"Maximilian Bosch"
-},
-{
-"email":"tim@nequissimus.com",
-"github":"NeQuissimus",
-"githubId":628342,
-"name":"Tim Steinbach"
-},
-{
-"email":"hi@alyssa.is",
-"github":"alyssais",
-"githubId":2768870,
-"keys":[
-{
-"fingerprint":"7573 56D7 79BB B888 773E  415E 736C CDF9 EF51 BD97"
-}
-],
-"matrix":"@qyliss:fairydust.space",
-"name":"Alyssa Ross"
-},
-{
-"email":"aseipp@pobox.com",
-"github":"thoughtpolice",
-"githubId":3416,
-"name":"Austin Seipp"
-}
-],
-"name":"linux-xanmod-latest-generic-lto-6.12.10-xanmod1",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux"
-],
-"position":"./helpers/kernel/default.nix:186",
-"timeout":14400,
-"unfree":false,
-"unsupported":false
-},
-"name":"linux-xanmod-latest-generic-lto-6.12.10-xanmod1",
-"outputName":"out",
-"outputs":{
-"dev":null,
-"out":null
-},
-"pname":"linux-xanmod-latest-generic-lto",
-"system":"x86_64-linux",
-"version":"6.12.10-xanmod1"
-},
 "lantianLinuxXanmod.lts-generic":{
 "meta":{
 "available":true,
@@ -7146,7 +6726,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-xanmod-lts-generic-6.12.10-xanmod1",
+"name":"linux-xanmod-lts-generic-6.12.11-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -7178,7 +6758,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-xanmod-lts-generic-6.12.10-xanmod1",
+"name":"linux-xanmod-lts-generic-6.12.11-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -7186,7 +6766,7 @@
 },
 "pname":"linux-xanmod-lts-generic",
 "system":"x86_64-linux",
-"version":"6.12.10-xanmod1"
+"version":"6.12.11-xanmod1"
 },
 "lantianLinuxXanmod.lts-generic-lto":{
 "meta":{
@@ -7251,7 +6831,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-xanmod-lts-generic-lto-6.12.10-xanmod1",
+"name":"linux-xanmod-lts-generic-lto-6.12.11-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -7283,7 +6863,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-xanmod-lts-generic-lto-6.12.10-xanmod1",
+"name":"linux-xanmod-lts-generic-lto-6.12.11-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -7291,7 +6871,7 @@
 },
 "pname":"linux-xanmod-lts-generic-lto",
 "system":"x86_64-linux",
-"version":"6.12.10-xanmod1"
+"version":"6.12.11-xanmod1"
 },
 "lantianLinuxXanmod.v6_0-generic":{
 "meta":{
@@ -9456,7 +9036,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-xanmod-v6_12-generic-6.12.10-xanmod1",
+"name":"linux-xanmod-v6_12-generic-6.12.11-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9488,7 +9068,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-xanmod-v6_12-generic-6.12.10-xanmod1",
+"name":"linux-xanmod-v6_12-generic-6.12.11-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9496,7 +9076,7 @@
 },
 "pname":"linux-xanmod-v6_12-generic",
 "system":"x86_64-linux",
-"version":"6.12.10-xanmod1"
+"version":"6.12.11-xanmod1"
 },
 "lantianLinuxXanmod.v6_12-generic-lto":{
 "meta":{
@@ -9561,7 +9141,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-xanmod-v6_12-generic-lto-6.12.10-xanmod1",
+"name":"linux-xanmod-v6_12-generic-lto-6.12.11-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9593,7 +9173,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-xanmod-v6_12-generic-lto-6.12.10-xanmod1",
+"name":"linux-xanmod-v6_12-generic-lto-6.12.11-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9601,7 +9181,7 @@
 },
 "pname":"linux-xanmod-v6_12-generic-lto",
 "system":"x86_64-linux",
-"version":"6.12.10-xanmod1"
+"version":"6.12.11-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-generic":{
 "meta":{
@@ -11970,7 +11550,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/nft-fullcone/default.nix:30",
+"position":"./pkgs/kernel-modules/nft-fullcone/default.nix:31",
 "unfree":false,
 "unsupported":false
 },
@@ -12043,7 +11623,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/nftables/default.nix:82",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/nftables/default.nix:90",
 "unfree":false,
 "unsupported":false
 },
@@ -12216,7 +11796,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/nullfsvfs/default.nix:29",
+"position":"./pkgs/kernel-modules/nullfsvfs/default.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -12473,7 +12053,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openai-edge-tts-0-unstable-2024-12-27",
+"name":"openai-edge-tts-0-unstable-2025-01-22",
 "outputsToInstall":[
 "out"
 ],
@@ -12481,14 +12061,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openai-edge-tts-0-unstable-2024-12-27",
+"name":"openai-edge-tts-0-unstable-2025-01-22",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openai-edge-tts",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-12-27"
+"version":"0-unstable-2025-01-22"
 },
 "opencc-python-reimplemented":{
 "meta":{
@@ -21545,7 +21125,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openjdk-adoptium-jdk-bin-11.0.25_9_adopt",
+"name":"openjdk-adoptium-jdk-bin-11.0.26_4_adopt",
 "outputsToInstall":[
 "out"
 ],
@@ -21553,78 +21133,20 @@
 "aarch64-linux",
 "armv7l-linux",
 "ppc64le-linux",
-"s390x-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
 "unfree":false,
 "unsupported":false
 },
-"name":"openjdk-adoptium-jdk-bin-11.0.25_9_adopt",
+"name":"openjdk-adoptium-jdk-bin-11.0.26_4_adopt",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openjdk-adoptium-jdk-bin",
 "system":"x86_64-linux",
-"version":"11.0.25_9_adopt"
-},
-"openjdk-adoptium.jdk-bin-11_0_12_7":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"OpenJDK binaries built by Eclipse Adoptium",
-"homepage":"https://adoptium.net/",
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
-"redistributable":true,
-"shortName":"gpl2Classpath",
-"spdxId":"GPL-2.0-with-classpath-exception",
-"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
-},
-"mainProgram":"java",
-"maintainers":[
-{
-"email":"b980120@hotmail.com",
-"github":"xddxdd",
-"githubId":5778879,
-"keys":[
-{
-"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
-},
-{
-"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
-}
-],
-"name":"Yuhui Xu"
-}
-],
-"name":"openjdk-adoptium-jdk-bin-11.0.12_7_adopt",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"armv7l-linux",
-"ppc64le-linux",
-"s390x-linux",
-"x86_64-linux"
-],
-"position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
-"unfree":false,
-"unsupported":false
-},
-"name":"openjdk-adoptium-jdk-bin-11.0.12_7_adopt",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"openjdk-adoptium-jdk-bin",
-"system":"x86_64-linux",
-"version":"11.0.12_7_adopt"
+"version":"11.0.26_4_adopt"
 },
 "openjdk-adoptium.jdk-bin-11_0_13_8":{
 "meta":{
@@ -22538,6 +22060,62 @@
 "system":"x86_64-linux",
 "version":"11.0.25_9_adopt"
 },
+"openjdk-adoptium.jdk-bin-11_0_26_4":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJDK binaries built by Eclipse Adoptium",
+"homepage":"https://adoptium.net/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openjdk-adoptium-jdk-bin-11.0.26_4_adopt",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"armv7l-linux",
+"ppc64le-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openjdk-adoptium-jdk-bin-11.0.26_4_adopt",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openjdk-adoptium-jdk-bin",
+"system":"x86_64-linux",
+"version":"11.0.26_4_adopt"
+},
 "openjdk-adoptium.jdk-bin-16":{
 "meta":{
 "available":true,
@@ -22685,7 +22263,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openjdk-adoptium-jdk-bin-17.0.13_11_adopt",
+"name":"openjdk-adoptium-jdk-bin-17.0.14_7_adopt",
 "outputsToInstall":[
 "out"
 ],
@@ -22693,7 +22271,6 @@
 "aarch64-linux",
 "armv7l-linux",
 "ppc64le-linux",
-"riscv64-linux",
 "s390x-linux",
 "x86_64-linux"
 ],
@@ -22701,14 +22278,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openjdk-adoptium-jdk-bin-17.0.13_11_adopt",
+"name":"openjdk-adoptium-jdk-bin-17.0.14_7_adopt",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openjdk-adoptium-jdk-bin",
 "system":"x86_64-linux",
-"version":"17.0.13_11_adopt"
+"version":"17.0.14_7_adopt"
 },
 "openjdk-adoptium.jdk-bin-17_0_10_7":{
 "meta":{
@@ -22940,6 +22517,63 @@
 "pname":"openjdk-adoptium-jdk-bin",
 "system":"x86_64-linux",
 "version":"17.0.13_11_adopt"
+},
+"openjdk-adoptium.jdk-bin-17_0_14_7":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJDK binaries built by Eclipse Adoptium",
+"homepage":"https://adoptium.net/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openjdk-adoptium-jdk-bin-17.0.14_7_adopt",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"armv7l-linux",
+"ppc64le-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openjdk-adoptium-jdk-bin-17.0.14_7_adopt",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openjdk-adoptium-jdk-bin",
+"system":"x86_64-linux",
+"version":"17.0.14_7_adopt"
 },
 "openjdk-adoptium.jdk-bin-17_0_1_12":{
 "meta":{
@@ -23943,13 +23577,12 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openjdk-adoptium-jdk-bin-8u432-b06_adopt",
+"name":"openjdk-adoptium-jdk-bin-8u442-b06_adopt",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
-"armv7l-linux",
 "ppc64le-linux",
 "x86_64-linux"
 ],
@@ -23957,14 +23590,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openjdk-adoptium-jdk-bin-8u432-b06_adopt",
+"name":"openjdk-adoptium-jdk-bin-8u442-b06_adopt",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openjdk-adoptium-jdk-bin",
 "system":"x86_64-linux",
-"version":"8u432-b06_adopt"
+"version":"8u442-b06_adopt"
 },
 "openjdk-adoptium.jdk-bin-8u302_b08":{
 "meta":{
@@ -24806,6 +24439,61 @@
 "system":"x86_64-linux",
 "version":"8u432-b06_adopt"
 },
+"openjdk-adoptium.jdk-bin-8u442_b06":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJDK binaries built by Eclipse Adoptium",
+"homepage":"https://adoptium.net/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openjdk-adoptium-jdk-bin-8u442-b06_adopt",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"ppc64le-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openjdk-adoptium-jdk-bin-8u442-b06_adopt",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openjdk-adoptium-jdk-bin",
+"system":"x86_64-linux",
+"version":"8u442-b06_adopt"
+},
 "openjdk-adoptium.jre-bin-11":{
 "meta":{
 "available":true,
@@ -24839,7 +24527,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openjdk-adoptium-jre-bin-11.0.25_9_adopt",
+"name":"openjdk-adoptium-jre-bin-11.0.26_4_adopt",
 "outputsToInstall":[
 "out"
 ],
@@ -24847,78 +24535,20 @@
 "aarch64-linux",
 "armv7l-linux",
 "ppc64le-linux",
-"s390x-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
 "unfree":false,
 "unsupported":false
 },
-"name":"openjdk-adoptium-jre-bin-11.0.25_9_adopt",
+"name":"openjdk-adoptium-jre-bin-11.0.26_4_adopt",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openjdk-adoptium-jre-bin",
 "system":"x86_64-linux",
-"version":"11.0.25_9_adopt"
-},
-"openjdk-adoptium.jre-bin-11_0_12_7":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"OpenJDK binaries built by Eclipse Adoptium",
-"homepage":"https://adoptium.net/",
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
-"redistributable":true,
-"shortName":"gpl2Classpath",
-"spdxId":"GPL-2.0-with-classpath-exception",
-"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
-},
-"mainProgram":"java",
-"maintainers":[
-{
-"email":"b980120@hotmail.com",
-"github":"xddxdd",
-"githubId":5778879,
-"keys":[
-{
-"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
-},
-{
-"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
-}
-],
-"name":"Yuhui Xu"
-}
-],
-"name":"openjdk-adoptium-jre-bin-11.0.12_7_adopt",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"armv7l-linux",
-"ppc64le-linux",
-"s390x-linux",
-"x86_64-linux"
-],
-"position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
-"unfree":false,
-"unsupported":false
-},
-"name":"openjdk-adoptium-jre-bin-11.0.12_7_adopt",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"openjdk-adoptium-jre-bin",
-"system":"x86_64-linux",
-"version":"11.0.12_7_adopt"
+"version":"11.0.26_4_adopt"
 },
 "openjdk-adoptium.jre-bin-11_0_13_8":{
 "meta":{
@@ -25832,6 +25462,62 @@
 "system":"x86_64-linux",
 "version":"11.0.25_9_adopt"
 },
+"openjdk-adoptium.jre-bin-11_0_26_4":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJDK binaries built by Eclipse Adoptium",
+"homepage":"https://adoptium.net/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openjdk-adoptium-jre-bin-11.0.26_4_adopt",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"armv7l-linux",
+"ppc64le-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openjdk-adoptium-jre-bin-11.0.26_4_adopt",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openjdk-adoptium-jre-bin",
+"system":"x86_64-linux",
+"version":"11.0.26_4_adopt"
+},
 "openjdk-adoptium.jre-bin-17":{
 "meta":{
 "available":true,
@@ -25865,7 +25551,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openjdk-adoptium-jre-bin-17.0.13_11_adopt",
+"name":"openjdk-adoptium-jre-bin-17.0.14_7_adopt",
 "outputsToInstall":[
 "out"
 ],
@@ -25873,7 +25559,6 @@
 "aarch64-linux",
 "armv7l-linux",
 "ppc64le-linux",
-"riscv64-linux",
 "s390x-linux",
 "x86_64-linux"
 ],
@@ -25881,14 +25566,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openjdk-adoptium-jre-bin-17.0.13_11_adopt",
+"name":"openjdk-adoptium-jre-bin-17.0.14_7_adopt",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openjdk-adoptium-jre-bin",
 "system":"x86_64-linux",
-"version":"17.0.13_11_adopt"
+"version":"17.0.14_7_adopt"
 },
 "openjdk-adoptium.jre-bin-17_0_10_7":{
 "meta":{
@@ -26120,6 +25805,63 @@
 "pname":"openjdk-adoptium-jre-bin",
 "system":"x86_64-linux",
 "version":"17.0.13_11_adopt"
+},
+"openjdk-adoptium.jre-bin-17_0_14_7":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJDK binaries built by Eclipse Adoptium",
+"homepage":"https://adoptium.net/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openjdk-adoptium-jre-bin-17.0.14_7_adopt",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"armv7l-linux",
+"ppc64le-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openjdk-adoptium-jre-bin-17.0.14_7_adopt",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openjdk-adoptium-jre-bin",
+"system":"x86_64-linux",
+"version":"17.0.14_7_adopt"
 },
 "openjdk-adoptium.jre-bin-17_0_1_12":{
 "meta":{
@@ -27009,13 +26751,12 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openjdk-adoptium-jre-bin-8u432-b06_adopt",
+"name":"openjdk-adoptium-jre-bin-8u442-b06_adopt",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
-"armv7l-linux",
 "ppc64le-linux",
 "x86_64-linux"
 ],
@@ -27023,14 +26764,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openjdk-adoptium-jre-bin-8u432-b06_adopt",
+"name":"openjdk-adoptium-jre-bin-8u442-b06_adopt",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openjdk-adoptium-jre-bin",
 "system":"x86_64-linux",
-"version":"8u432-b06_adopt"
+"version":"8u442-b06_adopt"
 },
 "openjdk-adoptium.jre-bin-8u302_b08":{
 "meta":{
@@ -27871,6 +27612,61 @@
 "system":"x86_64-linux",
 "version":"8u432-b06_adopt"
 },
+"openjdk-adoptium.jre-bin-8u442_b06":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJDK binaries built by Eclipse Adoptium",
+"homepage":"https://adoptium.net/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openjdk-adoptium-jre-bin-8u442-b06_adopt",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"ppc64le-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openjdk-adoptium-jre-bin-8u442-b06_adopt",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openjdk-adoptium-jre-bin",
+"system":"x86_64-linux",
+"version":"8u442-b06_adopt"
+},
 "openssl-ech":{
 "meta":{
 "available":true,
@@ -28701,7 +28497,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"peerbanhelper-7.3.2",
+"name":"peerbanhelper-7.3.3",
 "outputsToInstall":[
 "out"
 ],
@@ -28709,14 +28505,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"peerbanhelper-7.3.2",
+"name":"peerbanhelper-7.3.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"peerbanhelper",
 "system":"x86_64-linux",
-"version":"7.3.2"
+"version":"7.3.3"
 },
 "phpmyadmin":{
 "meta":{
@@ -28750,7 +28546,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"phpmyadmin-5.2.1",
+"name":"phpmyadmin-5.2.2",
 "outputsToInstall":[
 "out"
 ],
@@ -28758,14 +28554,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"phpmyadmin-5.2.1",
+"name":"phpmyadmin-5.2.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"phpmyadmin",
 "system":"x86_64-linux",
-"version":"5.2.1"
+"version":"5.2.2"
 },
 "phppgadmin":{
 "meta":{
@@ -30303,7 +30099,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-funasr-0-unstable-2025-01-16",
+"name":"python3.12-funasr-0-unstable-2025-01-24",
 "outputsToInstall":[
 "out"
 ],
@@ -30346,7 +30142,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-funasr-0-unstable-2025-01-16",
+"name":"python3.12-funasr-0-unstable-2025-01-24",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -30354,7 +30150,7 @@
 },
 "pname":"python3.12-funasr",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-01-16"
+"version":"0-unstable-2025-01-24"
 },
 "python3Packages.kaldiio":{
 "meta":{
@@ -33210,7 +33006,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"qsp-lib-0-unstable-2025-01-13",
+"name":"qsp-lib-0-unstable-2025-01-21",
 "outputsToInstall":[
 "out"
 ],
@@ -33218,14 +33014,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"qsp-lib-0-unstable-2025-01-13",
+"name":"qsp-lib-0-unstable-2025-01-21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qsp-lib",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-01-13"
+"version":"0-unstable-2025-01-21"
 },
 "r8125":{
 "meta":{
@@ -33284,7 +33080,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/r8125/default.nix:32",
+"position":"./pkgs/kernel-modules/r8125/default.nix:33",
 "unfree":true,
 "unsupported":false
 },
@@ -33354,7 +33150,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/r8168/default.nix:32",
+"position":"./pkgs/kernel-modules/r8168/default.nix:33",
 "unfree":true,
 "unsupported":false
 },
@@ -33643,7 +33439,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-ice-0-unstable-2025-01-19",
+"name":"rime-ice-0-unstable-2025-01-24",
 "outputsToInstall":[
 "out"
 ],
@@ -33651,14 +33447,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-0-unstable-2025-01-19",
+"name":"rime-ice-0-unstable-2025-01-24",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-ice",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-01-19"
+"version":"0-unstable-2025-01-24"
 },
 "rime-moegirl":{
 "meta":{
@@ -35994,8 +35790,8 @@
 },
 "uncategorized.amule-dlp":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"Peer-to-peer client for the eD2K and Kademlia networks (with Dynamic Leech Protection)",
 "homepage":"https://github.com/persmule/amule-dlp",
 "insecure":false,
@@ -36674,7 +36470,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"boringssl-oqs-0-unstable-2024-12-20",
+"name":"boringssl-oqs-0-unstable-2025-01-20",
 "outputsToInstall":[
 "bin"
 ],
@@ -36714,7 +36510,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boringssl-oqs-0-unstable-2024-12-20",
+"name":"boringssl-oqs-0-unstable-2025-01-20",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -36723,7 +36519,7 @@
 },
 "pname":"boringssl-oqs",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-12-20"
+"version":"0-unstable-2025-01-20"
 },
 "uncategorized.browser360":{
 "meta":{
@@ -37600,7 +37396,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"fastapi-dls-1.3.12-unstable-2024-12-16",
+"name":"fastapi-dls-1.3.12-unstable-2025-01-21",
 "outputsToInstall":[
 "out"
 ],
@@ -37608,14 +37404,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"fastapi-dls-1.3.12-unstable-2024-12-16",
+"name":"fastapi-dls-1.3.12-unstable-2025-01-21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fastapi-dls",
 "system":"x86_64-linux",
-"version":"1.3.12-unstable-2024-12-16"
+"version":"1.3.12-unstable-2025-01-21"
 },
 "uncategorized.fcitx5-breeze":{
 "meta":{
@@ -37699,7 +37495,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"flaresolverr-21hsmw-0-unstable-2024-11-01",
+"name":"flaresolverr-21hsmw-0-unstable-2025-01-19",
 "outputsToInstall":[
 "out"
 ],
@@ -37726,18 +37522,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/flaresolverr-21hsmw/default.nix:63",
+"position":"./pkgs/uncategorized/flaresolverr-21hsmw/default.nix:70",
 "unfree":false,
 "unsupported":false
 },
-"name":"flaresolverr-21hsmw-0-unstable-2024-11-01",
+"name":"flaresolverr-21hsmw-0-unstable-2025-01-19",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"flaresolverr",
 "system":"x86_64-linux",
-"version":"21hsmw-0-unstable-2024-11-01"
+"version":"21hsmw-0-unstable-2025-01-19"
 },
 "uncategorized.ftp-proxy":{
 "meta":{
@@ -39587,7 +39383,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/os-specific/linux/nftables/default.nix:82",
+"position":"<nixpkgs> + /pkgs/os-specific/linux/nftables/default.nix:90",
 "unfree":false,
 "unsupported":false
 },
@@ -39945,7 +39741,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openai-edge-tts-0-unstable-2024-12-27",
+"name":"openai-edge-tts-0-unstable-2025-01-22",
 "outputsToInstall":[
 "out"
 ],
@@ -39953,14 +39749,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openai-edge-tts-0-unstable-2024-12-27",
+"name":"openai-edge-tts-0-unstable-2025-01-22",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openai-edge-tts",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-12-27"
+"version":"0-unstable-2025-01-22"
 },
 "uncategorized.openedai-speech":{
 "meta":{
@@ -40556,7 +40352,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"peerbanhelper-7.3.2",
+"name":"peerbanhelper-7.3.3",
 "outputsToInstall":[
 "out"
 ],
@@ -40564,14 +40360,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"peerbanhelper-7.3.2",
+"name":"peerbanhelper-7.3.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"peerbanhelper",
 "system":"x86_64-linux",
-"version":"7.3.2"
+"version":"7.3.3"
 },
 "uncategorized.phpmyadmin":{
 "meta":{
@@ -40605,7 +40401,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"phpmyadmin-5.2.1",
+"name":"phpmyadmin-5.2.2",
 "outputsToInstall":[
 "out"
 ],
@@ -40613,14 +40409,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"phpmyadmin-5.2.1",
+"name":"phpmyadmin-5.2.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"phpmyadmin",
 "system":"x86_64-linux",
-"version":"5.2.1"
+"version":"5.2.2"
 },
 "uncategorized.phppgadmin":{
 "meta":{
@@ -41250,7 +41046,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"qsp-lib-0-unstable-2025-01-13",
+"name":"qsp-lib-0-unstable-2025-01-21",
 "outputsToInstall":[
 "out"
 ],
@@ -41258,14 +41054,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"qsp-lib-0-unstable-2025-01-13",
+"name":"qsp-lib-0-unstable-2025-01-21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qsp-lib",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-01-13"
+"version":"0-unstable-2025-01-21"
 },
 "uncategorized.red-star-os-rgjanggi":{
 "meta":{
@@ -41543,7 +41339,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-ice-0-unstable-2025-01-19",
+"name":"rime-ice-0-unstable-2025-01-24",
 "outputsToInstall":[
 "out"
 ],
@@ -41551,14 +41347,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-0-unstable-2025-01-19",
+"name":"rime-ice-0-unstable-2025-01-24",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-ice",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-01-19"
+"version":"0-unstable-2025-01-24"
 },
 "uncategorized.rime-moegirl":{
 "meta":{
@@ -42713,7 +42509,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"uni-api-0-unstable-2025-01-16",
+"name":"uni-api-0-unstable-2025-01-23",
 "outputsToInstall":[
 "out"
 ],
@@ -42721,14 +42517,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"uni-api-0-unstable-2025-01-16",
+"name":"uni-api-0-unstable-2025-01-23",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uni-api",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-01-16"
+"version":"0-unstable-2025-01-23"
 },
 "uncategorized.unigine-heaven":{
 "meta":{
@@ -43511,7 +43307,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"uni-api-0-unstable-2025-01-16",
+"name":"uni-api-0-unstable-2025-01-23",
 "outputsToInstall":[
 "out"
 ],
@@ -43519,14 +43315,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"uni-api-0-unstable-2025-01-16",
+"name":"uni-api-0-unstable-2025-01-23",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uni-api",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-01-16"
+"version":"0-unstable-2025-01-23"
 },
 "unigine-heaven":{
 "meta":{
