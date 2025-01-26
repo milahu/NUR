@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> { } }: rec {
+{
+  pkgs ? import <nixpkgs> { },
+}: rec {
   # The `lib`, `modules`, and `overlays` names are special
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
