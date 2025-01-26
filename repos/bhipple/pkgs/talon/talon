@@ -6,7 +6,7 @@ pgrep talon && exit 0
 export TERM=xterm-256color
 export NIXPKGS_ALLOW_UNFREE=1
 
-channel='https://github.com/NixOS/nixpkgs/archive/0e9890a7e6efdbae55a08fa07c4d941bd047836d.tar.gz'  # NixOS release-24.11 as of 2025-01-12
+channel='https://github.com/NixOS/nixpkgs/archive/ef0c6f2970adeeea63d2ba9b7d2606077c2a3bd4.tar.gz'  # NixOS release-24.11 as of 2025-01-25
 pgrep snixembed || snixembed &
 
 mkdir -p /tmp/talon && cd /tmp/talon
