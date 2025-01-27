@@ -60,6 +60,7 @@
           builtins.filter (
             path:
             (builtins.all (ignore: !(lib.hasSuffix ignore path)) [
+              "gemset.nix"
               "pkgs/applications/audio/zynaddsubfx/default.nix"
               "pkgs/tools/graphics/mangohud/default.nix"
             ])
@@ -95,41 +96,32 @@
         flatNurPkgs = flake-utils.lib.flattenTree nurPkgs;
       in
       rec {
-        packages = flake-utils.lib.filterPackages system flatNurPkgs;
+        packages = flake-utils.lib.filterPackages system flatNurPkgs // {
+          sync = nurPkgs.callPackage ./maintainers/scripts/sync.nix {
+            nix-fast-build = nix-fast-build.packages.${system}.default;
+            inherit nixpkgs;
+            inherit (packages) update;
+          };
+
+          update = nurPkgs.callPackage ./maintainers/scripts/update.nix {
+            packages = builtins.concatMap (
+              name:
+              let
+                package = flatNurPkgs.${name};
+                attrPath = builtins.replaceStrings [ "/" ] [ "." ] name;
+              in
+              if package ? updateScript then [ { inherit package attrPath; } ] else [ ]
+            ) (builtins.attrNames flatNurPkgs);
+
+            inherit nixpkgs;
+          };
+        };
 
         checks = packages // {
           flake-linter = linter.check;
         };
 
         apps = {
-          sync = {
-            type = "app";
-            program = lib.getExe (
-              nurPkgs.callPackage ./maintainers/scripts/sync.nix {
-                nix-fast-build = nix-fast-build.packages.${system}.default;
-                inherit nixpkgs;
-              }
-            );
-          };
-
-          update = {
-            type = "app";
-            program = toString (
-              nurPkgs.callPackage ./maintainers/scripts/update.nix {
-                packages = builtins.concatMap (
-                  name:
-                  let
-                    package = flatNurPkgs.${name};
-                    attrPath = builtins.replaceStrings [ "/" ] [ "." ] name;
-                  in
-                  if package ? updateScript then [ { inherit package attrPath; } ] else [ ]
-                ) (builtins.attrNames flatNurPkgs);
-
-                inherit nixpkgs;
-              }
-            );
-          };
-
           inherit (linter) fix;
         };
       }
