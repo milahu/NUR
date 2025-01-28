@@ -1,30 +1,30 @@
 error:
 … from call site
 
-  at ./default.nix:40:17:
+  at ./default.nix:41:17:
 
-    39|   cntb-bin = pkgs.callPackage ./pkgs/cntb-bin { };
-    40|   rofi-blocks = pkgs.callPackage ./pkgs/rofi-blocks { };
+    40|   cntb-bin = pkgs.callPackage ./pkgs/cntb-bin { };
+    41|   rofi-blocks = pkgs.callPackage ./pkgs/rofi-blocks { };
       |                 ^
-    41|   coord = pkgs.callPackage ./pkgs/coord { };
+    42|   coord = pkgs.callPackage ./pkgs/coord { };
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:212:35:
+  at <nixpkgs> + /lib/customisation.nix:240:19:
 
-   211|   */
-   212|   callPackageWith = autoArgs: fn: args:
-      |                                   ^
-   213|     let
+   239|   callPackageWith =
+   240|     autoArgs: fn: args:
+      |                   ^
+   241|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:225:10:
+  at <nixpkgs> + /lib/customisation.nix:254:11:
 
-   224|         # Filter out arguments that have a default value
-   225|         (filterAttrs (name: value: ! value)
-      |          ^
-   226|         # Filter out arguments that would be passed
+   253|         (
+   254|           filterAttrs (name: value: !value)
+      |           ^
+   255|             # Filter out arguments that would be passed
 
 … while calling 'filterAttrs'
 
@@ -33,24 +33,24 @@ error:
    645|     pred:
    646|     set:
       |     ^
-   647|     listToAttrs (concatMap (name: let v = set.${name}; in if pred name v then [(nameValuePair name v)] else []) (attrNames set));
+   647|     removeAttrs set (filter (name: ! pred name set.${name}) (attrNames set));
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:215:15:
+  at <nixpkgs> + /lib/customisation.nix:243:15:
 
-   214|       f = if isFunction fn then fn else import fn;
-   215|       fargs = functionArgs f;
+   242|       f = if isFunction fn then fn else import fn;
+   243|       fargs = functionArgs f;
       |               ^
-   216|
+   244|
 
 … while calling 'functionArgs'
 
-  at <nixpkgs> + /lib/trivial.nix:975:18:
+  at <nixpkgs> + /lib/trivial.nix:1018:18:
 
-   974|   */
-   975|   functionArgs = f:
+  1017|   */
+  1018|   functionArgs = f:
       |                  ^
-   976|     if f ? __functor
+  1019|     if f ? __functor
 
 error: getting status of './pkgs/rofi-blocks': No such file or directory
