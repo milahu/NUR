@@ -6,13 +6,13 @@
 
 stdenv.mkDerivation {
   pname = "gpx2yaml";
-  version = "0-unstable-2021-08-19";
+  version = "0-unstable-2025-01-29";
 
   src = fetchFromSourcehut {
     owner = "~sikmir";
     repo = "gpx2yaml";
-    rev = "d4a102ab079edf239a095bdd3564be3cac193971";
-    hash = "sha256-82RYdC1tUYwYZELTHOC+Llz+KcdLgyipB9wEWekDRww=";
+    rev = "c0a28a96635706d8e052fe819c88e265577201b9";
+    hash = "sha256-59UVcQh+TsqP/Z55wmtfH002FhScqaflrC5Kyid67tg=";
   };
 
   installFlags = [ "PREFIX=$(out)" ];
