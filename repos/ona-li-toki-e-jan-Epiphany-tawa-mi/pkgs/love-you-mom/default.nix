@@ -52,8 +52,7 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     description =
       "Tells your mom (or dad) that you love them";
-    homepage =
-      "https://github.com/ona-li-toki-e-jan-Epiphany-tawa-mi/love-you-mom";
+    homepage    = "https://paltepuk.xyz/cgit/love-you-mom.git/about";
     license     = licenses.gpl3Plus;
     mainProgram = pname;
   };

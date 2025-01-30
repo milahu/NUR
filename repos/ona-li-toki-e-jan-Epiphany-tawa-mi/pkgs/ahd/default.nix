@@ -59,7 +59,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "Hexdump utility";
-    homepage    = "https://github.com/ona-li-toki-e-jan-Epiphany-tawa-mi/AHD";
+    homepage    = "https://paltepuk.xyz/cgit/AHD.git/about";
     license     = licenses.gpl3Plus;
     mainProgram = pname;
   };

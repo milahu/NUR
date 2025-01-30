@@ -58,8 +58,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "Terminal screensaver similar to that of DVD players";
-    homepage    =
-      "https://github.com/ona-li-toki-e-jan-Epiphany-tawa-mi/COBOL-DVD-Thingy";
+    homepage    = "https://paltepuk.xyz/cgit/COBOL-DVD-Thingy.git/about";
     license     = licenses.gpl3Plus;
     mainProgram = pname;
   };

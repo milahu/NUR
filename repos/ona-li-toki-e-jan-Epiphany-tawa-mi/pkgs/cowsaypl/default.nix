@@ -65,8 +65,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "Cowsay in GNU APL";
-    homepage    =
-      "https://github.com/ona-li-toki-e-jan-Epiphany-tawa-mi/cowsAyPL";
+    homepage    = "https://paltepuk.xyz/cgit/cowsAyPL.git/about";
     license     = licenses.gpl3Plus;
     mainProgram = pname;
   };
