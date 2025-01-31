@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "ethancedwards8";
     repo = "sysfo";
-    rev = "v${version}";
+    tag = "v${version}";
     sha256 = "HolKGbHC+6UWYKJIPO2ZFIUtLgUN3VZbcvMnyqTa1O8=";
   };
   buildPhase = ''
