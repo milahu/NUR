@@ -1,11 +1,81 @@
 error:
-… while querying the derivation named 'csv2vcf'
+… from call site
 
-error: undefined variable 'c2vi'
+  at <nixpkgs> + /lib/attrsets.nix:1247:43:
 
-at ./nur.nix:46:45:
+  1246|     f:
+  1247|     listToAttrs (map (n: nameValuePair n (f n)) names);
+      |                                           ^
+  1248|
 
-    45|       license = licenses.mit;
-    46|       maintainers = with lib.maintainers; [ c2vi ];
+… while calling anonymous lambda
+
+  at ./nur.nix:11:38:
+
+    10|   pwd = builtins.toString ./.;
+    11| in pkgs.lib.attrsets.genAttrs names (name: (pkgs.callPackage "${pwd}/mods/nurPkgs/${name}.nix" {}))
+      |                                      ^
+    12| //
+
+… from call site
+
+  at ./nur.nix:11:45:
+
+    10|   pwd = builtins.toString ./.;
+    11| in pkgs.lib.attrsets.genAttrs names (name: (pkgs.callPackage "${pwd}/mods/nurPkgs/${name}.nix" {}))
       |                                             ^
-    47|       platforms = platforms.all;
+    12| //
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:240:19:
+
+   239|   callPackageWith =
+   240|     autoArgs: fn: args:
+      |                   ^
+   241|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:254:11:
+
+   253|         (
+   254|           filterAttrs (name: value: !value)
+      |           ^
+   255|             # Filter out arguments that would be passed
+
+… while calling 'filterAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:646:5:
+
+   645|     pred:
+   646|     set:
+      |     ^
+   647|     removeAttrs set (filter (name: ! pred name set.${name}) (attrNames set));
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:243:15:
+
+   242|       f = if isFunction fn then fn else import fn;
+   243|       fargs = functionArgs f;
+      |               ^
+   244|
+
+… while calling 'functionArgs'
+
+  at <nixpkgs> + /lib/trivial.nix:1018:18:
+
+  1017|   */
+  1018|   functionArgs = f:
+      |                  ^
+  1019|     if f ? __functor
+
+error: undefined variable 'lib'
+
+at ./mods/nurPkgs/exit0.nix:23:15:
+
+    22|
+    23|   meta = with lib; {
+      |               ^
+    24|     description = "Kill programs so that they exit with a 0 exit code, by injecting code with debug apis";

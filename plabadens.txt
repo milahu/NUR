@@ -1,0 +1,20 @@
+error:
+… from call site
+
+  at ./default.nix:26:11:
+
+    25|
+    26|   gcsim = pkgs.callPackage ./pkgs/gcsim { };
+      |           ^
+    27|
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:240:19:
+
+   239|   callPackageWith =
+   240|     autoArgs: fn: args:
+      |                   ^
+   241|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "buildGo121Module" at ./pkgs/gcsim/default.nix:1, did you mean "buildGo122Module", "buildGo123Module" or "buildGo124Module"?'
