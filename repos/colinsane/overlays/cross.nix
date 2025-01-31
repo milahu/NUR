@@ -314,10 +314,6 @@ in with final; {
   #   });
   # });
 
-  # 2025/01/25: upstreaming is blocked on mutter
-  # fixes "subprojects/gvc/meson.build:30:0: ERROR: Program 'glib-mkenums mkenums' not found or not executable"
-  # gnome-control-center = mvToNativeInputs [ glib ] super.gnome-control-center;
-
   # 2024/11/19: upstreaming is blocked on qtx11extras (via zbar)
   gnome-frog = prev.gnome-frog.override {
     blueprint-compiler = wrapBlueprint [
@@ -335,7 +331,7 @@ in with final; {
   # fixes: "gdbus-codegen not found or executable"
   # gnome-session = mvToNativeInputs [ glib ] super.gnome-session;
 
-  # 2025/01/13: upstreaming is blocked on gnome-settings-daemon, mutter, evolution-data-server
+  # 2025/01/28: upstreaming is unblocked
   # gnome-shell = super.gnome-shell.overrideAttrs (orig: {
   #   # fixes "meson.build:128:0: ERROR: Program 'gjs' not found or not executable"
   #   # does not fix "_giscanner.cpython-310-x86_64-linux-gnu.so: cannot open shared object file: No such file or directory"  (python import failure)
@@ -473,50 +469,10 @@ in with final; {
     zigBuildFlags = [ "-Dtarget=aarch64-linux-gnu" ];
   });
 
-  # 2025/01/25: upstreaming is unblocked, out for PR: <https://github.com/NixOS/nixpkgs/pull/376815>
-  # mutter = super.mutter.overrideAttrs (orig: {
-  #   # 2024/08/12: upstreaming is blocked on libgweather (via gnome-settings-daemon)
-  #   # N.B.: not all of this suitable to upstreaming, as-is.
-  #   # mesa and xorgserver are removed here because they *themselves* don't build for `buildPackages` (temporarily: 2023/10/26)
-  #   nativeBuildInputs = lib.subtractLists [ mesa xorg.xorgserver ] orig.nativeBuildInputs;
-  #   buildInputs = orig.buildInputs ++ [
-  #     mesa  # fixes "meson.build:237:2: ERROR: Dependency "gbm" not found, tried pkgconfig"
-  #     libGL  # fixes "meson.build:184:11: ERROR: Dependency "gl" not found, tried pkgconfig and system"
-  #   ];
-  #   # Run-time dependency gi-docgen found: NO (tried pkgconfig and cmake)
-  #   mesonFlags = lib.remove "-Ddocs=true" orig.mesonFlags;
-  #   outputs = lib.remove "devdoc" orig.outputs;
-  #   postInstall = lib.replaceStrings [ "${glib.dev}" ] [ "${buildPackages.glib.dev}" ] orig.postInstall;
-  # });
-
   # fixes: "ar: command not found"
   # `ar` is provided by bintools
   # 2025/01/13: upstreaming is unblocked by deps; but turns out to not be this simple
   # ncftp = addNativeInputs [ bintools ] prev.ncftp;
-
-  # fixes "gdbus-codegen: command not found"
-  # fixes "gtk4-builder-tool: command not found"
-  # 2025/01/24: upstreaming is unblocked, out for PR: <https://github.com/NixOS/nixpkgs/pull/376687>
-  # networkmanager-l2tp = addNativeInputs [ gtk4 ]
-  #   (mvToNativeInputs [ glib ] prev.networkmanager-l2tp);
-  # fixes "properties/gresource.xml: Permission denied"
-  #   - by providing glib-compile-resources
-  # 2025/01/24: upstreaming is unblocked, out for PR: <https://github.com/NixOS/nixpkgs/pull/376687>
-  # networkmanager-openconnect = mvToNativeInputs [ glib ] prev.networkmanager-openconnect;
-  # fixes "properties/gresource.xml: Permission denied"
-  #   - by providing glib-compile-resources
-  # 2025/01/24: upstreaming is unblocked, out for PR: <https://github.com/NixOS/nixpkgs/pull/376687>
-  # networkmanager-openvpn = mvToNativeInputs [ glib ] prev.networkmanager-openvpn;
-  # 2025/01/24: upstreaming is unblocked, out for PR: <https://github.com/NixOS/nixpkgs/pull/376687>
-  # networkmanager-sstp = (
-  #   # fixes "gdbus-codegen: command not found"
-  #   mvToNativeInputs [ glib ] (
-  #     # fixes gtk4-builder-tool wrong format
-  #     addNativeInputs [ gtk4.dev ] prev.networkmanager-sstp
-  #   )
-  # );
-  # 2025/01/25: upstreaming is blocked on vpnc; both are out for review: <https://github.com/NixOS/nixpkgs/pull/376860>
-  # networkmanager-vpnc = mvToNativeInputs [ glib ] prev.networkmanager-vpnc;
 
   # 2024/11/19: upstreaming is unblocked
   newsflash = (prev.newsflash.override {
@@ -644,10 +600,7 @@ in with final; {
     cargo = crossCargo;
   };
 
-  # fixes (meson) "Program 'glib-mkenums mkenums' not found or not executable"
-  # 2025/01/13: upstreaming is blocked on mutter, gnome-settings-daemon
-  # phoc = mvToNativeInputs [ wayland-scanner glib ] prev.phoc;
-  # 2024/08/12: upstreaming is blocked on gnome-control-center, evolution-data-server, , ibus, libgweather, gnom-user-share, others
+    # 2025/01/28: upstreaming is blocked on gnome-session (itself blocked on gnome-shell)
   # phosh = prev.phosh.overrideAttrs (upstream: {
   #   buildInputs = upstream.buildInputs ++ [
   #     libadwaita  # "plugins/meson.build:41:2: ERROR: Dependency "libadwaita-1" not found, tried pkgconfig"
@@ -912,7 +865,7 @@ in with final; {
   #   # setting this to null means visidata will work as normal but not be able to load hdf files.
   #   h5py = null;
   # };
-  # 2025/01/13: upstreaming is unblocked
+  # 2025/01/28: upstreaming is blocked on qtsvg
   # vlc = prev.vlc.overrideAttrs (orig: {
   #   # fixes: "configure: error: could not find the LUA byte compiler"
   #   # fixes: "configure: error: protoc compiler needed for chromecast was not found"
@@ -923,11 +876,6 @@ in with final; {
   #     BUILDCC = "${stdenv.cc}/bin/${stdenv.cc.targetPrefix}cc";
   #   };
   # });
-
-  # fixes "perl: command not found"
-  # 2025/01/25: upstreaming is unblocked, out for review: <https://github.com/NixOS/nixpkgs/pull/376860>
-  # - proper fix (as done in PR) is more involved
-  # vpnc = mvToNativeInputs [ perl ] prev.vpnc;
 
   # 2024/08/12: upstreaming is unblocked
   # fixes `hostPrograms.moby.neovim` (but breaks eval of `hostPkgs.moby.neovim` :o)
