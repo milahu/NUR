@@ -1,4 +1,4 @@
-{ systems ? [ builtins.currentSystem ] }:
+{ systems ? [ builtins.currentSystem ], branches ? [ "nixpkgs-unstable" ] }:
 
 # this mainly lets me build all the packages manually for macOS
 let
@@ -7,6 +7,6 @@ let
     if builtins.isList x
     then builtins.concatMap (y: flatten y) x
     else [x];
-  getPkgs = cursys: import (builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs { system = cursys; };
-  getCacheOutputs = cursys: (import ./ci.nix { pkgs = getPkgs cursys; }).cacheOutputs;
-in flatten (map getCacheOutputs systems)
+  getPkgs = cursys: branch: import (builtins.getFlake "github:NixOS/nixpkgs/${branch}") { system = cursys; };
+  getCacheOutputs = cursys: branch: (import ./ci.nix { pkgs = getPkgs cursys branch; }).cacheOutputs;
+in flatten (map (branch: map (system: getCacheOutputs system branch) systems) branches)
