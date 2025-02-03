@@ -3405,12 +3405,12 @@ It comes in complete source code and is made available as "open source" software
 Like neofetch, but much faster because written in C
 
 - Name: `fastfetch`
-- Version: `2.34.1`
+- Version: `2.35.0`
 - Outputs: **`out`**, `man`
 - [🌐 Homepage](https://github.com/fastfetch-cli/fastfetch)
 - [📦 Source](./pkgs/by-name/fastfetch/package.nix#L271)
 - License: [`MIT License`](https://spdx.org/licenses/MIT.html)
-- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.34.1)
+- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.35.0)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
 <details>
@@ -3510,12 +3510,12 @@ Like neofetch, but much faster because written in C
 Like neofetch, but much faster because written in C (with all features disabled)
 
 - Name: `fastfetch`
-- Version: `2.34.1`
+- Version: `2.35.0`
 - Outputs: **`out`**, `man`
 - [🌐 Homepage](https://github.com/fastfetch-cli/fastfetch)
 - [📦 Source](./default.nix#L33)
 - License: [`MIT License`](https://spdx.org/licenses/MIT.html)
-- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.34.1)
+- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.35.0)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
 <details>
@@ -7195,7 +7195,7 @@ Camera application for Plasma Mobile
 A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell
 
 - Name: `pnut`
-- Version: `SLE2024-artifact-unstable-2025-01-22`
+- Version: `SLE2024-artifact-unstable-2025-02-01`
 
 - [🌐 Homepage](https://github.com/udem-dlteam/pnut)
 - [📦 Source](./pkgs/by-name/pnut/package.nix#L44)
