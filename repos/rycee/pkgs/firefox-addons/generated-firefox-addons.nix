@@ -2563,10 +2563,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.57.1";
+      version = "2.57.2";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4428740/dualsub-2.57.1.xpi";
-      sha256 = "fce0e3c929a5f9325f37d01f67a3a466692c27c9e38273a05ce5fd5773ddaa24";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4429197/dualsub-2.57.2.xpi";
+      sha256 = "ee7226b7f796cbc16cd3a75bff415c4a6333cb386d7479265c4f2d119f9a0227";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -6256,10 +6256,10 @@
     };
     "libredirect" = buildFirefoxXpiAddon {
       pname = "libredirect";
-      version = "3.0.2";
+      version = "3.1.0";
       addonId = "7esoorv3@alefvanoon.anonaddy.me";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4357391/libredirect-3.0.2.xpi";
-      sha256 = "9cf22f4a9ad7789c85bfff657b73ead7f846c7e340879801799114a850cc4e64";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4429228/libredirect-3.1.0.xpi";
+      sha256 = "d86a48e0ce416f59cebea52c4152d822a86ec304588785bfb14cb27c3f494775";
       meta = with lib;
       {
         homepage = "https://libredirect.github.io";
