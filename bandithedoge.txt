@@ -5,12 +5,12 @@ trace: evaluation warning: swift-mesonlsp-bin has been renamed to mesonlsp-bin
 error:
 … from call site
 
-  at ./pkgs/default.nix:122:19:
+  at ./pkgs/default.nix:121:19:
 
-   121|     xplrPlugins = callPackages' ./xplrPlugins;
-   122|     yaziPlugins = callPackages' ./yaziPlugins;
+   120|     xplrPlugins = callPackages' ./xplrPlugins;
+   121|     yaziPlugins = callPackages' ./yaziPlugins;
       |                   ^
-   123|     ysfx = callPackage' ./ysfx;
+   122|     ysfx = callPackage' ./ysfx;
 
 … while calling 'callPackages''
 
@@ -166,12 +166,12 @@ error:
 
 … from call site
 
-  at ./pkgs/yaziPlugins/default.nix:17:8:
+  at ./pkgs/yaziPlugins/default.nix:21:8:
 
-    16|         }))
-    17|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+    20|         }))
+    21|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
       |        ^
-    18|   .extend (pkgs.callPackage ./_overrides.nix {})
+    22|   .extend (pkgs.callPackage ./_overrides.nix {})
 
 … while calling 'filterAttrs'
 
@@ -202,21 +202,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/yaziPlugins/default.nix:17:33:
+  at ./pkgs/yaziPlugins/default.nix:21:33:
 
-    16|         }))
-    17|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+    20|         }))
+    21|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
       |                                 ^
-    18|   .extend (pkgs.callPackage ./_overrides.nix {})
+    22|   .extend (pkgs.callPackage ./_overrides.nix {})
 
 … from call site
 
-  at ./pkgs/yaziPlugins/default.nix:17:36:
+  at ./pkgs/yaziPlugins/default.nix:21:36:
 
-    16|         }))
-    17|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+    20|         }))
+    21|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
       |                                    ^
-    18|   .extend (pkgs.callPackage ./_overrides.nix {})
+    22|   .extend (pkgs.callPackage ./_overrides.nix {})
 
 … while calling 'isStorePath'
 
