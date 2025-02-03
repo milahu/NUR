@@ -16,7 +16,7 @@ let
          }:
     {
       "${name}" = rec {
-        href = "http://${name}.${cfg.networking.fqdn}/${path}";
+        href = "//${name}.${cfg.networking.fqdn}/${path}";
         icon = attrs.alticon or "${name}.png";
         siteMonitor = optionalString hasSiteMonitor "${protocol}://${host}:${toString port}";
         inherit description;

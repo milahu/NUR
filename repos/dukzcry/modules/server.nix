@@ -15,11 +15,12 @@ in {
 
   config = mkMerge [
     (mkIf cfg.enable {
-      system.fsPackages = [ pkgs.nfs-utils ];
+      system.fsPackages = with pkgs; [ sshfs ];
       systemd.mounts = [{
-        type = "nfs";
-        what = "robocat:/data";
+        type = "fuse.sshfs";
+        what = "Artem@robocat:/data";
         where = "/data";
+        options = "IdentityFile=/home/Artem/.ssh/id_rsa,allow_other,_netdev";
       }];
       systemd.automounts = [{
         wantedBy = [ "multi-user.target" ];
