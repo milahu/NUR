@@ -1,4 +1,10 @@
-{ lib, stdenv, clang19Stdenv, gcc14Stdenv, fetchFromGitHub }:
+{
+  lib,
+  stdenv,
+  clang19Stdenv,
+  gcc14Stdenv,
+  fetchFromGitHub,
+}:
 
 let
   realStdenv = if stdenv.cc.isClang then clang19Stdenv else gcc14Stdenv;

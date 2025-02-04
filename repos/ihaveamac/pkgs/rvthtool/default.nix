@@ -1,4 +1,11 @@
-{ lib, stdenv, pkgsBuildBuild, fetchFromGitHub, cmake, nettle }:
+{
+  lib,
+  stdenv,
+  pkgsBuildBuild,
+  fetchFromGitHub,
+  cmake,
+  nettle,
+}:
 
 stdenv.mkDerivation rec {
   pname = "rvthtool";
