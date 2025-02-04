@@ -2563,10 +2563,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.57.2";
+      version = "2.57.3";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4429197/dualsub-2.57.2.xpi";
-      sha256 = "ee7226b7f796cbc16cd3a75bff415c4a6333cb386d7479265c4f2d119f9a0227";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4429531/dualsub-2.57.3.xpi";
+      sha256 = "665fd8eac109378116270823fcc39a3df4191aa327d52c970d8f6d1286db6a08";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -9600,10 +9600,10 @@
     };
     "quality-of-rwth" = buildFirefoxXpiAddon {
       pname = "quality-of-rwth";
-      version = "1.11.0";
+      version = "1.12.0";
       addonId = "quality-of-rwth@RcCookie";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4370748/quality_of_rwth-1.11.0.xpi";
-      sha256 = "ee38f9d6ad6a8854310e6d60528480962395b08b535dc5846631f860fea7abf3";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4429748/quality_of_rwth-1.12.0.xpi";
+      sha256 = "f44370e05bbc4bea189f2d09284b3a826b7f8efd1f740363b1c3d3298b39a843";
       meta = with lib;
       {
         description = "Makes RWTH websites more enjoyable";
