@@ -43,4 +43,5 @@ rec {
   sd-cpp-webui = callPackage ./pkgs/sd-cpp-webui { inherit stable-diffusion-cpp; };
   olivetin = callPackage ./pkgs/olivetin.nix {};
   open-webui = callPackage ./pkgs/open-webui.nix {};
+  sftpgo-plugin-auth = callPackage ./pkgs/sftpgo-plugin-auth.nix {};
 }

@@ -33,7 +33,6 @@ in {
       sdcpp = {};
     };
     systemd.services.sd-cpp-webui = {
-      after = [ "network.target" ];
       serviceConfig = {
         User = cfg.user;
         Group = cfg.group;

@@ -43,12 +43,24 @@ in {
       ENABLE_LDAP = "True";
       LDAP_SERVER_LABEL = "LDAP Server";
       LDAP_SERVER_HOST = "robocat";
-      LDAP_SERVER_PORT = "3890";
+      LDAP_SERVER_PORT = "6360";
       LDAP_ATTRIBUTE_FOR_USERNAME = "uid";
       LDAP_APP_DN = "uid=admin,ou=people,dc=example,dc=com";
       LDAP_SEARCH_BASE = "ou=people,dc=example,dc=com";
       LDAP_SEARCH_FILTER = "(uid=*)";
-      LDAP_USE_TLS = "False";
+      LDAP_USE_TLS = "True";
+      LDAP_CA_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
+    };
+    systemd.services.sftpgo.environment = {
+      SFTPGO_PLUGINS__0__TYPE = "auth";
+      SFTPGO_PLUGINS__0__AUTH_OPTIONS__SCOPE = "5";
+      SFTPGO_PLUGINS__0__CMD = lib.getExe pkgs.nur.repos.dukzcry.sftpgo-plugin-auth;
+      SFTPGO_PLUGINS__0__ARGS = "serve";
+      SFTPGO_PLUGINS__0__AUTO_MTLS = "1";
+      SFTPGO_PLUGIN_AUTH_LDAP_URL = "ldap://localhost:3890";
+      SFTPGO_PLUGIN_AUTH_LDAP_BASE_DN = "dc=example,dc=com";
+      SFTPGO_PLUGIN_AUTH_LDAP_BIND_DN = "uid=admin,ou=people,dc=example,dc=com";
+      SFTPGO_PLUGIN_AUTH_LDAP_SEARCH_QUERY = "(&(objectClass=person)(|(uid=%%username%%)))";
     };
   };
 }
