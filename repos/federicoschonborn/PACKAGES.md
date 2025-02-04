@@ -3940,7 +3940,7 @@ A language for building concurrent software with confidence
 - Version: `0.17.1`
 
 - [🌐 Homepage](https://github.com/inko-lang/inko)
-- [📦 Source](./pkgs/by-name/inko/package.nix#L54)
+- [📦 Source](./pkgs/by-name/inko/package.nix#L53)
 - License: [`Mozilla Public License 2.0`](https://spdx.org/licenses/MPL-2.0.html)
 - [📰 Changelog](https://github.com/inko-lang/inko/releases/tag/v0.17.1)
 
@@ -4152,7 +4152,7 @@ Lightning-fast and Powerful Code Editor written in Rust
 - Version: `nightly`
 
 - [🌐 Homepage](https://github.com/lapce/lapce)
-- [📦 Source](./pkgs/by-name/lapce-nightly/package.nix#L125)
+- [📦 Source](./pkgs/by-name/lapce-nightly/package.nix#L112)
 - License: [`Apache License 2.0`](https://spdx.org/licenses/Apache-2.0.html)
 - [📰 Changelog](https://github.com/lapce/lapce/blob/7100aa459e1d16f9255e148a8d9323835761822c/CHANGELOG.md)
 
