@@ -1,5 +1,5 @@
 error:
-… while querying the derivation named 'mergiraf-0.3.1'
+… while querying the derivation named 'mergiraf-0.4.0'
 
 … in the left operand of the AND (&&) operator
 
@@ -12,12 +12,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:570:14:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:583:14:
 
-   569|   };
-   570|   validity = checkMeta.assertValidity { inherit meta attrs; };
+   582|   };
+   583|   validity = checkMeta.assertValidity { inherit meta attrs; };
       |              ^
-   571|
+   584|
 
 … while calling 'assertValidity'
 
