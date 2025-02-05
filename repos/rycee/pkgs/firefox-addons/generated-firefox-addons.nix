@@ -1688,10 +1688,10 @@
     };
     "click-and-read" = buildFirefoxXpiAddon {
       pname = "click-and-read";
-      version = "3.22.1";
+      version = "3.23.0";
       addonId = "inist.users@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4428190/click_and_read-3.22.1.xpi";
-      sha256 = "31b346fa3d7773b051bb1a22ddd813a5683ae4b0da05476a5b40ad8c117bb09e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4429971/click_and_read-3.23.0.xpi";
+      sha256 = "8bc8381aa11a22b9727b9d97ba0715f10bbc5d62159a6754892030e1359a4771";
       meta = with lib;
       {
         homepage = "https://clickandread.inist.fr/";
@@ -2301,10 +2301,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "135.0.20250130.195129";
+      version = "136.0.20250203.153029";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4428630/deutsch_de_language_pack-135.0.20250130.195129.xpi";
-      sha256 = "d7f9a68f99afb06edb2577e0462e783f6b2867b387297bf91e32bc1cadc3a370";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4430255/deutsch_de_language_pack-136.0.20250203.153029.xpi";
+      sha256 = "bbc1c0326aae036fbefdcf8698c684a072dd6dc65fe54e02aaafd138b711da99";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -2563,10 +2563,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.57.3";
+      version = "2.57.4";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4429531/dualsub-2.57.3.xpi";
-      sha256 = "665fd8eac109378116270823fcc39a3df4191aa327d52c970d8f6d1286db6a08";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4429882/dualsub-2.57.4.xpi";
+      sha256 = "d93876a022d3244ec5fdca153a619fcc62cda763dc214074fa1c18be9b03b605";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -2971,10 +2971,10 @@
     };
     "faststream" = buildFirefoxXpiAddon {
       pname = "faststream";
-      version = "1.3.40";
+      version = "1.3.41";
       addonId = "faststream@andrews";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4428676/faststream-1.3.40.xpi";
-      sha256 = "3eb14eef1d302754eb3b73160294802eb80bafd1d1b629c9209f7c7051762df8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4430473/faststream-1.3.41.xpi";
+      sha256 = "5aad0db09433611b0fc06048cee117f39dceceac31a4f17e9be8891720b54106";
       meta = with lib;
       {
         homepage = "https://faststream.online/";
@@ -3492,10 +3492,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "135.0.20250130.195129";
+      version = "136.0.20250203.153029";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4428576/francais_language_pack-135.0.20250130.195129.xpi";
-      sha256 = "d98a244f9c2963927ed348ebb0bd6af3e69ebd04498366e3e3e8fc5fd3330570";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4430276/francais_language_pack-136.0.20250203.153029.xpi";
+      sha256 = "f147f084b111533576b16ac5210e3816d0cb7931a4e2570b23f6b33244d370ee";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -3529,10 +3529,10 @@
     };
     "gaidhlig-language-pack" = buildFirefoxXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "135.0.20250130.195129";
+      version = "136.0.20250203.153029";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4428591/gaidhlig_language_pack-135.0.20250130.195129.xpi";
-      sha256 = "6c3d9a636f537e7253b7993429b078af65696e529b3e644f7090884a5da68c7c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4430324/gaidhlig_language_pack-136.0.20250203.153029.xpi";
+      sha256 = "62239cabe8e1e22cce768299b94f497e90d89f8986ded9a95ec2240019c029ef";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -10080,10 +10080,10 @@
     };
     "scots-language-pack" = buildFirefoxXpiAddon {
       pname = "scots-language-pack";
-      version = "135.0.20250130.195129";
+      version = "136.0.20250204.12944";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4428573/scots_language_pack-135.0.20250130.195129.xpi";
-      sha256 = "4312258da8cb1fa5dd4f36dce680831f2c41320fa5160a2f9718040c5a388c9b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4430577/scots_language_pack-136.0.20250204.12944.xpi";
+      sha256 = "d525153bffbd9b6e99a647b579d6bdcaae5c35b678c70333549ec276fac4a4cf";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
@@ -10387,10 +10387,10 @@
     };
     "sidebery" = buildFirefoxXpiAddon {
       pname = "sidebery";
-      version = "5.2.0";
+      version = "5.3.1";
       addonId = "{3c078156-979c-498b-8990-85f7987dd929}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4246774/sidebery-5.2.0.xpi";
-      sha256 = "a5dd94227daafeec200dc2052fae6daa74d1ba261c267b71c03faa4cc4a6fa14";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4424290/sidebery-5.3.1.xpi";
+      sha256 = "f050c116bd141423c23485bc751283a82cb2e06268ae6ca707109ca8f6f15e76";
       meta = with lib;
       {
         homepage = "https://github.com/mbnuqw/sidebery";
@@ -10408,6 +10408,7 @@
           "menus.overrideContext"
           "search"
           "theme"
+          "identity"
         ];
         platforms = platforms.all;
       };
@@ -11282,10 +11283,10 @@
     };
     "terms-of-service-didnt-read" = buildFirefoxXpiAddon {
       pname = "terms-of-service-didnt-read";
-      version = "5.0.0.1";
+      version = "5.1.0.1";
       addonId = "jid0-3GUEt1r69sQNSrca5p8kx9Ezc3U@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4279478/terms_of_service_didnt_read-5.0.0.1.xpi";
-      sha256 = "af3c74588f44b36d539b6a8cf9928bfd13fe75a462f269c1eb2e3dae73e47134";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4424458/terms_of_service_didnt_read-5.1.0.1.xpi";
+      sha256 = "7d01bdfd789ea3213dddc983469f1a152fdf0dcbbdcb8a50ba13e0da31b57a9d";
       meta = with lib;
       {
         homepage = "http://tosdr.org";
