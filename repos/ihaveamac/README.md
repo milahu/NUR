@@ -33,7 +33,7 @@ NUR link: https://nur.nix-community.org/repos/ihaveamac/
 | [mediawiki-1.39.11](https://www.mediawiki.org/) | mediawiki\_1\_39 | The collaborative editing software that runs Wikipedia |
 | ~~[mediawiki-1.40.4](https://www.mediawiki.org/)~~ | ~~mediawiki\_1\_40~~ | ~~The collaborative editing software that runs Wikipedia~~ |
 | ~~[mediawiki-1.41.5](https://www.mediawiki.org/)~~ | ~~mediawiki\_1\_41~~ | ~~The collaborative editing software that runs Wikipedia~~ |
-| [mediawiki-1.42.4](https://www.mediawiki.org/) | mediawiki\_1\_42 | The collaborative editing software that runs Wikipedia |
+| [mediawiki-1.42.5](https://www.mediawiki.org/) | mediawiki\_1\_42 | The collaborative editing software that runs Wikipedia |
 | [mediawiki-1.43.0](https://www.mediawiki.org/) | mediawiki\_1\_43 | The collaborative editing software that runs Wikipedia |
 | [mrpack-install-0.16.10-unstable-2024-11-24](https://github.com/nothub/mrpack-install) | mrpack-install | Modrinth Modpack server deployment |
 | [otptool-1.0](https://github.com/SciresM/otptool) | otptool | view and extract data from a 3DS OTP |
