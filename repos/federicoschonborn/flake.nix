@@ -2,7 +2,8 @@
   description = "My personal NUR repository";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.follows = "nixpkgs-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
 
     flake-parts = {
@@ -108,14 +109,11 @@
 
           devShells.default = pkgs.mkShellNoCC {
             packages = with pkgs; [
-              deadnix
               jq
-              nix-inspect
-              nix-tree
-              nushell
-              statix
+              just
               nix-init
               nix-update
+              nushell
             ];
 
             shellHook = ''
@@ -263,31 +261,6 @@
                     )
                   }'
                 '';
-            };
-
-            update-all.program = pkgs.writeShellApplication {
-              name = "update-all";
-              text = lib.concatLines (
-                lib.mapAttrsToList (
-                  name: value:
-                  if value ? updateScript then
-                    ''
-                      echo Updating ${name}...
-                      ${lib.escapeShellArgs (
-                        [
-                          "env"
-                          "UPDATE_NIX_NAME=${value.name}"
-                          "UPDATE_NIX_PNAME=${value.pname}"
-                          "UPDATE_NIX_OLD_VERSION=${value.version}"
-                          "UPDATE_NIX_ATTR_PATH=${name}"
-                        ]
-                        ++ (value.updateScript.command or (lib.toList value.updateScript))
-                      )}
-                    ''
-                  else
-                    "echo Skipping ${name}..."
-                ) config.packages
-              );
             };
           };
 
