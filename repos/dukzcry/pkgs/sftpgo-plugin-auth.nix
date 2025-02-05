@@ -21,6 +21,11 @@ buildGoModule rec {
 
   doCheck = false;
 
+  preBuild = ''
+    substituteInPlace authenticator/ldap.go \
+      --replace-fail "user.HomeDir = filepath.Join(a.BaseDir, user.Username)" "user.HomeDir = a.BaseDir"
+  '';
+
   meta = {
     description = "LDAP/Active Directory authentication for SFTPGo";
     homepage = "https://github.com/sftpgo/sftpgo-plugin-auth";
