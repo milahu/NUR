@@ -9,13 +9,13 @@
 
 let
   pname = "lfreader";
-  version = "3.3.1";
+  version = "3.3.3";
   name = "${pname}-${version}";
   src = fetchFromGitHub {
     owner = "DCsunset";
     repo = "LFReader";
     rev = "v${version}";
-    hash = "sha256-iXnBAFEx8ktAdvR1tJnLPKyrXmH07K3oDjmJ+pZiU/o=";
+    hash = "sha256-01yA8YlOIv8OW5sYZcS1H0CYQB9DAvQ6560TY4szjik=";
   };
 
   frontendDrv = buildNpmPackage {
