@@ -19,7 +19,7 @@ let
   modelSources = pkgs.symlinkJoin {
     name = "ollama-models";
     paths = with pkgs.ollamaPackages; [
-      athene-v2-72b-q2_K  # untested
+      athene-v2-72b-q2_K  # very knowledgable; fairly compliant (briefly lets you know if something's wrong, but still answers)
       # aya-8b  # it avoids generating code, only text
       # codegeex4-9b  # it's okaaay, seems to not give wrong code, just incomplete code.
       # codegemma-7b  # it generates invalid nix code
@@ -27,6 +27,15 @@ let
       # deepseek-coder-7b  # subpar to deepseek-coder-v2 in nearly every way
       deepseek-coder-v2-16b  # GREAT balance between speed and code quality. code is superior to qwen2_5 in some ways, and inferior in others
       # deepseek-coder-v2-16b-lite-instruct-q5_1  # higher-res version of default 16b (but in practice, is more rambly and less correct)
+      deepseek-r1-1_5b
+      deepseek-r1-7b
+      deepseek-r1-14b
+      # deepseek-r1-32b  # redundant with abliterated deepseek-r1
+      deepseek-r1-abliterated-14b
+      deepseek-r1-abliterated-32b
+      deepseek-r1-abliterated-70b
+      dolphin-mistral-7b  # UNCENSORED mistral; compliant
+      dolphin-mixtral-8x7b  # about as fast as a 14b model, similar quality results. uncensored, but still preachy
       # falcon2-11b  # code examples are lacking
       # gemma2-9b  # fast, but not great for code
       gemma2-27b  # generates at 1word/sec, but decent coding results if you can wrangle it
@@ -34,7 +43,10 @@ let
       # hermes3-8b  # FAST, but unwieldy
       # llama3-chatqa-8b  # it gets stuck
       # llama3_1-70b  # generates like 1 word/sec, decent output (comparable to qwen2_5-32b)
-      llama3_2-3b
+      # llama3_2-3b  # redundant with uncensored llama
+      llama3_2-uncensored-3b
+      # llama3_3-70b  # non-compliant; dodges iffy questions
+      llama3_3-abliterated-70b  # compliant, but slower and not as helpful as deepseek-r1-abliterated-70b
       magicoder-7b  # it generates valid, if sparse, code
       marco-o1-7b  # untested
       # mistral-7b  # it generates invalid code
@@ -47,8 +59,12 @@ let
       qwen2_5-14b  # *almost* same quality to 32b variant, but faster
       # qwen2_5-32b-instruct-q2_K  # lower-res version of default 32b (so, slightly faster, but generates invalid code where the full res generates valid code)
       qwen2_5-32b  # generates 3~5 words/sec, but notably more accurate than coder-7b
+      qwen2_5-abliterate-7b
+      qwen2_5-abliterate-14b
+      qwen2_5-abliterate-32b
       # qwen2_5-coder-7b  # fast, and concise, but generates invalid code
-      qwq-32b  # untested
+      qwq-32b  # heavily restricted
+      qwq-abliterated-32b
       # solar-pro-22b  # generates invalid code
       # starcoder2-15b-instruct  # it gets stuck
       # wizardlm2-7b  # generates invalid code
