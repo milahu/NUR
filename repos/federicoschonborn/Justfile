@@ -1,22 +1,28 @@
-default_args := "--verbose --print-build-logs --keep-going --show-trace --log-format multiline-with-logs --inputs-from ."
+default_args := "--verbose --print-build-logs --log-format multiline-with-logs --show-trace"
 
 @_default:
     just --list --unsorted
 
-@_to-output NAME:
-    echo '".#{{ NAME }}"'
-
 @_to-outputs +NAMES:
-    sed -e 's:[^ ]* *:".#&":g' <<< {{ NAMES }}
+    echo {{ NAMES }} | sed -e 's:[^ ]*:".#&":g'
 
-_nix +ARGS:
-    nix {{ ARGS }} {{ default_args }}
+@_build-outputs:
+    nix eval -f ./ci.nix buildOutputs --apply 'xs: builtins.concatStringsSep " " (map (x: x.drvPath + "^*") xs)' --raw
+
+@_build-outputs-tests:
+    nix eval -f ./ci.nix buildOutputs --apply 'xs: builtins.concatStringsSep " " (builtins.concatMap (x: map (t: t.drvPath + "^*") (builtins.attrValues (x.tests or {}))) xs)' --raw
+
+@_cache-outputs:
+    nix eval -f ./ci.nix cacheOutputs --apply 'xs: builtins.concatStringsSep " " (map (x: x.drvPath + "^*") xs)' --raw
+
+@_cache-outputs-tests:
+    nix eval -f ./ci.nix cacheOutputs --apply 'xs: builtins.concatStringsSep " " (builtins.concatMap (x: map (t: t.drvPath + "^*") (builtins.attrValues (x.tests or {}))) xs)' --raw
 
 _nix-unstable +ARGS:
-    just _nix {{ ARGS }} --override-input nixpkgs nixpkgs-unstable
+    nix {{ ARGS }} {{ default_args }}
 
 _nix-stable +ARGS:
-    just _nix {{ ARGS }} --override-input nixpkgs nixpkgs-stable
+    nix {{ ARGS }} {{ default_args }} --inputs-from . --override-input nixpkgs nixpkgs-stable
 
 [group("build")]
 build-unstable +PACKAGES:
@@ -29,38 +35,71 @@ build-stable +PACKAGES:
 [group("build")]
 build +PACKAGES: (build-unstable PACKAGES) (build-stable PACKAGES)
 
+[group("build-all")]
+build-all-unstable:
+    just _nix-unstable build --no-link $(just _build-outputs)
+
+[group("build-all")]
+build-all-stable:
+    just _nix-stable build --no-link $(just _build-outputs)
+
+[group("build-all")]
+build-all: build-all-unstable build-all-stable
+
 [group("rebuild")]
-rebuild-unstable +PACKAGES:
+rebuild-unstable +PACKAGES: (build-unstable PACKAGES)
     just _nix-unstable build --rebuild $(just _to-outputs {{ PACKAGES }})
 
 [group("rebuild")]
-rebuild-stable +PACKAGES:
+rebuild-stable +PACKAGES: (build-stable PACKAGES)
     just _nix-stable build --rebuild $(just _to-outputs {{ PACKAGES }})
 
 [group("rebuild")]
 rebuild +PACKAGES: (rebuild-unstable PACKAGES) (rebuild-stable PACKAGES)
 
-[group("run")]
-run-unstable PACKAGE:
-    just _nix-unstable run $(just _to-output {{ PACKAGE }})
+[group("rebuild-all")]
+rebuild-all-unstable:
+    just _nix-unstable build --no-link --rebuild $(just _build-outputs)
+
+[group("rebuild-all")]
+rebuild-all-stable:
+    just _nix-stable build --no-link --rebuild $(just _build-outputs)
+
+[group("rebuild-all")]
+rebuild-all: rebuild-all-unstable rebuild-all-stable
+
+[group("test-all")]
+test-all-unstable:
+    just _nix-unstable build --no-link $(just _build-outputs-tests)
+
+[group("test-all")]
+test-all-stable:
+    just _nix-stable build --no-link $(just _build-outputs-tests)
+
+[group("test-all")]
+test-all: test-all-unstable test-all-stable
 
 [group("run")]
-run-stable PACKAGE:
-    just _nix-stable run $(just _to-output {{ PACKAGE }})
+run-unstable PACKAGE: (build-unstable PACKAGE)
+    just _nix-unstable run ".#{{ PACKAGE }}"
+
+[group("run")]
+run-stable PACKAGE: (build-stable PACKAGE)
+    just _nix-stable run ".#{{ PACKAGE }}"
 
 [group("path-info")]
 path-info-unstable PACKAGE: (build-unstable PACKAGE)
-    just _nix-unstable path-info $(just _to-output {{ PACKAGE }})
+    just _nix-unstable path-info ".#{{ PACKAGE }}"
 
 [group("path-info")]
 path-info-stable PACKAGE: (build-stable PACKAGE)
-    just _nix-stable path-info $(just _to-output {{ PACKAGE }})
+    just _nix-stable path-info ".#{{ PACKAGE }}"
 
-tree PACKAGE:
+tree PACKAGE: (build-unstable PACKAGE)
     #!/usr/bin/env nix-shell
     #!nix-shell -i bash -p nix-tree
     set -euxo pipefail
-    nix-tree $(just _to-output {{ PACKAGE }})
+    nix-tree ".#{{ PACKAGE }}"
 
 inspect:
     #!/usr/bin/env nix-shell
@@ -76,4 +115,4 @@ lint:
     deadnix
 
 generate-readme:
-    just _nix-unstable run $(just _to-output generate-readme)
+    just _nix-unstable run ".#generate-readme"

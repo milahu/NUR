@@ -23,7 +23,6 @@ lib.makeScope pkgs.newScope (
 
     # Sets
     akkoma-emoji = lib.recurseIntoAttrs (self.callPackage ./pkgs/akkoma-emoji { });
-    lapcePlugins = lib.recurseIntoAttrs (self.callPackage ./pkgs/lapce-plugins { });
 
     # Variants
     fastfetchMinimal =
@@ -63,13 +62,6 @@ lib.makeScope pkgs.newScope (
           enablePciaccess = false;
         };
 
-    dcmtkShared = pkgs.dcmtk.overrideAttrs (
-      _: prevAttrs: {
-        nativeBuildInputs = (prevAttrs.nativeBuildInputs or [ ]) ++ [ pkgs.ninja ];
-        cmakeFlags = [ (lib.cmakeBool "BUILD_SHARED_LIBS" true) ];
-      }
-    );
-
     gtatoolFull =
       (self.gtatool.overrideAttrs (
         _: prevAttrs: {
@@ -93,7 +85,8 @@ lib.makeScope pkgs.newScope (
           withMuparser = true;
           withNetcdf = true;
           withNetpbm = true;
-          withPcl = true;
+          # Broken
+          withPcl = false;
           # Requires ImageMagick 6
           withPfs = false;
           withPng = true;
@@ -134,16 +127,6 @@ lib.makeScope pkgs.newScope (
           withPoppler = true;
           withTiff = true;
         };
-
-    razeFull =
-      (self.raze.overrideAttrs (
-        _: prevAttrs: {
-          meta = (prevAttrs.meta or { }) // {
-            description = "${prevAttrs.meta.description} (with all features enabled)";
-          };
-        }
-      )).override
-        { withGtk3 = true; };
 
     teemFull =
       (self.teem.overrideAttrs (
