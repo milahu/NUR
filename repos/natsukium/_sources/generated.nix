@@ -21,6 +21,14 @@
     };
     date = "2024-12-22";
   };
+  hammerspoon = {
+    pname = "hammerspoon";
+    version = "1.0.0";
+    src = fetchurl {
+      url = "https://github.com/Hammerspoon/hammerspoon/releases/download/1.0.0/Hammerspoon-1.0.0.zip";
+      sha256 = "sha256-XbcCtV2kfcMG6PWUjZHvhb69MV3fopQoMioK9+1+an4=";
+    };
+  };
   nixpkgs-review = {
     pname = "nixpkgs-review";
     version = "b4d0a817180b1a079d00d41c0a41308cb11407f7";
@@ -32,6 +40,18 @@
       sha256 = "sha256-fZkXkhwsNoxcQcC4fqwnkfGherazl/YZBkuVWGmnWPY=";
     };
     date = "2025-01-10";
+  };
+  paperwm-spoon = {
+    pname = "paperwm-spoon";
+    version = "41389206e739e6f48ea59ddcfc07254226f4c93f";
+    src = fetchFromGitHub {
+      owner = "mogenson";
+      repo = "PaperWM.spoon";
+      rev = "41389206e739e6f48ea59ddcfc07254226f4c93f";
+      fetchSubmodules = false;
+      sha256 = "sha256-O1Pis5udvh3PUYJmO+R2Aw11/udxk3v5hf2U9SzbeqI=";
+    };
+    date = "2025-02-01";
   };
   qmk-toolbox = {
     pname = "qmk-toolbox";

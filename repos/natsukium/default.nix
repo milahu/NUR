@@ -31,8 +31,10 @@ rec {
     emacs = pkgs.emacs30;
   };
   google-japanese-input = pkgs.callPackage ./pkgs/google-japanese-input { };
+  hammerspoon = pkgs.callPackage ./pkgs/hammerspoon { source = sources.hammerspoon; };
   ligaturizer = pkgs.callPackage ./pkgs/ligaturizer { };
   nixpkgs-review = pkgs.nixpkgs-review;
+  paperwm-spoon = pkgs.callPackage ./pkgs/paperwm-spoon { source = sources.paperwm-spoon; };
   psipred = pkgs.callPackage ./pkgs/psipred { };
   qmk-toolbox = pkgs.callPackage ./pkgs/qmk-toolbox { source = sources.qmk-toolbox; };
   qutebrowser = pkgs.qutebrowser;
