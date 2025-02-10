@@ -23,6 +23,7 @@ in
         dotdrop.enable = true;
         # firefox.enable = true;
         git.enable = true;
+        jujutsu.enable = true;
         nushell.enable = true;
         starship.enable = true;
         thunderbird.enable = true;
@@ -59,6 +60,10 @@ in
       };
       fastfetch.enable = true;
       fzf.enable = true;
+      ghostty = {
+        enable = true;
+        enableZshIntegration = true;
+      };
       helix.enable = true;
       nix-index-database.comma.enable = true;
       yazi.enable = true;
