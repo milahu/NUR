@@ -650,12 +650,23 @@ in with final; {
   #   # buildInputs = lib.remove gnupg upstream.buildInputs;
   # });
 
+  # 2025/02/10: upstreaming is blocked on ruby
+  nvimpager = prev.nvimpager.overrideAttrs (upstream: {
+    # fix so nvimpager specifies host machine sh as interpreter, not build sh
+    buildInputs = upstream.buildInputs ++ [
+      bash
+    ];
+    postFixup = (upstream.postFixup or "") + ''
+      patchShebangs --update --host $out/bin/nvimpager
+    '';
+  });
+
   # 2025/01/25: upstreaming is unblocked
   papers = prev.papers.override {
     cargo = crossCargo;
   };
 
-    # 2025/01/28: upstreaming is blocked on gnome-session (itself blocked on gnome-shell)
+  # 2025/01/28: upstreaming is blocked on gnome-session (itself blocked on gnome-shell)
   # phosh = prev.phosh.overrideAttrs (upstream: {
   #   buildInputs = upstream.buildInputs ++ [
   #     libadwaita  # "plugins/meson.build:41:2: ERROR: Dependency "libadwaita-1" not found, tried pkgconfig"
