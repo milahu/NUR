@@ -2,10 +2,10 @@
   {
     "10ten-ja-reader" = buildFirefoxXpiAddon {
       pname = "10ten-ja-reader";
-      version = "1.22.0";
+      version = "1.23.0";
       addonId = "{59812185-ea92-4cca-8ab7-cfcacee81281}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4371439/10ten_ja_reader-1.22.0.xpi";
-      sha256 = "d6f3197b7e3383f2723b9376d93e03fe515e5c610f9c0723d9618b10d3cc4bf1";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4424537/10ten_ja_reader-1.23.0.xpi";
+      sha256 = "4e37d31ec2c8c7f17de314b0812002de2d394c251dccb04d5eda44751db98660";
       meta = with lib;
       {
         homepage = "https://github.com/birchill/10ten-ja-reader/";
@@ -1772,10 +1772,10 @@
     };
     "competitive-companion" = buildFirefoxXpiAddon {
       pname = "competitive-companion";
-      version = "2.58.0";
+      version = "2.60.0";
       addonId = "{74e326aa-c645-4495-9287-b6febc5565a7}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4412528/competitive_companion-2.58.0.xpi";
-      sha256 = "8e6872cca063ba67f43510676256ee65130823835e3c5b5ab90459e8c9f756ed";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4436126/competitive_companion-2.60.0.xpi";
+      sha256 = "e8056f134f05be82d10dc5f97cded63dbe06d98e8e88c4979a736ecaabe5fea9";
       meta = with lib;
       {
         homepage = "https://github.com/jmerle/competitive-companion";
@@ -1850,10 +1850,10 @@
     };
     "container-tab-groups" = buildFirefoxXpiAddon {
       pname = "container-tab-groups";
-      version = "11.10.0.200";
+      version = "11.11.0.200";
       addonId = "tab-array@menhera.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4135330/container_tab_groups-11.10.0.200.xpi";
-      sha256 = "119f633c35bcf643ede94ee25b2a609892765f79390556f0ede7b25e7704df72";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4436058/container_tab_groups-11.11.0.200.xpi";
+      sha256 = "54ae4d2d4e412e524a1b461edd4108f6b0f5b0719fc0d34809dbdebedc0a63f1";
       meta = with lib;
       {
         homepage = "https://github.com/menhera-org/TabArray";
@@ -2117,6 +2117,40 @@
         platforms = platforms.all;
       };
     };
+    "danish-dictionary" = buildFirefoxXpiAddon {
+      pname = "danish-dictionary";
+      version = "2.4.2resigned1";
+      addonId = "danish@dictionaries.addons.mozilla.org";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4270215/dansk_ordbog-2.4.2resigned1.xpi";
+      sha256 = "02f1b1a02d1ae8bc64c4fe5966fccd6e4526e5898a95ba566e5d335fb7a872f3";
+      meta = with lib;
+      {
+        homepage = "https://mozilladanmark.dk/stavekontrol/";
+        description = "Danish dictionary for Firefox, Thunderbird and other Mozilla products.";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [];
+        platforms = platforms.all;
+      };
+    };
+    "danish-language-pack" = buildFirefoxXpiAddon {
+      pname = "danish-language-pack";
+      version = "136.0.20250212.91938";
+      addonId = "langpack-da@firefox.mozilla.org";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4435791/dansk_da_language_pack-136.0.20250212.91938.xpi";
+      sha256 = "9916ad209f865f95f30c68f4159bcea9bc93400d10a0e6f40f3088a4ea30aafe";
+      meta = with lib;
+      {
+        description = "Firefox Language Pack for Dansk (da) – Danish";
+        license = licenses.mpl20;
+        mozPermissions = [];
+        platforms = platforms.all;
+      };
+    };
     "dark-background-light-text" = buildFirefoxXpiAddon {
       pname = "dark-background-light-text";
       version = "0.7.6";
@@ -2302,10 +2336,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "136.0.20250210.91604";
+      version = "136.0.20250212.91938";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4434528/deutsch_de_language_pack-136.0.20250210.91604.xpi";
-      sha256 = "3fdbb92f1792cbe06473b75c3e16efc1584afa3116118188d3a33dabaf9a4453";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4435798/deutsch_de_language_pack-136.0.20250212.91938.xpi";
+      sha256 = "6a56af24e4c1b5232dfdf262c82bfbd49c1a41e9ee2c03dd52da716675cbc5b3";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -2564,10 +2598,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.57.7";
+      version = "2.57.9";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4434025/dualsub-2.57.7.xpi";
-      sha256 = "61e180ae26659acc6207a89f40e923080e704f646dc2c5d76e953443ea3062af";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4435595/dualsub-2.57.9.xpi";
+      sha256 = "079a6869e03c5fc39ddf6aac01b77fcf143ab14e1407ee4231997d01bd427314";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -2687,10 +2721,10 @@
     };
     "ecosia" = buildFirefoxXpiAddon {
       pname = "ecosia";
-      version = "5.0.2";
+      version = "5.1.1";
       addonId = "{d04b0b40-3dab-4f0b-97a6-04ec3eddbfb0}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4388495/ecosia_the_green_search-5.0.2.xpi";
-      sha256 = "c17a22555d45c862760cdfbab7155efbd8eb7575d878470a1b769e9e66de64ad";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4430040/ecosia_the_green_search-5.1.1.xpi";
+      sha256 = "72308200cad2e6bd82847fa364a272d593a7592189a97331e1b55469f4d3650b";
       meta = with lib;
       {
         homepage = "http://www.ecosia.org";
@@ -2844,6 +2878,30 @@
         platforms = platforms.all;
       };
     };
+    "external-application" = buildFirefoxXpiAddon {
+      pname = "external-application";
+      version = "0.5.9";
+      addonId = "{65b77238-bb05-470a-a445-ec0efe1d66c4}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4430794/external_application-0.5.9.xpi";
+      sha256 = "b75e32ceed2d9f344ec99de1157c523311bc2647054df27ed862c93c3469e05e";
+      meta = with lib;
+      {
+        homepage = "https://webextension.org/listing/external-application-button.html";
+        description = "A highly customizable external application button and context-menu items";
+        license = licenses.mpl20;
+        mozPermissions = [
+          "activeTab"
+          "storage"
+          "contextMenus"
+          "nativeMessaging"
+          "downloads"
+          "notifications"
+          "declarativeNetRequestWithHostAccess"
+          "scripting"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "facebook-container" = buildFirefoxXpiAddon {
       pname = "facebook-container";
       version = "2.3.11";
@@ -2972,10 +3030,10 @@
     };
     "faststream" = buildFirefoxXpiAddon {
       pname = "faststream";
-      version = "1.3.41";
+      version = "1.3.42";
       addonId = "faststream@andrews";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4430473/faststream-1.3.41.xpi";
-      sha256 = "5aad0db09433611b0fc06048cee117f39dceceac31a4f17e9be8891720b54106";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4436129/faststream-1.3.42.xpi";
+      sha256 = "d89b4995426278d244adc8ca6c0cb190fda3974b6e94d4ba8e1d53b72f5a2ea1";
       meta = with lib;
       {
         homepage = "https://faststream.online/";
@@ -3450,6 +3508,26 @@
         platforms = platforms.all;
       };
     };
+    "frankerfacez" = buildFirefoxXpiAddon {
+      pname = "frankerfacez";
+      version = "4.76.4.0";
+      addonId = "frankerfacez@frankerfacez.com";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4412136/frankerfacez-4.76.4.0.xpi";
+      sha256 = "6d96ccbade05ea144f67bd30f6b507ba21e6ff5bdfac2c773aa5ac64c76adc79";
+      meta = with lib;
+      {
+        homepage = "https://www.frankerfacez.com";
+        description = "The Twitch Enhancement Suite - Get custom emotes and tons of new features you'll never want to go without.";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [ "*://*.twitch.tv/*" ];
+        platforms = platforms.all;
+      };
+    };
     "freedom-website-blocker" = buildFirefoxXpiAddon {
       pname = "freedom-website-blocker";
       version = "17.0.12";
@@ -3493,10 +3571,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "136.0.20250210.91604";
+      version = "136.0.20250212.91938";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4434435/francais_language_pack-136.0.20250210.91604.xpi";
-      sha256 = "f87391299cf6e4034bb72f90f32f68dffd3000ac6fcfe58dbd6816197c6cebd4";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4435778/francais_language_pack-136.0.20250212.91938.xpi";
+      sha256 = "fc70c39af57340110a8bbffe0818bd5fde0b2644f50ddf77c10c5e5b4c7faea8";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -3530,10 +3608,10 @@
     };
     "gaidhlig-language-pack" = buildFirefoxXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "136.0.20250210.91604";
+      version = "136.0.20250212.91938";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4434502/gaidhlig_language_pack-136.0.20250210.91604.xpi";
-      sha256 = "14d9bde23be74be3cdcede6e3971f6c833813900c07bf498ba6f8d24054d04c6";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4435843/gaidhlig_language_pack-136.0.20250212.91938.xpi";
+      sha256 = "286402c8d1a2b8b766b2ed24395614cea963d7104176c397cf81331cde3650f1";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -3695,10 +3773,10 @@
     };
     "gitpod" = buildFirefoxXpiAddon {
       pname = "gitpod";
-      version = "2.3.6";
+      version = "2.3.7";
       addonId = "{dbcc42f9-c979-4f53-8a95-a102fbff3bbe}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4428978/gitpod-2.3.6.xpi";
-      sha256 = "bb79800b9aff15b7464534996926430066325b259c8df8e64d4bc8e870b265be";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4435129/gitpod-2.3.7.xpi";
+      sha256 = "afa92f21643ce667ad277d5d1eefbd51399b2aa1010f01fe0e56f9b995c47381";
       meta = with lib;
       {
         homepage = "http://www.gitpod.io";
@@ -5440,10 +5518,10 @@
     };
     "indie-wiki-buddy" = buildFirefoxXpiAddon {
       pname = "indie-wiki-buddy";
-      version = "3.12.0";
+      version = "3.13.0";
       addonId = "{cb31ec5d-c49a-4e5a-b240-16c767444f62}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4405306/indie_wiki_buddy-3.12.0.xpi";
-      sha256 = "dabb4b32fba2150277a564b774b01054b09fd2c9dbfe93f76bb357c5f38cca24";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4429191/indie_wiki_buddy-3.13.0.xpi";
+      sha256 = "ecd574782b7a74fc82c0ec9c4c263b8e038c88eb8540054e249a29f14c56211c";
       meta = with lib;
       {
         homepage = "https://getindie.wiki/";
@@ -6196,10 +6274,10 @@
     };
     "leechblock-ng" = buildFirefoxXpiAddon {
       pname = "leechblock-ng";
-      version = "1.6.8";
+      version = "1.6.8.2";
       addonId = "leechblockng@proginosko.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4417141/leechblock_ng-1.6.8.xpi";
-      sha256 = "376e4efa4f7c490d7ca6b711a2c99a666c0ef508ec0c39c1339274996f2ce396";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4429788/leechblock_ng-1.6.8.2.xpi";
+      sha256 = "c90c8f84e0ca5b574873f809b1cfe8b64c4377b10e52d6c59dd0ab53a9a02810";
       meta = with lib;
       {
         homepage = "https://www.proginosko.com/leechblock/";
@@ -9620,6 +9698,43 @@
         platforms = platforms.all;
       };
     };
+    "qwant-search" = buildFirefoxXpiAddon {
+      pname = "qwant-search";
+      version = "7.1.2";
+      addonId = "qwant-search-firefox@qwant.com";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4345028/qwant_the_search_engine-7.1.2.xpi";
+      sha256 = "6b19d395926f4dec14c125c58e0f4484766fd575b8863011842e9c14da7844d5";
+      meta = with lib;
+      {
+        homepage = "https://www.qwant.com/";
+        description = "With this extension, Qwant becomes your default search engine on your browser! 🚀";
+        license = licenses.gpl3;
+        mozPermissions = [ "https://*.qwant.com/*" ];
+        platforms = platforms.all;
+      };
+    };
+    "qwant-tracker-blocker" = buildFirefoxXpiAddon {
+      pname = "qwant-tracker-blocker";
+      version = "8.1.0";
+      addonId = "qwantcomforfirefox@jetpack";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4374970/qwantcom_for_firefox-8.1.0.xpi";
+      sha256 = "b5d90ab023b849febbea8660848f050401a956b8b236b617271fef6800dc2731";
+      meta = with lib;
+      {
+        homepage = "https://help.qwant.com/en/docs/qwant-search/add-qwant-on-desktop/on-firefox/";
+        description = "Qwant extension sets qwant.com as your default search engine and blocks trackers for you.";
+        license = licenses.gpl3;
+        mozPermissions = [
+          "declarativeNetRequest"
+          "webNavigation"
+          "storage"
+          "tabs"
+          "cookies"
+          "https://*.qwant.com/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "rabattcorner" = buildFirefoxXpiAddon {
       pname = "rabattcorner";
       version = "2.1.6.4";
@@ -9784,10 +9899,10 @@
     };
     "reddit-enhancement-suite" = buildFirefoxXpiAddon {
       pname = "reddit-enhancement-suite";
-      version = "5.24.7";
+      version = "5.24.8";
       addonId = "jid1-xUfzOsOFlzSOXg@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4357190/reddit_enhancement_suite-5.24.7.xpi";
-      sha256 = "f5b4325eba0e6d5be36bf07a5324bdca97a2e44824df83005193a73ca5d7f260";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4424459/reddit_enhancement_suite-5.24.8.xpi";
+      sha256 = "158405c50704a2cd2bc57c268a95b41dacba509b70d71d6ea280b04215bb8773";
       meta = with lib;
       {
         homepage = "https://redditenhancementsuite.com/";
@@ -10009,10 +10124,10 @@
     };
     "rust-search-extension" = buildFirefoxXpiAddon {
       pname = "rust-search-extension";
-      version = "2.0.0";
+      version = "2.0.2";
       addonId = "{04188724-64d3-497b-a4fd-7caffe6eab29}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4370710/rust_search_extension-2.0.0.xpi";
-      sha256 = "a5b1abb26f3997c5cd3e8a90273f1c88e1efeb1a4204ce6bbdc9260a9dbf5aee";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4435641/rust_search_extension-2.0.2.xpi";
+      sha256 = "10f521001a9fd9c7b8c5f8133daa74de01a5db33fb283b6b472b49c183e8418c";
       meta = with lib;
       {
         homepage = "https://rust.extension.sh";
@@ -10081,10 +10196,10 @@
     };
     "scots-language-pack" = buildFirefoxXpiAddon {
       pname = "scots-language-pack";
-      version = "136.0.20250210.91604";
+      version = "136.0.20250212.91938";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4434438/scots_language_pack-136.0.20250210.91604.xpi";
-      sha256 = "06e91d5b43d5025883393f6059aef04636dbaa34a46efae7ede99e67a32363e1";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4435870/scots_language_pack-136.0.20250212.91938.xpi";
+      sha256 = "c7890c33d232bbefdc462b7b4cff183437279cae9eee9c0909d8aa3ab2fd387c";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
@@ -10388,10 +10503,10 @@
     };
     "sidebery" = buildFirefoxXpiAddon {
       pname = "sidebery";
-      version = "5.3.1";
+      version = "5.3.2";
       addonId = "{3c078156-979c-498b-8990-85f7987dd929}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4424290/sidebery-5.3.1.xpi";
-      sha256 = "f050c116bd141423c23485bc751283a82cb2e06268ae6ca707109ca8f6f15e76";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4430159/sidebery-5.3.2.xpi";
+      sha256 = "aaaa5243797269bfff952f0820f12546f7e14c22ef0cc518b0d528153aff9e9c";
       meta = with lib;
       {
         homepage = "https://github.com/mbnuqw/sidebery";
@@ -11218,6 +11333,27 @@
         description = "A beautiful New Tab page with many customisable backgrounds and widgets that does not require any permissions.";
         license = licenses.gpl3;
         mozPermissions = [ "storage" ];
+        platforms = platforms.all;
+      };
+    };
+    "tabwrangler" = buildFirefoxXpiAddon {
+      pname = "tabwrangler";
+      version = "7.7.0";
+      addonId = "{81b74d53-9416-4fb3-afa2-ab46684b253b}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4411291/tabwrangler-7.7.0.xpi";
+      sha256 = "cbae7abb4af68517f2e9a3e7841b4912af7bab222256fa9823f4077e52920640";
+      meta = with lib;
+      {
+        homepage = "https://github.com/tabwrangler/tabwrangler/";
+        description = "Automatically closes inactive tabs and makes it easy to get them back";
+        license = licenses.mit;
+        mozPermissions = [
+          "alarms"
+          "contextMenus"
+          "sessions"
+          "storage"
+          "tabs"
+        ];
         platforms = platforms.all;
       };
     };
