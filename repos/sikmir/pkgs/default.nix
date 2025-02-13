@@ -420,6 +420,7 @@ lib.makeScope newScope (
     turbo = callPackage ./misc/turbo { };
     tvision = callPackage ./misc/tvision { };
     wik = callPackage ./misc/wik { };
+    wirefire = callPackage ./misc/wirefire { };
     #worm = callPackage ./misc/worm { };
     wptools = callPackage ./misc/wptools { };
     xfractint = callPackage ./misc/xfractint { };

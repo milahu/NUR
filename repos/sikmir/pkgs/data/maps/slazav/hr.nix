@@ -12,6 +12,7 @@
   mapsoft2,
   netpbm,
   sqlite,
+  unstableGitUpdater,
   zip,
 }:
 
@@ -56,6 +57,8 @@ stdenv.mkDerivation {
   installPhase = ''
     install -Dm644 OUT/* -t $out
   '';
+
+  passthru.updateScript = unstableGitUpdater { };
 
   meta = {
     description = "Slazav mountains";
