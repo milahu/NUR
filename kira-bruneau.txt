@@ -1,0 +1,11 @@
+error:
+… while querying the derivation named 'anytype-heart-0.39.8'
+
+error: attribute 'version' missing
+
+at ./pkgs/by-name/an/anytype-heart/package.nix:83:75:
+
+    82|     homepage = "https://github.com/anyproto/anytype-heart";
+    83|     changelog = "https://github.com/anyproto/anytype-heart/releases/tag/${src.version}";
+      |                                                                           ^
+    84|     license = licenses.unfree; # Any Source Available License 1.0
