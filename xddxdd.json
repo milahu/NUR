@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.666,
-"eval_time":0.894,
+"fetch_time":0.511,
+"eval_time":0.91,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"37afb9bf02f670212619317b5cb6dac27bc9cedf",
-"sha256":"0ihq4787lbh080rcb5aqxdiylkzbzkd8p4d08s0ma9bh3jpwqkcn",
+"rev":"3a2b2a1b760235b8dd85bb1f69b22b02bdfd7e98",
+"sha256":"1c5dyzr21392f82f2fkf8vc7rp0w5pqy0d7xnnacmg1c5dlyrm4a",
 "date":null
 },
-"source_storepath":"/nix/store/czqyfv6fhi72mw3h3jkldjf4zqzmzbh2-source",
-"nixpkgs_storepath":"/nix/store/arybzdvx1yqn874mx63swpbldyqmn94p-source",
-"nur_combined_rev":"90f86471be43790e208b015152c237be88d13a29",
+"source_storepath":"/nix/store/m1yqhbw5sqif2pxmn917di9hs9s6fxdh-source",
+"nixpkgs_storepath":"/nix/store/854kywmsh85z6zhfvnw6adjpp8yjnw5s-source",
+"nur_combined_rev":"05ab233911eddfecc5b3d95ce303268d27e0d69e",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -1438,7 +1438,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-click-loglevel-0.5.1",
+"name":"python3.12-click-loglevel-0.6.0",
 "outputsToInstall":[
 "out"
 ],
@@ -1481,7 +1481,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-click-loglevel-0.5.1",
+"name":"python3.12-click-loglevel-0.6.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -1489,7 +1489,7 @@
 },
 "pname":"python3.12-click-loglevel",
 "system":"x86_64-linux",
-"version":"0.5.1"
+"version":"0.6.0"
 },
 "cloudpan189-go":{
 "meta":{
@@ -3600,7 +3600,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-funasr-0-unstable-2025-02-05",
+"name":"python3.12-funasr-0-unstable-2025-02-12",
 "outputsToInstall":[
 "out"
 ],
@@ -3643,7 +3643,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-funasr-0-unstable-2025-02-05",
+"name":"python3.12-funasr-0-unstable-2025-02-12",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3651,7 +3651,7 @@
 },
 "pname":"python3.12-funasr",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-02-05"
+"version":"0-unstable-2025-02-12"
 },
 "glauth":{
 "meta":{
@@ -6127,7 +6127,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"llama-cpp-4678",
+"name":"llama-cpp-4689",
 "outputsToInstall":[
 "out"
 ],
@@ -6182,14 +6182,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-4678",
+"name":"llama-cpp-4689",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"4678"
+"version":"4689"
 },
 "lantianCustomized.materialgram":{
 "meta":{
@@ -10521,7 +10521,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"liboqs-0-unstable-2025-02-07",
+"name":"liboqs-0-unstable-2025-02-10",
 "outputsToInstall":[
 "out"
 ],
@@ -10529,14 +10529,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"liboqs-0-unstable-2025-02-07",
+"name":"liboqs-0-unstable-2025-02-10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"liboqs",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-02-07"
+"version":"0-unstable-2025-02-10"
 },
 "libqcef":{
 "meta":{
@@ -12277,7 +12277,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openj9-ibm-semeru-jdk-bin-11.0.25.0",
+"name":"openj9-ibm-semeru-jdk-bin-11.0.26.0",
 "outputsToInstall":[
 "out"
 ],
@@ -12291,14 +12291,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openj9-ibm-semeru-jdk-bin-11.0.25.0",
+"name":"openj9-ibm-semeru-jdk-bin-11.0.26.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openj9-ibm-semeru-jdk-bin",
 "system":"x86_64-linux",
-"version":"11.0.25.0"
+"version":"11.0.26.0"
 },
 "openj9-ibm-semeru.jdk-bin-11_0_12_0":{
 "meta":{
@@ -13308,6 +13308,62 @@
 "system":"x86_64-linux",
 "version":"11.0.25.0"
 },
+"openj9-ibm-semeru.jdk-bin-11_0_26_0":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJ9 binaries built by IBM Semeru",
+"homepage":"https://developer.ibm.com/languages/java/semeru-runtimes/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openj9-ibm-semeru-jdk-bin-11.0.26.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"ppc64le-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openj9-ibm-semeru/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openj9-ibm-semeru-jdk-bin-11.0.26.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openj9-ibm-semeru-jdk-bin",
+"system":"x86_64-linux",
+"version":"11.0.26.0"
+},
 "openj9-ibm-semeru.jdk-bin-16":{
 "meta":{
 "available":true,
@@ -13453,7 +13509,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openj9-ibm-semeru-jdk-bin-17.0.13.0",
+"name":"openj9-ibm-semeru-jdk-bin-17.0.14.0",
 "outputsToInstall":[
 "out"
 ],
@@ -13467,14 +13523,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openj9-ibm-semeru-jdk-bin-17.0.13.0",
+"name":"openj9-ibm-semeru-jdk-bin-17.0.14.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openj9-ibm-semeru-jdk-bin",
 "system":"x86_64-linux",
-"version":"17.0.13.0"
+"version":"17.0.14.0"
 },
 "openj9-ibm-semeru.jdk-bin-17_0_10_0":{
 "meta":{
@@ -13755,6 +13811,62 @@
 "pname":"openj9-ibm-semeru-jdk-bin",
 "system":"x86_64-linux",
 "version":"17.0.13.0"
+},
+"openj9-ibm-semeru.jdk-bin-17_0_14_0":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJ9 binaries built by IBM Semeru",
+"homepage":"https://developer.ibm.com/languages/java/semeru-runtimes/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openj9-ibm-semeru-jdk-bin-17.0.14.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"ppc64le-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openj9-ibm-semeru/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openj9-ibm-semeru-jdk-bin-17.0.14.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openj9-ibm-semeru-jdk-bin",
+"system":"x86_64-linux",
+"version":"17.0.14.0"
 },
 "openj9-ibm-semeru.jdk-bin-17_0_1_0":{
 "meta":{
@@ -14965,7 +15077,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openj9-ibm-semeru-jdk-bin-21.0.5.0",
+"name":"openj9-ibm-semeru-jdk-bin-21.0.6.0",
 "outputsToInstall":[
 "out"
 ],
@@ -14979,14 +15091,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openj9-ibm-semeru-jdk-bin-21.0.5.0",
+"name":"openj9-ibm-semeru-jdk-bin-21.0.6.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openj9-ibm-semeru-jdk-bin",
 "system":"x86_64-linux",
-"version":"21.0.5.0"
+"version":"21.0.6.0"
 },
 "openj9-ibm-semeru.jdk-bin-21_0_1_0":{
 "meta":{
@@ -15324,6 +15436,62 @@
 "system":"x86_64-linux",
 "version":"21.0.5.0"
 },
+"openj9-ibm-semeru.jdk-bin-21_0_6_0":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJ9 binaries built by IBM Semeru",
+"homepage":"https://developer.ibm.com/languages/java/semeru-runtimes/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openj9-ibm-semeru-jdk-bin-21.0.6.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"ppc64le-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openj9-ibm-semeru/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openj9-ibm-semeru-jdk-bin-21.0.6.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openj9-ibm-semeru-jdk-bin",
+"system":"x86_64-linux",
+"version":"21.0.6.0"
+},
 "openj9-ibm-semeru.jdk-bin-22":{
 "meta":{
 "available":true,
@@ -15581,7 +15749,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openj9-ibm-semeru-jdk-bin-23.0.1.0",
+"name":"openj9-ibm-semeru-jdk-bin-23.0.2.0",
 "outputsToInstall":[
 "out"
 ],
@@ -15595,14 +15763,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openj9-ibm-semeru-jdk-bin-23.0.1.0",
+"name":"openj9-ibm-semeru-jdk-bin-23.0.2.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openj9-ibm-semeru-jdk-bin",
 "system":"x86_64-linux",
-"version":"23.0.1.0"
+"version":"23.0.2.0"
 },
 "openj9-ibm-semeru.jdk-bin-23_0_0_0":{
 "meta":{
@@ -15716,6 +15884,62 @@
 "system":"x86_64-linux",
 "version":"23.0.1.0"
 },
+"openj9-ibm-semeru.jdk-bin-23_0_2_0":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJ9 binaries built by IBM Semeru",
+"homepage":"https://developer.ibm.com/languages/java/semeru-runtimes/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openj9-ibm-semeru-jdk-bin-23.0.2.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"ppc64le-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openj9-ibm-semeru/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openj9-ibm-semeru-jdk-bin-23.0.2.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openj9-ibm-semeru-jdk-bin",
+"system":"x86_64-linux",
+"version":"23.0.2.0"
+},
 "openj9-ibm-semeru.jdk-bin-8":{
 "meta":{
 "available":true,
@@ -15749,7 +15973,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openj9-ibm-semeru-jdk-bin-8.0.432.0",
+"name":"openj9-ibm-semeru-jdk-bin-8.0.442.0",
 "outputsToInstall":[
 "out"
 ],
@@ -15763,14 +15987,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openj9-ibm-semeru-jdk-bin-8.0.432.0",
+"name":"openj9-ibm-semeru-jdk-bin-8.0.442.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openj9-ibm-semeru-jdk-bin",
 "system":"x86_64-linux",
-"version":"8.0.432.0"
+"version":"8.0.442.0"
 },
 "openj9-ibm-semeru.jdk-bin-8_0_302_0":{
 "meta":{
@@ -16668,6 +16892,62 @@
 "system":"x86_64-linux",
 "version":"8.0.432.0"
 },
+"openj9-ibm-semeru.jdk-bin-8_0_442_0":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJ9 binaries built by IBM Semeru",
+"homepage":"https://developer.ibm.com/languages/java/semeru-runtimes/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openj9-ibm-semeru-jdk-bin-8.0.442.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"ppc64le-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openj9-ibm-semeru/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openj9-ibm-semeru-jdk-bin-8.0.442.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openj9-ibm-semeru-jdk-bin",
+"system":"x86_64-linux",
+"version":"8.0.442.0"
+},
 "openj9-ibm-semeru.jre-bin-11":{
 "meta":{
 "available":true,
@@ -16701,7 +16981,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openj9-ibm-semeru-jre-bin-11.0.25.0",
+"name":"openj9-ibm-semeru-jre-bin-11.0.26.0",
 "outputsToInstall":[
 "out"
 ],
@@ -16715,14 +16995,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openj9-ibm-semeru-jre-bin-11.0.25.0",
+"name":"openj9-ibm-semeru-jre-bin-11.0.26.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openj9-ibm-semeru-jre-bin",
 "system":"x86_64-linux",
-"version":"11.0.25.0"
+"version":"11.0.26.0"
 },
 "openj9-ibm-semeru.jre-bin-11_0_12_0":{
 "meta":{
@@ -17732,6 +18012,62 @@
 "system":"x86_64-linux",
 "version":"11.0.25.0"
 },
+"openj9-ibm-semeru.jre-bin-11_0_26_0":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJ9 binaries built by IBM Semeru",
+"homepage":"https://developer.ibm.com/languages/java/semeru-runtimes/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openj9-ibm-semeru-jre-bin-11.0.26.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"ppc64le-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openj9-ibm-semeru/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openj9-ibm-semeru-jre-bin-11.0.26.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openj9-ibm-semeru-jre-bin",
+"system":"x86_64-linux",
+"version":"11.0.26.0"
+},
 "openj9-ibm-semeru.jre-bin-16":{
 "meta":{
 "available":true,
@@ -17877,7 +18213,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openj9-ibm-semeru-jre-bin-17.0.13.0",
+"name":"openj9-ibm-semeru-jre-bin-17.0.14.0",
 "outputsToInstall":[
 "out"
 ],
@@ -17891,14 +18227,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openj9-ibm-semeru-jre-bin-17.0.13.0",
+"name":"openj9-ibm-semeru-jre-bin-17.0.14.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openj9-ibm-semeru-jre-bin",
 "system":"x86_64-linux",
-"version":"17.0.13.0"
+"version":"17.0.14.0"
 },
 "openj9-ibm-semeru.jre-bin-17_0_10_0":{
 "meta":{
@@ -18179,6 +18515,62 @@
 "pname":"openj9-ibm-semeru-jre-bin",
 "system":"x86_64-linux",
 "version":"17.0.13.0"
+},
+"openj9-ibm-semeru.jre-bin-17_0_14_0":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJ9 binaries built by IBM Semeru",
+"homepage":"https://developer.ibm.com/languages/java/semeru-runtimes/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openj9-ibm-semeru-jre-bin-17.0.14.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"ppc64le-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openj9-ibm-semeru/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openj9-ibm-semeru-jre-bin-17.0.14.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openj9-ibm-semeru-jre-bin",
+"system":"x86_64-linux",
+"version":"17.0.14.0"
 },
 "openj9-ibm-semeru.jre-bin-17_0_1_0":{
 "meta":{
@@ -19389,7 +19781,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openj9-ibm-semeru-jre-bin-21.0.5.0",
+"name":"openj9-ibm-semeru-jre-bin-21.0.6.0",
 "outputsToInstall":[
 "out"
 ],
@@ -19403,14 +19795,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openj9-ibm-semeru-jre-bin-21.0.5.0",
+"name":"openj9-ibm-semeru-jre-bin-21.0.6.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openj9-ibm-semeru-jre-bin",
 "system":"x86_64-linux",
-"version":"21.0.5.0"
+"version":"21.0.6.0"
 },
 "openj9-ibm-semeru.jre-bin-21_0_1_0":{
 "meta":{
@@ -19748,6 +20140,62 @@
 "system":"x86_64-linux",
 "version":"21.0.5.0"
 },
+"openj9-ibm-semeru.jre-bin-21_0_6_0":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJ9 binaries built by IBM Semeru",
+"homepage":"https://developer.ibm.com/languages/java/semeru-runtimes/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openj9-ibm-semeru-jre-bin-21.0.6.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"ppc64le-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openj9-ibm-semeru/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openj9-ibm-semeru-jre-bin-21.0.6.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openj9-ibm-semeru-jre-bin",
+"system":"x86_64-linux",
+"version":"21.0.6.0"
+},
 "openj9-ibm-semeru.jre-bin-22":{
 "meta":{
 "available":true,
@@ -20005,7 +20453,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openj9-ibm-semeru-jre-bin-23.0.1.0",
+"name":"openj9-ibm-semeru-jre-bin-23.0.2.0",
 "outputsToInstall":[
 "out"
 ],
@@ -20019,14 +20467,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openj9-ibm-semeru-jre-bin-23.0.1.0",
+"name":"openj9-ibm-semeru-jre-bin-23.0.2.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openj9-ibm-semeru-jre-bin",
 "system":"x86_64-linux",
-"version":"23.0.1.0"
+"version":"23.0.2.0"
 },
 "openj9-ibm-semeru.jre-bin-23_0_0_0":{
 "meta":{
@@ -20140,6 +20588,62 @@
 "system":"x86_64-linux",
 "version":"23.0.1.0"
 },
+"openj9-ibm-semeru.jre-bin-23_0_2_0":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJ9 binaries built by IBM Semeru",
+"homepage":"https://developer.ibm.com/languages/java/semeru-runtimes/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openj9-ibm-semeru-jre-bin-23.0.2.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"ppc64le-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openj9-ibm-semeru/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openj9-ibm-semeru-jre-bin-23.0.2.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openj9-ibm-semeru-jre-bin",
+"system":"x86_64-linux",
+"version":"23.0.2.0"
+},
 "openj9-ibm-semeru.jre-bin-8":{
 "meta":{
 "available":true,
@@ -20173,7 +20677,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openj9-ibm-semeru-jre-bin-8.0.432.0",
+"name":"openj9-ibm-semeru-jre-bin-8.0.442.0",
 "outputsToInstall":[
 "out"
 ],
@@ -20187,14 +20691,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openj9-ibm-semeru-jre-bin-8.0.432.0",
+"name":"openj9-ibm-semeru-jre-bin-8.0.442.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openj9-ibm-semeru-jre-bin",
 "system":"x86_64-linux",
-"version":"8.0.432.0"
+"version":"8.0.442.0"
 },
 "openj9-ibm-semeru.jre-bin-8_0_302_0":{
 "meta":{
@@ -21091,6 +21595,62 @@
 "pname":"openj9-ibm-semeru-jre-bin",
 "system":"x86_64-linux",
 "version":"8.0.432.0"
+},
+"openj9-ibm-semeru.jre-bin-8_0_442_0":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJ9 binaries built by IBM Semeru",
+"homepage":"https://developer.ibm.com/languages/java/semeru-runtimes/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openj9-ibm-semeru-jre-bin-8.0.442.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"ppc64le-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openj9-ibm-semeru/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openj9-ibm-semeru-jre-bin-8.0.442.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openj9-ibm-semeru-jre-bin",
+"system":"x86_64-linux",
+"version":"8.0.442.0"
 },
 "openjdk-adoptium.jdk-bin-11":{
 "meta":{
@@ -28509,7 +29069,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"peerbanhelper-7.4.2",
+"name":"peerbanhelper-7.4.3",
 "outputsToInstall":[
 "out"
 ],
@@ -28517,14 +29077,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"peerbanhelper-7.4.2",
+"name":"peerbanhelper-7.4.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"peerbanhelper",
 "system":"x86_64-linux",
-"version":"7.4.2"
+"version":"7.4.3"
 },
 "phpmyadmin":{
 "meta":{
@@ -29446,7 +30006,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-click-loglevel-0.5.1",
+"name":"python3.12-click-loglevel-0.6.0",
 "outputsToInstall":[
 "out"
 ],
@@ -29489,7 +30049,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-click-loglevel-0.5.1",
+"name":"python3.12-click-loglevel-0.6.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -29497,7 +30057,7 @@
 },
 "pname":"python3.12-click-loglevel",
 "system":"x86_64-linux",
-"version":"0.5.1"
+"version":"0.6.0"
 },
 "python3Packages.coqui-tts":{
 "meta":{
@@ -30111,7 +30671,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-funasr-0-unstable-2025-02-05",
+"name":"python3.12-funasr-0-unstable-2025-02-12",
 "outputsToInstall":[
 "out"
 ],
@@ -30154,7 +30714,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-funasr-0-unstable-2025-02-05",
+"name":"python3.12-funasr-0-unstable-2025-02-12",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -30162,7 +30722,7 @@
 },
 "pname":"python3.12-funasr",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-02-05"
+"version":"0-unstable-2025-02-12"
 },
 "python3Packages.kaldiio":{
 "meta":{
@@ -32190,7 +32750,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-vector-quantize-pytorch-1.21.7",
+"name":"python3.12-vector-quantize-pytorch-1.21.8",
 "outputsToInstall":[
 "out"
 ],
@@ -32233,7 +32793,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-vector-quantize-pytorch-1.21.7",
+"name":"python3.12-vector-quantize-pytorch-1.21.8",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -32241,7 +32801,7 @@
 },
 "pname":"python3.12-vector-quantize-pytorch",
 "system":"x86_64-linux",
-"version":"1.21.7"
+"version":"1.21.8"
 },
 "python3Packages.xstatic-asciinema-player":{
 "meta":{
@@ -33451,7 +34011,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-ice-0-unstable-2025-02-09",
+"name":"rime-ice-0-unstable-2025-02-11",
 "outputsToInstall":[
 "out"
 ],
@@ -33459,14 +34019,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-0-unstable-2025-02-09",
+"name":"rime-ice-0-unstable-2025-02-11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-ice",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-02-09"
+"version":"0-unstable-2025-02-11"
 },
 "rime-moegirl":{
 "meta":{
@@ -38733,7 +39293,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"liboqs-0-unstable-2025-02-07",
+"name":"liboqs-0-unstable-2025-02-10",
 "outputsToInstall":[
 "out"
 ],
@@ -38741,14 +39301,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"liboqs-0-unstable-2025-02-07",
+"name":"liboqs-0-unstable-2025-02-10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"liboqs",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-02-07"
+"version":"0-unstable-2025-02-10"
 },
 "uncategorized.libqcef":{
 "meta":{
@@ -40364,7 +40924,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"peerbanhelper-7.4.2",
+"name":"peerbanhelper-7.4.3",
 "outputsToInstall":[
 "out"
 ],
@@ -40372,14 +40932,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"peerbanhelper-7.4.2",
+"name":"peerbanhelper-7.4.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"peerbanhelper",
 "system":"x86_64-linux",
-"version":"7.4.2"
+"version":"7.4.3"
 },
 "uncategorized.phpmyadmin":{
 "meta":{
@@ -41351,7 +41911,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-ice-0-unstable-2025-02-09",
+"name":"rime-ice-0-unstable-2025-02-11",
 "outputsToInstall":[
 "out"
 ],
@@ -41359,14 +41919,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-0-unstable-2025-02-09",
+"name":"rime-ice-0-unstable-2025-02-11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-ice",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-02-09"
+"version":"0-unstable-2025-02-11"
 },
 "uncategorized.rime-moegirl":{
 "meta":{
@@ -42521,7 +43081,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"uni-api-0-unstable-2025-02-07",
+"name":"uni-api-0-unstable-2025-02-11",
 "outputsToInstall":[
 "out"
 ],
@@ -42529,14 +43089,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"uni-api-0-unstable-2025-02-07",
+"name":"uni-api-0-unstable-2025-02-11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uni-api",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-02-07"
+"version":"0-unstable-2025-02-11"
 },
 "uncategorized.unigine-heaven":{
 "meta":{
@@ -43319,7 +43879,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"uni-api-0-unstable-2025-02-07",
+"name":"uni-api-0-unstable-2025-02-11",
 "outputsToInstall":[
 "out"
 ],
@@ -43327,14 +43887,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"uni-api-0-unstable-2025-02-07",
+"name":"uni-api-0-unstable-2025-02-11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uni-api",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-02-07"
+"version":"0-unstable-2025-02-11"
 },
 "unigine-heaven":{
 "meta":{
@@ -43744,7 +44304,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-vector-quantize-pytorch-1.21.7",
+"name":"python3.12-vector-quantize-pytorch-1.21.8",
 "outputsToInstall":[
 "out"
 ],
@@ -43787,7 +44347,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-vector-quantize-pytorch-1.21.7",
+"name":"python3.12-vector-quantize-pytorch-1.21.8",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -43795,7 +44355,7 @@
 },
 "pname":"python3.12-vector-quantize-pytorch",
 "system":"x86_64-linux",
-"version":"1.21.7"
+"version":"1.21.8"
 },
 "vgpu-unlock-rs":{
 "meta":{
