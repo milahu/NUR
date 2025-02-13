@@ -1048,7 +1048,7 @@ Neodog emojis by @moonrabbits@shonk.phite.ro
 Various emoji packs from Liv Asch
 
 - Name: `olivvybee-blobbee`
-- Version: `2024.10.14.1`
+- Version: `2025.02.11.1`
 
 - [🌐 Homepage](https://github.com/olivvybee/emojis)
 - [📦 Source](./pkgs/akkoma-emoji/olivvybee/blobbee/package.nix#L29)
@@ -1152,7 +1152,7 @@ Various emoji packs from Liv Asch
 Various emoji packs from Liv Asch
 
 - Name: `olivvybee-fox`
-- Version: `2024.10.14.1`
+- Version: `2025.02.11.1`
 
 - [🌐 Homepage](https://github.com/olivvybee/emojis)
 - [📦 Source](./pkgs/akkoma-emoji/olivvybee/fox/package.nix#L29)
@@ -1256,7 +1256,7 @@ Various emoji packs from Liv Asch
 Various emoji packs from Liv Asch
 
 - Name: `olivvybee-neobread`
-- Version: `2024.10.14.1`
+- Version: `2025.02.11.1`
 
 - [🌐 Homepage](https://github.com/olivvybee/emojis)
 - [📦 Source](./pkgs/akkoma-emoji/olivvybee/neobread/package.nix#L29)
@@ -1360,7 +1360,7 @@ Various emoji packs from Liv Asch
 Various emoji packs from Liv Asch
 
 - Name: `olivvybee-neodlr`
-- Version: `2024.10.14.1`
+- Version: `2025.02.11.1`
 
 - [🌐 Homepage](https://github.com/olivvybee/emojis)
 - [📦 Source](./pkgs/akkoma-emoji/olivvybee/neodlr/package.nix#L29)
@@ -1464,7 +1464,7 @@ Various emoji packs from Liv Asch
 Various emoji packs from Liv Asch
 
 - Name: `olivvybee-neofriends`
-- Version: `2024.10.14.1`
+- Version: `2025.02.11.1`
 
 - [🌐 Homepage](https://github.com/olivvybee/emojis)
 - [📦 Source](./pkgs/akkoma-emoji/olivvybee/neofriends/package.nix#L29)
@@ -1568,7 +1568,7 @@ Various emoji packs from Liv Asch
 Various emoji packs from Liv Asch
 
 - Name: `olivvybee-neossb`
-- Version: `2024.10.14.1`
+- Version: `2025.02.11.1`
 
 - [🌐 Homepage](https://github.com/olivvybee/emojis)
 - [📦 Source](./pkgs/akkoma-emoji/olivvybee/neossb/package.nix#L29)
@@ -3405,12 +3405,12 @@ Cargo Advent of Code Helper
 Tool to generate flags for your CPU
 
 - Name: `cpuid2cpuflags`
-- Version: `14`
+- Version: `15`
 
 - [🌐 Homepage](https://github.com/projg2/cpuid2cpuflags)
 - [📦 Source](./pkgs/by-name/cpuid2cpuflags/package.nix#L31)
 - License: [`BSD 2-clause "Simplified" License`](https://spdx.org/licenses/BSD-2-Clause.html)
-- [📰 Changelog](https://github.com/projg2/cpuid2cpuflags/releases/tag/v14)
+- [📰 Changelog](https://github.com/projg2/cpuid2cpuflags/releases/tag/v15)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
 <details>
@@ -3478,12 +3478,12 @@ Tool to generate flags for your CPU
 Like neofetch, but much faster because written in C
 
 - Name: `fastfetch`
-- Version: `2.35.0`
+- Version: `2.36.1`
 - Outputs: **`out`**, `man`
 - [🌐 Homepage](https://github.com/fastfetch-cli/fastfetch)
-- [📦 Source](./pkgs/by-name/fastfetch/package.nix#L271)
+- [📦 Source](./pkgs/by-name/fastfetch/package.nix#L269)
 - License: [`MIT License`](https://spdx.org/licenses/MIT.html)
-- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.35.0)
+- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.36.1)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
 <details>
@@ -3583,12 +3583,12 @@ Like neofetch, but much faster because written in C
 Like neofetch, but much faster because written in C (with all features disabled)
 
 - Name: `fastfetch`
-- Version: `2.35.0`
+- Version: `2.36.1`
 - Outputs: **`out`**, `man`
 - [🌐 Homepage](https://github.com/fastfetch-cli/fastfetch)
 - [📦 Source](./default.nix#L32)
 - License: [`MIT License`](https://spdx.org/licenses/MIT.html)
-- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.35.0)
+- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.36.1)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
 <details>
@@ -3688,12 +3688,12 @@ Like neofetch, but much faster because written in C (with all features disabled)
 A GNOME theme for Firefox
 
 - Name: `firefox-gnome-theme`
-- Version: `134`
+- Version: `135`
 
 - [🌐 Homepage](https://github.com/rafaelmardojai/firefox-gnome-theme)
 - [📦 Source](./pkgs/by-name/firefox-gnome-theme/package.nix#L30)
 - License: [`The Unlicense`](https://spdx.org/licenses/Unlicense.html)
-- [📰 Changelog](https://github.com/rafaelmardojai/firefox-gnome-theme/releases/tag/v134)
+- [📰 Changelog](https://github.com/rafaelmardojai/firefox-gnome-theme/releases/tag/v135)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
 <details>
@@ -4010,12 +4010,12 @@ A set of commands that manipulate GTAs on various levels (with all features enab
 A language for building concurrent software with confidence
 
 - Name: `inko`
-- Version: `0.17.1`
+- Version: `0.18.1`
 
 - [🌐 Homepage](https://github.com/inko-lang/inko)
 - [📦 Source](./pkgs/by-name/inko/package.nix#L53)
 - License: [`Mozilla Public License 2.0`](https://spdx.org/licenses/MPL-2.0.html)
-- [📰 Changelog](https://github.com/inko-lang/inko/releases/tag/v0.17.1)
+- [📰 Changelog](https://github.com/inko-lang/inko/releases/tag/v0.18.1)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
 <details>
@@ -5227,7 +5227,7 @@ Camera application for Plasma Mobile
 A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell
 
 - Name: `pnut`
-- Version: `SLE2024-artifact-unstable-2025-02-04`
+- Version: `SLE2024-artifact-unstable-2025-02-11`
 
 - [🌐 Homepage](https://github.com/udem-dlteam/pnut)
 - [📦 Source](./pkgs/by-name/pnut/package.nix#L44)
@@ -5659,7 +5659,7 @@ Fan sequel to Super Mario 63
 Sega Model 3 arcade machine emulator
 
 - Name: `supermodel`
-- Version: `0-unstable-2024-11-25`
+- Version: `0-unstable-2025-02-12`
 
 - [🌐 Homepage](https://github.com/trzy/Supermodel)
 - [📦 Source](./pkgs/by-name/supermodel/package.nix#L63)
@@ -6202,6 +6202,78 @@ Generate a static HTML page from a collection of feeds wtih a simple CLI tool
 - [📦 Source](./pkgs/by-name/tinyfeed/package.nix#L39)
 - License: [`MIT License`](https://spdx.org/licenses/MIT.html)
 - [📰 Changelog](https://github.com/TheBigRoomXXL/tinyfeed/releases/tag/v1.0.1)
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Details
+  </summary>
+
+- Maintainers:
+  - Federico Damián Schonborn [✉️](mailto:federicoschonborn@disroot.org)
+- Platforms:
+  - `i686-cygwin`
+  - `x86_64-cygwin`
+  - `x86_64-darwin`
+  - `i686-darwin`
+  - `aarch64-darwin`
+  - `armv7a-darwin`
+  - `i686-freebsd`
+  - `x86_64-freebsd`
+  - `aarch64-freebsd`
+  - `x86_64-solaris`
+  - `aarch64-linux`
+  - `armv5tel-linux`
+  - `armv6l-linux`
+  - `armv7a-linux`
+  - `armv7l-linux`
+  - `i686-linux`
+  - `loongarch64-linux`
+  - `m68k-linux`
+  - `microblaze-linux`
+  - `microblazeel-linux`
+  - `mips-linux`
+  - `mips64-linux`
+  - `mips64el-linux`
+  - `mipsel-linux`
+  - `powerpc64-linux`
+  - `powerpc64le-linux`
+  - `riscv32-linux`
+  - `riscv64-linux`
+  - `s390-linux`
+  - `s390x-linux`
+  - `x86_64-linux`
+  - `aarch64-netbsd`
+  - `armv6l-netbsd`
+  - `armv7a-netbsd`
+  - `armv7l-netbsd`
+  - `i686-netbsd`
+  - `m68k-netbsd`
+  - `mipsel-netbsd`
+  - `powerpc-netbsd`
+  - `riscv32-netbsd`
+  - `riscv64-netbsd`
+  - `x86_64-netbsd`
+  - `i686-openbsd`
+  - `x86_64-openbsd`
+  - `x86_64-redox`
+  </details>
+
+<h2 id="union">
+
+`union`
+
+</h2>
+
+A Qt style supporting both QtQuick and QtWidgets
+
+- Name: `union`
+- Version: `0-unstable-2025-02-06`
+
+- [🌐 Homepage](https://invent.kde.org/plasma/union)
+- [📦 Source](./pkgs/by-name/union/package.nix#L57)
+- Licenses: [`BSD 2-clause "Simplified" License`](https://spdx.org/licenses/BSD-2-Clause.html), [`Creative Commons Zero v1.0 Universal`](https://spdx.org/licenses/CC0-1.0.html), [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html), [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
 <details>

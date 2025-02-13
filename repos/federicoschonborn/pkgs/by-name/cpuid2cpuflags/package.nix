@@ -9,13 +9,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "cpuid2cpuflags";
-  version = "14";
+  version = "15";
 
   src = fetchFromGitHub {
     owner = "projg2";
     repo = "cpuid2cpuflags";
     rev = "refs/tags/v${finalAttrs.version}";
-    hash = "sha256-52pK6C7rmkfuWOsI6X0xksdfWLPCN3yOjSx0tG3IjFo=";
+    hash = "sha256-wLkb1TXqMZaB9bjh8T7m31DMXT0uY6/FjcDwFh/SjYY=";
   };
 
   nativeBuildInputs = [ autoreconfHook ];

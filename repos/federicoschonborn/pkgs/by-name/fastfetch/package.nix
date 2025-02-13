@@ -108,6 +108,7 @@
     || stdenv.hostPlatform.isAndroid
     || stdenv.hostPlatform.isWindows
     || stdenv.hostPlatform.isSunOS,
+  # || stdenv.hostPlatform.isHaiku
   libGL,
   enableGlx ?
     stdenv.hostPlatform.isLinux
@@ -116,6 +117,7 @@
     || stdenv.hostPlatform.isNetBSD
     || stdenv.hostPlatform.isAndroid
     || stdenv.hostPlatform.isSunOS,
+  # || stdenv.hostPlatform.isHaiku
   libglvnd,
   enableOsmesa ?
     stdenv.hostPlatform.isLinux
@@ -136,11 +138,7 @@
   opencl-headers,
   enableFreetype ? stdenv.hostPlatform.isAndroid,
   freetype,
-  enablePulse ?
-    stdenv.hostPlatform.isLinux
-    || stdenv.hostPlatform.isOpenBSD
-    || stdenv.hostPlatform.isNetBSD
-    || stdenv.hostPlatform.isSunOS,
+  enablePulse ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isSunOS,
   pulseaudio,
   enableDdcutil ? stdenv.hostPlatform.isLinux,
   ddcutil,
@@ -158,13 +156,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "fastfetch";
-  version = "2.35.0";
+  version = "2.36.1";
 
   src = fetchFromGitHub {
     owner = "fastfetch-cli";
     repo = "fastfetch";
     rev = "refs/tags/${finalAttrs.version}";
-    hash = "sha256-ChuK5DHRj1qJIjRo3oB5gdCxox2mDffCVM0wRGc5t1o=";
+    hash = "sha256-gvhhYZ6wp3t+GNL8lyKaC6IHZXxu+CQo40rsJARNKY0=";
   };
 
   outputs = [
