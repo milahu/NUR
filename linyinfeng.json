@@ -1,16 +1,16 @@
 {
 "name":"linyinfeng",
-"fetch_time":0.331,
-"eval_time":0.861,
+"fetch_time":0.37,
+"eval_time":0.864,
 "source":{
 "url":"https://github.com/linyinfeng/nur-packages",
-"rev":"7ccfd669ca291aef0eb91dc914edb52ff3228038",
-"sha256":"0pb821g98x782hq8048akdhz9rcrzljcqbh2czahlfcx5p6knqbd",
+"rev":"670e84eea211bbe3253875030f9ed8558e002c5a",
+"sha256":"0kiclzzj64jc886hkfq0za2wj3yz8hlj1lp27a6a1fabs7j91a7z",
 "date":null
 },
-"source_storepath":"/nix/store/65650dpfvbrcyhl0l46vbj9g0nyq4mla-source",
-"nixpkgs_storepath":"/nix/store/854kywmsh85z6zhfvnw6adjpp8yjnw5s-source",
-"nur_combined_rev":"b3452e1fd32a86c6b9940c05c347a885cfdfa19d",
+"source_storepath":"/nix/store/s8166niidrcfbg491y4vc1pay7b32a3z-source",
+"nixpkgs_storepath":"/nix/store/a2xp0l7hh2nilndcmf6iarr9zgyax4yj-source",
+"nur_combined_rev":"54d78c9d589792116ead2cd88973d0d8911ca82f",
 "packages":{
 "activate-dpt":{
 "meta":{
@@ -127,8 +127,8 @@
 },
 "aws-sigv4-proxy":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"Signs and proxies HTTP requests with Sigv4",
 "homepage":"https://github.com/awslabs/aws-sigv4-proxy",
 "insecure":false,
@@ -149,7 +149,7 @@
 "name":"Lin Yinfeng"
 }
 ],
-"name":"aws-sigv4-proxy-v1.9",
+"name":"aws-sigv4-proxy-v1.10",
 "outputsToInstall":[
 "out"
 ],
@@ -189,12 +189,12 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"aws-sigv4-proxy-v1.9",
+"name":"aws-sigv4-proxy-v1.10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"aws-sigv4-proxy-v1.9",
+"pname":"aws-sigv4-proxy-v1.10",
 "system":"x86_64-linux",
 "version":""
 },
