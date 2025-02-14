@@ -121,6 +121,7 @@
   - blurble (https://linuxphoneapps.org/games/app.drey.blurble/). nix: not as of 2024-02-05
   - Trivia Quiz (https://linuxphoneapps.org/games/io.github.nokse22.trivia-quiz/)
 - sane-sync-music: remove empty dirs
+- soulseek: install a CLI app usable over ssh
 
 #### moby
 - moby: port battery support to something upstreamable
