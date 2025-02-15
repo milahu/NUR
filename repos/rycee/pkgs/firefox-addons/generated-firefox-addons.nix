@@ -9737,25 +9737,22 @@
     };
     "rabattcorner" = buildFirefoxXpiAddon {
       pname = "rabattcorner";
-      version = "2.1.6.4";
+      version = "2.1.6.7";
       addonId = "jid1-7eplFgLu6atoog@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4172250/rabattcorner-2.1.6.4.xpi";
-      sha256 = "a6b670359aa2013d8b616e5c3dad4b5cc4f1450784d8568c3bd93eb8bbf43e67";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4436471/rabattcorner-2.1.6.7.xpi";
+      sha256 = "e4bfff04873bfeb0ba88688901b69754b57add152b82eaf2b1d56fd092da2c15";
       meta = with lib;
       {
         homepage = "https://www.rabattcorner.ch";
         description = "Mit der Rabattcorner Cashback-Erinnerung kannst du beim Online-Shoppen bei über 800 Partnern Geld zurück bekommen.";
         license = licenses.mpl20;
         mozPermissions = [
-          "storage"
           "cookies"
+          "storage"
           "alarms"
-          "http://*/*"
-          "https://*/*"
-          "browser_action"
-          "https://*.rabattcorner.ch/visit/*"
-          "https://*.rabattcorner.ch/special_offer/visit/*"
-          "https://*.rabattcorner.ch/*"
+          "tabs"
+          "https://www.rabattcorner.ch/*"
+          "<all_urls>"
         ];
         platforms = platforms.all;
       };
@@ -11560,10 +11557,10 @@
     };
     "toggl-button-time-tracker" = buildFirefoxXpiAddon {
       pname = "toggl-button-time-tracker";
-      version = "4.7.2";
+      version = "4.7.3";
       addonId = "toggl-button@toggl.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4423356/toggl_button_time_tracker-4.7.2.xpi";
-      sha256 = "62ec5312eaf96666e2ad5a1ffc0cf6f6848f432f8cf6d205ce48a981f80925bd";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4430877/toggl_button_time_tracker-4.7.3.xpi";
+      sha256 = "d7a6c6be0cde622ea8e29a692fb64865ef1b95d3b23713de61452fa2ba43d4c7";
       meta = with lib;
       {
         homepage = "https://toggl.com/track/";
