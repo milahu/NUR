@@ -299,7 +299,7 @@ lib.makeScope newScope (
 
     dockerImages = {
       agate = callPackage ./images/agate { };
-      elevation_server = callPackage ./images/elevation_server { };
+      elevation-server = callPackage ./images/elevation-server { };
       git = callPackage ./images/git {
         git = pkgs.gitMinimal.override {
           perlSupport = false;
@@ -457,16 +457,18 @@ lib.makeScope newScope (
 
     ### NAKARTE
 
-    elevation_server = callPackage ./nakarte/elevation_server { };
+    elevation-server = callPackage ./nakarte/elevation-server { };
     map-tiler = callPackage ./nakarte/map-tiler { python3Packages = pkgs.python310Packages; };
+    mapillary-render = callPackage ./nakarte/mapillary-render { };
     maprec = callPackage ./nakarte/maprec { python3Packages = pkgs.python310Packages; };
     #nakarte = callPackage ./nakarte/nakarte { };
-    ozi_map = callPackage ./nakarte/ozi_map { python3Packages = pkgs.python310Packages; };
+    ozi-map = callPackage ./nakarte/ozi-map { python3Packages = pkgs.python310Packages; };
     pyimagequant = callPackage ./nakarte/pyimagequant { python3Packages = pkgs.python310Packages; };
     thinplatespline = callPackage ./nakarte/thinplatespline {
       python3Packages = pkgs.python310Packages;
     };
-    tracks_storage_server = pkgs.python3Packages.callPackage ./nakarte/tracks_storage_server { };
+    tracks-storage-server = pkgs.python3Packages.callPackage ./nakarte/tracks-storage-server { };
+    westra-passes = callPackage ./nakarte/westra-passes { };
 
     ### OSM
 

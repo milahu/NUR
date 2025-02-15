@@ -8,31 +8,31 @@
 with lib;
 
 let
-  cfg = config.services.mbtileserver;
+  cfg = config.services.elevation-server;
 in
 {
-  options.services.mbtileserver = {
-    enable = mkEnableOption "mbtileserver";
-    package = mkOption {
-      type = types.package;
-      default = pkgs.mbtileserver;
-      defaultText = literalMD "pkgs.mbtileserver";
-      description = "Which mbtileserver package to use.";
-    };
+  options.services.elevation-server = {
+    enable = mkEnableOption "elevation-server";
+    package = mkPackageOption pkgs "elevation-server" { };
     address = mkOption {
       type = types.str;
       default = "127.0.0.1";
-      description = "IP address to listen on.";
+      description = "Address to bind to.";
     };
     port = mkOption {
       type = types.port;
-      default = 8000;
-      description = "Server port.";
+      default = 8080;
+      description = "Port to listen.";
     };
-    tileDir = mkOption {
+    threads = mkOption {
+      type = types.int;
+      default = 10;
+      description = "Maximum number of concurrently served requests.";
+    };
+    demTiles = mkOption {
       type = types.path;
-      default = "/srv/tilesets";
-      description = "The path where *.mbtiles files stored.";
+      default = "/srv/tilesets/dem_tiles";
+      description = "The path to file with elevation tile.";
     };
     nginx = mkOption {
       default = { };
@@ -61,15 +61,14 @@ in
 
   config = mkIf cfg.enable (mkMerge [
     {
-      systemd.services.mbtileserver = {
-        description = "MBTiles server";
+      systemd.services.elevation-server = {
+        description = "Elevation server";
         after = [ "network.target" ];
         wantedBy = [ "multi-user.target" ];
-        environment.TILE_DIR = cfg.tileDir;
         serviceConfig = {
           DynamicUser = true;
-          LogsDirectory = "mbtileserver";
-          ExecStart = "${getBin cfg.package}/bin/mbtileserver --enable-fs-watch --tiles-only --host ${cfg.address} --port ${toString cfg.port}";
+          LogsDirectory = "elevation-server";
+          ExecStart = "${getBin cfg.package}/bin/elevation_server -dem ${cfg.demTiles} -host ${cfg.address} -port ${toString cfg.port} -threads ${toString cfg.threads}";
           Restart = "always";
         };
       };
@@ -79,19 +78,14 @@ in
         enable = true;
         virtualHosts."${cfg.nginx.hostName}" = {
           locations."/" = {
-            root = cfg.tileDir;
-            extraConfig = ''
-              autoindex on;
-              autoindex_exact_size off;
-            '';
-          };
-          locations."/services" = {
             proxyPass = "http://${cfg.address}:${toString cfg.port}";
             extraConfig = ''
-              #proxy_set_header Host ''$host;
-              #proxy_set_header X-Forwarded-Host ''$server_name;
-              #proxy_set_header X-Real-IP ''$remote_addr;
-              add_header Cache-Control 'public, max-age=3600, must-revalidate';
+              more_clear_headers Access-Control-Allow-Origin;
+              more_clear_headers Access-Control-Allow-Credentials;
+              more_set_headers 'Access-Control-Allow-Origin: $http_origin';
+              more_set_headers 'Access-Control-Allow-Credentials: true';
+              more_set_headers 'Cache-Control: max-age=86400';
+              more_set_headers 'Vary: Origin';
             '';
           };
         };
