@@ -10,7 +10,7 @@ let
 
   rev = "${version}";
 
-  hash = "sha256-I+z2AZywwUSMIbkR6iNQkq0AyXkwA5A9AF3vQsRHmjU=";
+  hash = "sha256-GmyJo8imFqKrBAlaTk0rcUys7gkCv7+5chBK5lAtXqc=";
 in
 buildLinux (args // rec {
     inherit version modDirVersion;
@@ -72,7 +72,6 @@ buildLinux (args // rec {
       UHID = yes;
 
       RUST = lib.mkForce no;
-      SECURITY_APPARMOR_RESTRICT_USERNS = lib.mkForce no;
     };
 
     ignoreConfigErrors = true;
