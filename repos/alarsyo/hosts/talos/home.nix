@@ -31,6 +31,9 @@ in {
         (pkgs)
         ansel
         chromium # some websites only work there :(
+        hyprlock
+        nwg-displays
+        shikane # output autoconfig
         zotero
         ;
 
@@ -40,7 +43,9 @@ in {
         ;
     };
 
-    wayland.windowManager.sway = {
+    wayland.windowManager.sway = let
+      logoutMode = "[L]ogout, [S]uspend, [P]oweroff, [R]eboot";
+    in {
       enable = true;
       swaynag.enable = true;
       wrapperFeatures.gtk = true;
@@ -65,57 +70,36 @@ in {
         };
         fonts = {
           names = ["Iosevka Fixed" "FontAwesome6Free"];
-          size = 9.0;
+          size = 8.0;
         };
-        bars = [
-          {
-            mode = "dock";
-            hiddenState = "hide";
-            position = "top";
-            workspaceButtons = true;
-            workspaceNumbers = true;
-            statusCommand = "${pkgs.i3status}/bin/i3status";
-            fonts = {
-              names = ["Iosevka Fixed" "FontAwesome6Free"];
-              size = 9.0;
-            };
-            trayOutput = "primary";
-            colors = {
-              background = "#000000";
-              statusline = "#ffffff";
-              separator = "#666666";
-              focusedWorkspace = {
-                border = "#4c7899";
-                background = "#285577";
-                text = "#ffffff";
-              };
-              activeWorkspace = {
-                border = "#333333";
-                background = "#5f676a";
-                text = "#ffffff";
-              };
-              inactiveWorkspace = {
-                border = "#333333";
-                background = "#222222";
-                text = "#888888";
-              };
-              urgentWorkspace = {
-                border = "#2f343a";
-                background = "#900000";
-                text = "#ffffff";
-              };
-              bindingMode = {
-                border = "#2f343a";
-                background = "#900000";
-                text = "#ffffff";
-              };
-            };
-          }
-        ];
+        bars = [];
 
         keybindings = mkOptionDefault {
+          "Mod4+Shift+e" = ''mode "${logoutMode}"'';
           "Mod4+i" = "exec emacsclient --create-frame";
+          "Mod4+Control+l" = "exec hyprlock";
+          "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.2";
+          "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.2";
         };
+
+        modes = mkOptionDefault {
+          "${logoutMode}" = {
+            "l" = "exec --no-startup-id swaymsg exit, mode default";
+            #"s" = "exec --no-startup-id betterlockscreen --suspend, mode default";
+            "p" = "exec --no-startup-id systemctl poweroff, mode default";
+            "r" = "exec --no-startup-id systemctl reboot, mode default";
+            "Escape" = "mode default";
+            "Return" = "mode default";
+          };
+        };
+
+        menu = "fuzzel --list-executables-in-path";
+
+        startup = [
+          {command = "shikane";}
+          {command = "waybar";}
+        ];
       };
     };
     programs = {
