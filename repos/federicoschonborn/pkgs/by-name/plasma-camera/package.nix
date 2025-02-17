@@ -12,14 +12,14 @@
 
 stdenv.mkDerivation {
   pname = "plasma-camera";
-  version = "1.0-unstable-2025-02-06";
+  version = "1.0-unstable-2025-02-15";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "plasma-mobile";
     repo = "plasma-camera";
-    rev = "03a63372569d703da8d0b93a91e43b58b1abb163";
-    hash = "sha256-0m7DjcNFSOPziFftkmSRge0Bl2g4AvocwrXuzf0QLUA=";
+    rev = "3351f66437cd28e922d537f128dabda5e316f489";
+    hash = "sha256-3oPA/WNe52LG6RwVrWwE1EQ7UM++UfOlPuj5XvOI+fs=";
   };
 
   nativeBuildInputs = [
@@ -53,6 +53,6 @@ stdenv.mkDerivation {
     homepage = "https://invent.kde.org/plasma-mobile/plasma-camera";
     license = lib.licenses.gpl3Only;
     platforms = lib.platforms.unix;
-    maintainers = [ lib.maintainers.federicoschonborn ];
+    maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 }

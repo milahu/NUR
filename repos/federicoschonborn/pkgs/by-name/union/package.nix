@@ -11,14 +11,14 @@
 
 stdenv.mkDerivation (_: {
   pname = "union";
-  version = "0-unstable-2025-02-06";
+  version = "0-unstable-2025-02-12";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "plasma";
     repo = "union";
-    rev = "958db41b130ed8e1ca4a14e7938b64ba698b8b17";
-    hash = "sha256-1ZS+xMY3LvIbRQDVKEsEFrlocoGdu49eBlK7eMRPovQ=";
+    rev = "fdd7546dcb3f83dc526010d0e79eb172385ae723";
+    hash = "sha256-LaD9lkq/aVVt/6cStp+P0sZy1z5qIvM4ewUMa1PtTTY=";
   };
 
   nativeBuildInputs = [
@@ -65,6 +65,6 @@ stdenv.mkDerivation (_: {
       lgpl3Only
     ];
     platforms = lib.platforms.unix;
-    maintainers = [ lib.maintainers.federicoschonborn ];
+    maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })

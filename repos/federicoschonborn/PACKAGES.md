@@ -4565,6 +4565,51 @@ Library for emitting text, XML, JSON, or HTML output
   - `i686-windows`
   </details>
 
+<h2 id="magothy">
+
+`magothy`
+
+</h2>
+
+A hardware profiling application for Linux
+
+- Name: `magothy`
+- Version: `0-unstable-2025-02-14`
+
+- [🌐 Homepage](https://codeberg.org/serebit/magothy)
+- [📦 Source](./pkgs/by-name/magothy/package.nix#L24)
+- Licenses: [`Apache License 2.0`](https://spdx.org/licenses/Apache-2.0.html), [`Creative Commons Zero v1.0 Universal`](https://spdx.org/licenses/CC0-1.0.html)
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Details
+  </summary>
+
+- Maintainers:
+  - Federico Damián Schonborn [✉️](mailto:federicoschonborn@disroot.org)
+- Platforms:
+  - `aarch64-linux`
+  - `armv6l-linux`
+  - `armv7l-linux`
+  - `i686-linux`
+  - `loongarch64-linux`
+  - `powerpc64-linux`
+  - `powerpc64le-linux`
+  - `riscv64-linux`
+  - `s390x-linux`
+  - `x86_64-linux`
+  - `armv5tel-linux`
+  - `armv7a-linux`
+  - `m68k-linux`
+  - `mips-linux`
+  - `mips64-linux`
+  - `mipsel-linux`
+  - `mips64el-linux`
+  - `riscv32-linux`
+  </details>
+
 <h2 id="magpie-wayland">
 
 `magpie-wayland`
@@ -5155,7 +5200,7 @@ Phonon Backend using MPV Player
 Camera application for Plasma Mobile
 
 - Name: `plasma-camera`
-- Version: `1.0-unstable-2025-02-06`
+- Version: `1.0-unstable-2025-02-15`
 
 - [🌐 Homepage](https://invent.kde.org/plasma-mobile/plasma-camera)
 - [📦 Source](./pkgs/by-name/plasma-camera/package.nix#L52)
@@ -5227,7 +5272,7 @@ Camera application for Plasma Mobile
 A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell
 
 - Name: `pnut`
-- Version: `SLE2024-artifact-unstable-2025-02-11`
+- Version: `SLE2024-artifact-unstable-2025-02-13`
 
 - [🌐 Homepage](https://github.com/udem-dlteam/pnut)
 - [📦 Source](./pkgs/by-name/pnut/package.nix#L44)
@@ -6269,7 +6314,7 @@ Generate a static HTML page from a collection of feeds wtih a simple CLI tool
 A Qt style supporting both QtQuick and QtWidgets
 
 - Name: `union`
-- Version: `0-unstable-2025-02-06`
+- Version: `0-unstable-2025-02-12`
 
 - [🌐 Homepage](https://invent.kde.org/plasma/union)
 - [📦 Source](./pkgs/by-name/union/package.nix#L57)
