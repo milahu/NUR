@@ -31,9 +31,9 @@ in {
         (pkgs)
         ansel
         chromium # some websites only work there :(
-        hyprlock
         nwg-displays
         shikane # output autoconfig
+        swaybg
         zotero
         ;
 
@@ -45,6 +45,7 @@ in {
 
     wayland.windowManager.sway = let
       logoutMode = "[L]ogout, [S]uspend, [P]oweroff, [R]eboot";
+      lock = "swaylock --daemonize --image ~/.wallpaper --scaling fill";
     in {
       enable = true;
       swaynag.enable = true;
@@ -75,18 +76,21 @@ in {
         bars = [];
 
         keybindings = mkOptionDefault {
+          "Mod4+Shift+a" = "exec shikanectl reload";
           "Mod4+Shift+e" = ''mode "${logoutMode}"'';
           "Mod4+i" = "exec emacsclient --create-frame";
-          "Mod4+Control+l" = "exec hyprlock";
+          "Mod4+Control+l" = "exec ${lock}";
           "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.2";
           "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.2";
+          "XF86MonBrightnessUp" = "exec light -A 5";
+          "XF86MonBrightnessDown" = "exec light -U 5";
         };
 
         modes = mkOptionDefault {
           "${logoutMode}" = {
             "l" = "exec --no-startup-id swaymsg exit, mode default";
-            #"s" = "exec --no-startup-id betterlockscreen --suspend, mode default";
+            "s" = "exec --no-startup-id systemctl suspend, mode default";
             "p" = "exec --no-startup-id systemctl poweroff, mode default";
             "r" = "exec --no-startup-id systemctl reboot, mode default";
             "Escape" = "mode default";
@@ -99,8 +103,15 @@ in {
         startup = [
           {command = "shikane";}
           {command = "waybar";}
+          {command = "swaybg --image ~/.wallpaper --mode fill"; always = true; }
+          {command = "swayidle -w idlehint 1 before-sleep \"${lock}\"";}
         ];
       };
+
+      extraConfig = ''
+        bindswitch --reload --locked lid:off output eDP-1 enable;
+        bindswitch --reload --locked lid:on output eDP-1 disable;
+      '';
     };
     programs = {
       fuzzel.enable = true;
@@ -109,5 +120,18 @@ in {
         enable = true;
       };
     };
+  };
+
+  # FIXME: belongs elsewhere
+  services = {
+    logind = {
+      lidSwitch = "suspend";
+      lidSwitchExternalPower = "ignore";
+      extraConfig = ''
+        IdleAction=suspend
+        IdleActionSec=10min
+      '';
+    };
+    upower.enable = true;
   };
 }
