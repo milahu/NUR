@@ -3051,12 +3051,12 @@ wvrn emoji pack
 An old cellphone arcade recreated for PC
 
 - Name: `biplanes-revival`
-- Version: `1.2`
+- Version: `1.2.1`
 
 - [🌐 Homepage](https://github.com/regular-dev/biplanes-revival)
 - [📦 Source](./pkgs/by-name/biplanes-revival/package.nix#L43)
 - License: [`GNU General Public License v3.0 or later`](https://spdx.org/licenses/GPL-3.0-or-later.html)
-- [📰 Changelog](https://github.com/regular-dev/biplanes-revival/releases/tag/v1.2)
+- [📰 Changelog](https://github.com/regular-dev/biplanes-revival/releases/tag/v1.2.1)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
 <details>
@@ -4574,10 +4574,10 @@ Library for emitting text, XML, JSON, or HTML output
 A hardware profiling application for Linux
 
 - Name: `magothy`
-- Version: `0-unstable-2025-02-14`
+- Version: `0-unstable-2025-02-16`
 
 - [🌐 Homepage](https://codeberg.org/serebit/magothy)
-- [📦 Source](./pkgs/by-name/magothy/package.nix#L24)
+- [📦 Source](./pkgs/by-name/magothy/package.nix#L32)
 - Licenses: [`Apache License 2.0`](https://spdx.org/licenses/Apache-2.0.html), [`Creative Commons Zero v1.0 Universal`](https://spdx.org/licenses/CC0-1.0.html)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
@@ -5272,7 +5272,7 @@ Camera application for Plasma Mobile
 A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell
 
 - Name: `pnut`
-- Version: `SLE2024-artifact-unstable-2025-02-13`
+- Version: `SLE2024-artifact-unstable-2025-02-16`
 
 - [🌐 Homepage](https://github.com/udem-dlteam/pnut)
 - [📦 Source](./pkgs/by-name/pnut/package.nix#L44)

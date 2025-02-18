@@ -6,7 +6,7 @@
   wayland-scanner,
   pixman,
   wayland,
-# nix-update-script,
+  unstableGitUpdater,
 }:
 
 stdenv.mkDerivation {
@@ -34,12 +34,7 @@ stdenv.mkDerivation {
 
   env.NIX_CFLAGS_COMPILE = "-Wno-error";
 
-  # passthru.updateScript = nix-update-script {
-  #   extraArgs = [
-  #     "--version"
-  #     "branch"
-  #   ];
-  # };
+  passthru.updateScript = unstableGitUpdater { };
 
   meta = {
     mainProgram = "wayneko";

@@ -95,6 +95,14 @@ path-info-unstable PACKAGE: (build-unstable PACKAGE)
 path-info-stable PACKAGE: (build-stable PACKAGE)
     just _nix-stable path-info ".#{{ PACKAGE }}"
 
+[group("update")]
+update +PACKAGES:
+    just _nix-unstable run ".#update" {{ PACKAGES }}
+
+[group("update-all")]
+update-all:
+    just _nix-unstable run ".#update-all"
+
 tree PACKAGE: (build-unstable PACKAGE)
     #!/usr/bin/env nix-shell
     #!nix-shell -i bash -p nix-tree
