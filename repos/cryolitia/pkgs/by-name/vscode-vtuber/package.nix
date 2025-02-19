@@ -1,5 +1,6 @@
 {
   stdenv,
+  lib,
   vscode,
   logo-url ? "https://raw.githubusercontent.com/Aikoyori/ProgrammingVTuberLogos/main/VSCode/VSCode.png",
 }:
@@ -23,5 +24,6 @@ vscode.overrideAttrs (oldAttrs: {
 
   meta = oldAttrs.meta // {
     description = "VSCode with github.com/Aikoyori/ProgrammingVTuberLogos LOGO";
+    maintainers = with lib.maintainers; [ Cryolitia ];
   };
 })
