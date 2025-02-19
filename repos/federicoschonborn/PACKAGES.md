@@ -3345,7 +3345,7 @@ Cargo Advent of Code Helper
 - Version: `0.3.7`
 
 - [🌐 Homepage](https://github.com/gobanos/cargo-aoc)
-- [📦 Source](./pkgs/by-name/cargo-aoc/package.nix#L41)
+- [📦 Source](./pkgs/by-name/cargo-aoc/package.nix#L42)
 - Licenses: [`Apache License 2.0`](https://spdx.org/licenses/Apache-2.0.html), [`MIT License`](https://spdx.org/licenses/MIT.html)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
@@ -4066,6 +4066,54 @@ A language for building concurrent software with confidence
   - `riscv64-netbsd`
   - `x86_64-redox`
   - `wasm32-wasi`
+  </details>
+
+<h2 id="karton">
+
+`karton`
+
+</h2>
+
+KDE Virtual Machine Manager
+
+- Name: `karton`
+- Version: `0-unstable-2024-08-07`
+
+- [🌐 Homepage](https://invent.kde.org/arraybolt/karton)
+- [📦 Source](./pkgs/by-name/karton/package.nix#L53)
+- License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Details
+  </summary>
+
+- Maintainers:
+  - Federico Damián Schonborn [✉️](mailto:federicoschonborn@disroot.org)
+- Platforms:
+  - `aarch64-linux`
+  - `armv5tel-linux`
+  - `armv6l-linux`
+  - `armv7a-linux`
+  - `armv7l-linux`
+  - `i686-linux`
+  - `loongarch64-linux`
+  - `m68k-linux`
+  - `microblaze-linux`
+  - `microblazeel-linux`
+  - `mips-linux`
+  - `mips64-linux`
+  - `mips64el-linux`
+  - `mipsel-linux`
+  - `powerpc64-linux`
+  - `powerpc64le-linux`
+  - `riscv32-linux`
+  - `riscv64-linux`
+  - `s390-linux`
+  - `s390x-linux`
+  - `x86_64-linux`
   </details>
 
 <h2 id="kiview">
@@ -6389,7 +6437,7 @@ Display an animated neko cat on the bottom of an output
 - Version: `0-unstable-2024-03-29`
 
 - [🌐 Homepage](https://sr.ht/~leon_plickat/wayneko/)
-- [📦 Source](./pkgs/by-name/wayneko/package.nix#L46)
+- [📦 Source](./pkgs/by-name/wayneko/package.nix#L41)
 - License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
