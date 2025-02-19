@@ -140,18 +140,21 @@ let
   #   '';
   # };
 
-  # sqlcipherTarball = fetchurl {
-  #   # this is a dependency of better-sqlite3.
-  #   # version/url is found in <repo:signalapp/better-sqlite3:deps/download.js>
-  #   # - checkout the better-sqlite3 tag which matches signal-dekstop's package.json "@signalapp/better-sqlite3" key.
-  #   url = let
-  #     BETTER_SQLITE3_VERSION = "9.0.8";  #< from Signal-Desktop/package.json
-  #     HASH = "b0dbebe5b2d81879984bfa2318ba364fb4d436669ddc1668d2406eaaaee40b7e";
-  #     SQLCIPHER_VERSION = "4.6.1-signal-patch2";
-  #     EXTENSION_VERSION = "0.2.0";
-  #   in "https://build-artifacts.signal.org/desktop/sqlcipher-v2-${SQLCIPHER_VERSION}--${EXTENSION_VERSION}-${HASH}.tar.gz";
-  #   hash = "sha256-sNvr5bLYGHmYS/ojGLo2T7TUNmad3BZo0kBuqq7kC34=";
-  # };
+  # better-sqlite3 can be built from source, or use the prebuilt version from nixpkgs' signal-desktop.
+  # just do whatever's easiest (and works) at the time of upgrade; set `null` to use the prebuild
+  # sqlcipherTarball = null;
+  sqlcipherTarball = fetchurl {
+    # this is a dependency of better-sqlite3.
+    # version/url is found in <repo:signalapp/better-sqlite3:deps/download.js>
+    # - checkout the better-sqlite3 tag which matches signal-dekstop's package.json "@signalapp/better-sqlite3" key.
+    url = let
+      BETTER_SQLITE3_VERSION = "9.0.11";  #< from Signal-Desktop/package.json
+      HASH = "6253f886c40e49bf892d5cdc92b2eb200b12cd8d80c48ce5b05967cfd01ee8c7";
+      SQLCIPHER_VERSION = "4.6.1-signal-patch2";
+      EXTENSION_VERSION = "0.2.1-asm2";
+    in "https://build-artifacts.signal.org/desktop/sqlcipher-v2-${SQLCIPHER_VERSION}--${EXTENSION_VERSION}-${HASH}.tar.gz";
+    hash = "sha256-YlP4hsQOSb+JLVzckrLrIAsSzY2AxIzlsFlnz9Ae6Mc=";
+  };
 
   # signal-fts5-extension = callPackage ./fts5-extension { };
   # bettersqlitePatch = substituteAll {
@@ -177,17 +180,20 @@ let
 in
 buildNpmPackage rec {
   pname = "signal-desktop-from-src";
-  version = "7.37.0";
+  version = "7.42.0";
+  # version = "7.43.0";
 
   src = fetchFromGitHub {
     owner = "signalapp";
     repo = "Signal-Desktop";
     leaveDotGit = true;  # signal calculates the release date via `git`
     rev = "v${version}";
-    hash = "sha256-Uh2VzPmNTjlE5dsFiAhXR6lxV53IJG7IexZNArGTBhU=";
+    hash = "sha256-YBG3GUkGwZfFSf51RTT01gUshe8pFJ3u9kThiZNmtJg=";  # 7.42.0
+    # hash = "sha256-t07xXuxHmv5iIlCbkVaS6Z5TFEHTIbbiEYjs8Uyd6ro=";  # 7.43.0
   };
 
-  npmDepsHash = "sha256-U1dWB1E36A+M7XLosxMd2oRifJ6czFxzuz3pOTiJ+oM=";
+  npmDepsHash = "sha256-AQQliyhKwsLEVn16iRrevJmbFQsNaVnP0XyyadwxlTM=";  # 7.42.0
+  # npmDepsHash = "sha256-AhsHdgHsN9jAsiESvVXXD1sJ02CvzjkG0rZiXz0WtN0=";  # 7.43.0
 
   patches = [
     # ./debug.patch
@@ -266,7 +272,7 @@ buildNpmPackage rec {
 
   dontWrapGApps = true;
   # dontStrip = false;
-  # makeCacheWritable = true;
+  makeCacheWritable = true;  # "Your cache folder contains root-owned files, due to a bug in previous versions of npm which has since been addressed."
 
   npmRebuildFlags = [
     # "--offline"
@@ -298,17 +304,19 @@ buildNpmPackage rec {
     # provide necessities which were skipped as part of --ignore-scripts
     rsync -arv ${ringrtcPrebuild}/ node_modules/@signalapp/ringrtc/
 
-    # option 1: replace the entire better-sqlite3 library with the prebuilt version from nixpkgs' signal-desktop
-    rsync -arv ${betterSqlitePrebuild}/ node_modules/@signalapp/better-sqlite3/
-    # patch so signal doesn't try to *rebuild* better-sqlite3
-    substituteInPlace node_modules/@signalapp/better-sqlite3/package.json \
-      --replace-fail '"download": "node ./deps/download.js"'  '"download": "true"' \
-      --replace-fail '"build-release": "node-gyp rebuild --release"'  '"build-release": "true"' \
-      --replace-fail '"install": "npm run download && npm run build-release"'  '"install": "true"'
-
-    # option 2: replace only the sqlcipher plugin with Signal's prebuilt version,
-    # and build the rest of better-sqlite3 from source
-    # cp $${sqlcipherTarball} node_modules/@signalapp/better-sqlite3/deps/sqlcipher.tar.gz
+    ${if sqlcipherTarball == null then ''
+      # option 1: replace the entire better-sqlite3 library with the prebuilt version from nixpkgs' signal-desktop
+      rsync -arv ${betterSqlitePrebuild}/ node_modules/@signalapp/better-sqlite3/
+      # patch so signal doesn't try to *rebuild* better-sqlite3
+      substituteInPlace node_modules/@signalapp/better-sqlite3/package.json \
+        --replace-fail '"download": "node ./deps/download.js"'  '"download": "true"' \
+        --replace-fail '"build-release": "node-gyp rebuild --release"'  '"build-release": "true"' \
+        --replace-fail '"install": "npm run download && npm run build-release"'  '"install": "true"'
+    '' else ''
+      # option 2: replace only the sqlcipher plugin with Signal's prebuilt version,
+      # and build the rest of better-sqlite3 from source
+      cp ${sqlcipherTarball} node_modules/@signalapp/better-sqlite3/deps/sqlcipher.tar.gz
+    ''}
 
     # pushd node_modules/@signalapp/better-sqlite3
     #   # node-gyp isn't consistently linked into better-sqlite's `node_modules` (maybe due to version mismatch with signal-desktop's node-gyp?)

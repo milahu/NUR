@@ -955,6 +955,12 @@ in with final; {
   #     upstream.postBuild;
   # });
 
+  wvkbd = prev.wvkbd.overrideAttrs (upstream: {
+    nativeBuildInputs = (upstream.nativeBuildInputs or []) ++ [
+      buildPackages.scdoc
+    ];
+  });
+
   # 2024/11/19: upstreaming is blocked on unar (gnustep), unless i also make that optional
   xarchiver = mvToNativeInputs [ libxslt ] prev.xarchiver;
 }

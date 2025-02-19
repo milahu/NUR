@@ -22,7 +22,7 @@
     TIMELINE_CREATE = true;  # take a snapshot every hour
 
     TIMELINE_LIMIT_HOURLY = 2;
-    TIMELINE_LIMIT_DAILY = 3;
+    TIMELINE_LIMIT_DAILY = 2;
     TIMELINE_LIMIT_WEEKLY = 0;
     TIMELINE_LIMIT_MONTHLY = 0;
     TIMELINE_LIMIT_YEARLY = 0;
@@ -34,4 +34,6 @@
     # TIMELINE_LIMIT_MONTHLY = 0;
     # TIMELINE_LIMIT_YEARLY = 0;
   };
+
+  services.snapper.cleanupInterval = "2h";  # how frequently to gc snapshots no longer covered by the above policy (default: daily)
 }
