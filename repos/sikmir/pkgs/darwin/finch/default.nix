@@ -3,6 +3,7 @@
   stdenv,
   buildGoModule,
   fetchFromGitHub,
+  writableTmpDirAsHomeHook,
 }:
 
 buildGoModule rec {
@@ -23,9 +24,7 @@ buildGoModule rec {
 
   ldflags = [ "-X github.com/runfinch/finch/pkg/version.Version=${version}" ];
 
-  preCheck = ''
-    export HOME=$TMPDIR
-  '';
+  nativeCheckInputs = [ writableTmpDirAsHomeHook ];
 
   checkFlags = [ "-skip=TestVersionAction_run" ];
 

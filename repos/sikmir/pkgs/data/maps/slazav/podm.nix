@@ -13,6 +13,7 @@
   netpbm,
   sqlite,
   unstableGitUpdater,
+  writableTmpDirAsHomeHook,
   zip,
 }:
 
@@ -39,11 +40,11 @@ stdenv.mkDerivation {
     mapsoft2
     netpbm
     sqlite
+    writableTmpDirAsHomeHook
     zip
   ];
 
   preBuild = ''
-    export HOME=$TMPDIR
     make -C pics
   '';
 

@@ -213,8 +213,6 @@ lib.makeScope newScope (
     mapsoft2 = callPackage ./geospatial/mapsoft/2.nix { };
     mbtiles2osmand = callPackage ./geospatial/mbtiles2osmand { };
     mbutiles = callPackage ./geospatial/mbutiles { };
-    mobroute = callPackage ./geospatial/mobroute { };
-    mobsql = callPackage ./geospatial/mobsql { };
     orbisgis = callPackage ./geospatial/orbisgis { jre = pkgs.jre8; };
     ossim = callPackage ./geospatial/ossim { };
     pipfile = callPackage ./geospatial/pipfile { };
