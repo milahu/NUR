@@ -12,7 +12,7 @@ NUR link: https://nur.nix-community.org/repos/ihaveamac/
 
 | Name | Attr | Description |
 | --- | --- | --- |
-| [3beans-0-unstable-2025-02-15](https://github.com/Hydr8gon/3Beans) | \_3beans | A low-level 3DS emulator (maybe) |
+| [3beans-0-unstable-2025-02-20](https://github.com/Hydr8gon/3Beans) | \_3beans | A low-level 3DS emulator (maybe) |
 | [3dslink-0.6.3](https://github.com/devkitPro/3dslink) | \_3dslink | Send 3DSX files to the Homebrew Launcher on 3DS |
 | [3dstool-1.2.6](https://github.com/dnasdw/3dstool) | \_3dstool | An all-in-one tool for extracting/creating 3ds roms. |
 | [3dstools-1.3.1](https://github.com/devkitpro/3dstools) | \_3dstools | Tools for 3DS homebrew |
@@ -27,7 +27,6 @@ NUR link: https://nur.nix-community.org/repos/ihaveamac/
 | [kame-editor-1.4.1-unstable-2024-11-01](https://beelzy.gitlab.io/kame-editor/) | kame-editor | GUI frontend for kame-tools; makes custom 3DS themes. |
 | [kame-tools-1.3.8-unstable-2024-11-01](https://gitlab.com/beelzy/kame-tools) | kame-tools | Fork of bannertools that includes tools for making 3DS themes. |
 | [kwin-move-window-1.1.1](https://github.com/Merrit/kwin-move-window) | kwin-move-window | KWin script that adds shortcuts to move the active window with the keyboard |
-| [launchcontrol-2.7](https://www.soma-zone.com/LaunchControl/) | launchcontrol | Create, manage and debug launchd(8) services |
 | [lnshot-0.1.3](https://github.com/ticky/lnshot) | lnshot | Symlink your Steam screenshots to a sensible place |
 | [local-gpss-1.0.0](https://github.com/FlagBrew/local-gpss) | local-gpss | A C# API server that can be used to locally host GPSS |
 | [makebax-2019-01-22](https://gitlab.com/Wolfvak/BAX) | makebax | BAX Animation creator |

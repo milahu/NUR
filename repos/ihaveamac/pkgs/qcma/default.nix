@@ -7,10 +7,12 @@
   qmake,
   wrapQtAppsHook,
   pkg-config,
-  ffmpeg_4,
   libnotify,
   qtbase,
   qttools,
+
+  withFFmpeg ? true,
+  ffmpeg_4,
 }:
 
 let
@@ -29,10 +31,9 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     vitamtp
-    ffmpeg_4
     libnotify
     qtbase
-  ];
+  ] ++ (lib.optional withFFmpeg ffmpeg_4);
 
   nativeBuildInputs = [
     git
@@ -41,6 +42,8 @@ stdenv.mkDerivation rec {
     pkg-config
     qttools
   ];
+
+  qmakeFlags = lib.optional (!withFFmpeg) "CONFIG+=DISABLE_FFMPEG";
 
   # https://discourse.nixos.org/t/building-derivation-fails-with-generic-makefile-error-manually-building-in-arch-seems-to-work-fine/55168/6
   preBuild = ''
