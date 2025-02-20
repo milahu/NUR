@@ -2234,10 +2234,10 @@
     };
     "darkreader" = buildFirefoxXpiAddon {
       pname = "darkreader";
-      version = "4.9.100";
+      version = "4.9.101";
       addonId = "addon@darkreader.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4427854/darkreader-4.9.100.xpi";
-      sha256 = "9ad477dffe36d7337617fbf1c8ee8b6abb7bb681caed1b8bfe87bbed5a424302";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4433330/darkreader-4.9.101.xpi";
+      sha256 = "acf683f6fc743e85d75778bf92bc99ae6d513543cefd20aa994479e5aedc4b3d";
       meta = with lib;
       {
         homepage = "https://darkreader.org/";
@@ -5430,10 +5430,10 @@
     };
     "immersive-translate" = buildFirefoxXpiAddon {
       pname = "immersive-translate";
-      version = "1.13.8";
+      version = "1.14.11";
       addonId = "{5efceaa7-f3a2-4e59-a54b-85319448e305}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4425120/immersive_translate-1.13.8.xpi";
-      sha256 = "51ed498ee2421ce43850a0f9bb7a8f7490a14472f0420809d6f402b40d649b4f";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4439318/immersive_translate-1.14.11.xpi";
+      sha256 = "9674b572ef3ff72b0b3914d1d20b06d137af91a1c5d42336e4c3655b9cf04147";
       meta = with lib;
       {
         homepage = "https://immersivetranslate.com";
