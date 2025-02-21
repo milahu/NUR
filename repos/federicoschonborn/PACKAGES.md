@@ -3478,12 +3478,12 @@ Tool to generate flags for your CPU
 Like neofetch, but much faster because written in C
 
 - Name: `fastfetch`
-- Version: `2.36.1`
+- Version: `2.37.0`
 - Outputs: **`out`**, `man`
 - [🌐 Homepage](https://github.com/fastfetch-cli/fastfetch)
 - [📦 Source](./pkgs/by-name/fastfetch/package.nix#L269)
 - License: [`MIT License`](https://spdx.org/licenses/MIT.html)
-- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.36.1)
+- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.37.0)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
 <details>
@@ -3583,12 +3583,12 @@ Like neofetch, but much faster because written in C
 Like neofetch, but much faster because written in C (with all features disabled)
 
 - Name: `fastfetch`
-- Version: `2.36.1`
+- Version: `2.37.0`
 - Outputs: **`out`**, `man`
 - [🌐 Homepage](https://github.com/fastfetch-cli/fastfetch)
 - [📦 Source](./default.nix#L32)
 - License: [`MIT License`](https://spdx.org/licenses/MIT.html)
-- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.36.1)
+- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.37.0)
 
 <!-- markdownlint-disable-next-line no-inline-html -->
 <details>
@@ -4077,7 +4077,7 @@ A language for building concurrent software with confidence
 KDE Virtual Machine Manager
 
 - Name: `karton`
-- Version: `0-unstable-2024-08-07`
+- Version: `0.1-prealpha-unstable-2024-08-07`
 
 - [🌐 Homepage](https://invent.kde.org/arraybolt/karton)
 - [📦 Source](./pkgs/by-name/karton/package.nix#L53)
@@ -4622,7 +4622,7 @@ Library for emitting text, XML, JSON, or HTML output
 A hardware profiling application for Linux
 
 - Name: `magothy`
-- Version: `0-unstable-2025-02-16`
+- Version: `0-unstable-2025-02-19`
 
 - [🌐 Homepage](https://codeberg.org/serebit/magothy)
 - [📦 Source](./pkgs/by-name/magothy/package.nix#L32)
@@ -5320,7 +5320,7 @@ Camera application for Plasma Mobile
 A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell
 
 - Name: `pnut`
-- Version: `SLE2024-artifact-unstable-2025-02-16`
+- Version: `SLE2024-artifact-unstable-2025-02-19`
 
 - [🌐 Homepage](https://github.com/udem-dlteam/pnut)
 - [📦 Source](./pkgs/by-name/pnut/package.nix#L44)
@@ -5752,7 +5752,7 @@ Fan sequel to Super Mario 63
 Sega Model 3 arcade machine emulator
 
 - Name: `supermodel`
-- Version: `0-unstable-2025-02-12`
+- Version: `0-unstable-2025-02-19`
 
 - [🌐 Homepage](https://github.com/trzy/Supermodel)
 - [📦 Source](./pkgs/by-name/supermodel/package.nix#L63)

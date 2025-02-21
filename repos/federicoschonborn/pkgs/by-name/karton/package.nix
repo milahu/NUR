@@ -11,7 +11,7 @@
 
 stdenv.mkDerivation {
   pname = "karton";
-  version = "0-unstable-2024-08-07";
+  version = "0.1-prealpha-unstable-2024-08-07";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";

@@ -7,18 +7,18 @@
 
 rustPlatform.buildRustPackage {
   pname = "magothy";
-  version = "0-unstable-2025-02-16";
+  version = "0-unstable-2025-02-19";
 
   src = fetchFromGitea {
     domain = "codeberg.org";
     owner = "serebit";
     repo = "magothy";
-    rev = "c9096d21ba476c2a658033275d0aae800264c1e3";
-    hash = "sha256-aYlUkgUaC0uIV6ce5xkD3LfAZDnueXk4ZXuOMmqZ5N0=";
+    rev = "1a8a1227aebac9293232ab3bf5c9ef24c619266c";
+    hash = "sha256-Ya85uDTmshmJtQbumbNOFkDH3NRLfvd/gyzdvZWGtiE=";
   };
 
   useFetchCargoVendor = true;
-  cargoHash = "sha256-vsHxpcFMpgF7fzVdvK5X+ET7bxFNrNtfNTdhOyPMF8Q=";
+  cargoHash = "sha256-YFM0rZmio727AHyRlW2BHpFDHFRZhYrWX+lvRpldzJY=";
 
   passthru.updateScript = nix-update-script {
     extraArgs = [

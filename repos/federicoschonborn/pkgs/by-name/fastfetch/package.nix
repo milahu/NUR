@@ -156,13 +156,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "fastfetch";
-  version = "2.36.1";
+  version = "2.37.0";
 
   src = fetchFromGitHub {
     owner = "fastfetch-cli";
     repo = "fastfetch";
     rev = "refs/tags/${finalAttrs.version}";
-    hash = "sha256-gvhhYZ6wp3t+GNL8lyKaC6IHZXxu+CQo40rsJARNKY0=";
+    hash = "sha256-wcDMr0I4Y2iSR5gsJ4ATe2T4CHV+hHXEKScUpB9ncMs=";
   };
 
   outputs = [
@@ -243,6 +243,8 @@ stdenv.mkDerivation (finalAttrs: {
       (lib.cmakeBool "BUILD_FLASHFETCH" buildFlashfetch)
     ]
     ++ lib.optionals stdenv.hostPlatform.isLinux [
+      # (lib.cmakeBool "ENABLE_EMBEDDED_PCIIDS" true)
+      (lib.cmakeBool "ENABLE_EMBEDDED_AMDGPUIDS" true)
       (lib.cmakeOptionType "filepath" "CUSTOM_PCI_IDS_PATH" "${hwdata}/share/hwdata/pci.ids")
       (lib.cmakeOptionType "filepath" "CUSTOM_AMDGPU_IDS_PATH" "${libdrm}/share/libdrm/amdgpu.ids")
     ];

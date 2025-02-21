@@ -7,13 +7,13 @@
 
 stdenv.mkDerivation {
   pname = "pnut";
-  version = "SLE2024-artifact-unstable-2025-02-16";
+  version = "SLE2024-artifact-unstable-2025-02-19";
 
   src = fetchFromGitHub {
     owner = "udem-dlteam";
     repo = "pnut";
-    rev = "e37a3ba86701080a8d75d151bb686a5b95da3e4b";
-    hash = "sha256-DkxyYuzehxpjRLm9u33V8xnlmIB1izcLd5SWyfRi3dY=";
+    rev = "bc734b4fa8097878f64ef4786c888e9a1217f7b9";
+    hash = "sha256-UC1c3wXQXHBMJGLWRWwru4t9G4HgIj9g01HfgCnn6gY=";
   };
 
   makeFlags = [
