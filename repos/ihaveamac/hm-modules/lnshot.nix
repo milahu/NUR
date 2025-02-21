@@ -5,8 +5,8 @@
   ...
 }:
 
-with lib;
 let
+  inherit (lib) mkEnableOpton mkOption mkIf types escapeShellArg;
   cfg = config.services.lnshot;
   lnshot = pkgs.callPackage ../pkgs/lnshot { };
 in
@@ -29,7 +29,7 @@ in
         Description = "Steam Screenshot Symlinking Service";
       };
       Service = {
-        ExecStart = "${lnshot}/bin/lnshot daemon -p ${lib.escapeShellArg cfg.picturesName}";
+        ExecStart = "${lnshot}/bin/lnshot daemon -p ${escapeShellArg cfg.picturesName}";
         Restart = "always";
       };
       Install = {
