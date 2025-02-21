@@ -20,6 +20,11 @@ buildGoModule rec {
 
   nativeCheckInputs = [ writableTmpDirAsHomeHook ];
 
+  ldflags = [
+    "-X github.com/emitter-io/emitter/internal/command/version.version=${version}"
+    "-X github.com/emitter-io/emitter/internal/command/version.commit=${src.rev}"
+  ];
+
   doCheck = true;
 
   __darwinAllowLocalNetworking = true;
