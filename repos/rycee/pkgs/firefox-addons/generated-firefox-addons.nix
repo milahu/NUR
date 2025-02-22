@@ -2256,10 +2256,10 @@
     };
     "dashlane" = buildFirefoxXpiAddon {
       pname = "dashlane";
-      version = "6.2506.0";
+      version = "6.2508.0";
       addonId = "jetpack-extension@dashlane.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4430009/dashlane-6.2506.0.xpi";
-      sha256 = "894b8a2ed1f04a868239f3c72e70c2a607e84c3f074c55527944458d90a37f5e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4438626/dashlane-6.2508.0.xpi";
+      sha256 = "d2dc3418cc4d92d74a80e304eb644d73240c77ba355dc43b9313894b80c2c9f5";
       meta = with lib;
       {
         homepage = "https://www.dashlane.com";
@@ -2632,10 +2632,10 @@
     };
     "duckduckgo-privacy-essentials" = buildFirefoxXpiAddon {
       pname = "duckduckgo-privacy-essentials";
-      version = "2025.1.15";
+      version = "2025.2.3";
       addonId = "jid1-ZAdIEUB7XOzOJw@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4421704/duckduckgo_for_firefox-2025.1.15.xpi";
-      sha256 = "89b1e4d2778882d95fb878272ca7bbfc78bff6374d88216e99a00f7d8236b550";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4434336/duckduckgo_for_firefox-2025.2.3.xpi";
+      sha256 = "411ff2b29f315ef06623338c4a5bc5ce2ca60c83f722d051dd11156fc454359a";
       meta = with lib;
       {
         homepage = "https://duckduckgo.com/app";
@@ -5326,10 +5326,10 @@
     };
     "i2p-in-private-browsing" = buildFirefoxXpiAddon {
       pname = "i2p-in-private-browsing";
-      version = "2.8.0";
+      version = "2.8.2";
       addonId = "i2ppb@eyedeekay.github.io";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4434165/i2p_in_private_browsing-2.8.0.xpi";
-      sha256 = "e61a877a5b141b29c04ddbacae5dd716b5b4d253221115efcca97129d750596c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4441161/i2p_in_private_browsing-2.8.2.xpi";
+      sha256 = "6a81e998f3cf37d4a606175c8e5e7c3b0ab3b12c48473956caa9726ddc3f0438";
       meta = with lib;
       {
         homepage = "https://github.com/eyedeekay/i2psetproxy.js";
@@ -6097,10 +6097,10 @@
     };
     "keeper-password-manager" = buildFirefoxXpiAddon {
       pname = "keeper-password-manager";
-      version = "16.11.2";
+      version = "17.0.0";
       addonId = "KeeperFFStoreExtension@KeeperSecurityInc";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4386995/keeper_password_manager-16.11.2.xpi";
-      sha256 = "587de2e3c7af73c6be93e849d6371581be928c2ff93b4c4480d5e6d41ac3895e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4434856/keeper_password_manager-17.0.0.xpi";
+      sha256 = "60b154ccba463f5dba23bd9b13b339a4a797c46358f0f2dd806188768e16aa66";
       meta = with lib;
       {
         homepage = "http://keepersecurity.com/";
@@ -11271,10 +11271,10 @@
     };
     "tab-stash" = buildFirefoxXpiAddon {
       pname = "tab-stash";
-      version = "3.1.1";
+      version = "3.2";
       addonId = "tab-stash@condordes.net";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4361352/tab_stash-3.1.1.xpi";
-      sha256 = "7f95a8c5aeea4b1ada280b97b38ec60adaee91c3eb1f87e972ac038e960b0de2";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4433697/tab_stash-3.2.xpi";
+      sha256 = "6f40c735df4edf3ed6dbaf6647c29c3a19277f14e7a7614359d095aab68a5bbd";
       meta = with lib;
       {
         homepage = "https://josh-berry.github.io/tab-stash/";
