@@ -6,7 +6,13 @@
 }:
 
 let
-  inherit (lib) mkEnableOpton mkOption mkIf types escapeShellArg;
+  inherit (lib)
+    mkEnableOpton
+    mkOption
+    mkIf
+    types
+    escapeShellArg
+    ;
   cfg = config.services.lnshot;
   lnshot = pkgs.callPackage ../pkgs/lnshot { };
 in
