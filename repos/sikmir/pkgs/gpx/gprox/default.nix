@@ -18,7 +18,7 @@ rustPlatform.buildRustPackage {
 
   cargoPatches = [ ./cargo-lock.patch ];
 
-  cargoHash = "sha256-CjVymOCY1e3DTpAg0QgerNkzGplYHizmzwlYPbNNkbU=";
+  cargoHash = "sha256-boqyYYxZqdDuQxBKpTcHpjjsCkr7owvXFxaZ4pMmX8c=";
 
   meta = {
     description = "Tool to process .gpx files";

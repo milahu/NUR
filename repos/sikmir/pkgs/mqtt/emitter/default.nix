@@ -27,6 +27,11 @@ buildGoModule rec {
 
   doCheck = true;
 
+  checkFlags = [
+    # Tests require network access
+    "-skip=^Test(NewClient|Statsd_BadSnapshot|Statsd_Configure|Join|Random)$"
+  ];
+
   __darwinAllowLocalNetworking = true;
 
   meta = {
