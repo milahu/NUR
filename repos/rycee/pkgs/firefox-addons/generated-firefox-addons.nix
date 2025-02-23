@@ -2139,10 +2139,10 @@
     };
     "danish-language-pack" = buildFirefoxXpiAddon {
       pname = "danish-language-pack";
-      version = "136.0.20250219.92102";
+      version = "136.0.20250221.91531";
       addonId = "langpack-da@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4440199/dansk_da_language_pack-136.0.20250219.92102.xpi";
-      sha256 = "38e3de2e3215037b9632f515ef5efabe9400905040d6c5de3c34ab151cce94e2";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4441504/dansk_da_language_pack-136.0.20250221.91531.xpi";
+      sha256 = "f74b8ed7b5139daabb9017b399011d7f7d504b0d0a5f0d0e1776f00e1d62a6b5";
       meta = with lib;
       {
         description = "Firefox Language Pack for Dansk (da) – Danish";
@@ -2336,10 +2336,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "136.0.20250219.92102";
+      version = "136.0.20250221.91531";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4440198/deutsch_de_language_pack-136.0.20250219.92102.xpi";
-      sha256 = "6271217fc9e30aac88f978ebd7a410ce5377c775d2c4a2fb9425bcaecd81a794";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4441526/deutsch_de_language_pack-136.0.20250221.91531.xpi";
+      sha256 = "a209ad03f44814138cfe346247e2c516b35fc3ab8e2285f916a6a1d752307f5c";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -2598,10 +2598,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.57.9";
+      version = "2.58.0";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4435595/dualsub-2.57.9.xpi";
-      sha256 = "079a6869e03c5fc39ddf6aac01b77fcf143ab14e1407ee4231997d01bd427314";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4441433/dualsub-2.58.0.xpi";
+      sha256 = "f42979eeff7dab63ecae58544ab1c1483e756373534432332ff3ce2151306cf8";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -3571,10 +3571,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "136.0.20250219.92102";
+      version = "136.0.20250221.91531";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4440151/francais_language_pack-136.0.20250219.92102.xpi";
-      sha256 = "05dcaeb062a3a2a1534c5986cbe77d95229269607b69caf3933f40b942daa22d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4441565/francais_language_pack-136.0.20250221.91531.xpi";
+      sha256 = "5c38bda0af15ed04c91ec6977fc5f76a14e3b8066d6cfa9d3ef10de3beed0a6f";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -3608,10 +3608,10 @@
     };
     "gaidhlig-language-pack" = buildFirefoxXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "136.0.20250219.92102";
+      version = "136.0.20250221.91531";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4440150/gaidhlig_language_pack-136.0.20250219.92102.xpi";
-      sha256 = "10788c5b7b15611c580c8b527cc6821b003495ed8e30040d83c0b6efa725e74a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4441570/gaidhlig_language_pack-136.0.20250221.91531.xpi";
+      sha256 = "a2cbfa25fc1f21af913c55871e53ee6e4e06672e9e7b7a7f5dcba991bcdfd5bd";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -5519,10 +5519,10 @@
     };
     "indie-wiki-buddy" = buildFirefoxXpiAddon {
       pname = "indie-wiki-buddy";
-      version = "3.13.0";
+      version = "3.13.1";
       addonId = "{cb31ec5d-c49a-4e5a-b240-16c767444f62}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4429191/indie_wiki_buddy-3.13.0.xpi";
-      sha256 = "ecd574782b7a74fc82c0ec9c4c263b8e038c88eb8540054e249a29f14c56211c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4435453/indie_wiki_buddy-3.13.1.xpi";
+      sha256 = "71dbed6b090604ea299c9661312c1ad5bc208c3ea3012b7890e38fb08994d703";
       meta = with lib;
       {
         homepage = "https://getindie.wiki/";
@@ -7659,10 +7659,10 @@
     };
     "momentumdash" = buildFirefoxXpiAddon {
       pname = "momentumdash";
-      version = "2.18.2";
+      version = "2.18.4";
       addonId = "momentum@momentumdash.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4432811/momentumdash-2.18.2.xpi";
-      sha256 = "c93c131c87bd90372adc92793abb30d11fe864a8b2284b0612d47778ce34e839";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4439903/momentumdash-2.18.4.xpi";
+      sha256 = "9a399542d5d638737f1246ea1b86be78a254671b57925e17ec261f604b08b05c";
       meta = with lib;
       {
         homepage = "https://momentumdash.com";
@@ -10215,10 +10215,10 @@
     };
     "scots-language-pack" = buildFirefoxXpiAddon {
       pname = "scots-language-pack";
-      version = "136.0.20250219.92102";
+      version = "136.0.20250221.91531";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4440163/scots_language_pack-136.0.20250219.92102.xpi";
-      sha256 = "a1bbd6491d49887e0a37144203f6225e2b4d20521b7c8213545daf8b06664e0a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4441538/scots_language_pack-136.0.20250221.91531.xpi";
+      sha256 = "cb340d5a80c959553098a090ca61efcaf0e8d6a8a8d710afd1893f3c9ba7ba72";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
@@ -10864,6 +10864,28 @@
           "https://sponsor.ajay.app/*"
           "https://*.youtube.com/*"
           "https://www.youtube-nocookie.com/embed/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "spoof-timezone" = buildFirefoxXpiAddon {
+      pname = "spoof-timezone";
+      version = "0.4.2";
+      addonId = "{55f61747-c3d3-4425-97f9-dfc19a0be23c}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4439334/spoof_timezone-0.4.2.xpi";
+      sha256 = "68cd3a1bc61596996af699e1d75e0d193c0fea2728b55e2bbdad1c643b8d1870";
+      meta = with lib;
+      {
+        homepage = "https://add0n.com/spoof-timezone.html";
+        description = "This extension alters browser timezone to a random or user-defined value.";
+        license = licenses.mpl20;
+        mozPermissions = [
+          "storage"
+          "scripting"
+          "webNavigation"
+          "contextMenus"
+          "notifications"
+          "*://*/*"
         ];
         platforms = platforms.all;
       };
@@ -13591,6 +13613,20 @@
           "*://*.youtube.com/*"
           "*://*.youtube-nocookie.com/*"
         ];
+        platforms = platforms.all;
+      };
+    };
+    "youtube-no-translation" = buildFirefoxXpiAddon {
+      pname = "youtube-no-translation";
+      version = "2.0.65";
+      addonId = "{9a3104a2-02c2-464c-b069-82344e5ed4ec}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4439848/youtube_no_translation-2.0.65.xpi";
+      sha256 = "72085afbe42c247136925142d484ab5b387335ac0532cfb457c228fc31dfc8ba";
+      meta = with lib;
+      {
+        homepage = "https://github.com/YouG-o/YNT_Browser-Extension";
+        description = "Removes YouTube auto translate (audio dubbing, video title, video description)";
+        mozPermissions = [ "storage" "*://*.youtube.com/*" ];
         platforms = platforms.all;
       };
     };
