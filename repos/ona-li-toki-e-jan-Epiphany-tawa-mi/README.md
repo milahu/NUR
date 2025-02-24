@@ -46,7 +46,7 @@ Package index:
 ### Run Package in Temporary Environment with `nix run`
 
 ```sh
-$ echo -n 'This is a test' | nix run github:ona-li-toki-e-jan-Epiphany-tawa-mi/epitaphpkgs#ahd
+$ echo -n 'This is a test' | nix run git+https://paltepuk.xyz/cgit/epitaphpkgs.git#ahd
 <nix output...>
 0000000: 54 68 69 73 20 69 73 20 61 20 74 65 73 74       |This is a test|
 ```
@@ -59,7 +59,7 @@ $ echo -n 'This is a test' | nix run github:ona-li-toki-e-jan-Epiphany-tawa-mi/e
     nixpkgs.url = <some version of nixpkgs>;
 
     epitaphpkgs = {
-      url = "github:ona-li-toki-e-jan-Epiphany-tawa-mi/epitaphpkgs";
+      url = "git+https://paltepuk.xyz/cgit/epitaphpkgs.git";
       # Makes epitaphpkgs use the nixpkgs version specified in the flake. If you
       # don't put this, it will use nixpkgs-unstable.
       inputs.nixpkgs.follows = "nixpkgs";
@@ -78,7 +78,7 @@ flake.nix:
     nixpkgs.url = <some version of nixpkgs>;
 
     epitaphpkgs = {
-      url = "github:ona-li-toki-e-jan-Epiphany-tawa-mi/epitaphpkgs";
+      url = "git+https://paltepuk.xyz/cgit/epitaphpkgs.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

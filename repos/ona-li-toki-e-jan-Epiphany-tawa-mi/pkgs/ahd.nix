@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2024 ona-li-toki-e-jan-Epiphany-tawa-mi
+# Copyright (c) 2024-2025 ona-li-toki-e-jan-Epiphany-tawa-mi
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 { stdenv
-, fetchFromGitHub
+, fetchgit
 , lib
 , cbqn
 }:
@@ -30,11 +30,10 @@ stdenv.mkDerivation rec {
   pname   = "ahd";
   version = "1.0.0";
 
-  src = fetchFromGitHub {
-    owner = "ona-li-toki-e-jan-Epiphany-tawa-mi";
-    repo  = "AHD";
-    rev   = version;
-    hash  = "sha256-wbVPoyizJ1Mf2op7jS6GQD4Rqfkq0HiF3/c2UJlYmzE=";
+  src = fetchgit {
+    url  = "https://paltepuk.xyz/cgit/AHD.git";
+    rev  = version;
+    hash = "sha256-wbVPoyizJ1Mf2op7jS6GQD4Rqfkq0HiF3/c2UJlYmzE=";
   };
 
   doCheck     = true;

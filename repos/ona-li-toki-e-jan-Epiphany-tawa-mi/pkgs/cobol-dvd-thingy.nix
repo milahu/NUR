@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2024 ona-li-toki-e-jan-Epiphany-tawa-mi
+# Copyright (c) 2024-2025 ona-li-toki-e-jan-Epiphany-tawa-mi
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,49 +21,44 @@
 # SOFTWARE.
 
 { stdenv
-, fetchFromGitHub
+, fetchgit
 , lib
-, netcat-openbsd
-, shellcheck
+, gnu-cobol
 }:
 
-let sourceFile = "netcatchat.sh";
-in
 stdenv.mkDerivation rec {
-  pname   = "netcatchat";
-  version = "1.0.0";
+  pname   = "cobol-dvd-thingy";
+  version = "0.2.2";
 
-  src = fetchFromGitHub {
-    owner = "ona-li-toki-e-jan-Epiphany-tawa-mi";
-    repo  = "netcatchat";
-    rev   = "RELEASE-V${version}";
-    hash  = "sha256-ST706XwdEUlcwXX9xtONkhzlFANybRgJxBVZdVnWoIo=";
+  src = fetchgit {
+    url  = "https://paltepuk.xyz/cgit/COBOL-DVD-Thingy.git";
+    rev  = "RELEASE-V${version}";
+    hash = "sha256-HMkse/I9+wIcDiRC+96/K97TtwlRZkzma1vCdEkO3Ow=";
   };
 
-  doCheck     = true;
-  checkInputs = [ shellcheck ];
-  checkPhase  = ''
-    runHook preCheck
+  nativeBuildInputs = [ gnu-cobol.bin ];
+  buildPhase        = ''
+    runHook preBuild
 
-    shellcheck "${sourceFile}"
+    EXTRA_COBFLAGS='-O3' ./build.sh
 
-    runHook postCheck
+    runHook postBuild
   '';
 
-  nativeBuildInputs = [ netcat-openbsd ];
-  installPhase      = ''
+  buildInputs  = [ gnu-cobol ];
+  installPhase = ''
     runHook preInstall
 
     mkdir -p "$out/bin"
-    cp "${sourceFile}" "$out/bin/${pname}"
+    cp cobol-dvd-thingy "$out/bin/${pname}"
 
     runHook postInstall
   '';
 
   meta = with lib; {
-    description = "A simple command-line chat server and client using netcat";
-    homepage    = "https://paltepuk.xyz/cgit/netcatchat.git/about";
-    license     = licenses.mit;
+    description = "Terminal screensaver similar to that of DVD players";
+    homepage    = "https://paltepuk.xyz/cgit/COBOL-DVD-Thingy.git/about";
+    license     = licenses.gpl3Plus;
     mainProgram = pname;
   };
 }

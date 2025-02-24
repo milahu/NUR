@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2024 ona-li-toki-e-jan-Epiphany-tawa-mi
+# Copyright (c) 2024-2025 ona-li-toki-e-jan-Epiphany-tawa-mi
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -27,10 +27,10 @@
 let callPackage = pkg: pkgs.callPackage pkg {};
 in
 {
-  ahd              = callPackage ./pkgs/ahd;
-  bitmasher        = callPackage ./pkgs/bitmasher;
-  cobol-dvd-thingy = callPackage ./pkgs/cobol-dvd-thingy;
-  cowsaypl         = callPackage ./pkgs/cowsaypl;
-  love-you-mom     = callPackage ./pkgs/love-you-mom;
-  netcatchat       = callPackage ./pkgs/netcatchat;
+  ahd              = callPackage ./pkgs/ahd.nix;
+  bitmasher        = callPackage ./pkgs/bitmasher.nix;
+  cobol-dvd-thingy = callPackage ./pkgs/cobol-dvd-thingy.nix;
+  cowsaypl         = callPackage ./pkgs/cowsaypl.nix;
+  love-you-mom     = callPackage ./pkgs/love-you-mom.nix;
+  netcatchat       = callPackage ./pkgs/netcatchat.nix;
 }

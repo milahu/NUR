@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2024 ona-li-toki-e-jan-Epiphany-tawa-mi
+# Copyright (c) 2024-2025 ona-li-toki-e-jan-Epiphany-tawa-mi
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,42 +21,50 @@
 # SOFTWARE.
 
 { stdenv
-, fetchFromGitHub
+, fetchgit
 , lib
+, gnuapl
 }:
 
 stdenv.mkDerivation rec {
-  pname   = "bitmasher";
-  version = "7.5385325985";
+  pname   = "cowsaypl";
+  version = "1.2.3";
 
-  src = fetchFromGitHub {
-    owner = "ona-li-toki-e-jan-Epiphany-tawa-mi";
-    repo  = "BitMasher";
-    rev   = "RELEASE-V${version}";
-    hash  = "sha256-2bE0QA82yQLa2A8snnhXu8DptDOsnfF/g2bg6SrNwCY=";
+  src = fetchgit {
+    url  = "https://paltepuk.xyz/cgit/cowsAyPL.git";
+    rev  = "RELEASE-V${version}";
+    hash = "sha256-KUSFKXIUFh9Qu0lyqfHJI26DDkPeRw5gkXYC56UClYo=";
   };
 
-  buildPhase = ''
-    runHook preBuild
+  doCheck     = true;
+  checkInputs = [ gnuapl ];
+  checkPhase  = ''
+    runHook preCheck
 
-    EXTRA_CFLAGS='-O3' ./build.sh
+    apl --script test.apl -- test tests/sources tests/outputs
 
-    runHook postBuild
+    runHook postCheck
   '';
 
+  buildInputs  = [ gnuapl ];
   installPhase = ''
     runHook preInstall
 
     mkdir -p "$out/bin"
-    cp bitmasher "$out/bin/${pname}"
+    cp cowsay.apl "$out/bin/${pname}"
+
+    mkdir -p "$out/lib"
+    cp workspaces/fio.apl "$out/lib"
+    sed -e "s|)COPY_ONCE fio.apl|)COPY_ONCE $out/lib/fio.apl|" \
+        -e 's|⊣ ⍎")COPY_ONCE logging.apl"||'                   \
+        -i "$out/bin/${pname}"
 
     runHook postInstall
   '';
 
   meta = with lib; {
-    description =
-      "A fast-paced text adventure game inside a ransomware-infected computer";
-    homepage    = "https://paltepuk.xyz/cgit/BitMasher.git/about";
+    description = "Cowsay in GNU APL";
+    homepage    = "https://paltepuk.xyz/cgit/cowsAyPL.git/about";
     license     = licenses.gpl3Plus;
     mainProgram = pname;
   };

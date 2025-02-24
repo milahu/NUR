@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2024 ona-li-toki-e-jan-Epiphany-tawa-mi
+# Copyright (c) 2024-2025 ona-li-toki-e-jan-Epiphany-tawa-mi
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,44 +21,37 @@
 # SOFTWARE.
 
 { stdenv
-, fetchFromGitHub
+, fetchgit
 , lib
-, gnu-cobol
+, zig_0_13
 }:
 
 stdenv.mkDerivation rec {
-  pname   = "cobol-dvd-thingy";
-  version = "0.2.2";
+  pname   = "love-you-mom";
+  version = "0.1.0";
 
-  src = fetchFromGitHub {
-    owner = "ona-li-toki-e-jan-Epiphany-tawa-mi";
-    repo  = "COBOL-DVD-Thingy";
-    rev   = "RELEASE-V${version}";
-    hash  = "sha256-HMkse/I9+wIcDiRC+96/K97TtwlRZkzma1vCdEkO3Ow=";
+  src = fetchgit {
+    url  = "https://paltepuk.xyz/cgit/love-you-mom.git";
+    rev  = version;
+    hash = "sha256-XRPi0FEkjaUVYOXbYjhwf0acANiLZ5pybQiFnpV09m4=";
   };
 
-  nativeBuildInputs = [ gnu-cobol.bin ];
-  buildPhase        = ''
-    runHook preBuild
+  nativeBuildInputs = [ zig_0_13.hook ];
+  zigBuildFlags     = [ "-Doptimize=ReleaseSafe" ];
 
-    EXTRA_COBFLAGS='-O3' ./build.sh
-
-    runHook postBuild
-  '';
-
-  buildInputs  = [ gnu-cobol ];
   installPhase = ''
     runHook preInstall
 
     mkdir -p "$out/bin"
-    cp cobol-dvd-thingy "$out/bin/${pname}"
+    cp zig-out/bin/love-you-mom "$out/bin/${pname}"
 
     runHook postInstall
   '';
 
   meta = with lib; {
-    description = "Terminal screensaver similar to that of DVD players";
-    homepage    = "https://paltepuk.xyz/cgit/COBOL-DVD-Thingy.git/about";
+    description =
+      "Tells your mom (or dad) that you love them";
+    homepage    = "https://paltepuk.xyz/cgit/love-you-mom.git/about";
     license     = licenses.gpl3Plus;
     mainProgram = pname;
   };
