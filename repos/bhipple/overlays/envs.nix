@@ -124,7 +124,6 @@ in
     super.buildEnv {
       name = "bigEnv";
       paths = lsp-tools ++ [
-        self.aider-chat
         self.alsa-utils
         self.anki-bin
         self.aspell
