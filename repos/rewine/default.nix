@@ -12,7 +12,7 @@ with pkgs; rec {
   wlhax = pkgs.callPackage ./pkgs/wlhax { };
   # wsm = pkgs.callPackage ./pkgs/wsm { };
   wayland-debug = pkgs.callPackage ./pkgs/wayland-debug {
-    wayland = pkgs.callPackage ./pkgs/libwayland-for-debug { };
+    wayland = pkgs.callPackage ./pkgs/wayland-debug/wayland.nix { };
   };
   #mogan = pkgs.libsForQt5.callPackage ./pkgs/mogan {  };
   nowide = pkgs.callPackage ./pkgs/nowide {  };
