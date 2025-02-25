@@ -7,7 +7,7 @@
 
 let
   inherit (lib)
-    mkEnableOpton
+    mkEnableOption
     mkOption
     mkIf
     types
