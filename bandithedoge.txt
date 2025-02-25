@@ -3,6 +3,15 @@ trace: evaluation warning: lamb has been renamed to lamb-bin
 trace: evaluation warning: osirus has been renamed to dsp56300
 trace: evaluation warning: swift-mesonlsp-bin has been renamed to mesonlsp-bin
 error:
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/attrsets.nix:1570:24:
+
+  1569|     let f = attrPath:
+  1570|       zipAttrsWith (n: values:
+      |                        ^
+  1571|         let here = attrPath ++ [n]; in
+
 … from call site
 
   at ./pkgs/default.nix:122:19:
