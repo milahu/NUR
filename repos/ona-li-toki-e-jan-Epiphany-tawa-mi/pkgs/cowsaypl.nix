@@ -28,12 +28,12 @@
 
 stdenv.mkDerivation rec {
   pname   = "cowsaypl";
-  version = "1.2.3";
+  version = "2.0.0";
 
   src = fetchgit {
     url  = "https://paltepuk.xyz/cgit/cowsAyPL.git";
-    rev  = "RELEASE-V${version}";
-    hash = "sha256-KUSFKXIUFh9Qu0lyqfHJI26DDkPeRw5gkXYC56UClYo=";
+    rev  = version;
+    hash = "sha256-FkKkChXtnMNPQDhr09/65Wl7eR91XRzN2xM6vdc8CcM=";
   };
 
   doCheck     = true;
@@ -41,7 +41,7 @@ stdenv.mkDerivation rec {
   checkPhase  = ''
     runHook preCheck
 
-    apl --script test.apl -- test tests/sources tests/outputs
+    apl --script test.apl --
 
     runHook postCheck
   '';
@@ -50,14 +50,14 @@ stdenv.mkDerivation rec {
   installPhase = ''
     runHook preInstall
 
-    mkdir -p "$out/bin"
-    cp cowsay.apl "$out/bin/${pname}"
-
     mkdir -p "$out/lib"
     cp workspaces/fio.apl "$out/lib"
-    sed -e "s|)COPY_ONCE fio.apl|)COPY_ONCE $out/lib/fio.apl|" \
-        -e 's|⊣ ⍎")COPY_ONCE logging.apl"||'                   \
-        -i "$out/bin/${pname}"
+
+    mkdir -p "$out/bin"
+    substituteInPlace cowsay.apl --replace-fail     \
+                      ')COPY_ONCE fio.apl'          \
+                      ")COPY_ONCE $out/lib/fio.apl"
+    cp cowsay.apl "$out/bin/${pname}"
 
     runHook postInstall
   '';
