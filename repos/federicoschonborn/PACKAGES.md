@@ -425,7 +425,7 @@ A set of emojis featuring a familiar cube
 Source files for the neodino emoji
 
 - Name: `fotoente-neodino`
-- Version: `0-unstable-2024-06-08`
+- Version: `0-unstable-2025-02-20`
 
 - [🌐 Homepage](https://codeberg.org/fotoente/neodino)
 - [📦 Source](./pkgs/akkoma-emoji/fotoente/neodino/package.nix#L36)
@@ -633,7 +633,7 @@ Source files for the neohaj emoji
 Source files for the neomilk emoji
 
 - Name: `fotoente-neomilk`
-- Version: `0-unstable-2024-05-26`
+- Version: `0-unstable-2025-02-20`
 
 - [🌐 Homepage](https://codeberg.org/fotoente/neomilk)
 - [📦 Source](./pkgs/akkoma-emoji/fotoente/neomilk/package.nix#L36)
@@ -737,7 +737,7 @@ Source files for the neomilk emoji
 Source files for the neotrain emoji
 
 - Name: `fotoente-neotrain`
-- Version: `0-unstable-2024-05-20`
+- Version: `0-unstable-2025-02-20`
 
 - [🌐 Homepage](https://codeberg.org/fotoente/neotrain)
 - [📦 Source](./pkgs/akkoma-emoji/fotoente/neotrain/package.nix#L36)
@@ -3481,7 +3481,7 @@ Like neofetch, but much faster because written in C
 - Version: `2.37.0`
 - Outputs: **`out`**, `man`
 - [🌐 Homepage](https://github.com/fastfetch-cli/fastfetch)
-- [📦 Source](./pkgs/by-name/fastfetch/package.nix#L269)
+- [📦 Source](./pkgs/by-name/fastfetch/package.nix#L271)
 - License: [`MIT License`](https://spdx.org/licenses/MIT.html)
 - [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.37.0)
 
@@ -4622,7 +4622,7 @@ Library for emitting text, XML, JSON, or HTML output
 A hardware profiling application for Linux
 
 - Name: `magothy`
-- Version: `0-unstable-2025-02-19`
+- Version: `0-unstable-2025-02-22`
 
 - [🌐 Homepage](https://codeberg.org/serebit/magothy)
 - [📦 Source](./pkgs/by-name/magothy/package.nix#L32)
@@ -5320,7 +5320,7 @@ Camera application for Plasma Mobile
 A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell
 
 - Name: `pnut`
-- Version: `SLE2024-artifact-unstable-2025-02-19`
+- Version: `SLE2024-artifact-unstable-2025-02-20`
 
 - [🌐 Homepage](https://github.com/udem-dlteam/pnut)
 - [📦 Source](./pkgs/by-name/pnut/package.nix#L44)
@@ -5536,7 +5536,7 @@ A a viewer for 2D data such as images, sensor data, simulations, renderings and 
 Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood, Shadow Warrior, Redneck Rampage and Powerslave/Exhumed
 
 - Name: `raze`
-- Version: `1.10.2`
+- Version: `1.12pre`
 
 - [🌐 Homepage](https://github.com/ZDoom/Raze)
 - [📦 Source](./pkgs/by-name/raze/package.nix#L55)
@@ -5752,7 +5752,7 @@ Fan sequel to Super Mario 63
 Sega Model 3 arcade machine emulator
 
 - Name: `supermodel`
-- Version: `0-unstable-2025-02-19`
+- Version: `0-unstable-2025-02-21`
 
 - [🌐 Homepage](https://github.com/trzy/Supermodel)
 - [📦 Source](./pkgs/by-name/supermodel/package.nix#L63)
