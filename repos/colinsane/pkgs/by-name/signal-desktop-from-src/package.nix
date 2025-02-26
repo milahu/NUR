@@ -180,20 +180,17 @@ let
 in
 buildNpmPackage rec {
   pname = "signal-desktop-from-src";
-  version = "7.42.0";
-  # version = "7.43.0";
+  version = "7.44.0";
 
   src = fetchFromGitHub {
     owner = "signalapp";
     repo = "Signal-Desktop";
     leaveDotGit = true;  # signal calculates the release date via `git`
     rev = "v${version}";
-    hash = "sha256-YBG3GUkGwZfFSf51RTT01gUshe8pFJ3u9kThiZNmtJg=";  # 7.42.0
-    # hash = "sha256-t07xXuxHmv5iIlCbkVaS6Z5TFEHTIbbiEYjs8Uyd6ro=";  # 7.43.0
+    hash = "sha256-Gxb5kI2SAtJ/j9mHsL80yHS8XxFwHDlKUAxVcG2X9CE=";
   };
 
-  npmDepsHash = "sha256-AQQliyhKwsLEVn16iRrevJmbFQsNaVnP0XyyadwxlTM=";  # 7.42.0
-  # npmDepsHash = "sha256-AhsHdgHsN9jAsiESvVXXD1sJ02CvzjkG0rZiXz0WtN0=";  # 7.43.0
+  npmDepsHash = "sha256-r7HtaYBORc8I241EgTcLCZeZpi4rbqviOyKbfqJyJvE=";
 
   patches = [
     # ./debug.patch

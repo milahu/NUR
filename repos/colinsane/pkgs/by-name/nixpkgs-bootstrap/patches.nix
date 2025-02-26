@@ -20,7 +20,7 @@ let
       else if saneGhCommit != null then
         "https://github.com/uninsane/nixpkgs/commit/${saneGhCommit}.patch?full_index=1"
       else
-        "https://git.uninsane.org/colin/nixpkgs/commit/${saneCommit}.diff"
+        "https://git.uninsane.org/colin/nixpkgs/commit/${saneCommit}.patch?full_index=1"
       ;
     in fetchpatch2 (
       { inherit revert url; }
@@ -30,6 +30,14 @@ let
 in
 [
   ./2024-10-01-python-cross-resource-usage.patch
+
+  (fetchpatch' {
+    name = "librsvg: generate loaders.cache even when cross compiling";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/384957";
+    hash = "sha256-pBN+KVkU9AhcoYBVLbkGVICBYO0RyfIJ3Mr4OjO8yFA=";
+    # saneCommit = "25d740a21c53b9ac2da33571e3fad7e33a765ddf";
+    # hash = "sha256-PvewYks5P6QX59SG9sEcV89ddJdcNcEO9bB9x05Xgf0=";
+  })
 
   # (fetchpatch' {
   #   # 2024-12-26: required to build ollama (with AMD acceleration)
@@ -46,13 +54,13 @@ in
   #   hash = "sha256-jW66W1V3upZMfbjuoruY3OGNJfEewx7DW/Z4vAhMEXw=";
   # })
 
-  (fetchpatch' {
-    # patch should be safe to remove; keeping it here to track the upstreaming status
-    name = "nixos/gitea: don't configure the database if `createDatabase == false`";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/268849";
-    # saneCommit = "92662a9920cf8b70ad8a061591dc37146123bde3";
-    hash = "sha256-Bmy1xqqmHqJVpleKWOssF+6SUpKOIm6hIGQsW6+hUTg=";
-  })
+  # (fetchpatch' {
+  #   # patch should be safe to remove; keeping it here to track the upstreaming status
+  #   name = "nixos/gitea: don't configure the database if `createDatabase == false`";
+  #   prUrl = "https://github.com/NixOS/nixpkgs/pull/268849";
+  #   # saneCommit = "92662a9920cf8b70ad8a061591dc37146123bde3";
+  #   hash = "sha256-Bmy1xqqmHqJVpleKWOssF+6SUpKOIm6hIGQsW6+hUTg=";
+  # })
 
   # (fetchpatch' {
   #   # TODO: send to upstream nixpkgs once tested (branch: lappy: pr-stepmania-wrapper)

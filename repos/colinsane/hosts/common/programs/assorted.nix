@@ -457,12 +457,6 @@ in
 
     "cacert.unbundled".sandbox.enable = false;  #< data only
 
-    cargo.persist.byStore.plaintext = [ ".cargo" ];
-    # probably this sandboxing is too restrictive; i'm sandboxing it for rust-analyzer / neovim LSP
-    cargo.sandbox.whitelistPwd = true;
-    cargo.sandbox.net = "all";
-    cargo.sandbox.extraHomePaths = [ "dev" "ref" ];
-
     clang = {};
 
     clang-tools.sandbox.whitelistPwd = true;

@@ -11,7 +11,7 @@
 
 stdenv.mkDerivation rec {
   pname = "opencellid";
-  version = "0-unstable-2025-01-02";
+  version = "0-unstable-2025-02-25";
 
   src = fetchurl {
     # this is a live url. updated... weekly? the server seems to silently ignore unrecognized query parameters,
@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
     # the API key should allow for at least 2 downloads per day (maybe more?)
     # TODO: repackage this such that hashes can be stable (mirror the data in a versioned repo, and point to that here?)
     url = "https://opencellid.org/ocid/downloads?token=${apiKey}&type=full&file=cell_towers.csv.gz&_stamp=${version}";
-    hash = "sha256-Zh3AjmXzYs1E7fvpR53ULkuVg42tvYSxB+SIhKmabPE=";
+    hash = "sha256-HTPZS9Vp8y+WmuB7RMjyhC7NFLl0i4YFjAO3e7X0AZg=";
   };
 
   unpackPhase = ''

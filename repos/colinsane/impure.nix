@@ -146,6 +146,9 @@ let
       else if (pkg.updateScript.meta or {}) ? mainProgram then
         # raw derivation like `writeShellScriptBin`
         [ "${lib.getExe pkg.updateScript}" ]
+      else if builtins.isPath pkg.updateScript then
+        # in-tree update script like `updateScript = ./update.sh`
+        [ pkg.updateScript ]
       else
         []
     );

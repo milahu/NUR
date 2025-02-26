@@ -27,6 +27,7 @@
     ./cantata.nix
     ./capsh.nix
     ./captree.nix
+    ./cargo.nix
     ./catt.nix
     ./celeste64.nix
     ./chatty.nix

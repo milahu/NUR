@@ -470,6 +470,14 @@ in with final; {
 
   lemoa = prev.lemoa.override { cargo = crossCargo; };
 
+  libqmi = prev.libqmi.overrideAttrs (upstream: {
+    # gtk-doc fails (even with mesonEmulatorHook present)
+    outputs = lib.remove "devdoc" upstream.outputs;
+    mesonFlags = (lib.remove "-Dgtk_doc=true" upstream.mesonFlags) ++ [
+      "-Dgtk_doc=false"
+    ];
+  });
+
   # libsForQt5 = prev.libsForQt5.overrideScope (self: super: {
   #   phonon = super.phonon.overrideAttrs (orig: {
   #     # fixes "ECM (required version >= 5.60), Extra CMake Modules"
@@ -490,9 +498,9 @@ in with final; {
 
   # 2024/11/19: upstreaming is unblocked
   mepo = (prev.mepo.override {
-    # nixpkgs mepo correctly puts `zig_0_12.hook` in nativeBuildInputs,
+    # nixpkgs mepo correctly puts `zig_0_13.hook` in nativeBuildInputs,
     # but for some reason that tries to use the host zig instead of the build zig.
-    zig_0_12 = buildPackages.zig_0_12;
+    zig_0_13 = buildPackages.zig_0_13;
   }).overrideAttrs (upstream: {
     dontUseZigCheck = true;
     nativeBuildInputs = upstream.nativeBuildInputs ++ [
