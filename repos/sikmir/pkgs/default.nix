@@ -428,10 +428,12 @@ lib.makeScope newScope (
 
     ### MQTT
 
+    akasa = callPackage ./mqtt/akasa { };
     amqtt = callPackage ./mqtt/amqtt { };
     comqtt = callPackage ./mqtt/comqtt { };
     emitter = callPackage ./mqtt/emitter { };
     go-mqtt-to-influxdb = callPackage ./mqtt/go-mqtt-to-influxdb { };
+    hmq = callPackage ./mqtt/hmq { };
     ioxy = callPackage ./mqtt/ioxy { };
     janus-mqtt-proxy = callPackage ./mqtt/janus-mqtt-proxy { };
     libumqtt = callPackage ./mqtt/libumqtt { };
@@ -447,6 +449,7 @@ lib.makeScope newScope (
     mqtt-proxy = callPackage ./mqtt/mqtt-proxy { };
     mqtt-shell = callPackage ./mqtt/mqtt-shell { };
     mqtt-stats = callPackage ./mqtt/mqtt-stats { };
+    mqtt-stresser = callPackage ./mqtt/mqtt-stresser { };
     mqtt-to-influxdb = callPackage ./mqtt/mqtt-to-influxdb { };
     mqtt-to-influxdb-forwarder = callPackage ./mqtt/mqtt-to-influxdb-forwarder { };
     mqttwarn = callPackage ./mqtt/mqttwarn { };
@@ -454,6 +457,7 @@ lib.makeScope newScope (
     pytest-mqtt = callPackage ./mqtt/pytest-mqtt { };
     rmqtt = callPackage ./mqtt/rmqtt { };
     rumqtt = callPackage ./mqtt/rumqtt { };
+    volantmq = callPackage ./mqtt/volantmq { };
 
     ### NAKARTE
 
