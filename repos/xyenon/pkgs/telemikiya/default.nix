@@ -7,16 +7,16 @@
 
 buildGoModule {
   pname = "telemikiya";
-  version = "0-unstable-2025-02-22";
+  version = "0-unstable-2025-02-26";
 
   src = fetchFromGitHub {
     owner = "XYenon";
     repo = "TeleMikiya";
-    rev = "62d949c18847cb3a71d04b0e84cbf7e91baeb52e";
-    hash = "sha256-7YMY/uAxP7vQs8UPiNTn/21MGtz3QUMgpv9v71ycDgE=";
+    rev = "6f6aca6554f9be6e0865b37758d91c007154dba6";
+    hash = "sha256-CE41jsEpqNhq/SGHJCDOIALgffjq1bRjZsFLNHWIMsI=";
   };
 
-  vendorHash = "sha256-87zQuJyQVuCHvUg4x+OuF+S+Lhv9zmjQUEDiqXBhn9Y=";
+  vendorHash = "sha256-b0XAv0Dt5K10aqJY7Qj8iNNepuYKa0/sFCR78fEIXUQ=";
 
   subPackages = [ "." ];
   ldflags = [
