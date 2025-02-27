@@ -54,7 +54,7 @@ in
     terminal = "tmux-256color"; # I want accurate termcap info
     aggressiveResize = true; # Automatic resize when switching client size
 
-    plugins = with pkgs.tmuxPlugins; [
+    plugins = with pkgs.tmuxPlugins; builtins.filter (attr: attr != { }) [
       # Open high-lighted files in copy mode
       open
       # Better pane management
