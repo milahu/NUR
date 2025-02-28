@@ -7,13 +7,13 @@
 
 stdenv.mkDerivation rec {
   pname = "wayland-debug";
-  version = "0-unstable-2024-12-11";
+  version = "0-unstable-2025-02-25";
 
   src = fetchFromGitHub {
     owner = "wmww";
     repo = "wayland-debug";
-    rev = "06182981d39ab39ed48d91666565767d48dd1007";
-    hash = "sha256-R1cUnzabxyoSj28SXXEJW5crfpNsPcwuAo8UK/4/VKg=";
+    rev = "479ba61d21619bb869373360ea8c1596209bfb78";
+    hash = "sha256-l/kVd7YImJYZzTd6eW9PefodzPIxhchOwjEgREAUmRs=";
   };
 
   postPatch = ''
