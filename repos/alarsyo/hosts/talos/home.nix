@@ -23,8 +23,26 @@ in {
 
     my.theme = config.home-manager.users.alarsyo.my.themes.solarizedLight;
 
-    # TODO: place in global home conf
-    services.dunst.enable = true;
+    services = {
+      # TODO: place in global home conf
+      dunst.enable = true;
+      wlsunset = {
+        enable = true;
+        latitude = 48.9;
+        longitude = 2.3;
+        temperature = {
+          day = 6500;
+          night = 3500;
+        };
+      };
+      darkman = {
+        enable = true;
+        settings = {
+          lat = 48.9;
+          lng = 2.3;
+        };
+      };
+    };
 
     home.packages = builtins.attrValues {
       inherit
@@ -71,7 +89,7 @@ in {
         };
         fonts = {
           names = ["Iosevka Fixed" "FontAwesome6Free"];
-          size = 8.0;
+          size = 9.0;
         };
         bars = [];
 
@@ -115,6 +133,9 @@ in {
         bindswitch --reload --locked lid:off output eDP-1 enable;
         bindswitch --reload --locked lid:on output eDP-1 disable;
 
+        bindgesture swipe:right workspace prev
+        bindgesture swipe:left workspace next
+
         set $rosewater #dc8a78
         set $flamingo #dd7878
         set $pink #ea76cb
@@ -142,12 +163,12 @@ in {
         set $mantle #e6e9ef
         set $crust #dce0e8
 
-        # target                 title     bg    text   indicator  border
-        client.focused           $lavender $base $text  $rosewater $lavender
-        client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
-        client.unfocused         $overlay0 $base $text  $rosewater $overlay0
-        client.urgent            $peach    $base $peach $overlay0  $peach
-        client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+        # target                 title     bg        text   indicator  border
+        client.focused           $lavender $lavender $base  $rosewater $lavender
+        client.focused_inactive  $overlay0 $base     $text  $rosewater $overlay0
+        client.unfocused         $overlay0 $base     $text  $rosewater $overlay0
+        client.urgent            $peach    $base     $peach $overlay0  $peach
+        client.placeholder       $overlay0 $base     $text  $overlay0  $overlay0
         client.background        $base
 
         smart_borders on
