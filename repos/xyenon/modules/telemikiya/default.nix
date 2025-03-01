@@ -19,6 +19,10 @@ in
 
     package = mkPackageOption pkgs "nur.repos.xyenon.telemikiya" { };
 
+    enableBot = mkEnableOption "bot";
+    enableEmbedding = mkEnableOption "embedding";
+    enableObserver = mkEnableOption "observer";
+
     stateDir = mkOption {
       default = "/var/lib/telemikiya";
       type = types.str;
@@ -65,23 +69,29 @@ in
         # run migrations/init the database
         ${exe} -C '${configFile}' db migrate
       '';
-      serviceConfig = {
-        User = cfg.user;
-        Group = cfg.group;
-        WorkingDirectory = cfg.stateDir;
-        ExecStart = "${exe} -C '${configFile}' run";
-        Restart = "on-failure";
-        RestartSec = "5s";
-        EnvironmentFile = optional (cfg.environmentFile != null) cfg.environmentFile;
-        StateDirectory = [ "telemikiya" ];
-        StateDirectoryMode = "700";
-        ReadWritePaths = [ cfg.stateDir ];
-        NoNewPrivileges = true;
-        ProtectSystem = "strict";
-        ProtectHome = true;
-        PrivateTmp = true;
-        PrivateDevices = true;
-      };
+      serviceConfig =
+        let
+          enableBot = lib.boolToString cfg.enableBot;
+          enableEmbedding = lib.boolToString cfg.enableEmbedding;
+          enableObserver = lib.boolToString cfg.enableObserver;
+        in
+        {
+          User = cfg.user;
+          Group = cfg.group;
+          WorkingDirectory = cfg.stateDir;
+          ExecStart = "${exe} -C '${configFile}' run --bot=${enableBot} --embedding=${enableEmbedding} --observer=${enableObserver}";
+          Restart = "on-failure";
+          RestartSec = "5s";
+          EnvironmentFile = optional (cfg.environmentFile != null) cfg.environmentFile;
+          StateDirectory = [ "telemikiya" ];
+          StateDirectoryMode = "700";
+          ReadWritePaths = [ cfg.stateDir ];
+          NoNewPrivileges = true;
+          ProtectSystem = "strict";
+          ProtectHome = true;
+          PrivateTmp = true;
+          PrivateDevices = true;
+        };
     };
 
     users = {
