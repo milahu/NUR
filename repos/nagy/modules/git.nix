@@ -9,6 +9,8 @@ let
   cfg = config.programs.git;
 in
 {
+  imports = [ ./shortcommands.nix ];
+
   programs.git = {
     config = {
       alias = {
@@ -196,5 +198,58 @@ in
       *.bib   diff=bibtex
       *.css   diff=css
     '';
+  };
+
+  nagy.shortcommands = lib.mkIf cfg.enable {
+    g = [ "git" ];
+    gcl = [
+      "git"
+      "clone"
+    ];
+    gcl1 = [
+      "git"
+      "clone"
+      "--depth=1"
+    ];
+    gf = [
+      "git"
+      "fetch"
+    ];
+    gfa = [
+      "git"
+      "fetch"
+      "--all"
+    ];
+    gfp = [
+      "git"
+      "fetch"
+      "--prune"
+    ];
+    gt = [
+      "git"
+      "tag"
+    ];
+    gtl = [
+      "git"
+      "tag"
+      "--list"
+    ];
+    gts = [
+      "git"
+      "tags"
+    ];
+    gp = [
+      "git"
+      "push"
+    ];
+    gpf = [
+      "git"
+      "push"
+      "--force"
+    ];
+    gpl = [
+      "git"
+      "pull"
+    ];
   };
 }
