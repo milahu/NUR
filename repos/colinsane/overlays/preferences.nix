@@ -86,16 +86,6 @@ in
   #   # };
   # };
 
-  go2tv = super.go2tv.overrideAttrs (upstream: {
-    # XXX(2025-02-12): with release 1.18.0, listing devices gives error (even with UDP 1900 whitelisted in firewall):
-    # > Encountered error(s): checkflags error: checkTflag service loading error: loadSSDPservices: No available Media Renderers
-    # reverts a4cd63f512f31efccf68c34f42aaf4cd2278ba9a
-    # done as overlay instead of in hosts/common/programs/go2tv.nix so that python consumers like sane-cast also get this fix.
-    postPatch = (upstream.postPatch or "") + ''
-      substituteInPlace devices/devices.go --replace-fail "239.255.255.250:1900" ""
-    '';
-  });
-
   # gvfs = super.gvfs.override {
   #   # saves 20 minutes of build time and cross issues, for unused feature
   #   samba = null;

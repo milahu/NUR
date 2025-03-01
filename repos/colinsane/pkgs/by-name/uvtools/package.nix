@@ -1,6 +1,7 @@
 {
   buildDotnetModule,
   dotnetCorePackages,
+  emgucv,
   fetchFromGitHub,
   lib,
 }:
@@ -18,6 +19,10 @@ buildDotnetModule rec {
 
   dotnet-sdk = dotnetCorePackages.sdk_9_0;
   dotnet-runtime = dotnetCorePackages.runtime_9_0;
+
+  runtimeDeps = [
+    emgucv
+  ];
 
   # available projects:
   # - UVtools.Installer/UVtools.Installer.wixproj  (needs WixToolset, not in nixpkgs)
