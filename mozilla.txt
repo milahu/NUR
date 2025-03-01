@@ -84,9 +84,9 @@ error:
 
 error: attribute 'targetPlatforms' missing
 
-at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:220:74:
+at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:185:76:
 
-   219|       # default to Rust's platforms
-   220|       platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
-      |                                                                          ^
-   221|     };
+   184|         # default to Rust's platforms
+   185|         platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
+      |                                                                            ^
+   186|       };
