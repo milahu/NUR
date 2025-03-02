@@ -1803,7 +1803,7 @@ Floor plan symbols for your room
 these are the spinny (pride) blobs of life
 
 - Name: `renere-spinny-blobs`
-- Version: `0-unstable-2023-12-23`
+- Version: `0-unstable-2025-02-26`
 - Outputs: **`out`**, `blobcatsOnly`, `blobfoxesOnly`
 - [🌐 Homepage](https://gitlab.com/renere/spinny_blobs)
 - [📦 Source](./pkgs/akkoma-emoji/renere/spinny-blobs/package.nix#L44)
@@ -4622,7 +4622,7 @@ Library for emitting text, XML, JSON, or HTML output
 A hardware profiling application for Linux
 
 - Name: `magothy`
-- Version: `0-unstable-2025-02-22`
+- Version: `0-unstable-2025-02-24`
 
 - [🌐 Homepage](https://codeberg.org/serebit/magothy)
 - [📦 Source](./pkgs/by-name/magothy/package.nix#L32)
@@ -5248,7 +5248,7 @@ Phonon Backend using MPV Player
 Camera application for Plasma Mobile
 
 - Name: `plasma-camera`
-- Version: `1.0-unstable-2025-02-15`
+- Version: `1.0-unstable-2025-03-01`
 
 - [🌐 Homepage](https://invent.kde.org/plasma-mobile/plasma-camera)
 - [📦 Source](./pkgs/by-name/plasma-camera/package.nix#L52)
@@ -5320,7 +5320,7 @@ Camera application for Plasma Mobile
 A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell
 
 - Name: `pnut`
-- Version: `SLE2024-artifact-unstable-2025-02-20`
+- Version: `SLE2024-artifact-unstable-2025-02-24`
 
 - [🌐 Homepage](https://github.com/udem-dlteam/pnut)
 - [📦 Source](./pkgs/by-name/pnut/package.nix#L44)
@@ -5752,7 +5752,7 @@ Fan sequel to Super Mario 63
 Sega Model 3 arcade machine emulator
 
 - Name: `supermodel`
-- Version: `0-unstable-2025-02-21`
+- Version: `0-unstable-2025-02-27`
 
 - [🌐 Homepage](https://github.com/trzy/Supermodel)
 - [📦 Source](./pkgs/by-name/supermodel/package.nix#L63)

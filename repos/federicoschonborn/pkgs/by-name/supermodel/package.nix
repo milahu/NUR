@@ -16,13 +16,13 @@
 
 stdenv.mkDerivation {
   pname = "supermodel";
-  version = "0-unstable-2025-02-21";
+  version = "0-unstable-2025-02-27";
 
   src = fetchFromGitHub {
     owner = "trzy";
     repo = "Supermodel";
-    rev = "e9f50fe13ae4b455158fda94988a668c23d0840f";
-    hash = "sha256-+/eghl9wcyLWtvdNOZmZeGFtLyX7tbtFYJ8RyrHMZCg=";
+    rev = "112e7bb9b4ac666c987e0b60c54a86038ed0ad41";
+    hash = "sha256-OCW82yDgpL+7KUSf0A0JFp1vBAD27cCF5lLMpHnZWRA=";
   };
 
   buildInputs = [
