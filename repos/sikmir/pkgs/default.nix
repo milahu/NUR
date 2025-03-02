@@ -156,6 +156,7 @@ lib.makeScope newScope (
         TreeR
         ;
     };
+    py-patcher = callPackage ./garmin/py-patcher { };
     sendmap20 = callPackage ./garmin/sendmap20 { };
 
     ### GEMINI
