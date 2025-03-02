@@ -39,7 +39,7 @@ Package index:
 
 - Description: A simple command-line chat server and client using netcat.
 - Homepage: [https://paltepuk.xyz/cgit/netcatchat.git/about](https://paltepuk.xyz/cgit/netcatchat.git/about)
-- License: MIT.
+- License: GPL-3.0-or-later.
 
 ## Usage Examples
 
