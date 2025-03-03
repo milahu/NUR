@@ -4001,6 +4001,35 @@ A set of commands that manipulate GTAs on various levels (with all features enab
   - `x86_64-redox`
   </details>
 
+<h2 id="hedge-mod-manager">
+
+`hedge-mod-manager`
+
+</h2>
+
+Multiplatform rewrite of Hedge Mod Manager
+
+- Name: `hedge-mod-manager`
+- Version: `8.0.0.1`
+
+- [🌐 Homepage](https://github.com/hedge-dev/HedgeModManager)
+- [📦 Source](./pkgs/by-name/hedge-mod-manager/package.nix#L45)
+- License: [`MIT License`](https://spdx.org/licenses/MIT.html)
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Details
+  </summary>
+
+- Maintainers:
+  - Federico Damián Schonborn [✉️](mailto:federicoschonborn@disroot.org)
+- Platforms:
+  - `x86_64-linux`
+  - `aarch64-linux`
+  </details>
+
 <h2 id="inko">
 
 `inko`
@@ -5320,7 +5349,7 @@ Camera application for Plasma Mobile
 A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell
 
 - Name: `pnut`
-- Version: `SLE2024-artifact-unstable-2025-02-24`
+- Version: `SLE2024-artifact-unstable-2025-03-01`
 
 - [🌐 Homepage](https://github.com/udem-dlteam/pnut)
 - [📦 Source](./pkgs/by-name/pnut/package.nix#L44)
@@ -6672,4 +6701,49 @@ Detect non-inclusive language in your source code
   - `i686-openbsd`
   - `x86_64-openbsd`
   - `x86_64-redox`
+  </details>
+
+<h2 id="xdvdfs">
+
+`xdvdfs`
+
+</h2>
+
+Original Xbox DVD Filesystem library and management tool
+
+- Name: `xdvdfs`
+- Version: `0.8.3`
+
+- [🌐 Homepage](https://github.com/antangelo/xdvdfs)
+- [📦 Source](./pkgs/by-name/xdvdfs/package.nix#L35)
+- License: [`MIT License`](https://spdx.org/licenses/MIT.html)
+
+<!-- markdownlint-disable-next-line no-inline-html -->
+<details>
+  <!-- markdownlint-disable-next-line no-inline-html -->
+  <summary>
+    Details
+  </summary>
+
+- Maintainers:
+  - Federico Damián Schonborn [✉️](mailto:federicoschonborn@disroot.org)
+- Platforms:
+  - `aarch64-linux`
+  - `armv6l-linux`
+  - `armv7l-linux`
+  - `i686-linux`
+  - `loongarch64-linux`
+  - `powerpc64-linux`
+  - `powerpc64le-linux`
+  - `riscv64-linux`
+  - `s390x-linux`
+  - `x86_64-linux`
+  - `armv5tel-linux`
+  - `armv7a-linux`
+  - `m68k-linux`
+  - `mips-linux`
+  - `mips64-linux`
+  - `mipsel-linux`
+  - `mips64el-linux`
+  - `riscv32-linux`
   </details>
