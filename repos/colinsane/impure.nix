@@ -9,9 +9,9 @@
 }:
 let
   mkPkgs = branch: args: (
-    (import ./pkgs/by-name/nixpkgs-bootstrap/${branch}.nix {}).override args
+    import ./pkgs/by-name/nixpkgs-bootstrap/${branch}.nix args
   ).extend (import ./overlays/all.nix);
-  pkgs = mkPkgs "master" {};
+  pkgs = mkPkgs "master" { inherit localSystem; };
   inherit (pkgs) lib;
 
   evalHost = { name, localSystem, system, branch ? "master", variant ? null }:
