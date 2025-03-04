@@ -1,5 +1,6 @@
 { fetchPypi
 , lib
+, llm
 , python3Packages
 }:
 python3Packages.buildPythonPackage rec {
@@ -12,20 +13,23 @@ python3Packages.buildPythonPackage rec {
     hash = "sha256-cvZ6AdzLsMPl6BHsHmYYYc7Ab0N6Ngrvc6frQzBpwHg=";
   };
 
-  nativeBuildInputs = [
+  build-system = [
     python3Packages.setuptools
   ];
-  propagatedBuildInputs = [
-    python3Packages.ollama
+  dependencies = with python3Packages; [
+    ollama
+    pydantic
   ];
 
-  # We can't add llm as a propagatedBuildInput as it creates a
-  # circular dependency.
-  dontCheckRuntimeDeps = true;
+  # We can't add llm to dependencies as it creates a circular
+  # dependency.
+  nativeCheckInputs = [ llm ];
 
   meta = with lib; {
+    broken = versionOlder lib.version "24.11"; # llm-ollama depends on ollama>=0.4 and llm>=0.19 which were not in 24.05
     description = "LLM plugin providing access to models running on local Ollama server.";
     homepage = "https://github.com/taketwo/llm-ollama";
+    changelog = "https://github.com/pycontribs/jira/releases/tag/${version}";
     maintainers = with maintainers; [ javimerino ];
     license = licenses.mit;
   };
