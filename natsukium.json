@@ -1,16 +1,16 @@
 {
 "name":"natsukium",
-"fetch_time":0.451,
-"eval_time":0.272,
+"fetch_time":0.411,
+"eval_time":0.267,
 "source":{
 "url":"https://github.com/natsukium/nur-packages",
-"rev":"98f664e3e9caf1af9b3ae32da1d6d616205297bb",
-"sha256":"0i6qnz0dvakvcw6zg45i6fiy5iwx15dric48bcgk0h09jgbq3kwn",
+"rev":"955e1e7c29ce04b16a2c959285e9530a39dcb92e",
+"sha256":"1dy56q5gygfilhw1m08hs7y0mi4jvgj7yf57kk1ypqk30rbxxr5d",
 "date":null
 },
-"source_storepath":"/nix/store/3rbyij23vs0rjzvx18bxb5m1cifp4lfg-source",
-"nixpkgs_storepath":"/nix/store/f45g0ds7ypvc44syfabzinp3hjr6n35a-source",
-"nur_combined_rev":"63f5a44938ea025c29624795a93d5a1714e1c380",
+"source_storepath":"/nix/store/kpbbh6k9n773g2xj46s5zandv0lv14dc-source",
+"nixpkgs_storepath":"/nix/store/136qyhrrvbfdap46ydrf3fxjyqlrf3v1-source",
+"nur_combined_rev":"265319c040446725ed09ea099b8e84c11f318317",
 "packages":{
 "bclm":{
 "meta":{
@@ -135,10 +135,11 @@
 "meta":{
 "available":false,
 "broken":false,
-"changelog":"https://www.gnu.org/savannah-checkouts/gnu/emacs/news/NEWS.29.4",
+"changelog":"https://www.gnu.org/savannah-checkouts/gnu/emacs/news/NEWS.30.1",
 "description":"A wide range of extra functionality over regular Emacs for macOS",
 "homepage":"https://github.com/d12frosted/homebrew-emacs-plus",
 "insecure":false,
+"knownVulnerabilities":[],
 "license":{
 "deprecated":false,
 "free":true,
@@ -184,7 +185,7 @@
 "name":"Matthew Bauer"
 }
 ],
-"name":"emacs-plus-29.4",
+"name":"emacs-plus-30.1",
 "outputsToInstall":[
 "out"
 ],
@@ -198,14 +199,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"emacs-plus-29.4",
+"name":"emacs-plus-30.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-plus",
 "system":"x86_64-linux",
-"version":"29.4"
+"version":"30.1"
 },
 "emacs29-plus":{
 "meta":{
@@ -214,7 +215,10 @@
 "changelog":"https://www.gnu.org/savannah-checkouts/gnu/emacs/news/NEWS.29.4",
 "description":"A wide range of extra functionality over regular Emacs for macOS",
 "homepage":"https://github.com/d12frosted/homebrew-emacs-plus",
-"insecure":false,
+"insecure":true,
+"knownVulnerabilities":[
+"CVE-2024-53920 CVE-2025-1244, please use newer versions such as emacs30"
+],
 "license":{
 "deprecated":false,
 "free":true,
@@ -291,6 +295,7 @@
 "description":"A wide range of extra functionality over regular Emacs for macOS",
 "homepage":"https://github.com/d12frosted/homebrew-emacs-plus",
 "insecure":false,
+"knownVulnerabilities":[],
 "license":{
 "deprecated":false,
 "free":true,
@@ -1497,7 +1502,7 @@
 "spdxId":"MPL-2.0",
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
-"name":"zen-browser-1.7.6b",
+"name":"zen-browser-1.8.2b",
 "outputsToInstall":[
 "out"
 ],
@@ -1514,14 +1519,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"zen-browser-1.7.6b",
+"name":"zen-browser-1.8.2b",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zen-browser",
 "system":"x86_64-linux",
-"version":"1.7.6b"
+"version":"1.8.2b"
 }
 }
 }
