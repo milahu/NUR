@@ -1,16 +1,6 @@
 { pkgs, ... }:
 {
   sane.services.kiwix-serve = {
-    # XXX(2025-02-24): libzim build failure after nixpkgs changed icu default from icu74 -> icu76.
-    # see: <https://github.com/NixOS/nixpkgs/issues/384684>
-    package = pkgs.kiwix-tools.override {
-      libkiwix = pkgs.libkiwix.override {
-        icu = pkgs.icu75;
-        libzim = pkgs.libzim.override {
-          icu = pkgs.icu75;
-        };
-      };
-    };
     enable = true;
     port = 8013;
     zimPaths = with pkgs.zimPackages; [

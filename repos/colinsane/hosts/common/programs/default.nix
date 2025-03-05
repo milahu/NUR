@@ -176,6 +176,7 @@
     ./sblast
     ./schlock.nix
     ./seatd.nix
+    ./see-cat.nix
     ./sfeed.nix
     ./shadow.nix
     ./signal-desktop.nix

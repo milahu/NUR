@@ -39,6 +39,19 @@ in
     # hash = "sha256-PvewYks5P6QX59SG9sEcV89ddJdcNcEO9bB9x05Xgf0=";
   })
 
+  (fetchpatch' {
+    name = "aerc: make notmuch optional";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/386733";
+    hash = "sha256-gLxRQ+mF7RTciV7dfVA8ADOyl6u1sv4MW6GzCZDjAdw=";
+  })
+
+  (fetchpatch' {
+    name = "kiwix-tools: 3.7.0 -> 3.7.0-unstable-2024-12-21 to fix build against kiwix-14.0";
+    saneGhCommit = "4ccec684a6f5096e56918758a85a794ad0564157";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/387044";
+    hash = "sha256-s6llAcopDvx7I8ZwzJ4mL+mSo6BWIKDM7gjpzZiMxok=";
+  })
+
   # (fetchpatch' {
   #   # 2024-12-26: required to build ollama (with AMD acceleration)
   #   name = "rocm-6: bump packages to 6.3.1 and add missing packages";

@@ -106,6 +106,7 @@ in
       "rsync"
       # "s6-rc"  # service manager
       # "screen"
+      "see-cat"  # pretty-print equivalent to 'cat'
       "smartmontools"  # smartctl
       # "socat"
       "strace"
