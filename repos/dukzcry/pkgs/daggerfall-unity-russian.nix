@@ -39,9 +39,9 @@ let
         meta.license = lib.licenses.unfree;
       })
     ];
-  russian = builtins.fetchTarball {
+  russian = fetchurl {
     url = "https://archive.org/download/ru.-daggerfall.-unity-511-2-3-0-1715655593/RU.Daggerfall.Unity-511-2-3-0-1715655593.zip";
-    sha256 = "sha256:0h6l5s5gz9q7hxg31g1d380a11b2zg522ddklifd67ll0ylc13dx";
+    sha256 = "sha256-d+fToov1tssytOCdnA0R5Ux4kh6na0oiBx8PmjX0N2Q=";
   };
 in
 stdenv.mkDerivation (finalAttrs: {
@@ -80,8 +80,7 @@ stdenv.mkDerivation (finalAttrs: {
     runHook preInstall
 
     mkdir --parents "$out/bin" "$out/share/doc" "$out/share/pixmaps/"
-    #unzip -o ${russian} -d ./DaggerfallUnity_Data/StreamingAssets
-    cp -r ${russian}/* ./DaggerfallUnity_Data/StreamingAssets
+    unzip -o ${russian} -d ./DaggerfallUnity_Data/StreamingAssets
     cp --recursive * "$out"
     ln --symbolic "../${finalAttrs.meta.mainProgram}" "$out/bin/"
     ln --symbolic ../../DaggerfallUnity_Data/Resources/UnityPlayer.png "$out/share/pixmaps/"
