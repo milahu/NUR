@@ -195,25 +195,25 @@
   };
   cachyos-kernel = {
     pname = "cachyos-kernel";
-    version = "c00e68df8b2d8cb99b4b996fcc29005b5e415707";
+    version = "fcc0c0128769ec81ac4e7a9b5a9f3570619cac15";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "linux-cachyos";
-      rev = "c00e68df8b2d8cb99b4b996fcc29005b5e415707";
-      hash = "sha256-PY40Kx5dOHMUkuQeVMfxA1exoh4JWlnYaCrzuSNvN3k=";
+      rev = "fcc0c0128769ec81ac4e7a9b5a9f3570619cac15";
+      hash = "sha256-uBNWO1rN28QsZwSVih7evmhqSlmuGANQmeMfW6IzhdU=";
     };
-    date = "2025-02-27";
+    date = "2025-03-04";
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "c6802577b20bcbe781d8554b005b438f2ec9c8f0";
+    version = "c80f5ad485b99320d60bfb309c2c50b72eeede7e";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "c6802577b20bcbe781d8554b005b438f2ec9c8f0";
-      hash = "sha256-GVh72wCXxUwOxVD7jEw9zo96WGdAgzdpXd9qa2aUfWE=";
+      rev = "c80f5ad485b99320d60bfb309c2c50b72eeede7e";
+      hash = "sha256-UlqhHREInW+bC0WapviQM7QlLT3iO2foq1+z3VvIzAg=";
     };
-    date = "2025-03-03";
+    date = "2025-03-05";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -317,6 +317,14 @@
       hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
     };
   };
+  data-recorder = {
+    pname = "data-recorder";
+    version = "3.6.2";
+    src = fetchurl {
+      url = "https://pypi.org/packages/source/D/DataRecorder/DataRecorder-3.6.2.tar.gz";
+      hash = "sha256-jJAkc2aSr2i5R/2IRYnmhcTye8KdAxuBFkRXsJxg4eU=";
+    };
+  };
   decluttarr = {
     pname = "decluttarr";
     version = "v1.50.2";
@@ -365,6 +373,14 @@
     };
     date = "2022-12-17";
   };
+  download-kit = {
+    pname = "download-kit";
+    version = "2.0.7";
+    src = fetchurl {
+      url = "https://pypi.org/packages/source/D/DownloadKit/DownloadKit-2.0.7.tar.gz";
+      hash = "sha256-YB5CPR1NC9PpM1JNBskT50RXfUVZkOwgr8P7H3muqac=";
+    };
+  };
   dpdk-kmod = {
     pname = "dpdk-kmod";
     version = "9b182be2ee4bf003c892e1312440e1e5d93eff2c";
@@ -375,6 +391,14 @@
       hash = "sha256-8XXLJT18ivnTJcHaCefRpbsuG9K/yERaHbNMHH4l62A=";
     };
     date = "2024-11-20";
+  };
+  drission-page = {
+    pname = "drission-page";
+    version = "4.1.0.17";
+    src = fetchurl {
+      url = "https://pypi.org/packages/source/d/DrissionPage/drissionpage-4.1.0.17.tar.gz";
+      hash = "sha256-feQ9+ZA2jGjKulYqswOjv9mEVUiyZ6zjPhph39g6F1w=";
+    };
   };
   drone-file-secret = {
     pname = "drone-file-secret";
@@ -467,14 +491,25 @@
   };
   flaresolverr-21hsmw = {
     pname = "flaresolverr-21hsmw";
-    version = "23273a62a0d1f5cf3afb89a3ca016053ad82f88b";
+    version = "008ff71315baa40761d9d6283a248e50c43db491";
     src = fetchFromGitHub {
       owner = "21hsmw";
       repo = "FlareSolverr";
-      rev = "23273a62a0d1f5cf3afb89a3ca016053ad82f88b";
-      hash = "sha256-yb43jzBIxHAhsReZUuGWNduyM2Qm/P+FaSTQf1O06ew=";
+      rev = "008ff71315baa40761d9d6283a248e50c43db491";
+      hash = "sha256-Xf8eXXUV38Yl9fG+ToP0uNqBl+M6JdiRn3rUMltQ3a0=";
     };
-    date = "2025-01-19";
+    date = "2025-03-04";
+  };
+  flaresolverr-alexfozor = {
+    pname = "flaresolverr-alexfozor";
+    version = "aa768039d92b37b34467ddca9ab72d7e19ef67b9";
+    src = fetchFromGitHub {
+      owner = "AlexFozor";
+      repo = "FlareSolverr";
+      rev = "aa768039d92b37b34467ddca9ab72d7e19ef67b9";
+      hash = "sha256-OQgt1SUl3prc2FBVBerElRpKbYwJTPNa7ToSEgWhZyg=";
+    };
+    date = "2024-08-04";
   };
   flasgger = {
     pname = "flasgger";
@@ -496,14 +531,14 @@
   };
   funasr = {
     pname = "funasr";
-    version = "82e5ca37a8bd80f56c99f9d790a03b458ced716b";
+    version = "37fb08962d4e0b1f44c5405631a78a00c235babb";
     src = fetchFromGitHub {
       owner = "modelscope";
       repo = "FunASR";
-      rev = "82e5ca37a8bd80f56c99f9d790a03b458ced716b";
-      hash = "sha256-RuZY8O51YQg0IZdjF0yM1s6dc8AE9WsQ/U2bxwvUxgo=";
+      rev = "37fb08962d4e0b1f44c5405631a78a00c235babb";
+      hash = "sha256-TGELdTYzHvyYj/YCJqhmhj0AiNOusVvnewgYIs7EtBc=";
     };
-    date = "2025-02-25";
+    date = "2025-03-05";
   };
   glauth = {
     pname = "glauth";
@@ -894,12 +929,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b4820";
+    version = "b4826";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b4820";
-      hash = "sha256-qdNVAwJUBg32KlPJy7cjfrewsP1kGLzjN5WqY9Nlz38=";
+      tag = "b4826";
+      hash = "sha256-P40Owz6hhq9FFy0P2bh3g/l3Bci2ODWTJKOQq67XYhk=";
     };
   };
   loralib = {
@@ -953,12 +988,12 @@
   };
   modelscope = {
     pname = "modelscope";
-    version = "v1.23.0";
+    version = "v1.23.2";
     src = fetchFromGitHub {
       owner = "modelscope";
       repo = "modelscope";
-      tag = "v1.23.0";
-      hash = "sha256-Juhw1xS1xps5OA9ZjLa0yOrUXbaKw/Yy8n6YnEi1/Zw=";
+      tag = "v1.23.2";
+      hash = "sha256-J837wGaVN1ziJeXmw3mt+b8RWGpmrznX9E+ZvfIblLA=";
     };
   };
   mtkclient = {
