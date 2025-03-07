@@ -34,7 +34,7 @@ in
   (fetchpatch' {
     name = "librsvg: generate loaders.cache even when cross compiling";
     prUrl = "https://github.com/NixOS/nixpkgs/pull/384957";
-    hash = "sha256-pBN+KVkU9AhcoYBVLbkGVICBYO0RyfIJ3Mr4OjO8yFA=";
+    hash = "sha256-coDU6CGXtZOO74Eyr+ZxEPKh9oBLWWPHjNBjKMmPYw0=";
     # saneCommit = "25d740a21c53b9ac2da33571e3fad7e33a765ddf";
     # hash = "sha256-PvewYks5P6QX59SG9sEcV89ddJdcNcEO9bB9x05Xgf0=";
   })
