@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-24_11.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -282,6 +282,15 @@
               text = lib.concatLines (
                 lib.mapAttrsToList (
                   name: value: lib.optionalString (!value ? updateScript) "echo ${name}"
+                ) config.packages
+              );
+            };
+
+            no-strict-deps.program = pkgs.writeShellApplication {
+              name = "no-strict-deps";
+              text = lib.concatLines (
+                lib.mapAttrsToList (
+                  name: value: lib.optionalString (!value.strictDeps or false) "echo ${name}"
                 ) config.packages
               );
             };
