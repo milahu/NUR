@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2024 ona-li-toki-e-jan-Epiphany-tawa-mi
+# Copyright (c) 2024-2025 ona-li-toki-e-jan-Epiphany-tawa-mi
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -26,14 +26,16 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   outputs = { nixpkgs, self, ... }:
-    let inherit (nixpkgs.lib) genAttrs systems;
+    let
+      inherit (nixpkgs.lib) genAttrs systems;
 
-        forAllSystems = f: genAttrs systems.flakeExposed (system: f {
-          pkgs = import nixpkgs { inherit system; };
-        });
+      forAllSystems = f:
+        genAttrs systems.flakeExposed
+        (system: f { pkgs = import nixpkgs { inherit system; }; });
     in {
-      packages = forAllSystems ({ pkgs, ... }:
-        import ./default.nix { inherit pkgs; });
+      packages =
+        forAllSystems ({ pkgs, ... }: import ./default.nix { inherit pkgs; });
+      formatter = forAllSystems ({ pkgs }: pkgs.nixfmt-classic);
 
       legacyPackages = self.packages;
 
@@ -41,8 +43,6 @@
         epitaphpkgs = self.packages.${prev.system};
       };
 
-      nixosModules.default = {
-        nixpkgs.overlays = [ self.overlays.default ];
-      };
+      nixosModules.default = { nixpkgs.overlays = [ self.overlays.default ]; };
     };
 }

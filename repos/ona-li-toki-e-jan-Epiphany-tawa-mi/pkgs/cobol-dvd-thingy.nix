@@ -20,24 +20,20 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-{ stdenv
-, fetchgit
-, lib
-, gnu-cobol
-}:
+{ stdenv, fetchgit, lib, gnu-cobol }:
 
 stdenv.mkDerivation rec {
-  pname   = "cobol-dvd-thingy";
+  pname = "cobol-dvd-thingy";
   version = "0.2.2";
 
   src = fetchgit {
-    url  = "https://paltepuk.xyz/cgit/COBOL-DVD-Thingy.git";
-    rev  = "RELEASE-V${version}";
+    url = "https://paltepuk.xyz/cgit/COBOL-DVD-Thingy.git";
+    rev = "RELEASE-V${version}";
     hash = "sha256-HMkse/I9+wIcDiRC+96/K97TtwlRZkzma1vCdEkO3Ow=";
   };
 
   nativeBuildInputs = [ gnu-cobol.bin ];
-  buildPhase        = ''
+  buildPhase = ''
     runHook preBuild
 
     EXTRA_COBFLAGS='-O3' ./build.sh
@@ -45,7 +41,7 @@ stdenv.mkDerivation rec {
     runHook postBuild
   '';
 
-  buildInputs  = [ gnu-cobol ];
+  buildInputs = [ gnu-cobol ];
   installPhase = ''
     runHook preInstall
 
@@ -57,8 +53,8 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "Terminal screensaver similar to that of DVD players";
-    homepage    = "https://paltepuk.xyz/cgit/COBOL-DVD-Thingy.git/about";
-    license     = licenses.gpl3Plus;
+    homepage = "https://paltepuk.xyz/cgit/COBOL-DVD-Thingy.git/about";
+    license = licenses.gpl3Plus;
     mainProgram = pname;
   };
 }

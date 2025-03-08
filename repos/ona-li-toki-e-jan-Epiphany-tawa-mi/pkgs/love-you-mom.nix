@@ -20,24 +20,20 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-{ stdenv
-, fetchgit
-, lib
-, zig_0_13
-}:
+{ stdenv, fetchgit, lib, zig_0_13 }:
 
 stdenv.mkDerivation rec {
-  pname   = "love-you-mom";
+  pname = "love-you-mom";
   version = "0.1.0";
 
   src = fetchgit {
-    url  = "https://paltepuk.xyz/cgit/love-you-mom.git";
-    rev  = version;
+    url = "https://paltepuk.xyz/cgit/love-you-mom.git";
+    rev = version;
     hash = "sha256-XRPi0FEkjaUVYOXbYjhwf0acANiLZ5pybQiFnpV09m4=";
   };
 
   nativeBuildInputs = [ zig_0_13.hook ];
-  zigBuildFlags     = [ "-Doptimize=ReleaseSafe" ];
+  zigBuildFlags = [ "-Doptimize=ReleaseSafe" ];
 
   installPhase = ''
     runHook preInstall
@@ -49,10 +45,9 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description =
-      "Tells your mom (or dad) that you love them";
-    homepage    = "https://paltepuk.xyz/cgit/love-you-mom.git/about";
-    license     = licenses.gpl3Plus;
+    description = "Tells your mom (or dad) that you love them";
+    homepage = "https://paltepuk.xyz/cgit/love-you-mom.git/about";
+    license = licenses.gpl3Plus;
     mainProgram = pname;
   };
 }

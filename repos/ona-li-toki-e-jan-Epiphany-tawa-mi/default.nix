@@ -20,17 +20,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-{ pkgs ? import <nixpkgs> {}
-, ...
-}:
+{ pkgs ? import <nixpkgs> { }, ... }:
 
-let callPackage = pkg: pkgs.callPackage pkg {};
-in
-{
-  ahd              = callPackage ./pkgs/ahd.nix;
-  bitmasher        = callPackage ./pkgs/bitmasher.nix;
+let callPackage = pkg: pkgs.callPackage pkg { };
+in {
+  ahd = callPackage ./pkgs/ahd.nix;
+  bitmasher = callPackage ./pkgs/bitmasher.nix;
   cobol-dvd-thingy = callPackage ./pkgs/cobol-dvd-thingy.nix;
-  cowsaypl         = callPackage ./pkgs/cowsaypl.nix;
-  love-you-mom     = callPackage ./pkgs/love-you-mom.nix;
-  netcatchat       = callPackage ./pkgs/netcatchat.nix;
+  cowsaypl = callPackage ./pkgs/cowsaypl.nix;
+  love-you-mom = callPackage ./pkgs/love-you-mom.nix;
+  netcatchat = callPackage ./pkgs/netcatchat.nix;
 }

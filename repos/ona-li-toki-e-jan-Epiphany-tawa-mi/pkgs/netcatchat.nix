@@ -20,28 +20,22 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-{ stdenv
-, fetchgit
-, lib
-, netcat-openbsd
-, shellcheck
-}:
+{ stdenv, fetchgit, lib, netcat-openbsd, shellcheck }:
 
 let sourceFile = "netcatchat.sh";
-in
-stdenv.mkDerivation rec {
-  pname   = "netcatchat";
+in stdenv.mkDerivation rec {
+  pname = "netcatchat";
   version = "1.1.0";
 
   src = fetchgit {
-    url  = "https://paltepuk.xyz/cgit/netcatchat.git";
-    rev  = version;
+    url = "https://paltepuk.xyz/cgit/netcatchat.git";
+    rev = version;
     hash = "sha256-man7YE1CPkVdMh0aPRaQ939JoiyCSSY5EIYygBfqNJc=";
   };
 
-  doCheck     = true;
+  doCheck = true;
   checkInputs = [ shellcheck ];
-  checkPhase  = ''
+  checkPhase = ''
     runHook preCheck
 
     shellcheck "${sourceFile}"
@@ -50,7 +44,7 @@ stdenv.mkDerivation rec {
   '';
 
   nativeBuildInputs = [ netcat-openbsd ];
-  installPhase      = ''
+  installPhase = ''
     runHook preInstall
 
     mkdir -p "$out/bin"
@@ -61,8 +55,8 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "A simple command-line chat server and client using netcat";
-    homepage    = "https://paltepuk.xyz/cgit/netcatchat.git/about";
-    license     = licenses.gpl3Plus;
+    homepage = "https://paltepuk.xyz/cgit/netcatchat.git/about";
+    license = licenses.gpl3Plus;
     mainProgram = pname;
   };
 }

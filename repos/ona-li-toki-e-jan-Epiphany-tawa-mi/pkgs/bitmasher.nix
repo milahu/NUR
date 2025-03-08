@@ -20,18 +20,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-{ stdenv
-, fetchgit
-, lib
-}:
+{ stdenv, fetchgit, lib }:
 
 stdenv.mkDerivation rec {
-  pname   = "bitmasher";
+  pname = "bitmasher";
   version = "7.5385325985";
 
   src = fetchgit {
-    url  = "https://paltepuk.xyz/cgit/BitMasher.git";
-    rev  = "RELEASE-V${version}";
+    url = "https://paltepuk.xyz/cgit/BitMasher.git";
+    rev = "RELEASE-V${version}";
     hash = "sha256-2bE0QA82yQLa2A8snnhXu8DptDOsnfF/g2bg6SrNwCY=";
   };
 
@@ -55,8 +52,8 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     description =
       "A fast-paced text adventure game inside a ransomware-infected computer";
-    homepage    = "https://paltepuk.xyz/cgit/BitMasher.git/about";
-    license     = licenses.gpl3Plus;
+    homepage = "https://paltepuk.xyz/cgit/BitMasher.git/about";
+    license = licenses.gpl3Plus;
     mainProgram = pname;
   };
 }

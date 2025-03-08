@@ -1,6 +1,8 @@
+#!/bin/sh
+
 # MIT License
 #
-# Copyright (c) 2024-2025 ona-li-toki-e-jan-Epiphany-tawa-mi
+# Copyright (c) 2025 ona-li-toki-e-jan-Epiphany-tawa-mi
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,46 +22,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-{ stdenv, fetchgit, lib, gnuapl }:
+# Error on unset variables.
+set -u
 
-stdenv.mkDerivation rec {
-  pname = "cowsaypl";
-  version = "2.0.0";
+set -x
 
-  src = fetchgit {
-    url = "https://paltepuk.xyz/cgit/cowsAyPL.git";
-    rev = version;
-    hash = "sha256-FkKkChXtnMNPQDhr09/65Wl7eR91XRzN2xM6vdc8CcM=";
-  };
+# We need to remove the result symlinks or nixfmt will try to traverse them.
+rm result* 2> /dev/null
+nix fmt || exit 1
 
-  doCheck = true;
-  checkInputs = [ gnuapl ];
-  checkPhase = ''
-    runHook preCheck
-
-    apl --script test.apl --
-
-    runHook postCheck
-  '';
-
-  buildInputs = [ gnuapl ];
-  installPhase = ''
-    runHook preInstall
-
-    mkdir -p "$out/lib"
-    cp workspaces/fio.apl "$out/lib"
-
-    mkdir -p "$out/bin"
-    substitute cowsay.apl "$out/bin/${pname}" \
-               --replace-fail ')COPY_ONCE fio.apl' ")COPY_ONCE $out/lib/fio.apl"
-
-    runHook postInstall
-  '';
-
-  meta = with lib; {
-    description = "Cowsay in GNU APL";
-    homepage = "https://paltepuk.xyz/cgit/cowsAyPL.git/about";
-    license = licenses.gpl3Plus;
-    mainProgram = pname;
-  };
-}
+nix-build || exit 1

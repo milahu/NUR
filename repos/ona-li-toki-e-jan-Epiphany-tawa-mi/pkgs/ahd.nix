@@ -20,25 +20,21 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-{ stdenv
-, fetchgit
-, lib
-, cbqn
-}:
+{ stdenv, fetchgit, lib, cbqn }:
 
 stdenv.mkDerivation rec {
-  pname   = "ahd";
+  pname = "ahd";
   version = "1.0.0";
 
   src = fetchgit {
-    url  = "https://paltepuk.xyz/cgit/AHD.git";
-    rev  = version;
+    url = "https://paltepuk.xyz/cgit/AHD.git";
+    rev = version;
     hash = "sha256-wbVPoyizJ1Mf2op7jS6GQD4Rqfkq0HiF3/c2UJlYmzE=";
   };
 
-  doCheck     = true;
+  doCheck = true;
   checkInputs = [ cbqn ];
-  checkPhase  = ''
+  checkPhase = ''
     runHook preCheck
 
     bqn test.bqn
@@ -46,7 +42,7 @@ stdenv.mkDerivation rec {
     runHook postCheck
   '';
 
-  buildInputs  = [ cbqn ];
+  buildInputs = [ cbqn ];
   installPhase = ''
     runHook preInstall
 
@@ -58,8 +54,8 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "Hexdump utility";
-    homepage    = "https://paltepuk.xyz/cgit/AHD.git/about";
-    license     = licenses.gpl3Plus;
+    homepage = "https://paltepuk.xyz/cgit/AHD.git/about";
+    license = licenses.gpl3Plus;
     mainProgram = pname;
   };
 }
