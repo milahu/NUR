@@ -314,6 +314,7 @@ in
       "gnome-frog"  # OCR/QR decoder
       "gnome-maps"
       "gnome-screenshot"  # libcamera-based screenshotter, for debugging; should be compatible with gc2145 camera on Pinephone
+      "gnome-sound-recorder"  # a simple microphone recorder/tester
       "gnome-weather"
       "gpodder"
       "gsettings"

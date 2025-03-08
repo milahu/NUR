@@ -88,9 +88,6 @@
   at-spi2-core,
   atk,
   autoPatchelfHook,
-  bash,
-  buildNpmPackage,
-  buildPackages,
   cups,
   electron_33-bin,
   fetchFromGitHub,
@@ -109,9 +106,12 @@
   makeShellWrapper,
   mesa,
   nix-update-script,
+  nodejs,
   nspr,
   nss,
   pango,
+  pkgsBuildHost,
+  pnpm_10,
   python3,
   rsync,
   signal-desktop,
@@ -178,19 +178,22 @@ let
   hostNpmArch = if stdenv.hostPlatform.isAarch64 then "arm64" else "x64";
   crossNpmArchExt = if buildNpmArch == hostNpmArch then "" else "-${hostNpmArch}";
 in
-buildNpmPackage rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "signal-desktop-from-src";
-  version = "7.44.0";
+  version = "7.46.0";
 
   src = fetchFromGitHub {
     owner = "signalapp";
     repo = "Signal-Desktop";
     leaveDotGit = true;  # signal calculates the release date via `git`
-    rev = "v${version}";
-    hash = "sha256-Gxb5kI2SAtJ/j9mHsL80yHS8XxFwHDlKUAxVcG2X9CE=";
+    rev = "v${finalAttrs.version}";
+    hash = "sha256-8piR3lPy+GwSrcmDUpsqVDnxNLuHe2XfIGFLei56sQY=";
   };
 
-  npmDepsHash = "sha256-r7HtaYBORc8I241EgTcLCZeZpi4rbqviOyKbfqJyJvE=";
+  pnpmDeps = pnpm_10.fetchDeps {
+    inherit (finalAttrs) pname version src patches;
+    hash = "sha256-keG+ymMD4ma0dt6N4Fai9u0+rh9VzkQD6tClPKoQXkM=";
+  };
 
   patches = [
     # ./debug.patch
@@ -231,9 +234,12 @@ buildNpmPackage rec {
     git  # to calculate build date
     gnused
     makeShellWrapper
+    nodejs
+    # nodejs.python
     python3
     rsync
     wrapGAppsHook
+    pkgsBuildHost.pnpm_10.configHook  #< XXX: buildPackages because it doesn't splice right (fixes cross compilation)
   ];
 
   buildInputs = [
@@ -250,6 +256,7 @@ buildNpmPackage rec {
     libwebp
     libxslt
     mesa # for libgbm
+    nodejs
     nspr
     nss
     pango
@@ -269,16 +276,21 @@ buildNpmPackage rec {
 
   dontWrapGApps = true;
   # dontStrip = false;
-  makeCacheWritable = true;  # "Your cache folder contains root-owned files, due to a bug in previous versions of npm which has since been addressed."
+  # makeCacheWritable = true;  # "Your cache folder contains root-owned files, due to a bug in previous versions of npm which has since been addressed."
 
-  npmRebuildFlags = [
-    # "--offline"
-    "--ignore-scripts"
-  ];
+  # npmRebuildFlags = [
+  #   # "--offline"
+  #   "--ignore-scripts"
+  # ];
+  # pnpmRebuildFlags = [
+  #   # "--offline"
+  #   "--ignore-scripts"
+  # ];
 
   # NIX_DEBUG = 6;
 
-  postConfigure = ''
+  # should really be `postConfigure`, but `pnpmConfigHook` runs _after_ postConfigure
+  preBuild = ''
     # XXX: Signal does not let clients connect if they're running a version that's > 90d old.
     # to calculate the build date, it uses SOURCE_DATE_EPOCH (if set), else `git log`.
     # nixpkgs sets SOURCE_DATE_EPOCH to 1980/01/01 by default, so unset it so Signal falls back to git date.
@@ -297,6 +309,8 @@ buildNpmPackage rec {
     # patch these out to remove a runtime reference back to the build bash
     # (better, perhaps, would be for these build scripts to not be included in the asar...)
     substituteInPlace node_modules/dashdash/etc/dashdash.bash_completion.in --replace-fail '#!/bin/bash' '#!/bin/sh'
+    # substituteInPlace node_modules/pino/inc-version.sh --replace-fail '#!/bin/bash' '#!/bin/sh'
+    substituteInPlace node_modules/pino/inc-version.sh --replace-fail '#!${stdenv.shell}' '#!/bin/sh'
 
     # provide necessities which were skipped as part of --ignore-scripts
     rsync -arv ${ringrtcPrebuild}/ node_modules/@signalapp/ringrtc/
@@ -308,7 +322,7 @@ buildNpmPackage rec {
       substituteInPlace node_modules/@signalapp/better-sqlite3/package.json \
         --replace-fail '"download": "node ./deps/download.js"'  '"download": "true"' \
         --replace-fail '"build-release": "node-gyp rebuild --release"'  '"build-release": "true"' \
-        --replace-fail '"install": "npm run download && npm run build-release"'  '"install": "true"'
+        --replace-fail '"install": "pnpm run download && pnpm run build-release"'  '"install": "true"'
     '' else ''
       # option 2: replace only the sqlcipher plugin with Signal's prebuilt version,
       # and build the rest of better-sqlite3 from source
@@ -317,7 +331,7 @@ buildNpmPackage rec {
 
     # pushd node_modules/@signalapp/better-sqlite3
     #   # node-gyp isn't consistently linked into better-sqlite's `node_modules` (maybe due to version mismatch with signal-desktop's node-gyp?)
-    #   PATH="$PATH:$(pwd)/../../.bin" npm --offline run build-release
+    #   PATH="$PATH:$(pwd)/../../.bin" pnpm --offline run build-release
     # popd
 
     # pushd node_modules/@signalapp/libsignal-client
@@ -328,7 +342,7 @@ buildNpmPackage rec {
     # - npm run build:acknowledgments
     # - npm exec patch-package
     # - npm run electron:install-app-deps
-    npm run postinstall
+    pnpm run postinstall
   '';
 
   # excerpts from package.json:
@@ -354,11 +368,14 @@ buildNpmPackage rec {
   buildPhase = ''
     runHook preBuild
 
-    npm run generate
+    pnpm run generate
 
-    npm run build:esbuild:prod --offline --frozen-lockfile
+    pnpm run build:esbuild:prod --offline --frozen-lockfile
 
-    npm run build:release -- \
+    SIGNAL_ENV=production \
+    pnpm exec electron-builder \
+      --config.extraMetadata.environment=production \
+      --config.directories.output=release \
       --${hostNpmArch} \
       --config.electronDist=${electron'}/libexec/electron \
       --config.electronVersion=${electron'.version} \
@@ -389,20 +406,33 @@ buildNpmPackage rec {
     rm $out/lib/Signal/resources/app.asar
     patchShebangs --host --update unpacked
     patchelf --add-needed ${libpulseaudio}/lib/libpulse.so unpacked/node_modules/@signalapp/ringrtc/build/linux/libringrtc-*.node
+    cp -R unpacked "$asar"
     asar pack unpacked $out/lib/Signal/resources/app.asar
 
-    # XXX: add --ozone-platform-hint=auto to make it so that NIXOS_OZONE_WL isn't *needed*.
-    # electron should auto-detect x11 v.s. wayland: launching with `NIXOS_OZONE_WL=1` is an optional way to force it when debugging.
-    # xdg-utils: needed for ozone-platform-hint=auto to work
-    # else `LaunchProcess: failed to execvp: xdg-settings`
-    makeShellWrapper ${lib.getExe electron'} $out/bin/signal-desktop \
+    # patchShebangs --host --update $out/lib/Signal/resources
+    # patchelf --add-needed ${libpulseaudio}/lib/libpulse.so $out/lib/Signal/resources/app.asar.unpacked/node_modules/@signalapp/ringrtc/build/linux/libringrtc-*.node
+
+    # # XXX: add --ozone-platform-hint=auto to make it so that NIXOS_OZONE_WL isn't *needed*.
+    # # electron should auto-detect x11 v.s. wayland: launching with `NIXOS_OZONE_WL=1` is an optional way to force it when debugging.
+    # # xdg-utils: needed for ozone-platform-hint=auto to work
+    # # else `LaunchProcess: failed to execvp: xdg-settings`
+    # makeShellWrapper ${lib.getExe electron'} $out/bin/signal-desktop \
+    #   "''${gappsWrapperArgs[@]}" \
+    #   --add-flags $out/lib/Signal/resources/app.asar \
+    #   --suffix PATH : ${lib.makeBinPath [ xdg-utils ]} \
+    #   --add-flags --ozone-platform-hint=auto \
+    #   --add-flags "\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-features=WaylandWindowDecorations}" \
+    #   --inherit-argv0
+
+    makeShellWrapper $out/lib/Signal/signal-desktop $out/bin/signal-desktop \
       "''${gappsWrapperArgs[@]}" \
-      --add-flags $out/lib/Signal/resources/app.asar \
       --suffix PATH : ${lib.makeBinPath [ xdg-utils ]} \
       --add-flags --ozone-platform-hint=auto \
       --add-flags "\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-features=WaylandWindowDecorations}" \
       --inherit-argv0
   '';
+
+  outputs = [ "out" "asar" ];
 
   passthru = {
     inherit ringrtcPrebuild betterSqlitePrebuild;
@@ -425,7 +455,7 @@ buildNpmPackage rec {
       "Signal Android" or "Signal iOS" app.
     '';
     homepage = "https://signal.org/";
-    changelog = "https://github.com/signalapp/Signal-Desktop/releases/tag/v${version}";
+    changelog = "https://github.com/signalapp/Signal-Desktop/releases/tag/v${finalAttrs.version}";
     license = lib.licenses.agpl3Only;
   };
-}
+})

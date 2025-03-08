@@ -83,6 +83,7 @@
     ./gnome-frog.nix
     ./gnome-keyring
     ./gnome-maps.nix
+    ./gnome-sound-recorder.nix
     ./gnome-weather.nix
     ./go2tv.nix
     ./gocryptfs.nix

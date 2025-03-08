@@ -9,7 +9,7 @@
 }:
 mkNixpkgs {
   rev = "25050c9c2a7f603396857cdec1118edd2827db0c";
-  sha256 = "sha256-AzH1rZFqEH8sovZZfJykvsEmCedEZWigQFHWHl6/PdE=";
+  sha256 = "sha256-72uajWbJTG2IVEw1myy/QXUM05YK+hbRJpCSMJ/dyrw=";
   version = "0-unstable-2025-03-06";
   branch = "master";
 }
