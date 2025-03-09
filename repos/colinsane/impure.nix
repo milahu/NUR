@@ -24,32 +24,30 @@ let
     pkgs.sops-nix.nixosModules.sops
   ];
   mkFlavoredHost = args: let
-    host = evalHost args;
+    plainHost = evalHost args;
     # expose the toplevel nixos system as the toplevel attribute itself,
     # with nested aliases for other common build targets
-  in host.config.system.build.toplevel.overrideAttrs (base: {
-    passthru = (base.passthru or {}) // {
-      config = host.config;
-      fs = host.config.sane.fs;
-      img = host.config.system.build.img;
-      pkgs = host.config.system.build.pkgs;
-      programs = builtins.mapAttrs (_: p: p.package) host.config.sane.programs;
-      toplevel = host.config.system.build.toplevel;  #< self
-    };
-  });
+    addPassthru = host: host.config.system.build.toplevel.overrideAttrs (base: {
+      passthru = (base.passthru or {}) // {
+        inherit (host) config;
+        inherit (host.config.sane) fs;
+        inherit (host.config.system.build) imgs pkgs;
+        programs = builtins.mapAttrs (_: p: p.package) host.config.sane.programs;
+        toplevel = host.config.system.build.toplevel;  #< self
+        extendModules = arg: addPassthru (host.extendModules arg);
+      };
+    });
+  in addPassthru plainHost;
   mkHost = args: {
-    # TODO: swap order: $host-{next,staging}-{min,light}:
-    # then lexicographically-adjacent targets would also have the minimal difference in closure,
-    # and the order in which each target should be built is more evident
     "${args.name}" = mkFlavoredHost args;
-    "${args.name}-next" = mkFlavoredHost (args // { branch = "staging-next"; });
-    "${args.name}-staging" = mkFlavoredHost (args // { branch = "staging"; });
     "${args.name}-light" = mkFlavoredHost (args // { variant = "light"; });
-    "${args.name}-light-next" = mkFlavoredHost (args // { variant = "light"; branch = "staging-next"; });
-    "${args.name}-light-staging" = mkFlavoredHost (args // { variant = "light"; branch = "staging"; });
     "${args.name}-min" = mkFlavoredHost (args // { variant = "min"; });
-    "${args.name}-min-next" = mkFlavoredHost (args // { variant = "min"; branch = "staging-next"; });
-    "${args.name}-min-staging" = mkFlavoredHost (args // { variant = "min"; branch = "staging"; });
+    "${args.name}-staging" = mkFlavoredHost (args // { branch = "staging"; });
+    "${args.name}-staging-light" = mkFlavoredHost (args // { branch = "staging"; variant = "light"; });
+    "${args.name}-staging-min" = mkFlavoredHost (args // { branch = "staging"; variant = "min"; });
+    "${args.name}-next" = mkFlavoredHost (args // { branch = "staging-next"; });
+    "${args.name}-next-light" = mkFlavoredHost (args // { branch = "staging-next"; variant = "light"; });
+    "${args.name}-next-min" = mkFlavoredHost (args // { branch = "staging-next"; variant = "min"; });
   };
 
   # this exists to unify my kernel configs across different platforms.

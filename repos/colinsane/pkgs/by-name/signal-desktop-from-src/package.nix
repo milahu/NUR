@@ -100,11 +100,11 @@
   gtk3,
   icu,
   lib,
+  libgbm,
   libpulseaudio,
   libwebp,
   libxslt,
   makeShellWrapper,
-  mesa,
   nix-update-script,
   nodejs,
   nspr,
@@ -255,7 +255,7 @@ stdenv.mkDerivation (finalAttrs: {
     libpulseaudio
     libwebp
     libxslt
-    mesa # for libgbm
+    libgbm
     nodejs
     nspr
     nss
