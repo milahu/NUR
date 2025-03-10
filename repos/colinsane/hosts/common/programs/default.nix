@@ -232,6 +232,7 @@
     ./zathura.nix
     ./zeal.nix
     ./zecwallet-lite.nix
+    ./zelda64recomp.nix
     ./zulip.nix
     ./zsa-udev-rules.nix
     ./zfs-tools.nix

@@ -274,6 +274,7 @@ in
       "tumiki-fighters" # keyboard-only
       "vvvvvv"  # keyboard-only controls
       # "wine"
+      "zelda64recomp"
     ];
 
     guiApps = declPackageSet [

@@ -32,33 +32,39 @@ in
   ./2024-10-01-python-cross-resource-usage.patch
 
   (fetchpatch' {
+    # 2025-03-07: i'm testing this patch before merge.
+    # TODO: check if CapabilityBoundingSet takes effect or is union'd with upstream's
+    # TODO: test basic functionality
+    name = "nixos/bluetooth: add systemd hardening";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/377927";
+    hash = "sha256-D8Royett8CSZD7xHYEj6qvJCMFaFKz8SNOIBABapgDc=";
+  })
+
+  (fetchpatch' {
+    # 2025-03-07: merged into staging
     name = "librsvg: generate loaders.cache even when cross compiling";
     prUrl = "https://github.com/NixOS/nixpkgs/pull/384957";
     hash = "sha256-coDU6CGXtZOO74Eyr+ZxEPKh9oBLWWPHjNBjKMmPYw0=";
-    # saneCommit = "25d740a21c53b9ac2da33571e3fad7e33a765ddf";
-    # hash = "sha256-PvewYks5P6QX59SG9sEcV89ddJdcNcEO9bB9x05Xgf0=";
   })
 
   (fetchpatch' {
-    name = "aerc: make notmuch optional";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/386733";
-    hash = "sha256-gLxRQ+mF7RTciV7dfVA8ADOyl6u1sv4MW6GzCZDjAdw=";
+    # 2024-12-26: required to build ollama (with AMD acceleration)
+    name = "rocm-6: bump packages to 6.3.1 and add missing packages";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/367695";
+    hash = "sha256-k/jxUUInhCvesF9l4Z1FMTqMaELZR1KSZkR6sQPAu6E=";
   })
 
   (fetchpatch' {
-    name = "kiwix-tools: 3.7.0 -> 3.7.0-unstable-2024-12-21 to fix build against kiwix-14.0";
-    saneGhCommit = "4ccec684a6f5096e56918758a85a794ad0564157";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/387044";
-    hash = "sha256-s6llAcopDvx7I8ZwzJ4mL+mSo6BWIKDM7gjpzZiMxok=";
+    name = "zelda64recomp: init at 1.1.1-unstable-2025-02-14";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/313013";
+    hash = "sha256-DEim1fNRXfHAtaml6XJnRLVi5KwXm4KIiwZOGU+ePTA=";
   })
 
-  # (fetchpatch' {
-  #   # 2024-12-26: required to build ollama (with AMD acceleration)
-  #   name = "rocm-6: bump packages to 6.3.1 and add missing packages";
-  #   prUrl = "https://github.com/NixOS/nixpkgs/pull/367695";
-  #   # hash = "sha256-6XXgSCXhC5DneSICguPtdnjX00SVJeiHxmJ55MoB+Xs=";
-  #   hash = "sha256-Hzz+aAzdgdnTu4jvLqpHzdIE3xYMP02/EuA+KvFbUeI=";
-  # })
+  (fetchpatch' {
+    name = "mesa: fix cross compilation";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/388328";
+    hash = "sha256-Jy9vMaeFrLjCNCI80YvTrqpSDaWQd/Num+mIRcgXCw4=";
+  })
 
   # (fetchpatch' {
   #   # XXX(2025-01-06): patch does not produce valid binaries for cross
