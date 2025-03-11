@@ -28,39 +28,39 @@ error:
 
 … while calling 'foldr'
 
-  at <nixpkgs> + /lib/lists.nix:121:20:
+  at <nixpkgs> + /lib/lists.nix:122:20:
 
-   120|   */
-   121|   foldr = op: nul: list:
+   121|   */
+   122|   foldr = op: nul: list:
       |                    ^
-   122|     let
+   123|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/lists.nix:128:8:
+  at <nixpkgs> + /lib/lists.nix:129:8:
 
-   127|         else op (elemAt list n) (fold' (n + 1));
-   128|     in fold' 0;
+   128|         else op (elemAt list n) (fold' (n + 1));
+   129|     in fold' 0;
       |        ^
-   129|
+   130|
 
 … while calling 'fold''
 
-  at <nixpkgs> + /lib/lists.nix:124:15:
+  at <nixpkgs> + /lib/lists.nix:125:15:
 
-   123|       len = length list;
-   124|       fold' = n:
+   124|       len = length list;
+   125|       fold' = n:
       |               ^
-   125|         if n == len
+   126|         if n == len
 
 … from call site
 
-  at <nixpkgs> + /lib/lists.nix:127:14:
+  at <nixpkgs> + /lib/lists.nix:128:14:
 
-   126|         then nul
-   127|         else op (elemAt list n) (fold' (n + 1));
+   127|         then nul
+   128|         else op (elemAt list n) (fold' (n + 1));
       |              ^
-   128|     in fold' 0;
+   129|     in fold' 0;
 
 … while calling anonymous lambda
 
@@ -82,21 +82,21 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1304:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:769:23:
 
-  1303|
-  1304|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+   768|
+   769|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1305|     inherit drv verbose;
+   770|     inherit drv verbose;
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:966:7:
+  at <nixpkgs> + /lib/trivial.nix:1000:7:
 
-   965|     { # TODO: Should we add call-time "type" checking like built in?
-   966|       __functor = self: f;
+   999|     { # TODO: Should we add call-time "type" checking like built in?
+  1000|       __functor = self: f;
       |       ^
-   967|       __functionArgs = args;
+  1001|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -118,12 +118,12 @@ error:
 
 … while calling 'mergeAttrsList'
 
-  at <nixpkgs> + /lib/attrsets.nix:1488:20:
+  at <nixpkgs> + /lib/attrsets.nix:1487:20:
 
-  1487|   */
-  1488|   mergeAttrsList = list:
+  1486|   */
+  1487|   mergeAttrsList = list:
       |                    ^
-  1489|     let
+  1488|     let
 
 … while calling anonymous lambda
 
@@ -153,7 +153,7 @@ error:
     61|     import
 
 … while evaluating derivation 'references.nix'
-  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:336:7
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:375:7
 
 … while evaluating attribute 'exportReferencesGraph' of derivation 'references.nix'
 
@@ -166,30 +166,30 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/lists.nix:127:34:
+  at <nixpkgs> + /lib/lists.nix:128:34:
 
-   126|         then nul
-   127|         else op (elemAt list n) (fold' (n + 1));
+   127|         then nul
+   128|         else op (elemAt list n) (fold' (n + 1));
       |                                  ^
-   128|     in fold' 0;
+   129|     in fold' 0;
 
 … while calling 'fold''
 
-  at <nixpkgs> + /lib/lists.nix:124:15:
+  at <nixpkgs> + /lib/lists.nix:125:15:
 
-   123|       len = length list;
-   124|       fold' = n:
+   124|       len = length list;
+   125|       fold' = n:
       |               ^
-   125|         if n == len
+   126|         if n == len
 
 … from call site
 
-  at <nixpkgs> + /lib/lists.nix:127:14:
+  at <nixpkgs> + /lib/lists.nix:128:14:
 
-   126|         then nul
-   127|         else op (elemAt list n) (fold' (n + 1));
+   127|         then nul
+   128|         else op (elemAt list n) (fold' (n + 1));
       |              ^
-   128|     in fold' 0;
+   129|     in fold' 0;
 
 … while calling anonymous lambda
 
@@ -211,21 +211,21 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1304:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:769:23:
 
-  1303|
-  1304|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+   768|
+   769|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1305|     inherit drv verbose;
+   770|     inherit drv verbose;
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:966:7:
+  at <nixpkgs> + /lib/trivial.nix:1000:7:
 
-   965|     { # TODO: Should we add call-time "type" checking like built in?
-   966|       __functor = self: f;
+   999|     { # TODO: Should we add call-time "type" checking like built in?
+  1000|       __functor = self: f;
       |       ^
-   967|       __functionArgs = args;
+  1001|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -247,12 +247,12 @@ error:
 
 … while calling 'mergeAttrsList'
 
-  at <nixpkgs> + /lib/attrsets.nix:1488:20:
+  at <nixpkgs> + /lib/attrsets.nix:1487:20:
 
-  1487|   */
-  1488|   mergeAttrsList = list:
+  1486|   */
+  1487|   mergeAttrsList = list:
       |                    ^
-  1489|     let
+  1488|     let
 
 … while calling anonymous lambda
 
@@ -263,89 +263,89 @@ error:
       |     ^
    115|     if toString oldDependency == toString newDependency then
 
-… while evaluating derivation 'qtwayland-6.8.0'
-  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:336:7
+… while evaluating derivation 'qtwayland-6.8.2'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:375:7
 
-… while evaluating attribute 'propagatedBuildInputs' of derivation 'qtwayland-6.8.0'
+… while evaluating attribute 'propagatedBuildInputs' of derivation 'qtwayland-6.8.2'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:390:7:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:429:7:
 
-   389|       depsHostHostPropagated      = elemAt (elemAt propagatedDependencies 1) 0;
-   390|       propagatedBuildInputs       = elemAt (elemAt propagatedDependencies 1) 1;
+   428|       depsHostHostPropagated      = elemAt (elemAt propagatedDependencies 1) 0;
+   429|       propagatedBuildInputs       = elemAt (elemAt propagatedDependencies 1) 1;
       |       ^
-   391|       depsTargetTargetPropagated  = elemAt (elemAt propagatedDependencies 2) 0;
+   430|       depsTargetTargetPropagated  = elemAt (elemAt propagatedDependencies 2) 0;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:326:13:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:365:13:
 
-   325|       (map (drv: getDev drv.__spliced.hostHost or drv) (checkDependencyList "depsHostHostPropagated" depsHostHostPropagated))
-   326|       (map (drv: getDev drv.__spliced.hostTarget or drv) (checkDependencyList "propagatedBuildInputs" propagatedBuildInputs))
+   364|       (map (drv: getDev drv.__spliced.hostHost or drv) (checkDependencyList "depsHostHostPropagated" depsHostHostPropagated))
+   365|       (map (drv: getDev drv.__spliced.hostTarget or drv) (checkDependencyList "propagatedBuildInputs" propagatedBuildInputs))
       |             ^
-   327|     ]
+   366|     ]
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:326:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:365:18:
 
-   325|       (map (drv: getDev drv.__spliced.hostHost or drv) (checkDependencyList "depsHostHostPropagated" depsHostHostPropagated))
-   326|       (map (drv: getDev drv.__spliced.hostTarget or drv) (checkDependencyList "propagatedBuildInputs" propagatedBuildInputs))
+   364|       (map (drv: getDev drv.__spliced.hostHost or drv) (checkDependencyList "depsHostHostPropagated" depsHostHostPropagated))
+   365|       (map (drv: getDev drv.__spliced.hostTarget or drv) (checkDependencyList "propagatedBuildInputs" propagatedBuildInputs))
       |                  ^
-   327|     ]
+   366|     ]
 
 … while calling 'getOutput'
 
-  at <nixpkgs> + /lib/attrsets.nix:1797:23:
+  at <nixpkgs> + /lib/attrsets.nix:1796:23:
 
-  1796|   */
-  1797|   getOutput = output: pkg:
+  1795|   */
+  1796|   getOutput = output: pkg:
       |                       ^
-  1798|     if ! pkg ? outputSpecified || ! pkg.outputSpecified
+  1797|     if ! pkg ? outputSpecified || ! pkg.outputSpecified
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/lists.nix:334:29:
+  at <nixpkgs> + /lib/lists.nix:335:29:
 
-   333|   */
-   334|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
+   334|   */
+   335|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
       |                             ^
-   335|
+   336|
 
 … from call site
 
-  at <nixpkgs> + /lib/lists.nix:334:32:
+  at <nixpkgs> + /lib/lists.nix:335:32:
 
-   333|   */
-   334|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
+   334|   */
+   335|   imap1 = f: list: genList (n: f (n + 1) (elemAt list n)) (length list);
       |                                ^
-   335|
+   336|
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:281:15:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:320:15:
 
-   280|     imap1
-   281|       (index: dep:
+   319|     imap1
+   320|       (index: dep:
       |               ^
-   282|         if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
+   321|         if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:282:12:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:321:12:
 
-   281|       (index: dep:
-   282|         if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
+   320|       (index: dep:
+   321|         if isDerivation dep || dep == null || builtins.isString dep || builtins.isPath dep then dep
       |            ^
-   283|         else if isList dep then checkDependencyList' ([index] ++ positions) name dep
+   322|         else if isList dep then checkDependencyList' ([index] ++ positions) name dep
 
 … while calling 'isDerivation'
 
-  at <nixpkgs> + /lib/attrsets.nix:1283:5:
+  at <nixpkgs> + /lib/attrsets.nix:1282:5:
 
-  1282|   isDerivation =
-  1283|     value: value.type or null == "derivation";
+  1281|   isDerivation =
+  1282|     value: value.type or null == "derivation";
       |     ^
-  1284|
+  1283|
 
 … from call site
 
@@ -358,21 +358,21 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:1304:23:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:769:23:
 
-  1303|
-  1304|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
+   768|
+   769|   replaceDependency = { drv, oldDependency, newDependency, verbose ? true }: replaceDependencies {
       |                       ^
-  1305|     inherit drv verbose;
+   770|     inherit drv verbose;
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:966:7:
+  at <nixpkgs> + /lib/trivial.nix:1000:7:
 
-   965|     { # TODO: Should we add call-time "type" checking like built in?
-   966|       __functor = self: f;
+   999|     { # TODO: Should we add call-time "type" checking like built in?
+  1000|       __functor = self: f;
       |       ^
-   967|       __functionArgs = args;
+  1001|       __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -394,12 +394,12 @@ error:
 
 … while calling 'mergeAttrsList'
 
-  at <nixpkgs> + /lib/attrsets.nix:1488:20:
+  at <nixpkgs> + /lib/attrsets.nix:1487:20:
 
-  1487|   */
-  1488|   mergeAttrsList = list:
+  1486|   */
+  1487|   mergeAttrsList = list:
       |                    ^
-  1489|     let
+  1488|     let
 
 … while calling anonymous lambda
 
@@ -428,4 +428,4 @@ error:
       |     ^
     61|     import
 
-error: path '/nix/store/g7vlq6qbsqq2xhyll1k05lzc31ycwpk7-references.nix.drv' is not valid
+error: path '/nix/store/4ijk2d0dh1fgqdpsl39wnnq8d5763wif-references.nix.drv' is not valid

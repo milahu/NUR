@@ -1,0 +1,20 @@
+error:
+… from call site
+
+  at ./default.nix:60:8:
+
+    59|   telemikiya = callPackage ./pkgs/telemikiya { };
+    60|   mq = callPackage ./pkgs/mq { };
+      |        ^
+    61| }
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:240:19:
+
+   239|   callPackageWith =
+   240|     autoArgs: fn: args:
+      |                   ^
+   241|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "rust-bin" at ./pkgs/mq/default.nix:4'
