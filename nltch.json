@@ -1,16 +1,16 @@
 {
 "name":"nltch",
-"fetch_time":0.24,
-"eval_time":0.22,
+"fetch_time":0.288,
+"eval_time":0.229,
 "source":{
 "url":"https://github.com/nl-tch/nur-packages",
-"rev":"1dcaa26177fb1c7a3ad3fb8780e9af71e63c338a",
-"sha256":"0xf1pb23mj7klswhc2158xmznyk7f2gvjc565nch8lmvnsydxdix",
+"rev":"9767b88837202b4b07f18767ed99d17e3a85dbf2",
+"sha256":"1yi2xj9yqjchad8fp4bd0fhblz9x5dgmsg7m8fam8hbmalzm6a56",
 "date":null
 },
-"source_storepath":"/nix/store/bf5xpr7vy03zw63h5kmlzyy1mnrns90b-source",
-"nixpkgs_storepath":"/nix/store/p64f0j07x2js29yvwcbwwl2hp3kisdv0-source",
-"nur_combined_rev":"d6e51c6743ef4ce32d3455639a02f0b2544ffd74",
+"source_storepath":"/nix/store/7vqz15i05pkk5czqmhdjyrgvqp3m2cdd-source",
+"nixpkgs_storepath":"/nix/store/j1r94ha7wxcijs6wh7av5gdk0qcr9xps-source",
+"nur_combined_rev":"b3d70b5c4f5acecc4289b08156c6577d7f281c22",
 "packages":{
 "ciscoPacketTracer8":{
 "meta":{
@@ -27,7 +27,22 @@
 "shortName":"unfree"
 },
 "mainProgram":"packettracer8",
-"maintainers":[],
+"maintainers":[
+{
+"email":"gutyina.gergo.2@gmail.com",
+"github":"gepbird",
+"githubId":29818440,
+"keys":[
+{
+"fingerprint":"RoAfvqa6w1l8Vdm3W60TDXurYwJ6h03VEGD+wDNGEwc"
+},
+{
+"fingerprint":"MP2UpIRtJpbFFqyucP431H/FPCfn58UhEUTro4lXtRs"
+}
+],
+"name":"Gutyina Gerg\u0151"
+}
+],
 "name":"ciscoPacketTracer8-8.2.2",
 "outputsToInstall":[
 "out"
@@ -35,7 +50,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/ci/ciscoPacketTracer8/package.nix:105",
+"position":"<nixpkgs> + /pkgs/by-name/ci/ciscoPacketTracer8/package.nix:158",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -105,7 +120,7 @@
 "x86_64-darwin",
 "aarch64-darwin"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/sp/spotify/package.nix:14",
+"position":"<nixpkgs> + /pkgs/by-name/sp/spotify/package.nix:15",
 "sourceProvenance":[
 {
 "isSource":false,
