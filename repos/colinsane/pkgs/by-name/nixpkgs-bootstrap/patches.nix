@@ -41,6 +41,13 @@ in
   })
 
   (fetchpatch' {
+    # 2025-03-09: merged into staging
+    name = "libqmi: unbreak cross compilation";
+    prUrl = "https://github.com/NixOS/nixpkgs/pull/388297";
+    hash = "sha256-iW6b3yNWzWq2CrbtVVFvkhPdNwmRCjUTqLMq4mEHAV4=";
+  })
+
+  (fetchpatch' {
     # 2025-03-07: merged into staging
     name = "librsvg: generate loaders.cache even when cross compiling";
     prUrl = "https://github.com/NixOS/nixpkgs/pull/384957";
@@ -58,12 +65,6 @@ in
     name = "zelda64recomp: init at 1.1.1-unstable-2025-02-14";
     prUrl = "https://github.com/NixOS/nixpkgs/pull/313013";
     hash = "sha256-DEim1fNRXfHAtaml6XJnRLVi5KwXm4KIiwZOGU+ePTA=";
-  })
-
-  (fetchpatch' {
-    name = "mesa: fix cross compilation";
-    prUrl = "https://github.com/NixOS/nixpkgs/pull/388328";
-    hash = "sha256-Jy9vMaeFrLjCNCI80YvTrqpSDaWQd/Num+mIRcgXCw4=";
   })
 
   # (fetchpatch' {

@@ -411,6 +411,13 @@ in with final; {
   #   ];
   # });
 
+  # 2025/03/10: blocked on libqmi (fixed in staging)
+  gtk4-layer-shell = prev.gtk4-layer-shell.overrideAttrs (upstream: {
+    nativeBuildInputs = upstream.nativeBuildInputs ++ [
+      buildPackages.mesonEmulatorHook
+    ];
+  });
+
   # 2025/01/13: blocked on psqlodbc
   # used by hyprland (which is an indirect dep of waybar, nwg-panel, etc),
   # which it shells out to at runtime (and hence, not ever used by me).
@@ -469,14 +476,6 @@ in with final; {
   # });
 
   lemoa = prev.lemoa.override { cargo = crossCargo; };
-
-  libqmi = prev.libqmi.overrideAttrs (upstream: {
-    # gtk-doc fails (even with mesonEmulatorHook present)
-    outputs = lib.remove "devdoc" upstream.outputs;
-    mesonFlags = (lib.remove "-Dgtk_doc=true" upstream.mesonFlags) ++ [
-      "-Dgtk_doc=false"
-    ];
-  });
 
   # libsForQt5 = prev.libsForQt5.overrideScope (self: super: {
   #   phonon = super.phonon.overrideAttrs (orig: {

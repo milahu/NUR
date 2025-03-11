@@ -28,6 +28,7 @@
     ./capsh.nix
     ./captree.nix
     ./cargo.nix
+    ./cassini.nix
     ./catt.nix
     ./celeste64.nix
     ./chatty.nix

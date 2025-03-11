@@ -222,9 +222,11 @@ in
 
     pcTuiApps = declPackageSet [
       "aerc"  # email client
+      "cassini"  # Elegoo printer control. need here especially, for opening firewalls.
       # "msmtp"  # sendmail
       # "offlineimap"  # email mailbox sync
       # "sfeed"  # RSS fetcher
+      "uvtools"  # TODO: upstream (then i can move this to the phone-case-cq repo; i don't need it more broadly than that).
       "visidata"  # TUI spreadsheet viewer/editor
       "w3m"  # web browser
     ];
@@ -1181,6 +1183,8 @@ in
       "/sys/devices"
       "/sys/bus/usb"
     ];
+
+    uvtools.sandbox.method = null;  #< TODO: sandbox
 
     vala-language-server.sandbox.whitelistPwd = true;
     vala-language-server.suggestedPrograms = [
