@@ -15,9 +15,12 @@
   overlays = import ./overlays; # nixpkgs overlays
 
   # example-package = pkgs.callPackage ./pkgs/example-package { };
-  wechat-universal = pkgs.callPackage ./pkgs/wechat-universal { };
+  wechat-universal = pkgs.callPackage ./pkgs/wechat-universal {};
+  wechat-license = pkgs.callPackage ./pkgs/wechat-license {};
 
   hiddify-next = pkgs.callPackage ./pkgs/hiddify-next { };
+  rofi-network-manager = pkgs.callPackage ./pkgs/rofi-network-manager { };
+  rofi-screenshot-wayland = pkgs.callPackage ./pkgs/rofi-screenshot-wayland { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }
