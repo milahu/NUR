@@ -41,6 +41,12 @@ Package index:
 - Homepage: [https://paltepuk.xyz/cgit/netcatchat.git/about](https://paltepuk.xyz/cgit/netcatchat.git/about)
 - License: GPL-3.0-or-later.
 
+#### play-music
+
+- Description: A simple command-line music player.
+- Homepage: [https://paltepuk.xyz/cgit/play-music.git/about](https://paltepuk.xyz/cgit/play-music.git/about)
+- License: GPL-3.0-or-later.
+
 ## Usage Examples
 
 ### Run Package in Temporary Environment with `nix run`

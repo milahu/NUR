@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2024-2025 ona-li-toki-e-jan-Epiphany-tawa-mi
+# Copyright (c) 2025 ona-li-toki-e-jan-Epiphany-tawa-mi
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,15 +20,41 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-{ pkgs ? import <nixpkgs> { }, ... }:
+{ stdenv, fetchgit, lib, mpv }:
 
-let callPackage = pkg: pkgs.callPackage pkg { };
-in {
-  ahd = callPackage ./pkgs/ahd.nix;
-  bitmasher = callPackage ./pkgs/bitmasher.nix;
-  cobol-dvd-thingy = callPackage ./pkgs/cobol-dvd-thingy.nix;
-  cowsaypl = callPackage ./pkgs/cowsaypl.nix;
-  love-you-mom = callPackage ./pkgs/love-you-mom.nix;
-  netcatchat = callPackage ./pkgs/netcatchat.nix;
-  play-music = callPackage ./pkgs/play-music.nix;
+stdenv.mkDerivation rec {
+  pname = "play-music";
+  version = "0.1.0";
+
+  src = fetchgit {
+    url = "https://paltepuk.xyz/cgit/play-music.git";
+    rev = version;
+    hash = "sha256-OkVmM5j2ylWIKETaB8q80uEL4RMqOdzsrjrA/vayJXY=";
+  };
+
+  buildInputs = [ mpv ];
+
+  buildPhase = ''
+    runHook preBuild
+
+    EXTRA_CFLAGS='-O3' ./build.sh
+
+    runHook postBuild
+  '';
+
+  installPhase = ''
+    runHook preInstall
+
+    mkdir -p "$out/bin"
+    cp play-music "$out/bin/${pname}"
+
+    runHook postInstall
+  '';
+
+  meta = with lib; {
+    description = "A simple command-line music player";
+    homepage = "https://paltepuk.xyz/cgit/play-music.git/about";
+    license = licenses.gpl3Plus;
+    mainProgram = pname;
+  };
 }
