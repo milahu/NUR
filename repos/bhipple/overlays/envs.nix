@@ -80,7 +80,7 @@ in
         brh-python
         self.bat
         self.bc
-        self.chromedriver
+        self.comma
         self.coreutils
         self.curl
         self.fd
@@ -129,6 +129,7 @@ in
         self.aspell
         self.autoflake
         self.bind
+        self.chromedriver
         self.direnv
         self.discord
         self.dunst
