@@ -21,18 +21,11 @@
     TIMELINE_CLEANUP = true;  # remove old snapshots every 24h
     TIMELINE_CREATE = true;  # take a snapshot every hour
 
-    TIMELINE_LIMIT_HOURLY = 2;
-    TIMELINE_LIMIT_DAILY = 2;
-    TIMELINE_LIMIT_WEEKLY = 0;
+    TIMELINE_LIMIT_HOURLY = 12;
+    TIMELINE_LIMIT_DAILY = 7;  # keep snapshots for 1d ago, 2d ago, ... 7day ago
+    TIMELINE_LIMIT_WEEKLY = 4;  # keep snapshots for 7d ago, 14d ago, 21d ago, 28d ago
     TIMELINE_LIMIT_MONTHLY = 0;
     TIMELINE_LIMIT_YEARLY = 0;
-
-    # TODO: enable these better settings, but i need higher capacity drives first!
-    # TIMELINE_LIMIT_HOURLY = 12;
-    # TIMELINE_LIMIT_DAILY = 7;  # keep snapshots for 1d ago, 2d ago, ... 7day ago
-    # TIMELINE_LIMIT_WEEKLY = 4;  # keep snapshots for 7d ago, 14d ago, 21d ago, 28d ago
-    # TIMELINE_LIMIT_MONTHLY = 0;
-    # TIMELINE_LIMIT_YEARLY = 0;
   };
 
   services.snapper.cleanupInterval = "2h";  # how frequently to gc snapshots no longer covered by the above policy (default: daily)
