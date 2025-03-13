@@ -11,8 +11,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitLab {
     owner = "dukzcry";
     repo = "crap";
-    rev = "036024bf5ffcd14174588bf183f34959e4fda688";
-    hash = "sha256-nNCHfMeFTHKm4PbLUbgEFU0/VT0ocaW00uYUs8EnsDQ=";
+    rev = "8dfb2ebaed07641feb3f876148b9a42857261f9a";
+    hash = "sha256-aCHuoF2XJtPsNnAVA597xt5ZdeYZbTBF17dhCRW3ZR8=";
   };
 
   setSourceRoot = ''export sourceRoot="$(echo */aulaf87-rgb)"'';
@@ -26,6 +26,6 @@ stdenv.mkDerivation rec {
     license = lib.licenses.free;
     maintainers = with lib.maintainers; [ ];
     mainProgram = "aulaf87-rgb";
-    platforms = lib.platforms.all;
+    platforms = lib.platforms.linux;
   };
 }
