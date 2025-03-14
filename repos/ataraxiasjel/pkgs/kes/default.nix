@@ -2,7 +2,7 @@
   lib,
   buildGoModule,
   fetchFromGitHub,
-  nix-update-script,
+# nix-update-script,
 }:
 
 buildGoModule rec {
@@ -18,7 +18,7 @@ buildGoModule rec {
 
   vendorHash = "sha256-DTfm0cw3PR01C04FA8tJaBtGYKed42k0K6il2wDmMyE=";
 
-  passthru.updateScript = nix-update-script { };
+  # passthru.updateScript = nix-update-script { };
 
   meta = with lib; {
     description = "Key Managament Server for Object Storage and more";

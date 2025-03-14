@@ -18,16 +18,11 @@ jobs:
     - name: Install nix
       uses: cachix/install-nix-action@v30
       with:
-        nix_path: "nixpkgs=channel:nixos-unstable"
-        extra_nix_config: |
-          experimental-features = nix-command flakes
-          access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Setup magic nix cache
       uses: DeterminateSystems/flakehub-cache-action@main
     - name: Show nixpkgs version
-      run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
-    - name: Install essential packages
-      run: nix profile install nixpkgs#nix-eval-jobs nixpkgs#jq nixpkgs#nix-update
+      run: nix flake metadata --json --inputs-from . nixpkgs | jq .url
     - name: Update packages
       env:
         XDG_RUNTIME_DIR: ${{ github.workspace }}
@@ -40,16 +35,20 @@ jobs:
         NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM: 1
       timeout-minutes: 30
       continue-on-error: true
-      run: nix eval --json --impure --expr '(import ./ci.nix {}).updatablePkgsNames' | jq '.[]' | xargs -L1 nix-update --use-update-script --commit --flake
+      run: |
+        ./enter-dev-shell.sh \
+          "nix eval --json --impure --expr '(import ./ci.nix {}).updatablePkgsNames' \
+          | jq '.[]' \
+          | xargs -L1 nix-update --use-update-script --commit --flake"
     - name: Check evaluation
       env:
         NIXPKGS_ALLOW_UNFREE: 1
         NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM: 1
-      run: ./ci.sh --flake ".#checks.$(nix eval --raw --impure --expr builtins.currentSystem)"
+      run: ./enter-dev-shell.sh "./ci.sh --flake .#checks.$(nix eval --raw --impure --expr builtins.currentSystem)"
     - name: Submit auto-update PR
       uses: peter-evans/create-pull-request@v7
       with:
-        title: "[chore]: Bump packages to latest version"
+        title: "chore(pkgs): Bump packages to latest version"
         delete-branch: true
         reviewers: ataraxiasjel
         add-paths: |
