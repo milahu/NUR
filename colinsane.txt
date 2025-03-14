@@ -1,0 +1,14 @@
+trace: evaluation warning: u-boot-pinephone-pro outdated: remove src override
+error:
+… while querying the derivation named 'chatty-latest-v0.8.0_rc0'
+
+… while evaluating a path segment
+
+  at <nixpkgs> + /pkgs/by-name/ch/chatty/package.nix:89:63:
+
+    88|     homepage = "https://gitlab.gnome.org/World/Chatty";
+    89|     changelog = "https://gitlab.gnome.org/World/Chatty/-/blob/${finalAttrs.src.tag}/NEWS";
+      |                                                               ^
+    90|     license = licenses.gpl3Plus;
+
+error: cannot coerce null to a string
