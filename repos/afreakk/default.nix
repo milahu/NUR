@@ -22,6 +22,19 @@ let
         sha256 = "sha256-Oye6b8f3t1Yo+bGFaWh5AW75xMk52NEtO0QgBUQoXX4=";
       };
     };
+    tmux-which-key =
+      pkgs.tmuxPlugins.mkTmuxPlugin
+        {
+          pluginName = "tmux-which-key";
+          version = "2024-11-12";
+          src = pkgs.fetchFromGitHub {
+            owner = "alexwforsythe";
+            repo = "tmux-which-key";
+            rev = "1f419775caf136a60aac8e3a269b51ad10b51eb6";
+            sha256 = "sha256-X7FunHrAexDgAlZfN+JOUJvXFZeyVj9yu6WRnxMEA8E=";
+          };
+          rtpFilePath = "plugin.sh.tmux";
+        };
     modules = {
       strongdm = import ./modules/sdm;
       systemd-cron = import ./modules/systemd-cron;
