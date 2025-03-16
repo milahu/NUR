@@ -1,16 +1,16 @@
 {
 "name":"afreakk",
-"fetch_time":0.264,
-"eval_time":0.657,
+"fetch_time":0.29,
+"eval_time":0.666,
 "source":{
 "url":"https://github.com/afreakk/mynixrepo",
-"rev":"7d5f4ec7271abb7d0a7cc4ed53d2fb14859fe924",
-"sha256":"0cnq8hsdwmsnmv4rdnyl38md420chsm7c9n4zlwpnjxxyqhp7yb0",
+"rev":"d65048dd51bd7ffdd4189266eabc62978a908795",
+"sha256":"085hbn4pfidvcyaar6iiyvs616ymiam4991c6gzgvrw2w1ssz5z3",
 "date":null
 },
-"source_storepath":"/nix/store/91123cmy49lvx7magmf18z01v6rlikwv-source",
-"nixpkgs_storepath":"/nix/store/qd73hf9ydxisxakjj4w6na0qixprh3w2-source",
-"nur_combined_rev":"fa9f360e806336e111ae759f42d256008ce18a65",
+"source_storepath":"/nix/store/1lh0fkcddf1w84fdbd45lzhndpv5gy82-source",
+"nixpkgs_storepath":"/nix/store/iwngzlahnbc2xxq0vrx6zdgb8ip23p53-source",
+"nur_combined_rev":"37382c995488a3f0450b6d635fd36333bb8094f3",
 "packages":{
 "dcreemer-1pass":{
 "meta":{
@@ -106,6 +106,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -171,6 +172,7 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
@@ -294,7 +296,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:59",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:63",
 "unfree":false,
 "unsupported":false
 },
@@ -356,7 +358,8 @@
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
-"x86_64-freebsd"
+"x86_64-freebsd",
+"aarch64-freebsd"
 ],
 "position":"./pkgs/realm-cli/default.nix:22",
 "unfree":false,
@@ -393,6 +396,28 @@
 "system":"x86_64-linux",
 "version":""
 },
+"tmux-which-key":{
+"meta":{
+"available":true,
+"broken":false,
+"insecure":false,
+"name":"tmuxplugin-tmux-which-key-2024-11-12",
+"outputsToInstall":[
+"out"
+],
+"position":"./default.nix:29",
+"unfree":false,
+"unsupported":false
+},
+"name":"tmuxplugin-tmux-which-key-2024-11-12",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"tmuxplugin-tmux-which-key",
+"system":"x86_64-linux",
+"version":"2024-11-12"
+},
 "url-handler-tmux":{
 "meta":{
 "available":true,
@@ -420,11 +445,12 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"mainProgram":"wowup",
 "name":"wowup",
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /lib/attrsets.nix:984",
+"position":"./pkgs/wowup/default.nix:3",
 "sourceProvenance":[
 {
 "isSource":false,
