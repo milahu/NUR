@@ -1,5 +1,5 @@
 {
-  mq,
+  sources,
   lib,
   newScope,
 }:
@@ -14,7 +14,7 @@ let
       exifaudio = callPackage ./exifaudio.nix { };
       fg = callPackage ./fg.nix { };
       ouch = callPackage ./ouch.nix { };
-      yazi-rs = callPackage ./yazi-rs { inherit mq; };
+      yazi-rs = callPackage ./yazi-rs { source = sources.yazi-rs-plugins; };
     };
 in
 
