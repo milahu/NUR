@@ -24,18 +24,18 @@
 
 stdenv.mkDerivation rec {
   pname = "bitmasher";
-  version = "7.5385325985";
+  version = "7.6496437096";
 
   src = fetchgit {
     url = "https://paltepuk.xyz/cgit/BitMasher.git";
     rev = "RELEASE-V${version}";
-    hash = "sha256-2bE0QA82yQLa2A8snnhXu8DptDOsnfF/g2bg6SrNwCY=";
+    hash = "sha256-e6cuz/qsQp5a43LD6Mg3iuRPPtO+uY61XtDKatfNv9Q=";
   };
 
   buildPhase = ''
     runHook preBuild
 
-    EXTRA_CFLAGS='-O3' ./build.sh
+    ./build.sh -O3
 
     runHook postBuild
   '';
