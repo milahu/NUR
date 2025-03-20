@@ -1,16 +1,16 @@
 {
 "name":"1235467",
-"fetch_time":0.304,
-"eval_time":0.383,
+"fetch_time":0.322,
+"eval_time":0.411,
 "source":{
 "url":"https://github.com/1235467/nurpkgs",
-"rev":"d71c8c8867d9155ec3ff70c4279bb274b0bb3e92",
-"sha256":"0k9v6ks7pnhdv5vwfimygjr374vvsqs0phhjrhzy8spz84vmj5bb",
+"rev":"415c2307c5611eb685b3bd439700da6d15c8bfc2",
+"sha256":"0z8f1vqrl2il7xbwdcmcl53cxq45vjzbrfz3c2ngc4m1gbkq9fkk",
 "date":null
 },
-"source_storepath":"/nix/store/4ywnnp1nhvsc8jdgy7k3dx0jnij3fs1r-source",
-"nixpkgs_storepath":"/nix/store/rkak3xb539g8kc1dw2j2d3zr8km2gpf8-source",
-"nur_combined_rev":"914c9bba01fec43d2ee287ca40cbe1f001d4350d",
+"source_storepath":"/nix/store/wi0acw39x9x4b88fa2j076cbnfz6w449-source",
+"nixpkgs_storepath":"/nix/store/qfiliajkp5rxmhbi1bn4xxl7s2hp2n4y-source",
+"nur_combined_rev":"8b743fe7e7c962e96fb9f8d744fdebf9bcf2f5e5",
 "packages":{
 "BBDown":{
 "meta":{
@@ -34,10 +34,10 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
-"aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
-"x86_64-linux"
+"x86_64-darwin",
+"aarch64-darwin"
 ],
 "position":"./pkgs-by-lang/Dotnet/BBDown/default.nix:30",
 "unfree":false,
@@ -810,7 +810,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/mi/misskey/package.nix:119",
+"position":"<nixpkgs> + /pkgs/by-name/mi/misskey/package.nix:129",
 "unfree":false,
 "unsupported":false
 },
@@ -921,13 +921,6 @@
 "longDescription":"mpv is a free and open-source general-purpose video player, based on the\nMPlayer and mplayer2 projects, with great improvements above both.\n",
 "mainProgram":"mpv",
 "maintainers":[
-{
-"email":"torres.anderson.85@protonmail.com",
-"github":"AndersonTorres",
-"githubId":5954806,
-"matrix":"@anderson_torres:matrix.org",
-"name":"Anderson Torres"
-},
 {
 "email":"fpletz@fnordicwalking.de",
 "github":"fpletz",
