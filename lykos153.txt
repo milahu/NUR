@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./default.nix:38:17:
+  at ./default.nix:37:17:
 
-    37|   cntb-bin = pkgs.callPackage ./pkgs/cntb-bin {};
-    38|   rofi-blocks = pkgs.callPackage ./pkgs/rofi-blocks {};
+    36|   cntb-bin = pkgs.callPackage ./pkgs/cntb-bin {};
+    37|   rofi-blocks = pkgs.callPackage ./pkgs/rofi-blocks {};
       |                 ^
-    39|   coord = pkgs.callPackage ./pkgs/coord {};
+    38|   coord = pkgs.callPackage ./pkgs/coord {};
 
 … while calling 'callPackageWith'
 
