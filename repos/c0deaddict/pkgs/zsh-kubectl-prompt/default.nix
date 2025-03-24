@@ -19,8 +19,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description =
-      "Display information about the kubectl current context and namespace in zsh prompt.";
+    description = "Display information about the kubectl current context and namespace in zsh prompt.";
     homepage = "https://github.com/superbrothers/zsh-kubectl-prompt";
     license = licenses.mit;
     maintainers = [ maintainers.c0deaddict ];
