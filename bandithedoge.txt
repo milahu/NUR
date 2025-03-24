@@ -14,12 +14,12 @@ error:
 
 … from call site
 
-  at ./pkgs/default.nix:123:19:
+  at ./pkgs/default.nix:124:19:
 
-   122|     xplrPlugins = callPackages' ./xplrPlugins;
-   123|     yaziPlugins = callPackages' ./yaziPlugins;
+   123|     xplrPlugins = callPackages' ./xplrPlugins;
+   124|     yaziPlugins = callPackages' ./yaziPlugins;
       |                   ^
-   124|     ysfx = callPackage' ./ysfx;
+   125|     ysfx = callPackage' ./ysfx;
 
 … while calling 'callPackages''
 
