@@ -1,0 +1,11 @@
+error:
+… while querying the derivation named 'brother-hll6400dw-cupswrapper-3.5.1-1'
+
+error: undefined variable 'milahu'
+
+at ./pkgs/misc/cups/drivers/brother/hll6400dw/hll6400dw.nix:195:39:
+
+   194|     platforms = platforms.all;
+   195|     maintainers = with maintainers; [ milahu ];
+      |                                       ^
+   196|   };
