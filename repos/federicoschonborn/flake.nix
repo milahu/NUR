@@ -64,6 +64,7 @@
               allowUnfreePredicate =
                 p:
                 builtins.elem (lib.getName p) [
+                  "plasma-login"
                   "super-mario-127"
                 ];
             };
@@ -91,92 +92,64 @@
               let
                 packageList = pkgs.writeText "PACKAGES.md" (
                   ''
+                    <!-- markdownlint-disable MD033 -->
+
                     # Packages
                   ''
-                  + (lib.concatLines (
-                    lib.mapAttrsToList (
-                      path:
-                      {
-                        meta ? { },
-                        ...
-                      }@attrs:
-                      lib.concatLines [
-                        ''
-                          <h2 id="${builtins.replaceStrings [ "." ] [ "-" ] path}">
-
-                          `${path}`
-
-                          </h2>
-                        ''
-                        (lib.optionalString meta.broken ''
-                          > [!WARNING]
-                          > 💥 This package is currently marked as broken.
-                        '')
-                        (lib.optionalString (meta ? description) ''
-                          ${meta.description}
-                        '')
-                        "- Name: `${attrs.pname or attrs.name}`"
-                        (lib.optionalString (attrs ? version && attrs ? pname) "- Version: `${attrs.version}`")
-                        (lib.optionalString (attrs ? outputs && attrs.outputs != [ "out" ]) (
-                          "- Outputs: "
-                          + lib.concatMapStringsSep ", " (
-                            x: if x == attrs.outputName or null then "**`${x}`**" else "`${x}`"
-                          ) attrs.outputs
-                        ))
-                        (lib.optionalString (meta ? homepage)
-                          "- [🌐 Homepage](${builtins.replaceStrings [ " " ] [ "%20" ] meta.homepage})"
-                        )
-                        (lib.optionalString (meta ? position) (
-                          let
-                            formatPosition =
-                              x:
-                              let
-                                parts = builtins.match "/nix/store/.{32}-source/(.+):([[:digit:]]+)" x;
-                                path = builtins.elemAt parts 0;
-                                line = builtins.elemAt parts 1;
-                              in
-                              if builtins.pathExists (lib.path.append ./. path) then
-                                "./${path}#L${line}"
-                              else
-                                "https://github.com/NixOS/nixpkgs/blob/nixos-unstable/${path}#L${line}";
-                          in
-                          "- [📦 Source](${formatPosition meta.position})"
-                        ))
-                        (lib.optionalString (meta ? license) (
-                          let
-                            licenses = lib.toList meta.license;
-                          in
-                          "- License${lib.optionalString (builtins.length licenses > 1) "s"}: "
-                          + (lib.concatMapStringsSep ", " (
+                  + lib.concatMapAttrsStringSep "\n\n" (
+                    path: value:
+                    lib.concatStringsSep "\n" (
+                      let
+                        inherit (value) meta;
+                        cleanPath = builtins.replaceStrings [ "." ] [ "-" ] path;
+                        cleanURL = x: builtins.replaceStrings [ " " ] [ "%20" ] x;
+                      in
+                      [ "## `${path}` {#${cleanPath}}" ]
+                      ++ lib.optional (meta ? broken && meta.broken) ''
+                        > [!WARNING]
+                        > 💥 This package is currently marked as broken.
+                      ''
+                      ++ lib.optional (meta ? description) "${meta.description}."
+                      ++ lib.optional (meta ? longDescription) meta.longDescription
+                      ++ [ "- Name: `${lib.getName value}`" ]
+                      ++ [ "- Version: `${lib.getVersion value}`" ]
+                      ++
+                        lib.optional (value ? outputs && value.outputs != [ "out" ])
+                          "- Outputs: ${
+                            lib.concatMapStringsSep ", " (
+                              x: if x == value.outputName or null then "**`${x}`**" else "`${x}`"
+                            ) value.outputs
+                          }"
+                      ++ lib.optional (meta ? homepage) "- [🌐 Homepage](${cleanURL meta.homepage})"
+                      ++ lib.optional (meta ? changelog) "- [📰 Changelog](${cleanURL meta.changelog})"
+                      ++ lib.optional (meta ? position) (
+                        let
+                          parts = builtins.match "/nix/store/.{32}-source/(.+):([[:digit:]]+)" meta.position;
+                          path = builtins.elemAt parts 0;
+                          line = builtins.elemAt parts 1;
+                        in
+                        "- [📦 Source](./${path}#L${line})"
+                      )
+                      ++ lib.optional (meta ? license) (
+                        let
+                          licenses = lib.toList meta.license;
+                          label = if builtins.length licenses > 1 then "Licenses" else "License";
+                        in
+                        "- 📄 ${label}: ${
+                          lib.concatMapStringsSep ", " (
                             x: if x ? url then "[`${x.fullName}`](${x.url})" else x.fullName
-                          ) licenses)
-                        ))
-                        (lib.optionalString (meta ? changelog)
-                          "- [📰 Changelog](${builtins.replaceStrings [ " " ] [ "%20" ] meta.changelog})"
-                        )
-                        ''
-
-                          <!-- markdownlint-disable-next-line no-inline-html -->
-                          <details>
-                            <!-- markdownlint-disable-next-line no-inline-html -->
-                            <summary>
-                              Details
-                            </summary>
-                        ''
-                        (lib.optionalString (meta ? longDescription) "${meta.longDescription}")
-                        (lib.optionalString (meta ? platforms) (
-                          "- Platforms:\n"
-                          + lib.pipe meta.platforms [
-                            (lib.filter (x: builtins.elem x toplevel.config.systems))
-                            (lib.concatMapStringsSep "\n" (x: "  - `${x}`"))
-                          ]
-                        ))
-                        ''
-                          </details>
-                        ''
-                      ]
-                    ) config.packages
-                  ))
+                          ) licenses
+                        }"
+                      )
+                      ++
+                        lib.optional (meta ? platforms)
+                          "- 🖥️ Platforms: ${
+                            lib.concatMapStringsSep ", " (system: "`${system}`") (
+                              lib.filter (x: builtins.elem x toplevel.config.systems) meta.platforms
+                            )
+                          }"
+                    )
+                  ) config.packages
                 );
 
                 packageListFormatted =
