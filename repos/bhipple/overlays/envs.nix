@@ -78,6 +78,7 @@ in
       paths = [
         brh-neovim
         brh-python
+        self.alacritty
         self.bat
         self.bc
         self.comma
@@ -95,6 +96,7 @@ in
         self.hwinfo
         self.jq
         self.killall # used by i3
+        self.nerdfonts
         self.par
         self.pass
         self.pinentry
@@ -112,7 +114,7 @@ in
         self.xorg.xev
         self.xorg.xeyes
         self.xorg.xmodmap
-        self.xterm
+        self.zellij
         self.zoxide
         self.zsh
       ];
@@ -162,7 +164,6 @@ in
         self.shellcheck
         self.signal-desktop
         self.snixembed
-        self.source-code-pro
         self.sshfs
         self.vlc
         self.xclip
