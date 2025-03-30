@@ -256,6 +256,7 @@ in
           pkgs.vimPlugins.commentary
           pkgs.vimPlugins.neovim-fuzzy
           pkgs.vimPlugins.polyglot
+          pkgs.vimPlugins.quarto-nvim
           vim-myftplugins
           decisive-vim
         ];
