@@ -1,16 +1,16 @@
 {
 "name":"slaier",
-"fetch_time":0.658,
-"eval_time":0.2,
+"fetch_time":0.306,
+"eval_time":0.213,
 "source":{
 "url":"https://github.com/slaier/nixos-config",
-"rev":"da6bf1c280cd44075f7bcbd13ff0fd490808a525",
-"sha256":"0ipr568p09yjdaic45p7ny8szz6v51yyxwsvcvnxgkb02v1lvkab",
+"rev":"e892f7325cf3c4dae3c7c3d9388064348580da24",
+"sha256":"0vgrqrhclxlhgki9816diymgj0iv65lngrwyj299hc9a63sm1rpn",
 "date":null
 },
-"source_storepath":"/nix/store/p3glf6qdf5sv1d2racjmgpz8lccknkwg-source",
-"nixpkgs_storepath":"/nix/store/iwngzlahnbc2xxq0vrx6zdgb8ip23p53-source",
-"nur_combined_rev":"9a78a15d1e839d2f5ef9d58c83192b2f65198003",
+"source_storepath":"/nix/store/i9i7bfp8dgdnz40n1xlg6c6s10pwwff2-source",
+"nixpkgs_storepath":"/nix/store/5nf29vx8hi0jkhz31jx3j57mqz09ax4p-source",
+"nur_combined_rev":"bdcd17135d6d30481e31fa6c234aca7cffb2db0b",
 "packages":{
 "CloudflareSpeedTest":{
 "meta":{
@@ -78,6 +78,64 @@
 "system":"x86_64-linux",
 "version":"2.2.5"
 },
+"scrcpy-mask":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"A wrapper for scrcpy that adds overlay masks for mobile games",
+"homepage":"https://github.com/AkiChase/scrcpy-mask",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
+"mainProgram":"scrcpy-mask",
+"maintainers":[],
+"name":"scrcpy-mask-unstable",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./modules/scrcpy-mask/package.nix:72",
+"unfree":false,
+"unsupported":false
+},
+"name":"scrcpy-mask-unstable",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"scrcpy-mask-unstable",
+"system":"x86_64-linux",
+"version":""
+},
 "vscode-extensions.grafana.vscode-jsonnet":{
 "meta":{
 "available":true,
@@ -87,7 +145,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/applications/editors/vscode/extensions/vscode-utils.nix:96",
+"position":"<nixpkgs> + /pkgs/applications/editors/vscode/extensions/vscode-utils.nix:95",
 "unfree":false,
 "unsupported":false
 },
@@ -109,7 +167,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/applications/editors/vscode/extensions/vscode-utils.nix:96",
+"position":"<nixpkgs> + /pkgs/applications/editors/vscode/extensions/vscode-utils.nix:95",
 "unfree":false,
 "unsupported":false
 },
@@ -131,7 +189,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/applications/editors/vscode/extensions/vscode-utils.nix:96",
+"position":"<nixpkgs> + /pkgs/applications/editors/vscode/extensions/vscode-utils.nix:95",
 "unfree":false,
 "unsupported":false
 },
@@ -160,7 +218,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"name":"wavefox-1.8.136",
+"name":"wavefox-1.8.137",
 "outputsToInstall":[
 "out"
 ],
@@ -168,14 +226,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"wavefox-1.8.136",
+"name":"wavefox-1.8.137",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"wavefox",
 "system":"x86_64-linux",
-"version":"1.8.136"
+"version":"1.8.137"
 }
 }
 }
