@@ -1,16 +1,16 @@
 {
 "name":"nagy",
-"fetch_time":0.379,
-"eval_time":1.866,
+"fetch_time":0.559,
+"eval_time":1.838,
 "source":{
 "url":"https://github.com/nagy/nur-packages",
-"rev":"b0204fee5fdcec5b540b849e50ed6dfe5f7564e1",
-"sha256":"0s7d6ri5rrj0n5ykvqfppa483n1za6vzas0f18bn5wh8l9gy4zhw",
+"rev":"cc60d6bf249af1811e7651a0c115c714d0a58c17",
+"sha256":"0452n5sb9vx0vkamimnnif9gk3wpwibix15m8cvhmlfadjzfvwi7",
 "date":null
 },
-"source_storepath":"/nix/store/djb44jywi5qnvxsrzsl6f68mxs7pcc7y-source",
-"nixpkgs_storepath":"/nix/store/3p4k8grgg144dzvyj74d76nj4ljhhhm8-source",
-"nur_combined_rev":"6ae61ffe2a50cfb505d9b972f4072d42963b4443",
+"source_storepath":"/nix/store/cmb9l7803pj12mw8qlbvd6gkqphrzvbd-source",
+"nixpkgs_storepath":"/nix/store/2dr01akm38m1qashdqv2kiv6wwd21hgz-source",
+"nur_combined_rev":"76dc6117c6f7b9de04fb307ecf4b0f68ef12883f",
 "packages":{
 "apertium":{
 "meta":{
@@ -1077,7 +1077,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/mondeja/hledger-fmt/blob/v0.2.4/CHANGELOG.md",
+"changelog":"https://github.com/mondeja/hledger-fmt/blob/v0.2.5/CHANGELOG.md",
 "description":"An opinionated hledger's journal files formatter",
 "homepage":"https://github.com/mondeja/hledger-fmt",
 "insecure":false,
@@ -1104,7 +1104,7 @@
 "name":"Daniel Nagy"
 }
 ],
-"name":"hledger-fmt-0.2.4",
+"name":"hledger-fmt-0.2.5",
 "outputsToInstall":[
 "out"
 ],
@@ -1153,14 +1153,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"hledger-fmt-0.2.4",
+"name":"hledger-fmt-0.2.5",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"hledger-fmt",
 "system":"x86_64-linux",
-"version":"0.2.4"
+"version":"0.2.5"
 },
 "ht-headless-terminal":{
 "meta":{
@@ -1650,7 +1650,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/by-name/koji.nix:45",
+"position":"./pkgs/by-name/koji.nix:44",
 "unfree":false,
 "unsupported":false
 },
@@ -1891,8 +1891,8 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"",
-"homepage":"https://github.com/nagy/cdc-file-transfer",
+"description":"Tools for synching and streaming files from Windows to Linux",
+"homepage":"https://github.com/google/cdc-file-transfer",
 "insecure":false,
 "license":[
 {
@@ -1910,7 +1910,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/by-name/libfastcdc.nix:41",
+"position":"./pkgs/by-name/libfastcdc.nix:46",
 "unfree":false,
 "unsupported":false
 },
@@ -2022,7 +2022,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/by-name/libzstd-seek.nix:34",
+"position":"./pkgs/by-name/libzstd-seek.nix:36",
 "unfree":false,
 "unsupported":false
 },
@@ -2495,7 +2495,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/by-name/npt.nix:22",
+"position":"./pkgs/by-name/npt.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -2721,7 +2721,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/by-name/paperify.nix:42",
+"position":"./pkgs/by-name/paperify.nix:43",
 "unfree":false,
 "unsupported":false
 },
@@ -2935,7 +2935,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/python3-packages/asyncer.nix:32",
+"position":"./pkgs/python3-packages/asyncer.nix:31",
 "unfree":false,
 "unsupported":false
 },
@@ -3271,7 +3271,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/python3-packages/colorpedia.nix:42",
+"position":"./pkgs/python3-packages/colorpedia.nix:43",
 "unfree":false,
 "unsupported":false
 },
@@ -3406,7 +3406,7 @@
 "available":true,
 "broken":false,
 "description":"Python binding for D-Bus using asyncio",
-"homepage":"https://github.com/ldo/dbussy",
+"homepage":"https://gitlab.com/ldo/dbussy",
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
@@ -3465,7 +3465,7 @@
 "name":"Daniel Nagy"
 }
 ],
-"name":"python3.12-dbussy-0-unstable-2024-08-30",
+"name":"python3.12-dbussy-1.3-unstable-2024-08-30",
 "outputsToInstall":[
 "out"
 ],
@@ -3496,7 +3496,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-dbussy-0-unstable-2024-08-30",
+"name":"python3.12-dbussy-1.3-unstable-2024-08-30",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3504,7 +3504,7 @@
 },
 "pname":"python3.12-dbussy",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-08-30"
+"version":"1.3-unstable-2024-08-30"
 },
 "python3Packages.extcolors":{
 "meta":{
@@ -4549,7 +4549,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"name":"python3.12-rembg-2.0.59",
+"name":"python3.12-rembg-2.0.65",
 "outputsToInstall":[
 "out"
 ],
@@ -4600,11 +4600,11 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/python3-packages/rembg.nix:118",
+"position":"./pkgs/python3-packages/rembg.nix:121",
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-rembg-2.0.59",
+"name":"python3.12-rembg-2.0.65",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -4612,7 +4612,7 @@
 },
 "pname":"python3.12-rembg",
 "system":"x86_64-linux",
-"version":"2.0.59"
+"version":"2.0.65"
 },
 "python3Packages.ssort":{
 "meta":{
@@ -4954,7 +4954,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/fetchurl/default.nix:197",
+"position":"<nixpkgs> + /pkgs/build-support/fetchurl/default.nix:204",
 "unfree":false,
 "unsupported":false
 },
@@ -5269,22 +5269,22 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
-"name":"schemaorg-15.0",
+"name":"schemaorg-29.0",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/by-name/schemaorg.nix:22",
+"position":"./pkgs/by-name/schemaorg.nix:28",
 "unfree":false,
 "unsupported":false
 },
-"name":"schemaorg-15.0",
+"name":"schemaorg-29.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"schemaorg",
 "system":"x86_64-linux",
-"version":"15.0"
+"version":"29.0"
 },
 "snid":{
 "meta":{
@@ -5503,7 +5503,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/by-name/terraform-graph-beautifier.nix:34",
+"position":"./pkgs/by-name/terraform-graph-beautifier.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -5733,7 +5733,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/by-name/u8strings.nix:17",
+"position":"./pkgs/by-name/u8strings.nix:21",
 "unfree":false,
 "unsupported":false
 },
@@ -6362,22 +6362,22 @@
 }
 ],
 "mainProgram":"zforth",
-"name":"zforth-0-unstable-2025-02-14",
+"name":"zforth-0-unstable-2025-03-30",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/by-name/zforth.nix:26",
+"position":"./pkgs/by-name/zforth.nix:31",
 "unfree":false,
 "unsupported":false
 },
-"name":"zforth-0-unstable-2025-02-14",
+"name":"zforth-0-unstable-2025-03-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zforth",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-02-14"
+"version":"0-unstable-2025-03-30"
 },
 "zippey":{
 "meta":{
@@ -6397,7 +6397,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/by-name/zippey.nix:24",
+"position":"./pkgs/by-name/zippey.nix:29",
 "unfree":false,
 "unsupported":false
 },
