@@ -1,28 +1,28 @@
 {
-  stdenv,
   lib,
+  stdenv,
   cmake,
   fetchFromGitHub,
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "nng";
   version = "1.10.1";
 
   src = fetchFromGitHub {
     owner = "nanomsg";
-    repo = pname;
-    rev = "v${version}";
+    repo = "nng";
+    rev = "v${finalAttrs.version}";
     hash = "sha256-BBYfJ2j2IQkbluR3HQjEh1zFWPgOVX6kfyI0jG741Y4=";
   };
 
   nativeBuildInputs = [ cmake ];
 
-  meta = with lib; {
+  meta = {
     description = "nanomsg-next-generation -- light-weight brokerless messaging";
     homepage = "https://github.com/nanomsg/nng";
-    license = licenses.mit;
-    platforms = platforms.unix;
+    license = lib.licenses.mit;
+    platforms = lib.platforms.unix;
     mainProgram = "nngcat";
   };
-}
+})
