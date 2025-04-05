@@ -120,7 +120,11 @@
 
   seq = pkgs.callPackage ./pkgs/seq { };
 
-  sleef = pkgs.callPackage ./pkgs/sleef { };
+  singleton = pkgs.callPackage ./pkgs/singleton { };
+
+  tlfloat = pkgs.callPackage ./pkgs/tlfloat { };
+
+  sleef = pkgs.callPackage ./pkgs/sleef { tlfloat = tlfloat; };
 
   span-lite = pkgs.callPackage ./pkgs/span-lite { };
 
