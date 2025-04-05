@@ -15,13 +15,11 @@
   overlays = import ./overlays; # nixpkgs overlays
 
   # Alphabetical sorting
-  amdgpud                = pkgs.callPackage ./pkgs/amdgpud { };
   amdgpu-clocks          = pkgs.callPackage ./pkgs/amdgpu-clocks { };
   avahi2dns              = pkgs.callPackage ./pkgs/avahi2dns { };
   inotify-consumers      = pkgs.callPackage ./pkgs/inotify-consumers { };
   libva-v4l2-request     = pkgs.callPackage ./pkgs/libva-v4l2-request { };
   lilipod                = pkgs.callPackage ./pkgs/lilipod { };
-  memtest-vulkan         = pkgs.callPackage ./pkgs/memtest-vulkan { };
   netsed-quiet           = pkgs.callPackage ./pkgs/netsed { };
   overlayfs-tools        = pkgs.callPackage ./pkgs/overlayfs-tools { };
   plank-themes           = pkgs.callPackage ./pkgs/plank-themes { };
