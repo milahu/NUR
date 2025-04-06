@@ -96,7 +96,6 @@ in
         self.hwinfo
         self.jq
         self.killall # used by i3
-        self.nerdfonts
         self.par
         self.pass
         self.pinentry
@@ -117,7 +116,7 @@ in
         self.zellij
         self.zoxide
         self.zsh
-      ];
+      ] ++ builtins.filter self.lib.attrsets.isDerivation (builtins.attrValues self.nerd-fonts);
     }
   );
 
