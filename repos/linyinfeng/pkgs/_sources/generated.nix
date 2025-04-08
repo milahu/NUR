@@ -100,13 +100,13 @@
   };
   linux-intel-lts = {
     pname = "linux-intel-lts";
-    version = "lts-v6.12.20-linux-250324T010247Z";
+    version = "lts-v6.12.21-linux-250330T182802Z";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "linux-intel-lts";
-      rev = "lts-v6.12.20-linux-250324T010247Z";
+      rev = "lts-v6.12.21-linux-250330T182802Z";
       fetchSubmodules = false;
-      sha256 = "sha256-fYWJ5S3xn/dNJ6rOpA+QgivG5HPAvcDQ0xUoatFk/mg=";
+      sha256 = "sha256-YCIvdZWRIWLwDpRLdN6XHqLuR5H7cn4/rWxeB3RYJrE=";
     };
   };
   linux-intel-mainline-tracking = {
@@ -287,17 +287,17 @@
   };
   rime-essay = {
     pname = "rime-essay";
-    version = "46f14a56244ddeeba173dbe5415f868cdff8ea56";
+    version = "573bbeb53e53d4331fff5fae151b814c67b8d0cd";
     src = fetchgit {
       url = "https://github.com/rime/rime-essay.git";
-      rev = "46f14a56244ddeeba173dbe5415f868cdff8ea56";
+      rev = "573bbeb53e53d4331fff5fae151b814c67b8d0cd";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-w2gAp2VPULMeWx34fAOXaDvrKTodZlNg6Aji5BfTmnQ=";
+      sha256 = "sha256-41wZiPH0cAhl3yTCdyx1zLR3OoSxv+GHQ3xvm14mNxc=";
     };
-    date = "2025-03-24";
+    date = "2025-04-07";
   };
   rime-ice = {
     pname = "rime-ice";
