@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
 
   src = fetchzip {
     url = "https://dl.google.com/android/repository/platform-tools-latest-linux.zip";
-    sha256 = "sha256-NXhWaOtAfFz5aUWj1DvdDA3cKOyG/FK1R1iSL4WXnu0=";
+    sha256 = "sha256-sNW547zMRoMlHcsAIDPFm3lY3u9T8U0cCarAx+k30Ls=";
   };
 
   nativeBuildInputs = [ autoPatchelfHook ];

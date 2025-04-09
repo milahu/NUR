@@ -42,7 +42,7 @@ in
 
       programs.neovim = {
         enable = true;
-        package = neovim-0_10;
+        # package = neovim-0_10;
         extraLuaConfig = ''
 
           vim.keymap.set('n', '<leader>cca', ":lua require('decisive').align_csv({})<cr>", {desc="align CSV", silent=true})
@@ -52,6 +52,30 @@ in
 
           -- setup text objects (optional)
           require('decisive').setup{}
+
+          require('quarto').setup{
+            debug = false,
+            closePreviewOnExit = true,
+            lspFeatures = {
+              enabled = true,
+              chunks = "curly",
+              languages = { "r", "python", "julia", "bash", "html" },
+              diagnostics = {
+                enabled = true,
+                triggers = { "BufWritePost" },
+              },
+              completion = {
+                enabled = true,
+              },
+            },
+            codeRunner = {
+              enabled = true,
+              default_method = "molten", -- "molten", "slime", "iron" or <function>
+              ft_runners = {}, -- filetype to runner, ie. `{ python = "molten" }`.
+              -- Takes precedence over `default_method`
+              never_run = { 'yaml' }, -- filetypes which are never sent to a code runner
+            },
+          }
         '';
         extraConfig = let
           coc-config = ''
@@ -257,6 +281,8 @@ in
           pkgs.vimPlugins.neovim-fuzzy
           pkgs.vimPlugins.polyglot
           pkgs.vimPlugins.quarto-nvim
+          pkgs.vimPlugins.molten-nvim
+          pkgs.vimPlugins.typst-vim
           vim-myftplugins
           decisive-vim
         ];
