@@ -1,16 +1,16 @@
 {
 "name":"materus",
-"fetch_time":0.261,
-"eval_time":0.25,
+"fetch_time":0.537,
+"eval_time":0.253,
 "source":{
 "url":"https://github.com/materusPL/Nixerus",
-"rev":"c381bde8eab3998246dd7c31eb0047526a319224",
-"sha256":"0j0q0cvbhk5mwykgypj2vxl3i4hq6040qnzskvwy2l2x2fw329kp",
+"rev":"2caaf0b89ebf8edb9a1b0400c774670d838ef12f",
+"sha256":"0a6nx99h6cc2hzf0b2vjqjl8hxr7rfzp0rdspvb5qb3z17bvjx1c",
 "date":null
 },
-"source_storepath":"/nix/store/gwayg6z1pg45jinzqz057pvhw82dvfzq-source",
-"nixpkgs_storepath":"/nix/store/20qc9lfrswk5jga8a5zbrnl298ii20wl-source",
-"nur_combined_rev":"4a18fcba14ce6ca61aba690294fbcf34f6b801ae",
+"source_storepath":"/nix/store/nk9zdx0rwgvr2r05czda31rikyklz0zp-source",
+"nixpkgs_storepath":"/nix/store/3zznmibh1aj1ka1zif0w3gzsq9s6hhfj-source",
+"nur_combined_rev":"02d54866e8c95d0313a5d2033bfa36f588cbdc7f",
 "packages":{
 "alvr":{
 "meta":{
@@ -63,7 +63,7 @@
 "redistributable":false,
 "shortName":"unfree"
 },
-"name":"amf-amdgpu-pro-6.2.3",
+"name":"amf-amdgpu-pro-6.3.4",
 "outputsToInstall":[
 "out"
 ],
@@ -74,14 +74,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"amf-amdgpu-pro-6.2.3",
+"name":"amf-amdgpu-pro-6.3.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"amf-amdgpu-pro",
 "system":"x86_64-linux",
-"version":"6.2.3"
+"version":"6.3.4"
 },
 "amdgpu-pro-libs.firmware":{
 "meta":{
@@ -97,7 +97,7 @@
 "redistributable":true,
 "shortName":"unfreeRedistributableFirmware"
 },
-"name":"amdgpu-firmware-6.2.3",
+"name":"amdgpu-firmware-6.3.4",
 "outputsToInstall":[
 "out"
 ],
@@ -128,14 +128,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"amdgpu-firmware-6.2.3",
+"name":"amdgpu-firmware-6.3.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"amdgpu-firmware",
 "system":"x86_64-linux",
-"version":"6.2.3"
+"version":"6.3.4"
 },
 "amdgpu-pro-libs.opengl":{
 "meta":{
@@ -151,7 +151,7 @@
 "redistributable":false,
 "shortName":"unfree"
 },
-"name":"amdgpu-pro-opengl-64-6.2.3",
+"name":"amdgpu-pro-opengl-64-6.3.4",
 "outputsToInstall":[
 "out"
 ],
@@ -163,14 +163,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"amdgpu-pro-opengl-64-6.2.3",
+"name":"amdgpu-pro-opengl-64-6.3.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"amdgpu-pro-opengl",
 "system":"x86_64-linux",
-"version":"64-6.2.3"
+"version":"64-6.3.4"
 },
 "amdgpu-pro-libs.prefixes":{
 "meta":{
@@ -221,7 +221,7 @@
 "redistributable":false,
 "shortName":"unfree"
 },
-"name":"amdgpu-pro-vulkan-64-6.2.3",
+"name":"amdgpu-pro-vulkan-64-6.3.4",
 "outputsToInstall":[
 "out"
 ],
@@ -233,14 +233,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"amdgpu-pro-vulkan-64-6.2.3",
+"name":"amdgpu-pro-vulkan-64-6.3.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"amdgpu-pro-vulkan",
 "system":"x86_64-linux",
-"version":"64-6.2.3"
+"version":"64-6.3.4"
 },
 "fbset":{
 "meta":{
@@ -302,7 +302,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/FFmpeg/FFmpeg/blob/n7.0.2/Changelog",
+"changelog":"https://github.com/FFmpeg/FFmpeg/blob/n7.1.1/Changelog",
 "description":"Complete, cross-platform solution to record, convert and stream audio and video",
 "homepage":"https://www.ffmpeg.org/",
 "insecure":false,
@@ -354,11 +354,11 @@
 "name":"Atemu"
 },
 {
-"email":"johannes@joens.email",
+"email":"nixpkgs@missing.ninja",
 "github":"jopejoe1",
 "githubId":34899572,
 "matrix":"@jopejoe1:matrix.org",
-"name":"Johannes J\u00f6ns"
+"name":"jopejoe1"
 },
 {
 "email":"nixpkgs@emily.moe",
@@ -367,7 +367,7 @@
 "name":"Emily"
 }
 ],
-"name":"ffmpeg-full-7.0.2",
+"name":"ffmpeg-full-7.1.1",
 "outputsToInstall":[
 "bin",
 "man"
@@ -391,6 +391,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "aarch64-genode",
 "i686-genode",
 "x86_64-genode",
@@ -456,14 +457,15 @@
 "x86_64-redox",
 "wasm64-wasi",
 "wasm32-wasi",
+"aarch64-windows",
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/development/libraries/ffmpeg/generic.nix:890",
+"position":"<nixpkgs> + /pkgs/development/libraries/ffmpeg/generic.nix:973",
 "unfree":false,
 "unsupported":false
 },
-"name":"ffmpeg-full-7.0.2",
+"name":"ffmpeg-full-7.1.1",
 "outputName":"bin",
 "outputs":{
 "bin":null,
@@ -476,7 +478,7 @@
 },
 "pname":"ffmpeg-full",
 "system":"x86_64-linux",
-"version":"7.0.2"
+"version":"7.1.1"
 },
 "lh2ctrl":{
 "meta":{
@@ -553,7 +555,7 @@
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
 "longDescription":"Allows you to have multiple, separate instances of Minecraft (each with\ntheir own mods, texture packs, saves, etc) and helps you manage them and\ntheir associated options with a simple interface.\n",
-"name":"polymc-6.1",
+"name":"polymc-7.0",
 "outputsToInstall":[
 "out"
 ],
@@ -564,14 +566,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"polymc-6.1",
+"name":"polymc-7.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"polymc",
 "system":"x86_64-linux",
-"version":"6.1"
+"version":"7.0"
 },
 "polymc-qt5":{
 "meta":{
@@ -592,7 +594,7 @@
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
 "longDescription":"Allows you to have multiple, separate instances of Minecraft (each with\ntheir own mods, texture packs, saves, etc) and helps you manage them and\ntheir associated options with a simple interface.\n",
-"name":"polymc-qt5-6.1",
+"name":"polymc-qt5-7.0",
 "outputsToInstall":[
 "out"
 ],
@@ -603,14 +605,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"polymc-qt5-6.1",
+"name":"polymc-qt5-7.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"polymc-qt5",
 "system":"x86_64-linux",
-"version":"6.1"
+"version":"7.0"
 },
 "svt-av1-psy":{
 "meta":{
@@ -652,6 +654,7 @@
 "armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
+"aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
 "armv5tel-linux",
