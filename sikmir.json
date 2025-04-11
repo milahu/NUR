@@ -1,16 +1,16 @@
 {
 "name":"sikmir",
-"fetch_time":0.537,
+"fetch_time":1.009,
 "eval_time":0.427,
 "source":{
 "url":"https://github.com/sikmir/nur-packages",
-"rev":"322263968556fd2ae43fbac72c424741ee71eccf",
-"sha256":"0ap3x1476bcfnbmgmz71slysjr7f7rfqhxjqrcq0nzsrsk26ggih",
+"rev":"c609fce4588dc45a64cd06a802f9ac4c87ece589",
+"sha256":"0nv15f3wv4hfr8x3iwbfa8mq5ci65l4lmz3b3ljp2fgaw6q6m8bw",
 "date":null
 },
-"source_storepath":"/nix/store/j7zdzg78al05hzmp55ykai21cai3zq74-source",
-"nixpkgs_storepath":"/nix/store/if1r449yxfrnd0k8kygllwnjq4py8q9i-source",
-"nur_combined_rev":"ada1e067ac97cd2c8693d69bd6369c9080d0f068",
+"source_storepath":"/nix/store/2icnxh6wca4637xpk5vzksd50wqg4zw7-source",
+"nixpkgs_storepath":"/nix/store/nqdyib11y48znnncgsk7wmkkqr0fh2np-source",
+"nur_combined_rev":"2150237637e1877f9653882eab1b965cc0d732e3",
 "packages":{
 "aamath":{
 "meta":{
@@ -3901,7 +3901,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"cproc-0-unstable-2024-04-27",
+"name":"cproc-0-unstable-2025-02-11",
 "outputsToInstall":[
 "out"
 ],
@@ -3935,14 +3935,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cproc-0-unstable-2024-04-27",
+"name":"cproc-0-unstable-2025-02-11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cproc",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-04-27"
+"version":"0-unstable-2025-02-11"
 },
 "csv2html":{
 "meta":{
@@ -11976,7 +11976,9 @@
 "armv7l-linux",
 "armv6l-linux",
 "powerpc64le-linux",
-"riscv64-linux"
+"riscv64-linux",
+"aarch64-darwin",
+"x86_64-darwin"
 ],
 "position":"./pkgs/gpx/gpx-animator/default.nix:33",
 "sourceProvenance":[
@@ -14706,7 +14708,9 @@
 "aarch64-linux",
 "armv7l-linux",
 "armv6l-linux",
-"powerpc64le-linux"
+"powerpc64le-linux",
+"aarch64-darwin",
+"x86_64-darwin"
 ],
 "position":"./pkgs/linguistics/i18n-editor/default.nix:40",
 "sourceProvenance":[
@@ -14830,7 +14834,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"imscript-0-unstable-2024-12-31",
+"name":"imscript-0-unstable-2025-04-04",
 "outputsToInstall":[
 "out"
 ],
@@ -14885,14 +14889,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"imscript-0-unstable-2024-12-31",
+"name":"imscript-0-unstable-2025-04-04",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"imscript",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-12-31"
+"version":"0-unstable-2025-04-04"
 },
 "imsg-compat":{
 "meta":{
@@ -22039,7 +22043,9 @@
 "armv7l-linux",
 "armv6l-linux",
 "powerpc64le-linux",
-"riscv64-linux"
+"riscv64-linux",
+"aarch64-darwin",
+"x86_64-darwin"
 ],
 "position":"./pkgs/mqtt/mqtt-cli/default.nix:36",
 "sourceProvenance":[
@@ -23504,7 +23510,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"nextvi-0-unstable-2024-12-29",
+"name":"nextvi-0-unstable-2025-03-18",
 "outputsToInstall":[
 "out"
 ],
@@ -23559,14 +23565,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nextvi-0-unstable-2024-12-29",
+"name":"nextvi-0-unstable-2025-03-18",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nextvi",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-12-29"
+"version":"0-unstable-2025-03-18"
 },
 "nmtree":{
 "meta":{
@@ -24498,7 +24504,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"osm-3s-0.7.62.2",
+"name":"osm-3s-0.7.62.5",
 "outputsToInstall":[
 "out"
 ],
@@ -24532,14 +24538,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"osm-3s-0.7.62.2",
+"name":"osm-3s-0.7.62.5",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"osm",
 "system":"x86_64-linux",
-"version":"3s-0.7.62.2"
+"version":"3s-0.7.62.5"
 },
 "osm-area-tools":{
 "meta":{
@@ -25620,7 +25626,9 @@
 "armv7l-linux",
 "armv6l-linux",
 "powerpc64le-linux",
-"riscv64-linux"
+"riscv64-linux",
+"aarch64-darwin",
+"x86_64-darwin"
 ],
 "position":"./pkgs/osm/osmosis/default.nix:32",
 "sourceProvenance":[
@@ -26729,7 +26737,9 @@
 "armv7l-linux",
 "armv6l-linux",
 "powerpc64le-linux",
-"riscv64-linux"
+"riscv64-linux",
+"aarch64-darwin",
+"x86_64-darwin"
 ],
 "position":"./pkgs/osm/planetiler/default.nix:37",
 "skip":{
@@ -28104,7 +28114,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"pvs-studio-7.35.89253.317",
+"name":"pvs-studio-7.36.91321.455",
 "outputsToInstall":[
 "out"
 ],
@@ -28119,14 +28129,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"pvs-studio-7.35.89253.317",
+"name":"pvs-studio-7.36.91321.455",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"pvs-studio",
 "system":"x86_64-linux",
-"version":"7.35.89253.317"
+"version":"7.36.91321.455"
 },
 "py-gmi2html":{
 "meta":{
@@ -31388,7 +31398,9 @@
 "armv7l-linux",
 "armv6l-linux",
 "powerpc64le-linux",
-"riscv64-linux"
+"riscv64-linux",
+"aarch64-darwin",
+"x86_64-darwin"
 ],
 "position":"./pkgs/misc/qstudio/default.nix:36",
 "sourceProvenance":[
@@ -31836,7 +31848,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"radiolib-7.1.1",
+"name":"radiolib-7.1.2",
 "outputsToInstall":[
 "out"
 ],
@@ -31891,14 +31903,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"radiolib-7.1.1",
+"name":"radiolib-7.1.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"radiolib",
 "system":"x86_64-linux",
-"version":"7.1.1"
+"version":"7.1.2"
 },
 "render_geojson":{
 "meta":{
@@ -33198,7 +33210,9 @@
 "armv7l-linux",
 "armv6l-linux",
 "powerpc64le-linux",
-"riscv64-linux"
+"riscv64-linux",
+"aarch64-darwin",
+"x86_64-darwin"
 ],
 "position":"./pkgs/gpx/routeconverter/default.nix:44",
 "sourceProvenance":[
@@ -37915,7 +37929,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"tatoeba-2025-03-29",
+"name":"tatoeba-2025-04-05",
 "outputsToInstall":[
 "out"
 ],
@@ -38005,14 +38019,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tatoeba-2025-03-29",
+"name":"tatoeba-2025-04-05",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tatoeba",
 "system":"x86_64-linux",
-"version":"2025-03-29"
+"version":"2025-04-05"
 },
 "tatoebatools":{
 "meta":{
@@ -42726,7 +42740,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"zed-0.181.2-pre",
+"name":"zed-0.182.0-pre",
 "outputsToInstall":[
 "out"
 ],
@@ -42746,14 +42760,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"zed-0.181.2-pre",
+"name":"zed-0.182.0-pre",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zed",
 "system":"x86_64-linux",
-"version":"0.181.2-pre"
+"version":"0.182.0-pre"
 },
 "zwave-js-ui":{
 "meta":{
