@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./default.nix:36:17:
+  at ./default.nix:34:17:
 
-    35|   cntb-bin = pkgs.callPackage ./pkgs/cntb-bin {};
-    36|   rofi-blocks = pkgs.callPackage ./pkgs/rofi-blocks {};
+    33|   cntb-bin = pkgs.callPackage ./pkgs/cntb-bin {};
+    34|   rofi-blocks = pkgs.callPackage ./pkgs/rofi-blocks {};
       |                 ^
-    37|   coord = pkgs.callPackage ./pkgs/coord {};
+    35|   coord = pkgs.callPackage ./pkgs/coord {};
 
 … while calling 'callPackageWith'
 
@@ -28,12 +28,12 @@ error:
 
 … while calling 'filterAttrs'
 
-  at <nixpkgs> + /lib/attrsets.nix:646:5:
+  at <nixpkgs> + /lib/attrsets.nix:657:23:
 
-   645|     pred:
-   646|     set:
-      |     ^
-   647|     removeAttrs set (filter (name: ! pred name set.${name}) (attrNames set));
+   656|   */
+   657|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                       ^
+   658|
 
 … from call site
 
@@ -46,11 +46,11 @@ error:
 
 … while calling 'functionArgs'
 
-  at <nixpkgs> + /lib/trivial.nix:1018:18:
+  at <nixpkgs> + /lib/trivial.nix:1007:5:
 
-  1017|   */
-  1018|   functionArgs = f:
-      |                  ^
-  1019|     if f ? __functor
+  1006|   functionArgs =
+  1007|     f:
+      |     ^
+  1008|     if f ? __functor then
 
 error: getting status of './pkgs/rofi-blocks': No such file or directory
