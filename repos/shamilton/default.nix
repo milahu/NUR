@@ -171,6 +171,7 @@ pkgs.lib.traceValFn (x:
   # qradiopredict = pkgs.libsForQt5.callPackage ./pkgs/qradiopredict { };
   scim = with pkgs; callPackage ./pkgs/scim { };
   libphidget = with pkgs; callPackage ./pkgs/libphidget { };
+  scottapps = with pkgs; callPackage ./pkgs/ScottApps { };
   scripts = with pkgs; callPackage ./pkgs/Scripts {
     eom = mate.eom;
     inherit (self) merge-keepass;
