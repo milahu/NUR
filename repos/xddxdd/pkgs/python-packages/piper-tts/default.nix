@@ -1,4 +1,5 @@
 {
+  stdenv,
   piper-tts-native,
   lib,
   buildPythonPackage,
@@ -15,13 +16,14 @@ buildPythonPackage rec {
     onnxruntime
   ];
 
-  # onnxruntime may fail to start in sandbox, disable check if onnxruntime does too
-  pythonImportsCheck = lib.optionals onnxruntime.doCheck [ "piper" ];
+  # onnxruntime may fail to start on ARM64
+  pythonImportsCheck = lib.optionals stdenv.isx86_64 [ "piper" ];
 
   meta = {
     mainProgram = "piper";
     maintainers = with lib.maintainers; [ xddxdd ];
     description = "Python component for piper-tts";
     inherit (piper-tts-native.meta) homepage license;
+    broken = stdenv.isAarch64;
   };
 }
