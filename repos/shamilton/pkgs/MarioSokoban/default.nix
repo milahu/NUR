@@ -7,7 +7,7 @@
 # , nix-gitignore
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "MarioSokoban";
   version = "1.0";
 
