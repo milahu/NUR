@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.531,
-"eval_time":0.888,
+"fetch_time":0.422,
+"eval_time":0.86,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"49eac0bb02f5b860d8c166d68269703e729e714c",
-"sha256":"1zbkryaz5sxw03klzp84frnkqxf2ykkh2bx0jpz8k7k5mjvznp2j",
+"rev":"56eae6b2fa8343a550d40367ce7a252dc02d11d1",
+"sha256":"1l7b9lax9ra6y20jgzsy9wbxy36fp4km59mcvni06r68640md8q8",
 "date":null
 },
-"source_storepath":"/nix/store/w6qkr182c5ns8nr737ka1g9x11v35yk7-source",
-"nixpkgs_storepath":"/nix/store/if1r449yxfrnd0k8kygllwnjq4py8q9i-source",
-"nur_combined_rev":"97fe4cce7f6f51b3120f93721c3b8c1e2ec5ba91",
+"source_storepath":"/nix/store/vjs3i5vjinh8qa5c5sr5yl2h300x3slz-source",
+"nixpkgs_storepath":"/nix/store/g1bajdwbkcmms8cqd9s8zbq8zxhkyx91-source",
+"nur_combined_rev":"3d6d591762acff8f32451d8ba03b5552f8974c73",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -213,7 +213,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"adspower-6.12.6",
+"name":"adspower-7.3.26",
 "outputsToInstall":[
 "out"
 ],
@@ -230,14 +230,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"adspower-6.12.6",
+"name":"adspower-7.3.26",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"adspower",
 "system":"x86_64-linux",
-"version":"6.12.6"
+"version":"7.3.26"
 },
 "amule-dlp":{
 "meta":{
@@ -823,7 +823,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"bilibili-1.16.3-2",
+"name":"bilibili-1.16.3-3",
 "outputsToInstall":[
 "out"
 ],
@@ -831,14 +831,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"bilibili-1.16.3-2",
+"name":"bilibili-1.16.3-3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"bilibili",
 "system":"x86_64-linux",
-"version":"1.16.3-2"
+"version":"1.16.3-3"
 },
 "bird-lg-go":{
 "meta":{
@@ -1114,7 +1114,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"boringssl-oqs-0-unstable-2025-01-20",
+"name":"boringssl-oqs-0-unstable-2025-04-11",
 "outputsToInstall":[
 "bin"
 ],
@@ -1154,7 +1154,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boringssl-oqs-0-unstable-2025-01-20",
+"name":"boringssl-oqs-0-unstable-2025-04-11",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -1163,7 +1163,7 @@
 },
 "pname":"boringssl-oqs",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-01-20"
+"version":"0-unstable-2025-04-11"
 },
 "browser360":{
 "meta":{
@@ -1255,7 +1255,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"calibre-cops-3.5.7",
+"name":"calibre-cops-3.6.1",
 "outputsToInstall":[
 "out"
 ],
@@ -1263,14 +1263,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"calibre-cops-3.5.7",
+"name":"calibre-cops-3.6.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"calibre-cops",
 "system":"x86_64-linux",
-"version":"3.5.7"
+"version":"3.6.1"
 },
 "chmlib-utils":{
 "meta":{
@@ -1540,6 +1540,128 @@
 "pname":"cockpy",
 "system":"x86_64-linux",
 "version":"0-unstable-2024-09-07"
+},
+"coqui-tts":{
+"meta":{
+"available":false,
+"broken":true,
+"description":"Deep learning toolkit for Text-to-Speech, battle-tested in research and production",
+"homepage":"http://coqui.ai",
+"insecure":false,
+"isBuildPythonPackage":[
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin",
+"i686-cygwin",
+"x86_64-cygwin",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd"
+],
+"license":[
+{
+"deprecated":false,
+"free":true,
+"fullName":"Mozilla Public License 2.0",
+"redistributable":true,
+"shortName":"mpl20",
+"spdxId":"MPL-2.0",
+"url":"https://spdx.org/licenses/MPL-2.0.html"
+}
+],
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"python3.12-coqui-tts-0.22.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin",
+"i686-cygwin",
+"x86_64-cygwin",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd"
+],
+"position":"./pkgs/python-packages/coqui-tts/default.nix:124",
+"unfree":false,
+"unsupported":false
+},
+"name":"python3.12-coqui-tts-0.22.0",
+"outputName":"out",
+"outputs":{
+"dist":null,
+"out":null
+},
+"pname":"python3.12-coqui-tts",
+"system":"x86_64-linux",
+"version":"0.22.0"
 },
 "cryptodev-unstable":{
 "meta":{
@@ -2118,6 +2240,68 @@
 "system":"x86_64-linux",
 "version":"1.3.0"
 },
+"deprecated.pocl":{
+"meta":{
+"available":false,
+"broken":false,
+"description":"(DEPRECATED: pocl is available in nixpkgs) Portable open source (MIT-licensed) implementation of the OpenCL standard",
+"homepage":"http://portablecl.org",
+"insecure":true,
+"knownVulnerabilities":[
+"pocl is available in nixpkgs"
+],
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"mainProgram":"poclcc",
+"maintainers":[
+{
+"email":"jan.solanti@paivola.fi",
+"github":"jansol",
+"githubId":2588851,
+"name":"Jan Solanti"
+},
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"pocl-6.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-linux"
+],
+"position":"./pkgs/deprecated/pocl/default.nix:65",
+"unfree":false,
+"unsupported":false
+},
+"name":"pocl-6.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"pocl",
+"system":"x86_64-linux",
+"version":"6.0"
+},
 "deprecated.wechat-uos":{
 "meta":{
 "available":false,
@@ -2311,7 +2495,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"dingtalk-7.6.25.4122001",
+"name":"dingtalk-7.6.45.5032501",
 "outputsToInstall":[
 "out"
 ],
@@ -2328,14 +2512,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"dingtalk-7.6.25.4122001",
+"name":"dingtalk-7.6.45.5032501",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"dingtalk",
 "system":"x86_64-linux",
-"version":"7.6.25.4122001"
+"version":"7.6.45.5032501"
 },
 "dn42-pingfinder":{
 "meta":{
@@ -3286,22 +3470,22 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"fastapi-dls-1.3.12-unstable-2025-03-12",
+"name":"fastapi-dls-1.5.3-unstable-2025-04-14",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/fastapi-dls/default.nix:68",
+"position":"./pkgs/uncategorized/fastapi-dls/default.nix:69",
 "unfree":true,
 "unsupported":false
 },
-"name":"fastapi-dls-1.3.12-unstable-2025-03-12",
+"name":"fastapi-dls-1.5.3-unstable-2025-04-14",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fastapi-dls",
 "system":"x86_64-linux",
-"version":"1.3.12-unstable-2025-03-12"
+"version":"1.5.3-unstable-2025-04-14"
 },
 "fcitx5-breeze":{
 "meta":{
@@ -3718,7 +3902,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-funasr-0-unstable-2025-03-31",
+"name":"python3.12-funasr-0-unstable-2025-04-14",
 "outputsToInstall":[
 "out"
 ],
@@ -3761,7 +3945,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-funasr-0-unstable-2025-03-31",
+"name":"python3.12-funasr-0-unstable-2025-04-14",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3769,7 +3953,7 @@
 },
 "pname":"python3.12-funasr",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-03-31"
+"version":"0-unstable-2025-04-14"
 },
 "glauth":{
 "meta":{
@@ -4263,7 +4447,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"helium-gateway-rs-1.3.0-unstable-2024-08-01",
+"name":"helium-gateway-rs-1.3.0-unstable-2025-04-11",
 "outputsToInstall":[
 "out"
 ],
@@ -4312,14 +4496,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"helium-gateway-rs-1.3.0-unstable-2024-08-01",
+"name":"helium-gateway-rs-1.3.0-unstable-2025-04-11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"helium-gateway-rs",
 "system":"x86_64-linux",
-"version":"1.3.0-unstable-2024-08-01"
+"version":"1.3.0-unstable-2025-04-11"
 },
 "hesuvi-hrir":{
 "meta":{
@@ -5446,7 +5630,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"nullfsvfs-0.17",
+"name":"nullfsvfs-0.18",
 "outputsToInstall":[
 "out"
 ],
@@ -5477,14 +5661,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nullfsvfs-0.17",
+"name":"nullfsvfs-0.18",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nullfsvfs",
 "system":"x86_64-linux",
-"version":"0.17"
+"version":"0.18"
 },
 "kernel-modules.ovpn-dco":{
 "meta":{
@@ -6295,7 +6479,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"llama-cpp-5016",
+"name":"llama-cpp-5138",
 "outputsToInstall":[
 "out"
 ],
@@ -6350,14 +6534,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-5016",
+"name":"llama-cpp-5138",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"5016"
+"version":"5138"
 },
 "lantianCustomized.materialgram":{
 "meta":{
@@ -6573,7 +6757,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"nginx-lantian-1.27.1.2-unstable-2025-03-19",
+"name":"nginx-lantian-1.27.1.2-unstable-2025-04-13",
 "outputsToInstall":[
 "out"
 ],
@@ -6581,14 +6765,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nginx-lantian-1.27.1.2-unstable-2025-03-19",
+"name":"nginx-lantian-1.27.1.2-unstable-2025-04-13",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nginx-lantian",
 "system":"x86_64-linux",
-"version":"1.27.1.2-unstable-2025-03-19"
+"version":"1.27.1.2-unstable-2025-04-13"
 },
 "lantianCustomized.telegram-desktop":{
 "meta":{
@@ -6894,7 +7078,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-xanmod-lts-generic-6.12.21-xanmod1",
+"name":"linux-xanmod-lts-generic-6.12.23-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -6926,7 +7110,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-xanmod-lts-generic-6.12.21-xanmod1",
+"name":"linux-xanmod-lts-generic-6.12.23-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -6934,7 +7118,7 @@
 },
 "pname":"linux-xanmod-lts-generic",
 "system":"x86_64-linux",
-"version":"6.12.21-xanmod1"
+"version":"6.12.23-xanmod1"
 },
 "lantianLinuxXanmod.lts-generic-lto":{
 "meta":{
@@ -6999,7 +7183,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-xanmod-lts-generic-lto-6.12.21-xanmod1",
+"name":"linux-xanmod-lts-generic-lto-6.12.23-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -7031,7 +7215,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-xanmod-lts-generic-lto-6.12.21-xanmod1",
+"name":"linux-xanmod-lts-generic-lto-6.12.23-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -7039,7 +7223,7 @@
 },
 "pname":"linux-xanmod-lts-generic-lto",
 "system":"x86_64-linux",
-"version":"6.12.21-xanmod1"
+"version":"6.12.23-xanmod1"
 },
 "lantianLinuxXanmod.v6_0-generic":{
 "meta":{
@@ -9204,7 +9388,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-xanmod-v6_12-generic-6.12.21-xanmod1",
+"name":"linux-xanmod-v6_12-generic-6.12.23-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9236,7 +9420,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-xanmod-v6_12-generic-6.12.21-xanmod1",
+"name":"linux-xanmod-v6_12-generic-6.12.23-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9244,7 +9428,7 @@
 },
 "pname":"linux-xanmod-v6_12-generic",
 "system":"x86_64-linux",
-"version":"6.12.21-xanmod1"
+"version":"6.12.23-xanmod1"
 },
 "lantianLinuxXanmod.v6_12-generic-lto":{
 "meta":{
@@ -9309,7 +9493,7 @@
 "name":"Austin Seipp"
 }
 ],
-"name":"linux-xanmod-v6_12-generic-lto-6.12.21-xanmod1",
+"name":"linux-xanmod-v6_12-generic-lto-6.12.23-xanmod1",
 "outputsToInstall":[
 "out"
 ],
@@ -9341,7 +9525,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-xanmod-v6_12-generic-lto-6.12.21-xanmod1",
+"name":"linux-xanmod-v6_12-generic-lto-6.12.23-xanmod1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -9349,7 +9533,7 @@
 },
 "pname":"linux-xanmod-v6_12-generic-lto",
 "system":"x86_64-linux",
-"version":"6.12.21-xanmod1"
+"version":"6.12.23-xanmod1"
 },
 "lantianLinuxXanmod.v6_6-generic":{
 "meta":{
@@ -10689,7 +10873,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"liboqs-0-unstable-2025-03-24",
+"name":"liboqs-0-unstable-2025-04-11",
 "outputsToInstall":[
 "out"
 ],
@@ -10697,14 +10881,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"liboqs-0-unstable-2025-03-24",
+"name":"liboqs-0-unstable-2025-04-11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"liboqs",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-03-24"
+"version":"0-unstable-2025-04-11"
 },
 "libqcef":{
 "meta":{
@@ -11986,7 +12170,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"nullfsvfs-0.17",
+"name":"nullfsvfs-0.18",
 "outputsToInstall":[
 "out"
 ],
@@ -12017,14 +12201,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nullfsvfs-0.17",
+"name":"nullfsvfs-0.18",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nullfsvfs",
 "system":"x86_64-linux",
-"version":"0.17"
+"version":"0.18"
 },
 "nvlax":{
 "meta":{
@@ -12270,7 +12454,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openai-edge-tts-0-unstable-2025-03-20",
+"name":"openai-edge-tts-0-unstable-2025-04-01",
 "outputsToInstall":[
 "out"
 ],
@@ -12278,14 +12462,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openai-edge-tts-0-unstable-2025-03-20",
+"name":"openai-edge-tts-0-unstable-2025-04-01",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openai-edge-tts",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-03-20"
+"version":"0-unstable-2025-04-01"
 },
 "opencc-python-reimplemented":{
 "meta":{
@@ -29151,7 +29335,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"palworld-worldoptions-1.10.0",
+"name":"palworld-worldoptions-1.11.0",
 "outputsToInstall":[
 "out"
 ],
@@ -29159,14 +29343,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"palworld-worldoptions-1.10.0",
+"name":"palworld-worldoptions-1.11.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"palworld-worldoptions",
 "system":"x86_64-linux",
-"version":"1.10.0"
+"version":"1.11.0"
 },
 "payload-dumper-go":{
 "meta":{
@@ -29286,7 +29470,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"peerbanhelper-7.4.5",
+"name":"peerbanhelper-7.4.12",
 "outputsToInstall":[
 "out"
 ],
@@ -29294,14 +29478,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"peerbanhelper-7.4.5",
+"name":"peerbanhelper-7.4.12",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"peerbanhelper",
 "system":"x86_64-linux",
-"version":"7.4.5"
+"version":"7.4.12"
 },
 "phpmyadmin":{
 "meta":{
@@ -29434,7 +29618,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"piliplus-1.1.3.26",
+"name":"piliplus-1.1.3.30",
 "outputsToInstall":[
 "out"
 ],
@@ -29445,7 +29629,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"piliplus-1.1.3.26",
+"name":"piliplus-1.1.3.30",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -29454,7 +29638,7 @@
 },
 "pname":"piliplus",
 "system":"x86_64-linux",
-"version":"1.1.3.26"
+"version":"1.1.3.30"
 },
 "piper-tts":{
 "meta":{
@@ -29563,7 +29747,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/piper-tts/default.nix:24",
+"position":"./pkgs/python-packages/piper-tts/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -29824,11 +30008,14 @@
 },
 "pocl":{
 "meta":{
-"available":true,
+"available":false,
 "broken":false,
-"description":"Portable open source (MIT-licensed) implementation of the OpenCL standard",
+"description":"(DEPRECATED: pocl is available in nixpkgs) Portable open source (MIT-licensed) implementation of the OpenCL standard",
 "homepage":"http://portablecl.org",
-"insecure":false,
+"insecure":true,
+"knownVulnerabilities":[
+"pocl is available in nixpkgs"
+],
 "license":{
 "deprecated":false,
 "free":true,
@@ -29868,7 +30055,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/pocl/default.nix:65",
+"position":"./pkgs/deprecated/pocl/default.nix:65",
 "unfree":false,
 "unsupported":false
 },
@@ -29914,7 +30101,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"pterodactyl-wings-1.11.13",
+"name":"pterodactyl-wings-1.11.13-unstable-2025-04-07",
 "outputsToInstall":[
 "out"
 ],
@@ -29954,14 +30141,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"pterodactyl-wings-1.11.13",
+"name":"pterodactyl-wings-1.11.13-unstable-2025-04-07",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"pterodactyl-wings",
 "system":"x86_64-linux",
-"version":"1.11.13"
+"version":"1.11.13-unstable-2025-04-07"
 },
 "py-rcon":{
 "meta":{
@@ -30330,6 +30517,128 @@
 "pname":"python3.12-click-loglevel",
 "system":"x86_64-linux",
 "version":"0.6.0"
+},
+"python3Packages.coqui-tts":{
+"meta":{
+"available":false,
+"broken":true,
+"description":"Deep learning toolkit for Text-to-Speech, battle-tested in research and production",
+"homepage":"http://coqui.ai",
+"insecure":false,
+"isBuildPythonPackage":[
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin",
+"i686-cygwin",
+"x86_64-cygwin",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd"
+],
+"license":[
+{
+"deprecated":false,
+"free":true,
+"fullName":"Mozilla Public License 2.0",
+"redistributable":true,
+"shortName":"mpl20",
+"spdxId":"MPL-2.0",
+"url":"https://spdx.org/licenses/MPL-2.0.html"
+}
+],
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"python3.12-coqui-tts-0.22.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin",
+"i686-cygwin",
+"x86_64-cygwin",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd"
+],
+"position":"./pkgs/python-packages/coqui-tts/default.nix:124",
+"unfree":false,
+"unsupported":false
+},
+"name":"python3.12-coqui-tts-0.22.0",
+"outputName":"out",
+"outputs":{
+"dist":null,
+"out":null
+},
+"pname":"python3.12-coqui-tts",
+"system":"x86_64-linux",
+"version":"0.22.0"
 },
 "python3Packages.data-recorder":{
 "meta":{
@@ -31011,7 +31320,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-funasr-0-unstable-2025-03-31",
+"name":"python3.12-funasr-0-unstable-2025-04-14",
 "outputsToInstall":[
 "out"
 ],
@@ -31054,7 +31363,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-funasr-0-unstable-2025-03-31",
+"name":"python3.12-funasr-0-unstable-2025-04-14",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -31062,7 +31371,7 @@
 },
 "pname":"python3.12-funasr",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-03-31"
+"version":"0-unstable-2025-04-14"
 },
 "python3Packages.kaldiio":{
 "meta":{
@@ -32034,7 +32343,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/piper-tts/default.nix:24",
+"position":"./pkgs/python-packages/piper-tts/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -32481,7 +32790,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-runpod-python-1.7.7",
+"name":"python3.12-runpod-python-1.7.9",
 "outputsToInstall":[
 "out"
 ],
@@ -32524,7 +32833,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-runpod-python-1.7.7",
+"name":"python3.12-runpod-python-1.7.9",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -32532,7 +32841,7 @@
 },
 "pname":"python3.12-runpod-python",
 "system":"x86_64-linux",
-"version":"1.7.7"
+"version":"1.7.9"
 },
 "python3Packages.silero-vad":{
 "meta":{
@@ -32642,7 +32951,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/silero-vad/default.nix:29",
+"position":"./pkgs/python-packages/silero-vad/default.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -33090,7 +33399,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-vector-quantize-pytorch-1.22.4",
+"name":"python3.12-vector-quantize-pytorch-1.22.15",
 "outputsToInstall":[
 "out"
 ],
@@ -33133,7 +33442,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-vector-quantize-pytorch-1.22.4",
+"name":"python3.12-vector-quantize-pytorch-1.22.15",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -33141,7 +33450,7 @@
 },
 "pname":"python3.12-vector-quantize-pytorch",
 "system":"x86_64-linux",
-"version":"1.22.4"
+"version":"1.22.15"
 },
 "python3Packages.xstatic-asciinema-player":{
 "meta":{
@@ -33660,7 +33969,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"qemu-user-static-9.2.2+ds-1+b2",
+"name":"qemu-user-static-7.2+dfsg-7+deb12u12",
 "outputsToInstall":[
 "out"
 ],
@@ -33668,14 +33977,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"qemu-user-static-9.2.2+ds-1+b2",
+"name":"qemu-user-static-7.2+dfsg-7+deb12u12",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qemu-user-static",
 "system":"x86_64-linux",
-"version":"9.2.2+ds-1+b2"
+"version":"7.2+dfsg-7+deb12u12"
 },
 "qq":{
 "meta":{
@@ -34351,7 +34660,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-ice-0-unstable-2025-03-30",
+"name":"rime-ice-0-unstable-2025-04-06",
 "outputsToInstall":[
 "out"
 ],
@@ -34359,14 +34668,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-0-unstable-2025-03-30",
+"name":"rime-ice-0-unstable-2025-04-06",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-ice",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-03-30"
+"version":"0-unstable-2025-04-06"
 },
 "rime-moegirl":{
 "meta":{
@@ -34400,7 +34709,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-moegirl-20250309",
+"name":"rime-moegirl-20250409",
 "outputsToInstall":[
 "out"
 ],
@@ -34408,14 +34717,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-moegirl-20250309",
+"name":"rime-moegirl-20250409",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-moegirl",
 "system":"x86_64-linux",
-"version":"20250309"
+"version":"20250409"
 },
 "rime-zhwiki":{
 "meta":{
@@ -34460,7 +34769,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-zhwiki-20250310",
+"name":"rime-zhwiki-20250415",
 "outputsToInstall":[
 "out"
 ],
@@ -34468,14 +34777,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-zhwiki-20250310",
+"name":"rime-zhwiki-20250415",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-zhwiki",
 "system":"x86_64-linux",
-"version":"20250310"
+"version":"20250415"
 },
 "rootutils":{
 "meta":{
@@ -34717,7 +35026,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-runpod-python-1.7.7",
+"name":"python3.12-runpod-python-1.7.9",
 "outputsToInstall":[
 "out"
 ],
@@ -34760,7 +35069,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-runpod-python-1.7.7",
+"name":"python3.12-runpod-python-1.7.9",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -34768,7 +35077,7 @@
 },
 "pname":"python3.12-runpod-python",
 "system":"x86_64-linux",
-"version":"1.7.7"
+"version":"1.7.9"
 },
 "runpodctl":{
 "meta":{
@@ -35062,7 +35371,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/silero-vad/default.nix:29",
+"position":"./pkgs/python-packages/silero-vad/default.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -36674,7 +36983,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"adspower-6.12.6",
+"name":"adspower-7.3.26",
 "outputsToInstall":[
 "out"
 ],
@@ -36691,14 +37000,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"adspower-6.12.6",
+"name":"adspower-7.3.26",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"adspower",
 "system":"x86_64-linux",
-"version":"6.12.6"
+"version":"7.3.26"
 },
 "uncategorized.amule-dlp":{
 "meta":{
@@ -37091,7 +37400,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"bilibili-1.16.3-2",
+"name":"bilibili-1.16.3-3",
 "outputsToInstall":[
 "out"
 ],
@@ -37099,14 +37408,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"bilibili-1.16.3-2",
+"name":"bilibili-1.16.3-3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"bilibili",
 "system":"x86_64-linux",
-"version":"1.16.3-2"
+"version":"1.16.3-3"
 },
 "uncategorized.bird-lg-go":{
 "meta":{
@@ -37382,7 +37691,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"boringssl-oqs-0-unstable-2025-01-20",
+"name":"boringssl-oqs-0-unstable-2025-04-11",
 "outputsToInstall":[
 "bin"
 ],
@@ -37422,7 +37731,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boringssl-oqs-0-unstable-2025-01-20",
+"name":"boringssl-oqs-0-unstable-2025-04-11",
 "outputName":"out",
 "outputs":{
 "bin":null,
@@ -37431,7 +37740,7 @@
 },
 "pname":"boringssl-oqs",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-01-20"
+"version":"0-unstable-2025-04-11"
 },
 "uncategorized.browser360":{
 "meta":{
@@ -37523,7 +37832,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"calibre-cops-3.5.7",
+"name":"calibre-cops-3.6.1",
 "outputsToInstall":[
 "out"
 ],
@@ -37531,14 +37840,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"calibre-cops-3.5.7",
+"name":"calibre-cops-3.6.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"calibre-cops",
 "system":"x86_64-linux",
-"version":"3.5.7"
+"version":"3.6.1"
 },
 "uncategorized.chmlib-utils":{
 "meta":{
@@ -37770,7 +38079,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"dingtalk-7.6.25.4122001",
+"name":"dingtalk-7.6.45.5032501",
 "outputsToInstall":[
 "out"
 ],
@@ -37787,14 +38096,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"dingtalk-7.6.25.4122001",
+"name":"dingtalk-7.6.45.5032501",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"dingtalk",
 "system":"x86_64-linux",
-"version":"7.6.25.4122001"
+"version":"7.6.45.5032501"
 },
 "uncategorized.dn42-pingfinder":{
 "meta":{
@@ -38308,22 +38617,22 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"fastapi-dls-1.3.12-unstable-2025-03-12",
+"name":"fastapi-dls-1.5.3-unstable-2025-04-14",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/fastapi-dls/default.nix:68",
+"position":"./pkgs/uncategorized/fastapi-dls/default.nix:69",
 "unfree":true,
 "unsupported":false
 },
-"name":"fastapi-dls-1.3.12-unstable-2025-03-12",
+"name":"fastapi-dls-1.5.3-unstable-2025-04-14",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fastapi-dls",
 "system":"x86_64-linux",
-"version":"1.3.12-unstable-2025-03-12"
+"version":"1.5.3-unstable-2025-04-14"
 },
 "uncategorized.fcitx5-breeze":{
 "meta":{
@@ -38954,7 +39263,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"helium-gateway-rs-1.3.0-unstable-2024-08-01",
+"name":"helium-gateway-rs-1.3.0-unstable-2025-04-11",
 "outputsToInstall":[
 "out"
 ],
@@ -39003,14 +39312,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"helium-gateway-rs-1.3.0-unstable-2024-08-01",
+"name":"helium-gateway-rs-1.3.0-unstable-2025-04-11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"helium-gateway-rs",
 "system":"x86_64-linux",
-"version":"1.3.0-unstable-2024-08-01"
+"version":"1.3.0-unstable-2025-04-11"
 },
 "uncategorized.hesuvi-hrir":{
 "meta":{
@@ -39733,7 +40042,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"liboqs-0-unstable-2025-03-24",
+"name":"liboqs-0-unstable-2025-04-11",
 "outputsToInstall":[
 "out"
 ],
@@ -39741,14 +40050,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"liboqs-0-unstable-2025-03-24",
+"name":"liboqs-0-unstable-2025-04-11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"liboqs",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-03-24"
+"version":"0-unstable-2025-04-11"
 },
 "uncategorized.libqcef":{
 "meta":{
@@ -40802,7 +41111,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openai-edge-tts-0-unstable-2025-03-20",
+"name":"openai-edge-tts-0-unstable-2025-04-01",
 "outputsToInstall":[
 "out"
 ],
@@ -40810,14 +41119,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"openai-edge-tts-0-unstable-2025-03-20",
+"name":"openai-edge-tts-0-unstable-2025-04-01",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openai-edge-tts",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-03-20"
+"version":"0-unstable-2025-04-01"
 },
 "uncategorized.openedai-speech":{
 "meta":{
@@ -41363,7 +41672,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"palworld-worldoptions-1.10.0",
+"name":"palworld-worldoptions-1.11.0",
 "outputsToInstall":[
 "out"
 ],
@@ -41371,14 +41680,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"palworld-worldoptions-1.10.0",
+"name":"palworld-worldoptions-1.11.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"palworld-worldoptions",
 "system":"x86_64-linux",
-"version":"1.10.0"
+"version":"1.11.0"
 },
 "uncategorized.peerbanhelper":{
 "meta":{
@@ -41413,7 +41722,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"peerbanhelper-7.4.5",
+"name":"peerbanhelper-7.4.12",
 "outputsToInstall":[
 "out"
 ],
@@ -41421,14 +41730,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"peerbanhelper-7.4.5",
+"name":"peerbanhelper-7.4.12",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"peerbanhelper",
 "system":"x86_64-linux",
-"version":"7.4.5"
+"version":"7.4.12"
 },
 "uncategorized.phpmyadmin":{
 "meta":{
@@ -41561,7 +41870,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"piliplus-1.1.3.26",
+"name":"piliplus-1.1.3.30",
 "outputsToInstall":[
 "out"
 ],
@@ -41572,7 +41881,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"piliplus-1.1.3.26",
+"name":"piliplus-1.1.3.30",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -41581,7 +41890,7 @@
 },
 "pname":"piliplus",
 "system":"x86_64-linux",
-"version":"1.1.3.26"
+"version":"1.1.3.30"
 },
 "uncategorized.plasma-panel-transparency-toggle":{
 "meta":{
@@ -41730,65 +42039,6 @@
 "system":"x86_64-linux",
 "version":"0.2.3-unstable-2025-01-07"
 },
-"uncategorized.pocl":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"Portable open source (MIT-licensed) implementation of the OpenCL standard",
-"homepage":"http://portablecl.org",
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"mainProgram":"poclcc",
-"maintainers":[
-{
-"email":"jan.solanti@paivola.fi",
-"github":"jansol",
-"githubId":2588851,
-"name":"Jan Solanti"
-},
-{
-"email":"b980120@hotmail.com",
-"github":"xddxdd",
-"githubId":5778879,
-"keys":[
-{
-"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
-},
-{
-"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
-}
-],
-"name":"Yuhui Xu"
-}
-],
-"name":"pocl-6.0",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"x86_64-linux"
-],
-"position":"./pkgs/uncategorized/pocl/default.nix:65",
-"unfree":false,
-"unsupported":false
-},
-"name":"pocl-6.0",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"pocl",
-"system":"x86_64-linux",
-"version":"6.0"
-},
 "uncategorized.pterodactyl-wings":{
 "meta":{
 "available":true,
@@ -41822,7 +42072,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"pterodactyl-wings-1.11.13",
+"name":"pterodactyl-wings-1.11.13-unstable-2025-04-07",
 "outputsToInstall":[
 "out"
 ],
@@ -41862,14 +42112,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"pterodactyl-wings-1.11.13",
+"name":"pterodactyl-wings-1.11.13-unstable-2025-04-07",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"pterodactyl-wings",
 "system":"x86_64-linux",
-"version":"1.11.13"
+"version":"1.11.13-unstable-2025-04-07"
 },
 "uncategorized.qemu-user-static":{
 "meta":{
@@ -41904,7 +42154,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"qemu-user-static-9.2.2+ds-1+b2",
+"name":"qemu-user-static-7.2+dfsg-7+deb12u12",
 "outputsToInstall":[
 "out"
 ],
@@ -41912,14 +42162,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"qemu-user-static-9.2.2+ds-1+b2",
+"name":"qemu-user-static-7.2+dfsg-7+deb12u12",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qemu-user-static",
 "system":"x86_64-linux",
-"version":"9.2.2+ds-1+b2"
+"version":"7.2+dfsg-7+deb12u12"
 },
 "uncategorized.qq":{
 "meta":{
@@ -42455,7 +42705,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-ice-0-unstable-2025-03-30",
+"name":"rime-ice-0-unstable-2025-04-06",
 "outputsToInstall":[
 "out"
 ],
@@ -42463,14 +42713,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-0-unstable-2025-03-30",
+"name":"rime-ice-0-unstable-2025-04-06",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-ice",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-03-30"
+"version":"0-unstable-2025-04-06"
 },
 "uncategorized.rime-moegirl":{
 "meta":{
@@ -42504,7 +42754,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-moegirl-20250309",
+"name":"rime-moegirl-20250409",
 "outputsToInstall":[
 "out"
 ],
@@ -42512,14 +42762,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-moegirl-20250309",
+"name":"rime-moegirl-20250409",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-moegirl",
 "system":"x86_64-linux",
-"version":"20250309"
+"version":"20250409"
 },
 "uncategorized.rime-zhwiki":{
 "meta":{
@@ -42564,7 +42814,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-zhwiki-20250310",
+"name":"rime-zhwiki-20250415",
 "outputsToInstall":[
 "out"
 ],
@@ -42572,14 +42822,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-zhwiki-20250310",
+"name":"rime-zhwiki-20250415",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-zhwiki",
 "system":"x86_64-linux",
-"version":"20250310"
+"version":"20250415"
 },
 "uncategorized.route-chain":{
 "meta":{
@@ -43625,7 +43875,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"uni-api-0-unstable-2025-03-30",
+"name":"uni-api-0-unstable-2025-04-14",
 "outputsToInstall":[
 "out"
 ],
@@ -43633,14 +43883,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"uni-api-0-unstable-2025-03-30",
+"name":"uni-api-0-unstable-2025-04-14",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uni-api",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-03-30"
+"version":"0-unstable-2025-04-14"
 },
 "uncategorized.unigine-heaven":{
 "meta":{
@@ -44505,7 +44755,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"uni-api-0-unstable-2025-03-30",
+"name":"uni-api-0-unstable-2025-04-14",
 "outputsToInstall":[
 "out"
 ],
@@ -44513,14 +44763,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"uni-api-0-unstable-2025-03-30",
+"name":"uni-api-0-unstable-2025-04-14",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uni-api",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-03-30"
+"version":"0-unstable-2025-04-14"
 },
 "unigine-heaven":{
 "meta":{
@@ -45012,7 +45262,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-vector-quantize-pytorch-1.22.4",
+"name":"python3.12-vector-quantize-pytorch-1.22.15",
 "outputsToInstall":[
 "out"
 ],
@@ -45055,7 +45305,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-vector-quantize-pytorch-1.22.4",
+"name":"python3.12-vector-quantize-pytorch-1.22.15",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -45063,7 +45313,7 @@
 },
 "pname":"python3.12-vector-quantize-pytorch",
 "system":"x86_64-linux",
-"version":"1.22.4"
+"version":"1.22.15"
 },
 "vgpu-unlock-rs":{
 "meta":{
