@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.422,
-"eval_time":0.86,
+"fetch_time":1.031,
+"eval_time":0.875,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"56eae6b2fa8343a550d40367ce7a252dc02d11d1",
-"sha256":"1l7b9lax9ra6y20jgzsy9wbxy36fp4km59mcvni06r68640md8q8",
+"rev":"c536bd168abfac67e027fe51707ddb502e218ed6",
+"sha256":"1h6clqzqsvhgh11hag8p37qn19f2bgvjg9iyp3xbd8sf83vxv1k7",
 "date":null
 },
-"source_storepath":"/nix/store/vjs3i5vjinh8qa5c5sr5yl2h300x3slz-source",
+"source_storepath":"/nix/store/32ivd6kf433ni7shja5m71zc8h75n4w8-source",
 "nixpkgs_storepath":"/nix/store/g1bajdwbkcmms8cqd9s8zbq8zxhkyx91-source",
-"nur_combined_rev":"3d6d591762acff8f32451d8ba03b5552f8974c73",
+"nur_combined_rev":"ce4ba0c3307fdc61ed5557150753430cb1b84643",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -114,6 +114,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/musikid/acpi_ec/releases/tag/v1.0.4",
 "description":"Kernel module to access directly to the ACPI EC",
 "homepage":"https://github.com/musikid/acpi_ec",
 "insecure":false,
@@ -169,7 +170,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/acpi-ec/default.nix:29",
+"position":"./pkgs/kernel-modules/acpi-ec/default.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -458,6 +459,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/axiomhq/axiom-syslog-proxy/releases/tag/v0.8.0",
 "description":"Syslog push interface to Axiom",
 "homepage":"https://github.com/axiomhq/axiom-syslog-proxy",
 "insecure":false,
@@ -523,7 +525,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/uncategorized/axiom-syslog-proxy/default.nix:12",
+"position":"./pkgs/uncategorized/axiom-syslog-proxy/default.nix:13",
 "unfree":false,
 "unsupported":false
 },
@@ -796,6 +798,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/msojocs/bilibili-linux/releases/tag/1.16.3-3",
 "description":"Bilibili desktop client",
 "homepage":"https://app.bilibili.com/",
 "insecure":false,
@@ -827,7 +830,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/bilibili/default.nix:40",
+"position":"./pkgs/uncategorized/bilibili/default.nix:41",
 "unfree":true,
 "unsupported":false
 },
@@ -844,6 +847,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/xddxdd/bird-lg-go/releases/tag/v1.3.8",
 "description":"BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint",
 "homepage":"https://github.com/xddxdd/bird-lg-go",
 "insecure":false,
@@ -909,7 +913,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/uncategorized/bird-lg-go/default.nix:16",
+"position":"./pkgs/uncategorized/bird-lg-go/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -1227,6 +1231,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/mikespub-org/seblucas-cops/releases/tag/3.6.1",
 "description":"Calibre OPDS (and HTML) PHP Server : web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks (epub, mobi, pdf, ...)",
 "homepage":"http://blog.slucas.fr/en/oss/calibre-opds-php-server",
 "insecure":false,
@@ -1259,7 +1264,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/calibre-cops/default.nix:37",
+"position":"./pkgs/uncategorized/calibre-cops/default.nix:38",
 "unfree":false,
 "unsupported":false
 },
@@ -1373,6 +1378,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/jwodder/click-loglevel/releases/tag/v0.6.0",
 "description":"Log level parameter type for Click",
 "homepage":"https://github.com/jwodder/click-loglevel",
 "insecure":false,
@@ -1477,7 +1483,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/click-loglevel/default.nix:24",
+"position":"./pkgs/python-packages/click-loglevel/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -1909,10 +1915,94 @@
 "system":"x86_64-linux",
 "version":"1.50.2"
 },
+"deeplx":{
+"meta":{
+"available":true,
+"broken":false,
+"changelog":"https://github.com/OwO-Network/DeepLX/releases/tag/v1.0.7",
+"description":"Powerful Free DeepL API, No Token Required",
+"homepage":"https://deeplx.owo.network",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"mainProgram":"DeepLX",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"deeplx-1.0.7",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin",
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"wasm64-wasi",
+"wasm32-wasi",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd"
+],
+"position":"./pkgs/uncategorized/deeplx/default.nix:13",
+"unfree":false,
+"unsupported":false
+},
+"name":"deeplx-1.0.7",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"deeplx",
+"system":"x86_64-linux",
+"version":"1.0.7"
+},
 "deprecated.glauth":{
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/glauth/glauth/releases/tag/v2.3.2",
 "description":"(DEPRECATED: glauth is available in nixpkgs by a different maintainer) Lightweight LDAP server for development, home use, or CI",
 "homepage":"https://github.com/glauth/glauth",
 "insecure":true,
@@ -1981,7 +2071,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/deprecated/glauth/default.nix:20",
+"position":"./pkgs/deprecated/glauth/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
@@ -1998,6 +2088,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/share121/inter-knot/releases/tag/2.16.9+36",
 "description":"(DEPRECATED: Service has ceased operation) \u7ef3\u7f51\u662f\u4e00\u4e2a\u6e38\u620f\u3001\u6280\u672f\u4ea4\u6d41\u5e73\u53f0",
 "homepage":"https://inot.top",
 "insecure":true,
@@ -2037,7 +2128,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/deprecated/inter-knot/default.nix:80",
+"position":"./pkgs/deprecated/inter-knot/default.nix:81",
 "unfree":false,
 "unsupported":false
 },
@@ -2159,6 +2250,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/ssut/payload-dumper-go/releases/tag/1.3.0",
 "description":"(DEPRECATED: payload-dumper-go is available in nixpkgs by a different maintainer) Android OTA payload dumper written in Go",
 "homepage":"https://github.com/ssut/payload-dumper-go",
 "insecure":true,
@@ -2227,7 +2319,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/deprecated/payload-dumper-go/default.nix:15",
+"position":"./pkgs/deprecated/payload-dumper-go/default.nix:16",
 "unfree":false,
 "unsupported":false
 },
@@ -2244,6 +2336,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/pocl/pocl/releases/tag/v6.0",
 "description":"(DEPRECATED: pocl is available in nixpkgs) Portable open source (MIT-licensed) implementation of the OpenCL standard",
 "homepage":"http://portablecl.org",
 "insecure":true,
@@ -2289,7 +2382,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/deprecated/pocl/default.nix:65",
+"position":"./pkgs/deprecated/pocl/default.nix:66",
 "unfree":false,
 "unsupported":false
 },
@@ -3098,6 +3191,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/rany2/edge-tts/releases/tag/7.0.0",
 "description":"Use Microsoft Edge's online text-to-speech service from Python WITHOUT needing Microsoft Edge or Windows or an API key",
 "homepage":"https://github.com/rany2/edge-tts",
 "insecure":false,
@@ -3203,7 +3297,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/edge-tts/default.nix:33",
+"position":"./pkgs/python-packages/edge-tts/default.nix:34",
 "unfree":false,
 "unsupported":false
 },
@@ -3288,6 +3382,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/KusakabeShi/EtherGuard-VPN/releases/tag/v0.3.5-f5",
 "description":"Layer 2 version of WireGuard with Floyd Warshall implementation in Go",
 "homepage":"https://github.com/KusakabeShi/EtherGuard-VPN",
 "insecure":false,
@@ -3344,7 +3439,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/etherguard/default.nix:14",
+"position":"./pkgs/uncategorized/etherguard/default.nix:15",
 "unfree":false,
 "unsupported":false
 },
@@ -3959,6 +4054,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/glauth/glauth/releases/tag/v2.3.2",
 "description":"(DEPRECATED: glauth is available in nixpkgs by a different maintainer) Lightweight LDAP server for development, home use, or CI",
 "homepage":"https://github.com/glauth/glauth",
 "insecure":true,
@@ -4027,7 +4123,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/deprecated/glauth/default.nix:20",
+"position":"./pkgs/deprecated/glauth/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
@@ -4153,6 +4249,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/gost-engine/engine/releases/tag/v3.0.3",
 "description":"Reference implementation of the Russian GOST crypto algorithms for OpenSSL",
 "homepage":"https://github.com/gost-engine/engine",
 "insecure":false,
@@ -4186,7 +4283,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/gost-engine/default.nix:18",
+"position":"./pkgs/uncategorized/gost-engine/default.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -4203,6 +4300,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/Grasscutters/Grasscutter/releases/tag/1.7.4",
 "description":"Server software reimplementation for a certain anime game",
 "homepage":"https://github.com/Grasscutters/Grasscutter",
 "insecure":false,
@@ -4238,7 +4336,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/grasscutter/default.nix:57",
+"position":"./pkgs/uncategorized/grasscutter/default.nix:58",
 "unfree":false,
 "unsupported":false
 },
@@ -4266,6 +4364,7 @@
 }
 ],
 "broken":false,
+"changelog":"https://github.com/helium/gwmp-mux/releases/tag/v0.11.0",
 "description":"Multiplexer for Semtech's GWMP over UDP",
 "homepage":"https://github.com/helium/gwmp-mux",
 "insecure":false,
@@ -4340,7 +4439,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/gwmp-mux/default.nix:15",
+"position":"./pkgs/uncategorized/gwmp-mux/default.nix:16",
 "unfree":false,
 "unsupported":false
 },
@@ -4605,6 +4704,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/SpeedyOrc-C/Hoyo-Glyphs/releases/tag/20241116",
 "description":"Constructed scripts by Hoyoverse \u7c73\u54c8\u6e38\u7684\u67b6\u7a7a\u6587\u5b57",
 "homepage":"https://github.com/SpeedyOrc-C/Hoyo-Glyphs",
 "insecure":false,
@@ -4637,7 +4737,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/hoyo-glyphs/default.nix:25",
+"position":"./pkgs/uncategorized/hoyo-glyphs/default.nix:26",
 "unfree":true,
 "unsupported":false
 },
@@ -4706,6 +4806,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/intel/igsc/releases/tag/V0.9.5",
 "description":"Intel graphics system controller firmware update library",
 "homepage":"https://github.com/intel/igsc",
 "insecure":false,
@@ -4756,6 +4857,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/studyzy/imewlconverter/releases/tag/v3.2.0",
 "description":"FOSS program for converting IME dictionaries",
 "homepage":"https://github.com/studyzy/imewlconverter",
 "insecure":false,
@@ -4795,7 +4897,7 @@
 "x86_64-darwin",
 "aarch64-darwin"
 ],
-"position":"./pkgs/uncategorized/imewlconverter/default.nix:19",
+"position":"./pkgs/uncategorized/imewlconverter/default.nix:20",
 "unfree":false,
 "unsupported":false
 },
@@ -4812,6 +4914,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/share121/inter-knot/releases/tag/2.16.9+36",
 "description":"(DEPRECATED: Service has ceased operation) \u7ef3\u7f51\u662f\u4e00\u4e2a\u6e38\u620f\u3001\u6280\u672f\u4ea4\u6d41\u5e73\u53f0",
 "homepage":"https://inot.top",
 "insecure":true,
@@ -4851,7 +4954,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/deprecated/inter-knot/default.nix:80",
+"position":"./pkgs/deprecated/inter-knot/default.nix:81",
 "unfree":false,
 "unsupported":false
 },
@@ -4967,6 +5070,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/nttcslab-sp/kaldiio/releases/tag/v2.18.1",
 "description":"Pure python module for reading and writing kaldi ark files",
 "homepage":"https://github.com/nttcslab-sp/kaldiio",
 "insecure":false,
@@ -5069,7 +5173,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/kaldiio/default.nix:24",
+"position":"./pkgs/python-packages/kaldiio/default.nix:25",
 "unfree":true,
 "unsupported":false
 },
@@ -5192,6 +5296,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/musikid/acpi_ec/releases/tag/v1.0.4",
 "description":"Kernel module to access directly to the ACPI EC",
 "homepage":"https://github.com/musikid/acpi_ec",
 "insecure":false,
@@ -5247,7 +5352,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/acpi-ec/default.nix:29",
+"position":"./pkgs/kernel-modules/acpi-ec/default.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -5602,6 +5707,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/abbbi/nullfsvfs/releases/tag/v0.18",
 "description":"Virtual black hole file system that behaves like /dev/null",
 "homepage":"https://github.com/abbbi/nullfsvfs",
 "insecure":false,
@@ -5657,7 +5763,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/nullfsvfs/default.nix:30",
+"position":"./pkgs/kernel-modules/nullfsvfs/default.nix:31",
 "unfree":false,
 "unsupported":false
 },
@@ -5886,6 +5992,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/KikoPlayProject/KikoPlay/releases/tag/1.0.3",
 "description":"More than a Full-Featured Danmu Player",
 "homepage":"https://kikoplay.fun",
 "insecure":false,
@@ -5919,7 +6026,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/kikoplay/default.nix:70",
+"position":"./pkgs/uncategorized/kikoplay/default.nix:71",
 "unfree":false,
 "unsupported":false
 },
@@ -6450,6 +6557,7 @@
 "armv7a-darwin"
 ],
 "broken":false,
+"changelog":"https://github.com/ggml-org/llama.cpp/releases/tag/b5143",
 "description":"Inference of Meta's LLaMA model (and others) in pure C/C++",
 "homepage":"https://github.com/ggml-org/llama.cpp",
 "insecure":false,
@@ -6479,7 +6587,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"llama-cpp-5138",
+"name":"llama-cpp-5143",
 "outputsToInstall":[
 "out"
 ],
@@ -6534,14 +6642,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-5138",
+"name":"llama-cpp-5143",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"5138"
+"version":"5143"
 },
 "lantianCustomized.materialgram":{
 "meta":{
@@ -10792,6 +10900,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/open-quantum-safe/liboqs/releases/tag/0.12.0",
 "description":"C library for prototyping and experimenting with quantum-resistant cryptography",
 "homepage":"https://openquantumsafe.org",
 "insecure":false,
@@ -10826,7 +10935,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/liboqs/generic.nix:40",
+"position":"./pkgs/uncategorized/liboqs/generic.nix:41",
 "unfree":false,
 "unsupported":false
 },
@@ -10843,6 +10952,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/open-quantum-safe/liboqs/releases/tag/0-unstable-2025-04-11",
 "description":"C library for prototyping and experimenting with quantum-resistant cryptography",
 "homepage":"https://openquantumsafe.org",
 "insecure":false,
@@ -10877,7 +10987,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/liboqs/generic.nix:40",
+"position":"./pkgs/uncategorized/liboqs/generic.nix:41",
 "unfree":false,
 "unsupported":false
 },
@@ -11079,6 +11189,7 @@
 }
 ],
 "broken":false,
+"changelog":"https://github.com/chiyuki0325/lyrica/releases/tag/v0.12",
 "description":"Linux desktop lyrics widget focused on simplicity and integration",
 "homepage":"https://github.com/chiyuki0325/lyrica",
 "insecure":false,
@@ -11151,7 +11262,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/lyrica/default.nix:25",
+"position":"./pkgs/uncategorized/lyrica/default.nix:26",
 "unfree":true,
 "unsupported":false
 },
@@ -11215,6 +11326,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/topjohnwu/Magisk/releases/tag/28.1",
 "description":"Tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms",
 "homepage":"https://topjohnwu.github.io/Magisk/tools.html",
 "insecure":false,
@@ -11250,7 +11362,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/magiskboot/default.nix:44",
+"position":"./pkgs/uncategorized/magiskboot/default.nix:45",
 "unfree":false,
 "unsupported":false
 },
@@ -11267,6 +11379,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/mautrix/gmessages/releases/tag/v0.6.1",
 "description":"Matrix-Google Messages puppeting bridge",
 "homepage":"https://github.com/mautrix/gmessages",
 "insecure":false,
@@ -11332,7 +11445,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/uncategorized/mautrix-gmessages/default.nix:24",
+"position":"./pkgs/uncategorized/mautrix-gmessages/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -11349,6 +11462,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/intel/metee/releases/tag/5.0.0",
 "description":"C library to access CSE/CSME/GSC firmware via a MEI interface",
 "homepage":"https://github.com/intel/metee",
 "insecure":false,
@@ -11398,6 +11512,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/modelscope/modelscope/releases/tag/v1.25.0",
 "description":"Bring the notion of Model-as-a-Service to life",
 "homepage":"https://www.modelscope.cn/",
 "insecure":false,
@@ -11464,7 +11579,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-modelscope-1.24.1",
+"name":"python3.12-modelscope-1.25.0",
 "outputsToInstall":[
 "out"
 ],
@@ -11503,11 +11618,11 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/modelscope/default.nix:51",
+"position":"./pkgs/python-packages/modelscope/default.nix:52",
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-modelscope-1.24.1",
+"name":"python3.12-modelscope-1.25.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -11515,12 +11630,13 @@
 },
 "pname":"python3.12-modelscope",
 "system":"x86_64-linux",
-"version":"1.24.1"
+"version":"1.25.0"
 },
 "mtkclient":{
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/bkerler/mtkclient/releases/tag/2.0.1.freeze",
 "description":"MTK reverse engineering and flash tool",
 "homepage":"https://github.com/bkerler/mtkclient",
 "insecure":false,
@@ -11626,7 +11742,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/mtkclient/default.nix:62",
+"position":"./pkgs/python-packages/mtkclient/default.nix:63",
 "unfree":false,
 "unsupported":false
 },
@@ -11655,6 +11771,7 @@
 }
 ],
 "broken":false,
+"changelog":"https://github.com/iqiziqi/ncmdump.rs/releases/tag/0.8.0",
 "description":"NetEase Cloud Music copyright protection file dump by rust",
 "homepage":"https://github.com/iqiziqi/ncmdump.rs",
 "insecure":false,
@@ -11729,7 +11846,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/ncmdump-rs/default.nix:15",
+"position":"./pkgs/uncategorized/ncmdump-rs/default.nix:16",
 "unfree":false,
 "unsupported":false
 },
@@ -12041,6 +12158,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/werman/noise-suppression-for-voice/releases/tag/v1.10",
 "description":"Noise suppression plugin based on Xiph's RNNoise",
 "homepage":"https://github.com/werman/noise-suppression-for-voice",
 "insecure":false,
@@ -12073,7 +12191,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/noise-suppression-for-voice/default.nix:66",
+"position":"./pkgs/uncategorized/noise-suppression-for-voice/default.nix:67",
 "unfree":false,
 "unsupported":false
 },
@@ -12142,6 +12260,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/abbbi/nullfsvfs/releases/tag/v0.18",
 "description":"Virtual black hole file system that behaves like /dev/null",
 "homepage":"https://github.com/abbbi/nullfsvfs",
 "insecure":false,
@@ -12197,7 +12316,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/kernel-modules/nullfsvfs/default.nix:30",
+"position":"./pkgs/kernel-modules/nullfsvfs/default.nix:31",
 "unfree":false,
 "unsupported":false
 },
@@ -12597,6 +12716,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/matatonic/openedai-speech/releases/tag/0.18.2",
 "description":"OpenAI API compatible text to speech server using Coqui AI's xtts_v2 and/or piper tts as the backend",
 "homepage":"https://github.com/matatonic/openedai-speech",
 "insecure":false,
@@ -12632,7 +12752,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/openedai-speech/default.nix:68",
+"position":"./pkgs/uncategorized/openedai-speech/default.nix:69",
 "unfree":false,
 "unsupported":false
 },
@@ -28785,6 +28905,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/open-quantum-safe/oqs-provider/releases/tag/0.8.0",
 "description":"OpenSSL 3 provider containing post-quantum algorithms",
 "homepage":"https://openquantumsafe.org",
 "insecure":false,
@@ -28819,7 +28940,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/openssl-oqs-provider/default.nix:56",
+"position":"./pkgs/uncategorized/openssl-oqs-provider/default.nix:57",
 "unfree":false,
 "unsupported":false
 },
@@ -28932,6 +29053,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/aviramha/ormsgpack/releases/tag/1.9.1",
 "description":"Msgpack serialization/deserialization library for Python, written in Rust using PyO3 and rust-msgpack",
 "homepage":"https://github.com/aviramha/ormsgpack",
 "insecure":false,
@@ -29045,7 +29167,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/ormsgpack/default.nix:28",
+"position":"./pkgs/python-packages/ormsgpack/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
@@ -29063,6 +29185,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/osdlyrics/osdlyrics/releases/tag/0.5.15",
 "description":"Standalone lyrics fetcher/displayer (windowed and OSD mode)",
 "homepage":"https://github.com/osdlyrics/osdlyrics",
 "insecure":false,
@@ -29096,7 +29219,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/osdlyrics/default.nix:84",
+"position":"./pkgs/uncategorized/osdlyrics/default.nix:85",
 "unfree":false,
 "unsupported":false
 },
@@ -29308,6 +29431,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/legoduded/palworld-worldoptions/releases/tag/v1.11.0",
 "description":"Tool for creating WorldOption.sav and applying the PalWorldSettings.ini for dedicated servers",
 "homepage":"https://github.com/legoduded/palworld-worldoptions",
 "insecure":false,
@@ -29339,7 +29463,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/palworld-worldoptions/default.nix:31",
+"position":"./pkgs/uncategorized/palworld-worldoptions/default.nix:32",
 "unfree":true,
 "unsupported":false
 },
@@ -29356,6 +29480,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/ssut/payload-dumper-go/releases/tag/1.3.0",
 "description":"(DEPRECATED: payload-dumper-go is available in nixpkgs by a different maintainer) Android OTA payload dumper written in Go",
 "homepage":"https://github.com/ssut/payload-dumper-go",
 "insecure":true,
@@ -29424,7 +29549,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/deprecated/payload-dumper-go/default.nix:15",
+"position":"./pkgs/deprecated/payload-dumper-go/default.nix:16",
 "unfree":false,
 "unsupported":false
 },
@@ -29441,6 +29566,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/Ghost-chu/PeerBanHelper/releases/tag/7.4.12",
 "description":"\u81ea\u52a8\u5c01\u7981\u4e0d\u53d7\u6b22\u8fce\u3001\u5438\u8840\u548c\u5f02\u5e38\u7684 BT \u5ba2\u6237\u7aef\uff0c\u5e76\u652f\u6301\u81ea\u5b9a\u4e49\u89c4\u5219\u3002PeerId\u9ed1\u540d\u5355/UserAgent\u9ed1\u540d\u5355/IP CIDR/\u5047\u8fdb\u5ea6\u68c0\u6d4b/\u8d85\u91cf\u4e0b\u8f7d\u68c0\u6d4b/\u4e3b\u52a8\u63a2\u6d4b \u652f\u6301 qBittorrent/Transmission",
 "homepage":"https://github.com/Ghost-chu/PeerBanHelper",
 "insecure":false,
@@ -29474,7 +29600,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/peerbanhelper/default.nix:33",
+"position":"./pkgs/uncategorized/peerbanhelper/default.nix:34",
 "unfree":false,
 "unsupported":false
 },
@@ -29540,6 +29666,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/ReimuHakurei/phppgadmin/releases/tag/v7.14.7-mod",
 "description":"Premier web-based administration tool for PostgreSQL",
 "homepage":"https://github.com/phppgadmin/phppgadmin",
 "insecure":false,
@@ -29572,7 +29699,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/phppgadmin/default.nix:27",
+"position":"./pkgs/uncategorized/phppgadmin/default.nix:28",
 "unfree":false,
 "unsupported":false
 },
@@ -29618,7 +29745,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"piliplus-1.1.3.30",
+"name":"piliplus-1.1.3.31",
 "outputsToInstall":[
 "out"
 ],
@@ -29629,7 +29756,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"piliplus-1.1.3.30",
+"name":"piliplus-1.1.3.31",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -29638,7 +29765,7 @@
 },
 "pname":"piliplus",
 "system":"x86_64-linux",
-"version":"1.1.3.30"
+"version":"1.1.3.31"
 },
 "piper-tts":{
 "meta":{
@@ -29912,6 +30039,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/luisbocanegra/plasma-smart-video-wallpaper-reborn/releases/tag/v2.1.0",
 "description":"Plasma 6 wallpaper plugin to play videos on your Desktop/Lock Screen",
 "homepage":"https://store.kde.org/p/2139746",
 "insecure":false,
@@ -29944,7 +30072,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/plasma-smart-video-wallpaper-reborn/default.nix:16",
+"position":"./pkgs/uncategorized/plasma-smart-video-wallpaper-reborn/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -30010,6 +30138,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/pocl/pocl/releases/tag/v6.0",
 "description":"(DEPRECATED: pocl is available in nixpkgs) Portable open source (MIT-licensed) implementation of the OpenCL standard",
 "homepage":"http://portablecl.org",
 "insecure":true,
@@ -30055,7 +30184,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/deprecated/pocl/default.nix:65",
+"position":"./pkgs/deprecated/pocl/default.nix:66",
 "unfree":false,
 "unsupported":false
 },
@@ -30400,6 +30529,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/jwodder/click-loglevel/releases/tag/v0.6.0",
 "description":"Log level parameter type for Click",
 "homepage":"https://github.com/jwodder/click-loglevel",
 "insecure":false,
@@ -30504,7 +30634,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/click-loglevel/default.nix:24",
+"position":"./pkgs/python-packages/click-loglevel/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -31008,6 +31138,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/rany2/edge-tts/releases/tag/7.0.0",
 "description":"Use Microsoft Edge's online text-to-speech service from Python WITHOUT needing Microsoft Edge or Windows or an API key",
 "homepage":"https://github.com/rany2/edge-tts",
 "insecure":false,
@@ -31113,7 +31244,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/edge-tts/default.nix:33",
+"position":"./pkgs/python-packages/edge-tts/default.nix:34",
 "unfree":false,
 "unsupported":false
 },
@@ -31377,6 +31508,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/nttcslab-sp/kaldiio/releases/tag/v2.18.1",
 "description":"Pure python module for reading and writing kaldi ark files",
 "homepage":"https://github.com/nttcslab-sp/kaldiio",
 "insecure":false,
@@ -31479,7 +31611,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/kaldiio/default.nix:24",
+"position":"./pkgs/python-packages/kaldiio/default.nix:25",
 "unfree":true,
 "unsupported":false
 },
@@ -31741,6 +31873,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/modelscope/modelscope/releases/tag/v1.25.0",
 "description":"Bring the notion of Model-as-a-Service to life",
 "homepage":"https://www.modelscope.cn/",
 "insecure":false,
@@ -31807,7 +31940,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"python3.12-modelscope-1.24.1",
+"name":"python3.12-modelscope-1.25.0",
 "outputsToInstall":[
 "out"
 ],
@@ -31846,11 +31979,11 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/modelscope/default.nix:51",
+"position":"./pkgs/python-packages/modelscope/default.nix:52",
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-modelscope-1.24.1",
+"name":"python3.12-modelscope-1.25.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -31858,12 +31991,13 @@
 },
 "pname":"python3.12-modelscope",
 "system":"x86_64-linux",
-"version":"1.24.1"
+"version":"1.25.0"
 },
 "python3Packages.mtkclient":{
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/bkerler/mtkclient/releases/tag/2.0.1.freeze",
 "description":"MTK reverse engineering and flash tool",
 "homepage":"https://github.com/bkerler/mtkclient",
 "insecure":false,
@@ -31969,7 +32103,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/mtkclient/default.nix:62",
+"position":"./pkgs/python-packages/mtkclient/default.nix:63",
 "unfree":false,
 "unsupported":false
 },
@@ -32109,6 +32243,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/aviramha/ormsgpack/releases/tag/1.9.1",
 "description":"Msgpack serialization/deserialization library for Python, written in Rust using PyO3 and rust-msgpack",
 "homepage":"https://github.com/aviramha/ormsgpack",
 "insecure":false,
@@ -32222,7 +32357,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/ormsgpack/default.nix:28",
+"position":"./pkgs/python-packages/ormsgpack/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
@@ -32484,6 +32619,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/nttcslab-sp/dnn_wpe/releases/tag/v0.0.1",
 "description":"WPE implementation using PyTorch",
 "homepage":"https://github.com/nttcslab-sp/dnn_wpe",
 "insecure":false,
@@ -32586,7 +32722,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/pytorch-wpe/default.nix:23",
+"position":"./pkgs/python-packages/pytorch-wpe/default.nix:24",
 "unfree":true,
 "unsupported":false
 },
@@ -32604,6 +32740,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/ashleve/rootutils/releases/tag/v1.0.7",
 "description":"Simple python package to solve all your problems with pythonpath, work dir, file paths, module imports and environment variables",
 "homepage":"https://pypi.org/project/rootutils/",
 "insecure":false,
@@ -32708,7 +32845,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/rootutils/default.nix:19",
+"position":"./pkgs/python-packages/rootutils/default.nix:20",
 "unfree":false,
 "unsupported":false
 },
@@ -32726,6 +32863,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/runpod/runpod-python/releases/tag/1.7.9",
 "description":"Python library for RunPod API and serverless worker SDK",
 "homepage":"https://github.com/runpod/runpod-python",
 "insecure":false,
@@ -32829,7 +32967,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/runpod-python/default.nix:65",
+"position":"./pkgs/python-packages/runpod-python/default.nix:66",
 "unfree":false,
 "unsupported":false
 },
@@ -32847,6 +32985,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/snakers4/silero-vad/releases/tag/v5.1.2",
 "description":"Pre-trained enterprise-grade Voice Activity Detector",
 "homepage":"https://github.com/snakers4/silero-vad",
 "insecure":false,
@@ -32951,7 +33090,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/silero-vad/default.nix:30",
+"position":"./pkgs/python-packages/silero-vad/default.nix:31",
 "unfree":false,
 "unsupported":false
 },
@@ -32969,6 +33108,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/zacherythomas/smartrent-py/releases/tag/v0.5.0",
 "description":"Api for SmartRent locks, thermostats, moisture sensors and switches",
 "homepage":"https://github.com/ZacheryThomas/smartrent.py",
 "insecure":false,
@@ -33073,7 +33213,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/smartrent_py/default.nix:34",
+"position":"./pkgs/python-packages/smartrent_py/default.nix:35",
 "unfree":false,
 "unsupported":false
 },
@@ -33334,6 +33474,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/lucidrains/vector-quantize-pytorch/releases/tag/1.22.15",
 "description":"Vector (and Scalar) Quantization, in Pytorch",
 "homepage":"https://github.com/lucidrains/vector-quantize-pytorch",
 "insecure":false,
@@ -33438,7 +33579,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/vector-quantize-pytorch/default.nix:26",
+"position":"./pkgs/python-packages/vector-quantize-pytorch/default.nix:27",
 "unfree":false,
 "unsupported":false
 },
@@ -33820,6 +33961,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/nttcslab-sp/dnn_wpe/releases/tag/v0.0.1",
 "description":"WPE implementation using PyTorch",
 "homepage":"https://github.com/nttcslab-sp/dnn_wpe",
 "insecure":false,
@@ -33922,7 +34064,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/pytorch-wpe/default.nix:23",
+"position":"./pkgs/python-packages/pytorch-wpe/default.nix:24",
 "unfree":true,
 "unsupported":false
 },
@@ -34660,7 +34802,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-ice-0-unstable-2025-04-06",
+"name":"rime-ice-0-unstable-2025-04-16",
 "outputsToInstall":[
 "out"
 ],
@@ -34668,19 +34810,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-0-unstable-2025-04-06",
+"name":"rime-ice-0-unstable-2025-04-16",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-ice",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-04-06"
+"version":"0-unstable-2025-04-16"
 },
 "rime-moegirl":{
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/outloudvi/mw2fcitx/releases/tag/20250409",
 "description":"RIME dictionary file for entries from zh.moegirl.org.cn",
 "homepage":"https://github.com/outloudvi/mw2fcitx/releases",
 "insecure":false,
@@ -34713,7 +34856,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/rime-moegirl/default.nix:21",
+"position":"./pkgs/uncategorized/rime-moegirl/default.nix:22",
 "unfree":false,
 "unsupported":false
 },
@@ -34790,6 +34933,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/ashleve/rootutils/releases/tag/v1.0.7",
 "description":"Simple python package to solve all your problems with pythonpath, work dir, file paths, module imports and environment variables",
 "homepage":"https://pypi.org/project/rootutils/",
 "insecure":false,
@@ -34894,7 +35038,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/rootutils/default.nix:19",
+"position":"./pkgs/python-packages/rootutils/default.nix:20",
 "unfree":false,
 "unsupported":false
 },
@@ -34962,6 +35106,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/runpod/runpod-python/releases/tag/1.7.9",
 "description":"Python library for RunPod API and serverless worker SDK",
 "homepage":"https://github.com/runpod/runpod-python",
 "insecure":false,
@@ -35065,7 +35210,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/runpod-python/default.nix:65",
+"position":"./pkgs/python-packages/runpod-python/default.nix:66",
 "unfree":false,
 "unsupported":false
 },
@@ -35083,6 +35228,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/runpod/runpodctl/releases/tag/v1.14.4",
 "description":"RunPod CLI for pod management",
 "homepage":"https://www.runpod.io",
 "insecure":false,
@@ -35148,7 +35294,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/uncategorized/runpodctl/default.nix:17",
+"position":"./pkgs/uncategorized/runpodctl/default.nix:18",
 "unfree":false,
 "unsupported":false
 },
@@ -35165,8 +35311,9 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/SamToki/Sam-Toki-Mouse-Cursors/releases/tag/v7.03",
 "description":"Original mouse cursors (pointers) for Windows, with minimalistic design",
-"homepage":"https://github.com/SamToki/IconDesign---Sam-Toki-Mouse-Cursors",
+"homepage":"https://github.com/SamToki/Sam-Toki-Mouse-Cursors",
 "insecure":false,
 "license":{
 "deprecated":false,
@@ -35197,7 +35344,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/sam-toki-mouse-cursors/default.nix:44",
+"position":"./pkgs/uncategorized/sam-toki-mouse-cursors/default.nix:45",
 "unfree":true,
 "unsupported":false
 },
@@ -35267,6 +35414,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/snakers4/silero-vad/releases/tag/v5.1.2",
 "description":"Pre-trained enterprise-grade Voice Activity Detector",
 "homepage":"https://github.com/snakers4/silero-vad",
 "insecure":false,
@@ -35371,7 +35519,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/silero-vad/default.nix:30",
+"position":"./pkgs/python-packages/silero-vad/default.nix:31",
 "unfree":false,
 "unsupported":false
 },
@@ -35389,6 +35537,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/zacherythomas/smartrent-py/releases/tag/v0.5.0",
 "description":"Api for SmartRent locks, thermostats, moisture sensors and switches",
 "homepage":"https://github.com/ZacheryThomas/smartrent.py",
 "insecure":false,
@@ -35493,7 +35642,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/smartrent_py/default.nix:34",
+"position":"./pkgs/python-packages/smartrent_py/default.nix:35",
 "unfree":false,
 "unsupported":false
 },
@@ -35511,6 +35660,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/petersulyok/smfc/releases/tag/v3.8.0",
 "description":"Super Micro Fan Control",
 "homepage":"https://github.com/petersulyok/smfc",
 "insecure":false,
@@ -35546,7 +35696,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/smfc/default.nix:37",
+"position":"./pkgs/uncategorized/smfc/default.nix:38",
 "unfree":false,
 "unsupported":false
 },
@@ -36713,6 +36863,7 @@
 }
 ],
 "broken":false,
+"changelog":"https://github.com/trumank/uesave-rs/releases/tag/v0.6.1",
 "description":"Library for reading and writing Unreal Engine save files (commonly referred to as GVAS)",
 "homepage":"https://github.com/trumank/uesave-rs",
 "insecure":false,
@@ -36787,7 +36938,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/uesave/default.nix:24",
+"position":"./pkgs/uncategorized/uesave/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -37158,6 +37309,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/axiomhq/axiom-syslog-proxy/releases/tag/v0.8.0",
 "description":"Syslog push interface to Axiom",
 "homepage":"https://github.com/axiomhq/axiom-syslog-proxy",
 "insecure":false,
@@ -37223,7 +37375,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/uncategorized/axiom-syslog-proxy/default.nix:12",
+"position":"./pkgs/uncategorized/axiom-syslog-proxy/default.nix:13",
 "unfree":false,
 "unsupported":false
 },
@@ -37373,6 +37525,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/msojocs/bilibili-linux/releases/tag/1.16.3-3",
 "description":"Bilibili desktop client",
 "homepage":"https://app.bilibili.com/",
 "insecure":false,
@@ -37404,7 +37557,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/bilibili/default.nix:40",
+"position":"./pkgs/uncategorized/bilibili/default.nix:41",
 "unfree":true,
 "unsupported":false
 },
@@ -37421,6 +37574,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/xddxdd/bird-lg-go/releases/tag/v1.3.8",
 "description":"BIRD looking glass in Go, for better maintainability, easier deployment & smaller memory footprint",
 "homepage":"https://github.com/xddxdd/bird-lg-go",
 "insecure":false,
@@ -37486,7 +37640,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/uncategorized/bird-lg-go/default.nix:16",
+"position":"./pkgs/uncategorized/bird-lg-go/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -37804,6 +37958,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/mikespub-org/seblucas-cops/releases/tag/3.6.1",
 "description":"Calibre OPDS (and HTML) PHP Server : web-based light alternative to Calibre content server / Calibre2OPDS to serve ebooks (epub, mobi, pdf, ...)",
 "homepage":"http://blog.slucas.fr/en/oss/calibre-opds-php-server",
 "insecure":false,
@@ -37836,7 +37991,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/calibre-cops/default.nix:37",
+"position":"./pkgs/uncategorized/calibre-cops/default.nix:38",
 "unfree":false,
 "unsupported":false
 },
@@ -38047,6 +38202,89 @@
 "pname":"decluttarr",
 "system":"x86_64-linux",
 "version":"1.50.2"
+},
+"uncategorized.deeplx":{
+"meta":{
+"available":true,
+"broken":false,
+"changelog":"https://github.com/OwO-Network/DeepLX/releases/tag/v1.0.7",
+"description":"Powerful Free DeepL API, No Token Required",
+"homepage":"https://deeplx.owo.network",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"mainProgram":"DeepLX",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"deeplx-1.0.7",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-darwin",
+"i686-darwin",
+"aarch64-darwin",
+"armv7a-darwin",
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"wasm64-wasi",
+"wasm32-wasi",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd"
+],
+"position":"./pkgs/uncategorized/deeplx/default.nix:13",
+"unfree":false,
+"unsupported":false
+},
+"name":"deeplx-1.0.7",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"deeplx",
+"system":"x86_64-linux",
+"version":"1.0.7"
 },
 "uncategorized.dingtalk":{
 "meta":{
@@ -38435,6 +38673,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/KusakabeShi/EtherGuard-VPN/releases/tag/v0.3.5-f5",
 "description":"Layer 2 version of WireGuard with Floyd Warshall implementation in Go",
 "homepage":"https://github.com/KusakabeShi/EtherGuard-VPN",
 "insecure":false,
@@ -38491,7 +38730,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/etherguard/default.nix:14",
+"position":"./pkgs/uncategorized/etherguard/default.nix:15",
 "unfree":false,
 "unsupported":false
 },
@@ -38969,6 +39208,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/gost-engine/engine/releases/tag/v3.0.3",
 "description":"Reference implementation of the Russian GOST crypto algorithms for OpenSSL",
 "homepage":"https://github.com/gost-engine/engine",
 "insecure":false,
@@ -39002,7 +39242,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/gost-engine/default.nix:18",
+"position":"./pkgs/uncategorized/gost-engine/default.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -39019,6 +39259,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/Grasscutters/Grasscutter/releases/tag/1.7.4",
 "description":"Server software reimplementation for a certain anime game",
 "homepage":"https://github.com/Grasscutters/Grasscutter",
 "insecure":false,
@@ -39054,7 +39295,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/grasscutter/default.nix:57",
+"position":"./pkgs/uncategorized/grasscutter/default.nix:58",
 "unfree":false,
 "unsupported":false
 },
@@ -39082,6 +39323,7 @@
 }
 ],
 "broken":false,
+"changelog":"https://github.com/helium/gwmp-mux/releases/tag/v0.11.0",
 "description":"Multiplexer for Semtech's GWMP over UDP",
 "homepage":"https://github.com/helium/gwmp-mux",
 "insecure":false,
@@ -39156,7 +39398,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/gwmp-mux/default.nix:15",
+"position":"./pkgs/uncategorized/gwmp-mux/default.nix:16",
 "unfree":false,
 "unsupported":false
 },
@@ -39421,6 +39663,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/SpeedyOrc-C/Hoyo-Glyphs/releases/tag/20241116",
 "description":"Constructed scripts by Hoyoverse \u7c73\u54c8\u6e38\u7684\u67b6\u7a7a\u6587\u5b57",
 "homepage":"https://github.com/SpeedyOrc-C/Hoyo-Glyphs",
 "insecure":false,
@@ -39453,7 +39696,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/hoyo-glyphs/default.nix:25",
+"position":"./pkgs/uncategorized/hoyo-glyphs/default.nix:26",
 "unfree":true,
 "unsupported":false
 },
@@ -39470,6 +39713,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/intel/igsc/releases/tag/V0.9.5",
 "description":"Intel graphics system controller firmware update library",
 "homepage":"https://github.com/intel/igsc",
 "insecure":false,
@@ -39520,6 +39764,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/studyzy/imewlconverter/releases/tag/v3.2.0",
 "description":"FOSS program for converting IME dictionaries",
 "homepage":"https://github.com/studyzy/imewlconverter",
 "insecure":false,
@@ -39559,7 +39804,7 @@
 "x86_64-darwin",
 "aarch64-darwin"
 ],
-"position":"./pkgs/uncategorized/imewlconverter/default.nix:19",
+"position":"./pkgs/uncategorized/imewlconverter/default.nix:20",
 "unfree":false,
 "unsupported":false
 },
@@ -39675,6 +39920,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/KikoPlayProject/KikoPlay/releases/tag/1.0.3",
 "description":"More than a Full-Featured Danmu Player",
 "homepage":"https://kikoplay.fun",
 "insecure":false,
@@ -39708,7 +39954,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/kikoplay/default.nix:70",
+"position":"./pkgs/uncategorized/kikoplay/default.nix:71",
 "unfree":false,
 "unsupported":false
 },
@@ -39961,6 +40207,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/open-quantum-safe/liboqs/releases/tag/0.12.0",
 "description":"C library for prototyping and experimenting with quantum-resistant cryptography",
 "homepage":"https://openquantumsafe.org",
 "insecure":false,
@@ -39995,7 +40242,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/liboqs/generic.nix:40",
+"position":"./pkgs/uncategorized/liboqs/generic.nix:41",
 "unfree":false,
 "unsupported":false
 },
@@ -40012,6 +40259,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/open-quantum-safe/liboqs/releases/tag/0-unstable-2025-04-11",
 "description":"C library for prototyping and experimenting with quantum-resistant cryptography",
 "homepage":"https://openquantumsafe.org",
 "insecure":false,
@@ -40046,7 +40294,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/liboqs/generic.nix:40",
+"position":"./pkgs/uncategorized/liboqs/generic.nix:41",
 "unfree":false,
 "unsupported":false
 },
@@ -40126,6 +40374,7 @@
 }
 ],
 "broken":false,
+"changelog":"https://github.com/chiyuki0325/lyrica/releases/tag/v0.12",
 "description":"Linux desktop lyrics widget focused on simplicity and integration",
 "homepage":"https://github.com/chiyuki0325/lyrica",
 "insecure":false,
@@ -40198,7 +40447,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/lyrica/default.nix:25",
+"position":"./pkgs/uncategorized/lyrica/default.nix:26",
 "unfree":true,
 "unsupported":false
 },
@@ -40262,6 +40511,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/topjohnwu/Magisk/releases/tag/28.1",
 "description":"Tool to unpack / repack boot images, parse / patch / extract cpio, patch dtb, hex patch binaries, and compress / decompress files with multiple algorithms",
 "homepage":"https://topjohnwu.github.io/Magisk/tools.html",
 "insecure":false,
@@ -40297,7 +40547,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/magiskboot/default.nix:44",
+"position":"./pkgs/uncategorized/magiskboot/default.nix:45",
 "unfree":false,
 "unsupported":false
 },
@@ -40314,6 +40564,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/mautrix/gmessages/releases/tag/v0.6.1",
 "description":"Matrix-Google Messages puppeting bridge",
 "homepage":"https://github.com/mautrix/gmessages",
 "insecure":false,
@@ -40379,7 +40630,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/uncategorized/mautrix-gmessages/default.nix:24",
+"position":"./pkgs/uncategorized/mautrix-gmessages/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -40396,6 +40647,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/intel/metee/releases/tag/5.0.0",
 "description":"C library to access CSE/CSME/GSC firmware via a MEI interface",
 "homepage":"https://github.com/intel/metee",
 "insecure":false,
@@ -40456,6 +40708,7 @@
 }
 ],
 "broken":false,
+"changelog":"https://github.com/iqiziqi/ncmdump.rs/releases/tag/0.8.0",
 "description":"NetEase Cloud Music copyright protection file dump by rust",
 "homepage":"https://github.com/iqiziqi/ncmdump.rs",
 "insecure":false,
@@ -40530,7 +40783,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/ncmdump-rs/default.nix:15",
+"position":"./pkgs/uncategorized/ncmdump-rs/default.nix:16",
 "unfree":false,
 "unsupported":false
 },
@@ -40770,6 +41023,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/werman/noise-suppression-for-voice/releases/tag/v1.10",
 "description":"Noise suppression plugin based on Xiph's RNNoise",
 "homepage":"https://github.com/werman/noise-suppression-for-voice",
 "insecure":false,
@@ -40802,7 +41056,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/noise-suppression-for-voice/default.nix:66",
+"position":"./pkgs/uncategorized/noise-suppression-for-voice/default.nix:67",
 "unfree":false,
 "unsupported":false
 },
@@ -41132,6 +41386,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/matatonic/openedai-speech/releases/tag/0.18.2",
 "description":"OpenAI API compatible text to speech server using Coqui AI's xtts_v2 and/or piper tts as the backend",
 "homepage":"https://github.com/matatonic/openedai-speech",
 "insecure":false,
@@ -41167,7 +41422,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/openedai-speech/default.nix:68",
+"position":"./pkgs/uncategorized/openedai-speech/default.nix:69",
 "unfree":false,
 "unsupported":false
 },
@@ -41325,6 +41580,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/open-quantum-safe/oqs-provider/releases/tag/0.8.0",
 "description":"OpenSSL 3 provider containing post-quantum algorithms",
 "homepage":"https://openquantumsafe.org",
 "insecure":false,
@@ -41359,7 +41615,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/openssl-oqs-provider/default.nix:56",
+"position":"./pkgs/uncategorized/openssl-oqs-provider/default.nix:57",
 "unfree":false,
 "unsupported":false
 },
@@ -41472,6 +41728,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/osdlyrics/osdlyrics/releases/tag/0.5.15",
 "description":"Standalone lyrics fetcher/displayer (windowed and OSD mode)",
 "homepage":"https://github.com/osdlyrics/osdlyrics",
 "insecure":false,
@@ -41505,7 +41762,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/osdlyrics/default.nix:84",
+"position":"./pkgs/uncategorized/osdlyrics/default.nix:85",
 "unfree":false,
 "unsupported":false
 },
@@ -41645,6 +41902,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/legoduded/palworld-worldoptions/releases/tag/v1.11.0",
 "description":"Tool for creating WorldOption.sav and applying the PalWorldSettings.ini for dedicated servers",
 "homepage":"https://github.com/legoduded/palworld-worldoptions",
 "insecure":false,
@@ -41676,7 +41934,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/palworld-worldoptions/default.nix:31",
+"position":"./pkgs/uncategorized/palworld-worldoptions/default.nix:32",
 "unfree":true,
 "unsupported":false
 },
@@ -41693,6 +41951,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/Ghost-chu/PeerBanHelper/releases/tag/7.4.12",
 "description":"\u81ea\u52a8\u5c01\u7981\u4e0d\u53d7\u6b22\u8fce\u3001\u5438\u8840\u548c\u5f02\u5e38\u7684 BT \u5ba2\u6237\u7aef\uff0c\u5e76\u652f\u6301\u81ea\u5b9a\u4e49\u89c4\u5219\u3002PeerId\u9ed1\u540d\u5355/UserAgent\u9ed1\u540d\u5355/IP CIDR/\u5047\u8fdb\u5ea6\u68c0\u6d4b/\u8d85\u91cf\u4e0b\u8f7d\u68c0\u6d4b/\u4e3b\u52a8\u63a2\u6d4b \u652f\u6301 qBittorrent/Transmission",
 "homepage":"https://github.com/Ghost-chu/PeerBanHelper",
 "insecure":false,
@@ -41726,7 +41985,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/peerbanhelper/default.nix:33",
+"position":"./pkgs/uncategorized/peerbanhelper/default.nix:34",
 "unfree":false,
 "unsupported":false
 },
@@ -41792,6 +42051,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/ReimuHakurei/phppgadmin/releases/tag/v7.14.7-mod",
 "description":"Premier web-based administration tool for PostgreSQL",
 "homepage":"https://github.com/phppgadmin/phppgadmin",
 "insecure":false,
@@ -41824,7 +42084,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/phppgadmin/default.nix:27",
+"position":"./pkgs/uncategorized/phppgadmin/default.nix:28",
 "unfree":false,
 "unsupported":false
 },
@@ -41870,7 +42130,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"piliplus-1.1.3.30",
+"name":"piliplus-1.1.3.31",
 "outputsToInstall":[
 "out"
 ],
@@ -41881,7 +42141,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"piliplus-1.1.3.30",
+"name":"piliplus-1.1.3.31",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -41890,7 +42150,7 @@
 },
 "pname":"piliplus",
 "system":"x86_64-linux",
-"version":"1.1.3.30"
+"version":"1.1.3.31"
 },
 "uncategorized.plasma-panel-transparency-toggle":{
 "meta":{
@@ -41945,6 +42205,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/luisbocanegra/plasma-smart-video-wallpaper-reborn/releases/tag/v2.1.0",
 "description":"Plasma 6 wallpaper plugin to play videos on your Desktop/Lock Screen",
 "homepage":"https://store.kde.org/p/2139746",
 "insecure":false,
@@ -41977,7 +42238,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/plasma-smart-video-wallpaper-reborn/default.nix:16",
+"position":"./pkgs/uncategorized/plasma-smart-video-wallpaper-reborn/default.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -42705,7 +42966,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"rime-ice-0-unstable-2025-04-06",
+"name":"rime-ice-0-unstable-2025-04-16",
 "outputsToInstall":[
 "out"
 ],
@@ -42713,19 +42974,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rime-ice-0-unstable-2025-04-06",
+"name":"rime-ice-0-unstable-2025-04-16",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rime-ice",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-04-06"
+"version":"0-unstable-2025-04-16"
 },
 "uncategorized.rime-moegirl":{
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/outloudvi/mw2fcitx/releases/tag/20250409",
 "description":"RIME dictionary file for entries from zh.moegirl.org.cn",
 "homepage":"https://github.com/outloudvi/mw2fcitx/releases",
 "insecure":false,
@@ -42758,7 +43020,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/rime-moegirl/default.nix:21",
+"position":"./pkgs/uncategorized/rime-moegirl/default.nix:22",
 "unfree":false,
 "unsupported":false
 },
@@ -42885,6 +43147,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/runpod/runpodctl/releases/tag/v1.14.4",
 "description":"RunPod CLI for pod management",
 "homepage":"https://www.runpod.io",
 "insecure":false,
@@ -42950,7 +43213,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/uncategorized/runpodctl/default.nix:17",
+"position":"./pkgs/uncategorized/runpodctl/default.nix:18",
 "unfree":false,
 "unsupported":false
 },
@@ -42967,8 +43230,9 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/SamToki/Sam-Toki-Mouse-Cursors/releases/tag/v7.03",
 "description":"Original mouse cursors (pointers) for Windows, with minimalistic design",
-"homepage":"https://github.com/SamToki/IconDesign---Sam-Toki-Mouse-Cursors",
+"homepage":"https://github.com/SamToki/Sam-Toki-Mouse-Cursors",
 "insecure":false,
 "license":{
 "deprecated":false,
@@ -42999,7 +43263,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/sam-toki-mouse-cursors/default.nix:44",
+"position":"./pkgs/uncategorized/sam-toki-mouse-cursors/default.nix:45",
 "unfree":true,
 "unsupported":false
 },
@@ -43069,6 +43333,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/petersulyok/smfc/releases/tag/v3.8.0",
 "description":"Super Micro Fan Control",
 "homepage":"https://github.com/petersulyok/smfc",
 "insecure":false,
@@ -43104,7 +43369,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/smfc/default.nix:37",
+"position":"./pkgs/uncategorized/smfc/default.nix:38",
 "unfree":false,
 "unsupported":false
 },
@@ -43605,6 +43870,7 @@
 }
 ],
 "broken":false,
+"changelog":"https://github.com/trumank/uesave-rs/releases/tag/v0.6.1",
 "description":"Library for reading and writing Unreal Engine save files (commonly referred to as GVAS)",
 "homepage":"https://github.com/trumank/uesave-rs",
 "insecure":false,
@@ -43679,7 +43945,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/uncategorized/uesave/default.nix:24",
+"position":"./pkgs/uncategorized/uesave/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -43875,7 +44141,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"uni-api-0-unstable-2025-04-14",
+"name":"uni-api-0-unstable-2025-04-16",
 "outputsToInstall":[
 "out"
 ],
@@ -43883,14 +44149,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"uni-api-0-unstable-2025-04-14",
+"name":"uni-api-0-unstable-2025-04-16",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uni-api",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-04-14"
+"version":"0-unstable-2025-04-16"
 },
 "uncategorized.unigine-heaven":{
 "meta":{
@@ -44185,6 +44451,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/Diniboy1123/usque/releases/tag/v1.0.2",
 "description":"Open-source reimplementation of the Cloudflare WARP client's MASQUE protocol",
 "homepage":"https://github.com/Diniboy1123/usque",
 "insecure":false,
@@ -44250,7 +44517,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/uncategorized/usque/default.nix:18",
+"position":"./pkgs/uncategorized/usque/default.nix:38",
 "unfree":false,
 "unsupported":false
 },
@@ -44267,6 +44534,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/libxzr/vbmeta-disable-verification/releases/tag/v1.0",
 "description":"Patch Android vbmeta image and disable verification flags inside",
 "homepage":"https://github.com/libxzr/vbmeta-disable-verification",
 "insecure":false,
@@ -44300,7 +44568,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/vbmeta-disable-verification/default.nix:26",
+"position":"./pkgs/uncategorized/vbmeta-disable-verification/default.nix:27",
 "unfree":false,
 "unsupported":false
 },
@@ -44446,7 +44714,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"vk-hdr-layer-0-unstable-2025-03-07",
+"name":"vk-hdr-layer-0-unstable-2025-04-15",
 "outputsToInstall":[
 "out"
 ],
@@ -44454,14 +44722,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"vk-hdr-layer-0-unstable-2025-03-07",
+"name":"vk-hdr-layer-0-unstable-2025-04-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vk-hdr-layer",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-03-07"
+"version":"0-unstable-2025-04-15"
 },
 "uncategorized.vpp":{
 "meta":{
@@ -44627,6 +44895,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/tom-snow/wechat-windows-versions-x86/releases/tag/3.9.12.44",
 "description":"Wine WeChat x86 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat)",
 "homepage":"https://weixin.qq.com/",
 "insecure":false,
@@ -44661,7 +44930,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/wine-wechat-x86/default.nix:143",
+"position":"./pkgs/uncategorized/wine-wechat-x86/default.nix:144",
 "unfree":true,
 "unsupported":false
 },
@@ -44755,7 +45024,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"uni-api-0-unstable-2025-04-14",
+"name":"uni-api-0-unstable-2025-04-16",
 "outputsToInstall":[
 "out"
 ],
@@ -44763,14 +45032,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"uni-api-0-unstable-2025-04-14",
+"name":"uni-api-0-unstable-2025-04-16",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uni-api",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-04-14"
+"version":"0-unstable-2025-04-16"
 },
 "unigine-heaven":{
 "meta":{
@@ -45065,6 +45334,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/Diniboy1123/usque/releases/tag/v1.0.2",
 "description":"Open-source reimplementation of the Cloudflare WARP client's MASQUE protocol",
 "homepage":"https://github.com/Diniboy1123/usque",
 "insecure":false,
@@ -45130,7 +45400,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/uncategorized/usque/default.nix:18",
+"position":"./pkgs/uncategorized/usque/default.nix:38",
 "unfree":false,
 "unsupported":false
 },
@@ -45147,6 +45417,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/libxzr/vbmeta-disable-verification/releases/tag/v1.0",
 "description":"Patch Android vbmeta image and disable verification flags inside",
 "homepage":"https://github.com/libxzr/vbmeta-disable-verification",
 "insecure":false,
@@ -45180,7 +45451,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/uncategorized/vbmeta-disable-verification/default.nix:26",
+"position":"./pkgs/uncategorized/vbmeta-disable-verification/default.nix:27",
 "unfree":false,
 "unsupported":false
 },
@@ -45197,6 +45468,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/lucidrains/vector-quantize-pytorch/releases/tag/1.22.15",
 "description":"Vector (and Scalar) Quantization, in Pytorch",
 "homepage":"https://github.com/lucidrains/vector-quantize-pytorch",
 "insecure":false,
@@ -45301,7 +45573,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/python-packages/vector-quantize-pytorch/default.nix:26",
+"position":"./pkgs/python-packages/vector-quantize-pytorch/default.nix:27",
 "unfree":false,
 "unsupported":false
 },
@@ -45448,7 +45720,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"vk-hdr-layer-0-unstable-2025-03-07",
+"name":"vk-hdr-layer-0-unstable-2025-04-15",
 "outputsToInstall":[
 "out"
 ],
@@ -45456,14 +45728,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"vk-hdr-layer-0-unstable-2025-03-07",
+"name":"vk-hdr-layer-0-unstable-2025-04-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vk-hdr-layer",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-03-07"
+"version":"0-unstable-2025-04-15"
 },
 "vpp":{
 "meta":{
@@ -45791,6 +46063,7 @@
 "meta":{
 "available":false,
 "broken":false,
+"changelog":"https://github.com/tom-snow/wechat-windows-versions-x86/releases/tag/3.9.12.44",
 "description":"Wine WeChat x86 (Packaging script adapted from https://aur.archlinux.org/packages/deepin-wine-wechat)",
 "homepage":"https://weixin.qq.com/",
 "insecure":false,
@@ -45825,7 +46098,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/uncategorized/wine-wechat-x86/default.nix:143",
+"position":"./pkgs/uncategorized/wine-wechat-x86/default.nix:144",
 "unfree":true,
 "unsupported":false
 },
