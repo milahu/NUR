@@ -173,6 +173,7 @@ pkgs.lib.traceValFn (x:
   # qradiopredict = pkgs.libsForQt5.callPackage ./pkgs/qradiopredict { };
   rush = pkgs.callPackage ./pkgs/Rush { };
   scim = with pkgs; callPackage ./pkgs/scim { };
+  labyrinthe = with pkgs; callPackage ./pkgs/Labyrinthe { };
   libphidget = with pkgs; callPackage ./pkgs/libphidget { };
   scottapps = with pkgs; callPackage ./pkgs/ScottApps { };
   scripts = with pkgs; callPackage ./pkgs/Scripts {
