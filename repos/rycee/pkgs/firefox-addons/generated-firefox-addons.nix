@@ -2726,10 +2726,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.58.6";
+      version = "2.58.7";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4469967/dualsub-2.58.6.xpi";
-      sha256 = "9197a279211628da6199a2ec26d0089a145552b26a0a2873e9bf446e76c7fbfc";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4476149/dualsub-2.58.7.xpi";
+      sha256 = "50960d00064894dc36541fc459a69006aa182ba88a844fabcfb79c16a8455d47";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -6147,6 +6147,20 @@
         description = "Watch videos up to 2x faster by automatically skipping long pauses between sentences";
         license = licenses.agpl3Plus;
         mozPermissions = [ "storage" "scripting" "http://*/*" "https://*/*" ];
+        platforms = platforms.all;
+      };
+    };
+    "justdeleteme" = buildFirefoxXpiAddon {
+      pname = "justdeleteme";
+      version = "1.4.0";
+      addonId = "{6f54ad3f-042f-408f-8f06-ab631fe1a64f}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4461201/justdeleteme-1.4.0.xpi";
+      sha256 = "0ada4964bd0ac1b2260633d4effc878ff9723d49e3a3372eb3ba439a6dd0b1b1";
+      meta = with lib;
+      {
+        description = "JustDeleteMe.xyz extension for Firefox-based browsers.";
+        license = licenses.mit;
+        mozPermissions = [ "activeTab" "<all_urls>" ];
         platforms = platforms.all;
       };
     };
@@ -11148,6 +11162,28 @@
         platforms = platforms.all;
       };
     };
+    "sonarr-radarr-lidarr-search" = buildFirefoxXpiAddon {
+      pname = "sonarr-radarr-lidarr-search";
+      version = "2.11.0.0";
+      addonId = "sonarr-radarr-lidarr-autosearch@robgreen.me";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4452289/sonarr_radarr_lidarr_search-2.11.0.0.xpi";
+      sha256 = "02530101d65e2cd781f933841578f4e8a919c99b765fabfe8efe2d0b3dfa1bce";
+      meta = with lib;
+      {
+        homepage = "https://github.com/trossr32/sonarr-radarr-lidarr-autosearch-browser-extension";
+        description = "Exposes a context menu that enables direct searching for tv shows, movies or artists in Sonarr, Radarr &amp; Lidarr.\n\nSee description for a list of integrated sites.";
+        license = licenses.mpl20;
+        mozPermissions = [
+          "<all_urls>"
+          "storage"
+          "activeTab"
+          "contextMenus"
+          "*://*/*"
+          "file://*/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "sourcegraph" = buildFirefoxXpiAddon {
       pname = "sourcegraph";
       version = "23.4.14.1343";
@@ -12019,10 +12055,10 @@
     };
     "tournesol" = buildFirefoxXpiAddon {
       pname = "tournesol";
-      version = "3.8.0";
+      version = "3.8.2";
       addonId = "{e8e831e8-8a2b-4fd8-b9f0-cd11155b476d}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4464348/tournesol_extension-3.8.0.xpi";
-      sha256 = "2974a05d54e6d6cda2179aab13763def6c804f4ace83f66ea9eaa5d430bb64f2";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4476273/tournesol_extension-3.8.2.xpi";
+      sha256 = "eed727827c17154ab7cbacdb5c65fe94a49ac22666393bc71e170120cf8c7372";
       meta = with lib;
       {
         homepage = "https://tournesol.app/";
