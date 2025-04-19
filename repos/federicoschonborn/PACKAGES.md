@@ -179,14 +179,14 @@ A set of commands that manipulate GTAs on various levels (with all features enab
 - 📄 License: [`GNU General Public License v3.0 or later`](https://spdx.org/licenses/GPL-3.0-or-later.html)
 - 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
 
-## `hedge-mod-manager` {#hedge-mod-manager}
+## `hedgemodmanager` {#hedgemodmanager}
 
 Multiplatform rewrite of Hedge Mod Manager.
 
-- Name: `hedge-mod-manager`
+- Name: `hedgemodmanager`
 - Version: `8.0.0-beta4`
 - [🌐 Homepage](https://github.com/hedge-dev/HedgeModManager)
-- [📦 Source](./pkgs/by-name/hedge-mod-manager/package.nix#L50)
+- [📦 Source](./pkgs/by-name/hedgemodmanager/package.nix#L51)
 - 📄 License: [`MIT License`](https://spdx.org/licenses/MIT.html)
 - 🖥️ Platforms: `x86_64-linux`, `aarch64-linux`
 
@@ -471,17 +471,6 @@ Fan sequel to Super Mario 63.
 - [🌐 Homepage](https://charpurrr.itch.io/super-mario-127)
 - [📦 Source](./pkgs/by-name/super-mario-127/package.nix#L59)
 - 📄 License: Unfree
-- 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
-
-## `supermodel` {#supermodel}
-
-Sega Model 3 arcade machine emulator.
-
-- Name: `supermodel`
-- Version: `0-unstable-2025-04-10`
-- [🌐 Homepage](https://github.com/trzy/Supermodel)
-- [📦 Source](./pkgs/by-name/supermodel/package.nix#L69)
-- 📄 License: [`GNU General Public License v3.0 or later`](https://spdx.org/licenses/GPL-3.0-or-later.html)
 - 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
 
 ## `surgescript` {#surgescript}
