@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.454,
-"eval_time":0.864,
+"fetch_time":0.787,
+"eval_time":0.894,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"e1bbf0d4812be0cce54291774654cb5f13c7ff19",
-"sha256":"0vw8indx8h7zkz4j3vs5a6i72ipw36i4v6gs0nxkfh2p25ss54v3",
+"rev":"712d28b70705871189a781b118b14c5f542a64c1",
+"sha256":"1bmnvlfz0raqxz7kq9k6zgkc16029i6l7c390jndi7hz7526wkp8",
 "date":null
 },
-"source_storepath":"/nix/store/ajyswyawkks8ia32kgwmiwil1yf5xznc-source",
+"source_storepath":"/nix/store/frb0x1fnzgx73jf0bh7jdfdf5gixmwnf-source",
 "nixpkgs_storepath":"/nix/store/g1bajdwbkcmms8cqd9s8zbq8zxhkyx91-source",
-"nur_combined_rev":"11d1665e8ce9aec171fec02fab919586da48e135",
+"nur_combined_rev":"0c1a70a44c5dc336344968bae97f63c89c4a3e13",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -6557,7 +6557,7 @@
 "armv7a-darwin"
 ],
 "broken":false,
-"changelog":"https://github.com/ggml-org/llama.cpp/releases/tag/b5146",
+"changelog":"https://github.com/ggml-org/llama.cpp/releases/tag/b5151",
 "description":"Inference of Meta's LLaMA model (and others) in pure C/C++",
 "homepage":"https://github.com/ggml-org/llama.cpp",
 "insecure":false,
@@ -6587,7 +6587,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"llama-cpp-5146",
+"name":"llama-cpp-5151",
 "outputsToInstall":[
 "out"
 ],
@@ -6642,14 +6642,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"llama-cpp-5146",
+"name":"llama-cpp-5151",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"llama-cpp",
 "system":"x86_64-linux",
-"version":"5146"
+"version":"5151"
 },
 "lantianCustomized.materialgram":{
 "meta":{
@@ -10900,7 +10900,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/open-quantum-safe/liboqs/releases/tag/0.12.0",
+"changelog":"https://github.com/open-quantum-safe/liboqs/releases/tag/0.13.0",
 "description":"C library for prototyping and experimenting with quantum-resistant cryptography",
 "homepage":"https://openquantumsafe.org",
 "insecure":false,
@@ -10931,7 +10931,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"liboqs-0.12.0",
+"name":"liboqs-0.13.0",
 "outputsToInstall":[
 "out"
 ],
@@ -10939,20 +10939,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"liboqs-0.12.0",
+"name":"liboqs-0.13.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"liboqs",
 "system":"x86_64-linux",
-"version":"0.12.0"
+"version":"0.13.0"
 },
 "liboqs-unstable":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/open-quantum-safe/liboqs/releases/tag/0-unstable-2025-04-11",
+"changelog":"https://github.com/open-quantum-safe/liboqs/releases/tag/0-unstable-2025-04-17",
 "description":"C library for prototyping and experimenting with quantum-resistant cryptography",
 "homepage":"https://openquantumsafe.org",
 "insecure":false,
@@ -10983,7 +10983,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"liboqs-0-unstable-2025-04-11",
+"name":"liboqs-0-unstable-2025-04-17",
 "outputsToInstall":[
 "out"
 ],
@@ -10991,14 +10991,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"liboqs-0-unstable-2025-04-11",
+"name":"liboqs-0-unstable-2025-04-17",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"liboqs",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-04-11"
+"version":"0-unstable-2025-04-17"
 },
 "libqcef":{
 "meta":{
@@ -22211,6 +22211,7 @@
 "out"
 ],
 "platforms":[
+"aarch64-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
@@ -23233,6 +23234,7 @@
 "out"
 ],
 "platforms":[
+"aarch64-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
@@ -24763,28 +24765,26 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openjdk-adoptium-jdk-bin-8u442-b06_adopt",
+"name":"openjdk-adoptium-jdk-bin-8u452-b09_adopt",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
-"armv7l-linux",
-"ppc64le-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
 "unfree":false,
 "unsupported":false
 },
-"name":"openjdk-adoptium-jdk-bin-8u442-b06_adopt",
+"name":"openjdk-adoptium-jdk-bin-8u452-b09_adopt",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openjdk-adoptium-jdk-bin",
 "system":"x86_64-linux",
-"version":"8u442-b06_adopt"
+"version":"8u452-b09_adopt"
 },
 "openjdk-adoptium.jdk-bin-8u302_b08":{
 "meta":{
@@ -25682,6 +25682,60 @@
 "system":"x86_64-linux",
 "version":"8u442-b06_adopt"
 },
+"openjdk-adoptium.jdk-bin-8u452_b09":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJDK binaries built by Eclipse Adoptium",
+"homepage":"https://adoptium.net/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openjdk-adoptium-jdk-bin-8u452-b09_adopt",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openjdk-adoptium-jdk-bin-8u452-b09_adopt",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openjdk-adoptium-jdk-bin",
+"system":"x86_64-linux",
+"version":"8u452-b09_adopt"
+},
 "openjdk-adoptium.jre-bin-11":{
 "meta":{
 "available":true,
@@ -25720,6 +25774,7 @@
 "out"
 ],
 "platforms":[
+"aarch64-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
@@ -26742,6 +26797,7 @@
 "out"
 ],
 "platforms":[
+"aarch64-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
@@ -28044,28 +28100,26 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"openjdk-adoptium-jre-bin-8u442-b06_adopt",
+"name":"openjdk-adoptium-jre-bin-8u452-b09_adopt",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
-"armv7l-linux",
-"ppc64le-linux",
 "x86_64-linux"
 ],
 "position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
 "unfree":false,
 "unsupported":false
 },
-"name":"openjdk-adoptium-jre-bin-8u442-b06_adopt",
+"name":"openjdk-adoptium-jre-bin-8u452-b09_adopt",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"openjdk-adoptium-jre-bin",
 "system":"x86_64-linux",
-"version":"8u442-b06_adopt"
+"version":"8u452-b09_adopt"
 },
 "openjdk-adoptium.jre-bin-8u302_b08":{
 "meta":{
@@ -28961,6 +29015,60 @@
 "pname":"openjdk-adoptium-jre-bin",
 "system":"x86_64-linux",
 "version":"8u442-b06_adopt"
+},
+"openjdk-adoptium.jre-bin-8u452_b09":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"OpenJDK binaries built by Eclipse Adoptium",
+"homepage":"https://adoptium.net/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only (with Classpath exception)",
+"redistributable":true,
+"shortName":"gpl2Classpath",
+"spdxId":"GPL-2.0-with-classpath-exception",
+"url":"https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html"
+},
+"mainProgram":"java",
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"openjdk-adoptium-jre-bin-8u452-b09_adopt",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/openjdk-adoptium/jdk-linux-base.nix:118",
+"unfree":false,
+"unsupported":false
+},
+"name":"openjdk-adoptium-jre-bin-8u452-b09_adopt",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"openjdk-adoptium-jre-bin",
+"system":"x86_64-linux",
+"version":"8u452-b09_adopt"
 },
 "openssl-ech":{
 "meta":{
@@ -40409,7 +40517,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/open-quantum-safe/liboqs/releases/tag/0.12.0",
+"changelog":"https://github.com/open-quantum-safe/liboqs/releases/tag/0.13.0",
 "description":"C library for prototyping and experimenting with quantum-resistant cryptography",
 "homepage":"https://openquantumsafe.org",
 "insecure":false,
@@ -40440,7 +40548,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"liboqs-0.12.0",
+"name":"liboqs-0.13.0",
 "outputsToInstall":[
 "out"
 ],
@@ -40448,20 +40556,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"liboqs-0.12.0",
+"name":"liboqs-0.13.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"liboqs",
 "system":"x86_64-linux",
-"version":"0.12.0"
+"version":"0.13.0"
 },
 "uncategorized.liboqs-unstable":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/open-quantum-safe/liboqs/releases/tag/0-unstable-2025-04-11",
+"changelog":"https://github.com/open-quantum-safe/liboqs/releases/tag/0-unstable-2025-04-17",
 "description":"C library for prototyping and experimenting with quantum-resistant cryptography",
 "homepage":"https://openquantumsafe.org",
 "insecure":false,
@@ -40492,7 +40600,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"liboqs-0-unstable-2025-04-11",
+"name":"liboqs-0-unstable-2025-04-17",
 "outputsToInstall":[
 "out"
 ],
@@ -40500,14 +40608,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"liboqs-0-unstable-2025-04-11",
+"name":"liboqs-0-unstable-2025-04-17",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"liboqs",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-04-11"
+"version":"0-unstable-2025-04-17"
 },
 "uncategorized.libqcef":{
 "meta":{
