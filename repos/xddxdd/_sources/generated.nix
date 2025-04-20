@@ -421,14 +421,24 @@
       hash = "sha256-g4D+pnOo41UqPDFF3lvh/yNFVzP8rqglG+4xPx+aEzM=";
     };
   };
+  dump978 = {
+    pname = "dump978";
+    version = "v10.0.1";
+    src = fetchFromGitHub {
+      owner = "flightaware";
+      repo = "dump978";
+      tag = "v10.0.1";
+      hash = "sha256-EixxXJVm6pp2PQ4wrgKu6nb9t8imy2hIeWS40kMm9RY=";
+    };
+  };
   edge-tts = {
     pname = "edge-tts";
-    version = "7.0.0";
+    version = "7.0.1";
     src = fetchFromGitHub {
       owner = "rany2";
       repo = "edge-tts";
-      tag = "7.0.0";
-      hash = "sha256-TwBSEePVFYTvdueunTrFtZd96tp2P/he7+1cmIk2dy8=";
+      tag = "7.0.1";
+      hash = "sha256-dVoFD6vWn/Yg6u4EJYRzdJfX3Xk5cc8IdCprPzPJYEY=";
     };
   };
   etherguard = {
@@ -519,6 +529,38 @@
       repo = "flasgger";
       tag = "0.9.5";
       hash = "sha256-cYFMKZxpi69gVWqyZUltCL0ZwcfIABNsJKqAhN2TTSg=";
+    };
+  };
+  fr24feed-amd64 = {
+    pname = "fr24feed-amd64";
+    version = "1.0.48-0";
+    src = fetchurl {
+      url = "https://repo-feed.flightradar24.com/pool/linux-stable/f/fr24feed/fr24feed_1.0.48-0_amd64.deb";
+      hash = "sha256-vJZb4wMUxHJhnfLdGWEXEELepbDIhzlsp/tHyGx+ya0=";
+    };
+  };
+  fr24feed-arm64 = {
+    pname = "fr24feed-arm64";
+    version = "1.0.48-0";
+    src = fetchurl {
+      url = "https://repo-feed.flightradar24.com/pool/raspberrypi-stable/f/fr24feed/fr24feed_1.0.48-0_arm64.deb";
+      hash = "sha256-GkQNx8T51PZ12ZkPSFglmh2T1lMCQCyrLcZ0eK9W0Pk=";
+    };
+  };
+  fr24feed-armhf = {
+    pname = "fr24feed-armhf";
+    version = "1.0.48-0";
+    src = fetchurl {
+      url = "https://repo-feed.flightradar24.com/pool/raspberrypi-stable/f/fr24feed/fr24feed_1.0.48-0_armhf.deb";
+      hash = "sha256-1pr6yFbcIvGMg3ilG9wnJgRZ8sJpYNyI7QX/yUToHvc=";
+    };
+  };
+  fr24feed-i386 = {
+    pname = "fr24feed-i386";
+    version = "1.0.48-0";
+    src = fetchurl {
+      url = "https://repo-feed.flightradar24.com/pool/linux-stable/f/fr24feed/fr24feed_1.0.48-0_i386.deb";
+      hash = "sha256-ejuIq3u2fxrB7sg1JJDSRUmI5q7XdBbFe1k3PE5GnVk=";
     };
   };
   ftp-proxy = {
@@ -929,12 +971,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b5151";
+    version = "b5156";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b5151";
-      hash = "sha256-7qA1KmfJYZgXmdRc7CTrPLHjwKE6Hmc9dLqmjYFuA5w=";
+      tag = "b5156";
+      hash = "sha256-tbyZggs5HhsOFnuqT34Hx7A4qfPQxZCHgAng1oFj2Fc=";
     };
   };
   loralib = {
@@ -1976,15 +2018,15 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "9ac773f9353e8cf90f0de4f74ca758dabd2c6886";
+    version = "d9343e7d7ca5ccd9ad8de36441526dad0f3b751b";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "9ac773f9353e8cf90f0de4f74ca758dabd2c6886";
+      rev = "d9343e7d7ca5ccd9ad8de36441526dad0f3b751b";
       fetchSubmodules = true;
-      hash = "sha256-JXmt4e55Ow3fdTm2T1YrodFhTJRGfWMjCTreBnjVwLg=";
+      hash = "sha256-KCNmH3Nme6ihj9zmkqhUkNIPWQP0+B/uPi7cJgORSak=";
     };
-    date = "2025-04-17";
+    date = "2025-04-18";
   };
   unigine-heaven = {
     pname = "unigine-heaven";

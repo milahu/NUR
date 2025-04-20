@@ -810,6 +810,27 @@
         },
         "version": "v1.3.0"
     },
+    "dump978": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "dump978",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "flightaware",
+            "repo": "dump978",
+            "rev": "v10.0.1",
+            "sha256": "sha256-EixxXJVm6pp2PQ4wrgKu6nb9t8imy2hIeWS40kMm9RY=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v10.0.1"
+    },
     "edge-tts": {
         "cargoLocks": null,
         "date": null,
@@ -824,12 +845,12 @@
             "name": null,
             "owner": "rany2",
             "repo": "edge-tts",
-            "rev": "7.0.0",
-            "sha256": "sha256-TwBSEePVFYTvdueunTrFtZd96tp2P/he7+1cmIk2dy8=",
+            "rev": "7.0.1",
+            "sha256": "sha256-dVoFD6vWn/Yg6u4EJYRzdJfX3Xk5cc8IdCprPzPJYEY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "7.0.0"
+        "version": "7.0.1"
     },
     "etherguard": {
         "cargoLocks": null,
@@ -1006,6 +1027,66 @@
             "type": "github"
         },
         "version": "0.9.5"
+    },
+    "fr24feed-amd64": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "fr24feed-amd64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-vJZb4wMUxHJhnfLdGWEXEELepbDIhzlsp/tHyGx+ya0=",
+            "type": "url",
+            "url": "https://repo-feed.flightradar24.com/pool/linux-stable/f/fr24feed/fr24feed_1.0.48-0_amd64.deb"
+        },
+        "version": "1.0.48-0"
+    },
+    "fr24feed-arm64": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "fr24feed-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-GkQNx8T51PZ12ZkPSFglmh2T1lMCQCyrLcZ0eK9W0Pk=",
+            "type": "url",
+            "url": "https://repo-feed.flightradar24.com/pool/raspberrypi-stable/f/fr24feed/fr24feed_1.0.48-0_arm64.deb"
+        },
+        "version": "1.0.48-0"
+    },
+    "fr24feed-armhf": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "fr24feed-armhf",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-1pr6yFbcIvGMg3ilG9wnJgRZ8sJpYNyI7QX/yUToHvc=",
+            "type": "url",
+            "url": "https://repo-feed.flightradar24.com/pool/raspberrypi-stable/f/fr24feed/fr24feed_1.0.48-0_armhf.deb"
+        },
+        "version": "1.0.48-0"
+    },
+    "fr24feed-i386": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "fr24feed-i386",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-ejuIq3u2fxrB7sg1JJDSRUmI5q7XdBbFe1k3PE5GnVk=",
+            "type": "url",
+            "url": "https://repo-feed.flightradar24.com/pool/linux-stable/f/fr24feed/fr24feed_1.0.48-0_i386.deb"
+        },
+        "version": "1.0.48-0"
     },
     "ftp-proxy": {
         "cargoLocks": null,
@@ -1816,12 +1897,12 @@
             "name": null,
             "owner": "ggerganov",
             "repo": "llama.cpp",
-            "rev": "b5151",
-            "sha256": "sha256-7qA1KmfJYZgXmdRc7CTrPLHjwKE6Hmc9dLqmjYFuA5w=",
+            "rev": "b5156",
+            "sha256": "sha256-tbyZggs5HhsOFnuqT34Hx7A4qfPQxZCHgAng1oFj2Fc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "b5151"
+        "version": "b5156"
     },
     "loralib": {
         "cargoLocks": null,
@@ -3868,7 +3949,7 @@
     },
     "uni-api": {
         "cargoLocks": null,
-        "date": "2025-04-17",
+        "date": "2025-04-18",
         "extract": null,
         "name": "uni-api",
         "passthru": null,
@@ -3880,12 +3961,12 @@
             "name": null,
             "owner": "yym68686",
             "repo": "uni-api",
-            "rev": "9ac773f9353e8cf90f0de4f74ca758dabd2c6886",
-            "sha256": "sha256-JXmt4e55Ow3fdTm2T1YrodFhTJRGfWMjCTreBnjVwLg=",
+            "rev": "d9343e7d7ca5ccd9ad8de36441526dad0f3b751b",
+            "sha256": "sha256-KCNmH3Nme6ihj9zmkqhUkNIPWQP0+B/uPi7cJgORSak=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "9ac773f9353e8cf90f0de4f74ca758dabd2c6886"
+        "version": "d9343e7d7ca5ccd9ad8de36441526dad0f3b751b"
     },
     "unigine-heaven": {
         "cargoLocks": null,
