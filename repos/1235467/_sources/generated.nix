@@ -75,15 +75,15 @@
   };
   hyprland = {
     pname = "hyprland";
-    version = "ddae3036ca6a1729ffe7854a59184116d2622809";
+    version = "f48ee7a3d17810c9a0bf229fc3131e15b09ef179";
     src = fetchFromGitHub {
       owner = "hyprwm";
       repo = "Hyprland";
-      rev = "ddae3036ca6a1729ffe7854a59184116d2622809";
+      rev = "f48ee7a3d17810c9a0bf229fc3131e15b09ef179";
       fetchSubmodules = true;
-      sha256 = "sha256-NpnOdsN77zBulUt2m5r8MAV+aumnE7n9DL6oT1ete+k=";
+      sha256 = "sha256-tkMP7tiS3cjW2y4QQZBiGiPLoqeD08c+RgS1onEdrhg=";
     };
-    date = "2025-04-17";
+    date = "2025-04-19";
   };
   hyprwayland-scanner = {
     pname = "hyprwayland-scanner";
@@ -123,16 +123,16 @@
   };
   libdrm = {
     pname = "libdrm";
-    version = "fdf384d4b546850bc4c200541c42d29a62b2eca7";
+    version = "15e174c1ed2426be3228eb595f942481cfcf5a90";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/mesa/drm";
-      rev = "fdf384d4b546850bc4c200541c42d29a62b2eca7";
+      rev = "15e174c1ed2426be3228eb595f942481cfcf5a90";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-TQ92LKkbArkezchKxIWu/yudToNRR8nf6h0VTx/Kj8g=";
+      sha256 = "sha256-SjRD2UlFCatdmwg1vqpqRNokc6G13bWNpVUvDS4x7Rc=";
     };
-    date = "2025-04-14";
+    date = "2025-04-18";
   };
   llamafile = {
     pname = "llamafile";
@@ -232,15 +232,15 @@
   };
   qcm = {
     pname = "qcm";
-    version = "cbccf4e179928d59f021c67c1245632d7f8b73d3";
+    version = "78114d6a943e7d97a0666186b700c0282c8f0626";
     src = fetchFromGitHub {
       owner = "hypengw";
       repo = "Qcm";
-      rev = "cbccf4e179928d59f021c67c1245632d7f8b73d3";
+      rev = "78114d6a943e7d97a0666186b700c0282c8f0626";
       fetchSubmodules = true;
-      sha256 = "sha256-tLHmXarkxiXSG0HXFKkEGe38H3UjyrIjhmS8QbGa5w8=";
+      sha256 = "sha256-FpWXRZeWsFj62V3kRBtNr0SsDUPj30jWoWJ8Txxisgk=";
     };
-    date = "2025-04-16";
+    date = "2025-04-18";
   };
   reflac = {
     pname = "reflac";
@@ -355,15 +355,15 @@
   };
   wlroots = {
     pname = "wlroots";
-    version = "f8c639f19a40b33ab8f4a061ec49f657439781ee";
+    version = "3ad4374a54b307f6d4473b04031860bf88798d00";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/wlroots/wlroots";
-      rev = "f8c639f19a40b33ab8f4a061ec49f657439781ee";
+      rev = "3ad4374a54b307f6d4473b04031860bf88798d00";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-od/iC6zbjTr4Dj2efpktV6lPb8dFjWc5fT/jHy4vAs4=";
+      sha256 = "sha256-Y5vKwBg3QOtmbcOSE2ejH6byfpAe6f8u/E+fqTS+cJc=";
     };
-    date = "2025-04-16";
+    date = "2025-04-18";
   };
 }
