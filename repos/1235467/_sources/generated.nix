@@ -27,15 +27,15 @@
   };
   av1an = {
     pname = "av1an";
-    version = "118a58b3706aa1ce14923763a4797340e4a48a26";
+    version = "d80c448abf83eb15d6bff69cbdeb2d3baafa7ee2";
     src = fetchFromGitHub {
       owner = "master-of-zen";
       repo = "av1an";
-      rev = "118a58b3706aa1ce14923763a4797340e4a48a26";
+      rev = "d80c448abf83eb15d6bff69cbdeb2d3baafa7ee2";
       fetchSubmodules = false;
-      sha256 = "sha256-vaAot6RhbyRo+3Ffq1Rxbt8vxx2osBaEXysNfKkvKx8=";
+      sha256 = "sha256-t8ClDeidr9afqrx/06GO2pzqyqIkMXbbxKSNJflPYd8=";
     };
-    date = "2025-03-10";
+    date = "2025-04-19";
   };
   bypy = {
     pname = "bypy";
@@ -148,27 +148,27 @@
   };
   mieru = {
     pname = "mieru";
-    version = "66382a20387d661e218e70cf3442605bfc27c6c4";
+    version = "af596a3b88793d87ea45a3dcc95c680ef927a7d6";
     src = fetchFromGitHub {
       owner = "enfein";
       repo = "mieru";
-      rev = "66382a20387d661e218e70cf3442605bfc27c6c4";
+      rev = "af596a3b88793d87ea45a3dcc95c680ef927a7d6";
       fetchSubmodules = false;
-      sha256 = "sha256-lwgZSL6+rIkVlSHZQRT2jMlrY2mAnlVJfvzLuu/+AJ8=";
+      sha256 = "sha256-kQ8VwUYfNnnBPJTLsN2/VZyHZ4KReD7yJiL3ukA96o0=";
     };
-    date = "2025-04-17";
+    date = "2025-04-19";
   };
   nbfc-linux = {
     pname = "nbfc-linux";
-    version = "dd37d2b8109084a6221f114ab397f6fcff646e72";
+    version = "7a50466094dc88fe9e4bd4704baddbe738c59cd9";
     src = fetchFromGitHub {
       owner = "nbfc-linux";
       repo = "nbfc-linux";
-      rev = "dd37d2b8109084a6221f114ab397f6fcff646e72";
+      rev = "7a50466094dc88fe9e4bd4704baddbe738c59cd9";
       fetchSubmodules = false;
-      sha256 = "sha256-5mdLfjF+nowZjAFqQbjdXp7XgcsJ01ZMjUdQHq/cpgY=";
+      sha256 = "sha256-JXGJT7/opnS4zpzhVtTgTvDVBufNjGMYlReOyKpfexA=";
     };
-    date = "2025-04-17";
+    date = "2025-04-19";
   };
   ncmdump_rs = {
     pname = "ncmdump_rs";
@@ -232,15 +232,15 @@
   };
   qcm = {
     pname = "qcm";
-    version = "78114d6a943e7d97a0666186b700c0282c8f0626";
+    version = "a1e5c27dc6091ac69fc276cad706e92b34c931b0";
     src = fetchFromGitHub {
       owner = "hypengw";
       repo = "Qcm";
-      rev = "78114d6a943e7d97a0666186b700c0282c8f0626";
+      rev = "a1e5c27dc6091ac69fc276cad706e92b34c931b0";
       fetchSubmodules = true;
-      sha256 = "sha256-FpWXRZeWsFj62V3kRBtNr0SsDUPj30jWoWJ8Txxisgk=";
+      sha256 = "sha256-A5F4DH9ncHHUckc8xdeT+PPpWd/XC/p7YzoZxPqOXac=";
     };
-    date = "2025-04-18";
+    date = "2025-04-19";
   };
   reflac = {
     pname = "reflac";
@@ -355,15 +355,15 @@
   };
   wlroots = {
     pname = "wlroots";
-    version = "3ad4374a54b307f6d4473b04031860bf88798d00";
+    version = "8dab5f838d32ff601bbb52b435717508322f7d61";
     src = fetchgit {
       url = "https://gitlab.freedesktop.org/wlroots/wlroots";
-      rev = "3ad4374a54b307f6d4473b04031860bf88798d00";
+      rev = "8dab5f838d32ff601bbb52b435717508322f7d61";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-Y5vKwBg3QOtmbcOSE2ejH6byfpAe6f8u/E+fqTS+cJc=";
+      sha256 = "sha256-V5HYfvpHR+OXW7xtxwbfI6ed3MVCSmvQVnxyJJSyJYc=";
     };
-    date = "2025-04-18";
+    date = "2025-04-19";
   };
 }
