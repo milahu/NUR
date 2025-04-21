@@ -3,84 +3,84 @@ error:
 
 … in the left operand of the AND (&&) operator
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:496:7:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:602:9:
 
-   495|       available = validity.valid != "no"
-   496|       && (if config.checkMetaRecursively or false
-      |       ^
-   497|       then all (d: d.meta.available or true) references
+   601|         validity.valid != "no"
+   602|         && (
+      |         ^
+   603|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:583:14:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:697:18:
 
-   582|   };
-   583|   validity = checkMeta.assertValidity { inherit meta attrs; };
-      |              ^
-   584|
+   696|       };
+   697|       validity = checkMeta.assertValidity { inherit meta attrs; };
+      |                  ^
+   698|
 
 … while calling 'assertValidity'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:501:20:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:608:5:
 
-   500|
-   501|   assertValidity = { meta, attrs }: let
-      |                    ^
-   502|       validity = checkValidity attrs;
+   607|   assertValidity =
+   608|     { meta, attrs }:
+      |     ^
+   609|     let
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:502:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:610:18:
 
-   501|   assertValidity = { meta, attrs }: let
-   502|       validity = checkValidity attrs;
+   609|     let
+   610|       validity = checkValidity attrs;
       |                  ^
-   503|       inherit (validity) valid;
+   611|       inherit (validity) valid;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:400:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:461:5:
 
-   399|     in
-   400|     attrs:
+   460|     in
+   461|     attrs:
       |     ^
-   401|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+   462|     # Check meta attribute types first, to make sure it is always called even when there are other issues
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:422:40:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:507:40:
 
-   421|       { valid = "no"; reason = "broken"; errormsg = "is marked as broken"; }
-   422|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
+   506|       }
+   507|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
       |                                        ^
-   423|       let toPretty' = toPretty {
+   508|       let
 
 … while calling 'hasUnsupportedPlatform'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:105:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:115:28:
 
-   104|   hasUnsupportedPlatform =
-   105|     pkg: !(availableOn hostPlatform pkg);
-      |     ^
-   106|
+   114|
+   115|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+      |                            ^
+   116|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:105:12:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:115:35:
 
-   104|   hasUnsupportedPlatform =
-   105|     pkg: !(availableOn hostPlatform pkg);
-      |            ^
-   106|
+   114|
+   115|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+      |                                   ^
+   116|
 
 … while calling 'availableOn'
 
-  at <nixpkgs> + /lib/meta.nix:289:27:
+  at <nixpkgs> + /lib/meta.nix:291:15:
 
-   288|   */
-   289|   availableOn = platform: pkg:
-      |                           ^
-   290|     ((!pkg?meta.platforms) || any (platformMatch platform) pkg.meta.platforms) &&
+   290|   availableOn =
+   291|     platform: pkg:
+      |               ^
+   292|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
 
 error: attribute 'rust-bin' missing
 
