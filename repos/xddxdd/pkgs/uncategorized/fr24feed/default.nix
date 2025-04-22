@@ -3,6 +3,7 @@
   lib,
   stdenv,
   buildFHSEnv,
+  runCommand,
   dpkg,
 }:
 let
@@ -18,30 +19,17 @@ let
     else
       throw "Unsupported architecture";
 
-  distPkg = stdenv.mkDerivation rec {
-    pname = "fr24feed-dist";
-    inherit (source) version src;
-
-    nativeBuildInputs = [ dpkg ];
-
-    unpackPhase = ''
-      runHook preUnpack
-
-      dpkg -x $src .
-
-      runHook postUnpack
-    '';
-
-    installPhase = ''
-      runHook preInstall
-
-      install -Dm755 usr/bin/fr24feed $out/bin/fr24feed
-      install -Dm755 usr/bin/fr24feed-signup-adsb $out/bin/fr24feed-signup-adsb
-      install -Dm755 usr/bin/fr24feed-signup-uat $out/bin/fr24feed-signup-uat
-
-      runHook postInstall
-    '';
-  };
+  distPkg =
+    runCommand "fr24feed-dist"
+      {
+        nativeBuildInputs = [ dpkg ];
+      }
+      ''
+        dpkg -x ${source.src} .
+        install -Dm755 usr/bin/fr24feed $out/bin/fr24feed
+        install -Dm755 usr/bin/fr24feed-signup-adsb $out/bin/fr24feed-signup-adsb
+        install -Dm755 usr/bin/fr24feed-signup-uat $out/bin/fr24feed-signup-uat
+      '';
 
   fhsArgs = {
     name = "fr24feed-fhs";
@@ -106,7 +94,7 @@ stdenv.mkDerivation rec {
     maintainers = with lib.maintainers; [ xddxdd ];
     description = "Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24";
     homepage = "https://www.flightradar24.com/share-your-data";
-    license = lib.licenses.unfreeRedistributable;
+    license = lib.licenses.unfree;
     mainProgram = "fr24feed";
   };
 }
