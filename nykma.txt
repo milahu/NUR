@@ -84,9 +84,9 @@ error:
 
 error: attribute 'rust-bin' missing
 
-at ./default.nix:39:48:
+at ./default.nix:38:48:
 
-    38|   reth = pkgs.callPackage ./pkgs/reth { inherit (pkgs) rust-bin; };
-    39|   mergiraf = pkgs.callPackage ./pkgs/mergiraf { inherit (pkgs) rust-bin; };
+    37|   reth = pkgs.callPackage ./pkgs/reth { inherit (pkgs) rust-bin; };
+    38|   mergiraf = pkgs.callPackage ./pkgs/mergiraf { inherit (pkgs) rust-bin; };
       |                                                ^
-    40|
+    39|
