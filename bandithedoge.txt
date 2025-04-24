@@ -18,12 +18,12 @@ error:
 
 … from call site
 
-  at ./pkgs/default.nix:128:19:
+  at ./pkgs/default.nix:132:19:
 
-   127|     xplrPlugins = callPackages' ./xplrPlugins;
-   128|     yaziPlugins = callPackages' ./yaziPlugins;
+   131|     xplrPlugins = callPackages' ./xplrPlugins;
+   132|     yaziPlugins = callPackages' ./yaziPlugins;
       |                   ^
-   129|     ysfx = callPackage' ./ysfx;
+   133|     ysfx = callPackage' ./ysfx;
 
 … while calling 'callPackages''
 
