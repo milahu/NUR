@@ -1,1 +1,13 @@
-git_branches="gh-pages nur-combined nur-eval-errors nur-repos nur-repos-lock nur-search nur-search-data"
+git_branches=(
+  gh-pages
+  nur-combined
+  nur-eval-errors
+  nur-eval-results
+  nur-packages-template
+  nur-repos
+  nur-repos-lock
+  nur-search
+  nur-search-data
+  nur-search-html
+  nur-update
+)
