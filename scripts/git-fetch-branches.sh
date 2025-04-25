@@ -1,7 +1,9 @@
 #! /usr/bin/env bash
 
-set -x
+source "$(dirname "$0")"/.common.sh
 
-for branch in gh-pages nur-combined nur-eval-errors nur-repos nur-repos-lock nur-search nur-search-data; do
+set -ux
+
+for branch in $git_branches; do
   git fetch origin $branch:$branch
 done
