@@ -38,6 +38,8 @@ EOF
 #echo '<script src="gridjs.umd.js"></script>'
 #echo '<link href="mermaid.min.css" rel="stylesheet" />'
 
+# TODO load tablefilter only on demand
+# when the user clicks "Filter"
 cat <<'EOF'
 <!-- https://www.jsdelivr.com/package/npm/tablefilter -->
 <script src="tablefilter.min.js"></script>
