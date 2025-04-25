@@ -88,7 +88,7 @@ echo '<tbody class="list">'
   to_entries[] |
   "<tr>\n" + (
     if '$show_package_names'
-    then "<td>" + (
+    then "<td n>" + (
       if .value.meta.homepage == null then ""
       else "<a href=\"" + .value.meta.homepage + "\">"
       end
@@ -99,13 +99,13 @@ echo '<tbody class="list">'
     ) + "</td>\n"
     else ""
     end
-  ) + "<td>" + (
+  ) + "<td a>" + (
     if .value._nurUrl == null then (
       .key
     ) else (
       "<a href=\"" + .value._nurUrl + "\">" + .key + "</a>"
     ) end
-  ) + "</td>\n<td>" + (
+  ) + "</td>\n<td d>" + (
     if .value.meta.description == null then "" else
     .value.meta.description |
     gsub("&"; "&amp;") |
