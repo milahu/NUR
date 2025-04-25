@@ -1,16 +1,16 @@
 {
 "name":"cryolitia",
-"fetch_time":0.464,
-"eval_time":0.244,
+"fetch_time":0.631,
+"eval_time":0.279,
 "source":{
 "url":"https://github.com/Cryolitia/nur-packages",
-"rev":"cff212da4ad2a240d9bc6a0b84ef612e1ceb32f0",
-"sha256":"1wbgy0jv1a8iyvsypmccw1khc3r8a4mj155w5f08ahm71qj8zky3",
+"rev":"e2ca373b2edb5c997d4589f25c66c58d7cdc2de8",
+"sha256":"1dll0gwslqljjvqcfq5hkgbadr3dwrxqw4yjxgwi659jlvrpa284",
 "date":null
 },
-"source_storepath":"/nix/store/8dpn3ckxg8vqs6wkkr6kw8bjswfayvg2-source",
-"nixpkgs_storepath":"/nix/store/g1bajdwbkcmms8cqd9s8zbq8zxhkyx91-source",
-"nur_combined_rev":"9d938d3c42a859e13501b1a492d8abc50bcc617e",
+"source_storepath":"/nix/store/wsndsm5852nmq1xxcnqgpbkanihyxp34-source",
+"nixpkgs_storepath":"/nix/store/6cf5skm473zblkm3abk33wzrmjsan46h-source",
+"nur_combined_rev":"a3841e6f8cba4cc742d78d442b1b5372e0cb1120",
 "packages":{
 "cn-font-split":{
 "meta":{
@@ -60,7 +60,6 @@
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -82,7 +81,6 @@
 "x86_64-netbsd",
 "i686-openbsd",
 "x86_64-openbsd",
-"armv7a-darwin",
 "armv5tel-linux",
 "armv7a-linux",
 "m68k-linux",
@@ -145,9 +143,7 @@
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "aarch64-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -217,7 +213,7 @@
 "name":"Cryolitia PukNgae"
 }
 ],
-"name":"maa-assistant-arknights-5.14.1",
+"name":"maa-assistant-arknights-5.15.1",
 "outputsToInstall":[
 "out"
 ],
@@ -244,22 +240,20 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"armv7a-darwin"
+"aarch64-darwin"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/ma/maa-assistant-arknights/package.nix:84",
 "unfree":false,
 "unsupported":false
 },
-"name":"maa-assistant-arknights-5.14.1",
+"name":"maa-assistant-arknights-5.15.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"maa-assistant-arknights",
 "system":"x86_64-linux",
-"version":"5.14.1"
+"version":"5.15.1"
 },
 "maa-cli-nightly":{
 "meta":{
@@ -317,7 +311,6 @@
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
 "aarch64-linux",
 "armv6l-linux",
@@ -329,7 +322,6 @@
 "riscv64-linux",
 "s390x-linux",
 "x86_64-linux",
-"armv7a-darwin",
 "armv5tel-linux",
 "armv7a-linux",
 "m68k-linux",
@@ -468,7 +460,6 @@
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -492,7 +483,6 @@
 "x86_64-openbsd",
 "i686-windows",
 "x86_64-windows",
-"armv7a-darwin",
 "armv5tel-linux",
 "armv7a-linux",
 "m68k-linux",
@@ -691,7 +681,7 @@
 "name":"Cryolitia PukNgae"
 }
 ],
-"name":"vscode-1.99.2",
+"name":"vscode-1.99.3",
 "outputsToInstall":[
 "out"
 ],
@@ -706,14 +696,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"vscode-1.99.2",
+"name":"vscode-1.99.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vscode",
 "system":"x86_64-linux",
-"version":"1.99.2"
+"version":"1.99.3"
 }
 }
 }
