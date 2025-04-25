@@ -1,16 +1,16 @@
 {
 "name":"xddxdd",
-"fetch_time":0.72,
-"eval_time":0.948,
+"fetch_time":0.793,
+"eval_time":0.918,
 "source":{
 "url":"https://github.com/xddxdd/nur-packages",
-"rev":"af8e500161fa95564f1c8167fea522d16507514f",
-"sha256":"1jd2kvhcn5pvz2xwzh4jd1x774cw7l9rvkxkdj2lr54wln4kk418",
+"rev":"8342c85203699990029e574447fe08d83e425c77",
+"sha256":"172wvi0nhvrdz2r6s6mdmbaqk2r8d39fzf54ja7cbfa7qzjajgqi",
 "date":null
 },
-"source_storepath":"/nix/store/xi77rn76qmgk91jimmgk6jazvj5zrxzq-source",
-"nixpkgs_storepath":"/nix/store/1mljq9q15x9asw7ywy8dmqixkcibv4b5-source",
-"nur_combined_rev":"54033fc0d69fa4f78132a2e6b0058511ddcac3f8",
+"source_storepath":"/nix/store/91vwv2n9ypds3dr3jhdcqrbx2vhi6fjq-source",
+"nixpkgs_storepath":"/nix/store/6cf5skm473zblkm3abk33wzrmjsan46h-source",
+"nur_combined_rev":"0fa74f2abd1f97ab850cb3be833cad7352eac7c3",
 "packages":{
 "_meta.howto":{
 "meta":{
@@ -30268,12 +30268,12 @@
 "system":"x86_64-linux",
 "version":"2023.11.14-2"
 },
-"plangothic-fonts.allideo":{
+"plangothic-fonts":{
 "meta":{
 "available":true,
 "broken":false,
 "description":"Plangothic Project",
-"homepage":"https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Plangothic",
+"homepage":"https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Plangothic_Project",
 "insecure":false,
 "license":{
 "deprecated":false,
@@ -30300,69 +30300,20 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"plangothic-fonts-allideo-2.9.5777",
+"name":"plangothic-fonts-2.9.5777",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/plangothic-fonts/default.nix:25",
+"position":"./pkgs/uncategorized/plangothic-fonts/default.nix:23",
 "unfree":false,
 "unsupported":false
 },
-"name":"plangothic-fonts-allideo-2.9.5777",
+"name":"plangothic-fonts-2.9.5777",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"plangothic-fonts-allideo",
-"system":"x86_64-linux",
-"version":"2.9.5777"
-},
-"plangothic-fonts.fallback":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"Plangothic Project",
-"homepage":"https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Plangothic",
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"SIL Open Font License 1.1",
-"redistributable":true,
-"shortName":"ofl",
-"spdxId":"OFL-1.1",
-"url":"https://spdx.org/licenses/OFL-1.1.html"
-},
-"maintainers":[
-{
-"email":"b980120@hotmail.com",
-"github":"xddxdd",
-"githubId":5778879,
-"keys":[
-{
-"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
-},
-{
-"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
-}
-],
-"name":"Yuhui Xu"
-}
-],
-"name":"plangothic-fonts-fallback-2.9.5777",
-"outputsToInstall":[
-"out"
-],
-"position":"./pkgs/plangothic-fonts/default.nix:25",
-"unfree":false,
-"unsupported":false
-},
-"name":"plangothic-fonts-fallback-2.9.5777",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"plangothic-fonts-fallback",
+"pname":"plangothic-fonts",
 "system":"x86_64-linux",
 "version":"2.9.5777"
 },
@@ -34365,7 +34316,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"qemu-user-static-7.2+dfsg-7+deb12u12",
+"name":"qemu-user-static-10.0.0~rc3+ds-2",
 "outputsToInstall":[
 "out"
 ],
@@ -34373,14 +34324,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"qemu-user-static-7.2+dfsg-7+deb12u12",
+"name":"qemu-user-static-10.0.0-rc3+ds-2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qemu-user-static",
 "system":"x86_64-linux",
-"version":"7.2+dfsg-7+deb12u12"
+"version":"10.0.0-rc3+ds-2"
 },
 "qq":{
 "meta":{
@@ -42528,6 +42479,55 @@
 "system":"x86_64-linux",
 "version":"1.1.3.31"
 },
+"uncategorized.plangothic-fonts":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Plangothic Project",
+"homepage":"https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Plangothic_Project",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"SIL Open Font License 1.1",
+"redistributable":true,
+"shortName":"ofl",
+"spdxId":"OFL-1.1",
+"url":"https://spdx.org/licenses/OFL-1.1.html"
+},
+"maintainers":[
+{
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
+"keys":[
+{
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
+}
+],
+"name":"Yuhui Xu"
+}
+],
+"name":"plangothic-fonts-2.9.5777",
+"outputsToInstall":[
+"out"
+],
+"position":"./pkgs/uncategorized/plangothic-fonts/default.nix:23",
+"unfree":false,
+"unsupported":false
+},
+"name":"plangothic-fonts-2.9.5777",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"plangothic-fonts",
+"system":"x86_64-linux",
+"version":"2.9.5777"
+},
 "uncategorized.plasma-panel-transparency-toggle":{
 "meta":{
 "available":true,
@@ -42789,7 +42789,7 @@
 "name":"Yuhui Xu"
 }
 ],
-"name":"qemu-user-static-7.2+dfsg-7+deb12u12",
+"name":"qemu-user-static-10.0.0~rc3+ds-2",
 "outputsToInstall":[
 "out"
 ],
@@ -42797,14 +42797,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"qemu-user-static-7.2+dfsg-7+deb12u12",
+"name":"qemu-user-static-10.0.0-rc3+ds-2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qemu-user-static",
 "system":"x86_64-linux",
-"version":"7.2+dfsg-7+deb12u12"
+"version":"10.0.0-rc3+ds-2"
 },
 "uncategorized.qq":{
 "meta":{
