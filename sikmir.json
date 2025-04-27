@@ -1,16 +1,16 @@
 {
 "name":"sikmir",
-"fetch_time":0.488,
-"eval_time":0.438,
+"fetch_time":0.613,
+"eval_time":0.457,
 "source":{
 "url":"https://github.com/sikmir/nur-packages",
-"rev":"23583dfba3b37db847fe8d3f0092b0de4a707af2",
-"sha256":"0gyiq8r4lv24ls8va081k25zc7wyb0b8p44hrcgal0qn6v4qsxrs",
+"rev":"03ab7b272923a82fcb4ab47b001811e1d9814d46",
+"sha256":"03ngi3lknql8zkqh7is458rim0qcmzwrnvsz40zyfmfwibj2dbma",
 "date":null
 },
-"source_storepath":"/nix/store/d38006gif71qmi8l8l5gj7lp0v2l75rw-source",
+"source_storepath":"/nix/store/7wyqwp6jmxp4gishrdxdflafn1xrbwjr-source",
 "nixpkgs_storepath":"/nix/store/6cf5skm473zblkm3abk33wzrmjsan46h-source",
-"nur_combined_rev":"3ed77e09465c0cd5bb1cc0b3416f8e1cb4090488",
+"nur_combined_rev":"f6d0bc3f2cba686cbfeba99e8eb9587fe67ed0cb",
 "packages":{
 "aamath":{
 "meta":{
@@ -2215,7 +2215,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/misc/bwh/default.nix:45",
+"position":"./pkgs/misc/bwh/default.nix:47",
 "unfree":false,
 "unsupported":false
 },
@@ -5397,7 +5397,7 @@
 },
 "dump1090_rs":{
 "meta":{
-"available":true,
+"available":false,
 "badPlatforms":[
 {
 "abi":{
@@ -5409,7 +5409,7 @@
 }
 }
 ],
-"broken":false,
+"broken":true,
 "description":"Multi-SDR supported Rust translation of the popular dump1090 project for ADS-B demodulation",
 "homepage":"https://github.com/rsadsb/dump1090_rs",
 "insecure":false,
@@ -10259,7 +10259,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/gemini/gmi2html/default.nix:42",
+"position":"./pkgs/gemini/gmi2html/default.nix:51",
 "unfree":false,
 "unsupported":false
 },
@@ -12227,7 +12227,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"gpx2video-0-unstable-2015-02-07",
+"name":"gpx2video-0-unstable-2025-04-25",
 "outputsToInstall":[
 "out"
 ],
@@ -12261,14 +12261,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"gpx2video-0-unstable-2015-02-07",
+"name":"gpx2video-0-unstable-2025-04-25",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"gpx2video",
 "system":"x86_64-linux",
-"version":"0-unstable-2015-02-07"
+"version":"0-unstable-2025-04-25"
 },
 "gpx2yaml":{
 "meta":{
@@ -17869,7 +17869,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"localtileserver-0.10.5",
+"name":"localtileserver-0.10.6",
 "outputsToInstall":[
 "out"
 ],
@@ -17910,7 +17910,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"localtileserver-0.10.5",
+"name":"localtileserver-0.10.6",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -17918,7 +17918,7 @@
 },
 "pname":"localtileserver",
 "system":"x86_64-linux",
-"version":"0.10.5"
+"version":"0.10.6"
 },
 "lsdreader":{
 "meta":{
@@ -28134,7 +28134,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-pygnssutils-1.1.9",
+"name":"python3.12-pygnssutils-1.1.12",
 "outputsToInstall":[
 "out"
 ],
@@ -28175,7 +28175,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-pygnssutils-1.1.9",
+"name":"python3.12-pygnssutils-1.1.12",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -28183,7 +28183,7 @@
 },
 "pname":"python3.12-pygnssutils",
 "system":"x86_64-linux",
-"version":"1.1.9"
+"version":"1.1.12"
 },
 "pygpsclient":{
 "meta":{
@@ -28248,7 +28248,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"pygpsclient-1.5.1",
+"name":"pygpsclient-1.5.6",
 "outputsToInstall":[
 "out"
 ],
@@ -28289,7 +28289,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"pygpsclient-1.5.1",
+"name":"pygpsclient-1.5.6",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -28297,7 +28297,7 @@
 },
 "pname":"pygpsclient",
 "system":"x86_64-linux",
-"version":"1.5.1"
+"version":"1.5.6"
 },
 "pyimagequant":{
 "meta":{
@@ -28816,7 +28816,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-pyrtcm-1.1.2",
+"name":"python3.12-pyrtcm-1.1.6",
 "outputsToInstall":[
 "out"
 ],
@@ -28857,7 +28857,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-pyrtcm-1.1.2",
+"name":"python3.12-pyrtcm-1.1.6",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -28865,7 +28865,7 @@
 },
 "pname":"python3.12-pyrtcm",
 "system":"x86_64-linux",
-"version":"1.1.2"
+"version":"1.1.6"
 },
 "pysheds":{
 "meta":{
@@ -29781,8 +29781,8 @@
 },
 "pytorchtext":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"Text utilities and datasets for PyTorch",
 "homepage":"https://github.com/pytorch/text",
 "insecure":false,
@@ -29956,7 +29956,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-pyubx2-1.2.49",
+"name":"python3.12-pyubx2-1.2.51",
 "outputsToInstall":[
 "out"
 ],
@@ -29997,7 +29997,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-pyubx2-1.2.49",
+"name":"python3.12-pyubx2-1.2.51",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -30005,7 +30005,7 @@
 },
 "pname":"python3.12-pyubx2",
 "system":"x86_64-linux",
-"version":"1.2.49"
+"version":"1.2.51"
 },
 "pyubxutils":{
 "meta":{
@@ -32488,7 +32488,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"rsgislib-5.1.7",
+"name":"rsgislib-5.1.8",
 "outputsToInstall":[
 "out"
 ],
@@ -32544,14 +32544,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rsgislib-5.1.7",
+"name":"rsgislib-5.1.8",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rsgislib",
 "system":"x86_64-linux",
-"version":"5.1.7"
+"version":"5.1.8"
 },
 "rst2txt":{
 "meta":{
@@ -36950,7 +36950,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"tatoeba-2025-04-19",
+"name":"tatoeba-2025-04-26",
 "outputsToInstall":[
 "out"
 ],
@@ -37038,14 +37038,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tatoeba-2025-04-19",
+"name":"tatoeba-2025-04-26",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tatoeba",
 "system":"x86_64-linux",
-"version":"2025-04-19"
+"version":"2025-04-26"
 },
 "tatoebatools":{
 "meta":{
@@ -37771,7 +37771,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"terracotta-0.8.5",
+"name":"terracotta-0.9.0",
 "outputsToInstall":[
 "out"
 ],
@@ -37812,7 +37812,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"terracotta-0.8.5",
+"name":"terracotta-0.9.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -37820,7 +37820,7 @@
 },
 "pname":"terracotta",
 "system":"x86_64-linux",
-"version":"0.8.5"
+"version":"0.9.0"
 },
 "tg-spam":{
 "meta":{
@@ -38169,7 +38169,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"tilecloud-1.12.6",
+"name":"tilecloud-1.13.0",
 "outputsToInstall":[
 "out"
 ],
@@ -38210,7 +38210,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tilecloud-1.12.6",
+"name":"tilecloud-1.13.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -38218,7 +38218,7 @@
 },
 "pname":"tilecloud",
 "system":"x86_64-linux",
-"version":"1.12.6"
+"version":"1.13.0"
 },
 "tilekiln":{
 "meta":{
@@ -38283,7 +38283,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"tilekiln-0.6.5",
+"name":"tilekiln-0.7.1",
 "outputsToInstall":[
 "out"
 ],
@@ -38324,7 +38324,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tilekiln-0.6.5",
+"name":"tilekiln-0.7.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -38332,7 +38332,7 @@
 },
 "pname":"tilekiln",
 "system":"x86_64-linux",
-"version":"0.6.5"
+"version":"0.7.1"
 },
 "tilelog":{
 "meta":{
@@ -38933,7 +38933,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-titiler-0.20.1",
+"name":"python3.12-titiler-0.21.1",
 "outputsToInstall":[
 "out"
 ],
@@ -38974,7 +38974,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-titiler-0.20.1",
+"name":"python3.12-titiler-0.21.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -38982,7 +38982,7 @@
 },
 "pname":"python3.12-titiler",
 "system":"x86_64-linux",
-"version":"0.20.1"
+"version":"0.21.1"
 },
 "tlstunnel":{
 "meta":{
