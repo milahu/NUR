@@ -1,16 +1,16 @@
 {
 "name":"natsukium",
-"fetch_time":0.512,
-"eval_time":0.328,
+"fetch_time":0.575,
+"eval_time":0.311,
 "source":{
 "url":"https://github.com/natsukium/nur-packages",
-"rev":"d9a290865a5b43b17cc1c231eb648cd45d8c567b",
-"sha256":"10mpy0b7dzyj0g294cm2y57cw9qf31800j5yjgrphlx1d0hparfz",
+"rev":"2e7368ffca6a6efaf0b89f87864cfdf60de8292f",
+"sha256":"1zdb5mmwc7zcsqrkya688mp00cbp2lb213fm4jrgbh4xzaj83gpf",
 "date":null
 },
-"source_storepath":"/nix/store/c0i5ixmijy7ivd0xnql2cyrd3am83nqz-source",
-"nixpkgs_storepath":"/nix/store/1mljq9q15x9asw7ywy8dmqixkcibv4b5-source",
-"nur_combined_rev":"1fd9139ef3fe3ba8c306eaf41a1cf4598c6ae4cc",
+"source_storepath":"/nix/store/gqjafsdknvyklzvs5bl0p7fj87gwfp5l-source",
+"nixpkgs_storepath":"/nix/store/6cf5skm473zblkm3abk33wzrmjsan46h-source",
+"nur_combined_rev":"3997964a418d9983039f09218f33e0963b3bf1e4",
 "packages":{
 "age-plugin-se":{
 "meta":{
@@ -197,11 +197,11 @@
 "license":{
 "deprecated":false,
 "free":true,
-"fullName":"GNU General Public License v3.0 only",
+"fullName":"GNU General Public License v3.0 or later",
 "redistributable":true,
-"shortName":"gpl3Only",
-"spdxId":"GPL-3.0-only",
-"url":"https://spdx.org/licenses/GPL-3.0-only.html"
+"shortName":"gpl3Plus",
+"spdxId":"GPL-3.0-or-later",
+"url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
 },
 "mainProgram":"copyq",
 "maintainers":[
@@ -213,7 +213,7 @@
 "name":"Artturi N"
 }
 ],
-"name":"CopyQ-9.1.0",
+"name":"CopyQ-10.0.0",
 "outputsToInstall":[
 "out"
 ],
@@ -240,18 +240,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/misc/copyq/default.nix:60",
+"position":"<nixpkgs> + /pkgs/applications/misc/copyq/default.nix:69",
 "unfree":false,
 "unsupported":false
 },
-"name":"CopyQ-9.1.0",
+"name":"CopyQ-10.0.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"CopyQ",
 "system":"x86_64-linux",
-"version":"9.1.0"
+"version":"10.0.0"
 },
 "emacs-plus":{
 "meta":{
@@ -905,7 +905,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/qutebrowser/qutebrowser/blob/v3.4.0/doc/changelog.asciidoc",
+"changelog":"https://github.com/qutebrowser/qutebrowser/blob/v3.5.0/doc/changelog.asciidoc",
 "description":"Keyboard-focused browser with a minimal GUI",
 "homepage":"https://github.com/qutebrowser/qutebrowser",
 "insecure":false,
@@ -985,7 +985,7 @@
 "name":"Robert Sch\u00fctz"
 }
 ],
-"name":"qutebrowser-3.4.0",
+"name":"qutebrowser-3.5.0",
 "outputsToInstall":[
 "out"
 ],
@@ -997,11 +997,11 @@
 "armv7l-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/browsers/qutebrowser/default.nix:158",
+"position":"<nixpkgs> + /pkgs/by-name/qu/qutebrowser/package.nix:155",
 "unfree":false,
 "unsupported":false
 },
-"name":"qutebrowser-3.4.0",
+"name":"qutebrowser-3.5.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -1009,7 +1009,7 @@
 },
 "pname":"qutebrowser",
 "system":"x86_64-linux",
-"version":"3.4.0"
+"version":"3.5.0"
 },
 "rofi-rbw":{
 "meta":{
@@ -1169,7 +1169,7 @@
 "spdxId":"Zlib",
 "url":"https://spdx.org/licenses/Zlib.html"
 },
-"name":"vimplugin-skkeleton-unstable-2025-04-19",
+"name":"vimplugin-skkeleton-unstable-2025-04-27",
 "outputsToInstall":[
 "out"
 ],
@@ -1254,14 +1254,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"vimplugin-skkeleton-unstable-2025-04-19",
+"name":"vimplugin-skkeleton-unstable-2025-04-27",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vimplugin-skkeleton-unstable",
 "system":"x86_64-linux",
-"version":"2025-04-19"
+"version":"2025-04-27"
 },
 "vimPlugins.vim-edgemotion":{
 "meta":{

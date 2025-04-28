@@ -1,16 +1,16 @@
 {
 "name":"sikmir",
-"fetch_time":0.613,
-"eval_time":0.457,
+"fetch_time":1.175,
+"eval_time":0.44,
 "source":{
 "url":"https://github.com/sikmir/nur-packages",
-"rev":"03ab7b272923a82fcb4ab47b001811e1d9814d46",
-"sha256":"03ngi3lknql8zkqh7is458rim0qcmzwrnvsz40zyfmfwibj2dbma",
+"rev":"282d62de187a708fea39699d24a595596fcbc727",
+"sha256":"12m9fjlppy020h2yv3hd2ya3sawm45dq27nzaq8h1h41yj8ysp03",
 "date":null
 },
-"source_storepath":"/nix/store/7wyqwp6jmxp4gishrdxdflafn1xrbwjr-source",
+"source_storepath":"/nix/store/dq2b2cphh5lsq7qd2d4iarpdjfpic1id-source",
 "nixpkgs_storepath":"/nix/store/6cf5skm473zblkm3abk33wzrmjsan46h-source",
-"nur_combined_rev":"f6d0bc3f2cba686cbfeba99e8eb9587fe67ed0cb",
+"nur_combined_rev":"48d966f41ffdcc476858dcb07ea9912dde2b73c8",
 "packages":{
 "aamath":{
 "meta":{
@@ -87,7 +87,7 @@
 },
 "abstreet":{
 "meta":{
-"available":true,
+"available":false,
 "badPlatforms":[
 {
 "abi":{
@@ -99,7 +99,7 @@
 }
 }
 ],
-"broken":false,
+"broken":true,
 "description":"Transportation planning and traffic simulation software",
 "homepage":"https://github.com/a-b-street/abstreet",
 "insecure":false,
@@ -9973,7 +9973,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"git-tui-1.1.0",
+"name":"git-tui-1.3.0",
 "outputsToInstall":[
 "out"
 ],
@@ -10026,14 +10026,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"git-tui-1.1.0",
+"name":"git-tui-1.3.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"git-tui",
 "system":"x86_64-linux",
-"version":"1.1.0"
+"version":"1.3.0"
 },
 "gloggery":{
 "meta":{
@@ -13887,7 +13887,7 @@
 },
 "hecate":{
 "meta":{
-"available":true,
+"available":false,
 "badPlatforms":[
 {
 "abi":{
@@ -13899,7 +13899,7 @@
 }
 }
 ],
-"broken":false,
+"broken":true,
 "description":"Fast Geospatial Feature Storage API",
 "homepage":"https://github.com/Hecate/Hecate",
 "insecure":false,
@@ -15218,8 +15218,8 @@
 },
 "json-tui":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"A JSON terminal UI made in C++",
 "homepage":"https://github.com/ArthurSonzogni/json-tui",
 "insecure":false,
@@ -15246,7 +15246,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"json-tui-1.3.0",
+"name":"json-tui-1.4.1",
 "outputsToInstall":[
 "out"
 ],
@@ -15299,14 +15299,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"json-tui-1.3.0",
+"name":"json-tui-1.4.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"json-tui",
 "system":"x86_64-linux",
-"version":"1.3.0"
+"version":"1.4.1"
 },
 "jsonseq":{
 "meta":{
@@ -16904,7 +16904,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.gnunet.org/libgnunetchat.git/tree/ChangeLog?h=v0.5.2",
+"changelog":"https://git.gnunet.org/libgnunetchat.git/tree/ChangeLog?h=v0.5.3",
 "description":"A client-side library for applications to utilize the Messenger service of GNUnet",
 "homepage":"https://www.gnunet.org/",
 "insecure":false,
@@ -16931,7 +16931,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"libgnunetchat-0.5.2",
+"name":"libgnunetchat-0.5.3",
 "outputsToInstall":[
 "out"
 ],
@@ -16984,14 +16984,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"libgnunetchat-0.5.2",
+"name":"libgnunetchat-0.5.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"libgnunetchat",
 "system":"x86_64-linux",
-"version":"0.5.2"
+"version":"0.5.3"
 },
 "libmdbx":{
 "meta":{
@@ -21804,7 +21804,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/mqtt/mqtt-logger/default.nix:35",
+"position":"./pkgs/mqtt/mqtt-logger/default.nix:38",
 "unfree":false,
 "unsupported":false
 },
@@ -36032,7 +36032,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-starlette-cramjam-0.4.0",
+"name":"python3.12-starlette-cramjam-0.5.0",
 "outputsToInstall":[
 "out"
 ],
@@ -36073,7 +36073,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-starlette-cramjam-0.4.0",
+"name":"python3.12-starlette-cramjam-0.5.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -36081,7 +36081,7 @@
 },
 "pname":"python3.12-starlette-cramjam",
 "system":"x86_64-linux",
-"version":"0.4.0"
+"version":"0.5.0"
 },
 "ste":{
 "meta":{
