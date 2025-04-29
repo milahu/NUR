@@ -1,16 +1,16 @@
 {
 "name":"sikmir",
-"fetch_time":1.175,
-"eval_time":0.44,
+"fetch_time":1.02,
+"eval_time":0.436,
 "source":{
 "url":"https://github.com/sikmir/nur-packages",
-"rev":"282d62de187a708fea39699d24a595596fcbc727",
-"sha256":"12m9fjlppy020h2yv3hd2ya3sawm45dq27nzaq8h1h41yj8ysp03",
+"rev":"36ccfb72f86e257b153537db02074e0f612fc2e4",
+"sha256":"10klds7wha0mzsi2h6qbvdp2n3bq5srdpmphrp03jj6azq3mfpg3",
 "date":null
 },
-"source_storepath":"/nix/store/dq2b2cphh5lsq7qd2d4iarpdjfpic1id-source",
+"source_storepath":"/nix/store/agdw9sip72qz11qayr0rs89fhrc2yf54-source",
 "nixpkgs_storepath":"/nix/store/6cf5skm473zblkm3abk33wzrmjsan46h-source",
-"nur_combined_rev":"48d966f41ffdcc476858dcb07ea9912dde2b73c8",
+"nur_combined_rev":"4ef4ff5212af752805151aeb6648e2ab2ba6c675",
 "packages":{
 "aamath":{
 "meta":{
@@ -7967,8 +7967,8 @@
 },
 "garminimg":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"Encode/decode a Garmin IMG file",
 "homepage":"https://github.com/kiozen/GarminImg",
 "insecure":false,
@@ -22459,7 +22459,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/mqtt/mqttwarn/default.nix:68",
+"position":"./pkgs/mqtt/mqttwarn/default.nix:72",
 "unfree":false,
 "unsupported":false
 },
@@ -26333,8 +26333,8 @@
 },
 "plutosvg":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"Tiny SVG rendering library in C",
 "homepage":"https://github.com/sammycage/plutosvg",
 "insecure":false,
@@ -34474,7 +34474,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"serverpp-0.2.0",
+"name":"serverpp-0.3.0",
 "outputsToInstall":[
 "out"
 ],
@@ -34527,14 +34527,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"serverpp-0.2.0",
+"name":"serverpp-0.3.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"serverpp",
 "system":"x86_64-linux",
-"version":"0.2.0"
+"version":"0.3.0"
 },
 "shavit":{
 "meta":{
@@ -36069,7 +36069,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/geospatial/starlette-cramjam/default.nix:31",
+"position":"./pkgs/geospatial/starlette-cramjam/default.nix:32",
 "unfree":false,
 "unsupported":false
 },
@@ -36832,8 +36832,8 @@
 },
 "taginfo-tools":{
 "meta":{
-"available":false,
-"broken":true,
+"available":true,
+"broken":false,
 "description":"C++ tools used in taginfo processing",
 "homepage":"https://wiki.openstreetmap.org/wiki/Taginfo",
 "insecure":false,
@@ -36860,7 +36860,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"taginfo-tools-0-unstable-2022-05-24",
+"name":"taginfo-tools-0-unstable-2024-11-24",
 "outputsToInstall":[
 "out"
 ],
@@ -36913,14 +36913,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"taginfo-tools-0-unstable-2022-05-24",
+"name":"taginfo-tools-0-unstable-2024-11-24",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"taginfo-tools",
 "system":"x86_64-linux",
-"version":"0-unstable-2022-05-24"
+"version":"0-unstable-2024-11-24"
 },
 "tatoeba":{
 "meta":{
@@ -37554,7 +37554,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"telnetpp-3.0.0",
+"name":"telnetpp-3.1.0",
 "outputsToInstall":[
 "out"
 ],
@@ -37607,14 +37607,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"telnetpp-3.0.0",
+"name":"telnetpp-3.1.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"telnetpp",
 "system":"x86_64-linux",
-"version":"3.0.0"
+"version":"3.1.0"
 },
 "terminalpp":{
 "meta":{
@@ -37646,7 +37646,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"terminalpp-3.1.0",
+"name":"terminalpp-4.0.0",
 "outputsToInstall":[
 "out"
 ],
@@ -37699,14 +37699,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"terminalpp-3.1.0",
+"name":"terminalpp-4.0.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"terminalpp",
 "system":"x86_64-linux",
-"version":"3.1.0"
+"version":"4.0.0"
 },
 "terracotta":{
 "meta":{
@@ -38549,7 +38549,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/geospatial/tilesets-cli/default.nix:43",
+"position":"./pkgs/geospatial/tilesets-cli/default.nix:44",
 "unfree":false,
 "unsupported":false
 },
@@ -41625,7 +41625,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"zed-0.184.3-pre",
+"name":"zed-0.184.5-pre",
 "outputsToInstall":[
 "out"
 ],
@@ -41645,14 +41645,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"zed-0.184.3-pre",
+"name":"zed-0.184.5-pre",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zed",
 "system":"x86_64-linux",
-"version":"0.184.3-pre"
+"version":"0.184.5-pre"
 },
 "zwave-js-ui":{
 "meta":{
