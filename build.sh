@@ -26,6 +26,9 @@ td {
   word-break: break-all;
 }
 h1, h2, h3 { font-weight: normal; }
+#filter-columns-button { display: inline-block; }
+.clickable { cursor: pointer; color: blue; }
+.clickable:hover { color: orange; }
 </style>
 EOF
 # no. requires class="colname" on every <td>
@@ -38,25 +41,47 @@ EOF
 #echo '<script src="gridjs.umd.js"></script>'
 #echo '<link href="mermaid.min.css" rel="stylesheet" />'
 
-# TODO load tablefilter only on demand
-# when the user clicks "Filter"
-cat <<'EOF'
-<!-- https://www.jsdelivr.com/package/npm/tablefilter -->
-<script src="tablefilter.min.js"></script>
-<link href="tablefilter.min.css" rel="stylesheet">
-EOF
-
 cat <<'EOF'
 <script>
-  window.onload = () => {
-    // https://github.com/koalyptus/TableFilter
-    var tf = new TableFilter(document.querySelector('#packages'), {
-      auto_filter: { delay: 1000 },
-      state: {
-        types: ['hash'],
-      },
+  function filterColumns() {
+    console.log("filterColumns");
+    var button = document.querySelector("#filter-columns-button");
+    if (button) {
+      button.innerHTML = "Loading filters...";
+      button.onClick = null;
+      button.classList = [];
+    }
+    var fileDir = (document.location.href.slice(0, document.location.href.length - document.location.hash.length)).split("/").slice(0, -1).join("/");
+    console.log(`filterColumns fileDir ${fileDir}`);
+    var onLoad = () => {
+      // https://github.com/koalyptus/TableFilter
+      var tf = new TableFilter(document.querySelector('#packages'), {
+        auto_filter: { delay: 1000 },
+        state: {
+          types: ['hash'],
+        },
+      });
+      // fix: TableFilter could not load: tablefilter/style/tablefilter.css
+      tf.getStylesheetPath = () => fileDir + "/tablefilter.min.css";
+      console.log("filterColumns: tf.init");
+      tf.init();
+      var button = document.querySelector("#filter-columns-button");
+      if (button) {
+        console.log("filterColumns: button.remove");
+        button.remove();
+      }
+    };
+    var script = document.createElement("script");
+    script.src = fileDir + "/tablefilter.min.js";
+    console.log("filterColumns: script");
+    script.addEventListener("load", onLoad);
+    script.addEventListener("error", () => {
+      throw new Error(`failed to load ${script.src}`);
     });
-    tf.init();
+    document.head.appendChild(script);
+  }
+  window.onload = () => {
+    if (document.location.hash) filterColumns();
   };
 </script>
 EOF
@@ -68,6 +93,13 @@ EOF
 echo '</head>'
 echo '<body>'
 echo '<h1>nur-packages</h1>'
+
+cat <<'EOF'
+<script>
+  if (!document.location.hash)
+    document.write('<div id="filter-columns-button" class="clickable" onClick="filterColumns()">Filter columns</div>');
+</script>
+EOF
 
 echo '<table width="100%" id="packages">'
 
