@@ -8,11 +8,11 @@
 }:
 
 budgie-desktop.overrideAttrs (prevAttrs: {
-  version = "10.9.2-unstable-2025-04-08";
+  version = "10.9.2-unstable-2025-04-29";
 
   src = prevAttrs.src.override {
-    rev = "63cff7f80717d79b849da07bebeacbeafd2216ff";
-    hash = "sha256-qqRgd1mCX+SAMgbPkf1Fhb8uWF2gW0BOHTV8cUKMjzM=";
+    rev = "dda1fd7a0db196f0dc78913f5977a46ccb7ed2c3";
+    hash = "sha256-Q3IR+hEc5Wucp+tb/jZBqgOHbju87k9cHr4lmmxL034=";
   };
 
   patches = [ ];

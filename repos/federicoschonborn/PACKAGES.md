@@ -65,10 +65,10 @@ V2 daemon for Budgie Desktop.
 Feature-rich, modern desktop designed to keep out the way of the user.
 
 - Name: `budgie-desktop`
-- Version: `10.9.2-unstable-2025-04-08`
+- Version: `10.9.2-unstable-2025-04-29`
 - Outputs: **`out`**, `dev`, `man`
 - [🌐 Homepage](https://github.com/BuddiesOfBudgie/budgie-desktop)
-- [📰 Changelog](https://github.com/BuddiesOfBudgie/budgie-desktop/releases/tag/v10.9.2-unstable-2025-04-08)
+- [📰 Changelog](https://github.com/BuddiesOfBudgie/budgie-desktop/releases/tag/v10.9.2-unstable-2025-04-29)
 - [📦 Source](./pkgs/by-name/bu/budgie-desktop/package.nix#L140)
 - 📄 Licenses: [`GNU General Public License v2.0 or later`](https://spdx.org/licenses/GPL-2.0-or-later.html), [`GNU Lesser General Public License v2.1 or later`](https://spdx.org/licenses/LGPL-2.1-or-later.html), [`Creative Commons Attribution Share Alike 3.0`](https://spdx.org/licenses/CC-BY-SA-3.0.html)
 - 🖥️ Platforms: `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
@@ -112,10 +112,10 @@ Tool to generate flags for your CPU.
 Like neofetch, but much faster because written in C.
 
 - Name: `fastfetch`
-- Version: `2.41.0`
+- Version: `2.42.0`
 - Outputs: **`out`**, `man`
 - [🌐 Homepage](https://github.com/fastfetch-cli/fastfetch)
-- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.41.0)
+- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.42.0)
 - [📦 Source](./pkgs/by-name/fastfetch/package.nix#L264)
 - 📄 License: [`MIT License`](https://spdx.org/licenses/MIT.html)
 - 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
@@ -125,10 +125,10 @@ Like neofetch, but much faster because written in C.
 Like neofetch, but much faster because written in C (with all features disabled).
 
 - Name: `fastfetch`
-- Version: `2.41.0`
+- Version: `2.42.0`
 - Outputs: **`out`**, `man`
 - [🌐 Homepage](https://github.com/fastfetch-cli/fastfetch)
-- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.41.0)
+- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.42.0)
 - [📦 Source](./default.nix#L29)
 - 📄 License: [`MIT License`](https://spdx.org/licenses/MIT.html)
 - 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
@@ -400,7 +400,7 @@ Camera application for Plasma Mobile.
 Plasma Login Manager provides the backend for Plasma's login experience.
 
 - Name: `plasma-login-manager`
-- Version: `0-unstable-2025-04-17`
+- Version: `0-unstable-2025-04-30`
 - [🌐 Homepage](https://invent.kde.org/davidedmundson/plasma-login-manager)
 - [📦 Source](./pkgs/by-name/plasma-login-manager/package.nix#L72)
 - 📄 Licenses: [`Creative Commons Attribution 3.0`](https://spdx.org/licenses/CC-BY-3.0.html), [`GNU General Public License v2.0 or later`](https://spdx.org/licenses/GPL-2.0-or-later.html)
@@ -411,7 +411,7 @@ Plasma Login Manager provides the backend for Plasma's login experience.
 A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell.
 
 - Name: `pnut`
-- Version: `SLE2024-artifact-unstable-2025-04-19`
+- Version: `SLE2024-artifact-unstable-2025-04-27`
 - [🌐 Homepage](https://github.com/udem-dlteam/pnut)
 - [📦 Source](./pkgs/by-name/pnut/package.nix#L43)
 - 📄 License: [`BSD 2-clause "Simplified" License`](https://spdx.org/licenses/BSD-2-Clause.html)
@@ -455,9 +455,9 @@ Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood
 Sharkish microblogging platform.
 
 - Name: `sharkey`
-- Version: `2025.2.2`
+- Version: `2025.2.3`
 - [🌐 Homepage](https://activitypub.software/TransFem-org/Sharkey)
-- [📰 Changelog](https://activitypub.software/TransFem-org/Sharkey/-/releases/2025.2.2)
+- [📰 Changelog](https://activitypub.software/TransFem-org/Sharkey/-/releases/2025.2.3)
 - [📦 Source](./pkgs/by-name/sharkey/package.nix#L132)
 - 📄 License: [`GNU Affero General Public License v3.0 only`](https://spdx.org/licenses/AGPL-3.0-only.html)
 - 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
