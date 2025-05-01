@@ -11,26 +11,60 @@ td {
   word-break: break-all;
 }
 h1, h2, h3 { font-weight: normal; }
+#filter-columns-button { display: inline-block; }
+.clickable { cursor: pointer; color: blue; }
+.clickable:hover { color: orange; }
 </style>
-<!-- https://www.jsdelivr.com/package/npm/tablefilter -->
-<script src="tablefilter.min.js"></script>
-<link href="tablefilter.min.css" rel="stylesheet">
 <script>
-  window.onload = () => {
-    // https://github.com/koalyptus/TableFilter
-    var tf = new TableFilter(document.querySelector('#packages'), {
-      auto_filter: { delay: 1000 },
-      state: {
-        types: ['hash'],
-      },
+  function filterColumns() {
+    console.log("filterColumns");
+    var button = document.querySelector("#filter-columns-button");
+    if (button) {
+      button.innerHTML = "Loading filters...";
+      button.onClick = null;
+      button.classList = [];
+    }
+    var fileDir = (document.location.href.slice(0, document.location.href.length - document.location.hash.length)).split("/").slice(0, -1).join("/");
+    console.log(`filterColumns fileDir ${fileDir}`);
+    var onLoad = () => {
+      // https://github.com/koalyptus/TableFilter
+      var tf = new TableFilter(document.querySelector('#packages'), {
+        auto_filter: { delay: 1000 },
+        state: {
+          types: ['hash'],
+        },
+      });
+      // fix: TableFilter could not load: tablefilter/style/tablefilter.css
+      tf.getStylesheetPath = () => fileDir + "/tablefilter.min.css";
+      console.log("filterColumns: tf.init");
+      tf.init();
+      var button = document.querySelector("#filter-columns-button");
+      if (button) {
+        console.log("filterColumns: button.remove");
+        button.remove();
+      }
+    };
+    var script = document.createElement("script");
+    script.src = fileDir + "/tablefilter.min.js";
+    console.log("filterColumns: script");
+    script.addEventListener("load", onLoad);
+    script.addEventListener("error", () => {
+      throw new Error(`failed to load ${script.src}`);
     });
-    tf.init();
+    document.head.appendChild(script);
+  }
+  window.onload = () => {
+    if (document.location.hash) filterColumns();
   };
 </script>
 <base href="https://github.com/milahu/NUR/blob/nur-combined/repos/">
 </head>
 <body>
 <h1>nur-packages</h1>
+<script>
+  if (!document.location.hash)
+    document.write('<div id="filter-columns-button" class="clickable" onClick="filterColumns()">Filter columns</div>');
+</script>
 <table width="100%" id="packages">
 <thead>
 <tr>
@@ -24207,63 +24241,63 @@ h1, h2, h3 { font-weight: normal; }
 </tr>
 <tr>
 <td n>create-react-app-5.1.0</td>
-<td a><a href="crazazy/./pkgs/js/create-react-app/node-packages.nix#L653">nur.repos.crazazy.js.CRA</a></td>
-<td d>Create React apps with no build configuration.</td>
+<td a>nur.repos.crazazy.js.CRA</td>
+<td d></td>
 </tr>
 <tr>
-<td n><a href="https://eslint.org">eslint-9.25.1</a></td>
-<td a><a href="crazazy/./pkgs/js/eslint/node-packages.nix#L893">nur.repos.crazazy.js.eslint</a></td>
-<td d>An AST-based pattern checker for JavaScript.</td>
+<td n>eslint-9.25.1</td>
+<td a>nur.repos.crazazy.js.eslint</td>
+<td d></td>
 </tr>
 <tr>
 <td n>jspm-3.3.4</td>
-<td a><a href="crazazy/./pkgs/js/jspm/node-packages.nix#L1490">nur.repos.crazazy.js.jspm</a></td>
-<td d>Import Map Package Manager</td>
+<td a>nur.repos.crazazy.js.jspm</td>
+<td d></td>
 </tr>
 <tr>
 <td n>npe-1.2.0</td>
-<td a><a href="crazazy/./pkgs/js/npe/node-packages.nix#L47">nur.repos.crazazy.js.npe</a></td>
-<td d>Node Package Editor: a CLI for one-off inspection and editing of properties in package.json files.</td>
+<td a>nur.repos.crazazy.js.npe</td>
+<td d></td>
 </tr>
 <tr>
 <td n>parcel-bundler-1.12.5</td>
-<td a><a href="crazazy/./pkgs/js/parcel-bundler/node-packages.nix#L7995">nur.repos.crazazy.js.parcel</a></td>
-<td d>Blazing fast, zero configuration web application bundler</td>
+<td a>nur.repos.crazazy.js.parcel</td>
+<td d></td>
 </tr>
 <tr>
-<td n><a href="https://pnpm.io">pnpm-10.9.0</a></td>
-<td a><a href="crazazy/./pkgs/js/pnpm/node-packages.nix#L14">nur.repos.crazazy.js.pnpm</a></td>
-<td d>Fast, disk space efficient package manager</td>
+<td n>pnpm-10.9.0</td>
+<td a>nur.repos.crazazy.js.pnpm</td>
+<td d></td>
 </tr>
 <tr>
-<td n><a href="https://github.com/preactjs/preact-cli">preact-cli-3.5.1</a></td>
-<td a><a href="crazazy/./pkgs/js/preact-cli/node-packages.nix#L15949">nur.repos.crazazy.js.preact-cli</a></td>
-<td d>Start building a Preact Progressive Web App in seconds.</td>
+<td n>preact-cli-3.5.1</td>
+<td a>nur.repos.crazazy.js.preact-cli</td>
+<td d></td>
 </tr>
 <tr>
-<td n><a href="https://rollupjs.org/">rollup-4.40.0</a></td>
-<td a><a href="crazazy/./pkgs/js/rollup/node-packages.nix#L27">nur.repos.crazazy.js.rollup</a></td>
-<td d>Next-generation ES module bundler</td>
+<td n>rollup-4.40.0</td>
+<td a>nur.repos.crazazy.js.rollup</td>
+<td d></td>
 </tr>
 <tr>
 <td n>tern-0.24.3</td>
-<td a><a href="crazazy/./pkgs/js/tern/node-packages.nix#L307">nur.repos.crazazy.js.tern</a></td>
-<td d>A JavaScript code analyzer for deep, cross-editor language support</td>
+<td a>nur.repos.crazazy.js.tern</td>
+<td d></td>
 </tr>
 <tr>
-<td n><a href="https://tldr.sh">tldr-3.4.0</a></td>
-<td a><a href="crazazy/./pkgs/js/tldr/node-packages.nix#L907">nur.repos.crazazy.js.tldr</a></td>
-<td d>Simplified and community-driven man pages</td>
+<td n>tldr-3.4.0</td>
+<td a>nur.repos.crazazy.js.tldr</td>
+<td d></td>
 </tr>
 <tr>
-<td n><a href="https://www.typescriptlang.org/">typescript-5.8.3</a></td>
-<td a><a href="crazazy/./pkgs/js/typescript/node-packages.nix#L14">nur.repos.crazazy.js.typescript</a></td>
-<td d>TypeScript is a language for application scale JavaScript development</td>
+<td n>typescript-5.8.3</td>
+<td a>nur.repos.crazazy.js.typescript</td>
+<td d></td>
 </tr>
 <tr>
-<td n><a href="https://github.com/webpack/webpack-cli/tree/master/packages/webpack-cli">webpack-cli-6.0.1</a></td>
-<td a><a href="crazazy/./pkgs/js/webpack-cli/node-packages.nix#L1203">nur.repos.crazazy.js.webpack</a></td>
-<td d>CLI for webpack &amp; friends</td>
+<td n>webpack-cli-6.0.1</td>
+<td a>nur.repos.crazazy.js.webpack</td>
+<td d></td>
 </tr>
 <tr>
 <td n><a href="https://github.com/crazazy/nix-gen-node-tools">nix-gen-node-tools-1.0.2</a></td>
@@ -25166,6 +25200,11 @@ h1, h2, h3 { font-weight: normal; }
 <td d>RVC + UVR = A perfect set of tools for voice cloning, easily and free</td>
 </tr>
 <tr>
+<td n><a href="https://stable-diffusion.fsociety.hu/">sd-cpp-gui-wx-2025-03-20</a></td>
+<td a><a href="dukzcry/./pkgs/sd-cpp-gui-wx/default.nix#L90">nur.repos.dukzcry.sd-cpp-gui-wx</a></td>
+<td d>Stable Diffusion GUI written in C++</td>
+</tr>
+<tr>
 <td n><a href="https://github.com/daniandtheweb/sd.cpp-webui">sd-cpp-webui-unstable-2025-02-22</a></td>
 <td a><a href="dukzcry/./pkgs/sd-cpp-webui/default.nix#L37">nur.repos.dukzcry.sd-cpp-webui</a></td>
 <td d>A simple webui for stable-diffusion.cpp</td>
@@ -25486,8 +25525,8 @@ h1, h2, h3 { font-weight: normal; }
 <td d>V2 daemon for Budgie Desktop</td>
 </tr>
 <tr>
-<td n><a href="https://github.com/BuddiesOfBudgie/budgie-desktop">budgie-desktop-10.9.2-unstable-2025-04-08</a></td>
-<td a><a href="federicoschonborn/<nixpkgs> + /pkgs/by-name/bu/budgie-desktop/package.nix#L140">nur.repos.federicoschonborn.budgie-desktop-unstable</a></td>
+<td n><a href="https://github.com/BuddiesOfBudgie/budgie-desktop">budgie-desktop-10.9.2-unstable-2025-04-29</a></td>
+<td a><a href="federicoschonborn/<nixpkgs> + /pkgs/by-name/bu/budgie-desktop/package.nix#L147">nur.repos.federicoschonborn.budgie-desktop-unstable</a></td>
 <td d>Feature-rich, modern desktop designed to keep out the way of the user</td>
 </tr>
 <tr>
@@ -25506,12 +25545,12 @@ h1, h2, h3 { font-weight: normal; }
 <td d>Tool to generate flags for your CPU</td>
 </tr>
 <tr>
-<td n><a href="https://github.com/fastfetch-cli/fastfetch">fastfetch-2.41.0</a></td>
+<td n><a href="https://github.com/fastfetch-cli/fastfetch">fastfetch-2.42.0</a></td>
 <td a><a href="federicoschonborn/./pkgs/by-name/fastfetch/package.nix#L264">nur.repos.federicoschonborn.fastfetch</a></td>
 <td d>Like neofetch, but much faster because written in C</td>
 </tr>
 <tr>
-<td n><a href="https://github.com/fastfetch-cli/fastfetch">fastfetch-2.41.0</a></td>
+<td n><a href="https://github.com/fastfetch-cli/fastfetch">fastfetch-2.42.0</a></td>
 <td a><a href="federicoschonborn/./default.nix#L29">nur.repos.federicoschonborn.fastfetchMinimal</a></td>
 <td d>Like neofetch, but much faster because written in C (with all features disabled)</td>
 </tr>
@@ -25631,12 +25670,12 @@ h1, h2, h3 { font-weight: normal; }
 <td d>Camera application for Plasma Mobile</td>
 </tr>
 <tr>
-<td n><a href="https://invent.kde.org/davidedmundson/plasma-login-manager">plasma-login-manager-0-unstable-2025-04-17</a></td>
+<td n><a href="https://invent.kde.org/davidedmundson/plasma-login-manager">plasma-login-manager-0-unstable-2025-04-30</a></td>
 <td a><a href="federicoschonborn/./pkgs/by-name/plasma-login-manager/package.nix#L72">nur.repos.federicoschonborn.plasma-login-manager</a></td>
 <td d>Plasma Login Manager provides the backend for Plasma's login experience</td>
 </tr>
 <tr>
-<td n><a href="https://github.com/udem-dlteam/pnut">pnut-SLE2024-artifact-unstable-2025-04-19</a></td>
+<td n><a href="https://github.com/udem-dlteam/pnut">pnut-SLE2024-artifact-unstable-2025-04-27</a></td>
 <td a><a href="federicoschonborn/./pkgs/by-name/pnut/package.nix#L43">nur.repos.federicoschonborn.pnut</a></td>
 <td d>A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell</td>
 </tr>
@@ -25656,8 +25695,8 @@ h1, h2, h3 { font-weight: normal; }
 <td d>Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood, Shadow Warrior, Redneck Rampage and Powerslave/Exhumed</td>
 </tr>
 <tr>
-<td n><a href="https://activitypub.software/TransFem-org/Sharkey">sharkey-2025.2.2</a></td>
-<td a><a href="federicoschonborn/./pkgs/by-name/sharkey/package.nix#L132">nur.repos.federicoschonborn.sharkey</a></td>
+<td n><a href="https://activitypub.software/TransFem-org/Sharkey">sharkey-2025.2.3</a></td>
+<td a><a href="federicoschonborn/./pkgs/by-name/sharkey/package.nix#L129">nur.repos.federicoschonborn.sharkey</a></td>
 <td d>Sharkish microblogging platform</td>
 </tr>
 <tr>
@@ -26361,12 +26400,12 @@ h1, h2, h3 { font-weight: normal; }
 <td d>Generate custom applets and menus</td>
 </tr>
 <tr>
-<td n><a href="https://goreleaser.com">goreleaser-2.8.2</a></td>
+<td n><a href="https://goreleaser.com">goreleaser-2.9.0</a></td>
 <td a><a href="goreleaser/./pkgs/goreleaser/default.nix#L51">nur.repos.goreleaser.goreleaser</a></td>
 <td d>Release engineering, simplified</td>
 </tr>
 <tr>
-<td n><a href="https://goreleaser.com">goreleaser-pro-2.8.2</a></td>
+<td n><a href="https://goreleaser.com">goreleaser-pro-2.9.0</a></td>
 <td a><a href="goreleaser/./pkgs/goreleaser-pro/default.nix#L51">nur.repos.goreleaser.goreleaser-pro</a></td>
 <td d>Release engineering, simplified.</td>
 </tr>
@@ -46836,7 +46875,7 @@ h1, h2, h3 { font-weight: normal; }
 <td d>Librime with plugins (librime-charcode, librime-lua, librime-octagram, librime-proto)</td>
 </tr>
 <tr>
-<td n><a href="https://github.com/ggml-org/llama.cpp">llama-cpp-5216</a></td>
+<td n><a href="https://github.com/ggml-org/llama.cpp">llama-cpp-5226</a></td>
 <td a><a href="xddxdd/<nixpkgs> + /pkgs/by-name/ll/llama-cpp/package.nix#L191">nur.repos.xddxdd.lantianCustomized.llama-cpp</a></td>
 <td d>Inference of Meta's LLaMA model (and others) in pure C/C++</td>
 </tr>
@@ -48701,7 +48740,7 @@ h1, h2, h3 { font-weight: normal; }
 <td d>Premier web-based administration tool for PostgreSQL</td>
 </tr>
 <tr>
-<td n><a href="https://github.com/bggRGjQaUbCoE/PiliPlus">piliplus-1.1.3.32</a></td>
+<td n><a href="https://github.com/bggRGjQaUbCoE/PiliPlus">piliplus-1.1.3.33</a></td>
 <td a><a href="xddxdd/./pkgs/uncategorized/piliplus/default.nix#L71">nur.repos.xddxdd.piliplus</a></td>
 <td d>Third party Bilibili client built with Flutter</td>
 </tr>
@@ -48721,7 +48760,7 @@ h1, h2, h3 { font-weight: normal; }
 <td d>Rewrite of [Panel Transparency Button](https://github.com/psifidotos/paneltransparencybutton) for plasma 6</td>
 </tr>
 <tr>
-<td n><a href="https://store.kde.org/p/2139746">plasma-smart-video-wallpaper-reborn-2.2.0</a></td>
+<td n><a href="https://store.kde.org/p/2139746">plasma-smart-video-wallpaper-reborn-2.3.0</a></td>
 <td a><a href="xddxdd/./pkgs/uncategorized/plasma-smart-video-wallpaper-reborn/default.nix#L17">nur.repos.xddxdd.plasma-smart-video-wallpaper-reborn</a></td>
 <td d>Plasma 6 wallpaper plugin to play videos on your Desktop/Lock Screen</td>
 </tr>
@@ -49526,7 +49565,7 @@ h1, h2, h3 { font-weight: normal; }
 <td d>Premier web-based administration tool for PostgreSQL</td>
 </tr>
 <tr>
-<td n><a href="https://github.com/bggRGjQaUbCoE/PiliPlus">piliplus-1.1.3.32</a></td>
+<td n><a href="https://github.com/bggRGjQaUbCoE/PiliPlus">piliplus-1.1.3.33</a></td>
 <td a><a href="xddxdd/./pkgs/uncategorized/piliplus/default.nix#L71">nur.repos.xddxdd.uncategorized.piliplus</a></td>
 <td d>Third party Bilibili client built with Flutter</td>
 </tr>
@@ -49541,7 +49580,7 @@ h1, h2, h3 { font-weight: normal; }
 <td d>Rewrite of [Panel Transparency Button](https://github.com/psifidotos/paneltransparencybutton) for plasma 6</td>
 </tr>
 <tr>
-<td n><a href="https://store.kde.org/p/2139746">plasma-smart-video-wallpaper-reborn-2.2.0</a></td>
+<td n><a href="https://store.kde.org/p/2139746">plasma-smart-video-wallpaper-reborn-2.3.0</a></td>
 <td a><a href="xddxdd/./pkgs/uncategorized/plasma-smart-video-wallpaper-reborn/default.nix#L17">nur.repos.xddxdd.uncategorized.plasma-smart-video-wallpaper-reborn</a></td>
 <td d>Plasma 6 wallpaper plugin to play videos on your Desktop/Lock Screen</td>
 </tr>
@@ -49696,7 +49735,7 @@ h1, h2, h3 { font-weight: normal; }
 <td d>Userspace KSM helper daemon</td>
 </tr>
 <tr>
-<td n><a href="https://github.com/yym68686/uni-api">uni-api-0-unstable-2025-04-29</a></td>
+<td n><a href="https://github.com/yym68686/uni-api">uni-api-0-unstable-2025-04-30</a></td>
 <td a><a href="xddxdd/./pkgs/uncategorized/uni-api/default.nix#L59">nur.repos.xddxdd.uncategorized.uni-api</a></td>
 <td d>Unifies the management of LLM APIs. Call multiple backend services through a unified API interface</td>
 </tr>
@@ -49771,7 +49810,7 @@ h1, h2, h3 { font-weight: normal; }
 <td d>Xilinx Virtual Cable Daemon</td>
 </tr>
 <tr>
-<td n><a href="https://github.com/yym68686/uni-api">uni-api-0-unstable-2025-04-29</a></td>
+<td n><a href="https://github.com/yym68686/uni-api">uni-api-0-unstable-2025-04-30</a></td>
 <td a><a href="xddxdd/./pkgs/uncategorized/uni-api/default.nix#L59">nur.repos.xddxdd.uni-api</a></td>
 <td d>Unifies the management of LLM APIs. Call multiple backend services through a unified API interface</td>
 </tr>
@@ -50001,8 +50040,8 @@ h1, h2, h3 { font-weight: normal; }
 <td d>Rime Input Method Engine, the core library</td>
 </tr>
 <tr>
-<td n><a href="https://github.com/HuangJian/librime-qjs">librime-qjs-latest-unstable-2025-04-24</a></td>
-<td a><a href="xyenon/./pkgs/librime-qjs/default.nix#L33">nur.repos.xyenon.librime-qjs</a></td>
+<td n><a href="https://github.com/HuangJian/librime-qjs">librime-qjs-1.1.0-unstable-2025-04-30</a></td>
+<td a><a href="xyenon/./pkgs/librime-qjs/default.nix#L36">nur.repos.xyenon.librime-qjs</a></td>
 <td d>Bring a fresh JavaScript plugin ecosystem to the Rime Input Method Engine</td>
 </tr>
 <tr>
@@ -50011,12 +50050,12 @@ h1, h2, h3 { font-weight: normal; }
 <td d>A modern OSC UI replacement for MPV that retains the functionality of the default OSC</td>
 </tr>
 <tr>
-<td n><a href="https://github.com/harehare/mq">mq-0.1.2-unstable-2025-04-27</a></td>
+<td n><a href="https://github.com/harehare/mq">mq-0.1.2-unstable-2025-04-29</a></td>
 <td a><a href="xyenon/./pkgs/mq/default.nix#L37">nur.repos.xyenon.mq</a></td>
 <td d>Jq like markdown processing tool</td>
 </tr>
 <tr>
-<td n><a href="http://nginx.org">nginx-1.26.3</a></td>
+<td n><a href="http://nginx.org">nginx-1.28.0</a></td>
 <td a><a href="xyenon/<nixpkgs> + /pkgs/servers/http/nginx/generic.nix#L313">nur.repos.xyenon.nginx</a></td>
 <td d>Reverse proxy and lightweight webserver</td>
 </tr>
