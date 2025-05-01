@@ -82,12 +82,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:872:5:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:857:5:
 
-   871|   replaceDependency =
-   872|     {
+   856|   replaceDependency =
+   857|     {
       |     ^
-   873|       drv,
+   858|       drv,
 
 … from call site
 
@@ -211,12 +211,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:872:5:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:857:5:
 
-   871|   replaceDependency =
-   872|     {
+   856|   replaceDependency =
+   857|     {
       |     ^
-   873|       drv,
+   858|       drv,
 
 … from call site
 
@@ -263,10 +263,10 @@ error:
       |     ^
    115|     if toString oldDependency == toString newDependency then
 
-… while evaluating derivation 'qtwayland-6.8.2'
+… while evaluating derivation 'qtwayland-6.9.0'
   whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:438:13
 
-… while evaluating attribute 'propagatedBuildInputs' of derivation 'qtwayland-6.8.2'
+… while evaluating attribute 'propagatedBuildInputs' of derivation 'qtwayland-6.9.0'
 
   at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:500:13:
 
@@ -340,12 +340,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:872:5:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:857:5:
 
-   871|   replaceDependency =
-   872|     {
+   856|   replaceDependency =
+   857|     {
       |     ^
-   873|       drv,
+   858|       drv,
 
 … from call site
 
@@ -410,4 +410,4 @@ error:
       |     ^
     61|     import
 
-error: path '/nix/store/3gi4w4j1w45m83nr7d3a2x9cf5b3bd1w-references.nix.drv' is not valid
+error: path '/nix/store/n3p83rylywwpsgls1zn8j1b2ki3qqxc5-references.nix.drv' is not valid
