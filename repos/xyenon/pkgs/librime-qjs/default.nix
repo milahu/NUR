@@ -7,14 +7,14 @@
 
 stdenvNoCC.mkDerivation {
   pname = "librime-qjs";
-  version = "1.1.0-unstable-2025-04-30";
+  version = "1.2.0-unstable-2025-05-03";
 
   src = fetchFromGitHub {
     owner = "HuangJian";
     repo = "librime-qjs";
-    rev = "db8ca3be40d7ccb56bb5ee9c84309d0af52babf2";
+    rev = "5f17ba18ef52bd2ddd74ff70c4d8e57cce5c9cce";
     fetchSubmodules = true;
-    hash = "sha256-Dql8vSuIBgQAck2h5TauMrycM9NP2txUnFGg5T0UDdY=";
+    hash = "sha256-7WoldwefkN/8NMROMYQGPcVt3stxsyge3uI8pqFj1v4=";
   };
 
   installPhase = ''
