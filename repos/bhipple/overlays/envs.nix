@@ -143,7 +143,6 @@ in
         self.gitAndTools.hub
         self.gnome-keyring
         self.gnumake
-        self.gnupg
         self.gnutls
         self.graphviz
         self.icu
