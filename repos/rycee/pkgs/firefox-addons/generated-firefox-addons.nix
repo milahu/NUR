@@ -2909,10 +2909,10 @@
     };
     "elasticvue" = buildFirefoxXpiAddon {
       pname = "elasticvue";
-      version = "1.6.0";
+      version = "1.7.0";
       addonId = "{2879bc11-6e9e-4d73-82c9-1ed8b78df296}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4459064/elasticvue-1.6.0.xpi";
-      sha256 = "7cd2c184c8a257300f5ab1fe7d33d4fa71c0642bdf3cd51c85253ac2b877fe94";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4486030/elasticvue-1.7.0.xpi";
+      sha256 = "1593351e7f845cd2bf4a4fbcb20f0d618bd6650fffcba9625752156d92eabb62";
       meta = with lib;
       {
         homepage = "https://elasticvue.com/";
@@ -6928,10 +6928,10 @@
     };
     "linkwarden" = buildFirefoxXpiAddon {
       pname = "linkwarden";
-      version = "1.3.2";
+      version = "1.3.3";
       addonId = "jordanlinkwarden@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4432836/linkwarden-1.3.2.xpi";
-      sha256 = "99cb54fae45bdae23ef5620ea3ba89e017caad4bca95b09521ac04382d0c2fbf";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4485947/linkwarden-1.3.3.xpi";
+      sha256 = "4f1f38cf8a86e2b709d4f25c3f3040e4abaa9e2e62f0f5d5a4995eb42d8e0cfd";
       meta = with lib;
       {
         description = "The browser extension for Linkwarden.";
@@ -10497,6 +10497,26 @@
         platforms = platforms.all;
       };
     };
+    "ruffle_rs" = buildFirefoxXpiAddon {
+      pname = "ruffle_rs";
+      version = "0.1.0.1547";
+      addonId = "{b5501fd1-7084-45c5-9aa6-567c2fcf5dc6}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4476009/ruffle_rs-0.1.0.1547.xpi";
+      sha256 = "1ff19294c8e4cd87e86defb25e31b1705a5ee490617400497d66a67c3c34a949";
+      meta = with lib;
+      {
+        homepage = "https://ruffle.rs/";
+        description = "Putting Flash back on the web.\n\nDesigned to be easy to use, this extension will seamlessly enable you to play flash content, with no extra configuration required!";
+        license = licenses.mit;
+        mozPermissions = [
+          "storage"
+          "scripting"
+          "declarativeNetRequestWithHostAccess"
+          "<all_urls>"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "rust-search-extension" = buildFirefoxXpiAddon {
       pname = "rust-search-extension";
       version = "2.0.2";
@@ -13513,6 +13533,29 @@
           "http://*/*"
           "https://*/*"
           "file:///*"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "web-clipper-obsidian" = buildFirefoxXpiAddon {
+      pname = "web-clipper-obsidian";
+      version = "0.11.7";
+      addonId = "clipper@obsidian.md";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4475961/web_clipper_obsidian-0.11.7.xpi";
+      sha256 = "7d6d792d4e8cab559ee7041da6b9b3983b3256a283c4bf39033c01fe4702f2f6";
+      meta = with lib;
+      {
+        homepage = "https://obsidian.md/clipper";
+        description = "Save and highlight web pages in a private and durable format that you can access offline. The official browser extension for Obsidian.";
+        license = licenses.mit;
+        mozPermissions = [
+          "activeTab"
+          "clipboardWrite"
+          "contextMenus"
+          "storage"
+          "scripting"
+          "http://*/*"
+          "https://*/*"
         ];
         platforms = platforms.all;
       };
