@@ -138,6 +138,18 @@
       hash = "sha256-08cyr2AruGAfHAwHHS8WMfJh7DBKymaYyz4AxI/ubkE=";
     };
   };
+  bergamot-translator = {
+    pname = "bergamot-translator";
+    version = "9271618ebbdc5d21ac4dc4df9e72beb7ce644774";
+    src = fetchFromGitHub {
+      owner = "browsermt";
+      repo = "bergamot-translator";
+      rev = "9271618ebbdc5d21ac4dc4df9e72beb7ce644774";
+      fetchSubmodules = true;
+      hash = "sha256-VWKFSxvCH7fVSABMieBWlA0knLYWLI61MyVqoZa6Pm4=";
+    };
+    date = "2024-05-12";
+  };
   bilibili = {
     pname = "bilibili";
     version = "v1.16.4-1";
@@ -465,10 +477,10 @@
   fastapi-dls = {
     pname = "fastapi-dls";
     version = "b577edcf67318ba3caf3842fc173208eba99c5d1";
-    src = fetchgit {
-      url = "https://git.collinwebdesigns.de/oscar.krause/fastapi-dls.git";
+    src = fetchFromGitHub {
+      owner = "GreenDamTan";
+      repo = "fastapi-dls_mirror";
       rev = "b577edcf67318ba3caf3842fc173208eba99c5d1";
-      fetchSubmodules = false;
       hash = "sha256-5IgmIIFNhE0p2tqh0KvsUNcIKpOvOw/oaIiplxxuIKI=";
     };
     date = "2025-04-23";
@@ -476,9 +488,11 @@
   fastapi-dls-stable = {
     pname = "fastapi-dls-stable";
     version = "2.0.0";
-    src = fetchurl {
-      url = "https://google.com/generate_204";
-      hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
+    src = fetchFromGitHub {
+      owner = "GreenDamTan";
+      repo = "fastapi-dls_mirror";
+      tag = "2.0.0";
+      hash = "sha256-QRWUd+Vstt9T1aZ9mCMpoJgzgxfkhTOY0j2IqKfz95U=";
     };
   };
   fcitx5-breeze = {
@@ -584,12 +598,12 @@
   };
   glauth = {
     pname = "glauth";
-    version = "v2.4.0";
+    version = "v2.3.2";
     src = fetchFromGitHub {
       owner = "glauth";
       repo = "glauth";
-      tag = "v2.4.0";
-      hash = "sha256-UUTL+ZnHRSYuD/TUYpsuo+Nu90kpA8ZL4XaGz6in3ME=";
+      tag = "v2.3.2";
+      hash = "sha256-FOhtL8nIm5kuKRxFtkrDyUU2z1K22ZdHaes3GY0KmfQ=";
     };
   };
   google-earth-pro = {
@@ -919,6 +933,30 @@
     };
     date = "2023-10-17";
   };
+  linguaspark-core = {
+    pname = "linguaspark-core";
+    version = "6a2bc711cce73bc053675c0293dd37c8029e62dd";
+    src = fetchFromGitHub {
+      owner = "LinguaSpark";
+      repo = "core";
+      rev = "6a2bc711cce73bc053675c0293dd37c8029e62dd";
+      fetchSubmodules = true;
+      hash = "sha256-2cDaHKrmCAkwUGc7FobMb5HAeSKQ2K/zrW6fh0D0TLk=";
+    };
+    date = "2025-04-22";
+  };
+  linguaspark-server = {
+    pname = "linguaspark-server";
+    version = "f94b45925e130c08fa976a0ed370079a588578ae";
+    src = fetchFromGitHub {
+      owner = "LinguaSpark";
+      repo = "server";
+      rev = "f94b45925e130c08fa976a0ed370079a588578ae";
+      fetchSubmodules = true;
+      hash = "sha256-W6fwr/psngL4luyC3oD/VwopVEweCwaRN92RBLg/TBY=";
+    };
+    date = "2025-04-22";
+  };
   linux-xanmod = {
     pname = "linux-xanmod";
     version = "6.14.4-xanmod1";
@@ -1047,18 +1085,6 @@
       tag = "2.0.1.freeze";
       hash = "sha256-y2VCfjds1fN2G9MHYZveT3NQqYF7RO26gBykHY1O6o8=";
     };
-  };
-  mtranservercore-rs = {
-    pname = "mtranservercore-rs";
-    version = "f94b45925e130c08fa976a0ed370079a588578ae";
-    src = fetchFromGitHub {
-      owner = "LinguaSpark";
-      repo = "server";
-      rev = "f94b45925e130c08fa976a0ed370079a588578ae";
-      fetchSubmodules = true;
-      hash = "sha256-W6fwr/psngL4luyC3oD/VwopVEweCwaRN92RBLg/TBY=";
-    };
-    date = "2025-04-22";
   };
   nbfc-linux-lantian = {
     pname = "nbfc-linux-lantian";
