@@ -65,10 +65,10 @@ V2 daemon for Budgie Desktop.
 Feature-rich, modern desktop designed to keep out the way of the user.
 
 - Name: `budgie-desktop`
-- Version: `10.9.2-unstable-2025-05-03`
+- Version: `10.9.2-unstable-2025-05-05`
 - Outputs: **`out`**, `dev`, `man`
 - [🌐 Homepage](https://github.com/BuddiesOfBudgie/budgie-desktop)
-- [📰 Changelog](https://github.com/BuddiesOfBudgie/budgie-desktop/releases/tag/v10.9.2-unstable-2025-05-03)
+- [📰 Changelog](https://github.com/BuddiesOfBudgie/budgie-desktop/releases/tag/v10.9.2-unstable-2025-05-05)
 - [📦 Source](./pkgs/by-name/bu/budgie-desktop/package.nix#L140)
 - 📄 Licenses: [`GNU General Public License v2.0 or later`](https://spdx.org/licenses/GPL-2.0-or-later.html), [`GNU Lesser General Public License v2.1 or later`](https://spdx.org/licenses/LGPL-2.1-or-later.html), [`Creative Commons Attribution Share Alike 3.0`](https://spdx.org/licenses/CC-BY-SA-3.0.html)
 - 🖥️ Platforms: `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
@@ -400,7 +400,7 @@ Camera application for Plasma Mobile.
 Plasma Login Manager provides the backend for Plasma's login experience.
 
 - Name: `plasma-login-manager`
-- Version: `0-unstable-2025-04-30`
+- Version: `0-unstable-2025-05-04`
 - [🌐 Homepage](https://invent.kde.org/davidedmundson/plasma-login-manager)
 - [📦 Source](./pkgs/by-name/plasma-login-manager/package.nix#L72)
 - 📄 Licenses: [`Creative Commons Attribution 3.0`](https://spdx.org/licenses/CC-BY-3.0.html), [`GNU General Public License v2.0 or later`](https://spdx.org/licenses/GPL-2.0-or-later.html)
@@ -411,7 +411,7 @@ Plasma Login Manager provides the backend for Plasma's login experience.
 A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell.
 
 - Name: `pnut`
-- Version: `SLE2024-artifact-unstable-2025-05-03`
+- Version: `SLE2024-artifact-unstable-2025-05-04`
 - [🌐 Homepage](https://github.com/udem-dlteam/pnut)
 - [📦 Source](./pkgs/by-name/pnut/package.nix#L43)
 - 📄 License: [`BSD 2-clause "Simplified" License`](https://spdx.org/licenses/BSD-2-Clause.html)
@@ -545,9 +545,9 @@ A GNOME theme for Thunderbird.
 Generate a static HTML page from a collection of feeds wtih a simple CLI tool.
 
 - Name: `tinyfeed`
-- Version: `1.1.0`
+- Version: `1.2.0`
 - [🌐 Homepage](https://github.com/TheBigRoomXXL/tinyfeed)
-- [📰 Changelog](https://github.com/TheBigRoomXXL/tinyfeed/releases/tag/v1.1.0)
+- [📰 Changelog](https://github.com/TheBigRoomXXL/tinyfeed/releases/tag/v1.2.0)
 - [📦 Source](./pkgs/by-name/tinyfeed/package.nix#L39)
 - 📄 License: [`MIT License`](https://spdx.org/licenses/MIT.html)
 - 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
