@@ -29,7 +29,7 @@ pkgs.stdenv.mkDerivation rec {
   buildInputs = with pkgs; [
     gsettings-desktop-schemas
     libdrm
-    mesa.drivers.dev
+    mesa
     glib
     gtk3
     cairo

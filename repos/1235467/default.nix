@@ -49,7 +49,7 @@ rec {
   candy = pkgs.callPackage ./pkgs-by-lang/C/candy { };
   HDiffPatch = pkgs.callPackage ./pkgs-by-lang/C/HDiffPatch { };
   kagi-cli-shortcut = pkgs.callPackage ./pkgs-by-lang/C/kagi-cli-shortcut { };
-  koboldcpp = pkgs.callPackage ./pkgs-by-lang/C/koboldcpp { };
+  #koboldcpp = pkgs.callPackage ./pkgs-by-lang/C/koboldcpp { };
   Penguin-Subtitle-Player = pkgs.libsForQt5.callPackage ./pkgs-by-lang/C/Penguin-Subtitle-Player { };
   suyu = pkgs-yuzu.qt6.callPackage ./pkgs-by-lang/C/suyu { };
   yuzu-early-access = pkgs-yuzu.qt6.callPackage ./pkgs-by-lang/C/yuzu { };
@@ -80,7 +80,7 @@ rec {
   mongodb = pkgs-stable.mongodb;
   cudatoolkit = pkgs.cudaPackages_12.cudatoolkit;
   misskey = pkgs.misskey;
-
+  koboldcpp = (pkgs.koboldcpp.override {cublasSupport=true;clblastSupport=true;vulkanSupport=true;cudaArches=["sm_75"];});
   # dream2nix
 
   # dream2nix-packages = dream2nix.lib.importPackages {
