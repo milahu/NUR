@@ -72,7 +72,8 @@ rec {
     mpv = (pkgs.mpv-unwrapped.override { cddaSupport = true; });
     scripts = [ pkgs.mpvScripts.mpris ];
   };
-
+  misskey-new = pkgs.callPackage ./pkgs/Overrides/misskey { };
+  
   # System Fonts override
   JetBrainsMono-nerdfonts = pkgs.nerd-fonts.jetbrains-mono;
 
