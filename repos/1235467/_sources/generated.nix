@@ -15,15 +15,15 @@
   };
   aichat = {
     pname = "aichat";
-    version = "887766228197b6d63746af8134ee777862b7bbb1";
+    version = "4c110b0429fe8f84e34abe8991af1b52d35bd4cf";
     src = fetchFromGitHub {
       owner = "sigoden";
       repo = "aichat";
-      rev = "887766228197b6d63746af8134ee777862b7bbb1";
+      rev = "4c110b0429fe8f84e34abe8991af1b52d35bd4cf";
       fetchSubmodules = false;
-      sha256 = "sha256-53A/AlkcO4VAxo0uqWjDArgTvpRpR/bKHrBbiCIspiU=";
+      sha256 = "sha256-kc8x/mLkOHID2GWCOW+pNLdGSkFdI+vMA1gzpyIWcOE=";
     };
-    date = "2025-05-02";
+    date = "2025-05-07";
   };
   av1an = {
     pname = "av1an";
