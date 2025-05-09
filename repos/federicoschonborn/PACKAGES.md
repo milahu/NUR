@@ -389,7 +389,7 @@ Phonon Backend using MPV Player.
 Camera application for Plasma Mobile.
 
 - Name: `plasma-camera`
-- Version: `1.0-unstable-2025-03-05`
+- Version: `1.0-unstable-2025-05-07`
 - [🌐 Homepage](https://invent.kde.org/plasma-mobile/plasma-camera)
 - [📦 Source](./pkgs/by-name/plasma-camera/package.nix#L54)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -400,7 +400,7 @@ Camera application for Plasma Mobile.
 Plasma Login Manager provides the backend for Plasma's login experience.
 
 - Name: `plasma-login-manager`
-- Version: `0-unstable-2025-05-04`
+- Version: `0-unstable-2025-05-07`
 - [🌐 Homepage](https://invent.kde.org/davidedmundson/plasma-login-manager)
 - [📦 Source](./pkgs/by-name/plasma-login-manager/package.nix#L72)
 - 📄 Licenses: [`Creative Commons Attribution 3.0`](https://spdx.org/licenses/CC-BY-3.0.html), [`GNU General Public License v2.0 or later`](https://spdx.org/licenses/GPL-2.0-or-later.html)
