@@ -65,10 +65,10 @@ V2 daemon for Budgie Desktop.
 Feature-rich, modern desktop designed to keep out the way of the user.
 
 - Name: `budgie-desktop`
-- Version: `10.9.2-unstable-2025-05-05`
+- Version: `10.9.2-unstable-2025-05-08`
 - Outputs: **`out`**, `dev`, `man`
 - [🌐 Homepage](https://github.com/BuddiesOfBudgie/budgie-desktop)
-- [📰 Changelog](https://github.com/BuddiesOfBudgie/budgie-desktop/releases/tag/v10.9.2-unstable-2025-05-05)
+- [📰 Changelog](https://github.com/BuddiesOfBudgie/budgie-desktop/releases/tag/v10.9.2-unstable-2025-05-08)
 - [📦 Source](./pkgs/by-name/bu/budgie-desktop/package.nix#L140)
 - 📄 Licenses: [`GNU General Public License v2.0 or later`](https://spdx.org/licenses/GPL-2.0-or-later.html), [`GNU Lesser General Public License v2.1 or later`](https://spdx.org/licenses/LGPL-2.1-or-later.html), [`Creative Commons Attribution Share Alike 3.0`](https://spdx.org/licenses/CC-BY-SA-3.0.html)
 - 🖥️ Platforms: `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
@@ -607,4 +607,27 @@ Original Xbox DVD Filesystem library and management tool.
 - [📰 Changelog](https://github.com/antangelo/xdvdfs/releases/tag/v0.8.3)
 - [📦 Source](./pkgs/by-name/xdvdfs-cli/package.nix#L39)
 - 📄 License: [`MIT License`](https://spdx.org/licenses/MIT.html)
+- 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
+
+## `ziggy` {#ziggy}
+
+A data serialization language for expressing clear API messages, config files, etc.
+
+- Name: `ziggy`
+- Version: `0.0.1-unstable-2025-04-18`
+- [🌐 Homepage](https://github.com/kristoff-it/ziggy)
+- [📦 Source](./pkgs/by-name/ziggy/package.nix#L43)
+- 📄 License: [`MIT License`](https://spdx.org/licenses/MIT.html)
+- 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
+
+## `zon2nix-unstable` {#zon2nix-unstable}
+
+Convert the dependencies in `build.zig.zon` to a Nix expression.
+
+- Name: `zon2nix-unstable`
+- Version: `0.1.2-unstable-2025-03-20`
+- [🌐 Homepage](https://github.com/nix-community/zon2nix)
+- [📰 Changelog](https://github.com/nix-community/zon2nix/blob/2360e358c2107860dadd340f88b25d260b538188/CHANGELOG.md)
+- [📦 Source](./pkgs/by-name/zon2nix-unstable/package.nix#L28)
+- 📄 License: [`Mozilla Public License 2.0`](https://spdx.org/licenses/MPL-2.0.html)
 - 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
