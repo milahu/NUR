@@ -1,16 +1,16 @@
 {
 "name":"sikmir",
-"fetch_time":0.751,
-"eval_time":0.432,
+"fetch_time":0.492,
+"eval_time":0.438,
 "source":{
 "url":"https://github.com/sikmir/nur-packages",
-"rev":"69518cd6f42cfa8f19c2d81eacf0992d865c800c",
-"sha256":"08p3x0pm9fzk3vqzaj09hbfn4nk3v8cd0is5g9nf8hny0qdq6dpw",
+"rev":"06450d5de7e3d5e5454f67b80cdad0781bf004f0",
+"sha256":"07dp01b8p0p0bskjw28y19ydp29arskyl9k3xw9japvn67kccz4l",
 "date":null
 },
-"source_storepath":"/nix/store/fx26kz5s3hn9h9ncx8w2psnszhy22618-source",
+"source_storepath":"/nix/store/0254i7syh1xyb501xcpjyvifps7vdiwh-source",
 "nixpkgs_storepath":"/nix/store/4hd7zwgjvf1gch8alkbvcsbmzpczp9ph-source",
-"nur_combined_rev":"ae47b60014d028133fa61942628eed4b7393f436",
+"nur_combined_rev":"5a274541e030c4aa8db8af20d96c9772065189db",
 "packages":{
 "aamath":{
 "meta":{
@@ -169,7 +169,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/osm/abstreet/default.nix:51",
+"position":"./pkgs/osm/abstreet/default.nix:44",
 "unfree":false,
 "unsupported":false
 },
@@ -286,7 +286,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"acp-0.3.0",
+"name":"acp-0.3.1",
 "outputsToInstall":[
 "out"
 ],
@@ -320,18 +320,18 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/misc/acp/default.nix:27",
+"position":"./pkgs/misc/acp/default.nix:29",
 "unfree":false,
 "unsupported":false
 },
-"name":"acp-0.3.0",
+"name":"acp-0.3.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"acp",
 "system":"x86_64-linux",
-"version":"0.3.0"
+"version":"0.3.1"
 },
 "adsb_deku":{
 "meta":{
@@ -1686,7 +1686,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"bash-completor-0.1.0",
+"name":"bash-completor-0.2.0",
 "outputsToInstall":[
 "out"
 ],
@@ -1735,18 +1735,18 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/misc/bash-completor/default.nix:33",
+"position":"./pkgs/misc/bash-completor/default.nix:38",
 "unfree":false,
 "unsupported":false
 },
-"name":"bash-completor-0.1.0",
+"name":"bash-completor-0.2.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"bash-completor",
 "system":"x86_64-linux",
-"version":"0.1.0"
+"version":"0.2.0"
 },
 "bbox":{
 "meta":{
@@ -1843,7 +1843,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/geospatial/bbox/default.nix:40",
+"position":"./pkgs/geospatial/bbox/default.nix:36",
 "unfree":false,
 "unsupported":false
 },
@@ -2043,6 +2043,84 @@
 "system":"x86_64-linux",
 "version":"0.0.3"
 },
+"brink":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"A lightweight Identity-Aware Proxy (IAP) for TCP forwarding",
+"homepage":"https://github.com/jsiebens/brink",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
+"mainProgram":"brink",
+"maintainers":[
+{
+"email":"sikmir@disroot.org",
+"github":"sikmir",
+"githubId":688044,
+"keys":[
+{
+"fingerprint":"ADF4 C13D 0E36 1240 BD01  9B51 D1DE 6D7F 6936 63A5"
+}
+],
+"matrix":"@sikmir:matrix.org",
+"name":"Nikolay Korotkiy"
+}
+],
+"name":"brink-0.8.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-darwin",
+"aarch64-darwin",
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"wasm64-wasi",
+"wasm32-wasi",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd"
+],
+"position":"./pkgs/misc/brink/default.nix:27",
+"unfree":false,
+"unsupported":false
+},
+"name":"brink-0.8.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"brink",
+"system":"x86_64-linux",
+"version":"0.8.0"
+},
 "btpd":{
 "meta":{
 "available":true,
@@ -2215,7 +2293,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/misc/bwh/default.nix:47",
+"position":"./pkgs/misc/bwh/default.nix:45",
 "unfree":false,
 "unsupported":false
 },
@@ -3349,7 +3427,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-cogeo-mosaic-8.0.0",
+"name":"python3.12-cogeo-mosaic-8.2.0",
 "outputsToInstall":[
 "out"
 ],
@@ -3390,7 +3468,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-cogeo-mosaic-8.0.0",
+"name":"python3.12-cogeo-mosaic-8.2.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3398,7 +3476,7 @@
 },
 "pname":"python3.12-cogeo-mosaic",
 "system":"x86_64-linux",
-"version":"8.0.0"
+"version":"8.2.0"
 },
 "comitium":{
 "meta":{
@@ -5660,7 +5738,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/radio/dumpvdl2/default.nix:49",
+"position":"./pkgs/radio/dumpvdl2/default.nix:43",
 "unfree":false,
 "unsupported":false
 },
@@ -6744,7 +6822,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/gemini/eva/default.nix:40",
+"position":"./pkgs/gemini/eva/default.nix:39",
 "unfree":false,
 "unsupported":false
 },
@@ -9031,7 +9109,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/gemini/gemserv/default.nix:34",
+"position":"./pkgs/gemini/gemserv/default.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -9461,7 +9539,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-geojson-pydantic-1.1.2",
+"name":"python3.12-geojson-pydantic-2.0.0",
 "outputsToInstall":[
 "out"
 ],
@@ -9502,7 +9580,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-geojson-pydantic-1.1.2",
+"name":"python3.12-geojson-pydantic-2.0.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -9510,7 +9588,7 @@
 },
 "pname":"python3.12-geojson-pydantic",
 "system":"x86_64-linux",
-"version":"1.1.2"
+"version":"2.0.0"
 },
 "geojson2dm":{
 "meta":{
@@ -13969,7 +14047,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/geospatial/hecate/default.nix:33",
+"position":"./pkgs/geospatial/hecate/default.nix:32",
 "unfree":false,
 "unsupported":false
 },
@@ -14671,7 +14749,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"ionscale-0.16.0",
+"name":"ionscale-0.17.0",
 "outputsToInstall":[
 "out"
 ],
@@ -14709,14 +14787,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ionscale-0.16.0",
+"name":"ionscale-0.17.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ionscale",
 "system":"x86_64-linux",
-"version":"0.16.0"
+"version":"0.17.0"
 },
 "ioxy":{
 "meta":{
@@ -19247,7 +19325,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"mapsoft2-2.9-alt1-unstable-2025-01-29",
+"name":"mapsoft2-2.10-alt1",
 "outputsToInstall":[
 "out"
 ],
@@ -19303,14 +19381,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"mapsoft2-2.9-alt1-unstable-2025-01-29",
+"name":"mapsoft2-2.10-alt1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"mapsoft2",
 "system":"x86_64-linux",
-"version":"2.9-alt1-unstable-2025-01-29"
+"version":"2.10-alt1"
 },
 "maptourist":{
 "meta":{
@@ -20780,7 +20858,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/misc/modbus-tools/default.nix:29",
+"position":"./pkgs/misc/modbus-tools/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -20893,7 +20971,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/misc/modbus_sim_cli/default.nix:39",
+"position":"./pkgs/misc/modbus_sim_cli/default.nix:38",
 "unfree":false,
 "unsupported":false
 },
@@ -20906,120 +20984,6 @@
 "pname":"modbus_sim_cli",
 "system":"x86_64-linux",
 "version":"0-unstable-2019-02-27"
-},
-"modbus_tk":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"Implementation of modbus protocol in python",
-"homepage":"https://github.com/ljean/modbus-tk",
-"insecure":false,
-"isBuildPythonPackage":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
-"aarch64-darwin",
-"i686-cygwin",
-"x86_64-cygwin",
-"aarch64-windows",
-"x86_64-windows",
-"i686-windows",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd"
-],
-"license":{
-"deprecated":true,
-"free":true,
-"fullName":"GNU Library General Public License v2",
-"redistributable":true,
-"shortName":"lgpl2",
-"spdxId":"LGPL-2.0",
-"url":"https://spdx.org/licenses/LGPL-2.0.html"
-},
-"maintainers":[
-{
-"email":"sikmir@disroot.org",
-"github":"sikmir",
-"githubId":688044,
-"keys":[
-{
-"fingerprint":"ADF4 C13D 0E36 1240 BD01  9B51 D1DE 6D7F 6936 63A5"
-}
-],
-"matrix":"@sikmir:matrix.org",
-"name":"Nikolay Korotkiy"
-}
-],
-"name":"python3.10-modbus_tk-1.1.1",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
-"aarch64-darwin",
-"i686-cygwin",
-"x86_64-cygwin",
-"aarch64-windows",
-"x86_64-windows",
-"i686-windows",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd"
-],
-"position":"./pkgs/development/python-modules/modbus_tk/default.nix:21",
-"unfree":false,
-"unsupported":false
-},
-"name":"python3.10-modbus_tk-1.1.1",
-"outputName":"out",
-"outputs":{
-"dist":null,
-"out":null
-},
-"pname":"python3.10-modbus_tk",
-"system":"x86_64-linux",
-"version":"1.1.1"
 },
 "mongoose":{
 "meta":{
@@ -25905,7 +25869,7 @@
 "x86_64-darwin",
 "aarch64-darwin"
 ],
-"position":"./pkgs/darwin/pinentry-touchid/default.nix:32",
+"position":"./pkgs/darwin/pinentry-touchid/default.nix:29",
 "skip":{
 "ci":true
 },
@@ -28134,7 +28098,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-pygnssutils-1.1.12",
+"name":"python3.12-pygnssutils-1.1.13",
 "outputsToInstall":[
 "out"
 ],
@@ -28175,7 +28139,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-pygnssutils-1.1.12",
+"name":"python3.12-pygnssutils-1.1.13",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -28183,7 +28147,7 @@
 },
 "pname":"python3.12-pygnssutils",
 "system":"x86_64-linux",
-"version":"1.1.12"
+"version":"1.1.13"
 },
 "pygpsclient":{
 "meta":{
@@ -28248,7 +28212,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"pygpsclient-1.5.6",
+"name":"pygpsclient-1.5.7",
 "outputsToInstall":[
 "out"
 ],
@@ -28289,7 +28253,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"pygpsclient-1.5.6",
+"name":"pygpsclient-1.5.7",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -28297,7 +28261,7 @@
 },
 "pname":"pygpsclient",
 "system":"x86_64-linux",
-"version":"1.5.6"
+"version":"1.5.7"
 },
 "pyimagequant":{
 "meta":{
@@ -29956,7 +29920,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-pyubx2-1.2.51",
+"name":"python3.12-pyubx2-1.2.52",
 "outputsToInstall":[
 "out"
 ],
@@ -29993,11 +29957,11 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/gnss/pyubx2/default.nix:30",
+"position":"./pkgs/gnss/pyubx2/default.nix:32",
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-pyubx2-1.2.51",
+"name":"python3.12-pyubx2-1.2.52",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -30005,7 +29969,7 @@
 },
 "pname":"python3.12-pyubx2",
 "system":"x86_64-linux",
-"version":"1.2.51"
+"version":"1.2.52"
 },
 "pyubxutils":{
 "meta":{
@@ -30070,7 +30034,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-pyubxutils-1.0.2",
+"name":"python3.12-pyubxutils-1.0.3",
 "outputsToInstall":[
 "out"
 ],
@@ -30111,7 +30075,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-pyubxutils-1.0.2",
+"name":"python3.12-pyubxutils-1.0.3",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -30119,7 +30083,7 @@
 },
 "pname":"python3.12-pyubxutils",
 "system":"x86_64-linux",
-"version":"1.0.2"
+"version":"1.0.3"
 },
 "qasync":{
 "meta":{
@@ -32008,7 +31972,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-rio-stac-0.10.1",
+"name":"python3.12-rio-stac-0.11.0",
 "outputsToInstall":[
 "out"
 ],
@@ -32049,7 +32013,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-rio-stac-0.10.1",
+"name":"python3.12-rio-stac-0.11.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -32057,7 +32021,7 @@
 },
 "pname":"python3.12-rio-stac",
 "system":"x86_64-linux",
-"version":"0.10.1"
+"version":"0.11.0"
 },
 "riverrem":{
 "meta":{
@@ -32214,7 +32178,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"rmqtt-0.10.0",
+"name":"rmqtt-0.13.1",
 "outputsToInstall":[
 "out"
 ],
@@ -32257,18 +32221,18 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/mqtt/rmqtt/default.nix:41",
+"position":"./pkgs/mqtt/rmqtt/default.nix:34",
 "unfree":false,
 "unsupported":false
 },
-"name":"rmqtt-0.10.0",
+"name":"rmqtt-0.13.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rmqtt",
 "system":"x86_64-linux",
-"version":"0.10.0"
+"version":"0.13.1"
 },
 "routeconverter":{
 "meta":{
@@ -33062,7 +33026,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/mqtt/rumqtt/default.nix:30",
+"position":"./pkgs/mqtt/rumqtt/default.nix:26",
 "unfree":false,
 "unsupported":false
 },
@@ -35519,7 +35483,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/osm/smrender/default.nix:44",
+"position":"./pkgs/osm/smrender/default.nix:39",
 "unfree":false,
 "unsupported":false
 },
@@ -38169,7 +38133,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"tilecloud-1.13.0",
+"name":"tilecloud-1.13.1",
 "outputsToInstall":[
 "out"
 ],
@@ -38210,7 +38174,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tilecloud-1.13.0",
+"name":"tilecloud-1.13.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -38218,7 +38182,7 @@
 },
 "pname":"tilecloud",
 "system":"x86_64-linux",
-"version":"1.13.0"
+"version":"1.13.1"
 },
 "tilekiln":{
 "meta":{
@@ -38933,7 +38897,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"python3.12-titiler-0.21.1",
+"name":"python3.12-titiler-0.22.0",
 "outputsToInstall":[
 "out"
 ],
@@ -38974,7 +38938,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-titiler-0.21.1",
+"name":"python3.12-titiler-0.22.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -38982,7 +38946,7 @@
 },
 "pname":"python3.12-titiler",
 "system":"x86_64-linux",
-"version":"0.21.1"
+"version":"0.22.0"
 },
 "tlstunnel":{
 "meta":{
@@ -39648,7 +39612,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/linguistics/ttb/default.nix:29",
+"position":"./pkgs/linguistics/ttb/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -41393,7 +41357,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/misc/xtr/default.nix:37",
+"position":"./pkgs/misc/xtr/default.nix:35",
 "unfree":false,
 "unsupported":false
 },
@@ -41625,7 +41589,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"zed-0.186.4-pre",
+"name":"zed-0.186.6-pre",
 "outputsToInstall":[
 "out"
 ],
@@ -41645,14 +41609,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"zed-0.186.4-pre",
+"name":"zed-0.186.6-pre",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zed",
 "system":"x86_64-linux",
-"version":"0.186.4-pre"
+"version":"0.186.6-pre"
 },
 "zwave-js-ui":{
 "meta":{
