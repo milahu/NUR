@@ -48,9 +48,10 @@ in
     services = {
       flatpak.enable = true;
       gnome.gnome-keyring.enable = true; # For storing vscode auth token
-      mpd.enable = true;
       protonmail-bridge.enable = true;
     };
+
+    xdg.portal.config.common."org.freedesktop.impl.portal.FileChooser" = [ "gnome" ];
 
     programs = {
       dconf.enable = true;
@@ -84,7 +85,6 @@ in
         osu-lazer-bin
         proton-pass
         protonvpn-gui
-        smile
         taisei
         tenacity
         unzip
