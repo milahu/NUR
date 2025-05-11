@@ -6,10 +6,10 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{
-  pkgs ? import <nixpkgs> { },
-  pkgs-stable ? import <nixpkgs> { },
-  pkgs-yuzu ? import <nixpkgs> { },
+{ pkgs ? import <nixpkgs> { }
+, pkgs-stable ? import <nixpkgs> { }
+, pkgs-yuzu ? import <nixpkgs> { }
+,
 }:
 
 
@@ -44,6 +44,7 @@ rec {
   jjwxcCrawler = pkgs.callPackage ./pkgs-by-lang/Python/jjwxcCrawler { };
   pynat = pkgs.callPackage ./pkgs-by-lang/Python/pynat { };
   pystun3 = pkgs.callPackage ./pkgs-by-lang/Python/pystun3 { };
+  LinguaGacha = pkgs.callPackage ./pkgs-by-lang/Python/LinguaGacha { };
 
   # C
   candy = pkgs.callPackage ./pkgs-by-lang/C/candy { };
@@ -66,6 +67,7 @@ rec {
   # Bin
   feishu = pkgs.callPackage ./pkgs/Bin/feishu { };
   wechat = pkgs.callPackage ./pkgs/Bin/wechat { };
+  cider3 = pkgs.callPackage ./pkgs/Bin/cider3 { };
 
   # Overrides
   mpv = pkgs.mpv-unwrapped.wrapper {
@@ -73,7 +75,7 @@ rec {
     scripts = [ pkgs.mpvScripts.mpris ];
   };
   misskey-new = pkgs.callPackage ./pkgs/Overrides/misskey { };
-  
+
   # System Fonts override
   JetBrainsMono-nerdfonts = pkgs.nerd-fonts.jetbrains-mono;
 
@@ -81,7 +83,7 @@ rec {
   mongodb = pkgs-stable.mongodb;
   cudatoolkit = pkgs.cudaPackages_12.cudatoolkit;
   misskey = pkgs.misskey;
-  koboldcpp = (pkgs.koboldcpp.override {cublasSupport=true;clblastSupport=true;vulkanSupport=true;cudaArches=["sm_75"];});
+  koboldcpp = (pkgs.koboldcpp.override { cublasSupport = true; clblastSupport = true; vulkanSupport = true; cudaArches = [ "sm_75" ]; });
   # dream2nix
 
   # dream2nix-packages = dream2nix.lib.importPackages {

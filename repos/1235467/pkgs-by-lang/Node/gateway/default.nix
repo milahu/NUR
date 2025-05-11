@@ -7,7 +7,7 @@
 let
   sources = pkgs.callPackage ../../../_sources/generated.nix { };
 in
-  pkgs.buildNpmPackage rec {
+pkgs.buildNpmPackage rec {
   inherit (sources.portkey) version src;
   pname = "gateway";
   #npmDepsHash = "sha256-XmFoQl5JMcfdfLXfah5lfaMsDq372lQiMnnabtl0yQY=";
@@ -21,6 +21,6 @@ in
   BuildInputs = with pkgs; [
   ];
   postInstall = ''
-  cp $out/bin/@portkey-ai/gateway $out/bin/portkey-ai-gateway
+    cp $out/bin/@portkey-ai/gateway $out/bin/portkey-ai-gateway
   '';
 }

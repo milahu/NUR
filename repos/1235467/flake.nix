@@ -12,15 +12,14 @@
     };
   };
   inputs.dream2nix.url = "github:nix-community/dream2nix";
-  
+
   outputs =
-    {
-      self,
-      nixpkgs,
-      nixpkgs-stable,
-      nixpkgs-yuzu,
-      dream2nix,
-      ...
+    { self
+    , nixpkgs
+    , nixpkgs-stable
+    , nixpkgs-yuzu
+    , dream2nix
+    , ...
     }@inputs:
     let
       systems = [ "x86_64-linux" ];

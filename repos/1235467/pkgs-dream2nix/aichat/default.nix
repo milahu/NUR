@@ -1,19 +1,19 @@
-{
-  lib,
-  config,
-  dream2nix,
-  pkgs,
-  ...
-}: 
-let 
+{ lib
+, config
+, dream2nix
+, pkgs
+, ...
+}:
+let
   sources = pkgs.callPackage ../../_sources/generated.nix { };
-in rec {
+in
+rec {
   imports = [
     dream2nix.modules.dream2nix.rust-cargo-lock
     dream2nix.modules.dream2nix.rust-crane
   ];
 
-  deps = {nixpkgs, ...}: {
+  deps = { nixpkgs, ... }: {
     inherit (nixpkgs) fetchFromGitHub iconv;
   };
 
@@ -29,12 +29,12 @@ in rec {
       rev = "v${version}";
       sha256 = "sha256-75KL1ODA+HyG/YRQIDs3++RgxQHyxKj6zh/2f6zQbdY=";
     };
-    buildInputs = lib.optionals config.deps.stdenv.isDarwin [config.deps.iconv];
+    buildInputs = lib.optionals config.deps.stdenv.isDarwin [ config.deps.iconv ];
   };
 
   rust-crane = {
     buildProfile = "dev";
-    buildFlags = ["--verbose"];
+    buildFlags = [ "--verbose" ];
     runTests = false;
     depsDrv = {
       # options defined here will be applied to the dependencies derivation
