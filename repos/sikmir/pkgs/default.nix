@@ -109,9 +109,6 @@ lib.makeScope newScope (
     gpxelevations = callPackage ./development/python-modules/gpxelevations { };
     hardpy = callPackage ./development/python-modules/hardpy { };
     jsonseq = callPackage ./development/python-modules/jsonseq { };
-    modbus_tk = callPackage ./development/python-modules/modbus_tk {
-      python3Packages = pkgs.python310Packages;
-    };
     portolan = callPackage ./development/python-modules/portolan { };
     pqdm = callPackage ./development/python-modules/pqdm { };
     pyarrow_ops = callPackage ./development/python-modules/pyarrow_ops { };
@@ -344,10 +341,9 @@ lib.makeScope newScope (
     arduinojson = callPackage ./misc/arduinojson { };
     ascii-dash = callPackage ./misc/ascii-dash { };
     bash-completor = callPackage ./misc/bash-completor { };
+    brink = callPackage ./misc/brink { };
     btpd = callPackage ./misc/btpd { };
-    bwh = darwin.apple_sdk_11_0.callPackage ./misc/bwh {
-      inherit (darwin.apple_sdk_11_0.frameworks) AppKit;
-    };
+    bwh = callPackage ./misc/bwh { };
     capture2text = libsForQt5.callPackage ./misc/capture2text { };
     cfiles = callPackage ./misc/cfiles { };
     chasquid = callPackage ./misc/chasquid { };

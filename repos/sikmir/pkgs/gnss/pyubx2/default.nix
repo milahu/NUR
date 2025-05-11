@@ -7,17 +7,19 @@
 
 python3Packages.buildPythonPackage rec {
   pname = "pyubx2";
-  version = "1.2.51";
+  version = "1.2.52";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "semuconsulting";
     repo = "pyubx2";
     tag = "v${version}";
-    hash = "sha256-3nsWAZ6WwGK0yMwfR8e21qGXjc0ENQfBsNDRqkq8uhc=";
+    hash = "sha256-qlVNI61iAujUE+wywMF92CWDCpkffcXHKnHQPX8JRjo=";
   };
 
   build-system = with python3Packages; [ setuptools ];
+
+  pythonRelaxDeps = [ "pynmeagps" ];
 
   dependencies = with python3Packages; [
     pynmeagps
