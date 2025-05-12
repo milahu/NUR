@@ -1,16 +1,16 @@
 {
 "name":"sikmir",
-"fetch_time":0.492,
-"eval_time":0.438,
+"fetch_time":0.628,
+"eval_time":0.436,
 "source":{
 "url":"https://github.com/sikmir/nur-packages",
-"rev":"06450d5de7e3d5e5454f67b80cdad0781bf004f0",
-"sha256":"07dp01b8p0p0bskjw28y19ydp29arskyl9k3xw9japvn67kccz4l",
+"rev":"bc838f2d16347f1f2dc892403a43f114da8e0d98",
+"sha256":"0fmymidnsy6myzh84m61vdljfk4azsfd1jawwfxmgd3nfjmw5skd",
 "date":null
 },
-"source_storepath":"/nix/store/0254i7syh1xyb501xcpjyvifps7vdiwh-source",
+"source_storepath":"/nix/store/5mpa5m5qiwc2cbdplrlycq3x14rwj6gd-source",
 "nixpkgs_storepath":"/nix/store/4hd7zwgjvf1gch8alkbvcsbmzpczp9ph-source",
-"nur_combined_rev":"5a274541e030c4aa8db8af20d96c9772065189db",
+"nur_combined_rev":"5e41d0a7c397870f472818dbba9f4f91da88d4fb",
 "packages":{
 "aamath":{
 "meta":{
@@ -374,7 +374,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"adsb_deku-2024.09.02",
+"name":"adsb_deku-2025.05.03",
 "outputsToInstall":[
 "out"
 ],
@@ -418,14 +418,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"adsb_deku-2024.09.02",
+"name":"adsb_deku-2025.05.03",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"adsb_deku",
 "system":"x86_64-linux",
-"version":"2024.09.02"
+"version":"2025.05.03"
 },
 "agunua":{
 "meta":{
@@ -6153,7 +6153,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/geospatial/elevation/default.nix:64",
+"position":"./pkgs/geospatial/elevation/default.nix:65",
 "unfree":false,
 "unsupported":false
 },
@@ -14583,7 +14583,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"imscript-0-unstable-2025-04-04",
+"name":"imscript-0-unstable-2025-05-09",
 "outputsToInstall":[
 "out"
 ],
@@ -14636,14 +14636,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"imscript-0-unstable-2025-04-04",
+"name":"imscript-0-unstable-2025-05-09",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"imscript",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-04-04"
+"version":"0-unstable-2025-05-09"
 },
 "imsg-compat":{
 "meta":{
@@ -14954,11 +14954,11 @@
 "license":{
 "deprecated":false,
 "free":true,
-"fullName":"MIT License",
+"fullName":"GNU Affero General Public License v3.0 only",
 "redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
+"shortName":"agpl3Only",
+"spdxId":"AGPL-3.0-only",
+"url":"https://spdx.org/licenses/AGPL-3.0-only.html"
 },
 "maintainers":[
 {
@@ -14974,7 +14974,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"iso15765-canbus-0-unstable-2024-01-17",
+"name":"iso15765-canbus-2024-12-11",
 "outputsToInstall":[
 "out"
 ],
@@ -15001,21 +15001,21 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/development/libraries/iso15765-canbus/default.nix:29",
+"position":"./pkgs/development/libraries/iso15765-canbus/default.nix:27",
 "skip":{
 "ci":false
 },
 "unfree":false,
 "unsupported":false
 },
-"name":"iso15765-canbus-0-unstable-2024-01-17",
+"name":"iso15765-canbus-2024-12-11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"iso15765-canbus",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-01-17"
+"version":"2024-12-11"
 },
 "isotp-c":{
 "meta":{
@@ -15047,7 +15047,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"isotp-c-1.1.2",
+"name":"isotp-c-1.5.0",
 "outputsToInstall":[
 "out"
 ],
@@ -15081,14 +15081,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"isotp-c-1.1.2",
+"name":"isotp-c-1.5.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"isotp-c",
 "system":"x86_64-linux",
-"version":"1.1.2"
+"version":"1.5.0"
 },
 "it-sanasto":{
 "meta":{
@@ -17530,7 +17530,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"libsockcanpp-0-unstable-2024-03-06",
+"name":"libsockcanpp-1.5.0",
 "outputsToInstall":[
 "out"
 ],
@@ -17564,14 +17564,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"libsockcanpp-0-unstable-2024-03-06",
+"name":"libsockcanpp-1.5.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"libsockcanpp",
 "system":"x86_64-linux",
-"version":"0-unstable-2024-03-06"
+"version":"1.5.0"
 },
 "libst":{
 "meta":{
@@ -22947,6 +22947,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"mainProgram":"vi",
 "maintainers":[
 {
 "email":"sikmir@disroot.org",
@@ -22961,7 +22962,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"nextvi-0-unstable-2025-03-18",
+"name":"nextvi-0-unstable-2025-04-17",
 "outputsToInstall":[
 "out"
 ],
@@ -23014,14 +23015,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nextvi-0-unstable-2025-03-18",
+"name":"nextvi-0-unstable-2025-04-17",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nextvi",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-03-18"
+"version":"0-unstable-2025-04-17"
 },
 "nmtree":{
 "meta":{
@@ -23753,7 +23754,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"otm-armenia-250418",
+"name":"otm-armenia-250510",
 "outputsToInstall":[
 "out"
 ],
@@ -23841,14 +23842,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"otm-armenia-250418",
+"name":"otm-armenia-250510",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"otm-armenia",
 "system":"x86_64-linux",
-"version":"250418"
+"version":"250510"
 },
 "orbisgis":{
 "meta":{
@@ -25106,7 +25107,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"osmptparser-2.1.0",
+"name":"osmptparser-2.2.0",
 "outputsToInstall":[
 "out"
 ],
@@ -25153,14 +25154,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"osmptparser-2.1.0",
+"name":"osmptparser-2.2.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"osmptparser",
 "system":"x86_64-linux",
-"version":"2.1.0"
+"version":"2.2.0"
 },
 "osmwalkthrough":{
 "meta":{
@@ -29501,7 +29502,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/development/python-modules/pytest-shell-utilities/default.nix:38",
+"position":"./pkgs/development/python-modules/pytest-shell-utilities/default.nix:40",
 "unfree":false,
 "unsupported":false
 },
@@ -36914,7 +36915,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"tatoeba-2025-05-03",
+"name":"tatoeba-2025-05-10",
 "outputsToInstall":[
 "out"
 ],
@@ -37002,14 +37003,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tatoeba-2025-05-03",
+"name":"tatoeba-2025-05-10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tatoeba",
 "system":"x86_64-linux",
-"version":"2025-05-03"
+"version":"2025-05-10"
 },
 "tatoebatools":{
 "meta":{
@@ -37735,7 +37736,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"terracotta-0.9.0",
+"name":"terracotta-0.9.1",
 "outputsToInstall":[
 "out"
 ],
@@ -37776,7 +37777,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"terracotta-0.9.0",
+"name":"terracotta-0.9.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -37784,7 +37785,7 @@
 },
 "pname":"terracotta",
 "system":"x86_64-linux",
-"version":"0.9.0"
+"version":"0.9.1"
 },
 "tg-spam":{
 "meta":{
@@ -37817,7 +37818,7 @@
 "name":"Nikolay Korotkiy"
 }
 ],
-"name":"tg-spam-1.15.0",
+"name":"tg-spam-1.18.0",
 "outputsToInstall":[
 "out"
 ],
@@ -37855,14 +37856,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tg-spam-1.15.0",
+"name":"tg-spam-1.18.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tg-spam",
 "system":"x86_64-linux",
-"version":"1.15.0"
+"version":"1.18.0"
 },
 "thinplatespline":{
 "meta":{
