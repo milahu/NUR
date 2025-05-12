@@ -12,14 +12,14 @@
 
 stdenv.mkDerivation {
   pname = "plasma-login-manager";
-  version = "0-unstable-2025-05-07";
+  version = "0-unstable-2025-05-10";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "davidedmundson";
     repo = "plasma-login-manager";
-    rev = "1abb19934b2a15fe6e25a1e1dd7c188414a7daf2";
-    hash = "sha256-++LItYbEfrUZa6TqWlKCCnP47YqEMLfAYkmrcAXVsrE=";
+    rev = "18100488859d70e17f921b2a88982e7f68a7ca24";
+    hash = "sha256-/gd5GtRzrqoYyi1F/PkqkjbwK1FYWD1nmXsOaOM0YRY=";
   };
 
   nativeBuildInputs = [
@@ -76,6 +76,7 @@ stdenv.mkDerivation {
       gpl2Plus
     ];
     platforms = lib.platforms.linux;
+    broken = lib.versionOlder kdePackages.extra-cmake-modules.version "6.10";
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 }

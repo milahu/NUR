@@ -31,8 +31,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     libtgd
     qt6.qtbase
-    qt6.qtwayland
-  ];
+  ] ++ lib.optional stdenv.hostPlatform.isLinux qt6.qtwayland;
 
   nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
@@ -55,6 +54,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://marlam.de/qv/";
     license = lib.licenses.mit;
     platforms = lib.platforms.unix;
+    badPlatforms = lib.platforms.darwin;
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })

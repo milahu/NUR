@@ -131,6 +131,7 @@ stdenv.mkDerivation (finalAttrs: {
     changelog = "https://activitypub.software/TransFem-org/Sharkey/-/releases/${finalAttrs.version}";
     license = lib.licenses.agpl3Only;
     platforms = lib.platforms.unix;
+    broken = lib.versionOlder nodejs.version "22.0";
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })

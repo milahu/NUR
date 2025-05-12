@@ -50,7 +50,7 @@ stdenv.mkDerivation {
 
     substituteInPlace src/karton.cpp \
       --replace-fail "virt-install" "${lib.getExe' virt-manager "virt-install"}" \
-      --replace-fail "virt-viewer" "${lib.getExe virt-viewer}"
+      --replace-fail "virt-viewer" "${lib.getExe' virt-viewer "virt-viewer"}"
   '';
 
   strictDeps = true;

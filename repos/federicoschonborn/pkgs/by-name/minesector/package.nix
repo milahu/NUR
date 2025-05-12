@@ -11,6 +11,11 @@
   nix-update-script,
 }:
 
+let
+  SDL2Static =
+    if SDL2.override.__functionArgs ? withStatic then SDL2.override { withStatic = true; } else SDL2;
+in
+
 stdenv.mkDerivation (finalAttrs: {
   pname = "minesector";
   version = "1.1.5";
@@ -28,7 +33,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   buildInputs = [
-    (SDL2.override { withStatic = true; })
+    SDL2Static
     SDL2_image
     SDL2_ttf
     SDL2_mixer

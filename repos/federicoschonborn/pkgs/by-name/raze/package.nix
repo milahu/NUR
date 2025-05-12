@@ -12,7 +12,24 @@
 
   withGtk3 ? true,
   gtk3,
+
+  fluidsynth,
+  libsndfile,
+  mpg123,
+  zlib,
+  alsa-lib,
 }:
+
+let
+  zmusic' = zmusic.overrideAttrs (_: {
+    buildInputs = [
+      fluidsynth
+      libsndfile
+      mpg123
+      zlib
+    ] ++ lib.optional stdenv.hostPlatform.isLinux alsa-lib;
+  });
+in
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "raze";
@@ -34,7 +51,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     libvpx
     SDL2
-    zmusic
+    zmusic'
   ] ++ lib.optional withGtk3 gtk3;
 
   cmakeFlags = [ (lib.cmakeBool "DYN_GTK" false) ];
