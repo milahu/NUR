@@ -312,7 +312,7 @@ Level editor for creating (new) NES games.
 - [📰 Changelog](https://github.com/pubby/mapfab/releases/tag/v0.4)
 - [📦 Source](./pkgs/by-name/mapfab/package.nix#L72)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
-- 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
+- 🖥️ Platforms: `x86_64-linux`
 
 ## `mii-emu` {#mii-emu}
 
@@ -333,7 +333,7 @@ Snazzy Minesweeper-based game built with SDL2.
 - Name: `minesector`
 - Version: `1.1.5`
 - [🌐 Homepage](https://github.com/grassdne/minesector)
-- [📦 Source](./pkgs/by-name/minesector/package.nix#L43)
+- [📦 Source](./pkgs/by-name/minesector/package.nix#L48)
 - 📄 License: [`MIT License`](https://spdx.org/licenses/MIT.html)
 - 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
 
@@ -368,7 +368,7 @@ A fun 2D retro platformer inspired by Sonic games and a game creation system.
 - Version: `0.6.1.2`
 - [🌐 Homepage](https://github.com/alemart/opensurge)
 - [📰 Changelog](https://github.com/alemart/opensurge/releases/tag/v0.6.1.2)
-- [📦 Source](./pkgs/by-name/opensurge/package.nix#L56)
+- [📦 Source](./pkgs/by-name/opensurge/package.nix#L57)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
 - 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
 
@@ -400,7 +400,7 @@ Camera application for Plasma Mobile.
 Plasma Login Manager provides the backend for Plasma's login experience.
 
 - Name: `plasma-login-manager`
-- Version: `0-unstable-2025-05-10`
+- Version: `0-unstable-2025-05-12`
 - [🌐 Homepage](https://invent.kde.org/davidedmundson/plasma-login-manager)
 - [📦 Source](./pkgs/by-name/plasma-login-manager/package.nix#L72)
 - 📄 Licenses: [`Creative Commons Attribution 3.0`](https://spdx.org/licenses/CC-BY-3.0.html), [`GNU General Public License v2.0 or later`](https://spdx.org/licenses/GPL-2.0-or-later.html)
@@ -411,7 +411,7 @@ Plasma Login Manager provides the backend for Plasma's login experience.
 A Self-Compiling C Transpiler Targeting Human-Readable POSIX Shell.
 
 - Name: `pnut`
-- Version: `SLE2024-artifact-unstable-2025-05-04`
+- Version: `SLE2024-artifact-unstable-2025-05-12`
 - [🌐 Homepage](https://github.com/udem-dlteam/pnut)
 - [📦 Source](./pkgs/by-name/pnut/package.nix#L43)
 - 📄 License: [`BSD 2-clause "Simplified" License`](https://spdx.org/licenses/BSD-2-Clause.html)
@@ -426,7 +426,7 @@ A tool for learning programming basis with a simple Spanish pseudocode.
 - [🌐 Homepage](https://pseint.sourceforge.net/)
 - [📦 Source](./pkgs/by-name/pseint/package.nix#L71)
 - 📄 License: [`GNU General Public License v2.0 or later`](https://spdx.org/licenses/GPL-2.0-or-later.html)
-- 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
+- 🖥️ Platforms: `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
 
 ## `qv` {#qv}
 
@@ -448,18 +448,6 @@ Build engine port backed by GZDoom tech. Currently supports Duke Nukem 3D, Blood
 - [🌐 Homepage](https://github.com/ZDoom/Raze)
 - [📦 Source](./pkgs/by-name/raze/package.nix#L65)
 - 📄 License: [`GNU General Public License v2.0`](https://spdx.org/licenses/GPL-2.0.html)
-- 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
-
-## `sharkey` {#sharkey}
-
-Sharkish microblogging platform.
-
-- Name: `sharkey`
-- Version: `2025.2.3`
-- [🌐 Homepage](https://activitypub.software/TransFem-org/Sharkey)
-- [📰 Changelog](https://activitypub.software/TransFem-org/Sharkey/-/releases/2025.2.3)
-- [📦 Source](./pkgs/by-name/sharkey/package.nix#L129)
-- 📄 License: [`GNU Affero General Public License v3.0 only`](https://spdx.org/licenses/AGPL-3.0-only.html)
 - 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
 
 ## `super-mario-127` {#super-mario-127}
@@ -618,16 +606,4 @@ A data serialization language for expressing clear API messages, config files, e
 - [🌐 Homepage](https://github.com/kristoff-it/ziggy)
 - [📦 Source](./pkgs/by-name/ziggy/package.nix#L43)
 - 📄 License: [`MIT License`](https://spdx.org/licenses/MIT.html)
-- 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`
-
-## `zon2nix-unstable` {#zon2nix-unstable}
-
-Convert the dependencies in `build.zig.zon` to a Nix expression.
-
-- Name: `zon2nix-unstable`
-- Version: `0.1.2-unstable-2025-03-20`
-- [🌐 Homepage](https://github.com/nix-community/zon2nix)
-- [📰 Changelog](https://github.com/nix-community/zon2nix/blob/2360e358c2107860dadd340f88b25d260b538188/CHANGELOG.md)
-- [📦 Source](./pkgs/by-name/zon2nix-unstable/package.nix#L28)
-- 📄 License: [`Mozilla Public License 2.0`](https://spdx.org/licenses/MPL-2.0.html)
 - 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `armv6l-linux`, `armv7l-linux`, `i686-linux`, `x86_64-linux`

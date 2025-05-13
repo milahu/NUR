@@ -4,7 +4,8 @@
   fetchFromGitHub,
   cmake,
   ninja,
-  SDL2,
+  SDL2 ? null,
+  SDL2_classic ? null,
   SDL2_image,
   SDL2_ttf,
   SDL2_mixer,
@@ -12,8 +13,7 @@
 }:
 
 let
-  SDL2Static =
-    if SDL2.override.__functionArgs ? withStatic then SDL2.override { withStatic = true; } else SDL2;
+  SDL2' = if SDL2_classic != null then SDL2_classic else SDL2;
 in
 
 stdenv.mkDerivation (finalAttrs: {
@@ -33,7 +33,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   buildInputs = [
-    SDL2Static
+    (SDL2'.override { withStatic = true; })
     SDL2_image
     SDL2_ttf
     SDL2_mixer
@@ -49,6 +49,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/grassdne/minesector";
     license = lib.licenses.mit;
     platforms = lib.platforms.unix;
+    broken = stdenv.hostPlatform.isDarwin;
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })
