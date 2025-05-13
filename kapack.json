@@ -1,16 +1,16 @@
 {
 "name":"kapack",
-"fetch_time":0.548,
-"eval_time":0.795,
+"fetch_time":0.413,
+"eval_time":0.812,
 "source":{
 "url":"https://github.com/oar-team/nur-kapack",
-"rev":"a9e0345f8f5d2cb10ba656f1b23dcdec7f2efa0c",
-"sha256":"0wxk6ybnd716fzs8hjh9ia1543aj0r5sh5wn3j9094p6iijb20rh",
+"rev":"42a861847f106a0616f018d190f0f77a685b9d8e",
+"sha256":"0m3ghnhgx34vyjj6831313kpyvfnalb3q121h4fgv2dlwjr688i4",
 "date":null
 },
-"source_storepath":"/nix/store/2ip5y8mk0cv9g7svdadk1hmsvfxn0d35-source",
-"nixpkgs_storepath":"/nix/store/1mljq9q15x9asw7ywy8dmqixkcibv4b5-source",
-"nur_combined_rev":"0fce62938ed87879a1c64d72f4407934cd566fc2",
+"source_storepath":"/nix/store/qkyiwrm2cbn0fligfrhz6vp36291ynl9-source",
+"nixpkgs_storepath":"/nix/store/4hd7zwgjvf1gch8alkbvcsbmzpczp9ph-source",
+"nur_combined_rev":"4ffeddf9bda212a8a0653737e0af065291446a25",
 "packages":{
 "bacnet-stack":{
 "meta":{
@@ -3334,8 +3334,8 @@
 },
 "oar":{
 "meta":{
-"available":false,
-"broken":true,
+"available":true,
+"broken":false,
 "description":"OAR: a Versatile Resource and Job Manager",
 "homepage":"https://github.com/oar-team/oar3",
 "insecure":false,
@@ -3419,7 +3419,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/oar/default.nix:53",
+"position":"./pkgs/oar/default.nix:64",
 "unfree":false,
 "unsupported":false
 },
