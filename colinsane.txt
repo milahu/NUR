@@ -3,11 +3,11 @@ error:
 
 … while evaluating a path segment
 
-  at <nixpkgs> + /pkgs/by-name/ch/chatty/package.nix:89:63:
+  at <nixpkgs> + /pkgs/by-name/ch/chatty/package.nix:83:63:
 
-    88|     homepage = "https://gitlab.gnome.org/World/Chatty";
-    89|     changelog = "https://gitlab.gnome.org/World/Chatty/-/blob/${finalAttrs.src.tag}/NEWS";
+    82|     homepage = "https://gitlab.gnome.org/World/Chatty";
+    83|     changelog = "https://gitlab.gnome.org/World/Chatty/-/blob/${finalAttrs.src.tag}/NEWS";
       |                                                               ^
-    90|     license = licenses.gpl3Plus;
+    84|     license = licenses.gpl3Plus;
 
 error: cannot coerce null to a string
