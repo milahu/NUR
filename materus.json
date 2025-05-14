@@ -1,16 +1,16 @@
 {
 "name":"materus",
-"fetch_time":0.257,
-"eval_time":0.282,
+"fetch_time":0.517,
+"eval_time":0.278,
 "source":{
 "url":"https://github.com/materusPL/Nixerus",
-"rev":"a42776ba2aa58167147da8604ee068e969e40fe2",
-"sha256":"0famwnwiqnbmqm3cjjjvvw190zv8gi17spbhkrhapvqa65ncjn7n",
+"rev":"8c329020c653c04a8f0f50dc7400c01b3b9e3733",
+"sha256":"17zjycavc31i9mybs23vq6zg32dc5l2glr9s8irw8m2r58ppsywn",
 "date":null
 },
-"source_storepath":"/nix/store/xb46114hll1kr12gjqpm8k8anh8q5bvn-source",
-"nixpkgs_storepath":"/nix/store/4hd7zwgjvf1gch8alkbvcsbmzpczp9ph-source",
-"nur_combined_rev":"dcffe8ee25a8cb7e3b24fc9e47115e6493a9022d",
+"source_storepath":"/nix/store/4fbdppc4hys1a37cvbrzbadbflh4adkf-source",
+"nixpkgs_storepath":"/nix/store/39bipag63zvgik3q4ch918cpqlvi0s22-source",
+"nur_combined_rev":"298305875506cd2f1619b0f05963c5bcf85f92f0",
 "packages":{
 "alvr":{
 "meta":{
@@ -29,6 +29,11 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4fbdppc4hys1a37cvbrzbadbflh4adkf-source/pkgs/apps/games/alvr/default.nix",
+"line":67
+},
 "name":"alvr-v20.5.0",
 "outputsToInstall":[
 "out"
@@ -63,6 +68,7 @@
 "redistributable":false,
 "shortName":"unfree"
 },
+"maintainers":[],
 "name":"amf-amdgpu-pro-6.4",
 "outputsToInstall":[
 "out"
@@ -97,6 +103,7 @@
 "redistributable":true,
 "shortName":"unfreeRedistributableFirmware"
 },
+"maintainers":[],
 "name":"amdgpu-firmware-6.4",
 "outputsToInstall":[
 "out"
@@ -151,6 +158,7 @@
 "redistributable":false,
 "shortName":"unfree"
 },
+"maintainers":[],
 "name":"amdgpu-pro-opengl-64-6.4",
 "outputsToInstall":[
 "out"
@@ -187,6 +195,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"amdgpu-pro-prefixes",
 "outputsToInstall":[
 "out"
@@ -221,6 +230,7 @@
 "redistributable":false,
 "shortName":"unfree"
 },
+"maintainers":[],
 "name":"amdgpu-pro-vulkan-64-6.4",
 "outputsToInstall":[
 "out"
@@ -258,7 +268,8 @@
 "spdxId":"GPL-2.0",
 "url":"https://spdx.org/licenses/GPL-2.0.html"
 },
-"name":"fbset-2.1-33",
+"maintainers":[],
+"name":"fbset-2.1-34",
 "outputsToInstall":[
 "out"
 ],
@@ -289,14 +300,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"fbset-2.1-33",
+"name":"fbset-2.1-34",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fbset",
 "system":"x86_64-linux",
-"version":"2.1-33"
+"version":"2.1-34"
 },
 "ffmpeg_7-amf-full":{
 "meta":{
@@ -367,6 +378,11 @@
 "name":"Emily"
 }
 ],
+"maintainersPosition":{
+"column":7,
+"file":"/nix/store/39bipag63zvgik3q4ch918cpqlvi0s22-source/pkgs/development/libraries/ffmpeg/generic.nix",
+"line":1031
+},
 "name":"ffmpeg-full-7.1.1",
 "outputsToInstall":[
 "bin",
@@ -494,6 +510,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"lh2ctrl-1.1.0",
 "outputsToInstall":[
 "out"
@@ -553,6 +570,7 @@
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
 "longDescription":"Allows you to have multiple, separate instances of Minecraft (each with\ntheir own mods, texture packs, saves, etc) and helps you manage them and\ntheir associated options with a simple interface.\n",
+"maintainers":[],
 "name":"polymc-7.0",
 "outputsToInstall":[
 "out"
@@ -592,6 +610,7 @@
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
 "longDescription":"Allows you to have multiple, separate instances of Minecraft (each with\ntheir own mods, texture packs, saves, etc) and helps you manage them and\ntheir associated options with a simple interface.\n",
+"maintainers":[],
 "name":"polymc-qt5-7.0",
 "outputsToInstall":[
 "out"
@@ -639,6 +658,7 @@
 }
 ],
 "longDescription":"SVT-AV1-PSY is the Scalable Video Technology for AV1 (SVT-AV1 Encoder and Decoder) with perceptual enhancements for psychovisually optimal AV1 encoding.\nThe goal is to create the best encoding implementation for perceptual quality with AV1.\n",
+"maintainers":[],
 "name":"svt-av1-psy-3.0.2",
 "outputsToInstall":[
 "out"
@@ -717,6 +737,7 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
+"maintainers":[],
 "name":"vpk_fuse-15042023",
 "outputsToInstall":[
 "out"
