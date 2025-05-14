@@ -1,0 +1,45 @@
+name: "Build and populate attic cache"
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+  schedule:
+    # rebuild everyday at 2:51
+    # TIP: Choose a random time here so not all repositories are build at once:
+    # https://www.random.org/clock-times/?num=1&earliest=01%3A00&latest=08%3A00&interval=5&format=html&rnd=new
+    - cron:  '51 2 * * *'
+jobs:
+  tests:
+    strategy:
+      matrix:
+        nurRepo:
+          - 1235467
+        cachixName:
+          - hakutaku-cache
+        nixPath:
+          - nixpkgs=channel:nixos-unstable
+          - nixpkgs=channel:nixpkgs-unstable
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Install nix
+      uses: cachix/install-nix-action@v25
+      with:
+        nix_path: "${{ matrix.nixPath }}"
+        extra_nix_config: |
+          experimental-features = nix-command flakes
+          access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+          substituters = https://cache.nixos.org https://cache.garnix.io
+    - name: Setup Attic cache
+      uses: ryanccn/attic-action@v0
+      with:
+        endpoint: ${{ secrets.ATTIC_ENDPOINT }}
+        cache: ${{ secrets.ATTIC_CACHE }}
+        token: ${{ secrets.ATTIC_TOKEN }}
+    - name: Build nix packages
+      run: nix shell nixpkgs#jq -c bash -c "nix flake show --json | jq -r '(.packages.\"x86_64-linux\" // {}) | keys[]' | xargs -I {} nix build .#{}"
+    - name: Push to cache
+      run: attic push nurpkgs /nix/store/
