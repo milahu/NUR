@@ -5,11 +5,6 @@ on:
     branches:
       - main
       - master
-  schedule:
-    # rebuild everyday at 2:51
-    # TIP: Choose a random time here so not all repositories are build at once:
-    # https://www.random.org/clock-times/?num=1&earliest=01%3A00&latest=08%3A00&interval=5&format=html&rnd=new
-    - cron:  '51 2 * * *'
 jobs:
   tests:
     strategy:
@@ -39,6 +34,4 @@ jobs:
         cache: ${{ secrets.ATTIC_CACHE }}
         token: ${{ secrets.ATTIC_TOKEN }}
     - name: Build nix packages
-      run: nix shell nixpkgs#jq -c bash -c "nix flake show --json | jq -r '(.packages.\"x86_64-linux\" // {}) | keys[]' | xargs -I {} nix build .#{}"
-    - name: Push to cache
-      run: attic push nurpkgs /nix/store/
+      run: nix shell nixpkgs#jq -c bash scripts/cache-packages.sh

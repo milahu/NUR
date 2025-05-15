@@ -1,8 +1,5 @@
 name: Automatically update
 on:
-  push:
-    branches:
-      - master
   schedule:
     - cron: '0 10 * * *'
 
