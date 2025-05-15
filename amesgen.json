@@ -1,16 +1,16 @@
 {
 "name":"amesgen",
-"fetch_time":0.366,
-"eval_time":0.201,
+"fetch_time":0.52,
+"eval_time":0.241,
 "source":{
 "url":"https://github.com/amesgen/nur-packages",
-"rev":"eecb565e8b2b8e9f48abf7ccf49cc4e641521dec",
-"sha256":"0776lfnd613m49bc6djfi85y9y8kai61qb3n4hafb2yxrsvgyfds",
+"rev":"26ac90a85fafbcac28bd87caf58ddf0f8e3b9056",
+"sha256":"0d9pv5snj1rkn5rjl8r6gc5lghd13vpgqn0fkfwg7m91qfhhsnqp",
 "date":null
 },
-"source_storepath":"/nix/store/4vr42nr0j9mpyrcpgkwairwb88cq9yly-source",
-"nixpkgs_storepath":"/nix/store/j1r94ha7wxcijs6wh7av5gdk0qcr9xps-source",
-"nur_combined_rev":"39e2e25a3be4bc71d612702ef651f373d25a65c4",
+"source_storepath":"/nix/store/hz1smvrxpndsisdzgw96sh07bz1zyhfr-source",
+"nixpkgs_storepath":"/nix/store/39bipag63zvgik3q4ch918cpqlvi0s22-source",
+"nur_combined_rev":"c47bf7ed96fc704da72adee4d2166bdd68f8a3e7",
 "packages":{
 "cabal-docspec":{
 "meta":{
@@ -28,6 +28,7 @@
 "spdxId":"GPL-2.0-or-later",
 "url":"https://spdx.org/licenses/GPL-2.0-or-later.html"
 },
+"maintainers":[],
 "name":"cabal-docspec-0.0.0.20240703",
 "outputsToInstall":[
 "out"
@@ -70,6 +71,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"cabal-gild-1.6.0.0",
 "outputsToInstall":[
 "out"
@@ -77,7 +79,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/default.nix:165",
+"position":"./pkgs/default.nix:167",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -123,6 +125,7 @@
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 }
 ],
+"maintainers":[],
 "name":"cabal-plan-0.7.3.0",
 "outputsToInstall":[
 "out"
@@ -165,6 +168,7 @@
 "spdxId":"BSD-3-Clause",
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
+"maintainers":[],
 "name":"fourmolu-0.18.0.0",
 "outputsToInstall":[
 "out"
@@ -172,7 +176,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/default.nix:138",
+"position":"./pkgs/default.nix:140",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -195,7 +199,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":" Haskell-based shell scripting language ",
+"description":"Haskell-based shell scripting language",
 "homepage":"https://chrisdone.github.io/hell",
 "insecure":false,
 "license":{
@@ -207,6 +211,7 @@
 "spdxId":"BSD-3-Clause",
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
+"maintainers":[],
 "name":"hell-unstable-2025-03-04",
 "outputsToInstall":[
 "out"
@@ -214,7 +219,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/default.nix:195",
+"position":"./pkgs/default.nix:197",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -249,6 +254,7 @@
 "spdxId":"BSD-3-Clause",
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
+"maintainers":[],
 "name":"hlint-3.10",
 "outputsToInstall":[
 "out"
@@ -291,6 +297,7 @@
 "spdxId":"BSD-3-Clause",
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
+"maintainers":[],
 "name":"ormolu-0.8.0.0",
 "outputsToInstall":[
 "out"
@@ -316,6 +323,49 @@
 "pname":"ormolu",
 "system":"x86_64-linux",
 "version":"0.8.0.0"
+},
+"pandoc":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Universal markup converter",
+"homepage":"https://pandoc.org/",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 or later",
+"redistributable":true,
+"shortName":"gpl2Plus",
+"spdxId":"GPL-2.0-or-later",
+"url":"https://spdx.org/licenses/GPL-2.0-or-later.html"
+},
+"maintainers":[],
+"name":"pandoc-3.6.4",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-linux"
+],
+"position":"./pkgs/default.nix:224",
+"sourceProvenance":[
+{
+"isSource":false,
+"shortName":"binaryNativeCode"
+}
+],
+"unfree":false,
+"unsupported":false
+},
+"name":"pandoc-3.6.4",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"pandoc",
+"system":"x86_64-linux",
+"version":"3.6.4"
 }
 }
 }
