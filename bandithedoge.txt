@@ -192,9 +192,27 @@ error:
   at <nixpkgs> + /lib/attrsets.nix:1045:18:
 
   1044|   */
-  1045|   mapAttrs' = f: set: listToAttrs (map (attr: f attr set.${attr}) (attrNames set));
+  1045|   mapAttrs' = f: set: listToAttrs (mapAttrsToList f set);
       |                  ^
   1046|
+
+… from call site
+
+  at <nixpkgs> + /lib/attrsets.nix:1045:36:
+
+  1044|   */
+  1045|   mapAttrs' = f: set: listToAttrs (mapAttrsToList f set);
+      |                                    ^
+  1046|
+
+… while calling 'mapAttrsToList'
+
+  at <nixpkgs> + /lib/attrsets.nix:1079:23:
+
+  1078|   */
+  1079|   mapAttrsToList = f: attrs: attrValues (mapAttrs f attrs);
+      |                       ^
+  1080|
 
 … from call site
 
