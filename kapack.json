@@ -1,16 +1,16 @@
 {
 "name":"kapack",
-"fetch_time":0.413,
-"eval_time":0.812,
+"fetch_time":0.516,
+"eval_time":0.832,
 "source":{
 "url":"https://github.com/oar-team/nur-kapack",
-"rev":"42a861847f106a0616f018d190f0f77a685b9d8e",
-"sha256":"0m3ghnhgx34vyjj6831313kpyvfnalb3q121h4fgv2dlwjr688i4",
+"rev":"dc8a64946d30e52ec648c9d148c7d691844849a3",
+"sha256":"1faylkxdqgzgzb8qbiyaba1zhpa7h7m3s14m1abqjxx88igzi7yw",
 "date":null
 },
-"source_storepath":"/nix/store/qkyiwrm2cbn0fligfrhz6vp36291ynl9-source",
-"nixpkgs_storepath":"/nix/store/4hd7zwgjvf1gch8alkbvcsbmzpczp9ph-source",
-"nur_combined_rev":"4ffeddf9bda212a8a0653737e0af065291446a25",
+"source_storepath":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source",
+"nixpkgs_storepath":"/nix/store/ydrgwsibghsyx884qz97zbs1xs93yk11-source",
+"nur_combined_rev":"50a3f06905b84e6c3e6ea8ab132bfe159d61dd34",
 "packages":{
 "bacnet-stack":{
 "meta":{
@@ -28,6 +28,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"maintainers":[],
 "name":"bacnet-stack-0.8.6",
 "outputsToInstall":[
 "out"
@@ -83,6 +84,7 @@
 "shortName":"free"
 },
 "longDescription":"A set of scheduling algorithms for Batsim (and WRENCH).",
+"maintainers":[],
 "name":"batsched-1.4.0",
 "outputsToInstall":[
 "out"
@@ -194,6 +196,7 @@
 "url":"https://spdx.org/licenses/LGPL-3.0.html"
 },
 "longDescription":"Batsim is an infrastructure simulator that enables the study of resource management techniques.\n",
+"maintainers":[],
 "name":"batsim-4.2.0",
 "outputsToInstall":[
 "out"
@@ -305,6 +308,7 @@
 "url":"https://spdx.org/licenses/LGPL-3.0.html"
 },
 "longDescription":"Batsim is an infrastructure simulator that enables the study of resource management techniques.\n",
+"maintainers":[],
 "name":"batsim-4.1.0",
 "outputsToInstall":[
 "out"
@@ -404,6 +408,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"maintainers":[],
 "name":"docker-image-batsim.tar.gz",
 "outputsToInstall":[
 "out"
@@ -471,6 +476,7 @@
 "url":"https://spdx.org/licenses/GPL-2.0.html"
 },
 "longDescription":"",
+"maintainers":[],
 "name":"batsky-0.1.0",
 "outputsToInstall":[
 "out"
@@ -529,6 +535,7 @@
 "url":"https://spdx.org/licenses/GPL-2.0.html"
 },
 "longDescription":"cgvg is a pair of Perl scripts (\"cg\" and \"vg\") which are meant to assist a programmer in doing command-line source browsing.\n\nThe idea is you can easily search for keywords in the code, and jump to the file and line where a match is found. Used with ctags(1), this can really help with jumping around and following code. Some features include a human-readable output, coloring, bolding (and alternate bolding), and just sheer convenience for a programmer.\n\ncgvg uses the Perl internal find and does its own searching, rather than being a wrapper for UNIX find(1) and grep(1). There is a ~/.cgvgrc file for per-user configuration, and some nice features like coloring, and multiple log files.\n",
+"maintainers":[],
 "name":"cgvg-1.6.3",
 "outputsToInstall":[
 "out"
@@ -640,6 +647,7 @@
 "url":"https://spdx.org/licenses/LGPL-3.0.html"
 },
 "longDescription":"",
+"maintainers":[],
 "name":"cigri-3.0.0",
 "outputsToInstall":[
 "out"
@@ -674,6 +682,11 @@
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
 "maintainers":[],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/cli11/default.nix",
+"line":32
+},
 "name":"cli11-2.1.2",
 "outputsToInstall":[
 "out"
@@ -786,6 +799,7 @@
 "url":"https://spdx.org/licenses/GPL-2.0.html"
 },
 "longDescription":"",
+"maintainers":[],
 "name":"colmet-0.6.10.dev0",
 "outputsToInstall":[
 "out"
@@ -876,6 +890,7 @@
 "spdxId":"GPL-2.0",
 "url":"https://spdx.org/licenses/GPL-2.0.html"
 },
+"maintainers":[],
 "name":"colmet-collector-0.0.1",
 "outputsToInstall":[
 "out"
@@ -998,6 +1013,7 @@
 "spdxId":"LGPL-2.0",
 "url":"https://spdx.org/licenses/LGPL-2.0.html"
 },
+"maintainers":[],
 "name":"colmet-rs-0.0.1",
 "outputsToInstall":[
 "out"
@@ -1070,6 +1086,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"maintainers":[],
 "name":"cpp-driver-2.15.2",
 "outputsToInstall":[
 "out"
@@ -1137,6 +1154,7 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
+"maintainers":[],
 "name":"dispath-0.1.0",
 "outputsToInstall":[
 "out"
@@ -1231,6 +1249,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
+"maintainers":[],
 "name":"python3.12-distem-0.0.5",
 "outputsToInstall":[
 "out"
@@ -1298,6 +1317,7 @@
 "spdxId":"BSD-3-Clause",
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
+"maintainers":[],
 "name":"ear-4.1.0",
 "outputsToInstall":[
 "out"
@@ -1356,6 +1376,11 @@
 },
 "longDescription":"",
 "maintainers":[],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/elastisim/default.nix",
+"line":45
+},
 "name":"elastisim-1e967c",
 "outputsToInstall":[
 "out"
@@ -1488,6 +1513,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
+"maintainers":[],
 "name":"python3.12-enoslib-v8.1.4",
 "outputsToInstall":[
 "out"
@@ -1589,6 +1615,7 @@
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
 "longDescription":"Evalys is a data analytics library made to load, compute,\nand plot data from job scheduling and resource management traces.\nIt allows scientists and engineers to extract useful data and\nvisualize it interactively or in an exported file.\n",
+"maintainers":[],
 "name":"python3.12-evalys-4.0.7",
 "outputsToInstall":[
 "out"
@@ -1664,6 +1691,7 @@
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
 "longDescription":"Execo",
+"maintainers":[],
 "name":"python3.12-execo-2.6.8",
 "outputsToInstall":[
 "out"
@@ -1809,6 +1837,7 @@
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "longDescription":"A unified approach to federated learning, analytics, and evaluation.\nFederate any workload, any ML framework, and any programming language.",
+"maintainers":[],
 "name":"python3.12-flower-1.4.0",
 "outputsToInstall":[
 "out"
@@ -1909,6 +1938,7 @@
 "available":false,
 "broken":true,
 "insecure":false,
+"maintainers":[],
 "name":"glibc-2.40-66",
 "outputsToInstall":[
 "bin"
@@ -1956,6 +1986,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/gocov/default.nix",
+"line":23
+},
 "name":"gocov-1.0.0",
 "outputsToInstall":[
 "out"
@@ -2067,6 +2102,7 @@
 "url":"https://spdx.org/licenses/LGPL-3.0.html"
 },
 "longDescription":"intervalset is a C++ library to manage sets of closed intervals of integers.\nThis is a simple wrapper around Boost.Icl.\n",
+"maintainers":[],
 "name":"intervalset-1.2.0",
 "outputsToInstall":[
 "out"
@@ -2178,6 +2214,7 @@
 "url":"https://spdx.org/licenses/LGPL-3.0.html"
 },
 "longDescription":"intervalset is a C++ library to manage sets of closed intervals of integers.\nThis is a simple wrapper around Boost.Icl.\n",
+"maintainers":[],
 "name":"intervalset-1.2.0",
 "outputsToInstall":[
 "out"
@@ -2310,6 +2347,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
+"maintainers":[],
 "name":"python3.12-iotlabcli-3.3.0",
 "outputsToInstall":[
 "out"
@@ -2399,6 +2437,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
+"maintainers":[],
 "name":"python3.12-iotlabsshcli-1.1.0",
 "outputsToInstall":[
 "out"
@@ -2500,6 +2539,11 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/iterators/default.nix",
+"line":16
+},
 "name":"python3.12-iterators-0.0.2",
 "outputsToInstall":[
 "out"
@@ -2558,6 +2602,7 @@
 "description":"\tLikwid is a simple to install and use toolsuite of command line applications and a library for performance oriented programmers. It works for Intel, AMD, ARMv8 and POWER9 processors on the Linux operating system. There is additional support for Nvidia GPUs. There is support for ARMv7 and POWER8 but there is currently no test machine in our hands to test them properly.\n",
 "homepage":"https://hpc.fau.de/research/tools/likwid/",
 "insecure":false,
+"maintainers":[],
 "name":"likwid-5.2.1",
 "outputsToInstall":[
 "out"
@@ -2635,6 +2680,7 @@
 "shortName":"publicDomain"
 },
 "longDescription":"A lightweight and flexible C++ logging library.",
+"maintainers":[],
 "name":"loguru-2.1.0",
 "outputsToInstall":[
 "out"
@@ -2745,6 +2791,7 @@
 "spdxId":"BSD-3-Clause",
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
+"maintainers":[],
 "name":"melissa-0.7.1",
 "outputsToInstall":[
 "out"
@@ -2846,6 +2893,7 @@
 "description":"Melissa framework example - heat equation",
 "homepage":"https://melissa-sa.github.io/",
 "insecure":false,
+"maintainers":[],
 "name":"heat-pde-0.7.1",
 "outputsToInstall":[
 "out"
@@ -2936,6 +2984,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "longDescription":"MLXP (Machine Learning eXperimentalist for Python) package is an open-source Python framework for managing multiple experiments with a flexible option structure from launching, and logging to querying results.",
+"maintainers":[],
 "name":"python3.12-mlxp-1.0.0",
 "outputsToInstall":[
 "out"
@@ -3056,6 +3105,11 @@
 "name":"Peter Hoeg"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/mosquitto-dcdb/default.nix",
+"line":56
+},
 "name":"mosquitto-1.5.5",
 "outputsToInstall":[
 "out"
@@ -3125,6 +3179,7 @@
 "description":"The NAS Parallel Benchmarks (NPB) are a small set of programs designed to\nhelp evaluate the performance of parallel supercomputers. The benchmarks\nare derived from computational fluid dynamics (CFD) applications and\nconsist of five kernels and three pseudo-applications in the original\n\"pencil-and-paper\" specification (NPB 1). The benchmark suite has been\nextended to include new benchmarks for unstructured adaptive mesh,\nparallel I/O, multi-zone applications, and computational grids.  Problem\nsizes in NPB are predefined and indicated as different classes. Reference\nimplementations of NPB are available in commonly-used programming models\nlike MPI and OpenMP (NPB 2 and NPB 3)\n",
 "homepage":"https://www.nas.nasa.gov/publications/npb.html",
 "insecure":false,
+"maintainers":[],
 "name":"NPB-3.4.2",
 "outputsToInstall":[
 "out"
@@ -3237,6 +3292,7 @@
 "url":"https://spdx.org/licenses/LGPL-3.0.html"
 },
 "longDescription":"NixOS Compose",
+"maintainers":[],
 "name":"python3.12-nxc-cluster22",
 "outputsToInstall":[
 "out"
@@ -3382,6 +3438,7 @@
 "url":"https://spdx.org/licenses/LGPL-2.1.html"
 },
 "longDescription":"",
+"maintainers":[],
 "name":"python3.12-oar-3.0.0",
 "outputsToInstall":[
 "out"
@@ -3450,6 +3507,7 @@
 "url":"https://spdx.org/licenses/LGPL-3.0.html"
 },
 "longDescription":"",
+"maintainers":[],
 "name":"oar-2.5.10+g5k7",
 "outputsToInstall":[
 "out"
@@ -3494,6 +3552,7 @@
 "spdxId":"LGPL-3.0",
 "url":"https://spdx.org/licenses/LGPL-3.0.html"
 },
+"maintainers":[],
 "name":"oxidisched-0.1-unreleased",
 "outputsToInstall":[
 "out"
@@ -3588,6 +3647,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
+"maintainers":[],
 "name":"python3.12-parallel-ssh-2.10.0",
 "outputsToInstall":[
 "out"
@@ -3689,6 +3749,7 @@
 "url":"https://spdx.org/licenses/LGPL-3.0.html"
 },
 "longDescription":"Toolkit to manage sets of closed intervals.\nprocset is a pure python module to manage sets of closed intervals. It can be\nused as a small python library to manage sets of resources, and is especially\nuseful when writing schedulers.",
+"maintainers":[],
 "name":"python3.12-procset-v1.0",
 "outputsToInstall":[
 "out"
@@ -3834,6 +3895,7 @@
 "url":"https://spdx.org/licenses/LGPL-3.0.html"
 },
 "longDescription":"Python API and schedulers for Batsim",
+"maintainers":[],
 "name":"python3.12-pybatsim-3.2.1",
 "outputsToInstall":[
 "out"
@@ -3979,6 +4041,7 @@
 "url":"https://spdx.org/licenses/LGPL-3.0.html"
 },
 "longDescription":"PyBatsim is the Python API for Batsim.",
+"maintainers":[],
 "name":"python3.12-pybatsim-3.2.0",
 "outputsToInstall":[
 "out"
@@ -4124,6 +4187,7 @@
 "url":"https://spdx.org/licenses/LGPL-3.0.html"
 },
 "longDescription":"Core Python Python API and schedulers for Batsim",
+"maintainers":[],
 "name":"python3.12-pybatsim-core-4.0.0-alpha+5414b272",
 "outputsToInstall":[
 "out"
@@ -4269,6 +4333,7 @@
 "url":"https://spdx.org/licenses/LGPL-3.0.html"
 },
 "longDescription":"Functional scheduler API for pybatsim",
+"maintainers":[],
 "name":"python3.12-pybatsim-functional-4.0.0-alpha+5414b272",
 "outputsToInstall":[
 "out"
@@ -4402,6 +4467,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
+"maintainers":[],
 "name":"python3.12-python-grid5000-1.2.4",
 "outputsToInstall":[
 "out"
@@ -4503,6 +4569,7 @@
 "url":"https://spdx.org/licenses/EPL-2.0.html"
 },
 "longDescription":"Python-MIP: collection of Python tools for the modeling and solution of Mixed-Integer Linear programs",
+"maintainers":[],
 "name":"python3.12-mip-1.13.0",
 "outputsToInstall":[
 "out"
@@ -4615,6 +4682,7 @@
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "longDescription":"A fast JSON parser/generator for C++ with both SAX/DOM style API\n",
+"maintainers":[],
 "name":"redox",
 "outputsToInstall":[
 "out"
@@ -4759,6 +4827,7 @@
 "url":"https://spdx.org/licenses/BSD-2-Clause.html"
 },
 "longDescription":".",
+"maintainers":[],
 "name":"python3.12-remote-pdb-2.0.0",
 "outputsToInstall":[
 "out"
@@ -4839,6 +4908,7 @@
 "url":"https://spdx.org/licenses/GPL-2.0-or-later.html"
 },
 "longDescription":"rt-tests is a test suite, that contains programs to test various real time Linux features. It is maintained by Clark Williams and John Kacur. \n",
+"maintainers":[],
 "name":"rt-tests-2.2",
 "outputsToInstall":[
 "out"
@@ -4895,6 +4965,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"maintainers":[],
 "name":"scylladb-cpp-driver-2.16.2b",
 "outputsToInstall":[
 "out"
@@ -4966,6 +5037,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid400.nix",
+"line":124
+},
 "name":"simgrid-4.0",
 "outputsToInstall":[
 "out"
@@ -5091,6 +5167,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid327.nix",
+"line":110
+},
 "name":"simgrid-3.27",
 "outputsToInstall":[
 "out"
@@ -5216,6 +5297,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid327.nix",
+"line":110
+},
 "name":"simgrid-3.27",
 "outputsToInstall":[
 "out"
@@ -5341,6 +5427,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid328.nix",
+"line":117
+},
 "name":"simgrid-3.28",
 "outputsToInstall":[
 "out"
@@ -5466,6 +5557,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid328.nix",
+"line":117
+},
 "name":"simgrid-3.28",
 "outputsToInstall":[
 "out"
@@ -5591,6 +5687,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid329.nix",
+"line":122
+},
 "name":"simgrid-3.29",
 "outputsToInstall":[
 "out"
@@ -5716,6 +5817,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid329.nix",
+"line":122
+},
 "name":"simgrid-3.29",
 "outputsToInstall":[
 "out"
@@ -5841,6 +5947,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid330.nix",
+"line":120
+},
 "name":"simgrid-3.30",
 "outputsToInstall":[
 "out"
@@ -5966,6 +6077,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid330.nix",
+"line":120
+},
 "name":"simgrid-3.30",
 "outputsToInstall":[
 "out"
@@ -6091,6 +6207,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid331.nix",
+"line":122
+},
 "name":"simgrid-3.31",
 "outputsToInstall":[
 "out"
@@ -6216,6 +6337,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid331.nix",
+"line":122
+},
 "name":"simgrid-3.31",
 "outputsToInstall":[
 "out"
@@ -6341,6 +6467,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid332.nix",
+"line":122
+},
 "name":"simgrid-3.32",
 "outputsToInstall":[
 "out"
@@ -6466,6 +6597,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid332.nix",
+"line":122
+},
 "name":"simgrid-3.32",
 "outputsToInstall":[
 "out"
@@ -6591,6 +6727,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid334.nix",
+"line":122
+},
 "name":"simgrid-3.34",
 "outputsToInstall":[
 "out"
@@ -6716,6 +6857,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid334.nix",
+"line":122
+},
 "name":"simgrid-3.34",
 "outputsToInstall":[
 "out"
@@ -6841,6 +6987,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid335.nix",
+"line":122
+},
 "name":"simgrid-3.35",
 "outputsToInstall":[
 "out"
@@ -6966,6 +7117,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid335.nix",
+"line":122
+},
 "name":"simgrid-3.35",
 "outputsToInstall":[
 "out"
@@ -7091,6 +7247,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid336.nix",
+"line":124
+},
 "name":"simgrid-3.36",
 "outputsToInstall":[
 "out"
@@ -7216,6 +7377,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid336.nix",
+"line":124
+},
 "name":"simgrid-3.36",
 "outputsToInstall":[
 "out"
@@ -7341,6 +7507,11 @@
 "name":"Millian Poquet"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/simgrid/simgrid400.nix",
+"line":124
+},
 "name":"simgrid-4.0",
 "outputsToInstall":[
 "out"
@@ -7465,6 +7636,11 @@
 "name":"Markus Kowalewski"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4kakxhhm75xdlv5xaja4yyswmd07jc9s-source/pkgs/slurm-simulator/default.nix",
+"line":93
+},
 "name":"slurm-simulator-bsc-v17",
 "outputsToInstall":[
 "out"
@@ -7511,7 +7687,8 @@
 "available":false,
 "broken":true,
 "insecure":false,
-"name":"slurm-24.11.4.1",
+"maintainers":[],
+"name":"slurm-24.11.5.1",
 "outputsToInstall":[
 "out"
 ],
@@ -7542,7 +7719,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"slurm-24.11.4.1",
+"name":"slurm-24.11.5.1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -7550,14 +7727,15 @@
 },
 "pname":"slurm",
 "system":"x86_64-linux",
-"version":"24.11.4.1"
+"version":"24.11.5.1"
 },
 "slurm-multiple-slurmd":{
 "meta":{
 "available":true,
 "broken":false,
 "insecure":false,
-"name":"slurm-24.11.4.1",
+"maintainers":[],
+"name":"slurm-24.11.5.1",
 "outputsToInstall":[
 "out"
 ],
@@ -7588,7 +7766,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"slurm-24.11.4.1",
+"name":"slurm-24.11.5.1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -7596,7 +7774,7 @@
 },
 "pname":"slurm",
 "system":"x86_64-linux",
-"version":"24.11.4.1"
+"version":"24.11.5.1"
 },
 "ssh-python":{
 "meta":{
@@ -7636,6 +7814,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
+"maintainers":[],
 "name":"python3.12-ssh-python-0.10.0",
 "outputsToInstall":[
 "out"
@@ -7725,6 +7904,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
+"maintainers":[],
 "name":"python3.12-ssh2-python-0.27.0",
 "outputsToInstall":[
 "out"
@@ -7793,6 +7973,7 @@
 "url":"https://spdx.org/licenses/LGPL-2.1-or-later.html"
 },
 "longDescription":"StarPU is a run-time system that offers support for heterogeneous\nmulticore machines.  While many efforts are devoted to design efficient\ncomputation kernels for those architectures (e.g. to implement BLAS kernels\non GPUs), StarPU not only takes care of offloading such kernels (and\nimplementing data coherency across the machine), but it also makes sure the\nkernels are executed as efficiently as possible.\n",
+"maintainers":[],
 "name":"starpu-1.4.0",
 "outputsToInstall":[
 "out"
@@ -7815,6 +7996,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"maintainers":[],
 "name":"wait-for-it-0.0.1",
 "outputsToInstall":[
 "out"
@@ -7870,6 +8052,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
+"maintainers":[],
 "name":"python3.12-wirerope",
 "outputsToInstall":[
 "out"
