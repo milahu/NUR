@@ -1,11 +1,31 @@
 language: nix
 nix: 2.28.3
-sudo: required
-before_install:
-  - mkdir -p ~/.config/nix/ && echo -e "experimental-features = nix-command flakes\nsubstituters = https://cache.nixos.org https://cache.garnix.io\ntrusted-public-keys = nurpkgs:gtUQ6um2j/MF+9nEDbsFa8S1dEct5YpaclN5/cHZFFE= nurpkgs:BQmPnIpniVOc3JIOTyOITtxxGoueuhBY9CqU6KWA2X8= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" > ~/.config/nix/nix.conf && echo -e "trusted-users = root $(id -u -n)\nexperimental-features = nix-command flakes" | sudo tee /etc/nix/nix.conf
-  - cat /etc/nix/nix.conf
-  - sudo systemctl restart nix-daemon
-  - nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#attic-client
-  - attic login central $ATTIC_ENDPOINT $ATTIC_TOKEN 
-script: nix shell nixpkgs#jq -c bash scripts/cache-packages.sh
+
+jobs:
+  include:
+    - stage: build_common_packages 
+      before_install:
+        - mkdir -p ~/.config/nix/ && echo -e "experimental-features = nix-command flakes\nsubstituters = https://cache.nixos.org https://cache.garnix.io\ntrusted-public-keys = nurpkgs:gtUQ6um2j/MF+9nEDbsFa8S1dEct5YpaclN5/cHZFFE= nurpkgs:BQmPnIpniVOc3JIOTyOITtxxGoueuhBY9CqU6KWA2X8= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" > ~/.config/nix/nix.conf && echo -e "trusted-users = root $(id -u -n)\nexperimental-features = nix-command flakes" | sudo tee /etc/nix/nix.conf
+        - cat /etc/nix/nix.conf
+        - sudo systemctl restart nix-daemon
+        - nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#attic-client
+        - attic login central $ATTIC_ENDPOINT $ATTIC_TOKEN 
+      script: nix shell nixpkgs#jq -c bash scripts/cache_common_packages.sh
+    - stage: build_koboldcpp
+      before_install:
+        - mkdir -p ~/.config/nix/ && echo -e "experimental-features = nix-command flakes\nsubstituters = https://cache.nixos.org https://cache.garnix.io\ntrusted-public-keys = nurpkgs:gtUQ6um2j/MF+9nEDbsFa8S1dEct5YpaclN5/cHZFFE= nurpkgs:BQmPnIpniVOc3JIOTyOITtxxGoueuhBY9CqU6KWA2X8= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" > ~/.config/nix/nix.conf && echo -e "trusted-users = root $(id -u -n)\nexperimental-features = nix-command flakes" | sudo tee /etc/nix/nix.conf
+        - cat /etc/nix/nix.conf
+        - sudo systemctl restart nix-daemon
+        - nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#attic-client
+        - attic login central $ATTIC_ENDPOINT $ATTIC_TOKEN 
+      script: nix shell nixpkgs#jq -c bash scripts/cache_koboldcpp.sh
+    - stage: build_emu
+      before_install:
+        - mkdir -p ~/.config/nix/ && echo -e "experimental-features = nix-command flakes\nsubstituters = https://cache.nixos.org https://cache.garnix.io\ntrusted-public-keys = nurpkgs:gtUQ6um2j/MF+9nEDbsFa8S1dEct5YpaclN5/cHZFFE= nurpkgs:BQmPnIpniVOc3JIOTyOITtxxGoueuhBY9CqU6KWA2X8= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" > ~/.config/nix/nix.conf && echo -e "trusted-users = root $(id -u -n)\nexperimental-features = nix-command flakes" | sudo tee /etc/nix/nix.conf
+        - cat /etc/nix/nix.conf
+        - sudo systemctl restart nix-daemon
+        - nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#attic-client
+        - attic login central $ATTIC_ENDPOINT $ATTIC_TOKEN 
+      script: nix shell nixpkgs#jq -c bash scripts/cache_emu.sh
+
 

@@ -9,7 +9,7 @@ for attr_name in "${PKG_ATTR_NAMES[@]}"; do
     #   --print-out-paths: Prints the actual store path(s) to stdout on success.
     #   If the build fails, nix build exits non-zero and prints errors to stderr.
     #   The 'if' condition checks the exit status of nix build.
-    if [[ "$attr_name" == "cudatoolkit" || "$attr_name" == "feishu" || "$attr_name" == "wechat" || "$attr_name" == "cider" || "$attr_name" == "cider3" || "$attr_name" == "koboldcpp" || "$attr_name" == "suyu" || "$attr_name" == "yuzu-early-access" ]]; then
+    if [[ "$attr_name" == "cudatoolkit" || "$attr_name" == "feishu" || "$attr_name" == "wechat" || "$attr_name" == "cider3" ]]; then
         (
             while true; do
                 echo "[$(date)] Still building/pushing ${attr_name}..."
@@ -40,7 +40,7 @@ for attr_name in "${PKG_ATTR_NAMES[@]}"; do
             echo "    ERROR: Failed to build ${flake_ref}. Check Nix output above."
         fi
 
-    elif [[ "$attr_name" == "misskey-new" || "$attr_name" == "misskey" ]]; then
+    elif [[ "$attr_name" == "misskey-new" || "$attr_name" == "misskey" || "$attr_name" == "koboldcpp" || "$attr_name" == "suyu" || "$attr_name" == "yuzu-early-access" || "$attr_name" == "cider" ]]; then
     	continue
     else
         (
