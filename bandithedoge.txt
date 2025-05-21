@@ -270,12 +270,12 @@ error:
 
 … while calling 'isStorePath'
 
-  at <nixpkgs> + /lib/strings.nix:2563:5:
+  at <nixpkgs> + /lib/strings.nix:2620:5:
 
-  2562|   isStorePath =
-  2563|     x:
+  2619|   isStorePath =
+  2620|     x:
       |     ^
-  2564|     if isStringLike x then
+  2621|     if isStringLike x then
 
 … from call site
 
