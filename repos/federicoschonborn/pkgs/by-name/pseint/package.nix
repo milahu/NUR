@@ -13,11 +13,11 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "pseint";
-  version = "20240122";
+  version = "20250314";
 
   src = fetchurl {
     url = "mirror://sourceforge/project/pseint/${finalAttrs.version}/pseint-src-${finalAttrs.version}.tgz";
-    hash = "sha256-OvmkSvMT7hhQWuBxaslJIZ0ZWFQGm0zjO9Qcrb/mVLA=";
+    hash = "sha256-ETLkkxzmzouVxzzjyhQGgp8Em8CjcF3YjeUdsiiOtSc=";
   };
 
   nativeBuildInputs = [
@@ -28,13 +28,23 @@ stdenv.mkDerivation (finalAttrs: {
     libGLU
     libglvnd
     wxGTK32
-  ] ++ lib.optional stdenv.hostPlatform.isLinux xorg.libX11;
+    xorg.libX11
+  ];
 
-  postPatch = ''
-    substituteInPlace dtl/dtl/Diff.hpp --replace-fail "enableTrivial () const" "enableTrivial ()"
-  '';
-
-  makeFlags = [ "ARCH=lnx" ];
+  makeFlags =
+    [
+      "GCC=cc"
+      "GPP=c++"
+      "AR=ar"
+    ]
+    ++ lib.optional stdenv.hostPlatform.isLinux "ARCH=lnx"
+    ++ lib.optional stdenv.hostPlatform.isDarwin (
+      {
+        "x86_64-darwin" = "ARCH=mi64";
+        "aarch64-darwin" = "ARCH=ma64";
+      }
+      .${stdenv.hostPlatform.system} or (throw "unsupported system")
+    );
 
   desktopItems = lib.optional stdenv.hostPlatform.isLinux (makeDesktopItem {
     name = "pseint";
@@ -44,21 +54,39 @@ stdenv.mkDerivation (finalAttrs: {
     categories = [ "Development" ];
   });
 
-  installPhase = ''
-    runHook preInstall
+  installPhase =
+    if stdenv.hostPlatform.isLinux then
+      ''
+        runHook preInstall
 
-    mkdir -p $out/bin $out/opt/pseint
-    cp -r bin/. $out/opt/pseint
-    ln -s $out/opt/pseint/bin/* $out/bin
+        mkdir -p $out/bin $out/share/pseint
+        cp -r bin/. $out/share/pseint
+        for name in psdraw3 psdrawE pseint pseval psexport psterm; do
+          ln -sr $out/share/pseint/bin/$name $out/bin/$name
+        done
 
-    runHook postInstall
-  '';
+        runHook postInstall
+      ''
+    else if stdenv.hostPlatform.isDarwin then
+      ''
+        runHook preInstall
+
+        appDir=$out/Applications/pseint.app/Contents
+        mkdir -p $appDir/MacOS $appDir/Resources
+        cp -r bin/. $appDir/Resources
+        ln -sr $appDir/Resources/pseint $appDir/MacOS/pseint
+        cp dist/Info.plist $appDir/Info.plist
+
+        runHook postInstall
+      ''
+    else
+      throw "unsupported platform";
 
   nativeInstallCheckInputs = [ versionCheckHook ];
-  doInstallCheck = true;
-
-  # Uses the wrong version for some godforsaken reason.
-  dontVersionCheck = true;
+  # Prints the wrong version for some reason.
+  doInstallCheck = false;
+  versionCheckProgram = "${placeholder "out"}/bin/pseint";
+  versionCheckProgramArg = "--version";
 
   strictDeps = true;
 
@@ -68,8 +96,6 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://pseint.sourceforge.net/";
     license = lib.licenses.gpl2Plus;
     platforms = lib.platforms.linux ++ lib.platforms.darwin;
-    # g++: command not found
-    broken = stdenv.hostPlatform.isDarwin;
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })

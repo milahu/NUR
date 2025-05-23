@@ -4,17 +4,14 @@
   fetchFromGitHub,
   cmake,
   ninja,
-  SDL2 ? null,
-  SDL2_classic ? null,
+  libtiff,
+  libwebp,
+  SDL2,
   SDL2_image,
   SDL2_ttf,
   SDL2_mixer,
   nix-update-script,
 }:
-
-let
-  SDL2' = if SDL2_classic != null then SDL2_classic else SDL2;
-in
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "minesector";
@@ -33,11 +30,18 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   buildInputs = [
-    (SDL2'.override { withStatic = true; })
+    libtiff
+    libwebp
+    SDL2
     SDL2_image
     SDL2_ttf
     SDL2_mixer
   ];
+
+  postPatch = ''
+    substituteInPlace CMakeLists.txt \
+      --replace-fail "set(STATIC_LINK" "# set(STATIC_LINK"
+  '';
 
   strictDeps = true;
 
@@ -49,7 +53,6 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/grassdne/minesector";
     license = lib.licenses.mit;
     platforms = lib.platforms.unix;
-    broken = stdenv.hostPlatform.isDarwin;
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })
