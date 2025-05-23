@@ -2,11 +2,13 @@
   fetchFromGitHub,
   lib,
   makeWrapper,
-  ocamlPackages,
+  ocaml-ng,
   z3,
   cvc4,
   cvc5,
 }: let
+  ocamlPackages = ocaml-ng.ocamlPackages_5_1;
+
   parsexp_io = ocamlPackages.buildDunePackage rec {
     pname = "parsexp_io";
     version = "v0.17.0";
@@ -31,7 +33,7 @@
 in
   ocamlPackages.buildDunePackage rec {
     pname = "Synduce";
-    version = "0.2";
+    version = "0-unstable-2023-08-12";
     duneVersion = "3";
     src =
       fetchFromGitHub

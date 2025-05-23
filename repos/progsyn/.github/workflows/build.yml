@@ -19,7 +19,7 @@ jobs:
         cachixName:
           - mistzzt
         nixPath:
-          - nixpkgs=channel:nixos-24.05
+          - nixpkgs=channel:nixos-24.11
     runs-on: ubuntu-latest
     env:
       NIXPKGS_ALLOW_UNFREE: '1'
