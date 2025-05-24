@@ -12,12 +12,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:698:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:739:18:
 
-   697|       };
-   698|       validity = checkMeta.assertValidity { inherit meta attrs; };
+   738|       };
+   739|       validity = checkMeta.assertValidity { inherit meta attrs; };
       |                  ^
-   699|
+   740|
 
 … while calling 'assertValidity'
 
@@ -84,9 +84,9 @@ error:
 
 error: attribute 'rust-bin' missing
 
-at ./default.nix:38:48:
+at ./default.nix:43:48:
 
-    37|   reth = pkgs.callPackage ./pkgs/reth { inherit (pkgs) rust-bin; };
-    38|   mergiraf = pkgs.callPackage ./pkgs/mergiraf { inherit (pkgs) rust-bin; };
+    42|   noir = pkgs.callPackage ./pkgs/noir { inherit (pkgs) rust-bin; protobuf_29 = pkgs-protobuf293.protobuf_29; };
+    43|   mergiraf = pkgs.callPackage ./pkgs/mergiraf { inherit (pkgs) rust-bin; };
       |                                                ^
-    39|
+    44|
