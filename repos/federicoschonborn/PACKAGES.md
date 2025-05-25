@@ -439,17 +439,6 @@ A Qt style supporting both QtQuick and QtWidgets.
 - 📄 Licenses: [`BSD 2-clause "Simplified" License`](https://spdx.org/licenses/BSD-2-Clause.html), [`Creative Commons Zero v1.0 Universal`](https://spdx.org/licenses/CC0-1.0.html), [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html), [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html)
 - 🖥️ Platforms: `aarch64-linux`, `x86_64-linux`
 
-## `wayneko` {#wayneko}
-
-Display an animated neko cat on the bottom of an output.
-
-- Name: `wayneko`
-- Version: `0-unstable-2024-03-29`
-- [🌐 Homepage](https://sr.ht/~leon_plickat/wayneko/)
-- [📦 Source](./pkgs/by-name/wayneko/package.nix#L43)
-- 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
-- 🖥️ Platforms: `aarch64-linux`, `x86_64-linux`
-
 ## `wisp` {#wisp}
 
 Wisp turns indentation based syntax into Lisp.
@@ -459,18 +448,6 @@ Wisp turns indentation based syntax into Lisp.
 - [🌐 Homepage](https://www.draketo.de/software/wisp)
 - [📦 Source](./pkgs/by-name/wisp/package.nix#L54)
 - 📄 License: [`GNU General Public License v3.0 or later`](https://spdx.org/licenses/GPL-3.0-or-later.html)
-- 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `x86_64-linux`
-
-## `woke` {#woke}
-
-Detect non-inclusive language in your source code.
-
-- Name: `woke`
-- Version: `0.19.0`
-- [🌐 Homepage](https://github.com/get-woke/woke)
-- [📰 Changelog](https://github.com/get-woke/woke/releases/tag/v0.19.0)
-- [📦 Source](./pkgs/by-name/woke/package.nix#L50)
-- 📄 License: [`MIT License`](https://spdx.org/licenses/MIT.html)
 - 🖥️ Platforms: `x86_64-darwin`, `aarch64-darwin`, `aarch64-linux`, `x86_64-linux`
 
 ## `ziggy` {#ziggy}
