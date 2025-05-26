@@ -1,16 +1,16 @@
 {
 "name":"deeunderscore",
-"fetch_time":0.261,
-"eval_time":0.263,
+"fetch_time":0.37,
+"eval_time":0.307,
 "source":{
 "url":"https://github.com/DeeUnderscore/nur-packages",
-"rev":"00df36ba121ab7465b438b49a3bb14a9d52534e3",
-"sha256":"0s6pf8nbpbghq3i97fkh08ih8fmv3nsmx7lacqsb0gljmcacwr01",
+"rev":"4c1897f0937c40bdff843fa84153d2f418d1c302",
+"sha256":"18cgc0vi4qkchqmq03nw5ycrcabvz7j1d6c86q0wx1q8gyf5vgb7",
 "date":null
 },
-"source_storepath":"/nix/store/hrhxqv2lr2q9iyvz5bgq4jf6xyw3r0aw-source",
-"nixpkgs_storepath":"/nix/store/b6hzjw46ym16rcsl3vim9vhj37w3p1fh-source",
-"nur_combined_rev":"b9c0ab6dae03f9d509db2fe3267566a8cfedb8d6",
+"source_storepath":"/nix/store/f73pm259r8q3i38dn3mm5wwwsxvywz47-source",
+"nixpkgs_storepath":"/nix/store/wxwlwk53gch0sksh7i2w1dwqrnj0xk0r-source",
+"nur_combined_rev":"3303505d08ca2090dbf91d070c2c0401b6790876",
 "packages":{
 "coeurl":{
 "meta":{
@@ -28,6 +28,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"coeurl",
 "outputsToInstall":[
 "out"
@@ -75,9 +76,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -96,6 +95,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"git-archive-all-1.23.0",
 "outputsToInstall":[
 "out"
@@ -123,9 +123,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -165,6 +163,7 @@
 "spdxId":"BSD-3-Clause",
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
+"maintainers":[],
 "name":"jday-2.4",
 "outputsToInstall":[
 "out"
@@ -207,6 +206,11 @@
 "name":"Andrew Morgan"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/wxwlwk53gch0sksh7i2w1dwqrnj0xk0r-source/pkgs/by-name/li/libuiohook/package.nix",
+"line":71
+},
 "name":"libuiohook-1.2.2",
 "outputsToInstall":[
 "out"
@@ -215,9 +219,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -290,7 +292,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/development/libraries/libuiohook/default.nix:76",
+"position":"<nixpkgs> + /pkgs/by-name/li/libuiohook/package.nix:67",
 "unfree":false,
 "unsupported":false
 },
@@ -320,15 +322,14 @@
 "spdxId":"GPL-3.0-or-later",
 "url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
 },
+"maintainers":[],
 "name":"linx-client-unstable-2020-10-17",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "aarch64-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -380,15 +381,14 @@
 "fullName":"BSD 2-Clause FreeBSD License",
 "spdxId":"BSD-2-Clause-FreeBSD"
 },
+"maintainers":[],
 "name":"moar-pager-1.9.0",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "aarch64-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -445,7 +445,8 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"name":"mtxclient-unstable-2024-07-25",
+"maintainers":[],
+"name":"mtxclient-0.10.0-unstable-2025-05-25",
 "outputsToInstall":[
 "out"
 ],
@@ -453,9 +454,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -532,14 +531,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"mtxclient-unstable-2024-07-25",
+"name":"mtxclient-0.10.0-unstable-2025-05-25",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"mtxclient-unstable",
+"pname":"mtxclient",
 "system":"x86_64-linux",
-"version":"2024-07-25"
+"version":"0.10.0-unstable-2025-05-25"
 },
 "nheko-krunner":{
 "meta":{
@@ -557,6 +556,7 @@
 "spdxId":"GPL-3.0-or-later",
 "url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
 },
+"maintainers":[],
 "name":"nheko-krunner-0.1.0",
 "outputsToInstall":[
 "out"
@@ -590,7 +590,8 @@
 "spdxId":"GPL-3.0-or-later",
 "url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
 },
-"name":"nheko-unstable-2025-01-30",
+"maintainers":[],
+"name":"nheko-0.12.0-unstable-2025-05-25",
 "outputsToInstall":[
 "out"
 ],
@@ -598,9 +599,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -677,14 +676,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nheko-unstable-2025-01-30",
+"name":"nheko-0.12.0-unstable-2025-05-25",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"nheko-unstable",
+"pname":"nheko",
 "system":"x86_64-linux",
-"version":"2025-01-30"
+"version":"0.12.0-unstable-2025-05-25"
 },
 "obs-input-overlay":{
 "meta":{
@@ -702,6 +701,7 @@
 "spdxId":"GPL-2.0-only",
 "url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
+"maintainers":[],
 "name":"input-overlay-5.0.0-rc1",
 "outputsToInstall":[
 "out"
@@ -735,6 +735,7 @@
 "spdxId":"LGPL-3.0-or-later",
 "url":"https://spdx.org/licenses/LGPL-3.0-or-later.html"
 },
+"maintainers":[],
 "name":"pktriggercord-0.85.00",
 "outputsToInstall":[
 "out"
@@ -768,6 +769,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"maintainers":[],
 "name":"rdrview-unstable-2021-09-13",
 "outputsToInstall":[
 "out"
@@ -801,6 +803,7 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
+"maintainers":[],
 "name":"uniutils-2.27-16.0.0",
 "outputsToInstall":[
 "out"

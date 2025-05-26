@@ -1,16 +1,16 @@
 {
 "name":"mic92",
-"fetch_time":0.265,
-"eval_time":0.297,
+"fetch_time":0.354,
+"eval_time":0.317,
 "source":{
 "url":"https://github.com/Mic92/nur-packages",
-"rev":"3cdf735b40af3498abc94d52aac763f14306ea5c",
-"sha256":"1gvpjj5jcp7s81an37z4kirrr5gljx98gjwpg04nydfbwgss55d2",
+"rev":"7fb1374766f8ca048be9bf0fa1223daf4373e397",
+"sha256":"1jdj1q64yzqfxkjdmv7vpxg91zklcw27jbs9a218v2m8f1bhxc9y",
 "date":null
 },
-"source_storepath":"/nix/store/6x71h4y00vi4aa9d1bk63im8na4qrwd7-source",
-"nixpkgs_storepath":"/nix/store/bwj1h50y3p5zpwc73lwzqdy0rkwa9c4s-source",
-"nur_combined_rev":"c751f8aebcc5dd0041e01ba87220d4977f2efb68",
+"source_storepath":"/nix/store/jnpr75fg6pcza8v4vwic2h3vnwcgm6zs-source",
+"nixpkgs_storepath":"/nix/store/wxwlwk53gch0sksh7i2w1dwqrnj0xk0r-source",
+"nur_combined_rev":"c027b5388db208fc89c087bc9e8481ae455ac307",
 "packages":{
 "conky-symbols":{
 "meta":{
@@ -18,6 +18,7 @@
 "broken":false,
 "description":"iconic font for use in Conky",
 "insecure":false,
+"maintainers":[],
 "name":"ConkySymbols",
 "outputsToInstall":[
 "out"
@@ -66,6 +67,11 @@
 "name":"Maximilian Bosch"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/wxwlwk53gch0sksh7i2w1dwqrnj0xk0r-source/pkgs/os-specific/linux/wpa_supplicant/default.nix",
+"line":168
+},
 "name":"eapol_test-2.11",
 "outputsToInstall":[
 "out"
@@ -131,6 +137,11 @@
 "name":"J\u00f6rg Thalheim"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/jnpr75fg6pcza8v4vwic2h3vnwcgm6zs-source/pkgs/gdb-dashboard/default.nix",
+"line":33
+},
 "name":"gdb-dashboard-0.11.4",
 "outputsToInstall":[
 "out"
@@ -173,6 +184,11 @@
 "name":"J\u00f6rg Thalheim"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/jnpr75fg6pcza8v4vwic2h3vnwcgm6zs-source/pkgs/goatcounter/default.nix",
+"line":26
+},
 "name":"goatcounter-2.4.1",
 "outputsToInstall":[
 "out"
@@ -181,9 +197,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -263,6 +277,11 @@
 "name":"Eelco Dolstra"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/jnpr75fg6pcza8v4vwic2h3vnwcgm6zs-source/pkgs/hello-nur/default.nix",
+"line":28
+},
 "name":"hello-2.10",
 "outputsToInstall":[
 "out"
@@ -271,9 +290,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -396,6 +413,11 @@
 "name":"J\u00f6rg Thalheim"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/jnpr75fg6pcza8v4vwic2h3vnwcgm6zs-source/pkgs/ircsink/default.nix",
+"line":44
+},
 "name":"ircsink-1.2.0",
 "outputsToInstall":[
 "out"
@@ -404,9 +426,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -465,6 +485,7 @@
 "available":true,
 "broken":false,
 "insecure":false,
+"maintainers":[],
 "name":"lua5.2-lualdap-1.2.0",
 "outputsToInstall":[
 "out"
@@ -498,15 +519,14 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"mailexporter-2021-04-17",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "aarch64-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -577,9 +597,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -598,6 +616,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"mastodon-hnbot-1.0.0",
 "outputsToInstall":[
 "out"
@@ -625,9 +644,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -676,6 +693,11 @@
 "name":"J\u00f6rg Thalheim"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/jnpr75fg6pcza8v4vwic2h3vnwcgm6zs-source/pkgs/noise-suppression-for-voice/default.nix",
+"line":20
+},
 "name":"noise-suppression-for-voice",
 "outputsToInstall":[
 "out"
@@ -684,9 +706,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -756,6 +776,7 @@
 "spdxId":"GPL-2.0",
 "url":"https://spdx.org/licenses/GPL-2.0.html"
 },
+"maintainers":[],
 "name":"pandoc-bin-2.13",
 "outputsToInstall":[
 "out"
@@ -764,9 +785,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -850,9 +869,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -880,6 +897,11 @@
 "name":"J\u00f6rg Thalheim"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/jnpr75fg6pcza8v4vwic2h3vnwcgm6zs-source/pkgs/python-pkgs/chump.nix",
+"line":16
+},
 "name":"python3.12-chump-1.6.0",
 "outputsToInstall":[
 "out"
@@ -888,9 +910,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -975,9 +995,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -996,6 +1014,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"python3.12-gatt-0.2.7",
 "outputsToInstall":[
 "out"
@@ -1023,9 +1042,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -1079,9 +1096,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -1100,6 +1115,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"python3.12-jupyterthemes-0.20.0",
 "outputsToInstall":[
 "out"
@@ -1127,9 +1143,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -1183,9 +1197,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -1204,6 +1216,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"python3.12-priority-1.3.0",
 "outputsToInstall":[
 "out"
@@ -1231,9 +1244,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -1287,9 +1298,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -1308,6 +1317,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"python3.12-pry.py-0.1.1",
 "outputsToInstall":[
 "out"
@@ -1335,9 +1345,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -1362,48 +1370,7 @@
 "version":"0.1.1"
 },
 "reveal-md":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"reveal.js on steroids! Get beautiful reveal.js presentations from your Markdown files.",
-"homepage":"https://github.com/webpro/reveal-md#readme",
-"insecure":false,
-"license":"MIT",
-"name":"reveal-md-6.1.2",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"armv7a-darwin"
-],
-"position":"./pkgs/node-packages/node-packages.nix:3324",
-"unfree":false,
-"unsupported":false
-},
+"meta":{},
 "name":"reveal-md-6.1.2",
 "outputName":"out",
 "outputs":{
@@ -1443,9 +1410,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -1473,6 +1438,11 @@
 "name":"J\u00f6rg Thalheim"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/jnpr75fg6pcza8v4vwic2h3vnwcgm6zs-source/pkgs/rspam-learn-spam-ham/default.nix",
+"line":20
+},
 "name":"rspamd-learn-spam-ham-1.0.0",
 "outputsToInstall":[
 "out"
@@ -1481,9 +1451,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1539,48 +1507,7 @@
 "version":"1.0.0"
 },
 "speedscope":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"English | [\u7b80\u4f53\u4e2d\u6587](./README-zh_CN.md) # \ud83d\udd2cspeedscope  A fast, interactive web-based viewer for performance profiles. Supports import from a variety of profiles in a variety of languages (JS, Ruby, Python, Go & more). Try it here: https://www.speedscope.app",
-"homepage":"https://github.com/jlfwong/speedscope#readme",
-"insecure":false,
-"license":"MIT",
-"name":"speedscope-1.20.0",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"armv7a-darwin"
-],
-"position":"./pkgs/node-packages/node-packages.nix:2914",
-"unfree":false,
-"unsupported":false
-},
+"meta":{},
 "name":"speedscope-1.20.0",
 "outputName":"out",
 "outputs":{
@@ -1606,6 +1533,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"traceshark-unstable-2020-05-15",
 "outputsToInstall":[
 "out"
@@ -1614,9 +1542,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1710,13 +1636,13 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
+"maintainers":[],
 "name":"vaultwarden_ldap-2.1.0",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -1740,7 +1666,6 @@
 "x86_64-openbsd",
 "i686-windows",
 "x86_64-windows",
-"armv7a-darwin",
 "armv5tel-linux",
 "armv7a-linux",
 "m68k-linux",
@@ -1784,15 +1709,14 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"yubikey-touch-detector-1.9.0",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "aarch64-linux",
 "armv5tel-linux",
 "armv6l-linux",
