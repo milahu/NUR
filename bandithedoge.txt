@@ -1,12 +1,4 @@
 trace: evaluation warning: destruqtor has been renamed to blepfx.destruqtor
-trace: evaluation warning: clangd-inactive-regions has been renamed to eglot-inactive-regions
-trace: evaluation warning: lamb has been renamed to lamb-bin
-trace: evaluation warning: osirus has been renamed to dsp56300
-trace: evaluation warning: proton-cachyos-bin has been renamed to proton.cachyos
-trace: evaluation warning: swift-mesonlsp-bin has been renamed to mesonlsp-bin
-trace: evaluation warning: u-he.zebra2 has been renamed to u-he.zebra-legacy
-trace: evaluation warning: lua-dev.nvim has been renamed to neodev.nvim
-trace: evaluation warning: null-ls.nvim has been discontinued, consider switching to none-ls.nvim
 error:
 … while calling anonymous lambda
 
@@ -19,12 +11,12 @@ error:
 
 … from call site
 
-  at ./pkgs/default.nix:134:19:
+  at ./pkgs/default.nix:43:21:
 
-   133|     xplrPlugins = callPackages' ./xplrPlugins;
-   134|     yaziPlugins = callPackages' ./yaziPlugins;
-      |                   ^
-   135|     ysfx = callPackage' ./ysfx;
+    42|     element = callPackage' ./element;
+    43|     emacsPackages = callPackages' ./emacsPackages;
+      |                     ^
+    44|     fennel-language-server = callPackage' ./fennel-language-server;
 
 … while calling 'callPackages''
 
@@ -100,20 +92,20 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/yaziPlugins/default.nix:1:1:
+  at ./pkgs/emacsPackages/default.nix:1:1:
 
      1| {pkgs, ...}: let
       | ^
-     2|   sources = import ./nix/_sources.nix {inherit pkgs;};
+     2|   sources = import ./npins;
 
 … from call site
 
-  at ./pkgs/yaziPlugins/default.nix:4:4:
+  at ./pkgs/emacsPackages/default.nix:4:4:
 
      3| in
-     4|   (pkgs.lib.makeExtensible
+     4|   (pkgs.lib.makeExtensible (_:
       |    ^
-     5|     (_:
+     5|     pkgs.lib.attrsets.mapAttrs'
 
 … while calling 'makeExtensibleWithCustomName'
 
@@ -171,21 +163,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/yaziPlugins/default.nix:5:6:
+  at ./pkgs/emacsPackages/default.nix:4:29:
 
-     4|   (pkgs.lib.makeExtensible
-     5|     (_:
-      |      ^
-     6|       pkgs.lib.mapAttrs' (name: src:
+     3| in
+     4|   (pkgs.lib.makeExtensible (_:
+      |                             ^
+     5|     pkgs.lib.attrsets.mapAttrs'
 
 … from call site
 
-  at ./pkgs/yaziPlugins/default.nix:6:7:
+  at ./pkgs/emacsPackages/default.nix:5:5:
 
-     5|     (_:
-     6|       pkgs.lib.mapAttrs' (name: src:
-      |       ^
-     7|         pkgs.lib.nameValuePair
+     4|   (pkgs.lib.makeExtensible (_:
+     5|     pkgs.lib.attrsets.mapAttrs'
+      |     ^
+     6|     (name: src: let
 
 … while calling 'mapAttrs''
 
@@ -216,12 +208,12 @@ error:
 
 … from call site
 
-  at ./pkgs/yaziPlugins/default.nix:21:8:
+  at ./pkgs/emacsPackages/default.nix:29:6:
 
-    20|         }))
-    21|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
-      |        ^
-    22|   .extend (pkgs.callPackage ./_overrides.nix {})
+    28|       }))
+    29|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+      |      ^
+    30|   .extend (import ./_overrides.nix {inherit pkgs;})
 
 … while calling 'filterAttrs'
 
@@ -252,21 +244,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/yaziPlugins/default.nix:21:33:
+  at ./pkgs/emacsPackages/default.nix:29:31:
 
-    20|         }))
-    21|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
-      |                                 ^
-    22|   .extend (pkgs.callPackage ./_overrides.nix {})
+    28|       }))
+    29|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+      |                               ^
+    30|   .extend (import ./_overrides.nix {inherit pkgs;})
 
 … from call site
 
-  at ./pkgs/yaziPlugins/default.nix:21:36:
+  at ./pkgs/emacsPackages/default.nix:29:34:
 
-    20|         }))
-    21|       (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
-      |                                    ^
-    22|   .extend (pkgs.callPackage ./_overrides.nix {})
+    28|       }))
+    29|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+      |                                  ^
+    30|   .extend (import ./_overrides.nix {inherit pkgs;})
 
 … while calling 'isStorePath'
 
@@ -279,74 +271,38 @@ error:
 
 … from call site
 
-  at ./pkgs/yaziPlugins/nix/_sources.nix:223:33:
+  at ./pkgs/emacsPackages/npins/default.nix:67:25:
 
-   222|           "The values in sources.json should not have an 'outPath' attribute"
-   223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
-      |                                 ^
-   224|     )
+    66|     in
+    67|     spec // { outPath = mayOverride name path; };
+      |                         ^
+    68|
 
-… while calling 'replace'
+… while calling 'mayOverride'
 
-  at ./pkgs/yaziPlugins/nix/_sources.nix:139:19:
+  at ./pkgs/emacsPackages/npins/default.nix:31:11:
 
-   138|   # the path directly as opposed to the fetched source.
-   139|   replace = name: drv: let
-      |                   ^
-   140|     saneName = stringAsChars (c:
-
-… from call site
-
-  at ./pkgs/yaziPlugins/nix/_sources.nix:223:47:
-
-   222|           "The values in sources.json should not have an 'outPath' attribute"
-   223|         else spec // {outPath = replace name (fetch config.pkgs name spec);}
-      |                                               ^
-   224|     )
-
-… while calling 'fetch'
-
-  at ./pkgs/yaziPlugins/nix/_sources.nix:120:23:
-
-   119|   # The actual fetching function.
-   120|   fetch = pkgs: name: spec:
-      |                       ^
-   121|     if ! builtins.hasAttr "type" spec
+    30|   mayOverride =
+    31|     name: path:
+      |           ^
+    32|     let
 
 … from call site
 
-  at ./pkgs/yaziPlugins/nix/_sources.nix:126:10:
+  at ./pkgs/emacsPackages/npins/default.nix:55:11:
 
-   125|     else if spec.type == "tarball"
-   126|     then fetch_tarball pkgs name spec
-      |          ^
-   127|     else if spec.type == "git"
+    54|         if spec.type == "Git" then
+    55|           mkGitSource spec
+      |           ^
+    56|         else if spec.type == "GitRelease" then
 
-… while calling 'fetch_tarball'
+… while calling 'mkGitSource'
 
-  at ./pkgs/yaziPlugins/nix/_sources.nix:21:31:
+  at ./pkgs/emacsPackages/npins/default.nix:70:5:
 
-    20|
-    21|   fetch_tarball = pkgs: name: spec: let
-      |                               ^
-    22|     name' = sanitizeName name + "-src";
+    69|   mkGitSource =
+    70|     {
+      |     ^
+    71|       repository,
 
-… from call site
-
-  at ./pkgs/yaziPlugins/nix/_sources.nix:26:7:
-
-    25|     then
-    26|       builtins_fetchTarball {
-      |       ^
-    27|         name = name';
-
-… while calling 'builtins_fetchTarball'
-
-  at ./pkgs/yaziPlugins/nix/_sources.nix:191:27:
-
-   190|   # fetchTarball version that is compatible between all the versions of Nix
-   191|   builtins_fetchTarball = {
-      |                           ^
-   192|     url,
-
-error: access to URI 'https://github.com/Sonico98/allmytoes.yazi/archive/1e43bfd0143c396f60ef7d35e4d6b3aab7bf6439.tar.gz' is forbidden in restricted mode
+error: access to URI 'https://github.com/jdtsmith/eglot-booster/archive/1260d2f7dd18619b42359aa3e1ba6871aa52fd26.tar.gz' is forbidden in restricted mode
