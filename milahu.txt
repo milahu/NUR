@@ -1,12 +1,20 @@
-trace: evaluation warning: substituteAll is deprecated and will be removed in 25.11. Use replaceVars instead.
 error:
-… while querying the derivation named 'brother-hll6400dw-cupswrapper-3.5.1-1'
+… from call site
 
-error: undefined variable 'milahu'
+  at ./default.nix:51:25:
 
-at ./pkgs/misc/cups/drivers/brother/hll6400dw/hll6400dw.nix:195:39:
+    50|
+    51|   oci-image-generator = callPackage ./pkgs/oci-image-generator-nixos/default.nix { };
+      |                         ^
+    52|
 
-   194|     platforms = platforms.all;
-   195|     maintainers = with maintainers; [ milahu ];
-      |                                       ^
-   196|   };
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:240:19:
+
+   239|   callPackageWith =
+   240|     autoArgs: fn: args:
+      |                   ^
+   241|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "writeReferencesToFile" at ./pkgs/oci-image-generator-nixos/default.nix:34'

@@ -271,38 +271,38 @@ error:
 
 … from call site
 
-  at ./pkgs/emacsPackages/npins/default.nix:67:25:
+  at ./pkgs/emacsPackages/npins/default.nix:67:26:
 
     66|     in
-    67|     spec // { outPath = mayOverride name path; };
-      |                         ^
+    67|       spec // {outPath = mayOverride name path;};
+      |                          ^
     68|
 
 … while calling 'mayOverride'
 
-  at ./pkgs/emacsPackages/npins/default.nix:31:11:
+  at ./pkgs/emacsPackages/npins/default.nix:32:23:
 
-    30|   mayOverride =
-    31|     name: path:
-      |           ^
-    32|     let
+    31|   # (Taken from Niv for compatibility)
+    32|   mayOverride = name: path: let
+      |                       ^
+    33|     envVarName = "NPINS_OVERRIDE_${saneName}";
 
 … from call site
 
-  at ./pkgs/emacsPackages/npins/default.nix:55:11:
+  at ./pkgs/emacsPackages/npins/default.nix:56:14:
 
-    54|         if spec.type == "Git" then
-    55|           mkGitSource spec
-      |           ^
-    56|         else if spec.type == "GitRelease" then
+    55|         if spec.type == "Git"
+    56|         then mkGitSource spec
+      |              ^
+    57|         else if spec.type == "GitRelease"
 
 … while calling 'mkGitSource'
 
-  at ./pkgs/emacsPackages/npins/default.nix:70:5:
+  at ./pkgs/emacsPackages/npins/default.nix:69:17:
 
-    69|   mkGitSource =
-    70|     {
-      |     ^
-    71|       repository,
+    68|
+    69|   mkGitSource = {
+      |                 ^
+    70|     repository,
 
 error: access to URI 'https://github.com/jdtsmith/eglot-booster/archive/1260d2f7dd18619b42359aa3e1ba6871aa52fd26.tar.gz' is forbidden in restricted mode
