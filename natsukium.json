@@ -1,16 +1,16 @@
 {
 "name":"natsukium",
-"fetch_time":0.394,
-"eval_time":0.348,
+"fetch_time":0.247,
+"eval_time":0.319,
 "source":{
 "url":"https://github.com/natsukium/nur-packages",
-"rev":"b642017a97aca401c23c20acb86ebcf1c4e1ed36",
-"sha256":"1rhjskakqzh0gw6rhn6vmqi9m67480c1rb2xd0gzmjhyjxnlh25n",
+"rev":"a2d097083d995cf3e8514cbc22ee31b7db2f0d07",
+"sha256":"05rsbqfx0xgpzi7zz3z7kbnq077zxm921flc23i0fkmaz1hyqb71",
 "date":null
 },
-"source_storepath":"/nix/store/l1kvvq4qd5dd82nkc5vgfafi936ga3r9-source",
-"nixpkgs_storepath":"/nix/store/fqh2xmap84dj6dskg07vl1mpj75f6k11-source",
-"nur_combined_rev":"f0dead34011c7b0c86d4987ee662aba0676aa53e",
+"source_storepath":"/nix/store/zyzsx36msbnnyvqjmsaxz4bqawn3ka08-source",
+"nixpkgs_storepath":"/nix/store/4h3s6j5j613jzcnn8andpb6f6piifqfq-source",
+"nur_combined_rev":"9f1a6dde49b2afd0e00a43469d007d64a3f7633f",
 "packages":{
 "age-plugin-se":{
 "meta":{
@@ -42,6 +42,11 @@
 "name":"Tomoya Otabi"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/zyzsx36msbnnyvqjmsaxz4bqawn3ka08-source/pkgs/age-plugin-se/default.nix",
+"line":31
+},
 "name":"age-plugin-se-v0.1.4",
 "outputsToInstall":[
 "out"
@@ -166,6 +171,11 @@
 "name":"Tomoya Otabi"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/zyzsx36msbnnyvqjmsaxz4bqawn3ka08-source/pkgs/bclm/default.nix",
+"line":50
+},
 "name":"bclm-0.1.0",
 "outputsToInstall":[
 "out"
@@ -213,6 +223,11 @@
 "name":"Artturi N"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4h3s6j5j613jzcnn8andpb6f6piifqfq-source/pkgs/applications/misc/copyq/default.nix",
+"line":71
+},
 "name":"CopyQ-10.0.0",
 "outputsToInstall":[
 "out"
@@ -319,6 +334,11 @@
 "name":"pancho horrillo"
 }
 ],
+"maintainersPosition":{
+"column":9,
+"file":"/nix/store/4h3s6j5j613jzcnn8andpb6f6piifqfq-source/pkgs/applications/editors/emacs/sources.nix",
+"line":82
+},
 "name":"emacs-plus-30.1",
 "outputsToInstall":[
 "out"
@@ -354,6 +374,7 @@
 "redistributable":false,
 "shortName":"unfree"
 },
+"maintainers":[],
 "name":"google-japanese-input-2.30.5590.1",
 "outputsToInstall":[
 "out"
@@ -392,6 +413,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"hammerspoon-1.0.0",
 "outputsToInstall":[
 "out"
@@ -435,6 +457,7 @@
 "spdxId":"OFL-1.1",
 "url":"https://spdx.org/licenses/OFL-1.1.html"
 },
+"maintainers":[],
 "name":"liga-hackgen-font-0.1.0",
 "outputsToInstall":[
 "out"
@@ -513,6 +536,7 @@
 "spdxId":"OFL-1.1",
 "url":"https://spdx.org/licenses/OFL-1.1.html"
 },
+"maintainers":[],
 "name":"liga-hackgen-nf-font-0.1.0",
 "outputsToInstall":[
 "out"
@@ -591,6 +615,7 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
+"maintainers":[],
 "name":"ligaturizer-5",
 "outputsToInstall":[
 "out"
@@ -657,7 +682,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/Mic92/nixpkgs-review/releases/tag/3.2.0",
+"changelog":"https://github.com/Mic92/nixpkgs-review/releases/tag/3.3.0",
 "description":"Review pull-requests on https://github.com/NixOS/nixpkgs",
 "homepage":"https://github.com/Mic92/nixpkgs-review",
 "insecure":false,
@@ -720,7 +745,12 @@
 "name":"J\u00f6rg Thalheim"
 }
 ],
-"name":"nixpkgs-review-3.2.0",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4h3s6j5j613jzcnn8andpb6f6piifqfq-source/pkgs/by-name/ni/nixpkgs-review/package.nix",
+"line":84
+},
+"name":"nixpkgs-review-3.3.0",
 "outputsToInstall":[
 "out"
 ],
@@ -761,7 +791,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nixpkgs-review-3.2.0",
+"name":"nixpkgs-review-3.3.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -769,7 +799,7 @@
 },
 "pname":"nixpkgs-review",
 "system":"x86_64-linux",
-"version":"3.2.0"
+"version":"3.3.0"
 },
 "paperwm-spoon":{
 "meta":{
@@ -787,7 +817,8 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"name":"paperwm-spoon-0-unstable-2025-04-07",
+"maintainers":[],
+"name":"paperwm-spoon-0-unstable-2025-05-18",
 "outputsToInstall":[
 "out"
 ],
@@ -799,14 +830,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"paperwm-spoon-0-unstable-2025-04-07",
+"name":"paperwm-spoon-0-unstable-2025-05-18",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"paperwm-spoon",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-04-07"
+"version":"0-unstable-2025-05-18"
 },
 "psipred":{
 "meta":{
@@ -824,6 +855,7 @@
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
+"maintainers":[],
 "name":"psipred-4.0",
 "outputsToInstall":[
 "out"
@@ -880,6 +912,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"qmk-toolbox-0.3.3",
 "outputsToInstall":[
 "out"
@@ -985,6 +1018,11 @@
 "name":"Robert Sch\u00fctz"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4h3s6j5j613jzcnn8andpb6f6piifqfq-source/pkgs/by-name/qu/qutebrowser/package.nix",
+"line":159
+},
 "name":"qutebrowser-3.5.0",
 "outputsToInstall":[
 "out"
@@ -1075,6 +1113,11 @@
 "name":"Mostly Void"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4h3s6j5j613jzcnn8andpb6f6piifqfq-source/pkgs/applications/misc/rofi-rbw/default.nix",
+"line":78
+},
 "name":"rofi-rbw-1.4.2",
 "outputsToInstall":[
 "out"
@@ -1132,6 +1175,7 @@
 "spdxId":"GPL-3.0-only",
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
+"maintainers":[],
 "name":"sbarlua-unstable-2024-08-12",
 "outputsToInstall":[
 "out"
@@ -1169,7 +1213,8 @@
 "spdxId":"Zlib",
 "url":"https://spdx.org/licenses/Zlib.html"
 },
-"name":"vimplugin-skkeleton-unstable-2025-05-03",
+"maintainers":[],
+"name":"vimplugin-skkeleton-unstable-2025-05-05",
 "outputsToInstall":[
 "out"
 ],
@@ -1254,14 +1299,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"vimplugin-skkeleton-unstable-2025-05-03",
+"name":"vimplugin-skkeleton-unstable-2025-05-05",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vimplugin-skkeleton-unstable",
 "system":"x86_64-linux",
-"version":"2025-05-03"
+"version":"2025-05-05"
 },
 "vimPlugins.vim-edgemotion":{
 "meta":{
@@ -1279,6 +1324,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"vimplugin-vim-edgemotion-unstable-2017-12-26",
 "outputsToInstall":[
 "out"
@@ -1402,7 +1448,12 @@
 "name":"Badi' Abdul-Wahid"
 }
 ],
-"name":"vivaldi-7.3.3635.11",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4h3s6j5j613jzcnn8andpb6f6piifqfq-source/pkgs/applications/networking/browsers/vivaldi/default.nix",
+"line":242
+},
+"name":"vivaldi-7.4.3684.38",
 "outputsToInstall":[
 "out"
 ],
@@ -1410,7 +1461,7 @@
 "x86_64-linux",
 "aarch64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/browsers/vivaldi/default.nix:234",
+"position":"<nixpkgs> + /pkgs/applications/networking/browsers/vivaldi/default.nix:237",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -1420,14 +1471,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"vivaldi-7.3.3635.11",
+"name":"vivaldi-7.4.3684.38",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vivaldi",
 "system":"x86_64-linux",
-"version":"7.3.3635.11"
+"version":"7.4.3684.38"
 },
 "zen-browser":{
 "meta":{
@@ -1445,7 +1496,8 @@
 "spdxId":"MPL-2.0",
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
-"name":"zen-browser-1.12.1b",
+"maintainers":[],
+"name":"zen-browser-1.12.8b",
 "outputsToInstall":[
 "out"
 ],
@@ -1462,14 +1514,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"zen-browser-1.12.1b",
+"name":"zen-browser-1.12.8b",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zen-browser",
 "system":"x86_64-linux",
-"version":"1.12.1b"
+"version":"1.12.8b"
 }
 }
 }
