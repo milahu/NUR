@@ -1,18 +1,3 @@
-trace: evaluation warning: alsa-ucm-conf-1.2.12 was overridden with `version` but not `src` at ./pkgs/by-name/alsa-ucm-pinephone-pmos/package.nix:17:3.
-
-This is most likely not what you want. In order to properly change the version of a package, override
-both the `version` and `src` attributes:
-
-hello.overrideAttrs (oldAttrs: rec {
-  version = "1.0.0";
-  src = pkgs.fetchurl {
-    url = "mirror://gnu/hello/hello-${version}.tar.gz";
-    hash = "...";
-  };
-})
-
-(To silence this warning, set `__intentionallyOverridingVersion = true` in your `overrideAttrs` call.)
-
 error:
 … while querying the derivation named 'chatty-latest-v0.8.0_rc0'
 
