@@ -11,12 +11,12 @@ error:
 
 … from call site
 
-  at ./pkgs/default.nix:43:21:
+  at ./pkgs/default.nix:44:21:
 
-    42|     element = callPackage' ./element;
-    43|     emacsPackages = callPackages' ./emacsPackages;
+    43|     element = callPackage' ./element;
+    44|     emacsPackages = callPackages' ./emacsPackages;
       |                     ^
-    44|     fennel-language-server = callPackage' ./fennel-language-server;
+    45|     fennel-language-server = callPackage' ./fennel-language-server;
 
 … while calling 'callPackages''
 
@@ -94,18 +94,18 @@ error:
 
   at ./pkgs/emacsPackages/default.nix:1:1:
 
-     1| {pkgs, ...}: let
+     1| { pkgs, ... }:
       | ^
-     2|   sources = import ./npins;
+     2| let
 
 … from call site
 
-  at ./pkgs/emacsPackages/default.nix:4:4:
+  at ./pkgs/emacsPackages/default.nix:5:2:
 
-     3| in
-     4|   (pkgs.lib.makeExtensible (_:
-      |    ^
-     5|     pkgs.lib.attrsets.mapAttrs'
+     4| in
+     5| (pkgs.lib.makeExtensible (
+      |  ^
+     6|   _:
 
 … while calling 'makeExtensibleWithCustomName'
 
@@ -163,21 +163,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/emacsPackages/default.nix:4:29:
+  at ./pkgs/emacsPackages/default.nix:6:3:
 
-     3| in
-     4|   (pkgs.lib.makeExtensible (_:
-      |                             ^
-     5|     pkgs.lib.attrsets.mapAttrs'
+     5| (pkgs.lib.makeExtensible (
+     6|   _:
+      |   ^
+     7|   pkgs.lib.attrsets.mapAttrs' (
 
 … from call site
 
-  at ./pkgs/emacsPackages/default.nix:5:5:
+  at ./pkgs/emacsPackages/default.nix:7:3:
 
-     4|   (pkgs.lib.makeExtensible (_:
-     5|     pkgs.lib.attrsets.mapAttrs'
-      |     ^
-     6|     (name: src: let
+     6|   _:
+     7|   pkgs.lib.attrsets.mapAttrs' (
+      |   ^
+     8|     name: src:
 
 … while calling 'mapAttrs''
 
@@ -208,12 +208,12 @@ error:
 
 … from call site
 
-  at ./pkgs/emacsPackages/default.nix:29:6:
+  at ./pkgs/emacsPackages/default.nix:32:6:
 
-    28|       }))
-    29|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+    31|     )
+    32|   ) (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)
       |      ^
-    30|   .extend (import ./_overrides.nix {inherit pkgs;})
+    33| )).extend
 
 … while calling 'filterAttrs'
 
@@ -244,21 +244,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/emacsPackages/default.nix:29:31:
+  at ./pkgs/emacsPackages/default.nix:32:31:
 
-    28|       }))
-    29|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+    31|     )
+    32|   ) (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)
       |                               ^
-    30|   .extend (import ./_overrides.nix {inherit pkgs;})
+    33| )).extend
 
 … from call site
 
-  at ./pkgs/emacsPackages/default.nix:29:34:
+  at ./pkgs/emacsPackages/default.nix:32:34:
 
-    28|       }))
-    29|     (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
+    31|     )
+    32|   ) (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)
       |                                  ^
-    30|   .extend (import ./_overrides.nix {inherit pkgs;})
+    33| )).extend
 
 … while calling 'isStorePath'
 
@@ -271,38 +271,38 @@ error:
 
 … from call site
 
-  at ./pkgs/emacsPackages/npins/default.nix:67:26:
+  at ./pkgs/emacsPackages/npins/default.nix:67:25:
 
     66|     in
-    67|       spec // {outPath = mayOverride name path;};
-      |                          ^
+    67|     spec // { outPath = mayOverride name path; };
+      |                         ^
     68|
 
 … while calling 'mayOverride'
 
-  at ./pkgs/emacsPackages/npins/default.nix:32:23:
+  at ./pkgs/emacsPackages/npins/default.nix:31:11:
 
-    31|   # (Taken from Niv for compatibility)
-    32|   mayOverride = name: path: let
-      |                       ^
-    33|     envVarName = "NPINS_OVERRIDE_${saneName}";
+    30|   mayOverride =
+    31|     name: path:
+      |           ^
+    32|     let
 
 … from call site
 
-  at ./pkgs/emacsPackages/npins/default.nix:56:14:
+  at ./pkgs/emacsPackages/npins/default.nix:55:11:
 
-    55|         if spec.type == "Git"
-    56|         then mkGitSource spec
-      |              ^
-    57|         else if spec.type == "GitRelease"
+    54|         if spec.type == "Git" then
+    55|           mkGitSource spec
+      |           ^
+    56|         else if spec.type == "GitRelease" then
 
 … while calling 'mkGitSource'
 
-  at ./pkgs/emacsPackages/npins/default.nix:69:17:
+  at ./pkgs/emacsPackages/npins/default.nix:70:5:
 
-    68|
-    69|   mkGitSource = {
-      |                 ^
-    70|     repository,
+    69|   mkGitSource =
+    70|     {
+      |     ^
+    71|       repository,
 
 error: access to URI 'https://github.com/jdtsmith/eglot-booster/archive/1260d2f7dd18619b42359aa3e1ba6871aa52fd26.tar.gz' is forbidden in restricted mode
