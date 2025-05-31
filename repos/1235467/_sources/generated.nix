@@ -51,15 +51,15 @@
   };
   candy = {
     pname = "candy";
-    version = "fb586c78e13544fc2a25f0c489c6c499ad0d82f5";
+    version = "6524f0a7972d578d709cae89999f8fd03237311a";
     src = fetchFromGitHub {
       owner = "lanthora";
       repo = "candy";
-      rev = "fb586c78e13544fc2a25f0c489c6c499ad0d82f5";
+      rev = "6524f0a7972d578d709cae89999f8fd03237311a";
       fetchSubmodules = false;
-      sha256 = "sha256-BYoLQGLpLr96Te1b5hHCxI5csvwxh053z3dfRH+3hqs=";
+      sha256 = "sha256-rNfdkXkmVqZ+rPBOxwVmPdUGm19UfH1qUW1nPIo5Suk=";
     };
-    date = "2025-05-29";
+    date = "2025-05-30";
   };
   fww-checkin-rs = {
     pname = "fww-checkin-rs";
@@ -148,15 +148,15 @@
   };
   nbfc-linux = {
     pname = "nbfc-linux";
-    version = "aa1ea356e713fb263745fb3a69383c96f44de817";
+    version = "47f75df7ddd349131263cc41d6a9ac01a007bbfb";
     src = fetchFromGitHub {
       owner = "nbfc-linux";
       repo = "nbfc-linux";
-      rev = "aa1ea356e713fb263745fb3a69383c96f44de817";
+      rev = "47f75df7ddd349131263cc41d6a9ac01a007bbfb";
       fetchSubmodules = false;
-      sha256 = "sha256-s1UrkJOwFwCqgX81pNxdJpYCx28NDnLyU/PREXIpRtw=";
+      sha256 = "sha256-7wvz8ZB9SgwtLtbvTWZplDROyXeUwS2YTre0yZKDFV4=";
     };
-    date = "2025-05-24";
+    date = "2025-05-30";
   };
   ncmdump_rs = {
     pname = "ncmdump_rs";
@@ -220,15 +220,15 @@
   };
   qcm = {
     pname = "qcm";
-    version = "ad6e0b5612a2d26710621e5c2fa6019ff47036b8";
+    version = "e270552aa8f5c85c85655ab18ed409035e9f7771";
     src = fetchFromGitHub {
       owner = "hypengw";
       repo = "Qcm";
-      rev = "ad6e0b5612a2d26710621e5c2fa6019ff47036b8";
+      rev = "e270552aa8f5c85c85655ab18ed409035e9f7771";
       fetchSubmodules = true;
-      sha256 = "sha256-PNSzlP2Y/hQVaS2EHP/roJUXlSTLiPqPixrPpMpWuF8=";
+      sha256 = "sha256-2vWE679nkICbcOnHbU4HbYVNLTO1uqrUtRHbnZh8lhA=";
     };
-    date = "2025-05-28";
+    date = "2025-05-29";
   };
   reflac = {
     pname = "reflac";
