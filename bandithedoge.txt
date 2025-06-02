@@ -1,3 +1,5 @@
+trace: evaluation warning: airwindows-consolidated has been upstreamed to nixpkgs as airwin2rack
+trace: evaluation warning: cantata has been upstreamed to nixpkgs as cantata
 trace: evaluation warning: destruqtor has been renamed to blepfx.destruqtor
 error:
 … while calling anonymous lambda
@@ -11,12 +13,57 @@ error:
 
 … from call site
 
-  at ./pkgs/default.nix:44:21:
+  at <nixpkgs> + /lib/attrsets.nix:1533:36:
 
-    43|     element = callPackage' ./element;
-    44|     emacsPackages = callPackages' ./emacsPackages;
+  1532|           in
+  1533|           if length values == 1 || pred here (elemAt values 1) (head values) then
+      |                                    ^
+  1534|             head values
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/attrsets.nix:1586:18:
+
+  1585|     recursiveUpdateUntil (
+  1586|       path: lhs: rhs:
+      |                  ^
+  1587|       !(isAttrs lhs && isAttrs rhs)
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/attrsets.nix:1529:14:
+
+  1528|         zipAttrsWith (
+  1529|           n: values:
+      |              ^
+  1530|           let
+
+… from call site
+
+  at <nixpkgs> + /lib/attrsets.nix:1533:36:
+
+  1532|           in
+  1533|           if length values == 1 || pred here (elemAt values 1) (head values) then
+      |                                    ^
+  1534|             head values
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/attrsets.nix:1586:18:
+
+  1585|     recursiveUpdateUntil (
+  1586|       path: lhs: rhs:
+      |                  ^
+  1587|       !(isAttrs lhs && isAttrs rhs)
+
+… from call site
+
+  at ./pkgs/default.nix:42:21:
+
+    41|     element = callPackage' ./element;
+    42|     emacsPackages = callPackages' ./emacsPackages;
       |                     ^
-    45|     fennel-language-server = callPackage' ./fennel-language-server;
+    43|     fennel-language-server = callPackage' ./fennel-language-server;
 
 … while calling 'callPackages''
 
