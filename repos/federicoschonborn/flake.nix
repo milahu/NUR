@@ -157,14 +157,10 @@
                 packageListFormatted =
                   pkgs.runCommand "PACKAGES.md"
                     {
-                      nativeBuildInputs = [
-                        pkgs.which
-                        pkgs.nodejs-slim
-                        pkgs.nodePackages.prettier
-                      ];
+                      nativeBuildInputs = [ pkgs.nodePackages.prettier ];
                     }
                     ''
-                      node $(which prettier) ${packageList} > $out
+                      prettier ${packageList} > $out
                     '';
               in
               pkgs.writeShellApplication {
@@ -290,14 +286,14 @@
               # Nix
               nixfmt-rfc-style = {
                 enable = true;
-                package = config.formatter;
+                package = pkgs.nixfmt-rfc-style;
               };
               deadnix.enable = true;
               statix.enable = true;
             };
           };
 
-          formatter = pkgs.nixfmt-rfc-style;
+          formatter = pkgs.nixfmt-tree;
         };
     });
 }
