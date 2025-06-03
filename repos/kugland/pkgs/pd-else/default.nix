@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "porres";
     repo = "pd-else";
-    rev = "master";
+    rev = "1.0-beta";
     hash = "sha256-PndIy5fDK5f4wkd0noLJHT6IIzYP8QRBLC0+tPnaDek=";
   };
 
@@ -57,7 +57,7 @@ stdenv.mkDerivation rec {
     # binaries for all users and the cache.
     "-DUSE_LTO=ON"
 
-    # FIXME: why can't openssl be found automatically?
+    # Use pkg-config to locate OpenSSL libraries dynamically.
     "-DOPENSSL_CRYPTO_LIBRARY=${openssl.out}/lib/libcrypto.so"
     "-DOPENSSL_SSL_LIBRARY=${openssl.out}/lib/libssl.so"
   ];
@@ -83,6 +83,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/porres/pd-else";
     license = licenses.gpl3;
     platforms = platforms.unix;
-    maintainers = [];
+    maintainers = [lib.maintainers.kugland];
   };
 }
