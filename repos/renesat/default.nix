@@ -30,6 +30,9 @@
     questdb = lazyPackageWarn "Please use `questdb` from nixpkgs: `pkgs.questdb`" pkgs.questdb;
   };
   packages = rec {
+    yamusic-tui = pkgs.callPackage ./pkgs/yamusic-tui {};
+    wwan-utils = pkgs.callPackage ./pkgs/wwan-utils {};
+    voyage = pkgs.callPackage ./pkgs/voyage {};
     toutui = pkgs.callPackage ./pkgs/toutui {};
     daqp = pkgs.callPackage ./pkgs/daqp {};
     imap-backup = pkgs.callPackage ./pkgs/imap-backup {};
@@ -37,6 +40,7 @@
     dedoc = pkgs.callPackage ./pkgs/dedoc {};
     age-edit = pkgs.callPackage ./pkgs/age-edit {};
 
+    tubefeed = pkgs.python3Packages.callPackage ./pkgs/tubefeed {};
     flatlatex = pkgs.python3Packages.callPackage ./pkgs/flatlatex {};
     sixelcrop = pkgs.python3Packages.callPackage ./pkgs/sixelcrop {};
     timg = pkgs.python3Packages.callPackage ./pkgs/timg {};

@@ -8,18 +8,18 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "toutui";
-  version = "0.2.0-beta";
+  version = "0.3.3-beta";
 
   src = fetchFromGitHub {
     owner = "AlbanDAVID";
     repo = pname;
     tag = "v${version}";
-    hash = "sha256-U6odmgUWK8d0F6RnQHIj7OlkN6a7MPEwy5rbSbYajbk=";
+    hash = "sha256-0ApaeBDo9xw8bKmUpbfLmWOKs1aXUkcMEitskLMhujg=";
   };
 
   useFetchCargoVendor = true;
 
-  cargoHash = "sha256-RI5fMI+wyMa2bkQSXPsccZqphgczA/OgPq38OZT6I5M=";
+  cargoHash = "sha256-MTWUr1lsz/JGN8uKqHpzV9wLk44zcYlbQLeAgGWHhOY=";
 
   nativeBuildInputs = [
     pkg-config
