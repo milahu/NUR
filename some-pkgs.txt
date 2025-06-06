@@ -38,21 +38,21 @@ error:
 
 … from call site
 
-  at ./flake.nix:57:18:
+  at ./flake.nix:55:18:
 
-    56|
-    57|       newAttrs = forAllSystems (system:
+    54|
+    55|       newAttrs = forAllSystems (system:
       |                  ^
-    58|         pkgs.${system}.some-pkgs // pkgs.${system}.some-pkgs.some-pkgs-py);
+    56|         pkgs.${system}.some-pkgs // pkgs.${system}.some-pkgs.some-pkgs-py);
 
 … while calling 'forAllSystems'
 
-  at ./flake.nix:26:23:
+  at ./flake.nix:24:23:
 
-    25|         ];
-    26|       forAllSystems = f: lib.genAttrs systems (system: f system);
+    23|         ];
+    24|       forAllSystems = f: lib.genAttrs systems (system: f system);
       |                       ^
-    27|
+    25|
 
 … while calling anonymous lambda
 
