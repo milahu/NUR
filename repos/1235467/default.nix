@@ -75,6 +75,7 @@ rec {
     scripts = [ pkgs.mpvScripts.mpris ];
   };
   misskey-new = pkgs.callPackage ./pkgs/Overrides/misskey { };
+  llama-cpp-cuda = (pkgs.llama-cpp.override {config = {cudaSupport=true;rocmSupport=false;};}); 
 
   # System Fonts override
   JetBrainsMono-nerdfonts = pkgs.nerd-fonts.jetbrains-mono;
