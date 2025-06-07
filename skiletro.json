@@ -1,16 +1,16 @@
 {
 "name":"skiletro",
-"fetch_time":0.397,
-"eval_time":0.248,
+"fetch_time":0.226,
+"eval_time":0.257,
 "source":{
 "url":"https://github.com/skiletro/nur-repo",
-"rev":"b289ae9750614e9625f1d6ac8c32562961db0959",
-"sha256":"1yivszc52qhj9jyppj8ll186p4l83izyynmj180cy36sbzmlavfd",
+"rev":"3ab3fe331c49b06c7ac8cb1adb25431490b6d903",
+"sha256":"0dp1n7hrm6bwf78g2s9cb20f6g400m7wmvnjfp1s3rn1fgzmhviq",
 "date":null
 },
-"source_storepath":"/nix/store/krg5a3swgmcd4ycmddifh8w951bmdb8y-source",
-"nixpkgs_storepath":"/nix/store/4hd7zwgjvf1gch8alkbvcsbmzpczp9ph-source",
-"nur_combined_rev":"bfaaeaa61c1ebc5b9c57ccf2155bae32c6a038d7",
+"source_storepath":"/nix/store/cg3gi9cqbs2ixznacd1pd20clb0g5iqy-source",
+"nixpkgs_storepath":"/nix/store/lvmam5ph9r0h4rm6rzmrqq5jkrd0cfrb-source",
+"nur_combined_rev":"3ef0dd9f35487aded00e3e1b796dee306f7984a8",
 "packages":{
 "applet-darwinmenu":{
 "meta":{
@@ -18,6 +18,7 @@
 "broken":false,
 "description":"Darwin menu is a Plasma applet that provides a menu system similar to that found on other operating systems.",
 "insecure":false,
+"maintainers":[],
 "name":"applet-darwinmenu",
 "outputsToInstall":[
 "out"
@@ -41,6 +42,7 @@
 "broken":false,
 "description":"A KDE Plasma Applet for use as a desktop/workspace pager.",
 "insecure":false,
+"maintainers":[],
 "name":"applet-kara",
 "outputsToInstall":[
 "out"
@@ -64,6 +66,7 @@
 "broken":false,
 "description":"Gabarito is a light-hearted geometric sans typeface with 6 weights ranging from Regular to Black originally designed for an online learning platform in Brazil.",
 "insecure":false,
+"maintainers":[],
 "name":"gabarito",
 "outputsToInstall":[
 "out"
@@ -87,6 +90,7 @@
 "broken":false,
 "description":"With the harmony of comfortable curves and straight lines, this font gives modern and generous impression, suiting for any occasions including small texts to big titles. This package also contains M PLUS 2 and the M PLUS coding fonts.",
 "insecure":false,
+"maintainers":[],
 "name":"mplus",
 "outputsToInstall":[
 "out"
@@ -110,6 +114,7 @@
 "broken":false,
 "description":"A helper for SteamGridDB.com",
 "insecure":false,
+"maintainers":[],
 "name":"sgdboop-1.3.1",
 "outputsToInstall":[
 "out"
@@ -133,6 +138,7 @@
 "broken":false,
 "description":"Urbanist is a low-contrast, geometric sans-serif inspired by Modernist typography and design.",
 "insecure":false,
+"maintainers":[],
 "name":"urbanist",
 "outputsToInstall":[
 "out"
@@ -150,12 +156,65 @@
 "system":"x86_64-linux",
 "version":""
 },
+"vacuumtube":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"YouTube Leanback on the desktop",
+"insecure":false,
+"maintainers":[],
+"name":"vacuumtube-1.1.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"x86_64-darwin",
+"aarch64-darwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd"
+],
+"position":"./pkgs/vacuumtube/default.nix:76",
+"unfree":false,
+"unsupported":false
+},
+"name":"vacuumtube-1.1.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"vacuumtube",
+"system":"x86_64-linux",
+"version":"1.1.0"
+},
 "wheelwizard":{
 "meta":{
 "available":true,
 "broken":false,
 "description":"WheelWizard, Retro Rewind Launcher",
 "insecure":false,
+"maintainers":[],
 "name":"wheelwizard-2.2.1",
 "outputsToInstall":[
 "out"
