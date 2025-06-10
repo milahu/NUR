@@ -2,7 +2,7 @@
   description = "My personal NUR repository";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -246,7 +246,7 @@
               text = lib.concatLines (
                 lib.mapAttrsToList (name: _: ''
                   echo "Checking ${name}..."
-                  ${lib.getExe inputs'.nix-check-deps.packages.nix-check-deps} ".#${name}"
+                  ${lib.getExe' inputs'.nix-check-deps.packages.nix-check-deps "nix-check-deps"} ".#${name}"
                 '') config.packages
               );
             };
