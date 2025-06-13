@@ -106,7 +106,7 @@ rec {
           '').outPath;
     in
     lib.mapAttrs (
-      _k: v:
+      k: v:
       if v == "y" then
         lib.mkForce lib.kernel.yes
       else if v == "n" then
@@ -203,6 +203,10 @@ rec {
               })
           )
           // (if stdenv.isx86_64 then marchFlags."${x86_64-march}" else { });
+
+        extraMeta = {
+          platforms = [ "x86_64-linux" ];
+        };
       }
       // extraArgs
     );
