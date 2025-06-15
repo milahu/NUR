@@ -491,6 +491,10 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
                 response.headers["X-RateLimit-Limit"],
                 datetime.fromtimestamp(int(response.headers["X-RateLimit-Reset"]) - time.time(), tz=timezone.utc).strftime("%M:%S")
             ))
+        # detect expired api token
+        if response.headers.get("Content-Type") == "text/html":
+            logger.error(f"Github GraphQL query failed: {response.text}")
+            raise Exception(f"Github GraphQL query failed: {response.text}")
         t2 = time.time()
         dt = t2 - t1
         logger.debug(f"Github GraphQL query done in {dt:.2} seconds")
