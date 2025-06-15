@@ -77,12 +77,12 @@
             packages = lib.filterAttrs (_: lib.isDerivation) config.legacyPackages;
 
             devShells.default = pkgs.mkShellNoCC {
-              packages = with pkgs; [
-                jq
-                just
-                nix-init
-                nix-update
-                nushell
+              packages = [
+                pkgs.jq
+                pkgs.just
+                pkgs.nix-init
+                pkgs.nix-update
+                pkgs.nushell
                 inputs'.nix-check-deps.packages.nix-check-deps
               ];
 
