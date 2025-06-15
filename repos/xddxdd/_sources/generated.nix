@@ -279,6 +279,16 @@
     };
     date = "2022-11-20";
   };
+  comp128 = {
+    pname = "comp128";
+    version = "1.0.0";
+    src = fetchFromGitHub {
+      owner = "Takuto88";
+      repo = "comp128-python";
+      tag = "1.0.0";
+      hash = "sha256-0y36/J7l/PpiG5claCJF5oCCcFB7BPUQvba+73+Jwzc=";
+    };
+  };
   coqui-tts = {
     pname = "coqui-tts";
     version = "v0.22.0";
@@ -869,14 +879,14 @@
   };
   liboqs-unstable = {
     pname = "liboqs-unstable";
-    version = "d745d35938d17e666ffa88673523fd4c4399d326";
+    version = "8d9cfd7f33080b2463e145218ec0db47048a2d81";
     src = fetchFromGitHub {
       owner = "open-quantum-safe";
       repo = "liboqs";
-      rev = "d745d35938d17e666ffa88673523fd4c4399d326";
-      hash = "sha256-xaFoH6VsXasVIi8fVGlKg1XLbMvRt/Tq48bDV6PrUvM=";
+      rev = "8d9cfd7f33080b2463e145218ec0db47048a2d81";
+      hash = "sha256-QZaVa7ysFiuW23Q1CWDw0z13eKE5YVrpVYrJw2UweLY=";
     };
-    date = "2025-06-11";
+    date = "2025-06-12";
   };
   libqcef = {
     pname = "libqcef";
@@ -1009,12 +1019,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b5644";
+    version = "b5669";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b5644";
-      hash = "sha256-npXXxbLjiC84aqJun14c7y/zZy5+847sYzEYOyLGQlg=";
+      tag = "b5669";
+      hash = "sha256-ZyLBS/q6U5/HOSl9B+9qQPz2UemUris25KufiyxrKGU=";
     };
   };
   loralib = {
@@ -1429,12 +1439,12 @@
   };
   piliplus = {
     pname = "piliplus";
-    version = "1.1.3.37-fix2";
+    version = "1.1.3.38";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      tag = "1.1.3.37-fix2";
-      hash = "sha256-AS/ruc+lNHRgZpB9sCqiEt1ZG7+g78PYoHzY8eR/XWM=";
+      tag = "1.1.3.38";
+      hash = "sha256-sI6SKmtz+w/DFFiq+lwOP/FcVGPRZvx7t0JeH4jZhBs=";
     };
   };
   plangothic-fonts = {
@@ -1460,12 +1470,12 @@
   };
   plasma-smart-video-wallpaper-reborn = {
     pname = "plasma-smart-video-wallpaper-reborn";
-    version = "v2.3.0";
+    version = "v2.3.1";
     src = fetchFromGitHub {
       owner = "luisbocanegra";
       repo = "plasma-smart-video-wallpaper-reborn";
-      tag = "v2.3.0";
-      hash = "sha256-DYyM3pAaEbc4lbiSzBvPb4FoxmcmN1ubmE07kNd1RLs=";
+      tag = "v2.3.1";
+      hash = "sha256-2KXOpg1F+SsFY3KLfKnk7ERCxKOaRwqnRXecLmyZ72s=";
     };
   };
   plasma-yesplaymusic-lyric = {
@@ -1526,6 +1536,48 @@
       repo = "py-rcon";
       tag = "v1.3.0";
       hash = "sha256-IsbGSUXaayO8gfslfo2oIforjy5TW6xVdCDOXT2VmjQ=";
+    };
+  };
+  pyhss = {
+    pname = "pyhss";
+    version = "e3f2f9c97ff05658658d2d44969a243857febc3d";
+    src = fetchFromGitHub {
+      owner = "nickvsnetworking";
+      repo = "pyhss";
+      rev = "e3f2f9c97ff05658658d2d44969a243857febc3d";
+      hash = "sha256-8+2vFAGvsgd5TJlEo4K6fiO+6x7X5mEWzygUCcu71oQ=";
+    };
+    date = "2025-04-03";
+  };
+  pyhss-stable = {
+    pname = "pyhss-stable";
+    version = "1.0.2";
+    src = fetchFromGitHub {
+      owner = "nickvsnetworking";
+      repo = "pyhss";
+      tag = "1.0.2";
+      hash = "sha256-IW1O+VdMzgiDijg8PATRt3ihTCExvbs51Gb7eaV/kEA=";
+    };
+  };
+  pyosmocom = {
+    pname = "pyosmocom";
+    version = "0171b3f5ef9420fab88cc47814acd860af8a8d5d";
+    src = fetchgit {
+      url = "https://gitea.osmocom.org/osmocom/pyosmocom.git";
+      rev = "0171b3f5ef9420fab88cc47814acd860af8a8d5d";
+      fetchSubmodules = false;
+      hash = "sha256-AkV6Qf0oc7/FaZvqjvqKwbpLMw2y0RmcVC+24kGeAPY=";
+    };
+    date = "2025-06-04";
+  };
+  pysctp = {
+    pname = "pysctp";
+    version = "v0.7.2";
+    src = fetchFromGitHub {
+      owner = "p1sec";
+      repo = "pysctp";
+      tag = "v0.7.2";
+      hash = "sha256-XDBuxCaT8ho7UPfQHhFdYs9KCRWmguebZa2fqb423A4=";
     };
   };
   pytorch-wpe = {
@@ -1632,45 +1684,45 @@
   };
   qsp = {
     pname = "qsp";
-    version = "24cc85e6a1fcb69fb519d0dee5df723deba9696f";
+    version = "9b01652b275ee4ee554efca31157ec9101294cab";
     src = fetchFromGitHub {
       owner = "QSPFoundation";
       repo = "qspgui";
-      rev = "24cc85e6a1fcb69fb519d0dee5df723deba9696f";
-      hash = "sha256-mmnI4/ColBJYnOwcYYRSGORMIk8CiM/XW3MMYXEJ2ZU=";
+      rev = "9b01652b275ee4ee554efca31157ec9101294cab";
+      hash = "sha256-Z9NtFZChzWohJ3XxzQgjx9ZwozYml8Qfudzd9Nd1Ls8=";
     };
-    date = "2025-06-05";
+    date = "2025-06-14";
   };
   qsp-lib = {
     pname = "qsp-lib";
-    version = "d974235887719a11393a17285ab7c8bdc4e96912";
+    version = "c6c41cbfdc1181541de0ebd7ab7b3ded2f66b598";
     src = fetchFromGitHub {
       owner = "QSPFoundation";
       repo = "qsp";
-      rev = "d974235887719a11393a17285ab7c8bdc4e96912";
-      hash = "sha256-xbW8f6GnuF56MiEWq8xDJI8dHcx4rWufB23ogi63wSs=";
+      rev = "c6c41cbfdc1181541de0ebd7ab7b3ded2f66b598";
+      hash = "sha256-szAnO2A09ne7C1QGojhacqeG5lVGbKlHR8zpc1E0j1k=";
     };
-    date = "2025-06-05";
+    date = "2025-06-14";
   };
   qsp-stable = {
     pname = "qsp-stable";
-    version = "v5.9.2-b3";
+    version = "v5.9.3-b1";
     src = fetchFromGitHub {
       owner = "QSPFoundation";
       repo = "qspgui";
-      tag = "v5.9.2-b3";
-      hash = "sha256-O88JJ26w3DfCyMZmK4xz1AcyzZ1Ej5EOYz3zMYqs8TU=";
+      tag = "v5.9.3-b1";
+      hash = "sha256-Z9NtFZChzWohJ3XxzQgjx9ZwozYml8Qfudzd9Nd1Ls8=";
     };
   };
   qsp-wx = {
     pname = "qsp-wx";
-    version = "5d8d577d74632e71075575de4b1ca38f9200783a";
+    version = "66bd59a958705398ad22536a8d301596b1951cb8";
     src = fetchFromGitHub {
       owner = "wxWidgets";
       repo = "wxWidgets";
-      rev = "5d8d577d74632e71075575de4b1ca38f9200783a";
+      rev = "66bd59a958705398ad22536a8d301596b1951cb8";
       fetchSubmodules = true;
-      hash = "sha256-rnRKXRFU24JDP9Jewzqlcr1RIMpsNAWMBvYeuIzeTb8=";
+      hash = "sha256-wn+kgHqg4waFJVYp5XSRtdnOAN8pDeASL9cWRJXF+aU=";
     };
   };
   r8125 = {
@@ -1783,12 +1835,12 @@
   };
   runpod-python = {
     pname = "runpod-python";
-    version = "1.7.10";
+    version = "1.7.11";
     src = fetchFromGitHub {
       owner = "runpod";
       repo = "runpod-python";
-      tag = "1.7.10";
-      hash = "sha256-33gYS7DcHvj3k++HK7HsaGZaD+Ttx2g5VPB8s7/IZD0=";
+      tag = "1.7.11";
+      hash = "sha256-mdPzgA2ki/5EuYpAY7cv00V8jm+u1VQ6pS6/Bj2ebjI=";
     };
   };
   runpodctl = {
@@ -2070,15 +2122,15 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "87cf2fdcecaba0efd20dd89057d961836e63c732";
+    version = "2738d1e575c71596bf52a8ce2c6bddbe38a2ab06";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "87cf2fdcecaba0efd20dd89057d961836e63c732";
+      rev = "2738d1e575c71596bf52a8ce2c6bddbe38a2ab06";
       fetchSubmodules = true;
-      hash = "sha256-RA6M0KvVT0Ni7v3myNwpAgMUJoQMeBc2AoBRZleAgWU=";
+      hash = "sha256-xSc7D9lkE6Y1OcT74hJPdt0FLdWhzTfLTKB0ISqQYS0=";
     };
-    date = "2025-06-12";
+    date = "2025-06-14";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
@@ -2122,12 +2174,12 @@
   };
   usque = {
     pname = "usque";
-    version = "v1.2.1";
+    version = "v1.3.0";
     src = fetchFromGitHub {
       owner = "Diniboy1123";
       repo = "usque";
-      tag = "v1.2.1";
-      hash = "sha256-TCqf7EpQnIWACIVwpfVo0PBnnpbr2jhM9EbeReee9x8=";
+      tag = "v1.3.0";
+      hash = "sha256-cBeZqfKjNbSun6UPJRVi9o7p822yw+uR6VneCfoqieE=";
     };
   };
   vbmeta-disable-verification = {
