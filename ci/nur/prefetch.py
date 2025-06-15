@@ -500,12 +500,13 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
             # X-GitHub-Request-Id
             logger.debug(f"response.headers.{key} = {val!r}")
         # detect expired api token
+        #if response.headers.get("Content-Type") != "application/json; charset=utf-8":
         if response.headers.get("Content-Type") == "text/html":
             if "<h1>502 Bad Gateway</h1>" in response.text:
                 # timeout due to temporary overload?
                 # https://github.com/magit/ghub/issues/83
-                logger.debug(f"Github GraphQL query failed with '502 Bad Gateway'. retrying in 5 seconds")
-                await asyncio.sleep(5)
+                logger.debug(f"Github GraphQL query failed with '502 Bad Gateway'. retrying in 60 seconds")
+                await asyncio.sleep(60)
                 continue # retry
             logger.error(f"Github GraphQL query failed. response.text: {response.text}")
             raise Exception(f"Github GraphQL query failed. response.text: {response.text}")
