@@ -479,6 +479,11 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
             #query += "{defaultBranchRef{target{... on Commit{oid}}}}"
             query += "{defaultBranchRef{target{... on Commit{oid,authoredDate}}}}"
         query += "\n}"
+
+    # retry loop
+    retry_max = 100
+    for retry_idx in range(retry_max):
+        logger.debug(f"Github GraphQL query try {retry_idx + 1} of {retry_max}")
         t1 = time.time()
         response = requests.post(
             url="https://api.github.com/graphql",
@@ -491,10 +496,22 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
                 response.headers["X-RateLimit-Limit"],
                 datetime.fromtimestamp(int(response.headers["X-RateLimit-Reset"]) - time.time(), tz=timezone.utc).strftime("%M:%S")
             ))
+        for key, val in response.headers.items():
+            # X-GitHub-Request-Id
+            logger.debug(f"response.headers.{key} = {val!r}")
         # detect expired api token
         if response.headers.get("Content-Type") == "text/html":
-            logger.error(f"Github GraphQL query failed: {response.text}")
-            raise Exception(f"Github GraphQL query failed: {response.text}")
+            if "<h1>502 Bad Gateway</h1>" in response.text:
+                # timeout due to temporary overload?
+                # https://github.com/magit/ghub/issues/83
+                logger.debug(f"Github GraphQL query failed with '502 Bad Gateway'. retrying in 5 seconds")
+                await asyncio.sleep(5)
+                continue # retry
+            logger.error(f"Github GraphQL query failed. response.text: {response.text}")
+            raise Exception(f"Github GraphQL query failed. response.text: {response.text}")
+        break # stop retry loop
+
+    if True:
         t2 = time.time()
         dt = t2 - t1
         logger.debug(f"Github GraphQL query done in {dt:.2} seconds")
