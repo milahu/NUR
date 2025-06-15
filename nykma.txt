@@ -3,75 +3,75 @@ error:
 
 … in the left operand of the AND (&&) operator
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:625:9:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:635:9:
 
-   624|         validity.valid != "no"
-   625|         && (
+   634|         validity.valid != "no"
+   635|         && (
       |         ^
-   626|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
+   636|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:739:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:738:18:
 
-   738|       };
-   739|       validity = checkMeta.assertValidity { inherit meta attrs; };
+   737|       };
+   738|       validity = checkMeta.assertValidity { inherit meta attrs; };
       |                  ^
-   740|
+   739|
 
 … while calling 'assertValidity'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:631:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:641:5:
 
-   630|   assertValidity =
-   631|     { meta, attrs }:
+   640|   assertValidity =
+   641|     { meta, attrs }:
       |     ^
-   632|     let
+   642|     let
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:633:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:643:18:
 
-   632|     let
-   633|       validity = checkValidity attrs;
+   642|     let
+   643|       validity = checkValidity attrs;
       |                  ^
-   634|       inherit (validity) valid;
+   644|       inherit (validity) valid;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:470:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:480:5:
 
-   469|     in
-   470|     attrs:
+   479|     in
+   480|     attrs:
       |     ^
-   471|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+   481|     # Check meta attribute types first, to make sure it is always called even when there are other issues
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:516:40:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:526:40:
 
-   515|       }
-   516|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
+   525|       }
+   526|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
       |                                        ^
-   517|       let
+   527|       let
 
 … while calling 'hasUnsupportedPlatform'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:119:28:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:129:28:
 
-   118|
-   119|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+   128|
+   129|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
       |                            ^
-   120|
+   130|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:119:35:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:129:35:
 
-   118|
-   119|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+   128|
+   129|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
       |                                   ^
-   120|
+   130|
 
 … while calling 'availableOn'
 
@@ -80,7 +80,7 @@ error:
    290|   availableOn =
    291|     platform: pkg:
       |               ^
-   292|     pkg != null
+   292|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
 
 error: attribute 'rust-bin' missing
 
