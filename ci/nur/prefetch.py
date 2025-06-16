@@ -12,6 +12,8 @@ from datetime import datetime, timezone
 import requests
 import shlex
 import random
+import itertools
+import collections
 
 from .error import NurError, RepoNotFoundError
 from .manifest import LockedVersion, Repo, RepoType
@@ -460,13 +462,15 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
 
         logger.info(f"Updating versions of {len(github_repos)} Github repos")
 
+    # split graphql query into multiple smaller queries
+    # 338 repos are too many -> always returns http 502 bad gateway
+    repos_per_query = 100
+    query_list = collections.deque()
+    for github_repos_batch in itertools.batched(github_repos, repos_per_query):
         query = "query{\n"
         done_first = False
-        # TODO future: split into multiple smaller queries
-        # 338 repos are too many -> always returns http 502 bad gateway
         # TODO what about non-github repos? use graphQL API of codeberg.org etc?
-        #for repo_id, repo in enumerate(github_repos):
-        for repo_id, repo in enumerate(github_repos[0:100]):
+        for repo_id, repo in enumerate(github_repos_batch):
             if done_first:
                 query += ",\n"
             else:
@@ -482,11 +486,24 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
             #query += "{defaultBranchRef{target{... on Commit{oid}}}}"
             query += "{defaultBranchRef{target{... on Commit{oid,authoredDate}}}}"
         query += "\n}"
+        retry_idx = -1
+        query_idx = len(query_list)
+        query_list.append((query_idx, query, retry_idx))
+        logger.debug(f"Github GraphQL query {query_idx}: len(query) = {len(query)}, len(github_repos_batch) = {len(github_repos_batch)}")
+
+    all_data = dict()
+    all_data["data"] = dict()
+    all_data["errors"] = []
 
     # retry loop
     retry_max = 100
-    for retry_idx in range(retry_max):
-        logger.debug(f"Github GraphQL query try {retry_idx + 1} of {retry_max}")
+    #for retry_idx in range(retry_max):
+    while query_list:
+        query_list[0][2] += 1 # retry_idx += 1
+        query_idx, query, retry_idx = query_list[0]
+        if retry_idx > retry_max:
+            raise Exception(f"Github GraphQL query {query_idx} failed. giving up after {retry_max} retries")
+        logger.debug(f"Github GraphQL query {query_idx} try {retry_idx + 1} of {retry_max}")
         t1 = time.time()
         response = requests.post(
             url="https://api.github.com/graphql",
@@ -510,23 +527,20 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
                 # timeout due to temporary overload?
                 # https://github.com/magit/ghub/issues/83
                 dt = random.randint(5, 30)
-                logger.debug(f"Github GraphQL query failed with '502 Bad Gateway'. retrying in {dt} seconds")
+                logger.debug(f"Github GraphQL query {query_idx} failed with '502 Bad Gateway'. retrying in {dt} seconds")
                 await asyncio.sleep(dt)
                 continue # retry
-            logger.error(f"Github GraphQL query failed. response.text: {response.text}")
-            raise Exception(f"Github GraphQL query failed. response.text: {response.text}")
-        break # stop retry loop
-
-    if True:
+            logger.error(f"Github GraphQL query {query_idx} failed. response.text: {response.text}")
+            raise Exception(f"Github GraphQL query {query_idx} failed. response.text: {response.text}")
+        query_list.popleft() # dont retry
         t2 = time.time()
         dt = t2 - t1
-        logger.debug(f"Github GraphQL query done in {dt:.2} seconds")
+        logger.debug(f"Github GraphQL query {query_idx} done in {dt:.2} seconds")
         data = response.json()
         if response.status_code != 200:
-            logger.error(f'Github GraphQL query failed with HTTP status {response.status_code}: {data} -> falling back to update_version_git_repos')
+            logger.error(f'Github GraphQL query {query_idx} failed with HTTP status {response.status_code}: {data} -> falling back to update_version_git_repos')
             await update_version_git_repos(repos, aiohttp_session, filter_repos_fn)
             return
-
         new_dict = dict()
         for item_key, item in data["data"].items():
             if not item:
@@ -536,6 +550,8 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
             repo = github_repos[repo_id]
             new_dict[repo.name] = item
         data["data"] = new_dict
+        all_data["data"].update(data.get("data", dict()))
+        all_data["errors"].extend(data.get("errors", []))
 
         """
         # write cache
@@ -543,6 +559,8 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
         with open(GITHUB_GRAPHQL_CACHE_PATH, "w") as f:
             json.dump(data, f)
         """
+
+    data = all_data
 
     #print("data:"); print(data)
 
