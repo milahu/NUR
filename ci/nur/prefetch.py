@@ -500,8 +500,9 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
             # X-GitHub-Request-Id
             logger.debug(f"response.headers.{key} = {val!r}")
         # detect expired api token
-        #if response.headers.get("Content-Type") != "application/json; charset=utf-8":
-        if response.headers.get("Content-Type") == "text/html":
+        #if response.headers.get("Content-Type") in ("text/html", "text/html; charset=utf-8"):
+        #if response.headers.get("Content-Type").startswith("text/html"):
+        if response.headers.get("Content-Type") != "application/json; charset=utf-8":
             if "<h1>502 Bad Gateway</h1>" in response.text:
                 # timeout due to temporary overload?
                 # https://github.com/magit/ghub/issues/83
