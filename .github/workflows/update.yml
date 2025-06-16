@@ -31,7 +31,8 @@ jobs:
       with:
         python-version: '3.12'
         cache: 'pip' # caching pip dependencies
-    - run: pip install requests aiohttp
+    # setuptools provides distutils
+    - run: pip install requests aiohttp setuptools
     - name: update nur
       run: date ; ./ci/update-nur.sh
       env:
