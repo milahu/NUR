@@ -466,7 +466,7 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
         # 338 repos are too many -> always returns http 502 bad gateway
         # TODO what about non-github repos? use graphQL API of codeberg.org etc?
         #for repo_id, repo in enumerate(github_repos):
-        for repo_id, repo in enumerate(github_repos[0:300]):
+        for repo_id, repo in enumerate(github_repos[0:100]):
             if done_first:
                 query += ",\n"
             else:
