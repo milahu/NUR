@@ -11,6 +11,7 @@ import pickle
 from datetime import datetime, timezone
 import requests
 import shlex
+import random
 
 from .error import NurError, RepoNotFoundError
 from .manifest import LockedVersion, Repo, RepoType
@@ -506,8 +507,9 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
             if "<h1>502 Bad Gateway</h1>" in response.text:
                 # timeout due to temporary overload?
                 # https://github.com/magit/ghub/issues/83
-                logger.debug(f"Github GraphQL query failed with '502 Bad Gateway'. retrying in 60 seconds")
-                await asyncio.sleep(60)
+                dt = random.randint(5, 30)
+                logger.debug(f"Github GraphQL query failed with '502 Bad Gateway'. retrying in {dt} seconds")
+                await asyncio.sleep(dt)
                 continue # retry
             logger.error(f"Github GraphQL query failed. response.text: {response.text}")
             raise Exception(f"Github GraphQL query failed. response.text: {response.text}")
