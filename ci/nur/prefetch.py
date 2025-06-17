@@ -488,7 +488,7 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
         query += "\n}"
         retry_idx = -1
         query_idx = len(query_list)
-        query_list.append((query_idx, query, retry_idx))
+        query_list.append([query_idx, query, retry_idx])
         logger.debug(f"Github GraphQL query {query_idx}: len(query) = {len(query)}, len(github_repos_batch) = {len(github_repos_batch)}")
 
     all_data = dict()
