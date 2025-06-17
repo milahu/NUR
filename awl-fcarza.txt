@@ -1,20 +1,93 @@
 error:
+… while evaluating the file './default.nix':
+
 … from call site
 
-  at /nix/store/3zzx017blppm1yn60wa0y764d0hpcbs1-source/default.nix:21:17:
+  at ./default.nix:3:21:
 
-    20|   dask = pkgs.python3Packages.callPackage ./pkgs/development/python-modules/dask { };
-    21|   distributed = pkgs.python3Packages.callPackage ./pkgs/development/python-modules/distributed { };
-      |                 ^
-    22|   dask-ml = pkgs.python3Packages.callPackage ./pkgs/development/python-modules/dask-ml { };
+     2|                     with import <nixpkgs> {};
+     3|                     import ./evalRepo.nix {
+      |                     ^
+     4|                         name = "awl-fcarza";
 
-… while calling 'callPackageWith'
+… while calling anonymous lambda
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:153:35:
+  at ./evalRepo.nix:1:1:
 
-   152|   */
-   153|   callPackageWith = autoArgs: fn: args:
-      |                                   ^
-   154|     let
+     1| { name
+      | ^
+     2| , url
 
-error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "futures" at /nix/store/3zzx017blppm1yn60wa0y764d0hpcbs1-source/pkgs/development/python-modules/distributed/default.nix:23, did you mean "future", "authres" or "fixtures"?'
+… from call site
+
+  at ./evalRepo.nix:33:11:
+
+    32|     might result in infinite recursion when used with NixOS modules.
+    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+      |           ^
+    34|
+
+… while calling anonymous lambda
+
+  at ./default.nix:3:4:
+
+     2|   mvn2nix = import (fetchTarball "https://github.com/fzakaria/mvn2nix/archive/master.tar.gz") {};
+     3| in { pkgs ? import <nixpkgs> { } }:
+      |    ^
+     4| let
+
+… from call site
+
+  at ./default.nix:11:11:
+
+    10|
+    11|   scope = lib.makeScope pkgs.newScope (self: rec {
+      |           ^
+    12|     # The `lib`, `modules`, and `overlay` names are special
+
+… while calling 'makeScope'
+
+  at <nixpkgs> + /lib/customisation.nix:606:15:
+
+   605|   makeScope =
+   606|     newScope: f:
+      |               ^
+   607|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:608:14:
+
+   607|     let
+   608|       self = f self // {
+      |              ^
+   609|         newScope = scope: newScope (self // scope);
+
+… while calling anonymous lambda
+
+  at ./default.nix:11:40:
+
+    10|
+    11|   scope = lib.makeScope pkgs.newScope (self: rec {
+      |                                        ^
+    12|     # The `lib`, `modules`, and `overlay` names are special
+
+… from call site
+
+  at ./default.nix:244:8:
+
+   243|     hprotoc = pkgs.haskellPackages.callPackage ./pkgs/hprotoc { };
+   244|   } // lib.optionalAttrs (!(pkgs ? buildMavenRepositoryFromLockFile)) mvn2nix);
+      |        ^
+   245| in scope.packages scope
+
+… while calling 'optionalAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:1316:25:
+
+  1315|   */
+  1316|   optionalAttrs = cond: as: if cond then as else { };
+      |                         ^
+  1317|
+
+error: access to URI 'https://github.com/fzakaria/mvn2nix/archive/master.tar.gz' is forbidden in restricted mode
