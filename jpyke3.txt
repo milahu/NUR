@@ -1,0 +1,11 @@
+error:
+… while querying the derivation named 'kanata-bin-1.6.1'
+
+error: undefined variable 'jpyke3'
+
+at ./pkgs/kanata-bin/default.nix:25:36:
+
+    24|      license = licenses.gpl3Only;
+    25|     maintainers = with maintainers; [ jpyke3 ];
+      |                                    ^
+    26|  platforms = platforms.darwin;

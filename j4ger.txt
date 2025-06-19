@@ -1,0 +1,20 @@
+error:
+… from call site
+
+  at ./default.nix:17:15:
+
+    16|
+    17|   lceda-pro = pkgs.callPackage ./pkgs/lceda-pro { };
+      |               ^
+    18|   kwin_geometry_change = pkgs.callPackage ./pkgs/kwin_geometry_change {};
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:240:19:
+
+   239|   callPackageWith =
+   240|     autoArgs: fn: args:
+      |                   ^
+   241|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "electron_29" at ./pkgs/lceda-pro/default.nix:3, did you mean "electron_33", "electron_34" or "electron_35"?'

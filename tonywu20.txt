@@ -1,0 +1,11 @@
+error:
+… while querying the derivation named 'amd-aocl-gcc-5.1.0'
+
+error: attribute 'tonywu20' missing
+
+at ./pkgs/amd/aocl.nix:115:21:
+
+   114|     platforms = platforms.linux;
+   115|     maintainers = [ maintainers.tonywu20 ];
+      |                     ^
+   116|   };
