@@ -139,6 +139,30 @@ ln -sr nur-repos-lock/repos.json.lock repos.json.lock || true
 
 
 
+echo updating nur-repos/repos.json
+
+# quick and dirty: omit git history
+if false; then
+echo updating repos.json...
+curl https://raw.githubusercontent.com/nix-community/NUR/refs/heads/main/repos.json >nur-repos/repos.json
+git -C nur-repos commit -a -m "up"
+fi
+
+# non-incremental update
+git worktree remove nur-repos
+git branch --delete nur-repos
+time git fetch https://github.com/nix-community/NUR main:nur-repos
+time git filter-repo --refs nur-repos --path repos.json --force --commit-callback "commit.message = commit.message + b'\nsrc: ' + commit.original_id"
+git worktree add nur-repos nur-repos
+git push --force origin nur-repos
+
+# TODO incremental update
+# https://github.com/nix-community/NUR/commits/main/repos.json
+# https://api.github.com/repos/nix-community/NUR/commits?path=repos.json&per_page=100&page=1
+# https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28
+# TODO add "until" parameter to stabilize pagination
+
+
 
 echo running update...
 time \

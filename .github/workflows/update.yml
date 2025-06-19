@@ -27,6 +27,7 @@ jobs:
         enable_kvm: false
     #- uses: DeterminateSystems/nix-installer-action@main
     #- uses: DeterminateSystems/magic-nix-cache-action@main
+    - run: sudo apt install -y git-filter-repo
     - uses: actions/setup-python@v5
       with:
         python-version: '3.12'
