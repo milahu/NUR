@@ -1,27 +1,36 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
+  inherit (lib)
+    mkOption
+    mkPackageOption
+    types
+    mkEnableOption
+    mkIf
+    ;
+
   cfg = config.services.realm;
   settingsFormat = pkgs.formats.json { };
   settingsFile = settingsFormat.generate "config.json" cfg.settings;
 in
 {
 
+  disabledModules = [ "services/networking/realm.nix" ];
   options = {
     services.realm = {
-      enable = mkEnableOption (lib.mdDoc "realm");
+      enable = mkEnableOption "realm";
 
       settings = mkOption {
         default = { };
-        type = types.submodule {
-          freeformType = settingsFormat.type;
-        };
+        type = types.submodule { freeformType = settingsFormat.type; };
       };
 
-      package = mkPackageOptionMD pkgs "realm" { };
-
+      package = mkPackageOption pkgs "realm" { };
     };
   };
 
@@ -37,11 +46,13 @@ in
         Type = "simple";
         DynamicUser = true;
         ExecStart = "${lib.getExe cfg.package} -c ${settingsFile}";
-        AmbientCapabilities = [ "CAP_NET_ADMIN" "CAP_NET_BIND_SERVICE" ];
+        AmbientCapabilities = [
+          "CAP_NET_ADMIN"
+          "CAP_NET_BIND_SERVICE"
+        ];
         Restart = "on-failure";
       };
     };
-
   };
 
   meta.maintainers = with lib.maintainers; [ oluceps ];

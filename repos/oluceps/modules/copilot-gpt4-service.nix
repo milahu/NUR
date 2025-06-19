@@ -1,9 +1,18 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.services.copilot-gpt4;
+  inherit (lib)
+    mkEnableOption
+    mkPackageOption
+    mkOption
+    mkIf
+    ;
 in
 {
 
@@ -11,7 +20,7 @@ in
     services.copilot-gpt4 = {
       enable = mkEnableOption (lib.mdDoc "copilot-gpt4");
 
-      package = mkPackageOptionMD pkgs "copilot-gpt4-service" { };
+      package = mkPackageOption pkgs "copilot-gpt4-service" { };
 
       env = mkOption {
         type = with lib.types; listOf str;
@@ -21,7 +30,6 @@ in
           "CACHE=false"
         ];
       };
-
     };
   };
 
@@ -42,7 +50,6 @@ in
         Environment = cfg.env;
       };
     };
-
   };
 
   meta.maintainers = with lib.maintainers; [ oluceps ];

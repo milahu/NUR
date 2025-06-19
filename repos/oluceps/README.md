@@ -1,44 +1,22 @@
-![built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)
-![state](https://img.shields.io/badge/works-on%20my%20machines-FEDFE1)
-![CI state](https://github.com/oluceps/nixos-config/actions/workflows/lint.yaml/badge.svg)
-![CI state](https://github.com/oluceps/nixos-config/actions/workflows/sensitive.yaml/badge.svg)  
-
 # Nix flake
 
-This repo contains declaritive NixOS configurations, with ~100% config Nixfied.
-> [!IMPORTANT]
-> Public credentials placing in `hosts/lib.nix`. Make sure to replace'em if working with this repo.
+[![nixos cfg](https://img.shields.io/badge/NixOS%20cfg-3A8FB7?style=for-the-badge&logo=nixos&logoColor=BBDDE5)](https://nixos.org/)
+![works](https://img.shields.io/badge/works-on%20my%20machines-FEDFE1?style=for-the-badge)
+[![lint status](https://img.shields.io/github/actions/workflow/status/oluceps/nixos-config/lint.yaml?branch=trival&style=for-the-badge&label=lint&color=00AA90)](https://github.com/oluceps/nixos-config/actions?query=branch%3Atrival)
 
+NixOS configurations.
 
-with:
+with
 
-+ layout: [flake-parts](https://github.com/hercules-ci/flake-parts)
-+ secret management: [agenix](https://github.com/ryantm/agenix) [rekey](https://github.com/oddlama/agenix-rekey)
-+ secure boot: [lanzaboote](https://github.com/nix-community/lanzaboote)
-+ root on tmpfs: [impermanence](https://github.com/nix-community/impermanence)
-+ [home-manager](https://github.com/nix-community/home-manager)
-+ Partition [disko](https://github.com/nix-community/disko)
-+ command runner: [Just](https://github.com/casey/just) 
++ [flake-parts](https://github.com/hercules-ci/flake-parts)
++ [vaultix](https://github.com/oluceps/vaultix)
++ [lanzaboote](https://github.com/nix-community/lanzaboote)
++ [preservation](https://github.com/WilliButz/preservation)
++ [disko](https://github.com/nix-community/disko)
++ [nix-topology](https://oddlama.github.io/nix-topology/)
 
 ---
 
-### Binary Cache
+### Topology Graph
 
-```nix
-nix.settings = {
-  substituers = ["https://nur-pkgs.cachix.org"];
-  trusted-public-keys = [
-    "nur-pkgs.cachix.org-1:PAvPHVwmEBklQPwyNZfy4VQqQjzVIaFOkYYnmnKco78="
-  ];
-};
-```
-
-
-## References
-
-Excellent configurations that I've learned and copied:  
-+ [NickCao/flakes](https://github.com/NickCao/flakes)  
-+ [ocfox/nixos-config](https://github.com/ocfox/nixos-config)  
-+ [Clansty/flake](https://github.com/Clansty/flake)  
-+ [fufexan/dotfiles](https://github.com/fufexan/dotfiles)  
-+ [gvolpe/nix-config](https://github.com/gvolpe/nix-config)
+![topo-graph](https://raw.githubusercontent.com/oluceps/nixos-config/refs/heads/topo-graph/main.svg)

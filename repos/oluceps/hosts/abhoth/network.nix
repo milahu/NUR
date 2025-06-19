@@ -1,43 +1,79 @@
-{ config
-, lib
-, ...
-}: {
+{ config, lib, ... }:
+{
+  imports = [ ./bird.nix ];
+  # services.babeld = {
+  #   enable = true;
+  #   config = ''
+  #     skip-kernel-setup true
+  #     local-path /var/run/babeld/ro.sock
+  #     router-id f2:3c:95:50:a1:73
+
+  #     interface wg-yidhra type tunnel rtt-min 64 rtt-max 256
+  #     interface wg-hastur type tunnel rtt-min 165 rtt-max 256
+  #     interface wg-azasos type tunnel rtt-min 50 rtt-max 256 rtt-decay 64
+  #     interface wg-kaambl type tunnel rtt-min 210 rtt-max 512 rtt-decay 120
+  #     interface wg-eihort type tunnel rtt-min 170 rtt-max 384 rtt-decay 60
+
+  #     redistribute ip fdcc::/64 ge 64 le 128 local allow
+  #     redistribute local deny
+  #   '';
+  # };
   services = {
-    mosdns.enable = true;
-    resolved.enable = !config.services.mosdns.enable;
+    resolved.enable = lib.mkForce false;
   };
+  environment.etc."resolv.conf".text = ''
+    nameserver 127.0.0.1
+  '';
   networking = {
-    resolvconf.useLocalResolver = true;
+    domain = "nyaw.xyz";
+    # resolvconf.useLocalResolver = true;
     firewall = {
-      checkReversePath = false;
       enable = true;
-      trustedInterfaces = [ "virbr0" "wg0" "wg1" ];
-      allowedUDPPorts = [ 80 443 8080 5173 23180 4444 51820 3330 8880 ];
-      allowedTCPPorts = [ 80 443 8080 9900 2222 5173 8448 3330 8880 ];
+      checkReversePath = false;
+      trustedInterfaces = [
+        "virbr0"
+      ];
+      allowedUDPPorts = [
+        80
+        443
+      ];
+      allowedTCPPorts = [
+        80
+        443
+        40119 # stls
+      ];
     };
 
     useNetworkd = true;
     useDHCP = false;
 
-    hostName = "abhoth"; # Define your hostname.
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-    # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-    # Per-interface useDHCP will be mandatory in the future, so this generated config
-    # replicates the default behaviour.
+    hostName = "abhoth";
     enableIPv6 = true;
 
-    # interfaces.enp4s0.useDHCP = true;
-    #  interfaces.wlp5s0.useDHCP = true;
-    #
-    # Configure network proxy if necessary
-    # proxy.default = "http://127.0.0.1:7890";
+    nftables = {
+      enable = true;
+      # for hysteria port hopping
+      ruleset = ''
+        define INGRESS_INTERFACE="eth0"
+        define PORT_RANGE=20000-50000
+        define HYSTERIA_SERVER_PORT=4432
 
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-    nftables.enable = true;
+        table inet hysteria_porthopping {
+          chain prerouting {
+            type nat hook prerouting priority dstnat; policy accept;
+            iifname $INGRESS_INTERFACE udp dport $PORT_RANGE counter redirect to :$HYSTERIA_SERVER_PORT
+          }
+        }
+        table ip6 nat {
+          chain postrouting {
+            type nat hook postrouting priority srcnat; policy accept;
+            iifname { hts-yidhra, hts-kaambl } oifname eth0 ip6 saddr fdcc::/16 snat to 2400:8905::f03c:95ff:fe50:a173
+          }
+        }
+      '';
+    };
     networkmanager.enable = lib.mkForce false;
     networkmanager.dns = "none";
-
   };
   systemd.network = {
     enable = true;
@@ -45,119 +81,26 @@
     wait-online = {
       enable = true;
       anyInterface = true;
-      ignoredInterfaces = [ "wg0" "wg1" ];
+      ignoredInterfaces = [
+        "wg0"
+      ];
     };
 
-    links."10-ens5" = {
-      matchConfig.MACAddress = "00:16:3e:09:b7:46";
-      linkConfig.Name = "ens5";
+    links."10-eth0" = {
+      matchConfig.MACAddress = "f2:3c:95:50:77:31";
+      linkConfig.Name = "eth0";
     };
 
-    netdevs = {
+    networks."20-eth0" = {
+      matchConfig.Name = "eth0";
 
-      wg0 = {
-        netdevConfig = {
-          Kind = "wireguard";
-          Name = "wg0";
-          MTUBytes = "1300";
-        };
-        wireguardConfig = {
-          PrivateKeyFile = config.age.secrets.wga.path;
-          ListenPort = 51820;
-        };
-        wireguardPeers = [
-          {
-            wireguardPeerConfig = {
-              PublicKey = "BCbrvvMIoHATydMkZtF8c+CHlCpKUy1NW+aP0GnYfRM=";
-              AllowedIPs = [ "10.0.0.2/32" ];
-              PersistentKeepalive = 15;
-            };
-          }
-          {
-            wireguardPeerConfig = {
-              PublicKey = "i7Li/BDu5g5+Buy6m6Jnr09Ne7xGI/CcNAbyK9KKbQg=";
-              AllowedIPs = [ "10.0.0.3/32" ];
-              PersistentKeepalive = 15;
-            };
-          }
-
-          {
-            wireguardPeerConfig = {
-              PublicKey = "PkprQcw4kYLiX1Ix8FcIje1x0yie/gjheX7UbxQ7OUw=";
-              AllowedIPs = [ "10.0.0.4/32" ];
-              PersistentKeepalive = 15;
-            };
-          }
-
-          # {
-          #   wireguardPeerConfig = {
-          #     PublicKey = "+fuA9nUmFVKy2Ijfh5xfcnO9tpA/SkIL4ttiWKsxyXI=";
-          #     AllowedIPs = [
-          #       "10.0.1.0/24"
-          #       "10.0.0.0/24"
-          #     ];
-          #     Endpoint = "144.126.208.183:51820";
-          #     PersistentKeepalive = 15;
-          #   };
-          # }
-
-          {
-            wireguardPeerConfig = {
-              PublicKey = "TcqM0iPp4Dw1IceB88qw/hSiPWXAzT9GECVT36eyzgc=";
-              AllowedIPs = [ "10.0.0.6/32" ];
-              PersistentKeepalive = 15;
-            };
-          }
-
-          {
-            wireguardPeerConfig = {
-              PublicKey = "kDWOvV5AJ++zRQeTn12kd9x45JvxNqnwhPnB9HkzK0c=";
-              # AllowedIPs = [ "10.0.0.6/32" ];
-              PersistentKeepalive = 15;
-            };
-          }
-
-          {
-            wireguardPeerConfig = {
-              PublicKey = "83NjKIMSJxSorKEhxbD8lEu0Xa9rbAyGkRD77xsTsWQ=";
-              AllowedIPs = [ "10.0.0.15/32" ];
-              PersistentKeepalive = 15;
-            };
-          }
-        ];
+      networkConfig = {
+        DHCP = "ipv4";
+        IPv4Forwarding = true;
+        IPv6Forwarding = true;
+        IPv6AcceptRA = "yes";
       };
     };
 
-
-    networks = {
-      "10-wg0" = {
-        matchConfig.Name = "wg0";
-        address = [
-          "10.0.0.5/24"
-          "10.0.1.5/24"
-        ];
-        networkConfig = {
-          IPMasquerade = "ipv4";
-          IPForward = true;
-        };
-      };
-
-      "20-wired" = {
-        matchConfig.Name = "ens5";
-        DHCP = "yes";
-        dhcpV4Config.RouteMetric = 2046;
-        dhcpV6Config.RouteMetric = 2046;
-        networkConfig = {
-          # Bond = "bond1";
-          # PrimarySlave = true;
-          DNSSEC = true;
-          MulticastDNS = true;
-          DNSOverTLS = true;
-        };
-        # # REALLY IMPORTANT
-        dhcpV4Config.UseDNS = false;
-        dhcpV6Config.UseDNS = false;
-      };
-    };
   };
 }

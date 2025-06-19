@@ -1,126 +1,133 @@
-{ config, pkgs, lib, inputs, user, ... }:
 {
+  config,
+  pkgs,
+  lib,
+  inputs',
+  ...
+}:
+{
+  imports = [ ./niri.nix ];
+  environment.systemPackages =
+    with inputs'.browser-previews.packages;
+    [
+      google-chrome-beta # Beta Release
+
+      (pkgs.runCommand "chrome-entry" { } ''
+        mkdir -p $out/share/applications/
+        echo "[Desktop Entry]
+              Version=1.0
+              Name=Google Chrome
+              # Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+              # From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+              GenericName=Web Browser
+              GenericName[en_GB]=Web Browser
+              GenericName[zh_CN]=网页浏览器
+              Comment[zh_CN]=访问互联网
+              Exec=${lib.getExe google-chrome-beta} --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3 --video-capture-use-gpu-memory-buffer --force-color-profile=display-p3-d65 --enable-zero-copy %U
+              # Exec=${lib.getExe google-chrome-beta} --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3 --video-capture-use-gpu-memory-buffer --force-color-profile=display-p3-d65 --use-gl=angle --use-angle=vulkan --enable-zero-copy --enable-features=CanvasOopRasterization,Vulkan,VulkanFromANGLE,DefaultANGLEVulkan,VaapiVideoEncoder,ScrollableTabStrip,OverlayScrollbar %U
+              StartupNotify=true
+              Terminal=false
+              Icon=google-chrome
+              Type=Application
+              Categories=Network;WebBrowser;
+              MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;
+              Actions=new-window;new-private-window;" > $out/share/applications/google-chrome-dev.desktop'')
+
+    ]
+    ++ [
+      (pkgs.wrapOBS {
+        plugins = with pkgs.obs-studio-plugins; [
+          wlrobs
+          obs-backgroundremoval
+          obs-pipewire-audio-capture
+        ];
+      })
+      pkgs.systemd-run-app
+      pkgs.wechat-uos
+    ];
   xdg = {
     mime = {
       enable = true;
-      inherit ((import ../home/graphBase.nix { inherit config pkgs lib inputs user; }).xdg.mimeApps) defaultApplications;
+      defaultApplications =
+        {
+          "application/x-xdg-protocol-tg" = [ "org.telegram.desktop.desktop" ];
+          "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
+          "application/pdf" = [ "sioyek.desktop" ];
+          "ppt/pptx" = [ "wps-office-wpp.desktop" ];
+          "doc/docx" = [ "wps-office-wps.desktop" ];
+          "xls/xlsx" = [ "wps-office-et.desktop" ];
+        }
+        //
+          lib.genAttrs
+            [
+              "x-scheme-handler/unknown"
+              "x-scheme-handler/about"
+              "x-scheme-handler/http"
+              "x-scheme-handler/https"
+              "x-scheme-handler/mailto"
+              "text/html"
+            ]
+            # (_: "brave-browser.desktop")
+            (_: "google-chrome-dev.desktop")
+        // lib.genAttrs [
+          "image/gif"
+          "image/webp"
+          "image/png"
+          "image/jpeg"
+        ] (_: "org.gnome.Loupe.desktop")
+        // lib.genAttrs [
+          "inode/directory"
+          "inode/mount-point"
+        ] (_: "org.gnome.Nautilus.desktop");
+    };
+    portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-gnome
+      ];
+      configPackages = [ pkgs.niri ];
     };
   };
 
-  environment.systemPackages =
-    lib.flatten (lib.attrValues
-      (with pkgs;{
-        crypt = [ minisign rage age-plugin-yubikey cryptsetup tpm2-tss tpm2-tools yubikey-manager yubikey-manager-qt monero-cli ];
-
-        # python = [ (python311.withPackages (ps: with ps; [ pandas requests absl-py tldextract bleak matplotlib clang ])) ];
-
-        lang = [
-          [
-            editorconfig-checker
-            kotlin-language-server
-            sumneko-lua-language-server
-            yaml-language-server
-            tree-sitter
-            stylua
-            biome
-            # black
-          ]
-          # languages related
-          [ zig lldb haskell-language-server gopls cmake-language-server zls android-file-transfer nixpkgs-review shfmt ]
+  programs = {
+    dconf.enable = true;
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
+    };
+    kdeconnect.enable = false;
+    adb.enable = true;
+    command-not-found.enable = false;
+    gamescope.enable = true;
+    steam = {
+      enable = true;
+      package = pkgs.steam.override {
+        extraPkgs = pkgs: [
+          pkgs.maple-mono.NF-CN-unhinted
+          pkgs.gamescope
+          pkgs.mangohud
         ];
-        wine = [
-          # bottles
-          wineWowPackages.stable
-
-          # support 32-bit only
-          # wine
-
-          # support 64-bit only
-          (wine.override { wineBuild = "wine64"; })
-
-          # wine-staging (version with experimental features)
-          wineWowPackages.staging
-
-          # winetricks (all versions)
-          winetricks
-
-          # native wayland support (unstable)
-          wineWowPackages.waylandFull
-        ];
-        dev = [
-          friture
-          qemu-utils
-          yubikey-personalization
-          racket
-          resign
-          pv
-          devenv
-          gnome.dconf-editor
-          [ swagger-codegen3 bump2version openssl linuxPackages_latest.perf cloud-utils ]
-          [ bpf-linker gdb gcc gnumake cmake ] # clang-tools_15 llvmPackages_latest.clang ]
-          # [ openocd ]
-          lua
-          delta
-          # nodejs-18_x
-          switch-mute
-          go
-
-
-          nix-tree
-          kotlin
-          jre17_minimal
-          inotify-tools
-          rustup
-          tmux
-          # awscli2
-
-
-          trunk
-          cargo-expand
-          wasmer
-          wasmtime
-          comma
-          nix-update
-          nodejs_latest.pkgs.pnpm
-        ];
-        db = [ mongosh ];
-
-        web = [ hugo ];
-
-        de = with gnomeExtensions;[ simple-net-speed paperwm ];
-
-        virt = [
-          # virt-manager
-          virtiofsd
-          runwin
-          guix-run
-          runbkworm
-          bkworm
-          arch-run
-          # ubt-rv-run
-          #opulr-a-run
-          lunar-run
-          virt-viewer
-        ];
-        fs = [ gparted e2fsprogs fscrypt-experimental f2fs-tools compsize ];
-
-        cmd =
-          [
-            metasploit
-            # linuxKernel.packages.linux_latest_libre.cpupower
-            clean-home
-            just
-            typst
-            cosmic-term
-            acpi
-          ];
-        bluetooth = [ bluetuith ];
-
-        sound = [ pulseaudio ];
-
-        display = [ cage ];
-
-      }));
+      };
+      gamescopeSession.enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      localNetworkGameTransfers.openFirewall = true;
+    };
+    firefox = {
+      enable = true;
+      package =
+        (pkgs.wrapFirefox.override { libpulseaudio = pkgs.libpressureaudio; }) pkgs.firefox-unwrapped
+          { };
+    };
+    gnupg = {
+      agent = {
+        enable = false;
+        pinentryPackage = pkgs.wayprompt;
+        enableSSHSupport = true;
+      };
+    };
+  };
   virtualisation = {
     libvirtd = {
       enable = false;
@@ -138,60 +145,74 @@
           ];
       };
       qemu.swtpm.enable = true;
-
     };
     waydroid.enable = false;
   };
 
   qt = {
     enable = true;
-    platformTheme = "gnome";
+    platformTheme = "qt5ct";
     style = "adwaita";
-  };
-  programs = {
-
-    wireshark = { enable = true; package = pkgs.wireshark; };
-    kdeconnect.enable = true;
-    adb.enable = true;
-    command-not-found.enable = false;
-    steam = {
-      enable = true;
-      package = pkgs.steam.override {
-        extraPkgs = pkgs: [ pkgs.maple-mono-SC-NF ];
-      };
-      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    };
-
-    gnupg = {
-      agent = {
-        enable = false;
-        pinentryPackage = pkgs.pinentry-curses;
-        enableSSHSupport = true;
-      };
-    };
   };
   security = {
     pam.services.swaylock = { };
-    # Enable sound.
     rtkit.enable = true;
   };
   services = {
+    swayidle = {
+      enable = true;
+      systemdTarget = "niri.service";
+      timeouts = [
+        # {
+        #   timeout = 900;
+        #   command = "${lib.getExe pkgs.niri} msg action power-off-monitors";
+        # }
+        {
+          timeout = 901;
+          command = "/run/current-system/systemd/bin/loginctl lock-session";
+        }
+      ];
+      events = [
+        {
+          event = "lock";
+          # command = "${pkgs.hyprlock}/bin/hyprlock --immediate";
+          command = "${pkgs.swaylock}/bin/swaylock";
+        }
+        {
+          event = "before-sleep";
+          command = "/run/current-system/systemd/bin/loginctl lock-session";
+        }
+      ];
+    };
+
+    # desktopManager.cosmic.enable = true;
+    # displayManager.cosmic-greeter.enable = true;
 
     acpid.enable = true;
     udev = {
-      packages = with pkgs;[
+      # Remove Yubikey Auto Lock
+      # extraRules = ''
+      #   ACTION=="remove",\
+      #    ENV{ID_BUS}=="usb",\
+      #    ENV{ID_MODEL_ID}=="0407",\
+      #    ENV{ID_VENDOR_ID}=="1050",\
+      #    ENV{ID_VENDOR}=="Yubico",\
+      #    RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
+      # '';
+      packages = with pkgs; [
         android-udev-rules
         # qmk-udev-rules
         jlink-udev-rules
         yubikey-personalization
+        nitrokey-udev-rules
         libu2f-host
         via
-        opensk-udev-rules
+        # opensk-udev-rules
         nrf-udev-rules
+        disallow-generic-driver-for-switch-rules
       ];
     };
-    gnome.gnome-keyring.enable = true;
+    # gnome.gnome-keyring.enable = true;
 
     flatpak.enable = true;
     pcscd.enable = true;
@@ -200,8 +221,6 @@
       xkb.layout = "us";
     };
   };
-
-
 
   systemd.user.services.nix-index = {
     environment = config.networking.proxy.envVars;
@@ -219,44 +238,68 @@
     startAt = "weekly";
   };
 
-
   fonts = {
     enableDefaultPackages = true;
     fontDir.enable = true;
     enableGhostscriptFonts = false;
-    packages = with pkgs; [
-
-      (nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "JetBrainsMono"
-          "FantasqueSansMono"
-        ];
-      })
-      source-han-sans
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      twemoji-color-font
-      maple-mono-SC-NF
-      maple-mono-otf
-      maple-mono-autohint
-      cascadia-code
-      intel-one-mono
-      monaspace
-    ]
-    ++ (with pkgs.glowsans; [ glowsansSC glowsansTC glowsansJ ])
-    ++ (with nur-pkgs; [ san-francisco plangothic maoken-tangyuan lxgw-neo-xihei ]);
+    packages =
+      with pkgs;
+      [
+        # nerd-fonts.fira-code
+        nerd-fonts.jetbrains-mono
+        source-han-sans
+        noto-fonts
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
+        twemoji-color-font
+        maple-mono.NF-CN-unhinted
+        # maple-mono.otf
+        # maple-mono.autohint
+        cascadia-code
+        intel-one-mono
+        monaspace
+        stix-two
+        fira-sans
+      ]
+      ++ (with pkgs; [
+        glowsans-j
+        glowsans-tc
+        glowsans-sc
+      ])
+      ++ (with pkgs; [
+        plangothic
+        maoken-tangyuan
+        lxgw-neo-xihei
+      ]);
     #"HarmonyOS Sans SC" "HarmonyOS Sans TC"
     fontconfig = {
       subpixel.rgba = "none";
       antialias = true;
       hinting.enable = false;
       defaultFonts = lib.mkForce {
-        serif = [ "Glow Sans SC" "Glow Sans TC" "Glow Sans J" "Noto Serif" "Noto Serif CJK SC" "Noto Serif CJK TC" "Noto Serif CJK JP" ];
-        monospace = [ "Monaspace Neon" "Maple Mono" "SF Mono" "Fantasque Sans Mono" ];
-        sansSerif = [ "Hanken Grotesk" "Glow Sans SC" ];
-        emoji = [ "twemoji-color-font" "noto-fonts-emoji" ];
+        serif = [
+          "Glow Sans SC"
+          "Glow Sans TC"
+          "Glow Sans J"
+          "Noto Serif"
+          "Noto Serif CJK SC"
+          "Noto Serif CJK TC"
+          "Noto Serif CJK JP"
+          "LXGW Neo XiHei"
+        ];
+        monospace = [
+          # "Monaspace Neon"
+          "Maple Mono NF CN"
+        ];
+        sansSerif = [
+          "Hanken Grotesk"
+          "Glow Sans SC"
+          "LXGW Neo XiHei"
+        ];
+        emoji = [
+          "twemoji-color-font"
+          "noto-fonts-emoji"
+        ];
       };
     };
   };
@@ -265,16 +308,21 @@
   i18n = {
 
     inputMethod = {
-      enabled = "fcitx5";
-      fcitx5.addons = with pkgs; [
-        fcitx5-chinese-addons
-        fcitx5-mozc
-        fcitx5-gtk
-        fcitx5-configtool
-        fcitx5-pinyin-zhwiki
-        fcitx5-pinyin-moegirl
-      ];
+      type = "fcitx5";
+      enable = true;
+      fcitx5 = {
+        plasma6Support = true;
+        waylandFrontend = true;
+        addons = with pkgs; [
+          fcitx5-chinese-addons
+          fcitx5-mozc
+          fcitx5-rime
+          fcitx5-gtk
+          fcitx5-configtool
+          fcitx5-pinyin-zhwiki
+          fcitx5-pinyin-moegirl
+        ];
+      };
     };
   };
-
 }

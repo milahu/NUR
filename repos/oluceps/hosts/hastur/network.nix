@@ -1,31 +1,61 @@
-{ lib, config, ... }: {
-  services.resolved.enable = lib.mkForce true;
-  # services.resolved.enable = true;
-  services.resolved.extraConfig = "DNS=192.168.1.1";
+{ lib, config, ... }:
+{
+  imports = [ ./bird.nix ];
+  services.resolved = {
+    enable = lib.mkForce false;
+    llmnr = "false";
+    dnssec = "false";
+    extraConfig = ''
+      MulticastDNS=off
+    '';
+    fallbackDns = [ "8.8.8.8#dns.google" ];
+    # dnsovertls = "true";
+  };
   networking = {
+    timeServers = [
+      "ntp.sjtu.edu.cn"
+      "ntp1.aliyun.com"
+      "ntp.ntsc.ac.cn"
+      "cn.ntp.org.cn"
+    ];
+    usePredictableInterfaceNames = false;
     resolvconf.useLocalResolver = true;
+    nameservers = [
+      "223.5.5.5#dns.alidns.com"
+      "120.53.53.53#dot.pub"
+    ];
     # useHostResolvConf = true;
-    hosts = {
-      "127.0.0.1" = [ "attic.nyaw.xyz" ];
-    };
+    hosts = lib.data.hosts.${config.networking.hostName};
 
     hostName = "hastur"; # Define your hostname.
     domain = "nyaw.xyz";
     # replicates the default behaviour.
     enableIPv6 = true;
-    interfaces.eth0.wakeOnLan.enable = true;
+    # WARNING: THIS FAILED MY DHCP
+    # interfaces.eth0.wakeOnLan.enable = true;
     wireless.iwd.enable = true;
     useNetworkd = true;
     useDHCP = false;
     firewall = {
       enable = true;
-      trustedInterfaces = [ "virbr0" "wg*" "podman*" "dae0" ];
-      allowedUDPPorts = [ 8080 5173 51820 9918 8013 ];
-      allowedTCPPorts = [ 8080 9900 2222 5173 1900 ];
+      checkReversePath = false;
+      trustedInterfaces = [
+        "virbr0"
+        "podman*"
+        "dae0"
+      ];
+      allowedUDPPorts = [
+        8080
+      ];
+      allowedTCPPorts = [
+        8080
+      ];
     };
-    nftables.enable = true;
+    nftables = {
+      enable = true;
+    };
     networkmanager.enable = lib.mkForce false;
-
+    networkmanager.dns = "none";
   };
   systemd.network = {
     enable = true;
@@ -33,7 +63,10 @@
     wait-online = {
       enable = true;
       anyInterface = true;
-      ignoredInterfaces = [ "wlan0" ];
+      ignoredInterfaces = [
+        "wlan0"
+        "wg0"
+      ];
     };
 
     links."10-eth0" = {
@@ -49,111 +82,59 @@
         MACAddressPolicy = "persistent";
       };
     };
-    links."40-wlan0" = {
-      matchConfig.MACAddress = "70:66:55:e7:1c:b1";
-      linkConfig.Name = "wlan0";
-    };
-
-    netdevs = {
-      bond0 = {
-        netdevConfig = {
-          Kind = "bond";
-          Name = "bond0";
-          # MTUBytes = "1300";
-        };
-        bondConfig = {
-          Mode = "active-backup";
-          PrimaryReselectPolicy = "always";
-          MIIMonitorSec = "1s";
-        };
-      };
-
-      wg0 = {
-        netdevConfig = {
-          Kind = "wireguard";
-          Name = "wg0";
-          MTUBytes = "1300";
-        };
-        wireguardConfig = {
-          PrivateKeyFile = config.age.secrets.wg.path;
-        };
-        wireguardPeers = [
-          {
-            wireguardPeerConfig = {
-              PublicKey = "+fuA9nUmFVKy2Ijfh5xfcnO9tpA/SkIL4ttiWKsxyXI=";
-              AllowedIPs = [ "10.0.1.1/32" ];
-              Endpoint = "127.0.0.1:41820";
-              PersistentKeepalive = 15;
-            };
-          }
-
-          {
-            wireguardPeerConfig = {
-              PublicKey = "ANd++mjV7kYu/eKOEz17mf65bg8BeJ/ozBmuZxRT3w0=";
-              AllowedIPs = [ "10.0.1.9/32" "10.0.0.0/24" ];
-              Endpoint = "127.0.0.1:41821";
-              PersistentKeepalive = 15;
-            };
-          }
-        ];
+    links."20-ncm" = {
+      matchConfig.Driver = "cdc_ncm";
+      linkConfig = {
+        NamePolicy = "keep";
+        Name = "ncm";
+        MACAddressPolicy = "persistent";
       };
     };
-
-
-    networks = {
-      "10-wg0" = {
-        matchConfig.Name = "wg0";
-        # IP addresses the client interface will have
-        address = [
-          "10.0.1.2/24"
-        ];
+    networks."8-eth0" = {
+      matchConfig.Name = "eth0";
+      networkConfig = {
         DHCP = "no";
+        IPv4Forwarding = true;
+        IPv6Forwarding = true;
+        IPv6AcceptRA = "yes";
+      };
+      ipv6AcceptRAConfig = {
+        UseDNS = false;
       };
 
-      "20-wired-bond0" = {
-        matchConfig.Name = "eth0";
+      dhcpV4Config.UseDNS = false;
+      dhcpV6Config.UseDNS = false;
 
-        networkConfig = {
-          Bond = "bond0";
-          PrimarySlave = true;
-        };
-
-      };
-
-      "40-wireless-bond1" = {
-        matchConfig.Name = "wlan0";
-        networkConfig = {
-          Bond = "bond1";
-        };
-      };
-
-      "5-bond0" = {
-        matchConfig.Name = "bond0";
-        DHCP = "yes";
-        dhcpV4Config.RouteMetric = 2046;
-        dhcpV6Config.RouteMetric = 2046;
-        # address = [ "192.168.0.2/24" ];
-
-        networkConfig = {
-          BindCarrier = [ "eth0" "wlan0" ];
-        };
-
-
-        linkConfig.MACAddress = "fc:62:ba:3a:e1:5f";
-      };
-
-      "30-rndis" = {
-        matchConfig.Name = "rndis";
-        DHCP = "yes";
-        dhcpV4Config.RouteMetric = 2044;
-        dhcpV6Config.RouteMetric = 2044;
-        dhcpV4Config.UseDNS = false;
-        dhcpV6Config.UseDNS = false;
-        networkConfig = {
-          DNSSEC = true;
-        };
-      };
-
+      linkConfig.RequiredForOnline = "routable";
+      address = [ "192.168.1.2/24" ];
+      routes = [
+        { Gateway = "192.168.1.1"; }
+      ];
     };
+
+    networks."25-ncm" = {
+      matchConfig.Name = "ncm";
+      DHCP = "yes";
+      dhcpV4Config.RouteMetric = 2044;
+      dhcpV6Config.RouteMetric = 2044;
+      dhcpV4Config.UseDNS = false;
+      dhcpV6Config.UseDNS = false;
+      networkConfig = {
+        DNSSEC = true;
+      };
+    };
+
+    networks."30-rndis" = {
+      matchConfig.Name = "rndis";
+      DHCP = "yes";
+      dhcpV4Config.RouteMetric = 2044;
+      dhcpV6Config.RouteMetric = 2044;
+      dhcpV4Config.UseDNS = false;
+      dhcpV6Config.UseDNS = false;
+      networkConfig = {
+        DNSSEC = false;
+      };
+    };
+
   };
 }

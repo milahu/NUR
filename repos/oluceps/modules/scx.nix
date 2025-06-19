@@ -1,19 +1,31 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 
-with lib;
 let
+  inherit (lib)
+    mkOption
+    types
+    mkPackageOption
+    mkEnableOption
+    mkIf
+    ;
+
   cfg = config.services.scx;
 in
 {
-  options.services.scx =
-    {
-      enable = mkEnableOption "scx service";
-      package = mkPackageOptionMD pkgs "scx" { };
-      scheduler = mkOption {
-        type = types.str;
-        default = "scx_rusty";
-      };
+  disabledModules = [ "services/scheduling/scx.nix" ];
+  options.services.scx = {
+    enable = mkEnableOption "scx service";
+    package = mkPackageOption pkgs "scx" { };
+    scheduler = mkOption {
+      type = types.str;
+      default = "scx_rusty";
     };
+  };
   config = mkIf cfg.enable {
 
     environment.systemPackages = [ pkgs.scx ];
@@ -29,6 +41,4 @@ in
       };
     };
   };
-
-
 }

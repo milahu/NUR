@@ -1,10 +1,12 @@
-{ pkgs
-, config
-, lib
-, ...
+{
+  pkgs,
+  config,
+  lib,
+  ...
 }:
-with lib;
 let
+  inherit (lib) mkOption types mkIf;
+
   cfg = config.services.naive;
 in
 {
@@ -15,13 +17,12 @@ in
     };
     package = mkOption {
       type = types.package;
-      default = pkgs.nur-pkgs.naiveproxy;
+      default = pkgs.emptyDirectory;
     };
-
   };
   config =
     let
-      configFile = config.age.secrets.naive.path;
+      configFile = config.vaultix.secrets.naive.path;
     in
     mkIf cfg.enable {
       systemd.services.naive = {
@@ -45,11 +46,6 @@ in
           ];
           Restart = "on-failure";
         };
-
       };
-
     };
-
-
 }
-

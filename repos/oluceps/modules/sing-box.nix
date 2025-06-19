@@ -1,10 +1,18 @@
-{ pkgs
-, config
-, lib
-, ...
+{
+  pkgs,
+  config,
+  lib,
+  ...
 }:
-with lib;
 let
+  inherit (lib)
+    mkOption
+    types
+    mkPackageOption
+    mkEnableOption
+    mkIf
+    ;
+
   cfg = config.services.sing-box;
 in
 {
@@ -15,10 +23,10 @@ in
       default = false;
     };
     webPanel = mkOption {
-      type = with types; submodule {
+      type = types.submodule {
         options = {
-          enable = mkEnableOption (mdDoc "enable");
-          package = mkPackageOptionMD pkgs "metacubexd" { };
+          enable = mkEnableOption "enable";
+          package = mkPackageOption pkgs "metacubexd" { };
         };
       };
       default = {
@@ -32,19 +40,40 @@ in
     };
     configFile = mkOption {
       type = types.str;
-      default = config.age.secrets.sing.path;
+      default = config.vaultix.secrets.sing.path;
     };
-
   };
-  config =
-    mkIf cfg.enable {
-      systemd.services.sing-box = {
+  config = mkIf cfg.enable {
+    users = {
+      users.sing-box = {
+        group = "sing-box";
+        isSystemUser = true;
+      };
+
+      groups.sing-box = { };
+    };
+    security.polkit.extraConfig = ''
+      polkit.addRule(function(action, subject) {Add commentMore actions
+          if ((action.id == "org.freedesktop.resolve1.set-domains" ||
+               action.id == "org.freedesktop.resolve1.set-default-route" ||
+               action.id == "org.freedesktop.resolve1.set-dns-servers") &&
+              subject.user == "sing-box") {
+              return polkit.Result.YES;
+          }
+      });
+    '';
+
+    services.dbus.packages = [ cfg.package ];
+
+    systemd.services.sing-box =
+      {
+        # unitConfig.Conflicts = [ "dnsproxy.service" ];
         wantedBy = [ "multi-user.target" ];
         after = [ "network-online.target" ];
         wants = [ "network-online.target" ];
         description = "sing-box Daemon";
         serviceConfig = {
-          DynamicUser = true;
+          User = "sing-box";
           ExecStart = "${lib.getExe' cfg.package "sing-box"} run -c $\{CREDENTIALS_DIRECTORY}/config.json -D $STATE_DIRECTORY";
           LoadCredential = [ ("config.json:" + cfg.configFile) ];
           StateDirectory = "sing";
@@ -60,15 +89,9 @@ in
           ];
           Restart = "on-failure";
         };
-
       }
       // lib.optionalAttrs cfg.webPanel.enable {
         preStart = "ln -sfT ${cfg.webPanel.package} $STATE_DIRECTORY/web";
-      }
-      ;
-
-    };
-
-
+      };
+  };
 }
-

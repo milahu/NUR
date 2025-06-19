@@ -1,8 +1,25 @@
-{ inputs, pkgs, config, lib, ... }:
 {
-  # server.
+  inputs,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
+  environment.systemPackages = with pkgs; [
+    lsof
+    wireguard-tools
+    tcpdump
+  ];
+  system = {
+    # server.
+    stateVersion = "24.11";
+    etc.overlay.enable = true;
+    etc.overlay.mutable = false;
+  };
 
-  system.stateVersion = "22.11";
+  users.mutableUsers = false;
+  services.userborn.enable = true;
 
   nix.gc = {
     automatic = true;
@@ -15,149 +32,92 @@
     inherit ((import ../sysctl.nix { inherit lib; }).boot) kernel;
   };
 
-  services = (
-    let importService = n: import ../../services/${n}.nix { inherit pkgs config inputs; }; in lib.genAttrs [
-      "openssh"
-      "fail2ban"
-    ]
-      (n: importService n)
-  ) // {
+  repack = {
+    plugIn.enable = true;
+    openssh.enable = true;
+    fail2ban.enable = true;
+    sing-server.enable = true;
+    dnsproxy = {
+      enable = true;
+      # extraFlags = [ "--ipv6-disabled" ];
+    };
+    rustypaste.enable = true;
+    subs.enable = true;
+  };
+  services = {
+    metrics.enable = true;
+    srs.enable = true;
+    coturn = {
+      enable = true;
+      # static-auth-secret-file = config.vaultix.secrets.wg.path;
+      no-auth = true;
+      realm = config.networking.fqdn;
+    };
 
-    juicity.instances = [{
-      name = "only";
-      credentials = [
-        "key:${config.age.secrets."nyaw.key".path}"
-        "cert:${config.age.secrets."nyaw.cert".path}"
-      ];
-      serve = true;
-      openFirewall = 23180;
-      configFile = config.age.secrets.juic-san.path;
-    }];
-    rustypaste = {
+    realm = {
       enable = true;
       settings = {
-        config = { refresh_rate = "3s"; };
-        landing_page = {
-          content_type = "text/plain; charset=utf-8";
-          text = ''
-            ┬─┐┬ ┬┌─┐┌┬┐┬ ┬┌─┐┌─┐┌─┐┌┬┐┌─┐
-            ├┬┘│ │└─┐ │ └┬┘├─┘├─┤└─┐ │ ├┤
-            ┴└─└─┘└─┘ ┴  ┴ ┴  ┴ ┴└─┘ ┴ └─┘
-            Submit files via HTTP POST here:
-                curl -F 'file=@example.txt' <server>
-            This will return the URL of the uploaded file nya.
-            The server administrator might remove any pastes that they do not personally
-            want to host.
-            If you are the server administrator and want to change this page, just go
-            into your config file and change it! If you change the expiry time, it is
-            recommended that you do.
-            By default, pastes expire every hour. The server admin may or may not have
-            changed this.
-            Check out the GitHub repository at https://github.com/orhun/rustypaste
-            Command line tool is available  at https://github.com/orhun/rustypaste-cli
-          '';
+        log.level = "warn";
+        network = {
+          no_tcp = false;
+          use_udp = true;
         };
-        paste = {
-          default_expiry = "64h";
-          default_extension = "txt";
-          delete_expired_files = { enabled = true; interval = "1h"; };
-          duplicate_files = true;
-          mime_blacklist = [
-            "application/x-dosexec"
-            "application/java-archive"
-            "application/java-vm"
-          ];
-          mime_override = [
-            { mime = "image/jpeg"; regex = "^.*\\.jpg$"; }
-            { mime = "image/png"; regex = "^.*\\.png$"; }
-            { mime = "image/svg+xml"; regex = "^.*\\.svg$"; }
-            { mime = "video/webm"; regex = "^.*\\.webm$"; }
-            { mime = "video/x-matroska"; regex = "^.*\\.mkv$"; }
-            { mime = "application/octet-stream"; regex = "^.*\\.bin$"; }
-            { mime = "text/plain"; regex = "^.*\\.(log|txt|diff|sh|rs|toml)$"; }
-          ];
-          random_url = { separator = "-"; type = "petname"; words = 2; };
-        };
-        server = {
-          address = "127.0.0.1:3999";
-          expose_list = false;
-          expose_version = false;
-          handle_spaces = "replace";
-          max_content_length = "10MB";
-          timeout = "30s";
-          upload_path = "./upload";
-          url = "https://pb.nyaw.xyz";
-        };
+        endpoints = [
+          {
+            listen = "[::]:8776";
+            remote = "[fdcc::3]:8776";
+          }
+        ];
       };
     };
+    # factorio-manager = {
+    #   enable = true;
+    #   factorioPackage = pkgs.factorio-headless-experimental.override {
+    #     versionsJson = ./factorio-version.json;
+    #   };
+    #   botConfigPath = config.vaultix.secrets.factorio-manager-bot.path;
+    #   initialGameStartArgs = [
+    #     "--server-settings=${config.vaultix.secrets.factorio-server.path}"
+    #     "--server-adminlist=${config.vaultix.secrets.factorio-admin.path}"
+    #   ];
+    # };
 
-    caddy = {
+    ntfy-sh = {
       enable = true;
-      # user = "root";
-      # configFile = config.age.secrets.caddy-lsa.path;
-      # package = pkgs.caddy-mod;
-      # globalConfig = ''
-      #   	order forward_proxy before file_server
-      # '';
-      virtualHosts = {
-        "magicb.uk" = {
-          hostName = "magicb.uk";
-          extraConfig = ''
-            tls mn1.674927211@gmail.com
-            file_server {
-                root /var/www/public
-            }
-          '';
-        };
-
-        "pb.nyaw.xyz" = {
-          hostName = "pb.nyaw.xyz";
-          extraConfig = ''
-            reverse_proxy 127.0.0.1:3999
-            tls ${config.age.secrets."nyaw.cert".path} ${config.age.secrets."nyaw.key".path}
-          '';
-        };
-
-        "nyaw.xyz" = {
-          hostName = "nyaw.xyz";
-          extraConfig = ''
-            reverse_proxy 10.0.1.2:3000
-            tls ${config.age.secrets."nyaw.cert".path} ${config.age.secrets."nyaw.key".path}
-            redir /matrix https://matrix.to/#/@sec:nyaw.xyz
-
-            header /.well-known/matrix/* Content-Type application/json
-            header /.well-known/matrix/* Access-Control-Allow-Origin *
-            respond /.well-known/matrix/server `{"m.server": "matrix.nyaw.xyz:443"}`
-            respond /.well-known/matrix/client `{"m.homeserver": {"base_url": "https://matrix.nyaw.xyz"},"org.matrix.msc3575.proxy": {"url": "https://matrix.nyaw.xyz"}}`
-          '';
-        };
-        "matrix.nyaw.xyz" = {
-          hostName = "matrix.nyaw.xyz";
-          extraConfig = ''
-            	reverse_proxy /_matrix/* 10.0.1.2:6167
-          '';
-        };
-        "ctos.magicb.uk" = {
-          hostName = "ctos.magicb.uk";
-          extraConfig = ''
-            tls mn1.674927211@gmail.com
-            reverse_proxy 10.0.1.2:10002
-          '';
-        };
+      settings = {
+        listen-http = ":2586";
+        behind-proxy = true;
+        auth-default-access = "deny-all";
+        base-url = "http://ntfy.nyaw.xyz";
       };
-
     };
-  };
 
-  programs = {
-    git.enable = true;
-    fish.enable = true;
-  };
-  zramSwap = {
-    enable = true;
-    swapDevices = 1;
-    memoryPercent = 80;
-    algorithm = "zstd";
+    dnsproxy.settings = lib.mkForce {
+      bootstrap = [
+        "1.1.1.1"
+        "8.8.8.8"
+      ];
+      listen-addrs = [ "::" ];
+      listen-ports = [ 53 ];
+      upstream-mode = "parallel";
+      upstream = [
+        "1.1.1.1"
+        "8.8.8.8"
+        "https://dns.google/dns-query"
+      ];
+    };
+    hysteria.instances = {
+      only = {
+        enable = true;
+        serve = true;
+        openFirewall = 4432;
+        credentials = [
+          "key:${config.vaultix.secrets."nyaw.key".path}"
+          "crt:${config.vaultix.secrets."nyaw.cert".path}"
+        ];
+        configFile = config.vaultix.secrets.hyst-us.path;
+      };
+    };
   };
 
   systemd = {
@@ -174,9 +134,7 @@
       #   https://utcc.utoronto.ca/~cks/space/blog/linux/SystemdShutdownWatchdog
       rebootTime = "30s";
     };
-
   };
 
-  systemd.tmpfiles.rules = [
-  ];
+  systemd.tmpfiles.rules = [ ];
 }

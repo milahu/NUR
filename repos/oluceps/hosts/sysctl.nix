@@ -1,5 +1,4 @@
-{ ...
-}: {
+_: {
   boot = {
     kernel.sysctl = {
       "kernel.panic" = 10;
@@ -11,28 +10,27 @@
       "net.core.rmem_default" = 65536;
       # default write buffer
       "net.core.wmem_default" = 65536;
+      "net.core.netdev_budget" = 600;
       # max processor input queue
       #"net.core.netdev_max_backlog" = 4096;
       # max backlog
+      #
+      "net.ipv6.conf.all.forwarding" = 1;
+      "net.ipv6.conf.all.accept_redirects" = 0;
+      "net.ipv4.conf.all.forwarding" = 1;
+      "net.ipv4.conf.all.rp_filter" = 0;
 
       # Ignore ICMP broadcasts to avoid participating in Smurf attacks
       "net.ipv4.icmp_echo_ignore_broadcasts" = 0;
       # Ignore bad ICMP errors
       "net.ipv4.icmp_ignore_bogus_error_responses" = 1;
       # Reverse-path filter for spoof protection
-      "net.ipv4.conf.default.rp_filter" = 0;
-      "net.ipv4.conf.all.rp_filter" = 0;
-      "net.ipv4.conf.wan.rp_filter" = 0;
       # SYN flood protection
       "net.ipv4.tcp_syncookies" = 0;
       "net.ipv4.tcp_syn_retries" = 2;
       # Do not accept ICMP redirects (prevent MITM attacks)
-      "net.ipv4.conf.all.accept_redirects" = 1;
-      "net.ipv4.conf.default.accept_redirects" = 1;
       "net.ipv4.conf.all.secure_redirects" = 1;
       "net.ipv4.conf.default.secure_redirects" = 1;
-      "net.ipv6.conf.all.accept_redirects" = 1;
-      "net.ipv6.conf.default.accept_redirects" = 1;
       # Protect against tcp time-wait assassination hazards
       "net.ipv4.tcp_rfc1337" = 1;
       # TCP Fast Open (TFO)
@@ -49,8 +47,6 @@
       "net.core.wmem_max" = 16777216;
       "net.ipv4.tcp_mtu_probing" = 1;
       "net.core.somaxconn" = 4096;
-      "net.ipv6.conf.all.forwarding" = 1;
-      "net.ipv4.conf.all.forwarding" = 1;
       "net.ipv4.conf.all.send_redirects" = 0;
 
       "net.ipv4.tcp_tw_recycle" = 0;
@@ -73,8 +69,7 @@
       "fs.protected_regular" = 2;
 
       "net.ipv4.tcp_slow_start_after_idle" = 0;
-      "vm.overcommit_memory" = 1;
-      "vm.swappiness" = 95;
+      "vm.swappiness" = 150;
       "vm.max_map_count" = 2147483642;
       "net.ipv4.tcp_ecn" = 1;
     };

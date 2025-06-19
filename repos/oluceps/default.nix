@@ -1,28 +1,21 @@
-{ pkgs ? import <nixpkgs> { } }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 let
-  # ugly redefine
-  genFilteredDirAttrsV2 = dir: excludes:
-    with pkgs.lib; genAttrs
-      (with builtins; filter
-        (n: !elem n excludes)
-        (map (removeSuffix ".nix")
-          (attrNames
-            (readDir dir))));
-
-  shadowedPkgs = [
-    "tcp-brutal"
-    "shufflecake"
-
-    # use things from flake that  not pass strict eval
-    "arch-run"
-    "guix-run"
-    "lunar-run"
-    "opulr-a-run"
-    "runbkworm"
-    "runwin"
-    "ubt-rv-run"
-    "trojan-rs"
-  ];
+  genEmptyWithWarn =
+    n:
+    pkgs.callPackage (
+      { stdenvNoCC, lib }:
+      lib.warn
+        "Package ${n} from NUR oluceps/nixos-config does NOT support nix without flake\nplease use it from github:oluceps/nixos-config#packages"
+        (
+          stdenvNoCC.mkDerivation {
+            pname = n;
+            version = "0.0.301-redirect";
+            installPhase = "mkdir -p $out";
+            meta.description = "Please invoke this with flake input, not avaliable with nur.repos.me.*";
+          }
+        )
+    ) { };
 in
-(genFilteredDirAttrsV2 ./pkgs shadowedPkgs
-  (name: pkgs.callPackage (./pkgs + "/${name}.nix") { }))
+pkgs.lib.genAttrs (map (pkgs.lib.removeSuffix ".nix") (builtins.attrNames (builtins.readDir ./pkgs/by-name))) genEmptyWithWarn

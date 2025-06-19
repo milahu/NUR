@@ -1,45 +1,59 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.services.cloudflared;
+  inherit (lib)
+    mkEnableOption
+    mkOption
+    types
+    mkIf
+    ;
 in
 {
   disabledModules = [ "services/networking/cloudflared.nix" ];
   options.services.cloudflared = {
-    enable = mkEnableOption (lib.mdDoc "Cloudflare Tunnel client daemon (formerly Argo Tunnel)");
+    enable = mkEnableOption "Cloudflare Tunnel client daemon (formerly Argo Tunnel)";
 
     user = mkOption {
       type = types.str;
       default = "cloudflared";
-      description = lib.mdDoc "User account under which Cloudflared runs.";
+      description = "User account under which Cloudflared runs.";
     };
 
     group = mkOption {
       type = types.str;
       default = "cloudflared";
-      description = lib.mdDoc "Group under which cloudflared runs.";
+      description = "Group under which cloudflared runs.";
     };
 
     package = mkOption {
       type = types.package;
       default = pkgs.cloudflared;
       defaultText = "pkgs.cloudflared";
-      description = lib.mdDoc "The package to use for Cloudflared.";
+      description = "The package to use for Cloudflared.";
     };
 
     environmentFile = mkOption {
       type = types.str;
       default = "";
     };
-
   };
 
   config = mkIf cfg.enable {
-    systemd.services.cloudflared-tunnel = ({
-      after = [ "network.target" "network-online.target" ];
-      wants = [ "network.target" "network-online.target" ];
+    systemd.services.cloudflared-tunnel = {
+      after = [
+        "network.target"
+        "network-online.target"
+      ];
+      wants = [
+        "network.target"
+        "network-online.target"
+      ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         User = cfg.user;
@@ -48,18 +62,15 @@ in
         ExecStart = "${cfg.package}/bin/cloudflared --no-autoupdate tunnel run --token $TOKEN";
         Restart = "on-failure";
       };
-    })
-    ;
+    };
 
     users.users = mkIf (cfg.user == "cloudflared") {
       cloudflared = {
-        group = cfg.group;
+        inherit (cfg) group;
         isSystemUser = true;
       };
     };
 
-    users.groups = mkIf (cfg.group == "cloudflared") {
-      cloudflared = { };
-    };
+    users.groups = mkIf (cfg.group == "cloudflared") { cloudflared = { }; };
   };
 }

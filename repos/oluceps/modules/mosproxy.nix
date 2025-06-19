@@ -1,6 +1,18 @@
-{ config, lib, pkgs, ... }:
-with lib;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
+  inherit (lib)
+    mkOption
+    types
+    mkPackageOption
+    mkEnableOption
+    mkIf
+    ;
+
   cfg = config.services.mosproxy;
   configFormat = pkgs.formats.yaml { };
   configFile = configFormat.generate "mosproxy.yaml" cfg.config;
@@ -23,9 +35,10 @@ in
   config = mkIf cfg.enable {
     systemd.services.mosproxy = {
       description = "mosproxy Daemon";
-      after = [ "network.target" ]
-        ++ lib.optional (cfg.redisPort != null) "redis-mosproxy.service";
+      after = [ "network.target" ] ++ lib.optional (cfg.redisPort != null) "redis-mosproxy.service";
       wantedBy = [ "multi-user.target" ];
+      wants = [ "nss-lookup.target" ];
+      before = [ "nss-lookup.target" ];
       restartTriggers = [ configFile ];
       serviceConfig = {
         Restart = "on-failure";
@@ -34,7 +47,7 @@ in
       };
     };
 
-    services.redis.servers.mosproxy.enable = (cfg.redisPort != null);
+    services.redis.servers.mosproxy.enable = cfg.redisPort != null;
 
     environment.systemPackages = [ cfg.package ];
   };

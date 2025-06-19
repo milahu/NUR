@@ -1,21 +1,49 @@
-{ config
-, lib
-, ...
-}: {
-  services.resolved.enable = lib.mkForce false;
+{ config, lib, ... }:
+{
+  imports = [ ./bird.nix ];
+  services.resolved = {
+    enable = lib.mkForce false;
+    llmnr = "false";
+    dnssec = "false";
+    extraConfig = ''
+      MulticastDNS=off
+    '';
+    fallbackDns = [ "8.8.8.8#dns.google" ];
+    # dnsovertls = "opportunistic";
+  };
   networking = {
-    resolvconf.useLocalResolver = true;
+    timeServers = [
+      "ntp.sjtu.edu.cn"
+      "ntp1.aliyun.com"
+      "ntp.ntsc.ac.cn"
+      "cn.ntp.org.cn"
+    ];
+    usePredictableInterfaceNames = false;
+    hosts = lib.data.hosts.${config.networking.hostName};
+    nameservers = [
+      "223.5.5.5#dns.alidns.com"
+      #   # "120.53.53.53#dot.pub"
+    ];
+    # resolvconf.useLocalResolver = lib.mkForce true;
+    resolvconf.enable = false;
     firewall = {
       checkReversePath = false;
       enable = true;
-      trustedInterfaces = [ "virbr0" "wg0" "wg1" "podman*" ];
-      allowedUDPPorts = [ 8080 5173 3330 8880 ];
-      allowedTCPPorts = [ 8080 9900 2222 5173 3330 8880 ];
+      trustedInterfaces = [
+        "virbr0"
+        "podman*"
+        "tun-sing"
+      ];
+      allowedUDPPorts = [
+        8080
+      ];
+      allowedTCPPorts = [
+        8080
+      ];
     };
 
     wireless.iwd.enable = true;
     useNetworkd = true;
-    useDHCP = false;
 
     hostName = "kaambl"; # Define your hostname.
     domain = "nyaw.xyz";
@@ -28,85 +56,59 @@
     nftables.enable = true;
     networkmanager.enable = lib.mkForce false;
     networkmanager.dns = "none";
-
   };
   systemd.network = {
     enable = true;
 
     wait-online = {
-      enable = true;
+      enable = false;
       anyInterface = true;
-      ignoredInterfaces = [ "wlan" "wg*" ];
+      ignoredInterfaces = [
+        "wlan0"
+        "wg0"
+      ];
     };
+    links = {
 
-    links."30-rndis" = {
-      matchConfig.Driver = "rndis_host";
-      linkConfig = {
-        NamePolicy = "keep";
-        Name = "rndis";
-        MACAddressPolicy = "persistent";
+      "30-rndis" = {
+        matchConfig.Driver = "rndis_host";
+        linkConfig = {
+          NamePolicy = "keep";
+          Name = "rndis";
+          MACAddressPolicy = "persistent";
+        };
+      };
+      "20-ncm" = {
+        matchConfig.Driver = "cdc_ncm";
+        linkConfig = {
+          NamePolicy = "keep";
+          Name = "ncm";
+          MACAddressPolicy = "persistent";
+        };
+      };
+      "40-wlan" = {
+        matchConfig.Driver = "ath11k_pci";
+        linkConfig.Name = "wlan0";
       };
     };
-    links."40-wlan" = {
-      matchConfig.Driver = "ath11k_pci";
-      linkConfig.Name = "wlan0";
-    };
-
-    netdevs = {
-
-      wg0 = {
-        netdevConfig = {
-          Kind = "wireguard";
-          Name = "wg0";
-          MTUBytes = "1300";
-        };
-        wireguardConfig = {
-          PrivateKeyFile = config.age.secrets.wgk.path;
-        };
-        wireguardPeers = [
-          {
-            wireguardPeerConfig = {
-              PublicKey = "+fuA9nUmFVKy2Ijfh5xfcnO9tpA/SkIL4ttiWKsxyXI=";
-              AllowedIPs = [ "10.0.1.1/24" ];
-              Endpoint = "127.0.0.1:41820";
-              PersistentKeepalive = 15;
-            };
-          }
-          {
-            wireguardPeerConfig = {
-              PublicKey = "ANd++mjV7kYu/eKOEz17mf65bg8BeJ/ozBmuZxRT3w0=";
-              AllowedIPs = [ "10.0.1.9/32" "10.0.0.0/24" ];
-              Endpoint = "127.0.0.1:41821";
-              PersistentKeepalive = 15;
-            };
-          }
-        ];
-      };
-    };
-
 
     networks = {
-      "10-wg0" = {
-        matchConfig.Name = "wg0";
-        address = [
-          "10.0.1.3/24"
-        ];
-        DHCP = "no";
-      };
 
       "20-wireless" = {
         matchConfig.Name = "wlan0";
-        DHCP = "yes";
-        dhcpV4Config.RouteMetric = 2040;
-        dhcpV6Config.RouteMetric = 2046;
         networkConfig = {
-          DNSSEC = true;
-          MulticastDNS = true;
-          DNSOverTLS = true;
+          DHCP = "yes";
+          IPv4Forwarding = true;
+          IPv6Forwarding = true;
+          IPv6AcceptRA = true;
         };
-        # # REALLY IMPORTANT
+        ipv6AcceptRAConfig = {
+          UseDNS = false;
+        };
         dhcpV4Config.UseDNS = false;
         dhcpV6Config.UseDNS = false;
+        dhcpV4Config.RouteMetric = 2040;
+        dhcpV6Config.RouteMetric = 2046;
       };
 
       "30-rndis" = {
@@ -120,7 +122,17 @@
           DNSSEC = true;
         };
       };
-
+      "25-ncm" = {
+        matchConfig.Name = "ncm";
+        DHCP = "yes";
+        dhcpV4Config.RouteMetric = 2044;
+        dhcpV6Config.RouteMetric = 2044;
+        dhcpV4Config.UseDNS = false;
+        dhcpV6Config.UseDNS = false;
+        networkConfig = {
+          DNSSEC = true;
+        };
+      };
     };
   };
 }

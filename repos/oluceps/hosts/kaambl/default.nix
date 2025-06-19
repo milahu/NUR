@@ -1,33 +1,66 @@
-{ lib, user, inputs, ... }: {
-  deployment = {
-    targetHost = "10.0.1.3";
-    targetUser = user;
-    allowLocalDeployment = true;
-  };
-
-  imports =
-    lib.sharedModules ++ [
+{
+  withSystem,
+  self,
+  inputs,
+  ...
+}:
+withSystem "x86_64-linux" (
+  _ctx@{
+    config,
+    inputs',
+    system,
+    ...
+  }:
+  let
+    inherit (self) lib;
+  in
+  lib.nixosSystem {
+    pkgs = import inputs.nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+        allowUnsupportedSystem = true;
+      };
+      overlays = lib.hostOverlays { inherit inputs inputs'; };
+    };
+    specialArgs = {
+      inherit
+        lib
+        self
+        inputs
+        inputs'
+        ;
+      inherit (config) packages;
+      inherit (lib) data;
+      user = "elen";
+    };
+    modules = lib.sharedModules ++ [
+      ../home.nix
       ./hardware.nix
       ./network.nix
       ./rekey.nix
       ./spec.nix
       ../persist.nix
       ../secureboot.nix
-      inputs.home-manager.nixosModules.default
-      ../../home
+      ../distributed-build.nix
+      ./backup.nix
+      # inputs.home-manager.nixosModules.default
+      # ../../home
       ../sysctl.nix
-      ../../age.nix
+      (lib.iage "trust")
       ../../packages.nix
       ../../misc.nix
       ../../users.nix
-      ../../sysvars.nix
-      inputs.niri.nixosModules.niri
+      ../sysvars.nix
       ../graphBase.nix
+      ../dev.nix
 
-      inputs.aagl.nixosModules.default
+      ./caddy.nix
+      ../pam.nix
+      ../virt.nix
+
+      # inputs.aagl.nixosModules.default
       inputs.disko.nixosModules.default
-      inputs.tg-online-keeper.nixosModules.default
-      # inputs.factorio-manager.nixosModules.default
-
     ];
-}
+  }
+)

@@ -1,8 +1,20 @@
-{ inputs, pkgs, config, lib, ... }:
 {
-  # server.
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
+  system = {
+    # server.
 
-  system.stateVersion = "22.11";
+    stateVersion = "22.11";
+    etc.overlay.enable = true;
+    etc.overlay.mutable = false;
+  };
+
+  users.mutableUsers = false;
+  services.userborn.enable = true;
 
   nix.gc = {
     automatic = true;
@@ -14,85 +26,105 @@
     supportedFilesystems = [ "tcp_bbr" ];
     inherit ((import ../sysctl.nix { inherit lib; }).boot) kernel;
   };
-
-  environment.systemPackages = with pkgs;[
-    factorio-headless
-  ];
-
-  systemd.services.trojan-server.serviceConfig.LoadCredential = (map (lib.genCredPath config)) [
-    "nyaw.cert"
-    "nyaw.key"
-  ];
-
-  services =
-    (
-      let importService = n: import ../../services/${n}.nix { inherit pkgs config inputs; }; in lib.genAttrs [
-        "openssh"
-        "fail2ban"
-        "rustypaste"
-      ]
-        (n: importService n)
-    ) // {
-
-      metrics.enable = true;
-      trojan-server.enable = true;
-      do-agent.enable = true;
-      copilot-gpt4.enable = true;
-      factorio-manager = {
-        enable = true;
-        factorioPackage = pkgs.factorio-headless-experimental;
-        botConfigPath = config.age.secrets.factorio-manager-bot.path;
-        initialGameStartArgs = [
-          "--server-settings=${config.age.secrets.factorio-server.path}"
-          "--server-adminlist=${config.age.secrets.factorio-admin.path}"
-        ];
-      };
-
-      ntfy-sh = {
-        enable = true;
-        settings = {
-          listen-http = ":2586";
-          behind-proxy = true;
-          auth-default-access = "read-write";
-          base-url = "http://ntfy.nyaw.xyz";
-        };
-      };
-
-      online-keeper.instances = [
-        {
-          name = "sec";
-          sessionFile = config.age.secrets.tg-session.path;
-          environmentFile = config.age.secrets.tg-env.path;
-        }
-      ];
-
-      juicity.instances = [{
-        name = "only";
-        credentials = [
-          "key:${config.age.secrets."nyaw.key".path}"
-          "cert:${config.age.secrets."nyaw.cert".path}"
-        ];
-        serve = true;
-        openFirewall = 23180;
-        configFile = config.age.secrets.juic-san.path;
-      }];
-
-      hysteria.instances = [
-        {
-          name = "only";
-          serve = {
-            enable = true;
-            port = 4432;
-          };
-          credentials = [
-            "key:${config.age.secrets."nyaw.key".path}"
-            "cert:${config.age.secrets."nyaw.cert".path}"
-          ];
-          configFile = config.age.secrets.hyst-us.path;
-        }
-      ];
-
+  repack = {
+    openssh.enable = true;
+    fail2ban.enable = true;
+    rustypaste.enable = true;
+    sing-server.enable = true;
+    dnsproxy = {
+      enable = true;
     };
+  };
+  services = {
+    # override repack
+    dnsproxy.settings = lib.mkForce {
+      bootstrap = [
+        "1.1.1.1"
+        "8.8.8.8"
+      ];
+      listen-addrs = [ "0.0.0.0" ];
+      listen-ports = [ 53 ];
+      upstream-mode = "parallel";
+      upstream = [
+        "1.1.1.1"
+        "8.8.8.8"
+        "https://dns.google/dns-query"
+      ];
+    };
+    realm = {
+      enable = true;
+      settings = {
+        log.level = "warn";
+        network = {
+          no_tcp = false;
+          use_udp = true;
+        };
+        endpoints = [
+          {
+            listen = "[::]:8776";
+            remote = "10.0.1.2:8776";
+          }
+        ];
+      };
+    };
+    metrics.enable = true;
+    do-agent.enable = true;
+    # copilot-gpt4.enable = true;
+    # factorio-manager = {
+    #   enable = true;
+    #   factorioPackage = pkgs.factorio-headless-experimental.override {
+    #     versionsJson = ./factorio-version.json;
+    #   };
+    #   botConfigPath = config.vaultix.secrets.factorio-manager-bot.path;
+    #   initialGameStartArgs = [
+    #     "--server-settings=${config.vaultix.secrets.factorio-server.path}"
+    #     "--server-adminlist=${config.vaultix.secrets.factorio-admin.path}"
+    #   ];
+    # };
+
+    coturn = {
+      enable = true;
+      # static-auth-secret-file = config.vaultix.secrets.wg.path;
+      no-auth = true;
+      realm = config.networking.fqdn;
+    };
+
+    ntfy-sh = {
+      enable = true;
+      settings = {
+        listen-http = ":2586";
+        behind-proxy = true;
+        auth-default-access = "deny-all";
+        base-url = "http://ntfy.nyaw.xyz";
+      };
+    };
+
+    # juicity.instances = {
+    #   only = {
+    #     enable = true;
+    #     # credentials = [
+    #     #   "key:${config.vaultix.secrets."nyaw.key".path}"
+    #     #   "cert:${config.vaultix.secrets."nyaw.cert".path}"
+    #     # ];
+    #     serve = true;
+    #     openFirewall = 23180;
+    #     configFile = config.vaultix.secrets.juic-san.path;
+    #   };
+    # };
+
+    hysteria.instances = {
+      only = {
+        enable = true;
+        serve = true;
+        openFirewall = 4432;
+        # credentials = [
+        #   "key:${config.vaultix.secrets."nyaw.key".path}"
+        #   "cert:${config.vaultix.secrets."nyaw.cert".path}"
+        # ];
+        configFile = config.vaultix.secrets.hyst-us.path;
+      };
+    };
+  };
 
   programs = {
     git.enable = true;
@@ -119,9 +151,7 @@
       #   https://utcc.utoronto.ca/~cks/space/blog/linux/SystemdShutdownWatchdog
       rebootTime = "30s";
     };
-
   };
 
-  systemd.tmpfiles.rules = [
-  ];
+  systemd.tmpfiles.rules = [ ];
 }

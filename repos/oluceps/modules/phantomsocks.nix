@@ -1,8 +1,19 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
+  inherit (lib)
+    mkOption
+    mkPackageOption
+    types
+    mkEnableOption
+    mkIf
+    ;
+
   cfg = config.services.phantomsocks;
   settingsFormat = pkgs.formats.json { };
   settingsFile = settingsFormat.generate "config.json" cfg.settings;
@@ -11,17 +22,14 @@ in
 
   options = {
     services.phantomsocks = {
-      enable = mkEnableOption (lib.mdDoc "phantomsocks");
+      enable = mkEnableOption "phantomsocks";
 
       settings = mkOption {
         default = { };
-        type = types.submodule {
-          freeformType = settingsFormat.type;
-        };
+        type = types.submodule { freeformType = settingsFormat.type; };
       };
 
-      package = mkPackageOptionMD pkgs "phantomsocks" { };
-
+      package = mkPackageOption pkgs "phantomsocks" { };
     };
   };
 
@@ -52,7 +60,6 @@ in
         Restart = "on-failure";
       };
     };
-
   };
 
   meta.maintainers = with lib.maintainers; [ oluceps ];

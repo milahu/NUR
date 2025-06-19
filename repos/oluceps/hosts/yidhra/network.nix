@@ -1,16 +1,27 @@
-{ config
-, lib
-, ...
-}: {
-  networking.domain = "ap-northeast-1.compute.internal";
+{ config, lib, ... }:
+{
+  imports = [ ./bird.nix ];
+  environment.etc."resolv.conf".text = ''
+    nameserver 127.0.0.1
+  '';
   networking = {
-    resolvconf.useLocalResolver = true;
+    domain = "nyaw.xyz";
     firewall = {
       checkReversePath = false;
       enable = true;
-      trustedInterfaces = [ "virbr0" "wg0" "wg1" ];
-      allowedUDPPorts = [ 80 443 8080 5173 23180 4444 51820 ];
-      allowedTCPPorts = [ 80 443 8080 9900 2222 5173 8448 ];
+      trustedInterfaces = [
+        "virbr0"
+      ];
+      allowedUDPPorts = [
+        80
+        443
+      ];
+      allowedTCPPorts = [
+        80
+        443
+        40119 # stls
+        8776 # forward radicle
+      ];
     };
 
     useNetworkd = true;
@@ -19,10 +30,29 @@
     hostName = "yidhra";
     enableIPv6 = true;
 
-    nftables.enable = true;
+    nftables = {
+      enable = true;
+      # for hysteria port hopping
+      ruleset = ''
+        define INGRESS_INTERFACE="eth0"
+        define PORT_RANGE=20000-50000
+        define HYSTERIA_SERVER_PORT=4432
+
+        table inet hysteria_porthopping {
+          chain prerouting {
+            type nat hook prerouting priority dstnat; policy accept;
+            iifname $INGRESS_INTERFACE udp dport $PORT_RANGE counter redirect to :$HYSTERIA_SERVER_PORT
+          }
+        }
+      '';
+    };
     networkmanager.enable = lib.mkForce false;
     networkmanager.dns = "none";
 
+  };
+
+  services.resolved = {
+    enable = lib.mkForce false;
   };
   systemd.network = {
     enable = true;
@@ -30,87 +60,62 @@
     wait-online = {
       enable = true;
       anyInterface = true;
-      ignoredInterfaces = [ "wg0" "wg1" ];
+      ignoredInterfaces = [
+      ];
     };
 
-    links."10-ens5" = {
-      matchConfig.MACAddress = "06:2f:f4:98:b8:13";
-      linkConfig.Name = "ens5";
+    links."10-eth0" = {
+      matchConfig.MACAddress = "00:16:3e:0c:cd:5d";
+      linkConfig.Name = "eth0";
     };
 
-    netdevs = {
-
-      wg1 = {
-        netdevConfig = {
-          Kind = "wireguard";
-          Name = "wg1";
-          MTUBytes = "1300";
-        };
-        wireguardConfig = {
-          PrivateKeyFile = config.age.secrets.wgy.path;
-          ListenPort = 51820;
-        };
-        wireguardPeers = [
-          {
-            wireguardPeerConfig = {
-              PublicKey = "BCbrvvMIoHATydMkZtF8c+CHlCpKUy1NW+aP0GnYfRM=";
-              AllowedIPs = [ "10.0.1.2/32" ];
-              PersistentKeepalive = 15;
-            };
-          }
-          {
-            wireguardPeerConfig = {
-              PublicKey = "i7Li/BDu5g5+Buy6m6Jnr09Ne7xGI/CcNAbyK9KKbQg=";
-              AllowedIPs = [ "10.0.1.3/32" ];
-              PersistentKeepalive = 15;
-            };
-          }
-
-          {
-            wireguardPeerConfig = {
-              PublicKey = "ANd++mjV7kYu/eKOEz17mf65bg8BeJ/ozBmuZxRT3w0=";
-              AllowedIPs = [
-                "10.0.0.0/24"
-                "10.0.1.0/24"
-              ];
-              Endpoint = "111.229.162.99:51820";
-              PersistentKeepalive = 15;
-            };
-          }
-        ];
-      };
-    };
-
-
+    # netdevs."20-warp" = {
+    #   netdevConfig = {
+    #     Kind = "wireguard";
+    #     Name = "warp";
+    #     MTUBytes = "1280";
+    #   };
+    #   wireguardConfig = {
+    #     PrivateKeyFile = config.vaultix.secrets.wgy-warp.path;
+    #   };
+    #   wireguardPeers = [
+    #     {
+    #       PublicKey = "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=";
+    #       Endpoint = "162.159.192.1:2408";
+    #       AllowedIPs = [ "::/0" ];
+    #     }
+    #   ];
+    # };
     networks = {
-      "10-wg1" = {
-        matchConfig.Name = "wg1";
-        address = [
-          "10.0.1.1/24"
-          "10.0.0.5/24"
-        ];
-        networkConfig = {
-          IPMasquerade = "ipv4";
-          IPForward = true;
-        };
-      };
 
-      "20-wired" = {
-        matchConfig.Name = "ens5";
-        DHCP = "yes";
-        dhcpV4Config.RouteMetric = 2046;
-        dhcpV6Config.RouteMetric = 2046;
+      "20-eth0" = {
+        matchConfig.Name = "eth0";
+
         networkConfig = {
-          # Bond = "bond1";
-          # PrimarySlave = true;
-          DNSSEC = true;
-          MulticastDNS = true;
-          DNSOverTLS = true;
+          DHCP = "yes";
+          IPv4Forwarding = true;
+          IPv6Forwarding = true;
+          IPv6AcceptRA = "yes";
         };
-        # # REALLY IMPORTANT
-        dhcpV4Config.UseDNS = false;
-        dhcpV6Config.UseDNS = false;
       };
+      # "15-wireguard-warp" = {
+      #   matchConfig.Name = "warp";
+      #   address = [
+      #     # "2606:4700:110:80ef:47c4:b370:7dbd:2a72/128"
+      #     "2606:4700:110:88f7:7b28:e45:e5d1:9f7b/128"
+      #   ];
+      #   networkConfig = {
+      #     IPMasquerade = "ipv6";
+      #     IPv4Forwarding = true;
+      #   };
+
+      #   routes = [
+      #     {
+      #       Destination = "::/0";
+      #       Gateway = "fe80::1";
+      #     }
+      #   ];
+      # };
     };
   };
 }

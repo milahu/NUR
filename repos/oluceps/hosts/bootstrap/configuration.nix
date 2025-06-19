@@ -1,17 +1,25 @@
-{ lib
-, data
-, modulesPath
-, ...
-}: {
-  imports = [
-    (modulesPath + "/profiles/qemu-guest.nix")
-  ];
+{
+  lib,
+  pkgs,
+  data,
+  modulesPath,
+  ...
+}:
+{
+  imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
 
-  time.timeZone = "America/Los_Angeles";
-  networking.nameservers = [
-    "8.8.8.8"
-  ];
+  time.timeZone = "Asia/Hong_Kong";
+  networking = {
+    nameservers = [ "8.8.8.8" ];
+    usePredictableInterfaceNames = false;
 
+    firewall.enable = false;
+
+    useNetworkd = true;
+
+    hostName = "bootstrap";
+  };
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   users.mutableUsers = false;
   users.users.root = {
@@ -23,7 +31,7 @@
   };
 
   systemd.network.enable = true;
-  services.resolved.enable = false;
+  services.resolved.enable = true;
 
   systemd.network.networks.eth0 = {
     matchConfig.Name = "eth0";
@@ -39,43 +47,5 @@
     };
   };
 
-  networking.firewall.enable = false;
-
-  networking.useDHCP = false;
-
-  networking.hostName = "bootstrap";
-
-  system.stateVersion = "23.05";
-
-  boot = {
-    kernelParams = [
-      "audit=0"
-      "net.ifnames=0"
-
-      "console=ttyS0"
-      "earlyprintk=ttyS0"
-      "rootdelay=300"
-    ];
-    loader = {
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/efi";
-      };
-      systemd-boot.enable = true;
-      timeout = 3;
-    };
-    initrd = {
-      compressor = "zstd";
-      compressorArgs = [ "-19" "-T0" ];
-      systemd.enable = true;
-
-      kernelModules = [
-        "hv_vmbus" # for hyper-V
-        "hv_netvsc"
-        "hv_utils"
-        "hv_storvsc"
-      ];
-
-    };
-  };
+  system.stateVersion = "24.05";
 }
