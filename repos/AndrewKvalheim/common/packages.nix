@@ -14,7 +14,7 @@ specify {
   ansible-vault-pass-client = any;
   apex = any;
   attachments = any;
-  biome = { version = "≥2.0.0"; search = pr 392843 "sha256-gY8fJQ7bIqPw0H4ZwMRBkoBd7ZxDhCwlNM0UIKUUAfo="; };
+  biome.version = "≥2.0.0";
   blocky-ui = any;
   buildJosmPlugin = any;
   cavif = any;

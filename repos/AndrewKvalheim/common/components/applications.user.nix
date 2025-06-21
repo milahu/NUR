@@ -146,6 +146,7 @@ in
       off
       kdePackages.okular
       pdfarranger
+      popsicle
       pngquant
       pngtools
       poppler_utils # pdfinfo
