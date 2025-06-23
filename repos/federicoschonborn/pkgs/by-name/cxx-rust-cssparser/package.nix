@@ -8,6 +8,7 @@
   rustc,
   kdePackages,
   rustPlatform,
+  nix-update-script,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -49,6 +50,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   dontWrapQtApps = true;
 
+  passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
+
   meta = {
     mainProgram = "cxx-rust-cssparser";
     description = "Library for parsing CSS using the Rust cssparser crate";
@@ -59,7 +62,7 @@ stdenv.mkDerivation (finalAttrs: {
       lgpl21Only
       lgpl3Only
     ];
-    inherit (rustc.meta) platforms;
+    platforms = lib.platforms.linux;
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
 })
