@@ -474,6 +474,11 @@
     "pname": "python3.13-data-recorder",
     "version": "3.6.2"
   },
+  "legacyPackages.x86_64-linux.dbip-lite": {
+    "description": "DBIP's Lite GeoIP Country, City, and ASN databases",
+    "pname": "dbip-lite",
+    "version": "2025-06"
+  },
   "legacyPackages.x86_64-linux.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed",
     "pname": "decluttarr",
@@ -637,7 +642,12 @@
   "legacyPackages.x86_64-linux.funasr": {
     "description": "Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models",
     "pname": "python3.13-funasr",
-    "version": "0-unstable-2025-06-16"
+    "version": "0-unstable-2025-06-21"
+  },
+  "legacyPackages.x86_64-linux.geolite2": {
+    "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
+    "pname": "geolite2",
+    "version": "2025.06.22"
   },
   "legacyPackages.x86_64-linux.glauth": {
     "description": "(DEPRECATED: glauth is available in nixpkgs by a different maintainer) Lightweight LDAP server for development, home use, or CI",
@@ -837,7 +847,7 @@
   "legacyPackages.x86_64-linux.lantianCustomized.llama-cpp": {
     "description": "Inference of Meta's LLaMA model (and others) in pure C/C++",
     "pname": "llama-cpp",
-    "version": "5731"
+    "version": "5734"
   },
   "legacyPackages.x86_64-linux.lantianCustomized.ls-iommu": {
     "description": "List IOMMUs on system",
@@ -3902,7 +3912,7 @@
   "legacyPackages.x86_64-linux.python3Packages.funasr": {
     "description": "Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models",
     "pname": "python3.13-funasr",
-    "version": "0-unstable-2025-06-16"
+    "version": "0-unstable-2025-06-21"
   },
   "legacyPackages.x86_64-linux.python3Packages.kaldiio": {
     "description": "Pure python module for reading and writing kaldi ark files",
@@ -4134,6 +4144,11 @@
     "pname": "sgx-software-enable",
     "version": "1.0-unstable-2023-01-06"
   },
+  "legacyPackages.x86_64-linux.sidestore-vpn": {
+    "description": "Allow SideStore to work across all iOS devices on your local network",
+    "pname": "sidestore-vpn",
+    "version": "0-unstable-2025-06-21"
+  },
   "legacyPackages.x86_64-linux.silero-vad": {
     "description": "Pre-trained enterprise-grade Voice Activity Detector",
     "pname": "python3.13-silero-vad",
@@ -4324,6 +4339,11 @@
     "pname": "cockpy",
     "version": "0-unstable-2024-09-07"
   },
+  "legacyPackages.x86_64-linux.uncategorized.dbip-lite": {
+    "description": "DBIP's Lite GeoIP Country, City, and ASN databases",
+    "pname": "dbip-lite",
+    "version": "2025-06"
+  },
   "legacyPackages.x86_64-linux.uncategorized.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed",
     "pname": "decluttarr",
@@ -4413,6 +4433,11 @@
     "description": "FTP Proxy Server",
     "pname": "ftp-proxy",
     "version": "1.2.3"
+  },
+  "legacyPackages.x86_64-linux.uncategorized.geolite2": {
+    "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
+    "pname": "geolite2",
+    "version": "2025.06.22"
   },
   "legacyPackages.x86_64-linux.uncategorized.google-earth-pro": {
     "description": "World sphere viewer",
@@ -4799,6 +4824,11 @@
     "pname": "sgx-software-enable",
     "version": "1.0-unstable-2023-01-06"
   },
+  "legacyPackages.x86_64-linux.uncategorized.sidestore-vpn": {
+    "description": "Allow SideStore to work across all iOS devices on your local network",
+    "pname": "sidestore-vpn",
+    "version": "0-unstable-2025-06-21"
+  },
   "legacyPackages.x86_64-linux.uncategorized.smfc": {
     "description": "Super Micro Fan Control",
     "pname": "smfc",
@@ -5164,6 +5194,11 @@
     "pname": "python3.13-data-recorder",
     "version": "3.6.2"
   },
+  "packages.x86_64-linux.dbip-lite": {
+    "description": "DBIP's Lite GeoIP Country, City, and ASN databases",
+    "pname": "dbip-lite",
+    "version": "2025-06"
+  },
   "packages.x86_64-linux.decluttarr": {
     "description": "Watches radarr, sonarr, lidarr and readarr download queues and removes downloads if they become stalled or no longer needed",
     "pname": "decluttarr",
@@ -5287,7 +5322,12 @@
   "packages.x86_64-linux.funasr": {
     "description": "Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models",
     "pname": "python3.13-funasr",
-    "version": "0-unstable-2025-06-16"
+    "version": "0-unstable-2025-06-21"
+  },
+  "packages.x86_64-linux.geolite2": {
+    "description": "MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases",
+    "pname": "geolite2",
+    "version": "2025.06.22"
   },
   "packages.x86_64-linux.glauth": {
     "description": "(DEPRECATED: glauth is available in nixpkgs by a different maintainer) Lightweight LDAP server for development, home use, or CI",
@@ -5858,6 +5898,11 @@
     "description": "This application will enable Intel SGX on Linux systems where the BIOS supports Intel SGX, but does not provide an explicit option to enable it. These systems can only enable Intel SGX via the \"software enable\" procedure",
     "pname": "sgx-software-enable",
     "version": "1.0-unstable-2023-01-06"
+  },
+  "packages.x86_64-linux.sidestore-vpn": {
+    "description": "Allow SideStore to work across all iOS devices on your local network",
+    "pname": "sidestore-vpn",
+    "version": "0-unstable-2025-06-21"
   },
   "packages.x86_64-linux.silero-vad": {
     "description": "Pre-trained enterprise-grade Voice Activity Detector",
