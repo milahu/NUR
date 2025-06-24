@@ -1,16 +1,16 @@
 {
 "name":"fym998",
-"fetch_time":0.44,
-"eval_time":0.235,
+"fetch_time":0.488,
+"eval_time":0.255,
 "source":{
 "url":"https://github.com/fym998/nur-packages",
-"rev":"604a576567ac7d7beb729a146138996c68e48c46",
-"sha256":"131h1gn6r8nka59fhnzs6ajr6rp3aax1ls5pgahn5b450swzmsfj",
+"rev":"9333e39350637cc1ecf3565064b3a81332a46ceb",
+"sha256":"1qj0vkm4x74s8mdj1sci0fbq2qwi783rvlxrmzcz9shw6xjfhps2",
 "date":null
 },
-"source_storepath":"/nix/store/274x9dxji8rryziyzgx45gxi2iprmwqr-source",
-"nixpkgs_storepath":"/nix/store/3vj627mwpkcyr1md6zg5c5500nrsgdis-source",
-"nur_combined_rev":"1b4b96a8e434e59a261c8748d24f38f02c69aca7",
+"source_storepath":"/nix/store/cpp68sm4hq37lbq9b1h45zir082nnaxd-source",
+"nixpkgs_storepath":"/nix/store/6qk7ipx89ni4g976zsi2jkkcd3vyh59i-source",
+"nur_combined_rev":"1914b642f710fc4197126289e271f694ab616561",
 "packages":{
 "bitsrun-rs":{
 "meta":{
@@ -123,7 +123,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3vj627mwpkcyr1md6zg5c5500nrsgdis-source/pkgs/by-name/fp/fprintd/package.nix",
+"file":"/nix/store/6qk7ipx89ni4g976zsi2jkkcd3vyh59i-source/pkgs/by-name/fp/fprintd/package.nix",
 "line":120
 },
 "name":"fprintd-fpcmoh-1.94.4",
@@ -169,9 +169,9 @@
 },
 "hmcl-multi-jdk":{
 "meta":{
-"available":true,
-"broken":false,
-"description":"Minecraft Launcher which is multi-functional, cross-platform and popular",
+"available":false,
+"broken":true,
+"description":"HMCL with multiple JDK support (deprecated)",
 "homepage":"https://hmcl.huangyuhui.net",
 "insecure":false,
 "license":{
@@ -194,10 +194,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3vj627mwpkcyr1md6zg5c5500nrsgdis-source/pkgs/by-name/hm/hmcl/package.nix",
+"file":"/nix/store/6qk7ipx89ni4g976zsi2jkkcd3vyh59i-source/pkgs/by-name/hm/hmcl/package.nix",
 "line":122
 },
-"name":"hmcl-3.6.12",
+"name":"hmcl-multi-jdk-3.6.12",
 "outputsToInstall":[
 "out"
 ],
@@ -212,7 +212,7 @@
 "aarch64-darwin",
 "x86_64-darwin"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/hm/hmcl/package.nix:118",
+"position":"./pkgs/hmcl-multi-jdk/default.nix:8",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -222,12 +222,12 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"hmcl-3.6.12",
+"name":"hmcl-multi-jdk-3.6.12",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"hmcl",
+"pname":"hmcl-multi-jdk",
 "system":"x86_64-linux",
 "version":"3.6.12"
 },
@@ -255,7 +255,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3vj627mwpkcyr1md6zg5c5500nrsgdis-source/pkgs/by-name/li/libfprint/package.nix",
+"file":"/nix/store/6qk7ipx89ni4g976zsi2jkkcd3vyh59i-source/pkgs/by-name/li/libfprint/package.nix",
 "line":97
 },
 "name":"libfprint-fpcmoh-1.94.6",
@@ -329,7 +329,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3vj627mwpkcyr1md6zg5c5500nrsgdis-source/pkgs/by-name/wp/wpsoffice-cn/package.nix",
+"file":"/nix/store/6qk7ipx89ni4g976zsi2jkkcd3vyh59i-source/pkgs/by-name/wp/wpsoffice-cn/package.nix",
 "line":173
 },
 "name":"wpsoffice-cn-fcitx-12.1.0.17900",
