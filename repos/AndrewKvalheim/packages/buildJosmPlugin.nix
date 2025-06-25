@@ -33,7 +33,8 @@ extendMkDerivation {
       hash = {
         "19369" = "sha256-tFGq0YD/vmkRb26tXIlkKzAWaMf6GrwEGm7l81uGkHw=";
         "19396" = "sha256-tFGq0YD/vmkRb26tXIlkKzAWaMf6GrwEGm7l81uGkHw=";
-      }."${josm.version}";
+        "19412" = "sha256-tFGq0YD/vmkRb26tXIlkKzAWaMf6GrwEGm7l81uGkHw=";
+      }."${josm.version}" or lib.fakeHash;
     };
 
     unpackPhase = ''
