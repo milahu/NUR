@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (builtins) readFile;
+  inherit (builtins) readFile toFile;
   inherit (lib) concatLines concatStringsSep escapeShellArg genAttrs getExe getExe' mapAttrsToList mkMerge mkOrder;
   inherit (pkgs) replaceVars;
   inherit ((import ../../nur.nix { inherit pkgs; }).lib) sgr;
@@ -106,6 +106,7 @@ in
         pdfimages = (getExe' poppler_utils "pdfimages");
         zsh-abbr = "${zsh-abbr}/share/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh";
         zsh-click = "${zsh-click}/share/zsh/plugins/click/click.plugin.zsh";
+        zsh-complete-git-commit-message = toFile "zsh-complete-git-commit-message" (readFile ../resources/complete-git-commit-message.zsh);
         zsh-completion-sync = "${zsh-completion-sync}/share/zsh/plugins/zsh-completion-sync/zsh-completion-sync.plugin.zsh";
         zsh-powerlevel10k = "${zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
         zsh-prezto-terminal = "${zsh-prezto}/share/zsh-prezto/modules/terminal/init.zsh";

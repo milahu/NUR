@@ -5,25 +5,25 @@
 )
 
 (defsrc
-  zeh  1    2    3    4    5    6    7    8    9    0    -    =    yen  bks
-   tab  q    w    e    r    t    y    u    i    o    p    [    ]
-    caps a    s    d    f    g    h    j    k    l    ;    '    \    ret
-     lsft z    x    c    v    b    n    m    ,    .    /    ro   rsft
-     lctl lmet lalt muh       spc  hen  kah  ralt ssrq rctl
+  ssrq 1    2    3    4    5    6    7    8    9    0    -    =    yen  bks
+   g    q    w    e    r    t    y    u    i    o    p    [    ]
+    caps a    s    d    f    ret  h    j    k    l    ;    '    \
+     m    z    x    c    v    b    n    spc  ,    .    /    ro
+     lmet      lctl tab       lsft rsft ralt lalt rmet rctl
 )
 
 (deflayer main
   ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░
-   g    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░
-    ░    ░    ░    ░    ░    ret  ░    ░    ░    ░    ░    ░    ░    ░
-     m    ░    ░    ░    ░    ░    ░    spc  ░    ░    ░    ░    ░
-     lmet lalt lctl @tfn      lsft rsft @coa lalt lmet ░
+   ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░
+    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░
+     ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░
+     ░         ░    @tfn      ░    ░    @coa ░    ░    ░
 )
 
 (deflayer fn
   ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░    ░
    ░    esc  pgup up   pgdn ░    ░    ░    ░    ░    ░    ░    ░
-    ░    home left down rght end  ░    ░    ░    ░    rctl ░    ░    ░
-     C-m  ░    ░    C-c  C-b  ░    ░    ░    ░    ░    ░    ░    ░
-     ░    ░    ░    ░         ░    ░    ░    @s-a ░    ░
+    ░    home left down rght end  ░    ░    ░    ░    rctl ░    ░
+     C-m  ░    ░    C-c  C-b  ░    ░    ░    ░    ░    ░    ░
+     ░         ░    ░         ░    ░    ░    @s-a ░    ░
 )

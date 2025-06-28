@@ -21,7 +21,6 @@ in
   };
 
   # Hardware
-  services.kmonad.keyboards.default.device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
   systemd.services.configure-sound-leds = rec {
     wantedBy = [ "sound.target" ];
     after = wantedBy;
@@ -31,6 +30,38 @@ in
       echo off > /sys/class/sound/ctl-led/speaker/mode # follow-route pending https://discourse.nixos.org/t/20480
     '';
   };
+
+  # Keyboard
+  services.udev.extraHwdb = ''
+    # From:
+    #   角 ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░
+    #    ↹  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░
+    #     ░  ░  ░  ░  ░  g  ░  ░  ░  ░  ░  ░  ░  ░
+    #      ⇧  ░  ░  ░  ░  ░  ░  m  ░  ░  ░  ░  ░
+    #      ⎈  ❖  ⎇  無    ␣  換 仮 ⇮  ⎙  ░
+    # To:
+    #   ⎙  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░
+    #    g  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░
+    #     ░  ░  ░  ░  ░  ↵  ░  ░  ░  ░  ░  ░  ░  ░
+    #      m  ░  ░  ░  ░  ░  ░  ␣  ░  ░  ░  ░  ░
+    #      ❖  ⎇  ⎈  ↹     ⇧  ⇧  ⇮  ⎇  ❖  ░
+    evdev:name:AT Translated Set 2 keyboard:*
+      KEYBOARD_KEY_29=sysrq
+      KEYBOARD_KEY_0f=g
+      KEYBOARD_KEY_22=enter
+      KEYBOARD_KEY_2a=m
+      KEYBOARD_KEY_32=space
+      KEYBOARD_KEY_1d=leftmeta
+      KEYBOARD_KEY_db=leftalt
+      KEYBOARD_KEY_38=leftctrl
+      KEYBOARD_KEY_7b=tab
+      KEYBOARD_KEY_39=leftshift
+      KEYBOARD_KEY_79=rightshift
+      KEYBOARD_KEY_70=rightalt
+      KEYBOARD_KEY_b8=leftalt
+      KEYBOARD_KEY_b7=rightmeta
+  '';
+  services.kmonad.keyboards.default.device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
 
   # Nix
   system.stateVersion = "22.05"; # Permanent

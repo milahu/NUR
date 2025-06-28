@@ -38,6 +38,7 @@ zstyle ':completion:*:warnings' format '%B%F{8}# No matches%f'
 zstyle ':completion:*:*:extract-pdf-images:*' file-patterns '*.pdf:all-files *(-/):directories'
 compdef '_values passwords $(gopass ls --flat)' gopass-env
 compdef '_values passwords $(gopass ls --flat)' gopass-ydotool
+source @zsh-complete-git-commit-message@
 
 # Abbreviations(TODO: Troubleshoot Home Manager module, contribute solution)
 source @zsh-abbr@
