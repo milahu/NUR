@@ -1,15 +1,12 @@
 { lib, config, ... }:
 {
   imports = [ ./bird.nix ];
-  services.resolved = {
-    enable = lib.mkForce false;
-    llmnr = "false";
-    dnssec = "false";
-    extraConfig = ''
-      MulticastDNS=off
-    '';
-    fallbackDns = [ "8.8.8.8#dns.google" ];
-    # dnsovertls = "true";
+  services = {
+    resolved = {
+      llmnr = "true";
+      dnssec = "false";
+      fallbackDns = [ "8.8.8.8#dns.google" ];
+    };
   };
   networking = {
     timeServers = [
@@ -19,7 +16,7 @@
       "cn.ntp.org.cn"
     ];
     usePredictableInterfaceNames = false;
-    resolvconf.useLocalResolver = true;
+    # resolvconf.useLocalResolver = true;
     nameservers = [
       "223.5.5.5#dns.alidns.com"
       "120.53.53.53#dot.pub"
@@ -46,6 +43,7 @@
       ];
       allowedUDPPorts = [
         8080
+        5353
       ];
       allowedTCPPorts = [
         8080
@@ -97,13 +95,15 @@
         IPv4Forwarding = true;
         IPv6Forwarding = true;
         IPv6AcceptRA = "yes";
+        MulticastDNS = true;
       };
       ipv6AcceptRAConfig = {
-        UseDNS = false;
+        DHCPv6Client = false;
+        # UseDNS = false;
       };
 
-      dhcpV4Config.UseDNS = false;
-      dhcpV6Config.UseDNS = false;
+      # dhcpV4Config.UseDNS = false;
+      # dhcpV6Config.UseDNS = false;
 
       linkConfig.RequiredForOnline = "routable";
       address = [ "192.168.1.2/24" ];

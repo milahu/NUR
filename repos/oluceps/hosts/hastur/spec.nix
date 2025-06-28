@@ -54,8 +54,10 @@
     # Running database and web services.
 
     stateVersion = "24.11";
-    etc.overlay.enable = true;
-    etc.overlay.mutable = false;
+    etc.overlay = {
+      enable = true;
+      mutable = false;
+    };
   }; # Did you read the comment?
   users.mutableUsers = false;
   services = {
@@ -154,10 +156,10 @@
 
   };
   # system.forbiddenDependenciesRegexes = [ "perl" ];
-  environment.etc."resolv.conf".text = ''
-    nameserver 127.0.0.1
-    search nyaw.xyz
-  '';
+  # environment.etc."resolv.conf".text = ''
+  #   nameserver 127.0.0.1
+  #   search nyaw.xyz
+  # '';
 
   zramSwap = {
     enable = false;
@@ -199,7 +201,7 @@
     prometheus.enable = true;
     # coredns.enable = true;
     dnsproxy = {
-      enable = true;
+      enable = false;
       extraFlags = [
         "--edns-addr=211.139.163.1"
       ];
