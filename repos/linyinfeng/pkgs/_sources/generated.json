@@ -23,7 +23,7 @@
     "baibot": {
         "cargoLocks": {
             "Cargo.lock": [
-                "./baibot-v1.7.4/Cargo.lock",
+                "./baibot-v1.7.5/Cargo.lock",
                 {
                     "anthropic-0.0.8": "sha256-q21o2GB8nN0jGcRPgW/cujC+3gdgQg5mFJUJy2tipCA=",
                     "async-openai-0.28.1": "sha256-5xrO2k5jA94cf3Ub0DGuAvKqDDXVk1Ro/naC5FG1AAw="
@@ -42,12 +42,12 @@
             "name": null,
             "owner": "etkecc",
             "repo": "baibot",
-            "rev": "v1.7.4",
-            "sha256": "sha256-G100YemvIiBkbYd8VSTzvh5AOnt2kjsjVKI4N1kFkwY=",
+            "rev": "v1.7.5",
+            "sha256": "sha256-6ZJI1tQV03jrxd1V27opx7uH5Yzynd+/jtPXeYXmTqY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v1.7.4"
+        "version": "v1.7.5"
     },
     "cowrie": {
         "cargoLocks": null,
@@ -150,6 +150,26 @@
             "url": "https://github.com/icalingua-plus-plus/icalingua-plus-plus/releases/download/v2.12.28/app-x86_64.asar"
         },
         "version": "v2.12.28"
+    },
+    "libva-v4l2": {
+        "cargoLocks": null,
+        "date": "2024-10-21",
+        "extract": null,
+        "name": "libva-v4l2",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": true,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "4bcd48cdeae182c7af5d23526068b51338c01b05",
+            "sha256": "sha256-40wAxU7xj9VF4Dk+zrQWn9iiGAzWlhEdN9dQa5ftLLE=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/mxsrc/libva-v4l2.git"
+        },
+        "version": "4bcd48cdeae182c7af5d23526068b51338c01b05"
     },
     "linux-intel-lts": {
         "cargoLocks": null,
