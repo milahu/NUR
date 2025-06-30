@@ -1,5 +1,5 @@
 error:
-… while querying the derivation named 'mergiraf-0.4.0'
+… while querying the derivation named 'iosevka-nerd-2.1.0'
 
 … in the left operand of the AND (&&) operator
 
@@ -82,11 +82,11 @@ error:
       |               ^
    292|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
 
-error: attribute 'rust-bin' missing
+error: attribute 'lib' missing
 
-at ./default.nix:43:48:
+at ./pkgs/iosevka-nerd-font/default.nix:15:15:
 
-    42|   noir = pkgs.callPackage ./pkgs/noir { inherit (pkgs) rust-bin; protobuf_29 = pkgs-protobuf293.protobuf_29; };
-    43|   mergiraf = pkgs.callPackage ./pkgs/mergiraf { inherit (pkgs) rust-bin; };
-      |                                                ^
-    44|
+    14|
+    15|   meta = with stdenv.lib; {
+      |               ^
+    16|     homepage = "https://github.com/ryanoasis/nerd-fonts";
