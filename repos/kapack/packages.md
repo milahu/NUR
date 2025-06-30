@@ -1,14 +1,17 @@
 |attr|package|description|
 |:-----|:------|:------|
-|alumet|alumet-0.8.3|ALUMET: Unified and Modular Measurement Framework|
+|alumet|alumet-0.8.4|ALUMET: Unified and Modular Measurement Framework|
 |batsky|batsky-0.1.0||
 |cgvg|cgvg-1.6.3|Commandline tools for searching and browsing sourcecode|
 |cigri|cigri-3.2.2|CiGri: a Lightweight Grid Middleware|
 |colmet|colmet-0.6.10.dev0|Collecting metrics about process running in cpuset and in a distributed environnement|
 |colmet-collector|colmet-collector-0.0.1|Metrics collector for Rust version of Colmet (colmet-rs)|
 |dispath|dispath-0.1.0|Display PATH-like environment variables, one entry per line.|
+|distem|python3.13-distem-0.0.5||
+|enoslib|python3.13-enoslib-10.1.0||
+|enoslib-ansible|python3.13-enoslib-ansible-10.1.0.0||
 |evalys|python3.13-evalys-4.0.7|Infrastructure Performance Evaluation Toolkit Edit|
-|execo|python3.13-execo-2.6.8|Execo|
+|execo|python3.13-execo-2.8.2|Execo|
 |flower|python3.13-flower-1.16.0|A Friendly Federated Learning Framework.|
 |gocov|gocov-1.0.0|Coverage testing tool for The Go Programming Language.|
 |intervalset|intervalset-1.2.0|C++ library to manage sets of integral closed intervals|
@@ -20,6 +23,7 @@
 |mlxp|python3.13-mlxp-1.0.0|Machine Learning eXperimentalist for Python.|
 |mosquitto-dcdb|mosquitto-1.5.5|An open source MQTT v3.1/3.1.1 broker|
 |npb|NPB-3.4.2|The NAS Parallel Benchmarks (NPB) are a small set of programs designed to help evaluate the performance of parallel supercomputers. The benchmarks are derived from computational fluid dynamics (CFD) applications and consist of five kernels and three pseudo-applications in the original "pencil-and-paper" specification (NPB 1). The benchmark suite has been extended to include new benchmarks for unstructured adaptive mesh, parallel I/O, multi-zone applications, and computational grids.  Problem sizes in NPB are predefined and indicated as different classes. Reference implementations of NPB are available in commonly-used programming models like MPI and OpenMP (NPB 2 and NPB 3) |
+|nxc|python3.13-nxc-24.11|NixOS Compose|
 |oar|python3.13-oar-3.0.0|OAR: a Versatile Resource and Job Manager|
 |oar-plugins|python3.13-oar3-plugins-0.0.0a|Official plugin repository for oar|
 |oar-with-plugins|python3.13-oar-3.0.0|OAR: a Versatile Resource and Job Manager|
@@ -43,5 +47,5 @@
 |simgrid-400light|simgrid-4.0|Framework for the simulation of distributed applications|
 |simgrid-light|simgrid-4.0|Framework for the simulation of distributed applications|
 |slurm-multiple-slurmd|slurm-25.05.0.1||
-|starpu|starpu-1.4.0|Run-time system for heterogeneous computing|
+|starpu|starpu-1.4.8|Run-time system for heterogeneous computing|
 |wait-for-it|wait-for-it-0.0.1||
