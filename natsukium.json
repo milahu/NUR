@@ -1,16 +1,16 @@
 {
 "name":"natsukium",
-"fetch_time":0.933,
-"eval_time":0.309,
+"fetch_time":0.637,
+"eval_time":0.276,
 "source":{
 "url":"https://github.com/natsukium/nur-packages",
-"rev":"47831d61988041306f79d5b9bddb9b2a887e83c4",
-"sha256":"1gkia2vhs2wp69nff30qaj9gy1yira4jz5b5hc54p55i88sqknmw",
+"rev":"7cf289318c527443ec5aff0b6f00dd80b6a528ab",
+"sha256":"0f38r4ja98y4wqbi5qnqk6r8j9m35c78mv878pwqa7kqzfq88lm5",
 "date":null
 },
-"source_storepath":"/nix/store/ibzfqf8ps71zib2ajz9b8l85x9i8g0fi-source",
-"nixpkgs_storepath":"/nix/store/0p3jjdn5wqnx2lsfwl7ygvg19vc2vks7-source",
-"nur_combined_rev":"97c33ef5bc034f992ec8547c0b6ba4aaa6e96561",
+"source_storepath":"/nix/store/r49ywhqr2l0g97gp6pj9iy87d9vb7klv-source",
+"nixpkgs_storepath":"/nix/store/c0g2r1lcpfp09ily514kvw7dwnblyjcm-source",
+"nur_combined_rev":"6a6716853e7d1d77818a22fa4104024e543e4255",
 "packages":{
 "copyq":{
 "meta":{
@@ -40,7 +40,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0p3jjdn5wqnx2lsfwl7ygvg19vc2vks7-source/pkgs/applications/misc/copyq/default.nix",
+"file":"/nix/store/c0g2r1lcpfp09ily514kvw7dwnblyjcm-source/pkgs/applications/misc/copyq/default.nix",
 "line":71
 },
 "name":"CopyQ-10.0.0",
@@ -122,6 +122,11 @@
 "email":"johnw@newartisans.com",
 "github":"jwiegley",
 "githubId":8460,
+"keys":[
+{
+"fingerprint":"4710 CF98 AF9B 327B B80F  60E1 46C4 BD1A 7AC1 4BA2"
+}
+],
 "name":"John Wiegley"
 },
 {
@@ -151,7 +156,7 @@
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/0p3jjdn5wqnx2lsfwl7ygvg19vc2vks7-source/pkgs/applications/editors/emacs/sources.nix",
+"file":"/nix/store/c0g2r1lcpfp09ily514kvw7dwnblyjcm-source/pkgs/applications/editors/emacs/sources.nix",
 "line":82
 },
 "name":"emacs-plus-30.1",
@@ -562,7 +567,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0p3jjdn5wqnx2lsfwl7ygvg19vc2vks7-source/pkgs/by-name/ni/nixpkgs-review/package.nix",
+"file":"/nix/store/c0g2r1lcpfp09ily514kvw7dwnblyjcm-source/pkgs/by-name/ni/nixpkgs-review/package.nix",
 "line":84
 },
 "name":"nixpkgs-review-3.4.0",
@@ -835,7 +840,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0p3jjdn5wqnx2lsfwl7ygvg19vc2vks7-source/pkgs/by-name/qu/qutebrowser/package.nix",
+"file":"/nix/store/c0g2r1lcpfp09ily514kvw7dwnblyjcm-source/pkgs/by-name/qu/qutebrowser/package.nix",
 "line":165
 },
 "name":"qutebrowser-3.5.1",
@@ -930,7 +935,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0p3jjdn5wqnx2lsfwl7ygvg19vc2vks7-source/pkgs/applications/misc/rofi-rbw/default.nix",
+"file":"/nix/store/c0g2r1lcpfp09ily514kvw7dwnblyjcm-source/pkgs/applications/misc/rofi-rbw/default.nix",
 "line":78
 },
 "name":"rofi-rbw-1.4.2",
@@ -1271,10 +1276,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0p3jjdn5wqnx2lsfwl7ygvg19vc2vks7-source/pkgs/by-name/vi/vivaldi/package.nix",
+"file":"/nix/store/c0g2r1lcpfp09ily514kvw7dwnblyjcm-source/pkgs/by-name/vi/vivaldi/package.nix",
 "line":236
 },
-"name":"vivaldi-7.4.3684.50",
+"name":"vivaldi-7.4.3684.55",
 "outputsToInstall":[
 "out"
 ],
@@ -1292,14 +1297,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"vivaldi-7.4.3684.50",
+"name":"vivaldi-7.4.3684.55",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vivaldi",
 "system":"x86_64-linux",
-"version":"7.4.3684.50"
+"version":"7.4.3684.55"
 },
 "zen-browser":{
 "meta":{
@@ -1318,7 +1323,7 @@
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
 "maintainers":[],
-"name":"zen-browser-1.13.2b",
+"name":"zen-browser-1.14b",
 "outputsToInstall":[
 "out"
 ],
@@ -1335,14 +1340,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"zen-browser-1.13.2b",
+"name":"zen-browser-1.14b",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zen-browser",
 "system":"x86_64-linux",
-"version":"1.13.2b"
+"version":"1.14b"
 }
 }
 }
