@@ -361,6 +361,7 @@ lib.makeScope newScope (
     git-tui = callPackage ./misc/git-tui { };
     goto = callPackage ./misc/goto { };
     graphene = callPackage ./misc/graphene { };
+    headscale-webui = callPackage ./misc/headscale-webui { };
     heapusage = callPackage ./misc/heapusage { };
     how-to-use-pvs-studio-free = callPackage ./misc/how-to-use-pvs-studio-free { };
     huami-token = callPackage ./misc/huami-token { };
@@ -500,6 +501,7 @@ lib.makeScope newScope (
     osmium-surplus = callPackage ./osm/osmium-surplus { };
     osmosis = callPackage ./osm/osmosis { };
     osmptparser = callPackage ./osm/osmptparser { };
+    osmviz = callPackage ./osm/osmviz { };
     osmwalkthrough = callPackage ./osm/osmwalkthrough { };
     overpassforge = callPackage ./osm/overpassforge { };
     phyghtmap = callPackage ./osm/phyghtmap { };
