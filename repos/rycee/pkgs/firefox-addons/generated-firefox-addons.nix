@@ -14680,10 +14680,10 @@
     };
     "zeroomega" = buildFirefoxXpiAddon {
       pname = "zeroomega";
-      version = "3.4.0";
+      version = "3.4.1";
       addonId = "suziwen1@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4505861/zeroomega-3.4.0.xpi";
-      sha256 = "b056414f58ff82eb6a8da97ae7e0feeeb2a7a04ed92ba027825ba8abd46cd128";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4523117/zeroomega-3.4.1.xpi";
+      sha256 = "02f287f1fa9739b4e934f79735ead5c92a89200a2d7908500b04678e06699c92";
       meta = with lib;
       {
         description = "Manage and switch between multiple proxies quickly &amp; easily.";
