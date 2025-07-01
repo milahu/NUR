@@ -139,7 +139,7 @@ Clojure interpreter hosted on Go, with extensible interop support.
 Retro gaming application for the GNOME desktop.
 
 - Name: `highscore`
-- Version: `0-unstable-2025-06-26`
+- Version: `0-unstable-2025-07-01`
 - [🌐 Homepage](https://gitlab.gnome.org/World/highscore)
 - [📦 Source](./pkgs/by-name/highscore/package.nix#L91)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -161,7 +161,7 @@ KDE Virtual Machine Manager.
 Helpers for scheduling the dark-light cycle.
 
 - Name: `knighttime`
-- Version: `0-unstable-2025-06-25`
+- Version: `0-unstable-2025-06-30`
 - [🌐 Homepage](https://invent.kde.org/plasma/knighttime)
 - [📦 Source](./pkgs/by-name/knighttime/package.nix#L48)
 - 🖥️ Platforms: `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`
@@ -184,7 +184,7 @@ Interface for porting emulators to
 Highscore.
 
 - Name: `libhighscore`
-- Version: `0-unstable-2025-06-25`
+- Version: `0-unstable-2025-06-29`
 - [🌐 Homepage](https://gitlab.gnome.org/alicem/libhighscore)
 - [📦 Source](./pkgs/by-name/libhighscore/package.nix#L43)
 - 📄 License: [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html)
