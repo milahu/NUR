@@ -27,6 +27,30 @@
     moduleName = "github.com/caddy-dns/cloudflare";
     date = "20250506093119-0600";
   };
+  catppuccin-kitty = {
+    pname = "catppuccin-kitty";
+    version = "b14e8385c827f2d41660b71c7fec1e92bdcf2676";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "kitty";
+      rev = "b14e8385c827f2d41660b71c7fec1e92bdcf2676";
+      fetchSubmodules = false;
+      sha256 = "sha256-59ON7CzVgfZUo7F81qQZQ1r6kpcjR3OPvTl99gzDP8E=";
+    };
+    date = "2024-11-10";
+  };
+  catppuccin-zsh-fsh = {
+    pname = "catppuccin-zsh-fsh";
+    version = "a9bdf479f8982c4b83b5c5005c8231c6b3352e2a";
+    src = fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "zsh-fsh";
+      rev = "a9bdf479f8982c4b83b5c5005c8231c6b3352e2a";
+      fetchSubmodules = false;
+      sha256 = "sha256-WeqvsKXTO3Iham+2dI1QsNZWA8Yv9BHn1BgdlvR8zaw=";
+    };
+    date = "2024-07-20";
+  };
   "mholt/caddy-l4" = {
     pname = "mholt/caddy-l4";
     version = "4d3c80e89c5f80438a3e048a410d5543ff5fb9f4";
@@ -86,14 +110,14 @@
   };
   yazi-rs-plugins = {
     pname = "yazi-rs-plugins";
-    version = "5eea960d1576afb6b0af85f53c8e0db41aa9a7cf";
+    version = "2ad42fa7065b4885ff058280b4ab4309c11a5755";
     src = fetchFromGitHub {
       owner = "yazi-rs";
       repo = "plugins";
-      rev = "5eea960d1576afb6b0af85f53c8e0db41aa9a7cf";
+      rev = "2ad42fa7065b4885ff058280b4ab4309c11a5755";
       fetchSubmodules = false;
-      sha256 = "sha256-6ymB52z7Nije1Wq5dlOsU+ZEANw2y5rg5e7B2XeDjTQ=";
+      sha256 = "sha256-+FDiOaEYkA0A8w+Cg2Y/pFZY56lOsWLeKCNwLI0ZKVk=";
     };
-    date = "2025-06-24";
+    date = "2025-06-28";
   };
 }
