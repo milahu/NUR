@@ -12,6 +12,10 @@
 		{
 			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
 			"automerge": true
+		},
+		{
+			"matchManagers": ["nix"],
+			"pinDigests": false
 		}
 	]
 }
