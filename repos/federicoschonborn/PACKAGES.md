@@ -89,10 +89,10 @@ Power Mac emulator for Windows, Linux and macOS.
 Like neofetch, but much faster because written in C.
 
 - Name: `fastfetch`
-- Version: `2.46.0`
+- Version: `2.47.0`
 - Outputs: **`out`**, `man`
 - [🌐 Homepage](https://github.com/fastfetch-cli/fastfetch)
-- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.46.0)
+- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.47.0)
 - [📦 Source](./pkgs/by-name/fastfetch/package.nix#L287)
 - 📄 License: [`MIT License`](https://spdx.org/licenses/MIT.html)
 - 🖥️ Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `aarch64-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `aarch64-windows`, `x86_64-windows`, `i686-windows`
@@ -102,10 +102,10 @@ Like neofetch, but much faster because written in C.
 Like neofetch, but much faster because written in C.
 
 - Name: `fastfetch`
-- Version: `2.46.0`
+- Version: `2.47.0`
 - Outputs: **`out`**, `man`
 - [🌐 Homepage](https://github.com/fastfetch-cli/fastfetch)
-- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.46.0)
+- [📰 Changelog](https://github.com/fastfetch-cli/fastfetch/releases/tag/2.47.0)
 - [📦 Source](./pkgs/by-name/fastfetch/package.nix#L287)
 - 📄 License: [`MIT License`](https://spdx.org/licenses/MIT.html)
 - 🖥️ Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `aarch64-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `aarch64-windows`, `x86_64-windows`, `i686-windows`
@@ -139,7 +139,7 @@ Clojure interpreter hosted on Go, with extensible interop support.
 Retro gaming application for the GNOME desktop.
 
 - Name: `highscore`
-- Version: `0-unstable-2025-07-01`
+- Version: `0-unstable-2025-07-03`
 - [🌐 Homepage](https://gitlab.gnome.org/World/highscore)
 - [📦 Source](./pkgs/by-name/highscore/package.nix#L91)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -164,7 +164,7 @@ KDE Virtual Machine Manager.
 KDE Initial System Setup.
 
 - Name: `kiss`
-- Version: `0-unstable-2025-06-30`
+- Version: `0-unstable-2025-07-02`
 - [🌐 Homepage](https://invent.kde.org/system/kiss)
 - [📦 Source](./pkgs/by-name/kiss/package.nix#L47)
 - 📄 Licenses: [`BSD 2-clause "Simplified" License`](https://spdx.org/licenses/BSD-2-Clause.html), [`Creative Commons Zero v1.0 Universal`](https://spdx.org/licenses/CC0-1.0.html), [`GNU General Public License v2.0 or later`](https://spdx.org/licenses/GPL-2.0-or-later.html), [`GNU General Public License v3.0 or later`](https://spdx.org/licenses/GPL-3.0-or-later.html), [`GNU Library General Public License v2 or later`](https://spdx.org/licenses/LGPL-2.0-or-later.html), [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html), [`GNU Lesser General Public License v2.1 or later`](https://spdx.org/licenses/LGPL-2.1-or-later.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html)
@@ -198,7 +198,7 @@ Interface for porting emulators to
 Highscore.
 
 - Name: `libhighscore`
-- Version: `0-unstable-2025-07-01`
+- Version: `0-unstable-2025-07-03`
 - [🌐 Homepage](https://gitlab.gnome.org/alicem/libhighscore)
 - [📦 Source](./pkgs/by-name/libhighscore/package.nix#L43)
 - 📄 License: [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html)
@@ -324,7 +324,7 @@ Phonon Backend using MPV Player.
 Camera application for Plasma Mobile.
 
 - Name: `plasma-camera`
-- Version: `1.0-unstable-2025-05-21`
+- Version: `1.0-unstable-2025-07-03`
 - [🌐 Homepage](https://invent.kde.org/plasma-mobile/plasma-camera)
 - [📦 Source](./pkgs/by-name/plasma-camera/package.nix#L48)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -335,7 +335,7 @@ Camera application for Plasma Mobile.
 Virtual Keyboard for Qt based desktops.
 
 - Name: `plasma-keyboard`
-- Version: `0-unstable-2025-06-03`
+- Version: `0-unstable-2025-07-03`
 - [🌐 Homepage](https://invent.kde.org/plasma/plasma-keyboard)
 - [📦 Source](./pkgs/by-name/plasma-keyboard/package.nix#L52)
 - 📄 Licenses: [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html), [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html), [`MIT License`](https://spdx.org/licenses/MIT.html)

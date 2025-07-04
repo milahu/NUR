@@ -19,8 +19,8 @@ stdenv.mkDerivation (_: {
     domain = "invent.kde.org";
     owner = "plasma";
     repo = "union";
-    rev = "9303f3667f25542247a4c3b49988a7d738d3e57d";
-    hash = "sha256-msdUem1Du4YCVNWUGrNfEOyEK/f2/+SWcjfhE0P+JIA=";
+    rev = "543e8c56eecadca736fc69d474a9967f8927e1ab";
+    hash = "sha256-apDPmMlXBc12f8Scv9ipyC/pZelYlGp1Ogwnn++SE+c=";
   };
 
   nativeBuildInputs = [

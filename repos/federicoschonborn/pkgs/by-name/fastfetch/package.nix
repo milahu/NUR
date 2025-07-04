@@ -137,7 +137,7 @@
   opencl-headers,
   enableFreetype ? stdenv.hostPlatform.isAndroid,
   freetype,
-  enablePulse ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isSunOS,
+  enablePulse ? stdenv.hostPlatform.isLinux,
   pulseaudio,
   enableDdcutil ? stdenv.hostPlatform.isLinux,
   ddcutil,
@@ -148,20 +148,19 @@
   enableLibzfs ?
     stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isFreeBSD || stdenv.hostPlatform.isSunOS,
   zfs,
-  enablePciaccess ?
-    stdenv.hostPlatform.isNetBSD || stdenv.hostPlatform.isOpenBSD || stdenv.hostPlatform.isSunOS,
+  enablePciaccess ? stdenv.hostPlatform.isNetBSD || stdenv.hostPlatform.isOpenBSD,
   buildFlashfetch ? true,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "fastfetch";
-  version = "2.46.0";
+  version = "2.47.0";
 
   src = fetchFromGitHub {
     owner = "fastfetch-cli";
     repo = "fastfetch";
     tag = finalAttrs.version;
-    hash = "sha256-gRDG3lbUcApUushUPCpTkzc6FOB/CHrsVZwdRn6IEL8=";
+    hash = "sha256-xe86u40zW1+2O4s6e64HlpxiaLIRpjgKLPNnSEGlioQ=";
   };
 
   outputs = [

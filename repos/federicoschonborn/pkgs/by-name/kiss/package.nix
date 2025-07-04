@@ -11,14 +11,14 @@
 
 stdenv.mkDerivation {
   pname = "kiss";
-  version = "0-unstable-2025-06-30";
+  version = "0-unstable-2025-07-02";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "system";
     repo = "kiss";
-    rev = "ea8387df7d8b572b8ef18e29d7f06369413979be";
-    hash = "sha256-I9Exp5YYJ+bovM5GEarqwgza81XB3UJq37Vr+k57vjs=";
+    rev = "d9c1ba6d15ace30f3917a82574e68ab31b857e02";
+    hash = "sha256-78YkSnXqd2nbKxpVuvMpwXi+ydYyQZ7zM2qV6L9+6fE=";
   };
 
   nativeBuildInputs = [

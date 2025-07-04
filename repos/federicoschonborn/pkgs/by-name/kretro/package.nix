@@ -5,55 +5,58 @@
   kdePackages,
   cmake,
   ninja,
-  pkg-config,
-  python3,
-  libcamera,
+  alsa-lib,
   nix-update-script,
 }:
 
 stdenv.mkDerivation {
-  pname = "plasma-camera";
-  version = "1.0-unstable-2025-07-03";
+  pname = "kretro";
+  version = "0-unstable-2025-06-26";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
-    owner = "plasma-mobile";
-    repo = "plasma-camera";
-    rev = "664aba5e877afe8b963abe423b252c9f640388a1";
-    hash = "sha256-aXVYZoHsbcNRFi8nIaA5nmaJVg8lQF093TQCgM0a/ic=";
+    owner = "games";
+    repo = "kretro";
+    rev = "cfd3f27b1e794aa7015c1d5e6dd595f0ca4a3202";
+    hash = "sha256-tNvNVYlx99/EWAo0VdWaWJr4MFCJAKOafskrWH9fzMI=";
   };
 
   nativeBuildInputs = [
     cmake
     ninja
-    pkg-config
-    python3
     kdePackages.extra-cmake-modules
     kdePackages.wrapQtAppsHook
   ];
 
   buildInputs = [
+    alsa-lib
     kdePackages.kconfig
     kdePackages.kcoreaddons
     kdePackages.ki18n
     kdePackages.kirigami
+    kdePackages.kirigami-addons
     kdePackages.qtbase
     kdePackages.qtdeclarative
     kdePackages.qtmultimedia
     kdePackages.qtsvg
-    libcamera
   ];
-
-  strictDeps = true;
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
 
   meta = {
-    mainProgram = "plasma-camera";
-    description = "Camera application for Plasma Mobile";
-    homepage = "https://invent.kde.org/plasma-mobile/plasma-camera";
-    license = lib.licenses.gpl3Only;
-    platforms = lib.platforms.linux;
+    mainProgram = "kretro";
+    description = "Libretro Emulation Frontend for Plasma";
+    homepage = "https://invent.kde.org/games/kretro";
+    license = with lib.licenses; [
+      bsd3
+      cc-by-sa-40
+      cc0
+      gpl2Plus
+      lgpl2Plus
+      mit
+      unlicense
+    ];
     maintainers = with lib.maintainers; [ federicoschonborn ];
+    platforms = lib.platforms.linux;
   };
 }
