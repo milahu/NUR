@@ -17,6 +17,7 @@
 |intervalsetlight|intervalset-1.2.0|C++ library to manage sets of integral closed intervals|
 |iotlabcli|python3.12-iotlabcli-3.3.0||
 |iterators|python3.12-iterators-0.0.2|Provides a wrapper class TimeoutIterator to add timeout feature to normal iterators|
+|jFed|jfed_cli-250213-166447||
 |likwid|likwid-5.2.1|	Likwid is a simple to install and use toolsuite of command line applications and a library for performance oriented programmers. It works for Intel, AMD, ARMv8 and POWER9 processors on the Linux operating system. There is additional support for Nvidia GPUs. There is support for ARMv7 and POWER8 but there is currently no test machine in our hands to test them properly. |
 |loguru|loguru-2.1.0|A header-only C++ logging library|
 |mlxp|python3.12-mlxp-1.0.0|Machine Learning eXperimentalist for Python.|
@@ -45,6 +46,9 @@
 |simgrid-400|simgrid-4.0|Framework for the simulation of distributed applications|
 |simgrid-400light|simgrid-4.0|Framework for the simulation of distributed applications|
 |simgrid-light|simgrid-4.0|Framework for the simulation of distributed applications|
+|slices-bi-client|python3.12-slices-bi-client-3.3.2||
+|slices-cli|python3.12-slices-cli-0.4.0b9||
 |slurm-multiple-slurmd|slurm-24.11.5.1||
+|ssh-known-hosts-edit|python3.12-ssh_known_hosts_edit-0.2.0||
 |starpu|starpu-1.4.8|Run-time system for heterogeneous computing|
 |wait-for-it|wait-for-it-0.0.1||

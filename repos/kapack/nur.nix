@@ -75,6 +75,8 @@ rec {
   iotlabcli = pkgs.callPackage ./pkgs/iotlabcli { };
   iotlabsshcli = pkgs.callPackage ./pkgs/iotlabsshcli { inherit iotlabcli; };
 
+  jFed = pkgs.callPackage ./pkgs/jFed { };
+
   likwid = pkgs.callPackage ./pkgs/likwid { };
 
   melissa = pkgs.callPackage ./pkgs/melissa { };
@@ -161,6 +163,10 @@ rec {
   simgrid-400light = simgrid-400.override { minimalBindings = true; withoutBin = true; withoutBoostPropagation = true; buildPythonBindings = false; modelCheckingSupport = false; };
   simgrid = simgrid-400;
   simgrid-light = simgrid-400light;
+
+  ssh-known-hosts-edit = pkgs.callPackage ./pkgs/ssh-known-hosts-edit { };
+  slices-bi-client = pkgs.callPackage ./pkgs/slices-bi-client { };
+  slices-cli = pkgs.callPackage ./pkgs/slices-cli { inherit slices-bi-client ssh-known-hosts-edit; };
 
   # Setting needed for nixos-19.03 and nixos-19.09
   slurm-bsc-simulator =
