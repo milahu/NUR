@@ -95,10 +95,10 @@
     };
     "adaptive-tab-bar-colour" = buildFirefoxXpiAddon {
       pname = "adaptive-tab-bar-colour";
-      version = "2.5";
+      version = "2.6";
       addonId = "ATBC@EasonWong";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4502860/adaptive_tab_bar_colour-2.5.xpi";
-      sha256 = "161696959152166600c00cb6d47a6a9d2025d664359f974d5ea1fdd43811d60d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4522899/adaptive_tab_bar_colour-2.6.xpi";
+      sha256 = "0079e2fb6fff95d5c690cbb471feb6a74c7755bbd0ccb5da428d59dbaff953b6";
       meta = with lib;
       {
         homepage = "https://github.com/easonwong-de/Adaptive-Tab-Bar-Colour";
@@ -8483,6 +8483,20 @@
         platforms = platforms.all;
       };
     };
+    "nixpkgs-pr-tracker" = buildFirefoxXpiAddon {
+      pname = "nixpkgs-pr-tracker";
+      version = "0.1.1";
+      addonId = "nixpkgs-pr-tracker@tahayassine.me";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4526315/nixpkgs_pr_tracker-0.1.1.xpi";
+      sha256 = "ebfe637b6f2f824eed216c0b91fbbedb27218d5dcc03de35a8c8ff712ca0fd9d";
+      meta = with lib;
+      {
+        description = "Shows which branch a Nixpkgs PR is merged into.";
+        license = licenses.mit;
+        mozPermissions = [ "storage" "https://github.com/*" ];
+        platforms = platforms.all;
+      };
+    };
     "no-pdf-download" = buildFirefoxXpiAddon {
       pname = "no-pdf-download";
       version = "1.0.6";
@@ -10526,10 +10540,10 @@
     };
     "reddit-moderator-toolbox" = buildFirefoxXpiAddon {
       pname = "reddit-moderator-toolbox";
-      version = "6.1.17";
+      version = "6.1.20";
       addonId = "yes@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4405464/reddit_moderator_toolbox-6.1.17.xpi";
-      sha256 = "a0a08eaeabfa6b1f73d1b898e7bf749f671d54a4ced3f318db1e7a001c3eec3d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4525917/reddit_moderator_toolbox-6.1.20.xpi";
+      sha256 = "eb7eec409ecaabc8bf54faa638ca34d6766f3f8c51cb22f64b507115d996f974";
       meta = with lib;
       {
         homepage = "https://www.reddit.com/r/toolbox";
@@ -11283,10 +11297,10 @@
     };
     "simplifygmail" = buildFirefoxXpiAddon {
       pname = "simplifygmail";
-      version = "3.2.7";
+      version = "3.2.8";
       addonId = "{a4c1064c-95dd-47a7-9b02-bb30213b7b29}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4524839/simplifygmail-3.2.7.xpi";
-      sha256 = "0722cd5c2518bbeb9d9afb599f0ff02c58f34d02fedc5b0deedb5026062a85a9";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4526049/simplifygmail-3.2.8.xpi";
+      sha256 = "67f65ac28ab0fcc6876ed8bab71931506756fd18eddeb27ef7f26214fea293ec";
       meta = with lib;
       {
         homepage = "https://simpl.fyi";
@@ -11593,10 +11607,10 @@
     };
     "statshunters" = buildFirefoxXpiAddon {
       pname = "statshunters";
-      version = "2.0.8";
+      version = "3.0.0";
       addonId = "browserextension@statshunters.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4462581/statshunters-2.0.8.xpi";
-      sha256 = "7f25247aa8a10ce7e65467dc9bd44eac5433f72d55ef8736526194226cf412da";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4526319/statshunters-3.0.0.xpi";
+      sha256 = "ed56a3cd14344df54463f0d10cdf01d8f74514c984b0bc37cef9758c5c0c693e";
       meta = with lib;
       {
         homepage = "https://www.statshunters.com";
@@ -11639,6 +11653,8 @@
           "https://www.openrunner.com/*"
           "https://gpx.studio/*"
           "https://veloplanner.com/*"
+          "https://gaiagps.com/map/*"
+          "https://www.gaiagps.com/map/*"
         ];
         platforms = platforms.all;
       };
