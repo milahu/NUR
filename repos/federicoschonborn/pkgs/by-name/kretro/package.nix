@@ -8,6 +8,7 @@
   alsa-lib,
   symlinkJoin,
   libretro,
+  gearsystem-libretro,
   nix-update-script,
   withDefaultCores ? true,
   withDefaultUnfreeCores ? false,
@@ -15,12 +16,12 @@
 }:
 
 let
-  # We don't seem to have gearsystem core yet...
-  defaultCores = lib.filter (core: lib.meta.availableOn stdenv.hostPlatform core) (
+  defaultCores = lib.filter (lib.meta.availableOn stdenv.hostPlatform) (
     lib.optionals withDefaultCores [
       libretro.beetle-gba
       libretro.nestopia
       libretro.blastem
+      gearsystem-libretro
     ]
     ++ lib.optionals withDefaultUnfreeCores [
       libretro.snes9x

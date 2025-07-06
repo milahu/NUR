@@ -122,6 +122,28 @@ A GNOME theme for Firefox.
 - 📄 License: [`The Unlicense`](https://spdx.org/licenses/Unlicense.html)
 - 🖥️ Platforms: `i686-cygwin`, `x86_64-cygwin`, `x86_64-darwin`, `aarch64-darwin`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-freebsd`, `aarch64-genode`, `i686-genode`, `x86_64-genode`, `x86_64-solaris`, `javascript-ghcjs`, `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `mmix-mmixware`, `aarch64-netbsd`, `armv6l-netbsd`, `armv7a-netbsd`, `armv7l-netbsd`, `i686-netbsd`, `m68k-netbsd`, `mipsel-netbsd`, `powerpc-netbsd`, `riscv32-netbsd`, `riscv64-netbsd`, `x86_64-netbsd`, `aarch64_be-none`, `aarch64-none`, `arm-none`, `armv6l-none`, `avr-none`, `i686-none`, `microblaze-none`, `microblazeel-none`, `mips-none`, `mips64-none`, `msp430-none`, `or1k-none`, `m68k-none`, `powerpc-none`, `powerpcle-none`, `riscv32-none`, `riscv64-none`, `rx-none`, `s390-none`, `s390x-none`, `vc4-none`, `x86_64-none`, `i686-openbsd`, `x86_64-openbsd`, `x86_64-redox`, `wasm64-wasi`, `wasm32-wasi`, `aarch64-windows`, `x86_64-windows`, `i686-windows`
 
+## `gearsystem` {#gearsystem}
+
+Sega Master System/Game Gear/SG-1000 emulator and debugger for macOS, Windows, Linux, BSD and RetroArch.
+
+- Name: `gearsystem`
+- Version: `3.8.1`
+- [🌐 Homepage](https://github.com/drhelius/Gearsystem)
+- [📦 Source](./pkgs/by-name/gearsystem/package.nix#L44)
+- 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
+- 🖥️ Platforms: `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`
+
+## `gearsystem-libretro` {#gearsystem-libretro}
+
+Sega Master System/Game Gear/SG-1000 emulator and debugger for macOS, Windows, Linux, BSD and RetroArch.
+
+- Name: `gearsystem-libretro`
+- Version: `3.8.1`
+- [🌐 Homepage](https://github.com/drhelius/Gearsystem)
+- [📦 Source](./pkgs/by-name/gearsystem-libretro/package.nix#L23)
+- 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
+- 🖥️ Platforms: `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`
+
 ## `glojure` {#glojure}
 
 Clojure interpreter hosted on Go, with extensible interop support.
@@ -139,7 +161,7 @@ Clojure interpreter hosted on Go, with extensible interop support.
 Retro gaming application for the GNOME desktop.
 
 - Name: `highscore`
-- Version: `0-unstable-2025-07-04`
+- Version: `0-unstable-2025-07-05`
 - [🌐 Homepage](https://gitlab.gnome.org/World/highscore)
 - [📦 Source](./pkgs/by-name/highscore/package.nix#L91)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -187,7 +209,7 @@ Libretro Emulation Frontend for Plasma.
 - Name: `kretro`
 - Version: `0-unstable-2025-06-27`
 - [🌐 Homepage](https://invent.kde.org/games/kretro)
-- [📦 Source](./pkgs/by-name/kretro/package.nix#L78)
+- [📦 Source](./pkgs/by-name/kretro/package.nix#L80)
 - 📄 Licenses: [`BSD 3-clause "New" or "Revised" License`](https://spdx.org/licenses/BSD-3-Clause.html), [`Creative Commons Attribution Share Alike 4.0`](https://spdx.org/licenses/CC-BY-SA-4.0.html), [`Creative Commons Zero v1.0 Universal`](https://spdx.org/licenses/CC0-1.0.html), [`GNU General Public License v2.0 or later`](https://spdx.org/licenses/GPL-2.0-or-later.html), [`GNU Library General Public License v2 or later`](https://spdx.org/licenses/LGPL-2.0-or-later.html), [`MIT License`](https://spdx.org/licenses/MIT.html), [`The Unlicense`](https://spdx.org/licenses/Unlicense.html)
 - 🖥️ Platforms: `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`
 
@@ -335,7 +357,7 @@ Phonon Backend using MPV Player.
 Camera application for Plasma Mobile.
 
 - Name: `plasma-camera`
-- Version: `1.0-unstable-2025-07-04`
+- Version: `1.0-unstable-2025-07-05`
 - [🌐 Homepage](https://invent.kde.org/plasma-mobile/plasma-camera)
 - [📦 Source](./pkgs/by-name/plasma-camera/package.nix#L53)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -346,7 +368,7 @@ Camera application for Plasma Mobile.
 Virtual Keyboard for Qt based desktops.
 
 - Name: `plasma-keyboard`
-- Version: `0-unstable-2025-07-03`
+- Version: `0-unstable-2025-07-04`
 - [🌐 Homepage](https://invent.kde.org/plasma/plasma-keyboard)
 - [📦 Source](./pkgs/by-name/plasma-keyboard/package.nix#L52)
 - 📄 Licenses: [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html), [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html), [`MIT License`](https://spdx.org/licenses/MIT.html)
