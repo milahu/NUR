@@ -25,11 +25,11 @@
 in
   stdenv.mkDerivation rec {
     pname = "opencode";
-    version = "0.1.146";
+    version = "0.1.194";
 
     src = fetchzip {
       url = "https://github.com/sst/opencode/releases/download/v${version}/opencode-${arch_string stdenv.hostPlatform.system}.zip";
-      hash = "sha256-1HjTDKpZT0JuinxK4qb8aicPKWivQ2qAwn3Dw53K1eY=";
+      hash = "sha256-Z0rMPmm8prlpdJsy5iqBO5BF5VnJ9oUX4+zbT7D1XT8=";
     };
 
     dontBuild = true;  # Pre-compiled binary, no build step needed
@@ -53,7 +53,7 @@ in
       #!/usr/bin/env bash
       set -e
       
-      CACHE_DIR="''${XDG_CACHE_HOME:-$HOME/.cache}/opencode"
+      CACHE_DIR="''${XDG_CACHE_HOME:-\$HOME/.cache}/opencode"
       [[ -d "$CACHE_DIR" ]] || { echo "Cache dir not found: $CACHE_DIR"; exit 1; }
       
       echo "Patching OpenCode cache for NixOS..."
@@ -79,7 +79,7 @@ in
       
       # Patches downloaded binaries to use NixOS dynamic linker
       patch_cache() {
-        local cache_dir="''${XDG_CACHE_HOME:-$HOME/.cache}/opencode"
+        local cache_dir="''${XDG_CACHE_HOME:-\$HOME/.cache}/opencode"
         [[ -d "$cache_dir" ]] || return 0
         
         find "$cache_dir" -type f -executable 2>/dev/null | while read -r file; do
