@@ -161,7 +161,7 @@ Clojure interpreter hosted on Go, with extensible interop support.
 Retro gaming application for the GNOME desktop.
 
 - Name: `highscore`
-- Version: `0-unstable-2025-07-05`
+- Version: `0-unstable-2025-07-06`
 - [🌐 Homepage](https://gitlab.gnome.org/World/highscore)
 - [📦 Source](./pkgs/by-name/highscore/package.nix#L91)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -357,7 +357,7 @@ Phonon Backend using MPV Player.
 Camera application for Plasma Mobile.
 
 - Name: `plasma-camera`
-- Version: `1.0-unstable-2025-07-05`
+- Version: `1.0-unstable-2025-07-06`
 - [🌐 Homepage](https://invent.kde.org/plasma-mobile/plasma-camera)
 - [📦 Source](./pkgs/by-name/plasma-camera/package.nix#L53)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
