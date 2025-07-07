@@ -7,6 +7,7 @@
 python312Packages.buildPythonApplication rec {
   pname = "agunua";
   version = "1.7.2";
+  pyproject = true;
 
   src = fetchFromGitLab {
     domain = "framagit.org";
@@ -16,10 +17,13 @@ python312Packages.buildPythonApplication rec {
     hash = "sha256-a/2906Hyr5rropuwxZQk1vXU0Ilaw1cPZjJlOdoJhsk=";
   };
 
+  build-system = with python312Packages; [ setuptools ];
+
   dependencies = with python312Packages; [
     pyopenssl
     pysocks
     netaddr
+    legacy-cgi
   ];
 
   nativeCheckInputs = with python312Packages; [ pytestCheckHook ];

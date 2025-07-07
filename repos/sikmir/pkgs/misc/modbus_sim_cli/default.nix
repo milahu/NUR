@@ -8,6 +8,7 @@
 python3Packages.buildPythonApplication {
   pname = "modbus_sim_cli";
   version = "0-unstable-2019-02-27";
+  pyproject = true;
 
   src = fetchFromGitHub {
     owner = "dhoomakethu";
@@ -22,6 +23,8 @@ python3Packages.buildPythonApplication {
       --replace-fail "yaml.load(conffile.read())" "yaml.safe_load(conffile)"
   '';
 
+  build-system = with python3Packages; [ setuptools ];
+
   nativeBuildInputs = [ writableTmpDirAsHomeHook ];
 
   dependencies = with python3Packages; [
@@ -29,6 +32,8 @@ python3Packages.buildPythonApplication {
     modbus-tk
     pyyaml
   ];
+
+  pythonRelaxDeps = true;
 
   preConfigure = ''
     find modbus_sim -name "*.py" | xargs 2to3 -w

@@ -9,6 +9,7 @@
 python312Packages.buildPythonApplication {
   pname = "gpxtrackposter";
   version = "0-unstable-2024-06-02";
+  pyproject = true;
 
   src = fetchFromGitHub {
     owner = "flopp";
@@ -30,6 +31,8 @@ python312Packages.buildPythonApplication {
       --subst-var out
   '';
 
+  build-system = with python312Packages; [ setuptools ];
+
   dependencies = with python312Packages; [
     appdirs
     colour
@@ -44,6 +47,8 @@ python312Packages.buildPythonApplication {
     timezonefinder
     setuptools
   ];
+
+  pythonRelaxDeps = [ "stravalib" ];
 
   nativeCheckInputs = with python312Packages; [
     pytestCheckHook
