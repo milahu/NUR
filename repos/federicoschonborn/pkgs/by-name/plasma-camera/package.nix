@@ -13,14 +13,14 @@
 
 stdenv.mkDerivation {
   pname = "plasma-camera";
-  version = "1.0-unstable-2025-07-06";
+  version = "2.0.0-unstable-2025-07-07";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "plasma-mobile";
     repo = "plasma-camera";
-    rev = "46bb52101743241dcb00fae8c30b68ddc61eec9c";
-    hash = "sha256-eQ/OKoGWrVYPWQoZXJgpCNQxOMCJO4Ez7ldKV8ou4Lg=";
+    rev = "cba5621d28020c5248683e7871ba8a79e3bf4694";
+    hash = "sha256-WPf5Gt16tsW5vramEx/WZOGeNgmdbH09pAFR5HHnCHo=";
   };
 
   nativeBuildInputs = [
@@ -40,6 +40,7 @@ stdenv.mkDerivation {
     kdePackages.qtbase
     kdePackages.qtdeclarative
     kdePackages.qtmultimedia
+    kdePackages.qtsensors
     kdePackages.qtsvg
     libcamera
   ];
