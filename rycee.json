@@ -1,16 +1,16 @@
 {
 "name":"rycee",
-"fetch_time":0.295,
-"eval_time":0.801,
+"fetch_time":0.355,
+"eval_time":0.805,
 "source":{
 "url":"https://gitlab.com/rycee/nur-expressions",
-"rev":"7dc9a3c333983e3dcc19eb29b8e98184ef7e51e7",
-"sha256":"1x1qf8pdv914972q6rki5j7vknaddc6x4lh5php3avdxc71q2vz1",
+"rev":"2184ab8d26b355a05a6d1e9158fb66bd0729b27c",
+"sha256":"1xim3h1gbd53rnpix42hpxnw7wp9lqincqqjajnmk94w1piwibkd",
 "date":null
 },
-"source_storepath":"/nix/store/68srbdarcbs0gmw0ymk4k6scl6b1hv2z-source",
-"nixpkgs_storepath":"/nix/store/fj2ihbw1909ihfjh12nzykyh7j89kgnb-source",
-"nur_combined_rev":"ed3520141ff59d4874f3975d136f31a219ee5a8f",
+"source_storepath":"/nix/store/s3bhfr0srmx9dmm4mpgmmqq34w4qwnmn-source",
+"nixpkgs_storepath":"/nix/store/33gffs1456lg264v428qyx5p8rk6sawp-source",
+"nur_combined_rev":"b1650c4d7d098d63b2d7a0210093a17584221561",
 "packages":{
 "firefox-addons.a11ycss":{
 "meta":{
@@ -7735,6 +7735,124 @@
 "system":"x86_64-linux",
 "version":"2.5.8"
 },
+"firefox-addons.chrome-mask":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Makes Firefox wear a mask to look like Chrome to websites that block Firefox otherwise.",
+"homepage":"https://github.com/denschub/chrome-mask",
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"maintainers":[],
+"mozPermissions":[
+"storage",
+"tabs",
+"webRequest",
+"webRequestBlocking",
+"<all_urls>"
+],
+"name":"chrome-mask-5.0.1",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"i686-cygwin",
+"x86_64-cygwin",
+"x86_64-darwin",
+"aarch64-darwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd",
+"aarch64-genode",
+"i686-genode",
+"x86_64-genode",
+"x86_64-solaris",
+"javascript-ghcjs",
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"mmix-mmixware",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"aarch64_be-none",
+"aarch64-none",
+"arm-none",
+"armv6l-none",
+"avr-none",
+"i686-none",
+"microblaze-none",
+"microblazeel-none",
+"mips-none",
+"mips64-none",
+"msp430-none",
+"or1k-none",
+"m68k-none",
+"powerpc-none",
+"powerpcle-none",
+"riscv32-none",
+"riscv64-none",
+"rx-none",
+"s390-none",
+"s390x-none",
+"vc4-none",
+"x86_64-none",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox",
+"wasm64-wasi",
+"wasm32-wasi",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows"
+],
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1601",
+"unfree":false,
+"unsupported":false
+},
+"name":"chrome-mask-5.0.1",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"chrome-mask",
+"system":"x86_64-linux",
+"version":"5.0.1"
+},
 "firefox-addons.clearcache":{
 "meta":{
 "available":true,
@@ -7838,7 +7956,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1601",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1622",
 "unfree":false,
 "unsupported":false
 },
@@ -8156,7 +8274,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1616",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1637",
 "unfree":false,
 "unsupported":false
 },
@@ -8193,7 +8311,7 @@
 "notifications",
 "<all_urls>"
 ],
-"name":"click-and-read-3.30.0",
+"name":"click-and-read-3.30.1",
 "outputsToInstall":[
 "out"
 ],
@@ -8274,18 +8392,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1837",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1858",
 "unfree":false,
 "unsupported":false
 },
-"name":"click-and-read-3.30.0",
+"name":"click-and-read-3.30.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"click-and-read",
 "system":"x86_64-linux",
-"version":"3.30.0"
+"version":"3.30.1"
 },
 "firefox-addons.cliget":{
 "meta":{
@@ -8390,7 +8508,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1858",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1879",
 "unfree":false,
 "unsupported":false
 },
@@ -8501,7 +8619,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1872",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1893",
 "unfree":false,
 "unsupported":false
 },
@@ -8616,7 +8734,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1886",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1907",
 "unfree":false,
 "unsupported":false
 },
@@ -8733,7 +8851,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1901",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1922",
 "unfree":false,
 "unsupported":false
 },
@@ -8855,7 +8973,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1916",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1937",
 "unfree":false,
 "unsupported":false
 },
@@ -8972,7 +9090,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1941",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1962",
 "unfree":false,
 "unsupported":false
 },
@@ -9090,7 +9208,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1955",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1976",
 "unfree":false,
 "unsupported":false
 },
@@ -9210,7 +9328,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1977",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:1998",
 "unfree":false,
 "unsupported":false
 },
@@ -9341,7 +9459,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2000",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2021",
 "unfree":false,
 "unsupported":false
 },
@@ -9461,7 +9579,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2034",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2055",
 "unfree":false,
 "unsupported":false
 },
@@ -9581,7 +9699,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2057",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2078",
 "unfree":false,
 "unsupported":false
 },
@@ -9699,7 +9817,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2080",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2101",
 "unfree":false,
 "unsupported":false
 },
@@ -9822,7 +9940,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2101",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2122",
 "unfree":false,
 "unsupported":false
 },
@@ -9942,7 +10060,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2127",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2148",
 "unfree":false,
 "unsupported":false
 },
@@ -10059,7 +10177,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2149",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2170",
 "unfree":false,
 "unsupported":false
 },
@@ -10177,7 +10295,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2170",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2191",
 "unfree":false,
 "unsupported":false
 },
@@ -10293,7 +10411,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2191",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2212",
 "unfree":false,
 "unsupported":false
 },
@@ -10410,7 +10528,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2206",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2227",
 "unfree":false,
 "unsupported":false
 },
@@ -10530,7 +10648,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2225",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2246",
 "unfree":false,
 "unsupported":false
 },
@@ -10648,7 +10766,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2249",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2270",
 "unfree":false,
 "unsupported":false
 },
@@ -10760,7 +10878,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2270",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2291",
 "unfree":false,
 "unsupported":false
 },
@@ -10874,7 +10992,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2285",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2306",
 "unfree":false,
 "unsupported":false
 },
@@ -10983,7 +11101,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2300",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2321",
 "unfree":true,
 "unsupported":false
 },
@@ -11013,7 +11131,7 @@
 },
 "maintainers":[],
 "mozPermissions":[],
-"name":"danish-language-pack-141.0.20250704.121049",
+"name":"danish-language-pack-141.0.20250707.90559",
 "outputsToInstall":[
 "out"
 ],
@@ -11094,18 +11212,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2319",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2340",
 "unfree":false,
 "unsupported":false
 },
-"name":"danish-language-pack-141.0.20250704.121049",
+"name":"danish-language-pack-141.0.20250707.90559",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"danish-language-pack",
 "system":"x86_64-linux",
-"version":"141.0.20250704.121049"
+"version":"141.0.20250707.90559"
 },
 "firefox-addons.dark-background-light-text":{
 "meta":{
@@ -11213,7 +11331,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2334",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2355",
 "unfree":false,
 "unsupported":false
 },
@@ -11329,7 +11447,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2356",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2377",
 "unfree":false,
 "unsupported":false
 },
@@ -11444,7 +11562,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2371",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2392",
 "unfree":false,
 "unsupported":false
 },
@@ -11558,7 +11676,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2385",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2406",
 "unfree":false,
 "unsupported":false
 },
@@ -11672,7 +11790,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2400",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2421",
 "unfree":false,
 "unsupported":false
 },
@@ -11791,7 +11909,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2415",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2436",
 "unfree":false,
 "unsupported":false
 },
@@ -11912,7 +12030,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2437",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2458",
 "unfree":true,
 "unsupported":false
 },
@@ -12034,7 +12152,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2469",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2490",
 "unfree":false,
 "unsupported":false
 },
@@ -12154,7 +12272,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2494",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2515",
 "unfree":false,
 "unsupported":false
 },
@@ -12184,7 +12302,7 @@
 },
 "maintainers":[],
 "mozPermissions":[],
-"name":"deutsch-de-language-pack-141.0.20250704.121049",
+"name":"deutsch-de-language-pack-141.0.20250707.90559",
 "outputsToInstall":[
 "out"
 ],
@@ -12265,18 +12383,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2516",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2537",
 "unfree":false,
 "unsupported":false
 },
-"name":"deutsch-de-language-pack-141.0.20250704.121049",
+"name":"deutsch-de-language-pack-141.0.20250707.90559",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"deutsch-de-language-pack",
 "system":"x86_64-linux",
-"version":"141.0.20250704.121049"
+"version":"141.0.20250707.90559"
 },
 "firefox-addons.df-youtube":{
 "meta":{
@@ -12384,7 +12502,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2530",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2551",
 "unfree":false,
 "unsupported":false
 },
@@ -12502,7 +12620,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2553",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2574",
 "unfree":false,
 "unsupported":false
 },
@@ -12613,7 +12731,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2573",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2594",
 "unfree":false,
 "unsupported":false
 },
@@ -12725,7 +12843,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2588",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2609",
 "unfree":false,
 "unsupported":false
 },
@@ -12838,7 +12956,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2602",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2623",
 "unfree":false,
 "unsupported":false
 },
@@ -12959,7 +13077,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2617",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2638",
 "unfree":false,
 "unsupported":false
 },
@@ -13078,7 +13196,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2641",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2662",
 "unfree":false,
 "unsupported":false
 },
@@ -13195,7 +13313,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2663",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2684",
 "unfree":false,
 "unsupported":false
 },
@@ -13311,7 +13429,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2683",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2704",
 "unfree":false,
 "unsupported":false
 },
@@ -13427,7 +13545,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2702",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2723",
 "unfree":false,
 "unsupported":false
 },
@@ -13547,7 +13665,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2717",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2738",
 "unfree":false,
 "unsupported":false
 },
@@ -13672,7 +13790,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2740",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2761",
 "unfree":false,
 "unsupported":false
 },
@@ -13784,7 +13902,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2768",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2789",
 "unfree":true,
 "unsupported":false
 },
@@ -13908,7 +14026,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2783",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2804",
 "unfree":true,
 "unsupported":false
 },
@@ -14031,7 +14149,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2818",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2839",
 "unfree":false,
 "unsupported":false
 },
@@ -14145,7 +14263,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2844",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2865",
 "unfree":false,
 "unsupported":false
 },
@@ -14264,7 +14382,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2859",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2880",
 "unfree":false,
 "unsupported":false
 },
@@ -14380,7 +14498,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2881",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2902",
 "unfree":false,
 "unsupported":false
 },
@@ -14502,7 +14620,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2896",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2917",
 "unfree":false,
 "unsupported":false
 },
@@ -14617,7 +14735,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2921",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2942",
 "unfree":false,
 "unsupported":false
 },
@@ -14734,7 +14852,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2936",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2957",
 "unfree":false,
 "unsupported":false
 },
@@ -14851,7 +14969,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2956",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2977",
 "unfree":false,
 "unsupported":false
 },
@@ -14969,7 +15087,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2976",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2997",
 "unfree":false,
 "unsupported":false
 },
@@ -15086,7 +15204,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:2997",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3018",
 "unfree":true,
 "unsupported":false
 },
@@ -15204,7 +15322,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3025",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3046",
 "unfree":false,
 "unsupported":false
 },
@@ -15321,7 +15439,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3046",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3067",
 "unfree":false,
 "unsupported":false
 },
@@ -15442,7 +15560,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3061",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3082",
 "unfree":false,
 "unsupported":false
 },
@@ -15564,7 +15682,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3085",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3106",
 "unfree":false,
 "unsupported":false
 },
@@ -15685,7 +15803,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3110",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3131",
 "unfree":false,
 "unsupported":false
 },
@@ -15829,7 +15947,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3134",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3155",
 "unfree":true,
 "unsupported":false
 },
@@ -15948,7 +16066,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3189",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3210",
 "unfree":false,
 "unsupported":false
 },
@@ -16075,7 +16193,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3211",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3232",
 "unfree":true,
 "unsupported":false
 },
@@ -16194,7 +16312,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3249",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3270",
 "unfree":false,
 "unsupported":false
 },
@@ -16312,7 +16430,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3271",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3292",
 "unfree":true,
 "unsupported":false
 },
@@ -16430,7 +16548,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3300",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3321",
 "unfree":false,
 "unsupported":false
 },
@@ -16556,7 +16674,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3321",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3342",
 "unfree":true,
 "unsupported":false
 },
@@ -16673,7 +16791,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3358",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3379",
 "unfree":false,
 "unsupported":false
 },
@@ -16792,7 +16910,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3378",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3399",
 "unfree":false,
 "unsupported":false
 },
@@ -16924,7 +17042,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3400",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3421",
 "unfree":false,
 "unsupported":false
 },
@@ -17039,7 +17157,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3434",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3455",
 "unfree":false,
 "unsupported":false
 },
@@ -17160,7 +17278,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3449",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3470",
 "unfree":true,
 "unsupported":false
 },
@@ -17280,7 +17398,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3481",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3502",
 "unfree":false,
 "unsupported":false
 },
@@ -17406,7 +17524,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3504",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3525",
 "unfree":false,
 "unsupported":false
 },
@@ -17527,7 +17645,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3533",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3554",
 "unfree":false,
 "unsupported":false
 },
@@ -17647,7 +17765,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3557",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3578",
 "unfree":false,
 "unsupported":false
 },
@@ -17768,7 +17886,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3580",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3601",
 "unfree":false,
 "unsupported":false
 },
@@ -17896,7 +18014,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3604",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3625",
 "unfree":false,
 "unsupported":false
 },
@@ -18024,7 +18142,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3635",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3656",
 "unfree":false,
 "unsupported":false
 },
@@ -18146,7 +18264,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3666",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3687",
 "unfree":false,
 "unsupported":false
 },
@@ -18257,7 +18375,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3691",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3712",
 "unfree":true,
 "unsupported":false
 },
@@ -18483,7 +18601,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3711",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3732",
 "unfree":true,
 "unsupported":false
 },
@@ -18595,7 +18713,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3737",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3758",
 "unfree":false,
 "unsupported":false
 },
@@ -18625,7 +18743,7 @@
 },
 "maintainers":[],
 "mozPermissions":[],
-"name":"french-language-pack-141.0.20250704.121049",
+"name":"french-language-pack-141.0.20250707.90559",
 "outputsToInstall":[
 "out"
 ],
@@ -18706,18 +18824,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3751",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3772",
 "unfree":false,
 "unsupported":false
 },
-"name":"french-language-pack-141.0.20250704.121049",
+"name":"french-language-pack-141.0.20250707.90559",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"french-language-pack",
 "system":"x86_64-linux",
-"version":"141.0.20250704.121049"
+"version":"141.0.20250707.90559"
 },
 "firefox-addons.furiganaize":{
 "meta":{
@@ -18826,7 +18944,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3766",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3787",
 "unfree":false,
 "unsupported":false
 },
@@ -18967,7 +19085,7 @@
 },
 "maintainers":[],
 "mozPermissions":[],
-"name":"gaidhlig-language-pack-141.0.20250704.121049",
+"name":"gaidhlig-language-pack-141.0.20250707.90559",
 "outputsToInstall":[
 "out"
 ],
@@ -19048,18 +19166,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3788",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3809",
 "unfree":false,
 "unsupported":false
 },
-"name":"gaidhlig-language-pack-141.0.20250704.121049",
+"name":"gaidhlig-language-pack-141.0.20250707.90559",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"gaidhlig-language-pack",
 "system":"x86_64-linux",
-"version":"141.0.20250704.121049"
+"version":"141.0.20250707.90559"
 },
 "firefox-addons.gaoptout":{
 "meta":{
@@ -19268,7 +19386,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3803",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3824",
 "unfree":false,
 "unsupported":false
 },
@@ -19384,7 +19502,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3818",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3839",
 "unfree":false,
 "unsupported":false
 },
@@ -19501,7 +19619,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3833",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3854",
 "unfree":false,
 "unsupported":false
 },
@@ -19629,7 +19747,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3853",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3874",
 "unfree":false,
 "unsupported":false
 },
@@ -19747,7 +19865,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3884",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3905",
 "unfree":false,
 "unsupported":false
 },
@@ -19867,7 +19985,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3905",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3926",
 "unfree":false,
 "unsupported":false
 },
@@ -19987,7 +20105,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3928",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3949",
 "unfree":false,
 "unsupported":false
 },
@@ -20103,7 +20221,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3950",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3971",
 "unfree":false,
 "unsupported":false
 },
@@ -20224,7 +20342,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3970",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:3991",
 "unfree":true,
 "unsupported":false
 },
@@ -20339,7 +20457,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4002",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4023",
 "unfree":false,
 "unsupported":false
 },
@@ -20459,7 +20577,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4017",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4038",
 "unfree":false,
 "unsupported":false
 },
@@ -20575,7 +20693,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4039",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4060",
 "unfree":false,
 "unsupported":false
 },
@@ -20691,7 +20809,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4053",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4074",
 "unfree":false,
 "unsupported":false
 },
@@ -20812,7 +20930,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4073",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4094",
 "unfree":false,
 "unsupported":false
 },
@@ -20935,7 +21053,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4097",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4118",
 "unfree":false,
 "unsupported":false
 },
@@ -21146,7 +21264,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4123",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4144",
 "unfree":true,
 "unsupported":false
 },
@@ -21262,7 +21380,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4244",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4265",
 "unfree":false,
 "unsupported":false
 },
@@ -21386,7 +21504,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4259",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4280",
 "unfree":false,
 "unsupported":false
 },
@@ -21498,7 +21616,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4286",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4307",
 "unfree":false,
 "unsupported":false
 },
@@ -21614,7 +21732,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4301",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4322",
 "unfree":false,
 "unsupported":false
 },
@@ -21730,7 +21848,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4315",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4336",
 "unfree":false,
 "unsupported":false
 },
@@ -21850,7 +21968,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4335",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4356",
 "unfree":false,
 "unsupported":false
 },
@@ -21964,7 +22082,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4358",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4379",
 "unfree":false,
 "unsupported":false
 },
@@ -22082,7 +22200,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4373",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4394",
 "unfree":true,
 "unsupported":false
 },
@@ -22203,7 +22321,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4402",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4423",
 "unfree":false,
 "unsupported":false
 },
@@ -22320,7 +22438,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4426",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4447",
 "unfree":false,
 "unsupported":false
 },
@@ -22438,7 +22556,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4441",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4462",
 "unfree":false,
 "unsupported":false
 },
@@ -22557,7 +22675,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4461",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4482",
 "unfree":false,
 "unsupported":false
 },
@@ -22674,7 +22792,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4484",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4505",
 "unfree":false,
 "unsupported":false
 },
@@ -23770,7 +23888,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4499",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:4520",
 "unfree":false,
 "unsupported":false
 },
@@ -23885,7 +24003,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5498",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5519",
 "unfree":false,
 "unsupported":false
 },
@@ -23997,7 +24115,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5513",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5534",
 "unfree":false,
 "unsupported":false
 },
@@ -24118,7 +24236,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5528",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5549",
 "unfree":false,
 "unsupported":false
 },
@@ -24249,7 +24367,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5552",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5573",
 "unfree":false,
 "unsupported":false
 },
@@ -24367,7 +24485,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5586",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5607",
 "unfree":false,
 "unsupported":false
 },
@@ -24485,7 +24603,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5607",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5628",
 "unfree":false,
 "unsupported":false
 },
@@ -24602,7 +24720,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5628",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5649",
 "unfree":true,
 "unsupported":false
 },
@@ -24720,7 +24838,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5656",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5677",
 "unfree":true,
 "unsupported":false
 },
@@ -24831,7 +24949,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/default.nix:187",
+"position":"./pkgs/firefox-addons/default.nix:198",
 "unfree":false,
 "unsupported":false
 },
@@ -24945,7 +25063,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5685",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5706",
 "unfree":true,
 "unsupported":false
 },
@@ -25063,7 +25181,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5710",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5731",
 "unfree":false,
 "unsupported":false
 },
@@ -25177,7 +25295,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5730",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5751",
 "unfree":false,
 "unsupported":false
 },
@@ -25533,7 +25651,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5745",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:5766",
 "unfree":false,
 "unsupported":false
 },
@@ -25646,7 +25764,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6004",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6025",
 "unfree":true,
 "unsupported":false
 },
@@ -25766,7 +25884,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6023",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6044",
 "unfree":true,
 "unsupported":false
 },
@@ -25890,7 +26008,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6055",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6076",
 "unfree":false,
 "unsupported":false
 },
@@ -26007,7 +26125,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6082",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6103",
 "unfree":false,
 "unsupported":false
 },
@@ -26128,7 +26246,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6102",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6123",
 "unfree":false,
 "unsupported":false
 },
@@ -26249,7 +26367,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6126",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6147",
 "unfree":false,
 "unsupported":false
 },
@@ -26370,7 +26488,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6150",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6171",
 "unfree":false,
 "unsupported":false
 },
@@ -26489,7 +26607,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6174",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6195",
 "unfree":false,
 "unsupported":false
 },
@@ -26594,7 +26712,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6196",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6217",
 "unfree":false,
 "unsupported":false
 },
@@ -26710,7 +26828,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6209",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6230",
 "unfree":false,
 "unsupported":false
 },
@@ -26825,7 +26943,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6223",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6244",
 "unfree":false,
 "unsupported":false
 },
@@ -26943,7 +27061,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6238",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6259",
 "unfree":false,
 "unsupported":false
 },
@@ -27061,7 +27179,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6259",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6280",
 "unfree":false,
 "unsupported":false
 },
@@ -27177,7 +27295,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6280",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6301",
 "unfree":false,
 "unsupported":false
 },
@@ -27309,7 +27427,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6295",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6316",
 "unfree":true,
 "unsupported":false
 },
@@ -27423,7 +27541,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6337",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6358",
 "unfree":false,
 "unsupported":false
 },
@@ -27552,7 +27670,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6352",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6373",
 "unfree":false,
 "unsupported":false
 },
@@ -27681,7 +27799,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6384",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6405",
 "unfree":true,
 "unsupported":false
 },
@@ -27806,7 +27924,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6424",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6445",
 "unfree":false,
 "unsupported":false
 },
@@ -27924,7 +28042,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6452",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6473",
 "unfree":false,
 "unsupported":false
 },
@@ -28036,7 +28154,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6473",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6494",
 "unfree":false,
 "unsupported":false
 },
@@ -28159,7 +28277,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6488",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6509",
 "unfree":false,
 "unsupported":false
 },
@@ -28280,7 +28398,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6514",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6535",
 "unfree":true,
 "unsupported":false
 },
@@ -28407,7 +28525,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6546",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6567",
 "unfree":true,
 "unsupported":false
 },
@@ -28528,7 +28646,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6584",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6605",
 "unfree":false,
 "unsupported":false
 },
@@ -28642,7 +28760,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6608",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6629",
 "unfree":false,
 "unsupported":false
 },
@@ -28761,7 +28879,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6623",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6644",
 "unfree":false,
 "unsupported":false
 },
@@ -28876,7 +28994,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6645",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6666",
 "unfree":true,
 "unsupported":false
 },
@@ -28995,7 +29113,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6671",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6692",
 "unfree":false,
 "unsupported":false
 },
@@ -29111,7 +29229,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6693",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6714",
 "unfree":true,
 "unsupported":false
 },
@@ -29232,7 +29350,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6720",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6741",
 "unfree":false,
 "unsupported":false
 },
@@ -29348,7 +29466,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6744",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6765",
 "unfree":false,
 "unsupported":false
 },
@@ -29462,7 +29580,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6759",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6780",
 "unfree":false,
 "unsupported":false
 },
@@ -29579,7 +29697,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6774",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6795",
 "unfree":false,
 "unsupported":false
 },
@@ -29891,7 +30009,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6789",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:6810",
 "unfree":false,
 "unsupported":false
 },
@@ -30006,7 +30124,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7004",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7025",
 "unfree":false,
 "unsupported":false
 },
@@ -30126,7 +30244,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7018",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7039",
 "unfree":false,
 "unsupported":false
 },
@@ -30245,7 +30363,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7042",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7063",
 "unfree":false,
 "unsupported":false
 },
@@ -30360,7 +30478,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7064",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7085",
 "unfree":false,
 "unsupported":false
 },
@@ -30479,7 +30597,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7079",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7100",
 "unfree":false,
 "unsupported":false
 },
@@ -31352,7 +31470,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7101",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7122",
 "unfree":false,
 "unsupported":false
 },
@@ -31471,7 +31589,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7877",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7898",
 "unfree":false,
 "unsupported":false
 },
@@ -31595,7 +31713,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7899",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7920",
 "unfree":false,
 "unsupported":false
 },
@@ -31707,7 +31825,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7926",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7947",
 "unfree":true,
 "unsupported":false
 },
@@ -31818,7 +31936,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7940",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7961",
 "unfree":false,
 "unsupported":false
 },
@@ -31929,7 +32047,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7954",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7975",
 "unfree":false,
 "unsupported":false
 },
@@ -32043,7 +32161,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7968",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7989",
 "unfree":false,
 "unsupported":false
 },
@@ -32177,7 +32295,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:7986",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8007",
 "unfree":false,
 "unsupported":false
 },
@@ -32294,7 +32412,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8022",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8043",
 "unfree":false,
 "unsupported":false
 },
@@ -32412,7 +32530,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8051",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8072",
 "unfree":false,
 "unsupported":false
 },
@@ -32526,7 +32644,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8072",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8093",
 "unfree":true,
 "unsupported":false
 },
@@ -32640,7 +32758,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8097",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8118",
 "unfree":false,
 "unsupported":false
 },
@@ -32758,7 +32876,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8112",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8133",
 "unfree":false,
 "unsupported":false
 },
@@ -32873,7 +32991,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8133",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8154",
 "unfree":false,
 "unsupported":false
 },
@@ -33110,7 +33228,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8148",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8169",
 "unfree":false,
 "unsupported":false
 },
@@ -33231,7 +33349,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8177",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8198",
 "unfree":false,
 "unsupported":false
 },
@@ -33346,7 +33464,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8201",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8222",
 "unfree":false,
 "unsupported":false
 },
@@ -33460,7 +33578,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8216",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8237",
 "unfree":false,
 "unsupported":false
 },
@@ -33574,7 +33692,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8231",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8252",
 "unfree":false,
 "unsupported":false
 },
@@ -33712,7 +33830,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8246",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8267",
 "unfree":false,
 "unsupported":false
 },
@@ -33831,7 +33949,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8287",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8308",
 "unfree":false,
 "unsupported":false
 },
@@ -33948,7 +34066,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8308",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8329",
 "unfree":false,
 "unsupported":false
 },
@@ -34059,7 +34177,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8328",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8349",
 "unfree":false,
 "unsupported":false
 },
@@ -34179,7 +34297,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8343",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8364",
 "unfree":false,
 "unsupported":false
 },
@@ -34293,7 +34411,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8366",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8387",
 "unfree":false,
 "unsupported":false
 },
@@ -34405,7 +34523,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8381",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8402",
 "unfree":false,
 "unsupported":false
 },
@@ -34521,7 +34639,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8396",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8417",
 "unfree":false,
 "unsupported":false
 },
@@ -34630,7 +34748,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8411",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8432",
 "unfree":true,
 "unsupported":false
 },
@@ -34742,7 +34860,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8431",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8452",
 "unfree":false,
 "unsupported":false
 },
@@ -34856,7 +34974,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8446",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8467",
 "unfree":true,
 "unsupported":false
 },
@@ -34977,7 +35095,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8471",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8492",
 "unfree":false,
 "unsupported":false
 },
@@ -35091,7 +35209,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8494",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8515",
 "unfree":false,
 "unsupported":false
 },
@@ -35207,7 +35325,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8509",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8530",
 "unfree":false,
 "unsupported":false
 },
@@ -35318,7 +35436,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8523",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8544",
 "unfree":false,
 "unsupported":false
 },
@@ -35431,7 +35549,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8538",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8559",
 "unfree":false,
 "unsupported":false
 },
@@ -35556,7 +35674,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8553",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8574",
 "unfree":false,
 "unsupported":false
 },
@@ -35671,7 +35789,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8581",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8602",
 "unfree":false,
 "unsupported":false
 },
@@ -35786,7 +35904,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8596",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8617",
 "unfree":true,
 "unsupported":false
 },
@@ -35907,7 +36025,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8621",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8642",
 "unfree":false,
 "unsupported":false
 },
@@ -36027,7 +36145,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8646",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8667",
 "unfree":false,
 "unsupported":false
 },
@@ -36137,7 +36255,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8669",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8690",
 "unfree":false,
 "unsupported":false
 },
@@ -36253,7 +36371,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8690",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8711",
 "unfree":false,
 "unsupported":false
 },
@@ -36372,7 +36490,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8705",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8726",
 "unfree":true,
 "unsupported":false
 },
@@ -36487,7 +36605,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8735",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8756",
 "unfree":false,
 "unsupported":false
 },
@@ -36607,7 +36725,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8753",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8774",
 "unfree":false,
 "unsupported":false
 },
@@ -36725,7 +36843,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8776",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8797",
 "unfree":false,
 "unsupported":false
 },
@@ -36827,7 +36945,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8796",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8817",
 "unfree":false,
 "unsupported":false
 },
@@ -36941,7 +37059,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8810",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8831",
 "unfree":false,
 "unsupported":false
 },
@@ -37078,7 +37196,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8825",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8846",
 "unfree":true,
 "unsupported":false
 },
@@ -37192,7 +37310,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8873",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8894",
 "unfree":true,
 "unsupported":false
 },
@@ -37314,7 +37432,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8893",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8914",
 "unfree":false,
 "unsupported":false
 },
@@ -37429,7 +37547,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8918",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8939",
 "unfree":false,
 "unsupported":false
 },
@@ -37547,7 +37665,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8933",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8954",
 "unfree":false,
 "unsupported":false
 },
@@ -37661,7 +37779,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8953",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8974",
 "unfree":false,
 "unsupported":false
 },
@@ -37776,7 +37894,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8968",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8989",
 "unfree":false,
 "unsupported":false
 },
@@ -37889,7 +38007,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8982",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9003",
 "unfree":false,
 "unsupported":false
 },
@@ -38004,7 +38122,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:8997",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9018",
 "unfree":false,
 "unsupported":false
 },
@@ -38124,7 +38242,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9012",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9033",
 "unfree":false,
 "unsupported":false
 },
@@ -38242,7 +38360,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9035",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9056",
 "unfree":true,
 "unsupported":false
 },
@@ -38354,7 +38472,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9064",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9085",
 "unfree":false,
 "unsupported":false
 },
@@ -38476,7 +38594,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9087",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9108",
 "unfree":false,
 "unsupported":false
 },
@@ -38591,7 +38709,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9112",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9133",
 "unfree":true,
 "unsupported":false
 },
@@ -38712,7 +38830,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9138",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9159",
 "unfree":false,
 "unsupported":false
 },
@@ -38835,7 +38953,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9162",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9183",
 "unfree":false,
 "unsupported":false
 },
@@ -38951,7 +39069,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9188",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9209",
 "unfree":false,
 "unsupported":false
 },
@@ -39066,7 +39184,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9203",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9224",
 "unfree":false,
 "unsupported":false
 },
@@ -39181,7 +39299,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9218",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9239",
 "unfree":false,
 "unsupported":false
 },
@@ -39302,7 +39420,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9233",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9254",
 "unfree":false,
 "unsupported":false
 },
@@ -39440,7 +39558,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9257",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9278",
 "unfree":false,
 "unsupported":false
 },
@@ -39557,7 +39675,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9298",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9319",
 "unfree":false,
 "unsupported":false
 },
@@ -39660,7 +39778,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9313",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9334",
 "unfree":false,
 "unsupported":false
 },
@@ -39768,7 +39886,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9327",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9348",
 "unfree":false,
 "unsupported":false
 },
@@ -39888,7 +40006,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9340",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9361",
 "unfree":false,
 "unsupported":false
 },
@@ -40001,7 +40119,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9364",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9385",
 "unfree":true,
 "unsupported":false
 },
@@ -40118,7 +40236,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9384",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9405",
 "unfree":false,
 "unsupported":false
 },
@@ -40628,7 +40746,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9399",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9420",
 "unfree":false,
 "unsupported":false
 },
@@ -40746,7 +40864,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9812",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9833",
 "unfree":false,
 "unsupported":false
 },
@@ -40870,7 +40988,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9833",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9854",
 "unfree":false,
 "unsupported":false
 },
@@ -41015,7 +41133,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9860",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9881",
 "unfree":false,
 "unsupported":false
 },
@@ -41131,7 +41249,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9908",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9929",
 "unfree":false,
 "unsupported":false
 },
@@ -41247,7 +41365,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9923",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9944",
 "unfree":false,
 "unsupported":false
 },
@@ -41368,7 +41486,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9938",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9959",
 "unfree":false,
 "unsupported":false
 },
@@ -41484,7 +41602,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9962",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9983",
 "unfree":false,
 "unsupported":false
 },
@@ -41600,7 +41718,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9977",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9998",
 "unfree":false,
 "unsupported":false
 },
@@ -41723,7 +41841,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:9992",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10013",
 "unfree":false,
 "unsupported":false
 },
@@ -41845,7 +41963,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10018",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10039",
 "unfree":false,
 "unsupported":false
 },
@@ -41969,7 +42087,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10043",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10064",
 "unfree":false,
 "unsupported":false
 },
@@ -42093,7 +42211,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10070",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10091",
 "unfree":false,
 "unsupported":false
 },
@@ -42211,7 +42329,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10097",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10118",
 "unfree":false,
 "unsupported":false
 },
@@ -42327,7 +42445,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10118",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10139",
 "unfree":false,
 "unsupported":false
 },
@@ -42544,7 +42662,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10136",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10157",
 "unfree":false,
 "unsupported":false
 },
@@ -42665,7 +42783,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10151",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10172",
 "unfree":false,
 "unsupported":false
 },
@@ -42783,7 +42901,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10175",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10196",
 "unfree":false,
 "unsupported":false
 },
@@ -42902,7 +43020,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10196",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10217",
 "unfree":false,
 "unsupported":false
 },
@@ -43015,7 +43133,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10217",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10238",
 "unfree":false,
 "unsupported":false
 },
@@ -43133,7 +43251,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10231",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10252",
 "unfree":false,
 "unsupported":false
 },
@@ -43247,7 +43365,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10253",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10274",
 "unfree":false,
 "unsupported":false
 },
@@ -43366,7 +43484,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10268",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10289",
 "unfree":false,
 "unsupported":false
 },
@@ -43485,7 +43603,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10290",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10311",
 "unfree":false,
 "unsupported":false
 },
@@ -43602,7 +43720,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10312",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10333",
 "unfree":false,
 "unsupported":false
 },
@@ -43720,7 +43838,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10327",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10348",
 "unfree":false,
 "unsupported":false
 },
@@ -43838,7 +43956,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10348",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10369",
 "unfree":false,
 "unsupported":false
 },
@@ -43956,7 +44074,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10368",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10389",
 "unfree":false,
 "unsupported":false
 },
@@ -44073,7 +44191,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10390",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10411",
 "unfree":false,
 "unsupported":false
 },
@@ -44247,7 +44365,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10405",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10426",
 "unfree":false,
 "unsupported":false
 },
@@ -44368,7 +44486,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10482",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10503",
 "unfree":false,
 "unsupported":false
 },
@@ -44485,7 +44603,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10506",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10527",
 "unfree":false,
 "unsupported":false
 },
@@ -44606,7 +44724,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10526",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10547",
 "unfree":false,
 "unsupported":false
 },
@@ -44731,7 +44849,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10550",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10571",
 "unfree":false,
 "unsupported":false
 },
@@ -44852,7 +44970,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10578",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10599",
 "unfree":false,
 "unsupported":false
 },
@@ -44971,7 +45089,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10602",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10623",
 "unfree":false,
 "unsupported":false
 },
@@ -45091,7 +45209,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10624",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10645",
 "unfree":false,
 "unsupported":false
 },
@@ -45205,7 +45323,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10646",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10667",
 "unfree":false,
 "unsupported":false
 },
@@ -45320,7 +45438,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10664",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10685",
 "unfree":false,
 "unsupported":false
 },
@@ -45436,7 +45554,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10678",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10699",
 "unfree":false,
 "unsupported":false
 },
@@ -45551,7 +45669,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10698",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10719",
 "unfree":false,
 "unsupported":false
 },
@@ -45660,7 +45778,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10713",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10734",
 "unfree":false,
 "unsupported":false
 },
@@ -45778,7 +45896,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10727",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10748",
 "unfree":false,
 "unsupported":false
 },
@@ -45895,7 +46013,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10748",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10769",
 "unfree":false,
 "unsupported":false
 },
@@ -46013,7 +46131,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10768",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10789",
 "unfree":false,
 "unsupported":false
 },
@@ -46135,7 +46253,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10789",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10810",
 "unfree":false,
 "unsupported":false
 },
@@ -46254,7 +46372,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10814",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10835",
 "unfree":false,
 "unsupported":false
 },
@@ -46377,7 +46495,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10835",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10856",
 "unfree":false,
 "unsupported":false
 },
@@ -46407,7 +46525,7 @@
 },
 "maintainers":[],
 "mozPermissions":[],
-"name":"scots-language-pack-141.0.20250704.121049",
+"name":"scots-language-pack-141.0.20250707.90559",
 "outputsToInstall":[
 "out"
 ],
@@ -46488,18 +46606,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10861",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10882",
 "unfree":false,
 "unsupported":false
 },
-"name":"scots-language-pack-141.0.20250704.121049",
+"name":"scots-language-pack-141.0.20250707.90559",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"scots-language-pack",
 "system":"x86_64-linux",
-"version":"141.0.20250704.121049"
+"version":"141.0.20250707.90559"
 },
 "firefox-addons.screenshot-capture-annotate":{
 "meta":{
@@ -46611,7 +46729,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10876",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10897",
 "unfree":false,
 "unsupported":false
 },
@@ -46725,7 +46843,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10902",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10923",
 "unfree":true,
 "unsupported":false
 },
@@ -46851,7 +46969,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10922",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10943",
 "unfree":false,
 "unsupported":false
 },
@@ -46967,7 +47085,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10951",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10972",
 "unfree":false,
 "unsupported":false
 },
@@ -47078,7 +47196,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10966",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10987",
 "unfree":true,
 "unsupported":false
 },
@@ -47196,7 +47314,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:10986",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11007",
 "unfree":false,
 "unsupported":false
 },
@@ -47421,7 +47539,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11006",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11027",
 "unfree":false,
 "unsupported":false
 },
@@ -47613,7 +47731,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11021",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11042",
 "unfree":false,
 "unsupported":false
 },
@@ -47732,7 +47850,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11116",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11137",
 "unfree":false,
 "unsupported":false
 },
@@ -47854,7 +47972,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11138",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11159",
 "unfree":false,
 "unsupported":false
 },
@@ -47979,7 +48097,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11163",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11184",
 "unfree":false,
 "unsupported":false
 },
@@ -48104,7 +48222,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11191",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11212",
 "unfree":false,
 "unsupported":false
 },
@@ -48215,7 +48333,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11218",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11239",
 "unfree":false,
 "unsupported":false
 },
@@ -48342,7 +48460,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11233",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11254",
 "unfree":false,
 "unsupported":false
 },
@@ -48460,7 +48578,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11263",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11284",
 "unfree":false,
 "unsupported":false
 },
@@ -48580,7 +48698,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11284",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11305",
 "unfree":false,
 "unsupported":false
 },
@@ -48616,7 +48734,7 @@
 "https://simpl.fyi/auth/*",
 "https://mail.google.com/*"
 ],
-"name":"simplifygmail-3.2.8",
+"name":"simplifygmail-3.2.9",
 "outputsToInstall":[
 "out"
 ],
@@ -48697,18 +48815,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11307",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11328",
 "unfree":true,
 "unsupported":false
 },
-"name":"simplifygmail-3.2.8",
+"name":"simplifygmail-3.2.9",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"simplifygmail",
 "system":"x86_64-linux",
-"version":"3.2.8"
+"version":"3.2.9"
 },
 "firefox-addons.single-file":{
 "meta":{
@@ -48817,7 +48935,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11335",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11356",
 "unfree":false,
 "unsupported":false
 },
@@ -48936,7 +49054,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11357",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11378",
 "unfree":false,
 "unsupported":false
 },
@@ -49055,7 +49173,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11380",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11401",
 "unfree":false,
 "unsupported":false
 },
@@ -49177,7 +49295,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11402",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11423",
 "unfree":false,
 "unsupported":false
 },
@@ -49297,7 +49415,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11427",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11448",
 "unfree":false,
 "unsupported":false
 },
@@ -49411,7 +49529,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11450",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11471",
 "unfree":false,
 "unsupported":false
 },
@@ -49519,7 +49637,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11464",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11485",
 "unfree":true,
 "unsupported":false
 },
@@ -49630,7 +49748,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11483",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11504",
 "unfree":false,
 "unsupported":false
 },
@@ -49749,7 +49867,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11498",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11519",
 "unfree":false,
 "unsupported":false
 },
@@ -49858,7 +49976,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11519",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11540",
 "unfree":false,
 "unsupported":false
 },
@@ -49976,7 +50094,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11540",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11561",
 "unfree":false,
 "unsupported":false
 },
@@ -50094,7 +50212,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11561",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11582",
 "unfree":false,
 "unsupported":false
 },
@@ -50211,7 +50329,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11581",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11602",
 "unfree":false,
 "unsupported":false
 },
@@ -50327,7 +50445,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11602",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11623",
 "unfree":false,
 "unsupported":false
 },
@@ -50478,7 +50596,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11617",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11638",
 "unfree":false,
 "unsupported":false
 },
@@ -50548,9 +50666,10 @@
 "https://steamcommunity.com/market/*",
 "https://steamcommunity.com/games/*",
 "https://steamcommunity.com/sharedfiles/*",
-"https://steamcommunity.com/workshop/*"
+"https://steamcommunity.com/workshop/*",
+"https://steamcommunity.com/linkfilter/*"
 ],
-"name":"steam-database-4.16",
+"name":"steam-database-4.22",
 "outputsToInstall":[
 "out"
 ],
@@ -50631,18 +50750,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11671",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11692",
 "unfree":false,
 "unsupported":false
 },
-"name":"steam-database-4.16",
+"name":"steam-database-4.22",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"steam-database",
 "system":"x86_64-linux",
-"version":"4.16"
+"version":"4.22"
 },
 "firefox-addons.streetpass-for-mastodon":{
 "meta":{
@@ -50747,7 +50866,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11727",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11749",
 "unfree":false,
 "unsupported":false
 },
@@ -50869,7 +50988,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11742",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11764",
 "unfree":false,
 "unsupported":false
 },
@@ -50992,7 +51111,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11767",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11789",
 "unfree":false,
 "unsupported":false
 },
@@ -51107,7 +51226,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11793",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11815",
 "unfree":false,
 "unsupported":false
 },
@@ -51234,7 +51353,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11808",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11830",
 "unfree":false,
 "unsupported":false
 },
@@ -51345,7 +51464,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11837",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11859",
 "unfree":false,
 "unsupported":false
 },
@@ -51466,7 +51585,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11852",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11874",
 "unfree":false,
 "unsupported":false
 },
@@ -51590,7 +51709,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11876",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11898",
 "unfree":false,
 "unsupported":false
 },
@@ -51704,7 +51823,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11903",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11925",
 "unfree":false,
 "unsupported":false
 },
@@ -51826,7 +51945,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11918",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11940",
 "unfree":false,
 "unsupported":false
 },
@@ -51944,7 +52063,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11942",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11964",
 "unfree":false,
 "unsupported":false
 },
@@ -52064,7 +52183,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11964",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11986",
 "unfree":false,
 "unsupported":false
 },
@@ -52187,7 +52306,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:11987",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12009",
 "unfree":false,
 "unsupported":false
 },
@@ -52302,7 +52421,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12013",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12035",
 "unfree":false,
 "unsupported":false
 },
@@ -52428,7 +52547,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12028",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12050",
 "unfree":false,
 "unsupported":false
 },
@@ -52542,7 +52661,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12057",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12079",
 "unfree":false,
 "unsupported":false
 },
@@ -52660,7 +52779,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12072",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12094",
 "unfree":false,
 "unsupported":false
 },
@@ -52784,7 +52903,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12093",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12115",
 "unfree":true,
 "unsupported":false
 },
@@ -52906,7 +53025,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12128",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12150",
 "unfree":false,
 "unsupported":false
 },
@@ -53021,7 +53140,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12153",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12175",
 "unfree":false,
 "unsupported":false
 },
@@ -53139,7 +53258,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12167",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12189",
 "unfree":false,
 "unsupported":false
 },
@@ -53255,7 +53374,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12188",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12210",
 "unfree":false,
 "unsupported":false
 },
@@ -53372,7 +53491,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12203",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12225",
 "unfree":false,
 "unsupported":false
 },
@@ -53495,7 +53614,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12223",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12245",
 "unfree":true,
 "unsupported":false
 },
@@ -53610,7 +53729,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12257",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12279",
 "unfree":false,
 "unsupported":false
 },
@@ -53713,7 +53832,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12272",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12294",
 "unfree":false,
 "unsupported":false
 },
@@ -53829,7 +53948,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12286",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12308",
 "unfree":false,
 "unsupported":false
 },
@@ -53953,7 +54072,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12301",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12323",
 "unfree":false,
 "unsupported":false
 },
@@ -54074,7 +54193,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12328",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12350",
 "unfree":false,
 "unsupported":false
 },
@@ -54185,7 +54304,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12351",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12373",
 "unfree":true,
 "unsupported":false
 },
@@ -54300,7 +54419,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12366",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12388",
 "unfree":false,
 "unsupported":false
 },
@@ -54418,7 +54537,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12381",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12403",
 "unfree":false,
 "unsupported":false
 },
@@ -54538,7 +54657,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12402",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12424",
 "unfree":false,
 "unsupported":false
 },
@@ -54663,7 +54782,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12425",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12447",
 "unfree":false,
 "unsupported":false
 },
@@ -54781,7 +54900,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12453",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12475",
 "unfree":false,
 "unsupported":false
 },
@@ -54899,7 +55018,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12473",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12495",
 "unfree":false,
 "unsupported":false
 },
@@ -55014,7 +55133,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12494",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12516",
 "unfree":false,
 "unsupported":false
 },
@@ -55136,7 +55255,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12509",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12531",
 "unfree":false,
 "unsupported":false
 },
@@ -55273,7 +55392,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12542",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12564",
 "unfree":false,
 "unsupported":false
 },
@@ -55498,7 +55617,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12581",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12603",
 "unfree":false,
 "unsupported":false
 },
@@ -55613,7 +55732,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12595",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12617",
 "unfree":false,
 "unsupported":false
 },
@@ -55727,7 +55846,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12609",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12631",
 "unfree":false,
 "unsupported":false
 },
@@ -55841,7 +55960,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12623",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12645",
 "unfree":false,
 "unsupported":false
 },
@@ -55958,7 +56077,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12638",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12660",
 "unfree":false,
 "unsupported":false
 },
@@ -56073,7 +56192,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12652",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12674",
 "unfree":false,
 "unsupported":false
 },
@@ -56189,7 +56308,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12667",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12689",
 "unfree":false,
 "unsupported":false
 },
@@ -56303,7 +56422,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12682",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12704",
 "unfree":false,
 "unsupported":false
 },
@@ -56420,7 +56539,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12697",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12719",
 "unfree":false,
 "unsupported":false
 },
@@ -56537,7 +56656,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12717",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12739",
 "unfree":true,
 "unsupported":false
 },
@@ -56652,7 +56771,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12744",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12766",
 "unfree":true,
 "unsupported":false
 },
@@ -56769,7 +56888,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12771",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12793",
 "unfree":false,
 "unsupported":false
 },
@@ -56886,7 +57005,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12790",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12812",
 "unfree":false,
 "unsupported":false
 },
@@ -57199,7 +57318,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12811",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:12833",
 "unfree":false,
 "unsupported":false
 },
@@ -57335,7 +57454,143 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13027",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13049",
+"unfree":false,
+"unsupported":false
+},
+"name":"ublock-origin-1.64.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"ublock-origin",
+"system":"x86_64-linux",
+"version":"1.64.0"
+},
+"firefox-addons.ublock-origin-upstream":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Finally, an efficient wide-spectrum content blocker. Easy on CPU and memory.",
+"homepage":"https://github.com/gorhill/uBlock#ublock-origin",
+"insecure":false,
+"license":{
+"deprecated":true,
+"free":true,
+"fullName":"GNU General Public License v3.0",
+"redistributable":true,
+"shortName":"gpl3",
+"spdxId":"GPL-3.0",
+"url":"https://spdx.org/licenses/GPL-3.0.html"
+},
+"maintainers":[],
+"mozPermissions":[
+"alarms",
+"dns",
+"menus",
+"privacy",
+"storage",
+"tabs",
+"unlimitedStorage",
+"webNavigation",
+"webRequest",
+"webRequestBlocking",
+"<all_urls>",
+"http://*/*",
+"https://*/*",
+"file://*/*",
+"https://easylist.to/*",
+"https://*.fanboy.co.nz/*",
+"https://filterlists.com/*",
+"https://forums.lanik.us/*",
+"https://github.com/*",
+"https://*.github.io/*",
+"https://github.com/uBlockOrigin/*",
+"https://ublockorigin.github.io/*",
+"https://*.reddit.com/r/uBlockOrigin/*"
+],
+"name":"ublock-origin-1.64.0",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"i686-cygwin",
+"x86_64-cygwin",
+"x86_64-darwin",
+"aarch64-darwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd",
+"aarch64-genode",
+"i686-genode",
+"x86_64-genode",
+"x86_64-solaris",
+"javascript-ghcjs",
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"mmix-mmixware",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"aarch64_be-none",
+"aarch64-none",
+"arm-none",
+"armv6l-none",
+"avr-none",
+"i686-none",
+"microblaze-none",
+"microblazeel-none",
+"mips-none",
+"mips64-none",
+"msp430-none",
+"or1k-none",
+"m68k-none",
+"powerpc-none",
+"powerpcle-none",
+"riscv32-none",
+"riscv64-none",
+"rx-none",
+"s390-none",
+"s390x-none",
+"vc4-none",
+"x86_64-none",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox",
+"wasm64-wasi",
+"wasm32-wasi",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows"
+],
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13049",
 "unfree":false,
 "unsupported":false
 },
@@ -57453,7 +57708,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13066",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13088",
 "unfree":false,
 "unsupported":false
 },
@@ -57565,7 +57820,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13087",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13109",
 "unfree":false,
 "unsupported":false
 },
@@ -57689,7 +57944,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13102",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13124",
 "unfree":false,
 "unsupported":false
 },
@@ -57807,7 +58062,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13129",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13151",
 "unfree":false,
 "unsupported":false
 },
@@ -57930,7 +58185,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13144",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13166",
 "unfree":false,
 "unsupported":false
 },
@@ -58046,7 +58301,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13170",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13192",
 "unfree":false,
 "unsupported":false
 },
@@ -58161,7 +58416,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13185",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13207",
 "unfree":true,
 "unsupported":false
 },
@@ -58276,7 +58531,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13211",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13233",
 "unfree":false,
 "unsupported":false
 },
@@ -58392,7 +58647,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13226",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13248",
 "unfree":false,
 "unsupported":false
 },
@@ -58509,7 +58764,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13241",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13263",
 "unfree":false,
 "unsupported":false
 },
@@ -58623,7 +58878,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13260",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13282",
 "unfree":false,
 "unsupported":false
 },
@@ -58736,7 +58991,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13274",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13296",
 "unfree":false,
 "unsupported":false
 },
@@ -58852,7 +59107,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13289",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13311",
 "unfree":false,
 "unsupported":false
 },
@@ -58977,7 +59232,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13304",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13326",
 "unfree":true,
 "unsupported":false
 },
@@ -59092,7 +59347,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13339",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13361",
 "unfree":true,
 "unsupported":false
 },
@@ -59209,7 +59464,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13366",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13388",
 "unfree":false,
 "unsupported":false
 },
@@ -59510,7 +59765,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13381",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13403",
 "unfree":false,
 "unsupported":false
 },
@@ -59632,7 +59887,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13585",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13607",
 "unfree":false,
 "unsupported":false
 },
@@ -59759,7 +60014,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13610",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13632",
 "unfree":false,
 "unsupported":false
 },
@@ -59882,7 +60137,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13640",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13662",
 "unfree":false,
 "unsupported":false
 },
@@ -60005,7 +60260,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13666",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13688",
 "unfree":false,
 "unsupported":false
 },
@@ -60120,7 +60375,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13692",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13714",
 "unfree":false,
 "unsupported":false
 },
@@ -60240,7 +60495,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13707",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13729",
 "unfree":true,
 "unsupported":false
 },
@@ -60361,7 +60616,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13738",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13760",
 "unfree":false,
 "unsupported":false
 },
@@ -60478,7 +60733,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13762",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13784",
 "unfree":false,
 "unsupported":false
 },
@@ -60594,7 +60849,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13777",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13799",
 "unfree":true,
 "unsupported":false
 },
@@ -60718,7 +60973,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13804",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13826",
 "unfree":false,
 "unsupported":false
 },
@@ -60833,7 +61088,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13830",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13852",
 "unfree":true,
 "unsupported":false
 },
@@ -60959,7 +61214,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13857",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13879",
 "unfree":false,
 "unsupported":false
 },
@@ -61085,7 +61340,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13886",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13908",
 "unfree":false,
 "unsupported":false
 },
@@ -61205,7 +61460,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13915",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13937",
 "unfree":false,
 "unsupported":false
 },
@@ -61325,7 +61580,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13938",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13960",
 "unfree":false,
 "unsupported":false
 },
@@ -61439,7 +61694,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13960",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13982",
 "unfree":false,
 "unsupported":false
 },
@@ -61557,7 +61812,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13975",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13997",
 "unfree":false,
 "unsupported":false
 },
@@ -61864,7 +62119,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:13996",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14018",
 "unfree":false,
 "unsupported":false
 },
@@ -61971,7 +62226,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14206",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14228",
 "unfree":false,
 "unsupported":false
 },
@@ -62089,7 +62344,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14220",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14242",
 "unfree":false,
 "unsupported":false
 },
@@ -62217,7 +62472,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14241",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14263",
 "unfree":false,
 "unsupported":false
 },
@@ -62337,7 +62592,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14272",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14294",
 "unfree":false,
 "unsupported":false
 },
@@ -62463,7 +62718,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14294",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14316",
 "unfree":false,
 "unsupported":false
 },
@@ -62575,7 +62830,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14324",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14346",
 "unfree":true,
 "unsupported":false
 },
@@ -62707,7 +62962,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14344",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14366",
 "unfree":false,
 "unsupported":false
 },
@@ -62829,7 +63084,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14379",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14401",
 "unfree":false,
 "unsupported":false
 },
@@ -62944,7 +63199,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14404",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14426",
 "unfree":false,
 "unsupported":false
 },
@@ -63059,7 +63314,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14419",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14441",
 "unfree":false,
 "unsupported":false
 },
@@ -63175,7 +63430,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14434",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14456",
 "unfree":false,
 "unsupported":false
 },
@@ -63292,7 +63547,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14449",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14471",
 "unfree":false,
 "unsupported":false
 },
@@ -63414,7 +63669,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14469",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14491",
 "unfree":false,
 "unsupported":false
 },
@@ -63530,7 +63785,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14493",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14515",
 "unfree":false,
 "unsupported":false
 },
@@ -63646,7 +63901,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14513",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14535",
 "unfree":false,
 "unsupported":false
 },
@@ -63759,7 +64014,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14528",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14550",
 "unfree":true,
 "unsupported":false
 },
@@ -63875,7 +64130,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14552",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14574",
 "unfree":false,
 "unsupported":false
 },
@@ -63901,7 +64156,7 @@
 "*://*.youtube.com/*",
 "*://*.youtube-nocookie.com/*"
 ],
-"name":"youtube-no-translation-2.6.0",
+"name":"youtube-no-translation-2.6.1",
 "outputsToInstall":[
 "out"
 ],
@@ -63982,18 +64237,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14571",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14593",
 "unfree":false,
 "unsupported":false
 },
-"name":"youtube-no-translation-2.6.0",
+"name":"youtube-no-translation-2.6.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"youtube-no-translation",
 "system":"x86_64-linux",
-"version":"2.6.0"
+"version":"2.6.1"
 },
 "firefox-addons.youtube-nonstop":{
 "meta":{
@@ -64097,7 +64352,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14589",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14611",
 "unfree":false,
 "unsupported":false
 },
@@ -64211,7 +64466,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14607",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14629",
 "unfree":true,
 "unsupported":false
 },
@@ -64326,7 +64581,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14631",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14653",
 "unfree":false,
 "unsupported":false
 },
@@ -64443,7 +64698,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14646",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14668",
 "unfree":false,
 "unsupported":false
 },
@@ -64558,7 +64813,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14665",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14687",
 "unfree":false,
 "unsupported":false
 },
@@ -64677,7 +64932,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14683",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14705",
 "unfree":false,
 "unsupported":false
 },
@@ -64791,7 +65046,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14706",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14728",
 "unfree":false,
 "unsupported":false
 },
@@ -64910,7 +65165,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14721",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14743",
 "unfree":false,
 "unsupported":false
 },
@@ -65031,7 +65286,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14742",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14764",
 "unfree":false,
 "unsupported":false
 },
@@ -65148,7 +65403,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14767",
+"position":"./pkgs/firefox-addons/generated-firefox-addons.nix:14789",
 "unfree":false,
 "unsupported":false
 },
@@ -65327,7 +65582,7 @@
 ],
 "maintainersPosition":{
 "column":56,
-"file":"/nix/store/fj2ihbw1909ihfjh12nzykyh7j89kgnb-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/33gffs1456lg264v428qyx5p8rk6sawp-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1017
 },
 "name":"mozilla-addons-to-nix-0.12.0",
