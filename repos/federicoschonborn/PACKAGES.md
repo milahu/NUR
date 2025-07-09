@@ -357,7 +357,7 @@ Phonon Backend using MPV Player.
 Camera application for Plasma Mobile.
 
 - Name: `plasma-camera`
-- Version: `2.0.0-unstable-2025-07-07`
+- Version: `2.0.0-unstable-2025-07-08`
 - [🌐 Homepage](https://invent.kde.org/plasma-mobile/plasma-camera)
 - [📦 Source](./pkgs/by-name/plasma-camera/package.nix#L54)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -504,7 +504,7 @@ Wisp turns indentation based syntax into Lisp.
 A data serialization language for expressing clear API messages, config files, etc.
 
 - Name: `ziggy`
-- Version: `0.0.1-unstable-2025-04-18`
+- Version: `0.0.1-unstable-2025-07-08`
 - [🌐 Homepage](https://github.com/kristoff-it/ziggy)
 - [📦 Source](./pkgs/by-name/ziggy/package.nix#L43)
 - 📄 License: [`MIT License`](https://spdx.org/licenses/MIT.html)

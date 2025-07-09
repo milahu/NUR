@@ -5,19 +5,19 @@
   zig,
   callPackage,
   nix-update-script,
-# writeScript,
-# zon2nix,
+  writeScript,
+  zon2nix,
 }:
 
-stdenv.mkDerivation {
+stdenv.mkDerivation (finalAttrs: {
   pname = "ziggy";
-  version = "0.0.1-unstable-2025-04-18";
+  version = "0.0.1-unstable-2025-07-08";
 
   src = fetchFromGitHub {
     owner = "kristoff-it";
     repo = "ziggy";
-    rev = "fe3bf9389e7ff213cf3548caaf9c6f3d4bb38647";
-    hash = "sha256-w2WO2N3+XJWhWnt9swOux2ynKxmePbB4VojXM8K5GAo=";
+    rev = "eeb21acc0a369dca503167fe963f4f5a7eda2659";
+    hash = "sha256-5gW1hpJcnayA6veLWCiksGpfZBZX3UsQmYC4XlZRaEo=";
   };
 
   nativeBuildInputs = [
@@ -33,9 +33,9 @@ stdenv.mkDerivation {
   passthru = {
     updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
 
-    # updateDeps = writeScript "update-deps" ''
-    #   ${lib.getExe zon2nix} ${finalAttrs.src} > deps.nix
-    # '';
+    updateDeps = writeScript "update-deps" ''
+      ${lib.getExe zon2nix} ${finalAttrs.src} > deps.nix
+    '';
   };
 
   meta = {
@@ -47,4 +47,4 @@ stdenv.mkDerivation {
     broken = lib.versionOlder zig.version "0.14";
     inherit (zig.meta) platforms;
   };
-}
+})
