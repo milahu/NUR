@@ -354,13 +354,14 @@ Phonon Backend using MPV Player.
 
 ## `plasma-camera` {#plasma-camera}
 
-Camera application for Plasma Mobile.
+libcamera based camera application built for Plasma Mobile.
 
 - Name: `plasma-camera`
-- Version: `2.0.0-unstable-2025-07-08`
+- Version: `2.0.0`
 - [🌐 Homepage](https://invent.kde.org/plasma-mobile/plasma-camera)
-- [📦 Source](./pkgs/by-name/plasma-camera/package.nix#L54)
-- 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
+- [📰 Changelog](https://invent.kde.org/plasma-mobile/plasma-camera/-/tags/v2.0.0)
+- [📦 Source](./pkgs/by-name/plasma-camera/package.nix#L52)
+- 📄 Licenses: [`BSD 3-clause "New" or "Revised" License`](https://spdx.org/licenses/BSD-3-Clause.html), [`Creative Commons Zero v1.0 Universal`](https://spdx.org/licenses/CC0-1.0.html), [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v2.0 or later`](https://spdx.org/licenses/GPL-2.0-or-later.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html), [`GNU General Public License v3.0 or later`](https://spdx.org/licenses/GPL-3.0-or-later.html), [`GNU Lesser General Public License v2.1 or later`](https://spdx.org/licenses/LGPL-2.1-or-later.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html)
 - 🖥️ Platforms: `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`
 
 ## `plasma-keyboard` {#plasma-keyboard}

@@ -6,20 +6,19 @@
   cmake,
   ninja,
   pkg-config,
-  python3,
   libcamera,
   nix-update-script,
 }:
 
-stdenv.mkDerivation {
+stdenv.mkDerivation (finalAttrs: {
   pname = "plasma-camera";
-  version = "2.0.0-unstable-2025-07-08";
+  version = "2.0.0";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "plasma-mobile";
     repo = "plasma-camera";
-    rev = "6c8895d8c8e0d9978517ae0f3a7c78cf7452ab45";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-5sAYhECgjL768E3NXeE8ExKhrntWrQeaeNgQQr25TBM=";
   };
 
@@ -27,7 +26,6 @@ stdenv.mkDerivation {
     cmake
     ninja
     pkg-config
-    python3
     kdePackages.extra-cmake-modules
     kdePackages.wrapQtAppsHook
   ];
@@ -47,14 +45,24 @@ stdenv.mkDerivation {
 
   strictDeps = true;
 
-  passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     mainProgram = "plasma-camera";
-    description = "Camera application for Plasma Mobile";
+    description = "libcamera based camera application built for Plasma Mobile";
     homepage = "https://invent.kde.org/plasma-mobile/plasma-camera";
-    license = lib.licenses.gpl3Only;
+    changelog = "https://invent.kde.org/plasma-mobile/plasma-camera/-/tags/v${finalAttrs.version}";
+    license = with lib.licenses; [
+      bsd3
+      cc0
+      gpl2Only
+      gpl2Plus
+      gpl3Only
+      gpl3Plus
+      lgpl21Plus
+      lgpl3Only
+    ];
     platforms = lib.platforms.linux;
     maintainers = with lib.maintainers; [ federicoschonborn ];
   };
-}
+})
