@@ -25,10 +25,10 @@ _: {
       systemd.enable = true;
 
       kernelModules = [
-        "hv_vmbus" # for hyper-V
-        "hv_netvsc"
-        "hv_utils"
-        "hv_storvsc"
+        # "hv_vmbus" # for hyper-V
+        # "hv_netvsc"
+        # "hv_utils"
+        # "hv_storvsc"
       ];
     };
   };

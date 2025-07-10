@@ -40,10 +40,11 @@ withSystem "x86_64-linux" (
       }
 
       ./disk.nix
+      ./boot.nix
       ./caddy.nix
       ../persist-base.nix
-      ./boot.nix
       ./network.nix
+      ../sysctl.nix
       ./rekey.nix
       ./spec.nix
       (lib.iage "cloud")
