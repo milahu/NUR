@@ -6,6 +6,7 @@
   fetchFromGitHub,
   fetchpatch2,
   makeWrapper,
+  nix-update-script,
 }:
 
 buildGoModule (finalAttrs: {
@@ -32,6 +33,8 @@ buildGoModule (finalAttrs: {
   nativeBuildInputs = [ makeWrapper ];
 
   doCheck = false;
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "CI friendly wrapper around nix-build";

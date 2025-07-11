@@ -4,8 +4,6 @@
   fetchFromGitHub,
   cmake,
   ninja,
-  libtiff,
-  libwebp,
   SDL2,
   SDL2_image,
   SDL2_ttf,
@@ -30,8 +28,6 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   buildInputs = [
-    libtiff
-    libwebp
     SDL2
     SDL2_image
     SDL2_ttf

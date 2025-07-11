@@ -2,25 +2,25 @@
   lib,
   stdenv,
   fetchFromGitLab,
+  kdePackages,
   cmake,
   ninja,
   pkg-config,
   wayland,
   wayland-protocols,
-  kdePackages,
   nix-update-script,
 }:
 
 stdenv.mkDerivation {
   pname = "plasma-keyboard";
-  version = "0-unstable-2025-07-04";
+  version = "0-unstable-2025-07-10";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "plasma";
     repo = "plasma-keyboard";
-    rev = "e1f06c2e12e44295c09de88097cecb822441861e";
-    hash = "sha256-bHUazSdoStWfFuidxP/uKHk6spTi6OfLz0EsJa7I2Ms=";
+    rev = "4692f2696f32a2aeff96e88b06f59002db274e04";
+    hash = "sha256-uev3vdEVhz/34wm2jxQQVf375y9vLITTc3rC3ozks9o=";
   };
 
   nativeBuildInputs = [
@@ -34,6 +34,8 @@ stdenv.mkDerivation {
   buildInputs = [
     wayland
     wayland-protocols
+    kdePackages.kcmutils
+    kdePackages.kconfig
     kdePackages.kcoreaddons
     kdePackages.ki18n
     kdePackages.qtbase

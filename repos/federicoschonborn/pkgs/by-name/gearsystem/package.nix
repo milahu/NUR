@@ -7,6 +7,7 @@
   glew,
   gtk3,
   SDL2,
+  nix-update-script,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -38,6 +39,8 @@ stdenv.mkDerivation (finalAttrs: {
     "prefix=$(out)"
     "GIT_VERSION=${finalAttrs.src.tag}"
   ];
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     mainProgram = "gearsystem";

@@ -31,6 +31,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   buildInputs = [
+    libcamera
     kdePackages.kconfig
     kdePackages.kcoreaddons
     kdePackages.ki18n
@@ -40,7 +41,6 @@ stdenv.mkDerivation (finalAttrs: {
     kdePackages.qtmultimedia
     kdePackages.qtsensors
     kdePackages.qtsvg
-    libcamera
   ];
 
   strictDeps = true;

@@ -6,6 +6,7 @@
   cmake,
   ninja,
   alsa-lib,
+  sdl3,
   symlinkJoin,
   libretro,
   gearsystem-libretro,
@@ -33,14 +34,14 @@ in
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "kretro";
-  version = "0-unstable-2025-07-06";
+  version = "0-unstable-2025-07-10";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "games";
     repo = "kretro";
-    rev = "57995051540e0a74c61fc7f9fefdca1706a3f455";
-    hash = "sha256-9wwTYIBPBxNfixF57ppsamEjUSE5jPzRgS+YGB6IlSo=";
+    rev = "ff3cf1860321ae7282712d92323dc6233a27e201";
+    hash = "sha256-tacQZhICNd3ctAPRD400C+WJHcv9NJ5zDMAH/yXS4ns=";
   };
 
   nativeBuildInputs = [
@@ -52,6 +53,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     alsa-lib
+    sdl3
     kdePackages.kconfig
     kdePackages.kcoreaddons
     kdePackages.ki18n
