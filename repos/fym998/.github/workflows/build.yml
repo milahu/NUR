@@ -30,14 +30,12 @@ jobs:
       - name: Show flake metadata
         run: nix flake metadata --json
 
-      - name: Show flake attributes
-        run: nix flake show --all-systems --json
-
       - name: Evaluate
         id: eval
         run: |
-          echo -n eval_result= >> $GITHUB_OUTPUT
-          nix eval .#ciPackages --json | tee -a $GITHUB_OUTPUT
+          echo 'eval_result<<EOF' >> $GITHUB_OUTPUT
+          nix run nixpkgs#nix-eval-jobs -- --flake .#ciPackages --force-recurse | tee -a $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
 
   check-eval-change:
     runs-on: ubuntu-latest
@@ -47,7 +45,7 @@ jobs:
     steps:
       - name: Restore previous eval result
         id: cache_restore
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: eval_result.json
           key: eval_result-${{ github.sha }}
@@ -77,12 +75,10 @@ jobs:
 
       - name: Save new eval result
         if: steps.compare.outputs.changed == 'true'
-        uses: actions/cache@v4
+        uses: actions/cache/save@v4
         with:
           path: eval_result.json
           key: eval_result-${{ github.sha }}
-          restore-keys: |
-            eval_result-
 
   build-and-cache-packages:
     needs: check-eval-change
