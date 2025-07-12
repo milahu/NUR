@@ -19,16 +19,16 @@
   };
   baibot = {
     pname = "baibot";
-    version = "v1.7.5";
+    version = "v1.7.6";
     src = fetchFromGitHub {
       owner = "etkecc";
       repo = "baibot";
-      rev = "v1.7.5";
+      rev = "v1.7.6";
       fetchSubmodules = false;
-      sha256 = "sha256-6ZJI1tQV03jrxd1V27opx7uH5Yzynd+/jtPXeYXmTqY=";
+      sha256 = "sha256-EdFTJBQmKdvOVvr0P6vf+UHtdQAamDeV1jVFOzcPDsY=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./baibot-v1.7.5/Cargo.lock;
+      lockFile = ./baibot-v1.7.6/Cargo.lock;
       outputHashes = {
         "async-openai-0.28.1" = "sha256-5xrO2k5jA94cf3Ub0DGuAvKqDDXVk1Ro/naC5FG1AAw=";
         "anthropic-0.0.8" = "sha256-q21o2GB8nN0jGcRPgW/cujC+3gdgQg5mFJUJy2tipCA=";
@@ -330,17 +330,17 @@
   };
   rime-essay = {
     pname = "rime-essay";
-    version = "c3a2311fa05115769a03205f0ca0fe5dd53e2eff";
+    version = "6025fc7014fb0e7f0c243edca6605e6ca41ee98f";
     src = fetchgit {
       url = "https://github.com/rime/rime-essay.git";
-      rev = "c3a2311fa05115769a03205f0ca0fe5dd53e2eff";
+      rev = "6025fc7014fb0e7f0c243edca6605e6ca41ee98f";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-29vo6H3Yv+aRczyJIq7fLuXI/oJdis85c6a61JK9BwM=";
+      sha256 = "sha256-0YpsSbWAdqjjvHGWzdKrZAkL/lKuXtJYUz0h12sv1Iw=";
     };
-    date = "2025-06-25";
+    date = "2025-07-11";
   };
   rime-ice = {
     pname = "rime-ice";
