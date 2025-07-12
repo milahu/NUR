@@ -127,7 +127,7 @@ A GNOME theme for Firefox.
 Sega Master System/Game Gear/SG-1000 emulator and debugger for macOS, Windows, Linux, BSD and RetroArch.
 
 - Name: `gearsystem`
-- Version: `3.8.1`
+- Version: `3.8.2`
 - [🌐 Homepage](https://github.com/drhelius/Gearsystem)
 - [📦 Source](./pkgs/by-name/gearsystem/package.nix#L47)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -138,7 +138,7 @@ Sega Master System/Game Gear/SG-1000 emulator and debugger for macOS, Windows, L
 Sega Master System/Game Gear/SG-1000 emulator and debugger for macOS, Windows, Linux, BSD and RetroArch.
 
 - Name: `gearsystem-libretro`
-- Version: `3.8.1`
+- Version: `3.8.2`
 - [🌐 Homepage](https://github.com/drhelius/Gearsystem)
 - [📦 Source](./pkgs/by-name/gearsystem-libretro/package.nix#L23)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -161,7 +161,7 @@ Clojure interpreter hosted on Go, with extensible interop support.
 Retro gaming application for the GNOME desktop.
 
 - Name: `highscore`
-- Version: `0-unstable-2025-07-10`
+- Version: `0-unstable-2025-07-11`
 - [🌐 Homepage](https://gitlab.gnome.org/World/highscore)
 - [📦 Source](./pkgs/by-name/highscore/package.nix#L91)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -217,7 +217,7 @@ Interface for porting emulators to
 Highscore.
 
 - Name: `libhighscore`
-- Version: `0-unstable-2025-07-04`
+- Version: `0-unstable-2025-07-10`
 - [🌐 Homepage](https://gitlab.gnome.org/alicem/libhighscore)
 - [📦 Source](./pkgs/by-name/libhighscore/package.nix#L43)
 - 📄 License: [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html)
@@ -228,9 +228,9 @@ Highscore.
 .
 
 - Name: `libmanette-1`
-- Version: `0.2.12-unstable-2025-04-19`
+- Version: `0.2.12-unstable-2025-07-10`
 - [🌐 Homepage](https://gitlab.gnome.org/GNOME/libmanette)
-- [📰 Changelog](https://gitlab.gnome.org/GNOME/libmanette/-/blob/da8ec205321d30dd9968a0e49fb007a74ce2a453/NEWS)
+- [📰 Changelog](https://gitlab.gnome.org/GNOME/libmanette/-/blob/54f317a6b354bd90b11a6da97545d038db2498f2/NEWS)
 - [📦 Source](./pkgs/by-name/libmanette-1/package.nix#L49)
 - 📄 License: [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html)
 - 🖥️ Platforms: `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`
@@ -262,7 +262,7 @@ CI friendly wrapper around nix-build.
 A hardware profiling application for Linux.
 
 - Name: `magothy`
-- Version: `0-unstable-2025-06-26`
+- Version: `0-unstable-2025-07-11`
 - [🌐 Homepage](https://codeberg.org/serebit/magothy)
 - [📦 Source](./pkgs/by-name/magothy/package.nix#L32)
 - 📄 Licenses: [`Apache License 2.0`](https://spdx.org/licenses/Apache-2.0.html), [`Creative Commons Zero v1.0 Universal`](https://spdx.org/licenses/CC0-1.0.html)
@@ -355,7 +355,7 @@ libcamera based camera application built for Plasma Mobile.
 Virtual Keyboard for Qt based desktops.
 
 - Name: `plasma-keyboard`
-- Version: `0-unstable-2025-07-10`
+- Version: `0-unstable-2025-07-11`
 - [🌐 Homepage](https://invent.kde.org/plasma/plasma-keyboard)
 - [📦 Source](./pkgs/by-name/plasma-keyboard/package.nix#L54)
 - 📄 Licenses: [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html), [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html), [`MIT License`](https://spdx.org/licenses/MIT.html)

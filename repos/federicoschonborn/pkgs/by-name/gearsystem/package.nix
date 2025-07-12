@@ -12,13 +12,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "gearsystem";
-  version = "3.8.1";
+  version = "3.8.2";
 
   src = fetchFromGitHub {
     owner = "drhelius";
     repo = "Gearsystem";
     tag = finalAttrs.version;
-    hash = "sha256-eRZMLspDfghsRtR/QpTHxXh6uItPzlCnLfWPd3dRp/8=";
+    hash = "sha256-sty6dHq4Ad8XOqwSXau/JNHGDl6XZWf5/34VB967PVs=";
   };
 
   nativeBuildInputs = [

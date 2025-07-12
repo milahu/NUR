@@ -16,14 +16,14 @@
 
 stdenv.mkDerivation rec {
   pname = "libmanette-1";
-  version = "0.2.12-unstable-2025-04-19";
+  version = "0.2.12-unstable-2025-07-10";
 
   src = fetchFromGitLab {
     domain = "gitlab.gnome.org";
     owner = "GNOME";
     repo = "libmanette";
-    rev = "da8ec205321d30dd9968a0e49fb007a74ce2a453";
-    hash = "sha256-yq/x8pspeXBYb08u4beKZ2xKXd/3HfSgJeTHkJ+oAto=";
+    rev = "54f317a6b354bd90b11a6da97545d038db2498f2";
+    hash = "sha256-vKIy6K+jW6tXimEfEUlV3+sx7aU23OALhQHiN6zTV/0=";
   };
 
   nativeBuildInputs = [
