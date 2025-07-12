@@ -100,26 +100,6 @@ reIf {
           static_configs = [ { targets = [ "[fdcc::3]:9768" ]; } ];
         }
 
-        # {
-        #   job_name = "bird-metrics";
-        #   scheme = "https";
-        #   basic_auth = {
-        #     username = "prometheus";
-        #     password_file = secPath;
-        #   };
-        #   metrics_path = "/bird-metrics";
-        #   static_configs = [ { inherit targets; } ];
-        # }
-        # {
-        #   job_name = "bird-metrics-notls";
-        #   scheme = "http";
-        #   basic_auth = {
-        #     username = "prometheus";
-        #     password_file = secPath;
-        #   };
-        #   metrics_path = "/bird-metrics";
-        #   static_configs = [ { targets = targets_notls; } ];
-        # }
         {
           job_name = "http";
           scheme = "http";
@@ -135,14 +115,8 @@ reIf {
                 ]
                 ++ map (pre: "https://${pre}.nyaw.xyz") [
                   "blog"
-                  "ntfy"
-                  "matrix"
                   "pb"
-                  "vault"
                   "status"
-                  "book"
-                  "cache"
-                  "photo"
                 ];
             }
           ];
@@ -209,9 +183,9 @@ reIf {
               {
                 bot_token_file = "/run/credentials/alertmanager.service/notifychan";
                 chat_id = -1002215131569;
-                http_config = {
-                  proxy_url = "http://127.0.0.1:1900";
-                };
+                # http_config = {
+                #   proxy_url = "http://127.0.0.1:1900";
+                # };
               }
             ];
           }
