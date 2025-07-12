@@ -105,6 +105,7 @@ in
       efficient-compression-tool
       exiftool
       eyedropper
+      fast-cli
       ffmpeg
       file
       fq
