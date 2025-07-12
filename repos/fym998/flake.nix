@@ -57,10 +57,8 @@
                 allowUnsupportedSystem = true;
               };
             };
-
-            checks = lib.mapAttrs' (name: value: lib.nameValuePair "package-${name}" value) self'.packages;
           }
-          // import ./pkgs.nix { inherit pkgs; };
+          // import ./pkgs { inherit pkgs; };
       }
     );
 }
