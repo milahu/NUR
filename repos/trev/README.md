@@ -11,12 +11,35 @@
 - [protoc-gen-connect-openapi](https://github.com/sudorandom/protoc-gen-connect-openapi) - Plugin for generating OpenAPIv3 from protobufs matching the Connect RPC interface 
   - Pending nixpkgs [NixOS#398495](https://github.com/NixOS/nixpkgs/pull/398495)
 - [opengrep](https://github.com/opengrep/opengrep) - Static code analysis engine to find security issues in code
-  - Blocked by [opengrep#341](https://github.com/opengrep/opengrep/pull/347)
+  - Blocked by [opengrep#347](https://github.com/opengrep/opengrep/pull/347)
 
 ## Overlays
 
 - [renovate](https://github.com/renovatebot/renovate) - Automated dependency update tool
   - patch: fix flake lock refresh [renovatebot#33991](https://github.com/renovatebot/renovate/pull/33991)
+
+## Libs
+
+- mkChecks - Utility function to make creating flake checks easier
+
+```nix
+checks = forSystem ({pkgs, ...}:
+  pkgs.nur.repos.trev.lib.mkChecks {
+    lint = {
+      src = ./.;
+      nativeBuildInputs = with pkgs; [
+        alejandra
+        revive
+        sqlfluff
+      ];
+      checkPhase = ''
+        alejandra -c .
+        sqlfluff lint
+        revive -config revive.toml -set_exit_status ./...
+      '';
+    };
+});
+```
 
 ## Examples
 
