@@ -1,23 +1,23 @@
 {
 "name":"trev",
-"fetch_time":0.37,
+"fetch_time":0.767,
 "eval_time":0.242,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"21a6e1a4547c4a66b9dd082d1479b66bc03b01cf",
-"sha256":"1g6jab400h3sh3yb5rmlr3hj86jazivkaiwlhl6x3pv07m7vdmxg",
+"rev":"69f7cd70a95c2d05a3588a95168446bd76f3df75",
+"sha256":"1y699h49nwxvpdjbbif0vn7m1i6hk0qwj2lklkzwwf017fjjy7rs",
 "date":null
 },
-"source_storepath":"/nix/store/mi7s61rnp4j7b3cang0ps2i5zvm9f62p-source",
-"nixpkgs_storepath":"/nix/store/b3bn50jrvf5hhlsll45wgyvy85swfz5p-source",
-"nur_combined_rev":"fe8c7226475a74cafb5467eac35d424148daf2a5",
+"source_storepath":"/nix/store/b0q3yk4yc2whamcf1k07xbfj1kays72h-source",
+"nixpkgs_storepath":"/nix/store/q49hgg1phdxp42mznxl0r29662xs75lz-source",
+"nur_combined_rev":"b5942164d98162d1d3cfe4262e08d48a5f77c9c7",
 "packages":{
 "bobgen":{
 "meta":{
 "available":true,
 "broken":false,
 "changelog":"https://github.com/stephenafamo/bob/releases/tag/v0.38.0",
-"description":"Generates an ORM for Go based on a database schema",
+"description":"SQL query builder and ORM/Factory generator for Go",
 "homepage":"https://github.com/stephenafamo/bob",
 "insecure":false,
 "license":{
@@ -29,7 +29,6 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"mainProgram":"bobgen-sql",
 "maintainers":[],
 "name":"bobgen-0.38.0",
 "outputsToInstall":[
@@ -254,7 +253,7 @@
 "available":true,
 "broken":false,
 "changelog":"https://github.com/sudorandom/protoc-gen-connect-openapi/releases/tag/v0.19.0",
-"description":"Plugin for generating OpenAPIv3 from protobufs matching the Connect RPC interface",
+"description":"Protobuf plugin for generating OpenAPI specs matching the Connect RPC interface",
 "homepage":"https://github.com/sudorandom/protoc-gen-connect-openapi",
 "insecure":false,
 "license":{
