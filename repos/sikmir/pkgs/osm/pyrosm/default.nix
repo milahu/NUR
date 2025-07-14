@@ -19,9 +19,14 @@ python3Packages.buildPythonPackage rec {
     hash = "sha256-eX6lOkprU/RkSz2+dGlRtdQQsI+m9GZyN/VfcIix79k=";
   };
 
-  build-system = with python3Packages; [ setuptools ];
+  postPatch = ''
+    substituteInPlace pyproject.toml --replace-fail "cykhash==2.0.0" "cykhash"
+  '';
 
-  nativeBuildInputs = with python3Packages; [ cython ];
+  build-system = with python3Packages; [
+    setuptools
+    cython
+  ];
 
   dependencies = with python3Packages; [
     python-rapidjson

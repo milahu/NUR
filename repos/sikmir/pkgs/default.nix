@@ -124,7 +124,7 @@ lib.makeScope newScope (
 
     ### EMBEDDED
 
-    chdk = callPackage ./embedded/chdk { gcc-arm-embedded = pkgs.gcc-arm-embedded-10; };
+    chdk = callPackage ./embedded/chdk { };
     embox-aarch64 = callPackage ./embedded/embox { arch = "aarch64"; };
     embox-arm = callPackage ./embedded/embox { arch = "arm"; };
     embox-ppc = callPackage ./embedded/embox { arch = "ppc"; };
@@ -136,7 +136,7 @@ lib.makeScope newScope (
     basecamp = callPackage ./garmin/basecamp { };
     cgpsmapper = callPackage ./garmin/cgpsmapper { };
     garmin-uploader = callPackage ./garmin/garmin-uploader { };
-    garminimg = libsForQt5.callPackage ./garmin/garminimg { proj = pkgs.proj_7; };
+    garminimg = libsForQt5.callPackage ./garmin/garminimg { };
     gimgtools = callPackage ./garmin/gimgtools { };
     gmaptool = callPackage ./garmin/gmaptool { };
     imgdecode = callPackage ./garmin/imgdecode { };
@@ -450,6 +450,7 @@ lib.makeScope newScope (
     mqtt-benchmark = callPackage ./mqtt/mqtt-benchmark { };
     mqtt-c = callPackage ./mqtt/mqtt-c { };
     mqtt-cli = callPackage ./mqtt/mqtt-cli { };
+    mqtt-executor = callPackage ./mqtt/mqtt-executor { };
     mqtt-launcher = callPackage ./mqtt/mqtt-launcher { };
     mqtt-logger = callPackage ./mqtt/mqtt-logger { };
     mqtt-proxy = callPackage ./mqtt/mqtt-proxy { };
@@ -458,6 +459,7 @@ lib.makeScope newScope (
     mqtt-stresser = callPackage ./mqtt/mqtt-stresser { };
     mqtt-to-influxdb = callPackage ./mqtt/mqtt-to-influxdb { };
     mqtt-to-influxdb-forwarder = callPackage ./mqtt/mqtt-to-influxdb-forwarder { };
+    mqttfs = callPackage ./mqtt/mqttfs { };
     mqttwarn = callPackage ./mqtt/mqttwarn { };
     nanosdk = callPackage ./mqtt/nanosdk { };
     pytest-mqtt = callPackage ./mqtt/pytest-mqtt { };

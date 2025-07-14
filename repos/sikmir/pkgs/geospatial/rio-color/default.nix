@@ -17,9 +17,17 @@ python3Packages.buildPythonPackage rec {
     hash = "sha256-iJ+whIk3ANop8i712dLE0mJyDMHGnE0tic23H6f67Xg=";
   };
 
-  build-system = with python3Packages; [ setuptools ];
+  postPatch = ''
+    substituteInPlace pyproject.toml \
+      --replace-fail "numpy==2.0.2" "numpy" \
+      --replace-fail "cython==3.0.11" "cython"
+  '';
 
-  nativeBuildInputs = with python3Packages; [ cython ];
+  build-system = with python3Packages; [
+    setuptools
+    cython
+    numpy
+  ];
 
   dependencies = with python3Packages; [
     click
