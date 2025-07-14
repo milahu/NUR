@@ -68,8 +68,7 @@
                 allowUnfreePredicate =
                   p:
                   builtins.elem (lib.getName p) [
-                    "super-mario-127"
-                    "spaghettikart"
+                    "ncsa-mosaic"
                   ];
               };
             };
