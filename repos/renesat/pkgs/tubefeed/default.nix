@@ -2,6 +2,7 @@
   lib,
   fetchFromGitLab,
   buildPythonPackage,
+  setuptools,
   aiofiles,
   aiohttp,
   aiosqlite,
@@ -13,6 +14,7 @@ buildPythonPackage rec {
   pname = "tubefeed";
   version = "2.1.3";
   disabled = pythonOlder "3.10";
+  pyproject = true;
 
   src = fetchFromGitLab {
     owner = "troebs";
@@ -25,6 +27,8 @@ buildPythonPackage rec {
     ./entry_points.patch
     ./datetime_parse_fix.patch
   ];
+
+  build-system = [setuptools];
 
   dependencies = [
     aiofiles

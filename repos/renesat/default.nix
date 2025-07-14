@@ -41,6 +41,7 @@
     age-edit = pkgs.callPackage ./pkgs/age-edit {};
 
     tubefeed = pkgs.python3Packages.callPackage ./pkgs/tubefeed {};
+    typy = pkgs.python3Packages.callPackage ./pkgs/typy {};
     flatlatex = pkgs.python3Packages.callPackage ./pkgs/flatlatex {};
     sixelcrop = pkgs.python3Packages.callPackage ./pkgs/sixelcrop {};
     timg = pkgs.python3Packages.callPackage ./pkgs/timg {};
