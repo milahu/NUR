@@ -1,11 +1,10 @@
 { pkgs }:
 
 let
-  # Build fails with “packaging<25.0,>=24.0 not satisfied by version 25.0”
+  # Pending https://github.com/NixOS/nixpkgs/pull/423832#issuecomment-3053832054
   brokenMeshtastic = attrs: {
     meta = attrs.meta // {
-      broken = pkgs.lib.versionAtLeast pkgs.python3Packages.packaging.version "25"
-        && pkgs.python3Packages.meshtastic.version == "2.6.3";
+      broken = pkgs.readstat.drvPath == "/nix/store/g2lh1sqg8bb0361d44afrwnl4386ncq1-readstat-1.1.9.drv";
     };
   };
 in
