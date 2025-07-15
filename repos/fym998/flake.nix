@@ -25,12 +25,10 @@
   };
 
   outputs =
-    inputs@{ self, flake-parts, ... }:
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } (
       {
         lib,
-        withSystem,
-        moduleWithSystem,
         ...
       }:
       {
@@ -38,9 +36,7 @@
           ./flake-modules/_internal/dev.nix
           ./flake-modules/_internal/ci.nix
         ];
-        flake = {
-          overlays = import ./overlays;
-        };
+        flake.overlays = import ./overlays;
         systems = import inputs.systems;
         perSystem =
           {
@@ -57,6 +53,7 @@
                 allowUnsupportedSystem = true;
               };
             };
+            ciPackages = lib.filterAttrs (name: _p: !lib.hasPrefix "_" name) self'.packages;
           }
           // import ./pkgs { inherit pkgs; };
       }
