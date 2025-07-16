@@ -31,14 +31,14 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "highscore";
-  version = "0-unstable-2025-07-12";
+  version = "0-unstable-2025-07-15";
 
   src = fetchFromGitLab {
     domain = "gitlab.gnome.org";
     owner = "World";
     repo = "highscore";
-    rev = "b4abc5b2933e82c4c8db991cb0ae7bb34d839a7d";
-    hash = "sha256-cnwWpbXXGLgMaL00Ru+1/TQJSZD9rINxvFBXfDFGZ3Y=";
+    rev = "ead60fa9ac23b413f02528700927bb53b863c357";
+    hash = "sha256-Dz6ms1N6nl6porfRKYfRzNWvZ7dqqkOvDDBidZhK1R8=";
   };
 
   patches = [

@@ -13,14 +13,14 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "cxx-rust-cssparser";
-  version = "0-unstable-2025-07-01";
+  version = "0-unstable-2025-07-14";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "libraries";
     repo = "cxx-rust-cssparser";
-    rev = "fa1802a63401c6e44f106a75654f18d67642e0b6";
-    hash = "sha256-3wOlq+FIR2bAy0ajJF4lNmbNvcgKMQ+9i2T1HpGFm2o=";
+    rev = "273720596d4a02479c0db56b4934a63938a383f4";
+    hash = "sha256-5j8Ec6RlETkm/bQWy5u3rxlFEz4obwUfBJORnWcKXfA=";
   };
 
   nativeBuildInputs = [
