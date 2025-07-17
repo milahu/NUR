@@ -47,21 +47,21 @@ error:
 
 … while calling 'makeScope'
 
-  at <nixpkgs> + /lib/customisation.nix:604:15:
+  at <nixpkgs> + /lib/customisation.nix:606:15:
 
-   603|   makeScope =
-   604|     newScope: f:
+   605|   makeScope =
+   606|     newScope: f:
       |               ^
-   605|     let
+   607|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:606:14:
+  at <nixpkgs> + /lib/customisation.nix:608:14:
 
-   605|     let
-   606|       self = f self // {
+   607|     let
+   608|       self = f self // {
       |              ^
-   607|         newScope = scope: newScope (self // scope);
+   609|         newScope = scope: newScope (self // scope);
 
 … while calling anonymous lambda
 
@@ -74,20 +74,20 @@ error:
 
 … from call site
 
-  at ./default.nix:244:8:
+  at ./default.nix:240:8:
 
-   243|     hprotoc = pkgs.haskellPackages.callPackage ./pkgs/hprotoc { };
-   244|   } // lib.optionalAttrs (!(pkgs ? buildMavenRepositoryFromLockFile)) mvn2nix);
+   239|     hprotoc = pkgs.haskellPackages.callPackage ./pkgs/hprotoc { };
+   240|   } // lib.optionalAttrs (!(pkgs ? buildMavenRepositoryFromLockFile)) mvn2nix);
       |        ^
-   245| in scope.packages scope
+   241| in scope.packages scope
 
 … while calling 'optionalAttrs'
 
-  at <nixpkgs> + /lib/attrsets.nix:1351:5:
+  at <nixpkgs> + /lib/attrsets.nix:1316:25:
 
-  1350|     cond:
-  1351|     as:
-      |     ^
-  1352|     if cond then as else {};
+  1315|   */
+  1316|   optionalAttrs = cond: as: if cond then as else { };
+      |                         ^
+  1317|
 
 error: access to URI 'https://github.com/fzakaria/mvn2nix/archive/master.tar.gz' is forbidden in restricted mode
