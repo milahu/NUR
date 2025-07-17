@@ -18,6 +18,18 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-K7WGyVQnfQcMj99tcnX6qTtIB9m/M1O0kdgUnMoCtPw=";
   };
 
+  # mainline = fetchurl {
+  #   version = "6.16-rc6";
+  #   url = "https://git.kernel.org/torvalds/t/linux-${version}.tar.gz";
+  #   sha256 = "sha256-A7WGyVQnfQcMj99tcnX6qTtIB9m/M1O0kdgUnMoCtPw=";
+  # };
+
+  # longterm = fetchurl {
+  #   version = "6.12.38";
+  #   url = "https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-${version}.tar.xz";
+  #   sha256 = "sha256-F7WGyVQnfQcMj99tcnX6qTtIB9m/M1O0kdgUnMoCtPw=";
+  # };
+
   nativeBuildInputs = [
     bc
     bison
@@ -26,15 +38,15 @@ stdenv.mkDerivation rec {
     glibc_multi
   ];
 
-  unpackPhase = ''
-    tar xf $src
-    cd linux-${version}
-  '';
+  #  unpackPhase = ''
+  #    tar xf $src
+  #    cd linux-${version}
+  #  '';
 
   buildPhase = ''
     sed -i '/^KBUILD_CFLAGS/s/-mcmodel=large//' arch/x86/um/Makefile # still needed?
     make defconfig ARCH=um
-    make ARCH=um
+    make -j$NIX_BUILD_CORES linux ARCH=um
   '';
 
   installPhase = ''
@@ -43,13 +55,15 @@ stdenv.mkDerivation rec {
 
         cat > $out/bin/run-uml <<EOF
     #!/bin/sh
-    exec "\$0_dir/linux" \\
+    "\$0_dir/linux" \\
       root=/dev/root \\
       rootfstype=hostfs \\
       ro \\
       init=/bin/sh \\
-      mem=128M \\
-      debug
+      mem=256M \\
+      debug \\
+      $*
+    reset
     EOF
         chmod +x $out/bin/run-uml
         substituteInPlace $out/bin/run-uml --replace "\$0_dir" "\$(dirname \$0)"
@@ -58,6 +72,6 @@ stdenv.mkDerivation rec {
   meta = {
     description = "UML Linux kernel ${version} with hostfs support";
     license = lib.licenses.gpl2Only;
-    platforms = [ "x86_64-linux" ];
+    platforms = [ "x86_64-linux" ]; # builds as i686 on x86_64? wtf
   };
 }
