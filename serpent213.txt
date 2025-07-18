@@ -1,1 +1,11 @@
-nur.update: no packages in this repo
+error:
+… while querying the derivation named 'pushlog-0.3.1'
+
+error: undefined variable 'serpent213'
+
+at ./pkgs/pushlog/default.nix:40:42:
+
+    39|     license = lib.licenses.bsd0;
+    40|     maintainers = with lib.maintainers; [serpent213];
+      |                                          ^
+    41|   };
