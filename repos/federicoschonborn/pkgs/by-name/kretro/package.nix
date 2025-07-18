@@ -34,14 +34,14 @@ in
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "kretro";
-  version = "0-unstable-2025-07-10";
+  version = "0-unstable-2025-07-16";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "games";
     repo = "kretro";
-    rev = "ff3cf1860321ae7282712d92323dc6233a27e201";
-    hash = "sha256-tacQZhICNd3ctAPRD400C+WJHcv9NJ5zDMAH/yXS4ns=";
+    rev = "137ae18c4ed2eb0d0b68dae3fbfc6809f421c9e6";
+    hash = "sha256-1fY/T/xeToA8KT0FoQRFWvcQgSh4bwP9RjE+XBPF6J4=";
   };
 
   nativeBuildInputs = [
