@@ -39,6 +39,7 @@
     vl-convert = pkgs.callPackage ./pkgs/vl-convert {};
     dedoc = pkgs.callPackage ./pkgs/dedoc {};
     age-edit = pkgs.callPackage ./pkgs/age-edit {};
+    mal-cli = pkgs.callPackage ./pkgs/mal-cli {};
 
     tubefeed = pkgs.python3Packages.callPackage ./pkgs/tubefeed {};
     typy = pkgs.python3Packages.callPackage ./pkgs/typy {};
