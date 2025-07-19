@@ -3,9 +3,9 @@ error:
 
 error: undefined variable 'serpent213'
 
-at ./pkgs/pushlog/default.nix:40:42:
+at ./pkgs/pushlog/default.nix:40:43:
 
     39|     license = lib.licenses.bsd0;
-    40|     maintainers = with lib.maintainers; [serpent213];
-      |                                          ^
+    40|     maintainers = with lib.maintainers; [ serpent213 ];
+      |                                           ^
     41|   };
