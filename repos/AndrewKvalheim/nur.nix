@@ -1,13 +1,5 @@
 { pkgs }:
 
-let
-  # Pending https://github.com/NixOS/nixpkgs/pull/423832#issuecomment-3053832054
-  brokenMeshtastic = attrs: {
-    meta = attrs.meta // {
-      broken = pkgs.readstat.drvPath == "/nix/store/g2lh1sqg8bb0361d44afrwnl4386ncq1-readstat-1.1.9.drv";
-    };
-  };
-in
 # Published as nur.repos.AndrewKvalheim (https://nur.nix-community.org/repos/andrewkvalheim/)
 rec {
   hmModules = {
@@ -56,10 +48,10 @@ rec {
   josm-imagery-used = pkgs.callPackage ./packages/josm-imagery-used.nix { inherit buildJosmPlugin; };
   little-a-map = pkgs.callPackage ./packages/little-a-map.nix { };
   mark-applier = pkgs.callPackage ./packages/mark-applier.nix { };
-  meshtastic-url = (pkgs.callPackage ./packages/meshtastic-url.nix { }).overrideAttrs brokenMeshtastic;
+  meshtastic-url = pkgs.callPackage ./packages/meshtastic-url.nix { };
   minemap = pkgs.callPackage ./packages/minemap.nix { };
-  mqtt-connect = (pkgs.callPackage ./packages/mqtt-connect.nix { }).overrideAttrs brokenMeshtastic;
-  mqtt-protobuf-to-json = (pkgs.callPackage ./packages/mqtt-protobuf-to-json.nix { }).overrideAttrs brokenMeshtastic;
+  mqtt-connect = pkgs.callPackage ./packages/mqtt-connect.nix { };
+  mqtt-protobuf-to-json = pkgs.callPackage ./packages/mqtt-protobuf-to-json.nix { };
   nbt-explorer = pkgs.callPackage ./packages/nbt-explorer.nix { };
   pngquant-interactive = pkgs.callPackage ./packages/pngquant-interactive.nix { };
   spf-check = pkgs.callPackage ./packages/spf-check.nix { };
