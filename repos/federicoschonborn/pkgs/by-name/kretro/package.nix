@@ -11,37 +11,19 @@
   libretro,
   gearsystem-libretro,
   nix-update-script,
-  withDefaultCores ? true,
-  withDefaultUnfreeCores ? false,
-  extraCores ? [ ],
+  withUnfreeCores ? false,
 }:
-
-let
-  defaultCores = lib.filter (lib.meta.availableOn stdenv.hostPlatform) (
-    lib.optionals withDefaultCores [
-      libretro.beetle-gba
-      libretro.nestopia
-      libretro.blastem
-      gearsystem-libretro
-    ]
-    ++ lib.optionals withDefaultUnfreeCores [
-      libretro.snes9x
-    ]
-  );
-  extraCores' = if lib.isFunction extraCores then extraCores libretro else extraCores;
-  allCores = defaultCores ++ extraCores';
-in
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "kretro";
-  version = "0-unstable-2025-07-16";
+  version = "0-unstable-2025-07-19";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "games";
     repo = "kretro";
-    rev = "137ae18c4ed2eb0d0b68dae3fbfc6809f421c9e6";
-    hash = "sha256-1fY/T/xeToA8KT0FoQRFWvcQgSh4bwP9RjE+XBPF6J4=";
+    rev = "6589376c3fa2de412dbc9d375a63d6e746bb7db1";
+    hash = "sha256-mms88GOxDsltckhUNv0KgmmMZBaH39ybyk8tRxwDmkE=";
   };
 
   nativeBuildInputs = [
@@ -66,8 +48,17 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   libretroCores = symlinkJoin {
-    name = "${lib.getName finalAttrs.finalPackage}-${lib.getVersion finalAttrs.finalPackage}-cores";
-    paths = allCores;
+    name = "${lib.getName finalAttrs.finalPackage}-cores-${lib.getVersion finalAttrs.finalPackage}";
+    paths =
+      [
+        libretro.beetle-gba
+        libretro.nestopia
+        libretro.blastem
+        gearsystem-libretro
+      ]
+      ++ lib.optionals withUnfreeCores [
+        libretro.snes9x
+      ];
   };
 
   postPatch = ''

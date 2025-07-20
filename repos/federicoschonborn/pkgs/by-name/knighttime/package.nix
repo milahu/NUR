@@ -5,55 +5,49 @@
   kdePackages,
   cmake,
   ninja,
-  pkg-config,
-  wayland,
-  wayland-protocols,
   nix-update-script,
 }:
 
 stdenv.mkDerivation {
-  pname = "plasma-keyboard";
-  version = "0-unstable-2025-07-19";
+  pname = "knighttime";
+  version = "0-unstable-2025-07-18";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "plasma";
-    repo = "plasma-keyboard";
-    rev = "efc662628a488e9fbf9e437e6eb76efa3ea27f5f";
-    hash = "sha256-sG8I+J4Ic6ps4Cxoyxs8LE3iMNTw5Vo0Hyz7lApVjcE=";
+    repo = "knighttime";
+    rev = "3aa0ab6941ad768605bca8207c917b217133a6cf";
+    hash = "sha256-vmdcgWP7FT5t1whWhSytjx41GkPWYs7qPQ2TJZmV5/o=";
   };
 
   nativeBuildInputs = [
     cmake
     ninja
-    pkg-config
     kdePackages.extra-cmake-modules
-    kdePackages.wrapQtAppsHook
+    kdePackages.qttools # qdoc
   ];
 
   buildInputs = [
-    wayland
-    wayland-protocols
-    kdePackages.kcmutils
     kdePackages.kconfig
     kdePackages.kcoreaddons
+    kdePackages.kdbusaddons
+    kdePackages.kholidays
     kdePackages.ki18n
     kdePackages.qtbase
-    kdePackages.qtvirtualkeyboard
-    kdePackages.qtwayland
+    kdePackages.qtpositioning
   ];
 
-  cmakeFlags = [
-    "-DQtWaylandScanner_EXECUTABLE=${kdePackages.qtwayland}/libexec/qtwaylandscanner"
-  ];
+  dontWrapQtApps = true;
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
 
   meta = {
-    mainProgram = "plasma-keyboard";
-    description = "Virtual Keyboard for Qt based desktops";
-    homepage = "https://invent.kde.org/plasma/plasma-keyboard";
+    mainProgram = "knighttime";
+    description = "Helpers for scheduling the dark-light cycle";
+    homepage = "https://invent.kde.org/plasma/knighttime";
     license = with lib.licenses; [
+      bsd3
+      cc0
       gpl2Only
       gpl3Only
       lgpl21Only
@@ -62,5 +56,6 @@ stdenv.mkDerivation {
     ];
     platforms = lib.platforms.linux;
     maintainers = with lib.maintainers; [ federicoschonborn ];
+    broken = lib.versionOlder kdePackages.extra-cmake-modules.version "6.16.0";
   };
 }
