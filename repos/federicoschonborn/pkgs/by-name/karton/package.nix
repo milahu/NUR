@@ -9,40 +9,43 @@
   python3,
   libosinfo,
   libvirt,
-  virt-manager,
-  virt-viewer,
+  spice-gtk,
+  spice-protocol,
   nix-update-script,
 }:
 
 stdenv.mkDerivation {
   pname = "karton";
-  version = "0.1-prealpha-unstable-2025-06-12";
+  version = "0.1-prealpha-unstable-2025-07-20";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "sitter";
     repo = "karton";
-    rev = "fdfaef87d975786cdbd6ddf3bdefbb40f6179002";
-    hash = "sha256-ZHmesXc5mJvqHGQdOx2QEmGih1b46ZfQkmn/QY8+RpI=";
+    rev = "022c3fb40d5401a9313479560fefba404262e494";
+    hash = "sha256-6ohp1fKybu9v3IjjxopTww6/3/92A4ReIXK7Dp71uHs=";
   };
 
   nativeBuildInputs = [
     cmake
-    kdePackages.extra-cmake-modules
-    kdePackages.wrapQtAppsHook
     ninja
     pkg-config
     python3
+    kdePackages.extra-cmake-modules
+    kdePackages.wrapQtAppsHook
   ];
 
   buildInputs = [
-    libosinfo
-    libvirt
     kdePackages.kconfig
     kdePackages.kcoreaddons
     kdePackages.kirigami
     kdePackages.qtbase
     kdePackages.qtdeclarative
+    kdePackages.qtmultimedia
+    libosinfo
+    libvirt
+    spice-gtk
+    spice-protocol
   ];
 
   strictDeps = true;
@@ -51,10 +54,6 @@ stdenv.mkDerivation {
     substituteInPlace CMakeLists.txt \
       --replace-fail "/usr/share" "$out/share" \
       --replace-fail "ecm_find_qmlmodule(org.kde.kirigami REQUIRED)" "ecm_find_qmlmodule(org.kde.kirigami)"
-
-    substituteInPlace src/karton.cpp \
-      --replace-fail "virt-install" "${lib.getExe' virt-manager "virt-install"}" \
-      --replace-fail "virt-viewer" "${lib.getExe' virt-viewer "virt-viewer"}"
   '';
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };

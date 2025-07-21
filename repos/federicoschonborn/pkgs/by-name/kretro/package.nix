@@ -49,7 +49,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   libretroCores = symlinkJoin {
     name = "${lib.getName finalAttrs.finalPackage}-cores-${lib.getVersion finalAttrs.finalPackage}";
-    paths =
+    paths = lib.filter (lib.meta.availableOn stdenv.hostPlatform) (
       [
         libretro.beetle-gba
         libretro.nestopia
@@ -58,7 +58,8 @@ stdenv.mkDerivation (finalAttrs: {
       ]
       ++ lib.optionals withUnfreeCores [
         libretro.snes9x
-      ];
+      ]
+    );
   };
 
   postPatch = ''
