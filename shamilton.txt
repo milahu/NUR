@@ -1,0 +1,65 @@
+trace: Nixpkgs version : 25.11pre832437.7c688a0875df,
+  Nixos Version : master,
+  Local Usage : false
+error:
+… from call site
+
+  at ./default.nix:65:19:
+
+    64|   };
+    65|   go-pathfinder = pkgs.callPackage ./pkgs/Go-pathfinder { inherit (mylib.gomod2nix) buildGoApplication; };
+      |                   ^
+    66|   go-sdl2 = pkgs.callPackage ./pkgs/go-sdl2 { inherit (mylib.gomod2nix) buildGoApplication; };
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:240:19:
+
+   239|   callPackageWith =
+   240|     autoArgs: fn: args:
+      |                   ^
+   241|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:989:5:
+
+   988|     # TODO: Should we add call-time "type" checking like built in?
+   989|     __functor = self: f;
+      |     ^
+   990|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:161:7:
+
+   160|     mirrorArgs (
+   161|       origArgs:
+      |       ^
+   162|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:163:18:
+
+   162|       let
+   163|         result = f origArgs;
+      |                  ^
+   164|
+
+… while calling anonymous lambda
+
+  at ./pkgs/Go-pathfinder/default.nix:1:1:
+
+     1| { lib
+      | ^
+     2| # , fetchFromGitHub
+
+error: attribute 'gomod2nix' missing
+
+at ./default.nix:65:68:
+
+    64|   };
+    65|   go-pathfinder = pkgs.callPackage ./pkgs/Go-pathfinder { inherit (mylib.gomod2nix) buildGoApplication; };
+      |                                                                    ^
+    66|   go-sdl2 = pkgs.callPackage ./pkgs/go-sdl2 { inherit (mylib.gomod2nix) buildGoApplication; };
