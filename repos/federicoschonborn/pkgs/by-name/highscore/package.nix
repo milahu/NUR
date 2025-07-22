@@ -14,6 +14,7 @@
   vala,
   wrapGAppsHook4,
   feedbackd,
+  gamemode,
   glib,
   gtk4,
   libadwaita,
@@ -31,14 +32,14 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "highscore";
-  version = "0-unstable-2025-07-20";
+  version = "0-unstable-2025-07-21";
 
   src = fetchFromGitLab {
     domain = "gitlab.gnome.org";
     owner = "World";
     repo = "highscore";
-    rev = "f3d6cd133ca48818d761da44950e3b9fa3958168";
-    hash = "sha256-eFQqvWFX0PnsaXsEpo2w0NE4kyBnqAu5Cpbm2IGoTjw=";
+    rev = "04e0cdf1e7ea7c54e3529af41da4806b1684c568";
+    hash = "sha256-klCoho2IXUKvX/QErO9/fzFQzHUBqpUatAzYJPGgg3c=";
   };
 
   patches = [
@@ -62,6 +63,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     feedbackd
+    gamemode
     glib
     gtk4
     libadwaita
