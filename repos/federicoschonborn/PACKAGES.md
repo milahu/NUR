@@ -161,7 +161,7 @@ Clojure interpreter hosted on Go, with extensible interop support.
 Retro gaming application for the GNOME desktop.
 
 - Name: `highscore`
-- Version: `0-unstable-2025-07-21`
+- Version: `0-unstable-2025-07-22`
 - [🌐 Homepage](https://gitlab.gnome.org/World/highscore)
 - [📦 Source](./pkgs/by-name/highscore/package.nix#L93)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -172,7 +172,7 @@ Retro gaming application for the GNOME desktop.
 KDE Virtual Machine Manager.
 
 - Name: `karton`
-- Version: `0.1-prealpha-unstable-2025-07-21`
+- Version: `0.1-prealpha-unstable-2025-07-22`
 - [🌐 Homepage](https://invent.kde.org/sitter/karton)
 - [📦 Source](./pkgs/by-name/karton/package.nix#L63)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -368,7 +368,7 @@ libcamera based camera application built for Plasma Mobile.
 Virtual Keyboard for Qt based desktops.
 
 - Name: `plasma-keyboard`
-- Version: `0-unstable-2025-07-21`
+- Version: `0-unstable-2025-07-22`
 - [🌐 Homepage](https://invent.kde.org/plasma/plasma-keyboard)
 - [📦 Source](./pkgs/by-name/plasma-keyboard/package.nix#L54)
 - 📄 Licenses: [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html), [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html), [`MIT License`](https://spdx.org/licenses/MIT.html)
