@@ -2,6 +2,7 @@
 
 [![checks status](https://img.shields.io/github/actions/workflow/status/spotdemo4/nur/checks.yaml?logo=github&label=checks&labelColor=%2311111b)](https://github.com/spotdemo4/nur/actions/workflows/checks.yaml)
 [![flake status](https://img.shields.io/github/actions/workflow/status/spotdemo4/nur/flake.yaml?logo=nixos&logoColor=%2389dceb&label=flake&labelColor=%2311111b)](https://github.com/spotdemo4/nur/actions/workflows/flake.yaml)
+[![nur sync status](https://img.shields.io/github/actions/workflow/status/spotdemo4/nur/synced.yaml?logo=nixos&logoColor=%2389dceb&label=nur%20sync&labelColor=%2311111b)](https://github.com/spotdemo4/nur/actions/workflows/synced.yaml)
 [![cachix](https://img.shields.io/badge/cachix-trevnur-%23313244?logo=nixos&logoColor=%2389dceb&labelColor=%2311111b)](https://trevnur.cachix.org)
 
 ## Packages
@@ -12,6 +13,8 @@
   - Pending nixpkgs [NixOS#398495](https://github.com/NixOS/nixpkgs/pull/398495)
 - [opengrep](https://github.com/opengrep/opengrep) - Static code analysis engine to find security issues in code
   - Blocked by [opengrep#347](https://github.com/opengrep/opengrep/pull/347)
+- [bumper](https://github.com/spotdemo4/nur/blob/main/pkgs/bumper/bumper.sh) - Shell script for doing git version bumps (ie. 0.0.1 -> 0.0.2)
+- [shellhook](https://github.com/spotdemo4/nur/blob/main/pkgs/shellhook/shellhook.sh) - Shell script to run when entering a git repo with direnv
 
 ## Overlays
 
@@ -27,12 +30,12 @@ checks = forSystem ({pkgs, ...}:
   pkgs.nur.repos.trev.lib.mkChecks {
     lint = {
       src = ./.;
-      nativeBuildInputs = with pkgs; [
+      deps = with pkgs; [
         alejandra
-        revive
         sqlfluff
+        revive
       ];
-      checkPhase = ''
+      script = ''
         alejandra -c .
         sqlfluff lint
         revive -config revive.toml -set_exit_status ./...
@@ -41,7 +44,58 @@ checks = forSystem ({pkgs, ...}:
 });
 ```
 
-## Examples
+- go.moduleToPlatform - Changes the goos & goarch values of a buildGoModule derivation
+- go.moduleToImage - Turns a buildGoModule derivation into a docker image
+
+```nix
+packages = forSystem (
+  {
+    pkgs,
+    system,
+    ...
+  }:
+    with pkgs.nur.repos.trev.lib; rec {
+      default = ts-server."${system}";
+
+      linux-amd64 = go.moduleToPlatform default "linux" "amd64";
+      linux-arm64 = go.moduleToPlatform default "linux" "arm64";
+      linux-arm = go.moduleToPlatform default "linux" "arm";
+      darwin-arm64 = go.moduleToPlatform default "darwin" "arm64";
+      windows-amd64 = go.moduleToPlatform default "windows" "amd64";
+
+      linux-amd64-image = go.moduleToImage linux-amd64;
+      linux-arm64-image = go.moduleToImage linux-arm64;
+      linux-arm-image = go.moduleToImage linux-arm;
+    }
+);
+```
+
+- buf.fetchDeps & buf.configHook - Creates a fixed-output derivation containing buf dependencies
+
+```nix
+pkgs.stdenv.mkDerivation (finalAttrs: {
+  pname = "proto";
+  version = "1.0.0";
+  src = ./.;
+
+  nativeBuildInputs = with pkgs; [
+    buf
+    pkgs.nur.repos.trev.lib.buf.configHook
+  ];
+
+  bufDeps = pkgs.nur.repos.trev.lib.buf.fetchDeps {
+    inherit (finalAttrs) pname version src;
+    hash = "...";
+  };
+
+  doCheck = true;
+  checkPhase = ''
+    buf lint
+  '';
+});
+```
+
+## Install
 
 ### DevShell
 
@@ -74,11 +128,11 @@ checks = forSystem ({pkgs, ...}:
       system: let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [nur.overlays.default];
+          overlays = [nur.overlays.default]; # Add the NUR overlay
         };
       in {
         devShells.default = pkgs.mkShell {
-          packages = [pkgs.nur.repos.trev.bobgen];
+          packages = [pkgs.nur.repos.trev.bobgen]; # Use the NUR overlay
         };
       }
     );
@@ -100,7 +154,6 @@ checks = forSystem ({pkgs, ...}:
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -110,12 +163,10 @@ checks = forSystem ({pkgs, ...}:
   outputs = { self, nixpkgs, nur }: {
     nixosConfigurations.myConfig = nixpkgs.lib.nixosSystem {
       modules = [
-        # Adds the NUR overlay
-        nur.modules.nixos.default
+        nur.modules.nixos.default # Add the NUR overlay
 
-        # Use the NUR overlay
         ({ pkgs, ... }: {
-          environment.systemPackages = [pkgs.nur.repos.trev.bobgen];
+          environment.systemPackages = [pkgs.nur.repos.trev.bobgen]; # Use the NUR overlay
         })
       ];
     };
