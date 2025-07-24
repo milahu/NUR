@@ -30,4 +30,6 @@ rec {
 
   implicitcad = pkgs.haskellPackages.callPackage ./pkgs/implicitcad {};
   joplin-desktop = pkgs.callPackage ./pkgs/joplin-desktop { };
+  hxcfloppyemulator = pkgs.callPackage ./pkgs/hxcfloppyemulator { };
+  greaseweazel = pkgs.callPackage ./pkgs/greaseweazel { };
 }
