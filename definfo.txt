@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./default.nix:48:12:
+  at ./default.nix:33:12:
 
-    47|   sjtu-canvas-helper = pkgs.callPackage ./pkgs/sjtu-canvas-helper { };
-    48|   waylrc = pkgs.callPackage ./pkgs/waylrc { inherit rustPlatform; };
+    32|   sjtu-canvas-helper = pkgs.callPackage ./pkgs/sjtu-canvas-helper { };
+    33|   waylrc = pkgs.callPackage ./pkgs/waylrc { inherit rustPlatform; };
       |            ^
-    49|
+    34|
 
 … while calling 'callPackageWith'
 

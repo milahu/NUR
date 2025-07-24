@@ -12,12 +12,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:745:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:774:18:
 
-   744|       };
-   745|       validity = checkMeta.assertValidity { inherit meta attrs; };
+   773|       };
+   774|       validity = checkMeta.assertValidity { inherit meta attrs; };
       |                  ^
-   746|
+   775|
 
 … while calling 'assertValidity'
 
