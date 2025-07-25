@@ -6,19 +6,8 @@
   ...
 }:
 let
-  targets = map (n: "${n}.nyaw.xyz") [
-    # "nodens"
-    "yidhra"
-    "hastur"
-    "eihort"
-    "abhoth"
-  ];
-  targets_notls = map (n: "${n}.nyaw.xyz") [
-    # "kaambl"
-    # "yidhra"
-    # "azasos"
-  ];
-  relabel_configs = [
+  targets = map (n: "${n}.nyaw.xyz") (builtins.attrNames lib.data.node);
+  gen_relabel_configs = replacement: [
     {
       source_labels = [ "__address__" ];
       target_label = "__param_target";
@@ -29,9 +18,7 @@ let
     }
     {
       target_label = "__address__";
-      replacement =
-        with config.services.prometheus.exporters.blackbox;
-        "${listenAddress}:${toString port}";
+      inherit replacement;
     }
   ];
 
@@ -86,20 +73,49 @@ reIf {
           static_configs = [ { inherit targets; } ];
         }
         {
-          job_name = "metrics-notls";
-          scheme = "http";
-          basic_auth = {
-            username = "prometheus";
-            password_file = secPath;
-          };
-          static_configs = [ { targets = targets_notls; } ];
-        }
-        {
           job_name = "seaweedfs_metrics";
           scheme = "http";
           static_configs = [ { targets = [ "[fdcc::3]:9768" ]; } ];
         }
-
+        {
+          job_name = "centre_psql_metrics";
+          scheme = "http";
+          static_configs = [ { targets = [ "[fdcc::3]:9187" ]; } ];
+        }
+        {
+          job_name = "chrony_metrics";
+          scheme = "http";
+          scrape_timeout = "30s";
+          static_configs = [
+            {
+              targets = [
+                "[fdcc::3]:9123"
+                "[fdcc::2]:9123"
+                "[fdcc::1]:9123"
+              ];
+            }
+          ];
+          relabel_configs = [
+            {
+              source_labels = [ "__address__" ];
+              regex = "\\[fdcc::1\\]:9123";
+              target_label = "instance";
+              replacement = "hastur.nyaw.xyz";
+            }
+            {
+              source_labels = [ "__address__" ];
+              regex = "\\[fdcc::2\\]:9123";
+              target_label = "instance";
+              replacement = "kaambl.nyaw.xyz";
+            }
+            {
+              source_labels = [ "__address__" ];
+              regex = "\\[fdcc::3\\]:9123";
+              target_label = "instance";
+              replacement = "eihort.nyaw.xyz";
+            }
+          ];
+        }
         {
           job_name = "http";
           scheme = "http";
@@ -115,12 +131,87 @@ reIf {
                 ]
                 ++ map (pre: "https://${pre}.nyaw.xyz") [
                   "blog"
-                  "pb"
                   "status"
+                  "abhoth"
                 ];
             }
           ];
-          inherit relabel_configs;
+          relabel_configs = gen_relabel_configs (
+            with config.services.prometheus.exporters.blackbox; "${listenAddress}:${toString port}"
+          );
+        }
+        {
+          job_name = "ping";
+          scheme = "http";
+          metrics_path = "/probe";
+          params = {
+            module = [ "icmp" ];
+          };
+          static_configs = [
+            {
+              targets = [ "8.8.8.8" ];
+              labels = {
+                name = "GOOGLE";
+                code = "ANYCAST";
+                ip = "IPv4";
+              };
+            }
+            {
+              targets = [ "2001:4860:4860::8888" ];
+              labels = {
+                name = "GOOGLE";
+                code = "ANYCAST";
+                ip = "IPv6";
+              };
+            }
+            {
+              targets = [ "223.6.6.6" ];
+              labels = {
+                name = "ALI";
+                code = "ANYCAST";
+                ip = "IPv4";
+              };
+            }
+            {
+              targets = [ "103.213.4.159" ];
+              labels = {
+                name = "HK1";
+                city = "HK";
+                code = "HKG"; # IATA
+                ip = "IPv4";
+              };
+            }
+            {
+              targets = [ "2401:5a0:1000:96::a" ];
+              labels = {
+                name = "HK1";
+                city = "HK";
+                code = "HKG";
+                ip = "IPv6";
+              };
+            }
+            {
+              targets = [ "154.31.114.112" ];
+              labels = {
+                name = "JP1";
+                city = "Tokyo";
+                code = "NRT";
+                ip = "IPv4";
+              };
+            }
+            {
+              targets = [ "154.31.114.112" ];
+              labels = {
+                name = "JP1";
+                city = "Tokyo";
+                code = "NRT";
+                ip = "IPv6";
+              };
+            }
+          ];
+          relabel_configs = gen_relabel_configs (
+            with config.services.prometheus.exporters.blackbox; "${listenAddress}:${toString port}"
+          );
         }
       ];
     rules = lib.singleton (
@@ -131,7 +222,8 @@ reIf {
             rules = [
               {
                 alert = "NodeDown";
-                expr = ''up == 0'';
+                expr = ''up{instance != "kaambl.nyaw.xyz"} == 0'';
+                for = "5m";
               }
               {
                 alert = "OOM";
@@ -148,6 +240,21 @@ reIf {
               {
                 alert = "BtrfsDevErr";
                 expr = ''sum(rate(node_btrfs_device_errors_total[2m])) > 0'';
+              }
+            ];
+          }
+          {
+            name = "chrony";
+            rules = [
+              {
+                record = "instance:chrony_clock_error_seconds:abs";
+                expr = ''
+                  abs(chrony_tracking_last_offset_seconds)
+                  +
+                  chrony_tracking_root_dispersion_seconds
+                  +
+                  (0.5 * chrony_tracking_root_delay_seconds)
+                '';
               }
             ];
           }
@@ -168,6 +275,22 @@ reIf {
         ];
       }
     ];
+    exporters = {
+      blackbox = {
+        enable = true;
+        # extraFlags = [ "--log.level=debug" ];
+        configFile = (pkgs.formats.yaml { }).generate "config.yml" {
+          modules = {
+            http_2xx = {
+              prober = "http";
+            };
+            icmp = {
+              prober = "icmp";
+            };
+          };
+        };
+      };
+    };
     alertmanager = {
       enable = true;
       webExternalUrl = "https://${config.networking.fqdn}/alert";
