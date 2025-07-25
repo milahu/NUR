@@ -22,8 +22,8 @@ stdenv.mkDerivation {
     domain = "invent.kde.org";
     owner = "sitter";
     repo = "karton";
-    rev = "07a4d62afc6853f5ca4b18818c9fe1d6a8e618de";
-    hash = "sha256-uRaQ8aOJc/AxWsNoRFIdtpdXwqxo4zA1Gt+ZyPzqqIU=";
+    rev = "84920166cd75bda507d979660221013c498cccdd";
+    hash = "sha256-nRF5wdKtoKfpBUBMNj920molGx6Bf/GGmuweKz8epXY=";
   };
 
   nativeBuildInputs = [
