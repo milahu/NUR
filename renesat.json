@@ -1,16 +1,16 @@
 {
 "name":"renesat",
-"fetch_time":0.543,
-"eval_time":0.289,
+"fetch_time":0.615,
+"eval_time":0.286,
 "source":{
 "url":"https://github.com/renesat/nur-renesat",
-"rev":"77beaa8fe17b32846282faceee7e7f66f1417b86",
-"sha256":"1i4wdyqyxll0h6wzpqvavy0m1z6x2zbncpj0wdz7hg6h09cmhqw4",
+"rev":"8f46019775b36e66dc64c4b0370fcbd485ed4e10",
+"sha256":"0gsf209xik3p41icbdm0zaafjs3zq9qahjr4haasw91hsbbmlj8j",
 "date":null
 },
-"source_storepath":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source",
-"nixpkgs_storepath":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source",
-"nur_combined_rev":"9f70b72c8f72ecae807de9ec8636ea1f41302937",
+"source_storepath":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source",
+"nixpkgs_storepath":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source",
+"nur_combined_rev":"91005b8567d0691b662600f74e3f7f7cece4ab45",
 "packages":{
 "activitywatch-bin":{
 "meta":{
@@ -47,8 +47,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/applications/office/activitywatch/wrapper.nix",
-"line":27
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/applications/office/activitywatch/wrapper.nix",
+"line":28
 },
 "name":"activitywatch-0.13.2",
 "outputsToInstall":[
@@ -77,7 +77,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/office/activitywatch/wrapper.nix:23",
+"position":"<nixpkgs> + /pkgs/applications/office/activitywatch/wrapper.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -117,7 +117,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/age-edit/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/age-edit/default.nix",
 "line":25
 },
 "name":"age-edit-0.7.1",
@@ -226,7 +226,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/aiolinkding/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/aiolinkding/default.nix",
 "line":69
 },
 "name":"python3.13-aiolinkding-2025.02.0",
@@ -350,10 +350,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/arro3-core/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/arro3-core/default.nix",
 "line":42
 },
-"name":"python3.13-arro3-core-0.4.5",
+"name":"python3.13-arro3-core-0.5.1",
 "outputsToInstall":[
 "out"
 ],
@@ -394,7 +394,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-arro3-core-0.4.5",
+"name":"python3.13-arro3-core-0.5.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -402,7 +402,7 @@
 },
 "pname":"python3.13-arro3-core",
 "system":"x86_64-linux",
-"version":"0.4.5"
+"version":"0.5.1"
 },
 "autorestic":{
 "meta":{
@@ -431,7 +431,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/by-name/au/autorestic/package.nix",
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/by-name/au/autorestic/package.nix",
 "line":34
 },
 "name":"autorestic-1.8.3",
@@ -507,10 +507,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/daqp/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/daqp/default.nix",
 "line":24
 },
-"name":"daqp-0.6.0",
+"name":"daqp-0.7.1",
 "outputsToInstall":[
 "out"
 ],
@@ -595,14 +595,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"daqp-0.6.0",
+"name":"daqp-0.7.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"daqp",
 "system":"x86_64-linux",
-"version":"0.6.0"
+"version":"0.7.1"
 },
 "daqp-python":{
 "meta":{
@@ -663,7 +663,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/development/python-modules/daqp/default.nix",
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/development/python-modules/daqp/default.nix",
 "line":54
 },
 "name":"python3.13-daqp-0.7.1",
@@ -776,8 +776,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/development/python-modules/datalad/default.nix",
-"line":244
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/development/python-modules/datalad/default.nix",
+"line":243
 },
 "name":"python3.13-datalad-1.2.0",
 "outputsToInstall":[
@@ -816,7 +816,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/development/python-modules/datalad/default.nix:241",
+"position":"<nixpkgs> + /pkgs/development/python-modules/datalad/default.nix:240",
 "unfree":false,
 "unsupported":false
 },
@@ -867,7 +867,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/dedoc/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/dedoc/default.nix",
 "line":35
 },
 "name":"dedoc-0.2.5",
@@ -985,7 +985,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/development/python-modules/drawille/default.nix",
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/development/python-modules/drawille/default.nix",
 "line":26
 },
 "name":"python3.13-drawille-0.2.0",
@@ -1142,7 +1142,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/development/python-modules/drawilleplot/default.nix",
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/development/python-modules/drawilleplot/default.nix",
 "line":33
 },
 "name":"python3.13-drawilleplot-0.1.0",
@@ -1305,7 +1305,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/euporie/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/euporie/default.nix",
 "line":99
 },
 "name":"python3.13-euporie-2.8.7",
@@ -1424,7 +1424,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/flatlatex/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/flatlatex/default.nix",
 "line":36
 },
 "name":"python3.13-flatlatex-0.15",
@@ -1557,7 +1557,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/development/python-modules/hledger-utils/default.nix",
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/development/python-modules/hledger-utils/default.nix",
 "line":66
 },
 "name":"python3.13-hledger-utils-1.14.0",
@@ -1682,7 +1682,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/imap-backup/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/imap-backup/default.nix",
 "line":19
 },
 "name":"imap-backup-15.0.2",
@@ -1838,7 +1838,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/linkding-cli/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/linkding-cli/default.nix",
 "line":64
 },
 "name":"python3.13-linkding-cli-2024.09.0",
@@ -1929,7 +1929,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/mal-cli/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/mal-cli/default.nix",
 "line":26
 },
 "name":"mal-cli-0.2.1",
@@ -2015,7 +2015,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/by-name/ma/math-preview/package.nix",
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/by-name/ma/math-preview/package.nix",
 "line":33
 },
 "name":"math-preview-5.1.1",
@@ -2140,8 +2140,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/by-name/no/normcap/package.nix",
-"line":225
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/by-name/no/normcap/package.nix",
+"line":219
 },
 "name":"normcap-0.5.9",
 "outputsToInstall":[
@@ -2180,7 +2180,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/no/normcap/package.nix:221",
+"position":"<nixpkgs> + /pkgs/by-name/no/normcap/package.nix:215",
 "unfree":false,
 "unsupported":false
 },
@@ -2221,7 +2221,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/by-name/pu/puffin/package.nix",
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/by-name/pu/puffin/package.nix",
 "line":24
 },
 "name":"puffin-2.1.5",
@@ -2331,7 +2331,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/development/python-modules/qpsolvers/default.nix",
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/development/python-modules/qpsolvers/default.nix",
 "line":85
 },
 "name":"python3.13-qpsolvers-4.7.1",
@@ -2411,7 +2411,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/by-name/qu/questdb/package.nix",
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/by-name/qu/questdb/package.nix",
 "line":40
 },
 "name":"questdb-8.3.3",
@@ -2519,7 +2519,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/sixelcrop/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/sixelcrop/default.nix",
 "line":32
 },
 "name":"python3.13-sixelcrop-0.1.9",
@@ -2624,8 +2624,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/by-name/ta/taskwarrior3/package.nix",
-"line":121
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/by-name/ta/taskwarrior3/package.nix",
+"line":120
 },
 "name":"taskwarrior-3.4.1",
 "outputsToInstall":[
@@ -2676,7 +2676,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/ta/taskwarrior3/package.nix:118",
+"position":"<nixpkgs> + /pkgs/by-name/ta/taskwarrior3/package.nix:117",
 "unfree":false,
 "unsupported":false
 },
@@ -2754,7 +2754,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/timg/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/timg/default.nix",
 "line":32
 },
 "name":"python3.13-timg-1.1.6",
@@ -2845,7 +2845,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/toutui/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/toutui/default.nix",
 "line":37
 },
 "name":"toutui-0.3.3-beta",
@@ -2963,7 +2963,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/tubefeed/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/tubefeed/default.nix",
 "line":55
 },
 "name":"python3.13-tubefeed-2.1.6",
@@ -3054,7 +3054,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/typy/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/typy/default.nix",
 "line":29
 },
 "name":"typy-0.9.0",
@@ -3172,7 +3172,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/vegafusion/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/vegafusion/default.nix",
 "line":49
 },
 "name":"python3.13-vegafusion-2.0.1",
@@ -3263,7 +3263,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/vl-convert/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/vl-convert/default.nix",
 "line":30
 },
 "name":"vl-convert-1.7.0",
@@ -3449,7 +3449,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/voyage/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/voyage/default.nix",
 "line":35
 },
 "name":"voyage-0.0.1",
@@ -3536,8 +3536,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/v5b6wjv15zbmq3nrzszqy6v6cn33725n-source/pkgs/by-name/wa/warpd/package.nix",
-"line":67
+"file":"/nix/store/gfx4s3kzgmcc6zalk2d9hrw6sv78k220-source/pkgs/by-name/wa/warpd/package.nix",
+"line":68
 },
 "name":"warpd-1.3.5",
 "outputsToInstall":[
@@ -3566,7 +3566,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/wa/warpd/package.nix:64",
+"position":"<nixpkgs> + /pkgs/by-name/wa/warpd/package.nix:65",
 "unfree":false,
 "unsupported":false
 },
@@ -3707,7 +3707,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/75haxxxb811y2y21lx18n9apvqhhzdj1-source/pkgs/yamusic-tui/default.nix",
+"file":"/nix/store/il97j2dbmwkwqaxxi96qrxvhpj6wqahp-source/pkgs/yamusic-tui/default.nix",
 "line":37
 },
 "name":"yamusic-tui-0.7.1",
