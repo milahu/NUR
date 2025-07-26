@@ -22,7 +22,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [
     wxGTK32 # wx-config
-  ] ++ lib.optional stdenv.hostPlatform.isLinux copyDesktopItems;
+  ]
+  ++ lib.optional stdenv.hostPlatform.isLinux copyDesktopItems;
 
   buildInputs = [
     libGLU
@@ -33,20 +34,19 @@ stdenv.mkDerivation (finalAttrs: {
 
   strictDeps = true;
 
-  makeFlags =
-    [
-      "GCC=cc"
-      "GPP=c++"
-      "AR=ar"
-    ]
-    ++ lib.optional stdenv.hostPlatform.isLinux "ARCH=lnx"
-    ++ lib.optional stdenv.hostPlatform.isDarwin (
-      {
-        "x86_64-darwin" = "ARCH=mi64";
-        "aarch64-darwin" = "ARCH=ma64";
-      }
-      .${stdenv.hostPlatform.system} or (throw "unsupported system")
-    );
+  makeFlags = [
+    "GCC=cc"
+    "GPP=c++"
+    "AR=ar"
+  ]
+  ++ lib.optional stdenv.hostPlatform.isLinux "ARCH=lnx"
+  ++ lib.optional stdenv.hostPlatform.isDarwin (
+    {
+      "x86_64-darwin" = "ARCH=mi64";
+      "aarch64-darwin" = "ARCH=ma64";
+    }
+    .${stdenv.hostPlatform.system} or (throw "unsupported system")
+  );
 
   desktopItems = lib.optional stdenv.hostPlatform.isLinux (makeDesktopItem {
     name = "pseint";

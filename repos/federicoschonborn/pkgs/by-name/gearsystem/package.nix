@@ -24,12 +24,14 @@ stdenv.mkDerivation (finalAttrs: {
   nativeBuildInputs = [
     pkg-config
     SDL2 # sdl2-config
-  ] ++ lib.optional stdenv.hostPlatform.isLinux wrapGAppsHook3;
+  ]
+  ++ lib.optional stdenv.hostPlatform.isLinux wrapGAppsHook3;
 
   buildInputs = [
     glew
     SDL2
-  ] ++ lib.optional stdenv.hostPlatform.isLinux gtk3;
+  ]
+  ++ lib.optional stdenv.hostPlatform.isLinux gtk3;
 
   strictDeps = true;
 

@@ -176,105 +176,104 @@ stdenv.mkDerivation (finalAttrs: {
     python3
   ];
 
-  buildInputs =
-    [ yyjson ]
-    ++ lib.optional enableVulkan vulkan-loader
-    ++ lib.optional enableWayland wayland
-    ++ lib.optionals enableXcbRandr [
-      xorg.libxcb
-      xorg.libXau
-      xorg.libXdmcp
-      xorg.libXext
+  buildInputs = [
+    yyjson
+  ]
+  ++ lib.optional enableVulkan vulkan-loader
+  ++ lib.optional enableWayland wayland
+  ++ lib.optionals enableXcbRandr [
+    xorg.libxcb
+    xorg.libXau
+    xorg.libXdmcp
+    xorg.libXext
+  ]
+  ++ lib.optional enableXrandr xorg.libXrandr
+  ++ lib.optional (enableDrm || enableDrmAmdgpu) libdrm
+  ++ (
+    lib.optionals enableGio [
+      glib
+      libsysprof-capture
+      pcre2
     ]
-    ++ lib.optional enableXrandr xorg.libXrandr
-    ++ lib.optional (enableDrm || enableDrmAmdgpu) libdrm
-    ++ (
-      lib.optionals enableGio [
-        glib
-        libsysprof-capture
-        pcre2
-      ]
-      ++ lib.optionals stdenv.hostPlatform.isLinux [
-        libselinux
-        libsepol
-        util-linux
-      ]
-    )
-    ++ lib.optional enableDconf dconf
-    ++ lib.optional enableDbus dbus
-    ++ lib.optional enableXfconf xfce.xfconf
-    ++ lib.optional enableSqlite3 sqlite
-    ++ lib.optional enableRpm rpm
-    ++ lib.optional enableImagemagick imagemagick
-    ++ lib.optional enableChafa chafa
-    ++ lib.optional enableZlib zlib
-    ++ lib.optional enableEgl libGL
-    ++ lib.optional enableGlx libglvnd
-    ++ lib.optionals enableOpencl [
-      ocl-icd
-      opencl-headers
+    ++ lib.optionals stdenv.hostPlatform.isLinux [
+      libselinux
+      libsepol
+      util-linux
     ]
-    ++ lib.optional enableFreetype freetype
-    ++ lib.optional enablePulse pulseaudio
-    ++ lib.optional enableDdcutil ddcutil
-    ++ lib.optional enableDirectxHeaders directx-headers
-    ++ lib.optional enableElf libelf
-    ++ lib.optional enableLibzfs zfs
-    ++ lib.optional enablePciaccess xorg.libpciaccess
-    ++ lib.optional stdenv.hostPlatform.isDarwin apple-sdk_15;
+  )
+  ++ lib.optional enableDconf dconf
+  ++ lib.optional enableDbus dbus
+  ++ lib.optional enableXfconf xfce.xfconf
+  ++ lib.optional enableSqlite3 sqlite
+  ++ lib.optional enableRpm rpm
+  ++ lib.optional enableImagemagick imagemagick
+  ++ lib.optional enableChafa chafa
+  ++ lib.optional enableZlib zlib
+  ++ lib.optional enableEgl libGL
+  ++ lib.optional enableGlx libglvnd
+  ++ lib.optionals enableOpencl [
+    ocl-icd
+    opencl-headers
+  ]
+  ++ lib.optional enableFreetype freetype
+  ++ lib.optional enablePulse pulseaudio
+  ++ lib.optional enableDdcutil ddcutil
+  ++ lib.optional enableDirectxHeaders directx-headers
+  ++ lib.optional enableElf libelf
+  ++ lib.optional enableLibzfs zfs
+  ++ lib.optional enablePciaccess xorg.libpciaccess
+  ++ lib.optional stdenv.hostPlatform.isDarwin apple-sdk_15;
 
   strictDeps = true;
 
-  cmakeFlags =
-    [
-      (lib.cmakeOptionType "filepath" "CMAKE_INSTALL_SYSCONFDIR" "${placeholder "out"}/etc")
-      (lib.cmakeBool "ENABLE_SYSTEM_YYJSON" true)
-      (lib.cmakeBool "ENABLE_VULKAN" enableVulkan)
-      (lib.cmakeBool "ENABLE_WAYLAND" enableWayland)
-      (lib.cmakeBool "ENABLE_XCB_RANDR" enableXcbRandr)
-      (lib.cmakeBool "ENABLE_XRANDR" enableXrandr)
-      (lib.cmakeBool "ENABLE_DRM" enableDrm)
-      (lib.cmakeBool "ENABLE_DRM_AMDGPU" enableDrmAmdgpu)
-      (lib.cmakeBool "ENABLE_GIO" enableGio)
-      (lib.cmakeBool "ENABLE_DCONF" enableDconf)
-      (lib.cmakeBool "ENABLE_DBUS" enableDbus)
-      (lib.cmakeBool "ENABLE_XFCONF" enableXfconf)
-      (lib.cmakeBool "ENABLE_SQLITE3" enableSqlite3)
-      (lib.cmakeBool "ENABLE_RPM" enableRpm)
-      (lib.cmakeBool "ENABLE_IMAGEMAGICK7" enableImagemagick)
-      (lib.cmakeBool "ENABLE_IMAGEMAGICK6" false)
-      (lib.cmakeBool "ENABLE_CHAFA" enableChafa)
-      (lib.cmakeBool "ENABLE_ZLIB" enableZlib)
-      (lib.cmakeBool "ENABLE_EGL" enableEgl)
-      (lib.cmakeBool "ENABLE_GLX" enableGlx)
-      (lib.cmakeBool "ENABLE_OPENCL" enableOpencl)
-      (lib.cmakeBool "ENABLE_FREETYPE" enableFreetype)
-      (lib.cmakeBool "ENABLE_PULSE" enablePulse)
-      (lib.cmakeBool "ENABLE_DDCUTIL" enableDdcutil)
-      (lib.cmakeBool "ENABLE_DIRECTX_HEADERS" enableDirectxHeaders)
-      (lib.cmakeBool "ENABLE_ELF" enableElf)
-      (lib.cmakeBool "ENABLE_LIBZFS" enableLibzfs)
-      (lib.cmakeBool "ENABLE_PCIACCESS" enablePciaccess)
-      (lib.cmakeBool "BUILD_FLASHFETCH" buildFlashfetch)
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isLinux [
-      (lib.cmakeOptionType "filepath" "CUSTOM_PCI_IDS_PATH" "${hwdata}/share/hwdata/pci.ids")
-      (lib.cmakeOptionType "filepath" "CUSTOM_AMDGPU_IDS_PATH" "${libdrm}/share/libdrm/amdgpu.ids")
-    ];
+  cmakeFlags = [
+    (lib.cmakeOptionType "filepath" "CMAKE_INSTALL_SYSCONFDIR" "${placeholder "out"}/etc")
+    (lib.cmakeBool "ENABLE_SYSTEM_YYJSON" true)
+    (lib.cmakeBool "ENABLE_VULKAN" enableVulkan)
+    (lib.cmakeBool "ENABLE_WAYLAND" enableWayland)
+    (lib.cmakeBool "ENABLE_XCB_RANDR" enableXcbRandr)
+    (lib.cmakeBool "ENABLE_XRANDR" enableXrandr)
+    (lib.cmakeBool "ENABLE_DRM" enableDrm)
+    (lib.cmakeBool "ENABLE_DRM_AMDGPU" enableDrmAmdgpu)
+    (lib.cmakeBool "ENABLE_GIO" enableGio)
+    (lib.cmakeBool "ENABLE_DCONF" enableDconf)
+    (lib.cmakeBool "ENABLE_DBUS" enableDbus)
+    (lib.cmakeBool "ENABLE_XFCONF" enableXfconf)
+    (lib.cmakeBool "ENABLE_SQLITE3" enableSqlite3)
+    (lib.cmakeBool "ENABLE_RPM" enableRpm)
+    (lib.cmakeBool "ENABLE_IMAGEMAGICK7" enableImagemagick)
+    (lib.cmakeBool "ENABLE_IMAGEMAGICK6" false)
+    (lib.cmakeBool "ENABLE_CHAFA" enableChafa)
+    (lib.cmakeBool "ENABLE_ZLIB" enableZlib)
+    (lib.cmakeBool "ENABLE_EGL" enableEgl)
+    (lib.cmakeBool "ENABLE_GLX" enableGlx)
+    (lib.cmakeBool "ENABLE_OPENCL" enableOpencl)
+    (lib.cmakeBool "ENABLE_FREETYPE" enableFreetype)
+    (lib.cmakeBool "ENABLE_PULSE" enablePulse)
+    (lib.cmakeBool "ENABLE_DDCUTIL" enableDdcutil)
+    (lib.cmakeBool "ENABLE_DIRECTX_HEADERS" enableDirectxHeaders)
+    (lib.cmakeBool "ENABLE_ELF" enableElf)
+    (lib.cmakeBool "ENABLE_LIBZFS" enableLibzfs)
+    (lib.cmakeBool "ENABLE_PCIACCESS" enablePciaccess)
+    (lib.cmakeBool "BUILD_FLASHFETCH" buildFlashfetch)
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isLinux [
+    (lib.cmakeOptionType "filepath" "CUSTOM_PCI_IDS_PATH" "${hwdata}/share/hwdata/pci.ids")
+    (lib.cmakeOptionType "filepath" "CUSTOM_AMDGPU_IDS_PATH" "${libdrm}/share/libdrm/amdgpu.ids")
+  ];
 
   postPatch = ''
     substituteInPlace completions/fastfetch.fish --replace-fail python3 '${python3.interpreter}'
   '';
 
-  postInstall =
-    ''
-      wrapProgram $out/bin/fastfetch \
-        --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath finalAttrs.buildInputs}"
-    ''
-    + lib.optionalString buildFlashfetch ''
-      wrapProgram $out/bin/flashfetch \
-        --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath finalAttrs.buildInputs}"
-    '';
+  postInstall = ''
+    wrapProgram $out/bin/fastfetch \
+      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath finalAttrs.buildInputs}"
+  ''
+  + lib.optionalString buildFlashfetch ''
+    wrapProgram $out/bin/flashfetch \
+      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath finalAttrs.buildInputs}"
+  '';
 
   nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;

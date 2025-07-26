@@ -161,7 +161,7 @@ Clojure interpreter hosted on Go, with extensible interop support.
 Retro gaming application for the GNOME desktop.
 
 - Name: `highscore`
-- Version: `0-unstable-2025-07-23`
+- Version: `0-unstable-2025-07-25`
 - [🌐 Homepage](https://gitlab.gnome.org/World/highscore)
 - [📦 Source](./pkgs/by-name/highscore/package.nix#L93)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -183,7 +183,7 @@ KDE Virtual Machine Manager.
 Helpers for scheduling the dark-light cycle.
 
 - Name: `knighttime`
-- Version: `0-unstable-2025-07-20`
+- Version: `0-unstable-2025-07-25`
 - [🌐 Homepage](https://invent.kde.org/plasma/knighttime)
 - [📦 Source](./pkgs/by-name/knighttime/package.nix#L46)
 - 📄 Licenses: [`BSD 3-clause "New" or "Revised" License`](https://spdx.org/licenses/BSD-3-Clause.html), [`Creative Commons Zero v1.0 Universal`](https://spdx.org/licenses/CC0-1.0.html), [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html), [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html), [`MIT License`](https://spdx.org/licenses/MIT.html)
@@ -446,7 +446,7 @@ Generate a static HTML page from a collection of feeds with a simple CLI tool.
 A Qt style supporting both QtQuick and QtWidgets.
 
 - Name: `union`
-- Version: `0-unstable-2025-07-03`
+- Version: `0-unstable-2025-07-25`
 - [🌐 Homepage](https://invent.kde.org/plasma/union)
 - [📦 Source](./pkgs/by-name/union/package.nix#L60)
 - 📄 Licenses: [`BSD 2-clause "Simplified" License`](https://spdx.org/licenses/BSD-2-Clause.html), [`Creative Commons Zero v1.0 Universal`](https://spdx.org/licenses/CC0-1.0.html), [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html), [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html)
@@ -457,7 +457,7 @@ A Qt style supporting both QtQuick and QtWidgets.
 A Qt style supporting both QtQuick and QtWidgets.
 
 - Name: `union`
-- Version: `0-unstable-2025-07-03`
+- Version: `0-unstable-2025-07-25`
 - [🌐 Homepage](https://invent.kde.org/plasma/union)
 - [📦 Source](./pkgs/by-name/union/package.nix#L60)
 - 📄 Licenses: [`BSD 2-clause "Simplified" License`](https://spdx.org/licenses/BSD-2-Clause.html), [`Creative Commons Zero v1.0 Universal`](https://spdx.org/licenses/CC0-1.0.html), [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html), [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html)

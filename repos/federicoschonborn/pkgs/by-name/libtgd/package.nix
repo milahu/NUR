@@ -53,13 +53,12 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-43HK+rpEYJyMiSREZiqX8P9M5J6LWTtHqblhIOj6Itg=";
   };
 
-  nativeBuildInputs =
-    [
-      cmake
-      ninja
-    ]
-    ++ lib.optional withTool pandoc
-    ++ lib.optional withDocs doxygen;
+  nativeBuildInputs = [
+    cmake
+    ninja
+  ]
+  ++ lib.optional withTool pandoc
+  ++ lib.optional withDocs doxygen;
 
   buildInputs =
     lib.optional withCfitsio cfitsio

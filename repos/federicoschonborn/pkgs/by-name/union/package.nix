@@ -13,14 +13,14 @@
 
 stdenv.mkDerivation (_: {
   pname = "union";
-  version = "0-unstable-2025-07-03";
+  version = "0-unstable-2025-07-25";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "plasma";
     repo = "union";
-    rev = "429e72a88a84fc634d4e8d71a597f40961114976";
-    hash = "sha256-BAHUxj0gah67N/OHN7498+HJb6fCOvB9bckqIe4aJT8=";
+    rev = "4f712957570f3e21028f062b41d24bf90238b077";
+    hash = "sha256-z6upHiZF/mHxAbgQ41h7g7UP8tlHkQp6pTFq1CSc/jM=";
   };
 
   nativeBuildInputs = [
@@ -38,7 +38,8 @@ stdenv.mkDerivation (_: {
     kdePackages.qtdeclarative
     kdePackages.qtsvg
     rapidyaml
-  ] ++ lib.optional withCSSInput cxx-rust-cssparser;
+  ]
+  ++ lib.optional withCSSInput cxx-rust-cssparser;
 
   strictDeps = true;
 
