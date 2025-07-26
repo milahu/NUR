@@ -39,10 +39,10 @@ buildPythonPackage rec {
     yt-dlp
   ];
 
-  nativeBuildInputs = [
-    yt-dlp
-    ffmpeg-full
-  ];
+  postInstall = ''
+    wrapProgram $out/bin/tubefeed \
+      --prefix PATH : ${lib.makeBinPath [yt-dlp ffmpeg-full]}
+  '';
 
   pythonImportsCheck = [
     "tubefeed"
