@@ -16,14 +16,14 @@
 
 stdenv.mkDerivation {
   pname = "karton";
-  version = "0.1-prealpha-unstable-2025-07-22";
+  version = "0.1-prealpha-unstable-2025-07-24";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "sitter";
     repo = "karton";
-    rev = "84920166cd75bda507d979660221013c498cccdd";
-    hash = "sha256-nRF5wdKtoKfpBUBMNj920molGx6Bf/GGmuweKz8epXY=";
+    rev = "976b74b5fb63b32faa3a2ccc4f489d43b04734bf";
+    hash = "sha256-oXHHriCFfDu1I98YL3cjSMwhHs9vYLt1f8XJV0b/qGg=";
   };
 
   nativeBuildInputs = [
@@ -52,7 +52,6 @@ stdenv.mkDerivation {
 
   postPatch = ''
     substituteInPlace CMakeLists.txt \
-      --replace-fail "/usr/share" "$out/share" \
       --replace-fail "ecm_find_qmlmodule(org.kde.kirigami REQUIRED)" "ecm_find_qmlmodule(org.kde.kirigami)"
   '';
 
