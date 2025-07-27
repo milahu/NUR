@@ -143,6 +143,15 @@ src.github_tag = "cryptodev-linux/cryptodev-linux"
 src.include_regex = "^cryptodev-linux-([0-9\\.]+)"
 src.prefix = "cryptodev-linux-"
 
+[crystalhd]
+fetch.github = "dbason/crystalhd"
+src.git = "https://github.com/dbason/crystalhd.git"
+
+[crystalhd-ubuntu]
+fetch.git = "https://git.launchpad.net/ubuntu/+source/crystalhd"
+src.git = "https://git.launchpad.net/ubuntu/+source/crystalhd"
+src.branch = "applied/ubuntu/jammy"
+
 [data-recorder]
 fetch.pypi = "DataRecorder"
 src.pypi = "DataRecorder"
@@ -1023,6 +1032,10 @@ src.git = "https://github.com/Zamundaaa/VK_hdr_layer.git"
 fetch.github = "FDio/vpp"
 src.github_tag = "FDio/vpp"
 src.include_regex = "^v[0-9.]+$"
+
+[vuetorrent-backend]
+fetch.github = "VueTorrent/vuetorrent-backend"
+src.github = "VueTorrent/vuetorrent-backend"
 
 [wechat-uos]
 fetch.url = "https://home-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_$ver_amd64.deb"
