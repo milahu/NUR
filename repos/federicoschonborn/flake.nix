@@ -69,6 +69,7 @@
                   p:
                   builtins.elem (lib.getName p) [
                     "ncsa-mosaic"
+                    "qt1"
                   ];
               };
             };

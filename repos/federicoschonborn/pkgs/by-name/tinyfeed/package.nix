@@ -8,13 +8,13 @@
 
 buildGoModule (finalAttrs: {
   pname = "tinyfeed";
-  version = "1.2.0";
+  version = "1.3.0";
 
   src = fetchFromGitHub {
     owner = "TheBigRoomXXL";
     repo = "tinyfeed";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-Y0YgvouUz/hCeLriHR+SKze1+DSxVV74xfMFdEhe/r0=";
+    hash = "sha256-RwGuQZBdfJ9qhQB3gC0uNuzeiLpMrcr+sIrozmJ+tnY=";
   };
 
   vendorHash = "sha256-lwT2eD+zFI49wvdlLcZILa2X/NsEi/jDzshngH3CLyQ=";
