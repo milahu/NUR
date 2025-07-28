@@ -82,6 +82,7 @@ specify {
   mqtt-protobuf-to-json = any;
   nbt-explorer = any;
   nix-preview = any;
+  nom-wrappers = any;
   off = any;
   ollama.patch = stable.fetchpatch2 { url = "https://github.com/ollama/ollama/pull/6282.patch"; hash = "sha256-4rshZbU/+kOO7DYQckSAkE7yGMJRtBVUdZPrS++K+S0="; }; # ollama/ollama#6282
   picard.overlay = p: { preFixup = p.preFixup + "\nmakeWrapperArgs+=(--prefix PATH : ${stable.lib.makeBinPath [ resolved.rsgain ]})"; }; # NixOS/nixpkgs#255222
@@ -115,7 +116,7 @@ specify {
     sissel.shopify-liquid.search = open-vsx;
     syler.sass-indented.search = open-vsx;
     theaflowers.qalc.search = open-vsx;
-    volkerdobler.insertnums.search = [ open-vsx vscode-marketplace ];
+    volkerdobler.insertnums.search = open-vsx;
     ybaumes.highlight-trailing-white-spaces.search = open-vsx;
   };
   whipper = {

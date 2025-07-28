@@ -14,6 +14,9 @@ in
     nix.daemonCPUSchedPolicy = "batch";
     nix.daemonIOSchedClass = "idle";
 
+    # Users
+    nix.settings.trusted-users = [ "@wheel" ];
+
     # Storage
     nix.settings.auto-optimise-store = true;
     nix.gc = { automatic = true; options = "--delete-older-than 7d"; };

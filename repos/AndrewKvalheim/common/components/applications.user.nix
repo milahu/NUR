@@ -144,6 +144,7 @@ in
       nix-top
       nix-tree
       nixpkgs-review
+      nom-wrappers
       off
       kdePackages.okular
       pdfarranger

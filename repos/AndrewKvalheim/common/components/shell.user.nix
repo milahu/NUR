@@ -126,11 +126,13 @@ in
         e = "eza --all --group-directories-first --long --header --time-style long-iso";
         ffmpeg = "ffmpeg -hide_banner";
         ffprobe = "ffprobe -hide_banner";
+        home-manager = "nom-home-manager";
         http = "noglob xh";
         https = "noglob xhs";
         j = "just-local";
         lsblk = "lsblk --output 'name,type,uuid,label,size,fstype,mountpoints' --paths";
         mv = "mv --no-clobber --verbose";
+        nixos-rebuild = "nom-nixos-rebuild";
         p = "gopass";
         path = "nix-build --pure '<nixpkgs>' --attr";
         pt = "gopass-ydotool";

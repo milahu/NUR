@@ -2,6 +2,7 @@
 , writeShellApplication
 
   # Dependencies
+, nom-wrappers
 , nvd
 }:
 
@@ -10,9 +11,9 @@ symlinkJoin {
   paths = [
     (writeShellApplication {
       name = "nix-preview-user";
-      runtimeInputs = [ nvd ];
+      runtimeInputs = [ nom-wrappers nvd ];
       text = ''
-        home-manager build --show-trace "$@"
+        nom-home-manager build --show-trace "$@"
         nvd diff "$HOME/.local/state/home-manager/gcroots/current-home" 'result'
         rm 'result'
       '';
@@ -20,9 +21,9 @@ symlinkJoin {
 
     (writeShellApplication {
       name = "nix-preview-system";
-      runtimeInputs = [ nvd ];
+      runtimeInputs = [ nom-wrappers nvd ];
       text = ''
-        sudo nixos-rebuild build --show-trace "$@"
+        sudo nom-nixos-rebuild build --show-trace "$@"
         nvd diff '/nix/var/nix/profiles/system' 'result'
         rm 'result'
       '';
