@@ -47,9 +47,11 @@ specify {
   ios-webkit-debug-proxy = any;
   iosevka-custom = any;
   iptables_exporter = any;
+  jjui.version = "≥0.9"; # Compatibility with delta
   joplin-desktop. overlay = j: { meta = j.meta // { broken = stable.lib.hasInfix "enable-wayland-ime=true" j.buildCommand; }; }; # Pending NixOS/nixpkgs#412126
   josm = { jre = resolved.graalvm-ce; extraJavaOpts = "--module-path=${resolved.graalvmCEPackages.graaljs}/modules"; }; # josm-scripting-plugin
   josm-imagery-used = any;
+  jujutsu.version = "≥0.30"; # Compatibility with delta
   just-local = any;
   kitty.patch = ../packages/resources/kitty_paperwm.patch; # Workaround for paperwm/PaperWM#943
   little-a-map = any;
@@ -104,6 +106,7 @@ specify {
     exiasr.hadolint.search = open-vsx;
     fabiospampinato.vscode-highlight.search = open-vsx;
     flowtype.flow-for-vscode = { version = "≥2.2.1"; search = [ open-vsx vscode-marketplace ]; };
+    jjk.jjk.search = open-vsx;
     jnbt.vscode-rufo.search = open-vsx;
     joaompinto.vscode-graphviz.search = open-vsx;
     kokakiwi.vscode-just.search = open-vsx;

@@ -16,10 +16,10 @@ nix-channel --update
 
 # User packages
 home-manager expire-generations '-7 days'
-home-manager switch
+nom-home-manager switch
 
 # System packages
-sudo-hint nixos-rebuild boot
+sudo-hint nom-nixos-rebuild boot
 
 # Filesystem
 btrfs filesystem df /

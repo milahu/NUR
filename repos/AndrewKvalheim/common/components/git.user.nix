@@ -151,6 +151,19 @@ in
     settings = {
       user.name = identity.name.long;
       user.email = identity.email;
+
+      merge-tools = {
+        delta = {
+          program = getExe pkgs.delta;
+          diff-args = [ "--color-only" "--features" "full" "--paging" "never" "$left" "$right" ];
+          diff-expected-exit-codes = [ 0 /* same */ 1 /* different */ ];
+        };
+      };
+
+      ui = {
+        diff-formatter = "delta";
+        pager = "less --no-init --quit-if-one-screen --RAW-CONTROL-CHARS"; # Override PAGER with Jujutsu default
+      };
     };
   };
 }

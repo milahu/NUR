@@ -56,6 +56,7 @@ in
         flowtype.flow-for-vscode
         hashicorp.terraform
         irongeek.vscode-env
+        jjk.jjk
         joaompinto.vscode-graphviz
         jock.svg
         jnbt.vscode-rufo
@@ -112,6 +113,7 @@ in
         "clang-format.executable" = getExe' pkgs.clang-tools "clang-format";
         "flow.pathToFlow" = getExe pkgs.flow;
         "hadolint.hadolintPath" = getExe pkgs.hadolint;
+        "jjk.jjPath" = getExe pkgs.jujutsu;
         "nix.serverPath" = getExe pkgs.nil;
         "nix.serverSettings".nil.formatting.command = [ (getExe pkgs.nixpkgs-fmt) ];
         "php.validate.executablePath" = getExe pkgs.php;

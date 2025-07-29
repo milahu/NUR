@@ -3,15 +3,20 @@
 
   # Dependencies
 , bash
+, nom-wrappers
 }:
 
 let
   inherit (builtins) readFile;
-  inherit (lib) getExe;
+  inherit (lib) getExe getExe';
 in
 resholve.writeScriptBin "off" {
   interpreter = getExe bash;
-  inputs = [ ];
+  inputs = [ nom-wrappers ];
+  execer = [
+    "cannot:${getExe' nom-wrappers "nom-home-manager"}"
+    "cannot:${getExe' nom-wrappers "nom-nixos-rebuild"}"
+  ];
   fake.external = [
     "btrfs"
     "docker"

@@ -1,11 +1,22 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   inherit (builtins) attrNames length mapAttrs;
   inherit (config) host;
   inherit (config.services) syncthing;
-  inherit (lib) mapAttrsToList mkForce mkIf mkOption;
+  inherit (lib) getExe escapeShellArg mapAttrsToList mkForce mkIf mkOption;
   inherit (lib.types) attrsOf listOf str submodule;
+  inherit (pkgs) curl writeShellApplication;
+
+  wait-ready = writeShellApplication {
+    name = "wait-ready";
+    runtimeInputs = [ curl ];
+    text = ''
+      while ! curl --fail --output '/dev/null' --silent "$@"; do
+        sleep '1s'
+      done
+    '';
+  };
 
   guiIp = "127.0.0.100";
 in
@@ -107,6 +118,14 @@ in
       };
     };
 
-    systemd.services.syncthing-init.onFailure = [ "alert@%N.service" ];
+    systemd.services.syncthing-init = {
+      onFailure = [ "alert@%N.service" ];
+
+      serviceConfig = {
+        SyslogIdentifier = "%N";
+
+        ExecStartPre = "${getExe wait-ready} 'http://'${escapeShellArg syncthing.guiAddress}'/metrics'";
+      };
+    };
   };
 }
