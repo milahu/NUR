@@ -82,12 +82,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:857:5:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:833:5:
 
-   856|   replaceDependency =
-   857|     {
+   832|   replaceDependency =
+   833|     {
       |     ^
-   858|       drv,
+   834|       drv,
 
 … from call site
 
@@ -153,7 +153,7 @@ error:
     61|     import
 
 … while evaluating derivation 'references.nix'
-  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:438:13
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:482:13
 
 … while evaluating attribute 'exportReferencesGraph' of derivation 'references.nix'
 
@@ -211,12 +211,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:857:5:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:833:5:
 
-   856|   replaceDependency =
-   857|     {
+   832|   replaceDependency =
+   833|     {
       |     ^
-   858|       drv,
+   834|       drv,
 
 … from call site
 
@@ -263,35 +263,35 @@ error:
       |     ^
    115|     if toString oldDependency == toString newDependency then
 
-… while evaluating derivation 'qtwayland-6.9.0'
-  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:438:13
+… while evaluating derivation 'qtwayland-6.9.1'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:482:13
 
-… while evaluating attribute 'propagatedBuildInputs' of derivation 'qtwayland-6.9.0'
+… while evaluating attribute 'propagatedBuildInputs' of derivation 'qtwayland-6.9.1'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:500:13:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:544:13:
 
-   499|             depsHostHostPropagated = elemAt (elemAt propagatedDependencies 1) 0;
-   500|             propagatedBuildInputs = elemAt (elemAt propagatedDependencies 1) 1;
+   543|             depsHostHostPropagated = elemAt (elemAt propagatedDependencies 1) 0;
+   544|             propagatedBuildInputs = elemAt (elemAt propagatedDependencies 1) 1;
       |             ^
-   501|             depsTargetTargetPropagated = elemAt (elemAt propagatedDependencies 2) 0;
+   545|             depsTargetTargetPropagated = elemAt (elemAt propagatedDependencies 2) 0;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:424:19:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:468:19:
 
-   423|             ))
-   424|             (map (drv: getDev drv.__spliced.hostTarget or drv) (
+   467|             ))
+   468|             (map (drv: getDev drv.__spliced.hostTarget or drv) (
       |                   ^
-   425|               checkDependencyList "propagatedBuildInputs" propagatedBuildInputs
+   469|               checkDependencyList "propagatedBuildInputs" propagatedBuildInputs
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:424:24:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:468:24:
 
-   423|             ))
-   424|             (map (drv: getDev drv.__spliced.hostTarget or drv) (
+   467|             ))
+   468|             (map (drv: getDev drv.__spliced.hostTarget or drv) (
       |                        ^
-   425|               checkDependencyList "propagatedBuildInputs" propagatedBuildInputs
+   469|               checkDependencyList "propagatedBuildInputs" propagatedBuildInputs
 
 … while calling 'getOutput'
 
@@ -322,12 +322,12 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:348:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:392:18:
 
-   347|         imap1 (
-   348|           index: dep:
+   391|         imap1 (
+   392|           index: dep:
       |                  ^
-   349|           if dep == null || isDerivation dep || builtins.isString dep || builtins.isPath dep then
+   393|           if dep == null || isDerivation dep || builtins.isString dep || builtins.isPath dep then
 
 … from call site
 
@@ -340,12 +340,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:857:5:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:833:5:
 
-   856|   replaceDependency =
-   857|     {
+   832|   replaceDependency =
+   833|     {
       |     ^
-   858|       drv,
+   834|       drv,
 
 … from call site
 
@@ -410,4 +410,4 @@ error:
       |     ^
     61|     import
 
-error: path '/nix/store/n3p83rylywwpsgls1zn8j1b2ki3qqxc5-references.nix.drv' is not valid
+error: path '/nix/store/5qnvshvxmw6yibifxqcb04bydrs3kzlz-references.nix.drv' is not valid
