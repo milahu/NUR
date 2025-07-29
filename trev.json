@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":0.888,
-"eval_time":0.245,
+"fetch_time":0.636,
+"eval_time":0.246,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"1e08d9f1378224acf9998f12cf183e1cfd11d69a",
-"sha256":"03a1wzsvjmvhclvcsvi96w952knk7d7l5m9is4rnkwakjrw5xqfv",
+"rev":"f40807aef22abe397fe5c4b51ec6272614a38ba2",
+"sha256":"0k3pn6myrb0lyvxnypwxydx70nv6b382vdh4hcr8zq3zxc32d38p",
 "date":null
 },
-"source_storepath":"/nix/store/nkl50jcrihi3f3r111ypv3x1ylxzf8xj-source",
+"source_storepath":"/nix/store/yx7qklp2kb0xrmnld9nh142p32silg4v-source",
 "nixpkgs_storepath":"/nix/store/kk2gam05fnnnrl0ddd85fkihnqlfkx2n-source",
-"nur_combined_rev":"b667b4412f7a16644f3215280bed1a550540f09c",
+"nur_combined_rev":"73f9382eb92b6f08471f1a27f74deaef7492b8b6",
 "packages":{
 "bobgen":{
 "meta":{
@@ -232,7 +232,7 @@
 "available":true,
 "broken":false,
 "changelog":"https://github.com/opengrep/opengrep/releases/tag/v1.8.2",
-"description":"Static code analysis engine to find security issues in code.",
+"description":"Static code analysis engine to find security issues in code",
 "homepage":"https://github.com/opengrep/opengrep",
 "insecure":false,
 "isBuildPythonPackage":[
@@ -284,12 +284,9 @@
 "out"
 ],
 "platforms":[
-"aarch64-darwin",
-"aarch64-linux",
-"x86_64-darwin",
 "x86_64-linux"
 ],
-"position":"./pkgs/opengrep/default.nix:146",
+"position":"./pkgs/opengrep/default.nix:123",
 "unfree":false,
 "unsupported":false
 },

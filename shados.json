@@ -1,28 +1,28 @@
 {
 "name":"shados",
-"fetch_time":0.474,
-"eval_time":0.274,
+"fetch_time":0.652,
+"eval_time":0.282,
 "source":{
 "url":"https://github.com/Shados/nur-packages",
-"rev":"6631ab875d47862b8b8ce51bdc18d494d7ea8ece",
-"sha256":"1hdx5rz0ilq92a7i1nm9x5ynwfvj0czh65k288jdna2xsjdlk8f2",
+"rev":"241c47507596f282b2eeed7044285f744eb24518",
+"sha256":"0lfl7d26vwgppd0cmghs2y6mp2cib3w693ab1m871frlwgd8ix58",
 "date":null
 },
-"source_storepath":"/nix/store/azk87y9b9zhgyfizlclh847s5yiajnn6-source",
-"nixpkgs_storepath":"/nix/store/28r4j1ggjfsiiran5klsdla0xq5c3fhl-source",
-"nur_combined_rev":"b63cacb59cf79240b73b9cd3655de7b3440d755b",
+"source_storepath":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source",
+"nixpkgs_storepath":"/nix/store/kk2gam05fnnnrl0ddd85fkihnqlfkx2n-source",
+"nur_combined_rev":"5931912748d8d417e1a71f97d49ad1e5fa486da0",
 "packages":{
 "arcconf":{
 "meta":{
 "available":false,
 "broken":false,
 "description":"Microsemi Adaptec ARCCONF command line interface utility",
-"homepage":"https://storage.microsemi.com/en-us/speed/raid/storage_manager/arcconf_v2_05_22932_zip.php",
+"homepage":"https://storage.microsemi.com/en-us/speed/raid/storage_manager/arcconf_v4_01_24763_zip.php",
 "insecure":false,
 "license":{
 "free":false,
-"fullName":"Microsemi License for arcconf_v2_05_22932.zip",
-"url":"https://storage.microsemi.com/en-us/support/_eula/license.php?arcconf_v2_05_22932.zip"
+"fullName":"Microsemi License for arcconf_4_01_247632.zip",
+"url":"https://storage.microsemi.com/en-us/support/_eula/license.php?arcconf_4_01_247632.zip"
 },
 "maintainers":[
 {
@@ -32,23 +32,28 @@
 "name":"Alexei Robyn"
 }
 ],
-"name":"arcconf-v2.05.22932",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/arcconf/default.nix",
+"line":26
+},
+"name":"arcconf-v4.01.24763",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/arcconf/default.nix:26",
+"position":"./pkgs/arcconf/default.nix:24",
 "unfree":true,
 "unsupported":false
 },
-"name":"arcconf-v2.05.22932",
+"name":"arcconf-v4.01.24763",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"arcconf-v2.05.22932",
+"pname":"arcconf-v4.01.24763",
 "system":"x86_64-linux",
 "version":""
 },
@@ -76,6 +81,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/audio-async-loopback/default.nix",
+"line":30
+},
 "name":"audio-async-loopback-unstable-2023-07-03",
 "outputsToInstall":[
 "out"
@@ -117,6 +127,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/bootloadhid/default.nix",
+"line":33
+},
 "name":"bootloadHID-2012-12-08",
 "outputsToInstall":[
 "out"
@@ -161,6 +176,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/broadcast-box/default.nix",
+"line":12
+},
 "name":"broadcast-box-unstable-2024-07-01",
 "outputsToInstall":[
 "out"
@@ -205,6 +225,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/chromium-launcher/default.nix",
+"line":30
+},
 "name":"chromium-launcher-v8",
 "outputsToInstall":[
 "out"
@@ -250,6 +275,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/dualsensectl/default.nix",
+"line":30
+},
 "name":"dualsensectl-unstable-git-17f27b81b87a1736a0e6dc7b2e225059b68a5733",
 "outputsToInstall":[
 "out"
@@ -291,6 +321,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/firefox-history-merger/default.nix",
+"line":14
+},
 "name":"firefox-history-merger-unstable-2021-11-05",
 "outputsToInstall":[
 "out"
@@ -318,9 +353,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"armv7a-darwin"
+"aarch64-darwin"
 ],
 "position":"./pkgs/firefox-history-merger/default.nix:12",
 "unfree":false,
@@ -359,6 +392,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/gcc-lua/default.nix",
+"line":39
+},
 "name":"gcc-lua-unstable-2023-07-17",
 "outputsToInstall":[
 "out"
@@ -403,6 +441,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/json-yaml/default.nix",
+"line":24
+},
 "name":"json-yaml-1.2.1",
 "outputsToInstall":[
 "out"
@@ -444,6 +487,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/loudgain/default.nix",
+"line":44
+},
 "name":"loudgain-unstable-2020-12-28",
 "outputsToInstall":[
 "out"
@@ -483,6 +531,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/sfutils/default.nix",
+"line":41
+},
 "name":"sfutils-8.2.4.1004",
 "outputsToInstall":[
 "out"
@@ -533,9 +586,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -562,6 +613,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/staticx/default.nix",
+"line":60
+},
 "name":"staticx-v0.14.1",
 "outputsToInstall":[
 "out"
@@ -569,7 +625,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/staticx/default.nix:57",
+"position":"./pkgs/staticx/default.nix:58",
 "unfree":false,
 "unsupported":false
 },
@@ -599,6 +655,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/switch-dbibackend/default.nix",
+"line":36
+},
 "name":"switch-dbibackend-486",
 "outputsToInstall":[
 "out"
@@ -643,6 +704,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/systemd-lock-handler/default.nix",
+"line":43
+},
 "name":"systemd-lock-handler-2.4.0",
 "outputsToInstall":[
 "out"
@@ -708,6 +774,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/tagsistant/default.nix",
+"line":43
+},
 "name":"tagsistant-unstable-2017-02-12",
 "outputsToInstall":[
 "out"
@@ -752,6 +823,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/tmm/default.nix",
+"line":78
+},
 "name":"tinymediamanager-5.1.5",
 "outputsToInstall":[
 "out"
@@ -807,6 +883,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/urxvt-config-reload/default.nix",
+"line":37
+},
 "name":"urxvt-config-reload-unstable-2021-06-28",
 "outputsToInstall":[
 "out"
@@ -848,6 +929,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/urxvtconfig/default.nix",
+"line":30
+},
 "name":"urxvtconfig-unstable-2017-11-30",
 "outputsToInstall":[
 "out"
@@ -889,6 +975,11 @@
 "name":"Alexei Robyn"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/4ripm59cyf2sgdkabvr52mh5hppiqmvf-source/pkgs/yuescript/default.nix",
+"line":21
+},
 "name":"yuescript-v0.26.0",
 "outputsToInstall":[
 "out"
