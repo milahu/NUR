@@ -1,0 +1,92 @@
+error:
+… while querying the derivation named 'iosevka-nerd-2.1.0'
+
+… in the left operand of the AND (&&) operator
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:635:9:
+
+   634|         validity.valid != "no"
+   635|         && (
+      |         ^
+   636|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:775:18:
+
+   774|       };
+   775|       validity = checkMeta.assertValidity { inherit meta attrs; };
+      |                  ^
+   776|
+
+… while calling 'assertValidity'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:641:5:
+
+   640|   assertValidity =
+   641|     { meta, attrs }:
+      |     ^
+   642|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:643:18:
+
+   642|     let
+   643|       validity = checkValidity attrs;
+      |                  ^
+   644|       inherit (validity) valid;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:480:5:
+
+   479|     in
+   480|     attrs:
+      |     ^
+   481|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:526:40:
+
+   525|       }
+   526|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
+      |                                        ^
+   527|       let
+
+… while calling 'hasUnsupportedPlatform'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:129:28:
+
+   128|
+   129|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+      |                            ^
+   130|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:129:35:
+
+   128|
+   129|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+      |                                   ^
+   130|
+
+… while calling 'availableOn'
+
+  at <nixpkgs> + /lib/meta.nix:291:15:
+
+   290|   availableOn =
+   291|     platform: pkg:
+      |               ^
+   292|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
+
+error: attribute 'lib' missing
+
+at ./pkgs/iosevka-nerd-font/default.nix:15:15:
+
+    14|
+    15|   meta = with stdenv.lib; {
+      |               ^
+    16|     homepage = "https://github.com/ryanoasis/nerd-fonts";
