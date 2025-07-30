@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 let
-  inherit (lib) getExe' throwIf;
+  inherit (lib) getExe' throwIf versionAtLeast;
 
   identity = import ../../common/resources/identity.nix;
 in
@@ -20,8 +20,8 @@ in
     resources = ./resources;
   };
 
-  # Workaround for drm/amd#3925, drm/amd#4141 pending torvalds/linux@f21e6d1 via 6.16
-  boot.kernelParams = throwIf (pkgs ? linuxPackages_6_16) "Linux 6.16 is available" [ "amdgpu.dcdebugmask=0x10" ];
+  # Workaround for drm/amd#3925, drm/amd#4141
+  boot.kernelPackages = throwIf (versionAtLeast pkgs.linux.version "6.16") "Kernel no longer requires override" pkgs.linuxPackages_6_16;
 
   # Hardware
   systemd.services.configure-sound-leds = rec {

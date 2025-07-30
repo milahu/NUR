@@ -3,6 +3,7 @@
 let
   inherit (builtins) listToAttrs;
   inherit (lib) getExe getExe' mkForce nameValuePair range;
+  inherit (pkgs.writers) writeTOML;
 
   identity = import ../resources/identity.nix;
   palette = import ../resources/palette.nix { inherit lib pkgs; };
@@ -155,15 +156,75 @@ in
       merge-tools = {
         delta = {
           program = getExe pkgs.delta;
-          diff-args = [ "--color-only" "--features" "full" "--paging" "never" "$left" "$right" ];
+          diff-args = [ "--features" "full" "$left" "$right" ];
           diff-expected-exit-codes = [ 0 /* same */ 1 /* different */ ];
         };
+      };
+
+      # Reference: https://github.com/jj-vcs/jj/blob/main/cli/src/config/templates.toml
+      template-aliases = {
+        "format_short_signature_oneline(s)" = "coalesce(s.name(), s.email(), name_placeholder)";
+      };
+
+      templates = {
+        log = "builtin_log_oneline";
       };
 
       ui = {
         diff-formatter = "delta";
         pager = "less --no-init --quit-if-one-screen --RAW-CONTROL-CHARS"; # Override PAGER with Jujutsu default
       };
+
+      # Reference: https://github.com/jj-vcs/jj/blob/main/cli/src/config/colors.toml
+      colors = rec {
+        change_id = "cyan";
+        commit_id = "bright black";
+
+        "working_copy commit_id" = commit_id;
+        "working_copy change_id" = change_id;
+
+        "diff empty" = "blue";
+        "diff binary" = "blue";
+        "diff hunk_header" = "blue";
+        "diff modified" = "blue";
+        "diff untracked" = "yellow";
+        "diff renamed" = "blue";
+
+        "node working_copy" = "magenta";
+      };
+
+      aliases = {
+        consume = [ "squash" "--interactive" "--into" "@" "--from" ];
+        eject = [ "squash" "--interactive" "--from" "@" "--into" ];
+        recent = [ "log" "--limit" "8" ];
+        tug = [ "bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-" ];
+      };
+
+      "--scope" = [
+        {
+          "--when".commands = [ "log" ];
+          template-aliases = {
+            "format_timestamp(t)" = "t.local().format(\"%F\")";
+            description_placeholder = "label(\"description placeholder\", \"⯈\")";
+          };
+
+          colors = rec {
+            author = "bright black";
+            committer = "bright black";
+
+            "working_copy author" = author;
+            "working_copy committer" = committer;
+          };
+        }
+      ];
+    };
+  };
+
+  # Reference: https://github.com/idursun/jjui/blob/main/internal/config/default/config.toml
+  xdg.configFile."jjui/config.toml".source = writeTOML "jjui-config" {
+    # Reference: https://github.com/idursun/jjui/blob/main/internal/config/default/default_dark.toml
+    ui.colors = {
+      "revisions selected" = { fg = "white"; bg = "black"; };
     };
   };
 }

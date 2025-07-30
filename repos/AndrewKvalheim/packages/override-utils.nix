@@ -25,6 +25,9 @@ let
   unstable =
     if (tryEval (pathExists <unstable>)).value then mkRepo "unstable" <unstable>
     else info "No unstable channel found" null;
+  unstable-small =
+    if (tryEval (pathExists <unstable-small>)).value then mkRepo "unstable-small" <unstable-small>
+    else info "No unstable-small channel found" null;
 
   # Compile cache
   ccacheConfig = ''
@@ -90,7 +93,7 @@ let
         && (version == null || versionMeetsSpec p.version version)
         && (condition == null || condition p);
       extra = if search == null then [ ] else imap1 (i: s: { _extra = i; _name = "search"; } // s) (toList search);
-      repos = [ stable unstable ] ++ extra ++ [ nur ];
+      repos = [ stable unstable unstable-small ] ++ extra ++ [ nur ];
       repo = findFirst suffices file repos;
       ccacheStdenv = repo.ccacheStdenv.override { extraConfig = ccacheConfig; };
       package =
