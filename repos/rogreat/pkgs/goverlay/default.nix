@@ -9,15 +9,15 @@
   stdenv,
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "goverlay";
-  version = "3d4592c10718a09d7dd8bafd258379905fed1a24";
+  version = "dcc5684fed5010ae08d3f696b7e882352e61fae9";
 
   src = fetchFromGitHub {
     owner = "benjamimgois";
     repo = "goverlay";
-    rev = version;
-    sha256 = "sha256-YgnMtorkCNhq+Xfh1qz+69PADQPxVDWFdLS3RE6p+EM=";
+    rev = finalAttrs.version;
+    sha256 = "sha256-jFEW9l/ggCUysR3H4ZVu5MLiqGY8ZCzHJjoc5jQS14k=";
   };
 
   outputs = [
@@ -51,12 +51,13 @@ stdenv.mkDerivation rec {
 
   passthru.updateScript = nix-update-script { };
 
-  meta = with lib; {
+  meta = {
     description = "Opensource project that aims to create a Graphical UI to help manage Linux overlays";
     homepage = "https://github.com/benjamimgois/goverlay";
-    license = licenses.gpl3Plus;
-    maintainers = with maintainers; [ RoGreat ];
-    platforms = platforms.linux;
+    changelog = "https://github.com/benjamimgois/goverlay/releases/tag/nightly";
+    license = lib.licenses.gpl3Plus;
+    maintainers = with lib.maintainers; [ RoGreat ];
     mainProgram = "goverlay";
+    platforms = lib.platforms.linux;
   };
-}
+})
