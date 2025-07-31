@@ -5,27 +5,45 @@
   buildNpmPackage,
   fetchFromGitHub,
   fetchNpmDeps,
+  runCommand,
   ...
 }:
-buildNpmPackage (finalAttrs: {
+let
   pname = "gemini-cli";
-  version = "0.1.14";
+  version = "0.1.15";
+  srcHash = "sha256-J9pDSMsSh7FVPD61FFV2Aes3G/Vj1j5ULn9dOr+sglQ=";
+  npmDepsHsh = "sha256-pfQ02b7j8BQzPOVk64nqpVH2ofkaR3iFDlqo+XiAN4A=";
 
-  src = fetchFromGitHub {
+  srcOrig = fetchFromGitHub {
     owner = "google-gemini";
     repo = "gemini-cli";
-    rev = "v${finalAttrs.version}";
-    hash = "sha256-u73aqh7WnfetHj/64/HyzSR6aJXRKt0OXg3bddhhQq8=";
+    rev = "v${version}";
+    hash = "${srcHash}";
   };
 
+  packageLockFixed = ./package-lock.fixed.json;
+
+  src = runCommand "src-fixed" { } ''
+    mkdir -p $out
+    chmod -R u+w $out
+    cp -r ${srcOrig}/* $out/
+    rm -f $out/package-lock.json
+    cp ${packageLockFixed} $out/package-lock.json
+  '';
+in
+buildNpmPackage (finallAttrs: {
+  inherit pname version src;
+
   npmDeps = fetchNpmDeps {
-    inherit (finalAttrs) src;
-    hash = "sha256-9T31QlffPP6+ryRVN/7t0iMo+2AgwPb6l6CkYh6839U=";
+    inherit src;
+    hash = "${npmDepsHsh}";
   };
+
+  passthru.updateScript = ./update.sh;
 
   postPatch = ''
     mkdir -p packages/cli/src/generated
-    echo "export const GIT_COMMIT_INFO = '${finalAttrs.src.rev}';" > packages/cli/src/generated/git-commit.js
+    echo "export const GIT_COMMIT_INFO = 'v${finallAttrs.version}';" > packages/cli/src/generated/git-commit.js
     echo "export const GIT_COMMIT_INFO: string;" > packages/cli/src/generated/git-commit.d.ts
   '';
 
