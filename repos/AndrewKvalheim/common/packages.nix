@@ -54,7 +54,6 @@ specify {
   jujutsu.version = "≥0.30"; # Compatibility with delta
   just-local = any;
   kitty.patch = ../packages/resources/kitty_paperwm.patch; # Workaround for paperwm/PaperWM#943
-  linuxPackages_6_16 = any;
   little-a-map = any;
   losslesscut-bin.args = [ "--disable-networking" ];
   mark-applier = any;
