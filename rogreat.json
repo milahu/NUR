@@ -1,22 +1,22 @@
 {
 "name":"rogreat",
-"fetch_time":0.756,
-"eval_time":0.27,
+"fetch_time":0.364,
+"eval_time":0.273,
 "source":{
 "url":"https://github.com/RoGreat/nur-packages",
-"rev":"15324d662d8a062a10c4c720f8bc34d3318738a3",
-"sha256":"14d2pbrjsxzgw05l0rgaxllyzxc1qqn0k7pa2pri6bwwvf04096a",
+"rev":"78cad0ab7249116617dce2a2d8f0d58b93277da0",
+"sha256":"0ykcq0wqawk6n729c8lhi0h1dkiys79j001b46n3h1735npfqm9b",
 "date":null
 },
-"source_storepath":"/nix/store/2v26m48wwfxh89rb9pk15kzxyljw5zni-source",
-"nixpkgs_storepath":"/nix/store/kk2gam05fnnnrl0ddd85fkihnqlfkx2n-source",
-"nur_combined_rev":"54305a44324be17a1c0476eda536aaacfb270c45",
+"source_storepath":"/nix/store/3bipryrwp3v0w0hx6x2i6cbasklyw04s-source",
+"nixpkgs_storepath":"/nix/store/k7pyy9ya89a8sf3kb7r5biafrpmb2fnk-source",
+"nur_combined_rev":"c3c0934a96c61da6e5de713ca16f002bd2e070e9",
 "packages":{
 "faugus-launcher":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/Faugus/faugus-launcher/releases/tag/1.8.5",
+"changelog":"https://github.com/Faugus/faugus-launcher/releases/tag/1.8.8",
 "description":"Simple and lightweight app for running Windows games using UMU-Launcher",
 "homepage":"https://github.com/Faugus/faugus-launcher",
 "insecure":false,
@@ -73,10 +73,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2v26m48wwfxh89rb9pk15kzxyljw5zni-source/pkgs/faugus-launcher/default.nix",
+"file":"/nix/store/3bipryrwp3v0w0hx6x2i6cbasklyw04s-source/pkgs/faugus-launcher/default.nix",
 "line":90
 },
-"name":"faugus-launcher-1.8.5",
+"name":"faugus-launcher-1.8.8",
 "outputsToInstall":[
 "out"
 ],
@@ -107,19 +107,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"faugus-launcher-1.8.5",
+"name":"faugus-launcher-1.8.8",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"faugus-launcher",
 "system":"x86_64-linux",
-"version":"1.8.5"
+"version":"1.8.8"
 },
 "goverlay":{
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/benjamimgois/goverlay/releases/tag/nightly",
 "description":"Opensource project that aims to create a Graphical UI to help manage Linux overlays",
 "homepage":"https://github.com/benjamimgois/goverlay",
 "insecure":false,
@@ -143,10 +144,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2v26m48wwfxh89rb9pk15kzxyljw5zni-source/pkgs/goverlay/default.nix",
-"line":58
+"file":"/nix/store/3bipryrwp3v0w0hx6x2i6cbasklyw04s-source/pkgs/goverlay/default.nix",
+"line":59
 },
-"name":"goverlay-3d4592c10718a09d7dd8bafd258379905fed1a24",
+"name":"goverlay-dcc5684fed5010ae08d3f696b7e882352e61fae9",
 "outputsToInstall":[
 "out",
 "man"
@@ -178,15 +179,15 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"goverlay-3d4592c10718a09d7dd8bafd258379905fed1a24",
+"name":"goverlay-dcc5684fed5010ae08d3f696b7e882352e61fae9",
 "outputName":"out",
 "outputs":{
 "man":null,
 "out":null
 },
-"pname":"goverlay",
+"pname":"goverlay-dcc5684fed5010ae08d3f696b7e882352e61fae9",
 "system":"x86_64-linux",
-"version":"3d4592c10718a09d7dd8bafd258379905fed1a24"
+"version":""
 },
 "gupax":{
 "meta":{
@@ -210,11 +211,11 @@
 "license":{
 "deprecated":false,
 "free":true,
-"fullName":"GNU General Public License v3.0 only",
+"fullName":"GNU General Public License v3.0 or later",
 "redistributable":true,
-"shortName":"gpl3Only",
-"spdxId":"GPL-3.0-only",
-"url":"https://spdx.org/licenses/GPL-3.0-only.html"
+"shortName":"gpl3Plus",
+"spdxId":"GPL-3.0-or-later",
+"url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
 },
 "mainProgram":"gupax",
 "maintainers":[
@@ -227,7 +228,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2v26m48wwfxh89rb9pk15kzxyljw5zni-source/pkgs/gupax/default.nix",
+"file":"/nix/store/3bipryrwp3v0w0hx6x2i6cbasklyw04s-source/pkgs/gupax/default.nix",
 "line":67
 },
 "name":"gupax-1.3.11",
@@ -283,7 +284,7 @@
 ],
 "broken":false,
 "changelog":"https://github.com/RoGreat/steam-optionx/releases/tag/v0.6.1",
-"description":"Configure Steam apps launch options",
+"description":"Modify Steam launch options",
 "homepage":"https://github.com/RoGreat/steam-optionx",
 "insecure":false,
 "license":{
@@ -295,6 +296,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"longDescription":"An egui application to modify app launch options in Steam's config file.\n",
 "mainProgram":"steam-optionx",
 "maintainers":[
 {
@@ -306,8 +308,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2v26m48wwfxh89rb9pk15kzxyljw5zni-source/pkgs/steam-optionx/default.nix",
-"line":74
+"file":"/nix/store/3bipryrwp3v0w0hx6x2i6cbasklyw04s-source/pkgs/steam-optionx/default.nix",
+"line":77
 },
 "name":"steam-optionx-0.6.1",
 "outputsToInstall":[
