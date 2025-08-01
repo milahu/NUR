@@ -1,14 +1,12 @@
-trace: evaluation warning: buildRustPackage: `useFetchCargoVendor` is non‐optional and enabled by default as of 25.05, remove it
-trace: evaluation warning: buildRustPackage: `useFetchCargoVendor` is non‐optional and enabled by default as of 25.05, remove it
 error:
 … from call site
 
-  at ./default.nix:33:12:
+  at ./default.nix:32:12:
 
-    32|   sjtu-canvas-helper = pkgs.callPackage ./pkgs/sjtu-canvas-helper { };
-    33|   waylrc = pkgs.callPackage ./pkgs/waylrc { inherit rustPlatform; };
+    31|   sjtu-canvas-helper = pkgs.callPackage ./pkgs/sjtu-canvas-helper { };
+    32|   waylrc = pkgs.callPackage ./pkgs/waylrc { inherit rustPlatform; };
       |            ^
-    34|
+    33|
 
 … while calling 'callPackageWith'
 
