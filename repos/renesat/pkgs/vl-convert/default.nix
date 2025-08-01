@@ -17,8 +17,6 @@ rustPlatform.buildRustPackage rec {
 
   buildAndTestSubdir = "vl-convert";
 
-  useFetchCargoVendor = true;
-
   cargoHash = "sha256-t952WH6zq7POVvdX3fI7kXXfPiaAXjfsvoqI/aq5Fn0=";
 
   RUSTY_V8_ARCHIVE = callPackage ./librusty_v8.nix {};

@@ -1,4 +1,5 @@
 {
+  lib,
   stdenv,
   fetchurl,
   fetchgit,
@@ -91,6 +92,6 @@ in
     meta = {
       description = "https://git.mork.no/wwan.git";
       homepage = "https://git.mork.no/wwan.git";
-      inherit (perl.meta) platforms;
+      platforms = lib.platforms.linux;
     };
   }

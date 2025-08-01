@@ -9,7 +9,7 @@
   inherit (builtins) warn;
   lazyPackageWarn = msg: pkg:
     pkg.overrideAttrs (prev: {
-      installPhase = warn msg prev.installPhase;
+      installPhase = warn msg (prev.installPhase or "");
     });
   supportedSystem = _: pkg: builtins.elem system pkg.meta.platforms;
   aliases = {

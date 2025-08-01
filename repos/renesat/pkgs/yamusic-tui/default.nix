@@ -35,5 +35,6 @@ buildGoModule rec {
     homepage = "https://github.com/DECE2183/yamusic-tui";
     license = lib.licenses.gpl3;
     maintainers = with lib.maintainers; [renesat];
+    platforms = lib.platforms.linux;
   };
 }
