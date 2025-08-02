@@ -1,63 +1,11 @@
 error:
-… from call site
+… while querying the derivation named 'quake3-arena-ioquake3-0-unstable-2025-05-15-1.32b-3'
 
-  at <nixpkgs> + /lib/filesystem.nix:414:47:
+error: attribute 'homepage' missing
 
-   413|               # call .nix files
-   414|               "${removeSuffix ".nix" name}" = callPackage path { };
-      |                                               ^
-   415|             }
+at <nixpkgs> + /pkgs/games/quake3/wrapper/default.nix:67:11:
 
-… while calling 'callPackageWith'
-
-  at <nixpkgs> + /lib/customisation.nix:240:19:
-
-   239|   callPackageWith =
-   240|     autoArgs: fn: args:
-      |                   ^
-   241|     let
-
-… from call site
-
-  at <nixpkgs> + /lib/trivial.nix:989:5:
-
-   988|     # TODO: Should we add call-time "type" checking like built in?
-   989|     __functor = self: f;
-      |     ^
-   990|     __functionArgs = args;
-
-… while calling anonymous lambda
-
-  at <nixpkgs> + /lib/customisation.nix:161:7:
-
-   160|     mirrorArgs (
-   161|       origArgs:
-      |       ^
-   162|       let
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:163:18:
-
-   162|       let
-   163|         result = f origArgs;
-      |                  ^
-   164|
-
-… while calling anonymous lambda
-
-  at ./pkgs/by-name/quake3-wrapped.nix:1:1:
-
-     1| { quake3wrapper, stdenvNoCC, requireFile, quake3pointrelease }:
-      | ^
-     2|
-
-error: function 'anonymous lambda' called with unexpected argument 'name'
-
-at <nixpkgs> + /pkgs/games/quake3/wrapper/default.nix:10:1:
-
-     9|
-    10| {
-      | ^
-    11|   paks,
-Did you mean pname?
+    66|
+    67|   meta = {
+      |           ^
+    68|     mainProgram = "${pname}";
