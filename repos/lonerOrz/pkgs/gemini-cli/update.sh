@@ -51,7 +51,7 @@ git clone --depth 1 --branch "$LATEST_RELEASE" "https://github.com/$OWNER/$REPO.
 }
 
 cp "$FIX_SCRIPT" "$TEMP_DIR/fix.js"
-if ! nix-shell -p nodejs --run "cd $TEMP_DIR && node fix.js"; then
+if ! (cd "$TEMP_DIR" && node fix.js); then
   echo "❌ Failed to run fix.js"
   rm -rf "$TEMP_DIR"
   exit 1
@@ -67,36 +67,18 @@ cp "$TEMP_DIR/package-lock.fixed.json" "$PACKAGE_LOCK_FILE"
 echo >> "$PACKAGE_LOCK_FILE"  # 添加末尾换行
 rm -rf "$TEMP_DIR"
 
-# 更新 default.nix 中 version 和 hash，只在 gemini-cli block 内
-sed -i -E \
-  -e "s@(version = \")[^\"]*(\";)@\\1$LATEST_VERSION\\2@" \
-  -e "s@(srcHash = \")[^\"]*(\";)@\\1$SOURCE_HASH\\2@" \
-  -e "s@(npmDepsHsh = \")[^\"]*(\";)@\\1\\2@" \
-  "$PKG_FILE"
-
-echo "替新version和 hash 更新 default.nix 和 package-lock.fixed.json !!!!"
-cat $PKG_FILE
-
-# 清空 npmDeps 的 hash，让 nix 自动提示新 hash
-# sed -i -E "/fetchNpmDeps/,/};/ s|hash = \"[^\"]*\";|hash = \"\";|" "$PKG_FILE"
-
-# 执行一次构建以触发 npmDepsHash 获取
-NIX_BUILD_LOG=$(mktemp)
-if nix build .#gemini-cli --print-build-logs 2>&1 | tee "$NIX_BUILD_LOG"; then
-  echo "❌ Build unexpectedly succeeded with empty npmDeps hash."
-  rm -f "$NIX_BUILD_LOG"
+# 使用 prefetch-npm-deps 获取 npmDepsHash
+NPM_DEPS_HASH=$(prefetch-npm-deps $PACKAGE_LOCK_FILE)
+if [ -z "$NPM_DEPS_HASH" ]; then
+  echo "❌ Failed to fetch npmDepsHash using prefetch-npm-deps."
   exit 1
 fi
 
-# 提取 npmDepsHash
-NPM_DEPS_HASH=$(grep "got: sha256-" "$NIX_BUILD_LOG" | sed -E 's/.*got: (sha256-[^ ]+).*/\1/' | head -n1)
-rm -f "$NIX_BUILD_LOG"
-
-[ -z "$NPM_DEPS_HASH" ] && { echo "❌ Failed to extract npmDepsHash."; exit 1; }
-
-# 更新 npmDeps hash
+# 更新 default.nix 中 version srcHash npmDepsHash
 sed -i -E \
-  -e "s@(npmDepsHsh = \")[^\"]*(\";)@\\1$NPM_DEPS_HASH\\2@" \
+  -e "s@(version = \")[^\"]*(\";)@\\1$LATEST_VERSION\\2@" \
+  -e "s@(srcHash = \")[^\"]*(\";)@\\1$SOURCE_HASH\\2@" \
+  -e "s@(npmDepsHash = \")[^\"]*(\";)@\\1$NPM_DEPS_HASH\\2@" \
   "$PKG_FILE"
 
 # 完成信息
