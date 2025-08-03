@@ -8,7 +8,6 @@
   libzip,
   pandoc,
   pkg-config,
-  versionCheckHook,
   gitUpdater,
 }:
 
@@ -40,10 +39,6 @@ stdenv.mkDerivation (finalAttrs: {
   makeFlags = [ "CXXFLAGS=-I${fuse2.dev}/include/fuse3" ]; # "prefix=$out" ];
   #CXXFLAGS = "-I${pkgs.fuse3}/include/fuse3";
 
-  nativeInstallCheckInputs = [
-    versionCheckHook
-  ];
-  versionCheckProgramArg = "--version";
   doInstallCheck = true;
   installPhase = ''
     make prefix=$out install
@@ -60,9 +55,6 @@ stdenv.mkDerivation (finalAttrs: {
       fuse-zip is a tool allowing to open, explore and extract ZIP archives.
     '';
     license = lib.licenses.gpl3;
-    maintainers = with lib.maintainers; [
-      jonhermansen
-    ];
     platforms = lib.platforms.linux;
     mainProgram = "fuse-zip";
   };
