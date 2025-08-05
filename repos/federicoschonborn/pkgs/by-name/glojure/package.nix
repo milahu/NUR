@@ -9,13 +9,13 @@
 
 buildGoModule (finalAttrs: {
   pname = "glojure";
-  version = "0.2.6";
+  version = "0.3.0";
 
   src = fetchFromGitHub {
     owner = "glojurelang";
     repo = "glojure";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-WzyslO3YaGPJnINDSjk3AcjC/raVh5c5K2a6EBZC4Rk=";
+    hash = "sha256-dcKjW/ht3JmiDqG2YYGiiDwUt32hAwuCkMVTYRS8+eE=";
   };
 
   vendorHash = "sha256-bofeBp8aa/I5jhblv+BhqHX9tmD1hDgUBwEFJpLH/A8=";
