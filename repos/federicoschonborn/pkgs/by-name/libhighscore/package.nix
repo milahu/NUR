@@ -13,14 +13,14 @@
 
 stdenv.mkDerivation {
   pname = "libhighscore";
-  version = "0-unstable-2025-07-27";
+  version = "0-unstable-2025-08-05";
 
   src = fetchFromGitLab {
     domain = "gitlab.gnome.org";
     owner = "alicem";
     repo = "libhighscore";
-    rev = "a4c13c3deb55d2eda4f364cdbdd9a5e457cd1c62";
-    hash = "sha256-xjQMzt1XIdM6duxY2A2vG/Xy8jy9xCXLN5nKheYrw8c=";
+    rev = "5dba8e2d6300d74c1a1fed1ba42528e56c0e7f82";
+    hash = "sha256-kiW8DOP8XIlNI41h5oYEf+uEWqsN+/EgW1NaNVch4wc=";
   };
 
   nativeBuildInputs = [
