@@ -19,8 +19,8 @@ stdenv.mkDerivation {
     domain = "invent.kde.org";
     owner = "plasma";
     repo = "plasma-keyboard";
-    rev = "5ba0233b5da93f618473198cb98d8f7cbf96c28c";
-    hash = "sha256-9RXkFQUAml5V/zAhgYCcuu+ao4CZE72Qojb9DPWB1tQ=";
+    rev = "29f7d0eb62f11fcc39f0135850d8eae8b12e6109";
+    hash = "sha256-T1v8JEhaEHQoOi2B05vWW1YQXLoY4jYLYI17UU4Hz64=";
   };
 
   nativeBuildInputs = [
