@@ -49,6 +49,9 @@ kotlin {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_1_8)
         optIn.add("kotlin.RequiresOptIn")
+        freeCompilerArgs.addAll(
+            "-Xconsistent-data-class-copy-visibility"
+        )
     }
 }
 
@@ -81,6 +84,7 @@ tasks {
     // TODO Find out why this fails the configuration cache
     test {
         notCompatibleWithConfigurationCache("contains a Task reference")
+        dependsOn(installDist)
         val shareDir = layout.dir(installDist.map { it.destinationDir.resolve("share") })
         doFirst {
             if (updateGolden.isPresent) {

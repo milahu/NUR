@@ -23,6 +23,7 @@ kotlin.compilerOptions {
     optIn.add("kotlin.RequiresOptIn")
     freeCompilerArgs.addAll(
         listOf(
+            "-Xconsistent-data-class-copy-visibility",
             "-Xskip-prerelease-check",
             "-Xsuppress-version-warnings",
             // We have to override the default value for `-Xsam-conversions` to `class`

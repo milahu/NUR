@@ -48,7 +48,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
   github-downloader = callPackage ./pkgs/github-downloader/default.nix { };
 
-  oci-image-generator = callPackage ./pkgs/oci-image-generator-nixos/default.nix { };
+  # FIXME Function called without required argument "writeReferencesToFile"
+  # oci-image-generator = callPackage ./pkgs/oci-image-generator-nixos/default.nix { };
 
   /*
   linux-firecracker = callPackage ./pkgs/linux-firecracker { };
@@ -173,7 +174,7 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
       #ffsubsync = callPackage ./pkgs/python3/pkgs/ffsubsync/ffsubsync.nix { };
       ffsubsync = callPackage ./pkgs/applications/video/ffsubsync/ffsubsync.nix { };
 
-      ete3 = callPackage pkgs/python3/pkgs/ete3/ete3.nix { };
+      ete3 = callPackage ./pkgs/python3/pkgs/ete3/ete3.nix { };
 
       faust-cchardet = callPackage ./pkgs/python3/pkgs/faust-cchardet/faust-cchardet.nix { };
 
@@ -451,6 +452,44 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       rs-chardet = callPackage ./pkgs/python3/pkgs/rs-chardet { };
 
+      ffmpegio = callPackage ./pkgs/python3/pkgs/ffmpegio { };
+
+      pytrakt = callPackage ./pkgs/python3/pkgs/pytrakt { };
+
+      traktexport = callPackage ./pkgs/python3/pkgs/traktexport { };
+
+      gostcrypto = callPackage ./pkgs/python3/pkgs/gostcrypto { };
+
+      tigerhash = callPackage ./pkgs/python3/pkgs/tigerhash { };
+
+      ripemd = callPackage ./pkgs/python3/pkgs/ripemd { };
+
+      hashbase = callPackage ./pkgs/python3/pkgs/hashbase { };
+
+      mfusepy = callPackage ./pkgs/development/python-modules/mfusepy { };
+
+      ratarmountcore = callPackage ./pkgs/development/python-modules/ratarmountcore { };
+
+      ratarmount = callPackage ./pkgs/development/python-modules/ratarmount { };
+
+      kaitaistruct = callPackage ./pkgs/development/python-modules/kaitaistruct { };
+
+      python-ext4 = callPackage ./pkgs/development/python-modules/python-ext4 { };
+
+      pysquashfsimage = callPackage ./pkgs/development/python-modules/pysquashfsimage { };
+
+      lzmaffi = callPackage ./pkgs/development/python-modules/lzmaffi { };
+
+      fs = callPackage ./pkgs/development/python-modules/fs { };
+
+      tempcache = callPackage ./pkgs/development/python-modules/tempcache { };
+
+      make_playlist = callPackage ./pkgs/development/python-modules/make_playlist { };
+
+      repro-zipfile = callPackage ./pkgs/development/python-modules/repro-zipfile { };
+
+      rpzip = callPackage ./pkgs/development/python-modules/rpzip { };
+
     #}))); # python3.pkgs
 
   #}))); # python3
@@ -476,6 +515,10 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   hocr-tools = python3Packages.hocr-tools;
 
   vtt2clean-srt = python3Packages.vtt2clean-srt;
+
+  traktexport = python3Packages.traktexport;
+
+  ratarmount = python3Packages.ratarmount;
 
   deno = pkgs.deno // {
     pkgs = (pkgs.deno.pkgs or {}) // (
@@ -955,15 +998,35 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
   gradle2nix = callPackage ./pkgs/development/tools/gradle2nix { };
 
+  gradle_8_6 = callPackage (import ./pkgs/development/tools/build-managers/gradle/8.6.nix {
+    inherit (pkgs) jdk11 jdk17 jdk21;
+  }).gradle_8 { };
+
   grpc-java = grpc-java-bin;
 
   # source build
-  grpc-java-src = callPackage ./pkgs/development/tools/grpc-java { };
+  # lockfile is missing
+  #grpc-java-src = callPackage ./pkgs/development/tools/grpc-java { };
+  # requires grpc-java-src
+  #grpc-java-src-lockfile = callPackage ./pkgs/development/tools/grpc-java/lockfile.nix { };
 
   # binary build
   grpc-java-bin = callPackage ./pkgs/development/tools/grpc-java/bin.nix { };
 
   haveno = callPackage ./pkgs/applications/blockchains/haveno { };
+  haveno-lockfile = callPackage ./pkgs/applications/blockchains/haveno/lockfile.nix { };
+
+  protobuf3_20 = callPackage ./pkgs/development/libraries/protobuf/3.20.nix {
+    abseil-cpp = pkgs.abseil-cpp_202103;
+  };
+
+  protobuf3_19_1 = callPackage ./pkgs/development/libraries/protobuf/3.19.1.nix {
+    abseil-cpp = pkgs.abseil-cpp_202103;
+  };
+
+  protobuf3_19_6 = callPackage ./pkgs/development/libraries/protobuf/3.19.6.nix {
+    abseil-cpp = pkgs.abseil-cpp_202103;
+  };
 
   basicswap = pkgs.python3.pkgs.callPackage ./pkgs/applications/blockchains/basicswap {
     # FIXME scope
@@ -1037,6 +1100,79 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   fuse-nfs = callPackage ./pkgs/tools/filesystems/fuse-nfs { };
 
   stream-unrar = callPackage ./pkgs/tools/archivers/stream-unrar { };
+
+  libtorrent-rasterbar = callPackage ./pkgs/development/libraries/libtorrent-rasterbar { };
+
+  qbittorrent-nox = callPackage ./pkgs/applications/networking/p2p/qbittorrent {
+    guiSupport = false;
+  };
+
+  test-fchmodat2 = callPackage ./pkgs/test/test-fchmodat2 { };
+
+  gtk-gnutella = callPackage ./pkgs/tools/networking/p2p/gtk-gnutella { };
+
+  wireshare = callPackage ./pkgs/applications/networking/p2p/wireshare { };
+
+  patchelf_pr_118 = callPackage ./pkgs/development/tools/misc/patchelf/pr_118.nix { };
+
+  voe-dl = pkgs.python3.pkgs.callPackage ./pkgs/tools/misc/voe-dl { };
+
+  nginx = nginxStable;
+
+  nginxQuic = callPackage ./pkgs/servers/http/nginx/quic.nix {
+    withPerl = false;
+    # We don't use `with` statement here on purpose!
+    # See https://github.com/NixOS/nixpkgs/pull/10474#discussion_r42369334
+    modules = [
+      pkgs.nginxModules.rtmp
+      pkgs.nginxModules.dav
+      pkgs.nginxModules.moreheaders
+    ];
+    # Use latest boringssl to allow http3 support
+    openssl = pkgs.quictls;
+  };
+
+  nginxStable = callPackage ./pkgs/servers/http/nginx/stable.nix {
+    withPerl = false;
+    # We don't use `with` statement here on purpose!
+    # See https://github.com/NixOS/nixpkgs/pull/10474#discussion_r42369334
+    modules = [
+      pkgs.nginxModules.rtmp
+      pkgs.nginxModules.dav
+      pkgs.nginxModules.moreheaders
+    ];
+  };
+
+  nginxModules = pkgs.recurseIntoAttrs {
+
+    cgi = callPackage ./pkgs/servers/http/nginx/modules/cgi.nix { };
+
+    markdown_filter = callPackage ./pkgs/servers/http/nginx/modules/markdown_filter.nix { };
+
+  };
+
+  bbcode = callPackage ./pkgs/development/libraries/bbcode { };
+
+  nym-wallet-bin = callPackage ./pkgs/tools/security/nym/nym-wallet-bin.nix { };
+
+  # findimagedupes = callPackage ./pkgs/tools/graphics/findimagedupes { };
+  # fix: error: undefined variable 'DBFile' at perlPackages.DBFile
+  # FIXME scope
+  findimagedupes = pkgs.callPackage ./pkgs/tools/graphics/findimagedupes { };
+
+  tarindexer = callPackage ./pkgs/tools/compression/tarindexer { };
+
+  kaitai-struct-compiler = callPackage ./pkgs/by-name/ka/kaitai-struct-compiler/package.nix { };
+
+  srcml = callPackage ./pkgs/development/tools/srcml { };
+
+  gumtree = callPackage ./pkgs/development/tools/gumtree { };
+
+  mkSbtDerivation = callPackage ./pkgs/development/tools/sbt-derivation { };
+
+  xtdb = callPackage ./pkgs/servers/sql/xtdb { };
+
+  nix-editor = callPackage ./pkgs/development/tools/nix-editor { };
 
 }
 
