@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) escapeShellArg getExe';
-  inherit (pkgs) writeShellScript;
+  inherit (lib) escapeShellArg getExe getExe';
+  inherit (pkgs) substitute writeShellScript;
 in
 {
   imports = [
@@ -46,8 +46,10 @@ in
     chromium
     decompiler-mc
     digikam
+    dino
     email-hash
     fastnbt-tools
+    filter-imf
     fontforge-gtk
     gpsprune
     graphviz
@@ -104,9 +106,15 @@ in
   launcherScripts = with pkgs; {
     "IMF → filtered IMF" = "kitty ${escapeShellArg (writeShellScript "filter-imf" ''
         ${getExe' wl-clipboard "wl-paste"} --no-newline --type 'text' \
-        | CLICOLOR_FORCE='✓' ~/.cargo/bin/filter-imf \
+        | CLICOLOR_FORCE='✓' ${getExe filter-imf} \
         | ${getExe' wl-clipboard "wl-copy"} --type 'TEXT'
       '')}";
+  };
+
+  # Workaround for dino/dino#299
+  xdg.configFile."autostart/im.dino.Dino.desktop".source = substitute {
+    src = "${pkgs.dino}/share/applications/im.dino.Dino.desktop";
+    substitutions = [ "--replace-fail" "Exec=dino %U" "Exec=dino --gapplication-service" ];
   };
 
   # Environment

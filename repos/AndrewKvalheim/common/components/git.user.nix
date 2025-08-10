@@ -205,15 +205,24 @@ in
           "--when".commands = [ "log" ];
           template-aliases = {
             "format_timestamp(t)" = "t.local().format(\"%F\")";
-            description_placeholder = "label(\"description placeholder\", \"⯈\")";
+            description_placeholder = "label(\"description placeholder\", \"WIP\")";
           };
 
           colors = rec {
             author = "bright black";
             committer = "bright black";
+            bookmark = { fg = "blue"; bold = true; };
+            bookmarks = bookmark;
+            local_bookmarks = bookmark;
+            remote_bookmarks = bookmark;
+            tag = bookmark;
+            tags = tag;
+            "description placeholder" = { fg = "red"; italic = true; };
 
             "working_copy author" = author;
             "working_copy committer" = committer;
+            "working_copy description" = "magenta";
+            "working_copy description placeholder" = { fg = "magenta"; italic = true; };
           };
         }
       ];

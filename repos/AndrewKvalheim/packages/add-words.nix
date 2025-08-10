@@ -5,6 +5,7 @@
 , bash
 , coreutils
 , git
+, jujutsu
 , moreutils
 }:
 
@@ -14,6 +15,9 @@ let
 in
 resholve.writeScriptBin "add-words" {
   interpreter = getExe bash;
-  inputs = [ coreutils git moreutils ];
-  execer = [ "cannot:${getExe git}" ];
+  inputs = [ coreutils git jujutsu moreutils ];
+  execer = [
+    "cannot:${getExe git}"
+    "cannot:${getExe jujutsu}"
+  ];
 } (readFile ./resources/add-words)

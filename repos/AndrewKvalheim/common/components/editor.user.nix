@@ -186,6 +186,7 @@ in
         "git.enableStatusBarSync" = false;
         "git.showActionButton" = { commit = false; publish = false; sync = false; };
         "git.suggestSmartCommit" = false;
+        "scm.diffDecorationsIgnoreTrimWhitespace" = true;
 
         # Colors
         "workbench.colorCustomizations" = {

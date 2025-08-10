@@ -81,6 +81,16 @@ in
     "mount.nfs" = { source = getExe' nfs-utils "mount.nfs"; owner = "root"; group = "root"; setuid = true; };
     "umount.nfs" = { source = getExe' nfs-utils "umount.nfs"; owner = "root"; group = "root"; setuid = true; };
   };
+  systemd.automounts = map
+    (path: {
+      wantedBy = [ "remote-fs.target" ];
+      automountConfig.TimeoutIdleSec = 30;
+      where = path;
+    }) [
+    "/home/ak/annex"
+    "/home/ak/services-hdd"
+    "/home/ak/services-ssd"
+  ];
 
   # Mouse
   services.input-remapper.enable = true;

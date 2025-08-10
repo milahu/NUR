@@ -29,6 +29,7 @@ specify {
   espressif-serial = any;
   fastnbt-tools = any;
   fediblockhole = any;
+  filter-imf = any;
   firefox.overlay = w: { makeWrapperArgs = w.makeWrapperArgs ++ [ "--unset" "LC_TIME" ]; }; # Workaround for bugzilla#1269895
   git-diff-image = any;
   git-diff-minecraft = any;

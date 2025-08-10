@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) escapeShellArg getExe getExe' mkEnableOption mkIf mkMerge mkOption;
+  inherit (lib) escapeShellArg getExe mkEnableOption mkIf mkMerge mkOption;
   inherit (lib.types) int;
   inherit (pkgs) apt-cacher-ng writeShellScript;
 
@@ -92,7 +92,7 @@ in
           esac
         '';
         ExecStart = ''
-          ${getExe' apt-cacher-ng "acngtool"} maint \
+          ${apt-cacher-ng}/lib/apt-cacher-ng/acngtool maint \
             Port=${escapeShellArg cfg.port}
         '';
       };
