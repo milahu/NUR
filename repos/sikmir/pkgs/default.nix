@@ -138,7 +138,7 @@ lib.makeScope newScope (
     gimgtools = callPackage ./garmin/gimgtools { };
     gmaptool = callPackage ./garmin/gmaptool { };
     imgdecode = callPackage ./garmin/imgdecode { };
-    libgarmin = callPackage ./garmin/libgarmin { automake = pkgs.automake111x; };
+    libgarmin = callPackage ./garmin/libgarmin { };
     ocad2img = perlPackages.callPackage ./garmin/ocad2img {
       inherit cgpsmapper ocad2mp fetchwebarchive;
     };
@@ -285,6 +285,7 @@ lib.makeScope newScope (
     gpx2yaml = callPackage ./gpx/gpx2yaml { };
     gpxchart = callPackage ./gpx/gpxchart { };
     gpxeditor = callPackage ./gpx/gpxeditor { };
+    gpxgo = callPackage ./gpx/gpxgo { };
     gpxlib = callPackage ./gpx/gpxlib { };
     gpxtools = callPackage ./gpx/gpxtools { };
     gpxtrackposter = callPackage ./gpx/gpxtrackposter { };
