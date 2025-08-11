@@ -127,9 +127,10 @@ A GNOME theme for Firefox.
 Sega Master System/Game Gear/SG-1000 emulator and debugger for macOS, Windows, Linux, BSD and RetroArch.
 
 - Name: `gearsystem`
-- Version: `3.8.2`
+- Version: `3.8.3`
 - [🌐 Homepage](https://github.com/drhelius/Gearsystem)
-- [📦 Source](./pkgs/by-name/gearsystem/package.nix#L49)
+- [📰 Changelog](https://github.com/drhelius/Gearsystem/releases/tag/3.8.3)
+- [📦 Source](./pkgs/by-name/gearsystem/package.nix#L52)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
 - 🖥️ Platforms: `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`
 
@@ -138,7 +139,7 @@ Sega Master System/Game Gear/SG-1000 emulator and debugger for macOS, Windows, L
 Sega Master System/Game Gear/SG-1000 emulator and debugger for macOS, Windows, Linux, BSD and RetroArch.
 
 - Name: `gearsystem-libretro`
-- Version: `3.8.2`
+- Version: `3.8.3`
 - [🌐 Homepage](https://github.com/drhelius/Gearsystem)
 - [📦 Source](./pkgs/by-name/gearsystem-libretro/package.nix#L23)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -161,7 +162,7 @@ Clojure interpreter hosted on Go, with extensible interop support.
 Retro gaming application for the GNOME desktop.
 
 - Name: `highscore`
-- Version: `0-unstable-2025-08-08`
+- Version: `0-unstable-2025-08-10`
 - [🌐 Homepage](https://gitlab.gnome.org/World/highscore)
 - [📦 Source](./pkgs/by-name/highscore/package.nix#L93)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -392,7 +393,7 @@ libcamera based camera application built for Plasma Mobile.
 Virtual Keyboard for Qt based desktops.
 
 - Name: `plasma-keyboard`
-- Version: `0-unstable-2025-08-07`
+- Version: `0-unstable-2025-08-10`
 - [🌐 Homepage](https://invent.kde.org/plasma/plasma-keyboard)
 - [📦 Source](./pkgs/by-name/plasma-keyboard/package.nix#L54)
 - 📄 Licenses: [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html), [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html), [`MIT License`](https://spdx.org/licenses/MIT.html)
