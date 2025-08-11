@@ -5,22 +5,24 @@
   pkg-config,
   openssl,
   sqlite,
+  perl,
 }:
 rustPlatform.buildRustPackage rec {
   pname = "toutui";
-  version = "0.3.3-beta";
+  version = "0.4.2-beta";
 
   src = fetchFromGitHub {
     owner = "AlbanDAVID";
     repo = pname;
     tag = "v${version}";
-    hash = "sha256-0ApaeBDo9xw8bKmUpbfLmWOKs1aXUkcMEitskLMhujg=";
+    hash = "sha256-0BayJTr9eomFTkvRdGKp/EZ6mhovDGfUlqOuEBbufyM=";
   };
 
-  cargoHash = "sha256-MTWUr1lsz/JGN8uKqHpzV9wLk44zcYlbQLeAgGWHhOY=";
+  cargoHash = "sha256-fb6lYpPEt9Mzu52V/hZ3EL00ldJUNpZBLoZhB4BX4K8=";
 
   nativeBuildInputs = [
     pkg-config
+    perl
   ];
 
   buildInputs = [

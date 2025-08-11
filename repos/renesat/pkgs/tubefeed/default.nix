@@ -12,7 +12,7 @@
 }:
 buildPythonPackage rec {
   pname = "tubefeed";
-  version = "2.1.6";
+  version = "2.1.7";
   disabled = pythonOlder "3.10";
   pyproject = true;
 
@@ -20,13 +20,17 @@ buildPythonPackage rec {
     owner = "troebs";
     repo = "tubefeed";
     tag = version;
-    hash = "sha256-fUIJ6Y9htnw7Jhgeae77vOBuSUa84z7+d5ixQ2hS3hU=";
+    hash = "sha256-n4A0ltxpBkettQIZ8Y38NXpI934ySmvaF5HTs+AHnZI=";
   };
 
   patches = [
     ./entry_points.patch
     ./datetime_parse_fix.patch
   ];
+
+  postPatch = ''
+    substituteInPlace setup.py --replace-fail "version = '0.1.0'" "version = '${version}'"
+  '';
 
   build-system = [setuptools];
 
