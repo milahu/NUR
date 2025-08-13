@@ -10,14 +10,14 @@
 
 stdenv.mkDerivation {
   pname = "knighttime";
-  version = "0-unstable-2025-07-28";
+  version = "0-unstable-2025-08-12";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "plasma";
     repo = "knighttime";
-    rev = "d59d77277a1dd64f304240f5b595d9a685e0506e";
-    hash = "sha256-em/Q+eT/uoH+Z9yVV/kHvHmOrHENlsHUbcyljqo5SIE=";
+    rev = "e4e3440d187c523da6f73c2b3a47f472317592ab";
+    hash = "sha256-CkebiAuVEJZ/emczd1oWdBKynzqc/PTZPzqe+8DUQ7M=";
   };
 
   nativeBuildInputs = [
