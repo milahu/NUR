@@ -82,12 +82,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:833:5:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:831:5:
 
-   832|   replaceDependency =
-   833|     {
+   830|   replaceDependency =
+   831|     {
       |     ^
-   834|       drv,
+   832|       drv,
 
 … from call site
 
@@ -118,12 +118,12 @@ error:
 
 … while calling 'mergeAttrsList'
 
-  at <nixpkgs> + /lib/attrsets.nix:1447:5:
+  at <nixpkgs> + /lib/attrsets.nix:1457:5:
 
-  1446|   mergeAttrsList =
-  1447|     list:
+  1456|   mergeAttrsList =
+  1457|     list:
       |     ^
-  1448|     let
+  1458|     let
 
 … while calling anonymous lambda
 
@@ -153,7 +153,7 @@ error:
     61|     import
 
 … while evaluating derivation 'references.nix'
-  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:482:13
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:480:13
 
 … while evaluating attribute 'exportReferencesGraph' of derivation 'references.nix'
 
@@ -211,12 +211,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:833:5:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:831:5:
 
-   832|   replaceDependency =
-   833|     {
+   830|   replaceDependency =
+   831|     {
       |     ^
-   834|       drv,
+   832|       drv,
 
 … from call site
 
@@ -247,12 +247,12 @@ error:
 
 … while calling 'mergeAttrsList'
 
-  at <nixpkgs> + /lib/attrsets.nix:1447:5:
+  at <nixpkgs> + /lib/attrsets.nix:1457:5:
 
-  1446|   mergeAttrsList =
-  1447|     list:
+  1456|   mergeAttrsList =
+  1457|     list:
       |     ^
-  1448|     let
+  1458|     let
 
 … while calling anonymous lambda
 
@@ -264,43 +264,43 @@ error:
    115|     if toString oldDependency == toString newDependency then
 
 … while evaluating derivation 'qtwayland-6.9.1'
-  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:482:13
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:480:13
 
 … while evaluating attribute 'propagatedBuildInputs' of derivation 'qtwayland-6.9.1'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:544:13:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:541:13:
 
-   543|             depsHostHostPropagated = elemAt (elemAt propagatedDependencies 1) 0;
-   544|             propagatedBuildInputs = elemAt (elemAt propagatedDependencies 1) 1;
+   540|             depsHostHostPropagated = elemAt (elemAt propagatedDependencies 1) 0;
+   541|             propagatedBuildInputs = elemAt (elemAt propagatedDependencies 1) 1;
       |             ^
-   545|             depsTargetTargetPropagated = elemAt (elemAt propagatedDependencies 2) 0;
+   542|             depsTargetTargetPropagated = elemAt (elemAt propagatedDependencies 2) 0;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:468:19:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:466:19:
 
-   467|             ))
-   468|             (map (drv: getDev drv.__spliced.hostTarget or drv) (
+   465|             ))
+   466|             (map (drv: getDev drv.__spliced.hostTarget or drv) (
       |                   ^
-   469|               checkDependencyList "propagatedBuildInputs" propagatedBuildInputs
+   467|               checkDependencyList "propagatedBuildInputs" propagatedBuildInputs
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:468:24:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:466:24:
 
-   467|             ))
-   468|             (map (drv: getDev drv.__spliced.hostTarget or drv) (
+   465|             ))
+   466|             (map (drv: getDev drv.__spliced.hostTarget or drv) (
       |                        ^
-   469|               checkDependencyList "propagatedBuildInputs" propagatedBuildInputs
+   467|               checkDependencyList "propagatedBuildInputs" propagatedBuildInputs
 
 … while calling 'getOutput'
 
-  at <nixpkgs> + /lib/attrsets.nix:1745:13:
+  at <nixpkgs> + /lib/attrsets.nix:1755:13:
 
-  1744|   getOutput =
-  1745|     output: pkg:
+  1754|   getOutput =
+  1755|     output: pkg:
       |             ^
-  1746|     if !pkg ? outputSpecified || !pkg.outputSpecified then pkg.${output} or pkg.out or pkg else pkg;
+  1756|     if !pkg ? outputSpecified || !pkg.outputSpecified then pkg.${output} or pkg.out or pkg else pkg;
 
 … while calling anonymous lambda
 
@@ -322,12 +322,12 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:392:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:390:18:
 
-   391|         imap1 (
-   392|           index: dep:
+   389|         imap1 (
+   390|           index: dep:
       |                  ^
-   393|           if dep == null || isDerivation dep || builtins.isString dep || builtins.isPath dep then
+   391|           if dep == null || isDerivation dep || builtins.isString dep || builtins.isPath dep then
 
 … from call site
 
@@ -340,12 +340,12 @@ error:
 
 … while calling 'replaceDependency'
 
-  at <nixpkgs> + /pkgs/top-level/all-packages.nix:833:5:
+  at <nixpkgs> + /pkgs/top-level/all-packages.nix:831:5:
 
-   832|   replaceDependency =
-   833|     {
+   830|   replaceDependency =
+   831|     {
       |     ^
-   834|       drv,
+   832|       drv,
 
 … from call site
 
@@ -376,12 +376,12 @@ error:
 
 … while calling 'mergeAttrsList'
 
-  at <nixpkgs> + /lib/attrsets.nix:1447:5:
+  at <nixpkgs> + /lib/attrsets.nix:1457:5:
 
-  1446|   mergeAttrsList =
-  1447|     list:
+  1456|   mergeAttrsList =
+  1457|     list:
       |     ^
-  1448|     let
+  1458|     let
 
 … while calling anonymous lambda
 
@@ -410,4 +410,4 @@ error:
       |     ^
     61|     import
 
-error: path '/nix/store/5qnvshvxmw6yibifxqcb04bydrs3kzlz-references.nix.drv' is not valid
+error: path '/nix/store/p6cgjhy57wbxkqrd74id53f86vw6wlvr-references.nix.drv' is not valid

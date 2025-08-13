@@ -1,44 +1,92 @@
 error:
-… from call site
+… while querying the derivation named 'iosevka-nerd-2.1.0'
 
-  at ./default.nix:18:17:
+… in the left operand of the AND (&&) operator
 
-    17|   elgato-gchd-firmware = callPackages ./pkgs/elgato-gchd/firmware.nix {};
-    18|   elgato-gchd = callPackages ./pkgs/elgato-gchd { elgato-gchd-firmware = elgato-gchd-firmware; };
-      |                 ^
-    19|
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:633:9:
 
-… while calling 'callPackagesWith'
-
-  at <nixpkgs> + /lib/customisation.nix:340:19:
-
-   339|   callPackagesWith =
-   340|     autoArgs: fn: args:
-      |                   ^
-   341|     let
+   632|         validity.valid != "no"
+   633|         && (
+      |         ^
+   634|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:349:8:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:780:18:
 
-   348|     in
-   349|     if isDerivation pkgs then
-      |        ^
-   350|       throw (
-
-… while calling 'isDerivation'
-
-  at <nixpkgs> + /lib/attrsets.nix:1251:18:
-
-  1250|   */
-  1251|   isDerivation = value: value.type or null == "derivation";
+   779|       };
+   780|       validity = checkMeta.assertValidity { inherit meta attrs; };
       |                  ^
-  1252|
+   781|
 
-error: function 'anonymous lambda' called without required argument 'pkgconfig'
+… while calling 'assertValidity'
 
-at ./pkgs/elgato-gchd/default.nix:1:1:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:639:5:
 
-     1| { stdenv, fetchFromGitHub, fetchurl, lib, cmake, pkgconfig, libusb, elgato-gchd-firmware }:
-      | ^
-     2|
+   638|   assertValidity =
+   639|     { meta, attrs }:
+      |     ^
+   640|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:641:18:
+
+   640|     let
+   641|       validity = checkValidity attrs;
+      |                  ^
+   642|       inherit (validity) valid;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:479:5:
+
+   478|     in
+   479|     attrs:
+      |     ^
+   480|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:525:40:
+
+   524|       }
+   525|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
+      |                                        ^
+   526|       let
+
+… while calling 'hasUnsupportedPlatform'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:128:28:
+
+   127|
+   128|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+      |                            ^
+   129|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:128:35:
+
+   127|
+   128|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+      |                                   ^
+   129|
+
+… while calling 'availableOn'
+
+  at <nixpkgs> + /lib/meta.nix:291:15:
+
+   290|   availableOn =
+   291|     platform: pkg:
+      |               ^
+   292|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
+
+error: attribute 'lib' missing
+
+at ./pkgs/iosevka-nerd-font/default.nix:15:15:
+
+    14|
+    15|   meta = with stdenv.lib; {
+      |               ^
+    16|     homepage = "https://github.com/ryanoasis/nerd-fonts";
