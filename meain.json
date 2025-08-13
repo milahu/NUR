@@ -1,16 +1,16 @@
 {
 "name":"meain",
-"fetch_time":0.28,
-"eval_time":0.269,
+"fetch_time":0.827,
+"eval_time":0.287,
 "source":{
 "url":"https://github.com/meain/nur-packages",
-"rev":"8ebcc3dbd5894d00d932b1fd9b459b4c15a20d72",
-"sha256":"0qm8lkpa6qk7jn43irn6f2m79r85i4snax354jyq05zgyrmlc3zx",
+"rev":"45ae16ae08660ab53092ba30fba05831e4af8259",
+"sha256":"1ijk9hqjpriqs6yw6wfwr760gm5mlgxk1w8nryyd93x3dyslai2h",
 "date":null
 },
-"source_storepath":"/nix/store/7dzgl7qc636ax7g7q52n89saqn63d81j-source",
-"nixpkgs_storepath":"/nix/store/4mm781f74wgj3x0fvcl97fq2wi8nhkd1-source",
-"nur_combined_rev":"16220546486f86aca49113dd0338c65dca4e7556",
+"source_storepath":"/nix/store/iadz24qwn9rf3lmvb8f7m8aa6biby3ww-source",
+"nixpkgs_storepath":"/nix/store/vysiiriiilp3855zjgydfvl9s62pkbd8-source",
+"nur_combined_rev":"65526a0607d0b32d4f65776f2db2a592a849fd1b",
 "packages":{
 "aider-chat":{
 "meta":{
@@ -43,9 +43,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -73,6 +71,11 @@
 "name":"Taha Yassine"
 }
 ],
+"maintainersPosition":{
+"column":7,
+"file":"/nix/store/iadz24qwn9rf3lmvb8f7m8aa6biby3ww-source/pkgs/aider/default.nix",
+"line":164
+},
 "name":"aider-chat-0.74.3.dev",
 "outputsToInstall":[
 "out"
@@ -100,9 +103,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -152,15 +153,18 @@
 "name":"Abin Simon"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/iadz24qwn9rf3lmvb8f7m8aa6biby3ww-source/pkgs/chainlink/default.nix",
+"line":25
+},
 "name":"chainlink-1.4.2",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "aarch64-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -213,6 +217,7 @@
 "shortName":"allrightsreserved",
 "url":"https://addons.mozilla.org/en-US/firefox/addon/animated-kitty-cat/"
 },
+"maintainers":[],
 "mozPermissions":[],
 "name":"a-n-i-m-a-t-e-d-kitty-cat-2.0",
 "outputsToInstall":[
@@ -222,9 +227,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -326,6 +329,7 @@
 "spdxId":"MPL-2.0",
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "tabs",
 "alarms",
@@ -343,9 +347,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -446,6 +448,7 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "tabs",
 "storage",
@@ -459,9 +462,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -563,6 +564,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "activeTab",
 "tabs",
@@ -588,9 +590,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -692,6 +692,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "contextualIdentities",
 "cookies",
@@ -709,9 +710,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -812,6 +811,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "tabs"
 ],
@@ -823,9 +823,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -923,6 +921,7 @@
 "shortName":"allrightsreserved",
 "url":"https://github.com/polywock/globalSpeed/issues/247"
 },
+"maintainers":[],
 "mozPermissions":[
 "storage",
 "https://*/*",
@@ -938,9 +937,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1042,6 +1039,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "storage",
 "*://*/*.markdown",
@@ -1077,9 +1075,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1180,6 +1176,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "storage",
 "*://*/*"
@@ -1192,9 +1189,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1296,6 +1291,7 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "storage",
 "unlimitedStorage",
@@ -1309,9 +1305,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1413,6 +1407,7 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "storage",
 "webRequest",
@@ -1441,9 +1436,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1545,6 +1538,7 @@
 "spdxId":"BSD-2-Clause",
 "url":"https://spdx.org/licenses/BSD-2-Clause.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "storage",
 "https://github.com/*"
@@ -1557,9 +1551,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1660,6 +1652,7 @@
 "spdxId":"MPL-2.0",
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "<all_urls>",
 "http://*/*",
@@ -1673,9 +1666,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1776,6 +1767,7 @@
 "spdxId":"MPL-2.0",
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "storage",
 "*://search.seznam.cz/*",
@@ -1794,9 +1786,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1898,6 +1888,7 @@
 "spdxId":"BSD-2-Clause",
 "url":"https://spdx.org/licenses/BSD-2-Clause.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "<all_urls>",
 "storage",
@@ -1913,9 +1904,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -2017,6 +2006,7 @@
 "spdxId":"GPL-3.0",
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
+"maintainers":[],
 "mozPermissions":[
 "alarms",
 "downloads",
@@ -2036,9 +2026,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -2140,6 +2128,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"maintainers":[],
 "name":"gh-issues-to-rss-0.6.0",
 "outputsToInstall":[
 "out"
@@ -2167,9 +2156,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"armv7a-darwin"
+"aarch64-darwin"
 ],
 "position":"./pkgs/gh-issues-to-rss/default.nix:22",
 "unfree":false,
@@ -2200,6 +2187,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"maintainers":[],
 "name":"gloc-0.0.9",
 "outputsToInstall":[
 "out"
@@ -2227,9 +2215,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"armv7a-darwin"
+"aarch64-darwin"
 ],
 "position":"./pkgs/gloc/default.nix:18",
 "unfree":false,
@@ -2270,15 +2256,18 @@
 "name":"Abin Simon"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/iadz24qwn9rf3lmvb8f7m8aa6biby3ww-source/pkgs/html-to-markdown/default.nix",
+"line":26
+},
 "name":"html-to-markdown-2.3.0",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "aarch64-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -2335,6 +2324,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
+"maintainers":[],
 "name":"kmonad",
 "outputsToInstall":[
 "out"
@@ -2368,6 +2358,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"maintainers":[],
 "name":"mmm-0.0.1",
 "outputsToInstall":[
 "out"
@@ -2395,9 +2386,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"armv7a-darwin"
+"aarch64-darwin"
 ],
 "position":"./pkgs/mmm/default.nix:17",
 "unfree":false,
@@ -2428,6 +2417,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"maintainers":[],
 "name":"nn-0.0.3",
 "outputsToInstall":[
 "out"
@@ -2455,9 +2445,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"armv7a-darwin"
+"aarch64-darwin"
 ],
 "position":"./pkgs/nn/default.nix:17",
 "unfree":false,
@@ -2489,15 +2477,18 @@
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
 "maintainers":[],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/iadz24qwn9rf3lmvb8f7m8aa6biby3ww-source/pkgs/protodot/default.nix",
+"line":25
+},
 "name":"protodot-87817c3d0a8e7af753af15508b51292e941bc7c6",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "aarch64-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -2580,13 +2571,17 @@
 "name":"Jonathan Wilkins"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/iadz24qwn9rf3lmvb8f7m8aa6biby3ww-source/pkgs/prr/default.nix",
+"line":39
+},
 "name":"prr-0.20.0",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -2610,7 +2605,6 @@
 "x86_64-openbsd",
 "i686-windows",
 "x86_64-windows",
-"armv7a-darwin",
 "armv5tel-linux",
 "armv7a-linux",
 "m68k-linux",
@@ -2665,13 +2659,13 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"maintainers":[],
 "name":"quickserve-0.5.2",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -2695,7 +2689,6 @@
 "x86_64-openbsd",
 "i686-windows",
 "x86_64-windows",
-"armv7a-darwin",
 "armv5tel-linux",
 "armv7a-linux",
 "m68k-linux",
@@ -2739,6 +2732,7 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"maintainers":[],
 "name":"sirus-0.0.8",
 "outputsToInstall":[
 "out"
@@ -2766,9 +2760,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"armv7a-darwin"
+"aarch64-darwin"
 ],
 "position":"./pkgs/sirus/default.nix:17",
 "unfree":false,
@@ -2810,13 +2802,13 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"maintainers":[],
 "name":"toffee-0.5.2",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -2840,7 +2832,6 @@
 "x86_64-openbsd",
 "i686-windows",
 "x86_64-windows",
-"armv7a-darwin",
 "armv5tel-linux",
 "armv7a-linux",
 "m68k-linux",
@@ -2895,13 +2886,13 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+"maintainers":[],
 "name":"tojson-0.3.2",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -2925,7 +2916,6 @@
 "x86_64-openbsd",
 "i686-windows",
 "x86_64-windows",
-"armv7a-darwin",
 "armv5tel-linux",
 "armv7a-linux",
 "m68k-linux",
@@ -2983,9 +2973,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3004,7 +2992,8 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"name":"python3.12-traffic-0.5.3",
+"maintainers":[],
+"name":"python3.13-traffic-0.5.3",
 "outputsToInstall":[
 "out"
 ],
@@ -3031,9 +3020,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3047,13 +3034,13 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-traffic-0.5.3",
+"name":"python3.13-traffic-0.5.3",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.12-traffic",
+"pname":"python3.13-traffic",
 "system":"x86_64-linux",
 "version":"0.5.3"
 }
