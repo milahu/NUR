@@ -14,10 +14,10 @@ rustPlatform.buildRustPackage rec {
   version = "0.7.0-unstable-2025-08-06";
 
   src = fetchFromGitHub {
-    owner = "wineee"; #"zccrs";
+    owner = "zccrs";
     repo = "git-commit-helper";
-    rev = "2d2775b26e645c15aa540b8130c5c9256c7a7563";
-    hash = "sha256-Bxx/N2F0T0qZmCRhWxPCVKohqSq6A24kXZnAvxi73Rw=";
+    rev = "f6b186f8f9d5abd73da78364dc028439d06c123c";
+    hash = "sha256-elzU7qBjXUCxOFwWAG87Ajy/e18XP3cEZ0uDVeN8/V4=";
   };
 
   cargoHash = "sha256-EkbjMT2Uy5/fG5gOWDncvU0Y4T8GcJTYTOV7FKpDT2c=";
