@@ -1,16 +1,16 @@
 {
 "name":"falconprogrammer",
-"fetch_time":0.647,
-"eval_time":0.272,
+"fetch_time":0.537,
+"eval_time":0.27,
 "source":{
 "url":"https://github.com/JonBoyleCoding/falconprogrammer-nur",
-"rev":"e6545a171bf691856eb62c0b6254f8b824f2a1b6",
-"sha256":"15bmp647822ln2pnnh23xm3lpk2gy6dav6ahxs17qc1vd85rcpij",
+"rev":"e1860f6af7561dbb10a03599c75591d1c392cf07",
+"sha256":"0yjpzlg2mgcizyp7q1g63rl2bjyrsqn6gl017gi7ng4a4kx4cv5k",
 "date":null
 },
-"source_storepath":"/nix/store/xc179kfkn9sxmqarrsfxrbn8immz75af-source",
-"nixpkgs_storepath":"/nix/store/01737fhjwz0gxagnn6rckanxzzz92cla-source",
-"nur_combined_rev":"159f293ffc198f6e1725d69d0477353ef8db1e59",
+"source_storepath":"/nix/store/34z3640sk9acnjqag3ywnwhgvjpcfcax-source",
+"nixpkgs_storepath":"/nix/store/6x9nz8vl73ianxr9mp55nkpbc5z36jhh-source",
+"nur_combined_rev":"d57c80bc3b914ee437a88e9357c4c41ac3c40874",
 "packages":{
 "alvr":{
 "meta":{
@@ -40,7 +40,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xc179kfkn9sxmqarrsfxrbn8immz75af-source/pkgs/alvr/default.nix",
+"file":"/nix/store/34z3640sk9acnjqag3ywnwhgvjpcfcax-source/pkgs/alvr/default.nix",
 "line":88
 },
 "name":"alvr-20.8.1",
@@ -94,7 +94,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xc179kfkn9sxmqarrsfxrbn8immz75af-source/pkgs/g13d/default.nix",
+"file":"/nix/store/34z3640sk9acnjqag3ywnwhgvjpcfcax-source/pkgs/g13d/default.nix",
 "line":46
 },
 "name":"g13-master-2024-12-30",
@@ -245,7 +245,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xc179kfkn9sxmqarrsfxrbn8immz75af-source/pkgs/gitignore-template/default.nix",
+"file":"/nix/store/34z3640sk9acnjqag3ywnwhgvjpcfcax-source/pkgs/gitignore-template/default.nix",
 "line":42
 },
 "name":"gitignore-template-1.2.4",
@@ -318,7 +318,7 @@
 "longDescription":"OpenCode is an AI coding agent built for the terminal.\n\nNIXOS COMPATIBILITY: OpenCode downloads TUI binaries at runtime that use\ngeneric Linux dynamic linkers (/lib64/ld-linux-x86-64.so.2) which don't\nexist on NixOS. This package includes automatic patching to fix the\ndynamic linker paths for NixOS compatibility.\n\nUSAGE OPTIONS:\n- Run 'opencode' - includes automatic NixOS patching\n- Or manually patch cache: $(nix-build -A opencode-sst)/share/opencode/patch-opencode-cache.sh\n\nThe package provides Node.js 22.17.0 to avoid downloading issues.\n",
 "mainProgram":"opencode",
 "maintainers":[],
-"name":"opencode-0.4.41",
+"name":"opencode-0.4.45",
 "outputsToInstall":[
 "out"
 ],
@@ -351,14 +351,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"opencode-0.4.41",
+"name":"opencode-0.4.45",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"opencode",
 "system":"x86_64-linux",
-"version":"0.4.41"
+"version":"0.4.45"
 },
 "python-jwt_311":{
 "meta":{
@@ -412,7 +412,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xc179kfkn9sxmqarrsfxrbn8immz75af-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/34z3640sk9acnjqag3ywnwhgvjpcfcax-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.11-python-jwt-4.0.0",
@@ -518,7 +518,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xc179kfkn9sxmqarrsfxrbn8immz75af-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/34z3640sk9acnjqag3ywnwhgvjpcfcax-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.12-python-jwt-4.0.0",
@@ -624,7 +624,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xc179kfkn9sxmqarrsfxrbn8immz75af-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/34z3640sk9acnjqag3ywnwhgvjpcfcax-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.13-python-jwt-4.0.0",
@@ -731,7 +731,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xc179kfkn9sxmqarrsfxrbn8immz75af-source/pkgs/timew-sync-client/default.nix",
+"file":"/nix/store/34z3640sk9acnjqag3ywnwhgvjpcfcax-source/pkgs/timew-sync-client/default.nix",
 "line":59
 },
 "name":"timew-sync-client-unstable-2023-10-25",
@@ -848,7 +848,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xc179kfkn9sxmqarrsfxrbn8immz75af-source/pkgs/xgen/default.nix",
+"file":"/nix/store/34z3640sk9acnjqag3ywnwhgvjpcfcax-source/pkgs/xgen/default.nix",
 "line":25
 },
 "name":"xgen-unstable-2023-07-02",
