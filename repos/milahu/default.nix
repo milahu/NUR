@@ -490,6 +490,11 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       rpzip = callPackage ./pkgs/development/python-modules/rpzip { };
 
+      browsermob-proxy = callPackage ./pkgs/development/python-modules/browsermob-proxy {
+        # FIXME scope pkgs.browsermob-proxy
+        pkgs-browsermob-proxy = callPackage ./pkgs/development/tools/browsermob-proxy { };
+      };
+
     #}))); # python3.pkgs
 
   #}))); # python3
@@ -1173,6 +1178,10 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   xtdb = callPackage ./pkgs/servers/sql/xtdb { };
 
   nix-editor = callPackage ./pkgs/development/tools/nix-editor { };
+
+  browsermob-proxy-bin = callPackage ./pkgs/development/tools/browsermob-proxy/bin.nix { };
+
+  browsermob-proxy = callPackage ./pkgs/development/tools/browsermob-proxy { };
 
 }
 
