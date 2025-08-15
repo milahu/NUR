@@ -18,14 +18,14 @@
 
 python3Packages.buildPythonApplication rec {
   pname = "faugus-launcher";
-  version = "1.9.1";
+  version = "1.9.2";
   pyproject = false;
 
   src = fetchFromGitHub {
     owner = "Faugus";
     repo = "faugus-launcher";
     tag = version;
-    hash = "sha256-ZaQRrmCGBWyUXzPtiJHZTtRq7uo1bckMr7DuF9GrcjE=";
+    hash = "sha256-3M6DVXlN/byUSs89mtO/JE/ocZJ3EgGzFfo7daea2lY=";
   };
 
   nativeBuildInputs = [
@@ -55,10 +55,12 @@ python3Packages.buildPythonApplication rec {
     substituteInPlace faugus_launcher.py \
       --replace-fail "PathManager.find_binary('faugus-run')" "'$out/bin/.faugus-run-wrapped'" \
       --replace-fail "PathManager.find_binary('faugus-proton-manager')" "'$out/bin/.faugus-proton-manager-wrapped'" \
+      --replace-fail "PathManager.user_data('faugus-launcher/umu-run')" "'${lib.getExe umu-launcher}'" \
       --replace-fail 'Exec={faugus_run}' 'Exec=faugus-run'
 
     substituteInPlace faugus_run.py \
       --replace-fail "PathManager.find_binary('faugus-components')" "'$out/bin/.faugus-components-wrapped'" \
+      --replace-fail "PathManager.user_data('faugus-launcher/umu-run')" "'${lib.getExe umu-launcher}'" \
       --replace-fail "PathManager.find_library('libgamemode.so.0')" "'${lib.getLib gamemode}/lib/libgamemode.so.0'" \
       --replace-fail "PathManager.find_library('libgamemodeauto.so.0')" "'${lib.getLib gamemode}/lib/libgamemodeauto.so.0'"
   '';
