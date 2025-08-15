@@ -56,6 +56,7 @@ rec {
   pngquant-interactive = pkgs.callPackage ./packages/pngquant-interactive.nix { };
   spf-check = pkgs.callPackage ./packages/spf-check.nix { };
   spf-tree = pkgs.callPackage ./packages/spf-tree.nix { };
+  starship-jj = pkgs.callPackage ./packages/starship-jj.nix { };
   tile-stitch = pkgs.callPackage ./packages/tile-stitch.nix { };
   wireguard-vanity-address = pkgs.callPackage ./packages/wireguard-vanity-address.nix { };
   zsh-completion-sync = pkgs.callPackage ./packages/zsh-completion-sync.nix { };

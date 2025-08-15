@@ -51,9 +51,8 @@ ZSH_HIGHLIGHT_STYLES[arg0]='fg=white,bold'
 ZSH_HIGHLIGHT_STYLES[precommand]='fg=white,italic'
 ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=blue'
 
-# Powerlevel10k
-source @zsh-powerlevel10k@
-source ~/.p10k.zsh
+# Workaround for starship/starship#4205
+source @zsh-starship-issue-4205@
 
 # Terminal title
 zstyle ':prezto:module:terminal' auto-title 'yes'

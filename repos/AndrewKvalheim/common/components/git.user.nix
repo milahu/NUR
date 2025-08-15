@@ -163,11 +163,9 @@ in
 
       # Reference: https://github.com/jj-vcs/jj/blob/main/cli/src/config/templates.toml
       template-aliases = {
+        description_placeholder = "label(\"description placeholder\", \"TODO\")";
+        "format_short_signature(s)" = "coalesce(s.name(), s.email(), name_placeholder)";
         "format_short_signature_oneline(s)" = "coalesce(s.name(), s.email(), name_placeholder)";
-      };
-
-      templates = {
-        log = "builtin_log_oneline";
       };
 
       ui = {
@@ -177,11 +175,32 @@ in
 
       # Reference: https://github.com/jj-vcs/jj/blob/main/cli/src/config/colors.toml
       colors = rec {
-        change_id = "cyan";
+        change_id = "default";
         commit_id = "bright black";
+        author = "default";
+        committer = author;
+        timestamp = "bright black";
+        bookmark = "cyan";
+        bookmarks = bookmark;
+        local_bookmarks = bookmark;
+        remote_bookmarks = bookmark;
+        tag = bookmark;
+        tags = tag;
+        "description placeholder" = { fg = "red"; italic = true; };
+        "empty description placeholder" = { fg = "red"; italic = true; };
 
         "working_copy commit_id" = commit_id;
         "working_copy change_id" = change_id;
+        "working_copy timestamp" = timestamp;
+        "working_copy bookmark" = bookmark;
+        "working_copy bookmarks" = bookmarks;
+        "working_copy local_bookmarks" = local_bookmarks;
+        "working_copy remote_bookmarks" = remote_bookmarks;
+        "working_copy tag" = tag;
+        "working_copy tags" = tags;
+        "working_copy description" = "magenta";
+        "working_copy description placeholder" = { fg = "magenta"; italic = true; };
+        "working_copy empty description placeholder" = { fg = "magenta"; italic = true; };
 
         "diff empty" = "blue";
         "diff binary" = "blue";
@@ -193,11 +212,16 @@ in
         "node working_copy" = "magenta";
       };
 
+      revset-aliases = {
+        "closest_bookmark(to)" = "heads(::to & bookmarks())";
+        "closest_pushable(to)" = "heads(::to & mutable() & ~description(exact:'') & (~empty() | merges()))";
+      };
+
       aliases = {
         consume = [ "squash" "--interactive" "--into" "@" "--from" ];
         eject = [ "squash" "--interactive" "--from" "@" "--into" ];
-        recent = [ "log" "--limit" "8" ];
-        tug = [ "bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-" ];
+        recent = [ "log" "--limit" "8" "--template" "builtin_log_oneline" ];
+        tug = [ "bookmark" "move" "--from" "closest_bookmark(@)" "--to" "closest_pushable(@)" ];
       };
 
       "--scope" = [
@@ -205,24 +229,18 @@ in
           "--when".commands = [ "log" ];
           template-aliases = {
             "format_timestamp(t)" = "t.local().format(\"%F\")";
-            description_placeholder = "label(\"description placeholder\", \"WIP\")";
           };
 
           colors = rec {
+            change_id = "bright black";
             author = "bright black";
-            committer = "bright black";
-            bookmark = { fg = "blue"; bold = true; };
-            bookmarks = bookmark;
-            local_bookmarks = bookmark;
-            remote_bookmarks = bookmark;
-            tag = bookmark;
-            tags = tag;
-            "description placeholder" = { fg = "red"; italic = true; };
+            committer = author;
+            empty = "bright black";
 
+            "working_copy change_id" = change_id;
             "working_copy author" = author;
             "working_copy committer" = committer;
-            "working_copy description" = "magenta";
-            "working_copy description placeholder" = { fg = "magenta"; italic = true; };
+            "working_copy empty" = empty;
           };
         }
       ];
@@ -231,9 +249,18 @@ in
 
   # Reference: https://github.com/idursun/jjui/blob/main/internal/config/default/config.toml
   xdg.configFile."jjui/config.toml".source = writeTOML "jjui-config" {
+    preview.show_at_start = true;
+
     # Reference: https://github.com/idursun/jjui/blob/main/internal/config/default/default_dark.toml
     ui.colors = {
       "revisions selected" = { fg = "white"; bg = "black"; };
+    };
+
+    keys = {
+      preview = {
+        half_page_down = [ "pgdown" ];
+        half_page_up = [ "pgup" ];
+      };
     };
   };
 }

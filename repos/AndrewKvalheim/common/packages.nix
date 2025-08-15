@@ -93,6 +93,7 @@ specify {
   signal-desktop.args = [ "--use-tray-icon" ];
   spf-check = any;
   spf-tree = any;
+  starship-jj = any;
   tile-stitch = any;
   unln = any;
   vscode-extensions = namespaced {

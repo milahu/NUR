@@ -1,9 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (builtins) readFile toFile;
-  inherit (lib) concatLines concatStringsSep escapeShellArg genAttrs getExe getExe' mapAttrsToList mkMerge mkOrder;
-  inherit (pkgs) replaceVars;
+  inherit (builtins) mapAttrs readFile toFile;
+  inherit (lib) concatLines concatStrings concatStringsSep escapeShellArg genAttrs getExe getExe' mapAttrsToList mkMerge mkOrder;
+  inherit (pkgs) replaceVars runtimeShell starship-jj;
+  inherit (pkgs.writers) writeTOML;
   inherit ((import ../../nur.nix { inherit pkgs; }).lib) sgr;
 
   palette = import ../resources/palette.nix { inherit lib pkgs; };
@@ -68,6 +69,148 @@ in
     changeDirWidgetCommand = "fd --no-ignore-parent --one-file-system --type directory";
   };
 
+  programs.starship = {
+    enable = true;
+
+    settings =
+      let
+        contextStyle = "bg:black fg:white bold";
+        directoryBg = "purple";
+      in
+      {
+        format = concatStrings [
+          "([ $username(@$hostname) ](${contextStyle})[](bg:${directoryBg} fg:prev_bg))"
+          "[ $directory ](bg:${directoryBg} fg:black bold)"
+          "([](bg:cyan fg:prev_bg)[( \${custom.git_commit})( \${custom.git_branch})( \${custom.git_tag})$git_status( \${custom.git_dirty})( $git_state)( \${custom.jj}) ](bg:cyan fg:black bold))"
+          "[](fg:prev_bg) "
+        ];
+        right_format = concatStrings [
+          "([](fg:red)[ $status ](bg:red fg:black bold))"
+          "([](bg:prev_bg fg:blue)[ $jobs ](bg:blue fg:black bold))"
+        ];
+        continuation_prompt = "[┃](bright-black) ";
+
+        # TODO: Resolve starship/starship#3036
+        # TODO: Resolve starship/starship#3653
+        directory = {
+          format = "$path";
+        };
+        git_branch = {
+          disabled = true;
+          format = "$branch";
+          only_attached = true;
+        };
+        git_commit = {
+          disabled = true;
+          format = "$hash";
+        };
+        git_state = {
+          format = "$state";
+        };
+        git_status = {
+          format = "( $ahead_behind)( $stashed)( $staged)";
+          staged = "±";
+          stashed = "⮌";
+        };
+        hostname = {
+          format = "$hostname";
+          trim_at = "";
+        };
+        jobs = {
+          format = "$symbol";
+          symbol = "⋮";
+        };
+        status = {
+          disabled = false;
+          format = "$status";
+          style = "";
+          recognize_signal_code = false;
+        };
+        username = {
+          format = "[$user]($style)";
+          style_user = contextStyle;
+          style_root = "${contextStyle} fg:red";
+        };
+
+        custom = mapAttrs (_: c: { shell = [ runtimeShell "--noprofile" "--norc" ]; } // c) {
+          # Workaround for starship/starship#5932, lanastara_foss/starship-jj#5
+          git_branch = {
+            require_repo = true;
+            when = "! jj --ignore-working-copy root";
+            command = "starship module git_branch";
+            format = "$output";
+          };
+
+          # Workaround for starship/starship#5932, lanastara_foss/starship-jj#5
+          git_commit = {
+            require_repo = true;
+            when = "! jj --ignore-working-copy root";
+            command = "starship module git_commit";
+            format = "$output";
+          };
+
+          # Workaround for starship/starship#1192
+          git_dirty = {
+            require_repo = true;
+            when = "! jj --ignore-working-copy root && [[ -n \"$(git status --porcelain | grep --invert-match '^A')\" ]]";
+            format = "$symbol";
+            symbol = "·";
+          };
+
+          # Workaround for starship/starship#4830
+          git_tag = {
+            require_repo = true;
+            when = "! jj --ignore-working-copy root";
+            command = "git describe --abbrev=0 --exact-match --tags HEAD";
+            format = "$output";
+          };
+
+          # Workaround for starship/starship#6076
+          jj =
+            let
+              config = writeTOML "starship-jj-config" {
+                reset_color = false;
+                module = [
+                  {
+                    type = "Bookmarks";
+                    max_bookmarks = 1;
+                    separator = " ";
+                    surround_with_quotes = false;
+                    behind_symbol = "⇡";
+                    bg_color = "Cyan";
+                    color = "Black";
+                  }
+                  {
+                    type = "Commit";
+                    max_length = 16;
+                    surround_with_quotes = true;
+                    empty_text = "TODO";
+                    bg_color = "Cyan";
+                    color = "Black";
+                  }
+                  {
+                    type = "State";
+                    separator = " ";
+                    conflict = { text = "[conflict]"; bg_color = "Cyan"; color = "Black"; };
+                    divergent = { text = "[divergent]"; bg_color = "Cyan"; color = "Black"; };
+                    empty = { text = "[empty]"; bg_color = "Cyan"; color = "Black"; };
+                    immutable = { text = "[immutable]"; bg_color = "Cyan"; color = "Black"; };
+                    hidden = { text = "[hidden]"; bg_color = "Cyan"; color = "Black"; };
+                  }
+                ];
+              };
+            in
+            {
+              require_repo = true;
+              when = true;
+              command = "${getExe starship-jj} --ignore-working-copy starship prompt --starship-config=${config}";
+              ignore_timeout = true;
+              format = "$output";
+            };
+        };
+      };
+  };
+
   programs.zsh = {
     enable = true;
     autocd = false;
@@ -89,13 +232,6 @@ in
     };
 
     initContent = with pkgs; let completion = 550; default = 1000; in mkMerge [
-      # Powerlevel10k instant prompt
-      (mkOrder completion ''
-        if [[ -r "$XDG_CACHE_HOME/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-          source "$XDG_CACHE_HOME/p10k-instant-prompt-''${(%):-%n}.zsh"
-        fi
-      '')
-
       # Completions
       (mkOrder completion ''
         fpath+=(${zsh-completions}/src)
@@ -108,8 +244,8 @@ in
         zsh-click = "${zsh-click}/share/zsh/plugins/click/click.plugin.zsh";
         zsh-complete-git-commit-message = toFile "zsh-complete-git-commit-message" (readFile ../resources/complete-git-commit-message.zsh);
         zsh-completion-sync = "${zsh-completion-sync}/share/zsh/plugins/zsh-completion-sync/zsh-completion-sync.plugin.zsh";
-        zsh-powerlevel10k = "${zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
         zsh-prezto-terminal = "${zsh-prezto}/share/zsh-prezto/modules/terminal/init.zsh";
+        zsh-starship-issue-4205 = toFile "zsh-starship-issue-4205" (readFile ../resources/starship-issue-4205.zsh);
         zsh-syntax-highlighting = "${zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
       })))
     ];
@@ -149,8 +285,6 @@ in
       };
   };
 
-  home.file.".p10k.zsh".source = ../resources/p10k.zsh;
-
   xdg.configFile."zsh/abbreviations".text = toAbbrs {
     a = "git add --patch";
     aw = "add-words";
@@ -177,6 +311,10 @@ in
     gnome-console = "kgx";
     h = "tig --all";
     hs = "home-manager switch";
+    jc = "jj commit --interactive";
+    jf = "jj git fetch";
+    jp = "jj git push --remote";
+    jt = "jj tug";
     n = "numbat";
     np = "nix-shell --packages";
     rebase = "git rebase --autostash --autosquash --interactive";
