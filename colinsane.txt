@@ -1,13 +1,92 @@
 error:
-… while querying the derivation named 'chatty-latest-v0.8.0_rc0'
+… while querying the derivation named 'bootpart-systemd-boot'
 
-… while evaluating a path segment
+… in the left operand of the AND (&&) operator
 
-  at <nixpkgs> + /pkgs/by-name/ch/chatty/package.nix:83:63:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:633:9:
 
-    82|     homepage = "https://gitlab.gnome.org/World/Chatty";
-    83|     changelog = "https://gitlab.gnome.org/World/Chatty/-/blob/${finalAttrs.src.tag}/NEWS";
-      |                                                               ^
-    84|     license = licenses.gpl3Plus;
+   632|         validity.valid != "no"
+   633|         && (
+      |         ^
+   634|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
 
-error: cannot coerce null to a string
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:780:18:
+
+   779|       };
+   780|       validity = checkMeta.assertValidity { inherit meta attrs; };
+      |                  ^
+   781|
+
+… while calling 'assertValidity'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:639:5:
+
+   638|   assertValidity =
+   639|     { meta, attrs }:
+      |     ^
+   640|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:641:18:
+
+   640|     let
+   641|       validity = checkValidity attrs;
+      |                  ^
+   642|       inherit (validity) valid;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:479:5:
+
+   478|     in
+   479|     attrs:
+      |     ^
+   480|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:525:40:
+
+   524|       }
+   525|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
+      |                                        ^
+   526|       let
+
+… while calling 'hasUnsupportedPlatform'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:128:28:
+
+   127|
+   128|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+      |                            ^
+   129|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:128:35:
+
+   127|
+   128|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+      |                                   ^
+   129|
+
+… while calling 'availableOn'
+
+  at <nixpkgs> + /lib/meta.nix:291:15:
+
+   290|   availableOn =
+   291|     platform: pkg:
+      |               ^
+   292|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
+
+error: attribute 'platforms' missing
+
+at ./pkgs/by-name/bootpart-systemd-boot/package.nix:7:11:
+
+     6| runCommandLocal "bootpart-systemd-boot" {
+     7|   meta = {
+      |           ^
+     8|     description = "unmanaged files to place in /boot on a systemd-boot system";
