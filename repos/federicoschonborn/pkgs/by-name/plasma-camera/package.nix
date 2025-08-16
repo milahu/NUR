@@ -19,7 +19,7 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "plasma-mobile";
     repo = "plasma-camera";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-5sAYhECgjL768E3NXeE8ExKhrntWrQeaeNgQQr25TBM=";
+    hash = "sha256-WPf5Gt16tsW5vramEx/WZOGeNgmdbH09pAFR5HHnCHo=";
   };
 
   nativeBuildInputs = [

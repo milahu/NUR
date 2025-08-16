@@ -2,29 +2,20 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  fetchpatch2,
   boost,
   nix-update-script,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "nesfab";
-  version = "1.6_mac";
+  version = "1.7";
 
   src = fetchFromGitHub {
     owner = "pubby";
     repo = "nesfab";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-Mypn4N9+h/Wnxu47sI8jYVSDPiyQ7+aZoE3by2M9XQo=";
+    hash = "sha256-jwqstyRr79Yl1vRoSiNCFAOkWjAXieEH/pzJHcmaLMo=";
   };
-
-  patches = [
-    # Unset GIT_COMMIT
-    (fetchpatch2 {
-      url = "https://github.com/FedericoSchonborn/nesfab/commit/d755b1a646f7842e953cb6f34360992a7d7337b2.patch";
-      hash = "sha256-KhLK1KXBkA1REu9qXDfHTzlAE9a9ILfzWhZGxAwEVak=";
-    })
-  ];
 
   buildInputs = [
     boost
@@ -32,7 +23,10 @@ stdenv.mkDerivation (finalAttrs: {
 
   strictDeps = true;
 
-  makeFlags = [ "release" ];
+  makeFlags = [
+    "release"
+    "GIT_COMMIT=${finalAttrs.src.tag}"
+  ];
 
   installPhase = ''
     runHook preInstall

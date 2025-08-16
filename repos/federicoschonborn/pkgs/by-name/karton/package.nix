@@ -16,14 +16,14 @@
 
 stdenv.mkDerivation {
   pname = "karton";
-  version = "0.1-prealpha-unstable-2025-08-04";
+  version = "0.1-prealpha-unstable-2025-08-13";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "sitter";
     repo = "karton";
-    rev = "e192e7eb33c482d0a5f1bd159ecca0cab8dcd4dc";
-    hash = "sha256-RPJ8ygG6EUAPSrysovLsJh6V2/o0KSIKbCgC6QOVuFo=";
+    rev = "c5a701055f86b5d8060aaa72d190170f7f08b47a";
+    hash = "sha256-pyBi5mI8MSTg5hLSyA/ltSCd+fN4EJzgwoe0iuUP55M=";
   };
 
   nativeBuildInputs = [

@@ -13,14 +13,14 @@
 
 stdenv.mkDerivation {
   pname = "plasma-keyboard";
-  version = "0-unstable-2025-08-12";
+  version = "0-unstable-2025-08-15";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "plasma";
     repo = "plasma-keyboard";
-    rev = "7e8f93ac9f4e530f053c14a740bab90b83cefb3f";
-    hash = "sha256-KygaXQNySS6i5Fp31nqIMzmZtinqnQkRHzIhf7GJt8I=";
+    rev = "108e6f59c83c05d10ef7aae35fe4d173909e236c";
+    hash = "sha256-tJ4bzXudk0UTzMRmZfSHruT7UgjJOxtVpVXmyomWyw4=";
   };
 
   nativeBuildInputs = [

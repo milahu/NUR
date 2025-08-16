@@ -32,14 +32,15 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "highscore";
-  version = "0-unstable-2025-08-10";
+  version = "0-unstable-2025-08-12";
 
   src = fetchFromGitLab {
     domain = "gitlab.gnome.org";
     owner = "World";
     repo = "highscore";
-    rev = "7ff55bd93f15681c8a64e8c99ffcf548dd766831";
-    hash = "sha256-AtrXfQfinobyWYvFsI5ZcvaOOYIIc3WeZT9XWUlV5hg=";
+    # Newer commits depend on libadwaita >1.9
+    rev = "a2fed2385f03756f1257fc43a2a730f553df042d";
+    hash = "sha256-JdT8PCZbpc4XtqfHXNklE3AZ42S8ZFX9AtJY7T1EjxU=";
   };
 
   patches = [
@@ -86,7 +87,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   strictDeps = true;
 
-  passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
+  passthru.updateScript = nix-update-script { extraArgs = [ "--version=skip" ]; };
 
   meta = {
     mainProgram = "highscore";
