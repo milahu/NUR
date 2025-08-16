@@ -17,6 +17,7 @@ specify {
   biome.version = "≥2.0.0";
   blocky-ui = any;
   buildJosmPlugin = any;
+  busyserve = any;
   cavif = any;
   ch57x-keyboard-tool = any;
   chromium.commandLineArgs = "--enable-features=WaylandTextInputV3"; # Pending https://crbug.com/40272818, NixOS/nixpkgs#394395
