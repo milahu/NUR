@@ -20,14 +20,14 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "libkazv";
-  version = "0.8.0-unstable-2025-07-06";
+  version = "0.8.0-unstable-2025-08-10";
 
   src = fetchFromGitLab {
     domain = "lily-is.land";
     owner = "kazv";
     repo = "libkazv";
-    rev = "a02757c5db9de927db3781e87379b24ed7b0ce90";
-    hash = "sha256-/zprR8INPGtfAnWHviXAgwAp+rvT5OSAIPs0x6EpFfc=";
+    rev = "95e280de30fc2536f19e8c57c88dce1fbf6e8918";
+    hash = "sha256-pM6GISzypZKfa3qOHeI5EE1/ibD4pKHgbpQqYKAjfgQ=";
   };
 
   nativeBuildInputs = [
