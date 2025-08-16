@@ -25,12 +25,6 @@ buildGoModule (finalAttrs: {
     "-X main.Commit=${finalAttrs.version}"
   ];
 
-  # buildFlags = [
-  #   "-o"
-  #   "bin/dgop"
-  #   "./cmd/cli"
-  # ];
-
   installPhase = ''
     mkdir -p $out/bin
     cp $GOPATH/bin/cli $out/bin/dgop
