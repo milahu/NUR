@@ -1950,10 +1950,10 @@
     };
     "codecov" = buildFirefoxXpiAddon {
       pname = "codecov";
-      version = "0.6.5";
+      version = "0.7.0";
       addonId = "{f3924b0d-e29f-4593-b605-084b3d71ed9d}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4538851/codecov-0.6.5.xpi";
-      sha256 = "605d99e6c3e6a8760c8b885df95e6b160907a9df1f82aae785fa9da8fbbcc527";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4557234/codecov-0.7.0.xpi";
+      sha256 = "c2659cb2282a697dff29bac84f1496578117f17cde28c9cbaceab818a419c988";
       meta = with lib;
       {
         homepage = "https://about.codecov.io";
@@ -3206,10 +3206,10 @@
     };
     "enhancer-for-nebula" = buildFirefoxXpiAddon {
       pname = "enhancer-for-nebula";
-      version = "1.6.4";
+      version = "1.7.0";
       addonId = "nebula-enhancer@piber.at";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4553658/enhancer_for_nebula-1.6.4.xpi";
-      sha256 = "c3def787f017cf88c759e55e085bb7473ca89292b574e41e01b716c5c56afe14";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4556584/enhancer_for_nebula-1.7.0.xpi";
+      sha256 = "d5cee3f69b15998db7705ad481220e92be3f3020b32b79bb5c0d493251cf743c";
       meta = with lib;
       {
         homepage = "https://github.com/cpiber/NebulaEnhance#readme";
@@ -3384,10 +3384,10 @@
     };
     "faststream" = buildFirefoxXpiAddon {
       pname = "faststream";
-      version = "1.3.50";
+      version = "1.3.51";
       addonId = "faststream@andrews";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4549165/faststream-1.3.50.xpi";
-      sha256 = "d1497bb15f62732389dfc52b66c681fd09c158b1eb5725d334197d5ce3a2228f";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4556469/faststream-1.3.51.xpi";
+      sha256 = "11ed6f19f04ad54485f0d244c07534b7c260adb6c42eb5ad00c0a0aef1fb2bee";
       meta = with lib;
       {
         homepage = "https://faststream.online/";
@@ -8796,10 +8796,10 @@
     };
     "noscript" = buildFirefoxXpiAddon {
       pname = "noscript";
-      version = "13.0.8";
+      version = "13.0.9";
       addonId = "{73a6fe31-595d-460b-a920-fcc0f8843232}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4497468/noscript-13.0.8.xpi";
-      sha256 = "9d978cfe083cb9cce120b5ee41e8933d752d7ab4680bf517c5ec4b29c4cfd2dc";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4551629/noscript-13.0.9.xpi";
+      sha256 = "525ab61aff21f67d10c3e20965a86ed479631549908a658f54692adc47d771f5";
       meta = with lib;
       {
         homepage = "https://noscript.net";
@@ -10172,10 +10172,10 @@
     };
     "private-grammar-checker-harper" = buildFirefoxXpiAddon {
       pname = "private-grammar-checker-harper";
-      version = "0.56.0";
+      version = "0.57.0";
       addonId = "harper@writewithharper.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4551335/private_grammar_checker_harper-0.56.0.xpi";
-      sha256 = "9ab59e69fbee34933a1ee32609ba6425e8b8dd1211b93c595b142adefc852cb0";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4557228/private_grammar_checker_harper-0.57.0.xpi";
+      sha256 = "e625e20f852402ef2bbefeef71dc1f05f3ef2050ab9a605f1c65edd7a4371561";
       meta = with lib;
       {
         homepage = "https://writewithharper.com";
@@ -10292,10 +10292,10 @@
     };
     "proton-pass" = buildFirefoxXpiAddon {
       pname = "proton-pass";
-      version = "1.32.2";
+      version = "1.32.4";
       addonId = "78272b6fa58f4a1abaac99321d503a20@proton.me";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4524394/proton_pass-1.32.2.xpi";
-      sha256 = "0bc609969adf49cac48948769e9ed2d43c176f622a028d7cdfdc87080f1d3cea";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4555599/proton_pass-1.32.4.xpi";
+      sha256 = "6ac3f18bf2c63f50025a1c847837cd95bdaf72de68a2ecf49195cacf06397af7";
       meta = with lib;
       {
         homepage = "https://proton.me";
@@ -10561,10 +10561,10 @@
     };
     "raindropio" = buildFirefoxXpiAddon {
       pname = "raindropio";
-      version = "6.6.84";
+      version = "6.6.90";
       addonId = "jid0-adyhmvsP91nUO8pRv0Mn2VKeB84@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4522152/raindropio-6.6.84.xpi";
-      sha256 = "4e82e8820dea65f12b3ef5912791d7595be00cab713b7d030c557152926df7c5";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4552760/raindropio-6.6.90.xpi";
+      sha256 = "8db6313bf7de09b2740c3e6968bdbef94eddb61edc7c9820b39ad63109bea783";
       meta = with lib;
       {
         homepage = "https://raindrop.io";
@@ -10828,10 +10828,10 @@
     };
     "redirect-to-wiki-gg" = buildFirefoxXpiAddon {
       pname = "redirect-to-wiki-gg";
-      version = "1.8.0";
+      version = "1.8.1";
       addonId = "genericredirector@ark.wiki.gg";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4526217/redirect_to_wiki_gg-1.8.0.xpi";
-      sha256 = "ad676cd6f90ee17ea635df5bc1b1edce30e592d05d665b2d0051ab20492037c9";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4555660/redirect_to_wiki_gg-1.8.1.xpi";
+      sha256 = "866ba4a85642e39f939269f1a201c5db7ee229fc99cffb011e3d7f9b02a6c30f";
       meta = with lib;
       {
         homepage = "https://wiki.gg";
@@ -11778,10 +11778,10 @@
     };
     "simplifygmail" = buildFirefoxXpiAddon {
       pname = "simplifygmail";
-      version = "3.2.10";
+      version = "3.2.12";
       addonId = "{a4c1064c-95dd-47a7-9b02-bb30213b7b29}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4538220/simplifygmail-3.2.10.xpi";
-      sha256 = "7b91d40ff7f5aa34f0b0397abf7175f4dff7da9cbd55b75c4b2718e796610744";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4556540/simplifygmail-3.2.12.xpi";
+      sha256 = "84cdc139b96946d5f34f7bab3935d9d2b77f6e2c56719d841699fbd9f992da71";
       meta = with lib;
       {
         homepage = "https://simpl.fyi";
@@ -13762,10 +13762,10 @@
     };
     "varia-integrator" = buildFirefoxXpiAddon {
       pname = "varia-integrator";
-      version = "1.3";
+      version = "1.4";
       addonId = "giantpinkrobots@protonmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4537567/varia_integrator-1.3.xpi";
-      sha256 = "515a08d9fb82d369bd131c266cb2602aa46a295ee2c7c014f01d1a1bdbbd4542";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4556398/varia_integrator-1.4.xpi";
+      sha256 = "58f6143ae499f19e931af43ea5403fd3397dcd9b823115ccec59e2c9d847fbd2";
       meta = with lib;
       {
         homepage = "https://giantpinkrobots.github.io/varia/";
