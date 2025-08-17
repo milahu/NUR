@@ -281,6 +281,7 @@ lib.makeScope newScope (
     gpx-converter = callPackage ./gpx/gpx-converter { };
     gpx-interpolate = callPackage ./gpx/gpx-interpolate { };
     gpx-layer = perlPackages.callPackage ./gpx/gpx-layer { };
+    gpx-player = callPackage ./gpx/gpx-player { };
     gpx2video = callPackage ./gpx/gpx2video { };
     gpx2yaml = callPackage ./gpx/gpx2yaml { };
     gpxchart = callPackage ./gpx/gpxchart { };
