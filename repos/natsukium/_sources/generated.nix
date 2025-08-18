@@ -11,15 +11,15 @@
   };
   emacs-plus = {
     pname = "emacs-plus";
-    version = "3e95d573d5f13aba7808193b66312b38a7c66851";
+    version = "e5d826e81b5997cbfe73c183617a9cba1af2431d";
     src = fetchFromGitHub {
       owner = "d12frosted";
       repo = "homebrew-emacs-plus";
-      rev = "3e95d573d5f13aba7808193b66312b38a7c66851";
+      rev = "e5d826e81b5997cbfe73c183617a9cba1af2431d";
       fetchSubmodules = false;
-      sha256 = "sha256-Eepinxv05Yl79AoPVJveGDZPKHhlAes7XtUvrssflrU=";
+      sha256 = "sha256-vvKlb/NljA5JR98AYLgN/JI8U7jIefiz8lb4y9E4YSI=";
     };
-    date = "2025-03-31";
+    date = "2025-08-15";
   };
   hammerspoon = {
     pname = "hammerspoon";
@@ -83,30 +83,30 @@
   };
   skkeleton = {
     pname = "skkeleton";
-    version = "4412cfb90cd4dab8c03d8df88660f857fad370c2";
+    version = "d2d7126ffd39abfccabe59c0384a60b4dbc6441d";
     src = fetchFromGitHub {
       owner = "vim-skk";
       repo = "skkeleton";
-      rev = "4412cfb90cd4dab8c03d8df88660f857fad370c2";
+      rev = "d2d7126ffd39abfccabe59c0384a60b4dbc6441d";
       fetchSubmodules = false;
-      sha256 = "sha256-qPV/MsDrTMzcJNilSFRNqmu1VZnGLaRliheeZitZ/eo=";
+      sha256 = "sha256-dDrN74vcIxT12lPY88iDMkGbUn9hZvczqKbg7LUs3MY=";
     };
-    date = "2025-07-25";
+    date = "2025-08-17";
   };
   vivaldi-darwin = {
     pname = "vivaldi-darwin";
-    version = "7.5.3735.58";
+    version = "7.5.3735.62";
     src = fetchurl {
-      url = "https://downloads.vivaldi.com/stable/Vivaldi.7.5.3735.58.universal.dmg";
-      sha256 = "sha256-UwNxAxILzl5gKros301y/yPduQe4Zo6KK+0LYxVFU58=";
+      url = "https://downloads.vivaldi.com/stable/Vivaldi.7.5.3735.62.universal.dmg";
+      sha256 = "sha256-U7dSxHGVtKE0lCq0AwPq5KbcFJJkGGvNECeL9iWXu8I=";
     };
   };
   zen-browser = {
     pname = "zen-browser";
-    version = "1.14.9b";
+    version = "1.14.11b";
     src = fetchurl {
-      url = "https://github.com/zen-browser/desktop/releases/download/1.14.9b/zen.macos-universal.dmg";
-      sha256 = "sha256-H51FIkU6nUAbOq8wLpqFYGSsq5FCwOFjmN8KQ36HXk0=";
+      url = "https://github.com/zen-browser/desktop/releases/download/1.14.11b/zen.macos-universal.dmg";
+      sha256 = "sha256-GDGmr92WWf6jM47c/AEO7aRljVKqRzjqXcepDK4s9K0=";
     };
   };
 }
