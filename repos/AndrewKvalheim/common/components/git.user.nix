@@ -215,6 +215,11 @@ in
       revset-aliases = {
         "closest_bookmark(to)" = "heads(::to & bookmarks())";
         "closest_pushable(to)" = "heads(::to & mutable() & ~description(exact:'') & (~empty() | merges()))";
+        "local()" = "description(glob:'⚠️*')";
+      };
+
+      git = {
+        private-commits = "local()";
       };
 
       aliases = {

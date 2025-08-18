@@ -4,7 +4,7 @@ python3Packages.toPythonApplication (
   python3Packages.busylight-for-humans.overridePythonAttrs (busylight-for-humans: {
     pname = "busyserve";
 
-    # TODO: Upstream as optional-dependencies
+    # Pending NixOS/nixpkgs#433998
     dependencies = busylight-for-humans.dependencies ++ (with python3Packages; [
       fastapi
       uvicorn

@@ -186,6 +186,7 @@ in
         "git.enableStatusBarSync" = false;
         "git.showActionButton" = { commit = false; publish = false; sync = false; };
         "git.suggestSmartCommit" = false;
+        "jjk.enableAnnotations" = false;
         "scm.diffDecorationsIgnoreTrimWhitespace" = true;
 
         # Colors
