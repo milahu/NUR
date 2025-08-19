@@ -25,7 +25,7 @@ rustPlatform.buildRustPackage {
   # Does not have a proper version yet ("0.0.0").
   dontVersionCheck = true;
 
-  passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
+  passthru.updateScript = nix-update-script { extraArgs = [ "--version=skip" ]; };
 
   meta = {
     mainProgram = "magothy";

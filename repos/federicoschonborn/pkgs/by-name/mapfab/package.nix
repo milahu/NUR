@@ -2,7 +2,6 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  fetchpatch2,
   wrapGAppsHook3,
   wxGTK32,
   nix-update-script,
@@ -26,14 +25,6 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-LrbbBP7BzTM4v2FFYLg2BNrk7I0mYr3zfRbbwSrTT4Q=";
   };
 
-  patches = [
-    # Unset GIT_COMMIT
-    (fetchpatch2 {
-      url = "https://github.com/FedericoSchonborn/mapfab/commit/6eeab0ae2bc4618d0091226417bc073aa5675daf.patch";
-      hash = "sha256-NwLX5hCMBzakS3Abbwff+jOkYiMR+W2O7RUJoZbKbDY=";
-    })
-  ];
-
   nativeBuildInputs = [
     wrapGAppsHook3
     wxGTK32 # wx-config
@@ -47,6 +38,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   makeFlags = [
     "release"
+    "GIT_COMMIT=${finalAttrs.src.tag}"
   ];
 
   preBuild = ''

@@ -2,7 +2,6 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  fetchpatch2,
   pkg-config,
   alsa-lib,
   libGLU,
@@ -22,14 +21,6 @@ stdenv.mkDerivation (finalAttrs: {
     tag = "v${finalAttrs.version}";
     hash = "sha256-ugXPEENU2QKjF/R7MWes4rZuTVeyTfvSXhy/SnfPqJo=";
   };
-
-  patches = [
-    # Fix building on ARM.
-    (fetchpatch2 {
-      url = "https://github.com/buserror/mii_emu/commit/cb27727bb2f8270fcb6545b3514d9f85b99f731c.patch";
-      hash = "sha256-YuKaJieK2dXr32Cn+dEOmZp1hPZoxdUmVkgQzYly/8c=";
-    })
-  ];
 
   nativeBuildInputs = [
     pkg-config

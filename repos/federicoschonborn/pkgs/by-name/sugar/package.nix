@@ -60,6 +60,8 @@ python3Packages.buildPythonPackage {
     webkitgtk_4_1
   ];
 
+  inherit dependencies;
+
   propagatedBuildInputs = [
     gtk3
     gst_all_1.gstreamer

@@ -1,6 +1,6 @@
 {
   lib,
-  python3,
+  python3Packages,
   fetchFromGitHub,
   gettext,
   wrapGAppsHook3,
@@ -12,7 +12,7 @@ let
   version = "47";
 in
 
-python3.pkgs.buildPythonApplication {
+python3Packages.buildPythonApplication {
   pname = "sugar-terminal-activity";
   inherit version;
   format = "other";
