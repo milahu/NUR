@@ -495,6 +495,13 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
         pkgs-browsermob-proxy = callPackage ./pkgs/development/tools/browsermob-proxy { };
       };
 
+      qtermwidget = callPackage ./pkgs/development/python-modules/qtermwidget {
+        # FIXME scope
+        pkgs-qtermwidget = callPackage ./pkgs/development/libraries/qtermwidget {
+          lxqt-build-tools = callPackage ./pkgs/development/tools/lxqt-build-tools { };
+        };
+      };
+
     #}))); # python3.pkgs
 
   #}))); # python3
@@ -1186,6 +1193,18 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   browsermob-proxy = callPackage ./pkgs/development/tools/browsermob-proxy { };
 
   scribeocr = callPackage ./pkgs/tools/misc/scribeocr { };
+
+  gImageReader = callPackage ./pkgs/by-name/gi/gImageReader/package.nix { };
+
+  gImageReader-qt = pkgs.qt6Packages.callPackage ./pkgs/by-name/gi/gImageReader/package.nix {
+    withQt6 = true;
+  };
+
+  hocr-editor-cs = callPackage ./pkgs/tools/misc/hocr-editor-cs { };
+
+  lxqt-build-tools = callPackage ./pkgs/development/tools/lxqt-build-tools { };
+
+  qtermwidget = callPackage ./pkgs/development/libraries/qtermwidget { };
 
 }
 
