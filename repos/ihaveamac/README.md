@@ -50,6 +50,7 @@ NUR link: https://nur.nix-community.org/repos/ihaveamac/
 | [sdFormatLinux-0.2.0](https://github.com/profi200/sdFormatLinux) | sd-format-linux | Properly format SD cards under Linux. |
 | [switch-tools-1.13.1](https://github.com/switchbrew/switch-tools) | switch-tools | Various Nintendo Switch homebrew tools |
 | [themethod3-2024-04-20](https://github.com/DarkRTA/themethod3) | themethod3 | Tool for decrypting all mogg files used by the Rock Band series |
+| [TinyWiiBackupManager-1.3.5](https://github.com/mq1/TinyWiiBackupManager) | tiny-wii-backup-manager | Tool for decrypting all mogg files used by the Rock Band series |
 | [unxip-3.0](https://github.com/saagarjha/unxip) | unxip | A fast Xcode unarchiver |
 | [wfs-tools-1.2.3-unstable-2025-03-19](https://github.com/koolkdev/wfs-tools) | wfs-tools | WFS (WiiU File System) Tools |
 | [wifiboot-host-unstable-2023-07-02](https://github.com/danny8376/wifiboot-host) | wifiboot-host | command line version uploader for https://problemkaputt.de/wifiboot.htm |
