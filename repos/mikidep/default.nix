@@ -11,5 +11,7 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  scadformat = pkgs.callPackage ./pkgs/scadformat {};
+  # scadformat = pkgs.callPackage ./pkgs/scadformat {};
+  # agdaPackages = pkgs.callPackage ./pkgs/agda/agda-packages.nix {};
+  ttymidi = pkgs.callPackage ./pkgs/ttymidi {};
 }
