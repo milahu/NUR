@@ -684,10 +684,10 @@
     };
     "auto-referer" = buildFirefoxXpiAddon {
       pname = "auto-referer";
-      version = "0.8.52";
+      version = "0.8.53";
       addonId = "{f6a3df9c-c297-46a1-bb84-d9cb00b314f0}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4518682/auto_referer-0.8.52.xpi";
-      sha256 = "97e06ba89b4944a3ca8d2cebfaf342216fd3f8192333ae9f675e47068fc22e9c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4561344/auto_referer-0.8.53.xpi";
+      sha256 = "10ec932a4bf6de382db80696a84e86716a4b81694c668a654ccfdf9cc0e9b626";
       meta = with lib;
       {
         homepage = "https://garywill.github.io";
@@ -1520,10 +1520,10 @@
     };
     "catppuccin-web-file-icons" = buildFirefoxXpiAddon {
       pname = "catppuccin-web-file-icons";
-      version = "1.4.0";
+      version = "1.5.0";
       addonId = "{bbb880ce-43c9-47ae-b746-c3e0096c5b76}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4549685/catppuccin_web_file_icons-1.4.0.xpi";
-      sha256 = "52e7f573ed5cb4077b7e8197b0faf1b7f9dd64c80210a7d472d19183fad3fe38";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4561146/catppuccin_web_file_icons-1.5.0.xpi";
+      sha256 = "e1ef4e6ebd13332ebc4e9aea307312ad5f92c47c17f7d5953bc4ce3aba0bcf66";
       meta = with lib;
       {
         homepage = "https://github.com/catppuccin/web-file-explorer-icons";
@@ -1571,10 +1571,10 @@
     };
     "chameleon-ext" = buildFirefoxXpiAddon {
       pname = "chameleon-ext";
-      version = "0.22.75.1";
+      version = "0.22.76.1";
       addonId = "{3579f63b-d8ee-424f-bbb6-6d0ce3285e6a}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4542999/chameleon_ext-0.22.75.1.xpi";
-      sha256 = "ec06648a996db26a602b54c95522ed27062fa182f43533c48ebb5cffba2cde96";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4561366/chameleon_ext-0.22.76.1.xpi";
+      sha256 = "b55fc2d63ede87dfb40ea759acda25631d3978c6f626f63e5564e7f71f79f022";
       meta = with lib;
       {
         homepage = "https://sereneblue.github.io/chameleon";
