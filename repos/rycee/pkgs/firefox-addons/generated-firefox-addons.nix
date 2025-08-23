@@ -3384,10 +3384,10 @@
     };
     "faststream" = buildFirefoxXpiAddon {
       pname = "faststream";
-      version = "1.3.52";
+      version = "1.3.53";
       addonId = "faststream@andrews";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4558725/faststream-1.3.52.xpi";
-      sha256 = "738996c6d65b4c49bf9803a629325fbe8801b15e631ea15d14d1738308772ce0";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4561783/faststream-1.3.53.xpi";
+      sha256 = "c99424062f6d2440f10dce2c7ac00b490a31a7717651fe439dd61a01596065f5";
       meta = with lib;
       {
         homepage = "https://faststream.online/";
@@ -8868,10 +8868,10 @@
     };
     "nyaa-linker" = buildFirefoxXpiAddon {
       pname = "nyaa-linker";
-      version = "2.2.0";
+      version = "2.3.0";
       addonId = "Metacor.Code@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4491961/nyaa_linker-2.2.0.xpi";
-      sha256 = "9181e8b98c87069001048aa3e70f6172be7dbb47eee29312ce16be42646b25f6";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4561966/nyaa_linker-2.3.0.xpi";
+      sha256 = "ee0fc88fd21230f752a9276e71843ca74d3eeb7778a3466cd5f4438740722446";
       meta = with lib;
       {
         description = "Adds a button to Anime and Manga database websites that opens a relevant Nyaa search";
@@ -10175,10 +10175,10 @@
     };
     "private-grammar-checker-harper" = buildFirefoxXpiAddon {
       pname = "private-grammar-checker-harper";
-      version = "0.58.0";
+      version = "0.59.0";
       addonId = "harper@writewithharper.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4559698/private_grammar_checker_harper-0.58.0.xpi";
-      sha256 = "ed533af48b7f4867776d47add6e207895fe05123d0aef2bffcae98b04b7b5a3e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4561899/private_grammar_checker_harper-0.59.0.xpi";
+      sha256 = "27f93cb384d52239d25d64f566d0ec12a7a53d2e57dff802fcd6e896c2455929";
       meta = with lib;
       {
         homepage = "https://writewithharper.com";
@@ -14407,10 +14407,10 @@
     };
     "web-clipper-obsidian" = buildFirefoxXpiAddon {
       pname = "web-clipper-obsidian";
-      version = "0.11.8";
+      version = "0.11.10";
       addonId = "clipper@obsidian.md";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4497129/web_clipper_obsidian-0.11.8.xpi";
-      sha256 = "54379df76b1df8560f6de88449bd95025a9bbb82308919a645ce050839d32379";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4561111/web_clipper_obsidian-0.11.10.xpi";
+      sha256 = "72bd104b2a1ea4b726c2b8a96803a04a2a1b8d1072bc142b1c9af8fb202c0807";
       meta = with lib;
       {
         homepage = "https://obsidian.md/clipper";
