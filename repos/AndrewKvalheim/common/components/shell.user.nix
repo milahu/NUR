@@ -314,12 +314,14 @@ in
     jc = "jj commit --interactive";
     jf = "jj git fetch";
     jp = "jj git push --remote";
+    jr = "jj restore --interactive";
     jt = "jj tug";
     n = "numbat";
     np = "nix-shell --packages";
     rebase = "git rebase --autostash --autosquash --interactive";
     s = "git status";
     stash = "git stash save --include-untracked";
+    u = "jjui";
     undo = "git restore --patch";
   };
 

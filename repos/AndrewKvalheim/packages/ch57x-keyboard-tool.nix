@@ -2,6 +2,7 @@
 , lib
 , nix-update-script
 , rustPlatform
+, versionCheckHook
 , writeText
 }:
 
@@ -24,6 +25,9 @@ rustPlatform.buildRustPackage (ch57x-keyboard-tool: {
   postInstall = ''
     install -D ${rules} $out/etc/udev/rules.d/70-ch57x.rules
   '';
+
+  nativeInstallCheckInputs = [ versionCheckHook ];
+  doInstallCheck = true;
 
   passthru.updateScript = nix-update-script { };
 

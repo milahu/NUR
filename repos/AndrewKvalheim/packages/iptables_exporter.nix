@@ -2,6 +2,7 @@
 , jq
 , lib
 , rustPlatform
+, versionCheckHook
 }:
 
 let
@@ -24,6 +25,9 @@ rustPlatform.buildRustPackage (iptables_exporter: {
   '';
 
   cargoHash = "sha256-emqF0cGyIld6r6G1rL6gou4p8ERYs61kqnxopV2LxL8=";
+
+  nativeInstallCheckInputs = [ versionCheckHook ];
+  doInstallCheck = true;
 
   meta = {
     description = "Prometheus exporter for iptables";

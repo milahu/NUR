@@ -2,6 +2,7 @@
 , gitUpdater
 , lib
 , rustPlatform
+, versionCheckHook
 
   # Dependencies
 , cmake
@@ -31,6 +32,9 @@ rustPlatform.buildRustPackage (pngquant-interactive: {
 
   nativeBuildInputs = [ cmake curl git pkg-config ];
   buildInputs = [ libXcursor libXfixes libXinerama mesa pango ];
+
+  nativeInstallCheckInputs = [ versionCheckHook ];
+  doInstallCheck = true;
 
   passthru.updateScript = gitUpdater { rev-prefix = "v"; };
 

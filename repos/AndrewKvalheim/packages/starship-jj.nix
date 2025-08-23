@@ -2,6 +2,7 @@
 , lib
 , nix-update-script
 , rustPlatform
+, versionCheckHook
 }:
 
 rustPlatform.buildRustPackage (starship-jj: {
@@ -14,6 +15,9 @@ rustPlatform.buildRustPackage (starship-jj: {
   };
 
   cargoHash = "sha256-+rLejMMWJyzoKcjO7hcZEDHz5IzKeAGk1NinyJon4PY=";
+
+  nativeInstallCheckInputs = [ versionCheckHook ];
+  doInstallCheck = true;
 
   passthru.updateScript = nix-update-script { };
 

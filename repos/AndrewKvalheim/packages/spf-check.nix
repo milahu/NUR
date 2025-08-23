@@ -33,5 +33,6 @@ stdenv.mkDerivation {
     description = "Recursively check DNS lookups in SPF record";
     homepage = "https://github.com/gsvitins/spf-dns-lookup-check";
     license = lib.licenses.unlicense;
+    mainProgram = "spf-check";
   };
 }

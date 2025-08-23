@@ -2,6 +2,7 @@
 , gitUpdater
 , lib
 , rustPlatform
+, versionCheckHook
 
   # Dependencies
 , cmake
@@ -26,6 +27,9 @@ rustPlatform.buildRustPackage (little-a-map: {
   preCheck = ''
     export TEST_OUTPUT_PATH="$TMPDIR"
   '';
+
+  nativeInstallCheckInputs = [ versionCheckHook ];
+  doInstallCheck = true;
 
   passthru.updateScript = gitUpdater { rev-prefix = "v"; };
 

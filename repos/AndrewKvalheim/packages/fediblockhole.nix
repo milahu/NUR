@@ -1,6 +1,7 @@
 { fetchPypi
 , lib
 , python3
+, versionCheckHook
 }:
 
 python3.pkgs.buildPythonApplication rec {
@@ -20,9 +21,12 @@ python3.pkgs.buildPythonApplication rec {
     toml
   ];
 
+  # TODO: versionCheckHook
+
   meta = {
     description = "Tool for automatically syncing Mastodon admin domain blocks";
     homepage = "https://github.com/eigenmagic/fediblockhole";
     license = lib.licenses.agpl3Only;
+    mainProgram = "fediblock-sync";
   };
 }

@@ -1,4 +1,5 @@
 { rustPlatform
+, versionCheckHook
 
   # Dependencies
 , sqlite
@@ -16,4 +17,7 @@ rustPlatform.buildRustPackage (email-hash: {
   cargoHash = "sha256-QYS6TzICnNB0/ESLMVf4F9Bi+SN8oRKkTm+FwOHKtVw=";
 
   buildInputs = [ sqlite ];
+
+  nativeInstallCheckInputs = [ versionCheckHook ];
+  doInstallCheck = true;
 })

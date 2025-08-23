@@ -2,6 +2,7 @@
 , lib
 , nix-update-script
 , rustPlatform
+, versionCheckHook
 }:
 
 rustPlatform.buildRustPackage (wireguard-vanity-address: {
@@ -17,6 +18,11 @@ rustPlatform.buildRustPackage (wireguard-vanity-address: {
   cargoDeps = rustPlatform.importCargoLock {
     lockFile = wireguard-vanity-address.src + "/Cargo.lock";
   };
+
+  # TODO: versionCheckHook pending resolution to incorrectly reported version:
+  #
+  #     $ podman run --rm 'docker.io/rust' sh -c 'cargo install --quiet wireguard-vanity-address@0.4.0 && wireguard-vanity-address --version'
+  #     wireguard-vanity-address 0.3.1
 
   passthru.updateScript = nix-update-script { };
 
