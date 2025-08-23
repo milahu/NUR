@@ -20,16 +20,16 @@ let
 in
 rustPlatform.buildRustPackage rec {
   pname = "TinyWiiBackupManager";
-  version = "1.3.5";
+  version = "1.4.3";
 
   src = fetchFromGitHub {
     owner = "mq1";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-QotZTl2q4aabrYTBsU21Fi5NWNBW7SzzeBi3olRh/Js=";
+    sha256 = "sha256-MoPGGp5Zx92ybE518KPLfzaBPBXjZDwmbCRjrOU5JUA=";
   };
 
-  cargoHash = "sha256-SWKASbtDAgK72Ocodyy6YjGnUrfIHFvBHx/aSgWIDmY=";
+  cargoHash = "sha256-2x0QrxbnoMM+5Nnia+p0O0afGENHm68kekNSpMICyAI=";
 
   postInstall =
     if stdenv.isDarwin then
