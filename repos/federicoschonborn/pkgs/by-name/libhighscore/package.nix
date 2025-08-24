@@ -13,17 +13,18 @@
 
 stdenv.mkDerivation {
   pname = "libhighscore";
-  version = "0-unstable-2025-08-11";
+  version = "0-unstable-2025-08-20";
 
   src = fetchFromGitLab {
     domain = "gitlab.gnome.org";
     owner = "alicem";
     repo = "libhighscore";
-    rev = "82d04a99cb5e15fb00230a8bbcfaa1ff5e44f536";
-    hash = "sha256-5glmtS51GMXS14LWE8yRLuppFyi9UTuR4Mr2DQu1Aso=";
+    rev = "61950dfa5edbf503c28b1b6fa09d40c435e0c83b";
+    hash = "sha256-6GnUM2WQfTiQGTuXI4KjV5r3a7eXSPbiICAD74uh5sA=";
   };
 
   nativeBuildInputs = [
+    gobject-introspection
     meson
     ninja
     pkg-config
@@ -32,7 +33,6 @@ stdenv.mkDerivation {
 
   buildInputs = [
     glib
-    gobject-introspection
   ];
 
   strictDeps = true;

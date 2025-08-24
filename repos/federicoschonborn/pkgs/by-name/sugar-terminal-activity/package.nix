@@ -9,7 +9,7 @@
 }:
 
 let
-  version = "47";
+  version = "46.3";
 in
 
 python3Packages.buildPythonApplication {
@@ -21,7 +21,7 @@ python3Packages.buildPythonApplication {
     owner = "sugarlabs";
     repo = "terminal-activity";
     tag = "v${version}";
-    hash = "sha256-WxEhtC6LKM1pH2fJpusUk9QKSTHiCk4476ZZZb3ZFSo=";
+    hash = "sha256-Gh1y1ApmLrYFcadnBmg9k/eugf3/2zrEqcGgE8LENFg=";
   };
 
   nativeBuildInputs = [

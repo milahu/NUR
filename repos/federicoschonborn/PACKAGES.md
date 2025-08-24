@@ -231,7 +231,7 @@ Helpers for scheduling the dark-light cycle.
 Libretro Emulation Frontend for Plasma.
 
 - Name: `kretro`
-- Version: `0-unstable-2025-08-05`
+- Version: `0-unstable-2025-08-22`
 - [🌐 Homepage](https://invent.kde.org/games/kretro)
 - [📦 Source](./pkgs/by-name/kretro/package.nix#L74)
 - 📄 Licenses: [`BSD 3-clause "New" or "Revised" License`](https://spdx.org/licenses/BSD-3-Clause.html), [`Creative Commons Attribution Share Alike 4.0`](https://spdx.org/licenses/CC-BY-SA-4.0.html), [`Creative Commons Zero v1.0 Universal`](https://spdx.org/licenses/CC0-1.0.html), [`GNU General Public License v2.0 or later`](https://spdx.org/licenses/GPL-2.0-or-later.html), [`GNU Library General Public License v2 or later`](https://spdx.org/licenses/LGPL-2.0-or-later.html), [`MIT License`](https://spdx.org/licenses/MIT.html), [`The Unlicense`](https://spdx.org/licenses/Unlicense.html)
@@ -255,7 +255,7 @@ Interface for porting emulators to
 Highscore.
 
 - Name: `libhighscore`
-- Version: `0-unstable-2025-08-11`
+- Version: `0-unstable-2025-08-20`
 - [🌐 Homepage](https://gitlab.gnome.org/alicem/libhighscore)
 - [📦 Source](./pkgs/by-name/libhighscore/package.nix#L43)
 - 📄 License: [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html)
@@ -405,7 +405,7 @@ libcamera based camera application built for Plasma Mobile.
 Virtual Keyboard for Qt based desktops.
 
 - Name: `plasma-keyboard`
-- Version: `0-unstable-2025-08-19`
+- Version: `0-unstable-2025-08-23`
 - [🌐 Homepage](https://invent.kde.org/plasma/plasma-keyboard)
 - [📦 Source](./pkgs/by-name/plasma-keyboard/package.nix#L54)
 - 📄 Licenses: [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html), [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html), [`MIT License`](https://spdx.org/licenses/MIT.html)
@@ -496,9 +496,9 @@ Sugar datastore service.
 A traditional linux terminal activity for the Sugar learning environment.
 
 - Name: `sugar-terminal-activity`
-- Version: `47`
+- Version: `46.3`
 - [🌐 Homepage](https://github.com/sugarlabs/terminal-activity)
-- [📰 Changelog](https://github.com/sugarlabs/terminal-activity/blob/v47/NEWS)
+- [📰 Changelog](https://github.com/sugarlabs/terminal-activity/blob/v46.3/NEWS)
 - [📦 Source](./pkgs/by-name/sugar-terminal-activity/package.nix#L47)
 - 📄 Licenses: [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
 - 🖥️ Platforms: `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`, `x86_64-darwin`, `aarch64-darwin`, `i686-cygwin`, `x86_64-cygwin`, `aarch64-windows`, `x86_64-windows`, `i686-windows`, `i686-freebsd`, `x86_64-freebsd`, `aarch64-freebsd`
@@ -530,7 +530,7 @@ A coordinated group of libraries for representing, processing, and visualizing s
 A GNOME theme for Thunderbird.
 
 - Name: `thunderbird-gnome-theme`
-- Version: `115-unstable-2025-08-06`
+- Version: `115-unstable-2025-08-22`
 - [🌐 Homepage](https://github.com/rafaelmardojai/thunderbird-gnome-theme)
 - [📦 Source](./pkgs/by-name/thunderbird-gnome-theme/package.nix#L30)
 - 📄 License: [`The Unlicense`](https://spdx.org/licenses/Unlicense.html)
