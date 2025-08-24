@@ -17,7 +17,7 @@ for channel in 'unstable-small' 'nixpkgs'; do
   nix-env "${nix_args[@]}" --file 'nur.nix' --query '*' --available --meta --json \
   | jq --raw-output 'to_entries[] | "\(.key)\(.value.meta.broken)"' \
   | while IFS='' read -r name broken; do
-    echo "[36mValidating $name@$channel[39m"
+    echo "[34mValidating $name@$channel[39m"
     if [[ $broken == 'true' ]]; then
       results+=("[33m$name@$channel marked as broken[39m")
     elif nix-build "${nix_args[@]}" 'nur.nix' --attr "$name" --no-out-link; then

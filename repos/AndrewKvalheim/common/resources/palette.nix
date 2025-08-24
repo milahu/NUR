@@ -69,7 +69,28 @@ let
     rgb = linearRgbToRgb linearRgb;
   };
 
-  colors = mapAttrs (_: mkColor) spec;
+  flat = mapAttrs (_: mkColor) spec;
+
+  colors = flat // {
+    ansi = with flat; {
+      black = black;
+      red = red;
+      green = teal;
+      yellow = yellow;
+      blue = purple;
+      magenta = orange;
+      cyan = blue;
+      white = platinum;
+      black-bright = white-dim;
+      red-bright = red;
+      green-bright = teal;
+      yellow-bright = yellow;
+      blue-bright = purple;
+      magenta-bright = orange;
+      cyan-bright = blue;
+      white-bright = white;
+    };
+  };
 in
 rec {
   ansi =
@@ -85,15 +106,15 @@ rec {
 
   ansiFormat = mapAttrsRecursiveCond (a: ! a ? off) (_: { off, on }: sgr off on) ansi;
 
-  cssRgba = mapAttrs (_: c: c.cssRgba) colors;
+  cssRgba = mapAttrsRecursiveCond (a: ! a ? oklch) (_: c: c.cssRgba) colors;
 
-  hex = mapAttrs (_: c: c.hex) colors;
+  hex = mapAttrsRecursiveCond (a: ! a ? oklch) (_: c: c.hex) colors;
 
   report = concatLines (mapAttrsToList
     (name: { ansi, css, hex, ... }:
       "${sgr ansi.off ansi.on "██ ${name}"} ${ansiFormat.black "${css} ≈ ${hex}"}")
-    colors
+    flat
   );
 
-  rgb = mapAttrs (_: c: c.rgb) colors;
+  rgb = mapAttrsRecursiveCond (a: ! a ? oklch) (_: c: c.rgb) colors;
 }

@@ -81,12 +81,13 @@ in
         format = concatStrings [
           "([ $username(@$hostname) ](${contextStyle})[](bg:${directoryBg} fg:prev_bg))"
           "[ $directory ](bg:${directoryBg} fg:black bold)"
-          "([](bg:cyan fg:prev_bg)[( \${custom.git_commit})( \${custom.git_branch})( \${custom.git_tag})$git_status( \${custom.git_dirty})( $git_state)( \${custom.jj}) ](bg:cyan fg:black bold))"
+          "([](bg:blue fg:prev_bg)[( \${custom.git_commit})( \${custom.git_branch})( \${custom.git_tag})$git_status( \${custom.git_dirty})( $git_state)( \${custom.jj}) ](bg:blue fg:black bold))"
+          "([](bg:green fg:prev_bg)[( $shell)( $nix_shell) ](bg:green fg:black bold))"
           "[](fg:prev_bg) "
         ];
         right_format = concatStrings [
           "([](fg:red)[ $status ](bg:red fg:black bold))"
-          "([](bg:prev_bg fg:blue)[ $jobs ](bg:blue fg:black bold))"
+          "([](bg:prev_bg fg:cyan)[ $jobs ](bg:cyan fg:black bold))"
         ];
         continuation_prompt = "[┃](bright-black) ";
 
@@ -119,6 +120,16 @@ in
         jobs = {
           format = "$symbol";
           symbol = "⋮";
+        };
+        nix_shell = {
+          format = "$symbol";
+          symbol = "󱄅 ";
+        };
+        shell = {
+          disabled = false;
+          format = "$indicator";
+          bash_indicator = "\\$";
+          zsh_indicator = "";
         };
         status = {
           disabled = false;
@@ -177,7 +188,7 @@ in
                     separator = " ";
                     surround_with_quotes = false;
                     behind_symbol = "⇡";
-                    bg_color = "Cyan";
+                    bg_color = "Blue";
                     color = "Black";
                   }
                   {
@@ -185,17 +196,17 @@ in
                     max_length = 16;
                     surround_with_quotes = true;
                     empty_text = "TODO";
-                    bg_color = "Cyan";
+                    bg_color = "Blue";
                     color = "Black";
                   }
                   {
                     type = "State";
                     separator = " ";
-                    conflict = { text = "[conflict]"; bg_color = "Cyan"; color = "Black"; };
-                    divergent = { text = "[divergent]"; bg_color = "Cyan"; color = "Black"; };
-                    empty = { text = "[empty]"; bg_color = "Cyan"; color = "Black"; };
-                    immutable = { text = "[immutable]"; bg_color = "Cyan"; color = "Black"; };
-                    hidden = { text = "[hidden]"; bg_color = "Cyan"; color = "Black"; };
+                    conflict = { text = "[conflict]"; bg_color = "Blue"; color = "Black"; };
+                    divergent = { text = "[divergent]"; bg_color = "Blue"; color = "Black"; };
+                    empty = { text = "[empty]"; bg_color = "Blue"; color = "Black"; };
+                    immutable = { text = "[immutable]"; bg_color = "Blue"; color = "Black"; };
+                    hidden = { text = "[hidden]"; bg_color = "Blue"; color = "Black"; };
                   }
                 ];
               };
@@ -355,13 +366,13 @@ in
   }));
 
   home.sessionVariables.LS_COLORS = concatStringsSep ":" (mapAttrsToList (k: v: "${k}=${v.on}") (with palette.ansi; {
-    di = bold.cyan; # directories
+    di = bold.blue; # directories
     ex = green; # executable files
     fi = white; # regular files
-    pi = italic.blue; # named pipes
-    so = italic.blue; # sockets
-    bd = bold.blue; # block devices
-    cd = bold.blue; # character devices
+    pi = italic.cyan; # named pipes
+    so = italic.cyan; # sockets
+    bd = bold.cyan; # block devices
+    cd = bold.cyan; # character devices
     ln = magenta; # symlinks
     or = red; # symlinks with no target
   }));

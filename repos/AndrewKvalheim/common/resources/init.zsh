@@ -46,10 +46,10 @@ source @zsh-abbr@
 # Syntax highlighting
 source @zsh-syntax-highlighting@
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main regexp)
-ZSH_HIGHLIGHT_REGEXP+=('^[[:blank:][:space:]]*('${(j:|:)${(k)ABBR_REGULAR_USER_ABBREVIATIONS}}')$' 'fg=blue,bold')
+ZSH_HIGHLIGHT_REGEXP+=('^[[:blank:][:space:]]*('${(j:|:)${(k)ABBR_REGULAR_USER_ABBREVIATIONS}}')$' 'fg=cyan,bold')
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=white,bold'
 ZSH_HIGHLIGHT_STYLES[precommand]='fg=white,italic'
-ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=blue'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=cyan'
 
 # Workaround for starship/starship#4205
 source @zsh-starship-issue-4205@

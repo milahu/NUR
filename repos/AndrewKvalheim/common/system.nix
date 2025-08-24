@@ -60,9 +60,9 @@ in
           echo $'\n'${escapeShellArg (frame magenta ''
             ${magenta "If found, please contact:"}
 
-              ${cyan "Name:"} ${identity.name.long}
-             ${cyan "Email:"} ${identity.email}
-             ${cyan "Phone:"} ${identity.phone}
+              ${blue "Name:"} ${identity.name.long}
+             ${blue "Email:"} ${identity.email}
+             ${blue "Phone:"} ${identity.phone}
           '')}
         '';
       };
@@ -75,10 +75,10 @@ in
     # Console
     console.packages = with pkgs; [ terminus_font ];
     console.font = "ter-v32n";
-    console.colors = map (removePrefix "#") (with palette.hex; [
-      "#000000" red green yellow blue orange purple platinum
-      white-dim red green yellow blue orange purple white
-    ]);
+    console.colors = map (removePrefix "#") (with palette.hex.ansi;
+      [ black red green yellow blue magenta cyan white ] ++
+      [ black-bright red-bright green-bright yellow-bright blue-bright magenta-bright cyan-bright white-bright ]
+    );
 
     # Power
     systemd.ctrlAltDelUnit = "poweroff.target";

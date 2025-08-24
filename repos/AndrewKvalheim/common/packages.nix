@@ -25,6 +25,7 @@ specify {
   decompiler-mc = any;
   dmarc-report-converter = any;
   dmarc-report-notifier = any;
+  doxx.search = pr 434616 "sha256-DG3TuG/BeHWVucHOPEJOwM+2FzH8DlKq79OlA/n2y28=";
   email-hash = any;
   emote.overlay = e: { postInstall = e.postInstall or "" + "\nsubstituteInPlace $out/share/applications/com.tomjwatson.Emote.desktop --replace-fail 'Exec=emote' \"Exec=$out/bin/emote\""; }; # Allow desktop entry as entrypoint
   espressif-serial = any;
