@@ -89,6 +89,12 @@ reIf {
           scheme = "http";
           static_configs = [ { targets = [ "[fdcc::4]:9090" ]; } ];
         }
+        {
+          job_name = "synapse_metrics";
+          scheme = "http";
+          metrics_path = "/_synapse/metrics";
+          static_configs = [ { targets = [ "localhost:9031" ]; } ];
+        }
         # {
         #   job_name = "mautrix_tg_metrics";
         #   scheme = "http";
@@ -97,6 +103,8 @@ reIf {
         {
           job_name = "chrony_metrics";
           scheme = "http";
+          scrape_interval = "60s";
+          scrape_timeout = "20s";
           static_configs = [
             {
               targets = [

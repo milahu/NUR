@@ -89,8 +89,9 @@
     misskey.enable = true;
     meilisearch.enable = true;
     vaultwarden.enable = true;
-    tuwunel.enable = true;
+    # tuwunel.enable = true;
     mautrix-telegram.enable = true;
+    synapse.enable = true;
     calibre.enable = true;
     immich.enable = true;
     radicle.enable = true;
@@ -137,6 +138,10 @@
     sing-box.enable = true;
     metrics.enable = true;
 
+    wg-refresh = {
+      enable = true;
+      calendar = "hourly";
+    };
     pocket-id = {
       enable = true;
       settings = {

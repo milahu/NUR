@@ -19,6 +19,10 @@ in
         mode = "400";
       };
       syncthing-hastur-api = { };
+      synapse-s3 = { };
+      synapse-oidc = {
+        owner = config.systemd.services.matrix-synapse.serviceConfig.User;
+      };
       notifychan = {
         mode = "400";
       };
