@@ -48,6 +48,7 @@
   xcbutilwm,
   xz,
   # Boolean flags
+  debug ? false,
   buildManPages ? true,
   useBuiltinLua ? true,
   useEspeak ? !stdenv.hostPlatform.isDarwin,
@@ -112,6 +113,8 @@ stdenv.mkDerivation (finalAttrs: {
     xz
   ]
   ++ lib.optionals useEspeak [ espeak-ng ];
+
+  cmakeBuildType = if debug then "Debug" else "Release";
 
   cmakeFlags = [
     # The upstream project recommends tagging the distribution
