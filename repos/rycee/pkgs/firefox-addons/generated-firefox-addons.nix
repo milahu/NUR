@@ -1101,10 +1101,10 @@
     };
     "bilisponsorblock" = buildFirefoxXpiAddon {
       pname = "bilisponsorblock";
-      version = "0.9.6";
+      version = "0.9.7";
       addonId = "{f10c197e-c2a4-43b6-a982-7e186f7c63d9}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4560494/bilisponsorblock-0.9.6.xpi";
-      sha256 = "45f58bb79762e2012aed14a9da2ee12f5d61a6050e783e26ef4d89331f0235fc";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4563131/bilisponsorblock-0.9.7.xpi";
+      sha256 = "2ddd67f83cb721b5edf6ffeab4cb3bdc6ac80206aa1b1b91edc9983dd7214b37";
       meta = with lib;
       {
         homepage = "https://www.bsbsb.top";
@@ -10470,15 +10470,15 @@
     };
     "qr-code-address-bar" = buildFirefoxXpiAddon {
       pname = "qr-code-address-bar";
-      version = "1.3";
+      version = "1.4";
       addonId = "{a218c3db-51ef-4170-804b-eb053fc9a2cd}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/3851152/qr_code_address_bar-1.3.xpi";
-      sha256 = "d847f3c402289663492e8e4b18341f4777b84631bc4b6d96f27d1f10b7208c0b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4563248/qr_code_address_bar-1.4.xpi";
+      sha256 = "2b157be867216517315887e8d91ab894a7d62e6ec750af8c4aaf2b6b7360f936";
       meta = with lib;
       {
         description = "Adds a button to the address bar to get the current url as a qr code";
         license = licenses.gpl3;
-        mozPermissions = [ "activeTab" ];
+        mozPermissions = [ "activeTab" "menus" ];
         platforms = platforms.all;
       };
     };
@@ -11089,10 +11089,10 @@
     };
     "refined-github" = buildFirefoxXpiAddon {
       pname = "refined-github";
-      version = "25.8.4";
+      version = "25.8.23";
       addonId = "{a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4550452/refined_github-25.8.4.xpi";
-      sha256 = "56f792df26056aeba61679c757e0c2c8a8f5f2cafd4e66ff9af76bf0d80f0aca";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4563040/refined_github-25.8.23.xpi";
+      sha256 = "3dce4c6f1be666406746a5121172731a0e208f9521baa59847ea561f3302fecf";
       meta = with lib;
       {
         homepage = "https://github.com/refined-github/refined-github";
@@ -12035,10 +12035,10 @@
     };
     "spoof-timezone" = buildFirefoxXpiAddon {
       pname = "spoof-timezone";
-      version = "0.4.6";
+      version = "0.4.7";
       addonId = "{55f61747-c3d3-4425-97f9-dfc19a0be23c}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4530230/spoof_timezone-0.4.6.xpi";
-      sha256 = "de4a0df1da733a60a3219607210a57651aedfcdb631b4aa49c608e9fab93f030";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4563054/spoof_timezone-0.4.7.xpi";
+      sha256 = "adb82eb9692065945814044c7034ac9e75d1e158cbbdfb5ad3702a1c815b8bdd";
       meta = with lib;
       {
         homepage = "https://add0n.com/spoof-timezone.html";
@@ -14920,10 +14920,10 @@
     };
     "yang" = buildFirefoxXpiAddon {
       pname = "yang";
-      version = "1.0.5";
+      version = "1.0.6";
       addonId = "{0a3250b1-58e0-48cb-9383-428f5adc3dc1}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4533888/yang_addon-1.0.5.xpi";
-      sha256 = "1f115e4919e3393bbd370a5718e3270110108963bd54faf9c143b03f55251385";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4563304/yang_addon-1.0.6.xpi";
+      sha256 = "c00dc33d17b4abab64babbf27f81076f23fcea08af936ad75597aaaf5bd9e7b4";
       meta = with lib;
       {
         homepage = "https://github.com/dmlls/yang";
