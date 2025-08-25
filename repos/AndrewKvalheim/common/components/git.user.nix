@@ -180,7 +180,7 @@ in
         author = "default";
         committer = author;
         timestamp = "bright black";
-        bookmark = "cyan";
+        bookmark = "blue";
         bookmarks = bookmark;
         local_bookmarks = bookmark;
         remote_bookmarks = bookmark;
@@ -202,12 +202,12 @@ in
         "working_copy description placeholder" = { fg = "magenta"; italic = true; };
         "working_copy empty description placeholder" = { fg = "magenta"; italic = true; };
 
-        "diff empty" = "blue";
-        "diff binary" = "blue";
-        "diff hunk_header" = "blue";
-        "diff modified" = "blue";
+        "diff empty" = "cyan";
+        "diff binary" = "cyan";
+        "diff hunk_header" = "cyan";
+        "diff modified" = "cyan";
         "diff untracked" = "yellow";
-        "diff renamed" = "blue";
+        "diff renamed" = "cyan";
 
         "node working_copy" = "magenta";
       };
@@ -257,8 +257,8 @@ in
     preview.show_at_start = true;
 
     # Reference: https://github.com/idursun/jjui/blob/main/internal/config/default/default_dark.toml
-    ui.colors = {
-      "revisions selected" = { fg = "white"; bg = "black"; };
+    ui.colors = with palette.hex; {
+      "revisions selected" = { fg = "white"; bg = white-dark; };
     };
 
     keys = {
