@@ -2274,10 +2274,10 @@
     };
     "copy-link-text" = buildFirefoxXpiAddon {
       pname = "copy-link-text";
-      version = "1.6.5";
+      version = "1.6.6";
       addonId = "{b144be59-6bdc-41e0-9141-9f8d00373d93}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4344305/copy_link_text_webextension-1.6.5.xpi";
-      sha256 = "fab82edf1d10ccd8635b710141d930ab80b1f64fc2aa5e61150336d084739456";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4563651/copy_link_text_webextension-1.6.6.xpi";
+      sha256 = "909fa434170e57288d08fad67ff06d01f402196fdf87f564e20c045b67a5f8a3";
       meta = with lib;
       {
         homepage = "https://github.com/def00111/copy-link-text";
@@ -13543,10 +13543,10 @@
     };
     "ubo-scope" = buildFirefoxXpiAddon {
       pname = "ubo-scope";
-      version = "1.0.1";
+      version = "1.0.2";
       addonId = "uBO-Scope@raymondhill.net";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4562809/ubo_scope-1.0.1.xpi";
-      sha256 = "bbe5fb745efbee19355641859e1784b3087eb6cb7cd7247c5604305c8367123b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4563675/ubo_scope-1.0.2.xpi";
+      sha256 = "9019362ccdaa61391b458e5c24e9c4529a95eabbce1969c47762754c59e41963";
       meta = with lib;
       {
         homepage = "https://github.com/gorhill/uBO-Scope";
@@ -14920,10 +14920,10 @@
     };
     "yang" = buildFirefoxXpiAddon {
       pname = "yang";
-      version = "1.0.6";
+      version = "1.0.7";
       addonId = "{0a3250b1-58e0-48cb-9383-428f5adc3dc1}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4563304/yang_addon-1.0.6.xpi";
-      sha256 = "c00dc33d17b4abab64babbf27f81076f23fcea08af936ad75597aaaf5bd9e7b4";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4563764/yang_addon-1.0.7.xpi";
+      sha256 = "cc721ffe10e9813055e6623dc9c00e36b046479d4e60c49d2494c41b41c4a837";
       meta = with lib;
       {
         homepage = "https://github.com/dmlls/yang";
