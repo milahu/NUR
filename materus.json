@@ -1,16 +1,16 @@
 {
 "name":"materus",
-"fetch_time":0.475,
-"eval_time":0.243,
+"fetch_time":0.541,
+"eval_time":0.232,
 "source":{
 "url":"https://github.com/materusPL/Nixerus",
-"rev":"4519d5dc831eb1acf63e891d9474ce01ed617136",
-"sha256":"1a4f9izg5lcvx0bycrpdlg3n36l1jhwycjplxg5c9nhhj87jbqcj",
+"rev":"7071878ada9d4ec712f8b99a841d6ee641ac97cd",
+"sha256":"0zg9mp1xr8sdhkc34705gpiyfq1x71j5mid9z2k3k7vli2vsyflk",
 "date":null
 },
-"source_storepath":"/nix/store/j7wzwpdhr2lb2xy52mgp9jv9cwgpkw1a-source",
-"nixpkgs_storepath":"/nix/store/b3bn50jrvf5hhlsll45wgyvy85swfz5p-source",
-"nur_combined_rev":"e98b3517adece9f173dd9d0b1904a5e5e4465622",
+"source_storepath":"/nix/store/sr0r69yi9m6j6jzbiwgs1qqkgxbpc0v4-source",
+"nixpkgs_storepath":"/nix/store/1y4pjql361m1gc1zq8n5kj9xiyr65cmb-source",
+"nur_combined_rev":"265ad95e7251b61ea9a459206c2d7a579f87fc81",
 "packages":{
 "alvr":{
 "meta":{
@@ -31,7 +31,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/j7wzwpdhr2lb2xy52mgp9jv9cwgpkw1a-source/pkgs/apps/games/alvr/default.nix",
+"file":"/nix/store/sr0r69yi9m6j6jzbiwgs1qqkgxbpc0v4-source/pkgs/apps/games/alvr/default.nix",
 "line":67
 },
 "name":"alvr-v20.5.0",
@@ -360,8 +360,8 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/b3bn50jrvf5hhlsll45wgyvy85swfz5p-source/pkgs/development/libraries/ffmpeg/generic.nix",
-"line":1038
+"file":"/nix/store/1y4pjql361m1gc1zq8n5kj9xiyr65cmb-source/pkgs/development/libraries/ffmpeg/generic.nix",
+"line":1050
 },
 "name":"ffmpeg-full-7.1.1",
 "outputsToInstall":[
@@ -455,7 +455,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/development/libraries/ffmpeg/generic.nix:1006",
+"position":"<nixpkgs> + /pkgs/development/libraries/ffmpeg/generic.nix:1018",
 "unfree":false,
 "unsupported":false
 },
@@ -611,7 +611,7 @@
 "system":"x86_64-linux",
 "version":"7.0"
 },
-"svt-av1-psy":{
+"svt-av1-psyex":{
 "meta":{
 "available":true,
 "broken":false,
@@ -639,7 +639,7 @@
 ],
 "longDescription":"SVT-AV1-PSY is the Scalable Video Technology for AV1 (SVT-AV1 Encoder and Decoder) with perceptual enhancements for psychovisually optimal AV1 encoding.\nThe goal is to create the best encoding implementation for perceptual quality with AV1.\n",
 "maintainers":[],
-"name":"svt-av1-psy-3.0.2",
+"name":"svt-av1-psyex-3.0.2-A",
 "outputsToInstall":[
 "out"
 ],
@@ -688,18 +688,18 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/libs/svt-av1-psy.nix:47",
+"position":"./pkgs/libs/svt-av1-psyex.nix:47",
 "unfree":false,
 "unsupported":false
 },
-"name":"svt-av1-psy-3.0.2",
+"name":"svt-av1-psyex-3.0.2-A",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"svt-av1-psy",
+"pname":"svt-av1-psyex",
 "system":"x86_64-linux",
-"version":"3.0.2"
+"version":"3.0.2-A"
 },
 "vpk_fuse":{
 "meta":{
