@@ -3,18 +3,18 @@
 {
   cakeml = {
     pname = "cakeml";
-    version = "v2807";
+    version = "v2882";
     src = fetchzip {
-      url = "https://github.com/CakeML/cakeml/releases/download/v2807/cake-x64-64.tar.gz";
-      sha256 = "sha256-24Ll9qTBJUXOvgl3SC/RvZ42uYhR7zDyehd37tztFpI=";
+      url = "https://github.com/CakeML/cakeml/releases/download/v2882/cake-x64-64.tar.gz";
+      sha256 = "sha256-r3YGq4/8eeeVa5Xe6pNab2IuF7oNqLKn9TrJHi6/0Tk=";
     };
   };
   enso = {
     pname = "enso";
-    version = "2025.1.3";
+    version = "2025.2.1";
     src = fetchurl {
-      url = "https://github.com/enso-org/enso/releases/download/2025.1.3/enso-linux-x86_64-2025.1.3.AppImage";
-      sha256 = "sha256-dE6r8Ow2hjdmn9qcFR0fiRGIjNm/7zMPp7Z2CtH/Pw8=";
+      url = "https://github.com/enso-org/enso/releases/download/2025.2.1/enso-linux-x86_64-2025.2.1.AppImage";
+      sha256 = "sha256-JiYcUKeAhZBbIRSmDJhNH27WWF+gB7Y4VUFE8MMLSs0=";
     };
   };
   guile-config = {
@@ -43,18 +43,18 @@
   };
   trufflesqueak = {
     pname = "trufflesqueak";
-    version = "24.1.2";
+    version = "24.2.2";
     src = fetchurl {
-      url = "https://github.com/hpi-swa/trufflesqueak/releases/download/24.1.2/trufflesqueak-24.1.2-linux-amd64.tar.gz";
-      sha256 = "sha256-JvCOoBYrPUsVbkJJ3XwEtHAC8G//UV0F6sGf+iK7lV4=";
+      url = "https://github.com/hpi-swa/trufflesqueak/releases/download/24.2.2/trufflesqueak-24.2.2-linux-amd64.tar.gz";
+      sha256 = "sha256-pBdoqrJx1lqoSAUshp7SeqIubP5L81ZwJSGgr0tQ5eA=";
     };
   };
   trufflesqueak-image = {
     pname = "trufflesqueak-image";
-    version = "24.1.2";
+    version = "24.2.2";
     src = fetchurl {
-      url = "https://github.com/hpi-swa/trufflesqueak/releases/download/24.1.2/TruffleSqueakImage-24.1.2.zip";
-      sha256 = "sha256-2pBktK/dHyNoNFmnH7468vLg9HbdjrQIQqKN4inutf0=";
+      url = "https://github.com/hpi-swa/trufflesqueak/releases/download/24.2.2/TruffleSqueakImage-24.2.2.zip";
+      sha256 = "sha256-c9dZ6cduH9SaokhENhgdyvmd2VyI+qQyXHTZHTgdSQs=";
     };
   };
   wasmfxtime = {

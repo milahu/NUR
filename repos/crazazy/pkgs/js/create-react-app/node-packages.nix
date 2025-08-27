@@ -265,13 +265,13 @@ let
         sha512 = "RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==";
       };
     };
-    "jsonfile-6.1.0" = {
+    "jsonfile-6.2.0" = {
       name = "jsonfile";
       packageName = "jsonfile";
-      version = "6.1.0";
+      version = "6.2.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/jsonfile/-/jsonfile-6.1.0.tgz";
-        sha512 = "5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==";
+        url = "https://registry.npmjs.org/jsonfile/-/jsonfile-6.2.0.tgz";
+        sha512 = "FGuPw30AdOIUTRMC2OMRtQV+jkVj2cfPqSeWXv1NEAJ1qZ5zb1X6z1mFhbfOB/iy3ssJCD+3KuZ8r8C3uVFlAg==";
       };
     };
     "kleur-3.0.3" = {
@@ -499,13 +499,13 @@ let
         sha512 = "RkK/CCESdTKQZHdmKICijdKKsCRVHs5KsLZ6pACAmF/1GPUQhonHSXWNERctxEp7RmvjdNbZTL5z9V7nSCXKcg==";
       };
     };
-    "tmp-0.2.3" = {
+    "tmp-0.2.5" = {
       name = "tmp";
       packageName = "tmp";
-      version = "0.2.3";
+      version = "0.2.5";
       src = fetchurl {
-        url = "https://registry.npmjs.org/tmp/-/tmp-0.2.3.tgz";
-        sha512 = "nZD7m9iCPC5g0pYmcaxogYKggSfLsdxl8of3Q/oIbqCqLLIO9IAF0GWjX1z9NZRHPiXv8Wex4yDCaZsgEw0Y8w==";
+        url = "https://registry.npmjs.org/tmp/-/tmp-0.2.5.tgz";
+        sha512 = "voyz6MApa1rQGUxT3E+BK7/ROe8itEx7vD8/HEvt4xwXucvQ5G5oeEiHkmHZJuBO21RpOf+YYm9MOivj709jow==";
       };
     };
     "uid-number-0.0.6" = {
@@ -606,7 +606,7 @@ let
       sources."inherits-2.0.4"
       sources."isarray-0.0.1"
       sources."isexe-2.0.0"
-      sources."jsonfile-6.1.0"
+      sources."jsonfile-6.2.0"
       sources."kleur-3.0.3"
       sources."minimatch-3.1.2"
       sources."minimist-1.2.8"
@@ -639,7 +639,7 @@ let
           sources."readable-stream-1.0.34"
         ];
       })
-      sources."tmp-0.2.3"
+      sources."tmp-0.2.5"
       sources."uid-number-0.0.6"
       sources."universalify-2.0.1"
       sources."util-deprecate-1.0.2"
