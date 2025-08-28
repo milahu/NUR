@@ -127,9 +127,9 @@ A GNOME theme for Firefox.
 Sega Master System/Game Gear/SG-1000 emulator and debugger for macOS, Windows, Linux, BSD and RetroArch.
 
 - Name: `gearsystem`
-- Version: `3.8.3`
+- Version: `3.8.4`
 - [🌐 Homepage](https://github.com/drhelius/Gearsystem)
-- [📰 Changelog](https://github.com/drhelius/Gearsystem/releases/tag/3.8.3)
+- [📰 Changelog](https://github.com/drhelius/Gearsystem/releases/tag/3.8.4)
 - [📦 Source](./pkgs/by-name/gearsystem/package.nix#L52)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
 - 🖥️ Platforms: `aarch64-linux`, `armv5tel-linux`, `armv6l-linux`, `armv7a-linux`, `armv7l-linux`, `i686-linux`, `loongarch64-linux`, `m68k-linux`, `microblaze-linux`, `microblazeel-linux`, `mips-linux`, `mips64-linux`, `mips64el-linux`, `mipsel-linux`, `powerpc64-linux`, `powerpc64le-linux`, `riscv32-linux`, `riscv64-linux`, `s390-linux`, `s390x-linux`, `x86_64-linux`
@@ -139,7 +139,7 @@ Sega Master System/Game Gear/SG-1000 emulator and debugger for macOS, Windows, L
 Sega Master System/Game Gear/SG-1000 emulator and debugger for macOS, Windows, Linux, BSD and RetroArch.
 
 - Name: `gearsystem-libretro`
-- Version: `3.8.3`
+- Version: `3.8.4`
 - [🌐 Homepage](https://github.com/drhelius/Gearsystem)
 - [📦 Source](./pkgs/by-name/gearsystem-libretro/package.nix#L23)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -185,7 +185,7 @@ Retro gaming application for the GNOME desktop.
 KDE Virtual Machine Manager.
 
 - Name: `karton`
-- Version: `0.1-prealpha-unstable-2025-08-13`
+- Version: `0.1-prealpha-unstable-2025-08-21`
 - [🌐 Homepage](https://invent.kde.org/sitter/karton)
 - [📦 Source](./pkgs/by-name/karton/package.nix#L62)
 - 📄 License: [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html)
@@ -231,7 +231,7 @@ Helpers for scheduling the dark-light cycle.
 Libretro Emulation Frontend for Plasma.
 
 - Name: `kretro`
-- Version: `0-unstable-2025-08-25`
+- Version: `0-unstable-2025-08-27`
 - [🌐 Homepage](https://invent.kde.org/games/kretro)
 - [📦 Source](./pkgs/by-name/kretro/package.nix#L74)
 - 📄 Licenses: [`BSD 3-clause "New" or "Revised" License`](https://spdx.org/licenses/BSD-3-Clause.html), [`Creative Commons Attribution Share Alike 4.0`](https://spdx.org/licenses/CC-BY-SA-4.0.html), [`Creative Commons Zero v1.0 Universal`](https://spdx.org/licenses/CC0-1.0.html), [`GNU General Public License v2.0 or later`](https://spdx.org/licenses/GPL-2.0-or-later.html), [`GNU Library General Public License v2 or later`](https://spdx.org/licenses/LGPL-2.0-or-later.html), [`MIT License`](https://spdx.org/licenses/MIT.html), [`The Unlicense`](https://spdx.org/licenses/Unlicense.html)
@@ -405,7 +405,7 @@ libcamera based camera application built for Plasma Mobile.
 Virtual Keyboard for Qt based desktops.
 
 - Name: `plasma-keyboard`
-- Version: `0-unstable-2025-08-25`
+- Version: `0-unstable-2025-08-27`
 - [🌐 Homepage](https://invent.kde.org/plasma/plasma-keyboard)
 - [📦 Source](./pkgs/by-name/plasma-keyboard/package.nix#L54)
 - 📄 Licenses: [`GNU General Public License v2.0 only`](https://spdx.org/licenses/GPL-2.0-only.html), [`GNU General Public License v3.0 only`](https://spdx.org/licenses/GPL-3.0-only.html), [`GNU Lesser General Public License v2.1 only`](https://spdx.org/licenses/LGPL-2.1-only.html), [`GNU Lesser General Public License v3.0 only`](https://spdx.org/licenses/LGPL-3.0-only.html), [`MIT License`](https://spdx.org/licenses/MIT.html)
