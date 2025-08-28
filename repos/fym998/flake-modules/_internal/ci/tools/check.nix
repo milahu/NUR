@@ -1,2 +1,6 @@
-{ writeShellScriptBin, nix-fast-build }:
-writeShellScriptBin "check" "${nix-fast-build}/bin/nix-fast-build --no-nom"
+{ nix-fast-build, writeShellApplication }:
+writeShellApplication {
+  name = "check";
+  runtimeInputs = [ nix-fast-build ];
+  text = "nix-fast-build --skip-cached --no-nom --flake \".#checks.$(nix eval --raw --impure --expr builtins.currentSystem)\"";
+}
