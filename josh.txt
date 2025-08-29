@@ -10,12 +10,12 @@ error:
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:240:19:
+  at <nixpkgs> + /lib/customisation.nix:259:19:
 
-   239|   callPackageWith =
-   240|     autoArgs: fn: args:
+   258|   callPackageWith =
+   259|     autoArgs: fn: args:
       |                   ^
-   241|     let
+   260|     let
 
 … from call site
 
