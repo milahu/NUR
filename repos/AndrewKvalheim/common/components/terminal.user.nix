@@ -126,14 +126,14 @@ in
       color5 = ansi.magenta;
       color6 = ansi.cyan;
       color7 = ansi.white;
-      color8 = ansi.black-bright;
-      color9 = ansi.red-bright;
-      color10 = ansi.green-bright;
-      color11 = ansi.yellow-bright;
-      color12 = ansi.blue-bright;
-      color13 = ansi.magenta-bright;
-      color14 = ansi.cyan-bright;
-      color15 = ansi.white-bright;
+      color8 = ansi.bright.black;
+      color9 = ansi.bright.red;
+      color10 = ansi.bright.green;
+      color11 = ansi.bright.yellow;
+      color12 = ansi.bright.blue;
+      color13 = ansi.bright.magenta;
+      color14 = ansi.bright.cyan;
+      color15 = ansi.bright.white;
     };
   };
 

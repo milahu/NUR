@@ -75,9 +75,9 @@ in
     # Console
     console.packages = with pkgs; [ terminus_font ];
     console.font = "ter-v32n";
-    console.colors = map (removePrefix "#") (with palette.hex.ansi;
-      [ black red green yellow blue magenta cyan white ] ++
-      [ black-bright red-bright green-bright yellow-bright blue-bright magenta-bright cyan-bright white-bright ]
+    console.colors = map (removePrefix "#") (
+      (with palette.hex.ansi; [ black red green yellow blue magenta cyan white ]) ++
+      (with palette.hex.ansi.bright; [ black red green yellow blue magenta cyan white ])
     );
 
     # Power

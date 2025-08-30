@@ -191,8 +191,8 @@ in
 
         # Colors
         "workbench.colorCustomizations" = {
-          "terminal.foreground" = white;
-          "terminal.background" = black;
+          "terminal.foreground" = ansi.white;
+          "terminal.background" = ansi.black;
           "terminal.ansiblack" = ansi.black;
           "terminal.ansired" = ansi.red;
           "terminal.ansigreen" = ansi.green;
@@ -201,14 +201,14 @@ in
           "terminal.ansimagenta" = ansi.magenta;
           "terminal.ansicyan" = ansi.cyan;
           "terminal.ansiwhite" = ansi.white;
-          "terminal.ansibrightblack" = ansi.black-bright;
-          "terminal.ansibrightred" = ansi.red-bright;
-          "terminal.ansibrightgreen" = ansi.green-bright;
-          "terminal.ansibrightyellow" = ansi.yellow-bright;
-          "terminal.ansibrightblue" = ansi.blue-bright;
-          "terminal.ansibrightmagenta" = ansi.magenta-bright;
-          "terminal.ansibrightcyan" = ansi.cyan-bright;
-          "terminal.ansibrightwhite" = ansi.white-bright;
+          "terminal.ansibrightblack" = ansi.bright.black;
+          "terminal.ansibrightred" = ansi.bright.red;
+          "terminal.ansibrightgreen" = ansi.bright.green;
+          "terminal.ansibrightyellow" = ansi.bright.yellow;
+          "terminal.ansibrightblue" = ansi.bright.blue;
+          "terminal.ansibrightmagenta" = ansi.bright.magenta;
+          "terminal.ansibrightcyan" = ansi.bright.cyan;
+          "terminal.ansibrightwhite" = ansi.bright.white;
           "tab.inactiveBackground" = "#00000000";
           "editorGutter.addedBackground" = blue;
           "editorGutter.deletedBackground" = blue;

@@ -22,6 +22,9 @@ let
   ansiNames = [ "black" "red" "green" "yellow" "blue" "magenta" "cyan" "white" ];
 
   spec = rec {
+    # Standard
+    black-true = { l = 0; c = 0; h = 0; };
+
     # Base Monokai
     black = { l = 0.178; c = 0.000; h = 0; };
     blue = { l = 0.83; c = 0.108; h = 212; };
@@ -73,7 +76,7 @@ let
 
   colors = flat // {
     ansi = with flat; {
-      black = black;
+      black = black-true;
       red = red;
       green = teal;
       yellow = yellow;
@@ -81,14 +84,17 @@ let
       magenta = orange;
       cyan = blue;
       white = platinum;
-      black-bright = white-dim;
-      red-bright = red;
-      green-bright = teal;
-      yellow-bright = yellow;
-      blue-bright = purple;
-      magenta-bright = orange;
-      cyan-bright = blue;
-      white-bright = white;
+
+      bright = {
+        black = white-dim;
+        red = red;
+        green = teal;
+        yellow = yellow;
+        blue = purple;
+        magenta = orange;
+        cyan = blue;
+        white = white;
+      };
     };
   };
 in
