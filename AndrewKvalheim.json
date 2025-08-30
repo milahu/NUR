@@ -1,16 +1,16 @@
 {
 "name":"AndrewKvalheim",
-"fetch_time":3.388,
-"eval_time":0.302,
+"fetch_time":15.553,
+"eval_time":0.284,
 "source":{
 "url":"https://codeberg.org/AndrewKvalheim/configuration",
-"rev":"bcf8069f371d518c04bb7fa9cfdd793ef87fd95b",
-"sha256":"184b4xxkwic8jgz3kh1gv35gnxlpqnb9d7j8dlwpkfffmvrid3sa",
+"rev":"34b144fbc898a03a4c2f2d3b3710b8f97610728e",
+"sha256":"0b1yyf99x04crjifxs531qlx0pb0kqv18ai3bsbz6m02fx1s2czh",
 "date":null
 },
-"source_storepath":"/nix/store/46gjwdz964kvayvbhv4fh2ldd9v1ckca-configuration",
-"nixpkgs_storepath":"/nix/store/3kncxwif1hhwcba16apvzwa02cgsvhbc-source",
-"nur_combined_rev":"f6c017df4bfd3f57d8aa57a1aa0f9849dfb96126",
+"source_storepath":"/nix/store/vskn90lqyp2sjqadvvsjf9b0zgn4n95f-configuration",
+"nixpkgs_storepath":"/nix/store/asqbicjzy1za82fprmfswrs166prnxbn-source",
+"nur_combined_rev":"cc4fecbb890802468a1aca44aecb24d23944e8af",
 "packages":{
 "apex":{
 "meta":{
@@ -141,9 +141,9 @@
 },
 "busyserve":{
 "meta":{
-"available":true,
-"broken":false,
-"changelog":"https://github.com/JnyJny/busylight/releases/tag/0.35.2",
+"available":false,
+"broken":true,
+"changelog":"https://github.com/JnyJny/busylight/releases/tag/v0.37.0",
 "description":"Control USB connected presence lights from multiple vendors via the command-line or web API",
 "homepage":"https://github.com/JnyJny/busylight",
 "insecure":false,
@@ -211,7 +211,7 @@
 "name":"Joachim Ernst"
 }
 ],
-"name":"python3.13-busyserve-0.35.2",
+"name":"python3.13-busyserve-0.37.0",
 "outputsToInstall":[
 "out"
 ],
@@ -248,7 +248,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/development/python-modules/busylight-for-humans/default.nix:59",
+"position":"<nixpkgs> + /pkgs/development/python-modules/busylight-for-humans/default.nix:68",
 "teams":[
 {
 "members":[
@@ -278,21 +278,21 @@
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/3kncxwif1hhwcba16apvzwa02cgsvhbc-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
-"line":63
+"file":"/nix/store/asqbicjzy1za82fprmfswrs166prnxbn-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
+"line":72
 },
 "unfree":false,
 "unsupported":false
 },
-"name":"busyserve-0.35.2",
+"name":"python3.13-busyserve-0.37.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"busyserve",
+"pname":"python3.13-busyserve",
 "system":"x86_64-linux",
-"version":"0.35.2"
+"version":"0.37.0"
 },
 "cavif":{
 "meta":{
@@ -584,8 +584,8 @@
 },
 "dmarc-report-notifier":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"Headless periodic DMARC report handler",
 "homepage":"https://codeberg.org/AndrewKvalheim/dmarc-report-notifier",
 "insecure":false,
@@ -1218,8 +1218,8 @@
 },
 "meshtastic-url":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "insecure":false,
 "mainProgram":"meshtastic-url",
 "maintainers":[],
@@ -1277,8 +1277,8 @@
 },
 "mqtt-connect":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"GUI for mocking a Meshtastic node via MQTT",
 "homepage":"https://github.com/pdxlocations/MQTT-Connect-for-Meshtastic",
 "insecure":false,
@@ -1380,7 +1380,7 @@
 "mqtt-protobuf-to-json":{
 "meta":{
 "available":false,
-"broken":false,
+"broken":true,
 "description":"Relay Meshtastic packets from an MQTT protobuf topic to an MQTT JSON topic",
 "homepage":"https://github.com/pdxlocations/mqtt-protobuf-to-json",
 "insecure":false,
