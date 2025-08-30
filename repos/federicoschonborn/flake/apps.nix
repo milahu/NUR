@@ -89,6 +89,11 @@
         update.program = pkgs.writeShellApplication {
           name = "update";
           text = ''
+            declare -a c
+            declare -a f
+            declare -a p
+            p=("$@")
+            i=0
             for attr in "$@"; do
               case "$attr" in
               ${lib.concatLines (
@@ -98,28 +103,45 @@
                     ''
                       ${name})
                         echo Updating ${name}...
-                        ${lib.escapeShellArgs (
-                          [
-                            "env"
-                            "UPDATE_NIX_NAME=${value.name}"
-                            "UPDATE_NIX_PNAME=${value.pname}"
-                            "UPDATE_NIX_OLD_VERSION=${value.version}"
-                            "UPDATE_NIX_ATTR_PATH=${name}"
-                          ]
-                          ++ (value.updateScript.command or (lib.toList value.updateScript))
-                        )}
+                        if ${
+                          lib.escapeShellArgs (
+                            [
+                              "env"
+                              "UPDATE_NIX_NAME=${value.name}"
+                              "UPDATE_NIX_PNAME=${value.pname}"
+                              "UPDATE_NIX_OLD_VERSION=${value.version}"
+                              "UPDATE_NIX_ATTR_PATH=${name}"
+                            ]
+                            ++ (value.updateScript.command or (lib.toList value.updateScript))
+                          )
+                        }; then
+                          c+=("$attr")
+                        else
+                          f+=("$attr")
+                        fi
                         ;;
                     ''
                   else
                     ''
                       ${name})
                         echo Skipping ${name}...
+                        s+=("$attr")
                         ;;
                     ''
                 ) config.packages
               )}
               esac
+
+              unset "p[$i]"
+              i=$(( i + 1 ))
             done
+
+            echo
+            echo ">> Completed : ''${c[*]}"
+            echo ">> Failed    : ''${f[*]}"
+            echo ">> Pending   : ''${p[*]}"
+            echo ">> Skipped   : ''${s[*]}"
+            echo
           '';
         };
 
