@@ -8,6 +8,7 @@
   pkg-config,
   python3,
   yyjson,
+  yyjson_0_12,
   apple-sdk_15,
   hwdata,
   versionCheckHook,
@@ -21,41 +22,48 @@
     || stdenv.hostPlatform.isNetBSD
     || stdenv.hostPlatform.isWindows
     || stdenv.hostPlatform.isAndroid
-    || stdenv.hostPlatform.isSunOS,
+    || stdenv.hostPlatform.isSunOS
+    || stdenv.hostPlatform.isGnu,
   vulkan-loader,
   enableWayland ?
     stdenv.hostPlatform.isLinux
     || stdenv.hostPlatform.isFreeBSD
     || stdenv.hostPlatform.isOpenBSD
-    || stdenv.hostPlatform.isNetBSD,
+    || stdenv.hostPlatform.isNetBSD
+    || stdenv.hostPlatform.isGnu,
   wayland,
   enableXcbRandr ?
     stdenv.hostPlatform.isLinux
     || stdenv.hostPlatform.isFreeBSD
     || stdenv.hostPlatform.isOpenBSD
     || stdenv.hostPlatform.isNetBSD
-    || stdenv.hostPlatform.isSunOS,
+    || stdenv.hostPlatform.isSunOS
+    || stdenv.hostPlatform.isGnu,
   enableXrandr ?
     stdenv.hostPlatform.isLinux
     || stdenv.hostPlatform.isFreeBSD
     || stdenv.hostPlatform.isOpenBSD
     || stdenv.hostPlatform.isNetBSD
-    || stdenv.hostPlatform.isSunOS,
+    || stdenv.hostPlatform.isSunOS
+    || stdenv.hostPlatform.isGnu,
   xorg,
   enableDrm ?
     stdenv.hostPlatform.isLinux
     || stdenv.hostPlatform.isFreeBSD
     || stdenv.hostPlatform.isOpenBSD
     || stdenv.hostPlatform.isNetBSD
-    || stdenv.hostPlatform.isSunOS,
+    || stdenv.hostPlatform.isSunOS
+    || stdenv.hostPlatform.isGnu,
   libdrm,
-  enableDrmAmdgpu ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isFreeBSD,
+  enableDrmAmdgpu ?
+    stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isFreeBSD || stdenv.hostPlatform.isGnu,
   enableGio ?
     stdenv.hostPlatform.isLinux
     || stdenv.hostPlatform.isFreeBSD
     || stdenv.hostPlatform.isOpenBSD
     || stdenv.hostPlatform.isNetBSD
-    || stdenv.hostPlatform.isSunOS,
+    || stdenv.hostPlatform.isSunOS
+    || stdenv.hostPlatform.isGnu,
   glib,
   libsysprof-capture,
   pcre2,
@@ -67,21 +75,24 @@
     || stdenv.hostPlatform.isFreeBSD
     || stdenv.hostPlatform.isOpenBSD
     || stdenv.hostPlatform.isNetBSD
-    || stdenv.hostPlatform.isSunOS,
+    || stdenv.hostPlatform.isSunOS
+    || stdenv.hostPlatform.isGnu,
   dconf,
   enableDbus ?
     stdenv.hostPlatform.isLinux
     || stdenv.hostPlatform.isFreeBSD
     || stdenv.hostPlatform.isOpenBSD
     || stdenv.hostPlatform.isNetBSD
-    || stdenv.hostPlatform.isSunOS,
+    || stdenv.hostPlatform.isSunOS
+    || stdenv.hostPlatform.isGnu,
   dbus,
   enableXfconf ?
     stdenv.hostPlatform.isLinux
     || stdenv.hostPlatform.isFreeBSD
     || stdenv.hostPlatform.isOpenBSD
     || stdenv.hostPlatform.isNetBSD
-    || stdenv.hostPlatform.isSunOS,
+    || stdenv.hostPlatform.isSunOS
+    || stdenv.hostPlatform.isGnu,
   xfce,
   enableSqlite3 ?
     stdenv.hostPlatform.isLinux
@@ -89,9 +100,10 @@
     || stdenv.hostPlatform.isOpenBSD
     || stdenv.hostPlatform.isNetBSD
     || stdenv.hostPlatform.isDarwin
-    || stdenv.hostPlatform.isSunOS,
+    || stdenv.hostPlatform.isSunOS
+    || stdenv.hostPlatform.isGnu,
   sqlite,
-  enableRpm ? stdenv.hostPlatform.isLinux,
+  enableRpm ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isGnu,
   rpm,
   enableImagemagick ?
     stdenv.hostPlatform.isLinux
@@ -100,7 +112,8 @@
     || stdenv.hostPlatform.isOpenBSD
     || stdenv.hostPlatform.isNetBSD
     || stdenv.hostPlatform.isWindows
-    || stdenv.hostPlatform.isSunOS,
+    || stdenv.hostPlatform.isSunOS
+    || stdenv.hostPlatform.isGnu,
   imagemagick,
   enableChafa ? enableImagemagick,
   chafa,
@@ -113,8 +126,8 @@
     || stdenv.hostPlatform.isNetBSD
     || stdenv.hostPlatform.isAndroid
     || stdenv.hostPlatform.isWindows
-    || stdenv.hostPlatform.isSunOS,
-  # || stdenv.hostPlatform.isHaiku
+    || stdenv.hostPlatform.isSunOS
+    || stdenv.hostPlatform.isGnu,
   libGL,
   enableGlx ?
     stdenv.hostPlatform.isLinux
@@ -122,8 +135,8 @@
     || stdenv.hostPlatform.isOpenBSD
     || stdenv.hostPlatform.isNetBSD
     || stdenv.hostPlatform.isAndroid
-    || stdenv.hostPlatform.isSunOS,
-  # || stdenv.hostPlatform.isHaiku
+    || stdenv.hostPlatform.isSunOS
+    || stdenv.hostPlatform.isGnu,
   libglvnd,
   enableOpencl ?
     stdenv.hostPlatform.isLinux
@@ -132,18 +145,20 @@
     || stdenv.hostPlatform.isNetBSD
     || stdenv.hostPlatform.isWindows
     || stdenv.hostPlatform.isAndroid
-    || stdenv.hostPlatform.isSunOS,
+    || stdenv.hostPlatform.isSunOS
+    || stdenv.hostPlatform.isGnu,
   ocl-icd,
   opencl-headers,
   enableFreetype ? stdenv.hostPlatform.isAndroid,
   freetype,
-  enablePulse ? stdenv.hostPlatform.isLinux,
+  enablePulse ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isGnu,
   pulseaudio,
   enableDdcutil ? stdenv.hostPlatform.isLinux,
   ddcutil,
   enableDirectxHeaders ? stdenv.hostPlatform.isLinux,
   directx-headers,
-  enableElf ? stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isAndroid,
+  enableElf ?
+    stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isAndroid || stdenv.hostPlatform.isGnu,
   libelf,
   enableLibzfs ?
     stdenv.hostPlatform.isLinux || stdenv.hostPlatform.isFreeBSD || stdenv.hostPlatform.isSunOS,
@@ -177,7 +192,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   buildInputs = [
-    yyjson
+    (if lib.versionAtLeast yyjson.version "0.12" then yyjson else yyjson_0_12)
   ]
   ++ lib.optional enableVulkan vulkan-loader
   ++ lib.optional enableWayland wayland
