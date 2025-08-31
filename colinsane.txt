@@ -3,12 +3,12 @@ error:
 
 … in the left operand of the AND (&&) operator
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:633:9:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:645:9:
 
-   632|         validity.valid != "no"
-   633|         && (
+   644|         validity.valid != "no"
+   645|         && (
       |         ^
-   634|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
+   646|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
 
 … from call site
 
@@ -21,57 +21,57 @@ error:
 
 … while calling 'assertValidity'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:639:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:651:5:
 
-   638|   assertValidity =
-   639|     { meta, attrs }:
+   650|   assertValidity =
+   651|     { meta, attrs }:
       |     ^
-   640|     let
+   652|     let
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:641:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:653:18:
 
-   640|     let
-   641|       validity = checkValidity attrs;
+   652|     let
+   653|       validity = checkValidity attrs;
       |                  ^
-   642|       inherit (validity) valid;
+   654|       inherit (validity) valid;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:479:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:491:5:
 
-   478|     in
-   479|     attrs:
+   490|     in
+   491|     attrs:
       |     ^
-   480|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+   492|     # Check meta attribute types first, to make sure it is always called even when there are other issues
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:525:40:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:537:40:
 
-   524|       }
-   525|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
+   536|       }
+   537|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
       |                                        ^
-   526|       let
+   538|       let
 
 … while calling 'hasUnsupportedPlatform'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:128:28:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:140:28:
 
-   127|
-   128|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+   139|
+   140|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
       |                            ^
-   129|
+   141|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:128:35:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:140:35:
 
-   127|
-   128|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+   139|
+   140|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
       |                                   ^
-   129|
+   141|
 
 … while calling 'availableOn'
 

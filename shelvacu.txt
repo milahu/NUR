@@ -19,21 +19,21 @@ error:
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:240:19:
+  at <nixpkgs> + /lib/customisation.nix:259:19:
 
-   239|   callPackageWith =
-   240|     autoArgs: fn: args:
+   258|   callPackageWith =
+   259|     autoArgs: fn: args:
       |                   ^
-   241|     let
+   260|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:254:11:
+  at <nixpkgs> + /lib/customisation.nix:273:11:
 
-   253|         (
-   254|           filterAttrs (name: value: !value)
+   272|         (
+   273|           filterAttrs (name: value: !value)
       |           ^
-   255|             # Filter out arguments that would be passed
+   274|             # Filter out arguments that would be passed
 
 … while calling 'filterAttrs'
 
@@ -46,12 +46,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:243:15:
+  at <nixpkgs> + /lib/customisation.nix:262:15:
 
-   242|       f = if isFunction fn then fn else import fn;
-   243|       fargs = functionArgs f;
+   261|       f = if isFunction fn then fn else import fn;
+   262|       fargs = functionArgs f;
       |               ^
-   244|
+   263|
 
 … while calling 'functionArgs'
 
@@ -64,12 +64,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:242:14:
+  at <nixpkgs> + /lib/customisation.nix:261:14:
 
-   241|     let
-   242|       f = if isFunction fn then fn else import fn;
+   260|     let
+   261|       f = if isFunction fn then fn else import fn;
       |              ^
-   243|       fargs = functionArgs f;
+   262|       fargs = functionArgs f;
 
 … while calling 'isFunction'
 
