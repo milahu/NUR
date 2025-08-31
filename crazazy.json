@@ -1,16 +1,16 @@
 {
 "name":"crazazy",
-"fetch_time":1.052,
-"eval_time":0.691,
+"fetch_time":0.68,
+"eval_time":0.698,
 "source":{
 "url":"https://github.com/crazazy/nixos-config",
-"rev":"2ba6f3fb2cdc80f8bdd38e8db6d5fc06aa2376b6",
-"sha256":"0dm1prcpwirjgrr4hg9ccnvkkv7z4z00w102myp9515411xi5952",
+"rev":"2ceabdc482ab01556b5ff849a275864cabca2268",
+"sha256":"0flpbr39m5iwfgix76a04fzzpbflmxnml829jcfmf5x2wmdch502",
 "date":null
 },
-"source_storepath":"/nix/store/9qvkzl2n2770dk6mmchnhgbjfnp8wcdx-source",
-"nixpkgs_storepath":"/nix/store/sq7n9j80chmzda57d671szcysg6fdjfr-source",
-"nur_combined_rev":"e9d284e4af6364bf03f438ae9e7f332533ffcc33",
+"source_storepath":"/nix/store/wzfnj3kkfmir882fp0rahr1gkamrf2vy-source",
+"nixpkgs_storepath":"/nix/store/hwaq99yhgv5adwzalinfxhk11iiqpq6d-source",
+"nur_combined_rev":"34255f7e1d5fe1243cf0392aef2a12910c290d84",
 "packages":{
 "cakeml":{
 "meta":{
@@ -62,7 +62,7 @@
 ],
 "maintainersPosition":{
 "column":54,
-"file":"/nix/store/sq7n9j80chmzda57d671szcysg6fdjfr-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/hwaq99yhgv5adwzalinfxhk11iiqpq6d-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1057
 },
 "name":"elm-0.19.1",
@@ -1049,7 +1049,7 @@
 ],
 "maintainersPosition":{
 "column":54,
-"file":"/nix/store/sq7n9j80chmzda57d671szcysg6fdjfr-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/hwaq99yhgv5adwzalinfxhk11iiqpq6d-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1057
 },
 "name":"nvfetcher-0.7.0.0",
@@ -1309,7 +1309,7 @@
 ],
 "teamsPosition":{
 "column":34,
-"file":"/nix/store/sq7n9j80chmzda57d671szcysg6fdjfr-source/pkgs/development/compilers/graalvm/community-edition/buildGraalvmProduct.nix",
+"file":"/nix/store/hwaq99yhgv5adwzalinfxhk11iiqpq6d-source/pkgs/development/compilers/graalvm/community-edition/buildGraalvmProduct.nix",
 "line":80
 },
 "unfree":false,
@@ -1352,7 +1352,8 @@
 "description":"wasmtime WebAssembly runner with support for delmited continuations",
 "homepage":"https://wasmtime.dev/",
 "insecure":false,
-"license":{
+"license":[
+{
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
@@ -1361,6 +1362,16 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
+{
+"deprecated":false,
+"free":true,
+"fullName":"LLVM Exception",
+"redistributable":true,
+"shortName":"llvm-exception",
+"spdxId":"LLVM-exception",
+"url":"https://spdx.org/licenses/LLVM-exception.html"
+}
+],
 "mainProgram":"wasmtime",
 "maintainers":[
 {
@@ -1379,8 +1390,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/sq7n9j80chmzda57d671szcysg6fdjfr-source/pkgs/by-name/wa/wasmtime/package.nix",
-"line":86
+"file":"/nix/store/hwaq99yhgv5adwzalinfxhk11iiqpq6d-source/pkgs/by-name/wa/wasmtime/package.nix",
+"line":89
 },
 "name":"wasmtime-33.0.0",
 "outputsToInstall":[
