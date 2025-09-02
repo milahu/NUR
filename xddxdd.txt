@@ -1,0 +1,110 @@
+error:
+… while querying the derivation named 'openj9-ibm-semeru-jdk-bin-11.0.12.0'
+
+… in the left operand of the AND (&&) operator
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:645:9:
+
+   644|         validity.valid != "no"
+   645|         && (
+      |         ^
+   646|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:822:18:
+
+   821|       };
+   822|       validity = checkMeta.assertValidity { inherit meta attrs; };
+      |                  ^
+   823|
+
+… while calling 'assertValidity'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:651:5:
+
+   650|   assertValidity =
+   651|     { meta, attrs }:
+      |     ^
+   652|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:653:18:
+
+   652|     let
+   653|       validity = checkValidity attrs;
+      |                  ^
+   654|       inherit (validity) valid;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:491:5:
+
+   490|     in
+   491|     attrs:
+      |     ^
+   492|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:513:13:
+
+   512|     # --- Put checks that can be ignored here ---
+   513|     else if hasDeniedUnfreeLicense attrs && !(hasAllowlistedLicense attrs) then
+      |             ^
+   514|       {
+
+… while calling 'hasDeniedUnfreeLicense'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:157:5:
+
+   156|   hasDeniedUnfreeLicense =
+   157|     attrs: hasUnfreeLicense attrs && !allowUnfree && !allowUnfreePredicate attrs;
+      |     ^
+   158|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:157:12:
+
+   156|   hasDeniedUnfreeLicense =
+   157|     attrs: hasUnfreeLicense attrs && !allowUnfree && !allowUnfreePredicate attrs;
+      |            ^
+   158|
+
+… while calling 'hasUnfreeLicense'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:109:22:
+
+   108|
+   109|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
+      |                      ^
+   110|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:109:49:
+
+   108|
+   109|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
+      |                                                 ^
+   110|
+
+… while calling 'isUnfree'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:97:5:
+
+    96|   isUnfree =
+    97|     licenses:
+      |     ^
+    98|     if isAttrs licenses then
+
+error: attribute 'gpl2Classpath' missing
+
+at ./pkgs/openj9-ibm-semeru/jdk-linux-base.nix:119:17:
+
+   118|       maintainers = with lib.maintainers; [ xddxdd ];
+   119|       license = lib.licenses.gpl2Classpath;
+      |                 ^
+   120|       description = "OpenJ9 binaries built by IBM Semeru";
