@@ -22,13 +22,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "goverlay";
-  version = "03a4a26b96dd870d12a332e5b780f572c4427e57";
+  version = "nightly";
 
   src = fetchFromGitHub {
     owner = "benjamimgois";
     repo = "goverlay";
-    rev = finalAttrs.version;
-    sha256 = "sha256-f21j6C54Mz3j3lc/ARZp9uW5pKd+vYDJvIyM29Jq0Xs=";
+    tag = finalAttrs.version;
+    sha256 = "sha256-Tu3D7Bvx937aJN730B/ogNIXmWTtPwpAmUR4F7yUKO4=";
   };
 
   outputs = [
@@ -88,7 +88,7 @@ stdenv.mkDerivation (finalAttrs: {
   meta = {
     description = "Opensource project that aims to create a Graphical UI to help manage Linux overlays";
     homepage = "https://github.com/benjamimgois/goverlay";
-    changelog = "https://github.com/benjamimgois/goverlay/releases/tag/nightly";
+    changelog = "https://github.com/benjamimgois/goverlay/releases/tag/${finalAttrs.version}";
     license = lib.licenses.gpl3Plus;
     maintainers = with lib.maintainers; [ RoGreat ];
     mainProgram = "goverlay";
