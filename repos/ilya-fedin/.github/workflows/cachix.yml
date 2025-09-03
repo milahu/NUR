@@ -1,0 +1,58 @@
+name: Cachix
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 0 * * *'
+jobs:
+  update-flake:
+    runs-on: ubuntu-latest
+    outputs:
+      cache-key: ${{ steps.cache-key.outputs.cache-key }}
+    steps:
+    - uses: actions/checkout@v5
+    - uses: cachix/install-nix-action@v31
+    - run: nix flake update
+      if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
+    - run: echo "cache-key=${{ hashFiles('flake.lock') }}" >> $GITHUB_OUTPUT
+      id: cache-key
+    - uses: actions/cache@v4
+      with:
+        path: flake.lock
+        key: flake-lock-${{ steps.cache-key.outputs.cache-key }}
+
+  tests:
+    needs: update-flake
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, macos-13]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v5
+    - uses: actions/cache@v4
+      with:
+        path: flake.lock
+        key: flake-lock-${{ needs.update-flake.outputs.cache-key }}
+    - uses: cachix/install-nix-action@v31
+    - uses: cachix/cachix-action@v16
+      with:
+        name: ilya-fedin
+        authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+        skipPush: ${{ github.ref_name != github.event.repository.default_branch }}
+    - run: nix-build non-broken.nix
+
+  push-flake-update:
+    if: ${{ github.ref_name == github.event.repository.default_branch }}
+    needs: [update-flake, tests]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+    - uses: actions/cache@v4
+      with:
+        path: flake.lock
+        key: flake-lock-${{ needs.update-flake.outputs.cache-key }}
+    - run: git config --global user.email "action@github.com"
+    - run: git config --global user.name "GitHub Action"
+    - run: git add flake.lock
+    - run: git diff --staged --quiet || (git commit -m "Update flake" && git push)
