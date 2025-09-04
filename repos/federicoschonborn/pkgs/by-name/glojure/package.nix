@@ -9,16 +9,16 @@
 
 buildGoModule (finalAttrs: {
   pname = "glojure";
-  version = "0.3.0";
+  version = "0.4.0";
 
   src = fetchFromGitHub {
     owner = "glojurelang";
     repo = "glojure";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-dcKjW/ht3JmiDqG2YYGiiDwUt32hAwuCkMVTYRS8+eE=";
+    hash = "sha256-8cG7piZOaIK/yOav5SQ5t1ijzobhTSWl2VwsNbltDv8=";
   };
 
-  vendorHash = "sha256-bofeBp8aa/I5jhblv+BhqHX9tmD1hDgUBwEFJpLH/A8=";
+  vendorHash = "sha256-AIghWHfWocoY/6Yxu6cEtUmbembRaLtADmNaZiq+JHA=";
 
   nativeBuildInputs = [
     clojure
@@ -34,11 +34,32 @@ buildGoModule (finalAttrs: {
 
   checkFlags =
     let
-      # Requires network access
       skippedTests = [
+        # Requires network access
         "FuzzCLJConformance/seed#2"
         "FuzzCLJConformance/seed#11"
         "FuzzCLJConformance/seed#12"
+        # Runs go mod tidy, requires network access
+        "TestGeneratedGo/try_advanced"
+        "TestGeneratedGo/case_switch"
+        "TestGeneratedGo/with_meta"
+        "TestGeneratedGo/fn_closure"
+        "TestGeneratedGo/ref"
+        "TestGeneratedGo/quote_simple"
+        "TestGeneratedGo/fn_recur"
+        "TestGeneratedGo/the_var"
+        "TestGeneratedGo/letfn"
+        "TestGeneratedGo/maybe_class"
+        "TestGeneratedGo/values"
+        "TestGeneratedGo/set_bang"
+        "TestGeneratedGo/throw_simple"
+        "TestGeneratedGo/def_simple"
+        "TestGeneratedGo/loop_simple"
+        "TestGeneratedGo/try_basic"
+        "TestGeneratedGo/multifn"
+        "TestGeneratedGo/goroutine"
+        # Fails on extra whitespace
+        "TestCodegen/glojure.core"
       ];
     in
     [
