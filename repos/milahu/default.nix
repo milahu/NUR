@@ -504,6 +504,12 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       pyside6-stubs = callPackage ./pkgs/development/python-modules/pyside6-stubs { };
 
+      largestinteriorrectangle = callPackage ./pkgs/python3/pkgs/largestinteriorrectangle { };
+
+      stitching = callPackage ./pkgs/python3/pkgs/stitching { };
+
+      tuspy = callPackage ./pkgs/python3/pkgs/tuspy { };
+
     #}))); # python3.pkgs
 
   #}))); # python3
