@@ -1,0 +1,11 @@
+error:
+… while querying the derivation named 'gcc-tricore-embedded-05-2025'
+
+error: undefined variable 'eerieaerial'
+
+at ./pkgs/gcc-tricore-embedded/default.nix:51:39:
+
+    50|     sourceProvenance = with sourceTypes; [ binaryNativeCode ];
+    51|     maintainers = with maintainers; [ eerieaerial ];
+      |                                       ^
+    52|   };
