@@ -1,22 +1,22 @@
 {
 "name":"kira-bruneau",
-"fetch_time":0.321,
-"eval_time":0.421,
+"fetch_time":0.375,
+"eval_time":0.49,
 "source":{
 "url":"https://gitlab.com/kira-bruneau/nur-packages",
-"rev":"df5c3eef89a63acb60ff81fe8c0843d93d8db706",
-"sha256":"19q3xz6v9dccwzx2fbq4kckm8cblqv1rxxyzrlk7ll5lwvsr49sr",
+"rev":"c456b8bb8e0723b30075c684b8959b0c28610d74",
+"sha256":"1n5xwa729zr0jkka9pq9dr4l96l90hn7f4dh0zq0xvx01r0zxdja",
 "date":null
 },
-"source_storepath":"/nix/store/rhjh46r0n5bvkdikkd2n9jhkzbjyf1y7-source",
-"nixpkgs_storepath":"/nix/store/854kywmsh85z6zhfvnw6adjpp8yjnw5s-source",
-"nur_combined_rev":"d95a5993da41d0c54e243b45d34fad537fb72d54",
+"source_storepath":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source",
+"nixpkgs_storepath":"/nix/store/3mbdnhn5mvg8kx73bkxyz66b65qz752v-source",
+"nur_combined_rev":"ebb1ad24ff7f665d4c574f8aa201f244c7c2729f",
 "packages":{
 "anytype":{
 "meta":{
 "available":false,
 "broken":false,
-"changelog":"https://community.anytype.io/c/news-announcements/release-notes",
+"changelog":"https://releases.any.org/desktop-0492",
 "description":"Official Anytype client",
 "homepage":"https://anytype.io",
 "insecure":false,
@@ -36,7 +36,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-0.44.0",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/an/anytype/package.nix",
+"line":148
+},
+"name":"anytype-0.49.2",
 "outputsToInstall":[
 "out"
 ],
@@ -63,24 +68,24 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/by-name/an/anytype/package.nix:129",
+"position":"./pkgs/by-name/an/anytype/package.nix:144",
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-0.44.0",
+"name":"anytype-0.49.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype",
 "system":"x86_64-linux",
-"version":"0.44.0"
+"version":"0.49.2"
 },
 "anytype-heart":{
 "meta":{
 "available":false,
 "broken":false,
-"changelog":"https://github.com/anyproto/anytype-heart/releases/tag/v0.38.7",
+"changelog":"https://github.com/anyproto/anytype-heart/releases/tag/v0.43.0-rc02",
 "description":"Shared library for Anytype clients",
 "homepage":"https://github.com/anyproto/anytype-heart",
 "insecure":false,
@@ -100,7 +105,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-heart-0.38.7",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/an/anytype-heart/package.nix",
+"line":86
+},
+"name":"anytype-heart-0.43.0-rc02",
 "outputsToInstall":[
 "out"
 ],
@@ -127,24 +137,24 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/by-name/an/anytype-heart/package.nix:81",
+"position":"./pkgs/by-name/an/anytype-heart/package.nix:82",
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-heart-0.38.7",
+"name":"anytype-heart-0.43.0-rc02",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype-heart",
 "system":"x86_64-linux",
-"version":"0.38.7"
+"version":"0.43.0-rc02"
 },
 "anytype-nmh":{
 "meta":{
 "available":false,
 "broken":false,
-"changelog":"https://community.anytype.io/c/news-announcements/release-notes",
+"changelog":"https://releases.any.org/desktop-0492",
 "description":"Native messaging host for the AnyType browser extension",
 "homepage":"https://anytype.io",
 "insecure":false,
@@ -164,7 +174,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"anytype-0.44.0",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/an/anytype/package.nix",
+"line":148
+},
+"name":"anytype-0.49.2",
 "outputsToInstall":[
 "out"
 ],
@@ -195,14 +210,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"anytype-nmh-0.44.0",
+"name":"anytype-nmh-0.49.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype-nmh",
 "system":"x86_64-linux",
-"version":"0.44.0"
+"version":"0.49.2"
 },
 "bluetooth-autoconnect":{
 "meta":{
@@ -229,6 +244,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/bl/bluetooth-autoconnect/package.nix",
+"line":48
+},
 "name":"bluetooth-autoconnect-1.3",
 "outputsToInstall":[
 "out"
@@ -273,7 +293,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://ccache.dev/releasenotes.html#_ccache_4_10_2",
+"changelog":"https://ccache.dev/releasenotes.html#_ccache_4_11_3",
 "description":"Compiler cache for fast recompilation of C/C++ code",
 "downloadPage":"https://ccache.dev/download.html",
 "homepage":"https://ccache.dev",
@@ -302,7 +322,12 @@
 "name":"Ryan Burns"
 }
 ],
-"name":"ccache-4.10.2",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/cc/ccache/package.nix",
+"line":174
+},
+"name":"ccache-4.11.3",
 "outputsToInstall":[
 "out",
 "man"
@@ -311,9 +336,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -354,11 +377,11 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/by-name/cc/ccache/package.nix:170",
+"position":"./pkgs/by-name/cc/ccache/package.nix:167",
 "unfree":false,
 "unsupported":false
 },
-"name":"ccache-4.10.2",
+"name":"ccache-4.11.3",
 "outputName":"out",
 "outputs":{
 "man":null,
@@ -366,7 +389,7 @@
 },
 "pname":"ccache",
 "system":"x86_64-linux",
-"version":"4.10.2"
+"version":"4.11.3"
 },
 "cec-sync":{
 "meta":{
@@ -404,7 +427,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"cec-sync-0-unstable-2025-01-25",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/ce/cec-sync/package.nix",
+"line":44
+},
+"name":"cec-sync-0-unstable-2025-07-16",
 "outputsToInstall":[
 "out"
 ],
@@ -428,18 +456,18 @@
 "mips64el-linux",
 "riscv32-linux"
 ],
-"position":"./pkgs/by-name/ce/cec-sync/package.nix:43",
+"position":"./pkgs/by-name/ce/cec-sync/package.nix:41",
 "unfree":false,
 "unsupported":false
 },
-"name":"cec-sync-0-unstable-2025-01-25",
+"name":"cec-sync-0-unstable-2025-07-16",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cec-sync",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-01-25"
+"version":"0-unstable-2025-07-16"
 },
 "clonehero":{
 "meta":{
@@ -470,6 +498,11 @@
 "name":"Syboxez Blank"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/cl/clonehero/package.nix",
+"line":124
+},
 "name":"clonehero-1.0.0.4080",
 "outputsToInstall":[
 "out"
@@ -528,9 +561,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -558,6 +589,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/development/tools/misc/cmake-language-server/default.nix",
+"line":66
+},
 "name":"cmake-language-server-0.1.11",
 "outputsToInstall":[
 "out"
@@ -585,9 +621,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -630,7 +664,7 @@
 "maintainers":[
 {
 "email":"fb@fx-ttr.de",
-"github":"fxttr",
+"github":"fmarl",
 "githubId":16306293,
 "name":"Florian B\u00fcstgens"
 },
@@ -641,7 +675,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-acm-0-unstable-2025-02-10",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm/package.nix",
+"line":22
+},
+"name":"emacs-acm-0-unstable-2025-08-30",
 "outputsToInstall":[
 "out"
 ],
@@ -649,9 +688,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -728,14 +765,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-acm-0-unstable-2025-02-10",
+"name":"emacs-acm-0-unstable-2025-08-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-acm",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-02-10"
+"version":"0-unstable-2025-08-30"
 },
 "emacsPackages.acm-terminal":{
 "meta":{
@@ -761,6 +798,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm-terminal/package.nix",
+"line":32
+},
 "name":"emacs-acm-terminal-0-unstable-2023-12-06",
 "outputsToInstall":[
 "out"
@@ -769,9 +811,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -881,6 +921,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/flymake-bridge/package.nix",
+"line":28
+},
 "name":"emacs-flymake-bridge-0-unstable-2025-01-23",
 "outputsToInstall":[
 "out"
@@ -889,9 +934,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -996,7 +1039,7 @@
 "maintainers":[
 {
 "email":"fb@fx-ttr.de",
-"github":"fxttr",
+"github":"fmarl",
 "githubId":16306293,
 "name":"Florian B\u00fcstgens"
 },
@@ -1007,7 +1050,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"emacs-lsp-bridge-0-unstable-2025-02-10",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/lsp-bridge/default.nix",
+"line":100
+},
+"name":"emacs-lsp-bridge-0-unstable-2025-08-30",
 "outputsToInstall":[
 "out"
 ],
@@ -1015,9 +1063,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1090,18 +1136,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/applications/editors/emacs/elisp-packages/manual-packages/lsp-bridge/default.nix:98",
+"position":"./pkgs/applications/editors/emacs/elisp-packages/manual-packages/lsp-bridge/default.nix:97",
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-lsp-bridge-0-unstable-2025-02-10",
+"name":"emacs-lsp-bridge-0-unstable-2025-08-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-lsp-bridge",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-02-10"
+"version":"0-unstable-2025-08-30"
 },
 "ender3-v3-se-klipper-config":{
 "meta":{
@@ -1119,6 +1165,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/en/ender3-v3-se-klipper-config/package.nix",
+"line":37
+},
 "name":"ender3-v3-se-full-klipper-0-unstable-2024-01-24",
 "outputsToInstall":[
 "out"
@@ -1127,9 +1178,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1268,7 +1317,12 @@
 "name":"Vladimir Serov"
 }
 ],
-"name":"ender3-v3-se-klipper-with-display-1.0.0-unstable-2025-02-11",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/3mbdnhn5mvg8kx73bkxyz66b65qz752v-source/pkgs/servers/klipper/default.nix",
+"line":117
+},
+"name":"ender3-v3-se-klipper-with-display-1.0.0-unstable-2025-08-21",
 "outputsToInstall":[
 "out"
 ],
@@ -1299,14 +1353,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ender3-v3-se-klipper-with-display-1.0.0-unstable-2025-02-11",
+"name":"ender3-v3-se-klipper-with-display-1.0.0-unstable-2025-08-21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ender3-v3-se-klipper-with-display",
 "system":"x86_64-linux",
-"version":"1.0.0-unstable-2025-02-11"
+"version":"1.0.0-unstable-2025-08-21"
 },
 "gamemode":{
 "meta":{
@@ -1334,6 +1388,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/tools/games/gamemode/default.nix",
+"line":113
+},
 "name":"gamemode-1.8.2",
 "outputsToInstall":[
 "out",
@@ -1378,53 +1437,11 @@
 "system":"x86_64-linux",
 "version":"1.8.2"
 },
-"ggt":{
-"meta":{
-"available":true,
-"broken":false,
-"changelog":"https://github.com/gadget-inc/ggt/releases/tag/v25.05pre751383.b2243f41e860",
-"description":"Command-line interface for Gadget",
-"homepage":"https://docs.gadget.dev/guides/development-tools/cli",
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"mainProgram":"ggt",
-"maintainers":[
-{
-"email":"kira.bruneau@pm.me",
-"github":"kira-bruneau",
-"githubId":382041,
-"name":"Kira Bruneau"
-}
-],
-"name":"ggt-1.4.1",
-"outputsToInstall":[
-"out"
-],
-"position":"./pkgs/by-name/gg/ggt/package.nix:52",
-"unfree":false,
-"unsupported":false
-},
-"name":"ggt-1.4.1",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"ggt",
-"system":"x86_64-linux",
-"version":"1.4.1"
-},
 "git-review":{
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://docs.opendev.org/opendev/git-review/latest/releasenotes.html#relnotes-2.5.0",
 "description":"Tool to submit code to Gerrit",
 "homepage":"https://opendev.org/opendev/git-review",
 "insecure":false,
@@ -1451,9 +1468,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -1481,7 +1496,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"git-review-2.4.0",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/applications/version-management/git-review/default.nix",
+"line":55
+},
+"name":"git-review-2.5.0",
 "outputsToInstall":[
 "out",
 "man"
@@ -1509,9 +1529,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -1525,7 +1543,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"git-review-2.4.0",
+"name":"git-review-2.5.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -1534,7 +1552,7 @@
 },
 "pname":"git-review",
 "system":"x86_64-linux",
-"version":"2.4.0"
+"version":"2.5.0"
 },
 "habitica":{
 "meta":{
@@ -1581,7 +1599,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"habitica-5.33.2",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/ha/habitica/package.nix",
+"line":127
+},
+"name":"habitica-5.40.0",
 "outputsToInstall":[
 "out"
 ],
@@ -1589,9 +1612,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1664,11 +1685,11 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/by-name/ha/habitica/package.nix:118",
+"position":"./pkgs/by-name/ha/habitica/package.nix:120",
 "unfree":true,
 "unsupported":false
 },
-"name":"habitica-5.33.2",
+"name":"habitica-5.40.0",
 "outputName":"out",
 "outputs":{
 "apidoc":null,
@@ -1677,7 +1698,7 @@
 },
 "pname":"habitica",
 "system":"x86_64-linux",
-"version":"5.33.2"
+"version":"5.40.0"
 },
 "home-assistant-waves-theme":{
 "meta":{
@@ -1695,6 +1716,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/wa/home-assistant-waves-theme/package.nix",
+"line":30
+},
 "name":"home-assistant-waves-theme-2.4.1",
 "outputsToInstall":[
 "out"
@@ -1703,9 +1729,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1836,7 +1860,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"jakirica-5.33.2",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/ha/habitica/package.nix",
+"line":127
+},
+"name":"jakirica-5.40.0",
 "outputsToInstall":[
 "out"
 ],
@@ -1844,9 +1873,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1919,11 +1946,11 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/by-name/ha/habitica/package.nix:118",
+"position":"./pkgs/by-name/ha/habitica/package.nix:120",
 "unfree":true,
 "unsupported":false
 },
-"name":"jakirica-5.33.2",
+"name":"jakirica-5.40.0",
 "outputName":"out",
 "outputs":{
 "apidoc":null,
@@ -1932,7 +1959,7 @@
 },
 "pname":"jakirica",
 "system":"x86_64-linux",
-"version":"5.33.2"
+"version":"5.40.0"
 },
 "jakirica-client":{
 "meta":{
@@ -1979,7 +2006,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"habitica-5.33.2",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/ha/habitica/package.nix",
+"line":127
+},
+"name":"habitica-5.40.0",
 "outputsToInstall":[
 "out"
 ],
@@ -1987,9 +2019,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -2066,14 +2096,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"jakirica-client-5.33.2",
+"name":"jakirica-client-5.40.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"jakirica-client",
 "system":"x86_64-linux",
-"version":"5.33.2"
+"version":"5.40.0"
 },
 "krane":{
 "meta":{
@@ -2101,7 +2131,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"krane-3.7.0",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/kr/krane/package.nix",
+"line":19
+},
+"name":"krane-3.7.4",
 "outputsToInstall":[
 "out"
 ],
@@ -2109,9 +2144,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -2184,18 +2217,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/applications/networking/cluster/krane/default.nix:15",
+"position":"./pkgs/by-name/kr/krane/package.nix:15",
 "unfree":false,
 "unsupported":false
 },
-"name":"krane-3.7.0",
+"name":"krane-3.7.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"krane",
 "system":"x86_64-linux",
-"version":"3.7.0"
+"version":"3.7.4"
 },
 "linuxPackages.xpadneo":{
 "meta":{
@@ -2221,6 +2254,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/os-specific/linux/xpadneo/default.nix",
+"line":51
+},
 "name":"xpadneo-0.9.7",
 "outputsToInstall":[
 "out"
@@ -2265,7 +2303,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/flightlessmango/MangoHud/releases/tag/v0.8.0",
+"changelog":"https://github.com/flightlessmango/MangoHud/releases/tag/v0.8.1",
 "description":"Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more",
 "homepage":"https://github.com/flightlessmango/MangoHud",
 "insecure":false,
@@ -2297,7 +2335,12 @@
 "name":"Jona Abdinghoff"
 }
 ],
-"name":"mangohud-0.8.0",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/tools/graphics/mangohud/default.nix",
+"line":251
+},
+"name":"mangohud-0.8.1",
 "outputsToInstall":[
 "out",
 "man"
@@ -2325,11 +2368,11 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/tools/graphics/mangohud/default.nix:248",
+"position":"./pkgs/tools/graphics/mangohud/default.nix:246",
 "unfree":false,
 "unsupported":false
 },
-"name":"mangohud-0.8.0",
+"name":"mangohud-0.8.1",
 "outputName":"out",
 "outputs":{
 "doc":null,
@@ -2338,101 +2381,7 @@
 },
 "pname":"mangohud",
 "system":"x86_64-linux",
-"version":"0.8.0"
-},
-"mozlz4":{
-"meta":{
-"available":true,
-"badPlatforms":[
-{
-"abi":{
-"abi":"n32"
-},
-"cpu":{
-"bits":64,
-"family":"mips"
-}
-}
-],
-"broken":false,
-"description":"Decompress / compress mozlz4 files",
-"homepage":"https://github.com/jusw85/mozlz4",
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"mainProgram":"mozlz4",
-"maintainers":[
-{
-"email":"kira.bruneau@pm.me",
-"github":"kira-bruneau",
-"githubId":382041,
-"name":"Kira Bruneau"
-}
-],
-"name":"mozlz4-0.1.0",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin",
-"i686-freebsd",
-"x86_64-freebsd",
-"x86_64-solaris",
-"aarch64-linux",
-"armv6l-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv64-linux",
-"s390x-linux",
-"x86_64-linux",
-"aarch64-netbsd",
-"armv7l-netbsd",
-"i686-netbsd",
-"powerpc-netbsd",
-"x86_64-netbsd",
-"i686-openbsd",
-"x86_64-openbsd",
-"i686-windows",
-"x86_64-windows",
-"armv7a-darwin",
-"armv5tel-linux",
-"armv7a-linux",
-"m68k-linux",
-"mips-linux",
-"mips64-linux",
-"mipsel-linux",
-"mips64el-linux",
-"riscv32-linux",
-"armv6l-netbsd",
-"mipsel-netbsd",
-"riscv64-netbsd",
-"x86_64-redox",
-"wasm32-wasi"
-],
-"position":"./pkgs/by-name/mo/mozlz4/package.nix:24",
-"unfree":false,
-"unsupported":false
-},
-"name":"mozlz4-0.1.0",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"mozlz4",
-"system":"x86_64-linux",
-"version":"0.1.0"
+"version":"0.8.1"
 },
 "mozlz4a":{
 "meta":{
@@ -2471,6 +2420,11 @@
 "name":"Michael Raskin"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/mo/mozlz4a/package.nix",
+"line":38
+},
 "name":"mozlz4a-2022-03-19",
 "outputsToInstall":[
 "out"
@@ -2498,9 +2452,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -2548,6 +2500,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/na/nautilus-taildrop/package.nix",
+"line":31
+},
 "name":"nautilus-taildrop-0-unstable-2024-01-12",
 "outputsToInstall":[
 "out"
@@ -2556,9 +2513,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -2694,7 +2649,12 @@
 "name":"Michael Evans"
 }
 ],
-"name":"newsflash-3.3.5",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/ne/newsflash/package.nix",
+"line":100
+},
+"name":"newsflash-4.1.4",
 "outputsToInstall":[
 "out"
 ],
@@ -2702,9 +2662,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -2745,24 +2703,56 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/by-name/ne/newsflash/package.nix:99",
+"position":"./pkgs/by-name/ne/newsflash/package.nix:97",
+"teams":[
+{
+"members":[
+{
+"email":"me@aleksana.moe",
+"github":"Aleksanaa",
+"githubId":42209822,
+"name":"Aleksana QwQ"
+},
+{
+"email":"getchoo@tuta.io",
+"github":"getchoo",
+"githubId":48872998,
+"matrix":"@getchoo:matrix.org",
+"name":"Seth Flynn"
+},
+{
+"email":"michaelgrahamevans@gmail.com",
+"github":"michaelgrahamevans",
+"githubId":5932424,
+"name":"Michael Evans"
+}
+],
+"scope":"Maintain GNOME Circle applications.",
+"shortName":"GNOME Circle"
+}
+],
+"teamsPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/ne/newsflash/package.nix",
+"line":104
+},
 "unfree":false,
 "unsupported":false
 },
-"name":"newsflash-3.3.5",
+"name":"newsflash-4.1.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"newsflash",
 "system":"x86_64-linux",
-"version":"3.3.5"
+"version":"4.1.4"
 },
 "poke":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://git.savannah.gnu.org/cgit/poke.git/plain/ChangeLog?h=releases/poke-4.2",
+"changelog":"https://git.savannah.gnu.org/cgit/poke.git/plain/NEWS?h=releases/poke-4.3",
 "description":"Interactive, extensible editor for binary data",
 "homepage":"http://www.jemarch.net/poke",
 "hydraPlatforms":[
@@ -2806,7 +2796,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"poke-4.2",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/po/poke/package.nix",
+"line":99
+},
+"name":"poke-4.3",
 "outputsToInstall":[
 "out",
 "man"
@@ -2815,9 +2810,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -2858,11 +2851,11 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/by-name/po/poke/package.nix:98",
+"position":"./pkgs/by-name/po/poke/package.nix:95",
 "unfree":false,
 "unsupported":false
 },
-"name":"poke-4.2",
+"name":"poke-4.3",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -2873,7 +2866,7 @@
 },
 "pname":"poke",
 "system":"x86_64-linux",
-"version":"4.2"
+"version":"4.3"
 },
 "pokemmo-installer":{
 "meta":{
@@ -2900,6 +2893,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/po/pokemmo-installer/package.nix",
+"line":69
+},
 "name":"pokemmo-installer-1.4.8",
 "outputsToInstall":[
 "out"
@@ -2965,6 +2963,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/po/powertools/package.nix",
+"line":90
+},
 "name":"powertools-2.0.3",
 "outputsToInstall":[
 "out"
@@ -2973,9 +2976,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -3048,7 +3049,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/by-name/po/powertools/package.nix:86",
+"position":"./pkgs/by-name/po/powertools/package.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -3065,6 +3066,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/Matoking/protontricks/blob/1.13.0/CHANGELOG.md",
 "description":"Simple wrapper for running Winetricks commands for Proton-enabled games",
 "homepage":"https://github.com/Matoking/protontricks",
 "insecure":false,
@@ -3091,9 +3093,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3120,7 +3120,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"protontricks-1.12.0",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/tools/package-management/protontricks/default.nix",
+"line":84
+},
+"name":"protontricks-1.13.0",
 "outputsToInstall":[
 "out"
 ],
@@ -3128,11 +3133,11 @@
 "x86_64-linux",
 "i686-linux"
 ],
-"position":"./pkgs/tools/package-management/protontricks/default.nix:88",
+"position":"./pkgs/tools/package-management/protontricks/default.nix:80",
 "unfree":false,
 "unsupported":false
 },
-"name":"protontricks-1.12.0",
+"name":"protontricks-1.13.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3140,13 +3145,13 @@
 },
 "pname":"protontricks",
 "system":"x86_64-linux",
-"version":"1.12.0"
+"version":"1.13.0"
 },
 "python312Packages.debugpy":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/microsoft/debugpy/releases/tag/v1.8.12",
+"changelog":"https://github.com/microsoft/debugpy/releases/tag/v1.8.16",
 "description":"Implementation of the Debug Adapter Protocol for Python",
 "homepage":"https://github.com/microsoft/debugpy",
 "insecure":false,
@@ -3173,9 +3178,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3202,7 +3205,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"python3.12-debugpy-1.8.12",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/development/python-modules/debugpy/default.nix",
+"line":149
+},
+"name":"python3.12-debugpy-1.8.16",
 "outputsToInstall":[
 "out"
 ],
@@ -3211,14 +3219,14 @@
 "i686-linux",
 "aarch64-linux",
 "x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin"
+"aarch64-darwin",
+"riscv64-linux"
 ],
-"position":"./pkgs/development/python-modules/debugpy/default.nix:143",
+"position":"./pkgs/development/python-modules/debugpy/default.nix:145",
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-debugpy-1.8.12",
+"name":"python3.12-debugpy-1.8.16",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3226,7 +3234,7 @@
 },
 "pname":"python3.12-debugpy",
 "system":"x86_64-linux",
-"version":"1.8.12"
+"version":"1.8.16"
 },
 "python312Packages.pygls":{
 "meta":{
@@ -3259,9 +3267,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3288,6 +3294,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/development/python-modules/pygls/default.nix",
+"line":67
+},
 "name":"python3.12-pygls-1.3.1",
 "outputsToInstall":[
 "out"
@@ -3315,9 +3326,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3327,7 +3336,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/development/python-modules/pygls/default.nix:61",
+"position":"./pkgs/development/python-modules/pygls/default.nix:63",
 "unfree":false,
 "unsupported":false
 },
@@ -3345,7 +3354,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/gabrielcnr/pytest-datadir/blob/v1.6.1/CHANGELOG.rst",
+"changelog":"https://github.com/gabrielcnr/pytest-datadir/blob/v1.8.0/CHANGELOG.rst",
 "description":"Pytest plugin for manipulating test data directories and files",
 "homepage":"https://github.com/gabrielcnr/pytest-datadir",
 "insecure":false,
@@ -3372,9 +3381,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3401,7 +3408,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"python3.12-pytest-datadir-1.6.1",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/development/python-modules/pytest-datadir/default.nix",
+"line":39
+},
+"name":"python3.12-pytest-datadir-1.8.0",
 "outputsToInstall":[
 "out"
 ],
@@ -3428,9 +3440,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3444,7 +3454,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.12-pytest-datadir-1.6.1",
+"name":"python3.12-pytest-datadir-1.8.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3452,7 +3462,7 @@
 },
 "pname":"python3.12-pytest-datadir",
 "system":"x86_64-linux",
-"version":"1.6.1"
+"version":"1.8.0"
 },
 "python312Packages.vdf":{
 "meta":{
@@ -3484,9 +3494,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3513,6 +3521,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/development/python-modules/vdf/default.nix",
+"line":46
+},
 "name":"python3.12-vdf-3.4",
 "outputsToInstall":[
 "out"
@@ -3540,9 +3553,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3570,7 +3581,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/microsoft/debugpy/releases/tag/v1.8.12",
+"changelog":"https://github.com/microsoft/debugpy/releases/tag/v1.8.16",
 "description":"Implementation of the Debug Adapter Protocol for Python",
 "homepage":"https://github.com/microsoft/debugpy",
 "insecure":false,
@@ -3597,9 +3608,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3626,7 +3635,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"python3.13-debugpy-1.8.12",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/development/python-modules/debugpy/default.nix",
+"line":149
+},
+"name":"python3.13-debugpy-1.8.16",
 "outputsToInstall":[
 "out"
 ],
@@ -3635,14 +3649,14 @@
 "i686-linux",
 "aarch64-linux",
 "x86_64-darwin",
-"i686-darwin",
-"aarch64-darwin"
+"aarch64-darwin",
+"riscv64-linux"
 ],
-"position":"./pkgs/development/python-modules/debugpy/default.nix:143",
+"position":"./pkgs/development/python-modules/debugpy/default.nix:145",
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-debugpy-1.8.12",
+"name":"python3.13-debugpy-1.8.16",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3650,7 +3664,7 @@
 },
 "pname":"python3.13-debugpy",
 "system":"x86_64-linux",
-"version":"1.8.12"
+"version":"1.8.16"
 },
 "python313Packages.pygls":{
 "meta":{
@@ -3683,9 +3697,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3712,6 +3724,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/development/python-modules/pygls/default.nix",
+"line":67
+},
 "name":"python3.13-pygls-1.3.1",
 "outputsToInstall":[
 "out"
@@ -3739,9 +3756,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3751,7 +3766,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/development/python-modules/pygls/default.nix:61",
+"position":"./pkgs/development/python-modules/pygls/default.nix:63",
 "unfree":false,
 "unsupported":false
 },
@@ -3769,7 +3784,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/gabrielcnr/pytest-datadir/blob/v1.6.1/CHANGELOG.rst",
+"changelog":"https://github.com/gabrielcnr/pytest-datadir/blob/v1.8.0/CHANGELOG.rst",
 "description":"Pytest plugin for manipulating test data directories and files",
 "homepage":"https://github.com/gabrielcnr/pytest-datadir",
 "insecure":false,
@@ -3796,9 +3811,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3825,7 +3838,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"python3.13-pytest-datadir-1.6.1",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/development/python-modules/pytest-datadir/default.nix",
+"line":39
+},
+"name":"python3.13-pytest-datadir-1.8.0",
 "outputsToInstall":[
 "out"
 ],
@@ -3852,9 +3870,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3868,7 +3884,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-pytest-datadir-1.6.1",
+"name":"python3.13-pytest-datadir-1.8.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3876,7 +3892,7 @@
 },
 "pname":"python3.13-pytest-datadir",
 "system":"x86_64-linux",
-"version":"1.6.1"
+"version":"1.8.0"
 },
 "python313Packages.vdf":{
 "meta":{
@@ -3908,9 +3924,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3937,6 +3951,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/development/python-modules/vdf/default.nix",
+"line":46
+},
 "name":"python3.13-vdf-3.4",
 "outputsToInstall":[
 "out"
@@ -3964,9 +3983,7 @@
 "s390x-linux",
 "x86_64-linux",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-cygwin",
 "x86_64-cygwin",
 "aarch64-windows",
@@ -3994,7 +4011,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v25.05pre751383.b2243f41e860",
+"changelog":"https://github.com/sudachi-emu/sudachi/releases/tag/v1.0.2",
 "description":"Nintendo Switch emulator written in C++",
 "homepage":"https://sudachi-emu.com",
 "insecure":false,
@@ -4045,6 +4062,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/su/sudachi/package.nix",
+"line":178
+},
 "name":"sudachi-1.0.2",
 "outputsToInstall":[
 "out"
@@ -4086,21 +4108,17 @@
 "mainProgram":"swaylock",
 "maintainers":[
 {
-"email":"dev.primeos@gmail.com",
-"github":"primeos",
-"githubId":7537109,
-"keys":[
-{
-"fingerprint":"86A7 4A55 07D0 58D1 322E  37FD 1308 26A6 C2A3 89FD"
+"email":"lhongxu@outlook.com",
+"github":"wineee",
+"githubId":22803888,
+"name":"Lu Hongxu"
+}
+],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/3mbdnhn5mvg8kx73bkxyz66b65qz752v-source/pkgs/by-name/sw/swaylock/package.nix",
+"line":69
 },
-{
-"fingerprint":"AF85 991C C950 49A2 4205  1933 BCA9 943D D1DF 4C04"
-}
-],
-"matrix":"@primeos:matrix.org",
-"name":"Michael Weiss"
-}
-],
 "name":"swaylock-fprintd-0-unstable-2023-01-30",
 "outputsToInstall":[
 "out"
@@ -4176,13 +4194,17 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"tantivy-go-0.3.1",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/ta/tantivy-go/package.nix",
+"line":38
+},
+"name":"tantivy-go-1.0.4",
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -4206,7 +4228,6 @@
 "x86_64-openbsd",
 "i686-windows",
 "x86_64-windows",
-"armv7a-darwin",
 "armv5tel-linux",
 "armv7a-linux",
 "m68k-linux",
@@ -4221,18 +4242,18 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/by-name/ta/tantivy-go/package.nix:30",
+"position":"./pkgs/by-name/ta/tantivy-go/package.nix:35",
 "unfree":false,
 "unsupported":false
 },
-"name":"tantivy-go-0.3.1",
+"name":"tantivy-go-1.0.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tantivy-go",
 "system":"x86_64-linux",
-"version":"0.3.1"
+"version":"1.0.4"
 },
 "texlab":{
 "meta":{
@@ -4249,7 +4270,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/latex-lsp/texlab/blob/v5.22.1/CHANGELOG.md",
+"changelog":"https://github.com/latex-lsp/texlab/blob/v5.23.1/CHANGELOG.md",
 "description":"Implementation of the Language Server Protocol for LaTeX",
 "homepage":"https://github.com/latex-lsp/texlab",
 "insecure":false,
@@ -4277,14 +4298,18 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"texlab-5.22.1",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/te/texlab/package.nix",
+"line":52
+},
+"name":"texlab-5.23.1",
 "outputsToInstall":[
 "out",
 "man"
 ],
 "platforms":[
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -4308,7 +4333,6 @@
 "x86_64-openbsd",
 "i686-windows",
 "x86_64-windows",
-"armv7a-darwin",
 "armv5tel-linux",
 "armv7a-linux",
 "m68k-linux",
@@ -4323,11 +4347,11 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./pkgs/development/tools/misc/texlab/default.nix:53",
+"position":"./pkgs/by-name/te/texlab/package.nix:48",
 "unfree":false,
 "unsupported":false
 },
-"name":"texlab-5.22.1",
+"name":"texlab-5.23.1",
 "outputName":"out",
 "outputs":{
 "man":null,
@@ -4335,7 +4359,7 @@
 },
 "pname":"texlab",
 "system":"x86_64-linux",
-"version":"5.22.1"
+"version":"5.23.1"
 },
 "ukmm":{
 "meta":{
@@ -4374,6 +4398,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/uk/ukmm/package.nix",
+"line":99
+},
 "name":"ukmm-0.15.0",
 "outputsToInstall":[
 "out"
@@ -4398,7 +4427,7 @@
 "mips64el-linux",
 "riscv32-linux"
 ],
-"position":"./pkgs/by-name/uk/ukmm/package.nix:81",
+"position":"./pkgs/by-name/uk/ukmm/package.nix:95",
 "unfree":false,
 "unsupported":false
 },
@@ -4435,7 +4464,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"undistract-me-unstable-2020-08-09",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/un/undistract-me/package.nix",
+"line":82
+},
+"name":"undistract-me-0-unstable-2020-08-09",
 "outputsToInstall":[
 "out"
 ],
@@ -4466,14 +4500,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"undistract-me-unstable-2020-08-09",
+"name":"undistract-me-0-unstable-2020-08-09",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"undistract-me-unstable",
+"pname":"undistract-me",
 "system":"x86_64-linux",
-"version":"2020-08-09"
+"version":"0-unstable-2020-08-09"
 },
 "virtualparadise":{
 "meta":{
@@ -4498,6 +4532,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/vi/virtualparadise/package.nix",
+"line":30
+},
 "name":"virtualparadise-0.4.9",
 "outputsToInstall":[
 "out"
@@ -4548,6 +4587,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/tools/graphics/vkbasalt/default.nix",
+"line":61
+},
 "name":"vkbasalt-0.3.2.10",
 "outputsToInstall":[
 "out"
@@ -4613,6 +4657,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/tools/audio/yabridge/default.nix",
+"line":170
+},
 "name":"yabridge-5.1.1",
 "outputsToInstall":[
 "out"
@@ -4620,7 +4669,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/tools/audio/yabridge/default.nix:165",
+"position":"./pkgs/tools/audio/yabridge/default.nix:166",
 "unfree":false,
 "unsupported":false
 },
@@ -4670,6 +4719,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/tools/audio/yabridgectl/default.nix",
+"line":44
+},
 "name":"yabridgectl-5.1.1",
 "outputsToInstall":[
 "out"
@@ -4677,7 +4731,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/tools/audio/yabridgectl/default.nix:44",
+"position":"./pkgs/tools/audio/yabridgectl/default.nix:40",
 "unfree":false,
 "unsupported":false
 },
@@ -4694,6 +4748,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/YARC-Official/YARG/releases/tag/v0.13.0",
 "description":"Free, open-source, plastic guitar game",
 "homepage":"https://yarg.in",
 "insecure":false,
@@ -4714,7 +4769,12 @@
 "name":"Kira Bruneau"
 }
 ],
-"name":"yarg-0.12.6",
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/by-name/ya/yarg/package.nix",
+"line":124
+},
+"name":"yarg-0.13.0",
 "outputsToInstall":[
 "out"
 ],
@@ -4731,14 +4791,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yarg-0.12.6",
+"name":"yarg-0.13.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"yarg",
 "system":"x86_64-linux",
-"version":"0.12.6"
+"version":"0.13.0"
 },
 "zynaddsubfx":{
 "meta":{
@@ -4765,6 +4825,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/applications/audio/zynaddsubfx/default.nix",
+"line":198
+},
 "name":"zynaddsubfx-3.0.6",
 "outputsToInstall":[
 "out"
@@ -4773,9 +4838,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -4848,7 +4911,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/applications/audio/zynaddsubfx/default.nix:200",
+"position":"./pkgs/applications/audio/zynaddsubfx/default.nix:190",
 "unfree":false,
 "unsupported":false
 },
@@ -4887,6 +4950,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/applications/audio/zynaddsubfx/default.nix",
+"line":198
+},
 "name":"zynaddsubfx-3.0.6",
 "outputsToInstall":[
 "out"
@@ -4895,9 +4963,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -4970,7 +5036,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/applications/audio/zynaddsubfx/default.nix:200",
+"position":"./pkgs/applications/audio/zynaddsubfx/default.nix:190",
 "unfree":false,
 "unsupported":false
 },
@@ -5009,6 +5075,11 @@
 "name":"Kira Bruneau"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/ym9q0wkhsw96jd0wv5c9bz84gkchdif3-source/pkgs/applications/audio/zynaddsubfx/default.nix",
+"line":198
+},
 "name":"zynaddsubfx-3.0.6",
 "outputsToInstall":[
 "out"
@@ -5017,9 +5088,7 @@
 "i686-cygwin",
 "x86_64-cygwin",
 "x86_64-darwin",
-"i686-darwin",
 "aarch64-darwin",
-"armv7a-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -5092,7 +5161,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/applications/audio/zynaddsubfx/default.nix:200",
+"position":"./pkgs/applications/audio/zynaddsubfx/default.nix:190",
 "unfree":false,
 "unsupported":false
 },
