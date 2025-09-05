@@ -12,26 +12,26 @@
   electron,
   libGL,
   makeDesktopItem,
-  nix-update-script,
+  writeScript,
 }:
 
 let
   l10n-anytype-ts = fetchFromGitHub {
     owner = "anyproto";
     repo = "l10n-anytype-ts";
-    rev = "069a72b69c1b93352ff3e4a047d4604249bf75aa";
-    hash = "sha256-IoEBNle1+IyxGl5GT83LgOmbkEO2mKEuKZNiiK2IR30=";
+    rev = "873b42df7320ebbbc80d7e2477914dac70363ef7";
+    hash = "sha256-Mr0KfXn9NO86QqgBhVjSs2przN/GtjuhJHJ9djo8Feg=";
   };
 in
 buildNpmPackage rec {
   pname = "anytype";
-  version = "0.44.0";
+  version = "0.49.2";
 
   src = fetchFromGitHub {
     owner = "anyproto";
     repo = "anytype-ts";
     tag = "v${version}";
-    hash = "sha256-a2ZnTEAFzzTb+lxtQkC6QLG5SP1+gDSjI9dqUNZWfCg=";
+    hash = "sha256-8+x2FmyR5x9Zrm3t71RSyxAKcJCvnR98+fqHXjBE7aU=";
   };
 
   patches = [
@@ -39,10 +39,10 @@ buildNpmPackage rec {
     ./fix-path-for-asar-unpack.patch
   ];
 
-  npmDepsHash = "sha256-DDVsrXgijYYOeCc1gIe2nVb+oL8v4Hqq80d7l5b6MR0=";
+  npmDepsHash = "sha256-fuNTSZl+4DG/YL34f/+bYK26ruRFAc1hyHVAm256LiE=";
 
-  # middleware: https://github.com/anyproto/anytype-ts/blob/v0.44.0/update-ci.sh
-  # langs: https://github.com/anyproto/anytype-ts/blob/v0.44.0/electron/hook/locale.js
+  # middleware: https://github.com/anyproto/anytype-ts/blob/v0.49.2/update-ci.sh
+  # langs: https://github.com/anyproto/anytype-ts/blob/v0.49.2/electron/hook/locale.js
   postUnpack = ''
     expected_middleware_version="v$(cat "$sourceRoot/middleware.version")"
     actual_middleware_version=${lib.escapeShellArg "v${lib.escapeShellArg anytype-heart.version}"}
@@ -118,17 +118,32 @@ buildNpmPackage rec {
     })
   ];
 
-  passthru.updateScript = nix-update-script {
-    extraArgs = [
-      "--version-regex"
-      ''^v(\d+\.\d+\.\d+)$''
-    ];
-  };
+  # Prefer gitUpdater over nix-update-script, since nix-update can
+  # only query the latest 10 releases and often doesn't include a
+  # single stable release.
+  passthru.updateScript = writeScript "update-anytype" ''
+    #!/usr/bin/env nix-shell
+    #!nix-shell -i bash -p common-updater-scripts coreutils curl jq
+
+    old_version=$(nix-instantiate --eval --strict --json -A anytype.version | jq --raw-output)
+    new_version=$(curl --silent "https://api.github.com/repos/anyproto/anytype-ts/releases" | jq --raw-output 'map(select((.prerelease == false) and (.tag_name | test("alpha|beta") | not))) | first | .tag_name')
+
+    if [ "$old_version" = "$new_version" ]; then
+      exit
+    fi
+
+    middleware_version=$(curl --silent "https://raw.githubusercontent.com/anyproto/anytype-ts/refs/tags/$new_version/middleware.version")
+    tantivy_go_version=$(curl --silent "https://raw.githubusercontent.com/anyproto/anytype-heart/refs/tags/v$middleware_version/go.mod" | grep github.com/anyproto/tantivy-go | cut --delimiter=' ' --fields=2)
+
+    update-source-version anytype "''${new_version//v}"
+    update-source-version anytype-heart "$middleware_version"
+    update-source-version tantivy-go "''${tantivy_go_version//v}"
+  '';
 
   meta = with lib; {
     description = "Official Anytype client";
     homepage = "https://anytype.io";
-    changelog = "https://community.anytype.io/c/news-announcements/release-notes";
+    changelog = "https://releases.any.org/desktop-${builtins.replaceStrings [ "." ] [ "" ] version}";
     license = licenses.unfree; # Any Source Available License 1.0
     maintainers = with maintainers; [ kira-bruneau ];
     platforms = platforms.linux;

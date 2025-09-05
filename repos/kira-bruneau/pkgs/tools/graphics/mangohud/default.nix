@@ -10,28 +10,42 @@
   gnused,
   xdg-utils,
   dbus,
+  libGL,
+  libX11,
   hwdata,
   mangohud32,
   addDriverRunpath,
   appstream,
   glslang,
-  mako,
+  python3Packages,
   meson,
   ninja,
   pkg-config,
   unzip,
-  libX11,
-  libXNVCtrl,
   wayland,
+  libXNVCtrl,
   nlohmann_json,
+  spdlog,
+  libxkbcommon,
   glew,
   glfw,
-  xorg,
-  gamescopeSupport ? true, # build mangoapp and mangohudctl
+  libXrandr,
+  x11Support ? true,
+  waylandSupport ? true,
+  nvidiaSupport ? true,
+  gamescopeSupport ? true,
+  mangoappSupport ? gamescopeSupport,
+  mangohudctlSupport ? gamescopeSupport,
   lowerBitnessSupport ? stdenv.hostPlatform.isx86_64, # Support 32 bit on 64bit
   nix-update-script,
-  libxkbcommon,
 }:
+
+assert lib.assertMsg (
+  x11Support || waylandSupport
+) "either x11Support or waylandSupport should be enabled";
+
+assert lib.assertMsg (nvidiaSupport -> x11Support) "nvidiaSupport requires x11Support";
+assert lib.assertMsg (mangoappSupport -> x11Support) "mangoappSupport requires x11Support";
 
 let
   # Derived from subprojects/imgui.wrap
@@ -64,21 +78,6 @@ let
     };
   };
 
-  # Derived from subprojects/spdlog.wrap
-  spdlog = rec {
-    version = "1.14.1";
-    src = fetchFromGitHub {
-      owner = "gabime";
-      repo = "spdlog";
-      tag = "v${version}";
-      hash = "sha256-F7khXbMilbh5b+eKnzcB0fPPWQqUHqAYPWJb83OnUKQ=";
-    };
-    patch = fetchurl {
-      url = "https://wrapdb.mesonbuild.com/v2/spdlog_${version}-1/get_patch";
-      hash = "sha256-roeOcyMw6hBI+Q1+EXxAwM0qb7iuVJLHlVgYzjqq3mw=";
-    };
-  };
-
   # Derived from subprojects/vulkan-headers.wrap
   vulkan-headers = rec {
     version = "1.2.158";
@@ -96,14 +95,14 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "mangohud";
-  version = "0.8.0";
+  version = "0.8.1";
 
   src = fetchFromGitHub {
     owner = "flightlessmango";
     repo = "MangoHud";
     tag = "v${finalAttrs.version}";
     fetchSubmodules = true;
-    hash = "sha256-yITiu+2l7PItAmL+6gX9p5Tvf/P8ovttGIo6kJAOqxs=";
+    hash = "sha256-FvPhnOvcYE8vVB5R+ZRmuZxrC9U4GA338V7VAuUlHCE=";
   };
 
   outputs = [
@@ -118,7 +117,6 @@ stdenv.mkDerivation (finalAttrs: {
       cd "$sourceRoot/subprojects"
       cp -R --no-preserve=mode,ownership ${imgui.src} imgui-${imgui.version}
       cp -R --no-preserve=mode,ownership ${implot.src} implot-${implot.version}
-      cp -R --no-preserve=mode,ownership ${spdlog.src} spdlog-${spdlog.version}
       cp -R --no-preserve=mode,ownership ${vulkan-headers.src} Vulkan-Headers-${vulkan-headers.version}
     )
   '';
@@ -141,6 +139,8 @@ stdenv.mkDerivation (finalAttrs: {
       ];
 
       libdbus = dbus.lib;
+      libGL = libGL;
+      libX11 = libX11;
       inherit hwdata;
     })
   ];
@@ -162,48 +162,46 @@ stdenv.mkDerivation (finalAttrs: {
       cd subprojects
       unzip ${imgui.patch}
       unzip ${implot.patch}
-      unzip ${spdlog.patch}
       unzip ${vulkan-headers.patch}
     )
   '';
 
-  mesonFlags =
-    [
-      "-Dwith_wayland=enabled"
-      "-Dtests=disabled" # amdgpu test segfaults in nix sandbox
-    ]
-    ++ lib.optionals gamescopeSupport [
-      "-Dmangoapp=true"
-      "-Dmangohudctl=true"
-    ];
+  mesonFlags = [
+    "-Duse_system_spdlog=enabled"
+    "-Dtests=disabled" # amdgpu test segfaults in nix sandbox
+    (lib.mesonEnable "with_x11" x11Support)
+    (lib.mesonEnable "with_wayland" waylandSupport)
+    (lib.mesonEnable "with_xnvctrl" nvidiaSupport)
+    (lib.mesonBool "mangoapp" mangoappSupport)
+    (lib.mesonBool "mangohudctl" mangohudctlSupport)
+  ];
+
+  strictDeps = true;
 
   nativeBuildInputs = [
     addDriverRunpath
     glslang
-    mako
+    python3Packages.mako
     meson
     ninja
     pkg-config
     unzip
-
-    # Only the headers are used from these packages
-    # The corresponding libraries are loaded at runtime from the app's runpath
-    libX11
-    libXNVCtrl
-    wayland
   ];
 
-  buildInputs =
-    [
-      dbus
-      nlohmann_json
-    ]
-    ++ lib.optionals gamescopeSupport [
-      glew
-      glfw
-      xorg.libXrandr
-      libxkbcommon
-    ];
+  buildInputs = [
+    dbus
+    nlohmann_json
+    spdlog
+  ]
+  ++ lib.optional waylandSupport wayland
+  ++ lib.optional x11Support libX11
+  ++ lib.optional nvidiaSupport libXNVCtrl
+  ++ lib.optional (x11Support || waylandSupport) libxkbcommon
+  ++ lib.optionals mangoappSupport [
+    glew
+    glfw
+    libXrandr
+  ];
 
   doCheck = true;
 
@@ -231,14 +229,14 @@ stdenv.mkDerivation (finalAttrs: {
     # layer under the same name.
     lib.optionalString (layerPlatform != null) ''
       substituteInPlace $out/share/vulkan/implicit_layer.d/MangoHud.${layerPlatform}.json \
-        --replace "VK_LAYER_MANGOHUD_overlay" "VK_LAYER_MANGOHUD_overlay_${toString stdenv.hostPlatform.parsed.cpu.bits}"
+        --replace-fail "VK_LAYER_MANGOHUD_overlay" "VK_LAYER_MANGOHUD_overlay_${toString stdenv.hostPlatform.parsed.cpu.bits}"
     ''
-    + ''
+    + lib.optionalString nvidiaSupport ''
       # Add OpenGL driver and libXNVCtrl paths to RUNPATH to support NVIDIA cards
       addDriverRunpath "$out/lib/mangohud/libMangoHud.so"
       patchelf --add-rpath ${libXNVCtrl}/lib "$out/lib/mangohud/libMangoHud.so"
     ''
-    + lib.optionalString gamescopeSupport ''
+    + lib.optionalString mangoappSupport ''
       addDriverRunpath "$out/bin/mangoapp"
     '';
 

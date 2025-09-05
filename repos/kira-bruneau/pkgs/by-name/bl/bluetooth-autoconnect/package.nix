@@ -1,6 +1,6 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   fetchFromGitHub,
   makeWrapper,
   wrapGAppsHook4,
@@ -8,7 +8,7 @@
   python3,
 }:
 
-stdenv.mkDerivation (finalAttrs: {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "bluetooth-autoconnect";
   version = "1.3";
   format = "other";
@@ -17,7 +17,7 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "jrouleau";
     repo = "bluetooth-autoconnect";
     tag = "v${finalAttrs.version}";
-    sha256 = "sha256-qfU7fNPNRQxIxxfKZkGAM6Wd3NMuNI+8DqeUW+LYRUw=";
+    hash = "sha256-qfU7fNPNRQxIxxfKZkGAM6Wd3NMuNI+8DqeUW+LYRUw=";
   };
 
   nativeBuildInputs = [

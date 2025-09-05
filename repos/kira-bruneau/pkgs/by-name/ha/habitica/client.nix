@@ -48,7 +48,7 @@ buildNpmPackage {
     ./add-implied-client-dependencies.patch
   ];
 
-  npmDepsHash = "sha256-yrklEY961tWNyDf/XgFNt/jxgiFyDJFQ6vdXjSv95Bc=";
+  npmDepsHash = "sha256-XxAyHALMTwm5NFFGM5ISDw73CnkOWKW58BEKy9OnHq0=";
 
   makeCacheWritable = true;
   npmFlags = [ "--legacy-peer-deps" ];
@@ -56,10 +56,10 @@ buildNpmPackage {
   strictDeps = true;
   nativeBuildInputs = [ jq ];
   preConfigure = ''
-    export NODE_PATH="$PWD/node_modules"
     (
       cd ../..
       chmod +w .
+      ln -s website/client/node_modules .
       echo ${lib.escapeShellArg (builtins.toJSON clientSettings)} \
         | jq -s '.[0] * .[1]' config.json.example - > config.json
     )

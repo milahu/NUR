@@ -26,11 +26,12 @@ let
     LOGGLY_CLIENT_TOKEN = "";
     LOGGLY_SUBDOMAIN = "";
     LOGGLY_TOKEN = "";
-  } // settings;
+  }
+  // settings;
 in
 buildNpmPackage rec {
   pname = "habitica";
-  version = "5.33.2";
+  version = "5.40.0";
 
   outputs = [
     "out"
@@ -42,16 +43,17 @@ buildNpmPackage rec {
     owner = "HabitRPG";
     repo = "habitica";
     tag = "v${version}";
-    hash = "sha256-V5XOU8l/sokB0ByliI+ppILL0ah4aBUtQynQlLRUaxM=";
+    hash = "sha256-WQPsgLuykAyOeC6TanZlmLw84rb1is1kKyGaJyjsQuA=";
   };
 
-  npmDepsHash = "sha256-q9WSf+SG/dBQ4wTLeayX9gYsJDXgOHgfAfcBIvi2wQU=";
+  npmDepsHash = "sha256-xwfHwn+/wqz3LdIkbmAvXP8T3ljs5QWzHCV/CbE27O4=";
 
   postPatch = ''
     sed -i /postinstall/d package.json
     sed -i /gulp-imagemin/d package.json
   '';
 
+  makeCacheWritable = true;
   npmFlags = [ "--legacy-peer-deps" ];
 
   nodejs = nodejs_20;

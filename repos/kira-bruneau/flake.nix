@@ -14,7 +14,10 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    nix-fast-build.url = "github:Mic92/nix-fast-build";
+    nix-fast-build = {
+      url = "github:Mic92/nix-fast-build";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -51,6 +54,13 @@
               ];
           };
 
+          # Prefer lix over nix
+          overlays = [
+            (final: prev: {
+              nix = final.lix;
+            })
+          ];
+
           inherit system;
         };
 
@@ -61,7 +71,6 @@
             path:
             (builtins.all (ignore: !(lib.hasSuffix ignore path)) [
               "gemset.nix"
-              "pkgs/applications/audio/zynaddsubfx/default.nix"
             ])
           ) (flake-linter-lib.walkFlake ./.)
         );
@@ -84,7 +93,7 @@
               };
             };
 
-            nixfmt-rfc-style.paths = paths.nix;
+            nixfmt.paths = paths.nix;
 
             prettier.paths = paths.markdown;
           };

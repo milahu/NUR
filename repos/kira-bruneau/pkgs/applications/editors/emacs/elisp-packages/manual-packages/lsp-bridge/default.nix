@@ -32,13 +32,13 @@ let
 in
 melpaBuild {
   pname = "lsp-bridge";
-  version = "0-unstable-2025-02-10";
+  version = "0-unstable-2025-08-30";
 
   src = fetchFromGitHub {
     owner = "manateelazycat";
     repo = "lsp-bridge";
-    rev = "4401d1396dce89d1fc5dc5414565818dd1c30ae0";
-    hash = "sha256-lWbFbYwJoy4UAezKUK7rnjQlDcnszHQwK5I7fuHfE8Y=";
+    rev = "310f0e26496cd1141f83bc99ccbec01a38076a0a";
+    hash = "sha256-PGn+4jUJmGvI2IIqosYxg9cWxjOuQVm5+D0JjV+Pg6M=";
   };
 
   patches = [
@@ -57,16 +57,15 @@ melpaBuild {
   checkInputs = [
     # Emacs packages
     tempel
+  ];
 
+  nativeCheckInputs = [
     # Executables
     basedpyright
     git
     go
     gopls
     python
-  ];
-
-  nativeCheckInputs = [
     writableTmpDirAsHomeHook
   ];
 

@@ -1,18 +1,18 @@
 {
   lib,
-  stdenv,
+  stdenvNoCC,
   fetchFromGitHub,
   nix-update-script,
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "home-assistant-waves-theme";
   version = "2.4.1";
 
   src = fetchFromGitHub {
     owner = "tgcowell";
     repo = "waves";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-JWMUf6WNBmFcV9HjdHLsmeLLm+5VqxcdxGDsmtpLnmM=";
   };
 
@@ -31,4 +31,4 @@ stdenv.mkDerivation rec {
     mainProgram = "home-assistant-waves-theme";
     platforms = lib.platforms.all;
   };
-}
+})
