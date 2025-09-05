@@ -2,7 +2,7 @@
 
 let
   inherit (builtins) any;
-  inherit (lib) findFirst versionAtLeast warnIfNot;
+  inherit (lib) findFirst hasSuffix versionAtLeast warnIfNot;
   inherit (pkgs) callPackage lib;
 
   # Dependency broken by NixOS/nixpkgs#431074
@@ -21,11 +21,11 @@ let
     };
   };
 
-  # Dependency broken by NixOS/nixpkgs#431074 pending NixOS/nixpkgs#437778
+  # Dependency broken by NixOS/nixpkgs#431074 pending NixOS/nixpkgs#438861
   brokenOpensearchPy = attrs: {
     meta = attrs.meta // {
       broken = pkgs.python3Packages.opensearch-py.version == "3.0.0"
-        && versionAtLeast (findFirst (p: p.pname or null == "pytest-asyncio") null pkgs.python3Packages.opensearch-py.nativeBuildInputs).version "1";
+        && ! (any (hasSuffix "remove-delete-event-loop-fixture.patch") pkgs.python3Packages.opensearch-py.patches);
     };
   };
 in

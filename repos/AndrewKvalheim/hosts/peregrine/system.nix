@@ -81,15 +81,15 @@ in
 
   # Filesystems
   # TODO: Set `chattr +i` on intermittent mount points
-  fileSystems = let base = { fsType = "nfs"; options = [ "noauto" "user" ]; }; in {
+  fileSystems = let base = { fsType = "nfs4"; options = [ "noauto" "nconnect=4" "noatime" "user" ]; }; in {
     "/home/ak/annex" = base // { device = "closet.home.arpa:/mnt/hdd/home-ak-annex"; };
     "/home/ak/services-hdd" = base // { device = "closet.home.arpa:/mnt/hdd/services"; };
     "/home/ak/services-ssd" = base // { device = "closet.home.arpa:/mnt/ssd/services"; };
   };
   security.wrappers = with pkgs; {
     # Workaround for NixOS/nixpkgs#24913, NixOS/nixpkgs#9848
-    "mount.nfs" = { source = getExe' nfs-utils "mount.nfs"; owner = "root"; group = "root"; setuid = true; };
-    "umount.nfs" = { source = getExe' nfs-utils "umount.nfs"; owner = "root"; group = "root"; setuid = true; };
+    "mount.nfs4" = { source = getExe' nfs-utils "mount.nfs4"; owner = "root"; group = "root"; setuid = true; };
+    "umount.nfs4" = { source = getExe' nfs-utils "umount.nfs4"; owner = "root"; group = "root"; setuid = true; };
   };
 
   # Networking

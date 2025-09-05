@@ -162,6 +162,11 @@ in
       };
 
       # Reference: https://github.com/jj-vcs/jj/blob/main/cli/src/config/templates.toml
+      templates = {
+        draft_commit_description = "concat(builtin_draft_commit_description, surround(\"JJ:\\n\", '', indent('JJ:     ', diff.git())))";
+      };
+
+      # Reference: https://github.com/jj-vcs/jj/blob/main/cli/src/config/templates.toml
       template-aliases = {
         description_placeholder = "label(\"description placeholder\", \"TODO\")";
         "format_short_signature(s)" = "coalesce(s.name(), s.email(), name_placeholder)";

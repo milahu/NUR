@@ -34,7 +34,7 @@ let
     export CCACHE_COMPRESS='1'
     export CCACHE_DIR='/var/cache/ccache'
     export CCACHE_FILECLONE='1'
-    export CCACHE_SLOPPINESS='random_seed' # NixOS/nixpkgs#109033
+    export CCACHE_SLOPPINESS='random_seed'
     export CCACHE_UMASK='007'
   '';
 
