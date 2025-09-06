@@ -75,12 +75,12 @@ error:
 
 … while calling 'availableOn'
 
-  at <nixpkgs> + /lib/meta.nix:291:15:
+  at <nixpkgs> + /lib/meta.nix:298:15:
 
-   290|   availableOn =
-   291|     platform: pkg:
+   297|   availableOn =
+   298|     platform: pkg:
       |               ^
-   292|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
+   299|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
 
 error: attribute 'platforms' missing
 
