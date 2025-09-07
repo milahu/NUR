@@ -1,9 +1,9 @@
-{ stable }:
+{ packages ? ./., stable }:
 
 let
   inherit (builtins) attrNames elemAt filter functionArgs isAttrs isPath length mapAttrs match pathExists removeAttrs toJSON tryEval;
   inherit (stable) callPackage fetchgit makeWrapper symlinkJoin;
-  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const escapeShellArg findFirst getAttrFromPath hasAttrByPath imap1 info mapAttrsToList optionalAttrs optionalString recurseIntoAttrs showAttrPath throwIf toList versionAtLeast;
+  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const escapeShellArg findFirst getAttrFromPath hasAttrByPath imap1 info mapAttrsToList optionalAttrs optionalString recurseIntoAttrs showAttrPath throwIf toList versionAtLeast versionOlder;
 
   # Utilities
   composeOverrides = f1: f2: a0: let o1 = f1 a0; o2 = f2 (a0 // o1); in o1 // o2;
@@ -15,6 +15,7 @@ let
   versionMeetsSpec = candidate: spec:
     let parts = match "^([^[:alnum:]]+)?(.+)$" spec; operator = elemAt parts 0; version = elemAt parts 1; in
     if operator == null then candidate == version
+    else if operator == "<" then versionOlder candidate version
     else if operator == "≥" then versionAtLeast candidate version
     else throw "version operator not implemented: ${toJSON operator}";
 
@@ -82,7 +83,7 @@ let
       # Package selection
       path = scope ++ [ pname ];
       fullName = showAttrPath path;
-      file = ./. + "/${fullName}.nix";
+      file = packages + "/${fullName}.nix";
       suffices = r:
         let p = getAttrFromPath path r; p' = if overlay == null then p else p.overrideAttrs overlay; in
         r != null

@@ -323,10 +323,13 @@ in
     h = "tig --all";
     hs = "home-manager switch";
     jc = "jj commit --interactive";
+    jd = "jj diff";
     jf = "jj git fetch";
-    jp = "jj git push --remote";
+    jp = "jj git push";
     jr = "jj restore --interactive";
+    js = "jj status";
     jt = "jj tug";
+    jtp = "jj tug && jj git push";
     n = "numbat";
     np = "nix-shell --packages";
     rebase = "git rebase --autostash --autosquash --interactive";
@@ -356,9 +359,9 @@ in
     um = bold.yellow; # size unit when M
     ug = bold.red; # size unit when G
     ut = bold.red; # size unit when ≥T
-    uu = black; # user when self
+    uu = dim.white; # user when self
     un = red; # user when other
-    gu = black; # group when member
+    gu = dim.white; # group when member
     gn = red; # group when other
     da = dim.italic.white; # date
     lp = dim.white; # symlink path

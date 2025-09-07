@@ -51,7 +51,6 @@ specify {
   iosevka-custom = any;
   iptables_exporter = any;
   jjui.version = "≥0.9"; # Compatibility with delta
-  joplin-desktop. overlay = j: { meta = j.meta // { broken = stable.lib.hasInfix "enable-wayland-ime=true" j.buildCommand; }; }; # Pending NixOS/nixpkgs#412126
   josm = { jre = resolved.graalvm-ce; extraJavaOpts = "--module-path=${resolved.graalvmCEPackages.graaljs}/modules"; }; # josm-scripting-plugin
   josm-imagery-used = any;
   jujutsu.version = "≥0.30"; # Compatibility with delta
@@ -100,7 +99,7 @@ specify {
   unln = any;
   vscode-extensions = namespaced {
     andrewkvalheim.monokai-achromatic-gray = any;
-    biomejs.biome = { version = "≥2025.3"; search = open-vsx; }; # biomejs/biome-vscode#511
+    biomejs.biome.version = "≥2025.3"; # biomejs/biome-vscode#511
     bpruitt-goddard.mermaid-markdown-syntax-highlighting.search = open-vsx;
     compilouit.xkb.search = open-vsx;
     csstools.postcss.search = open-vsx;
