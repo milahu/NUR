@@ -58,15 +58,11 @@
   };
   claude-code-router = {
     pname = "claude-code-router";
-    version = "174c9a740fe4129ce7ae4d1d1fbaf6d4a17867f6";
-    src = fetchFromGitHub {
-      owner = "musistudio";
-      repo = "claude-code-router";
-      rev = "174c9a740fe4129ce7ae4d1d1fbaf6d4a17867f6";
-      fetchSubmodules = false;
-      sha256 = "sha256-cIGH9iLxw6MQ00F94H4bezXLGvg+8nqWLQY33Jk0H7c=";
+    version = "1.0.47";
+    src = fetchTarball {
+      url = "https://github.com/musistudio/claude-code-router/archive/e6b3e2a1947083aaf4e16036734678b49d8420c5.tar.gz";
+      sha256 = "sha256-2eOu+xdUy+v8Qq0MFDuiGLPnt/Y/mCMleqLuJH2eEaQ=";
     };
-    date = "2025-07-17";
   };
   cmdlime = {
     pname = "cmdlime";
