@@ -1,23 +1,23 @@
 { packages ? ./., stable }:
 
 let
-  inherit (builtins) attrNames elemAt filter functionArgs isAttrs isPath length mapAttrs match pathExists removeAttrs toJSON tryEval;
+  inherit (builtins) attrNames elemAt filter functionArgs head isAttrs isPath length mapAttrs match pathExists removeAttrs toJSON tryEval;
   inherit (stable) callPackage fetchgit makeWrapper symlinkJoin;
-  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const escapeShellArg findFirst getAttrFromPath hasAttrByPath imap1 info mapAttrsToList optionalAttrs optionalString recurseIntoAttrs showAttrPath throwIf toList versionAtLeast versionOlder;
+  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const escapeShellArg findFirst getAttrFromPath hasAttrByPath imap1 info last mapAttrsToList naturalSort optionalAttrs optionalString recurseIntoAttrs showAttrPath throwIf toList versionAtLeast versionOlder;
 
   # Utilities
   composeOverrides = f1: f2: a0: let o1 = f1 a0; o2 = f2 (a0 // o1); in o1 // o2;
   isEmpty = v: length (if isAttrs v then attrNames v else v) == 0;
   isLocal = r: isPath r || r._name or null == "NUR packages";
-  isStable = r: isAttrs r && ! r ? "_name";
   mkRepo = name: path: (import path { inherit (stable) config; overlays = [ ]; }) // { _name = name; };
+  repoEq = a: b: repoName a == repoName b;
   repoName = r: if isPath r then toString r else r._name or "stable";
   versionMeetsSpec = candidate: spec:
     let parts = match "^([^[:alnum:]]+)?(.+)$" spec; operator = elemAt parts 0; version = elemAt parts 1; in
-    if operator == null then candidate == version
+    spec == null || spec == "∞" || (if operator == null then candidate == version
     else if operator == "<" then versionOlder candidate version
     else if operator == "≥" then versionAtLeast candidate version
-    else throw "version operator not implemented: ${toJSON operator}";
+    else throw "version operator not implemented: ${toJSON operator}");
 
   # Repositories
   nur = (import ../nur.nix { pkgs = stable; }) // { _name = "NUR packages"; };
@@ -84,6 +84,10 @@ let
       path = scope ++ [ pname ];
       fullName = showAttrPath path;
       file = packages + "/${fullName}.nix";
+      getVersion = r: if hasAttrByPath path r then (getAttrFromPath path r).version else null;
+      findGreatest = predicate: default: candidates:
+        let viable = filter predicate candidates; version = last (naturalSort (map getVersion viable)); in
+        findFirst (r: getVersion r == version) default viable;
       suffices = r:
         let p = getAttrFromPath path r; p' = if overlay == null then p else p.overrideAttrs overlay; in
         r != null
@@ -91,11 +95,12 @@ let
         && (release == null || versionMeetsSpec r.lib.trivial.release release)
         && (tryEval p).success
         && ! (p' ? meta && p'.meta.broken)
-        && (version == null || versionMeetsSpec p.version version)
+        && (versionMeetsSpec p.version version)
         && (condition == null || condition p);
       extra = if search == null then [ ] else imap1 (i: s: { _extra = i; _name = "search"; } // s) (toList search);
       repos = [ stable unstable unstable-small ] ++ extra ++ [ nur ];
-      repo = findFirst suffices file repos;
+      repo = (if version == "∞" then findGreatest else findFirst) suffices file repos;
+      preferredRepo = head repos;
       ccacheStdenv = repo.ccacheStdenv.override { extraConfig = ccacheConfig; };
       package =
         if isPath repo then
@@ -148,8 +153,8 @@ let
         (optionalString (package_with_overlay_with_override_with_wrapper ? version) " to ${package_with_overlay_with_override_with_wrapper.version}") +
         (optionalString (doOverlay || doOverride || doWrapper) " with override") +
         (optionalString (condition != null) " meeting condition") +
-        (optionalString (! isStable repo) " via ${repoName repo}");
-      unnecessary = isStable repo && !doOverlay && !doOverride && !doWrapper;
+        (optionalString (! repoEq repo preferredRepo) " via ${repoName repo}");
+      unnecessary = (repoEq repo preferredRepo) && !doOverlay && !doOverride && !doWrapper && version != "∞";
       unnecessaryFile = ! isLocal repo && pathExists file;
       unnecessarySearches = concatMapStringsSep ", " repoName (filter (r: r._extra > repo._extra or 0) extra);
     in
