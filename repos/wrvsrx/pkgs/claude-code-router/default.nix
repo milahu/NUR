@@ -7,46 +7,15 @@
   source,
 }:
 let
-  ui = stdenv.mkDerivation (finalAttrs: {
-    pname = source.pname + "-ui";
-    inherit (source) version src;
-
-    nativeBuildInputs = [
+  ui = import ./ui.nix {
+    inherit
+      stdenv
       nodejs
-      pnpm.configHook
-    ];
-
-    sourceRoot = "source/ui"; # Point to the ui subdirectory
-
-    pnpmDeps = pnpm.fetchDeps {
-      inherit (finalAttrs)
-        pname
-        version
-        src
-        sourceRoot
-        ;
-      hash = "sha256-D+rSbdikIqqZ3XfR25v5kD0HF+v09qafZYZibs/rdeA=";
-      fetcherVersion = 2;
-    };
-
-    buildPhase = ''
-      runHook preBuild
-
-      pnpm build
-
-      runHook postBuild
-    '';
-
-    installPhase = ''
-      runHook preInstall
-
-      install -m644 -D dist/index.html $out/index.html
-
-      runHook postInstall
-    '';
-  });
+      pnpm
+      source
+      ;
+  };
 in
-
 stdenv.mkDerivation (finalAttrs: {
   inherit (source) pname src version;
 
@@ -68,7 +37,6 @@ stdenv.mkDerivation (finalAttrs: {
     runHook preBuild
 
     pnpm build
-    cp ${ui}/index.html dist/
 
     runHook postBuild
   '';
@@ -80,6 +48,7 @@ stdenv.mkDerivation (finalAttrs: {
 
     # Copy built files
     cp -r dist $out/lib/node_modules/$pname/dist
+    ln -s ${ui}/index.html $out/lib/node_modules/$pname/dist/
     makeWrapper ${lib.getExe nodejs} $out/bin/ccr \
       --add-flags $out/lib/node_modules/$pname/dist/cli.js
 
