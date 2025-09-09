@@ -1,16 +1,16 @@
 {
 "name":"falconprogrammer",
-"fetch_time":0.699,
-"eval_time":0.27,
+"fetch_time":0.424,
+"eval_time":0.264,
 "source":{
 "url":"https://github.com/JonBoyleCoding/falconprogrammer-nur",
-"rev":"d7c3a54f1be2a579c85e7f7dd8d8469dc3c6ad59",
-"sha256":"17b688c8chizpbi4alkxbnin13ia2bbqm6h8ad2wm93ii0n7zh23",
+"rev":"7bf5ddc48bc581c402ac8804e6ee41970fa8ad77",
+"sha256":"1psby23n6nbblwpgzkdl92d8w6fapp5355w6vwd1ypg97c08i09n",
 "date":null
 },
-"source_storepath":"/nix/store/vigymppbpgjg7f0pyp1l4zz3w9l7mpm3-source",
-"nixpkgs_storepath":"/nix/store/3mbdnhn5mvg8kx73bkxyz66b65qz752v-source",
-"nur_combined_rev":"86f740abe8fe0b38be5e9547d1f9fbd6fb8f71aa",
+"source_storepath":"/nix/store/g9chjz3jff35dl1i958ivlk7almqcirx-source",
+"nixpkgs_storepath":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source",
+"nur_combined_rev":"0a785d3ad5853d9f4a19af6897f0037887d62923",
 "packages":{
 "alvr":{
 "meta":{
@@ -40,7 +40,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vigymppbpgjg7f0pyp1l4zz3w9l7mpm3-source/pkgs/alvr/default.nix",
+"file":"/nix/store/g9chjz3jff35dl1i958ivlk7almqcirx-source/pkgs/alvr/default.nix",
 "line":88
 },
 "name":"alvr-20.8.1",
@@ -94,7 +94,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vigymppbpgjg7f0pyp1l4zz3w9l7mpm3-source/pkgs/g13d/default.nix",
+"file":"/nix/store/g9chjz3jff35dl1i958ivlk7almqcirx-source/pkgs/g13d/default.nix",
 "line":46
 },
 "name":"g13-master-2024-12-30",
@@ -245,7 +245,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vigymppbpgjg7f0pyp1l4zz3w9l7mpm3-source/pkgs/gitignore-template/default.nix",
+"file":"/nix/store/g9chjz3jff35dl1i958ivlk7almqcirx-source/pkgs/gitignore-template/default.nix",
 "line":42
 },
 "name":"gitignore-template-1.2.4",
@@ -318,7 +318,7 @@
 "longDescription":"OpenCode is an AI coding agent built for the terminal.\n\nNIXOS COMPATIBILITY: OpenCode downloads TUI binaries at runtime that use\ngeneric Linux dynamic linkers (/lib64/ld-linux-x86-64.so.2) which don't\nexist on NixOS. This package includes automatic patching to fix the\ndynamic linker paths for NixOS compatibility.\n\nUSAGE OPTIONS:\n- Run 'opencode' - includes automatic NixOS patching\n- Or manually patch cache: $(nix-build -A opencode-sst)/share/opencode/patch-opencode-cache.sh\n\nThe package provides Node.js 22.18.0 to avoid downloading issues.\n",
 "mainProgram":"opencode",
 "maintainers":[],
-"name":"opencode-0.6.4",
+"name":"opencode-0.6.5",
 "outputsToInstall":[
 "out"
 ],
@@ -351,14 +351,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"opencode-0.6.4",
+"name":"opencode-0.6.5",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"opencode",
 "system":"x86_64-linux",
-"version":"0.6.4"
+"version":"0.6.5"
 },
 "python-jwt_311":{
 "meta":{
@@ -412,7 +412,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vigymppbpgjg7f0pyp1l4zz3w9l7mpm3-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/g9chjz3jff35dl1i958ivlk7almqcirx-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.11-python-jwt-4.0.0",
@@ -518,7 +518,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vigymppbpgjg7f0pyp1l4zz3w9l7mpm3-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/g9chjz3jff35dl1i958ivlk7almqcirx-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.12-python-jwt-4.0.0",
@@ -624,7 +624,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vigymppbpgjg7f0pyp1l4zz3w9l7mpm3-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/g9chjz3jff35dl1i958ivlk7almqcirx-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.13-python-jwt-4.0.0",
@@ -731,7 +731,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vigymppbpgjg7f0pyp1l4zz3w9l7mpm3-source/pkgs/timew-sync-client/default.nix",
+"file":"/nix/store/g9chjz3jff35dl1i958ivlk7almqcirx-source/pkgs/timew-sync-client/default.nix",
 "line":59
 },
 "name":"timew-sync-client-unstable-2023-10-25",
@@ -848,7 +848,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vigymppbpgjg7f0pyp1l4zz3w9l7mpm3-source/pkgs/xgen/default.nix",
+"file":"/nix/store/g9chjz3jff35dl1i958ivlk7almqcirx-source/pkgs/xgen/default.nix",
 "line":25
 },
 "name":"xgen-unstable-2023-07-02",

@@ -1,16 +1,16 @@
 {
 "name":"AndrewKvalheim",
-"fetch_time":2.452,
-"eval_time":0.284,
+"fetch_time":2.159,
+"eval_time":0.274,
 "source":{
 "url":"https://codeberg.org/AndrewKvalheim/configuration",
-"rev":"dcf3c2b08f0064924ca12caa9ef4f60d3ee8f210",
-"sha256":"1cd2ayqbjjbjsny7dfs7rxshbfxc5xvifj7rnd343wzsjm728kip",
+"rev":"7e81c3f54ef8688b9d1f0aaea2de358b0cf04b3e",
+"sha256":"0rircjz9bz0a9p4y04k6lsl7fn3wnrfkf00d29xyh4k1rvmxd8a0",
 "date":null
 },
-"source_storepath":"/nix/store/clms4p2g5npg2s98gm3k9hawx47gi31a-configuration",
+"source_storepath":"/nix/store/8h0gw0gnj04y442y3xq96hgqqggfwm0s-configuration",
 "nixpkgs_storepath":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source",
-"nur_combined_rev":"bd1e29f8d08ba514466af26eda9d590a9c5d03bf",
+"nur_combined_rev":"2260b1c1a55088b3e7f613bfb09cd8af57b0bd6a",
 "packages":{
 "apex":{
 "meta":{
@@ -63,7 +63,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./packages/apex.nix:17",
+"position":"./library/apex.pkg.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -126,7 +126,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./packages/blocky-ui.nix:33",
+"position":"./library/blocky-ui.pkg.nix:33",
 "unfree":true,
 "unsupported":false
 },
@@ -365,7 +365,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./packages/cavif.nix:30",
+"position":"./library/cavif.pkg.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -449,7 +449,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./packages/ch57x-keyboard-tool.nix:35",
+"position":"./library/ch57x-keyboard-tool.pkg.nix:35",
 "unfree":false,
 "unsupported":false
 },
@@ -514,7 +514,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./packages/co2monitor.nix:30",
+"position":"./library/co2monitor.pkg.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -569,7 +569,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/decompiler-mc.nix:39",
+"position":"./library/decompiler-mc.pkg.nix:39",
 "unfree":false,
 "unsupported":false
 },
@@ -670,7 +670,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./packages/dmarc-report-notifier.nix:35",
+"position":"./library/dmarc-report-notifier.pkg.nix:35",
 "unfree":false,
 "unsupported":false
 },
@@ -755,7 +755,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./packages/fastnbt-tools.nix:21",
+"position":"./library/fastnbt-tools.pkg.nix:21",
 "unfree":false,
 "unsupported":false
 },
@@ -856,7 +856,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./packages/fediblockhole.nix:27",
+"position":"./library/fediblockhole.pkg.nix:27",
 "unfree":false,
 "unsupported":false
 },
@@ -892,7 +892,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/git-diff-image.nix:68",
+"position":"./library/git-diff-image.pkg.nix:68",
 "unfree":false,
 "unsupported":false
 },
@@ -926,7 +926,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/gpx-reduce.nix:33",
+"position":"./library/gpx-reduce.pkg.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -1022,7 +1022,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./packages/iptables_exporter.nix:33",
+"position":"./library/iptables_exporter.pkg.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -1056,7 +1056,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/josm-imagery-used.nix:24",
+"position":"./library/josm-imagery-used.pkg.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -1141,7 +1141,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./packages/little-a-map.nix:37",
+"position":"./library/little-a-map.pkg.nix:37",
 "unfree":false,
 "unsupported":false
 },
@@ -1203,7 +1203,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./packages/mark-applier.nix:22",
+"position":"./library/mark-applier.pkg.nix:22",
 "unfree":false,
 "unsupported":false
 },
@@ -1262,7 +1262,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/minemap.nix:68",
+"position":"./library/minemap.pkg.nix:68",
 "unfree":false,
 "unsupported":false
 },
@@ -1363,7 +1363,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./packages/mqtt-connect.nix:87",
+"position":"./library/mqtt-connect.pkg.nix:87",
 "unfree":false,
 "unsupported":false
 },
@@ -1463,7 +1463,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./packages/mqtt-protobuf-to-json.nix:87",
+"position":"./library/mqtt-protobuf-to-json.pkg.nix:87",
 "unfree":true,
 "unsupported":false
 },
@@ -1499,7 +1499,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/nbt-explorer.nix:72",
+"position":"./library/nbt-explorer.pkg.nix:72",
 "unfree":false,
 "unsupported":false
 },
@@ -1584,7 +1584,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./packages/pngquant-interactive.nix:42",
+"position":"./library/pngquant-interactive.pkg.nix:42",
 "unfree":false,
 "unsupported":false
 },
@@ -1619,7 +1619,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/spf-check.nix:33",
+"position":"./library/spf-check.pkg.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -1683,7 +1683,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./packages/spf-tree.nix:25",
+"position":"./library/spf-tree.pkg.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -1768,7 +1768,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./packages/starship-jj.nix:25",
+"position":"./library/starship-jj.pkg.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -1802,7 +1802,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/tile-stitch.nix:35",
+"position":"./library/tile-stitch.pkg.nix:35",
 "unfree":false,
 "unsupported":false
 },
@@ -1886,7 +1886,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./packages/wireguard-vanity-address.nix:30",
+"position":"./library/wireguard-vanity-address.pkg.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -1920,7 +1920,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./packages/zsh-completion-sync.nix:28",
+"position":"./library/zsh-completion-sync.pkg.nix:28",
 "unfree":false,
 "unsupported":false
 },
