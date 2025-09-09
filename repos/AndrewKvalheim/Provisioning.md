@@ -57,13 +57,13 @@ Configuration structure:
 git clone 'git@gitlab.com:Andrew/configuration.git' "$HOME/src/configuration"
 ln -rs "$HOME/src/configuration/hosts/$HOST/system.nix" '/etc/nixos/configuration.nix'
 ln -rs "$HOME/src/configuration/hosts/$HOST/user.nix" "$HOME/.config/home-manager/home.nix"
-ln -rs "$HOME/src/configuration/common/packages.nix" "$HOME/.config/nixpkgs/overlays/packages.nix"
+ln -rs "$HOME/src/configuration/packages.nix" "$HOME/.config/nixpkgs/overlays/packages.nix"
 ```
 
 GnuPG initialization:
 
 ```bash
-gpg --import 'common/resources/andrew.asc'
+gpg --import 'library/assets/andrew.asc'
 gpg --card-status
 ```
 

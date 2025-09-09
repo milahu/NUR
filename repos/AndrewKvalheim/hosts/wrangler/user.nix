@@ -13,8 +13,8 @@ let
 in
 {
   imports = [
-    ../../common/user.nix
-    ./local/user.nix
+    ../../user.nix
+    ./user.local.nix
   ];
 
   # Nix
@@ -22,12 +22,11 @@ in
 
   # Host parameters
   host = {
-    background = "file://${./resources/background.jpg}";
     cores = 16;
+    dir = ./.;
     display_density = 2.0;
     display_width = 3840;
     firefox.profile = "f2y424q1.default";
-    local = ./local;
   };
 
   # Unfree packages
@@ -36,7 +35,7 @@ in
   ];
 
   # Display
-  xdg.dataFile."icc/ThinkPad-T14.icc".source = ./resources/ThinkPad-T14.icc;
+  xdg.dataFile."icc/ThinkPad-T14.icc".source = ./assets/ThinkPad-T14.icc;
 
   # Applications
   home.packages = with pkgs; [

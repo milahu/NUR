@@ -5,17 +5,16 @@ let
 in
 {
   imports = [
-    ../../common/system.nix
+    ../../system.nix
     <nixos-hardware/common/cpu/intel/alder-lake> # TODO: Contribute P8
     /etc/nixos/hardware-configuration.nix
-    ./local/system.nix
+    ./system.local.nix
   ];
 
   # Host parameters
   host = {
+    dir = ./.;
     name = "peregrine";
-    local = ./local;
-    resources = ./resources;
   };
 
   # Kernel

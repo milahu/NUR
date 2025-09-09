@@ -32,17 +32,17 @@ in
 # Published as nur.repos.AndrewKvalheim (https://nur.nix-community.org/repos/andrewkvalheim/)
 rec {
   hmModules = {
-    nixpkgs-issue-55674 = import ./packages/nixpkgs-issue-55674.nix;
-    xcompose = import ./packages/xcompose.nix;
+    nixpkgs-issue-55674 = import ./library/nixpkgs-issue-55674.user.nix;
+    xcompose = import ./library/xcompose.user.nix;
   };
 
   modules = {
-    nixpkgs-issue-55674 = import ./packages/nixpkgs-issue-55674.nix;
-    nixpkgs-issue-163080 = import ./packages/nixpkgs-issue-163080.nix;
+    nixpkgs-issue-55674 = import ./library/nixpkgs-issue-55674.system.nix;
+    nixpkgs-issue-163080 = import ./library/nixpkgs-issue-163080.system.nix;
   };
 
   lib = {
-    inherit (import ./common/resources/lib.nix { inherit (pkgs) lib; })
+    inherit (import ./library/utilities.lib.nix { inherit (pkgs) lib; })
       chebyshev
       chebyshevWithDomain
       contrastRatio
@@ -53,15 +53,15 @@ rec {
       sgr;
   };
 
-  apex = callPackage ./packages/apex.nix { };
-  blocky-ui = callPackage ./packages/blocky-ui.nix { };
-  buildJosmPlugin = callPackage ./packages/buildJosmPlugin.nix { };
-  busyserve = (callPackage ./packages/busyserve.nix { }).overridePythonAttrs brokenBusylight;
-  cavif = callPackage ./packages/cavif.nix { };
-  ch57x-keyboard-tool = callPackage ./packages/ch57x-keyboard-tool.nix { };
-  co2monitor = callPackage ./packages/co2monitor.nix { };
-  decompiler-mc = callPackage ./packages/decompiler-mc.nix { };
-  dmarc-report-notifier = (callPackage ./packages/dmarc-report-notifier.nix {
+  apex = callPackage ./library/apex.pkg.nix { };
+  blocky-ui = callPackage ./library/blocky-ui.pkg.nix { };
+  buildJosmPlugin = callPackage ./library/buildJosmPlugin.fn.nix { };
+  busyserve = (callPackage ./library/busyserve.pkg.nix { }).overridePythonAttrs brokenBusylight;
+  cavif = callPackage ./library/cavif.pkg.nix { };
+  ch57x-keyboard-tool = callPackage ./library/ch57x-keyboard-tool.pkg.nix { };
+  co2monitor = callPackage ./library/co2monitor.pkg.nix { };
+  decompiler-mc = callPackage ./library/decompiler-mc.pkg.nix { };
+  dmarc-report-notifier = (callPackage ./library/dmarc-report-notifier.pkg.nix {
     python3Packages = (pkgs.python3.override {
       packageOverrides = _: pythonPackages: {
         # Pending NixOS/nixpkgs#337081
@@ -70,24 +70,24 @@ rec {
       };
     }).pkgs;
   }).overrideAttrs brokenOpensearchPy;
-  fastnbt-tools = callPackage ./packages/fastnbt-tools.nix { };
-  fediblockhole = callPackage ./packages/fediblockhole.nix { };
-  git-diff-image = callPackage ./packages/git-diff-image.nix { };
-  gpx-reduce = callPackage ./packages/gpx-reduce.nix { };
-  iptables_exporter = callPackage ./packages/iptables_exporter.nix { };
-  josm-imagery-used = callPackage ./packages/josm-imagery-used.nix { inherit buildJosmPlugin; };
-  little-a-map = callPackage ./packages/little-a-map.nix { };
-  mark-applier = callPackage ./packages/mark-applier.nix { };
-  meshtastic-url = (callPackage ./packages/meshtastic-url.nix { }).overrideAttrs brokenMeshtastic;
-  minemap = callPackage ./packages/minemap.nix { };
-  mqtt-connect = (callPackage ./packages/mqtt-connect.nix { }).overrideAttrs brokenMeshtastic;
-  mqtt-protobuf-to-json = (callPackage ./packages/mqtt-protobuf-to-json.nix { }).overrideAttrs brokenMeshtastic;
-  nbt-explorer = callPackage ./packages/nbt-explorer.nix { };
-  pngquant-interactive = callPackage ./packages/pngquant-interactive.nix { };
-  spf-check = callPackage ./packages/spf-check.nix { };
-  spf-tree = callPackage ./packages/spf-tree.nix { };
-  starship-jj = callPackage ./packages/starship-jj.nix { };
-  tile-stitch = callPackage ./packages/tile-stitch.nix { };
-  wireguard-vanity-address = callPackage ./packages/wireguard-vanity-address.nix { };
-  zsh-completion-sync = callPackage ./packages/zsh-completion-sync.nix { };
+  fastnbt-tools = callPackage ./library/fastnbt-tools.pkg.nix { };
+  fediblockhole = callPackage ./library/fediblockhole.pkg.nix { };
+  git-diff-image = callPackage ./library/git-diff-image.pkg.nix { };
+  gpx-reduce = callPackage ./library/gpx-reduce.pkg.nix { };
+  iptables_exporter = callPackage ./library/iptables_exporter.pkg.nix { };
+  josm-imagery-used = callPackage ./library/josm-imagery-used.pkg.nix { inherit buildJosmPlugin; };
+  little-a-map = callPackage ./library/little-a-map.pkg.nix { };
+  mark-applier = callPackage ./library/mark-applier.pkg.nix { };
+  meshtastic-url = (callPackage ./library/meshtastic-url.pkg.nix { }).overrideAttrs brokenMeshtastic;
+  minemap = callPackage ./library/minemap.pkg.nix { };
+  mqtt-connect = (callPackage ./library/mqtt-connect.pkg.nix { }).overrideAttrs brokenMeshtastic;
+  mqtt-protobuf-to-json = (callPackage ./library/mqtt-protobuf-to-json.pkg.nix { }).overrideAttrs brokenMeshtastic;
+  nbt-explorer = callPackage ./library/nbt-explorer.pkg.nix { };
+  pngquant-interactive = callPackage ./library/pngquant-interactive.pkg.nix { };
+  spf-check = callPackage ./library/spf-check.pkg.nix { };
+  spf-tree = callPackage ./library/spf-tree.pkg.nix { };
+  starship-jj = callPackage ./library/starship-jj.pkg.nix { };
+  tile-stitch = callPackage ./library/tile-stitch.pkg.nix { };
+  wireguard-vanity-address = callPackage ./library/wireguard-vanity-address.pkg.nix { };
+  zsh-completion-sync = callPackage ./library/zsh-completion-sync.pkg.nix { };
 }

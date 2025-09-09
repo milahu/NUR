@@ -6,8 +6,8 @@ let
 in
 {
   imports = [
-    ../../common/user.nix
-    ./local/user.nix
+    ../../user.nix
+    ./user.local.nix
   ];
 
   # Nix
@@ -15,12 +15,11 @@ in
 
   # Host parameters
   host = {
-    background = "file://${./resources/background.jpg}";
     cores = 16;
+    dir = ./.;
     display_density = 1.75;
     display_width = 3840;
     firefox.profile = "ahrdm58c.default";
-    local = ./local;
   };
 
   # Unfree packages
@@ -29,7 +28,7 @@ in
   ];
 
   # Display
-  xdg.dataFile."icc/ThinkPad-P16s-OLED.icc".source = ./resources/ThinkPad-P16s-OLED.icc;
+  xdg.dataFile."icc/ThinkPad-P16s-OLED.icc".source = ./assets/ThinkPad-P16s-OLED.icc;
 
   # Modules
   programs.watson.enable = true;

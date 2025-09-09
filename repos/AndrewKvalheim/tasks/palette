@@ -6,5 +6,5 @@ nix-instantiate \
   --arg 'lib' '(import <nixpkgs> { }).lib' \
   --arg 'pkgs' 'import <nixpkgs> { }' \
   --attr 'report' \
-  'common/resources/palette.nix' \
+  'library/palette.lib.nix' \
 | jq --join-output '.' # Pending NixOS/nix#7654

@@ -2,17 +2,16 @@
 
 {
   imports = [
-    ../../common/system.nix
+    ../../system.nix
     <nixos-hardware/lenovo/thinkpad/t14/amd/gen2>
     /etc/nixos/hardware-configuration.nix
-    ./local/system.nix
+    ./system.local.nix
   ];
 
   # Host parameters
   host = {
+    dir = ./.;
     name = "wrangler";
-    local = ./local;
-    resources = ./resources;
   };
 
   # Hardware

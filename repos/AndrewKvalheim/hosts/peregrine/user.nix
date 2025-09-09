@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ../../common/user.nix
-    ./local/user.nix
+    ../../user.nix
+    ./user.local.nix
   ];
 
   # Nix
@@ -11,12 +11,11 @@
 
   # Host parameters
   host = {
-    background = "file://${./resources/background.jpg}";
     cores = 4;
+    dir = ./.;
     display_density = 1.0;
     display_width = 1280;
     firefox.profile = "gpihihlj.default";
-    local = ./local;
   };
 
   # Modules

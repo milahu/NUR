@@ -3,21 +3,20 @@
 let
   inherit (lib) getExe' throwIf versionAtLeast;
 
-  identity = import ../../common/resources/identity.nix;
+  identity = import ../../library/identity.lib.nix;
 in
 {
   imports = [
-    ../../common/system.nix
+    ../../system.nix
     <nixos-hardware/lenovo/thinkpad/p16s/amd/gen2>
     /etc/nixos/hardware-configuration.nix
-    ./local/system.nix
+    ./system.local.nix
   ];
 
   # Host parameters
   host = {
+    dir = ./.;
     name = "main";
-    local = ./local;
-    resources = ./resources;
   };
 
   # Workaround for drm/amd#3925, drm/amd#4141

@@ -6,7 +6,7 @@ root="$(readlink --canonicalize -- "$(dirname -- "$0")/..")"
 
 # Mock nixpkgs
 trap 'rm -f "$root/default.nix"' EXIT; cat > "$root/default.nix" << NIX
-{}: import <nixpkgs> { overlays = [ (import ./common/packages.nix) ]; }
+{}: import <nixpkgs> { overlays = [ (import ./packages.nix) ]; }
 NIX
 
 # Run update scripts
@@ -15,7 +15,7 @@ nix-shell "$nixpkgs/maintainers/scripts/update.nix" \
   --arg include-overlays "(import $root { }).overlays" \
   --arg keep-going 'true' \
   --arg predicate "(
-    let prefix = \"$root/packages/\"; prefixLen = builtins.stringLength prefix;
+    let prefix = \"$root/library/\"; prefixLen = builtins.stringLength prefix;
     in (_: p: p.meta ? position && (builtins.substring 0 prefixLen p.meta.position) == prefix)
   )"
 
