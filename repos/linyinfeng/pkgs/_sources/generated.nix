@@ -19,16 +19,16 @@
   };
   baibot = {
     pname = "baibot";
-    version = "v1.7.6";
+    version = "v1.8.0";
     src = fetchFromGitHub {
       owner = "etkecc";
       repo = "baibot";
-      rev = "v1.7.6";
+      rev = "v1.8.0";
       fetchSubmodules = false;
-      sha256 = "sha256-EdFTJBQmKdvOVvr0P6vf+UHtdQAamDeV1jVFOzcPDsY=";
+      sha256 = "sha256-SM/IxoKzg7dmqqYjbsnrC24TP2+KlJQqK5CqfwqD2nY=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./baibot-v1.7.6/Cargo.lock;
+      lockFile = ./baibot-v1.8.0/Cargo.lock;
       outputHashes = {
         "async-openai-0.28.1" = "sha256-5xrO2k5jA94cf3Ub0DGuAvKqDDXVk1Ro/naC5FG1AAw=";
         "anthropic-0.0.8" = "sha256-q21o2GB8nN0jGcRPgW/cujC+3gdgQg5mFJUJy2tipCA=";
@@ -115,13 +115,13 @@
   };
   linux-intel-lts = {
     pname = "linux-intel-lts";
-    version = "lts-v6.12.42-linux-250819T115223Z";
+    version = "lts-v6.12.44-linux-250903T022417Z";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "linux-intel-lts";
-      rev = "lts-v6.12.42-linux-250819T115223Z";
+      rev = "lts-v6.12.44-linux-250903T022417Z";
       fetchSubmodules = false;
-      sha256 = "sha256-Pg9kMopqAYCNyOOiCLBPDwTeGxZIiaqbDjFRj93XGEw=";
+      sha256 = "sha256-olgl7NTxR9lNnbKrWJfiS1wLPQPaXMnxBQQ9nyr/2AQ=";
     };
   };
   linux-intel-mainline-tracking = {
