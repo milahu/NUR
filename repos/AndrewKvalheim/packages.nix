@@ -23,6 +23,7 @@ specify {
   chromium.commandLineArgs = "--enable-features=WaylandTextInputV3"; # Pending https://crbug.com/40272818, NixOS/nixpkgs#394395
   co2monitor = any;
   decompiler-mc = any;
+  deskflow.version = "≥1.23"; # deskflow/deskflow#8864
   dmarc-report-converter = any;
   dmarc-report-notifier = any;
   email-hash = any;
@@ -35,7 +36,7 @@ specify {
   git-diff-image = any;
   git-diff-minecraft = any;
   git-remote = any;
-  gnome-shell = { patch = ./library/assets/gnome-shell_screenshot-location.patch; ccache = true; }; # Pending GNOME/gnome-shell#5370
+  gnome-shell = { patch = [ ./library/assets/gnome-shell_accent-color.patch ./library/assets/gnome-shell_screenshot-location.patch ]; ccache = true; }; # Pending GNOME/gnome-shell#5370
   gnomeExtensions.launcher.patch = [ ./library/assets/gnome-extension-launcher_icon.patch ./library/assets/gnome-extension-launcher_hide-settings.patch ];
   gopass-await = any;
   gopass-env = any;
@@ -88,7 +89,6 @@ specify {
   nix-preview = any;
   nom-wrappers = any;
   off = any;
-  ollama.patch = stable.fetchpatch2 { url = "https://github.com/ollama/ollama/pull/6282.patch"; hash = "sha256-4rshZbU/+kOO7DYQckSAkE7yGMJRtBVUdZPrS++K+S0="; }; # ollama/ollama#6282
   picard.overlay = p: { preFixup = p.preFixup + "\nmakeWrapperArgs+=(--prefix PATH : ${stable.lib.makeBinPath [ resolved.rsgain ]})"; }; # NixOS/nixpkgs#255222
   pngquant-interactive = any;
   signal-desktop.args = [ "--use-tray-icon" ];

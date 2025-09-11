@@ -101,8 +101,9 @@ in
 rec {
   ansi =
     let
-      base = listToAttrs (imap0 (i: n: nameValuePair n { off = "39"; on = toString (30 + i); }) ansiNames);
-      effect = off: on: mapAttrs (_: b: { off = "${off}${b.off}"; on = "${on};${b.on}"; }) base;
+      range = b: listToAttrs (imap0 (i: n: nameValuePair n { off = "39"; on = toString (b + i); }) ansiNames);
+      base = range 30 // { bright = range 90; };
+      effect = off: on: mapAttrsRecursiveCond (a: ! a ? off) (_: b: { off = "${off};${b.off}"; on = "${on};${b.on}"; }) base;
     in
     base // {
       bold = effect "22" "1";
@@ -118,7 +119,7 @@ rec {
 
   report = concatLines (mapAttrsToList
     (name: { ansi, css, hex, ... }:
-      "${sgr ansi.off ansi.on "██ ${name}"} ${ansiFormat.black "${css} ≈ ${hex}"}")
+      "${sgr ansi.off ansi.on "██ ${name}"} ${ansiFormat.bright.black "${css} ≈ ${hex}"}")
     flat
   );
 

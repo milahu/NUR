@@ -97,6 +97,7 @@ in
       cargo-msrv
       darktable
       dconf-editor
+      deskflow
       dig
       displaycal
       dive
@@ -161,6 +162,7 @@ in
       sqlitebrowser
       step-cli
       nodePackages.svgo
+      texlive.pkgs.albatross
       trash-cli
       uniscribe
       unln

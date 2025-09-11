@@ -42,7 +42,7 @@ in
     dconf.settings."org/gnome/mutter".experimental-features = [ "scale-monitor-framebuffer" ]; # Workaround for paperwm/PaperWM#938
 
     # Theme
-    dconf.settings."org/gnome/desktop/interface".accent-color = "orange"; # TODO: Match to palette.orange?
+    dconf.settings."org/gnome/desktop/interface".accent-color = "orange";
     dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
     dconf.settings."org/gnome/desktop/background".picture-uri = "file://${host.dir + /assets/background.jpg}";
     dconf.settings."org/gnome/desktop/background".picture-uri-dark = "file://${host.dir + /assets/background.jpg}";

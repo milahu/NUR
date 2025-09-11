@@ -4,6 +4,9 @@
 , versionCheckHook
 }:
 
+let
+  inherit (builtins) placeholder;
+in
 python3.pkgs.buildPythonApplication rec {
   pname = "fediblockhole";
   version = "0.4.6";
@@ -21,7 +24,8 @@ python3.pkgs.buildPythonApplication rec {
     toml
   ];
 
-  # TODO: versionCheckHook
+  nativeCheckInputs = [ versionCheckHook ]; # Pending nixos/nixpkgs#420531
+  versionCheckProgram = "${placeholder "out"}/bin/${meta.mainProgram}";
 
   meta = {
     description = "Tool for automatically syncing Mastodon admin domain blocks";

@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 let
-  inherit (lib) getExe' throwIf versionAtLeast;
+  inherit (lib) genAttrs getExe' throwIf versionAtLeast;
 
   identity = import ../../library/identity.lib.nix;
 in
@@ -69,7 +69,11 @@ in
   system.stateVersion = "22.05"; # Permanent
 
   # Filesystems
-  # TODO: Set `chattr +i` on intermittent mount points
+  systemd.tmpfiles.settings."10-mountpoints" =
+    genAttrs [ "/home/ak/annex" "/home/ak/services-hdd" "/home/ak/services-ssd" ] (_: {
+      d = { user = identity.username; group = identity.username; mode = "0000"; };
+      h = { argument = "+i"; };
+    });
   fileSystems = let base = { fsType = "nfs4"; options = [ "noauto" "nconnect=4" "noatime" "user" ]; }; in {
     "/home/ak/annex" = base // { device = "closet.home.arpa:/mnt/hdd/home-ak-annex"; };
     "/home/ak/services-hdd" = base // { device = "closet.home.arpa:/mnt/hdd/services"; };
@@ -113,6 +117,4 @@ in
 
   # LLM
   nixpkgs.config.rocmSupport = true;
-  services.ollama = { enable = true; rocmOverrideGfx = "11.0.2"; /* Pending support for gfx1103 */ };
-  systemd.services.ollama.serviceConfig.Nice = 5;
 }

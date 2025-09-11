@@ -16,6 +16,7 @@ find_change() {
 
 if [[ -d '.jj' ]]; then
   current_change="$(find_change '@')"
+  current_parent_change="$(find_change '@-')"
 
   reused_change="$(find_change "main+:: & description(exact:\"$message\n\")")"
   if [[ -n "$reused_change" ]]; then
@@ -36,7 +37,8 @@ if [[ -d '.jj' ]]; then
       jj --quiet squash
     fi
 
-    jj --quiet edit "$current_change"
+    # FIXME: May create new sibling
+    jj --quiet edit "$current_change" || jj --quiet new "$current_parent_change"
   fi
 else
   if [[ -n "$(git status --porcelain "$txt")" ]]; then

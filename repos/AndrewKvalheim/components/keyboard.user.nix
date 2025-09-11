@@ -144,6 +144,7 @@ in
     "✅" = "ye"; # white heavy check mark
     "🤷" = "shr"; # shrug
     "🙃" = "(:"; # upside-down face
+    "😬" = "gr"; # grimacing face
     "🙄" = "ey"; # face with rolling eyes
 
     # Snippets

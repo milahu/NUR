@@ -14,7 +14,7 @@ repo="${BASH_REMATCH[2]}"
 path="${3:-$repo}"
 
 case "$hostname" in
-  'codeberg.org'|'github.com'|'gist.github.com'|'gitlab.com')
+  'codeberg.org'|'github.com'|'gist.github.com'|'gitlab.'*)
     https="https://$hostname/$owner/$repo.git"
     ssh="git@$hostname:$owner/$repo.git"
     ;;
@@ -56,7 +56,7 @@ configure_requests() { local display="$1" ref="$2"
 case "$hostname" in
   'codeberg.org'|'github.com') configure_requests 'pull' 'pull';;
   'gist.github.com');;
-  'gitlab.com') configure_requests 'merge' 'merge-requests';;
+  'gitlab.'*) configure_requests 'merge' 'merge-requests';;
   'sr.ht');;
   *) echo "Warning: Merge request configuration unknown for [3m$hostname[23m" >&2;;
 esac

@@ -1,7 +1,9 @@
 { lib, pkgs, ... }:
 
 let
-  inherit (lib) getExe';
+  inherit (lib) genAttrs getExe';
+
+  identity = import ../../library/identity.lib.nix;
 in
 {
   imports = [
@@ -79,7 +81,11 @@ in
   system.stateVersion = "24.11"; # Permanent
 
   # Filesystems
-  # TODO: Set `chattr +i` on intermittent mount points
+  systemd.tmpfiles.settings."10-mountpoints" =
+    genAttrs [ "/home/ak/annex" "/home/ak/services-hdd" "/home/ak/services-ssd" ] (_: {
+      d = { user = identity.username; group = identity.username; mode = "0000"; };
+      h = { argument = "+i"; };
+    });
   fileSystems = let base = { fsType = "nfs4"; options = [ "noauto" "nconnect=4" "noatime" "user" ]; }; in {
     "/home/ak/annex" = base // { device = "closet.home.arpa:/mnt/hdd/home-ak-annex"; };
     "/home/ak/services-hdd" = base // { device = "closet.home.arpa:/mnt/hdd/services"; };

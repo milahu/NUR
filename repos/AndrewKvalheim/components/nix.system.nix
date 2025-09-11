@@ -55,7 +55,7 @@ in
     security.sudo.allowedCommands = [ "/run/current-system/sw/bin/nix-channel --update" ];
 
     # Validation
-    # TODO: systemd.enableStrictShellChecks = true;
+    systemd.enableStrictShellChecks = true;
 
     # Diff after rebuild (pending NixOS/nixpkgs#208902)
     system.activationScripts.diff = ''
