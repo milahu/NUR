@@ -407,6 +407,21 @@
         platforms = platforms.all;
       };
     };
+    "are-na" = buildFirefoxXpiAddon {
+      pname = "are-na";
+      version = "2.12.0";
+      addonId = "{4245110a-2f3e-4f78-8303-10cae12384cc}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4574392/are_na-2.12.0.xpi";
+      sha256 = "a3575ac6500799fbc074e1609c44be95840cbaa9d471c8cce735dbe483d94566";
+      meta = with lib;
+      {
+        homepage = "https://www.are.na";
+        description = "Assemble and connect information.";
+        license = licenses.mit;
+        mozPermissions = [ "activeTab" "contextMenus" "storage" "<all_urls>" ];
+        platforms = platforms.all;
+      };
+    };
     "aria2-integration" = buildFirefoxXpiAddon {
       pname = "aria2-integration";
       version = "0.4.5";
@@ -1237,6 +1252,27 @@
           "menus"
           "menus.overrideContext"
           "theme"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "bookmarkhub" = buildFirefoxXpiAddon {
+      pname = "bookmarkhub";
+      version = "0.0.4";
+      addonId = "{9c37f9a3-ea04-4a2b-9fcc-c7a814c14311}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3815080/bookmarkhub-0.0.4.xpi";
+      sha256 = "15132a6223fd79141b65bb41e8289946ef36eb26cb1cb2cdfa6aadb54cb1e3ae";
+      meta = with lib;
+      {
+        homepage = "https://www.github.com/dudor/BookmarkHub";
+        description = "BookmarkHub,sync bookmarks across different browsers";
+        license = licenses.gpl3;
+        mozPermissions = [
+          "bookmarks"
+          "storage"
+          "notifications"
+          "https://*.github.com/"
+          "https://*.githubusercontent.com/"
         ];
         platforms = platforms.all;
       };
@@ -9620,10 +9656,10 @@
     };
     "privacy-badger" = buildFirefoxXpiAddon {
       pname = "privacy-badger";
-      version = "2025.5.30";
+      version = "2025.9.2";
       addonId = "jid1-MnnxcxisBPnSXQ@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4504218/privacy_badger17-2025.5.30.xpi";
-      sha256 = "d8cc7a2c1f5afa53b32f56be33167acafe45561ad7acc50c4aadb5ce35fe2389";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4570378/privacy_badger17-2025.9.2.xpi";
+      sha256 = "a7bcc6a8138373cc3721089baee846df228ca7ca9ca87e10b946c20811bd2d0f";
       meta = with lib;
       {
         homepage = "https://privacybadger.org/";
@@ -10533,10 +10569,10 @@
     };
     "raindropio" = buildFirefoxXpiAddon {
       pname = "raindropio";
-      version = "6.6.90";
+      version = "6.6.91";
       addonId = "jid0-adyhmvsP91nUO8pRv0Mn2VKeB84@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4552760/raindropio-6.6.90.xpi";
-      sha256 = "8db6313bf7de09b2740c3e6968bdbef94eddb61edc7c9820b39ad63109bea783";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4570192/raindropio-6.6.91.xpi";
+      sha256 = "643aa5fff66f0c41e648003127f44253b6eadf997d2632fb76ad390d2eaed1e4";
       meta = with lib;
       {
         homepage = "https://raindrop.io";
@@ -11191,10 +11227,10 @@
     };
     "ruffle_rs" = buildFirefoxXpiAddon {
       pname = "ruffle_rs";
-      version = "0.2.0.25240";
+      version = "0.2.0.25247";
       addonId = "{b5501fd1-7084-45c5-9aa6-567c2fcf5dc6}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4566450/ruffle_rs-0.2.0.25240.xpi";
-      sha256 = "312b43115e84567db91dd8a64188dafb04cfad50a81c9dd692ed0b7d87331ff4";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4571467/ruffle_rs-0.2.0.25247.xpi";
+      sha256 = "b26fd72cb16ba72b23f739358cec42f5c2a3ee43b084056a08749ddd0691512b";
       meta = with lib;
       {
         homepage = "https://ruffle.rs/";
@@ -12115,10 +12151,10 @@
     };
     "steam-database" = buildFirefoxXpiAddon {
       pname = "steam-database";
-      version = "4.25";
+      version = "4.26";
       addonId = "firefox-extension@steamdb.info";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4565027/steam_database-4.25.xpi";
-      sha256 = "080c052270b943b540ffc85500e460b04c5d2ecf06d5b2981319b309c1859b76";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4570408/steam_database-4.26.xpi";
+      sha256 = "6c5db80427522e5fae18ceb76f3039a8c6392eb3d6ecb1d69ee8545620dc8364";
       meta = with lib;
       {
         homepage = "https://steamdb.info/";
@@ -12799,10 +12835,10 @@
     };
     "toggl-button-time-tracker" = buildFirefoxXpiAddon {
       pname = "toggl-button-time-tracker";
-      version = "4.7.5";
+      version = "4.11.3";
       addonId = "toggl-button@toggl.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4439668/toggl_button_time_tracker-4.7.5.xpi";
-      sha256 = "ccb6f267902607149095b45f41b4e3e221300e0cccd8d686a1cf4cf04e999b8c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4570034/toggl_button_time_tracker-4.11.3.xpi";
+      sha256 = "946c838d71d91dfe3a5f2f5ce21cee991b2656df908ad0c49e1bc9d11a76dd02";
       meta = with lib;
       {
         homepage = "https://toggl.com/track/";
