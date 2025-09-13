@@ -1,16 +1,16 @@
 {
 "name":"AndrewKvalheim",
-"fetch_time":3.312,
-"eval_time":0.29,
+"fetch_time":2.779,
+"eval_time":0.28,
 "source":{
 "url":"https://codeberg.org/AndrewKvalheim/configuration",
-"rev":"07c7fc36e084c0c1564c3be6f4c0c2331aa9a61c",
-"sha256":"0gnjn7xql5gc27cz82zmz4cccsdwdbf6vfj9i8qp962cwgzy6ism",
+"rev":"c2a97be67d12446b830565c329fb515a7aa35089",
+"sha256":"083l66cqy44164dxvr30rs1m036h6i47lqcjhy1fzpar6rk72f5l",
 "date":null
 },
-"source_storepath":"/nix/store/9fxh18l6724aippzl5l60xhr6x52s6dz-configuration",
-"nixpkgs_storepath":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source",
-"nur_combined_rev":"de058cff8165bd1a816660897d46b609969d8858",
+"source_storepath":"/nix/store/5bzqvg8j1bi00gf92zqmsz74bd4siyz6-configuration",
+"nixpkgs_storepath":"/nix/store/1zi2fb5jgncsnnmpnq6kyg498jia4hf3-source",
+"nur_combined_rev":"513f72a949c332433c22650f0471a416f01ae16e",
 "packages":{
 "apex":{
 "meta":{
@@ -50,6 +50,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -113,6 +114,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -162,6 +164,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -230,6 +233,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -278,7 +282,7 @@
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
+"file":"/nix/store/1zi2fb5jgncsnnmpnq6kyg498jia4hf3-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
 "line":72
 },
 "unfree":false,
@@ -337,6 +341,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -421,6 +426,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -501,6 +507,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -604,6 +611,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -652,6 +660,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -727,6 +736,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -790,6 +800,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -838,6 +849,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -994,6 +1006,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -1113,6 +1126,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -1190,6 +1204,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -1218,8 +1233,8 @@
 },
 "meshtastic-url":{
 "meta":{
-"available":false,
-"broken":true,
+"available":true,
+"broken":false,
 "insecure":false,
 "mainProgram":"meshtastic-url",
 "maintainers":[],
@@ -1277,8 +1292,8 @@
 },
 "mqtt-connect":{
 "meta":{
-"available":false,
-"broken":true,
+"available":true,
+"broken":false,
 "description":"GUI for mocking a Meshtastic node via MQTT",
 "homepage":"https://github.com/pdxlocations/MQTT-Connect-for-Meshtastic",
 "insecure":false,
@@ -1297,6 +1312,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -1345,6 +1361,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -1380,7 +1397,7 @@
 "mqtt-protobuf-to-json":{
 "meta":{
 "available":false,
-"broken":true,
+"broken":false,
 "description":"Relay Meshtastic packets from an MQTT protobuf topic to an MQTT JSON topic",
 "homepage":"https://github.com/pdxlocations/mqtt-protobuf-to-json",
 "insecure":false,
@@ -1399,6 +1416,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -1445,6 +1463,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -1556,6 +1575,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -1670,6 +1690,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -1740,6 +1761,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -1768,7 +1790,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./library/starship-jj.pkg.nix:25",
+"position":"./library/starship-jj.pkg.nix:27",
 "unfree":false,
 "unsupported":false
 },
@@ -1858,6 +1880,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -1916,7 +1939,7 @@
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "maintainers":[],
-"name":"zsh-completion-sync-0.3.1",
+"name":"zsh-completion-sync-0.3.2",
 "outputsToInstall":[
 "out"
 ],
@@ -1924,14 +1947,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zsh-completion-sync-0.3.1",
+"name":"zsh-completion-sync-0.3.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zsh-completion-sync",
 "system":"x86_64-linux",
-"version":"0.3.1"
+"version":"0.3.2"
 }
 }
 }

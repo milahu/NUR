@@ -1,16 +1,16 @@
 {
 "name":"cryolitia",
-"fetch_time":0.433,
-"eval_time":0.239,
+"fetch_time":0.658,
+"eval_time":0.23,
 "source":{
 "url":"https://github.com/Cryolitia/nur-packages",
-"rev":"8d1c64c15053ad0161aa06cb318e1759d0dc6178",
-"sha256":"092ivln7s6xl58gzxhvayn07ypcmjm94dsia8lxzq172qpfzr1m3",
+"rev":"571fe2215f50f8dfe4b3c90cbb0acc3a60666499",
+"sha256":"0308q26yg69b52w3i42qwmsid544vg5d5vj1l7v3jjq25qnrilw8",
 "date":null
 },
-"source_storepath":"/nix/store/1d7mk9h7fq5biq5g1ni73wm5inl7yvpm-source",
-"nixpkgs_storepath":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source",
-"nur_combined_rev":"accbb4205cd2d433417489919de749305a2f8843",
+"source_storepath":"/nix/store/0v9jzzmdymsyszj7ffjbcls7xwm12max-source",
+"nixpkgs_storepath":"/nix/store/1zi2fb5jgncsnnmpnq6kyg498jia4hf3-source",
+"nur_combined_rev":"9166a0e5c9012cd119df200528caeb43df9dbbf4",
 "packages":{
 "cn-font-split":{
 "meta":{
@@ -56,7 +56,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/1d7mk9h7fq5biq5g1ni73wm5inl7yvpm-source/pkgs/by-name/cn-font-split/package.nix",
+"file":"/nix/store/0v9jzzmdymsyszj7ffjbcls7xwm12max-source/pkgs/by-name/cn-font-split/package.nix",
 "line":40
 },
 "name":"cn-font-split-7.6.6",
@@ -74,6 +74,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -144,7 +145,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/1d7mk9h7fq5biq5g1ni73wm5inl7yvpm-source/pkgs/by-name/get-lrc/package.nix",
+"file":"/nix/store/0v9jzzmdymsyszj7ffjbcls7xwm12max-source/pkgs/by-name/get-lrc/package.nix",
 "line":24
 },
 "name":"get-lrc-0.02",
@@ -168,6 +169,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -225,7 +227,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source/pkgs/by-name/ma/maa-assistant-arknights/package.nix",
+"file":"/nix/store/1zi2fb5jgncsnnmpnq6kyg498jia4hf3-source/pkgs/by-name/ma/maa-assistant-arknights/package.nix",
 "line":84
 },
 "name":"maa-assistant-arknights-5.24.2",
@@ -247,6 +249,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -322,10 +325,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source/pkgs/by-name/ma/maa-cli/package.nix",
+"file":"/nix/store/1zi2fb5jgncsnnmpnq6kyg498jia4hf3-source/pkgs/by-name/ma/maa-cli/package.nix",
 "line":73
 },
-"name":"maa-cli-0.5.7",
+"name":"maa-cli-0.5.8",
 "outputsToInstall":[
 "out"
 ],
@@ -337,6 +340,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -396,7 +400,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/1d7mk9h7fq5biq5g1ni73wm5inl7yvpm-source/pkgs/maa-assistant-arknights/maa-x.nix",
+"file":"/nix/store/0v9jzzmdymsyszj7ffjbcls7xwm12max-source/pkgs/maa-assistant-arknights/maa-x.nix",
 "line":74
 },
 "name":"maa-x-2.0.0-beta.14",
@@ -418,6 +422,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -481,7 +486,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/1d7mk9h7fq5biq5g1ni73wm5inl7yvpm-source/pkgs/by-name/mdbook-typst-pdf/package.nix",
+"file":"/nix/store/0v9jzzmdymsyszj7ffjbcls7xwm12max-source/pkgs/by-name/mdbook-typst-pdf/package.nix",
 "line":44
 },
 "name":"mdbook-typst-pdf-0.6.3",
@@ -499,6 +504,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -580,7 +586,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source/pkgs/by-name/on/onnxruntime/package.nix",
+"file":"/nix/store/1zi2fb5jgncsnnmpnq6kyg498jia4hf3-source/pkgs/by-name/on/onnxruntime/package.nix",
 "line":293
 },
 "name":"onnxruntime-1.22.0",
@@ -635,7 +641,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/1d7mk9h7fq5biq5g1ni73wm5inl7yvpm-source/pkgs/by-name/pdf2htmlex/package.nix",
+"file":"/nix/store/0v9jzzmdymsyszj7ffjbcls7xwm12max-source/pkgs/by-name/pdf2htmlex/package.nix",
 "line":101
 },
 "name":"pdf2htmlex-0.18.8.rc1",
@@ -657,6 +663,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -711,7 +718,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/1d7mk9h7fq5biq5g1ni73wm5inl7yvpm-source/pkgs/by-name/rime-latex/package.nix",
+"file":"/nix/store/0v9jzzmdymsyszj7ffjbcls7xwm12max-source/pkgs/by-name/rime-latex/package.nix",
 "line":27
 },
 "name":"rime-latex-unstable-20230703",
@@ -753,7 +760,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/1d7mk9h7fq5biq5g1ni73wm5inl7yvpm-source/pkgs/by-name/rime-project-trans/package.nix",
+"file":"/nix/store/0v9jzzmdymsyszj7ffjbcls7xwm12max-source/pkgs/by-name/rime-project-trans/package.nix",
 "line":35
 },
 "name":"rime-project-trans-unstable-20231115",
@@ -805,7 +812,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/1d7mk9h7fq5biq5g1ni73wm5inl7yvpm-source/pkgs/by-name/vscode-vtuber/package.nix",
+"file":"/nix/store/0v9jzzmdymsyszj7ffjbcls7xwm12max-source/pkgs/by-name/vscode-vtuber/package.nix",
 "line":26
 },
 "name":"vscode-1.103.2",
