@@ -37,12 +37,12 @@ error:
 
 … while calling 'filterAttrs'
 
-  at <nixpkgs> + /lib/attrsets.nix:667:23:
+  at <nixpkgs> + /lib/attrsets.nix:668:23:
 
-   666|   */
-   667|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+   667|   */
+   668|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
       |                       ^
-   668|
+   669|
 
 … from call site
 

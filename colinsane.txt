@@ -3,57 +3,57 @@ error:
 
 … in the left operand of the AND (&&) operator
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:645:9:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:646:9:
 
-   644|         validity.valid != "no"
-   645|         && (
+   645|         validity.valid != "no"
+   646|         && (
       |         ^
-   646|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
+   647|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:822:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:823:18:
 
-   821|       };
-   822|       validity = checkMeta.assertValidity { inherit meta attrs; };
+   822|       };
+   823|       validity = checkMeta.assertValidity { inherit meta attrs; };
       |                  ^
-   823|
+   824|
 
 … while calling 'assertValidity'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:651:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:652:5:
 
-   650|   assertValidity =
-   651|     { meta, attrs }:
+   651|   assertValidity =
+   652|     { meta, attrs }:
       |     ^
-   652|     let
+   653|     let
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:653:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:654:18:
 
-   652|     let
-   653|       validity = checkValidity attrs;
+   653|     let
+   654|       validity = checkValidity attrs;
       |                  ^
-   654|       inherit (validity) valid;
+   655|       inherit (validity) valid;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:491:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:492:5:
 
-   490|     in
-   491|     attrs:
+   491|     in
+   492|     attrs:
       |     ^
-   492|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+   493|     # Check meta attribute types first, to make sure it is always called even when there are other issues
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:537:40:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:538:40:
 
-   536|       }
-   537|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
+   537|       }
+   538|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
       |                                        ^
-   538|       let
+   539|       let
 
 … while calling 'hasUnsupportedPlatform'
 
