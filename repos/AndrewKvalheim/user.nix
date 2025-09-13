@@ -4,7 +4,7 @@ let
   inherit (lib) mkOption;
   inherit (lib.types) attrsOf bool commas float int nullOr oneOf path str submodule;
 
-  identity = import ./library/identity.lib.nix;
+  identity = import ./library/identity.lib.nix { inherit lib; };
 in
 {
   # Workaround for https://github.com/nix-community/home-manager/issues/2333#issuecomment-1242564101

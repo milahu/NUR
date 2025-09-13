@@ -5,7 +5,7 @@ let
   inherit (lib) mkOption;
   inherit (lib.types) str;
 
-  identity = import ../library/identity.lib.nix;
+  identity = import ../library/identity.lib.nix { inherit lib; };
 in
 {
   options.host.name = mkOption { type = str; };

@@ -5,7 +5,7 @@ let
   inherit (lib) getExe getExe' mkForce nameValuePair range;
   inherit (pkgs.writers) writeTOML;
 
-  identity = import ../library/identity.lib.nix;
+  identity = import ../library/identity.lib.nix { inherit lib; };
   palette = import ../library/palette.lib.nix { inherit lib pkgs; };
 in
 {
@@ -35,6 +35,7 @@ in
     };
 
     attributes = [
+      "* merge=mergiraf"
       "*.gif diff=image"
       "*.jpg diff=image"
       "*.png diff=image"
@@ -99,7 +100,7 @@ in
       fetch.pruneTags = true;
       init.defaultBranch = "main";
       merge.commit = false;
-      merge.conflictStyle = "zdiff3";
+      merge.conflictStyle = "diff3";
       merge.tool = "code";
       push.followTags = true;
       rebase.autoSquash = true;
@@ -175,6 +176,7 @@ in
 
       ui = {
         diff-formatter = "delta";
+        editor = getExe pkgs.jj-dynamic-default-description;
         pager = "less --no-init --quit-if-one-screen --RAW-CONTROL-CHARS"; # Override PAGER with Jujutsu default
       };
 
@@ -256,6 +258,8 @@ in
       ];
     };
   };
+
+  programs.mergiraf.enable = true;
 
   # Reference: https://github.com/idursun/jjui/blob/main/internal/config/default/config.toml
   xdg.configFile."jjui/config.toml".source = writeTOML "jjui-config" {

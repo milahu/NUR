@@ -3,7 +3,7 @@
 let
   inherit (lib) genAttrs getExe';
 
-  identity = import ../../library/identity.lib.nix;
+  identity = import ../../library/identity.lib.nix { inherit lib; };
 in
 {
   imports = [

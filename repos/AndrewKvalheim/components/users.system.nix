@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   inherit (builtins) readFile;
 
-  identity = import ../library/identity.lib.nix;
+  identity = import ../library/identity.lib.nix { inherit lib; };
   nur = import ../nur.nix { inherit pkgs; };
 in
 {

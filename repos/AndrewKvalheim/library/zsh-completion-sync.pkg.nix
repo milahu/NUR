@@ -6,13 +6,13 @@
 
 stdenv.mkDerivation (zsh-completion-sync: {
   pname = "zsh-completion-sync";
-  version = "0.3.1";
+  version = "0.3.2";
 
   src = fetchFromGitHub {
     owner = "BronzeDeer";
     repo = "zsh-completion-sync";
     rev = "v${zsh-completion-sync.version}";
-    hash = "sha256-XhZ7l8e2H1+W1oUkDrr8pQVPVbb3+1/wuu7MgXsTs+8=";
+    hash = "sha256-nTxeSUlYdl25MFZoLtpYTYq661iaik1RMj21ClOMY3c=";
   };
 
   dontBuild = true;

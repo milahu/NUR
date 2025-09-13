@@ -51,6 +51,7 @@ specify {
   iosevka-custom = any;
   iptables_exporter = any;
   jjui.version = "≥0.9"; # Compatibility with delta
+  jj-dynamic-default-description = any;
   joplin-desktop.overlay = j: { meta = j.meta // { broken = j ? buildCommand && stable.lib.hasInfix "enable-wayland-ime=true" j.buildCommand; }; }; # Pending NixOS/nixpkgs#412126
   josm = { jre = resolved.graalvm-ce; extraJavaOpts = "--module-path=${resolved.graalvmCEPackages.graaljs}/modules"; }; # josm-scripting-plugin
   josm-imagery-used = any;

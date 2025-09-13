@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
-  identity = import ../library/identity.lib.nix;
+  identity = import ../library/identity.lib.nix { inherit lib; };
 in
 {
   allowedUnfree = [ "brgenml1lpr" ];

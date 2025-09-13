@@ -3,6 +3,7 @@
 set -Eeu
 
 root="$(readlink --canonicalize -- "$(dirname -- "$0")/..")"
+pname="${1:-}"
 
 # Mock nixpkgs
 trap 'rm -f "$root/default.nix"' EXIT; cat > "$root/default.nix" << NIX
@@ -14,10 +15,12 @@ nixpkgs="$(nix-instantiate --eval --expr '<nixpkgs>')"
 nix-shell "$nixpkgs/maintainers/scripts/update.nix" \
   --arg include-overlays "(import $root { }).overlays" \
   --arg keep-going 'true' \
+  --argstr max-workers '8' \
   --arg predicate "(
-    let prefix = \"$root/library/\"; prefixLen = builtins.stringLength prefix;
-    in (_: p: p.meta ? position && (builtins.substring 0 prefixLen p.meta.position) == prefix)
-  )"
+    let pname = \"$pname\"; prefix = \"$root/library/\"; prefixLen = builtins.stringLength prefix;
+    in (_: p: p.meta ? position && (builtins.substring 0 prefixLen p.meta.position) == prefix && (pname == \"\" || p.pname == pname))
+  )" \
+  --argstr skip-prompt 'true'
 
 # Clean up
 if [[ -f "$root/update-git-commits.txt" ]]; then

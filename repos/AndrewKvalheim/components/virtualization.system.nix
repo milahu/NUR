@@ -1,5 +1,7 @@
+{ lib, ... }:
+
 let
-  identity = import ../library/identity.lib.nix;
+  identity = import ../library/identity.lib.nix { inherit lib; };
 in
 {
   # Docker

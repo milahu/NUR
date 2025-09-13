@@ -19,7 +19,9 @@ rustPlatform.buildRustPackage (starship-jj: {
   nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
 
-  passthru.updateScript = nix-update-script { };
+  passthru =
+    # Pending Rust ≥1.88 via NixOS 25.11
+    lib.optionalAttrs (lib.versionAtLeast lib.trivial.version "25.11") { updateScript = nix-update-script { }; };
 
   meta = {
     description = "Starship plugin for Jujutsu";

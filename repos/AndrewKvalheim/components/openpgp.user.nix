@@ -4,7 +4,7 @@ let
   inherit (lib) getExe;
   inherit (lib.generators) toINI;
 
-  identity = import ../library/identity.lib.nix;
+  identity = import ../library/identity.lib.nix { inherit lib; };
 in
 {
   services.gpg-agent = {

@@ -1,25 +1,23 @@
 { lib, pkgs }:
 
 let
-  inherit (builtins) add foldl' length listToAttrs mapAttrs zipAttrsWith;
-  inherit (lib) concatLines imap0 mapAttrsRecursiveCond mapAttrsToList nameValuePair;
-  inherit (import ./utilities.lib.nix { inherit lib; }) findLowest rgbToAnsi rgbToCssRgba;
-  inherit ((import ../nur.nix { inherit pkgs; }).lib) contrastRatio linearRgbToRgb oklchToCss oklchToLinearRgb rgbToHex sgr;
+  inherit (builtins) add foldl' length mapAttrs zipAttrsWith;
+  inherit (lib) mapAttrsRecursiveCond;
+  inherit (import ./utilities.lib.nix { inherit lib; }) findLowest rgbToCssRgba rgbToSgr;
+  inherit ((import ../nur.nix { inherit pkgs; }).lib) contrastRatio linearRgbToRgb oklchToCss oklchToLinearRgb rgbToHex;
 
   mix = c1: c2: zipAttrsWith (_: xs: (foldl' add 0 xs) / (length xs)) [ c1 c2 ];
   dark = c: c // { l = 0.35; c = if c.c == 0 then 0 else 0.060; };
   dim = c: c // { l = 0.50; c = if c.c == 0 then 0 else 0.150; };
   contrast = ratio: oklch:
     let
-      reference = mkColor oklch;
+      reference = mkColor null oklch;
       sufficient = l:
-        let candidate = mkColor (oklch // { inherit l; }); in
+        let candidate = mkColor null (oklch // { inherit l; }); in
         contrastRatio reference.linearRgb candidate.linearRgb >= ratio;
     in
     oklch // { l = findLowest sufficient 0.005 oklch.l 1; };
   contrast-minimum = contrast 3;
-
-  ansiNames = [ "black" "red" "green" "yellow" "blue" "magenta" "cyan" "white" ];
 
   spec = rec {
     # Standard
@@ -61,21 +59,22 @@ let
     white-dark = dark white;
   };
 
-  mkColor = oklch: rec {
-    inherit oklch;
+  mkColor = name: oklch: rec {
+    inherit name oklch;
 
-    ansi = rgbToAnsi rgb;
     css = oklchToCss oklch;
     cssRgba = rgbToCssRgba rgb;
     hex = rgbToHex rgb;
     linearRgb = oklchToLinearRgb oklch;
     rgb = linearRgbToRgb linearRgb;
+    sgr = rgbToSgr rgb;
   };
 
-  flat = mapAttrs (_: mkColor) spec;
-
-  colors = flat // {
-    ansi = with flat; {
+  pool = mapAttrs mkColor spec;
+in
+rec {
+  colors = pool // {
+    ansi = with pool; {
       black = black-true;
       red = red;
       green = teal;
@@ -97,31 +96,10 @@ let
       };
     };
   };
-in
-rec {
-  ansi =
-    let
-      range = b: listToAttrs (imap0 (i: n: nameValuePair n { off = "39"; on = toString (b + i); }) ansiNames);
-      base = range 30 // { bright = range 90; };
-      effect = off: on: mapAttrsRecursiveCond (a: ! a ? off) (_: b: { off = "${off};${b.off}"; on = "${on};${b.on}"; }) base;
-    in
-    base // {
-      bold = effect "22" "1";
-      dim = effect "22" "2" // { italic = effect "22;23" "2;3"; };
-      italic = effect "23" "3";
-    };
-
-  ansiFormat = mapAttrsRecursiveCond (a: ! a ? off) (_: { off, on }: sgr off on) ansi;
 
   cssRgba = mapAttrsRecursiveCond (a: ! a ? oklch) (_: c: c.cssRgba) colors;
 
   hex = mapAttrsRecursiveCond (a: ! a ? oklch) (_: c: c.hex) colors;
-
-  report = concatLines (mapAttrsToList
-    (name: { ansi, css, hex, ... }:
-      "${sgr ansi.off ansi.on "██ ${name}"} ${ansiFormat.bright.black "${css} ≈ ${hex}"}")
-    flat
-  );
 
   rgb = mapAttrsRecursiveCond (a: ! a ? oklch) (_: c: c.rgb) colors;
 }

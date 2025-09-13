@@ -1,9 +1,9 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 let
   inherit (builtins) readFile replaceStrings;
 
-  identity = import ../library/identity.lib.nix;
+  identity = import ../library/identity.lib.nix { inherit lib; };
 in
 {
   console.useXkbConfig = true;

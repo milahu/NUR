@@ -1,12 +1,17 @@
 { lib }:
 
 let
-  inherit (builtins) add all attrValues head mapAttrs split stringLength tail;
-  inherit (lib) concatLines fixedWidthNumber fold isList max removeSuffix splitString throwIf throwIfNot toHexString;
+  inherit (builtins) add all attrValues head isFunction listToAttrs mapAttrs split stringLength substring tail;
+  inherit (lib) concatLines fixedWidthNumber flip fold id imap0 isList max nameValuePair pipe removeSuffix splitString throwIf throwIfNot toHexString toUpper;
   inherit (lib.strings) replicate;
   inherit (import <nix-math> { inherit lib; }) cos pi pow round sin;
+
+  # Pending NixOS/nixpkgs#402372
+  toCamelCase = s: "${substring 0 6 s}${toUpper (substring 7 1 s)}${substring 8 (stringLength s) s}";
 in
 rec {
+  ansiColorNames = [ "black" "red" "green" "yellow" "blue" "magenta" "cyan" "white" ];
+
   # Adapted from https://en.wikipedia.org/wiki/Clenshaw_algorithm#Special_case_for_Chebyshev_series
   chebyshev = coefficients: x:
     let
@@ -20,6 +25,8 @@ rec {
   chebyshevWithDomain = beginning: end: coefficients: x:
     chebyshev coefficients (-1.0 + 2.0 * (x - beginning) / (end - beginning));
 
+  compose = flip pipe;
+
   # Adapted from https://www.w3.org/WAI/WCAG22/Techniques/general/G18
   contrastRatio = linearRgb1: linearRgb2:
     let
@@ -31,6 +38,8 @@ rec {
       l2 = linearRgbToRelativeLuminance linearRgb2;
     in
     if l1 < l2 then ratio l2 l1 else ratio l1 l2;
+
+  csi = final: params: "[${params}${final}";
 
   findHighest = accept: resolution: low: high:
     if high - low < resolution then
@@ -63,6 +72,8 @@ rec {
 
   # Adapted from https://bottosson.github.io/posts/colorwrong/#what-can-we-do%3F
   linearRgbToRgb = mapAttrs (_: u: if u > 0.0031308 then 1.055 * pow u (1 / 2.4) - 0.055 else 12.92 * u);
+
+  mkSgr = off: on: text: "${csi "m" on}${text}${csi "m" off}";
 
   oklchToCss = { l, c, h }: "oklch(${toString l} ${toString c} ${toString h})";
 
@@ -98,13 +109,30 @@ rec {
 
   printablePad = width: placeholder: text: text + replicate (width - printableLength text) placeholder;
 
-  rgbToAnsi = rgb: with mapAttrs (_: v: toString (round (v * 255))) rgb; { off = "39"; on = "38;2;${r};${g};${b}"; };
-
   rgbToHex = { r, g, b }:
     let f = x: fixedWidthNumber 2 (toHexString (round (x * 255)));
     in "#${f r}${f g}${f b}";
 
   rgbToCssRgba = rgb: a: with mapAttrs (_: v: toString (round (v * 255))) rgb; "rgba(${r}, ${g}, ${b}, ${toString a})";
 
-  sgr = off: on: text: "[${on}m${text}[${off}m";
+  rgbToSgr = rgb: with mapAttrs (_: v: toString (round (v * 255))) rgb; mkSgr "39" "38;2;${r};${g};${b}";
+
+  sgr =
+    let
+      mkColors = f: b: listToAttrs (imap0 (i: n: nameValuePair (f n) { off = "39"; on = toString (b + i); }) ansiColorNames);
+
+      f = p: f':
+        if f' == null then p
+        else if isFunction f' then let p' = f' null; in f { off = "${p'.off};${p.off}"; on = "${p.on};${p'.on}"; }
+        else mkSgr p.off p.on f';
+    in
+    mapAttrs (_: f) (mkColors id 30 // mkColors (n: toCamelCase "bright-${n}") 90 // {
+      bold = { off = "22"; on = "1"; };
+      dim = { off = "22"; on = "2"; };
+      doubleUnderline = { off = "24"; on = "21"; };
+      inverse = { off = "27"; on = "7"; };
+      italic = { off = "23"; on = "3"; };
+      strike = { off = "29"; on = "9"; };
+      underline = { off = "24"; on = "4"; };
+    });
 }

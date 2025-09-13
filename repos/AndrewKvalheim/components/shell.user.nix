@@ -5,9 +5,7 @@ let
   inherit (lib) concatLines concatStrings concatStringsSep escapeShellArg genAttrs getExe getExe' mapAttrsToList mkMerge mkOrder;
   inherit (pkgs) replaceVars runtimeShell starship-jj;
   inherit (pkgs.writers) writeTOML;
-  inherit ((import ../nur.nix { inherit pkgs; }).lib) sgr;
-
-  palette = import ../library/palette.lib.nix { inherit lib pkgs; };
+  inherit (import ../library/utilities.lib.nix { inherit lib; }) sgr;
 
   toAbbrs = kv: concatLines (mapAttrsToList (k: v: "abbr ${k}=${escapeShellArg v}") kv);
 in
@@ -18,7 +16,7 @@ in
     historyFile = "${config.home.homeDirectory}/akorg/resource/bash-history";
     historyFileSize = 1000000000;
     historySize = 100000000;
-    initExtra = with palette.ansiFormat; ''
+    initExtra = with sgr; ''
       HISTTIMEFORMAT='%FT%T%z ' # RFC 3339
       PS1='\[${magenta "\\]$\\["}\] '
     '';
@@ -292,7 +290,7 @@ in
         uv-outdated = "uv tree --depth '1' --outdated";
         watch = "watch --color";
         wd = "git diff --no-index --word-diff --word-diff-regex '.'";
-        xev = "echo 'Use ${sgr "22" "1" "wev"} instead.' >&2; return 1";
+        xev = "echo 'Use ${sgr.bold "wev"} instead.' >&2; return 1";
       };
   };
 
@@ -326,6 +324,7 @@ in
     jd = "jj diff";
     jf = "jj git fetch";
     jl = "jj status";
+    jm = "jj resolve --tool mergiraf";
     jp = "jj git push";
     jr = "jj restore --interactive";
     js = "jj commit --interactive";
@@ -339,43 +338,43 @@ in
     undo = "git restore --patch";
   };
 
-  home.sessionVariables.EZA_COLORS = concatStringsSep ":" (mapAttrsToList (k: v: "${k}=${v.on}") (with palette.ansi; {
-    ur = dim.white; # permission user-read
-    uw = dim.white; # permission user-write
-    ux = bold.green; # permission user-execute when file
-    ue = bold.green; # permission user-execute when other
-    gr = dim.white; # permission group-read
-    gw = dim.white; # permission group-write
-    gx = dim.white; # permission group-execute
-    tr = bold.magenta; # permission others-read
-    tw = bold.red; # permission others-write
-    tx = dim.white; # permission others-execute
-    su = bold.yellow; # permissions setuid/setgid/sticky when file
-    sf = bold.yellow; # permissions setuid/setgid/sticky when other
-    xa = bold.yellow; # extended attribute
-    sn = dim.white; # size numeral
-    ub = bold.white; # size unit when unprefixed
-    uk = bold.blue; # size unit when K
-    um = bold.yellow; # size unit when M
-    ug = bold.red; # size unit when G
-    ut = bold.red; # size unit when ≥T
-    uu = dim.white; # user when self
+  home.sessionVariables.EZA_COLORS = concatStringsSep ":" (mapAttrsToList (k: v: "${k}=${(v null).on}") (with sgr; {
+    ur = dim white; # permission user-read
+    uw = dim white; # permission user-write
+    ux = bold green; # permission user-execute when file
+    ue = bold green; # permission user-execute when other
+    gr = dim white; # permission group-read
+    gw = dim white; # permission group-write
+    gx = dim white; # permission group-execute
+    tr = bold magenta; # permission others-read
+    tw = bold red; # permission others-write
+    tx = dim white; # permission others-execute
+    su = bold yellow; # permissions setuid/setgid/sticky when file
+    sf = bold yellow; # permissions setuid/setgid/sticky when other
+    xa = bold yellow; # extended attribute
+    sn = dim white; # size numeral
+    ub = bold white; # size unit when unprefixed
+    uk = bold blue; # size unit when K
+    um = bold yellow; # size unit when M
+    ug = bold red; # size unit when G
+    ut = bold red; # size unit when ≥T
+    uu = dim white; # user when self
     un = red; # user when other
-    gu = dim.white; # group when member
+    gu = dim white; # group when member
     gn = red; # group when other
-    da = dim.italic.white; # date
-    lp = dim.white; # symlink path
-    cc = bold.yellow; # escaped character
+    da = dim italic white; # date
+    lp = dim white; # symlink path
+    cc = bold yellow; # escaped character
   }));
 
-  home.sessionVariables.LS_COLORS = concatStringsSep ":" (mapAttrsToList (k: v: "${k}=${v.on}") (with palette.ansi; {
-    di = bold.blue; # directories
+  home.sessionVariables.LS_COLORS = concatStringsSep ":" (mapAttrsToList (k: v: "${k}=${(v null).on}") (with sgr; {
+    di = bold blue; # directories
     ex = green; # executable files
     fi = white; # regular files
-    pi = italic.cyan; # named pipes
-    so = italic.cyan; # sockets
-    bd = bold.cyan; # block devices
-    cd = bold.cyan; # character devices
+    pi = italic cyan; # named pipes
+    so = italic cyan; # sockets
+    bd = bold cyan; # block devices
+    cd = bold cyan; # character devices
     ln = magenta; # symlinks
     or = red; # symlinks with no target
   }));
