@@ -46,12 +46,12 @@ error:
 
 … while calling 'filterAttrs'
 
-  at <nixpkgs> + /lib/attrsets.nix:667:23:
+  at <nixpkgs> + /lib/attrsets.nix:668:23:
 
-   666|   */
-   667|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+   667|   */
+   668|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
       |                       ^
-   668|
+   669|
 
 … from call site
 
@@ -64,11 +64,11 @@ error:
 
 … while calling 'functionArgs'
 
-  at <nixpkgs> + /lib/trivial.nix:1007:5:
+  at <nixpkgs> + /lib/trivial.nix:1027:5:
 
-  1006|   functionArgs =
-  1007|     f:
+  1026|   functionArgs =
+  1027|     f:
       |     ^
-  1008|     if f ? __functor then
+  1028|     if f ? __functor then
 
 error: getting status of './nix/pkgs/c4me': No such file or directory
