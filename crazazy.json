@@ -1,16 +1,16 @@
 {
 "name":"crazazy",
-"fetch_time":1.211,
-"eval_time":0.709,
+"fetch_time":0.99,
+"eval_time":0.695,
 "source":{
 "url":"https://github.com/crazazy/nixos-config",
-"rev":"1e238798e44a36b38a8bc070473b8941363cd401",
-"sha256":"1ap992vpc6ifjdw77qvdxp9xcj5i87j8nhgfp1y7mlla6617k83v",
+"rev":"e593d74f8c694db63ff2492202fd1ea27b340e6a",
+"sha256":"1p2qxfa1mf35dxz70cswa0q4g4hj28js7jdq2ljwh6gxbp7qda56",
 "date":null
 },
-"source_storepath":"/nix/store/gkhqkn55lan5aaa1a37bhqhkbil439x3-source",
-"nixpkgs_storepath":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source",
-"nur_combined_rev":"d9e32fb1df9af2b50136b25d4464923b705af27f",
+"source_storepath":"/nix/store/p5spmpp2qih3zv89p8amlc7llvf5q2jz-source",
+"nixpkgs_storepath":"/nix/store/hpa9g4yprjxb475dv0wqmvgjivva5xwj-source",
+"nur_combined_rev":"b5f4e0051533614314711feb7edb7c2ba8145d38",
 "packages":{
 "cakeml":{
 "meta":{
@@ -62,8 +62,8 @@
 ],
 "maintainersPosition":{
 "column":54,
-"file":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source/pkgs/development/haskell-modules/generic-builder.nix",
-"line":1057
+"file":"/nix/store/hpa9g4yprjxb475dv0wqmvgjivva5xwj-source/pkgs/development/haskell-modules/generic-builder.nix",
+"line":1036
 },
 "name":"elm-0.19.1",
 "outputsToInstall":[
@@ -96,6 +96,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -230,6 +231,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -328,6 +330,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -428,6 +431,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -527,6 +531,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -627,6 +632,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -727,6 +733,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -827,6 +834,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -927,6 +935,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -1049,8 +1058,8 @@
 ],
 "maintainersPosition":{
 "column":54,
-"file":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source/pkgs/development/haskell-modules/generic-builder.nix",
-"line":1057
+"file":"/nix/store/hpa9g4yprjxb475dv0wqmvgjivva5xwj-source/pkgs/development/haskell-modules/generic-builder.nix",
+"line":1036
 },
 "name":"nvfetcher-0.7.0.0",
 "outputsToInstall":[
@@ -1083,6 +1092,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -1133,7 +1143,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:485616",
+"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:484875",
 "unfree":false,
 "unsupported":false
 },
@@ -1318,7 +1328,7 @@
 ],
 "teamsPosition":{
 "column":34,
-"file":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source/pkgs/development/compilers/graalvm/community-edition/buildGraalvmProduct.nix",
+"file":"/nix/store/hpa9g4yprjxb475dv0wqmvgjivva5xwj-source/pkgs/development/compilers/graalvm/community-edition/buildGraalvmProduct.nix",
 "line":80
 },
 "unfree":false,
@@ -1357,7 +1367,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v33.0.0/RELEASES.md",
+"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v36.0.2/RELEASES.md",
 "description":"wasmtime WebAssembly runner with support for delmited continuations",
 "homepage":"https://wasmtime.dev/",
 "insecure":false,
@@ -1395,14 +1405,20 @@
 "github":"matthewbauer",
 "githubId":19036,
 "name":"Matthew Bauer"
+},
+{
+"email":"hey@winston.sh",
+"github":"nekowinston",
+"githubId":79978224,
+"name":"winston"
 }
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source/pkgs/by-name/wa/wasmtime/package.nix",
-"line":89
+"file":"/nix/store/hpa9g4yprjxb475dv0wqmvgjivva5xwj-source/pkgs/by-name/wa/wasmtime/package.nix",
+"line":111
 },
-"name":"wasmtime-33.0.0",
+"name":"wasmtime-36.0.2",
 "outputsToInstall":[
 "out"
 ],
@@ -1417,6 +1433,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",

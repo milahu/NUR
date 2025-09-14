@@ -1,16 +1,16 @@
 {
 "name":"eh5",
-"fetch_time":0.974,
-"eval_time":0.233,
+"fetch_time":0.818,
+"eval_time":0.226,
 "source":{
 "url":"https://github.com/EHfive/flakes",
-"rev":"dc43f55f7d2562f3eeda55a1134cba3cca94813b",
-"sha256":"0mc3jvzk4ciq6n5p8nl4jx1fhjgmhymxkyd6af4a4l4ib2fbh0dd",
+"rev":"49652629b3f6ff73a2643398c2e2b79bc2564b76",
+"sha256":"11fbavhqawa8z6f1gnrmgvkjc83n8fgkdi8vik5wsqv9divprd87",
 "date":null
 },
-"source_storepath":"/nix/store/vlah25n6mf9hy1ad89c8brrgx2xynf68-source",
-"nixpkgs_storepath":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source",
-"nur_combined_rev":"f6cf65e037b8178e48707a62cfb573f8a9e4fb89",
+"source_storepath":"/nix/store/xcwgvnpaz8ack41pyjr3lfivhf2d25bp-source",
+"nixpkgs_storepath":"/nix/store/hpa9g4yprjxb475dv0wqmvgjivva5xwj-source",
+"nur_combined_rev":"d7559790cfa7edd7e121a38597ec2f631af76ec1",
 "packages":{
 "einat":{
 "meta":{
@@ -50,6 +50,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -137,6 +138,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -201,7 +203,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vlah25n6mf9hy1ad89c8brrgx2xynf68-source/packages/libnftnl-fullcone/default.nix",
+"file":"/nix/store/xcwgvnpaz8ack41pyjr3lfivhf2d25bp-source/packages/libnftnl-fullcone/default.nix",
 "line":38
 },
 "name":"libnftnl-1.2.6",
@@ -223,6 +225,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -282,6 +285,7 @@
 "mips64-linux",
 "mips64el-linux",
 "mipsel-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv32-linux",
@@ -367,6 +371,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -440,8 +445,8 @@
 ],
 "maintainersPosition":{
 "column":13,
-"file":"/nix/store/pcm7nz56wyj9cpw0jh8qyqbs26wlkafx-source/pkgs/misc/uboot/default.nix",
-"line":153
+"file":"/nix/store/hpa9g4yprjxb475dv0wqmvgjivva5xwj-source/pkgs/misc/uboot/default.nix",
+"line":154
 },
 "name":"uboot-nanopi-r2s-rk3328_defconfig-2025.07",
 "outputsToInstall":[
@@ -450,7 +455,7 @@
 "platforms":[
 "aarch64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/misc/uboot/default.nix:151",
+"position":"<nixpkgs> + /pkgs/misc/uboot/default.nix:152",
 "unfree":false,
 "unsupported":true
 },
