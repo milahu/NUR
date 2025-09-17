@@ -1,0 +1,11 @@
+error:
+… while querying the derivation named 'wpsoffice-11.1.0.11723'
+
+error: undefined variable 'rewine'
+
+at ./pkgs/wpsoffice/default.nix:207:54:
+
+   206|     license = licenses.unfreeRedistributable;
+   207|     maintainers = with maintainers; [ mlatus th0rgal rewine ];
+      |                                                      ^
+   208|   };
