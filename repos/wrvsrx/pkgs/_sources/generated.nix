@@ -12,17 +12,6 @@
       sha256 = "sha256-PSIWbOyBtJTVslp3tP5YX81YzTQC5DCfs4WhwwmwFew=";
     };
   };
-  auto-patchelf = {
-    pname = "auto-patchelf";
-    version = "0.1.0";
-    src = fetchFromGitHub {
-      owner = "wrvsrx";
-      repo = "auto-patchelf";
-      rev = "0.1.0";
-      fetchSubmodules = false;
-      sha256 = "sha256-BSAzGXWy13jdi5w5il0treXPsGcUDlTautCrH05H2o4=";
-    };
-  };
   autobean-format = {
     pname = "autobean-format";
     version = "v0.1.6";
