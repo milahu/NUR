@@ -55,12 +55,12 @@ error:
 
 … while calling 'functionArgs'
 
-  at <nixpkgs> + /lib/trivial.nix:1007:5:
+  at <nixpkgs> + /lib/trivial.nix:1027:5:
 
-  1006|   functionArgs =
-  1007|     f:
+  1026|   functionArgs =
+  1027|     f:
       |     ^
-  1008|     if f ? __functor then
+  1028|     if f ? __functor then
 
 … from call site
 
@@ -73,18 +73,18 @@ error:
 
 … while calling 'isFunction'
 
-  at <nixpkgs> + /lib/trivial.nix:1023:16:
+  at <nixpkgs> + /lib/trivial.nix:1043:16:
 
-  1022|   */
-  1023|   isFunction = f: builtins.isFunction f || (f ? __functor && isFunction (f.__functor f));
+  1042|   */
+  1043|   isFunction = f: builtins.isFunction f || (f ? __functor && isFunction (f.__functor f));
       |                ^
-  1024|
+  1044|
 
 error: attribute 'warn' missing
 
-at ./packages/default.nix:10:9:
+at ./packages/default.nix:11:9:
 
-     9| packagePaths // {
-    10|   bcd = builtins.warn "bcd is a deprecated alias for bandcamp-collection-downloader" packagePaths.bandcamp-collection-downloader;
+    10| // {
+    11|   bcd = builtins.warn "bcd is a deprecated alias for bandcamp-collection-downloader" packagePaths.bandcamp-collection-downloader;
       |         ^
-    11| }
+    12| }
