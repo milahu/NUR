@@ -510,6 +510,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       tuspy = callPackage ./pkgs/python3/pkgs/tuspy { };
 
+      ebutt2srt = callPackage ./pkgs/python3/pkgs/ebutt2srt { };
+
     #}))); # python3.pkgs
 
   #}))); # python3
@@ -541,6 +543,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   ratarmount = python3Packages.ratarmount;
 
   archive-hocr-tools = python3Packages.archive-hocr-tools;
+
+  ebutt2srt = python3Packages.ebutt2srt;
 
   deno = pkgs.deno // {
     pkgs = (pkgs.deno.pkgs or {}) // (
@@ -1223,6 +1227,12 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   qbittorrent-nova-killer = python3.pkgs.callPackage ./pkgs/by-name/qb/qbittorrent-nova-killer/package.nix { };
 
   httpdirfs = callPackage ./pkgs/by-name/ht/httpdirfs/package.nix { };
+
+  matroska-foundation = callPackage ./pkgs/by-name/ma/matroska-foundation/package.nix { };
+
+  mkvalidator = callPackage ./pkgs/by-name/mk/mkvalidator/package.nix { };
+
+  mkclean = callPackage ./pkgs/by-name/mk/mkclean/package.nix { };
 
 }
 
