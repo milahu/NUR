@@ -47,10 +47,10 @@
   };
   claude-code-router = {
     pname = "claude-code-router";
-    version = "1.0.47";
+    version = "1.0.49";
     src = fetchTarball {
-      url = "https://github.com/musistudio/claude-code-router/archive/e6b3e2a1947083aaf4e16036734678b49d8420c5.tar.gz";
-      sha256 = "sha256-2eOu+xdUy+v8Qq0MFDuiGLPnt/Y/mCMleqLuJH2eEaQ=";
+      url = "https://github.com/musistudio/claude-code-router/archive/f7adb7b28e6f7f11a21d642f4f422cdb30fef9e3.tar.gz";
+      sha256 = "sha256-XXGt5p2CxkD7bftpfLe8YHrlbw33kRV4BEI1yxqqmXY=";
     };
   };
   cmdlime = {
@@ -306,18 +306,18 @@
   };
   v2ray-rules-dat-geoip = {
     pname = "v2ray-rules-dat-geoip";
-    version = "202508242213";
+    version = "202509172211";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508242213/geoip.dat";
-      sha256 = "sha256-iWYUhaChIMjaCTsaKHBQlIbHmbcQPDSFVZlin5PAvlE=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509172211/geoip.dat";
+      sha256 = "sha256-rWiZ85mgCNEOXSdZxCo4Xzfu/AkcbrY7ZXZty+6bt+4=";
     };
   };
   v2ray-rules-dat-geosite = {
     pname = "v2ray-rules-dat-geosite";
-    version = "202508242213";
+    version = "202509172211";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202508242213/geosite.dat";
-      sha256 = "sha256-/2pFdpQZ7/TIGxt/f0tD4lhkxW+3qjiQAqk9kLfvZh0=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202509172211/geosite.dat";
+      sha256 = "sha256-FCkF5aC+vz1yVqudVA7UHsPTabrZ2i3d9I4Gv+obK74=";
     };
   };
   xclip = {
