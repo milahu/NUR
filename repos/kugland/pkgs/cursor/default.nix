@@ -4,22 +4,18 @@
 }:
 let
   sources = {
-    x86_64.url = "https://downloads.cursor.com/production/5b19bac7a947f54e4caa3eb7e4c5fbf832389853/linux/x64/Cursor-1.1.6-x86_64.AppImage";
-    x86_64.hash = "sha256-T0vJRs14tTfT2kqnrQWPFXVCIcULPIud1JEfzjqcEIM=";
-    aarch64.url = "https://downloads.cursor.com/production/5b19bac7a947f54e4caa3eb7e4c5fbf832389853/linux/arm64/Cursor-1.1.6-aarch64.AppImage";
-    aarch64.hash = "sha256-HKr87IOzSNYWIYBxVOef1758f+id/t44YM5+SNunkTs=";
+    x86_64.url = "https://downloads.cursor.com/production/b753cece5c67c47cb5637199a5a5de2b7100c18f/linux/x64/Cursor-1.6.35-x86_64.AppImage";
+    x86_64.hash = "sha256-62u8snx9nbJtsg7uROZNVzo3macrkTghTCep943e8+I=";
   };
 in
 pkgs.appimageTools.wrapType2 {
   pname = "cursor";
-  version = "1.1.6";
+  version = "1.6.35";
   src =
     pkgs.fetchurl
       (
         if pkgs.stdenv.isx86_64
         then sources.x86_64
-        else if pkgs.stdenv.isAarch64
-        then sources.aarch64
         else "Unsupported architecture for Cursor editor"
       );
   meta = {
@@ -32,7 +28,7 @@ pkgs.appimageTools.wrapType2 {
     downloadPage = "https://cursor.com/download";
     changelog = "https://github.com/getcursor/cursor/releases";
     license = lib.licenses.unfree;
-    platforms = [ "x86_64-linux" "aarch64-linux" ];
+    platforms = [ "x86_64-linux" ];
     maintainers = [ lib.maintainers.kugland ];
     mainProgram = "cursor";
     sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
