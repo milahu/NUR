@@ -310,17 +310,17 @@
   };
   rime-double-pinyin = {
     pname = "rime-double-pinyin";
-    version = "69bf85d4dfe8bac139c36abbd68d530b8b6622ea";
+    version = "01a13287cbd27819be1c34fa1ddc1b3643d5001b";
     src = fetchgit {
       url = "https://github.com/rime/rime-double-pinyin.git";
-      rev = "69bf85d4dfe8bac139c36abbd68d530b8b6622ea";
+      rev = "01a13287cbd27819be1c34fa1ddc1b3643d5001b";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-UyVzp0TMq7yq5pXQpy7xkPnc1+RF8oVdIXzvrYqLfCQ=";
+      sha256 = "sha256-iHaGHKwmhyciU6zKJRLyRETRR15QSHZ7ML1l4iAV6eM=";
     };
-    date = "2019-01-20";
+    date = "2025-09-24";
   };
   rime-emoji = {
     pname = "rime-emoji";
@@ -436,17 +436,17 @@
   };
   rime-stroke = {
     pname = "rime-stroke";
-    version = "a4dc0423c578bf5e15bea66103e082ee187a8737";
+    version = "3a4b0f4013e2b4c14b1e80c92b1d4723eb65f39c";
     src = fetchgit {
       url = "https://github.com/rime/rime-stroke.git";
-      rev = "a4dc0423c578bf5e15bea66103e082ee187a8737";
+      rev = "3a4b0f4013e2b4c14b1e80c92b1d4723eb65f39c";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-rNKPHz6eLgAYTdpWwxk7GE3APZXJ0Oc1lzHhRDDvRg0=";
+      sha256 = "sha256-l2YRET+aywThX+iBTYKqtBESs6ozJn5Du5IewwMhhmM=";
     };
-    date = "2025-09-20";
+    date = "2025-09-23";
   };
   rime-terra-pinyin = {
     pname = "rime-terra-pinyin";
