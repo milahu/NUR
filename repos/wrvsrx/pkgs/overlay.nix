@@ -17,7 +17,6 @@ let
     seal_lake = callPackage ./seal_lake { source = sources.seal_lake; };
     sfun = callPackage ./sfun { source = sources.sfun; };
     cmdlime = callPackage ./cmdlime { source = sources.cmdlime; };
-    yalantinglibs = callPackage ./yalantinglibs { source = sources.yalantinglibs; };
     vscode-markdown-languageserver = callPackage ./vscode-markdown-languageserver { };
     v2ray-rules-dat = callPackage ./v2ray-rules-dat {
       inherit (sources) v2ray-rules-dat-geoip v2ray-rules-dat-geosite;
