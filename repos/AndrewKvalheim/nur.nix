@@ -2,7 +2,7 @@
 
 let
   inherit (builtins) any;
-  inherit (lib) findFirst hasSuffix versionAtLeast warnIfNot;
+  inherit (lib) findFirst versionAtLeast warnIfNot;
   inherit (pkgs) callPackage lib;
 
   # Dependency broken by NixOS/nixpkgs#431074
@@ -10,22 +10,6 @@ let
     meta = attrs.meta // {
       broken = (versionAtLeast pkgs.python3Packages.busylight-for-humans.version "0.37.0")
         && (any (p: p.pname == "poetry-core") pkgs.python3Packages.busylight-for-humans.build-system);
-    };
-  };
-
-  # Dependency broken by NixOS/nixpkgs#431074
-  brokenMeshtastic = attrs: {
-    meta = attrs.meta // {
-      broken = (versionAtLeast pkgs.python3Packages.dash.version "3.2.0")
-        && ! (any (p: p.pname or null == "psutil") pkgs.python3Packages.dash.nativeBuildInputs);
-    };
-  };
-
-  # Dependency broken by NixOS/nixpkgs#431074 pending NixOS/nixpkgs#438861
-  brokenOpensearchPy = attrs: {
-    meta = attrs.meta // {
-      broken = pkgs.python3Packages.opensearch-py.version == "3.0.0"
-        && ! (any (hasSuffix "remove-delete-event-loop-fixture.patch") pkgs.python3Packages.opensearch-py.patches);
     };
   };
 in
@@ -61,7 +45,7 @@ rec {
   ch57x-keyboard-tool = callPackage ./library/ch57x-keyboard-tool.pkg.nix { };
   co2monitor = callPackage ./library/co2monitor.pkg.nix { };
   decompiler-mc = callPackage ./library/decompiler-mc.pkg.nix { };
-  dmarc-report-notifier = (callPackage ./library/dmarc-report-notifier.pkg.nix {
+  dmarc-report-notifier = callPackage ./library/dmarc-report-notifier.pkg.nix {
     python3Packages = (pkgs.python3.override {
       packageOverrides = _: pythonPackages: {
         # Pending NixOS/nixpkgs#337081
@@ -69,7 +53,7 @@ rec {
           (findFirst (p: p.pname == "msgraph-core") null pkgs.parsedmarc.requiredPythonModules);
       };
     }).pkgs;
-  }).overrideAttrs brokenOpensearchPy;
+  };
   fastnbt-tools = callPackage ./library/fastnbt-tools.pkg.nix { };
   fediblockhole = callPackage ./library/fediblockhole.pkg.nix { };
   git-diff-image = callPackage ./library/git-diff-image.pkg.nix { };
@@ -78,10 +62,10 @@ rec {
   josm-imagery-used = callPackage ./library/josm-imagery-used.pkg.nix { inherit buildJosmPlugin; };
   little-a-map = callPackage ./library/little-a-map.pkg.nix { };
   mark-applier = callPackage ./library/mark-applier.pkg.nix { };
-  meshtastic-url = (callPackage ./library/meshtastic-url.pkg.nix { }).overrideAttrs brokenMeshtastic;
+  meshtastic-url = callPackage ./library/meshtastic-url.pkg.nix { };
   minemap = callPackage ./library/minemap.pkg.nix { };
-  mqtt-connect = (callPackage ./library/mqtt-connect.pkg.nix { }).overrideAttrs brokenMeshtastic;
-  mqtt-protobuf-to-json = (callPackage ./library/mqtt-protobuf-to-json.pkg.nix { }).overrideAttrs brokenMeshtastic;
+  mqtt-connect = callPackage ./library/mqtt-connect.pkg.nix { };
+  mqtt-protobuf-to-json = callPackage ./library/mqtt-protobuf-to-json.pkg.nix { };
   nbt-explorer = callPackage ./library/nbt-explorer.pkg.nix { };
   pngquant-interactive = callPackage ./library/pngquant-interactive.pkg.nix { };
   spf-check = callPackage ./library/spf-check.pkg.nix { };

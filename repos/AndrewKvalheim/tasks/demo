@@ -3,6 +3,7 @@
 attr="$1"
 
 nix-instantiate \
+  --show-trace \
   --eval \
   --json \
   --arg 'lib' '(import <nixpkgs> { }).lib' \

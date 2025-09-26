@@ -31,9 +31,9 @@ in
     xdg.mimeApps = {
       enable = true;
       defaultApplications = foldlAttrs (byType: handler: types: byType // (listToAttrs (map (type: nameValuePair type handler) types))) { } {
-        "audacious.desktop" = [ "audio/x-opus+ogg" ];
         "codium.desktop" = [ "application/gpx+xml" "application/json" "application/rss+xml" "application/x-shellscript" "application/xml" "message/rfc822" "text/markdown" "text/plain" ];
         "firefox.desktop" = [ "application/xhtml+xml" "text/html" "x-scheme-handler/http" "x-scheme-handler/https" ];
+        "org.gnome.Decibels.desktop" = [ "audio/mpeg" "audio/wav" "audio/x-flac" "audio/x-opus+ogg" ];
         "org.gnome.Evince.desktop" = [ "application/pdf" "image/x-eps" ];
         "org.gnome.FileRoller.desktop" = [ "application/zip" ];
         "org.gnome.Loupe.desktop" = [ "image/avif" "image/bmp" "image/gif" "image/heif" "image/jpeg" "image/png" "image/svg+xml" "image/tiff" "image/webp" ];

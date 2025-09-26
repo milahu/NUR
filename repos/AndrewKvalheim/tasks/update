@@ -26,3 +26,8 @@ nix-shell "$nixpkgs/maintainers/scripts/update.nix" \
 if [[ -f "$root/update-git-commits.txt" ]]; then
   cat "$root/update-git-commits.txt" && rm "$root/update-git-commits.txt"
 fi
+
+# Run external update scripts
+if [[ -z "$pname" || "$pname" == 'buildJosmPlugin' ]]; then
+  "$root"/tasks/update-buildJosmPlugin
+fi

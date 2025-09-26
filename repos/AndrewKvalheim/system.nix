@@ -27,6 +27,7 @@ in
     ./components/syncthing.system.nix
     ./components/tor.system.nix
     ./components/u2f.system.nix
+    ./components/updates.system.nix
     ./components/users.system.nix
     ./components/virtualization.system.nix
     ./components/wireguard.system.nix

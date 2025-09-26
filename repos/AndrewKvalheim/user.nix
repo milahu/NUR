@@ -24,6 +24,7 @@ in
     ./components/shell.user.nix
     ./components/spelling.user.nix
     ./components/terminal.user.nix
+    ./components/updates.user.nix
   ];
 
   options.host = {

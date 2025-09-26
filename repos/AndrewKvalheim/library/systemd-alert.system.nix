@@ -6,7 +6,7 @@ let
 in
 {
   systemd.services."alert@" = {
-    description = "Alert of failed %I";
+    description = "Alert of failed %i";
 
     wants = [ "network-online.target" ];
     after = [ "network-online.target" ];
@@ -17,7 +17,7 @@ in
       Type = "oneshot";
       ExecStart = ''
         ${getExe bash} -c "${getExe system-sendmail} -i root \
-        <<< $'Subject: %I failed\n\n'\"$(systemctl --full status %I)\""
+        <<< $'Subject: %H: %i failed\n\n'\"$(systemctl --full status %i)\""
       '';
     };
   };

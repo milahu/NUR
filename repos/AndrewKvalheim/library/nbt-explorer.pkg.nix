@@ -63,10 +63,9 @@ stdenv.mkDerivation (nbt-explorer: {
     substituteAllInPlace $out/share/applications/*
   '';
 
-  # FIXME: “replace() argument 1 must be str, not None” at nix_update/update.py:39
-  # passthru.updateScript = nix-update-script {
-  #   extraArgs = [ "--version-regex" "(.*)-win" ];
-  # };
+  passthru.updateScript = nix-update-script {
+    extraArgs = [ "--version-regex" "(.*)-win" ];
+  };
 
   meta = {
     description = "Graphical NBT editor for all Minecraft NBT data sources";

@@ -86,6 +86,7 @@ in
         streetsidesoftware.code-spell-checker
         stylelint.vscode-stylelint
         syler.sass-indented
+        sysoev.language-stylus
         tamasfe.even-better-toml
         theaflowers.qalc
         timonwong.shellcheck
@@ -187,7 +188,7 @@ in
         "git.showActionButton" = { commit = false; publish = false; sync = false; };
         "git.suggestSmartCommit" = false;
         "jjk.enableAnnotations" = false;
-        "scm.diffDecorationsIgnoreTrimWhitespace" = true;
+        "scm.diffDecorationsIgnoreTrimWhitespace" = "true";
 
         # Colors
         "workbench.colorCustomizations" = {

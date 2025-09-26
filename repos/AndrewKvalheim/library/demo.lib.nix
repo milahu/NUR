@@ -1,14 +1,11 @@
 { lib, pkgs }:
 
 let
-  inherit (builtins) head mapAttrs stringLength substring tail;
-  inherit (lib) concatLines concatMapStringsSep concatStringsSep filterAttrs mapAttrsToList toUpper;
+  inherit (builtins) attrNames groupBy filter head mapAttrs tail;
+  inherit (lib) concatLines concatStringsSep filterAttrs mapAttrsToList mapCartesianProduct mutuallyExclusive;
   inherit (import ./identity.lib.nix { inherit lib; }) contactNotice;
   inherit (import ./palette.lib.nix { inherit lib; inherit pkgs; }) colors;
-  inherit (import ./utilities.lib.nix { inherit lib; }) ansiColorNames compose sgr;
-
-  # Pending NixOS/nixpkgs#402372
-  toCamelCase = s: "${substring 0 6 s}${toUpper (substring 7 1 s)}${substring 8 (stringLength s) s}";
+  inherit (import ./utilities.lib.nix { inherit lib; }) bullet columns compose cull indent lookup ne sgr;
 in
 {
   inherit contactNotice;
@@ -20,49 +17,20 @@ in
 
   sgr =
     let
+      archetype = lookup { "22" = "bold"; "23" = "italic"; "24" = "underline"; "27" = "inverse"; "29" = "strike"; "39" = "blue"; };
+      groups = mapAttrs (_: map (a: a.n)) (groupBy (a: a.off) (mapAttrsToList (n: f: { inherit n; inherit (f null) off; }) sgr));
+
+      combine = keep: xs: f: filter (v: v != null) (mapCartesianProduct ({ a, b }: if keep a b then f a b else null) { a = xs; b = xs; });
+      combineGroups = combine ne (attrNames groups);
+      combineGroupss = f: combine mutuallyExclusive (combineGroups f);
       nest = nss:
-        let ns = head nss; nss' = tail nss; l = "‹${concatStringsSep "-" ns}›"; in
-        (compose (map (n: sgr.${n}) ns)) (if nss' == [ ] then l else "${l}${nest nss'}${l}");
+        let ns = head nss; nss' = tail nss; l = concatStringsSep "-" ns; in
+        (compose (map (lookup sgr) ns)) (if nss' == [ ] then l else "${l}${nest nss'}${l}");
     in
-    with mapAttrs (n: _: n) sgr; ''
-           Color: ${concatMapStringsSep " " (n: sgr.${n} "‹${n}› ") ansiColorNames}
-                  ${concatMapStringsSep " " (n: sgr.${toCamelCase "bright-${n}"} "‹${n}+›") ansiColorNames}
-       Intensity: ${nest [[ bold ]]} ${nest [[ dim ]]}
-           Style: ${nest [[ italic ]]}
-      Decoration: ${nest [[ underline ]]} ${nest [[ doubleUnderline ]]} ${nest [[ strike ]]}
-          Effect: ${nest [[ inverse ]]}
-
-            Nest: ${nest [[ blue ] [ bold ]]}      ${nest [[ bold ] [ blue ]]}
-                  ${nest [[ blue ] [ dim ]]}       ${nest [[ dim ] [ blue ]]}
-                  ${nest [[ blue ] [ italic ]]}    ${nest [[ italic ] [ blue ]]}
-                  ${nest [[ blue ] [ underline ]]} ${nest [[ underline ] [ blue ]]}
-                  ${nest [[ blue ] [ strike ]]}    ${nest [[ strike ] [ blue ]]}
-                  ${nest [[ blue ] [ inverse ]]}   ${nest [[ inverse ] [ blue ]]}
-
-                  ${nest [[ blue ] [ bold ] [ italic ]]}
-                  ${nest [[ bold ] [ italic ] [ blue ]]}
-                  ${nest [[ italic ] [ blue ] [ bold ]]}
-
-                  ${nest [[ dim ] [ inverse ]]}
-                  ${nest [[ inverse ] [ dim ]]}
-
-         Compose: ${nest [[ bold blue ]]} ${nest [[ italic blue ]]} ${nest [[ bold italic ]]}
-                  ${nest [[ blue bold ]]} ${nest [[ blue italic ]]} ${nest [[ italic bold ]]}
-
-                  ${nest [[ blue ] [ bold italic ]]}
-                  ${nest [[ bold ] [ italic blue ]]}
-                  ${nest [[ italic ] [ blue bold ]]}
-
-                  ${nest [[ bold italic blue ]]}
-                  ${nest [[ strike ] [ bold italic blue ]]}
-                  ${nest [[ inverse strike ] [ bold italic blue ]]}
-
-                  ${nest [[ italic blue ] [ bold dim ]]}
-                  ${nest [[bold dim] [ italic blue ]]}
-
-                  ${nest [[ italic blue ] [ bold underline ] [ inverse strike ]]}
-
-                  ${nest [[ blue bold dim italic underline strike inverse ]]}
-                  ${nest [[ inverse strike underline italic dim bold blue ]]}
-    '';
+    concatStringsSep "\n" (mapAttrsToList (k: v: "${k}:\n\n${indent 2 (columns "  " (map bullet v))}\n") {
+      "Attributes" = mapAttrsToList (g: ns: columns " " (map (n: nest [ [ n ] ]) ns)) groups;
+      "Composition" = combineGroups (a: b: nest [ [ (archetype a) (archetype b) ] ]);
+      "Nesting" = combineGroups (a: b: nest [ [ (archetype a) ] [ (archetype b) ] ]);
+      "Nesting of composition" = cull 32 (combineGroupss (a: b: [ (archetype a) (archetype b) ]) (a: b: nest [ a b ]));
+    });
 }

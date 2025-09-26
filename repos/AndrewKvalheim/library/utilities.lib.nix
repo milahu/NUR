@@ -1,16 +1,22 @@
 { lib }:
 
 let
-  inherit (builtins) add all attrValues head isFunction listToAttrs mapAttrs split stringLength substring tail;
-  inherit (lib) concatLines fixedWidthNumber flip fold id imap0 isList max nameValuePair pipe removeSuffix splitString throwIf throwIfNot toHexString toUpper;
+  inherit (builtins) add all attrValues ceil elemAt getAttr hasAttr head isFunction length listToAttrs mapAttrs split stringLength substring tail;
+  inherit (lib) concatLines concatImapStringsSep concatMapStrings concatMapStringsSep fixedWidthNumber flip fold id ifilter0 imap0 isList max min mod nameValuePair pipe range removeSuffix splitString stringToCharacters throwIf throwIfNot toHexString toUpper;
   inherit (lib.strings) replicate;
   inherit (import <nix-math> { inherit lib; }) cos pi pow round sin;
+
+  asciiTable = import <nixpkgs/lib/ascii-table.nix>;
+  isAscii = text: all (c: hasAttr c asciiTable) (stringToCharacters text);
+  asciiStringLength = text: throwIfNot (isAscii text) "`builtins.stringLength` does not support Unicode text “${text}”" (stringLength text);
 
   # Pending NixOS/nixpkgs#402372
   toCamelCase = s: "${substring 0 6 s}${toUpper (substring 7 1 s)}${substring 8 (stringLength s) s}";
 in
 rec {
   ansiColorNames = [ "black" "red" "green" "yellow" "blue" "magenta" "cyan" "white" ];
+
+  bullet = t: concatImapStringsSep "\n" (i: l: "${if i == 1 then "- " else "  "}${l}") (splitString "\n" t);
 
   # Adapted from https://en.wikipedia.org/wiki/Clenshaw_algorithm#Special_case_for_Chebyshev_series
   chebyshev = coefficients: x:
@@ -24,6 +30,33 @@ rec {
 
   chebyshevWithDomain = beginning: end: coefficients: x:
     chebyshev coefficients (-1.0 + 2.0 * (x - beginning) / (end - beginning));
+
+  columns = sep: items:
+    let
+      columnsCount = max 1 ((terminalWidth + sepWidth) / (columnWidth + sepWidth));
+      columnWidth = fold max 0 (map printableLength items);
+      fullRowsCount = itemsCount / columnsCount;
+      itemsCount = length items;
+      lastRowItemsCount = mod itemsCount columnsCount;
+      rowsCount = ceil ((itemsCount * 1.0) / columnsCount);
+      sepWidth = printableLength sep;
+      terminalWidth = 100;
+
+      mkCell = cellIndex:
+        let
+          columnIndex = mod cellIndex columnsCount;
+          isLastCell = cellIndex == itemsCount - 1;
+          isLastColumn = columnIndex == columnsCount - 1;
+          item = elemAt items itemIndex;
+          itemIndex = (min columnIndex lastRowItemsCount) * rowsCount
+            + (max 0 (columnIndex - lastRowItemsCount)) * fullRowsCount
+            + rowIndex;
+          rowIndex = cellIndex / columnsCount;
+        in
+        if isLastCell then item else if isLastColumn then "${item}\n" else "${pad item}${sep}";
+      pad = printablePad columnWidth " ";
+    in
+    concatMapStrings mkCell (range 0 (itemsCount - 1));
 
   compose = flip pipe;
 
@@ -40,6 +73,8 @@ rec {
     if l1 < l2 then ratio l2 l1 else ratio l1 l2;
 
   csi = final: params: "[${params}${final}";
+
+  cull = limit: items: let n = ceil ((length items) * 1.0 / limit); in ifilter0 (i: _: mod i n == 0) items;
 
   findHighest = accept: resolution: low: high:
     if high - low < resolution then
@@ -70,10 +105,16 @@ rec {
       (color "└───${pad "─" ""}───┘")
     ]);
 
+  indent = n: t: concatMapStringsSep "\n" (l: "${replicate n " "}${l}") (splitString "\n" t);
+
   # Adapted from https://bottosson.github.io/posts/colorwrong/#what-can-we-do%3F
   linearRgbToRgb = mapAttrs (_: u: if u > 0.0031308 then 1.055 * pow u (1 / 2.4) - 0.055 else 12.92 * u);
 
+  lookup = flip getAttr;
+
   mkSgr = off: on: text: "${csi "m" on}${text}${csi "m" off}";
+
+  ne = a: b: a != b;
 
   oklchToCss = { l, c, h }: "oklch(${toString l} ${toString c} ${toString h})";
 
@@ -105,9 +146,9 @@ rec {
       "Not representable in sRGB\n   Target: ${oklchToCss target}\n  Clamped: ${oklchToCss clamped}"
       result;
 
-  printableLength = text: fold add 0 (map (v: if isList v then 0 else stringLength v) (split "\\[[^m]*m" text));
+  printableLength = text: fold add 0 (map (v: if isList v then 0 else asciiStringLength v) (split "\\[[^m]*m" text));
 
-  printablePad = width: placeholder: text: text + replicate (width - printableLength text) placeholder;
+  printablePad = width: placeholder: text: text + replicate (max 0 (width - printableLength text)) placeholder;
 
   rgbToHex = { r, g, b }:
     let f = x: fixedWidthNumber 2 (toHexString (round (x * 255)));

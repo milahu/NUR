@@ -61,6 +61,7 @@ specify {
   little-a-map = any;
   losslesscut-bin.args = [ "--disable-networking" ];
   mark-applier = any;
+  may-upgrade = any;
   meshtastic-matrix-relay.python3Packages = stable.python3Packages.override {
     overrides = resolvedPythonPackages: pythonPackages: {
       py-staticmaps = stable.lib.throwIf (pythonPackages ? py-staticmaps) "python3Packages.py-staticmaps no longer requires packaging" (pythonPackages.buildPythonPackage rec {
@@ -122,6 +123,7 @@ specify {
     silvenon.mdx.search = open-vsx;
     sissel.shopify-liquid.search = open-vsx;
     syler.sass-indented.search = open-vsx;
+    sysoev.language-stylus.search = open-vsx;
     theaflowers.qalc.search = open-vsx;
     volkerdobler.insertnums.search = open-vsx;
     ybaumes.highlight-trailing-white-spaces.search = open-vsx;

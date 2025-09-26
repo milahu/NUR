@@ -72,7 +72,7 @@ in
 
     settings =
       let
-        contextStyle = "bg:black fg:white bold";
+        contextStyle = "bg:bright-black fg:white bold";
         directoryBg = "purple";
       in
       {

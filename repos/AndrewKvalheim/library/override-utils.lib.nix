@@ -3,7 +3,7 @@
 let
   inherit (builtins) attrNames elemAt filter functionArgs head isAttrs isPath length mapAttrs match pathExists removeAttrs toJSON tryEval;
   inherit (stable) callPackage fetchgit makeWrapper symlinkJoin;
-  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const escapeShellArg findFirst getAttrFromPath hasAttrByPath imap1 info last mapAttrsToList naturalSort optionalAttrs optionalString recurseIntoAttrs showAttrPath throwIf toList versionAtLeast versionOlder;
+  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const defaultTo escapeShellArg findFirst getAttrFromPath hasAttrByPath imap1 info last mapAttrsToList naturalSort optionalAttrs optionalString recurseIntoAttrs showAttrPath throwIf toList versionAtLeast versionOlder;
 
   # Utilities
   composeOverrides = f1: f2: a0: let o1 = f1 a0; o2 = f2 (a0 // o1); in o1 // o2;
@@ -117,7 +117,7 @@ let
                 (optionalAttrs (patch != null) { patches = a.patches or [ ] ++ (toList patch); }) //
                 (optionalAttrs (gappsWrapperArgs != null) { preFixup = a.preFixup or "" + "\ngappsWrapperArgs+=(${gappsWrapperArgs})"; })
               )
-              (if overlay == null then const { } else overlay)
+              (defaultTo (const { }) overlay)
             )
         else package;
 
