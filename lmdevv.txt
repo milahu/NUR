@@ -1,0 +1,13 @@
+error:
+… while querying the derivation named 'cursor-1.6.45'
+
+… while evaluating one of the elements to concatenate
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:671:39:
+
+   670|       maintainers =
+   671|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ];
+      |                                       ^
+   672|
+
+error: value is a string while a list was expected
