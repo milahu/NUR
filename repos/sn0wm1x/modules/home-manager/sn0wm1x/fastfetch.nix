@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.programs.fastfetch.sn0wm1x;
   enable = cfg && config.programs.fastfetch.enable;
@@ -13,50 +18,21 @@ in
           url = "https://github.com/sn0wm1x.png";
           hash = "sha256-7gAf++UN5o7+aP8jLno46zaEtni7vwNBrxD1pDkcA3A=";
         };
+        # Modified from Omarchy
+        # https://github.com/basecamp/omarchy/blob/2df8c5f7e0a2aafb8c9aacb322408d2ed7682ea5/config/fastfetch/config.jsonc
+        json = builtins.fromJSON (builtins.readFile ../../../assets/fastfetch.json);
       in
-      {
+      json
+      // {
         logo = {
           type = "kitty-direct";
           source = "${logo}";
+          padding = {
+            top = 4;
+            right = 2;
+            left = 2;
+          };
         };
-        # https://github.com/fastfetch-cli/fastfetch/blob/dev/presets/screenfetch.jsonc
-        modules = [
-          "title"
-          {
-            "type" = "os";
-            "format" = "SN0WM1X (Nix) OS ({11}, {12})";
-          }
-          "kernel"
-          "uptime"
-          {
-            "type" = "packages";
-            "format" = "{all}";
-          }
-          "shell"
-          {
-            "type" = "display";
-            "key" = "Resolution";
-            "compactType" = "original";
-          }
-          "de"
-          "wm"
-          "wmtheme"
-          {
-            "type" = "terminalfont";
-            "key" = "font";
-          }
-          {
-            "type" = "disk";
-            "folders" = "/";
-            "key" = "Disk";
-          }
-          "cpu"
-          "gpu"
-          {
-            "type" = "memory";
-            "key" = "RAM";
-          }
-        ];
       };
   };
 }
