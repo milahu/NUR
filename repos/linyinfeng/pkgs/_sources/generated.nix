@@ -115,13 +115,13 @@
   };
   linux-intel-lts = {
     pname = "linux-intel-lts";
-    version = "lts-v6.12.47-linux-250915T033524Z";
+    version = "lts-v6.12.48-linux-250924T142248Z";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "linux-intel-lts";
-      rev = "lts-v6.12.47-linux-250915T033524Z";
+      rev = "lts-v6.12.48-linux-250924T142248Z";
       fetchSubmodules = false;
-      sha256 = "sha256-jssJBjid3OKOQYIZeKNVzz6ReTAuSQLV3QXbBkqKWXg=";
+      sha256 = "sha256-479uMPFKkgNnyg/3/ByOvYP4mcFQa9Iz//6djWvBLLY=";
     };
   };
   linux-intel-mainline-tracking = {
@@ -155,6 +155,17 @@
       rev = "v0.5.0";
       fetchSubmodules = false;
       sha256 = "sha256-4ARRCmz7uDKWVuY1LG98oAGV/S0BFo4DYyoWw9TlZoo=";
+    };
+  };
+  mediawiki-auth-manager-oauth = {
+    pname = "mediawiki-auth-manager-oauth";
+    version = "v0.3.3";
+    src = fetchFromGitHub {
+      owner = "mohe2015";
+      repo = "AuthManagerOAuth";
+      rev = "v0.3.3";
+      fetchSubmodules = false;
+      sha256 = "sha256-//AMeRJNx5M2n5WUOOVRz5ZdIBDezYMsaICxnzE6KSg=";
     };
   };
   moe-koe-music = {
@@ -352,17 +363,17 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "f0cd71cbe511026b4961f2febd03afb350a07aa4";
+    version = "fe40df58703cb7f0c98bdb6a9e2f62cdb1a9744d";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "f0cd71cbe511026b4961f2febd03afb350a07aa4";
+      rev = "fe40df58703cb7f0c98bdb6a9e2f62cdb1a9744d";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-/BiVpDEPqH0C40SZZr3HCazNcJG05FWlSLZxPbGO4SM=";
+      sha256 = "sha256-3wmlaN6G/XCuKY2YeMBP08kmusAyhIPsZssx4b5H5dY=";
     };
-    date = "2025-09-24";
+    date = "2025-09-26";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
