@@ -197,7 +197,6 @@ reIf {
               ]
               ++ map (pre: "https://${pre}.nyaw.xyz") [
                 "blog"
-                "status"
                 "abhoth"
               ];
             }
@@ -370,7 +369,7 @@ reIf {
     );
     alertmanagers = [
       {
-        path_prefix = "/alert";
+        # path_prefix = "/alert";
         static_configs = [
           {
             targets =
