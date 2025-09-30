@@ -1129,7 +1129,7 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
   stream-unrar = callPackage ./pkgs/tools/archivers/stream-unrar { };
 
-  libtorrent-rasterbar = callPackage ./pkgs/development/libraries/libtorrent-rasterbar { };
+  # libtorrent-rasterbar = callPackage ./pkgs/development/libraries/libtorrent-rasterbar { };
 
   qbittorrent-nox = callPackage ./pkgs/applications/networking/p2p/qbittorrent {
     guiSupport = false;
@@ -1235,6 +1235,10 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   mkvalidator = callPackage ./pkgs/by-name/mk/mkvalidator/package.nix { };
 
   mkclean = callPackage ./pkgs/by-name/mk/mkclean/package.nix { };
+
+  libtorrent-rasterbar-2_0_x = callPackage ./pkgs/by-name/li/libtorrent-rasterbar-2_0_x/package.nix { };
+
+  libtorrent-rasterbar = libtorrent-rasterbar-2_0_x;
 
 }
 
