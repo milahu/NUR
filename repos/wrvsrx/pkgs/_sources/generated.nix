@@ -100,6 +100,14 @@
     };
     date = "2024-07-15";
   };
+  copilot-cli = {
+    pname = "copilot-cli";
+    version = "0.0.330";
+    src = fetchTarball {
+      url = "https://registry.npmjs.org/@github/copilot/-/copilot-0.0.330.tgz";
+      sha256 = "sha256-Pmx5fJoGoiuvYiRqKE8LN44U5c4Sfij3iHdha0pBkPM=";
+    };
+  };
   cyCodeBase = {
     pname = "cyCodeBase";
     version = "6d3a2c9958d71794016119826d39206903e00d26";
