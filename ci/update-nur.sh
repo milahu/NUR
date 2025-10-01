@@ -207,6 +207,7 @@ else
   #echo fetching branches: nur-repos nur-repos-lock nur-eval-errors gh-pages
   #git fetch --depth=1 origin nur-repos nur-repos-lock nur-eval-errors gh-pages nur-combined
 
+  # FIXME there are no git-lfs objects in the nur-combined branch
   # "git push" can fail when the nur-combined branch contains git-lfs objects
   #   batch response: @github-actions[bot] can not upload new objects to public fork milahu/NUR
   #   error: failed to push some refs to 'https://github.com/milahu/NUR'
