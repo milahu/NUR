@@ -95,10 +95,10 @@
     };
     "adaptive-tab-bar-colour" = buildFirefoxXpiAddon {
       pname = "adaptive-tab-bar-colour";
-      version = "3.1";
+      version = "3.2";
       addonId = "ATBC@EasonWong";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4546795/adaptive_tab_bar_colour-3.1.xpi";
-      sha256 = "810ad03b391ab49e5feaee86e3f21378f3b3a0ff2fefc398a385902890432166";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4583675/adaptive_tab_bar_colour-3.2.xpi";
+      sha256 = "f85389acf19923f81cb3f5500c9f95dfa7a444fd65fd539b08f757acd65347fe";
       meta = with lib;
       {
         homepage = "https://github.com/easonwong-de/Adaptive-Tab-Bar-Colour";
@@ -3336,10 +3336,10 @@
     };
     "enhancer-for-nebula" = buildFirefoxXpiAddon {
       pname = "enhancer-for-nebula";
-      version = "1.7.2";
+      version = "1.7.3";
       addonId = "nebula-enhancer@piber.at";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4565344/enhancer_for_nebula-1.7.2.xpi";
-      sha256 = "ed5b38b6e415d435cfc654df74aa480d221cb3563ddd91c025571bfbead2814b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4588872/enhancer_for_nebula-1.7.3.xpi";
+      sha256 = "1a5e711868fb7d16fd151218cd800a459248ca22b0816dc21ea78c6106100cca";
       meta = with lib;
       {
         homepage = "https://github.com/cpiber/NebulaEnhance#readme";
@@ -3550,10 +3550,10 @@
     };
     "faststream" = buildFirefoxXpiAddon {
       pname = "faststream";
-      version = "1.3.61";
+      version = "1.3.62";
       addonId = "faststream@andrews";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4584386/faststream-1.3.61.xpi";
-      sha256 = "adbd9eaca737555f88b2f9254b4ddd8a95e30ffeccc33038cd29705f0b128f87";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4588956/faststream-1.3.62.xpi";
+      sha256 = "19c3e69c5ea8050235a40e19bef4c61afa6250e806d643493347c7a291f80d32";
       meta = with lib;
       {
         homepage = "https://faststream.online/";
@@ -9076,10 +9076,10 @@
     };
     "octotree" = buildFirefoxXpiAddon {
       pname = "octotree";
-      version = "8.2.0";
+      version = "8.2.2";
       addonId = "jid1-Om7eJGwA1U8Akg@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4587484/octotree-8.2.0.xpi";
-      sha256 = "4571b234e4720289f1d10b050b8b42f27ee9446076a56bb6d0c05eaa95177186";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4589089/octotree-8.2.2.xpi";
+      sha256 = "a16688d42842c09a2e388f0ec99ae8b3d35598ebf3704ac19b63dd81e094efbd";
       meta = with lib;
       {
         homepage = "https://github.com/buunguyen/octotree/";
@@ -12877,10 +12877,10 @@
     };
     "temporary-containers-plus" = buildFirefoxXpiAddon {
       pname = "temporary-containers-plus";
-      version = "2.0.1";
+      version = "2.0.2";
       addonId = "{1ea2fa75-677e-4702-b06a-50fc7d06fe7e}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4587242/temporary_containers_plus-2.0.1.xpi";
-      sha256 = "dd584407ce4d6054c74d0a7d423ba17cf9d72824485c71e3ca4a483c761a081e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4588498/temporary_containers_plus-2.0.2.xpi";
+      sha256 = "11614dd91e8f1ed6b046b4f65345b9f39b2dd3fd2df5d79d63f8a6c8a2475b41";
       meta = with lib;
       {
         homepage = "https://github.com/GodKratos/temporary-containers";
@@ -14562,10 +14562,10 @@
     };
     "watchmarker-for-youtube" = buildFirefoxXpiAddon {
       pname = "watchmarker-for-youtube";
-      version = "5.0.0";
+      version = "5.0.1";
       addonId = "yourect@coderect.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4585946/watchmarker_for_youtube-5.0.0.xpi";
-      sha256 = "4b386aabf370499c5e1dfc133ac55b9f5ddeec52196124c89cf09d78c754e2b7";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4588583/watchmarker_for_youtube-5.0.1.xpi";
+      sha256 = "31c28af843c40fd6fbaec15d793463a3cc55d46246b78f8ef9d24930911a679c";
       meta = with lib;
       {
         homepage = "http://sniklaus.com/";
@@ -14576,7 +14576,6 @@
           "cookies"
           "declarativeNetRequest"
           "declarativeNetRequestWithHostAccess"
-          "downloads"
           "history"
           "scripting"
           "storage"
@@ -15177,10 +15176,10 @@
     };
     "xkit-rewritten" = buildFirefoxXpiAddon {
       pname = "xkit-rewritten";
-      version = "1.0.15";
+      version = "1.0.16";
       addonId = "{6e710c58-36cc-49d6-b772-bfc3030fa56e}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4572690/xkit_rewritten-1.0.15.xpi";
-      sha256 = "ee462ef02155fe86cf265924516d3d746058e08e477e010f9a3cfd4e65eb6ebd";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4583260/xkit_rewritten-1.0.16.xpi";
+      sha256 = "813efcbb8c2c3f96f141fbe494becda6cadc158b1a406ce4180a0a1d304456e9";
       meta = with lib;
       {
         homepage = "https://github.com/AprilSylph/XKit-Rewritten/wiki";
