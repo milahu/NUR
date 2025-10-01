@@ -207,9 +207,21 @@ else
   #echo fetching branches: nur-repos nur-repos-lock nur-eval-errors gh-pages
   #git fetch --depth=1 origin nur-repos nur-repos-lock nur-eval-errors gh-pages nur-combined
 
+  # "git push" can fail when the nur-combined branch contains git-lfs objects
+  #   batch response: @github-actions[bot] can not upload new objects to public fork milahu/NUR
+  #   error: failed to push some refs to 'https://github.com/milahu/NUR'
+  #   Error: Process completed with exit code 1.
+  # fix: git push --no-verify
+  # https://stackoverflow.com/questions/36626793/disable-git-lfs-for-a-remote
+  # TODO write warnings to nur-eval-warnings
+  echo "NOTE not pushing git-lfs files in the nur-combined branch:"
+  git lfs ls-files nur-combined
+
   branches="nur-repos nur-repos-lock nur-eval-results nur-eval-errors gh-pages nur-combined"
   echo pushing branches: $branches
-  git push origin $branches
+  # git push origin $branches
+  # dont push git-lfs files
+  git push --no-verify origin $branches
 fi
 
 # TODO remove?

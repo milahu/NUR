@@ -99,6 +99,8 @@ class GitPrefetcher:
         return None
 
     def prefetch(self, ref: str) -> Tuple[str, Path]:
+        # TODO does this also fetch git-lfs objects? it should not
+        # pushing git-lfs objects can fail in ci/update-nur.sh
         cmd = ["nix-prefetch-git"]
         # no. when fetching by rev, "fetch zip" is better than "git clone"
         # also, with leave-dotGit, we get a different sha256
