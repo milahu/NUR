@@ -505,11 +505,15 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
             raise Exception(f"Github GraphQL query {query_idx} failed. giving up after {retry_max} retries")
         logger.debug(f"Github GraphQL query {query_idx} try {retry_idx + 1} of {retry_max}")
         t1 = time.time()
-        response = requests.post(
-            url="https://api.github.com/graphql",
-            json={"query": query}, # TODO send as plain text?
-            headers={"Authorization": f"token {github_api_token}"}
-        )
+        try:
+            response = requests.post(
+                url="https://api.github.com/graphql",
+                json={"query": query}, # TODO send as plain text?
+                headers={"Authorization": f"token {github_api_token}"}
+            )
+        except Exception as exc:
+            logger.error(f"Github GraphQL query {query_idx} failed at try {retry_idx}: {type(exc).__name__}: {exc} -> retrying")
+            continue # retry
         if "X-RateLimit-Used" in response.headers:
             logger.debug("Github ratelimit status: Used %s of %s requests. Next reset in %s minutes" % (
                 response.headers["X-RateLimit-Used"],
