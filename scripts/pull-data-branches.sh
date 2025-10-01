@@ -6,7 +6,7 @@ data_branches="nur-repos nur-repos-lock nur-eval-results nur-eval-errors gh-page
 
 for branch in $data_branches; do
   if [ -d $branch ]; then
-    git worktree remove $branch
+    git worktree remove --force $branch
   fi
   git fetch --force origin $branch:$branch
   git worktree add $branch $branch
