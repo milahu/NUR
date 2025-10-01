@@ -1,5 +1,4 @@
-{ pkgs
-, lib
+{ lib
 , python312Packages
 , buildPythonPackage ? python312Packages.buildPythonPackage
 , fetchPypi ? python312Packages.fetchPypi
@@ -49,6 +48,7 @@ buildPythonPackage rec {
       future
       numpy
       rich
+      setuptools
       six
       srt
       tqdm
