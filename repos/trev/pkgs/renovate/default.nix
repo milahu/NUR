@@ -14,13 +14,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "renovate";
-  version = "41.127.2";
+  version = "41.133.1";
 
   src = fetchFromGitHub {
     owner = "renovatebot";
     repo = "renovate";
     tag = finalAttrs.version;
-    hash = "sha256-mVHR47or9Pcq4LRsYHLK+5AGd1GqzDQxreRxgIpT7+k=";
+    hash = "sha256-6gbRkjfA1WDhknIijTiUTc1ItyNPNWzypTNOf3WkaJg=";
   };
 
   patches = [
@@ -45,7 +45,7 @@ stdenv.mkDerivation (finalAttrs: {
   pnpmDeps = pnpm_10.fetchDeps {
     inherit (finalAttrs) pname version src;
     fetcherVersion = 2;
-    hash = "sha256-YrByUeVH4OGotqvbmuEbUoH6AoANZPLBQioU00dL32M=";
+    hash = "sha256-RHMvwJcIEefuTz9wUefPiJz6MMZYRRArWb/U4nidC4s=";
   };
 
   env.COREPACK_ENABLE_STRICT = 0;
@@ -100,7 +100,6 @@ stdenv.mkDerivation (finalAttrs: {
     };
     updateScript = ''
       wget https://patch-diff.githubusercontent.com/raw/renovatebot/renovate/pull/37899.diff -O ./pkgs/renovate/37899.diff
-
       ${lib.concatStringsSep " " (nix-update-script {
         extraArgs = [
           "--commit"
