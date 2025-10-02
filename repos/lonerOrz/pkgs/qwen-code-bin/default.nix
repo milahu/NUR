@@ -7,11 +7,11 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "qwen-code-bin";
-  version = "0.0.14";
+  version = "0.0.15-nightly.0";
 
   src = fetchurl {
     url = "https://github.com/QwenLM/qwen-code/releases/download/v${finalAttrs.version}/gemini.js";
-    hash = "sha256-BmOB6c9j/BahVNhGXeAe6Y5HdZJu+a5JbVFmeI1cwDY=";
+    hash = "sha256-V7Qtuft1NEDLr5WtTY6El8oI3DBAj5714iMgsdv7yyM=";
   };
 
   dontUnpack = true;
