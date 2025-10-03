@@ -1,16 +1,16 @@
 {
 "name":"falconprogrammer",
-"fetch_time":0.84,
-"eval_time":0.274,
+"fetch_time":0.413,
+"eval_time":0.29,
 "source":{
 "url":"https://github.com/JonBoyleCoding/falconprogrammer-nur",
-"rev":"e20503722f322eed845a0f0907fa689ef8c9bba1",
-"sha256":"1xiz7dy35gq2xghvzpig0i77hpa1rxnrx01dynhwyg5qv52dj95f",
+"rev":"237a27bf5791c723a5178a84be988e6b7fa96101",
+"sha256":"1wyfbqi6zzxyq7pa5ql2bzbw3718qrziwrqkfa3mghw2v8m764p7",
 "date":null
 },
-"source_storepath":"/nix/store/4qnkmmjlm1xy630s5mibr2kgqv88b8mm-source",
-"nixpkgs_storepath":"/nix/store/9219gzzn4avlzmx3v8qm5sk46g2xwkc7-source",
-"nur_combined_rev":"9ce8cbfe742d112a331096953ae3dcb9710f738f",
+"source_storepath":"/nix/store/n6vsrbybbv3m22j7m397wh11cqnngzly-source",
+"nixpkgs_storepath":"/nix/store/w9pfi29d0j9kagbcl1vb7wrlki48bfmb-source",
+"nur_combined_rev":"108263ebb58f939d044b433e4a846053575b46e7",
 "packages":{
 "alvr":{
 "meta":{
@@ -66,7 +66,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4qnkmmjlm1xy630s5mibr2kgqv88b8mm-source/pkgs/alvr/default.nix",
+"file":"/nix/store/n6vsrbybbv3m22j7m397wh11cqnngzly-source/pkgs/alvr/default.nix",
 "line":88
 },
 "name":"alvr-20.8.1",
@@ -147,7 +147,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4qnkmmjlm1xy630s5mibr2kgqv88b8mm-source/pkgs/g13d/default.nix",
+"file":"/nix/store/n6vsrbybbv3m22j7m397wh11cqnngzly-source/pkgs/g13d/default.nix",
 "line":46
 },
 "name":"g13-master-2024-12-30",
@@ -304,8 +304,6 @@
 "x86_64-linux",
 "x86_64-darwin",
 "aarch64-darwin",
-"i686-cygwin",
-"x86_64-cygwin",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -326,7 +324,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4qnkmmjlm1xy630s5mibr2kgqv88b8mm-source/pkgs/gitignore-template/default.nix",
+"file":"/nix/store/n6vsrbybbv3m22j7m397wh11cqnngzly-source/pkgs/gitignore-template/default.nix",
 "line":42
 },
 "name":"gitignore-template-1.2.4",
@@ -358,8 +356,6 @@
 "x86_64-linux",
 "x86_64-darwin",
 "aarch64-darwin",
-"i686-cygwin",
-"x86_64-cygwin",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -426,7 +422,7 @@
 "longDescription":"OpenCode is an AI coding agent built for the terminal.\n\nNIXOS COMPATIBILITY: OpenCode downloads TUI binaries at runtime that use\ngeneric Linux dynamic linkers (/lib64/ld-linux-x86-64.so.2) which don't\nexist on NixOS. This package includes automatic patching to fix the\ndynamic linker paths for NixOS compatibility.\n\nUSAGE OPTIONS:\n- Run 'opencode' - includes automatic NixOS patching\n- Or manually patch cache: $(nix-build -A opencode-sst)/share/opencode/patch-opencode-cache.sh\n\nThe package provides Node.js 22.19.0 to avoid downloading issues.\n",
 "mainProgram":"opencode",
 "maintainers":[],
-"name":"opencode-0.13.5",
+"name":"opencode-0.13.7",
 "outputsToInstall":[
 "out"
 ],
@@ -460,14 +456,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"opencode-0.13.5",
+"name":"opencode-0.13.7",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"opencode",
 "system":"x86_64-linux",
-"version":"0.13.5"
+"version":"0.13.7"
 },
 "python-jwt_311":{
 "meta":{
@@ -527,8 +523,6 @@
 "x86_64-linux",
 "x86_64-darwin",
 "aarch64-darwin",
-"i686-cygwin",
-"x86_64-cygwin",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -548,7 +542,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4qnkmmjlm1xy630s5mibr2kgqv88b8mm-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/n6vsrbybbv3m22j7m397wh11cqnngzly-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.11-python-jwt-4.0.0",
@@ -580,8 +574,6 @@
 "x86_64-linux",
 "x86_64-darwin",
 "aarch64-darwin",
-"i686-cygwin",
-"x86_64-cygwin",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -661,8 +653,6 @@
 "x86_64-linux",
 "x86_64-darwin",
 "aarch64-darwin",
-"i686-cygwin",
-"x86_64-cygwin",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -682,7 +672,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4qnkmmjlm1xy630s5mibr2kgqv88b8mm-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/n6vsrbybbv3m22j7m397wh11cqnngzly-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.12-python-jwt-4.0.0",
@@ -714,8 +704,6 @@
 "x86_64-linux",
 "x86_64-darwin",
 "aarch64-darwin",
-"i686-cygwin",
-"x86_64-cygwin",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -795,8 +783,6 @@
 "x86_64-linux",
 "x86_64-darwin",
 "aarch64-darwin",
-"i686-cygwin",
-"x86_64-cygwin",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -816,7 +802,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4qnkmmjlm1xy630s5mibr2kgqv88b8mm-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/n6vsrbybbv3m22j7m397wh11cqnngzly-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.13-python-jwt-4.0.0",
@@ -848,8 +834,6 @@
 "x86_64-linux",
 "x86_64-darwin",
 "aarch64-darwin",
-"i686-cygwin",
-"x86_64-cygwin",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -929,8 +913,6 @@
 "x86_64-linux",
 "x86_64-darwin",
 "aarch64-darwin",
-"i686-cygwin",
-"x86_64-cygwin",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -951,7 +933,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4qnkmmjlm1xy630s5mibr2kgqv88b8mm-source/pkgs/timew-sync-client/default.nix",
+"file":"/nix/store/n6vsrbybbv3m22j7m397wh11cqnngzly-source/pkgs/timew-sync-client/default.nix",
 "line":59
 },
 "name":"timew-sync-client-unstable-2023-10-25",
@@ -983,8 +965,6 @@
 "x86_64-linux",
 "x86_64-darwin",
 "aarch64-darwin",
-"i686-cygwin",
-"x86_64-cygwin",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -1121,7 +1101,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4qnkmmjlm1xy630s5mibr2kgqv88b8mm-source/pkgs/xgen/default.nix",
+"file":"/nix/store/n6vsrbybbv3m22j7m397wh11cqnngzly-source/pkgs/xgen/default.nix",
 "line":25
 },
 "name":"xgen-unstable-2023-07-02",
