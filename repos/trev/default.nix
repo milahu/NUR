@@ -14,6 +14,7 @@
   nix-update = pkgs.callPackage ./pkgs/nix-update {};
   opengrep = pkgs.callPackage ./pkgs/opengrep {};
   protoc-gen-connect-openapi = pkgs.callPackage ./pkgs/protoc-gen-connect-openapi {};
+  qsvenc = pkgs.callPackage ./pkgs/qsvenc {};
   renovate = pkgs.callPackage ./pkgs/renovate {};
   shellhook = pkgs.callPackage ./pkgs/shellhook {};
 }
