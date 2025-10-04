@@ -231,10 +231,10 @@
     };
     "alby" = buildFirefoxXpiAddon {
       pname = "alby";
-      version = "3.12.0";
+      version = "3.13.0";
       addonId = "extension@getalby.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4502219/alby-3.12.0.xpi";
-      sha256 = "22404d91df35c0a32c7ec5bfade09ba1a9a1ae7dc3a8174ebea0b67ad3d5663e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4587202/alby-3.13.0.xpi";
+      sha256 = "b64c2405de386e9660c798d456490e231763c3bed6175cc479c6071eb84dfe84";
       meta = with lib;
       {
         homepage = "https://getAlby.com/";
@@ -246,6 +246,7 @@
           "storage"
           "tabs"
           "unlimitedStorage"
+          "contextMenus"
           "*://*/*"
         ];
         platforms = platforms.all;
@@ -1971,10 +1972,10 @@
     };
     "click-and-read" = buildFirefoxXpiAddon {
       pname = "click-and-read";
-      version = "3.34.0";
+      version = "3.35.1";
       addonId = "inist.users@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4571647/click_and_read-3.34.0.xpi";
-      sha256 = "e27070e8285c239369099c7fd79549949b7eae50c2073ad1c218100a1e5e11be";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4590041/click_and_read-3.35.1.xpi";
+      sha256 = "d5e06a055bee8686833ba36fb2e248f7bfa811b48eafdd4447487550fdc49bc6";
       meta = with lib;
       {
         homepage = "https://clickandread.inist.fr/";
@@ -2613,10 +2614,10 @@
     };
     "cyberfeeder" = buildFirefoxXpiAddon {
       pname = "cyberfeeder";
-      version = "4.8.2";
+      version = "4.8.5";
       addonId = "{fa19efb8-df2c-4f6a-ae08-6796a25ccdd6}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4589748/cyberfeeder-4.8.2.xpi";
-      sha256 = "22ae38b0a7955663cfd5a802d744582b477212290c4520664eca3e66741c5121";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4590230/cyberfeeder-4.8.5.xpi";
+      sha256 = "a908c55212e1acfc6845de73f0a2770f2e7cf8d544d8e9cff3a5e5390ef0a0a0";
       meta = with lib;
       {
         description = "UI/UX improvements for jinteki.net.";
@@ -2770,10 +2771,10 @@
     };
     "dashlane" = buildFirefoxXpiAddon {
       pname = "dashlane";
-      version = "6.2538.0";
+      version = "6.2539.0";
       addonId = "jetpack-extension@dashlane.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4578750/dashlane-6.2538.0.xpi";
-      sha256 = "2a7605c37ffba87b62970a4835ad3d40832ce90c98ed15a271640bda022c6858";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4583138/dashlane-6.2539.0.xpi";
+      sha256 = "da7ed3c686d4701aee724ae74eb0643b2b5c5d4cc2228f8a57807066cc82be94";
       meta = with lib;
       {
         homepage = "https://www.dashlane.com";
@@ -4451,10 +4452,10 @@
     };
     "grammarly" = buildFirefoxXpiAddon {
       pname = "grammarly";
-      version = "8.933.0";
+      version = "8.934.0";
       addonId = "87677a2c52b84ad3a151a4a72f5bd3c4@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4550237/grammarly_1-8.933.0.xpi";
-      sha256 = "6a1c42cd727206a163a552e39371d8ba38a4ea25fb3f34527abb2569d39b823f";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4585019/grammarly_1-8.934.0.xpi";
+      sha256 = "1e11cd65a222e3b29588259b41ae07fd5e1e7e8cf04bd2bdd1aa09424a326f43";
       meta = with lib;
       {
         homepage = "http://grammarly.com";
@@ -6066,10 +6067,10 @@
     };
     "improved-tube" = buildFirefoxXpiAddon {
       pname = "improved-tube";
-      version = "4.1325";
+      version = "4.1350";
       addonId = "{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4565486/youtube_addon-4.1325.xpi";
-      sha256 = "2170928fdfa90e8239d67feeb53b7f24d098cc8d543ddf77822218d85c5cd5a5";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4583940/youtube_addon-4.1350.xpi";
+      sha256 = "4ffb4231deecf25172bc7334bc2cb8ef3c58a57a501bf3d3fe4698aae9e003af";
       meta = with lib;
       {
         homepage = "https://github.com/code4charity/YouTube-Extension/";
@@ -9263,10 +9264,10 @@
     };
     "onepassword-password-manager" = buildFirefoxXpiAddon {
       pname = "onepassword-password-manager";
-      version = "8.11.8.40";
+      version = "8.11.12.27";
       addonId = "{d634138d-c276-4fc8-924b-40a0ea21d284}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4565400/1password_x_password_manager-8.11.8.40.xpi";
-      sha256 = "c35b89cff083bf846998873fbce7ab708cea3934cd54c107580bacfe253939f9";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4588819/1password_x_password_manager-8.11.12.27.xpi";
+      sha256 = "435c85458f47cc12314cffe3be6b7fd8c7fcbcc470dec5cb5c2548cbbbdea3a3";
       meta = with lib;
       {
         homepage = "https://1password.com";
@@ -9310,6 +9311,8 @@
           "https://*.b5rev.com/*"
           "https://app.kolide.com/*"
           "https://auth.kolide.com/*"
+          "https://www.director.ai/"
+          "https://www.director.ai/complete-1password-pairing"
           "https://autofill.me/*"
         ];
         platforms = platforms.all;
@@ -9538,7 +9541,7 @@
       meta = with lib;
       {
         homepage = "https://codeberg.org/PassFF/passff";
-        description = "Add-on that allows users of the unix password manager 'pass' (see https://www.passwordstore.org/) to access their password store from Firefox";
+        description = "Add-on that allows users of the unix password manager 'pass' to access their password store from Firefox";
         license = licenses.gpl2;
         mozPermissions = [
           "<all_urls>"
@@ -10487,10 +10490,10 @@
     };
     "proton-pass" = buildFirefoxXpiAddon {
       pname = "proton-pass";
-      version = "1.32.7";
+      version = "1.32.9";
       addonId = "78272b6fa58f4a1abaac99321d503a20@proton.me";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4580681/proton_pass-1.32.7.xpi";
-      sha256 = "c875e7402cc098a62e9ccc7d2b888c69f1257393d72bcc1692b2b73bc781c9aa";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4586457/proton_pass-1.32.9.xpi";
+      sha256 = "5dbcd9df01edd67cda55c100f410e73c0581f5b96f3d90480686f7415465e6aa";
       meta = with lib;
       {
         homepage = "https://proton.me";
@@ -11310,10 +11313,10 @@
     };
     "refined-github" = buildFirefoxXpiAddon {
       pname = "refined-github";
-      version = "25.8.27";
+      version = "25.10.2";
       addonId = "{a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4566240/refined_github-25.8.27.xpi";
-      sha256 = "ed1908dbe373ef36de76baea6217d807efddee981a2c762146c76f5279d3d309";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4590019/refined_github-25.10.2.xpi";
+      sha256 = "bb53d3d1f0b003a5ae705c79402d537141c191f76934bf7aec02b8e891bd16f7";
       meta = with lib;
       {
         homepage = "https://github.com/refined-github/refined-github";
@@ -11443,10 +11446,10 @@
     };
     "ruffle_rs" = buildFirefoxXpiAddon {
       pname = "ruffle_rs";
-      version = "0.2.0.25254";
+      version = "0.2.0.25266";
       addonId = "{b5501fd1-7084-45c5-9aa6-567c2fcf5dc6}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4576196/ruffle_rs-0.2.0.25254.xpi";
-      sha256 = "bbcc85f1660df10c2863e673c576722fcf8737d9ef45bb71c81c149fd001cdad";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4583873/ruffle_rs-0.2.0.25266.xpi";
+      sha256 = "bbaf4326c04ce66592e6e1acdb5ffc786d8edbd83c6c619b8e94aa4fbdfb32b6";
       meta = with lib;
       {
         homepage = "https://ruffle.rs/";
@@ -12027,10 +12030,10 @@
     };
     "simplifygmail" = buildFirefoxXpiAddon {
       pname = "simplifygmail";
-      version = "3.2.12";
+      version = "3.2.14";
       addonId = "{a4c1064c-95dd-47a7-9b02-bb30213b7b29}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4556540/simplifygmail-3.2.12.xpi";
-      sha256 = "84cdc139b96946d5f34f7bab3935d9d2b77f6e2c56719d841699fbd9f992da71";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4590257/simplifygmail-3.2.14.xpi";
+      sha256 = "e9bd33b992eb4f4d71c2da7a999eb92fc01715bd095d0996054aea5ea58838e9";
       meta = with lib;
       {
         homepage = "https://simpl.fyi";
@@ -12409,10 +12412,10 @@
     };
     "steam-database" = buildFirefoxXpiAddon {
       pname = "steam-database";
-      version = "4.26";
+      version = "4.27";
       addonId = "firefox-extension@steamdb.info";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4570408/steam_database-4.26.xpi";
-      sha256 = "6c5db80427522e5fae18ceb76f3039a8c6392eb3d6ecb1d69ee8545620dc8364";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4584596/steam_database-4.27.xpi";
+      sha256 = "2d2a2c0347d096b7c75ee84cdf5b6a55fd1f94105d32bec8620039215d3f0e49";
       meta = with lib;
       {
         homepage = "https://steamdb.info/";
@@ -13108,10 +13111,10 @@
     };
     "toggl-button-time-tracker" = buildFirefoxXpiAddon {
       pname = "toggl-button-time-tracker";
-      version = "4.11.3";
+      version = "4.11.4";
       addonId = "toggl-button@toggl.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4570034/toggl_button_time_tracker-4.11.3.xpi";
-      sha256 = "946c838d71d91dfe3a5f2f5ce21cee991b2656df908ad0c49e1bc9d11a76dd02";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4584104/toggl_button_time_tracker-4.11.4.xpi";
+      sha256 = "4bc6526225ece7a4bd7ac130831a917e6bc3786fecdfd80c5513089707813df7";
       meta = with lib;
       {
         homepage = "https://toggl.com/track/";
@@ -14593,10 +14596,10 @@
     };
     "watchmarker-for-youtube" = buildFirefoxXpiAddon {
       pname = "watchmarker-for-youtube";
-      version = "5.0.1";
+      version = "5.0.2";
       addonId = "yourect@coderect.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4588583/watchmarker_for_youtube-5.0.1.xpi";
-      sha256 = "31c28af843c40fd6fbaec15d793463a3cc55d46246b78f8ef9d24930911a679c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4589880/watchmarker_for_youtube-5.0.2.xpi";
+      sha256 = "39c55d3e35638fe430baaf03abd4fd96b5c08fe51b40acf9bf3cd26b209c29db";
       meta = with lib;
       {
         homepage = "http://sniklaus.com/";
@@ -15380,10 +15383,10 @@
     };
     "youtube-no-translation" = buildFirefoxXpiAddon {
       pname = "youtube-no-translation";
-      version = "2.14.1";
+      version = "2.15.0";
       addonId = "{9a3104a2-02c2-464c-b069-82344e5ed4ec}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4581352/youtube_no_translation-2.14.1.xpi";
-      sha256 = "90aea03f06683e89d1b4aec46725af0536cc133a6d4ed9807d1c4864b693f334";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4586397/youtube_no_translation-2.15.0.xpi";
+      sha256 = "b60f568cac5e485d338ebf45651c088ba829b08fff55987df301f228963a1067";
       meta = with lib;
       {
         description = "Keeps titles, descriptions and audio tracks in their original language on YouTube.";
