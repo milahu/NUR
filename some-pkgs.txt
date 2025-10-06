@@ -1,75 +1,20 @@
 error:
-… while evaluating the file './default.nix':
-
-… from call site
-
-  at ./default.nix:3:21:
-
-     2|                     with import <nixpkgs> {};
-     3|                     import ./evalRepo.nix {
-      |                     ^
-     4|                         name = "some-pkgs";
-
 … while calling anonymous lambda
 
-  at ./evalRepo.nix:1:1:
+  at ./lib/extend-lib.nix:22:11:
 
-     1| { name
-      | ^
-     2| , url
-
-… from call site
-
-  at ./evalRepo.nix:33:11:
-
-    32|     might result in infinite recursion when used with NixOS modules.
-    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+    21|           name:
+    22|           {
       |           ^
-    34|
+    23|             directory,
 
 … while calling anonymous lambda
 
-  at ./default.nix:2:1:
+  at ./read-by-name.nix:51:30:
 
-     1| # Use pkgs provided by NUR
-     2| { pkgs ? import <nixpkgs> { } }:
-      | ^
-     3|
+    50|           kind = builtins.head (
+    51|             builtins.filter (k: builtins.pathExists candidates.${k}) [
+      |                              ^
+    52|               "package"
 
-… from call site
-
-  at ./flake.nix:55:18:
-
-    54|
-    55|       newAttrs = forAllSystems (system:
-      |                  ^
-    56|         pkgs.${system}.some-pkgs // pkgs.${system}.some-pkgs.some-pkgs-py);
-
-… while calling 'forAllSystems'
-
-  at ./flake.nix:24:23:
-
-    23|         ];
-    24|       forAllSystems = f: lib.genAttrs systems (system: f system);
-      |                       ^
-    25|
-
-… while calling anonymous lambda
-
-  at ./compat.nix:179:25:
-
-   178|           inputs = builtins.mapAttrs
-   179|             (inputName: inputSpec: allNodes.${resolveInput inputSpec})
-      |                         ^
-   180|             (node.inputs or { });
-
-… while calling anonymous lambda
-
-  at ./compat.nix:165:13:
-
-   164|     builtins.mapAttrs
-   165|       (key: node:
-      |             ^
-   166|         let
-
-error: access to URI 'https://api.github.com/repos/NixOS/nixpkgs/tarball/1c9fee8711a88d5b09e2072caf331efaec6501d3' is forbidden in restricted mode
+error: path '/nix/store/l7bgcmcap22h8dc3p5piwgm03hj778rz-by-name' is not valid
