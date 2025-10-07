@@ -303,6 +303,9 @@ if [[ "$rc" == "0" ]]; then
     echo '<ul>'
     echo "$packages_json" | jq -r '
       to_entries[] |
+      if .value.meta == null then
+      "<li id=\"nur.repos.'"$repo_name"'." + .key + "\">nur.repos.'"$repo_name"'." + .key + "</li>"
+      else
       "<li id=\"nur.repos.'"$repo_name"'." + .key + "\"><a href=\"" + (
         .value.meta.position | sub(":(?<x>[0-9]+)$"; "#L\(.x)") | .[('${#repo_path}'+1):]
       ) + "\">nur.repos.'"$repo_name"'." + .key + "</a> -\n" +
@@ -325,6 +328,7 @@ if [[ "$rc" == "0" ]]; then
         .
         end
       ) + "</li>"
+      end
     '
     echo '</ul>'
     echo '<h2>see also</h2>'
