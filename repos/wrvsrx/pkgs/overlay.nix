@@ -18,6 +18,7 @@ let
     sfun = callPackage ./sfun { source = sources.sfun; };
     cmdlime = callPackage ./cmdlime { source = sources.cmdlime; };
     vscode-markdown-languageserver = callPackage ./vscode-markdown-languageserver { };
+    # I originally planned to package https://github.com/MetaCubeX/meta-rules-dat , but it only keeps the latest release and doesn't have reproducible URLs, so I used https://github.com/Loyalsoldier/v2ray-rules-dat instead, which has the same content.
     v2ray-rules-dat = callPackage ./v2ray-rules-dat {
       inherit (sources) v2ray-rules-dat-geoip v2ray-rules-dat-geosite;
     };
