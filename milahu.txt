@@ -14,14 +14,23 @@ hello.overrideAttrs (oldAttrs: rec {
 (To silence this warning, set `__intentionallyOverridingVersion = true` in your `overrideAttrs` call.)
 
 error:
+… while evaluating the attribute 'rqbit'
+
+  at ./default.nix:1253:5:
+
+  1252|   inherit (pkgs.dontRecurseIntoAttrs {
+  1253|     rqbit = callPackage ./pkgs/by-name/rq/rqbit/package.nix { };
+      |     ^
+  1254|   }) rqbit;
+
 … from call site
 
-  at ./default.nix:1249:11:
+  at ./default.nix:1253:13:
 
-  1248|
-  1249|   rqbit = callPackage ./pkgs/by-name/rq/rqbit/package.nix { };
-      |           ^
-  1250|
+  1252|   inherit (pkgs.dontRecurseIntoAttrs {
+  1253|     rqbit = callPackage ./pkgs/by-name/rq/rqbit/package.nix { };
+      |             ^
+  1254|   }) rqbit;
 
 … while calling 'callPackageWith'
 
