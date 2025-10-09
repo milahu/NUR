@@ -148,6 +148,7 @@ in
       nom-wrappers
       off
       kdePackages.okular
+      pdfalyzer
       pdfarranger
       popsicle
       pngquant
@@ -170,6 +171,7 @@ in
       v4l-utils
       vagrant
       vivictpp
+      warp
       watchlog
       wev
       whois

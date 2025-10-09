@@ -20,8 +20,8 @@ in
   };
 
   # Workaround for drm/amd#3925, drm/amd#4141
-  boot.kernelPackages = throwIf (versionAtLeast pkgs.linux.version "6.16") "Kernel no longer requires override" pkgs.linuxPackages_6_16;
-  boot.kernelParams = throwIf (pkgs ? linuxPackages_6_17) "Confirm that new kernel is still affected" [ "amdgpu.dcdebugmask=0x10" ];
+  boot.kernelPackages = throwIf (versionAtLeast pkgs.linux.version "6.17") "Kernel no longer requires override" pkgs.linuxPackages_6_17;
+  boot.kernelParams = throwIf (pkgs ? linuxPackages_6_18) "Confirm that new kernel is still affected" [ "amdgpu.dcdebugmask=0x10" ];
 
   # Hardware
   systemd.services.configure-sound-leds = rec {
@@ -40,20 +40,20 @@ in
     #   角 ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░
     #    ↹  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░
     #     ░  ░  ░  ░  ░  g  ░  ░  ░  ░  ░  ░  ░  ░
-    #      ⇧  ░  ░  ░  ░  ░  ░  m  ░  ░  ░  ░  ░
+    #      ⇧  ░  ░  c  ░  ░  ░  ░  ░  ░  ░  ░  ░
     #      ⎈  ❖  ⎇  無    ␣  換 仮 ⇮  ⎙  ░
     # To:
     #   ⎙  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░
     #    g  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░  ░
     #     ░  ░  ░  ░  ░  ↵  ░  ░  ░  ░  ░  ░  ░  ░
-    #      m  ░  ░  ░  ░  ░  ░  ␣  ░  ░  ░  ░  ░
+    #      c  ░  ░  ␣  ░  ░  ░  ░  ░  ░  ░  ░  ░
     #      ❖  ⎇  ⎈  ↹     ⇧  ⇧  ⇮  ⎇  ❖  ░
     evdev:name:AT Translated Set 2 keyboard:*
       KEYBOARD_KEY_29=sysrq
       KEYBOARD_KEY_0f=g
       KEYBOARD_KEY_22=enter
-      KEYBOARD_KEY_2a=m
-      KEYBOARD_KEY_32=space
+      KEYBOARD_KEY_2a=c
+      KEYBOARD_KEY_2e=space
       KEYBOARD_KEY_1d=leftmeta
       KEYBOARD_KEY_db=leftalt
       KEYBOARD_KEY_38=leftctrl

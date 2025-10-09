@@ -7,17 +7,17 @@ let
 in
 {
   console.useXkbConfig = true;
-  services.xserver.xkb.layout = "halmakish";
-  services.xserver.xkb.extraLayouts.halmakish = {
-    description = "Halmakish";
+  services.xserver.xkb.layout = "engramish";
+  services.xserver.xkb.extraLayouts.engramish = {
+    description = "Engramish";
     languages = [ "eng" ];
-    symbolsFile = ./assets/halmakish.xkb;
+    symbolsFile = ./assets/engramish.xkb;
   };
 
   services.kmonad = {
     enable = true;
     keyboards.default = {
-      config = replaceStrings [ "░" ] [ "_" ] (readFile (config.host.dir + "/assets/halmakish.kbd"));
+      config = replaceStrings [ "░" ] [ "_" ] (readFile (config.host.dir + "/assets/engramish.kbd"));
       defcfg = {
         enable = true;
         allowCommands = false;

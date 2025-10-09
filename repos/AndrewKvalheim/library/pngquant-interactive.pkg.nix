@@ -43,5 +43,6 @@ rustPlatform.buildRustPackage (pngquant-interactive: {
     homepage = "https://codeberg.org/AndrewKvalheim/pngquant-interactive";
     license = lib.licenses.gpl3;
     mainProgram = "pngquant-interactive";
+    broken = lib.versionAtLeast cmake.version "4"; # nixpkgs/issues#445447 pending compatible fltk-rs
   };
 })

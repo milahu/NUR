@@ -8,7 +8,7 @@ sgrep() { grep --max-count '1' --null-data --only-matching --perl-regexp "$@" | 
 
 path='library/buildJosmPlugin.fn.nix'
 
-src="$(sgrep '(?s)srcJosmPlugins = fetchsvn {.*?}' "$path")"
+src="$(sgrep '(?s)(?<=srcJosmPlugins = )fetchsvn {.*?}' "$path")"
 rev_previous="$(sgrep '(?<=\brev = ").*?(?=")' <<<"$src")"
 url="$(sgrep '(?<=\burl = ").*?(?=")' <<<"$src")"
 
@@ -18,6 +18,12 @@ if [[ "$rev_previous" == "$rev_next" ]]; then
   info 'Already up-to-date'
 else
   info "$rev_previous → $rev_next"
+
+  # TODO: `nix-prefetch --check-store --verbose "{ fetchsvn }: $src"`. Currently fails with:
+  #
+  #     svn: E000022: Can't convert string from 'UTF-8' to native encoding:
+  #     svn: E000022: /nix/store/y3g0d16bqq6i3yg8qr7shl6bns5l1m1r-josm-r36459/plugins/opendata/test/data/regress/12694/Alvin{U+0E23}{U+0E13}polis_314946.kml
+
   sed \
     --in-place \
     --regexp-extended \

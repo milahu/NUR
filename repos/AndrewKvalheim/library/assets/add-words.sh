@@ -37,8 +37,11 @@ if [[ -d '.jj' ]]; then
       jj --quiet squash
     fi
 
-    # FIXME: May create new sibling
-    jj --quiet edit "$current_change" || jj --quiet new "$current_parent_change"
+    if [[ -n "$(find_change "$current_change")" ]]; then
+      jj --quiet edit "$current_change"
+    else
+      jj --quiet new "$current_parent_change"
+    fi
   fi
 else
   if [[ -n "$(git status --porcelain "$txt")" ]]; then

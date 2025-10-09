@@ -64,7 +64,7 @@ in
         kahole.magit
         karunamurti.haml
         kokakiwi.vscode-just
-        leighlondon.eml
+        # leighlondon.eml # FIXME: Unavailable
         loriscro.super
         matthewpi.caddyfile-support
         mechatroner.rainbow-csv

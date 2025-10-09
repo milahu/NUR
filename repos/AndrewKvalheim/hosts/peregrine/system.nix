@@ -33,7 +33,7 @@ in
     #         ░    ░    ░    ░   ░   ░   ░   ░   ░    ░    ░    ⌫
     #         q    w    e    r    t    y    u    i    o    p    ⌦
     #     ░    ░    ░    ░    ░    g    ░    ░    ░    ░    ↵
-    #      ⇧    ░    ░    ░    ░    ░    ░    m    ░   ░ ░  ⇧
+    #      ⇧    ░    ░    c    ░    ░    ░    ░    ░   ░ ░  ⇧
     #       ⎈    ❖    ⎇                  ␣    ░    ░   ;    '
     #                                            ≣
     # To:
@@ -41,7 +41,7 @@ in
     #         ░    ░    ░    ░   ░   ░   ░   ░   ░    ░    ░    [
     #         g    q    w    e    r    t    y    u    i    o    p
     #     ░    ░    ░    ░    ░    ↵    ░    ░    ░    ░    ;
-    #      m    ░    ░    ░    ░    ░    ░    ␣    ░   ░ ░  '
+    #      c    ░    ░    ␣    ░    ░    ░    ░    ░   ░ ░  '
     #       ⎇    ⎈    ❖                  ⇧    ░    ░   ❖    ろ
     #                                            ★
     evdev:name:SINO WEALTH USB TOUCHPAD KEYBOARD:*
@@ -64,8 +64,8 @@ in
       KEYBOARD_KEY_7004c=p
       KEYBOARD_KEY_7000a=enter
       KEYBOARD_KEY_70028=semicolon
-      KEYBOARD_KEY_700e1=m
-      KEYBOARD_KEY_70010=space
+      KEYBOARD_KEY_700e1=c
+      KEYBOARD_KEY_70006=space
       KEYBOARD_KEY_700e5=apostrophe
       KEYBOARD_KEY_700e0=leftalt
       KEYBOARD_KEY_700e3=leftctrl

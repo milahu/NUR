@@ -52,7 +52,7 @@ specify {
   iptables_exporter = any;
   jjui.version = "≥0.9"; # Compatibility with delta
   jj-dynamic-default-description = any;
-  joplin-desktop.overlay = j: { meta = j.meta // { broken = j ? buildCommand && stable.lib.hasInfix "enable-wayland-ime=true" j.buildCommand; }; }; # Pending NixOS/nixpkgs#412126
+  joplin-desktop.version = "≥3.4"; # State version
   josm = { jre = resolved.graalvm-ce; extraJavaOpts = "--module-path=${resolved.graalvmCEPackages.graaljs}/modules"; }; # josm-scripting-plugin
   josm-imagery-used = any;
   jujutsu.version = "≥0.30"; # Compatibility with delta
@@ -62,35 +62,14 @@ specify {
   losslesscut-bin.args = [ "--disable-networking" ];
   mark-applier = any;
   may-upgrade = any;
-  meshtastic-matrix-relay.python3Packages = stable.python3Packages.override {
-    overrides = resolvedPythonPackages: pythonPackages: {
-      py-staticmaps = stable.lib.throwIf (pythonPackages ? py-staticmaps) "python3Packages.py-staticmaps no longer requires packaging" (pythonPackages.buildPythonPackage rec {
-        pname = "py-staticmaps";
-        version = "0.4.0";
-        pyproject = true;
-        src = pythonPackages.fetchPypi { inherit pname version; hash = "sha256-Wrpa1Z8wpj+GDnbtmUB6bvsk6q1ciZeqhhc2OYnxc4k="; };
-        build-system = with pythonPackages; [ setuptools ];
-        dependencies = with resolvedPythonPackages; [ appdirs geographiclib pillow python-slugify requests s2sphere svgwrite ];
-      });
-      s2sphere = stable.lib.throwIf (pythonPackages ? s2sphere) "python3Packages.s2sphere no longer requires packaging" (pythonPackages.buildPythonPackage rec {
-        pname = "s2sphere";
-        version = "0.2.5";
-        pyproject = true;
-        src = pythonPackages.fetchPypi { inherit pname version; hash = "sha256-wkeMH/fGAaWacVGle2BUNYl1FFePpr24cwchwYKtu68="; };
-        build-system = with pythonPackages; [ setuptools ];
-        dependencies = with resolvedPythonPackages; [ future ];
-      });
-    };
-  };
   meshtastic-url = any;
   minemap = any;
   mozjpeg-simple = any;
-  mqtt-connect = any;
-  mqtt-protobuf-to-json = any;
   nbt-explorer = any;
   nix-preview = any;
   nom-wrappers = any;
   off = any;
+  pdfalyzer = any;
   picard.overlay = p: { preFixup = p.preFixup + "\nmakeWrapperArgs+=(--prefix PATH : ${stable.lib.makeBinPath [ resolved.rsgain ]})"; }; # NixOS/nixpkgs#255222
   pngquant-interactive = any;
   signal-desktop.args = [ "--use-tray-icon" ];
@@ -115,11 +94,12 @@ specify {
     jnbt.vscode-rufo.search = open-vsx;
     joaompinto.vscode-graphviz.search = open-vsx;
     kokakiwi.vscode-just.search = open-vsx;
-    leighlondon.eml.search = [ open-vsx vscode-marketplace ];
+    # leighlondon.eml.search = [ open-vsx vscode-marketplace ]; # FIXME: Disappeared in nix-community/nix-vscode-extensions@0db449808b88170ea6ce7fe531b3d73fd190b4d1
     loriscro.super.search = open-vsx;
     mitchdenny.ecdc.search = open-vsx;
     ms-vscode.wasm-wasi-core.search = open-vsx;
     ronnidc.nunjucks.search = [ open-vsx vscode-marketplace ];
+    rust-lang.rust-analyzer.version = "≥0.3.2500";
     silvenon.mdx.search = open-vsx;
     sissel.shopify-liquid.search = open-vsx;
     syler.sass-indented.search = open-vsx;
@@ -133,7 +113,7 @@ specify {
     patch = [ ./library/assets/whipper_flac-level.patch ./library/assets/whipper_speed.patch ./library/assets/whipper_detect-tty.patch ];
   };
   wireguard-vanity-address = any;
-  ydotool.patch = ./library/assets/ydotool-halmakish.patch; # Pending ReimuNotMoe/ydotool#177
+  ydotool.patch = ./library/assets/ydotool-engramish.patch; # Pending ReimuNotMoe/ydotool#177
   yubikey-touch-detector.overlay = y: {
     postPatch = y.postPatch or "" + ''substituteInPlace notifier/libnotify.go --replace-fail \
       'AppIcon: "yubikey-touch-detector"' \

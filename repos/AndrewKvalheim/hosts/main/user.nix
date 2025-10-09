@@ -39,7 +39,6 @@ in
     album-art
     alpaca
     attachments
-    audacity
     awscli2
     calibre
     chromium
@@ -62,7 +61,6 @@ in
     mark-applier
     mcaselector
     nvtopPackages.amd
-    python3Packages.meshtastic
     meshtastic-url
     minemap
     nbt-explorer
@@ -72,6 +70,7 @@ in
     rapid-photo-downloader
     signal-desktop
     soundconverter
+    tenacity
     thunderbird
     tor-browser-bundle-bin
     transmission_4-gtk

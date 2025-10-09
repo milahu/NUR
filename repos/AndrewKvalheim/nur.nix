@@ -64,9 +64,8 @@ rec {
   mark-applier = callPackage ./library/mark-applier.pkg.nix { };
   meshtastic-url = callPackage ./library/meshtastic-url.pkg.nix { };
   minemap = callPackage ./library/minemap.pkg.nix { };
-  mqtt-connect = callPackage ./library/mqtt-connect.pkg.nix { };
-  mqtt-protobuf-to-json = callPackage ./library/mqtt-protobuf-to-json.pkg.nix { };
   nbt-explorer = callPackage ./library/nbt-explorer.pkg.nix { };
+  pdfalyzer = callPackage ./library/pdfalyzer.pkg.nix { };
   pngquant-interactive = callPackage ./library/pngquant-interactive.pkg.nix { };
   spf-check = callPackage ./library/spf-check.pkg.nix { };
   spf-tree = callPackage ./library/spf-tree.pkg.nix { };
