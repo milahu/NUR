@@ -22,7 +22,6 @@ let
     v2ray-rules-dat = callPackage ./v2ray-rules-dat {
       inherit (sources) v2ray-rules-dat-geoip v2ray-rules-dat-geosite;
     };
-    claude-code-router = callPackage ./claude-code-router { source = sources.claude-code-router; };
     copilot-cli = callPackage ./copilot-cli { source = sources.copilot-cli; };
 
     # my packages

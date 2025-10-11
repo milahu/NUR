@@ -46,14 +46,6 @@
       sha256 = "sha256-hdIbEIZrxA5EA3XY4MIazRv3DazUjpuDJRCgq8+kJQg=";
     };
   };
-  claude-code-router = {
-    pname = "claude-code-router";
-    version = "1.0.49";
-    src = fetchTarball {
-      url = "https://github.com/musistudio/claude-code-router/archive/f7adb7b28e6f7f11a21d642f4f422cdb30fef9e3.tar.gz";
-      sha256 = "sha256-XXGt5p2CxkD7bftpfLe8YHrlbw33kRV4BEI1yxqqmXY=";
-    };
-  };
   cmdlime = {
     pname = "cmdlime";
     version = "v2.7.0";
