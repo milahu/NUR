@@ -82,6 +82,18 @@
     moduleName = "github.com/mholt/caddy-webdav";
     date = "20250805175825";
   };
+  nix-package-versions = {
+    pname = "nix-package-versions";
+    version = "6cdfa21a11f5e8e7ea8a0736c8ddf7941898c9fe";
+    src = fetchFromGitHub {
+      owner = "lazamar";
+      repo = "nix-package-versions";
+      rev = "6cdfa21a11f5e8e7ea8a0736c8ddf7941898c9fe";
+      fetchSubmodules = false;
+      sha256 = "sha256-M5/gLq+DhZIA1sBDmYY42XhV/l3tMHI2JcIkhWsRcx8=";
+    };
+    date = "2025-06-19";
+  };
   rime-ice = {
     pname = "rime-ice";
     version = "2025.04.06";
@@ -107,10 +119,10 @@
   };
   rime-moegirl = {
     pname = "rime-moegirl";
-    version = "20250909";
+    version = "20251009";
     src = fetchurl {
-      url = "https://github.com/outloudvi/mw2fcitx/releases/download/20250909/moegirl.dict.yaml";
-      sha256 = "sha256-wsxtiTOg9/yzdkhTuLwdfLev0MAzXWID96bq1AyJN6k=";
+      url = "https://github.com/outloudvi/mw2fcitx/releases/download/20251009/moegirl.dict.yaml";
+      sha256 = "sha256-8WmfnkfTg8zdMKvn3I+Ag5KYjdbUpeWhgeSEEc/WUss=";
     };
   };
   yazi-rs-plugins = {
