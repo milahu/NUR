@@ -9,7 +9,6 @@
 { pkgs ? import <nixpkgs> { } }:
 
 let
-  p311 = pkgs.python311;
   p312 = pkgs.python312;
   p313 = pkgs.python313;
   p3 = pkgs.python3.pkgs;
@@ -24,7 +23,6 @@ rec {
 
   android-unpinner = p3.callPackage ./pkgs/android-unpinner { };
   fzf-tab-completion = pkgs.callPackage ./pkgs/fzf-tab-completion { };
-  harmonoid = pkgs.callPackage ./pkgs/harmonoid { };
   jetbrains-fleet = pkgs.callPackage ./pkgs/jetbrains-fleet { };
   ttf-ms-win11 = pkgs.recurseIntoAttrs ( import ./pkgs/ttf-ms-win11 { inherit pkgs; } );
 
@@ -37,7 +35,6 @@ rec {
   tulip-flagids = pkgs.callPackage ./pkgs/tulip-flagids { };
   tulip-frontend = pkgs.callPackage ./pkgs/tulip-frontend { };
 
-  python311Packages = pythonPackages p311;
   python312Packages = pythonPackages p312;
   python313Packages = pythonPackages p313;
 }
