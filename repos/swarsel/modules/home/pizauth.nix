@@ -10,7 +10,7 @@ let
   cfg = config.swarselservices.pizauth;
 in
 {
-  _class = "nixos";
+  _class = "homeManager";
 
   options.swarselservices.pizauth = {
     enable = lib.mkEnableOption ''

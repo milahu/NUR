@@ -16,7 +16,7 @@ let
     ;
 in
 {
-  _class = "home-manager";
+  _class = "nixos";
 
   options.swarselservices.homebox = {
     enable = mkEnableOption "homebox";
