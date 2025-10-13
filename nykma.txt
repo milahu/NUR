@@ -3,84 +3,84 @@ error:
 
 … in the left operand of the AND (&&) operator
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:645:9:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:731:9:
 
-   644|         validity.valid != "no"
-   645|         && (
+   730|         validity.valid != "no"
+   731|         && (
       |         ^
-   646|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
+   732|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:822:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:841:18:
 
-   821|       };
-   822|       validity = checkMeta.assertValidity { inherit meta attrs; };
+   840|       };
+   841|       validity = checkMeta.assertValidity { inherit meta attrs; };
       |                  ^
-   823|
+   842|
 
 … while calling 'assertValidity'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:651:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:737:5:
 
-   650|   assertValidity =
-   651|     { meta, attrs }:
+   736|   assertValidity =
+   737|     { meta, attrs }:
       |     ^
-   652|     let
+   738|     let
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:653:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:739:18:
 
-   652|     let
-   653|       validity = checkValidity attrs;
+   738|     let
+   739|       validity = checkValidity attrs;
       |                  ^
-   654|       inherit (validity) valid;
+   740|       inherit (validity) valid;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:491:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:497:5:
 
-   490|     in
-   491|     attrs:
+   496|     in
+   497|     attrs:
       |     ^
-   492|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+   498|     # Check meta attribute types first, to make sure it is always called even when there are other issues
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:537:40:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:543:40:
 
-   536|       }
-   537|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
+   542|       }
+   543|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
       |                                        ^
-   538|       let
+   544|       let
 
 … while calling 'hasUnsupportedPlatform'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:140:28:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:143:28:
 
-   139|
-   140|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+   142|
+   143|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
       |                            ^
-   141|
+   144|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:140:35:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:143:35:
 
-   139|
-   140|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+   142|
+   143|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
       |                                   ^
-   141|
+   144|
 
 … while calling 'availableOn'
 
-  at <nixpkgs> + /lib/meta.nix:291:15:
+  at <nixpkgs> + /lib/meta.nix:303:15:
 
-   290|   availableOn =
-   291|     platform: pkg:
+   302|   availableOn =
+   303|     platform: pkg:
       |               ^
-   292|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
+   304|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
 
 error: attribute 'rust-bin' missing
 
@@ -89,4 +89,4 @@ at ./default.nix:43:48:
     42|   noir = pkgs.callPackage ./pkgs/noir { inherit (pkgs) rust-bin; protobuf_29 = pkgs-protobuf293.protobuf_29; };
     43|   mergiraf = pkgs.callPackage ./pkgs/mergiraf { inherit (pkgs) rust-bin; };
       |                                                ^
-    44|
+    44|   libjportaudio = pkgs.callPackage ./pkgs/libjportaudio { };
