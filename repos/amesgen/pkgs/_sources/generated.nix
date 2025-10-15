@@ -35,10 +35,10 @@
   };
   fourmolu = {
     pname = "fourmolu";
-    version = "0.18.0.0";
+    version = "0.19.0.1";
     src = fetchurl {
-      url = "https://github.com/fourmolu/fourmolu/releases/download/v0.18.0.0/fourmolu-0.18.0.0-linux-x86_64";
-      sha256 = "sha256-Dh9nzAzC8/WZ/Pdi7spv4vvQLps28Otgm4/sixhVoKI=";
+      url = "https://github.com/fourmolu/fourmolu/releases/download/v0.19.0.1/fourmolu-0.19.0.1-linux-x86_64";
+      sha256 = "sha256-LFzNS+Uecty9CUaNbmIIL8Okf1+r3YxpeXKRKbyB51U=";
     };
   };
   hell = {
@@ -59,18 +59,18 @@
   };
   ormolu = {
     pname = "ormolu";
-    version = "0.8.0.0";
+    version = "0.8.0.2";
     src = fetchurl {
-      url = "https://github.com/tweag/ormolu/releases/download/0.8.0.0/ormolu-x86_64-linux.zip";
-      sha256 = "sha256-bnz3dTf03YErRCYFN0RSMTvbuXYFdQdQlxNDpIzG7No=";
+      url = "https://github.com/tweag/ormolu/releases/download/0.8.0.2/ormolu-x86_64-linux.zip";
+      sha256 = "sha256-9zexGDVTfQINg6SXkDo5LxnUlDrqA7dfdvHFcZ1w+fg=";
     };
   };
   pandoc = {
     pname = "pandoc";
-    version = "3.7.0.2";
+    version = "3.8.1";
     src = fetchurl {
-      url = "https://github.com/jgm/pandoc/releases/download/3.7.0.2/pandoc-3.7.0.2-linux-amd64.tar.gz";
-      sha256 = "sha256-j49n/dVAtlGTJrCsSdXFXF1dFeQ5IOgKCG4CyK/4Mmg=";
+      url = "https://github.com/jgm/pandoc/releases/download/3.8.1/pandoc-3.8.1-linux-amd64.tar.gz";
+      sha256 = "sha256-LZCGotAeeId5fgzE8HqPpgCLNPiWEt2SFBksAAirWKs=";
     };
   };
 }
