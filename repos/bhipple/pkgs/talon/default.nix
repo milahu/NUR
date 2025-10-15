@@ -21,19 +21,10 @@
 , xz
 , zlib
 }:
-let
-  # See README.md
-  srcs =
-    if builtins.pathExists ./beta-src.nix
-    then import ./beta-src.nix
-    else import ./src.nix;
-in
 stdenv.mkDerivation rec {
   pname = "talon";
-  inherit (srcs) version;
-  src = fetchurl {
-    inherit (srcs) url sha256;
-  };
+  version = "115-0.4.0-981-8751";
+  src = ./talon-linux-115-0.4.0-981-8751.tar.xz;
   preferLocalBuild = true;
   nativeBuildInputs = [ makeWrapper ];
   buildInputs = [

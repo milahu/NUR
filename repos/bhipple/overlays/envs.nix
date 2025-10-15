@@ -130,7 +130,6 @@ in
         self.aspell
         self.autoflake
         self.bind
-        self.black
         self.chromedriver
         self.direnv
         self.discord
@@ -140,7 +139,6 @@ in
         self.gcc
         self.gitAndTools.git-lfs
         self.gitAndTools.gitFull
-        self.gitAndTools.hub
         self.gnome-keyring
         self.gnumake
         self.gnutls
@@ -156,6 +154,7 @@ in
         self.nload
         self.nodejs
         self.ollama
+        self.orca-slicer
         self.pavucontrol
         self.pdsh
         self.pulseaudioFull
