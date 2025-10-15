@@ -4,10 +4,12 @@
   ...
 }:
 pkgs.stdenv.mkDerivation {
-  inherit (sources.clap-info) pname version src;
+  inherit (sources.clap-info) pname src;
+  version = pkgs.lib.removePrefix "v" sources.clap-info.version;
 
   nativeBuildInputs = with pkgs; [
     cmake
+    ninja
   ];
 
   postPatch = ''
@@ -16,8 +18,12 @@ pkgs.stdenv.mkDerivation {
   '';
 
   installPhase = ''
+    runHook preInstall
+
     mkdir -p $out/bin
     cp clap-info $out/bin
+
+    runHook postInstall
   '';
 
   meta = with pkgs.lib; {

@@ -4,7 +4,8 @@
   ...
 }:
 pkgs.rustPlatform.buildRustPackage {
-  inherit (sources.octasine) pname version src;
+  inherit (sources.octasine) pname src;
+  version = pkgs.lib.removePrefix "v" sources.octasine.version;
   cargoLock = sources.octasine.cargoLock."Cargo.lock";
 
   nativeBuildInputs = with pkgs; [
@@ -34,7 +35,7 @@ pkgs.rustPlatform.buildRustPackage {
   meta = with pkgs.lib; {
     description = "Frequency modulation synthesizer plugin (VST2, CLAP).";
     homepage = "https://www.octasine.com/";
-    license = licenses.agpl3Only;
+    license = licenses.agpl3Plus;
     platforms = platforms.linux;
   };
 }

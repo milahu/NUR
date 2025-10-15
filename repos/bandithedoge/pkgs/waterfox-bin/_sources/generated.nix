@@ -4,13 +4,14 @@
   fetchurl,
   fetchFromGitHub,
   dockerTools,
-}: {
+}:
+{
   waterfox-bin = {
     pname = "waterfox-bin";
-    version = "G6.0.19";
+    version = "6.6.4";
     src = fetchurl {
-      url = "https://cdn1.waterfox.net/waterfox/releases/G6.0.19/Linux_x86_64/waterfox-G6.0.19.tar.bz2";
-      sha256 = "sha256-SOlxDpf0zjGyqnpvHmiBx9qiLpo61HrfLQivf0q/UJk=";
+      url = "https://cdn1.waterfox.net/waterfox/releases/6.6.4/Linux_x86_64/waterfox-6.6.4.tar.bz2";
+      sha256 = "sha256-AFBLBEFA7iXY9lr2UIccVUhsNNeXfx1K0UMsRuDZT4c=";
     };
   };
 }

@@ -4,16 +4,17 @@
   fetchurl,
   fetchFromGitHub,
   dockerTools,
-}: {
+}:
+{
   kiwmi = {
     pname = "kiwmi";
-    version = "17814972abe6a8811a586fa87c99a2b16a86075f";
+    version = "392b6c38fd189e304aa97f9c6fc88a5c7113a140";
     src = fetchFromGitHub {
       owner = "buffet";
       repo = "kiwmi";
-      rev = "17814972abe6a8811a586fa87c99a2b16a86075f";
+      rev = "392b6c38fd189e304aa97f9c6fc88a5c7113a140";
       fetchSubmodules = false;
-      sha256 = "sha256-n9PA6cyEjSlnDcRrqIkO83UaCE/hovbi/oZon1B+nuw=";
+      sha256 = "sha256-xTvCq8vq1bztfVxd9Kn9KT2Hl5C6toWl/CS8VojkZw0=";
     };
     date = "2022-07-30";
   };

@@ -6,6 +6,7 @@
 }:
 pythonPkgs.buildPythonPackage {
   inherit (sources.py-slvs) pname version src;
+  patches = [ ./cmake_policy_version_minimum.patch ];
   pyproject = true;
 
   nativeBuildInputs = with pkgs; [
@@ -24,6 +25,6 @@ pythonPkgs.buildPythonPackage {
   meta = with pkgs.lib; {
     description = "Python binding of SOLVESPACE geometry constraint solver";
     homepage = "https://github.com/realthunder/slvs_py";
-    license = licenses.gpl3;
+    license = licenses.gpl3Plus;
   };
 }

@@ -4,11 +4,10 @@
   ...
 }:
 pkgs.appimageTools.wrapType2 {
-  name = "BasiliskII";
-  inherit (sources.basiliskii-bin) src;
+  inherit (sources.basiliskii-bin) pname version src;
 
-  extraPkgs = pkgs:
-    with pkgs; [
+  extraPkgs =
+    pkgs: with pkgs; [
       libthai
     ];
 
@@ -16,6 +15,6 @@ pkgs.appimageTools.wrapType2 {
     description = "68k Macintosh emulator";
     homepage = "https://basilisk.cebix.net/";
     license = licenses.gpl2;
-    platforms = ["x86_64-linux"];
+    platforms = [ "x86_64-linux" ];
   };
 }

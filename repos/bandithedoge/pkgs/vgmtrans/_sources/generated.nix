@@ -4,19 +4,20 @@
   fetchurl,
   fetchFromGitHub,
   dockerTools,
-}: {
+}:
+{
   vgmtrans = {
     pname = "vgmtrans";
-    version = "6e834a9a6da5bf6975c0f9589640f854c627564c";
+    version = "bcd511b9bf68f333ba9899fbd8954e17ecd47c7a";
     src = fetchgit {
       url = "https://github.com/vgmtrans/vgmtrans";
-      rev = "6e834a9a6da5bf6975c0f9589640f854c627564c";
+      rev = "bcd511b9bf68f333ba9899fbd8954e17ecd47c7a";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
-      sparseCheckout = [];
-      sha256 = "sha256-pWciySD1UQkhdnuyPvSaJmdctRnvt3wWzwfwU8I+nRY=";
+      sparseCheckout = [ ];
+      sha256 = "sha256-lZxKNq5kjFf3fNOUVgC8k2eXJs7wgq4ena/UB7+kmd4=";
     };
-    date = "2024-08-28";
+    date = "2025-09-29";
   };
 }

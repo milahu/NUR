@@ -1,2 +1,5 @@
-{pkgs ? import <nixpkgs> {}}:
-import ./pkgs {inherit pkgs;}
+{
+  pkgs ? import <nixpkgs> { inherit overlays; },
+  overlays ? null,
+}:
+import ./pkgs { inherit pkgs; }

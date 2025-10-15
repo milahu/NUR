@@ -1,62 +1,20 @@
-{pkgs, ...}: let
-  callPackage' = pkg:
-    pkgs.callPackage pkg {
-      inherit pkgs callPackage';
-      sources = pkgs.callPackage (pkg + "/_sources/generated.nix") {};
-    };
+{ pkgs, ... }:
+let
+  all = import ./all.nix { inherit pkgs; };
 
-  callPackages = pkg: pkgs.lib.recurseIntoAttrs (callPackage' pkg);
-
-  packages = {
-    airwindows-consolidated = callPackage' ./airwindows-consolidated;
-    basiliskii-bin = callPackage' ./basiliskii-bin;
-    bitdos-bin = callPackage' ./bitdos-bin;
-    cardinal = callPackage' ./cardinal;
-    cinelerra-gg-bin = callPackage' ./cinelerra-gg-bin;
-    clap-info = callPackage' ./clap-info;
-    deemix-gui-bin = callPackage' ./deemix-gui-bin;
-    digits-bin = callPackage' ./digits-bin;
-    distrho-ports = callPackage' ./distrho-ports;
-    dpf-plugins = callPackage' ./dpf-plugins;
-    emacsPackages = callPackages ./emacsPackages;
-    fennel-language-server = callPackage' ./fennel-language-server;
-    firefoxAddons = callPackages ./firefoxAddons;
-    flexipatch = callPackages ./flexipatch;
-    geonkick = callPackage' ./geonkick;
-    giada = callPackage' ./giada;
-    haskellPackages = callPackages ./haskellPackages;
-    hvcc = callPackage' ./hvcc;
-    ildaeil = callPackage' ./ildaeil;
-    keepmenu = callPackage' ./keepmenu;
-    kiwmi = callPackage' ./kiwmi;
-    lamb = callPackage' ./lamb;
-    luaPackages = callPackages ./luaPackages;
-    luakit = callPackage' ./luakit;
-    lv2vst = callPackage' ./lv2vst;
-    mesonlsp-bin = callPackage' ./mesonlsp-bin;
-    modstems = callPackage' ./modstems;
-    nimlangserver = callPackage' ./nimlangserver;
-    nodePackages = callPackages ./nodePackages;
-    octasine = callPackage' ./octasine;
-    onagre = callPackage' ./onagre;
-    osirus = callPackage' ./osirus;
-    powertab = callPackage' ./powertab;
-    propertree = callPackage' ./propertree;
-    pythonPackages = callPackages ./pythonPackages;
-    raze = callPackage' ./raze;
-    satty = callPackage' ./satty;
-    sgdboop-bin = callPackage' ./sgdboop-bin;
-    sheepshaver-bin = callPackage' ./sheepshaver-bin;
-    symbols-nerd-font = callPackage' ./symbols-nerd-font;
-    tal = callPackages ./tal;
-    tonelib = callPackages ./tonelib;
-    treeSitterGrammars = callPackages ./treeSitterGrammars;
-    umu = callPackage' ./umu;
-    vgmtrans = callPackage' ./vgmtrans;
-    vimPlugins = callPackages ./vimPlugins;
-    waterfox-bin = callPackage' ./waterfox-bin;
-    xplrPlugins = callPackages ./xplrPlugins;
-    zrythm = callPackage' ./zrythm;
-  };
+  concat = pkgs.lib.concatStringsSep ".";
 in
-  packages // builtins.mapAttrs (old: new: pkgs.lib.warn "${old} has been renamed to ${new}" packages.${new}) (import ./_renamed.nix)
+pkgs.lib.recursiveUpdate
+  (pkgs.lib.recursiveUpdate all (
+    pkgs.lib.mapAttrsRecursive (
+      old: new:
+      pkgs.lib.warn "${concat old} has been renamed to ${concat new}" (pkgs.lib.attrByPath new null all)
+    ) (import ./_renamed.nix)
+  ))
+  (
+    pkgs.lib.mapAttrsRecursive (
+      old: new:
+      pkgs.lib.warn "${concat old} is available in nixpkgs as ${concat new}" pkgs.lib.attrByPath new null
+        pkgs
+    ) (import ./_upstreamed.nix)
+  )

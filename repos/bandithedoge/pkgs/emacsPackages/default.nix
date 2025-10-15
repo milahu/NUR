@@ -1,30 +1,35 @@
-{pkgs, ...}: let
-  sources = import ./nix/_sources.nix {inherit pkgs;};
+{ pkgs, ... }:
+let
+  sources = import ./npins { };
 in
-  (pkgs.lib.makeExtensible (_:
-    pkgs.lib.attrsets.mapAttrs'
-    (name: src: let
+(pkgs.lib.makeExtensible (
+  _:
+  pkgs.lib.attrsets.mapAttrs' (
+    name: src':
+    let
       sanitizedName = pkgs.lib.pipe name [
         (pkgs.lib.removeSuffix ".el")
-        (builtins.replaceStrings ["."] ["-"])
+        (builtins.replaceStrings [ "." ] [ "-" ])
         pkgs.lib.strings.sanitizeDerivationName
       ];
+      src = src' { inherit pkgs; };
     in
-      pkgs.lib.attrsets.nameValuePair
-      sanitizedName
-      (pkgs.emacsPackages.melpaBuild {
+    pkgs.lib.attrsets.nameValuePair sanitizedName (
+      pkgs.emacsPackages.melpaBuild {
         pname = sanitizedName;
         # TODO: set version properly
         # https://github.com/nmattia/niv/issues/111
         version = "0";
         inherit src;
-        commit = src.rev;
+        commit = src.revision;
 
         recipe = pkgs.writeText "recipe" ''
           (${sanitizedName}
-            :repo "${src.owner}/${src.repo}"
+            :repo "${src.repository.owner}/${src.repository.repo}"
             :fetcher github)
         '';
-      }))
-    (pkgs.lib.filterAttrs (_: v: pkgs.lib.isStorePath v) sources)))
-  .extend (import ./_overrides.nix {inherit pkgs;})
+      }
+    )
+  ) sources
+)).extend
+  (import ./_overrides.nix { inherit pkgs; })

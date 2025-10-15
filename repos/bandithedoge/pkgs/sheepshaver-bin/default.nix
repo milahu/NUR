@@ -4,11 +4,10 @@
   ...
 }:
 pkgs.appimageTools.wrapType2 {
-  name = "SheepShaver";
-  inherit (sources.sheepshaver-bin) src;
+  inherit (sources.sheepshaver-bin) pname version src;
 
-  extraPkgs = pkgs:
-    with pkgs; [
+  extraPkgs =
+    pkgs: with pkgs; [
       libthai
     ];
 
@@ -16,6 +15,6 @@ pkgs.appimageTools.wrapType2 {
     description = "A MacOS run-time environment for BeOS and Linux that allows you to run classic MacOS applications inside the BeOS/Linux multitasking environment";
     homepage = "https://sheepshaver.cebix.net/";
     license = licenses.gpl2;
-    platforms = ["x86_64-linux"];
+    platforms = [ "x86_64-linux" ];
   };
 }

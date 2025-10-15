@@ -10,6 +10,7 @@ pkgs.stdenv.mkDerivation {
   nativeBuildInputs = with pkgs; [
     autoPatchelfHook
     copyDesktopItems
+    patchelfUnstable
   ];
 
   buildInputs = with pkgs; [
@@ -30,26 +31,33 @@ pkgs.stdenv.mkDerivation {
     (lib.getLib pipewire)
   ];
 
-  buildPhase = let
-    policies =
-      {
+  patchelfFlags = [ "--no-clobber-old-sections" ];
+
+  buildPhase =
+    let
+      policies = {
         DisableAppUpdate = true;
       }
-      // config.firefox.policies or {};
-  in ''
-    mkdir -p $out/{bin,lib/waterfox}
-    cp -r * $out/lib/waterfox
+      // config.firefox.policies or { };
+    in
+    ''
+      runHook preBuild
 
-    mkdir $out/lib/waterfox/distribution
-    ln -s $out/lib/waterfox/waterfox $out/bin/waterfox
-    # echo '${builtins.toJSON {inherit policies;}}' > $out/lib/waterfox/distribution/policies.json
+      mkdir -p $out/{bin,lib/waterfox}
+      cp -r * $out/lib/waterfox
 
-    for i in 16 32 48 64 128
-    do
-      mkdir -p "$out/share/icons/hicolor/$(echo $i)x$(echo $i)/apps"
-      ln -s $out/lib/waterfox/browser/chrome/icons/default/default$i.png "$out/share/icons/hicolor/$(echo $i)x$(echo $i)/apps/waterfox.png"
-    done
-  '';
+      mkdir $out/lib/waterfox/distribution
+      ln -s $out/lib/waterfox/waterfox $out/bin/waterfox
+      # echo '${builtins.toJSON { inherit policies; }}' > $out/lib/waterfox/distribution/policies.json
+
+      for i in 16 32 48 64 128
+      do
+        mkdir -p "$out/share/icons/hicolor/$(echo $i)x$(echo $i)/apps"
+        ln -s $out/lib/waterfox/browser/chrome/icons/default/default$i.png "$out/share/icons/hicolor/$(echo $i)x$(echo $i)/apps/waterfox.png"
+      done
+
+      runHook postBuild
+    '';
 
   desktopItems = [
     (pkgs.makeDesktopItem {
@@ -69,7 +77,10 @@ pkgs.stdenv.mkDerivation {
       startupNotify = true;
       startupWMClass = "waterfox";
       terminal = false;
-      categories = ["Network" "WebBrowser"];
+      categories = [
+        "Network"
+        "WebBrowser"
+      ];
       actions = {
         new-private-window = {
           exec = "waterfox --private-window %U";
@@ -100,7 +111,7 @@ pkgs.stdenv.mkDerivation {
     description = "Fast and Private Web Browser";
     homepage = "https://www.waterfox.net/";
     license = licenses.mpl20;
-    sourceProvenance = with sourceTypes; [binaryNativeCode];
-    platforms = ["x86_64-linux"];
+    platforms = [ "x86_64-linux" ];
+    sourceProvenance = [ sourceTypes.binaryNativeCode ];
   };
 }

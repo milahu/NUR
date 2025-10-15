@@ -4,13 +4,14 @@
   fetchurl,
   fetchFromGitHub,
   dockerTools,
-}: {
+}:
+{
   sheepshaver-bin = {
     pname = "sheepshaver-bin";
-    version = "2024-09-11";
+    version = "2025-10-11";
     src = fetchurl {
-      url = "https://github.com/Korkman/macemu-appimage-builder/releases/download/2024-09-11/SheepShaver-x86_64.AppImage";
-      sha256 = "sha256-x87SUN/SrS6OvoSQoxLj/7bv02I8aPp+o1G0YmzD3AM=";
+      url = "https://github.com/Korkman/macemu-appimage-builder/releases/download/2025-10-11/SheepShaver-x86_64.AppImage";
+      sha256 = "sha256-6l1YXSOx42b4+/B3wTo7ad7RLFwHh/r8fViNDCf6B1g=";
     };
   };
 }

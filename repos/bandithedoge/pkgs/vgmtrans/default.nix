@@ -9,6 +9,7 @@ pkgs.stdenv.mkDerivation {
 
   nativeBuildInputs = with pkgs; [
     cmake
+    ninja
     qt6.wrapQtAppsHook
   ];
 
@@ -17,19 +18,19 @@ pkgs.stdenv.mkDerivation {
     qt6.qtsvg
   ];
 
-  postBuild =
-    ''
-      mkdir -p $out/lib
-    ''
-    + (
-      if pkgs.stdenv.isAarch64
-      then ''
+  postBuild = ''
+    mkdir -p $out/lib
+  ''
+  + (
+    if pkgs.stdenv.isAarch64 then
+      ''
         cp $src/lib/bass/aarch64/*.so $out/lib/
       ''
-      else ''
+    else
+      ''
         cp $src/lib/bass/*.so $out/lib/
       ''
-    );
+  );
 
   meta = with pkgs.lib; {
     description = "A tool to convert proprietary, sequenced videogame music to industry-standard formats";

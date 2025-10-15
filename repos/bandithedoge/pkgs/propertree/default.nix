@@ -8,7 +8,7 @@ pkgs.stdenv.mkDerivation {
   version = sources.propertree.date;
 
   buildInputs = with pkgs; [
-    (pkgs.python3.withPackages (ps: with ps; [tkinter]))
+    (pkgs.python3.withPackages (ps: with ps; [ tkinter ]))
     copyDesktopItems
     makeWrapper
   ];
@@ -18,15 +18,19 @@ pkgs.stdenv.mkDerivation {
       name = "propertree";
       exec = "propertree";
       desktopName = "ProperTree";
-      categories = ["Utility"];
+      categories = [ "Utility" ];
     })
   ];
 
   buildPhase = ''
+    runHook preBuild
+
     mkdir -p $out/libexec $out/bin
     cp -r $src $out/libexec/propertree
     patchShebangs
     makeWrapper $out/libexec/propertree/ProperTree.py $out/bin/propertree
+
+    runHook postBuild
   '';
 
   meta = with pkgs.lib; {

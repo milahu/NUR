@@ -4,16 +4,17 @@
   fetchurl,
   fetchFromGitHub,
   dockerTools,
-}: {
+}:
+{
   hvcc = {
     pname = "hvcc";
-    version = "v0.12.1";
+    version = "v0.14.0";
     src = fetchFromGitHub {
       owner = "Wasted-Audio";
       repo = "hvcc";
-      rev = "v0.12.1";
+      rev = "v0.14.0";
       fetchSubmodules = false;
-      sha256 = "sha256-Ir4jqBSnrb+GdhCEw62fGPzgluZVX8Z0VQ0tadhFnpY=";
+      sha256 = "sha256-sJAeaCHVUkJIMR0Ai2sBvLzN7+nKs6w9qhwjJzNvtQo=";
     };
   };
   wstd2daisy = {
@@ -25,7 +26,7 @@
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sparseCheckout = [];
+      sparseCheckout = [ ];
       sha256 = "sha256-1QKYx9gocAKKWCP9uEmuhtFWCptCd+vBlga5keBxkzY=";
     };
     date = "2024-09-20";

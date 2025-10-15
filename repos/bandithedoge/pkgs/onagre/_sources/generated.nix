@@ -4,19 +4,21 @@
   fetchurl,
   fetchFromGitHub,
   dockerTools,
-}: {
+}:
+{
   onagre = {
     pname = "onagre";
-    version = "543f1fe827f4b16408cdcc07c19fb839741ca0f5";
+    version = "c68c716b086afa3cc8ca02a9a03334493ecb5cb1";
     src = fetchurl {
-      url = "https://github.com/onagre-launcher/onagre/archive/543f1fe827f4b16408cdcc07c19fb839741ca0f5.tar.gz";
-      sha256 = "sha256-s4Mysu+w9PoCIliRB6dZ+5YhrB1wgVmpaIeJwO4oIPA=";
+      url = "https://github.com/onagre-launcher/onagre/archive/c68c716b086afa3cc8ca02a9a03334493ecb5cb1.tar.gz";
+      sha256 = "sha256-I6o+GVothedWTxsS7exiIxXBwFIlh3A2S14YJf01bQ4=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./onagre-543f1fe827f4b16408cdcc07c19fb839741ca0f5/Cargo.lock;
+      lockFile = ./onagre-c68c716b086afa3cc8ca02a9a03334493ecb5cb1/Cargo.lock;
       outputHashes = {
+
       };
     };
-    date = "2024-04-18";
+    date = "2025-04-24";
   };
 }

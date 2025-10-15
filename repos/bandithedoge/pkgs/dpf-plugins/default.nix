@@ -4,12 +4,13 @@
   ...
 }:
 pkgs.stdenv.mkDerivation {
-  inherit (sources.dpf-plugins) pname src version;
+  inherit (sources.dpf-plugins) pname src;
+  version = pkgs.lib.removePrefix "v" sources.dpf-plugins.version;
 
   buildInputs = with pkgs; [
     libGL
     liblo
-    projectm
+    libprojectm
     xorg.libX11
   ];
 
@@ -23,7 +24,7 @@ pkgs.stdenv.mkDerivation {
 
   enableParallelBuilding = true;
 
-  makeFlags = ["PREFIX=$(out)"];
+  makeFlags = [ "PREFIX=$(out)" ];
 
   meta = with pkgs.lib; {
     description = "Collection of DPF-based plugins for packaging";
