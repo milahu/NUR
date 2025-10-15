@@ -1,0 +1,247 @@
+error:
+… while querying the derivation named 'kani-kani-0.64.0'
+
+… in the left operand of the AND (&&) operator
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:731:9:
+
+   730|         validity.valid != "no"
+   731|         && (
+      |         ^
+   732|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:841:18:
+
+   840|       };
+   841|       validity = checkMeta.assertValidity { inherit meta attrs; };
+      |                  ^
+   842|
+
+… while calling 'assertValidity'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:737:5:
+
+   736|   assertValidity =
+   737|     { meta, attrs }:
+      |     ^
+   738|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:739:18:
+
+   738|     let
+   739|       validity = checkValidity attrs;
+      |                  ^
+   740|       inherit (validity) valid;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:497:5:
+
+   496|     in
+   497|     attrs:
+      |     ^
+   498|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:543:40:
+
+   542|       }
+   543|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
+      |                                        ^
+   544|       let
+
+… while calling 'hasUnsupportedPlatform'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:143:28:
+
+   142|
+   143|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+      |                            ^
+   144|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:143:35:
+
+   142|
+   143|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+      |                                   ^
+   144|
+
+… while calling 'availableOn'
+
+  at <nixpkgs> + /lib/meta.nix:303:15:
+
+   302|   availableOn =
+   303|     platform: pkg:
+      |               ^
+   304|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
+
+… from call site
+
+  at ./pkgs/kani/default.nix:25:20:
+
+    24|
+    25|   pkgs-with-rust = pkgs.extend rust-overlay;
+      |                    ^
+    26|
+
+… while calling 'extend'
+
+  at <nixpkgs> + /pkgs/top-level/stage.nix:308:14:
+
+   307|     # Prefer appendOverlays if used repeatedly.
+   308|     extend = f: self.appendOverlays [ f ];
+      |              ^
+   309|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/stage.nix:308:17:
+
+   307|     # Prefer appendOverlays if used repeatedly.
+   308|     extend = f: self.appendOverlays [ f ];
+      |                 ^
+   309|
+
+… while calling 'appendOverlays'
+
+  at <nixpkgs> + /pkgs/top-level/stage.nix:298:7:
+
+   297|     appendOverlays =
+   298|       extraOverlays:
+      |       ^
+   299|       if extraOverlays == [ ] then self else nixpkgsFun { overlays = args.overlays ++ extraOverlays; };
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/stage.nix:299:46:
+
+   298|       extraOverlays:
+   299|       if extraOverlays == [ ] then self else nixpkgsFun { overlays = args.overlays ++ extraOverlays; };
+      |                                              ^
+   300|
+
+… while calling 'nixpkgsFun'
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:161:16:
+
+   160|   # experience here.)
+   161|   nixpkgsFun = newArgs: import ./. (args // newArgs);
+      |                ^
+   162|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:161:25:
+
+   160|   # experience here.)
+   161|   nixpkgsFun = newArgs: import ./. (args // newArgs);
+      |                         ^
+   162|
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:21:1:
+
+    20|
+    21| {
+      | ^
+    22|   # The system packages will be built on. See the manual for the
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:82:5:
+
+    81|   checked =
+    82|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list." lib.foldr
+      |     ^
+    83|       (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.")
+
+… while calling 'foldr'
+
+  at <nixpkgs> + /lib/lists.nix:139:14:
+
+   138|   foldr =
+   139|     op: nul: list:
+      |              ^
+   140|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/lists.nix:144:5:
+
+   143|     in
+   144|     fold' 0;
+      |     ^
+   145|
+
+… while calling 'fold''
+
+  at <nixpkgs> + /lib/lists.nix:142:15:
+
+   141|       len = length list;
+   142|       fold' = n: if n == len then nul else op (elemAt list n) (fold' (n + 1));
+      |               ^
+   143|     in
+
+… from call site
+
+  at <nixpkgs> + /lib/lists.nix:142:44:
+
+   141|       len = length list;
+   142|       fold' = n: if n == len then nul else op (elemAt list n) (fold' (n + 1));
+      |                                            ^
+   143|     in
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:83:8:
+
+    82|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list." lib.foldr
+    83|       (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.")
+      |        ^
+    84|       (r: r)
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:83:11:
+
+    82|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list." lib.foldr
+    83|       (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.")
+      |           ^
+    84|       (r: r)
+
+… while calling 'throwIfNot'
+
+  at <nixpkgs> + /lib/trivial.nix:913:22:
+
+   912|   */
+   913|   throwIfNot = cond: msg: if cond then x: x else throw msg;
+      |                      ^
+   914|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/default.nix:83:23:
+
+    82|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list." lib.foldr
+    83|       (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.")
+      |                       ^
+    84|       (r: r)
+
+… while calling 'isFunction'
+
+  at <nixpkgs> + /lib/trivial.nix:1043:16:
+
+  1042|   */
+  1043|   isFunction = f: builtins.isFunction f || (f ? __functor && isFunction (f.__functor f));
+      |                ^
+  1044|
+
+error: access to URI 'https://github.com/oxalica/rust-overlay/archive/d2bac276ac7e669a1f09c48614538a37e3eb6d0f.zip' is forbidden in restricted mode

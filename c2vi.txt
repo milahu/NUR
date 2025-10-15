@@ -1,11 +1,12 @@
+trace: evaluation warning: buildRustPackage: `useFetchCargoVendor` is non‐optional and enabled by default as of 25.05, remove it
 error:
 … while querying the derivation named 'csv2vcf'
 
 error: undefined variable 'c2vi'
 
-at ./nur.nix:46:45:
+at ./nur.nix:48:45:
 
-    45|       license = licenses.mit;
-    46|       maintainers = with lib.maintainers; [ c2vi ];
+    47|       license = licenses.mit;
+    48|       maintainers = with lib.maintainers; [ c2vi ];
       |                                             ^
-    47|       platforms = platforms.all;
+    49|       platforms = platforms.all;

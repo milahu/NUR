@@ -1,0 +1,11 @@
+error:
+… while querying the derivation named '_1c-enterprise-client-8.3.27.1606'
+
+error: undefined variable 'out'
+
+at ./pkgs/by-name/_1/_1c-enterprise-client/default.nix:163:23:
+
+   162|       fullName = "License agreement for 1C:Enterprise 8.3";
+   163|       url = "file://${out}/opt/1cv8/x86_64/${finalAttrs.version}/licenses/1CEnterprise_en.htm";
+      |                       ^
+   164|       free = false;

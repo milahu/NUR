@@ -19,119 +19,90 @@ error:
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:240:19:
+  at <nixpkgs> + /lib/customisation.nix:260:19:
 
-   239|   callPackageWith =
-   240|     autoArgs: fn: args:
+   259|   callPackageWith =
+   260|     autoArgs: fn: args:
       |                   ^
-   241|     let
+   261|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:1000:7:
+  at <nixpkgs> + /lib/trivial.nix:1009:5:
 
-   999|     { # TODO: Should we add call-time "type" checking like built in?
-  1000|       __functor = self: f;
-      |       ^
-  1001|       __functionArgs = args;
+  1008|     # TODO: Should we add call-time "type" checking like built in?
+  1009|     __functor = self: f;
+      |     ^
+  1010|     __functionArgs = args;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:161:7:
+  at <nixpkgs> + /lib/customisation.nix:162:7:
 
-   160|     mirrorArgs (
-   161|       origArgs:
+   161|     mirrorArgs (
+   162|       origArgs:
       |       ^
-   162|       let
+   163|       let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:163:18:
+  at <nixpkgs> + /lib/customisation.nix:164:18:
 
-   162|       let
-   163|         result = f origArgs;
+   163|       let
+   164|         result = f origArgs;
       |                  ^
-   164|
+   165|
 
-… while calling 'nix-readline-2_19'
+… while calling 'jimtcl-minimal'
 
-  at ./pkgs/customized/default.nix:64:25:
+  at ./pkgs/customized/default.nix:468:22:
 
-    63|
-    64|     nix-readline-2_19 = { nix-readline, nix_2_19 ? nixVersions.nix_2_19 or nixVersions.nix_2_18 or nix, nixVersions ? {}, nix, lib }: let
-      |                         ^
-    65|       # every single nix version was removed from nixpkgs in 25.04, so base it off the flake instead for now...
-
-… from call site
-
-  at <nixpkgs> + /lib/trivial.nix:1000:7:
-
-   999|     { # TODO: Should we add call-time "type" checking like built in?
-  1000|       __functor = self: f;
-      |       ^
-  1001|       __functionArgs = args;
-
-… while calling anonymous lambda
-
-  at <nixpkgs> + /lib/customisation.nix:169:36:
-
-   168|         # Re-call the function but with different arguments
-   169|         overrideArgs = mirrorArgs (newArgs: makeOverridable f (overrideWith newArgs));
-      |                                    ^
-   170|         # Change the result of the function call by applying g to it
+   467|
+   468|     jimtcl-minimal = { lib, hostPlatform, tcl, jimtcl, readline }: (jimtcl.override { SDL = null; SDL_gfx = null; sqlite = null; }).overrideAttrs (old: {
+      |                      ^
+   469|       pname = "jimtcl-minimal";
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:1000:7:
+  at <nixpkgs> + /lib/trivial.nix:1009:5:
 
-   999|     { # TODO: Should we add call-time "type" checking like built in?
-  1000|       __functor = self: f;
-      |       ^
-  1001|       __functionArgs = args;
+  1008|     # TODO: Should we add call-time "type" checking like built in?
+  1009|     __functor = self: f;
+      |     ^
+  1010|     __functionArgs = args;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:161:7:
+  at <nixpkgs> + /lib/customisation.nix:178:11:
 
-   160|     mirrorArgs (
-   161|       origArgs:
-      |       ^
-   162|       let
+   177|           */
+   178|           newArgs: makeOverridable f (overrideWith newArgs)
+      |           ^
+   179|         );
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:163:18:
+  at <nixpkgs> + /lib/trivial.nix:1009:5:
 
-   162|       let
-   163|         result = f origArgs;
-      |                  ^
-   164|
-
-… while calling 'nix-readline'
-
-  at ./pkgs/customized/default.nix:13:20:
-
-    12|
-    13|     nix-readline = { nix, readline, fetchurl, lib }: let
-      |                    ^
-    14|       drv = if nix ? override then nix.override {
+  1008|     # TODO: Should we add call-time "type" checking like built in?
+  1009|     __functor = self: f;
+      |     ^
+  1010|     __functionArgs = args;
 
 … while calling anonymous lambda
 
-  at /call-flake.nix:25:25:
+  at <nixpkgs> + /lib/customisation.nix:162:7:
 
-    24|           inputs = builtins.mapAttrs
-    25|             (inputName: inputSpec: allNodes.${resolveInput inputSpec})
-      |                         ^
-    26|             (node.inputs or {});
+   161|     mirrorArgs (
+   162|       origArgs:
+      |       ^
+   163|       let
 
-… while calling anonymous lambda
+error: function 'anonymous lambda' called with unexpected argument 'SDL_gfx'
 
-  at /call-flake.nix:10:13:
+at <nixpkgs> + /pkgs/by-name/ji/jimtcl/package.nix:1:1:
 
-     9|     builtins.mapAttrs
-    10|       (key: node:
-      |             ^
-    11|         let
-
-error: access to URI 'github:NixOS/nixpkgs/9ba29e2346bc542e9909d1021e8fd7d4b3f64db0' is forbidden in restricted mode
+     1| {
+      | ^
+     2|   lib,
+Did you mean SDL2_gfx?
