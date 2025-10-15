@@ -150,6 +150,7 @@ in
       kdePackages.okular
       pdfalyzer
       pdfarranger
+      pdfcpu
       popsicle
       pngquant
       pngtools

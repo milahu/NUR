@@ -125,6 +125,7 @@ in
         "ruff.path" = [ (getExe pkgs.ruff) ];
         "ruff.nativeServer" = true;
         "rufo.exe" = getExe pkgs.rufo;
+        "rust-analyzer.server.path" = getExe pkgs.rust-analyzer;
         "shellcheck.executablePath" = getExe pkgs.shellcheck;
         "stylelint.stylelintPath" = "${pkgs.nodePackages.stylelint}/lib/node_modules/stylelint";
 

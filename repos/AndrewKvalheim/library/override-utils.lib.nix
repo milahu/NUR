@@ -11,7 +11,7 @@ let
   isLocal = r: isPath r || r._local or false;
   mkRepo = name: path: (import path { inherit (stable) config; overlays = [ ]; }) // { _name = name; };
   repoEq = a: b: repoName a == repoName b;
-  repoName = r: if isPath r then toString r else r._name or "stable";
+  repoName = r: if isPath r then toString r else r._name or r.lib.trivial.version;
   versionMeetsSpec = candidate: spec:
     let parts = match "^([^[:alnum:]]+)?(.+)$" spec; operator = elemAt parts 0; version = elemAt parts 1; in
     spec == null || spec == "∞" || (if operator == null then candidate == version
@@ -20,7 +20,7 @@ let
     else throw "version operator not implemented: ${toJSON operator}");
 
   # Repositories
-  mkNur = repo: (import ../nur.nix { pkgs = repo; }) // { _local = true; _name = "NUR packages using ${repoName repo}"; };
+  mkNur = preferredRepo: repo: (import ../nur.nix { pkgs = repo; }) // { _local = true; _name = "NUR packages${optionalString (! repoEq repo preferredRepo) " using ${repoName repo}"}"; };
   pin = rev: hash: mkRepo "pin ${rev}" (fetchgit { inherit hash rev; name = "nixpkgs-pin-${toString rev}"; url = "https://github.com/NixOS/nixpkgs.git"; });
   pr = id: hash: mkRepo "PR #${toString id}" (fetchgit { inherit hash; name = "nixpkgs-pr-${toString id}"; url = "https://github.com/NixOS/nixpkgs.git"; rev = "refs/pull/${toString id}/head"; });
   unstable =
@@ -98,7 +98,7 @@ let
         && (versionMeetsSpec p.version version)
         && (condition == null || condition p);
       extra = if search == null then [ ] else imap1 (i: s: { _extra = i; _name = "search"; } // s) (toList search);
-      repos = [ stable unstable unstable-small ] ++ extra ++ (map mkNur [ stable unstable unstable-small ]);
+      repos = [ stable unstable unstable-small ] ++ extra ++ (map (mkNur preferredRepo) [ stable unstable unstable-small ]);
       repo = (if version == "∞" then findGreatest else findFirst) suffices file repos;
       preferredRepo = head repos;
       ccacheStdenv = repo.ccacheStdenv.override { extraConfig = ccacheConfig; };

@@ -72,6 +72,7 @@ specify {
   pdfalyzer = any;
   picard.overlay = p: { preFixup = p.preFixup + "\nmakeWrapperArgs+=(--prefix PATH : ${stable.lib.makeBinPath [ resolved.rsgain ]})"; }; # NixOS/nixpkgs#255222
   pngquant-interactive = any;
+  rust-analyzer.version = "≥2025-08-25";
   signal-desktop.args = [ "--use-tray-icon" ];
   spf-check = any;
   spf-tree = any;
