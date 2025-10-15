@@ -11,7 +11,6 @@ in
   config.programs = mkIf cfg.enable {
     foot.settings.main.shell = "nu";
     ghostty.settings.command = "nu";
-    nix-your-shell.enable = true;
 
     nushell = {
       enable = true;
@@ -43,7 +42,7 @@ in
         let next_completer = {|spans: list<string>|
           let expansion = scope aliases
           | where name == $spans.0
-          | get -i 0.expansion
+          | get -o 0.expansion
           | default $spans.0
           | split row " "
 

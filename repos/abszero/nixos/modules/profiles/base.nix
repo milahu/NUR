@@ -62,6 +62,10 @@ in
 
     system.stateVersion = "25.11";
 
+    # With p-state, powersave balance_performance often outperforms performance performance.
+    # Also, the performance governor requires performance EPP, meaning EPP can't be changed.
+    powerManagement.cpuFreqGovernor = mkDefault "powersave";
+
     boot = {
       loader = {
         timeout = 0;
@@ -83,7 +87,6 @@ in
           "networkmanager"
         ];
       });
-      defaultUserShell = pkgs.zsh;
     };
 
     i18n = {
@@ -108,25 +111,18 @@ in
     };
 
     # Certain services freeze on stop which prevents shutdown.
-    systemd.extraConfig = ''
-      DefaultTimeoutStopSec=10s
-    '';
+    systemd.settings.Manager.DefaultTimeoutStopSec = "10s";
 
-    security = {
-      rtkit.enable = true;
-      sudo-rs = {
-        enable = true;
-        wheelNeedsPassword = mkDefault false;
-        execWheelOnly = true;
-      };
+    security.sudo-rs = {
+      enable = true;
+      wheelNeedsPassword = mkDefault false;
+      execWheelOnly = true;
     };
 
     services = {
       dbus.implementation = "broker";
       journald.console = "/dev/tty1";
     };
-
-    programs.zsh.enable = true;
 
     # Allow unfree packages
     environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";

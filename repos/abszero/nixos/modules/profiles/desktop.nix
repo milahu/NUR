@@ -21,6 +21,7 @@ in
     abszero = {
       profiles.base.enable = true;
       boot.lanzaboote.enable = true;
+      services.pipewire.enable = true;
     };
 
     boot.kernelPackages = pkgs.linuxPackages_cachyos;
@@ -41,19 +42,19 @@ in
       ];
       search = [ "~." ]; # Always use global name servers (shouldn't affect VPNs)
       dhcpcd.enable = false;
-      # networkmanager = {
-      #   enable = true;
-      #   wifi = {
-      #     backend = "iwd";
-      #     macAddress = "random";
-      #   };
-      # };
+      networkmanager = {
+        enable = true;
+        wifi = {
+          backend = "iwd";
+          macAddress = "random";
+        };
+      };
       wireless.iwd = {
         enable = true;
         settings = {
           General = {
-            EnableNetworkConfiguration = true;
-            AddressRandomization = "network";
+            # EnableNetworkConfiguration = true;
+            AddressRandomization = "once"; # Randomize a single time when iwd starts
             DisableANQP = false; # Use Hotspot 2.0
           };
           Network.NameResolvingService = "systemd"; # Use resolved
@@ -61,6 +62,8 @@ in
         };
       };
     };
+
+    security.rtkit.enable = true;
 
     services = {
       automatic-timezoned.enable = true;
@@ -72,22 +75,19 @@ in
           disableWhileTyping = true;
         };
       };
-      pipewire = {
-        enable = true;
-        alsa = {
-          enable = true;
-          support32Bit = true;
-        };
-        pulse.enable = true;
-      };
       resolved = {
         enable = true;
         fallbackDns = [ ]; # disable fallback DNS
         dnsovertls = "true";
         dnssec = "true";
-        llmnr = "false";
+        llmnr = "false"; # For security
       };
-      system76-scheduler.enable = true;
+      scx = {
+        enable = true;
+        package = pkgs.scx.rustscheds;
+        scheduler = "scx_lavd"; # Scheduler that minimizes latency and reduces power usage
+        extraArgs = [ "--autopower" ]; # Adjust power mode based on system EPP
+      };
       upower = {
         enable = true;
         percentageLow = 30;
@@ -108,7 +108,10 @@ in
       };
     };
 
-    programs.xwayland.enable = true;
+    programs = {
+      bash.blesh.enable = true;
+      xwayland.enable = true;
+    };
 
     environment.sessionVariables = {
       # Enable running commands without installation

@@ -14,7 +14,7 @@ jobs:
     outputs:
       update-scripts: ${{ steps.get-update-scripts.outputs.update-scripts }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Get update scripts
         id: get-update-scripts
@@ -29,7 +29,7 @@ jobs:
       matrix:
         update-script: ${{ fromJson(needs.get-update-scripts.outputs.update-scripts) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: cachix/install-nix-action@v31
         with:
@@ -44,7 +44,7 @@ jobs:
           git pull
           git stash pop
 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v7
         continue-on-error: true
         with:
           commit_message: |
@@ -61,7 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: update
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
           token: ${{ secrets.UPDATE_HASH_TOKEN }}
@@ -74,7 +74,7 @@ jobs:
         if: steps.check-branch.outputs.exists == '1'
         run: git merge --squash origin/$BRANCH
 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v7
         if: steps.check-branch.outputs.exists == '1'
         with:
           commit_message: |

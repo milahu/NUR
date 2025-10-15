@@ -11,34 +11,26 @@ let
     mkOption
     mkEnableOption
     mkIf
+    mkMerge
     ;
   cfg = config.abszero.services.darkman;
 
-  switch-hm-specialisation =
-    spec:
-    pkgs.writeShellApplication {
-      name = "switch-hm-specialisation-${spec}";
+  switch-hm-specialisation = spec: ''
+    hm_gens=$(${
+      if config.nix.package != null then config.nix.package else pkgs.nixVersions.latest
+    }/bin/nix-store -q --referrers ~/.local/state/nix/profiles/home-manager)
+    "$(${pkgs.toybox}/bin/find $hm_gens -maxdepth 1 -type d -name specialisation)/${spec}/activate"
+  '';
 
-      runtimeInputs = with pkgs; [
-        nixVersions.latest
-        toybox
-      ];
-
-      inheritPath = false;
-      excludeShellChecks = [ "SC2086" ];
-      bashOptions = [
-        "errexit"
-        "nounset"
-        "pipefail"
-        "xtrace"
-      ];
-
-      text = ''
-        hm_gens=$(nix-store -q --referrers ~/.local/state/nix/profiles/home-manager)
-        "$(find $hm_gens -maxdepth 1 -type d -name specialisation)/${spec}/activate"
-      '';
-    }
-    + "/bin/switch-hm-specialisation-${spec}";
+  call-screen-transition = ''
+    export NIRI_SOCKET="''$(find /run/user/* -maxdepth 1 -name 'niri*.sock' 2>/dev/null | head -n 1)"
+    if [[ -n "$NIRI_SOCKET" ]]; then
+      echo "Using socket found at $NIRI_SOCKET"
+      ${lib.getExe config.programs.niri.package} msg action do-screen-transition
+    else
+      echo "Cannot find NIRI_SOCKET; skipping screen transition"
+    fi
+  '';
 in
 
 {
@@ -52,10 +44,16 @@ in
     };
   };
 
-  config.services.darkman = mkIf cfg.enable {
-    enable = true;
-    lightModeScripts.switch-hm-specialisation = switch-hm-specialisation cfg.lightSpecialisation;
-    darkModeScripts.switch-hm-specialisation = switch-hm-specialisation cfg.darkSpecialisation;
-    settings.usegeoclue = true;
-  };
+  config.services.darkman = mkIf cfg.enable (mkMerge [
+    {
+      enable = true;
+      lightModeScripts."00-switch-hm-specialisation" = switch-hm-specialisation cfg.lightSpecialisation;
+      darkModeScripts."00-switch-hm-specialisation" = switch-hm-specialisation cfg.darkSpecialisation;
+      settings.usegeoclue = true;
+    }
+    (mkIf config.programs.niri.enable {
+      lightModeScripts."01-call-screen-transition" = call-screen-transition;
+      darkModeScripts."01-call-screen-transition" = call-screen-transition;
+    })
+  ]);
 }

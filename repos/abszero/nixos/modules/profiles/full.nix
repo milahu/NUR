@@ -36,14 +36,14 @@ in
         };
       };
       programs = {
-        pot.enable = true;
+        # pot.enable = true;
         steam.enable = true;
         wireshark.enable = true;
       };
     };
 
     nixpkgs.config.permittedInsecurePackages = [
-      "ventoy-qt5-1.1.05"
+      "ventoy-qt5-1.1.07"
     ];
 
     virtualisation.waydroid.enable = true;
@@ -83,7 +83,7 @@ in
         libreoffice-qt
         lutris
         nudoku
-        obsidian-ime
+        obsidian
         osu-lazer-bin
         proton-pass
         protonvpn-gui
@@ -93,9 +93,9 @@ in
         ventoy-full-qt
         vesktop
         vscode
+        waydroid-helper
         wev
         wget
-        win2xcur
         xorg.xeyes
         zen-browser
         zip

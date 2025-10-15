@@ -37,10 +37,7 @@ in
           };
         };
 
-        layout = {
-          empty-workspace-above-first = true;
-          always-center-single-column = true;
-        };
+        layout.empty-workspace-above-first = true;
 
         environment.DISPLAY = ":0"; # For XWayland
 
@@ -109,6 +106,15 @@ in
           "Shift+Print".action = screenshot-window;
         };
 
+        layer-rules = [
+          {
+            place-within-backdrop = true;
+            matches = [
+              { namespace = "^pandora$"; }
+            ];
+          }
+        ];
+
         window-rules = [
           {
             open-fullscreen = true;
@@ -121,11 +127,35 @@ in
             default-column-width.fixed = 370;
             default-window-height.fixed = 370;
             matches = [
+              { title = "Buzz"; }
               { title = "KDE Connect"; }
               { app-id = "org\\.gnome\\.Solanum"; }
             ];
           }
-          # Bottom right notifications
+          {
+            open-floating = true;
+            matches = [
+              { app-id = "org\\.kde\\.polkit-kde-authentication-agent-1"; }
+              { app-id = "it\\.mijorus\\.smile"; }
+            ];
+          }
+          # Float up and down
+          {
+            baba-is-float = true;
+            matches = [
+              { app-id = "org\\.kde\\.polkit-kde-authentication-agent-1"; }
+            ];
+          }
+          # Overlay
+          {
+            open-floating = true;
+            focus-ring.enable = false;
+            shadow.enable = false;
+            matches = [
+              { title = "AIRI"; }
+            ];
+          }
+          # Fix to bottom right
           {
             default-floating-position = {
               x = 10;
@@ -136,6 +166,9 @@ in
               {
                 app-id = "steam";
                 title = "^notificationtoasts_\\d+_desktop$";
+              }
+              {
+                title = "AIRI";
               }
             ];
           }
