@@ -1,0 +1,58 @@
+[algermusicplayer-arm]
+fetch.url = "https://github.com/algerkong/AlgerMusicPlayer/releases/download/v$ver/AlgerMusicPlayer-$ver-linux-arm64.AppImage"
+src.github = "algerkong/AlgerMusicPlayer"
+src.prefix = "v"
+
+[algermusicplayer-x86]
+fetch.url = "https://github.com/algerkong/AlgerMusicPlayer/releases/download/v$ver/AlgerMusicPlayer-$ver-linux-x86_64.AppImage"
+src.github = "algerkong/AlgerMusicPlayer"
+src.prefix = "v"
+
+[danmakufactory]
+fetch.github = "hihkm/DanmakuFactory"
+src.github = "hihkm/DanmakuFactory"
+
+[danmakufactory-git]
+fetch.github = "hihkm/DanmakuFactory"
+git.fetchSubmodules = true
+src.git = "https://github.com/hihkm/DanmakuFactory"
+
+[lxgw-wenkai-gb]
+fetch.tarball = "https://github.com/lxgw/LxgwWenkaiGB/releases/download/$ver/lxgw-wenkai-gb-$ver.tar.gz"
+src.github = "lxgw/LxgwWenkaiGB"
+
+[mpv-handler]
+cargo_locks = ["Cargo.lock"]
+fetch.github = "akiirui/mpv-handler"
+src.github = "akiirui/mpv-handler"
+
+[pixes]
+extract = ["pubspec.lock"]
+fetch.github = "wgh136/pixes"
+src.github = "wgh136/pixes"
+
+[pixes-git]
+extract = ["pubspec.lock"]
+fetch.github = "wgh136/pixes"
+src.git = "https://github.com/wgh136/pixes"
+
+[splayer-git]
+fetch.github = "imsyy/SPlayer"
+src.git = "https://github.com/imsyy/SPlayer"
+
+[uosc-danmaku]
+fetch.github = "Tony15246/uosc_danmaku"
+src.github = "Tony15246/uosc_danmaku"
+
+[uosc-danmaku-git]
+fetch.github = "Tony15246/uosc_danmaku"
+src.git = "https://github.com/Tony15246/uosc_danmaku"
+
+[vulkan-hdr-layer-kwin6]
+fetch.github = "Zamundaaa/VK_hdr_layer"
+git.fetchSubmodules = true
+src.git = "https://github.com/Zamundaaa/VK_hdr_layer"
+
+[zhuque]
+fetch.url = "https://github.com/TrionesType/zhuque/releases/download/$ver/ZhuqueFangsong-$ver.zip"
+src.github_tag = "TrionesType/zhuque"

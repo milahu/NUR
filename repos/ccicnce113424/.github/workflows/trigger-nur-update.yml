@@ -1,0 +1,19 @@
+name: Trigger NUR Update
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # allows manual triggering
+
+concurrency:
+  group: trigger-nur-update
+  cancel-in-progress: true
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    name: Trigger NUR Update
+    steps:
+      - name: Trigger NUR update
+        run: curl -XPOST "https://nur-update.nix-community.org/update?repo=ccicnce113424"
