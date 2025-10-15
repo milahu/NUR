@@ -1,10 +1,11 @@
 {
   pkgs ? import <nixpkgs> { },
   lib ? pkgs.lib,
+  system ? pkgs.system,
 }:
 let
   pkgsWithNur = import pkgs.path {
-    inherit (pkgs) system;
+    inherit system;
     config = pkgs.config // {
       allowUnfree = true;
     };
@@ -23,18 +24,21 @@ let
       arkenfox-userjs = final.callPackage ./arkenfox-userjs { };
       bibata-cursors-tokyonight = final.callPackage ./bibata-cursors-tokyonight { };
       ceserver = final.callPackage ./ceserver { };
+      feishin = final.callPackage ./feishin { };
       gamma-launcher = final.python3Packages.callPackage ./gamma-launcher { };
-      gruvbox-plus-icons = final.callPackage ./gruvbox-plus-icons { };
       hoyolab-claim-bot = final.callPackage ./hoyolab-claim-bot { };
       json-liquid-rs = final.callPackage ./json-liquid-rs { };
       kes = final.callPackage ./kes { };
-      koboldcpp-rocm = final.callPackage ./koboldcpp-rocm { };
       mpris-ctl = final.callPackage ./mpris-ctl { };
+      nix-update-docker-image = final.python3Packages.callPackage ./nix-update-docker-image { };
       prometheus-podman-exporter = final.callPackage ./prometheus/podman-exporter.nix { };
       protonhax = final.callPackage ./protonhax { };
+      prts-cursor = final.callPackage ./prts-cursor { };
       realrtcw = final.callPackage ./realrtcw { };
       reshade-shaders = final.callPackage ./reshade-shaders { };
       seadrive-fuse = final.callPackage ./seadrive-fuse { };
+      sing-box-beta = final.callPackage ./sing-box/beta.nix { };
+      sing-box-extended = final.callPackage ./sing-box/extended.nix { };
       syncyomi = final.callPackage ./syncyomi { };
       waydroid-script = final.python3Packages.callPackage ./waydroid-script { };
       whoogle-search = final.python3Packages.callPackage ./whoogle-search { };

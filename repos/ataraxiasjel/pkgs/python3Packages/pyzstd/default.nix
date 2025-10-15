@@ -5,20 +5,21 @@
   fetchPypi,
   setuptools,
   zstd-c,
+  typing-extensions,
   pytestCheckHook,
   nix-update-script,
 }:
 
 buildPythonPackage rec {
   pname = "pyzstd";
-  version = "0.16.2";
+  version = "0.17.0";
   pyproject = true;
 
   disabled = pythonOlder "3.9";
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-F5waLqFWWr8JxfL9cvnOfFSydkz3Np4FwL/Y8fZ/Y9I=";
+    hash = "sha256-2EJx+LqmbEGSBMHdEVpN7Ismb4opIdohuBdk+iCMHbY=";
   };
 
   postPatch = ''
@@ -33,6 +34,7 @@ buildPythonPackage rec {
   ];
 
   dependencies = [
+    typing-extensions
     zstd-c
   ];
 

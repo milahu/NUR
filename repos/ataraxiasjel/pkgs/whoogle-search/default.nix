@@ -20,7 +20,7 @@
 }:
 buildPythonApplication rec {
   pname = "whoogle-search";
-  version = "0.9.3";
+  version = "1.1.0";
   pyproject = true;
   dontCheckRuntimeDeps = true;
 
@@ -28,7 +28,7 @@ buildPythonApplication rec {
     owner = "benbusby";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-V2UbKYekIdyXb6GNvxfKAoPwvUYwRdGv/8gpaGvFTGc=";
+    hash = "sha256-AnLGOXVaaT//u3BEsJ2T4Of9O6fKekwCpIdDiS43l2c=";
   };
 
   pypaBuildFlags = [ "--sdist" ];
@@ -53,9 +53,9 @@ buildPythonApplication rec {
     done
   '';
 
-  buildInputs = [ setuptools ];
+  build-system = [ setuptools ];
 
-  propagatedBuildInputs = [
+  dependencies = [
     beautifulsoup4
     brotli
     cssutils
