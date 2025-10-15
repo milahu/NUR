@@ -1,0 +1,85 @@
+name: "Auto-update packages"
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - .github/workflows/update.yml
+  workflow_dispatch:
+  schedule:
+    # update everyday at 6:25
+    # TIP: Choose a random time here so not all repositories are build at once:
+    # https://www.random.org/clock-times/?num=1&earliest=01%3A00&latest=08%3A00&interval=5&format=html&rnd=new
+    - cron:  '25 6 * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Install nix
+        uses: nixbuild/nix-quick-install-action@2c9db80fb984ceb1bcaa77cdda3fdf8cfba92035 # v34
+      - name: Set NIX_PATH
+        run: |
+          echo -E 'NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz' >> "$GITHUB_ENV"
+      - name: Show nixpkgs version
+        run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
+      - name: Setup cachix
+        uses: cachix/cachix-action@0fc020193b5a1fa3ac4575aa3a7d3aa6a35435ad # v16
+        with:
+          name: rhys-t
+          signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+      - uses: actions/create-github-app-token@67018539274d69449ef7c02e8e71183d1719ab42 # v2.1.4
+        id: app-token
+        with:
+          # required
+          app-id: ${{ vars.RHYS_T_UPDATE_APP_ID }}
+          private-key: ${{ secrets.RHYS_T_UPDATE_APP_SECRET }}
+      - name: Get GitHub App User ID
+        id: get-user-id
+        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+      - name: Configure git
+        run: |
+          git config --global user.name '${{ steps.app-token.outputs.app-slug }}[bot]'
+          git config --global user.email '${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com'
+      - name: Update packages
+        id: update
+        run: |
+          nix-shell update.nix \
+            --argstr skip-prompt true \
+            --argstr keep-going true \
+            --argstr commit true \
+            --show-trace
+          if ! git diff --exit-code --quiet origin/${{ github.ref_name }}..; then
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+          if compgen -G '*.log' > /dev/null; then
+            echo 'error_logs_generated=true' >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+      - name: Upload error logs
+        if: '!cancelled()'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: Rhys-T-update-error-logs
+          path: |
+            ./*.log
+          if-no-files-found: ignore
+      - name: Create pull request
+        if: ${{ !cancelled() && steps.update.outputs.changed == 'true' }}
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          title: 'Nix package auto-updates'
+          branch: 'nix-package-auto-updates'
+          labels: |
+            package-updates
+            automated
+          delete-branch: true
+          token: ${{ steps.app-token.outputs.token }}

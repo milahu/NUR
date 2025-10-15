@@ -1,0 +1,347 @@
+name: "Build and populate cache"
+on:
+  workflow_dispatch: # allows manual triggering
+  pull_request:
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+      - '.github/**'
+      - '!.github/workflows/build.yml'
+      - 'update.nix'
+  push:
+    branches:
+      - main
+      - master
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+      - '.github/**'
+      - '!.github/workflows/build.yml'
+      - 'update.nix'
+  schedule:
+    # rebuild everyday at 3:30
+    # TIP: Choose a random time here so not all repositories are build at once:
+    # https://www.random.org/clock-times/?num=1&earliest=01%3A00&latest=08%3A00&interval=5&format=html&rnd=new
+    - cron:  '30 3 * * *'
+jobs:
+  define-matrix:
+    name: Define job matrix
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+      cacheKey: ${{ steps.matrix.outputs.cacheKey }}
+      cachePrefix: ${{ steps.matrix.outputs.cachePrefix }}
+    steps:
+      - name: Define matrix
+        id: matrix
+        run: |
+          jq -ncf /dev/stdin << 'EOF' > matrix.json
+            
+            "Rhys-T" as $nurRepo |
+            "rhys-t" as $cachixName |
+            
+            null    as $beta |
+            "25.05" as $stable |
+            null as $oldStable |
+            
+            [
+              "Lnx x64/ubuntu-latest",
+              "Lnx A64/ubuntu-24.04-arm",
+              "Mac x64/macos-15-intel",
+              "Mac A64/macos-latest",
+            empty] as $runners |
+            
+            [
+              "nixpkgs-unstable",
+              "nixos-unstable",
+              "nixos-\(($beta, $stable, $oldStable) | select(. != null))",
+            empty] as $nixpkgss |
+            
+            [
+              "base",
+              # "mame",
+              "hbmame",
+              "qemu-screamer",
+            empty] as $subsets |
+            
+            {include: [
+              $runners[] as $runner |
+              $nixpkgss[] as $nixpkgs |
+              ($runner | split("/")) as [$displayRunner, $runner] |
+              (if ($runner | startswith("macos")) then
+                $nixpkgs | gsub("^nixos-(?<version>[0-9]+\\.[0-9]+)$"; "nixpkgs-\(.version)-darwin")
+              else $nixpkgs end) as $nixpkgs |
+              select(($runner | startswith("ubuntu")) or ($nixpkgs | startswith("nixos") | not)) |
+              ($runner | split("+qemu-")) as [$runner, $qemuSystem] |
+              (if $qemuSystem then {
+                "aarch64-linux": "arm64",
+              }[$qemuSystem] else null end) as $qemuSystemForAction |
+              # (if $qemuSystem then $subsets[] else "all" end) as $subset |
+              $subsets[] as $subset |
+              select(($runner | startswith("macos")) or ($subset != "mame")) |
+              (if $nixpkgs | test("^[0-9a-f]{40}$") then $nixpkgs else "refs/heads/\($nixpkgs)" end) as $nixpkgsPath |
+              ($nixpkgs |
+                gsub("^nixpkgs-"; "NP-") |
+                gsub("^nixos-"; "NO-") |
+                gsub("-unstable$"; "-U") |
+                gsub("-darwin$"; "-D") |
+                gsub("^(?<short>[0-9a-f]{8})[0-9a-f]{32}$"; "\(.short)") |
+              .) as $displayNixpkgs |
+              ("\($displayRunner)-\($displayNixpkgs)-\($subset)" | gsub(" "; "-")) as $cacheName |
+              (if $qemuSystem then "TODO make qemu builds work again" | error else . end) |
+              {$displayRunner, $runner, $qemuSystem, $qemuSystemForAction, $displayNixpkgs, $nixpkgs, $nixpkgsPath, $subset, $nurRepo, $cachixName, $cacheName}
+            ]}
+            
+          EOF
+          cacheKey="$(date +'%Y-%m-%d')"
+          cachePrefix="${cacheKey%-*}-"
+          echo -E "matrix=$(<matrix.json)" >> "$GITHUB_OUTPUT"
+          echo -E "cacheKey=$cacheKey" >> "$GITHUB_OUTPUT"
+          echo -E "cachePrefix=$cachePrefix" >> "$GITHUB_OUTPUT"
+      - name: Restore GHA cache of Nix cache
+        id: cache
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: |
+            ~/.cache/nix/*
+            !~/.cache/nix/binary-cache-*
+          key: nixCache-${{ steps.matrix.outputs.cacheKey }}
+          restore-keys: nixCache-${{ steps.matrix.outputs.cachePrefix }}
+      - name: Install nix
+        uses: nixbuild/nix-quick-install-action@2c9db80fb984ceb1bcaa77cdda3fdf8cfba92035 # v34
+      - name: Pre-cache Nixpkgs tarballs
+        id: fetch
+        run: |
+          shopt -s lastpipe
+          if [[ '${{ steps.cache.outputs.cache-hit }}' == 'true' ]]; then
+            oldModTime="$(find ~/.cache/nix -type f -exec stat -c '%Y' {} + | sort -n | tail -1)"
+          fi
+          unpackPIDs=()
+          jq -r '[.include[].nixpkgs] | unique[]' matrix.json | while IFS= read -r nixpkgs; do
+            nix-instantiate --eval -E '{nixpkgs}: nixpkgs + ": " + (builtins.getFlake "github:NixOS/nixpkgs/${nixpkgs}").lib.version' --argstr nixpkgs "$nixpkgs" &
+            unpackPIDs+=("$!")
+          done
+          result=true
+          for pid in "${unpackPIDs[@]}"; do
+            if ! wait "$pid"; then
+              result=false
+            fi
+          done
+          if [[ '${{ steps.cache.outputs.cache-hit }}' == 'true' ]]; then
+            newModTime="$(find ~/.cache/nix -type f -exec stat -c '%Y' {} + | sort -n | tail -1)"
+            if [[ "$newModTime" -ne "$oldModTime" ]]; then
+              echo 'shouldDeleteCache=true' >> "$GITHUB_OUTPUT"
+            fi
+          fi
+          "$result"
+      - name: Get token for deleting cache
+        if: ${{ steps.fetch.outputs.shouldDeleteCache == 'true' }}
+        uses: actions/create-github-app-token@67018539274d69449ef7c02e8e71183d1719ab42 # v2.1.4
+        id: app-token
+        with:
+          # required
+          app-id: ${{ vars.RHYS_T_UPDATE_APP_ID }}
+          private-key: ${{ secrets.RHYS_T_UPDATE_APP_SECRET }}
+      - name: Delete cache to update it
+        if: ${{ steps.fetch.outputs.shouldDeleteCache == 'true' }}
+        run: |
+          gh cache delete --repo ${{ github.repository }} nixCache-${{ steps.matrix.outputs.cacheKey }}
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+      - name: Save GHA cache of Nix cache
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: |
+            ~/.cache/nix/*
+            !~/.cache/nix/binary-cache-*
+          key: nixCache-${{ steps.matrix.outputs.cacheKey }}
+      
+  tests:
+    needs: define-matrix
+    strategy:
+      matrix: ${{ fromJson(needs.define-matrix.outputs.matrix) }}
+      fail-fast: false
+    name: ${{ matrix.displayRunner }} ${{ matrix.displayNixpkgs }} ${{ matrix.subset }}
+    runs-on: ${{ matrix.runner }}
+    outputs:
+      nurRepo: ${{ steps.outputs.outputs.nurRepo }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+    - name: Setup outputs
+      id: outputs
+      run: |
+        echo 'nurRepo=${{ matrix.nurRepo }}' >> "$GITHUB_OUTPUT"
+    - name: Install qemu-user-static
+      if: ${{ matrix.qemuSystem != null }}
+      uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3.6.0
+      with:
+        platforms: ${{ matrix.qemuSystemForAction }}
+    - name: Install nix
+      uses: nixbuild/nix-quick-install-action@2c9db80fb984ceb1bcaa77cdda3fdf8cfba92035 # v34
+      with:
+        nix_conf: |
+          ${{ matrix.qemuSystem && format('extra-platforms = {0}', matrix.qemuSystem) || '' }}
+    - name: Restore Nixpkgs cache
+      uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+      with:
+        path: |
+            ~/.cache/nix/*
+            !~/.cache/nix/binary-cache-*
+        key: nixCache-${{ needs.define-matrix.outputs.cacheKey }}
+        restore-keys: nixCache-${{ needs.define-matrix.outputs.cachePrefix }}
+    - name: Set NIX_PATH
+      run: |
+        nix registry pin myNixpkgs "github:NixOS/nixpkgs/${{ matrix.nixpkgs }}"
+        echo -E 'NIX_PATH=nixpkgs=flake:myNixpkgs' >> "$GITHUB_ENV"
+    - name: Show nixpkgs version
+      run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
+    - name: Setup cachix
+      uses: cachix/cachix-action@0fc020193b5a1fa3ac4575aa3a7d3aa6a35435ad # v16
+      # Don't replace <YOUR_CACHIX_NAME> here!
+      if: ${{ matrix.cachixName != '<YOUR_CACHIX_NAME>' }}
+      with:
+        name: ${{ matrix.cachixName }}
+        signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+    - name: Check evaluation
+      run: |
+        nix-env -f . -qa \* --meta --xml \
+          --allowed-uris https://static.rust-lang.org \
+          --option restrict-eval true \
+          --option allow-import-from-derivation true \
+          --drv-path --show-trace \
+          -I nixpkgs=$(nix-instantiate --find-file nixpkgs) \
+          -I $PWD
+    - name: Restore cached build failures
+      id: restoreFailCache
+      uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+      with:
+        path: /tmp/buildFailures
+        key: buildFailures-${{ github.run_id }}-${{ github.run_attempt }}
+        restore-keys:
+          buildFailures-
+    - name: Build nix packages
+      id: build
+      run: |
+        set -x
+        ls -al /tmp/buildFailures || true
+        mkdir -p /tmp/tempFlake/conf
+        export tempFlake="$(realpath /tmp/tempFlake)"
+        echo -En '${{ matrix.subset }}' > "$tempFlake/conf/ciSubsetName"
+        cat <<EOF >"$tempFlake/flake.nix"
+        {
+          inputs.nixpkgs.url = "github:NixOS/nixpkgs/${{ matrix.nixpkgs }}";
+          inputs.Rhys-T.url = $(nix-instantiate --eval -E '"git+file://" + toString ./.');
+          inputs.Rhys-T.inputs.nixpkgs.follows = "nixpkgs";
+          inputs.Rhys-T.inputs.ciSubsetName = {
+              url = "path:$tempFlake/conf";
+              flake = false;
+          };
+          $(if [[ -d /tmp/buildFailures ]]; then
+            cat <<EOF2
+          inputs.Rhys-T.inputs.ciCachedBuildFailures = {
+              url = "path:$(realpath /tmp/buildFailures)";
+              flake = false;
+          };
+        EOF2
+          fi)
+          outputs = {self, Rhys-T, nixpkgs}: let inherit (nixpkgs) lib; in {
+            cacheOutputs = lib.pipe Rhys-T.legacyPackages [
+              (builtins.mapAttrs (system: ps: ps.ci.cacheOutputsAsAttrs or null))
+              (lib.filterAttrs (system: co: system == $(nix-instantiate --eval '<nixpkgs>' -A system) && co != null))
+            ];
+          };
+        }
+        EOF
+        # cat "$tempFlake/flake.nix"
+        nix flake lock "$tempFlake"
+        nix shell github:Mic92/nix-fast-build 'nixpkgs#ansifilter' -c bash -c '
+          set -o pipefail
+          nix-fast-build -f "$tempFlake#cacheOutputs" --skip-cached --no-nom --result-file /tmp/build-status.json 2>&1 | \
+            tee >(ansifilter > /tmp/build-uncached.log)
+        '
+    - name: Upload build logs
+      if: '!cancelled()'
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      with:
+        name: Rhys-T-nur-packages-build-logs-${{ matrix.runner }}${{ matrix.qemuSystem && format('+qemu-{0}', matrix.qemuSystem) || '' }}-${{ matrix.nixpkgs }}-${{ matrix.subset }}
+        path: |
+          /tmp/tempFlake
+          /tmp/build-status.json
+          /tmp/build-uncached.log
+          /nix/var/log
+          !/nix/var/log/nix/drvs/*/*user-environment*
+        if-no-files-found: ignore
+    - name: Find build failures for subset
+      if: ${{ !cancelled() && steps.build.outcome == 'failure' }}
+      run: |
+        mv /tmp/buildFailures{,-old} || true
+        mkdir /tmp/buildFailures
+        job_id=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs --jq '.jobs[] | select(.name == "${{ matrix.displayRunner }} ${{ matrix.displayNixpkgs }} ${{ matrix.subset }}") | .id')
+        grep -E 'error:.*/nix/store/[^/]*\.drv' /tmp/build-uncached.log | grep -Eo '/nix/store/[^/]*\.drv' | \
+          sort | uniq | \
+          tee /dev/stderr | \
+          while IFS= read -r drvPath; do
+            drvName="${drvPath##*/}"
+            if [[ -e "/tmp/buildFailures-old/$drvName.json" ]]; then
+              cp "/tmp/buildFailures-old/$drvName.json" /tmp/buildFailures/
+            else
+              echo -E '{
+                "drv_path": "'"$drvPath"'",
+                "repository": "${{ github.repository }}",
+                "run_id": "${{ github.run_id }}",
+                "job_id": "'"$job_id"'",
+                "attempt": "${{ github.run_attempt }}"
+              }' > "/tmp/buildFailures/$drvName.json"
+            fi
+          done
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+    - name: Upload build failures for subset
+      if: ${{ !cancelled() && steps.build.outcome == 'failure' }}
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      with:
+        name: buildFailures-${{ matrix.cacheName }}
+        path: /tmp/buildFailures/*.drv.json
+        if-no-files-found: ignore
+  trigger-update:
+    name: Trigger NUR update
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+    - name: Trigger NUR update
+      # Don't replace <YOUR_REPO_NAME> here!
+      if: ${{ needs.tests.outputs.nurRepo != '<YOUR_REPO_NAME>' }}
+      run: curl -XPOST "https://nur-update.nix-community.org/update?repo=${{ needs.tests.outputs.nurRepo }}"
+  alls-green:
+    if: always()
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - uses: re-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe # v1.2.2
+        with:
+          jobs: ${{ toJSON(needs) }}
+  merge-fail-cache:
+    if: ${{ !cancelled() && needs.define-matrix.result == 'success' }}
+    runs-on: ubuntu-latest
+    needs:
+      - define-matrix
+      - tests
+    steps:
+      - name: Merge build failure cache
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        with:
+          pattern: buildFailures-*
+          path: /tmp/buildFailures
+          merge-multiple: true
+      - name: Save merged build failure cache
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: /tmp/buildFailures
+          key: buildFailures-${{ github.run_id }}-${{ github.run_attempt }}
+      # - name: Cleanup partial build failure caches
+      #   uses: geekyeggo/delete-artifact@f275313e70c08f6120db482d7a6b98377786765b # v5.1.0
+      #   with:
+      #     name: buildFailures-*
+      #     failOnError: false
