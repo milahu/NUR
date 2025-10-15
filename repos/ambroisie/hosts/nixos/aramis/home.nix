@@ -18,9 +18,7 @@
     # Machine specific packages
     packages.additionalPackages = with pkgs; [
       element-desktop # Matrix client
-      jellyfin-media-player # Wraps the webui and mpv together
       pavucontrol # Audio mixer GUI
-      transgui # Transmission remote
     ];
     # Minimal video player
     mpv.enable = true;
@@ -28,6 +26,8 @@
     nm-applet.enable = true;
     # Terminal
     terminal.program = "alacritty";
+    # Transmission remote
+    trgui.enable = true;
     # Zathura document viewer
     zathura.enable = true;
   };
