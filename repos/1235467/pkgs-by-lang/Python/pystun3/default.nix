@@ -9,4 +9,6 @@ buildPythonApplication rec {
   propagatedBuildInputs = [
   ];
   doCheck = false;
+  pyproject = true;
+  build-system = [ setuptools ];
 }

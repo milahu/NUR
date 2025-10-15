@@ -17,4 +17,6 @@ buildPythonApplication {
     homepage = "https://github.com/lyc8503/jjwxcCrawler";
     maintainers = [ ];
   };
+  pyproject = true;
+  build-system = [ setuptools ];
 }

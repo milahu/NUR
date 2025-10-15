@@ -44,7 +44,7 @@ rec {
   jjwxcCrawler = pkgs.callPackage ./pkgs-by-lang/Python/jjwxcCrawler { };
   pynat = pkgs.callPackage ./pkgs-by-lang/Python/pynat { };
   pystun3 = pkgs.callPackage ./pkgs-by-lang/Python/pystun3 { };
-  LinguaGacha = pkgs.callPackage ./pkgs-by-lang/Python/LinguaGacha { };
+  #LinguaGacha = pkgs.callPackage ./pkgs-by-lang/Python/LinguaGacha { };
 
   # C
   candy = pkgs.callPackage ./pkgs-by-lang/C/candy { };
@@ -54,6 +54,7 @@ rec {
   Penguin-Subtitle-Player = pkgs.libsForQt5.callPackage ./pkgs-by-lang/C/Penguin-Subtitle-Player { };
   suyu = pkgs-yuzu.qt6.callPackage ./pkgs-by-lang/C/suyu { };
   yuzu-early-access = pkgs-yuzu.qt6.callPackage ./pkgs-by-lang/C/yuzu { };
+  rtptun = pkgs.callPackage ./pkgs-by-lang/C/rtptun { };
 
   # Nodejs
 
@@ -75,7 +76,7 @@ rec {
     scripts = [ pkgs.mpvScripts.mpris ];
   };
   misskey-new = pkgs.callPackage ./pkgs/Overrides/misskey { };
-  llama-cpp-cuda = (pkgs.llama-cpp.override {config = {cudaSupport=true;rocmSupport=false;};}); 
+  llama-cpp-cuda = (pkgs.llama-cpp.override { config = { cudaSupport = true; rocmSupport = false; }; });
 
   # System Fonts override
   JetBrainsMono-nerdfonts = pkgs.nerd-fonts.jetbrains-mono;
@@ -85,6 +86,9 @@ rec {
   cudatoolkit = pkgs.cudaPackages_12.cudatoolkit;
   misskey = pkgs.misskey;
   koboldcpp = (pkgs.koboldcpp.override { cublasSupport = true; clblastSupport = true; vulkanSupport = true; cudaArches = [ "sm_75" ]; });
+  # Fonts
+  ttf-ms-win10 = pkgs.callPackage ./pkgs/Fonts/ttf-ms-win10 { };
+
   # dream2nix
 
   # dream2nix-packages = dream2nix.lib.importPackages {
