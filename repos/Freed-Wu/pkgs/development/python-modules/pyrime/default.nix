@@ -5,7 +5,6 @@
   pkg-config,
   stdenv,
   lib,
-  autopxd,
 }:
 
 with python3.pkgs;
@@ -16,12 +15,13 @@ buildPythonPackage {
   disabled = pythonOlder "3.6";
   propagatedBuildInputs = [
     librime
+    # getch
     colorama
     ptpython
     platformdirs
   ];
   nativeBuildInputs = [
-    autopxd
+    autopxd2
     cython
     meson-python
     pkg-config
