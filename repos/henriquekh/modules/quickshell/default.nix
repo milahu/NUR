@@ -8,8 +8,8 @@ let
   cfg = config.programs.quickshell;
 in
 {
-  _class = "home-manager";
   options.programs.quickshell = {
+    _class = "homeManager";
     enable = lib.mkEnableOption "quickshell";
     package = lib.mkPackageOption "quickshell" {
       nullable = false;
