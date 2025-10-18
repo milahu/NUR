@@ -43,6 +43,7 @@ NUR link: https://nur.nix-community.org/repos/ihaveamac/
 | [mrpack-install-0.16.10-unstable-2024-11-24](https://github.com/nothub/mrpack-install) | mrpack-install | Modrinth Modpack server deployment |
 | [otptool-1.0](https://github.com/SciresM/otptool) | otptool | view and extract data from a 3DS OTP |
 | [qcma-0.4.2](https://codestation.github.io/qcma/) | qcma | Cross-platform content manager assistant for the PS Vita |
+| [roadgeek-fonts-3.1](https://github.com/sammdot/roadgeek-fonts) | roadgeek-fonts | A set of fonts replicating various road sign typefaces. |
 | [rofs-dumper-1.0](https://github.com/PabloMK7/rofs_dumper) | rofs-dumper | Dumps 3DS ROFS containers (early format of romfs) |
 | [rstmcpp-unstable-2023-04-02](https://gitlab.com/beelzy/rstmcpp) | rstmcpp | An experimental port of BrawlLib's RSTM encoder, and the WAV file handling from LoopingAudioConverter, to C++. |
 | [rvthtool-1.1.1-unstable-2025-02-01](https://github.com/GerbilSoft/rvthtool) | rvthtool | Open-source tool for managing RVT-H Reader consoles |
@@ -50,6 +51,7 @@ NUR link: https://nur.nix-community.org/repos/ihaveamac/
 | [sdFormatLinux-0.2.0](https://github.com/profi200/sdFormatLinux) | sd-format-linux | Properly format SD cards under Linux. |
 | [switch-tools-1.13.1](https://github.com/switchbrew/switch-tools) | switch-tools | Various Nintendo Switch homebrew tools |
 | [themethod3-2024-04-20](https://github.com/DarkRTA/themethod3) | themethod3 | Tool for decrypting all mogg files used by the Rock Band series |
+| [twlnandtool-1.0.1](https://github.com/TuxSH/twlnandtool) | twlnandtool | Modern drop-in replacement for twltool: fast decryption of DSi NAND dumps and system files. Written in C++14 |
 | [unxip-3.0](https://github.com/saagarjha/unxip) | unxip | A fast Xcode unarchiver |
 | [wfs-tools-1.2.3-unstable-2025-03-19](https://github.com/koolkdev/wfs-tools) | wfs-tools | WFS (WiiU File System) Tools |
 | [wifiboot-host-unstable-2023-07-02](https://github.com/danny8376/wifiboot-host) | wifiboot-host | command line version uploader for https://problemkaputt.de/wifiboot.htm |
