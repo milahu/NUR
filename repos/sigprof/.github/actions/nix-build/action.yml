@@ -77,10 +77,12 @@ runs:
   steps:
     - name: Maximize build space for Nix
       uses: wimpysworld/nothing-but-nix@10c936d9e46521bf923f75458e0cbd4fa309300d
+      with:
+        hatchet-protocol: carve
       if: (inputs.maximize-build-space == 'true') && (runner.os == 'Linux')
 
     - name: Install Nix
-      uses: cachix/install-nix-action@v31.7.0
+      uses: cachix/install-nix-action@v31.8.1
       with:
         install_url: ${{ inputs.nix-install-url }}
         install_options: ${{ inputs.nix-install-options }}

@@ -61,7 +61,7 @@ jobs:
         uses: actions/checkout@v5.0.0
 
       - name: Install Nix
-        uses: cachix/install-nix-action@v31.7.0
+        uses: cachix/install-nix-action@v31.8.1
         with:
           install_url: ${{ env.CI_NIX_INSTALL_URL }}
 
@@ -130,7 +130,7 @@ jobs:
         uses: actions/checkout@v5.0.0
 
       - name: Install Nix
-        uses: cachix/install-nix-action@v31.7.0
+        uses: cachix/install-nix-action@v31.8.1
         with:
           install_url: ${{ env.CI_NIX_INSTALL_URL }}
 
@@ -325,7 +325,7 @@ jobs:
     uses: ./.github/workflows/ci-per-system.yml
     with:
       system: x86_64-darwin
-      runs-on: macos-13
+      runs-on: macos-15-intel
       flake-jobs: ${{ toJSON(fromJSON(needs.setup_flake.outputs.flake_jobs).x86_64-darwin.flake) }}
       nur-jobs: ${{ toJSON(fromJSON(needs.setup_nur.outputs.nur_jobs || '{}').x86_64-darwin.nur) }}
       nix-install-url: ${{ needs.setup_flake.outputs.nix_install_url }}
