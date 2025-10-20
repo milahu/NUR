@@ -12384,10 +12384,10 @@
     };
     "statshunters" = buildFirefoxXpiAddon {
       pname = "statshunters";
-      version = "3.1.0";
+      version = "3.2.0";
       addonId = "browserextension@statshunters.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4557780/statshunters-3.1.0.xpi";
-      sha256 = "eee22cbc1b4a952115884b70b7638d7600627be135cde444f12e0413e9de1c1f";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4600824/statshunters-3.2.0.xpi";
+      sha256 = "0e41aa0e040c198f1a9a8360ed2b4a9f43b6ff3528f09381d788df3f60a17db2";
       meta = with lib;
       {
         homepage = "https://www.statshunters.com";
@@ -12427,6 +12427,8 @@
           "https://alltrails.com/explore/map/*"
           "https://www.alltrails.com/explore/map/*"
           "https://www.alltrails.com/*/explore/map/*"
+          "https://www.alltrails.com/explore/*"
+          "https://www.alltrails.com/members/*"
           "https://openrunner.com/*"
           "https://www.openrunner.com/*"
           "https://gpx.studio/*"
@@ -13346,6 +13348,20 @@
         description = "This add-on renders standalone images on a transparent background, so you can see the image in all its glory!";
         license = licenses.mpl20;
         mozPermissions = [ "tabs" "file:///*" "*://*/*" ];
+        platforms = platforms.all;
+      };
+    };
+    "transparent-zen" = buildFirefoxXpiAddon {
+      pname = "transparent-zen";
+      version = "0.6.0";
+      addonId = "{74186d10-f6f2-4f73-b33a-83bb72e50654}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4515420/transparent_zen-0.6.0.xpi";
+      sha256 = "3863f54aedb8dc6358025b995a1f2d66d7e149ff8720559af4fa0b3397e48990";
+      meta = with lib;
+      {
+        description = "Applies custom styles to make your favorite websites transparent.";
+        license = licenses.mit;
+        mozPermissions = [ "activeTab" "storage" "tabs" "<all_urls>" ];
         platforms = platforms.all;
       };
     };
