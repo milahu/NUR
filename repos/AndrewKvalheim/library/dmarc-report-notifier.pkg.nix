@@ -6,14 +6,14 @@
 
 python3Packages.buildPythonApplication rec {
   pname = "dmarc-report-notifier";
-  version = "1.1.11";
+  version = "1.1.12";
 
   src = fetchFromGitea {
     domain = "codeberg.org";
     owner = "AndrewKvalheim";
     repo = "dmarc-report-notifier";
     rev = "refs/tags/v${version}";
-    hash = "sha256-vUXqarg9X27QESY7Zeyt3WrJhS9tPMoJnzktyOfJ3FU=";
+    hash = "sha256-UXM4As3eWCKdptqsAsbfAZd+5RqA2Yi7Nth53tOhO0s=";
   };
 
   format = "pyproject";
@@ -36,5 +36,6 @@ python3Packages.buildPythonApplication rec {
     homepage = "https://codeberg.org/AndrewKvalheim/dmarc-report-notifier";
     license = lib.licenses.gpl3;
     mainProgram = "dmarc-report-notifier";
+    broken = lib.versionAtLeast python3Packages.python.version "3.14"; # Pending mjs/imapclient#618
   };
 }
