@@ -43,6 +43,8 @@ jobs:
         nixPath:
           - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
           - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable.tar.gz
+          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable-small.tar.gz
+          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/master.tar.gz
     runs-on: "${{ matrix.os }}"
     steps:
     - name: Maximize build space
@@ -50,7 +52,7 @@ jobs:
       uses: mio-19/maximize-build-space@patch-1
       with:
         root-reserve-mb: 512
-        swap-size-mb: 41000
+        swap-size-mb: 42000
         overprovision-lvm: 'true'
         remove-dotnet: 'true'
         remove-android: 'true'
