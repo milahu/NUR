@@ -514,6 +514,10 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       tree-sitter = callPackage ./pkgs/development/python-modules/tree-sitter { };
 
+      bencode-rs = callPackage ./pkgs/development/python-modules/bencode-rs { };
+
+      torrent-models = callPackage ./pkgs/development/python-modules/torrent-models { };
+
     #}))); # python3.pkgs
 
   #}))); # python3
@@ -1241,6 +1245,31 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   libtorrent-rasterbar-2_0_x = callPackage ./pkgs/by-name/li/libtorrent-rasterbar-2_0_x/package.nix { };
 
   libtorrent-rasterbar = libtorrent-rasterbar-2_0_x;
+
+  # FIXME NUR CI fails to eval this: pkgsWithOverlay = import <nixpkgs> { ... }
+  # rqbit = callPackage ./pkgs/by-name/rq/rqbit/package.nix { };
+
+  anacrolix-torrent = callPackage ./pkgs/by-name/an/anacrolix-torrent/package.nix { };
+
+  torr-server = callPackage ./pkgs/by-name/to/torr-server/package.nix { };
+
+  distribyted = callPackage ./pkgs/by-name/di/distribyted/package.nix { };
+
+  simple-torrent = callPackage ./pkgs/by-name/si/simple-torrent/package.nix { };
+
+  torrentfs = callPackage ./pkgs/by-name/to/torrentfs/package.nix { };
+
+  confluence = callPackage ./pkgs/by-name/co/confluence/package.nix { };
+
+  cloud-torrent = callPackage ./pkgs/by-name/cl/cloud-torrent/package.nix { };
+
+  bittorrent-bootstrap-dht = callPackage ./pkgs/by-name/bi/bittorrent-bootstrap-dht/package.nix { };
+
+  exactimage = callPackage ./pkgs/by-name/ex/exactimage/package.nix { };
+
+  bookpipeline = callPackage ./pkgs/by-name/bo/bookpipeline/package.nix { };
+
+  thorium-reader = callPackage ./pkgs/by-name/th/thorium-reader/package.nix { };
 
 }
 
