@@ -1,4 +1,4 @@
-trace: Nixpkgs version : 25.11pre832437.7c688a0875df,
+trace: Nixpkgs version : 25.11pre883899.02f2cb8e0feb,
   Nixos Version : master,
   Local Usage : false
 error:
@@ -13,39 +13,39 @@ error:
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:240:19:
+  at <nixpkgs> + /lib/customisation.nix:260:19:
 
-   239|   callPackageWith =
-   240|     autoArgs: fn: args:
+   259|   callPackageWith =
+   260|     autoArgs: fn: args:
       |                   ^
-   241|     let
+   261|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:989:5:
+  at <nixpkgs> + /lib/trivial.nix:1009:5:
 
-   988|     # TODO: Should we add call-time "type" checking like built in?
-   989|     __functor = self: f;
+  1008|     # TODO: Should we add call-time "type" checking like built in?
+  1009|     __functor = self: f;
       |     ^
-   990|     __functionArgs = args;
+  1010|     __functionArgs = args;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:161:7:
+  at <nixpkgs> + /lib/customisation.nix:162:7:
 
-   160|     mirrorArgs (
-   161|       origArgs:
+   161|     mirrorArgs (
+   162|       origArgs:
       |       ^
-   162|       let
+   163|       let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:163:18:
+  at <nixpkgs> + /lib/customisation.nix:164:18:
 
-   162|       let
-   163|         result = f origArgs;
+   163|       let
+   164|         result = f origArgs;
       |                  ^
-   164|
+   165|
 
 … while calling anonymous lambda
 
@@ -53,13 +53,60 @@ error:
 
      1| { lib
       | ^
-     2| # , fetchFromGitHub
+     2| , fetchFromGitHub
 
-error: attribute 'gomod2nix' missing
+… from call site
 
-at ./default.nix:65:68:
+  at ./lib/default.nix:6:14:
 
-    64|   };
-    65|   go-pathfinder = pkgs.callPackage ./pkgs/Go-pathfinder { inherit (mylib.gomod2nix) buildGoApplication; };
-      |                                                                    ^
-    66|   go-sdl2 = pkgs.callPackage ./pkgs/go-sdl2 { inherit (mylib.gomod2nix) buildGoApplication; };
+     5|   gomod2nixbuilder = if gomod2nix != null then (gomod2nix + "/builder") else ./gomod2nix/builder;
+     6|   builder1 = pkgs.callPackage gomod2nixbuilder { gomod2nix = gomod2nix0; };
+      |              ^
+     7| in {
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:260:19:
+
+   259|   callPackageWith =
+   260|     autoArgs: fn: args:
+      |                   ^
+   261|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:274:11:
+
+   273|         (
+   274|           filterAttrs (name: value: !value)
+      |           ^
+   275|             # Filter out arguments that would be passed
+
+… while calling 'filterAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:663:23:
+
+   662|   */
+   663|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                       ^
+   664|
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:263:15:
+
+   262|       f = if isFunction fn then fn else import fn;
+   263|       fargs = functionArgs f;
+      |               ^
+   264|
+
+… while calling 'functionArgs'
+
+  at <nixpkgs> + /lib/trivial.nix:1027:5:
+
+  1026|   functionArgs =
+  1027|     f:
+      |     ^
+  1028|     if f ? __functor then
+
+error: getting status of './lib/gomod2nix/builder': No such file or directory
