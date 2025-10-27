@@ -2614,10 +2614,10 @@
     };
     "cyberfeeder" = buildFirefoxXpiAddon {
       pname = "cyberfeeder";
-      version = "5.1.1";
+      version = "5.1.2";
       addonId = "{fa19efb8-df2c-4f6a-ae08-6796a25ccdd6}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4603134/cyberfeeder-5.1.1.xpi";
-      sha256 = "150014758e70c60023257265f39b15083b7e92ae2e15f02daa2c223bd70bd911";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4605816/cyberfeeder-5.1.2.xpi";
+      sha256 = "6121443869ce9818960aab30b0920725bdcf84818d66924e80c255e3429b7e97";
       meta = with lib;
       {
         description = "UI/UX improvements for jinteki.net.";
@@ -3118,10 +3118,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.64.6";
+      version = "2.65.0";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4599956/dualsub-2.64.6.xpi";
-      sha256 = "2cc38867f58f8ddcc8a92e92c49088d29077d063da86ab650e4f42ae858e50a9";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4605985/dualsub-2.65.0.xpi";
+      sha256 = "5cffbc2cc2fc585cf32242d1ff008033dd419cb590a376bcdb061f39d8136830";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -10866,10 +10866,10 @@
     };
     "readeck" = buildFirefoxXpiAddon {
       pname = "readeck";
-      version = "2.5.3";
+      version = "2.5.4";
       addonId = "readeck@readeck.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4605294/readeck-2.5.3.xpi";
-      sha256 = "7424730c20845b5f1c1536fdb82bb06619a4d9f490405e2875cf75632000080c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4605482/readeck-2.5.4.xpi";
+      sha256 = "c6f3d38c927d3d5f61ec3b50ed2177c1b6da527f49ee3c7b4d340a8985ed0c29";
       meta = with lib;
       {
         homepage = "https://readeck.org/en/";
@@ -13106,6 +13106,34 @@
         homepage = "https://github.com/ChristosBouronikos/Nord-Polar-Night-Theme";
         description = "https://paypal.me/christosbouronikos";
         mozPermissions = [];
+        platforms = platforms.all;
+      };
+    };
+    "themesong-for-youtube-music" = buildFirefoxXpiAddon {
+      pname = "themesong-for-youtube-music";
+      version = "1.3.0";
+      addonId = "{6458ac08-a9d7-4e42-a1b0-f0c43bf90f7d}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4605253/themesong_for_youtube_music-1.3.0.xpi";
+      sha256 = "edca74009cf6cedbab9c15dfda71e9a7a8ea215223a080fc8c7ae3bcba61b5e6";
+      meta = with lib;
+      {
+        homepage = "https://www.themesong.app";
+        description = "Enhancer for YouTube Music™. Dynamic Themes, Visualizers, Lyrics, Sleep Timer, and more!";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [
+          "https://music.youtube.com/*"
+          "https://*.googleusercontent.com/*"
+          "https://*.ytimg.com/*"
+          "storage"
+          "notifications"
+          "scripting"
+          "search"
+        ];
         platforms = platforms.all;
       };
     };
