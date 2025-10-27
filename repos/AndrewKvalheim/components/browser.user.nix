@@ -66,6 +66,12 @@ in
     "extensions.formautofill.addresses.enabled" = false;
     "extensions.formautofill.creditCards.enabled" = false;
 
+    # Disable “AI” features
+    "browser.ml.chat.enabled" = false;
+    "browser.ml.linkPreview.enabled" = false;
+    "browser.ml.pageAssist.enabled" = false;
+    "browser.tabs.groups.smart.enabled" = false;
+
     # Disable writing ephemeral data to persistent storage
     "browser.privatebrowsing.forceMediaMemoryCache" = true;
 

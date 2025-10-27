@@ -252,7 +252,7 @@ in
         zsh-abbr = "${zsh-abbr}/share/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh";
         zsh-click = "${zsh-click}/share/zsh/plugins/click/click.plugin.zsh";
         zsh-complete-git-commit-message = toFile "zsh-complete-git-commit-message" (readFile ./assets/complete-git-commit-message.zsh);
-        zsh-completion-sync = "${zsh-completion-sync}/share/zsh/plugins/zsh-completion-sync/zsh-completion-sync.plugin.zsh";
+        zsh-completion-sync = "${zsh-completion-sync}/share/zsh-completion-sync/zsh-completion-sync.plugin.zsh";
         zsh-prezto-terminal = "${zsh-prezto}/share/zsh-prezto/modules/terminal/init.zsh";
         zsh-starship-issue-4205 = toFile "zsh-starship-issue-4205" (readFile ./assets/starship-issue-4205.zsh);
         zsh-syntax-highlighting = "${zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";

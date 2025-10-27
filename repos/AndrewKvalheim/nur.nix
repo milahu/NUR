@@ -72,5 +72,4 @@ rec {
   starship-jj = callPackage ./library/starship-jj.pkg.nix { };
   tile-stitch = callPackage ./library/tile-stitch.pkg.nix { };
   wireguard-vanity-address = callPackage ./library/wireguard-vanity-address.pkg.nix { };
-  zsh-completion-sync = callPackage ./library/zsh-completion-sync.pkg.nix { };
 }
