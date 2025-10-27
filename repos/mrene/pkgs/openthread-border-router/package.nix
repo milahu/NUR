@@ -12,10 +12,11 @@
 , libnfnetlink
 , nodejs
 , buildNpmPackage
+, python3
 }:
 let
   pname = "ot-br-posix";
-  version = "unstable-2024-09-27";
+  version = "thread-reference-20250612";
 
   src = fetchFromGitHub {
       owner = "openthread";
@@ -64,6 +65,7 @@ stdenv.mkDerivation {
     pkg-config
     cmake
     nodejs
+    python3
   ];
 
   # Adding npmConfigHook and manually passing fetchNpmDeps was resulting in ENOTCACHED errors
@@ -115,6 +117,9 @@ stdenv.mkDerivation {
 
     # Required by protobuf
     (lib.cmakeFeature "CMAKE_CXX_STANDARD" "17")
+
+    # Fix CMake version compatibility for cJSON submodule
+    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
   ];
 
   meta = with lib; {

@@ -7,7 +7,7 @@
 
 stdenv.mkDerivation rec {
   pname = "rx-tools";
-  version = "unstable-2019-03-31";
+  version = "1.0.3";
 
   src = fetchFromGitHub {
     owner = "rxseger";
@@ -22,6 +22,10 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     soapysdr-with-plugins
+  ];
+
+  cmakeFlags = [
+    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
   ];
 
   meta = with lib; {
