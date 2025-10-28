@@ -6,10 +6,7 @@ on:
       - main
       - master
   schedule:
-    # rebuild everyday at 2:51
-    # TIP: Choose a random time here so not all repositories are build at once:
-    # https://www.random.org/clock-times/?num=1&earliest=01%3A00&latest=08%3A00&interval=5&format=html&rnd=new
-    - cron:  '51 2 * * *'
+    - cron:  '11 */6 * * *'
   workflow_dispatch:
 jobs:
   tests:
@@ -45,7 +42,6 @@ jobs:
           - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable-small.tar.gz
           - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/master.tar.gz
           - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/staging-next.tar.gz
-          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/staging.tar.gz
           - nixpkgs=https://codeload.github.com/NixOS/nixpkgs/tar.gz/2fbfb821ecd9b238477e64fb8bc3724112f4e7b3
     runs-on: "${{ matrix.os }}"
     steps:
