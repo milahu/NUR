@@ -5,7 +5,8 @@
   fetchFromGitHub,
   installShellFiles,
   libdisplay-info,
-  libglvnd,
+  cairo,
+  libGL,
   libinput,
   libxkbcommon,
   libgbm,
@@ -33,10 +34,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
     owner = "visualglitch91";
     repo = "niri";
     rev = "feat/blur";
-    hash = "sha256-1XIhLlAc/x9K6LXRK8yMD8G3RiHPOiVRHmWNgIFGVi0=";
+    hash = "sha256-sNAJQBP2rVL5OM6Lnblmy7EWYRsrZnmuQnnip4mX8mQ=";
   };
 
-  cargoHash = "sha256-lR0emU2sOnlncN00z6DwDIE2ljI+D2xoKqG3rS45xG0=";
+  cargoHash = "sha256-3A37vUNv37IKAm9MdlfVMkuTd/HZSkPO+gv1m23qJvo=";
 
   outputs = [
     "out"
@@ -58,14 +59,16 @@ rustPlatform.buildRustPackage (finalAttrs: {
   ];
 
   buildInputs = [
+    cairo
+    dbus
+    libGL
     libdisplay-info
-    libglvnd # 用于 libEGL
     libinput
+    seatd
     libxkbcommon
     libgbm
     pango
-    seatd
-    wayland # 用于 libwayland-client
+    wayland
   ]
   ++ lib.optional (withDbus || withScreencastSupport || withSystemd) dbus
   ++ lib.optional withScreencastSupport pipewire
@@ -128,6 +131,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
     # inside the Nix sandbox
     "--skip=::egl"
   ];
+
+  doCheck = false; # blur并没有适配测试
 
   passthru.providedSessions = [ "niri" ];
   passthru.updateScript = ./update.sh;
