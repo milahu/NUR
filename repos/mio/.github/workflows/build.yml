@@ -42,7 +42,6 @@ jobs:
           - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable-small.tar.gz
           - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/master.tar.gz
           - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/staging-next.tar.gz
-          - nixpkgs=https://codeload.github.com/NixOS/nixpkgs/tar.gz/2fbfb821ecd9b238477e64fb8bc3724112f4e7b3
     runs-on: "${{ matrix.os }}"
     steps:
     - name: Maximize build space
@@ -89,7 +88,7 @@ jobs:
           -I nixpkgs=$(nix-instantiate --find-file nixpkgs) \
           -I $PWD
     - name: Build nix packages
-      run: nice -n 20 nix shell -f '<nixpkgs>' nix-build-uncached -c nix-build-uncached ci.nix -A cacheOutputs
+      run: nice -n 20 nix shell -f '<nixpkgs>' nix-build-uncached -c nix-build-uncached --max-jobs 1 ci.nix -A cacheOutputs
     - name: Trigger NUR update
       # Don't replace <YOUR_REPO_NAME> here!
       if: ${{ matrix.nurRepo != '<YOUR_REPO_NAME>' }}
