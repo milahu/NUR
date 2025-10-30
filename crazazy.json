@@ -1,16 +1,16 @@
 {
 "name":"crazazy",
-"fetch_time":0.626,
+"fetch_time":0.545,
 "eval_time":0.707,
 "source":{
 "url":"https://github.com/crazazy/nixos-config",
-"rev":"07b60af36a2f0a495b3806e91730cf0b6648eb4d",
-"sha256":"0jday4zdqzn5ilkxzwiqbbajnfv5w89lk5603dwsxawq5b5zimz8",
+"rev":"fe4e1aaff5c0e06b88798c1195a86cef80277b90",
+"sha256":"0512566ihz49arw867l19amrjgy76kzkhr7d4svq64yz3nxif1ar",
 "date":null
 },
-"source_storepath":"/nix/store/jm0gxxda2a1rwqw34si4ndzd84plic48-source",
-"nixpkgs_storepath":"/nix/store/c1h4cfy5lfr1jqf79931w2mj04p7xn7w-source",
-"nur_combined_rev":"51866423dad6c97d20559839ad674cbb82c76d25",
+"source_storepath":"/nix/store/fyl04fa6ay27gcmq4qmjm3jqpwfaifns-source",
+"nixpkgs_storepath":"/nix/store/3j87xrffiivmz7c2cq96amr13n8hfx30-source",
+"nur_combined_rev":"311e0237252dcf7de91c1a612ce566a1b9c402d4",
 "packages":{
 "cakeml":{
 "meta":{
@@ -112,8 +112,8 @@
 ],
 "maintainersPosition":{
 "column":54,
-"file":"/nix/store/c1h4cfy5lfr1jqf79931w2mj04p7xn7w-source/pkgs/development/haskell-modules/generic-builder.nix",
-"line":1036
+"file":"/nix/store/3j87xrffiivmz7c2cq96amr13n8hfx30-source/pkgs/development/haskell-modules/generic-builder.nix",
+"line":1038
 },
 "name":"elm-0.19.1",
 "outputsToInstall":[
@@ -1186,8 +1186,8 @@
 ],
 "maintainersPosition":{
 "column":54,
-"file":"/nix/store/c1h4cfy5lfr1jqf79931w2mj04p7xn7w-source/pkgs/development/haskell-modules/generic-builder.nix",
-"line":1036
+"file":"/nix/store/3j87xrffiivmz7c2cq96amr13n8hfx30-source/pkgs/development/haskell-modules/generic-builder.nix",
+"line":1038
 },
 "name":"nvfetcher-0.7.0.0",
 "outputsToInstall":[
@@ -1271,7 +1271,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:483665",
+"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:483666",
 "unfree":false,
 "unsupported":false
 },
@@ -1347,180 +1347,6 @@
 "system":"x86_64-linux",
 "version":""
 },
-"truffleSqueak":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"High-Performance Polyglot VM (Product: truffleSqueak)",
-"homepage":"https://www.graalvm.org/",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"truffleSqueak",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"truffleSqueak",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"license":[
-{
-"deprecated":false,
-"free":true,
-"fullName":"Universal Permissive License",
-"redistributable":true,
-"shortName":"upl",
-"spdxId":"UPL-1.0",
-"url":"https://spdx.org/licenses/UPL-1.0.html"
-},
-{
-"deprecated":true,
-"free":true,
-"fullName":"GNU General Public License v2.0",
-"redistributable":true,
-"shortName":"gpl2",
-"spdxId":"GPL-2.0",
-"url":"https://spdx.org/licenses/GPL-2.0.html"
-},
-{
-"deprecated":false,
-"free":true,
-"fullName":"Classpath exception 2.0",
-"redistributable":true,
-"shortName":"classpathException20",
-"spdxId":"Classpath-exception-2.0",
-"url":"https://spdx.org/licenses/Classpath-exception-2.0.html"
-},
-{
-"deprecated":false,
-"free":true,
-"fullName":"BSD 3-clause \"New\" or \"Revised\" License",
-"redistributable":true,
-"shortName":"bsd3",
-"spdxId":"BSD-3-Clause",
-"url":"https://spdx.org/licenses/BSD-3-Clause.html"
-}
-],
-"mainProgram":"js",
-"maintainers":[
-{
-"email":"bandresen@gmail.com",
-"github":"bennyandresen",
-"githubId":80325,
-"name":"Benjamin Andresen"
-},
-{
-"email":"hlolli@gmail.com",
-"github":"hlolli",
-"githubId":6074754,
-"name":"Hlodver Sigurdsson"
-},
-{
-"email":"root@gws.fyi",
-"github":"glittershark",
-"githubId":1481027,
-"keys":[
-{
-"fingerprint":"0F11 A989 879E 8BBB FDC1  E236 44EF 5B5E 861C 09A7"
-}
-],
-"name":"Griffin Smith"
-},
-{
-"email":"ercdll1337@gmail.com",
-"github":"ericdallo",
-"githubId":7820865,
-"name":"Eric Dallo"
-}
-],
-"name":"truffleSqueak",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-darwin",
-"aarch64-linux",
-"x86_64-darwin",
-"x86_64-linux"
-],
-"position":"<nixpkgs> + /pkgs/development/compilers/graalvm/community-edition/buildGraalvmProduct.nix:87",
-"sourceProvenance":[
-{
-"isSource":false,
-"shortName":"binaryNativeCode"
-}
-],
-"teams":[
-{
-"members":[
-{
-"email":"bandresen@gmail.com",
-"github":"bennyandresen",
-"githubId":80325,
-"name":"Benjamin Andresen"
-},
-{
-"email":"hlolli@gmail.com",
-"github":"hlolli",
-"githubId":6074754,
-"name":"Hlodver Sigurdsson"
-},
-{
-"email":"root@gws.fyi",
-"github":"glittershark",
-"githubId":1481027,
-"keys":[
-{
-"fingerprint":"0F11 A989 879E 8BBB FDC1  E236 44EF 5B5E 861C 09A7"
-}
-],
-"name":"Griffin Smith"
-},
-{
-"email":"ercdll1337@gmail.com",
-"github":"ericdallo",
-"githubId":7820865,
-"name":"Eric Dallo"
-}
-],
-"scope":"Maintain GraalVM Community Edition packages.",
-"shortName":"GraalVM-CE"
-}
-],
-"teamsPosition":{
-"column":34,
-"file":"/nix/store/c1h4cfy5lfr1jqf79931w2mj04p7xn7w-source/pkgs/development/compilers/graalvm/community-edition/buildGraalvmProduct.nix",
-"line":80
-},
-"unfree":false,
-"unsupported":false
-},
-"name":"truffleSqueak",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"truffleSqueak",
-"system":"x86_64-linux",
-"version":""
-},
 "wasmfxtime":{
 "meta":{
 "available":true,
@@ -1545,7 +1371,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v37.0.2/RELEASES.md",
+"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v38.0.3/RELEASES.md",
 "description":"wasmtime WebAssembly runner with support for delmited continuations",
 "homepage":"https://wasmtime.dev/",
 "identifiers":{
@@ -1619,10 +1445,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/c1h4cfy5lfr1jqf79931w2mj04p7xn7w-source/pkgs/by-name/wa/wasmtime/package.nix",
+"file":"/nix/store/3j87xrffiivmz7c2cq96amr13n8hfx30-source/pkgs/by-name/wa/wasmtime/package.nix",
 "line":109
 },
-"name":"wasmtime-37.0.2",
+"name":"wasmtime-38.0.3",
 "outputsToInstall":[
 "out"
 ],
