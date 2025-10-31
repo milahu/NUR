@@ -1,0 +1,124 @@
+diff --git a/buildscripts/cmake/FindQt6.cmake b/buildscripts/cmake/FindQt6.cmake
+index a22ccb49d..8630056ab 100644
+--- a/buildscripts/cmake/FindQt6.cmake
++++ b/buildscripts/cmake/FindQt6.cmake
+@@ -10,8 +10,11 @@ set(CMAKE_AUTORCC ON)
+ 
+ set(_components
+     Core
++    CorePrivate
+     Gui
++    GuiPrivate
+     Widgets
++    WidgetsPrivate
+     Network
+     NetworkAuth
+     Qml
+diff --git a/src/appshell/CMakeLists.txt b/src/appshell/CMakeLists.txt
+index a3d7363e1..6da773af0 100644
+--- a/src/appshell/CMakeLists.txt
++++ b/src/appshell/CMakeLists.txt
+@@ -144,6 +144,7 @@ if (NOT OS_IS_MAC)
+ 
+     # we use QKeyMapper to fix https://github.com/musescore/MuseScore/issues/10181
+     set(MODULE_INCLUDE ${Qt6Gui_PRIVATE_INCLUDE_DIRS} )
++    set(MODULE_LINK ${MODULE_LINK} Qt6::GuiPrivate)
+ endif(NOT OS_IS_MAC)
+ 
+ setup_module()
+diff --git a/src/appshell/view/navigableappmenumodel.cpp b/src/appshell/view/navigableappmenumodel.cpp
+index 3a7b274cb..3d5cc9d95 100644
+--- a/src/appshell/view/navigableappmenumodel.cpp
++++ b/src/appshell/view/navigableappmenumodel.cpp
+@@ -39,7 +39,11 @@ QSet<int> possibleKeys(QKeyEvent* keyEvent)
+     //! NOTE: correct work only with alt modifier
+     correctedKeyEvent->setModifiers(Qt::AltModifier);
+ 
+-    QList<int> keys = QKeyMapper::possibleKeys(correctedKeyEvent);
++    QList<QKeyCombination> keyCombinations = QKeyMapper::possibleKeys(correctedKeyEvent);
++    QList<int> keys;
++    for (const QKeyCombination& combination : keyCombinations) {
++        keys.append(combination.toCombined());
++    }
+ 
+     return QSet<int>(keys.cbegin(), keys.cend());
+ }
+@@ -47,7 +51,11 @@ QSet<int> possibleKeys(QKeyEvent* keyEvent)
+ QSet<int> possibleKeys(const QChar& keySymbol)
+ {
+     QKeyEvent fakeKey(QKeyEvent::KeyRelease, Qt::Key_unknown, Qt::AltModifier, keySymbol);
+-    QList<int> keys = QKeyMapper::possibleKeys(&fakeKey);
++    QList<QKeyCombination> keyCombinations = QKeyMapper::possibleKeys(&fakeKey);
++    QList<int> keys;
++    for (const QKeyCombination& combination : keyCombinations) {
++        keys.append(combination.toCombined());
++    }
+ 
+     return QSet<int>(keys.cbegin(), keys.cend());
+ }
+diff --git a/src/framework/accessibility/CMakeLists.txt b/src/framework/accessibility/CMakeLists.txt
+index 98f4f4d9e..3b10b50d0 100644
+--- a/src/framework/accessibility/CMakeLists.txt
++++ b/src/framework/accessibility/CMakeLists.txt
+@@ -49,6 +49,7 @@ set(MODULE_SRC
+ if (OS_IS_LIN)
+     # it needed to send a spontaneous event by activating navigation
+     set(MODULE_INCLUDE ${Qt6Core_PRIVATE_INCLUDE_DIRS} )
++    set(MODULE_LINK Qt6::CorePrivate)
+ endif()
+ 
+ 
+diff --git a/src/framework/dockwindow/thirdparty/KDDockWidgets/CMakeLists.txt b/src/framework/dockwindow/thirdparty/KDDockWidgets/CMakeLists.txt
+index aa3083c79..c1c113dd5 100644
+--- a/src/framework/dockwindow/thirdparty/KDDockWidgets/CMakeLists.txt
++++ b/src/framework/dockwindow/thirdparty/KDDockWidgets/CMakeLists.txt
+@@ -129,6 +129,7 @@ if(${PROJECT_NAME}_QT6)
+   set(QT_MIN_VERSION "6.0.0")
+   find_package(Qt6Widgets ${QT_MIN_VERSION} REQUIRED)
+   find_package(Qt6Test ${QT_MIN_VERSION} REQUIRED)
++  find_package(Qt6Gui ${QT_MIN_VERSION} REQUIRED)
+   set(${PROJECT_NAME}_LIBRARY_QTID "-qt6")
+ else()
+   set(Qt_VERSION_MAJOR 5)
+diff --git a/src/importexport/bww/internal/bww/lexer.cpp b/src/importexport/bww/internal/bww/lexer.cpp
+index 84bc924b7..da7bff612 100644
+--- a/src/importexport/bww/internal/bww/lexer.cpp
++++ b/src/importexport/bww/internal/bww/lexer.cpp
+@@ -42,7 +42,7 @@ namespace Bww {
+ Lexer::Lexer(QIODevice* inDevice)
+     : in(inDevice),
+     lineNumber(-1),
+-    value(QChar(NONE))
++    value(QChar(static_cast<ushort>(NONE)))
+ {
+     LOGD() << "Lexer::Lexer() begin";
+ 
+diff --git a/src/importexport/midi/internal/midiimport/importmidi_tuplet.cpp b/src/importexport/midi/internal/midiimport/importmidi_tuplet.cpp
+index 729e928a0..c5645941b 100644
+--- a/src/importexport/midi/internal/midiimport/importmidi_tuplet.cpp
++++ b/src/importexport/midi/internal/midiimport/importmidi_tuplet.cpp
+@@ -895,9 +895,10 @@ void addTupletEvents(std::multimap<ReducedFraction, TupletData>& tupletEvents,
+                 message += QString::number(tiedTuplet.voice) + ", chord voice = ";
+                 message += QString::number(midiChord.voice) + ", bar number (from 1) = ";
+                 message += QString::number(midiChord.barIndex + 1);
+-#endif
++
+                 Q_ASSERT_X(tiedTuplet.voice == midiChord.voice,
+                            "MidiTuplet::addTupletEvents", message.toLatin1().data());
++#endif
+ 
+                 for (int j: tiedTuplet.tiedNoteIndexes) {
+                     midiChord.notes[j].tuplet = it;
+diff --git a/src/palette/view/widgets/specialcharactersdialog.cpp b/src/palette/view/widgets/specialcharactersdialog.cpp
+index 781c54890..e92806dc2 100644
+--- a/src/palette/view/widgets/specialcharactersdialog.cpp
++++ b/src/palette/view/widgets/specialcharactersdialog.cpp
+@@ -712,7 +712,7 @@ void SpecialCharactersDialog::populateUnicode()
+         std::shared_ptr<FSymbol> fs = std::make_shared<FSymbol>(gpaletteScore->dummy());
+         fs->setCode(code);
+         fs->setFont(m_font);
+-        m_pUnicode->appendElement(fs, QString("0x%1").arg(code, 5, 16, QLatin1Char('0')));
++        m_pUnicode->appendElement(fs, QString("0x%1").arg(static_cast<uint>(code), 5, 16, QLatin1Char('0')));
+     }
+ }
+ 

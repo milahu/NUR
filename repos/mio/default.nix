@@ -8,12 +8,13 @@
 
 {
   pkgs ? import <nixpkgs> {
-    config.permittedInsecurePackages = [
-      "qtwebengine-5.15.19"
-    ];
+    #config.permittedInsecurePackages = [
+    #  "qtwebengine-5.15.19"
+    #];
   },
 }:
 let
+  # TODO: consider -flto , linux only, breaks on darwin
   v3Optimizations =
     if pkgs.stdenv.hostPlatform.isx86_64 then
       pkgs.stdenvAdapters.withCFlags [ "-march=x86-64-v3" ]
@@ -107,7 +108,6 @@ rec {
     doCheck = false;
   });
   wireguird = goV3OverrideAttrs (pkgs.callPackage ./pkgs/wireguird { });
-  example-package = pkgs.callPackage ./pkgs/example-package { };
   lmms = pkgs.callPackage ./pkgs/lmms/package.nix {
     withOptionals = true;
     stdenv = v3Optimizations pkgs.clangStdenv;
@@ -135,7 +135,37 @@ rec {
       pkgs.callPackage ./pkgs/musescore3/darwin.nix { }
     else
       v3overrideAttrs (pkgs.libsForQt5.callPackage ./pkgs/musescore3 { });
-  zen-browser = pkgs.callPackage ./pkgs/zen-browser/package.nix { };
+  # https://github.com/musescore/MuseScore/pull/21874
+  # https://github.com/adazem009/MuseScore/tree/piano_keyboard_playing_notes
+  musescore-adazem009 = v3override (
+    pkgs.musescore.overrideAttrs (old: {
+      version = "4.4.0-piano_keyboard_playing_notes";
+      src = pkgs.fetchFromGitHub {
+        owner = "adazem009";
+        repo = "MuseScore";
+        rev = "e3de9347f6078f170ddbfa6dcb922f72bb7fef88";
+        hash = "sha256-1HvwkolmKa317ozprLEpo6v/aNX75sEdaXHlt5Cj6NA=";
+      };
+      patches = [ ./piano_keyboard_playing_notes.patch ];
+      meta = old.meta // {
+        broken = pkgs.stdenv.hostPlatform.isDarwin; # TODO: fix build on darwin
+      };
+    })
+  );
+  # https://github.com/musescore/MuseScore/pull/28073
+  # https://github.com/githubwbp1988/MuseScore/tree/alex
+  musescore-alex = v3override (
+    pkgs.musescore.overrideAttrs (old: {
+      version = "4.6.3-alex-unstable-20251031";
+      src = pkgs.fetchFromGitHub {
+        owner = "githubwbp1988";
+        repo = "MuseScore";
+        rev = "487ee2105064f8571f95eb31f03cbf1687e96204";
+        hash = "sha256-r2HjHKnO6pD+urrW57z/SPcgm4vSkAMvW4ZJH+c7J4M=";
+      };
+      patches = [ ];
+    })
+  );
   tuxguitar = pkgs.tuxguitar.overrideAttrs (old: rec {
     version = "2.0.0beta4";
     src = pkgs.fetchurl {

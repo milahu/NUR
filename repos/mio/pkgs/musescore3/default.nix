@@ -41,6 +41,7 @@ mkDerivation rec {
     #./remove_qtwebengine_install_hack.patch # for musescore/MuseScore
     #./dtl-gcc14-fix.patch # for musescore/MuseScore
     ./Jojo-Schmitz-remove_qtwebengine_install_hack.patch
+    ./Jojo-Schmitz-happily-no-QtWebEngine.patch
   ];
 
   cmakeFlags = [
@@ -64,9 +65,34 @@ mkDerivation rec {
     ln -s mscore3 $out/bin/musescore3
     rm $out/bin/musescore
 
+    # Rename icon files from mscore to mscore3
+    for icon in $out/share/icons/hicolor/*/apps/mscore.png $out/share/icons/hicolor/*/apps/mscore.svg; do
+      if [ -e "$icon" ]; then
+        mv "$icon" "''${icon/mscore/mscore3}"
+      fi
+    done
+
+    # Rename man page from mscore to mscore3
+    mv $out/share/man/man1/mscore.1.gz $out/share/man/man1/mscore3.1.gz
+    rm $out/share/man/man1/musescore.1.gz
+    ln -s mscore3.1.gz $out/share/man/man1/musescore3.1.gz
+
+    # Rename mime type icon
+    mv $out/share/icons/hicolor/scalable/mimetypes/application-x-musescore+xml.svg \
+       $out/share/icons/hicolor/scalable/mimetypes/application-x-musescore3+xml.svg
+
+    # Rename appdata file
+    mv $out/share/metainfo/org.musescore.MuseScore.appdata.xml \
+       $out/share/metainfo/org.musescore.MuseScore3.appdata.xml
+
+    # Rename mime packages file
+    mv $out/share/mime/packages/musescore.xml \
+       $out/share/mime/packages/musescore3.xml
+
     # Update desktop file to use mscore3
     substituteInPlace $out/share/applications/mscore.desktop \
-      --replace-fail "Exec=mscore" "Exec=mscore3"
+      --replace-fail "Exec=mscore" "Exec=mscore3" \
+      --replace-fail "Icon=mscore" "Icon=mscore3"
   '';
 
   nativeBuildInputs = [
@@ -92,7 +118,7 @@ mkDerivation rec {
     qtscript
     qtsvg
     qttools
-    qtwebengine
+    #qtwebengine # not needed with Jojo-Schmitz-happily-no-QtWebEngine.patch
     qtxmlpatterns
   ];
 
