@@ -28,7 +28,7 @@
       sha256 = "sha256-qWJ4Z/ixqUq4rN06vq6JM+lJSovoh9DP1wB37C08Vt0=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./baibot-v1.8.1/Cargo.lock;
+      lockFile = ./. + "/sha256-qWJ4Z_ixqUq4rN06vq6JM+lJSovoh9DP1wB37C08Vt0=/Cargo.lock";
       outputHashes = {
         "async-openai-0.28.1" = "sha256-5xrO2k5jA94cf3Ub0DGuAvKqDDXVk1Ro/naC5FG1AAw=";
         "anthropic-0.0.8" = "sha256-q21o2GB8nN0jGcRPgW/cujC+3gdgQg5mFJUJy2tipCA=";
@@ -37,13 +37,13 @@
   };
   cowrie = {
     pname = "cowrie";
-    version = "v2.7.0";
+    version = "v2.8.1";
     src = fetchFromGitHub {
       owner = "cowrie";
       repo = "cowrie";
-      rev = "v2.7.0";
+      rev = "v2.8.1";
       fetchSubmodules = false;
-      sha256 = "sha256-4BAyH7GPBTqbS7GKPhS1gqjW+H1d3pzDGXwCa7fty58=";
+      sha256 = "sha256-/8yJaBAlHZMu7YUgtu2GCkMplF8Ln/hZGVqCiCfT4CY=";
     };
   };
   dot-tar = {
@@ -59,7 +59,7 @@
       sha256 = "sha256-M5Qw/aUX7zwq15bpe+Ix1t7kfkFF/JIC1ngOwAtx7Tg=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./dot-tar-b5f1f3f37abd9f65dd75cc5e74d32e6356090534/Cargo.lock;
+      lockFile = ./. + "/sha256-M5Qw_aUX7zwq15bpe+Ix1t7kfkFF_JIC1ngOwAtx7Tg=/Cargo.lock";
       outputHashes = {
 
       };
@@ -68,13 +68,13 @@
   };
   dpt-rp1-py = {
     pname = "dpt-rp1-py";
-    version = "v0.1.16";
+    version = "v0.1.18";
     src = fetchFromGitHub {
       owner = "janten";
       repo = "dpt-rp1-py";
-      rev = "v0.1.16";
+      rev = "v0.1.18";
       fetchSubmodules = false;
-      sha256 = "sha256-cq9yHBQyqzlEb1Dvpx90MIixT8PxB8TBKv3+nFYCbn8=";
+      sha256 = "sha256-5Ny62Kp1GHH9vmPSZ6smNqyEt9PZYPHAiungHZQMB/A=";
     };
   };
   gnome-shell-mobile-shell = {
@@ -115,13 +115,13 @@
   };
   linux-intel-lts = {
     pname = "linux-intel-lts";
-    version = "lts-v6.12.48-linux-250924T142248Z";
+    version = "lts-v6.12.55-linux-251024T074402Z";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "linux-intel-lts";
-      rev = "lts-v6.12.48-linux-250924T142248Z";
+      rev = "lts-v6.12.55-linux-251024T074402Z";
       fetchSubmodules = false;
-      sha256 = "sha256-479uMPFKkgNnyg/3/ByOvYP4mcFQa9Iz//6djWvBLLY=";
+      sha256 = "sha256-GSnK/uzQSOQo64episCJNJcPRm0UAhLX4QldRJFYqPg=";
     };
   };
   linux-intel-mainline-tracking = {
@@ -167,10 +167,10 @@
   };
   moe-koe-music = {
     pname = "moe-koe-music";
-    version = "v1.5.1";
+    version = "v1.5.2";
     src = fetchurl {
-      url = "https://github.com/iAJue/MoeKoeMusic/releases/download/v1.5.1/MoeKoe_Music_v1.5.1.AppImage";
-      sha256 = "sha256-7mLSt78xOb5GrP2v3GyZ1k6FCVS5Pi/NE3B+bmfuEe4=";
+      url = "https://github.com/iAJue/MoeKoeMusic/releases/download/v1.5.2/MoeKoe_Music_v1.5.2.AppImage";
+      sha256 = "sha256-eM6wqJ6X3ImxCJ00fyO7OxHkj2PHq2DfYVKc/9gu5w4=";
     };
   };
   mstickereditor = {
@@ -184,7 +184,7 @@
       sha256 = "sha256-yLelr190my12Ff5JbJXV5fh7VgeqGu0VYe/Mw0mLoNo=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./mstickereditor-v0.3.7/Cargo.lock;
+      lockFile = ./. + "/sha256-yLelr190my12Ff5JbJXV5fh7VgeqGu0VYe_Mw0mLoNo=/Cargo.lock";
       outputHashes = {
 
       };
@@ -215,7 +215,7 @@
       sha256 = "sha256-Gbzh4OTkvtP9F/bfDUyA14NH2DMDdr3i6oFoFwinEAg=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./niri-taskbar-v0.3.0+niri.25.08/Cargo.lock;
+      lockFile = ./. + "/sha256-Gbzh4OTkvtP9F_bfDUyA14NH2DMDdr3i6oFoFwinEAg=/Cargo.lock";
       outputHashes = {
 
       };
@@ -346,31 +346,31 @@
   };
   rime-essay = {
     pname = "rime-essay";
-    version = "15cf21fb3a0113c981ed2e45fdc479a622ae8480";
+    version = "943c7bff037c163a80c452bd7ac80cd2b01975e6";
     src = fetchgit {
       url = "https://github.com/rime/rime-essay.git";
-      rev = "15cf21fb3a0113c981ed2e45fdc479a622ae8480";
+      rev = "943c7bff037c163a80c452bd7ac80cd2b01975e6";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-/6f9iTdUNOni3cEygwrwjabpi1/2xM0WWL7lMROdwuU=";
+      sha256 = "sha256-xn5xh6Txfz73tM9HJMS7kuKw0iTqeHeajWEsuggeZok=";
     };
-    date = "2025-09-05";
+    date = "2025-10-24";
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "11fa56f4f4568198ab40847b2ec470bde91c864b";
+    version = "49e5ed738f849279c7033221b6227c295f0e05f5";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "11fa56f4f4568198ab40847b2ec470bde91c864b";
+      rev = "49e5ed738f849279c7033221b6227c295f0e05f5";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-bZ4ojoC2uL8MR5IO7TaAkwQKplRU/poAaHouY5Ruq5Q=";
+      sha256 = "sha256-NuqUBZJiPAidwBEIq36H8YstutCOUJdxvJGdFAVJ2YU=";
     };
-    date = "2025-10-06";
+    date = "2025-10-23";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
@@ -458,17 +458,17 @@
   };
   rime-terra-pinyin = {
     pname = "rime-terra-pinyin";
-    version = "9e7673360c5dc9d945e2ba3f167833bb9217ca6a";
+    version = "11878613ea12c2199b3aa71e320491f468e1fc7d";
     src = fetchgit {
       url = "https://github.com/rime/rime-terra-pinyin.git";
-      rev = "9e7673360c5dc9d945e2ba3f167833bb9217ca6a";
+      rev = "11878613ea12c2199b3aa71e320491f468e1fc7d";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-DMTVdwjR1Q5wtODrrBTQOWlGokmqhBF+N0yDbYdJERI=";
+      sha256 = "sha256-Tluiw/VEnPmjZ3OaqvZqeG+TwLr5txN0iuoOBoFzTj0=";
     };
-    date = "2025-07-22";
+    date = "2025-10-09";
   };
   rime-wubi = {
     pname = "rime-wubi";
@@ -509,7 +509,7 @@
       sha256 = "sha256-Ibzax4AZCMEj10rJ8A47qek2Kd8U+idwTDvbHB8A1xo=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./rlt-v0.1.6/Cargo.lock;
+      lockFile = ./. + "/sha256-Ibzax4AZCMEj10rJ8A47qek2Kd8U+idwTDvbHB8A1xo=/Cargo.lock";
       outputHashes = {
 
       };
@@ -517,24 +517,13 @@
   };
   secureboot_objects = {
     pname = "secureboot_objects";
-    version = "v1.5.1-signed";
+    version = "v1.6.1-signed";
     src = fetchFromGitHub {
       owner = "microsoft";
       repo = "secureboot_objects";
-      rev = "v1.5.1-signed";
+      rev = "v1.6.1-signed";
       fetchSubmodules = false;
-      sha256 = "sha256-AF3PxqBW8Piis6jgm/O7PKz0VScOFVy8R+PfjRyDQto=";
-    };
-  };
-  synapse-s3-storage-provider = {
-    pname = "synapse-s3-storage-provider";
-    version = "v1.5.0";
-    src = fetchFromGitHub {
-      owner = "matrix-org";
-      repo = "synapse-s3-storage-provider";
-      rev = "v1.5.0";
-      fetchSubmodules = false;
-      sha256 = "sha256-Nv8NkzOcUDX17N7Lyx/NT1vXztiRNaTYIAWNPHxgxJ4=";
+      sha256 = "sha256-EFy4XsUi7f1BZHT95HPX2wp+B2q6WqlVmT6pME72kfA=";
     };
   };
   telegram-send = {
@@ -564,7 +553,7 @@
       sha256 = "sha256-I1saekIoRV/as3sVMUlfCpqLA6xHX5YdtRgIjuof1AU=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./tg-send-d3aea3f2dc37c39521ce59c5fb156427764ad68f/Cargo.lock;
+      lockFile = ./. + "/sha256-I1saekIoRV_as3sVMUlfCpqLA6xHX5YdtRgIjuof1AU=/Cargo.lock";
       outputHashes = {
 
       };
@@ -612,7 +601,7 @@
       sha256 = "sha256-TL0bgzQgge6j1SpZCdxv/s4pBMSg4/3U5QisjkVE6BE=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./zeronsd-v0.5.2/Cargo.lock;
+      lockFile = ./. + "/sha256-TL0bgzQgge6j1SpZCdxv_s4pBMSg4_3U5QisjkVE6BE=/Cargo.lock";
       outputHashes = {
 
       };
