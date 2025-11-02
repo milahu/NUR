@@ -99,8 +99,10 @@ in
   services.postfix.hostname = "mx.uninsane.org";
   services.postfix.origin = "uninsane.org";
   services.postfix.destination = [ "localhost" "uninsane.org" ];
-  services.postfix.sslCert = "/var/lib/acme/mx.uninsane.org/fullchain.pem";
-  services.postfix.sslKey = "/var/lib/acme/mx.uninsane.org/key.pem";
+  services.postfix.config.smtpd_tls_chain_files = [
+    "/var/lib/acme/mx.uninsane.org/key.pem"
+    "/var/lib/acme/mx.uninsane.org/fullchain.pem"
+  ];
 
   # see: `man 5 virtual`
   services.postfix.virtual = ''
@@ -112,7 +114,7 @@ in
     # smtpd_milters = local:/run/opendkim/opendkim.sock
     # milter docs: http://www.postfix.org/MILTER_README.html
     # mail filters for receiving email and from authorized SMTP clients (i.e. via submission)
-    # smtpd_milters = inet:185.157.162.190:8891
+    # smtpd_milters = inet:$IP:8891
     # opendkim.sock will add a Authentication-Results header, with `dkim=pass|fail|...` value to received messages
     smtpd_milters = "unix:/run/opendkim/opendkim.sock";
     # mail filters for sendmail

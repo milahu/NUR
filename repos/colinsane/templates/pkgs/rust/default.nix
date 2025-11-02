@@ -10,13 +10,12 @@ rustPlatform.buildRustPackage rec {
 
   src = fetchFromGitHub {
     owner = "ruslashev";
-    repo = pname;
+    repo = "elfcat";
     rev = version;
     hash = "sha256-NzFKNCCPWBj/fhaEJF34nyeyvLMeQwIcQgTlYc6mgYo=";
   };
 
   cargoHash = "sha256-Dc+SuLwbLFcNSr9RiNSc7dgisBOvOUEIDR8dFAkC/O0=";
-  useFetchCargoVendor = true;
 
   meta = with lib; {
     description = "TODO: FILLME";

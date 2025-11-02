@@ -65,9 +65,17 @@ in
         # ftp LIST operation returns entries over-the-wire like:
         # - dgrwxrwxr-x 1 ftp ftp            9 Apr  9 15:05 Videos
         # however not all clients understand all mode bits (like that `g`, indicating SGID / group sticky bit).
+        # - e.g. Kodi will sliently not display entries with `g`.
         # instead, only send mode bits which are well-understood.
         # the full set of bits, from which i filter, is found here: <https://pkg.go.dev/io/fs#FileMode>
-        ./safe_fileinfo.patch
+        #
+        # PATCH NOTES:
+        # - i *think* os.FileInfo contains the bad mode bits, and anything that goes through `vfs.NewFileInfo` gets those bits stripped (good).
+        # - for readdir, `patternDirLister` is just an easily accessible interface which causes the os.FileInfo's to be converted through `vfs.NewFileInfo`.
+        # - if patched incorrectly, sftpgo may return absolute paths for operations like `ls foo/bar/` (breaks rclone)
+        ./safe_fileinfo_readdir.patch
+        # XXX(2025-09-20): nothing seems to break in Kodi when i leave `Stat` unpatched
+        # ./safe_fileinfo_stat.patch
       ];
     });
 

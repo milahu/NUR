@@ -5,7 +5,7 @@ echo "this script will check that uninsane.org is baseline operational"
 echo "it doesn't check all services, just the most critical ones"
 echo ""
 
-OVPNS_IPV4=185.157.162.178
+OVPNS_IPV4=156.146.51.235
 DOOF_IPV4=205.201.63.12
 
 usage() {
@@ -37,9 +37,9 @@ check() {
   local label=$1
   shift
   if [ "$verbose" -ge 1 ]; then
-    printf "checking %s (%s) \n" "$label" "$*"
+    printf "checking %s (%s)... " "$label" "$*"
   else
-    printf "checking %s\n" "$label"
+    printf "checking %s... " "$label"
   fi
   if [ "$verbose" -ge 2 ]; then
     "$@"
@@ -49,8 +49,10 @@ check() {
   local rc=$?
   if [ $rc -ne 0 ]; then
     last_error=$rc
-    printf "FAILED CHECK '%s'\n" "$label" >&2
+    printf "❌\n  FAILED CHECK '%s'\n" "$label" >&2
     echo "  $@" >&2
+  else
+    printf "✅\n"
   fi
   return $rc
 }
@@ -77,6 +79,7 @@ parseArgs "$@"
 
 check "uninsane.org. DNS" nslookup uninsane.org.
 check "[1.1.1.1] uninsane.org. DNS" nslookup uninsane.org. 1.1.1.1
+check "[8.8.8.8] uninsane.org. DNS" nslookup uninsane.org. 8.8.8.8
 check "[DOOF] uninsane.org. DNS" nslookup uninsane.org. "$DOOF_IPV4"
 # OVPNS DNS is no longer used
 # check "[OVPNS] uninsane.org. DNS" nslookup uninsane.org. "$OVPNS_IPV4"
@@ -95,6 +98,12 @@ check "[DOOF] https://uninsane.org online" curl "--connect-to" "uninsane.org:443
 check "[DOOF] https://matrix.uninsane.org online" curl "--connect-to" "matrix.uninsane.org:443:$DOOF_IPV4:443" --silent --fail-with-body https://matrix.uninsane.org
 
 check "uninsane.org DMARC record" nslookup -querytype=TXT _dmarc.uninsane.org.
+_checkPtr() {
+  local fwd=$1
+  local rev=$2
+  nslookup "$fwd" | grep "name = $rev$"
+}
+check "mx.uninsane.org PTR" _checkPtr "$OVPNS_IPV4" mx.uninsane.org.
 
 check "servo-hn wireguard network" ping -c 1 -W 3 servo-hn
 
@@ -136,6 +145,8 @@ _bitcoindSynchronized() {
 }
 check "Bitcoind synchronized" _bitcoindSynchronized
 check "Bitcoin Lightning" runOnHost servo clightning-sane status
+
+check "/mnt/persist/private" runOnHost servo systemctl status gocryptfs-private.service
 
 echo ""
 echo "systemctl --failed:"

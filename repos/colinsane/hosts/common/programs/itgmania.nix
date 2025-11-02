@@ -17,26 +17,14 @@
 #   - https://fitupyourstyle.com/
 #     allows search by difficulty
 # - dl packs from <https://stepmaniaonline.net>
-{ lib, pkgs, ... }:
+{ ... }:
 {
   sane.programs.itgmania = {
     buildCost = 1;
 
-    packageUnwrapped = pkgs.itgmania.overrideAttrs (upstream: {
-      # XXX(2024-12-29): itgmania (and stepmania) have to be run from their bin directory, else they silently exit
-      nativeBuildInputs = upstream.nativeBuildInputs ++ [
-        pkgs.makeWrapper
-      ];
-      postInstall = lib.replaceStrings
-        [ "ln -s $out/itgmania/itgmania $out/bin/itgmania" ]
-        [ "makeWrapper $out/itgmania/itgmania $out/bin/itgmania --run 'cd ${placeholder "out"}/itgmania'" ]
-        upstream.postInstall
-      ;
-    });
-
     sandbox.whitelistAudio = true;
     sandbox.whitelistDri = true;
-    sandbox.whitelistX = true;  #< TODO: is this needed? try QT_QPA_PLATFORM=wayland or SDL_VIDEODRIVER=wayland
+    sandbox.whitelistX = true;  #< XXX(2025-05-01): neither QT_QPA_PLATFORM=wayland nor SDL_VIDEODRIVER=wayland work; X11 is required
     sandbox.extraPaths = [
       # for the pad input (/dev/input/js*)
       "/dev/input"
@@ -49,7 +37,7 @@
 
     persist.byStore.plaintext = [
       ".itgmania/Cache"  #< otherwise gotta index all the songs every launch
-      ".itgmania/Save"
+      ".itgmania/Save"   #< Save/Preferences.ini (esp: GlobalOffsetSeconds)
     ];
 
     # TODO: setup ~/.local/share/itgmania/Themes

@@ -1,214 +1,303 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p nettools
+#!nix-shell -i ysh -p nettools -p oils-for-unix
 
-SELF=$(hostname)
+# TODO: simplify variant handling by defining `desko-full = desko`, etc, in nix config.
 
-usage() {
+const SELF = $(hostname)
+# which hosts to deploy to (in order), when "all hosts" is specified or implied.
+const ALL_HOSTS = [ "moby", "flowy", "desko", "servo" ]
+# which variants to build (in order), when "all variants" is specified or implied.
+const ALL_VARIANTS = ["-min", "-light", "", "-next-min", "-next-light", "-next"]
+
+
+# mutated by `main`
+var DRY_RUN = false
+var NIX_ARGS = []  # extra args to pass to nix invocations
+
+proc usage (;; status=1) {
   echo "deploy: deploy a nix config to a remote machine, possibly activating it"
   echo ""
   echo "usage: deploy [options] [host] [host2 ...]"
   echo "options:"
+  echo "- --build: only build; don't copy or deploy"
   echo "- --copy: only build + copy files, nothing more"
   echo "- --switch  (default)"
   echo "- --test: switch to the new configuration, but do not make it bootable"
   echo "- --dry-run: show what would be done without actually doing it"
-  echo "- --pre: alias for --action copy --variant all all"
+  echo "- --pre: alias for --action copy ..."
+  echo '         if otherwise unspecified, implies `--variant all`'
+  echo "         if no host is specified, copies to all known hosts"
   echo "- --reboot: reboot the target machine after deploying (if deployed with no errors)"
   echo "- --reboot-force: reboot the target machine after deploying (even on error)"
   echo "- --variant light|min|''|all  (default: '')"
   echo "- --wireguard always|never|opportunistic: deploy over wireguard"
   echo "- --ip <address>: deploy to the specific IP address"
-  echo "- --deriv /nix/store/...: prebuilt store path to deploy instead of (re-)building the default target"
+  echo "- --deriv /nix/store/...: prebuilt store path (or .drv to realize) to deploy instead of (re-)building the default target"
   echo ""
   echo "common idioms:"
   echo "- deploy all: deploy all hosts, sequentially"
   echo "- deploy --pre: build and copy all hosts"
   echo "- deploy desko lappy: build and deploy just those hosts"
   echo "- deploy: deploy the local host"
-  exit 1
+  exit "$status"
 }
 
-info() {
-  echo "[deploy]" "$@"
+proc info (...plain; ...escape) {
+  for e in (escape) {
+    call plain->append(toJson(e))
+  }
+  echo "[deploy]" @plain >&2
 }
 
-action=switch
-hosts=()
-ip=
-defaultHost="$SELF"
-variants=()
-defaultVariant=
-# by default, don't ship builds to servo. i'd guess this can be overriden by passing --builders servo
-nixArgs=(--builders "")
-doReboot=
-doRebootForce=
-dryRun=
-wireguard=opportunistic
-storePath=
-addHost() {
-  if [ "$1" = all ]; then
-    # order matters:
-    hosts+=(moby lappy desko servo crappy)
-  else
-    hosts+=("$1")
-  fi
+var CliArgs = Object(null, {
+  action: null,  # str, e.g. build, copy, switch, test
+  deriv: null,  # str, e.g. /nix/store/...
+  dryRun: false,  # bool
+  hosts: [],  # list of str, e.g. [ "desko", "moby" ]
+  help: false,
+  ip: null,
+  pre: false,
+  reboot: false,
+  rebootForce: false,
+  variants: [],  # list of str, e.g. [ "-min" ] or [ "-light", "" ]
+  wireguard: "opportunistic",  # str: e.g. "opportunistic", "never", "always"
+  unhandled: [],  # unhandled arguments; forward them to nix?
+})
+
+# each NixConfig instance represents _one_ nix build target + host-specific deployment strategy,
+# e.g. "build lappy-min; then copy it to lappy (over wireguard) but don't activate it"
+var NixConfig = Object(null, {
+  host: null,     # str, e.g. "desko"
+  variant: "",    # str, e.g. "-min", "-light"
+  drvPath: null,  # str, e.g. "/nix/store/...-nixos-system.drv"
+  storePath: null,  # str, e.g. "/nix/store/...-nixos-system"
+  action: "switch",  # str, e.g. "switch", "copy", .... TODO: convert to enum?
+  ip: null,  # str, e.g. "10.78.79.51"
+  wireguard: "opportunistic",  # str, e.g. "opportunistic", "never", "always".  TODO: convert to enum?
+  reboot: false,  # may be false, true, or "force"
+})
+
+# pass through normal hosts, but expand aliases like `"all"` into `[ "moby", "lappy", ... ]`.
+# @arg(host): str
+# @return: list[str]
+func expandHostAlias (host) {
+  if (host === "all" ) {
+    return (ALL_HOSTS)
+  } else {
+    return ([host])
+  }
 }
-addVariant() {
-  if [ "$1" = all ]; then
-    variants+=("-min" "-light" "" "-next-min" "-next-light" "-next")
-  elif [ -n "$1" ]; then
-    variants+=("-$1")
-  else
+# pass through normal variants, but expand aliases like `"all"` into `[ "-min", "-light", ... ]`.
+# @arg(v): str
+# @return: list[str]
+func expandVariantAlias (v) {
+  if (v === "all") {
+    return (ALL_VARIANTS)
+  } elif (v === "") {
     # "full" variant
-    variants+=("")
-  fi
-}
-parseArgs() {
-  while [ "$#" -ne 0 ]; do
-    local arg=$1
-    shift
-    case "$arg" in
-      (--copy|--switch|--test)
-        action=${arg/--/}
-        ;;
-      (--deriv)
-        storePath="$1"
-        shift
-        ;;
-      (--dry-run)
-        dryRun=1
-        ;;
-      (--help)
-        usage
-        ;;
-      (--ip)
-        ip="$1"
-        shift
-        ;;
-      (--pre)
-        action=copy
-        defaultVariant=all
-        defaultHost=all
-        ;;
-      (--reboot)
-        doReboot=1
-        ;;
-      (--reboot-force)
-        doReboot=1
-        doRebootForce=1
-        ;;
-      (--variant)
-        addVariant "$1"
-        shift
-        ;;
-      (--wireguard)
-        wireguard="$1"
-        shift
-        ;;
-      (all|crappy|desko|lappy|moby|servo)
-        addHost "$arg"
-        ;;
-      (*)
-        nixArgs+=("$arg")
-        ;;
-    esac
-  done
-
-  if [ "${#hosts[@]}" -eq 0 ] && [ -n "$defaultHost" ]; then
-    addHost "$defaultHost"
-  fi
-  if [ "${#variants[@]}" -eq 0 ]; then
-    addVariant "$defaultVariant"
-  fi
+    return ([""])
+  } else {
+    return (["-$v"])
+  }
 }
 
-destructive() {
-  if [ -z "$dryRun" ]; then
-    if [ -n "$ECHO_CMD" ]; then
-      echo "$@"
-    fi
-    "$@"
-  else
-    echo "dry-run: $@"
-  fi
+# internal function for use by `parseArgs`.
+# transforms argv into `CliArgs` object. should be side-effect free.
+# @arg(cur, next, ...): each one is str; unpacked only for internal use
+# @arg(p): intermediate CliArgs object; meant for internal use
+# @return: CliArgs instance
+func _parseArgs(p,cur=null, next=null, ...rest) {
+  if (cur === null) {
+    # end
+    return (p)
+  } else {
+    case (cur) {
+      --build | --copy | --switch | --test {
+        setvar p.action = cur[2:]
+        return (_parseArgs (p, next, ...rest))
+      }
+      --deriv {
+        setvar p.deriv = next
+        return (_parseArgs (p, ...rest))
+      }
+      --dry-run {
+        setvar p.dryRun = true
+        return (_parseArgs (p, next, ...rest))
+      }
+      --help {
+        setvar p.help = true
+        return (_parseArgs (p, next, ...rest))
+      }
+      --ip {
+        setvar p.ip = next
+        return (_parseArgs (p, ...rest))
+      }
+      --pre {
+        setvar p.pre = true
+        return (_parseArgs (p, next, ...rest))
+      }
+      --reboot {
+        setvar p.reboot = true
+        return (_parseArgs (p, next, ...rest))
+      }
+      --reboot-force | --force-reboot {
+        setvar p.rebootForce = true
+        return (_parseArgs (p, next, ...rest))
+      }
+      --variant {
+        call p.variants->append(next)
+        return (_parseArgs (p, ...rest))
+      }
+      --wireguard {
+        setvar p.wireguard = next
+        return (_parseArgs (p, ...rest))
+      }
+      all | crappy | desko | flowy | lappy | moby | servo {
+        call p.hosts->append(cur)
+        return (_parseArgs (p, next, ...rest))
+      }
+      (else) {
+        call p.unhandled->append(cur)
+        return (_parseArgs (p, next, ...rest))
+      }
+    }
+  }
 }
 
-# return "$1" or "$1-hn", based on if wireguard was requested or not
-resolveHost() {
-  if [ -n "$ip" ]; then
-    echo "$ip"
-  else
-    case "$wireguard-$1" in
-      (opportunistic-moby)
-        echo "$1-hn"
-        ;;
-      (opportunistic-*)
-        echo "$1"
-        ;;
-      (never-*)
-        echo "$1"
-        ;;
-      (always-*)
-        echo "$1-hn"
-        ;;
-      (*)
-        echo "$1-hn"
-        ;;
-    esac
-  fi
+# front-facing argument parser.
+# transforms argv into `CliArgs` object. should be side-effect free.
+# @arg(...): str
+# @return: CliArgs instance
+func parseArgs(...args) {
+  var p=Object(CliArgs, {})
+  return (_parseArgs (p, ...args))
+}
+
+proc invoke (...cmd; ; echo=false, translate_error=null) {
+  if (echo) {
+    echo @cmd >&2
+  }
+  if (translate_error !== null) {
+    try {
+      @cmd
+    }
+    if failed {
+      # `exit` from subshell so the exit code can be caught by an outer `try`
+      $(exit $translate_error)
+    }
+  } else {
+    @cmd
+  }
+}
+
+proc destructive (...cmd; ; echo=false, translate_error=null) {
+  if (DRY_RUN) {
+    info "dry-run:" (...cmd)
+  } else {
+    invoke @cmd (echo=echo, translate_error=translate_error)
+  }
+}
+
+# return "$ip", "$host" or "$host-hn", based on if ip was specified,
+# or if wireguard was requested.
+func resolveHost (host, ip, wireguard) {
+  if (host === SELF) {
+    return (host)
+  } elif (ip) {
+    return (ip)
+  } else {
+    case ("$wireguard-$host") {
+      opportunistic-moby {
+        return ("$host-hn")
+      }
+      opportunistic-* {
+        return (host)
+      }
+      never-* {
+        return (host)
+      }
+      always-* {
+        return ("$host-hn")
+      }
+      (else) {
+        return ("$host-hn")
+      }
+    }
+  }
 }
 
 # return the number of seconds to allot to `nix copy` when copying the given variant.
 # this is done to avoid stalled copies from blocking the entire process, while hopefully not breaking the copies that are actually important
-timeoutFor() {
-  case $1 in
-    (-min|-light|-next)
-      echo 3600
-      ;;
-    (-next-min|-next-light)
-      echo 1800
-      ;;
-    (*)
+func timeoutFor (variant) {
+  case (variant) {
+    -min | -light | -next {
+      return (3600)
+    }
+    -next-min | -next-light {
+      return (1800)
+    }
+    (else) {
       # this catches the normal variant
-      echo 14400
-      ;;
-  esac
+      return (14400)
+    }
+  }
 }
 
-runOnTarget() {
-  local host="$1"
-  shift
-  # run the command ($@) on the machine we're deploying to.
+proc runOnTarget (host, ...cmd) {
+  # run the command on the machine we're deploying to.
   # if that's a remote machine, then do it via ssh, else local shell.
-  if [ -n "$host" ] && [ "$host" != "$SELF" ]; then
-    info "running on remote ($host):" "$@"
-    ssh "$host" "$@"
-  else
-    info "running locally ($SELF):" "$@"
-    "$@"
-  fi
+  if (host !== SELF) {
+    info "running on remote ($host):" @cmd
+    ssh "$host" @cmd
+  } else {
+    info "running locally ($SELF):" @cmd
+    @cmd
+  }
 }
 
-# deployOneHost $host $variant
-deployOneHost() {
-  local host="$1"
-  local variant="$2"
+# `deployOneHost` exit codes:
+const FAILED_EVAL = 101
+const FAILED_BUILD = 102
+const FAILED_COPY = 103
+const FAILED_SET_PROFILE = 104
+const FAILED_ACTIVATE = 105
+const FAILED_REBOOT = 106
 
-  local timeout=$(timeoutFor "$variant")
+func returnCodeToString (rc) {
+  case (rc) {
+    $FAILED_EVAL { return ("failed eval"); }
+    $FAILED_BUILD { return ("failed build"); }
+    $FAILED_COPY { return ("failed to copy the derivation"); }
+    $FAILED_SET_PROFILE { return ("failed to set the new profile as the next boot entry"); }
+    $FAILED_ACTIVATE { return ("failed to activate the new profile"); }
+    $FAILED_REBOOT { return ("failed to reboot target"); }
+    * { return ("unknown error: $rc"); }
+  }
+}
 
-  local myStorePath="$storePath"
-  if [ -z "$myStorePath" ]; then
-    # `nix-build -A foo` evals and then realizes foo, but it never unloads the memory used to eval foo.
-    # my exprs are heavyweight, we need that memory for building, so do the evals separately from the realizations:
-    info "evaluating $host$variant..."
-    local drvPath=$(nix eval --raw -f . "hosts.$host$variant.toplevel.drvPath")
-    info "building $host$variant ($drvPath)"
-    myStorePath=$(destructive nix-store --realize "$drvPath" "${nixArgs[@]}")
-    if [ -z "$myStorePath" ]; then
-      return 1
-    fi
-    info "built $host$variant -> $myStorePath"
-  fi
+proc deployOneHost (; nixcfg) {
+  # unpack the cfg
+  var timeout = timeoutFor(nixcfg.variant)
+  var host = nixcfg.host
+  var attrName = "$[nixcfg.host]$[nixcfg.variant]"
+
+  # first, realize the host config derivation if not exists:
+  var myStorePath = nixcfg.storePath
+  if (not myStorePath) {
+    var drvPath = nixcfg.drvPath
+    if (not drvPath) {
+      # `nix-build -A foo` evals and then realizes foo, but it never unloads the memory used to eval foo.
+      # my exprs are heavyweight, we need that memory for building, so do the evals separately from the realizations:
+      info "$attrName: evaluating..."
+      setvar drvPath = $(invoke nix eval --raw -f . "hosts.$attrName.toplevel.drvPath" (translate_error=FAILED_EVAL))
+    }
+
+    info "$attrName: building $drvPath"
+    setvar myStorePath = $(destructive nix-store --realize "$drvPath" --add-root "./build/$attrName" @NIX_ARGS (translate_error=FAILED_BUILD))
+    # if using `nix-store --add-root`, then nix prints the gc root path, instead of the /nix/store path; resolve it
+    setvar myStorePath = $(realpath "$myStorePath")
+    info "$attrName: built $myStorePath"
+  }
 
   # mimic `nixos-rebuild --target-host`, in effect:
   # - nix-copy-closure ...
@@ -219,70 +308,154 @@ deployOneHost() {
   # - more introspectability and debuggability
   # - sandbox friendliness (especially: `git` doesn't have to be run as root)
 
-  local netHost=$(resolveHost "$host")
+  var netHost = resolveHost(host, nixcfg.ip, nixcfg.wireguard)
 
-  if [ -n "$host" ] && [ "$host" != "$SELF" ]; then
-    if [ -e /run/secrets/nix_signing_key ]; then
-      info "signing store paths ..."
-      destructive sudo nix store sign -r -k /run/secrets/nix_signing_key "$myStorePath"
-    else
-      info "not signing store paths: /run/secrets/nix_signing_key does not exist"
-    fi
-    # add more `-v` for more verbosity (up to 5).
-    # builders-use-substitutes false: optimizes so that the remote machine doesn't try to get paths from its substituters.
-    #   we already have all paths here, and the remote substitution is slow to check and SERIOUSLY flaky on moby in particular.
-    ECHO_CMD=1 destructive timeout "$timeout" nix copy -vv --option builders-use-substitutes false --to "ssh-ng://$netHost" "$myStorePath" || return 1
-  fi
+  case (nixcfg.action) {
+    copy | switch | test {
+      if (host !== SELF) {
+        if test -e /run/secrets/nix_signing_key {
+          info "signing store paths ..."
+          destructive sudo nix store sign -r -k /run/secrets/nix_signing_key "$myStorePath" (translate_error=FAILED_COPY)
+        } else {
+          info "not signing store paths: /run/secrets/nix_signing_key does not exist"
+        }
+        # add more `-v` for more verbosity (up to 5).
+        # builders-use-substitutes false: optimizes so that the remote machine doesn't try to get paths from its substituters.
+        #   we already have all paths here, and the remote substitution is slow to check and SERIOUSLY flaky on moby in particular.
+        destructive timeout "$timeout" nix copy -vv --option builders-use-substitutes false --to "ssh-ng://$netHost" "$myStorePath" (echo=true, translate_error=FAILED_COPY)
+      }
+    }
+  }
 
-  if [ -n "$action" ] && [ "$action" != "copy" ]; then
-    info "activating profile... "
-    destructive runOnTarget "$netHost" sudo nix-env -p /nix/var/nix/profiles/system --set "$myStorePath" || return 1
-    destructive runOnTarget "$netHost" sudo "$myStorePath/bin/switch-to-configuration" "$action"
-    local rc=$?
-    if [[ -n "$doReboot" && ("$rc" -eq 0 || -n "$doRebootForce") ]]; then
-      info "rebooting $host"
-      destructive runOnTarget "$netHost" sane-reboot "$host" || return 1
-    fi
-    return $rc
-  fi
+  case (nixcfg.action) {
+    switch | test {
+      if (nixcfg.action === "switch") {
+        info "activating profile... "
+        destructive runOnTarget "$netHost" sudo nix-env -p /nix/var/nix/profiles/system --set "$myStorePath" (translate_error=FAILED_SET_PROFILE)
+      }
+
+      # at this point, the new profile will be booted into on next boot.
+      # try to switch to that profile _now_, but allow this to be fallible
+      # so as to support `--force-reboot` CLI option:
+      try {
+        destructive runOnTarget "$netHost" sudo NIXOS_INSTALL_BOOTLOADER=1 "$myStorePath/bin/switch-to-configuration" "$[nixcfg.action]"
+      }
+      var failed_activate = false
+      if failed { setvar failed_activate = true }  # XXX: `failed` special variable is only readable via `if failed`
+
+      if (nixcfg.reboot and (not failed_activate or nixcfg.reboot === "force")) {
+        info "$attrName: rebooting $host"
+        destructive runOnTarget "$netHost" sane-reboot "$host" (translate_error=FAILED_REBOOT)
+      }
+
+      if (failed_activate) {
+        # `exit` from subshell so the exit code can be caught by an outer `try`
+        $(exit $FAILED_ACTIVATE)
+      }
+    }
+  }
 }
 
-failedDeploys=()
-deployHosts() {
-  local hosts=("$@")
-  for v in "${variants[@]}"; do
-    for h in "${hosts[@]}"; do
-      deployOneHost "$h" "$v" || \
-        failedDeploys+=("$h$v")
-    done
-  done
-}
+proc main (...args) {
+  var cli = parseArgs (...args)
 
-parseArgs "$@"
+  if (cli.help) {
+    usage (status=0)
+  }
 
-# i care e.g. that full moby is deployed before crappy:
-earlyHosts=()
-lateHosts=()
-for host in "${hosts[@]}"; do
-  case $host in
-    (crappy)
-      lateHosts+=("$host")
-      ;;
-    (*)
-      earlyHosts+=("$host")
-      ;;
-  esac
-done
+  setglobal NIX_ARGS = cli.unhandled;
+  if (cli.dryRun) {
+    setglobal DRY_RUN = true
+  }
 
-deployHosts "${earlyHosts[@]}"
-deployHosts "${lateHosts[@]}"
+  var defaultAction = "switch"
+  var defaultHosts = [ SELF ]
+  var defaultVariants = [ "" ]
+  if (cli.pre) {
+    setvar defaultAction = "copy"
+    setvar defaultHosts = [ "all" ]
+    setvar defaultVariants = [ "all" ]
+  }
 
-if [ "${#failedDeploys[@]}" -ne 0 ]; then
-  echo "FAILED DEPLOYMENT:"
-  for d in "${failedDeploys[@]}"; do
-    echo "- $d"
-  done
-  exit 1
-else
+  # expand hosts and handle default
+  var hosts = []
+  for h in (cli.hosts or defaultHosts) {
+    call hosts->extend(expandHostAlias(h))
+  }
+  # expand variants and handle default
+  var variants = []
+  for v in (cli.variants or defaultVariants) {
+    call variants->extend(expandVariantAlias(v))
+  }
+
+  # compute a plan
+  var cfgs = []
+  for variant in (variants) {
+    for host in (hosts) {
+      var cfg = Object(NixConfig, {
+        host: host,
+        variant: variant,
+        # drvPath: (set below),
+        # storePath: (set below),
+        action: cli.action or defaultAction,
+        ip: cli.ip,
+        wireguard: cli.wireguard,
+        # reboot: (set below),
+      })
+      if (cli.reboot) {
+        setvar cfg.reboot = true
+      }
+      if (cli.rebootForce) {
+        setvar cfg.reboot = "force"
+      }
+      if (cli.deriv) {
+        if (cli.deriv => endsWith(".drv")) {
+          setvar cfg.drvPath = cli.deriv
+        } else {
+          setvar cfg.storePath = cli.deriv
+        }
+      }
+      call cfgs->append(cfg)
+    }
+  }
+
+  info "----- deployment plan -----"
+  if (DRY_RUN) {
+    info "DRY RUN"
+  }
+  if (NIX_ARGS) {
+    info "NIX ARGS:" (...NIX_ARGS)
+  }
+  for cfg in (cfgs) {
+    info "- $[cfg.host]$[cfg.variant]: $[cfg.action], reboot=$[cfg.reboot], wg=$[cfg.wireguard]"
+  }
+  info "---------------------------"
+
+  var failedDeploys = []
+  for cfg in (cfgs) {
+    try {
+      deployOneHost (cfg)
+    }
+    if failed {
+      var rc = _error.code
+      info "❌$[cfg.host]$[cfg.variant]: failed deployment: $[returnCodeToString (rc)]"
+      call failedDeploys->append({ cfg: cfg, rc: rc })
+    } else {
+      info "✅$[cfg.host]$[cfg.variant]: deployment complete"
+    }
+  }
+
+  if (failedDeploys !== []) {
+    echo "FAILED DEPLOYMENT:"
+    for d in (failedDeploys) {
+      echo "- $[d.cfg.host]$[d.cfg.variant]: $[returnCodeToString (d.rc)]"
+    }
+    exit 1
+  }
+
   echo "SUCCESS"
-fi
+}
+
+if is-main {
+  main @ARGV
+}

@@ -1,8 +1,12 @@
-{ config, pkgs, ... }:
+{ config, lib, ... }:
 {
   imports = [
     ./fs.nix
   ];
+
+  # firewall has to be open to allow clients to use services hosted on this device,
+  # like `ollama`
+  sane.ports.openFirewall = true;
 
   # sane.programs.devPkgs.enableFor.user.colin = true;
   # sane.guest.enable = true;
@@ -22,9 +26,9 @@
   sane.roles.build-machine.enable = true;
   sane.roles.client = true;
   sane.roles.pc = true;
-  sane.services.ollama.enable = true;
+  sane.roles.work = true;
+  sane.services.ollama.enable = lib.mkIf (config.sane.maxBuildCost >= 3) true;
   sane.services.wg-home.enable = true;
-  sane.services.wg-home.ip = config.sane.hosts.by-name."desko".wg-home.ip;
   sane.ovpn.addrV4 = "172.26.55.21";
   # sane.ovpn.addrV6 = "fd00:0000:1337:cafe:1111:1111:20c1:a73c";
   sane.services.rsync-net.enable = true;
@@ -46,11 +50,8 @@
 
   sane.programs.mpv.config.defaultProfile = "high-quality";
 
-  sane.image.extraBootFiles = [ pkgs.bootpart-uefi-x86_64 ];
-
   # needed to use libimobiledevice/ifuse, for iphone sync
   services.usbmuxd.enable = true;
 
-  # TODO(2025-01-01): re-enable once rocm build is fixed: <https://github.com/NixOS/nixpkgs/pull/367695>
-  # hardware.amdgpu.opencl.enable = true;  # desktop (AMD's opencl implementation AKA "ROCM"); probably required for ollama
+  hardware.amdgpu.opencl.enable = true;  # desktop (AMD's opencl implementation AKA "ROCM"); probably required for ollama
 }

@@ -2,11 +2,12 @@
   lib,
   fetchFromGitHub,
   python3,
-  stdenv,
+  stdenvNoCC,
+  unstableGitUpdater,
 }:
-stdenv.mkDerivation {
+stdenvNoCC.mkDerivation {
   pname = "feedsearch-crawler";
-  version = "2022-05-28";
+  version = "0.2.7-unstable-2022-05-28";
   format = "pyproject";
 
   src = fetchFromGitHub {
@@ -40,9 +41,10 @@ stdenv.mkDerivation {
     aiohttp
     beautifulsoup4
     brotlipy
-    cchardet
+    faust-cchardet
     feedparser
     python-dateutil
+    standard-cgi  # alternately: `legacy-cgi`
     uvloop
     w3lib
     yarl
@@ -59,10 +61,12 @@ stdenv.mkDerivation {
   doCheck = true;
   strictDeps = true;
 
-  meta = with lib; {
+  passthru.updateScript = unstableGitUpdater { };
+
+  meta = {
     homepage = "https://feedsearch.dev";
     description = "Crawl sites for RSS, Atom, and JSON feeds";
-    license = licenses.mit;
-    maintainers = with maintainers; [ colinsane ];
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ colinsane ];
   };
 }

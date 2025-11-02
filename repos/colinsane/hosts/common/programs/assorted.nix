@@ -17,7 +17,7 @@ in
       enableFor.system = lib.mkDefault true;
       packageUnwrapped = null;
       suggestedPrograms = [ "nixosBuiltinsNet" ]
-        ++ lib.optionals config.networking.wireless.enable [ "nixosBuiltinsWireless" ];
+        ++ lib.optionals ((config.networking.wireless or {}).enable or false) [ "nixosBuiltinsWireless" ];
     };
     nixosBuiltinsNet = declPackageSet [
       # from nixos/modules/tasks/network-interfaces.nix
@@ -52,6 +52,7 @@ in
       "errno"
       "ethtool"
       "evtest"
+      "expect"
       "fatresize"
       "fd"
       "fftest"  # for debugging moby haptics/vibrator, mostly
@@ -66,6 +67,7 @@ in
       "hdparm"
       "hping"
       "htop"
+      "htpasswd"
       "iftop"
       "inetutils"  # for telnet
       "iotop"
@@ -85,6 +87,7 @@ in
       "mmcli"
       "nano"
       #  "ncdu"  # ncurses disk usage. doesn't cross compile (zig)
+      "nfs-utils"  # required, for mounting nfs filesystems
       "neovim"
       "netcat"
       "nethogs"
@@ -93,9 +96,10 @@ in
       "nmap"
       "nmcli"
       "nmon"
-      "nvimpager"
+      # "nvimpager"
       "nvme-cli"  # nvme
-      # "openssl"
+      "openssl"
+      "page"
       "parted"
       "pciutils"
       "picocom"  # serial TTY
@@ -107,8 +111,10 @@ in
       # "s6-rc"  # service manager
       # "screen"
       "see-cat"  # pretty-print equivalent to 'cat'
+      "ssh"
+      "sshpass"
       "smartmontools"  # smartctl
-      # "socat"
+      "socat"
       "strace"
       "subversion"
       "tcpdump"
@@ -116,6 +122,7 @@ in
       "unixtools.ps"
       "unixtools.sysctl"
       "unixtools.xxd"
+      "uptime"
       "usbutils"  # lsusb
       "util-linux"  # lsblk, lscpu, etc
       "valgrind"
@@ -136,8 +143,11 @@ in
     #   - debugging?
     consoleUtils = declPackageSet [
       "alsa-utils"  # for aplay, speaker-test
+      "bc"  # CLI calculator
+      "cdecl"  # like <https://cdecl.org>. `cdecl explain 'struct foo *const inst'`
       # "cdrtools"
       # "clinfo"
+      "colordiff"
       # "dmidecode"
       "dtrx"  # `unar` alternative, "Do The Right eXtraction"
       # "efivar"
@@ -152,24 +162,32 @@ in
       # "gopass-jsonapi"
       # "helix"  # text editor
       "htop"  # needed as a user package, for ~/.config/htop
+      "lddtree"
       # "libsecret"  # for managing user keyrings (secret-tool)
       # "lm_sensors"  # for sensors-detect
+      "lpac"  # for configuring eSIM profiles
       # "lshw"
       # "memtester"
       "mercurial"  # hg
       "mimeo"  # like xdg-open
+      "mozlz4a"  # for extracting .mozlz4 files (firefox)
       "neovim"  # needed as a user package, for swap persistence
       "nix"  # needed as user package, for ~/.cache/nix persistence
       # "nettools"
       # "networkmanager"
+      # "nvimpager"  # needed as a user package, for config.
       # "nixos-generators"
       # "node2nix"
       # "oathToolkit"  # for oathtool
       "objdump"
+      "oils-for-unix"
+      "page"  # needed as a user package, for config.
+      "patchelf"
       # "ponymix"
       "pulsemixer"
       "python3-repl"
       # "python3.pkgs.eyeD3"  # music tagging
+      "readline"  # for the config
       "ripgrep"  # needed as a user package so that its user-level config file can be installed
       # "rsyslog"  # KEEP THIS HERE if you want persistent logging (TODO: port to systemd, store in /var/log/...)
       "sane-deadlines"
@@ -177,16 +195,17 @@ in
       "sane-scripts.cli"
       "sane-secrets-unlock"
       "sane-sysload"
-      "sc-im"
+      "sc-im"  # CLI spreadsheet editor
       "snapper"
       "sops"  # for manually viewing secrets; outside `sane-secrets` (TODO: improve sane-secrets!)
       "speedtest-cli"
-      # "ssh-to-age"
+      "ssh"  # specified as a user program, to enable ssh-agent service
+      "ssh-to-age" # used when provisioning a new nixos host
       "strings"
       "sudo"
       # "tageditor"  # music tagging
       # "unar"
-      # "unzip"
+      "unzip"
       "wireguard-tools"  # for `wg`
       "xdg-utils"  # for xdg-open
       # "yarn"
@@ -197,13 +216,14 @@ in
       "dasht"  # docset documentation viewer
       # "gh"  # MS GitHub cli
       "haredoc"
+      "nix-check-deps"  # run `nix-check-deps packageName -f .` before submitting stuff upstream
       "nix-index"
-      "nixfmt-rfc-style"  # run `nixpkgs path/to/package.nix` before submitting stuff upstream
+      "nixfmt-rfc-style"  # run `nixfmt path/to/package.nix` before submitting stuff upstream
       "nixpkgs-hammering"
       "nixpkgs-review"
       "qmk-udev-rules"
       "sane-scripts.dev"
-      "sequoia"
+      "sequoia-sq"  # gpg tool
       # "via"
       "wally-cli"
       # "zsa-udev-rules"
@@ -222,11 +242,12 @@ in
 
     pcTuiApps = declPackageSet [
       "aerc"  # email client
-      "cassini"  # Elegoo printer control. need here especially, for opening firewalls.
+      # "cassini"  # Elegoo printer control. need here especially, for opening firewalls.
+      "mslicer"  # TODO: upstream, and then move this to the phone-case-cq repo
       # "msmtp"  # sendmail
       # "offlineimap"  # email mailbox sync
       # "sfeed"  # RSS fetcher
-      "uvtools"  # TODO: upstream (then i can move this to the phone-case-cq repo; i don't need it more broadly than that).
+      # "uvtools"
       "visidata"  # TUI spreadsheet viewer/editor
       "w3m"  # web browser
     ];
@@ -236,7 +257,6 @@ in
       "clang"
       "lua"
       "nodejs"
-      "patchelf"
       "rustc"
       # "tree-sitter"
     ];
@@ -245,6 +265,7 @@ in
       "animatch"
       "gnome-2048"
       "hitori"  # like sudoku
+      "quadrapassel"  # like tetris
     ];
 
     pcGameApps = declPackageSet [
@@ -253,7 +274,7 @@ in
       "celeste64"
       # "cutemaze"      # meh: trivial maze game; qt6 and keyboard-only
       # "cuyo"          # trivial puyo-puyo clone
-      "endless-sky"     # space merchantilism/exploration
+      # "endless-sky"     # space merchantilism/exploration
       # "factorio"
       # "frozen-bubble"   # WAN + LAN + 1P/2P bubble bobble
       # "hase"            # WAN worms game
@@ -266,14 +287,14 @@ in
       # "osu-lazer"
       # "pinball"       # 3d pinball; kb/mouse. old sourceforge project
       # "powermanga"    # STYLISH space invaders derivative (keyboard-only)
-      "shattered-pixel-dungeon"  # doesn't cross compile
+      # "shattered-pixel-dungeon"  # doesn't cross compile
       # "sm64ex-coop"
       "sm64coopdx"
       "space-cadet-pinball"  # LMB/RMB controls (bindable though. volume buttons?)
       "steam"
       "superTux"  # keyboard-only controls
       "superTuxKart"  # poor FPS on pinephone
-      "tumiki-fighters" # keyboard-only
+      # "tumiki-fighters" # keyboard-only
       "vvvvvv"  # keyboard-only controls
       # "wine"
       "zelda64recomp"
@@ -288,6 +309,7 @@ in
     guiBaseApps = declPackageSet [
       # "abaddon"  # discord client
       "alacritty"  # terminal emulator
+      "alpaca"  # ollama/LLM client
       "blanket"  # ambient noise generator
       "calls"  # gnome calls (dialer/handler)
       "confy"  # conference planning app
@@ -298,11 +320,11 @@ in
       "dino"  # XMPP client
       "dissent"  # Discord client (formerly known as: gtkcord4)
       # "emote"
-      "envelope"  # GTK4 email client (alpha)
+      # "envelope"  # GTK4 email client (alpha)
       # "evince"  # PDF viewer
       # "flare-signal"  # gtk4 signal client
       "fractal"  # matrix client
-      "g4music"  # local music player
+      # "g4music"  # local music player
       # "gnome.cheese"
       # "gnome-feeds"  # RSS reader (with claimed mobile support)
       # "gnome.file-roller"
@@ -335,12 +357,14 @@ in
       "mpv"
       "networkmanagerapplet"
       # "ntfy-sh"  # notification service
+      "newelle"  # ollama/LLM client
       "newsflash"  # RSS viewer
       "papers"  # PDF viewer
       "pavucontrol"
       "powersupply"  # battery viewer
       "pwvucontrol"  # pipewire version of pavu
       # "picard"  # music tagging
+      "resources"  # system monitor
       "sane-color-picker"
       # "seahorse"  # keyring/secret manager
       "signal-desktop"
@@ -350,10 +374,11 @@ in
       # "tdesktop"  # broken on phosh
       # "tokodon"
       "tuba"  # mastodon/pleroma client (stores pw in keyring)
-      "v4l-utils"  # for `media-ctl`; to debug cameras: <https://wiki.postmarketos.org/wiki/PINE64_PinePhone_(pine64-pinephone)#Cameras>
+      # "v4l-utils"  # for `media-ctl`; to debug cameras: <https://wiki.postmarketos.org/wiki/PINE64_PinePhone_(pine64-pinephone)#Cameras>
       "video-trimmer"
       "vulkan-tools"  # vulkaninfo
       # "whalebird"  # pleroma client (Electron). input is broken on phosh.
+      "wiremix"  # wireplumber TUI
       "xdg-terminal-exec"
       "youtube-tui"
       # "zathura"  # PDF/CBZ/ePUB viewer
@@ -373,7 +398,7 @@ in
       "megapixels"  # camera app (does not support PPP as of 2024-11-29)
       "megapixels-next"  # camera app (which supports PPP, as of 2024-11-29)
       "notejot"  # note taking, e.g. shopping list
-      "planify"  # todo-tracker/planner
+      # "planify"  # todo-tracker/planner  (XXX(2025-05-16): does not build; gxml tests fail against glib 2.84.1; planify itself fails still, if gxml.doCheck forced false)
       "portfolio-filemanager"
       # "tangram"  # web browser
       "wike"  # Wikipedia Reader
@@ -412,7 +437,7 @@ in
       # "kid3"  # audio tagging
       "krita"
       "libreoffice"  # TODO: replace with an office suite that uses saner packaging?
-      "losslesscut-bin"  # x86-only
+      "losslesscut-bin"  # x86-only  (TODO: replace with from-source build: <https://github.com/NixOS/nixpkgs/pull/385535>)
       # "makemkv"  # x86-only
       # "monero-gui"  # x86-only
       "mumble"
@@ -458,9 +483,13 @@ in
 
     bash-language-server.sandbox.whitelistPwd = true;
 
+    bc.sandbox.autodetectCliPaths = "existingFile";
+
     bridge-utils.sandbox.net = "all";
 
     "cacert.unbundled".sandbox.enable = false;  #< data only
+
+    cdecl = {};
 
     clang = {};
 
@@ -469,6 +498,8 @@ in
     clightning-sane.sandbox.extraPaths = [
       "/var/lib/clightning/bitcoin/lightning-rpc"
     ];
+
+    colordiff.sandbox.autodetectCliPaths = "existingFile";  # for `aplay ./file.wav`
 
     # cryptsetup: typical use is `cryptsetup open /dev/loopxyz mappedName`, and creates `/dev/mapper/mappedName`
     cryptsetup.sandbox.extraPaths = [
@@ -496,6 +527,8 @@ in
     delfin.sandbox.net = "clearnet";
     # auth token, preferences
     delfin.persist.byStore.private = [ ".config/delfin" ];
+
+    difftastic.sandbox.autodetectCliPaths = "existing";
 
     dig.sandbox.net = "all";
 
@@ -842,18 +875,15 @@ in
 
     marksman.sandbox.whitelistPwd = true;
 
-    mercurial.sandbox.net = "clearnet";
-    mercurial.sandbox.whitelistPwd = true;
-
     mesa-demos.sandbox.whitelistDri = true;
     mesa-demos.sandbox.whitelistWayland = true;
     mesa-demos.sandbox.whitelistX = true;
 
     meson = {};
 
-    millipixels.packageUnwrapped = pkgs.millipixels.override {
-      v4l-utils = config.sane.programs.v4l-utils.packageUnwrapped;  # necessary for cross compilation
-    };
+    # millipixels.packageUnwrapped = pkgs.millipixels.override {
+    #   v4l-utils = config.sane.programs.v4l-utils.packageUnwrapped;  # necessary for cross compilation
+    # };
     millipixels.sandbox.method = null;  #< TODO: sandbox
 
     # actual monero blockchain (not wallet/etc; safe to delete, just slow to regenerate)
@@ -864,6 +894,10 @@ in
     monero-gui.sandbox.extraHomePaths = [
       "records/finance/cryptocurrencies/monero"
     ];
+
+    mozlz4a.sandbox.autodetectCliPaths = "existingOrParent";
+
+    mslicer.sandbox.method = null;  #< TODO: sandbox
 
     nano.sandbox.autodetectCliPaths = "existingFileOrParent";
 
@@ -880,10 +914,18 @@ in
     networkmanagerapplet.sandbox.whitelistWayland = true;
     networkmanagerapplet.sandbox.whitelistDbus.system = true;
 
+    nfs-utils.sandbox.method = null;  #< TODO: sandbox
+
     nil.sandbox.whitelistPwd = true;
     nil.sandbox.keepPids = true;
 
     nixd.sandbox.whitelistPwd = true;
+
+    nix-check-deps.sandbox.whitelistPwd = true;
+    nix-check-deps.sandbox.net = "all";
+    nix-check-deps.sandbox.extraPaths = [
+      "/nix/var"
+    ];
 
     nix-tree.sandbox.extraPaths = [
       "/nix/var"
@@ -894,18 +936,6 @@ in
     nixpkgs-hammering.sandbox.whitelistPwd = true;
     nixpkgs-hammering.sandbox.extraPaths = [
       "/nix/var"  # to prevent complaints about it not finding build logs
-    ];
-
-    nixpkgs-review.sandbox.net = "clearnet";
-    nixpkgs-review.sandbox.whitelistPwd = true;
-    nixpkgs-review.sandbox.extraHomePaths = [
-      ".config/git"  #< it needs to know commiter name/email, even if not posting
-    ];
-    nixpkgs-review.sandbox.extraPaths = [
-      "/nix/var"
-    ];
-    nixpkgs-review.persist.byStore.ephemeral = [
-      ".cache/nixpkgs-review"  #< help it not exhaust / tmpfs
     ];
 
     nmap.sandbox.net = "all";  # clearnet and lan
@@ -931,7 +961,11 @@ in
     # settings (electron app)
     obsidian.persist.byStore.plaintext = [ ".config/obsidian" ];
 
+    oils-for-unix.sandbox.enable = false;  #< it's a shell; doesn't make sense to sandbox
+
     openscad-lsp.sandbox.whitelistPwd = true;
+
+    openssl.sandbox.net = "clearnet";
 
     passt.sandbox.enable = false;  #< sandbox helper (netns specifically)
 
@@ -1001,6 +1035,7 @@ in
       unidecode
     ]);
     python3-repl.sandbox.net = "clearnet";
+    python3-repl.sandbox.autodetectCliPaths = "existing";  #< for invoking scripts like `python3 ./my-script.py`
     python3-repl.sandbox.extraHomePaths = [
       "/"  #< this is 'safe' because with don't expose .persist/private, so no .ssh/id_ed25519
       ".persist/plaintext"
@@ -1012,6 +1047,7 @@ in
     rsync.sandbox.net = "clearnet";
     rsync.sandbox.autodetectCliPaths = "existingOrParent";
     rsync.sandbox.tryKeepUsers = true;  # if running as root, keep the user namespace so that `-a` can set the correct owners, etc
+    rsync.sandbox.whitelistSsh = true;
 
     rust-analyzer.buildCost = 2;
     rust-analyzer.sandbox.whitelistPwd = true;
@@ -1046,13 +1082,13 @@ in
 
     screen.sandbox.enable = false;  #< tty; needs to run anything
 
-    sequoia.packageUnwrapped = pkgs.sequoia.overrideAttrs (_: {
-      # XXX(2024-07-30): sq_autocrypt_import test failure: "Warning: 9B7DD433F254904A is expired."
-      doCheck = false;
-    });
-    sequoia.buildCost = 1;
-    sequoia.sandbox.whitelistPwd = true;
-    sequoia.sandbox.autodetectCliPaths = "existingFileOrParent";  # supports `-o <file-to-create>`
+    # sequoia-sq.packageUnwrapped = pkgs.sequoia-sq.overrideAttrs (_: {
+    #   # XXX(2024-07-30): sq_autocrypt_import test failure: "Warning: 9B7DD433F254904A is expired."
+    #   doCheck = false;
+    # });
+    sequoia-sq.buildCost = 1;
+    sequoia-sq.sandbox.whitelistPwd = true;
+    sequoia-sq.sandbox.autodetectCliPaths = "existingFileOrParent";  # supports `-o <file-to-create>`
 
     shattered-pixel-dungeon.buildCost = 1;
     shattered-pixel-dungeon.persist.byStore.plaintext = [ ".local/share/.shatteredpixel/shattered-pixel-dungeon" ];
@@ -1077,14 +1113,6 @@ in
     # TODO: enable dma heaps for more efficient buffer sharing: <https://gitlab.com/postmarketOS/pmaports/-/issues/2789>
     snapshot.sandbox.method = null;  #< TODO: sandbox
 
-    sops.sandbox.extraHomePaths = [
-      ".config/sops"
-      "nixos"
-      # TODO: sops should only need access to knowledge/secrets,
-      # except that i currently put its .sops.yaml config in the root of ~/knowledge
-      "knowledge"
-    ];
-
     sox.sandbox.autodetectCliPaths = "existingFileOrParent";
     sox.sandbox.whitelistAudio = true;
 
@@ -1099,6 +1127,8 @@ in
 
     sqlite.sandbox.method = null;  #< TODO: sandbox
 
+    ssh-to-age.sandbox.autodetectCliPaths = "existingFile";
+
     # N.B. if you call sshfs-fuse from the CLI -- without `mount.fuse` -- disable sandboxing
     sshfs-fuse.sandbox.net = "all";
     sshfs-fuse.sandbox.autodetectCliPaths = "parent";
@@ -1110,6 +1140,8 @@ in
       ".ssh/id_ed25519"  #< TODO: add -o foo,bar=path/to/thing style arguments to autodetection
     ];
     sshfs-fuse.sandbox.keepPids = true;  #< XXX: bwrap didn't need this, but bunpen does. why?
+
+    sshpass.sandbox.autodetectCliPaths = "existingFile";  #< for `sshpass -f <path/to/password/file>`
 
     strace.sandbox.enable = false;  #< needs to `exec` its args, and therefore support *anything*
 
@@ -1133,6 +1165,8 @@ in
       '';
     });
 
+    swaybg.sandbox.method = null;  #< TODO: sandbox
+
     swappy.sandbox.autodetectCliPaths = "existingFileOrParent";
     swappy.sandbox.whitelistWayland = true;
 
@@ -1141,11 +1175,6 @@ in
     # for `sudo systemctl edit --runtime FOO`
     systemctl.sandbox.capabilities = [ "cap_dac_override" "cap_sys_admin" ];
     systemctl.sandbox.keepPidsAndProc = true;
-
-    tcpdump.sandbox.net = "all";
-    tcpdump.sandbox.autodetectCliPaths = "existingFileOrParent";
-    tcpdump.sandbox.capabilities = [ "net_admin" "net_raw" ];
-    tcpdump.sandbox.tryKeepUsers = true;
 
     tdesktop.persist.byStore.private = [ ".local/share/TelegramDesktop" ];
 
@@ -1159,6 +1188,10 @@ in
 
     typescript-language-server.buildCost = 2;
     typescript-language-server.sandbox.whitelistPwd = true;
+    typescript-language-server.persist.byStore.ephemeral = [
+      ".cache/typescript"
+      ".npm"  # .npm/{_cacache,_logs}
+    ];
 
     tumiki-fighters.buildCost = 1;
     tumiki-fighters.sandbox.whitelistAudio = true;
@@ -1238,6 +1271,8 @@ in
     wirelesstools.sandbox.capabilities = [ "net_admin" ];
     wirelesstools.sandbox.tryKeepUsers = true;
 
+    wiremix.sandbox.whitelistAudio = true;
+
     wl-clipboard.sandbox.whitelistWayland = true;
     wl-clipboard.sandbox.keepPids = true;  #< this is needed, but not sure why?
 
@@ -1257,7 +1292,11 @@ in
 
   sane.persist.sys.byStore.plaintext = lib.mkIf config.sane.programs.guiApps.enabled [
     # "/var/lib/alsa"                # preserve output levels, default devices
-    "/var/lib/systemd/backlight"     # backlight brightness
+    {
+      # backlight brightness; MUST be `bind`, else systemd loses its shit with "Too many levels of symbolic links".
+      path = "/var/lib/systemd/backlight";
+      method = "bind";
+    }
   ];
 
   hardware.graphics = lib.mkIf config.sane.programs.guiApps.enabled ({

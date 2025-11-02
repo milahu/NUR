@@ -4,7 +4,7 @@ let
   # a timeout of 20s is actually closer to 70s,
   # because it allows 20s, then after the 20s passes decides to allow 40s, then 60s,
   # finally it peacefully kills stuff, and then 10s later actually kills shit.
-  haltTimeout = 10;
+  haltTimeoutSec = 10;
 in
 {
   # sane.persist.sys.byStore.ephemeral = [
@@ -100,7 +100,7 @@ in
     # ensure /var/log/journal symlink exists before starting:
     serviceConfig.ExecStartPre = "-${lib.getExe' pkgs.systemd "systemd-tmpfiles"} --prefix=/var/log/journal --boot --create --graceful";
     unitConfig.DefaultDependencies = false;
-    unitConfig.RequiresMountsFor = [
+    unitConfig.RequiresMountsFor = lib.optionals config.sane.persist.enable [
       config.sane.persist.sys.byPath."/var/log/journal".store.origin
     ];
   };
@@ -116,19 +116,28 @@ in
   # see: `man logind.conf`
   # don’t shutdown when power button is short-pressed (commonly done an accident, or by cats).
   #   but do on long-press: useful to gracefully power-off server.
-  services.logind.powerKey = "lock";
-  services.logind.powerKeyLongPress = "poweroff";
-  services.logind.lidSwitch = "lock";
+  services.logind.settings.Login.HandlePowerKey = "lock";
+  services.logind.settings.Login.HandlePowerKeyLongPress = "poweroff";
+  services.logind.settings.Login.HandleLidSwitch = "lock";
   # under logind, 'uaccess' tag would grant the logged in user access to a device.
   # outside logind, map uaccess tag -> plugdev group to grant that access.
   services.udev.extraRules = ''
     TAG=="uaccess" GROUP="plugdev"
   '';
 
-  systemd.extraConfig = ''
+  systemd.settings.Manager = {
     # DefaultTimeoutStopSec defaults to 90s, and frequently blocks overall system shutdown.
-    DefaultTimeoutStopSec=${builtins.toString haltTimeout}
-  '';
+    DefaultTimeoutStopSec = "${builtins.toString haltTimeoutSec}s";
+  };
+
+  # fixes "Cannot open access to console, the root account is locked" on systemd init failure.
+  # see: <https://github.com/systemd/systemd/commit/33eb44fe4a8d7971b5614bc4c2d90f8d91cce66c>
+  # - emergency: kill (or don't start) everything; drop into root shell.
+  # - rescue: start sysinit.target (which mounts the local-fs, and others), and drop into root shell.
+  # enable emergency.target; configure elsewhere everything sensitive (e.g. /mnt/persist/private) to conflict with it.
+  # because of `rescue.target`'s `Requires=sysinit.target`, we can't (easily) allow its root shell safely.
+  systemd.services.emergency.environment.SYSTEMD_SULOGIN_FORCE = "1";
+  # systemd.services.rescue.environment.SYSTEMD_SULOGIN_FORCE = "1";
 
   # harden base systemd services
   # see: `systemd-analyze security`

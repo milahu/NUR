@@ -1385,7 +1385,7 @@ static void rk818_bat_init_coffset(struct rk818_battery *di)
 
 static void rk818_bat_caltimer_isr(struct timer_list *t)
 {
-	struct rk818_battery *di = from_timer(di, t, caltimer);
+	struct rk818_battery *di = timer_container_of(di, t, caltimer);
 
 	mod_timer(&di->caltimer, jiffies + MINUTE(8) * HZ);
 	queue_delayed_work(di->bat_monitor_wq, &di->calib_delay_work,
@@ -3459,7 +3459,7 @@ static void rk818_battery_shutdown(struct platform_device *dev)
 
 	cancel_delayed_work_sync(&di->bat_delay_work);
 	cancel_delayed_work_sync(&di->calib_delay_work);
-	del_timer(&di->caltimer);
+	timer_delete(&di->caltimer);
 	if (base2sec(di->boot_base) < REBOOT_PERIOD_SEC)
 		cnt = rk818_bat_check_reboot(di);
 	else

@@ -14,8 +14,9 @@ in
       "sane-scripts.bt-show"
     ];
     "sane-scripts.dev" = declPackageSet [
-      "sane-scripts.clone"
-      "sane-scripts.dev-cargo-loop"
+      # "sane-scripts.clone"  #< TODO: make `sane_clone` a shell alias
+      # "sane-scripts.dev-cargo-loop"
+      "sane-scripts.profile"
     ];
     "sane-scripts.cli" = declPackageSet [
       "sane-scripts.find-dotfiles"
@@ -76,12 +77,20 @@ in
     "sane-scripts.dev-cargo-loop".sandbox = {
       net = "clearnet";
       whitelistPwd = true;
-      extraPaths = [
+      extraHomePaths = [
         # a build script can do a lot... but a well-written one will be confined
         # to XDG dirs and the local dir, and maybe the internet for fetching dependencies.
         ".cache"
         ".config"
         ".local"
+      ];
+    };
+
+    "sane-scripts.profile".sandbox = {
+      # should maybe be unconfined instead, since it runs a user program?
+      autodetectCliPaths = "existing";
+      extraPaths = [
+        "/tmp"
       ];
     };
 
@@ -119,7 +128,7 @@ in
       sandbox.extraPaths = [ "/run/gocryptfs" ];
       sandbox.whitelistSystemctl = true;
       fs.".profile".symlink.text = ''
-        sane-private-unlock
+        sessionCommands+=('sane-private-unlock')
       '';
     };
 
@@ -135,6 +144,10 @@ in
     "sane-scripts.reboot".sandbox = {
       method = "bunpen";
       whitelistSystemctl = true;
+      capabilities = [
+        "sys_admin"
+      ];
+      tryKeepUsers = true;  #< allow `sudo sane-reboot`, for the case where the service manager is unreachable
     };
 
     "sane-scripts.reclaim-disk-space".sandbox = {

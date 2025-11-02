@@ -39,7 +39,6 @@ let
     "linux-postmarketos-allwinner"
     "linux-postmarketos-exynos5"
     "linux-postmarketos-pinephonepro"
-    "mobile-nixos"
     "nixpkgs-bootstrap"
     "nixpkgs-wayland"
     "sops-nix"

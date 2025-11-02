@@ -1,10 +1,11 @@
 {
-  pkgs,
   bash,
   lib,
   makeBinaryWrapper,
+  oils-for-unix,
+  pkgs,
   python3,
-  stdenv,
+  stdenvNoCC,
   zsh,
 }:
 
@@ -56,7 +57,6 @@ in rec {
     pkgExprs,
     srcPath ? pname,
     srcRoot ? null,
-    extraMakeWrapperArgs ? [],
     ...
   }@attrs:
   let
@@ -75,13 +75,8 @@ in rec {
     # allow any package to be a list of packages, to support things like
     # -p python3.pkgs.foo.propagatedBuildInputs
     pkgsEnv' = lib.flatten pkgsEnv;
-
-    makeWrapperArgs = lib.optionals (pkgsEnv' != []) [
-      "--suffix" "PATH" ":" (lib.makeBinPath pkgsEnv')
-    ] ++ extraMakeWrapperArgs;
-    doWrap = makeWrapperArgs != [];
   in
-    stdenv.mkDerivation (final: {
+    stdenvNoCC.mkDerivation (finalAttrs: {
       version = "0.1.0";  # default version
       preferLocalBuild = true;
 
@@ -89,43 +84,125 @@ in rec {
         makeBinaryWrapper
       ];
 
-      inherit makeWrapperArgs;
+      runtimePrefixes = pkgsEnv';
 
-      patchPhase = ''
-        substituteInPlace ${srcPath} \
-          --replace-fail '#!/usr/bin/env nix-shell' '#!${interpreter}' \
-          --replace-fail \
-            '#!nix-shell -i ${interpreterName}${pkgsStr}' \
-            '# nix deps evaluated statically'
+      configurePhase = ''
+        runHook preConfigure
+
+        # generate `extraPaths`, `extraXdgDataDirs` colon-separated paths for use in the build phase.
+        # first, gather the entire buildInputs closure:
+        runtimePrefixesList=()
+        crawlPackage() {
+          # only crawl each package *once*
+          for p in "''${runtimePrefixesList[@]}"; do
+            if [[ "$p" == "$1" ]]; then
+              return
+            fi
+          done
+
+          # ingest this package
+          runtimePrefixesList=("''${runtimePrefixesList[@]}" "$1")
+
+          # crawl everything this package propagates.
+          # this is *required* for Python packages.
+          local prop=$1/nix-support/propagated-build-inputs
+          if [ -e "$prop" ]; then
+            crawlPackages $(cat "$prop")
+          fi
+        }
+        crawlPackages() {
+          for p in "$@"; do
+            crawlPackage "$p"
+          done
+        }
+        crawlPackages $runtimePrefixes
+        append_PATH=
+        append_XDG_DATA_DIRS=
+        for p in "''${runtimePrefixesList[@]}"; do
+          echo "considering if dependency needs to be added to runtime environment(s): $p"
+          # `addToSearchPath` behaves as no-op if the provided path doesn't exist
+          addToSearchPath append_PATH "$p/bin"
+          addToSearchPath append_XDG_DATA_DIRS "$p/share"
+        done
+
+        runHook postConfigure
       '';
 
-      installPhase = ''
-        runHook preInstall
-        mkdir -p $out/bin
-        mv ${srcPath} $out/bin/${srcPath}
+      buildPhase = ''
+        runHook preBuild
 
         die() {
           echo "$@"
           exit 1
         }
+
+        if [ -n "$shellPreamble" ]; then
+        shellPreamble="
+        # --- BEGIN: nix-shell preamble (generated code) ---
+        $shellPreamble
+        # --- END:   nix-shell preamble (generated code) ---
+        "
+        fi
+        substituteInPlace ${srcPath} \
+          --replace-fail '#!/usr/bin/env nix-shell' '#!${interpreter}' \
+          --replace-fail \
+            $'#!nix-shell -i ${interpreterName}${pkgsStr}\n' \
+            $'# nix deps evaluated statically\n'"''${shellPreamble:-}"
+
+        # if no specialized `shellPreamble` was populated, then inject dependencies via wrapper
+        if [[ -z "''${shellPreamble:-}" ]]; then
+          if [[ -n "$append_PATH" ]]; then
+            makeWrapperArgs+=("--suffix" "PATH" ":" "$append_PATH")
+          fi
+          if [[ -n "$append_XDG_DATA_DIRS" ]]; then
+            makeWrapperArgs+=("--suffix" "XDG_DATA_DIRS" ":" "$append_XDG_DATA_DIRS")
+          fi
+        else
+          if [[ -n "$append_PATH" ]]; then
+            die "shellPreamble failed to clear 'append_PATH' variable: $append_PATH"
+          fi
+          if [[ -n "$append_XDG_DATA_DIRS" ]]; then
+            die "shellPreamble failed to clear 'append_XDG_DATA_DIRS' variable: $append_XDG_DATA_DIRS"
+          fi
+        fi
+
+        runHook postBuild
+      '';
+
+      installPhase = ''
+        runHook preInstall
+
+        install -Dm755 ${srcPath} $out/bin/${srcPath}
+
         # ensure that all nix-shell references were substituted
         (! grep '#![ \t]*nix-shell' $out/bin/${srcPath}) || die 'not all #!nix-shell directives were processed in ${srcPath}'
         # ensure that there weren't some trailing deps we *didn't* substitute
         grep '^# nix deps evaluated statically$' $out/bin/${srcPath} || die 'trailing characters in nix-shell directive for ${srcPath}'
 
-      '' + lib.optionalString doWrap ''
-        # add runtime dependencies to PATH
-        wrapProgram $out/bin/${srcPath} \
-          ${lib.escapeShellArgs final.makeWrapperArgs}
-      '' + ''
+        if [[ ''${#makeWrapperArgs[@]} != 0 ]]; then
+          wrapProgram $out/bin/${srcPath} \
+            "''${makeWrapperArgs[@]}"
+        fi
 
         runHook postInstall
       '';
+
+      # TODO: should assert that `--help` actually prints something reasonable (e.g. program name),
+      # and isn't inadvertently a no-op
+      installCheckPhase = ''
+        runHook preInstallCheck
+
+        timeout 15 $out/bin/${srcPath} --help
+
+        runHook postInstallCheck
+      '';
+
+      doInstallCheck = true;
+
       meta = {
         mainProgram = srcPath;
       } // (attrs.meta or {});
     } // extraDerivArgs // (removeAttrs attrs [
-      "extraMakeWrapperArgs"
       "interpreter"
       "interpreterName"
       "meta"
@@ -145,7 +222,62 @@ in rec {
     in mkShell ({
       inherit pkgsEnv pkgExprs;
       interpreter = lib.getExe bash;
+      postConfigure = ''
+      if [[ -n "$append_PATH" ]]; then
+        shellPreamble="$shellPreamble"'
+      export PATH=''${PATH:+$PATH:}'"$append_PATH"
+        unset append_PATH
+      fi
+
+      if [[ -n "$append_XDG_DATA_DIRS" ]]; then
+        shellPreamble="$shellPreamble"'
+      export XDG_DATA_DIRS=''${XDG_DATA_DIRS:+$XDG_DATA_DIRS:}'"$append_XDG_DATA_DIRS"
+        unset append_XDG_DATA_DIRS
+      fi
+      '';
     } // (removeAttrs attrs [ "bash" "pkgs" ])
+  );
+
+  # `mkShell` specialization for `nix-shell -i ysh` (oil) scripts.
+  mkYsh = { pkgs ? {}, ...}@attrs:
+    let
+      pkgsAsAttrs = pkgsToAttrs "" pkgs' pkgs;
+      pkgsEnv = [ oils-for-unix ] ++ (builtins.attrValues pkgsAsAttrs);
+      pkgExprs = insertTopo "oils-for-unix" (builtins.attrNames pkgsAsAttrs);
+    in mkShell ({
+      inherit pkgsEnv pkgExprs;
+      interpreter = lib.getExe' oils-for-unix "ysh";
+      postConfigure = ''
+        shellPreambleBody=
+        if [[ -n "$append_PATH" ]]; then
+          shellPreambleBody="$shellPreambleBody"'
+          addToSearchPath "PATH" "'"$append_PATH"'"'
+          unset append_PATH
+        fi
+        if [[ -n "$append_XDG_DATA_DIRS" ]]; then
+          shellPreambleBody="$shellPreambleBody"'
+          addToSearchPath "XDG_DATA_DIRS" "'"$append_XDG_DATA_DIRS"'"'
+          unset append_XDG_DATA_DIRS
+        fi
+        if [[ -n "$shellPreambleBody" ]]; then
+        shellPreamble='
+        {
+          proc addToSearchPath(envName, appendValue) {
+            var value = get(ENV, envName)
+            if (value === null) {
+              setglobal ENV[envName] = "$appendValue"
+            } else {
+              setglobal ENV[envName] = "$value:$appendValue"
+            }
+          }
+        '"$shellPreambleBody"'
+
+          unset addToSearchPath
+        }
+        '
+        fi
+      '';
+    } // (removeAttrs attrs [ "oils-for-unix" "pkgs" ])
   );
 
   # `mkShell` specialization for `nix-shell -i zsh` scripts.
@@ -157,6 +289,19 @@ in rec {
     in mkShell ({
       inherit pkgsEnv pkgExprs;
       interpreter = lib.getExe zsh;
+      postConfigure = ''
+        if [[ -n "$append_PATH" ]]; then
+          shellPreamble="$shellPreamble"'
+        export PATH=''${PATH:+$PATH:}'"$append_PATH"
+          unset append_PATH
+        fi
+
+        if [[ -n "$append_XDG_DATA_DIRS" ]]; then
+          shellPreamble="$shellPreamble"'
+        export XDG_DATA_DIRS=''${XDG_DATA_DIRS:+$XDG_DATA_DIRS:}'"$append_XDG_DATA_DIRS"
+          unset append_XDG_DATA_DIRS
+        fi
+      '';
     } // (removeAttrs attrs [ "pkgs" "zsh" ])
   );
 
@@ -170,14 +315,56 @@ in rec {
       inherit pkgsEnv pkgExprs;
       interpreter = lib.getExe python3;
       interpreterName = "python3";
-      # "wrapPythonPrograms" only adds libraries that are on `propagatedBuildInputs` onto the site path.
-      propagatedBuildInputs = lib.flatten pkgsEnv;
+      # the logic for dealing with PYTHONPATH (which governs `import` search path)
+      # comes from <repo:nixos/nixpkgs:pkgs/development/interpreters/python/wrap.sh>
+      # and <repo:nixos/nixpkgs:pkgs/development/interpreters/python/wrap-python.nix>
+      postConfigure = ''
+        for p in "''${runtimePrefixesList[@]}"; do
+          addToSearchPath append_PYTHONPATH "$p/${python3.sitePackages}"
+        done
 
-      nativeBuildInputs = (attrs.nativeBuildInputs or []) ++ [
-        python3.pkgs.wrapPython
-      ];
-      postFixup = ''
-        wrapPythonPrograms
+        shellPreambleBody=
+        if [[ -n "$append_PATH" ]]; then
+          shellPreambleBody="$shellPreambleBody"'
+        addToSearchPath("PATH", "'"$append_PATH"'")'
+          unset append_PATH
+        fi
+        if [[ -n "$append_XDG_DATA_DIRS" ]]; then
+          shellPreambleBody="$shellPreambleBody"'
+        addToSearchPath("XDG_DATA_DIRS", "'"$append_XDG_DATA_DIRS"'")'
+          unset append_XDG_DATA_DIRS
+        fi
+
+        if [[ -n "$append_PYTHONPATH" ]]; then
+          shellPreambleBody="$shellPreambleBody"'
+        addSiteDirs("'"$append_PYTHONPATH"'")'
+          unset append_PYTHONPATH
+        fi
+
+        if [[ -n "$shellPreambleBody" ]]; then
+          shellPreamble='
+        # this preamble is unaware of the tab-style used in the rest of the file,
+        # so wrap it in a big `exec` to avoid conflicting tab styles
+        # (and to avoid polluting the globals)
+        exec("""
+        def addToSearchPath(envName, appendValue):
+          import os
+          value = os.environ.get(envName)
+          if value is None:
+            os.environ[envName] = appendValue
+          else:
+            os.environ[envName] = value + ":" + appendValue
+
+        def addSiteDirs(joinedDirs):
+          import site
+          known = site._init_pathinfo()
+          for p in joinedDirs.split(":"):
+            known = site.addsitedir(p, known)
+
+        '"$shellPreambleBody"'
+        """, globals={})
+        '
+        fi
       '';
     } // (removeAttrs attrs [ "pkgs" "python3" ])
   );

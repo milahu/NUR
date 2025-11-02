@@ -8,10 +8,11 @@
   localSystem ? builtins.currentSystem,
 }:
 let
-  mkNixpkgs = import ./pkgs/by-name/nixpkgs-bootstrap/mkNixpkgs.nix {};
-  mkPkgs = branch: args: (
-    mkNixpkgs (args // { inherit branch; })
-  ).extend (import ./overlays/all.nix);
+  mkPkgs = branch: config: let
+    mkNixpkgs = import ./pkgs/by-name/nixpkgs-bootstrap/mkNixpkgs.nix config;
+  in (
+    import ./pkgs/by-name/nixpkgs-bootstrap/${branch}.nix { inherit mkNixpkgs; }
+  ).pkgs.extend (import ./overlays/all.nix);
   pkgs = mkPkgs "master" { inherit localSystem; };
   inherit (pkgs) lib;
 
@@ -31,7 +32,7 @@ let
       passthru = (base.passthru or {}) // {
         inherit (host) config;
         inherit (host.config.sane) fs;
-        inherit (host.config.system.build) imgs pkgs;
+        inherit (host.config.system.build) img pkgs;
         programs = builtins.mapAttrs (_: p: p.package) host.config.sane.programs;
         toplevel = host.config.system.build.toplevel;  #< self
         extendModules = arg: addPassthru (host.extendModules arg);
@@ -56,11 +57,27 @@ let
   # but i want these a little more normalized, which is possible either here, or
   # by assigning `boot.kernelPackages`.
   # elaborate = system: system;
-  elaborate = system: let
-    e = lib.systems.elaborate system;
+  elaborate = system: { static ? false }: let
+    abi = if static then "musl" else "gnu";
+    e = lib.systems.elaborate {
+      # N.B.: "static" can mean a few things:
+      # 1. binaries should be linked statically (stdenv.hostPlatform.isStatic == true).
+      # 2. host libc doesn't support dlopen (stdenv.hostPlatform.hasSharedLibraries == false).
+      #
+      # nixpkgs' `pkgsStatic` is the stricter meaning of "static": no `.so` files, period.
+      # this means plugin-heavy frameworks like `gobject-introspection` probably just cannot ever work (?).
+      # TODO: i'd _prefer_ to use the weaker kind of "static", and support all the traditional packages,
+      # but for now that actually results in fewer working packages (e.g. `xdg-dbus-proxy`).
+      system = "${system}-${abi}";
+      isStatic = static;
+      # hasSharedLibraries = true;
+    };
   in
-    {
-      inherit system;
+    e // {
+      extensions = e.extensions // {
+        # when `hasSharedLibraries` == false, need to explicitly set this here to fix eval of many packages. this is not a long-term fix.
+        sharedLibrary = ".so";
+      };
       linux-kernel = {
         inherit (e.linux-kernel) name baseConfig target;
       } // (lib.optionalAttrs (e.linux-kernel ? DTB) { inherit (e.linux-kernel) DTB; }) // {
@@ -85,20 +102,24 @@ let
   hosts = builtins.foldl'
     # XXX: i `elaborate` localSystem the same as i do `system` because otherwise nixpkgs
     # sees they're (slightly) different and forces everything down the (expensive) cross-compilation path.
-    (acc: host: acc // mkHost ({ localSystem = elaborate localSystem; } // host))
+    (acc: host: acc // mkHost ({ localSystem = elaborate localSystem {}; } // host))
     {}
     [
       # real hosts:
       # { name = "crappy"; system = "armv7l-linux";  }
-      { name = "desko";  system = elaborate "x86_64-linux";  }
-      { name = "lappy";  system = elaborate "x86_64-linux";  }
-      { name = "moby";   system = elaborate "aarch64-linux"; }
-      { name = "servo";  system = elaborate "x86_64-linux";  }
+      { name = "cadey";  system = elaborate "x86_64-linux" {};  }
+      { name = "desko";  system = elaborate "x86_64-linux" {};  }
+      { name = "flowy";  system = elaborate "x86_64-linux" {};  }
+      { name = "lappy";  system = elaborate "x86_64-linux" {};  }
+      { name = "moby";   system = elaborate "aarch64-linux" {}; }
+      { name = "servo";  system = elaborate "x86_64-linux" {};  }
 
-      { name = "rescue"; system = elaborate "x86_64-linux";  }
+      { name = "rescue"; system = elaborate "x86_64-linux" {};  }
       # pseudo hosts used for debugging
-      { name = "baseline-x86_64";  system = elaborate "x86_64-linux";  }
-      { name = "baseline-aarch64";  system = elaborate "aarch64-linux";  }
+      { name = "baseline-x86_64";  system = elaborate "x86_64-linux" {};  }
+      { name = "baseline-aarch64";  system = elaborate "aarch64-linux" {};  }
+      { name = "static-x86_64";  system = elaborate "x86_64-linux" { static = true; }; }
+      { name = "static-aarch64";  system = elaborate "aarch64-linux" { static = true; };  }
     ];
 
   # subAttrNames :: AttrSet -> [ String ]
@@ -159,7 +180,9 @@ let
         script = pkgs.writeShellScriptBin "update-${pname}" ''
           # update script assumes $PWD is an entry point to a writable copy of my nix config,
           # so provide that:
-          pushd /home/colin/nixos/integrations/nix-update
+          SELF_PATH=$PWD/$0
+          REPO_ROOT=$(${lib.getExe pkgs.git} -C "$(dirname SELF_PATH)" rev-parse --show-toplevel)
+          pushd $REPO_ROOT/integrations/nix-update
           UPDATE_NIX_NAME=${pkg.name or ""} \
           UPDATE_NIX_PNAME=${pkg.pname or ""} \
           UPDATE_NIX_OLD_VERSION=${pkg.version or ""} \

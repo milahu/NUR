@@ -12,9 +12,7 @@ let
     "stderr_path=/var/log/curlftpfs/servo-hn.stderr"
   ];
 
-  remoteServo = subdir: let
-    systemdBindName = utils.escapeSystemdPath "/mnt/servo/${subdir}";
-  in {
+  remoteServo = subdir: {
     # sane.fs."/mnt/servo/${subdir}".mount.bind = "/mnt/.servo_ftp/${subdir}";
     systemd.mounts = [{
       where = "/mnt/servo/${subdir}";
@@ -25,6 +23,10 @@ let
       after = [ "${systemdName}.mount" ];
       upheldBy = [ "${systemdName}.mount" ];  #< start this mount whenever the underlying becomes available
       bindsTo = [ "${systemdName}.mount" ];  #< stop this mount whenever the underlying disappears
+
+      # XXX(2025-10-07): lazy is required for when the underlying /mnt/.servo_ftp has hung,
+      # else `systemctl stop mnt-servo-...mount` fails "umount: target is busy."
+      mountConfig.LazyUnmount = true;
     }];
   };
 in
@@ -46,9 +48,13 @@ lib.mkMerge [
       what = device;
       type = fsType;
       options = lib.concatStringsSep "," options;
-      wantedBy = [ "default.target" ];
+      # wantedBy = [ "default.target" ];  #< TODO(2025-10-25): re-enable once failed mounts are made to not hang the whole system
       after = [ "network-online.target" ];
       requires = [ "network-online.target" ];
+
+      # XXX(2025-10-07): lazy is required even here, else `systemctl stop mnt-.servo_ftp.mount` fails "umount: target is busy.".
+      # TODO: suspect a bug in the timeout logic for curlftpfs or curl itself :(
+      mountConfig.LazyUnmount = true;
 
       #VVV patch so that when the mount fails, we start a timer to remount it.
       #    and for a disconnection after a good mount (onSuccess), restart the timer to be more aggressive

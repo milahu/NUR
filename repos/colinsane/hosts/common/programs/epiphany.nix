@@ -5,23 +5,28 @@
 # - touch-based scroll works well (for moby)
 # - URL bar constantly resets cursor to the start of the line as i type
 #   - maybe due to the URLbar suggestions getting in the way
-{ pkgs, ... }:
+#
+# TODO: consider wrapping with `WEBKIT_USE_SINGLE_WEB_PROCESS=1` for better perf
+# - this runs all tabs in 1 process. which is fine, if i'm not a heavy multi-tabber
+{ lib, ... }:
 {
   sane.programs.epiphany = {
     sandbox.wrapperType = "inplace";  # /share/epiphany/default-bookmarks.rdf refers back to /share; dbus files to /libexec
     sandbox.net = "clearnet";
     sandbox.whitelistAudio = true;
-    sandbox.whitelistDbus.user.own = [ "org.gnome.Epiphany" ];
-    sandbox.whitelistPortal = [
-      # these are all speculative
-      "Camera"
-      "FileChooser"
-      "Location"
-      "OpenURI"
-      "Print"
-      "ProxyResolver"  #< required else it doesn't load websites
-      "ScreenCast"
-    ];
+    sandbox.whitelistDbus.user = true;  #< TODO: reduce. requires to support nested dbus proxy though.
+    # sandbox.whitelistDbus.user.own = [ "org.gnome.Epiphany" ];
+    # sandbox.whitelistPortal = [
+    #   # these are all speculative
+    #   "Camera"
+    #   "FileChooser"
+    #   "Location"
+    #   "OpenURI"
+    #   "Print"
+    #   "ProxyResolver"  #< required else it doesn't load websites
+    #   "ScreenCast"
+    # ];
+
     # default sandboxing breaks rendering in weird ways. sites are super zoomed in / not scaled.
     # enabling DRI/DRM (as below) seems to fix that.
     sandbox.whitelistDri = true;
@@ -30,30 +35,16 @@
       ".config/epiphany"  #< else it gets angry at launch
       "tmp"
     ];
+    sandbox.extraPaths = [
+      # epiphany sandboxes *itself* with bwrap, and dbus-proxy which, confusingly, causes it to *require* these paths.
+      # TODO: these could maybe be mounted empty.
+      "/sys/block"
+      "/sys/bus"
+      "/sys/class"
+    ];
 
     buildCost = 2;
 
-    # XXX(2023/07/08): running on moby without `WEBKIT_DISABLE_SANDBOX...` fails, with:
-    # - `bwrap: Can't make symlink at /var/run: File exists`
-    # this could be due to:
-    # - epiphany is somewhere following a symlink into /var/run instead of /run
-    #   - (nothing in `env` or in this repo touches /var/run)
-    # - no xdg-desktop-portal is installed  (unlikely)
-    #
-    # a few other users have hit this, in different contexts:
-    # - <https://gitlab.gnome.org/GNOME/gnome-builder/-/issues/1164>
-    # - <https://github.com/flatpak/flatpak/issues/3477>
-    # - <https://github.com/NixOS/nixpkgs/issues/197085>
-    #
-    # TODO: consider `WEBKIT_USE_SINGLE_WEB_PROCESS=1` for better perf
-    # - this runs all tabs in 1 process. which is fine, if i'm not a heavy multi-tabber
-    packageUnwrapped = pkgs.epiphany.overrideAttrs (upstream: {
-      preFixup = ''
-        gappsWrapperArgs+=(
-          --set WEBKIT_DISABLE_SANDBOX_THIS_IS_DANGEROUS "1"
-        );
-      '' + (upstream.preFixup or "");
-    });
     persist.byStore.private = [
       ".cache/epiphany"
       ".local/share/epiphany"
@@ -69,12 +60,39 @@
       "x-scheme-handler/about" = desktop;
       "x-scheme-handler/unknown" = desktop;
     };
-    gsettings."org/gnome/epiphany" = {
+    gsettings."org/gnome/epiphany" = with lib.gvariant; {
       ask-for-default = false;
+      # homepage-url = "about:newtab";
+      search-engine-providers = [
+        # [
+        #   (mkDictionaryEntry "url" (mkVariant "https://www.bing.com/search?q=%s"))
+        #   (mkDictionaryEntry "bang" (mkVariant "!b"))
+        #   (mkDictionaryEntry "name" (mkVariant "Bing"))
+        # ]
+        [
+          (mkDictionaryEntry "url" (mkVariant "https://duckduckgo.com/?q=%s&t=epiphany&kd=-1"))
+          (mkDictionaryEntry "bang" (mkVariant "!ddg"))
+          (mkDictionaryEntry "name" (mkVariant "DuckDuckGo"))
+        ]
+        [
+          # serializes to: {'url': <'https://www.google.com/search?q=%s'>, 'bang': <'!g'>, 'name': <'Google'>},
+          (mkDictionaryEntry "url" (mkVariant "https://www.google.com/search?q=%s"))
+          (mkDictionaryEntry "bang" (mkVariant "!g"))
+          (mkDictionaryEntry "name" (mkVariant "Google"))
+        ]
+        [
+          (mkDictionaryEntry "url" (mkVariant "https://kagi.com/search?q=%s"))
+          (mkDictionaryEntry "bang" (mkVariant "!k"))
+          (mkDictionaryEntry "name" (mkVariant "Kagi"))
+        ]
+      ];
+      default-search-engine = "Kagi";
     };
     gsettings."org/gnome/epiphany/web" = {
+      # default-zoom-level = 1.0;
       enable-adblock = true;
       # enable-itp = false;  # ??
+      # enable-popups = true;
       enable-website-data-storage = true;
       remember-passwords = false;
     };

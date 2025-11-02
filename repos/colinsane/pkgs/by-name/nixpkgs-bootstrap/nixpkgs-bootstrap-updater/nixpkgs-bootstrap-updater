@@ -1,0 +1,57 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash -p bash -p common-updater-scripts -p curl -p jq -p nix-prefetch-github
+
+set -eu
+
+usage() {
+  echo "USAGE: nixpkgs-bootstrap-updater BRANCH"
+}
+
+branch=
+parseArgs() {
+  while [ "$#" -ne 0 ]; do
+    local arg=$1
+    shift
+    case $arg in
+      (--help)
+        usage
+        exit 0
+        ;;
+      (*)
+        if [ -z "$branch" ]; then
+          branch=$arg
+        else
+          usage
+          exit 1
+        fi
+        ;;
+    esac
+  done
+  if [ -z "$branch" ]; then
+    usage
+    exit 1
+  fi
+}
+
+jsonGetField() {
+  local json=$1
+  local field=$2
+  echo "$json" | jq --exit-status --raw-output ".$field"
+}
+
+main() {
+  local branch=$1
+  local prefetchData=$(nix-prefetch-github --json --meta --rev "$branch" NixOS nixpkgs)
+
+  local rev=$(jsonGetField "$prefetchData" src.rev)
+  local nixHash=$(jsonGetField "$prefetchData" src.hash)
+  local commitDate=$(jsonGetField "$prefetchData" meta.commitDate)
+
+  update-source-version "sane.nixpkgs-bootstrap.$branch" "unstable-$commitDate" "$nixHash" \
+    --rev="$rev" \
+    --print-changes
+}
+
+parseArgs "$@"
+set -x
+main "$branch"

@@ -89,7 +89,7 @@
   atk,
   autoPatchelfHook,
   cups,
-  electron_33-bin,
+  electron_35-bin,
   fetchFromGitHub,
   fetchurl,
   flac,
@@ -114,7 +114,7 @@
   pnpm_10,
   python3,
   rsync,
-  signal-desktop,
+  signal-desktop-bin,
 #  sqlite,
 #  sqlcipher,
   stdenv,
@@ -122,9 +122,10 @@
   xdg-utils,
 }:
 let
-  ringrtcPrebuild = "${signal-desktop}/lib/Signal/resources/app.asar.unpacked/node_modules/@signalapp/ringrtc";
+  ringrtcPrebuild = "${signal-desktop-bin}/lib/signal-desktop/resources/app.asar.unpacked/node_modules/@signalapp/ringrtc";
 
-  betterSqlitePrebuild = "${signal-desktop}/lib/Signal/resources/app.asar.unpacked/node_modules/@signalapp/better-sqlite3";
+  betterSqlitePrebuild = null;
+  # betterSqlitePrebuild = "${signal-desktop-bin}/lib/signal-desktop/resources/app.asar.unpacked/node_modules/@signalapp/better-sqlite3";
 
   # ringrtcPrebuild = stdenv.mkDerivation {
   #   name = "ringrtc-bin";
@@ -142,19 +143,19 @@ let
 
   # better-sqlite3 can be built from source, or use the prebuilt version from nixpkgs' signal-desktop.
   # just do whatever's easiest (and works) at the time of upgrade; set `null` to use the prebuild
-  # sqlcipherTarball = null;
-  sqlcipherTarball = fetchurl {
-    # this is a dependency of better-sqlite3.
-    # version/url is found in <repo:signalapp/better-sqlite3:deps/download.js>
-    # - checkout the better-sqlite3 tag which matches signal-dekstop's package.json "@signalapp/better-sqlite3" key.
-    url = let
-      BETTER_SQLITE3_VERSION = "9.0.11";  #< from Signal-Desktop/package.json
-      HASH = "6253f886c40e49bf892d5cdc92b2eb200b12cd8d80c48ce5b05967cfd01ee8c7";
-      SQLCIPHER_VERSION = "4.6.1-signal-patch2";
-      EXTENSION_VERSION = "0.2.1-asm2";
-    in "https://build-artifacts.signal.org/desktop/sqlcipher-v2-${SQLCIPHER_VERSION}--${EXTENSION_VERSION}-${HASH}.tar.gz";
-    hash = "sha256-YlP4hsQOSb+JLVzckrLrIAsSzY2AxIzlsFlnz9Ae6Mc=";
-  };
+  sqlcipherTarball = null;
+  # sqlcipherTarball = fetchurl {
+  #   # this is a dependency of better-sqlite3.
+  #   # version/url is found in <repo:signalapp/better-sqlite3:deps/download.js>
+  #   # - checkout the better-sqlite3 tag which matches signal-dekstop's package.json "@signalapp/better-sqlite3" key.
+  #   url = let
+  #     BETTER_SQLITE3_VERSION = "9.0.11";  #< from Signal-Desktop/package.json
+  #     HASH = "6253f886c40e49bf892d5cdc92b2eb200b12cd8d80c48ce5b05967cfd01ee8c7";
+  #     SQLCIPHER_VERSION = "4.6.1-signal-patch2";
+  #     EXTENSION_VERSION = "0.2.1-asm2";
+  #   in "https://build-artifacts.signal.org/desktop/sqlcipher-v2-${SQLCIPHER_VERSION}--${EXTENSION_VERSION}-${HASH}.tar.gz";
+  #   hash = "sha256-YlP4hsQOSb+JLVzckrLrIAsSzY2AxIzlsFlnz9Ae6Mc=";
+  # };
 
   # signal-fts5-extension = callPackage ./fts5-extension { };
   # bettersqlitePatch = substituteAll {
@@ -172,7 +173,7 @@ let
   # prefer to use the same electron version as everywhere else, and a `-bin` version to avoid 4hr rebuilds.
   # the non-bin varieties *seem* to ship the wrong `electron.headers` property.
   # - maybe they can work if i manually DL and ship the corresponding headers
-  electron' = electron_33-bin;
+  electron' = electron_35-bin;
 
   buildNpmArch = if stdenv.buildPlatform.isAarch64 then "arm64" else "x64";
   hostNpmArch = if stdenv.hostPlatform.isAarch64 then "arm64" else "x64";
@@ -180,19 +181,20 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "signal-desktop-from-src";
-  version = "7.46.0";
+  version = "7.60.0";
 
   src = fetchFromGitHub {
     owner = "signalapp";
     repo = "Signal-Desktop";
     leaveDotGit = true;  # signal calculates the release date via `git`
     rev = "v${finalAttrs.version}";
-    hash = "sha256-8piR3lPy+GwSrcmDUpsqVDnxNLuHe2XfIGFLei56sQY=";
+    # XXX: hash is unstable because of the git pack dir
+    hash = "sha256-SjRYeJBs36dLxZdhioF8v9w1zOZkjBUnbM+W+/cg26Q=";
   };
 
   pnpmDeps = pnpm_10.fetchDeps {
     inherit (finalAttrs) pname version src patches;
-    hash = "sha256-keG+ymMD4ma0dt6N4Fai9u0+rh9VzkQD6tClPKoQXkM=";
+    hash = "sha256-mVC7dOsBcBrOEuz7t4xMv1QX2ZgfA5EjnRYunZEx73E=";
   };
 
   patches = [
@@ -302,8 +304,7 @@ stdenv.mkDerivation (finalAttrs: {
     # need to build against electron's versions of the node headers, or something.
     # without patching this, Signal can build, but will fail with `undefined symbol: ...` errors at runtime.
     # see: <https://www.electronjs.org/docs/latest/tutorial/using-native-node-modules>
-    tar xzf ${electron'.headers}
-    export npm_config_nodedir=$(pwd)/node_headers
+    export npm_config_nodedir=${electron'.headers}
 
     # patchShebangs --build --update node_modules/{bufferutil/node_modules/node-gyp-build/,node-gyp-build,utf-8-validate/node_modules/node-gyp-build}
     # patch these out to remove a runtime reference back to the build bash
@@ -315,19 +316,22 @@ stdenv.mkDerivation (finalAttrs: {
     # provide necessities which were skipped as part of --ignore-scripts
     rsync -arv ${ringrtcPrebuild}/ node_modules/@signalapp/ringrtc/
 
-    ${if sqlcipherTarball == null then ''
-      # option 1: replace the entire better-sqlite3 library with the prebuilt version from nixpkgs' signal-desktop
+    ${if sqlcipherTarball != null then ''
+      # option 1: replace only the sqlcipher plugin with Signal's prebuilt version,
+      # and build the rest of better-sqlite3 from source
+      cp ${sqlcipherTarball} node_modules/@signalapp/better-sqlite3/deps/sqlcipher.tar.gz
+    '' else if betterSqlitePrebuild != null then ''
+      # option 2: replace the entire better-sqlite3 library with the prebuilt version from nixpkgs' signal-desktop
       rsync -arv ${betterSqlitePrebuild}/ node_modules/@signalapp/better-sqlite3/
       # patch so signal doesn't try to *rebuild* better-sqlite3
       substituteInPlace node_modules/@signalapp/better-sqlite3/package.json \
         --replace-fail '"download": "node ./deps/download.js"'  '"download": "true"' \
         --replace-fail '"build-release": "node-gyp rebuild --release"'  '"build-release": "true"' \
         --replace-fail '"install": "pnpm run download && pnpm run build-release"'  '"install": "true"'
-    '' else ''
-      # option 2: replace only the sqlcipher plugin with Signal's prebuilt version,
-      # and build the rest of better-sqlite3 from source
-      cp ${sqlcipherTarball} node_modules/@signalapp/better-sqlite3/deps/sqlcipher.tar.gz
-    ''}
+    '' else
+      # XXX(2025-03-27): seems that signal can build *and run* without any patching of sqlcipher/better-sqlite now
+      ""
+    }
 
     # pushd node_modules/@signalapp/better-sqlite3
     #   # node-gyp isn't consistently linked into better-sqlite's `node_modules` (maybe due to version mismatch with signal-desktop's node-gyp?)
@@ -387,11 +391,11 @@ stdenv.mkDerivation (finalAttrs: {
   installPhase = ''
     runHook preInstall
 
-    # directory structure follows the original `signal-desktop` nix package
+    # directory structure follows the upstream `signal-desktop` nix package
     mkdir -p $out/lib
-    cp -R release/linux${crossNpmArchExt}-unpacked $out/lib/Signal
-    # cp -R release/linux-unpacked/resources $out/lib/Signal/resources
-    # cp -R release/linux-unpacked/locales $out/lib/Signal/locales
+    cp -R release/linux${crossNpmArchExt}-unpacked $out/lib/signal-desktop
+    # cp -R release/linux-unpacked/resources $out/lib/signal-desktop/resources
+    # cp -R release/linux-unpacked/locales $out/lib/signal-desktop/locales
 
     mkdir $out/bin
 
@@ -402,15 +406,15 @@ stdenv.mkDerivation (finalAttrs: {
     # fixup the app.asar to:
     # - use host nodejs
     # - use host libpulse.so
-    asar extract $out/lib/Signal/resources/app.asar unpacked
-    rm $out/lib/Signal/resources/app.asar
+    asar extract $out/lib/signal-desktop/resources/app.asar unpacked
+    rm $out/lib/signal-desktop/resources/app.asar
     patchShebangs --host --update unpacked
     patchelf --add-needed ${libpulseaudio}/lib/libpulse.so unpacked/node_modules/@signalapp/ringrtc/build/linux/libringrtc-*.node
     cp -R unpacked "$asar"
-    asar pack unpacked $out/lib/Signal/resources/app.asar
+    asar pack unpacked $out/lib/signal-desktop/resources/app.asar
 
-    # patchShebangs --host --update $out/lib/Signal/resources
-    # patchelf --add-needed ${libpulseaudio}/lib/libpulse.so $out/lib/Signal/resources/app.asar.unpacked/node_modules/@signalapp/ringrtc/build/linux/libringrtc-*.node
+    # patchShebangs --host --update $out/lib/signal-desktop/resources
+    # patchelf --add-needed ${libpulseaudio}/lib/libpulse.so $out/lib/signal-desktop/resources/app.asar.unpacked/node_modules/@signalapp/ringrtc/build/linux/libringrtc-*.node
 
     # # XXX: add --ozone-platform-hint=auto to make it so that NIXOS_OZONE_WL isn't *needed*.
     # # electron should auto-detect x11 v.s. wayland: launching with `NIXOS_OZONE_WL=1` is an optional way to force it when debugging.
@@ -418,16 +422,16 @@ stdenv.mkDerivation (finalAttrs: {
     # # else `LaunchProcess: failed to execvp: xdg-settings`
     # makeShellWrapper ${lib.getExe electron'} $out/bin/signal-desktop \
     #   "''${gappsWrapperArgs[@]}" \
-    #   --add-flags $out/lib/Signal/resources/app.asar \
+    #   --add-flags $out/lib/signal-desktop/resources/app.asar \
     #   --suffix PATH : ${lib.makeBinPath [ xdg-utils ]} \
     #   --add-flags --ozone-platform-hint=auto \
     #   --add-flags "\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-features=WaylandWindowDecorations}" \
     #   --inherit-argv0
 
-    makeShellWrapper $out/lib/Signal/signal-desktop $out/bin/signal-desktop \
+    makeShellWrapper $out/lib/signal-desktop/signal-desktop $out/bin/signal-desktop \
       "''${gappsWrapperArgs[@]}" \
       --suffix PATH : ${lib.makeBinPath [ xdg-utils ]} \
-      --add-flags --ozone-platform-hint=auto \
+      --add-flag --ozone-platform-hint=auto \
       --add-flags "\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-features=WaylandWindowDecorations}" \
       --inherit-argv0
   '';
@@ -446,6 +450,9 @@ stdenv.mkDerivation (finalAttrs: {
       # ignore beta versions
       extraArgs = [ "--version-regex" "v([0-9.]+)" ];
     };
+    # XXX(2025-07-05): 7.60.0 -> 7.61.0 upgrade disconnects me from Signal's network;
+    # 7.60.0 > 7.61.0 is also an irreversible database upgrade; to rollback, one must restore the database from a fs snapshot or backup.
+    updateWithSuper = false;
   };
 
   meta = {

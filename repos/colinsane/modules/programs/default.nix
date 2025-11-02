@@ -42,9 +42,11 @@ let
     else
       let
         vpn = if sandbox.net == "vpn" then
-          lib.findSingle (v: v.isDefault) null null (builtins.attrValues config.sane.vpn)
+          let
+            firstVpn = lib.findSingle (v: v.isDefault) null null (builtins.attrValues config.sane.vpn);
+          in assert firstVpn != config.sane.vpn.wg-home; firstVpn
         else if sandbox.net == "vpn.wg-home" then
-          config.sane.vpn.wg-home
+          config.sane.vpn.wg-home or null
         else
           null
         ;
@@ -131,6 +133,7 @@ let
       name = mkOption {
         type = types.str;
         default = name;
+        defaultText = lib.literalExpression "name";
       };
       packageUnwrapped = mkOption {
         type = types.nullOr types.package;
@@ -146,6 +149,7 @@ let
             # this indexing will throw if the package doesn't exist and the user forgets to specify
             # a valid source explicitly.
             lib.getAttrFromPath pkgPath pkgs;
+        defaultText = lib.literalExpression ''pkgs.''${lib.splitString "." name}'';
       };
       package = mkOption {
         type = types.nullOr types.package;
@@ -156,14 +160,12 @@ let
       };
       enableFor.system = mkOption {
         type = types.bool;
-        default = defaultEnables."${name}".system;
         description = ''
           place this program on the system PATH
         '';
       };
       enableFor.user = mkOption {
         type = types.attrsOf types.bool;
-        default = defaultEnables."${name}".user;
         description = ''
           place this program on the PATH for some specified user(s).
         '';
@@ -195,6 +197,12 @@ let
           gsetting config values to provide this program (and the broader system).
           this is the nix representation of what you'd want `dconf dump /` to show
           (only, it's not plumbed to dconf but rather the layer above it -- gsettings).
+
+          this is typically set by:
+          1. run a program, unsandboxed.
+          2. modify a setting inside the program's UI.
+          3. grep `~/.config/glib-2.0/settings/keyfile` to find what it set.
+          4. add the settings you care about to the program's nix `gsettings`.
         '';
         example = ''
         {
@@ -304,6 +312,8 @@ let
               "sound"
             ] ++ lib.optionals (builtins.elem "gnome-keyring" config.suggestedPrograms) [
               "gnome-keyring"
+            ] ++ lib.optionals config.sandbox.whitelistSsh [
+              "ssh-agent"
             ];
           }
         );
@@ -575,12 +585,28 @@ let
           allow the program to start/stop s6 services.
         '';
       };
+      sandbox.whitelistSecurityKeys = mkOption {
+        type = types.bool;
+        default = false;
+        description = ''
+          allow sandbox to freely interact with hardware security keys, like Yubikeys.
+          it would seem the protocol for interacting with these is fairly ad-hoc, and based upon USB HID.
+          so generally this option over-exposes, and grants the sandbox access to *all* USB HID devices.
+        '';
+      };
       sandbox.whitelistSendNotifications = mkOption {
         type = types.bool;
         default = false;
         description = ''
           allow the program to send notifications to the desktop manager (like `notify-send`).
           typically works via dbus.
+        '';
+      };
+      sandbox.whitelistSsh = mkOption {
+        type = types.bool;
+        default = false;
+        description = ''
+          allow the program to communicate with ssh-agent.
         '';
       };
       sandbox.whitelistSystemctl = mkOption {
@@ -623,7 +649,7 @@ let
       };
       sandbox.extraRuntimePaths = mkOption {
         type = types.listOf types.str;
-        default = [ ];
+        default = [];
         description = ''
           additional $XDG_RUNTIME_DIR-relative paths to bind into the sandbox.
           e.g. `[ "bus" "wayland-1" ]` to bind the dbus and wayland sockets.
@@ -692,7 +718,10 @@ let
     config = let
       enabledForUser = builtins.any (en: en) (lib.attrValues config.enableFor.user);
       passesSlowTest = config.buildCost <= saneCfg.maxBuildCost;
+      mkWeakDefault = lib.mkOverride 2000; #< even weaker than `mkDefault`
     in {
+      enableFor.system = mkWeakDefault defaultEnables."${name}".system;
+      enableFor.user = mkWeakDefault defaultEnables."${name}".user;
       enabled = (config.enableFor.system || enabledForUser) && passesSlowTest;
       package = if config.packageUnwrapped == null then
         null
@@ -818,6 +847,38 @@ let
           "/sys/devices"
           "/sys/firmware"  #< for moby camera, to parse its devicetree
           # "/dev"
+        ] ++ lib.optionals config.sandbox.whitelistSecurityKeys [
+          "/dev/hidraw0"
+          "/dev/hidraw1"
+          "/dev/hidraw2"
+          "/dev/hidraw3"
+          "/dev/hidraw4"
+          "/dev/hidraw5"
+          "/dev/hidraw6"
+          "/dev/hidraw7"
+          "/dev/hidraw8"
+          "/dev/hidraw9"
+          "/dev/hidraw10"
+          "/dev/hidraw11"
+          "/dev/hidraw12"
+          "/dev/hidraw13"
+          "/dev/hidraw14"
+          "/dev/hidraw15"
+          "/dev/hidraw16"
+          "/dev/hidraw17"
+          "/dev/hidraw18"
+          "/dev/hidraw19"
+          "/dev/hidraw20"
+          "/dev/hidraw21"
+          "/dev/hidraw22"
+          "/dev/hidraw23"
+          "/dev/hidraw24"
+          "/dev/hidraw25"
+          "/dev/hidraw26"
+          "/dev/hidraw27"
+          "/dev/hidraw28"
+          "/dev/hidraw29"
+          "/sys/class/hidraw"
         ] ++ lib.optionals config.sandbox.whitelistSystemctl [
           "/run/systemd/system"  # TODO(2025-01-20): still necessary?
           "/run/systemd/private"
@@ -828,6 +889,7 @@ let
         ++ lib.optionals config.sandbox.whitelistDbus.user.all [ "dbus" ]
         ++ lib.optionals config.sandbox.whitelistWayland [ "wl" ]  # app can still communicate with wayland server w/o this, if it has net access
         ++ lib.optionals config.sandbox.whitelistS6 [ "s6" ]  # TODO: this allows re-writing the services themselves: don't allow that!
+        ++ lib.optionals config.sandbox.whitelistSsh [ "ssh-agent" ]
       ;
       sandbox.extraHomePaths = let
         whitelistDir = dir: lib.optionals (lib.any (p: lib.hasPrefix "${dir}/" p) (builtins.attrNames config.fs)) [

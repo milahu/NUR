@@ -13,7 +13,7 @@ let
     "nofail"
     # "noexec"  # handful of scripts in ~/knowledge that are executable
     "nodev"   # only works via mount.fuse; gocryptfs requires this be passed as `-ko nodev`
-    "nosuid"  # only works via mount.fuse; gocryptfs requires this be passed as `-ko nosuid` (also, nosuid is default)
+    # "nosuid"  # only works via mount.fuse; gocryptfs requires this be passed as `-ko nosuid` (also, nosuid is default)
     "allow_other"  # root ends up being the user that mounts this, so need to make it visible to other users.
     # "quiet"
     # "defaults"  # "unknown flag: --defaults. Try 'gocryptfs -help'"
@@ -92,11 +92,20 @@ lib.mkIf config.sane.persist.enable
     type = fsType;
     options = lib.concatStringsSep "," options;
     after = [ "gocryptfs-private-key.service" ];
+    before = [ "emergency.service" ];
     wants = [ "gocryptfs-private-key.service" ];
+
+    unitConfig.Conflicts = [
+      # emergency.service drops the user into a root shell;
+      # only accessible via physical TTY, but unmount sensitive data before that as a precaution.
+      "emergency.service"
+    ];
 
     unitConfig.RequiresMountsFor = [ backing ];
     # unitConfig.DefaultDependencies = "no";
     # mountConfig.TimeoutSec = "infinity";
+
+    mountConfig.LazyUnmount = true;  #< else it usually fails "target is busy"
 
     # hardening (systemd-analyze security mnt-persist-private.mount)
     mountConfig.AmbientCapabilities = "CAP_SYS_ADMIN CAP_DAC_OVERRIDE CAP_DAC_READ_SEARCH CAP_CHOWN CAP_MKNOD CAP_LEASE CAP_SETGID CAP_SETUID CAP_FOWNER";

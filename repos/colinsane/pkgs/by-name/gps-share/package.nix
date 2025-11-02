@@ -1,10 +1,10 @@
 {
   fetchFromGitHub,
   lib,
+  nix-update-script,
   pkg-config,
   rustPlatform,
   udev,
-  unstableGitUpdater,
 }:
 
 rustPlatform.buildRustPackage {
@@ -20,7 +20,6 @@ rustPlatform.buildRustPackage {
   };
 
   cargoHash = "sha256-WhYHFaSZfnlEmlXFLj7BIt0agMFuz07LcAXJ9ZOOrvY=";
-  useFetchCargoVendor = true;
 
   nativeBuildInputs = [
     pkg-config
@@ -30,7 +29,9 @@ rustPlatform.buildRustPackage {
     udev
   ];
 
-  passthru.updateScript = unstableGitUpdater { };
+  passthru.updateScript = nix-update-script {
+    extraArgs = [ "--version=branch" ];
+  };
 
   meta = with lib; {
     description = "utility to share your GPS device on local network";

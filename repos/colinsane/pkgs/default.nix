@@ -53,10 +53,22 @@ let
       };
     });
 
+    ### FIREFOX EXTENSIONS
+    # build like `nix-build -A firefox-extensions.default-zoom`.
+    # doesn't *need* to be its own scope, but this style of organization makes it easier to track.
+    firefox-extensions = lib.filesystem.packagesFromDirectoryRecursive {
+      inherit callPackage newScope;
+      directory = ./firefox-extensions;
+    };
+
+    ### OLLAMA PACKAGES (i.e. Large Language Models)
+    # build like `nix-build -A ollamaPackages.deepseek-r1-1_5b`
+    ollamaPackages = lib.filesystem.packagesFromDirectoryRecursive {
+      inherit callPackage newScope;
+      directory = ./ollamaPackages;
+    };
+
     ### aliases
-    # nixpkgs = nixpkgs-bootstrap.master;
-    # nixpkgs-staging = nixpkgs-bootstrap.staging;
-    # nixpkgs-next = nixpkgs-bootstrap.staging-next;
     inherit (trivial-builders)
       copyIntoOwnPackage
       deepLinkIntoOwnPackage

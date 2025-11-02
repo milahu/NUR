@@ -19,6 +19,7 @@
       "export"  # to read filesystem exports (servo)
       "feedbackd"  # moby, so `fbcli` can control vibrator and LEDs
       "input"  # for /dev/input/<xyz>... TODO:is this still necessary?
+      "kvm"  # for qemu; /dev/kvm
       "media"  # servo
       "named"  # for `sane-vpn {up,down}`
       "networkmanager"
@@ -36,6 +37,10 @@
 
     # initial password is empty, in case anything goes wrong.
     # if `colin-passwd` (a password hash) is successfully found/decrypted, that becomes the password at boot.
+    # N.B.: the linux password, here, is used for screen lockers;
+    #       the login password is dictated by gocryptfs credentials;
+    #       both are necessary for a well-functioning system.
+    #       (in the future, pam-mount *could* be used to unify those passwords)
     initialPassword = lib.mkDefault "";
     hashedPasswordFile = lib.mkIf (config.sops.secrets ? "colin-passwd") config.sops.secrets.colin-passwd.path;
 

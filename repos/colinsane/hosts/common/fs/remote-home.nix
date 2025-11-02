@@ -1,7 +1,7 @@
 { config, lib, ... }:
 let
   fsOpts = import ./fs-opts.nix;
-  ifSshAuthorized = lib.mkIf (((config.sane.hosts.by-name."${config.networking.hostName}" or {}).ssh or {}).authorized or false);
+  ifSshAuthorized = lib.mkIf (((config.sane.hosts.by-name."${config.networking.hostName or ""}" or {}).ssh or {}).authorized or false);
 
   remoteHome = name: { host ? name }: let
     mountpoint = "/mnt/${name}/home";
@@ -24,8 +24,19 @@ let
       type = fsType;
       options = lib.concatStringsSep "," options;
       wantedBy = [ "default.target" ];
-      after = [ "network-online.target" ];
+      after = [
+        "emergency.service"
+        "network-online.target"
+      ];
       requires = [ "network-online.target" ];
+
+      unitConfig.Conflicts = [
+        # emergency.service drops the user into a root shell;
+        # only accessible via physical TTY, but unmount sensitive data before that as a precaution.
+        "emergency.service"
+      ];
+
+      # mountConfig.LazyUnmount = true;  #< else it _ocassionally_ fails "target is busy"
 
       mountConfig.ExecSearchPath = [ "/run/current-system/sw/bin" ];
       mountConfig.User = "colin";
@@ -66,8 +77,9 @@ let
 in
 lib.mkMerge [
   (ifSshAuthorized (remoteHome "crappy" {}))
-  (ifSshAuthorized (remoteHome "desko" {}))
-  (ifSshAuthorized (remoteHome "lappy" {}))
+  (ifSshAuthorized (remoteHome "desko" { host = "desko-hn"; }))
+  (ifSshAuthorized (remoteHome "flowy" {}))
+  # (ifSshAuthorized (remoteHome "lappy" {}))
   (ifSshAuthorized (remoteHome "moby" { host = "moby-hn"; }))
   (ifSshAuthorized (remoteHome "servo" {}))
 ]

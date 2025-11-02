@@ -52,7 +52,7 @@
   };
 
   # allow `nix-shell` (and probably nix-index?) to locate our patched and custom packages.
-  # this is actually a no-op, and the real action happens in assigning `nix.settings.nix-path`.
+  # this setting alone doesn't have effect; rather it influences `nix.settings.nix-path` (above), which has the actual effect.
   nix.nixPath = (lib.optionals (config.sane.maxBuildCost >= 2) [
     "nixpkgs=${pkgs.path}"
   ]) ++ [
@@ -64,12 +64,7 @@
     # it's an impurity that touches way more than i need and tends to cause hard-to-debug eval issues
     # when it goes wrong. should i port my `nix-shell` scripts to something more tailored to my uses
     # and then delete `nixpkgs-overlays`?
-    # "nixpkgs-overlays=/home/colin/dev/nixos/integrations/nixpkgs/nixpkgs-overlays.nix"
-    # XXX(2024-09-02): nix 2.24.4 errors when nixpkgs-overlays includes a symlink component:
-    # "error: path '/home/colin/dev' is a symlink"
-    # apparently nix has to explicitly handle symlinks in every place it might encounter them,
-    # so the fixes inside nix for this are manual and fragile. dereference it ourselves:
-    "nixpkgs-overlays=${config.sane.fs."/home/colin/dev".symlink.target}/nixos/integrations/nixpkgs/nixpkgs-overlays.nix"
+    "nixpkgs-overlays=/home/colin/dev/nixos/integrations/nixpkgs/nixpkgs-overlays.nix"
   ];
 
   # ensure new deployments have a source of this repo with which they can bootstrap.

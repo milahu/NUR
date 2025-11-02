@@ -16,12 +16,15 @@ in
       #   nativeMessagingHosts = [ pkgs.fx-cast-bridge ];
       #   enable = lib.mkDefault false;
       # };
+      archive-page = {
+        enable = lib.mkDefault true;
+      };
       browserpass-extension = {
         nativeMessagingHosts = [ "browserpass" ];
         enable = lib.mkDefault true;
       };
       bypass-paywalls-clean = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
       };
       # ctrl-shift-c-should-copy = {
       #   package = pkgs.firefox-extensions.ctrl-shift-c-should-copy;
@@ -43,6 +46,9 @@ in
       # };
       i-still-dont-care-about-cookies = {
         enable = lib.mkDefault false;  #< obsoleted by uBlock Origin annoyances/cookies lists
+      };
+      kagi-search = {
+        enable = lib.mkDefault true;
       };
       # open-in-mpv = {
       #   # test: `open-in-mpv 'mpv:///open?url=https://www.youtube.com/watch?v=dQw4w9WgXcQ'`

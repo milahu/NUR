@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
 
   src = fetchFromGitHub {
     owner = "lemmy-gtk";
-    repo = pname;
+    repo = "lemoa";
     rev = "v${version}";
     hash = "sha256-XyVl0vreium83d6NqiMkdER3U0Ra0GeAgTq4pyrZyZE=";
   };
@@ -32,6 +32,12 @@ stdenv.mkDerivation rec {
     name = "${pname}-${version}";
     hash = "sha256-ALoxT+RLL4omJ7quWDJVdXgevaO8i8q/29FFFudIRV4=";
   };
+
+  postPatch = ''
+    substituteInPlace src/meson.build --replace-fail \
+      "'target' / rust_target / meson.project_name()" \
+      "'target' / '${stdenv.hostPlatform.rust.cargoShortTarget}' / rust_target / meson.project_name()"
+  '';
 
   nativeBuildInputs = [
     cargo
@@ -48,6 +54,8 @@ stdenv.mkDerivation rec {
     libadwaita
     openssl
   ];
+
+  env.CARGO_BUILD_TARGET = stdenv.hostPlatform.rust.rustcTargetSpec;
 
   passthru.updateScript = gitUpdater {
     rev-prefix = "v";

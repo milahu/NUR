@@ -9,12 +9,10 @@ let
     # because then when things go wrong i have an actual shot at bisecting.
     # this has been useful as recently as 2024/08 when sway/wlroots updates straight up don't render output:
     # <https://gitlab.freedesktop.org/wlroots/wlroots/-/merge_requests/4715#note_2523517>
-    #
-    # TODO(2025-01-19): nixpkgs-wayland.sway-unwrapped DOES NOT BUILD; re-enable this once it does.
-    # inherit (pkgs.nixpkgs-wayland)
-    #   sway-unwrapped
-    #   wlroots
-    # ;
+    inherit (pkgs.nixpkgs-wayland)
+      sway-unwrapped
+      wlroots
+    ;
   };
   cfg = config.sane.programs.sway;
   enableXWayland = config.sane.programs.xwayland.enabled;
@@ -179,6 +177,7 @@ in
       "seatd"
       # "splatmoji"  # used by sway config
       "sway-contrib.grimshot"  # used by sway config
+      "swaybg"  # required for setting the background
       "swayidle"  # enable if you need it
       "swaynotificationcenter"  # notification daemon
       "switchboard"  # network/bluetooth/sound control panel
@@ -291,8 +290,7 @@ in
       org.freedesktop.impl.portal.Inhibit=none
     '';
 
-    fs.".config/sway/config".symlink.target = pkgs.substituteAll {
-      src = ./config;
+    fs.".config/sway/config".symlink.target = (pkgs.replaceVars ./config {
       inherit (cfg.config)
         extra_lines
         font
@@ -301,6 +299,13 @@ in
         workspace_layout
       ;
       xwayland = if enableXWayland then "enable" else "disable";
+    }).overrideAttrs {
+      # @DEFAULT_AUDIO_SINK@ should remain unsubstituted: that's wireplumber syntax resolved at runtime.
+      # override `replaceVars` checkPhase to not complain about it being unsubstituted:
+      preCheck = ''
+        substitute $target targetForCheck --replace-fail '@DEFAULT_AUDIO_SINK@' 'XXX_REMOVED_FOR_CHECK_XXX'
+        target=targetForCheck
+      '';
     };
 
     env.XDG_CURRENT_DESKTOP = "sway";
@@ -314,6 +319,13 @@ in
     # docs: <https://discourse.ubuntu.com/t/environment-variables-for-wayland-hackers/12750>
     # N.B.: gtk apps support absolute paths for this; webkit apps (e.g. geary) support only relative paths (relative to $XDG_RUNTIME_DIR)
     env.WAYLAND_DISPLAY = "wl/wayland-1";
+    # XXX(2025-07-31): XDG_SESSION_TYPE=wayland is ingested by a number of libraries/application frameworks
+    # - Qt reads this to decide X11 (default) v.s. Wayland (alternatively, set QT_QPA_PLATFORM=wayland).
+    # - webrtc screen sharing *requires* this to be set else it can only share X11 windows. <https://github.com/emersion/xdg-desktop-portal-wlr/wiki/Screencast-Compatibility>
+    #   - affects Firefox, Zoom, maybe others?
+    # - Komikku crashes without this set.
+    # - xdg-desktop-portal-gnome requires this to be set??
+    env.XDG_SESSION_TYPE = "wayland";
 
     # services.private-storage.dependencyOf = [ "sway" ];  #< HACK: prevent unl0kr and sway from fighting over the tty
     services.sway = {

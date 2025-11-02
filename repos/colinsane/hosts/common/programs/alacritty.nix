@@ -54,6 +54,12 @@ in
       key = "PageDown"
       action = "ScrollPageDown"
 
+      [[keyboard.bindings]]
+      # disable builtin Ctrl+Shift+Space => visual selection binding
+      mods = "Control|Shift"
+      key = "Space"
+      action = "None"
+
       # disable OS shortcuts which leak through...
       # see sway config or sane-input-handler for more info on why these leak through
       [[keyboard.bindings]]

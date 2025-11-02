@@ -36,6 +36,7 @@
     locations."/" = {
       proxyPass = "http://${config.sane.netns.ovpns.veth.netns.ipv4}:5030";
       proxyWebsockets = true;
+      recommendedProxySettings = true;
     };
   };
 
