@@ -75,6 +75,9 @@ let
     inherit sources;
     inherit (final) librime;
   };
+  leanPackages = callPackage ./lean-packages {
+    inherit sources;
+  };
 in
 toplevelPackages
 # nested packages
@@ -85,7 +88,10 @@ toplevelPackages
   libsForQt5 = prev.libsForQt5.overrideScope qt5-overlay;
   kdePackages = prev.kdePackages.overrideScope kde-overlay;
   lib = prev.lib.extend lib-overlay;
-  inherit rimePackages;
+  inherit
+    rimePackages
+    leanPackages
+    ;
 
   nur-wrvsrx._packageNames = {
     _packageNames = builtins.attrNames toplevelPackages;
@@ -101,5 +107,6 @@ toplevelPackages
     rimePackages._packageNames = builtins.attrNames rimePackages;
     kdePackages._packageNames = builtins.attrNames (kde-overlay prev.kdePackages prev.kdePackages);
     libsForQt5._packageNames = builtins.attrNames (qt5-overlay prev.libsForQt5 prev.libsForQt5);
+    leanPackages._packageNames = builtins.attrNames leanPackages;
   };
 }
