@@ -672,10 +672,6 @@ src.to_pattern = "\\1.\\2.\\3"
 fetch.github = "ReimuHakurei/phppgadmin"
 src.github = "ReimuHakurei/phppgadmin"
 
-[piliplus]
-fetch.github = "bggRGjQaUbCoE/PiliPlus"
-src.github = "bggRGjQaUbCoE/PiliPlus"
-
 [plangothic-fonts]
 fetch.github = "Fitzgerald-Porthmouth-Koenigsegg/Plangothic_Project"
 src.github = "Fitzgerald-Porthmouth-Koenigsegg/Plangothic_Project"
@@ -898,9 +894,10 @@ fetch.url = "https://github.com/Suwayomi/Suwayomi-Server/releases/download/$ver/
 src.github = "Suwayomi/Suwayomi-Server"
 
 [svp]
-fetch.url = "https://web.archive.org/web/20250904130553/https://www.svp-team.com/files/svp4-linux.$ver.tar.bz2"
+fetch.url = "https://web.archive.org/web/20250904130553if_/https://www.svp-team.com/files/svp4-linux.$ver.tar.bz2"
 # Pin at last free version
 src.manual = "4.6.263"
+url.name = "svp4-linux.tar.bz2"
 
 [sx1302-hal]
 fetch.github = "NebraLtd/sx1302_hal"
@@ -985,10 +982,6 @@ src.manual = "v0.3.0"
 [uksmd]
 fetch.github = "CachyOS/uksmd"
 src.github_tag = "CachyOS/uksmd"
-
-[uksmd-procps]
-fetch.url = "https://sourceforge.net/projects/procps-ng/files/Production/procps-ng-$ver.tar.xz"
-src.archpkg = "procps-ng"
 
 [uni-api]
 fetch.github = "yym68686/uni-api"
