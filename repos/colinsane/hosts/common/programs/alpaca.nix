@@ -42,9 +42,11 @@
         # for nulled dependencies (above), patch so the application only errors
         # at runtime, on first attempted use.
         substituteInPlace src/widgets/attachments.py \
-          --replace-fail 'from markitdown' '# from markitdown'
+          --replace-fail 'from markitdown'  '# from markitdown'
         substituteInPlace src/widgets/activities/web_browser.py \
-          --replace-fail 'from markitdown' '# from markitdown'
+          --replace-fail 'from markitdown'  '# from markitdown'
+        substituteInPlace src/widgets/blocks/table.py \
+          --replace-fail 'import pandas'  '# inport pandas'
 
         substituteInPlace src/widgets/activities/camera.py \
           --replace-fail 'import cv2,'  'import'
@@ -56,7 +58,10 @@
     sandbox.whitelistWayland = true;
     sandbox.mesaCacheDir = ".cache/com.jeffser.Alpaca/mesa";
 
-    sandbox.whitelistDbus.user.own = [ "com.jeffser.Alpaca" ];
+    sandbox.whitelistDbus.user.own = [
+      "com.jeffser.Alpaca"
+      "com.jeffser.Alpaca.Service"
+    ];
     sandbox.whitelistPortal = [
       "OpenURI"
     ];

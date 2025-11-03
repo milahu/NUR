@@ -5,7 +5,7 @@ in
 {
   options = {
     sane.hal.x86_64.enable = (lib.mkEnableOption "x86_64-specific hardware support") // {
-      default = pkgs.system == "x86_64-linux";
+      default = pkgs.stdenv.hostPlatform.system == "x86_64-linux";
     };
   };
   config = lib.mkIf cfg.enable {

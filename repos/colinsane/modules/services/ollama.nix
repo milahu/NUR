@@ -52,6 +52,8 @@ let
       gemma3n-e2b
       gemma3n-e4b
       # glm4-9b  # it generates invalid code
+      gpt-oss-20b
+      gpt-oss-120b
       # hermes3-8b  # FAST, but unwieldy
       # kimi-k2-1026b  # MoE with 32B activated parameters, 384 experts (requires 384 GiB RAM)
       # llama3-chatqa-8b  # it gets stuck

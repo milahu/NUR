@@ -44,10 +44,17 @@ in
   })
 
   (fetchpatch' {
+    # TODO: push upstream
+    name = "pyright: fix cross compilation";
+    saneCommit = "b6ee8063d934123df51fc894908577bb1a305392";
+    hash = "sha256-1QNBEh/yCzbR0spMUFXkP27bZWDgKYMq8yP5GyTbJ6w=";
+  })
+
+  (fetchpatch' {
     name = "libshumate: fix vapi file generation when cross compiling";
     prUrl = "https://github.com/NixOS/nixpkgs/pull/449044";
     # saneCommit = "ddeb72ba7d8dc166c1b51648c0e974a0c48f8bb3";
-    hash = "sha256-3WJHal5OyLsO1ESlx5YlcPky2DD+nooWgBit2QMcz2I=";
+    hash = "sha256-mmI1QT/vW7/V2Nh+tIa4VsLcjxMxEVEjZVHw9OrZLeI=";
   })
 
   (fetchpatch' {
