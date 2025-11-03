@@ -8,13 +8,13 @@
 buildGoModule rec {
   name = "legionlinuxtui";
 
-  version = "0.1.2";
+  version = "main";
 
   src = fetchFromGitHub {
     owner = "nooneknowspeter";
     repo = "legionlinuxtui";
-    rev = "v${version}";
-    hash = "sha256-Uyw9xp3EUerbJQ52nc5Anwccp46BO1e2q2M+6YYVMus=";
+    rev = "${version}";
+    hash = "sha256-W8CLgQv5B8b/wcy9bPjeRFegO3zIBMqbGQFOnx0Fd8g=";
   };
 
   vendorHash = null;
