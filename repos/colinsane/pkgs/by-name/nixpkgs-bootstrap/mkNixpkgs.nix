@@ -42,6 +42,7 @@
   fetchzip ? null,
   nixpkgs-bootstrap-updater ? null,
   stdenv ? null,
+  vendorPatch ? null,
 #VVV config
   localSystem ? if stdenv != null then stdenv.buildPlatform.system else builtins.currentSystem,  #< not available in pure mode
   system ? if stdenv != null then stdenv.hostPlatform.system else localSystem,
@@ -100,6 +101,8 @@ let
 
     applyPatches' = if applyPatches != null then applyPatches else unpatchedNixpkgs.applyPatches;
     fetchpatch2' = if fetchpatch2 != null then fetchpatch2 else unpatchedNixpkgs.fetchpatch2;
+    stdenv' = if stdenv != null then stdenv else unpatchedNixpkgs.stdenv;
+    vendorPatch' = if vendorPatch != null then vendorPatch else import ./vendorPatch { stdenv = stdenv'; };
 
     srcMeta = (src'.meta or {}) // {
       position = let
@@ -107,6 +110,8 @@ let
       in
         "${position.file}:${toString position.line}";
     };
+
+    patches = import ./patches { fetchpatch2 = fetchpatch2'; vendorPatch = vendorPatch'; };
 
     patchedSrc = applyPatches' {
       name = "nixpkgs-${branch}-sane";
@@ -125,6 +130,7 @@ let
           # for convenience:
           pkgs = nixpkgs;
           unpatchedSrc = src';
+          patches = patches;
         } // optionalAttrs (nixpkgs-bootstrap-updater != null) {
           updateScript = nixpkgs-bootstrap-updater.makeUpdateScript {
             inherit branch;
@@ -132,7 +138,7 @@ let
         };
       };
 
-      patches = import ./patches.nix { fetchpatch2 = fetchpatch2'; };
+      patches = builtins.attrValues patches;
       # skip applied patches
       prePatch = ''
         realpatch=$(command -v patch)

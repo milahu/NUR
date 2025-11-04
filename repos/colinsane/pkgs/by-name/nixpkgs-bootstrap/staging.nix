@@ -2,8 +2,8 @@
   mkNixpkgs ? import ./mkNixpkgs.nix {},
 }:
 mkNixpkgs {
-  rev = "9c7c6cc7fff9afa12734594b5c363f5645220862";
-  sha256 = "sha256-Gnusu/7leN/ZCFhkbpfsBwp9MTNPWZssFDqwyXmjghg=";
-  version = "unstable-2025-10-31";
+  rev = "e9b8da1eccbecfd2686109acd67693dc9de548a4";
+  sha256 = "sha256-IHMHV7+kcr8Yw0Z3FrGlCNM898ykoliPltCiNdNrihM=";
+  version = "unstable-2025-11-03";
   branch = "staging";
 }

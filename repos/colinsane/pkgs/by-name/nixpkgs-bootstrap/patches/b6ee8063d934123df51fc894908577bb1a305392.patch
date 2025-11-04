@@ -1,0 +1,40 @@
+From b6ee8063d934123df51fc894908577bb1a305392 Mon Sep 17 00:00:00 2001
+From: Colin <colin@uninsane.org>
+Date: Sat, 1 Nov 2025 22:52:14 +0000
+Subject: [PATCH] pyright: fix cross compilation
+
+as `jq` is invoked at build time, we need to explicitly use the
+the build `jq` instead of the host `jq`. that can be done by placing
+it in `nativeBuildInputs`.
+---
+ pkgs/by-name/py/pyright/package.nix | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
+
+diff --git a/pkgs/by-name/py/pyright/package.nix b/pkgs/by-name/py/pyright/package.nix
+index dea2ba75cea0..2a5264a892ad 100644
+--- a/pkgs/by-name/py/pyright/package.nix
++++ b/pkgs/by-name/py/pyright/package.nix
+@@ -16,12 +16,17 @@ let
+     hash = "sha256-hSPnUjIZf9od1u7PwgEFDXGWmizjdqSiXjb45wZIM9Q=";
+   };
+ 
+-  patchedPackageJSON = runCommand "package.json" { } ''
+-    ${jq}/bin/jq '
+-      .devDependencies |= with_entries(select(.key == "glob" or .key == "jsonc-parser"))
+-      | .scripts =  {  }
+-      ' ${src}/package.json > $out
+-  '';
++  patchedPackageJSON =
++    runCommand "package.json"
++      {
++        nativeBuildInputs = [ jq ];
++      }
++      ''
++        jq '
++          .devDependencies |= with_entries(select(.key == "glob" or .key == "jsonc-parser"))
++          | .scripts =  {  }
++          ' ${src}/package.json > $out
++      '';
+ 
+   pyright-root = buildNpmPackage {
+     pname = "pyright-root";
