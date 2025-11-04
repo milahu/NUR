@@ -14,7 +14,12 @@
   glib,
   libjpeg,
   libpng,
+  libselinux,
+  libsepol,
+  libsysprof-capture,
   libxml2,
+  pcre2,
+  util-linux,
   xorg,
 }:
 let
@@ -79,8 +84,15 @@ stdenv.mkDerivation (finalAttrs: {
     glib
     libjpeg
     libpng
+    libsysprof-capture
     libxml2
+    pcre2
     xorg.libXdmcp
+  ]
+  ++ lib.optionals stdenv.isLinux [
+    libselinux
+    libsepol
+    util-linux
   ];
 
   nativeBuildInputs = [
@@ -91,6 +103,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   cmakeFlags = [
     (lib.cmakeFeature "CMAKE_INSTALL_RPATH" (lib.makeLibraryPath [ freetype ]))
+    (lib.cmakeFeature "CMAKE_POLICY_VERSION_MINIMUM" "3.5")
   ];
 
   meta = {
