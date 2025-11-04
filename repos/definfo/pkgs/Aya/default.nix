@@ -3,15 +3,11 @@
   fetchFromGitHub,
   makeWrapper,
   lib,
-  gradle_9,
-  jdk25,
+  gradle,
+  jdk,
+  nix-update-script,
   mainProgram ? "aya",
 }:
-
-let
-  gradle = gradle_9;
-  jdk = jdk25;
-in
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "aya-prover";
@@ -83,9 +79,11 @@ stdenv.mkDerivation (finalAttrs: {
     runHook postInstall
   '';
 
+  passthru.updateScript = nix-update-script { };
+
   meta = {
+    description = "Proof assistant designed for formalizing math and type-directed programming";
     homepage = "https://www.aya-prover.org";
-    description = "A proof assistant and a dependently-typed language";
     licence = lib.licenses.mit;
     inherit mainProgram;
     maintainers = with lib.maintainers; [ definfo ];

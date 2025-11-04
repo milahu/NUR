@@ -20,16 +20,35 @@ Add following input in `flake.nix`:
 inputs.nur-definfo.url = "github:definfo/nur-packages";
 ```
 
-### Installation
+- devShell
+
+```nix
+# flake.nix
+inputs.nur-definfo.url = "github:definfo/nur-packages";
+
+outputs = { ... }:
+let
+  nur-pkgs = inputs.nur-definfo.legacyPackages.${system};
+in
+{
+  devShells.${system}.default = {
+    packages = [
+      nur-pkgs.aya
+      # nur-pkgs.aya-minimal
+    ];
+  };
+}
+```
 
 - NixOS configuration
 
 ```nix
 { pkgs, ... }:
+let
+  nur-pkgs = inputs.nur-definfo.legacyPackages.${pkgs.system};
+in
 {
-  environment.systemPackages = [
-    inputs.nur-definfo.legacyPackages.${pkgs.system}.aya-prover
-  ];
+  environment.systemPackages = [ nur-pkgs.aya ];
 }
 ```
 
@@ -37,19 +56,10 @@ inputs.nur-definfo.url = "github:definfo/nur-packages";
 
 ```nix
 { pkgs, ... }:
+let
+  nur-pkgs = inputs.nur-definfo.legacyPackages.${pkgs.system};
+in
 {
-  home.packages = [ inputs.nur-definfo.legacyPackages.${pkgs.system}.aya-prover ];
+  home.packages = [ nur-pkgs.aya ];
 }
-```
-
-- Nix 3 CLI (through Nix registry)
-
-Try temporarily:
-
-```bash
-nix run nur-definfo#aya-prover -- -i
-```
-
-```bash
-nix profile nur-definfo#aya-prover
 ```
