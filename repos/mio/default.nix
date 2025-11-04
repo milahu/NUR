@@ -216,16 +216,9 @@ rec {
       patches = [ ];
     })
   );
-  tuxguitar = pkgs.tuxguitar.overrideAttrs (old: rec {
-    version = "2.0.0beta4";
-    src = pkgs.fetchurl {
-      url = "https://github.com/helge17/tuxguitar/releases/download/${version}/tuxguitar-${version}-linux-swt-amd64.tar.gz";
-      hash = "sha256-QJ8SRY7UBtkICe312O6n8KgbF2MmLpdk2qBseaEUTIc=";
-    };
-    meta = old.meta // {
-      broken = pkgs.stdenv.hostPlatform.isDarwin || pkgs.stdenv.targetPlatform.isAarch64;
-    };
-  });
+  # tuxguitar and swt are wip for darwin
+  swt = nodarwin (pkgs.callPackage ./pkgs/swt/package.nix { });
+  tuxguitar = nodarwin (pkgs.callPackage ./pkgs/tuxguitar { swt = swt; });
   aria2 = v3override (
     pkgs.aria2.overrideAttrs (old: {
       patches = (old.patches or [ ]) ++ [
@@ -242,9 +235,19 @@ rec {
   jellyfin-media-player = v3override (pkgs.qt6Packages.callPackage ./pkgs/jellyfin-media-player { });
   cacert_3108 = pkgs.callPackage ./pkgs/cacert_3108 { };
   mdbook-generate-summary = v3overrideAttrs (pkgs.callPackage ./pkgs/mdbook-generate-summary { });
-  beammp-launcher = nodarwin (
-    pkgs.callPackage ./pkgs/beammp-launcher/package.nix { cacert_3108 = cacert_3108; }
-  );
+  beammp-launcher = pkgs.callPackage ./pkgs/beammp-launcher/package.nix {
+    cacert_3108 = cacert_3108;
+  };
+  caddy = (goV3OverrideAttrs pkgs.caddy).withPlugins {
+    # https://github.com/crowdsecurity/example-docker-compose/blob/main/caddy/Dockerfile
+    # https://github.com/NixOS/nixpkgs/pull/358586
+    plugins = [
+      "github.com/caddy-dns/cloudflare@v0.2.2"
+      "github.com/porech/caddy-maxmind-geolocation@v1.0.1"
+      # "github.com/hslatman/caddy-crowdsec-bouncer/http@main"
+    ];
+    hash = "sha256-+3itNp/as78n584eDu9byUvH5LQmEsFrX3ELrVjWmEw=";
+  };
   /*
     firefox-unwrapped_nightly = nodarwin (
       v3override (
