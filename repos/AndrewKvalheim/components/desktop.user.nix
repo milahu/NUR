@@ -23,6 +23,9 @@ in
     home.packages = with pkgs; [
       gnome-tweaks
     ];
+    dbus.packages = with pkgs;  [
+      stretch-break
+    ];
 
     # GNOME Shell
     programs.gnome-shell = {
@@ -34,6 +37,7 @@ in
         launcher
         paperwm
         run-or-raise
+        stretch-break-companion
         system-monitor-next
       ]);
     };
@@ -164,6 +168,8 @@ in
           { wm_class = "firefox"; title = "Picture-in-Picture"; scratch_layer = true; }
           { wm_class = "@joplin/app-desktop"; preferredWidth = "${toString term}px"; }
           { wm_class = "qalculate-gtk"; preferredWidth = "480px"; }
+          { wm_class = "stretch-break"; scratch_layer = true; }
+          { wm_class = "io.github.pieterdd.StretchBreak"; scratch_layer = true; }
           { wm_class = "Tor Browser"; scratch_layer = true; }
         ]);
       };

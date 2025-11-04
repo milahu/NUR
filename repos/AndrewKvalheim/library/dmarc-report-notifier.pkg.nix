@@ -24,7 +24,7 @@ python3Packages.buildPythonApplication rec {
 
   propagatedBuildInputs = with python3Packages; [
     jinja2
-    jinja2_pluralize
+    jinja2-pluralize
     matrix-nio
     parsedmarc
   ];

@@ -77,6 +77,7 @@ specify {
   spf-check = any;
   spf-tree = any;
   starship-jj = any;
+  stretch-break = any;
   tile-stitch = any;
   unln = any;
   vscode-extensions = namespaced {

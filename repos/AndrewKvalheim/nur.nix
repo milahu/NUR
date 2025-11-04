@@ -70,6 +70,7 @@ rec {
   spf-check = callPackage ./library/spf-check.pkg.nix { };
   spf-tree = callPackage ./library/spf-tree.pkg.nix { };
   starship-jj = callPackage ./library/starship-jj.pkg.nix { };
+  stretch-break = callPackage ./library/stretch-break.pkg.nix { };
   tile-stitch = callPackage ./library/tile-stitch.pkg.nix { };
   wireguard-vanity-address = callPackage ./library/wireguard-vanity-address.pkg.nix { };
 }
