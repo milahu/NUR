@@ -12,6 +12,7 @@ pkgs ? import <nixpkgs> { }
 , pkgs2411 ? pkgs
 , pkgs2505 ? pkgs
 , pkgsUnstable ? pkgs
+, stardropPkgs ? null
 }:
 
 {
@@ -19,6 +20,7 @@ pkgs ? import <nixpkgs> { }
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
+
 
   samloader = pkgs.callPackage ./pkgs/samloader { };
   gogextract = pkgs.callPackage ./pkgs/gogextract { };
@@ -33,7 +35,12 @@ pkgs ? import <nixpkgs> { }
   #nexus-autodl = pkgs2505.callPackage ./pkgs/nexus-autodl { };
   bsa-browser-cli = pkgs.callPackage ./pkgs/bsa-browser-cli { };
   deflix-stremio = pkgs.callPackage ./pkgs/deflix-stremio { };
+  archive-org-downloader = pkgs.callPackage ./pkgs/archive.org-downloader { };
+  #glojure = pkgs.callPackage ./pkgs/glojure { };
+  salmagundi = pkgs.callPackage ./pkgs/salmagundi { };
+  chadstr = pkgs.callPackage ./pkgs/chadstr { };
+  radontea = pkgs.callPackage ./pkgs/radontea { };
 
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
-  # ...
+  stardrop = if stardropPkgs != null then stardropPkgs.default else null;
 }
