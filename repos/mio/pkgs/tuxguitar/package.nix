@@ -5,6 +5,7 @@
   maven,
   swt,
   jdk,
+  jre,
   makeWrapper,
   pkg-config,
   alsa-lib,
@@ -17,6 +18,10 @@
   which,
   wrapGAppsHook3,
   nixosTests,
+  # Darwin frameworks - imported directly, only on Darwin
+  AudioUnit ? null,
+  CoreAudio ? null,
+  CoreFoundation ? null,
 }:
 
 let
@@ -32,13 +37,18 @@ let
 
   swtArtifactId =
     if stdenv.hostPlatform.isDarwin then
-      "org.eclipse.swt.cocoa.macosx.x86_64"
+      if stdenv.hostPlatform.isAarch64 then
+        "org.eclipse.swt.cocoa.macosx.aarch64"
+      else
+        "org.eclipse.swt.cocoa.macosx.x86_64"
+    else if stdenv.hostPlatform.isx86_64 then
+      "org.eclipse.swt.gtk.linux.x86_64"
     else
-      "org.eclipse.swt.gtk.linux";
+      "org.eclipse.swt.gtk.linux.aarch64";
 
   buildScript =
     if stdenv.hostPlatform.isDarwin then
-      "desktop/build-scripts/tuxguitar-macosx-cocoa-64/pom.xml"
+      "desktop/build-scripts/tuxguitar-macosx-swt-cocoa/pom.xml"
     else
       "desktop/build-scripts/tuxguitar-linux-swt/pom.xml";
 
@@ -103,15 +113,22 @@ let
 
     outputHashMode = "recursive";
     outputHashAlgo = "sha256";
-    outputHash = "sha256-Pcxr3ab8kqTIs5bfcm4zGbva0evUYYiBr1vBwjWFMl4=";
+    outputHash =
+      if stdenv.hostPlatform.isDarwin then
+        "sha256-+KGa+D+bHN/75FBKvh6+5nTQigQh7uCxVv+3o5VoT4w="
+      else
+        "sha256-Pcxr3ab8kqTIs5bfcm4zGbva0evUYYiBr1vBwjWFMl4=";
   };
 
 in
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   inherit pname version src;
 
   patches = [
     ./fix-lv2-include.patch
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isDarwin [
+    ./fix-audiounit-makefile.patch
   ];
 
   nativeBuildInputs = [
@@ -129,6 +146,9 @@ stdenv.mkDerivation rec {
     libpulseaudio.dev
     suil
     qt5.qtbase.dev
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isDarwin [
+    stdenv.cc
   ];
 
   buildInputs = [
@@ -142,6 +162,11 @@ stdenv.mkDerivation rec {
     libpulseaudio
     suil
     qt5.qtbase
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isDarwin [
+    AudioUnit
+    CoreAudio
+    CoreFoundation
   ];
 
   dontWrapQtApps = true;
@@ -163,7 +188,7 @@ stdenv.mkDerivation rec {
     let
       buildDir =
         if stdenv.hostPlatform.isDarwin then
-          "desktop/build-scripts/tuxguitar-macosx-cocoa-64/target"
+          "desktop/build-scripts/tuxguitar-macosx-swt-cocoa/target"
         else
           "desktop/build-scripts/tuxguitar-linux-swt/target";
     in
@@ -172,25 +197,33 @@ stdenv.mkDerivation rec {
 
       # Find the built tuxguitar directory (it's in the subdirectory where we ran maven)
       cd ${buildDir}
-      TUXGUITAR_DIR=$(ls -d tuxguitar-* | head -n 1)
     ''
     + lib.optionalString stdenv.hostPlatform.isDarwin ''
-      # macOS: Install as .app bundle
+      # macOS: The build creates tuxguitar-VERSION-macosx-swt-cocoa.app directly
+      # This directory name already ends with .app and IS the app bundle
       mkdir -p $out/Applications
-      cp -r $TUXGUITAR_DIR/tuxguitar.app $out/Applications/TuxGuitar.app
+      cp -r tuxguitar-*-macosx-swt-cocoa.app $out/Applications/TuxGuitar.app
+
+      # Fix the launch script to use the Nix JRE instead of bundled JRE
+      substituteInPlace $out/Applications/TuxGuitar.app/Contents/MacOS/tuxguitar.sh \
+        --replace-fail 'JAVA="./jre/bin/java"' 'JAVA="${jre}/bin/java"'
+
+      # Ensure the main executable has execute permissions
+      chmod +x $out/Applications/TuxGuitar.app/Contents/MacOS/tuxguitar.sh
 
       # Create command-line wrapper
       mkdir -p $out/bin
-      makeWrapper $out/Applications/TuxGuitar.app/Contents/MacOS/tuxguitar $out/bin/tuxguitar \
+      makeWrapper $out/Applications/TuxGuitar.app/Contents/MacOS/tuxguitar.sh $out/bin/tuxguitar \
         --prefix PATH : ${
           lib.makeBinPath [
-            jdk
+            jre
             which
           ]
         }
     ''
     + lib.optionalString stdenv.hostPlatform.isLinux ''
       # Linux: Install traditional layout
+      TUXGUITAR_DIR=$(ls -d tuxguitar-* | head -n 1)
       mkdir -p $out/bin
       cp -r $TUXGUITAR_DIR/dist $out/
       cp -r $TUXGUITAR_DIR/lib $out/
@@ -212,7 +245,7 @@ stdenv.mkDerivation rec {
         "''${gappsWrapperArgs[@]}" \
         --prefix PATH : ${
           lib.makeBinPath [
-            jdk
+            jre
             which
           ]
         } \
@@ -254,8 +287,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/helge17/tuxguitar";
     license = lib.licenses.lgpl2Plus;
     maintainers = with lib.maintainers; [ ardumont ];
-    platforms = lib.platforms.linux;
-    badPlatforms = lib.platforms.darwin;
+    platforms = lib.platforms.linux ++ lib.platforms.darwin;
     mainProgram = "tuxguitar";
   };
 }
