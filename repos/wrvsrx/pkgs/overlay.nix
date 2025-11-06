@@ -22,7 +22,6 @@ let
     v2ray-rules-dat = callPackage ./v2ray-rules-dat {
       inherit (sources) v2ray-rules-dat-geoip v2ray-rules-dat-geosite;
     };
-    copilot-cli = callPackage ./copilot-cli { source = sources.copilot-cli; };
 
     # my packages
     giraffe-wallpaper = callPackage ./giraffe-wallpaper { source = sources.giraffe-wallpaper; };
