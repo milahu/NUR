@@ -2,18 +2,18 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "tempesta";
-  version = "0.1.0"; # without "v"
+  version = "0.1.9"; # without "v"
 
   # Pin the source to an immutable tag/commit
   src = fetchFromGitHub {
     owner = "x71c9";
     repo = "tempesta";
     rev = "v${version}";
-    hash = "sha256-CwkLOLpXbjkSi34nMVBOuUw9DtyWics/FO2fX65pa5Q=";
+    hash = "sha256-N0ge3j1BuiGR0zxaXv+5Ya/h8sR+kZEoKgzmqf+pZzk=";
   };
 
   # Cargo dependency vendor hash (computed by Nix)
-  cargoHash = "sha256-98dADUE3jFmHj/E1n79merNznymRRdoTYbAlP6qXLgU=";
+  cargoHash = "sha256-TQHmxI4kzGVkkIzBLiDZarN+ErWYH2oSJFLYVuVqLLs=";
 
   # Enable when you have tests (recommended)
   doCheck = false;
