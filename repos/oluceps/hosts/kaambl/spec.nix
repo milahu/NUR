@@ -9,9 +9,9 @@
   # Mobile device.
 
   vaultix.templates = {
-    hyst-tyo = {
+    hyst-ab = {
       content =
-        config.vaultix.placeholder.hyst-tyo-cli
+        config.vaultix.placeholder.hyst-ab-cli
         + (
           let
             port = toString (lib.conn { }).${config.networking.hostName}.abhoth;
@@ -30,9 +30,9 @@
       name = "tyo.yaml";
       trim = false;
     };
-    hyst-hk = {
+    hyst-yi = {
       content =
-        config.vaultix.placeholder.hyst-hk-cli
+        config.vaultix.placeholder.hyst-yi-cli
         + (
           let
             port = toString (lib.conn { }).${config.networking.hostName}.yidhra;
@@ -128,11 +128,11 @@
       # };
       abhoth = {
         enable = true;
-        configFile = config.vaultix.templates.hyst-tyo.path;
+        configFile = config.vaultix.templates.hyst-ab.path;
       };
       yidhra = {
         enable = true;
-        configFile = config.vaultix.templates.hyst-hk.path;
+        configFile = config.vaultix.templates.hyst-yi.path;
       };
     };
 
@@ -272,7 +272,7 @@
     plugIn.enable = true;
     openssh.enable = true;
     fail2ban.enable = true;
-    phantomsocks.enable = true;
+    # phantomsocks.enable = true;
     garage.enable = true;
     dae.enable = true;
     dnsproxy = {

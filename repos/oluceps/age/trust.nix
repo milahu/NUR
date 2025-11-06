@@ -24,7 +24,7 @@
   "dae"
 ])
 // {
-  hyst-tyo-cli = {
+  hyst-ab-cli = {
     file = ../sec/hyst-cli.age;
     cleanPlaceholder = true;
     insert = {
@@ -38,7 +38,7 @@
       };
     };
   };
-  hyst-hk-cli = {
+  hyst-yi-cli = {
     file = ../sec/hyst-cli.age;
     cleanPlaceholder = true;
     insert = {
