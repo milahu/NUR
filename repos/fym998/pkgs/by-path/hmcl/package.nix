@@ -6,19 +6,19 @@
   wrapGAppsHook3,
   copyDesktopItems,
   imagemagick,
-  jdk,
   jdk17,
   jdk21,
-  hmclJdk ? jdk,
+  hmclJdk ? jdk21.override {
+    enableJavaFX = true; # Necessary for hardware acceleration.
+  },
   minecraftJdks ? [
-    jdk
     jdk17
-    jdk21
+    hmclJdk
   ],
   xorg,
   glib,
   libGL,
-  glfw,
+  glfw-minecraft ? callPackage ../glfw3-minecraft/package.nix { },
   openal,
   libglvnd,
   alsa-lib,
@@ -88,7 +88,7 @@ stdenv.mkDerivation (finalAttrs: {
       libpath = lib.makeLibraryPath (
         [
           libGL
-          glfw
+          glfw-minecraft
           glib
           openal
           libglvnd
@@ -106,14 +106,11 @@ stdenv.mkDerivation (finalAttrs: {
           alsa-lib
         ]
       );
-      hmclJdk' = hmclJdk.override {
-        enableJavaFX = true; # Necessary for hardware acceleration.
-      };
     in
     ''
       runHook preFixup
 
-      makeBinaryWrapper ${hmclJdk'}/bin/java $out/bin/hmcl \
+      makeBinaryWrapper ${hmclJdk}/bin/java $out/bin/hmcl \
         --add-flags "-jar $out/lib/hmcl/hmcl.jar" \
         --set LD_LIBRARY_PATH ${libpath} \
         --prefix PATH : "${lib.makeBinPath minecraftJdks}"\
