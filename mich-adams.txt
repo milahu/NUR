@@ -1,0 +1,229 @@
+error:
+… from call site
+
+  at ./default.nix:15:36:
+
+    14|   afterglow-cursors = pkgs.callPackage ./pkgs/afterglow-cursors.nix { };
+    15|     linux-postmarketos-allwinner = pkgs.pkgsCross.aarch64-multiplatform.callPackage ./pkgs/linux-postmarketos-allwinner.nix { };
+      |                                    ^
+    16|     #crust-firmware = pkgs.callPackage ./pkgs/crust-firmware.nix { };
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:259:19:
+
+   258|   callPackageWith =
+   259|     autoArgs: fn: args:
+      |                   ^
+   260|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1009:5:
+
+  1008|     # TODO: Should we add call-time "type" checking like built in?
+  1009|     __functor = self: f;
+      |     ^
+  1010|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:161:7:
+
+   160|     mirrorArgs (
+   161|       origArgs:
+      |       ^
+   162|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:163:18:
+
+   162|       let
+   163|         result = f origArgs;
+      |                  ^
+   164|
+
+… while calling anonymous lambda
+
+  at ./pkgs/linux-postmarketos-allwinner.nix:1:1:
+
+     1| {
+      | ^
+     2|   lib,
+
+… from call site
+
+  at <nixpkgs> + /pkgs/top-level/splice.nix:36:9:
+
+    35|         inherit name;
+    36|         value =
+      |         ^
+    37|           let
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:161:7:
+
+   160|     mirrorArgs (
+   161|       origArgs:
+      |       ^
+   162|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:163:18:
+
+   162|       let
+   163|         result = f origArgs;
+      |                  ^
+   164|
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:49:3:
+
+    48| lib.makeOverridable (
+    49|   {
+      |   ^
+    50|     # The kernel version
+
+… from call site
+
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:189:3:
+
+   188|
+   189|   stdenv.mkDerivation {
+      |   ^
+   190|     inherit pname version src;
+
+… while calling 'mkDerivation'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:66:18:
+
+    65|   */
+    66|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                  ^
+    67|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:66:29:
+
+    65|   */
+    66|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                             ^
+    67|
+
+… while calling 'makeDerivationExtensible'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:77:5:
+
+    76|   makeDerivationExtensible =
+    77|     rattrs:
+      |     ^
+    78|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:66:55:
+
+    65|   */
+    66|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                                                       ^
+    67|
+
+… while calling 'toFunction'
+
+  at <nixpkgs> + /lib/trivial.nix:1120:16:
+
+  1119|   */
+  1120|   toFunction = v: if isFunction v then v else k: v;
+      |                ^
+  1121|
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1120:22:
+
+  1119|   */
+  1120|   toFunction = v: if isFunction v then v else k: v;
+      |                      ^
+  1121|
+
+… while calling 'isFunction'
+
+  at <nixpkgs> + /lib/trivial.nix:1043:16:
+
+  1042|   */
+  1043|   isFunction = f: builtins.isFunction f || (f ? __functor && isFunction (f.__functor f));
+      |                ^
+  1044|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:69:14:
+
+    68|     # If unspecified, this will be autodetected from the .config
+    69|     config ? lib.optionalAttrs (builtins.isPath configfile || allowImportFromDerivation) (
+      |              ^
+    70|       readConfig configfile
+
+… while calling 'optionalAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:1478:25:
+
+  1477|   */
+  1478|   optionalAttrs = cond: as: if cond then as else { };
+      |                         ^
+  1479|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:70:7:
+
+    69|     config ? lib.optionalAttrs (builtins.isPath configfile || allowImportFromDerivation) (
+    70|       readConfig configfile
+      |       ^
+    71|     ),
+
+… while calling 'readConfig'
+
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:34:5:
+
+    33|   readConfig =
+    34|     configfile:
+      |     ^
+    35|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/os-specific/linux/kernel/build.nix:46:47:
+
+    45|     in
+    46|     lib.listToAttrs (lib.concatMap matchLine (lib.splitString "\n" (builtins.readFile configfile)));
+      |                                               ^
+    47| in
+
+… while calling 'splitString'
+
+  at <nixpkgs> + /lib/strings.nix:1706:10:
+
+  1705|   splitString =
+  1706|     sep: s:
+      |          ^
+  1707|     let
+
+… while evaluating derivation 'config-postmarketos-allwinner.aarch64'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:544:13
+
+… while evaluating attribute 'text' of derivation 'config-postmarketos-allwinner.aarch64'
+
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:128:18:
+
+   127|         {
+   128|           inherit
+      |                  ^
+   129|             text
+
+error: path '/nix/store/bf3q9s1kcp4wkaf8xkvmk8qqkg8shqam-source.drv' is not valid
