@@ -32,7 +32,7 @@ rec {
     gradle = pkgs.gradle_9;
   };
   ayaPackages = pkgs.lib.recurseIntoAttrs (
-    pkgs.callPackage ./pkgs/top-level/agda-packages.nix {
+    pkgs.callPackage ./pkgs/top-level/aya-packages.nix {
       inherit Aya;
     }
   );
