@@ -8,7 +8,10 @@
 #
 # then your CI will be able to build and cache only those packages for
 # which this is possible.
-{pkgs ? import <nixpkgs> {}}:
+{
+  system ? builtins.currentSystem,
+  pkgs ? import <nixpkgs> {inherit system;},
+}:
 with builtins; let
   isReserved = n: n == "lib" || n == "overlays" || n == "modules";
   isDerivation = p: isAttrs p && p ? type && p.type == "derivation";
@@ -42,7 +45,9 @@ with builtins; let
 
   outputsOf = p: map (o: p.${o}) p.outputs;
 
-  nurAttrs = import ./default.nix {inherit pkgs;};
+  nurAttrs = import ../../packages {
+    inherit system pkgs;
+  };
 
   nurPkgs =
     flattenPkgs

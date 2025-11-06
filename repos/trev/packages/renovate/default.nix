@@ -14,13 +14,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "renovate";
-  version = "41.159.4";
+  version = "41.171.4";
 
   src = fetchFromGitHub {
     owner = "renovatebot";
     repo = "renovate";
     tag = finalAttrs.version;
-    hash = "sha256-qX/VcKDuIDxzOCQ+d1D5TBumgC+5fTHLZDC71ivLKSI=";
+    hash = "sha256-u2cJg6eFaze1P0BBnCXlbuPO4vSrnAB2nOrMqnjq7qk=";
   };
 
   patches = [
@@ -45,7 +45,7 @@ stdenv.mkDerivation (finalAttrs: {
   pnpmDeps = pnpm_10.fetchDeps {
     inherit (finalAttrs) pname version src;
     fetcherVersion = 2;
-    hash = "sha256-0IgKPl9q0fypxe2+ejGQtueYOzPlX4DBZ5Zlny6UmJc=";
+    hash = "sha256-cv3wusYWjLOHZNLCM4Y+CcHlNKR2J4rKcvcy3UKDOMY=";
   };
 
   env.COREPACK_ENABLE_STRICT = 0;
@@ -99,7 +99,7 @@ stdenv.mkDerivation (finalAttrs: {
       vm-test = nixosTests.renovate;
     };
     updateScript = ''
-      wget https://patch-diff.githubusercontent.com/raw/renovatebot/renovate/pull/37899.diff -O ./pkgs/renovate/37899.diff
+      wget https://patch-diff.githubusercontent.com/raw/renovatebot/renovate/pull/37899.diff -O ./packages/renovate/37899.diff
       ${lib.concatStringsSep " " (nix-update-script {
         extraArgs = [
           "--commit"

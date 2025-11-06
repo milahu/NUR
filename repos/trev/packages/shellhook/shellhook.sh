@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 # don't run in CI
 if [[ -n "${CI-}" ]]; then
@@ -237,10 +238,13 @@ for key in "${!pids[@]}"; do
     pids["${key}"]=$?
 done
 
-if [[ "${pids["git"]}" -eq 0 ]] && [[ "${pids["nix"]}" -eq 0 ]]; then
-    if [[ ! -f ".git/hooks/pre-push" ]]; then
-        info "$git_icon" "creating git pre-push hook"
-        echo "nix flake check --accept-flake-config" > .git/hooks/pre-push
-        chmod +x .git/hooks/pre-push
-    fi
+# add pre-push hook
+if [[ "${pids["git"]}" -eq 0 ]] && [[ "${pids["nix"]}" -eq 0 ]] && [[ -d ".git" ]] && [[ ! -f ".git/hooks/pre-push" ]]; then
+    info "$git_icon" "creating git pre-push hook"
+    {
+        echo "if git branch --show-current | grep -q 'main'; then"
+        echo "nix flake check --accept-flake-config"
+        echo "fi"
+    } >> .git/hooks/pre-push
+    chmod +x .git/hooks/pre-push
 fi

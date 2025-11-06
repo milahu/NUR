@@ -1,4 +1,4 @@
-name: synced
+name: sync
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  synced:
+  sync:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

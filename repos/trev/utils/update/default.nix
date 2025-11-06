@@ -9,7 +9,7 @@
     dontUnpack = true;
   };
 
-  attrs = import ./default.nix {
+  attrs = import ../../packages {
     inherit system pkgs;
   };
 
