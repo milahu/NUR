@@ -18,14 +18,17 @@ let
   # TODO: consider -flto , linux only, breaks on darwin
   v3Optimizations =
     if pkgs.stdenv.hostPlatform.isx86_64 then
-      pkgs.stdenvAdapters.withCFlags [ "-march=x86-64-v3" ]
+      pkgs.stdenvAdapters.withCFlags [
+        "-march=x86-64-v3"
+        "-mtune=raptorlake"
+      ]
     else
       stdenv: stdenv;
   v3overrideAttrs =
     if pkgs.stdenv.hostPlatform.isx86_64 then
       x:
       x.overrideAttrs (old: {
-        env.NIX_CFLAGS_COMPILE = "-march=x86-64-v3";
+        env.NIX_CFLAGS_COMPILE = "-march=x86-64-v3 -mtune=raptorlake";
         env.RUSTFLAGS = "-C target_cpu=x86-64-v3";
       })
     else
@@ -62,6 +65,13 @@ let
     x.overrideAttrs (old: {
       meta = old.meta // {
         broken = pkgs.stdenv.hostPlatform.isDarwin;
+      };
+    });
+  x8664linux =
+    x:
+    x.overrideAttrs (old: {
+      meta = old.meta // {
+        broken = !pkgs.stdenv.hostPlatform.isLinux || !pkgs.stdenv.hostPlatform.isx86_64;
       };
     });
   wip =
@@ -139,7 +149,7 @@ rec {
     );
   });
   openssh = v3override (
-    pkgs.openssh.overrideAttrs (old: {
+    (pkgs.openssh_10_2 or pkgs.openssh).overrideAttrs (old: {
       patches = (old.patches or [ ]) ++ [ ./patches/openssh.patch ];
       #doCheck = false;
     })
@@ -156,10 +166,7 @@ rec {
       })
     )
   );
-  # https://github.com/NixOS/nixpkgs/issues/456347
-  sbcl = pkgs.sbcl.overrideAttrs (old: {
-    doCheck = false;
-  });
+  bees = v3overridegcc pkgs.bees;
   wireguird = goV3OverrideAttrs (pkgs.callPackage ./pkgs/wireguird { });
   lmms = pkgs.callPackage ./pkgs/lmms/package.nix {
     withOptionals = true;
@@ -242,7 +249,11 @@ rec {
       # Table mapping caddy source hash to plugins hash
       caddyPluginsHashTable = {
         # nixpkgs-unstable 'github:NixOS/nixpkgs/12c1f0253aa9a54fdf8ec8aecaafada64a111e24?narHash=sha256-OD5HsZ%2BsN7VvNucbrjiCz7CHF5zf9gP51YVJvPwYIH8%3D' (2025-11-04)
-        "sha256-KvikafRYPFZ0xCXqDdji1rxlkThEDEOHycK8GP5e8vk=" = "sha256-+3itNp/as78n584eDu9byUvH5LQmEsFrX3ELrVjWmEw=";
+        "sha256-KvikafRYPFZ0xCXqDdji1rxlkThEDEOHycK8GP5e8vk=" =
+          "sha256-+3itNp/as78n584eDu9byUvH5LQmEsFrX3ELrVjWmEw=";
+        # nixos 25.05 20250611
+        "sha256-hzDd2BNTZzjwqhc/STbSAHnNlP7g1cFuMehqU1LumQE=" =
+          "sha256-lraVVvjqWpQJmlHhpfWZwC9S0Gvx7nQR6Nzmt0oEOLw=";
       };
       srcHash = pkgs.caddy.src.outputHash or "";
       pluginsHash =
