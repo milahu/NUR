@@ -48,7 +48,17 @@
       proxyPass = "http://${config.sane.netns.ovpns.veth.netns.ipv4}:3333";
       recommendedProxySettings = true;
     };
+    # allow unprotected access to LAN, HN; restrict WAN behind basic auth.
+    # see: <https://ruan.dev/blog/2018/03/19/nginx-basic-authentication-with-source-ip-whitelisting>
     basicAuthFile = config.sops.secrets.bitmagnet_passwd.path;
+    extraConfig = ''
+      # satisfy any => if ANY of auth_basic or IP whitelist passes, allow access (in contrast to 'all')
+      satisfy any;
+      allow 10.0.10.0/16;
+      allow 10.78.1.0/16;
+      allow 127.0.0.1/24;
+      deny all;
+    '';
   };
   sops.secrets."bitmagnet_passwd" = {
     owner = config.users.users.nginx.name;
