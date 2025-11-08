@@ -1,0 +1,58 @@
+error:
+… while evaluating the 'name' attribute of a derivation
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:560:15:
+
+   559|               in
+   560|               lib.strings.sanitizeDerivationName (
+      |               ^
+   561|                 if attrs ? name then
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/strings.nix:2880:5:
+
+  2879|     in
+  2880|     string:
+      |     ^
+  2881|     # First detect the common case of already valid strings, to speed those up
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:565:26:
+
+   564|                   # we cannot coerce null to a string below
+   565|                   assert assertMsg (
+      |                          ^
+   566|                     attrs ? version && attrs.version != null
+
+… while calling 'assertMsg'
+
+  at <nixpkgs> + /lib/asserts.nix:50:21:
+
+    49|   # TODO(Profpatsch): add tests that check stderr
+    50|   assertMsg = pred: msg: pred || throw msg;
+      |                     ^
+    51|
+
+… from call site
+
+  at ./shared/git-override.nix:38:17:
+
+    37|       versionLocalPath = "${nyx}/${versionNyxPath}";
+    38|       current = importJSON versionLocalPath;
+      |                 ^
+    39|
+
+… while calling 'importJSON'
+
+  at <nixpkgs> + /lib/trivial.nix:725:16:
+
+   724|   */
+   725|   importJSON = path: builtins.fromJSON (builtins.readFile path);
+      |                ^
+   726|
+
+error: path '/nix/store/alhir79w1drdlavg3lb6ky7r0mkd9kw4-9m16w8iflzcqjyqgcg5rhcm4xmrh8pc1-source' is not valid

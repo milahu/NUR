@@ -1,12 +1,15 @@
+trace: evaluation warning: 'recurseIntoAttrs' has been removed from pkgs, use `lib.recurseIntoAttrs` instead
+trace: evaluation warning: 'recurseIntoAttrs' has been removed from pkgs, use `lib.recurseIntoAttrs` instead
+trace: evaluation warning: 'recurseIntoAttrs' has been removed from pkgs, use `lib.recurseIntoAttrs` instead
 error:
 … from call site
 
-  at ./default.nix:1083:15:
+  at ./default.nix:1085:15:
 
-  1082|
-  1083|   basicswap = pkgs.python3.pkgs.callPackage ./pkgs/applications/blockchains/basicswap {
+  1084|
+  1085|   basicswap = pkgs.python3.pkgs.callPackage ./pkgs/applications/blockchains/basicswap {
       |               ^
-  1084|     # FIXME scope
+  1086|     # FIXME scope
 
 … while calling 'callPackageWith'
 
