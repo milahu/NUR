@@ -1,32 +1,138 @@
 error:
-… while evaluating the 'name' attribute of a derivation
-
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:560:15:
+  at ./default.nix:302:17:
 
-   559|               in
-   560|               lib.strings.sanitizeDerivationName (
-      |               ^
-   561|                 if attrs ? name then
+   301|   betterbird-unwrapped = v3override (v3overrideAttrs (pkgs.callPackage ./pkgs/betterbird { }));
+   302|   betterbird = (pkgs.wrapThunderbird betterbird-unwrapped { });
+      |                 ^
+   303| }
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/strings.nix:2880:5:
+  at <nixpkgs> + /pkgs/applications/networking/mailreaders/thunderbird/wrapper.nix:8:10:
 
-  2879|     in
-  2880|     string:
-      |     ^
-  2881|     # First detect the common case of already valid strings, to speed those up
+     7|
+     8| browser: args:
+      |          ^
+     9|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:565:26:
+  at <nixpkgs> + /lib/trivial.nix:1009:5:
 
-   564|                   # we cannot coerce null to a string below
-   565|                   assert assertMsg (
+  1008|     # TODO: Should we add call-time "type" checking like built in?
+  1009|     __functor = self: f;
+      |     ^
+  1010|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:161:7:
+
+   160|     mirrorArgs (
+   161|       origArgs:
+      |       ^
+   162|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:163:18:
+
+   162|       let
+   163|         result = f origArgs;
+      |                  ^
+   164|
+
+… while calling 'wrapper'
+
+  at <nixpkgs> + /pkgs/applications/networking/browsers/firefox/wrapper.nix:43:5:
+
+    42|   wrapper =
+    43|     {
+      |     ^
+    44|       applicationName ? browser.binaryName or (lib.getName browser), # Note: this is actually *binary* name and is different from browser.applicationName, which is *app* name!
+
+… from call site
+
+  at <nixpkgs> + /pkgs/applications/networking/browsers/firefox/wrapper.nix:201:5:
+
+   200|     in
+   201|     stdenv.mkDerivation (finalAttrs: {
+      |     ^
+   202|       __structuredAttrs = true;
+
+… while calling 'mkDerivation'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:66:18:
+
+    65|   */
+    66|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                  ^
+    67|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:66:29:
+
+    65|   */
+    66|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                             ^
+    67|
+
+… while calling 'makeDerivationExtensible'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:77:5:
+
+    76|   makeDerivationExtensible =
+    77|     rattrs:
+      |     ^
+    78|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:138:22:
+
+   137|
+   138|       finalPackage = mkDerivationSimple overrideAttrs args;
+      |                      ^
+   139|
+
+… while calling 'mkDerivationSimple'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:773:5:
+
+   772|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   773|     {
+      |     ^
+   774|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:872:5:
+
+   871|
+   872|     extendDerivation validity.handled (
+      |     ^
+   873|       {
+
+… while calling 'extendDerivation'
+
+  at <nixpkgs> + /lib/customisation.nix:394:26:
+
+   393|   extendDerivation =
+   394|     condition: passthru: drv:
       |                          ^
-   566|                     attrs ? version && attrs.version != null
+   395|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:851:16:
+
+   850|           "`env` must be an attribute set of environment variables. Set `env.env` or pick a more specific name.";
+   851|         assert assertMsg (overlappingNames == [ ])
+      |                ^
+   852|           "The `env` attribute set cannot contain any attributes passed to derivation. The following attributes are overlapping:\n${errors}";
 
 … while calling 'assertMsg'
 
@@ -39,20 +145,134 @@ error:
 
 … from call site
 
-  at ./shared/git-override.nix:38:17:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:812:21:
 
-    37|       versionLocalPath = "${nyx}/${versionNyxPath}";
-    38|       current = importJSON versionLocalPath;
-      |                 ^
-    39|
+   811|       mainProgram = meta.mainProgram or null;
+   812|       env' = env // lib.optionalAttrs (mainProgram != null) { NIX_MAIN_PROGRAM = mainProgram; };
+      |                     ^
+   813|
 
-… while calling 'importJSON'
+… while calling 'optionalAttrs'
 
-  at <nixpkgs> + /lib/trivial.nix:725:16:
+  at <nixpkgs> + /lib/attrsets.nix:1478:25:
 
-   724|   */
-   725|   importJSON = path: builtins.fromJSON (builtins.readFile path);
-      |                ^
-   726|
+  1477|   */
+  1478|   optionalAttrs = cond: as: if cond then as else { };
+      |                         ^
+  1479|
 
-error: path '/nix/store/alhir79w1drdlavg3lb6ky7r0mkd9kw4-9m16w8iflzcqjyqgcg5rhcm4xmrh8pc1-source' is not valid
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:828:14:
+
+   827|
+   828|       meta = checkMeta.commonMeta {
+      |              ^
+   829|         inherit validity attrs pos;
+
+… while calling 'commonMeta'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:618:5:
+
+   617|   commonMeta =
+   618|     {
+      |     ^
+   619|       validity,
+
+… from call site
+
+  at ./default.nix:301:26:
+
+   300|   */
+   301|   betterbird-unwrapped = v3override (v3overrideAttrs (pkgs.callPackage ./pkgs/betterbird { }));
+      |                          ^
+   302|   betterbird = (pkgs.wrapThunderbird betterbird-unwrapped { });
+
+… while calling anonymous lambda
+
+  at ./default.nix:46:7:
+
+    45|     if pkgs.stdenv.hostPlatform.isx86_64 then
+    46|       x:
+      |       ^
+    47|       x.override (prev: {
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1009:5:
+
+  1008|     # TODO: Should we add call-time "type" checking like built in?
+  1009|     __functor = self: f;
+      |     ^
+  1010|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:177:11:
+
+   176|           */
+   177|           newArgs: makeOverridable f (overrideWith newArgs)
+      |           ^
+   178|         );
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1009:5:
+
+  1008|     # TODO: Should we add call-time "type" checking like built in?
+  1009|     __functor = self: f;
+      |     ^
+  1010|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:161:7:
+
+   160|     mirrorArgs (
+   161|       origArgs:
+      |       ^
+   162|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1009:5:
+
+  1008|     # TODO: Should we add call-time "type" checking like built in?
+  1009|     __functor = self: f;
+      |     ^
+  1010|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:180:58:
+
+   179|         # Change the result of the function call by applying g to it
+   180|         overrideResult = g: makeOverridable (mirrorArgs (args: g (f args))) origArgs;
+      |                                                          ^
+   181|       in
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:180:64:
+
+   179|         # Change the result of the function call by applying g to it
+   180|         overrideResult = g: makeOverridable (mirrorArgs (args: g (f args))) origArgs;
+      |                                                                ^
+   181|       in
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:198:35:
+
+   197|             #       design/tech debt issue: https://github.com/NixOS/nixpkgs/issues/273815
+   198|             fdrv: overrideResult (x: x.overrideAttrs fdrv);
+      |                                   ^
+   199|         }
+
+error: function 'anonymous lambda' called with unexpected argument 'stdenv'
+
+at ./pkgs/betterbird/default.nix:1:1:
+
+     1| {
+      | ^
+     2|   lib,
