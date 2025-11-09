@@ -7,8 +7,8 @@ let
   src = fetchFromGitHub {
     owner = "nix-community";
     repo = "nixpkgs-wayland";
-    rev = "57fb4ec945e1410c5b1c414cd2fb7b8b38dc5936";
-    hash = "sha256-DqozXwdsHL/cd7IQlA4K1Yit+KhtuTc3L0C4mMXwn68=";
+    rev = "1b23453b1ee3f05fb288de1c3404ad7376847cc0";
+    hash = "sha256-EwikunwLI4utTt06fHfKqJJ0Gp0haiq38PzLvwt5mSQ=";
   };
   flake = import "${src}/flake.nix";
   evaluated = flake.outputs {
