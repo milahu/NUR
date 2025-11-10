@@ -22,8 +22,7 @@ writeShellApplication {
     oldVersion=$(nix-instantiate --eval --strict -A "hmcl.version" | jq -e -r)
 
     get_latest_release() {
-        curl --fail ''${GITHUB_TOKEN:+ -H "Authorization: bearer $GITHUB_TOKEN"} \
-             -s "https://api.github.com/repos/HMCL-dev/HMCL/releases/latest" | jq -r ".tag_name"
+        curl -s "https://hmcl.huangyuhui.net/api/update_link?channel=stable&download_link=true" | jq -r .version
     }
 
     version=$(get_latest_release)
@@ -35,6 +34,5 @@ writeShellApplication {
     fi
 
     nix-update hmcl --version="$version"
-    update-source-version hmcl --source-key=icon --ignore-same-version
   '';
 }
