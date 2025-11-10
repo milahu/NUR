@@ -4,9 +4,9 @@ error:
   at ./default.nix:15:36:
 
     14|   afterglow-cursors = pkgs.callPackage ./pkgs/afterglow-cursors.nix { };
-    15|     linux-postmarketos-allwinner = pkgs.pkgsCross.aarch64-multiplatform.callPackage ./pkgs/linux-postmarketos-allwinner.nix { };
+    15|     linux-postmarketos-allwinner = pkgs.callPackage ./pkgs/linux-postmarketos-allwinner.nix { };
       |                                    ^
-    16|     #crust-firmware = pkgs.callPackage ./pkgs/crust-firmware.nix { };
+    16|   stardrop = pkgs.callPackage ./pkgs/stardrop { };
 
 … while calling 'callPackageWith'
 
@@ -54,12 +54,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/top-level/splice.nix:36:9:
+  at <nixpkgs> + /lib/trivial.nix:1009:5:
 
-    35|         inherit name;
-    36|         value =
-      |         ^
-    37|           let
+  1008|     # TODO: Should we add call-time "type" checking like built in?
+  1009|     __functor = self: f;
+      |     ^
+  1010|     __functionArgs = args;
 
 … while calling anonymous lambda
 
@@ -226,4 +226,4 @@ error:
       |                  ^
    129|             text
 
-error: path '/nix/store/bf3q9s1kcp4wkaf8xkvmk8qqkg8shqam-source.drv' is not valid
+error: path '/nix/store/05n884w2hh6xvrqhwamma05p7rinbg69-source.drv' is not valid
