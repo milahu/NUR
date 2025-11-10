@@ -21,8 +21,4 @@ in
 
   libslimbook = libslimbook;
   python-slimbook = pkgs.callPackage ./pkgs/python-slimbook { inherit libslimbook; };
-  #qc71_slimbook_laptop = pkgs.callPackage ./pkgs/qc71_slimbook_laptop.nix {
-  # Make sure the module targets the same kernel as your system is using.
-  # kernel = config.boot.kernelPackages.kernel;
-  #};
 }
