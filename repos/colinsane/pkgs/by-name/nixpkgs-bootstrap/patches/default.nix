@@ -39,7 +39,7 @@ in
     builtins.map
       (name: {
         inherit name;
-        value = vendorPatch name;
+        value = vendorPatch { inherit name; };
       })
       patchNames
   )

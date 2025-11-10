@@ -1,0 +1,73 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash -p bash -p curl -p nix
+
+set -eu
+
+usage() {
+  echo "USAGE: vendor-patch-updater PR_NUMBER_OR_COMMIT"
+  echo "creates or updates the patch file indicated by the PR/commit"
+}
+
+ident=
+parseArgs() {
+  while [ "$#" -ne 0 ]; do
+    local arg=$1
+    shift
+    case $arg in
+      (--help)
+        usage
+        exit 0
+        ;;
+      (*)
+        if [ -z "$ident" ]; then
+          ident=$arg
+        else
+          usage
+          exit 1
+        fi
+        ;;
+    esac
+  done
+  if [ -z "$ident" ]; then
+    usage
+    exit 1
+  fi
+}
+
+tryPatchesDir() {
+  if [ -z "${PATCHES_DIR:-}" ] && [ -d "$1" ]; then
+    PATCHES_DIR=$1
+  fi
+}
+
+getPatchesDir() {
+  # invoked from update script
+  if [ -n "$UPDATE_NIX_ATTR_PATH" ]; then
+    local attrPos=$(nix-instantiate --raw --eval -A "$UPDATE_NIX_ATTR_PATH.meta.position")
+    tryPatchesDir "$(dirname $(dirname $attrPos))/patches"
+  fi
+  # invoked from update script, but the attr path fails to eval (it's a quoting issue, for patches which aren't valid identifiers)
+  tryPatchesDir "$PWD/../../pkgs/by-name/nixpkgs-bootstrap/patches"
+  # invoked from repo root
+  tryPatchesDir "$PWD/pkgs/by-name/nixpkgs-bootstrap/patches"
+}
+
+tryUri() {
+  local output=$1
+  local uri=$2
+  local scratch=$(mktemp)
+  curl --follow --fail "$uri" -o "$scratch" && test -s "$scratch" && mv "$scratch" "$output"
+}
+
+main() {
+  local ident=$1
+  local output=$PATCHES_DIR/$ident.patch
+  tryUri "$output" "https://git.uninsane.org/colin/nixpkgs/commit/$ident.patch?full_index=1" || \
+    tryUri "$output" "https://github.com/uninsane/nixpkgs/commit/$ident.patch?full_index=1" || \
+    tryUri "$output" "https://github.com/NixOS/nixpkgs/pull/$ident.patch?full_index=1"
+}
+
+parseArgs "$@"
+set -x
+getPatchesDir
+main "$ident"

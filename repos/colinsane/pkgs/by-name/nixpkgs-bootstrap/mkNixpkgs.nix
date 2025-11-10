@@ -102,7 +102,7 @@ let
     applyPatches' = if applyPatches != null then applyPatches else unpatchedNixpkgs.applyPatches;
     fetchpatch2' = if fetchpatch2 != null then fetchpatch2 else unpatchedNixpkgs.fetchpatch2;
     stdenv' = if stdenv != null then stdenv else unpatchedNixpkgs.stdenv;
-    vendorPatch' = if vendorPatch != null then vendorPatch else import ./vendorPatch { stdenv = stdenv'; };
+    vendorPatch' = if vendorPatch != null then vendorPatch else import ./vendorPatch { stdenv = stdenv'; vendor-patch-updater = null; };
 
     srcMeta = (src'.meta or {}) // {
       position = let
