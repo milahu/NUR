@@ -30,14 +30,6 @@ in rec {
   celeste = p ./pkgs/games/wine/celeste { inherit mkWineApp; };
   celesteMods = p ./pkgs/games/wine/celeste/mods.nix { };
 
-  # Overrides
-  obs-wayland = (pkgs.wrapOBS {
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
-      obs-pipewire-audio-capture
-    ];
-  });
-
   # Fetchers
   # note: zip suffix doesn't mean that only zip archives are supported,
   #       so that's why gz here is like an generic term for compression algorithms
@@ -54,6 +46,45 @@ in rec {
   TyrellN6 = p ./pkgs/audio/tyrelln6 { };
   neural-amp-modeler-lv2 = p ./pkgs/audio/neural-amp-modeler-lv2 { };
 
+  distrho-ports-vst3 = pkgs.distrho-ports.override {
+    # TODO: waiting for the change to arrive in `nixos-unstable`
+    # buildLV2 = false;
+    # buildVST2 = false;
+  };
+
+  vitalium-vst3 = distrho-ports-vst3.override {
+    plugins = [ "vitalium" ];
+  };
+
+  TAL-plugins-vst3 = distrho-ports-vst3.override {
+    plugins = [ "tal-reverb" "tal-reverb-2" "tal-reverb-3" "tal-filter-2" "tal-dub-3" "tal-vocoder-2" ];
+  };
+
+  luftikus-vst3 = distrho-ports-vst3.override {
+    plugins = [ "luftikus" ];
+  };
+
+  LUFSMeter-vst3 = distrho-ports-vst3.override {
+    plugins = [ "LUFSMeter" ];
+  };
+
+  surge-XT-vst3 = pkgs.surge-XT.override {
+    buildLV2 = false;
+    buildCLAP = false;
+    buildStandalone = false;
+  };
+
   artworks = p ./pkgs/audio/artworks { };
   nam-trainer = p ./pkgs/audio/nam-trainer { };
+
+  # Media
+  obs-studio-plus = (pkgs.wrapOBS {
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+      obs-vaapi
+      obs-vkcapture
+    ];
+  });
 }

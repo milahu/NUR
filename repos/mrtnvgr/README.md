@@ -28,17 +28,23 @@
 - [TAL-NoiseMaker](https://tal-software.com/products/TAL-NoiseMaker)
 - [Tyrell N6](https://u-he.com/products/tyrelln6/)
 - [neural-amp-modeler-lv2](https://github.com/mikeoliphant/neural-amp-modeler-lv2)
+- [distrho-ports-vst3](https://github.com/DISTRHO/DISTRHO-Ports)
+- [vitalium-vst3](https://github.com/DISTRHO/DISTRHO-Ports)
+- [TAL-plugins-vst3](https://github.com/DISTRHO/DISTRHO-Ports)
+- [luftikus-vst3](https://github.com/DISTRHO/DISTRHO-Ports)
+- [LUFSMeter-vst3](https://github.com/DISTRHO/DISTRHO-Ports)
+- [surge-XT-vst3](https://github.com/surge-synthesizer/surge)
 
 #### Utilities
 
 - [artworks](https://github.com/mrtnvgr/artworks)
 - [nam-trainer](https://github.com/sdatkinson/neural-amp-modeler)
 
+### Media
+
+- **obs-studio-plus** - obs with plugins for wayland, pipewire support and more
+
 ### Fetchers
 
 - **fetchurl-gz** - `fetchurl` but with decompression support
 - **fetchzip-gz** - `fetchzip` but with decompression support
-
-### Overrides
-
-- **obs-wayland** - obs with plugins for wayland and pipewire support
