@@ -166,7 +166,7 @@ rec {
       })
     )
   );
-  bees = v3overridegcc pkgs.bees;
+  bees = nodarwin (v3overridegcc pkgs.bees);
   wireguird = goV3OverrideAttrs (pkgs.callPackage ./pkgs/wireguird { });
   lmms = pkgs.callPackage ./pkgs/lmms/package.nix {
     withOptionals = true;
@@ -223,7 +223,7 @@ rec {
       patches = [ ];
     })
   );
-  swt = v3overrideAttrs (pkgs.callPackage ./pkgs/swt/package.nix { });
+  swt = (pkgs.callPackage ./pkgs/swt/package.nix { });
   tuxguitar = v3overrideAttrs (pkgs.callPackage ./pkgs/tuxguitar/package.nix { swt = swt; });
   aria2 = v3override (
     pkgs.aria2.overrideAttrs (old: {
@@ -236,7 +236,13 @@ rec {
       ];
     })
   );
-  audacity4 = pkgs.qt6Packages.callPackage ./pkgs/audacity4/package.nix { };
+  aria2-wrapped = pkgs.writeShellScriptBin "aria2" ''
+    ${aria2}/bin/aria2c -s65536 -j65536 -x256 -k1k "$@"
+  '';
+  #aria2-wrapped = pkgs.writeShellScriptBin "aria2" ''
+  #  ${pkgs.aria2}/bin/aria2c -s65536 -j65536 -x16 -k1M "$@"
+  #'';
+  audacity4 = nodarwin (pkgs.qt6Packages.callPackage ./pkgs/audacity4/package.nix { });
   cb = pkgs.callPackage ./pkgs/cb { };
   jellyfin-media-player = v3override (pkgs.qt6Packages.callPackage ./pkgs/jellyfin-media-player { });
   cacert_3108 = pkgs.callPackage ./pkgs/cacert_3108 { };
@@ -246,19 +252,27 @@ rec {
   };
   caddy =
     let
-      # Table mapping caddy source hash to plugins hash
+      # Table mapping caddy source hash + Go version to plugins hash
+      # Key format: "<srcHash>:<goVersion>"
+      # To check current key: nix eval --impure --expr 'let pkgs = import <nixpkgs> {}; in "${pkgs.caddy.src.outputHash}:${pkgs.caddy.passthru.go.version}"' --raw
+      # From local nixpkgs repo: nix eval --impure --expr 'let pkgs = import ./. {}; in "${pkgs.caddy.src.outputHash}:${pkgs.caddy.passthru.go.version}"' --raw
       caddyPluginsHashTable = {
-        # nixpkgs-unstable 'github:NixOS/nixpkgs/12c1f0253aa9a54fdf8ec8aecaafada64a111e24?narHash=sha256-OD5HsZ%2BsN7VvNucbrjiCz7CHF5zf9gP51YVJvPwYIH8%3D' (2025-11-04)
-        "sha256-KvikafRYPFZ0xCXqDdji1rxlkThEDEOHycK8GP5e8vk=" =
+        # nixpkgs-unstable 2025-11-04
+        "sha256-KvikafRYPFZ0xCXqDdji1rxlkThEDEOHycK8GP5e8vk=:1.25.2" =
           "sha256-+3itNp/as78n584eDu9byUvH5LQmEsFrX3ELrVjWmEw=";
-        # nixos 25.05 20250611
-        "sha256-hzDd2BNTZzjwqhc/STbSAHnNlP7g1cFuMehqU1LumQE=" =
+        # staging-next 20251107
+        "sha256-KvikafRYPFZ0xCXqDdji1rxlkThEDEOHycK8GP5e8vk=:1.25.3" =
+          "sha256-hfIP97+TKcQkGg6s19VQcz9bS1wqzSBtqVTbtDc4HSQ=";
+        # release-25.05 20251107
+        "sha256-hzDd2BNTZzjwqhc/STbSAHnNlP7g1cFuMehqU1LumQE=:1.24.9" =
           "sha256-lraVVvjqWpQJmlHhpfWZwC9S0Gvx7nQR6Nzmt0oEOLw=";
       };
-      srcHash = pkgs.caddy.src.outputHash or "";
+      srcHash = pkgs.caddy.src.outputHash;
+      goVersion = pkgs.caddy.passthru.go.version;
+      lookupKey = "${srcHash}:${goVersion}";
       pluginsHash =
-        caddyPluginsHashTable.${srcHash}
-          or (throw "Unknown caddy source hash: ${srcHash}. Please update caddyPluginsHashTable in default.nix");
+        caddyPluginsHashTable.${lookupKey}
+          or (throw "Unknown caddy source hash + Go version: ${lookupKey}. Please update caddyPluginsHashTable in default.nix");
     in
     (goV3OverrideAttrs pkgs.caddy).withPlugins {
       # https://github.com/crowdsecurity/example-docker-compose/blob/main/caddy/Dockerfile
@@ -271,7 +285,7 @@ rec {
       hash = pluginsHash;
     };
   /*
-    firefox-unwrapped_nightly = nodarwin (
+    firefox-unwrapped_nightly = (
       v3override (
         v3overrideAttrs (
           pkgs.callPackage ./pkgs/firefox-nightly {
@@ -281,10 +295,14 @@ rec {
         )
       )
     );
-    firefox_nightly = nodarwin (pkgs.wrapFirefox firefox-unwrapped_nightly { });
-    nss_git = callOverride ./pkgs/nss-git { };
-
-    betterbird-unwrapped = wip (pkgs.callPackage ./pkgs/betterbird { });
-    betterbird = wip (pkgs.wrapThunderbird betterbird-unwrapped { });
+      firefox_nightly = (pkgs.wrapFirefox firefox-unwrapped_nightly { });
+      nss_git = callOverride ./pkgs/nss-git { };
   */
+  betterbird-unwrapped = nodarwin (v3overrideAttrs (pkgs.callPackage ./pkgs/betterbird { }));
+  betterbird = nodarwin (
+    pkgs.wrapThunderbird betterbird-unwrapped {
+      applicationName = "betterbird";
+      libName = "betterbird";
+    }
+  );
 }
