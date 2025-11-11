@@ -118,7 +118,7 @@
 #  sqlite,
 #  sqlcipher,
   stdenv,
-  wrapGAppsHook,
+  wrapGAppsHook3,
   xdg-utils,
 }:
 let
@@ -240,7 +240,7 @@ stdenv.mkDerivation (finalAttrs: {
     # nodejs.python
     python3
     rsync
-    wrapGAppsHook
+    wrapGAppsHook3
     pkgsBuildHost.pnpm_10.configHook  #< XXX: buildPackages because it doesn't splice right (fixes cross compilation)
   ];
 

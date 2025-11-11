@@ -79,6 +79,7 @@ in
       "lftp"
       "libcap_ng"  # for `netcap`, `pscap`, `captest`
       "libgpiod"  # `gpiodetect`, `gpioinfo`, `gpiomon`, ...
+      "libqmi"  # for `qmicli` modem control
       "lsof"
       "man-db"  # critical for `man -k` or `apropos` to work
       "man-pages"
@@ -351,6 +352,7 @@ in
       "libnotify"  # for notify-send; debugging
       # "lollypop"
       "loupe"  # image viewer
+      "lpa-gtk"  # eSIM profile manager (experimental)
       "mate.engrampa"  # archive manager
       "mepo"  # maps viewer
       # "mesa-demos"  # for eglinfo, glxinfo & other testing tools
@@ -826,6 +828,8 @@ in
     ];
 
     libnotify.sandbox.whitelistDbus.user = true;  #< TODO: reduce  # notify-send
+
+    libqmi.sandbox.method = null;  #< TODO: sandbox
 
     lightning-cli.packageUnwrapped = pkgs.linkBinIntoOwnPackage pkgs.clightning "lightning-cli";
     lightning-cli.sandbox.extraHomePaths = [

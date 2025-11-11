@@ -122,6 +122,7 @@
     ./libreoffice.nix
     ./lemoa.nix
     ./loupe.nix
+    ./lpa-gtk.nix
     ./lpac.nix
     ./man-db.nix
     ./mako.nix

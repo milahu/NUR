@@ -10,7 +10,7 @@
   lpac,
   nix-update-script,
   pkg-config,
-  wrapGAppsHook,
+  wrapGAppsHook3,
   xorg,
 }:
 
@@ -34,7 +34,7 @@ buildGoModule rec {
 
   nativeBuildInputs = [
     pkg-config
-    wrapGAppsHook
+    wrapGAppsHook3
   ];
   buildInputs = [
     gtk3

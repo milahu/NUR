@@ -1,14 +1,22 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p bash -p curl -p nix
+#!nix-shell -i bash -p bash -p curl -p nix -p patchutils
 
 set -eu
 
 usage() {
-  echo "USAGE: vendor-patch-updater PR_NUMBER_OR_COMMIT"
+  echo "USAGE: vendor-patch-updater [--revert] [revert-]PR_NUMBER_OR_COMMIT"
   echo "creates or updates the patch file indicated by the PR/commit"
+  echo ""
+  echo "FLAGS"
+  echo "  --revert    fetch the patch, and then revert it before vendoring."
+  echo "              if the patch identifier starts with 'revert-', this is implied"
+  echo "              and if --revert is specified then 'revert-' is implicitly prepended to the vendored patch name"
 }
 
+# ident: PR number or commit hash
 ident=
+# revert: "" or "revert-" to signify that `ident` should be reverted before saving to the patches/ dir
+revert=
 parseArgs() {
   while [ "$#" -ne 0 ]; do
     local arg=$1
@@ -17,6 +25,9 @@ parseArgs() {
       (--help)
         usage
         exit 0
+        ;;
+      (--revert)
+        revert=revert-
         ;;
       (*)
         if [ -z "$ident" ]; then
@@ -28,6 +39,12 @@ parseArgs() {
         ;;
     esac
   done
+
+  if [[ "$ident" == revert-* ]]; then
+    revert=revert-
+    ident=${ident/revert-/}
+  fi
+
   if [ -z "$ident" ]; then
     usage
     exit 1
@@ -42,7 +59,7 @@ tryPatchesDir() {
 
 getPatchesDir() {
   # invoked from update script
-  if [ -n "$UPDATE_NIX_ATTR_PATH" ]; then
+  if [ -n "${UPDATE_NIX_ATTR_PATH:-}" ]; then
     local attrPos=$(nix-instantiate --raw --eval -A "$UPDATE_NIX_ATTR_PATH.meta.position")
     tryPatchesDir "$(dirname $(dirname $attrPos))/patches"
   fi
@@ -61,10 +78,17 @@ tryUri() {
 
 main() {
   local ident=$1
-  local output=$PATCHES_DIR/$ident.patch
-  tryUri "$output" "https://git.uninsane.org/colin/nixpkgs/commit/$ident.patch?full_index=1" || \
-    tryUri "$output" "https://github.com/uninsane/nixpkgs/commit/$ident.patch?full_index=1" || \
-    tryUri "$output" "https://github.com/NixOS/nixpkgs/pull/$ident.patch?full_index=1"
+  local scratch=$(mktemp)
+  local output=$PATCHES_DIR/$revert$ident.patch
+  tryUri "$scratch" "https://git.uninsane.org/colin/nixpkgs/commit/$ident.patch?full_index=1" || \
+    tryUri "$scratch" "https://github.com/uninsane/nixpkgs/commit/$ident.patch?full_index=1" || \
+    tryUri "$scratch" "https://github.com/NixOS/nixpkgs/pull/$ident.patch?full_index=1"
+
+  if [ -n "$revert" ]; then
+    interdiff "$scratch" /dev/null > "$output"
+  else
+    mv "$scratch" "$output"
+  fi
 }
 
 parseArgs "$@"

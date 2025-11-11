@@ -38,7 +38,6 @@
 {
 #VVV these may or may not be available when called. VVV
   applyPatches ? null,
-  fetchpatch2 ? null,
   fetchzip ? null,
   nixpkgs-bootstrap-updater ? null,
   stdenv ? null,
@@ -100,7 +99,6 @@ let
     unpatchedNixpkgs = import src' commonNixpkgsArgs;
 
     applyPatches' = if applyPatches != null then applyPatches else unpatchedNixpkgs.applyPatches;
-    fetchpatch2' = if fetchpatch2 != null then fetchpatch2 else unpatchedNixpkgs.fetchpatch2;
     stdenv' = if stdenv != null then stdenv else unpatchedNixpkgs.stdenv;
     vendorPatch' = if vendorPatch != null then vendorPatch else import ./vendorPatch { stdenv = stdenv'; vendor-patch-updater = null; };
 
@@ -111,7 +109,7 @@ let
         "${position.file}:${toString position.line}";
     };
 
-    patches = import ./patches { fetchpatch2 = fetchpatch2'; vendorPatch = vendorPatch'; };
+    patches = import ./patches { vendorPatch = vendorPatch'; };
 
     patchedSrc = applyPatches' {
       name = "nixpkgs-${branch}-sane";

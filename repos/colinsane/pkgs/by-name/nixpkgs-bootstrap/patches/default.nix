@@ -1,33 +1,6 @@
 # track PRs on their way to master: <https://nixpk.gs/pr-tracker.htm>
-{ fetchpatch2, vendorPatch }:
+{ vendorPatch }:
 let
-  fetchpatch' = {
-    saneCommit ? null,
-    nixpkgsCommit ? null,
-    saneGhCommit ? null,
-    prUrl ? null,
-    hash ? null,
-    name ? null,
-    revert ? false,
-  }:
-    let
-      # XXX(2024-07-31): full_index=1 for reproducibility (prevent patch hashes from spontaneously changing)
-      # - <https://github.com/NixOS/nixpkgs/issues/257446#issuecomment-1736563091>
-      url = if prUrl != null then
-        # prUrl takes precedence over any specific commit
-        "${prUrl}.diff?full_index=1"
-      else if nixpkgsCommit != null then
-        "https://github.com/NixOS/nixpkgs/commit/${nixpkgsCommit}.patch?full_index=1"
-      else if saneGhCommit != null then
-        "https://github.com/uninsane/nixpkgs/commit/${saneGhCommit}.patch?full_index=1"
-      else
-        "https://git.uninsane.org/colin/nixpkgs/commit/${saneCommit}.patch?full_index=1"
-      ;
-    in fetchpatch2 (
-      { inherit revert url; }
-      // (if hash != null then { inherit hash; } else {})
-      // (if name != null then { inherit name; } else {})
-    );
   maybePatchNames = builtins.map
     (name: builtins.match "(.*)\\.patch" name)
     (builtins.attrNames (builtins.readDir ./.))

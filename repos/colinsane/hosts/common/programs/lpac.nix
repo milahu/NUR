@@ -33,7 +33,11 @@ in
     sandbox.extraPaths = [
       "/run/pcscd"  #< to communicate with the daemon
     ];
+
+    # settings for using the eSIM adapter (will likely need changing for physical SIM or eSIM)
+    env.LPAC_APDU = "pcsc";
   };
+
   services.pcscd = lib.mkIf cfg.enabled {
     # TODO: sandbox this service!
     enable = true;
