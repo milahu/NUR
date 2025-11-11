@@ -19,4 +19,6 @@
   zsh-url-highlighter = pkgs.callPackage ./pkgs/zsh-url-highlighter.nix {};
   waybar-vd = pkgs.callPackage ./pkgs/waybar-vd {};
   mihomo-smart = pkgs.callPackage ./pkgs/mihomo-smart.nix {};
+  # Fladder 使用 IFD，在纯评估模式下会失败，使用 tryEval 捕获
+  Fladder = pkgs.callPackage ./pkgs/Fladder.nix {};
 }
