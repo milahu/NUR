@@ -14,7 +14,7 @@
   callaudiod,
   desktop-file-utils,
   gsettings-desktop-schemas,
-  wrapGAppsHook,
+  wrapGAppsHook3,
 }:
 
 stdenv.mkDerivation rec {
@@ -43,7 +43,7 @@ stdenv.mkDerivation rec {
     callaudiod
     desktop-file-utils
     gsettings-desktop-schemas
-    wrapGAppsHook
+    wrapGAppsHook3
   ];
 
   buildInputs = [
@@ -55,12 +55,12 @@ stdenv.mkDerivation rec {
     callaudiod
   ];
 
-  meta = with lib; {
+  meta = {
     description = "Visual Voicemail Player";
     homepage = "https://gitlab.com/kop316/vvmplayer";
-    license = licenses.gpl3Only;
-    #maintainers = with maintainers; [ mich-adams ];
+    license = lib.licenses.gpl3Only;
+    maintainers = [];
     mainProgram = "vvmplayer";
-    platforms = platforms.all;
+    platforms = lib.platforms.linux;
   };
 }
