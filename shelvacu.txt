@@ -1,21 +1,39 @@
 error:
+… from call site
+
+  at <nixpkgs> + /lib/attrsets.nix:1344:61:
+
+  1343|   */
+  1344|   genAttrs = names: f: genAttrs' names (n: nameValuePair n (f n));
+      |                                                             ^
+  1345|
+
 … while calling anonymous lambda
 
-  at ./nur.nix:7:8:
+  at <nixpkgs> + /lib/attrsets.nix:587:44:
 
-     6|   shelPackages = builtins.mapAttrs (
-     7|     _: path: lib.callPackageWith (pkgs // shelPackages) path { }
-      |        ^
-     8|   ) packagePaths;
+   586|   */
+   587|   getAttrs = names: attrs: genAttrs names (name: attrs.${name});
+      |                                            ^
+   588|
+
+… while calling anonymous lambda
+
+  at ./overlays/newPackages.nix:5:23:
+
+     4| in
+     5| builtins.mapAttrs (_: path: self.callPackage path { }) newPackagePaths
+      |                       ^
+     6|
 
 … from call site
 
-  at ./nur.nix:7:14:
+  at ./overlays/newPackages.nix:5:29:
 
-     6|   shelPackages = builtins.mapAttrs (
-     7|     _: path: lib.callPackageWith (pkgs // shelPackages) path { }
-      |              ^
-     8|   ) packagePaths;
+     4| in
+     5| builtins.mapAttrs (_: path: self.callPackage path { }) newPackagePaths
+      |                             ^
+     6|
 
 … while calling 'callPackageWith'
 
@@ -82,9 +100,9 @@ error:
 
 error: attribute 'warn' missing
 
-at ./packages/default.nix:11:9:
+at ./packages/default.nix:10:9:
 
-    10| // {
-    11|   bcd = builtins.warn "bcd is a deprecated alias for bandcamp-collection-downloader" packagePaths.bandcamp-collection-downloader;
+     9| // {
+    10|   bcd = builtins.warn "bcd is a deprecated alias for bandcamp-collection-downloader" packagePaths.bandcamp-collection-downloader;
       |         ^
-    12| }
+    11| }

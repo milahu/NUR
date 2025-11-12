@@ -1,0 +1,112 @@
+trace: Nixpkgs version : 25.11pre891648.f6b44b240152,
+  Nixos Version : master,
+  Local Usage : false
+error:
+… from call site
+
+  at ./default.nix:65:19:
+
+    64|   };
+    65|   go-pathfinder = pkgs.callPackage ./pkgs/Go-pathfinder { inherit (mylib.gomod2nix) buildGoApplication; };
+      |                   ^
+    66|   go-sdl2 = pkgs.callPackage ./pkgs/go-sdl2 { inherit (mylib.gomod2nix) buildGoApplication; };
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:259:19:
+
+   258|   callPackageWith =
+   259|     autoArgs: fn: args:
+      |                   ^
+   260|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1009:5:
+
+  1008|     # TODO: Should we add call-time "type" checking like built in?
+  1009|     __functor = self: f;
+      |     ^
+  1010|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:161:7:
+
+   160|     mirrorArgs (
+   161|       origArgs:
+      |       ^
+   162|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:163:18:
+
+   162|       let
+   163|         result = f origArgs;
+      |                  ^
+   164|
+
+… while calling anonymous lambda
+
+  at ./pkgs/Go-pathfinder/default.nix:1:1:
+
+     1| { lib
+      | ^
+     2| , fetchFromGitHub
+
+… from call site
+
+  at ./lib/default.nix:6:14:
+
+     5|   gomod2nixbuilder = if gomod2nix != null then (gomod2nix + "/builder") else ./gomod2nix/builder;
+     6|   builder1 = pkgs.callPackage gomod2nixbuilder { gomod2nix = gomod2nix0; };
+      |              ^
+     7| in {
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:259:19:
+
+   258|   callPackageWith =
+   259|     autoArgs: fn: args:
+      |                   ^
+   260|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:273:11:
+
+   272|         (
+   273|           filterAttrs (name: value: !value)
+      |           ^
+   274|             # Filter out arguments that would be passed
+
+… while calling 'filterAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:663:23:
+
+   662|   */
+   663|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                       ^
+   664|
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:262:15:
+
+   261|       f = if isFunction fn then fn else import fn;
+   262|       fargs = functionArgs f;
+      |               ^
+   263|
+
+… while calling 'functionArgs'
+
+  at <nixpkgs> + /lib/trivial.nix:1027:5:
+
+  1026|   functionArgs =
+  1027|     f:
+      |     ^
+  1028|     if f ? __functor then
+
+error: getting status of './lib/gomod2nix/builder': No such file or directory
