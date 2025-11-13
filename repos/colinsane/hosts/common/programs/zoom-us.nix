@@ -1,5 +1,6 @@
 # FIRST TIME SETUP:
-# - in ~/.config/zoom/zoomus.conf: toggle `xwayland=true` -> `xwayland=false`
+# - [x] in ~/.config/zoom/zoomus.conf: toggle `xwayland=true` -> `xwayland=false` (by now screen sharing works)
+# - [ ] TODO: in ~/.config/zoom/zoomus.conf: toggle `enableMiniWindow=true` -> `enableMiniWindow=false` (hopefully provides a way to exit from screenshare?)
 #
 # tips for configuring zoom:
 # - <https://wiki.archlinux.org/title/Zoom_Meetings>

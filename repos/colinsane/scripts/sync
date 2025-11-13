@@ -17,12 +17,20 @@ proc usage {
   echo "- SYNC_DEBUG=$VERBOSITY"
 }
 
-func verboseFlag() {
+func verboseFlag(flags = null) {
+  if (flags === null) {
+    setvar flags = ["--verbose"]
+  }
+
   if (VERBOSITY >= 1) {
-    return (["--verbose"])
+    return (flags)
   } else {
     return ([])
   }
+}
+
+func verboseRsyncFlag() {
+  return (verboseFlag(["--verbose", "--progress"]))
 }
 
 proc debug (...plain) {
@@ -130,7 +138,7 @@ proc sync_books (; host, passthruArgs) {
   var flowyHome = homeMountFor ("flowy")
   var mobyHome = homeMountFor ("moby")
 
-  var verb = verboseFlag ()
+  var verb = verboseRsyncFlag ()
 
   case (host) {
     "moby" {
@@ -156,7 +164,7 @@ proc sync_photos (; host, passthruArgs) {
   var flowyHome = homeMountFor ("flowy")
   var mobyHome = homeMountFor ("moby")
 
-  var verb = verboseFlag ()
+  var verb = verboseRsyncFlag ()
 
   case (host) {
     "desko" {
