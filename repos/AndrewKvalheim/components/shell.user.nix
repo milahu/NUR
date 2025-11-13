@@ -202,7 +202,7 @@ in
                     separator = " ";
                     conflict = { text = "[conflict]"; bg_color = "Blue"; color = "Black"; };
                     divergent = { text = "[divergent]"; bg_color = "Blue"; color = "Black"; };
-                    empty = { text = "[empty]"; bg_color = "Blue"; color = "Black"; };
+                    empty = { text = "∅"; bg_color = "Blue"; color = "Black"; };
                     immutable = { text = "[immutable]"; bg_color = "Blue"; color = "Black"; };
                     hidden = { text = "[hidden]"; bg_color = "Blue"; color = "Black"; };
                   }
@@ -279,7 +279,7 @@ in
         mv = "mv --no-clobber --verbose";
         nixos-rebuild = "nom-nixos-rebuild";
         p = "gopass";
-        path = "nix-build --pure '<nixpkgs>' --attr";
+        path = "nom-build --pure '<nixpkgs>' --attr";
         pt = "gopass-ydotool";
         remove-known-host = "ssh-keygen -R";
         rm = "rm --one-file-system --verbose";

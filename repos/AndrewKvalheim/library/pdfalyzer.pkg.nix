@@ -23,6 +23,9 @@ python3.pkgs.buildPythonApplication rec {
 
   nativeCheckInputs = [ versionCheckHook ]; # Pending nixos/nixpkgs#420531
 
+  # Pending NixOS/nixpkgs#448100
+  passthru.updateScript = lib.throwIf (lib.versionAtLeast python3.pkgs.pypdf.version "6.1.3") "pdfalyzer may resume updates" null;
+
   meta = {
     description = "Analyze PDFs with colors (and YARA)";
     homepage = "https://github.com/michelcrypt4d4mus/pdfalyzer";

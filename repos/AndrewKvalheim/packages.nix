@@ -62,6 +62,7 @@ specify {
   losslesscut-bin.args = [ "--disable-networking" ];
   mark-applier = any;
   may-upgrade = any;
+  mcaselector = any; # NixOS/nixpkgs#458536
   meshtastic-url = any;
   minemap = any;
   mozjpeg-simple = any;
@@ -79,6 +80,7 @@ specify {
   starship-jj = any;
   stretch-break = any;
   tile-stitch = any;
+  trickle.overlay = t: { meta = t.meta // { broken = t.version == "1.07"; }; }; # Pending NixOS/nixpkgs#434711
   unln = any;
   vscode-extensions = namespaced {
     andrewkvalheim.monokai-achromatic-gray = any;
@@ -107,7 +109,7 @@ specify {
     syler.sass-indented.search = open-vsx;
     sysoev.language-stylus.search = open-vsx;
     theaflowers.qalc.search = open-vsx;
-    volkerdobler.insertnums.search = open-vsx;
+    # volkerdobler.insertnums.search = open-vsx; # FIXME: Disappeared in nix-community/nix-vscode-extensions@0db449808b88170ea6ce7fe531b3d73fd190b4d1
     ybaumes.highlight-trailing-white-spaces.search = open-vsx;
   };
   whipper = {

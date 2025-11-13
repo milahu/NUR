@@ -11,6 +11,12 @@ let
   biome = {
     "editor.defaultFormatter" = "biomejs.biome";
   };
+  inert = {
+    "editor.autoClosingBrackets" = "never";
+    "editor.autoClosingQuotes" = "never";
+    "editor.autoIndent" = "none";
+    "editor.autoSurround" = "never";
+  };
   monospace = {
     "editor.fontFamily" = "'Iosevka Custom Mono'";
     "editor.wrappingStrategy" = "simple";
@@ -90,7 +96,7 @@ in
         tamasfe.even-better-toml
         theaflowers.qalc
         timonwong.shellcheck
-        volkerdobler.insertnums
+        # volkerdobler.insertnums # FIXME: Unavailable
         xaver.clang-format
       ];
 
@@ -299,7 +305,7 @@ in
         "[json]" = biome;
         "[jsonc]" = biome;
         "[markdown]" = monospace // { "editor.tabSize" = 4; };
-        "[plaintext]" = monospace;
+        "[plaintext]" = inert // monospace;
         "[postcss]" = prettier;
         "[ruby]" = monospace // { "editor.defaultFormatter" = "jnbt.vscode-rufo"; "editor.formatOnSave" = false; };
         "[typescript]" = biome;

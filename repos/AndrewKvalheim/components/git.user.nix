@@ -170,6 +170,7 @@ in
       # Reference: https://github.com/jj-vcs/jj/blob/main/cli/src/config/templates.toml
       template-aliases = {
         description_placeholder = "label(\"description placeholder\", \"TODO\")";
+        empty_commit_marker = "label(\"empty\", \"∅\")";
         "format_short_signature(s)" = "coalesce(s.name(), s.email(), name_placeholder)";
         "format_short_signature_oneline(s)" = "coalesce(s.name(), s.email(), name_placeholder)";
       };

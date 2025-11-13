@@ -141,6 +141,7 @@ in
       mozjpeg-simple
       mtr
       multitail
+      nix-output-monitor
       nix-preview
       nix-top
       nix-tree
@@ -239,7 +240,11 @@ in
       pre-release-commit-message = "Version {{version}}";
       tag-message = "Version {{version}}";
     };
-    home.file.".npmrc".text = toKeyValue { } { fund = false; update-notifier = false; };
+    home.file.".npmrc".text = toKeyValue { } {
+      fund = false;
+      sign-git-tag = true;
+      update-notifier = false;
+    };
     xdg.configFile."rustfmt/rustfmt.toml".source = writeTOML "rustfmt.toml" {
       condense_wildcard_suffixes = true;
       # error_on_unformatted = true; # Pending rust-lang/rustfmt#3392

@@ -8,7 +8,10 @@ let
   # Utilities
   composeOverrides = f1: f2: a0: let o1 = f1 a0; o2 = f2 (a0 // o1); in o1 // o2;
   isEmpty = v: length (if isAttrs v then attrNames v else v) == 0;
+  isFunctor = repo: path: (tryEval (hasAttrByPath (path ++ [ "__functor" ]) repo)).value;
   isLocal = r: isPath r || r._local or false;
+  isScope = repo: path: (tryEval (hasAttrByPath (path ++ [ "overrideScope" ]) repo)).value;
+  isSet = repo: path: (tryEval (attrByPath (path ++ [ "recurseForDerivations" ]) false repo)).value;
   mkRepo = name: path: (import path { inherit (stable) config; overlays = [ ]; }) // { _name = name; };
   repoEq = a: b: repoName a == repoName b;
   repoName = r: if isPath r then toString r else r._name or r.lib.trivial.version;
@@ -93,10 +96,16 @@ let
         r != null
         && hasAttrByPath path r
         && (release == null || versionMeetsSpec r.lib.trivial.release release)
-        && (tryEval p).success
-        && ! (p' ? meta && p'.meta.broken)
-        && (versionMeetsSpec p.version version)
-        && (condition == null || condition p);
+        && (
+          (isFunctor r path || isScope r path || isSet r path)
+          || (
+            (tryEval p').success
+            && (! p'.meta.broken)
+            && (versionMeetsSpec p.version version)
+            && (condition == null || condition p)
+            && (pname == "inkscape" /* FIXME: infinite recursion */ || (tryEval p'.outPath).success)
+          )
+        );
       extra = if search == null then [ ] else imap1 (i: s: { _extra = i; _name = "search"; } // s) (toList search);
       repos = [ stable unstable unstable-small ] ++ extra ++ (map (mkNur preferredRepo) [ stable unstable unstable-small ]);
       repo = (if version == "∞" then findGreatest else findFirst) suffices file repos;
@@ -158,9 +167,9 @@ let
       unnecessaryFile = ! isLocal repo && pathExists file;
       unnecessarySearches = concatMapStringsSep ", " repoName (filter (r: r._extra > repo._extra or 0) extra);
     in
-    if (tryEval (hasAttrByPath (path ++ [ "overrideScope" ]) stable)).value then
+    if isScope repo path then
       (getAttrFromPath path stable).overrideScope (_: _: mapAttrs (resolve path) spec)
-    else if recurseForDerivations || (tryEval (attrByPath (path ++ [ "recurseForDerivations" ]) false repo)).value then
+    else if recurseForDerivations || (isSet repo path) then
       (attrByPath path { } repo) // { recurseForDerivations = false; } // (mapAttrs (resolve path) spec)
     else
       (throwIf unnecessaryFile "${query} no longer requires ${file}")
