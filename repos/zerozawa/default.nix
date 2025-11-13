@@ -11,6 +11,7 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
   fortune-mod-zh = pkgs.callPackage ./pkgs/fortune-mod-zh.nix {};
+  fortune-mod-hitokoto = pkgs.callPackage ./pkgs/fortune-mod-hitokoto.nix {};
   JMComic-qt = pkgs.callPackage ./pkgs/JMComic-qt.nix {};
   picacg-qt = pkgs.callPackage ./pkgs/picacg-qt.nix {};
   mikusays = pkgs.callPackage ./pkgs/mikusays.nix {};

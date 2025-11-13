@@ -20,7 +20,6 @@ in
       hash = "sha256-+i0Leyna+F/9vpPNSlVnShug2wLDPi8OpYSwkhW6z14=";
     };
 
-    buildInputs = [fortune];
     nativeBuildInputs = [
       coreutils
       python3
@@ -45,6 +44,7 @@ in
       install -m0644 song100.dat "$out/share/fortune"
       install -m0644 chinese "$out/share/fortune"
       install -m0644 chinese.dat "$out/share/fortune"
+
       runHook postInstall
     '';
 
