@@ -3,6 +3,7 @@
   lib,
   pkgs,
   vaculib,
+  vacupkglib,
   ...
 }:
 let
@@ -23,7 +24,7 @@ let
     };
   functionPackages = lib.mapAttrsToList writeShellFunction cfg.functions;
   vacuInitFile = pkgs.writeText "vacu.shell.interactiveLines.sh" cfg.interactiveLines;
-  wrappedBashPkg = vaculib.makeWrapper {
+  wrappedBashPkg = vacupkglib.makeWrapper {
     original = pkgs.bash;
     new = "vacuinit-bash";
     prepend_flags = [

@@ -44,6 +44,10 @@ let
           readOnly = true;
         };
         makeStaticHostsEntry = mkOption { type = types.bool; };
+        wireguardKey = mkOption {
+          type = types.nullOr types.str;
+          default = null;
+        };
       };
       config = {
         finalNames = lib.unique ([ config.primaryName ] ++ config.altNames ++ fullLanNames);
@@ -70,6 +74,7 @@ in
       type = types.str;
       readOnly = true;
       default = etcHostsText;
+      defaultText = "(output)";
     };
   };
   config =

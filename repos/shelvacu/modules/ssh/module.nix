@@ -74,22 +74,21 @@ in
     };
     vacu.ssh.config = mkOption { type = types.lines; };
   };
-  config =
-    {
-      vacu.ssh.config = lib.mkMerge [
-        (lib.mkBefore hostConfigText)
-        (lib.mkAfter ''
-          Host *
-            User shelvacu
-            GlobalKnownHostsFile ${pkgs.writeText "known_hosts" config.vacu.ssh.knownHostsText}
-        '')
-      ];
-    }
-    // lib.optionalAttrs (vacuModuleType == "nixos") {
-      environment.etc."ssh/ssh_config".text = lib.mkForce config.vacu.ssh.config;
-    }
-    // lib.optionalAttrs (vacuModuleType == "nix-on-droid") {
-      environment.etc."ssh/ssh_config".text = config.vacu.ssh.config;
-    };
+  config = {
+    vacu.ssh.config = lib.mkMerge [
+      (lib.mkBefore hostConfigText)
+      (lib.mkAfter ''
+        Host *
+          User shelvacu
+          GlobalKnownHostsFile ${pkgs.writeText "known_hosts" config.vacu.ssh.knownHostsText}
+      '')
+    ];
+  }
+  // lib.optionalAttrs (vacuModuleType == "nixos") {
+    environment.etc."ssh/ssh_config".text = lib.mkForce config.vacu.ssh.config;
+  }
+  // lib.optionalAttrs (vacuModuleType == "nix-on-droid") {
+    environment.etc."ssh/ssh_config".text = config.vacu.ssh.config;
+  };
 }
 // lib.optionalAttrs (vacuModuleType == "nixos") { _class = "nixos"; }

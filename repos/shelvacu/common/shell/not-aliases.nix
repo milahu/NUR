@@ -3,11 +3,11 @@
   pkgs,
   lib,
   config,
-  vaculib,
+  vacupkglib,
   ...
 }:
 let
-  inherit (vaculib) script;
+  inherit (vacupkglib) script;
   simple =
     name: args:
     let
@@ -38,7 +38,7 @@ let
         mkdir -p "$out"/bin
         printf '%s' ${lib.escapeShellArg binContents} > "$out"/bin/${name}
         chmod a+x "$out"/bin/${name}
-        out_base="$(dirname -- "$out")"
+        out_base="$(basename -- "$out")"
         LC_ALL=C
         completion_function_name="_completion_''${out_base//[^a-zA-Z0-9_]/_}"
         completion_file="$out"/share/bash-completion/completions/${name}
@@ -47,7 +47,7 @@ let
         printf 'complete -F %s %s\n' "$completion_function_name" ${lib.escapeShellArg name} >> "$completion_file"
       '';
   ms_text = with_sudo: ''
-    svl_minmax_args $# 1 3
+    svl_minmax_args $# 1 2
     host="$1"
     session_name="''${2:-main}"
     set -x
@@ -57,7 +57,14 @@ let
   journalctl = "${pkgs.systemd}/bin/journalctl";
 in
 {
-  imports = [ { vacu.packages.copy-altcaps.enable = config.vacu.isGui; } ];
+  imports = [
+    {
+      vacu.packages = {
+        altcaps-copy.enable = config.vacu.isGui;
+        altcaps-clip.enable = config.vacu.isGui;
+      };
+    }
+  ];
   vacu.packages = [
     (script "ms" (ms_text false))
     (script "mss" (ms_text true))
@@ -70,15 +77,20 @@ in
       svl_min_args $# 1
       for arg in "$@"; do
         if [[ "$arg" != -* ]] && [[ ! -L "$arg" ]]; then
-          die "$arg is not a symlink"
+          svl_die "$arg is not a symlink"
         fi
       done
       rm "$@"
     '')
-    (script "copy-altcaps" ''
+    (script "altcaps-copy" ''
       result="$(altcaps "$@")"
       printf '%s' "$result" | wl-copy
       echo "Copied to clipboard: $result"
+    '')
+    (script "altcaps-clip" ''
+      # removes a final newline but whatever
+      current_clipboard="$(wl-paste)"
+      printf '%s' "$current_clipboard" | altcaps | wl-copy
     '')
     (script "nr" ''
       # nix run nixpkgs#<thing> -- <args>
@@ -122,6 +134,31 @@ in
       "$view_cmd" "$l"
       rm -r "$d"
     '')
+    (script "nts" ''
+      svl_max_args $# 1
+      declare tempdir suffix="-vacu-nts"
+      if (( $# > 0 )); then
+        suffix="''${suffix}-$1"
+      fi
+      tempdir="$(mktemp -d --suffix="$suffix")"
+      (
+        declare -i exit_code
+        cd -- "$tempdir"
+        svl_capture_exit_code_into exit_code "$SHELL"
+        echo "temp shell exited with code $exit_code"
+      )
+      if rmdir -- "$tempdir" 2>/dev/null; then
+        echo "Automatically removed empty tempdir $tempdir"
+      else
+        printf "ls -Al -- %q\n" "$tempdir"
+        ls -Al -- "$tempdir"
+        declare do_delete
+        svl_ask "Do you want to rm -rf $tempdir?" --result-var do_delete --default-no --short-yes
+        if [[ $do_delete == true ]]; then
+          rm -rf -- "$tempdir"
+        fi
+      fi
+    '')
     (simple "nixcat" [
       "nixview"
       "cat"
@@ -154,28 +191,70 @@ in
       "--pager-end"
       "-u"
     ])
+    (simple "jcf" [
+      journalctl
+      "-f"
+    ])
+    (simple "jcfu" [
+      journalctl
+      "-f"
+      "-u"
+    ])
     (simple "gs" [
       "git"
       "status"
     ])
+    #git lazy commit
+    (script "glc" ''
+      svl_max_args $# 1
+      declare -i do_push=0
+      if [[ $# == 1 ]]; then
+        if [[ $1 != "push" ]]; then
+          svl_die 'first arg must be "push" or not present'
+        fi
+        do_push=1
+      fi
+      git add .
+      git status
+      svl_confirm_or_die --default-yes "commit this?"
+      git commit -m stuff
+      if (( $do_push )); then
+        echo "Pushing in background"
+        git push >/dev/null 2>/dev/null &
+      fi
+    '')
+    (simple "glcp" [
+      "glc"
+      "push"
+    ])
     (script "list-auto-roots" ''
-      auto_roots="/nix/var/nix/gcroots/auto"
+      declare auto_roots="/nix/var/nix/gcroots/auto"
       svl_exact_args $# 0
-      echo "List of auto-added nix gcroots, excluding system profiles:"
+      echo "List of auto nix gcroots:"
       echo
+      declare -i system_count=0 other_ignored_count=0
       for fn in "$auto_roots/"*; do
         if ! [[ -L "$fn" ]]; then
           die "fn is not a symlink!?: $fn"
         fi
+        declare pointed
         pointed="$(readlink -v -- "$fn")"
         if ! [[ -e "$pointed" ]]; then
           continue
         fi
-        if [[ "$pointed" == /nix/var/nix/profiles/system-* ]]; then
-          continue
-        fi
-        printf '%s\n' "$pointed"
+        case "$pointed" in
+          /nix/var/nix/profiles/system-*)
+            system_count=$((system_count + 1))
+            ;;
+          */.cache/nix/flake-registry.json | */dev/nix-stuff/.generated)
+            other_ignored_count=$((other_ignored_count + 1))
+            ;;
+          *)
+            printf '%s\n' "$pointed"
+            ;;
+        esac
       done
+      printf "\nand %d system profiles and %d ignored\n" $system_count $other_ignored_count
     '')
   ];
   vacu.shell.functions = {

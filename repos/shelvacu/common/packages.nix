@@ -42,9 +42,14 @@ in
         package = pkgs.p7zip;
         overrides.enableUnfree = true;
       };
+      ruby.package = lib.mkOverride 900 pkgs.ruby_3_4;
       wine.package = winePkgs.waylandFull;
       wine-fonts.package = winePkgs.fonts;
       vacu-units.package = config.vacu.units.finalPackage;
+    }
+    {
+      tshark.enable = !config.vacu.isMinimal && !config.vacu.isGui;
+      wireshark.enable = !config.vacu.isMinimal && config.vacu.isGui;
     }
     (lib.mkIf config.vacu.isGui
       # just do all the matrix clients, surely one of them will work enough
@@ -81,6 +86,8 @@ in
         dino
         filezilla
         gamemode
+        gnome-maps
+        gparted
         ghidra
         gimp
         haruna
@@ -92,9 +99,8 @@ in
         kdePackages.kdenlive
         libreoffice-qt6-fresh
         # librewolf
-        linphone
         merkaartor
-        nextcloud-client
+        monero-gui
         obsidian
         openscad
         openshot-qt
@@ -103,8 +109,10 @@ in
         prismlauncher
         shotcut
         signal-desktop
+        simplex-chat-desktop
         svp
-        thunderbird
+        # thunderbird #managed thru vacu.programs.thunderbird
+        tor-browser
         tremotesf
         ungoogled-chromium
         vlc
@@ -112,7 +120,6 @@ in
         wev
         wine
         wine-fonts
-        wireshark
         wl-clipboard
       ''
     )
@@ -120,6 +127,7 @@ in
     (lib.mkIf config.vacu.isDev ''
       cargo
       clippy
+      gdb
       gnumake
       man-pages
       patchelf
@@ -137,14 +145,16 @@ in
         android-tools
         bitwarden-cli
         dmidecode
-        fido2-manage
         flac
         hdparm
         home-manager
         imagemagickBig
-        kanidm_1_6
+        kanidm_1_7
+        libfido2
         libsmi
         man
+        mbuffer
+        mdadm
         megatools
         mercurial #aka hg
         minicom
@@ -161,14 +171,17 @@ in
         rclone
         ripgrep-all
         smartmontools
+        sqlite-interactive
+        sshpass
         tcpdump
         termscp
-        tshark
+        vrb
         yt-dlp
       ''
     )
     # pkgs included everywhere
     ''
+      _7zip
       altcaps
       ddrescue
       dig
@@ -188,13 +201,15 @@ in
       killall
       libossp_uuid # provides `uuid` binary
       linuxquota
+      lshw
       lsof
       mosh
       nano
       ncdu
       netcat-openbsd
       nixos-rebuild
-      p7zip-unfree
+      openssl
+      # p7zip-unfree
       pciutils
       progress
       psutils
@@ -217,6 +232,7 @@ in
       vacu-units
       vim
       wget
+      xq-xml # like `jq` but for xml
       zip
     ''
     # packages that are in [`requiredPackages`][1]  in nixos, but maybe not included in nix-on-droid

@@ -122,32 +122,30 @@ in
       # "--enable-official-branding"
     ];
 
-    preConfigure =
-      (old.preConfigure or "")
-      + ''
-        # Disable enforcing that add-ons are signed.
-        export MOZ_REQUIRE_SIGNING=
-        export MOZ_REQUIRE_ADDON_SIGNING=0
+    preConfigure = (old.preConfigure or "") + ''
+      # Disable enforcing that add-ons are signed.
+      export MOZ_REQUIRE_SIGNING=
+      export MOZ_REQUIRE_ADDON_SIGNING=0
 
-        # For NSS symbols
-        export MOZ_DEBUG_SYMBOLS=1
+      # For NSS symbols
+      export MOZ_DEBUG_SYMBOLS=1
 
-        # Set the WM_CLASS referenced in the .desktop file.
-        export MOZ_APP_REMOTINGNAME=eu.betterbird.Betterbird
+      # Set the WM_CLASS referenced in the .desktop file.
+      export MOZ_APP_REMOTINGNAME=eu.betterbird.Betterbird
 
-        # Needed to enable breakpad in application.ini
-        # The preceding comment appears all over the Mozilla repos, however it is misleading.
-        # "Official" (server) builds, as opposed to local builds, should have nothing to do
-        # with "breakpad" (https://chromium.googlesource.com/breakpad/) crash reporting.
-        # In any case, we don't want a local build.
-        export MOZILLA_OFFICIAL=1
+      # Needed to enable breakpad in application.ini
+      # The preceding comment appears all over the Mozilla repos, however it is misleading.
+      # "Official" (server) builds, as opposed to local builds, should have nothing to do
+      # with "breakpad" (https://chromium.googlesource.com/breakpad/) crash reporting.
+      # In any case, we don't want a local build.
+      export MOZILLA_OFFICIAL=1
 
-        export MOZ_TELEMETRY_REPORTING=  # No telemetry.
+      export MOZ_TELEMETRY_REPORTING=  # No telemetry.
 
-        # Used for Linux to create small launcher executable for file browsers.
-        # See https://hg.mozilla.org/mozilla-central/rev/3cbbfc5127e4 for details.
-        export MOZ_NO_PIE_COMPAT=1
-      '';
+      # Used for Linux to create small launcher executable for file browsers.
+      # See https://hg.mozilla.org/mozilla-central/rev/3cbbfc5127e4 for details.
+      export MOZ_NO_PIE_COMPAT=1
+    '';
 
     passthru = (old.passthru or { }) // {
       inherit

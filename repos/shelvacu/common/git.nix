@@ -1,9 +1,15 @@
-{ config, vacuModules, ... }:
+{
+  lib,
+  config,
+  vacuModules,
+  ...
+}:
 {
   imports = [ vacuModules.git ];
 
-  vacu.git.enable = config.vacu.isDev;
+  vacu.git.enable = lib.mkDefault config.vacu.isDev;
   vacu.git.config = {
+    commit.verbose = true;
     init.defaultBranch = "master";
     pull.rebase = false;
     user.name = "Shelvacu";

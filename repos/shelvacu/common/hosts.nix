@@ -63,6 +63,11 @@
       isLan = true;
       sshKeys = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEMgJE8shlTYF3nxKR/aILd1SzwDwhtCrjz9yHL7lgSZ";
     };
+    "teever" = {
+      primaryIp = "10.78.79.3";
+      sshKeys = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFF45xYVopkdGFpP9dKKyvdrTtejld1VwkN7t7Nnx7YS root@teever";
+      sshAliases = [ "tvr" ];
+    };
 
     #personal hosts
     triple-dezert = {
@@ -89,6 +94,7 @@
       altIps = [ "10.78.79.22" ];
       isLan = true;
       sshKeys = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFPmy1+1CL6mLbp0IfRTLwsVdjKmw5u0kbQqHin8oXMq";
+      wireguardKey = "shel/wMBU/Ut2rhAZymW/AYG3ycGfaEN6R2LsEpkqDU=";
     };
     servacu = {
       altNames = [
@@ -144,6 +150,13 @@
       primaryIp = "10.78.79.11";
       isLan = true;
       sshKeys = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFsorkZ3rIZ2lLigwQWfA64xZRlt5lk6QPzypg55eLlD";
+    };
+    solis = {
+      altNames = [ "solis.dis8.net" ];
+      primaryIp = "143.20.185.171";
+      # altIps = [ "2a0f:9400:7e11:cd44:0000:0000:0000:0001" ];
+      sshKeys = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPhFKmRMfk+4Xx96Jwt6S9/ikC0cm4ukeO8hjpZDj+9n";
+      wireguardKey = "S3rZ0vzDm4J5uTkdkL4/RvWbOWKsLkIfTeTBa+TDjzk=";
     };
   };
 }

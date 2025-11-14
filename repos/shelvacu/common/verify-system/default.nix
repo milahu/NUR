@@ -29,6 +29,7 @@ in
               script = mkOption {
                 type = types.lines;
                 default = "## system ident check ${config.name}";
+                defaultText = lib.literalText ''## system ident check ${name}'';
               };
             };
           }
@@ -56,6 +57,7 @@ in
       mkOption {
         readOnly = true;
         default = scriptFile;
+        defaultText = "vacu-verify-system-all.sh package";
       };
   };
 }

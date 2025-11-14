@@ -21,8 +21,7 @@ let
     "sniper"
     "spy"
   ];
-  mkAttrsOf = f: list: builtins.listToAttrs (map (v: lib.nameValuePair v (f v)) list);
-  mkAttrsOfClasses = f: mkAttrsOf f classes;
+  mapClassesToAttrs = f: vaculib.mapNamesToAttrs f classes;
   # key: what tf2 calls the key
   # value: other things you might want to call that key
   keyAliases = {
@@ -385,13 +384,10 @@ let
     { config, ... }:
     {
       options =
-        (mkAttrsOf (
-          key:
-          mkOption {
-            type = types.nullOr bindCommandType;
-            default = null;
-          }
-        ) keys)
+        (vaculib.mapNamesToAttrsConst (mkOption {
+          type = types.nullOr bindCommandType;
+          default = null;
+        }) keys)
         // {
           _out = mkOption {
             internal = true;
@@ -427,54 +423,47 @@ in
   options.tf2 = {
     tf2Pkgs = mkOption {
       default = tf2Pkgs;
+      defaultText = "`inputs.tf2-nix.lib.mkTf2Pkgs { ... }`";
       readOnly = true;
     };
-    binds =
-      {
-        clear = mkOption {
-          type = types.bool;
-          default = true;
-          description = "Whether to run unbindall at the beginning of autoexec";
-        };
-        default = mkOption {
-          type = types.submodule bindsModule;
-          default = { };
-        };
-      }
-      // mkAttrsOfClasses (
-        classname:
-        mkOption {
-          type = types.submodule bindsModule;
-          default = { };
-        }
-      );
+    binds = {
+      clear = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Whether to run unbindall at the beginning of autoexec";
+      };
+      default = mkOption {
+        type = types.submodule bindsModule;
+        default = { };
+      };
+    }
+    // vaculib.mapNamesToAttrsConst (mkOption {
+      type = types.submodule bindsModule;
+      default = { };
+    }) classes;
     autoexecLines = mkOption {
       type = types.lines;
       default = "";
     };
-    classLines = mkAttrsOfClasses (
-      classname:
-      mkOption {
-        type = types.lines;
-        default = "";
-      }
-    );
+    classLines = vaculib.mapNamesToAttrsConst (mkOption {
+      type = types.lines;
+      default = "";
+    }) classes;
     build.autoexec = mkOption {
       type = types.pkg;
-      default = pkgs.writeFile "autoexec.cfg" cfg.autoexecLines;
       readOnly = true;
     };
-    build.classes = mkAttrsOfClasses (
-      classname:
-      mkOption {
-        type = types.pkg;
-        default = pkgs.writeText "${classname}.cfg" cfg.classLines.${classname};
-        reaonly = true;
-      }
-    );
+    build.classes = vaculib.mapNamesToAttrsConst (mkOption {
+      type = types.pkg;
+      readOnly = true;
+    }) classes;
   };
 
   config.tf2 = {
+    build.autoexec = pkgs.writeFile "autoexec.cfg" cfg.autoexecLines;
+    build.classes = mapClassesToAttrs (
+      classname: pkgs.writeText "${classname}.cfg" cfg.classLines.${classname}
+    );
     autoexecLines = lib.mkMerge (
       [
         ''
@@ -485,7 +474,7 @@ in
       ]
       ++ lib.optional cfg.binds.clear (lib.mkBefore ''unbindall'')
     );
-    classLines = mkAttrsOfClasses (classname: ''
+    classLines = mapClassesToAttrs (classname: ''
       // START keybinds from config.tf2.binds.${classname}
       ${cfg.binds.${classname}._out}
       // END keybinds from config.tf2.binds.${classname}

@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  vaculib,
+  vacupkglib,
   ...
 }:
 let
@@ -30,8 +30,11 @@ let
 
     src = pkgs.units.src;
 
+    patches = pkgs.units.patches or [ ];
+
     phases = [
       "unpackPhase"
+      "patchPhase"
       "installPhase"
     ];
 
@@ -40,6 +43,7 @@ let
       cp {definitions,elements}.units "$out"
       ln -s ${../units/currency.units} "$out"/currency.units
       ln -s ${../units/cpi.units} "$out"/cpi.units
+      ln -s ${../units/cryptocurrencies.units} "$out"/cryptocurrencies.units
       printf '%s' ${lib.escapeShellArg config.vacu.units.lines} > "$out"/vacu.units
     '';
   };
@@ -49,6 +53,7 @@ in
     originalPackage = mkOption {
       type = types.package;
       default = pkgs.units.override { enableCurrenciesUpdater = false; };
+      defaultText = "pkgs.units.override { ... }";
     };
     finalPackage = mkOption {
       type = types.package;
@@ -78,7 +83,7 @@ in
   config = lib.mkMerge [
     {
       vacu.units = {
-        finalPackage = vaculib.makeWrapper {
+        finalPackage = vacupkglib.makeWrapper {
           original = config.vacu.units.originalPackage;
           new = "units";
           prepend_flags = [
@@ -91,6 +96,8 @@ in
         lines = lib.mkOrder 750 ''
           # default units file, includes elements.units, currency.units, cpi.units
           !include definitions.units
+
+          !include cryptocurrencies.units
         '';
       };
       vacu.textChecks.units-config = ''

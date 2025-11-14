@@ -3,28 +3,23 @@
   pkgs,
   config,
   vaculib,
+  vacupkglib,
   ...
 }:
 let
-  inherit (builtins) head;
   ssh-to-age = lib.getExe pkgs.ssh-to-age;
   sshToAge =
     sshPubText:
-    vaculib.outputOf {
+    vacupkglib.outputOf {
       name = "age-from-ssh.txt";
       cmd = ''printf '%s' ${lib.escapeShellArg sshPubText} | ${ssh-to-age} > "$out"'';
     };
   userKeys = lib.attrValues config.vacu.ssh.authorizedKeys;
   userKeysAge = map sshToAge userKeys;
-  liamKey = head config.vacu.hosts.liam.sshKeys;
-  liamKeyAge = sshToAge liamKey;
-  tripKey = head config.vacu.hosts.triple-dezert.sshKeys;
-  tripKeyAge = sshToAge tripKey;
-  propKey = head config.vacu.hosts.prophecy.sshKeys;
-  propKeyAge = sshToAge propKey;
+  agesOf = hostname: map sshToAge config.vacu.hosts.${hostname}.sshKeys;
   singleGroup = keys: [ { age = keys; } ];
   testAgeSecret = "AGE-SECRET-KEY-1QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQPQQ94XCHF";
-  testAgePublic = vaculib.outputOf {
+  testAgePublic = vacupkglib.outputOf {
     name = "test-age-public-key.txt";
     cmd = ''printf '%s' ${lib.escapeShellArg testAgeSecret} | ${pkgs.age}/bin/age-keygen -y > "$out"'';
   };
@@ -35,20 +30,38 @@ let
         key_groups = singleGroup userKeysAge;
       }
       {
-        path_regex = "/secrets/liam/[^/]+$";
-        key_groups = singleGroup (userKeysAge ++ [ liamKeyAge ]);
+        path_regex = "/secrets/hosts/liam\\.yaml$";
+        key_groups = singleGroup (userKeysAge ++ agesOf "liam");
       }
       {
-        path_regex = "/secrets/triple-dezert/[^/]+$";
-        key_groups = singleGroup (userKeysAge ++ [ tripKeyAge ]);
+        path_regex = "/secrets/hosts/triple-dezert\\.yaml$";
+        key_groups = singleGroup (userKeysAge ++ agesOf "triple-dezert");
       }
       {
-        path_regex = "/secrets/prophecy/[^/]+$";
-        key_groups = singleGroup (userKeysAge ++ [ propKeyAge ]);
+        path_regex = "/secrets/hosts/prophecy\\.yaml$";
+        key_groups = singleGroup (userKeysAge ++ agesOf "prophecy");
       }
       {
-        path_regex = "/secrets/radicle-private.key$";
-        key_groups = singleGroup (userKeysAge ++ [ (sshToAge (head config.vacu.hosts.fw.sshKeys)) ]);
+        path_regex = "/secrets/hosts/solis\\.yaml$";
+        key_groups = singleGroup (userKeysAge ++ agesOf "solis");
+      }
+      {
+        path_regex = "/secrets/solis-oauth\\.yaml$";
+        key_groups = singleGroup (userKeysAge ++ agesOf "solis" ++ agesOf "prophecy");
+      }
+      {
+        path_regex = "/secrets/radicle-private\\.key$";
+        key_groups = singleGroup (userKeysAge ++ agesOf "fw");
+      }
+      {
+        path_regex = "/secrets/garage-rpc\\.key$";
+        key_groups = singleGroup (
+          userKeysAge ++ agesOf "triple-dezert" ++ agesOf "prophecy" ++ agesOf "solis"
+        );
+      }
+      {
+        path_regex = "/secrets/dynamic-dns\\.yaml$";
+        key_groups = singleGroup (userKeysAge ++ agesOf "triple-dezert" ++ agesOf "prophecy");
       }
       {
         path_regex = "/tests/triple-dezert/test_secrets/";
@@ -57,7 +70,7 @@ let
     ];
   };
   sopsConfigFile = pkgs.writers.writeYAML "sops.yaml" sopsConfig;
-  wrappedSops = vaculib.makeWrapper {
+  wrappedSops = vacupkglib.makeWrapper {
     original = lib.getExe pkgs.sops;
     new = "vacu-nix-stuff-sops";
     add_flags = [

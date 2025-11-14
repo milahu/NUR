@@ -5,12 +5,7 @@
   ...
 }:
 let
-  inherit (lib)
-    mkEnableOption
-    mkOption
-    types
-    flip
-    ;
+  inherit (lib) mkOption types flip;
   cfg = config.services.genieacs;
   enableAny = cfg.cwmp.enable || cfg.nbi.enable || cfg.fs.enable || cfg.ui.enable;
   extensionsPkg = pkgs.linkFarmFromDrvs "genieacs-extensions" cfg.extensions;
@@ -84,6 +79,7 @@ let
           internal = true;
           readOnly = true;
           default = environmentVars // config.extraEnv;
+          defaultText = "internal";
         };
       };
     };
@@ -218,28 +214,27 @@ in
   config = lib.mkMerge (
     [
       {
-        assertions =
-          [
-            {
-              assertion =
-                let
-                  allPorts = builtins.concatMap ({ config, ... }: lib.optional config.enable config.port) services;
-                in
-                lib.allUnique allPorts;
-              message =
-                "services.genieacs: All enabled genieacs services must listen on unique ports. Current ports assignments: "
-                + (lib.concatMapStringsSep " " (
-                  { name, config, ... }: lib.optionalString config.enable "${name}=${config.port}"
-                ) services);
-            }
-          ]
-          ++ flip lib.map services (
-            { name, config, ... }:
-            {
-              assertion = (config.sslCert == null) == (config.sslKey == null);
-              message = "services.genieacs.${name}: sslCert and sslKey must either both be null or both be non-null";
-            }
-          );
+        assertions = [
+          {
+            assertion =
+              let
+                allPorts = builtins.concatMap ({ config, ... }: lib.optional config.enable config.port) services;
+              in
+              lib.allUnique allPorts;
+            message =
+              "services.genieacs: All enabled genieacs services must listen on unique ports. Current ports assignments: "
+              + (lib.concatMapStringsSep " " (
+                { name, config, ... }: lib.optionalString config.enable "${name}=${config.port}"
+              ) services);
+          }
+        ]
+        ++ flip lib.map services (
+          { name, config, ... }:
+          {
+            assertion = (config.sslCert == null) == (config.sslKey == null);
+            message = "services.genieacs.${name}: sslCert and sslKey must either both be null or both be non-null";
+          }
+        );
         services.genieacs.cwmp = cfg.defaults;
         services.genieacs.nbi = cfg.defaults;
         services.genieacs.fs = cfg.defaults;

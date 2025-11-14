@@ -1,8 +1,7 @@
-{ ... }@passedArgs:
+{ lib, ... }@passedArgs:
 let
-  lib = passedArgs.lib or passedArgs.pkgs.lib;
   args = passedArgs // {
-    inherit lib vaculib;
+    inherit vaculib;
   };
   directoryListing = builtins.removeAttrs (builtins.readDir ./.) [ "default.nix" ];
   filePaths = lib.mapAttrsToList (
@@ -11,6 +10,20 @@ let
     ./${k}
   ) directoryListing;
   functionSets = map (path: import path args) filePaths;
-  vaculib = lib.mergeAttrsList functionSets;
+  mergeVals =
+    name: a: b:
+    if (builtins.isAttrs a) && (builtins.isAttrs b) then
+      mergeAttrs a b
+    else
+      lib.throw "duplicate attr ${name}";
+  mergeAttrs =
+    a: b:
+    builtins.mapAttrs (name: val:
+      if (a ? name) && (b ? name) then
+        mergeVals name a.${name} b.${name}
+      else
+        val
+    ) (a // b);
+  vaculib = lib.foldr mergeAttrs { } functionSets;
 in
 vaculib

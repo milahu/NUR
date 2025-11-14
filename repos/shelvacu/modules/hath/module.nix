@@ -4,27 +4,27 @@
   lib,
   config,
   pkgs,
+  vaculib,
   ...
 }:
 let
   inherit (lib) mkOption types;
   cfg = config.vacu.hath;
-  flags =
-    [
-      "--cache-dir=${cfg.cacheDir}"
-      "--data-dir=${cfg.dataDir}"
-      "--download-dir=${cfg.downloadDir}"
-      "--log-dir=${cfg.logDir}"
-    ]
-    ++ lib.optional (!cfg.bandwidthMonitor) "--disable_bwm"
-    ++ lib.optional (!cfg.logging) "--disable_logging"
-    ++ lib.optional cfg.flushLogs "--flush-logs"
-    ++ lib.optional (cfg.maxConnections != null) "--max-connections=${toString cfg.maxConnections}"
-    ++ lib.optional (cfg.port != null) "--port=${toString cfg.port}"
-    ++ lib.optional (!cfg.freeSpaceCheck) "--skip_free_space_check"
-    ++ lib.optional (!cfg.ipOriginCheck) "--disable-ip-origin-check"
-    ++ lib.optional (!cfg.floodControl) "--disable-flood-control"
-    ++ cfg.extraArgs;
+  flags = [
+    "--cache-dir=${cfg.cacheDir}"
+    "--data-dir=${cfg.dataDir}"
+    "--download-dir=${cfg.downloadDir}"
+    "--log-dir=${cfg.logDir}"
+  ]
+  ++ lib.optional (!cfg.bandwidthMonitor) "--disable_bwm"
+  ++ lib.optional (!cfg.logging) "--disable_logging"
+  ++ lib.optional cfg.flushLogs "--flush-logs"
+  ++ lib.optional (cfg.maxConnections != null) "--max-connections=${toString cfg.maxConnections}"
+  ++ lib.optional (cfg.port != null) "--port=${toString cfg.port}"
+  ++ lib.optional (!cfg.freeSpaceCheck) "--skip_free_space_check"
+  ++ lib.optional (!cfg.ipOriginCheck) "--disable-ip-origin-check"
+  ++ lib.optional (!cfg.floodControl) "--disable-flood-control"
+  ++ cfg.extraArgs;
   fullCommand = lib.singleton (lib.getExe cfg.package) ++ flags;
   dirs = [
     cfg.cacheDir
@@ -48,6 +48,7 @@ in
     package = mkOption {
       type = types.package;
       default = pkgs.hentai-at-home;
+      defaultText = "´pkgs.hentai-at-home`";
     };
     user = mkOption {
       type = types.passwdEntry types.str;
@@ -65,7 +66,8 @@ in
     };
     allowPrivilegedPort = mkOption {
       type = types.bool;
-      default = if cfg.port == null then true else cfg.port < 1024;
+      default = cfg.port == null || cfg.port < 1024;
+      defaultText = "`cfg.port == null || cfg.port < 1024`";
     };
     credentials = mkOption {
       type = types.nullOr credentialsType;
@@ -125,23 +127,28 @@ in
     cacheDir = mkOption {
       type = types.path;
       default = "${cfg.baseDir}/cache";
+      defaultText = lib.literalText ''/''${baseDir}/cache'';
     };
     dataDir = mkOption {
       type = types.path;
       default = "${cfg.baseDir}/data";
+      defaultText = lib.literalText ''/''${baseDir}/data'';
     };
     downloadDir = mkOption {
       type = types.path;
       default = "${cfg.baseDir}/download";
+      defaultText = lib.literalText ''/''${baseDir}/download'';
     };
     logDir = mkOption {
       type = types.path;
       default = "${cfg.baseDir}/log";
+      defaultText = lib.literalText ''/''${baseDir}/log'';
     };
 
     clientLoginPath = mkOption {
       type = types.path;
       default = "${cfg.dataDir}/client_login";
+      defaultText = lib.literalText ''/''${dataDir}/client_login'';
       readOnly = true;
       internal = true;
       description = "File containing the credentials, in the format {client_id}`-`{client_key}";
@@ -164,7 +171,7 @@ in
           containing_dir="$(dirname -- "$d")"
           mkdir -p -- "$containing_dir"
           if ! [[ -d "$d" ]]; then
-            install --owner=${lib.escapeShellArg cfg.user} --group=${lib.escapeShellArg cfg.group} --mode=rwxr-x--- -d -- "$d"
+            install --owner=${lib.escapeShellArg cfg.user} --group=${lib.escapeShellArg cfg.group} --mode=u=rwx,g=rx -d -- "$d"
           fi
         done
         ${lib.optionalString (cfg.credentials != null) ''
@@ -219,7 +226,15 @@ in
           "@system-service"
           "~pkey_alloc:ENOSPC"
         ];
-        UMask = "0027"; # this makes the default permissions u::rwx,g::r-x,o::---
+        # this makes the default permissions u::rwx,g::r-x,o::---
+        UMask = vaculib.maskStr {
+          user = "allow";
+          group = {
+            read = "allow";
+            write = "forbid";
+            execute = "allow";
+          };
+        };
       };
     };
   };

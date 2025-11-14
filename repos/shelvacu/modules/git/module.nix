@@ -69,6 +69,7 @@ in
       readOnly = true;
       type = types.str;
       default = lib.concatMapStringsSep "\n" lib.generators.toGitINI cfg.config;
+      defaultText = "(output config)";
     };
   };
 

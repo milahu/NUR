@@ -26,23 +26,22 @@ let
   ipRegex = ''(${ip4Regex})|(${ip6Regex})'';
 in
 {
-  imports =
-    [
-      {
-        vacu.assertions = map (ip: {
-          assertion = (builtins.match ipRegex ip) != null;
-          message = ''config.vacu.staticNames: attr name "${ip}" is invalid'';
-        }) (builtins.attrNames config.vacu.staticNames);
-      }
-    ]
-    ++ lib.optional (vacuModuleType == "nixos") { networking.hosts = config.vacu.staticNames; }
-    ++ lib.optional (vacuModuleType == "nix-on-droid") {
-      environment.etc.hosts.text = ''
-        127.0.0.1 localhost
-        ::1 localhost
-        ${hostsLines}
-      '';
-    };
+  imports = [
+    {
+      vacu.assertions = map (ip: {
+        assertion = (builtins.match ipRegex ip) != null;
+        message = ''config.vacu.staticNames: attr name "${ip}" is invalid'';
+      }) (builtins.attrNames config.vacu.staticNames);
+    }
+  ]
+  ++ lib.optional (vacuModuleType == "nixos") { networking.hosts = config.vacu.staticNames; }
+  ++ lib.optional (vacuModuleType == "nix-on-droid") {
+    environment.etc.hosts.text = ''
+      127.0.0.1 localhost
+      ::1 localhost
+      ${hostsLines}
+    '';
+  };
 
   options.vacu.staticNames = mkOption {
     type = types.attrsOf (types.listOf domainType);

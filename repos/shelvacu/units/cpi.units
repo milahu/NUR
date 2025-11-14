@@ -1,4 +1,4 @@
-!message Consumer price index data from US BLS, 2025-03-09
+!message Consumer price index data from US BLS, 2025-09-06
 
 UScpi[1] noerror \
           1913.0833333333333 9.8 \
@@ -1346,16 +1346,22 @@ UScpi[1] noerror \
           2024.9166666666667 315.493 \
           2025.0 315.605 \
           2025.0833333333333 317.671 \
+          2025.1666666666667 319.082 \
+          2025.25 319.799 \
+          2025.3333333333333 320.795 \
+          2025.4166666666667 321.465 \
+          2025.5 322.561 \
+          2025.5833333333333 323.048 \
 
-UScpi_now          317.671
-UScpi_lastdate     2025.0833333333333
+UScpi_now          323.048
+UScpi_lastdate     2025.5833333333333
 
-USdollars_in(date) units=[1;$] domain=[1913.0833333333333,2025.0833333333333] \
-                               range=[1,32.415408163265305] \
+USdollars_in(date) units=[1;$] domain=[1913.0833333333333,2025.5833333333333] \
+                               range=[1,32.96408163265306] \
                                US$ UScpi_now / UScpi(date) ;\
                                ~UScpi(US$ UScpi_now / USdollars_in)
-USinflation_since(date) units=[1;1] domain=[1913.0833333333333,2025.0833333333333] \
-                               range=[1,32.415408163265305] \
+USinflation_since(date) units=[1;1] domain=[1913.0833333333333,2025.5833333333333] \
+                               range=[1,32.96408163265306] \
                                 UScpi_now / UScpi(date) ;\
                                ~UScpi(UScpi_now / USinflation_since)
 

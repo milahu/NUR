@@ -43,6 +43,7 @@ in
     cd -- "$path$rest"
   '';
   config.vacu.qcd = {
+    gg = "${home}/dev/gallerygrab";
     ns = "${home}/dev/nix-stuff";
     np = "${home}/dev/nixpkgs";
     dev = "${home}/dev";

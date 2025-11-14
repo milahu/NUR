@@ -12,6 +12,7 @@ lib.optionalAttrs (vacuModuleType == "nixos") {
   options.vacu.enableCapsLockRemap = mkOption {
     type = types.bool;
     default = config.vacu.isGui;
+    defaultText = "{option}`vacu.isGui`";
   };
   config = lib.mkIf config.vacu.enableCapsLockRemap {
     # https://discourse.nixos.org/t/best-way-to-remap-caps-lock-to-esc-with-wayland/39707/6

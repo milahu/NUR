@@ -11,7 +11,7 @@ in
 # transferwee has no build system
 stdenv.mkDerivation {
   pname = "transferwee";
-  version = "unstable-2025-01-12";
+  version = "0-unstable-2025-01-12";
 
   buildInputs = [ python ];
 

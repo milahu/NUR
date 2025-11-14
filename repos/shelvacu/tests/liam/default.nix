@@ -2,11 +2,11 @@
   pkgs,
   nodes,
   lib,
-  inputs,
+  vacuRoot,
   ...
 }:
 let
-  certs = import "${inputs.self}/deterministic-certs.nix" { nixpkgs = pkgs; };
+  certs = import /${vacuRoot}/deterministic-certs.nix { nixpkgs = pkgs; };
   relayDomain = "relay.test.example.com";
   rootCA = certs.selfSigned "liam-test" {
     ca = true;
@@ -68,8 +68,8 @@ let
     builtins.toJSON sopsTestSecrets
   );
   sopsTestSecretsFolder = pkgs.runCommand "test-secrets-encrypted" { } ''
-    mkdir -p "$out"/liam
-    SOPS_AGE_KEY=${lib.escapeShellArg testAgeSecret} ${pkgs.sops}/bin/sops --verbose  -e --age "$(printf '%s' ${lib.escapeShellArg testAgeSecret} | ${pkgs.age}/bin/age-keygen -y)" --output-type yaml ${lib.escapeShellArg sopsTestSecretsYaml} > "$out"/liam/main.yaml
+    mkdir -p "$out"/hosts
+    SOPS_AGE_KEY=${lib.escapeShellArg testAgeSecret} ${pkgs.sops}/bin/sops --verbose  -e --age "$(printf '%s' ${lib.escapeShellArg testAgeSecret} | ${pkgs.age}/bin/age-keygen -y)" --output-type yaml ${lib.escapeShellArg sopsTestSecretsYaml} > "$out"/hosts/liam.yaml
   '';
   mailtestModule =
     {
@@ -179,8 +179,8 @@ in
     }:
     {
       imports = [
-        "${inputs.self}/common"
-        "${inputs.self}/liam"
+        /${vacuRoot}/common
+        /${vacuRoot}/hosts/liam
       ];
       vacu.underTest = true;
       #systemd.tmpfiles.settings."69-whatever"."/run/secretKey".L.argument = "${testAgeSecretFile}";
@@ -194,7 +194,7 @@ in
         "postfix.service"
         "dovecot2.service"
       ];
-      vacu.secretsFolder = "${sopsTestSecretsFolder}";
+      vacu.sops.secretsPath = "${sopsTestSecretsFolder}";
       vacu.liam.relayhosts = {
         shelvacuAlt = "[badhost.blarg]:587";
         allDomains = "[${relayDomain}]:587";

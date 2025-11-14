@@ -9,7 +9,7 @@
 }:
 stdenv.mkDerivation rec {
   pname = "z3";
-  version = "4.15.2";
+  version = "4.15.4";
   nativeBuildInputs = [
     cmake
     gnumake
@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
     owner = "Z3Prover";
     repo = "z3";
     rev = "z3-${version}";
-    hash = "sha256-hUGZdr0VPxZ0mEUpcck1AC0MpyZMjiMw/kK8WX7t0xU=";
+    hash = "sha256-eyF3ELv81xEgh9Km0Ehwos87e4VJ82cfsp53RCAtuTo=";
   };
 
   CMAKE_ARGS = [ "-DCMAKE_BUILD_TYPE=Release" ];

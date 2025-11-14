@@ -49,6 +49,7 @@ else
       ./units-config.nix
       ./units-impl.nix
       ./verify-system
+      ./thunderbird.nix
     ];
     options = {
       vacu.rootCAs = mkOption { type = types.listOf types.str; };
@@ -64,6 +65,7 @@ else
       vacu.shortHostName = mkOption {
         type = types.nullOr types.str;
         default = config.vacu.hostName;
+        defaultText = "{option}`vacu.hostName`";
       };
       vacu.vnopnCA = mkOption {
         readOnly = true;
@@ -72,18 +74,17 @@ else
     };
     config = {
       vacu.versionId = "${anyShortRev self}-${self.lastModifiedDate or "unk"}";
-      vacu.versionInfo =
-        {
-          rev = anyRev self;
-          inherit (self) lastModified lastModifiedDate;
-          inherit (config.vacu) versionId;
-          inherit vacuModuleType;
-          inputRevs = lib.mapAttrs (_: v: anyRev v) inputs;
-        }
-        // lib.optionalAttrs (!config.vacu.isMinimal) {
-          flakePath = self.outPath;
-          inherit inputs;
-        };
+      vacu.versionInfo = {
+        rev = anyRev self;
+        inherit (self) lastModified lastModifiedDate;
+        inherit (config.vacu) versionId;
+        inherit vacuModuleType;
+        inputRevs = lib.mapAttrs (_: v: anyRev v) inputs;
+      }
+      // lib.optionalAttrs (!config.vacu.isMinimal) {
+        flakePath = self.outPath;
+        inherit inputs;
+      };
 
       vacu.nix.caches.vacu = {
         url = "https://nixcache.shelvacu.com/";

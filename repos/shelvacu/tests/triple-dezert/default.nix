@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ vaculib, vacuRoot, ... }:
 {
   name = "trip-megatest";
 
@@ -6,41 +6,30 @@
     { lib, config, ... }:
     let
       domains = builtins.attrNames config.security.acme.certs;
-      disableAcmes = builtins.listToAttrs (
-        map (d: {
-          name = "acme-${d}";
-          value = {
-            enable = lib.mkForce false;
-          };
-        }) domains
-      );
-      reEnableSelfsigned = builtins.listToAttrs (
-        map (d: {
-          name = "acme-selfsigned-${d}";
-          value = {
-            wantedBy = [ "container@frontproxy.service" ];
-            before = [ "container@frontproxy.service" ];
-          };
-        }) domains
-      );
+      disableAcmes = vaculib.mapListToAttrs (d: {
+        name = "acme-${d}";
+        value = {
+          enable = lib.mkForce false;
+        };
+      }) domains;
+      reEnableSelfsigned = vaculib.mapListToAttrs (d: {
+        name = "acme-selfsigned-${d}";
+        value = {
+          wantedBy = [ "container@frontproxy.service" ];
+          before = [ "container@frontproxy.service" ];
+        };
+      }) domains;
       unitsToDisable = [
         "container@vacustore.service"
         "container@nix-cache-nginx.service"
         "openvpn-awootrip.service"
       ];
-      disableUnits = builtins.listToAttrs (
-        map (u: {
-          name = u;
-          value = {
-            enable = lib.mkForce false;
-          };
-        }) unitsToDisable
-      );
+      disableUnits = vaculib.mapNamesToAttrsConst { enable = lib.mkForce false; } unitsToDisable;
     in
     {
       imports = [
-        "${inputs.self}/common"
-        "${inputs.self}/triple-dezert"
+        /${vacuRoot}/common
+        /${vacuRoot}/hosts/triple-dezert
       ];
       vacu.underTest = true;
       systemd.services = disableAcmes // reEnableSelfsigned;

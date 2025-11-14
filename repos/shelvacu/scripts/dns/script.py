@@ -11,6 +11,7 @@ import httpx
 import dns.zone
 import dns.rdtypes
 from dns.name import Name
+import time
 
 SOPS_BIN = "@sops@"
 DNS_SECRETS_FILE = "@dns_secrets_file@"
@@ -108,31 +109,54 @@ def display_and_maybe_update(origin: str, update: bool) -> bool:
     return True
 
 
+def domain_finished_updating(origin: str) -> bool:
+    # https://www.cloudns.net/wiki/article/54/
+    res = req("/dns/is-updated.json", domain_name=origin)
+    if isinstance(res, bool):
+        return res
+    else:
+        raise Exception(f"cloudns returned error: {res=}")
+
+
 parser = argparse.ArgumentParser()
-parser.add_argument("--domain")
-parser.add_argument("--all-domains", action="store_true")
-parser.add_argument("--update", action="store_true")
+parser.add_argument("-d", "--domain")
+parser.add_argument("-p", "--preview", action="store_true")
+parser.add_argument("--no-wait", action="store_true")
 args = parser.parse_args()
 
-all_domains = bool(args.all_domains)
-update = bool(args.update)
+all_domains = args.domain is None
+update = not args.preview
+wait_until_updated = not args.no_wait
 
-assert (args.domain is not None) != all_domains
+if wait_until_updated and not update:
+    print("warn: --preview and --no-wait don't make sense together. Ignoring --no-wait")
 
 if all_domains:
-    assert args.domain is None
     domains = DATA.keys()
 else:
-    assert args.domain is not None
     domains = [args.domain]
 
-found_any_difference = False
+different_domains: list[str] = []
 for domain in domains:
     print(domain)
     print("---------")
     found_difference = display_and_maybe_update(origin=domain, update=update)
-    found_any_difference = found_any_difference or found_difference
+    if found_difference:
+        different_domains.append(domain)
     print()
 
-if found_any_difference and not update:
-    print("pass --update to make the changes shown")
+if wait_until_updated and update and len(different_domains) > 0:
+    start_at = time.time()
+    for domain in different_domains:
+        print(f"Waiting until {domain} is finished updating", end="", flush=True)
+        while True:
+            print(".", end="", flush=True)
+            fin = domain_finished_updating(domain)
+            if fin:
+                print("done!")
+                break
+            else:
+                time.sleep(1)
+    end_at = time.time()
+    dur = end_at - start_at
+    print(f"Took {dur:.1f}s")

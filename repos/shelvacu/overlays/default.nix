@@ -1,7 +1,5 @@
-map import [
-  ./nheko.nix
-  ./newPackages.nix
-  ./fetchurl-with-wetransfer
-  ./betterbird
-  ./hpn.nix
+{ lib, vaculib, ... }:
+lib.pipe (vaculib.directoryGrabber { path = ./.; }) [
+  builtins.attrValues
+  (map import)
 ]

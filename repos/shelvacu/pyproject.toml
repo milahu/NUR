@@ -13,9 +13,28 @@ extraPaths = [
 ]
 
 [[tool.pyright.executionEnvironments]]
+root = "tests/caddy-kanidm/testScript"
+extraPaths = [
+  ".generated/nixpkgs/nixos/lib",
+  ".generated/caddy-kanidm-test"
+]
+
+[[tool.pyright.executionEnvironments]]
 root = "scripts/dns"
 extraPaths = [ ".generated/dns/python-env/lib/python3.12/site-packages" ]
 
 [[tool.pyright.executionEnvironments]]
 root = "tests/liam/mailtest"
 extraPaths = [ ".generated/mailtest/python-env/lib/python3.12/site-packages" ]
+
+# [[tool.pyright.executionEnvironments]]
+# root = "scripts/archive"
+# extraPaths = [ ".generated/scriptipy-env/lib/python3.12/site-packages" ]
+
+[[tool.pyright.executionEnvironments]]
+root = "packages/zfs-supersend"
+extraPaths = [ ".generated/scriptipy-env/lib/python3.12/site-packages" ]
+
+[[tool.pyright.executionEnvironments]]
+root = "scripts"
+extraPaths = [ ".generated/general-env/lib/python3.12/site-packages" ]

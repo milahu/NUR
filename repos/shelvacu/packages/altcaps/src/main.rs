@@ -30,10 +30,10 @@ fn alternate_caps(old_s: &str) -> String {
         // dbg!(cluster, caps);
         // for readability, always lowercase i and capitalize L
         let new_cluster:Cow<str>;
-        if cluster == "I" {
+        if cluster == "I" || cluster == "i" {
             new_cluster = "i".into();
             caps = true;
-        } else if cluster == "l" {
+        } else if cluster == "L" || cluster == "l" {
             new_cluster = "L".into();
             caps = false;
         } else {
@@ -63,5 +63,6 @@ mod tests {
     fn test1() {
         assert_eq!(alternate_caps("hello"), "hELLo");
         assert_eq!(alternate_caps("this is a message"), "tHiS iS a MeSsAgE");
+        assert_eq!(alternate_caps("That's an anachronism"), "tHaT's An AnAcHrOniSm");
     }
 }

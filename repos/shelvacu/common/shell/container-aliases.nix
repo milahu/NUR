@@ -2,11 +2,11 @@
   pkgs,
   lib,
   config,
-  vaculib,
+  vacupkglib,
   ...
 }:
 let
-  inherit (vaculib) script;
+  inherit (vacupkglib) script;
 in
 {
   options.vacu.shell.containerAliases = lib.mkEnableOption "container aliases";

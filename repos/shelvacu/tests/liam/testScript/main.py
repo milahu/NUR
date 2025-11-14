@@ -1,4 +1,5 @@
 import contextlib
+import time
 from typing import TYPE_CHECKING, Any, TypedDict, Self, Generator
 
 DATA_JSON = """
@@ -33,14 +34,11 @@ relay.wait_for_unit("mailpit.service")
 
 # generate and exchange keys so they can talk to eachother
 rsyncnet.wait_for_open_port(22)
-# liam.succeed("install -d --owner=autoborger --group=autoborger --mode=0770 /var/lib/auto-borg")
-# # not succeed, it will fail because not authorized but that's okay
-# liam.execute("sudo -u autoborger ssh -oBatchMode=yes -oStrictHostKeyChecking=accept-new fm2382.rsync.net")
 liam.succeed("systemctl start auto-borg-gen-key.service")
 liam_autoborger_key = liam.succeed("cat /var/lib/auto-borg/id_ed25519.pub").strip()
-rsyncnet.succeed("install -d --owner=fm2382 --mode=0700 /home/fm2382/.ssh")
+rsyncnet.succeed("install -d --owner=fm2382 --mode=u=rwx /home/fm2382/.ssh")
 rsyncnet.succeed(
-    f"install --owner=fm2382 --mode=0600 -T <(printf '%s' 'command=\"borg14 serve --restrict-to-repository /home/fm2382/borg-repos/liam-backup --append-only\",restrict {liam_autoborger_key}') /home/fm2382/.ssh/authorized_keys"
+    f"install --owner=fm2382 --mode=u=rw -T <(printf '%s' 'command=\"borg14 serve --restrict-to-repository /home/fm2382/borg-repos/liam-backup --append-only\",restrict {liam_autoborger_key}') /home/fm2382/.ssh/authorized_keys"
 )
 rsyncnet.succeed("sudo -u fm2382 borg-init")
 liam.succeed("systemctl start auto-borg.service")
@@ -107,8 +105,11 @@ def journalctl_log_entries(
 ) -> Generator[LogEntry, None, None]:
     with_defaults = {**kwargs, **DEFAULT_JOURNALCTL_OPTS}
     args = ["journalctl", *dict_args_to_list(with_defaults)]
-    res = machine.succeed(make_command(args))
-    for line in res.splitlines():
+    status, output = machine.execute(make_command(args))
+    if status != 0:
+        machine.log(f"output: {output}")
+        raise Exception(f"command `{args}` failed (exit code {status})")
+    for line in output.splitlines():
         data: LogEntry = json.loads(line)
         assert isinstance(data, dict)
         for _, v in data.items():
@@ -156,7 +157,7 @@ class ProcessingWaiter(contextlib.AbstractContextManager):
             ):
                 return
             else:
-                liam.sleep(1)
+                time.sleep(0.1)
 
     def __exit__(self, _a, _b, _c):
         self.wait_until_finished()
@@ -242,12 +243,12 @@ class TesterThing:
 
     def mailpit_not_received(self, **kwargs: Arg) -> Self:
         received = self.run_mailpit(**kwargs)
-        assert not received
+        assert not received, "Expected that mail wasn't received, but it was!"
         return self
 
     def mailpit_received(self, **kwargs: Arg) -> Self:
         received = self.run_mailpit(**kwargs)
-        assert received
+        assert received, "Mail was not received when it was supposed to be."
         return self
 
 
@@ -317,7 +318,7 @@ d = Defaults(
     smtp={"submission": True, "rcptto": "foo@example.com"}, username="shelvacu"
 )
 d.make_tester().smtp_accepted(mailfrom="me@shelvacu.com").mailpit_received()
-d.make_tester().smtp_accepted(mailfrom="me@dis8.net").mailpit_not_received()
+d.make_tester().smtp_accepted(mailfrom="me@dis8.net").mailpit_received()
 
 # julie's emails should NOT get sieve'd like mine
 d = Defaults(username="julie")

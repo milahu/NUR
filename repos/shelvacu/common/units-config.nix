@@ -30,6 +30,5 @@
     dollar = "USD";
     cent = "0.01 USD";
     "$" = "USD";
-    BTC = "bitcoin";
   };
 }

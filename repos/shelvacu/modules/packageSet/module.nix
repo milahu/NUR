@@ -14,6 +14,9 @@ let
   packagesSetType = types.attrsOf (
     types.submodule (
       { name, config, ... }:
+      let
+        pieces = lib.splitString "." name;
+      in
       {
         options = {
           enable = mkOption {
@@ -23,7 +26,7 @@ let
           };
           package = mkOption {
             type = types.package;
-            default = pkgs.${name};
+            default = lib.attrByPath pieces (throw "Could not find package pkgs.${name}") pkgs;
             defaultText = "pkgs.${name}";
           };
           overrides = mkOption {
@@ -41,43 +44,29 @@ let
     )
   );
   enable = lib.mkOverride 900 true; # more important than mkDefault, less important than setting explicitly
-  nameToPackageSet =
-    name:
-    let
-      pieces = lib.splitString "." name;
-    in
-    {
-      name = lib.last pieces;
-      value = {
-        inherit enable;
-        package = lib.mkDefault (lib.attrByPath pieces (throw "Could not find package pkgs.${name}") pkgs);
-      };
-    };
-  listToPackageSet =
-    from:
-    lib.pipe from [
-      (map (
-        val:
-        if builtins.isString val then
-          nameToPackageSet val
-        else
-          assert lib.isDerivation val;
-          {
-            name = val.pname or val.name;
-            value = {
-              inherit enable;
-              package = lib.mkDefault val;
-            };
-          }
-      ))
-      builtins.listToAttrs
-    ];
+  nameToPackageSet = name: {
+    inherit name;
+    value = { inherit enable; };
+  };
+  listToPackageSet = vaculib.mapListToAttrs (
+    val:
+    if builtins.isString val then
+      nameToPackageSet val
+    else
+      assert lib.isDerivation val;
+      {
+        name = val.pname or val.name;
+        value = {
+          inherit enable;
+          package = lib.mkDefault val;
+        };
+      }
+  );
   stringToPackageSet =
     from:
     lib.pipe from [
       (vaculib.listOfLines { })
-      (map nameToPackageSet)
-      builtins.listToAttrs
+      (vaculib.mapListToAttrs nameToPackageSet)
     ];
   listOrStringToPackageSet =
     from:
@@ -101,15 +90,14 @@ in
     };
   };
 
-  config =
-    {
-      vacu.finalPackageList = enabledPkgs;
-    }
-    // lib.optionalAttrs (vacuModuleType == "nixos") {
-      environment.systemPackages = config.vacu.finalPackageList;
-    }
-    // lib.optionalAttrs (vacuModuleType == "nix-on-droid") {
-      environment.packages = config.vacu.finalPackageList;
-    };
+  config = {
+    vacu.finalPackageList = enabledPkgs;
+  }
+  // lib.optionalAttrs (vacuModuleType == "nixos") {
+    environment.systemPackages = config.vacu.finalPackageList;
+  }
+  // lib.optionalAttrs (vacuModuleType == "nix-on-droid") {
+    environment.packages = config.vacu.finalPackageList;
+  };
 }
 // lib.optionalAttrs (vacuModuleType == "nixos") { _class = "nixos"; }
