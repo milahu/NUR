@@ -4,12 +4,12 @@ trace: evaluation warning: 'recurseIntoAttrs' has been removed from pkgs, use `l
 error:
 … from call site
 
-  at ./default.nix:951:23:
+  at ./default.nix:872:17:
 
-   950|
-   951|   fetchtorrent-aria = callPackage ./pkgs/build-support/fetchtorrent-aria { };
-      |                       ^
-   952|
+   871|
+   872|   ffmpeg-full = callPackage ./pkgs/development/libraries/ffmpeg/6.nix {
+      |                 ^
+   873|     inherit (pkgs.darwin.apple_sdk.frameworks)
 
 … while calling 'callPackageWith'
 
@@ -20,4 +20,4 @@ error:
       |                   ^
    260|     let
 
-error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "torrenttools" at ./pkgs/build-support/fetchtorrent-aria/default.nix:19'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "addOpenGLRunpath" at ./pkgs/development/libraries/ffmpeg/generic.nix:3'
