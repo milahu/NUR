@@ -104,8 +104,6 @@ function standard_package() {
   unset names
 }
 
-standard_package bandcamp-collection-downloader bcd
-
 standard_package dufs-vacu dufs
 
 standard_package genieacs genie

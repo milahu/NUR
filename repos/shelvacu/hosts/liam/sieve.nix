@@ -466,6 +466,7 @@ let
       removeflag "C";
       removeflag "D";
 
+      ${pure_flags [ "dmarc-reports" ] (envelope_is "dmarc-rua@shelvacu.com")}
       ${pure_flags [ "wells-fargo" "banking" ] (envelope_is "wf-primary@shelvacu.com")}
       ${pure_flags
         [ "wells-fargo-transactions" "banking-transactions" "B" ]
@@ -891,6 +892,8 @@ let
         ${fileinto "M.agora"}
       } elsif hasflag "postgres-list" {
         ${fileinto "M.postgres"}
+      } elsif hasflag "dmarc-reports" {
+        ${fileinto "dmarc-reports"}
       } elsif hasflag "D" {
         ${fileinto "D"}
       } elsif hasflag "C" {

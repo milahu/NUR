@@ -48,7 +48,7 @@ if _shellvaculib_debug_enabled; then
   dollar_at=("$@")
   declare -p dollar_zero dollar_underscore dollar_at
   cmd=(
-    "declare" "-p"
+    declare -p
     HOME
     CDPATH
     PATH
@@ -131,25 +131,37 @@ if _shellvaculib_debug_enabled; then
   "${cmd[@]}" || true
 fi
 
-declare -a _shellvaculib_script_args
-declare _shellvaculib_arg0 _shellvaculib_arg0_canonicalized _shellvaculib_initialized
+declare -ga _shellvaculib_script_args
+declare -g _shellvaculib_arg0 _shellvaculib_arg0_canonicalized _shellvaculib_initialized
 
 if [[ ${_shellvaculib_initialized-} != 1 ]]; then
   _shellvaculib_arg0="$0"
   _shellvaculib_script_args=("$@")
   if ! _shellvaculib_arg0_canonicalized="$(realpath -- "$0")"; then
     svl_eprintln "warn: could not get realpath of \$0: $0"
+    _shellvaculib_arg0_canonicalized=""
   fi
-  _shellvaculib_initialized=1
+  _shellvaculib_initialized=true
 else
-  _shellvaculib_debug_print "warn: shellvaculib re-sourced"
+  svl_eprintln "warn: shellvaculib re-sourced"
 fi
 
 svl_err() {
-  if [[ $# == 0 ]]; then
-    echo "$0: unspecified error" >&2
+  declare prefix
+
+  if [[ -n ${SVL_PREFIX_NAME:-} ]]; then
+    prefix="${SVL_PREFIX_NAME}"
+  elif [[ -z ${0-} ]] ; then
+    prefix="**unknown**"
+  elif [[ $0 == "${SHELL-}" ]]; then
+    prefix="\$SHELL"
   else
-    echo "$0:" "$@" >&2
+    prefix="$0"
+  fi
+  if [[ $# == 0 ]]; then
+    printf '%s: unspecified error' "$prefix"
+  else
+    printf '%s: %s\n' "$prefix" "$*" >&2
   fi
 }
 
@@ -164,13 +176,12 @@ svl_throw_skip() {
   fi
   declare -i skip="$1" i
   shift
-  declare -a args=("$@")
   #always skip svl_throw_skip itself
   skip=$((skip + 1))
   for ((i = ${#FUNCNAME[@]} - 1; i >= skip; i--)); do
-    svl_err "in ${FUNCNAME[i]}[${BASH_LINENO[i - 1]}]:"
+    svl_err "in ${FUNCNAME[i]} from ${BASH_SOURCE[i - 1]} line ${BASH_LINENO[i - 1]}"
   done
-  svl_die "${args[@]}"
+  svl_die "$@"
 }
 
 svl_throw() {
@@ -187,8 +198,12 @@ _shellvaculib_min_andor_max_args_impl() {
   if ((actual_count < 0)) || ((minimum_count < 0)) || ((maximum_count < 0)); then
     svl_die "this shouldn't happen (one of the counts negative in ${FUNCNAME[0]})"
   fi
-  local expect_message
-  if ((minimum_count == maximum_count)); then
+  declare expect_message
+  if ((minimum_count == 0)) && ((maximum_count == 0)); then
+    expect_message="expected no arguments"
+  elif ((minimum_count == maximum_count)) && ((maximum_count == 1)); then
+    expect_message="expected exactly 1 argument"
+  elif ((minimum_count == maximum_count)); then
     expect_message="expected exactly $minimum_count argument(s)"
   elif ((minimum_count == 0)) && ((maximum_count != _shellvaculib_max_args)); then
     expect_message="expected at most $maximum_count argument(s)"
@@ -199,12 +214,16 @@ _shellvaculib_min_andor_max_args_impl() {
   else
     svl_die "this shouldnt be possible really"
   fi
-  local error_message="Wrong number of arguments, $expect_message, got $actual_count"
-  if [[ ${#FUNCNAME[@]} == 1 ]]; then
+  declare error_message="Wrong number of arguments: $expect_message, got $actual_count"
+
+  declare -i skip_depth=2
+  # if svl_*_args was called from the top-level (validating a script's arguments), then FUNCNAME will be
+  # ("_shellvaculib_min_andor_max_args_impl" "svl_*_args" "main")
+  if (( ${#FUNCNAME[@]} == (skip_depth + 1) )); then
     #we are being called from the top-level
     svl_die "$error_message"
   else
-    svl_throw_skip 2 "$error_message"
+    svl_throw_skip $skip_depth "$error_message"
   fi
 }
 
@@ -234,6 +253,13 @@ svl_exact_args() {
     svl_throw_skip 1 "expected 2 args to svl_exact_args, got $#"
   fi
   _shellvaculib_min_andor_max_args_impl "$1" "$2" "$2"
+}
+
+svl_no_args() {
+  if [[ $# != 1 ]]; then
+    svl_throw_skip 1 "expected 1 arg to svl_no_args, got $#"
+  fi
+  _shellvaculib_min_andor_max_args_impl "$1" 0 0
 }
 
 svl_idempotent_add_prompt_command() {
@@ -465,7 +491,7 @@ svl_confirm_or_die() {
 
 # svl_count #=> 0
 # svl_count a b c #=> 3
-# prints the number of arguments on stdout.
+# prints the number of arguments and a newline on stdout.
 svl_count() {
   echo $#
   return 0

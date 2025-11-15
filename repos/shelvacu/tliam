@@ -1,28 +1,26 @@
 #!/usr/bin/env bash
-
 set -euo pipefail
 
-function fail() {
-  msg="$1"
-  echo "FAIL: $msg" >&2
-  exit 1
-}
+declare scriptdir
+scriptdir="$(dirname -- "$0")"
+source "$scriptdir/packages/shellvaculib/shellvaculib.bash"
 
-git add .
+svl_exact_args $# 0
+
 declare -a flake_archive_cmd=(nix flake archive --json)
 declare -a prefix
-if [[ ${HOST-x} != "triple-dezert" ]]; then
-  flake_archive_cmd+=(--to "ssh://trip")
-  prefix+=(ssh trip -- sudo)
+if [[ $HOSTNAME != "prophecy" ]]; then
+  flake_archive_cmd+=(--to "ssh://prophecy")
+  prefix+=(ssh prophecy --)
 fi
 flake_path="$("${flake_archive_cmd[@]}" | jq .path -r)"
 # if "${prefix[@]}" nix build "${flake_path}#checks.x86_64-linux.liam-sieve"; then
 #   echo yay
 # else
-#   fail "liam-sieve failed with exit code $?"
+#   svl_die "liam-sieve failed with exit code $?"
 # fi
 if "${prefix[@]}" nix run "${flake_path}#checks.x86_64-linux.liam.driver" -- "$@"; then
-  echo "SUCCESS" >&2
+  svl_eprintln "SUCCESS"
 else
-  fail "liam-vm failed with exit code $?"
+  svl_die "liam-vm failed with exit code $?"
 fi

@@ -274,7 +274,14 @@ in
       done
       mkdir "''${args[@]}" && cd "''${args[-1]}"
     '';
-    nt = ''pushd "$(mktemp -d "$@")"'';
+    nt = ''
+      svl_max_args $# 1
+      declare -a extraArgs=()
+      if (( $# >= 1 )); then
+        extraArgs+=(--suffix=-"$1")
+      fi
+      pushd "$(mktemp -d "''${extraArgs[@]}")"
+    '';
   };
   vacu.textChecks."vacu-shell-functions-nd" = ''
     source ${lib.escapeShellArg pkgs.shellvaculib.file}
