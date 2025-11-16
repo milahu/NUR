@@ -73,8 +73,10 @@ in
         # - i *think* os.FileInfo contains the bad mode bits, and anything that goes through `vfs.NewFileInfo` gets those bits stripped (good).
         # - for readdir, `patternDirLister` is just an easily accessible interface which causes the os.FileInfo's to be converted through `vfs.NewFileInfo`.
         # - if patched incorrectly, sftpgo may return absolute paths for operations like `ls foo/bar/` (breaks rclone)
-        ./safe_fileinfo_readdir.patch
-        # XXX(2025-09-20): nothing seems to break in Kodi when i leave `Stat` unpatched
+        # XXX(2025-11-13): newer sftpgo implements this specific area differently => maybe Kodi can work without this now?
+        # ./safe_fileinfo_readdir.patch
+        # XXX(2025-09-20): this patch no longer *cleanly* applies (easy to rebase), but nothing seems to break in Kodi anymore when i leave `Stat` unpatched.
+        # not sure if Kodi fixed it, or if sftpgo fixed it (and that's why the patch no longer applies).
         # ./safe_fileinfo_stat.patch
       ];
     });

@@ -51,64 +51,69 @@ let
   # try to load gobject-introspection files for the wrong platform (e.g. `gjspack`).
   typelibPath = pkgs: lib.concatStringsSep ":" (builtins.map (p: "${lib.getLib p}/lib/girepository-1.0") pkgs);
 
-  # `cargo` which adds the correct env vars and `--target` flag when invoked from meson build scripts
-  # crossCargo = let
-  #   inherit (final.pkgsBuildHost) cargo;
-  #   inherit (final.rust.envVars) setEnv rustHostPlatformSpec;
-  # in (final.pkgsBuildBuild.writeShellScriptBin "cargo" ''
-  #   targetDir=target
-  #   isFlavored=
-  #   outDir=
-  #   profile=
+  # `cargo` which adds the correct env vars and `--target` flag when invoked from meson build scripts.
+  # use like `foo = prev.foo.override { cargo = crossCargo; }`.
+  # the nixpkgs-upstreaming compatible patch looks more like this:
+  # - <https://github.com/NixOS/nixpkgs/pull/437748/files>
+  # 1. `env.CARGO_BUILD_TARGET = stdenv.hostPlatform.rust.rustcTargetSpec;`
+  # 2. `postPatch += ...` to patch `rust_target` to `'${stdenv.hostPlatform.rust.cargoShortTarget}'` in meson.build
+  crossCargo = let
+    inherit (final.pkgsBuildHost) cargo;
+    inherit (final.rust.envVars) setEnv rustHostPlatformSpec;
+  in (final.pkgsBuildBuild.writeShellScriptBin "cargo" ''
+    targetDir=target
+    isFlavored=
+    outDir=
+    profile=
 
-  #   cargoArgs=("$@")
-  #   nextIsOutDir=
-  #   nextIsProfile=
-  #   nextIsTargetDir=
-  #   for arg in "''${cargoArgs[@]}"; do
-  #     if [[ -n "$nextIsOutDir" ]]; then
-  #       nextIsOutDir=
-  #       outDir="$arg"
-  #     elif [[ -n "$nextIsProfile" ]]; then
-  #       nextIsProfile=
-  #       profile="$arg"
-  #     elif [[ -n "$nextIsTargetDir" ]]; then
-  #       nextIsTargetDir=
-  #       targetDir="$arg"
-  #     elif [[ "$arg" = "build" ]]; then
-  #       isFlavored=1
-  #     elif [[ "$arg" = "--out-dir" ]]; then
-  #       nextIsOutDir=1
-  #     elif [[ "$arg" = "--profile" ]]; then
-  #       nextIsProfile=1
-  #     elif [[ "$arg" = "--release" ]]; then
-  #       profile=release
-  #     elif [[ "$arg" = "--target-dir" ]]; then
-  #       nextIsTargetDir=1
-  #     fi
-  #   done
+    cargoArgs=("$@")
+    nextIsOutDir=
+    nextIsProfile=
+    nextIsTargetDir=
+    for arg in "''${cargoArgs[@]}"; do
+      if [[ -n "$nextIsOutDir" ]]; then
+        nextIsOutDir=
+        outDir="$arg"
+      elif [[ -n "$nextIsProfile" ]]; then
+        nextIsProfile=
+        profile="$arg"
+      elif [[ -n "$nextIsTargetDir" ]]; then
+        nextIsTargetDir=
+        targetDir="$arg"
+      elif [[ "$arg" = "build" ]]; then
+        isFlavored=1
+      elif [[ "$arg" = "--out-dir" ]]; then
+        nextIsOutDir=1
+      elif [[ "$arg" = "--profile" ]]; then
+        nextIsProfile=1
+      elif [[ "$arg" = "--release" ]]; then
+        profile=release
+      elif [[ "$arg" = "--target-dir" ]]; then
+        nextIsTargetDir=1
+      fi
+    done
 
-  #   extraFlags=()
+    extraFlags=()
 
-  #   # not all subcommands support flavored arguments like `--target`
-  #   if [ -n "$isFlavored" ]; then
-  #     # pass the target triple to cargo so it will cross compile
-  #     # and fix so it places outputs in the same directory as non-cross, see: <https://doc.rust-lang.org/cargo/guide/build-cache.html>
-  #     extraFlags+=(
-  #       --target "${rustHostPlatformSpec}"
-  #       -Z unstable-options
-  #     )
-  #     if [ -z "$outDir" ]; then
-  #       extraFlags+=(
-  #         --out-dir "$targetDir"/''${profile:-debug}
-  #       )
-  #     fi
-  #   fi
+    # not all subcommands support flavored arguments like `--target`
+    if [ -n "$isFlavored" ]; then
+      # pass the target triple to cargo so it will cross compile
+      # and fix so it places outputs in the same directory as non-cross, see: <https://doc.rust-lang.org/cargo/guide/build-cache.html>
+      extraFlags+=(
+        --target "${rustHostPlatformSpec}"
+        -Z unstable-options
+      )
+      if [ -z "$outDir" ]; then
+        extraFlags+=(
+          --out-dir "$targetDir"/''${profile:-debug}
+        )
+      fi
+    fi
 
-  #   exec ${setEnv} "${lib.getExe cargo}" "$@" "''${extraFlags[@]}"
-  # '').overrideAttrs {
-  #   inherit (cargo) meta;
-  # };
+    exec ${setEnv} "${lib.getExe cargo}" "$@" "''${extraFlags[@]}"
+  '').overrideAttrs {
+    inherit (cargo) meta;
+  };
 in with final; {
   armTrustedFirmwareRK3399 = prev.armTrustedFirmwareRK3399.overrideAttrs (upstream: {
     # 2025-10-06: fixes "arm-none-eabi-ld: /build/source/build/rk3399/release/m0/rk3399m0pmu.elf: error: PHDR segment not covered by LOAD segment".
@@ -298,6 +303,10 @@ in with final; {
   # knot-dns = addNativeInputs [ buildPackages.protobufc ] prev.knot-dns;
 
   # lemoa = prev.lemoa.override { cargo = crossCargo; };
+
+  libglycin = prev.libglycin.override {
+    cargo = crossCargo;
+  };
 
   # libsForQt5 = prev.libsForQt5.overrideScope (self: super: {
   #   # 2025/07/27: upstreaming is blocked on qtsvg

@@ -375,7 +375,7 @@ in
       # "sublime-music"
       # "tdesktop"  # broken on phosh
       # "tokodon"
-      "tuba"  # mastodon/pleroma client (stores pw in keyring)
+      # "tuba"  # mastodon/pleroma client (stores pw in keyring)
       # "v4l-utils"  # for `media-ctl`; to debug cameras: <https://wiki.postmarketos.org/wiki/PINE64_PinePhone_(pine64-pinephone)#Cameras>
       "video-trimmer"
       "vulkan-tools"  # vulkaninfo
@@ -434,7 +434,7 @@ in
       "handbrake"
       "inkscape"
       # "jellyfin-media-player"
-      "kdenlive"
+      # "kdenlive"  # N.B. depends on qtwebengine
       # "keymapp"
       # "kid3"  # audio tagging
       "krita"

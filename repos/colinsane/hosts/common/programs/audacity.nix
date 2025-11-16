@@ -10,18 +10,18 @@ let
   wxGTK32 = pkgs.wxGTK32.override {
     withWebKit = false;
   };
-  # basePkg = pkgs.audacity.overrideAttrs (base: {
-  #   # upstream audacity.desktop specifies GDK_BACKEND=x11, with which it doesn't actually launch :|
-  #   postInstall = (base.postInstall or "") + ''
-  #     substituteInPlace $out/share/applications/${appId}.desktop \
-  #       --replace-fail 'GDK_BACKEND=x11 ' ""
-  #   '';
+  basePkg = pkgs.audacity.overrideAttrs (base: {
+    # upstream audacity.desktop specifies GDK_BACKEND=x11, with which it doesn't actually launch :|
+    postInstall = (base.postInstall or "") + ''
+      substituteInPlace $out/share/applications/${appId}.desktop \
+        --replace-fail 'GDK_BACKEND=x11 ' ""
+    '';
 
-  #   # XXX(2025-03-03): upstream nixpkgs incorrectly defaults `GDK_BACKEND=x11`,
-  #   # even though audacity runs fine on wayland
-  #   postFixup = lib.replaceStrings [ "--set-default GDK_BACKEND x11" ] [ "" ] base.postFixup;
-  # });
-  basePkg = pkgs.tenacity;  #< XXX(2025-07-27): upstream audacity fails build; use tenacity until fixed
+    # XXX(2025-03-03): upstream nixpkgs incorrectly defaults `GDK_BACKEND=x11`,
+    # even though audacity runs fine on wayland
+    postFixup = lib.replaceStrings [ "--set-default GDK_BACKEND x11" ] [ "" ] base.postFixup;
+  });
+  # basePkg = pkgs.tenacity;  #< uncomment if the audacity build breaks
   appId = basePkg.pname;
 in
 {
