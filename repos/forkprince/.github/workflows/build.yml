@@ -50,38 +50,30 @@ jobs:
     strategy:
       matrix:
         nixPath:
-          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
+          # - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
           - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable.tar.gz
           - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-25.05.tar.gz
 
     runs-on: ubuntu-latest
     steps:
-      - name: Free Disk Space
-        uses: insightsengineering/disk-space-reclaimer@v1
-        with:
-          android: true
-          dotnet: true
-          haskell: true
-          large-packages: true
-          docker-images: true
-          swap-storage: false
-          tools-cache: false
-
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Install nix
-        uses: nixbuild/nix-quick-install-action@v34
+      - name: Maximize Space
+        uses: wimpysworld/nothing-but-nix@main
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
         with:
-          nix_conf: experimental-features = nix-command flakes
+          nix_path: "${{ matrix.nixPath }}"
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set NIX_PATH
-        run: echo "NIX_PATH=${{ matrix.nixPath }}" >> $GITHUB_ENV
-
-      - name: Show nixpkgs version
+      - name: Show Nixpkgs Version
         run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
 
-      - name: Setup cachix
+      - name: Setup Cachix
         uses: cachix/cachix-action@v16
         with:
           name: forkprince
