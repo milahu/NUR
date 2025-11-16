@@ -51,7 +51,7 @@ if [[ $what == 'units' ]] || [[ -z $what ]]; then
   version_string="$("$units_path/bin/units" --version | head -n 1)"
   declare cmc_api_key
   cmc_api_key="$(v nix run '.#sops' -- decrypt --extract '["key"]' secrets/misc/coinmarketcap-key.yaml)"
-  CMC_API_KEY="$cmc_api_key" v nix run .#get-crypto-rates -- -f units/cryptocurrencies.units
+  CMC_API_KEY="$cmc_api_key" v nix run '.#get-crypto-rates' -- -f units/cryptocurrencies.units
   unset cmc_api_key
   if ! git diff --quiet --exit-code HEAD; then
     declare -a cmd=(

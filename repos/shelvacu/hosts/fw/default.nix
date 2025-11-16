@@ -129,7 +129,7 @@
 
   services.postgresql.enable = true; # for development
 
-  vacu.programs.thunderbird.enable = true;
+  vacu.programs.thunderbird.enable = false;
 
   services.mullvad-vpn.enable = true;
 }

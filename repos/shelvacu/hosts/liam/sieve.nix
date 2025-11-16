@@ -467,6 +467,13 @@ let
       removeflag "D";
 
       ${pure_flags [ "dmarc-reports" ] (envelope_is "dmarc-rua@shelvacu.com")}
+      ${pure_flags [ "coolppl" "A" ] (from_matches [
+        #todo: do this without exposing friends' email addresses
+        "*@mio19.uk"
+        "*@uninsane.org"
+        "*@nettika.cat"
+        "*@mooooo.ooo"
+      ])}
       ${pure_flags [ "wells-fargo" "banking" ] (envelope_is "wf-primary@shelvacu.com")}
       ${pure_flags
         [ "wells-fargo-transactions" "banking-transactions" "B" ]
