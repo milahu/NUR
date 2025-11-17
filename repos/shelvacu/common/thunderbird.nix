@@ -2,24 +2,24 @@
   lib,
   config,
   vacuModuleType,
-  vaculib,
+  pkgs,
   ...
 }:
 let
   inherit (lib) mkOption types;
-  vacustoreCalUUID = "dd9a924e-57d9-4ea1-b7ec-22d1f0ff3d51";
-  vacustoreCalConfig = {
-    "cache.enabled" = true;
-    calendar-main-in-composite = true;
-    color = "#33d17a";
-    disabled = false;
-    "imip.identity.key" = "id1"; # what is this
-    name = "Personal";
-    readOnly = false;
-    type = "caldav";
-    uri = "https://vacu.store/remote.php/dav/calendars/shelvacu/personal/";
-    username = "shelvacu";
-  };
+  # vacustoreCalUUID = "dd9a924e-57d9-4ea1-b7ec-22d1f0ff3d51";
+  # vacustoreCalConfig = {
+  #   "cache.enabled" = true;
+  #   calendar-main-in-composite = true;
+  #   color = "#33d17a";
+  #   disabled = false;
+  #   "imip.identity.key" = "id1"; # what is this
+  #   name = "Personal";
+  #   readOnly = false;
+  #   type = "caldav";
+  #   uri = "https://vacu.store/remote.php/dav/calendars/shelvacu/personal/";
+  #   username = "shelvacu";
+  # };
 in
 {
   options.vacu.programs.thunderbird = {
@@ -32,12 +32,11 @@ in
     lib.mkIf config.vacu.programs.thunderbird.enable {
       programs.thunderbird = {
         enable = true;
+        package = pkgs.betterbird;
         policies = {
           DisableTelemetry = true;
           DNSOverHTTPS.Enabled = false;
           ExtensionSettings = {
-            #*cloud - FileLink for Nextcloud and ownCloud
-            "cloud@johannes-endres.de".installation_mode = "normal_installed";
             #NTFNTF: Notify on This Folder Not That Folder
             "ntfntf@dan-sullivan.co.uk".installation_mode = "normal_installed";
           };
@@ -52,7 +51,6 @@ in
         };
         preferences = {
           "accessibility.typeaheadfind.flashBar" = 0; # what is this
-          "app.donation.eoy.version.viewed" = -1; # dunno if this actually works
           "browser.search.region" = "US";
           "calendar.alarms.playsound" = false;
           "calendar.alarms.show" = false;
@@ -95,8 +93,8 @@ in
           "mailnews.mark_message_read.auto" = false;
           "mailnews.start_page.enabled" = false;
           # "searchintegration.enable" = false;
-        }
-        // vaculib.mapAttrNames (n: "calendar.registry.${vacustoreCalUUID}.${n}") vacustoreCalConfig;
+        };
+        # // vaculib.mapAttrNames (n: "calendar.registry.${vacustoreCalUUID}.${n}") vacustoreCalConfig;
       };
     }
   );

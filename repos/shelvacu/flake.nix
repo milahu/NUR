@@ -44,6 +44,11 @@
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    mio-nurpkgs = {
+      url = "github:mio-19/nurpkgs";
+      # it *is* a flake, but I'm not using it as one
+      flake = false;
+    };
     most-winningest = {
       url = "github:captain-jean-luc/most-winningest";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -130,7 +135,13 @@
       overlays =
         [ ]
         ++ lib.singleton (
-          new: _old: mkVacuCommonPkgArgs { pkgs = new; }
+          new: _old: lib.attrsets.unionOfDisjoint (mkVacuCommonPkgArgs { pkgs = new; }) {
+            betterbird-unwrapped = pkgs.callPackage "${allInputs.mio-nurpkgs}/pkgs/betterbird" { };
+            betterbird = new.wrapThunderbird new.betterbird-unwrapped {
+              applicationName = "betterbird";
+              libName = "betterbird";
+            };
+          }
         )
         ++ plainOverlays
         ++ flakeOverlays
@@ -526,6 +537,7 @@
               lib.mapAttrsToList (k: v: "${v} ${k}") plain.config.vacu.ssh.authorizedKeys
             )
           );
+          inherit (pkgsStable) betterbird betterbird-unwrapped;
           dns = import ./scripts/dns {
             inherit pkgs lib;
             inputs = allInputs;
