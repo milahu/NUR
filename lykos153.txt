@@ -1,56 +1,57 @@
+trace: evaluation warning: 'recurseIntoAttrs' has been removed from pkgs, use `lib.recurseIntoAttrs` instead
 error:
 … from call site
 
-  at ./default.nix:34:17:
+  at ./default.nix:33:17:
 
-    33|   cntb-bin = pkgs.callPackage ./pkgs/cntb-bin {};
-    34|   rofi-blocks = pkgs.callPackage ./pkgs/rofi-blocks {};
+    32|   cntb-bin = pkgs.callPackage ./pkgs/cntb-bin {};
+    33|   rofi-blocks = pkgs.callPackage ./pkgs/rofi-blocks {};
       |                 ^
-    35|   coord = pkgs.callPackage ./pkgs/coord {};
+    34|   coord = pkgs.callPackage ./pkgs/coord {};
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:240:19:
+  at <nixpkgs> + /lib/customisation.nix:259:19:
 
-   239|   callPackageWith =
-   240|     autoArgs: fn: args:
+   258|   callPackageWith =
+   259|     autoArgs: fn: args:
       |                   ^
-   241|     let
+   260|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:254:11:
+  at <nixpkgs> + /lib/customisation.nix:273:11:
 
-   253|         (
-   254|           filterAttrs (name: value: !value)
+   272|         (
+   273|           filterAttrs (name: value: !value)
       |           ^
-   255|             # Filter out arguments that would be passed
+   274|             # Filter out arguments that would be passed
 
 … while calling 'filterAttrs'
 
-  at <nixpkgs> + /lib/attrsets.nix:657:23:
+  at <nixpkgs> + /lib/attrsets.nix:663:23:
 
-   656|   */
-   657|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+   662|   */
+   663|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
       |                       ^
-   658|
+   664|
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:243:15:
+  at <nixpkgs> + /lib/customisation.nix:262:15:
 
-   242|       f = if isFunction fn then fn else import fn;
-   243|       fargs = functionArgs f;
+   261|       f = if isFunction fn then fn else import fn;
+   262|       fargs = functionArgs f;
       |               ^
-   244|
+   263|
 
 … while calling 'functionArgs'
 
-  at <nixpkgs> + /lib/trivial.nix:1007:5:
+  at <nixpkgs> + /lib/trivial.nix:1027:5:
 
-  1006|   functionArgs =
-  1007|     f:
+  1026|   functionArgs =
+  1027|     f:
       |     ^
-  1008|     if f ? __functor then
+  1028|     if f ? __functor then
 
 error: getting status of './pkgs/rofi-blocks': No such file or directory
