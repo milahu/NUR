@@ -111,6 +111,10 @@ in
 // {
   inherit callPackage;
 
+  anytype = callPackage ./by-name/an/anytype/package.nix {
+    electron = electron_37;
+  };
+
   emacsPackages = lib.recurseIntoAttrs (
     emacsPackagesOverlay (prev.emacsPackages // emacsPackages) prev.emacsPackages
   );
@@ -131,11 +135,6 @@ in
       libXNVCtrl = prev.pkgsi686Linux.linuxPackages.nvidia_x11.settings.libXNVCtrl;
       inherit mangohud32;
     };
-  };
-
-  protontricks = python3Packages.callPackage ./tools/package-management/protontricks {
-    steam-run = steam-run-free;
-    inherit winetricks yad;
   };
 
   sudachi = qt6Packages.callPackage ./by-name/su/sudachi/package.nix {
