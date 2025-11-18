@@ -803,4 +803,10 @@ in with final; {
   #   # and xdp-tools `configure` detects the unwrapped `clang` instead, doesn't receive nix flags
   #   CLANG = lib.getExe buildPackages.llvmPackages.clang;
   # };
+
+  yt-dlp = prev.yt-dlp.override {
+    # TODO(2025-11-17): yt-dlp needs deno (JavaScript) for full capability:
+    # <https://github.com/NixOS/nixpkgs/pull/460892>
+    javascriptSupport = false;  # a.k.a.: `deno = null;`
+  };
 }

@@ -45,10 +45,22 @@ parseArgs() {
     ident=${ident/revert-/}
   fi
 
+  ident=$(parseIdent $ident)
+
   if [ -z "$ident" ]; then
     usage
     exit 1
   fi
+}
+
+parseIdent() {
+  local ident=$1
+  # best effort to map various URIs back to their PR or commit number.
+  # this function serves the manual invocations to vendor-patch-updater, as updateScripts always pass in the parsed ident.
+  ident=${ident/https:\/\/github.com\/NixOS\/nixpkgs\/pull\//}
+  ident=${ident/.patch/}
+  ident=${ident/.diff/}
+  echo "$ident"
 }
 
 tryPatchesDir() {

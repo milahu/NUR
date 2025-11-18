@@ -11,13 +11,13 @@
 
 rustPlatform.buildRustPackage {
   pname = "mslicer";
-  version = "0.2.2-unstable-2025-10-16";
+  version = "0.3.0-unstable-2025-11-15";
 
   src = fetchFromGitHub {
     owner = "connorslade";
     repo = "mslicer";
-    rev = "7ce2660693b09f464016397b163fcb8d05f2edca";
-    hash = "sha256-FYapz7DFVyjMsIiz5Q1nxtYcFrNpIBuvknxMpOV22C4=";
+    rev = "741bfe30d05e22cbf2d6310ffbb9e67205413048";
+    hash = "sha256-k/LoJ+GqtVHZab5BEXQ5k2SJkM9hwbOkPA6c+3i9Ylo=";
   };
 
   cargoHash = "sha256-a+nIVDjR+7Bh36GPNtWqKQvQgNo0w3KHWPmYpU7WMkM=";
