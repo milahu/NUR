@@ -49,8 +49,8 @@ in
     '';
 
     meta = with lib; {
-      description = "Chinese ancient poetry fortune.";
-      homepage = "https://github.com/shenyunhang/fortune-zh";
+      description = "Chinese poems for fortune-mod";
+      homepage = "https://salsa.debian.org/chinese-team/fortunes-zh";
       platforms = fortune.meta.platforms;
       license = with licenses; [lgpl3];
       sourceProvenance = with sourceTypes; [fromSource];

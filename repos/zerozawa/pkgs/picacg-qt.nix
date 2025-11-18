@@ -5,10 +5,10 @@
   ...
 }: let
   pname = "picacg-qt";
-  version = "1.5.2";
+  version = "1.5.3";
   src = fetchurl {
-    url = "https://github.com/tonquer/${pname}/releases/download/v${version}/bika_v${version}_linux_glibc2.38.AppImage";
-    hash = "sha256-zAok08R9Xdx6z6JBGNoQlxPrSVvxkquYg9fgf8OMj1o=";
+    url = "https://github.com/tonquer/${pname}/releases/download/v${version}/bika_v${version}_linux_glibc2.28.AppImage";
+    hash = "sha256-4RYDU/V49Sue8o+Q3/Vg3YTMEs1yHghD5BRSwoukEP8=";
   };
   appimageContents = appimageTools.extract {
     inherit pname version src;
