@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":0.917,
-"eval_time":0.284,
+"fetch_time":0.514,
+"eval_time":0.286,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"2e08f4f6542a49a33389f33cb10cf1bc33633f49",
-"sha256":"09jmfpwmpxcfsiw3k3syhzhgh09qrkj2hi6w48kcp8ynszg239cm",
+"rev":"adcfe73d23408840da32d58edb6b18c32b335096",
+"sha256":"0z926h8mplhk5lxds91zvwiczw9wfsdww48wxhlh2jxi02jxwc88",
 "date":null
 },
-"source_storepath":"/nix/store/bv2xw749z1fy0vcl45ak1icag72vpspd-source",
-"nixpkgs_storepath":"/nix/store/diqjasblpqdf5vnd2p6chbnzywygb8df-source",
-"nur_combined_rev":"67a8dec20efc33bd90d3bd475e8aa0989eefed02",
+"source_storepath":"/nix/store/laj3pwlmc6mralwrq788fy3pgklf9n9x-source",
+"nixpkgs_storepath":"/nix/store/f2m9znvz8gphqqcvd8hpxr9ngvyhr9di-source",
+"nur_combined_rev":"0bf1c739b8ebc0c0fb1304ec1cbc5d1f6ddf2cd3",
 "packages":{
 "bobgen":{
 "meta":{
@@ -268,7 +268,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./packages/bumper/default.nix:66",
+"position":"./packages/bumper/default.nix:68",
 "unfree":false,
 "unsupported":false
 },
@@ -285,7 +285,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":" Calculate quality metrics with FFmpeg (SSIM, PSNR, VMAF, VIF)",
+"description":"Calculate quality metrics with FFmpeg (SSIM, PSNR, VMAF, VIF)",
 "homepage":"https://github.com/slhck/ffmpeg-quality-metrics",
 "identifiers":{
 "cpeParts":{
@@ -347,7 +347,7 @@
 "aarch64-freebsd"
 ],
 "maintainers":[],
-"name":"ffmpeg-quality-metrics-3.7.1",
+"name":"ffmpeg-quality-metrics-3.10.0",
 "outputsToInstall":[
 "out"
 ],
@@ -433,7 +433,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ffmpeg-quality-metrics-3.7.1",
+"name":"ffmpeg-quality-metrics-3.10.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -441,7 +441,7 @@
 },
 "pname":"ffmpeg-quality-metrics",
 "system":"x86_64-linux",
-"version":"3.7.1"
+"version":"3.10.0"
 },
 "nix-fix-hash":{
 "meta":{
@@ -560,7 +560,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./packages/nix-fix-hash/default.nix:66",
+"position":"./packages/nix-fix-hash/default.nix:68",
 "unfree":false,
 "unsupported":false
 },
@@ -657,7 +657,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./packages/opengrep/default.nix:123",
+"position":"./packages/opengrep/default.nix:126",
 "unfree":false,
 "unsupported":false
 },
@@ -815,7 +815,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/rigaya/QSVEnc/releases/tag/8.01",
+"changelog":"https://github.com/rigaya/QSVEnc/releases/tag/8.03",
 "description":"QSV high-speed encoding performance experiment tool",
 "homepage":"https://github.com/rigaya/QSVEnc",
 "identifiers":{
@@ -824,7 +824,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
-"product":"QSVEnc",
+"product":"qsvenc",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -836,7 +836,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
-"product":"QSVEnc",
+"product":"qsvenc",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -856,7 +856,7 @@
 },
 "mainProgram":"qsvencc",
 "maintainers":[],
-"name":"QSVEnc-8.01",
+"name":"qsvenc-8.03",
 "outputsToInstall":[
 "out"
 ],
@@ -938,24 +938,24 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./packages/qsvenc/default.nix:134",
+"position":"./packages/qsvenc/default.nix:136",
 "unfree":false,
 "unsupported":false
 },
-"name":"QSVEnc-8.01",
+"name":"qsvenc-8.03",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"QSVEnc",
+"pname":"qsvenc",
 "system":"x86_64-linux",
-"version":"8.01"
+"version":"8.03"
 },
 "renovate":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/renovatebot/renovate/releases/tag/42.8.1",
+"changelog":"https://github.com/renovatebot/renovate/releases/tag/42.13.1",
 "description":"Cross-platform dependency automation, with patches for nix",
 "homepage":"https://github.com/renovatebot/renovate",
 "identifiers":{
@@ -996,7 +996,7 @@
 },
 "mainProgram":"renovate",
 "maintainers":[],
-"name":"renovate-42.8.1",
+"name":"renovate-42.13.1",
 "outputsToInstall":[
 "out"
 ],
@@ -1029,18 +1029,18 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./packages/renovate/default.nix:113",
+"position":"./packages/renovate/default.nix:111",
 "unfree":false,
 "unsupported":false
 },
-"name":"renovate-42.8.1",
+"name":"renovate-42.13.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"renovate",
 "system":"x86_64-linux",
-"version":"42.8.1"
+"version":"42.13.1"
 },
 "shellhook":{
 "meta":{
@@ -1157,7 +1157,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./packages/shellhook/default.nix:55",
+"position":"./packages/shellhook/default.nix:57",
 "unfree":false,
 "unsupported":false
 },
