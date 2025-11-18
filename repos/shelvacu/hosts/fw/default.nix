@@ -23,8 +23,6 @@
     ./boot.nix
   ];
 
-  # boot.supportedFilesystems = [ "bcachefs" ];
-
   vacu.hostName = "fw";
   vacu.shell.color = "magenta";
   vacu.verifySystem.expectedMac = "e8:65:38:52:5c:59";
