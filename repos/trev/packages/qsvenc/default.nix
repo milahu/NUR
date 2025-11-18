@@ -25,16 +25,16 @@
   intel-compute-runtime,
 }:
 stdenv.mkDerivation (finalAttrs: {
-  pname = "QSVEnc";
-  version = "8.01";
+  pname = "qsvenc";
+  version = "8.03";
 
-  hardeningDisable = ["all"];
+  hardeningDisable = [ "all" ];
 
   src = fetchFromGitHub {
     owner = "rigaya";
     repo = "QSVEnc";
     tag = finalAttrs.version;
-    hash = "sha256-P2V9Jxy6kIj6dax4j7fl89gS/YAYk9F3vM3q3HfMARw=";
+    hash = "sha256-enQKGwj31xylhYzOkkHzwM6BVizVP6/HHBHIseDrAkE=";
     fetchSubmodules = true;
   };
 
@@ -102,14 +102,16 @@ stdenv.mkDerivation (finalAttrs: {
 
     # Wrap the binary to set necessary environment variables for Intel media drivers
     wrapProgram $out/bin/qsvencc \
-      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [
-      intel-media-driver
-      intel-compute-runtime
-      vpl-gpu-rt
-      libva
-      libdrm
-      ocl-icd
-    ]}" \
+      --prefix LD_LIBRARY_PATH : "${
+        lib.makeLibraryPath [
+          intel-media-driver
+          intel-compute-runtime
+          vpl-gpu-rt
+          libva
+          libdrm
+          ocl-icd
+        ]
+      }" \
       --set LIBVA_DRIVER_NAME iHD \
       --prefix LIBVA_DRIVERS_PATH : "${intel-media-driver}/lib/dri" \
       --prefix OCL_ICD_VENDORS : "${intel-compute-runtime}/etc/OpenCL/vendors"

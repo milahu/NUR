@@ -14,13 +14,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "renovate";
-  version = "42.8.1";
+  version = "42.13.1";
 
   src = fetchFromGitHub {
     owner = "renovatebot";
     repo = "renovate";
     tag = finalAttrs.version;
-    hash = "sha256-8j9UPOzW9xICngkSMYe3ViXYN2vIyw/+MQVDaT9jBMY=";
+    hash = "sha256-1BYxiHCi0CPvOSMxjOUs5DfsDm0FUMEJnpN3KKErrYw=";
   };
 
   patches = [
@@ -32,49 +32,47 @@ stdenv.mkDerivation (finalAttrs: {
       --replace-fail "0.0.0-semantic-release" "${finalAttrs.version}"
   '';
 
-  nativeBuildInputs =
-    [
-      makeWrapper
-      nodejs
-      pnpm_10.configHook
-      python3
-      yq-go
-    ]
-    ++ lib.optional stdenv.hostPlatform.isDarwin xcbuild;
+  nativeBuildInputs = [
+    makeWrapper
+    nodejs
+    pnpm_10.configHook
+    python3
+    yq-go
+  ]
+  ++ lib.optional stdenv.hostPlatform.isDarwin xcbuild;
 
   pnpmDeps = pnpm_10.fetchDeps {
     inherit (finalAttrs) pname version src;
     fetcherVersion = 2;
-    hash = "sha256-mT3P8IRox/Z17+qP5JZB6mTws1ra/3vFqYvVoBGmU0I=";
+    hash = "sha256-iqxEqAJT63O44UUZ24N+vH78iedToCuw7l5f/cDpyVc=";
   };
 
   env.COREPACK_ENABLE_STRICT = 0;
 
-  buildPhase =
-    ''
-      runHook preBuild
+  buildPhase = ''
+    runHook preBuild
 
-      # relax nodejs version
-      yq '.engines.node = "${nodejs.version}"' -i package.json
+    # relax nodejs version
+    yq '.engines.node = "${nodejs.version}"' -i package.json
 
-      pnpm build
-      pnpm install --offline --prod --ignore-scripts
-    ''
-    # The optional dependency re2 is not built by pnpm and needs to be built manually.
-    # If re2 is not built, you will get an annoying warning when you run renovate.
-    + ''
-      pushd node_modules/.pnpm/re2*/node_modules/re2
+    pnpm build
+    pnpm install --offline --prod --ignore-scripts
+  ''
+  # The optional dependency re2 is not built by pnpm and needs to be built manually.
+  # If re2 is not built, you will get an annoying warning when you run renovate.
+  + ''
+    pushd node_modules/.pnpm/re2*/node_modules/re2
 
-      mkdir -p $HOME/.node-gyp/${nodejs.version}
-      echo 9 > $HOME/.node-gyp/${nodejs.version}/installVersion
-      ln -sfv ${nodejs}/include $HOME/.node-gyp/${nodejs.version}
-      export npm_config_nodedir=${nodejs}
-      npm run rebuild
+    mkdir -p $HOME/.node-gyp/${nodejs.version}
+    echo 9 > $HOME/.node-gyp/${nodejs.version}/installVersion
+    ln -sfv ${nodejs}/include $HOME/.node-gyp/${nodejs.version}
+    export npm_config_nodedir=${nodejs}
+    npm run rebuild
 
-      popd
+    popd
 
-      runHook postBuild
-    '';
+    runHook postBuild
+  '';
 
   # TODO: replace with `pnpm deploy`
   # now it fails to build with ERR_PNPM_NO_OFFLINE_META
@@ -95,7 +93,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   passthru = {
     tests = {
-      version = testers.testVersion {package = finalAttrs.finalPackage;};
+      version = testers.testVersion { package = finalAttrs.finalPackage; };
       vm-test = nixosTests.renovate;
     };
     updateScript = ''

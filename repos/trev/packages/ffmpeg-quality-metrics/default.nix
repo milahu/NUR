@@ -1,26 +1,26 @@
 {
   lib,
-  python3,
-  fetchPypi,
+  fetchFromGitHub,
   python3Packages,
   nix-update-script,
 }:
-python3.pkgs.buildPythonApplication rec {
+python3Packages.buildPythonApplication rec {
   pname = "ffmpeg-quality-metrics";
-  version = "3.7.1";
-  format = "wheel";
+  version = "3.10.0";
+  pyproject = true;
 
-  src = fetchPypi rec {
-    inherit version format;
-    pname = "ffmpeg_quality_metrics";
-    sha256 = "sha256-8E6IxTh8vbqqbT3nIQo8k+fOCfcoXTiLDSKpE9HET0g=";
-    dist = python;
-    python = "py3";
-    abi = "none";
-    platform = "any";
+  src = fetchFromGitHub {
+    owner = "slhck";
+    repo = "ffmpeg-quality-metrics";
+    tag = "v${version}";
+    hash = "sha256-immWhYUsX9zEHLqJeBh3AjzEJn43HArFU9f4yIujNX0=";
   };
 
-  propagatedBuildInputs = with python3Packages; [
+  build-system = with python3Packages; [
+    uv-build
+  ];
+
+  dependencies = with python3Packages; [
     ffmpeg-progress-yield
   ];
 
@@ -34,7 +34,7 @@ python3.pkgs.buildPythonApplication rec {
   };
 
   meta = {
-    description = " Calculate quality metrics with FFmpeg (SSIM, PSNR, VMAF, VIF)";
+    description = "Calculate quality metrics with FFmpeg (SSIM, PSNR, VMAF, VIF)";
     homepage = "https://github.com/slhck/ffmpeg-quality-metrics";
     platforms = lib.platforms.all;
   };
