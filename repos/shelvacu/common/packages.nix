@@ -14,6 +14,7 @@ in
 {
   vacu.packages = lib.mkMerge [
     {
+      sanoid.enable = lib.mkIf (vacuModuleType == "nixos" && config.boot.supportedFilesystems.zfs or false) true;
       borgbackup.enable = config.vacu.isDev && (pkgs.system != "aarch64-linux"); # borgbackup build is borken on aarch64
       ffmpeg-vacu-full = {
         enable = enableFfmpegFull;

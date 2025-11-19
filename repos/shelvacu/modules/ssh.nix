@@ -3,6 +3,7 @@
   pkgs,
   config,
   vacuModuleType ? "nixos",
+  vacuModules,
   ...
 }:
 let
@@ -60,7 +61,7 @@ let
   hostConfigText = lib.concatStringsSep "\n" hostConfigParts;
 in
 {
-  imports = [ ../knownHosts/module.nix ];
+  imports = [ vacuModules.knownHosts ];
   options = {
     vacu.hosts = mkOption { type = types.attrsOf (types.submodule knownHostsAddonModule); };
     vacu.ssh.knownHostsText = mkOption {

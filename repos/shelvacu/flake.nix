@@ -56,7 +56,7 @@
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixos-apple-silicon-unstable = {
-      url = "github:tpwrules/nixos-apple-silicon";
+      url = "github:nix-community/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nixvim = {
@@ -66,9 +66,6 @@
     nixvim-unstable = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-    nix-colors = {
-      url = "github:Misterio77/nix-colors";
     };
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid";
@@ -274,11 +271,12 @@
         };
     in
     {
-      debug.isoDeriv = (
-        import "${allInputs.nixpkgs}/nixos/release-small.nix" {
+      debug = {
+        isoDeriv = import "${allInputs.nixpkgs}/nixos/release-small.nix" {
           nixpkgs = ({ revCount = 0; } // allInputs.nixpkgs);
-        }
-      );
+        };
+        inherit lib vaculib;
+      };
 
       nixosConfigurations = {
         triple-dezert = mkNixosConfig {

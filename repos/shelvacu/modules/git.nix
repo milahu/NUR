@@ -3,6 +3,7 @@
   config,
   pkgs,
   vacuModuleType ? "nixos",
+  vacuModules,
   ...
 }:
 let
@@ -11,7 +12,7 @@ let
 in
 {
   imports = [
-    ../packageSet/module.nix
+    vacuModules.packageSet
     (lib.optionalAttrs (vacuModuleType == "nixos") {
       vacu.assertions = [
         {
