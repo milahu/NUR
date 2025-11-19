@@ -104,8 +104,8 @@ let
   };
 in
 {
-  config = lib.mkMerge [
-    (lib.mkIf config.sane.roles.work {
+  config = lib.mkIf config.sane.roles.work (lib.mkMerge [
+    {
       sane.persist.sys.byStore.private = [
         { user = "root"; group = "root"; mode = "0700"; path = "/var/lib/tailscale"; method = "bind"; }
       ];
@@ -189,7 +189,9 @@ in
       services.tailscale.extraDaemonFlags = [
         "-verbose" "7"
       ];
+    }
 
+    {
       systemd.services.tailscaled = {
         # systemd hardening (systemd-analyze security tailscaled.service)
         serviceConfig.AmbientCapabilities = "CAP_NET_ADMIN";
@@ -231,7 +233,7 @@ in
         serviceConfig.DeviceAllow = "/dev/net/tun";
         serviceConfig.RestrictNamespaces = true;
       };
-    })
+    }
 
     (lib.mkIf config.services.bind.enable {
       # make DNS resolvable, if using BIND
@@ -261,5 +263,5 @@ in
         ];
       };
     })
-  ];
+  ]);
 }
