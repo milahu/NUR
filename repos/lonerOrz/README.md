@@ -1,5 +1,11 @@
 # 🧃 My NUR Repository
 
+**NUR Sync Status:**
+
+[![NUR Sync Status](https://github.com/lonerOrz/loneros-nur/actions/workflows/nur-sync.yml/badge.svg)](https://github.com/lonerOrz/loneros-nur/actions/workflows/nur-sync.yml)
+
+<iframe src="https://raw.githubusercontent.com/lonerOrz/loneros-nur/nur-sync-status/status.html" width="100%" height="100"></iframe>
+
 This is my personal [NUR (Nix User Repository)](https://github.com/nix-community/NUR), created for:
 
 - Storing software I use daily;
@@ -38,12 +44,12 @@ If you have enabled the [official NUR repository](https://github.com/nix-communi
     # Use packages directly
     packages.x86_64-linux.qq = nur.repos.lonerOrz.qq;
     packages.x86_64-linux.wechat = nur.repos.lonerOrz.wechat;
-    
+
     # Or in a NixOS configuration
     nixosConfigurations.myConfig = nixpkgs.lib.nixosSystem {
       modules = [
         ({ pkgs, ... }: {
-          environment.systemPackages = with nur.repos.lonerOrz; [ 
+          environment.systemPackages = with nur.repos.lonerOrz; [
             qq
             wechat
             mpv-handler
@@ -69,6 +75,7 @@ This repository is automatically updated on a daily basis using GitHub Actions:
 - Build status is publicly visible for easy debugging.
 
 The update process is handled by custom update scripts for each package, which can fetch the latest versions from various sources including:
+
 - NPM registries
 - GitHub releases
 - Official download pages
