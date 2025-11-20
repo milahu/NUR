@@ -668,6 +668,15 @@ let
           escape expansion with `$$`
         '';
       };
+      sandbox.matplotlibCacheDir = mkOption {
+        type = types.nullOr types.str;
+        default = null;
+        description = ''
+          place the matplotlib cache in a custom directory.
+          this massively improves launch times for any matplotlib application that loads fonts,
+          indicated by the stdout output: "Matplotlib is building the font cache; this may take a moment."
+        '';
+      };
       sandbox.mesaCacheDir = mkOption {
         type = types.nullOr types.str;
         default = null;
@@ -767,6 +776,7 @@ let
 
       sandbox.extraEnv = {
         MESA_SHADER_CACHE_DIR = lib.mkIf (config.sandbox.mesaCacheDir != null) "$HOME/${config.sandbox.mesaCacheDir}";
+        MPLCONFIGDIR = lib.mkIf (config.sandbox.matplotlibCacheDir != null) "$HOME/${config.sandbox.matplotlibCacheDir}";
         TMPDIR = lib.mkIf (config.sandbox.tmpDir != null) "$HOME/${config.sandbox.tmpDir}";
       };
 
@@ -907,6 +917,8 @@ let
         ++ lib.optionals (mainProgram != null) (whitelistDir ".local/share/${mainProgram}")
         ++ lib.optionals (config.sandbox.mesaCacheDir != null) [
           config.sandbox.mesaCacheDir
+        ] ++ lib.optionals (config.sandbox.matplotlibCacheDir != null) [
+          config.sandbox.matplotlibCacheDir
         ] ++ lib.optionals (config.sandbox.tmpDir != null) [
           config.sandbox.tmpDir
         ]
@@ -981,6 +993,11 @@ let
       ];
       persist = lib.mkMerge [
         p.persist
+        (lib.optionalAttrs (p.sandbox.matplotlibCacheDir != null) {
+          # persist the matplotlib cache to private storage by default;
+          # but allow the user to override that.
+          byPath."${p.sandbox.matplotlibCacheDir}".store = lib.mkDefault "private";
+        })
         (lib.optionalAttrs (p.sandbox.mesaCacheDir != null) {
           # persist the mesa cache to private storage by default;
           # but allow the user to override that.

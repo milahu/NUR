@@ -184,8 +184,6 @@
   - add an auto-reply address (e.g. `reply-test@uninsane.org`) which reflects all incoming mail; use this (or a friend running this) for liveness checks
 
 ## NEW FEATURES:
-- migrate Kodi box to nix
 - migrate MAME cabinet to nix
-  - boot it from PXE from servo?
 - dedicated nix itgmania machine
 - enable IPv6

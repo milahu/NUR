@@ -104,6 +104,7 @@
     };
   };
 
+  systemd.services.gitea.path = [ pkgs.git-remote-hg ]; # this is so that gitea can clone/mirror hg (mercurial) repos
   systemd.services.gitea.wants = [ "postgresql.service" ];
   systemd.services.gitea.serviceConfig = {
     # nix default is AF_UNIX AF_INET AF_INET6.
@@ -159,13 +160,15 @@
     # -> nginx:.within.website/x/cmd/anubis/api/pass-challenge?response=... -> anubis:.within.website/x/cmd/anubis/api/pass-challenge?response=... -> browser is forwarded to /colin/linux
     # -> nginx:/colin/linux -> anubis:/colin/linux -> gitea:/colin/linux -> browser is served the actual content
     locations."/.within.website/" = proxyTo proxyPassHeavy;
-    locations."/colin/linux" = proxyTo proxyPassHeavy;
-    locations."/colin/nixpkgs" = proxyTo proxyPassHeavy;
-    locations."/colin/opencellid-mirror" = proxyTo proxyPassHeavy;
-    locations."/colin/NetworkManager" = proxyTo proxyPassHeavy;
-    locations."/colin/podcastindex-db-mirror" = proxyTo proxyPassHeavy;
-    locations."/colin/Signal-Desktop" = proxyTo proxyPassHeavy;
-    locations."/colin/u-boot" = proxyTo proxyPassHeavy;
+    locations."/colin/linux/" = proxyTo proxyPassHeavy;
+    locations."/colin/nixpkgs/" = proxyTo proxyPassHeavy;
+    locations."/colin/opencellid-mirror/" = proxyTo proxyPassHeavy;
+    locations."/colin/NetworkManager/" = proxyTo proxyPassHeavy;
+    locations."/colin/podcastindex-db-mirror/" = proxyTo proxyPassHeavy;
+    locations."/colin/Signal-Desktop/" = proxyTo proxyPassHeavy;
+    locations."/colin/u-boot/" = proxyTo proxyPassHeavy;
+    locations."/shelvacu-mirrors/mozilla-" = proxyTo proxyPassHeavy;
+    locations."/shelvacu-mirrors/comm-" = proxyTo proxyPassHeavy;
 
     # fuck you @anthropic
     locations."= /robots.txt" = let

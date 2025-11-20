@@ -38,6 +38,7 @@
 
     sandbox.net = "all";  # maybe only needs wireguard, actually
     sandbox.whitelistWayland = true;
+    sandbox.matplotlibCacheDir = ".cache/Newelle/matplotlib";
     sandbox.mesaCacheDir = ".cache/Newelle/mesa";
 
     gsettings."io/github/qwersyk/Newelle" = {

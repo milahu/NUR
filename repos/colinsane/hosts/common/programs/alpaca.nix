@@ -56,6 +56,7 @@
 
     sandbox.net = "all";  # maybe only needs wireguard, actually
     sandbox.whitelistWayland = true;
+    sandbox.matplotlibCacheDir = ".cache/com.jeffser.Alpaca/matplotlib";
     sandbox.mesaCacheDir = ".cache/com.jeffser.Alpaca/mesa";
 
     sandbox.whitelistDbus.user.own = [
@@ -66,10 +67,6 @@
       "OpenURI"
     ];
     sandbox.whitelistSendNotifications = true;
-
-    persist.byStore.ephemeral = [
-      ".cache/com.jeffser.Alpaca"  #< ?
-    ];
 
     persist.byStore.private = [
       # alpaca.db: sqlite3 database with the following tables:

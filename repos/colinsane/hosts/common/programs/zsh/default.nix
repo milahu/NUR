@@ -66,6 +66,7 @@ in
       ":fg" = "fg";
       ":q" = "exit";
       # common typos
+      ":Q" = ":q";
       "cd.." = "cd ..";
       "cd../" = "cd ../";
       "ecit" = "exit";
