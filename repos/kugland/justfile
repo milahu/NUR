@@ -42,3 +42,15 @@ update-musescore:
             /^(\s*aarch64[.]hash)\s*=\s*"[^"]+"\s*;\s*$/s||\1 = "'"${aarch64_hash}"'";|g;
             /^(\s*version)\s*=\s*"[^"]+"\s*;\s*$/s||\1 = "'"${version}"'";|g;
     ' pkgs/musescore/default.nix
+
+# Update upstream git repos referenced in the config.
+update-adblock:
+    #! /usr/bin/env nix-shell
+    #! nix-shell -i bash -p update-nix-fetchgit
+    if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]]; then
+      echo "Error: There are uncommitted changes in the working directory." >&2
+      exit 1
+    fi
+    update-nix-fetchgit --only-commented ./modules/adblock.nix
+    git add ./modules/adblock.nix
+    git commit --no-gpg-sign -m 'Adblock upstream source updated'
