@@ -33,6 +33,17 @@ set conceallevel=2
 set list
 set listchars=tab:▷\·,trail:·,extends:◣,precedes:◢,nbsp:○
 
+" use tab completion to see all colorscheme options:
+" :set colorscheme <tab>
+" colors can be more finely set by editing ~/.config/nvim/colors/$colorscheme
+" see: <https://neovim.io/doc/user/usr_06.html>
+"
+" black-on-white schemes:
+" colorscheme delek
+colorscheme shine
+" colorscheme vim
+" colorscheme zellner
+
 " when using vim to view manpages
 "   (`:Man topic` or `MANPAGER='nvim +Man!' man topic` or `vim man://topic`),
 " instruct `man` to output unwrapped buffers, and let vim soft-wrap them.

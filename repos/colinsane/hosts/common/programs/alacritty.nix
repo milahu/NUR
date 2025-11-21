@@ -26,6 +26,32 @@ in
       [font]
       size = ${builtins.toString cfg.config.fontSize}
 
+      [colors.primary]
+      # black-on-white scheme:
+      foreground = "#181818"
+      background = "#ffffff"
+
+      # defaults:
+      # foreground = "#d8d8d8"
+      # background = "#181818"
+      # alacritty will auto-calculate these from other colors if omitted
+      # dim_foreground = "#828482"
+      # bright_foreground = "None"
+
+      [colors.normal]
+      # white = "#ffffff"
+      [colors.bright]
+      # white = "#ffffff"
+      [colors.dim]
+      # white = "#ffffff"
+      [colors.hints]
+      [colors.search]
+
+      [colors]
+      # draw_bold_text_with_bright_colors = true
+      # footer_bar = ...
+      # line_indicator = ...
+
       [cursor.style]
       blinking = "Always"
 

@@ -24,6 +24,7 @@ set $out_projector "MS Telematica TV 0x00000001"
 # TODO: these 0x... numbers change on occassion: i should ignore them.
 set $out_desko_1 "LG Electronics LG ULTRAWIDE 0x000C4694"
 set $out_desko_2 "Samsung Electric Company S22C300 0x5A365335"
+set $out_desko_3 "OBX MIRA253 BOOX MIRA253"
 set $out_flowy_int "AU Optronics 0xB9AC Unknown"
 set $out_flowy_ext_1 "ViewSonic Corporation VG3456 WFN212500418"
 set $out_flowy_ext_1 "ViewSonic Corporation VG3456 WFN212500422"
@@ -175,7 +176,7 @@ for_window [app_id="Zoom Workplace" title="^Zoom Workplace$"] floating enable, f
 for_window [app_id="Zoom Workplace" title="^Zoom Workplace - Licensed account$"] floating disable
 
 # workspace assignments
-workspace 1 output $out_desko_2 $out_flowy_int
+workspace 1 output $out_desko_2 $out_desko_3 $out_flowy_int
 workspace TV output $out_cuddlevision $out_theater $out_projector
 for_window [workspace="TV"] fullscreen enable
 
@@ -270,6 +271,10 @@ output $out_desko_1 {
 output $out_desko_2 {
   pos 3440,0
   res 1920x1080
+}
+output $out_desko_3 {
+  pos 3440,0
+  res 3200x1800
 }
 
 ## FLOWY
