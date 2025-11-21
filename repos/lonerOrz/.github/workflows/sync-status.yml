@@ -1,4 +1,4 @@
-name: Render NUR Sync Status HTML
+name: Render NUR Sync Status
 
 on:
   push:
@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  render-html:
+  render-status:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,13 +29,12 @@ jobs:
         run: |
           git pull origin nur-sync-status
 
-      - name: Render status HTML
+      - name: Render status SVG
         run: |
-          chmod +x ./.github/script/render-status-html.sh
-          ./.github/script/render-status-html.sh status.json status.html 30 50
+          python3 ./.github/script/render-status-svg.py status.json status.svg 7
 
-      - name: Commit HTML
+      - name: Commit status files
         run: |
-          git add status.html
-          git commit -m "Render status HTML" || echo "No changes to commit"
+          git add status.svg
+          git commit -m "Update status svg" || echo "No changes to commit"
           git push origin nur-sync-status
