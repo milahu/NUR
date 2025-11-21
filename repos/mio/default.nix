@@ -15,7 +15,13 @@
 }:
 let
   stdenv = pkgs.stdenv;
-  # TODO: consider -flto , linux only, breaks on darwin
+  fixcmake =
+    x:
+    x.overrideAttrs (old: {
+      cmakeFlags = (old.cmakeFlags or [ ]) ++ [
+        "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+      ];
+    });
   v3Optimizations =
     if pkgs.stdenv.hostPlatform.isx86_64 then
       pkgs.stdenvAdapters.withCFlags [
@@ -308,9 +314,22 @@ rec {
   };
   # https://github.com/NixOS/nixpkgs/pull/461412
   shell-gpt = pkgs.callPackage ./pkgs/shell-gpt/package.nix { };
-  # https://github.com/NixOS/nixpkgs/issues/462082
-  vscode-extensions.eamodio.gitlens = pkgs.callPackage ./pkgs/eamodio.gitlens {
-  };
-  # https://github.com/NixOS/nixpkgs/pull/461779
-  fish = pkgs.callPackage ./pkgs/fish/package.nix { };
+
+  mygui-next = x8664linux (
+    fixcmake (
+      pkgs.callPackage ./pkgs/mygui-next/package.nix {
+      }
+    )
+  );
+  ogre-next_3 = x8664linux (
+    v3overrideAttrs (pkgs.callPackage ./pkgs/ogre-next/default.nix { }).ogre-next_3
+  );
+  stuntrally3 = wip (
+    pkgs.callPackage ./pkgs/stuntrally3 {
+      ogre-next_3 = ogre-next_3;
+      mygui = mygui-next;
+    }
+  );
+
+  speed_dreams = nodarwin (pkgs.callPackage ./pkgs/speed-dreams { });
 }
