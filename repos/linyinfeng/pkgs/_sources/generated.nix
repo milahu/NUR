@@ -19,16 +19,16 @@
   };
   baibot = {
     pname = "baibot";
-    version = "v1.8.1";
+    version = "v1.8.2";
     src = fetchFromGitHub {
       owner = "etkecc";
       repo = "baibot";
-      rev = "v1.8.1";
+      rev = "v1.8.2";
       fetchSubmodules = false;
-      sha256 = "sha256-qWJ4Z/ixqUq4rN06vq6JM+lJSovoh9DP1wB37C08Vt0=";
+      sha256 = "sha256-FFnSpEsRnaMWrSzcekKVQtUpPLyZ4o5AhhhUoAxPuz0=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-qWJ4Z_ixqUq4rN06vq6JM+lJSovoh9DP1wB37C08Vt0=/Cargo.lock";
+      lockFile = ./. + "/sha256-FFnSpEsRnaMWrSzcekKVQtUpPLyZ4o5AhhhUoAxPuz0=/Cargo.lock";
       outputHashes = {
         "async-openai-0.28.1" = "sha256-5xrO2k5jA94cf3Ub0DGuAvKqDDXVk1Ro/naC5FG1AAw=";
         "anthropic-0.0.8" = "sha256-q21o2GB8nN0jGcRPgW/cujC+3gdgQg5mFJUJy2tipCA=";
@@ -296,17 +296,17 @@
   };
   rime-cantonese = {
     pname = "rime-cantonese";
-    version = "e41e130d2285af4789a1bf7ef056acee34f59845";
+    version = "8ef0b7179a9d137ecba6f295d45c91f7fffa9278";
     src = fetchgit {
       url = "https://github.com/rime/rime-cantonese.git";
-      rev = "e41e130d2285af4789a1bf7ef056acee34f59845";
+      rev = "8ef0b7179a9d137ecba6f295d45c91f7fffa9278";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-xortj41BS7iLlV9pMhN8WOlg0/HQU3JS08t7QJ+THGE=";
+      sha256 = "sha256-HqiHbZaHcn5IEK4mEZaQ8uNAtydv1kbhQI1+oiTqJRs=";
     };
-    date = "2025-11-13";
+    date = "2025-11-20";
   };
   rime-double-pinyin = {
     pname = "rime-double-pinyin";
