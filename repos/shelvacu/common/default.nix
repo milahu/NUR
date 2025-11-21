@@ -41,7 +41,7 @@ else
       ./nix.nix
       ./nix-on-droid.nix
       ./packages.nix
-      ./remapCapsLock.nix
+      ./remap
       ./shell
       ./sops.nix
       ./sourceTree.nix

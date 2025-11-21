@@ -213,6 +213,7 @@ in
       # p7zip-unfree
       pciutils
       progress
+      psmisc
       psutils
       pv
       ripgrep

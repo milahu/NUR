@@ -77,6 +77,7 @@ let
       idp-login: https://2e14.sv.mt/oauth2/start?rd={dst}
       idp-login-t: Login with id.shelvacu
       idp-logout: https://2e14.sv.mt/oauth2/sign_out
+      idp-store: 3
       log-conn
       no-ansi
       # intentionally empty
