@@ -16,11 +16,11 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "connorslade";
     repo = "mslicer";
-    rev = "15453577d98d2bd1958502b92e173b18a05a73c1";
-    hash = "sha256-fc57iOYyAiRWJd8TN9Xnn8pKLynFhMoVXpk5nMh+4U4=";
+    rev = "55a2a891e7b3ee94eb74e536c29056d1d15ca0a4";
+    hash = "sha256-ESj3hk/xAky+lrHBjL+E3JmN8yhAJonZ9Oj+lGsErvk=";
   };
 
-  cargoHash = "sha256-vrm+pOB3dXE4RXrS0dLbHmF3OyLr7WLBtsJZlAlqenY=";
+  cargoHash = "sha256-29ZrqE49AeI/objflxHcTkfgfiq1wOR47WbBbDDPXHM=";
 
   buildInputs = [
     libglvnd
