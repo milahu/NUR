@@ -103,12 +103,19 @@
 
   hardware.cpu.amd.updateMicrocode = true;
   hardware.enableAllFirmware = true;
-  hardware.graphics = {
-    extraPackages = [
-      pkgs.rocmPackages.clr.icd
-      pkgs.amdvlk
-    ];
+  hardware.graphics.extraPackages = [
+    pkgs.rocmPackages.clr.icd
+    pkgs.amdvlk
+  ];
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
   };
+  hardware.openrazer = {
+    enable = true;
+    users = [ "shelvacu" ];
+  };
+  services.blueman.enable = true;
   programs.nix-ld.enable = true;
   programs.steam = {
     enable = true;
@@ -121,9 +128,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
 
   services.postgresql.enable = true; # for development
 
