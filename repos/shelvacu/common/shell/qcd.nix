@@ -47,5 +47,6 @@ in
     ns = "${home}/dev/nix-stuff";
     np = "${home}/dev/nixpkgs";
     dev = "${home}/dev";
+    d = "${home}/dev";
   };
 }

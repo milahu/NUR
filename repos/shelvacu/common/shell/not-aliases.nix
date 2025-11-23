@@ -227,6 +227,7 @@ in
       "glc"
       "push"
     ])
+    (simple "ll" [ "ls" "-a" "-l" ])
     (script "list-auto-roots" ''
       declare auto_roots="/nix/var/nix/gcroots/auto"
       svl_exact_args $# 0

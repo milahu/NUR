@@ -22,8 +22,9 @@ let
       mkdir -p $out/bin
       cc -Wall -O2 ${lib.optionalString left "-DSIDE_LEFT=1"} ${vaculib.path ./museDashNumpad.c} -o $out/bin/${name}
     '';
-  combinedOutputConf = {
+  combinedOutputConfigObject = {
     NAME = "Interception Tools - combined output";
+    BUSTYPE = "BUS_VIRTUAL";
     EVENTS = {
       EV_SYN = [
         "SYN_REPORT"
@@ -194,7 +195,7 @@ let
       '';
     };
   };
-  fakeInputConfig = pkgs.writers.writeYAML "interception-tools-output-device.yaml" combinedOutputConf;
+  combinedOutputConfigFile = pkgs.writers.writeYAML "interception-tools-output-device.yaml" combinedOutputConfigObject;
   museDashDeviceScript = pkgs.writeScriptBin "museDashDevice" ''
     set -euo pipefail
 
@@ -213,36 +214,50 @@ let
     fi
     intercept -g "$DEVNODE" | "$numpadBin" | mux -o main
   '';
+  udevmonConfigObject = [
+    { CMD = "mux -c main"; }
+    { JOB = [
+      ''echo "running job for mux main"''
+      ''mux -i main | uinput -c ${combinedOutputConfigFile}''
+    ]; }
+    {
+      JOB = [
+        ''echo "$DEVNODE: running job for muse dash numpad"''
+        (lib.getExe museDashDeviceScript)
+      ];
+      DEVICE = {
+        PRODUCT = 1;
+        VENDOR = 5050;
+      };
+    }
+    {
+      JOB = ''echo "$DEVNODE: ignoring because it has EV_ABS"'';
+      DEVICE.EVENTS.EV_ABS = [ ];
+    }
+    {
+      JOB = [
+        ''echo "$DEVNODE: running job for keyboard with CAPSLOCK and/or COMPOSE (menu)"''
+        ''intercept -g "$DEVNODE" | caps2esc -m 1 | ${lib.getExe menu2meta} | mux -o main''
+      ];
+      DEVICE.EVENTS.EV_KEY = [ "KEY_CAPSLOCK" "KEY_COMPOSE" ];
+    }
+  ];
+  udevmonConfigFile = pkgs.writers.writeYAML "udevmonConfig.yaml" udevmonConfigObject;
 in
 lib.optionalAttrs (vacuModuleType == "nixos") {
   config = {
-    # https://discourse.nixos.org/t/best-way-to-remap-caps-lock-to-esc-with-wayland/39707/6
-    services.interception-tools =
-      {
-        enable = true;
-        # plugins = [ pkgs.interception-tools-plugins.caps2esc ];
-        udevmonConfig = ''
-          - CMD: mux -c main
-          - JOB:
-              - 'echo "running job for mux main"'
-              - mux -i main | uinput -c ${fakeInputConfig}
-          - JOB:
-              - 'echo "$DEVNODE: running job for muse dash numpad"'
-              - ${lib.getExe museDashDeviceScript}
-            DEVICE:
-              PRODUCT: 1
-              VENDOR: 5050
-          - JOB: 'echo "$DEVNODE: ignoring because it has EV_ABS"'
-            DEVICE:
-              EVENTS:
-                EV_ABS: []
-          - JOB:
-              - 'echo "$DEVNODE: running job for keyboard with CAPSLOCK and/or COMPOSE (menu)"'
-              - intercept -g $DEVNODE | caps2esc -m 1 | ${lib.getExe menu2meta} | mux -o main
-            DEVICE:
-              EVENTS:
-                EV_KEY: [KEY_CAPSLOCK, KEY_COMPOSE]
-        '';
+    systemd.services."interception-tools" = {
+      description = "Interception tools for remapping inputs, from <vacu>/common/remap";
+      path = [
+        pkgs.bash
+        pkgs.interception-tools
+        pkgs.interception-tools-plugins.caps2esc
+      ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        ExecStart = "${pkgs.interception-tools}/bin/udevmon -c ${udevmonConfigFile}";
+        Nice = -10;
       };
+    };
   };
 }

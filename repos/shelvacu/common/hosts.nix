@@ -139,6 +139,7 @@
     };
     fw = {
       isLan = true;
+      primaryIp = "10.78.79.248";
       sshKeys = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA6lX25mCy35tf1NpcHMAdeRgvT7l0Dw0FWBH3eX4TE2";
     };
     legtop = {
