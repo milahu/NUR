@@ -298,6 +298,8 @@ in
         mod
         workspace_layout
       ;
+      cursor_size = config.sane.programs.sane-theme.config.cursor-size;
+      cursor_theme = config.sane.programs.sane-theme.config.cursor-theme;
       xwayland = if enableXWayland then "enable" else "disable";
     }).overrideAttrs {
       # @DEFAULT_AUDIO_SINK@ should remain unsubstituted: that's wireplumber syntax resolved at runtime.
@@ -307,6 +309,9 @@ in
         target=targetForCheck
       '';
     };
+
+    # XXX: sway loads icons ONLY from ~/.local/share/icons or ~/.icons -- it doesn't consult XDG_DATA_DIRS or XCURSOR_PATH
+    fs.".local/share/icons".symlink.target = "/etc/profiles/per-user/colin/share/icons";
 
     env.XDG_CURRENT_DESKTOP = "sway";
     # sway defaults to auto-generating a unix domain socket named "sway-ipc.$UID.NNNN.sock",

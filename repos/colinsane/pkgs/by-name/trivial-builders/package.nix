@@ -20,6 +20,67 @@
       "runHook postBuild"
     ];
   } // env);
+
+  writeSymlink = { buildInputs ? [], escapeContents ? true, doCheck ? null }: contents: file: stdenvNoCC.mkDerivation {
+    name = "symlink-${file}";
+    env = {
+      inherit contents file;
+      escapeContents = if escapeContents then "1" else "";
+    };
+
+    dontUnpack = true;
+
+    buildPhase = ''
+      betterContents=
+      tryContents() {
+        local try="$1"
+        if [[ -n "$betterContents" ]]; then
+          return
+        fi
+
+        if [[ -e "$try" ]]; then
+          betterContents="$try"
+        fi
+      }
+
+      set -x
+      if [[ "''${contents:0:1}" != "/" ]]; then
+        for p in $buildInputs; do
+          if [[ -z "$escapeContents" ]]; then
+            tryContents $p/$contents
+          else
+            tryContents "$p/$contents"
+          fi
+        done
+      elif [[ -z "$escapeContents" ]]; then
+        tryContents $contents
+      fi
+
+      if [[ -n "$betterContents" ]]; then
+        contents="$betterContents"
+      fi
+    '';
+
+    checkPhase = ''
+      (
+        set -x
+        test -e "$contents"
+      )
+    '';
+
+    installPhase = ''
+      (
+        set -x
+        mkdir -p $(dirname "$out/$file")
+        ln -s "$contents" "$out/$file"
+      )
+    '';
+
+    inherit buildInputs;
+
+    doCheck = if doCheck != null then doCheck else buildInputs != [];
+  };
+
   # given some package and a path, extract the item at `${package}/${path}` into
   # its own package, but otherwise keeping the same path.
   # this is done by copying the bits, so as to avoid including the item's neighbors
@@ -35,6 +96,8 @@
       done
     '';
 
+  # link a subset of `pkg` (a single package, or an array of packages) into its own derivation.
+  # no paths are renamed or "lifted up" to a new root -- the new derivation is just a subset of the old.
   linkIntoOwnPackage = pkg: path: { separateDoc ? null, separateMan ? null, ...}@args: let
     paths = if lib.isList path then path else [ path ];
     suffix = (lib.head paths) + (if paths != [ path ] then "-and-other-paths" else "");

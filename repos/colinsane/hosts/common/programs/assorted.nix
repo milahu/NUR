@@ -672,6 +672,8 @@ in
       "xwayland"  #< XXX(2024-11-10): version 3.0 should support wayland, but not 2.x
     ];
 
+    git-lfs.sandbox.method = null;  #< TODO: sandbox
+
     gitea = {};
 
     gnome-calculator.buildCost = 1;

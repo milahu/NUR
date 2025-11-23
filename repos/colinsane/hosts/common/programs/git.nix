@@ -20,6 +20,7 @@ in
     });
     suggestedPrograms = [
       "difftastic"
+      # "git-lfs"
       "ssh"
     ];
     sandbox.net = "clearnet";

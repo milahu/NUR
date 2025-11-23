@@ -35,6 +35,8 @@ set $out_moby "DSI-1"
 ### default font (for e.g. window titles)
 font @font@
 
+seat * xcursor_theme @cursor_theme@ @cursor_size@
+
 ### tab colors (#border #background #text [#indicator #childBorder])
 # focused & unfocused are the main interest
 # urgent is used when an inactive window wants attention (e.g. terminal rings a bell)
