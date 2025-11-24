@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":0.367,
-"eval_time":0.273,
+"fetch_time":0.383,
+"eval_time":0.264,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"ee4e68944b9ebcc0549cf97e57c3a37f6476f645",
-"sha256":"0cms904vfqbs5k0y1r6p00zz6gyxm7lzm0j8a505dh653aa81q1q",
+"rev":"124d19ad3f5c5f5b40fb753ee589be86d46d547e",
+"sha256":"0gb0s33h0yd5ynv96acr9n5mvabfzl54fhf5jcaw7fribq7jsr3m",
 "date":null
 },
-"source_storepath":"/nix/store/dn2ima5nl02iz01i3wqzj06qjdgkbmdk-source",
-"nixpkgs_storepath":"/nix/store/nwfjgz8fcri3r4mmpva6kcplfyciq9i6-source",
-"nur_combined_rev":"a7df54d50b8b6986dbd09c23a7c6cac2a2afdba7",
+"source_storepath":"/nix/store/b7pkvlbpf5782kgba23n393dvqjvp9h1-source",
+"nixpkgs_storepath":"/nix/store/masy4qambwgnqv631hrm3x93f1mysvr0-source",
+"nur_combined_rev":"8fa5e2d4aa9dd2b946d53633d0f3282aa4568df1",
 "packages":{
 "bobgen":{
 "meta":{
@@ -285,6 +285,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/slhck/ffmpeg-quality-metrics/releases/tag/v3.10.0",
 "description":"Calculate quality metrics with FFmpeg (SSIM, PSNR, VMAF, VIF)",
 "homepage":"https://github.com/slhck/ffmpeg-quality-metrics",
 "identifiers":{
@@ -346,6 +347,16 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"mainProgram":"ffmpeg-quality-metrics",
 "maintainers":[],
 "name":"ffmpeg-quality-metrics-3.10.0",
 "outputsToInstall":[
@@ -429,7 +440,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./packages/ffmpeg-quality-metrics/default.nix:37",
+"position":"./packages/ffmpeg-quality-metrics/default.nix:46",
 "unfree":false,
 "unsupported":false
 },
@@ -955,7 +966,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/renovatebot/renovate/releases/tag/42.13.1",
+"changelog":"https://github.com/renovatebot/renovate/releases/tag/42.19.3",
 "description":"Cross-platform dependency automation, with patches for nix",
 "homepage":"https://github.com/renovatebot/renovate",
 "identifiers":{
@@ -996,7 +1007,7 @@
 },
 "mainProgram":"renovate",
 "maintainers":[],
-"name":"renovate-42.13.1",
+"name":"renovate-42.19.3",
 "outputsToInstall":[
 "out"
 ],
@@ -1033,14 +1044,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"renovate-42.13.1",
+"name":"renovate-42.19.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"renovate",
 "system":"x86_64-linux",
-"version":"42.13.1"
+"version":"42.19.3"
 },
 "shellhook":{
 "meta":{
