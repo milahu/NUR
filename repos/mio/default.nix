@@ -11,6 +11,7 @@
     #config.permittedInsecurePackages = [
     #  "qtwebengine-5.15.19"
     #];
+    config.allowUnfree = true;
   },
 }:
 let
@@ -203,6 +204,8 @@ rec {
       v3overrideAttrs (pkgs.libsForQt5.callPackage ./pkgs/musescore3 { });
   # https://github.com/musescore/MuseScore/pull/21874
   # https://github.com/adazem009/MuseScore/tree/piano_keyboard_playing_notes
+  # broken on nixpkgs between a98f368960a921d4fdc048e3a2401d12739bc1f9 and 7fd9583d8c174ecc7ac0094bed29bde80135c876
+  # https://github.com/NixOS/nixpkgs/compare/a98f368960a921d4fdc048e3a2401d12739bc1f9%E2%80%A67fd9583d8c174ecc7ac0094bed29bde80135c876
   musescore-adazem009 = v3override (
     pkgs.musescore.overrideAttrs (old: {
       version = "4.4.0-piano_keyboard_playing_notes";
@@ -219,12 +222,12 @@ rec {
   # https://github.com/githubwbp1988/MuseScore/tree/alex
   musescore-alex = v3override (
     pkgs.musescore.overrideAttrs (old: {
-      version = "4.6.3-alex-unstable-20251031";
+      version = "4.6.3-alex-unstable-20251121";
       src = pkgs.fetchFromGitHub {
         owner = "githubwbp1988";
         repo = "MuseScore";
-        rev = "487ee2105064f8571f95eb31f03cbf1687e96204";
-        hash = "sha256-r2HjHKnO6pD+urrW57z/SPcgm4vSkAMvW4ZJH+c7J4M=";
+        rev = "725f94a55db85a9bf71602fd2e452c1475351782";
+        hash = "sha256-0PWMRq4MZEkq1kwWEQ+DBPIWByaXU/DcZ7wE12mQTEM=";
       };
       patches = [ ];
     })
@@ -248,7 +251,7 @@ rec {
   #aria2-wrapped = pkgs.writeShellScriptBin "aria2" ''
   #  ${pkgs.aria2}/bin/aria2c -s65536 -j65536 -x16 -k1M "$@"
   #'';
-  audacity4 = nodarwin (pkgs.qt6Packages.callPackage ./pkgs/audacity4/package.nix { });
+  # audacity4 = nodarwin (pkgs.qt6Packages.callPackage ./pkgs/audacity4/package.nix { });
   cb = pkgs.callPackage ./pkgs/cb { };
   jellyfin-media-player = v3override (pkgs.qt6Packages.callPackage ./pkgs/jellyfin-media-player { });
   cacert_3108 = pkgs.callPackage ./pkgs/cacert_3108 { };
@@ -315,21 +318,23 @@ rec {
   # https://github.com/NixOS/nixpkgs/pull/461412
   shell-gpt = pkgs.callPackage ./pkgs/shell-gpt/package.nix { };
 
-  mygui-next = x8664linux (
-    fixcmake (
-      pkgs.callPackage ./pkgs/mygui-next/package.nix {
+  /*
+    mygui-next = x8664linux (
+      fixcmake (
+        pkgs.callPackage ./pkgs/mygui-next/package.nix {
+        }
+      )
+    );
+    ogre-next_3 = x8664linux (
+      v3overrideAttrs (pkgs.callPackage ./pkgs/ogre-next/default.nix { }).ogre-next_3
+    );
+    stuntrally3 = wip (
+      pkgs.callPackage ./pkgs/stuntrally3 {
+        ogre-next_3 = ogre-next_3;
+        mygui = mygui-next;
       }
-    )
-  );
-  ogre-next_3 = x8664linux (
-    v3overrideAttrs (pkgs.callPackage ./pkgs/ogre-next/default.nix { }).ogre-next_3
-  );
-  stuntrally3 = wip (
-    pkgs.callPackage ./pkgs/stuntrally3 {
-      ogre-next_3 = ogre-next_3;
-      mygui = mygui-next;
-    }
-  );
-
+    );
+  */
   speed_dreams = nodarwin (pkgs.callPackage ./pkgs/speed-dreams { });
+  netdata = (v3override (goV3OverrideAttrs pkgs.netdata)).override { withCloudUi = true; };
 }
