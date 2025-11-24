@@ -1630,10 +1630,10 @@
     };
     "chameleon-ext" = buildFirefoxXpiAddon {
       pname = "chameleon-ext";
-      version = "0.22.77.1";
+      version = "0.22.79.1";
       addonId = "{3579f63b-d8ee-424f-bbb6-6d0ce3285e6a}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4591578/chameleon_ext-0.22.77.1.xpi";
-      sha256 = "47668f11e43d751474f4ff14d291a5566ff789ac139e140192fbcad167e0517d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4625824/chameleon_ext-0.22.79.1.xpi";
+      sha256 = "09d2b5ab590fb8f7294a5e3d260a5d62e3fb36f0e363e94594f01b493ac4df58";
       meta = with lib;
       {
         homepage = "https://sereneblue.github.io/chameleon";
@@ -2459,6 +2459,20 @@
         platforms = platforms.all;
       };
     };
+    "copy-with-anchor" = buildFirefoxXpiAddon {
+      pname = "copy-with-anchor";
+      version = "2.0.1";
+      addonId = "jid1-grAPHQfoBoWMdA@jetpack";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4107168/copy_with_anchor-2.0.1.xpi";
+      sha256 = "60090e96c9c8d29234f84a3901fbc4381d668854f22eef48b99979fad7965568";
+      meta = with lib;
+      {
+        description = "Firefox extension that allows to right click an element and copy the page URL with the element's ID appended as an anchor. Useful if you want to keep a link to specific section of a webpage.";
+        license = licenses.mpl20;
+        mozPermissions = [ "contextMenus" "clipboardWrite" "<all_urls>" ];
+        platforms = platforms.all;
+      };
+    };
     "copywebtables" = buildFirefoxXpiAddon {
       pname = "copywebtables";
       version = "0.1.1";
@@ -2850,6 +2864,21 @@
         platforms = platforms.all;
       };
     };
+    "detach-tab" = buildFirefoxXpiAddon {
+      pname = "detach-tab";
+      version = "2.0.4";
+      addonId = "claymont@mail.com_detach-tab";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3738954/detach_tab-2.0.4.xpi";
+      sha256 = "c7f2e8afe695010a740d5505e8abf5a628de67796ad54d879546a0b7008fa80d";
+      meta = with lib;
+      {
+        homepage = "https://github.com/Claymont/detach-tab";
+        description = "Detach and Reattach tab with customizable keyboard shortcuts.";
+        license = licenses.mpl20;
+        mozPermissions = [ "tabs" ];
+        platforms = platforms.all;
+      };
+    };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
       version = "146.0.20251121.110812";
@@ -2888,10 +2917,10 @@
     };
     "dictionaries" = buildFirefoxXpiAddon {
       pname = "dictionaries";
-      version = "6.3.0";
+      version = "6.3.1";
       addonId = "revir.qing@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4624317/dictionaries-6.3.0.xpi";
-      sha256 = "f0c09f388c7540a9e19bbdd670aa456f6c5195f42685a9902ae92245b49da862";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4625468/dictionaries-6.3.1.xpi";
+      sha256 = "a0d3c87cbaab452100c5ffa6108f2165c7bb24fe486be799507d9424ee2fcfca";
       meta = with lib;
       {
         homepage = "https://github.com/revir/dictionaries";
@@ -3050,6 +3079,217 @@
         platforms = platforms.all;
       };
     };
+    "dont-track-me-google1" = buildFirefoxXpiAddon {
+      pname = "dont-track-me-google1";
+      version = "4.28";
+      addonId = "dont-track-me-google@robwu.nl";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4132891/dont_track_me_google1-4.28.xpi";
+      sha256 = "25bc90005d6f28d53182ef48c7efcbba72b198ce67cf1f0747dbd23d43078b26";
+      meta = with lib;
+      {
+        homepage = "https://github.com/Rob--W/dont-track-me-google";
+        description = "Removes the annoying link-conversion at Google Search / maps / ...";
+        license = licenses.mit;
+        mozPermissions = [
+          "storage"
+          "*://*.google.com/*"
+          "*://*.google.ad/*"
+          "*://*.google.ae/*"
+          "*://*.google.com.af/*"
+          "*://*.google.com.ag/*"
+          "*://*.google.com.ai/*"
+          "*://*.google.al/*"
+          "*://*.google.am/*"
+          "*://*.google.co.ao/*"
+          "*://*.google.com.ar/*"
+          "*://*.google.as/*"
+          "*://*.google.at/*"
+          "*://*.google.com.au/*"
+          "*://*.google.az/*"
+          "*://*.google.ba/*"
+          "*://*.google.com.bd/*"
+          "*://*.google.be/*"
+          "*://*.google.bf/*"
+          "*://*.google.bg/*"
+          "*://*.google.com.bh/*"
+          "*://*.google.bi/*"
+          "*://*.google.bj/*"
+          "*://*.google.com.bn/*"
+          "*://*.google.com.bo/*"
+          "*://*.google.com.br/*"
+          "*://*.google.bs/*"
+          "*://*.google.bt/*"
+          "*://*.google.co.bw/*"
+          "*://*.google.by/*"
+          "*://*.google.com.bz/*"
+          "*://*.google.ca/*"
+          "*://*.google.cd/*"
+          "*://*.google.cf/*"
+          "*://*.google.cg/*"
+          "*://*.google.ch/*"
+          "*://*.google.ci/*"
+          "*://*.google.co.ck/*"
+          "*://*.google.cl/*"
+          "*://*.google.cm/*"
+          "*://*.google.cn/*"
+          "*://*.google.com.co/*"
+          "*://*.google.co.cr/*"
+          "*://*.google.com.cu/*"
+          "*://*.google.cv/*"
+          "*://*.google.com.cy/*"
+          "*://*.google.cz/*"
+          "*://*.google.de/*"
+          "*://*.google.dj/*"
+          "*://*.google.dk/*"
+          "*://*.google.dm/*"
+          "*://*.google.com.do/*"
+          "*://*.google.dz/*"
+          "*://*.google.com.ec/*"
+          "*://*.google.ee/*"
+          "*://*.google.com.eg/*"
+          "*://*.google.es/*"
+          "*://*.google.com.et/*"
+          "*://*.google.fi/*"
+          "*://*.google.com.fj/*"
+          "*://*.google.fm/*"
+          "*://*.google.fr/*"
+          "*://*.google.ga/*"
+          "*://*.google.ge/*"
+          "*://*.google.gg/*"
+          "*://*.google.com.gh/*"
+          "*://*.google.com.gi/*"
+          "*://*.google.gl/*"
+          "*://*.google.gm/*"
+          "*://*.google.gp/*"
+          "*://*.google.gr/*"
+          "*://*.google.com.gt/*"
+          "*://*.google.gy/*"
+          "*://*.google.com.hk/*"
+          "*://*.google.hn/*"
+          "*://*.google.hr/*"
+          "*://*.google.ht/*"
+          "*://*.google.hu/*"
+          "*://*.google.co.id/*"
+          "*://*.google.ie/*"
+          "*://*.google.co.il/*"
+          "*://*.google.im/*"
+          "*://*.google.co.in/*"
+          "*://*.google.iq/*"
+          "*://*.google.is/*"
+          "*://*.google.it/*"
+          "*://*.google.je/*"
+          "*://*.google.com.jm/*"
+          "*://*.google.jo/*"
+          "*://*.google.co.jp/*"
+          "*://*.google.co.ke/*"
+          "*://*.google.com.kh/*"
+          "*://*.google.ki/*"
+          "*://*.google.kg/*"
+          "*://*.google.co.kr/*"
+          "*://*.google.com.kw/*"
+          "*://*.google.kz/*"
+          "*://*.google.la/*"
+          "*://*.google.com.lb/*"
+          "*://*.google.li/*"
+          "*://*.google.lk/*"
+          "*://*.google.co.ls/*"
+          "*://*.google.lt/*"
+          "*://*.google.lu/*"
+          "*://*.google.lv/*"
+          "*://*.google.com.ly/*"
+          "*://*.google.co.ma/*"
+          "*://*.google.md/*"
+          "*://*.google.me/*"
+          "*://*.google.mg/*"
+          "*://*.google.mk/*"
+          "*://*.google.ml/*"
+          "*://*.google.com.mm/*"
+          "*://*.google.mn/*"
+          "*://*.google.ms/*"
+          "*://*.google.com.mt/*"
+          "*://*.google.mu/*"
+          "*://*.google.mv/*"
+          "*://*.google.mw/*"
+          "*://*.google.com.mx/*"
+          "*://*.google.com.my/*"
+          "*://*.google.co.mz/*"
+          "*://*.google.com.na/*"
+          "*://*.google.com.nf/*"
+          "*://*.google.com.ng/*"
+          "*://*.google.com.ni/*"
+          "*://*.google.ne/*"
+          "*://*.google.nl/*"
+          "*://*.google.no/*"
+          "*://*.google.com.np/*"
+          "*://*.google.nr/*"
+          "*://*.google.nu/*"
+          "*://*.google.co.nz/*"
+          "*://*.google.com.om/*"
+          "*://*.google.com.pa/*"
+          "*://*.google.com.pe/*"
+          "*://*.google.com.pg/*"
+          "*://*.google.com.ph/*"
+          "*://*.google.com.pk/*"
+          "*://*.google.pl/*"
+          "*://*.google.pn/*"
+          "*://*.google.com.pr/*"
+          "*://*.google.ps/*"
+          "*://*.google.pt/*"
+          "*://*.google.com.py/*"
+          "*://*.google.com.qa/*"
+          "*://*.google.ro/*"
+          "*://*.google.ru/*"
+          "*://*.google.rw/*"
+          "*://*.google.com.sa/*"
+          "*://*.google.com.sb/*"
+          "*://*.google.sc/*"
+          "*://*.google.se/*"
+          "*://*.google.com.sg/*"
+          "*://*.google.sh/*"
+          "*://*.google.si/*"
+          "*://*.google.sk/*"
+          "*://*.google.com.sl/*"
+          "*://*.google.sn/*"
+          "*://*.google.so/*"
+          "*://*.google.sm/*"
+          "*://*.google.sr/*"
+          "*://*.google.st/*"
+          "*://*.google.com.sv/*"
+          "*://*.google.td/*"
+          "*://*.google.tg/*"
+          "*://*.google.co.th/*"
+          "*://*.google.com.tj/*"
+          "*://*.google.tk/*"
+          "*://*.google.tl/*"
+          "*://*.google.tm/*"
+          "*://*.google.tn/*"
+          "*://*.google.to/*"
+          "*://*.google.com.tr/*"
+          "*://*.google.tt/*"
+          "*://*.google.com.tw/*"
+          "*://*.google.co.tz/*"
+          "*://*.google.com.ua/*"
+          "*://*.google.co.ug/*"
+          "*://*.google.co.uk/*"
+          "*://*.google.com.uy/*"
+          "*://*.google.co.uz/*"
+          "*://*.google.com.vc/*"
+          "*://*.google.co.ve/*"
+          "*://*.google.vg/*"
+          "*://*.google.co.vi/*"
+          "*://*.google.com.vn/*"
+          "*://*.google.vu/*"
+          "*://*.google.ws/*"
+          "*://*.google.rs/*"
+          "*://*.google.co.za/*"
+          "*://*.google.co.zm/*"
+          "*://*.google.co.zw/*"
+          "*://*.google.cat/*"
+          "*://*.google.ng/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "download-with-jdownloader" = buildFirefoxXpiAddon {
       pname = "download-with-jdownloader";
       version = "0.3.6";
@@ -3118,10 +3358,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.67.3";
+      version = "2.67.5";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4622314/dualsub-2.67.3.xpi";
-      sha256 = "31308eb0224df39b4d4b567f3c902cc903b0c6d73a0c6b756ed059a5b2187ffc";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4625887/dualsub-2.67.5.xpi";
+      sha256 = "ffd980c78cff29a820e34a5201c8adac888ffd4dd47ebdea3c5ede454305ae00";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -3831,10 +4071,10 @@
     };
     "floccus" = buildFirefoxXpiAddon {
       pname = "floccus";
-      version = "5.8.0";
+      version = "5.8.1";
       addonId = "floccus@handmadeideas.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4620792/floccus-5.8.0.xpi";
-      sha256 = "061570c891d7d7d010bc5b83aa565dc6558f0b02003a4b92a705b357bdb58c0b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4625448/floccus-5.8.1.xpi";
+      sha256 = "ecf24c083ccbb93ddf25002f01034f69af17d679694a1ddf51cf14b0bb2c5c66";
       meta = with lib;
       {
         homepage = "https://floccus.org";
@@ -6877,10 +7117,10 @@
     };
     "kiss-translator" = buildFirefoxXpiAddon {
       pname = "kiss-translator";
-      version = "2.0.11";
+      version = "2.0.12";
       addonId = "{fb25c100-22ce-4d5a-be7e-75f3d6f0fc13}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4620886/kiss_translator-2.0.11.xpi";
-      sha256 = "c4d16a69b79640fc5ac09239b791e4c74e109b39deeac15f2801c114fef5238c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4625516/kiss_translator-2.0.12.xpi";
+      sha256 = "76a583a1eb3c79f761f63e7003607705f23cef1f84554bbd8bfdb01a06f6dbfd";
       meta = with lib;
       {
         homepage = "https://github.com/fishjar/kiss-translator";
@@ -8920,6 +9160,21 @@
       {
         homepage = "https://github.com/MorbZ/no-pdf-download";
         description = "Opens all PDF files directly in the browser.";
+        license = licenses.mit;
+        mozPermissions = [ "webRequest" "webRequestBlocking" "<all_urls>" ];
+        platforms = platforms.all;
+      };
+    };
+    "nopow" = buildFirefoxXpiAddon {
+      pname = "nopow";
+      version = "1.3";
+      addonId = "nopow@lexi.re";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4559598/nopow-1.3.xpi";
+      sha256 = "d41aa2df1254d4aaf1eb650d8cc624d2cc833bfecdc7cce094261af0da794ebc";
+      meta = with lib;
+      {
+        homepage = "https://git.gay/49016/NoPoW";
+        description = "Removes annoying Proof-of-Work/PoW captchas by changing the user-agent.";
         license = licenses.mit;
         mozPermissions = [ "webRequest" "webRequestBlocking" "<all_urls>" ];
         platforms = platforms.all;
@@ -11018,6 +11273,20 @@
         platforms = platforms.all;
       };
     };
+    "redirect-shorts-to-youtube" = buildFirefoxXpiAddon {
+      pname = "redirect-shorts-to-youtube";
+      version = "1.0";
+      addonId = "{3e4b8f2c-e9b5-482b-b20e-93bc9623a86c}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3873915/redirect_shorts_to_youtube-1.0.xpi";
+      sha256 = "7e1d24c3e6e398c6a7f871808588afc44ffbaf599bd14ebd12369f51052ffdb6";
+      meta = with lib;
+      {
+        description = "Redirects YouTube Shorts to YouTube by changing url from \"https://www.youtube.com/shorts/\" to \"https://www.youtube.com/watch?v=\".";
+        license = licenses.mpl20;
+        mozPermissions = [ "*://www.youtube.com/shorts/*" ];
+        platforms = platforms.all;
+      };
+    };
     "redirect-to-wiki-gg" = buildFirefoxXpiAddon {
       pname = "redirect-to-wiki-gg";
       version = "1.8.2";
@@ -11278,10 +11547,10 @@
     };
     "refined-github" = buildFirefoxXpiAddon {
       pname = "refined-github";
-      version = "25.11.19";
+      version = "25.11.22";
       addonId = "{a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4623433/refined_github-25.11.19.xpi";
-      sha256 = "ce884bcfef6ecf0a9b5f26f2fa19f26aaa160a605b201e47f2a07467350183b6";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4625462/refined_github-25.11.22.xpi";
+      sha256 = "8329cb9300ecf370254173d85b375481b7114137279efed87c0330e365c862b6";
       meta = with lib;
       {
         homepage = "https://github.com/refined-github/refined-github";
@@ -13282,6 +13551,20 @@
         platforms = platforms.all;
       };
     };
+    "toxcancel" = buildFirefoxXpiAddon {
+      pname = "toxcancel";
+      version = "1.3";
+      addonId = "{135c3428-66bc-4b5b-9503-282dc00802e7}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4490783/toxcancel-1.3.xpi";
+      sha256 = "36b5623ca95357bf9fdaccb19fde9ab48609eff2b855ac48971139ee60108441";
+      meta = with lib;
+      {
+        description = "Redirects to xcancel.com (a mirror of x) when the browser is about to load an x.com page";
+        license = licenses.gpl3;
+        mozPermissions = [ "webRequest" "webRequestBlocking" ];
+        platforms = platforms.all;
+      };
+    };
     "tranquility-1" = buildFirefoxXpiAddon {
       pname = "tranquility-1";
       version = "3.0.26";
@@ -13911,16 +14194,23 @@
     };
     "ubo-scope" = buildFirefoxXpiAddon {
       pname = "ubo-scope";
-      version = "1.1.0";
+      version = "1.2.0";
       addonId = "uBO-Scope@raymondhill.net";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4598871/ubo_scope-1.1.0.xpi";
-      sha256 = "eb1dede45459c4f0446c245186fd275ea067c792c42cee99c99b75e0a7ce325a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4626104/ubo_scope-1.2.0.xpi";
+      sha256 = "b36ef0670abb54ae09b021192167ffb5e6b5c9bf48491a68afeb20015f2310ff";
       meta = with lib;
       {
         homepage = "https://github.com/gorhill/uBO-Scope";
         description = "A tool to measure your 3rd-party exposure score for web sites you visit.";
         license = licenses.gpl3;
-        mozPermissions = [ "activeTab" "storage" "webNavigation" "webRequest" ];
+        mozPermissions = [
+          "activeTab"
+          "storage"
+          "webNavigation"
+          "webRequest"
+          "https://*/*"
+          "http://*/*"
+        ];
         platforms = platforms.all;
       };
     };
