@@ -11,6 +11,7 @@ specify {
   add-words = any;
   affine-font = any;
   album-art = any;
+  ansible-lint.overlay = a: { meta = a.meta // { broken = stable.lib.versionOlder (stable.lib.findFirst (p: p.pname == "ansible-compat") null a.passthru.dependencies).version "25.8"; }; }; # NixOS/nixpkgs#460422
   ansible-vault-pass-client = any;
   apex = any;
   attachments = any;
@@ -62,7 +63,6 @@ specify {
   losslesscut-bin.args = [ "--disable-networking" ];
   mark-applier = any;
   may-upgrade = any;
-  mcaselector = any; # NixOS/nixpkgs#458536
   meshtastic-url = any;
   minemap = any;
   mozjpeg-simple = any;
