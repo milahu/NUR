@@ -146,6 +146,12 @@ else
   svl_eprintln "warn: shellvaculib re-sourced"
 fi
 
+# svl_err [message parts..]
+# ex: svl_err
+#   assuming $0 is ./myscript.sh
+#   prints "./myscript.sh: unspecified error"
+# ex: svl_err "you froblicated incorrectly!"
+#   prints "./myscript.sh: you froblicated incorrectly!"
 svl_err() {
   declare prefix
 
@@ -153,23 +159,29 @@ svl_err() {
     prefix="${SVL_PREFIX_NAME}"
   elif [[ -z ${0-} ]] ; then
     prefix="**unknown**"
-  elif [[ $0 == "${SHELL-}" ]]; then
+  elif [[ ${SHELL-} != "" ]] && [[ $0 == "${SHELL-}" ]]; then
     prefix="\$SHELL"
   else
     prefix="$0"
   fi
   if [[ $# == 0 ]]; then
-    printf '%s: unspecified error' "$prefix"
+    printf '%s: unspecified error\n' "$prefix" >&2
   else
     printf '%s: %s\n' "$prefix" "$*" >&2
   fi
 }
 
+# svl_die [message parts..]
+# same as svl_err except exits with code 1
 svl_die() {
   svl_err "$@"
   exit 1
 }
 
+# svl_throw_skip {skip_count:int} [message parts..]
+# if this is an error in the current function, just call svl_throw (equivalent to skip_count 0)
+# if this is an error in the caller of this function, skip_count should be 1
+# caller's caller: 2, etc.
 svl_throw_skip() {
   if [[ $# == 0 ]]; then
     svl_die "svl_throw_skip expects at least one arg"
@@ -184,6 +196,7 @@ svl_throw_skip() {
   svl_die "$@"
 }
 
+# svl_throw [message parts..]
 svl_throw() {
   svl_throw_skip 1 "$@"
 }
@@ -227,6 +240,7 @@ _shellvaculib_min_andor_max_args_impl() {
   fi
 }
 
+# svl_minmax_args $# {min:int} {max:int}
 svl_minmax_args() {
   if [[ $# != 3 ]]; then
     svl_throw_skip 1 "expected 3 args to svl_minmax_args, got $#"
@@ -234,6 +248,7 @@ svl_minmax_args() {
   _shellvaculib_min_andor_max_args_impl "$1" "$2" "$3"
 }
 
+# svl_min_args $# {min:int}
 svl_min_args() {
   if [[ $# != 2 ]]; then
     svl_throw_skip 1 "expected 2 args to svl_min_args, got $#"
@@ -241,6 +256,7 @@ svl_min_args() {
   _shellvaculib_min_andor_max_args_impl "$1" "$2" "$_shellvaculib_max_args"
 }
 
+# svl_max_args $# {max:int}
 svl_max_args() {
   if [[ $# != 2 ]]; then
     svl_throw_skip 1 "expected 2 args to svl_max_args, got $#"
@@ -248,6 +264,7 @@ svl_max_args() {
   _shellvaculib_min_andor_max_args_impl "$1" 0 "$2"
 }
 
+# svl_exact_args $# {exact_arg_count:int}
 svl_exact_args() {
   if [[ $# != 2 ]]; then
     svl_throw_skip 1 "expected 2 args to svl_exact_args, got $#"
@@ -255,6 +272,7 @@ svl_exact_args() {
   _shellvaculib_min_andor_max_args_impl "$1" "$2" "$2"
 }
 
+# svl_no_args $#
 svl_no_args() {
   if [[ $# != 1 ]]; then
     svl_throw_skip 1 "expected 1 arg to svl_no_args, got $#"
@@ -262,6 +280,7 @@ svl_no_args() {
   _shellvaculib_min_andor_max_args_impl "$1" 0 0
 }
 
+# svl_idempotent_add_prompt_command {cmd}
 svl_idempotent_add_prompt_command() {
   svl_exact_args $# 1
   PROMPT_COMMAND[0]=''${PROMPT_COMMAND[0]:-}
@@ -275,27 +294,35 @@ svl_idempotent_add_prompt_command() {
   return 0
 }
 
+# svl_probably_in_script_dir
+#   (no args)
 # because the folder containing the script as well as PWD can be deleted while we're using it (or its parents), it's impossible to know for sure. Woohoo!
+# shellcheck disable=SC2120
 svl_probably_in_script_dir() {
+  svl_no_args $#
   declare script_dir canon_pwd
   if [[ -z $_shellvaculib_arg0_canonicalized ]]; then
-    _shellvaculib_debug_print "svl_probably_in_script_dir called when _shellvaculib_arg0_canonicalized is unset or blank, always returning false"
+    _shellvaculib_debug_print "svl_probably_in_script_dir called when _shellvaculib_arg0_canonicalized is unset or blank, returning false (1)"
     return 1
   fi
   if ! script_dir="$(dirname -- "$_shellvaculib_arg0_canonicalized")"; then
     # shellcheck disable=SC2016  # this is intentionally not expanding
-    _shellvaculib_debug_print 'svl_probably_in_script_dir failed to call $(dirname -- $_shellvaculib_arg0_canonicalized), returning 1'
+    _shellvaculib_debug_print 'svl_probably_in_script_dir failed to call $(dirname -- $_shellvaculib_arg0_canonicalized), returning false (1)'
     return 1
   fi
   if ! canon_pwd="$(realpath -- "$PWD")"; then
     # shellcheck disable=SC2016  # this is intentionally not expanding
-    _shellvaculib_debug_print 'svl_probably_in_script_dir failed to call $(realpath -- $PWD), returning 1'
+    _shellvaculib_debug_print 'svl_probably_in_script_dir failed to call $(realpath -- $PWD), returning false (1)'
     return 1
   fi
   [[ $script_dir == "$canon_pwd" ]]
 }
 
+# svl_assert_probably_in_script_dir
+#   (no args)
+# shellcheck disable=SC2120
 svl_assert_probably_in_script_dir() {
+  svl_no_args $#
   # shellcheck disable=SC2310
   if ! svl_probably_in_script_dir; then
     svl_die "This script must be run in its directory"
@@ -303,7 +330,11 @@ svl_assert_probably_in_script_dir() {
   return 0
 }
 
+# svl_assert_root
+#   (no args)
+# shellcheck disable=SC2120
 svl_assert_root() {
+  svl_no_args $#
   if [[ -z ${EUID:-} ]]; then
     svl_throw 'EUID unset!?'
   fi
@@ -313,6 +344,9 @@ svl_assert_root() {
   return 0
 }
 
+# svl_auto_sudo
+#   (no args)
+# shellcheck disable=SC2120
 svl_auto_sudo() {
   if [[ -z ${EUID:-} ]]; then
     svl_throw 'EUID unset!?'
@@ -328,7 +362,7 @@ svl_auto_sudo() {
   exec "$sudo_path" SHELLVACULIB_IN_AUTO_SUDO=1 -- "$_shellvaculib_arg0" "${_shellvaculib_script_args[@]}"
 }
 
-# svl_in_array {needle} {*haystack...}
+# svl_in_array {needle} [haystack..]
 # false (return code 1) when haystack is empty
 svl_in_array() {
   svl_min_args $# 1
@@ -343,9 +377,10 @@ svl_in_array() {
   return 1
 }
 
-# svl_ask
-# svl_ask "Are you sure you want to rotate the transcordial syncophactor?"
-#   --result-var [name] required
+# svl_ask [-opts..] [--] [question]
+# ex: svl_ask
+# ex: svl_ask "Are you sure you want to rotate the transcordial syncophactor?"
+#   --result-var {name:name} required
 #   --default-yes
 #   --default-no
 #   --long-yes
@@ -359,42 +394,46 @@ svl_in_array() {
 #   # ...
 # fi
 svl_ask() {
-  declare default_yes=false short_yes=null
-  declare result_var_name
-  declare -a non_option_args=()
+  declare -A _shellvaculib_svl_ask__vars=(
+    [default_yes]="false"
+    [short_yes]="null"
+    [result_var_name]=""
+    [arg]=""
+  )
+  declare -a _shellvaculib_svl_ask__non_option_args=()
   while (($# > 0)); do
-    declare arg="$1"
+    _shellvaculib_svl_ask__vars[arg]="$1"
     shift
-    case "$arg" in
+    case "${_shellvaculib_svl_ask__vars[arg]}" in
     -y | --default-yes)
-      default_yes=true
+      _shellvaculib_svl_ask__vars[default_yes]="true"
       ;;
     --default-no)
-      default_yes=false
+      _shellvaculib_svl_ask__vars[default_yes]="false"
       ;;
     --short-yes)
-      short_yes=true
+      _shellvaculib_svl_ask__vars[short_yes]="true"
       ;;
     --long-yes)
-      short_yes=false
+      _shellvaculib_svl_ask__vars[short_yes]="false"
       ;;
     --result-var)
       if (($# == 0)); then
-        svl_throw "no arg passed to --result-var in svl_ask"
+        svl_throw_skip 1 "no arg passed to --result-var in svl_ask"
       fi
-      result_var_name="$1"
+      _shellvaculib_svl_ask__vars[result_var_name]="$1"
       shift
       ;;
     --)
-      non_option_args+=("$@")
+      _shellvaculib_svl_ask__non_option_args+=("$@")
       shift $#
       break
       ;;
     -*)
-      svl_throw "invalid option \`$arg' for svl_ask"
+      svl_throw_skip 1 "invalid option \`${_shellvaculib_svl_ask__vars[arg]}' for svl_ask"
       ;;
     *)
-      non_option_args+=("$arg")
+      _shellvaculib_svl_ask__non_option_args+=("$arg")
       ;;
     esac
   done
@@ -403,77 +442,76 @@ svl_ask() {
     svl_throw "bug in arg parsing, no args should be left but there are $# left"
   fi
 
-  if [[ ${result_var_name:-x} == x ]]; then
-    svl_throw "must set --result-var in svl_ask"
+  if [[ ${_shellvaculib_svl_ask__vars[result_var_name]-} == "" ]]; then
+    svl_throw_skip 1 "must set --result-var in svl_ask"
   fi
-  declare -n result_ref="$result_var_name"
-
-  if [[ $short_yes == null ]]; then
-    short_yes=$default_yes
+  if [[ ${_shellvaculib_svl_ask__vars[result_var_name]} == _shellvaculib_svl_ask__* ]]; then
+    svl_throw_skip 1 "bad var name"
   fi
 
-  svl_max_args ${#non_option_args[@]} 1
-  declare prompt
-  if [[ ${#non_option_args[@]} == 0 ]]; then
-    prompt="Are you sure you want to continue?"
-  else
-    prompt="${non_option_args[0]}"
-  fi
-  declare yes_prompt
-  if [[ $short_yes == true ]]; then
-    yes_prompt="y"
-  else
-    yes_prompt="yes"
-  fi
-  declare no_prompt="n"
-  if [[ $default_yes == true ]]; then
-    svl_capitalize_var yes_prompt
-  else
-    svl_capitalize_var no_prompt
-  fi
-  declare full_prompt
-  full_prompt="$prompt [${yes_prompt}/${no_prompt}]: "
-
-  declare -a yes_responses=("yes")
-  declare -a no_responses=("no" "n")
-  if [[ $short_yes == true ]]; then
-    yes_responses+=("y")
-  fi
-  if [[ $default_yes == true ]]; then
-    yes_responses+=("")
-  else
-    no_responses+=("")
+  if [[ ${_shellvaculib_svl_ask__vars[short_yes]} == null ]]; then
+    _shellvaculib_svl_ask__vars[short_yes]="${_shellvaculib_svl_ask__vars[default_yes]}"
   fi
 
-  declare result
+  svl_max_args ${#_shellvaculib_svl_ask__non_option_args[@]} 1
+  if [[ ${#_shellvaculib_svl_ask__non_option_args[@]} == 0 ]]; then
+    _shellvaculib_svl_ask__vars[prompt]="Are you sure you want to continue?"
+  else
+    _shellvaculib_svl_ask__vars[prompt]="${_shellvaculib_svl_ask__non_option_args[0]}"
+  fi
+  if [[ ${_shellvaculib_svl_ask__vars[short_yes]} == true ]]; then
+    _shellvaculib_svl_ask__vars[yes_prompt]="y"
+  else
+    _shellvaculib_svl_ask__vars[yes_prompt]="yes"
+  fi
+  _shellvaculib_svl_ask__vars[no_prompt]="n"
+  if [[ ${_shellvaculib_svl_ask__vars[default_yes]} == true ]]; then
+    svl_capitalize_var "_shellvaculib_svl_ask__vars[yes_prompt]"
+  else
+    svl_capitalize_var "_shellvaculib_svl_ask__vars[no_prompt]"
+  fi
+  _shellvaculib_svl_ask__vars[full_prompt]="${_shellvaculib_svl_ask__vars[prompt]} [${_shellvaculib_svl_ask__vars[yes_prompt]}/${_shellvaculib_svl_ask__vars[no_prompt]}]: "
+
+  declare -a _shellvaculib_svl_ask__yes_responses=("yes")
+  declare -a _shellvaculib_svl_ask__no_responses=("no" "n")
+  if [[ ${_shellvaculib_svl_ask__vars[short_yes]} == true ]]; then
+    _shellvaculib_svl_ask__yes_responses+=("y")
+  fi
+  if [[ ${_shellvaculib_svl_ask__vars[default_yes]} == true ]]; then
+    _shellvaculib_svl_ask__yes_responses+=("")
+  else
+    _shellvaculib_svl_ask__no_responses+=("")
+  fi
+
   while true; do
-    declare response
-    read -r -p "$full_prompt" response || true
-    svl_trim_var response
-    svl_downcase_var response
-    if svl_in_array "$response" "${yes_responses[@]}"; then
-      result=true
+    read -r -p "${_shellvaculib_svl_ask__vars[full_prompt]}" "_shellvaculib_svl_ask__vars[response]" || true
+    svl_trim_var "_shellvaculib_svl_ask__vars[response]"
+    svl_downcase_var "_shellvaculib_svl_ask__vars[response]"
+    if svl_in_array "${_shellvaculib_svl_ask__vars[response]}" "${_shellvaculib_svl_ask__yes_responses[@]}"; then
+      _shellvaculib_svl_ask__vars[result]="true"
       break
     fi
-    if svl_in_array "$response" "${no_responses[@]}"; then
-      result=false
+    if svl_in_array "${_shellvaculib_svl_ask__vars[response]}" "${_shellvaculib_svl_ask__no_responses[@]}"; then
+      _shellvaculib_svl_ask__vars[result]="false"
       break
     fi
     printf "Unrecognized response %q\n" "$response"
   done
-  # shellcheck disable=SC2034   #indirection
-  result_ref=$result
+  declare -n _shellvaculib_svl_ask__result_ref="${_shellvaculib_svl_ask__vars[result_var_name]}"
+  _shellvaculib_svl_ask__result_ref="${_shellvaculib_svl_ask__vars[result]}"
 }
 
-# svl_confirm_or_die
-# svl_confirm_or_die -- "Are you sure you want to rotate the transcordial syncophactor?"
+# svl_confirm_or_die [args for svl_ask..]
+# ex: svl_confirm_or_die
+# ex: svl_confirm_or_die -- "Are you sure you want to rotate the transcordial syncophactor?"
 #   accepts same args as svl_ask, except don't pass --result-var
+# exits if answer is no
 svl_confirm_or_die() {
   declare arg
   for arg; do
     case "$arg" in
     --result-var)
-      svl_throw "--result-var not allowed in svl_confirm_or_die"
+      svl_throw_skip 1 "--result-var not allowed in svl_confirm_or_die"
       ;;
     --)
       break
@@ -489,59 +527,144 @@ svl_confirm_or_die() {
   fi
 }
 
-# svl_count #=> 0
-# svl_count a b c #=> 3
+# svl_count [args...]
+# ex: svl_count #=> 0
+# ex: svl_count a b c #=> 3
 # prints the number of arguments and a newline on stdout.
 svl_count() {
   echo $#
   return 0
 }
 
-# svl_count_matches 'foo*bar'
-# counts the number of matches (correctly, even if nullglob is not set) and print to stdout
+# svl_args_into {array:name} [args..]
+# appends args to array. Useful because bash has slightly different treatment of expansions inside 'a=(foo)' and 'cmd foo'
+svl_args_into() {
+  svl_min_args $# 1
+  if [[ $1 == _shellvaculib_svl_args_into__* ]]; then
+    svl_throw_skip 1 "bad var name"
+  fi
+  declare -n _shellvaculib_svl_args_into__var_ref="$1"
+  shift 1
+  _shellvaculib_svl_args_into__var_ref+=("$@")
+}
+
+# svl_expand_into {array_var_name} {pattern}
+# ex:
+#   declare -a matches
+#   svl_expand_into matches 'foo*bar'
+# the pattern is expanded with
+#   dotglob set
+#   extglob set
+#   failglob unset
+#   globasciiranges set
+#   globskipdots set
+#   globstar set
+#   nocaseglob unset
+#   nocasematch unset
+#   nullglob set
+svl_expand_into() {
+  svl_exact_args $# 2
+  if [[ $1 == _shellvaculib_svl_expand_into__* ]]; then
+    svl_throw_skip 1 "bad var name"
+  fi
+  declare -A _shellvaculib_svl_expand_into__shopt_new_values=(
+    [dotglob]=set
+    [extglob]=set
+    [failglob]=unset
+    [globasciiranges]=set
+    [globskipdots]=set
+    [globstar]=set
+    [nocaseglob]=unset
+    [nocasematch]=unset
+    [nullglob]=set
+  )
+  declare -a _shellvaculib_svl_expand_into__shopt_will_set=() _shellvaculib_svl_expand_into__shopt_will_unset=()
+  declare _shellvaculib_svl_expand_into__shopt_name
+  for _shellvaculib_svl_expand_into__shopt_name in "${!_shellvaculib_svl_expand_into__shopt_new_values}"; do
+    declare _shellvaculib_svl_expand_into__old_value
+    if shopt -q "$_shellvaculib_svl_expand_into__shopt_name"; then
+      _shellvaculib_svl_expand_into__old_value="set"
+    else
+      _shellvaculib_svl_expand_into__old_value="unset"
+    fi
+    declare _shellvaculib_svl_expand_into__new_value="${_shellvaculib_svl_expand_into__shopt_new_values["$_shellvaculib_svl_expand_into__shopt_name"]}"
+    if [[ $_shellvaculib_svl_expand_into__old_value == "$_shellvaculib_svl_expand_into__new_value" ]]; then
+      continue
+    elif [[ $_shellvaculib_svl_expand_into__new_value == set ]]; then
+      _shellvaculib_svl_expand_into__shopt_will_set+=("$_shellvaculib_svl_expand_into__shopt_name")
+    elif [[ $_shellvaculib_svl_expand_into__new_value == unset ]]; then
+      _shellvaculib_svl_expand_into__shopt_will_unset+=("$_shellvaculib_svl_expand_into__shopt_name")
+    else
+      svl_throw "this shouldn't be possible"
+    fi
+  done
+  shopt -s "${_shellvaculib_svl_expand_into__shopt_will_set[@]}"
+  shopt -u "${_shellvaculib_svl_expand_into__shopt_will_unset[@]}"
+  # intentional expansion of arg
+  # shellcheck disable=SC2086
+  svl_args_into "$1" $2
+  # inverse of what we did above, to put things back as they were
+  shopt -u "${_shellvaculib_svl_expand_into__shopt_will_set[@]}"
+  shopt -s "${_shellvaculib_svl_expand_into__shopt_will_unset[@]}"
+}
+
+# svl_count_matches {pattern}
+# ex: svl_count_matches 'foo*bar'
+# the pattern is expanded with
+#   dotglob set
+#   extglob set
+#   failglob unset
+#   globasciiranges set
+#   globskipdots set
+#   globstar set
+#   nocaseglob unset
+#   nocasematch unset
+#   nullglob set
+# counts the number of matches and print to stdout
 svl_count_matches() {
   svl_exact_args $# 1
-  declare nullglob_before
-  if shopt -q nullglob; then
-    nullglob_before=enabled
-  else
-    nullglob_before=disabled
-  fi
-  shopt -s nullglob
-  # intentional expansion of arg, so that *s and such will expand
-  # shellcheck disable=SC2086
-  svl_count $1
-  if [[ $nullglob_before == "disabled" ]]; then
-    shopt -u nullglob
-  fi
-  return 0
+  declare -a results=()
+  svl_expand_into results "$1"
+  echo "${#results[@]}"
 }
 
 svl_trim_var() {
   svl_exact_args $# 1
-  declare -n var_ref="$1"
+  if [[ $1 == _shellvaculib_svl_trim_var__* ]]; then
+    svl_throw_skip 1 "bad var name"
+  fi
+  declare -n _shellvaculib_svl_trim_var__var_ref="$1"
   # remove leading whitespace characters
-  var_ref="${var_ref#"${var_ref%%[![:space:]]*}"}"
+  _shellvaculib_svl_trim_var__var_ref="${_shellvaculib_svl_trim_var__var_ref#"${_shellvaculib_svl_trim_var__var_ref%%[![:space:]]*}"}"
   # remove trailing whitespace characters
-  var_ref="${var_ref%"${var_ref##*[![:space:]]}"}"
+  _shellvaculib_svl_trim_var__var_ref="${_shellvaculib_svl_trim_var__var_ref%"${_shellvaculib_svl_trim_var__var_ref##*[![:space:]]}"}"
 }
 
 svl_downcase_var() {
   svl_exact_args $# 1
-  declare -n var_ref="$1"
-  var_ref="${var_ref,,}"
+  if [[ $1 == _shellvaculib_svl_downcase_var__* ]]; then
+    svl_throw_skip 1 "bad var name"
+  fi
+  declare -n _shellvaculib_svl_downcase_var__var_ref="$1"
+  _shellvaculib_svl_downcase_var__var_ref="${_shellvaculib_svl_downcase_var__var_ref,,}"
 }
 
 svl_upcase_var() {
+  if [[ $1 == _shellvaculib_svl_upcase_var__* ]]; then
+    svl_throw_skip 1 "bad var name"
+  fi
   svl_exact_args $# 1
-  declare -n var_ref="$1"
-  var_ref="${var_ref^^}"
+  declare -n _shellvaculib_svl_upcase_var__var_ref="$1"
+  _shellvaculib_svl_upcase_var__var_ref="${_shellvaculib_svl_upcase_var__var_ref^^}"
 }
 
 svl_capitalize_var() {
+  if [[ $1 == _shellvaculib_svl_capitalize_var__* ]]; then
+    svl_throw_skip 1 "bad var name"
+  fi
   svl_exact_args $# 1
-  declare -n var_ref="$1"
-  var_ref="${var_ref^}"
+  declare -n _shellvaculib_svl_capitalize_var__var_ref="$1"
+  _shellvaculib_svl_capitalize_var__var_ref="${_shellvaculib_svl_capitalize_var__var_ref^}"
 }
 
 # svl_trim "  foo \n"
@@ -553,15 +676,51 @@ svl_trim() {
   printf '%s' "$var"
 }
 
-# svl_capture_exit_code_into var_name cmd args args args
+# svl_capture_exit_code_into {var_name:name} {cmd} [args...]
 svl_capture_exit_code_into() {
   svl_min_args $# 2
-  declare -n var_ref="$1"
+  if [[ $1 == _shellvaculib_svl_capture_exit_code_into__* ]]; then
+    svl_throw_skip 1 "bad var name"
+  fi
+  declare -n _shellvaculib_svl_capture_exit_code_into__var_ref="$1"
   shift
   if "$@"; then
-    var_ref=$?
+    _shellvaculib_svl_capture_exit_code_into__var_ref=$?
   else
-    var_ref=$?
+    _shellvaculib_svl_capture_exit_code_into__var_ref=$?
   fi
   return 0
+}
+
+# svl_capture_output_into {var_name:name} {cmd} [args...]
+# almost the same as
+#
+#     var_name="$(cmd args...)"
+#
+# except that the final newlines, if present, are preserved
+svl_capture_output_into() {
+  svl_min_args $# 2
+  if [[ $1 == _shellvaculib_svl_capture_output_into__* ]]; then
+    svl_throw_skip 1 "bad var name"
+  fi
+  declare _shellvaculib_svl_capture_output_into__output
+  declare -i _shellvaculib_svl_capture_output_into__return_code
+  if _shellvaculib_svl_capture_output_into__output="$(if "$@"; then r=$?; else r=$?; fi; printf "/"; exit $r)"; then
+    _shellvaculib_svl_capture_output_into__return_code=$?
+  else
+    _shellvaculib_svl_capture_output_into__return_code=$?
+  fi
+  declare -n _shellvaculib_svl_capture_output_into__result_ref="$1"
+  _shellvaculib_svl_capture_output_into__result_ref="${_shellvaculib_svl_capture_output_into__output%/}"
+  return $_shellvaculib_svl_capture_output_into__return_code
+}
+
+
+# svl_verbose_run cmd [args...]
+svl_verbose_run() {
+  svl_min_args $# 1
+  declare cmd_str
+  printf -v cmd_str '%q' "$@"
+  svl_err "info: running $cmd_str"
+  "$@"
 }
