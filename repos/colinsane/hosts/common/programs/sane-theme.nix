@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.sane.programs.sane-theme.config;
+  enabled = config.sane.programs.sane-theme.enabled;
   unsortedThemes = {
     # crude assortment of themes in nixpkgs; some might not be gtk themes, some gtk themes might not be in this list
     inherit (pkgs)
@@ -112,6 +113,11 @@ let
   };
 
   themes = with pkgs; {
+    background = {
+      sane-nixos-bg = sane-backgrounds;
+      nix-l-nord-red = nixos-pattern-nord-wallpapers;
+      # many other `nix-l-nord-*`, `nix-d-nord-*`
+    };
     color-scheme = {
       default = emptyDirectory;
       Dracula = dracula-theme;
@@ -319,6 +325,10 @@ in
             type = types.bool;
             description = "install all known gtk themes (for testing)";
           };
+          background = mkOption {
+            default = "nix-l-nord-red";
+            type = types.str;
+          };
           color-scheme = mkOption {
             default = "default";
             type = types.str;
@@ -345,6 +355,7 @@ in
     packageUnwrapped = pkgs.symlinkJoin {
       name = "sane-theme";
       paths = [
+        themes.background."${cfg.background}"
         themes.color-scheme."${cfg.color-scheme}"
         themes.cursor-theme."${cfg.cursor-theme}"
         themes.gtk-theme."${cfg.gtk-theme}"
@@ -353,21 +364,13 @@ in
     };
     sandbox.enable = false;  #< no binaries
 
-    suggestedPrograms = [
-      "sane-backgrounds"
-    ];
-
     gsettings."org/gnome/desktop/interface" = {
       inherit (cfg) color-scheme cursor-theme gtk-theme icon-theme;
       cursor-size = lib.gvariant.mkInt32 cfg.cursor-size;
     };
   };
 
-  sane.programs.sane-backgrounds = {
-    sandbox.enable = false;  #< no binaries
-  };
-
-  environment.pathsToLink = lib.mkIf config.sane.programs.sane-backgrounds.enabled [
+  environment.pathsToLink = lib.mkIf enabled [
     "/share/backgrounds"
   ];
 }

@@ -298,6 +298,7 @@ in
         mod
         workspace_layout
       ;
+      background = config.sane.programs.sane-theme.config.background;
       cursor_size = config.sane.programs.sane-theme.config.cursor-size;
       cursor_theme = config.sane.programs.sane-theme.config.cursor-theme;
       xwayland = if enableXWayland then "enable" else "disable";
