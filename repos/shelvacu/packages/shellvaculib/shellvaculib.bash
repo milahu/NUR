@@ -580,7 +580,7 @@ svl_expand_into() {
   )
   declare -a _shellvaculib_svl_expand_into__shopt_will_set=() _shellvaculib_svl_expand_into__shopt_will_unset=()
   declare _shellvaculib_svl_expand_into__shopt_name
-  for _shellvaculib_svl_expand_into__shopt_name in "${!_shellvaculib_svl_expand_into__shopt_new_values}"; do
+  for _shellvaculib_svl_expand_into__shopt_name in "${!_shellvaculib_svl_expand_into__shopt_new_values[@]}"; do
     declare _shellvaculib_svl_expand_into__old_value
     if shopt -q "$_shellvaculib_svl_expand_into__shopt_name"; then
       _shellvaculib_svl_expand_into__old_value="set"
@@ -598,14 +598,22 @@ svl_expand_into() {
       svl_throw "this shouldn't be possible"
     fi
   done
-  shopt -s "${_shellvaculib_svl_expand_into__shopt_will_set[@]}"
-  shopt -u "${_shellvaculib_svl_expand_into__shopt_will_unset[@]}"
+  if [[ ${#_shellvaculib_svl_expand_into__shopt_will_set[@]} != 0 ]]; then
+    shopt -s "${_shellvaculib_svl_expand_into__shopt_will_set[@]}"
+  fi
+  if [[ ${#_shellvaculib_svl_expand_into__shopt_will_unset[@]} != 0 ]]; then
+    shopt -u "${_shellvaculib_svl_expand_into__shopt_will_unset[@]}"
+  fi
   # intentional expansion of arg
   # shellcheck disable=SC2086
   svl_args_into "$1" $2
   # inverse of what we did above, to put things back as they were
-  shopt -u "${_shellvaculib_svl_expand_into__shopt_will_set[@]}"
-  shopt -s "${_shellvaculib_svl_expand_into__shopt_will_unset[@]}"
+  if [[ ${#_shellvaculib_svl_expand_into__shopt_will_set[@]} != 0 ]]; then
+    shopt -u "${_shellvaculib_svl_expand_into__shopt_will_set[@]}"
+  fi
+  if [[ ${#_shellvaculib_svl_expand_into__shopt_will_unset[@]} != 0 ]]; then
+    shopt -s "${_shellvaculib_svl_expand_into__shopt_will_unset[@]}"
+  fi
 }
 
 # svl_count_matches {pattern}
@@ -720,7 +728,8 @@ svl_capture_output_into() {
 svl_verbose_run() {
   svl_min_args $# 1
   declare cmd_str
-  printf -v cmd_str '%q' "$@"
+  printf -v cmd_str '%q ' "$@"
+  cmd_str="${cmd_str% }"
   svl_err "info: running $cmd_str"
   "$@"
 }
