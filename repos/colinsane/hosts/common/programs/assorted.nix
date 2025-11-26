@@ -364,6 +364,7 @@ in
       "papers"  # PDF viewer
       "pavucontrol"
       "powersupply"  # battery viewer
+      "pwsp"  # PipeWire SoundPad -- used to inject noises into the mic
       "pwvucontrol"  # pipewire version of pavu
       # "picard"  # music tagging
       "resources"  # system monitor

@@ -165,8 +165,9 @@
     ./pipewire
     ./pkill.nix
     ./planify.nix
-    ./portfolio-filemanager.nix
     ./playerctl.nix
+    ./portfolio-filemanager.nix
+    ./pwsp.nix
     ./qmk-udev-rules.nix
     ./quadrapassel.nix
     ./radicale.nix
@@ -241,9 +242,11 @@
     ./wvkbd.nix
     ./xarchiver.nix
     ./xdg-desktop-portal.nix
+    ./xdg-desktop-portal-cosmic.nix
     ./xdg-desktop-portal-gnome
     ./xdg-desktop-portal-gtk.nix
     ./xdg-desktop-portal-nautilus.nix
+    ./xdg-desktop-portal-phosh.nix
     ./xdg-desktop-portal-wlr.nix
     ./xdg-terminal-exec.nix
     ./xdg-utils.nix

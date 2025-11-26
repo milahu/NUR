@@ -189,6 +189,16 @@ in
       "wireplumber"  # used by sway config
       "wl-clipboard"
       "xdg-desktop-portal"
+      # pikeru (iced gui toolkit) provides portals for:
+      # - org.freedesktop.impl.portal.FileChooser
+      # "pikeru"
+      # xdg-desktop-portal-cosmic (iced gui toolkit) provides portals for:
+      # - org.freedesktop.impl.portal.Access
+      # - org.freedesktop.impl.portal.FileChooser
+      # - org.freedesktop.impl.portal.ScreenCast
+      # - org.freedesktop.impl.portal.Screenshot
+      # - org.freedesktop.impl.portal.Settings
+      "xdg-desktop-portal-cosmic"
       # xdg-desktop-portal-gnome provides portals for:
       # - org.freedesktop.impl.portal.Access
       # - org.freedesktop.impl.portal.Account
@@ -222,12 +232,21 @@ in
       # - org.freedesktop.impl.portal.Settings (@settings_iface@)
       # - org.freedesktop.impl.portal.Wallpaper (@wallpaper_iface@)
       "xdg-desktop-portal-gtk"
+      # xdg-desktop-portal-phosh provides portals for:
+      # - org.freedesktop.impl.portal.FileChooser
+      # - org.freedesktop.impl.portal.Notification
+      # - org.freedesktop.impl.portal.Settings
+      # - org.freedesktop.impl.portal.Wallpaper
+      # and, via the `phrosh` binary (included, but needs to be launched separately):
+      # - org.freedesktop.impl.portal.Account
+      # - org.freedesktop.impl.portal.AppChooser
+      # "xdg-desktop-portal-phosh"
       # xdg-desktop-portal-wlr provides portals for:
       # - org.freedesktop.impl.portal.ScreenCast
       # - org.freedesktop.impl.portal.Screenshot
       # xdg-desktop-portal-nautilus provides portals for:
       # - org.freedesktop.impl.portal.FileChooser
-      "xdg-desktop-portal-nautilus"
+      # "xdg-desktop-portal-nautilus"
       "xdg-desktop-portal-wlr"
       "xdg-terminal-exec"  # used by sway config
     ] ++ [
@@ -281,9 +300,9 @@ in
       org.freedesktop.impl.portal.Access=gtk
       # XXX(2024-12-04): the gnome file-chooser (libadwaita) is much more mobile-friendly than the gtk ones
       #   it turns out xdg-desktop-portal-gnome is just a shim around nautilus, so we can just call that directly
-      org.freedesktop.impl.portal.FileChooser=nautilus
+      org.freedesktop.impl.portal.FileChooser=nautilus;cosmic;phosh
       # XXX(2024-12-11): sway doesn't support the x-d-p Inhibit portal, preferring to use wayland's own idle-inhibit feature.
-      # x-d-p-gtk's Inhibit portal trie org.gnome.SessionManager or org.freedesktop.ScreenSaver, also not supported.
+      # x-d-p-gtk's Inhibit portal tries org.gnome.SessionManager or org.freedesktop.ScreenSaver, also not supported.
       # explicitly disable the Inhibit portal so that applications can fallback to non-portal inhibition.
       # - see: <https://gitlab.archlinux.org/archlinux/packaging/packages/sway/-/issues/2>
       # - see: <https://github.com/swaywm/swayidle/issues/46>

@@ -120,6 +120,13 @@ in
       [[keyboard.bindings]]
       key = "PowerOff"
       action = "None"
+
+
+     [selection]
+     # make double-click-to-select not select quote marks from nix («») or wget (‘’)
+     # semantic_escape_chars default: ",│`|:\"' ()[]{}<>\t"
+     # TODO: i could probably send this upstream
+     semantic_escape_chars = ",│`|:\"' ()[]{}<>\t‘’«»"
     '';
   };
 }

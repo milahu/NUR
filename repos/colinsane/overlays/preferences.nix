@@ -63,20 +63,7 @@ in
   # };
 
   go2tv = super.go2tv.overrideAttrs (upstream: {
-    # XXX(2025-02-12): with release 1.18.0 (due to a4cd63f512), listing devices gives error (even with UDP 1900 whitelisted in firewall):
-    # > Encountered error(s): checkflags error: checkTflag service loading error: loadSSDPservices: No available Media Renderers
-    # this would apparently be because many UPnP servers do not respond to requests _from_ port 1900.
-    # still present in 1.18.1.
-    #
-    # a commit to gssdp (177f2772cf) suggests this is due to "security reasons" (perhaps it allows neighbors to hole-punch port 1900 of clients?)
-    # although it itself responds perfectly fine to M-SEARCH requests from port 1900.
-    # "DLNA requirement 7.2.3.4" could shed some light, but it's a private spec.
-    # so just don't use port 1900 for now.
-    #
-    # done as overlay instead of in hosts/common/programs/go2tv.nix so that python consumers like sane-cast also get this fix.
     postPatch = (upstream.postPatch or "") + ''
-      substituteInPlace devices/devices.go --replace-fail "port := 1900" "port := 1901"
-
       # by default, go2tv passes `ffmpeg -re`, which limits ffmpeg to never stream faster than realtime.
       # patch that out to let the receiver stream as fast as it wants.
       # maybe not necessary, was added during debugging.

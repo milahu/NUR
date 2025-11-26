@@ -797,6 +797,10 @@ in with final; {
   #     upstream.postBuild;
   # });
 
+  # fixes
+  # > The system library `glib-2.0` required by crate `glib-sys` was not found.
+  xdg-desktop-portal-cosmic = addBuildInputs [ glib ] prev.xdg-desktop-portal-cosmic;
+
   # 2025/09/06: upstreaming is unblocked; out for PR: <https://github.com/NixOS/nixpkgs/pull/442827>
   # xdp-tools = prev.xdp-tools.overrideAttrs {
   #   # when cross compiling, `clang` packages ships binary as `aarch64-...-clang` (wrapper),
