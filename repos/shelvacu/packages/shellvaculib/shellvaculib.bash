@@ -433,7 +433,7 @@ svl_ask() {
       svl_throw_skip 1 "invalid option \`${_shellvaculib_svl_ask__vars[arg]}' for svl_ask"
       ;;
     *)
-      _shellvaculib_svl_ask__non_option_args+=("$arg")
+      _shellvaculib_svl_ask__non_option_args+=("${_shellvaculib_svl_ask__vars[arg]}")
       ;;
     esac
   done
