@@ -288,6 +288,7 @@ in
       # "osu-lazer"
       # "pinball"       # 3d pinball; kb/mouse. old sourceforge project
       # "powermanga"    # STYLISH space invaders derivative (keyboard-only)
+      "puyovs"  # Puyo Puyo clone
       # "shattered-pixel-dungeon"  # doesn't cross compile
       # "sm64ex-coop"
       "sm64coopdx"

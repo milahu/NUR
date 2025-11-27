@@ -167,6 +167,7 @@
     ./planify.nix
     ./playerctl.nix
     ./portfolio-filemanager.nix
+    ./puyovs.nix
     ./pwsp.nix
     ./qmk-udev-rules.nix
     ./quadrapassel.nix
