@@ -72,6 +72,7 @@ let
       zm-http: 80
       zm-https: 443
       idp-h-usr: X-Auth-Request-Preferred-Username
+      idp-h-grp: X-Auth-Request-Group
       auth-ord: idp,pw,ipu
       idp-adm: shelvacu
       idp-login: https://2e14.sv.mt/oauth2/start?rd={dst}
@@ -82,8 +83,8 @@ let
       no-ansi
       # intentionally empty
       lf-url: $.^
-      ihead: Host, X-Auth-Request-Email, X-Auth-Request-Preferred-Username, X-Auth-Request-User, X-Auth-Request-Groups
-      ohead: x-robots-tag
+      # ihead: Host, X-Auth-Request-Email, X-Auth-Request-Preferred-Username, X-Auth-Request-User, X-Auth-Request-Groups
+      # ohead: x-robots-tag
 
     [accounts]
       # shelvacu: +7GvyoieOAbzXd3guJru24uAxHzZ4tHYL
@@ -100,6 +101,11 @@ let
       ${rootPkg}
       accs:
         r: @acct
+
+    [/archive]
+      /propdata/archive
+      accs:
+        r: shelvacu
 
     [/chaosbox]
       ${mainDir}/chaosbox
@@ -118,7 +124,7 @@ let
         xvol
 
     [/ppl]
-      ${pkgs.emptyDirectory}
+      ${vaculib.path ./ppl-folder}
       accs:
         r: @acct
 
@@ -132,6 +138,11 @@ let
       accs:
         rwmd.: @shelvacu-obsidian
         A: shelvacu
+
+    [/general_access]
+      ${pkgs.emptyDirectory}
+      accs:
+        r: @general_access
   '';
 in
 {
@@ -202,6 +213,7 @@ in
       BindReadOnlyPaths = [
         configFile
         "/propdata/media:/propdata/media:rbind"
+        "/propdata/archive"
       ];
 
       UMask = vaculib.maskStr { user = "allow"; };
@@ -282,8 +294,10 @@ in
     displayName = "2e14 (copyparty)";
     kanidmMembers = [ "general_access" ];
   };
-  services.kanidm.provision.systems.oauth2.two_e14.imageFile =
-    "${pkgs.srcOnly package}/docs/logo.svg";
+  services.kanidm.provision.systems.oauth2.two_e14 = {
+    imageFile = "${pkgs.srcOnly package}/docs/logo.svg";
+    supplementaryScopeMaps.general_access = [ "general_access" ];
+  };
   services.caddy.virtualHosts."2e14.sv.mt".vacu.hsts = "preload";
   services.caddy.virtualHosts."copyparty.sv.mt" = {
     vacu.hsts = "preload";

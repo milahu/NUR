@@ -24,8 +24,16 @@ in
       server_name = "sv.mt";
       allow_federation = true;
       allow_announcements_check = false;
+      new_user_displayname-suffix = "";
+      ip_lookup_strategy = 1;
+      log_colors = false;
     };
   };
 
-  services.caddy.virtualHosts.
+  services.caddy.virtualHosts."matrix.shelvacu.com" = {
+    vacu.hsts = "preload";
+    extraConfig = ''
+      reverse_proxy unix/${socketPath}
+    '';
+  };
 }
