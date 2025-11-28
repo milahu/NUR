@@ -244,7 +244,7 @@ in
     pcTuiApps = declPackageSet [
       "aerc"  # email client
       # "cassini"  # Elegoo printer control. need here especially, for opening firewalls.
-      "mslicer"  # TODO: upstream, and then move this to the phone-case-cq repo
+      # "mslicer"
       # "msmtp"  # sendmail
       # "offlineimap"  # email mailbox sync
       # "sfeed"  # RSS fetcher
@@ -905,7 +905,7 @@ in
 
     mozlz4a.sandbox.autodetectCliPaths = "existingOrParent";
 
-    mslicer.sandbox.method = null;  #< TODO: sandbox
+    # mslicer.sandbox.method = null;  #< TODO: sandbox
 
     nano.sandbox.autodetectCliPaths = "existingFileOrParent";
 
