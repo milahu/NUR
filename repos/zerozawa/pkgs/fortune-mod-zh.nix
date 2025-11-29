@@ -49,7 +49,7 @@ in
     '';
 
     meta = with lib; {
-      description = "Chinese poems for fortune-mod";
+      description = "Debian Chinese Team: fortune-zh";
       homepage = "https://salsa.debian.org/chinese-team/fortunes-zh";
       platforms = fortune.meta.platforms;
       license = with licenses; [lgpl3];

@@ -53,13 +53,13 @@
 in
   python3Packages.buildPythonApplication rec {
     pname = "StartLive";
-    version = "0.7.2";
+    version = "0.8.0";
 
     src = fetchFromGitHub {
       owner = "Radekyspec";
       repo = pname;
       rev = version;
-      hash = "sha256-J2ZO23ElL1SYztvgO0lsz21nFnI5B64bn6Zxc0Ky6p0=";
+      hash = "sha256-849BgOpTC4jNGym5L3nv7CugiRmHSwqyULTvQvjcp9Q=";
     };
 
     format = "other";
@@ -115,8 +115,11 @@ in
       sys.path.insert(0, install_dir)
       os.chdir(install_dir)
 
+      # 设置 __file__ 为实际的 StartLive.py 路径,以便应用能正确定位资源
+      __file__ = os.path.join(install_dir, "StartLive.py")
+
       # 启动主程序
-      exec(open(os.path.join(install_dir, "StartLive.py")).read())
+      exec(compile(open(__file__).read(), __file__, 'exec'))
       EOF
       chmod +x $out/bin/startlive
 
