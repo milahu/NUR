@@ -9,6 +9,11 @@ let
 in
 specify {
   add-words = any;
+  aegisub.overlay = a: stable.lib.throwIf (a.version != "3.4.2") "aegisub overlay is outdated" {
+    version = "3.4.2-unstable-2025-11-22";
+    src = a.src.override (_: { tag = null; rev = "7c761ee559bf7803345a2d762d0ce02c1617a2b8"; hash = "sha256-u0yOfnS7qlP7Z92Fgxz1s+R3JRTSQfrrQDdw3a+bWPU="; });
+    postPatch = a.postPatch + "patchShebangs 'tools/combine-config.py'";
+  }; # Resolution to TypesettingTools/Aegisub#462 pending ≥3.5
   affine-font = any;
   album-art = any;
   ansible-lint.overlay = a: { meta = a.meta // { broken = stable.lib.versionOlder (stable.lib.findFirst (p: p.pname == "ansible-compat") null a.passthru.dependencies).version "25.8"; }; }; # NixOS/nixpkgs#460422

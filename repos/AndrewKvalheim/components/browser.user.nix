@@ -23,8 +23,12 @@ in
     "browser.startup.homepage" = "about:blank";
     "browser.newtabpage.enabled" = false;
 
-    # Disable extension recommendations
+    # Disable advertisements
     "browser.discovery.enabled" = false;
+    "browser.newtabpage.activity-stream.showSponsored" = false;
+    "browser.newtabpage.activity-stream.showSponsoredCheckboxes" = false;
+    "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+    "browser.urlbar.suggest.quicksuggest.sponsored" = false;
     "extensions.getAddons.showPane" = false;
     "extensions.htmlaboutaddons.recommendations.enabled" = false;
 
@@ -53,9 +57,11 @@ in
     "browser.fixup.alternate.enabled" = false;
     "browser.urlbar.dnsResolveSingleWordsAfterSearch" = 0;
 
+    # Disable CSP reporting
+    "security.csp.reporting.enabled" = false;
+
     # Disable remote address suggestions
     "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
-    "browser.urlbar.suggest.quicksuggest.sponsored" = false;
 
     # Show address suggestions above search suggestions
     "browser.urlbar.showSearchSuggestionsFirst" = false;
