@@ -12,12 +12,12 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/lists.nix:1857:25:
+  at <nixpkgs> + /lib/lists.nix:1859:25:
 
-  1856|   */
-  1857|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
+  1858|   */
+  1859|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
       |                         ^
-  1858|
+  1860|
 
 error: undefined variable 'rewine'
 
