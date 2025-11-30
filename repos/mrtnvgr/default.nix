@@ -29,37 +29,40 @@ in rec {
   # Audio
   bitwig-custom = p ./pkgs/audio/bitwig-custom/default.nix { };
 
+  js_ReaScriptAPI = p ./pkgs/audio/js_ReaScriptAPI { };
+
   # OneTrick-KEYS = p ./pkgs/audio/OneTrick-KEYS { };
   TAL-NoiseMaker = p ./pkgs/audio/TAL-NoiseMaker { };
   TyrellN6 = p ./pkgs/audio/tyrelln6 { };
   neural-amp-modeler-lv2 = p ./pkgs/audio/neural-amp-modeler-lv2 { };
 
-  distrho-ports-vst3 = (pkgs.distrho-ports.override {
-    buildLV2 = false;
+  vitalium-vst3 = (pkgs.distrho-ports.override {
     buildVST2 = false;
-  }).overrideAttrs { name = "distrho-ports-vst3"; };
+    buildLV2 = false;
 
-  vitalium-vst3 = (distrho-ports-vst3.override {
     plugins = [ "vitalium" ];
-  }).overrideAttrs { name = "vitalium-vst3"; };
+  }).overrideAttrs { pname = "vitalium-vst3"; };
 
-  TAL-plugins-vst3 = (distrho-ports-vst3.override {
+  TAL-plugins-vst2 = (pkgs.distrho-ports.override {
+    buildLV2 = false;
     plugins = [ "tal-reverb" "tal-reverb-2" "tal-reverb-3" "tal-filter-2" "tal-dub-3" "tal-vocoder-2" ];
-  }).overrideAttrs { name = "TAL-plugins-vst3"; };
+  }).overrideAttrs { pname = "TAL-plugins-vst2"; };
 
-  luftikus-vst3 = (distrho-ports-vst3.override {
+  luftikus-vst2 = (pkgs.distrho-ports.override {
+    buildLV2 = false;
     plugins = [ "luftikus" ];
-  }).overrideAttrs { name = "luftikus-vst3"; };
+  }).overrideAttrs { pname = "luftikus-vst2"; };
 
-  LUFSMeter-vst3 = (distrho-ports-vst3.override {
+  LUFSMeter-vst2 = (pkgs.distrho-ports.override {
+    buildVST2 = false;
     plugins = [ "LUFSMeter" ];
-  }).overrideAttrs { name = "LUFSMeter-vst3"; };
+  }).overrideAttrs { pname = "LUFSMeter-vst2"; };
 
   surge-XT-vst3 = (pkgs.surge-XT.override {
     buildLV2 = false;
     buildCLAP = false;
     buildStandalone = false;
-  }).overrideAttrs { name = "surge-XT-vst3"; };
+  }).overrideAttrs { pname = "surge-XT-vst3"; };
 
   lsp-plugins-vst3 = (pkgs.lsp-plugins.override {
     buildVST2 = false;
@@ -68,7 +71,7 @@ in rec {
     buildLADSPA = false;
     buildJACK = false;
     buildGStreamer = false;
-  }).overrideAttrs { name = "lsp-plugins-vst3"; };
+  }).overrideAttrs { pname = "lsp-plugins-vst3"; };
 
   artworks = p ./pkgs/audio/artworks { };
   nam-trainer = p ./pkgs/audio/nam-trainer { };
