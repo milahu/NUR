@@ -2,17 +2,18 @@
   stdenv,
   fetchFromGitHub,
   lib,
-  dataPath ? "/var/lib/xauth-server/data/"
+  dataPath ? "/var/lib/xauth-server/data/",
+  svgBanner ? null,
 }:
 
 stdenv.mkDerivation rec {
   name = "dev-lennis-xauth-server-${version}";
-  version = "076c4ac";
+  version = "78caf02";
   src = fetchFromGitHub {
     owner = "lennis-dev";
     repo = "xauth-server";
-    rev = "076c4ac33d5836aebb7f5ef90e803aed2d7fb7ea";
-    hash = "sha256-ci9ddVKG1wjiiJ29tSaRk6we/bWF5Iu28hZ4OUf4IPw=";
+    rev = "78caf0277d12e0c8f0824f4c3a20415d8dbfcaa6";
+    hash = "sha256-RvuGlxoWHtPRmdqHpFNTscXfFK+Mu0gUlzOnKQBozt4=";
   };
 
   update-my-nur = true;
@@ -30,11 +31,12 @@ stdenv.mkDerivation rec {
     shopt -s dotglob
     cp -r ${src}/* $out/www/
     echo "${configContent}" > $out/www/config.php
+    ${lib.optionalString (svgBanner != null) "cp '${svgBanner}' $out/www/assets/img/banner.svg"}
   '';
 
   meta = with lib; {
-    description = "Lennis.dev website";
+    description = "The server handling single sign-on and authentication for Lennis.dev services.";
     license = licenses.mit;
-    homepage = "https://www.lennis.dev/";
+    homepage = "https://auth.lennis.dev/";
   };
 }
