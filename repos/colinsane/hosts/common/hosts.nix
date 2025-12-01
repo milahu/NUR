@@ -58,4 +58,10 @@
     wg-home.endpoint = "uninsane.org:51820";
     lan-ip = "10.78.79.51";
   };
+
+  sane.hosts.by-name."teever" = {
+    ssh.authorized = false;
+    ssh.host_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFF45xYVopkdGFpP9dKKyvdrTtejld1VwkN7t7Nnx7YS";
+    lan-ip = "10.78.79.3";
+  };
 }

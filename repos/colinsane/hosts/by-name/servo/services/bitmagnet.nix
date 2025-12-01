@@ -29,6 +29,9 @@
     # default is `:3333`, which listens on _all_ interfaces.
     # the http server exposes unprotected admin endpoints though, so restrict to private interfaces:
     http_server.local_address = "${config.sane.netns.ovpns.veth.netns.ipv4}:3333";
+    # default concurrency: 1.
+    # docs claim high concurrency can reduce throughput on weak systems.
+    processor.concurrency = 2;
     # tmdb.enabled: whether to query The Movie DataBase to resolve filename -> movie title.
     #   default: true.
     #   docs claim 1 query per second rate limit, unless you supply your own API key.

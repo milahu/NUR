@@ -69,7 +69,9 @@ in
       ":Q" = ":q";
       "cd.." = "cd ..";
       "cd../" = "cd ../";
+      "eci5" = "exit";
       "ecit" = "exit";
+      "eciy" = "exit";
       "exi5" = "exit";
       "exiy" = "exit";
       # overcome poor defaults
