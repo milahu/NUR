@@ -1,0 +1,29 @@
+error:
+… while querying the derivation named 'surge-XT-1.3.4'
+
+… while calling the 'foldl'' builtin
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:671:21:
+
+   670|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
+   671|       maintainers = unique (
+      |                     ^
+   672|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/lists.nix:1859:25:
+
+  1858|   */
+  1859|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
+      |                         ^
+  1860|
+
+error: undefined variable 'orivej'
+
+at ./pkgs/surge-xt/default.nix:103:7:
+
+   102|       magnetophon
+   103|       orivej
+      |       ^
+   104|       mrtnvgr
