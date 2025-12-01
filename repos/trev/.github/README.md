@@ -27,42 +27,111 @@ Extra packages, bundlers and libs for nix
 
 An alternative to `github:NixOS/bundlers#toDockerImage` that uses `streamLayeredImage` rather than `buildLayeredImage`
 
-```console
-$ nix bundle --bundler github:spotdemo4/nur#toDockerImage
+```elm
+nix bundle --bundler github:spotdemo4/nur#toDockerImage
 ```
 
 ### goTo[GOOS][GOARCH]
 
 Builds a go package using the GOOS and GOARCH values supplied
 
-```console
-$ nix bundle -o binary --bundler github:spotdemo4/nur#goToLinuxAmd64
-$ nix bundle -o binary.exe --bundler github:spotdemo4/nur#goToWindowsAmd64
+```elm
+nix bundle -o binary --bundler github:spotdemo4/nur#goToLinuxAmd64
+nix bundle -o binary.exe --bundler github:spotdemo4/nur#goToWindowsAmd64
 ```
 
 ## Libs
+
+### mkFlake
+
+Utility function to make creating flakes easier
+
+```nix
+inputs = {
+  systems.url = "github:nix-systems/default";
+  nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+  trev = {
+    url = "github:spotdemo4/nur";
+    inputs.systems.follows = "systems";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+};
+
+outputs =
+  {
+    nixpkgs,
+    trev,
+    ...
+  }:
+  trev.libs.mkFlake (
+    system:
+    let
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          trev.overlays.packages
+          trev.overlays.libs
+        ];
+      };
+    in
+    rec {
+      devShells = {
+        default = pkgs.mkShell {
+          packages = with pkgs; [
+            nixfmt
+          ];
+          shellHook = pkgs.shellhook.ref;
+        };
+      };
+    }
+  );
+```
 
 ### mkChecks
 
 Utility function to make creating flake checks easier
 
 ```nix
-checks = forSystem ({pkgs, ...}:
-  pkgs.nur.repos.trev.lib.mkChecks {
-    lint = {
-      src = ./.;
-      deps = with pkgs; [
-        alejandra
-        sqlfluff
-        revive
-      ];
-      script = ''
-        alejandra -c .
-        sqlfluff lint
-        revive -config revive.toml -set_exit_status ./...
-      '';
-    };
-});
+checks = pkgs.lib.mkChecks {
+  lint = {
+    src = ./.;
+    deps = with pkgs; [
+      nixfmt-tree
+      sqlfluff
+      prettier
+    ];
+    script = ''
+      treefmt --ci
+      sqlfluff lint
+      prettier --check .
+    '';
+  };
+};
+```
+
+### mkApps
+
+Utility function to make creating flake apps easier
+
+```nix
+apps = pkgs.lib.mkApps {
+  lint = {
+    deps = with pkgs; [
+      nixfmt-tree
+      sqlfluff
+      prettier
+    ];
+    script = ''
+      treefmt --ci
+      sqlfluff lint
+      prettier --check .
+    '';
+  };
+};
+```
+
+```elm
+nix run #lint
 ```
 
 ### go.moduleToPlatform & go.moduleToImage
@@ -76,7 +145,7 @@ packages = forSystem (
     system,
     ...
   }:
-    with pkgs.nur.repos.trev.lib; rec {
+    with pkgs.lib; rec {
       default = ts-server."${system}";
 
       linux-amd64 = go.moduleToPlatform default "linux" "amd64";
@@ -104,10 +173,10 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = with pkgs; [
     buf
-    pkgs.nur.repos.trev.lib.buf.configHook
+    pkgs.lib.buf.configHook
   ];
 
-  bufDeps = pkgs.nur.repos.trev.lib.buf.fetchDeps {
+  bufDeps = pkgs.lib.buf.fetchDeps {
     inherit (finalAttrs) pname version src;
     hash = "...";
   };
@@ -121,7 +190,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
 
 ## Install
 
-### DevShell
+### Flake
 
 ```nix
 {
@@ -135,21 +204,24 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
   };
 
   inputs = {
+    systems.url = "github:nix-systems/default";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    utils.url = "github:numtide/flake-utils";
     trev = {
       url = "github:spotdemo4/nur";
+      inputs.systems.follows = "systems";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = {
-    nixpkgs,
-    utils,
-    trev,
-  }:
-    utils.lib.eachDefaultSystem (
-      system: let
+  outputs =
+    {
+      nixpkgs,
+      trev,
+      ...
+    }:
+    trev.libs.mkFlake (
+      system:
+      let
         pkgs = import nixpkgs {
           inherit system;
           overlays = [
@@ -157,12 +229,16 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
             trev.overlays.libs
           ];
         };
-      in {
-        devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            bobgen
-          ];
-          shellHook = pkgs.shellhook.ref;
+      in
+      rec {
+        devShells = {
+          default = pkgs.mkShell {
+            packages = with pkgs; [
+              nixfmt
+              prettier
+            ];
+            shellHook = pkgs.shellhook.ref;
+          };
         };
 
         checks = pkgs.lib.mkChecks {
