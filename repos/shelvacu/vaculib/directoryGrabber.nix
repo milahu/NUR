@@ -13,7 +13,7 @@ in
   directoryGrabber =
     {
       path, # the path to load files from, almost always ./.
-      mainName ? null, # the name for the file to load in each directory including the .nix; null for none
+      mainName ? null, # the name for the file to load in each directory including the .nix; null for none (ie default.nix)
     }:
     let
       directoryListing = builtins.removeAttrs (builtins.readDir path) [ "default.nix" ];

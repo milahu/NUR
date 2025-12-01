@@ -1,32 +1,27 @@
-{ lib, config, ... }:
+{ dnsData, ... }:
 let
-  inherit (lib) singleton;
-  inherit (config.vacu) dnsData;
+  inherit (dnsData) propA;
 in
 {
-  vacu.dns."sv.mt" =
-    { ... }:
-    {
-      vacu.liamMail = true;
-      vacu.defaultCAA = true;
-      A = singleton dnsData.propPublicV4;
-      subdomains = {
-        "2e14".A = singleton dnsData.propPublicV4;
-        "clientauth.2e14".A = singleton dnsData.propPublicV4;
+  vacu.liamMail = true;
+  vacu.defaultCAA = true;
+  A = propA;
+  subdomains = {
+    "2e14".A = propA;
+    "clientauth.2e14".A = propA;
 
-        "jf".A = singleton dnsData.propPublicV4;
-        "f".A = singleton dnsData.propPublicV4;
-        "files".A = singleton dnsData.propPublicV4;
-        "copy".A = singleton dnsData.propPublicV4;
-        "copyparty".A = singleton dnsData.propPublicV4;
-        thisthirdlevelisownedbyshelandwasnotmadeavailabletoemily.NS = [
-          "thisns1isonlyusedbyshelandisnotusedforthirdlevelregistrationfor.emilygeil.com."
-          "thisns2isonlyusedbyshelandisnotusedforthirdlevelregistrationfor.emilygeil.com."
-          "thisns3isonlyusedbyshelandisnotusedforthirdlevelregistrationfor.emilygeil.com."
-          "thisns4isonlyusedbyshelandisnotusedforthirdlevelregistrationfor.emilygeil.com."
-          "thisns5isonlyusedbyshelandisnotusedforthirdlevelregistrationfor.emilygeil.com."
-        ];
-        www.A = singleton dnsData.propPublicV4;
-      };
-    };
+    "jf".A = propA;
+    "f".A = propA;
+    "files".A = propA;
+    "copy".A = propA;
+    "copyparty".A = propA;
+    thisthirdlevelisownedbyshelandwasnotmadeavailabletoemily.NS = [
+      "thisns1isonlyusedbyshelandisnotusedforthirdlevelregistrationfor.emilygeil.com."
+      "thisns2isonlyusedbyshelandisnotusedforthirdlevelregistrationfor.emilygeil.com."
+      "thisns3isonlyusedbyshelandisnotusedforthirdlevelregistrationfor.emilygeil.com."
+      "thisns4isonlyusedbyshelandisnotusedforthirdlevelregistrationfor.emilygeil.com."
+      "thisns5isonlyusedbyshelandisnotusedforthirdlevelregistrationfor.emilygeil.com."
+    ];
+    www.A = propA;
+  };
 }

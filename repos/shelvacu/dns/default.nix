@@ -4,7 +4,7 @@
   vaculib,
   config,
   ...
-}:
+}@args:
 let
   inherit (lib) mkOption types singleton;
   inherit (dns.lib.combinators)
@@ -138,38 +138,44 @@ let
         })
       ];
     };
-in
-{
-  imports = [
-    ./jean-luc.org.nix
-    ./pwrhs.win.nix
-    ./shelvacu.miras.pet.nix
-    ./for.miras.pet.nix
-    ./shelvacu.com.nix
-    ./dis8.net.nix
-    ./sv.mt.nix
-    ./vacu.store.nix
-    ./74358228.xyz.nix
-    (
-      { dns, ... }:
-      {
-        options.vacu.dns = mkOption {
-          default = { };
-          type = types.attrsOf dns.lib.types.zone;
-        };
-      }
-    )
-  ];
-  options.vacu.dns = mkOption { type = types.attrsOf (types.submodule vacuZoneExtModule); };
-  options.vacu.dnsData = vaculib.mkOutOptions rec {
-    tripPublicV4 = hosts.triple-dezert.primaryIp;
-    propPublicV4 = hosts.prophecy.primaryIp;
+  dnsData = rec {
+    tripA = [ hosts.triple-dezert.primaryIp ];
+    propA = [ hosts.prophecy.primaryIp ];
+    solisA = [ hosts.solis.primaryIp ];
     digitalOcean = {
       reservedV4 = "138.197.233.105";
       liamPublicV4 = "178.128.79.152";
       mailPublicV4 = "167.99.161.174";
     };
-    doV4 = digitalOcean.reservedV4;
-    awooV4 = hosts.awoo.primaryIp;
+    doA = [ digitalOcean.reservedV4 ];
+    awooA = [ hosts.awoo.primaryIp ];
   };
+in
+{
+  # imports = [
+  #   ./jean-luc.org.nix
+  #   ./pwrhs.win.nix
+  #   ./shelvacu.miras.pet.nix
+  #   ./for.miras.pet.nix
+  #   ./shelvacu.com.nix
+  #   ./dis8.net.nix
+  #   ./sv.mt.nix
+  #   ./vacu.store.nix
+  #   ./74358228.xyz.nix
+  #   ./theviolincase.com.nix
+  #   ./violingifts.com.nix
+  # ];
+  options.vacu.dns = mkOption {
+    type = types.attrsOf (types.submoduleWith {
+      modules = [
+        vacuZoneExtModule
+      ]
+      ++ dns.lib.types.zone.getSubModules;
+      specialArgs = {
+        inherit lib vaculib dns dnsData;
+        outerConfig = config;
+      };
+    });
+  };
+  config.vacu.dns = vaculib.directoryGrabber { path = ./.; };
 }

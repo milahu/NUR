@@ -1,25 +1,19 @@
-{ lib, config, ... }:
+{ dnsData, ... }:
 let
-  inherit (lib) singleton;
-  inherit (config.vacu) dnsData;
+  inherit (dnsData) propA;
 in
 {
-  vacu.dns."for.miras.pet" =
-    { ... }:
-    {
-      vacu.defaultCAA = true;
-      A = singleton dnsData.propPublicV4;
-      subdomains = {
-        "git".A = singleton dnsData.propPublicV4;
-        "auth".A = singleton dnsData.propPublicV4;
-        "wisdom".A = singleton dnsData.propPublicV4;
-        "chat" =
-          { ... }:
-          {
-            config.vacu.liamMail = true;
-            config.A = singleton dnsData.propPublicV4;
-          };
-        "gabriel-dropout".A = singleton dnsData.propPublicV4;
+  vacu.defaultCAA = true;
+  A = propA;
+  subdomains = {
+    "git".A = propA;
+    "auth".A = propA;
+    "wisdom".A = propA;
+    "chat" =
+      {
+        vacu.liamMail = true;
+        A = propA;
       };
-    };
+    "gabriel-dropout".A = propA;
+  };
 }

@@ -1,14 +1,9 @@
-{ lib, config, ... }:
+{ dnsData, ... }:
 let
-  inherit (lib) singleton;
-  inherit (config.vacu) dnsData;
+  inherit (dnsData) propA;
 in
 {
-  vacu.dns."pwrhs.win" =
-    { ... }:
-    {
-      vacu.defaultCAA = true;
-      A = singleton dnsData.propPublicV4;
-      subdomains.habitat.A = singleton dnsData.propPublicV4;
-    };
+  vacu.defaultCAA = true;
+  A = propA;
+  subdomains.habitat.A = propA;
 }

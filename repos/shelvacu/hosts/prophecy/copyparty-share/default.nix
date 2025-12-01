@@ -45,9 +45,8 @@ let
       e2dsa
       e2ts
       daw
-      shr: /sharing-is-caring
+      shr: /s
       shr-adm: shelvacu
-      rss
       allow-flac
       allow-wav
       z
@@ -81,10 +80,6 @@ let
       idp-store: 3
       log-conn
       no-ansi
-      # intentionally empty
-      lf-url: $.^
-      # ihead: Host, X-Auth-Request-Email, X-Auth-Request-Preferred-Username, X-Auth-Request-User, X-Auth-Request-Groups
-      # ohead: x-robots-tag
 
     [accounts]
       # shelvacu: +7GvyoieOAbzXd3guJru24uAxHzZ4tHYL
