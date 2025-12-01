@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":0.379,
-"eval_time":0.266,
+"fetch_time":0.392,
+"eval_time":0.265,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"70c74942f366bf6c206b0a68e1f62d64a2b7937d",
-"sha256":"16l81wr7c5p9rf914ndbbvn0zw20937vqh89pk5kbbd881hc9r6b",
+"rev":"2679ff59fd29077a23f396217c6899bfb4ee9edf",
+"sha256":"03lk5xg3w9xninxajpqaw9spi996qmaj04rr7ckaai5dg3d1yr16",
 "date":null
 },
-"source_storepath":"/nix/store/xai5g5ar75195w1qmpryvp9xjfxbdz6v-source",
-"nixpkgs_storepath":"/nix/store/ajzjk0hy2ri0wswph4kmbs60nlmyas9l-source",
-"nur_combined_rev":"9c51df4141a7a65b6e84f675d3631c6f3cc5ddd7",
+"source_storepath":"/nix/store/azwlaj7dfhz2n3cxkk5migapb543vss2-source",
+"nixpkgs_storepath":"/nix/store/rn0b00v9fn09cmrm4h98fppjf0xyqx7f-source",
+"nur_combined_rev":"bd415d186dfb63cba422a6ae15026c9503f6161a",
 "packages":{
 "bobgen":{
 "meta":{
@@ -155,6 +155,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"changelog":"https://github.com/spotdemo4/bumper/releases/tag/v0.2.5",
 "description":"git semantic version bumper",
 "homepage":"https://github.com/spotdemo4/bumper",
 "identifiers":{
@@ -184,6 +185,15 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
 "mainProgram":"bumper",
 "maintainers":[],
 "name":"bumper-0.2.5",
@@ -268,7 +278,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./packages/bumper/default.nix:68",
+"position":"./packages/bumper/default.nix:67",
 "unfree":false,
 "unsupported":false
 },
