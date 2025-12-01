@@ -9,11 +9,11 @@
 
 python3.pkgs.buildPythonApplication rec {
   pname = "pdfalyzer";
-  version = "1.17.6";
+  version = "1.17.9";
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-80Q6iHS2TZZmGF8bBw+uvhJjEyZMMxRj1U1wUSv7GhM=";
+    hash = "sha256-VIdud1iQwzNHN0kQLQozFoUkesESUeVC/jlSjBvr340=";
   };
 
   format = "pyproject";
