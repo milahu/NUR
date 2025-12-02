@@ -19,6 +19,7 @@ in
       "sane-scripts.profile"
     ];
     "sane-scripts.cli" = declPackageSet [
+      "sane-scripts.date-set"
       "sane-scripts.find-dotfiles"
       "sane-scripts.ip-check"
       "sane-scripts.private-do"
@@ -73,6 +74,16 @@ in
     # the idea of this script is to `cd` into a fresh clone...
     # but that's an ephemeral operation that would be lost when the sandbox closes.
     "sane-scripts.clone".sandbox.method = null;  #< TODO: sandbox
+
+    "sane-scripts.date-set".sandbox = {
+      method = "bunpen";
+      whitelistSystemctl = true;
+      # TODO: with the right polkit integration, wouldn't need superuser privs
+      capabilities = [
+        "sys_admin"
+      ];
+      tryKeepUsers = true;
+    };
 
     "sane-scripts.dev-cargo-loop".sandbox = {
       net = "clearnet";

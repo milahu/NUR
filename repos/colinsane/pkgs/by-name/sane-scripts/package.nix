@@ -82,6 +82,11 @@ let
       srcRoot = ./src;
       pkgs = [ "nix" ];
     };
+    date-set = static-nix-shell.mkBash {
+      pname = "sane-date-set";
+      srcRoot = ./src;
+      pkgs = [ "systemd" ];
+    };
     deadlines = static-nix-shell.mkYsh {
       pname = "sane-deadlines";
       srcRoot = ./src;
