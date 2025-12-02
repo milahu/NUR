@@ -1,13 +1,11 @@
 { dnsData, ... }:
 let
-  inherit (dnsData) tripA;
+  inherit (dnsData) propA;
 in
 {
-  vacu.liamMail = true;
+  # this domain is ded; only used to display ded message
+  vacu.liamMail = false;
   vacu.defaultCAA = true;
-  A = tripA;
-  subdomains = {
-    _acme-challenge.CNAME = [ "83895c55-d556-40c5-b41b-d55a312d99f9.auwwth.dis8.net." ];
-    www.A = tripA;
-  };
+  A = propA;
+  subdomains.www.A = propA;
 }

@@ -7,9 +7,7 @@
 }:
 let
   s = v: [ v ];
-  inherit (dnsData) tripA propA solisA;
-  # mail_thing = s "178.128.79.152";
-  mail_thing = s dnsData.digitalOcean.liamPublicV4;
+  inherit (dnsData) propA solisA doA;
   # which domains to allow dmarc reports.
   # ex: _dmarc.dis8.net TXT has "rua=rua-reports@shelvacu.com", reports will only be sent if shelvacu.com allows them
   # allow all domains configured in this repo, and one level of subdomain (ideally all but thats hard, this should be good enough)
@@ -34,7 +32,6 @@ in
   vacu.defaultCAA = true;
   A = propA;
   subdomains = {
-    _acme-challenge.CNAME = s "5cb20bf7-5203-417f-b729-fa3a3ad3b775.auwwth.dis8.net.";
     _atproto.TXT = s "did=did:plc:oqenurzqeji6ulii3myxls64";
     "_report._dmarc".subdomains = vaculib.mapNamesToAttrsConst {
       TXT = s "v=DMARC1";
@@ -45,9 +42,7 @@ in
     copy.A = propA;
     copyparty.A = propA;
     actual.A = propA;
-    admin-garage-trip.A = tripA;
-    auth.A = tripA;
-    autoconfig.A = mail_thing;
+    autoconfig.A = doA;
     awoo.A = s "45.142.157.71";
     dav-experiment.A = propA;
     dynrecords.NS = [
@@ -60,16 +55,13 @@ in
       "*".A = s "45.87.250.193";
       _acme-challenge.CNAME = s "17aa43aa-9295-4522-8cf2-b94ba537753d.auth.acme-dns.io.";
     };
-    # hzo3bcydh5khtpeio6zrzb7kwcwiccnh.subdomains._domainkey.CNAME = s "hzo3bcydh5khtpeio6zrzb7kwcwiccnh.dkim.amazonses.com.";
     id.A = propA;
-    imap.A = mail_thing;
+    imap.A = doA;
     jf.A = propA;
     jelly.A = propA;
     jellyfin.A = propA;
     jobs.A = propA;
-    llm.A = tripA;
-    mail.A = mail_thing;
-    # mlsend2.subdomains._domainkey.CNAME = s "mlsend2._domainkey.mailersend.net.";
+    mail.A = doA;
     mumble.A = propA;
     nitter.A = propA;
     nixcache.A = propA;
@@ -84,18 +76,15 @@ in
     "*.prophecy".A = propA;
     "s3.garage.prophecy".A = propA;
     "admin.garage.prophecy".A = propA;
-    rad.A = tripA;
     radicale.A = propA;
-    s3-garage-trip.A = tripA;
     servacu.A = s "167.99.161.174";
-    smtp.A = mail_thing;
+    smtp.A = doA;
     sol.CNAME = s "solis";
     solis.A = solisA;
     solis.subdomains.garage.subdomains = {
       s3.A = solisA;
       admin.A = solisA;
     };
-    trip.A = tripA;
     vaultwarden.A = propA;
     www.A = propA;
     xs.A = solisA;

@@ -138,17 +138,10 @@ let
         })
       ];
     };
-  dnsData = rec {
-    tripA = [ hosts.triple-dezert.primaryIp ];
+  dnsData = {
     propA = [ hosts.prophecy.primaryIp ];
     solisA = [ hosts.solis.primaryIp ];
-    digitalOcean = {
-      reservedV4 = "138.197.233.105";
-      liamPublicV4 = "178.128.79.152";
-      mailPublicV4 = "167.99.161.174";
-    };
-    doA = [ digitalOcean.reservedV4 ];
-    awooA = [ hosts.awoo.primaryIp ];
+    doA = [ "138.197.233.105" ];
   };
 in
 {

@@ -91,6 +91,7 @@ let
     [groups]
       shelvacu-obsidian: shelvacu-fw-obsidian, shelvacu-pixel9pro-obsidian
       not-people: lan, shelvacu-fw-obsidian, shelvacu-pixel9pro-obsidian
+      general_access:
 
     [/]
       ${rootPkg}
@@ -105,7 +106,7 @@ let
     [/chaosbox]
       ${mainDir}/chaosbox
       accs:
-        rwm: @acct
+        rwm: @general_access,lan
         A: shelvacu
       flags:
         dots
@@ -113,7 +114,7 @@ let
     [/media]
       /propdata/media
       accs:
-        r: @acct
+        r: @general_access,lan
       flags:
         -xdev
         xvol
