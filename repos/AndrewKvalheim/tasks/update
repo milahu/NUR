@@ -6,8 +6,12 @@ root="$(readlink --canonicalize -- "$(dirname -- "$0")/..")"
 pname="${1:-}"
 
 # Mock nixpkgs
-trap 'rm -f "$root/default.nix"' EXIT; cat > "$root/default.nix" << NIX
+trap 'rm -f "$root/default.nix" "$root/shell.nix"' EXIT
+cat > "$root/default.nix" << NIX
 {}: import <nixpkgs> { overlays = [ (import ./packages.nix) ]; }
+NIX
+cat > "$root/shell.nix" << NIX
+{ pkgs ? import <nixpkgs> { } }: pkgs.mkShell { }
 NIX
 
 # Run update scripts

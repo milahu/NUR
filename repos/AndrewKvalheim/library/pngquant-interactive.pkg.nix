@@ -18,17 +18,17 @@
 
 rustPlatform.buildRustPackage (pngquant-interactive: {
   pname = "pngquant-interactive";
-  version = "0.2.0";
+  version = "0.2.1";
 
   src = fetchFromGitea {
     domain = "codeberg.org";
     owner = "AndrewKvalheim";
     repo = "pngquant-interactive";
     rev = "refs/tags/v${pngquant-interactive.version}";
-    hash = "sha256-lEXBQ6toomT8Q8QDGz5l+ywcCGcuO3gKBymMDMlk+ak=";
+    hash = "sha256-LypGKz3YU8GqBKJOi0VuvqpplCrv8h3e3Oval1Q8WMs=";
   };
 
-  cargoHash = "sha256-OhRd7ZVqkWM+PdDjuw2CA5rxLN7z83wQtK8cxCCyBG4=";
+  cargoHash = "sha256-rnBknfO4+Y0GlHIysmiPz5Y2O5tByqdl6CBT7PC65fk=";
 
   nativeBuildInputs = [ cmake curl git pkg-config ];
   buildInputs = [ libXcursor libXfixes libXinerama mesa pango ];
@@ -43,6 +43,5 @@ rustPlatform.buildRustPackage (pngquant-interactive: {
     homepage = "https://codeberg.org/AndrewKvalheim/pngquant-interactive";
     license = lib.licenses.gpl3;
     mainProgram = "pngquant-interactive";
-    broken = lib.versionAtLeast cmake.version "4"; # nixpkgs/issues#445447 pending compatible fltk-rs
   };
 })

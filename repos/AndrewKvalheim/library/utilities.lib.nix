@@ -1,17 +1,14 @@
 { lib }:
 
 let
-  inherit (builtins) add all attrValues ceil elemAt getAttr hasAttr head isFunction length listToAttrs mapAttrs split stringLength substring tail;
-  inherit (lib) concatLines concatImapStringsSep concatMapStrings concatMapStringsSep fixedWidthNumber flip fold id ifilter0 imap0 isList max min mod nameValuePair pipe range removeSuffix splitString stringToCharacters throwIf throwIfNot toHexString toUpper;
+  inherit (builtins) add all attrValues ceil elemAt getAttr hasAttr head isFunction length listToAttrs mapAttrs split stringLength tail;
+  inherit (lib) concatLines concatImapStringsSep concatMapStrings concatMapStringsSep fixedWidthNumber flip fold id ifilter0 imap0 isList max min mod nameValuePair pipe range removeSuffix splitString stringToCharacters throwIf throwIfNot toCamelCase toHexString;
   inherit (lib.strings) replicate;
   inherit (import <nix-math> { inherit lib; }) cos pi pow round sin;
 
   asciiTable = import <nixpkgs/lib/ascii-table.nix>;
   isAscii = text: all (c: hasAttr c asciiTable) (stringToCharacters text);
   asciiStringLength = text: throwIfNot (isAscii text) "`builtins.stringLength` does not support Unicode text “${text}”" (stringLength text);
-
-  # Pending NixOS/nixpkgs#402372
-  toCamelCase = s: "${substring 0 6 s}${toUpper (substring 7 1 s)}${substring 8 (stringLength s) s}";
 in
 rec {
   ansiColorNames = [ "black" "red" "green" "yellow" "blue" "magenta" "cyan" "white" ];

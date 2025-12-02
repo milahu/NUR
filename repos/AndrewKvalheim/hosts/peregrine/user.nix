@@ -29,7 +29,7 @@
     josm
     libreoffice
     mark-applier
-    tor-browser-bundle-bin
+    tor-browser
     transmission_4-gtk
   ];
   xdg.dataFile."JOSM/plugins/imagery_used.jar".source = "${pkgs.josm-imagery-used}/share/JOSM/plugins/imagery_used.jar";

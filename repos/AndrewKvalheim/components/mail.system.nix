@@ -10,8 +10,8 @@
     mapFiles.smtp_sasl_password_maps = config.host.dir + "/assets/smtp-sasl-password-maps.local.postmap";
 
     origin = "andrew.kvalhe.im";
-    config = {
-      relayhost = "[email-smtp.us-west-2.amazonaws.com]:587";
+    settings.main = {
+      relayhost = [ "[email-smtp.us-west-2.amazonaws.com]:587" ];
       smtp_use_tls = "yes";
       smtp_tls_security_level = "encrypt";
       smtp_tls_note_starttls_offer = "yes";

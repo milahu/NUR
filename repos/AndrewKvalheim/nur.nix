@@ -1,17 +1,8 @@
 { pkgs }:
 
 let
-  inherit (builtins) any;
-  inherit (lib) findFirst versionAtLeast warnIfNot;
+  inherit (lib) findFirst warnIfNot;
   inherit (pkgs) callPackage lib;
-
-  # Dependency broken by NixOS/nixpkgs#431074
-  brokenBusylight = attrs: {
-    meta = attrs.meta // {
-      broken = (versionAtLeast pkgs.python3Packages.busylight-for-humans.version "0.37.0")
-        && (any (p: p.pname == "poetry-core") pkgs.python3Packages.busylight-for-humans.build-system);
-    };
-  };
 in
 # Published as nur.repos.AndrewKvalheim (https://nur.nix-community.org/repos/andrewkvalheim/)
 rec {
@@ -40,7 +31,7 @@ rec {
   apex = callPackage ./library/apex.pkg.nix { };
   blocky-ui = callPackage ./library/blocky-ui.pkg.nix { };
   buildJosmPlugin = callPackage ./library/buildJosmPlugin.fn.nix { };
-  busyserve = (callPackage ./library/busyserve.pkg.nix { }).overridePythonAttrs brokenBusylight;
+  busyserve = (callPackage ./library/busyserve.pkg.nix { });
   cavif = callPackage ./library/cavif.pkg.nix { };
   ch57x-keyboard-tool = callPackage ./library/ch57x-keyboard-tool.pkg.nix { };
   co2monitor = callPackage ./library/co2monitor.pkg.nix { };

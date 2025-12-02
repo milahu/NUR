@@ -3,7 +3,7 @@ resolved: stable:
 with import ./library/override-utils.lib.nix { inherit stable; };
 
 let
-  community-vscode-extensions = (import <community-vscode-extensions>).extensions.${stable.system}.forVSCodeVersion resolved.vscodium.version;
+  community-vscode-extensions = (import <community-vscode-extensions>).extensions.${stable.stdenv.hostPlatform.system}.forVSCodeVersion resolved.vscodium.version;
   open-vsx = { _name = "open-vsx"; vscode-extensions = community-vscode-extensions.open-vsx; };
   vscode-marketplace = { _name = "vscode-marketplace"; vscode-extensions = community-vscode-extensions.vscode-marketplace; };
 in
@@ -20,7 +20,6 @@ specify {
   ansible-vault-pass-client = any;
   apex = any;
   attachments = any;
-  biome.version = "≥2.0.0";
   blocky-ui = any;
   buildJosmPlugin = any;
   busyserve = any;
@@ -29,7 +28,6 @@ specify {
   chromium.commandLineArgs = "--enable-features=WaylandTextInputV3"; # Pending https://crbug.com/40272818, NixOS/nixpkgs#394395
   co2monitor = any;
   decompiler-mc = any;
-  deskflow.version = "≥1.23"; # deskflow/deskflow#8864
   dmarc-report-converter = any;
   dmarc-report-notifier = any;
   email-hash = any;
@@ -48,20 +46,18 @@ specify {
   gopass-env = any;
   gopass-ydotool = any;
   gpx-reduce = any;
-  graalvm-ce.overlay = g: stable.lib.throwIf (stable.lib.hasInfix "font" g.preFixup) "graalvm-ce no longer requires an overlay" { preFixup = g.preFixup + "\nfind \"$out\" -name libfontmanager.so -exec patchelf --add-needed libfontconfig.so {} \\;"; }; # Workaround for https://github.com/NixOS/nixpkgs/pull/215583#issuecomment-1615369844
-  graalvmCEPackages.graaljs.overlay = g: stable.lib.throwIf (stable.lib.hasInfix "jvm" g.src.url) "graaljs no longer requires an overlay" { src = stable.fetchurl { url = builtins.replaceStrings [ "community" ] [ "community-jvm" ] g.src.url; hash = ({ "24.2.1" = "sha256-5ZeaC4U5N0DpNpEf+Igf0wT/eaMBmtJHyuOoEZGAWjs="; }).${g.version}; }; buildInputs = g.buildInputs ++ stable.graalvm-ce.buildInputs; }; # https://discourse.nixos.org/t/36314
+  graalvmPackages.graaljs.overlay = g: stable.lib.throwIf (stable.lib.hasInfix "jvm" g.src.url) "graaljs no longer requires an overlay" { src = stable.fetchurl { url = builtins.replaceStrings [ "community" ] [ "community-jvm" ] g.src.url; hash = ({ "24.2.2" = "sha256-LDuMh4hhJSbKb8m5DSH8/tcb8rxiRG6FKS5okcUn2JY="; }).${g.version}; }; buildInputs = g.buildInputs ++ stable.graalvmPackages.graalvm-ce.buildInputs; }; # https://discourse.nixos.org/t/36314
+  graalvmPackages.graalvm-ce.overlay = g: stable.lib.throwIf (stable.lib.hasInfix "font" g.preFixup) "graalvm-ce no longer requires an overlay" { preFixup = g.preFixup + "\nfind \"$out\" -name libfontmanager.so -exec patchelf --add-needed libfontconfig.so {} \\;"; }; # Workaround for https://github.com/NixOS/nixpkgs/pull/215583#issuecomment-1615369844
   htop.patch = ./library/assets/htop_colors.patch; # htop-dev/htop#1416
   inkscape = { patch = ./library/assets/inkscape_png-no-comment.patch; ccache = true; }; # Pending inkscape/inkscape!7193
+  inkscape-extensions.applytransforms = { overlay = a: { meta = a.meta // { broken = stable.lib.versionAtLeast (stable.lib.findFirst (p: p ? pname && p.pname == "libxml2") null (stable.lib.findFirst (p: p.pname == "lxml") null (stable.lib.findFirst (p: p.pname == "inkex") null a.nativeCheckInputs).passthru.dependencies).nativeBuildInputs).version "2.15"; }; }; search = pin "55d3fa58ff9642d799d7489a7f8b0c218723fe07" "sha256-YzAIb9sYIujKmezFvAsyi6bXjqBWfcm3XY5kvQ3GDjM="; }; # Workaround for inkscape/extensions#617 (https://hydra.nixos.org/build/314374425)
   ios-safari-remote-debug-kit = any;
   ios-webkit-debug-proxy = any;
   iosevka-custom = any;
   iptables_exporter = any;
-  jjui.version = "≥0.9"; # Compatibility with delta
   jj-dynamic-default-description = any;
-  joplin-desktop.version = "≥3.4"; # State version
-  josm = { jre = resolved.graalvm-ce; extraJavaOpts = "--module-path=${resolved.graalvmCEPackages.graaljs}/modules"; }; # josm-scripting-plugin
+  josm = { jre = resolved.graalvmPackages.graalvm-ce; extraJavaOpts = "--module-path=${resolved.graalvmPackages.graaljs}/modules"; }; # josm-scripting-plugin
   josm-imagery-used = any;
-  jujutsu.version = "≥0.30"; # Compatibility with delta
   just-local = any;
   kitty.patch = ./library/assets/kitty_paperwm.patch; # Workaround for paperwm/PaperWM#943
   little-a-map = any;
@@ -78,18 +74,15 @@ specify {
   pdfalyzer = any;
   picard.overlay = p: { preFixup = p.preFixup + "\nmakeWrapperArgs+=(--prefix PATH : ${stable.lib.makeBinPath [ resolved.rsgain ]})"; }; # NixOS/nixpkgs#255222
   pngquant-interactive = any;
-  rust-analyzer.version = "≥2025-08-25";
   signal-desktop.args = [ "--use-tray-icon" ];
   spf-check = any;
   spf-tree = any;
   starship-jj = any;
   stretch-break = any;
   tile-stitch = any;
-  trickle.overlay = t: { meta = t.meta // { broken = t.version == "1.07"; }; }; # Pending NixOS/nixpkgs#434711
   unln = any;
   vscode-extensions = namespaced {
     andrewkvalheim.monokai-achromatic-gray = any;
-    biomejs.biome.version = "≥2025.3"; # biomejs/biome-vscode#511
     bpruitt-goddard.mermaid-markdown-syntax-highlighting.search = open-vsx;
     compilouit.xkb.search = open-vsx;
     csstools.postcss.search = open-vsx;
@@ -103,24 +96,20 @@ specify {
     jnbt.vscode-rufo.search = open-vsx;
     joaompinto.vscode-graphviz.search = open-vsx;
     kokakiwi.vscode-just.search = open-vsx;
-    # leighlondon.eml.search = [ open-vsx vscode-marketplace ]; # FIXME: Disappeared in nix-community/nix-vscode-extensions@0db449808b88170ea6ce7fe531b3d73fd190b4d1
+    leighlondon.eml.search = [ open-vsx vscode-marketplace ];
     loriscro.super.search = open-vsx;
     mitchdenny.ecdc.search = open-vsx;
     ms-vscode.wasm-wasi-core.search = open-vsx;
     ronnidc.nunjucks.search = [ open-vsx vscode-marketplace ];
-    rust-lang.rust-analyzer.version = "≥0.3.2500";
     silvenon.mdx.search = open-vsx;
     sissel.shopify-liquid.search = open-vsx;
     syler.sass-indented.search = open-vsx;
     sysoev.language-stylus.search = open-vsx;
     theaflowers.qalc.search = open-vsx;
-    # volkerdobler.insertnums.search = open-vsx; # FIXME: Disappeared in nix-community/nix-vscode-extensions@0db449808b88170ea6ce7fe531b3d73fd190b4d1
+    volkerdobler.insertnums.search = open-vsx;
     ybaumes.highlight-trailing-white-spaces.search = open-vsx;
   };
-  whipper = {
-    condition = w: w.dontWrapGApps or false; # NixOS/nixpkgs#316717
-    patch = [ ./library/assets/whipper_flac-level.patch ./library/assets/whipper_speed.patch ./library/assets/whipper_detect-tty.patch ];
-  };
+  whipper.patch = [ ./library/assets/whipper_flac-level.patch ./library/assets/whipper_speed.patch ./library/assets/whipper_detect-tty.patch ];
   wireguard-vanity-address = any;
   ydotool.patch = ./library/assets/ydotool-engramish.patch; # Pending ReimuNotMoe/ydotool#177
   yubikey-touch-detector.overlay = y: {
@@ -131,5 +120,4 @@ specify {
   };
   zsh-abbr.condition = z: !z.meta.unfree;
   zsh-click = any;
-  zsh-completion-sync = any;
 }

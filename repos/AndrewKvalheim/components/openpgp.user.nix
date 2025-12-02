@@ -1,8 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   inherit (lib) getExe;
-  inherit (lib.generators) toINI;
 
   identity = import ../library/identity.lib.nix { inherit lib; };
 in
@@ -30,14 +29,5 @@ in
     };
     # Workaround for “gpg-agent: scdaemon: ccid open error: skip”
     scdaemonSettings.disable-ccid = true;
-  };
-
-  # Workaround for https://github.com/NixOS/nixpkgs/issues/101616
-  home.file."${config.xdg.configHome}/autostart/gnome-keyring-ssh.desktop".text = toINI { } {
-    "Desktop Entry" = {
-      Type = "Application";
-      Name = "SSH Key Agent";
-      Hidden = true;
-    };
   };
 }

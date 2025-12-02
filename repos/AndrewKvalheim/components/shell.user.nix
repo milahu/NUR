@@ -188,6 +188,7 @@ in
                     behind_symbol = "⇡";
                     bg_color = "Blue";
                     color = "Black";
+                    bold = true;
                   }
                   {
                     type = "Commit";
@@ -196,15 +197,16 @@ in
                     empty_text = "TODO";
                     bg_color = "Blue";
                     color = "Black";
+                    bold = true;
                   }
                   {
                     type = "State";
                     separator = " ";
-                    conflict = { text = "[conflict]"; bg_color = "Blue"; color = "Black"; };
-                    divergent = { text = "[divergent]"; bg_color = "Blue"; color = "Black"; };
-                    empty = { text = "∅"; bg_color = "Blue"; color = "Black"; };
-                    immutable = { text = "[immutable]"; bg_color = "Blue"; color = "Black"; };
-                    hidden = { text = "[hidden]"; bg_color = "Blue"; color = "Black"; };
+                    conflict = { text = "[conflict]"; bg_color = "Blue"; color = "Black"; bold = true; };
+                    divergent = { text = "[divergent]"; bg_color = "Blue"; color = "Black"; bold = true; };
+                    empty = { text = "∅"; bg_color = "Blue"; color = "Black"; bold = true; };
+                    immutable = { text = "[immutable]"; bg_color = "Blue"; color = "Black"; bold = true; };
+                    hidden = { text = "[hidden]"; bg_color = "Blue"; color = "Black"; bold = true; };
                   }
                 ];
               };
@@ -248,7 +250,7 @@ in
 
       # Main
       (mkOrder default (readFile (replaceVars ./assets/init.zsh {
-        pdfimages = (getExe' poppler_utils "pdfimages");
+        pdfimages = (getExe' poppler-utils "pdfimages");
         zsh-abbr = "${zsh-abbr}/share/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh";
         zsh-click = "${zsh-click}/share/zsh/plugins/click/click.plugin.zsh";
         zsh-complete-git-commit-message = toFile "zsh-complete-git-commit-message" (readFile ./assets/complete-git-commit-message.zsh);

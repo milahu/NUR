@@ -72,7 +72,7 @@ in
     soundconverter
     tenacity
     thunderbird
-    tor-browser-bundle-bin
+    tor-browser
     transmission_4-gtk
     video-trimmer
     wasistlos

@@ -7,21 +7,19 @@
 
 rustPlatform.buildRustPackage (starship-jj: {
   pname = "starship-jj";
-  version = "0.5.1";
+  version = "0.7.0";
 
   src = fetchCrate {
     inherit (starship-jj) pname version;
-    sha256 = "sha256-tQEEsjKXhWt52ZiickDA/CYL+1lDtosLYyUcpSQ+wMo=";
+    sha256 = "sha256-oisz3V3UDHvmvbA7+t5j7waN9NykMUWGOpEB5EkmYew=";
   };
 
-  cargoHash = "sha256-+rLejMMWJyzoKcjO7hcZEDHz5IzKeAGk1NinyJon4PY=";
+  cargoHash = "sha256-NNeovW27YSK/fO2DjAsJqBvebd43usCw7ni47cgTth8=";
 
   nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
 
-  passthru =
-    # Pending Rust ≥1.88 via NixOS 25.11
-    lib.optionalAttrs (lib.versionAtLeast lib.trivial.version "25.11") { updateScript = nix-update-script { }; };
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Starship plugin for Jujutsu";

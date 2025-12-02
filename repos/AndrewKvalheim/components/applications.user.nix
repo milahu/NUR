@@ -33,11 +33,8 @@ in
       defaultApplications = foldlAttrs (byType: handler: types: byType // (listToAttrs (map (type: nameValuePair type handler) types))) { } {
         "codium.desktop" = [ "application/gpx+xml" "application/json" "application/rss+xml" "application/x-shellscript" "application/xml" "message/rfc822" "text/markdown" "text/plain" ];
         "firefox.desktop" = [ "application/xhtml+xml" "text/html" "x-scheme-handler/http" "x-scheme-handler/https" ];
-        "org.gnome.Decibels.desktop" = [ "audio/mpeg" "audio/wav" "audio/x-flac" "audio/x-opus+ogg" ];
-        "org.gnome.Evince.desktop" = [ "application/pdf" "image/x-eps" ];
-        "org.gnome.FileRoller.desktop" = [ "application/zip" ];
-        "org.gnome.Loupe.desktop" = [ "image/avif" "image/bmp" "image/gif" "image/heif" "image/jpeg" "image/png" "image/svg+xml" "image/tiff" "image/webp" ];
-        "org.gnome.Totem.desktop" = [ "video/mp4" "video/mp2t" "video/vnd.avi" "video/webm" "video/x-matroska" ];
+        "org.gnome.Loupe.desktop" = [ "image/heif" ];
+        "org.gnome.Papers.desktop" = [ "image/x-eps" ];
         "writer.desktop" = [ "application/vnd.oasis.opendocument.text" "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ];
       };
     };
@@ -75,6 +72,7 @@ in
     programs.ripgrep.enable = true;
     programs.ssh = {
       enable = true;
+      enableDefaultConfig = false; # Deprecated
       includes = [ "config.d/*" ];
       extraOptionOverrides.PreferredAuthentications = "publickey";
     };
@@ -155,7 +153,7 @@ in
       popsicle
       pngquant
       pngtools
-      poppler_utils # pdfinfo
+      poppler-utils # pdfinfo
       pup
       pwgen
       pwvucontrol

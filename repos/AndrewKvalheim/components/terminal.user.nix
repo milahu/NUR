@@ -137,7 +137,7 @@ in
     };
   };
 
-  programs.git.extraConfig."difftool \"kitty\"".cmd = "kitty +kitten diff $LOCAL $REMOTE";
+  programs.git.settings."difftool \"kitty\"".cmd = "kitty +kitten diff $LOCAL $REMOTE";
 
   programs.zsh.shellAliases.icat = "kitty +kitten icat";
   programs.zsh.shellAliases.ssh = "kitty +kitten ssh";

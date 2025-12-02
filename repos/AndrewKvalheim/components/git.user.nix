@@ -1,7 +1,8 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   inherit (builtins) listToAttrs;
+  inherit (config.programs) delta;
   inherit (lib) getExe getExe' mkForce nameValuePair range;
   inherit (pkgs.writers) writeTOML;
 
@@ -10,7 +11,6 @@ let
 in
 {
   home.packages = with pkgs; [
-    delta
     git-absorb
     git-filter-repo
     git-remote
@@ -18,21 +18,47 @@ in
     tig
   ];
 
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    enableJujutsuIntegration = true;
+    options =
+      with palette.hex; {
+        file-renamed-label = "moved:";
+        line-numbers-left-format = "{nm:>1} ";
+        line-numbers-left-style = "${white-dark} bold";
+        line-numbers-minus-style = "${vermilion-dark} bold";
+        line-numbers-plus-style = "${teal-dark} bold";
+        line-numbers-right-format = "{np:>1}▐";
+        line-numbers-right-style = "${white-dark} bold";
+        line-numbers-zero-style = "${white-dark} bold";
+        minus-emph-style = "${vermilion-dark-contrast-minimum} ${vermilion-dark}";
+        minus-empty-line-marker-style = "normal ${vermilion-dark}";
+        minus-non-emph-style = "${white-dim} dim";
+        minus-style = "${vermilion-dark-contrast-minimum} ${vermilion-dark}";
+        plus-emph-style = "syntax ${teal-dark}";
+        plus-empty-line-marker-style = "normal ${teal-dark}";
+        plus-non-emph-style = "syntax dim";
+        plus-style = "syntax ${teal-dark}";
+        syntax-theme = "Monokai Extended";
+        whitespace-error-style = "reverse white";
+        wrap-max-lines = "unlimited";
+        zero-style = "syntax dim";
+
+        full = {
+          file-style = "white bold";
+          file-decoration-style = "omit";
+          hunk-header-style = "omit";
+          line-numbers = true;
+        };
+      };
+  };
+
   programs.git = {
     enable = true;
     lfs.enable = true;
 
-    userName = identity.name.long;
-    userEmail = identity.email;
     signing.key = identity.openpgp.id;
-
-    aliases = {
-      diff-image = "!f() { cd -- \"\${GIT_PREFIX:-.}\"; GIT_DIFF_IMAGE_ENABLED=1 git diff \"$@\"; }; f";
-      ff = "merge --ff-only";
-      kitty = "difftool --tool=kitty --no-symlinks --dir-diff";
-      puff = "pull --ff-only";
-      recent = "!git --no-pager log --max-count 8 --pretty=tformat:\"%w($(tput cols),0,8)%C(cyan)%h%Creset %C(yellow)%cr:%C(magenta)%d%Creset %s\"";
-    };
 
     attributes = [
       "* merge=mergiraf"
@@ -53,42 +79,9 @@ in
       "result"
     ];
 
-    delta = {
-      enable = true;
-      options =
-        with palette.hex; {
-          file-renamed-label = "moved:";
-          line-numbers-left-format = "{nm:>1} ";
-          line-numbers-left-style = "${white-dark} bold";
-          line-numbers-minus-style = "${vermilion-dark} bold";
-          line-numbers-plus-style = "${teal-dark} bold";
-          line-numbers-right-format = "{np:>1}▐";
-          line-numbers-right-style = "${white-dark} bold";
-          line-numbers-zero-style = "${white-dark} bold";
-          minus-emph-style = "${vermilion-dark-contrast-minimum} ${vermilion-dark}";
-          minus-empty-line-marker-style = "normal ${vermilion-dark}";
-          minus-non-emph-style = "${white-dim} dim";
-          minus-style = "${vermilion-dark-contrast-minimum} ${vermilion-dark}";
-          plus-emph-style = "syntax ${teal-dark}";
-          plus-empty-line-marker-style = "normal ${teal-dark}";
-          plus-non-emph-style = "syntax dim";
-          plus-style = "syntax ${teal-dark}";
-          syntax-theme = "Monokai Extended";
-          whitespace-error-style = "reverse white";
-          wrap-max-lines = "unlimited";
-          zero-style = "syntax dim";
+    iniContent.core.pager = mkForce "${getExe delta.finalPackage} --color-only --features full"; # Set feature
 
-          full = {
-            file-style = "white bold";
-            file-decoration-style = "omit";
-            hunk-header-style = "omit";
-            line-numbers = true;
-          };
-        };
-    };
-    iniContent.core.pager = mkForce "${getExe pkgs.delta} --color-only --features full"; # Set feature
-
-    extraConfig = {
+    settings = {
       branch.sort = "-committerdate";
       commit.verbose = true;
       core.autocrlf = "input";
@@ -109,6 +102,16 @@ in
       rerere.autoupdate = true;
       rerere.enabled = true;
       tag.sort = "version:refname";
+      user.name = identity.name.long;
+      user.email = identity.email;
+
+      alias = {
+        diff-image = "!f() { cd -- \"\${GIT_PREFIX:-.}\"; GIT_DIFF_IMAGE_ENABLED=1 git diff \"$@\"; }; f";
+        ff = "merge --ff-only";
+        kitty = "difftool --tool=kitty --no-symlinks --dir-diff";
+        puff = "pull --ff-only";
+        recent = "!git --no-pager log --max-count 8 --pretty=tformat:\"%w($(tput cols),0,8)%C(cyan)%h%Creset %C(yellow)%cr:%C(magenta)%d%Creset %s\"";
+      };
 
       diff.anvil.textconv = getExe pkgs.git-diff-minecraft;
       diff.image.command = getExe' pkgs.git-diff-image "git_diff_image";
@@ -156,9 +159,8 @@ in
 
       merge-tools = {
         delta = {
-          program = getExe pkgs.delta;
+          program = getExe delta.finalPackage;
           diff-args = [ "--features" "full" "$left" "$right" ];
-          diff-expected-exit-codes = [ 0 /* same */ 1 /* different */ ];
         };
       };
 
@@ -176,9 +178,9 @@ in
       };
 
       ui = {
-        diff-formatter = "delta";
+        diff-formatter = mkForce /* See nix-community/home-manager#8101 */ "delta";
         editor = getExe pkgs.jj-dynamic-default-description;
-        pager = "less --no-init --quit-if-one-screen --RAW-CONTROL-CHARS"; # Override PAGER with Jujutsu default
+        pager = mkForce /* See nix-community/home-manager#8101 */ "less --no-init --quit-if-one-screen --RAW-CONTROL-CHARS"; # Override PAGER with Jujutsu default
       };
 
       # Reference: https://github.com/jj-vcs/jj/blob/main/cli/src/config/colors.toml

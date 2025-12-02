@@ -70,7 +70,7 @@ in
         kahole.magit
         karunamurti.haml
         kokakiwi.vscode-just
-        # leighlondon.eml # FIXME: Unavailable
+        leighlondon.eml
         loriscro.super
         matthewpi.caddyfile-support
         mechatroner.rainbow-csv
@@ -96,7 +96,7 @@ in
         tamasfe.even-better-toml
         theaflowers.qalc
         timonwong.shellcheck
-        # volkerdobler.insertnums # FIXME: Unavailable
+        volkerdobler.insertnums
         xaver.clang-format
       ];
 
@@ -462,7 +462,7 @@ in
 
   programs.zsh.shellAliases.code = "codium";
 
-  programs.git.extraConfig."mergetool \"code\"".cmd = "${getExe pkgs.vscodium} --wait --merge $REMOTE $LOCAL $BASE $MERGED";
+  programs.git.settings."mergetool \"code\"".cmd = "${getExe pkgs.vscodium} --wait --merge $REMOTE $LOCAL $BASE $MERGED";
 
   home.activation.biome = hm.dag.entryAfter [ "writeBoundary" ] ''
     if [[ -d ${escapeShellArg userDir}'/globalStorage/biomejs.biome/tmp-bin' ]]; then

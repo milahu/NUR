@@ -45,7 +45,7 @@ in
     pretty-whois
     teams-for-linux
     thunderbird
-    tor-browser-bundle-bin
+    tor-browser
     transmission_4-gtk
     zoom-us
   ];
