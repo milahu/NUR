@@ -1,38 +1,11 @@
-{ vacuModules, ... }:
+{ vaculib, vacuModules, ... }:
 {
   imports = [
     vacuModules.sops
     vacuModules.dyndns-powerhouse
     vacuModules.auto-oauth-proxy
-    ./impermanence.nix
-    ./hardware.nix
-    ./btrfs.nix
-    ./networking.nix
-    ./doof.nix
-    ./gpu.nix
-    ./propdata.nix
-    ./silence.nix
-    ./hath.nix
-    ./image-mounts.nix
-    ./dav-experiment.nix
-    ./caddy.nix
-    ./murmur.nix
-    ./monero.nix
-    ./bitcoin.nix
-    ./ethereum.nix
-    ./copyparty-share
-    ./vaultwarden.nix
-    ./jl-stats.nix
-    ./postgres.nix
-    ./jellyfin.nix
-    ./jellyfin-encoding.nix
-    ./kanidm.nix
-    ./media.nix
-    ./nixcache.nix
-    ./radicale.nix
-    ./bitmagnet.nix
-    ./emily.nix
-  ];
+  ]
+  ++ (builtins.attrValues (vaculib.directoryGrabber { path = ./.; }));
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

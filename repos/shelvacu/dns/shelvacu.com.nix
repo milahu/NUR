@@ -62,6 +62,7 @@ in
     jellyfin.A = propA;
     jobs.A = propA;
     mail.A = doA;
+    matrix.A = propA;
     mumble.A = propA;
     nitter.A = propA;
     nixcache.A = propA;

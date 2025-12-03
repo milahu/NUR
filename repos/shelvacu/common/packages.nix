@@ -55,7 +55,7 @@ in
     (lib.mkIf config.vacu.isGui
       # just do all the matrix clients, surely one of them will work enough
       ''
-        cinny-desktop
+        # cinny-desktop # marked broken
         element-call
         element-desktop
         fluffychat
@@ -94,7 +94,6 @@ in
         haruna
         iio-sensor-proxy
         inkscape-all
-        jellyfin-media-player
         josm
         kdePackages.elisa
         kdePackages.kdenlive
@@ -104,9 +103,9 @@ in
         monero-gui
         obsidian
         openscad
-        openshot-qt
+        # openshot-qt # depends on marked-insecure qtwebengine
         orca-slicer
-        OSCAR
+        oscar
         prismlauncher
         shotcut
         signal-desktop

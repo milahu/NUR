@@ -55,8 +55,7 @@
     mumble
     mullvad-vpn
     obs-studio
-    jdk24
-    jellyfin-media-player
+    # jellyfin-media-player # depends on marked-insecure qtwebengine :weary:
     kdePackages.ktorrent
   '';
 
@@ -105,7 +104,6 @@
   hardware.enableAllFirmware = true;
   hardware.graphics.extraPackages = [
     pkgs.rocmPackages.clr.icd
-    pkgs.amdvlk
   ];
   hardware.bluetooth = {
     enable = true;
