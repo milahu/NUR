@@ -84,10 +84,15 @@
 
     # hardening (systemd-analyze security slskd)
     # upstream nixpkgs specifies moderate defaults; these are supplementary
-    # serviceConfig.MemoryDenyWriteExecute = true;
-    # serviceConfig.ProcSubset = "pid";
-    # serviceConfig.RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6";
-    # serviceConfig.SystemCallArchitectures = "native";
-    # serviceConfig.SystemCallFilter = [ "@system-service" ];
+    serviceConfig.CapabilityBoundingSet = "";
+    # serviceConfig.MemoryDenyWriteExecute = true;  #< XXX 2025-12-02: required
+    serviceConfig.ProcSubset = "pid";
+    serviceConfig.RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6";
+    serviceConfig.SystemCallArchitectures = "native";
+    serviceConfig.SystemCallFilter = [
+      "@system-service"
+      "~@privileged"
+      # "~@resources"  #< XXX 2025-12-02: required
+    ];
   };
 }

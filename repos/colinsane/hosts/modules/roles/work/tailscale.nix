@@ -94,7 +94,7 @@ let
 
       wrapProgram $out/bin/tailscaled \
         --inherit-argv0 \
-        --prefix PATH : ${iproute2'}/bin
+        --prefix PATH : ${lib.makeBinPath [ iproute2' ]}
     '';
 
     inherit (tailscaleNoIproute2) meta;

@@ -75,11 +75,13 @@
 - /mnt/desko/home, etc, shouldn't include secrets (~/private)
   - 95% of its use is for remote media access and stuff which isn't in VCS (~/records)
 - harden systemd services:
+  - all: `kres-cache-gc.service`
+  - all: `kresd@1.service`
+  - all: `pcscd.service`
   - servo: `coturn.service`
   - servo: `postgresql.service`
   - servo: `postfix.service`
   - servo: `prosody.service`
-  - servo: `slskd.service`
   - desko: `usbmuxd.service`
   - servo: `backup-torrents.service`
   - servo: `dedupe-media.service`

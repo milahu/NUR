@@ -33,6 +33,11 @@
     # i wonder if parallelism is causing moby's substitutions to fail?
     max-substitution-jobs = 6;  # default: 16
 
+    trusted-users = [
+      # fix "user is not a trusted user" when using `--substituters`
+      "@wheel"
+    ];
+
     # narinfo-cache-negative-ttl = 3600  # default: 3600
     # whether to use ~/.local/state/nix/profile instead of ~/.nix-profile, etc
     use-xdg-base-directories = true;  # default: false
