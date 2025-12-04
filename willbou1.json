@@ -1,16 +1,16 @@
 {
 "name":"willbou1",
-"fetch_time":0.794,
-"eval_time":0.231,
+"fetch_time":0.611,
+"eval_time":0.221,
 "source":{
 "url":"https://github.com/willbou1/nur-packages",
-"rev":"07e8fc5fe3061eb0d67336a14da72ae588b6a8f0",
-"sha256":"03ia2kxjrcvl6xpi176kgi0wm13fz6fiiqqnj2n8zbi0hfy1rsaz",
+"rev":"e5a07502ef87337c12b8ffeb2b521bbe97a776f2",
+"sha256":"0a078m6skcanaas4ndhzfsy2zcnz82lbv1cvb46vmw86hs672z6l",
 "date":null
 },
-"source_storepath":"/nix/store/z0hsk9kys63pbj5l90qkhghki2jka21q-source",
-"nixpkgs_storepath":"/nix/store/n3d1ricw0cb5jd8vvfym6ig0mw7x7sv9-source",
-"nur_combined_rev":"4372e3ddd344f94b4204a42debf6ff46a412291d",
+"source_storepath":"/nix/store/pxpd3f9nrs9m15rk1aj259lriym9c849-source",
+"nixpkgs_storepath":"/nix/store/qlnp5v6k5dshbd1z7ag6iv1yhp2mjips-source",
+"nur_combined_rev":"5c947836b9a1047341d1725c28ef23e3d8bb9352",
 "packages":{
 "element-desktop-nightly":{
 "meta":{
@@ -18,6 +18,30 @@
 "broken":false,
 "description":"A feature-rich client for Matrix.org (nightly unstable build)",
 "homepage":"https://element.io",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[]
+}
+},
 "insecure":false,
 "license":{
 "deprecated":false,
@@ -36,12 +60,6 @@
 "githubId":6025220,
 "matrix":"@ma27:nicht-so.sexy",
 "name":"Maximilian Bosch"
-},
-{
-"email":"tristan.helmich+nixos@gmail.com",
-"github":"fadenb",
-"githubId":878822,
-"name":"Tristan Helmich"
 },
 {
 "email":"code@mguentner.de",
@@ -77,7 +95,7 @@
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/z0hsk9kys63pbj5l90qkhghki2jka21q-source/pkgs/element-desktop-nightly/default.nix",
+"file":"/nix/store/pxpd3f9nrs9m15rk1aj259lriym9c849-source/pkgs/element-desktop-nightly/default.nix",
 "line":132
 },
 "name":"element-desktop-nightly",
