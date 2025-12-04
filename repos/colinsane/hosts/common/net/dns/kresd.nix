@@ -41,10 +41,6 @@ in
     ];
 
     # TODO:
-    # - [x] disable DNSSEC
-    # - [ ] IPv4-only
-    # - [ ] serve tailscale records
-    # - [ ] persist the on-disk cache
     # - [ ] integrate with dhcp-configs
     services.kresd.extraConfig = ''
       -- config docs: <https://www.knot-resolver.cz/documentation/stable/config-overview.html>
@@ -56,5 +52,70 @@ in
 
       net.ipv6 = false
     '';
+
+    systemd.services."kresd@" = {
+      # hardening (systemd-analyze security kresd@)
+      # upstream .service file sets AmbientCapabilities, CapabilityBoundingSet
+      serviceConfig.LockPersonality = true;
+      # serviceConfig.MemoryDenyWriteExecute = true;  #< XXX(2025-12-02): required
+      serviceConfig.NoNewPrivileges = true;
+      serviceConfig.PrivateDevices = true;
+      serviceConfig.PrivateMounts = true;
+      serviceConfig.PrivateTmp = true;
+      # serviceConfig.PrivateUsers = true;  #< XXX(2025-12-02): required
+      serviceConfig.ProcSubset = "pid";
+      serviceConfig.ProtectClock = true;
+      serviceConfig.ProtectControlGroups = true;
+      serviceConfig.ProtectHome = true;
+      serviceConfig.ProtectHostname = true;
+      serviceConfig.ProtectKernelLogs = true;
+      serviceConfig.ProtectKernelModules = true;
+      serviceConfig.ProtectKernelTunables = true;
+      serviceConfig.ProtectProc = "invisible";
+      serviceConfig.ProtectSystem = "strict";
+      serviceConfig.RemoveIPC = true;
+      serviceConfig.RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6";
+      serviceConfig.RestrictNamespaces = true;
+      serviceConfig.RestrictSUIDSGID = true;
+      serviceConfig.SystemCallArchitectures = "native";
+      serviceConfig.SystemCallFilter = [
+        "@system-service"
+        # "~@privileged"  #< XXX(2025-12-02): required
+        # "~@resources"  #< XXX(2025-12-02): required
+      ];
+    };
+
+    systemd.services.kres-cache-gc = {
+      # hardening (systemd-analyze security kresd@)
+      # upstream .service file sets AmbientCapabilities, CapabilityBoundingSet
+      serviceConfig.LockPersonality = true;
+      serviceConfig.MemoryDenyWriteExecute = true;
+      serviceConfig.NoNewPrivileges = true;
+      serviceConfig.PrivateDevices = true;
+      serviceConfig.PrivateNetwork = true;
+      serviceConfig.PrivateMounts = true;
+      serviceConfig.PrivateTmp = true;
+      serviceConfig.PrivateUsers = true;
+      serviceConfig.ProcSubset = "pid";
+      serviceConfig.ProtectClock = true;
+      serviceConfig.ProtectControlGroups = true;
+      serviceConfig.ProtectHome = true;
+      serviceConfig.ProtectHostname = true;
+      serviceConfig.ProtectKernelLogs = true;
+      serviceConfig.ProtectKernelModules = true;
+      serviceConfig.ProtectKernelTunables = true;
+      serviceConfig.ProtectProc = "invisible";
+      serviceConfig.ProtectSystem = "full";  #< XXX(2025-12-02): can't be strict
+      serviceConfig.RemoveIPC = true;
+      serviceConfig.RestrictAddressFamilies = "AF_UNIX";
+      serviceConfig.RestrictNamespaces = true;
+      serviceConfig.RestrictSUIDSGID = true;
+      serviceConfig.SystemCallArchitectures = "native";
+      serviceConfig.SystemCallFilter = [
+        "@system-service"
+        "~@privileged"
+        "~@resources"
+      ];
+    };
   };
 }

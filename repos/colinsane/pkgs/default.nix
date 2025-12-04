@@ -23,17 +23,14 @@ let
     ### ADDITIONAL KERNEL PACKAGES
     # build like `nix-build -A linuxPackages.rk818-charger`
     #   or `nix-build -A hosts.moby.config.boot.kernelPackages.rk818-charger`
-    linuxKernel = unpatched.linuxKernel // {
-      # don't update by default since most of these packages are from a different repo (i.e. nixpkgs).
-      updateWithSuper = false;
-
-      packagesFor = kernel: (unpatched.linuxKernel.packagesFor kernel).extend (kFinal: kPrev: (
-        lib.filesystem.packagesFromDirectoryRecursive {
+    # TODO: shipping `./linux-packages` directory like this means the derivations
+    #       don't get `./scripts/update` integration!
+    kernelPackagesExtensions = unpatched.kernelPackagesExtensions ++ [
+      (kFinal: kPrev: lib.filesystem.packagesFromDirectoryRecursive {
           inherit (kFinal) callPackage;
           directory = ./linux-packages;
-        }
-      ));
-    };
+      })
+    ];
 
     ### ADDITIONAL MPV SCRIPTS
     # build like `nix-build -A mpvScripts.sane-cast`

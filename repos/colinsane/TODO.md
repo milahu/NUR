@@ -75,8 +75,6 @@
 - /mnt/desko/home, etc, shouldn't include secrets (~/private)
   - 95% of its use is for remote media access and stuff which isn't in VCS (~/records)
 - harden systemd services:
-  - all: `kres-cache-gc.service`
-  - all: `kresd@1.service`
   - all: `pcscd.service`
   - servo: `coturn.service`
   - servo: `postgresql.service`
@@ -114,7 +112,7 @@
   - display QR codes for WiFi endpoints: <https://linuxphoneapps.org/apps/noappid.wisperwind.wifi2qr/>
   - shopping list (not in nixpkgs): <https://linuxphoneapps.org/apps/ro.hume.cosmin.shoppinglist/>
   - offline Wikipedia (or, add to `wike`)
-    - geopjr's Archive: <https://flathub.org/en/apps/dev.geopjr.Archives>. nix: not as of 2025-10-05
+    - geopjr's Archive: <https://flathub.org/en/apps/dev.geopjr.Archives>. nix: not as of 2025-12-02
   - some type of games manager/launcher
     - Gnome Highscore (retro games)?: <https://gitlab.gnome.org/World/highscore>
   - LLM/AI tools:
