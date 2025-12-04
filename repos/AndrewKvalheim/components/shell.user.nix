@@ -2,6 +2,7 @@
 
 let
   inherit (builtins) mapAttrs readFile toFile;
+  inherit (config.programs) delta;
   inherit (lib) concatLines concatStrings concatStringsSep escapeShellArg genAttrs getExe getExe' mapAttrsToList mkMerge mkOrder;
   inherit (pkgs) replaceVars runtimeShell starship-jj;
   inherit (pkgs.writers) writeTOML;
@@ -250,7 +251,6 @@ in
 
       # Main
       (mkOrder default (readFile (replaceVars ./assets/init.zsh {
-        pdfimages = (getExe' poppler-utils "pdfimages");
         zsh-abbr = "${zsh-abbr}/share/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh";
         zsh-click = "${zsh-click}/share/zsh/plugins/click/click.plugin.zsh";
         zsh-complete-git-commit-message = toFile "zsh-complete-git-commit-message" (readFile ./assets/complete-git-commit-message.zsh);
@@ -294,6 +294,16 @@ in
         wd = "git diff --no-index --word-diff --word-diff-regex '.'";
         xev = "echo 'Use ${sgr.bold "wev"} instead.' >&2; return 1";
       };
+
+    siteFunctions = with pkgs; {
+      extract-pdf-images = "mkdir \"\${1%.pdf}\" && ${getExe' poppler-utils "pdfimages"} -all -p \"$1\" \"\${1%.pdf}/\${1%.pdf}\"";
+      idiff = "${getExe' imagemagick "compare"} \"$@\" png:- | kitty +kitten icat";
+      mkcd = "mkdir --parents \"$@\" && cd \"\${@:$#}\"";
+      nest = "mv --no-clobber --verbose \"$1\" \"$1.original\" && mkdir \"$1\" && mv --no-clobber --verbose \"$1.original\" \"$1/$(basename \"$1\")\"";
+      rd = "diff --recursive --unified \"$@\" | ${getExe delta.finalPackage}";
+      rdw = "diff --ignore-all-space --ignore-blank-lines --recursive --unified \"$@\" | ${getExe delta.finalPackage}";
+      rmdir-all = "find \"$@\" -type 'd' -empty -delete";
+    };
   };
 
   xdg.configFile."zsh/abbreviations".text = toAbbrs {

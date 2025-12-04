@@ -17,6 +17,8 @@ bindkey '^H' backward-kill-word # Ctrl+Backspace
 bindkey '\e[1;5D' backward-word # Ctrl+Left
 bindkey '\e[1;5C' forward-word # Ctrl+Right
 bindkey '^Z' undo # Ctrl+Z
+bindkey '\e[F' end-of-line # End
+bindkey '\e[H' beginning-of-line # Home
 
 # Completions
 zstyle '*' single-ignored show
@@ -66,12 +68,3 @@ source @zsh-click@
 
 # Workaround for direnv/direnv#443
 source @zsh-completion-sync@
-
-# Procedural aliases
-extract-pdf-images() { mkdir "${1%.pdf}" && @pdfimages@ -all -p "$1" "${1%.pdf}/${1%.pdf}" }
-idiff() { compare "$@" png:- | kitty +kitten icat }
-mkcd() { mkdir --parents "$@" && cd "${@:$#}" }
-nest() { mv --no-clobber --verbose "$1" "$1.original" && mkdir "$1" && mv --no-clobber --verbose "$1.original" "$1/$(basename "$1")" }
-rd() { diff --recursive --unified "$@" | delta }
-rdw() { diff --ignore-all-space --ignore-blank-lines --recursive --unified "$@" | delta }
-rmdir-all() { find "$@" -type 'd' -empty -delete }

@@ -1,9 +1,9 @@
-{ library ? ./., stable }:
+{ library ? ./., nur ? null, search ? [ ], stable }:
 
 let
-  inherit (builtins) attrNames elemAt filter functionArgs head isAttrs isPath length mapAttrs match pathExists removeAttrs toJSON tryEval;
+  inherit (builtins) attrNames attrValues elemAt filter findFile functionArgs isAttrs isPath length mapAttrs match nixPath pathExists removeAttrs toJSON tryEval;
   inherit (stable) callPackage fetchgit makeWrapper symlinkJoin;
-  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const defaultTo escapeShellArg findFirst getAttrFromPath hasAttrByPath imap1 info last mapAttrsToList naturalSort optionalAttrs optionalString recurseIntoAttrs showAttrPath throwIf toList versionAtLeast versionOlder;
+  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const defaultTo escapeShellArg findFirst genAttrs getAttrFromPath hasAttrByPath imap1 info last mapAttrsToList naturalSort optionals optionalAttrs optionalString recurseIntoAttrs showAttrPath throwIf toList versionAtLeast versionOlder;
 
   # Utilities
   composeOverrides = f1: f2: a0: let o1 = f1 a0; o2 = f2 (a0 // o1); in o1 // o2;
@@ -23,15 +23,12 @@ let
     else throw "version operator not implemented: ${toJSON operator}");
 
   # Repositories
-  mkNur = preferredRepo: repo: (import ../nur.nix { pkgs = repo; }) // { _local = true; _name = "NUR packages${optionalString (! repoEq repo preferredRepo) " using ${repoName repo}"}"; };
+  base = [ stable ] ++ (attrValues defaultExtra);
+  defaultExtra = genAttrs search (n: mkRepo n (findFile nixPath n));
+  mkNur = repo: (import nur { pkgs = repo; }) // { _local = true; _name = "NUR packages${optionalString (! repoEq repo stable) " using ${repoName repo}"}"; };
+  nurs = optionals (nur != null) (map mkNur base);
   pin = rev: hash: mkRepo "pin ${rev}" (fetchgit { inherit hash rev; name = "nixpkgs-pin-${toString rev}"; url = "https://github.com/NixOS/nixpkgs.git"; });
   pr = id: hash: mkRepo "PR #${toString id}" (fetchgit { inherit hash; name = "nixpkgs-pr-${toString id}"; url = "https://github.com/NixOS/nixpkgs.git"; rev = "refs/pull/${toString id}/head"; });
-  unstable =
-    if (tryEval (pathExists <unstable>)).value then mkRepo "unstable" <unstable>
-    else info "No unstable channel found" null;
-  unstable-small =
-    if (tryEval (pathExists <unstable-small>)).value then mkRepo "unstable-small" <unstable-small>
-    else info "No unstable-small channel found" null;
 
   # Compile cache
   ccacheConfig = ''
@@ -50,6 +47,7 @@ let
 
       # Repository selection
     , condition ? null
+    , dontEval ? false
     , release ? null
     , search ? null
     , version ? null
@@ -103,13 +101,12 @@ let
             && (! p'.meta.broken)
             && (versionMeetsSpec p.version version)
             && (condition == null || condition p)
-            && (pname == "inkscape" /* FIXME: infinite recursion */ || (tryEval p'.outPath).success)
+            && (dontEval || (tryEval p'.outPath).success)
           )
         );
       extra = if search == null then [ ] else imap1 (i: s: { _extra = i; _name = "search"; } // s) (toList search);
-      repos = [ stable unstable unstable-small ] ++ extra ++ (map (mkNur preferredRepo) [ stable unstable unstable-small ]);
+      repos = base ++ extra ++ nurs;
       repo = (if version == "∞" then findGreatest else findFirst) suffices file repos;
-      preferredRepo = head repos;
       ccacheStdenv = repo.ccacheStdenv.override { extraConfig = ccacheConfig; };
       package =
         if isPath repo then
@@ -162,8 +159,8 @@ let
         (optionalString (package_with_overlay_with_override_with_wrapper ? version) " to ${package_with_overlay_with_override_with_wrapper.version}") +
         (optionalString (doOverlay || doOverride || doWrapper) " with override") +
         (optionalString (condition != null) " meeting condition") +
-        (optionalString (! repoEq repo preferredRepo) " via ${repoName repo}");
-      unnecessary = (repoEq repo preferredRepo) && !doOverlay && !doOverride && !doWrapper && version != "∞";
+        (optionalString (! repoEq repo stable) " via ${repoName repo}");
+      unnecessary = (repoEq repo stable) && !doOverlay && !doOverride && !doWrapper && version != "∞";
       unnecessaryFile = ! isLocal repo && pathExists file;
       unnecessarySearches = concatMapStringsSep ", " repoName (filter (r: r._extra > repo._extra or 0) extra);
     in
@@ -178,10 +175,10 @@ let
         (info summary package_with_overlay_with_override_with_wrapper)
   ;
 in
-{
-  inherit pin pr unstable;
+defaultExtra // {
+  inherit pin pr;
 
-  any = { }; # TODO: Can this be implied for all nonexistent packages? (e.g. via NixOS/nix#8187)
+  any = { };
 
   namespaced = mapAttrs (_: recurseIntoAttrs);
 

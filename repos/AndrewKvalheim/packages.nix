@@ -1,6 +1,6 @@
 resolved: stable:
 
-with import ./library/override-utils.lib.nix { inherit stable; };
+with import ./library/override-utils.lib.nix { inherit stable; nur = ./nur.nix; search = [ "unstable" "unstable-small" ]; };
 
 let
   community-vscode-extensions = (import <community-vscode-extensions>).extensions.${stable.stdenv.hostPlatform.system}.forVSCodeVersion resolved.vscodium.version;
@@ -49,7 +49,7 @@ specify {
   graalvmPackages.graaljs.overlay = g: stable.lib.throwIf (stable.lib.hasInfix "jvm" g.src.url) "graaljs no longer requires an overlay" { src = stable.fetchurl { url = builtins.replaceStrings [ "community" ] [ "community-jvm" ] g.src.url; hash = ({ "24.2.2" = "sha256-LDuMh4hhJSbKb8m5DSH8/tcb8rxiRG6FKS5okcUn2JY="; }).${g.version}; }; buildInputs = g.buildInputs ++ stable.graalvmPackages.graalvm-ce.buildInputs; }; # https://discourse.nixos.org/t/36314
   graalvmPackages.graalvm-ce.overlay = g: stable.lib.throwIf (stable.lib.hasInfix "font" g.preFixup) "graalvm-ce no longer requires an overlay" { preFixup = g.preFixup + "\nfind \"$out\" -name libfontmanager.so -exec patchelf --add-needed libfontconfig.so {} \\;"; }; # Workaround for https://github.com/NixOS/nixpkgs/pull/215583#issuecomment-1615369844
   htop.patch = ./library/assets/htop_colors.patch; # htop-dev/htop#1416
-  inkscape = { patch = ./library/assets/inkscape_png-no-comment.patch; ccache = true; }; # Pending inkscape/inkscape!7193
+  inkscape = { patch = ./library/assets/inkscape_png-no-comment.patch; ccache = true; dontEval = true /* FIXME: infinite recursion */; }; # Pending inkscape/inkscape!7193
   inkscape-extensions.applytransforms = { overlay = a: { meta = a.meta // { broken = stable.lib.versionAtLeast (stable.lib.findFirst (p: p ? pname && p.pname == "libxml2") null (stable.lib.findFirst (p: p.pname == "lxml") null (stable.lib.findFirst (p: p.pname == "inkex") null a.nativeCheckInputs).passthru.dependencies).nativeBuildInputs).version "2.15"; }; }; search = pin "55d3fa58ff9642d799d7489a7f8b0c218723fe07" "sha256-YzAIb9sYIujKmezFvAsyi6bXjqBWfcm3XY5kvQ3GDjM="; }; # Workaround for inkscape/extensions#617 (https://hydra.nixos.org/build/314374425)
   ios-safari-remote-debug-kit = any;
   ios-webkit-debug-proxy = any;
