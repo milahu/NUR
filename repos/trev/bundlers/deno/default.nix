@@ -57,15 +57,20 @@ drv.overrideAttrs (
       mkdir -p "$DENO_DIR/dl/release/v${pkgs.deno.version}"
       cp ${denort."${target}"} "$DENO_DIR/dl/release/v${pkgs.deno.version}/denort-${target}.zip"
 
-      # find entry point
+      # find entrypoint
       ENTRYPOINT=$(jq -r '.main' package.json)
       if [ "$ENTRYPOINT" = "null" ] || [ -z "$ENTRYPOINT" ]; then
         ENTRYPOINT="build/index.js"
       fi
 
       # compile
-      mkdir -p ''${out}/bin
-      deno compile --no-check --target ${target} --output "$out/bin/${binName}" "$ENTRYPOINT"
+      mkdir -p $out/bin
+      deno compile \
+        --no-check \
+        --allow-env \
+        --allow-net \
+        --target ${target} \
+        --output "$out/bin/${binName}" "$ENTRYPOINT"
 
       runHook postInstall
     '';
