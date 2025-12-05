@@ -3,7 +3,7 @@
 let
   inherit (builtins) attrNames attrValues elemAt filter findFile functionArgs isAttrs isPath length mapAttrs match nixPath pathExists removeAttrs toJSON tryEval;
   inherit (stable) callPackage fetchgit makeWrapper symlinkJoin;
-  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const defaultTo escapeShellArg findFirst genAttrs getAttrFromPath hasAttrByPath imap1 info last mapAttrsToList naturalSort optionals optionalAttrs optionalString recurseIntoAttrs showAttrPath throwIf toList versionAtLeast versionOlder;
+  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const defaultTo escapeShellArg findFirst genAttrs getAttrFromPath hasAttrByPath imap1 info last mapAttrsToList naturalSort optionals optionalAttrs optionalString partition recurseIntoAttrs showAttrPath throwIf toList versionAtLeast versionOlder warnIf;
 
   # Utilities
   composeOverrides = f1: f2: a0: let o1 = f1 a0; o2 = f2 (a0 // o1); in o1 // o2;
@@ -24,11 +24,12 @@ let
 
   # Repositories
   base = [ stable ] ++ (attrValues defaultExtra);
-  defaultExtra = genAttrs search (n: mkRepo n (findFile nixPath n));
+  defaultExtra = genAttrs resolvedSearch.right (name: mkRepo name (findFile nixPath name));
   mkNur = repo: (import nur { pkgs = repo; }) // { _local = true; _name = "NUR packages${optionalString (! repoEq repo stable) " using ${repoName repo}"}"; };
   nurs = optionals (nur != null) (map mkNur base);
   pin = rev: hash: mkRepo "pin ${rev}" (fetchgit { inherit hash rev; name = "nixpkgs-pin-${toString rev}"; url = "https://github.com/NixOS/nixpkgs.git"; });
   pr = id: hash: mkRepo "PR #${toString id}" (fetchgit { inherit hash; name = "nixpkgs-pr-${toString id}"; url = "https://github.com/NixOS/nixpkgs.git"; rev = "refs/pull/${toString id}/head"; });
+  resolvedSearch = partition (name: (tryEval (pathExists (findFile nixPath name))).value) search;
 
   # Compile cache
   ccacheConfig = ''
@@ -108,9 +109,10 @@ let
       repos = base ++ extra ++ nurs;
       repo = (if version == "∞" then findGreatest else findFirst) suffices file repos;
       ccacheStdenv = repo.ccacheStdenv.override { extraConfig = ccacheConfig; };
+      notFound = "${query} not found in ${concatMapStringsSep ", " repoName (repos ++ [repo])}${optionalString (length resolvedSearch.wrong > 0) " (Not searched: ${concatStringsSep ", " resolvedSearch.wrong})"}";
       package =
         if isPath repo then
-          throwIf (! pathExists repo) "${query} not found in ${concatMapStringsSep ", " repoName (repos ++ [repo])}"
+          throwIf (! pathExists repo) notFound
             (callPackage repo deps)
         else getAttrFromPath path repo;
 
