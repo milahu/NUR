@@ -197,16 +197,16 @@
   };
   niri-taskbar = {
     pname = "niri-taskbar";
-    version = "v0.3.0+niri.25.08";
+    version = "v0.4.0+niri.25.11";
     src = fetchFromGitHub {
       owner = "LawnGnome";
       repo = "niri-taskbar";
-      rev = "v0.3.0+niri.25.08";
+      rev = "v0.4.0+niri.25.11";
       fetchSubmodules = false;
-      sha256 = "sha256-Gbzh4OTkvtP9F/bfDUyA14NH2DMDdr3i6oFoFwinEAg=";
+      sha256 = "sha256-aE5v94AA6bC0CP8pv/SPBxGKpkH+GxR/p7hTKXlvk3E=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-Gbzh4OTkvtP9F_bfDUyA14NH2DMDdr3i6oFoFwinEAg=/Cargo.lock";
+      lockFile = ./. + "/sha256-aE5v94AA6bC0CP8pv_SPBxGKpkH+GxR_p7hTKXlvk3E=/Cargo.lock";
       outputHashes = {
 
       };
@@ -295,17 +295,17 @@
   };
   rime-cantonese = {
     pname = "rime-cantonese";
-    version = "6907808ffbf9e47e3a4775f9fcdc31a50670547d";
+    version = "77776c0aad31c78ba743877780fae26f8b1e0dbe";
     src = fetchgit {
       url = "https://github.com/rime/rime-cantonese.git";
-      rev = "6907808ffbf9e47e3a4775f9fcdc31a50670547d";
+      rev = "77776c0aad31c78ba743877780fae26f8b1e0dbe";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-IdzYAwHyacGlRiJ/yiY38t+djJ6Pw2wMmrjNj+VFZWE=";
+      sha256 = "sha256-IIG42Rt6sfNXclg0VwojNUa7rtidg+EAiVSABYCWLt4=";
     };
-    date = "2025-11-27";
+    date = "2025-12-04";
   };
   rime-double-pinyin = {
     pname = "rime-double-pinyin";
