@@ -20,8 +20,8 @@ in
   };
 
   # Workaround for drm/amd#3925, drm/amd#4141
-  boot.kernelPackages = throwIf (versionAtLeast pkgs.linux.version "6.17") "Kernel no longer requires override" pkgs.linuxPackages_6_17;
-  boot.kernelParams = throwIf (pkgs ? linuxPackages_6_18) "Confirm that new kernel is still affected" [ "amdgpu.dcdebugmask=0x10" ];
+  boot.kernelPackages = throwIf (versionAtLeast pkgs.linux.version "6.18") "Kernel no longer requires override" pkgs.linuxPackages_6_18;
+  boot.kernelParams = throwIf (pkgs ? linuxPackages_6_19) "Confirm that new kernel is still affected" [ "amdgpu.dcdebugmask=0x10" ];
 
   # Hardware
   systemd.services.configure-sound-leds = rec {
