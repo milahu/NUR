@@ -14,7 +14,7 @@ defaults:
 env:
   CACHIX_NAME: sigprof
 
-  nur_channels: nixpkgs-unstable nixos-unstable nixos-25.05 nixos-24.11 nixos-24.05
+  nur_channels: nixpkgs-unstable nixos-unstable nixos-25.11 nixos-25.05 nixos-24.11
 
   CI_NIX_INSTALL_URL: '' # https://releases.nixos.org/nix/nix-2.18.1/install
   NIX_CONFIG: access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.0
+        uses: actions/checkout@v6.0.1
         with:
           persist-credentials: false
 
@@ -74,7 +74,7 @@ jobs:
 
       - name: Create a PR
         id: pr
-        uses: peter-evans/create-pull-request@v7.0.9
+        uses: peter-evans/create-pull-request@v7.0.11
         with:
           token: ${{ steps.token.outputs.token }}
           commit-message: "chore(${{ matrix.item }}): Automatic update"
