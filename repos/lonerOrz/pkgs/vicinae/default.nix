@@ -1,35 +1,29 @@
 {
-  stdenv,
+  gcc15Stdenv,
   fetchFromGitHub,
   cmake,
   pkg-config,
   kdePackages,
-  rapidfuzz-cpp,
   protobuf,
-  grpc-tools,
   nodejs,
-  minizip-ng,
   cmark-gfm,
   libqalculate,
   ninja,
   lib,
   fetchNpmDeps,
-  protoc-gen-js,
-  rsync,
-  which,
-  autoPatchelfHook,
   writeShellScriptBin,
   minizip,
   qt6,
-  typescript,
+  abseil-cpp,
   wayland,
+  libxml2,
 }:
 
 let
   pname = "vicinae";
-  version = "0.16.11";
+  version = "0.16.12";
 
-  srcHash = "sha256-gX7bUoIP4PU0wUOW3ciyjYAInX/6VLVcEBKdQIQyzDk=";
+  srcHash = "sha256-GolXMuAvhWqljCdMo/9hlY0Vo52Bxx+dnLfYQWr9tk8=";
   apiDepsHash = "sha256-UsTpMR23UQBRseRo33nbT6z/UCjZByryWfn2AQSgm6U=";
   extensionManagerDepsHash = "sha256-wl8FDFB6Vl1zD0/s2EbU6l1KX4rwUW6dOZof4ebMMO8=";
 
@@ -56,7 +50,7 @@ let
     hash = "${extensionManagerDepsHash}";
   };
 in
-stdenv.mkDerivation (finalAttrs: {
+gcc15Stdenv.mkDerivation (finalAttrs: {
   inherit pname version src;
 
   cmakeFlags = [
@@ -73,40 +67,28 @@ stdenv.mkDerivation (finalAttrs: {
   NIX_CFLAGS_COMPILE = "-O3 -march=native -mtune=native"; # native
 
   nativeBuildInputs = [
-    ts-protoc-gen-wrapper
-    extensionManagerDeps
-    autoPatchelfHook
     cmake
     ninja
     nodejs
     pkg-config
-    qt6.wrapQtAppsHook
-    rapidfuzz-cpp
-    protoc-gen-js
     protobuf
-    grpc-tools
-    which
-    rsync
-    typescript
+    qt6.wrapQtAppsHook
   ];
 
   buildInputs = [
+    abseil-cpp
+    cmark-gfm
+    kdePackages.layer-shell-qt
+    kdePackages.qtkeychain
+    libqalculate
+    minizip
+    nodejs
+    protobuf
     qt6.qtbase
     qt6.qtsvg
-    qt6.qttools
     qt6.qtwayland
-    qt6.qtdeclarative
-    qt6.qt5compat
     wayland
-    kdePackages.qtkeychain
-    kdePackages.layer-shell-qt
-    minizip
-    grpc-tools
-    protobuf
-    nodejs
-    minizip-ng
-    cmark-gfm
-    libqalculate
+    libxml2
   ];
 
   configurePhase = ''
