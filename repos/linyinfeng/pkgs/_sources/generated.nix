@@ -19,16 +19,16 @@
   };
   baibot = {
     pname = "baibot";
-    version = "v1.9.0";
+    version = "v1.10.0";
     src = fetchFromGitHub {
       owner = "etkecc";
       repo = "baibot";
-      rev = "v1.9.0";
+      rev = "v1.10.0";
       fetchSubmodules = false;
-      sha256 = "sha256-gsTtc9ss0MPSIgDUl/SL+IFd4OSe6Lzxm8KGOYSFDJ8=";
+      sha256 = "sha256-8QKYDk7Q4oiqyf3vwziu1+A5T2soKuKC5MxPlsOWTM4=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-gsTtc9ss0MPSIgDUl_SL+IFd4OSe6Lzxm8KGOYSFDJ8=/Cargo.lock";
+      lockFile = ./. + "/sha256-8QKYDk7Q4oiqyf3vwziu1+A5T2soKuKC5MxPlsOWTM4=/Cargo.lock";
       outputHashes = {
         "anthropic-0.0.8" = "sha256-q21o2GB8nN0jGcRPgW/cujC+3gdgQg5mFJUJy2tipCA=";
       };
@@ -158,10 +158,10 @@
   };
   moe-koe-music = {
     pname = "moe-koe-music";
-    version = "v1.5.3";
+    version = "v1.5.4";
     src = fetchurl {
-      url = "https://github.com/iAJue/MoeKoeMusic/releases/download/v1.5.3/MoeKoe_Music_v1.5.3.AppImage";
-      sha256 = "sha256-+wbqC954mx4Gq+Qjw+3EcZk6Up06QXJ3dmt+LM5kfcI=";
+      url = "https://github.com/iAJue/MoeKoeMusic/releases/download/v1.5.4/MoeKoe_Music_v1.5.4.AppImage";
+      sha256 = "sha256-d6KsIZCkqb4RzlByy1+5Bi9OZImU3/YbXyVX99d2o00=";
     };
   };
   mstickereditor = {
@@ -449,17 +449,17 @@
   };
   rime-terra-pinyin = {
     pname = "rime-terra-pinyin";
-    version = "11878613ea12c2199b3aa71e320491f468e1fc7d";
+    version = "fa30016a9db2cf7d546ce33968c311525f0d90a0";
     src = fetchgit {
       url = "https://github.com/rime/rime-terra-pinyin.git";
-      rev = "11878613ea12c2199b3aa71e320491f468e1fc7d";
+      rev = "fa30016a9db2cf7d546ce33968c311525f0d90a0";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-Tluiw/VEnPmjZ3OaqvZqeG+TwLr5txN0iuoOBoFzTj0=";
+      sha256 = "sha256-bk+GIJ4HA0QzLLg4UpfO0zvSkwJSV34L4OVlN+JJpj0=";
     };
-    date = "2025-10-09";
+    date = "2025-12-06";
   };
   rime-wubi = {
     pname = "rime-wubi";
