@@ -3,75 +3,75 @@ error:
 
 … in the left operand of the AND (&&) operator
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:731:9:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:733:9:
 
-   730|         validity.valid != "no"
-   731|         && (
+   732|         validity.valid != "no"
+   733|         && (
       |         ^
-   732|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
+   734|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:841:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:835:18:
 
-   840|       };
-   841|       validity = checkMeta.assertValidity { inherit meta attrs; };
+   834|       };
+   835|       validity = checkMeta.assertValidity { inherit meta attrs; };
       |                  ^
-   842|
+   836|
 
 … while calling 'assertValidity'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:737:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:739:5:
 
-   736|   assertValidity =
-   737|     { meta, attrs }:
+   738|   assertValidity =
+   739|     { meta, attrs }:
       |     ^
-   738|     let
+   740|     let
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:739:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:741:18:
 
-   738|     let
-   739|       validity = checkValidity attrs;
+   740|     let
+   741|       validity = checkValidity attrs;
       |                  ^
-   740|       inherit (validity) valid;
+   742|       inherit (validity) valid;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:497:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:498:5:
 
-   496|     in
-   497|     attrs:
+   497|     in
+   498|     attrs:
       |     ^
-   498|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+   499|     # Check meta attribute types first, to make sure it is always called even when there are other issues
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:543:40:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:544:40:
 
-   542|       }
-   543|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
+   543|       }
+   544|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
       |                                        ^
-   544|       let
+   545|       let
 
 … while calling 'hasUnsupportedPlatform'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:143:28:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:144:28:
 
-   142|
-   143|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+   143|
+   144|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
       |                            ^
-   144|
+   145|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:143:35:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:144:35:
 
-   142|
-   143|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+   143|
+   144|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
       |                                   ^
-   144|
+   145|
 
 … while calling 'availableOn'
 
@@ -84,9 +84,9 @@ error:
 
 error: attribute 'rust-bin' missing
 
-at ./default.nix:43:48:
+at ./default.nix:44:48:
 
-    42|   noir = pkgs.callPackage ./pkgs/noir { inherit (pkgs) rust-bin; protobuf_29 = pkgs-protobuf293.protobuf_29; };
-    43|   mergiraf = pkgs.callPackage ./pkgs/mergiraf { inherit (pkgs) rust-bin; };
+    43|   noir = pkgs.callPackage ./pkgs/noir { inherit (pkgs) rust-bin; protobuf_29 = pkgs-protobuf293.protobuf_29; };
+    44|   mergiraf = pkgs.callPackage ./pkgs/mergiraf { inherit (pkgs) rust-bin; };
       |                                                ^
-    44|   libjportaudio = pkgs.callPackage ./pkgs/libjportaudio { };
+    45|   libjportaudio = pkgs.callPackage ./pkgs/libjportaudio { };
