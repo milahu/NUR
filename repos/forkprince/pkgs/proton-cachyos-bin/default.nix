@@ -1,18 +1,22 @@
 {
-  steamDisplayName ? "Proton-EM",
+  type ? "v1",
   stdenvNoCC,
   fetchzip,
   lib,
 }: let
   info = builtins.fromJSON (builtins.readFile ./info.json);
+
+  platform = lib.getAttr type info.platforms;
+
+  display = "Proton-CachyOS-${type}";
 in
   stdenvNoCC.mkDerivation rec {
-    pname = "proton-em-bin";
+    pname = "proton-cachyos-${type}-bin";
     inherit (info) version;
 
     src = fetchzip {
-      url = "https://github.com/${info.repo}/releases/download/${version}/proton-${version}.tar.xz";
-      inherit (info) hash;
+      url = "https://github.com/${info.repo}/releases/download/${version}/${builtins.replaceStrings ["{version}"] [version] platform.file}";
+      inherit (platform) hash;
       stripRoot = false;
     };
 
@@ -41,16 +45,16 @@ in
 
     preFixup = ''
       substituteInPlace "$steamcompattool/compatibilitytool.vdf" \
-        --replace-fail "${version}" "${steamDisplayName}"
+        --replace-fail "${version}" "${display}"
     '';
 
     meta = {
       description = ''
-        A Development Oriented Compatibility tool for Steam Play based on Wine and additional components
+        Compatibility tool for Steam Play based on Wine and additional components
 
         (This is intended for use in the `programs.steam.extraCompatPackages` option only.)
       '';
-      homepage = "https://github.com/Etaash-mathamsetty/Proton";
+      homepage = "https://github.com/CachyOS/proton-cachyos";
       license = lib.licenses.bsd3;
       maintainers = ["Prinky"];
       platforms = ["x86_64-linux"];
