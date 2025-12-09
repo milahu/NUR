@@ -56,8 +56,10 @@ specify {
   iosevka-custom = any;
   iptables_exporter = any;
   jj-dynamic-default-description = any;
+  jjui = { version = "≠0.9.7"; search = pin "5ae3b07d8d6527c42f17c876e404993199144b6a" "sha256-6eeL1YPcY1MV3DDStIDIdy/zZCDKgHdkCmsrLJFiZf0="; }; # idursun/jjui#413
   josm = { jre = resolved.graalvmPackages.graalvm-ce; extraJavaOpts = "--module-path=${resolved.graalvmPackages.graaljs}/modules"; }; # josm-scripting-plugin
   josm-imagery-used = any;
+  jujutsu.version = "≥0.36";
   just-local = any;
   kitty.patch = ./library/assets/kitty_paperwm.patch; # Workaround for paperwm/PaperWM#943
   little-a-map = any;

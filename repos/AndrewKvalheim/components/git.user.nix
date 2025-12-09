@@ -180,7 +180,6 @@ in
       ui = {
         diff-formatter = mkForce /* See nix-community/home-manager#8101 */ "delta";
         editor = getExe pkgs.jj-dynamic-default-description;
-        pager = mkForce /* See nix-community/home-manager#8101 */ "less --no-init --quit-if-one-screen --RAW-CONTROL-CHARS"; # Override PAGER with Jujutsu default
       };
 
       # Reference: https://github.com/jj-vcs/jj/blob/main/cli/src/config/colors.toml
@@ -278,6 +277,10 @@ in
         half_page_down = [ "pgdown" ];
         half_page_up = [ "pgup" ];
       };
+    };
+
+    custom_commands = {
+      tug = { args = [ "tug" ]; key = [ "alt+t" ]; };
     };
   };
 }

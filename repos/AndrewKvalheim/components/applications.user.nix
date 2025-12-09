@@ -146,6 +146,7 @@ in
       nixpkgs-review
       nom-wrappers
       off
+      oha
       kdePackages.okular
       pdfalyzer
       pdfarranger

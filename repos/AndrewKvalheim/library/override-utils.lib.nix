@@ -18,6 +18,7 @@ let
   versionMeetsSpec = candidate: spec:
     let parts = match "^([^[:alnum:]]+)?(.+)$" spec; operator = elemAt parts 0; version = elemAt parts 1; in
     spec == null || spec == "∞" || (if operator == null then candidate == version
+    else if operator == "≠" then candidate != version
     else if operator == "<" then versionOlder candidate version
     else if operator == "≥" then versionAtLeast candidate version
     else throw "version operator not implemented: ${toJSON operator}");
