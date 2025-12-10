@@ -24,12 +24,13 @@ liam.wait_for_unit("nginx.service")
 liam.wait_for_open_port(80)
 
 liam.copy_from_host(DATA["acmeTest"], DATA["acmeTestDest"])
+# liam.wait_for_unit("network-online.target")
 checker.wait_for_unit("network.target")
 checker.succeed("wget http://liam.dis8.net/.well-known/acme-challenge/test")
 
-liam.succeed("doveadm mailbox create -u shelvacu testFolder")
 liam.wait_for_unit("postfix.service")
 liam.wait_for_unit("dovecot2.service")
+liam.succeed("doveadm mailbox create -u shelvacu testFolder")
 relay.wait_for_unit("mailpit.service")
 
 # generate and exchange keys so they can talk to eachother
