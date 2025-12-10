@@ -217,25 +217,25 @@
   };
   cachyos-kernel = {
     pname = "cachyos-kernel";
-    version = "b76feee309500d7ba6a955760ed4a8e698902ba3";
+    version = "5c8cf82f0ea40b72aec3fcbc58b449ca3b7cd372";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "linux-cachyos";
-      rev = "b76feee309500d7ba6a955760ed4a8e698902ba3";
-      hash = "sha256-Dgc/8jbcMYeOr8xgd/yVFTL+8uNmAHAPyTsVu6G4jeA=";
+      rev = "5c8cf82f0ea40b72aec3fcbc58b449ca3b7cd372";
+      hash = "sha256-dAGAdWms3poNhxPniYU3YmxFeJ9ngfBhakMQwCnCV/w=";
     };
-    date = "2025-12-05";
+    date = "2025-12-09";
   };
   cachyos-kernel-patches = {
     pname = "cachyos-kernel-patches";
-    version = "233b7a85eb68a2c5bec6d43d31796602062d5198";
+    version = "6dfdbc7f8f3ee4d9f5dc8adfb0672ef5d8e1e3d5";
     src = fetchFromGitHub {
       owner = "CachyOS";
       repo = "kernel-patches";
-      rev = "233b7a85eb68a2c5bec6d43d31796602062d5198";
-      hash = "sha256-x8LSXiBfWDAqN0xBP9uToPQ+hgGx+DRM3C+Xz+S8K3g=";
+      rev = "6dfdbc7f8f3ee4d9f5dc8adfb0672ef5d8e1e3d5";
+      hash = "sha256-TJJKd86jDyighG3Jx8MNyiuQTpEIMAsA2GkWpqttwFg=";
     };
-    date = "2025-12-07";
+    date = "2025-12-08";
   };
   calibre-cops = {
     pname = "calibre-cops";
@@ -685,14 +685,14 @@
   };
   funasr = {
     pname = "funasr";
-    version = "c4ac64fd5d24bb3fc8ccc441d36a07c83c8b9015";
+    version = "1bf72e7ff8d3271ef21410cf1f762fde74f6807d";
     src = fetchFromGitHub {
       owner = "modelscope";
       repo = "FunASR";
-      rev = "c4ac64fd5d24bb3fc8ccc441d36a07c83c8b9015";
-      hash = "sha256-Iua78ju+PY/iYulAM7xhd6MKO1l7DU5+m3xggRayM8w=";
+      rev = "1bf72e7ff8d3271ef21410cf1f762fde74f6807d";
+      hash = "sha256-dngQh9X+1mtHjwcFZ4m9z7ToLI2fFJW0dNSAJnYlssc=";
     };
-    date = "2025-10-01";
+    date = "2025-12-09";
   };
   geolite2-asn = {
     pname = "geolite2-asn";
@@ -1089,64 +1089,14 @@
     };
     date = "2025-10-12";
   };
-  linux-xanmod = {
-    pname = "linux-xanmod";
-    version = "6.18.0-xanmod1";
-    src = fetchgit {
-      url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.18.0-xanmod1";
-      fetchSubmodules = false;
-      hash = "sha256-voGRfxlZuejQvalSj/teB8XMvnzE3VG15kCtsNTCFFo=";
-    };
-  };
-  linux-xanmod-6_0 = {
-    pname = "linux-xanmod-6_0";
-    version = "6.0.12-xanmod1";
-    src = fetchgit {
-      url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.0.12-xanmod1";
-      fetchSubmodules = false;
-      hash = "sha256-k3fePBhb2zJfvPupdgenkdqG4sHNu2iv6T01EvOgbCg=";
-    };
-  };
-  linux-xanmod-6_1 = {
-    pname = "linux-xanmod-6_1";
-    version = "6.1.77-xanmod1";
-    src = fetchgit {
-      url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.1.77-xanmod1";
-      fetchSubmodules = false;
-      hash = "sha256-O+XB+avpx9Kkt+7RW6pT5mXMtAVhXNHe+ohgIm1ql8w=";
-    };
-  };
-  linux-xanmod-6_12 = {
-    pname = "linux-xanmod-6_12";
-    version = "6.12.61-xanmod1";
-    src = fetchgit {
-      url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.12.61-xanmod1";
-      fetchSubmodules = false;
-      hash = "sha256-7m4Ehmy463rQK265fEvTMjndqZXs+PJ35HE+tZVKgGQ=";
-    };
-  };
-  linux-xanmod-6_6 = {
-    pname = "linux-xanmod-6_6";
-    version = "6.6.72-xanmod1";
-    src = fetchgit {
-      url = "https://gitlab.com/xanmod/linux.git";
-      tag = "6.6.72-xanmod1";
-      fetchSubmodules = false;
-      hash = "sha256-9XDd/cgUDNVgoorkz4L/3PtuLgFewowTBF9o7LX+REk=";
-    };
-  };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7316";
+    version = "b7330";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7316";
-      hash = "sha256-GyNvHgcfXTTdW9HzPUXp0TB3GbHB/zGq9gLKDMFjslI=";
+      tag = "b7330";
+      hash = "sha256-oAABTq0pVOP3anXWKpNoIszwPWUqLFv4W6gZP+jgUKk=";
     };
   };
   loralib = {
