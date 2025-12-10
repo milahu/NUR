@@ -76,6 +76,7 @@ let
 
   kernel = callPackage ./kernel.nix {
     inherit cachyConfig stdenv kconfigToNix;
+    inherit nyxUtils;
     kernelPatches = [ ];
     configfile = preparedConfigfile;
     config = linuxConfigTransfomed;
@@ -84,7 +85,7 @@ let
     kernelPackages = packagesWithRightPlatforms;
   };
 
-  commonMakeFlags = import "${inputs.flakes.nixpkgs}/pkgs/os-specific/linux/kernel/common-flags.nix" {
+  commonMakeFlags = import ../os-specific/linux/kernel/common-flags.nix {
     inherit
       lib
       stdenv
@@ -97,22 +98,19 @@ let
   addOurs = finalAttrs: prevAttrs: {
     kernel_configfile = prevAttrs.kernel.configfile;
     zfs_cachyos =
-      (finalAttrs.callPackage "${inputs.flakes.nixpkgs}/pkgs/os-specific/linux/zfs/generic.nix"
-        zfsOverride
-        {
-          kernelModuleAttribute = "zfs_cachyos";
-          kernelMinSupportedMajorMinor = "1.0";
-          kernelMaxSupportedMajorMinor = "99.99";
-          enableUnsupportedExperimentalKernel = true;
-          inherit (prevAttrs.zfs_2_3) version;
-          tests = { };
-          maintainers = with lib.maintainers; [
-            pedrohlc
-          ];
-          hash = "";
-          extraPatches = [ ];
-        }
-      ).overrideAttrs
+      (finalAttrs.callPackage ../os-specific/linux/zfs/generic.nix zfsOverride {
+        kernelModuleAttribute = "zfs_cachyos";
+        kernelMinSupportedMajorMinor = "1.0";
+        kernelMaxSupportedMajorMinor = "99.99";
+        enableUnsupportedExperimentalKernel = true;
+        inherit (prevAttrs.zfs_2_3) version;
+        tests = { };
+        maintainers = with lib.maintainers; [
+          pedrohlc
+        ];
+        hash = "";
+        extraPatches = [ ];
+      }).overrideAttrs
         (prevAttrs: {
           src = fetchFromGitHub {
             owner = "cachyos";
