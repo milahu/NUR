@@ -1,0 +1,253 @@
+error:
+… from call site
+
+  at <nixpkgs> + /lib/filesystem.nix:385:27:
+
+   384|               # recurse into directories
+   385|               "${name}" = packagesFromDirectoryRecursive (
+      |                           ^
+   386|                 args
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/filesystem.nix:407:5:
+
+   406|     in
+   407|     {
+      |     ^
+   408|       callPackage,
+
+… from call site
+
+  at <nixpkgs> + /lib/filesystem.nix:417:7:
+
+   416|       # if `${directory}/package.nix` exists, call it directly
+   417|       callPackage defaultPath { }
+      |       ^
+   418|     else if args ? newScope then
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:259:19:
+
+   258|   callPackageWith =
+   259|     autoArgs: fn: args:
+      |                   ^
+   260|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1018:5:
+
+  1017|     # TODO: Should we add call-time "type" checking like built in?
+  1018|     __functor = self: f;
+      |     ^
+  1019|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:161:7:
+
+   160|     mirrorArgs (
+   161|       origArgs:
+      |       ^
+   162|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:163:18:
+
+   162|       let
+   163|         result = f origArgs;
+      |                  ^
+   164|
+
+… while calling anonymous lambda
+
+  at ./pkgs/by-name/na/nakarte/package.nix:1:1:
+
+     1| {
+      | ^
+     2|   lib,
+
+… from call site
+
+  at ./pkgs/by-name/na/nakarte/package.nix:11:1:
+
+    10| in
+    11| mkYarnPackage {
+      | ^
+    12|   name = "${pname}-${version}";
+
+… while calling 'mkYarnPackage'
+
+  at <nixpkgs> + /pkgs/development/tools/yarn2nix-moretea/default.nix:309:5:
+
+   308|   mkYarnPackage =
+   309|     {
+      |     ^
+   310|       name ? null,
+
+… from call site
+
+  at <nixpkgs> + /pkgs/development/tools/yarn2nix-moretea/default.nix:388:5:
+
+   387|     in
+   388|     stdenv.mkDerivation (
+      |     ^
+   389|       removeAttrs attrs [
+
+… while calling 'mkDerivation'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:66:18:
+
+    65|   */
+    66|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                  ^
+    67|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:66:29:
+
+    65|   */
+    66|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                             ^
+    67|
+
+… while calling 'makeDerivationExtensible'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:77:5:
+
+    76|   makeDerivationExtensible =
+    77|     rattrs:
+      |     ^
+    78|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:139:22:
+
+   138|
+   139|       finalPackage = mkDerivationSimple overrideAttrs args;
+      |                      ^
+   140|
+
+… while calling 'mkDerivationSimple'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:772:5:
+
+   771|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   772|     {
+      |     ^
+   773|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:871:5:
+
+   870|
+   871|     extendDerivation validity.handled (
+      |     ^
+   872|       {
+
+… while calling 'extendDerivation'
+
+  at <nixpkgs> + /lib/customisation.nix:394:26:
+
+   393|   extendDerivation =
+   394|     condition: passthru: drv:
+      |                          ^
+   395|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:850:16:
+
+   849|           "`env` must be an attribute set of environment variables. Set `env.env` or pick a more specific name.";
+   850|         assert assertMsg (overlappingNames == [ ])
+      |                ^
+   851|           "The `env` attribute set cannot contain any attributes passed to derivation. The following attributes are overlapping:\n${errors}";
+
+… while calling 'assertMsg'
+
+  at <nixpkgs> + /lib/asserts.nix:50:21:
+
+    49|   # TODO(Profpatsch): add tests that check stderr
+    50|   assertMsg = pred: msg: pred || throw msg;
+      |                     ^
+    51|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:811:21:
+
+   810|       mainProgram = meta.mainProgram or null;
+   811|       env' = env // lib.optionalAttrs (mainProgram != null) { NIX_MAIN_PROGRAM = mainProgram; };
+      |                     ^
+   812|
+
+… while calling 'optionalAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:1478:25:
+
+  1477|   */
+  1478|   optionalAttrs = cond: as: if cond then as else { };
+      |                         ^
+  1479|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:827:14:
+
+   826|
+   827|       meta = checkMeta.commonMeta {
+      |              ^
+   828|         inherit validity attrs pos;
+
+… while calling 'commonMeta'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:618:5:
+
+   617|   commonMeta =
+   618|     {
+      |     ^
+   619|       validity,
+
+… from call site
+
+  at <nixpkgs> + /pkgs/development/tools/yarn2nix-moretea/default.nix:481:12:
+
+   480|         }
+   481|         // lib.optionalAttrs (package ? description) { inherit (package) description; }
+      |            ^
+   482|         // lib.optionalAttrs (package ? homepage) { inherit (package) homepage; }
+
+… while calling 'optionalAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:1478:25:
+
+  1477|   */
+  1478|   optionalAttrs = cond: as: if cond then as else { };
+      |                         ^
+  1479|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/development/tools/yarn2nix-moretea/default.nix:329:17:
+
+   328|     let
+   329|       package = lib.importJSON packageJSON;
+      |                 ^
+   330|       pname = attrs.pname or package.name;
+
+… while calling 'importJSON'
+
+  at <nixpkgs> + /lib/trivial.nix:729:16:
+
+   728|   */
+   729|   importJSON = path: builtins.fromJSON (builtins.readFile path);
+      |                ^
+   730|
+
+error: path '/nix/store/mzga8hb23dppxx7jhp3vk2xmh3wppbpk-source.drv' is not valid
