@@ -1,0 +1,109 @@
+error:
+… from call site
+
+  at ./packages/default.nix:7:12:
+
+     6|   bobgen = pkgs.callPackage ./bobgen { };
+     7|   bumper = pkgs.callPackage ./bumper { inherit system; };
+      |            ^
+     8|   ffmpeg-quality-metrics = pkgs.callPackage ./ffmpeg-quality-metrics { };
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:259:19:
+
+   258|   callPackageWith =
+   259|     autoArgs: fn: args:
+      |                   ^
+   260|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1018:5:
+
+  1017|     # TODO: Should we add call-time "type" checking like built in?
+  1018|     __functor = self: f;
+      |     ^
+  1019|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:161:7:
+
+   160|     mirrorArgs (
+   161|       origArgs:
+      |       ^
+   162|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:163:18:
+
+   162|       let
+   163|         result = f origArgs;
+      |                  ^
+   164|
+
+… while calling anonymous lambda
+
+  at ./packages/bumper/default.nix:1:1:
+
+     1| {
+      | ^
+     2|   system,
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:2:23:
+
+     1|
+     2| lockFileStr: rootSrc: rootSubdir:
+      |                       ^
+     3|
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:10:13:
+
+     9|     builtins.mapAttrs
+    10|       (key: node:
+      |             ^
+    11|         let
+
+… from call site
+
+  at /call-flake.nix:47:21:
+
+    46|
+    47|           outputs = flake.outputs (inputs // { self = result; });
+      |                     ^
+    48|
+
+… while calling 'outputs'
+
+  at /nix/store/sg1a5rl6f70jjrv74km3ksfh8w440pwd-source/flake.nix:24:5:
+
+    23|   outputs =
+    24|     {
+      |     ^
+    25|       nixpkgs,
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:25:25:
+
+    24|           inputs = builtins.mapAttrs
+    25|             (inputName: inputSpec: allNodes.${resolveInput inputSpec})
+      |                         ^
+    26|             (node.inputs or {});
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:10:13:
+
+     9|     builtins.mapAttrs
+    10|       (key: node:
+      |             ^
+    11|         let
+
+error: access to URI 'github:spotdemo4/nur/b015834fffa594900714a7097493fee1c186f29c' is forbidden in restricted mode

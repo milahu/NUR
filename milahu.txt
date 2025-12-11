@@ -1,15 +1,33 @@
 trace: evaluation warning: 'recurseIntoAttrs' has been removed from pkgs, use `lib.recurseIntoAttrs` instead
 trace: evaluation warning: 'recurseIntoAttrs' has been removed from pkgs, use `lib.recurseIntoAttrs` instead
 trace: evaluation warning: 'recurseIntoAttrs' has been removed from pkgs, use `lib.recurseIntoAttrs` instead
+trace: evaluation warning: fontforge-20251009 was overridden with `version` but not `src` at ./default.nix:831:5.
+
+This is most likely not what you want. In order to properly change the version of a package, override
+both the `version` and `src` attributes:
+
+hello.overrideAttrs (oldAttrs: rec {
+  version = "1.0.0";
+  src = pkgs.fetchurl {
+    url = "mirror://gnu/hello/hello-${version}.tar.gz";
+    hash = "...";
+  };
+})
+
+(To silence this warning, set `__intentionallyOverridingVersion = true` in your `overrideAttrs` call.)
+
+trace: evaluation warning: 'recurseIntoAttrs' has been removed from pkgs, use `lib.recurseIntoAttrs` instead
+trace: evaluation warning: 'recurseIntoAttrs' has been removed from pkgs, use `lib.recurseIntoAttrs` instead
+trace: evaluation warning: dontRecurseIntoAttrs has been removed from pkgs, use `lib.dontRecurseIntoAttrs` instead
 error:
 … from call site
 
-  at ./default.nix:872:17:
+  at ./default.nix:731:23:
 
-   871|
-   872|   ffmpeg-full = callPackage ./pkgs/development/libraries/ffmpeg/6.nix {
-      |                 ^
-   873|     inherit (pkgs.darwin.apple_sdk.frameworks)
+   730|
+   731|   mediawiki-scraper = python3.pkgs.callPackage ./pkgs/tools/networking/mediawiki-scraper/mediawiki-scraper.nix { };
+      |                       ^
+   732|
 
 … while calling 'callPackageWith'
 
@@ -20,4 +38,4 @@ error:
       |                   ^
    260|     let
 
-error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "addOpenGLRunpath" at ./pkgs/development/libraries/ffmpeg/generic.nix:3'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "nose" at ./pkgs/tools/networking/mediawiki-scraper/mediawiki-scraper.nix:24, did you mean "cose", "gose" or "jose"?'
