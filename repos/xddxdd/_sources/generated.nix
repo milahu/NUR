@@ -215,28 +215,6 @@
       hash = "sha256-UTxLfT2qJc9LFkeQHPhZkhqU+rQFwwmq1RBeY6NTYHw=";
     };
   };
-  cachyos-kernel = {
-    pname = "cachyos-kernel";
-    version = "5c8cf82f0ea40b72aec3fcbc58b449ca3b7cd372";
-    src = fetchFromGitHub {
-      owner = "CachyOS";
-      repo = "linux-cachyos";
-      rev = "5c8cf82f0ea40b72aec3fcbc58b449ca3b7cd372";
-      hash = "sha256-dAGAdWms3poNhxPniYU3YmxFeJ9ngfBhakMQwCnCV/w=";
-    };
-    date = "2025-12-09";
-  };
-  cachyos-kernel-patches = {
-    pname = "cachyos-kernel-patches";
-    version = "6dfdbc7f8f3ee4d9f5dc8adfb0672ef5d8e1e3d5";
-    src = fetchFromGitHub {
-      owner = "CachyOS";
-      repo = "kernel-patches";
-      rev = "6dfdbc7f8f3ee4d9f5dc8adfb0672ef5d8e1e3d5";
-      hash = "sha256-TJJKd86jDyighG3Jx8MNyiuQTpEIMAsA2GkWpqttwFg=";
-    };
-    date = "2025-12-08";
-  };
   calibre-cops = {
     pname = "calibre-cops";
     version = "3.8.2";
@@ -420,6 +398,18 @@
       url = "https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/linux_deb/Release/com.alibabainc.dingtalk_7.6.45.5041701_amd64.deb";
       hash = "sha256-HXvVkIrQgXWA5NKvcVgJeOtK+kSD6a3yXJB5nyLNqzU=";
     };
+  };
+  dingtalk-wayland-screenshare = {
+    pname = "dingtalk-wayland-screenshare";
+    version = "e15063310eb3251e4619345c8fad0059e8a0558a";
+    src = fetchFromGitHub {
+      owner = "lzl200110";
+      repo = "dingtalk-wayland-screenshare";
+      rev = "e15063310eb3251e4619345c8fad0059e8a0558a";
+      fetchSubmodules = true;
+      hash = "sha256-yCTb1gy6gzy1WzcetrRAsoG77ST1yf+zKtTD3fojKRw=";
+    };
+    date = "2025-03-21";
   };
   dn42-pingfinder = {
     pname = "dn42-pingfinder";
@@ -696,26 +686,26 @@
   };
   geolite2-asn = {
     pname = "geolite2-asn";
-    version = "2025.12.07";
+    version = "2025.12.10";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.07/GeoLite2-ASN.mmdb";
-      hash = "sha256-hIOVkGFas+jXYYPZ8OZ6vky5pJ+LtyVS2S5ptqsfy54=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.10/GeoLite2-ASN.mmdb";
+      hash = "sha256-7dP8FDrdGh10EOgMLF4m3Vss4AGnJ9JunzRLtRWoEO0=";
     };
   };
   geolite2-city = {
     pname = "geolite2-city";
-    version = "2025.12.07";
+    version = "2025.12.10";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.07/GeoLite2-City.mmdb";
-      hash = "sha256-Q1gOymyXSYhBdkGzKFt4V+WqutYmxcOc6Q3EsjH0xFY=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.10/GeoLite2-City.mmdb";
+      hash = "sha256-TQtMF7Sr1Zd77jBfe6h5G9ic9poHHw74oK1H4URQ4R0=";
     };
   };
   geolite2-country = {
     pname = "geolite2-country";
-    version = "2025.12.07";
+    version = "2025.12.10";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.07/GeoLite2-Country.mmdb";
-      hash = "sha256-PWdYpsYUnaJEHo6sd9qy9dpQsp7vWvp63748UIbVvjw=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.10/GeoLite2-Country.mmdb";
+      hash = "sha256-E3uv0RLvXY/PT5UsbFe3dBEhsxWlLums+7eeu3hEUOQ=";
     };
   };
   glauth = {
@@ -1091,12 +1081,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7330";
+    version = "b7342";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7330";
-      hash = "sha256-oAABTq0pVOP3anXWKpNoIszwPWUqLFv4W6gZP+jgUKk=";
+      tag = "b7342";
+      hash = "sha256-L90E0h8d75kFh+sk1+6OT8yKtxSgj7uhzpNRviS6zSE=";
     };
   };
   loralib = {
@@ -1839,10 +1829,10 @@
   };
   rime-moegirl = {
     pname = "rime-moegirl";
-    version = "20251109";
+    version = "20251210";
     src = fetchurl {
-      url = "https://github.com/outloudvi/mw2fcitx/releases/download/20251109/moegirl.dict.yaml";
-      hash = "sha256-GBevsjo6KRd6Uicy2LpMwgZJkluN5n2ID/DAiaKJV74=";
+      url = "https://github.com/outloudvi/mw2fcitx/releases/download/20251210/moegirl.dict.yaml";
+      hash = "sha256-P4AAwApknEaV4PFn6/5rpawp0iOGdDH+muYi+R/iErk=";
     };
   };
   rime-zhwiki = {
@@ -2249,12 +2239,12 @@
   };
   vector-quantize-pytorch = {
     pname = "vector-quantize-pytorch";
-    version = "1.27.7";
+    version = "1.27.12";
     src = fetchFromGitHub {
       owner = "lucidrains";
       repo = "vector-quantize-pytorch";
-      tag = "1.27.7";
-      hash = "sha256-t33RQsr6VAezJnsq+QTsP3IOjfYm5tlCzQHSxuAbUoA=";
+      tag = "1.27.12";
+      hash = "sha256-+Ktq04f6PaftDbccFwV60EsqmEpcIvC3ckF+HJvfLHE=";
     };
   };
   vgpu-unlock-rs = {
