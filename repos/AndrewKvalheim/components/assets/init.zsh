@@ -1,51 +1,16 @@
-# Options
-setopt COMBINING_CHARS
-setopt HIST_FIND_NO_DUPS
-setopt INTERACTIVE_COMMENTS
-setopt LIST_PACKED
-setopt LONG_LIST_JOBS
-setopt NOCLOBBER
-setopt PUSHD_SILENT
-setopt RC_QUOTES
-
 # Generated variables
 export DIRENV_LOG_FORMAT="$(print -P "%B%F{8}┃ %%s%f")"
 TIMEFMT="$(print -P "%B%F{8}┃ Duration: %%*Es, CPU: %%P, Memory: %%MkB%f")"
 
-# Keybindings
-bindkey '^H' backward-kill-word # Ctrl+Backspace
-bindkey '\e[1;5D' backward-word # Ctrl+Left
-bindkey '\e[1;5C' forward-word # Ctrl+Right
-bindkey '^Z' undo # Ctrl+Z
-bindkey '\e[F' end-of-line # End
-bindkey '\e[H' beginning-of-line # Home
-
 # Completions
-zstyle '*' single-ignored show
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' matcher-list \
-  'm:{[:lower:]}={[:upper:]}' `# a ⇒ [aA], A ⇒ A` \
-  'l:|=* r:|=*' `# b ⇒ ab`
-zstyle ':completion:*' squeeze-slashes 'true'
-zstyle ':completion:*:*:*:*:*' menu 'select'
-zstyle ':completion:*:*:*:users' ignored-patterns \
-  'avahi' 'colord' 'cups' 'gdm' 'geoclue' 'messagebus' 'nixbld*' \
-  'nm-*' 'polkituser' 'postfix' 'qemu-*' 'rpc' 'rtkit' 'systemd*'
-zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*:descriptions' format '%B%F{8}# %d%f'
-zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
-zstyle ':completion:*:manuals' separate-sections 'true'
-zstyle ':completion:*:matches' group 'yes'
-zstyle ':completion:*:warnings' format '%B%F{8}# No matches%f'
-zstyle ':completion:*:*:extract-pdf-images:*' file-patterns '*.pdf:all-files *(-/):directories'
 compdef '_values passwords $(gopass ls --flat)' gopass-env
 compdef '_values passwords $(gopass ls --flat)' gopass-ydotool
 source @zsh-complete-git-commit-message@
 
-# Abbreviations(TODO: Troubleshoot Home Manager module, contribute solution)
+# Abbreviations (TODO: Troubleshoot programs.zsh.zsh-abbr, contribute solution)
 source @zsh-abbr@
 
-# Syntax highlighting
+# Syntax highlighting (TODO: Use programs.zsh.syntaxHighlighting)
 source @zsh-syntax-highlighting@
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main regexp)
 ZSH_HIGHLIGHT_REGEXP+=('^[[:blank:][:space:]]*('${(j:|:)${(k)ABBR_REGULAR_USER_ABBREVIATIONS}}')$' 'fg=cyan,bold')

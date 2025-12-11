@@ -1,14 +1,16 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (builtins) mapAttrs readFile toFile;
+  inherit (builtins) concatStringsSep mapAttrs readFile toFile;
   inherit (config.programs) delta;
-  inherit (lib) concatLines concatStrings concatStringsSep escapeShellArg genAttrs getExe getExe' mapAttrsToList mkMerge mkOrder;
+  inherit (lib) concatLines concatStrings escapeShellArg genAttrs getExe getExe' init last mapAttrsToList mapAttrsToListRecursive mkMerge mkOrder toList;
   inherit (pkgs) replaceVars runtimeShell starship-jj;
   inherit (pkgs.writers) writeTOML;
-  inherit (import ../library/utilities.lib.nix { inherit lib; }) sgr;
+  inherit (import ../library/utilities.lib.nix { inherit lib; }) sgr tryEscapeShellArgs;
 
   toAbbrs = kv: concatLines (mapAttrsToList (k: v: "abbr ${k}=${escapeShellArg v}") kv);
+  toKeybinds = kv: concatLines (mapAttrsToList (k: v: "bindkey ${escapeShellArg v} ${escapeShellArg k}") kv);
+  toStyles = a: concatLines (mapAttrsToListRecursive (p: v: "zstyle ${escapeShellArg (concatStringsSep ":" ([ "" ] ++ init p))} ${escapeShellArg (last p)} ${tryEscapeShellArgs (toList v)}") a);
 in
 {
   programs.bash = {
@@ -227,6 +229,17 @@ in
     enable = true;
     autocd = false;
 
+    setOptions = [
+      "COMBINING_CHARS"
+      "HIST_FIND_NO_DUPS"
+      "INTERACTIVE_COMMENTS"
+      "LIST_PACKED"
+      "LONG_LIST_JOBS"
+      "NOCLOBBER"
+      "PUSHD_SILENT"
+      "RC_QUOTES"
+    ];
+
     history = {
       path = "${config.home.homeDirectory}/akorg/resource/zsh-history";
       expireDuplicatesFirst = true;
@@ -245,9 +258,24 @@ in
 
     initContent = with pkgs; let completion = 550; default = 1000; in mkMerge [
       # Completions
-      (mkOrder completion ''
-        fpath+=(${zsh-completions}/src)
-      '')
+      (mkOrder completion "fpath+=(${zsh-completions}/src)")
+      (mkOrder completion (toStyles {
+        completion."*" = {
+          "*"."*"."*"."*".menu = "select";
+          "*"."*".users.ignored-patterns = [ "gdm-*" "nixbld*" "nm-*" "systemd-*" ];
+          "*".extract-pdf-images."*".file-patterns = "*.pdf:all-files *(-/):directories";
+          default.list-colors = "\"\${(s.:.)LS_COLORS}\"";
+          descriptions.format = "%B%F{8}# %d%f";
+          functions.ignored-patterns = "(_*|pre(cmd|exec))";
+          group-name = "";
+          manuals.separate-sections = "true";
+          matcher-list = [ "m:{[:lower:]}={[:upper:]}" /* a ⇒ [aA], A ⇒ A */ "l:|=* r:|=*" /* b ⇒ ab */ ];
+          matches.group = "yes";
+          single-ignored = "show";
+          squeeze-slashes = "true";
+          warnings.format = "%B%F{8}# No matches%f";
+        };
+      }))
 
       # Main
       (mkOrder default (readFile (replaceVars ./assets/init.zsh {
@@ -259,6 +287,16 @@ in
         zsh-starship-issue-4205 = toFile "zsh-starship-issue-4205" (readFile ./assets/starship-issue-4205.zsh);
         zsh-syntax-highlighting = "${zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
       })))
+
+      # Key bindings
+      (mkOrder default (toKeybinds {
+        backward-kill-word = "^H"; # Ctrl+Backspace
+        backward-word = "\\e[1;5D"; # Ctrl+Left
+        beginning-of-line = "\\e[H"; # Home
+        end-of-line = "\\e[F"; # End
+        forward-word = "\\e[1;5C"; # Ctrl+Right
+        undo = "^Z"; # Ctrl+Z
+      }))
     ];
 
     shellAliases =

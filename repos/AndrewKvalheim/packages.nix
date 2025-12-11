@@ -20,6 +20,7 @@ specify {
   ansible-vault-pass-client = any;
   apex = any;
   attachments = any;
+  aws-sam-cli = { version = "≥1.146"; search = pr 459380 "sha256-9IWfeom+DIki1RiF55tjXRsBtFV0Bnqs8pYkXUZrPpk="; }; # NixOS/nixpkgs#459334
   blocky-ui = any;
   buildJosmPlugin = any;
   busyserve = any;

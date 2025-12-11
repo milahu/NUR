@@ -1,8 +1,8 @@
 { lib }:
 
 let
-  inherit (builtins) add all attrValues ceil elemAt getAttr hasAttr head isFunction length listToAttrs mapAttrs split stringLength tail;
-  inherit (lib) concatLines concatImapStringsSep concatMapStrings concatMapStringsSep fixedWidthNumber flip fold id ifilter0 imap0 isList max min mod nameValuePair pipe range removeSuffix splitString stringToCharacters throwIf throwIfNot toCamelCase toHexString;
+  inherit (builtins) add all attrValues ceil elemAt getAttr hasAttr head isFunction length listToAttrs mapAttrs match split stringLength tail;
+  inherit (lib) concatLines concatImapStringsSep concatMapStrings concatMapStringsSep escapeShellArg fixedWidthNumber flip fold id ifilter0 imap0 isList max min mod nameValuePair pipe range removeSuffix splitString stringToCharacters throwIf throwIfNot toCamelCase toHexString;
   inherit (lib.strings) replicate;
   inherit (import <nix-math> { inherit lib; }) cos pi pow round sin;
 
@@ -173,4 +173,8 @@ rec {
       strike = { off = "29"; on = "9"; };
       underline = { off = "24"; on = "4"; };
     });
+
+  tryEscapeShellArg = arg: if match "^\".*\"$" arg == null then escapeShellArg arg else arg;
+
+  tryEscapeShellArgs = concatMapStringsSep " " tryEscapeShellArg;
 }

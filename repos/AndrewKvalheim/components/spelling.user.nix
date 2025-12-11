@@ -38,12 +38,12 @@ in
     programs.vscode.profiles.default.userSettings = {
       "cSpell.minWordLength" = 2;
       "cSpell.customDictionaries" = {
-        custom = { path = formats.plaintext; };
-        custom-coffeescript = { path = ./assets/words-coffeescript.txt; };
-        custom-css = { path = ./assets/words-css.txt; };
-        custom-nix = { path = ./assets/words-nix.txt; };
-        custom-rust = { path = ./assets/words-rust.txt; };
-        custom-shellscript = { path = ./assets/words-shellscript.txt; };
+        custom.path = formats.plaintext;
+        custom-coffeescript.path = ./assets/words-coffeescript.txt;
+        custom-css.path = ./assets/words-css.txt;
+        custom-nix.path = ./assets/words-nix.txt;
+        custom-rust.path = ./assets/words-rust.txt;
+        custom-shellscript.path = ./assets/words-shellscript.txt;
       };
       "cSpell.languageSettings" = [
         { languageId = "coffeescript"; dictionaries = [ "custom-coffeescript" ]; }
