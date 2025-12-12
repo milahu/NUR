@@ -84,9 +84,9 @@ error:
 
 error: attribute 'rust-bin' missing
 
-at ./default.nix:44:48:
+at ./default.nix:42:48:
 
-    43|   noir = pkgs.callPackage ./pkgs/noir { inherit (pkgs) rust-bin; protobuf_29 = pkgs-protobuf293.protobuf_29; };
-    44|   mergiraf = pkgs.callPackage ./pkgs/mergiraf { inherit (pkgs) rust-bin; };
+    41|   noir = pkgs.callPackage ./pkgs/noir { inherit (pkgs) rust-bin; protobuf_29 = pkgs-protobuf293.protobuf_29; };
+    42|   mergiraf = pkgs.callPackage ./pkgs/mergiraf { inherit (pkgs) rust-bin; };
       |                                                ^
-    45|   libjportaudio = pkgs.callPackage ./pkgs/libjportaudio { };
+    43|   libjportaudio = pkgs.callPackage ./pkgs/libjportaudio { };
