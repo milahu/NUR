@@ -176,10 +176,10 @@
     };
     "adnauseam" = buildFirefoxXpiAddon {
       pname = "adnauseam";
-      version = "3.26.2";
+      version = "3.27.0";
       addonId = "adnauseam@rednoise.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4613584/adnauseam-3.26.2.xpi";
-      sha256 = "d044271b859336feb6f274e47032d8fdcaad0fb79c01bf63d85d43f5df997545";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4634365/adnauseam-3.27.0.xpi";
+      sha256 = "629000b5412f7f18c2380444ff8d4bfcf6dc96be0dfa95d7b8da233fd5aa9948";
       meta = with lib;
       {
         homepage = "https://adnauseam.io";
@@ -1394,10 +1394,10 @@
     };
     "bulgarian-dictionary" = buildFirefoxXpiAddon {
       pname = "bulgarian-dictionary";
-      version = "4.4.4";
+      version = "4.4.5";
       addonId = "bg-BG@dictionaries.addons.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4637458/bulgarian_dictionary-4.4.4.xpi";
-      sha256 = "4049aca1982aa28f9233150161454dcaebc05b577d14bbed0fd35c5fe0434961";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4639627/bulgarian_dictionary-4.4.5.xpi";
+      sha256 = "3da251e7568556d1e90fd2826ce9b76f89d9c1e6b12e91341ce0e0fec684826b";
       meta = with lib;
       {
         homepage = "http://bgoffice.sourceforge.net/";
@@ -2669,10 +2669,10 @@
     };
     "danish-language-pack" = buildFirefoxXpiAddon {
       pname = "danish-language-pack";
-      version = "147.0.20251208.163038";
+      version = "147.0.20251210.90447";
       addonId = "langpack-da@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4637858/dansk_da_language_pack-147.0.20251208.163038.xpi";
-      sha256 = "ab1505319b20b9e6e86e5e3794c4c496265171b0e55d3f02d85a9f3c4474c7e1";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4639362/dansk_da_language_pack-147.0.20251210.90447.xpi";
+      sha256 = "017c36da1fb7d37e475064e2b23470e5f404c0496ab3b46b3e56a9c25564209c";
       meta = with lib;
       {
         description = "Firefox Language Pack for Dansk (da) – Danish";
@@ -2819,10 +2819,10 @@
     };
     "dearrow" = buildFirefoxXpiAddon {
       pname = "dearrow";
-      version = "2.1.11";
+      version = "2.2.1";
       addonId = "deArrow@ajay.app";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4597677/dearrow-2.1.11.xpi";
-      sha256 = "a9f386c3d8ef128a571ede229a0d2f14bedb1c8ad646f43fb82282ae92992242";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4634684/dearrow-2.2.1.xpi";
+      sha256 = "9fefe049ccc9995bd0ccf517efff8d651cbfe7352af3f98d21ad028f7728c053";
       meta = with lib;
       {
         homepage = "https://dearrow.ajay.app";
@@ -2882,10 +2882,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "147.0.20251208.163038";
+      version = "147.0.20251210.90447";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4637861/deutsch_de_language_pack-147.0.20251208.163038.xpi";
-      sha256 = "a6137bb4497d5b3346ffdab14282eb9b92482904ce10dbbd58255667e4f142f0";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4639366/deutsch_de_language_pack-147.0.20251210.90447.xpi";
+      sha256 = "91a3f4072fba92e4b0351755d048bfd173a8f9938f43f8982564b3c9ae8122d0";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -3293,10 +3293,10 @@
     };
     "download-with-jdownloader" = buildFirefoxXpiAddon {
       pname = "download-with-jdownloader";
-      version = "0.3.6";
+      version = "0.3.7";
       addonId = "{03e07985-30b0-4ae0-8b3e-0c7519b9bdf6}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4558896/download_with_jdownloader-0.3.6.xpi";
-      sha256 = "42c6b77c604e1bd6a2486dda75df772ff72c2de228939454e81afa6ccfa11dcc";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4634661/download_with_jdownloader-0.3.7.xpi";
+      sha256 = "fd1d4f9a6ea952c31b25f5cefc8a116a5f842ef0df6b5dfeb1830b58aebbe191";
       meta = with lib;
       {
         homepage = "https://webextension.org/listing/download-with.html?from=jdownloader";
@@ -3787,10 +3787,10 @@
     };
     "faststream" = buildFirefoxXpiAddon {
       pname = "faststream";
-      version = "1.3.70";
+      version = "1.3.71";
       addonId = "faststream@andrews";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4630676/faststream-1.3.70.xpi";
-      sha256 = "cdadfde27c3190977ab93528f6d063a751d8b0d477ac14661eae0e895bde5363";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4639818/faststream-1.3.71.xpi";
+      sha256 = "6ab8b161c5464d0126bcc9ddac7c28c9da26387b2154136a73a43f9f6ac443e6";
       meta = with lib;
       {
         homepage = "https://faststream.online/";
@@ -4344,10 +4344,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "147.0.20251208.163038";
+      version = "147.0.20251210.90447";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4637911/francais_language_pack-147.0.20251208.163038.xpi";
-      sha256 = "96c64fb165ba6c86951ac83e3c729f95480aa9edb4b7c225aa16045dbeb059b7";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4639373/francais_language_pack-147.0.20251210.90447.xpi";
+      sha256 = "c84c510bda9e484f67ee44b2733f82ae7fea4d0e18c831bbb94baa30a44a0372";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4381,10 +4381,10 @@
     };
     "gaidhlig-language-pack" = buildFirefoxXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "147.0.20251208.163038";
+      version = "147.0.20251210.90447";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4637953/gaidhlig_language_pack-147.0.20251208.163038.xpi";
-      sha256 = "2a16c90020d4b8ff062df623be69c99ada18ad19559b0bb7d39051604e4d97d8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4639386/gaidhlig_language_pack-147.0.20251210.90447.xpi";
+      sha256 = "9cc97cc34437cb71f850c3d9b3299c8d6ae65c2a9b55919a3757b5bd177de571";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -4497,22 +4497,20 @@
     };
     "gitako-github-file-tree" = buildFirefoxXpiAddon {
       pname = "gitako-github-file-tree";
-      version = "3.12.1";
+      version = "3.15.0";
       addonId = "{983bd86b-9d6f-4394-92b8-63d844c4ce4c}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4315380/gitako_github_file_tree-3.12.1.xpi";
-      sha256 = "68bb06929b08d9c3aff55fdff411b4dc2f57e1752af358b018ab5003fbfeef69";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4639596/gitako_github_file_tree-3.15.0.xpi";
+      sha256 = "ae713c799d46a0b4b78f3517af0f25c571087370d9441429c6ee2feb5ab3cb7c";
       meta = with lib;
       {
         homepage = "https://github.com/EnixCoda/Gitako";
         description = "Gitako is a file tree extension for GitHub, available on Firefox, Chrome, and Edge.\n\nVideo intro: https://youtu.be/r4Ein-s2pN0\nHomepage: https://github.com/EnixCoda/Gitako";
         license = licenses.mit;
         mozPermissions = [
+          "scripting"
           "storage"
           "contextMenus"
           "activeTab"
-          "*://*.github.com/*"
-          "*://gitako.enix.one/*"
-          "*://*.sentry.io/*"
           "https://github.com/*"
         ];
         platforms = platforms.all;
@@ -6236,6 +6234,28 @@
         platforms = platforms.all;
       };
     };
+    "image-max-url" = buildFirefoxXpiAddon {
+      pname = "image-max-url";
+      version = "2025.11.2";
+      addonId = "maxurl@qsniyg";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4610242/image_max_url-2025.11.2.xpi";
+      sha256 = "1cf2da2bf1133e9e6bbd285c2119f188d82cc99994aa99d4bfbd2f46023dc675";
+      meta = with lib;
+      {
+        homepage = "https://qsniyg.github.io/maxurl/";
+        description = "Finds larger/original versions of images (supporting 10,000+ websites), including a powerful media popup feature";
+        license = licenses.asl20;
+        mozPermissions = [
+          "storage"
+          "cookies"
+          "webRequest"
+          "webRequestBlocking"
+          "contextMenus"
+          "<all_urls>"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "image-search-options" = buildFirefoxXpiAddon {
       pname = "image-search-options";
       version = "3.0.12";
@@ -7140,10 +7160,10 @@
     };
     "kiss-translator" = buildFirefoxXpiAddon {
       pname = "kiss-translator";
-      version = "2.0.14";
+      version = "2.0.15";
       addonId = "{fb25c100-22ce-4d5a-be7e-75f3d6f0fc13}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4635494/kiss_translator-2.0.14.xpi";
-      sha256 = "628e675e243148ac86e98113ba431862947ec5fa11cdc8a7b678e173ae5fda62";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4639448/kiss_translator-2.0.15.xpi";
+      sha256 = "a1b4058824c9f7fedbe05f51acc8f2b3f101776b48d1930f1b977ccebc34935b";
       meta = with lib;
       {
         homepage = "https://github.com/fishjar/kiss-translator";
@@ -10623,10 +10643,10 @@
     };
     "private-grammar-checker-harper" = buildFirefoxXpiAddon {
       pname = "private-grammar-checker-harper";
-      version = "1.1.0";
+      version = "1.2.0";
       addonId = "harper@writewithharper.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4634406/private_grammar_checker_harper-1.1.0.xpi";
-      sha256 = "d28390f1ff54678e8650fea2114d01b0153db246aceef0893343363e93573824";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4640643/private_grammar_checker_harper-1.2.0.xpi";
+      sha256 = "8abe2973f56e1073ffd5707c668f7fd397771d486ca115684d42cc76eb5294e0";
       meta = with lib;
       {
         homepage = "https://writewithharper.com";
@@ -11856,10 +11876,10 @@
     };
     "scots-language-pack" = buildFirefoxXpiAddon {
       pname = "scots-language-pack";
-      version = "147.0.20251208.163038";
+      version = "147.0.20251210.90447";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4637905/scots_language_pack-147.0.20251208.163038.xpi";
-      sha256 = "73e12b198591c343b653cc6a19523d88a30e6c978e2bb81ef16e88394c5da55b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4639438/scots_language_pack-147.0.20251210.90447.xpi";
+      sha256 = "eb3fe39093db64a31aaad310f3e8346bd9e5c1e9956a2d77f14e2ef2291a2673";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
@@ -12299,10 +12319,10 @@
     };
     "simplifygmail" = buildFirefoxXpiAddon {
       pname = "simplifygmail";
-      version = "3.3.15";
+      version = "3.3.16";
       addonId = "{a4c1064c-95dd-47a7-9b02-bb30213b7b29}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4630967/simplifygmail-3.3.15.xpi";
-      sha256 = "4dbebaee5b1fb1cfa117d58ee5cddeb9525de054bd8612272112f59093333de7";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4640181/simplifygmail-3.3.16.xpi";
+      sha256 = "96bdea8c2bf6b2c3ed8d7053f909ed72fc3e08383332fec0391da98c34119ac2";
       meta = with lib;
       {
         homepage = "https://simpl.fyi";
@@ -12323,10 +12343,10 @@
     };
     "single-file" = buildFirefoxXpiAddon {
       pname = "single-file";
-      version = "1.22.88";
+      version = "1.22.92";
       addonId = "{531906d3-e22f-4a6c-a102-8057b88a1a63}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4624434/single_file-1.22.88.xpi";
-      sha256 = "7c64b680bdf87c9dbf114340ede5071e4a738a210331dcc687ebbf1e926280f8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4639982/single_file-1.22.92.xpi";
+      sha256 = "115befd0cf7a5871cbdc06c4634d8d28f509e5f1ab4cc962d16b0ba27ef5b4be";
       meta = with lib;
       {
         homepage = "https://www.getsinglefile.com";
@@ -13425,10 +13445,10 @@
     };
     "toggl-button-time-tracker" = buildFirefoxXpiAddon {
       pname = "toggl-button-time-tracker";
-      version = "4.11.5";
+      version = "4.11.6";
       addonId = "toggl-button@toggl.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4604153/toggl_button_time_tracker-4.11.5.xpi";
-      sha256 = "db66d448c78c0cad647c752a7facbb7e2d9495c002d71305ab1f26541becc7e1";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4634190/toggl_button_time_tracker-4.11.6.xpi";
+      sha256 = "6353bde70b855e7efd28c51de712ef2ea63f2b270d502a6b3ab2cc9e0417a4d6";
       meta = with lib;
       {
         homepage = "https://toggl.com/track/";
@@ -13499,10 +13519,10 @@
     };
     "topcashback-cashback-coupons" = buildFirefoxXpiAddon {
       pname = "topcashback-cashback-coupons";
-      version = "7.2.0.0";
+      version = "7.3.1.0";
       addonId = "{f89939f9-1978-4203-9802-835ce5844ce7}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4613842/topcashback_cashback_coupons-7.2.0.0.xpi";
-      sha256 = "3f78ad414a41364cc4778f187a1e2493c6dcb208d2184e6d09b8881910e78c9f";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4640212/topcashback_cashback_coupons-7.3.1.0.xpi";
+      sha256 = "bbc4ae7d4d631a75585a76427601088d17f52443672e7dd91de21bbc6d833a66";
       meta = with lib;
       {
         homepage = "https://www.topcashback.com";
@@ -15893,10 +15913,10 @@
     };
     "youtube-subscription-groups" = buildFirefoxXpiAddon {
       pname = "youtube-subscription-groups";
-      version = "17.10.0";
+      version = "18.0.0";
       addonId = "danabok16@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4631890/youtube_subscription_groups-17.10.0.xpi";
-      sha256 = "a8d5c5513741afa9a730e3f9660960a36509481ed830bb7eec1d4fcf8270dd51";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4635261/youtube_subscription_groups-18.0.0.xpi";
+      sha256 = "515a6d86f18ce343dd7475159ecb6cf24a4fad2fc3595be777f3437cb01bd42a";
       meta = with lib;
       {
         homepage = "https://pockettube.io";
