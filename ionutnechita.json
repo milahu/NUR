@@ -1,16 +1,16 @@
 {
 "name":"ionutnechita",
-"fetch_time":0.803,
-"eval_time":0.274,
+"fetch_time":0.505,
+"eval_time":0.25,
 "source":{
 "url":"https://github.com/ionutnechita/ionutnechita-nur-packages",
-"rev":"be87952d199ee40b92ee2f621c134a49106a3bda",
-"sha256":"1vfb1biakn87b0zc7pkrx9q8798xmp58r6s89n2h7h9ri77j6k4b",
+"rev":"c502fc8a4b9ae99e8ee304482f0744348211cc7a",
+"sha256":"1isykpkv75l7ry06m7i24q3gzm6sv0wx4mxinnl5y1fn3lnsr62s",
 "date":null
 },
-"source_storepath":"/nix/store/c0fnyrj80w1xfbq0l5fhr6wxm8h9a28l-source",
-"nixpkgs_storepath":"/nix/store/6a0ynwlcijrkkpqi5j7024xxhgadvnx0-source",
-"nur_combined_rev":"ba288c43fa488bda2a8a5d4203590c43b7853d76",
+"source_storepath":"/nix/store/miazs03s5q6yjg9p607n1yla9srk4ila-source",
+"nixpkgs_storepath":"/nix/store/qa4pkfs0n1wllca2g3arqzh28wkkdbkd-source",
+"nur_combined_rev":"abe9d1465f2c4a49973da4f340b211ca53ed6862",
 "packages":{
 "linux_sunlight":{
 "meta":{
@@ -132,12 +132,6 @@
 "name":"Maximilian Bosch"
 },
 {
-"email":"tim@nequissimus.com",
-"github":"NeQuissimus",
-"githubId":628342,
-"name":"Tim Steinbach"
-},
-{
 "email":"tredwell@tutanota.com",
 "github":"TredwellGit",
 "githubId":61860346,
@@ -146,7 +140,7 @@
 ],
 "maintainersPosition":{
 "column":11,
-"file":"/nix/store/c0fnyrj80w1xfbq0l5fhr6wxm8h9a28l-source/pkgs/sunlight-kernels/default.nix",
+"file":"/nix/store/miazs03s5q6yjg9p607n1yla9srk4ila-source/pkgs/sunlight-kernels/default.nix",
 "line":115
 },
 "name":"linux-sunlight-6.18.0-rc7",
@@ -224,12 +218,6 @@
 "name":"Maximilian Bosch"
 },
 {
-"email":"tim@nequissimus.com",
-"github":"NeQuissimus",
-"githubId":628342,
-"name":"Tim Steinbach"
-},
-{
 "email":"tredwell@tutanota.com",
 "github":"TredwellGit",
 "githubId":61860346,
@@ -242,7 +230,7 @@
 ],
 "teamsPosition":{
 "column":7,
-"file":"/nix/store/6a0ynwlcijrkkpqi5j7024xxhgadvnx0-source/pkgs/os-specific/linux/kernel/build.nix",
+"file":"/nix/store/qa4pkfs0n1wllca2g3arqzh28wkkdbkd-source/pkgs/os-specific/linux/kernel/build.nix",
 "line":572
 },
 "timeout":14400,
@@ -269,7 +257,7 @@
 "description":"Sunlight Kernel. Built with custom settings and new features built to provide a stable, responsive and smooth desktop experience",
 "homepage":"https://www.kernel.org/",
 "identifiers":{
-"cpe":"cpe:2.3:o:linux:linux_kernel:6.18.0:*:*:*:*:*:*:*",
+"cpe":"cpe:2.3:o:linux:linux_kernel:6.18.1:*:*:*:*:*:*:*",
 "cpeParts":{
 "edition":"*",
 "language":"*",
@@ -281,11 +269,11 @@
 "target_sw":"*",
 "update":"*",
 "vendor":"linux",
-"version":"6.18.0"
+"version":"6.18.1"
 },
 "possibleCPEs":[
 {
-"cpe":"cpe:2.3:o:linux:linux_kernel:6.18.0:*:*:*:*:*:*:*",
+"cpe":"cpe:2.3:o:linux:linux_kernel:6.18.1:*:*:*:*:*:*:*",
 "cpeParts":{
 "edition":"*",
 "language":"*",
@@ -297,12 +285,12 @@
 "target_sw":"*",
 "update":"*",
 "vendor":"linux",
-"version":"6.18.0"
+"version":"6.18.1"
 }
 }
 ],
 "v1":{
-"cpe":"cpe:2.3:o:linux:linux_kernel:6.18.0:*:*:*:*:*:*:*",
+"cpe":"cpe:2.3:o:linux:linux_kernel:6.18.1:*:*:*:*:*:*:*",
 "cpeParts":{
 "edition":"*",
 "language":"*",
@@ -314,11 +302,11 @@
 "target_sw":"*",
 "update":"*",
 "vendor":"linux",
-"version":"6.18.0"
+"version":"6.18.1"
 },
 "possibleCPEs":[
 {
-"cpe":"cpe:2.3:o:linux:linux_kernel:6.18.0:*:*:*:*:*:*:*",
+"cpe":"cpe:2.3:o:linux:linux_kernel:6.18.1:*:*:*:*:*:*:*",
 "cpeParts":{
 "edition":"*",
 "language":"*",
@@ -330,7 +318,7 @@
 "target_sw":"*",
 "update":"*",
 "vendor":"linux",
-"version":"6.18.0"
+"version":"6.18.1"
 }
 }
 ]
@@ -380,12 +368,6 @@
 "name":"Maximilian Bosch"
 },
 {
-"email":"tim@nequissimus.com",
-"github":"NeQuissimus",
-"githubId":628342,
-"name":"Tim Steinbach"
-},
-{
 "email":"tredwell@tutanota.com",
 "github":"TredwellGit",
 "githubId":61860346,
@@ -394,10 +376,10 @@
 ],
 "maintainersPosition":{
 "column":11,
-"file":"/nix/store/c0fnyrj80w1xfbq0l5fhr6wxm8h9a28l-source/pkgs/sunlight-kernels/default.nix",
+"file":"/nix/store/miazs03s5q6yjg9p607n1yla9srk4ila-source/pkgs/sunlight-kernels/default.nix",
 "line":115
 },
-"name":"linux-sunlight-6.18.0",
+"name":"linux-sunlight-6.18.1",
 "outputsToInstall":[
 "out"
 ],
@@ -472,12 +454,6 @@
 "name":"Maximilian Bosch"
 },
 {
-"email":"tim@nequissimus.com",
-"github":"NeQuissimus",
-"githubId":628342,
-"name":"Tim Steinbach"
-},
-{
 "email":"tredwell@tutanota.com",
 "github":"TredwellGit",
 "githubId":61860346,
@@ -490,14 +466,14 @@
 ],
 "teamsPosition":{
 "column":7,
-"file":"/nix/store/6a0ynwlcijrkkpqi5j7024xxhgadvnx0-source/pkgs/os-specific/linux/kernel/build.nix",
+"file":"/nix/store/qa4pkfs0n1wllca2g3arqzh28wkkdbkd-source/pkgs/os-specific/linux/kernel/build.nix",
 "line":572
 },
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-sunlight-6.18.0",
+"name":"linux-sunlight-6.18.1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -506,7 +482,7 @@
 },
 "pname":"linux-sunlight",
 "system":"x86_64-linux",
-"version":"6.18.0"
+"version":"6.18.1"
 }
 }
 }
