@@ -30,6 +30,7 @@
     ./captree.nix
     ./cargo.nix
     ./cassini.nix
+    ./catgirl-downloader.nix
     ./catt.nix
     ./celeste64.nix
     ./chatty.nix
