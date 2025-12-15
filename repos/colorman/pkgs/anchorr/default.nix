@@ -2,6 +2,8 @@
   buildNpmPackage,
   fetchFromGitHub,
   nodejs,
+  applyPatches,
+  fetchpatch,
 }: let
   version = "v1.3.4";
 in
@@ -10,11 +12,20 @@ in
 
     pname = "anchorr";
 
-    src = fetchFromGitHub {
-      owner = "nairdahh";
-      repo = "Anchorr";
-      tag = version;
-      hash = "sha256-+gGh/ID9UWYwRXHOJ8S1gafpsddipFIT5fqYql4aPEQ=";
+    src = applyPatches {
+      src = fetchFromGitHub {
+        owner = "nairdahh";
+        repo = "Anchorr";
+        tag = version;
+        hash = "sha256-+gGh/ID9UWYwRXHOJ8S1gafpsddipFIT5fqYql4aPEQ=";
+      };
+      patches = [
+        (fetchpatch {
+          name = "dont-use-cwd";
+          url = "https://github.com/TheColorman/Anchorr/commit/d74d53292c1cc99d61f1390af559f6dd5c0bd48c.patch";
+          hash = "sha256-U2mwjIr1adja/uqUbxv3LBvH01noUQBV3sR8312kubM=";
+        })
+      ];
     };
 
     postInstall = ''
