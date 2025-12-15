@@ -144,12 +144,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:871:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:882:5:
 
-   870|
-   871|     extendDerivation validity.handled (
+   881|
+   882|     extendDerivation validity.handled (
       |     ^
-   872|       {
+   883|       {
 
 … while calling 'extendDerivation'
 
@@ -250,4 +250,4 @@ error:
       |                ^
    730|
 
-error: path '/nix/store/mzga8hb23dppxx7jhp3vk2xmh3wppbpk-source.drv' is not valid
+error: path '/nix/store/r8328d6mw25i2gwnxxn6lcn8k23q3yk4-source.drv' is not valid
