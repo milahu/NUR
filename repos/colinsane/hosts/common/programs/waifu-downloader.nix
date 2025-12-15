@@ -1,18 +1,17 @@
 { ... }:
 {
-  sane.programs.catgirl-downloader = {
+  sane.programs.waifu-downloader = {
     sandbox.whitelistWayland = true;
-    # sandbox.net = "clearnet";
     sandbox.net = "vpn";
 
-    sandbox.mesaCacheDir = ".cache/catgirldownloader/mesa";
+    sandbox.mesaCacheDir = ".cache/waifudownloader/mesa";
 
     sandbox.extraHomePaths = [
       "tmp"  # for saving photos
     ];
 
     persist.byStore.ephemeral = [
-      ".config/catgirldownloader"
+      ".config/waifudownloader"
     ];
   };
 }

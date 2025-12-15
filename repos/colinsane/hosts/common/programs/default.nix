@@ -163,6 +163,7 @@
     ./page.nix
     ./papers.nix
     ./pidof.nix
+    ./pikeru.nix
     ./pine64-alsa-ucm.nix
     ./pipewire
     ./pkill.nix
@@ -234,6 +235,7 @@
     ./video-trimmer.nix
     ./visidata.nix
     ./vlc.nix
+    ./waifu-downloader.nix
     ./wally-cli.nix
     ./waybar
     ./waylock.nix
