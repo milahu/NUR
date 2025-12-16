@@ -8,10 +8,10 @@
 }:
 stdenv.mkDerivation rec {
   pname = "ublacklist";
-  version = "8.9.2";
+  version = "9.3.0";
   src = fetchurl {
     url = "https://github.com/iorate/ublacklist/releases/download/v${version}/ublacklist-v${version}-firefox.zip";
-    hash = "sha256-b+MBSeh+YC/qT88pupElPU531YyfvYe1aC1icHXfK3A=";
+    hash = "sha256-S3CViWrfC7o6PjXIGoZKPLsjkZoRpuaZNZIxNNXUtvs=";
   };
   # .zip file has everything in the top-level; stdenv needs it to be extracted into a subdir:
   sourceRoot = ".";

@@ -86,6 +86,7 @@ defaultPref("sidebar.backupState", `{"width":"","command":"","expanded":true,"hi
 defaultPref("sidebar.main.tools", "history");
 defaultPref("sidebar.revamp", true);
 defaultPref("sidebar.verticalTabs", true);
+defaultPref("sidebar.verticalTabs.dragToPinPromo.dismissed", true);
 // vvv default is for tabs button to toggle tab icons v.s. tab icons + description.
 //    "hide-sidebar"  => toggle between tab icons + description and NO visibility at all.
 defaultPref("sidebar.visibility", "hide-sidebar");

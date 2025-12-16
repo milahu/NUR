@@ -35,7 +35,9 @@ stdenvNoCC.mkDerivation rec {
   ];
 
   extid = "search@kagi.com";
-  passthru.updateScript = gitUpdater { };
+  passthru.updateScript = gitUpdater {
+    rev-prefix = "release/";
+  };
 
   meta = {
     description = "A simple helper extension for setting Kagi as a default search engine, and automatically logging in to Kagi in incognito browsing windows.";

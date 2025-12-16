@@ -7,6 +7,8 @@
   - e.g. if the package ships a systemd unit which references $out, then make-sandboxed won't properly update that unit.
   - `rmDbusServicesInPlace` is not affected
 - mpv: audiocast has mpv sending its output to the builtin speakers unless manually changed
+- mpv/bunpen: sandbox drops you into `realpath $(pwd)` instead of plain `pwd`
+  - maybe this explains alacritty's "Invalid working directory", too?
 - syshud (volume overlay): when casting with `blast`, syshud doesn't react to volume changes
 - dissent: if i launch it without net connectivity, it gets stuck at the login, and never tries again
 - newsflash on moby can't play videos

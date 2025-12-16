@@ -1,7 +1,7 @@
 {
-  addon-git-updater,
   fetchFromGitHub,
   fetchYarnDeps,
+  gitUpdater,
   mkYarnModules,
   nodejs,
   stdenvNoCC,
@@ -11,12 +11,12 @@
 
 let
   pname = "browserpass-extension";
-  version = "3.8.0";
+  version = "3.9.0";
   src = fetchFromGitHub {
     owner = "browserpass";
     repo = "browserpass-extension";
     rev = version;
-    hash = "sha256-7mGOqJh7TzaPLHoYoD6KD72xqaFR0+54Bi5VEHspwFE=";
+    hash = "sha256-FRFW67SNPXWk/OHYsHLDSXCHlCjTVnOulNx/oVnYvAE=";
   };
   # src = fetchFromGitea {
   #   domain = "git.uninsane.org";
@@ -30,11 +30,13 @@ let
     inherit version;
     pname = "${pname}-modules";
     packageJSON = "${src}/src/package.json";
+    # XXX(2025-12-14): this triggers IFD, but NUR & system configs *seem* to be OK with that??
     yarnLock = "${src}/src/yarn.lock";
-    offlineCache = fetchYarnDeps {
-      yarnLock = ./yarn.lock;
-      hash = "sha256-JOmvjMGtnMn6YfwiMpaePO86O6/E5a1jvNQ9PloG8ec=";
-    };
+    # offlineCache = fetchYarnDeps {
+    #   yarnLock = "${src}/src/yarn.lock";
+    #   # yarnLock = ./yarn.lock;
+    #   hash = "sha256-8cKFbrY3EcQBCnwJHFgPCL7HZnM6w4edwkkibMLVyRQ=";
+    # };
   };
 in stdenvNoCC.mkDerivation {
   inherit pname src version;
@@ -87,6 +89,6 @@ in stdenvNoCC.mkDerivation {
 
   passthru = {
     yarn-modules = browserpass-extension-yarn-modules;
-    updateScript = addon-git-updater;
+    updateScript = gitUpdater { };
   };
 }

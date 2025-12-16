@@ -15,16 +15,16 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "pwsp";
-  version = "1.1.3";
+  version = "1.1.4";
 
   src = fetchFromGitHub {
     owner = "arabianq";
     repo = "pipewire-soundpad";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-sxd8SxAGPsAIoEMHLSfOSy8sLFN9qby+6cgqTU/zZXQ=";
+    hash = "sha256-IgierkKrYFYs1t2Pj7hrzmF7pXNFgAKShcd0tX6bb7A=";
   };
 
-  cargoHash = "sha256-SWEvQjqmGlt9IuY6KKT3En453fOsneNvNfJtMTdwWmc=";
+  cargoHash = "sha256-O4ORWTkfWqjvCkr6V7cO45+FTFTup+A8e1f/TUmgrGg=";
 
   nativeBuildInputs = [
     pkg-config

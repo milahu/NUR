@@ -140,6 +140,60 @@ let
       #     '"cycle fullscreen",'
     '';
   });
+  mpv-gallery-view = pkgs.mpvScripts.mpv-gallery-view.overrideAttrs (upstream: {
+    patches = (upstream.patches or []) ++ [
+      # default behavior is like double-click thumbnail to navigate (1 click to select, 2nd click to navigate).
+      # patch to be single-click.
+      # TODO: send this upstream (as a script option)
+      (builtins.toFile "single-click-to-navigate.diff" ''
+        diff --git a/scripts/contact-sheet.lua b/scripts/contact-sheet.lua
+        index ad85932..999f4e9 100644
+        --- a/scripts/contact-sheet.lua
+        +++ b/scripts/contact-sheet.lua
+        @@ -279,16 +279,17 @@ function reload_bindings()
+                 seek_to_selection()
+                 if opts.close_on_seek then stop() end
+             end
+             bindings[opts.CANCEL] = function() stop() end
+             if opts.mouse_support then
+                 bindings["MBTN_LEFT"]  = function()
+                     local index = gallery:index_at(mp.get_mouse_pos())
+                     if not index then return end
+        +            gallery:set_selection(index)
+                     if index == gallery.selection then
+                         seek_to_selection()
+                         if opts.close_on_seek then stop() end
+                     else
+                         pending_selection = index
+                     end
+                 end
+                 bindings["WHEEL_UP"]   = function() increment_func(- gallery.geometry.columns, false) end
+        diff --git a/scripts/playlist-view.lua b/scripts/playlist-view.lua
+        index e230b30..61dca37 100644
+        --- a/scripts/playlist-view.lua
+        +++ b/scripts/playlist-view.lua
+        @@ -276,16 +276,17 @@ function reload_bindings()
+                     flags[name] = nil
+                 end
+                 gallery:ass_refresh(true, false, false, false)
+             end
+             if opts.mouse_support then
+                 bindings["MBTN_LEFT"]  = function()
+                     local index = gallery:index_at(mp.get_mouse_pos())
+                     if not index then return end
+        +            gallery:set_selection(index)
+                     if index == gallery.selection then
+                         load_selection()
+                         if opts.close_on_load_file then stop() end
+                     else
+                         pending_selection= index
+                     end
+                 end
+                 bindings["WHEEL_UP"]   = function() increment_func(- gallery.geometry.columns, false) end
+        ''
+      )
+    ];
+  });
   # visualizer = pkgs.mpvScripts.visualizer.overrideAttrs (upstream: {
   #   postPatch = (upstream.postPatch or "") + ''
   #     # don't have the script register its own keybinding: i'll do it manually via input.conf.
@@ -183,7 +237,7 @@ in
       };
       scripts = with pkgs.mpv-unwrapped; [
         scripts.mpris
-        (scripts.mpv-gallery-view.override {
+        (mpv-gallery-view.override {
           # mpv-gallery-view: press `g` for grid view of the playlist, with thumbnails.
           # extraThumbgens = how many images to generate thumbnails for in parallel (+1 implied)
           extraThumbgens = {
@@ -211,7 +265,7 @@ in
       "yt-dlp"
     ];
 
-    sandbox.autodetectCliPaths = "parent";  #< especially for subtitle downloader; also nice for viewing albums
+    sandbox.autodetectCliPaths = "existingDirOrParent";  #< especially for subtitle downloader; also nice for viewing albums
     sandbox.net = "all";
     sandbox.whitelistAudio = true;
     sandbox.whitelistDbus.user.own = [ "org.mpris.MediaPlayer2.mpv" "org.mpris.MediaPlayer2.mpv.*" ];

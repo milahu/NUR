@@ -1038,6 +1038,7 @@ in
 
     pyright.sandbox.whitelistPwd = true;
 
+    python3-repl.sandbox.wrapperType = "inplace";  #< else importing from site-packages fails
     python3-repl.packageUnwrapped = pkgs.python3.withPackages (ps: with ps; [
       libgpiod
       numpy
@@ -1050,7 +1051,7 @@ in
     python3-repl.sandbox.net = "clearnet";
     python3-repl.sandbox.autodetectCliPaths = "existing";  #< for invoking scripts like `python3 ./my-script.py`
     python3-repl.sandbox.extraHomePaths = [
-      "/"  #< this is 'safe' because with don't expose .persist/private, so no .ssh/id_ed25519
+      "/"  #< this is 'safe' because we don't expose .persist/private, so no .ssh/id_ed25519
       ".persist/plaintext"
     ];
 
