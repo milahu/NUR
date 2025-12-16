@@ -2,13 +2,12 @@
   appimageTools,
   stdenvNoCC,
   fetchurl,
-  undmg,
-  pkgs,
+  _7zz,
   lib,
   ...
 }: let
   ver = lib.helper.read ./version.json;
-  platform = pkgs.stdenv.hostPlatform.system;
+  platform = stdenvNoCC.hostPlatform.system;
 
   pname = "helium";
   src = fetchurl (lib.helper.getPlatform platform ver);
@@ -31,9 +30,12 @@ in
     stdenvNoCC.mkDerivation {
       inherit pname version src meta;
 
-      nativeBuildInputs = [undmg];
+      nativeBuildInputs = [_7zz];
 
       sourceRoot = ".";
+
+      dontBuild = true;
+      dontFixup = true;
 
       installPhase = ''
         runHook preInstall
