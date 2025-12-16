@@ -209,47 +209,5 @@ rec {
     owner = "GloriousEggroll";
     repo = "proton-ge-custom";
   };
-  linux_cachyos = drvDropUpdateScript cachyosPackages.cachyos-gcc.kernel;
-  linux_cachyos-lto = drvDropUpdateScript cachyosPackages.cachyos-lto.kernel;
-  linux_cachyos-lto-znver4 = drvDropUpdateScript cachyosPackages.cachyos-lto-znver4.kernel;
-  linux_cachyos-gcc = drvDropUpdateScript cachyosPackages.cachyos-gcc.kernel;
-  linux_cachyos-server = drvDropUpdateScript cachyosPackages.cachyos-server.kernel;
-  linux_cachyos-hardened = drvDropUpdateScript cachyosPackages.cachyos-hardened.kernel;
-  linux_cachyos-rc = cachyosPackages.cachyos-rc.kernel;
-  linux_cachyos-lts = cachyosPackages.cachyos-lts.kernel;
 
-  linuxPackages_cachyos = cachyosPackages.cachyos-gcc;
-  linuxPackages_cachyos-lto = cachyosPackages.cachyos-lto;
-  linuxPackages_cachyos-lto-znver4 = cachyosPackages.cachyos-lto-znver4;
-  linuxPackages_cachyos-gcc = cachyosPackages.cachyos-gcc;
-  linuxPackages_cachyos-server = cachyosPackages.cachyos-server;
-  linuxPackages_cachyos-hardened = cachyosPackages.cachyos-hardened;
-  linuxPackages_cachyos-rc = cachyosPackages.cachyos-rc;
-  linuxPackages_cachyos-lts = cachyosPackages.cachyos-lts;
-
-  # the commit before https://github.com/NixOS/nixpkgs/commit/2dbc1128b3d1b2a80eb62607bf21f0f94f9b2d5f
-  zfs-latestCompatibleLinuxPackages = lib.pipe pkgs.linuxKernel.packages [
-    builtins.attrValues
-    (builtins.filter (
-      kPkgs:
-      (builtins.tryEval kPkgs).success
-      && kPkgs ? kernel
-      && kPkgs.kernel.pname == "linux"
-      && kPkgs.${pkgs.zfs.kernelModuleAttribute}.meta.broken != true
-    ))
-    (builtins.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)))
-    lib.last
-  ];
-  zfs_unstable-latestCompatibleLinuxPackages = lib.pipe pkgs.linuxKernel.packages [
-    builtins.attrValues
-    (builtins.filter (
-      kPkgs:
-      (builtins.tryEval kPkgs).success
-      && kPkgs ? kernel
-      && kPkgs.kernel.pname == "linux"
-      && kPkgs.${pkgs.zfs_unstable.kernelModuleAttribute}.meta.broken != true
-    ))
-    (builtins.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)))
-    lib.last
-  ];
 }
