@@ -123,7 +123,7 @@ Or, use variables from this repository in case I change them:
 |  | `drone-vault` | [drone-vault](https://docs.drone.io/configure/secrets/external/vault/) | 1.3.0 | Drone plugin for integrating with the Vault secrets manager |
 |  | `dump978` | [dump978](https://github.com/flightaware/dump978) | 10.2 | FlightAware's 978MHz UAT demodulator |
 |  | `edge-tts` | [edge-tts](https://github.com/rany2/edge-tts) | 7.2.7 | Use Microsoft Edge's online text-to-speech service from Python WITHOUT needing Microsoft Edge or Windows or an API key |
-|  | `ela-widget-tools` | [ela-widget-tools](https://github.com/Liniyous/ElaWidgetTools) | 0-unstable-2025-12-12 | Fluent-UI For QT-Widget |
+|  | `ela-widget-tools` | [ela-widget-tools](https://github.com/Liniyous/ElaWidgetTools) | 0-unstable-2025-12-15 | Fluent-UI For QT-Widget |
 |  | `electron_11` | [electron](https://github.com/electron/electron) | 11.5.0 | Cross platform desktop application shell |
 |  | `env-dedup` | [env-dedup](https://github.com/alexjp/env-dedup) | 0-unstable-2025-09-06 | Deduplicate the environment variables values |
 |  | `etherguard` | [etherguard](https://github.com/KusakabeShi/EtherGuard-VPN) | 0.3.5-f5 | Layer 2 version of WireGuard with Floyd Warshall implementation in Go |
@@ -135,7 +135,7 @@ Or, use variables from this repository in case I change them:
 |  | `flaresolverr-alexfozor` | [flaresolverr-alexfozor](https://github.com/AlexFozor/FlareSolverr) | 0-unstable-2024-08-04 | Proxy server to bypass Cloudflare protection, with AlexFozor modifications to support Drission Page |
 |  | `fr24feed` | [fr24feed](https://www.flightradar24.com/share-your-data) | 1.0.54-0 | Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with Flightradar24 |
 |  | `ftp-proxy` | [ftp-proxy](http://www.ftpproxy.org/) | 1.2.3 | FTP Proxy Server |
-|  | `funasr` | [funasr](https://www.funasr.com/) | 0-unstable-2025-12-14 | Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models |
+|  | `funasr` | [funasr](https://www.funasr.com/) | 0-unstable-2025-12-16 | Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models |
 |  | `geolite2` | [geolite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) | 2025.12.13 | MaxMind's GeoIP2 GeoLite2 Country, City, and ASN databases |
 |  | `glauth` | [glauth](https://github.com/glauth/glauth) | 2.4.0 | Lightweight LDAP server for development, home use, or CI |
 | `x86_64-linux` | `google-earth-pro` | [google-earth-pro](https://www.google.com/earth/) | 7.3.6.10441 | World sphere viewer |
@@ -210,7 +210,7 @@ Or, use variables from this repository in case I change them:
 |  | `pyosmocom` | [pyosmocom](https://gitea.osmocom.org/osmocom/pyosmocom) | 0-unstable-2025-11-07 | Python implementation of key Osmocom protocols/interfaces |
 |  | `pysctp` | [pysctp](https://github.com/p1sec/pysctp) | 0.7.2 | SCTP stack for Python |
 |  | `pytorch-wpe` | [pytorch-wpe](https://github.com/nttcslab-sp/dnn_wpe) | 0.0.1 | WPE implementation using PyTorch |
-|  | `qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 10.1.2+ds-1 | Generic and open source machine emulator and virtualizer |
+|  | `qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 10.2.0~rc1+ds-1 | Generic and open source machine emulator and virtualizer |
 |  | `qq` | [qq](https://im.qq.com/linuxqq/index.html) | 3.2.18 | Desktop client for QQ on Linux |
 | `x86_64-linux` | `qqmusic` | [qqmusic](https://y.qq.com/) | 1.1.8 | Tencent QQ Music |
 |  | `qqsp` | [qqsp](https://github.com/Sonnix1/Qqsp) | 1.9 | QT Quest Soft Player is a interactive fiction stories and games player (compatible fork of qsp.su) |
@@ -289,99 +289,81 @@ Or, use variables from this repository in case I change them:
 
 
 <details>
-<summary>Package set: asteriskDigiumCodecs (93 packages)</summary>
+<summary>Package set: asteriskDigiumCodecs (75 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
 | `x86_64-linux` | `asteriskDigiumCodecs.10.g729a` | [asterisk-10-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.5 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.10.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.10.silk` | [asterisk-10-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.0 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.10.siren14` | [asterisk-10-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.5 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.10.siren7` | [asterisk-10-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.5 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.11.g729a` | [asterisk-11-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.9 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.11.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.11.silk` | [asterisk-11-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.11.siren14` | [asterisk-11-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.7 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.11.siren7` | [asterisk-11-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.7 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.12.g729a` | [asterisk-12-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.7 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.12.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.12.silk` | [asterisk-12-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.12.siren14` | [asterisk-12-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.5 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.12.siren7` | [asterisk-12-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.5 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.13.g729a` | [asterisk-13-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.10 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.13.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.13.opus` | [asterisk-13-codec-opus](https://downloads.digium.com/pub/telephony/codec_opus/) | 1.3.0 | Asterisk opus Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.13.silk` | [asterisk-13-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.13.siren14` | [asterisk-13-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.7 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.13.siren7` | [asterisk-13-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.7 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.14.g729a` | [asterisk-14-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.9 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.14.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.14.opus` | [asterisk-14-codec-opus](https://downloads.digium.com/pub/telephony/codec_opus/) | 1.3.0 | Asterisk opus Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.14.silk` | [asterisk-14-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.14.siren14` | [asterisk-14-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.7 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.14.siren7` | [asterisk-14-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.7 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.15.g729a` | [asterisk-15-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.9 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.15.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.15.opus` | [asterisk-15-codec-opus](https://downloads.digium.com/pub/telephony/codec_opus/) | 1.3.0 | Asterisk opus Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.15.silk` | [asterisk-15-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.15.siren14` | [asterisk-15-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.7 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.15.siren7` | [asterisk-15-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.7 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.16.g729a` | [asterisk-16-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.10 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.16.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.16.opus` | [asterisk-16-codec-opus](https://downloads.digium.com/pub/telephony/codec_opus/) | 1.3.0 | Asterisk opus Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.16.silk` | [asterisk-16-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.16.siren14` | [asterisk-16-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.7 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.16.siren7` | [asterisk-16-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.7 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.17.g729a` | [asterisk-17-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.9 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.17.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.17.opus` | [asterisk-17-codec-opus](https://downloads.digium.com/pub/telephony/codec_opus/) | 1.3.0 | Asterisk opus Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.17.silk` | [asterisk-17-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.17.siren14` | [asterisk-17-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.7 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.17.siren7` | [asterisk-17-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.7 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.18.g729a` | [asterisk-18-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.10 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.18.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.18.opus` | [asterisk-18-codec-opus](https://downloads.digium.com/pub/telephony/codec_opus/) | 1.3.0 | Asterisk opus Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.18.silk` | [asterisk-18-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.18.siren14` | [asterisk-18-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.7 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.18.siren7` | [asterisk-18-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.7 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.19.g729a` | [asterisk-19-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.10 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.19.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.19.opus` | [asterisk-19-codec-opus](https://downloads.digium.com/pub/telephony/codec_opus/) | 1.3.0 | Asterisk opus Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.19.silk` | [asterisk-19-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.19.siren14` | [asterisk-19-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.7 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.19.siren7` | [asterisk-19-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.7 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.1_4.g729a` | [asterisk-1.4-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.5 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.1_4.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.1_6_2_0.g729a` | [asterisk-1.6.2.0-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.5 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.1_6_2_0.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.1_6_2_0.siren14` | [asterisk-1.6.2.0-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.5 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.1_6_2_0.siren7` | [asterisk-1.6.2.0-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.5 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.1_8_0.g729a` | [asterisk-1.8.0-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.6 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.1_8_0.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.1_8_0.siren14` | [asterisk-1.8.0-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.5 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.1_8_0.siren7` | [asterisk-1.8.0-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.5 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.1_8_4.g729a` | [asterisk-1.8.4-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.8 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.1_8_4.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.20.g729a` | [asterisk-20-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.10 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.20.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.20.opus` | [asterisk-20-codec-opus](https://downloads.digium.com/pub/telephony/codec_opus/) | 1.3.0 | Asterisk opus Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.20.silk` | [asterisk-20-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.20.siren14` | [asterisk-20-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.7 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.20.siren7` | [asterisk-20-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.7 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.21.g729a` | [asterisk-21-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.10 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.21.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.21.opus` | [asterisk-21-codec-opus](https://downloads.digium.com/pub/telephony/codec_opus/) | 1.3.0 | Asterisk opus Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.21.silk` | [asterisk-21-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.21.siren14` | [asterisk-21-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.7 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.21.siren7` | [asterisk-21-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.7 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.22.g729a` | [asterisk-22-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.10 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.22.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.22.opus` | [asterisk-22-codec-opus](https://downloads.digium.com/pub/telephony/codec_opus/) | 1.3.0 | Asterisk opus Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.22.silk` | [asterisk-22-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.22.siren14` | [asterisk-22-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.7 | Asterisk siren14 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.22.siren7` | [asterisk-22-codec-siren7](https://downloads.digium.com/pub/telephony/codec_siren7/) | 1.0.7 | Asterisk siren7 Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.23.g729a` | [asterisk-23-codec-g729a](https://downloads.digium.com/pub/telephony/codec_g729a/) | 3.1.10 | Asterisk g729a Codec by Digium |
-|  | `asteriskDigiumCodecs.23.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `asteriskDigiumCodecs.23.opus` | [asterisk-23-codec-opus](https://downloads.digium.com/pub/telephony/codec_opus/) | 1.3.0 | Asterisk opus Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.23.silk` | [asterisk-23-codec-silk](https://downloads.digium.com/pub/telephony/codec_silk/) | 1.0.3 | Asterisk silk Codec by Digium |
 | `x86_64-linux` | `asteriskDigiumCodecs.23.siren14` | [asterisk-23-codec-siren14](https://downloads.digium.com/pub/telephony/codec_siren14/) | 1.0.7 | Asterisk siren14 Codec by Digium |
@@ -430,11 +412,11 @@ Or, use variables from this repository in case I change them:
 | ----- | ---- | ---- | ------- | ----------- |
 | `x86_64-linux` | `lantianCustomized.asterisk` | [asterisk](https://www.asterisk.org/) | 20.17.0 | Asterisk with Lan Tian modifications |
 |  | `lantianCustomized.attic-telnyx-compatible` | [attic](https://github.com/zhaofengli/attic) | 0-unstable-2025-09-24 | Multi-tenant Nix Binary Cache |
-|  | `lantianCustomized.coredns` | [coredns](https://github.com/xddxdd/coredns) | 1.13.1 | CoreDNS with Lan Tian's modifications |
+|  | `lantianCustomized.coredns` | [coredns](https://github.com/xddxdd/coredns) | 1.13.2 | CoreDNS with Lan Tian's modifications |
 |  | `lantianCustomized.ffmpeg` | [ffmpeg](https://www.ffmpeg.org/) | 8.0 | FFmpeg with Lan Tian modifications |
 |  | `lantianCustomized.firefox-icon-mikozilla-fireyae` | [firefox-icon-mikozilla-fireyae](https://www.reddit.com/r/Genshin_Impact/comments/x73g4p/mikozilla_fireyae/) |  | Custom icon "Mikozilla Fireyae" for Firefox |
 |  | `lantianCustomized.librime-with-plugins` | [librime](https://rime.im/) | 1.15.0 | Librime with plugins (librime-charcode, librime-lua, librime-octagram, librime-proto) |
-|  | `lantianCustomized.llama-cpp` | [llama-cpp](https://github.com/ggml-org/llama.cpp) | 7402 | Inference of Meta's LLaMA model (and others) in pure C/C++ |
+|  | `lantianCustomized.llama-cpp` | [llama-cpp](https://github.com/ggml-org/llama.cpp) | 7411 | Inference of Meta's LLaMA model (and others) in pure C/C++ |
 |  | `lantianCustomized.ls-iommu` | [ls-iommu](https://gist.github.com/r15ch13/ba2d738985fce8990a4e9f32d07c6ada) | 1.0 | List IOMMUs on system |
 |  | `lantianCustomized.materialgram` | [materialgram](https://kukuruzka165.github.io/materialgram/) | 6.2.3.1 | Telegram Desktop fork with material icons and some improvements (Without anti-features) |
 |  | `lantianCustomized.nbfc-linux` | [nbfc-linux-lantian](https://github.com/xddxdd/nbfc-linux) | 0-unstable-2022-06-13 | NoteBook FanControl ported to Linux (with Lan Tian's modifications) |
@@ -462,7 +444,7 @@ Or, use variables from this repository in case I change them:
 </details>
 
 <details>
-<summary>Package set: nvidia-grid (204 packages)</summary>
+<summary>Package set: nvidia-grid (200 packages)</summary>
 
 | State | Path | Name | Version | Description |
 | ----- | ---- | ---- | ------- | ----------- |
@@ -516,7 +498,6 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `nvidia-grid.grid.19_2` | [nvidia-x11-580.95.05-6.12.62](https://www.nvidia.com/object/unix.html) | 580.95.05 | NVIDIA vGPU guest driver (GRID driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.grid.19_3` | [nvidia-x11-580.105.08-6.12.62](https://www.nvidia.com/object/unix.html) | 580.105.08 | NVIDIA vGPU guest driver (GRID driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.grid.9_2` | [nvidia-x11-430.63-6.12.62](https://www.nvidia.com/object/unix.html) | 430.63 | NVIDIA vGPU guest driver (GRID driver, experimental package) |
-|  | `nvidia-grid.grid.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `nvidia-grid.guest.11_8` | [nvidia-x11-450.191.01-6.12.62](https://www.nvidia.com/object/unix.html) | 450.191.01 | NVIDIA vGPU guest driver (GRID driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.guest.12_4` | [nvidia-x11-460.106.00-6.12.62](https://www.nvidia.com/object/unix.html) | 460.106.00 | NVIDIA vGPU guest driver (GRID driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.guest.13_0` | [nvidia-x11-470.63.01-6.12.62](https://www.nvidia.com/object/unix.html) | 470.63.01 | NVIDIA vGPU guest driver (GRID driver, experimental package) |
@@ -567,7 +548,6 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `nvidia-grid.guest.19_2` | [nvidia-x11-580.95.05-6.12.62](https://www.nvidia.com/object/unix.html) | 580.95.05 | NVIDIA vGPU guest driver (GRID driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.guest.19_3` | [nvidia-x11-580.105.08-6.12.62](https://www.nvidia.com/object/unix.html) | 580.105.08 | NVIDIA vGPU guest driver (GRID driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.guest.9_2` | [nvidia-x11-430.63-6.12.62](https://www.nvidia.com/object/unix.html) | 430.63 | NVIDIA vGPU guest driver (GRID driver, experimental package) |
-|  | `nvidia-grid.guest.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `nvidia-grid.host.11_8` | [nvidia-x11-450.191-6.12.62](https://www.nvidia.com/object/unix.html) | 450.191 | NVIDIA vGPU host driver (vGPU-KVM driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.host.12_4` | [nvidia-x11-460.107-6.12.62](https://www.nvidia.com/object/unix.html) | 460.107 | NVIDIA vGPU host driver (vGPU-KVM driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.host.13_0` | [nvidia-x11-470.63-6.12.62](https://www.nvidia.com/object/unix.html) | 470.63 | NVIDIA vGPU host driver (vGPU-KVM driver, experimental package) |
@@ -618,7 +598,6 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `nvidia-grid.host.19_2` | [nvidia-x11-580.95.02-6.12.62](https://www.nvidia.com/object/unix.html) | 580.95.02 | NVIDIA vGPU host driver (vGPU-KVM driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.host.19_3` | [nvidia-x11-580.105.06-6.12.62](https://www.nvidia.com/object/unix.html) | 580.105.06 | NVIDIA vGPU host driver (vGPU-KVM driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.host.9_2` | [nvidia-x11-430.67-6.12.62](https://www.nvidia.com/object/unix.html) | 430.67 | NVIDIA vGPU host driver (vGPU-KVM driver, experimental package) |
-|  | `nvidia-grid.host.inputDerivation` | inputDerivation-merged-packages |  |  |
 | `x86_64-linux` | `nvidia-grid.vgpu.11_8` | [nvidia-x11-450.191-6.12.62](https://www.nvidia.com/object/unix.html) | 450.191 | NVIDIA vGPU host driver (vGPU-KVM driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.vgpu.12_4` | [nvidia-x11-460.107-6.12.62](https://www.nvidia.com/object/unix.html) | 460.107 | NVIDIA vGPU host driver (vGPU-KVM driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.vgpu.13_0` | [nvidia-x11-470.63-6.12.62](https://www.nvidia.com/object/unix.html) | 470.63 | NVIDIA vGPU host driver (vGPU-KVM driver, experimental package) |
@@ -669,7 +648,6 @@ Or, use variables from this repository in case I change them:
 | `x86_64-linux` | `nvidia-grid.vgpu.19_2` | [nvidia-x11-580.95.02-6.12.62](https://www.nvidia.com/object/unix.html) | 580.95.02 | NVIDIA vGPU host driver (vGPU-KVM driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.vgpu.19_3` | [nvidia-x11-580.105.06-6.12.62](https://www.nvidia.com/object/unix.html) | 580.105.06 | NVIDIA vGPU host driver (vGPU-KVM driver, experimental package) |
 | `x86_64-linux` | `nvidia-grid.vgpu.9_2` | [nvidia-x11-430.67-6.12.62](https://www.nvidia.com/object/unix.html) | 430.67 | NVIDIA vGPU host driver (vGPU-KVM driver, experimental package) |
-|  | `nvidia-grid.vgpu.inputDerivation` | inputDerivation-merged-packages |  |  |
 </details>
 
 <details>
@@ -1027,7 +1005,7 @@ Or, use variables from this repository in case I change them:
 |  | `python3Packages.download-kit` | [download-kit](https://github.com/g1879/DownloadKit) | 2.0.7 | Simple to use multi-threaded download toolkit |
 |  | `python3Packages.drission-page` | [drission-page](https://github.com/g1879/DrissionPage) | 4.1.1.2 | Python based web automation tool |
 |  | `python3Packages.edge-tts` | [edge-tts](https://github.com/rany2/edge-tts) | 7.2.7 | Use Microsoft Edge's online text-to-speech service from Python WITHOUT needing Microsoft Edge or Windows or an API key |
-|  | `python3Packages.funasr` | [funasr](https://www.funasr.com/) | 0-unstable-2025-12-14 | Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models |
+|  | `python3Packages.funasr` | [funasr](https://www.funasr.com/) | 0-unstable-2025-12-16 | Fundamental End-to-End Speech Recognition Toolkit and Open Source SOTA Pretrained Models |
 |  | `python3Packages.kaldiio` | [kaldiio](https://github.com/nttcslab-sp/kaldiio) | 2.18.1 | Pure python module for reading and writing kaldi ark files |
 |  | `python3Packages.loralib` | [loralib](https://arxiv.org/abs/2106.09685) | 0-unstable-2024-12-16 | Implementation of "LoRA: Low-Rank Adaptation of Large Language Models" |
 |  | `python3Packages.modelscope` | [modelscope](https://www.modelscope.cn/) | 1.33.0 | Bring the notion of Model-as-a-Service to life |
@@ -1098,7 +1076,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.drone-file-secret` | [drone-file-secret](https://github.com/xddxdd/drone-file-secret) | 0-unstable-2023-06-25 | Secret provider for Drone CI that reads secrets from a given folder |
 |  | `uncategorized.drone-vault` | [drone-vault](https://docs.drone.io/configure/secrets/external/vault/) | 1.3.0 | Drone plugin for integrating with the Vault secrets manager |
 |  | `uncategorized.dump978` | [dump978](https://github.com/flightaware/dump978) | 10.2 | FlightAware's 978MHz UAT demodulator |
-|  | `uncategorized.ela-widget-tools` | [ela-widget-tools](https://github.com/Liniyous/ElaWidgetTools) | 0-unstable-2025-12-12 | Fluent-UI For QT-Widget |
+|  | `uncategorized.ela-widget-tools` | [ela-widget-tools](https://github.com/Liniyous/ElaWidgetTools) | 0-unstable-2025-12-15 | Fluent-UI For QT-Widget |
 |  | `uncategorized.electron_11` | [electron](https://github.com/electron/electron) | 11.5.0 | Cross platform desktop application shell |
 |  | `uncategorized.env-dedup` | [env-dedup](https://github.com/alexjp/env-dedup) | 0-unstable-2025-09-06 | Deduplicate the environment variables values |
 |  | `uncategorized.etherguard` | [etherguard](https://github.com/KusakabeShi/EtherGuard-VPN) | 0.3.5-f5 | Layer 2 version of WireGuard with Floyd Warshall implementation in Go |
@@ -1171,7 +1149,7 @@ Or, use variables from this repository in case I change them:
 |  | `uncategorized.plasma-yesplaymusic-lyric` | [plasma-yesplaymusic-lyric](https://github.com/zsiothsu/org.kde.plasma.yesplaymusic-lyrics) | 0.2.3-unstable-2025-01-07 | Display YesPlayMusic lyrics on the plasma panel | 在KDE plasma面板中显示YesPlayMusic的歌词 |
 |  | `uncategorized.pterodactyl-wings` | [pterodactyl-wings](https://pterodactyl.io) | 1.11.13-unstable-2025-11-01 | Server control plane for Pterodactyl Panel |
 |  | `uncategorized.pyhss` | [pyhss](https://github.com/nickvsnetworking/pyhss) | 1.0.2-unstable-2025-04-03 | Python HSS / Diameter Server |
-|  | `uncategorized.qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 10.1.2+ds-1 | Generic and open source machine emulator and virtualizer |
+|  | `uncategorized.qemu-user-static` | [qemu-user-static](http://www.qemu.org/) | 10.2.0~rc1+ds-1 | Generic and open source machine emulator and virtualizer |
 |  | `uncategorized.qq` | [qq](https://im.qq.com/linuxqq/index.html) | 3.2.18 | Desktop client for QQ on Linux |
 | `x86_64-linux` | `uncategorized.qqmusic` | [qqmusic](https://y.qq.com/) | 1.1.8 | Tencent QQ Music |
 |  | `uncategorized.qqsp` | [qqsp](https://github.com/Sonnix1/Qqsp) | 1.9 | QT Quest Soft Player is a interactive fiction stories and games player (compatible fork of qsp.su) |
