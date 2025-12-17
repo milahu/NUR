@@ -228,6 +228,7 @@ in
 
     # Configuration
     home.sessionVariables = {
+      ADD_WORDS_WORDLIST_PATH = ./assets/words.txt;
       ANSIBLE_NOCOWS = "🐄"; # Workaround for ansible/ansible#10530
       PYTHON_KEYRING_BACKEND = "keyring.backends.fail.Keyring"; # Workaround for python-poetry/poetry#8761
       UV_PYTHON_DOWNLOADS = "never";

@@ -3,26 +3,28 @@ resolved: stable:
 with import ./library/override-utils.lib.nix { inherit stable; nur = ./nur.nix; search = [ "unstable" "unstable-small" ]; };
 
 let
+  inherit (lib) findFirst hasInfix makeBinPath recursiveUpdate throwIf versionAtLeast versionOlder;
+  inherit (stable) fetchurl lib;
+
   community-vscode-extensions = (import <community-vscode-extensions>).extensions.${stable.stdenv.hostPlatform.system}.forVSCodeVersion resolved.vscodium.version;
   open-vsx = { _name = "open-vsx"; vscode-extensions = community-vscode-extensions.open-vsx; };
   vscode-marketplace = { _name = "vscode-marketplace"; vscode-extensions = community-vscode-extensions.vscode-marketplace; };
 in
 specify {
   add-words = any;
-  aegisub.overlay = a: stable.lib.throwIf (a.version != "3.4.2") "aegisub overlay is outdated" {
+  aegisub.overlay = a: throwIf (a.version != "3.4.2") "aegisub overlay is outdated" {
     version = "3.4.2-unstable-2025-12-01";
     src = a.src.override (_: { tag = null; rev = "1ad6844de46159a7db66da163992ddd598e1b9c7"; hash = "sha256-70qIs/MASVtQHl2580C3iv9Do2G9JNptGnpjk765L7A="; });
     postPatch = a.postPatch + "patchShebangs 'tools/combine-config.py'";
   }; # Pending TypesettingTools/Aegisub#309 via ≥3.5
   affine-font = any;
   album-art = any;
-  ansible-lint.overlay = a: { meta = a.meta // { broken = stable.lib.versionOlder (stable.lib.findFirst (p: p.pname == "ansible-compat") null a.passthru.dependencies).version "25.8"; }; }; # NixOS/nixpkgs#460422
+  ansible-lint.overlay = a: recursiveUpdate a { meta.broken = versionOlder (findFirst (p: p.pname == "ansible-compat") null a.passthru.dependencies).version "25.8"; }; # NixOS/nixpkgs#460422
   ansible-vault-pass-client = any;
   apex = any;
   attachments = any;
   aws-sam-cli = { version = "≠1.143.0"; search = pin "e6f23dc08d3624daab7094b701aa3954923c6bbb" "sha256-3a7Tha/RwYlzH/v3PJrG7+HjOj4c6YOv2K8sqdGsHVQ="; }; # Pending NixOS/nixpkgs#459334
   blocky-ui = any;
-  buildJosmPlugin = any;
   busyserve = any;
   cavif = any;
   ch57x-keyboard-tool = any;
@@ -47,17 +49,16 @@ specify {
   gopass-env = any;
   gopass-ydotool = any;
   gpx-reduce = any;
-  graalvmPackages.graaljs.overlay = g: stable.lib.throwIf (stable.lib.hasInfix "jvm" g.src.url) "graaljs no longer requires an overlay" { src = stable.fetchurl { url = builtins.replaceStrings [ "community" ] [ "community-jvm" ] g.src.url; hash = ({ "24.2.2" = "sha256-LDuMh4hhJSbKb8m5DSH8/tcb8rxiRG6FKS5okcUn2JY="; }).${g.version}; }; buildInputs = g.buildInputs ++ stable.graalvmPackages.graalvm-ce.buildInputs; }; # https://discourse.nixos.org/t/36314
-  graalvmPackages.graalvm-ce.overlay = g: stable.lib.throwIf (stable.lib.hasInfix "font" g.preFixup) "graalvm-ce no longer requires an overlay" { preFixup = g.preFixup + "\nfind \"$out\" -name libfontmanager.so -exec patchelf --add-needed libfontconfig.so {} \\;"; }; # Workaround for https://github.com/NixOS/nixpkgs/pull/215583#issuecomment-1615369844
+  graalvmPackages.graaljs.overlay = g: throwIf (hasInfix "jvm" g.src.url) "graaljs no longer requires an overlay" { src = fetchurl { url = builtins.replaceStrings [ "community" ] [ "community-jvm" ] g.src.url; hash = ({ "24.2.2" = "sha256-LDuMh4hhJSbKb8m5DSH8/tcb8rxiRG6FKS5okcUn2JY="; }).${g.version}; }; buildInputs = g.buildInputs ++ stable.graalvmPackages.graalvm-ce.buildInputs; }; # https://discourse.nixos.org/t/36314
+  graalvmPackages.graalvm-ce.overlay = g: throwIf (hasInfix "font" g.preFixup) "graalvm-ce no longer requires an overlay" { preFixup = g.preFixup + "\nfind \"$out\" -name libfontmanager.so -exec patchelf --add-needed libfontconfig.so {} \\;"; }; # Workaround for https://github.com/NixOS/nixpkgs/pull/215583#issuecomment-1615369844
   htop.patch = ./library/assets/htop_colors.patch; # htop-dev/htop#1416
   inkscape = { patch = ./library/assets/inkscape_png-no-comment.patch; ccache = true; dontEval = true /* FIXME: infinite recursion */; }; # Pending inkscape/inkscape!7193
-  inkscape-extensions.applytransforms = { overlay = a: { meta = a.meta // { broken = stable.lib.versionAtLeast (stable.lib.findFirst (p: p ? pname && p.pname == "libxml2") null (stable.lib.findFirst (p: p.pname == "lxml") null (stable.lib.findFirst (p: p.pname == "inkex") null a.nativeCheckInputs).passthru.dependencies).nativeBuildInputs).version "2.15"; }; }; search = pin "55d3fa58ff9642d799d7489a7f8b0c218723fe07" "sha256-YzAIb9sYIujKmezFvAsyi6bXjqBWfcm3XY5kvQ3GDjM="; }; # Workaround for inkscape/extensions#617 (https://hydra.nixos.org/build/314374425)
+  inkscape-extensions.applytransforms = { overlay = a: recursiveUpdate a { meta.broken = versionAtLeast (findFirst (p: p ? pname && p.pname == "libxml2") null (findFirst (p: p.pname == "lxml") null (findFirst (p: p.pname == "inkex") null a.nativeCheckInputs).passthru.dependencies).nativeBuildInputs).version "2.15"; }; search = pin "55d3fa58ff9642d799d7489a7f8b0c218723fe07" "sha256-YzAIb9sYIujKmezFvAsyi6bXjqBWfcm3XY5kvQ3GDjM="; }; # Workaround for inkscape/extensions#617 (https://hydra.nixos.org/build/314374425)
   ios-safari-remote-debug-kit = any;
   ios-webkit-debug-proxy = any;
   iosevka-custom = any;
   iptables_exporter = any;
   jj-dynamic-default-description = any;
-  jjui = { version = "≠0.9.7"; search = pin "5ae3b07d8d6527c42f17c876e404993199144b6a" "sha256-6eeL1YPcY1MV3DDStIDIdy/zZCDKgHdkCmsrLJFiZf0="; }; # idursun/jjui#413
   josm = { jre = resolved.graalvmPackages.graalvm-ce; extraJavaOpts = "--module-path=${resolved.graalvmPackages.graaljs}/modules"; }; # josm-scripting-plugin
   josm-imagery-used = any;
   jujutsu.version = "≥0.36";
@@ -75,7 +76,7 @@ specify {
   nom-wrappers = any;
   off = any;
   pdfalyzer = any;
-  picard.overlay = p: { preFixup = p.preFixup + "\nmakeWrapperArgs+=(--prefix PATH : ${stable.lib.makeBinPath [ resolved.rsgain ]})"; }; # NixOS/nixpkgs#255222
+  picard.overlay = p: { preFixup = p.preFixup + "\nmakeWrapperArgs+=(--prefix PATH : ${makeBinPath [ resolved.rsgain ]})"; }; # NixOS/nixpkgs#255222
   pngquant-interactive = any;
   signal-desktop.args = [ "--use-tray-icon" ];
   spf-check = any;

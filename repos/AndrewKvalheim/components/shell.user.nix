@@ -8,6 +8,9 @@ let
   inherit (pkgs.writers) writeTOML;
   inherit (import ../library/utilities.lib.nix { inherit lib; }) sgr tryEscapeShellArgs;
 
+  zsh-complete-git-commit-message = toFile "zsh-complete-git-commit-message" (readFile ./assets/complete-git-commit-message.zsh);
+  zsh-starship-issue-4205 = toFile "zsh-starship-issue-4205" (readFile ./assets/starship-issue-4205.zsh);
+
   toAbbrs = kv: concatLines (mapAttrsToList (k: v: "abbr ${k}=${escapeShellArg v}") kv);
   toKeybinds = kv: concatLines (mapAttrsToList (k: v: "bindkey ${escapeShellArg v} ${escapeShellArg k}") kv);
   toStyles = a: concatLines (mapAttrsToListRecursive (p: v: "zstyle ${escapeShellArg (concatStringsSep ":" ([ "" ] ++ init p))} ${escapeShellArg (last p)} ${tryEscapeShellArgs (toList v)}") a);
@@ -256,10 +259,12 @@ in
       WORDCHARS = "_.~;!#$%^";
     };
 
-    initContent = with pkgs; let completion = 550; default = 1000; in mkMerge [
+    initContent = with pkgs; let completions = mkOrder 550; main = mkOrder 1000; in mkMerge [
       # Completions
-      (mkOrder completion "fpath+=(${zsh-completions}/src)")
-      (mkOrder completion (toStyles {
+      (completions "fpath+=(${zsh-completions}/src)")
+      (completions "source ${zsh-complete-git-commit-message}")
+      (completions "source ${zsh-completion-sync}/share/zsh-completion-sync/zsh-completion-sync.plugin.zsh") # Workaround for direnv/direnv#443
+      (completions (toStyles {
         completion."*" = {
           "*"."*"."*"."*".menu = "select";
           "*"."*".users.ignored-patterns = [ "gdm-*" "nixbld*" "nm-*" "systemd-*" ];
@@ -278,18 +283,23 @@ in
       }))
 
       # Main
-      (mkOrder default (readFile (replaceVars ./assets/init.zsh {
-        zsh-abbr = "${zsh-abbr}/share/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh";
-        zsh-click = "${zsh-click}/share/zsh/plugins/click/click.plugin.zsh";
-        zsh-complete-git-commit-message = toFile "zsh-complete-git-commit-message" (readFile ./assets/complete-git-commit-message.zsh);
-        zsh-completion-sync = "${zsh-completion-sync}/share/zsh-completion-sync/zsh-completion-sync.plugin.zsh";
-        zsh-prezto-terminal = "${zsh-prezto}/share/zsh-prezto/modules/terminal/init.zsh";
-        zsh-starship-issue-4205 = toFile "zsh-starship-issue-4205" (readFile ./assets/starship-issue-4205.zsh);
-        zsh-syntax-highlighting = "${zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
-      })))
+      (main "source ${zsh-abbr}/share/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh") # TODO: Troubleshoot programs.zsh.zsh-abbr, contribute solution
+      (main "source ${zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh") # TODO: Use programs.zsh.syntaxHighlighting
+      (main "source ${zsh-starship-issue-4205} # Workaround for starship/starship#4205")
+      (main "source ${zsh-prezto}/share/zsh-prezto/modules/terminal/init.zsh")
+      (main "source ${zsh-click}/share/zsh/plugins/click/click.plugin.zsh")
+      (main (toStyles {
+        prezto.module.terminal = {
+          auto-title = "yes";
+          multiplexer-title.format = "%1~";
+          tab-title.format = "%1~";
+          window-title.format = "%1~";
+        };
+      }))
+      (main (readFile ./assets/init.zsh))
 
       # Key bindings
-      (mkOrder default (toKeybinds {
+      (main (toKeybinds {
         backward-kill-word = "^H"; # Ctrl+Backspace
         backward-word = "\\e[1;5D"; # Ctrl+Left
         beginning-of-line = "\\e[H"; # Home

@@ -2,11 +2,12 @@
 
 let
   inherit (builtins) attrNames attrValues elemAt filter findFile functionArgs isAttrs isPath length mapAttrs match nixPath pathExists removeAttrs toJSON tryEval;
-  inherit (stable) callPackage fetchgit makeWrapper symlinkJoin;
-  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const defaultTo escapeShellArg findFirst genAttrs getAttrFromPath hasAttrByPath imap1 info last mapAttrsToList naturalSort optionals optionalAttrs optionalString partition recurseIntoAttrs showAttrPath throwIf toList versionAtLeast versionOlder warnIf;
+  inherit (stable) fetchgit makeWrapper symlinkJoin;
+  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const defaultTo escapeShellArg findFirst genAttrs getAttrFromPath hasAttrByPath imap1 info last mapAttrsToList naturalSort optionals optionalAttrs optionalString partition recurseIntoAttrs recursiveUpdate showAttrPath throwIf toList unique versionAtLeast versionOlder;
 
   # Utilities
   composeOverrides = f1: f2: a0: let o1 = f1 a0; o2 = f2 (a0 // o1); in o1 // o2;
+  ignoreLicense = p: (p.overrideAttrs (a: recursiveUpdate a { meta.license = [ ]; }));
   isEmpty = v: length (if isAttrs v then attrNames v else v) == 0;
   isFunctor = repo: path: (tryEval (hasAttrByPath (path ++ [ "__functor" ]) repo)).value;
   isLocal = r: isPath r || r._local or false;
@@ -24,11 +25,9 @@ let
     else throw "version operator not implemented: ${toJSON operator}");
 
   # Repositories
-  base = [ stable ] ++ (attrValues defaultExtra);
   defaultExtra = genAttrs resolvedSearch.right (name: mkRepo name (findFile nixPath name));
   mkNur = repo: (import nur { pkgs = repo; }) // { _local = true; _name = "NUR packages${optionalString (! repoEq repo stable) " using ${repoName repo}"}"; };
-  nurs = optionals (nur != null) (map mkNur base);
-  pin = rev: hash: mkRepo "pin ${rev}" (fetchgit { inherit hash rev; name = "nixpkgs-pin-${toString rev}"; url = "https://github.com/NixOS/nixpkgs.git"; });
+  pin = rev: hash: mkRepo "pin ${rev}" (fetchgit { inherit hash rev; name = "nixpkgs-pin-${rev}"; url = "https://github.com/NixOS/nixpkgs.git"; });
   pr = id: hash: mkRepo "PR #${toString id}" (fetchgit { inherit hash; name = "nixpkgs-pr-${toString id}"; url = "https://github.com/NixOS/nixpkgs.git"; rev = "refs/pull/${toString id}/head"; });
   resolvedSearch = partition (name: (tryEval (pathExists (findFile nixPath name))).value) search;
 
@@ -52,6 +51,7 @@ let
     , dontEval ? false
     , release ? null
     , search ? null
+    , target ? stable
     , version ? null
 
       # Package defaults
@@ -86,36 +86,39 @@ let
       # Package selection
       path = scope ++ [ pname ];
       fullName = showAttrPath path;
-      file = library + "/${fullName}.pkg.nix";
+      files = [ (library + "/${fullName}.local.pkg.nix") (library + "/${fullName}.pkg.nix") ];
       getVersion = r: if hasAttrByPath path r then (getAttrFromPath path r).version else null;
       findGreatest = predicate: default: candidates:
         let viable = filter predicate candidates; version = last (naturalSort (map getVersion viable)); in
         findFirst (r: getVersion r == version) default viable;
-      suffices = r:
-        let p = getAttrFromPath path r; p' = if overlay == null then p else p.overrideAttrs overlay; in
-        r != null
-        && hasAttrByPath path r
-        && (release == null || versionMeetsSpec r.lib.trivial.release release)
-        && (
-          (isFunctor r path || isScope r path || isSet r path)
-          || (
-            (tryEval p').success
-            && (! p'.meta.broken)
-            && (versionMeetsSpec p.version version)
-            && (condition == null || condition p)
-            && (dontEval || (tryEval p'.outPath).success)
-          )
-        );
+      packageSuffices = p:
+        let p' = if overlay == null then p else p.overrideAttrs overlay; in
+        (tryEval p').success
+        && (! (p' ? meta && p'.meta.broken))
+        && (versionMeetsSpec p.version version)
+        && (condition == null || condition p)
+        && (dontEval || ! p' ? outPath || (tryEval (ignoreLicense p').outPath).success);
+      repoSuffices = r: r != null && (
+        if isPath r then
+          (pathExists r)
+            && (release == null)
+            && (packageSuffices (target.callPackage r deps))
+        else
+          (hasAttrByPath path r)
+            && (release == null || versionMeetsSpec r.lib.trivial.release release)
+            && ((isFunctor r path || isScope r path || isSet r path) || (packageSuffices (getAttrFromPath path r)))
+      );
+      base = unique ([ target ] ++ (attrValues defaultExtra));
+      nurs = optionals (nur != null) (map mkNur base);
       extra = if search == null then [ ] else imap1 (i: s: { _extra = i; _name = "search"; } // s) (toList search);
-      repos = base ++ extra ++ nurs;
-      repo = (if version == "∞" then findGreatest else findFirst) suffices file repos;
+      repos = base ++ extra ++ nurs ++ files;
+      repo = (if version == "∞" then findGreatest else findFirst) repoSuffices null repos;
       ccacheStdenv = repo.ccacheStdenv.override { extraConfig = ccacheConfig; };
-      notFound = "${query} not found in ${concatMapStringsSep ", " repoName (repos ++ [repo])}${optionalString (length resolvedSearch.wrong > 0) " (Not searched: ${concatStringsSep ", " resolvedSearch.wrong})"}";
-      package =
-        if isPath repo then
-          throwIf (! pathExists repo) notFound
-            (callPackage repo deps)
-        else getAttrFromPath path repo;
+      notFound = "${query} not found in ${concatMapStringsSep ", " repoName repos}${optionalString (length resolvedSearch.wrong > 0) " (Not searched: ${concatStringsSep ", " resolvedSearch.wrong})"}";
+      package = throwIf (repo == null) notFound (
+        if isPath repo then target.callPackage repo deps
+        else getAttrFromPath path repo
+      );
 
       # Package overlay
       package_with_overlay =
@@ -163,16 +166,16 @@ let
         (optionalString (doOverlay || doOverride || doWrapper) " with override") +
         (optionalString (condition != null) " meeting condition") +
         (optionalString (! repoEq repo stable) " via ${repoName repo}");
-      unnecessary = (repoEq repo stable) && !doOverlay && !doOverride && !doWrapper && version != "∞";
-      unnecessaryFile = ! isLocal repo && pathExists file;
-      unnecessarySearches = concatMapStringsSep ", " repoName (filter (r: r._extra > repo._extra or 0) extra);
+      unnecessary = repo != null && (repoEq repo stable) && !doOverlay && !doOverride && !doWrapper && version != "∞";
+      unnecessaryFiles = concatStringsSep ", " (optionals (repo != null && ! isLocal repo) (filter pathExists files));
+      unnecessarySearches = concatMapStringsSep ", " repoName (filter (r: repo != null && r._extra > repo._extra or 0) extra);
     in
     if isScope repo path then
       (getAttrFromPath path stable).overrideScope (_: _: mapAttrs (resolve path) spec)
     else if recurseForDerivations || (isSet repo path) then
       (attrByPath path { } repo) // { recurseForDerivations = false; } // (mapAttrs (resolve path) spec)
     else
-      (throwIf unnecessaryFile "${query} no longer requires ${file}")
+      (throwIf (unnecessaryFiles != "") "${query} no longer requires ${unnecessaryFiles}")
         (throwIf (unnecessarySearches != "") "${query} no longer requires searching ${unnecessarySearches}")
         (throwIf unnecessary "${query} no longer requires an override")
         (info summary package_with_overlay_with_override_with_wrapper)

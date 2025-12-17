@@ -24,7 +24,7 @@ Options:
 
 ## Package specification
 
-### Requirements
+### Repository selection
 
 Search for any package named `hello`:
 
@@ -63,6 +63,14 @@ Search for a package from a specific release:
 ```nix
 specify {
   hello.release = "25.11";
+}
+```
+
+Target a repository other than `stable`:
+
+```nix
+specify {
+  hello.target = unstable;
 }
 ```
 
