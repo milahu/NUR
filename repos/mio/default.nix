@@ -58,6 +58,9 @@ let
             # staging-next 20251116
             "sha256-KvikafRYPFZ0xCXqDdji1rxlkThEDEOHycK8GP5e8vk=:1.25.4" =
               "sha256-cZLVVKeEoSO4im0wGJfwzpAknPs2WFFJpTtDMcaGwhk=";
+            # nixos-25.11 20251218
+            "sha256-KvikafRYPFZ0xCXqDdji1rxlkThEDEOHycK8GP5e8vk=:1.25.5" =
+              "sha256-rNeWnktP6HU+tT10hT6q/ZcIJeJmtu7VFhcXrgcFflM=";
           };
           srcHash = pkgs.caddy.src.outputHash;
           goVersion = pkgs.caddy.passthru.go.version;
@@ -133,7 +136,7 @@ let
           cb
           beammp-launcher
           mdbook-generate-summary
-          #betterbird
+          betterbird
           jellyfin-media-player
           eden
           ;
