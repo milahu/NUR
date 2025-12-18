@@ -26,6 +26,7 @@ specify {
   aws-sam-cli = { version = "≠1.143.0"; search = pin "e6f23dc08d3624daab7094b701aa3954923c6bbb" "sha256-3a7Tha/RwYlzH/v3PJrG7+HjOj4c6YOv2K8sqdGsHVQ="; }; # Pending NixOS/nixpkgs#459334
   blocky-ui = any;
   busyserve = any;
+  caddy-with-route53 = any;
   cavif = any;
   ch57x-keyboard-tool = any;
   chromium.commandLineArgs = "--enable-features=WaylandTextInputV3"; # Pending https://crbug.com/40272818, NixOS/nixpkgs#394395
@@ -78,6 +79,8 @@ specify {
   pdfalyzer = any;
   picard.overlay = p: { preFixup = p.preFixup + "\nmakeWrapperArgs+=(--prefix PATH : ${makeBinPath [ resolved.rsgain ]})"; }; # NixOS/nixpkgs#255222
   pngquant-interactive = any;
+  pythonPackages.busylight-core.patch = ./library/assets/busylight-core_led-mask.patch;
+  pythonPackages.busylight-for-humans.patch = ./library/assets/busylight-for-humans_fix-speed.patch; # Pending ≥0.45.3
   signal-desktop.args = [ "--use-tray-icon" ];
   spf-check = any;
   spf-tree = any;
@@ -111,6 +114,7 @@ specify {
     sysoev.language-stylus.search = open-vsx;
     theaflowers.qalc.search = open-vsx;
     volkerdobler.insertnums.search = open-vsx;
+    webfreak.advanced-local-formatters.search = open-vsx;
     ybaumes.highlight-trailing-white-spaces.search = open-vsx;
   };
   whipper.patch = [ ./library/assets/whipper_flac-level.patch ./library/assets/whipper_speed.patch ./library/assets/whipper_detect-tty.patch ];

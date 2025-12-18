@@ -1,7 +1,7 @@
 { pkgs }:
 
 let
-  inherit (lib) findFirst warnIfNot;
+  inherit (lib) findFirst recursiveUpdate versionOlder warnIfNot;
   inherit (pkgs) callPackage lib;
 in
 # Published as nur.repos.AndrewKvalheim (https://nur.nix-community.org/repos/andrewkvalheim/)
@@ -32,6 +32,10 @@ rec {
   blocky-ui = callPackage ./library/blocky-ui.pkg.nix { };
   buildJosmPlugin = callPackage ./library/buildJosmPlugin.fn.nix { };
   busyserve = (callPackage ./library/busyserve.pkg.nix { });
+  caddy-with-route53 = (pkgs.caddy.withPlugins {
+    plugins = [ "github.com/caddy-dns/route53@v1.6.0" ];
+    hash = "sha256-C2Lw70hze+nCKX4qPl1JCm/wcD7hNP2imCrTtkkj8U8=";
+  }).overrideAttrs (c: recursiveUpdate c { meta.broken = versionOlder pkgs.go.version "1.25.5"; /* Pending NixOS/nixpkgs#467201 */ });
   cavif = callPackage ./library/cavif.pkg.nix { };
   ch57x-keyboard-tool = callPackage ./library/ch57x-keyboard-tool.pkg.nix { };
   co2monitor = callPackage ./library/co2monitor.pkg.nix { };

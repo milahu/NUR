@@ -97,6 +97,7 @@ in
         theaflowers.qalc
         timonwong.shellcheck
         volkerdobler.insertnums
+        webfreak.advanced-local-formatters
         xaver.clang-format
       ];
 
@@ -134,6 +135,11 @@ in
         "rust-analyzer.server.path" = getExe pkgs.rust-analyzer;
         "shellcheck.executablePath" = getExe pkgs.shellcheck;
         "stylelint.stylelintPath" = "${pkgs.nodePackages.stylelint}/lib/node_modules/stylelint";
+
+        # Custom formatters
+        "advancedLocalFormatters.formatters" = with pkgs; [
+          { languages = [ "diff" ]; command = [ (getExe' patchutils "rediff") "-" ]; }
+        ];
 
         # Advertisements
         "chat.commandCenter.enabled" = false; # Microsoft GitHub Copilot

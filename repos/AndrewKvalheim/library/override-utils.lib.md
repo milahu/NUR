@@ -145,3 +145,15 @@ specify {
   hello.ccache = true;
 }
 ```
+
+### Python packages
+
+Override a Python package [in all Python versions][pythonPackagesExtensions]:
+
+```nix
+specify {
+  pythonPackages.requests = /* … */;
+}
+```
+
+[pythonPackagesExtensions]: https://nixos.org/manual/nixpkgs/stable/#how-to-override-a-python-package-for-all-python-versions-using-extensions

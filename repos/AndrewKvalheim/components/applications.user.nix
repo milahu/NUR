@@ -148,6 +148,7 @@ in
       off
       oha
       kdePackages.okular
+      patchutils
       pdfalyzer
       pdfarranger
       pdfcpu

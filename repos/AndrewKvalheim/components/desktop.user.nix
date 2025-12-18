@@ -66,45 +66,7 @@ in
     dconf.settings."org/gnome/desktop/interface".clock-show-weekday = true;
     dconf.settings."org/gnome/desktop/interface".enable-hot-corners = false;
 
-    # Disabled extensions notification
-    xdg.configFile."autostart/disabled-extensions-notification.desktop".text = toINI { } {
-      "Desktop Entry" = {
-        Type = "Application";
-        Name = "Disabled Extensions Notification";
-        NoDisplay = true;
-        Exec = pkgs.writeShellScript "disabled-extensions-notification" ''
-          [[ "$(gsettings get org.gnome.shell disable-user-extensions)" == 'true' ]] || exit
-
-          case "$(${getExe pkgs.libnotify} --urgency 'critical' --icon 'extensions' \
-            'Extensions have been automatically disabled.' \
-            --action 'enable=Re-Enable' \
-            --action 'settings=Settings…')" \
-          in
-            'enable') gsettings set org.gnome.shell disable-user-extensions 'false';;
-            'settings') gnome-extensions-app & disown;;
-          esac
-        '';
-      };
-    };
-
-    # Keyboard shortcuts
-    dconf.settings."org/gnome/desktop/wm/keybindings" = {
-      unmaximize = [ ];
-    };
-    dconf.settings."org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = [
-      "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-      "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
-    ];
-    dconf.settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      name = "Activate screensaver";
-      command = "dbus-send --session --dest=org.gnome.ScreenSaver --type=method_call '/org/gnome/ScreenSaver' 'org.gnome.ScreenSaver.SetActive' 'boolean:true'";
-      binding = "HangupPhone";
-    };
-    dconf.settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-      name = "Emote";
-      command = getExe pkgs.emote;
-      binding = "Favorites";
-    };
+    # PaperWM
     dconf.settings."org/gnome/shell/extensions/paperwm" =
       let
         # Common
@@ -144,13 +106,7 @@ in
       in
       with mapAttrs (_: floor) widths;
       {
-        cycle-width-steps = unique (map (n: 1.0 * n) (sort (a: b: a < b) ([
-          term
-          browser
-          wideBrowser
-          externalComplementBrowsers
-          externalComplementComplementBrowsers
-        ])));
+        # Appearance
         horizontal-margin = margin;
         selection-border-radius-top = border;
         selection-border-size = border;
@@ -160,6 +116,15 @@ in
         vertical-margin = margin;
         vertical-margin-bottom = margin;
         window-gap = gap;
+
+        # Window sizes
+        cycle-width-steps = unique (map (n: 1.0 * n) (sort (a: b: a < b) ([
+          term
+          browser
+          wideBrowser
+          externalComplementBrowsers
+          externalComplementComplementBrowsers
+        ])));
         winprops = (map toJSON [
           { wm_class = "*"; preferredWidth = "${toString half}px"; }
           { wm_class = "Display"; scratch_layer = true; }
@@ -173,6 +138,46 @@ in
           { wm_class = "Tor Browser"; scratch_layer = true; }
         ]);
       };
+
+    # Disabled extensions notification
+    xdg.configFile."autostart/disabled-extensions-notification.desktop".text = toINI { } {
+      "Desktop Entry" = {
+        Type = "Application";
+        Name = "Disabled Extensions Notification";
+        NoDisplay = true;
+        Exec = pkgs.writeShellScript "disabled-extensions-notification" ''
+          [[ "$(gsettings get org.gnome.shell disable-user-extensions)" == 'true' ]] || exit
+
+          case "$(${getExe pkgs.libnotify} --urgency 'critical' --icon 'extensions' \
+            'Extensions have been automatically disabled.' \
+            --action 'enable=Re-Enable' \
+            --action 'settings=Settings…')" \
+          in
+            'enable') gsettings set org.gnome.shell disable-user-extensions 'false';;
+            'settings') gnome-extensions-app & disown;;
+          esac
+        '';
+      };
+    };
+
+    # Keyboard shortcuts
+    dconf.settings."org/gnome/desktop/wm/keybindings" = {
+      unmaximize = [ ];
+    };
+    dconf.settings."org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = [
+      "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+      "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+    ];
+    dconf.settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      name = "Activate screensaver";
+      command = "dbus-send --session --dest=org.gnome.ScreenSaver --type=method_call '/org/gnome/ScreenSaver' 'org.gnome.ScreenSaver.SetActive' 'boolean:true'";
+      binding = "HangupPhone";
+    };
+    dconf.settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      name = "Emote";
+      command = getExe pkgs.emote;
+      binding = "Favorites";
+    };
     dconf.settings."org/gnome/shell/extensions/paperwm/keybindings" = {
       barf-out = [ "" ];
       barf-out-active = [ "" ];

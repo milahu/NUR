@@ -3,7 +3,7 @@
 let
   inherit (builtins) attrNames attrValues elemAt filter findFile functionArgs isAttrs isPath length mapAttrs match nixPath pathExists removeAttrs toJSON tryEval;
   inherit (stable) fetchgit makeWrapper symlinkJoin;
-  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const defaultTo escapeShellArg findFirst genAttrs getAttrFromPath hasAttrByPath imap1 info last mapAttrsToList naturalSort optionals optionalAttrs optionalString partition recurseIntoAttrs recursiveUpdate showAttrPath throwIf toList unique versionAtLeast versionOlder;
+  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const defaultTo escapeShellArg findFirst genAttrs getAttrFromPath hasAttrByPath imap1 info last mapAttrs' mapAttrsToList nameValuePair naturalSort optional optionals optionalAttrs optionalString partition recurseIntoAttrs recursiveUpdate showAttrPath throwIf toList unique versionAtLeast versionOlder;
 
   # Utilities
   composeOverrides = f1: f2: a0: let o1 = f1 a0; o2 = f2 (a0 // o1); in o1 // o2;
@@ -11,6 +11,7 @@ let
   isEmpty = v: length (if isAttrs v then attrNames v else v) == 0;
   isFunctor = repo: path: (tryEval (hasAttrByPath (path ++ [ "__functor" ]) repo)).value;
   isLocal = r: isPath r || r._local or false;
+  isPythonPackages = s: s ? pythonAtLeast;
   isScope = repo: path: (tryEval (hasAttrByPath (path ++ [ "overrideScope" ]) repo)).value;
   isSet = repo: path: (tryEval (attrByPath (path ++ [ "recurseForDerivations" ]) false repo)).value;
   mkRepo = name: path: (import path { inherit (stable) config; overlays = [ ]; }) // { _name = name; };
@@ -81,11 +82,12 @@ let
       # Mode
       doOverlay = gappsWrapperArgs != null || overlay != null || patch != null;
       doOverride = ! isEmpty override;
+      doPythonPackages = isPythonPackages scope;
       doWrapper = ! isEmpty wrapperArgs;
 
       # Package selection
-      path = scope ++ [ pname ];
-      fullName = showAttrPath path;
+      path = if doPythonPackages then [ pname ] else scope ++ [ pname ];
+      fullName = showAttrPath (optional doPythonPackages "pythonPackages" ++ path);
       files = [ (library + "/${fullName}.local.pkg.nix") (library + "/${fullName}.pkg.nix") ];
       getVersion = r: if hasAttrByPath path r then (getAttrFromPath path r).version else null;
       findGreatest = predicate: default: candidates:
@@ -112,7 +114,7 @@ let
       nurs = optionals (nur != null) (map mkNur base);
       extra = if search == null then [ ] else imap1 (i: s: { _extra = i; _name = "search"; } // s) (toList search);
       repos = base ++ extra ++ nurs ++ files;
-      repo = (if version == "∞" then findGreatest else findFirst) repoSuffices null repos;
+      repo = if doPythonPackages then scope else (if version == "∞" then findGreatest else findFirst) repoSuffices null repos;
       ccacheStdenv = repo.ccacheStdenv.override { extraConfig = ccacheConfig; };
       notFound = "${query} not found in ${concatMapStringsSep ", " repoName repos}${optionalString (length resolvedSearch.wrong > 0) " (Not searched: ${concatStringsSep ", " resolvedSearch.wrong})"}";
       package = throwIf (repo == null) notFound (
@@ -170,15 +172,24 @@ let
       unnecessaryFiles = concatStringsSep ", " (optionals (repo != null && ! isLocal repo) (filter pathExists files));
       unnecessarySearches = concatMapStringsSep ", " repoName (filter (r: repo != null && r._extra > repo._extra or 0) extra);
     in
-    if isScope repo path then
-      (getAttrFromPath path stable).overrideScope (_: _: mapAttrs (resolve path) spec)
-    else if recurseForDerivations || (isSet repo path) then
-      (attrByPath path { } repo) // { recurseForDerivations = false; } // (mapAttrs (resolve path) spec)
+    if pname == "pythonPackages" then
+      nameValuePair "pythonPackagesExtensions"
+        (stable.pythonPackagesExtensions ++ [
+          (_: pythonPackages:
+            mapAttrs' (resolve pythonPackages) spec)
+        ])
     else
-      (throwIf (unnecessaryFiles != "") "${query} no longer requires ${unnecessaryFiles}")
-        (throwIf (unnecessarySearches != "") "${query} no longer requires searching ${unnecessarySearches}")
-        (throwIf unnecessary "${query} no longer requires an override")
-        (info summary package_with_overlay_with_override_with_wrapper)
+      nameValuePair pname (
+        if isScope repo path then
+          (getAttrFromPath path stable).overrideScope (_: _: mapAttrs' (resolve path) spec)
+        else if recurseForDerivations || (isSet repo path) then
+          (attrByPath path { } repo) // (mapAttrs' (resolve path) (removeAttrs spec [ "recurseForDerivations" ]))
+        else
+          (throwIf (unnecessaryFiles != "") "${query} no longer requires ${unnecessaryFiles}")
+            (throwIf (unnecessarySearches != "") "${query} no longer requires searching ${unnecessarySearches}")
+            (throwIf unnecessary "${query} no longer requires an override")
+            (info summary package_with_overlay_with_override_with_wrapper)
+      )
   ;
 in
 defaultExtra // {
@@ -188,5 +199,5 @@ defaultExtra // {
 
   namespaced = mapAttrs (_: recurseIntoAttrs);
 
-  specify = mapAttrs (resolve [ ]);
+  specify = mapAttrs' (resolve [ ]);
 }
