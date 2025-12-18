@@ -110,7 +110,6 @@ let
     (fromDb "omegataupodcast.net" // tech)  # 3/4 German; 1/4 eps are English
     (fromDb "omny.fm/shows/cool-people-who-did-cool-stuff" // pol)  # Maggie Killjoy -- referenced by Cory Doctorow
     (fromDb "omny.fm/shows/money-stuff-the-podcast")  # Matt Levine
-    (fromDb "omny.fm/shows/stuff-you-should-know-1")
     (fromDb "omny.fm/shows/weird-little-guys")  # Cool Zone Media
     (fromDb "originstories.libsyn.com" // uncat)
     (fromDb "podcast.ergaster.org/@flintandsilicon" // tech)  # Thib's podcast: public interest tech, gnome, etc: <https://fed.uninsane.org/users/$ALLO9MZ5g5CsQTCBH6>
@@ -120,6 +119,7 @@ let
     (fromDb "rss.acast.com/ft-tech-tonic" // tech)  # Financial Time's: Tech Tonic
     (fromDb "rss.art19.com/the-portal" // rat)  # Eric Weinstein
     (fromDb "seattlenice.buzzsprout.com" // pol)  # Seattle Nice
+    (fromDb "shellgame.co/podcast")
     (fromDb "speedboatdope.com" // pol)  # Chapo Trap House (premium feed)
     (fromDb "sharkbytes.transistor.fm" // tech)  # Wireshark Podcast o_0
     (fromDb "sharptech.fm/feed/podcast" // tech)  # Ben Thompson
@@ -148,6 +148,7 @@ let
     # (fromDb "lastweekinai.com" // tech)  # Last Week in AI
     # (fromDb "mintcast.org" // tech)
     # (fromDb "omny.fm/shows/sad-oligarch")
+    # (fromDb "omny.fm/shows/stuff-you-should-know-1")
     # (fromDb "omny.fm/shows/the-dollop-with-dave-anthony-and-gareth-reynolds")  # The Dollop history/comedy
     # (fromDb "podcast.posttv.com/itunes/post-reports.xml" // pol)
     # (fromDb "podcast.sustainoss.org" // tech)  # "Sustainable tech", only... it somehow manages to avoid any tech which is actually sustainable, and most of the time doesn't even talk about Open Source Software (!). normie/surface-level/"feel good"
