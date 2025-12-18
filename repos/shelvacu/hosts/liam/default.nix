@@ -11,15 +11,7 @@ in
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/virtualisation/digital-ocean-config.nix")
-    ./nginx.nix
-    ./sops.nix
-    ./dovecot.nix
-    ./mail.nix
-    ./dkim.nix
-    ./sieve.nix
-    ./network.nix
-    ./backup.nix
-  ];
+  ] ++ vaculib.directoryGrabberList ./.;
 
   options = {
     vacu.liam = {
@@ -33,6 +25,7 @@ in
         "shelvacu.miras.pet"
         "chat.for.miras.pet"
         "sv.mt"
+        "funcache.org"
       ];
       julie_domains = mkOutOption [
         "violingifts.com"

@@ -55,6 +55,24 @@ let
   '';
   systemctl = "${pkgs.systemd}/bin/systemctl";
   journalctl = "${pkgs.systemd}/bin/journalctl";
+
+  alt_default_installables = ''
+    declare -a new_args
+    declare arg
+    while (( $# > 0 )); do
+      arg="$1"
+      shift
+      if [[ $arg == -- || $arg == --command ]]; then
+        new_args+=("$arg" "$@")
+        shift $#
+        break
+      fi
+      if [[ $arg != -* && $arg != *#* && $arg != *:* ]]; then
+        arg="nixpkgs#$arg"
+      fi
+      new_args+=("$arg")
+    done
+  '';
 in
 {
   imports = [
@@ -97,7 +115,7 @@ in
       svl_min_args $# 1
       installable="$1"
       shift
-      if [[ $installable != *'#'* ]] && [[ $installable != *':'* ]]; then
+      if [[ $installable != *#* && $installable != *:* ]]; then
         installable="nixpkgs#$installable"
       fi
       nix run "$installable" -- "$@"
@@ -105,23 +123,13 @@ in
     (script "nb" ''
       # nix build nixpkgs#<thing> <args>
       svl_min_args $# 1
-      installable="$1"
-      shift
-      if [[ "$installable" != *'#'* ]]; then
-        installable="nixpkgs#$installable"
-      fi
-      nix build "$installable" "$@"
+      ${alt_default_installables}
+      nix build "''${new_args[@]}"
     '')
     (script "ns" ''
       # nix shell nixpkgs#<thing>
       svl_min_args $# 1
-      new_args=( )
-      for arg in "$@"; do
-        if [[ "$arg" != *'#'* ]] && [[ "$arg" != -* ]]; then
-          arg="nixpkgs#$arg"
-        fi
-        new_args+=("$arg")
-      done
+      ${alt_default_installables}
       nix shell "''${new_args[@]}"
     '')
     (script "nixview" ''
@@ -227,16 +235,27 @@ in
       "glc"
       "push"
     ])
-    (simple "ll" [ "ls" "-a" "-l" ])
+    (simple "vl" [
+      "ls"
+      "--all" # show everything...
+      "--ignore=.." # except for .. (parent directory)
+      "--color=auto"
+      "--si"
+      "--format=long" # aka -l
+      "--classify=always"
+      "--time-style=iso"
+      "--quoting-style=shell-escape"
+    ])
     (script "list-auto-roots" ''
-      declare auto_roots="/nix/var/nix/gcroots/auto"
       svl_exact_args $# 0
+      shopt -s nullglob
+      declare auto_roots="/nix/var/nix/gcroots/auto"
       echo "List of auto nix gcroots:"
       echo
       declare -i system_count=0 other_ignored_count=0
       for fn in "$auto_roots/"*; do
         if ! [[ -L "$fn" ]]; then
-          die "fn is not a symlink!?: $fn"
+          svl_die "fn is not a symlink!?: $fn"
         fi
         declare pointed
         pointed="$(readlink -v -- "$fn")"
@@ -251,7 +270,7 @@ in
             other_ignored_count=$((other_ignored_count + 1))
             ;;
           *)
-            printf '%s\n' "$pointed"
+            printf '%q\n' "$pointed"
             ;;
         esac
       done
