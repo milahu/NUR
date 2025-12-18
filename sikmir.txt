@@ -207,12 +207,12 @@ error:
 
 … while calling 'commonMeta'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:618:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:572:5:
 
-   617|   commonMeta =
-   618|     {
+   571|   commonMeta =
+   572|     {
       |     ^
-   619|       validity,
+   573|       validity,
 
 … from call site
 
@@ -250,4 +250,4 @@ error:
       |                ^
    730|
 
-error: path '/nix/store/r8328d6mw25i2gwnxxn6lcn8k23q3yk4-source.drv' is not valid
+error: path '/nix/store/jyc1fwn934hq7b72cm9hlq8sgpwfp573-source.drv' is not valid
