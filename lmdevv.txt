@@ -1,22 +1,22 @@
 error:
-… while querying the derivation named 'cursor-2.2.20'
+… while querying the derivation named 'cursor-2.2.33'
 
 … while calling the 'foldl'' builtin
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:671:21:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:625:21:
 
-   670|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
-   671|       maintainers = unique (
+   624|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
+   625|       maintainers = unique (
       |                     ^
-   672|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
+   626|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
 
 … while evaluating one of the elements to concatenate
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:672:39:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:626:39:
 
-   671|       maintainers = unique (
-   672|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
+   625|       maintainers = unique (
+   626|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
       |                                       ^
-   673|       );
+   627|       );
 
 error: value is a string while a list was expected
