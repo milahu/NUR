@@ -1,5 +1,19 @@
 {
-  # Add your NixOS modules here
-  #
-  # my-module = ./my-module;
+  pkgs ? import <nixpkgs> { },
+}:
+
+{
+  default =
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
+    {
+      imports = [
+        ./fungi
+        ./system76-scheduler-niri
+      ];
+    };
 }
