@@ -1,16 +1,16 @@
 {
 "name":"nikpkgs",
-"fetch_time":0.827,
-"eval_time":0.259,
+"fetch_time":0.524,
+"eval_time":0.295,
 "source":{
 "url":"https://github.com/nikp123/nur-packages",
-"rev":"191568917cdaaab42de01d9e8095fb891fbfa663",
-"sha256":"14xvb04qh7xv735zxvnnsc201wfj31vpyw5s65l4rp5p1kq17dj1",
+"rev":"b562490d905e72c528040a74e56fc349f5772f51",
+"sha256":"137avqx53r4v6bla5k0jm5zd88xyby40x0hsjrvnp0l5gapi07iz",
 "date":null
 },
-"source_storepath":"/nix/store/1bpfbgphx2w1l8fkkpkhhk7dxm1n6ng9-source",
-"nixpkgs_storepath":"/nix/store/bshp8kl7zl8bzwhbbg3lq11cw4wrn81m-source",
-"nur_combined_rev":"bf2f27162166aefa862bc41fffaa1e4857750f97",
+"source_storepath":"/nix/store/cfampl8sikwds7jafvd8pcqxa8v7k054-source",
+"nixpkgs_storepath":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source",
+"nur_combined_rev":"b3cca69f2400298ecb240fa4c0739b2555ab1969",
 "packages":{
 "amdgpu-clocks":{
 "meta":{
@@ -83,7 +83,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/amdgpu-clocks/default.nix:27",
+"position":"./pkgs/amdgpu-clocks/default.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -174,7 +174,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/avahi2dns/default.nix:23",
+"position":"./pkgs/avahi2dns/default.nix:25",
 "unfree":false,
 "unsupported":false
 },
@@ -232,10 +232,10 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/1bpfbgphx2w1l8fkkpkhhk7dxm1n6ng9-source/pkgs/cockpit-podman/default.nix",
-"line":33
+"file":"/nix/store/cfampl8sikwds7jafvd8pcqxa8v7k054-source/pkgs/cockpit-podman/default.nix",
+"line":25
 },
-"name":"cockpit-podman-116",
+"name":"cockpit-podman-119.1",
 "outputsToInstall":[
 "out"
 ],
@@ -263,18 +263,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/cockpit-podman/default.nix:29",
+"position":"./pkgs/cockpit-podman/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
-"name":"cockpit-podman-116",
+"name":"cockpit-podman-119.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cockpit-podman",
 "system":"x86_64-linux",
-"version":"116"
+"version":"119.1"
 },
 "inotify-consumers":{
 "meta":{
@@ -345,7 +345,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/inotify-consumers/default.nix:22",
+"position":"./pkgs/inotify-consumers/default.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -412,7 +412,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 }
 ],
-"longDescription":"      This is a fork that fixes the original bootlin's repository so that it actually compiles on modern Linux machines.\n\n      In order to use this you'll have to use the folllowing nixOS configuration:\n      {\n        hardware.opengl = {\n\t  enable = true;\n\t  extraPackages = [ this_package ];\n\t};\n\tenvironment.sessionVariables = {\n          LIBVA_DRIVER_NAME = \"v4l2_request\";\n\t  LIBVA_V4L2_REQUEST_MEDIA_PATH = \"/dev/video0\"; # change this to point to your actual V4L2 decode/encode device\n\t};\n      }\n",
+"longDescription":"This is a fork that fixes the original bootlin's repository so that it actually compiles on modern Linux machines.\n\nIn order to use this you'll have to use the folllowing nixOS configuration:\n{\n  hardware.opengl = {\n    enable = true;\n    extraPackages = [ this_package ];\n  };\n  environment.sessionVariables = {\n    LIBVA_DRIVER_NAME = \"v4l2_request\";\n    LIBVA_V4L2_REQUEST_MEDIA_PATH = \"/dev/video0\"; # change this to point to your actual V4L2 decode/encode device\n  };\n}\n",
 "maintainers":[],
 "name":"libva-v4l2-request-fix-kernel-6.6",
 "outputsToInstall":[
@@ -442,7 +442,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/libva-v4l2-request/default.nix:38",
+"position":"./pkgs/libva-v4l2-request/default.nix:47",
 "unfree":false,
 "unsupported":false
 },
@@ -503,7 +503,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/netsed/default.nix:27",
+"position":"./pkgs/netsed/default.nix:26",
 "unfree":false,
 "unsupported":false
 },
@@ -563,7 +563,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/overlayfs-tools/default.nix:31",
+"position":"./pkgs/overlayfs-tools/default.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -623,7 +623,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/plank-themes/default.nix:27",
+"position":"./pkgs/plank-themes/default.nix:30",
 "unfree":false,
 "unsupported":false
 },
@@ -747,7 +747,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/pw_wp_bluetooth_rpi_speaker/default.nix:35",
+"position":"./pkgs/pw_wp_bluetooth_rpi_speaker/default.nix:33",
 "unfree":false,
 "unsupported":false
 },
@@ -854,7 +854,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/qemu-3dfx/default.nix:243",
+"position":"./pkgs/qemu-3dfx/default.nix:354",
 "priority":10,
 "unfree":false,
 "unsupported":false
