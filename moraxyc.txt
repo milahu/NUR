@@ -18,4 +18,21 @@ error:
       | ^
      2| , url
 
+… from call site
+
+  at ./evalRepo.nix:33:11:
+
+    32|     might result in infinite recursion when used with NixOS modules.
+    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+      |           ^
+    34|
+
+… while calling anonymous lambda
+
+  at ./default.nix:1:1:
+
+     1| {
+      | ^
+     2|   system ? builtins.currentSystem,
+
 error: access to URI 'https://api.flakehub.com/f/pinned/edolstra/flake-compat/1.1.0/01948eb7-9cba-704f-bbf3-3fa956735b52/source.tar.gz' is forbidden in restricted mode
