@@ -1,16 +1,16 @@
 {
 "name":"mio",
-"fetch_time":0.563,
-"eval_time":0.288,
+"fetch_time":0.519,
+"eval_time":0.276,
 "source":{
 "url":"https://github.com/mio-19/nurpkgs",
-"rev":"6ea4ae751ebce288001a11a83d0dd8113801fad4",
-"sha256":"06i2w5pln52alj7a7c74snd2pi9d4j0xz8n0f5hzj52r2d4azy0c",
+"rev":"8a266765512c75bcbccf99ce9d8d0deb18877865",
+"sha256":"142kpjj4y6z3fjxmwx7alry8zbab0z5dw2bd3d24x062rclmiszw",
 "date":null
 },
-"source_storepath":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source",
-"nixpkgs_storepath":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source",
-"nur_combined_rev":"3a2d59d6e3f3e26820a79bef9e5d7b9204d5b958",
+"source_storepath":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source",
+"nixpkgs_storepath":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source",
+"nur_combined_rev":"c36edc50c37f2c7bbdb8e80985f817592fc0be61",
 "packages":{
 "aria2":{
 "meta":{
@@ -72,7 +72,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source/pkgs/by-name/ar/aria2/package.nix",
+"file":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source/pkgs/by-name/ar/aria2/package.nix",
 "line":79
 },
 "name":"aria2-1.37.0",
@@ -256,7 +256,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/beammp-launcher/package.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/beammp-launcher/package.nix",
 "line":129
 },
 "name":"beammp-launcher-2.7.0",
@@ -348,7 +348,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/beammp-server/package.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/beammp-server/package.nix",
 "line":124
 },
 "name":"beammp-server-3.9.0",
@@ -445,7 +445,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source/pkgs/by-name/be/bees/package.nix",
+"file":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source/pkgs/by-name/be/bees/package.nix",
 "line":82
 },
 "name":"bees-0.11",
@@ -536,7 +536,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source/pkgs/stdenv/generic/check-meta.nix",
+"file":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source/pkgs/stdenv/generic/check-meta.nix",
 "line":625
 },
 "name":"betterbird-unwrapped-140.6.0esr-bb15-build2-with-metadata",
@@ -778,7 +778,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source/pkgs/by-name/ca/caddy/package.nix",
+"file":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source/pkgs/by-name/ca/caddy/package.nix",
 "line":96
 },
 "name":"caddy-2.10.2",
@@ -877,6 +877,76 @@
 "system":"x86_64-linux",
 "version":""
 },
+"downkyicore":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Cross-platform Bilibili downloader built with Avalonia",
+"homepage":"https://github.com/yaobiao131/downkyicore",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"downkyicore",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"downkyicore",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v3.0 only",
+"redistributable":true,
+"shortName":"gpl3Only",
+"spdxId":"GPL-3.0-only",
+"url":"https://spdx.org/licenses/GPL-3.0-only.html"
+},
+"mainProgram":"DownKyi",
+"maintainers":[],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/downkyicore/package.nix",
+"line":122
+},
+"name":"downkyicore-1.0.23",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-linux",
+"aarch64-linux"
+],
+"position":"./pkgs/downkyicore/package.nix:119",
+"unfree":false,
+"unsupported":false
+},
+"name":"downkyicore-1.0.23",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"downkyicore",
+"system":"x86_64-linux",
+"version":"1.0.23"
+},
 "eden":{
 "meta":{
 "available":true,
@@ -960,7 +1030,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/eden/package.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/eden/package.nix",
 "line":187
 },
 "name":"eden-0.0.4-rc3",
@@ -1058,7 +1128,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/firefox-nightly/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/firefox-nightly/default.nix",
 "line":56
 },
 "maxSilent":14400,
@@ -1179,7 +1249,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/firefox-nightly/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/firefox-nightly/default.nix",
 "line":56
 },
 "maxSilent":14400,
@@ -1294,7 +1364,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source/pkgs/tools/misc/grub/default.nix",
+"file":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source/pkgs/tools/misc/grub/default.nix",
 "line":765
 },
 "name":"grub-2.12",
@@ -1414,7 +1484,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/howdy/package.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/howdy/package.nix",
 "line":153
 },
 "name":"howdy-3.0.0",
@@ -1539,7 +1609,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/jellyfin-media-player/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/jellyfin-media-player/default.nix",
 "line":76
 },
 "name":"jellyfin-media-player-2.0.0",
@@ -1618,7 +1688,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/linux-enable-ir-emitter/package.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/linux-enable-ir-emitter/package.nix",
 "line":58
 },
 "name":"linux-enable-ir-emitter-6.1.2",
@@ -1720,7 +1790,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/lmms/package.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/lmms/package.nix",
 "line":115
 },
 "name":"lmms-1.2.2-unstable-2025-12-17",
@@ -1815,7 +1885,7 @@
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source/pkgs/by-name/ma/materialgram/package.nix",
+"file":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source/pkgs/by-name/ma/materialgram/package.nix",
 "line":32
 },
 "name":"materialgram-unwrapped-6.2.3.1",
@@ -1970,7 +2040,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/mdbook-generate-summary/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/mdbook-generate-summary/default.nix",
 "line":24
 },
 "name":"mdbook-generate-summary-0.3.0",
@@ -2075,7 +2145,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/minetest580/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/minetest580/default.nix",
 "line":147
 },
 "name":"minetest-5.8.0",
@@ -2166,7 +2236,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/minetest580/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/minetest580/default.nix",
 "line":147
 },
 "name":"minetest-5.8.0",
@@ -2257,7 +2327,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/minetest580/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/minetest580/default.nix",
 "line":147
 },
 "name":"minetest-5.8.0",
@@ -2348,7 +2418,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/minetest580/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/minetest580/default.nix",
 "line":147
 },
 "name":"minetest-5.8.0",
@@ -2440,7 +2510,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/minetest591/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/minetest591/default.nix",
 "line":146
 },
 "name":"minetest-5.9.1",
@@ -2532,7 +2602,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/minetest591/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/minetest591/default.nix",
 "line":146
 },
 "name":"minetest-5.9.1",
@@ -2624,7 +2694,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/minetest591/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/minetest591/default.nix",
 "line":146
 },
 "name":"minetest-5.9.1",
@@ -2735,7 +2805,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source/pkgs/by-name/mu/musescore/package.nix",
+"file":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source/pkgs/by-name/mu/musescore/package.nix",
 "line":159
 },
 "name":"musescore-4.6.3-alex-unstable-20251121",
@@ -2865,7 +2935,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/musescore3/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/musescore3/default.nix",
 "line":131
 },
 "name":"musescore-3.6.2-unstable-2025-12-18",
@@ -2913,7 +2983,7 @@
 "meta":{
 "available":false,
 "broken":false,
-"changelog":"https://github.com/netdata/netdata/releases/tag/v2.8.0",
+"changelog":"https://github.com/netdata/netdata/releases/tag/v2.8.4",
 "description":"Real-time performance monitoring tool",
 "homepage":"https://www.netdata.cloud/",
 "identifiers":{
@@ -2986,10 +3056,10 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source/pkgs/tools/system/netdata/default.nix",
-"line":345
+"file":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source/pkgs/tools/system/netdata/default.nix",
+"line":344
 },
-"name":"netdata-2.8.0",
+"name":"netdata-2.8.4",
 "outputsToInstall":[
 "out"
 ],
@@ -3039,18 +3109,18 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/tools/system/netdata/default.nix:339",
+"position":"<nixpkgs> + /pkgs/tools/system/netdata/default.nix:338",
 "unfree":true,
 "unsupported":false
 },
-"name":"netdata-2.8.0",
+"name":"netdata-2.8.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"netdata",
 "system":"x86_64-linux",
-"version":"2.8.0"
+"version":"2.8.4"
 },
 "nss_git":{
 "meta":{
@@ -3113,10 +3183,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source/pkgs/development/libraries/nss/generic.nix",
+"file":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source/pkgs/development/libraries/nss/generic.nix",
 "line":259
 },
-"name":"nss-unstable-20251216040153-60f55ce",
+"name":"nss-unstable-20251220035103-213eff4",
 "outputsToInstall":[
 "out",
 "man"
@@ -3203,7 +3273,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nss-unstable-20251216040153-60f55ce",
+"name":"nss-unstable-20251220035103-213eff4",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -3213,7 +3283,7 @@
 },
 "pname":"nss-unstable",
 "system":"x86_64-linux",
-"version":"20251216040153-60f55ce"
+"version":"20251220035103-213eff4"
 },
 "openssh":{
 "meta":{
@@ -3305,7 +3375,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source/pkgs/tools/networking/openssh/default.nix",
+"file":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source/pkgs/tools/networking/openssh/default.nix",
 "line":32
 },
 "name":"openssh-10.2p1",
@@ -3392,7 +3462,7 @@
 ],
 "teamsPosition":{
 "column":7,
-"file":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source/pkgs/tools/networking/openssh/default.nix",
+"file":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source/pkgs/tools/networking/openssh/default.nix",
 "line":36
 },
 "unfree":false,
@@ -3469,7 +3539,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source/pkgs/tools/networking/openssh/default.nix",
+"file":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source/pkgs/tools/networking/openssh/default.nix",
 "line":79
 },
 "name":"openssh-with-hpn-10.2p1",
@@ -3587,7 +3657,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/plezy/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/plezy/default.nix",
 "line":120
 },
 "name":"plezy-1.11.0",
@@ -3683,7 +3753,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-cachyos",
@@ -3756,7 +3826,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-cachyos",
@@ -3829,7 +3899,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-cachyos",
@@ -3902,7 +3972,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-cachyos",
@@ -3975,7 +4045,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-cachyos",
@@ -4048,7 +4118,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-cachyos",
@@ -4121,7 +4191,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-ge-custom",
@@ -4197,7 +4267,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/speed-dreams/default.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/speed-dreams/default.nix",
 "line":121
 },
 "name":"speed-dreams-2.4.2",
@@ -4296,7 +4366,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cji6m7jgrnyxyqav1zhm17jcpryawgm6-source/pkgs/applications/networking/instant-messengers/telegram/telegram-desktop/unwrapped.nix",
+"file":"/nix/store/52q0j0q66jdhsihjlcb970xjqv31r1kk-source/pkgs/applications/networking/instant-messengers/telegram/telegram-desktop/unwrapped.nix",
 "line":128
 },
 "name":"telegram-desktop-unwrapped-6.3.4",
@@ -4448,7 +4518,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/adv0f2xlmyjivbf41fxam3mypm810j4d-source/pkgs/tuxguitar/package.nix",
+"file":"/nix/store/fp6z3798d95frrkwr9f92lhfk0hdwyz8-source/pkgs/tuxguitar/package.nix",
 "line":279
 },
 "name":"tuxguitar-2.0.0",
