@@ -5,12 +5,12 @@
   pkgs,
 }:
 let
-  version = "0-unstable-2025-12-18";
+  version = "0-unstable-2025-12-20";
   src = fetchFromGitHub {
     owner = "nix-community";
     repo = "nixpkgs-wayland";
-    rev = "a811fbfa92a5528799f8ccdd3127e052e4f6de02";
-    hash = "sha256-SUqd+iGpGdPlVxPdGETK2Xp/I0cAYw2eEZrNSqEJRt8=";
+    rev = "f1a3ba9e929981ac269a8fea0e8f1e7129936f9b";
+    hash = "sha256-QPlU05pohY2QYJG8WHzesTUNwZZKPihh1goFrqeusAc=";
   };
   flake = import "${src}/flake.nix";
   evaluated = flake.outputs {

@@ -99,7 +99,6 @@ let
   });
 
   mkSystemdService = flavor: { includes, listenAddrsIpv4, listenAddrsIpv6, port, substitutions, extraConfig, ... }: let
-    sed = lib.getExe pkgs.gnused;
     baseConfig = (
       lib.filterAttrsRecursive (_: v: v != null) config.services.hickory-dns.settings
     ) // {
