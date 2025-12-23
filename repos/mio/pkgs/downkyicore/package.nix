@@ -68,7 +68,7 @@ buildDotnetModule (finalAttrs: {
 
   postPatch = ''
     substituteInPlace DownKyi/DownKyi.csproj DownKyi.Core/DownKyi.Core.csproj \
-      --replace net6.0 net8.0
+      --replace-fail net6.0 net8.0
   '';
 
   makeWrapperArgs = [
