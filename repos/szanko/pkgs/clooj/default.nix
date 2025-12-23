@@ -69,26 +69,29 @@ in
 
     # Use postFixup so it runs after paths are linked into $out
     postFixup = ''
-    if [ ! -e "$out/bin/clooj" ]; then
-    echo "ERROR: $out/bin/clooj not found"
-    ls -la "$out/bin" || true
-    exit 1
-    fi
+      set -eu
 
-    # If it's a symlink, resolve it to an absolute store path before wrapping.
-    if [ -L "$out/bin/clooj" ]; then
-    target="$(readlink -f "$out/bin/clooj")"
-    rm -f "$out/bin/clooj"
-    else
-    target="$out/bin/.clooj-real"
-    mv "$out/bin/clooj" "$target"
-    fi
+      if [ ! -e "$out/bin/clooj" ]; then
+        echo "ERROR: $out/bin/clooj not found"
+        ls -la "$out/bin" || true
+        exit 1
+      fi
 
-    makeWrapper "$target" "$out/bin/clooj" \
-    --prefix XDG_DATA_DIRS : "${gsettings-desktop-schemas}/share" \
-    --prefix XDG_DATA_DIRS : "${gtk3}/share" \
-    --prefix XDG_DATA_DIRS : "${glib}/share"
+      if [ -L "$out/bin/clooj" ]; then
+        target="$(readlink -f "$out/bin/clooj")"
+        rm -f "$out/bin/clooj"
+      else
+        target="$out/bin/.clooj-real"
+        mv "$out/bin/clooj" "$target"
+      fi
+
+      makeWrapper "$target" "$out/bin/clooj" \
+        --prefix XDG_DATA_DIRS : "${gsettings-desktop-schemas}/share" \
+        --prefix XDG_DATA_DIRS : "${gtk3}/share" \
+        --prefix XDG_DATA_DIRS : "${glib}/share"
     '';
+
+    dontWrapGApps = false;
 
     meta = {
       description = "Clooj, a lightweight IDE for clojure";
