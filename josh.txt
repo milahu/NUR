@@ -10,12 +10,12 @@ error:
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:259:19:
+  at <nixpkgs> + /lib/customisation.nix:276:19:
 
-   258|   callPackageWith =
-   259|     autoArgs: fn: args:
+   275|   callPackageWith =
+   276|     autoArgs: fn: args:
       |                   ^
-   260|     let
+   277|     let
 
 … from call site
 
@@ -28,21 +28,21 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:161:7:
+  at <nixpkgs> + /lib/customisation.nix:178:7:
 
-   160|     mirrorArgs (
-   161|       origArgs:
+   177|     decorate (
+   178|       origArgs:
       |       ^
-   162|       let
+   179|       let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:163:18:
+  at <nixpkgs> + /lib/customisation.nix:180:18:
 
-   162|       let
-   163|         result = f origArgs;
+   179|       let
+   180|         result = f origArgs;
       |                  ^
-   164|
+   181|
 
 … while calling anonymous lambda
 
