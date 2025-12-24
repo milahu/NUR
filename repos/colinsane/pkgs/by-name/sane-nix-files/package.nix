@@ -2,12 +2,17 @@
 let
   src = builtins.filterSource
     (path: type:
-      let name = builtins.baseNameOf path;
+    let
+      name = builtins.baseNameOf path;
     in !(
       # mimic .gitignore
-      (name == ".working")
+      (path == builtins.toString ../../../build)
+      || (path == builtins.toString ../../../working)
       || (name == "result")
       || (builtins.match "^result-.*" name != null)
+      # omit files known to be irrelevant to this specific eval
+      || (path == builtins.toString ../../../.git)
+      || (path == builtins.toString ../../../.gitignore)
     ))
     ../../../.
   ;

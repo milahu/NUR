@@ -40,7 +40,6 @@ let
     # XXX(2024-07-14): these packages fail NUR check, due to weird Import-From-Derivation things (bugs?).
     # see: <https://github.com/NixOS/nix/issues/9052>
     "linux-exynos5-mainline"
-    "linux-megous"
     "linux-postmarketos-allwinner"
     "linux-postmarketos-exynos5"
     "linux-postmarketos-pinephonepro"

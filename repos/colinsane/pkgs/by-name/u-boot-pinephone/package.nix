@@ -2,9 +2,6 @@
   armTrustedFirmwareAllwinner,
   buildUBoot,
   crust-firmware-pinephone,
-  fetchpatch,
-  lib,
-  linux-megous,
 }:
 
 (buildUBoot {
@@ -35,7 +32,6 @@
   #   #   name = "sunxi: pinephone: force 1.2b magnetometer";
   #   #   hash = "sha256-64pFPYDZPTkIjmqQiqrPTxbK5b7TlKTZ3R0Ufe2+w+s=";
   #   # })
-  #   linux-megous.patches.af8133j
   # ];
   # postPatch = (base.postPatch or "") + ''
   #   substituteInPlace configs/pinephone_defconfig \

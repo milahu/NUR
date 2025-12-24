@@ -13,14 +13,14 @@
 
 stdenvNoCC.mkDerivation {
   pname = "podcastindex-db";
-  version = "0-unstable-2025-12-15";
+  version = "0-unstable-2025-12-23";
 
   src = fetchFromGitea {
     domain = "git.uninsane.org";
     owner = "colin";
     repo = "podcastindex-db-mirror";
-    rev = "22c330017faa8f1c42a49f5c0fa44296087c7e91";
-    hash = "sha256-oTpCq9Fu+7qwReNFLr5haxk15jlHQEOJItPsb61PvdI=";
+    rev = "877587cd86307f3d6244a612a28c3106febfd55d";
+    hash = "sha256-+0om06Uu+e7hHS6NT2b+lSdthvE6Kt6JJ6tZgnQ9uSM=";
   };
 
   dontBuild = true;

@@ -11,12 +11,12 @@
 
 let
   pname = "browserpass-extension";
-  version = "3.9.0";
+  version = "3.11.0";
   src = fetchFromGitHub {
     owner = "browserpass";
     repo = "browserpass-extension";
     rev = version;
-    hash = "sha256-FRFW67SNPXWk/OHYsHLDSXCHlCjTVnOulNx/oVnYvAE=";
+    hash = "sha256-w3cqC52rVlNloReIG5I9cRVkjH0Tut4r8tGlXG07U14=";
   };
   # src = fetchFromGitea {
   #   domain = "git.uninsane.org";
@@ -81,10 +81,10 @@ in stdenvNoCC.mkDerivation {
     "clipboardWrite"
     "nativeMessaging"
     # "notifications"  #< remove `notifications` perm, else it spams info for where to file bug reports, etc, on first launch
+    "scripting"
+    "storage"
     "webRequest"
-    "webRequestBlocking"
-    "http://*/*"
-    "https://*/*"
+    "webRequestAuthProvider"
   ];
 
   passthru = {

@@ -47,7 +47,7 @@ in
     };
 
     # XXX(2025-12-08): statically compiled zsh loads faster than glibc
-    packageUnwrapped = pkgs.pkgsStatic.zsh;
+    # packageUnwrapped = pkgs.pkgsStatic.zsh;
 
     sandbox.enable = false;  # TODO: i could at least sandbox the prompt (starship)!
     persist.byStore.private = [

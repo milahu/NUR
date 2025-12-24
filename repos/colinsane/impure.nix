@@ -1,4 +1,4 @@
-# this entry-point exposes all packages, hosts, etc, but with no purity guarnatees.
+# this entry-point exposes all packages, hosts, etc, but with no purity guarantees.
 # the intended way to use this is to first copy every .nix file and dependency in this repo to the nix store, then enter this file.
 # entering this file *before* copying anything into the nix store can cause interesting
 # race conditions or eval failures.

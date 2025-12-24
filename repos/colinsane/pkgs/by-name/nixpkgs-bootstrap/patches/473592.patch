@@ -1,0 +1,65 @@
+From 02be8e4bd6d659b4f6da48f3fd9809d82ac7ccae Mon Sep 17 00:00:00 2001
+From: Justin Restivo <justin@restivo.me>
+Date: Tue, 23 Dec 2025 09:29:45 -0500
+Subject: [PATCH] snitch: init at 0.1.9
+
+---
+ pkgs/by-name/sn/snitch/package.nix | 49 ++++++++++++++++++++++++++++++
+ 1 file changed, 49 insertions(+)
+ create mode 100644 pkgs/by-name/sn/snitch/package.nix
+
+diff --git a/pkgs/by-name/sn/snitch/package.nix b/pkgs/by-name/sn/snitch/package.nix
+new file mode 100644
+index 0000000000000000000000000000000000000000..c8d44fbe90441678f44b40584537e5e22a9f2b53
+--- /dev/null
++++ b/pkgs/by-name/sn/snitch/package.nix
+@@ -0,0 +1,49 @@
++{
++  lib,
++  stdenv,
++  buildGoModule,
++  fetchFromGitHub,
++  apple-sdk_15,
++}:
++
++buildGoModule (finalAttrs: {
++  pname = "snitch";
++  version = "0.1.9";
++
++  src = fetchFromGitHub {
++    owner = "karol-broda";
++    repo = "snitch";
++    rev = "v${finalAttrs.version}";
++    hash = "sha256-/0MYXKBat+OumuXnS8XSiMslNHUopVDFO4RdYGECfI8=";
++  };
++
++  vendorHash = "sha256-fX3wOqeOgjH7AuWGxPQxJ+wbhp240CW8tiF4rVUUDzk=";
++
++  # these below settings (env, buildInputs, ldflags) copied from
++  # https://github.com/karol-broda/snitch/blob/master/flake.nix
++
++  env = {
++    # darwin requires cgo for libproc, linux uses pure go with /proc
++    CGO_ENABLED = if stdenv.hostPlatform.isDarwin then 1 else 0;
++  };
++
++  # darwin: use macOS 15 SDK for SecTrustCopyCertificateChain (Go 1.25 crypto/x509)
++  buildInputs = lib.optionals stdenv.hostPlatform.isDarwin [ apple-sdk_15 ];
++
++  ldflags = [
++    "-s"
++    "-w"
++    "-X snitch/cmd.Version=${finalAttrs.version}"
++    "-X snitch/cmd.Commit=v${finalAttrs.version}"
++    "-X snitch/cmd.Date=1970-01-01"
++  ];
++
++  meta = {
++    description = "friendlier ss / netstat for humans";
++    homepage = "https://github.com/karol-broda/snitch";
++    license = lib.licenses.mit;
++    maintainers = [ lib.maintainers.DieracDelta ];
++    platforms = lib.platforms.unix;
++    mainProgram = "snitch";
++  };
++})

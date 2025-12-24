@@ -204,6 +204,7 @@
     ./sm64coopdx.nix
     ./sm64ex-coop.nix
     ./smartmontools.nix
+    ./snitch.nix
     ./socat.nix
     ./sops.nix
     ./soundconverter.nix

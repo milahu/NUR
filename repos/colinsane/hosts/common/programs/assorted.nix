@@ -115,6 +115,7 @@ in
       "ssh"
       "sshpass"
       "smartmontools"  # smartctl
+      "snitch"  # a better lsof
       "socat"
       "strace"
       "subversion"
