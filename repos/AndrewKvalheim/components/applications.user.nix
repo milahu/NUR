@@ -162,6 +162,7 @@ in
       qalculate-gtk
       rsync
       s-tui
+      snitch
       sqlitebrowser
       step-cli
       nodePackages.svgo
