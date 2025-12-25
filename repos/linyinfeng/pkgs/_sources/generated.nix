@@ -228,17 +228,17 @@
   };
   plugin-git = {
     pname = "plugin-git";
-    version = "9152d530cb6551947075568f81acc6132d19dca3";
+    version = "4ac0104bd4805f0272f23e93cc44150cca8a44f0";
     src = fetchgit {
       url = "https://github.com/jhillyerd/plugin-git";
-      rev = "9152d530cb6551947075568f81acc6132d19dca3";
+      rev = "4ac0104bd4805f0272f23e93cc44150cca8a44f0";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-Nop5n4sd+jUSWm23wJ3ATxqIbInEox3vGpHBlfI7KHQ=";
+      sha256 = "sha256-ft3wygoKID1oh1S1eV9DyzyhROG4Q5o3wxzkZEsDNbs=";
     };
-    date = "2025-12-06";
+    date = "2025-12-24";
   };
   pyim-greatdict = {
     pname = "pyim-greatdict";
@@ -351,17 +351,17 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "04bb51f00c5703de9fea62553f95042b530dfdef";
+    version = "cc51682a850e9b89db8856c589b8c13f8b534a7c";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "04bb51f00c5703de9fea62553f95042b530dfdef";
+      rev = "cc51682a850e9b89db8856c589b8c13f8b534a7c";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-hw8OahPKLfCoCgSV+EaknaFWi6J8Pojxrk0RedwKcJU=";
+      sha256 = "sha256-rEWf96uoYZm/n8IBSSG5qnXBgiWvrzhD1+GutLqMlg8=";
     };
-    date = "2025-12-23";
+    date = "2025-12-24";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
