@@ -10,8 +10,8 @@ stdenvNoCC.mkDerivation {
   src = fetchFromGitHub {
     owner = "uBlockOrigin";
     repo = "uAssets";
-    rev = "64416d8b4770941afa7abbded8daf2c7ebf3afbe";
-    hash = "sha256-mOM6Lz8ZiJnVmqxZszjl4MrRTF9fxmMsJ6AF5T0HKQw=";
+    rev = "5a351d4e93d3cddba15b7efd0363e8845a4a7dbe";
+    hash = "sha256-c3X4FRLPahcMf6ecfhOtEn+HbsyTIMIUxjKzgWPkmrg=";
   };
 
   dontBuild = true;

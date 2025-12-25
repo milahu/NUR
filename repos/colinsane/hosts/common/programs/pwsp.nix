@@ -17,6 +17,10 @@
       ];
     });
 
+    suggestedPrograms = [
+      "sane-dtmf"
+    ];
+
     sandbox.method = null;  #< TODO: sandbox
 
     # fs.".config/pwsp/daemon.json".symlink.text = ''
@@ -26,15 +30,20 @@
     #   }
     # '';
 
+    # N.B.(2025-12-23): when upstream adds new options to this file,
+    # it will silently **fail to load**. solution is to unlink the config file,
+    # then launch `BUNPEN_DISABLE=1 pwsp-gui` & discover the new keys.
     fs.".config/pwsp/gui.json".symlink.text = ''
       {
-        "scale_factor": 1.0,
-        "save_volume": false,
+        "dirs": [
+          "/etc/profiles/per-user/colin/share/sounds/dtmf",
+          "/home/colin/Music"
+        ],
+        "pause_on_exit": false,
         "save_input": true,
         "save_scale_factor": false,
-        "dirs": [
-          "/home/colin/Music"
-        ]
+        "save_volume": false,
+        "scale_factor": 1.0
       }
     '';
 

@@ -1091,6 +1091,8 @@ in
 
     sane-die-with-parent.sandbox.enable = false;  #< it's a launcher; can't sandbox
 
+    sane-dtmf.sandbox.enable = false;  #< data-only package
+
     sane-weather.sandbox.net = "clearnet";
 
     sc-im.sandbox.autodetectCliPaths = "existingFile";
