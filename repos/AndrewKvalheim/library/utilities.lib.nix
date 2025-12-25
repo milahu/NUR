@@ -1,8 +1,8 @@
 { lib }:
 
 let
-  inherit (builtins) add all attrValues ceil elemAt getAttr hasAttr head isFunction length listToAttrs mapAttrs match split stringLength tail;
-  inherit (lib) concatLines concatImapStringsSep concatMapStrings concatMapStringsSep escapeShellArg fixedWidthNumber flip fold id ifilter0 imap0 isList max min mod nameValuePair pipe range removeSuffix splitString stringToCharacters throwIf throwIfNot toCamelCase toHexString;
+  inherit (builtins) add all attrValues ceil concatLists elem elemAt foldl' getAttr hasAttr head isFunction length listToAttrs mapAttrs match split stringLength tail;
+  inherit (lib) concatLines concatImapStringsSep concatMapStrings concatMapStringsSep escapeShellArg fixedWidthNumber flip fold id ifilter0 imap0 isList max min mod nameValuePair pipe range removeSuffix splitString stringToCharacters throwIf throwIfNot toCamelCase toHexString zipAttrsWith;
   inherit (lib.strings) replicate;
   inherit (import <nix-math> { inherit lib; }) cos pi pow round sin;
 
@@ -177,4 +177,11 @@ rec {
   tryEscapeShellArg = arg: if match "^\".*\"$" arg == null then escapeShellArg arg else arg;
 
   tryEscapeShellArgs = concatMapStringsSep " " tryEscapeShellArg;
+
+  uniqueBy = f: xs: (foldl'
+    (acc: x: let x' = f x; in if elem x' acc.xs' then acc else zipAttrsFlat [ acc { xs = [ x ]; xs' = [ x' ]; } ])
+    { xs = [ ]; xs' = [ ]; }
+    xs).xs;
+
+  zipAttrsFlat = zipAttrsWith (_: concatLists);
 }

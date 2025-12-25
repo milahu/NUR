@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) concatMapAttrs mkOption;
+  inherit (lib) concatMapAttrs getExe' mkOption;
   inherit (lib.strings) sanitizeDerivationName;
   inherit (lib.types) attrsOf nullOr str submodule;
-  inherit (pkgs) writeShellScript;
+  inherit (pkgs) uutils-findutils writeShellScript;
 
   mkNautilusScript = name: content:
     writeShellScript "nautilus-script-${sanitizeDerivationName name}" ''
@@ -33,7 +33,7 @@ in
             ${each}
           done
         '' else ''
-          echo -n "$paths_lines" | tr '\n' '\0' | xargs -0 ${xargs}
+          echo -n "$paths_lines" | tr '\n' '\0' | ${getExe' uutils-findutils "xargs"} -0 ${xargs}
         '');
       })
       config.nautilusScripts;

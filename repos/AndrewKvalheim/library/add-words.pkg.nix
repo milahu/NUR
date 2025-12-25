@@ -3,19 +3,21 @@
 
   # Dependencies
 , bash
-, coreutils
 , git
 , jujutsu
 , moreutils
+, uutils-coreutils
 }:
 
 let
   inherit (builtins) readFile;
   inherit (lib) getExe;
+
+  uutils-coreutils' = uutils-coreutils.override { prefix = null; };
 in
 resholve.writeScriptBin "add-words" {
   interpreter = getExe bash;
-  inputs = [ coreutils git jujutsu moreutils ];
+  inputs = [ git jujutsu moreutils uutils-coreutils' ];
   execer = [
     "cannot:${getExe git}"
     "cannot:${getExe jujutsu}"

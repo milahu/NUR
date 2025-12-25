@@ -7,34 +7,36 @@
   # Dependencies
 , bash
 , bc
-, coreutils
 , diffutils
 , exiftool
 , gnugrep
 , gnused
 , imagemagick
+, uutils-coreutils
 , xdg-utils
 , xdpyinfo
 }:
 
 let
+  uutils-coreutils' = uutils-coreutils.override { prefix = null; };
+
   diffImagePath = lib.makeBinPath [
     bash
     bc
-    coreutils
     diffutils
     exiftool
     gnugrep
     gnused
     imagemagick
+    uutils-coreutils'
     xdg-utils
     xdpyinfo
   ];
   gitDiffImagePath = lib.makeBinPath [
     bash
-    coreutils
     diffutils
     imagemagick
+    uutils-coreutils'
   ];
 in
 stdenv.mkDerivation {

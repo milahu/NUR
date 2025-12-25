@@ -4,7 +4,7 @@ let
   inherit (builtins) concatStringsSep mapAttrs readFile toFile;
   inherit (config.programs) delta;
   inherit (lib) concatLines concatStrings escapeShellArg genAttrs getExe getExe' init last mapAttrsToList mapAttrsToListRecursive mkMerge mkOrder toList;
-  inherit (pkgs) replaceVars runtimeShell starship-jj;
+  inherit (pkgs) runtimeShell starship-jj;
   inherit (pkgs.writers) writeTOML;
   inherit (import ../library/utilities.lib.nix { inherit lib; }) sgr tryEscapeShellArgs;
 
@@ -348,9 +348,9 @@ in
       idiff = "${getExe' imagemagick "compare"} \"$@\" png:- | kitty +kitten icat";
       mkcd = "mkdir --parents \"$@\" && cd \"\${@:$#}\"";
       nest = "mv --no-clobber --verbose \"$1\" \"$1.original\" && mkdir \"$1\" && mv --no-clobber --verbose \"$1.original\" \"$1/$(basename \"$1\")\"";
-      rd = "diff --recursive --unified \"$@\" | ${getExe delta.finalPackage}";
-      rdw = "diff --ignore-all-space --ignore-blank-lines --recursive --unified \"$@\" | ${getExe delta.finalPackage}";
-      rmdir-all = "find \"$@\" -type 'd' -empty -delete";
+      rd = "${getExe' diffutils "diff"} --recursive --unified \"$@\" | ${getExe delta.finalPackage}";
+      rdw = "${getExe' diffutils "diff"} --ignore-all-space --ignore-blank-lines --recursive --unified \"$@\" | ${getExe delta.finalPackage}";
+      rmdir-all = "${getExe' uutils-findutils "find"} \"$@\" -type 'd' -empty -delete";
     };
   };
 

@@ -2,12 +2,20 @@
 
 let
   inherit (builtins) readFile;
-  inherit (lib) getExe;
-  inherit (pkgs) bash coreutils efficient-compression-tool findutils resholve;
+  inherit (lib) getExe getExe';
+  inherit (pkgs) bash efficient-compression-tool resholve uutils-coreutils uutils-findutils;
+
+  uutils-coreutils' = uutils-coreutils.override { prefix = null; };
 
   handler = resholve.writeScriptBin "organize-downloads" {
     interpreter = getExe bash;
-    inputs = [ coreutils efficient-compression-tool findutils ];
+    inputs = [ efficient-compression-tool uutils-coreutils' uutils-findutils ];
+    execer = [
+      "cannot:${getExe' uutils-coreutils' "mkdir"}"
+      "cannot:${getExe' uutils-coreutils' "mv"}"
+      "cannot:${getExe' uutils-coreutils' "sleep"}"
+      "cannot:${getExe' uutils-coreutils' "tail"}"
+    ];
   } (readFile ./assets/organize-downloads.sh);
 in
 {

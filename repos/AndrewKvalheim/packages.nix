@@ -76,13 +76,14 @@ specify {
   nix-preview = any;
   nom-wrappers = any;
   off = any;
+  oxvg = any;
   pdfalyzer = any;
   picard.overlay = p: { preFixup = p.preFixup + "\nmakeWrapperArgs+=(--prefix PATH : ${makeBinPath [ resolved.rsgain ]})"; }; # NixOS/nixpkgs#255222
   pngquant-interactive = any;
   pythonPackages.busylight-core.patch = ./library/assets/busylight-core_led-mask.patch;
   pythonPackages.busylight-for-humans.patch = ./library/assets/busylight-for-humans_fix-speed.patch; # Pending ≥0.45.3
   signal-desktop.args = [ "--use-tray-icon" ];
-  snitch.search = pr 473592 "sha256-43R8hOyM5rakz9WSFGqyeqjb9lfNOKht7IpJnzmoQD0=";
+  snitch = any;
   spf-check = any;
   spf-tree = any;
   starship-jj = any;

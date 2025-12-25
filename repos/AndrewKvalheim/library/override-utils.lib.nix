@@ -4,6 +4,7 @@ let
   inherit (builtins) attrNames attrValues elemAt filter findFile functionArgs isAttrs isPath length mapAttrs match nixPath pathExists removeAttrs toJSON tryEval;
   inherit (stable) fetchgit makeWrapper symlinkJoin;
   inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const defaultTo escapeShellArg findFirst genAttrs getAttrFromPath hasAttrByPath imap1 info last mapAttrs' mapAttrsToList nameValuePair naturalSort optional optionals optionalAttrs optionalString partition recurseIntoAttrs recursiveUpdate showAttrPath throwIf toList unique versionAtLeast versionOlder;
+  inherit (import ./utilities.lib.nix { inherit (stable) lib; }) uniqueBy;
 
   # Utilities
   composeOverrides = f1: f2: a0: let o1 = f1 a0; o2 = f2 (a0 // o1); in o1 // o2;
@@ -110,7 +111,7 @@ let
             && (release == null || versionMeetsSpec r.lib.trivial.release release)
             && ((isFunctor r path || isScope r path || isSet r path) || (packageSuffices (getAttrFromPath path r)))
       );
-      base = unique ([ target ] ++ (attrValues defaultExtra));
+      base = uniqueBy repoName ([ target ] ++ (attrValues defaultExtra));
       nurs = optionals (nur != null) (map mkNur base);
       extra = if search == null then [ ] else imap1 (i: s: { _extra = i; _name = "search"; } // s) (toList search);
       repos = base ++ extra ++ nurs ++ files;

@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash --packages coreutils --packages gnugrep --packages gnused --packages subversion
+#!nix-shell -i bash --packages gnugrep --packages gnused --packages subversion --packages 'uutils-coreutils.override { prefix = null; }'
 # shellcheck shell=bash
 set -Eeuo pipefail
 

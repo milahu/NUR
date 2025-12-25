@@ -472,7 +472,7 @@ in
 
   home.activation.biome = hm.dag.entryAfter [ "writeBoundary" ] ''
     if [[ -d ${escapeShellArg userDir}'/globalStorage/biomejs.biome/tmp-bin' ]]; then
-      find ${escapeShellArg userDir}'/globalStorage/biomejs.biome/tmp-bin' \
+      ${getExe' pkgs.uutils-findutils "find"} ${escapeShellArg userDir}'/globalStorage/biomejs.biome/tmp-bin' \
         -mindepth '1' \
         -printf 'Purge %p\n' \
         -delete
