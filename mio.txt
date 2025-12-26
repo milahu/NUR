@@ -1,0 +1,29 @@
+error:
+… while querying the derivation named 'davinci-resolve-20.0.1'
+
+… while calling the 'foldl'' builtin
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:625:21:
+
+   624|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
+   625|       maintainers = unique (
+      |                     ^
+   626|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/lists.nix:1859:25:
+
+  1858|   */
+  1859|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
+      |                         ^
+  1860|
+
+error: undefined variable 'orivej'
+
+at ./pkgs/davinci-resolve/package.nix:309:7:
+
+   308|       jshcmpbll
+   309|       orivej
+      |       ^
+   310|       XBagon
