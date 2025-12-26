@@ -54,6 +54,7 @@ rec {
   fediblockhole = callPackage ./library/fediblockhole.pkg.nix { };
   git-diff-image = callPackage ./library/git-diff-image.pkg.nix { };
   gpx-reduce = callPackage ./library/gpx-reduce.pkg.nix { };
+  incremental-compress = callPackage ./library/incremental-compress.pkg.nix { };
   iptables_exporter = callPackage ./library/iptables_exporter.pkg.nix { };
   josm-imagery-used = callPackage ./library/josm-imagery-used.pkg.nix { inherit buildJosmPlugin; };
   little-a-map = callPackage ./library/little-a-map.pkg.nix { };
