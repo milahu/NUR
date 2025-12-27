@@ -4,7 +4,9 @@
 # sway-config docs: `man 5 sway`
 let
   pkgs' = pkgs // {
-    # sway/wlroots release **less than once per year**.
+    # sway/wlroots release infrequently and irregularly:
+    # - wlroots: releases every 2-6 months
+    # - sway: releases every 2-12 months
     # i use the `nixpkgs-wayland` version (which is akin to running tip) instead of the stable version from nixpkgs
     # because then when things go wrong i have an actual shot at bisecting.
     # this has been useful as recently as 2024/08 when sway/wlroots updates straight up don't render output:
@@ -47,12 +49,23 @@ let
     # wlroots seems to launch Xwayland itself, and i can't easily just do that myself externally.
     # so in order for the Xwayland it launches to be sandboxed, i need to patch the sandboxed version in here.
     xwayland = config.sane.programs.xwayland.package;
-  }).overrideAttrs (upstream: {
+  })
+  .overrideAttrs (upstream: {
     # 2023/09/08: fix so clicking a notification can activate the corresponding window.
     # - test: run dino, receive a message while tabbed away, click the desktop notification.
     #   - if sway activates the dino window (i.e. colors the workspace and tab), then all good
     #   - do all of this with only a touchscreen (e.g. on mobile phone) -- NOT a mouse/pointer
     # 2024/08/12: this patch is still necessary (for moby)
+    # 2025/12/24: this patch doesn't seem to fix activation anymore
+    # 2025/12/24: SwayNC has implemented xdg_activation_v1, but that doesn't seem to be enough alone to solve this (?)
+    # - <https://github.com/ErikReider/SwayNotificationCenter/pull/493>
+    # - particularly, xdg_activation_v1 works by:
+    #   1. swaync has focus -> logically, it can pass focus off to another app & remain "secure".
+    #   2. swaync requests an activation token from the compositor.
+    #   3. swaync gives that activation token to another app, via some side channel (unimplemented!?).
+    #   4. the app uses its activation token to request activation.
+    #   - swaync currently wires the activation token through to `ActivationToken()` signal,
+    #     but nothing listens to that. there seems no way to plumb that to the client where it can actually be made use of.
     ## what this patch does:
     # - allows any wayland window to request activation, at any time.
     # - traditionally, wayland only allows windows to request activation if
@@ -64,7 +77,7 @@ let
     #   - <https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/5782>
     #   - N.B.: this linked PR doesn't actually fix it
     # - add xdg_activation_v1 support to SwayNC (my notification daemon):
-    #   - <https://github.com/ErikReider/SwayNotificationCenter/issues/71>
+    #   - PARTIALLY complete: <https://github.com/ErikReider/SwayNotificationCenter/issues/71>
     #   - mako notification daemon supports activation, can use as a reference
     #     - all of ~30 LoC, looks straight-forward
     #     - however, it's not clear that gtk4 (or dino) actually support this mode of activation.
@@ -73,7 +86,8 @@ let
       substituteInPlace types/wlr_xdg_activation_v1.c \
         --replace-fail 'if (token->seat != NULL)' 'if (false && token->seat != NULL)'
     '';
-  });
+  })
+  ;
   swayPackage = wrapSway (
     (pkgs'.sway-unwrapped.override {
       inherit wlroots;

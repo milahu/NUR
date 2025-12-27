@@ -120,6 +120,7 @@ in
     serviceConfig.Restart = "on-failure";
     serviceConfig.RestartSec = "30s";
     serviceConfig.BindPaths = [ "/var/media" ];  #< so it can move completed torrents into the media library
+    serviceConfig.RequiresMountsFor = [ "/var/media" ];  # ensure the media is available *before* binding /var/media into the mount ns else the actual media will never appear in the daemon's namespace.
     serviceConfig.SystemCallFilter = lib.mkForce [
       # the torrent-done script does stuff which fails the nixos default syscall filter.
       # allow a bunch of stuff, speculatively, to hopefully fix that:

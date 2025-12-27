@@ -35,7 +35,40 @@ ollama API isn't documented anywhere, and it has changed over time, but it's all
 
 
 ## recent model releases
-- [ ] kimi-k2 (1026b)
+- [x] nemotron-3-nano (30b)
+  - released 2025-12-15
+  - <https://ollama.com/library/nemotron-3-nano>
+  - <https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16>
+  - <https://research.nvidia.com/labs/nemotron/Nemotron-3/>
+- [ ] olmo-3.1 (32b)
+  - released 2025-11-20
+  - <https://ollama.com/library/olmo-3.1>
+  - <https://allenai.org/blog/olmo3>
+- [ ] devstral-small-2 (24b)
+  - released 2025-12-13 ?
+  - <https://ollama.com/library/devstral-small-2>
+- [ ] devstral-2 (123b)
+  - released 2025-12-12 ?
+  - <https://ollama.com/library/devstral-2>
+- [x] qwen3-next (80b)
+  - released 2025-09-10
+  - <https://ollama.com/library/qwen3-next>
+  - <https://qwen.ai/blog?id=4074cca80393150c248e508aa62983f9cb7d27cd&from=research.latest-advancements-list>
+- [ ] ministral-3 (3b, 8b, 14b)
+  - released 2025-12-13 ?
+  - <https://ollama.com/library/ministral-3>
+- [ ] qwen3-vl (2b, 4b, 8b, 30b, 32b, 235b)
+  - released 2025-10-29 ?
+- [ ] granite4 (350m, 1b, 3b)
+  - released 2025-10-29 ?
+  - <https://ollama.com/library/granite4>
+- [ ] deepseek-v3.1 (671b)
+  - released 2025-09-27 ?
+  - <https://ollama.com/library/deepseek-v3.1>
+- [x] gpt-oss (20b, 120b)
+  - released 2025-08-05
+  - <https://ollama.com/library/gpt-oss>
+- [x] kimi-k2 (1026b)
   - released 2025-07-17
   - <https://ollama.com/huihui_ai/kimi-k2>
     - requires patching ollama (trivial)

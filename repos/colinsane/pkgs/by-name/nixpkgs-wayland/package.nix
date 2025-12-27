@@ -5,11 +5,11 @@
   pkgs,
 }:
 let
-  version = "0-unstable-2025-12-23";
+  version = "0-unstable-2025-12-24";
   src = fetchFromGitHub {
     owner = "nix-community";
     repo = "nixpkgs-wayland";
-    rev = "e5cbd27c66d353a81222a2274d5e9a61aba87a0b";
+    rev = "bae2cd36bbab69abd7eef4cec658be11b3f96179";
     hash = "sha256-GjZtzqMTCrKXN+L4iFWzZDPA+q5YJGW3EPegTlIFQJQ=";
   };
   flake = import "${src}/flake.nix";

@@ -5,13 +5,42 @@
 # - doesn't seem to do any prompt tuning;
 #   inherits all the pathologies of the underlying model (e.g. makes up citations)
 #
-# it creates a config dir, `~/.config/com.jeffser.Alpaca`, but apparently empty
-#
-# TODO: configure ollama connection details statically
-# - until then, on first run:
-#   - select the non-"managed" ollama option.
-#   - connect to http://10.0.10.22:11434
-{ pkgs, ... }:
+# it creates a config dir, `~/.config/com.jeffser.Alpaca`, but apparently empty.
+# the actual config (and chat state) is held in a relatively simple sqlite database.
+{ config, pkgs, ... }:
+let
+  defaultInstanceId = "20250727030639850585cfd40bab6b83425885caa00a198c9983";
+  defaultHost = if config.networking.hostName == "desko" then
+    "http://127.0.0.1:11434"
+  else
+    "http://${config.sane.hosts.by-name.desko.wg-home.ip}:11434"
+  ;
+  defaultModel = "gemma3:27b";
+  defaultDb = pkgs.runCommand "alpaca-default-db" {
+    nativeBuildInputs = with pkgs; [
+      sqlite
+    ];
+  } ''
+    # schema taken from <repo:jeffser/Alpaca:src/sql_manager.py>
+    sqlite3 alpaca.db '
+      CREATE TABLE instance (
+        id TEXT NOT NULL PRIMARY KEY,
+        pinned INTEGER NOT NULL,
+        type TEXT NOT NULL,
+        properties TEXT NOT NULL
+      );
+      INSERT INTO instance (id, pinned, type, properties) VALUES (
+        "${defaultInstanceId}",
+        0,
+        "ollama",
+        '"'"'{"name": "desko", "url": "${defaultHost}", "api": "ollama", "override_parameters": true, "temperature": 0.7, "seed": 0.0, "num_ctx": 16384.0, "keep_alive": 300, "default_model": "${defaultModel}", "title_model": null, "think": false, "share_name": 0, "show_response_metadata": false}'"'"'
+    )
+    '
+
+    mkdir $out
+    cp alpaca.db $out
+  '';
+in
 {
   sane.programs.alpaca = {
     packageUnwrapped = (pkgs.alpaca.override {
@@ -51,6 +80,10 @@
         substituteInPlace src/widgets/activities/camera.py \
           --replace-fail 'import cv2,'  'import'
       '';
+
+      passthru = (upstream.passthru or {}) // {
+        inherit defaultDb;
+      };
     });
     buildCost = 2;  #< liable to break cross during updates; not important enough to block deploy over
 
@@ -68,23 +101,26 @@
     ];
     sandbox.whitelistSendNotifications = true;
 
-    persist.byStore.private = [
-      # alpaca.db: sqlite3 database with the following tables:
-      # - attachment
-      # - chat
-      # - instances
-      # - message
-      # - model_preferences
-      # - preferences
-      # - tool_parameters
-      ".local/share/com.jeffser.Alpaca"
-    ];
+    # persist.byStore.private = [
+    #   # alpaca.db: sqlite3 database with the following tables:
+    #   # - attachment
+    #   # - chat
+    #   # - instances
+    #   # - message
+    #   # - model_preferences
+    #   # - preferences
+    #   # - tool_parameters
+    #   ".local/share/com.jeffser.Alpaca"
+    # ];
+
+    # N.B.: needs to be a file, not a symlink, else Alpaca crashes on launch.
+    fs.".local/share/com.jeffser.Alpaca/alpaca.db".file.copyFrom = "${defaultDb}/alpaca.db";
 
     gsettings."com/jeffser/Alpaca" = {
       skip-welcome = true;
       last-notice-seen = "Alpaca8";
-      # selected-instance = ...
+      selected-instance = defaultInstanceId;
     };
-    gsettingsPersist = [ "com/jeffser/Alpaca" ];  # for `selected-instance`
+    # gsettingsPersist = [ "com/jeffser/Alpaca" ];  # for `selected-instance`
   };
 }
