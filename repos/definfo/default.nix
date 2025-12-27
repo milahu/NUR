@@ -26,19 +26,6 @@ rec {
   sjtu-canvas-helper = pkgs.callPackage ./pkgs/sjtu-canvas-helper { };
   waylrc = pkgs.callPackage ./pkgs/waylrc { };
 
-  # FIXME: wait for JDK25 fix
-  Aya = pkgs.callPackage ./pkgs/Aya {
-    jdk = pkgs.jdk22;
-    gradle = pkgs.gradle_9;
-  };
-  ayaPackages = pkgs.lib.recurseIntoAttrs (
-    pkgs.callPackage ./pkgs/top-level/aya-packages.nix {
-      inherit Aya;
-    }
-  );
-  inherit (ayaPackages) aya;
-  inherit (ayaPackages) aya-minimal;
-
   coqPackages = {
     sets = callCoqPackage ./pkgs/coqPackages/sets { };
     fixedpoints = (callCoqPackage ./pkgs/coqPackages/fixedpoints) {

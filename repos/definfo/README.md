@@ -33,8 +33,7 @@ in
 {
   devShells.${system}.default = {
     packages = [
-      nur-pkgs.aya
-      # nur-pkgs.aya-minimal
+      nur-pkgs.waylrc
     ];
   };
 }
@@ -45,10 +44,10 @@ in
 ```nix
 { pkgs, ... }:
 let
-  nur-pkgs = inputs.nur-definfo.legacyPackages.${pkgs.system};
+  nur-pkgs = inputs.nur-definfo.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
-  environment.systemPackages = [ nur-pkgs.aya ];
+  environment.systemPackages = [ nur-pkgs.waylrc ];
 }
 ```
 
@@ -57,9 +56,9 @@ in
 ```nix
 { pkgs, ... }:
 let
-  nur-pkgs = inputs.nur-definfo.legacyPackages.${pkgs.system};
+  nur-pkgs = inputs.nur-definfo.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
-  home.packages = [ nur-pkgs.aya ];
+  home.packages = [ nur-pkgs.waylrc ];
 }
 ```
