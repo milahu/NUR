@@ -31,11 +31,11 @@ error:
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:259:19:
+  at <nixpkgs> + /lib/customisation.nix:276:19:
 
-   258|   callPackageWith =
-   259|     autoArgs: fn: args:
+   275|   callPackageWith =
+   276|     autoArgs: fn: args:
       |                   ^
-   260|     let
+   277|     let
 
 error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "nose" at ./pkgs/tools/networking/mediawiki-scraper/mediawiki-scraper.nix:24, did you mean "cose", "gose" or "jose"?'
