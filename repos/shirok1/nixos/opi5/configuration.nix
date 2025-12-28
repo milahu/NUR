@@ -22,17 +22,17 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixo6n"; # Define your hostname.
-
-  # Configure network connections interactively with nmcli or nmtui.
-  networking.networkmanager.enable = true;
+  networking.hostName = "nixopi5"; # Define your hostname.
+  # Pick only one of the below networking options.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Asia/Hong_Kong";
 
   # Configure network proxy if necessary
-  #networking.proxy.default = "http://192.168.88.190:6152/";
-  #networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # networking.proxy.default = "http://192.168.99.39:6152/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
@@ -42,14 +42,7 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 16 * 1024;
-    }
-  ];
-
-  zramSwap.enable = true;
+  hardware.graphics.enable = true;
 
   nixpkgs.overlays = [
     (final: prev: {
@@ -74,17 +67,14 @@
       "https://cache.garnix.io"
       "https://nix-community.cachix.org"
       "https://shirok1.cachix.org"
-      "https://cache.numtide.com"
     ];
     trusted-public-keys = [
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "shirok1.cachix.org-1:eKKgSVMjd/6ojQ4QPjEKUHDnMWWempboJ/mIkCFUBc0="
-      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
     ];
   };
   nixpkgs.config.allowUnfree = true;
-
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
@@ -119,6 +109,9 @@
     shell = pkgs.fish;
     packages = with pkgs; [
       tree
+      mesa-demos
+      kodi-gbm
+      glmark2
       btop
       nurl
       nix-init
@@ -135,11 +128,8 @@
       atuin
       eza
       just
-      nix-index
-      ethtool
-      gitui
-
-      llm-agents.codex
+      nushell
+      mosh
     ];
   };
 
@@ -148,14 +138,15 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    git
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    git
     helix
     xh
     nixd
     nil
     htop
+    grml-zsh-config
     jq
     nvme-cli
     usbutils
@@ -167,8 +158,19 @@
     binutils
     patchelf
     libtree
-    ghostty.terminfo
   ];
+
+  programs.zsh.enable = true;
+  programs.fish.enable = true;
+
+  programs.nh = {
+    enable = true;
+    #clean.enable = true;
+    #clean.extraArgs = "--keep-since 4d --keep 3";
+    #flake = "/home/user/my-nixos-config"; # sets NH_OS_FLAKE variable for you
+  };
+
+  environment.variables.EDITOR = "hx";
 
   environment.etc."vuetorrent".source = "${pkgs.vuetorrent}/share/vuetorrent";
 
@@ -180,15 +182,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs.zsh.enable = true;
-  programs.fish.enable = true;
-
-  programs.nh = {
-    enable = true;
-    #clean.enable = true;
-    #clean.extraArgs = "--keep-since 4d --keep 3";
-    #flake = "/home/user/my-nixos-config"; # sets NH_OS_FLAKE variable for you
-  };
 
   virtualisation.docker = {
     enable = true;
@@ -203,11 +196,6 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  services.avahi = {
-    enable = true;
-    publish.enable = true;
-  };
-
   services.samba = {
     enable = true;
     openFirewall = true;
@@ -218,7 +206,8 @@
           "streams_xattr"
         ];
         "fruit:metadata" = "stream";
-        "fruit:model" = "AirPort6";
+        # "fruit:model" = "MacSamba";
+        "fruit:model" = "MacPro6,1";
         "fruit:veto_appledouble" = "no";
         "fruit:nfs_aces" = "no";
         "fruit:wipe_intentionally_left_blank_rfork" = "yes";
@@ -232,8 +221,13 @@
         "browseable" = "no";
         "writeable" = "yes";
       };
-      EP990 = {
-        "path" = "/drive/ep990";
+      Archive = {
+        "path" = "/drive/archive";
+        "browseable" = "yes";
+        "writeable" = "yes";
+      };
+      Spare = {
+        "path" = "/drive/spare";
         "browseable" = "yes";
         "writeable" = "yes";
       };
@@ -259,86 +253,7 @@
 
   services.nginx = {
     enable = true;
-
-    prependConfig = ''
-      worker_processes auto;
-    '';
-
-    eventsConfig = ''
-      use epoll;
-    '';
-
-    recommendedOptimisation = true;
-    recommendedProxySettings = true;
-    recommendedGzipSettings = true;
-    experimentalZstdSettings = true;
-
-    virtualHosts = {
-      "ha.berry.shiroki.tech" = {
-        # # Redirect HTTP -> HTTPS
-        # forceSSL = true;
-        # # Enable ACME (Let's Encrypt). Set to false if you manage certs yourself.
-        # enableACME = true;
-        # If you enable ACME, also set services.acme.email below (or set
-        # services.nginx.extraConfig as needed).
-        locations = {
-          "/" = {
-            proxyPass = "http://[::1]:8123";
-            proxyWebsockets = true;
-            extraConfig = ''
-              proxy_buffering off;
-            '';
-          };
-        };
-      };
-      "qbt.berry.shiroki.tech" = {
-        # # Redirect HTTP -> HTTPS
-        # forceSSL = true;
-        # # Enable ACME (Let's Encrypt). Set to false if you manage certs yourself.
-        # enableACME = true;
-        # If you enable ACME, also set services.acme.email below (or set
-        # services.nginx.extraConfig as needed).
-        locations = {
-          "/" = {
-            proxyPass = "http://[::1]:8080";
-            proxyWebsockets = true;
-            extraConfig = ''
-              proxy_buffering off;
-            '';
-          };
-        };
-      };
-      "jellyfin.berry.shiroki.tech" = {
-        # # Redirect HTTP -> HTTPS
-        # forceSSL = true;
-        # # Enable ACME (Let's Encrypt). Set to false if you manage certs yourself.
-        # enableACME = true;
-        # If you enable ACME, also set services.acme.email below (or set
-        # services.nginx.extraConfig as needed).
-        locations = {
-          "/" = {
-            proxyPass = "http://[::1]:8096";
-            proxyWebsockets = true;
-            extraConfig = ''
-              proxy_buffering off;
-            '';
-          };
-        };
-      };
-    };
   };
-
-  # If you enabled ACME above, configure the email address for registration.
-  # Uncomment and set your email if you want automatic Let's Encrypt certs.
-  # services.acme = {
-  #   acceptTerms = true;
-  #   email = "you@example.com";
-  #   certs = {
-  #     "your.hass.domain" = {
-  #       webroot = "/var/www/letsencrypt";
-  #     };
-  #   };
-  # };
 
   systemd = {
     packages = [ pkgs.qbittorrent-nox ];
@@ -346,80 +261,11 @@
       overrideStrategy = "asDropin";
       wantedBy = [ "multi-user.target" ];
     };
-    #settings = {
-    #  Manager = { RuntimeWatchdogSec = "30s"; WatchdogDevice = "/dev/watchdog0"; };
-    #};
-  };
-
-  services.home-assistant = {
-    enable = true;
-    openFirewall = true;
-    extraComponents = [
-      # Components required to complete the onboarding
-      "analytics"
-      "google_translate"
-      "met"
-      "radio_browser"
-      "shopping_list"
-      # Recommended for fast zlib compression
-      # https://www.home-assistant.io/integrations/isal
-      "isal"
-
-      "apple_tv"
-      "esphome"
-      "homekit"
-      "homekit_controller"
-      "mqtt"
-      "mqtt_eventstream"
-      "mqtt_json"
-      "mqtt_room"
-      "mqtt_statestream"
-      "ping"
-      "qbittorrent"
-      "sonos"
-      "switchbot"
-      "tasmota"
-      "thread"
-      "upnp"
-      "waqi"
-      "xiaomi_ble"
-
-      "ffmpeg"
-      "zeroconf"
-    ];
-    config = {
-      # Includes dependencies for a basic setup
-      # https://www.home-assistant.io/integrations/default_config/
-      default_config = { };
-      "automation ui" = "!include automations.yaml";
-      "scene ui" = "!include scenes.yaml";
-      "script ui" = "!include scripts.yaml";
-
-      http = {
-        use_x_forwarded_for = true;
-        trusted_proxies = [
-          "127.0.0.1"
-          "::1"
-        ];
+    settings = {
+      Manager = {
+        RuntimeWatchdogSec = "30s";
+        WatchdogDevice = "/dev/watchdog0";
       };
-    };
-    customComponents = with pkgs.home-assistant-custom-components; [
-      xiaomi_home
-    ];
-  };
-
-  services.jellyfin = {
-    enable = true;
-    openFirewall = true;
-    user = "shiroki";
-  };
-
-  services.clickhouse = {
-    enable = true;
-    serverConfig = {
-      listen_host = "::";
-      http_port = 8234;
-      tcp_port = 9000;
     };
   };
 
@@ -435,7 +281,7 @@
   };
 
   services.snell-server = {
-    enable = false;
+    enable = true;
     package = pkgs.shirok1.snell-server;
     settings = {
       snell-server = {
@@ -446,19 +292,34 @@
     };
   };
 
+  services.suwayomi-server = {
+    enable = true;
+    openFirewall = true;
+
+    settings = {
+      server.port = 4567;
+      # server = {
+      #   basicAuthEnabled = true;
+      #   basicAuthUsername = "username";
+
+      #   # NOTE: this is not a real upstream option
+      #   basicAuthPasswordFile = ./path/to/the/password/file;
+      # };
+    };
+  };
+
+  services.komga = {
+    enable = true;
+    port = 4568;
+    openFirewall = true;
+  };
+
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
-    80
-    443
     8080
-    8234
-    9000
     13831
-    21064 # Home Assistant HomeKit Bridge
-    1400 # Home Assistant Sonos
-    1443 # Home Assistant Sonos
   ];
-  networking.firewall.allowedUDPPorts = [ 13831 ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
@@ -484,6 +345,6 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
 }
