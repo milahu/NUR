@@ -30,19 +30,14 @@ stdenv.mkDerivation (finalAttrs: {
   version = "2.0.0";
 
   src = fetchFromGitHub {
-    owner = "helge17";
+    owner = "mio-19";
     repo = "tuxguitar";
-    tag = finalAttrs.version;
-    hash = "sha256-Kk6TQ2t4exVeRyxrCqpdddJE7BfZRlW+B/lUJ+SPPd8=";
+    rev = "0212c160ad3176d3bc96b3003fe03fc7738cebf8";
+    hash = "sha256-Vl15Ydj5sFNtaAhRxuiZwVcuVavD6TVRtZbpthra3tU=";
   };
 
   patches = [
     ./fix-include.patch
-    # https://github.com/helge17/tuxguitar/pull/937
-    (fetchpatch {
-      url = "https://github.com/helge17/tuxguitar/pull/937/commits/6d4df91518ee46340fa473b80eb5d4638d282fae.patch";
-      hash = "sha256-Iek02qK0xxrZcTmcYVpC8hv3r8/5jzdPLvY7OasukJg=";
-    })
   ];
 
   nativeBuildInputs = [
@@ -263,8 +258,8 @@ stdenv.mkDerivation (finalAttrs: {
     };
     mavenDepsHashes = {
       x86_64-linux = "sha256-OboZh9m7FTVFM/aEiTrG0D96+IxMmnR2w3ilzwh0K9E=";
-      aarch64-linux = "sha256-Ct+fH5vOBgAepxyHEEfnTXRaFrjXSqffB41T4RAQ+Xo=";
-      aarch64-darwin = "sha256-uKUUso7V0o57IrjFv8dC/NSTh0d4hS4P/lLijDPR+O8=";
+      aarch64-linux = "";
+      aarch64-darwin = "";
     };
   };
 

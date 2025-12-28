@@ -75,6 +75,11 @@ rec {
       swt = v3overrideAttrs (pkgs.callPackage ./pkgs/swt/package.nix { });
     }
   );
+  mioplays = v3overrideAttrs (
+    pkgs.callPackage ./pkgs/mioplays/package.nix {
+      swt = v3overrideAttrs (pkgs.callPackage ./pkgs/swt/package.nix { });
+    }
+  );
   nss_git = callOverride ./pkgs/nss-git { };
   #aria2-wrapped = pkgs.writeShellScriptBin "aria2" ''
   #  ${pkgs.aria2}/bin/aria2c -s65536 -j65536 -x16 -k1M "$@"
@@ -219,4 +224,10 @@ rec {
   ego = v3overrideAttrs (pkgs.callPackage ./pkgs/ego/package.nix { });
 
   systemd257 = (pkgs.callPackage ./pkgs/systemd257 { });
+
+  davinci-resolve2001 = pkgs.callPackage ./pkgs/davinci-resolve/package.nix { };
+  davinci-resolve-studio2001 = pkgs.callPackage ./pkgs/davinci-resolve/package.nix {
+    studioVariant = true;
+  };
+
 }

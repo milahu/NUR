@@ -52,9 +52,10 @@ files are copied from following locations. some are modified in this repo and so
 + cacert_3108 <https://github.com/NixOS/nixpkgs/blob/9a9ab6b9242c4526f04abeeef99b8de1d7af1fea/pkgs/data/misc/cacert/default.nix>
 + swt nixpkgs commit 0a381edbc370fe8f15106b957fc52ef8f2589e74
 + speed-dreams stuntrally ogre mygui nixpkgs commit 56d904a94724499dd1cae942468f8740cdbb112a
-+ howdy linux-enable-ir-emitter <https://github.com/fufexan/nixpkgs/commit/a9aef4df4b7bda64185ab15e901d7ac43f7c2707> <https://github.com/NixOS/nixpkgs/pull/216245/files>
++ howdy linux-enable-ir-emitter nixpkgs 476d41891299 merged with <https://github.com/NixOS/nixpkgs/pull/216245/files> c003e5440406440bfcf76ce59b890fc2479ae388
 + icu nixpkgs commit 588c72d6229385ef2bab17ec4fc21db014790e4e
 + pkgs/os-specific/linux/kernel/common-flags.nix pkgs/os-specific/linux/zfs/generic.nix nixpkgs commit 154743920299
 + eden <https://github.com/kira-bruneau/nur-packages.git> <https://github.com/kira-bruneau/nur-packages/commit/83867279d2499dd38b944964a829e5c5df93bddc>
 + ego nixpkgs commit 9a1f8b7804ff4bc685b58543c483c52ae967ca63
 + systemd257 <https://github.com/NixOS/nixpkgs/commit/70ca21d3c4982d7f95e48688d02cd9ef6b1347f5>  70ca21d3c4982d7f95e48688d02cd9ef6b1347f5^ <https://github.com/NixOS/nixpkgs/commit/38b523e9e8e607bcd8f638d8a53608bb1658a0e4>
++ davinci-resolve nixpkgs commit 49a636772fd8ea6f25b9c9ff9c5a04434e90b96f^
