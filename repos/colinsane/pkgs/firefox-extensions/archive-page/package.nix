@@ -9,13 +9,13 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "archive-page";
-  version = "1.3.0";
+  version = "1.4.0";
 
   src = fetchFromGitHub {
     owner = "JNavas2";
     repo = "Archive-Page";
     rev = "v${version}";
-    hash = "sha256-Cwhs2LbfCHk39E+UbpR2qZZ45fbRhVzfF+RgXiZlMXM=";
+    hash = "sha256-hErp6c28p5UMgZvaQFW4UV0i17jW/7u+ZKfdty2fZ8U=";
   };
 
   nativeBuildInputs = [

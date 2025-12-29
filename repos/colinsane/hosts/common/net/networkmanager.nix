@@ -151,45 +151,45 @@
   };
 
   # harden wpa_supplicant (used by NetworkManager)
-  systemd.services.wpa_supplicant = {
-    serviceConfig.User = "networkmanager";
-    serviceConfig.Group = "networkmanager";
-    serviceConfig.AmbientCapabilities = [
-      "CAP_NET_ADMIN"
-      "CAP_NET_RAW"
-    ];
-    serviceConfig.LockPersonality = true;
-    serviceConfig.NoNewPrivileges = true;
-    # serviceConfig.PrivateDevices = true;  # untried, not likely to work. remount /dev with just the basics, syscall filter to block @raw-io
-    serviceConfig.PrivateIPC = true;
-    serviceConfig.PrivateTmp = true;
-    # serviceConfig.PrivateUsers = true;  #< untried, not likely to work
-    serviceConfig.ProtectClock = true;  # syscall filter to prevent changing the RTC
-    serviceConfig.ProtectControlGroups = true;
-    serviceConfig.ProtectHome = true;  # makes empty: /home, /root, /run/user
-    serviceConfig.ProtectHostname = true;  # prevents changing hostname
-    serviceConfig.ProtectKernelLogs = true;  # disable /proc/kmsg, /dev/kmsg
-    serviceConfig.ProtectKernelModules = true;  # syscall filter to prevent module calls
-    serviceConfig.ProtectKernelTunables = true;  #< N.B.: i think this makes certain /proc writes fail
-    serviceConfig.ProtectSystem = "strict";  # makes read-only: all but /dev, /proc, /sys.
-    serviceConfig.RestrictAddressFamilies = [
-      "AF_INET"  #< required
-      "AF_INET6"
-      "AF_NETLINK"  #< required
-      "AF_PACKET"  #< required
-      "AF_UNIX"  #< required (wpa_supplicant wants to use dbus)
-    ];
-    serviceConfig.RestrictSUIDSGID = true;
-    serviceConfig.SystemCallArchitectures = "native";  # prevents e.g. aarch64 syscalls in the event that the kernel is multi-architecture.
+  # systemd.services.wpa_supplicant = {
+  #   serviceConfig.User = "networkmanager";
+  #   serviceConfig.Group = "networkmanager";
+  #   serviceConfig.AmbientCapabilities = [
+  #     "CAP_NET_ADMIN"
+  #     "CAP_NET_RAW"
+  #   ];
+  #   serviceConfig.LockPersonality = true;
+  #   serviceConfig.NoNewPrivileges = true;
+  #   # serviceConfig.PrivateDevices = true;  # untried, not likely to work. remount /dev with just the basics, syscall filter to block @raw-io
+  #   serviceConfig.PrivateIPC = true;
+  #   serviceConfig.PrivateTmp = true;
+  #   # serviceConfig.PrivateUsers = true;  #< untried, not likely to work
+  #   serviceConfig.ProtectClock = true;  # syscall filter to prevent changing the RTC
+  #   serviceConfig.ProtectControlGroups = true;
+  #   serviceConfig.ProtectHome = true;  # makes empty: /home, /root, /run/user
+  #   serviceConfig.ProtectHostname = true;  # prevents changing hostname
+  #   serviceConfig.ProtectKernelLogs = true;  # disable /proc/kmsg, /dev/kmsg
+  #   serviceConfig.ProtectKernelModules = true;  # syscall filter to prevent module calls
+  #   serviceConfig.ProtectKernelTunables = true;  #< N.B.: i think this makes certain /proc writes fail
+  #   serviceConfig.ProtectSystem = "strict";  # makes read-only: all but /dev, /proc, /sys.
+  #   serviceConfig.RestrictAddressFamilies = [
+  #     "AF_INET"  #< required
+  #     "AF_INET6"
+  #     "AF_NETLINK"  #< required
+  #     "AF_PACKET"  #< required
+  #     "AF_UNIX"  #< required (wpa_supplicant wants to use dbus)
+  #   ];
+  #   serviceConfig.RestrictSUIDSGID = true;
+  #   serviceConfig.SystemCallArchitectures = "native";  # prevents e.g. aarch64 syscalls in the event that the kernel is multi-architecture.
 
-    # from earlier `landlock` sandboxing, i know it needs only these paths:
-    # - "/dev/net"
-    # - "/dev/rfkill"
-    # - "/proc/sys/net"
-    # - "/sys/class/net"
-    # - "/sys/devices"
-    # - "/run/systemd"
-  };
+  #   # from earlier `landlock` sandboxing, i know it needs only these paths:
+  #   # - "/dev/net"
+  #   # - "/dev/rfkill"
+  #   # - "/proc/sys/net"
+  #   # - "/sys/class/net"
+  #   # - "/sys/devices"
+  #   # - "/run/systemd"
+  # };
 
   networking.networkmanager.settings = {
     # docs: `man 5 NetworkManager.conf`
@@ -265,26 +265,26 @@
   users.users.networkmanager = {
     isSystemUser = true;
     group = "networkmanager";
-    extraGroups = [ "hickory-dns" ];
+    extraGroups = [ "hickory-dns" "wpa_supplicant" ];
   };
 
   # there is, unfortunately, no proper interface by which to plumb wpa_supplicant into the NixOS service, except by overlay.
-  nixpkgs.overlays = [(self: super: {
-    wpa_supplicant = super.wpa_supplicant.overrideAttrs (upstream: {
-      # postPatch = (upstream.postPatch or "") + ''
-      #   substituteInPlace wpa_supplicant/dbus/dbus-wpa_supplicant.conf --replace-fail \
-      #     'user="root"' 'user="networkmanager"'
-      # '';
-      postInstall = (upstream.postInstall or "") + ''
-        substitute $out/share/dbus-1/system.d/dbus-wpa_supplicant.conf \
-          $out/share/dbus-1/system.d/networkmanager-wpa_supplicant.conf \
-          --replace-fail 'user="root"' 'group="networkmanager"'
-      '';
+  # nixpkgs.overlays = [(self: super: {
+  #   wpa_supplicant = super.wpa_supplicant.overrideAttrs (upstream: {
+  #     # postPatch = (upstream.postPatch or "") + ''
+  #     #   substituteInPlace wpa_supplicant/dbus/dbus-wpa_supplicant.conf --replace-fail \
+  #     #     'user="root"' 'user="networkmanager"'
+  #     # '';
+  #     postInstall = (upstream.postInstall or "") + ''
+  #       substitute $out/share/dbus-1/system.d/dbus-wpa_supplicant.conf \
+  #         $out/share/dbus-1/system.d/networkmanager-wpa_supplicant.conf \
+  #         --replace-fail 'user="root"' 'group="networkmanager"'
+  #     '';
 
-      postFixup = (upstream.postFixup or "") + ''
-        # remove unused services to avoid unexpected interactions
-        rm $out/etc/systemd/system/{wpa_supplicant-nl80211@,wpa_supplicant-wired@,wpa_supplicant@}.service
-      '';
-    });
-  })];
+  #     postFixup = (upstream.postFixup or "") + ''
+  #       # remove unused services to avoid unexpected interactions
+  #       rm $out/etc/systemd/system/{wpa_supplicant-nl80211@,wpa_supplicant-wired@,wpa_supplicant@}.service
+  #     '';
+  #   });
+  # })];
 }

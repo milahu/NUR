@@ -33,22 +33,18 @@ let
     ];
 
     ### ADDITIONAL MPV SCRIPTS
-    # build like `nix-build -A mpvScripts.sane-cast`
-    mpv-unwrapped = unpatched.mpv-unwrapped.overrideAttrs (base: {
+    # build like `nix-build -A mpvScripts.sane_cast`
+    # XXX(2025-12-27): `args` here is a typo in upstream: this should be rewritten to not be a function
+    mpvScripts = args: (unpatched.mpvScripts args).overrideScope (sFinal: sPrev: {
+
       # don't update by default since most of these packages are from a different repo (i.e. nixpkgs).
       updateWithSuper = false;
-
-      passthru = base.passthru // {
-        scripts = base.passthru.scripts.overrideScope (sFinal: sPrev: (
-          lib.recurseIntoAttrs (
-            lib.filesystem.packagesFromDirectoryRecursive {
-              inherit (sFinal) callPackage;
-              directory = ./mpv-scripts;
-            }
-          )
-        ));
-      };
-    });
+    } // lib.recurseIntoAttrs (
+      lib.filesystem.packagesFromDirectoryRecursive {
+        inherit (sFinal) callPackage;
+        directory = ./mpv-scripts;
+      }
+    ));
 
     ### FIREFOX EXTENSIONS
     # build like `nix-build -A firefox-extensions.default-zoom`.

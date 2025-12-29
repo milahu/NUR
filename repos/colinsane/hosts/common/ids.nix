@@ -99,6 +99,8 @@
   sane.ids.lpadmin.gid = 2013;
   sane.ids.knot-resolver.uid = 2014;
   sane.ids.knot-resolver.gid = 2014;
+  sane.ids.wpa_supplicant.uid = 2015;
+  sane.ids.wpa_supplicant.gid = 2015;
 
   # found on graphical hosts
   sane.ids.nm-iodine.uid = 2101;  # desko/moby/lappy

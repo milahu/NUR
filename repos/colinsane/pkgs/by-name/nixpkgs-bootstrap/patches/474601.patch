@@ -1,0 +1,763 @@
+From 3a7b44c0697b8057970543a881b533b36e3936c4 Mon Sep 17 00:00:00 2001
+From: SchweGELBin <abramjannikmichael06@gmail.com>
+Date: Sat, 27 Dec 2025 17:49:02 +0100
+Subject: [PATCH 1/3] mpv{,-unwrapped,Scripts}: move to by-name
+
+---
+ ci/OWNERS                                     |   4 +-
+ pkgs/applications/video/mpv/wrapper.nix       | 163 ------------------
+ .../mp/mpv-unwrapped/package.nix}             |   3 -
+ pkgs/by-name/mp/mpv/package.nix               | 154 +++++++++++++++++
+ .../video => by-name/mp}/mpv/scripts.nix      |   0
+ .../mp}/mpv/scripts/autosub.nix               |   0
+ .../mp}/mpv/scripts/autosubsync-mpv.nix       |   0
+ .../mp}/mpv/scripts/bdanmaku.nix              |   0
+ .../mp}/mpv/scripts/buildLua.nix              |   0
+ .../mp}/mpv/scripts/builtins.nix              |   0
+ .../mp}/mpv/scripts/chapterskip.nix           |   0
+ .../mp}/mpv/scripts/convert.nix               |   0
+ .../mp}/mpv/scripts/convert.patch             |   0
+ .../mp}/mpv/scripts/cutter.nix                |   0
+ .../mp}/mpv/scripts/dynamic-crop.nix          |   0
+ .../mp}/mpv/scripts/easycrop.nix              |   0
+ .../mp}/mpv/scripts/eisa01.nix                |   0
+ .../mp}/mpv/scripts/evafast.nix               |   0
+ .../mp}/mpv/scripts/inhibit-gnome.nix         |   0
+ .../mp}/mpv/scripts/manga-reader.nix          |   0
+ .../video => by-name/mp}/mpv/scripts/memo.nix |   0
+ .../mp}/mpv/scripts/modernx-zydezu.nix        |   0
+ .../mp}/mpv/scripts/modernx.nix               |   0
+ .../mp}/mpv/scripts/modernz.nix               |   0
+ .../mp}/mpv/scripts/mpris.nix                 |   0
+ .../mp}/mpv/scripts/mpv-cheatsheet.nix        |   0
+ .../mp}/mpv/scripts/mpv-discord.nix           |   0
+ .../mp}/mpv/scripts/mpv-gallery-view.nix      |   0
+ .../mp}/mpv/scripts/mpv-image-viewer.nix      |   0
+ .../mp}/mpv/scripts/mpv-notify-send.nix       |   0
+ .../mp}/mpv/scripts/mpv-osc-modern.nix        |   0
+ .../mp}/mpv/scripts/mpv-osc-tethys.nix        |   0
+ .../mp}/mpv/scripts/mpv-playlistmanager.nix   |   0
+ .../mp}/mpv/scripts/mpv-slicing.nix           |   0
+ .../mp}/mpv/scripts/mpv-subtitle-lines.nix    |   0
+ .../mp}/mpv/scripts/mpv-webm.nix              |   0
+ .../mp}/mpv/scripts/mpvacious.nix             |   0
+ .../mp}/mpv/scripts/occivink.nix              |   0
+ .../mp}/mpv/scripts/quack.nix                 |   0
+ .../mp}/mpv/scripts/quality-menu.nix          |   0
+ .../mp}/mpv/scripts/reload.nix                |   0
+ .../mp}/mpv/scripts/simple-mpv-webui.nix      |   0
+ .../mp}/mpv/scripts/skipsilence.nix           |   0
+ .../mp}/mpv/scripts/sponsorblock-minimal.nix  |   0
+ .../mp}/mpv/scripts/sponsorblock.nix          |   0
+ .../mp}/mpv/scripts/thumbfast.nix             |   0
+ .../mp}/mpv/scripts/thumbnail.nix             |   0
+ .../mp}/mpv/scripts/twitch-chat.nix           |   0
+ .../video => by-name/mp}/mpv/scripts/uosc.nix |   0
+ .../mp}/mpv/scripts/videoclip.nix             |   0
+ .../mp}/mpv/scripts/visualizer.nix            |   0
+ .../mp}/mpv/scripts/vr-reversal.nix           |   0
+ .../mp}/mpv/scripts/webtorrent-mpv-hook.nix   |   0
+ .../mp}/mpv/scripts/youtube-chat.nix          |   0
+ .../mp}/mpv/scripts/youtube-upnext.nix        |   0
+ pkgs/top-level/all-packages.nix               |   9 +-
+ 56 files changed, 157 insertions(+), 176 deletions(-)
+ delete mode 100644 pkgs/applications/video/mpv/wrapper.nix
+ rename pkgs/{applications/video/mpv/default.nix => by-name/mp/mpv-unwrapped/package.nix} (98%)
+ create mode 100644 pkgs/by-name/mp/mpv/package.nix
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/autosub.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/autosubsync-mpv.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/bdanmaku.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/buildLua.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/builtins.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/chapterskip.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/convert.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/convert.patch (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/cutter.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/dynamic-crop.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/easycrop.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/eisa01.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/evafast.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/inhibit-gnome.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/manga-reader.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/memo.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/modernx-zydezu.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/modernx.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/modernz.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/mpris.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/mpv-cheatsheet.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/mpv-discord.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/mpv-gallery-view.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/mpv-image-viewer.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/mpv-notify-send.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/mpv-osc-modern.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/mpv-osc-tethys.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/mpv-playlistmanager.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/mpv-slicing.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/mpv-subtitle-lines.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/mpv-webm.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/mpvacious.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/occivink.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/quack.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/quality-menu.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/reload.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/simple-mpv-webui.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/skipsilence.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/sponsorblock-minimal.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/sponsorblock.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/thumbfast.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/thumbnail.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/twitch-chat.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/uosc.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/videoclip.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/visualizer.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/vr-reversal.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/webtorrent-mpv-hook.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/youtube-chat.nix (100%)
+ rename pkgs/{applications/video => by-name/mp}/mpv/scripts/youtube-upnext.nix (100%)
+
+diff --git a/ci/OWNERS b/ci/OWNERS
+index 85a03002e851235c3c0127522f0976d387f6b874..4f5f9eaa8ba2c344b68c2cfafd8ab83edbb2366c 100644
+--- a/ci/OWNERS
++++ b/ci/OWNERS
+@@ -373,8 +373,8 @@ pkgs/development/python-modules/buildcatrust/ @ajs124 @lukegb @mweinelt
+ /pkgs/development/lua-modules         @NixOS/lua
+ 
+ # mpvScripts
+-/pkgs/applications/video/mpv/scripts            @uninsane
+-/pkgs/applications/video/mpv/scripts.nix        @uninsane
++/pkgs/by-name/mp/mpv/scripts     @uninsane
++/pkgs/by-name/mp/mpv/scripts.nix @uninsane
+ 
+ # Neovim
+ /pkgs/applications/editors/neovim      @NixOS/neovim
+diff --git a/pkgs/applications/video/mpv/wrapper.nix b/pkgs/applications/video/mpv/wrapper.nix
+deleted file mode 100644
+index 8fc65ae11bea9bb43872fe74f3faa5a38cfb1853..0000000000000000000000000000000000000000
+--- a/pkgs/applications/video/mpv/wrapper.nix
++++ /dev/null
+@@ -1,163 +0,0 @@
+-# Arguments that this derivation gets when it is created with `callPackage`
+-{
+-  stdenv,
+-  buildEnv,
+-  lib,
+-  makeBinaryWrapper,
+-  mpvScripts,
+-  symlinkJoin,
+-  writeTextDir,
+-  yt-dlp,
+-# the unwrapped mpv derivation
+-}:
+-
+-let
+-  # arguments to the function (exposed as `mpv-unwrapped.wrapper` in top-level)
+-  wrapper =
+-    {
+-      mpv,
+-      extraMakeWrapperArgs ? [ ],
+-      youtubeSupport ? true,
+-      # a set of derivations (probably from `mpvScripts`) where each is expected
+-      # to have a `scriptName` passthru attribute that points to the name of the
+-      # script that would reside in the script's derivation's
+-      # `$out/share/mpv/scripts/`.
+-      #
+-      # A script can optionally also provide `passthru.extraWrapperArgs`
+-      # attribute.
+-      scripts ? [ ],
+-      extraUmpvWrapperArgs ? [ ],
+-    }:
+-    let
+-      binPath = lib.makeBinPath (
+-        [
+-          mpv.luaEnv
+-        ]
+-        ++ lib.optionals mpv.vapoursynthSupport [
+-          mpv.vapoursynth.python3
+-        ]
+-      );
+-
+-      # With some tools, we want to prioritize tools that are in PATH. For example, users may want
+-      # to quickly expose a newer version of yt-dlp through the nix shell because it needs to be
+-      # kept up-to-date for it to work.
+-      fallbackBinPath = lib.makeBinPath (lib.optionals youtubeSupport [ yt-dlp ]);
+-
+-      # All arguments besides the input and output binaries (${mpv}/bin/mpv and
+-      # $out/bin/mpv). These are used by the darwin specific makeWrapper call
+-      # used to wrap $out/Applications/mpv.app/Contents/MacOS/mpv as well.
+-      mostMakeWrapperArgs = lib.strings.escapeShellArgs (
+-        [
+-          "--inherit-argv0"
+-          # These are always needed (TODO: Explain why)
+-          "--prefix"
+-          "LUA_CPATH"
+-          ";"
+-          "${mpv.luaEnv}/lib/lua/${mpv.lua.luaversion}/?.so"
+-          "--prefix"
+-          "LUA_PATH"
+-          ";"
+-          "${mpv.luaEnv}/share/lua/${mpv.lua.luaversion}/?.lua"
+-        ]
+-        ++ lib.optionals mpv.vapoursynthSupport [
+-          "--prefix"
+-          "PYTHONPATH"
+-          ":"
+-          "${mpv.vapoursynth}/${mpv.vapoursynth.python3.sitePackages}"
+-        ]
+-        ++ lib.optionals (binPath != "") [
+-          "--prefix"
+-          "PATH"
+-          ":"
+-          binPath
+-        ]
+-        ++ lib.optionals (fallbackBinPath != "") [
+-          "--suffix"
+-          "PATH"
+-          ":"
+-          fallbackBinPath
+-        ]
+-        ++ (lib.lists.flatten (
+-          map
+-            # For every script in the `scripts` argument, add the necessary flags to the wrapper
+-            (
+-              script:
+-              let
+-                mkScriptArgs = script: scriptName: [
+-                  "--add-flags"
+-                  "--script=${script}/share/mpv/scripts/${scriptName}"
+-                ];
+-              in
+-              # Here we rely on the existence of the `scriptName` passthru
+-              # attribute of the script derivation from the `scripts`
+-              (mkScriptArgs script script.scriptName)
+-              # scripts might need others to be explicitly loaded
+-              ++ (map (extraScriptName: mkScriptArgs script extraScriptName) (script.extraScriptsToLoad or [ ]))
+-              # scripts can also set the `extraWrapperArgs` passthru
+-              ++ (script.extraWrapperArgs or [ ])
+-            )
+-            scripts
+-        ))
+-        ++ extraMakeWrapperArgs
+-      );
+-      umpvWrapperArgs = lib.strings.escapeShellArgs (
+-        [
+-          "--inherit-argv0"
+-          "--set"
+-          "MPV"
+-          "${placeholder "out"}/bin/mpv"
+-        ]
+-        ++ extraUmpvWrapperArgs
+-      );
+-    in
+-    symlinkJoin {
+-      name = "mpv-with-scripts-${mpv.version}";
+-
+-      # TODO: don't link all mpv outputs and convert package to mpv-unwrapped?
+-      paths = [ mpv.all ];
+-
+-      nativeBuildInputs = [ makeBinaryWrapper ];
+-
+-      passthru.unwrapped = mpv;
+-
+-      passthru.tests.mpv-scripts-should-not-collide = buildEnv {
+-        name = "mpv-scripts-env";
+-        paths = lib.pipe mpvScripts [
+-          # filters "override" "overrideDerivation" "recurseForDerivations"
+-          (lib.filterAttrs (key: script: lib.isDerivation script))
+-          # replaces unfree and meta.broken scripts with decent placeholders
+-          (lib.mapAttrsToList (
+-            key: script:
+-            if (builtins.tryEval script.outPath).success then
+-              script
+-            else
+-              writeTextDir "share/mpv/scripts/${script.scriptName}" "placeholder of ${script.name}"
+-          ))
+-        ];
+-      };
+-
+-      postBuild = ''
+-        # wrapProgram can't operate on symlinks
+-        rm "$out/bin/mpv"
+-        makeWrapper "${mpv}/bin/mpv" "$out/bin/mpv" ${mostMakeWrapperArgs}
+-        rm "$out/bin/umpv"
+-        makeWrapper "${mpv}/bin/umpv" "$out/bin/umpv" ${umpvWrapperArgs}
+-      ''
+-      + lib.optionalString stdenv.hostPlatform.isDarwin ''
+-        # wrapProgram can't operate on symlinks
+-        rm "$out/Applications/mpv.app/Contents/MacOS/mpv"
+-        makeWrapper "${mpv}/Applications/mpv.app/Contents/MacOS/mpv" "$out/Applications/mpv.app/Contents/MacOS/mpv" ${mostMakeWrapperArgs}
+-      '';
+-
+-      meta = {
+-        inherit (mpv.meta)
+-          homepage
+-          description
+-          longDescription
+-          maintainers
+-          ;
+-        mainProgram = "mpv";
+-      };
+-    };
+-in
+-lib.makeOverridable wrapper
+diff --git a/pkgs/applications/video/mpv/default.nix b/pkgs/by-name/mp/mpv-unwrapped/package.nix
+similarity index 98%
+rename from pkgs/applications/video/mpv/default.nix
+rename to pkgs/by-name/mp/mpv-unwrapped/package.nix
+index 0a1694877590c749a97de06e58ba9bae0c2edc98..eb0e4278da329de7d5c4fd87dd428e5c327c895f 100644
+--- a/pkgs/applications/video/mpv/default.nix
++++ b/pkgs/by-name/mp/mpv-unwrapped/package.nix
+@@ -301,9 +301,6 @@ stdenv.mkDerivation (finalAttrs: {
+       vapoursynth
+       ;
+ 
+-    wrapper = callPackage ./wrapper.nix { };
+-    scripts = callPackage ./scripts.nix { };
+-
+     tests = {
+       inherit (nixosTests) mpv;
+ 
+diff --git a/pkgs/by-name/mp/mpv/package.nix b/pkgs/by-name/mp/mpv/package.nix
+new file mode 100644
+index 0000000000000000000000000000000000000000..4ec028b41170cfb859efa279caccb49795345868
+--- /dev/null
++++ b/pkgs/by-name/mp/mpv/package.nix
+@@ -0,0 +1,154 @@
++{
++  stdenv,
++  buildEnv,
++  lib,
++  makeBinaryWrapper,
++  mpvScripts,
++  mpv-unwrapped,
++  symlinkJoin,
++  writeTextDir,
++  yt-dlp,
++  extraMakeWrapperArgs ? [ ],
++  youtubeSupport ? true,
++  # a set of derivations (probably from `mpvScripts`) where each is expected
++  # to have a `scriptName` passthru attribute that points to the name of the
++  # script that would reside in the script's derivation's
++  # `$out/share/mpv/scripts/`.
++  #
++  # A script can optionally also provide `passthru.extraWrapperArgs`
++  # attribute.
++  scripts ? [ ],
++  extraUmpvWrapperArgs ? [ ],
++}:
++
++let
++  binPath = lib.makeBinPath (
++    [
++      mpv-unwrapped.luaEnv
++    ]
++    ++ lib.optionals mpv-unwrapped.vapoursynthSupport [
++      mpv-unwrapped.vapoursynth.python3
++    ]
++  );
++
++  # With some tools, we want to prioritize tools that are in PATH. For example, users may want
++  # to quickly expose a newer version of yt-dlp through the nix shell because it needs to be
++  # kept up-to-date for it to work.
++  fallbackBinPath = lib.makeBinPath (lib.optionals youtubeSupport [ yt-dlp ]);
++
++  # All arguments besides the input and output binaries (${mpv-unwrapped}/bin/mpv and
++  # $out/bin/mpv). These are used by the darwin specific makeWrapper call
++  # used to wrap $out/Applications/mpv.app/Contents/MacOS/mpv as well.
++  mostMakeWrapperArgs = lib.strings.escapeShellArgs (
++    [
++      "--inherit-argv0"
++      # These are always needed (TODO: Explain why)
++      "--prefix"
++      "LUA_CPATH"
++      ";"
++      "${mpv-unwrapped.luaEnv}/lib/lua/${mpv-unwrapped.lua.luaversion}/?.so"
++      "--prefix"
++      "LUA_PATH"
++      ";"
++      "${mpv-unwrapped.luaEnv}/share/lua/${mpv-unwrapped.lua.luaversion}/?.lua"
++    ]
++    ++ lib.optionals mpv-unwrapped.vapoursynthSupport [
++      "--prefix"
++      "PYTHONPATH"
++      ":"
++      "${mpv-unwrapped.vapoursynth}/${mpv-unwrapped.vapoursynth.python3.sitePackages}"
++    ]
++    ++ lib.optionals (binPath != "") [
++      "--prefix"
++      "PATH"
++      ":"
++      binPath
++    ]
++    ++ lib.optionals (fallbackBinPath != "") [
++      "--suffix"
++      "PATH"
++      ":"
++      fallbackBinPath
++    ]
++    ++ (lib.lists.flatten (
++      map
++        # For every script in the `scripts` argument, add the necessary flags to the wrapper
++        (
++          script:
++          let
++            mkScriptArgs = script: scriptName: [
++              "--add-flags"
++              "--script=${script}/share/mpv/scripts/${scriptName}"
++            ];
++          in
++          # Here we rely on the existence of the `scriptName` passthru
++          # attribute of the script derivation from the `scripts`
++          (mkScriptArgs script script.scriptName)
++          # scripts might need others to be explicitly loaded
++          ++ (map (extraScriptName: mkScriptArgs script extraScriptName) (script.extraScriptsToLoad or [ ]))
++          # scripts can also set the `extraWrapperArgs` passthru
++          ++ (script.extraWrapperArgs or [ ])
++        )
++        scripts
++    ))
++    ++ extraMakeWrapperArgs
++  );
++  umpvWrapperArgs = lib.strings.escapeShellArgs (
++    [
++      "--inherit-argv0"
++      "--set"
++      "MPV"
++      "${placeholder "out"}/bin/mpv"
++    ]
++    ++ extraUmpvWrapperArgs
++  );
++in
++symlinkJoin {
++  name = "mpv-with-scripts-${mpv-unwrapped.version}";
++
++  # TODO: don't link all mpv outputs and convert package to mpv-unwrapped?
++  paths = [ mpv-unwrapped.all ];
++
++  nativeBuildInputs = [ makeBinaryWrapper ];
++
++  passthru.unwrapped = mpv-unwrapped;
++
++  passthru.tests.mpv-scripts-should-not-collide = buildEnv {
++    name = "mpv-scripts-env";
++    paths = lib.pipe mpvScripts [
++      # filters "override" "overrideDerivation" "recurseForDerivations"
++      (lib.filterAttrs (key: script: lib.isDerivation script))
++      # replaces unfree and meta.broken scripts with decent placeholders
++      (lib.mapAttrsToList (
++        key: script:
++        if (builtins.tryEval script.outPath).success then
++          script
++        else
++          writeTextDir "share/mpv/scripts/${script.scriptName}" "placeholder of ${script.name}"
++      ))
++    ];
++  };
++
++  postBuild = ''
++    # wrapProgram can't operate on symlinks
++    rm "$out/bin/mpv"
++    makeWrapper "${mpv-unwrapped}/bin/mpv" "$out/bin/mpv" ${mostMakeWrapperArgs}
++    rm "$out/bin/umpv"
++    makeWrapper "${mpv-unwrapped}/bin/umpv" "$out/bin/umpv" ${umpvWrapperArgs}
++  ''
++  + lib.optionalString stdenv.hostPlatform.isDarwin ''
++    # wrapProgram can't operate on symlinks
++    rm "$out/Applications/mpv.app/Contents/MacOS/mpv"
++    makeWrapper "${mpv-unwrapped}/Applications/mpv.app/Contents/MacOS/mpv" "$out/Applications/mpv.app/Contents/MacOS/mpv" ${mostMakeWrapperArgs}
++  '';
++
++  meta = {
++    inherit (mpv-unwrapped.meta)
++      homepage
++      description
++      longDescription
++      maintainers
++      ;
++    mainProgram = "mpv";
++  };
++}
+diff --git a/pkgs/applications/video/mpv/scripts.nix b/pkgs/by-name/mp/mpv/scripts.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts.nix
+rename to pkgs/by-name/mp/mpv/scripts.nix
+diff --git a/pkgs/applications/video/mpv/scripts/autosub.nix b/pkgs/by-name/mp/mpv/scripts/autosub.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/autosub.nix
+rename to pkgs/by-name/mp/mpv/scripts/autosub.nix
+diff --git a/pkgs/applications/video/mpv/scripts/autosubsync-mpv.nix b/pkgs/by-name/mp/mpv/scripts/autosubsync-mpv.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/autosubsync-mpv.nix
+rename to pkgs/by-name/mp/mpv/scripts/autosubsync-mpv.nix
+diff --git a/pkgs/applications/video/mpv/scripts/bdanmaku.nix b/pkgs/by-name/mp/mpv/scripts/bdanmaku.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/bdanmaku.nix
+rename to pkgs/by-name/mp/mpv/scripts/bdanmaku.nix
+diff --git a/pkgs/applications/video/mpv/scripts/buildLua.nix b/pkgs/by-name/mp/mpv/scripts/buildLua.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/buildLua.nix
+rename to pkgs/by-name/mp/mpv/scripts/buildLua.nix
+diff --git a/pkgs/applications/video/mpv/scripts/builtins.nix b/pkgs/by-name/mp/mpv/scripts/builtins.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/builtins.nix
+rename to pkgs/by-name/mp/mpv/scripts/builtins.nix
+diff --git a/pkgs/applications/video/mpv/scripts/chapterskip.nix b/pkgs/by-name/mp/mpv/scripts/chapterskip.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/chapterskip.nix
+rename to pkgs/by-name/mp/mpv/scripts/chapterskip.nix
+diff --git a/pkgs/applications/video/mpv/scripts/convert.nix b/pkgs/by-name/mp/mpv/scripts/convert.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/convert.nix
+rename to pkgs/by-name/mp/mpv/scripts/convert.nix
+diff --git a/pkgs/applications/video/mpv/scripts/convert.patch b/pkgs/by-name/mp/mpv/scripts/convert.patch
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/convert.patch
+rename to pkgs/by-name/mp/mpv/scripts/convert.patch
+diff --git a/pkgs/applications/video/mpv/scripts/cutter.nix b/pkgs/by-name/mp/mpv/scripts/cutter.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/cutter.nix
+rename to pkgs/by-name/mp/mpv/scripts/cutter.nix
+diff --git a/pkgs/applications/video/mpv/scripts/dynamic-crop.nix b/pkgs/by-name/mp/mpv/scripts/dynamic-crop.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/dynamic-crop.nix
+rename to pkgs/by-name/mp/mpv/scripts/dynamic-crop.nix
+diff --git a/pkgs/applications/video/mpv/scripts/easycrop.nix b/pkgs/by-name/mp/mpv/scripts/easycrop.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/easycrop.nix
+rename to pkgs/by-name/mp/mpv/scripts/easycrop.nix
+diff --git a/pkgs/applications/video/mpv/scripts/eisa01.nix b/pkgs/by-name/mp/mpv/scripts/eisa01.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/eisa01.nix
+rename to pkgs/by-name/mp/mpv/scripts/eisa01.nix
+diff --git a/pkgs/applications/video/mpv/scripts/evafast.nix b/pkgs/by-name/mp/mpv/scripts/evafast.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/evafast.nix
+rename to pkgs/by-name/mp/mpv/scripts/evafast.nix
+diff --git a/pkgs/applications/video/mpv/scripts/inhibit-gnome.nix b/pkgs/by-name/mp/mpv/scripts/inhibit-gnome.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/inhibit-gnome.nix
+rename to pkgs/by-name/mp/mpv/scripts/inhibit-gnome.nix
+diff --git a/pkgs/applications/video/mpv/scripts/manga-reader.nix b/pkgs/by-name/mp/mpv/scripts/manga-reader.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/manga-reader.nix
+rename to pkgs/by-name/mp/mpv/scripts/manga-reader.nix
+diff --git a/pkgs/applications/video/mpv/scripts/memo.nix b/pkgs/by-name/mp/mpv/scripts/memo.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/memo.nix
+rename to pkgs/by-name/mp/mpv/scripts/memo.nix
+diff --git a/pkgs/applications/video/mpv/scripts/modernx-zydezu.nix b/pkgs/by-name/mp/mpv/scripts/modernx-zydezu.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/modernx-zydezu.nix
+rename to pkgs/by-name/mp/mpv/scripts/modernx-zydezu.nix
+diff --git a/pkgs/applications/video/mpv/scripts/modernx.nix b/pkgs/by-name/mp/mpv/scripts/modernx.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/modernx.nix
+rename to pkgs/by-name/mp/mpv/scripts/modernx.nix
+diff --git a/pkgs/applications/video/mpv/scripts/modernz.nix b/pkgs/by-name/mp/mpv/scripts/modernz.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/modernz.nix
+rename to pkgs/by-name/mp/mpv/scripts/modernz.nix
+diff --git a/pkgs/applications/video/mpv/scripts/mpris.nix b/pkgs/by-name/mp/mpv/scripts/mpris.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/mpris.nix
+rename to pkgs/by-name/mp/mpv/scripts/mpris.nix
+diff --git a/pkgs/applications/video/mpv/scripts/mpv-cheatsheet.nix b/pkgs/by-name/mp/mpv/scripts/mpv-cheatsheet.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/mpv-cheatsheet.nix
+rename to pkgs/by-name/mp/mpv/scripts/mpv-cheatsheet.nix
+diff --git a/pkgs/applications/video/mpv/scripts/mpv-discord.nix b/pkgs/by-name/mp/mpv/scripts/mpv-discord.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/mpv-discord.nix
+rename to pkgs/by-name/mp/mpv/scripts/mpv-discord.nix
+diff --git a/pkgs/applications/video/mpv/scripts/mpv-gallery-view.nix b/pkgs/by-name/mp/mpv/scripts/mpv-gallery-view.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/mpv-gallery-view.nix
+rename to pkgs/by-name/mp/mpv/scripts/mpv-gallery-view.nix
+diff --git a/pkgs/applications/video/mpv/scripts/mpv-image-viewer.nix b/pkgs/by-name/mp/mpv/scripts/mpv-image-viewer.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/mpv-image-viewer.nix
+rename to pkgs/by-name/mp/mpv/scripts/mpv-image-viewer.nix
+diff --git a/pkgs/applications/video/mpv/scripts/mpv-notify-send.nix b/pkgs/by-name/mp/mpv/scripts/mpv-notify-send.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/mpv-notify-send.nix
+rename to pkgs/by-name/mp/mpv/scripts/mpv-notify-send.nix
+diff --git a/pkgs/applications/video/mpv/scripts/mpv-osc-modern.nix b/pkgs/by-name/mp/mpv/scripts/mpv-osc-modern.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/mpv-osc-modern.nix
+rename to pkgs/by-name/mp/mpv/scripts/mpv-osc-modern.nix
+diff --git a/pkgs/applications/video/mpv/scripts/mpv-osc-tethys.nix b/pkgs/by-name/mp/mpv/scripts/mpv-osc-tethys.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/mpv-osc-tethys.nix
+rename to pkgs/by-name/mp/mpv/scripts/mpv-osc-tethys.nix
+diff --git a/pkgs/applications/video/mpv/scripts/mpv-playlistmanager.nix b/pkgs/by-name/mp/mpv/scripts/mpv-playlistmanager.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/mpv-playlistmanager.nix
+rename to pkgs/by-name/mp/mpv/scripts/mpv-playlistmanager.nix
+diff --git a/pkgs/applications/video/mpv/scripts/mpv-slicing.nix b/pkgs/by-name/mp/mpv/scripts/mpv-slicing.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/mpv-slicing.nix
+rename to pkgs/by-name/mp/mpv/scripts/mpv-slicing.nix
+diff --git a/pkgs/applications/video/mpv/scripts/mpv-subtitle-lines.nix b/pkgs/by-name/mp/mpv/scripts/mpv-subtitle-lines.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/mpv-subtitle-lines.nix
+rename to pkgs/by-name/mp/mpv/scripts/mpv-subtitle-lines.nix
+diff --git a/pkgs/applications/video/mpv/scripts/mpv-webm.nix b/pkgs/by-name/mp/mpv/scripts/mpv-webm.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/mpv-webm.nix
+rename to pkgs/by-name/mp/mpv/scripts/mpv-webm.nix
+diff --git a/pkgs/applications/video/mpv/scripts/mpvacious.nix b/pkgs/by-name/mp/mpv/scripts/mpvacious.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/mpvacious.nix
+rename to pkgs/by-name/mp/mpv/scripts/mpvacious.nix
+diff --git a/pkgs/applications/video/mpv/scripts/occivink.nix b/pkgs/by-name/mp/mpv/scripts/occivink.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/occivink.nix
+rename to pkgs/by-name/mp/mpv/scripts/occivink.nix
+diff --git a/pkgs/applications/video/mpv/scripts/quack.nix b/pkgs/by-name/mp/mpv/scripts/quack.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/quack.nix
+rename to pkgs/by-name/mp/mpv/scripts/quack.nix
+diff --git a/pkgs/applications/video/mpv/scripts/quality-menu.nix b/pkgs/by-name/mp/mpv/scripts/quality-menu.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/quality-menu.nix
+rename to pkgs/by-name/mp/mpv/scripts/quality-menu.nix
+diff --git a/pkgs/applications/video/mpv/scripts/reload.nix b/pkgs/by-name/mp/mpv/scripts/reload.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/reload.nix
+rename to pkgs/by-name/mp/mpv/scripts/reload.nix
+diff --git a/pkgs/applications/video/mpv/scripts/simple-mpv-webui.nix b/pkgs/by-name/mp/mpv/scripts/simple-mpv-webui.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/simple-mpv-webui.nix
+rename to pkgs/by-name/mp/mpv/scripts/simple-mpv-webui.nix
+diff --git a/pkgs/applications/video/mpv/scripts/skipsilence.nix b/pkgs/by-name/mp/mpv/scripts/skipsilence.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/skipsilence.nix
+rename to pkgs/by-name/mp/mpv/scripts/skipsilence.nix
+diff --git a/pkgs/applications/video/mpv/scripts/sponsorblock-minimal.nix b/pkgs/by-name/mp/mpv/scripts/sponsorblock-minimal.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/sponsorblock-minimal.nix
+rename to pkgs/by-name/mp/mpv/scripts/sponsorblock-minimal.nix
+diff --git a/pkgs/applications/video/mpv/scripts/sponsorblock.nix b/pkgs/by-name/mp/mpv/scripts/sponsorblock.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/sponsorblock.nix
+rename to pkgs/by-name/mp/mpv/scripts/sponsorblock.nix
+diff --git a/pkgs/applications/video/mpv/scripts/thumbfast.nix b/pkgs/by-name/mp/mpv/scripts/thumbfast.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/thumbfast.nix
+rename to pkgs/by-name/mp/mpv/scripts/thumbfast.nix
+diff --git a/pkgs/applications/video/mpv/scripts/thumbnail.nix b/pkgs/by-name/mp/mpv/scripts/thumbnail.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/thumbnail.nix
+rename to pkgs/by-name/mp/mpv/scripts/thumbnail.nix
+diff --git a/pkgs/applications/video/mpv/scripts/twitch-chat.nix b/pkgs/by-name/mp/mpv/scripts/twitch-chat.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/twitch-chat.nix
+rename to pkgs/by-name/mp/mpv/scripts/twitch-chat.nix
+diff --git a/pkgs/applications/video/mpv/scripts/uosc.nix b/pkgs/by-name/mp/mpv/scripts/uosc.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/uosc.nix
+rename to pkgs/by-name/mp/mpv/scripts/uosc.nix
+diff --git a/pkgs/applications/video/mpv/scripts/videoclip.nix b/pkgs/by-name/mp/mpv/scripts/videoclip.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/videoclip.nix
+rename to pkgs/by-name/mp/mpv/scripts/videoclip.nix
+diff --git a/pkgs/applications/video/mpv/scripts/visualizer.nix b/pkgs/by-name/mp/mpv/scripts/visualizer.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/visualizer.nix
+rename to pkgs/by-name/mp/mpv/scripts/visualizer.nix
+diff --git a/pkgs/applications/video/mpv/scripts/vr-reversal.nix b/pkgs/by-name/mp/mpv/scripts/vr-reversal.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/vr-reversal.nix
+rename to pkgs/by-name/mp/mpv/scripts/vr-reversal.nix
+diff --git a/pkgs/applications/video/mpv/scripts/webtorrent-mpv-hook.nix b/pkgs/by-name/mp/mpv/scripts/webtorrent-mpv-hook.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/webtorrent-mpv-hook.nix
+rename to pkgs/by-name/mp/mpv/scripts/webtorrent-mpv-hook.nix
+diff --git a/pkgs/applications/video/mpv/scripts/youtube-chat.nix b/pkgs/by-name/mp/mpv/scripts/youtube-chat.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/youtube-chat.nix
+rename to pkgs/by-name/mp/mpv/scripts/youtube-chat.nix
+diff --git a/pkgs/applications/video/mpv/scripts/youtube-upnext.nix b/pkgs/by-name/mp/mpv/scripts/youtube-upnext.nix
+similarity index 100%
+rename from pkgs/applications/video/mpv/scripts/youtube-upnext.nix
+rename to pkgs/by-name/mp/mpv/scripts/youtube-upnext.nix
+diff --git a/pkgs/top-level/all-packages.nix b/pkgs/top-level/all-packages.nix
+index d30a39f917b6af72eaf17f7101cec42a0d4d0d7f..84bee34b97d9f59f7f85e5fef1d8da13535de8df 100644
+--- a/pkgs/top-level/all-packages.nix
++++ b/pkgs/top-level/all-packages.nix
+@@ -11426,14 +11426,7 @@ with pkgs;
+     // (config.mplayer or { })
+   );
+ 
+-  mpv-unwrapped = callPackage ../applications/video/mpv {
+-    stdenv = if stdenv.hostPlatform.isDarwin then swiftPackages.stdenv else stdenv;
+-  };
+-
+-  # Wrap avoiding rebuild
+-  mpv = mpv-unwrapped.wrapper { mpv = mpv-unwrapped; };
+-
+-  mpvScripts = mpv-unwrapped.scripts;
++  mpvScripts = callPackage ../by-name/mp/mpv/scripts.nix;
+ 
+   mu-repo = python3Packages.callPackage ../applications/misc/mu-repo { };
+ 
+
+From 89059f8d89ed7cdbdd63e77737bacefb24c691f5 Mon Sep 17 00:00:00 2001
+From: SchweGELBin <abramjannikmichael06@gmail.com>
+Date: Sat, 27 Dec 2025 17:50:34 +0100
+Subject: [PATCH 2/3] mpv: remove unnecessary input, use pname as mainProgram
+
+---
+ pkgs/by-name/mp/mpv-unwrapped/package.nix | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/pkgs/by-name/mp/mpv-unwrapped/package.nix b/pkgs/by-name/mp/mpv-unwrapped/package.nix
+index eb0e4278da329de7d5c4fd87dd428e5c327c895f..2070318bcf860a4bff7407990bf64d2d29c5fdf8 100644
+--- a/pkgs/by-name/mp/mpv-unwrapped/package.nix
++++ b/pkgs/by-name/mp/mpv-unwrapped/package.nix
+@@ -9,7 +9,6 @@
+   config,
+   docutils,
+   fetchFromGitHub,
+-  fetchpatch,
+   ffmpeg,
+   freefont_ttf,
+   freetype,
+@@ -323,7 +322,7 @@ stdenv.mkDerivation (finalAttrs: {
+       lib.licenses.gpl2Plus
+       lib.licenses.lgpl21Plus
+     ];
+-    mainProgram = "mpv";
++    mainProgram = finalAttrs.pname;
+     maintainers = with lib.maintainers; [
+       fpletz
+       SchweGELBin
+
+From 49374326c2bac5bc5ec38ef663dae2f0dc708104 Mon Sep 17 00:00:00 2001
+From: SchweGELBin <abramjannikmichael06@gmail.com>
+Date: Sat, 27 Dec 2025 19:04:03 +0100
+Subject: [PATCH 3/3] svp: use correct mpv wrapper
+
+---
+ pkgs/by-name/sv/svp/mpv.nix | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/pkgs/by-name/sv/svp/mpv.nix b/pkgs/by-name/sv/svp/mpv.nix
+index 8c4e7839c1caccde8c54239a4db984c1003c7270..daf2f61b637c43b1c9b6ca4534d903850a114b7b 100644
+--- a/pkgs/by-name/sv/svp/mpv.nix
++++ b/pkgs/by-name/sv/svp/mpv.nix
+@@ -1,11 +1,12 @@
+ {
+   lib,
++  mpv,
+   mpv-unwrapped,
+   ocl-icd,
+ }:
+ 
+-mpv-unwrapped.wrapper {
+-  mpv = mpv-unwrapped.override { vapoursynthSupport = true; };
++mpv.override {
++  mpv-unwrapped = mpv-unwrapped.override { vapoursynthSupport = true; };
+   extraMakeWrapperArgs = [
+     # Add paths to required libraries
+     "--prefix"

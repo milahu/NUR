@@ -1,8 +1,6 @@
 ## BUGS
 - alacritty Ctrl+N frequently fails to `cd` to the previous directory
 - bunpen dbus sandboxing can't be *nested* (likely a problem in xdg-dbus-proxy)
-- dissent has a memory leak (3G+ after 24hr)
-  - set a max memory use in the systemd service, to force it to restart as it leaks?
 - `rmDbusServices` may break sandboxing
   - e.g. if the package ships a systemd unit which references $out, then make-sandboxed won't properly update that unit.
   - `rmDbusServicesInPlace` is not affected
@@ -55,6 +53,9 @@
 - nwg-panel: configurable media controls
 - nwg-panel / playerctl hang fix (i think nwg-panel is what should be patched here)
 
+#### easy/granular nixpkgs improvements
+- set `strictDeps = true` on every package (one-by-one): <https://github.com/NixOS/nixpkgs/issues/178468>
+
 
 ## IMPROVEMENTS:
 - sane-deadlines: show day of the week for upcoming items
@@ -67,6 +68,7 @@
   - matrix room links *just work*.
   - `network.protocol-handler.external.https = true` in about:config *seems* to do this,
     but breaks some webpages (e.g. Pleroma)
+- migrate firefox -> epiphany, *everywhere*
 - associate http(s)://*.pdf with my pdf handler
   - can't do that because lots of applications don't handle URIs
   - could workaround using a wrapper that downloads the file and then passes it to the program
@@ -77,6 +79,7 @@
 ### security/resilience
 - /mnt/desko/home, etc, shouldn't include secrets (~/private)
   - 95% of its use is for remote media access and stuff which isn't in VCS (~/records)
+- enable `security.apparmor.enable = true` (needs cross-compilation fixes)
 - harden systemd services:
   - all: `pcscd.service`
   - servo: `coturn.service`
@@ -100,9 +103,10 @@
   - flatpak/spectrum has some stuff to proxy dconf per-app
 - rework `programs` API to be just an overlay which wraps each binary in an env with XDG_DATA_DIRS etc set & the config/state links placed in /nix/store instead of $HOME.
   - see: <https://github.com/Lassulus/wrappers>
+- remove remaining users of `sudo`
 
 ### user experience
-- setup a real calendar system, for recurring events
+- setup a real calendar system, for recurring events and specific events
 - rofi: enable mouse mode?
 - mpv: add media looping controls (e.g. loop song, loop playlist)
 - mpv: add/implement an extension to search youtube
@@ -128,6 +132,8 @@
     - Gradia: <https://flathub.org/en/apps/be.alexandervanhee.gradia>. nixpkgs: yes
   - note-taking app: <https://linuxphoneapps.org/categories/note-taking/>
     - Folio is nice, uses standard markdown, though it only supports flat repos
+  - youtube client
+    - maybe host Invidious?
   - OSK overlay specifically for mobile gaming
     - i.e. mock joysticks, for use with SuperTux and SuperTuxKart
 - install mobile-friendly games:
@@ -147,6 +153,10 @@
 - sane-sync-music: remove empty dirs
 - soulseek: install a CLI app usable over ssh
 - moby: replace `spot` with its replacement, `riff` (<https://github.com/Diegovsky/riff>)
+- port wg-home -> TCP connection
+  - then reactivate moby WoWLAN?
+- try Niri desktop shell
+- Sonarr / radarr for auto-DL of TV torrents
 
 #### moby
 - moby: port battery support to something upstreamable
@@ -160,7 +170,9 @@
 - use dynamic DRAM clocking to reduce power by 0.5W: <https://xnux.eu/log/083.html>
   - coreboot implements DRAM training for rk3399: <https://gitlab.com/vicencb/kevinboot/-/blob/master/cb/sdram.c>
 - moby: tune keyboard layout
+  - try squeekboard?
 - SwayNC/nwg-panel: add option to change audio output
+  - add a mic volume slider
 - Newsflash: sync OPML on start, same way i do with gpodder
 - better podcasting client?
 - hardware upgrade (OnePlus)?
@@ -171,7 +183,8 @@
 - RSS: have podcasts get downloaded straight into ~/Videos/...
   - and strip the ads out using Whisper transcription + asking a LLM where the ad breaks are
 - neovim: integrate ollama
-- neovim: better docsets (e.g. c++, glib)
+- neovim: better docsets (e.g. c++, glib, bash)
+- checkout LM-studio / image generation
 - firefox: persist history
   - just not cookies or tabs
 - have xdg-open parse `<repo:...> URIs (or adjust them so that it _can_ parse)
@@ -187,8 +200,9 @@
   - git sendmail flow adds the DKIM signatures, but gets delivered locally w/o having the sig checked, so goes into Junk
   - could change junk filter from "no DKIM success" to explicit "DKIM failed"
   - add an auto-reply address (e.g. `reply-test@uninsane.org`) which reflects all incoming mail; use this (or a friend running this) for liveness checks
+- email: auto-sync to desktop for offline searching (maildir + rsync?)
 
 ## NEW FEATURES:
-- migrate MAME cabinet to nix
+- migrate MAME cabinet to nix (cadey)
 - dedicated nix itgmania machine
 - enable IPv6
