@@ -1,5 +1,4 @@
-{ inputs, ... }:
-{
+_: {
   perSystem =
     {
       pkgs,
@@ -14,14 +13,6 @@
       commands = rec {
         ci = mkCICommand "ciPackages";
         ci-cuda = mkCICommand "ciPackagesWithCuda";
-
-        nix-update = ''
-          nix-shell \
-            ${inputs.nixpkgs.outPath}/maintainers/scripts/update.nix \
-            --arg include-overlays "[(final: prev: import $(pwd)/pkgs null { pkgs = prev; })]" \
-            --argstr skip-prompt true \
-            --argstr path "$@"
-        '';
 
         nvfetcher = ''
           set -euo pipefail
@@ -84,6 +75,20 @@
             "$S"
           done
           ${readme}
+        '';
+
+        update-hashes = ''
+          # Only check hashes that are not src hashes
+          ATTRS=$(grep --files-with-matches "Hash = \"sha256-" \
+            pkgs/kernel-modules/**/*.nix \
+            pkgs/python-packages/**/*.nix \
+            pkgs/uncategorized/**/*.nix \
+            | xargs dirname | sort | uniq | xargs -n1 basename)
+
+          for ATTR in $ATTRS; do
+            echo "Updating $ATTR"
+            ${pkgs.nix-update}/bin/nix-update --flake "$ATTR" --version skip
+          done
         '';
       };
     };
