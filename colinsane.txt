@@ -1,0 +1,38 @@
+error:
+… from call site
+
+  at <nixpkgs> + /lib/filesystem.nix:385:27:
+
+   384|               # recurse into directories
+   385|               "${name}" = packagesFromDirectoryRecursive (
+      |                           ^
+   386|                 args
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/filesystem.nix:407:5:
+
+   406|     in
+   407|     {
+      |     ^
+   408|       callPackage,
+
+… from call site
+
+  at <nixpkgs> + /lib/filesystem.nix:417:7:
+
+   416|       # if `${directory}/package.nix` exists, call it directly
+   417|       callPackage defaultPath { }
+      |       ^
+   418|     else if args ? newScope then
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:276:19:
+
+   275|   callPackageWith =
+   276|     autoArgs: fn: args:
+      |                   ^
+   277|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "sane-cast" at ./pkgs/mpv-scripts/sane_cast/package.nix:4, did you mean "sane_cast"?'
