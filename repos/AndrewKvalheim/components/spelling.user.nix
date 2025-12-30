@@ -19,7 +19,7 @@ in
     spelling.wordlist = readFile ./assets/words.txt;
 
     # Chromium
-    xdg.configFile."chromium/Default/Custom Dictionary.txt".source = formats.chromium;
+    xdg.configFile."chromium/Default/Custom Dictionary.txt" = { force = true; source = formats.chromium; };
 
     # CSpell
     home.file.".cspell.json".text = toJSON {
@@ -32,7 +32,7 @@ in
     home.file.".mozilla/firefox/${host.firefox.profile}/persdict.dat".source = formats.plaintext;
 
     # Joplin
-    xdg.configFile."Joplin/Custom Dictionary.txt".source = formats.chromium;
+    xdg.configFile."Joplin/Custom Dictionary.txt" = { force = true; source = formats.chromium; };
 
     # VSCodium
     programs.vscode.profiles.default.userSettings = {

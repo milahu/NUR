@@ -3,7 +3,7 @@
 let
   inherit (builtins) length;
   inherit (config) host;
-  inherit (lib) getExe mkIf mkMerge mkOption;
+  inherit (lib) getExe mkMerge mkOption optionalAttrs;
   inherit (lib.types) listOf str;
   inherit (pkgs) obfs4;
 
@@ -14,30 +14,31 @@ in
     bridges = mkOption { type = listOf str; };
   };
 
-  config = {
-    services.tor = {
-      enable = true;
-      client.enable = true;
+  config = mkMerge [
+    # Pending NixOS/nixpkgs#474615
+    {
+      services.tor.settings.CacheDirectory = "/var/cache/tor";
+      systemd.services.tor.serviceConfig = {
+        CacheDirectory = "%N";
+        CacheDirectoryMode = "0700";
+      };
+    }
 
-      settings = mkMerge [
-        {
-          CacheDirectory = "/var/cache/tor"; # TODO: Upstream
-        }
-        (mkIf (length host.tor.bridges > 0) {
+    {
+      services.tor = {
+        enable = true;
+        client.enable = true;
+
+        settings = optionalAttrs (length host.tor.bridges > 0) {
           Bridge = host.tor.bridges;
           ClientTransportPlugin = "webtunnel exec ${getExe lyrebird}";
           UseBridges = true;
-        })
-      ];
-    };
-
-    systemd.services.tor = {
-      onFailure = [ "alert@%N.service" ];
-
-      serviceConfig = {
-        CacheDirectory = "%N"; # Used by services.tor.settings.CacheDirectory
-        CacheDirectoryMode = "0700";
+        };
       };
-    };
-  };
+
+      systemd.services.tor = {
+        onFailure = [ "alert@%N.service" ];
+      };
+    }
+  ];
 }
