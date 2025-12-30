@@ -1,25 +1,21 @@
 {
+  region ? "cn",
+  game ? "gi",
   stdenvNoCC,
-  tiny-rdm,
   fetchurl,
-  _7zz,
   lib,
   ...
-}:
-if stdenvNoCC.isDarwin
-then let
+}: let
   ver = lib.helper.read ./version.json;
-  platform = stdenvNoCC.hostPlatform.system;
+  type = "${game}-${region}";
 
-  src = fetchurl (lib.helper.getPlatform platform ver);
-  inherit (ver) version;
+  title = lib.strings.toUpper "${game} (${region})";
 in
   stdenvNoCC.mkDerivation {
-    pname = "tiny-rdm";
+    pname = "yaagl-${type}";
+    inherit (ver) version;
 
-    inherit version src;
-
-    nativeBuildInputs = [_7zz];
+    src = fetchurl (lib.helper.getVariant type ver);
 
     sourceRoot = ".";
 
@@ -35,12 +31,11 @@ in
     '';
 
     meta = {
-      description = "Modern, colorful, super lightweight Redis GUI client";
-      homepage = "https://github.com/tiny-craft/tiny-rdm";
-      license = lib.licenses.gpl3Plus;
+      description = "Yet another anime game launcher for ${title}";
+      homepage = "https://github.com/yaagl/yet-another-anime-game-launcher";
+      license = lib.licenses.mit;
       maintainers = ["Prinky"];
       platforms = lib.platforms.darwin;
       sourceProvenance = [lib.sourceTypes.binaryNativeCode];
     };
   }
-else tiny-rdm

@@ -1,23 +1,17 @@
 {
   stdenvNoCC,
-  tiny-rdm,
   fetchurl,
   _7zz,
   lib,
   ...
-}:
-if stdenvNoCC.isDarwin
-then let
+}: let
   ver = lib.helper.read ./version.json;
-  platform = stdenvNoCC.hostPlatform.system;
-
-  src = fetchurl (lib.helper.getPlatform platform ver);
-  inherit (ver) version;
 in
   stdenvNoCC.mkDerivation {
-    pname = "tiny-rdm";
+    pname = "playcover";
 
-    inherit version src;
+    src = fetchurl (lib.helper.getSingle ver);
+    inherit (ver) version;
 
     nativeBuildInputs = [_7zz];
 
@@ -35,12 +29,11 @@ in
     '';
 
     meta = {
-      description = "Modern, colorful, super lightweight Redis GUI client";
-      homepage = "https://github.com/tiny-craft/tiny-rdm";
-      license = lib.licenses.gpl3Plus;
+      description = "Sideload iOS apps and games";
+      homepage = "https://playcover.io/";
       maintainers = ["Prinky"];
+      license = lib.licenses.gpl3Plus;
       platforms = lib.platforms.darwin;
       sourceProvenance = [lib.sourceTypes.binaryNativeCode];
     };
   }
-else tiny-rdm

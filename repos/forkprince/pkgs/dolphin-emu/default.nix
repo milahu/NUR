@@ -1,6 +1,6 @@
 {
+  dolphin-emu,
   stdenvNoCC,
-  tiny-rdm,
   fetchurl,
   _7zz,
   lib,
@@ -9,15 +9,12 @@
 if stdenvNoCC.isDarwin
 then let
   ver = lib.helper.read ./version.json;
-  platform = stdenvNoCC.hostPlatform.system;
-
-  src = fetchurl (lib.helper.getPlatform platform ver);
-  inherit (ver) version;
 in
   stdenvNoCC.mkDerivation {
-    pname = "tiny-rdm";
+    pname = "dolphin-emu";
 
-    inherit version src;
+    src = fetchurl (lib.helper.getApi ver);
+    inherit (ver) version;
 
     nativeBuildInputs = [_7zz];
 
@@ -35,12 +32,12 @@ in
     '';
 
     meta = {
-      description = "Modern, colorful, super lightweight Redis GUI client";
-      homepage = "https://github.com/tiny-craft/tiny-rdm";
-      license = lib.licenses.gpl3Plus;
+      description = "Gamecube/Wii/Triforce emulator for x86_64 and ARMv8";
+      homepage = "https://dolphin-emu.org";
       maintainers = ["Prinky"];
+      license = lib.licenses.gpl2Plus;
       platforms = lib.platforms.darwin;
       sourceProvenance = [lib.sourceTypes.binaryNativeCode];
     };
   }
-else tiny-rdm
+else dolphin-emu
