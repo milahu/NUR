@@ -243,6 +243,16 @@
       hash = "sha256-Z66xy8d9KAjni4AmwZwGdHTzJHkjgO/2D+vkOhh/te8=";
     };
   };
+  cliproxyapi = {
+    pname = "cliproxyapi";
+    version = "v6.6.75";
+    src = fetchFromGitHub {
+      owner = "router-for-me";
+      repo = "CLIProxyAPI";
+      tag = "v6.6.75";
+      hash = "sha256-nLmbqoI/vb3zFviCFc8qOZs8gBT7ZUZCmxnJ3Gp9sB0=";
+    };
+  };
   cockpy = {
     pname = "cockpy";
     version = "4813219045224b39463cb619a852c298603b2a30";
@@ -498,6 +508,16 @@
       hash = "sha256-HXNn8Hmgfv7TzSGVntxnwguCf2P9bc5pi/zbOAaYEkY=";
     };
   };
+  easycli = {
+    pname = "easycli";
+    version = "v0.1.32";
+    src = fetchFromGitHub {
+      owner = "router-for-me";
+      repo = "EasyCLI";
+      tag = "v0.1.32";
+      hash = "sha256-ASZCtDh4D2yc5NlbY8YmMOJarQCbzPz9iA3CB09jGRo=";
+    };
+  };
   edge-tts = {
     pname = "edge-tts";
     version = "7.2.7";
@@ -685,26 +705,26 @@
   };
   geolite2-asn = {
     pname = "geolite2-asn";
-    version = "2025.12.28";
+    version = "2025.12.31";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.28/GeoLite2-ASN.mmdb";
-      hash = "sha256-vYyPNt5TNKT/wWschhzdND7Vv3mveENSoHHFhakYkgY=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.31/GeoLite2-ASN.mmdb";
+      hash = "sha256-Az2y2pEVRTKS9wtoNKlOk472+lOoipn3AoKiKAo1qb4=";
     };
   };
   geolite2-city = {
     pname = "geolite2-city";
-    version = "2025.12.28";
+    version = "2025.12.31";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.28/GeoLite2-City.mmdb";
-      hash = "sha256-N7zjx8bZzatSKgGkQV3YsrZ6BWn+sM5Z75q1b6W/Ggw=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.31/GeoLite2-City.mmdb";
+      hash = "sha256-neGATsZsftJRiv18KsRP9RaFzsNkSRmu2M3JnC7tSsM=";
     };
   };
   geolite2-country = {
     pname = "geolite2-country";
-    version = "2025.12.28";
+    version = "2025.12.31";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.28/GeoLite2-Country.mmdb";
-      hash = "sha256-RLn5BT2xhXkIZmngtyxFjQAyToRdVe0QruPltKoQzlc=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2025.12.31/GeoLite2-Country.mmdb";
+      hash = "sha256-OLb5/simM1SHjQD8cDwO7WIC5G1oo6r0d+NWf9ilSt0=";
     };
   };
   glauth = {
@@ -1080,12 +1100,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7585";
+    version = "b7595";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7585";
-      hash = "sha256-cP2HJ4tXdgVGiS2YsIodegeaJH9hpnko/eEtBpY9vKg=";
+      tag = "b7595";
+      hash = "sha256-0tBCRmBJR6rtBXis+d10MaoNKd4yQ7ivDijilkAUkuU=";
     };
   };
   loralib = {
@@ -1815,14 +1835,14 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "cc51682a850e9b89db8856c589b8c13f8b534a7c";
+    version = "3a9a76e2c58181d3980a1cdeb6dda55a67605f2d";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "cc51682a850e9b89db8856c589b8c13f8b534a7c";
-      hash = "sha256-rEWf96uoYZm/n8IBSSG5qnXBgiWvrzhD1+GutLqMlg8=";
+      rev = "3a9a76e2c58181d3980a1cdeb6dda55a67605f2d";
+      hash = "sha256-FWPh3RJMNhbhUysE8B2C0b+Wz2Bo/oSA49h1HzRBCAI=";
     };
-    date = "2025-12-24";
+    date = "2025-12-31";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
@@ -2164,15 +2184,15 @@
   };
   uni-api = {
     pname = "uni-api";
-    version = "87ab048ded91e58c67bc90d9f848adc0847862d9";
+    version = "637550016e7d4c81042aa3b852924a0b8458e461";
     src = fetchFromGitHub {
       owner = "yym68686";
       repo = "uni-api";
-      rev = "87ab048ded91e58c67bc90d9f848adc0847862d9";
+      rev = "637550016e7d4c81042aa3b852924a0b8458e461";
       fetchSubmodules = true;
-      hash = "sha256-8Gr51SVJdai2ZNTB2zfjx2NxG/sQfbTsjP4Zs/h1Vgs=";
+      hash = "sha256-vRfo0OiLWBaiWgnF0+QONpM1JRb0kI52XEJFvHtego4=";
     };
-    date = "2025-12-26";
+    date = "2025-12-31";
   };
   unigine-heaven = {
     pname = "unigine-heaven";
