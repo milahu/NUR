@@ -125,7 +125,7 @@ in
           externalComplementBrowsers
           externalComplementComplementBrowsers
         ])));
-        winprops = (map toJSON [
+        winprops = map toJSON [
           { wm_class = "*"; preferredWidth = "${toString half}px"; }
           { wm_class = "Display"; scratch_layer = true; }
           { wm_class = "displaycal"; scratch_layer = true; }
@@ -136,7 +136,7 @@ in
           { wm_class = "stretch-break"; scratch_layer = true; }
           { wm_class = "io.github.pieterdd.StretchBreak"; scratch_layer = true; }
           { wm_class = "Tor Browser"; scratch_layer = true; }
-        ]);
+        ];
       };
 
     # Disabled extensions notification

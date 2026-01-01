@@ -23,7 +23,7 @@ specify {
   ansible-vault-pass-client = any;
   apex = any;
   attachments = any;
-  aws-sam-cli = { version = "≠1.143.0"; search = pin "e6f23dc08d3624daab7094b701aa3954923c6bbb" "sha256-3a7Tha/RwYlzH/v3PJrG7+HjOj4c6YOv2K8sqdGsHVQ="; }; # Pending NixOS/nixpkgs#459334
+  aws-sam-cli.version = "≠1.143.0"; # NixOS/nixpkgs#459334
   blocky-ui = any;
   busyserve = any;
   caddy-with-route53 = any;

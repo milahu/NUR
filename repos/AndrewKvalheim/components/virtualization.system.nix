@@ -29,5 +29,4 @@ in
   # VirtualBox
   virtualisation.virtualbox.host = { enable = true; };
   users.extraGroups.vboxusers.members = [ identity.username ];
-  boot.kernelParams = [ "kvm.enable_virt_at_load=0" ]; # Workaround for NixOS/nixpkgs#363887
 }
