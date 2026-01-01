@@ -14,6 +14,8 @@ rec {
   lmms = pkgs.callPackage ./pkgs/lmms/package.nix {
     withOptionals = true;
     stdenv = v3Optimizations pkgs.clangStdenv;
+    perl540 = pkgs.perl540 or pkgs.perl5;
+    perl540Packages = pkgs.perl540Packages or pkgs.perl5Packages;
   };
   minetest591 = pkgs.callPackage ./pkgs/minetest591 {
     stdenv = v3Optimizations pkgs.clangStdenv;
@@ -73,14 +75,21 @@ rec {
   );
   tuxguitar = v3overrideAttrs (
     pkgs.callPackage ./pkgs/tuxguitar/package.nix {
-      swt = v3overrideAttrs (pkgs.callPackage ./pkgs/swt/package.nix { });
+      swt = (pkgs.callPackage ./pkgs/swt/package.nix { });
     }
   );
-  mioplays = v3overrideAttrs (
-    pkgs.callPackage ./pkgs/mioplays/package.nix {
-      swt = v3overrideAttrs (pkgs.callPackage ./pkgs/swt/package.nix { });
-    }
-  );
+  mioplays = tuxguitar.overrideAttrs (old: {
+    src = pkgs.fetchFromGitHub {
+      owner = "mio-19";
+      repo = "tuxguitar";
+      rev = "0212c160ad3176d3bc96b3003fe03fc7738cebf8";
+      hash = "sha256-Vl15Ydj5sFNtaAhRxuiZwVcuVavD6TVRtZbpthra3tU=";
+    };
+
+    patches = [
+      ./pkgs/tuxguitar/fix-include.patch
+    ];
+  });
   nss_git = callOverride ./pkgs/nss-git { };
   #aria2-wrapped = pkgs.writeShellScriptBin "aria2" ''
   #  ${pkgs.aria2}/bin/aria2c -s65536 -j65536 -x16 -k1M "$@"
@@ -115,7 +124,7 @@ rec {
       pkgs.callPackage ./pkgs/firefox-nightly {
         nss_git = nss_git;
         nyxUtils = nyxUtils;
-        icu78 = icu.icu78;
+        icu78 = pkgs.icu78 or icu.icu78;
       }
     )
   );
