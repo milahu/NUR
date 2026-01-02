@@ -7,11 +7,14 @@
   jq,
 
   new-api,
+  nodejs_22,
 }:
 
 buildNpmPackage (finalAttrs: {
   pname = "${new-api.pname}-frontnd";
   inherit (new-api) version;
+
+  nodejs = nodejs_22;
 
   src = runCommand "${finalAttrs.pname}-patched-src" { nativeBuildInputs = [ jq ]; } ''
     cp -r ${new-api.src} $out
@@ -31,7 +34,7 @@ buildNpmPackage (finalAttrs: {
     ln -s ${./package-lock.json} package-lock.json
   '';
 
-  npmDepsHash = "sha256-HWwhUZUzzYxnyEi9Rb6CMmgP/32LpwJm8ElIrEUiyYo=";
+  npmDepsHash = "sha256-5MN+RfvTojD4Ush8mQ5ztoZOnKxta9TiNDNsZsCSzVM=";
 
   installPhase = ''
     runHook preInstall
