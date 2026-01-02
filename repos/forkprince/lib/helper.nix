@@ -1,4 +1,3 @@
-# TODO: Merge getSingle & getApi and getPlatform & getApiPlatform
 {lib}: let
   githubUrl = repo: tagPrefix: version: file: "https://github.com/${repo}/releases/download/${tagPrefix}${version}/${file}";
 
@@ -56,50 +55,46 @@ in {
           template = ver.asset.file;
         })
       else
-        substitute {
+        sanitizeUrl (substitute {
           version = ver.version;
           repo = ver.source.repo or "";
           template = ver.asset.url;
-        };
+        });
 
     name = extractName url;
   in {
     inherit url name;
-    inherit (ver) hash;
+    hash = ver.asset.hash or ver.hash;
   };
 
   getPlatform = platform: ver: let
     plat = lib.getAttr platform ver.platforms;
-    hasCustomUrl = plat ? url;
-  in
-    if hasCustomUrl
-    then let
-      rawUrl = substitute {
-        version = ver.version;
-        repo = plat.repo or ver.source.repo or "";
-        template = plat.url;
-      };
-      url = sanitizeUrl rawUrl;
-      name = extractName url;
-    in {
-      inherit url name;
-      inherit (plat) hash;
-    }
-    else let
-      file = substitute {
-        version = ver.version;
-        template = plat.file;
-      };
-    in {
-      url =
+    version = plat.version or ver.version;
+    hasUrl = plat ? url;
+
+    url =
+      if hasUrl
+      then
+        sanitizeUrl (substitute {
+          inherit version;
+          repo = plat.repo or ver.source.repo or "";
+          template = plat.url;
+        })
+      else
         githubUrl
         (plat.repo or ver.source.repo)
         (plat.tag_prefix or ver.source.tag_prefix or "")
-        ver.version
-        file;
-      name = sanitizeName file;
-      inherit (plat) hash;
-    };
+        version
+        (substitute {
+          inherit version;
+          template = plat.file;
+        });
+
+    name = extractName url;
+  in {
+    inherit url name;
+    inherit (plat) hash;
+  };
 
   getVariant = variant: ver: let
     vari = lib.getAttr variant ver.variants;
@@ -131,25 +126,16 @@ in {
     inherit (vari) hash;
   };
 
-  getApi = ver: let
-    url = sanitizeUrl ver.asset.url;
-    name = extractName url;
-  in {
-    inherit url name;
-    inherit (ver.asset) hash;
-  };
-
-  getApiPlatform = platform: ver: let
-    plat = lib.getAttr platform ver.platforms;
-    url = sanitizeUrl plat.url;
-    name = extractName url;
-  in {
-    inherit url name;
-    inherit (plat) hash;
-  };
-
   unpack = ver: ver.asset.unpack or false;
 
   unpackPlatform = platform: ver:
     (lib.getAttr platform ver.platforms).unpack or ver.asset.unpack or false;
+
+  getVersion = platform: ver:
+    if ver ? platforms
+    then let
+      plat = lib.getAttr platform ver.platforms;
+    in
+      plat.version or ver.version
+    else ver.version;
 }
