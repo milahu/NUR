@@ -13,15 +13,18 @@
   gnome-bluetooth,
 }:
 let
+  pygobject_hash = "sha256-jYNudbWogdRX7hYiyuSjK826KKC6ViGTrbO7tHJHIhI=";
+  src_hash = "sha256-c56/WC4B4UDiKJ1R6Rz+io9Jt1Mq/WmIqjP1KYJvDf0=";
+
   pygobject_3_50 = python312Packages.pygobject3.overrideAttrs (old: {
     version = "3.50.0";
     src = fetchurl {
       url = "mirror://gnome/sources/pygobject/3.50/pygobject-3.50.0.tar.xz";
-      hash = "sha256-jYNudbWogdRX7hYiyuSjK826KKC6ViGTrbO7tHJHIhI=";
+      hash = "${pygobject_hash}";
     };
   });
 in
-python312Packages.buildPythonPackage rec {
+python312Packages.buildPythonPackage {
   pname = "fabric";
   version = "0.0.2";
   pyproject = true;
@@ -29,8 +32,8 @@ python312Packages.buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "Fabric-Development";
     repo = "fabric";
-    rev = "0f3d317b047799191ff04a32352a63084eac11d9";
-    hash = "sha256-ELXYed743Xnad8hOMmN5RI0S8w0rltcZbylQjjFiv6s=";
+    rev = "8633df172a3ceee9222e7e583e93717f733d5618";
+    hash = "${src_hash}";
   };
 
   buildInputs = [
