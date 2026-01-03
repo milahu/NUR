@@ -1,7 +1,7 @@
 { pkgs }:
 
 let
-  inherit (lib) findFirst recursiveUpdate versionOlder warnIfNot;
+  inherit (lib) findFirst recursiveUpdate versionOlder warnIf warnIfNot;
   inherit (pkgs) callPackage lib;
 in
 # Published as nur.repos.AndrewKvalheim (https://nur.nix-community.org/repos/andrewkvalheim/)
@@ -44,6 +44,17 @@ rec {
   dmarc-report-notifier = callPackage ./library/dmarc-report-notifier.pkg.nix {
     python3Packages = (pkgs.python3.override {
       packageOverrides = _: pythonPackages: {
+        # Pending mjs/imapclient#629
+        imapclient = warnIf (versionOlder "3.0.1" pythonPackages.imapclient.version) "python3Packages.imapclient no longer requires a version override"
+          pythonPackages.imapclient.overrideAttrs
+          (imapclient: {
+            version = "3.0.1-unstable-2026-01-02";
+            src = imapclient.src.override {
+              tag = null;
+              rev = "f3813a42f5712cf4b8848c823935eabf487ca494";
+              hash = "sha256-Yb89xlnrpB3iimJMG4Z5CMLDahqzM/NMk0zi7frw/Vk=";
+            };
+          });
         # Pending NixOS/nixpkgs#337081
         msgraph-core = warnIfNot pkgs.python3Packages.parsedmarc.meta.broken "python3Packages.parsedmarc is no longer broken"
           (findFirst (p: p.pname == "msgraph-core") null pkgs.parsedmarc.requiredPythonModules);

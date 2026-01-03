@@ -36,6 +36,5 @@ python3Packages.buildPythonApplication rec {
     homepage = "https://codeberg.org/AndrewKvalheim/dmarc-report-notifier";
     license = lib.licenses.gpl3;
     mainProgram = "dmarc-report-notifier";
-    broken = lib.versionAtLeast python3Packages.python.version "3.14"; # Pending mjs/imapclient#618
   };
 }

@@ -73,8 +73,8 @@ in
   # TODO: Set `chattr +i` on intermittent mount points
   fileSystems = let base = { fsType = "nfs4"; options = [ "noauto" "nconnect=4" "noatime" "user" ]; }; in {
     "/home/ak/annex" = base // { device = "closet.home.arpa:/mnt/hdd/home-ak-annex"; };
-    "/home/ak/services-hdd" = base // { device = "closet.home.arpa:/mnt/hdd/services"; };
-    "/home/ak/services-ssd" = base // { device = "closet.home.arpa:/mnt/ssd/services"; };
+    "/home/ak/satellite" = base // { device = "satellite.home.arpa:/home/ak/src/configuration"; };
+    "/home/ak/services" = base // { device = "closet.home.arpa:/mnt/hdd/services"; };
   };
   security.wrappers = with pkgs; {
     # Workaround for NixOS/nixpkgs#24913, NixOS/nixpkgs#9848
@@ -88,8 +88,8 @@ in
       where = path;
     }) [
     "/home/ak/annex"
-    "/home/ak/services-hdd"
-    "/home/ak/services-ssd"
+    "/home/ak/satellite"
+    "/home/ak/services"
   ];
 
   # Mouse
