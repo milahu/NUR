@@ -1,0 +1,47 @@
+error:
+… from call site
+
+  at <nixpkgs> + /lib/attrsets.nix:1344:61:
+
+  1343|   */
+  1344|   genAttrs = names: f: genAttrs' names (n: nameValuePair n (f n));
+      |                                                             ^
+  1345|
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/attrsets.nix:587:44:
+
+   586|   */
+   587|   getAttrs = names: attrs: genAttrs names (name: attrs.${name});
+      |                                            ^
+   588|
+
+… while calling anonymous lambda
+
+  at ./overlays/newPackages.nix:5:23:
+
+     4| in
+     5| builtins.mapAttrs (_: path: self.callPackage path { }) newPackagePaths
+      |                       ^
+     6|
+
+… from call site
+
+  at ./overlays/newPackages.nix:5:29:
+
+     4| in
+     5| builtins.mapAttrs (_: path: self.callPackage path { }) newPackagePaths
+      |                             ^
+     6|
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:276:19:
+
+   275|   callPackageWith =
+   276|     autoArgs: fn: args:
+      |                   ^
+   277|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "vacu-keys-src" at ./packages/vacu-authorized-keys.nix:1'
