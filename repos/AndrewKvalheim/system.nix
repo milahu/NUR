@@ -1,8 +1,8 @@
-{ config, lib, ... }:
+{ lib, ... }:
 
 let
   inherit (lib) mkOption;
-  inherit (lib.types) listOf path str;
+  inherit (lib.types) path;
 in
 {
   imports = [
@@ -19,6 +19,7 @@ in
     ./components/networking.system.nix
     ./components/nix.system.nix
     ./components/openpgp.system.nix
+    ./components/policy.system.nix
     ./components/power.system.nix
     ./components/printer.system.nix
     ./components/scanner.system.nix
@@ -37,14 +38,5 @@ in
     host = {
       dir = mkOption { type = path; };
     };
-
-    security.sudo.allowedCommands = mkOption { type = listOf str; default = [ ]; };
-  };
-
-  config = {
-    security.sudo.extraRules = [{
-      groups = [ "wheel" ];
-      commands = map (c: { command = c; options = [ "NOPASSWD" ]; }) config.security.sudo.allowedCommands;
-    }];
   };
 }

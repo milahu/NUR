@@ -1,6 +1,6 @@
 { fetchFromGitHub
-, gitUpdater
 , lib
+, nix-update-script
 , rustPlatform
 
   # Dependencies
@@ -19,18 +19,21 @@
 , pkg-config
 }:
 
+let
+  inherit (lib) escapeShellArg;
+in
 rustPlatform.buildRustPackage (stretch-break: {
   pname = "stretch-break";
-  version = "0.1.8";
+  version = "0.1.9";
 
   src = fetchFromGitHub {
     owner = "pieterdd";
     repo = "StretchBreak";
     rev = "refs/tags/${stretch-break.version}";
-    hash = "sha256-IRLVhMXS0LjUbNPCrZPdi0jBxV7JFukM/7hk6q/0lK8=";
+    hash = "sha256-gKQsoitJfGVUnpEHC4qXdesECvylJluwRDXtoNZfSFI=";
   };
 
-  cargoHash = "sha256-1njbxgDMgkxC+4BMJJhm+/FwSGxopbnN0hJxMz6KXu0=";
+  cargoHash = "sha256-LyifQ44aS7kkm7Cd6baSu5lYAWfKpDOlRFXGQFQLNU4=";
 
   nativeBuildInputs = [
     gobject-introspection
@@ -48,14 +51,6 @@ rustPlatform.buildRustPackage (stretch-break: {
     libX11
     libXScrnSaver
     pango
-  ];
-
-  checkFlags = [
-    # FIXME
-    # assertion `left == right` failed
-    #   left: WidgetInfo { normal_timer_value: "19:29", countdown_to_reset_value: "", prebreak_timer_value: "", overrun_value: "", presence_mode: SnoozedUntil(2025-02-03T12:34:11Z), snoozed_until_time: Some("12:34"), reading_mode: false }
-    #  right: WidgetInfo { normal_timer_value: "19:29", countdown_to_reset_value: "", prebreak_timer_value: "", overrun_value: "", presence_mode: SnoozedUntil(2025-02-03T12:34:11Z), snoozed_until_time: Some("13:34"), reading_mode: false }
-    "--skip=dbus::tests::idle_status_muted"
   ];
 
   postInstall = ''
@@ -77,7 +72,16 @@ rustPlatform.buildRustPackage (stretch-break: {
       "$out/share/icons/hicolor/256x256/apps/io.github.pieterdd.StretchBreak.png"
   '';
 
-  passthru.updateScript = gitUpdater { };
+  doInstallCheck = true;
+  # Pending compatibility with versionCheckHook
+  installCheckPhase = ''
+    help="$($out/bin/${escapeShellArg stretch-break.meta.mainProgram} --help)"
+    [[ "$help" == *'Usage: stretch-break'* ]]
+    [[ "$help" != *'version'* ]]
+    [[ "$help" != *${escapeShellArg stretch-break.version}* ]]
+  '';
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Helps you take regular breaks from using your computer";
