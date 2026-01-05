@@ -1,5 +1,4 @@
 {
-  steamDisplayName ? "Boxtron",
   soundfont-fluid,
   dosbox-staging,
   inotify-tools,
@@ -47,11 +46,6 @@ in
       runHook postInstall
     '';
 
-    preFixup = ''
-      substituteInPlace "$steamcompattool/compatibilitytool.vdf" \
-        --replace-fail "${version}" "${steamDisplayName}"
-    '';
-
     meta = {
       description = ''
         Steam Play compatibility tool to run DOS games using native Linux DOSBox
@@ -62,7 +56,6 @@ in
       license = lib.licenses.gpl2Only;
       maintainers = ["Prinky"];
       platforms = ["x86_64-linux"];
-      broken = true;
       sourceProvenance = [lib.sourceTypes.binaryNativeCode];
     };
   }
