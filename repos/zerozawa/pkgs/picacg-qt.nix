@@ -20,6 +20,7 @@ in
     extraPkgs = pkgs: [
       (pkgs.libxcb or pkgs.xorg.libxcb)
       (pkgs.libxcb-util or pkgs.xorg.xcbutil)
+      pkgs.libxcrypt-legacy
     ];
     extraInstallCommands = ''
       mkdir -p $out/share/applications

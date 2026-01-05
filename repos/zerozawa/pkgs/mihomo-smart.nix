@@ -3,7 +3,7 @@
   fetchFromGitHub,
   buildGoModule,
 }: let
-  rev = "ff675896863e7e2993cd779af647b48a8b26aadf";
+  rev = "d45278b37cc5bca8f52ad83ef851fd2d6f67c6dd";
 in
   buildGoModule rec {
     pname = "mihomo-smart";
@@ -13,10 +13,10 @@ in
       owner = "vernesong";
       repo = "mihomo";
       inherit rev;
-      hash = "sha256-18Ycz4SWCQMfMihzLU6d5in53ZytqL8uSH+WCt24RZI=";
+      hash = "sha256-iHeahsco01rTC15G4hG5XtR5gIX86jxN+NHG15wsFf0=";
     };
 
-    vendorHash = "sha256-2oVnz/cvtB3xOkqJjw/7J3wyI+faIUyTvOGf1r7rr28=";
+    vendorHash = "sha256-pp54pvr2L8mlpBaYJPm57NTJIERkYWv5usNzYX0LhgI=";
 
     excludedPackages = ["./test"];
 

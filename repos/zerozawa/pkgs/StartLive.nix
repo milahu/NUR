@@ -53,13 +53,13 @@
 in
   python3Packages.buildPythonApplication rec {
     pname = "StartLive";
-    version = "0.8.0";
+    version = "0.8.4";
 
     src = fetchFromGitHub {
       owner = "Radekyspec";
       repo = pname;
       rev = version;
-      hash = "sha256-849BgOpTC4jNGym5L3nv7CugiRmHSwqyULTvQvjcp9Q=";
+      hash = "sha256-NafZpe1i5s0YGe+rNht3hRUUIh5ucR3BxNMEwLUQGHo=";
     };
 
     format = "other";
@@ -76,7 +76,6 @@ in
         with finalAttrs; {
           dependencies = dependencies ++ (with optional-dependencies; socks);
         }))
-      pysocks
       obsws-python
       keyring
       darkdetect

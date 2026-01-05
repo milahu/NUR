@@ -6,12 +6,12 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: rec {
   pname = "mikusays";
-  version = "0.1.4";
+  version = "0.1.4-2";
   src = fetchFromGitHub {
     owner = "xxanqw";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-0Q5htVZb5axRUBQio8B2TkaehMTjhkEM0T8qlpmuo6w=";
+    sha256 = "sha256-4cvukP+XUsnnNHrNdwlbsqDfaaJJObWV4hbEFAytqi0=";
   };
 
   postPatch = ''
@@ -22,7 +22,7 @@ rustPlatform.buildRustPackage (finalAttrs: rec {
     sed -i '1i #![feature(let_chains)]' src/main.rs
   '';
 
-  cargoHash = "sha256-X1jGdiDyKgeu+O/rhv5NEr9yr9X6C7Rng/+XdnM9s8A=";
+  cargoHash = "sha256-3u5zmn3QAFDhgZmJTxL3FSnNQSxATtwXiTGOG3F8FVQ=";
 
   RUSTC_BOOTSTRAP = 1;
 

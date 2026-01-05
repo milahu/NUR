@@ -5,10 +5,10 @@
   ...
 }: let
   pname = "JMComic-qt";
-  version = "1.2.9";
+  version = "1.3.0";
   src = fetchurl {
-    url = "https://github.com/tonquer/${pname}/releases/download/v${version}/jmcomic_v${version}_linux-glibc2.38.AppImage";
-    hash = "sha256-LgHR+HDfTb9Ur8p4Ibb8TUdLqwkK8wKynrKliYbEGSg=";
+    url = "https://github.com/tonquer/${pname}/releases/download/v${version}/jmcomic_v${version}_linux-glibc2.28.AppImage";
+    hash = "sha256-A6WxDnl1UWAXNoCpJjcoro65iAuYOi0rhgeoe3vg9CM=";
   };
   appimageContents = appimageTools.extract {
     inherit pname version src;
@@ -20,6 +20,7 @@ in
     extraPkgs = pkgs: [
       (pkgs.libxcb or pkgs.xorg.libxcb)
       (pkgs.libxcb-util or pkgs.xorg.xcbutil)
+      pkgs.libxcrypt-legacy
     ];
     extraInstallCommands = ''
       mkdir -p $out/share/applications

@@ -18,6 +18,7 @@
   sqlite,
   libunwind,
   libdovi,
+  libdvdcss,
   makeDesktopItem,
   copyDesktopItems,
   runCommand,
@@ -28,15 +29,15 @@
     then cudaPackages.backendStdenv
     else stdenv;
   pname = "Fladder";
-  version = "0.8.0";
+  version = "0.8.1";
   src = fetchFromGitHub {
     owner = "DonutWare";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-Rpnf4fYsChbCsezBtmqQ8xkaj6HmfnDPvZLSZjPEPJ0=";
+    hash = "sha256-Dk/xg0dQbuzg7Hhywh7d4qwY0v3htwVctYvOk+QoE0k=";
   };
-  media_kit_rev = "46bf02c1a49be19bee4e9c2c41bc2209b4884c33";
-  media_kit_hash = "sha256-Vw/XMFa4TBHS69fJcnCOKfEuTCuZ+Yqdz/WPMLIXQEk=";
+  media_kit_rev = "e3c72e76a7005d97c6f2b20ad3e38c5d52ed85b5";
+  media_kit_hash = "sha256-vnzIfVkkBcvqtFuhbf3WzYUTo0ea7+MYgws/+wDpNf0=";
   importYaml = file: let
     converted = runCommand "converted-yaml.json" {nativeBuildInputs = [yq-go];} ''
       yq -e -o=json . ${file} > $out
@@ -74,7 +75,7 @@ in
           owner = "DonutWare";
           repo = "media-kit";
           rev = media_kit_rev;
-          hash = media_kit_hash;
+          hash = "sha256-oJQ9sRQI4HpAIzoS995yfnzvx5ZzIubVANzbmxTt6LE=";
         };
       in
         stdenv.mkDerivation {
@@ -175,6 +176,7 @@ in
         sqlite
         libunwind
         libdovi
+        libdvdcss
       ]
       ++ mpv.unwrapped.buildInputs
       ++ lib.optionals cudaSupport [
