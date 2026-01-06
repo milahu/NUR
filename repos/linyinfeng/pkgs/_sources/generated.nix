@@ -36,13 +36,13 @@
   };
   cowrie = {
     pname = "cowrie";
-    version = "v2.9.4";
+    version = "v2.9.5";
     src = fetchFromGitHub {
       owner = "cowrie";
       repo = "cowrie";
-      rev = "v2.9.4";
+      rev = "v2.9.5";
       fetchSubmodules = false;
-      sha256 = "sha256-njEkzDDoPUiyKynqGtxhhB6enm7Nb4ThNWvzTaHeBsk=";
+      sha256 = "sha256-whFFBOa3hqyhSMpu8f4i1KmUryEWP+5SZNnWeiIZFTI=";
     };
   };
   dot-tar = {
@@ -351,15 +351,15 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "ffa075772d53f1c106b81def4b03da1095ce29d1";
+    version = "51003473600d90ff4b46004a5122ee1b98210606";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "ffa075772d53f1c106b81def4b03da1095ce29d1";
+      rev = "51003473600d90ff4b46004a5122ee1b98210606";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-rbUmIY7E4bByTi0NM1mHQmIIy7wYOLlN6Dh9NqMdd5I=";
+      sha256 = "sha256-4BJrs+PkC4flA7a6ZrATNT+CtUdUuoWKb62Mw5t91q4=";
     };
     date = "2026-01-05";
   };
