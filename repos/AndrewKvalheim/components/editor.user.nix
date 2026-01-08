@@ -62,6 +62,7 @@ in
         flowtype.flow-for-vscode
         hashicorp.terraform
         irongeek.vscode-env
+        jacobpfeifer.pfeifer-hurl
         jjk.jjk
         joaompinto.vscode-graphviz
         jock.svg
@@ -139,6 +140,7 @@ in
         # Custom formatters
         "advancedLocalFormatters.formatters" = with pkgs; [
           { languages = [ "diff" ]; command = [ (getExe' patchutils "rediff") "-" ]; }
+          { languages = [ "hurl" ]; command = [ (getExe' hurl "hurlfmt") ]; }
         ];
 
         # Advertisements

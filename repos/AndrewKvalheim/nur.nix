@@ -1,7 +1,7 @@
 { pkgs }:
 
 let
-  inherit (lib) findFirst recursiveUpdate versionOlder warnIf warnIfNot;
+  inherit (lib) findFirst recursiveUpdate versionAtLeast versionOlder warnIf warnIfNot;
   inherit (pkgs) callPackage lib;
 in
 # Published as nur.repos.AndrewKvalheim (https://nur.nix-community.org/repos/andrewkvalheim/)
@@ -61,6 +61,9 @@ rec {
       };
     }).pkgs;
   };
+  easy-timeline = (callPackage ./library/easy-timeline.pkg.nix { }).overrideAttrs (e: recursiveUpdate e {
+    meta.broken = versionAtLeast pkgs.stdenv.cc.version "15"; # Ploticus is broken by NixOS/nixpkgs#475479
+  });
   fastnbt-tools = callPackage ./library/fastnbt-tools.pkg.nix { };
   fediblockhole = callPackage ./library/fediblockhole.pkg.nix { };
   git-diff-image = callPackage ./library/git-diff-image.pkg.nix { };

@@ -117,7 +117,9 @@ in
       gucharmap
       guetzli
       guvcview
+      hdparm
       htop
+      hurl
       hydra-check
       identity
       ijq
@@ -164,6 +166,7 @@ in
       rsync
       s-tui
       snitch
+      smartmontools
       sqlitebrowser
       step-cli
       nodePackages.svgo
