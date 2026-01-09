@@ -9,7 +9,7 @@
 }:
 
 let
-  inherit (lib) escapeShellArg getExe;
+  inherit (lib) escapeShellArg makeBinPath;
 
   test-timeline = ''
     ImageSize = width:128 height:auto barincrement:20
@@ -44,8 +44,8 @@ stdenv.mkDerivation {
   installPhase = ''
     install -D -m755 EasyTimeline.pl $out/bin/easy-timeline
     wrapProgram $out/bin/easy-timeline \
-      --prefix PERL5LIB : $PERL5LIB \
-      --add-flags '-P ${getExe ploticus}'
+      --prefix PATH : ${makeBinPath [ ploticus ]} \
+      --prefix PERL5LIB : $PERL5LIB
   '';
 
   doInstallCheck = true;
