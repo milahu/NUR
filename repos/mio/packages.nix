@@ -121,6 +121,14 @@ rec {
     }
   );
   mdbook-generate-summary = v3overrideAttrs (pkgs.callPackage ./pkgs/mdbook-generate-summary { });
+  bionic-translation = pkgs.callPackage ./pkgs/bionic-translation/package.nix { };
+  art-standalone = pkgs.callPackage ./pkgs/art-standalone/package.nix {
+    bionic-translation = bionic-translation;
+  };
+  android-translation-layer = pkgs.callPackage ./pkgs/android-translation-layer/package.nix {
+    art-standalone = art-standalone;
+    bionic-translation = bionic-translation;
+  };
   beammp-launcher = pkgs.callPackage ./pkgs/beammp-launcher/package.nix {
     cacert_3108 = pkgs.callPackage ./pkgs/cacert_3108 { };
   };
@@ -164,6 +172,8 @@ rec {
   plezy = nodarwin (pkgs.callPackage ./pkgs/plezy { });
 
   downkyicore = pkgs.callPackage ./pkgs/downkyicore/package.nix { };
+  bifrost = pkgs.callPackage ./pkgs/bifrost/package.nix { };
+  bifrost-unwrapped = bifrost.unwrapped;
 
   eden = nodarwin (v3overrideAttrs (pkgs.callPackage ./pkgs/eden/package.nix { }));
 
@@ -171,6 +181,7 @@ rec {
   linux-enable-ir-emitter = nodarwin (
     pkgs.callPackage ./pkgs/linux-enable-ir-emitter/package.nix { }
   );
+  layan-sddm = nodarwin (pkgs.callPackage ./pkgs/layan-sddm { });
 
   proton-cachyos = pkgs.callPackage ./pkgs/proton-bin {
     toolTitle = "Proton-CachyOS";
