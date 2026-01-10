@@ -1,13 +1,12 @@
+# NOTE: Untested on MacOS
 {
-  github-desktop,
   stdenvNoCC,
   fetchurl,
   unzip,
   lib,
   ...
 }:
-if stdenvNoCC.isDarwin
-then let
+let
   ver = lib.helper.read ./version.json;
   platform = stdenvNoCC.hostPlatform.system;
 
@@ -15,7 +14,7 @@ then let
   inherit (ver) version;
 in
   stdenvNoCC.mkDerivation {
-    pname = "github-desktop";
+    pname = "wg-nord";
 
     inherit version src;
 
@@ -28,19 +27,17 @@ in
 
     installPhase = ''
       runHook preInstall
-      mkdir -p $out/Applications
-      app=$(find . -maxdepth 2 -name "*.app" -type d | head -n1)
-      cp -R "$app" $out/Applications/
+      install -Dm755 wg-nord $out/bin/wg-nord
       runHook postInstall
     '';
 
     meta = {
-      description = "GUI for managing Git and GitHub";
-      homepage = "https://desktop.github.com/";
+      description = "WireGuard configuration generator for NordVPN";
+      homepage = "https://github.com/n-thumann/wg-nord";
       license = lib.licenses.mit;
       maintainers = ["Prinky"];
-      platforms = lib.platforms.darwin;
+      platforms = lib.platforms.unix;
+      mainProgram = "wg-nord";
       sourceProvenance = [lib.sourceTypes.binaryNativeCode];
     };
   }
-else github-desktop

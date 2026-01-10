@@ -1,25 +1,20 @@
+# NOTE: This is untested
 {
-  github-desktop,
   stdenvNoCC,
   fetchurl,
-  unzip,
+  _7zz,
   lib,
   ...
-}:
-if stdenvNoCC.isDarwin
-then let
+}: let
   ver = lib.helper.read ./version.json;
-  platform = stdenvNoCC.hostPlatform.system;
-
-  src = fetchurl (lib.helper.getPlatform platform ver);
-  inherit (ver) version;
 in
   stdenvNoCC.mkDerivation {
-    pname = "github-desktop";
+    pname = "clop";
 
-    inherit version src;
+    src = fetchurl (lib.helper.getSingle ver);
+    inherit (ver) version;
 
-    nativeBuildInputs = [unzip];
+    nativeBuildInputs = [_7zz];
 
     sourceRoot = ".";
 
@@ -35,12 +30,11 @@ in
     '';
 
     meta = {
-      description = "GUI for managing Git and GitHub";
-      homepage = "https://desktop.github.com/";
-      license = lib.licenses.mit;
+      description = "Image, video and clipboard optimiser";
+      homepage = "https://lowtechguys.com/clop/";
       maintainers = ["Prinky"];
+      license = lib.licenses.gpl3;
       platforms = lib.platforms.darwin;
       sourceProvenance = [lib.sourceTypes.binaryNativeCode];
     };
   }
-else github-desktop

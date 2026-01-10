@@ -1,13 +1,11 @@
+# NOTE: This is untested
 {
-  github-desktop,
   stdenvNoCC,
   fetchurl,
-  unzip,
+  _7zz,
   lib,
   ...
-}:
-if stdenvNoCC.isDarwin
-then let
+}: let
   ver = lib.helper.read ./version.json;
   platform = stdenvNoCC.hostPlatform.system;
 
@@ -15,11 +13,11 @@ then let
   inherit (ver) version;
 in
   stdenvNoCC.mkDerivation {
-    pname = "github-desktop";
+    pname = "passepartout";
 
     inherit version src;
 
-    nativeBuildInputs = [unzip];
+    nativeBuildInputs = [_7zz];
 
     sourceRoot = ".";
 
@@ -35,12 +33,11 @@ in
     '';
 
     meta = {
-      description = "GUI for managing Git and GitHub";
-      homepage = "https://desktop.github.com/";
-      license = lib.licenses.mit;
+      description = "OpenVPN and WireGuard client";
+      homepage = "https://passepartoutvpn.app/";
+      license = lib.licenses.gpl3;
       maintainers = ["Prinky"];
       platforms = lib.platforms.darwin;
       sourceProvenance = [lib.sourceTypes.binaryNativeCode];
     };
   }
-else github-desktop

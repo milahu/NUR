@@ -1,25 +1,20 @@
+# NOTE: This is untested
 {
-  github-desktop,
   stdenvNoCC,
   fetchurl,
-  unzip,
+  _7zz,
   lib,
   ...
-}:
-if stdenvNoCC.isDarwin
-then let
+}: let
   ver = lib.helper.read ./version.json;
-  platform = stdenvNoCC.hostPlatform.system;
-
-  src = fetchurl (lib.helper.getPlatform platform ver);
-  inherit (ver) version;
 in
   stdenvNoCC.mkDerivation {
-    pname = "github-desktop";
+    pname = "cot-editor";
 
-    inherit version src;
+    src = fetchurl (lib.helper.getSingle ver);
+    inherit (ver) version;
 
-    nativeBuildInputs = [unzip];
+    nativeBuildInputs = [_7zz];
 
     sourceRoot = ".";
 
@@ -35,12 +30,11 @@ in
     '';
 
     meta = {
-      description = "GUI for managing Git and GitHub";
-      homepage = "https://desktop.github.com/";
-      license = lib.licenses.mit;
+      description = "Plain-text editor for web pages, program source codes and more";
+      homepage = "https://coteditor.com/";
       maintainers = ["Prinky"];
+      license = lib.licenses.cc-by-nc-nd-40;
       platforms = lib.platforms.darwin;
       sourceProvenance = [lib.sourceTypes.binaryNativeCode];
     };
   }
-else github-desktop

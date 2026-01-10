@@ -1,23 +1,18 @@
+# NOTE: This is untested
 {
-  github-desktop,
   stdenvNoCC,
   fetchurl,
   unzip,
   lib,
   ...
-}:
-if stdenvNoCC.isDarwin
-then let
+}: let
   ver = lib.helper.read ./version.json;
-  platform = stdenvNoCC.hostPlatform.system;
-
-  src = fetchurl (lib.helper.getPlatform platform ver);
-  inherit (ver) version;
 in
   stdenvNoCC.mkDerivation {
-    pname = "github-desktop";
+    pname = "dropshare";
 
-    inherit version src;
+    src = fetchurl (lib.helper.getSingle ver);
+    inherit (ver) version;
 
     nativeBuildInputs = [unzip];
 
@@ -35,12 +30,11 @@ in
     '';
 
     meta = {
-      description = "GUI for managing Git and GitHub";
-      homepage = "https://desktop.github.com/";
-      license = lib.licenses.mit;
+      description = "File sharing solution";
+      homepage = "https://dropshare.app/";
       maintainers = ["Prinky"];
+      license = lib.licenses.unfree;
       platforms = lib.platforms.darwin;
       sourceProvenance = [lib.sourceTypes.binaryNativeCode];
     };
   }
-else github-desktop
