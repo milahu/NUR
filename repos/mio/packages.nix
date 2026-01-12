@@ -7,6 +7,7 @@
     #];
     config.allowUnfree = true;
   },
+  nurbot ? true,
 }:
 with (import ./private.nix { inherit pkgs; });
 let
@@ -121,6 +122,11 @@ rec {
     }
   );
   mdbook-generate-summary = v3overrideAttrs (pkgs.callPackage ./pkgs/mdbook-generate-summary { });
+  miscutil = pkgs.callPackage ./pkgs/miscutil { };
+  gifcurry = lib.mkIf (!nurbot) (pkgs.callPackage ./pkgs/gifcurry { });
+  rocksmith2tab = pkgs.callPackage ./pkgs/rocksmith2tab {
+    rocksmithCustomSongToolkit = rocksmith-custom-song-toolkit;
+  };
   bionic-translation = pkgs.callPackage ./pkgs/bionic-translation/package.nix { };
   art-standalone = pkgs.callPackage ./pkgs/art-standalone/package.nix {
     bionic-translation = bionic-translation;
@@ -182,6 +188,8 @@ rec {
     pkgs.callPackage ./pkgs/linux-enable-ir-emitter/package.nix { }
   );
   layan-sddm = nodarwin (pkgs.callPackage ./pkgs/layan-sddm { });
+  ultimate-vocal-remover = pkgs.callPackage ./pkgs/ultimate-vocal-remover { };
+  pake = pkgs.callPackage ./pkgs/pake { };
 
   proton-cachyos = pkgs.callPackage ./pkgs/proton-bin {
     toolTitle = "Proton-CachyOS";
@@ -297,4 +305,6 @@ rec {
         ))
       ];
     });
+
+  rocksmith-custom-song-toolkit = pkgs.callPackage ./pkgs/rocksmith-custom-song-toolkit { };
 }

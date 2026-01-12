@@ -4,37 +4,43 @@
   fetchFromGitHub,
   makeBinaryWrapper,
   acl,
-  libxcb-util,
   xorg,
+  libxcb,
 }:
 
 rustPlatform.buildRustPackage rec {
   pname = "ego";
-  version = "1.1.7-unstable-20260107";
+  version = "1.2.0-unstable-20260110";
 
   src = fetchFromGitHub {
     owner = "intgr";
     repo = "ego";
-    rev = "33798378f719c376ed215c6725223c44d3c9dce9"; # version;
-    hash = "sha256-GJSCNQ+KxQEdkbfkKD/fniB/Ta2d6zqvU56oe7DK4j8=";
+    rev = "dd4ae1040919c551b894a76a7ec5301111ba9dc9"; # version;
+    hash = "sha256-1pnRz6ydsE1Ob46z5721S0wkfwaNw1ZMnGH4sNmmKEU=";
   };
 
   buildInputs = [
     acl
-    libxcb-util
+    libxcb
   ];
 
   nativeBuildInputs = [ makeBinaryWrapper ];
 
-  cargoHash = "sha256-8CQUyUEh5yzuECol+EqO+I+HNJ28fmeIf2AsnTakEfg=";
+  cargoHash = "sha256-+RwS0eNYPRkab0UYLGluCRdlf2j+T7tgJGVNKOmIyVk=";
 
   # requires access to /root
   checkFlags = [
     "--skip tests::test_check_user_homedir"
   ];
 
+  preCheck = ''
+    export LD_LIBRARY_PATH="${lib.makeLibraryPath [ libxcb ]}:$LD_LIBRARY_PATH"
+  '';
+
   postInstall = ''
-    wrapProgram $out/bin/ego --prefix PATH : ${lib.makeBinPath [ xorg.xhost ]}
+    wrapProgram $out/bin/ego \
+      --prefix PATH : ${lib.makeBinPath [ xorg.xhost ]} \
+      --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath [ libxcb ]}
   '';
 
   meta = {
