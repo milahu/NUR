@@ -33,7 +33,7 @@ pkgs ? import <nixpkgs> { }
   robin-hood-hashing = pkgs.callPackage ./pkgs/robin-hood-hashing { };
   pciids = pkgs.callPackage ./pkgs/pciids { };
   autotoml = pkgs.callPackage ./pkgs/autotoml { };
-  frozencpp = pkgs.callPackage ./pkgs/frozen-cpp { };
+  #frozencpp = pkgs.callPackage ./pkgs/frozen-cpp { };
   #nexus-autodl = pkgs2505.callPackage ./pkgs/nexus-autodl { };
   bsa-browser-cli = pkgs.callPackage ./pkgs/bsa-browser-cli { };
   deflix-stremio = pkgs.callPackage ./pkgs/deflix-stremio { };
@@ -48,6 +48,7 @@ pkgs ? import <nixpkgs> { }
   # clooj = pkgs.callPackage ./pkgs/clooj { inherit cljNix; };
 
   flat-manager = pkgs.callPackage ./pkgs/flat-manager { };
+  open-battery-information = pkgs.callPackage ./pkgs/open-battery-information { };
 
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   stardrop = if stardropPkgs != null then stardropPkgs.default else null;
