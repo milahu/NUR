@@ -2290,10 +2290,10 @@
     };
     "control-panel-for-twitter" = buildFirefoxXpiAddon {
       pname = "control-panel-for-twitter";
-      version = "4.19.2";
+      version = "4.19.3";
       addonId = "{5cce4ab5-3d47-41b9-af5e-8203eea05245}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4658365/control_panel_for_twitter-4.19.2.xpi";
-      sha256 = "0cfdc6138c36d6c9337c665a985ae0b9b12eb0952457ebce94706a00ce335233";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4662429/control_panel_for_twitter-4.19.3.xpi";
+      sha256 = "0d1dc6f6623595c851dc718c6c8e4a95ea559b10a9a33ff4169b648373921a79";
       meta = with lib;
       {
         homepage = "https://soitis.dev/control-panel-for-twitter";
@@ -3415,10 +3415,10 @@
     };
     "dualsub" = buildFirefoxXpiAddon {
       pname = "dualsub";
-      version = "2.67.6";
+      version = "2.68.0";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4647344/dualsub-2.67.6.xpi";
-      sha256 = "764c9572848e8689c23f0fae35b32f717694d7ac56298db333956525b4b0835e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4661774/dualsub-2.68.0.xpi";
+      sha256 = "2a024868df36d8329030b63eb0b45bf9c1e334d9c70a10f204ace8ac11ea67dd";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -6789,6 +6789,20 @@
           free = false;
         };
         mozPermissions = [ "storage" "tabs" "<all_urls>" ];
+        platforms = platforms.all;
+      };
+    };
+    "inlinedisposition-reloaded" = buildFirefoxXpiAddon {
+      pname = "inlinedisposition-reloaded";
+      version = "2.0.2resigned1";
+      addonId = "{914d3a0b-6982-4e58-9a60-2e5d6cf6b09b}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4270510/inlinedisposition_reloaded-2.0.2resigned1.xpi";
+      sha256 = "e24ee1a7e143925df0f9d58cd74f72bd6bb6a36fea15406158d5cb909d3b3a98";
+      meta = with lib;
+      {
+        description = "InlineDisposition Reloaded changes the disposition type of \"Content-Disposition\" response headers from \"attachment\" and \"file\" to \"inline\"";
+        license = licenses.mpl20;
+        mozPermissions = [ "webRequest" "webRequestBlocking" "<all_urls>" ];
         platforms = platforms.all;
       };
     };
@@ -13190,10 +13204,10 @@
     };
     "tab-session-manager" = buildFirefoxXpiAddon {
       pname = "tab-session-manager";
-      version = "7.1.1";
+      version = "7.2.0";
       addonId = "Tab-Session-Manager@sienori";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4464091/tab_session_manager-7.1.1.xpi";
-      sha256 = "1cc20bfe2b38aa6c70101d296e6d57419713489cf0b4cde3480de40b2a7337e6";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4662467/tab_session_manager-7.2.0.xpi";
+      sha256 = "38788346ebe21a352252ded38ed20c4788397be4e291f6d718ec48e2fefc26b2";
       meta = with lib;
       {
         homepage = "https://tab-session-manager.sienori.com/";
@@ -13203,6 +13217,7 @@
           "storage"
           "unlimitedStorage"
           "tabs"
+          "tabGroups"
           "cookies"
           "downloads"
           "identity"
@@ -15856,10 +15871,10 @@
     };
     "yomitan" = buildFirefoxXpiAddon {
       pname = "yomitan";
-      version = "25.12.22.0";
+      version = "25.12.31.0";
       addonId = "{6b733b82-9261-47ee-a595-2dda294a4d08}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4654712/yomitan-25.12.22.0.xpi";
-      sha256 = "ae7d901daa0a0e8562dc2b47d2e36d2d07a5459008b68b4242e1f247b513fcf6";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4662129/yomitan-25.12.31.0.xpi";
+      sha256 = "846b597ed75c167cebbbbc837933c785e2af18bb6072844e01df75df7f3dab79";
       meta = with lib;
       {
         homepage = "https://github.com/themoeway/yomitan";
@@ -16091,10 +16106,10 @@
     };
     "youtube-subscription-groups" = buildFirefoxXpiAddon {
       pname = "youtube-subscription-groups";
-      version = "18.0.7";
+      version = "18.1.0";
       addonId = "danabok16@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4659564/youtube_subscription_groups-18.0.7.xpi";
-      sha256 = "8caeee2eb6bab640fdf18dddeb84124f136df6bdc7ddbd813ea0f6a3d1214d66";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4662141/youtube_subscription_groups-18.1.0.xpi";
+      sha256 = "fb5e3d8d2ff9a597caade3e0147c774b5ce2b82d661cc7028272fb32c679405a";
       meta = with lib;
       {
         homepage = "https://pockettube.io";
