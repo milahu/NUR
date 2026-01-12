@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./default.nix:18:60:
+  at ./default.nix:24:60:
 
-    17|       in
-    18|       if type == "regular" && isNix then { "${basename}" = callPackage filename { }; } else { }
+    23|       in
+    24|       if type == "regular" && isNix then { "${basename}" = callPackage filename { }; } else { }
       |                                                            ^
-    19|     ) (builtins.readDir directory);
+    25|     ) (builtins.readDir directory);
 
 … while calling 'callPackageWith'
 
