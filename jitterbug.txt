@@ -1,20 +1,20 @@
 error:
 … from call site
 
-  at ./default.nix:16:19:
+  at ./pkgs/decode-tooling/default.nix:10:19:
 
-    15|   cxadc-vhs-server = pkgs.callPackage ./pkgs/cxadc-vhs-server { useFlacSox = true; };
-    16|   tbc-raw-stack = pkgs.callPackage ./pkgs/tbc-raw-stack { };
+     9|   };
+    10|   tbc-raw-stack = callPackage ./tbc-raw-stack { };
       |                   ^
-    17|   domesdayduplicator = pkgs.callPackage ./pkgs/domesdayduplicator { };
+    11|   tbc-video-export = callPackage ./tbc-video-export { };
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:260:19:
+  at <nixpkgs> + /lib/customisation.nix:276:19:
 
-   259|   callPackageWith =
-   260|     autoArgs: fn: args:
+   275|   callPackageWith =
+   276|     autoArgs: fn: args:
       |                   ^
-   261|     let
+   277|     let
 
-error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "fenix" at ./pkgs/tbc-raw-stack/default.nix:4, did you mean "felix", "febio" or "fend"?'
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "fenix" at ./pkgs/decode-tooling/tbc-raw-stack/default.nix:6, did you mean "felix", "febio" or "fend"?'
