@@ -35,12 +35,24 @@ let
   ];
 in
 builtins.listToAttrs (
-  builtins.map (
+  map (
     target:
     pkgs.lib.attrsets.nameValuePair "go-${target.normalized}" (
       drv:
       import ./. {
         inherit drv;
+        goos = target.goos;
+        goarch = target.goarch;
+        normalized = target.normalized;
+      }
+    )
+  ) targets
+  ++ map (
+    target:
+    pkgs.lib.attrsets.nameValuePair "go-compress-${target.normalized}" (
+      drv:
+      import ./compress.nix {
+        inherit pkgs drv;
         goos = target.goos;
         goarch = target.goarch;
         normalized = target.normalized;
