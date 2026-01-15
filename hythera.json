@@ -1,16 +1,16 @@
 {
 "name":"hythera",
-"fetch_time":0.504,
-"eval_time":0.225,
+"fetch_time":0.508,
+"eval_time":0.244,
 "source":{
 "url":"https://github.com/Hythera/nur-packages",
-"rev":"63c37e9cdb1e34d9f47b36ad76dda319f9b18235",
-"sha256":"1pjbsbwk6r943ddi4f7wvnqzabkpvxy7pbd72kl66y8xmw9pqrqz",
+"rev":"8c2c7438104f42755750dd69400393637239549f",
+"sha256":"029cg9hhj4y2nainsni7vfnils2xvndbc7ciivrhqv4gh54qd303",
 "date":null
 },
-"source_storepath":"/nix/store/94axvmcv1c6p08lrjpdk3ncsg26mlh1v-source",
-"nixpkgs_storepath":"/nix/store/3l91c1wr8g8l45bmig07vzwjnv30lsgi-source",
-"nur_combined_rev":"8074dcbc39646e5a1c35a3eff44dea4eb5965e25",
+"source_storepath":"/nix/store/s44z122gl33g2y06fgy5l59vrc5arch0-source",
+"nixpkgs_storepath":"/nix/store/r3j9iijd6ynhvfmqd2aba91c6gxc31kg-source",
+"nur_combined_rev":"fa03ba0b641adbbcd0a7a19cad62ce9b14ac8c95",
 "packages":{
 "rootapp":{
 "meta":{
@@ -150,7 +150,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/3l91c1wr8g8l45bmig07vzwjnv30lsgi-source/pkgs/stdenv/generic/check-meta.nix",
+"file":"/nix/store/r3j9iijd6ynhvfmqd2aba91c6gxc31kg-source/pkgs/stdenv/generic/check-meta.nix",
 "line":625
 },
 "maxSilent":14400,
@@ -265,7 +265,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/3l91c1wr8g8l45bmig07vzwjnv30lsgi-source/pkgs/stdenv/generic/check-meta.nix",
+"file":"/nix/store/r3j9iijd6ynhvfmqd2aba91c6gxc31kg-source/pkgs/stdenv/generic/check-meta.nix",
 "line":625
 },
 "name":"waterfox-bin-unwrapped-6.6.8",
@@ -273,6 +273,8 @@
 "out"
 ],
 "platforms":[
+"aarch64-darwin",
+"x86_64-darwin",
 "x86_64-linux"
 ],
 "position":"<nixpkgs> + /pkgs/applications/networking/browsers/firefox/wrapper.nix:578",
@@ -344,9 +346,11 @@
 "out"
 ],
 "platforms":[
+"aarch64-darwin",
+"x86_64-darwin",
 "x86_64-linux"
 ],
-"position":"./pkgs/waterfox-bin-unwrapped/default.nix:88",
+"position":"./pkgs/waterfox-bin-unwrapped/default.nix:117",
 "sourceProvenance":[
 {
 "isSource":false,
