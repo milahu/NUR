@@ -13,6 +13,31 @@ To use modules: (Note that system isn't defined by default in some contexts. You
   ];
 ```
 
+Use without nur: add to flake.nix inputs
+
+```
+
+    mio = {
+      url = "git+https://github.com/mio-19/nurpkgs.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+```
+
+Some packages are only available without nur as they failed to evaluate under nur constraints:
+
++ gifcurry
++ line
++ notepad-plus-plus
++ adobe-acrobat-reader
+
+```
+inputs.mio.packages.${pkgs.stdenv.hostPlatform.system}.downkyicore
+pkgs.nur.repos.mio.downkyicore
+
+inputs.mio.legacyPackages."${system}".modules.howdy
+inputs.nur.legacyPackages."${system}".repos.mio.modules.howdy
+```
+
 ## cache
 
 binary cache is provided as best effort. binary cache is frequently *NOT* up to date and you will frequently have to build packages from source code because github actions is often not sufficient to compile packages. Solutions to provide up to date binary cache do require money every month
@@ -63,4 +88,5 @@ files are copied from following locations. some are modified in this repo and so
 + android-translation-layer nixpkgs commit d9f0b9cb3d82342268db374b40bf062ea9a5f044
 + bionic-translation nixpkgs commit d9f0b9cb3d82342268db374b40bf062ea9a5f044
 + art-standalone nixpkgs commit d9f0b9cb3d82342268db374b40bf062ea9a5f044
++ local-ai nixpkgs commit 7377f649a8671844d42dde9ea739961f06ce7edf
 + <https://github.com/maydayv7/dotfiles/raw/refs/heads/stable/packages/wine/notepad++.nix>

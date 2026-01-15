@@ -126,6 +126,10 @@ rec {
   #'';
   # audacity4 = nodarwin (pkgs.qt6Packages.callPackage ./pkgs/audacity4/package.nix { });
   cb = pkgs.callPackage ./pkgs/cb { };
+  electron_castlabs_38 = pkgs.callPackage ./pkgs/electron-castlabs-38 { };
+  cider = pkgs.callPackage ./pkgs/cider {
+    electron = electron_castlabs_38;
+  };
   jellyfin-media-player = v3override (
     pkgs.kdePackages.callPackage ./pkgs/jellyfin-media-player {
       mpvqt = pkgs.kdePackages.mpvqt.overrideAttrs (old: {
@@ -144,6 +148,8 @@ rec {
       });
     }
   );
+  local-ai = pkgs.callPackage ./pkgs/local-ai/package.nix { };
+  local-ai-cuda = local-ai.override { with_cublas = true; };
   mdbook-generate-summary = v3overrideAttrs (pkgs.callPackage ./pkgs/mdbook-generate-summary { });
   miscutil = pkgs.callPackage ./pkgs/miscutil { };
   gifcurry = nonurbot (pkgs.callPackage ./pkgs/gifcurry { });
@@ -218,6 +224,20 @@ rec {
   };
   ultimate-vocal-remover = pkgs.callPackage ./pkgs/ultimate-vocal-remover { };
   pake = pkgs.callPackage ./pkgs/pake { };
+  makePakeApp = pkgs.callPackage ./pkgs/makePakeApp {
+    inherit pake;
+  };
+  chatgpt = pkgs.callPackage ./pkgs/chatgpt/package.nix {
+    inherit makePakeApp;
+  };
+  apple-music = pkgs.callPackage ./pkgs/apple-music/package.nix {
+    inherit makePakeApp;
+  };
+  altus = pkgs.callPackage ./pkgs/altus/package.nix { };
+  apple-music-desktop = pkgs.callPackage ./pkgs/apple-music-desktop/package.nix {
+    electron = electron_castlabs_38;
+  };
+  prospect-mail = pkgs.callPackage ./pkgs/prospect-mail/package.nix { };
 
   proton-cachyos = pkgs.callPackage ./pkgs/proton-bin {
     toolTitle = "Proton-CachyOS";
@@ -293,9 +313,42 @@ rec {
     studioVariant = true;
   };
 
-  mkwindowsapp-tools = nonurbot (
-    callPackage ./pkgs/mkwindowsapp-tools { wrapProgram = pkgs.wrapProgram; }
-  );
+  firejail-profiles = pkgs.callPackage ./pkgs/firejail-profiles { };
+
+  prismlauncher-diegiwg =
+    let
+      # https://github.com/NixOS/nixpkgs/blob/ab0821a8289da5bd2cde49ae89cbf6db1e5931ae/pkgs/by-name/pr/prismlauncher/package.nix#L41
+      msaClientID = null;
+      prismlauncher = minipkgs.prismlauncher;
+      prismlauncher-unwrapped = minipkgs.prismlauncher-unwrapped;
+    in
+    prismlauncher.overrideAttrs (old: {
+      paths = [
+        # https://github.com/NixOS/nixpkgs/blob/ab0821a8289da5bd2cde49ae89cbf6db1e5931ae/pkgs/by-name/pr/prismlauncher/package.nix#L61
+        (v3overrideAttrs (
+          (prismlauncher-unwrapped.override { inherit msaClientID; }).overrideAttrs (old': {
+            patches = (old.patches or [ ]) ++ [
+              (pkgs.fetchpatch {
+                name = "12a.patch";
+                url = "https://github.com/PrismLauncher/PrismLauncher/commit/12acabdb57ba6f12fcf9047c28ec8afa7a4fb970.patch";
+                sha256 = "sha256-t+sanKiSEuqmshy6Y+Y9tfpDf+7L3A8d0CBcA+oqLUs=";
+              })
+              (pkgs.fetchpatch {
+                name = "911.patch";
+                url = "https://github.com/PrismLauncher/PrismLauncher/commit/911c0f3593dd6b825f6d91900e48bdf3b59ad3a9.patch";
+                sha256 = "sha256-mCkZ613f7kvMQTW+UOi2dcnvzHg/c2vhPcPGCvdz+0k=";
+              })
+            ];
+          })
+        ))
+      ];
+    });
+
+  rocksmith-custom-song-toolkit = pkgs.callPackage ./pkgs/rocksmith-custom-song-toolkit { };
+}
+// (lib.optionalAttrs (!nurbot) rec {
+
+  mkwindowsapp-tools = callPackage ./pkgs/mkwindowsapp-tools { wrapProgram = pkgs.wrapProgram; };
 
   line = callPackage ./pkgs/line.nix {
     inherit (lib) mkWindowsAppNoCC copyDesktopIcons makeDesktopIcon;
@@ -315,8 +368,6 @@ rec {
   adobe-acrobat-reader_virtualDesktop = adobe-acrobat-reader.override {
     virtualDesktop = true;
   };
-  firejail-profiles = pkgs.callPackage ./pkgs/firejail-profiles { };
-
   wineshell-wine64 = callPackage ./pkgs/wineshell/default.nix {
     inherit (lib) mkWindowsApp;
     wine = pkgs.wine64Packages.stableFull;
@@ -394,34 +445,4 @@ rec {
     wine = pkgs.wineWowPackages.full; # enableMonoBootPrompt is broken rightnow. use full to avoid boot prompt
   };
 
-  prismlauncher-diegiwg =
-    let
-      # https://github.com/NixOS/nixpkgs/blob/ab0821a8289da5bd2cde49ae89cbf6db1e5931ae/pkgs/by-name/pr/prismlauncher/package.nix#L41
-      msaClientID = null;
-      prismlauncher = minipkgs.prismlauncher;
-      prismlauncher-unwrapped = minipkgs.prismlauncher-unwrapped;
-    in
-    prismlauncher.overrideAttrs (old: {
-      paths = [
-        # https://github.com/NixOS/nixpkgs/blob/ab0821a8289da5bd2cde49ae89cbf6db1e5931ae/pkgs/by-name/pr/prismlauncher/package.nix#L61
-        (v3overrideAttrs (
-          (prismlauncher-unwrapped.override { inherit msaClientID; }).overrideAttrs (old': {
-            patches = (old.patches or [ ]) ++ [
-              (pkgs.fetchpatch {
-                name = "12a.patch";
-                url = "https://github.com/PrismLauncher/PrismLauncher/commit/12acabdb57ba6f12fcf9047c28ec8afa7a4fb970.patch";
-                sha256 = "sha256-t+sanKiSEuqmshy6Y+Y9tfpDf+7L3A8d0CBcA+oqLUs=";
-              })
-              (pkgs.fetchpatch {
-                name = "911.patch";
-                url = "https://github.com/PrismLauncher/PrismLauncher/commit/911c0f3593dd6b825f6d91900e48bdf3b59ad3a9.patch";
-                sha256 = "sha256-mCkZ613f7kvMQTW+UOi2dcnvzHg/c2vhPcPGCvdz+0k=";
-              })
-            ];
-          })
-        ))
-      ];
-    });
-
-  rocksmith-custom-song-toolkit = pkgs.callPackage ./pkgs/rocksmith-custom-song-toolkit { };
-}
+})
