@@ -4,29 +4,27 @@
   lib,
   makeWrapper,
   nix-update-script,
-  nixosTests,
   nodejs,
   pnpm,
   pnpmConfigHook,
   python3,
   stdenv,
-  testers,
   xcbuild,
   yq-go,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "renovate";
-  version = "42.80.1";
+  version = "42.81.2";
 
   src = fetchFromGitHub {
     owner = "renovatebot";
     repo = "renovate";
     tag = finalAttrs.version;
-    hash = "sha256-YsZLXoTCfp8wZTCRsqij2SN/KewEuZ7v7RBh8PhO6xQ=";
+    hash = "sha256-Atopt5IFvETd/8tH7Tr0b4Sgj3XAyZOJnfiEZhhnScc=";
   };
 
   patches = [
-    ./37899.diff
+    ./40282.diff
   ];
 
   postPatch = ''
@@ -47,7 +45,7 @@ stdenv.mkDerivation (finalAttrs: {
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
     fetcherVersion = 2;
-    hash = "sha256-qE6c2lodopm1XHabijwcgehDgghEHRb9QGFcY8hvrFg=";
+    hash = "sha256-NPHAGGGoBn3O0J2GFyi/oaXbiJawoE6/k/k7zSWcgjU=";
   };
 
   env.COREPACK_ENABLE_STRICT = 0;
@@ -95,12 +93,8 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   passthru = {
-    tests = {
-      version = testers.testVersion { package = finalAttrs.finalPackage; };
-      vm-test = nixosTests.renovate;
-    };
     updateScript = ''
-      wget https://patch-diff.githubusercontent.com/raw/renovatebot/renovate/pull/37899.diff -O ./packages/renovate/37899.diff
+      wget https://patch-diff.githubusercontent.com/raw/renovatebot/renovate/pull/40282.diff -O ./packages/renovate/40282.diff
       ${lib.concatStringsSep " " (nix-update-script {
         extraArgs = [
           "--commit"

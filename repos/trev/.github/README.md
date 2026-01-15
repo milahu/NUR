@@ -1,8 +1,8 @@
 # trev's nix repository
 
-![check](https://github.com/spotdemo4/nur/actions/workflows/check.yaml/badge.svg)
-![vulnerable](https://github.com/spotdemo4/nur/actions/workflows/vulnerable.yaml/badge.svg)
-![nix user repository](https://github.com/spotdemo4/nur/actions/workflows/sync.yaml/badge.svg)
+[![check](https://github.com/spotdemo4/nur/actions/workflows/check.yaml/badge.svg)](https://github.com/spotdemo4/nur/actions/workflows/check.yaml)
+[![vulnerable](https://github.com/spotdemo4/nur/actions/workflows/vulnerable.yaml/badge.svg)](https://github.com/spotdemo4/nur/actions/workflows/vulnerable.yaml)
+[![nix user repository](https://github.com/spotdemo4/nur/actions/workflows/sync.yaml/badge.svg)](https://github.com/spotdemo4/nur/actions/workflows/sync.yaml)
 
 Extra [packages](#packages), [bundlers](#bundlers) and [libs](#libs) for [nix](https://nixos.org/)
 
@@ -26,6 +26,23 @@ Version bumper for projects using git and semantic versioning
 
 ```elm
 nix run github:spotdemo4/nur#bumper
+```
+
+### [catppuccin/zen-browser](https://github.com/catppuccin/zen-browser)
+
+Catppuccin theme for Zen Browser
+
+Using with [`0xc000022070/zen-browser-flake`](https://github.com/0xc000022070/zen-browser-flake):
+
+```nix
+programs.zen-browser = {
+    # ...
+    profiles.default = {
+      # ...
+      userChrome = builtins.readFile "${pkgs.trev.catppuccin-zen-browser}/Mocha/Sky/userChrome.css";
+      userContent = builtins.readFile "${pkgs.trev.catppuccin-zen-browser}/Mocha/Sky/userContent.css";
+    };
+  };
 ```
 
 ### [ffmpeg-quality-metrics](https://github.com/slhck/ffmpeg-quality-metrics)
@@ -82,7 +99,7 @@ nix run github:spotdemo4/nur#qsvenc
 
 Cross-platform dependency automation, with patches for nix
 
-- patched with [renovate#37899](https://github.com/renovatebot/renovate/pull/37899) to fix flake updates
+- patched with [renovate#40282](https://github.com/renovatebot/renovate/pull/40282) to fix flake updates
 
 ```elm
 nix run github:spotdemo4/nur#renovate
@@ -98,7 +115,7 @@ nix run github:spotdemo4/nur#shellhook
 
 ## Bundlers
 
-A collection of [nix bundlers](https://nix.dev/manual/nix/latest/command-ref/new-cli/nix3-bundle) mainly used for cross-compilation. The `system` is in the format given by `builtins.currentSystem` ([examples](https://github.com/NixOS/nixpkgs/blob/master/lib/systems/flake-systems.nix)).
+A collection of [nix bundlers](https://nix.dev/manual/nix/latest/command-ref/new-cli/nix3-bundle) mainly used for cross-compilation. The `system` is in the format given by `builtins.currentSystem` ([systems](https://github.com/NixOS/nixpkgs/blob/master/lib/systems/flake-systems.nix)).
 
 ### deno-`system`
 
@@ -345,6 +362,18 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
             '';
           };
         };
+
+        nixosConfigurations = {
+          laptop = nixpkgs.lib.nixosSystem {
+            modules = [
+              trev.nixosModules.overlay # Add the overlay
+
+              ({ pkgs, ... }: {
+                environment.systemPackages = [pkgs.trev.bobgen]; # Use the overlay
+              })
+            ];
+          };
+        };
       }
     );
 }
@@ -374,14 +403,16 @@ Using the [Nix User Repository](https://github.com/nix-community/NUR)
   };
 
   outputs = { self, nixpkgs, nur }: {
-    nixosConfigurations.myConfig = nixpkgs.lib.nixosSystem {
-      modules = [
-        nur.modules.nixos.default # Add the NUR overlay
+    nixosConfigurations = {
+      laptop = nixpkgs.lib.nixosSystem {
+        modules = [
+          nur.modules.nixos.default # Add the NUR overlay
 
-        ({ pkgs, ... }: {
-          environment.systemPackages = [pkgs.nur.repos.trev.bobgen]; # Use the NUR overlay
-        })
-      ];
+          ({ pkgs, ... }: {
+            environment.systemPackages = [pkgs.nur.repos.trev.bobgen]; # Use the NUR overlay
+          })
+        ];
+      };
     };
   };
 }
