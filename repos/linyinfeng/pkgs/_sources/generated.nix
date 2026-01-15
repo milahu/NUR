@@ -8,13 +8,13 @@
 {
   aws-sigv4-proxy = {
     pname = "aws-sigv4-proxy";
-    version = "v1.10";
+    version = "v1.11";
     src = fetchFromGitHub {
       owner = "awslabs";
       repo = "aws-sigv4-proxy";
-      rev = "v1.10";
+      rev = "v1.11";
       fetchSubmodules = false;
-      sha256 = "sha256-DC9JJeMdwxKeALQYA53BmMdAxQlUfPowAEul7+dTh4s=";
+      sha256 = "sha256-1NJJFocDTOlZfDRn/YFFIwaqCGyn+rUZKf1/m1ybC68=";
     };
   };
   baibot = {
@@ -117,13 +117,13 @@
   };
   linux-intel-mainline-tracking = {
     pname = "linux-intel-mainline-tracking";
-    version = "mainline-tracking-v6.11.10-linux-241202T040109Z";
+    version = "mainline-tracking-v6.17.11-linux-260107T074430Z";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "mainline-tracking";
-      rev = "mainline-tracking-v6.11.10-linux-241202T040109Z";
+      rev = "mainline-tracking-v6.17.11-linux-260107T074430Z";
       fetchSubmodules = false;
-      sha256 = "sha256-TlqDEFCu4IPmAm0NYHD5fyQy38Ce6BZbGEDu1FpJXd8=";
+      sha256 = "sha256-/1qSHHr74+sGQ1r55wNt15+fKXOGZPymuQ0ZI3XNXdc=";
     };
   };
   lpac = {
@@ -158,10 +158,10 @@
   };
   moe-koe-music = {
     pname = "moe-koe-music";
-    version = "v1.5.6";
+    version = "v1.5.7";
     src = fetchurl {
-      url = "https://github.com/iAJue/MoeKoeMusic/releases/download/v1.5.6/MoeKoe_Music_v1.5.6.AppImage";
-      sha256 = "sha256-HtlRGsy3TmqqBba7pux1xOkjKE3TmdgR6SZo4eMhE08=";
+      url = "https://github.com/iAJue/MoeKoeMusic/releases/download/v1.5.7/MoeKoe_Music_v1.5.7.AppImage";
+      sha256 = "sha256-kKfIAGGcgk1tV9WeuaXD+W1Y5D7ahb9gyWbMHZd2oP8=";
     };
   };
   mstickereditor = {
@@ -519,17 +519,17 @@
   };
   telegram-send = {
     pname = "telegram-send";
-    version = "3a26f5325a56764d5c33935c20c72117aba701d6";
+    version = "c930dbed822487b1e422b7b3643d3826c54cead8";
     src = fetchgit {
       url = "https://github.com/rahiel/telegram-send.git";
-      rev = "3a26f5325a56764d5c33935c20c72117aba701d6";
+      rev = "c930dbed822487b1e422b7b3643d3826c54cead8";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-Y5x77d9rXVy5F1RpyvCkpZAhH/QZ5Y3bE1DRkGUP2hk=";
+      sha256 = "sha256-/Fiw1A9sUx68yCzCzux2HEKRoJXmmPtlI99fAC7+wMY=";
     };
-    date = "2026-01-13";
+    date = "2026-01-14";
   };
   tg-send = {
     pname = "tg-send";
