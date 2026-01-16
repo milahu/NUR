@@ -12,7 +12,7 @@ let
     name = "wait-ready";
     runtimeInputs = [ curl ];
     text = ''
-      while ! curl --fail --output '/dev/null' --silent "$@"; do
+      while ! curl --fail --out-null --silent "$@"; do
         sleep '1s'
       done
     '';

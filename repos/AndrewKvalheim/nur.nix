@@ -39,6 +39,7 @@ rec {
   }).overrideAttrs (c: recursiveUpdate c { meta.broken = versionOlder pkgs.go.version "1.25.5"; /* Pending NixOS/nixpkgs#467201 */ });
   cavif = callPackage ./library/cavif.pkg.nix { };
   ch57x-keyboard-tool = callPackage ./library/ch57x-keyboard-tool.pkg.nix { };
+  chunker = callPackage ./library/chunker.pkg.nix { };
   co2monitor = callPackage ./library/co2monitor.pkg.nix { };
   decompiler-mc = callPackage ./library/decompiler-mc.pkg.nix { };
   dmarc-report-notifier = callPackage ./library/dmarc-report-notifier.pkg.nix {

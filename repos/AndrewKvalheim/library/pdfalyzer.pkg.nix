@@ -1,5 +1,6 @@
 { fetchPypi
 , lib
+, nix-update-script
 , python3
 , versionCheckHook
 
@@ -7,13 +8,16 @@
 , yaralyzer
 }:
 
+let
+  inherit (lib) versionAtLeast versionOlder;
+in
 python3.pkgs.buildPythonApplication rec {
   pname = "pdfalyzer";
-  version = "1.17.6";
+  version = "1.17.11";
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-80Q6iHS2TZZmGF8bBw+uvhJjEyZMMxRj1U1wUSv7GhM=";
+    hash = "sha256-IIPnMh4B8HVV3gdsQOGwvDrUIoc7xkRnKmW47d25YN0=";
   };
 
   format = "pyproject";
@@ -23,13 +27,13 @@ python3.pkgs.buildPythonApplication rec {
 
   nativeCheckInputs = [ versionCheckHook ]; # Pending nixos/nixpkgs#420531
 
-  # Pending NixOS/nixpkgs#448100
-  passthru.updateScript = lib.throwIf (lib.versionAtLeast python3.pkgs.pypdf.version "6.1.3") "pdfalyzer may resume updates" null;
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Analyze PDFs with colors (and YARA)";
     homepage = "https://github.com/michelcrypt4d4mus/pdfalyzer";
     license = lib.licenses.gpl3Only;
     mainProgram = "pdfalyze";
+    broken = versionOlder python3.pkgs.pypdf.version "6.4.2" || versionAtLeast python3.pkgs.pypdf.version "6.5";
   };
 }
