@@ -130,24 +130,6 @@ rec {
   cider = pkgs.callPackage ./pkgs/cider {
     electron = electron_castlabs_38;
   };
-  jellyfin-media-player = v3override (
-    pkgs.kdePackages.callPackage ./pkgs/jellyfin-media-player {
-      mpvqt = pkgs.kdePackages.mpvqt.overrideAttrs (old: {
-        meta = old.meta // {
-          platforms = pkgs.lib.platforms.unix;
-        };
-
-        propagatedBuildInputs = map (
-          pkg:
-          pkg.overrideAttrs (oldPkg: {
-            meta = (oldPkg.meta or { }) // {
-              platforms = pkgs.lib.platforms.unix;
-            };
-          })
-        ) old.propagatedBuildInputs;
-      });
-    }
-  );
   local-ai = pkgs.callPackage ./pkgs/local-ai/package.nix { };
   local-ai-cuda = local-ai.override { with_cublas = true; };
   mdbook-generate-summary = v3overrideAttrs (pkgs.callPackage ./pkgs/mdbook-generate-summary { });
@@ -169,6 +151,9 @@ rec {
     cacert_3108 = pkgs.callPackage ./pkgs/cacert_3108 { };
   };
   beammp-server = pkgs.callPackage ./pkgs/beammp-server/package.nix { };
+  chatall = pkgs.callPackage ./pkgs/chatall/package.nix { };
+  superTux = pkgs.callPackage ./pkgs/superTux/package.nix { };
+
   firefox_nightly-unwrapped = v3override (
     v3overrideAttrs (
       pkgs.callPackage ./pkgs/firefox-nightly {
@@ -186,23 +171,21 @@ rec {
     libName = "betterbird";
   };
 
-  /*
-    mygui-next = x8664linux (
-      fixcmake (
-        pkgs.callPackage ./pkgs/mygui-next/package.nix {
-        }
-      )
-    );
-    ogre-next_3 = x8664linux (
-      v3overrideAttrs (pkgs.callPackage ./pkgs/ogre-next/default.nix { }).ogre-next_3
-    );
-    stuntrally3 = wip (
-      pkgs.callPackage ./pkgs/stuntrally3 {
-        ogre-next_3 = ogre-next_3;
-        mygui = mygui-next;
+  mygui-next = x8664linux (
+    fixcmake (
+      pkgs.callPackage ./pkgs/mygui-next/package.nix {
       }
-    );
-  */
+    )
+  );
+  ogre-next_3 = x8664linux (
+    v3overrideAttrs (pkgs.callPackage ./pkgs/ogre-next/default.nix { }).ogre-next_3
+  );
+  stuntrally3 = (
+    pkgs.callPackage ./pkgs/stuntrally3 {
+      ogre-next_3 = ogre-next_3;
+      mygui = mygui-next;
+    }
+  );
   speed_dreams = nodarwin (pkgs.callPackage ./pkgs/speed-dreams { });
 
   plezy = nodarwin (pkgs.callPackage ./pkgs/plezy { });
@@ -227,17 +210,16 @@ rec {
   makePakeApp = pkgs.callPackage ./pkgs/makePakeApp {
     inherit pake;
   };
-  chatgpt = pkgs.callPackage ./pkgs/chatgpt/package.nix {
+  chatgpt-pake = pkgs.callPackage ./pkgs/chatgpt-pake/package.nix {
     inherit makePakeApp;
   };
-  apple-music = pkgs.callPackage ./pkgs/apple-music/package.nix {
+  apple-music-pake = pkgs.callPackage ./pkgs/apple-music-pake/package.nix {
     inherit makePakeApp;
   };
   altus = pkgs.callPackage ./pkgs/altus/package.nix { };
   apple-music-desktop = pkgs.callPackage ./pkgs/apple-music-desktop/package.nix {
     electron = electron_castlabs_38;
   };
-  prospect-mail = pkgs.callPackage ./pkgs/prospect-mail/package.nix { };
 
   proton-cachyos = pkgs.callPackage ./pkgs/proton-bin {
     toolTitle = "Proton-CachyOS";
@@ -345,6 +327,9 @@ rec {
     });
 
   rocksmith-custom-song-toolkit = pkgs.callPackage ./pkgs/rocksmith-custom-song-toolkit { };
+
+  stuntrally = pkgs.callPackage ./pkgs/stuntrally { };
+
 }
 // (lib.optionalAttrs (!nurbot) rec {
 
@@ -445,4 +430,21 @@ rec {
     wine = pkgs.wineWowPackages.full; # enableMonoBootPrompt is broken rightnow. use full to avoid boot prompt
   };
 
+  insta360-studio = callPackage ./pkgs/insta360-studio.nix {
+    inherit pkgs;
+    build = lib;
+    wine = pkgs.wineWowPackages.full;
+  };
+
+  supertuxkart-evolution = v3override (
+    pkgs.callPackage ./pkgs/supertuxkart-evolution/default.nix { }
+  );
+
+  chatgpt-desktop-client = pkgs.callPackage ./pkgs/chatgpt-desktop-client/default.nix { };
+
+  prospect-mail = pkgs.callPackage ./pkgs/prospect-mail/package.nix { };
+
+  rclone-browser = pkgs.callPackage ./pkgs/rclone-browser/package.nix { };
+
+  forku-chatgpt = v3overrideAttrs (pkgs.callPackage ./pkgs/forku-chatgpt/package.nix { });
 })

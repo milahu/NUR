@@ -12,7 +12,7 @@
   xorg,
   virtualDesktop ? false,
 }:
-# Based on AUR acroread-dc-wine (maintainer Smoolak), adapted for mkWindowsAppNoCC.
+# Based on AUR acroread-dc-wine (maintainer Smoolak), adapted for mkWindowsAppNoCC. https://aur.archlinux.org/packages/acroread-dc-wine
 mkWindowsAppNoCC rec {
   inherit wine;
 
@@ -75,6 +75,8 @@ mkWindowsAppNoCC rec {
     wineserver -w
 
     winetricks --unattended win7 >/dev/null 2>&1 || true
+
+    winetricks --unattended cjkfonts >/dev/null 2>&1
   '';
 
   winAppRun = ''
@@ -120,9 +122,12 @@ mkWindowsAppNoCC rec {
         "Office"
         "Viewer"
       ];
-      mimeTypes = [
-        "application/pdf"
-      ];
+      # Unfortunately opening files is not working
+      /*
+        mimeTypes = [
+          "application/pdf"
+        ];
+      */
     })
   ];
 
