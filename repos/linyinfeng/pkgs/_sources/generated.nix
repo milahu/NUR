@@ -351,17 +351,17 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "51003473600d90ff4b46004a5122ee1b98210606";
+    version = "c02c83c9e91f3e081052441330df00667abc64a8";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "51003473600d90ff4b46004a5122ee1b98210606";
+      rev = "c02c83c9e91f3e081052441330df00667abc64a8";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-4BJrs+PkC4flA7a6ZrATNT+CtUdUuoWKb62Mw5t91q4=";
+      sha256 = "sha256-Qp1ALrmisXp2pr4Jz1ujvYYYP6c2rAPzsUeRAZQySoE=";
     };
-    date = "2026-01-05";
+    date = "2026-01-17";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
@@ -519,15 +519,15 @@
   };
   telegram-send = {
     pname = "telegram-send";
-    version = "a1101b6bfa4b613baf9f26b7732bb4d7a07ee0af";
+    version = "b2f5827e849538b8af6f2302a23c0e982a5bf34a";
     src = fetchgit {
       url = "https://github.com/rahiel/telegram-send.git";
-      rev = "a1101b6bfa4b613baf9f26b7732bb4d7a07ee0af";
+      rev = "b2f5827e849538b8af6f2302a23c0e982a5bf34a";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-WtLOWoQlZU9VddLSbkh74h1a6JtR33GmHLjLEGYw3fc=";
+      sha256 = "sha256-TYn3l84733qcsgIB3zOW0S22GyvvbPeX0CCwqbF9FeU=";
     };
     date = "2026-01-16";
   };
