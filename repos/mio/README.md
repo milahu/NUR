@@ -78,8 +78,8 @@ files are copied from following locations. some are modified in this repo and so
 + betterbird parent of <https://github.com/NixOS/nixpkgs/commit/544076a4a1e72d9267b1ff7601ada5e714cdf101> <https://github.com/NixOS/nixpkgs/raw/7eabf557d4fd5e7195cb3e372304ffdeb04170a9/pkgs/applications/networking/mailreaders/betterbird/default.nix>
 + beammp-launcher nixpkgs commit 68990df0529b74cde8b63cd1d5f5f5550e630a0c
 + cacert_3108 <https://github.com/NixOS/nixpkgs/blob/9a9ab6b9242c4526f04abeeef99b8de1d7af1fea/pkgs/data/misc/cacert/default.nix>
-+ speed-dreams stuntrally ogre mygui nixpkgs commit 56d904a94724499dd1cae942468f8740cdbb112a
-+ howdy linux-enable-ir-emitter nixpkgs 476d41891299 merged with <https://github.com/NixOS/nixpkgs/pull/216245/files> c003e5440406440bfcf76ce59b890fc2479ae388
++ stuntrally ogre mygui nixpkgs commit 56d904a94724499dd1cae942468f8740cdbb112a
++ howdy linux-enable-ir-emitter nixpkgs merged with <https://github.com/NixOS/nixpkgs/pull/216245/files>
 + icu nixpkgs commit 588c72d6229385ef2bab17ec4fc21db014790e4e
 + pkgs/os-specific/linux/kernel/common-flags.nix pkgs/os-specific/linux/zfs/generic.nix nixpkgs commit 154743920299
 + eden <https://github.com/kira-bruneau/nur-packages.git> <https://github.com/kira-bruneau/nur-packages/commit/83867279d2499dd38b944964a829e5c5df93bddc>
@@ -95,3 +95,6 @@ files are copied from following locations. some are modified in this repo and so
 + <https://github.com/maydayv7/dotfiles/raw/refs/heads/stable/packages/wine/notepad++.nix>
 + rclone-ui nixpkgs commit df70bd515ec9175798339adf2ae6a22052d86577
 + pkgs/games/stuntrally/ nixpkgs commit 249e5cbb33fb2ba40ba49cf4ef4bd4c240503516
++ 657da505ce2e5888ea07ac228327b7f317763963 nix-output-monitor
++ stuntrally-445054  ogre-next-445054 <https://github.com/NixOS/nixpkgs/pull/445054>
++ pkgs/by-name/mu/musescore-evolution/ <https://github.com/NixOS/nixpkgs/pull/478650>

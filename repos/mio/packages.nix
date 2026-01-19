@@ -153,6 +153,37 @@ rec {
   beammp-server = pkgs.callPackage ./pkgs/beammp-server/package.nix { };
   chatall = pkgs.callPackage ./pkgs/chatall/package.nix { };
   superTux = pkgs.callPackage ./pkgs/superTux/package.nix { };
+  ogre-1_11 = v3overrideAttrs (pkgs.callPackage ./pkgs/ogre-1_11/package.nix { });
+  angelscript_2_35_1 = v3overrideAttrs (
+    pkgs.angelscript.overrideAttrs (
+      old:
+      let
+        version = "2.35.1";
+      in
+      {
+        inherit version;
+        src = pkgs.fetchzip {
+          url = "https://www.angelcode.com/angelscript/sdk/files/angelscript_${version}.zip";
+          hash = "sha256-ncs3pPsJErx3el8/Lsj+NSu7LQ1hPRlBmcTSvLGWL1s=";
+        };
+      }
+    )
+  );
+  socketw = v3overrideAttrs (pkgs.callPackage ./pkgs/socketw/package.nix { });
+  mygui-ogre = v3overrideAttrs (
+    pkgs.mygui.override {
+      withOgre = true;
+      ogre = ogre-1_11;
+    }
+  );
+  rigs-of-rods = pkgs.callPackage ./pkgs/rigs-of-rods/package.nix {
+    ogre = ogre-1_11;
+    mygui = mygui-ogre;
+    socketw = socketw;
+    angelscript = angelscript_2_35_1;
+  };
+  rain = pkgs.callPackage ./pkgs/rain/package.nix { };
+  ccleste = pkgs.callPackage ./pkgs/ccleste/package.nix { };
 
   firefox_nightly-unwrapped = v3override (
     v3overrideAttrs (
@@ -171,24 +202,7 @@ rec {
     libName = "betterbird";
   };
 
-  mygui-next = x8664linux (
-    fixcmake (
-      pkgs.callPackage ./pkgs/mygui-next/package.nix {
-      }
-    )
-  );
-  ogre-next_3 = x8664linux (
-    v3overrideAttrs (pkgs.callPackage ./pkgs/ogre-next/default.nix { }).ogre-next_3
-  );
-  stuntrally3 = (
-    pkgs.callPackage ./pkgs/stuntrally3 {
-      ogre-next_3 = ogre-next_3;
-      mygui = mygui-next;
-    }
-  );
-  speed_dreams = nodarwin (pkgs.callPackage ./pkgs/speed-dreams { });
-
-  plezy = nodarwin (pkgs.callPackage ./pkgs/plezy { });
+  plezy = nodarwin (pkgs.callPackage ./pkgs/by-name/pl/plezy/package.nix { });
 
   downkyicore = pkgs.callPackage ./pkgs/downkyicore/package.nix { };
   bifrost = pkgs.callPackage ./pkgs/bifrost/package.nix { };
@@ -328,7 +342,15 @@ rec {
 
   rocksmith-custom-song-toolkit = pkgs.callPackage ./pkgs/rocksmith-custom-song-toolkit { };
 
-  stuntrally = pkgs.callPackage ./pkgs/stuntrally { };
+  stuntrally2 = pkgs.callPackage ./pkgs/stuntrally { };
+
+  ogre-next-445054 = v3overrideAttrs (pkgs.callPackage ./pkgs/ogre-next-445054/package.nix { });
+
+  stuntrally = v3overrideAttrs (
+    pkgs.callPackage ./pkgs/stuntrally-445054/package.nix { ogre-next = ogre-next-445054; }
+  );
+
+  musescore-evolution = v3overrideAttrs (pkgs.callPackage ./pkgs/musescore-evolution/package.nix { });
 
 }
 // (lib.optionalAttrs (!nurbot) rec {

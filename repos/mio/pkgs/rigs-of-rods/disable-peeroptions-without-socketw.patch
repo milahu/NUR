@@ -1,0 +1,32 @@
+--- a/source/main/main.cpp
++++ b/source/main/main.cpp
+@@ -802,6 +802,7 @@
+ 
+                 case MSG_NET_ADD_PEEROPTIONS_REQUESTED:
+                 {
++                    #ifdef USE_SOCKETW
+                     PeerOptionsRequest* request = static_cast<PeerOptionsRequest*>(m.payload);
+                     try
+                     {
+@@ -843,11 +844,13 @@
+                         HandleMsgQueueException(m.type);
+                     }
+                     delete request;
++                    #endif // USE_SOCKETW
+                     break;
+                 }
+ 
+                 case MSG_NET_REMOVE_PEEROPTIONS_REQUESTED:
+                 {
++                    #ifdef USE_SOCKETW
+                     PeerOptionsRequest* request = static_cast<PeerOptionsRequest*>(m.payload);
+                     try
+                     {
+@@ -883,6 +886,7 @@
+                         HandleMsgQueueException(m.type);
+                     }
+                     delete request;
++                    #endif // USE_SOCKETW
+                     break;
+                 }
+ 
