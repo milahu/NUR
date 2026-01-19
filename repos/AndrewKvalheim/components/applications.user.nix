@@ -141,6 +141,7 @@ in
       mozjpeg-simple
       mtr
       multitail
+      netdiscover
       nix-output-monitor
       nix-preview
       nix-top

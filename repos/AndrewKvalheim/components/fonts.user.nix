@@ -14,6 +14,7 @@
     iosevka-custom.term
     noto-fonts-color-emoji
     roboto
+    roboto-mono
     source-serif-pro
   ];
 

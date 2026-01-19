@@ -11,13 +11,13 @@
 
 stdenv.mkDerivation {
   pname = "decompiler-mc";
-  version = "0.9-unstable-2024-11-02";
+  version = "0.9-unstable-2026-01-17";
 
   src = fetchFromGitHub {
     owner = "hube12";
     repo = "DecompilerMC";
-    rev = "747d6728b6df8e7db8c60a71ad8fcdc02955475c";
-    hash = "sha256-kCznR79QvozvPbfWsWnvWdZV3aEBGutnQErWF0tGRho=";
+    rev = "edbea9e62df4f1358624a8906d7279e61719bdc7";
+    hash = "sha256-HuUujoDD57JC2CHDBwlkOPoxCUnyJpguW3edGy/t5cg=";
   };
 
   buildInputs = [ makeWrapper python3 ];
