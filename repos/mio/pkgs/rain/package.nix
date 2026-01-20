@@ -9,6 +9,7 @@
   _experimental-update-script-combinators,
   gitUpdater,
   dart,
+  geoclue2,
 }:
 
 flutter338.buildFlutterApplication rec {
@@ -29,6 +30,10 @@ flutter338.buildFlutterApplication rec {
     copyDesktopItems
   ];
 
+  buildInputs = [
+    geoclue2
+  ];
+
   desktopItems = [
     (makeDesktopItem {
       name = "rain";
@@ -38,6 +43,17 @@ flutter338.buildFlutterApplication rec {
       comment = "Weather application";
       categories = [ "Utility" ];
     })
+  ];
+
+  postPatch = ''
+    # Force Flutter to regenerate plugin registrants with added deps.
+    rm -f linux/flutter/generated_plugin_registrant.cc \
+      linux/flutter/generated_plugin_registrant.h \
+      linux/flutter/generated_plugins.cmake
+  '';
+
+  patches = [
+    ./geolocator-linux-register.patch
   ];
 
   postInstall = ''
