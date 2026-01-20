@@ -17,6 +17,7 @@
   moonplayer = lib.callPackage ./pkgs/moonplayer {};
 
   keka-external-helper = lib.callPackage ./pkgs/keka-external-helper {};
+  bluebubbles-server = lib.callPackage ./pkgs/bluebubbles-server {};
   passepartout = lib.callPackage ./pkgs/passepartout {};
   redream-dev = lib.callPackage ./pkgs/redream-dev {};
   cot-editor = lib.callPackage ./pkgs/cot-editor {};
@@ -33,6 +34,7 @@
   clop = lib.callPackage ./pkgs/clop {};
 
   github-desktop = lib.callPackage ./pkgs/github-desktop {};
+  podman-desktop = lib.callPackage ./pkgs/podman-desktop {};
   sublime-text = lib.callPackage ./pkgs/sublime-text {};
   dolphin-emu = lib.callPackage ./pkgs/dolphin-emu {};
   obs-studio = lib.callPackage ./pkgs/obs-studio {};
@@ -65,6 +67,7 @@
 
   proton-ge-rtsp-bin = lib.callPackage ./pkgs/proton-ge-rtsp-bin {};
   proton-sarek-bin = lib.callPackage ./pkgs/proton-sarek-bin {};
+  proton-dw-bin = lib.callPackage ./pkgs/proton-dw-bin {};
   proton-em-bin = lib.callPackage ./pkgs/proton-em-bin {};
   boxtron-bin = lib.callPackage ./pkgs/boxtron-bin {};
 
