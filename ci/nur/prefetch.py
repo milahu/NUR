@@ -537,7 +537,7 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
                 await asyncio.sleep(dt)
                 continue # retry
             logger.error(f"Github GraphQL query {query_idx} failed. response.text: {response.text}")
-            raise Exception(f"Github GraphQL query {query_idx} failed. response.text: {response.text}")
+            raise Exception(f"Github GraphQL query {query_idx} failed. response.status_code: {response.status_code}. response.headers: {response.headers}. response.text: {response.text}")
         query_list.popleft() # dont retry
         t2 = time.time()
         dt = t2 - t1
