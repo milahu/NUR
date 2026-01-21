@@ -536,6 +536,11 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
                 logger.debug(f"Github GraphQL query {query_idx} failed with '502 Bad Gateway'. retrying in {dt} seconds")
                 await asyncio.sleep(dt)
                 continue # retry
+            if "<p><strong>We couldn't respond to your request in time.</strong></p>" in response.text:
+                dt = random.randint(5, 30)
+                logger.debug(f"Github GraphQL query {query_idx} failed with timeout. retrying in {dt} seconds")
+                await asyncio.sleep(dt)
+                continue # retry
             logger.error(f"Github GraphQL query {query_idx} failed. response.text: {response.text}")
             raise Exception(f"Github GraphQL query {query_idx} failed. response.status_code: {response.status_code}. response.headers: {response.headers}. response.text: {response.text}")
         query_list.popleft() # dont retry
