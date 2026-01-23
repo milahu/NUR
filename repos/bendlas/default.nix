@@ -9,12 +9,13 @@
 { pkgs ? import <nixpkgs> { } }:
 
 rec {
-  # The `lib`, `modules`, and `overlay` names are special
+  # The `lib`, `modules`, and `overlays` names are special
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
   lsd = pkgs.callPackage ./pkgs/lsd.nix { };
+  gitopolis = pkgs.callPackage ./pkgs/gitopolis.nix { };
   zsh-capture-completion = pkgs.callPackage ./pkgs/zsh-capture-completion.nix { };
   ueforth = pkgs.callPackage ./pkgs/ueforth.nix { };
   gd32-dfu-utils = pkgs.callPackage ./pkgs/gd32-dfu-utils.nix { };
@@ -22,5 +23,6 @@ rec {
     inherit libgpiod1;
   };
   libgpiod1 = pkgs.callPackage ./pkgs/libgpiod1.nix { };
+  mixxx-to-rekordbox = pkgs.callPackage ./pkgs/mixxx-to-rekordbox.nix { };
 
 }
