@@ -1,25 +1,5 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bash -p jq curl alejandra
+{ lib }:
 
-set -euo pipefail
-
-# Fetch the JSON schema
-SCHEMA_URL="https://charm.land/crush.json"
-SCHEMA=$(curl -s "$SCHEMA_URL")
-
-# Extract enum values for provider types
-PROVIDER_TYPES=$(echo "$SCHEMA" | jq -r '.["$defs"].ProviderConfig.properties.type.enum[]' | sed 's/^/                  "/' | sed 's/$/"/')
-
-# Extract enum values for MCP types
-MCP_TYPES=$(echo "$SCHEMA" | jq -r '.["$defs"].MCPConfig.properties.type.enum[]' | sed 's/^/                  "/' | sed 's/$/"/')
-
-# Extract enum values for reasoning effort
-REASONING_EFFORTS=$(echo "$SCHEMA" | jq -r '.["$defs"].SelectedModel.properties.reasoning_effort.enum[]' | sed 's/^/                  "/' | sed 's/$/"/')
-
-# Generate the Nix file to temporary location
-TEMP_FILE=$(mktemp)
-cat << EOF > "$TEMP_FILE"
-{lib}:
 lib.mkOption {
   type = lib.types.submodule {
     options = {
@@ -42,7 +22,11 @@ lib.mkOption {
               };
               type = lib.mkOption {
                 type = lib.types.enum [
-$PROVIDER_TYPES
+                  "openai"
+                  "anthropic"
+                  "gemini"
+                  "azure"
+                  "vertexai"
                 ];
                 default = "openai";
                 description = "Provider type that determines the API format";
@@ -64,12 +48,12 @@ $PROVIDER_TYPES
               };
               extra_headers = lib.mkOption {
                 type = lib.types.attrsOf lib.types.str;
-                default = {};
+                default = { };
                 description = "Additional HTTP headers to send with requests";
               };
               extra_body = lib.mkOption {
                 type = lib.types.attrsOf lib.types.anything;
-                default = {};
+                default = { };
                 description = "Additional fields to include in request bodies";
               };
               models = lib.mkOption {
@@ -137,13 +121,13 @@ $PROVIDER_TYPES
                     };
                   }
                 );
-                default = [];
+                default = [ ];
                 description = "List of models available from this provider";
               };
             };
           }
         );
-        default = {};
+        default = { };
         description = "AI provider configurations";
       };
 
@@ -157,12 +141,12 @@ $PROVIDER_TYPES
               };
               args = lib.mkOption {
                 type = lib.types.listOf lib.types.str;
-                default = [];
+                default = [ ];
                 description = "Arguments to pass to the LSP server command";
               };
               options = lib.mkOption {
                 type = lib.types.attrsOf lib.types.anything;
-                default = {};
+                default = { };
                 description = "LSP server-specific configuration options";
               };
               enabled = lib.mkOption {
@@ -173,7 +157,7 @@ $PROVIDER_TYPES
             };
           }
         );
-        default = {};
+        default = { };
         description = "Language Server Protocol configurations";
       };
 
@@ -188,17 +172,19 @@ $PROVIDER_TYPES
               };
               env = lib.mkOption {
                 type = lib.types.attrsOf lib.types.str;
-                default = {};
+                default = { };
                 description = "Environment variables to set for the MCP server";
               };
               args = lib.mkOption {
                 type = lib.types.listOf lib.types.str;
-                default = [];
+                default = [ ];
                 description = "Arguments to pass to the MCP server command";
               };
               type = lib.mkOption {
                 type = lib.types.enum [
-$MCP_TYPES
+                  "stdio"
+                  "sse"
+                  "http"
                 ];
                 default = "stdio";
                 description = "Type of MCP connection";
@@ -215,13 +201,13 @@ $MCP_TYPES
               };
               headers = lib.mkOption {
                 type = lib.types.attrsOf lib.types.str;
-                default = {};
+                default = { };
                 description = "HTTP headers for HTTP/SSE MCP servers";
               };
             };
           }
         );
-        default = {};
+        default = { };
         description = "Model Context Protocol server configurations";
       };
 
@@ -230,7 +216,7 @@ $MCP_TYPES
           options = {
             context_paths = lib.mkOption {
               type = lib.types.listOf lib.types.str;
-              default = [];
+              default = [ ];
               description = "Paths to files containing context information for the AI";
             };
             tui = lib.mkOption {
@@ -243,7 +229,7 @@ $MCP_TYPES
                   };
                 };
               };
-              default = {};
+              default = { };
               description = "Terminal user interface options";
             };
             debug = lib.mkOption {
@@ -268,7 +254,7 @@ $MCP_TYPES
             };
           };
         };
-        default = {};
+        default = { };
         description = "General application options";
       };
 
@@ -277,12 +263,12 @@ $MCP_TYPES
           options = {
             allowed_tools = lib.mkOption {
               type = lib.types.listOf lib.types.str;
-              default = [];
+              default = [ ];
               description = "List of tools that don't require permission prompts";
             };
           };
         };
-        default = {};
+        default = { };
         description = "Permission settings for tool usage";
       };
 
@@ -300,7 +286,9 @@ $MCP_TYPES
               };
               reasoning_effort = lib.mkOption {
                 type = lib.types.enum [
-$REASONING_EFFORTS
+                  "low"
+                  "medium"
+                  "high"
                 ];
                 default = "";
                 description = "Reasoning effort level for OpenAI models that support it";
@@ -318,16 +306,10 @@ $REASONING_EFFORTS
             };
           }
         );
-        default = {};
+        default = { };
         description = "Model configurations";
       };
     };
   };
-  default = {};
+  default = { };
 }
-EOF
-
-# Format with alejandra and output
-alejandra "$TEMP_FILE"
-cat "$TEMP_FILE"
-rm "$TEMP_FILE"
