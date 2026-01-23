@@ -1,16 +1,16 @@
 {
 "name":"Rhys-T",
-"fetch_time":0.367,
-"eval_time":0.297,
+"fetch_time":0.71,
+"eval_time":0.272,
 "source":{
 "url":"https://github.com/Rhys-T/nur-packages",
-"rev":"6dec7907f98e65e461a1be2c6d2d5b5d9e4b4d03",
-"sha256":"1k6fdqiynm2zyq6vsnd8agp8hrqvgnwc2ng334543d3h1246makx",
+"rev":"02755d7b80d49ab19c788bba7f03d7a997f99fa2",
+"sha256":"1p7fvnjbbnrvmfpmm4p0yrj0caq9kab758ivv416vdpddk5pv5a1",
 "date":null
 },
-"source_storepath":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source",
-"nixpkgs_storepath":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source",
-"nur_combined_rev":"469908d2f4b197e0b45ae8619c707d093060ab63",
+"source_storepath":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source",
+"nixpkgs_storepath":"/nix/store/6na3zkzwdp5y1pffscx9pmzvhwxdxjmk-source",
+"nur_combined_rev":"fab4a6cfb8a5a9930409716f0d178c963875ed48",
 "packages":{
 "_Read-Me-link":{
 "meta":{
@@ -43,7 +43,7 @@
 },
 "insecure":true,
 "knownVulnerabilities":[
-"This is not a real package.\nIt's just here to add a Read Me link for this repo on the NUR site.\nSee <https://github.com/Rhys-T/nur-packages#readme> for the actual Read Me.\nOr for the local copy: /nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/README.md\n"
+"This is not a real package.\nIt's just here to add a Read Me link for this repo on the NUR site.\nSee <https://github.com/Rhys-T/nur-packages#readme> for the actual Read Me.\nOr for the local copy: /nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/README.md\n"
 ],
 "maintainers":[],
 "name":"___Read_Me___",
@@ -67,7 +67,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Game programming library (fixed for macOS/Darwin x86_64 < 11.0)",
+"description":"Game programming library (fixed for macOS/Darwin x86_64 < 11.0) [DEPRECATED]",
 "homepage":"https://liballeg.org/",
 "identifiers":{
 "cpeParts":{
@@ -115,7 +115,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source/pkgs/development/libraries/allegro/5.nix",
+"file":"/nix/store/6na3zkzwdp5y1pffscx9pmzvhwxdxjmk-source/pkgs/development/libraries/allegro/5.nix",
 "line":138
 },
 "name":"allegro-5.2.10.1",
@@ -148,7 +148,7 @@
 "x86_64-darwin",
 "aarch64-darwin"
 ],
-"position":"./default.nix:88",
+"position":"./lib/default.nix:51",
 "unfree":false,
 "unsupported":false
 },
@@ -220,20 +220,20 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/asciiportal/generic.nix",
-"line":90
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/asciiportal/generic.nix",
+"line":113
 },
 "name":"asciiportal-1.3pre8",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/asciiportal/generic.nix:70",
+"position":"./pkgs/asciiportal/generic.nix:93",
 "unfree":false,
 "unsupported":false
 },
@@ -304,20 +304,20 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/asciiportal/generic.nix",
-"line":90
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/asciiportal/generic.nix",
+"line":113
 },
 "name":"asciiportal-1.3pre8-unstable-2019-09-09",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/asciiportal/generic.nix:70",
+"position":"./pkgs/asciiportal/generic.nix:93",
 "unfree":false,
 "unsupported":false
 },
@@ -391,20 +391,20 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/bubbros/default.nix",
-"line":128
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/bubbros/default.nix",
+"line":130
 },
 "name":"bubbros-1.6.2",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/bubbros/default.nix:115",
+"position":"./pkgs/bubbros/default.nix:117",
 "unfree":false,
 "unsupported":false
 },
@@ -463,13 +463,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/flatzebra/burgerspace.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/flatzebra/burgerspace.nix",
 "line":33
 },
 "name":"burgerspace-1.10.0",
@@ -535,13 +535,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/dc2dsk/default.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/dc2dsk/default.nix",
 "line":31
 },
 "name":"dc2dsk-0-unstable-2015-11-18",
@@ -619,13 +619,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/drl/common.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/drl/common.nix",
 "line":16
 },
 "name":"drl-hq-0.9.9.8a",
@@ -658,7 +658,7 @@
 "x86_64-darwin",
 "aarch64-darwin"
 ],
-"position":"./pkgs/drl/default.nix:48",
+"position":"./pkgs/drl/default.nix:52",
 "unfree":false,
 "unsupported":false
 },
@@ -729,13 +729,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/drl/common.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/drl/common.nix",
 "line":16
 },
 "name":"drl-lq-0.9.9.8a",
@@ -768,7 +768,7 @@
 "x86_64-darwin",
 "aarch64-darwin"
 ],
-"position":"./pkgs/drl/default.nix:48",
+"position":"./pkgs/drl/default.nix:52",
 "unfree":false,
 "unsupported":false
 },
@@ -785,7 +785,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Package and build manager for D programs and libraries (fixed for macOS 15.4)",
+"description":"Package and build manager for D programs and libraries (fixed for macOS 15.4) [DEPRECATED]",
 "homepage":"https://code.dlang.org/",
 "identifiers":{
 "cpeParts":{
@@ -834,7 +834,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source/pkgs/by-name/du/dub/package.nix",
+"file":"/nix/store/6na3zkzwdp5y1pffscx9pmzvhwxdxjmk-source/pkgs/by-name/du/dub/package.nix",
 "line":161
 },
 "name":"dub-1.39.0",
@@ -848,8 +848,7 @@
 "x86_64-darwin",
 "aarch64-darwin"
 ],
-"pos":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/default.nix:163",
-"position":"./default.nix:163",
+"position":"./lib/default.nix:51",
 "unfree":false,
 "unsupported":false
 },
@@ -907,13 +906,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/flatzebra/default.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/flatzebra/default.nix",
 "line":21
 },
 "name":"flatzebra-0.2.0",
@@ -934,11 +933,11 @@
 "system":"x86_64-linux",
 "version":"0.2.0"
 },
-"fpc":{
+"fpc-fixes_3_2":{
 "meta":{
 "available":true,
 "broken":false,
-"description":"Free Pascal Compiler from a source distribution (fixed for macOS/Darwin, with Clang version capped at 17 to fix build; dead since LLVM 17 removed from Nixpkgs)",
+"description":"Free Pascal Compiler from a source distribution (fixes_3_2 branch)",
 "homepage":"https://www.freepascal.org",
 "identifiers":{
 "cpeParts":{
@@ -997,10 +996,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source/pkgs/development/compilers/fpc/default.nix",
-"line":108
+"file":"/nix/store/6na3zkzwdp5y1pffscx9pmzvhwxdxjmk-source/pkgs/development/compilers/fpc/default.nix",
+"line":105
 },
-"name":"fpc-3.2.2",
+"name":"fpc-3.2.2-unstable-2025-08-01",
 "outputsToInstall":[
 "out"
 ],
@@ -1050,18 +1049,18 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./default.nix:381",
+"position":"./pkgs/fpc-fixes_3_2/default.nix:15",
 "unfree":false,
 "unsupported":false
 },
-"name":"fpc-3.2.2",
+"name":"fpc-3.2.2-unstable-2025-08-01",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fpc",
 "system":"x86_64-linux",
-"version":"3.2.2"
+"version":"3.2.2-unstable-2025-08-01"
 },
 "fuzziqersoftwareFmtPatchHook":{
 "meta":{
@@ -1114,7 +1113,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/mamedev/mame/releases/download/mame0281/whatsnew_0281.txt",
+"changelog":"https://github.com/mamedev/mame/releases/download/mame0284/whatsnew_0284.txt",
 "description":"Emulator of homebrew and hacked games for arcade hardware",
 "homepage":"https://hbmame.1emulation.com/",
 "identifiers":{
@@ -1168,26 +1167,17 @@
 "mainProgram":"hbmame",
 "maintainers":[
 {
-"email":"thiagokokada@gmail.com",
-"github":"thiagokokada",
-"githubId":844343,
-"matrix":"@k0kada:matrix.org",
-"name":"Thiago K. Okada"
-},
-{
-"email":"nix@dimitarnestorov.com",
-"github":"DimitarNestorov",
-"githubId":8790386,
-"matrix":"@dimitarnestorov:matrix.org",
-"name":"Dimitar Nestorov"
+"github":"Rhys-T",
+"githubId":108157737,
+"name":"Rhys T."
 }
 ],
 "maintainersPosition":{
-"column":5,
-"file":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source/pkgs/applications/emulators/mame/default.nix",
-"line":242
+"column":13,
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/mame/hbmame/default.nix",
+"line":135
 },
-"name":"hbmame-0.245.27",
+"name":"hbmame-0.245.29",
 "outputsToInstall":[
 "out"
 ],
@@ -1237,25 +1227,25 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/mame/hbmame/default.nix:115",
+"position":"./pkgs/mame/hbmame/default.nix:117",
 "unfree":false,
 "unsupported":false
 },
-"name":"hbmame-0.245.27",
+"name":"hbmame-0.245.29",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"hbmame",
 "system":"x86_64-linux",
-"version":"0.245.27"
+"version":"0.245.29"
 },
 "hbmame-metal":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/mamedev/mame/releases/download/mame0281/whatsnew_0281.txt",
-"description":"Emulator of homebrew and hacked games for arcade hardware",
+"changelog":"https://github.com/mamedev/mame/releases/download/mame0284/whatsnew_0284.txt",
+"description":"Emulator of homebrew and hacked games for arcade hardware [DEPRECATED]",
 "homepage":"https://hbmame.1emulation.com/",
 "identifiers":{
 "cpeParts":{
@@ -1308,26 +1298,17 @@
 "mainProgram":"hbmame",
 "maintainers":[
 {
-"email":"thiagokokada@gmail.com",
-"github":"thiagokokada",
-"githubId":844343,
-"matrix":"@k0kada:matrix.org",
-"name":"Thiago K. Okada"
-},
-{
-"email":"nix@dimitarnestorov.com",
-"github":"DimitarNestorov",
-"githubId":8790386,
-"matrix":"@dimitarnestorov:matrix.org",
-"name":"Dimitar Nestorov"
+"github":"Rhys-T",
+"githubId":108157737,
+"name":"Rhys T."
 }
 ],
 "maintainersPosition":{
-"column":5,
-"file":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source/pkgs/applications/emulators/mame/default.nix",
-"line":242
+"column":13,
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/mame/hbmame/default.nix",
+"line":135
 },
-"name":"hbmame-0.245.27",
+"name":"hbmame-0.245.29",
 "outputsToInstall":[
 "out"
 ],
@@ -1377,18 +1358,18 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/mame/hbmame/default.nix:115",
+"position":"./lib/default.nix:51",
 "unfree":false,
 "unsupported":false
 },
-"name":"hbmame-0.245.27",
+"name":"hbmame-0.245.29",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"hbmame",
 "system":"x86_64-linux",
-"version":"0.245.27"
+"version":"0.245.29"
 },
 "hfsutils":{
 "meta":{
@@ -1436,16 +1417,16 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/hfsutils/default.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/hfsutils/default.nix",
 "line":74
 },
-"name":"hfsutils-3.2.6-14",
+"name":"hfsutils-3.2.6-16",
 "outputsToInstall":[
 "out"
 ],
@@ -1453,14 +1434,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"hfsutils-3.2.6-14",
+"name":"hfsutils-3.2.6-16",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"hfsutils",
 "system":"x86_64-linux",
-"version":"3.2.6-14"
+"version":"3.2.6-16"
 },
 "hfsutils-tk":{
 "meta":{
@@ -1508,16 +1489,16 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/hfsutils/default.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/hfsutils/default.nix",
 "line":74
 },
-"name":"hfsutils-3.2.6-14",
+"name":"hfsutils-3.2.6-16",
 "outputsToInstall":[
 "out"
 ],
@@ -1525,20 +1506,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"hfsutils-3.2.6-14",
+"name":"hfsutils-3.2.6-16",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"hfsutils",
 "system":"x86_64-linux",
-"version":"3.2.6-14"
+"version":"3.2.6-16"
 },
 "icbm3d":{
 "meta":{
 "available":true,
 "broken":false,
-"description":"3D vector-based clone of the atari game Missile Command (fixed for macOS/Darwin)",
+"description":"3D vector-based clone of the atari game Missile Command (fixed for macOS/Darwin) [DEPRECATED]",
 "homepage":"http://www.newbreedsoftware.com/icbm3d/",
 "identifiers":{
 "cpeParts":{
@@ -1626,11 +1607,9 @@
 "x86_64-netbsd",
 "i686-openbsd",
 "x86_64-openbsd",
-"x86_64-redox",
-"x86_64-darwin",
-"aarch64-darwin"
+"x86_64-redox"
 ],
-"position":"./default.nix:329",
+"position":"./lib/default.nix:51",
 "unfree":false,
 "unsupported":false
 },
@@ -1689,13 +1668,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/impluse/default.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/impluse/default.nix",
 "line":25
 },
 "name":"impluse-0-unstable-2024-03-14",
@@ -1765,13 +1744,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/konify/default.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/konify/default.nix",
 "line":42
 },
 "name":"konify-0-unstable-2011-12-09",
@@ -1796,7 +1775,7 @@
 "available":true,
 "broken":false,
 "changelog":"https://github.com/ldc-developers/ldc/releases/tag/v1.41.0",
-"description":"LLVM-based D compiler (fixed for macOS 15.4)",
+"description":"LLVM-based D compiler (fixed for macOS 15.4) [DEPRECATED]",
 "homepage":"https://github.com/ldc-developers/ldc",
 "identifiers":{
 "cpeParts":{
@@ -1889,7 +1868,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source/pkgs/by-name/ld/ldc/package.nix",
+"file":"/nix/store/6na3zkzwdp5y1pffscx9pmzvhwxdxjmk-source/pkgs/by-name/ld/ldc/package.nix",
 "line":172
 },
 "name":"ldc-1.41.0",
@@ -1903,8 +1882,7 @@
 "x86_64-darwin",
 "aarch64-darwin"
 ],
-"pos":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/default.nix:155",
-"position":"./default.nix:155",
+"position":"./lib/default.nix:51",
 "unfree":false,
 "unsupported":false
 },
@@ -1963,14 +1941,14 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/libShake/default.nix",
-"line":16
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/libShake/default.nix",
+"line":19
 },
 "name":"libShake-0.3.2-unstable-2021-02-14",
 "outputsToInstall":[
@@ -2002,7 +1980,7 @@
 "x86_64-darwin",
 "aarch64-darwin"
 ],
-"position":"./pkgs/libShake/default.nix:12",
+"position":"./pkgs/libShake/default.nix:15",
 "unfree":false,
 "unsupported":false
 },
@@ -2083,13 +2061,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/lix-game/common.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/lix-game/common.nix",
 "line":23
 },
 "name":"lix-game-0.10.32",
@@ -2183,13 +2161,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/lix-game/common.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/lix-game/common.nix",
 "line":23
 },
 "name":"lix-game-server-0.10.32",
@@ -2239,8 +2217,8 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/mamedev/mame/releases/download/mame0281/whatsnew_0281.txt",
-"description":"Multi-purpose emulation framework (fixed for macOS/Darwin)",
+"changelog":"https://github.com/mamedev/mame/releases/download/mame0284/whatsnew_0284.txt",
+"description":"Multi-purpose emulation framework (fixed for macOS/Darwin) [DEPRECATED]",
 "homepage":"https://www.mamedev.org/",
 "identifiers":{
 "cpeParts":{
@@ -2309,10 +2287,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source/pkgs/applications/emulators/mame/default.nix",
+"file":"/nix/store/6na3zkzwdp5y1pffscx9pmzvhwxdxjmk-source/pkgs/applications/emulators/mame/default.nix",
 "line":242
 },
-"name":"mame-0.281",
+"name":"mame-0.284",
 "outputsToInstall":[
 "out"
 ],
@@ -2362,11 +2340,11 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/mame/default.nix:27",
+"position":"./lib/default.nix:51",
 "unfree":false,
 "unsupported":false
 },
-"name":"mame-0.281",
+"name":"mame-0.284",
 "outputName":"out",
 "outputs":{
 "out":null,
@@ -2374,14 +2352,14 @@
 },
 "pname":"mame",
 "system":"x86_64-linux",
-"version":"0.281"
+"version":"0.284"
 },
 "mame-metal":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/mamedev/mame/releases/download/mame0281/whatsnew_0281.txt",
-"description":"Multi-purpose emulation framework (fixed for macOS/Darwin)",
+"changelog":"https://github.com/mamedev/mame/releases/download/mame0284/whatsnew_0284.txt",
+"description":"Multi-purpose emulation framework (fixed for macOS/Darwin) [DEPRECATED]",
 "homepage":"https://www.mamedev.org/",
 "identifiers":{
 "cpeParts":{
@@ -2450,10 +2428,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source/pkgs/applications/emulators/mame/default.nix",
+"file":"/nix/store/6na3zkzwdp5y1pffscx9pmzvhwxdxjmk-source/pkgs/applications/emulators/mame/default.nix",
 "line":242
 },
-"name":"mame-0.281",
+"name":"mame-0.284",
 "outputsToInstall":[
 "out"
 ],
@@ -2503,11 +2481,11 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/mame/default.nix:27",
+"position":"./lib/default.nix:51",
 "unfree":false,
 "unsupported":false
 },
-"name":"mame-0.281",
+"name":"mame-0.284",
 "outputName":"out",
 "outputs":{
 "out":null,
@@ -2515,7 +2493,7 @@
 },
 "pname":"mame",
 "system":"x86_64-linux",
-"version":"0.281"
+"version":"0.284"
 },
 "man2html":{
 "meta":{
@@ -2564,31 +2542,31 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/man2html/default.nix",
-"line":25
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/man2html/default.nix",
+"line":26
 },
-"name":"man2html-3.0.1-unstable-2024-01-05",
+"name":"man2html-3.0.1-unstable-2025-12-06",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/man2html/default.nix:20",
+"position":"./pkgs/man2html/default.nix:21",
 "unfree":false,
 "unsupported":false
 },
-"name":"man2html-3.0.1-unstable-2024-01-05",
+"name":"man2html-3.0.1-unstable-2025-12-06",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"man2html",
 "system":"x86_64-linux",
-"version":"3.0.1-unstable-2024-01-05"
+"version":"3.0.1-unstable-2025-12-06"
 },
 "minivmac":{
 "meta":{
@@ -2639,13 +2617,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":17,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/minivmac/generic.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/minivmac/generic.nix",
 "line":109
 },
 "name":"minivmac-36.04",
@@ -2731,16 +2709,16 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":17,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/minivmac/generic.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/minivmac/generic.nix",
 "line":109
 },
-"name":"minivmac-37.03-ce-unstable-2025-08-08",
+"name":"minivmac-37.03-ce-unstable-2025-12-02",
 "outputsToInstall":[
 "out"
 ],
@@ -2765,14 +2743,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"minivmac-37.03-ce-unstable-2025-08-08",
+"name":"minivmac-37.03-ce-unstable-2025-12-02",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"minivmac",
 "system":"x86_64-linux",
-"version":"37.03-ce-unstable-2025-08-08"
+"version":"37.03-ce-unstable-2025-12-02"
 },
 "minivmac-ii":{
 "meta":{
@@ -2823,13 +2801,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":17,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/minivmac/generic.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/minivmac/generic.nix",
 "line":109
 },
 "name":"minivmac-ii-36.04",
@@ -2915,16 +2893,16 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":17,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/minivmac/generic.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/minivmac/generic.nix",
 "line":109
 },
-"name":"minivmac-ii-37.03-ce-unstable-2025-08-08",
+"name":"minivmac-ii-37.03-ce-unstable-2025-12-02",
 "outputsToInstall":[
 "out"
 ],
@@ -2949,14 +2927,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"minivmac-ii-37.03-ce-unstable-2025-08-08",
+"name":"minivmac-ii-37.03-ce-unstable-2025-12-02",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"minivmac-ii",
 "system":"x86_64-linux",
-"version":"37.03-ce-unstable-2025-08-08"
+"version":"37.03-ce-unstable-2025-12-02"
 },
 "minivmac-ii-unstable":{
 "meta":{
@@ -3007,13 +2985,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":17,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/minivmac/generic.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/minivmac/generic.nix",
 "line":109
 },
 "name":"minivmac-ii-37.03",
@@ -3099,13 +3077,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":17,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/minivmac/generic.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/minivmac/generic.nix",
 "line":109
 },
 "name":"minivmac-37.03",
@@ -3187,13 +3165,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/pacifi3d/default.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/pacifi3d/default.nix",
 "line":97
 },
 "name":"pacifi3d-0.3",
@@ -3279,21 +3257,21 @@
 "redistributable":false,
 "shortName":"unfree"
 },
-"longDescription":"Pacifi3D is a proof-of-concept pacman emulator that replaces the original pacman sprites and tiles with OpenGL 3D graphics.\n\nThis version has been patched to be compatible with ROMsets from hbmame-0.245.27.\nNote that some games might not be compatible with the 3D modes.\n(Ms. Pac-Man-based ROMs in particular use a different sprite mapping and confuse things.)\n",
+"longDescription":"Pacifi3D is a proof-of-concept pacman emulator that replaces the original pacman sprites and tiles with OpenGL 3D graphics.\n\nThis version has been patched to be compatible with ROMsets from hbmame-0.245.29.\nNote that some games might not be compatible with the 3D modes.\n(Ms. Pac-Man-based ROMs in particular use a different sprite mapping and confuse things.)\n",
 "mainProgram":"pacifi3d-hbmame",
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/pacifi3d/default.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/pacifi3d/default.nix",
 "line":97
 },
-"name":"pacifi3d-hbmame-0.3+0.245.27",
+"name":"pacifi3d-hbmame-0.3+0.245.29",
 "outputsToInstall":[
 "out"
 ],
@@ -3327,14 +3305,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"pacifi3d-hbmame-0.3+0.245.27",
+"name":"pacifi3d-hbmame-0.3+0.245.29",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"pacifi3d-hbmame",
 "system":"x86_64-linux",
-"version":"0.3+0.245.27"
+"version":"0.3+0.245.29"
 },
 "pacifi3d-mame":{
 "meta":{
@@ -3376,21 +3354,21 @@
 "redistributable":false,
 "shortName":"unfree"
 },
-"longDescription":"Pacifi3D is a proof-of-concept pacman emulator that replaces the original pacman sprites and tiles with OpenGL 3D graphics.\n\nThis version has been patched to be compatible with ROMsets from mame-0.281.\nNote that some games might not be compatible with the 3D modes.\n(Ms. Pac-Man-based ROMs in particular use a different sprite mapping and confuse things.)\n",
+"longDescription":"Pacifi3D is a proof-of-concept pacman emulator that replaces the original pacman sprites and tiles with OpenGL 3D graphics.\n\nThis version has been patched to be compatible with ROMsets from mame-0.284.\nNote that some games might not be compatible with the 3D modes.\n(Ms. Pac-Man-based ROMs in particular use a different sprite mapping and confuse things.)\n",
 "mainProgram":"pacifi3d-mame",
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/pacifi3d/default.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/pacifi3d/default.nix",
 "line":97
 },
-"name":"pacifi3d-mame-0.3+0.281",
+"name":"pacifi3d-mame-0.3+0.284",
 "outputsToInstall":[
 "out"
 ],
@@ -3424,14 +3402,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"pacifi3d-mame-0.3+0.281",
+"name":"pacifi3d-mame-0.3+0.284",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"pacifi3d-mame",
 "system":"x86_64-linux",
-"version":"0.3+0.281"
+"version":"0.3+0.284"
 },
 "pce":{
 "meta":{
@@ -3482,20 +3460,20 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/pce/generic.nix",
-"line":108
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/pce/generic.nix",
+"line":104
 },
 "name":"pce-0.2.2",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/pce/generic.nix:103",
+"position":"./pkgs/pce/generic.nix:99",
 "sourceProvenance":[
 {
 "isSource":true,
@@ -3567,20 +3545,20 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/pce/generic.nix",
-"line":108
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/pce/generic.nix",
+"line":104
 },
 "name":"pce-0.2.2-unstable-2025-04-20",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/pce/generic.nix:103",
+"position":"./pkgs/pce/generic.nix:99",
 "sourceProvenance":[
 {
 "isSource":true,
@@ -3659,20 +3637,20 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/pce/generic.nix",
-"line":108
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/pce/generic.nix",
+"line":104
 },
 "name":"pce-with-unfree-roms-0.2.2",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/pce/generic.nix:103",
+"position":"./pkgs/pce/generic.nix:99",
 "sourceProvenance":[
 {
 "isSource":true,
@@ -3737,41 +3715,41 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"longDescription":"Phosg is a basic C++ wrapper library around some common C routines.\n\nA short summary of its contents:\n- Byteswapping and encoding functions (base64, rot13)\n- Directory listing, smart-pointer fopen and stat, file and path manipulation\n- Hash functions (fnv1a64, sha1, sha256, md5)\n- Basic image manipulation/drawing\n- JSON (de)serialization\n- Network helpers (IP address parsing/formatting, listen/connect sockets)\n- OS random data sources\n- Process utilities (list processes, name <> PID mapping, subprocess execution)\n- Time conversions\n- std::string helpers like printf, split, time/size formatting, etc.\n- 2D, 3D, 4D vectors and basic vector math\n- KD-tree and LRU set data structures\n\nPhosg also includes an executable (jsonformat) that reformats JSON.\n",
+"longDescription":"phosg is a basic C++ wrapper library around some common C routines.\n\nA short summary of its contents:\n- Byteswapping and encoding functions (base64, rot13)\n- Integer types with explicit endianness and transparent byteswapping\n- Directory listing, smart-pointer fopen and stat, file and path manipulation\n- Hash functions (fnv1a64, fnv1a32, sha1, sha256)\n- Basic image manipulation/drawing\n- JSON (de)serialization\n- Network helpers (IP address parsing/formatting, socket listen and connect functions)\n- Functions for getting random data from the OS\n- Process utilities (list processes, name <> PID mapping, subprocess execution)\n- Time conversions\n- 2D, 3D, and 4D vectors and basic vector math\n- KD-tree and LRU set data structures\n\nThis project also includes a few simple executables:\n- **jsonformat**: Parses the input JSON and either minimizes it (with --compress) or reformats it for human readability (with --format).\n- **bindiff**: Shows the differing bytes between two binary files in a colored hex/ASCII view. This just does a direct comparison of the two files byte for byte; it doesn't run any e.g. edit-distance algorithm (yet).\n- **parse-data**: Parses the data format used by `phosg::parse_data_string` and outputs the result.\n- **phosg-png-conv**: Converts the input image (in any format that `phosg::Image` can load) to a PNG image.\n",
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/resource_dasm/phosg.nix",
-"line":44
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/resource_dasm/phosg.nix",
+"line":50
 },
-"name":"phosg-0-unstable-2025-09-11",
+"name":"phosg-0-unstable-2025-11-24",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/resource_dasm/phosg.nix:19",
+"position":"./pkgs/resource_dasm/phosg.nix:21",
 "unfree":false,
 "unsupported":false
 },
-"name":"phosg-0-unstable-2025-09-11",
+"name":"phosg-0-unstable-2025-11-24",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"phosg",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-09-11"
+"version":"0-unstable-2025-11-24"
 },
 "picolisp":{
 "meta":{
 "available":true,
 "broken":false,
-"description":"Pragmatic programming language (fixed for macOS/Darwin)",
+"description":"Pragmatic programming language (fixed for macOS/Darwin) [DEPRECATED]",
 "homepage":"https://picolisp.com/",
 "identifiers":{
 "cpeParts":{
@@ -3818,8 +3796,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source/pkgs/by-name/pi/picolisp/package.nix",
-"line":57
+"file":"/nix/store/6na3zkzwdp5y1pffscx9pmzvhwxdxjmk-source/pkgs/by-name/pi/picolisp/package.nix",
+"line":59
 },
 "name":"PicoLisp-24.3.30",
 "outputsToInstall":[
@@ -3903,7 +3881,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./default.nix:232",
+"position":"./lib/default.nix:51",
 "unfree":false,
 "unsupported":false
 },
@@ -3920,7 +3898,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Pragmatic programming language (fixed for macOS/Darwin; rolling release)",
+"description":"Pragmatic programming language (rolling release)",
 "homepage":"https://picolisp.com/",
 "identifiers":{
 "cpeParts":{
@@ -3967,10 +3945,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source/pkgs/by-name/pi/picolisp/package.nix",
-"line":57
+"file":"/nix/store/6na3zkzwdp5y1pffscx9pmzvhwxdxjmk-source/pkgs/by-name/pi/picolisp/package.nix",
+"line":59
 },
-"name":"PicoLisp-25.10.12",
+"name":"PicoLisp-26.1.19",
 "outputsToInstall":[
 "out"
 ],
@@ -4052,18 +4030,18 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./default.nix:308",
+"position":"./default.nix:322",
 "unfree":false,
 "unsupported":false
 },
-"name":"PicoLisp-25.10.12",
+"name":"PicoLisp-26.1.19",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"PicoLisp",
 "system":"x86_64-linux",
-"version":"25.10.12"
+"version":"26.1.19"
 },
 "powder":{
 "meta":{
@@ -4155,13 +4133,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/powder/default.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/powder/default.nix",
 "line":129
 },
 "name":"powder-118",
@@ -4185,8 +4163,8 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"mcayland's 'screamer' fork of QEMU, with PPC Mac audio support",
-"homepage":"https://github.com/mcayland/qemu/tree/screamer",
+"description":"Generic and open source machine emulator and virtualizer (mcayland's 'screamer' fork)",
+"homepage":"https://github.com/mcayland/qemu/tree/screamer-v9.1.0",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -4224,20 +4202,20 @@
 "url":"https://spdx.org/licenses/GPL-2.0-or-later.html"
 },
 "longDescription":"This is mcayland's 'screamer' fork of QEMU, with flaky-but-functional support \nfor the Screamer audio chip used in PowerPC Macintoshes. By default it will \nonly build the `ppc-softmmu` target for qemu.\n",
-"mainProgram":"qemu-system-ppc",
+"mainProgram":"qemu-system-ppc-screamer",
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/qemu-screamer/default.nix",
-"line":319
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/qemu-screamer/default.nix",
+"line":432
 },
-"name":"qemu-screamer-7.1.94-unstable-2022-12-09",
+"name":"qemu-screamer-9.1.0-unstable-2024-09-23",
 "outputsToInstall":[
 "out"
 ],
@@ -4287,21 +4265,22 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/qemu-screamer/default.nix:309",
+"position":"./pkgs/qemu-screamer/default.nix:425",
 "priority":10,
 "unfree":false,
 "unsupported":false
 },
-"name":"qemu-screamer-7.1.94-unstable-2022-12-09",
+"name":"qemu-screamer-9.1.0-unstable-2024-09-23",
 "outputName":"out",
 "outputs":{
 "debug":null,
+"doc":null,
 "ga":null,
 "out":null
 },
 "pname":"qemu-screamer",
 "system":"x86_64-linux",
-"version":"7.1.94-unstable-2022-12-09"
+"version":"9.1.0-unstable-2024-09-23"
 },
 "resource_dasm":{
 "meta":{
@@ -4345,20 +4324,20 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"longDescription":"This project contains multiple tools for reverse-engineering classic Mac OS applications and games.\n\nThe tools in this project are:\n* General tools\n    * **resource_dasm**: A utility for working with classic Mac OS resources. It can read resources from classic Mac OS resource forks, AppleSingle/AppleDouble files, MacBinary files, Mohawk archives, or HIRF/RMF/IREZ/HSB archives, and convert the resources to modern formats and/or export them verbatim. It can also create and modify resource forks.\n    * **libresource_file**: A library implementing most of resource_dasm's functionality.\n    * **m68kdasm**: A 68K, PowerPC, x86, and SH-4 binary assembler and disassembler. m68kdasm can also disassemble some common executable formats.\n    * **m68kexec**: A 68K, PowerPC, and x86 CPU emulator and debugger.\n    * **render_bits**: Renders raw data in a variety of color formats, including indexed formats. Useful for finding embedded images or understanding 2-dimensional arrays in unknown file formats.\n    * **replace_clut**: Remaps an existing image from one indexed color space to another.\n    * **assemble_images**: Combines multiple images into one. Useful for dealing with games that split large images into multiple smaller images due to format restrictions.\n    * **dupe_finder**: Finds duplicate resources across multiple resource files.\n* Tools for specific formats\n    * **render_text**: Renders text using bitmap fonts from FONT or NFNT resources.\n    * **hypercard_dasm**: Disassembles HyperCard stacks and draws card images.\n    * **decode_data**: Decodes some custom compression formats (see README).\n    * **render_sprite**: Renders sprites from a variety of custom formats (see README).\n    * **icon_dearchiver**: Exports icons from an Icon Archiver archive to .icns (see README).\n* Game map generators\n    * **blobbo_render**: Generates maps from Blobbo levels.\n    * **bugs_bannis_render**: Generates maps from Bugs Bannis levels.\n    * **ferazel_render**: Generates maps from Ferazel's Wand world files.\n    * **gamma_zee_render**: Generates maps of Gamma Zee mazes.\n    * **harry_render**: Generates maps from Harry the Handsome Executive world files.\n    * **infotron_render**: Generates maps from Infotron levels files.\n    * **lemmings_render**: Generates maps from Lemmings and Oh No! More Lemmings levels and graphics files.\n    * **mshines_render**: Generates maps from Monkey Shines world files.\n    * **realmz_dasm**: Generates maps from Realmz scenarios and disassembles the scenario scripts into readable assembly-like syntax.\n",
+"longDescription":"This project contains multiple tools for reverse-engineering applications and games. Most of these tools are targeted at classic Mac OS (pre-OSX); a few are targeted at Nintendo GameCube games.\n\nThe tools in this project are:\n* General tools\n    * **resource_dasm**: A utility for working with classic Mac OS resources. It can read resources from classic Mac OS resource forks, AppleSingle/AppleDouble files, MacBinary files, Mohawk archives, or HIRF/RMF/IREZ/HSB archives, and convert the resources to modern formats and/or export them verbatim. It can also create and modify resource forks.\n    * **libresource_file**: A library implementing most of resource_dasm's functionality.\n    * **m68kdasm**: A 68K, PowerPC, x86, and SH-4 binary assembler and disassembler. m68kdasm can also disassemble some common executable formats.\n    * **m68kexec**: A 68K, PowerPC, x86, and SH-4 CPU emulator and debugger.\n    * **render_bits**: Renders raw data in a variety of color formats, including indexed formats. Useful for finding embedded images or understanding 2-dimensional arrays in unknown file formats.\n    * **replace_clut**: Remaps an existing image from one indexed color space to another.\n    * **assemble_images**: Combines multiple images into one. Useful for dealing with games that split large images into multiple smaller images due to format restrictions.\n    * **dupe_finder**: Finds duplicate resources across multiple resource files.\n* Tools for specific formats\n    * **render_text**: Renders text using bitmap fonts from FONT or NFNT resources.\n    * **hypercard_dasm**: Disassembles HyperCard stacks and draws card images.\n    * **decode_data**: Decodes some custom compression formats (see below).\n    * **render_sprite**: Renders sprites from a variety of custom formats (see below).\n    * **icon_unarchiver**: Exports icons from an Icon Archiver archive to .icns (see below).\n    * **vrfsdump**: Extracts the contents of VRFS archives from Blobbo.\n    * **gcmdump**: Extracts all files in a GCM file (GameCube disc image) or TGC file (embedded GameCube disc image).\n    * **gcmasm**: Generates a GCM image from a directory tree.\n    * **gvmdump**: Extracts all files in a GVM archive (from Phantasy Star Online) to the current directory, and converts the GVR textures to Windows BMP files. Also can decode individual GVR files outside of a GVM archive.\n    * **rcfdump**: Extracts all files in a RCF archive (from The Simpsons: Hit and Run) to the current directory.\n    * **smsdumpbanks**: Extracts the contents of JAudio instrument and waveform banks in AAF, BX, or BAA format (from Super Mario Sunshine, Luigi's Mansion, Pikmin, and other games). See \"Using smssynth\" for more information.\n    * **smssynth**: Synthesizes and debugs music sequences in BMS format (from Super Mario Sunshine, Luigi's Mansion, Pikmin, and other games) or MIDI format (from classic Macintosh games). See \"Using smssynth\" for more information.\n    * **modsynth**: Synthesizes and debugs music sequences in Protracker/Soundtracker MOD format.\n* Game map generators\n    * **blobbo_render**: Generates maps from Blobbo levels.\n    * **bugs_bannis_render**: Generates maps from Bugs Bannis levels.\n    * **ferazel_render**: Generates maps from Ferazel's Wand world files.\n    * **gamma_zee_render**: Generates maps of Gamma Zee mazes.\n    * **harry_render**: Generates maps from Harry the Handsome Executive world files.\n    * **infotron_render**: Generates maps from Infotron levels files.\n    * **lemmings_render**: Generates maps from Lemmings and Oh No! More Lemmings levels and graphics files.\n    * **mshines_render**: Generates maps from Monkey Shines world files.\n    * **realmz_dasm**: Generates maps from Realmz scenarios and disassembles the scenario scripts into readable assembly-like syntax.\n",
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/resource_dasm/default.nix",
-"line":82
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/resource_dasm/default.nix",
+"line":90
 },
-"name":"resource_dasm-0-unstable-2025-10-12",
+"name":"resource_dasm-0-unstable-2026-01-14",
 "outputsToInstall":[
 "out"
 ],
@@ -4366,14 +4345,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"resource_dasm-0-unstable-2025-10-12",
+"name":"resource_dasm-0-unstable-2026-01-14",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"resource_dasm",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-10-12"
+"version":"0-unstable-2026-01-14"
 },
 "shapez-ce":{
 "meta":{
@@ -4421,16 +4400,16 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/shapez-ce/default.nix",
-"line":127
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/shapez-ce/default.nix",
+"line":143
 },
-"name":"shapez-ce-0-unstable-2025-09-11",
+"name":"shapez-ce-0-unstable-2026-01-18",
 "outputsToInstall":[
 "out"
 ],
@@ -4440,18 +4419,18 @@
 "x86_64-darwin",
 "aarch64-darwin"
 ],
-"position":"./pkgs/shapez-ce/default.nix:123",
+"position":"./pkgs/shapez-ce/default.nix:139",
 "unfree":false,
 "unsupported":false
 },
-"name":"shapez-ce-0-unstable-2025-09-11",
+"name":"shapez-ce-0-unstable-2026-01-18",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"shapez-ce",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-09-11"
+"version":"0-unstable-2026-01-18"
 },
 "tuxemon":{
 "meta":{
@@ -4543,14 +4522,14 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":13,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/tuxemon/unwrapped.nix",
-"line":185
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/tuxemon/unwrapped.nix",
+"line":200
 },
 "name":"tuxemon-0.4.34",
 "outputsToInstall":[
@@ -4692,16 +4671,16 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":13,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/tuxemon/unwrapped.nix",
-"line":185
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/tuxemon/unwrapped.nix",
+"line":200
 },
-"name":"tuxemon-0.4.34-unstable-2025-10-12",
+"name":"tuxemon-0.4.34-unstable-2026-01-20",
 "outputsToInstall":[
 "out"
 ],
@@ -4741,7 +4720,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tuxemon-0.4.34-unstable-2025-10-12",
+"name":"tuxemon-0.4.34-unstable-2026-01-20",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -4749,13 +4728,13 @@
 },
 "pname":"tuxemon",
 "system":"x86_64-linux",
-"version":"0.4.34-unstable-2025-10-12"
+"version":"0.4.34-unstable-2026-01-20"
 },
 "xgalagapp":{
 "meta":{
 "available":true,
 "broken":false,
-"description":"XGalaga++ is a classic single screen vertical shoot \u2019em up. It is inspired by XGalaga and reuses most of its sprites (fixed for macOS/Darwin)",
+"description":"XGalaga++ is a classic single screen vertical shoot \u2019em up. It is inspired by XGalaga and reuses most of its sprites (fixed for macOS/Darwin) [DEPRECATED]",
 "homepage":"https://marc.mongenet.ch/OSS/XGalaga/",
 "identifiers":{
 "cpeParts":{
@@ -4843,11 +4822,9 @@
 "x86_64-netbsd",
 "i686-openbsd",
 "x86_64-openbsd",
-"x86_64-redox",
-"x86_64-darwin",
-"aarch64-darwin"
+"x86_64-redox"
 ],
-"position":"./default.nix:350",
+"position":"./lib/default.nix:51",
 "unfree":false,
 "unsupported":false
 },
@@ -4907,13 +4884,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/xinvaders3d/default.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/xinvaders3d/default.nix",
 "line":19
 },
 "name":"xinvaders3d-1.9.0",
@@ -4980,13 +4957,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/xorcurses/generic.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/xorcurses/generic.nix",
 "line":25
 },
 "name":"xorcurses-0.2.2",
@@ -5053,13 +5030,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/xorcurses/generic.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/xorcurses/generic.nix",
 "line":25
 },
 "name":"xorcurses-0.2.2-unstable-2023-01-31",
@@ -5125,20 +5102,20 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/xpenguins/unwrapped.nix",
-"line":23
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/xpenguins/unwrapped.nix",
+"line":26
 },
 "name":"xpenguins-2.2",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/xpenguins/unwrapped.nix:19",
+"position":"./pkgs/xpenguins/unwrapped.nix:22",
 "unfree":false,
 "unsupported":false
 },
@@ -5197,13 +5174,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/xpenguins/ratrabbit/unwrapped.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/xpenguins/ratrabbit/unwrapped.nix",
 "line":18
 },
 "name":"xpenguins-ratrabbit-3.2.3",
@@ -5266,13 +5243,13 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/xpenguins/themes-unfree.nix",
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/xpenguins/themes-unfree.nix",
 "line":15
 },
 "name":"xpenguins-themes-unfree-1.0",
@@ -5340,20 +5317,20 @@
 "maintainers":[
 {
 "github":"Rhys-T",
-"githubId":"108157737",
+"githubId":108157737,
 "name":"Rhys T."
 }
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/plkk5bs05lqk836ixzbdhhy27g840rkc-source/pkgs/xscorch/default.nix",
-"line":61
+"file":"/nix/store/pk7bdgxwhd77iyvdjar0lhlmnwbrb975-source/pkgs/xscorch/default.nix",
+"line":69
 },
 "name":"xscorch-0.2.1",
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/xscorch/default.nix:50",
+"position":"./pkgs/xscorch/default.nix:58",
 "unfree":false,
 "unsupported":false
 },
