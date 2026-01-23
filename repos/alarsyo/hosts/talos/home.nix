@@ -59,6 +59,7 @@ in {
         grim
         wl-clipboard
         slurp
+        pdfpc
         ;
 
       inherit
@@ -95,7 +96,7 @@ in {
           };
         };
         fonts = {
-          names = ["Iosevka Fixed" "FontAwesome6Free"];
+          names = ["Iosevka Fixed" "FontAwesome7FreeSolid"];
           size = 9.0;
         };
         bars = [];
@@ -106,6 +107,10 @@ in {
           "Mod4+Shift+a" = "exec shikanectl reload";
           "Mod4+Shift+e" = ''mode "${logoutMode}"'';
           "Mod4+i" = "exec emacsclient --create-frame";
+          "Mod4+bracketleft" = "move workspace to output left";
+          "Mod4+bracketright" = "move workspace to output right";
+          "Mod4+Shift+equal" = "move workspace to output up";
+          "Mod4+equal" = "move workspace to output down";
           "Mod4+Control+l" = "exec ${lock}";
           "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.2";
@@ -207,12 +212,12 @@ in {
   # FIXME: belongs elsewhere
   services = {
     logind = {
-      lidSwitch = "suspend";
-      lidSwitchExternalPower = "ignore";
-      extraConfig = ''
-        IdleAction=suspend
-        IdleActionSec=10min
-      '';
+      settings.Login = {
+        HandleLidSwitch = "suspend";
+        HandleLidSwitchExternalPower = "ignore";
+        IdleAction = "suspend";
+        IdleActionSec = "10min";
+      };
     };
     upower.enable = true;
   };

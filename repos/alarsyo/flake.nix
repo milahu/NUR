@@ -5,14 +5,14 @@
       type = "github";
       owner = "NixOS";
       repo = "nixpkgs";
-      ref = "nixos-25.05";
+      ref = "nixos-25.11";
     };
 
-    nixpkgs-unstable-small = {
+    nixpkgs-unstable = {
       type = "github";
       owner = "NixOS";
       repo = "nixpkgs";
-      ref = "nixos-unstable-small";
+      ref = "nixos-unstable";
     };
 
     agenix = {
@@ -25,7 +25,7 @@
       type = "github";
       owner = "nix-community";
       repo = "home-manager";
-      ref = "release-25.05";
+      ref = "release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -49,14 +49,6 @@
       repo = "disko";
       ref = "master";
     };
-
-    jujutsu = {
-      type = "github";
-      owner = "jj-vcs";
-      repo = "jj";
-      ref = "v0.34.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -78,7 +70,7 @@
         };
         nix-registry = {
           nix.registry.nixpkgs.flake = nixpkgs;
-          nix.registry.unstable.flake = inputs.nixpkgs-unstable-small;
+          nix.registry.unstable.flake = inputs.nixpkgs-unstable;
         };
       };
 
@@ -92,14 +84,13 @@
               packages = import ./pkgs {pkgs = super;};
 
               # packages accessible through pkgs.unstable.package
-              unstable = import inputs.nixpkgs-unstable-small {
+              unstable = import inputs.nixpkgs-unstable {
                 inherit system;
                 config.allowUnfree = true;
               };
             })
 
             agenix.overlays.default
-            inputs.jujutsu.overlays.default
           ]
           ++ builtins.attrValues self.overlays;
         sharedModules =

@@ -18,8 +18,6 @@ in {
   };
 
   config = mkIf config.my.gui.enable {
-    my.displayManager.sddm.enable = true;
-
     programs.gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -47,7 +45,7 @@ in {
         };
       };
 
-      logind.lidSwitch = "suspend";
+      logind.settings.Login.HandleLidSwitch = "suspend";
 
       printing = {
         enable = true;
@@ -65,13 +63,14 @@ in {
         discord
         feh
         ffmpeg
+        firefox
         gimp-with-plugins
         imagemagick
         mpv
         obs-studio
         pavucontrol
         spotify
-        tdesktop
+        telegram-desktop
         thunderbird
         virt-manager
         xcolor

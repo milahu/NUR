@@ -29,8 +29,6 @@
     ntfs = true;
   };
 
-  services.xserver.windowManager.i3.enable = true;
-
   services.btrfs = {
     autoScrub = {
       enable = true;
@@ -96,7 +94,7 @@
   hardware = {
     bluetooth = {
       enable = true;
-      powerOnBoot = false;
+      powerOnBoot = true;
     };
     nvidia = {
       open = true;
@@ -104,12 +102,37 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [foot waybar wofi];
-
-  programs.hyprland.enable = true;
-  programs.hyprlock.enable = true;
-  programs.waybar.enable = true;
   programs.foot.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  my.displayManager.gdm.enable = true;
+  services.displayManager = {
+    autoLogin = {
+      enable = true;
+      user = "games";
+    };
+    defaultSession = "gnome";
+  };
+  services.desktopManager.gnome.enable = true;
   services.power-profiles-daemon.enable = true;
+
+  programs.gamescope = {
+    enable = true;
+  };
+  environment.systemPackages = [
+    pkgs.gamescope-wsi
+    pkgs.wineWowPackages.stable
+    pkgs.bottles
+    pkgs.lutris
+    pkgs.gnomeExtensions.no-overview
+  ];
+
+  users.users.games = {
+    hashedPassword = "$y$j9T$jOursEp6BvOSgyhtU0fca0$xAh.iLgoiDTswHVlAbvtHg4jOHXZuWhl55kSqlD.daA";
+    isNormalUser = true;
+    extraGroups = [
+      "media"
+      "networkmanager"
+      "video" # for `light` permissions
+    ];
+    shell = pkgs.fish;
+  };
 }
