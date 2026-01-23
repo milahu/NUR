@@ -35,7 +35,7 @@ in
   config = lib.mkIf cfg.enable {
     services.nextcloud = {
       enable = true;
-      package = pkgs.nextcloud31;
+      package = pkgs.nextcloud32;
       hostName = "nextcloud.${config.networking.domain}";
       home = "/var/lib/nextcloud";
       maxUploadSize = cfg.maxSize;
@@ -61,6 +61,16 @@ in
         enable = true;
         # Allow using the push service without hard-coding my IP in the configuration
         bendDomainToLocalhost = true;
+      };
+
+      extraApps = {
+        inherit (config.services.nextcloud.package.packages.apps)
+          calendar
+          contacts
+          deck
+          tasks
+          ;
+        # notify_push is automatically installed by the module
       };
     };
 

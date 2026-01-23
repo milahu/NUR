@@ -8,6 +8,10 @@ in
 
     launchTmux = mkEnableOption "auto launch tmux at shell start";
 
+    completionSync = {
+      enable = mkEnableOption "zsh-completion-sync plugin";
+    };
+
     notify = {
       enable = mkEnableOption "zsh-done notification";
 
@@ -68,7 +72,7 @@ in
         plugins = [
           {
             name = "fast-syntax-highlighting";
-            file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
+            file = "share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh";
             src = pkgs.zsh-fast-syntax-highlighting;
           }
           {
@@ -117,6 +121,18 @@ in
         enableVteIntegration = true;
       };
     }
+
+    (lib.mkIf cfg.completionSync.enable {
+      programs.zsh = {
+        plugins = [
+          {
+            name = "zsh-completion-sync";
+            file = "share/zsh-completion-sync/zsh-completion-sync.plugin.zsh";
+            src = pkgs.zsh-completion-sync;
+          }
+        ];
+      };
+    })
 
     (lib.mkIf cfg.notify.enable {
       programs.zsh = {
