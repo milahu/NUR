@@ -2,22 +2,22 @@
 {
   imports = [ inputs.treefmt-nix.flakeModule ];
   perSystem =
-    { pkgs, ... }:
+    { ... }:
     {
       treefmt = {
         projectRootFile = "flake.nix";
         programs.nixfmt = {
           enable = true;
-          package = pkgs.nixfmt;
           priority = 0;
-        };
-        programs.statix = {
-          enable = true;
-          priority = 1;
         };
         programs.deadnix = {
           enable = true;
+          priority = 1;
+        };
+        programs.nixf-diagnose = {
+          enable = true;
           priority = 2;
+          ignore = [ "sema-primop-overridden" ];
         };
         programs.prettier.enable = true;
         programs.just.enable = true;

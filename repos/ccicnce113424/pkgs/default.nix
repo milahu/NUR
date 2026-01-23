@@ -10,13 +10,44 @@ in
 rec {
   algermusicplayer = pkgs.callPackage ./algermusicplayer { inherit fetchedSrc; };
 
+  daed = pkgs.callPackage ./daed { };
+
   danmakufactory = pkgs.callPackage ./danmakufactory rec {
     sources = fetchedSrc.danmakufactory;
     version = stableVersion sources;
   };
-  danmakufactory-git = pkgs.callPackage ./danmakufactory-git rec {
-    sources = fetchedSrc.danmakufactory-git;
-    version = unstableVersion sources;
+  # danmakufactory-git =
+  #   (pkgs.callPackage ./danmakufactory-git rec {
+  #     sources = fetchedSrc.danmakufactory-git;
+  #     version = unstableVersion sources;
+  #   }).overrideAttrs
+  #     {
+  #       meta.broken = true;
+  #     };
+
+  dxvk-gplall-bin-w32 = pkgs.callPackage ./dxvk-gplall-bin rec {
+    sources = fetchedSrc.dxvk-gplall;
+    inherit (sources) version;
+    sourceRoot = "x32";
+  };
+
+  dxvk-gplall-bin-w64 = pkgs.callPackage ./dxvk-gplall-bin rec {
+    sources = fetchedSrc.dxvk-gplall;
+    inherit (sources) version;
+    sourceRoot = "x64";
+  };
+
+  imfile = pkgs.callPackage ./imfile { inherit fetchedSrc; };
+
+  jaq = pkgs.callPackage ./jaq rec {
+    sources = fetchedSrc.jaq;
+    version = stableVersion sources;
+  };
+
+  loveiwara = pkgs.callPackage ./loveiwara rec {
+    sources = fetchedSrc.loveiwara;
+    version = stableVersion sources;
+    srcInfo = lib.importJSON ./loveiwara/src-info.json;
   };
 
   lxgw-wenkai-gb = pkgs.callPackage ./lxgw-wenkai-gb rec {
@@ -24,23 +55,34 @@ rec {
     version = stableVersion sources;
   };
 
-  mpv-handler = pkgs.callPackage ./mpv-handler rec {
-    sources = fetchedSrc.mpv-handler;
-    version = stableVersion sources;
+  lyrica = pkgs.callPackage ./lyrica {
+    sources = fetchedSrc.lyrica;
+  };
+  lyrica-plasmoid = pkgs.callPackage ./lyrica/plasmoid.nix {
+    sources = fetchedSrc.lyrica;
+    inherit lyrica;
+  };
+
+  piliplus = pkgs.callPackage ./piliplus rec {
+    sources = fetchedSrc.piliplus;
+    inherit (sources) version;
+    srcInfo = lib.importJSON ./piliplus/src-info.json;
   };
 
   pixes = pkgs.callPackage ./pixes rec {
     sources = fetchedSrc.pixes;
     version = stableVersion sources;
-    pubspecLock = builtins.fromJSON (builtins.readFile ./pixes/pubspec.lock.json);
-    gitHashes = import ./pixes/git-hashes.nix;
+    srcInfo = lib.importJSON ./pixes/src-info.json;
   };
-
   pixes-git = pkgs.callPackage ./pixes rec {
     sources = fetchedSrc.pixes-git;
     version = unstableVersion sources;
-    pubspecLock = builtins.fromJSON (builtins.readFile ./pixes/git/pubspec.lock.json);
-    gitHashes = import ./pixes/git/git-hashes.nix;
+    srcInfo = lib.importJSON ./pixes/git/src-info.json;
+  };
+
+  rpc-bridge = pkgs.callPackage ./rpc-bridge rec {
+    sources = fetchedSrc.rpc-bridge;
+    version = stableVersion sources;
   };
 
   shijima-qt = pkgs.callPackage ./shijima-qt { };
@@ -48,10 +90,20 @@ rec {
   inherit (pkgs) splayer;
 
   splayer-git = pkgs.callPackage ./splayer-git rec {
-    hash = import ./splayer-git/hash-git.nix;
+    inherit ((lib.importJSON ./splayer-git/src-info.json)) hash;
     sources = fetchedSrc.splayer-git;
     version = unstableVersion sources;
     inherit splayer;
+  };
+
+  svt-av1-hdr = pkgs.callPackage ./svt-av1-psy rec {
+    sources = fetchedSrc.svt-av1-hdr;
+    version = stableVersion sources;
+  };
+
+  svt-av1-psyex = pkgs.callPackage ./svt-av1-psy rec {
+    sources = fetchedSrc.svt-av1-psyex;
+    version = stableVersion sources;
   };
 
   uosc-danmaku = pkgs.mpvScripts.callPackage ./uosc-danmaku rec {
@@ -63,16 +115,13 @@ rec {
     version = unstableVersion sources;
   };
 
-  # wpsoffice-365 = pkgs.libsForQt5.callPackage ./wpsoffice-365 { };
+  wild-reader = pkgs.callPackage ./wild-reader rec {
+    sources = fetchedSrc.wild;
+    version = stableVersion sources;
+    srcInfo = lib.importJSON ./wild-reader/src-info.json;
+  };
 
-  vulkan-hdr-layer-kwin6 =
-    if (builtins.tryEval pkgs.vulkan-hdr-layer-kwin6).success then
-      pkgs.vulkan-hdr-layer-kwin6
-    else
-      pkgs.callPackage ./vulkan-hdr-layer-kwin6 rec {
-        sources = fetchedSrc.vulkan-hdr-layer-kwin6;
-        version = unstableVersion sources;
-      };
+  # wpsoffice-365 = pkgs.libsForQt5.callPackage ./wpsoffice-365 { };
 
   zhuque = pkgs.callPackage ./zhuque rec {
     sources = fetchedSrc.zhuque;

@@ -1,17 +1,21 @@
 {
   sources,
   version,
-  pubspecLock,
-  gitHashes,
+  srcInfo,
   lib,
   flutter332,
+  flutter335,
   makeDesktopItem,
   copyDesktopItems,
 }:
-
-flutter332.buildFlutterApplication {
+let
+  flutter = if version == "1.2.0" then flutter332 else flutter335;
+in
+flutter.buildFlutterApplication {
   inherit (sources) pname src;
-  inherit version pubspecLock gitHashes;
+  inherit version;
+  inherit (srcInfo) pubspecLock;
+  inherit (srcInfo) gitHashes;
 
   desktopItems = [
     (makeDesktopItem {
@@ -47,6 +51,6 @@ flutter332.buildFlutterApplication {
     mainProgram = "pixes";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ ccicnce113424 ];
-    platforms = lib.platforms.unix;
+    platforms = lib.platforms.linux;
   };
 }

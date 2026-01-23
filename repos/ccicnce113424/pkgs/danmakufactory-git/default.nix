@@ -18,15 +18,16 @@ stdenv.mkDerivation {
     pkg-config
   ];
 
-  buildInputs = [ pcre2 ];
+  buildInputs = [ pcre2.dev ];
+
+  env.NIX_LDFLAGS = "-lpcre2-8";
 
   configurePhase = ''
     runHook preConfigure
     export HOME=$(mktemp -d)
     xmake global --network=private
     xmake config -m release --yes -vD --ccache=n \
-      --cflags="-Wno-implicit-function-declaration -Wno-int-conversion" \
-      --ldflags="-L${pcre2}/lib -lpcre2-8"
+      --cflags="-Wno-implicit-function-declaration -Wno-int-conversion"
     runHook postConfigure
   '';
 
