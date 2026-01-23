@@ -1,0 +1,17 @@
+error:
+… from call site
+
+  at ./nur.nix:10:18:
+
+     9|   gwq = import ./packages/gwq {inherit pkgs;};
+    10|   helix-gj1118 = import ./packages/helix-gj1118 {inherit pkgs;};
+      |                  ^
+    11|   helix-gj1118-bin = import ./packages/helix-gj1118-bin {inherit pkgs;};
+
+error: function 'anonymous lambda' called without required argument 'inputs'
+
+at ./packages/helix-gj1118/default.nix:1:1:
+
+     1| {
+      | ^
+     2|   inputs,
