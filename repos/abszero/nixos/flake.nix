@@ -4,9 +4,12 @@
   inputs = {
     # Repos
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-      inputs.nixpkgs.follows = "nixpkgs";
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
     };
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -15,9 +18,12 @@
         nixpkgs-stable.follows = "nixpkgs";
       };
     };
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
+    nixified-ai = {
+      url = "github:nixified-ai/flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
     };
 
     # Utils
@@ -35,12 +41,10 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     lanzaboote = {
-      # Fork that adds an UKI mode
-      url = "github:linyinfeng/lanzaboote/uki";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-      };
+      # # Fork that adds an UKI mode
+      # url = "github:linyinfeng/lanzaboote/uki";
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
   };

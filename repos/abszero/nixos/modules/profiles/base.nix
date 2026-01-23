@@ -34,17 +34,19 @@ in
           "root"
           "@wheel"
         ];
-        # substituters = [
-        #   # CN mirrors of https://cache.nixos.org
-        #   "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-        #   "https://mirrors.ustc.edu.cn/nix-channels/store"
-        # ];
-        extra-substituters = [
+        substituters = [
+          # CN mirrors of https://cache.nixos.org
+          # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+          # "https://mirrors.ustc.edu.cn/nix-channels/store"
           "https://abszero.cachix.org"
+          "https://ai.cachix.org"
+          "https://attic.xuyh0120.win/lantian"
           "https://nix-community.cachix.org"
         ];
         trusted-public-keys = [
           "abszero.cachix.org-1:HXOydaS51jSWrM07Ko8AVtGdoBRT9F+QhdYQBiNDaM0="
+          "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="
+          "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         ];
         auto-optimise-store = true;
@@ -52,6 +54,7 @@ in
 
       extraOptions = ''
         experimental-features = nix-command flakes auto-allocate-uids no-url-literals
+        use-xdg-base-directories = true
         keep-outputs = true
         keep-derivations = true
         connect-timeout = 10
@@ -60,19 +63,30 @@ in
 
     nixpkgs.config.allowUnfree = true;
 
-    system.stateVersion = "25.11";
+    system = {
+      stateVersion = "26.05";
+      nixos-init.enable = true; # Initialise system with a Rust program
+      etc.overlay.enable = true; # Mount /etc as overlay; required for nixos-init
+    };
+
+    # Certain services freeze on stop which prevents shutdown.
+    systemd.settings.Manager.DefaultTimeoutStopSec = "10s";
 
     # With p-state, powersave balance_performance often outperforms performance performance.
     # Also, the performance governor requires performance EPP, meaning EPP can't be changed.
     powerManagement.cpuFreqGovernor = mkDefault "powersave";
 
     boot = {
+      initrd.systemd.enable = true; # Required for nixos-init
       loader = {
         timeout = 0;
         # Whether the installation process can modify EFI boot variables.
         efi.canTouchEfiVariables = true;
-        # Disable kernel command line editor for security
-        systemd-boot.editor = false;
+        systemd-boot = {
+          configurationLimit = 5;
+          # Disable kernel command line editor for security
+          editor = false;
+        };
       };
       kernel.sysctl."vm.swappiness" = mkDefault 20;
       tmp.useTmpfs = true;
@@ -110,9 +124,6 @@ in
       packages = with pkgs; [ terminus_font ];
     };
 
-    # Certain services freeze on stop which prevents shutdown.
-    systemd.settings.Manager.DefaultTimeoutStopSec = "10s";
-
     security.sudo-rs = {
       enable = true;
       wheelNeedsPassword = mkDefault false;
@@ -121,7 +132,8 @@ in
 
     services = {
       dbus.implementation = "broker";
-      journald.console = "/dev/tty1";
+      journald.console = "/dev/tty10";
+      userborn.enable = true; # Manage users with userborn; required for nixos-init
     };
 
     # Allow unfree packages

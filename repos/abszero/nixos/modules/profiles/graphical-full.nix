@@ -1,4 +1,4 @@
-# Full desktop
+# Full graphical session
 {
   config,
   pkgs,
@@ -9,23 +9,21 @@
 let
   inherit (lib) mkIf;
   inherit (lib.abszero.modules) mkExternalEnableOption;
-  cfg = config.abszero.profiles.full;
+  cfg = config.abszero.profiles.graphical-full;
 in
 
 {
-  imports = [ ./desktop.nix ];
+  imports = [ ./graphical.nix ];
 
-  options.abszero.profiles.full.enable = mkExternalEnableOption config "full profile";
+  options.abszero.profiles.graphical-full.enable =
+    mkExternalEnableOption config "graphical-full profile";
 
   config = mkIf cfg.enable {
     abszero = {
-      profiles.desktop.enable = true;
+      profiles.graphical.enable = true;
       hardware.keyboard.halo65.enable = true;
       boot.plymouth.enable = true;
-      virtualisation = {
-        act.enable = true;
-        libvirtd.enable = true;
-      };
+      virtualisation.act.enable = true;
       i18n.inputMethod.fcitx5.enable = true;
       services = {
         kanata.enable = true;
@@ -42,19 +40,14 @@ in
       };
     };
 
-    nixpkgs.config.permittedInsecurePackages = [
-      "ventoy-qt5-1.1.07"
-    ];
+    nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.07" ];
 
     virtualisation.waydroid.enable = true;
 
     services = {
       flatpak.enable = true;
-      gnome.gnome-keyring.enable = true; # For storing vscode auth token
       protonmail-bridge.enable = true;
     };
-
-    xdg.portal.config.common."org.freedesktop.impl.portal.FileChooser" = [ "gnome" ];
 
     programs = {
       dconf.enable = true;
@@ -67,6 +60,7 @@ in
       systemPackages = with pkgs; [
         anki-wayland
         aseprite
+        ayugram-desktop
         collector
         ffmpeg-full
         gh
@@ -77,27 +71,28 @@ in
         hyperfine
         inkscape
         inotify-tools
-        jetbrains.idea-community
+        jetbrains.idea-oss
         jq
         kooha
         libreoffice-qt
         lutris
+        minefair
+        nautilus
         nudoku
         obsidian
-        osu-lazer-bin
         proton-pass
         protonvpn-gui
-        taisei
+        # taisei
         tenacity
         unzip
-        ventoy-full-qt
+        ventoy-full
         vesktop
         vscode
         waydroid-helper
+        waypipe
         wev
         wget
         xorg.xeyes
-        zen-browser
         zip
         zotero
       ];

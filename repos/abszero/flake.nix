@@ -4,18 +4,26 @@
   inputs = {
     # Repos
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    # nixpkgs.url = "github:LunNova/nixpkgs/lunnova/rocm-7-inplace";
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
+        flake-parts.follows = "flake-parts";
       };
     };
     niri = {
-      url = "github:sodiboo/niri-flake";
+      url = "github:sodiboo/niri-flake/27e012b";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nixpkgs-stable.follows = "nixpkgs";
+      };
+    };
+    nixified-ai = {
+      url = "github:nixified-ai/flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
       };
     };
     zen-browser = {
@@ -55,13 +63,10 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     lanzaboote = {
-      # Fork that adds an UKI mode
-      url = "github:linyinfeng/lanzaboote/uki";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
-        flake-parts.follows = "flake-parts";
-      };
+      # # Fork that adds an UKI mode
+      # url = "github:linyinfeng/lanzaboote/uki";
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -134,6 +139,7 @@
                 nix-init
                 nix-prefetch-github # Somehow not in nix-prefetch-scripts
                 nix-prefetch-scripts
+                nix-update
                 taplo # TOML language server
                 yaml-language-server
                 vscode-langservers-extracted # For vscode-json-language-server

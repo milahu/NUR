@@ -1,16 +1,22 @@
-{ lib, python313Packages }:
+{
+  lib,
+  python313Packages,
+  fetchFromGitHub,
+}:
 
 let
-  inherit (python313Packages) buildPythonPackage fetchPypi;
+  inherit (python313Packages) buildPythonPackage;
 in
 
 buildPythonPackage rec {
   pname = "win2xcur";
-  version = "0.1.2";
+  version = "0.2.0-unstable-2026-01-13";
 
-  src = fetchPypi {
-    inherit pname version;
-    hash = "sha256-B8srOXQBUxK6dZ6GhDA5fYvxUBxHVcrSO/z+UWyF+qI=";
+  src = fetchFromGitHub {
+    owner = "quantum5";
+    repo = pname;
+    rev = "feadbe284f502387b6d00fdd688138f6b0faa202";
+    hash = "sha256-dO9JXb69JNkx0I8YOnjx+2bYnB7pptkJOKNyWHriCS4=";
   };
 
   pyproject = true;

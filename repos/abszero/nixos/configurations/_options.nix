@@ -50,7 +50,7 @@ in
   config.flake.nixosConfigurations = mapAttrs (
     _: c:
     withSystem c.system (
-      { system, inputs', ... }:
+      { system, ... }:
       nixpkgs.lib.nixosSystem {
         inherit system lib;
         specialArgs = {
@@ -59,8 +59,7 @@ in
         modules = flatten [
           inputs.disko.nixosModules.disko
           inputs.lanzaboote.nixosModules.lanzaboote
-          inputs.chaotic.nixosModules.default
-          inputs.niri.nixosModules.niri
+          inputs.nixified-ai.nixosModules.comfyui
           inputs.catppuccin.nixosModules.catppuccin
           (toModuleList ../../lib/modules)
           (toModuleList ../modules)
@@ -69,8 +68,8 @@ in
             abszero.enableExternalModulesByDefault = false;
             nixpkgs.overlays = [
               (_: prev: import ../../pkgs { pkgs = prev; })
+              inputs.nix-cachyos-kernel.overlays.default
               inputs.niri.overlays.niri
-              (_: _: { zen-browser = inputs'.zen-browser.packages.beta; })
             ];
             networking = {
               inherit (c) hostName;

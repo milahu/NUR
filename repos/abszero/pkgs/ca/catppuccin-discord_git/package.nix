@@ -21,23 +21,23 @@ let
       "{${concatStringsSep "," themes0}}";
 in
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (final: {
   pname = "catppuccin-discord";
-  version = src.rev;
+  version = "0-unstable-2026-01-10";
 
   src = fetchFromGitHub {
     owner = "catppuccin";
     repo = "discord";
-    rev = "70acffa079429bc4a0290d6699b66471c3ec4fd3";
-    hash = "sha256-oyVZxdr4UacRMOCDdjSl2B/X5ySYTOD5iCOq0MLSxD4=";
+    rev = "0fcfe2e15ed91f8c5f1f3c6855f3b2024f78d86c";
+    hash = "sha256-ExRNnxvG2PSGmpuaPxzCKL6GK6ETs7Gq4Roa74HXp+s=";
   };
 
   nodeModules = mkYarnModules {
-    pname = "catppuccin-discord-node-modules";
-    version = src.rev;
+    pname = "${final.pname}-node-modules";
+    version = final.version;
 
-    packageJSON = src + "/package.json";
-    yarnLock = src + "/yarn.lock";
+    packageJSON = final.src + "/package.json";
+    yarnLock = final.src + "/yarn.lock";
   };
 
   nativeBuildInputs = [
@@ -61,8 +61,8 @@ stdenv.mkDerivation rec {
   installPhase = ''
     runHook preInstall
 
-    mkdir -p $out/share/catppuccin-discord
-    cp dist/dist/catppuccin-${matchTheme}.theme.css $out/share/catppuccin-discord
+    mkdir -p "$out/share/catppuccin-discord"
+    cp dist/dist/catppuccin-${matchTheme}.theme.css "$out/share/catppuccin-discord"
 
     runHook postInstall
   '';
@@ -75,4 +75,4 @@ stdenv.mkDerivation rec {
     platforms = platforms.all;
     sourceProvenance = with sourceTypes; [ fromSource ];
   };
-}
+})
