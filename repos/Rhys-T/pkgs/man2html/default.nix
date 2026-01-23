@@ -1,11 +1,11 @@
 {stdenvNoCC, lib, fetchurl, perl, maintainers}: stdenvNoCC.mkDerivation rec {
     pname = "man2html";
-    version = "3.0.1-unstable-2024-01-05";
+    version = "3.0.1-unstable-2025-12-06";
     src = let
         shortDate = lib.concatStrings (lib.lists.drop 4 (builtins.splitVersion version));
     in fetchurl {
         url = "https://invisible-island.net/archives/man2html/man2html-${shortDate}.tgz";
-        hash = "sha256-qtc069gmJeh84zR0iVUvV4D6ZTnf7aq2dv/5V+wZFVs=";
+        hash = "sha256-b2rrDscD5GeJNDLLtFF4zlOfuDQZ+E4cM4PhLP8QWqs=";
     };
     nativeBuildInputs = [perl];
     buildInputs = [perl];
@@ -16,6 +16,7 @@
         install -Dm644 COPYING "$out/share/licenses/man2html/COPYING"
         runHook postInstall
     '';
+    passthru.updateScript = ./update.sh;
     meta = {
         description = "Unix manpage-to-HTML converter";
         homepage = "https://invisible-island.net/scripts/man2html.html";

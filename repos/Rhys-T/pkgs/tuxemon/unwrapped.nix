@@ -6,6 +6,7 @@
     libShake ? null, withLibShake ? true,
     desktopToDarwinBundle,
     data, attachPkgs, pkgs,
+    sdl3 ? null,
     SDL2_classic_image ? null, SDL2_classic_mixer_2_0 ? null, SDL2_classic_ttf ? null,
     _pos, gitUpdater, unstableGitUpdater, symlinkJoin, writeShellApplication,
     maintainers
@@ -16,6 +17,20 @@ in let
     python3Packages = (python3PackagesOrig.python.override {
         packageOverrides = pself: psuper: {
             pyglet = pself.callPackage ./fix-pyglet.nix { pyglet' = psuper.pyglet; };
+            # Backport fix from <https://github.com/NixOS/nixpkgs/pull/462286>
+            pysdl2 = if
+                lib.versionAtLeast (sdl3.version or "0") "3.2.26" &&
+                builtins.elem "test_SDL_SetWindowDisplayMode" (psuper.pysdl2.disabledTests or []) &&
+                !(builtins.elem "test_SDL_GetSetClipRect" (psuper.pysdl2.disabledTests or []))
+            then psuper.pysdl2.overridePythonAttrs (old: {
+                disabledTests = lib.subtractLists [
+                    "test_SDL_SetWindowDisplayMode"
+                    "test_SDL_SetWindowFullscreen"
+                    "test_SDL_GetPlatform"
+                ] (old.disabledTests or []) ++ [
+                    "test_SDL_GetSetClipRect"
+                ];
+            }) else psuper.pysdl2;
             # Backport fix from <https://github.com/NixOS/nixpkgs/pull/405640>
             pygame-ce = let
                 inherit (psuper) pygame-ce;

@@ -34,8 +34,20 @@ overlays = pkgs'.lib.optional (with pkgs'; (
     SDL_compat = super.SDL_compat.overrideAttrs (old: {
         buildInputs = builtins.filter (p: p != null) old.buildInputs;
     });
+}) ++ pkgs'.lib.optional (with pkgs';
+    stdenv.cc.isClang &&
+    lib.versionAtLeast stdenv.cc.version "19" &&
+    !(lib.any (patch: lib.hasSuffix "3.0-mr5531-backport.patch" (""+patch)) (gtk3.patches or []))
+) (self: super: {
+    gtk3 = super.gtk3.overrideAttrs (old: {
+        patches = (old.patches or []) ++ [(pkgs'.fetchurl {
+            url = "https://raw.githubusercontent.com/NixOS/nixpkgs/4cd527d969eef3d54e8814582249f6aa1c3a0a6e/pkgs/development/libraries/gtk/patches/3.0-mr5531-backport.patch";
+            hash = "sha256-uKzaqQRi6nnOH7sDla8o7gd++3L9iT8Xiwampf+NIR0=";
+        })];
+    });
 });
-pkgs = if builtins.length overlays > 0 then pkgs'.appendOverlays overlays else pkgs'; in
+pkgs = if builtins.length overlays > 0 then pkgs'.appendOverlays overlays else pkgs';
+in
 
 let result = pkgs.lib.makeScope pkgs.newScope (self: let
     inherit (self) callPackage myLib;
@@ -77,7 +89,7 @@ in {
             pkgs.lib.versionAtLeast pkgs.allegro5.version "5.2.10.0" &&
             pkgs.lib.versionOlder pkgs.allegro5.version "5.2.10.1"
         ;
-    in dontUpdate (pkgs.allegro5.overrideAttrs (old: {
+    in dontUpdate (myLib.warnDeprecated.allegro5 "allegro5" pkgs.allegro5 (pkgs.allegro5.overrideAttrs (old: {
         patches = (old.patches or []) ++ pkgs.lib.optionals needsMacPatch [
             (pkgs.fetchpatch {
                 url = "https://github.com/Rhys-T/allegro5/commit/7c928e34042fd7b83d55649f240a38e937ed169b.patch";
@@ -93,9 +105,13 @@ in {
         !(old?outputs)
     ) {
         outputs = ["out" "dev"];
-    }));
+    })));
     
-    lix-game-packages = callPackage ./pkgs/lix-game/packages.nix {};
+    lix-game-packages = callPackage ./pkgs/lix-game/packages.nix (pkgs.lib.optionalAttrs myLib.isDeprecated.ldc {
+        inherit (pkgs) buildDubPackage;
+    } // pkgs.lib.optionalAttrs myLib.isDeprecated.allegro5 {
+        inherit (pkgs) allegro5;
+    });
     lix-game = self.lix-game-packages.game;
     lix-game-server = self.lix-game-packages.server;
     lix-game-libpng = if pkgs.stdenv.hostPlatform.isDarwin then (self.lix-game-packages.overrideScope (self: super: {
@@ -104,10 +120,6 @@ in {
     lix-game-issue-431 = if pkgs.stdenv.hostPlatform.isDarwin then (self.lix-game-packages.overrideScope (self: super: {
         convertImagesToTrueColor = false;
         disableNativeImageLoader = false;
-    })).game else self.lix-game;
-    lix-game-CIImage = if pkgs.stdenv.hostPlatform.isDarwin then (self.lix-game-packages.overrideScope (self: super: {
-        convertImagesToTrueColor = false;
-        disableNativeImageLoader = "CIImage";
     })).game else self.lix-game;
     _ciOnly.lix-game = pkgs.lib.recurseIntoAttrs {
         assets = (self.lix-game-packages.overrideScope (self: super: {
@@ -143,7 +155,7 @@ in {
                 hash = oldBootstrapHashes."${OS}-${ARCH}" or (throw "missing bootstrap hash for ${OS}-${ARCH}");
             };
         });
-    in dontUpdate ((pkgs.ldc.override (pkgs.lib.optionalAttrs needsMacPatch {
+    in dontUpdate (myLib.warnDeprecated.ldc "ldc" pkgs.ldc ((pkgs.ldc.override (pkgs.lib.optionalAttrs needsMacPatch {
         ldcBootstrap = oldBootstrap;
     })).overrideAttrs (old: pkgs.lib.optionalAttrs needsMacPatch {
         patches = (old.patches or []) ++ [(pkgs.fetchpatch {
@@ -155,20 +167,20 @@ in {
             description = (old.meta.description or "ldc") + " (fixed for macOS 15.4)";
             pos = myPos "ldc";
         };
-    }));
-    dub = dontUpdate ((pkgs.dub.override {
-        inherit (self) ldc;
+    })));
+    dub = dontUpdate (myLib.warnDeprecated.ldc "dub" pkgs.dub ((pkgs.dub.override {
+        inherit (if myLib.isDeprecated.ldc then pkgs else self) ldc;
     }).overrideAttrs (old: {
         meta = old.meta // {
             description = (old.meta.description or "dub") + " (fixed for macOS 15.4)";
             pos = myPos "dub";
         };
-    }));
-    buildDubPackage = pkgs.buildDubPackage.override {
-        inherit (self) ldc dub;
-    };
+    })));
+    buildDubPackage = myLib.warnDeprecated.ldc "buildDubPackage" pkgs.buildDubPackage (pkgs.buildDubPackage.override {
+        inherit (if myLib.isDeprecated.ldc then pkgs else self) ldc dub;
+    });
     
-    xscorch = callPackage ./pkgs/xscorch {};
+    ${if (builtins.tryEval (pkgs.gtk2 or (throw ""))).success then "xscorch" else null} = callPackage ./pkgs/xscorch {};
     
     impluse = callPackage ./pkgs/impluse {};
     
@@ -176,7 +188,7 @@ in {
     pce-with-unfree-roms = self.pce.override { enableUnfreeROMs = true; };
     pce-snapshot = callPackage ./pkgs/pce/snapshot.nix {};
     
-    bubbros = callPackage ./pkgs/bubbros {};
+    ${if (builtins.tryEval (pkgs.python27 or (throw ""))).success then "bubbros" else null} = callPackage ./pkgs/bubbros {};
     
     flatzebra = callPackage ./pkgs/flatzebra {};
     burgerspace = callPackage ./pkgs/flatzebra/burgerspace.nix {};
@@ -196,13 +208,15 @@ in {
     
     dc2dsk = callPackage ./pkgs/dc2dsk {};
     
-    mame = dontUpdate (callPackage (pkgs.callPackage ./pkgs/mame {}) {});
-    mame-metal = dontUpdate (self.mame.override { darwinMinVersion = "11.0"; });
-    hbmame = callPackage ./pkgs/mame/hbmame {};
-    hbmame-metal = self.hbmame.override { mame = self.mame-metal; };
+    mame = dontUpdate (myLib.warnDeprecated.mame "mame" pkgs.mame (callPackage (pkgs.callPackage ./pkgs/mame {}) {}));
+    mame-metal = let
+        mame-metal = if myLib.isDeprecated.mame then self.mame else self.mame.override { darwinMinVersion = "11.0"; };
+    in dontUpdate (myLib.warnDeprecated.mame "mame-metal" pkgs.mame mame-metal);
+    hbmame = callPackage ./pkgs/mame/hbmame (pkgs.lib.optionalAttrs myLib.isDeprecated.mame { inherit (pkgs) mame; });
+    hbmame-metal = dontUpdate (myLib.warnDeprecated.mame "hbmame-metal" self.hbmame (if myLib.isDeprecated.mame then self.hbmame else self.hbmame.override { mame = self.mame-metal; }));
     
     pacifi3d = callPackage ./pkgs/pacifi3d {};
-    pacifi3d-mame = self.pacifi3d.override { romsFromMAME = self.mame; };
+    pacifi3d-mame = self.pacifi3d.override { romsFromMAME = if myLib.isDeprecated.mame then pkgs.mame else self.mame; };
     pacifi3d-hbmame = self.pacifi3d.override { romsFromMAME = self.hbmame; };
     _ciOnly.pacifi3d-rom-xmls = pkgs.lib.recurseIntoAttrs {
         mame = self.pacifi3d-mame.romsFromXML;
@@ -228,21 +242,21 @@ in {
         } // lib.optionalAttrs needsLibutil {
             buildInputs = (old.buildInputs or []) ++ [darwin.libutil];
         });
-    in dontUpdate (myLib.addMetaAttrsDeep ({
+    in dontUpdate (myLib.warnDeprecated.picolisp "picolisp" picolisp (myLib.addMetaAttrsDeep ({
         description = (picolisp.meta.description or "PicoLisp") + " (fixed for macOS/Darwin)";
         position = myPos "picolisp";
-    }) picolisp');
+    }) picolisp'));
     
     picolisp-rolling = let
         inherit (pkgs) lib fetchFromGitHub;
-        inherit (self) picolisp;
+        inherit (if myLib.isDeprecated.picolisp then pkgs else self) picolisp;
         picolisp' = picolisp.overrideAttrs (old: {
-            version = "25.10.12";
+            version = "26.1.19";
             src = fetchFromGitHub {
                 owner = "picolisp";
                 repo = "pil21";
-                rev = "7c6e69d34360f3312f4deb88082c309df596e477";
-                hash = "sha256-kwnuKyhed30OBRPe07c+G8sBi4QhXgdxDY3cyWuK4tk=";
+                rev = "5a543434afe53db16529b3088ed22af7e1735b94";
+                hash = "sha256-6NaFmyOSF/jjfbUV0HjxSmgW0sU8KonElpljJ+Z6No4=";
             };
             sourceRoot = null;
             passthru = (old.passthru or {}) // {
@@ -261,7 +275,7 @@ in {
                     }
                     jqOrDump() {
                         local data
-                        IFS= read -d ''' data
+                        IFS= read -r -d ''' data
                         set +e
                         printf '%s' "$data" | jq "$@"
                         local exitStatus="$?"
@@ -325,7 +339,7 @@ in {
     icbm3d = let
         inherit (pkgs) stdenv lib icbm3d;
         needsFix = !(lib.any (lib.hasSuffix "-darwin") (icbm3d.meta.platforms or ["-darwin"]));
-    in dontUpdate (myLib.addMetaAttrsDeep {
+    in dontUpdate (myLib.warnDeprecated.pr419640 "icbm3d" icbm3d (myLib.addMetaAttrsDeep {
         description = "${icbm3d.meta.description or "icbm3d"} (fixed for macOS/Darwin)";
         platforms = icbm3d.meta.platforms ++ lib.platforms.darwin;
         position = myPos "icbm3d";
@@ -341,12 +355,12 @@ in {
             # and moves on, but it's probably better to not try it in the first place.
             sed -i '/INSTALLROOT/d' makefile
         '';
-    }) else icbm3d));
+    }) else icbm3d)));
     
     xgalagapp = let
         inherit (pkgs) stdenv lib xgalagapp;
         needsFix = !(lib.any (lib.hasSuffix "-darwin") (xgalagapp.meta.platforms or ["-darwin"]));
-    in dontUpdate (myLib.addMetaAttrsDeep {
+    in dontUpdate (myLib.warnDeprecated.pr419640 "xgalagapp" xgalagapp (myLib.addMetaAttrsDeep {
         description = "${xgalagapp.meta.description or "xgalagapp"} (fixed for macOS/Darwin)";
         platforms = xgalagapp.meta.platforms ++ lib.platforms.darwin;
         position = myPos "xgalagapp";
@@ -364,37 +378,52 @@ in {
             
             runHook postInstall
         '';
-    }) else xgalagapp));
+    }) else xgalagapp)));
     
-    fpc = let
-        inherit (pkgs) lib;
-        fpcOrig = pkgs.fpc;
-        needsOldClang = fpcOrig.stdenv.hostPlatform.isx86_64 && fpcOrig.stdenv.cc.isClang && lib.versionAtLeast fpcOrig.stdenv.cc.version "18" && pkgs?llvmPackages_17 && (builtins.tryEval pkgs.llvmPackages_17).success;
-        fpc = if needsOldClang then fpcOrig.override {
-            inherit (pkgs.llvmPackages_17) stdenv;
-        } else fpcOrig;
-        needsFix =
-            pkgs.stdenv.hostPlatform.isDarwin && 
-            !(lib.hasInfix "-syslibroot $SDKROOT" (fpc.preConfigure or ""))
-        ;
-    in dontUpdate (myLib.addMetaAttrsDeep ({
-        description = "${fpc.meta.description or "fpc"} (fixed for macOS/Darwin, with Clang version capped at 17 to fix build; dead since LLVM 17 removed from Nixpkgs)";
-        position = myPos "fpc";
-    }) (if needsFix then fpc.overrideAttrs (old: {
-        preConfigure = ''
-            NIX_LDFLAGS="-syslibroot $SDKROOT -L${lib.getLib pkgs.libiconv}/lib"
-        '' + (old.preConfigure or "");
-    }) else fpc));
+    # fpc = let
+    #     inherit (pkgs) lib;
+    #     fpcOrig = pkgs.fpc;
+    #     needsOldClang = fpcOrig.stdenv.hostPlatform.isx86_64 && fpcOrig.stdenv.cc.isClang && lib.versionAtLeast fpcOrig.stdenv.cc.version "18" && pkgs?llvmPackages_17 && (builtins.tryEval pkgs.llvmPackages_17).success;
+    #     fpc = if needsOldClang then fpcOrig.override {
+    #         inherit (pkgs.llvmPackages_17) stdenv;
+    #     } else fpcOrig;
+    #     needsFix =
+    #         pkgs.stdenv.hostPlatform.isDarwin && 
+    #         !(lib.hasInfix "-syslibroot $SDKROOT" (fpc.preConfigure or ""))
+    #     ;
+    # in dontUpdate (myLib.addMetaAttrsDeep ({
+    #     description = "${fpc.meta.description or "fpc"} (fixed for macOS/Darwin, with Clang version capped at 17 to fix build; dead since LLVM 17 removed from Nixpkgs)";
+    #     position = myPos "fpc";
+    # }) (if needsFix then fpc.overrideAttrs (old: {
+    #     preConfigure = ''
+    #         NIX_LDFLAGS="-syslibroot $SDKROOT -L${lib.getLib pkgs.libiconv}/lib"
+    #     '' + (old.preConfigure or "");
+    # }) else fpc));
     
-    drl-packages = callPackage ./pkgs/drl/packages.nix {};
+    fpc-fixes_3_2 = callPackage ./pkgs/fpc-fixes_3_2 {};
+    
+    drl-packages = callPackage ./pkgs/drl/packages.nix {
+        fpc = let
+            inherit (pkgs) lib;
+            fpcOrig = pkgs.fpc;
+            fpcClangBroken = fpcOrig.stdenv.hostPlatform.isx86_64 && fpcOrig.stdenv.cc.isClang && lib.versionAtLeast fpcOrig.stdenv.cc.version "18";
+        in if fpcClangBroken then self.fpc-fixes_3_2 else fpcOrig;
+    };
     inherit (self.drl-packages) drl drl-hq drl-lq;
     
     man2html = callPackage ./pkgs/man2html {};
     
     # qemu-screamer-nixpkgs = callPackage ./pkgs/qemu-screamer/nixpkgs.nix {};
-    qemu-screamer = callPackage ./pkgs/qemu-screamer {
-        inherit (pkgs.darwin) sigtool;
-    };
+    qemu-screamer = let
+        nixpkgs-qemu9_1 = callPackage ./pkgs/qemu-screamer/nixpkgs.nix {};
+        canokey-qemu = callPackage ./pkgs/qemu-screamer/canokey-qemu.nix {
+            inherit nixpkgs-qemu9_1;
+        };
+        qemu-screamer = callPackage ./pkgs/qemu-screamer {
+            inherit nixpkgs-qemu9_1 canokey-qemu;
+            inherit (pkgs.darwin) sigtool;
+        };
+    in qemu-screamer;
     
     # _ciOnly.mac = pkgs.lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin (pkgs.lib.recurseIntoAttrs {
     #     wine64Full = pkgs.wine64Packages.full;
@@ -423,7 +452,7 @@ in {
     resource_dasm = callPackage ./pkgs/resource_dasm {};
     
     shapez-ce = callPackage ./pkgs/shapez-ce {};
-        
+    
     # _ciOnly.dev = pkgs.lib.optionalAttrs (pkgs.stdenv.hostPlatform.system == "x86_64-darwin") (pkgs.lib.recurseIntoAttrs {
     #     checkpoint = pkgs.lib.recurseIntoAttrs (pkgs.lib.mapAttrs (k: pkgs.checkpointBuildTools.prepareCheckpointBuild) {
     #         inherit (self)
@@ -431,6 +460,12 @@ in {
     #         ;
     #     });
     # });
+    
+    # wrapStdenv = stdenv: stdenv // {
+    #     mkDerivation = x: (stdenv.mkDerivation x).overrideAttrs { __structuredAttrs = true; };
+    # };
+    # stdenv = self.wrapStdenv pkgs.stdenv;
+    # stdenvNoCC = self.wrapStdenv pkgs.stdenvNoCC;
 }); in result // {
     lib = result.myLib;
     modules = result.myModules;

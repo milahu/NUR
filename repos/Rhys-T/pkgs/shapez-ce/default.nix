@@ -2,34 +2,39 @@
     stdenv, lib,
     buildNpmPackage, fetchNpmDeps,
     fetchFromGitHub, fetchurl,
+    nodejs_22,
     electron_37,
     ffmpeg, jre, zip,
+    rsync,
     removeReferencesTo, buildPackages, makeBinaryWrapper,
     copyDesktopItems, makeDesktopItem, iconConvTools,
+    symlinkJoin, writeShellApplication, unstableGitUpdater,
     maintainers,
 }: buildNpmPackage (finalAttrs: let
     electron = electron_37;
 in {
     pname = "shapez-ce";
-    version = "0-unstable-2025-09-11";
+    version = "0-unstable-2026-01-18";
     src = fetchFromGitHub {
         owner = "tobspr-games";
         repo = "shapez-community-edition";
-        rev = "4a3c5e237f3ff7a8b0ae1de4b601f68b2dbcbdb9";
-        hash = "sha256-wzuyJIax0rtjcnX3viqn7LLyaPqdw4jg3OAMUo1zIQU=";
+        rev = "0fd178acbe4fe81ee0876cf91c5c7707dd652a1c";
+        hash = "sha256-k4DHCH9vqy6aOUwyIIm3/J0If7Z20TQK8qw3BaYpWYY=";
     };
     texturePacker = fetchurl {
         url = "https://web.archive.org/web/20241202185338id_/https://libgdx-nightlies.s3.amazonaws.com/libgdx-runnables/runnable-texturepacker.jar";
         hash = "sha256-M0fvcxIzdMrHq87+dd3N99fvGJARYD7EUth/Gli2q80=";
     };
+    # With nodejs_24, gets an error: `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync.
+    nodejs = nodejs_22;
     npmRebuildFlags = [ "--ignore-scripts" ];
     env.ELECTRON_SKIP_BINARY_DOWNLOAD = "1";
-    npmDepsHash = "sha256-GVeOatGtyKkeRunKrse4c+00UGJlRJWxvVlplpZ47H0=";
+    npmDepsHash = "sha256-c1JErEwRjNCHOuBkTIsuMG3NtSU02yUD4/L73hPhCiU=";
     electronNpmDeps = fetchNpmDeps {
         name = "${finalAttrs.finalPackage.name}-electron-npm-deps";
         inherit (finalAttrs) src;
         sourceRoot = "source/electron";
-        hash = "sha256-K7weaeYq1rXNMW7ppwh65MAT0NxxOxZRMye6VZTpKLs=";
+        hash = "sha256-Z4NU/jpcsJa2HlmCd/kj0QMAAAI7Y/Zs8Jirh6zTqHc=";
     };
     postPatch = ''
         sed -Ei '
@@ -46,7 +51,11 @@ in {
                 '"G_BUILD_TIME": new Date().getTime().toString()' \
                 '"G_BUILD_TIME": new Date(process.env["SOURCE_DATE_EPOCH"]*1000).getTime().toString()'
     '';
-    nativeBuildInputs = [jre ffmpeg zip removeReferencesTo makeBinaryWrapper] ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [copyDesktopItems iconConvTools];
+    nativeBuildInputs =
+        [jre ffmpeg zip removeReferencesTo makeBinaryWrapper]
+        ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [copyDesktopItems iconConvTools]
+        ++ lib.optionals (stdenv.hostPlatform.isDarwin) [rsync]
+    ;
     postConfigure = ''
         cp src/js/core/config.local.template.js src/js/core/config.local.js
         ln -s "$texturePacker" gulp/runnable-texturepacker.jar
@@ -95,9 +104,15 @@ in {
         runHook preInstall
         ${if stdenv.hostPlatform.isDarwin then ''
             mkdir -p "$out/Applications" "$out/bin"
-            cp -R build_output/standalone/shapez-*/shapez.app "$out/Applications/shapez.app"
-            
-            makeBinaryWrapper "$out/Applications/shapez.app/Contents/MacOS/shapezio" "$out/bin/shapez-ce"
+            rsync -a \
+                --exclude='**/Frameworks' \
+                --exclude='**/MacOS/*' \
+                build_output/standalone/shapez-*/shapez.app/ "$out/Applications/shapez.app"
+            makeBinaryWrapper ${lib.getExe electron} "$out/Applications/shapez.app/Contents/MacOS/shapezio" \
+                --add-flags "$out/Applications/shapez.app/Contents/Resources/app.asar" \
+                --set ELECTRON_FORCE_IS_PACKAGED 1 \
+                --inherit-argv0
+            ln -s "$out/Applications/shapez.app/Contents/MacOS/shapezio" "$out/bin/shapez-ce"
         '' else ''
             mkdir -p "$out/share/shapez-ce" "$out/bin"
             cp -R build_output/standalone/shapez-*/{locales,resources{,.pak}} "$out/share/shapez-ce"
@@ -108,6 +123,7 @@ in {
             makeBinaryWrapper ${lib.getExe electron} "$out/bin/shapez-ce" \
                 --add-flags "$out/share/shapez-ce/resources/app.asar" \
                 --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true}}" \
+                --set ELECTRON_FORCE_IS_PACKAGED 1 \
                 --inherit-argv0
         ''}
         mkdir -p "$out/share/licenses/shapez-ce"
@@ -131,5 +147,35 @@ in {
             "x86_64-darwin"
             "aarch64-darwin"
         ];
+    };
+    passthru.updateScript = let
+        fixUpdater = u: u.override (old: {
+            common-updater-scripts = symlinkJoin {
+                name = "shapez-ce-updater-scripts-wrapper";
+                paths = [
+                    (writeShellApplication {
+                        name = "update-source-version";
+                        runtimeInputs = [old.common-updater-scripts];
+                        text = ''
+                            update-source-version "$@"
+                            args=()
+                            for arg in "$@"; do
+                                case "$arg" in
+                                    --rev=*)
+                                        continue
+                                        ;;
+                                esac
+                                args+=("$arg")
+                            done
+                            update-source-version "''${args[@]}" --ignore-same-version --source-key=npmDeps
+                            update-source-version "''${args[@]}" --ignore-same-version --source-key=electronNpmDeps
+                        '';
+                    })
+                    old.common-updater-scripts
+                ];
+            };
+        });
+    in fixUpdater unstableGitUpdater {
+        hardcodeZeroVersion = true;
     };
 })

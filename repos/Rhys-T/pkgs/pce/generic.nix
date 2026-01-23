@@ -6,10 +6,10 @@
     withReadline ? true, readline ? null,
     enableUnfreeROMs ? false,
     libX11 ? null, SDL ? null, SDL2 ? null,
-    buildExtensionROMs ? false, nasm ? null, pkgs ? null,
+    buildExtensionROMs ? false, nasm ? null, pkgsCross ? null,
     appNames ? [],
     callPackage,
-    maintainers
+    maintainers,
 }@args:
 assert builtins.elem withSDL [false 1 2];
 let
@@ -22,7 +22,7 @@ assert withSDL1 -> SDL != null;
 assert withX11 -> libX11 != null;
 assert withReadline -> readline != null;
 assert enableUnfreeROMs -> includesUnfreeROMs;
-assert buildExtensionROMs -> nasm != null && pkgs != null;
+assert buildExtensionROMs -> nasm != null && pkgsCross != null;
 let
     src' = if !includesUnfreeROMs then src else requireFile rec {
         inherit (src) name url;
@@ -57,11 +57,7 @@ let
         '';
         outputHash = src.hashWithoutROMs;
     });
-    pkgsm68kElf = import (pkgs.path+"/pkgs/top-level") {
-        localSystem.system = pkgs.system;
-        crossSystem.config = "m68k-none-elf";
-    };
-    macplus-cc = pkgsm68kElf.stdenv.cc;
+    macplus-cc = pkgsCross.m68k.stdenvNoLibc.cc;
 in
 stdenv.mkDerivation (finalAttrs: {
     pname = "pce" + lib.optionalString enableUnfreeROMs "-with-unfree-roms";
@@ -108,7 +104,7 @@ stdenv.mkDerivation (finalAttrs: {
         maintainers = [maintainers.Rhys-T];
         sourceProvenance = with lib.sourceTypes; [
             fromSource
-        ] ++ lib.optionals (!buildExtensionROMs) [
+        ] ++ lib.optionals (enableUnfreeROMs || !buildExtensionROMs) [
             # A couple of the emulators include 'ROM extensions' that are prebuilt.
             # They're machine code for real CPUs that existed, but in the context of
             # running them in an emulator - and because they actually _need_ to run

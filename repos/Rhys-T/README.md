@@ -32,8 +32,6 @@ hbmame.override (old: {
 })
 ```
 
-By default, this is based on the `mame` derivation from this repo, which also includes fixes to build on macOS/Darwin. There's also an `hbmame-metal` based on `mame-metal` - see [the `mame` notes](#mame) below for more details.
-
 ### `hfsutils`
 
 `hfsutils-tk` is the variant built with Tcl/Tk, which includes the `hfs`, `hfssh`, and `xhfs` commands. (I don't currently have one with Tcl only.)
@@ -67,21 +65,11 @@ However, as far as I know there's no guarantee that NSImage will keep treating t
 
 Therefore, I also have an alternative workaround implemented. If you set `convertImagesToTrueColor` to `false` (or just use `lix-game-libpng`), Lix will instead be linked against a custom build of Allegro 5 which has the macOS native image loader disabled, and instead uses the same `libpng`-based method as on Linux and Windows, avoiding the bug. To prevent this as well (for instance, to test out the bug's behavior on a given version of macOS), additionally set `disableNativeImageLoader` to `false` (or use `lix-game-issue-431`).
 
-You can also set `disableNativeImageLoader` to `"CIImage"` (or use `lix-game-CIImage`) to test out @pedro-w's [CIImage-based loader](https://github.com/liballeg/allegro5/issues/1531#issuecomment-1950198051).
-
 **Update**: Allegro has dropped the macOS native image loader in [liballeg/allegro5#1653](https://github.com/liballeg/allegro5/pull/1653). The workaround will not be applied by default if building with an Allegro release containing that change.
 
 #### SimonN/LixD#128 - NaOH's title screen, include hi-res instead of 640x480
 
 There is a higher-resolution version of Lix's main menu background artwork available, but it hasn't made it into a release yet. Set this to `true` to use it.
-
-### `mame`
-
-The `mame` derivation in nixpkgs is currently broken on macOS. By default, nixpkgs tries to target a minimum macOS version of 10.12, and MAME requires features from newer systems. I can get it to build for macOS 10.15+ by disabling the Metal renderer (`mame`), or for macOS 11 with the Metal renderer enabled (`mame-metal`). On other platforms, these _should_ both just become the normal MAME package as-is.
-
-**Note**: Recent versions of Nixpkgs have bumped the default minimum macOS to 11.3. If you're using those versions, `mame` will be the same derivation as `mame-metal`.
-
-(Meanwhile, `mame` also depends on `papirus-icon-theme`, which is marked Linux-only for reasons. So I'm cheating and extracting the one icon it actually needs as its own derivation on non-Linux systems.)
 
 ### `minivmac`
 
