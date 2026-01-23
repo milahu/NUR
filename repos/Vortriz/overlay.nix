@@ -1,15 +1,41 @@
-# You can use this file as a nixpkgs overlay. This is useful in the
-# case where you don't want to add the whole NUR namespace to your
-# configuration.
-_self: super: let
-    isReserved = n: n == "lib" || n == "overlays" || n == "modules";
-    nameValuePair = n: v: {
-        name = n;
-        value = v;
-    };
-    nurAttrs = import ./default.nix {pkgs = super;};
+let
+    lib' = import ./lib.nix;
 in
-    builtins.listToAttrs
-    (map (n: nameValuePair n nurAttrs.${n})
-    (builtins.filter (n: !isReserved n)
-        (builtins.attrNames nurAttrs)))
+{
+    default =
+        final: prev:
+        (prev.lib.packagesFromDirectoryRecursive {
+            callPackage = prev.lib.callPackageWith final;
+            directory = ./pkgs/by-name;
+        });
+
+    espansoPackages = final: prev: {
+        espansoPackages = prev.lib.packagesFromDirectoryRecursive {
+            callPackage = prev.lib.callPackageWith final;
+            directory = ./pkgs/espansoPackages;
+        };
+    };
+
+    fonts = final: prev: {
+        fonts = prev.lib.packagesFromDirectoryRecursive {
+            callPackage = prev.lib.callPackageWith final;
+            directory = ./pkgs/fonts;
+        };
+    };
+
+    yaziPlugins = _final: prev: {
+        yaziPlugins =
+            prev.yaziPlugins
+            // (prev.lib.packagesFromDirectoryRecursive {
+                callPackage = (lib' prev).callYaziPlugin;
+                directory = ./pkgs/yaziPlugins;
+            });
+    };
+
+    zoteroAddons = _final: prev: {
+        zoteroAddons = prev.lib.packagesFromDirectoryRecursive {
+            callPackage = (lib' prev).callZoteroAddon;
+            directory = ./pkgs/zoteroAddons;
+        };
+    };
+}

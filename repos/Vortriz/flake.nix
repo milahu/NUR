@@ -2,77 +2,47 @@
     description = "My personal NUR repository";
 
     inputs = {
-        nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
-        pre-commit-hooks = {
-            url = "github:cachix/git-hooks.nix";
+        nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+        systems.url = "github:nix-systems/x86_64-linux";
+        flake-parts.url = "github:hercules-ci/flake-parts";
+        devshell = {
+            url = "github:numtide/devshell";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
         treefmt-nix = {
             url = "github:numtide/treefmt-nix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
-    outputs = {
-        self,
-        nixpkgs,
-        ...
-    } @ inputs: let
-        forAllSystems = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
-        forAllPkgs = f: forAllSystems (system: f nixpkgs.legacyPackages.${system});
-        treefmtEval = forAllPkgs (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
-    in {
-        legacyPackages = forAllSystems (system:
-            import ./default.nix {
-                pkgs = import nixpkgs {inherit system;};
-            });
+    outputs =
+        { nixpkgs, flake-parts, ... }@inputs:
+        flake-parts.lib.mkFlake { inherit inputs; } {
+            systems = import inputs.systems;
 
-        formatter = forAllPkgs (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+            imports = [
+                ./devshell.nix
+                ./treefmt.nix
+            ];
 
-        checks = forAllSystems (system: {
-            pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
-                src = ./.;
-                hooks = {
-                    flake-checker = {
-                        enable = true;
-                        after = ["treefmt-nix"];
+            perSystem =
+                {
+                    pkgs,
+                    system,
+                    ...
+                }:
+                {
+                    _module.args.pkgs = import nixpkgs {
+                        inherit system;
+                        config.allowUnfree = true;
                     };
-                    treefmt-nix = {
-                        enable = true;
-                        entry = "${treefmtEval.${system}.config.build.wrapper}/bin/treefmt";
-                        pass_filenames = false;
-                    };
+
+                    legacyPackages = import ./default.nix { inherit pkgs; };
                 };
+
+            flake = {
+                overlays = import ./overlay.nix;
+                homeModules = import ./modules/home-manager;
             };
-        });
-
-        packages = forAllSystems (system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system});
-
-        homeManagerModules = import ./modules/home-manager;
-
-        devShells = forAllSystems (system: let
-            pkgs = nixpkgs.legacyPackages.${system};
-        in {
-            default = pkgs.mkShell {
-                inherit (self.checks.${system}.pre-commit-check) shellHook;
-
-                buildInputs = [
-                    self.checks.${system}.pre-commit-check.enabledPackages
-                    treefmtEval.${system}.config.build.wrapper
-                ];
-
-                packages =
-                    (with pkgs; [
-                        alejandra
-                        just
-                        nvfetcher
-                    ])
-                    ++ (with self.packages.${system}; [
-                        niriswitcher
-                    ]);
-            };
-        });
-    };
+        };
 }

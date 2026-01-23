@@ -1,3 +1,3 @@
 {
-    niriswitcher = import ./niriswitcher.nix;
+    zotero = import ./zotero.nix;
 }

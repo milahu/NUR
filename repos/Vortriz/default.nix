@@ -1,5 +1,44 @@
-{pkgs ? import <nixpkgs> {}}:
-import ./pkgs pkgs
+{
+    pkgs ? import <nixpkgs> { config.allowUnfree = true; },
+}:
+let
+    inherit (pkgs) lib;
+    inherit (lib) recurseIntoAttrs packagesFromDirectoryRecursive;
+    inherit (pkgs) callPackage;
+
+    lib' = import ./lib.nix pkgs;
+    inherit (lib') callYaziPlugin callZoteroAddon;
+
+in
+(packagesFromDirectoryRecursive {
+    inherit callPackage;
+    directory = ./pkgs/by-name;
+})
+// (packagesFromDirectoryRecursive {
+    inherit callPackage;
+    directory = ./pkgs/deps;
+})
 // {
-    homeManagerModules = import ./modules/home-manager;
+    espansoPackages = pkgs.lib.packagesFromDirectoryRecursive {
+        inherit callPackage;
+        directory = ./pkgs/espansoPackages;
+    };
+}
+// {
+    fonts = recurseIntoAttrs (packagesFromDirectoryRecursive {
+        inherit callPackage;
+        directory = ./pkgs/fonts;
+    });
+}
+// {
+    yaziPlugins = recurseIntoAttrs (packagesFromDirectoryRecursive {
+        callPackage = callYaziPlugin;
+        directory = ./pkgs/yaziPlugins;
+    });
+}
+// {
+    zoteroAddons = recurseIntoAttrs (packagesFromDirectoryRecursive {
+        callPackage = callZoteroAddon;
+        directory = ./pkgs/zoteroAddons;
+    });
 }
