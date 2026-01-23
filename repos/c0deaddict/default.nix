@@ -16,6 +16,8 @@ rec {
   hmModules = import ./hm-modules; # Home-manager modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  cameractrls = pkgs.callPackage ./pkgs/cameractrls {};
+
   dcpj315w = pkgs.callPackage ./pkgs/brother/dcpj315w { };
 
   emacs-i3 = pkgs.callPackage ./pkgs/emacs-i3 { };
@@ -46,7 +48,7 @@ rec {
 
   marble-marcher = pkgs.callPackage ./pkgs/marble-marcher { };
 
-  oversteer = pkgs.callPackage ./pkgs/oversteer { };
+  nftables-exporter = pkgs.callPackage ./pkgs/nftables-exporter {};
 
   rofi-pulse = pkgs.callPackage ./pkgs/rofi-pulse { my-lib = lib; };
 
@@ -62,7 +64,4 @@ rec {
 
   zsh-kubectl-prompt = pkgs.callPackage ./pkgs/zsh-kubectl-prompt { };
 
-  acme-dns = pkgs.callPackage ./pkgs/acme-dns {};
-
-  cameractrls = pkgs.callPackage ./pkgs/cameractrls {};
 }
