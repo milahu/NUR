@@ -237,6 +237,9 @@ rec {
     electron = electron_castlabs_38;
   };
 
+  ladybird = pkgs.callPackage ./pkgs/ladybird/package.nix {
+  };
+
   proton-cachyos = pkgs.callPackage ./pkgs/proton-bin {
     toolTitle = "Proton-CachyOS";
     tarballPrefix = "proton-";
@@ -359,6 +362,8 @@ rec {
 
   musescore-evolution = v3overrideAttrs (pkgs.callPackage ./pkgs/musescore-evolution/package.nix { });
 
+  speed-dreams = (pkgs.callPackage ./pkgs/speed-dreams/package.nix { });
+
 }
 // (lib.optionalAttrs (!nurbot) rec {
 
@@ -366,7 +371,7 @@ rec {
 
   line = callPackage ./pkgs/line.nix {
     inherit (lib) mkWindowsAppNoCC copyDesktopIcons makeDesktopIcon;
-    wine = pkgs.wineWowPackages.full; # enableMonoBootPrompt is broken rightnow. use full to avoid boot prompt
+    wine = pkgs.wineWow64Packages.full; # enableMonoBootPrompt is broken rightnow. use full to avoid boot prompt
   };
   adobe-acrobat-reader = callPackage ./pkgs/adobe-acrobat-reader.nix {
     inherit (lib) mkWindowsAppNoCC makeDesktopIcon copyDesktopIcons;
@@ -377,11 +382,18 @@ rec {
       gawk
       ;
     inherit (pkgs) xorg;
-    wine = pkgs.winePackages.full;
+    wine = pkgs.wineWow64Packages.full;
   };
   adobe-acrobat-reader_virtualDesktop = adobe-acrobat-reader.override {
     virtualDesktop = true;
   };
+
+  affinity-v3 = callPackage ./pkgs/affinity-v3 {
+    inherit pkgs;
+    build = lib;
+    wine = pkgs.wineWow64Packages.full;
+  };
+
   wineshell-wine64 = callPackage ./pkgs/wineshell/default.nix {
     inherit (lib) mkWindowsApp;
     wine = pkgs.wine64Packages.stableFull;
@@ -456,13 +468,13 @@ rec {
   notepad-plus-plus = callPackage ./pkgs/notepad++.nix {
     inherit pkgs;
     build = lib;
-    wine = pkgs.wineWowPackages.full; # enableMonoBootPrompt is broken rightnow. use full to avoid boot prompt
+    wine = pkgs.wineWow64Packages.full; # enableMonoBootPrompt is broken rightnow. use full to avoid boot prompt
   };
 
   insta360-studio = callPackage ./pkgs/insta360-studio.nix {
     inherit pkgs;
     build = lib;
-    wine = pkgs.wineWowPackages.full;
+    wine = pkgs.wineWow64Packages.full;
   };
 
   supertuxkart-evolution = v3override (
