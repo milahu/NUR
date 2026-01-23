@@ -17,6 +17,8 @@
   hayase = pkgs.callPackage ./pkgs/hayase {};
   helium = pkgs.callPackage ./pkgs/helium {};
   hyprshot = pkgs.callPackage ./pkgs/hyprshot {};
+  krita = pkgs.callPackage ./pkgs/krita {};
+  krita-unwrapped = pkgs.libsForQt5.callPackage ./pkgs/krita-unwrapped {};
   obsidian-excalidraw-plugin = pkgs.callPackage ./pkgs/obsidian-excalidraw-plugin {};
   obsidian-git = pkgs.callPackage ./pkgs/obsidian-git {};
   obsidian-hider = pkgs.callPackage ./pkgs/obsidian-hider {};
