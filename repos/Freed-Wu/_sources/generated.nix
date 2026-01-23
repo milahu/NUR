@@ -12,6 +12,14 @@
       sha256 = "sha256-64KFbS63jyPhl4z0tsS+7vg6b2XrL2uIzhzWtOepu5k=";
     };
   };
+  clipman = {
+    pname = "clipman";
+    version = "3.3.3";
+    src = fetchurl {
+      url = "https://pypi.org/packages/source/c/clipman/clipman-3.3.3.tar.gz";
+      sha256 = "sha256-gDQdcY7z5TRAARZ+UBc7KUZRb4lwuRgDNdLeldV/QDw=";
+    };
+  };
   expect-language-server = {
     pname = "expect-language-server";
     version = "0.0.1";
@@ -41,26 +49,26 @@
   };
   mutt-language-server = {
     pname = "mutt-language-server";
-    version = "0.0.12";
+    version = "0.0.17";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/m/mutt_language_server/mutt_language_server-0.0.12.tar.gz";
-      sha256 = "sha256-bzBhVkH/Np8kQSWou1hZBYXCJfBDg/d0knJY4Ht7A9g=";
+      url = "https://pypi.org/packages/source/m/mutt_language_server/mutt_language_server-0.0.17.tar.gz";
+      sha256 = "sha256-2NL+XfSAe3MjdFUyeZyv6CmLBsYxJHb6ky2CKmWsGe0=";
     };
   };
   pyrime = {
     pname = "pyrime";
-    version = "0.1.0";
+    version = "0.2.2";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/p/pyrime/pyrime-0.1.0.tar.gz";
-      sha256 = "sha256-ikUwxzgXseJ9Gr+ZK7LXnO2wg7ww/xZOxk9uW/WkHrE=";
+      url = "https://pypi.org/packages/source/p/pyrime/pyrime-0.2.2.tar.gz";
+      sha256 = "sha256-vlAWrn64SfNVgSlvD+vuc//oYwhx61CRZ8boKj8IlA0=";
     };
   };
   requirements-language-server = {
     pname = "requirements-language-server";
-    version = "0.0.21";
+    version = "0.0.22";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/r/requirements_language_server/requirements_language_server-0.0.21.tar.gz";
-      sha256 = "sha256-y93uwqRqOq5MVpXq6wsR3Y4zT48UyWGS4gElQ8VajrA=";
+      url = "https://pypi.org/packages/source/r/requirements_language_server/requirements_language_server-0.0.22.tar.gz";
+      sha256 = "sha256-R/dvvv0KIpZQNOQMXlqLW2TfcKSb5h2qHNPkQfQeC/4=";
     };
   };
   sublime-syntax-language-server = {
@@ -73,37 +81,26 @@
   };
   termux-language-server = {
     pname = "termux-language-server";
-    version = "0.0.27";
+    version = "0.0.31";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/t/termux_language_server/termux_language_server-0.0.27.tar.gz";
-      sha256 = "sha256-kvuBKYvCfzHuAdsSnF0xA37E6BsTmxUDu+YgU7DvIHI=";
+      url = "https://pypi.org/packages/source/t/termux_language_server/termux_language_server-0.0.31.tar.gz";
+      sha256 = "sha256-PtUWZvulzXgn9sqfedSlX4aS+Gdq44XTE9VyQi0+XgM=";
     };
   };
   tmux-language-server = {
     pname = "tmux-language-server";
-    version = "0.0.11";
+    version = "0.0.17";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/t/tmux_language_server/tmux_language_server-0.0.11.tar.gz";
-      sha256 = "sha256-K6e7mqGrhz/qXtw3rzZ0jMooMp003pXMavsfT94lgps=";
+      url = "https://pypi.org/packages/source/t/tmux_language_server/tmux_language_server-0.0.17.tar.gz";
+      sha256 = "sha256-PUmfq4CJ0V9BhBwYCX5AfaZYy7lvNo2/zF11h64ZM4c=";
     };
   };
   translate-shell = {
     pname = "translate-shell";
-    version = "0.0.53";
+    version = "0.0.59";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/t/translate_shell/translate_shell-0.0.53.tar.gz";
-      sha256 = "sha256-a4DCzchW8WAe6GScLkSiCq5s040mdh+AuXXhR2zSZ2k=";
-    };
-  };
-  tree-sitter-bash = {
-    pname = "tree-sitter-bash";
-    version = "v0.25.0";
-    src = fetchFromGitHub {
-      owner = "tree-sitter";
-      repo = "tree-sitter-bash";
-      rev = "v0.25.0";
-      fetchSubmodules = false;
-      sha256 = "sha256-vRaN/mNfpR+hdv2HVS1bzaW0o+HGjizRFsk3iinICJE=";
+      url = "https://pypi.org/packages/source/t/translate_shell/translate_shell-0.0.59.tar.gz";
+      sha256 = "sha256-3hRSLKA5aI7bgtCAafxwj7WeQO8GmIwTEeJoSp3CvHs=";
     };
   };
   tree-sitter-muttrc = {
@@ -173,10 +170,10 @@
   };
   zathura-language-server = {
     pname = "zathura-language-server";
-    version = "0.0.13";
+    version = "0.0.14";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/z/zathura_language_server/zathura_language_server-0.0.13.tar.gz";
-      sha256 = "sha256-jfqUMLHspSV2X+8dUGw0iyfl1dpAx9nllJqCxJ/r9Ss=";
+      url = "https://pypi.org/packages/source/z/zathura_language_server/zathura_language_server-0.0.14.tar.gz";
+      sha256 = "sha256-ndrKPy1mrF/UJ4mSz05n8F3gQn4zMd+XnmGpS1PBfRw=";
     };
   };
 }

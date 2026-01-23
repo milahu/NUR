@@ -1,6 +1,7 @@
 {
   mySources,
   python3,
+  clipman,
   lib,
 }:
 
@@ -12,15 +13,16 @@ buildPythonPackage rec {
   disabled = pythonOlder "3.6";
   propagatedBuildInputs = [
     aiohttp
+    clipman
     colorama
     keyring
     langdetect
     jedi
-    pynotifier
+    notify-py
     rich
     pystardict
     repl-python-wakatime
-    pygls
+    pygls_2
     pyyaml
   ];
   nativeBuildInputs = [

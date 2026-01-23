@@ -2,9 +2,9 @@
   lib,
   fetchFromGitHub,
   tcl,
-  tcllib,
+  tclPackages,
   tclreadline,
-  wakatime,
+  wakatime-cli,
   expect,
 }:
 
@@ -22,9 +22,9 @@ tcl.mkTclDerivation rec {
 
   buildInputs = [
     tclreadline
-    tcllib
+    tclPackages.tcllib
     expect
-    wakatime
+    wakatime-cli
   ];
   installPhase = ''
     install -d $out/lib
