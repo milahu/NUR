@@ -139,6 +139,7 @@ rec {
     rocksmith-custom-song-toolkit = rocksmith-custom-song-toolkit;
   };
   browser-115-bin = pkgs.callPackage ./pkgs/115-browser-bin { };
+  browseros = pkgs.callPackage ./pkgs/browseros { };
   bionic-translation = pkgs.callPackage ./pkgs/bionic-translation/package.nix { };
   art-standalone = pkgs.callPackage ./pkgs/art-standalone/package.nix {
     bionic-translation = bionic-translation;
@@ -152,6 +153,7 @@ rec {
   };
   beammp-server = pkgs.callPackage ./pkgs/beammp-server/package.nix { };
   chatall = pkgs.callPackage ./pkgs/chatall/package.nix { };
+  dl-librescore = pkgs.callPackage ./pkgs/dl-librescore/package.nix { };
   superTux = pkgs.callPackage ./pkgs/superTux/package.nix { };
   ogre-1_11 = v3overrideAttrs (pkgs.callPackage ./pkgs/ogre-1_11/package.nix { });
   angelscript_2_35_1 = v3overrideAttrs (
@@ -354,15 +356,9 @@ rec {
 
   stuntrally2 = pkgs.callPackage ./pkgs/stuntrally { };
 
-  ogre-next-445054 = v3overrideAttrs (pkgs.callPackage ./pkgs/ogre-next-445054/package.nix { });
-
-  stuntrally = v3overrideAttrs (
-    pkgs.callPackage ./pkgs/stuntrally-445054/package.nix { ogre-next = ogre-next-445054; }
-  );
-
   musescore-evolution = v3overrideAttrs (pkgs.callPackage ./pkgs/musescore-evolution/package.nix { });
 
-  speed-dreams = (pkgs.callPackage ./pkgs/speed-dreams/package.nix { });
+  citron-emu = v3overrideAttrs (pkgs.callPackage ./pkgs/citron-emu/package.nix { });
 
 }
 // (lib.optionalAttrs (!nurbot) rec {
