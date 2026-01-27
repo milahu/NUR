@@ -1,10 +1,10 @@
 { library ? ./., nur ? null, search ? [ ], stable }:
 
 let
-  inherit (builtins) attrNames attrValues elemAt filter findFile functionArgs isAttrs isPath length mapAttrs match nixPath pathExists removeAttrs toJSON tryEval;
+  inherit (builtins) attrNames attrValues filter findFile functionArgs isAttrs isPath length mapAttrs nixPath pathExists removeAttrs tryEval;
   inherit (stable) fetchgit makeWrapper symlinkJoin;
-  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const defaultTo escapeShellArg findFirst genAttrs getAttrFromPath hasAttrByPath imap1 info last mapAttrs' mapAttrsToList nameValuePair naturalSort optional optionals optionalAttrs optionalString partition recurseIntoAttrs recursiveUpdate showAttrPath throwIf toList unique versionAtLeast versionOlder;
-  inherit (import ./utilities.lib.nix { inherit (stable) lib; }) uniqueBy;
+  inherit (stable.lib) attrByPath concatMapStringsSep concatStringsSep const defaultTo escapeShellArg findFirst genAttrs getAttrFromPath hasAttrByPath imap1 info last mapAttrs' mapAttrsToList nameValuePair naturalSort optional optionals optionalAttrs optionalString partition recurseIntoAttrs recursiveUpdate showAttrPath throwIf toList;
+  inherit (import ./utilities.lib.nix { inherit (stable) lib; }) uniqueBy versionSatisfied;
 
   # Utilities
   composeOverrides = f1: f2: a0: let o1 = f1 a0; o2 = f2 (a0 // o1); in o1 // o2;
@@ -18,13 +18,6 @@ let
   mkRepo = name: path: (import path { inherit (stable) config; overlays = [ ]; }) // { _name = name; };
   repoEq = a: b: repoName a == repoName b;
   repoName = r: if isPath r then toString r else r._name or r.lib.trivial.version;
-  versionMeetsSpec = candidate: spec:
-    let parts = match "^([^[:alnum:]]+)?(.+)$" spec; operator = elemAt parts 0; version = elemAt parts 1; in
-    spec == null || spec == "∞" || (if operator == null then candidate == version
-    else if operator == "≠" then candidate != version
-    else if operator == "<" then versionOlder candidate version
-    else if operator == "≥" then versionAtLeast candidate version
-    else throw "version operator not implemented: ${toJSON operator}");
 
   # Repositories
   defaultExtra = genAttrs resolvedSearch.right (name: mkRepo name (findFile nixPath name));
@@ -98,7 +91,7 @@ let
         let p' = if overlay == null then p else p.overrideAttrs overlay; in
         (tryEval p').success
         && (! (p' ? meta && p'.meta.broken))
-        && (versionMeetsSpec p.version version)
+        && (version == null || versionSatisfied p.version version)
         && (condition == null || condition p)
         && (dontEval || ! p' ? outPath || (tryEval (ignoreLicense p').outPath).success);
       repoSuffices = r: r != null && (
@@ -108,7 +101,7 @@ let
             && (packageSuffices (target.callPackage r deps))
         else
           (hasAttrByPath path r)
-            && (release == null || versionMeetsSpec r.lib.trivial.release release)
+            && (release == null || versionSatisfied r.lib.trivial.release release)
             && ((isFunctor r path || isScope r path || isSet r path) || (packageSuffices (getAttrFromPath path r)))
       );
       base = uniqueBy repoName ([ target ] ++ (attrValues defaultExtra));

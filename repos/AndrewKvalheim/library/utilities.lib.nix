@@ -1,8 +1,8 @@
 { lib }:
 
 let
-  inherit (builtins) add all attrValues ceil concatLists elem elemAt foldl' getAttr hasAttr head isFunction length listToAttrs mapAttrs match split stringLength tail;
-  inherit (lib) concatLines concatImapStringsSep concatMapStrings concatMapStringsSep escapeShellArg fixedWidthNumber flip fold id ifilter0 imap0 isList max min mod nameValuePair pipe range removeSuffix splitString stringToCharacters throwIf throwIfNot toCamelCase toHexString zipAttrsWith;
+  inherit (builtins) add all attrValues ceil concatLists elem elemAt filter foldl' getAttr hasAttr head isFunction isString length listToAttrs mapAttrs match split stringLength tail toJSON;
+  inherit (lib) concatLines concatImapStringsSep concatMapStrings concatMapStringsSep escapeShellArg fixedWidthNumber flip fold id ifilter0 imap0 isList max min mod nameValuePair pipe range removeSuffix splitString stringToCharacters throwIf throwIfNot toCamelCase toHexString versionAtLeast versionOlder zipAttrsWith;
   inherit (lib.strings) replicate;
   inherit (import <nix-math> { inherit lib; }) cos pi pow round sin;
 
@@ -182,6 +182,23 @@ rec {
     (acc: x: let x' = f x; in if elem x' acc.xs' then acc else zipAttrsFlat [ acc { xs = [ x ]; xs' = [ x' ]; } ])
     { xs = [ ]; xs' = [ ]; }
     xs).xs;
+
+  versionSatisfied = v: spec:
+    let
+      v' = if isString v then v else v.version;
+
+      satisfied = expr:
+        let parts = match "^([^[:alnum:]]+)?(.+)$" expr; operator = head parts; reference = elemAt parts 1; in
+        if operator == null then v' == reference
+        else if operator == "∞" then true
+        else if operator == "≠" then v' != reference
+        else if operator == "<" then versionOlder v' reference
+        else if operator == "≥" then versionAtLeast v' reference
+        else throw "version operator not implemented: ${toJSON operator}";
+    in
+    all satisfied (filter isString (split ",[[:space:]]*" spec));
+
+  versionsSatisfied = all (pr: let v = head pr; rs = elemAt pr 1; in versionSatisfied v rs);
 
   zipAttrsFlat = zipAttrsWith (_: concatLists);
 }

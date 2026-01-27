@@ -9,15 +9,15 @@
 }:
 
 let
-  inherit (lib) versionAtLeast versionOlder;
+  inherit (import ../library/utilities.lib.nix { inherit lib; }) versionsSatisfied;
 in
 python3.pkgs.buildPythonApplication rec {
   pname = "pdfalyzer";
-  version = "1.17.11";
+  version = "1.18.1";
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-IIPnMh4B8HVV3gdsQOGwvDrUIoc7xkRnKmW47d25YN0=";
+    hash = "sha256-uP6sSDqE1VPKItyar1LQ3GB/5DS0UVihPshQRlS8UeM=";
   };
 
   format = "pyproject";
@@ -34,6 +34,9 @@ python3.pkgs.buildPythonApplication rec {
     homepage = "https://github.com/michelcrypt4d4mus/pdfalyzer";
     license = lib.licenses.gpl3Only;
     mainProgram = "pdfalyze";
-    broken = versionOlder python3.pkgs.pypdf.version "6.4.2" || versionAtLeast python3.pkgs.pypdf.version "6.5";
+    broken = with python3.pkgs; ! versionsSatisfied [
+      [ pypdf "6.6.0" ]
+      [ yaralyzer "≥1.0.13, <2" ]
+    ];
   };
 }

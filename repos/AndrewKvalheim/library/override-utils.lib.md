@@ -34,19 +34,14 @@ specify {
 }
 ```
 
-Search for a minimum version:
+Search by version:
 
 ```nix
 specify {
-  hello.version = "≥2.12";
-}
-```
-
-Search for the latest version:
-
-```nix
-specify {
-  hello.version = "∞";
+  hello.version = "2.12"; # Exact
+  hello.version = "≥2.12"; # Minimum
+  hello.version = "≥2.12, <3"; # Range
+  hello.version = "∞"; # Latest
 }
 ```
 
