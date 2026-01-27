@@ -1,16 +1,16 @@
 {
 "name":"AndrewKvalheim",
-"fetch_time":3.164,
-"eval_time":0.298,
+"fetch_time":3.555,
+"eval_time":0.291,
 "source":{
 "url":"https://codeberg.org/AndrewKvalheim/configuration",
-"rev":"71f135de054d735d98c859eb3665f6aef73ce71a",
-"sha256":"058q1dfydfxrdkqck5hzyl19mz8088pvlhhmh5bf5nwy37qiaji7",
+"rev":"6329961698499fe624e22bf363e2ff4b6017f521",
+"sha256":"1fr1zdbwnirkx0ka4q1hy9s4y3zrj18az21spsj4rf8xzs1y15f1",
 "date":null
 },
-"source_storepath":"/nix/store/l094zva0z4xqpkk2jpb4bvxbqli43z70-configuration",
-"nixpkgs_storepath":"/nix/store/l5hklhcbk9rvhd07n9bsnvply6fr2xhq-source",
-"nur_combined_rev":"97c2059e61536dcc5055c344c8a377ab967f04ba",
+"source_storepath":"/nix/store/pjfz94bnjq7lx8y5jy1yq7ryq89qy4mx-configuration",
+"nixpkgs_storepath":"/nix/store/sc0xmgivcygznp3ld0ihfs37mibn6a99-source",
+"nur_combined_rev":"4fcbb98dd9dc254b7b4eac2313742d624757459d",
 "packages":{
 "apex":{
 "meta":{
@@ -278,18 +278,17 @@
 "name":"Janne He\u00df"
 },
 {
-"email":"simon-hauser@outlook.com",
-"github":"Conni2461",
-"githubId":15233006,
-"name":"Simon Hauser"
-},
-{
 "email":"joachim.ernst@helsinki-systems.de",
 "github":"helsinki-Jo",
 "githubId":155722885,
 "name":"Joachim Ernst"
 }
 ],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/sc0xmgivcygznp3ld0ihfs37mibn6a99-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
+"line":74
+},
 "name":"python3.13-busyserve-0.45.3",
 "outputsToInstall":[
 "out"
@@ -327,38 +326,6 @@
 "aarch64-freebsd"
 ],
 "position":"<nixpkgs> + /pkgs/development/python-modules/busylight-for-humans/default.nix:70",
-"teams":[
-{
-"members":[
-{
-"email":"janne@hess.ooo",
-"github":"dasJ",
-"githubId":4971975,
-"matrix":"@janne.hess:helsinki-systems.de",
-"name":"Janne He\u00df"
-},
-{
-"email":"simon-hauser@outlook.com",
-"github":"Conni2461",
-"githubId":15233006,
-"name":"Simon Hauser"
-},
-{
-"email":"joachim.ernst@helsinki-systems.de",
-"github":"helsinki-Jo",
-"githubId":155722885,
-"name":"Joachim Ernst"
-}
-],
-"scope":"Group registration for packages maintained by Helsinki Systems",
-"shortName":"Helsinki Systems employees"
-}
-],
-"teamsPosition":{
-"column":5,
-"file":"/nix/store/l5hklhcbk9rvhd07n9bsnvply6fr2xhq-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
-"line":74
-},
 "unfree":false,
 "unsupported":false
 },
@@ -2238,8 +2205,8 @@
 },
 "pdfalyzer":{
 "meta":{
-"available":false,
-"broken":true,
+"available":true,
+"broken":false,
 "description":"Analyze PDFs with colors (and YARA)",
 "homepage":"https://github.com/michelcrypt4d4mus/pdfalyzer",
 "identifiers":{
@@ -2312,7 +2279,7 @@
 },
 "mainProgram":"pdfalyze",
 "maintainers":[],
-"name":"pdfalyzer-1.17.11",
+"name":"pdfalyzer-1.18.1",
 "outputsToInstall":[
 "out"
 ],
@@ -2352,7 +2319,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"pdfalyzer-1.17.11",
+"name":"pdfalyzer-1.18.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -2360,7 +2327,7 @@
 },
 "pname":"pdfalyzer",
 "system":"x86_64-linux",
-"version":"1.17.11"
+"version":"1.18.1"
 },
 "pngquant-interactive":{
 "meta":{
