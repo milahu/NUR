@@ -18,17 +18,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        nix_path:
+        nix:
           - nixpkgs-unstable.tar.gz
           - nixos-unstable.tar.gz
-          - nixos-25.11.tar.gz
-    runs-on: ubuntu-latest
+        image:
+          - ubuntu-24.04
+          - ubuntu-24.04-arm
+          - macos-26
+    runs-on: ${{ matrix.image }}
     steps:
       - name: Initialize
-        uses: spotdemo4/nix-init@8d36eeb846809ef31d0a7ca78adcdf6c2500c83a # v1.20.1
+        uses: spotdemo4/nix-init@842337cdd1a41ced81cb88edfd632589ee53ad2d # v1.22.0
         with:
-          attic_token: ${{ secrets.ATTIC_TOKEN }}
           attic_cache: nur
+          attic_token: ${{ secrets.ATTIC_TOKEN }}
           shell: check
 
       - name: Build packages
@@ -36,17 +39,24 @@ jobs:
           nix-fast-build \
             --skip-cached \
             --no-nom \
-            --override-input nixpkgs "https://github.com/NixOS/nixpkgs/archive/refs/heads/${{ matrix.nix_path }}" \
+            --override-input nixpkgs "https://github.com/NixOS/nixpkgs/archive/refs/heads/${{ matrix.nix }}" \
             --flake ".#packages.$(nix eval --raw --impure --expr builtins.currentSystem)"
 
   flake:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        image:
+          - ubuntu-24.04
+          - ubuntu-24.04-arm
+          - macos-26
+    runs-on: ${{ matrix.image }}
     steps:
       - name: Initialize
-        uses: spotdemo4/nix-init@8d36eeb846809ef31d0a7ca78adcdf6c2500c83a # v1.20.1
+        uses: spotdemo4/nix-init@842337cdd1a41ced81cb88edfd632589ee53ad2d # v1.22.0
         with:
-          attic_token: ${{ secrets.ATTIC_TOKEN }}
           attic_cache: nur
+          attic_token: ${{ secrets.ATTIC_TOKEN }}
 
       - name: Run flake checks
         run: nix flake check

@@ -7,8 +7,10 @@
   lib,
   makeWrapper,
   ncurses,
+  nix-update-script,
   nix-update,
   nodejs_latest,
+  python3,
   runtimeShell,
   shellcheck,
   stdenv,
@@ -16,13 +18,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "bumper";
-  version = "0.10.0";
+  version = "0.10.2";
 
   src = fetchFromGitHub {
     owner = "spotdemo4";
     repo = "bumper";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-nw8B6oeF8Jc27jxCO4u86Majpt2YoGf5/a8E5VUIW28=";
+    hash = "sha256-o7tgHpVt9vt33323Um4Xjv/WxPkN0wQZOYzruZFvy1g=";
   };
 
   nativeBuildInputs = [
@@ -46,6 +48,7 @@ stdenv.mkDerivation (finalAttrs: {
     nodejs_latest
 
     # python
+    python3
     uv
   ];
 
@@ -75,6 +78,15 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   dontFixup = true;
+
+  passthru = {
+    updateScript = lib.concatStringsSep " " (nix-update-script {
+      extraArgs = [
+        "--commit"
+        "${finalAttrs.pname}"
+      ];
+    });
+  };
 
   meta = {
     description = "Git semantic version bumper";

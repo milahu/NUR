@@ -13,11 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Initialize
-        id: init
-        uses: spotdemo4/nix-init@8d36eeb846809ef31d0a7ca78adcdf6c2500c83a # v1.20.1
+        uses: spotdemo4/nix-init@842337cdd1a41ced81cb88edfd632589ee53ad2d # v1.22.0
         with:
-          attic_token: ${{ secrets.ATTIC_TOKEN }}
           attic_cache: nur
+          attic_token: ${{ secrets.ATTIC_TOKEN }}
           shell: vulnerable
 
       - name: Check flake

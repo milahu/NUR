@@ -10,39 +10,44 @@ let
     dontUnpack = true;
   };
 
-  attrs = import ../../packages {
-    inherit system pkgs;
-  };
+  packages = pkgs.lib.filterAttrs (_: pkg: builtins.elem system pkg.meta.platforms) (
+    import ../../packages {
+      inherit system pkgs;
+    }
+  );
 
   # Get valid top-level derivations for updating
   topDerivations = lib.filterAttrs (
-    _: top:
-    lib.isDerivation top
-    && top ? "updateScript"
-    && builtins.isString top.updateScript
-    && lib.lists.any (cmd: lib.strings.hasSuffix "nix-update" cmd) (
-      lib.strings.splitString " " top.updateScript
+    _: drv:
+    lib.isDerivation drv
+    # contains a valid updateScript
+    && (
+      builtins.hasAttr "updateScript" drv
+      && builtins.isString drv.updateScript
+      && lib.lists.any (cmd: lib.strings.hasSuffix "nix-update" cmd) (
+        lib.strings.splitString " " drv.updateScript
+      )
     )
-  ) attrs;
+  ) packages;
 
   # Get valid sub derivations for updating
   subDerivations = lib.attrsets.mapAttrs (
     _: top:
     lib.filterAttrs (
-      name: subdrv:
-      lib.isDerivation subdrv
+      name: drv:
+      lib.isDerivation drv
       # is not created by mkDerivation
       && (builtins.elem name (builtins.attrNames emptyDerivation) == false)
       # contains a valid updateScript
       && (
-        subdrv ? "updateScript"
-        && builtins.isString subdrv.updateScript
+        builtins.hasAttr "updateScript" drv
+        && builtins.isString drv.updateScript
         && lib.lists.any (cmd: lib.strings.hasSuffix "nix-update" cmd) (
-          lib.strings.splitString " " subdrv.updateScript
+          lib.strings.splitString " " drv.updateScript
         )
       )
     ) top
-  ) attrs;
+  ) packages;
 
   total =
     (lib.attrsets.collect lib.isDerivation topDerivations)
