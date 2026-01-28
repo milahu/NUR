@@ -8,7 +8,7 @@
 
 let
   # Upstream version tag. Override to update.
-  version = "2025.09.18-7ae6800";
+  version = "2026.01.23-916f423";
 
   # Map platform to upstream's OS/ARCH path segments.
   os =
@@ -31,10 +31,10 @@ let
       throw "cursor-agent: unsupported arch ${stdenv.hostPlatform.system}";
 
   sha256BySystem = {
-    "x86_64-linux" = "sha256-t+p5+vfLdwww6CBo2FbH/4u19TG7mxU5Ob2+lcceek0=";
-    "aarch64-linux" = "sha256-tHn9Aoco2eoFeJweZGElNn+PVfpWLpK0eR3mtWcmRBM=";
-    "x86_64-darwin" = "sha256-n8NG6bhLN9ftJP5E3LZWeqvSMocRIAxShevLs03Mawg=";
-    "aarch64-darwin" = "sha256-53gNQu6g83Grvg9da9Z/eqQVt9BL7QOBErglUcGZn58=";
+    "x86_64-linux" = "sha256-XfN1Fm1Rvo6GDRVtyzRV/+mkSZuJbp8dEoOn8pH1RnQ=";
+    "aarch64-linux" = "sha256-1y2IBypnoCHWFmYrmGxp49oXmMew+fBffBKiorWsJ/E=";
+    "x86_64-darwin" = "sha256-MuRxnITcZl2JphP+vcqRZo1JTr9mSTNjZKs3DPvxsE0=";
+    "aarch64-darwin" = "sha256-vTOszoUW4LWUHlKwwexQRH1Uy5CcvN3el6y1jRfBCeM=";
   };
 
   srcUrl = "https://downloads.cursor.com/lab/${version}/${os}/${arch}/agent-cli-package.tar.gz";
@@ -57,11 +57,11 @@ stdenv.mkDerivation {
   # This package is prebuilt and self-contained (bundles its own node, rg, sqlite3 binding, etc.)
   dontBuild = true;
 
-  nativeBuildInputs = [
+  nativeBuildInputs = lib.optionals stdenv.hostPlatform.isLinux [
     autoPatchelfHook
   ];
 
-  buildInputs = [
+  buildInputs = lib.optionals stdenv.hostPlatform.isLinux [
     gcc.cc.lib
   ];
 

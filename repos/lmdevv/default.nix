@@ -15,4 +15,7 @@
   overlays = import ./overlays; # nixpkgs overlays
 
   cursor-agent = pkgs.callPackage ./pkgs/cursor-agent { };
+  code-cursor = pkgs.callPackage ./pkgs/code-cursor { };
+  coderabbit-cli = pkgs.callPackage ./pkgs/coderabbit-cli { };
+  commiter = pkgs.callPackage ./pkgs/commiter { };
 }

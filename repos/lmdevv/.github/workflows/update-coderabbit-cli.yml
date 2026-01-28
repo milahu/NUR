@@ -1,4 +1,4 @@
-name: Update cursor-agent package
+name: Update coderabbit-cli package
 on:
   schedule:
     - cron: '0 0 * * *'
@@ -16,7 +16,7 @@ jobs:
       - name: Run updater
         run: |
           set -euxo pipefail
-          bash scripts/update-cursor-agent.sh
+          bash scripts/update-coderabbit-cli.sh
       - name: Commit and push if changed
         run: |
           set -euxo pipefail
@@ -24,6 +24,6 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "chore: version+hash update"
+            git commit -m "chore: update coderabbit-cli version+hash"
             git push
           fi
