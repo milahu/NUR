@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./pkgs/decode-tooling/default.nix:13:19:
+  at ./pkgs/decode-tooling/default.nix:16:19:
 
-    12|   };
-    13|   tbc-raw-stack = callPackage ./tbc-raw-stack { };
+    15|   };
+    16|   tbc-raw-stack = callPackage ./tbc-raw-stack { };
       |                   ^
-    14|   tbc-video-export = callPackage ./tbc-video-export { };
+    17|   tbc-video-export = callPackage ./tbc-video-export { };
 
 … while calling 'callPackageWith'
 
