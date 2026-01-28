@@ -2,6 +2,7 @@
   fetchFromGitHub,
   file,
   findutils,
+  forgejo-cli,
   gh,
   gnused,
   jq,
@@ -21,13 +22,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "nix-flake-release";
-  version = "0.9.8";
+  version = "0.11.1";
 
   src = fetchFromGitHub {
     owner = "spotdemo4";
     repo = "nix-flake-release";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-BSWGkVJksr2ADoHfVgLhIqE5sW7OlvinJAGzC/+QDok=";
+    hash = "sha256-UX1E+SEkurLE9rDYYvuuD1kJQ96dTJLfKeFHk255URw=";
   };
 
   nativeBuildInputs = [
@@ -38,6 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
   runtimeInputs = [
     file
     findutils
+    forgejo-cli
     gh
     gnused
     jq
