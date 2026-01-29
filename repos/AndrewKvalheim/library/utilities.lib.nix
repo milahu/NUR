@@ -188,7 +188,7 @@ rec {
       v' = if isString v then v else v.version;
 
       satisfied = expr:
-        let parts = match "^([^[:alnum:]]+)?(.+)$" expr; operator = head parts; reference = elemAt parts 1; in
+        let parts = match "^([^[:alnum:]]+)?(.+)?$" expr; operator = head parts; reference = elemAt parts 1; in
         if operator == null then v' == reference
         else if operator == "∞" then true
         else if operator == "≠" then v' != reference
