@@ -1,26 +1,24 @@
 { lib, buildGo124Module, fetchFromGitHub }:
 let
-  commit = "2c07fc426fd000d2ea3963dec1b3c5efd9b1f4e7";
-  version = "v0.0.5";
+  version = "0.0.11";
 in
 buildGo124Module {
   pname = "gwq";
-  version = version;
+  inherit version;
 
   src = fetchFromGitHub {
     owner = "d-kuro";
     repo = "gwq";
-    rev = commit;
-    hash = "sha256-oSgDH5E3ETSlpovhU+MNmDTpY2BRGsR9Bf57ot04Rng=";
+    tag = "v${version}";
+    hash = "sha256-T9G/sbI7P2I2yXNdX95SIr7Mzx87Z5oaqZmb6Y3Fooc=";
   };
 
-  vendorHash = "sha256-jP4arRoTDcjRXZvLx7R/1pp5gRMpfZa7AAJDV+WLGhY=";
+  vendorHash = "sha256-c1vq9yETUYfY2BoXSEmRZj/Ceetu0NkIoVCM3wYy5iY=";
 
   ldflags = [
     "-s"
     "-w"
-    "-X=github.com/d-kuro/gwq/internal/cmd.version=${version}"
-    "-X=github.com/d-kuro/gwq/internal/cmd.commit=${builtins.substring 0 7 commit}"
+    "-X=github.com/d-kuro/gwq/internal/cmd.version=v${version}"
   ];
   doCheck = false;
 
