@@ -1,38 +1,13 @@
 error:
-… from call site
+… while calling the 'import' builtin
 
-  at <nixpkgs> + /lib/filesystem.nix:396:27:
+  at ./integrations/nur/default.nix:57:9:
 
-   395|               # recurse into directories
-   396|               "${name}" = packagesFromDirectoryRecursive (
-      |                           ^
-   397|                 args
+    56|   modules = import ../../modules { inherit (pkgs) lib; };
+    57|   lib = import ../../modules/lib { inherit (pkgs) lib; };
+      |         ^
+    58| } // sanePkgs)
 
-… while calling anonymous lambda
+… while realising the context of path './modules/lib'
 
-  at <nixpkgs> + /lib/filesystem.nix:418:5:
-
-   417|     in
-   418|     {
-      |     ^
-   419|       callPackage,
-
-… from call site
-
-  at <nixpkgs> + /lib/filesystem.nix:428:7:
-
-   427|       # if `${directory}/package.nix` exists, call it directly
-   428|       callPackage defaultPath { }
-      |       ^
-   429|     else if args ? newScope then
-
-… while calling 'callPackageWith'
-
-  at <nixpkgs> + /lib/customisation.nix:276:19:
-
-   275|   callPackageWith =
-   276|     autoArgs: fn: args:
-      |                   ^
-   277|     let
-
-error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "sane-cast" at ./pkgs/mpv-scripts/sane_cast/package.nix:4, did you mean "sane_cast"?'
+error: getting status of './modules/lib': No such file or directory
