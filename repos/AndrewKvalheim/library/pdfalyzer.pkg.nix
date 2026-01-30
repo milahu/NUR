@@ -13,11 +13,11 @@ let
 in
 python3.pkgs.buildPythonApplication rec {
   pname = "pdfalyzer";
-  version = "1.18.1";
+  version = "1.19.2";
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-uP6sSDqE1VPKItyar1LQ3GB/5DS0UVihPshQRlS8UeM=";
+    hash = "sha256-KmRBG/EAjVQJMgo0TXpmJm2exShbTtWxTFM5/Z/xYQ4=";
   };
 
   format = "pyproject";
@@ -36,7 +36,7 @@ python3.pkgs.buildPythonApplication rec {
     mainProgram = "pdfalyze";
     broken = with python3.pkgs; ! versionsSatisfied [
       [ pypdf "6.6.0" ]
-      [ yaralyzer "≥1.0.13, <2" ]
+      [ yaralyzer "1.3.10" ]
     ];
   };
 }
