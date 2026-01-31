@@ -15,6 +15,7 @@
   ab-download-manager = lib.callPackage ./pkgs/abdm {};
   osu-tachyon = lib.callPackage ./pkgs/osu-tachyon {};
   moonplayer = lib.callPackage ./pkgs/moonplayer {};
+  hytale = lib.callPackage ./pkgs/hytale {};
 
   keka-external-helper = lib.callPackage ./pkgs/keka-external-helper {};
   bluebubbles-server = lib.callPackage ./pkgs/bluebubbles-server {};
