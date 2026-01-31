@@ -65,6 +65,7 @@ specify {
   jj-dynamic-default-description = any;
   josm = { jre = resolved.graalvmPackages.graalvm-ce; extraJavaOpts = "--module-path=${resolved.graalvmPackages.graaljs}/modules"; }; # josm-scripting-plugin
   josm-imagery-used = any;
+  journal-brief = any;
   jujutsu.version = "≥0.36";
   just-local = any;
   kitty.patch = ./library/assets/kitty_paperwm.patch; # Workaround for paperwm/PaperWM#943

@@ -72,6 +72,7 @@ rec {
   incremental-compress = callPackage ./library/incremental-compress.pkg.nix { };
   iptables_exporter = callPackage ./library/iptables_exporter.pkg.nix { };
   josm-imagery-used = callPackage ./library/josm-imagery-used.pkg.nix { inherit buildJosmPlugin; };
+  journal-brief = callPackage ./library/journal-brief.pkg.nix { };
   little-a-map = callPackage ./library/little-a-map.pkg.nix { };
   mark-applier = callPackage ./library/mark-applier.pkg.nix { };
   meshtastic-url = callPackage ./library/meshtastic-url.pkg.nix { };

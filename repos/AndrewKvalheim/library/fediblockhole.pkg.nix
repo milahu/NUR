@@ -1,13 +1,13 @@
 { fetchPypi
 , lib
-, python3
+, python3Packages
 , versionCheckHook
 }:
 
 let
   inherit (builtins) placeholder;
 in
-python3.pkgs.buildPythonApplication rec {
+python3Packages.buildPythonApplication rec {
   pname = "fediblockhole";
   version = "0.4.6";
 
@@ -18,7 +18,7 @@ python3.pkgs.buildPythonApplication rec {
 
   format = "pyproject";
 
-  propagatedBuildInputs = with python3.pkgs; [
+  propagatedBuildInputs = with python3Packages; [
     hatchling
     requests
     toml

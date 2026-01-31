@@ -76,6 +76,7 @@ rustPlatform.buildRustPackage (stretch-break: {
   # Pending compatibility with versionCheckHook
   installCheckPhase = ''
     help="$($out/bin/${escapeShellArg stretch-break.meta.mainProgram} --help)"
+    echo "$help"
     [[ "$help" == *'Usage: stretch-break'* ]]
     [[ "$help" != *'version'* ]]
     [[ "$help" != *${escapeShellArg stretch-break.version}* ]]

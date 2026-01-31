@@ -1,7 +1,7 @@
 { fetchPypi
 , lib
 , nix-update-script
-, python3
+, python3Packages
 , versionCheckHook
 
   # Dependencies
@@ -11,7 +11,7 @@
 let
   inherit (import ../library/utilities.lib.nix { inherit lib; }) versionsSatisfied;
 in
-python3.pkgs.buildPythonApplication rec {
+python3Packages.buildPythonApplication rec {
   pname = "pdfalyzer";
   version = "1.19.2";
 
@@ -21,9 +21,9 @@ python3.pkgs.buildPythonApplication rec {
   };
 
   format = "pyproject";
-  build-system = with python3.pkgs; [ poetry-core ];
+  build-system = with python3Packages; [ poetry-core ];
 
-  dependencies = with python3.pkgs; [ anytree pypdf yaralyzer ];
+  dependencies = with python3Packages; [ anytree pypdf yaralyzer ];
 
   nativeCheckInputs = [ versionCheckHook ]; # Pending nixos/nixpkgs#420531
 
@@ -34,7 +34,7 @@ python3.pkgs.buildPythonApplication rec {
     homepage = "https://github.com/michelcrypt4d4mus/pdfalyzer";
     license = lib.licenses.gpl3Only;
     mainProgram = "pdfalyze";
-    broken = with python3.pkgs; ! versionsSatisfied [
+    broken = with python3Packages; ! versionsSatisfied [
       [ pypdf "6.6.0" ]
       [ yaralyzer "1.3.10" ]
     ];
