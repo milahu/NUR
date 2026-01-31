@@ -1,12 +1,12 @@
 error:
 … from call site
 
-  at ./nix/nur.nix:32:12:
+  at ./nix/nur.nix:27:21:
 
-    31|     pkg = p ./pkgs/pkg.nix;
-    32|     c4me = p ./pkgs/c4me;
-      |            ^
-    33|     fhsctl = p ./pkgs/fhsctl.nix;
+    26|     # custom things
+    27|     custom_neovim = p ./pkgs/custom/neovim;
+      |                     ^
+    28|     custom_rofi = p ./pkgs/custom/rofi.nix;
 
 … while calling 'p'
 
@@ -35,40 +35,4 @@ error:
       |                   ^
    277|     let
 
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:290:11:
-
-   289|         (
-   290|           filterAttrs (name: value: !value)
-      |           ^
-   291|             # Filter out arguments that would be passed
-
-… while calling 'filterAttrs'
-
-  at <nixpkgs> + /lib/attrsets.nix:663:23:
-
-   662|   */
-   663|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
-      |                       ^
-   664|
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:279:15:
-
-   278|       f = if isFunction fn then fn else import fn;
-   279|       fargs = functionArgs f;
-      |               ^
-   280|
-
-… while calling 'functionArgs'
-
-  at <nixpkgs> + /lib/trivial.nix:1044:5:
-
-  1043|   functionArgs =
-  1044|     f:
-      |     ^
-  1045|     if f ? __functor then
-
-error: getting status of './nix/pkgs/c4me': No such file or directory
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "flake" at ./nix/pkgs/custom/neovim/default.nix:3, did you mean "flare", "blaze" or "bmake"?'

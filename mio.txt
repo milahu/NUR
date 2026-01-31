@@ -1,0 +1,45 @@
+error:
+… from call site
+
+  at ./packages.nix:108:21:
+
+   107|     gifcurry = nonurbot (pkgs.callPackage ./pkgs/gifcurry { });
+   108|     rocksmith2tab = pkgs.callPackage ./pkgs/rocksmith2tab {
+      |                     ^
+   109|       rocksmith-custom-song-toolkit = rocksmith-custom-song-toolkit;
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:276:19:
+
+   275|   callPackageWith =
+   276|     autoArgs: fn: args:
+      |                   ^
+   277|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:290:11:
+
+   289|         (
+   290|           filterAttrs (name: value: !value)
+      |           ^
+   291|             # Filter out arguments that would be passed
+
+… while calling 'filterAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:663:23:
+
+   662|   */
+   663|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                       ^
+   664|
+
+error: undefined variable 'rocksmith-custom-song-toolkit'
+
+at ./packages.nix:109:39:
+
+   108|     rocksmith2tab = pkgs.callPackage ./pkgs/rocksmith2tab {
+   109|       rocksmith-custom-song-toolkit = rocksmith-custom-song-toolkit;
+      |                                       ^
+   110|     };
