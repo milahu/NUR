@@ -18,6 +18,7 @@
   which,
   wrapGAppsHook3,
   nixosTests,
+  fetchpatch,
 }:
 
 let
@@ -34,6 +35,29 @@ let
     "native-modules"
     "-Dmaven.test.skip=true"
   ];
+  ldLibVar = if stdenv.hostPlatform.isDarwin then "DYLD_LIBRARY_PATH" else "LD_LIBRARY_PATH";
+  classpath = [
+    "${swt}/jars/swt.jar"
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isLinux [
+    "$out/lib/tuxguitar.jar"
+    "$out/lib/itext.jar"
+  ];
+  libraryPath = [
+    "$out/lib"
+    fluidsynth
+    lilv
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isLinux [
+    swt
+    alsa-lib
+    jack2
+    libpulseaudio
+  ];
+  wrapperPaths = [
+    jre
+    which
+  ];
 in
 maven.buildMavenPackage rec {
   pname = "tuxguitar";
@@ -48,6 +72,12 @@ maven.buildMavenPackage rec {
 
   patches = [
     ./fix-include.patch
+    # Helps a little bit with https://github.com/helge17/tuxguitar/issues/961
+    (fetchpatch {
+      name = "create-new-file";
+      url = "https://github.com/helge17/tuxguitar/commit/3dc828a9b92e932952c2b33d8ee41db734f2fcc0.patch";
+      hash = "sha256-umZlCSCTWqj3tgR+qFcPucEDv5vpaC6zHbDJg/W5KUI=";
+    })
   ];
 
   buildOffline = true;
@@ -96,16 +126,15 @@ maven.buildMavenPackage rec {
     makeBinaryWrapper
     jdk
     pkg-config
-    fluidsynth.dev
-    lilv.dev
+    fluidsynth
+    lilv
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [
     wrapGAppsHook3
-    alsa-lib.dev
-    jack2.dev
-    libpulseaudio.dev
+    alsa-lib
+    jack2
+    libpulseaudio
     suil
-    qt5.qtbase.dev
   ]
   ++ lib.optionals stdenv.hostPlatform.isDarwin [
     stdenv.cc
@@ -131,14 +160,13 @@ maven.buildMavenPackage rec {
   installPhase = ''
     runHook preInstall
 
-    # Find the built tuxguitar directory (it's in the subdirectory where we ran maven)
     cd ${buildDir}
   ''
   # macOS: The build creates tuxguitar-VERSION-macosx-swt-cocoa.app directly
   # This directory name already ends with .app and IS the app bundle
   + lib.optionalString stdenv.hostPlatform.isDarwin ''
     mkdir -p $out/Applications
-    cp -r target/tuxguitar-*-macosx-swt-cocoa.app $out/Applications/TuxGuitar.app
+    cp -r target/tuxguitar-9.99-SNAPSHOT-macosx-swt-cocoa.app $out/Applications/TuxGuitar.app
 
     # Fix the launch script to use the Nix JRE instead of bundled JRE
     substituteInPlace $out/Applications/TuxGuitar.app/Contents/MacOS/tuxguitar.sh \
@@ -149,32 +177,23 @@ maven.buildMavenPackage rec {
 
     # Symlink doesn't work. We have to create a wrapper script instead
     mkdir -p $out/bin
-    cat > $out/bin/tuxguitar <<EOF
-    #!/bin/sh
-    exec "$out/Applications/TuxGuitar.app/Contents/MacOS/tuxguitar.sh" "\$@"
-    EOF
-    chmod +x $out/bin/tuxguitar
+    makeWrapper "$out/Applications/TuxGuitar.app/Contents/MacOS/tuxguitar.sh" \
+      "$out/bin/tuxguitar"
   ''
   # Linux: Install traditional layout
   + lib.optionalString stdenv.hostPlatform.isLinux ''
-    TUXGUITAR_DIR=$(ls -d target/tuxguitar-* | head -n 1)
+    TUXGUITAR_DIR=target/tuxguitar-9.99-SNAPSHOT-linux-swt
     mkdir -p $out/{bin,lib}
     cp -r $TUXGUITAR_DIR $out/lib/tuxguitar
     ln -s $out/lib/tuxguitar/tuxguitar.sh $out/bin/tuxguitar
 
-    # Selectively symlink share directories, but filter templates
     mkdir -p $out/share
-    for dir in $out/lib/tuxguitar/share/*; do
-      if [ "$(basename "$dir")" != "templates" ]; then
-        ln -s "$dir" $out/share/
-      fi
-    done
+    ln -s $out/lib/tuxguitar/share/{applications,man,metainfo,mime,pixmaps} -t $out/share/
 
-    # Only install templates that should appear in "Create New" menu (not localized defaults)
-    mkdir -p $out/share/templates
-    cp $out/lib/tuxguitar/share/templates/template-1.tg $out/share/templates/
-    cp $out/lib/tuxguitar/share/templates/template-2.tg $out/share/templates/
-    cp $out/lib/tuxguitar/share/templates/templates.xml $out/share/templates/
+    # See https://github.com/helge17/tuxguitar/issues/961
+    mkdir -p $out/share/templates/.source
+    ln -s $out/lib/tuxguitar/share/templates/ $out/share/templates/.source/tuxguitar
+    cp /build/source/desktop/build-scripts/common-resources/common-linux/share/templates/tuxguitar.desktop $out/share/templates/
   ''
   + ''
 
@@ -185,7 +204,7 @@ maven.buildMavenPackage rec {
     wrapProgram $out/bin/tuxguitar ${lib.concatStringsSep " " passthru.wrapperArgs}
   '';
 
-  passthru = rec {
+  passthru = {
     tests.nixos = nixosTests.tuxguitar;
     inherit swtArtifactId buildDir buildScript;
     # FIXME: Makes hash stable across platforms and convert to a single hash.
@@ -194,29 +213,6 @@ maven.buildMavenPackage rec {
       "aarch64-linux" = "sha256-7UDFGuOMERvY74mkneusJyuAHfF3U6b4qV4MPHGQYdM=";
       "aarch64-darwin" = "sha256-lfO2YH+yKZWzh3MeQ7baESGmmW7zPdTLs8CjZ/FtLu0";
     };
-    ldLibVar = if stdenv.hostPlatform.isDarwin then "DYLD_LIBRARY_PATH" else "LD_LIBRARY_PATH";
-    classpath = [
-      "${swt}/jars/swt.jar"
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isLinux [
-      "$out/lib/tuxguitar.jar"
-      "$out/lib/itext.jar"
-    ];
-    libraryPath = [
-      "$out/lib"
-      fluidsynth
-      lilv
-    ]
-    ++ lib.optionals stdenv.hostPlatform.isLinux [
-      swt
-      alsa-lib
-      jack2
-      libpulseaudio
-    ];
-    wrapperPaths = [
-      jre
-      which
-    ];
     wrapperArgs = [
       "\${gappsWrapperArgs[@]}"
       "--prefix"
@@ -244,7 +240,6 @@ maven.buildMavenPackage rec {
     license = lib.licenses.lgpl21Plus;
     maintainers = with lib.maintainers; [
       ardumont
-      mio
     ];
     platforms = builtins.attrNames passthru.mvnHashByPlatform;
     mainProgram = "tuxguitar";
