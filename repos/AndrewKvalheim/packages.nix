@@ -18,6 +18,7 @@ specify {
     postPatch = a.postPatch + "patchShebangs 'tools/combine-config.py'";
   }; # Pending TypesettingTools/Aegisub#309 via ≥3.5
   affine-font = any;
+  ai-robots-txt = any;
   album-art = any;
   ansible-lint.overlay = a: recursiveUpdate a { meta.broken = versionOlder (findFirst (p: p.pname == "ansible-compat") null a.passthru.dependencies).version "25.8"; }; # NixOS/nixpkgs#460422
   ansible-vault-pass-client = any;
@@ -26,7 +27,7 @@ specify {
   aws-sam-cli.version = "≠1.143.0"; # NixOS/nixpkgs#459334
   blocky-ui = any;
   busyserve = any;
-  caddy-with-route53 = any;
+  caddy-with-cache-route53 = any;
   cavif = any;
   ch57x-keyboard-tool = any;
   chunker.dontEval = true /* FIXME: infinite recursion */;

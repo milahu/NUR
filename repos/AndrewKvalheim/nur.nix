@@ -29,13 +29,17 @@ rec {
       uniqueBy;
   };
 
+  ai-robots-txt = callPackage ./library/ai-robots-txt.pkg.nix { };
   apex = callPackage ./library/apex.pkg.nix { };
   blocky-ui = callPackage ./library/blocky-ui.pkg.nix { };
   buildJosmPlugin = callPackage ./library/buildJosmPlugin.fn.nix { };
   busyserve = (callPackage ./library/busyserve.pkg.nix { });
-  caddy-with-route53 = (pkgs.caddy.withPlugins {
-    plugins = [ "github.com/caddy-dns/route53@v1.6.0" ];
-    hash = "sha256-C2Lw70hze+nCKX4qPl1JCm/wcD7hNP2imCrTtkkj8U8=";
+  caddy-with-cache-route53 = (pkgs.caddy.withPlugins {
+    plugins = [
+      "github.com/caddy-dns/route53@v1.6.0"
+      "github.com/caddyserver/cache-handler@v0.16.0"
+    ];
+    hash = "sha256-poxhiFADhdqElcFqUGF0BRhUU3p/+KtrytMaa0DV2Bg=";
   }).overrideAttrs (c: recursiveUpdate c { meta.broken = versionOlder pkgs.go.version "1.25.5"; /* Pending NixOS/nixpkgs#467201 */ });
   cavif = callPackage ./library/cavif.pkg.nix { };
   ch57x-keyboard-tool = callPackage ./library/ch57x-keyboard-tool.pkg.nix { };
