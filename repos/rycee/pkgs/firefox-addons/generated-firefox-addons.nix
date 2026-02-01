@@ -117,10 +117,10 @@
     };
     "adblocker-ultimate" = buildFirefoxXpiAddon {
       pname = "adblocker-ultimate";
-      version = "3.8.44";
+      version = "3.8.46";
       addonId = "adblockultimate@adblockultimate.net";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4589990/adblocker_ultimate-3.8.44.xpi";
-      sha256 = "d21fd716564460bd369501a3157711ab44856421b165475736cadcf41f5c676c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4675699/adblocker_ultimate-3.8.46.xpi";
+      sha256 = "3a569f91932cf71654fc41fef52490eef8587ba03d0199d6b717173e7d3b039b";
       meta = with lib;
       {
         homepage = "https://adblockultimate.net";
@@ -341,10 +341,10 @@
     };
     "angular-devtools" = buildFirefoxXpiAddon {
       pname = "angular-devtools";
-      version = "1.6.4";
+      version = "1.9.0";
       addonId = "{20a9bb38-ed7c-4faf-9aaf-7c5d241fd747}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4646171/angular_devtools-1.6.4.xpi";
-      sha256 = "33d667276c96a6a5324375a9dc2f5e50728a24bccea84ab6199cd005cf951a46";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4677798/angular_devtools-1.9.0.xpi";
+      sha256 = "a99ea348f90c8404697638690cf7eba50887de81ac7a2df1174c3fff7f845e98";
       meta = with lib;
       {
         homepage = "https://angular.dev/tools/devtools/";
@@ -1771,14 +1771,14 @@
     };
     "clearcache" = buildFirefoxXpiAddon {
       pname = "clearcache";
-      version = "4.5";
+      version = "4.7";
       addonId = "clearcache@michel.de.almeida";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4646719/clearcache-4.5_TBkLMw6.xpi";
-      sha256 = "de13cd087aa7b6c414afe3f8784b207816e6b61b38a08c5db179b425b3edb6a9";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4675168/clearcache-4.7.xpi";
+      sha256 = "4a38b80e0eb7c1852487b4438b89f41f14d84e6237a8d4563d3b32eb62f12962";
       meta = with lib;
       {
         homepage = "https://github.com/TenSoja/clear-cache";
-        description = "Advanced cache clearing with time periods, current tab filter, and smart notifications. Perfect for developers and power users. F9 shortcut included!";
+        description = "Global cache cleanup and site data (cookies/storage) with time periods and notifications. Great for developers. F9 shortcut included!";
         license = licenses.mpl20;
         mozPermissions = [
           "browsingData"
@@ -2724,10 +2724,10 @@
     };
     "danish-language-pack" = buildFirefoxXpiAddon {
       pname = "danish-language-pack";
-      version = "148.0.20260128.90352";
+      version = "148.0.20260130.90557";
       addonId = "langpack-da@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4678059/dansk_da_language_pack-148.0.20260128.90352.xpi";
-      sha256 = "5e37785e8de3c4fefe6ba86c2e7b77a053b995e025a7b24a32f94eee1908d211";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4679948/dansk_da_language_pack-148.0.20260130.90557.xpi";
+      sha256 = "d3419ed91493e839e498fa838f15c92ac2fac7f1f58ef32774defc606c0ecbe6";
       meta = with lib;
       {
         description = "Firefox Language Pack for Dansk (da) – Danish";
@@ -2937,10 +2937,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "148.0.20260128.90352";
+      version = "148.0.20260130.90557";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4678060/deutsch_de_language_pack-148.0.20260128.90352.xpi";
-      sha256 = "4fb6ac2a074875a75e19cebd97b4365d53047d59755c3fe50e3af4a2d5163f5e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4679952/deutsch_de_language_pack-148.0.20260130.90557.xpi";
+      sha256 = "a6a59616e348bb9f66bb2e7ee452f09dce25b51183a6c9cc02c08284e9f27a9c";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -4413,10 +4413,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "148.0.20260128.90352";
+      version = "148.0.20260130.90557";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4677977/francais_language_pack-148.0.20260128.90352.xpi";
-      sha256 = "f2364643f0e3a28659d0b80ec247eade8c39fcb8fbbb08cb85d1f6908f725ce0";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4680002/francais_language_pack-148.0.20260130.90557.xpi";
+      sha256 = "2c53419fe315bcfcaedae22131e021b5df0ad08fc61e17dcf7910aff1adb07c5";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4450,10 +4450,10 @@
     };
     "gaidhlig-language-pack" = buildFirefoxXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "148.0.20260128.90352";
+      version = "148.0.20260130.90557";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4678038/gaidhlig_language_pack-148.0.20260128.90352.xpi";
-      sha256 = "5e0cc61845e21240ac33f8b028e86afc294c8a709d73cbfd76aa578e048bbb19";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4679973/gaidhlig_language_pack-148.0.20260130.90557.xpi";
+      sha256 = "41d7390f4bca138a84e8d992258b00b9c419ab0d0a39f15838698f272ab3d693";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -6507,10 +6507,10 @@
     };
     "indie-wiki-buddy" = buildFirefoxXpiAddon {
       pname = "indie-wiki-buddy";
-      version = "3.13.8";
+      version = "3.14.0";
       addonId = "{cb31ec5d-c49a-4e5a-b240-16c767444f62}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4585291/indie_wiki_buddy-3.13.8.xpi";
-      sha256 = "edadaabaaa32aa43b148231abb2e9e60b0677da9e65d9cee68f95e97b2195a1a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4674222/indie_wiki_buddy-3.14.0.xpi";
+      sha256 = "a35d614b0e31db684d212914593825c023e5dfccf4a005ef24d3a39910f7128e";
       meta = with lib;
       {
         homepage = "https://getindie.wiki/";
@@ -7415,6 +7415,595 @@
           "webNavigation"
           "<all_urls>"
           "*://*/*lb-custom*"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "lemmy-keyboard-navigation" = buildFirefoxXpiAddon {
+      pname = "lemmy-keyboard-navigation";
+      version = "2.8";
+      addonId = "{d8289f13-e545-409b-a2c6-dfb0df9fa1f2}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4434045/lemmy_keyboard_navigation-2.8.xpi";
+      sha256 = "5664ff33e877a9034b15425ed25ec72acd68bc459b3c0c436ed150f3767f5480";
+      meta = with lib;
+      {
+        homepage = "https://github.com/vmavromatis/Lemmy-keyboard-navigation";
+        description = "Easily navigate Lemmy with your keyboard.";
+        license = licenses.gpl3;
+        mozPermissions = [
+          "*://*.lemmy.world/*"
+          "*://*.lemmy.ml/*"
+          "*://*.lemmy.ca/*"
+          "*://*.lemm.ee/*"
+          "*://*.feddit.de/*"
+          "*://*.feddit.uk/*"
+          "*://*.lemmynsfw.com/*"
+          "*://*.sh.itjust.works/*"
+          "*://*.beehaw.org/*"
+          "*://*.midwest.social/*"
+          "*://*.lemmy.one/*"
+          "*://*.hexbear.net/*"
+          "*://*.programming.dev/*"
+          "*://*.lemmy.dbzer0.com/*"
+          "*://*.discuss.tchncs.de/*"
+          "*://*.lemmy.blahaj.zone/*"
+          "*://*.lemmygrad.ml/*"
+          "*://*.sopuli.xyz/*"
+          "*://*.lemmy.sdf.org/*"
+          "*://*.lemmy.zip/*"
+          "*://*.aussie.zone/*"
+          "*://*.feddit.nl/*"
+          "*://*.infosec.pub/*"
+          "*://*.reddthat.com/*"
+          "*://*.slrpnk.net/*"
+          "*://*.lemmy.today/*"
+          "*://*.jlai.lu/*"
+          "*://*.startrek.website/*"
+          "*://*.pawb.social/*"
+          "*://*.feddit.it/*"
+          "*://*.lemmy.kya.moe/*"
+          "*://*.ttrpg.network/*"
+          "*://*.mander.xyz/*"
+          "*://*.lemmings.world/*"
+          "*://*.lemmy.eco.br/*"
+          "*://*.ani.social/*"
+          "*://*.lemy.lol/*"
+          "*://*.lemdro.id/*"
+          "*://*.lemmy.nz/*"
+          "*://*.szmer.info/*"
+          "*://*.discuss.online/*"
+          "*://*.feddit.dk/*"
+          "*://*.yiffit.net/*"
+          "*://*.monero.town/*"
+          "*://*.awful.systems/*"
+          "*://*.feddit.nu/*"
+          "*://*.thelemmy.club/*"
+          "*://*.aggregatet.org/*"
+          "*://*.leminal.space/*"
+          "*://*.lemmy.wtf/*"
+          "*://*.feddit.cl/*"
+          "*://*.literature.cafe/*"
+          "*://*.lemmy.cafe/*"
+          "*://*.lemmy.kde.social/*"
+          "*://*.rqd2.net/*"
+          "*://*.lemmus.org/*"
+          "*://*.mujico.org/*"
+          "*://*.r.nf/*"
+          "*://*.monyet.cc/*"
+          "*://*.toast.ooo/*"
+          "*://*.scribe.disroot.org/*"
+          "*://*.dormi.zone/*"
+          "*://*.hilariouschaos.com/*"
+          "*://*.lemmy.myserv.one/*"
+          "*://*.lemmy.whynotdrs.org/*"
+          "*://*.lemmyf.uk/*"
+          "*://*.linux.community/*"
+          "*://*.futurology.today/*"
+          "*://*.lemmy.studio/*"
+          "*://*.endlesstalk.org/*"
+          "*://*.possumpat.io/*"
+          "*://*.lemmy.radio/*"
+          "*://*.lemmy.frozeninferno.xyz/*"
+          "*://*.forum.ayom.media/*"
+          "*://*.lemy.nl/*"
+          "*://*.yall.theatl.social/*"
+          "*://*.suppo.fi/*"
+          "*://*.lemmy.tf/*"
+          "*://*.mtgzone.com/*"
+          "*://*.feddit.ro/*"
+          "*://*.sub.wetshaving.social/*"
+          "*://*.foresight.wiki/*"
+          "*://*.eviltoast.org/*"
+          "*://*.bookwormstory.social/*"
+          "*://*.lemmy.garudalinux.org/*"
+          "*://*.links.hackliberty.org/*"
+          "*://*.rblind.com/*"
+          "*://*.retrolemmy.com/*"
+          "*://*.fedit.pl/*"
+          "*://*.feddit.rocks/*"
+          "*://*.preserve.games/*"
+          "*://*.derpzilla.net/*"
+          "*://*.fanaticus.social/*"
+          "*://*.real.lemmy.fan/*"
+          "*://*.compuverse.uk/*"
+          "*://*.tucson.social/*"
+          "*://*.lazysoci.al/*"
+          "*://*.communick.news/*"
+          "*://*.fed.dyne.org/*"
+          "*://*.lemmy.comfysnug.space/*"
+          "*://*.bbs.9tail.net/*"
+          "*://*.lemmy.sdfeu.org/*"
+          "*://*.fasheng.ing/*"
+          "*://*.lemmy.best/*"
+          "*://*.linz.city/*"
+          "*://*.bolha.forum/*"
+          "*://*.group.lt/*"
+          "*://*.community.bridgetown.pub/*"
+          "*://*.blendit.bsd.cafe/*"
+          "*://*.civilloquy.com/*"
+          "*://*.fstab.sh/*"
+          "*://*.lemmy.fornaxian.tech/*"
+          "*://*.links.gayfr.online/*"
+          "*://*.lemmy.ndlug.org/*"
+          "*://*.booja.ca/*"
+          "*://*.lemmy.zimage.com/*"
+          "*://*.rollenspiel.forum/*"
+          "*://*.videolovers.site/*"
+          "*://*.foros.fediverso.gal/*"
+          "*://*.lemmy.nexus/*"
+          "*://*.lemmy.az.social/*"
+          "*://*.baraza.africa/*"
+          "*://*.lemmy.funami.tech/*"
+          "*://*.lemmy.nauk.io/*"
+          "*://*.lemmy.giftedmc.com/*"
+          "*://*.tech.pr0n.pl/*"
+          "*://*.lemmy.smeargle.fans/*"
+          "*://*.lemmy.browntown.dev/*"
+          "*://*.lm.korako.me/*"
+          "*://*.lemmy.dynatron.me/*"
+          "*://*.lemmy.spacestation14.com/*"
+          "*://*.lemmy.calvss.com/*"
+          "*://*.kutsuya.dev/*"
+          "*://*.champserver.net/*"
+          "*://*.lu.skbo.net/*"
+          "*://*.lemmy.beru.co/*"
+          "*://*.lemmyis.fun/*"
+          "*://*.community.ivedonestranger.xyz/*"
+          "*://*.hackertalks.com/*"
+          "*://*.sffa.community/*"
+          "*://*.lemmy.tellyou.social/*"
+          "*://*.lemmy.unryzer.eu/*"
+          "*://*.lemmy.brief.guru/*"
+          "*://*.linkage.ds8.zone/*"
+          "*://*.lemmy.artivain.com/*"
+          "*://*.orcas.enjoying.yachts/*"
+          "*://*.lemmy.billiam.net/*"
+          "*://*.lemmy.asc6.org/*"
+          "*://*.lebowski.social/*"
+          "*://*.lemmy.max-p.me/*"
+          "*://*.zerobytes.monster/*"
+          "*://*.bitforged.space/*"
+          "*://*.lemmy.thenewgaming.de/*"
+          "*://*.campfyre.nickwebster.dev/*"
+          "*://*.nodesphere.site/*"
+          "*://*.nom.mom/*"
+          "*://*.no.lastname.nz/*"
+          "*://*.lemmy.institute/*"
+          "*://*.lemmy.uhhoh.com/*"
+          "*://*.r-sauna.fi/*"
+          "*://*.lemmy.ohaa.xyz/*"
+          "*://*.mycelial.nexus/*"
+          "*://*.0xdd.org.ru/*"
+          "*://*.1337lemmy.com/*"
+          "*://*.lemmy.mbl.social/*"
+          "*://*.lonestarlemmy.mooo.com/*"
+          "*://*.lt.harding.dev/*"
+          "*://*.lemmy.pussthecat.org/*"
+          "*://*.lem.monster/*"
+          "*://*.l.deltaa.xyz/*"
+          "*://*.lemmy.starbase80.dev/*"
+          "*://*.lemmy.beagle.quest/*"
+          "*://*.corndog.social/*"
+          "*://*.vger.social/*"
+          "*://*.nexxis.social/*"
+          "*://*.lemmy.staphup.nl/*"
+          "*://*.lemmy.deedium.nl/*"
+          "*://*.lemmy.mindoki.com/*"
+          "*://*.lemmy.chiisana.net/*"
+          "*://*.lemmy.monster/*"
+          "*://*.lemmy.sirmaple.ca/*"
+          "*://*.lemmy.jamesj999.co.uk/*"
+          "*://*.moose.best/*"
+          "*://*.sedd.it/*"
+          "*://*.social.dn42.us/*"
+          "*://*.lemmy.gwa.app/*"
+          "*://*.fanexus.com/*"
+          "*://*.femboys.bar/*"
+          "*://*.l.os33.co/*"
+          "*://*.deathscroll.p3nguin.org/*"
+          "*://*.lemmy.noellesporn.de/*"
+          "*://*.lemmy.shtuf.eu/*"
+          "*://*.lemmy.toldi.eu/*"
+          "*://*.lemmy.keychat.org/*"
+          "*://*.lemmy.urbanhost.top/*"
+          "*://*.usenet.lol/*"
+          "*://*.lemmy.trippy.pizza/*"
+          "*://*.lemmy.bosio.info/*"
+          "*://*.lemmy.schlunker.com/*"
+          "*://*.lemmy.unboiled.info/*"
+          "*://*.lem.cochrun.xyz/*"
+          "*://*.lemmy.federate.cc/*"
+          "*://*.lemmy.mlaga97.space/*"
+          "*://*.lemmy.bulwarkob.com/*"
+          "*://*.lemmy.elashri.eu.org/*"
+          "*://*.0d.gs/*"
+          "*://*.lemmy.timothyhay.org/*"
+          "*://*.lemmy.ubergeek77.chat/*"
+          "*://*.lemmy.physfluids.fr/*"
+          "*://*.lm.byteme.social/*"
+          "*://*.lemmy.dexlit.xyz/*"
+          "*://*.corrigan.space/*"
+          "*://*.exng.meme/*"
+          "*://*.lem.nimmog.uk/*"
+          "*://*.lemmy.moocloud.party/*"
+          "*://*.europa.cyberveins.eu/*"
+          "*://*.lemmings.sopelj.ca/*"
+          "*://*.fedimav.win/*"
+          "*://*.lemmy.jacaranda.club/*"
+          "*://*.lemmy.co.nz/*"
+          "*://*.discuss.jacen.moe/*"
+          "*://*.lemmy.conorab.com/*"
+          "*://*.lemmy.100010101.xyz/*"
+          "*://*.lemmy.potatoe.ca/*"
+          "*://*.lemmy.vegan.dev/*"
+          "*://*.lemmy.aisteru.ch/*"
+          "*://*.lemmy.atheos.org/*"
+          "*://*.lemmy.multivers.cc/*"
+          "*://*.lem.free.as/*"
+          "*://*.lemmy.cheesesnakes.net/*"
+          "*://*.lemmy.emerald.show/*"
+          "*://*.links.rocks/*"
+          "*://*.lemmy.jnks.xyz/*"
+          "*://*.social.rocketsfall.net/*"
+          "*://*.tacobu.de/*"
+          "*://*.lemmy.fedifriends.social/*"
+          "*://*.lemmy.federate.lol/*"
+          "*://*.acqrs.co.uk/*"
+          "*://*.lemmy.ssba.com/*"
+          "*://*.social.nerdhouse.io/*"
+          "*://*.libretechni.ca/*"
+          "*://*.lemmy.moorenet.casa/*"
+          "*://*.lemuria.es/*"
+          "*://*.lemmy.lacaveatonton.ovh/*"
+          "*://*.lemmy.ananace.dev/*"
+          "*://*.odin.lanofthedead.xyz/*"
+          "*://*.lemmy.capebreton.social/*"
+          "*://*.proit.org/*"
+          "*://*.lemmy.electrospek.com/*"
+          "*://*.feditown.com/*"
+          "*://*.lemmy.balamb.fr/*"
+          "*://*.lemmy.federated.club/*"
+          "*://*.lemmy.fwgx.uk/*"
+          "*://*.lemmy.schoenwolf-schroeder.com/*"
+          "*://*.lemmy.stuart.fun/*"
+          "*://*.lemmy.killtime.online/*"
+          "*://*.radiation.party/*"
+          "*://*.lemmy.muffalings.com/*"
+          "*://*.lemmy.mrm.one/*"
+          "*://*.lemmy.fromshado.ws/*"
+          "*://*.lemmy.criticalbasics.xyz/*"
+          "*://*.lemmy.sietch.online/*"
+          "*://*.lemmy.jigoku.us.to/*"
+          "*://*.lemmy.blackeco.com/*"
+          "*://*.unreachable.cloud/*"
+          "*://*.fjdk.uk/*"
+          "*://*.lemmy.simpl.website/*"
+          "*://*.lemmy.z0r.co/*"
+          "*://*.lemmy.kfed.org/*"
+          "*://*.lemmy.505dude.com/*"
+          "*://*.lemmy.unknownsys.com/*"
+          "*://*.lemmy.pierre-couy.fr/*"
+          "*://*.lemmy.installation00.org/*"
+          "*://*.lemmy.scam-mail.me/*"
+          "*://*.lmy.brx.io/*"
+          "*://*.social.ggbox.fr/*"
+          "*://*.lemmy.servarr.com/*"
+          "*://*.falconry.party/*"
+          "*://*.lemmy.8th.world/*"
+          "*://*.actuallyruben.nl/*"
+          "*://*.lemmy.procrastinati.org/*"
+          "*://*.lemmy.michaelsasser.org/*"
+          "*://*.lemmy.menos.gotdns.org/*"
+          "*://*.lemmy.pe1uca.dev/*"
+          "*://*.lemmy.mebitek.com/*"
+          "*://*.l.sw0.com/*"
+          "*://*.lemmy.sumuun.net/*"
+          "*://*.lemmy.nekusoul.de/*"
+          "*://*.lemmy.telaax.com/*"
+          "*://*.federation.red/*"
+          "*://*.jemmy.jeena.net/*"
+          "*://*.lemmy.inbutts.lol/*"
+          "*://*.catata.fish/*"
+          "*://*.lx.pontual.social/*"
+          "*://*.s.jape.work/*"
+          "*://*.lemmy.remotelab.uk/*"
+          "*://*.lmy.sagf.io/*"
+          "*://*.reddrefuge.com/*"
+          "*://*.lemmy.mkwarman.com/*"
+          "*://*.lemmy.timwaterhouse.com/*"
+          "*://*.lemmy.laustinspace.dev/*"
+          "*://*.kulupu.duckdns.org/*"
+          "*://*.l.henlo.fi/*"
+          "*://*.lem.a3a2.uk/*"
+          "*://*.lemmy.byrdcrouse.com/*"
+          "*://*.lemmy.works/*"
+          "*://*.lemmy.temporus.me/*"
+          "*://*.spgrn.com/*"
+          "*://*.lemmy.parastor.net/*"
+          "*://*.le.fduck.net/*"
+          "*://*.lemmy.stefanoprenna.com/*"
+          "*://*.lm.madiator.cloud/*"
+          "*://*.lemmy.fish/*"
+          "*://*.lemmy.magnor.ovh/*"
+          "*://*.lemmy.davidfreina.at/*"
+          "*://*.lemmy.zxcvn.xyz/*"
+          "*://*.ukfli.uk/*"
+          "*://*.l.mchome.net/*"
+          "*://*.lemmy.duck.cafe/*"
+          "*://*.lemmy.cultimean.group/*"
+          "*://*.lemmy.secnd.me/*"
+          "*://*.lemmy.yachts/*"
+          "*://*.lemmy.jaypg.pw/*"
+          "*://*.lemmy.sebbem.se/*"
+          "*://*.lemmy.amxl.com/*"
+          "*://*.lemmy.umucat.day/*"
+          "*://*.halubilo.social/*"
+          "*://*.lemmy.mats.ooo/*"
+          "*://*.kyu.de/*"
+          "*://*.lemmy.janiak.cc/*"
+          "*://*.swg-empire.de/*"
+          "*://*.tkohhh.social/*"
+          "*://*.covert.nexus/*"
+          "*://*.lemmy.mengsk.org/*"
+          "*://*.lemmy.menf.in/*"
+          "*://*.lemmy.jmtr.org/*"
+          "*://*.lemmy.778419.xyz/*"
+          "*://*.social2.williamyam.com/*"
+          "*://*.lemmy.darvit.nl/*"
+          "*://*.news.idlestate.org/*"
+          "*://*.t.bobamilktea.xyz/*"
+          "*://*.eventfrontier.com/*"
+          "*://*.lm.williampuckering.com/*"
+          "*://*.lemmy.tomaz.me/*"
+          "*://*.lemmy.t-rg.ws/*"
+          "*://*.lemmy.javant.xyz/*"
+          "*://*.drlemmy.net/*"
+          "*://*.lemmy.helios42.de/*"
+          "*://*.1.federated.test.lem.rocks/*"
+          "*://*.lemmy.foxden.party/*"
+          "*://*.lemmy.hqueue.dev/*"
+          "*://*.lemmy.nicknakin.com/*"
+          "*://*.mimiclem.me/*"
+          "*://*.lemmy-api.ten4ward.social/*"
+          "*://*.casavaga.com/*"
+          "*://*.lemmy.blugatch.tube/*"
+          "*://*.lemmy.eatsleepcode.ca/*"
+          "*://*.lmmy.dk/*"
+          "*://*.lemmy.nerdcore.social/*"
+          "*://*.lemmy.anonion.social/*"
+          "*://*.lemmy.mods4ever.com/*"
+          "*://*.social.packetloss.gg/*"
+          "*://*.lm.inu.is/*"
+          "*://*.lemmy.bmck.au/*"
+          "*://*.lemmy.demonoftheday.eu/*"
+          "*://*.lemmy.myspamtrap.com/*"
+          "*://*.lemmy.imagisphe.re/*"
+          "*://*.lemmy.dudeami.win/*"
+          "*://*.community.adiquaints.moe/*"
+          "*://*.lem.serkozh.me/*"
+          "*://*.lemmy.saik0.com/*"
+          "*://*.reddeet.com/*"
+          "*://*.lemmy.despotes.nl/*"
+          "*://*.lemmy.redkrieg.com/*"
+          "*://*.lemmy.marud.fr/*"
+          "*://*.mlem.eldritch.gift/*"
+          "*://*.rentadrunk.org/*"
+          "*://*.rekabu.ru/*"
+          "*://*.notdigg.com/*"
+          "*://*.fed.rosssi.co.uk/*"
+          "*://*.bin.pztrn.name/*"
+          "*://*.krabb.org/*"
+          "*://*.lemmy.bitgoblin.tech/*"
+          "*://*.lemmy.skyjake.fi/*"
+          "*://*.wired.bluemarch.art/*"
+          "*://*.psychedelia.ink/*"
+          "*://*.fedii.me/*"
+          "*://*.doomscroll.n8e.dev/*"
+          "*://*.lemmy.team/*"
+          "*://*.lemmy.johnnei.org/*"
+          "*://*.lemmy.xoynq.com/*"
+          "*://*.lemmy.projetretro.io/*"
+          "*://*.lemmy.sysctl.io/*"
+          "*://*.lemmy.fosshost.com/*"
+          "*://*.links.roobre.es/*"
+          "*://*.lemmys.hivemind.at/*"
+          "*://*.lemmy.okr765.com/*"
+          "*://*.lemmy.skoops.social/*"
+          "*://*.qlemmy.com/*"
+          "*://*.lemmy.teuto.icu/*"
+          "*://*.lemmy.pixelcollider.net/*"
+          "*://*.orbiting.observer/*"
+          "*://*.lemmy.deadca.de/*"
+          "*://*.lemmy.tr00st.co.uk/*"
+          "*://*.lemmy.razbot.xyz/*"
+          "*://*.lef.li/*"
+          "*://*.lemmy.masto.community/*"
+          "*://*.lemmy.86thumbs.net/*"
+          "*://*.lemmy.schuerz.at/*"
+          "*://*.badatbeing.social/*"
+          "*://*.upvote.au/*"
+          "*://*.nba.space/*"
+          "*://*.lemmy.bleh.au/*"
+          "*://*.lemmy.ahall.se/*"
+          "*://*.hyperfair.link/*"
+          "*://*.ezekielrage.com/*"
+          "*://*.gioia.news/*"
+          "*://*.soc.ebmn.io/*"
+          "*://*.ythreektech.com/*"
+          "*://*.lemmy.lukeog.com/*"
+          "*://*.lemmyland.com/*"
+          "*://*.lemmy.shiny-task.com/*"
+          "*://*.lemmy.cronyakatsuki.xyz/*"
+          "*://*.lemmy.emphisia.nl/*"
+          "*://*.lemmy.cloudhub.social/*"
+          "*://*.dendarii.alaeron.com/*"
+          "*://*.borg.chat/*"
+          "*://*.lemmy.linden.social/*"
+          "*://*.lemmy.mbirth.uk/*"
+          "*://*.lemmy.srcfiles.zip/*"
+          "*://*.lemmy.hybridsarcasm.xyz/*"
+          "*://*.lemmy.antisocial.ly/*"
+          "*://*.lemmy.self-hosted.site/*"
+          "*://*.lemmy.socdojo.com/*"
+          "*://*.lemmy.horwood.cloud/*"
+          "*://*.lemmy.megumin.org/*"
+          "*://*.biglemmowski.win/*"
+          "*://*.bodega.radioaconchego.org/*"
+          "*://*.lemmy.onlylans.io/*"
+          "*://*.lemmy2.emerald.show/*"
+          "*://*.l.roofo.cc/*"
+          "*://*.lemmy.dropdoos.nl/*"
+          "*://*.lemmy.pwarde.nl/*"
+          "*://*.popplesburger.hilciferous.nl/*"
+          "*://*.sha1.nl/*"
+          "*://*.lemmy.bismith.net/*"
+          "*://*.lemmy.doomeer.com/*"
+          "*://*.omg.qa/*"
+          "*://*.disflux.org/*"
+          "*://*.lemmy.baie.me/*"
+          "*://*.lemmy.datatekniker.dev/*"
+          "*://*.social.coalition.space/*"
+          "*://*.lemmy.vyizis.tech/*"
+          "*://*.lemmy.mariusdavid.fr/*"
+          "*://*.lemmy.darmstadt.social/*"
+          "*://*.lem.ur-mom.gay/*"
+          "*://*.lemmy.uninsane.org/*"
+          "*://*.lemmy.minigubben.se/*"
+          "*://*.lemmy.nine-hells.net/*"
+          "*://*.lemmy.website/*"
+          "*://*.lemmy.help/*"
+          "*://*.lemmy.vinodjam.com/*"
+          "*://*.derp.foo/*"
+          "*://*.azgil.net/*"
+          "*://*.lemmy.onitato.com/*"
+          "*://*.lemmy.safe-internet.org/*"
+          "*://*.lm.boing.icu/*"
+          "*://*.lemmy.absolutesix.com/*"
+          "*://*.lemmy.meissners.me/*"
+          "*://*.gock.shop/*"
+          "*://*.lemmy.kutara.io/*"
+          "*://*.lemmy.kms.onl/*"
+          "*://*.lemmy.estrogen.plus/*"
+          "*://*.l.7rg1nt.moe/*"
+          "*://*.beta.programming.dev/*"
+          "*://*.lemmy.run/*"
+          "*://*.lemmy.bit-refined.eu/*"
+          "*://*.social.sour.is/*"
+          "*://*.lemmy.minecloud.ro/*"
+          "*://*.leuker.me/*"
+          "*://*.lemmy.tobyvin.dev/*"
+          "*://*.lemmy.zenithia.net/*"
+          "*://*.diagonlemmy.social/*"
+          "*://*.lemmy.thesanewriter.com/*"
+          "*://*.3t.au/*"
+          "*://*.arpa.dev/*"
+          "*://*.kbin.tancomps.net/*"
+          "*://*.lemmy.catasaur.xyz/*"
+          "*://*.theculture.social/*"
+          "*://*.lemmy.w9r.de/*"
+          "*://*.lemmy.0upti.me/*"
+          "*://*.l.60228.dev/*"
+          "*://*.switter.su/*"
+          "*://*.social.poisson.me/*"
+          "*://*.lemmy.snekerpimp.space/*"
+          "*://*.kbin.thicknahalf.com/*"
+          "*://*.lemmy.hstx.eu/*"
+          "*://*.tldr.ar/*"
+          "*://*.lemmy.piperservers.net/*"
+          "*://*.nc.gnzl.cl/*"
+          "*://*.lm.sethp.cc/*"
+          "*://*.lemmy.dayl.in/*"
+          "*://*.le-me.xyz/*"
+          "*://*.lm.possum.city/*"
+          "*://*.lemmy.syrasu.com/*"
+          "*://*.reseed.it/*"
+          "*://*.l3mmy.com/*"
+          "*://*.distress.digital/*"
+          "*://*.fuck.markets/*"
+          "*://*.whemic.xyz/*"
+          "*://*.lemmy.moonling.nl/*"
+          "*://*.lemmy.graphics/*"
+          "*://*.lemmy.tario.org/*"
+          "*://*.hoihoi.superboi.eu.org/*"
+          "*://*.r.irithyll.cc/*"
+          "*://*.some.institute/*"
+          "*://*.lemmy.sarcasticdeveloper.com/*"
+          "*://*.bilin.xyz/*"
+          "*://*.lemmy-boop-u16078.vm.elestio.app/*"
+          "*://*.lemmy.nannoda.com/*"
+          "*://*.l.dongxi.ca/*"
+          "*://*.lemmy.azamserver.com/*"
+          "*://*.l.u0c.cc/*"
+          "*://*.lemmy.coffee-beanz.com/*"
+          "*://*.forum.penclub.club/*"
+          "*://*.martinlm.now-dns.net/*"
+          "*://*.lemmy.uno/*"
+          "*://*.lemmy.grupotd.nat.cu/*"
+          "*://*.selfhosted.forum/*"
+          "*://*.soccer.forum/*"
+          "*://*.lemmy.lantian.pub/*"
+          "*://*.hardware.watch/*"
+          "*://*.viewfinder.pro/*"
+          "*://*.metapowers.org/*"
+          "*://*.sfw.community/*"
+          "*://*.lemmy.nikore.net/*"
+          "*://*.nfl.community/*"
+          "*://*.lemmy.daponline.com/*"
+          "*://*.fenmou.cyou/*"
+          "*://*.metacritics.zone/*"
+          "*://*.academy.garden/*"
+          "*://*.indiehackers.space/*"
+          "*://*.cafe.rafled.com/*"
+          "*://*.lemmy.helvetet.eu/*"
+          "*://*.lemmy.datura.network/*"
+          "*://*.community.genky.duckdns.org/*"
+          "*://*.lmy.carbons.cc/*"
+          "*://*.donky.social/*"
+          "*://*.level-up.zone/*"
+          "*://*.lemmy.meatballwizard.com/*"
+          "*://*.style.land/*"
+          "*://*.lemmy.hunterjozwiak.com/*"
+          "*://*.lemmy.simonbu.se/*"
+          "*://*.lemmy.coupou.fr/*"
+          "*://*.lemmy.artichokenetwork.com/*"
+          "*://*.news.wigger.one/*"
+          "*://*.lemmy.dogboy.xyz/*"
+          "*://*.lemmy.272254864.xyz/*"
+          "*://*.lemmy.ch3n2k.com/*"
+          "*://*.foss.ly/*"
+          "*://*.stammtisch.hallertau.social/*"
+          "*://*.netheads.online/*"
+          "*://*.lemmy.services.coupou.fr/*"
+          "*://*.gearhead.town/*"
+          "*://*.expats.zone/*"
+          "*://*.hi-fi.community/*"
+          "*://*.lem.ph3j.com/*"
+          "*://*.dev.lemmy.world/*"
+          "*://*.poweruser.forum/*"
+          "*://*.healthy.community/*"
+          "*://*.blockchained.world/*"
+          "*://*.lemmy.init2null.com/*"
+          "*://*.le.weme.wtf/*"
         ];
         platforms = platforms.all;
       };
@@ -9247,16 +9836,16 @@
     };
     "news-feed-eradicator" = buildFirefoxXpiAddon {
       pname = "news-feed-eradicator";
-      version = "2.2.7";
+      version = "3.0.0";
       addonId = "@news-feed-eradicator";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4300135/news_feed_eradicator-2.2.7.xpi";
-      sha256 = "99fa2dab867cdb5f50cbf2d4ec1ff632d57a9b9c73371786e8f098f1c5b24522";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4679675/news_feed_eradicator-3.0.0.xpi";
+      sha256 = "60b0afc255a1037ddbc46c3ea1c7790db9002c4004d6f4464518de4f8e8becc2";
       meta = with lib;
       {
         homepage = "https://west.io/news-feed-eradicator";
-        description = "Find yourself spending too much time on Facebook? Eradicate distractions by replacing your entire news feed with an inspiring quote";
+        description = "Find yourself getting sucked in by algorithmic feeds? Eradicate distractions from popular social media sites.";
         license = licenses.mit;
-        mozPermissions = [ "storage" ];
+        mozPermissions = [ "storage" "scripting" ];
         platforms = platforms.all;
       };
     };
@@ -9450,10 +10039,10 @@
     };
     "noscript" = buildFirefoxXpiAddon {
       pname = "noscript";
-      version = "13.5.10";
+      version = "13.5.12";
       addonId = "{73a6fe31-595d-460b-a920-fcc0f8843232}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4668449/noscript-13.5.10.xpi";
-      sha256 = "1908595e63dee1cf2e6808638e161869ec493a1a8d4d13af5187ee74e4dfd64e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4674630/noscript-13.5.12.xpi";
+      sha256 = "58ef492544cd1a2eae0252f37bd4d5b090eff5fa5bfe0516972467c5e21f4c2a";
       meta = with lib;
       {
         homepage = "https://noscript.net";
@@ -9703,10 +10292,10 @@
     };
     "onepassword-password-manager" = buildFirefoxXpiAddon {
       pname = "onepassword-password-manager";
-      version = "8.11.27.2";
+      version = "8.12.1.3";
       addonId = "{d634138d-c276-4fc8-924b-40a0ea21d284}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4654028/1password_x_password_manager-8.11.27.2.xpi";
-      sha256 = "a7db6988e4d02dfe9c1513df521a88f08251e5a8a683155bd9a5619f50f21fbe";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4677239/1password_x_password_manager-8.12.1.3.xpi";
+      sha256 = "2204c09bf1bed9d8ac0d49132eb2c515aa7b39bbdcddbf4b128e976837fd1ec5";
       meta = with lib;
       {
         homepage = "https://1password.com";
@@ -9901,10 +10490,10 @@
     };
     "pakkujs" = buildFirefoxXpiAddon {
       pname = "pakkujs";
-      version = "2025.12.1";
+      version = "2026.2.1";
       addonId = "{646d57f4-d65c-4f0d-8e80-5800b92cfdaa}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4631227/pakkujs-2025.12.1.xpi";
-      sha256 = "ffb363a9a8aab4e17c981e7b5150138bd567a5374efec20088da574456b885f7";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4680711/pakkujs-2026.2.1.xpi";
+      sha256 = "1c07bf5edde945df9224d9a6b75653b6d327a7f1823557ff542aec81d1274320";
       meta = with lib;
       {
         homepage = "http://s.xmcp.ltd/pakkujs/?src=amo_homepage";
@@ -11901,10 +12490,10 @@
     };
     "ruffle_rs" = buildFirefoxXpiAddon {
       pname = "ruffle_rs";
-      version = "0.2.0.26008";
+      version = "0.2.0.26023";
       addonId = "{b5501fd1-7084-45c5-9aa6-567c2fcf5dc6}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4660171/ruffle_rs-0.2.0.26008.xpi";
-      sha256 = "fa02f2dd8075f5c1a92fa0d84bdccc4eb0f2d6963e8020251ddb47e4f2bebfd8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4673013/ruffle_rs-0.2.0.26023.xpi";
+      sha256 = "46fefdb9bf2382c97d98e4a4527af4013585abc64763135d149c397e9576d607";
       meta = with lib;
       {
         homepage = "https://ruffle.rs/";
@@ -12084,10 +12673,10 @@
     };
     "scots-language-pack" = buildFirefoxXpiAddon {
       pname = "scots-language-pack";
-      version = "148.0.20260128.90352";
+      version = "148.0.20260130.90557";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4677964/scots_language_pack-148.0.20260128.90352.xpi";
-      sha256 = "25e7dac614af8b4ece1d7a3af2b27ab877c85d31bab3d14eb440b675b80461c2";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4680024/scots_language_pack-148.0.20260130.90557.xpi";
+      sha256 = "166bbc4780b0a5555715427f0e8a0d9872488429bae7e503bdc78cb0718f2788";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
@@ -13782,10 +14371,10 @@
     };
     "tournesol" = buildFirefoxXpiAddon {
       pname = "tournesol";
-      version = "3.10.0";
+      version = "3.11.0";
       addonId = "{e8e831e8-8a2b-4fd8-b9f0-cd11155b476d}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4611011/tournesol_extension-3.10.0.xpi";
-      sha256 = "1538c5550fd491931029de99df81ad233abcfac275b1c187bcc19700e6b97c73";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4679770/tournesol_extension-3.11.0.xpi";
+      sha256 = "f364517ff0fe809edacea0f11461877d149a38d445ca7fa8f0aedf833b9d81f2";
       meta = with lib;
       {
         homepage = "https://tournesol.app/";
@@ -14392,10 +14981,10 @@
     };
     "ublock-origin" = buildFirefoxXpiAddon {
       pname = "ublock-origin";
-      version = "1.68.0";
+      version = "1.69.0";
       addonId = "uBlock0@raymondhill.net";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4629131/ublock_origin-1.68.0.xpi";
-      sha256 = "5caf4abda494018841222a12156919bbdd8cad82a783c38c36b22dd642704315";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4675310/ublock_origin-1.69.0.xpi";
+      sha256 = "785bcde68a25faa8a0949964ec5ffe9bdcb85d3f0ae21c23f607c6c8f91472cf";
       meta = with lib;
       {
         homepage = "https://github.com/gorhill/uBlock#ublock-origin";
@@ -15168,10 +15757,10 @@
     };
     "wappalyzer" = buildFirefoxXpiAddon {
       pname = "wappalyzer";
-      version = "6.10.88";
+      version = "6.10.89";
       addonId = "wappalyzer@crunchlabz.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4637142/wappalyzer-6.10.88.xpi";
-      sha256 = "43adcce8325bd7dc980de33e28ceb0a9b4b34ce07ceddf0b62a90f3de005498a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4678569/wappalyzer-6.10.89.xpi";
+      sha256 = "dcd8c710246cf0b7f8847d89d9cbf233277e815a7c2a8b58cceea2c6174e2025";
       meta = with lib;
       {
         homepage = "https://www.wappalyzer.com";
@@ -16109,10 +16698,10 @@
     };
     "youtube-subscription-groups" = buildFirefoxXpiAddon {
       pname = "youtube-subscription-groups";
-      version = "18.1.2";
+      version = "18.1.8";
       addonId = "danabok16@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4665888/youtube_subscription_groups-18.1.2.xpi";
-      sha256 = "aed83066e348bb6733b919172ce1ffac4016102d5f644fea1b575e0d5c58567c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4679773/youtube_subscription_groups-18.1.8.xpi";
+      sha256 = "9ed981f9fef49a1dd2df917c5fa8091e8970623eb907bd344673aceb06460ef3";
       meta = with lib;
       {
         homepage = "https://pockettube.io";
