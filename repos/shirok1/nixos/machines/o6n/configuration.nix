@@ -19,6 +19,8 @@
     ../../fragments/nix-settings.nix
   ];
 
+  sops.defaultSopsFile = ./secrets.yaml;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -89,6 +91,8 @@
   zramSwap.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+
+  documentation.man.generateCaches = false;
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.settings = {
@@ -265,6 +269,28 @@
     };
   };
 
+  security.acme = {
+    acceptTerms = true;
+    defaults = {
+      email = "admin@shiroki.tech";
+      extraLegoFlags = [ "--dns.propagation-wait=10s" ];
+    };
+    certs = {
+      "berry.shiroki.tech" = {
+        domain = "*.berry.shiroki.tech";
+        group = config.services.nginx.group;
+        dnsProvider = "cloudflare";
+        credentialFiles = {
+          "CF_DNS_API_TOKEN_FILE" = config.sops.secrets."acme/cloudflare".path;
+        };
+        reloadServices = [ "nginx" ];
+      };
+    };
+  };
+  sops.secrets."acme/cloudflare" = {
+    restartUnits = [ "acme-order-renew-berry.shiroki.tech.service" ];
+  };
+
   services.nginx = {
     enable = true;
 
@@ -283,12 +309,9 @@
 
     virtualHosts = {
       "ha.berry.shiroki.tech" = {
-        # # Redirect HTTP -> HTTPS
-        # forceSSL = true;
-        # # Enable ACME (Let's Encrypt). Set to false if you manage certs yourself.
-        # enableACME = true;
-        # If you enable ACME, also set services.acme.email below (or set
-        # services.nginx.extraConfig as needed).
+        addSSL = true;
+        acmeRoot = null;
+        useACMEHost = "berry.shiroki.tech";
         locations = {
           "/" = {
             proxyPass = "http://[::1]:8123";
@@ -300,12 +323,9 @@
         };
       };
       "qbt.berry.shiroki.tech" = {
-        # # Redirect HTTP -> HTTPS
-        # forceSSL = true;
-        # # Enable ACME (Let's Encrypt). Set to false if you manage certs yourself.
-        # enableACME = true;
-        # If you enable ACME, also set services.acme.email below (or set
-        # services.nginx.extraConfig as needed).
+        addSSL = true;
+        acmeRoot = null;
+        useACMEHost = "berry.shiroki.tech";
         locations = {
           "/" = {
             proxyPass = "http://[::1]:8080";
@@ -317,12 +337,9 @@
         };
       };
       "jellyfin.berry.shiroki.tech" = {
-        # # Redirect HTTP -> HTTPS
-        # forceSSL = true;
-        # # Enable ACME (Let's Encrypt). Set to false if you manage certs yourself.
-        # enableACME = true;
-        # If you enable ACME, also set services.acme.email below (or set
-        # services.nginx.extraConfig as needed).
+        addSSL = true;
+        acmeRoot = null;
+        useACMEHost = "berry.shiroki.tech";
         locations = {
           "/" = {
             proxyPass = "http://[::1]:8096";
@@ -446,8 +463,18 @@
   services.snell-server = {
     enable = true;
     package = pkgs.shirok1.snell-server;
-    settingsFile = "/etc/snell-server.conf";
+    settings = {
+      listen = "0.0.0.0:13831";
+      ipv6 = true;
+    };
+    pskFile = "/run/credentials/snell-server.service/psk";
   };
+  sops.secrets."snell/psk" = {
+    restartUnits = [ "snell-server.service" ];
+  };
+  systemd.services.snell-server.serviceConfig.LoadCredential = [
+    "psk:${config.sops.secrets."snell/psk".path}"
+  ];
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
