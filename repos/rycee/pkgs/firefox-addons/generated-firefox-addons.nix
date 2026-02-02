@@ -1378,10 +1378,10 @@
     };
     "british-english-dictionary-2" = buildFirefoxXpiAddon {
       pname = "british-english-dictionary-2";
-      version = "4.0.4";
+      version = "4.0.5";
       addonId = "marcoagpinto@mail.telepac.pt";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4654881/british_english_dictionary_2-4.0.4.xpi";
-      sha256 = "e3a0c09a346ab4fca38a87591dff221aa231ebcf7329c6126ee9a90939eda04d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4681245/british_english_dictionary_2-4.0.5.xpi";
+      sha256 = "613b71bfd519857968768f09d12044135f9423d013a80d458fc1d976c06a1fb2";
       meta = with lib;
       {
         homepage = "https://proofingtoolgui.org";
