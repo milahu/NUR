@@ -3,12 +3,12 @@ error:
 
 … while calling the 'foldl'' builtin
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:671:21:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:628:21:
 
-   670|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
-   671|       maintainers = unique (
+   627|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
+   628|       maintainers = unique (
       |                     ^
-   672|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
+   629|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
 
 … while calling anonymous lambda
 
