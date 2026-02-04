@@ -3573,10 +3573,10 @@
     };
     "elasticvue" = buildFirefoxXpiAddon {
       pname = "elasticvue";
-      version = "1.12.0";
+      version = "1.13.0";
       addonId = "{2879bc11-6e9e-4d73-82c9-1ed8b78df296}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4659013/elasticvue-1.12.0.xpi";
-      sha256 = "8c0f5c1a7eb5823a27f167fe0774d5d26356c3645b3176942331e5a88c1013d8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4682855/elasticvue-1.13.0.xpi";
+      sha256 = "0dc23230ba870bfd012a52d3b0dea579084d991f23ced75edac49d6abc43fc7b";
       meta = with lib;
       {
         homepage = "https://elasticvue.com/";
@@ -11968,10 +11968,10 @@
     };
     "recap" = buildFirefoxXpiAddon {
       pname = "recap";
-      version = "2.8.6";
+      version = "2.8.7";
       addonId = "info@recapthelaw.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4638852/recap_195534-2.8.6.xpi";
-      sha256 = "bc368493de7cbc6ec13fcd70efdb363d8d87e7a7df1d446f1e5c9f151c09c389";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4683165/recap_195534-2.8.7.xpi";
+      sha256 = "e8ab66faeae32974822e4b52f05607306a479ba961f0e3153daf5fde876a2a2d";
       meta = with lib;
       {
         homepage = "https://free.law/recap/";
@@ -12113,10 +12113,10 @@
     };
     "reddit-moderator-toolbox" = buildFirefoxXpiAddon {
       pname = "reddit-moderator-toolbox";
-      version = "6.1.23";
+      version = "6.1.24";
       addonId = "yes@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4622121/reddit_moderator_toolbox-6.1.23.xpi";
-      sha256 = "342036e05182ba3357a8000f3c85049b39a13ba0f2f909a060b9f8c871a63a92";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4683083/reddit_moderator_toolbox-6.1.24.xpi";
+      sha256 = "e078f02bc4bacc9747b75f78a213e8d7f1dd83d9f0b64c3e6cbc81b445953063";
       meta = with lib;
       {
         homepage = "https://www.reddit.com/r/toolbox";
