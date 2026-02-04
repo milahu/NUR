@@ -3,30 +3,30 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:557:15:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:552:15:
 
-   556|               in
-   557|               lib.strings.sanitizeDerivationName (
+   551|               in
+   552|               lib.strings.sanitizeDerivationName (
       |               ^
-   558|                 if attrs ? name then
+   553|                 if attrs ? name then
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/strings.nix:2901:5:
+  at <nixpkgs> + /lib/strings.nix:2902:5:
 
-  2900|     in
-  2901|     string:
+  2901|     in
+  2902|     string:
       |     ^
-  2902|     # First detect the common case of already valid strings, to speed those up
+  2903|     # First detect the common case of already valid strings, to speed those up
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:562:26:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:557:26:
 
-   561|                   # we cannot coerce null to a string below
-   562|                   assert assertMsg (
+   556|                   # we cannot coerce null to a string below
+   557|                   assert assertMsg (
       |                          ^
-   563|                     attrs ? version && attrs.version != null
+   558|                     attrs ? version && attrs.version != null
 
 … while calling 'assertMsg'
 
@@ -48,30 +48,30 @@ error:
 
 … while calling 'removePrefix'
 
-  at <nixpkgs> + /lib/strings.nix:1854:13:
+  at <nixpkgs> + /lib/strings.nix:1855:13:
 
-  1853|   removePrefix =
-  1854|     prefix: str:
+  1854|   removePrefix =
+  1855|     prefix: str:
       |             ^
-  1855|     # Before 23.05, paths would be copied to the store before converting them
+  1856|     # Before 23.05, paths would be copied to the store before converting them
 
 … from call site
 
-  at <nixpkgs> + /lib/strings.nix:1857:5:
+  at <nixpkgs> + /lib/strings.nix:1858:5:
 
-  1856|     # to strings and comparing. This was surprising and confusing.
-  1857|     warnIf (isPath prefix)
+  1857|     # to strings and comparing. This was surprising and confusing.
+  1858|     warnIf (isPath prefix)
       |     ^
-  1858|       ''
+  1859|       ''
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/trivial.nix:848:50:
+  at <nixpkgs> + /lib/trivial.nix:852:50:
 
-   847|   */
-   848|   warnIf = cond: msg: if cond then warn msg else x: x;
+   851|   */
+   852|   warnIf = cond: msg: if cond then warn msg else x: x;
       |                                                  ^
-   849|
+   853|
 
 … from call site
 
@@ -120,11 +120,11 @@ error:
 
 … while calling 'functionArgs'
 
-  at <nixpkgs> + /lib/trivial.nix:1040:5:
+  at <nixpkgs> + /lib/trivial.nix:1044:5:
 
-  1039|   functionArgs =
-  1040|     f:
+  1043|   functionArgs =
+  1044|     f:
       |     ^
-  1041|     if f ? __functor then
+  1045|     if f ? __functor then
 
 error: path '/nix/store/s6kpvk6g3bpd7y4ghrcl5nmq2c5a3g5v-package.nix' is not valid

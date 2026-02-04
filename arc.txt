@@ -19,39 +19,39 @@ error:
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:260:19:
+  at <nixpkgs> + /lib/customisation.nix:276:19:
 
-   259|   callPackageWith =
-   260|     autoArgs: fn: args:
+   275|   callPackageWith =
+   276|     autoArgs: fn: args:
       |                   ^
-   261|     let
+   277|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:1009:5:
+  at <nixpkgs> + /lib/trivial.nix:1021:5:
 
-  1008|     # TODO: Should we add call-time "type" checking like built in?
-  1009|     __functor = self: f;
+  1020|     # TODO: Should we add call-time "type" checking like built in?
+  1021|     __functor = self: f;
       |     ^
-  1010|     __functionArgs = args;
+  1022|     __functionArgs = args;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:162:7:
+  at <nixpkgs> + /lib/customisation.nix:178:7:
 
-   161|     mirrorArgs (
-   162|       origArgs:
+   177|     decorate (
+   178|       origArgs:
       |       ^
-   163|       let
+   179|       let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:164:18:
+  at <nixpkgs> + /lib/customisation.nix:180:18:
 
-   163|       let
-   164|         result = f origArgs;
+   179|       let
+   180|         result = f origArgs;
       |                  ^
-   165|
+   181|
 
 … while calling 'jimtcl-minimal'
 
@@ -64,39 +64,39 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:1009:5:
+  at <nixpkgs> + /lib/trivial.nix:1021:5:
 
-  1008|     # TODO: Should we add call-time "type" checking like built in?
-  1009|     __functor = self: f;
+  1020|     # TODO: Should we add call-time "type" checking like built in?
+  1021|     __functor = self: f;
       |     ^
-  1010|     __functionArgs = args;
+  1022|     __functionArgs = args;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:178:11:
+  at <nixpkgs> + /lib/customisation.nix:194:11:
 
-   177|           */
-   178|           newArgs: makeOverridable f (overrideWith newArgs)
+   193|           */
+   194|           newArgs: makeOverridable f (overrideWith newArgs)
       |           ^
-   179|         );
+   195|         );
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:1009:5:
+  at <nixpkgs> + /lib/trivial.nix:1021:5:
 
-  1008|     # TODO: Should we add call-time "type" checking like built in?
-  1009|     __functor = self: f;
+  1020|     # TODO: Should we add call-time "type" checking like built in?
+  1021|     __functor = self: f;
       |     ^
-  1010|     __functionArgs = args;
+  1022|     __functionArgs = args;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:162:7:
+  at <nixpkgs> + /lib/customisation.nix:178:7:
 
-   161|     mirrorArgs (
-   162|       origArgs:
+   177|     decorate (
+   178|       origArgs:
       |       ^
-   163|       let
+   179|       let
 
 error: function 'anonymous lambda' called with unexpected argument 'SDL_gfx'
 
