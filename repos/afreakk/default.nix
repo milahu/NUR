@@ -12,6 +12,7 @@ let
     dmenuhist = pkgs.callPackage ./pkgs/dmenuhist { };
     dcreemer-1pass = pkgs.callPackage ./pkgs/dcreemer-1pass { };
     mongosh = pkgs.callPackage ./pkgs/mongosh { };
+    pter = pkgs.callPackage ./pkgs/pter { };
     url-handler-tmux = tmuxHlp.mkDerivation rec {
       pluginName = "url-handler-tmux";
       version = "ec950050f36e0060dcfa13059f56eb256f1ccb8a";
