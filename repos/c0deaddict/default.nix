@@ -16,7 +16,7 @@ rec {
   hmModules = import ./hm-modules; # Home-manager modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  cameractrls = pkgs.callPackage ./pkgs/cameractrls {};
+  cameractrls = pkgs.callPackage ./pkgs/cameractrls { };
 
   dcpj315w = pkgs.callPackage ./pkgs/brother/dcpj315w { };
 
@@ -42,13 +42,15 @@ rec {
 
   keyhub-cli = pkgs.callPackage ./pkgs/keyhub-cli { };
 
+  kube-burner = pkgs.callPackage ./pkgs/kube-burner { };
+
   kubectl-cert-manager = pkgs.callPackage ./pkgs/kubectl-cert-manager { };
 
   lock-gnome-keyring = pkgs.callPackage ./pkgs/lock-gnome-keyring { };
 
   marble-marcher = pkgs.callPackage ./pkgs/marble-marcher { };
 
-  nftables-exporter = pkgs.callPackage ./pkgs/nftables-exporter {};
+  nftables-exporter = pkgs.callPackage ./pkgs/nftables-exporter { };
 
   rofi-pulse = pkgs.callPackage ./pkgs/rofi-pulse { my-lib = lib; };
 
