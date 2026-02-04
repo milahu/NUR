@@ -1,24 +1,24 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# mBMplay 启动脚本
-# 使用 Wine 运行 mBMplay，支持 .NET 应用
+# pBMSC 启动脚本
+# 使用 Wine 运行 pBMSC，支持 .NET 应用
 #
 # 文件打开提示：Wine文件对话框无法默认显示隐藏文件。
 # 建议通过以下方式打开文件：
 # 1. 直接从系统文件管理器拖拽文件到程序窗口
 # 2. 在文件对话框中手动点击"显示隐藏文件"按钮
 
-APP_ROOT="@out@/share/mbmplay"
-APP_DIR="$APP_ROOT/mBMplay"
+APP_ROOT="@out@/share/pbmsc"
+APP_DIR="$APP_ROOT"
 WINE_PACKAGE="@wineWow64Packages@"
 
 BASE_DATA_DIR="${XDG_DATA_HOME:-"$HOME/.local/share"}"
-USER_DATA="$BASE_DATA_DIR/mbmplay"
+USER_DATA="$BASE_DATA_DIR/pbmsc"
 
 export WINEDEBUG=-all
 export WINEARCH=win64
-export WINEPREFIX="${MBMPLAY_HOME:-"$USER_DATA/wine"}"
+export WINEPREFIX="${PBMSC_HOME:-"$USER_DATA/wine"}"
 export PATH="${WINE_PACKAGE}/bin:$PATH"
 
 # 创建用户数据目录
@@ -30,8 +30,8 @@ if [ ! -d "$WINEPREFIX" ]; then
 fi
 
 # 提供快速烟雾测试：仅验证脚本与目录准备是否正常
-if [ "$(printenv MBMPLAY_SMOKE)" = "1" ]; then
-  echo "mbmplay smoke-ok"
+if [ "$(printenv PBMSC_SMOKE)" = "1" ]; then
+  echo "pbmsc smoke-ok"
   exit 0
 fi
 
@@ -49,16 +49,7 @@ fi
 export WINEDLLOVERRIDES="mshtml="
 
 # 创建运行时目录（可写的临时目录，用于程序运行）
-RUNTIME_DIR=$(mktemp -d -t mbmplay.XXXXXX)
-
-# 确保 mBMplay.exe.config 文件作为独立副本存在
-if [ -f "$APP_DIR/mBMplay.exe.config" ]; then
-  if [ ! -f "$USER_DATA/mBMplay.exe.config" ] || [ -L "$USER_DATA/mBMplay.exe.config" ]; then
-    rm -f "$USER_DATA/mBMplay.exe.config"
-    cp "$APP_DIR/mBMplay.exe.config" "$USER_DATA/mBMplay.exe.config"
-  fi
-  cp -f "$USER_DATA/mBMplay.exe.config" "$RUNTIME_DIR/mBMplay.exe.config"
-fi
+RUNTIME_DIR=$(mktemp -d -t pbmsc.XXXXXX)
 
 cleanup() {
   local EXCLUDE_PATTERNS=("*.tmp" "*.temp" "*.cache" "*.log" "*.bak" "*.old" "*~" "*.lock" "*.swp")
@@ -95,11 +86,20 @@ trap cleanup EXIT
 cp -r "$APP_DIR"/. "$RUNTIME_DIR"/
 chmod -R u+rwX "$RUNTIME_DIR"
 
+# 确保 pBMSC.exe.config 文件作为独立副本存在
+if [ -f "$APP_DIR/pBMSC.exe.config" ]; then
+  if [ ! -f "$USER_DATA/pBMSC.exe.config" ] || [ -L "$USER_DATA/pBMSC.exe.config" ]; then
+    rm -f "$USER_DATA/pBMSC.exe.config"
+    cp "$APP_DIR/pBMSC.exe.config" "$USER_DATA/pBMSC.exe.config"
+  fi
+  cp -f "$USER_DATA/pBMSC.exe.config" "$RUNTIME_DIR/pBMSC.exe.config"
+fi
+
 # 将用户数据目录中的文件和目录链接到运行时目录（跳过配置文件，已单独处理）
 for item in "$USER_DATA"/*; do
   [ -e "$item" ] || continue
   name="$(basename "$item")"
-  [ "$name" = "mBMplay.exe.config" ] && continue
+  [ "$name" = "pBMSC.exe.config" ] && continue
   [ -e "$RUNTIME_DIR/$name" ] && rm -rf "$RUNTIME_DIR/$name"
   if [ -d "$item" ]; then
     # macOS 不支持 ln -sfT，使用 -n 替代
@@ -110,4 +110,4 @@ for item in "$USER_DATA"/*; do
 done
 
 cd "$RUNTIME_DIR"
-wine "mBMplay.exe" "$@"
+wine "pBMSC.exe" "$@"
