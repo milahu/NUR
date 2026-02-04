@@ -3,12 +3,13 @@
   stdenv,
 
   gcc,
+  fetchzip
 }:
 stdenv.mkDerivation rec {
   pname = "libspeedhack";
   version = "0.1";
 
-  src = builtins.fetchTarball {
+  src = fetchzip {
     url = "https://github.com/evg-zhabotinsky/${pname}/releases/download/${version}-x86-multilib/libspeedhack.tar.gz";
     sha256 = "sha256-IrBH9MUXO7amMt9geuIc49Kr3H+K4rnmfUYuOV4qnnw=";
   };
@@ -26,5 +27,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/evg-zhabotinsky/libspeedhack";
     license = licenses.mit;
   };
+
+  preferLocalBuild = true;
 
 }
