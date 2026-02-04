@@ -45,10 +45,10 @@
   };
   dxvk-gplall = {
     pname = "dxvk-gplall";
-    version = "2.7.1-1";
+    version = "2.7.1-2";
     src = fetchurl {
-      url = "https://github.com/Digger1955/dxvk-gplasync-lowlatency/releases/download/DXVK-GPLALL-2.7.1-1/DXVK-GPLALL-MSVC-Windows-AVX2-O2-LTCG-AMD64.2.7.1-1.zip";
-      sha256 = "sha256-XezfqwwKygUQcu/J6NtTFJHcKacy4xYSXzCWmLZg6Cw=";
+      url = "https://github.com/Digger1955/dxvk-gplasync-lowlatency/releases/download/DXVK-GPLALL-2.7.1-2/DXVK-GPLALL-MSVC-Windows-AVX2-O2-LTCG-AMD64.2.7.1-2.zip";
+      sha256 = "sha256-pnFfnyWQxxRiy67kzTAGOBSnQQ617ebUpS6mSBpWndU=";
     };
   };
   imfile-arm = {
@@ -81,6 +81,23 @@
       lockFile = ./. + "/sha256-vDrkk3fVF7SMzJzA7AI3kFQyYMbZPWS0gTEaK97cwX4=/Cargo.lock";
       outputHashes = {
 
+      };
+    };
+  };
+  linux-enable-ir-emitter = {
+    pname = "linux-enable-ir-emitter";
+    version = "7.0.0-beta";
+    src = fetchFromGitHub {
+      owner = "EmixamPP";
+      repo = "linux-enable-ir-emitter";
+      rev = "7.0.0-beta";
+      fetchSubmodules = false;
+      sha256 = "sha256-lHNo00xhyk3objKR1RUPofSxImJ12V1yShAibjKZ7lw=";
+    };
+    cargoLock."Cargo.lock" = {
+      lockFile = ./. + "/sha256-lHNo00xhyk3objKR1RUPofSxImJ12V1yShAibjKZ7lw=/Cargo.lock";
+      outputHashes = {
+        "ansipix-2.0.0" = "sha256-RkwicughatQcuXnPIRtnL36xkfFzCsHDgL+VZCi46WY=";
       };
     };
   };
@@ -130,16 +147,16 @@
   };
   piliplus = {
     pname = "piliplus";
-    version = "1.1.5.4";
+    version = "1.1.5.7";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "1.1.5.4";
+      rev = "1.1.5.7";
       fetchSubmodules = false;
-      sha256 = "sha256-iyDc4NNCG9XQMsNYvtBfhkGJFtbWO/Vx1ueCMVXy5VY=";
+      sha256 = "sha256-qUK7H/jKjVI5TmS/tXRk6KppXIYLC8JG7/ZyJdxpbyo=";
     };
     extract = {
-      "pubspec.lock" = ./. + "/sha256-iyDc4NNCG9XQMsNYvtBfhkGJFtbWO_Vx1ueCMVXy5VY=/pubspec.lock";
+      "pubspec.lock" = ./. + "/sha256-qUK7H_jKjVI5TmS_tXRk6KppXIYLC8JG7_ZyJdxpbyo=/pubspec.lock";
     };
   };
   pixes = {
@@ -184,21 +201,21 @@
   };
   splayer-git = {
     pname = "splayer-git";
-    version = "ff57d00e3601f855b6de55d52f263eacdcf4c22c";
+    version = "56f2289221d37976f57926326399570829ec2587";
     src = fetchFromGitHub {
       owner = "imsyy";
       repo = "SPlayer";
-      rev = "ff57d00e3601f855b6de55d52f263eacdcf4c22c";
+      rev = "56f2289221d37976f57926326399570829ec2587";
       fetchSubmodules = false;
-      sha256 = "sha256-PiUtLtItHQ2JXI3FXtSrM4ytDeSZ8zgfZJRB6eXtp9E=";
+      sha256 = "sha256-6j/uuB+AgfYVmeaDaETaXXYirJR5EHhR/ZwnfTl4DoI=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-PiUtLtItHQ2JXI3FXtSrM4ytDeSZ8zgfZJRB6eXtp9E=/Cargo.lock";
+      lockFile = ./. + "/sha256-6j_uuB+AgfYVmeaDaETaXXYirJR5EHhR_ZwnfTl4DoI=/Cargo.lock";
       outputHashes = {
 
       };
     };
-    date = "2026-01-21";
+    date = "2026-02-03";
   };
   svt-av1-hdr = {
     pname = "svt-av1-hdr";
