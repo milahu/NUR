@@ -9,6 +9,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sort"
 	"strings"
 	"text/template"
 	"time"
@@ -296,12 +297,30 @@ func nixType(jsonType string) string {
 	case "boolean":
 		return "lib.types.bool"
 	case "array":
-		return "lib.types.listOf lib.types.str"
+		return "(lib.types.listOf lib.types.str)"
 	case "object":
-		return "lib.types.attrsOf lib.types.anything"
+		return "(lib.types.attrsOf lib.types.anything)"
 	default:
 		return "lib.types.anything"
 	}
+}
+
+// tryNestedSubmodule checks if a property is a nested object with properties
+// and returns the corresponding Nix type along with the generated children.
+// Returns ok=true if the property was successfully resolved as a submodule.
+func tryNestedSubmodule(inner *Property, schema *Schema, indent, wrapperType string) (nixType string, children []OptionData, ok bool) {
+	if inner == nil {
+		return "", nil, false
+	}
+	if inner.Ref != "" {
+		inner = resolveRef(inner.Ref, schema)
+	}
+	if inner.Type == "object" && len(inner.Properties) > 0 {
+		return wrapperType + " (lib.types.submodule",
+			generateOptions(inner.Properties, schema, indent+"      "),
+			true
+	}
+	return "", nil, false
 }
 
 func generateOptions(props map[string]*Property, schema *Schema, indent string) []OptionData {
@@ -309,8 +328,16 @@ func generateOptions(props map[string]*Property, schema *Schema, indent string) 
 		return nil
 	}
 
+	// Sort keys for deterministic output
+	names := make([]string, 0, len(props))
+	for name := range props {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+
 	var options []OptionData
-	for name, prop := range props {
+	for _, name := range names {
+		prop := props[name]
 		if !isValidNixIdentifier(name) {
 			continue
 		}
@@ -365,14 +392,9 @@ func generateOptions(props map[string]*Property, schema *Schema, indent string) 
 
 		// Arrays of objects
 		if prop.Type == "array" && prop.Items != nil {
-			items := prop.Items
-			if items.Ref != "" {
-				items = resolveRef(items.Ref, schema)
-			}
-
-			if items.Type == "object" && len(items.Properties) > 0 {
-				opt.Type = "lib.types.listOf (lib.types.submodule"
-				opt.Children = generateOptions(items.Properties, schema, indent+"      ")
+			if nixType, children, ok := tryNestedSubmodule(prop.Items, schema, indent, "lib.types.listOf"); ok {
+				opt.Type = nixType
+				opt.Children = children
 				if defaultVal != nil {
 					opt.Default = "[ ]"
 				}
@@ -380,7 +402,7 @@ func generateOptions(props map[string]*Property, schema *Schema, indent string) 
 				continue
 			}
 
-			opt.Type = "lib.types.listOf lib.types.str"
+			opt.Type = "(lib.types.listOf lib.types.str)"
 			if defaultVal != nil {
 				opt.Default = "[ ]"
 			}
@@ -390,14 +412,9 @@ func generateOptions(props map[string]*Property, schema *Schema, indent string) 
 
 		// AdditionalProperties (attrs of objects)
 		if prop.Type == "object" && prop.AdditionalProperties != nil {
-			additionalProps := prop.AdditionalProperties
-			if additionalProps.Ref != "" {
-				additionalProps = resolveRef(additionalProps.Ref, schema)
-			}
-
-			if additionalProps.Type == "object" && len(additionalProps.Properties) > 0 {
-				opt.Type = "lib.types.attrsOf (lib.types.submodule"
-				opt.Children = generateOptions(additionalProps.Properties, schema, indent+"      ")
+			if nixType, children, ok := tryNestedSubmodule(prop.AdditionalProperties, schema, indent, "lib.types.attrsOf"); ok {
+				opt.Type = nixType
+				opt.Children = children
 				if defaultVal != nil {
 					opt.Default = "{ }"
 				}
@@ -405,7 +422,7 @@ func generateOptions(props map[string]*Property, schema *Schema, indent string) 
 				continue
 			}
 
-			opt.Type = "lib.types.attrsOf lib.types.anything"
+			opt.Type = "(lib.types.attrsOf lib.types.anything)"
 			if defaultVal != nil {
 				opt.Default = "{ }"
 			}
