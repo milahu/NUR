@@ -74,6 +74,7 @@ in
       ".envrc.gemset.nix"
       ".envrc.nix"
       ".local.justfile"
+      ".Trash-*"
       ".venv/"
       ".vscode/"
       "result"
