@@ -1,27 +1,30 @@
 {
 "name":"AndrewKvalheim",
-"fetch_time":3.475,
-"eval_time":0.306,
+"fetch_time":3.272,
+"eval_time":0.283,
 "source":{
 "url":"https://codeberg.org/AndrewKvalheim/configuration",
-"rev":"b412e4604fec0c995592be1fcd012e9e3441e452",
-"sha256":"02ldldab9b1myick2623fd6qqlmm564w7js9mwfk3lljid44rwsi",
+"rev":"3800bb6ea95b2eb9cc9519cc02e41a0754112be1",
+"sha256":"1zqjx222g3anzp74w6rdrmj73fip6xcdsn0p5dpvbzvbvf0j5yc1",
 "date":null
 },
-"source_storepath":"/nix/store/ywmjq4vhyj7hnbh0f9mbwrlkccs9gkkq-configuration",
-"nixpkgs_storepath":"/nix/store/sqb26irwg5i3jpr7xlja0zwih1nblb2b-source",
-"nur_combined_rev":"978532f04c4d50fa2f0667a4b88fee0a88d4915b",
+"source_storepath":"/nix/store/mcc8rdy91lf0layk0b23f8g0krcgza34-configuration",
+"nixpkgs_storepath":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source",
+"nur_combined_rev":"028a9f240bab9bb4950abb598f14ac82d788a9ac",
 "packages":{
 "ai-robots-txt":{
 "meta":{
 "available":true,
 "broken":false,
+"description":"List of AI agents and robots to block",
+"homepage":"https://github.com/ai-robots-txt/ai.robots.txt",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
 "language":"*",
 "other":"*",
 "part":"a",
+"product":"ai-robots-txt",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -33,6 +36,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
+"product":"ai-robots-txt",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -41,12 +45,21 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
 "maintainers":[],
 "name":"ai-robots-txt-1.44",
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/fetchurl/default.nix:267",
+"position":"./library/ai-robots-txt.pkg.nix:36",
 "unfree":false,
 "unsupported":false
 },
@@ -333,7 +346,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/sqb26irwg5i3jpr7xlja0zwih1nblb2b-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
+"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
 "line":74
 },
 "name":"python3.13-busyserve-0.45.3",
@@ -2378,8 +2391,8 @@
 },
 "pdfalyzer":{
 "meta":{
-"available":true,
-"broken":false,
+"available":false,
+"broken":true,
 "description":"Analyze PDFs with colors (and YARA)",
 "homepage":"https://github.com/michelcrypt4d4mus/pdfalyzer",
 "identifiers":{
