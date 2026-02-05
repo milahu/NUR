@@ -18,6 +18,7 @@ gleam.build rec {
   target = "erlang";
 
   passthru = {
+    ifd = true;
     updateScript = lib.concatStringsSep " " (nix-update-script {
       extraArgs = [
         "--commit"
