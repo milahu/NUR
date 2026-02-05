@@ -326,16 +326,16 @@
     };
     "anchors-reveal" = buildFirefoxXpiAddon {
       pname = "anchors-reveal";
-      version = "1.2resigned1";
+      version = "1.3.3";
       addonId = "jid1-XX0TcCGBa7GVGw@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4270578/anchors_reveal-1.2resigned1.xpi";
-      sha256 = "bcae97368b2c2271cf694676a2fb29dd168698e6e8105a6df6607fcf0bbce77a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4683781/anchors_reveal-1.3.3.xpi";
+      sha256 = "19d546fd682d91414a8fffcc5ec5fa1ed7271276dc518b35e117e09e30140da0";
       meta = with lib;
       {
         homepage = "http://dascritch.net/post/2014/06/24/Sniffeur-d-ancre";
         description = "Reveal the anchors in a webpage";
         license = licenses.gpl3;
-        mozPermissions = [ "activeTab" "storage" "contextMenus" ];
+        mozPermissions = [ "activeTab" "scripting" "storage" "contextMenus" ];
         platforms = platforms.all;
       };
     };
@@ -2724,10 +2724,10 @@
     };
     "danish-language-pack" = buildFirefoxXpiAddon {
       pname = "danish-language-pack";
-      version = "148.0.20260202.90533";
+      version = "147.0.20260203.2554";
       addonId = "langpack-da@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4682439/dansk_da_language_pack-148.0.20260202.90533.xpi";
-      sha256 = "36bbaf4e883c2945e992ccd201e78c49e4e3f29fa2f9f284a0db14e8584a1ba9";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4683614/dansk_da_language_pack-147.0.20260203.2554.xpi";
+      sha256 = "9a04c9f26055c655c4a66375244bdaac553e282559d9d87b8ad1fda3dc1e2684";
       meta = with lib;
       {
         description = "Firefox Language Pack for Dansk (da) – Danish";
@@ -2937,10 +2937,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "148.0.20260202.90533";
+      version = "147.0.20260203.2554";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4682436/deutsch_de_language_pack-148.0.20260202.90533.xpi";
-      sha256 = "8473239b207074172ba5dde33d7e868f5748d8ba126eca0876ddac12fe353c30";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4683612/deutsch_de_language_pack-147.0.20260203.2554.xpi";
+      sha256 = "553e10b19267e7caef2d818593f3da5aa45125261bd5c7e6eda5acaa2ddfb7b7";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -3109,7 +3109,7 @@
       sha256 = "4b64f97b110beb5552a1326f0bc772d185b1a39279c330d4b54b68a8f7ec7285";
       meta = with lib;
       {
-        homepage = "https://waymondrang.com/docsafterdark/";
+        homepage = "https://docsafterdark.com/";
         description = "Modern, dark mode for Google Docs";
         license = licenses.mpl20;
         mozPermissions = [
@@ -4413,10 +4413,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "148.0.20260202.90533";
+      version = "147.0.20260203.2554";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4682486/francais_language_pack-148.0.20260202.90533.xpi";
-      sha256 = "3053a4329c0a7f3a77c409350c96cec3083689344373c2fbe7a3bce901d36147";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4683670/francais_language_pack-147.0.20260203.2554.xpi";
+      sha256 = "6b71add67b2e454a9c2bd8b07ed208f246d641a5f35b85c07a8ede9c70c95c62";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4450,10 +4450,10 @@
     };
     "gaidhlig-language-pack" = buildFirefoxXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "148.0.20260202.90533";
+      version = "147.0.20260203.2554";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4682394/gaidhlig_language_pack-148.0.20260202.90533.xpi";
-      sha256 = "0485c7a9ec3bbd7c5fb1e69c38924032aabde0dcaf47032a26808af21f484796";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4683620/gaidhlig_language_pack-147.0.20260203.2554.xpi";
+      sha256 = "b719534cbb0d9cca1becf7afd9e6d2d4a6c35349af2977e9385d9cf6dfed6138";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -9526,10 +9526,10 @@
     };
     "metamask" = buildFirefoxXpiAddon {
       pname = "metamask";
-      version = "13.11.2";
+      version = "13.14.2";
       addonId = "webextension@metamask.io";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4633614/ether_metamask-13.11.2.xpi";
-      sha256 = "a78e688ee07ed5ef27c4f7b788a4c1ab140a9ca317fbf4f2ad58b4c1dc3974ac";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4678474/ether_metamask-13.14.2.xpi";
+      sha256 = "9355aaea6b234ad14664e7811deaf7a57effade278f482ecaf722aa67c901f13";
       meta = with lib;
       {
         description = "The most secure wallet for crypto, NFTs, and DeFi, trusted by millions of users";
@@ -9658,7 +9658,7 @@
       sha256 = "d67b7b476d42fe893f82cd98cd2c0e5c3286c1eb96a4cb24276e1010eb6687ef";
       meta = with lib;
       {
-        homepage = "https://github.com/maxhu08/mtab";
+        homepage = "https://get-mtab.vercel.app";
         description = "a simple configurable new tab extension";
         license = licenses.mit;
         mozPermissions = [ "storage" "bookmarks" ];
@@ -9864,10 +9864,10 @@
     };
     "news-feed-eradicator" = buildFirefoxXpiAddon {
       pname = "news-feed-eradicator";
-      version = "3.0.0";
+      version = "3.0.1";
       addonId = "@news-feed-eradicator";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4679675/news_feed_eradicator-3.0.0.xpi";
-      sha256 = "60b0afc255a1037ddbc46c3ea1c7790db9002c4004d6f4464518de4f8e8becc2";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4684064/news_feed_eradicator-3.0.1.xpi";
+      sha256 = "4b9900b68837554816d068cdc38bf4ebafe3773cc3a276e1d8d17dd5006c452b";
       meta = with lib;
       {
         homepage = "https://west.io/news-feed-eradicator";
@@ -12729,10 +12729,10 @@
     };
     "scots-language-pack" = buildFirefoxXpiAddon {
       pname = "scots-language-pack";
-      version = "148.0.20260202.90533";
+      version = "147.0.20260203.2554";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4682407/scots_language_pack-148.0.20260202.90533.xpi";
-      sha256 = "5a5fe10dc9e1c3a1b5f469739bcfc474b36ce400bb1cf414b26bcdf55d50f6aa";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4683607/scots_language_pack-147.0.20260203.2554.xpi";
+      sha256 = "86cb9ae2e1d2a117b4d2dc67c6150e4b358ded8aadd654575f6ce60bd360f3e8";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
