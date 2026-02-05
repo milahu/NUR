@@ -173,15 +173,12 @@ let
         lmms
         minetest591client
         minetest580client
-        musescore3
         musescore-alex
-        tuxguitar
         cb
         beammp-launcher
         mdbook-generate-summary
         #betterbird
         eden
-        plezy
         downkyicore
         ego
         lix
@@ -195,6 +192,7 @@ let
         nix-output-monitor
         musescore-evolution
         citron-emu
+        zotero
         ;
     };
   };
