@@ -19,16 +19,16 @@
   };
   baibot = {
     pname = "baibot";
-    version = "v1.13.0";
+    version = "v1.14.0";
     src = fetchFromGitHub {
       owner = "etkecc";
       repo = "baibot";
-      rev = "v1.13.0";
+      rev = "v1.14.0";
       fetchSubmodules = false;
-      sha256 = "sha256-tCTj172C2vKvdym5NtIdYC1KUDxDRjP/WtgOG4+aibI=";
+      sha256 = "sha256-deklCS29jkc2QO6mRpr1XXWlxOWwp6Cjlzc5suTvC0U=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-tCTj172C2vKvdym5NtIdYC1KUDxDRjP_WtgOG4+aibI=/Cargo.lock";
+      lockFile = ./. + "/sha256-deklCS29jkc2QO6mRpr1XXWlxOWwp6Cjlzc5suTvC0U=/Cargo.lock";
       outputHashes = {
         "anthropic-0.0.8" = "sha256-q21o2GB8nN0jGcRPgW/cujC+3gdgQg5mFJUJy2tipCA=";
       };
@@ -158,10 +158,10 @@
   };
   moe-koe-music = {
     pname = "moe-koe-music";
-    version = "v1.5.7";
+    version = "v1.5.8";
     src = fetchurl {
-      url = "https://github.com/iAJue/MoeKoeMusic/releases/download/v1.5.7/MoeKoe_Music_v1.5.7.AppImage";
-      sha256 = "sha256-kKfIAGGcgk1tV9WeuaXD+W1Y5D7ahb9gyWbMHZd2oP8=";
+      url = "https://github.com/iAJue/MoeKoeMusic/releases/download/v1.5.8/MoeKoe_Music_v1.5.8.AppImage";
+      sha256 = "sha256-QB0w7UAUeLoRaYHHR7Aw2Zf6PFNBLz7KDV/S+l/M/2A=";
     };
   };
   mstickereditor = {
@@ -351,17 +351,17 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "17c1f2559c0592b1fce84bbf73b148652037912e";
+    version = "42b6aa4f1cc5f7d03e72f2b3867c21a442ae21c4";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "17c1f2559c0592b1fce84bbf73b148652037912e";
+      rev = "42b6aa4f1cc5f7d03e72f2b3867c21a442ae21c4";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-UnE2Mj0dDCkjLsrVoh3q3/eSuGHBGwhJYjmW9m9tvwA=";
+      sha256 = "sha256-ELEC9+z1E1vBH84wV1+0urx6fhbAz2fckThCCRVy95g=";
     };
-    date = "2026-01-31";
+    date = "2026-02-04";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
