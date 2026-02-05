@@ -1,0 +1,28 @@
+error:
+… while evaluating the file './default.nix':
+
+… from call site
+
+  at ./default.nix:3:21:
+
+     2|                     with import <nixpkgs> {};
+     3|                     import ./evalRepo.nix {
+      |                     ^
+     4|                         name = "thomas725";
+
+… while calling anonymous lambda
+
+  at ./evalRepo.nix:1:1:
+
+     1| { name
+      | ^
+     2| , url
+
+error: undefined variable 'npupnp'
+
+at ./default.nix:6:48:
+
+     5|   npupnp = pkgs.callPackage ./pkgs/npupnp { };
+     6|   libupnpp = pkgs.callPackage ./pkgs/libupnpp { inherit npupnp; };
+      |                                                ^
+     7|   upplay = pkgs.callPackage ./pkgs/upplay { inherit libupnpp; };
