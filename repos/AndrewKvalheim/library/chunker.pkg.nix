@@ -7,7 +7,7 @@
 
   # Dependencies
 , git
-, gradle_8
+, gradle_9
 , temurin-bin-17
 }:
 
@@ -16,22 +16,22 @@ let
 in
 stdenv.mkDerivation (chunker: {
   pname = "chunker";
-  version = "1.14.0";
+  version = "1.15.0";
 
   src = fetchFromGitHub {
     owner = "HiveGamesOSS";
     repo = "Chunker";
     rev = "refs/tags/${chunker.version}";
     leaveDotGit = true;
-    hash = "sha256-LK48fDR13XIiwMVd4Im0DivHOH2TaSzIUW3bXcIpnuc=";
+    hash = "sha256-8fOBYN/o7Ew+pS6eHp7fpvWQbIyl2rkAl/g6TYsk3qI=";
   };
 
-  mitmCache = gradle_8.fetchDeps {
+  mitmCache = gradle_9.fetchDeps {
     pkg = chunker.finalPackage;
     data = ./assets/chunker-deps.json; # To generate, run `$(path 'chunker.mitmCache.updateScript')`
   };
 
-  nativeBuildInputs = [ git gradle_8 makeBinaryWrapper ];
+  nativeBuildInputs = [ git gradle_9 makeBinaryWrapper ];
   gradleFlags = [ "-Dorg.gradle.java.home=${temurin-bin-17}" ];
 
   installPhase = ''
@@ -54,6 +54,5 @@ stdenv.mkDerivation (chunker: {
     homepage = "https://www.chunker.app/";
     license = lib.licenses.mit;
     mainProgram = "chunker";
-    broken = versionAtLeast lib.trivial.release "26.05"; # FIXME: Investigate build phase `java.lang.StackOverflowError`
   };
 })

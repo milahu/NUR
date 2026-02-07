@@ -452,13 +452,14 @@ in
         };
       };
 
-      languageSnippets = {
+      languageSnippets = rec {
         git-commit = {
           "Co-authored-by" = {
             "prefix" = "co";
             "body" = [ "Co-authored-by: $1 <$2>" ];
           };
         };
+        jj-commit = git-commit;
       };
     };
   };
