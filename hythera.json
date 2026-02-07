@@ -1,16 +1,16 @@
 {
 "name":"hythera",
-"fetch_time":0.405,
-"eval_time":0.242,
+"fetch_time":1.058,
+"eval_time":0.239,
 "source":{
 "url":"https://github.com/Hythera/nur-packages",
-"rev":"7170b0aad7b56ab977174539d45d0e2b074b3c40",
-"sha256":"169llr5bn81hk2rm87w395hfhnqfb27yjl701cm10pbcj6n35qz6",
+"rev":"cac1a4e0f74a2d329642f0603a6455da2b7a239f",
+"sha256":"0z4f25hkhpfdfgn510db56hlqfjp5zmzrd45aak5hdhimg0yca6w",
 "date":null
 },
-"source_storepath":"/nix/store/axga92b9mvm2iggjp89w9fcfv8fqcpjf-source",
-"nixpkgs_storepath":"/nix/store/cv8m80m5pb0ci5cjpd14490kpym5gf6x-source",
-"nur_combined_rev":"7b0fcb824dc6a053701d82e69e7e7e3a59197b0d",
+"source_storepath":"/nix/store/zqpkzlvsixxa5fg63crr13br0ql2jkqw-source",
+"nixpkgs_storepath":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source",
+"nur_combined_rev":"978d4ef6f676fdad7be3f017f4166dcc6c8dd16a",
 "packages":{
 "rootapp":{
 "meta":{
@@ -55,7 +55,7 @@
 },
 "mainProgram":"rootapp",
 "maintainers":[],
-"name":"rootapp-0.9.79",
+"name":"rootapp-0.9.83",
 "outputsToInstall":[
 "out"
 ],
@@ -93,14 +93,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"rootapp-0.9.79",
+"name":"rootapp-0.9.83",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rootapp",
 "system":"x86_64-linux",
-"version":"0.9.79"
+"version":"0.9.83"
 },
 "waterfox":{
 "meta":{
@@ -150,8 +150,8 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/cv8m80m5pb0ci5cjpd14490kpym5gf6x-source/pkgs/stdenv/generic/check-meta.nix",
-"line":625
+"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/stdenv/generic/check-meta.nix",
+"line":628
 },
 "maxSilent":14400,
 "name":"waterfox-unwrapped-6.6.8",
@@ -204,7 +204,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/browsers/firefox/wrapper.nix:578",
+"position":"<nixpkgs> + /pkgs/applications/networking/browsers/firefox/wrapper.nix:581",
 "priority":4,
 "unfree":false,
 "unsupported":false
@@ -265,8 +265,8 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/cv8m80m5pb0ci5cjpd14490kpym5gf6x-source/pkgs/stdenv/generic/check-meta.nix",
-"line":625
+"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/stdenv/generic/check-meta.nix",
+"line":628
 },
 "name":"waterfox-bin-unwrapped-6.6.8",
 "outputsToInstall":[
@@ -277,7 +277,7 @@
 "x86_64-darwin",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/browsers/firefox/wrapper.nix:578",
+"position":"<nixpkgs> + /pkgs/applications/networking/browsers/firefox/wrapper.nix:581",
 "priority":4,
 "sourceProvenance":[
 {
