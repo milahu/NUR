@@ -4,7 +4,7 @@
 }:
 
 let
-  rev = "d950c097de207d16d3ea23b0be6e3f4c0a29534c";
+  rev = "d5b4eeba628730008b9e6f9f111eb26a4d767020";
 in
 rustPlatform.buildRustPackage rec {
   pname = "beurer_bf100_parser";
@@ -14,18 +14,10 @@ rustPlatform.buildRustPackage rec {
     owner = "thomas351";
     repo  = "beurer_bf100_parser";
     inherit rev;
-    hash = "sha256-G1XW8JJSXQwvVYFfQyyssXsA7UCj4yygH1L8cT1d6a8=";
+    hash = "sha256-WPwbEyNN1GwjUNZKb1njlQkZVNxzv+pu6UOwV0lUYgw=";
     domain = "gitlab.com";
   };
-
-  # If your project has a Cargo.lock, this is usually enough:
-  cargoLock = {
-    lockFile = src + "/Cargo.lock";
-  };
-
-  # If you need extra native build inputs (for example, OpenSSL):
-  # nativeBuildInputs = [ pkg-config ];
-  # buildInputs = [ openssl ];
+  cargoHash = "sha256-p9gtbBdWNCJ1EhFe62uK4WbDutGnHHN3OjVLIsq52rE=";
 
   meta = with lib; {
     description = "Parser for Beurer BF100 scale data";
