@@ -39,7 +39,12 @@ let
         minipkgs0.prismlauncher-unwrapped;
   };
 in
-rec {
+# https://github.com/nix-community/nur-combined/blob/af619b147352e88b4105fbfab03f9395e68e5ee5/repos/dtomvan/default.nix#L6
+lib.filesystem.packagesFromDirectoryRecursive {
+  inherit (pkgs) callPackage newScope;
+  directory = ./by-name;
+}
+// rec {
   wireguird = goV3OverrideAttrs (pkgs.callPackage ./pkgs/wireguird { });
   lmms = pkgs.callPackage ./pkgs/lmms/package.nix {
     withOptionals = true;
@@ -299,10 +304,6 @@ rec {
 
   polkit126 = pkgs.callPackage ./pkgs/polkit/package.nix { };
 
-  #davinci-resolve_20_0_1 = pkgs.callPackage ./pkgs/davinci-resolve/package.nix { };
-  davinci-resolve-studio_20_0_1 = pkgs.callPackage ./pkgs/davinci-resolve/package.nix {
-    studioVariant = true;
-  };
   # https://github.com/NixOS/nixpkgs/commit/49a636772fd8ea6f25b9c9ff9c5a04434e90b96f
   #davinci-resolve_20_1_1 = pkgs.callPackage ./pkgs/davinci-resolve-201/package.nix { };
   davinci-resolve-studio_20_1_1 = pkgs.callPackage ./pkgs/davinci-resolve-201/package.nix {
@@ -344,8 +345,6 @@ rec {
 
   citron-emu = v3overrideAttrs (pkgs.callPackage ./pkgs/citron-emu/package.nix { });
 
-  openscreen = pkgs.callPackage ./pkgs/openscreen/package.nix { };
-
   rocksmith-custom-song-toolkit = pkgs.callPackage ./pkgs/rocksmith-custom-song-toolkit { };
 
   rocksmith2tab = pkgs.callPackage ./pkgs/rocksmith2tab {
@@ -353,6 +352,24 @@ rec {
   };
 
   zotero = pkgs.callPackage ./pkgs/zotero/package.nix { };
+
+  lixPackageSets_2_93 = lib.recurseIntoAttrs (
+    callPackage ./pkgs/lix {
+      storeDir = pkgs.config.nix.storeDir or "/nix/store";
+      stateDir = pkgs.config.nix.stateDir or "/nix/var";
+    }
+  );
+
+  lix_2_93 = lixPackageSets_2_93.stable.lix;
+
+  nixVersions_2_31_2 = lib.recurseIntoAttrs (
+    callPackage ./pkgs/nix {
+      storeDir = pkgs.config.nix.storeDir or "/nix/store";
+      stateDir = pkgs.config.nix.stateDir or "/nix/var";
+    }
+  );
+
+  nix_2_31_2 = nixVersions_2_31_2.stable;
 
 }
 // (lib.optionalAttrs (!nurbot) rec {
@@ -375,7 +392,6 @@ rec {
       p7zip
       gawk
       ;
-    inherit (pkgs) xorg;
     wine = pkgs.wineWow64Packages.full;
   };
   adobe-acrobat-reader_virtualDesktop = adobe-acrobat-reader.override {
