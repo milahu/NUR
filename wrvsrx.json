@@ -1,16 +1,16 @@
 {
 "name":"wrvsrx",
-"fetch_time":0.697,
-"eval_time":0.918,
+"fetch_time":1.197,
+"eval_time":0.832,
 "source":{
 "url":"https://github.com/wrvsrx/nur-packages",
-"rev":"0156c4a5d2a75c03077326ae238f8569f28ac382",
-"sha256":"07d73m377g3sndfwygdrxk6jv14g7q8k9p43rzlb3l5k532n9xsh",
+"rev":"319a0c656c866e48aaa607d9bd93b4082acf1cff",
+"sha256":"0ryl8204hcblys13dz0xg5whax9gsskz609z0zf0v07i18nr4z06",
 "date":null
 },
-"source_storepath":"/nix/store/fcmgfb0x6y39pms05mc60x526akrljg2-source",
-"nixpkgs_storepath":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source",
-"nur_combined_rev":"8ff30717afe10144ff0ea97c1e73dff8a4d43ad0",
+"source_storepath":"/nix/store/ybq6y153c7f0whz7j637nx9r872axcf1-source",
+"nixpkgs_storepath":"/nix/store/s667b9wfj35dpf30yrn1sjwdi9dkz6hy-source",
+"nur_combined_rev":"1048b979d75e6ce89944431f8f62de953fcb2c54",
 "packages":{
 "amgcl":{
 "meta":{
@@ -453,7 +453,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/tools/inputmethods/fcitx5/fcitx5-rime.nix",
+"file":"/nix/store/s667b9wfj35dpf30yrn1sjwdi9dkz6hy-source/pkgs/tools/inputmethods/fcitx5/fcitx5-rime.nix",
 "line":62
 },
 "name":"fcitx5-rime-5.1.12",
@@ -874,6 +874,398 @@
 "system":"x86_64-linux",
 "version":"0-unstable-2015-10-31"
 },
+"kdePackages.plasma-workspace":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Various components needed to run a Plasma-based environment",
+"homepage":"https://invent.kde.org/plasma/plasma-workspace",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"plasma-workspace",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"plasma-workspace",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[]
+}
+},
+"insecure":false,
+"license":[
+{
+"deprecated":false,
+"free":true,
+"fullName":"BSD 2-clause \"Simplified\" License",
+"redistributable":true,
+"shortName":"bsd2",
+"spdxId":"BSD-2-Clause",
+"url":"https://spdx.org/licenses/BSD-2-Clause.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"redistributable":true,
+"shortName":"bsd3",
+"spdxId":"BSD-3-Clause",
+"url":"https://spdx.org/licenses/BSD-3-Clause.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"Creative Commons Zero v1.0 Universal",
+"redistributable":true,
+"shortName":"cc0",
+"spdxId":"CC0-1.0",
+"url":"https://spdx.org/licenses/CC0-1.0.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 only",
+"redistributable":true,
+"shortName":"gpl2Only",
+"spdxId":"GPL-2.0-only",
+"url":"https://spdx.org/licenses/GPL-2.0-only.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v2.0 or later",
+"redistributable":true,
+"shortName":"gpl2Plus",
+"spdxId":"GPL-2.0-or-later",
+"url":"https://spdx.org/licenses/GPL-2.0-or-later.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v3.0 only",
+"redistributable":true,
+"shortName":"gpl3Only",
+"spdxId":"GPL-3.0-only",
+"url":"https://spdx.org/licenses/GPL-3.0-only.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v3.0 or later",
+"redistributable":true,
+"shortName":"gpl3Plus",
+"spdxId":"GPL-3.0-or-later",
+"url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"GNU Library General Public License v2 only",
+"redistributable":true,
+"shortName":"lgpl2Only",
+"spdxId":"LGPL-2.0-only",
+"url":"https://spdx.org/licenses/LGPL-2.0-only.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"GNU Library General Public License v2 or later",
+"redistributable":true,
+"shortName":"lgpl2Plus",
+"spdxId":"LGPL-2.0-or-later",
+"url":"https://spdx.org/licenses/LGPL-2.0-or-later.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"GNU Lesser General Public License v2.1 only",
+"redistributable":true,
+"shortName":"lgpl21Only",
+"spdxId":"LGPL-2.1-only",
+"url":"https://spdx.org/licenses/LGPL-2.1-only.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"GNU Lesser General Public License v2.1 or later",
+"redistributable":true,
+"shortName":"lgpl21Plus",
+"spdxId":"LGPL-2.1-or-later",
+"url":"https://spdx.org/licenses/LGPL-2.1-or-later.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"GNU Lesser General Public License v3.0 only",
+"redistributable":true,
+"shortName":"lgpl3Only",
+"spdxId":"LGPL-3.0-only",
+"url":"https://spdx.org/licenses/LGPL-3.0-only.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"GNU Lesser General Public License v3.0 or later",
+"redistributable":true,
+"shortName":"lgpl3Plus",
+"spdxId":"LGPL-3.0-or-later",
+"url":"https://spdx.org/licenses/LGPL-3.0-or-later.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v3.0 or later",
+"redistributable":true,
+"shortName":"gpl3Plus",
+"spdxId":"GPL-3.0-or-later",
+"url":"https://spdx.org/licenses/GPL-3.0-or-later.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"GNU Lesser General Public License v3.0 or later",
+"redistributable":true,
+"shortName":"lgpl3Plus",
+"spdxId":"LGPL-3.0-or-later",
+"url":"https://spdx.org/licenses/LGPL-3.0-or-later.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+}
+],
+"maintainers":[
+{
+"email":"ttuegel@mailbox.org",
+"github":"ttuegel",
+"githubId":563054,
+"name":"Thomas Tuegel"
+},
+{
+"email":"fridh@fridh.nl",
+"github":"FRidh",
+"githubId":2129135,
+"name":"Frederik Rietdijk"
+},
+{
+"email":"me@0upti.me",
+"github":"K900",
+"githubId":386765,
+"matrix":"@k900:0upti.me",
+"name":"Ilya K."
+},
+{
+"email":"nixpkgs-maintainer@lunnova.dev",
+"github":"LunNova",
+"githubId":782440,
+"name":"Luna Nova"
+},
+{
+"email":"nickcao@nichi.co",
+"github":"NickCao",
+"githubId":15247171,
+"name":"Nick Cao"
+},
+{
+"email":"sandro.jaeckel@gmail.com",
+"github":"SuperSandro2000",
+"githubId":7258858,
+"matrix":"@sandro:supersandro.de",
+"name":"Sandro J\u00e4ckel"
+},
+{
+"email":"nixos@kchr.de",
+"github":"bkchr",
+"githubId":5718007,
+"name":"Bastian K\u00f6cher"
+},
+{
+"email":"fedin-ilja2010@ya.ru",
+"github":"ilya-fedin",
+"githubId":17829319,
+"name":"Ilya Fedin"
+},
+{
+"email":"matt@mattmoriarity.com",
+"github":"mjm",
+"githubId":1181,
+"matrix":"@mjm:beeper.com",
+"name":"Matt Moriarity"
+},
+{
+"email":"paul@nyanlout.re",
+"github":"nyanloutre",
+"githubId":7677321,
+"name":"Paul Trehiou"
+},
+{
+"email":"peter@hoeg.com",
+"github":"peterhoeg",
+"githubId":722550,
+"matrix":"@peter:hoeg.com",
+"name":"Peter Hoeg"
+}
+],
+"name":"plasma-workspace-6.5.5",
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd"
+],
+"position":"<nixpkgs> + /pkgs/kde/plasma/plasma-workspace/default.nix:27",
+"teams":[
+{
+"enableFeatureFreezePing":true,
+"github":"qt-kde",
+"githubId":4341481,
+"githubMaintainers":[
+{
+"email":"ttuegel@mailbox.org",
+"github":"ttuegel",
+"githubId":563054,
+"name":"Thomas Tuegel"
+}
+],
+"members":[
+{
+"email":"ttuegel@mailbox.org",
+"github":"ttuegel",
+"githubId":563054,
+"name":"Thomas Tuegel"
+},
+{
+"email":"fridh@fridh.nl",
+"github":"FRidh",
+"githubId":2129135,
+"name":"Frederik Rietdijk"
+},
+{
+"email":"me@0upti.me",
+"github":"K900",
+"githubId":386765,
+"matrix":"@k900:0upti.me",
+"name":"Ilya K."
+},
+{
+"email":"nixpkgs-maintainer@lunnova.dev",
+"github":"LunNova",
+"githubId":782440,
+"name":"Luna Nova"
+},
+{
+"email":"nickcao@nichi.co",
+"github":"NickCao",
+"githubId":15247171,
+"name":"Nick Cao"
+},
+{
+"email":"sandro.jaeckel@gmail.com",
+"github":"SuperSandro2000",
+"githubId":7258858,
+"matrix":"@sandro:supersandro.de",
+"name":"Sandro J\u00e4ckel"
+},
+{
+"email":"nixos@kchr.de",
+"github":"bkchr",
+"githubId":5718007,
+"name":"Bastian K\u00f6cher"
+},
+{
+"email":"fedin-ilja2010@ya.ru",
+"github":"ilya-fedin",
+"githubId":17829319,
+"name":"Ilya Fedin"
+},
+{
+"email":"matt@mattmoriarity.com",
+"github":"mjm",
+"githubId":1181,
+"matrix":"@mjm:beeper.com",
+"name":"Matt Moriarity"
+},
+{
+"email":"paul@nyanlout.re",
+"github":"nyanloutre",
+"githubId":7677321,
+"name":"Paul Trehiou"
+},
+{
+"email":"peter@hoeg.com",
+"github":"peterhoeg",
+"githubId":722550,
+"matrix":"@peter:hoeg.com",
+"name":"Peter Hoeg"
+}
+],
+"scope":"Maintain the Qt framework, KDE application suite, Plasma desktop environment and related projects",
+"shortName":"Qt-KDE"
+}
+],
+"teamsPosition":{
+"column":5,
+"file":"/nix/store/s667b9wfj35dpf30yrn1sjwdi9dkz6hy-source/pkgs/kde/lib/mk-kde-derivation.nix",
+"line":177
+},
+"unfree":false,
+"unsupported":false
+},
+"name":"plasma-workspace-6.5.5",
+"outputName":"out",
+"outputs":{
+"debug":null,
+"dev":null,
+"devtools":null,
+"out":null
+},
+"pname":"plasma-workspace",
+"system":"x86_64-linux",
+"version":"6.5.5"
+},
 "kdePackages.qt6ct":{
 "meta":{
 "available":true,
@@ -944,7 +1336,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/tools/misc/qt6ct/default.nix",
+"file":"/nix/store/s667b9wfj35dpf30yrn1sjwdi9dkz6hy-source/pkgs/tools/misc/qt6ct/default.nix",
 "line":46
 },
 "name":"qt6ct-0.11",
@@ -1577,7 +1969,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/by-name/li/librime/package.nix",
+"file":"/nix/store/s667b9wfj35dpf30yrn1sjwdi9dkz6hy-source/pkgs/by-name/li/librime/package.nix",
 "line":65
 },
 "name":"librime-1.16.1",
@@ -1669,7 +2061,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/tools/misc/qt5ct/default.nix",
+"file":"/nix/store/s667b9wfj35dpf30yrn1sjwdi9dkz6hy-source/pkgs/tools/misc/qt5ct/default.nix",
 "line":45
 },
 "name":"qt5ct-1.9",
@@ -1785,7 +2177,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/by-name/ni/niri/package.nix",
+"file":"/nix/store/s667b9wfj35dpf30yrn1sjwdi9dkz6hy-source/pkgs/by-name/ni/niri/package.nix",
 "line":139
 },
 "name":"niri-25.11",
@@ -1863,7 +2255,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/by-name/pa/pam_ssh_agent_auth/package.nix",
+"file":"/nix/store/s667b9wfj35dpf30yrn1sjwdi9dkz6hy-source/pkgs/by-name/pa/pam_ssh_agent_auth/package.nix",
 "line":100
 },
 "name":"pam_ssh_agent_auth-0.10.4",
@@ -1953,7 +2345,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fcmgfb0x6y39pms05mc60x526akrljg2-source/pkgs/ptrace-time-hook/default.nix",
+"file":"/nix/store/ybq6y153c7f0whz7j637nx9r872axcf1-source/pkgs/ptrace-time-hook/default.nix",
 "line":93
 },
 "name":"ptrace-time-hook-0.1.0",
