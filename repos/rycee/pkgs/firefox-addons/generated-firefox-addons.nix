@@ -161,10 +161,10 @@
     };
     "addy_io" = buildFirefoxXpiAddon {
       pname = "addy_io";
-      version = "3.0.0";
+      version = "3.0.1";
       addonId = "browser-extension@anonaddy";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4685773/addy_io-3.0.0.xpi";
-      sha256 = "d6c5a422bd9b86c3ab8a1e5185a9282bef52f82f76115549ccb66c1162af0078";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4686815/addy_io-3.0.1.xpi";
+      sha256 = "f263908d48c4dbe0bdc73f9dc3129d7c03f1bdefb0c23953b606f46f1ef7a7a5";
       meta = with lib;
       {
         homepage = "https://addy.io";
@@ -2730,10 +2730,10 @@
     };
     "danish-language-pack" = buildFirefoxXpiAddon {
       pname = "danish-language-pack";
-      version = "148.0.20260204.91025";
+      version = "148.0.20260206.90715";
       addonId = "langpack-da@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4684446/dansk_da_language_pack-148.0.20260204.91025.xpi";
-      sha256 = "d114428c3b6e7b4b3184dbe72f0324feb8311bbdf80d8c63b3b7cf747ec8aff2";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4686674/dansk_da_language_pack-148.0.20260206.90715.xpi";
+      sha256 = "5d9b98ad388f70ef8f6eb78c98276fd3fc780c80d60f8521380a65b2f3aec5b2";
       meta = with lib;
       {
         description = "Firefox Language Pack for Dansk (da) – Danish";
@@ -2943,10 +2943,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "148.0.20260204.91025";
+      version = "148.0.20260206.90715";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4684440/deutsch_de_language_pack-148.0.20260204.91025.xpi";
-      sha256 = "bac385501527a94ab23bb352690bf62e0c4be8013822cb5586b59546e648f0b8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4686675/deutsch_de_language_pack-148.0.20260206.90715.xpi";
+      sha256 = "fc9b7f9a6b93214f34c71b1189338de320ec71566a682da519df60d11c5fd773";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -4419,10 +4419,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "148.0.20260204.91025";
+      version = "148.0.20260206.90715";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4684518/francais_language_pack-148.0.20260204.91025.xpi";
-      sha256 = "bc45f1c6e66b4b3a12226e7a4e9bc2d9b3122aba37455c4ead74e3dcacdc15c1";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4686670/francais_language_pack-148.0.20260206.90715.xpi";
+      sha256 = "9a6fa37d4575412eea751b609c412844eba0b326cf2addb63ac3fa99e3c19d88";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4456,10 +4456,10 @@
     };
     "gaidhlig-language-pack" = buildFirefoxXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "148.0.20260204.91025";
+      version = "148.0.20260206.90715";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4684534/gaidhlig_language_pack-148.0.20260204.91025.xpi";
-      sha256 = "057a9004d220a5c2704578326f2cfa2c03009fe1e84c2ef5211e80db609bbbda";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4686625/gaidhlig_language_pack-148.0.20260206.90715.xpi";
+      sha256 = "533abb2556fa390092d768488de52588c303de055fb5b366a5efe09a3fd11272";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -9478,10 +9478,10 @@
     };
     "mergify" = buildFirefoxXpiAddon {
       pname = "mergify";
-      version = "1.0.32";
+      version = "1.0.34";
       addonId = "d1b33d6a57c463f0daef4abfb625edddd1c2d5d9@mergify.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4643956/mergify-1.0.32.xpi";
-      sha256 = "69474292327944a8f2d348844ad8f343f388e2bd72f24186a0778f2fa6cb19e1";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4686947/mergify-1.0.34.xpi";
+      sha256 = "fb02fc9d19d21613470f9c10da375c263e91e239919c69d2ab9132438c9175ef";
       meta = with lib;
       {
         description = "Mergify extension for GitHub";
@@ -9658,10 +9658,10 @@
     };
     "mtab" = buildFirefoxXpiAddon {
       pname = "mtab";
-      version = "1.10.2";
+      version = "1.10.3";
       addonId = "contact@maxhu.dev";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4686202/mtab-1.10.2.xpi";
-      sha256 = "d7730a82edaf777792eac7833d64f5e590392e1041f567b7436b4381081d6cdb";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4687351/mtab-1.10.3.xpi";
+      sha256 = "4187a2a5b7b38a9d367917129e11cbdfe855033c2eea7a632564b542b5daf761";
       meta = with lib;
       {
         homepage = "https://get-mtab.vercel.app";
@@ -9870,10 +9870,10 @@
     };
     "news-feed-eradicator" = buildFirefoxXpiAddon {
       pname = "news-feed-eradicator";
-      version = "3.0.1";
+      version = "3.0.2";
       addonId = "@news-feed-eradicator";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4684064/news_feed_eradicator-3.0.1.xpi";
-      sha256 = "4b9900b68837554816d068cdc38bf4ebafe3773cc3a276e1d8d17dd5006c452b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4686452/news_feed_eradicator-3.0.2.xpi";
+      sha256 = "0076cc053b67f57039daee078046adcd09d8a4d04e0df5485868859ee206c58c";
       meta = with lib;
       {
         homepage = "https://west.io/news-feed-eradicator";
@@ -11925,10 +11925,10 @@
     };
     "readeck" = buildFirefoxXpiAddon {
       pname = "readeck";
-      version = "2.5.5";
+      version = "2.6.0";
       addonId = "readeck@readeck.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4611397/readeck-2.5.5.xpi";
-      sha256 = "8fb9e1b75fedb0af751bf30e2ddc18c648ff8aec5d6ca6e1d00da543e5a49534";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4686526/readeck-2.6.0.xpi";
+      sha256 = "da5c188749fe87d1cbb54e5f799f64cc2654667530cb89c01dfd762f41d93476";
       meta = with lib;
       {
         homepage = "https://readeck.org/en/";
@@ -12736,10 +12736,10 @@
     };
     "scots-language-pack" = buildFirefoxXpiAddon {
       pname = "scots-language-pack";
-      version = "148.0.20260204.91025";
+      version = "148.0.20260206.90715";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4684529/scots_language_pack-148.0.20260204.91025.xpi";
-      sha256 = "d413192c30601aa9a33265b5d579d0a2fce3ff73d8f5e484093a519a638104bf";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4686665/scots_language_pack-148.0.20260206.90715.xpi";
+      sha256 = "19e3a05a41c4009c45b9a961602f5f5a5cfe293bf67f0b90de001df8ad8abcb7";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
@@ -16512,10 +16512,10 @@
     };
     "ycs-continued" = buildFirefoxXpiAddon {
       pname = "ycs-continued";
-      version = "1.8.4";
+      version = "1.8.5";
       addonId = "ycs-cont-public@pymaster.tw";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4657891/ycs_continued-1.8.4.xpi";
-      sha256 = "506f67188665fa03afd7385e63986f9c148973e0506f38e1903b69a3a6b1f230";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4686376/ycs_continued-1.8.5.xpi";
+      sha256 = "96362370cbde8c514d78cb7299b0ac31045206e78a0b510b59c2e79ec58822b1";
       meta = with lib;
       {
         homepage = "https://github.com/pc035860/YCS-cont";
