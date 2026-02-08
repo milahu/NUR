@@ -1,6 +1,13 @@
 {
   description = "mattrobenolt's nixpkgs";
 
+  nixConfig = {
+    extra-substituters = [ "https://mattrobenolt.cachix.org" ];
+    extra-trusted-public-keys = [
+      "mattrobenolt.cachix.org-1:sn1IDSC4OxQvWaOVD4RRcqyKlket5wgb11nd1QII6i8="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
@@ -58,6 +65,7 @@
           inbox = prev.callPackage ./pkgs/inbox { };
           zigdoc = prev.callPackage ./pkgs/zigdoc { };
           ziglint = prev.callPackage ./pkgs/ziglint { };
+          tracy = prev.callPackage ./pkgs/tracy { };
 
           # Latest Go version as go-bin (automatically uses the highest version)
           go-bin = makeGo prev latestGoVersion;
@@ -155,6 +163,7 @@
               inbox
               zigdoc
               ziglint
+              tracy
               ;
             default = self.packages.${system}.zlint;
           }
