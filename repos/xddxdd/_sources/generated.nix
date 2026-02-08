@@ -258,12 +258,12 @@
   };
   cliproxyapi = {
     pname = "cliproxyapi";
-    version = "v6.8.1";
+    version = "v6.8.4";
     src = fetchFromGitHub {
       owner = "router-for-me";
       repo = "CLIProxyAPI";
-      tag = "v6.8.1";
-      hash = "sha256-lUymKN3MOPYD91fPaRbf8LFdE0vzYvz4x7NyiE/zbpA=";
+      tag = "v6.8.4";
+      hash = "sha256-e0UZOlfesinrNMO2wQ1kEpPyTStLXD9eQ2GgXmEfJPo=";
     };
   };
   cockpy = {
@@ -781,26 +781,26 @@
   };
   geolite2-asn = {
     pname = "geolite2-asn";
-    version = "2026.02.04";
+    version = "2026.02.07";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2026.02.04/GeoLite2-ASN.mmdb";
-      hash = "sha256-Me92rXXlqBwkAvO9MfKXgpBoSfgBLAvQsC0KpFDDGOY=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2026.02.07/GeoLite2-ASN.mmdb";
+      hash = "sha256-4vkKGKYt40fhZS+i1O5OyFNpKzyeijswbyjt2te5S2E=";
     };
   };
   geolite2-city = {
     pname = "geolite2-city";
-    version = "2026.02.04";
+    version = "2026.02.07";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2026.02.04/GeoLite2-City.mmdb";
-      hash = "sha256-bZkAknXtIp8N4UDiV59MWAEzzRVoSTeF3n9N9zWJ1/I=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2026.02.07/GeoLite2-City.mmdb";
+      hash = "sha256-FOjCYrPTy4C+S26iuMAiysvmj+Yb9c7QjQmG/QlRzQA=";
     };
   };
   geolite2-country = {
     pname = "geolite2-country";
-    version = "2026.02.04";
+    version = "2026.02.07";
     src = fetchurl {
-      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2026.02.04/GeoLite2-Country.mmdb";
-      hash = "sha256-YuJjrwou4Q165ri/JRUZP/SWGX7Jn/JSeeWYfpvWfzk=";
+      url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/2026.02.07/GeoLite2-Country.mmdb";
+      hash = "sha256-55g4lBN8X26D+sF3UhZMTmmx+QzvMEHDWSG1CDhekAU=";
     };
   };
   glauth = {
@@ -1176,12 +1176,12 @@
   };
   llama-cpp = {
     pname = "llama-cpp";
-    version = "b7957";
+    version = "b7966";
     src = fetchFromGitHub {
       owner = "ggerganov";
       repo = "llama.cpp";
-      tag = "b7957";
-      hash = "sha256-t6/wg//kLr1EkVYVP77GzoZB/CVzig5APd6y+20n5f0=";
+      tag = "b7966";
+      hash = "sha256-l2NPC3Bm3JBjpH/ixPwVwGeX09Ziblpph9g89jboCjQ=";
     };
   };
   loralib = {
@@ -1349,14 +1349,14 @@
   };
   nginx-module-vts = {
     pname = "nginx-module-vts";
-    version = "37d319fd39358d76e5ddbb86b6bb7aa09043011d";
+    version = "ce2087004283ba6048687591a4762e3a1931ece3";
     src = fetchFromGitHub {
       owner = "vozlt";
       repo = "nginx-module-vts";
-      rev = "37d319fd39358d76e5ddbb86b6bb7aa09043011d";
-      hash = "sha256-pDHMbIb+YKSEOIlfkv+NuQgpnnknp2HmLu51XkuETWk=";
+      rev = "ce2087004283ba6048687591a4762e3a1931ece3";
+      hash = "sha256-sUI25OGzSfqMQqbnmdk3uMcW01hu9TE5lu/Y/UHVLpg=";
     };
-    date = "2026-01-04";
+    date = "2026-02-08";
   };
   nginx-njs = {
     pname = "nginx-njs";
@@ -2029,14 +2029,14 @@
   };
   sidestore-vpn = {
     pname = "sidestore-vpn";
-    version = "a81d2b33cd7d42a406e03c86fe46519219cd3a3c";
+    version = "f2908f90552dbf2f6e2865c922a42984bcabdc99";
     src = fetchFromGitHub {
       owner = "xddxdd";
       repo = "sidestore-vpn";
-      rev = "a81d2b33cd7d42a406e03c86fe46519219cd3a3c";
-      hash = "sha256-U73l3BUJjwncOZewUeD1vQKsI0iw0z80XACbniJYwrI=";
+      rev = "f2908f90552dbf2f6e2865c922a42984bcabdc99";
+      hash = "sha256-+FbYDns6VfAExtyQII/V8CivR4nspf6JWb0h7miui2U=";
     };
-    date = "2026-02-04";
+    date = "2026-02-06";
   };
   silero-vad = {
     pname = "silero-vad";
@@ -2135,78 +2135,6 @@
       hash = "sha256-6ueCuRHyvu5brDtO2RTY6/56gs9WsSmtqhMkWb5rhMY=";
     };
     date = "2025-04-05";
-  };
-  th-hak = {
-    pname = "th-hak";
-    version = "4.0.0";
-    src = fetchurl {
-      url = "http://cheonhyeong.com/File/TH-Hak-4.0.0.7z";
-      hash = "sha256-Rpsr3powrT5C/O9fmPsAoOVzaInYFLDK4QfMhkyAc1Y=";
-    };
-  };
-  th-joeng = {
-    pname = "th-joeng";
-    version = "4.0.0";
-    src = fetchurl {
-      url = "http://cheonhyeong.com/File/TH-Joeng-4.0.0.7z";
-      hash = "sha256-C44pbdGsdyDNTHQwSZpdzHirth9doQi4wNJph9y01q0=";
-    };
-  };
-  th-khaai-p = {
-    pname = "th-khaai-p";
-    version = "4.0.0";
-    src = fetchurl {
-      url = "http://cheonhyeong.com/File/TH-Khaai-P4.0.0.7z";
-      hash = "sha256-ijfTLLWVlRNlHdRCvKa/bNRmn0ecoiLojHKiBmgnIS8=";
-    };
-  };
-  th-khaai-t = {
-    pname = "th-khaai-t";
-    version = "4.0.0";
-    src = fetchurl {
-      url = "http://cheonhyeong.com/File/TH-Khaai-T4.0.0.7z";
-      hash = "sha256-33SRtSmE90RCmxyTOsZL0hchFtwoUWj4YUn5s6vd75w=";
-    };
-  };
-  th-ming = {
-    pname = "th-ming";
-    version = "5.0.0";
-    src = fetchurl {
-      url = "http://cheonhyeong.com/File/TH-Ming-5.0.0.7z";
-      hash = "sha256-cGX7yIjZIaf4ivIGFweyrEtXpvCyjoM0NM9ra9RY6N0=";
-    };
-  };
-  th-sung-p = {
-    pname = "th-sung-p";
-    version = "4.0.0";
-    src = fetchurl {
-      url = "http://cheonhyeong.com/File/TH-Sung-P4.0.0.7z";
-      hash = "sha256-UuAgX7xIRW340VSBYlpswZIw7qCoeo8HGk9tNHSpoIs=";
-    };
-  };
-  th-sung-t = {
-    pname = "th-sung-t";
-    version = "4.1.0";
-    src = fetchurl {
-      url = "http://cheonhyeong.com/File/TH-Sung-T4.1.0.7z";
-      hash = "sha256-Erp4sv25qqnXBR4VGCcKTHOqZmx5P+xlCMkROlSo/mE=";
-    };
-  };
-  th-sy = {
-    pname = "th-sy";
-    version = "4.1.0";
-    src = fetchurl {
-      url = "http://cheonhyeong.com/File/TH-Sy-4.1.0.7z";
-      hash = "sha256-vcuTCBLy+8tYNylUlnvpfs1jWa1QlwLQV/FQvX7qqvo=";
-    };
-  };
-  th-tshyn = {
-    pname = "th-tshyn";
-    version = "5.0.0";
-    src = fetchurl {
-      url = "http://cheonhyeong.com/File/TH-Tshyn-5.0.0.7z";
-      hash = "sha256-cqYgRfj3busbxVuQbKYdD+jcx3mDkfUrtFgQDpEdazM=";
-    };
   };
   torch-complex = {
     pname = "torch-complex";
