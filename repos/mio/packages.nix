@@ -201,7 +201,6 @@ lib.filesystem.packagesFromDirectoryRecursive {
     libName = "betterbird";
   };
 
-  downkyicore = pkgs.callPackage ./pkgs/downkyicore/package.nix { };
   bifrost = pkgs.callPackage ./pkgs/bifrost/package.nix { };
   bifrost-unwrapped = bifrost.unwrapped;
 
@@ -230,8 +229,6 @@ lib.filesystem.packagesFromDirectoryRecursive {
 
   ladybird = pkgs.callPackage ./pkgs/ladybird/package.nix {
   };
-
-  ego = v3overrideAttrs (pkgs.callPackage ./pkgs/ego/package.nix { });
 
   #systemd257 = (pkgs.callPackage ./pkgs/systemd257 { });
 

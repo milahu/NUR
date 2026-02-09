@@ -81,7 +81,6 @@ files are copied from following locations. some are modified in this repo and so
 + icu nixpkgs commit 588c72d6229385ef2bab17ec4fc21db014790e4e
 + pkgs/os-specific/linux/kernel/common-flags.nix pkgs/os-specific/linux/zfs/generic.nix nixpkgs commit 154743920299
 + eden <https://github.com/kira-bruneau/nur-packages.git> <https://github.com/kira-bruneau/nur-packages/commit/83867279d2499dd38b944964a829e5c5df93bddc>
-+ ego nixpkgs commit 9a1f8b7804ff4bc685b58543c483c52ae967ca63
 + systemd257 <https://github.com/NixOS/nixpkgs/commit/70ca21d3c4982d7f95e48688d02cd9ef6b1347f5>  70ca21d3c4982d7f95e48688d02cd9ef6b1347f5^ <https://github.com/NixOS/nixpkgs/commit/38b523e9e8e607bcd8f638d8a53608bb1658a0e4>
 + davinci-resolve nixpkgs commit 49a636772fd8ea6f25b9c9ff9c5a04434e90b96f^
 + <https://github.com/emmanuelrosa/erosanix/tree/master/pkgs/mkwindowsapp> commit 464f070d952afff764d82041d371cfee3e689d2a mkwindowsapp mkwindowsapp-tools line.nix hooks lib pkgs/wineshell
@@ -102,3 +101,7 @@ files are copied from following locations. some are modified in this repo and so
 + lix_2_93 nixpkgs commit bfc1b8a4574108ceef22f02bafcf6611380c100d
 + darling nixpkgs commit 01b6610eb0c98ee6d840e0d060cb41e334879f65^ 31bdcff5843e30d33eb758334435298a571bd2af^ <https://github.com/NixOS/nixpkgs/commit/31bdcff5843e30d33eb758334435298a571bd2af>
 + nix_2_31_2 nixpkgs commit 1412caf7bf9e660f2f962917c14b1ea1c3bc695e
+
+## todo - reading
+
++ <https://github.com/NixOS/nixpkgs/issues/171182#issuecomment-2467081726>
