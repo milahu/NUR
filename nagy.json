@@ -1,16 +1,16 @@
 {
 "name":"nagy",
-"fetch_time":0.861,
-"eval_time":1.377,
+"fetch_time":0.678,
+"eval_time":1.332,
 "source":{
 "url":"https://github.com/nagy/nur-packages",
-"rev":"f3694460a60b8440309a24b5c84c722a970a2b89",
-"sha256":"03zp71wj1hqz9pwlhc7ynlr2z1zb2lnhxs6qxd99fwp5hk9zjihy",
+"rev":"81b9d0bb366d6d816eb24224e234e2932894022b",
+"sha256":"0mb4d8pmyvjb6yhf3indlbwklq2k98x8p2wmqsa2hnv27yc782wr",
 "date":null
 },
-"source_storepath":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source",
-"nixpkgs_storepath":"/nix/store/88k4s9b30mylb5w7ixnhf71avr8m1jps-source",
-"nur_combined_rev":"926f7a325845a91f64f2951f3e28259f7bb28059",
+"source_storepath":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source",
+"nixpkgs_storepath":"/nix/store/qvfzbcl7p13bwl8lj5xgxq7plm3v1pli-source",
+"nur_combined_rev":"5d79134e98bda8cb28328e7e501d539dfd89f198",
 "packages":{
 "apertium":{
 "meta":{
@@ -56,6 +56,7 @@
 },
 "maintainers":[],
 "name":"apertium-3.9.4",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -140,6 +141,7 @@
 },
 "maintainers":[],
 "name":"bollux-0.4.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out",
 "man"
@@ -214,10 +216,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/cbor.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/cbor.nix",
 "line":29
 },
 "name":"cbor-1.0.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -342,10 +357,42 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88k4s9b30mylb5w7ixnhf71avr8m1jps-source/pkgs/by-name/co/coredns/package.nix",
-"line":146
+"file":"/nix/store/qvfzbcl7p13bwl8lj5xgxq7plm3v1pli-source/pkgs/by-name/co/coredns/package.nix",
+"line":148
 },
 "name":"coredns-1.14.1",
+"nonTeamMaintainers":[
+{
+"email":"deltaduartedavid@gmail.com",
+"github":"DeltaEvo",
+"githubId":8864716,
+"name":"Duarte David"
+},
+{
+"email":"git@djds.dev",
+"github":"djds",
+"githubId":4218822,
+"name":"djds"
+},
+{
+"email":"write@ownrisk.dk",
+"github":"johanot",
+"githubId":998763,
+"name":"Johan Thomsen"
+},
+{
+"email":"treffer+nixos@measite.de",
+"github":"rtreffer",
+"githubId":61306,
+"name":"Rene Treffer"
+},
+{
+"email":"rushmore@webenchanter.com",
+"github":"rushmorem",
+"githubId":4958190,
+"name":"Rushmore Mushambi"
+}
+],
 "outputsToInstall":[
 "out",
 "man"
@@ -381,7 +428,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/co/coredns/package.nix:143",
+"position":"<nixpkgs> + /pkgs/by-name/co/coredns/package.nix:145",
 "unfree":false,
 "unsupported":false
 },
@@ -439,6 +486,7 @@
 },
 "maintainers":[],
 "name":"cpp-httplib-0.20.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -578,6 +626,7 @@
 "mainProgram":"cxxmatrix",
 "maintainers":[],
 "name":"cxxmatrix-0-unstable-2024-06-17",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out",
 "man"
@@ -718,6 +767,7 @@
 },
 "maintainers":[],
 "name":"cxxtimer-1.1.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -868,10 +918,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/emacs-packages/elisp-reader.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/emacs-packages/elisp-reader.nix",
 "line":25
 },
 "name":"emacs-elisp-reader-0-unstable-2024-06-02",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -1023,10 +1086,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/emacs-packages/emacspy.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/emacs-packages/emacspy.nix",
 "line":41
 },
 "name":"emacs-emacspy-0-unstable-2023-03-04",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -1177,10 +1253,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/emacs-packages/obvious.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/emacs-packages/obvious.nix",
 "line":21
 },
 "name":"emacs-obvious-0-unstable-2023-04-07",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -1331,10 +1420,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/emacs-packages/passage.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/emacs-packages/passage.nix",
 "line":34
 },
 "name":"emacs-passage-0-unstable-2025-02-28",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -1487,10 +1589,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/esp32knife.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/esp32knife.nix",
 "line":45
 },
 "name":"esp32knife-0-unstable-2024-05-16",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -1674,10 +1789,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/feather-tools.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/feather-tools.nix",
 "line":42
 },
 "name":"feather-tools-1.1.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -1785,6 +1913,7 @@
 "mainProgram":"hackernews_tui",
 "maintainers":[],
 "name":"hackernews-tui-0.13.5",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1886,6 +2015,7 @@
 "mainProgram":"harx",
 "maintainers":[],
 "name":"har-tools-1.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -2003,10 +2133,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/hledger-fmt.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/hledger-fmt.nix",
 "line":32
 },
 "name":"hledger-fmt-0.2.11",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -2132,10 +2275,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/ht-headless-terminal.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/ht-headless-terminal.nix",
 "line":24
 },
 "name":"ht-0.3.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -2227,6 +2383,7 @@
 "insecure":false,
 "maintainers":[],
 "name":"hyperspec-7.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -2302,10 +2459,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/iec16022.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/iec16022.nix",
 "line":29
 },
 "name":"iec16022-0.3.1",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -2445,6 +2615,7 @@
 "mainProgram":"jjd",
 "maintainers":[],
 "name":"jj-0.9",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -2530,10 +2701,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/jsonrpc-debugger.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/jsonrpc-debugger.nix",
 "line":32
 },
 "name":"jsonrpc-debugger-0.1.9",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -2659,10 +2843,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/koji.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/koji.nix",
 "line":50
 },
 "name":"koji-3.2.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -2777,10 +2974,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/ksuid.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/ksuid.nix",
 "line":30
 },
 "name":"ksuid-1.0.4",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -2862,6 +3072,7 @@
 "mainProgram":"kaitai-struct-visualizer",
 "maintainers":[],
 "name":"kaitai-struct-visualizer-0.7",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3000,6 +3211,7 @@
 },
 "maintainers":[],
 "name":"libetc-0.4",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3087,6 +3299,7 @@
 "mainProgram":"fastcdc",
 "maintainers":[],
 "name":"libfastcdc-unstable-2023-01-14",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3147,6 +3360,7 @@
 },
 "maintainers":[],
 "name":"libzstd-seek-1.2.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3311,10 +3525,11 @@
 ],
 "maintainersPosition":{
 "column":17,
-"file":"/nix/store/88k4s9b30mylb5w7ixnhf71avr8m1jps-source/pkgs/development/lisp-modules/nix-cl.nix",
+"file":"/nix/store/qvfzbcl7p13bwl8lj5xgxq7plm3v1pli-source/pkgs/development/lisp-modules/nix-cl.nix",
 "line":289
 },
 "name":"sbcl-cl-raylib-0.0.2-unstable-2024-07-15",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3404,7 +3619,7 @@
 ],
 "teamsPosition":{
 "column":17,
-"file":"/nix/store/88k4s9b30mylb5w7ixnhf71avr8m1jps-source/pkgs/development/lisp-modules/nix-cl.nix",
+"file":"/nix/store/qvfzbcl7p13bwl8lj5xgxq7plm3v1pli-source/pkgs/development/lisp-modules/nix-cl.nix",
 "line":290
 },
 "unfree":false,
@@ -3463,6 +3678,7 @@
 },
 "maintainers":[],
 "name":"lunasvg-3.2.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3561,10 +3777,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/mcptools.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/mcptools.nix",
 "line":29
 },
 "name":"mcptools-0.7.1",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -3676,10 +3905,29 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88k4s9b30mylb5w7ixnhf71avr8m1jps-source/pkgs/by-name/mi/micropython/package.nix",
+"file":"/nix/store/qvfzbcl7p13bwl8lj5xgxq7plm3v1pli-source/pkgs/by-name/mi/micropython/package.nix",
 "line":143
 },
 "name":"micropython-1.26.0",
+"nonTeamMaintainers":[
+{
+"email":"pavol@rusnak.io",
+"github":"prusnak",
+"githubId":42201,
+"keys":[
+{
+"fingerprint":"86E6 792F C27B FD47 8860  C110 91F3 B339 B9A0 2A3D"
+}
+],
+"name":"Pavol Rusnak"
+},
+{
+"email":"stig@stig.io",
+"github":"stigtsp",
+"githubId":75371,
+"name":"Stig Palmquist"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -3787,6 +4035,7 @@
 "mainProgram":"mqziti_client",
 "maintainers":[],
 "name":"mqziti-0-unstable-2022-08-25",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3878,6 +4127,7 @@
 },
 "maintainers":[],
 "name":"npt-1.1.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -4033,10 +4283,24 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88k4s9b30mylb5w7ixnhf71avr8m1jps-source/pkgs/by-name/ns/nsxiv/package.nix",
-"line":73
+"file":"/nix/store/qvfzbcl7p13bwl8lj5xgxq7plm3v1pli-source/pkgs/by-name/ns/nsxiv/package.nix",
+"line":72
 },
 "name":"nsxiv-31",
+"nonTeamMaintainers":[
+{
+"email":"sikmir@disroot.org",
+"github":"sikmir",
+"githubId":688044,
+"keys":[
+{
+"fingerprint":"ADF4 C13D 0E36 1240 BD01  9B51 D1DE 6D7F 6936 63A5"
+}
+],
+"matrix":"@sikmir:matrix.org",
+"name":"Nikolay Korotkiy"
+}
+],
 "outputsToInstall":[
 "out",
 "man"
@@ -4087,7 +4351,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/ns/nsxiv/package.nix:55",
+"position":"<nixpkgs> + /pkgs/by-name/ns/nsxiv/package.nix:54",
 "unfree":false,
 "unsupported":false
 },
@@ -4160,10 +4424,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/paperify.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/paperify.nix",
 "line":46
 },
 "name":"paperify-0.1.1",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -4303,6 +4580,7 @@
 "mainProgram":"pigo",
 "maintainers":[],
 "name":"pigo-1.4.6",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -4419,10 +4697,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/pluscodes.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/pluscodes.nix",
 "line":22
 },
 "name":"pluscodes-0.5.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -4523,6 +4814,7 @@
 },
 "maintainers":[],
 "name":"pngattach-0-unstable-2025-03-12",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -4629,10 +4921,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/aioice.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/aioice.nix",
 "line":52
 },
 "name":"python3.13-aioice-0.10.1",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -4772,10 +5077,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/aiortc.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/aiortc.nix",
 "line":60
 },
 "name":"python3.13-aiortc-1.13.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -4902,6 +5220,7 @@
 "mainProgram":"flameshow",
 "maintainers":[],
 "name":"flameshow-1.1.4",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -5019,6 +5338,7 @@
 },
 "maintainers":[],
 "name":"python3.13-imagehash-4.3.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -5157,10 +5477,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/images-upload-cli.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/images-upload-cli.nix",
 "line":46
 },
 "name":"python3.13-images-upload-cli-3.0.6",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -5292,10 +5625,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/iteround.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/iteround.nix",
 "line":32
 },
 "name":"python3.13-iteround-1.0.4",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -5421,6 +5767,7 @@
 },
 "maintainers":[],
 "name":"jtbl-1.6.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -5573,10 +5920,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/makeelf.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/makeelf.nix",
 "line":30
 },
 "name":"python3.13-makeelf-0.3.4",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -5716,10 +6076,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/mintalib.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/mintalib.nix",
 "line":47
 },
 "name":"python3.13-mintalib-0-unstable-2025-11-11",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -5859,10 +6232,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/mrz.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/mrz.nix",
 "line":32
 },
 "name":"python3.13-mrz-0.6.2",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -5989,6 +6375,7 @@
 "mainProgram":"oauth2get",
 "maintainers":[],
 "name":"oauth2token-0.0.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -6118,10 +6505,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/pipe21.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/pipe21.nix",
 "line":40
 },
 "name":"pipe21-1.23.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -6261,10 +6661,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/pybase62.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/pybase62.nix",
 "line":32
 },
 "name":"python3.13-pybase62-0.6.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -6404,10 +6817,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/pyclang.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/pyclang.nix",
 "line":37
 },
 "name":"python3.13-pyclang-0.5.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -6546,10 +6972,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/pylibsrtp.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/pylibsrtp.nix",
 "line":52
 },
 "name":"python3.13-pylibsrtp-0.12.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -6689,10 +7128,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/pystitcher.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/pystitcher.nix",
 "line":41
 },
 "name":"pystitcher-1.0.4",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -6831,10 +7283,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/pytest-embedded.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/pytest-embedded.nix",
 "line":38
 },
 "name":"python3.13-pytest-embedded-1.16.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -6974,10 +7439,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/ssort.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/ssort.nix",
 "line":29
 },
 "name":"ssort-0.13.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -7130,10 +7608,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/ta-lib.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/ta-lib.nix",
 "line":58
 },
 "name":"python3.13-ta-lib-0.6.8",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -7273,10 +7764,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/python3-packages/tvdatafeed.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/python3-packages/tvdatafeed.nix",
 "line":44
 },
 "name":"python3.13-tvdatafeed-0-unstable-2025-10-06",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -7359,6 +7863,7 @@
 "insecure":false,
 "maintainers":[],
 "name":"raspios-buster-armhf-lite-2022-09-06",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -7406,6 +7911,7 @@
 "insecure":false,
 "maintainers":[],
 "name":"newimage.qcow2",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -7453,6 +7959,7 @@
 "insecure":false,
 "maintainers":[],
 "name":"raspios-buster-armhf-lite-2022-09-06.qcow2",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -7501,6 +8008,7 @@
 "mainProgram":"raspberrypi-interact",
 "maintainers":[],
 "name":"raspberrypi-interact",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -7548,6 +8056,7 @@
 "insecure":false,
 "maintainers":[],
 "name":"rfcs",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -7622,10 +8131,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/rom64.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/rom64.nix",
 "line":35
 },
 "name":"rom64-0.5.4",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -7730,6 +8252,7 @@
 ],
 "maintainers":[],
 "name":"rust-u2f-0.4.2",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -7855,10 +8378,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/rustdoc-text.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/rustdoc-text.nix",
 "line":35
 },
 "name":"rustdoc-text-0.3.3",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -7972,6 +8508,7 @@
 ],
 "maintainers":[],
 "name":"rustfilt-0.2.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -8097,10 +8634,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/sane-fmt.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/sane-fmt.nix",
 "line":37
 },
 "name":"sane-fmt-0.18.1",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -8202,6 +8752,7 @@
 },
 "maintainers":[],
 "name":"schemaorg-29.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -8263,6 +8814,7 @@
 "mainProgram":"snid",
 "maintainers":[],
 "name":"snid-0.3.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -8365,10 +8917,18 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88k4s9b30mylb5w7ixnhf71avr8m1jps-source/pkgs/by-name/so/socat/package.nix",
+"file":"/nix/store/qvfzbcl7p13bwl8lj5xgxq7plm3v1pli-source/pkgs/by-name/so/socat/package.nix",
 "line":58
 },
 "name":"socat-patched-1.8.0.0",
+"nonTeamMaintainers":[
+{
+"email":"xiaoyin_c@qq.com",
+"github":"ryan4yin",
+"githubId":22363274,
+"name":"Ryan Yin"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -8486,6 +9046,7 @@
 },
 "maintainers":[],
 "name":"sqlite-zstd-0.3.2",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -8600,10 +9161,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/terraform-graph-beautifier.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/terraform-graph-beautifier.nix",
 "line":35
 },
 "name":"terraform-graph-beautifier-0.3.4",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -8741,10 +9315,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/tokei-pie.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/tokei-pie.nix",
 "line":30
 },
 "name":"tokei-pie-1.2.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -8838,6 +9425,7 @@
 },
 "maintainers":[],
 "name":"u8strings-0.1.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -8977,6 +9565,7 @@
 "mainProgram":"unum",
 "maintainers":[],
 "name":"unum-3.6",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -9038,6 +9627,7 @@
 "mainProgram":"linuxvnc",
 "maintainers":[],
 "name":"vncterm-0.9.10",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -9136,10 +9726,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/w2c2.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/w2c2.nix",
 "line":38
 },
 "name":"w2c2-0-unstable-2025-04-02",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -9280,6 +9883,7 @@
 ],
 "maintainers":[],
 "name":"waforth-0.20.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -9351,6 +9955,7 @@
 },
 "maintainers":[],
 "name":"wagi-0.8.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -9465,10 +10070,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/wax.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/wax.nix",
 "line":32
 },
 "name":"wax-0.0.1-unstable-2025-03-03",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -9576,10 +10194,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/wikipedia-mcp.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/wikipedia-mcp.nix",
 "line":52
 },
 "name":"wikipedia-mcp-1.6.0",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -9686,6 +10317,7 @@
 ],
 "maintainers":[],
 "name":"wonnx-0.5.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -9800,10 +10432,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hi39zcfq9qmwdf9xa1i46x7z52a6gr3j-source/pkgs/by-name/yggmail.nix",
+"file":"/nix/store/f6zhjmpn2gbspm9lkbrsjrsfmvn5v9wr-source/pkgs/by-name/yggmail.nix",
 "line":29
 },
 "name":"yggmail-0-unstable-2024-12-18",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -9898,6 +10543,7 @@
 "mainProgram":"zforth",
 "maintainers":[],
 "name":"zforth-0-unstable-2025-03-30",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -9956,6 +10602,7 @@
 },
 "maintainers":[],
 "name":"zippey-unstable-2014-05-28",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],

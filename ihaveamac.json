@@ -1,16 +1,16 @@
 {
 "name":"ihaveamac",
-"fetch_time":0.312,
-"eval_time":0.288,
+"fetch_time":0.74,
+"eval_time":0.301,
 "source":{
 "url":"https://github.com/ihaveamac/nur-packages",
-"rev":"8320131b4a05872d9b1a164a2ae3379df0634579",
-"sha256":"1zj2p3vj07ivdz3w61xy7pc6d2m9kv0yw9adnqhk1srynrzdq7kh",
+"rev":"d05d1ac63bcfd5a8963909259a9543f90272695a",
+"sha256":"08c0kddxd3bhbj6rjv94cckw56xg0pzls88pnrnkzp2c93dcyqvp",
 "date":null
 },
-"source_storepath":"/nix/store/m9fwzkys8dgr7gw1jrl5fnhc4f3z1qmr-source",
-"nixpkgs_storepath":"/nix/store/qb5649dycz7p7rzkrrya6ijkm5g046w1-source",
-"nur_combined_rev":"ca259df6886e5f168e0d35c9d6d4c82b62756605",
+"source_storepath":"/nix/store/a2f36c5qd87dqyyn27mhvqnm1svfzw07-source",
+"nixpkgs_storepath":"/nix/store/qvfzbcl7p13bwl8lj5xgxq7plm3v1pli-source",
+"nur_combined_rev":"8347fdc412104185c47a718904850990cfb0e777",
 "packages":{
 "_3beans":{
 "meta":{
@@ -56,7 +56,8 @@
 },
 "mainProgram":"3beans",
 "maintainers":[],
-"name":"3beans-release-unstable-2026-01-23",
+"name":"3beans-release-unstable-2026-01-25",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -142,14 +143,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"3beans-release-unstable-2026-01-23",
+"name":"3beans-release-unstable-2026-01-25",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"3beans-release-unstable",
 "system":"x86_64-linux",
-"version":"2026-01-23"
+"version":"2026-01-25"
 },
 "_3dslink":{
 "meta":{
@@ -187,6 +188,7 @@
 "mainProgram":"3dslink",
 "maintainers":[],
 "name":"3dslink-0.6.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -326,6 +328,7 @@
 "mainProgram":"3dstool",
 "maintainers":[],
 "name":"3dstool-1.2.6",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -407,7 +410,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/3dstool/package.nix:57",
+"position":"./pkgs/3dstool/package.nix:56",
 "unfree":false,
 "unsupported":false
 },
@@ -455,6 +458,7 @@
 "insecure":false,
 "maintainers":[],
 "name":"3dstools-1.3.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -594,6 +598,7 @@
 "mainProgram":"3gxtool",
 "maintainers":[],
 "name":"3gxtool-1.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -684,6 +689,7 @@
 "mainProgram":"bannertool",
 "maintainers":[],
 "name":"bannertool-2024-11-30",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -823,6 +829,7 @@
 "mainProgram":"caesar",
 "maintainers":[],
 "name":"caesar-0.4.2-unstable-2022-08-16",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -994,6 +1001,7 @@
 "mainProgram":"cleaninty",
 "maintainers":[],
 "name":"cleaninty-0.1.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1134,6 +1142,7 @@
 "mainProgram":"Corgi3DS",
 "maintainers":[],
 "name":"Corgi3DS-2020-07-15",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1232,6 +1241,7 @@
 "mainProgram":"ctr-gputextool",
 "maintainers":[],
 "name":"ctr-gputextool-0-unstable-2015-11-25",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1362,6 +1372,7 @@
 "mainProgram":"ctr-logobuilder",
 "maintainers":[],
 "name":"ctr-logobuilder-0-unstable-2015-11-25",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1501,6 +1512,7 @@
 "mainProgram":"ctrtool",
 "maintainers":[],
 "name":"ctrtool-1.3.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1631,6 +1643,7 @@
 "mainProgram":"cxitool",
 "maintainers":[],
 "name":"cxitool-unstable-2019-04-10",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1761,6 +1774,7 @@
 "mainProgram":"darctool",
 "maintainers":[],
 "name":"darctool-1.2.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1842,7 +1856,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"./pkgs/darctool/package.nix:50",
+"position":"./pkgs/darctool/package.nix:49",
 "unfree":false,
 "unsupported":false
 },
@@ -1891,6 +1905,7 @@
 "mainProgram":"darctool",
 "maintainers":[],
 "name":"darctool-yls8-0-unstable-2015-11-21",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -2030,6 +2045,7 @@
 "mainProgram":"DiscordWikiBot",
 "maintainers":[],
 "name":"DiscordWikiBot-0-unstable-2025-08-04",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -2097,6 +2113,7 @@
 "mainProgram":"ftpd",
 "maintainers":[],
 "name":"ftpd-3.2.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -2182,6 +2199,7 @@
 "mainProgram":"kame-editor",
 "maintainers":[],
 "name":"kame-editor-1.4.1-unstable-2025-06-04",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -2321,6 +2339,7 @@
 "mainProgram":"kame-tools",
 "maintainers":[],
 "name":"kame-tools-1.3.8-unstable-2024-11-01",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -2450,6 +2469,7 @@
 "insecure":false,
 "maintainers":[],
 "name":"kwin-move-window-1.1.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -2549,6 +2569,7 @@
 "mainProgram":"lnshot",
 "maintainers":[],
 "name":"lnshot-0.1.3-unstable-2026-01-01",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -2641,6 +2662,7 @@
 "mainProgram":"local-gpss",
 "maintainers":[],
 "name":"local-gpss-1.0.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -2708,6 +2730,7 @@
 "mainProgram":"makebax",
 "maintainers":[],
 "name":"makebax-2019-01-22",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -2847,6 +2870,7 @@
 "mainProgram":"makerom",
 "maintainers":[],
 "name":"makerom-0.19.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -2988,6 +3012,7 @@
 },
 "maintainers":[],
 "name":"mediawiki-1.39.17",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3129,6 +3154,7 @@
 },
 "maintainers":[],
 "name":"mediawiki-core-1.39.17",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3268,6 +3294,7 @@
 },
 "maintainers":[],
 "name":"mediawiki-1.43.6",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3407,6 +3434,7 @@
 },
 "maintainers":[],
 "name":"mediawiki-core-1.43.6",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3546,6 +3574,7 @@
 },
 "maintainers":[],
 "name":"mediawiki-1.44.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3685,6 +3714,7 @@
 },
 "maintainers":[],
 "name":"mediawiki-core-1.44.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3824,6 +3854,7 @@
 },
 "maintainers":[],
 "name":"mediawiki-1.45.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -3963,6 +3994,7 @@
 },
 "maintainers":[],
 "name":"mediawiki-core-1.45.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -4102,6 +4134,7 @@
 "mainProgram":"mrpack-install",
 "maintainers":[],
 "name":"mrpack-install-0.16.10-unstable-2024-11-24",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -4241,6 +4274,7 @@
 "mainProgram":"otptool",
 "maintainers":[],
 "name":"otptool-1.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -4380,6 +4414,7 @@
 "mainProgram":"qcma",
 "maintainers":[],
 "name":"qcma-0.4.2",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -4485,7 +4520,8 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"retro-aim-server-0.21.0",
+"name":"retro-aim-server-0.22.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -4571,14 +4607,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"retro-aim-server-0.21.0",
+"name":"retro-aim-server-0.22.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"retro-aim-server",
 "system":"x86_64-linux",
-"version":"0.21.0"
+"version":"0.22.0"
 },
 "roadgeek-fonts":{
 "meta":{
@@ -4624,6 +4660,7 @@
 },
 "maintainers":[],
 "name":"roadgeek-fonts-3.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -4763,6 +4800,7 @@
 "mainProgram":"rofs_dump",
 "maintainers":[],
 "name":"rofs-dumper-1.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -4893,6 +4931,7 @@
 "mainProgram":"rofsc",
 "maintainers":[],
 "name":"rofsc-1.0.0.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -4960,6 +4999,7 @@
 "mainProgram":"rstmcpp",
 "maintainers":[],
 "name":"rstmcpp-unstable-2023-04-02",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -5099,6 +5139,7 @@
 "mainProgram":"rvthtool",
 "maintainers":[],
 "name":"rvthtool-1.1.1-unstable-2025-02-01",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -5249,6 +5290,7 @@
 "mainProgram":"save3ds_fuse",
 "maintainers":[],
 "name":"save3ds-1.4.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -5350,6 +5392,7 @@
 "mainProgram":"sdFormatLinux",
 "maintainers":[],
 "name":"sdFormatLinux-0.2.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -5425,6 +5468,7 @@
 "insecure":false,
 "maintainers":[],
 "name":"switch-tools-1.13.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -5563,6 +5607,7 @@
 },
 "maintainers":[],
 "name":"tex3ds-2.3.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -5713,6 +5758,7 @@
 "mainProgram":"themethod3",
 "maintainers":[],
 "name":"themethod3-0-unstable-2025-05-26",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -5814,6 +5860,7 @@
 "mainProgram":"twlnandtool",
 "maintainers":[],
 "name":"twlnandtool-1.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -5944,6 +5991,7 @@
 "mainProgram":"twltool",
 "maintainers":[],
 "name":"twltool-1.7-unstable-2024-01-21",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -6083,6 +6131,7 @@
 "mainProgram":"vanilla",
 "maintainers":[],
 "name":"vanilla-continuous-unstable-2026-01-16",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -6168,6 +6217,7 @@
 },
 "maintainers":[],
 "name":"wfs-tools-1.2.3-unstable-2025-03-19",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -6298,6 +6348,7 @@
 "mainProgram":"wifiboot",
 "maintainers":[],
 "name":"wifiboot-host-unstable-2023-07-02",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -6436,6 +6487,7 @@
 },
 "maintainers":[],
 "name":"xenonrecomp-0-unstable-2025-08-04",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
