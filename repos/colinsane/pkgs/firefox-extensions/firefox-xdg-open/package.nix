@@ -34,8 +34,8 @@ stdenvNoCC.mkDerivation {
 
   passthru.systemComponent = static-nix-shell.mkBash {
     pname = "xdg-open-scheme-handler";
-    src = ./.;
-    pkgs = [ "xdg-utils" ];
+    srcRoot = ./.;
+    pkgs = [ "xdg-open" ];
 
     nativeBuildInputs = [
       copyDesktopItems

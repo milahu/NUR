@@ -1,9 +1,9 @@
-{ config, lib, pkgs, sane-lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   persist-base = "/nix/persist";
   origin = config.sane.persist.stores."ephemeral".origin;
-  backing = sane-lib.path.concat [ persist-base "ephemeral" ];
+  backing = pkgs.sane-lib.path.concat [ persist-base "ephemeral" ];
 
   # fileSystems.* options
   device = "gocryptfs-ephemeral#${backing}";

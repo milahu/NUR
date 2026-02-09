@@ -1,5 +1,5 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bash -p bash -p glib -p jq -p procps -p sway -p util-linux -p xdg-utils
+#!/usr/bin/env -S NIX_BUILD_SHELL=/bin/sh nix-shell
+#!nix-shell -i bash ../../../integrations/nix-shell --arg f 'ps: [ ps.bash ps.glib ps.jq ps.mimeo-query-desktop ps.procps ps.sway ps.util-linux ]'
 
 set -e
 
@@ -74,8 +74,7 @@ configureKeyboardFor_application() {
 
 configureKeyboardFor_file() {
   log "configureKeyboardFor_file: $1"
-  local mime=$(xdg-mime query filetype "$1")
-  local application=$(xdg-mime query default "$mime")
+  local application=$(mimeo-query-desktop "$1")
   configureKeyboardFor_application "$application"
 }
 

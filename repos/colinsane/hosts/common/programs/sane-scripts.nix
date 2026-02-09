@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   declPackageSet = pkgs: {
     packageUnwrapped = null;
@@ -161,6 +161,9 @@ in
       tryKeepUsers = true;  #< allow `sudo sane-reboot`, for the case where the service manager is unreachable
     };
 
+    "sane-scripts.reclaim-disk-space".packageUnwrapped = pkgs.sane-scripts.reclaim-disk-space.override {
+      nix = config.sane.programs.nix.packageUnwrapped;
+    };
     "sane-scripts.reclaim-disk-space".sandbox = {
       method = "bunpen";
       extraPaths = [ "/nix/var/nix" ];

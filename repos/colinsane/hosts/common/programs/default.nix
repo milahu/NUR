@@ -37,6 +37,7 @@
     ./claude-code.nix
     ./confy.nix
     ./conky
+    ./coppwr.nix
     ./cozy.nix
     ./cups.nix
     ./curl.nix
@@ -73,6 +74,7 @@
     ./fractal.nix
     ./free.nix
     ./frozen-bubble.nix
+    ./fuseftp.nix
     ./fwupd.nix
     ./g4music.nix
     ./gajim.nix
@@ -81,7 +83,10 @@
     ./geary.nix
     ./geoclue-demo-agent.nix
     ./geoclue2.nix
+    ./gh.nix
+    ./gh-dash
     ./git.nix
+    ./gnome-calendar.nix
     ./gnome-clocks.nix
     ./gnome-contacts.nix
     ./gnome-feeds.nix
@@ -133,6 +138,7 @@
     ./mepo.nix
     ./mercurial
     ./mimeo
+    ./mimeo-query-desktop.nix
     ./mimetype.nix
     ./mmcli.nix
     ./mopidy.nix
@@ -148,6 +154,7 @@
     ./nicotine-plus.nix
     ./nix-index.nix
     ./nix.nix
+    ./nixpkgs-hammering.nix
     ./nixpkgs-review.nix
     ./nmcli.nix
     ./notejot.nix
@@ -208,7 +215,6 @@
     ./socat.nix
     ./sops.nix
     ./soundconverter.nix
-    ./splatmoji.nix
     ./spot.nix
     ./spotify.nix
     ./steam.nix
@@ -245,6 +251,8 @@
     ./wine.nix
     ./wireplumber.nix
     ./wireshark.nix
+    ./wl-clipboard.nix
+    ./wl-clipboard-rs.nix
     ./wvkbd.nix
     ./xarchiver.nix
     ./xdg-desktop-portal.nix
@@ -255,7 +263,8 @@
     ./xdg-desktop-portal-phosh.nix
     ./xdg-desktop-portal-wlr.nix
     ./xdg-terminal-exec.nix
-    ./xdg-utils.nix
+    ./xdg-mime.nix
+    ./xdg-open.nix
     ./xxd.nix
     ./youtube-tui.nix
     ./yt-dlp.nix
@@ -269,7 +278,4 @@
     ./zfs-tools.nix
     ./zsh
   ];
-
-  # XXX: this might not be necessary. try removing this and cacert.unbundled (servo)?
-  environment.etc."ssl/certs".source = "${pkgs.cacert.unbundled}/etc/ssl/certs/*";
 }

@@ -4,6 +4,7 @@ let
 in
 {
   sane.programs.sm64coopdx = {
+    buildCost = 1;
     sandbox.net = "all";
     sandbox.whitelistAudio = true;
     sandbox.whitelistDri = true;

@@ -6,6 +6,7 @@
     "dev"
     "ref"
     "use"
+    "Books/Articles"
     "Books/Audiobooks"
     "Books/Books"
     "Books/Visual"

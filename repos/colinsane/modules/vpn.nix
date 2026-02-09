@@ -24,7 +24,7 @@
 #   3b. attach the VPN device to a bridge device, then connect that to a network namespace by using a veth pair.
 #   3c. just use `bunpen`, which abstracts the above options.
 
-{ config, lib, sane-lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   cfg = config.sane.vpn;
   vpnOpts = with lib; types.submodule ({ name, config, ... }: {
@@ -268,5 +268,5 @@ in
       systemd.network = f.systemd.network;
       systemd.services = f.systemd.services;
     };
-  in take (sane-lib.mkTypedMerge take configs);
+  in take (pkgs.sane-lib.mkTypedMerge take configs);
 }

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, sane-lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   cfg = config.sane.netns;
   nsIpv4 = builtins.head (builtins.filter
@@ -322,5 +322,5 @@ in
       systemd.services = f.systemd.services;
       systemd.targets = f.systemd.targets;
     };
-  in take (sane-lib.mkTypedMerge take configs);
+  in take (pkgs.sane-lib.mkTypedMerge take configs);
 }

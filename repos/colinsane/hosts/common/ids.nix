@@ -8,6 +8,12 @@
   sane.ids.networkmanager.uid = 57;  #< nixpkgs unofficially reserves this, to match networkmanager's gid
   sane.ids.mediatomb.uid = 187;  # <repo:nixos/nixpkgs:nixos/modules/misc/ids.nix>
 
+  # these ids are "required" to be "system users" (400..999).
+  # this seems to be a `shadow` (package) concept; SYS_UID_MIN and SYS_UID_MAX
+  sane.ids.usbmux.uid = 898;  # found on desko; services.usbmuxd.
+  sane.ids.usbmux.gid = 898;
+  sane.ids.plugdev.gid = 899;  # else "Group 'plugdev' is not a system group, ignoring."
+
   # legacy servo users, some are inconvenient to migrate
   sane.ids.dhcpcd.gid = 991;
   sane.ids.dhcpcd.uid = 992;
@@ -63,13 +69,16 @@
   sane.ids.clightning.gid = 2419;
   sane.ids.nix-serve.uid = 2420;
   sane.ids.nix-serve.gid = 2420;
-  sane.ids.plugdev.gid = 2421;
+  # sane.ids.plugdev.gid = 2421;
   sane.ids.ollama.uid = 2422;
   sane.ids.ollama.gid = 2422;
   sane.ids.bitmagnet.uid = 2423;
   sane.ids.bitmagnet.gid = 2423;
   sane.ids.anubis.uid = 2424;
   sane.ids.anubis.gid = 2424;
+  sane.ids.lemmy-ui.uid = 2425;
+  sane.ids.lemmy-ui.gid = 2425;
+
   sane.ids.shelvacu.uid = 5431;
 
   sane.ids.colin.uid = 1000;
@@ -105,11 +114,6 @@
   # found on graphical hosts
   sane.ids.nm-iodine.uid = 2101;  # desko/moby/lappy
   sane.ids.seat.gid = 2102;
-
-  # found on desko host
-  # from services.usbmuxd
-  sane.ids.usbmux.uid = 2204;
-  sane.ids.usbmux.gid = 2204;
 
 
   # originally found on moby host

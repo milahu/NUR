@@ -19,6 +19,10 @@ in
       };
     };
 
+    suggestedPrograms = [
+      "xdg-open"
+    ];
+
     sandbox.enable = false;
     env.TERMINAL = lib.mkDefault "alacritty";
 

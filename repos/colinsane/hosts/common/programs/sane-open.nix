@@ -1,15 +1,13 @@
-{ ... }:
+{ config, ... }:
 {
   sane.programs.sane-open = {
     suggestedPrograms = [
       "gdbus"
-      "xdg-utils"
+      "mimeo-query-desktop"
     ];
 
     sandbox.autodetectCliPaths = "existing";  # for when opening a file
-    sandbox.extraHomePaths = [
-      ".local/share/applications"
-    ];
+    sandbox.extraHomePaths = config.sane.programs.mimeo-query-desktop.sandbox.extraHomePaths;
     sandbox.extraRuntimePaths = [ "sway" ];  #< calls `swaymsg` to query rotation and see if there's room for a keyboard
     sandbox.keepPidsAndProc = true;  #< to toggle keyboard
     sandbox.whitelistPortal = [
@@ -23,6 +21,7 @@
   sane.programs."sane-open.clipboard" = {
     suggestedPrograms = [
       "sane-open"
+      "wl-clipboard-rs"
     ];
 
     # this calls into `sane-open`, but explicitly doesn't use all functionality,

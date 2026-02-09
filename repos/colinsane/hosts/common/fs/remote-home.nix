@@ -76,7 +76,7 @@ let
   };
 in
 lib.mkMerge [
-  (ifSshAuthorized (remoteHome "crappy" {}))
+  # (ifSshAuthorized (remoteHome "crappy" {}))
   (ifSshAuthorized (remoteHome "desko" { host = "desko-hn"; }))
   (ifSshAuthorized (remoteHome "flowy" {}))
   # (ifSshAuthorized (remoteHome "lappy" {}))

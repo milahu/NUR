@@ -53,6 +53,7 @@ in
   geary = serviceButton "geary" "";
   abaddon = serviceButton "abaddon" " ";
   dissent = serviceButton "dissent" " ";
+  discord = serviceButton "discord" " ";
   signal-desktop = serviceButton "signal-desktop" "󰭻";
   dino = serviceButton "dino" "󰟿";
   fractal = serviceButton "fractal" "[m]";

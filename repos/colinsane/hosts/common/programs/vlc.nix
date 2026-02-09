@@ -1,7 +1,7 @@
-{ config, lib, pkgs, sane-lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
-  feeds = sane-lib.feeds;
+  feeds = pkgs.sane-lib.feeds;
   all-feeds = config.sane.feeds;
   wanted-feeds = feeds.filterByFormat ["podcast"] all-feeds;
   podcast-urls = lib.concatStringsSep "|" (

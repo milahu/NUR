@@ -44,9 +44,12 @@ in
     sandbox.whitelistDri = true;  # otherwise video playback buuuuurns CPU
     sandbox.whitelistPortal = [
       "FileChooser"
-      "NetworkMonitor"  # if portals are enabled, but NetworkMonitor *isn't*, then it'll hang on launch
+      # "NetworkMonitor"  # if portals are enabled, but NetworkMonitor *isn't*, then it'll hang on launch
       "OpenURI"
+      # "ProxyResolver"
     ];
+    sandbox.extraEnv.GIO_USE_NETWORK_MONITOR = "netlink";  #< required if portal NetworkMonitor isn't exposed
+    sandbox.extraEnv.GIO_USE_PROXY_RESOLVER = "dummy";  #< required if portal NetworkMonitor isn't exposed
     sandbox.whitelistSendNotifications = true;
     sandbox.whitelistWayland = true;
     sandbox.extraHomePaths = [

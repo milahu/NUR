@@ -11,6 +11,7 @@
     ];
     sandbox.whitelistWayland = true;
     sandbox.extraHomePaths = [
+      "Books/Articles"
       "Books/Books"
       "Books/local"
       "Books/servo"

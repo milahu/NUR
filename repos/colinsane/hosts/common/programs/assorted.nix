@@ -29,11 +29,41 @@ in
     nixosBuiltinsWireless = declPackageSet [
       # from nixos/modules/tasks/network-interfaces.nix
       # if config.networking.wireless.enable
-      "wirelesstools"
+      # "wirelesstools" #< XXX(2026-01-22): provides bin/iw* -- not needed -- doesn't build for pkgsMusl
       "iw"
     ];
 
+    coreShellUtils = declPackageSet [
+      "curl"
+      "dig"
+      "file"
+      "free"
+      "htop"
+      "iputils"  # ping
+      "killall"
+      "less"
+      "lsof"
+      "man-db"  # critical for `man -k` or `apropos` to work
+      "man-pages"
+      "man-pages-posix"
+      "nano"
+      "netcat"
+      "nix"
+      "nmcli"
+      "pstree"
+      # "s6-rc"  # service manager
+      # "screen"
+      "ssh"
+      "tree"
+      "unixtools.ps"
+      "unixtools.sysctl"
+      "unixtools.xxd"
+      "uptime"
+    ];
+
     sysadminUtils = declPackageSet [
+      "sysadminExtraUtils"
+      #
       "ausyscall"
       "bandwhich"  # network/bandwidth monitor
       "bridge-utils"  # for brctl; debug linux "bridge" inet devices
@@ -41,61 +71,46 @@ in
       "cacert.unbundled"  # some services require unbundled /etc/ssl/certs
       "captree"
       "cryptsetup"
-      "curl"
       "ddrescue"
-      "dig"
       "dmidecode"  # to query low-level hardware details like RAM modules
       "dtc"  # device tree [de]compiler
       "e2fsprogs"  # resize2fs
       "efibootmgr"
+      "ethtool"
+      "fatresize"
+      # "fwupd"
+      "gptfdisk"  # gdisk
+      "hdparm"
       "erdtree"  # like normal `tree` but colorful & prints sizes
       "errno"
-      "ethtool"
       "evtest"
       "expect"
-      "fatresize"
       "fd"
       "fftest"  # for debugging moby haptics/vibrator, mostly
-      "file"
       "forkstat"  # monitor every spawned/forked process
-      "free"
-      # "fwupd"
       "gawk"
       "gdb"  # to debug segfaults
       "git"
-      "gptfdisk"  # gdisk
-      "hdparm"
       "hping"
-      "htop"
       "htpasswd"
       "iftop"
       "inetutils"  # for telnet
       "iotop"
       "iptables"
       # "iw"
-      "jq"
-      "killall"
-      "less"
       "lftp"
+      "jq"
       "libcap_ng"  # for `netcap`, `pscap`, `captest`
       "libgpiod"  # `gpiodetect`, `gpioinfo`, `gpiomon`, ...
       "libqmi"  # for `qmicli` modem control
-      "lsof"
-      "man-db"  # critical for `man -k` or `apropos` to work
-      "man-pages"
-      "man-pages-posix"
       # "miniupnpc"
       "mmcli"
-      "nano"
-      #  "ncdu"  # ncurses disk usage. doesn't cross compile (zig)
-      "nfs-utils"  # required, for mounting nfs filesystems
       "neovim"
-      "netcat"
+      #  "ncdu"  # ncurses disk usage. doesn't cross compile (zig)
       "nethogs"
-      "nix"
+      "nfs-utils"  # required, for mounting nfs filesystems
       "nix-tree"
       "nmap"
-      "nmcli"
       "nmon"
       # "nvimpager"
       "nvme-cli"  # nvme
@@ -106,25 +121,16 @@ in
       "picocom"  # serial TTY
       "powertop"
       "procs"  # a better `ps`
-      "pstree"
       "ripgrep"
       "rsync"
-      # "s6-rc"  # service manager
-      # "screen"
       "see-cat"  # pretty-print equivalent to 'cat'
-      "ssh"
-      "sshpass"
       "smartmontools"  # smartctl
       "snitch"  # a better lsof
       "socat"
+      "sshpass"
       "strace"
       "subversion"
       "tcpdump"
-      "tree"
-      "unixtools.ps"
-      "unixtools.sysctl"
-      "unixtools.xxd"
-      "uptime"
       "usbutils"  # lsusb
       "util-linux"  # lsblk, lscpu, etc
       "valgrind"
@@ -156,6 +162,7 @@ in
       "exiftool"
       "eza"  # a better 'ls'
       # "flashrom"
+      "fuseftp"
       "git"  # needed as a user package, for config.
       # "glib"  # for `gsettings`
       # "gnupg"
@@ -210,7 +217,7 @@ in
       # "unar"
       "unzip"
       "wireguard-tools"  # for `wg`
-      "xdg-utils"  # for xdg-open
+      "xdg-open"
       # "yarn"
       "zsh"
     ];
@@ -218,6 +225,7 @@ in
     pcConsoleUtils = declPackageSet [
       "dasht"  # docset documentation viewer
       # "gh"  # MS GitHub cli
+      "gh-dash"  # GitHub TUI client
       "haredoc"
       "nix-check-deps"  # run `nix-check-deps packageName -f .` before submitting stuff upstream
       "nix-index"
@@ -323,11 +331,12 @@ in
       # "delfin"  # Jellyfin client
       "dialect"  # language translation
       "dino"  # XMPP client
-      "dissent"  # Discord client (formerly known as: gtkcord4)
+      # "dissent"  # Discord client (formerly known as: gtkcord4)
       # "emote"
       # "envelope"  # GTK4 email client (alpha)
       # "evince"  # PDF viewer
       # "flare-signal"  # gtk4 signal client
+      "foliate"  # e-book reader
       "fractal"  # matrix client
       # "g4music"  # local music player
       # "gnome.cheese"
@@ -335,7 +344,7 @@ in
       # "gnome.file-roller"
       "geary"  # adaptive e-mail client; uses webkitgtk 4.1
       "gnome-calculator"
-      "gnome-calendar"
+      # "gnome-calendar"
       "gnome-clocks"
       "gnome-contacts"
       # "gnome-podcasts"
@@ -368,7 +377,7 @@ in
       "papers"  # PDF viewer
       "pavucontrol"
       "powersupply"  # battery viewer
-      "pwsp"  # PipeWire SoundPad -- used to inject noises into the mic
+      # "pwsp"  # PipeWire SoundPad -- used to inject noises into the mic
       "pwvucontrol"  # pipewire version of pavu
       # "picard"  # music tagging
       "resources"  # system monitor
@@ -397,7 +406,6 @@ in
       # "chatty"  # matrix/xmpp/irc client  (2023/12/29: disabled because broken cross build)
       # "cozy"  # audiobook player
       "epiphany"  # gnome's web browser
-      "foliate"  # e-book reader
       # "iotas"  # note taking app
       "komikku"
       # "koreader"
@@ -422,6 +430,7 @@ in
       "brave"  # for the integrated wallet -- as a backup
       # "cantata"  # music player (mpd frontend)
       # "chromium"  # chromium takes hours to build. brave is chromium-based, distributed in binary form, so prefer it.
+      "coppwr"  # pipewire graph viewer
       "cups"
       "discord"  # x86-only
       # "electrum"
@@ -437,7 +446,7 @@ in
       "gparted"
       "nautilus"  # file browser
       # "gnome.totem"  # video player, supposedly supports UPnP
-      "handbrake"
+      # "handbrake" #< XXX(2026-01-23): broken build
       "inkscape"
       # "jellyfin-media-player"
       # "kdenlive"  # N.B. depends on qtwebengine
@@ -652,10 +661,6 @@ in
 
     geoclue2-with-demo-agent = {};
 
-    # MS GitHub stores auth token in .config
-    # TODO: we can populate gh's stuff statically; it even lets us use the same oauth across machines
-    gh.persist.byStore.private = [ ".config/gh" ];
-
     gimp.buildCost = 1;
     gimp.sandbox.whitelistX = true;
     gimp.sandbox.whitelistWayland = true;
@@ -685,15 +690,6 @@ in
     gnome-calculator.buildCost = 1;
     gnome-calculator.sandbox.mesaCacheDir = ".cache/gnome-calculator/mesa";  # TODO: is this the correct app-id?
     gnome-calculator.sandbox.whitelistWayland = true;
-
-    gnome-calendar.buildCost = 2;  # depends on webkitgtk_6_0 via evolution-data-server
-    gnome-calendar.sandbox.mesaCacheDir = ".cache/gnome-calendar/mesa";  # TODO: is this the correct app-id?
-    # gnome-calendar surely has data to persist, but i use it strictly to do date math, not track events.
-    gnome-calendar.sandbox.whitelistWayland = true;
-    gnome-calendar.sandbox.whitelistDbus.user = true;  #< TODO: reduce
-    gnome-calendar.suggestedPrograms = [
-      "evolution-data-server"  #< to access/persist calendar events
-    ];
 
     # gnome-disks
     # XXX(2024-09-02): fails to show any disks even when run as `BUNPEN_DISABLE=1 sudo -E gnome-disks`.
@@ -882,11 +878,13 @@ in
 
     lua = {};
 
+    lua-language-server.buildCost = 1;
     lua-language-server.sandbox.whitelistPwd = true;
 
     man-pages.sandbox.enable = false;  #< data only
     man-pages-posix.sandbox.enable = false;  #< data only
 
+    marksman.buildCost = 1;  # dotnet-sdk
     marksman.sandbox.whitelistPwd = true;
 
     mesa-demos.sandbox.whitelistDri = true;
@@ -946,11 +944,6 @@ in
     ];
 
     nixfmt.sandbox.autodetectCliPaths = "existingDirOrParent";  #< it formats via rename
-
-    nixpkgs-hammering.sandbox.whitelistPwd = true;
-    nixpkgs-hammering.sandbox.extraPaths = [
-      "/nix/var"  # to prevent complaints about it not finding build logs
-    ];
 
     nmap.sandbox.net = "all";  # clearnet and lan
 
@@ -1084,7 +1077,7 @@ in
     sane-color-picker.sandbox.keepPidsAndProc = true;  #< required by wl-clipboard
     sane-color-picker.suggestedPrograms = [
       "gnugrep"
-      "wl-clipboard"
+      "wl-clipboard-rs"
       # "zenity"
     ];
     sane-color-picker.sandbox.mesaCacheDir = ".cache/sane-color-picker/mesa";  # TODO: is this the correct app-id?
@@ -1290,11 +1283,11 @@ in
 
     wiremix.sandbox.whitelistAudio = true;
 
-    wl-clipboard.sandbox.whitelistWayland = true;
-    wl-clipboard.sandbox.keepPids = true;  #< this is needed, but not sure why?
-
     wtype = {};
     wtype.sandbox.whitelistWayland = true;
+
+    xdg-email.sandbox.method = null;  #< TODO: sandbox
+    xdg-settings.sandbox.method = null;  #< TODO: sandbox
 
     xwayland.sandbox.wrapperType = "inplace";  #< consumers use it as a library (e.g. wlroots)
     xwayland.sandbox.whitelistWayland = true;  #< just assuming this is needed
@@ -1316,13 +1309,15 @@ in
     }
   ];
 
-  hardware.graphics = lib.mkIf config.sane.programs.guiApps.enabled ({
-    enable = true;
-  } // (lib.optionalAttrs pkgs.stdenv.isx86_64 {
-    # for 32 bit applications
-    # upstream nixpkgs forbids setting enable32Bit unless specifically x86_64 (so aarch64 isn't allowed)
-    enable32Bit = lib.mkDefault true;
-  }));
+  # hardware.graphics = lib.mkIf config.sane.programs.guiApps.enabled ({
+  #   # this links /run/opengl-drivers -> ${mesa}, and is actually critical for certain applications.
+  #   # for example, sway refuses to launch w/o /run/opengl-drivers linked.
+  #   enable = true;
+  # } // (lib.optionalAttrs pkgs.stdenv.isx86_64 {
+  #   # for 32 bit applications
+  #   # upstream nixpkgs forbids setting enable32Bit unless specifically x86_64 (so aarch64 isn't allowed)
+  #   # enable32Bit = lib.mkDefault true;
+  # }));
 
   system.activationScripts.notifyActive = lib.mkIf config.sane.programs.guiApps.enabled {
     text = let

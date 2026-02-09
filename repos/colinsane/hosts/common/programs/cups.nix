@@ -14,6 +14,7 @@ in
     sandbox.method = null;  #< TODO: sandbox
     suggestedPrograms = [
       "system-config-printer"
+      "xdg-open"  #< required by `cups.desktop`
     ];
   };
   sane.programs.system-config-printer.sandbox.method = null;  #< TODO: sandbox

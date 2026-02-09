@@ -1,11 +1,8 @@
 // vim: set shiftwidth=2 :
 
-use errors;
-use errors::ext;
 use fmt;
 use log;
 use os;
-use os::exec;
 use path;
 use rt;
 use strings;
@@ -18,9 +15,16 @@ export fn execve(path: str, argv: []str, envp: []str = []) rt::errno = {
     let logv: []fmt::formattable = [];
     defer free(logv);
     append(logv, "[exec] execve:");
+
+    if (len(argv) != 0 && argv[0] != path)
+      append(logv, fmt::asprintf("--argv0={}", argv[0]));
+
+    for (let env .. envp)
+      append(logv, env);
+
     append(logv, path);
-    for (let arg .. argv)
-      append(logv, arg);
+    for (let i = 1z; i < len(argv); i += 1)
+      append(logv, argv[i]);
     log::println(logv...);
   };
 

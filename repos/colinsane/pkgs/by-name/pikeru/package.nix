@@ -43,16 +43,16 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "pikeru";
-  version = "1.11";
+  version = "1.12";
 
   src = fetchFromGitHub {
     owner = "dvhar";
     repo = "pikeru";
     rev = finalAttrs.version;
-    hash = "sha256-kQr6U8RpjcPPO8KqLA+DlpJoul6dw9OBPBbvUFjS+U4=";
+    hash = "sha256-en2J6W5/qeTUFtINnR52R4a/AWOEywj2WzNvvBonq48=";
   };
 
-  cargoHash = "sha256-mVbPwNMSs2oNgPkMyoQU1qT+t8yuLhzydqJKaUb47X4=";
+  cargoHash = "sha256-fXZuJwqbs4XVPW1bSdulu8lqgbIZAiqiWmHr/6bynfo=";
 
   # this is nasty; should work with upstream to find a better solution.
   # pikeru as portal reads a ~/.config file, then execs a helper referenced from that file.

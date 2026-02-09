@@ -58,7 +58,7 @@ in {
     # packages which ship docsets natively:
     docsets.lua-std
     # docsets.gtk
-    docsets.nix-builtins
+    (docsets.nix-builtins.override { nix = config.sane.programs.nix.packageUnwrapped; })
     docsets.nixpkgs-lib
     docsets.python3-std
     docsets.rust-std

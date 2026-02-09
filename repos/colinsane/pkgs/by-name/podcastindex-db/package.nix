@@ -13,14 +13,14 @@
 
 stdenvNoCC.mkDerivation {
   pname = "podcastindex-db";
-  version = "0-unstable-2025-12-28";
+  version = "0-unstable-2026-01-27";
 
   src = fetchFromGitea {
     domain = "git.uninsane.org";
     owner = "colin";
     repo = "podcastindex-db-mirror";
-    rev = "f4ebb7dfbefe1faac4099e7dbc79bcfbca2e836d";
-    hash = "sha256-Iw6sZijSwoiAkwFQCC0thcOudLxQjImZdeH7Va/Wcl8=";
+    rev = "7810f366a3addad901d10dade72a139d7d8f86dc";
+    hash = "sha256-wuky3YFLnxcMrJqsmZ5zzr77d5JLUFkST5UbhIQKOOI=";
   };
 
   dontBuild = true;
@@ -47,8 +47,9 @@ stdenvNoCC.mkDerivation {
         sqlite
       ];
       text = ''
-        set -x
-        pushd "$(mktemp -d podcastindex.XXXXXXXX --tmpdir)"
+        set -ex
+        CHECKOUT_DIR=$(mktemp -d podcastindex.XXXXXXXX --tmpdir)
+        pushd "$CHECKOUT_DIR"
 
         git clone git@git.uninsane.org:colin/podcastindex-db-mirror.git
         cd podcastindex-db-mirror
@@ -57,6 +58,7 @@ stdenvNoCC.mkDerivation {
         git push origin master
 
         popd
+        rm -rf "$CHECKOUT_DIR"
       '';
     };
     updateMirrorFromUpstream = lib.getExe mirror-update-script;

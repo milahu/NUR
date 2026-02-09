@@ -15,6 +15,7 @@ in
     services.xdg-desktop-portal-phosh = {
       description = "xdg-desktop-portal-phosh backend (provides FileChooser; Notifications, Settings, Wallpaper)";
       # N.B.: `phrosh` version (libexec/xdg-desktop-portal-phrosh) provides AppCHooser and Account portals
+      depends = [ "wayland" ];  # else "Failed to init GUI bits: Failed to initialize GTK"
       dependencyOf = [ "xdg-desktop-portal" ];
       command = "${cfg.package}/libexec/xdg-desktop-portal-phosh";
       readiness.waitDbus = "org.freedesktop.impl.portal.desktop.phosh";

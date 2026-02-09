@@ -4,6 +4,7 @@
   makeBinaryWrapper,
   oils-for-unix,
   pkgs,
+  pkgsMusl,
   pkgsStatic,
   python3,
   stdenvNoCC,
@@ -56,23 +57,34 @@ in rec {
     interpreterName ? lib.last (builtins.split "/" interpreter),
     pkgsEnv,
     pkgExprs,
-    srcPath ? pname,
+    srcPath ? pname, #< N.B.: should not contain `/`'s
     srcRoot ? null,
+    src ? null,
     ...
   }@attrs:
   let
+    repoRoot = ../../..;
+    getPathToRoot = ascended: at:
+      if at == repoRoot then
+        ascended
+      else
+          getPathToRoot "../${ascended}" (dirOf at)
+    ;
+    pathToRepoRoot = getPathToRoot "" (if srcRoot != null then srcRoot else src);
+
     extraDerivArgs = lib.optionalAttrs (srcRoot != null) {
-      # use can use `srcRoot` instead of `src` in most scenarios, to avoid include the entire directory containing their
+      # user can use `srcRoot` instead of `src` in most scenarios, to avoid including the entire directory containing their
       # source file in the closure, but *just* the source file itself.
       # `lib.fileset` docs: <https://ryantm.github.io/nixpkgs/functions/library/fileset/>
       src = lib.fileset.toSource {
         root = srcRoot; fileset = lib.path.append srcRoot srcPath;
       };
     };
-    pkgsStr = builtins.concatStringsSep "" (builtins.map
-      (pname: " -p ${pname}")
-      pkgExprs
+    pkgStrs = map (pname: "ps.${pname}") pkgExprs;
+    argStr = builtins.concatStringsSep " " (
+      [ "ps:" "[" ] ++ pkgStrs ++ [ "]" ]
     );
+    nixShellImport = "${pathToRepoRoot}integrations/nix-shell";
     # allow any package to be a list of packages, to support things like
     # -p python3.pkgs.foo.propagatedBuildInputs
     pkgsEnv' = lib.flatten pkgsEnv;
@@ -145,9 +157,9 @@ in rec {
         "
         fi
         substituteInPlace ${srcPath} \
-          --replace-fail '#!/usr/bin/env nix-shell' '#!${interpreter}' \
+          --replace-fail '#!/usr/bin/env -S NIX_BUILD_SHELL=/bin/sh nix-shell' '#!${interpreter}' \
           --replace-fail \
-            $'#!nix-shell -i ${interpreterName}${pkgsStr}\n' \
+            '#!nix-shell -i ${interpreterName} ${nixShellImport} --arg f '"'"'${argStr}'"'"$'\n' \
             $'# nix deps evaluated statically\n'"''${shellPreamble:-}"
 
         # if no specialized `shellPreamble` was populated, then inject dependencies via wrapper
@@ -224,7 +236,9 @@ in rec {
       # - 835.0 µs
       # `nix-build -A pkgsStatic.bash && hyperfine './result/bin/sh --version'`
       # - 262.8 µs
-      bash' = pkgsStatic.bash;
+      # bash' = pkgsStatic.bash;
+      # XXX(2026-01-20): `pkgsMusl.pkgsStatic.stdenv` doesn't build (but `pkgsMusl.pkgsMusl.bash` _does_ build.
+      bash' = pkgsMusl.bash;
       pkgsAsAttrs = pkgsToAttrs "" pkgs' pkgs;
       pkgsEnv = [ bash' ] ++ (builtins.attrValues pkgsAsAttrs);
       pkgExprs = insertTopo "bash" (builtins.attrNames pkgsAsAttrs);

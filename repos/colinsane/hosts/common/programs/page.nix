@@ -21,7 +21,7 @@ in
       # TODO: this fixes behavior when run as root (e.g. `sudo man ls`), but seems excessive??
       # something about the neovim-remote socket under /tmp/neovim-page/socket...
       # tryKeepUsers = true;
-      # extraPaths = "/tmp";
+      # extraPaths = [ "/tmp" ];
       # capabilities = [ "dac_override" "sys_admin" ];
     };
 
@@ -58,5 +58,6 @@ in
 
   sane.programs.git.sandbox = lib.mkIf cfg.enabled sandboxPropagated;
   sane.programs.man-db.sandbox = lib.mkIf cfg.enabled sandboxPropagated;
+  sane.programs.neovim.sandbox.extraPaths = lib.mkIf cfg.enabled [ "/dev/pts" ];  #< XXX(2026-01-27): alternative is to re-wrap neovim just for page.
   sane.programs.mercurial.sandbox = lib.mkIf cfg.enabled sandboxPropagated;
 }

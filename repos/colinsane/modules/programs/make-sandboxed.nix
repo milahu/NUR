@@ -7,11 +7,11 @@
   gnugrep,
   gnused,
   linkFarm,
+  lndir,
   makeBinaryWrapper,
   makeShellWrapper,
   runCommand,
   writeShellScriptBin,
-  xorg,
 }:
 let
   fakeSaneSandboxed = writeShellScriptBin bunpen.meta.mainProgram ''
@@ -112,7 +112,7 @@ let
         makeBinaryWrapper ${bunpen'} "$_dir/$_name" \
           --suffix PATH : /run/current-system/sw/libexec/${bunpen.pname} \
           --inherit-argv0 \
-          ${lib.escapeShellArgs (lib.flatten (builtins.map (f: [ "--add-flag" f ]) extraSandboxArgs))} \
+          ${lib.escapeShellArgs (lib.flatten (map (f: [ "--add-flag" f ]) extraSandboxArgs))} \
           --add-flag "$_dir/.sandboxed/$_name"
       }
 
@@ -384,7 +384,7 @@ let
         {
           inherit outputs;
           disallowedReferences = [ unsandboxed ];
-          passthru.flat = linkFarm "${sandboxedNonBin.name}-check-sandboxed-flat" (builtins.map (o: { name = o; path = checkSandboxed."${o}"; }) outputs);
+          passthru.flat = linkFarm "${sandboxedNonBin.name}-check-sandboxed-flat" (map (o: { name = o; path = checkSandboxed."${o}"; }) outputs);
         }
         # dereference every symlink, ensuring that whatever data is behind it does not reference non-sandboxed binaries.
         # the dereference *can* fail, in case it's a relative symlink that refers to a part of the non-binaries we don't patch.
@@ -424,7 +424,10 @@ let
         preferLocalBuild = true;
         depsBuildBuild = [ bunpen ];
         nativeBuildInputs = [ file gnugrep ];
-        buildInputs = builtins.map (out: finalAttrs.finalPackage."${out}") (finalAttrs.outputs or [ "out" ]);
+        roots = map (out: finalAttrs.finalPackage."${out}") (finalAttrs.finalPackage.outputs or [ "out" ]);
+        __structuredAttrs = true;
+        # NIX_DEBUG = 3; #< uncomment for nixInfoLog output
+        # NIX_DEBUG = 6; #< uncomment for nixDebugLog output
       } ''
         # invoke each binary in a way only the sandbox wrapper will recognize,
         # ensuring that every binary has in fact been wrapped.
@@ -460,19 +463,19 @@ let
           done
         }
 
-        for outDir in $buildInputs; do
-          nixInfoLog "starting crawl from package output: $outDir"
+        for dir in "''${roots[@]}"; do
+          nixInfoLog "starting crawl from package output: $dir"
           # *everything* in the bin dir should be a wrapped executable
-          if [ -e "$outDir/bin" ]; then
-            echo "checking toplevel dir at $outDir/bin"
-            _checkDir "$outDir/bin"
+          if [ -e "$dir/bin" ]; then
+            echo "checking toplevel dir at $dir/bin"
+            _checkDir "$dir/bin"
           fi
 
           # the libexec dir is 90% wrapped executables, but sometimes also .so/.la objects.
           # note that this directory isn't flat
-          if [ -e "$outDir/libexec" ]; then
-            echo "checking toplevel dir at $outDir/libexec"
-            CHECK_DIR_NON_BIN=1 _checkDir "$outDir/libexec"
+          if [ -e "$dir/libexec" ]; then
+            echo "checking toplevel dir at $dir/libexec"
+            CHECK_DIR_NON_BIN=1 _checkDir "$dir/libexec"
           fi
         done
 
@@ -523,7 +526,7 @@ let
       in runCommand "${pkgName}-sandboxed-all" {
         inherit outputs;
         preferLocalBuild = true;
-        nativeBuildInputs = [ xorg.lndir ];
+        nativeBuildInputs = [ lndir ];
         passthru = { inherit sandboxedBin sandboxedNonBin unsandboxed; };
         # specifically, for priority
         meta = extractMeta sandboxedBin;

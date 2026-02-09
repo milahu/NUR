@@ -1,5 +1,5 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bash -p bash -p sane-open -p wl-clipboard
+#!/usr/bin/env -S NIX_BUILD_SHELL=/bin/sh nix-shell
+#!nix-shell -i bash ../../../integrations/nix-shell --arg f 'ps: [ ps.bash ps.sane-open ps.wl-clipboard-rs ]'
 
 set -e
 # TODO: restrict to `--file` or `--uri`? little reason to dispatch anything ending in `.desktop` here.

@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = lib.mkDefault true;
   # systemd-networkd-wait-online.service reliably fails on lappy. docs don't match behavior. shit software.
   # XXX(2025-07-18): `systemd-networkd-wait-online.service` also fails on desko (timeout).
   systemd.network.wait-online.enable = false;

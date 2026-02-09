@@ -23,6 +23,12 @@
         upstream.installPhase
       ;
     });
+    suggestedPrograms = [
+      # "xdg-mime"
+      "xdg-open"
+      # "xdg-email"
+      # "xdg-settings"
+    ];
 
     # sandbox.whitelistDbus.user = true;
     sandbox.net = "clearnet";

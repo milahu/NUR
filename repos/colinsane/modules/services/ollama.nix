@@ -113,10 +113,15 @@ in
     services.ollama.models = models;
     services.ollama.host = "0.0.0.0";  # TODO: specify specifically 127.0.0.1 and 10.0.10.22
 
+    # 2026-02-02: unsure of runtime perf difference between ollama (cpu), ollama-vulkan, ollama-rocm (amd).
+    # ollama-vulkan gets 8~10 words/sec on gemma3-12b
+    services.ollama.package = pkgs.ollama-vulkan;  #< MUCH faster to build than ollama-rocm;
+
     # these acceleration settings are relevant to `desko`.
-    services.ollama.package = lib.mkIf config.hardware.amdgpu.opencl.enable pkgs.ollama-rocm;  # AMD GPU acceleration (achieves the same as `nixpkgs.config.rocmSupport = true` but just for ollama (the global toggle rebuilds the world))
-    services.ollama.rocmOverrideGfx = "10.1.0";  #< `nix-shell -p "rocmPackages.rocminfo" --run "rocminfo" | grep "gfx"`  (e.g. gfx1010)
-    services.ollama.environmentVariables.HCC_AMDGPU_TARGET = "gfx1010";
+    # services.ollama.package = lib.mkIf config.hardware.amdgpu.opencl.enable pkgs.ollama-rocm;  # AMD GPU acceleration (achieves the same as `nixpkgs.config.rocmSupport = true` but just for ollama (the global toggle rebuilds the world))
+    # services.ollama.rocmOverrideGfx = "10.1.0";  #< `nix-shell -p "rocmPackages.rocminfo" --run "rocminfo" | grep "gfx"`  (e.g. gfx1010)
+    # services.ollama.environmentVariables.HCC_AMDGPU_TARGET = "gfx1010";
+
     # known environment variables:
     # - OLLAMA_CONTEXT_LENGTH (default: 2048)
     # - OLLAMA_KEEP_ALIVE (default: 5 minutes, then models are unloaded from RAM)

@@ -59,6 +59,19 @@ in
       sofia_sip = pkgs.sofia-sip-bc;
     }).overrideAttrs (upstream: {
       patches = (upstream.patches or []) ++ [
+        (pkgs.fetchurl {
+          # XXX(2026-01-26): fix crash-on-launch:
+          # > *** buffer overflow detected ***: terminated
+          #
+          # context:
+          # - <https://gitlab.gnome.org/GNOME/calls/-/issues/724>
+          name = "network-watch-avoid-crash-with-fortified-sources";
+          url = "https://gitlab.gnome.org/GNOME/calls/-/merge_requests/813.patch?diff_id=1551345";
+          hash = "sha256-7iIsx4a+yPS/fCFQhFh/csbuXR22dXwcAZWWW9IMS5I=";
+          # name = "calls-network-watch-Fix-buffer-overflow-in-req_route-functions";
+          # url = "https://src.fedoraproject.org/rpms/calls/raw/rawhide/f/807.patch";
+          # hash = "sha256-BTN2yjYjKRYiR6g4FEpdr9b/2k9ENHv9+A1meifW5+w=";
+        })
         (pkgs.fetchpatch {
           # usability improvement... ties the UI visibility to the connection state, so if the UI is gone, then i can't receive calls (and will hopefully notice that more easily!)
           # TODO: see about a more maintainable solution:
@@ -118,7 +131,12 @@ in
       #   revealed when launched.
       # default latency is 10ms, which is too low and i get underruns on moby.
       # 50ms is copied from dino, not at all tuned.
-      command = "env G_MESSAGES_DEBUG=all PULSE_LATENCY_MSEC=50 gnome-calls";
+      command = lib.concatStringsSep " " [
+        "env"
+        # "G_MESSAGES_DEBUG=all"
+        "PULSE_LATENCY_MSEC=50"
+        "gnome-calls"
+      ];
     };
   };
 }

@@ -10,7 +10,7 @@
         bitcoin_en_all_maxi.zimPath
         devdocs_en_nix.zimPath
         gentoo_en_all_maxi.zimPath
-        # khanacademy_en_all.zimPath  #< TODO: enable
+        khanacademy_en_all.zimPath
         openstreetmap-wiki_en_all_maxi.zimPath
         psychonautwiki_en_all_maxi.zimPath
         rationalwiki_en_all_maxi.zimPath

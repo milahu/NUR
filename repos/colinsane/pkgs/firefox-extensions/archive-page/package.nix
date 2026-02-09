@@ -9,13 +9,13 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "archive-page";
-  version = "1.4.0";
+  version = "1.5.0";
 
   src = fetchFromGitHub {
     owner = "JNavas2";
     repo = "Archive-Page";
     rev = "v${version}";
-    hash = "sha256-hErp6c28p5UMgZvaQFW4UV0i17jW/7u+ZKfdty2fZ8U=";
+    hash = "sha256-pfjzqu7C3D1+22S4cyzjhbRK7DITpMOIxjbh/msrM9A=";
   };
 
   nativeBuildInputs = [
@@ -26,8 +26,8 @@ stdenvNoCC.mkDerivation rec {
   postPatch = ''
     # don't open options on first install/update
     substituteInPlace Firefox/background.js --replace-fail \
-      'browserAPI.runtime.openOptionsPage()' \
-      '// browserAPI.runtime.openOptionsPage()'
+      'browserAPI.tabs.create({ url: browserAPI.runtime.getURL("welcome.html") });' \
+      '// browserAPI.tabs.create({ url: browserAPI.runtime.getURL("welcome.html") });'
   '';
 
   buildPhase = ''
@@ -44,6 +44,12 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   extid = "{5b22cb75-8e43-4f2a-bb9b-1da0655ae564}";
+  keepFirefoxPermissions = [
+    "activeTab"
+    "contextMenus"
+    # "notifications"  #< remove `notifications` perm else it (appears to) spams you when "updated"
+    "storage"
+  ];
 
   passthru = {
     updateScript = gitUpdater {

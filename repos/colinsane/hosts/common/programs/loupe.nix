@@ -24,6 +24,7 @@
     sandbox.mesaCacheDir = ".cache/loupe/mesa";  # TODO: is this the correct app-id?
 
     mime.associations = {
+      "image/apng" = "org.gnome.Loupe.desktop";
       "image/avif" = "org.gnome.Loupe.desktop";
       "image/gif" = "org.gnome.Loupe.desktop";
       "image/heif" = "org.gnome.Loupe.desktop";  # apple codec

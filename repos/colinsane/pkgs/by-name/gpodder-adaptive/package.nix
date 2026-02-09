@@ -23,6 +23,8 @@ self = gpodder.overridePythonAttrs (upstream: rec {
   # parts of the Makefile that aren't part of that.
   # TODO: upstream this into main nixpkgs `gpodder` package.
   format = "setuptools";
+  # XXX(2026-01-13): silence a buggy nixpkgs assertion: `assert (getFinalPassthru "pyproject" != null) -> (format == null)`
+  pyproject = null;
   preBuild = ''
     make \
       "PREFIX=$out" \

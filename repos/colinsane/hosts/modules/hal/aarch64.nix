@@ -10,17 +10,14 @@ in
   };
   config = lib.mkIf cfg.enable {
     # disable the following non-essential programs which fail to cross compile
-    sane.programs.bash-language-server.enableFor = { system = false; user.colin = false; };  # bash neovim LSP: doesn't cross compile (2025-11-01; blocked by ShellCheck)
-    sane.programs.cargo.enableFor = { system = false; user.colin = false; };  #< does not cross compile (2025-11-01)
-    # sane.programs.fcitx5.enableFor.user.colin = false;  #< does not cross compile (2025-01-05; blocked by qtsvg)
+    sane.programs.bash-language-server.enableFor = { system = false; user.colin = false; };  # bash neovim LSP: doesn't cross compile (2025-11-01 - 2026-02-02; blocked by ShellCheck, vector)
+    sane.programs.cargo.enableFor = { system = false; user.colin = false; };  #< does not cross compile (2025-11-01 - 2026-02-02)
     sane.programs.firefox.config.addons.browserpass-extension.enable = false;  #< does not cross compile
     sane.programs.lua-language-server.enableFor = { system = false; user.colin = false; };  # lua neovim LSP: doesn't cross compile (2025-01-06)
-    sane.programs.marksman.enableFor = { system = false; user.colin = false; };  # markdown neovim LSP: cross compiles, but the result is a x86 .NET exe (2025-01-05)
-    sane.programs.mercurial.enableFor.user.colin = false;  #< does not cross compile (2025-11-01; unblocked)
-    sane.programs.nix-tree.enableFor = { system = false; user.colin = false; };  #< does not cross compile (2025-11-01; unblocked)
-    # sane.programs.pyright.enableFor = { system = false; user.colin = false; };  #< python neovim LSP: doesn't cross compile (2025-11-01; unblocked)
-    sane.programs.resources.enableFor.user.colin = false;  #< does not cross compile (2025-11-01; unblocked)
-    # sane.programs.typescript-language-server.enableFor = { system = false; user.colin = false; };  #< doesn't cross compile (2025-07-18; via `moreutils`)
+    sane.programs.marksman.enableFor = { system = false; user.colin = false; };  # markdown neovim LSP: cross compiles, but the result is a x86 .NET exe (2025-01-05 - 2026-02-02)
+    sane.programs.mercurial.enableFor.user.colin = false;  #< does not cross compile (2025-11-01 - 2026-02-02; unblocked)
+    sane.programs.nix-tree.enableFor = { system = false; user.colin = false; };  #< does not cross compile (2025-11-01 - 2026-02-02; unblocked)
+    sane.programs.resources.enableFor.user.colin = false;  #< does not cross compile (2025-11-01 - 2026-02-02; unblocked)
 
     boot.kernelPatches = lib.optionals (!pkgs.stdenv.hostPlatform.linux-kernel.preferBuiltin) [
       {
@@ -29,7 +26,7 @@ in
         patch = null;
         structuredExtraConfig = with lib.kernel; {
           # nixpkgs specifies `SUN8I_DE2_CCU = yes`, but that in turn requires `SUNXI_CCU = yes` and NOT `= module`
-          #   symptom: Kconfig build fails
+          #   symptom: Kconfig build fails (2026-02-02)
           SUNXI_CCU = yes;
         };
       }

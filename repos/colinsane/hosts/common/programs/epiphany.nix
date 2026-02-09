@@ -43,7 +43,7 @@
       "/sys/class"
     ];
 
-    buildCost = 2;
+    buildCost = lib.mkDefault 2;
 
     persist.byStore.private = [
       ".cache/epiphany"

@@ -1,15 +1,15 @@
 # gnome feeds RSS viewer
-{ config, lib, pkgs, sane-lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
-  feeds = sane-lib.feeds;
+  feeds = pkgs.sane-lib.feeds;
   all-feeds = config.sane.feeds;
   wanted-feeds = feeds.filterByFormat ["text" "image"] all-feeds;
 in {
   sane.programs.gnome-feeds.fs.".config/org.gabmus.gfeeds.json".symlink.target = pkgs.writers.writeJSON "org.gabmus.gfeeds.json" {
     # feed format is a map from URL to a dict,
     #   with dict["tags"] a list of string tags.
-    feeds = sane-lib.mapToAttrs (feed: {
+    feeds = pkgs.sane-lib.mapToAttrs (feed: {
       name = feed.url;
       value.tags = [ feed.cat feed.freq ];
     }) wanted-feeds;

@@ -96,5 +96,8 @@ in
         OnCalendar = "11,23:00:00";
       };
     };
+
+    sops.secrets."rsync-net-env".owner = "colin";
+    sops.secrets."rsync-net-id_ed25519".owner = "colin";
   };
 }

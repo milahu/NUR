@@ -1,6 +1,7 @@
 ## BUGS
 - alacritty Ctrl+N frequently fails to `cd` to the previous directory
 - bunpen dbus sandboxing can't be *nested* (likely a problem in xdg-dbus-proxy)
+  - can solve this by just pinning an older version of xdg-dbus-proxy?
 - `rmDbusServices` may break sandboxing
   - e.g. if the package ships a systemd unit which references $out, then make-sandboxed won't properly update that unit.
   - `rmDbusServicesInPlace` is not affected
@@ -33,6 +34,10 @@
   - then change the ExecStartPre check to not ping `ipinfo.net` or whatever.
     either port all of `sane-ip-check` to use a self-hosted reflector,
     or settle for something like `test -eq "$(ip route get ...)" "$expectedGateway"`
+- port my custom activationScripts to be systemd services
+- port my networkmanager secrets to one of:
+  - <repo:NixOS/nixpkgs:nixos/modules/services/networking/nm-file-secret-agent.nix>
+  - nixos options: networking.networkmanager.ensureProfiles.profiles
 
 ### sops/secrets
 - user secrets could just use `gocryptfs`, like with ~/private?
@@ -58,6 +63,9 @@
 
 
 ## IMPROVEMENTS:
+- adopt `treefmt` for this repo (formats nix, markdown, etc)
+- nix: add a `post-build-hook` (`man nix.conf`) to add *every* built derivation as a gc root (or profile);
+  - then i can gc based on build date
 - sane-deadlines: show day of the week for upcoming items
   - and only show on "first" terminal opened; not on Ctrl+N terminals
 - curlftpfs: replace with something better
@@ -75,11 +83,12 @@
 - geary: replace with envelope
 - gnome calls: implement dialpad for SIP accounts (DTMF): <https://gitlab.gnome.org/GNOME/calls/-/issues/715>
 - use `pkgsStatic` or `pkgsCross.musl64` where applicable, for much improved perf?
+- losslesscut: replace with a from-source build
+  - <https://github.com/NixOS/nixpkgs/pull/385535>
 
 ### security/resilience
 - /mnt/desko/home, etc, shouldn't include secrets (~/private)
   - 95% of its use is for remote media access and stuff which isn't in VCS (~/records)
-- enable `security.apparmor.enable = true` (needs cross-compilation fixes)
 - harden systemd services:
   - all: `pcscd.service`
   - servo: `coturn.service`
@@ -91,6 +100,7 @@
   - servo: `dedupe-media.service`
   - remove SGID /run/wrappers/bin/sendmail, and just add senders to `postdrop` group
 - port all sane.programs to be sandboxed
+  - port sandboxing to apparmor (ditch bunpen)
   - sandbox `nix`
   - enforce that all `environment.packages` has a sandbox profile (or explicitly opts out)
   - enforce granular dbus sandboxing (bunpen-dbus-*)
@@ -164,9 +174,6 @@
   - see: <https://github.com/NixOS/nixpkgs/pull/335613>
 - moby: consider honeybee instead of gnome-calls for calling? <https://git.sr.ht/~anjan/honeybee>
   - uses XMPP, so more NAT/WoWLAN-friendly
-- fix cpuidle (gets better power consumption): <https://xnux.eu/log/077.html>
-- fix cpupower for better power/perf
-  - `journalctl -u cpupower --boot` (problem is present on lappy, at least)
 - use dynamic DRAM clocking to reduce power by 0.5W: <https://xnux.eu/log/083.html>
   - coreboot implements DRAM training for rk3399: <https://gitlab.com/vicencb/kevinboot/-/blob/master/cb/sdram.c>
 - moby: tune keyboard layout

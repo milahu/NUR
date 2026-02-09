@@ -8,15 +8,15 @@ let
     domain = "git.uninsane.org";
     owner = "colin";
     repo = "uninsane";
-    rev = "30de6f9b0f531b274fdd0765587e0f8b63f66193";
-    hash = "sha256-A93shFB6sUlelUn40muohp/vsGX0RngJn4JoBKG3f00=";
+    rev = "b5434293f0c983db7e269064f16758c546c24e6a";
+    hash = "sha256-WmU770kjQ9sbG/vYrzqPCBGE2fIvJatOFpYvTDXmh64=";
   };
   pkg = callPackage "${src}/default.nix" { };
 in
   pkg.overrideAttrs (base: {
     inherit src;
     pname = "uninsane-dot-org";
-    version = "0-unstable-2025-11-20";
+    version = "0-unstable-2026-01-17";
     passthru = (base.passthru or {}) // {
       updateScript = nix-update-script {
         extraArgs = [ "--version" "branch" ];

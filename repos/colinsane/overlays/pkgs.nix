@@ -1,7 +1,4 @@
-(next: prev:
-  # expose all my packages into the root scope:
-  # - `additional` packages
-  # - `patched` versions of nixpkgs (which necessarily shadow their nixpkgs version)
-  # - `pythonPackagesExtensions`
-  import ../pkgs { pkgs = prev; final = next; }
-)
+final: prev:
+(import ../pkgs { pkgs = prev; }).sanePkgsOverlay final prev // {
+  sane = import ../pkgs { pkgs = final; };
+}

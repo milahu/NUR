@@ -7,6 +7,7 @@
 { pkgs, ... }:
 {
   sane.programs.tor-browser = {
+    buildCost = 1;  # requires building a custom/patched ffmpeg
     packageUnwrapped = pkgs.tor-browser.overrideAttrs (upstream: {
       # add `--allow-remote` flag so that i can do `tor-browser http://...` to open in an existing instance.
       preBuild = (upstream.preBuild or "") + ''

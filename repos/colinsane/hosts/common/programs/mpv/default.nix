@@ -41,7 +41,7 @@
 
 let
   cfg = config.sane.programs.mpv;
-  uosc = (pkgs.mpvScripts { }).uosc.overrideAttrs (upstream: rec {
+  uosc = pkgs.mpvScripts.uosc.overrideAttrs (upstream: rec {
     # version = "5.2.0-unstable-2024-05-07";
     # src = lib.warnIf (lib.versionOlder "5.2.0" upstream.version) "uosc outdated; remove patch?" pkgs.fetchFromGitHub {
     #   owner = "tomasklaen";
@@ -140,7 +140,7 @@ let
       #     '"cycle fullscreen",'
     '';
   });
-  mpv-gallery-view = (pkgs.mpvScripts { }).mpv-gallery-view.overrideAttrs (upstream: {
+  mpv-gallery-view = pkgs.mpvScripts.mpv-gallery-view.overrideAttrs (upstream: {
     patches = (upstream.patches or []) ++ [
       # default behavior is like double-click thumbnail to navigate (1 click to select, 2nd click to navigate).
       # patch to be single-click.
@@ -235,8 +235,8 @@ in
         # i think using `luajit` here instead of `lua` is optional, just i get better perf with it :)
         lua = pkgs.luajit.override { enable52Compat = true; self = lua; };
       };
-      scripts = let s = pkgs.mpvScripts { }; in [
-        s.mpris
+      scripts = let inherit (pkgs) mpvScripts; in [
+        mpvScripts.mpris
         (mpv-gallery-view.override {
           # mpv-gallery-view: press `g` for grid view of the playlist, with thumbnails.
           # extraThumbgens = how many images to generate thumbnails for in parallel (+1 implied)
@@ -246,12 +246,12 @@ in
             high-quality = 15;
           }.${cfg.config.defaultProfile};
         })
-        s.mpv-image-viewer.image-positioning
-        s.mpv-playlistmanager
-        s.mpv-webm
-        s.sane_cast
-        s.sane_sysvol
-        s.sponsorblock
+        mpvScripts.mpv-image-viewer.image-positioning
+        mpvScripts.mpv-playlistmanager
+        mpvScripts.mpv-webm
+        mpvScripts.sane_cast
+        mpvScripts.sane_sysvol
+        mpvScripts.sponsorblock
         uosc
         # visualizer  #< XXX(2024-07-23): `visualizer` breaks auto-play-next-track (only when visualizations are disabled)
         # pkgs.mpv-uosc-latest

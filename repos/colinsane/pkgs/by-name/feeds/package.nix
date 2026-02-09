@@ -1,7 +1,7 @@
 {
   lib,
   newScope,
-  sane-data,
+  sane-feeds,
   static-nix-shell,
 }:
 
@@ -14,10 +14,10 @@ lib.recurseIntoAttrs (lib.makeScope newScope (self: with self; {
     byName = lib.mapAttrs
       (name: feed-details: mkFeed {
         feedName = name;
-        jsonPath = "modules/data/feeds/sources/${name}/default.json";
+        jsonPath = "pkgs/by-name/sane-feeds/sources/${name}/default.json";
         inherit (feed-details) url;
       })
-      sane-data.feeds
+      (lib.filterAttrs (_: lib.isDerivation) sane-feeds)
     ;
   in lib.recurseIntoAttrs byName;
 

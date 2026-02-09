@@ -73,8 +73,10 @@ in
       # "FileChooser"
       # "NetworkMonitor"  #< stderr message if omitted, but non-fatal
       "OpenURI"
-      "ProxyResolver"  #< REQUIRED, else all peers will appear offline & messages can't be sent/received
+      # "ProxyResolver"
     ];
+    sandbox.extraEnv.GIO_USE_NETWORK_MONITOR = "netlink";  #< required if portal NetworkMonitor isn't exposed (probably?)
+    sandbox.extraEnv.GIO_USE_PROXY_RESOLVER = "dummy";  #< required if portal NetworkMonitor isn't exposed
     sandbox.whitelistWayland = true;
     sandbox.extraHomePaths = [
       "Music"

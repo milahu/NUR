@@ -1,37 +1,31 @@
 {
   fetchFromGitHub,
+  flake-compat,
   nix-update-script,
-  pkgs,
 }:
 let
   # nix-update-script insists on this weird `assets-` version format
-  version = "assets-unstable-2025-12-28";
+  version = "assets-unstable-2026-01-26";
   src = fetchFromGitHub {
     owner = "Mic92";
     repo = "sops-nix";
-    rev = "61b39c7b657081c2adc91b75dd3ad8a91d6f07a7";
-    hash = "sha256-pn8AxxfajqyR/Dmr1wnZYdUXHgM3u6z9x0Z1Ijmz2UQ=";
+    rev = "c5eebd4eb2e3372fe12a8d70a248a6ee9dd02eff";
+    hash = "sha256-wFcr32ZqspCxk4+FvIxIL0AZktRs6DuF8oOsLt59YBU=";
   };
-  flake = import "${src}/flake.nix";
-  evaluated = flake.outputs {
-    self = evaluated;
-    nixpkgs = pkgs;
+  flake = flake-compat {
+    inherit src;
   };
-  overlay = evaluated.overlays.default;
-  final = pkgs.extend overlay;
-in src.overrideAttrs (base: {
-  # attributes required by update scripts
+in flake.outputs.overrideAttrs (base: {
+  # attributes required by update scripts.
+  # the main output of this derivation is `pkgs.sops-nix.nixosModules.sops`.
   pname = "sops-nix";
   src = src;
   version = version;
 
-  passthru = base.passthru
-    // (overlay final pkgs)
-    // { inherit (evaluated) nixosModules; }
-    // {
-      updateScript = nix-update-script {
-        extraArgs = [ "--version" "branch" ];
-      };
-    }
-  ;
+  passthru = base.passthru // flake.outputs // {
+    inherit flake;
+    updateScript = nix-update-script {
+      extraArgs = [ "--version" "branch" ];
+    };
+  };
 })

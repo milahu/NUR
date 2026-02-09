@@ -138,7 +138,7 @@ in with final; {
   # };
 
 
-  # 2025/12/07: upstreaming is unblocked, but a cleaner solution than this doesn't seem to exist yet
+  # 2026/01/27: upstreaming is unblocked, but a cleaner solution than this doesn't seem to exist yet
   confy = prev.confy.overrideAttrs (upstream: {
     # meson's `python.find_installation` method somehow just doesn't support cross compilation.
     # - <https://mesonbuild.com/Python-module.html#find_installation>
@@ -212,11 +212,6 @@ in with final; {
   #    };
   # });
 
-  # 2025/08/26: upstreaming is unblocked, out for PR: <https://github.com/NixOS/nixpkgs/pull/437038>
-  # fractal = prev.fractal.override {
-  #   cargo = crossCargo;
-  # };
-
   # 2025/07/27: upstreaming is blocked on gnome-shell
   # fixes: "gdbus-codegen not found or executable"
   # gnome-session = mvToNativeInputs [ glib ] super.gnome-session;
@@ -254,7 +249,7 @@ in with final; {
   #   buildInputs = (upstream.buildInputs or []) ++ [ prev.pkg-config ];
   # });
 
-  # 2025/12/07: hyprland is blocked on hyprland-qtutils -> hyprland-qt-support
+  # 2026/01/27: hyprland is blocked on hyprland-qtutils -> hyprland-qt-support
   # hyprland = prev.hyprland.override {
   #   # 2025/07/18: NOT FOR UPSTREAM.
   #   # hyprland uses gcc15Stdenv, with mold patch -> doesn't apply when cross compiling.
@@ -265,7 +260,7 @@ in with final; {
   # only `nwg-panel` uses hyprland; `null`ing it seems to Just Work.
   hyprland = null;
 
-  # 2025/07/27: blocked on hyprutils, hyprlang, hyprland-qt.
+  # 2026/01/27: blocked on hyprland-qt-support
   # used by hyprland (which is an indirect dep of waybar, nwg-panel, etc),
   # which it shells out to at runtime (and hence, not ever used by me).
   hyprland-qtutils = null;
@@ -304,9 +299,16 @@ in with final; {
 
   # lemoa = prev.lemoa.override { cargo = crossCargo; };
 
-  # 2025/12/07: upstreaming is unblocked
+  # 2026/01/27: upstreaming is unblocked
   libglycin = prev.libglycin.override {
     cargo = crossCargo;
+    # XXX(2026-02-04): users like `loupe`, `fractal`, place `libglycin.patchVendorHook` into `nativeBuildInputs`.
+    # that doesn't splice, and it's generally unclear what the correct solution is to this.
+    # further, the hook itself mixes build and host dependencies:
+    # `jq` and `sponge` (moreutils) are used at hook time, whereas `bwrap` is injected by the hook into the package to be built.
+    jq = final.buildPackages.jq;
+    moreutils = final.buildPackages.moreutils;
+    # leave bwrap unmodified -- it ought to be a runtime dependency
   };
 
   # libsForQt5 = prev.libsForQt5.overrideScope (self: super: {
@@ -323,10 +325,16 @@ in with final; {
   #   callPackage = self.newScope { inherit (self) qtCompatVersion qtModule srcs; inherit stdenv; };
   # });
 
-  # 2025/12/07: upstreaming is unblocked
+  # 2026/01/27: upstreaming is unblocked
   mepo = (prev.mepo.override {
-    # nixpkgs mepo correctly puts `zig_0_13.hook` in nativeBuildInputs,
-    # but for some reason that tries to use the host zig instead of the build zig.
+    # nixpkgs mepo correctly puts `zig_0_14.hook` in nativeBuildInputs,
+    # but that ends up being the wrong offset: `hook` isn't spliced.
+    # see:
+    # - pkgs/development/compilers/zig/generic.nix
+    # - pkgs/development/compilers/zig/passthru.nix
+    # even if `zig_0_14` has a `__spliced` attribute, its _passthru_ isn't spliced:
+    # `zig_0_14.passthru.hook` (and others) are designed to run on the _host_.
+    # the easiest correct fix is likely `makeScopeWithSplicing`.
     zig_0_14 = buildPackages.zig_0_14;
   }).overrideAttrs (upstream: {
     nativeBuildInputs = upstream.nativeBuildInputs ++ [
@@ -430,7 +438,7 @@ in with final; {
   #   # buildInputs = lib.remove gnupg upstream.buildInputs;
   # });
 
-  # 2025/08/31: upstreaming is unblocked, but most of this belongs in _oils_ repo
+  # 2026/01/27: upstreaming is unblocked, but most of this belongs in _oils_ repo
   oils-for-unix = prev.oils-for-unix.overrideAttrs (upstream: {
     postPatch = (upstream.postPatch or "") + ''
       substituteInPlace _build/oils.sh \
@@ -589,60 +597,7 @@ in with final; {
   #   });
   # });
 
-  # signal-desktop = prev.signal-desktop.overrideAttrs (upstream: {
-  #   # 2025/07/06: upstreaming is blocked on:
-  #   # - <https://github.com/NixOS/nixpkgs/pull/422938>
-  #   # - <https://github.com/NixOS/nixpkgs/pull/423089>
-  #   # - ibusMinimal (fixed in staging)
-  #   # see nixpkgs branch `pr-npm-patch-shebangs` (abandoned):
-  #   # pkgs/build-support/node/build-npm-package/hooks/npm-config-hook.sh (or pnpm.configHook)
-  #   # calls patchShebangs on the node_modules/ directory, which causes us to take a ref to the build nodejs, needlessly.
-  #   # postUnpack = ''
-  #   #   eval real_"$(declare -f patchShebangs)"
-  #   #   patchShebangs() {
-  #   #     if [[ -z "''${dontMockPatchShebangs-}" ]]; then
-  #   #       echo "MOCKING patchShebangs"
-  #   #     else
-  #   #       echo "NOT MOCKING patchShebangs"
-  #   #       real_patchShebangs "$@"
-  #   #     fi
-  #   #   }
-  #   # '';
-  #   # # only mock this for unpack/config phase; fixup can patchShebangsAuto
-  #   # preBuild = ''
-  #   #   export dontMockPatchShebangs=1
-  #   # '';
-  #   buildPhase = lib.replaceStrings
-  #     # ["-c.electronDist"]
-  #     # ["${lib.optionalString stdenv.hostPlatform.isAarch64 "--arm64 "}-c.electronDist"]
-  #       # ["--config.linux.target.arch=arm64 -c.electronDist"]
-  #     ["--dir"]
-  #     # [''"--config.$npm_config_platform.target.target=dir" "--config.$npm_config_platform.target.arch=$npm_config_arch"'']
-  #     ["--linux dir:arm64"]
-  #     # ["--dir:arm64"]
-  #     # ["--dir --arm64"]
-  #     upstream.buildPhase
-  #   ;
-  #   # preBuild = ''
-  #   #   export ELECTRON_ARCH=$npm_config_arch
-  #   # '';
-  #   # # fixup the app.asar to not hold a ref to any build-time tools
-  #   # nativeBuildInputs = upstream.nativeBuildInputs ++ [
-  #   #   final.asar
-  #   #   final.removeReferencesTo
-  #   # ];
-  #   # preFixup = (upstream.preFixup or "") + ''
-  #   #   # the asar includes both runtime and build-time files (e.g. build scripts):
-  #   #   # it's impractical to properly split out the node files which aren't needed at runtime,
-  #   #   # but we can patch them to not refer to the build tools to reduce closure size and to make potential packaging/cross-compilation bugs more obvious.
-  #   #   asar extract $out/share/signal-desktop/app.asar asar-unpacked
-  #   #   rm $out/share/signal-desktop/app.asar
-  #   #   find asar-unpacked/node_modules -type f -executable -exec remove-references-to -t ${buildPackages.nodejs_22} -t ${buildPackages.bashNonInteractive} '{}' \;
-  #   #   asar pack asar-unpacked $out/share/signal-desktop/app.asar
-  #   # '';
-  # });
-
-  # 2025/12/07: upstreaming is unblocked
+  # 2026/01/27: upstreaming is unblocked
   # squeekboard = prev.squeekboard.overrideAttrs (upstream: {
   #   # fixes: "meson.build:1:0: ERROR: 'rust' compiler binary not defined in cross or native file"
   #   # new error: "meson.build:1:0: ERROR: Rust compiler rustc --target aarch64-unknown-linux-gnu -C linker=aarch64-unknown-linux-gnu-gcc can not compile programs."
@@ -686,39 +641,36 @@ in with final; {
   #   ];
   # });
 
-  # 2025/12/07: upstreaming blocked on gvfs -> udisks -> libblockdev -> libndctl -> iniparser (which can't find ruby)
-  swaynotificationcenter = mvToNativeInputs [ buildPackages.wayland-scanner ] prev.swaynotificationcenter;
-
-  # 2025/12/07: upstreaming is unblocked
-  tangram = prev.tangram.overrideAttrs (upstream: {
-    # gsjpack has a shebang for the host gjs. patchShebangs --build doesn't fix that: just manually specify the build gjs.
-    # the proper way to patch this for nixpkgs is:
-    # 1. split `gjspack` into its own package.
-    #   - right now it's a submodule of all of sonnyp's repos,
-    #     and each nix package re-builds it (forge-sparks, junction, tangram).
-    # 2. wrap `gjspack` the same way i did blueprint-compiler, and put it in nativeBuildInputs
-    postPatch = let
-      gjspack' = buildPackages.writeShellScriptBin "gjspack" ''
-        export GI_TYPELIB_PATH=${typelibPath [ buildPackages.glib ]}:$GI_TYPELIB_PATH
-        exec ${buildPackages.gjs}/bin/gjs $@
-      '';
-    in (upstream.postPatch or "") + ''
-      substituteInPlace src/meson.build \
-        --replace-fail "find_program('gjs').full_path()" "'${gjs}/bin/gjs'" \
-        --replace-fail "gjspack,"  "'${gjspack'}/bin/gjspack', '-m', gjspack,"
-    '';
-    # postPatch = (upstream.postPatch or "") + ''
-    #   substituteInPlace src/meson.build \
-    #     --replace-fail "find_program('gjs').full_path()" "'${gjs}/bin/gjs'" \
-    #     --replace-fail "gjspack," "'env', 'GI_TYPELIB_PATH=${typelibPath [
-    #       buildPackages.glib
-    #     ]}', '${buildPackages.gjs}/bin/gjs', '-m', gjspack,"
-    # '';
-  });
+  # 2026/01/03: upstreaming is unblocked
+  # tangram = prev.tangram.overrideAttrs (upstream: {
+  #   # gsjpack has a shebang for the host gjs. patchShebangs --build doesn't fix that: just manually specify the build gjs.
+  #   # the proper way to patch this for nixpkgs is:
+  #   # 1. split `gjspack` into its own package.
+  #   #   - right now it's a submodule of all of sonnyp's repos,
+  #   #     and each nix package re-builds it (forge-sparks, junction, tangram).
+  #   # 2. wrap `gjspack` the same way i did blueprint-compiler, and put it in nativeBuildInputs
+  #   postPatch = let
+  #     gjspack' = buildPackages.writeShellScriptBin "gjspack" ''
+  #       export GI_TYPELIB_PATH=${typelibPath [ buildPackages.glib ]}:$GI_TYPELIB_PATH
+  #       exec ${buildPackages.gjs}/bin/gjs $@
+  #     '';
+  #   in (upstream.postPatch or "") + ''
+  #     substituteInPlace src/meson.build \
+  #       --replace-fail "find_program('gjs').full_path()" "'${gjs}/bin/gjs'" \
+  #       --replace-fail "gjspack,"  "'${gjspack'}/bin/gjspack', '-m', gjspack,"
+  #   '';
+  #   # postPatch = (upstream.postPatch or "") + ''
+  #   #   substituteInPlace src/meson.build \
+  #   #     --replace-fail "find_program('gjs').full_path()" "'${gjs}/bin/gjs'" \
+  #   #     --replace-fail "gjspack," "'env', 'GI_TYPELIB_PATH=${typelibPath [
+  #   #       buildPackages.glib
+  #   #     ]}', '${buildPackages.gjs}/bin/gjs', '-m', gjspack,"
+  #   # '';
+  # });
 
   # fixes: "ar: command not found"
   # `ar` is provided by bintools
-  # 2025/12/07: upstreaming is blocked on gnustep-base cross compilation
+  # 2026/01/27: upstreaming is blocked on gnustep-base cross compilation
   # unar = addNativeInputs [ bintools ] prev.unar;
 
   # unixODBCDrivers = prev.unixODBCDrivers // {
@@ -755,16 +707,6 @@ in with final; {
   #   };
   # });
 
-  # 2025/12/07: upstreaming is unblocked, but i don't like this solution.
-  vulkan-tools = prev.vulkan-tools.overrideAttrs (orig: {
-    # alternatively: set `strictDeps = false;` (as is the default for vulkan-tools when *not* cross-compiling).
-    # cmake seems to just not have any way to disambiguate host and build dependencies when using `pkg_check_modules`
-    # - <https://cmake.org/cmake/help/latest/module/FindPkgConfig.html#command:pkg_check_modules>
-    env = (orig.env or {}) // {
-      PKG_CONFIG_PATH = "${lib.getDev buildPackages.wayland-scanner}/lib/pkgconfig";
-    };
-  });
-
   # 2025/12/07: upstreaming is unblocked
   # fixes `hostPrograms.moby.neovim` (but breaks eval of `hostPkgs.moby.neovim` :o)
   # wrapNeovimUnstable = neovim: config: (prev.wrapNeovimUnstable neovim config).overrideAttrs (upstream: {
@@ -777,7 +719,7 @@ in with final; {
   #     upstream.postBuild;
   # });
 
-  # 2025/12/13: upstreaming is blocked xdg-desktop-portal -> flatpak -> ostree -> gjs (fix in staging)
+  # 2026/01/27: upstreaming is unblocked
   xdg-desktop-portal-phosh = prev.xdg-desktop-portal-phosh.overrideAttrs (orig: {
     postPatch = (orig.postPatch or "") + ''
       substituteInPlace src/meson.build --replace-fail \
@@ -796,9 +738,50 @@ in with final; {
     };
   });
 
-  yt-dlp = prev.yt-dlp.override {
-    # TODO(2025-11-17): yt-dlp needs deno (JavaScript) for full capability:
-    # <https://github.com/NixOS/nixpkgs/pull/460892>
-    javascriptSupport = false;  # a.k.a.: `deno = null;`
-  };
+  # yt-dlp = let
+  #   # XXX(2026-02-04): yt-dlp accepts one of 4 JS runtimes, in order:
+  #   # - deno
+  #   # - nodejs
+  #   # - quickjs (a.k.a. quickjs-ng)
+  #   # - bun
+  #   # nixpkgs allows providing any of these simply by overriding the `deno` callpackage argument,
+  #   # but yt-dlp only actually checks for `deno` unless configured otherwise (i guess there's some runtime config?)
+  #   # jsRuntime = final.deno;  #< 2026-02-04: doesn't cross compile
+  #   jsRuntime = final.nodejs;  #< 2026-02-04: runtime error: "WARNING: [youtube] [jsc] Error solving n challenge request using "node" provider: Error running node process (returncode: 1): found 0 sig function possibilities."
+  #   # jsRuntime = final.quickjs-ng; #< 2026-02-04: runtime error: "WARNING: [youtube] [jsc] Error solving n challenge request using "quickjs" provider: Error running QuickJS process (returncode: 1): found 0 sig function possibilities"
+  #   # jsRuntime = final.bun;  #< 2026-02-04: doesn't cross compile
+  #   #
+  #   # TODO: just fix deno cross compilation and drop this overlay: it's unclear if it actually works.
+  #   jsRuntimeYtdlpName = {
+  #     deno = "deno";
+  #     node = "node";
+  #     qjs = "quickjs";
+  #     bun = "bun";
+  #   }.${jsRuntime.meta.mainProgram};
+  # in
+  #   (prev.yt-dlp.override {
+  #     deno = jsRuntime;
+  #   }).overrideAttrs (upstream: {
+  #     postPatch = (upstream.postPatch or "") + ''
+  #       substituteInPlace yt_dlp/YoutubeDL.py \
+  #         --replace-fail \
+  #           "self.params.get('js_runtimes', {'deno': {}})" \
+  #           "self.params.get('js_runtimes', {'${jsRuntimeYtdlpName}': {}})"
+  #       substituteInPlace yt_dlp/options.py \
+  #         --replace-fail \
+  #           "default=['deno']" \
+  #           "default=['${jsRuntimeYtdlpName}']"
+  #     '';
+  #   });
+  # yt-dlp = prev.yt-dlp.override {
+  #   # TODO(2025-11-17): yt-dlp needs deno (JavaScript) for full capability:
+  #   # <https://github.com/NixOS/nixpkgs/pull/460892>
+  #   javascriptSupport = false;  # a.k.a.: `deno = null;`
+  # };
+
+  # 2023/12/10: zbar barcode scanner: used by megapixels, frog.
+  # the video component does not cross compile (qt deps), but i don't need that.
+  # N.B.: if desired, the "video" portion (zbarcam-gtk, zbarcam-qt) can be built for only gtk, by configuring with `--without-qt`.
+  # 2026/01/27: still broken upstream
+  zbar = prev.zbar.override { enableVideo = false; };
 }

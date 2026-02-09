@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   sane.programs.zelda64recomp = {
+    buildCost = 1;  # directx-shader-compiler
     # upstream package places non-binaries (e.g. art assets) in `bin/`;
     # this especially confuses my sandboxer.
     # so link only the files i want to be visible:

@@ -1,6 +1,7 @@
-{ config, lib, pkgs, sane-lib, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 let
+  inherit (pkgs) sane-lib;
   path-lib = sane-lib.path;
   sane-types = sane-lib.types;
   cfg = config.sane.fs;

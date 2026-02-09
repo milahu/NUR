@@ -1,4 +1,4 @@
-{ config, lib, options, pkgs, sane-lib, ... }:
+{ config, lib, options, pkgs, ... }:
 let
   saneCfg = config.sane;
   cfg = config.sane.programs;
@@ -71,8 +71,8 @@ let
           "/run/current-system"  #< for basics like `ls`, and all this program's `suggestedPrograms` (/run/current-system/sw/bin)
           # "/run/wrappers"  #< SUID wrappers. they don't mean much inside a namespace.
           # /run/opengl-driver is a symlink into /nix/store; needed by e.g. mpv
-          "/run/opengl-driver"
-          "/run/opengl-driver-32"  #< XXX: doesn't exist on aarch64?
+          # "/run/opengl-driver"
+          # "/run/opengl-driver-32"  #< XXX: doesn't exist on aarch64?
           "/usr/bin/env"
         ] ++ lib.optionals (sandbox.net == "all" && config.services.resolved.enable) [
           "/run/systemd/resolve"  #< to allow reading /etc/resolv.conf, which ultimately symlinks here (if using systemd-resolved)
@@ -552,12 +552,12 @@ let
           # "Inhibit" # XXX(2025-01-08): inaccessible due to missing org.freedesktop.impl.portal.Inhibit
           "Location"
           # "MemoryMonitor"
-          "NetworkMonitor"  # bleh!
+          # "NetworkMonitor"  # consider `GIO_USE_NETWORK_MONITOR=netlink` instead
           "Notification"
           "OpenURI"
           # "PowerProfileMonitor"
           "Print"
-          "ProxyResolver"
+          # "ProxyResolver"  # consider `GIO_USE_PROXY_RESOLVER=dummy` instead
           # "Realtime"
           "ScreenCast"
           "Screenshot"
@@ -666,7 +666,11 @@ let
           - `$HOME`
           - `$XDG_RUNTIME_DIR`
           escape expansion with `$$`
+
+          to indicate that an environment variable should be _preserved_, set it to itself:
+          - `sandbox.extraEnv.DISPLAY = "$DISPLAY"`
         '';
+        apply = lib.filterAttrs (k: v: v != "\$${k}");
       };
       sandbox.matplotlibCacheDir = mkOption {
         type = types.nullOr types.str;
@@ -809,12 +813,12 @@ let
         # #22 0x00007ffff49a48e2 in gsk_renderer_new_for_surface_full () from /nix/store/6p5rji9bpkrqlskw88cajh4bc2bhz840-gtk4-4.20.3/lib/libgtk-4.so.1
         # #23 0x00007ffff470e475 in gtk_window_realize () from /nix/store/6p5rji9bpkrqlskw88cajh4bc2bhz840-gtk4-4.20.3/lib/libgtk-4.so.1
         # #24 0x00007ffff451a7f1 in gtk_application_window_real_realize ()
-        DISPLAY = lib.mkIf (!config.sandbox.whitelistX) "";
-        MESA_SHADER_CACHE_DIR = lib.mkIf (config.sandbox.mesaCacheDir != null) "$HOME/${config.sandbox.mesaCacheDir}";
-        MPLCONFIGDIR = lib.mkIf (config.sandbox.matplotlibCacheDir != null) "$HOME/${config.sandbox.matplotlibCacheDir}";
-        TMPDIR = lib.mkIf (config.sandbox.tmpDir != null) "$HOME/${config.sandbox.tmpDir}";
+        DISPLAY = lib.mkIf (!config.sandbox.whitelistX) (lib.mkDefault "");
+        MESA_SHADER_CACHE_DIR = lib.mkIf (config.sandbox.mesaCacheDir != null) (lib.mkDefault "$HOME/${config.sandbox.mesaCacheDir}");
+        MPLCONFIGDIR = lib.mkIf (config.sandbox.matplotlibCacheDir != null) (lib.mkDefault "$HOME/${config.sandbox.matplotlibCacheDir}");
+        TMPDIR = lib.mkIf (config.sandbox.tmpDir != null) (lib.mkDefault "$HOME/${config.sandbox.tmpDir}");
         # as with clearing DISPLAY for apps w/o X access, clear WAYLAND_DISPLAY even though no bugs witnessed yet.
-        WAYLAND_DISPLAY = lib.mkIf (!config.sandbox.whitelistWayland) "";
+        WAYLAND_DISPLAY = lib.mkIf (!config.sandbox.whitelistWayland) (lib.mkDefault "");
       };
 
       sandbox.extraPaths =
@@ -1017,13 +1021,13 @@ let
         # whereas /run/secrets/* is unreadable *except* for the leafs, ~/.config/secrets is readable and traversable by $USER.
         # (lib.mapAttrs
         #   # TODO: use the user's *actual* home directory, don't guess.
-        #   (homePath: _src: sane-lib.fs.wantedSymlinkTo "/home/${user}/.config/secrets/${homePath}")
+        #   (homePath: _src: pkgs.sane-lib.fs.wantedSymlinkTo "/home/${user}/.config/secrets/${homePath}")
         #   p.secrets
         # )
         # (lib.mapAttrs'
         #   (homePath: _src: {
         #     name = ".config/secrets/${homePath}";
-        #     value = sane-lib.fs.wantedSymlinkTo "/run/secrets/home/${user}/${homePath}";
+        #     value = pkgs.sane-lib.fs.wantedSymlinkTo "/run/secrets/home/${user}/${homePath}";
         #   })
         #   p.secrets
         # )
@@ -1111,7 +1115,7 @@ in
         warnings = f.warnings;
       };
     in lib.mkMerge [
-      (take (sane-lib.mkTypedMerge take configs))
+      (take (pkgs.sane-lib.mkTypedMerge take configs))
       {
         # expose the pkgs -- as available to the system -- as a build target.
         system.build.pkgs = pkgs;

@@ -18,7 +18,7 @@
       "swappy"
       # "sway-contrib.grimshot"
       "util-linux"
-      "wl-clipboard"
+      "wl-clipboard-rs"
     ];
   };
 }

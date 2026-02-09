@@ -3,9 +3,9 @@
 # - man 5 sfeedrc
 #
 # call `sfeed_update` to query each feed and populate entries in ~/.sfeed/feeds
-{ lib, config, sane-lib, ... }:
+{ lib, config, pkgs, ... }:
 let
-  feeds = sane-lib.feeds;
+  feeds = pkgs.sane-lib.feeds;
   allFeeds = config.sane.feeds;
   wantedFeeds = feeds.filterByFormat ["text"] allFeeds;
   sfeedEntries = builtins.map (feed:

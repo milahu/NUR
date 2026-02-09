@@ -198,6 +198,9 @@ in
           #   buttons.abaddon
           ] ++ lib.optionals config.sane.programs.dissent.enabled [
             buttons.dissent
+          ] ++ lib.optionals (config.sane.programs.discord.enabled && !config.sane.programs.dissent.enabled) [
+            # only enable button for official client if an alternate client isn't installed.
+            buttons.discord
           ] ++ lib.optionals config.sane.programs.signal-desktop.enabled [
             buttons.signal-desktop
           ] ++ lib.optionals config.sane.programs.geary.enabled [

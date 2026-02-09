@@ -1,5 +1,19 @@
-{ lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+let
+  cfg = config.sane.programs.discord;
+in
+{
   sane.programs.discord = {
+    configOption = with lib; mkOption {
+      default = {};
+      type = types.submodule {
+        options.autostart = mkOption {
+          type = types.bool;
+          default = true;
+        };
+      };
+    };
+
     # nixpkgs' discord defaults to X11 backend isntead of wayland, UNLESS NIXOS_OZONE_WL is specified.
     # better to enable wayland support via package override instead of polluting the global env.
     packageUnwrapped = pkgs.discord.overrideAttrs (base: {
@@ -28,5 +42,12 @@
       "Videos/servo"
       "tmp"
     ];
+    sandbox.extraEnv.DISPLAY = "$DISPLAY";  #< despite not requiring X11, it hangs if DISPLAY is cleared.
+
+    services.discord = {
+      description = "official Discord client";
+      partOf = lib.mkIf cfg.config.autostart [ "graphical-session" ];
+      command = "discord";
+    };
   };
 }

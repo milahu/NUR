@@ -1,4 +1,5 @@
 {
+  callPackage,
   lib,
   python3,
   static-nix-shell,
@@ -70,18 +71,18 @@ let
     bt-search = static-nix-shell.mkPython3 {
       pname = "sane-bt-search";
       srcRoot = ./src;
-      pkgs = [ "python3.pkgs.natsort" "python3.pkgs.requests" ];
+      pkgs = [ "python3.pkgs.requests" ];
     };
     bt-show = static-nix-shell.mkPython3 {
       pname = "sane-bt-show";
       srcRoot = ./src;
       pkgs = [ "sane-scripts.lib.bt" ];
     };
-    clone = static-nix-shell.mkBash {
+    clone = callPackage ({ nix }: static-nix-shell.mkBash {
       pname = "sane-clone";
       srcRoot = ./src;
-      pkgs = [ "nix" ];
-    };
+      pkgs = { inherit nix; };
+    }) {};
     date-set = static-nix-shell.mkBash {
       pname = "sane-date-set";
       srcRoot = ./src;
@@ -146,11 +147,11 @@ let
       pname = "sane-reclaim-boot-space";
       srcRoot = ./src;
     };
-    reclaim-disk-space = static-nix-shell.mkBash {
+    reclaim-disk-space = callPackage ({ nix }: static-nix-shell.mkBash {
       pname = "sane-reclaim-disk-space";
       srcRoot = ./src;
-      pkgs = [ "nix" ];
-    };
+      pkgs = { inherit nix; };
+    }) {};
     secrets-dump = static-nix-shell.mkBash {
       pname = "sane-secrets-dump";
       srcRoot = ./src;

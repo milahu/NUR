@@ -78,14 +78,20 @@ in
 {
   # the xdg mime type for a file can be found with:
   # - `xdg-mime query filetype path/to/thing.ext`
+  # - `mimeo --mimetype path/to/thing.ext`
+  # - `gio info --attributes=standard::content-type path/to/thing.ext`  (not quite machine readable)
+  # - `file -b --mime-type`
   # the default handler for a mime type can be found with:
   # - `xdg-mime query default <mimetype>`  (e.g. x-scheme-handler/http)
-  # the nix-configured handler can be found `nix-repl > :lf . > hostConfigs.desko.xdg.mime.defaultApplications`
+  # - `gio mime <mimetype>`  (not quite machine readable)
+  # - `mimeo --deprecated --mime2desk <mimetype>`
+  #   - `mimeo --deprecated --swap --mime2desk <mimetype> | head -n1`
+  # - the nix-configured handler can be found `nix-repl > :lf . > hostConfigs.desko.xdg.mime.defaultApplications`
+  # files can be opened with:
+  # - `gio open <path_or_url>`
+  # - `gio launch </path/to/app.desktop> [<path_or_url>]`
   #
   # glib/gio is queried via glib.bin output:
-  # - `gio mime x-scheme-handler/https`
-  # - `gio open <path_or_url>`
-  # - `gio launch </path/to/app.desktop>`
   #
   # we can have single associations or a list of associations.
   # there's also options to *remove* [non-default] associations from specific apps

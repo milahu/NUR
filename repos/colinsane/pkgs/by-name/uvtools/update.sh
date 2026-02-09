@@ -1,5 +1,5 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -I nixpkgs=./. -i bash -p curl jq common-updater-scripts
+#!/usr/bin/env -S NIX_BUILD_SHELL=/bin/sh nix-shell
+#!nix-shell ../../../integrations/nix-shell --arg f 'ps: [ ps.bash ps.curl ps.jq ps.common-updater-scripts ]'
 #shellcheck shell=bash
 #
 # TAKEN FROM <repo:nixos/nixpkgs:pkgs/by-name/ma/marksman/update.sh>

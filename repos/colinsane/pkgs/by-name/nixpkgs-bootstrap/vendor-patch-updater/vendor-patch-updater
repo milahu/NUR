@@ -1,5 +1,5 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bash -p bash -p curl -p nix -p patchutils
+#!/usr/bin/env -S NIX_BUILD_SHELL=/bin/sh nix-shell
+#!nix-shell -i bash ../../../../integrations/nix-shell --arg f 'ps: [ ps.bash ps.curl ps.nix ps.patchutils ]'
 
 set -eu
 
@@ -92,9 +92,11 @@ main() {
   local ident=$1
   local scratch=$(mktemp)
   local output=$PATCHES_DIR/$revert$ident.patch
+  # N.B.: github's commit endpoint replies to short hashes; a PR number may also be a value short hash,
+  # so try the GH commit endpoint *last*. Gitea does not have this problem.
   tryUri "$scratch" "https://git.uninsane.org/colin/nixpkgs/commit/$ident.patch?full_index=1" || \
-    tryUri "$scratch" "https://github.com/uninsane/nixpkgs/commit/$ident.patch?full_index=1" || \
-    tryUri "$scratch" "https://github.com/NixOS/nixpkgs/pull/$ident.patch?full_index=1"
+    tryUri "$scratch" "https://github.com/NixOS/nixpkgs/pull/$ident.patch?full_index=1" || \
+    tryUri "$scratch" "https://github.com/uninsane/nixpkgs/commit/$ident.patch?full_index=1"
 
   if [ -n "$revert" ]; then
     interdiff "$scratch" /dev/null > "$output"

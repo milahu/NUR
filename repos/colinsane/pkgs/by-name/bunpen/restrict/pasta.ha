@@ -123,7 +123,7 @@ fn pasta_restrict(net: resources::net_subset) void = {
 };
 
 // spawn pasta as a separate process, and have it attach to the netns of the given pid.
-fn attach_pasta(net: resources::net_subset, netns_fd: io::file, notify_fd: io::file) (void | os::exec::error | rt::errno) = {
+fn attach_pasta(net: resources::net_subset, netns_fd: io::file, notify_fd: io::file) (void | rt::errno) = {
   // move the fd's to be one of the special fd's which *don't*
   // get closed on exec (e.g. /proc/self/fd/0, stdin).
   // notify_fd is opened O_NOCLOEXEC (netns_fd is O_CLOEXEC), but still this seems to be required,

@@ -9,6 +9,6 @@
 
     mime.associations."x-scheme-handler/xdg-open" = "xdg-open.desktop";
 
-    suggestedPrograms = [ "xdg-utils" ];
+    suggestedPrograms = [ "xdg-open" ];
   };
 }

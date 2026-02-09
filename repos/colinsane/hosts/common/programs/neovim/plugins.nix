@@ -200,28 +200,29 @@ with pkgs.vimPlugins;
     # config taken from: https://github.com/i077/system/blob/master/modules/home/neovim/default.nix
     # this is required for tree-sitter to even highlight
     # XXX(2024/06/03): `unison` removed because it doesn't cross compile (to armv7l-hf-multiplatform)
-    plugin = nvim-treesitter.withPlugins (_: (lib.filter (p: p.pname != "unison-grammar") nvim-treesitter.allGrammars) ++ [
-      # XXX: this is apparently not enough to enable syntax highlighting!
-      # nvim-treesitter ships its own queries which may be distinct from e.g. helix.
-      # the queries aren't included when i ship the grammar in this manner.
-      # maybe check: <https://github.com/nvim-treesitter/nvim-treesitter/wiki/Extra-modules-and-plugins> ?
-      #
-      # however: tree-sitter for `#!nix-shell` is the WRONG APPROACH.
-      # - because it works via "injection"s, i don't get proper LSP integration.
-      #   i.e. no undefined variable checks, or language-aware function completions
-      # upstream vim showed interest in a similar approach as mine, but w/o the tree-sitter integration:
-      # - <https://groups.google.com/g/vim_dev/c/c-VXsJu-EKA>
-      #   this likely still has the same problem w.r.t. LSP integration.
-      # vim-nix project also has a solution:
-      # - <https://github.com/LnL7/vim-nix/pull/51>
-      #   this overrides the active filetype, so likely *is* what i want.
-      # and i've implemented my own pure-lua .vimrc integration further below
-      # pkgs.tree-sitter-nix-shell
-    ]);
+    # plugin = nvim-treesitter.withPlugins (_: (lib.filter (p: p.pname != "unison-grammar") nvim-treesitter.allGrammars) ++ [
+    #   # XXX: this is apparently not enough to enable syntax highlighting!
+    #   # nvim-treesitter ships its own queries which may be distinct from e.g. helix.
+    #   # the queries aren't included when i ship the grammar in this manner.
+    #   # maybe check: <https://github.com/nvim-treesitter/nvim-treesitter/wiki/Extra-modules-and-plugins> ?
+    #   #
+    #   # however: tree-sitter for `#!nix-shell` is the WRONG APPROACH.
+    #   # - because it works via "injection"s, i don't get proper LSP integration.
+    #   #   i.e. no undefined variable checks, or language-aware function completions
+    #   # upstream vim showed interest in a similar approach as mine, but w/o the tree-sitter integration:
+    #   # - <https://groups.google.com/g/vim_dev/c/c-VXsJu-EKA>
+    #   #   this likely still has the same problem w.r.t. LSP integration.
+    #   # vim-nix project also has a solution:
+    #   # - <https://github.com/LnL7/vim-nix/pull/51>
+    #   #   this overrides the active filetype, so likely *is* what i want.
+    #   # and i've implemented my own pure-lua .vimrc integration further below
+    #   # pkgs.tree-sitter-nix-shell
+    # ]);
+    plugin = nvim-treesitter.withAllGrammars;  # equivalent to nvim-treesitter.withPlugins (p: builtins.attrValues p)
     type = "lua";
     config = ''
       -- lifted mostly from readme: <https://github.com/nvim-treesitter/nvim-treesitter>
-      require'nvim-treesitter.configs'.setup {
+      require'nvim-treesitter'.setup {
         highlight = {
           enable = true,
           -- disable treesitter on Rust so that we can use SyntaxRange

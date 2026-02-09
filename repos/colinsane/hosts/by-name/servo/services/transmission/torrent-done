@@ -1,5 +1,5 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bash -p acl -p bash -p coreutils -p findutils -p rsync
+#!/usr/bin/env -S NIX_BUILD_SHELL=/bin/sh nix-shell
+#!nix-shell -i bash ../../../../../integrations/nix-shell --arg f 'ps: [ ps.acl ps.bash ps.coreutils ps.findutils ps.rsync ]'
 
 # transmission invokes this with no args, and the following env vars:
 # - TR_TORRENT_DIR: full path to the folder i told transmission to download it to.

@@ -184,6 +184,7 @@ for_window [workspace="TV"] fullscreen enable
 
 # mostly, messengers belong on WS 1
 assign [app_id="abaddon"] workspace number 1
+assign [app_id="discord"]  workspace number 1
 assign [app_id="geary"] workspace number 1
 assign [app_id="im.dino.Dino"] workspace number 1
 assign [app_id="org.gnome.Calls"] workspace number 1  # gnome-calls >= 47.0-beta
@@ -194,9 +195,10 @@ assign [app_id="so.libdb.dissent"]  workspace number 1
 ### window display settings
 
 # force titlebars even when no other windows in workspace:
+# - Foliate: to avoid reflows when opening/closing a 2nd app.
 # - gpodder: to avoid having buttons move under your finger after closing a podcast.
 # - KOReader: to avoid slow reflows when opening/closing a 2nd app; also nice to have the book title rendered.
-for_window [app_id="gpodder|KOReader"] border normal
+for_window [app_id="com.github.johnfactotum.Foliate|gpodder|KOReader"] border normal
 
 for_window [app_id="deadd-notification-center"] {
   border none

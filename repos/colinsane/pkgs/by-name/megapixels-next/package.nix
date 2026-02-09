@@ -8,12 +8,12 @@
   libepoxy,
   libmegapixels,
   libpulseaudio,
+  libXrandr,
   meson,
   ninja,
   pkg-config,
   unstableGitUpdater,
   wrapGAppsHook4,
-  xorg,
   zbar,
 # optional runtime dependencies, used for post-processing .dng -> .jpg
   exiftool,
@@ -48,7 +48,7 @@ stdenv.mkDerivation {
     libepoxy
     libmegapixels
     libpulseaudio
-    xorg.libXrandr
+    libXrandr
     zbar
   ];
 

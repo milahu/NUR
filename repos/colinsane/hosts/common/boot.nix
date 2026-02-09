@@ -49,6 +49,31 @@
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
   # boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_testing;
 
+  nixpkgs.hostPlatform.linux-kernel = (lib.systems.elaborate config.nixpkgs.hostPlatform.system).linux-kernel // {
+    # explicitly ignore nixpkgs' extraConfig and preferBuiltin options
+    autoModules = true;
+    # build all features as modules where possible, especially because
+    # 1. some bootloaders fail on large payloads and this allows the kernel/initrd to be smaller.
+    # 2. building as module means i can override that module very cheaply as i develop.
+    preferBuiltin = false;
+    # `target` support matrix:
+    # Image:     aarch64:yes (nixpkgs default)       x86_64:no
+    # Image.gz:  aarch64:yes, if capable bootloader  x86_64:no
+    # zImage     aarch64:no                          x86_64:yes
+    # bzImage    aarch64:no                          x86_64:yes (nixpkgs default)
+    # vmlinux    aarch64:?                           x86_64:no?
+    # vmlinuz    aarch64:?                           x86_64:?
+    # uImage     aarch64:bootloader?                 x86_64:probably not
+    # # target = if system == "x86_64-linux" then "bzImage" else "Image";
+  };
+  # patch `buildPlatform.linux-kernel` in the same manner:
+  # even though i don't use the buildPlatform's kernel, if nixpkgs were to see they're different
+  # it would force everything down the (expensive) cross-compilation path.
+  nixpkgs.buildPlatform.linux-kernel = (lib.systems.elaborate config.nixpkgs.system).linux-kernel // {
+    autoModules = true;
+    preferBuiltin = false;
+  };
+
   # hack in the `boot.shell_on_fail` arg since that doesn't always seem to work.
   boot.initrd.preFailCommands = "allowShell=1";
 
@@ -67,7 +92,7 @@
     "system will boot against the platform firmware's .dtb instead of the kernel's more up-to-date dtb")
   ];
 
-  hardware.enableAllFirmware = true;  # firmware with licenses that don't allow for redistribution. fuck lawyers, fuck IP, give me the goddamn firmware.
+  hardware.enableAllFirmware = lib.mkDefault true;  # firmware with licenses that don't allow for redistribution. fuck lawyers, fuck IP, give me the goddamn firmware.
   # hardware.enableRedistributableFirmware = true;  # proprietary but free-to-distribute firmware (extraneous to `enableAllFirmware` option)
 
   # default is 252274, which is too low particularly for servo.

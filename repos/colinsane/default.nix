@@ -8,6 +8,11 @@
 # are in flight, without affecting those in-flight operations.
 #
 # * certain ephemeral files like `result` links aren't copied, as they aren't used but incur huge copying costs.
+#
+### usage with pure eval
+# IN THEORY pure eval should work if you pin a git rev; in practice the below sometimes (?) fails:
+# - `nix-instantiate --eval -E 'import (builtins.fetchGit { url = ./.; rev = "b07aa27006bf850064b10e530fb4811df23c38ed"; }) { system = "x86_64-linux"; }' --option pure-eval true`
+# - add  `--read-write-mode` if it complains about a path "not being in the store"
 { ... }@args:
 let
   sane-nix-files = import ./pkgs/by-name/sane-nix-files/package.nix { };

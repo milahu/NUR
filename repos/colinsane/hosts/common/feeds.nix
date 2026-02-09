@@ -10,9 +10,9 @@
 #   - old thread: <https://lemmy.ml/post/1565858>
 #
 # - paywall bypass / bootlegs: <https://jumble.top/>
-{ lib, sane-data, ... }:
+{ lib, pkgs, ... }:
 let
-  hourly = { freq = "hourly"; };
+  # hourly = { freq = "hourly"; };
   daily = { freq = "daily"; };
   weekly = { freq = "weekly"; };
   infrequent = { freq = "infrequent"; };
@@ -38,7 +38,7 @@ let
 
   fromDb = name:
     let
-      raw = sane-data.feeds."${name}";
+      raw = pkgs.sane-feeds."${name}";
     in {
       url = raw.url;
       # not sure the exact mapping with velocity here: entries per day?
@@ -82,7 +82,6 @@ let
     (fromDb "feeds.feedburner.com/80000HoursPodcast" // rat)
     (fromDb "feeds.feedburner.com/dancarlin/history" // rat)
     (fromDb "feeds.feedburner.com/radiolab" // pol)  # Radiolab -- also available here, but ONLY OVER HTTP: <http://feeds.wnyc.org/radiolab>
-    (fromDb "feeds.megaphone.fm/CHTAL4990341033" // pol)  # ChinaTalk: https://www.chinatalk.media/podcast
     (fromDb "feeds.megaphone.fm/GLT1412515089" // pol)  # JRE: Joe Rogan Experience
     (fromDb "feeds.megaphone.fm/behindthebastards" // pol)  # also Maggie Killjoy
     (fromDb "feeds.megaphone.fm/cspantheweekly" // pol)
@@ -112,6 +111,7 @@ let
     (fromDb "omny.fm/shows/money-stuff-the-podcast")  # Matt Levine
     (fromDb "omny.fm/shows/weird-little-guys")  # Cool Zone Media
     (fromDb "originstories.libsyn.com" // uncat)
+    (fromDb "pinecast.com/feed/live-like-the-world-is-dying" // pol)  # Maggie Killjoy
     (fromDb "podcast.ergaster.org/@flintandsilicon" // tech)  # Thib's podcast: public interest tech, gnome, etc: <https://fed.uninsane.org/users/$ALLO9MZ5g5CsQTCBH6>
     (fromDb "pods.media/api/rss/feed/channel/unchained" // tech)  # cryptocurrency happenings; rec via patio11
     (fromDb "politicalorphanage.libsyn.com" // pol)
@@ -137,6 +137,7 @@ let
 
     # (fromDb "feed.podbean.com/matrixlive/feed.xml" // tech)  # Matrix (chat) Live
     # (fromDb "feeds.libsyn.com/421877" // rat)  # Less Wrong Curated
+    # (fromDb "feeds.megaphone.fm/CHTAL4990341033" // pol)  # ChinaTalk: https://www.chinatalk.media/podcast
     # (fromDb "feeds.megaphone.fm/hubermanlab" // uncat)  # Daniel Huberman on sleep
     # (fromDb "feeds.simplecast.com/54nAGcIl" // pol)  # The Daily
     # (fromDb "feeds.simplecast.com/82FI35Px" // pol)  # Ezra Klein Show
@@ -280,6 +281,7 @@ let
   ];
 
   videos = [
+    (fromDb "youtube.com/@AdamNeely")
     (fromDb "youtube.com/@Channel5YouTube" // pol)
     (fromDb "youtube.com/@ContraPoints" // pol)
     (fromDb "youtube.com/@Exurb1a")
@@ -287,8 +289,9 @@ let
     (fromDb "youtube.com/@JackStauber")
     (fromDb "youtube.com/@jaketran")
     (fromDb "youtube.com/@kurzgesagt")
-    (fromDb "youtube.com/@mii_beta" // tech)  # Baby Wogue / gnome reviewer
     (fromDb "youtube.com/@Matrixdotorg" // tech)  # Matrix Live
+    (fromDb "youtube.com/@mii_beta" // tech)  # Baby Wogue / gnome reviewer
+    (fromDb "youtube.com/@moon-channel")
     (fromDb "youtube.com/@NativLang")
     (fromDb "youtube.com/@PolyMatter")
     (fromDb "youtube.com/@scenesbyben" // pol)  # video essays
@@ -324,7 +327,7 @@ in
 {
   sane.feeds = texts ++ images ++ podcasts ++ videos;
 
-  assertions = builtins.map
+  assertions = map
     (p: {
       assertion = p.format or "unknown" == "podcast";
       message = ''${p.url} is not a podcast: ${p.format or "unknown"}'';

@@ -16,7 +16,7 @@
 #   - $ZDOTDIR/.zlogout
 #   - /etc/zlogout
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.sane.programs.zsh;
@@ -126,19 +126,24 @@ in
       #
       # ls helpers (eza is a nicer `ls`)
       # l: list directory, one entry per line
-      alias l="eza --time-style=long-iso --bytes"
-      # la: like `ls -a`
-      alias la="l --all"
-      # lal: like `ls -al`
-      alias lal="l --long --all"
-      # ll: like `ls -l`
-      alias ll="l --long"
-      # lla: like `ls -al`
-      alias lla="l --long --all"
-      # lrt: like `ls -lrt`
-      alias lrt="l --long --sort time"
+      if command -v eza >/dev/null; then
+        alias ls="eza --time-style=long-iso --bytes"
+      fi
 
-      alias ls="eza --time-style=long-iso --bytes"
+      # these should be compatible with `ls=eza` and plain `ls` (for minimal environments).
+      # flag support:
+      # - -a|--all: eza, ls
+      # - -l: eza, ls
+      # - --long: eza ONLY
+      # - --sort time: eza, ls
+      # - -rt: ls ONLY
+      alias l="ls"
+      alias la="ls -a"
+      alias lal="ls -al"
+      alias ll="ls -l"
+      alias lla="ls -al"
+      alias lrt="ls -l --sort time"
+
       # escape to use the original (coreutils) `ls`
       alias _ls="env ls"
 

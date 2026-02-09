@@ -76,6 +76,14 @@ in
       --alias profile-fast -S\ lang,vcodec:h264,res~480,fps:30,br:1500
 
       --profile-${cfg.config.defaultProfile}
+
+      # Prefer nodejs runtime for solving browser challenges, but fallback to deno.
+      # as of 2026-02-05, deno is the preferred default, and node isn't even checked by default.
+      #   but nixpkgs deno doesn't cross compile, and doesn't support musl. nodejs does.
+      # N.B.: nixpkgs yt-dlp is built only with deno by default. nodejs must be added to PATH for the below to work.
+      #   (or specifiy: `--js-runtimes node:/path/to/bin/node`)
+      #   (or build with: `yt-dlp.override { deno = nodejs; }` and use `--js-runtimes node`)
+      # --js-runtimes node --js-runtimes deno
     '';
   };
 }

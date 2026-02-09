@@ -6,9 +6,6 @@
 # - `sudo losetup -Pf ./result/disk.img`
 # - `mkdir /tmp/nixos.boot`
 # - `sudo mount /dev/loop0p1 /tmp/nixos.boot`, and look inside
-#
-# TODO: replace mobile-nixos parts with Disko <https://github.com/nix-community/disko>
-#   or just inline them here.
 { config, lib, pkgs, ... }:
 
 with lib;

@@ -73,4 +73,7 @@ in
       command = "dissent";
     };
   };
+
+  # dissent takes precedence over stock discord
+  sane.programs.discord.config.autostart = lib.mkIf cfg.enabled (lib.mkDefault false);
 }

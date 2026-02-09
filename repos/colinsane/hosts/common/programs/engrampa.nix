@@ -6,6 +6,7 @@
     sandbox.autodetectCliPaths = "existingOrParent";
     sandbox.extraHomePaths = [
       "archive"
+      "Books/Articles"
       "Books/Audiobooks"
       "Books/Books"
       "Books/Visual"

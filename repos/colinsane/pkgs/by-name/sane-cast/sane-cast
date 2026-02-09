@@ -1,5 +1,5 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i python3 -p go2tv -p python3 -p sblast
+#!/usr/bin/env -S NIX_BUILD_SHELL=/bin/sh nix-shell
+#!nix-shell -i python3 ../../../integrations/nix-shell --arg f 'ps: [ ps.go2tv ps.python3 ps.sblast ]'
 # vim: set filetype=python :
 """
 cast media (local video or audio files) to a device on the same network
@@ -131,7 +131,7 @@ class BlastDriver:
         blast_args = [
             "sblast",
             # "blast.monitor" source will create a new output, or we can do that in pipewire config for better predictability.
-            "-source", "effect_input.virtual.monitor",
+            "-source", "effect_input.virtual_sink.monitor",
             "-device", dev.model,
             "-ip", get_ranked_ip_addrs()[0],
         ]

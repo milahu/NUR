@@ -17,7 +17,7 @@
 #   - try `actions`, with `execute_on = "update"` to fire a `chmod` script.
 #     <https://docs.sftpgo.com/enterprise/custom-actions/>
 
-{ config, lib, pkgs, sane-lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   external_auth_hook = pkgs.static-nix-shell.mkPython3 {
     pname = "external_auth_hook";
@@ -45,9 +45,9 @@ in
       visibleTo.lan = true;
       description = "colin-FTPS server";
     };
-  } // (sane-lib.mapToAttrs
+  } // (pkgs.sane-lib.mapToAttrs
     (port: {
-      name = builtins.toString port;
+      name = toString port;
       value = {
         protocol = [ "tcp" ];
         visibleTo.doof = true;

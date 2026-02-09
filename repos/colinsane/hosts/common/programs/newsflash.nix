@@ -5,10 +5,10 @@
 #     takes about 20 minutes to import results from scratch.
 # TODO: auto-import feeds
 # - `newsflash -s` might allow importing individual feeds; not removing them, though
-{ config, sane-lib, ... }:
+{ config, pkgs, ... }:
 
 let
-  feeds = sane-lib.feeds;
+  feeds = pkgs.sane-lib.feeds;
   all-feeds = config.sane.feeds;
   # text/image: newsflash renders these natively
   # podcast/video: newsflash dispatches these to xdg-open

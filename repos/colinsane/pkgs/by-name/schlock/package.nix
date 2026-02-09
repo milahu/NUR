@@ -4,6 +4,7 @@
   cairo,
   copyDesktopItems,
   fetchFromGitHub,
+  fetchFromGitea,
   gdk-pixbuf,
   libsodium,
   libxkbcommon,
@@ -26,8 +27,18 @@ stdenv.mkDerivation rec {
   pname = "schlock";
   version = "unstable-2022-02-02";
 
-  src = fetchFromGitHub {
-    owner = "telent";
+  # src = fetchFromGitHub {
+  #   owner = "telent";
+  #   repo = "schlock";
+  #   rev = "f3dde16f074fd5b7482a253b9d26b4ead66dea82";
+  #   hash = "sha256-Ot86vALt1kkzbBocwh9drCycbRIw2jMKJU4ODe9PYQM=";
+  # };
+
+  src = fetchFromGitea {
+    # XXX(2025-12-30): GitHub repo was deleted
+    # author can be found <https://axillae.telent.net/@dan>
+    domain = "git.uninsane.org";
+    owner = "colin";
     repo = "schlock";
     rev = "f3dde16f074fd5b7482a253b9d26b4ead66dea82";
     hash = "sha256-Ot86vALt1kkzbBocwh9drCycbRIw2jMKJU4ODe9PYQM=";

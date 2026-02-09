@@ -1,9 +1,9 @@
-{ config, lib, pkgs, sane-lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   persist-base = "/nix/persist";
   origin = config.sane.persist.stores."private".origin;
-  backing = sane-lib.path.concat [ persist-base "private" ];
+  backing = pkgs.sane-lib.path.concat [ persist-base "private" ];
 
   # fileSystems.* options
   device = "gocryptfs-private#${backing}";

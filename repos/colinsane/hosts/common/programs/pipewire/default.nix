@@ -101,8 +101,10 @@ in
         default.clock.max-quantum = ${builtins.toString cfg.config.max-quantum}
       }
     '';
-    fs.".config/pipewire/pipewire.conf.d/20-virtual.conf".symlink.target = ./20-virtual.conf;
+    # fs.".config/pipewire/pipewire.conf.d/20-augmented-mic.conf".symlink.target = ./20-augmented-mic.conf;
+    fs.".config/pipewire/pipewire.conf.d/20-mic-effects.conf".symlink.target = ./20-mic-effects.conf;
     fs.".config/pipewire/pipewire.conf.d/20-spatializer-7.1.conf".symlink.target = ./20-spatializer-7.1.conf;
+    fs.".config/pipewire/pipewire.conf.d/20-virtual-sink.conf".symlink.target = ./20-virtual-sink.conf;
 
     # reduce realtime scheduling priority to prevent GPU instability,
     # but see the top of this file for other solutions.

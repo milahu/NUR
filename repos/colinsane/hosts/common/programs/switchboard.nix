@@ -25,7 +25,6 @@
         switchboard-plug-sound
         # switchboard-plug-wacom
       ];
-      xorg = pkgs.buildPackages.xorg;  #< cross compilation fix (TODO: upstream)
     };
     sandbox.whitelistWayland = true;
     sandbox.whitelistDbus.system = true;  #< to speak with NetworkManager

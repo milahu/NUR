@@ -5,6 +5,9 @@ use errors;
 use errors::ext;
 use fs;
 use log;
+use net;
+use net::ip;
+use net::uri;
 use os;
 use path;
 use regex;
@@ -27,8 +30,9 @@ export type exec_params = struct {
   // `args[0]` is, by convention, the name of the executable,
   // relevant for multi-call binaries like `busybox`.
   args: []str,
-  // *complete* environment with which to execute the binary
-  env: []str,
+  // `K=V` formatted environment overrides to pass to the program.
+  // these are to be applied on top of the ambient environment.
+  extra_env: []str,
   // path to the binary to be exec'd inside the sandbox.
   // if the user requested `--bunpen-drop-shell`, this will be their shell (e.g. /bin/sh), assuming `BUNPEN_DISABLE=1` wasn't specified.
   bin: str,
@@ -67,22 +71,9 @@ fn cli_opts_get_exec_params(opts: cli_opts, env: env) exec_params = {
 
   //---- ingest `env` ----//
 
-  for (let old .. os::getenvs()) {
-    let (old_key, _old_value) = strings::cut(old, "=");
-    let keep_old = true;
-    for (let new .. opts.env) {
-      let (new_key, _new_value) = strings::cut(new, "=");
-      if (old_key == new_key) {
-        keep_old = false;
-      };
-    };
-    if (keep_old) {
-      append(params.env, old);
-    };
-  };
   for (let new .. opts.env) {
     let substituted = env_subst(env, new);
-    append(params.env, substituted);
+    append(params.extra_env, substituted);
   };
 
   return params;
@@ -211,20 +202,26 @@ fn does_option_apply_to_self(value: str, exec_params: *const exec_params) bool =
 //   in this mode, environment variables are *not* expanded.
 fn ingest_paths(into: *[]path::buffer, from: []str, env: env, method: (void | autodetect) = void) void = {
   // enforce file mode requirements as per autodetect (if specified)
-  let (do_env_subst, allow_nonexistent, allow_file, allow_dir, allow_parent) = match (method) {
-    case void => yield (true, true, true, true, false);
+  let (decode_file_scheme, do_env_subst, allow_nonexistent, allow_file, allow_dir, allow_parent) = match (method) {
+    case void => yield (false, true, true, true, true, false);
     case let detect: autodetect => yield switch (detect) {
-      case autodetect::EXISTING                 => yield (false, false, true, true, false);
-      case autodetect::EXISTING_DIR             => yield (false, false, false, true, false);
-      case autodetect::EXISTING_FILE            => yield (false, false, true, false, false);
-      case autodetect::EXISTING_FILE_OR_PARENT  => yield (false, false, true, false, true);
-      case autodetect::EXISTING_DIR_OR_PARENT   => yield (false, false, false, true, true);
-      case autodetect::EXISTING_OR_PARENT       => yield (false, false, true, true, true);
-      case autodetect::PARENT                   => yield (false, false, false, false, true);
+      case autodetect::EXISTING                 => yield (true, false, false, true, true, false);
+      case autodetect::EXISTING_DIR             => yield (true, false, false, false, true, false);
+      case autodetect::EXISTING_FILE            => yield (true, false, false, true, false, false);
+      case autodetect::EXISTING_FILE_OR_PARENT  => yield (true, false, false, true, false, true);
+      case autodetect::EXISTING_DIR_OR_PARENT   => yield (true, false, false, false, true, true);
+      case autodetect::EXISTING_OR_PARENT       => yield (true, false, false, true, true, true);
+      case autodetect::PARENT                   => yield (true, false, false, false, false, true);
     };
   };
 
   for (let path_str .. from) {
+    if (decode_file_scheme && strings::hasprefix(path_str, "file://")) {
+      errors::ext::swallow("[config/path] failed to parse URI {}",
+        parse_file_uri_in_place(&path_str),
+        path_str
+      );
+    };
     if (do_env_subst) {
       path_str = env_subst(env, path_str);
     };
@@ -287,6 +284,33 @@ fn check_exists(pathbuf: *path::buffer, noexist_ok: bool, file_ok: bool, dir_ok:
 
   log::printfln("[config/path/try] not adding path (exists, but as wrong type): {}", path::string(pathbuf));
   return fs::wrongtype;
+};
+
+fn parse_file_uri_in_place(arg: *str) (void | fs::error | path::error) = {
+  let uri = match (net::uri::parse(*arg)) {
+    case let u: net::uri::uri => yield u;
+    case net::uri::invalid => return errors::invalid;
+  };
+  defer net::uri::finish(&uri);
+
+  if (uri.scheme != "file")
+    return path::not_prefix;
+
+  match (uri.host) {
+    case net::ip::addr => return errors::invalid;
+    case let host: str => switch (host) {
+      case "" => void;
+      case => return errors::invalid;
+    };
+  };
+  if (uri.port != 0u16)
+    return errors::invalid;
+
+  // ignore userinfo, query and fragment: those are less about the *location*,
+  // than how to interact with it.
+
+  *arg = uri.path;
+  uri.path = "";  //< `*arg` takes ownership
 };
 
 fn env_new() env = {

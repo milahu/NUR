@@ -3,19 +3,14 @@
 # docs: https://nixos.wiki/wiki/Sway
 # sway-config docs: `man 5 sway`
 let
-  pkgs' = pkgs // {
-    # sway/wlroots release infrequently and irregularly:
-    # - wlroots: releases every 2-6 months
-    # - sway: releases every 2-12 months
-    # i use the `nixpkgs-wayland` version (which is akin to running tip) instead of the stable version from nixpkgs
-    # because then when things go wrong i have an actual shot at bisecting.
-    # this has been useful as recently as 2024/08 when sway/wlroots updates straight up don't render output:
-    # <https://gitlab.freedesktop.org/wlroots/wlroots/-/merge_requests/4715#note_2523517>
-    inherit (pkgs.nixpkgs-wayland)
-      sway-unwrapped
-      wlroots
-    ;
-  };
+  # sway/wlroots release infrequently and irregularly:
+  # - wlroots: releases every 2-6 months
+  # - sway: releases every 2-12 months
+  # i use the `nixpkgs-wayland` version (which is akin to running tip) instead of the stable version from nixpkgs
+  # because then when things go wrong i have an actual shot at bisecting.
+  # this has been useful as recently as 2024/08 when sway/wlroots updates straight up don't render output:
+  # <https://gitlab.freedesktop.org/wlroots/wlroots/-/merge_requests/4715#note_2523517>
+  pkgs' = pkgs.extend pkgs.nixpkgs-wayland.overlay;
   cfg = config.sane.programs.sway;
   enableXWayland = config.sane.programs.xwayland.enabled;
   wrapSway = configuredSway: let
@@ -29,8 +24,12 @@ let
 
       # delete DISPLAY-related vars from env before launch, else sway will try to connect to a remote display.
       # (consider: nested sway sessions, where sway actually has a reason to read these)
+      #
+      # set WLR_RENDERER_ALLOW_SOFTWARE=1 in case /run/opengl-drivers isn't linked (or fails to load):
+      # it's better to have a working, but slow DE, than no DE at all...
       exec env -u DISPLAY -u WAYLAND_DISPLAY \
         "DESIRED_WAYLAND_DISPLAY=$WAYLAND_DISPLAY" \
+        WLR_RENDERER_ALLOW_SOFTWARE=1 \
         ${lib.getExe configuredSway} \
         2>&1
     '';
@@ -90,7 +89,7 @@ let
   ;
   swayPackage = wrapSway (
     (pkgs'.sway-unwrapped.override {
-      inherit wlroots;
+      wlroots_0_19 = wlroots;
       # about xwayland:
       # - required by many electron apps, though some electron apps support NIXOS_OZONE_WL=1 for native wayland.
       # - when xwayland is enabled, KOreader incorrectly chooses the X11 backend
@@ -189,8 +188,6 @@ in
       "sane-open.clipboard"
       "sane-theme"
       "seatd"
-      # "splatmoji"  # used by sway config
-      "sway-contrib.grimshot"  # used by sway config
       "swaybg"  # required for setting the background
       "swayidle"  # enable if you need it
       "swaynotificationcenter"  # notification daemon
@@ -201,7 +198,7 @@ in
       # "waybar"
       "wdisplays"  # like xrandr
       "wireplumber"  # used by sway config
-      "wl-clipboard"
+      "wl-clipboard-rs"  # wl-copy, wl-paste (provided for convenience?)
       "xdg-desktop-portal"
       # pikeru (iced gui toolkit) provides portals for:
       # - org.freedesktop.impl.portal.FileChooser

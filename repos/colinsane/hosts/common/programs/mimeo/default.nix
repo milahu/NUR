@@ -5,12 +5,6 @@
 # alternative to mimeo is jaro: <https://github.com/isamert/jaro>
 { config, lib, pkgs, ... }:
 let
-  mimeo-open-desktop = pkgs.static-nix-shell.mkPython3 {
-    pname = "mimeo-open-desktop";
-    srcRoot = ./.;
-    pkgs = [ "mimeo" ];
-  };
-
   # [ProgramConfig]
   enabledPrograms = builtins.filter
     (p: p.enabled)
@@ -22,7 +16,7 @@ let
     enabledPrograms;
 
   fmtAssoc = regex: desktop: ''
-    ${lib.getExe mimeo-open-desktop} ${desktop} %U
+    ${lib.getExe pkgs.mimeo-open-desktop} ${desktop} %U
       ${regex}
   '';
   assocs = builtins.map
@@ -31,10 +25,10 @@ let
   assocs' = lib.flatten assocs;
 
   fmtFallbackAssoc = mimeType: desktop: if mimeType == "x-scheme-handler/http" then ''
-    ${lib.getExe mimeo-open-desktop} ${desktop} %U
+    ${lib.getExe pkgs.mimeo-open-desktop} ${desktop} %U
       ^http://.*
   '' else if mimeType == "x-scheme-handler/https" then ''
-    ${lib.getExe mimeo-open-desktop} ${desktop} %U
+    ${lib.getExe pkgs.mimeo-open-desktop} ${desktop} %U
       ^https://.*
   '' else "";
   fmtFallbackAssoc' = mimeType: desktop:
@@ -62,7 +56,7 @@ in
       ];
 
       passthru = (upstream.passthru or {}) // {
-        inherit mimeo-open-desktop;
+        inherit (pkgs) mimeo-open-desktop;
       };
     });
 

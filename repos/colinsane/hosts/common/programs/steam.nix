@@ -1,6 +1,8 @@
 { ... }:
 {
   sane.programs.steam = {
+    buildCost = 1;
+
     sandbox.net = "clearnet";
     sandbox.whitelistAudio = true;
     sandbox.whitelistDbus.user = true;  #< TODO: reduce  #< to open https:// links in portal
@@ -18,6 +20,8 @@
 
     suggestedPrograms = [
       "xwayland"  #< XXX(2024-11-10): fails to start without X(wayland)
+      "xdg-open"
+      # "xdg-settings"
     ];
   };
   # steam requires system-level config for e.g. firewall or controller support

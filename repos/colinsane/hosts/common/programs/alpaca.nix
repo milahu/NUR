@@ -21,8 +21,9 @@ let
       sqlite
     ];
   } ''
+    set -x
     # schema taken from <repo:jeffser/Alpaca:src/sql_manager.py>
-    sqlite3 alpaca.db '
+    sqlite3 alpaca.db "
       CREATE TABLE instance (
         id TEXT NOT NULL PRIMARY KEY,
         pinned INTEGER NOT NULL,
@@ -30,12 +31,12 @@ let
         properties TEXT NOT NULL
       );
       INSERT INTO instance (id, pinned, type, properties) VALUES (
-        "${defaultInstanceId}",
+        '${defaultInstanceId}',
         0,
-        "ollama",
-        '"'"'{"name": "desko", "url": "${defaultHost}", "api": "ollama", "override_parameters": true, "temperature": 0.7, "seed": 0.0, "num_ctx": 16384.0, "keep_alive": 300, "default_model": "${defaultModel}", "title_model": null, "think": false, "share_name": 0, "show_response_metadata": false}'"'"'
+        'ollama',
+        '"'{"name": "desko", "url": "${defaultHost}", "api": "ollama", "override_parameters": true, "temperature": 0.7, "seed": 0.0, "num_ctx": 16384.0, "keep_alive": 300, "default_model": "${defaultModel}", "title_model": null, "think": false, "share_name": 0, "show_response_metadata": false}'"'
     )
-    '
+    "
 
     mkdir $out
     cp alpaca.db $out
