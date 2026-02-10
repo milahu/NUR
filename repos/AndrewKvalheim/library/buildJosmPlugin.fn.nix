@@ -21,9 +21,9 @@ extendMkDerivation {
   extendDrvArgs = _: { pluginName ? args.pname, ... } @ args: {
     srcJosmPlugins = fetchsvn {
       url = "https://josm.openstreetmap.de/osmsvn/applications/editors/josm/";
-      rev = "36476";
+      rev = "36477";
       ignoreExternals = true;
-      hash = "sha256-aa/QKs+h4rUjXxc2i/Xwo9A8ikC14HQsL9Uo0p/wtI8=";
+      hash = "sha256-EKqy3BRndD8iYZ0voqa7RWueEzphNYEAOd0yTLSh6xk=";
     };
 
     srcJosmTools = fetchsvn {
