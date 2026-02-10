@@ -1,0 +1,29 @@
+error:
+… while querying the derivation named 'slurm-simulator-bsc-v17'
+
+… while calling the 'foldl'' builtin
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:629:21:
+
+   628|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
+   629|       maintainers = unique (
+      |                     ^
+   630|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/lists.nix:1859:25:
+
+  1858|   */
+  1859|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
+      |                         ^
+  1860|
+
+error: undefined variable 'jagajaga'
+
+at ./pkgs/slurm-simulator/default.nix:93:39:
+
+    92|     license = licenses.gpl2;
+    93|     maintainers = with maintainers; [ jagajaga markuskowa ];
+      |                                       ^
+    94|   };

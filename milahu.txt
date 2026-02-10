@@ -1,7 +1,7 @@
 trace: evaluation warning: 'recurseIntoAttrs' has been removed from pkgs, use `lib.recurseIntoAttrs` instead
 trace: evaluation warning: 'recurseIntoAttrs' has been removed from pkgs, use `lib.recurseIntoAttrs` instead
 trace: evaluation warning: 'recurseIntoAttrs' has been removed from pkgs, use `lib.recurseIntoAttrs` instead
-trace: evaluation warning: fontforge-20251009 was overridden with `version` but not `src` at ./default.nix:833:5.
+trace: evaluation warning: fontforge-20251009 was overridden with `version` but not `src` at ./default.nix:831:5.
 
 This is most likely not what you want. In order to properly change the version of a package, override
 both the `version` and `src` attributes:
@@ -22,12 +22,12 @@ trace: evaluation warning: dontRecurseIntoAttrs has been removed from pkgs, use 
 error:
 … from call site
 
-  at ./default.nix:733:23:
+  at ./default.nix:731:23:
 
-   732|
-   733|   mediawiki-scraper = python3.pkgs.callPackage ./pkgs/tools/networking/mediawiki-scraper/mediawiki-scraper.nix { };
+   730|
+   731|   mediawiki-scraper = python3.pkgs.callPackage ./pkgs/tools/networking/mediawiki-scraper/mediawiki-scraper.nix { };
       |                       ^
-   734|
+   732|
 
 … while calling 'callPackageWith'
 
