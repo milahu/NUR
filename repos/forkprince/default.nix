@@ -20,7 +20,9 @@
 
   keka-external-helper = lib.callPackage ./pkgs/keka-external-helper {};
   bluebubbles-server = lib.callPackage ./pkgs/bluebubbles-server {};
+  creality-print = lib.callPackage ./pkgs/creality-print {};
   passepartout = lib.callPackage ./pkgs/passepartout {};
+  diffusionbee = lib.callPackage ./pkgs/diffusionbee {};
   redream-dev = lib.callPackage ./pkgs/redream-dev {};
   cot-editor = lib.callPackage ./pkgs/cot-editor {};
   playcover = lib.callPackage ./pkgs/playcover {};
@@ -38,7 +40,9 @@
   github-desktop = lib.callPackage ./pkgs/github-desktop {};
   podman-desktop = lib.callPackage ./pkgs/podman-desktop {};
   sublime-text = lib.callPackage ./pkgs/sublime-text {};
+  pixelflasher = lib.callPackage ./pkgs/pixelflasher {};
   dolphin-emu = lib.callPackage ./pkgs/dolphin-emu {};
+  orca-slicer = lib.callPackage ./pkgs/orca-slicer {};
   zed-editor = lib.callPackage ./pkgs/zed-editor {};
   obs-studio = lib.callPackage ./pkgs/obs-studio {};
   retroarch = lib.callPackage ./pkgs/retroarch {};
