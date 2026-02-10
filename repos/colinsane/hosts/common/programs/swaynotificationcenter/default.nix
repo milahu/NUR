@@ -32,9 +32,9 @@ in
     packageUnwrapped = pkgs.static-nix-shell.mkBash {
       pname = "swaync-service-dispatcher";
       srcRoot = ./.;
-      pkgs = [
-        "systemdMinimal"
-      ];
+      pkgs = {
+        inherit (pkgs) systemdMinimal;
+      };
     };
     sandbox.whitelistSystemctl = true;
     sandbox.keepPidsAndProc = true;  #< XXX: not sure why, but swaync segfaults under load without this!
@@ -48,12 +48,14 @@ in
     packageUnwrapped = pkgs.static-nix-shell.mkBash {
       pname = "swaync-fbcli";
       srcRoot = ./.;
-      pkgs = [
-        "feedbackd"
-        "procps"
-        "swaynotificationcenter"
-        "util-linux"
-      ];
+      pkgs = {
+        inherit (pkgs)
+          feedbackd
+          procps
+          swaynotificationcenter
+          util-linux
+        ;
+      };
     };
     sandbox.whitelistDbus.user = true;  #< TODO: reduce
     # sandbox.whitelistDbus.user.call."org.sigxcpu.Feedback" = "*";

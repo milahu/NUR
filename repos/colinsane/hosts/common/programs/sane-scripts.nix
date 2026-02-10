@@ -161,9 +161,9 @@ in
       tryKeepUsers = true;  #< allow `sudo sane-reboot`, for the case where the service manager is unreachable
     };
 
-    "sane-scripts.reclaim-disk-space".packageUnwrapped = pkgs.sane-scripts.reclaim-disk-space.override {
+    "sane-scripts.reclaim-disk-space".packageUnwrapped = (pkgs.sane-scripts.override {
       nix = config.sane.programs.nix.packageUnwrapped;
-    };
+    }).reclaim-disk-space;
     "sane-scripts.reclaim-disk-space".sandbox = {
       method = "bunpen";
       extraPaths = [ "/nix/var/nix" ];

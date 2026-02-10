@@ -22,7 +22,9 @@ let
   external_auth_hook = pkgs.static-nix-shell.mkPython3 {
     pname = "external_auth_hook";
     srcRoot = ./.;
-    pkgs = [ "python3.pkgs.passlib" ];
+    pkgs = {
+      "python3.pkgs.passlib" = pkgs.python3.pkgs.passlib;
+    };
   };
   # Client initiates a FTP "control connection" on port 21.
   # - this handles the client -> server commands, and the server -> client status, but not the actual data

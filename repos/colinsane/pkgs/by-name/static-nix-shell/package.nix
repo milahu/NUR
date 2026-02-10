@@ -35,12 +35,9 @@ let
   # create an attrset of
   #   <name> = expected string in the nix-shell invocation
   #   <value> = package to provide
-  pkgsToAttrs = prefix: pkgSet: expr: {
+  pkgsToAttrs = pkgSet: expr: {
     # branch based on the type of `expr`
-    "lambda" = expr: pkgsToAttrs prefix pkgSet (expr pkgSet);
-    "list" = expr: builtins.foldl' (acc: pname: acc // {
-      "${prefix + pname}" = lib.getAttrFromPath (lib.splitString "." pname) pkgSet;
-    }) {} expr;
+    "lambda" = expr: expr pkgSet;
     "set" = expr: expr;
   }."${builtins.typeOf expr}" expr;
 in rec {
@@ -48,8 +45,7 @@ in rec {
   # into a derivation that can be built statically.
   #
   # pkgs may take the following form:
-  # - [ "pkgNameA" "pkgNameB" ... ]
-  # - { pkgNameA = pkgValueA; pkgNameB = pkgValueB; ... }
+  # - { pkgNameA = pkgValueA; "pkg.name.b" = pkg.value.b; ... }
   # - ps: <evaluate to one of the above exprs>
   mkShell = {
     pname,
@@ -239,7 +235,7 @@ in rec {
       # bash' = pkgsStatic.bash;
       # XXX(2026-01-20): `pkgsMusl.pkgsStatic.stdenv` doesn't build (but `pkgsMusl.pkgsMusl.bash` _does_ build.
       bash' = pkgsMusl.bash;
-      pkgsAsAttrs = pkgsToAttrs "" pkgs' pkgs;
+      pkgsAsAttrs = pkgsToAttrs pkgs' pkgs;
       pkgsEnv = [ bash' ] ++ (builtins.attrValues pkgsAsAttrs);
       pkgExprs = insertTopo "bash" (builtins.attrNames pkgsAsAttrs);
     in mkShell ({
@@ -264,7 +260,7 @@ in rec {
   # `mkShell` specialization for `nix-shell -i ysh` (oil) scripts.
   mkYsh = { pkgs ? {}, ...}@attrs:
     let
-      pkgsAsAttrs = pkgsToAttrs "" pkgs' pkgs;
+      pkgsAsAttrs = pkgsToAttrs pkgs' pkgs;
       pkgsEnv = [ oils-for-unix ] ++ (builtins.attrValues pkgsAsAttrs);
       pkgExprs = insertTopo "oils-for-unix" (builtins.attrNames pkgsAsAttrs);
     in mkShell ({
@@ -306,7 +302,7 @@ in rec {
   # `mkShell` specialization for `nix-shell -i zsh` scripts.
   mkZsh = { pkgs ? {}, ...}@attrs:
     let
-      pkgsAsAttrs = pkgsToAttrs "" pkgs' pkgs;
+      pkgsAsAttrs = pkgsToAttrs pkgs' pkgs;
       pkgsEnv = [ zsh ] ++ (builtins.attrValues pkgsAsAttrs);
       pkgExprs = insertTopo "zsh" (builtins.attrNames pkgsAsAttrs);
     in mkShell ({
@@ -331,7 +327,7 @@ in rec {
   # `mkShell` specialization for invocations of `nix-shell -i python3 -p python3 ...`
   mkPython3 = { pkgs ? {}, ... }@attrs:
     let
-      pkgsAsAttrs = pkgsToAttrs "" pkgs' pkgs;
+      pkgsAsAttrs = pkgsToAttrs pkgs' pkgs;
       pkgsEnv = builtins.attrValues pkgsAsAttrs;
       pkgExprs = insertTopo "python3" (builtins.attrNames pkgsAsAttrs);
     in mkShell ({

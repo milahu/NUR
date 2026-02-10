@@ -155,7 +155,9 @@ in
     packageUnwrapped = pkgs.static-nix-shell.mkBash {
       pname = "rofi-run-command";
       srcRoot = ./.;
-      pkgs = [ "sane-open" ];
+      pkgs = {
+        inherit (pkgs) sane-open;
+      };
     };
     # sandboxing options cribbed from sane-open
     sandbox.autodetectCliPaths = "existing";  # for when opening a file

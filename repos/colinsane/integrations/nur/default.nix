@@ -38,17 +38,18 @@
 
 { pkgs ? import <nixpkgs> {} }:
 let
-  pkgs' = pkgs.extend (import ../../overlays/pkgs.nix);
-  sanePkgs = removeAttrs (pkgs'.sane) [
+  sane = import ../../pkgs/packages.nix pkgs;
+  sane' = removeAttrs sane [
     # XXX(2024-07-14): these packages fail NUR check, due to weird Import-From-Derivation things (bugs?).
     # see: <https://github.com/NixOS/nix/issues/9052>
     "linux-exynos5-mainline"
     "linux-postmarketos-allwinner"
     "linux-postmarketos-exynos5"
     "linux-postmarketos-pinephonepro"
+    "sane-nix-files"
+    # these use IFD by design
     "nixpkgs-bootstrap"
     "nixpkgs-wayland"
-    "pkgsStrict"
     "sops-nix"
     "uninsane-dot-org"
   ];
@@ -58,7 +59,7 @@ in
   # - optionally: `lib` is an arbitrary collection of nix expressions (similar to nixpkgs' lib)
   # - optionally: `modules` is an attrset from String -> Path
   # - optionally: `overlays` is an attrset from String -> (Attrs -> Attrs)
-  sanePkgs // {
+  sane' // {
     # too lazy to expose overlays/modules individually right now; let me know if you want that.
     overlays = {
       all = import ../../overlays/all.nix;

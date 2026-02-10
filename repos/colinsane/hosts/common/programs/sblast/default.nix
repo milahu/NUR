@@ -32,7 +32,9 @@ in
     # helper to deal with blast's interactive CLI
     packageUnwrapped = pkgs.static-nix-shell.mkPython3 {
       pname = "blast-to-default";
-      pkgs = [ "sblast" ];
+      pkgs = {
+        inherit (pkgs) sblast;
+      };
       srcRoot = ./.;
     };
     sandbox.whitelistAudio = true;

@@ -1,4 +1,7 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  sane-lib,
+}:
 let
   # given a path to a .json file relative to sources, construct the best feed object we can.
   # the .json file could be empty, in which case we make assumptions about the feed based
@@ -27,6 +30,6 @@ let
       else
         builtins.fromJSON as-str;
 
-  sources = pkgs.sane-lib.enumerateFilePaths ./sources;
+  sources = sane-lib.enumerateFilePaths ./sources;
 in
   lib.listToAttrs (map feedFromSourcePath sources)

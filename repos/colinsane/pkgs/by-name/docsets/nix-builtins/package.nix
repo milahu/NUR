@@ -1,6 +1,6 @@
 {
-  docsets,
   jq,
+  make-docset-index,
   nix,
   runCommand,
   stdenvNoCC,
@@ -22,7 +22,7 @@ let
     pname = "nix-builtins";
     version = nix.version;
 
-    nativeBuildInputs = [ docsets.make-docset-index ];
+    nativeBuildInputs = [ make-docset-index ];
 
     unpackPhase = ''
       cp ${./Info.plist} Info.plist

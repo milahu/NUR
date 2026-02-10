@@ -4,6 +4,7 @@
   static-nix-shell,
   stdenvNoCC,
   wrapFirefoxAddonsHook,
+  xdg-open,
   zip,
 }:
 stdenvNoCC.mkDerivation {
@@ -35,7 +36,9 @@ stdenvNoCC.mkDerivation {
   passthru.systemComponent = static-nix-shell.mkBash {
     pname = "xdg-open-scheme-handler";
     srcRoot = ./.;
-    pkgs = [ "xdg-open" ];
+    pkgs = {
+      inherit xdg-open;
+    };
 
     nativeBuildInputs = [
       copyDesktopItems

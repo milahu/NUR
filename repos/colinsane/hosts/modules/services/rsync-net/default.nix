@@ -3,12 +3,14 @@ let
   cfg = config.sane.services.rsync-net;
   sane-backup-rsync-net = pkgs.static-nix-shell.mkBash {
     pname = "sane-backup-rsync-net";
-    pkgs = [
-      "nettools"
-      "openssh"
-      "rsync"
-      "sane-scripts.vpn"
-    ];
+    pkgs = {
+      inherit (pkgs)
+        nettools
+        openssh
+        rsync
+      ;
+      "sane-scripts.vpn" = pkgs.sane-scripts.vpn;
+    };
     srcRoot = ./.;
   };
 in

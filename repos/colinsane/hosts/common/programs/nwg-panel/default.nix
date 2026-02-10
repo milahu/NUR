@@ -31,7 +31,9 @@ in
   sane.programs.torch-toggle = {
     packageUnwrapped = pkgs.static-nix-shell.mkBash {
       pname = "torch-toggle";
-      pkgs = [ "brightnessctl" ];
+      pkgs = {
+        inherit (pkgs) brightnessctl;
+      };
       srcRoot = ./.;
     };
 

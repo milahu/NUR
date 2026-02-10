@@ -64,6 +64,7 @@ in
     sane.programs.nfs-utils.enableFor.system = false; #< 2026-01-24 - 2026-02-02: fails build
     sane.programs."sane-scripts.tag-media".enableFor.user.colin = false;  #< 2026-02-02: blocked on python3Packages.aiohttp
     # sane.programs."sane-scripts.wipe".enableFor.user.colin = false;  #< 2026-01-24: blocked on libsecret -> gtk4 -> ... -> gdb,netpbm,...
+    sane.programs.resources.enableFor.user.colin = false;  #< 2026-02-09: "libc::ioctl(fd, ioctl_cmd, &mut get_info): expected i32, found u64"
     sane.programs.signal-desktop.enableFor.user.colin = false;  #< 2026-02-03: blocked on libsignal-node rust: "Error[E0463]: can't find crate for `core`". also `signal-rtc`
     sane.programs.sm64coopdx.enableFor.user.colin = false;  #< 2026-01-29: `src/pc/crash_handler.c:157:10: fatal error: execinfo.h: No such file or directory`
     sane.programs.steam.enableFor.user.colin = false;

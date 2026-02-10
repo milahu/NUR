@@ -1,6 +1,8 @@
 {
+  feedsearch-crawler,
   lib,
   newScope,
+  podcastindex-db,
   sane-feeds,
   static-nix-shell,
 }:
@@ -24,6 +26,9 @@ lib.recurseIntoAttrs (lib.makeScope newScope (self: with self; {
   update-feed = static-nix-shell.mkPython3 {
     pname = "update-feed";
     srcRoot = ./.;
-    pkgs = [ "feedsearch-crawler" "podcastindex-db" ];
+    inherit
+      feedsearch-crawler
+      podcastindex-db
+      ;
   };
 }))

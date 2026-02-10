@@ -51,7 +51,9 @@ in
       default = pkgs.static-nix-shell.mkPython3 {
         pname = "ntfy-waiter";
         srcRoot = ./.;
-        pkgs = [ "ntfy-sh" ];
+        pkgs = {
+          inherit (pkgs) ntfy-sh;
+        };
       };
       description = ''
         exposed to provide an attr-path by which one may build the package for manual testing.

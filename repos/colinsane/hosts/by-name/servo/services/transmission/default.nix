@@ -27,12 +27,14 @@ let
   torrent-done = pkgs.static-nix-shell.mkBash {
     pname = "torrent-done";
     srcRoot = ./.;
-    pkgs = [
-      "acl"
-      "coreutils"
-      "findutils"
-      "rsync"
-    ];
+    pkgs = {
+      inherit (pkgs)
+        acl
+        coreutils
+        findutils
+        rsync
+      ;
+    };
   };
 in
 {
@@ -177,7 +179,7 @@ in
   # and is knowledgeable enough to also inherit the profile of the torrent-done script...
   # but unless i define such a profile, then apparmor will complain:
   # > Feb 08 02:01:24 servo kernel: audit: type=1400 audit(...): apparmor="DENIED" operation="exec" class="file" info="profile transition not found" error=-13 profile="/nix/store/05pbi2xpappimpzl43mbcan7csl3ngni-transmission-4.0.6/bin/transmission-daemon" name="/nix/store/mgf31pv0ar816nw15rizq734vhz2ggk3-torrent-done-0.1.0/bin/torrent-done" pid=... comm="transmission-da" requested_mask="x" denied_mask="x" fsuid=70 ouid=0 target="&@{dirs}"
-  security.apparmor.policies."${lib.getExe torrent-done}".profile = ''
+  security.apparmor.policies."bin.torrent-done".profile = ''
     include "${
       pkgs.apparmorRulesFromClosure
         { name = "torrent-done"; }

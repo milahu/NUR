@@ -101,7 +101,7 @@ let
 
     applyPatches' = if applyPatches != null then applyPatches else unpatchedNixpkgs.applyPatches;
     stdenv' = if stdenv != null then stdenv else unpatchedNixpkgs.stdenv;
-    vendorPatch' = if vendorPatch != null then vendorPatch else import ./vendorPatch { stdenv = stdenv'; vendor-patch-updater = null; };
+    vendorPatch' = if vendorPatch != null then vendorPatch else import ./vendorPatch/package.nix { stdenv = stdenv'; vendor-patch-updater = null; };
 
     srcMeta = (src'.meta or {}) // {
       position = let
@@ -110,7 +110,7 @@ let
         "${position.file}:${toString position.line}";
     };
 
-    patches = import ./patches { vendorPatch = vendorPatch'; };
+    patches = import ./patches/package.nix { vendorPatch = vendorPatch'; };
 
     patchedSrc = applyPatches' {
       name = "nixpkgs-${branch}-sane";

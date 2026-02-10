@@ -104,6 +104,7 @@ let
       } args;
     }
     [
+      expandArch
       expandLibc
       expandNovelties
       expandBranches
@@ -161,12 +162,16 @@ let
   # update any package possible, and just rely on good namespacing:
   shouldUpdate = pkg: pkg ? updateScript;
 
+  shouldRecurse = attrs: attrs.recurseForDerivations or false;
+  # shouldRecurse = attrs: attrs ? callPackage;
+  # shouldRecurse = _attrs: true;
+
   # given the path to a package, and that package, returns a list of all attr-paths (stringified)
   # which should be updated as part of that package (including the package in question).
   mkUpdateList = prefix: pkg: (lib.optionals (shouldUpdate pkg) [ prefix ]) ++
     lib.concatMap
       (nestedName: mkUpdateListIfAuto "${prefix}.${nestedName}" pkg."${nestedName}")
-      (lib.optionals (pkg.recurseForDerivations or false) (subAttrNames pkg))
+      (lib.optionals (shouldRecurse pkg) (subAttrNames pkg))
   ;
   # a package can set `passthru.updateWithSuper = false;` if it doesn't want to be auto-updated.
   mkUpdateListIfAuto = prefix: pkg: lib.optionals (pkg.updateWithSuper or true) (mkUpdateList prefix pkg);
@@ -209,15 +214,17 @@ let
   } // builtins.foldl'
     (acc: subPkgName: acc // mkUpdateInfo "${prefix}.${subPkgName}" pkg."${subPkgName}")
     {}
-    (if pkg.recurseForDerivations or false then subAttrNames pkg else [])
+    (lib.optionals (shouldRecurse pkg) (subAttrNames pkg))
   ;
 
-  updateInfo = mkUpdateInfo "sane" pkgs.sane;
-in {
+  sane = import ./pkgs/packages.nix pkgs;
+  updateInfo = mkUpdateInfo "sane" sane;
+in pkgs // {
   inherit hosts;
   inherit updateInfo;
+  inherit sane;
   # AttrSet mapping attrpath to a list of attrpaths representing all updatable packages beneath it
   updateTargets = builtins.mapAttrs (_: v: v.subPackages) (lib.filterAttrs (_: v: v.subPackages != []) updateInfo);
   # AttrSet mapping attrpath to the path of a shell script which can be used to update the package at that attrpath
   updateScripts = builtins.mapAttrs (_: v: v.updateScript) (lib.filterAttrs (_: v: v.updateScript != "") updateInfo);
-} // pkgs
+}

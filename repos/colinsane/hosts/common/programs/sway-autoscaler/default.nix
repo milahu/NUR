@@ -25,7 +25,13 @@ in
 
     packageUnwrapped = pkgs.static-nix-shell.mkBash {
       pname = "sway-autoscaler";
-      pkgs = [ "jq" "sway" "util-linux" ];
+      pkgs = {
+        inherit (pkgs)
+          jq
+          sway
+          util-linux
+          ;
+      };
       srcRoot = ./.;
     };
 
