@@ -1,0 +1,127 @@
+error:
+… from call site
+
+  at ./pkgs/unfixed.nix:49:21:
+
+    48|       if type == "directory" && builtins.pathExists default then {
+    49|         "${name}" = callPackage default { };
+      |                     ^
+    50|       } else if type == "directory" then {
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:276:19:
+
+   275|   callPackageWith =
+   276|     autoArgs: fn: args:
+      |                   ^
+   277|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1021:5:
+
+  1020|     # TODO: Should we add call-time "type" checking like built in?
+  1021|     __functor = self: f;
+      |     ^
+  1022|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:178:7:
+
+   177|     decorate (
+   178|       origArgs:
+      |       ^
+   179|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:180:18:
+
+   179|       let
+   180|         result = f origArgs;
+      |                  ^
+   181|
+
+… while calling anonymous lambda
+
+  at ./pkgs/by-name/nur/package.nix:1:1:
+
+     1| {
+      | ^
+     2|   callPackage,
+
+… from call site
+
+  at ./pkgs/by-name/nur/package.nix:13:1:
+
+    12| in
+    13| stdenv.mkDerivation (finalAttrs: {
+      | ^
+    14|   pname = "nur";
+
+… while calling 'mkDerivation'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:63:18:
+
+    62|   */
+    63|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                  ^
+    64|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:63:29:
+
+    62|   */
+    63|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                             ^
+    64|
+
+… while calling 'makeDerivationExtensible'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:74:5:
+
+    73|   makeDerivationExtensible =
+    74|     rattrs:
+      |     ^
+    75|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:136:22:
+
+   135|
+   136|       finalPackage = mkDerivationSimple overrideAttrs args;
+      |                      ^
+   137|
+
+… while calling 'mkDerivationSimple'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:767:5:
+
+   766|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   767|     {
+      |     ^
+   768|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:877:5:
+
+   876|
+   877|     extendDerivation validity.handled (
+      |     ^
+   878|       {
+
+… while calling 'extendDerivation'
+
+  at <nixpkgs> + /lib/customisation.nix:411:26:
+
+   410|   extendDerivation =
+   411|     condition: passthru: drv:
+      |                          ^
+   412|     let
+
+error: path '/nix/store/dvw1snn4mswvp6lsfhbzrs9al03wmkdx-source.drv' is not valid
