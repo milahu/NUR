@@ -1,16 +1,16 @@
 {
 "name":"crazazy",
-"fetch_time":0.564,
-"eval_time":0.748,
+"fetch_time":1.143,
+"eval_time":0.702,
 "source":{
 "url":"https://github.com/crazazy/nixos-config",
-"rev":"d58993c806a48d3a1c5e375883ca3342a87aff5a",
-"sha256":"0vdya41pcyl21rm477pkbxc0s6fazz1hw0ypav3249g73d169wnw",
+"rev":"3e6374ed9383ed153028a1a1869aef52410a93ad",
+"sha256":"18cabgkn50h298zwwq0sk20pnavddgcid4vpclmk3kfnlip155il",
 "date":null
 },
-"source_storepath":"/nix/store/xghdshayrxc4c8wbkywjqr1g3gs3c5fl-source",
-"nixpkgs_storepath":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source",
-"nur_combined_rev":"24e060e06ce9ae0eec6345a94bf817a85af7a9af",
+"source_storepath":"/nix/store/k51lnh77wy5zpyrka39n5fzkxbkplapc-source",
+"nixpkgs_storepath":"/nix/store/zlrrhk2ay522jivji2xaca413as4z3rc-source",
+"nur_combined_rev":"85815678af6cd30274adcce51ae71c0a9be1e49b",
 "packages":{
 "cakeml":{
 "meta":{
@@ -43,6 +43,7 @@
 "insecure":false,
 "maintainers":[],
 "name":"cakeml",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -112,10 +113,18 @@
 ],
 "maintainersPosition":{
 "column":54,
-"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/zlrrhk2ay522jivji2xaca413as4z3rc-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1109
 },
 "name":"elm-0.19.1",
+"nonTeamMaintainers":[
+{
+"email":"marek.faj@gmail.com",
+"github":"turboMaCk",
+"githubId":2130305,
+"name":"Marek Fajkus"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -245,6 +254,7 @@
 "mainProgram":"enso",
 "maintainers":[],
 "name":"enso-2025.2.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1116,6 +1126,7 @@
 },
 "maintainers":[],
 "name":"nix-gen-node-tools-1.0.2",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1186,10 +1197,19 @@
 ],
 "maintainersPosition":{
 "column":54,
-"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/zlrrhk2ay522jivji2xaca413as4z3rc-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1109
 },
 "name":"nvfetcher-0.8.0.0",
+"nonTeamMaintainers":[
+{
+"email":"berberman@yandex.com",
+"github":"berberman",
+"githubId":26041945,
+"matrix":"@berberman:mozilla.org",
+"name":"Potato Hatsue"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -1328,6 +1348,7 @@
 ],
 "maintainers":[],
 "name":"seamonkey",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1371,7 +1392,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v41.0.1/RELEASES.md",
+"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v41.0.3/RELEASES.md",
 "description":"wasmtime WebAssembly runner with support for delmited continuations",
 "homepage":"https://wasmtime.dev/",
 "identifiers":{
@@ -1439,10 +1460,25 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/by-name/wa/wasmtime/package.nix",
+"file":"/nix/store/zlrrhk2ay522jivji2xaca413as4z3rc-source/pkgs/by-name/wa/wasmtime/package.nix",
 "line":113
 },
-"name":"wasmtime-41.0.1",
+"name":"wasmtime-41.0.3",
+"nonTeamMaintainers":[
+{
+"email":"ereslibre@ereslibre.es",
+"github":"ereslibre",
+"githubId":8706,
+"matrix":"@ereslibre:matrix.org",
+"name":"Rafael Fern\u00e1ndez L\u00f3pez"
+},
+{
+"email":"hey@winston.sh",
+"github":"nekowinston",
+"githubId":79978224,
+"name":"winston"
+}
+],
 "outputsToInstall":[
 "out"
 ],
