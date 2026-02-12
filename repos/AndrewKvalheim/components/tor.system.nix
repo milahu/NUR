@@ -38,6 +38,7 @@ in
 
       systemd.services.tor = {
         onFailure = [ "alert@%N.service" ];
+        restrictExecToNixStore = true;
       };
     }
   ];

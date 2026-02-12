@@ -12,3 +12,6 @@ ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=cyan'
 # Completions
 compdef '_values passwords $(gopass ls --flat)' gopass-env
 compdef '_values passwords $(gopass ls --flat)' gopass-ydotool
+
+# Tirith
+eval "$(tirith init --shell 'zsh')"

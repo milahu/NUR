@@ -84,6 +84,7 @@ in
       onFailure = [ "alert@%N.service" ];
 
       confinement.enable = true;
+      restrictExecToNixStore = true;
 
       serviceConfig = rec {
         RuntimeDirectory = "%N";

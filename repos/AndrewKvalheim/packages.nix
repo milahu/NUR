@@ -44,6 +44,16 @@ specify {
   fediblockhole = any;
   filter-imf = any;
   firefox.overlay = w: { makeWrapperArgs = w.makeWrapperArgs ++ [ "--unset" "LC_TIME" ]; }; # Workaround for bugzilla#1269895
+  fstl.overlay = f: {
+    postInstall = ''
+      mkdir --parents "$out/share/icons/hicolor/256x256/apps"
+      cp --reflink=auto "$src/xdg/icons/fstlapp-fstl_256x256.png" "$out/share/icons/hicolor/256x256/apps/fstlapp-fstl.png"
+
+      mkdir --parents "$out/share/applications"
+      substitute "$src/xdg/fstlapp-fstl.desktop" "$out/share/applications/fstlapp-fstl.desktop" \
+        --replace-fail 'Exec=fstl' "Exec=$out/bin/fstl"
+    '';
+  }; # TODO: Upstream
   git-diff-image = any;
   git-diff-minecraft = any;
   git-remote = any;
@@ -94,6 +104,7 @@ specify {
   starship-jj = any;
   stretch-break = any;
   tile-stitch = any;
+  tirith = any;
   unln = any;
   vscode-extensions = namespaced {
     andrewkvalheim.monokai-achromatic-gray = any;

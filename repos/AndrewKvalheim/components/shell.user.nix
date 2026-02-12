@@ -398,6 +398,10 @@ in
     undo = "git restore --patch";
   };
 
+  home.packages = with pkgs; [
+    tirith # Used by tirith shell hook
+  ];
+
   home.sessionVariables.EZA_COLORS = concatStringsSep ":" (mapAttrsToList (k: v: "${k}=${(v null).on}") (with sgr; {
     ur = dim white; # permission user-read
     uw = dim white; # permission user-write

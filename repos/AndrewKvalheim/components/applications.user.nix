@@ -107,6 +107,7 @@ in
       fast-cli
       ffmpeg
       file
+      fstl
       fq
       gifsicle
       gimp3-with-plugins

@@ -36,6 +36,9 @@ in
   # /boot
   fileSystems."/boot".options = [ "umask=0077" ];
 
+  # /dev/shm
+  boot.specialFileSystems."/dev/shm".options = [ "noexec" ];
+
   # /tmp
   boot.tmp.cleanOnBoot = true;
 }
