@@ -1,19 +1,22 @@
 {
   stdenvNoCC,
   fetchurl,
-  unzip,
+  steam,
+  undmg,
   lib,
   ...
-}: let
+}:
+if stdenvNoCC.isDarwin
+then let
   ver = lib.helper.read ./version.json;
 in
   stdenvNoCC.mkDerivation {
-    pname = "open-emu";
+    pname = "steam";
 
     src = fetchurl (lib.helper.getSingle ver);
     inherit (ver) version;
 
-    nativeBuildInputs = [unzip];
+    nativeBuildInputs = [undmg];
 
     sourceRoot = ".";
 
@@ -29,11 +32,13 @@ in
     '';
 
     meta = {
-      description = "Retro video game emulation";
-      homepage = "https://openemu.org/";
+      description = "Digital distribution platform";
+      longDescription = ''Steam is a video game digital distribution service and storefront from Valve.'';
+      homepage = "https://store.steampowered.com/";
       maintainers = ["Prinky"];
-      license = lib.licenses.mit;
+      license = lib.licenses.unfreeRedistributable;
       platforms = lib.platforms.darwin;
       sourceProvenance = [lib.sourceTypes.binaryNativeCode];
     };
   }
+else steam
