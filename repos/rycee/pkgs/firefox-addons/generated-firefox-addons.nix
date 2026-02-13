@@ -161,10 +161,10 @@
     };
     "addy_io" = buildFirefoxXpiAddon {
       pname = "addy_io";
-      version = "3.0.1";
+      version = "3.0.2";
       addonId = "browser-extension@anonaddy";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4686815/addy_io-3.0.1.xpi";
-      sha256 = "f263908d48c4dbe0bdc73f9dc3129d7c03f1bdefb0c23953b606f46f1ef7a7a5";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4691902/addy_io-3.0.2.xpi";
+      sha256 = "f5d7b6f39f5c8db590e874e7a597ffad24d9c1166bcde459f33c19aaec7fd170";
       meta = with lib;
       {
         homepage = "https://addy.io";
@@ -2216,10 +2216,10 @@
     };
     "container-tab-groups" = buildFirefoxXpiAddon {
       pname = "container-tab-groups";
-      version = "11.11.0.200";
+      version = "11.12.0.200";
       addonId = "tab-array@menhera.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4436058/container_tab_groups-11.11.0.200.xpi";
-      sha256 = "54ae4d2d4e412e524a1b461edd4108f6b0f5b0719fc0d34809dbdebedc0a63f1";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4691167/container_tab_groups-11.12.0.200.xpi";
+      sha256 = "726b9a06f31028a95a0ff4ea4c6fd9e5ffc5d9c3b1c578f2f4ca58fb3389bf12";
       meta = with lib;
       {
         homepage = "https://github.com/menhera-org/TabArray";
@@ -2387,10 +2387,10 @@
     };
     "copy-as-markdown" = buildFirefoxXpiAddon {
       pname = "copy-as-markdown";
-      version = "3.4.2";
+      version = "3.5.0";
       addonId = "jid1-tfBgelm3d4bLkQ@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4642341/copy_as_markdown-3.4.2.xpi";
-      sha256 = "3b3fb9078c5eebdade8195c6b100629fec232c78106a50e41570c6c4d1a8615c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4691464/copy_as_markdown-3.5.0.xpi";
+      sha256 = "048c00f2c58e9415f2ce58f1d15281c849b0b851f035d44276a01df60e7c66d4";
       meta = with lib;
       {
         homepage = "https://github.com/yorkxin/copy-as-markdown";
@@ -2730,10 +2730,10 @@
     };
     "danish-language-pack" = buildFirefoxXpiAddon {
       pname = "danish-language-pack";
-      version = "148.0.20260209.90705";
+      version = "148.0.20260211.92213";
       addonId = "langpack-da@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4689428/dansk_da_language_pack-148.0.20260209.90705.xpi";
-      sha256 = "91d1cfbdd57aad4f6b16164c5a53e920d6db50f2e4662f6dda41d34b10eb4b9a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4691611/dansk_da_language_pack-148.0.20260211.92213.xpi";
+      sha256 = "c01efde56ede3c759f4c5901c75995bb3f1ceb0ea526146f5cd770e490ebf1e0";
       meta = with lib;
       {
         description = "Firefox Language Pack for Dansk (da) – Danish";
@@ -2943,10 +2943,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "148.0.20260209.90705";
+      version = "148.0.20260211.92213";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4689447/deutsch_de_language_pack-148.0.20260209.90705.xpi";
-      sha256 = "b0a2b4f4bf4e0318f837a4dbb97318e932339fadc68f125e9ee0b001b4f75a64";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4691612/deutsch_de_language_pack-148.0.20260211.92213.xpi";
+      sha256 = "7009248f68eb0ea3b5a6da14b5d38f2841375ffa0b00a35c5002f2dcf6803c2f";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -3676,16 +3676,16 @@
     };
     "export-tabs-urls-and-titles" = buildFirefoxXpiAddon {
       pname = "export-tabs-urls-and-titles";
-      version = "0.2.12";
+      version = "0.3.0";
       addonId = "{17165bd9-9b71-4323-99a5-3d4ce49f3d75}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/3398882/export_tabs_urls_and_titles-0.2.12.xpi";
-      sha256 = "ff71ff6e300bf00e02ba79e127073f918aec79f951b749b2f06add006e773ac9";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4691843/export_tabs_urls_and_titles-0.3.0.xpi";
+      sha256 = "8dcf8a3fe59cd5592ca6b3ab85bcdfc2ef5f9e840c3f0f677ed3f7427ae751f8";
       meta = with lib;
       {
         homepage = "https://github.com/alct/export-tabs-urls";
         description = "List the URLs of all the open tabs and copy that list to clipboard or export it to a file.\n\nFeatures:\n- include titles\n- custom format (e.g. markdown, html…)\n- filter tabs\n- limit to current window\n- list non-HTTP(s) URLs\n- ignore pinned tabs";
         license = licenses.gpl3;
-        mozPermissions = [ "clipboardWrite" "notifications" "storage" "tabs" ];
+        mozPermissions = [ "notifications" "storage" "tabs" ];
         platforms = platforms.all;
       };
     };
@@ -4419,10 +4419,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "148.0.20260209.90705";
+      version = "148.0.20260211.92213";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4689516/francais_language_pack-148.0.20260209.90705.xpi";
-      sha256 = "e0acf30202e70b3c55aa2bf8e01f2979e73f579ac7ec0d5a995f62f51c77d036";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4691642/francais_language_pack-148.0.20260211.92213.xpi";
+      sha256 = "e23f8d19c1c17ae00d499d708b9dbe357f054efaf6cb6a8adc880e54ba53ca7c";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4456,10 +4456,10 @@
     };
     "gaidhlig-language-pack" = buildFirefoxXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "148.0.20260209.90705";
+      version = "148.0.20260211.92213";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4689512/gaidhlig_language_pack-148.0.20260209.90705.xpi";
-      sha256 = "89a491fb0fd72c5aa3122b848ca7be62e0db0a2c428ac14923707edeeb1d09f4";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4691563/gaidhlig_language_pack-148.0.20260211.92213.xpi";
+      sha256 = "53f8aa3bb99d7d93bf4b94abe540badd5d0c8b8d3929496e5af005f124af69b1";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -9658,10 +9658,10 @@
     };
     "mtab" = buildFirefoxXpiAddon {
       pname = "mtab";
-      version = "1.10.3";
+      version = "1.10.4";
       addonId = "contact@maxhu.dev";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4687351/mtab-1.10.3.xpi";
-      sha256 = "4187a2a5b7b38a9d367917129e11cbdfe855033c2eea7a632564b542b5daf761";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4692201/mtab-1.10.4.xpi";
+      sha256 = "f8d39e0c9aa1d4db0f3e8141e682479075477de776cb0f545d2a99aa98027c02";
       meta = with lib;
       {
         homepage = "https://get-mtab.vercel.app";
@@ -11471,10 +11471,10 @@
     };
     "private-grammar-checker-harper" = buildFirefoxXpiAddon {
       pname = "private-grammar-checker-harper";
-      version = "1.6.0";
+      version = "1.7.0";
       addonId = "harper@writewithharper.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4685080/private_grammar_checker_harper-1.6.0.xpi";
-      sha256 = "0bba1f442aaf47ad7089ce83e2e5c35f05c215aa26f881f74b6e6b7a4a2cabd8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4692158/private_grammar_checker_harper-1.7.0.xpi";
+      sha256 = "abb1f387ade5885734ce5382a5d61bbabac146029cbbac182ca3c04aeb00f421";
       meta = with lib;
       {
         homepage = "https://writewithharper.com";
@@ -12420,10 +12420,10 @@
     };
     "refined-github" = buildFirefoxXpiAddon {
       pname = "refined-github";
-      version = "26.2.2";
+      version = "26.2.3";
       addonId = "{a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4682198/refined_github-26.2.2.xpi";
-      sha256 = "020f040a973b700dbac9fae6611ad1b516ab80d46e30e296b74a81e0f14bd9f4";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4691422/refined_github-26.2.3.xpi";
+      sha256 = "0d49c1f4df9b25f0e3b2807b155b668e567ca0129d97f7d5271dff3eb4c19438";
       meta = with lib;
       {
         homepage = "https://github.com/refined-github/refined-github";
@@ -12740,10 +12740,10 @@
     };
     "scots-language-pack" = buildFirefoxXpiAddon {
       pname = "scots-language-pack";
-      version = "148.0.20260209.90705";
+      version = "148.0.20260211.92213";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4689502/scots_language_pack-148.0.20260209.90705.xpi";
-      sha256 = "1408d0cc0ecd1c935379937070ec44dd2cc44ce12807f13faaffdd06f1182024";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4691562/scots_language_pack-148.0.20260211.92213.xpi";
+      sha256 = "d2655afd66ae6aba3850c28b2e35f4e74651d56edd94fa2fd2ee861587b89439";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
@@ -13017,25 +13017,25 @@
     };
     "shortkeys" = buildFirefoxXpiAddon {
       pname = "shortkeys";
-      version = "4.0.2";
+      version = "2.0.20";
       addonId = "Shortkeys@Shortkeys.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/3673761/shortkeys-4.0.2.xpi";
-      sha256 = "c6fe12efdd7a871787ac4526eea79ecc1acda8a99724aa2a2a55c88a9acf467c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/715576/shortkeys-2.0.20.xpi";
+      sha256 = "9dff43872018461f2dc82b6519395e3159f35b3d6a262ae58a4944d822ecfb1a";
       meta = with lib;
       {
         homepage = "https://github.com/mikecrittenden/shortkeys";
         description = "Easily customizable custom keyboard shortcuts for Firefox. To configure this addon go to Addons (ctrl+shift+a) -&gt;Shortkeys -&gt;Options. Report issues here (please specify that the issue is found in Firefox): https://github.com/mikecrittenden/shortkeys";
         license = licenses.mit;
         mozPermissions = [
-          "downloads"
           "tabs"
+          "activeTab"
+          "downloads"
           "clipboardWrite"
-          "browsingData"
           "storage"
           "bookmarks"
-          "sessions"
-          "management"
           "<all_urls>"
+          "http://*/*"
+          "https://*/*"
         ];
         platforms = platforms.all;
       };
