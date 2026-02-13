@@ -44,16 +44,7 @@ specify {
   fediblockhole = any;
   filter-imf = any;
   firefox.overlay = w: { makeWrapperArgs = w.makeWrapperArgs ++ [ "--unset" "LC_TIME" ]; }; # Workaround for bugzilla#1269895
-  fstl.overlay = f: {
-    postInstall = ''
-      mkdir --parents "$out/share/icons/hicolor/256x256/apps"
-      cp --reflink=auto "$src/xdg/icons/fstlapp-fstl_256x256.png" "$out/share/icons/hicolor/256x256/apps/fstlapp-fstl.png"
-
-      mkdir --parents "$out/share/applications"
-      substitute "$src/xdg/fstlapp-fstl.desktop" "$out/share/applications/fstlapp-fstl.desktop" \
-        --replace-fail 'Exec=fstl' "Exec=$out/bin/fstl"
-    '';
-  }; # TODO: Upstream
+  fstl = { condition = f: hasInfix "xdg_install" f.postInstall or ""; search = pr 489682 "sha256-Et/OxnHDCXtp0LiW6RfQ4pqh7ExFT435SMu6RN1tLWI="; }; # Pending NixOS/nixpkgs#489682
   git-diff-image = any;
   git-diff-minecraft = any;
   git-remote = any;
