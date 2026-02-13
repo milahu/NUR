@@ -10,7 +10,7 @@
   nix-update-script,
   nix-update,
   nodejs_latest,
-  python3,
+  python315,
   runtimeShell,
   shellcheck,
   stdenv,
@@ -18,13 +18,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "bumper";
-  version = "0.10.2";
+  version = "0.10.3";
 
   src = fetchFromGitHub {
     owner = "spotdemo4";
     repo = "bumper";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-o7tgHpVt9vt33323Um4Xjv/WxPkN0wQZOYzruZFvy1g=";
+    hash = "sha256-mBx95Lgf+c4r6FvAFohrNQNgd1FHUKoVaxSkqvVzjbo=";
   };
 
   nativeBuildInputs = [
@@ -48,7 +48,7 @@ stdenv.mkDerivation (finalAttrs: {
     nodejs_latest
 
     # python
-    python3
+    python315
     uv
   ];
 
