@@ -2019,10 +2019,10 @@
     };
     "click-and-read" = buildFirefoxXpiAddon {
       pname = "click-and-read";
-      version = "4.2.8";
+      version = "4.2.9";
       addonId = "inist.users@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4689377/click_and_read-4.2.8.xpi";
-      sha256 = "72fc4b51b261898c3a3e11af1e03706022aee2ed3cac1005cff8e056a97b770e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4692362/click_and_read-4.2.9.xpi";
+      sha256 = "2c27927bbee044bbfa77dc10435e084b4ea8f594a00f2ccef58444c6f731cf8b";
       meta = with lib;
       {
         homepage = "https://clickandread.inist.fr/";
@@ -3676,10 +3676,10 @@
     };
     "export-tabs-urls-and-titles" = buildFirefoxXpiAddon {
       pname = "export-tabs-urls-and-titles";
-      version = "0.3.0";
+      version = "0.3.2";
       addonId = "{17165bd9-9b71-4323-99a5-3d4ce49f3d75}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4691843/export_tabs_urls_and_titles-0.3.0.xpi";
-      sha256 = "8dcf8a3fe59cd5592ca6b3ab85bcdfc2ef5f9e840c3f0f677ed3f7427ae751f8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4693152/export_tabs_urls_and_titles-0.3.2.xpi";
+      sha256 = "5314b2f93e8c8e6ef58110fb85611e714cb320bf3e5d6e6dbebc7bfd96c15ebc";
       meta = with lib;
       {
         homepage = "https://github.com/alct/export-tabs-urls";
@@ -4101,10 +4101,10 @@
     };
     "flagfox" = buildFirefoxXpiAddon {
       pname = "flagfox";
-      version = "6.1.94";
+      version = "6.1.95";
       addonId = "{1018e4d6-728f-4b20-ad56-37578a4de76b}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4653992/flagfox-6.1.94.xpi";
-      sha256 = "42a97e30b519af9af7297304c779aa5e2d1062bf8f77c657eac01c7fbed575d4";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4680465/flagfox-6.1.95.xpi";
+      sha256 = "6dbec570790dc0b9f3f13f23fed396606fdcc1649a8a21aa13d26745b18363ff";
       meta = with lib;
       {
         homepage = "https://flagfox.wordpress.com/";
@@ -5217,10 +5217,10 @@
     };
     "hover-zoom-plus" = buildFirefoxXpiAddon {
       pname = "hover-zoom-plus";
-      version = "1.1.10";
+      version = "1.1.11";
       addonId = "{92e6fe1c-6e1d-44e1-8bc6-d309e59406af}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4662939/hover_zoom_plus-1.1.10.xpi";
-      sha256 = "58b604782793266f78ddb0f627f17f5cdf1281ee8a143722a3af88d9dfc6e8da";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4680437/hover_zoom_plus-1.1.11.xpi";
+      sha256 = "15b8a73ab5d4c0f01c513d5db94c82f0e2cbd14af171a8a492d20e8649a50275";
       meta = with lib;
       {
         homepage = "https://github.com/extesy/hoverzoom/";
@@ -6219,6 +6219,7 @@
           "*://*.erome.com/*"
           "*://*.otempo.com.br/*"
           "*://*.listal.com/*"
+          "*://*.sankaku.app/*"
         ];
         platforms = platforms.all;
       };
@@ -7294,10 +7295,10 @@
     };
     "kiss-translator" = buildFirefoxXpiAddon {
       pname = "kiss-translator";
-      version = "2.0.18";
+      version = "2.0.20";
       addonId = "{fb25c100-22ce-4d5a-be7e-75f3d6f0fc13}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4677105/kiss_translator-2.0.18.xpi";
-      sha256 = "4538c3a3351a6093f4e713837accffe163329bdaa496f4709085bf8efedfc9b3";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4692365/kiss_translator-2.0.20.xpi";
+      sha256 = "78a7a91e7cafde9f93341e442fcf07e8582096fee979b9ffdb935cb66c089a82";
       meta = with lib;
       {
         homepage = "https://github.com/fishjar/kiss-translator";
@@ -8459,10 +8460,10 @@
     };
     "linkwarden" = buildFirefoxXpiAddon {
       pname = "linkwarden";
-      version = "1.5.0";
+      version = "1.5.1";
       addonId = "jordanlinkwarden@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4657329/linkwarden-1.5.0.xpi";
-      sha256 = "c3c591e45b28ba359e6d28e97f68c97ff9af176a0b366c55d821711e1222599e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4693064/linkwarden-1.5.1.xpi";
+      sha256 = "092e376952433647d61ea571e92602be3f0214e4f0d7e971c14fe1e30d64866c";
       meta = with lib;
       {
         description = "The browser extension for Linkwarden.";
@@ -9870,10 +9871,10 @@
     };
     "news-feed-eradicator" = buildFirefoxXpiAddon {
       pname = "news-feed-eradicator";
-      version = "3.0.2";
+      version = "3.0.4";
       addonId = "@news-feed-eradicator";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4686452/news_feed_eradicator-3.0.2.xpi";
-      sha256 = "0076cc053b67f57039daee078046adcd09d8a4d04e0df5485868859ee206c58c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4693133/news_feed_eradicator-3.0.4.xpi";
+      sha256 = "eec5b0581b994b5462b06f20a9470c1da0721a4bd9189cad95988479e7258331";
       meta = with lib;
       {
         homepage = "https://west.io/news-feed-eradicator";
@@ -11603,10 +11604,10 @@
     };
     "proton-vpn" = buildFirefoxXpiAddon {
       pname = "proton-vpn";
-      version = "1.2.13";
+      version = "1.2.15";
       addonId = "vpn@proton.ch";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4643086/proton_vpn_firefox_extension-1.2.13.xpi";
-      sha256 = "f300dea219aa183102c35d5f3d5cc82f7ab78e5545380853bd09dc8662aac147";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4666247/proton_vpn_firefox_extension-1.2.15.xpi";
+      sha256 = "381dd05af39b71c86292612a552fa82431753cba60a96761cb3dd47c9e24e437";
       meta = with lib;
       {
         homepage = "https://protonvpn.com/";
@@ -12557,10 +12558,10 @@
     };
     "ruffle_rs" = buildFirefoxXpiAddon {
       pname = "ruffle_rs";
-      version = "0.2.0.26023";
+      version = "0.2.0.26031";
       addonId = "{b5501fd1-7084-45c5-9aa6-567c2fcf5dc6}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4673013/ruffle_rs-0.2.0.26023.xpi";
-      sha256 = "46fefdb9bf2382c97d98e4a4527af4013585abc64763135d149c397e9576d607";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4680575/ruffle_rs-0.2.0.26031.xpi";
+      sha256 = "f28ccf05108a46e319e33bc9fbed46cb41adfc8f42e8923e88140fad3ea660cc";
       meta = with lib;
       {
         homepage = "https://ruffle.rs/";
