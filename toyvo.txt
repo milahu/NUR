@@ -1,0 +1,11 @@
+error:
+… while querying the derivation named 'mcsmanager-daemon-4.12.1'
+
+error: undefined variable 'toyvo'
+
+at ./pkgs/mcsmanager/daemon.nix:57:39:
+
+    56|     ];
+    57|     maintainers = with maintainers; [ toyvo ];
+      |                                       ^
+    58|   };
