@@ -44,6 +44,7 @@ specify {
   fediblockhole = any;
   filter-imf = any;
   firefox.overlay = w: { makeWrapperArgs = w.makeWrapperArgs ++ [ "--unset" "LC_TIME" ]; }; # Workaround for bugzilla#1269895
+  freecad.env.GSETTINGS_SCHEMA_DIR = "${resolved.gtk3}/share/gsettings-schemas/${resolved.gtk3.name}/glib-2.0/schemas"; # Workaround for NixOS/nixpkgs#467783
   fstl = { condition = f: hasInfix "xdg_install" f.postInstall or ""; search = pr 489682 "sha256-Et/OxnHDCXtp0LiW6RfQ4pqh7ExFT435SMu6RN1tLWI="; }; # Pending NixOS/nixpkgs#489682
   git-diff-image = any;
   git-diff-minecraft = any;
@@ -95,7 +96,6 @@ specify {
   starship-jj = any;
   stretch-break = any;
   tile-stitch = any;
-  tirith = any;
   unln = any;
   vscode-extensions = namespaced {
     andrewkvalheim.monokai-achromatic-gray = any;

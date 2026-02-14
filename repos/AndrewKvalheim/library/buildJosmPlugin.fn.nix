@@ -21,9 +21,9 @@ extendMkDerivation {
   extendDrvArgs = _: { pluginName ? args.pname, ... } @ args: {
     srcJosmPlugins = fetchsvn {
       url = "https://josm.openstreetmap.de/osmsvn/applications/editors/josm/";
-      rev = "36477";
+      rev = "36487";
       ignoreExternals = true;
-      hash = "sha256-EKqy3BRndD8iYZ0voqa7RWueEzphNYEAOd0yTLSh6xk=";
+      hash = "sha256-tbGms8Ppj5h0LIbr6gPIpQv/r9osR7aDznCV0E+x944=";
     };
 
     srcJosmTools = fetchsvn {
@@ -47,14 +47,14 @@ extendMkDerivation {
       (toFile "offline.patch" ''
         --- a/josm/plugins/build-common.xml
         +++ b/josm/plugins/build-common.xml
-        @@ -115 +115 @@
-        -    <target name="compile" depends="init, pre-compile, resolve-tools" unless="skip-compile">
-        +    <target name="compile" depends="init, pre-compile" unless="skip-compile">
-        @@ -124 +123,0 @@
+        @@ -123 +123 @@
+        -    <target name="compile" depends="init, pre-compile, resolve-tools, plugin-classpath-actual" unless="skip-compile">
+        +    <target name="compile" depends="init, pre-compile, plugin-classpath-actual" unless="skip-compile">
+        @@ -126 +125,0 @@
         -            <path refid="errorprone_javac.classpath"/>
-        @@ -140 +138,0 @@
+        @@ -146 +144,0 @@
         -            <compilerarg pathref="errorprone.classpath"/>
-        @@ -143 +140,0 @@
+        @@ -149 +146,0 @@
         -            <compilerarg value="-Xplugin:ErrorProne -Xep:StringSplitter:OFF -Xep:ReferenceEquality:OFF -Xep:InsecureCryptoUsage:OFF -Xep:FutureReturnValueIgnored:OFF -Xep:JdkObsolete:OFF -Xep:EqualsHashCode:OFF -Xep:JavaUtilDate:OFF -Xep:DoNotCallSuggester:OFF -Xep:BanSerializableRead:OFF" />
       '')
     ];
