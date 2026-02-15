@@ -1517,10 +1517,10 @@
     };
     "canvasblocker" = buildFirefoxXpiAddon {
       pname = "canvasblocker";
-      version = "1.11";
+      version = "1.12";
       addonId = "CanvasBlocker@kkapsner.de";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4413485/canvasblocker-1.11.xpi";
-      sha256 = "0479b7315ce2c195fd2fbd519c50866030083abdb6d895c1b162d52762a676ec";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4691016/canvasblocker-1.12.xpi";
+      sha256 = "0698d92c4bd2d190b2f4025613bf4bd3dba40910d58ab4cf1b32f36637a244c9";
       meta = with lib;
       {
         homepage = "https://github.com/kkapsner/CanvasBlocker/";
@@ -2730,10 +2730,10 @@
     };
     "danish-language-pack" = buildFirefoxXpiAddon {
       pname = "danish-language-pack";
-      version = "148.0.20260211.92213";
+      version = "147.0.20260212.191108";
       addonId = "langpack-da@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4691611/dansk_da_language_pack-148.0.20260211.92213.xpi";
-      sha256 = "c01efde56ede3c759f4c5901c75995bb3f1ceb0ea526146f5cd770e490ebf1e0";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4694270/dansk_da_language_pack-147.0.20260212.191108.xpi";
+      sha256 = "b84f9211a6869888f629e1392cdb5c745e33a3981fc3c2573dc157753011dd6e";
       meta = with lib;
       {
         description = "Firefox Language Pack for Dansk (da) – Danish";
@@ -2943,10 +2943,10 @@
     };
     "deutsch-de-language-pack" = buildFirefoxXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "148.0.20260211.92213";
+      version = "147.0.20260212.191108";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4691612/deutsch_de_language_pack-148.0.20260211.92213.xpi";
-      sha256 = "7009248f68eb0ea3b5a6da14b5d38f2841375ffa0b00a35c5002f2dcf6803c2f";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4694272/deutsch_de_language_pack-147.0.20260212.191108.xpi";
+      sha256 = "7d9721161892edd839ec1fb8f688d334c100392404e43d4c191dcd17e96126f3";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -2979,10 +2979,10 @@
     };
     "dictionaries" = buildFirefoxXpiAddon {
       pname = "dictionaries";
-      version = "7.3.0";
+      version = "7.3.1";
       addonId = "revir.qing@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4690022/dictionaries-7.3.0.xpi";
-      sha256 = "0c4152992e6b93cd020ba91b90bad2b928d63f10b5e5770ca5a1bfb3ed558628";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4694167/dictionaries-7.3.1.xpi";
+      sha256 = "3114c5c44a8cd62e84051dcea42d0d49844fb13419658a35647d6e7612744685";
       meta = with lib;
       {
         homepage = "https://dictionariez.pnl.dev";
@@ -4419,10 +4419,10 @@
     };
     "french-language-pack" = buildFirefoxXpiAddon {
       pname = "french-language-pack";
-      version = "148.0.20260211.92213";
+      version = "147.0.20260212.191108";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4691642/francais_language_pack-148.0.20260211.92213.xpi";
-      sha256 = "e23f8d19c1c17ae00d499d708b9dbe357f054efaf6cb6a8adc880e54ba53ca7c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4694193/francais_language_pack-147.0.20260212.191108.xpi";
+      sha256 = "7d5200d44cb84bbb5ca660073d93595e11ca5887f4e3a74993a12e6ad1eb6144";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4456,10 +4456,10 @@
     };
     "gaidhlig-language-pack" = buildFirefoxXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "148.0.20260211.92213";
+      version = "147.0.20260212.191108";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4691563/gaidhlig_language_pack-148.0.20260211.92213.xpi";
-      sha256 = "53f8aa3bb99d7d93bf4b94abe540badd5d0c8b8d3929496e5af005f124af69b1";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4694251/gaidhlig_language_pack-147.0.20260212.191108.xpi";
+      sha256 = "01e9960cfd4d864af195f7e068d08429f09d651cafa1080ea6d4b6f1b87a4cb2";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -9479,10 +9479,10 @@
     };
     "mergify" = buildFirefoxXpiAddon {
       pname = "mergify";
-      version = "1.0.34";
+      version = "1.0.35";
       addonId = "d1b33d6a57c463f0daef4abfb625edddd1c2d5d9@mergify.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4686947/mergify-1.0.34.xpi";
-      sha256 = "fb02fc9d19d21613470f9c10da375c263e91e239919c69d2ab9132438c9175ef";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4693364/mergify-1.0.35.xpi";
+      sha256 = "477992d94ba8dc23be83cc3b098e0596ff148ca5a7b527c3c3dea733944cca81";
       meta = with lib;
       {
         description = "Mergify extension for GitHub";
@@ -9659,10 +9659,10 @@
     };
     "mtab" = buildFirefoxXpiAddon {
       pname = "mtab";
-      version = "1.10.4";
+      version = "1.10.5";
       addonId = "contact@maxhu.dev";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4692201/mtab-1.10.4.xpi";
-      sha256 = "f8d39e0c9aa1d4db0f3e8141e682479075477de776cb0f545d2a99aa98027c02";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4694452/mtab-1.10.5.xpi";
+      sha256 = "7cd25458973f8f74070b5cf684159d3707bce34edee09052290ece4c9fc38190";
       meta = with lib;
       {
         homepage = "https://get-mtab.vercel.app";
@@ -9787,6 +9787,47 @@
         description = "Force MathJax/KaTeX/MediaWIki to use native MathML rendering.";
         license = licenses.mpl20;
         mozPermissions = [ "<all_urls>" ];
+        platforms = platforms.all;
+      };
+    };
+    "nekocap" = buildFirefoxXpiAddon {
+      pname = "nekocap";
+      version = "1.21.0";
+      addonId = "nekocaption@gmail.com";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4670586/nekocap-1.21.0.xpi";
+      sha256 = "6f66f5520ee42ec53ffe3f6d4e0c67618b905911ef66fd75e2e57e7720da4004";
+      meta = with lib;
+      {
+        homepage = "https://nekocap.com";
+        description = "Create and upload community captions for YouTube videos (and more) with this easy to use extension that supports SSA/ASS rendering.";
+        license = licenses.gpl3;
+        mozPermissions = [
+          "storage"
+          "webNavigation"
+          "identity"
+          "https://*.youtube.com/*"
+          "https://*.tver.jp/*"
+          "https://*.nicovideo.jp/*"
+          "https://*.vimeo.com/*"
+          "https://*.bilibili.com/*"
+          "https://*.netflix.com/*"
+          "https://*.primevideo.com/*"
+          "https://*.twitter.com/*"
+          "https://*.x.com/*"
+          "https://*.wetv.vip/*"
+          "https://*.tiktok.com/*"
+          "https://*.iq.com/*"
+          "https://*.abema.tv/*"
+          "https://*.dailymotion.com/*"
+          "https://*.bilibili.tv/*"
+          "https://*.nogidoga.com/*"
+          "https://*.cu.tbs.co.jp/*"
+          "https://*.instagram.com/*"
+          "https://*.unext.jp/*"
+          "https://*.lemino.docomo.ne.jp/*"
+          "https://*.oned.net/*"
+          "https://*.archive.org/*"
+        ];
         platforms = platforms.all;
       };
     };
@@ -10355,10 +10396,10 @@
     };
     "onepassword-password-manager" = buildFirefoxXpiAddon {
       pname = "onepassword-password-manager";
-      version = "8.12.1.3";
+      version = "8.12.2.38";
       addonId = "{d634138d-c276-4fc8-924b-40a0ea21d284}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4677239/1password_x_password_manager-8.12.1.3.xpi";
-      sha256 = "2204c09bf1bed9d8ac0d49132eb2c515aa7b39bbdcddbf4b128e976837fd1ec5";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4692796/1password_x_password_manager-8.12.2.38.xpi";
+      sha256 = "252d110c7aa23abdf4c888990ae483e508f6fddcdf25fdff628f87af4e1b04de";
       meta = with lib;
       {
         homepage = "https://1password.com";
@@ -10402,7 +10443,11 @@
           "https://*.b5test.eu/*"
           "https://*.b5rev.com/*"
           "https://app.kolide.com/*"
+          "https://app.kolide.ca/*"
+          "https://app.kolide.eu/*"
           "https://auth.kolide.com/*"
+          "https://auth.kolide.ca/*"
+          "https://auth.kolide.eu/*"
           "https://www.director.ai/?*"
           "https://www.director.ai/"
           "https://www.director.ai/complete-1password-pairing?*"
@@ -12741,10 +12786,10 @@
     };
     "scots-language-pack" = buildFirefoxXpiAddon {
       pname = "scots-language-pack";
-      version = "148.0.20260211.92213";
+      version = "147.0.20260212.191108";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4691562/scots_language_pack-148.0.20260211.92213.xpi";
-      sha256 = "d2655afd66ae6aba3850c28b2e35f4e74651d56edd94fa2fd2ee861587b89439";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4694266/scots_language_pack-147.0.20260212.191108.xpi";
+      sha256 = "ab03573508dd6fc2dd4938523283d077f0c391ccbfe01549811d04184eb0ed38";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
