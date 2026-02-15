@@ -1,12 +1,15 @@
+trace: Nixpkgs version : 26.05pre944764.2343bbb58f99,
+  Nixos Version : master,
+  Local Usage : false
 error:
 … from call site
 
-  at ./default.nix:15:13:
+  at ./default.nix:65:19:
 
-    14|   ripcord = pkgs.callPackage ./pkgs/ripcord { };
-    15|   ydotool = pkgs.callPackage ./pkgs/ydotool { };
-      |             ^
-    16|   compton-tryone = pkgs.callPackage ./pkgs/compton-tryone { };
+    64|   };
+    65|   go-pathfinder = pkgs.callPackage ./pkgs/Go-pathfinder { inherit (mylib.gomod2nix) buildGoApplication; };
+      |                   ^
+    66|   go-sdl2 = pkgs.callPackage ./pkgs/go-sdl2 { inherit (mylib.gomod2nix) buildGoApplication; };
 
 … while calling 'callPackageWith'
 
@@ -17,4 +20,93 @@ error:
       |                   ^
    277|     let
 
-error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "pkgconfig" at ./pkgs/ydotool/default.nix:1, did you mean "pkg-config" or "pkgconf"?'
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1021:5:
+
+  1020|     # TODO: Should we add call-time "type" checking like built in?
+  1021|     __functor = self: f;
+      |     ^
+  1022|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:178:7:
+
+   177|     decorate (
+   178|       origArgs:
+      |       ^
+   179|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:180:18:
+
+   179|       let
+   180|         result = f origArgs;
+      |                  ^
+   181|
+
+… while calling anonymous lambda
+
+  at ./pkgs/Go-pathfinder/default.nix:1:1:
+
+     1| { lib
+      | ^
+     2| , fetchFromGitHub
+
+… from call site
+
+  at ./lib/default.nix:6:14:
+
+     5|   gomod2nixbuilder = if gomod2nix != null then (gomod2nix + "/builder") else ./gomod2nix/builder;
+     6|   builder1 = pkgs.callPackage gomod2nixbuilder { gomod2nix = gomod2nix0; };
+      |              ^
+     7| in {
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:276:19:
+
+   275|   callPackageWith =
+   276|     autoArgs: fn: args:
+      |                   ^
+   277|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:290:11:
+
+   289|         (
+   290|           filterAttrs (name: value: !value)
+      |           ^
+   291|             # Filter out arguments that would be passed
+
+… while calling 'filterAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:663:23:
+
+   662|   */
+   663|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                       ^
+   664|
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:279:15:
+
+   278|       f = if isFunction fn then fn else import fn;
+   279|       fargs = functionArgs f;
+      |               ^
+   280|
+
+… while calling 'functionArgs'
+
+  at <nixpkgs> + /lib/trivial.nix:1044:5:
+
+  1043|   functionArgs =
+  1044|     f:
+      |     ^
+  1045|     if f ? __functor then
+
+error: getting status of './lib/gomod2nix/builder': No such file or directory
