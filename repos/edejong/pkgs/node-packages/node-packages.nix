@@ -17,16 +17,16 @@ in
   get-shit-done-cc = nodeEnv.buildNodePackage {
     name = "get-shit-done-cc";
     packageName = "get-shit-done-cc";
-    version = "1.18.0";
+    version = "1.20.0";
     src = fetchurl {
-      url = "https://registry.npmjs.org/get-shit-done-cc/-/get-shit-done-cc-1.18.0.tgz";
-      sha512 = "5GcKQyEgifk47iH+3AnSuItSpxP5opPt4/aIWRt0XAhzm8Moqj0N91OHlvv3z41BO/13op2fBtGtm2bapDLvqA==";
+      url = "https://registry.npmjs.org/get-shit-done-cc/-/get-shit-done-cc-1.20.0.tgz";
+      sha512 = "Pp2vioh+iz9wkNh04BU4o0NVRcDtqERf1lt6JBgdQ4V/8FGuHmKhloLWEFCyXW9iaNQDQVo9Q+BgxJlx93XrUg==";
     };
     buildInputs = globalBuildInputs;
     meta = {
       description = "A meta-prompting, context engineering and spec-driven development system for Claude Code, OpenCode and Gemini by TÂCHES.";
       homepage = "https://github.com/glittercowboy/get-shit-done";
-      license = "MIT";
+      license = lib.licenses.mit;
       mainProgram = "get-shit-done-cc";
     };
     production = true;
