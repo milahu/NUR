@@ -12506,10 +12506,10 @@
     };
     "remove-youtube-s-suggestions" = buildFirefoxXpiAddon {
       pname = "remove-youtube-s-suggestions";
-      version = "4.3.70";
+      version = "4.3.71";
       addonId = "{21f1ba12-47e1-4a9b-ad4e-3a0260bbeb26}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4688974/remove_youtube_s_suggestions-4.3.70.xpi";
-      sha256 = "45fd14d2e3a1e98adbcf0178c638b537d74179d17ea78ca25dd3dd9c81ec15b6";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4695816/remove_youtube_s_suggestions-4.3.71.xpi";
+      sha256 = "6fffa13c2cf98561420fcde46027472977e259d722d9c533bdfde6c3ef764c3d";
       meta = with lib;
       {
         homepage = "https://lawrencehook.com/rys/";
@@ -12519,6 +12519,7 @@
           "storage"
           "*://www.youtube.com/*"
           "*://m.youtube.com/*"
+          "https://server.lawrencehook.com/*"
         ];
         platforms = platforms.all;
       };
@@ -13319,10 +13320,10 @@
     };
     "smartproxy" = buildFirefoxXpiAddon {
       pname = "smartproxy";
-      version = "2.0";
+      version = "2.1";
       addonId = "smartproxy@salarcode.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4682344/smartproxy-2.0.xpi";
-      sha256 = "bc805b1ed15f8c06d2182f58c216a37983a3525f91c26ae4481d713bf3820315";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4695667/smartproxy-2.1.xpi";
+      sha256 = "9e563fc888a1852f3965f24915198b7565dec0f02fe464f902d29a1f53a9c1ad";
       meta = with lib;
       {
         homepage = "https://github.com/salarcode/SmartProxy";
