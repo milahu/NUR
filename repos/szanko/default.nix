@@ -13,7 +13,6 @@ pkgs ? import <nixpkgs> { }
 , pkgs2505 ? pkgs
 , pkgs2511 ? pkgs
 , pkgsUnstable ? pkgs
-, stardropPkgs ? null
 , cljNix ? null
 }:
 
@@ -52,6 +51,8 @@ pkgs ? import <nixpkgs> { }
 
   pypush = pkgs.callPackage ./pkgs/pypush { };
 
+  gloriousctl = pkgs.callPackage ./pkgs/gloriousctl { };
+
   anisette-v3-server = pkgs.callPackage ./pkgs/anisette-v3-server { };
   #go-haystack = pkgs.callPackage ./pkgs/go-haystack { };
 
@@ -67,5 +68,7 @@ pkgs ? import <nixpkgs> { }
   hugomods-icons = pkgs.callPackage ./pkgs/hugomods/icons { };
  
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
-  stardrop = if stardropPkgs != null then stardropPkgs.default else null;
+  stardrop = pkgs.callPackage ./pkgs/stardrop { };
+
+  phantom = pkgs.callPackage ./pkgs/phantom { };
 }
