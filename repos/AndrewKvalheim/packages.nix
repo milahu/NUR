@@ -109,7 +109,7 @@ specify {
     fabiospampinato.vscode-highlight.search = open-vsx;
     flowtype.flow-for-vscode = { version = "≥2.2.1"; search = [ open-vsx vscode-marketplace ]; };
     jacobpfeifer.pfeifer-hurl.search = open-vsx;
-    jjk.jjk.search = open-vsx;
+    jjk.jjk = any;
     jnbt.vscode-rufo.search = open-vsx;
     joaompinto.vscode-graphviz.search = open-vsx;
     kokakiwi.vscode-just.search = open-vsx;
