@@ -1,22 +1,6 @@
-# bhipple nur-packages
+# nur-packages zeratax
 
-**My personal [NUR] repository**
+**My personal [NUR](https://github.com/nix-community/NUR) repository**
 
-## Quick Start
-To build something out of this, install the [NUR] overlay as described upstream, then:
-
-```
-cd ~/src/nixpkgs
-nix build -Lvf '<nixos>' nur.repos.bhipple.plaid2qif
-```
-
-To build using locally modified NUR expressions after cloning this, I have my
-`config.nix` `packageOverrides` setup to make this work:
-
-```
-nix build -Lvf '<nixos>' bhipple.plaid2qif
-```
-
-
-[![Build Status](https://travis-ci.com/bhipple/nur-packages.svg?branch=master)](https://travis-ci.com/bhipple/nur-packages)
-[NUR]: https://github.com/nix-community/NUR
+[![Build and populate cache](https://github.com/ZerataX/nur-packages/workflows/Build%20and%20populate%20cache/badge.svg)](https://github.com/ZerataX/nur-packages/actions?query=workflow%3A%22Build+and+populate+cache%22)
+[![Cachix Cache](https://img.shields.io/badge/cachix-zeratax-blue.svg)](https://zeratax.cachix.org)

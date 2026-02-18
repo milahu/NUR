@@ -9,17 +9,30 @@
 { pkgs ? import <nixpkgs> { } }:
 
 {
-  # The `lib`, `modules`, and `overlay` names are special
+  # The `lib`, `modules`, and `overlays` names are special
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
-  overlays = map import [
-    ./overlays/ami.nix
-    ./overlays/bhipple-nur-overlay.nix
-    ./overlays/envs.nix
-    ./overlays/mkl.nix
-  ];
+  overlays = import ./overlays; # nixpkgs overlays
 
-  boardspace = pkgs.callPackage ./pkgs/boardspace { };
-  plaid2qif = pkgs.callPackage ./pkgs/plaid2qif { };
-  talon = pkgs.callPackage ./pkgs/talon { };
+  # applications
+  matrix-registration = pkgs.callPackage ./pkgs/matrix-registration { };
+
+  dmnd-bot = pkgs.callPackage ./pkgs/dmnd-bot { };
+
+  # python modules
+  myPython3Packages = pkgs.recurseIntoAttrs
+    (pkgs.callPackage ./pkgs/development/python-modules { });
+
+  # bukkit/spigot/paper minecraft server plugins
+  bukkitPlugins =
+    pkgs.recurseIntoAttrs (pkgs.callPackage ./pkgs/bukkit-plugins { });
+
+  # vscode-extensions
+  vscode-extensions =
+    pkgs.recurseIntoAttrs (pkgs.callPackage ./pkgs/vscode-extensions { });
+
+  # vim-plugins
+  vimPlugins = pkgs.recurseIntoAttrs (pkgs.callPackage ./pkgs/vim-plugins {
+    buildVimPluginFrom2Nix = pkgs.vimUtils.buildVimPluginFrom2Nix;
+  });
 }
