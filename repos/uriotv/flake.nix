@@ -33,6 +33,8 @@
 
       flake = {
         overlays = import ./overlays;
+        homeModules = {
+        };
         nixosModules = {
           default =
             { ... }:
