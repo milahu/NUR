@@ -26,21 +26,20 @@
   withNative ? false,
 }:
 let
-  raw-version = "25.8.0";
+  raw-version = "25.11.0";
 in
 rustPlatform.buildRustPackage (finalAttrs: {
-  pname = "niri-blur-Naxdy";
+  pname = "niri-blur";
   version = "${raw-version}" + "-feat-blur";
 
-  # https://github.com/Naxdy/niri.git
   src = fetchFromGitHub {
-    owner = "Naxdy";
+    owner = "niri-wm";
     repo = "niri";
-    rev = "9c403100bb372352d1099ddb26717d1c1ffc90a0";
-    hash = "sha256-GWPnrW+mihpKzmTE2YBk3LD4fZyzhSq0ZDDIuj2F+3A=";
+    rev = "3d1cf38bf3ba9bd0208a6452bc4453ad4df79fe2";
+    hash = "sha256-mxterEpNc6oDI1oY4+OdWXiLTpSrKBLWKWhAW503GFc=";
   };
 
-  cargoHash = "sha256-csqhTokABIYEwFu7dNRvOKADIdPMoy+c8U0VJ/bVes4=";
+  cargoHash = "sha256-uo4AWT4nGV56iiSLhXK30goI7HCPc7AUZjRLgUvLfUE=";
 
   outputs = [
     "out"
@@ -49,8 +48,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   postPatch = ''
     patchShebangs resources/niri-session
+
     substituteInPlace resources/niri.service \
-      --replace-fail '/usr/bin' "$out/bin"
+      --replace-fail 'ExecStart=niri ' \
+                     'ExecStart=${placeholder "out"}/bin/niri '
   '';
 
   strictDeps = true;
@@ -145,8 +146,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
     # inside the Nix sandbox
     "--skip=::egl"
   ];
-
-  doCheck = false; # blur并没有适配测试
 
   passthru.providedSessions = [ "niri" ];
   passthru.updateScript = ./update.sh;
