@@ -14,6 +14,7 @@ esac
 
 find . -name '*.nix' \
   ! -path ./pkgs/firefox-addons/generated-firefox-addons.nix \
+  -a ! -path ./pkgs/thunderbird-addons/generated-thunderbird-addons.nix \
   -exec nixfmt $CHECK_ARG {} +
 
 if [[ -z $CHECK_ARG ]] ; then

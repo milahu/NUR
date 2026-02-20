@@ -10,10 +10,15 @@
           system:
           let
             pkgs = nixpkgs.legacyPackages.${system};
+            libMozilla = import ../../lib/mozilla.nix { lib = pkgs.lib; };
+            buildMozillaXpiAddon = libMozilla.mkBuildMozillaXpiAddon { inherit (pkgs) fetchurl stdenv; };
           in
           f {
             inherit system pkgs;
-            addons = import ./. { inherit (pkgs) fetchurl lib stdenv; };
+            addons = import ./. {
+              inherit buildMozillaXpiAddon;
+              inherit (pkgs) fetchurl lib stdenv;
+            };
           }
         );
     in
@@ -26,7 +31,7 @@
       );
 
       packages = forAllSystems (
-        { addons, ... }: nixpkgs.lib.filterAttrs (name: val: name != "buildFirefoxXpiAddon") addons
+        { addons, pkgs, ... }: pkgs.lib.filterAttrs (name: val: name != "buildFirefoxXpiAddon") addons
       );
 
       overlays.default = final: prev: {

@@ -35,10 +35,10 @@
     };
     "tbkeys-lite" = buildMozillaXpiAddon {
       pname = "tbkeys-lite";
-      version = "2.4.1";
+      version = "2.4.3";
       addonId = "tbkeys-lite@addons.thunderbird.net";
-      url = "https://addons.thunderbird.net/thunderbird/downloads/file/1040513/tbkeys_lite-2.4.1-tb.xpi?src=";
-      sha256 = "83bd07ecea9a9c0ef779426938059ff8d920ef86519e6668457a6e08ab1ed7ec";
+      url = "https://addons.thunderbird.net/thunderbird/downloads/file/1044591/tbkeys_lite-2.4.3-tb.xpi?src=";
+      sha256 = "42cdfeae8e4e83725a4442881c0f00ff4759aa03dcd7d71d55a200058e2a1650";
       meta = with lib;
       {
         description = "Custom Thunderbird keybindings\n\nThis add-on is a follow on to Keyconfig which is no longer supported.\n\nIt is aimed at power users. Please look at the GitHub site before leaving a one star review about documentation or usability.";

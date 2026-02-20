@@ -23,7 +23,7 @@ mkDerivation {
   src = fetchFromSourcehut {
     owner = "~rycee";
     repo = pname;
-    rev = "81124e855c7eefc903def9537e523d268814590c"; #v${version}";
+    rev = "81124e855c7eefc903def9537e523d268814590c"; # v${version}";
     hash = "sha256-z8dC2ASauYaa09MyquBJt+AHe+D4Kd6HPHWQ4OjdU2o=";
   };
   isLibrary = false;
