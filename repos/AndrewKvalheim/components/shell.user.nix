@@ -4,6 +4,7 @@ let
   inherit (builtins) concatStringsSep mapAttrs readFile toFile;
   inherit (config.programs) delta;
   inherit (lib) concatLines concatStrings escapeShellArg genAttrs getExe getExe' init last mapAttrsToList mapAttrsToListRecursive mkMerge mkOrder toList;
+  inherit (lib.generators) toYAML;
   inherit (pkgs) runtimeShell starship-jj;
   inherit (pkgs.writers) writeTOML;
   inherit (import ../library/utilities.lib.nix { inherit lib; }) sgr tryEscapeShellArgs;
@@ -253,6 +254,8 @@ in
       size = 1000000000;
     };
 
+    defaultKeymap = "emacs";
+
     localVariables = {
       HIST_STAMPS = "yyyy-mm-dd";
       REPORTTIME = 10;
@@ -354,6 +357,14 @@ in
     };
   };
 
+  # Pending nix-community/home-manager#8738
+  xdg.configFile."tirith/policy.yaml".text = toYAML { } {
+    severity_overrides = {
+      plain_http_to_sink = "LOW";
+      raw_ip_url = "LOW";
+    };
+  };
+
   xdg.configFile."zsh/abbreviations".text = toAbbrs {
     a = "git add --patch";
     aw = "add-words";
@@ -399,7 +410,7 @@ in
   };
 
   home.packages = with pkgs; [
-    tirith # Used by tirith shell hook
+    tirith # Used by tirith shell hook (Pending nix-community/home-manager#8738)
   ];
 
   home.sessionVariables.EZA_COLORS = concatStringsSep ":" (mapAttrsToList (k: v: "${k}=${(v null).on}") (with sgr; {

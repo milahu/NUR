@@ -15,6 +15,9 @@ in
     notifications.mail.enable = true;
   };
 
+  # TRIM
+  systemd.services.fstrim.unitConfig.ConditionACPower = true;
+
   # LVM on LUKS
   boot.initrd.luks = {
     gpgSupport = true;

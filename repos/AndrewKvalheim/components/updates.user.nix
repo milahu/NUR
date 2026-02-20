@@ -23,8 +23,12 @@ in
     frequency = "06:00 America/Los_Angeles";
   };
 
-  systemd.user.services.home-manager-auto-upgrade.Service = {
-    ExecCondition = getExe may-upgrade;
-    ExecStartPre = getExe wait-for-system;
+  systemd.user.services.home-manager-auto-upgrade = {
+    Unit.ConditionACPower = true;
+
+    Service = {
+      ExecCondition = getExe may-upgrade;
+      ExecStartPre = getExe wait-for-system;
+    };
   };
 }

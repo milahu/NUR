@@ -20,6 +20,7 @@ in
     # Storage
     nix.settings.auto-optimise-store = true;
     nix.gc = { automatic = true; options = "--delete-older-than 7d"; };
+    systemd.services.nix-gc.unitConfig.ConditionACPower = true;
     nix.extraOptions = ''
       # Recommended by nix-direnv
       keep-outputs = true

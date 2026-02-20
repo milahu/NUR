@@ -7,7 +7,7 @@ _click_preexec() {
 _click_precmd() {
   [[ $+_click_start_seconds ]] || return
 
-  if (( SECONDS - _click_start_seconds >= 20 )); then
+  if (( SECONDS - _click_start_seconds >= 20 )) && [[ -S "$XDG_RUNTIME_DIR/pipewire-0" ]]; then
     pw-play "$_click" &!
   fi
 

@@ -6,6 +6,7 @@
 , makeWrapper
 , nix-update-script
 , stdenv
+, xdg-utils
 
   # Dependencies
 , gtk2-x11
@@ -13,6 +14,7 @@
 }:
 
 let
+  inherit (builtins) placeholder;
   inherit (lib) getExe;
 in
 stdenv.mkDerivation (nbt-explorer: {
@@ -40,11 +42,11 @@ stdenv.mkDerivation (nbt-explorer: {
       desktopName = "NBTExplorer";
       name = nbt-explorer.pname;
       icon = nbt-explorer.pname;
-      exec = "@out@/bin/nbt-explorer";
+      exec = "${placeholder "out"}/bin/nbt-explorer";
     })
   ];
 
-  nativeBuildInputs = [ copyDesktopItems makeWrapper ];
+  nativeBuildInputs = [ copyDesktopItems makeWrapper xdg-utils ];
   postInstall = ''
     mkdir -p $out/lib
     cp --target-directory $out/lib \
@@ -56,11 +58,8 @@ stdenv.mkDerivation (nbt-explorer: {
       --add-flags "$out/lib/NBTExplorer.exe" \
       --suffix LD_LIBRARY_PATH : ${gtk2-x11}/lib
 
-    install -D $iconSrc/NBTExplorer/Resources/Dead_Bush_256.png $out/share/icons/${nbt-explorer.pname}.png
-  '';
-
-  preFixup = ''
-    substituteAllInPlace $out/share/applications/*
+    env XDG_DATA_HOME="$out/share" xdg-icon-resource install --noupdate --novendor \
+      --context 'apps' --size '256' "$iconSrc/NBTExplorer/Resources/Dead_Bush_256.png" "${nbt-explorer.pname}"
   '';
 
   passthru.updateScript = nix-update-script {

@@ -81,16 +81,10 @@ in
 
     systemd.services.apt-cacher-ng-maintenance = mkService {
       startAt = "07:00 America/Los_Angeles";
+      unitConfig.ConditionACPower = true;
 
       serviceConfig = {
         Type = "oneshot";
-        ExecCondition = writeShellScript "is-power-unlimited" ''
-          case "$(< /sys/class/power_supply/AC/online)" in
-            0) exit 1;;
-            1) exit 0;;
-            *) exit 255;;
-          esac
-        '';
         ExecStart = ''
           ${apt-cacher-ng}/lib/apt-cacher-ng/acngtool maint \
             Port=${escapeShellArg cfg.port}

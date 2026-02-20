@@ -301,7 +301,7 @@ in
         "nix.enableLanguageServer" = true;
         "nix.hiddenLanguageServerErrors" = [ "textDocument/documentSymbol" ]; # Workaround for nix-community/vscode-nix-ide#387
         "python.formatting.provider" = "black";
-        "rubyLsp.rubyVersionManager.identifier" = "custom";
+        "rubyLsp.rubyVersionManager".identifier = "custom";
         "rust-analyzer.check.command" = "clippy";
         "[coffeescript]" = monospace;
         "[cpp]" = monospace;

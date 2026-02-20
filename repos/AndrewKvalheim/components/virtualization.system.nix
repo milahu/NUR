@@ -19,11 +19,13 @@ in
       fixed-cidr-v6 = "fd22:2222:2222:8000::/49";
     };
   };
+  systemd.timers.docker-prune.unitConfig.ConditionACPower = true;
   users.extraGroups.docker.members = [ identity.username ];
 
   # Podman
   virtualisation.containers.registries.search = [ "docker.io" ];
   virtualisation.podman = { enable = true; autoPrune.enable = true; };
+  systemd.timers.podman-prune.unitConfig.ConditionACPower = true;
   users.extraGroups.podman.members = [ identity.username ];
 
   # VirtualBox

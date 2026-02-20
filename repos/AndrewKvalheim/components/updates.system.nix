@@ -17,6 +17,7 @@ in
   };
 
   systemd.services.nixos-upgrade = {
+    unitConfig.ConditionACPower = true;
     onFailure = [ "alert@%N.service" ];
 
     serviceConfig = {

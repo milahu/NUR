@@ -3,8 +3,9 @@
 let
   inherit (builtins) listToAttrs;
   inherit (config) host;
-  inherit (lib) foldlAttrs getExe getExe' imap0 mkOption nameValuePair;
-  inherit (lib.generators) toINI toKeyValue;
+  inherit (config.programs) kitty;
+  inherit (lib) foldlAttrs getExe getExe' imap0 mkOption nameValuePair throwIfNot;
+  inherit (lib.generators) toINI toKeyValue toYAML;
   inherit (lib.hm.gvariant) mkTuple mkUint32;
   inherit (pkgs) formats onlyBin;
   inherit (pkgs.writers) writeTOML;
@@ -154,7 +155,6 @@ in
       kdePackages.okular
       oxvg
       patchutils
-      pdfalyzer
       pdfarranger
       pdfcpu
       popsicle
@@ -247,6 +247,11 @@ in
       publish = false;
       pre-release-commit-message = "Version {{version}}";
       tag-message = "Version {{version}}";
+    };
+    xdg.configFile."isd_tui/config.yaml".text = toYAML { } {
+      main_keybindings = {
+        toggle_mode = throwIfNot (kitty.keybindings ? "ctrl+t") "No conflict" "ctrl+m";
+      };
     };
     home.file.".npmrc".text = toKeyValue { } {
       fund = false;

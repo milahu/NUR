@@ -13,5 +13,5 @@ ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=cyan'
 compdef '_values passwords $(gopass ls --flat)' gopass-env
 compdef '_values passwords $(gopass ls --flat)' gopass-ydotool
 
-# Tirith
+# Tirith (Pending nix-community/home-manager#8738)
 eval "$(tirith init --shell 'zsh')"

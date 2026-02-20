@@ -9,6 +9,7 @@ in
     description = "Mirror ${host.name} to closet";
 
     startAt = "00,12,17:00 America/Los_Angeles";
+    unitConfig.ConditionACPower = true;
     wants = [ "network-online.target" ];
     after = [ "network-online.target" ];
     onFailure = [ "alert@%n.service" ];

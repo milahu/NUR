@@ -7,12 +7,14 @@
 , makeWrapper
 , nix-update-script
 , stdenv
+, xdg-utils
 
   # Dependencies
 , jre
 }:
 
 let
+  inherit (builtins) placeholder;
   inherit (lib) getExe;
 in
 stdenv.mkDerivation (minemap: {
@@ -40,11 +42,11 @@ stdenv.mkDerivation (minemap: {
       desktopName = "Minemap";
       name = minemap.pname;
       icon = minemap.pname;
-      exec = "@out@/bin/minemap";
+      exec = "${placeholder "out"}/bin/minemap";
     })
   ];
 
-  nativeBuildInputs = [ copyDesktopItems imagemagick makeWrapper ];
+  nativeBuildInputs = [ copyDesktopItems imagemagick makeWrapper xdg-utils ];
   buildPhase = ''
     magick $iconSrc/logo.png -crop '68x68+44+7' +repage \
       \( +clone -crop '4x38+0+22' -geometry '+64+26' -flop \) \
@@ -55,11 +57,8 @@ stdenv.mkDerivation (minemap: {
     makeWrapper ${getExe jre} $out/bin/minemap \
       --add-flags "-jar $out/share/minemap.jar"
 
-    install -D -t $out/share/icons ${minemap.pname}.png
-  '';
-
-  preFixup = ''
-    substituteAllInPlace $out/share/applications/*
+    env XDG_DATA_HOME="$out/share" xdg-icon-resource install --noupdate --novendor \
+      --context 'apps' --size "$(( 68 * 2 ))" "${minemap.pname}.png"
   '';
 
   passthru.updateScript = nix-update-script { };

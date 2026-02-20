@@ -1,7 +1,9 @@
-{ fetchFromGitHub
+{ copyDesktopItems
+, fetchFromGitHub
 , lib
 , nix-update-script
 , rustPlatform
+, xdg-utils
 
   # Dependencies
 , alsa-lib
@@ -20,6 +22,7 @@
 }:
 
 let
+  inherit (builtins) placeholder;
   inherit (lib) escapeShellArg;
 in
 rustPlatform.buildRustPackage (stretch-break: {
@@ -33,11 +36,18 @@ rustPlatform.buildRustPackage (stretch-break: {
     hash = "sha256-gKQsoitJfGVUnpEHC4qXdesECvylJluwRDXtoNZfSFI=";
   };
 
+  postPatch = ''
+    substituteInPlace 'meta/io.github.pieterdd.StretchBreak.desktop' \
+      --replace-fail 'Exec=stretch-break' 'Exec=${placeholder "out"}/bin/stretch-break'
+  '';
+
   cargoHash = "sha256-LyifQ44aS7kkm7Cd6baSu5lYAWfKpDOlRFXGQFQLNU4=";
 
   nativeBuildInputs = [
+    copyDesktopItems
     gobject-introspection
     pkg-config
+    xdg-utils
   ];
   buildInputs = [
     alsa-lib
@@ -53,23 +63,16 @@ rustPlatform.buildRustPackage (stretch-break: {
     pango
   ];
 
+  desktopItems = [ "meta/io.github.pieterdd.StretchBreak.desktop" ];
   postInstall = ''
-    mkdir --parents "$out/share/applications"
-    substitute \
-      "$src/meta/io.github.pieterdd.StretchBreak.desktop" \
-      "$out/share/applications/io.github.pieterdd.StretchBreak.desktop" \
-      --replace-fail 'Exec=stretch-break' "Exec=$out/bin/stretch-break"
-
     mkdir --parents "$out/share/dbus-1/services"
     substitute \
       "$src/meta/io.github.pieterdd.StretchBreak.Core.service" \
       "$out/share/dbus-1/services/io.github.pieterdd.StretchBreak.Core.service" \
       --replace-fail '/usr/bin' "$out/bin"
 
-    mkdir --parents "$out/share/icons/hicolor/256x256/apps"
-    cp --no-preserve=mode --reflink=auto \
-      "$src/meta/logo-color-256x256.png" \
-      "$out/share/icons/hicolor/256x256/apps/io.github.pieterdd.StretchBreak.png"
+    env XDG_DATA_HOME="$out/share" xdg-icon-resource install --noupdate --novendor \
+      --context 'apps' --size '256' "$src/meta/logo-color-256x256.png" 'io.github.pieterdd.StretchBreak'
   '';
 
   doInstallCheck = true;
