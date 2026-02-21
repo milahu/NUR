@@ -139,6 +139,8 @@ let
         };
       };
 
+    penetration-testing-kit = lib.warnOnInstantiate "'penetration-testing-kit' has been replaced by 'owasp-penetration-testing-kit'" packages.owasp-penetration-testing-kit;
+
     proxydocile = buildMozillaXpiAddon {
       pname = "proxydocile";
       version = "2.5";

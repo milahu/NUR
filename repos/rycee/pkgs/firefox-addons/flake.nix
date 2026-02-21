@@ -35,7 +35,13 @@
       );
 
       overlays.default = final: prev: {
-        firefox-addons = final.callPackage ./. { };
+        firefox-addons = final.callPackage ./. {
+          buildMozillaXpiAddon =
+            let
+              libMozilla = import ../../lib/mozilla.nix { inherit (prev) lib; };
+            in
+            libMozilla.mkBuildMozillaXpiAddon { inherit (final) fetchurl stdenv; };
+        };
       };
     };
 }
