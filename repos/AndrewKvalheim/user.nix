@@ -2,9 +2,10 @@
 
 let
   inherit (lib) mkOption;
-  inherit (lib.types) attrsOf bool commas float int nullOr oneOf path str submodule;
+  inherit (lib.types) attrsOf bool commas int nullOr oneOf path str submodule;
 
   identity = import ./library/identity.lib.nix { inherit lib; };
+  system = import <nixpkgs/nixos> { };
 in
 {
   # Workaround for https://github.com/nix-community/home-manager/issues/2333#issuecomment-1242564101
@@ -27,26 +28,26 @@ in
     ./components/updates.user.nix
   ];
 
-  options.host = {
-    cores = mkOption { type = int; };
-    dir = mkOption { type = path; };
-    display_density = mkOption { type = float; };
-    display_width = mkOption { type = int; };
-    firefox = mkOption {
-      type = submodule {
-        options = {
-          profile = mkOption { type = str; };
-          settings = mkOption {
-            type = submodule {
-              freeformType = attrsOf (nullOr (oneOf [ bool int str ]));
-              options = {
-                "network.trr.excluded-domains" = mkOption { type = nullOr commas; default = null; };
+  options = {
+    host = {
+      dir = mkOption { type = path; };
+      firefox = mkOption {
+        type = submodule {
+          options = {
+            profile = mkOption { type = str; };
+            settings = mkOption {
+              type = submodule {
+                freeformType = attrsOf (nullOr (oneOf [ bool int str ]));
+                options = {
+                  "network.trr.excluded-domains" = mkOption { type = nullOr commas; default = null; };
+                };
               };
             };
           };
         };
       };
     };
+    system = system.options;
   };
 
   config = {

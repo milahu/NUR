@@ -10,8 +10,13 @@
 
   # Host parameters
   host = {
+    cpu_cores = 16;
+    cpu_mark = { multi = 16738; single = 2880; };
     dir = ./.;
+    display_density = 2.0;
+    display_width = 3840;
     name = "wrangler";
+    ram_gb = 48;
   };
 
   # Keyboard

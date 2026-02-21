@@ -2,7 +2,7 @@
 
 let
   inherit (builtins) listToAttrs;
-  inherit (config) host;
+  inherit (config) system;
   inherit (config.programs) kitty;
   inherit (lib) foldlAttrs getExe getExe' imap0 mkOption nameValuePair throwIfNot;
   inherit (lib.generators) toINI toKeyValue toYAML;
@@ -274,7 +274,7 @@ in
           "8" = [ red vermilion orange yellow green teal blue purple ];
           "12" = [ red red-dim orange orange-dim yellow yellow-dim green green-dim blue blue-dim purple purple-dim ];
           "16" = [ red red-dim vermilion vermilion-dim orange orange-dim yellow yellow-dim green green-dim teal teal-dim blue blue-dim purple purple-dim ];
-        }."${toString host.cores}"
+        }."${toString system.host.cpu_cores}"
       );
       mem-color = orange;
       swap-color = purple;

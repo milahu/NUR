@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  system = import <nixpkgs/nixos> { };
+in
 {
   imports = [
     ../../user.nix
@@ -9,12 +12,12 @@
   # Nix
   home.stateVersion = "24.11"; # Permanent
 
+  # System configuration
+  system = system.config;
+
   # Host parameters
   host = {
-    cores = 4;
     dir = ./.;
-    display_density = 1.0;
-    display_width = 1280;
     firefox.profile = "gpihihlj.default";
   };
 

@@ -3,6 +3,8 @@
 let
   inherit (lib) escapeShellArg getExe getExe';
   inherit (pkgs) substitute writeShellScript;
+
+  system = import <nixpkgs/nixos> { };
 in
 {
   imports = [
@@ -13,12 +15,12 @@ in
   # Nix
   home.stateVersion = "22.05"; # Permanent
 
+  # System configuration
+  system = system.config;
+
   # Host parameters
   host = {
-    cores = 16;
     dir = ./.;
-    display_density = 1.75;
-    display_width = 3840;
     firefox.profile = "ahrdm58c.default";
   };
 

@@ -13,12 +13,17 @@ in
 
   # Host parameters
   host = {
+    cpu_cores = 4;
+    cpu_mark = { multi = 5345; single = 1894; };
     dir = ./.;
+    display_density = 1.0;
+    display_width = 1280;
     name = "peregrine";
+    ram_gb = 12;
   };
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_6_18;
+  boot.kernelPackages = pkgs.linuxPackages_6_19;
   boot.consoleLogLevel = 3 /* error */; # Hide https://bbs.archlinux.org/viewtopic.php?id=300997
 
   # Display

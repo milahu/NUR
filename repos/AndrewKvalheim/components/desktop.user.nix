@@ -2,7 +2,7 @@
 
 let
   inherit (builtins) floor head mapAttrs sort toJSON;
-  inherit (config) dconf host launcherScripts;
+  inherit (config) dconf host launcherScripts system;
   inherit (config.programs) kitty;
   inherit (lib) getExe mapAttrsToList mkOption unique;
   inherit (lib.generators) toINI;
@@ -84,7 +84,7 @@ in
         gap = border + margin;
 
         # Reference widths
-        full = (host.display_width / host.display_density) - margin * 2;
+        full = (system.host.display_width / system.host.display_density) - margin * 2;
         externalFull = (external_display_width / external_display_density) - margin * 2;
 
         # Window widths

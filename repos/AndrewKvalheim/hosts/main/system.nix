@@ -15,8 +15,13 @@ in
 
   # Host parameters
   host = {
+    cpu_cores = 16;
+    cpu_mark = { multi = 24435; single = 3680; };
     dir = ./.;
+    display_density = 1.75;
+    display_width = 3840;
     name = "main";
+    ram_gb = 64;
   };
 
   # Workaround for drm/amd#3787, drm/amd#3925, drm/amd#4141

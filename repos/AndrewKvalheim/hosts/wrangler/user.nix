@@ -3,6 +3,8 @@
 let
   inherit (lib) getExe;
 
+  system = import <nixpkgs/nixos> { };
+
   # Packages
   pretty-whois = with pkgs; writeShellScriptBin "pretty-whois" ''
     set -Eeuo pipefail
@@ -20,12 +22,12 @@ in
   # Nix
   home.stateVersion = "22.05"; # Permanent
 
+  # System configuration
+  system = system.config;
+
   # Host parameters
   host = {
-    cores = 16;
     dir = ./.;
-    display_density = 2.0;
-    display_width = 3840;
     firefox.profile = "f2y424q1.default";
   };
 

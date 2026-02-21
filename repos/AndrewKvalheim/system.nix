@@ -2,7 +2,7 @@
 
 let
   inherit (lib) mkOption;
-  inherit (lib.types) path;
+  inherit (lib.types) float int path submodule;
 in
 {
   imports = [
@@ -36,7 +36,19 @@ in
 
   options = {
     host = {
+      cpu_cores = mkOption { type = int; };
+      cpu_mark = mkOption {
+        type = submodule {
+          options = {
+            multi = mkOption { type = int; };
+            single = mkOption { type = int; };
+          };
+        };
+      };
       dir = mkOption { type = path; };
+      display_density = mkOption { type = float; };
+      display_width = mkOption { type = int; };
+      ram_gb = mkOption { type = int; };
     };
   };
 }
