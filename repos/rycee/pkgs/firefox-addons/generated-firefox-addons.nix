@@ -9659,10 +9659,10 @@
     };
     "mtab" = buildMozillaXpiAddon {
       pname = "mtab";
-      version = "1.10.9";
+      version = "1.11.0";
       addonId = "contact@maxhu.dev";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4700122/mtab-1.10.9.xpi";
-      sha256 = "c20b13df24cb63e0bf374f97cfff6bf33f4c54658b44ad6e4acd65c82ec2ba18";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4701076/mtab-1.11.0.xpi";
+      sha256 = "7ff7aaafde57ed40b5305aed8289a6358a588df86c9b460cc42a28fdd1813ede";
       meta = with lib;
       {
         homepage = "https://get-mtab.vercel.app";
