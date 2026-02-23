@@ -8,7 +8,12 @@ let
   unstableVersion = src: "0-unstable-${src.date}";
 in
 rec {
+  _7zip-zstd = pkgs.callPackage ./_7zip-zstd { inherit asmc-linux; };
+  _7zip-zstd-rar = _7zip-zstd.override { enableUnfree = true; };
+
   algermusicplayer = pkgs.callPackage ./algermusicplayer { inherit fetchedSrc; };
+
+  asmc-linux = pkgs.callPackage ./asmc-linux/package.nix { };
 
   daed = pkgs.callPackage ./daed { };
 
@@ -36,6 +41,23 @@ rec {
     inherit (sources) version;
     sourceRoot = "x64";
   };
+
+  fxz =
+    let
+      sources = fetchedSrc.fxz;
+    in
+    pkgs.xz.overrideAttrs (
+      _final: prev: {
+        pname = "fxz";
+        version = unstableVersion sources;
+        inherit (sources) src;
+        postPatch = null;
+        nativeBuildInputs = [ pkgs.autoreconfHook ];
+        meta = prev.meta // {
+          pkgConfigModules = [ "libflzma" ];
+        };
+      }
+    );
 
   imfile = pkgs.callPackage ./imfile { inherit fetchedSrc; };
 
@@ -85,20 +107,12 @@ rec {
     srcInfo = lib.importJSON ./pixes/git/src-info.json;
   };
 
-  rpc-bridge = pkgs.callPackage ./rpc-bridge rec {
-    sources = fetchedSrc.rpc-bridge;
-    version = stableVersion sources;
-  };
-
   shijima-qt = pkgs.callPackage ./shijima-qt { };
-
-  inherit (pkgs) splayer;
 
   splayer-git = pkgs.callPackage ./splayer-git rec {
     inherit ((lib.importJSON ./splayer-git/src-info.json)) hash;
     sources = fetchedSrc.splayer-git;
     version = unstableVersion sources;
-    inherit splayer;
   };
 
   svt-av1-hdr = pkgs.callPackage ./svt-av1-psy rec {

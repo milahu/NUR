@@ -9,26 +9,43 @@ on:
       - main
   workflow_dispatch: # allows manual triggering
 
-concurrency:
-  group: build
-  cancel-in-progress: true
-
 jobs:
-  build:
+  nix-matrix:
     runs-on: ubuntu-latest
-    name: Build
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - uses: wimpysworld/nothing-but-nix@v9
+      - name: Install Nix
+        uses: nixbuild/nix-quick-install-action@v34
         with:
-          hatchet-protocol: "rampage"
+          nix_conf: |
+            accept-flake-config = true
+
+      - id: set-matrix
+        name: Generate Nix Matrix
+        run: |
+          set -Eeu
+          matrix="$(nix eval --json '.#githubActions.build.matrix')"
+          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
+
+  nix-build:
+    name: ${{ matrix.name }} (${{ matrix.system }})
+    needs: nix-matrix
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix: ${{fromJSON(needs.nix-matrix.outputs.matrix)}}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
 
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
+        uses: cachix/install-nix-action@v31
         with:
-          extra-conf: |
+          extra_nix_config: |
             accept-flake-config = true
 
       - name: Set up Cachix
@@ -39,5 +56,33 @@ jobs:
 
       - name: Build
         run: |
-          nix run nixpkgs#nix-fast-build -- --debug --skip-cached --no-nom --no-link
-          nix run nixpkgs#nix-fast-build -- --debug --skip-cached --no-nom --no-link --flake ".#packages"
+          nix build -L '.#${{ matrix.attr }}'
+
+  check-flake:
+    runs-on: ubuntu-latest
+    name: Check Flake
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install Nix
+        uses: nixbuild/nix-quick-install-action@v34
+        with:
+          nix_conf: |
+            accept-flake-config = true
+
+      - name: Check Nix Flake
+        run: |
+          nix flake check
+
+  all:
+    name: All
+    needs:
+      - nix-build
+      - check-flake
+    runs-on: ubuntu-latest
+    if: ${{ success() }}
+    steps:
+      - name: All matrix builds succeeded
+        run: |
+          echo "All matrix builds succeeded."

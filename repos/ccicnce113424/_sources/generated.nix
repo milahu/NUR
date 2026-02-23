@@ -31,18 +31,6 @@
       sha256 = "sha256-dPgWVJuNOzTc+ocMyGHBb4ExB9P1Wu+uTQ62UejAAfE=";
     };
   };
-  danmakufactory-git = {
-    pname = "danmakufactory-git";
-    version = "cfb63683dfe796fb604e652ed405366f41f8d25e";
-    src = fetchFromGitHub {
-      owner = "hihkm";
-      repo = "DanmakuFactory";
-      rev = "cfb63683dfe796fb604e652ed405366f41f8d25e";
-      fetchSubmodules = true;
-      sha256 = "sha256-MbWyu/dmFHONawDAHN7MwJgtUBSks82pv2zm15nj+x8=";
-    };
-    date = "2026-01-12";
-  };
   dxvk-gplall = {
     pname = "dxvk-gplall";
     version = "2.7.1-2";
@@ -50,6 +38,18 @@
       url = "https://github.com/Digger1955/dxvk-gplasync-lowlatency/releases/download/DXVK-GPLALL-2.7.1-2/DXVK-GPLALL-MSVC-Windows-AVX2-O2-LTCG-AMD64.2.7.1-2.zip";
       sha256 = "sha256-pnFfnyWQxxRiy67kzTAGOBSnQQ617ebUpS6mSBpWndU=";
     };
+  };
+  fxz = {
+    pname = "fxz";
+    version = "f12d7eb3ecebcfa5e2d3dc8a016772b3cd101f39";
+    src = fetchFromGitHub {
+      owner = "conor42";
+      repo = "fxz";
+      rev = "f12d7eb3ecebcfa5e2d3dc8a016772b3cd101f39";
+      fetchSubmodules = false;
+      sha256 = "sha256-3NL/3XXmZRv/fYviA2KL/LEx0xVnPk8t4WQt5yxZmA8=";
+    };
+    date = "2022-01-09";
   };
   imfile-arm = {
     pname = "imfile-arm";
@@ -103,16 +103,16 @@
   };
   loveiwara = {
     pname = "loveiwara";
-    version = "0.4.1";
+    version = "0.4.2";
     src = fetchFromGitHub {
       owner = "FoxSensei001";
       repo = "LoveIwara";
-      rev = "0.4.1";
+      rev = "0.4.2";
       fetchSubmodules = false;
-      sha256 = "sha256-PVbNK8k+JL0r94uQBtIxYu6J3d+4+7FkvDEvS6koyzI=";
+      sha256 = "sha256-DoIprqQ4HRuyjp96yIkK9ZG0t1Zny0BXOAlRCNJ9+KA=";
     };
     extract = {
-      "pubspec.lock" = ./. + "/sha256-PVbNK8k+JL0r94uQBtIxYu6J3d+4+7FkvDEvS6koyzI=/pubspec.lock";
+      "pubspec.lock" = ./. + "/sha256-DoIprqQ4HRuyjp96yIkK9ZG0t1Zny0BXOAlRCNJ9+KA=/pubspec.lock";
     };
   };
   lxgw-wenkai-gb = {
@@ -147,16 +147,16 @@
   };
   piliplus = {
     pname = "piliplus";
-    version = "1.1.5.7";
+    version = "1.1.6";
     src = fetchFromGitHub {
       owner = "bggRGjQaUbCoE";
       repo = "PiliPlus";
-      rev = "1.1.5.7";
+      rev = "1.1.6";
       fetchSubmodules = false;
-      sha256 = "sha256-qUK7H/jKjVI5TmS/tXRk6KppXIYLC8JG7/ZyJdxpbyo=";
+      sha256 = "sha256-nHqvYy6/Oy/er2fyXaYIfExCAbkXeD4gSBSr1omuIoc=";
     };
     extract = {
-      "pubspec.lock" = ./. + "/sha256-qUK7H_jKjVI5TmS_tXRk6KppXIYLC8JG7_ZyJdxpbyo=/pubspec.lock";
+      "pubspec.lock" = ./. + "/sha256-nHqvYy6_Oy_er2fyXaYIfExCAbkXeD4gSBSr1omuIoc=/pubspec.lock";
     };
   };
   pixes = {
@@ -188,44 +188,33 @@
     };
     date = "2025-10-19";
   };
-  rpc-bridge = {
-    pname = "rpc-bridge";
-    version = "v1.4.0.1";
-    src = fetchFromGitHub {
-      owner = "EnderIce2";
-      repo = "rpc-bridge";
-      rev = "v1.4.0.1";
-      fetchSubmodules = false;
-      sha256 = "sha256-NB3GqwlJ1dkI+MmbjDEDhiAvvAtRHOdC/PEEyIP2i28=";
-    };
-  };
   splayer-git = {
     pname = "splayer-git";
-    version = "56f2289221d37976f57926326399570829ec2587";
+    version = "ae6df5028b560529fd24ed0ac3607d9492c0c832";
     src = fetchFromGitHub {
       owner = "imsyy";
       repo = "SPlayer";
-      rev = "56f2289221d37976f57926326399570829ec2587";
+      rev = "ae6df5028b560529fd24ed0ac3607d9492c0c832";
       fetchSubmodules = false;
-      sha256 = "sha256-6j/uuB+AgfYVmeaDaETaXXYirJR5EHhR/ZwnfTl4DoI=";
+      sha256 = "sha256-IxAsip424bR6gR/B2Z+3w0w4UV3tVKuOZHWGRmXh2io=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-6j_uuB+AgfYVmeaDaETaXXYirJR5EHhR_ZwnfTl4DoI=/Cargo.lock";
+      lockFile = ./. + "/sha256-IxAsip424bR6gR_B2Z+3w0w4UV3tVKuOZHWGRmXh2io=/Cargo.lock";
       outputHashes = {
 
       };
     };
-    date = "2026-02-03";
+    date = "2026-02-22";
   };
   svt-av1-hdr = {
     pname = "svt-av1-hdr";
-    version = "v3.1.3";
+    version = "v4.0.1";
     src = fetchFromGitHub {
       owner = "juliobbv-p";
       repo = "svt-av1-hdr";
-      rev = "v3.1.3";
+      rev = "v4.0.1";
       fetchSubmodules = false;
-      sha256 = "sha256-FekKVNMycfvFWTQ2LbYl5t2yCBYh7fdSDPdeYViGNbY=";
+      sha256 = "sha256-jfyolWcPcfMzxjBszg1KY9eHc6KRsp41h3lQKsrgiDU=";
     };
   };
   svt-av1-psyex = {
@@ -252,15 +241,15 @@
   };
   uosc-danmaku-git = {
     pname = "uosc-danmaku-git";
-    version = "7527749ce7986f0c0080715f3d4dfbe00169b595";
+    version = "34a70875da0230b6a26a794f43938f881fd11311";
     src = fetchFromGitHub {
       owner = "Tony15246";
       repo = "uosc_danmaku";
-      rev = "7527749ce7986f0c0080715f3d4dfbe00169b595";
+      rev = "34a70875da0230b6a26a794f43938f881fd11311";
       fetchSubmodules = false;
-      sha256 = "sha256-jNBZ6Sw5Cf5pbyB5O8AYiqt9SVxlSdbEhDXnxjh6kJU=";
+      sha256 = "sha256-2Tol9Ryumv1Xc/tXtuYSNW2C05Rqve03IzK1GOwTxCA=";
     };
-    date = "2026-01-23";
+    date = "2026-02-07";
   };
   wild = {
     pname = "wild";
