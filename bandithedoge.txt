@@ -3,12 +3,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:552:15:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:553:15:
 
-   551|               in
-   552|               lib.strings.sanitizeDerivationName (
+   552|               in
+   553|               lib.strings.sanitizeDerivationName (
       |               ^
-   553|                 if attrs ? name then
+   554|                 if attrs ? name then
 
 … while calling anonymous lambda
 
@@ -21,12 +21,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:557:26:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:558:26:
 
-   556|                   # we cannot coerce null to a string below
-   557|                   assert assertMsg (
+   557|                   # we cannot coerce null to a string below
+   558|                   assert assertMsg (
       |                          ^
-   558|                     attrs ? version && attrs.version != null
+   559|                     attrs ? version && attrs.version != null
 
 … while calling 'assertMsg'
 
@@ -127,4 +127,4 @@ error:
       |     ^
   1045|     if f ? __functor then
 
-error: path '/nix/store/s6kpvk6g3bpd7y4ghrcl5nmq2c5a3g5v-package.nix' is not valid
+error: path '/nix/store/qbj5lxdlgk2gmml56apv2vlwjrmjs1w5-package.nix' is not valid
