@@ -9,8 +9,11 @@ let
   version = "4.1.0.13";
 
   src = fetchurl {
-    url = "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.AppImage";
-    hash = "sha256-+r5Ebu40GVGG2m2lmCFQ/JkiDsN/u7XEtnLrB98602w=";
+    urls = [
+      "https://dldir1.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.AppImage"
+      "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.AppImage"
+    ];
+    hash = "sha256-Pfl81lNVlMJWyPqFli1Af2q8pRLujcKCjYoILCKDx8U=";
   };
 
   appimageContents = appimageTools.extract {
