@@ -1,6 +1,7 @@
 { config, lib, ... }:
 
 let
+  inherit (config.home) homeDirectory;
   inherit (lib) concatLines concatMapStringsSep genAttrs id mapAttrsToList mkIf mkOption stringToCharacters;
   inherit (lib.types) attrsOf str;
 
@@ -39,7 +40,7 @@ in
   config =
     mkIf (config.xcompose ? "sequences") {
       home.file.".XCompose" = {
-        onChange = "rm -rfv ${config.home.homeDirectory}/.cache/gtk-3.0/compose";
+        onChange = "rm -rfv ${homeDirectory}/.cache/gtk-3.0/compose";
         text = concatLines (mapAttrsToList
           (glyph: sequence:
             let keys = [ "Multi_key" ] ++ (map (c: names.${c}) (stringToCharacters sequence));

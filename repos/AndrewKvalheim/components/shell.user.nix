@@ -2,6 +2,7 @@
 
 let
   inherit (builtins) concatStringsSep mapAttrs readFile toFile;
+  inherit (config.home) homeDirectory;
   inherit (config.programs) delta;
   inherit (lib) concatLines concatStrings escapeShellArg genAttrs getExe getExe' init last mapAttrsToList mapAttrsToListRecursive mkMerge mkOrder toList;
   inherit (lib.generators) toYAML;
@@ -20,7 +21,7 @@ in
   programs.bash = {
     enable = true;
     historyControl = [ "ignorespace" ];
-    historyFile = "${config.home.homeDirectory}/akorg/resource/bash-history";
+    historyFile = "${homeDirectory}/akorg/resource/bash-history";
     historyFileSize = 1000000000;
     historySize = 100000000;
     initExtra = with sgr; ''
@@ -245,7 +246,7 @@ in
     ];
 
     history = {
-      path = "${config.home.homeDirectory}/akorg/resource/zsh-history";
+      path = "${homeDirectory}/akorg/resource/zsh-history";
       expireDuplicatesFirst = true;
       extended = true;
       ignoreDups = false;

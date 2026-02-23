@@ -25,6 +25,7 @@ in
     ./components/shell.user.nix
     ./components/spelling.user.nix
     ./components/terminal.user.nix
+    ./components/unison.user.nix
     ./components/updates.user.nix
   ];
 

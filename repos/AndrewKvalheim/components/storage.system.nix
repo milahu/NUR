@@ -37,7 +37,7 @@ in
   security.sudo.allowedCommands = [ "/run/current-system/sw/bin/btrfs balance start --enqueue -dusage=50 -musage=50 /" ];
 
   # /boot
-  fileSystems."/boot".options = [ "umask=0077" ];
+  fileSystems."/boot".options = [ "umask=0077" ]; #  NixOS/nixpkgs#279362
 
   # /dev/shm
   boot.specialFileSystems."/dev/shm".options = [ "noexec" ];

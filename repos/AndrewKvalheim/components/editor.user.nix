@@ -87,7 +87,6 @@ in
         rust-lang.rust-analyzer
         samuelcolvin.jinjahtml
         shopify.ruby-lsp
-        silvenon.mdx
         sissel.shopify-liquid
         stkb.rewrap
         streetsidesoftware.code-spell-checker
@@ -97,6 +96,7 @@ in
         tamasfe.even-better-toml
         theaflowers.qalc
         timonwong.shellcheck
+        unifiedjs.vscode-mdx
         volkerdobler.insertnums
         webfreak.advanced-local-formatters
         xaver.clang-format

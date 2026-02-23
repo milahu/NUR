@@ -89,6 +89,7 @@ specify {
   pdfalyzer = any;
   picard.overlay = p: { preFixup = p.preFixup + "\nmakeWrapperArgs+=(--prefix PATH : ${makeBinPath [ resolved.rsgain ]})"; }; # NixOS/nixpkgs#255222
   pngquant-interactive = any;
+  python39.search = pin "f62d6734af4581af614cab0f2aa16bcecfc33c11" "sha256-DlWElYYHKaUsGX/pfyIUO8aQHCPAia1THVR0RbtCJQ0=";
   pythonPackages.busylight-core.patch = ./library/assets/busylight-core_led-mask.patch;
   pythonPackages.busylight-for-humans.patch = ./library/assets/busylight-for-humans_fix-speed.patch; # Pending ≥0.45.3
   signal-desktop.args = [ "--use-tray-icon" ];
@@ -120,7 +121,6 @@ specify {
     mitchdenny.ecdc.search = open-vsx;
     ms-vscode.wasm-wasi-core.search = open-vsx;
     ronnidc.nunjucks.search = [ open-vsx vscode-marketplace ];
-    silvenon.mdx.search = open-vsx;
     sissel.shopify-liquid.search = open-vsx;
     syler.sass-indented.search = open-vsx;
     sysoev.language-stylus.search = open-vsx;

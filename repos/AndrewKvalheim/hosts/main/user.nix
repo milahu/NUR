@@ -1,7 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) escapeShellArg getExe getExe';
+  inherit (config.home) homeDirectory;
+  inherit (lib) escapeShellArg getExe getExe' mkForce;
   inherit (pkgs) substitute writeShellScript;
 
   system = import <nixpkgs/nixos> { };
@@ -51,6 +52,7 @@ in
     fastnbt-tools
     filter-imf
     fontforge-gtk
+    freecad
     gpsprune
     graphviz
     hugin
@@ -68,6 +70,7 @@ in
     nbt-explorer
     picard
     prismlauncher
+    prusa-slicer
     qgis
     rapid-photo-downloader
     signal-desktop
@@ -94,12 +97,12 @@ in
   };
 
   # Password store
-  programs.gopass.settings.mounts.path = "${config.home.homeDirectory}/akorg/resource/password-store";
+  programs.gopass.settings.mounts.path = "${homeDirectory}/akorg/resource/password-store";
 
   # Notes
   programs.joplin-desktop.extraConfig = let filesystem = 2 /* enum */; in {
     "sync.target" = filesystem;
-    "sync.${toString filesystem}.path" = "${config.home.homeDirectory}/akorg/resource/joplin-sync";
+    "sync.${toString filesystem}.path" = "${homeDirectory}/akorg/resource/joplin-sync";
   };
 
   # GNOME Shell launcher scripts
@@ -117,9 +120,17 @@ in
     substitutions = [ "--replace-fail" "Exec=dino %U" "Exec=dino --gapplication-service" ];
   };
 
+  # Unison
+  services.unison.pairs = {
+    "3d-printing" = {
+      when = "run-media-ak-ANDREW.mount"; # TODO: Provide escapeSystemdPath in Home Manager
+      roots = [ "${homeDirectory}/akorg/project/current/3d-printing" "/run/media/ak/ANDREW/3d-printing" ];
+    };
+  };
+
   # Environment
   home.sessionVariables = {
-    ATTACHMENTS_ENV = config.home.homeDirectory + "/.attachments.env";
-    EMAIL_HASH_DB = config.home.homeDirectory + "/akorg/resource/email-hash/email-hash.db";
+    ATTACHMENTS_ENV = "${homeDirectory}/.attachments.env";
+    EMAIL_HASH_DB = "${homeDirectory}/akorg/resource/email-hash/email-hash.db";
   };
 }

@@ -41,7 +41,6 @@ rec {
     ];
     hash = "sha256-jeWmPFBk/bveFIOcCQVhEZ3c4Il1t8Y/GvAewVU7QWA=";
   }).overrideAttrs (c: recursiveUpdate c { meta.broken = versionOlder pkgs.go.version "1.25.6"; /* Pending NixOS/nixpkgs#480465 */ });
-  cavif = callPackage ./library/cavif.pkg.nix { };
   ch57x-keyboard-tool = callPackage ./library/ch57x-keyboard-tool.pkg.nix { };
   chunker = callPackage ./library/chunker.pkg.nix { };
   co2monitor = callPackage ./library/co2monitor.pkg.nix { };
