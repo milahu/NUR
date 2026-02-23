@@ -45,6 +45,12 @@ overlays = pkgs'.lib.optional (with pkgs'; (
             hash = "sha256-uKzaqQRi6nnOH7sDla8o7gd++3L9iT8Xiwampf+NIR0=";
         })];
     });
+}) ++ pkgs'.lib.optional (!pkgs'?libx11) (self: super: with self.xorg; {
+    libx11 = libX11;
+    libxext = libXext;
+    libxpm = libXpm;
+    libxt = libXt;
+    inherit xtrans;
 });
 pkgs = if builtins.length overlays > 0 then pkgs'.appendOverlays overlays else pkgs';
 in
@@ -251,12 +257,12 @@ in {
         inherit (pkgs) lib fetchFromGitHub;
         inherit (if myLib.isDeprecated.picolisp then pkgs else self) picolisp;
         picolisp' = picolisp.overrideAttrs (old: {
-            version = "26.1.23";
+            version = "26.2.21";
             src = fetchFromGitHub {
                 owner = "picolisp";
                 repo = "pil21";
-                rev = "2314ce2b87b664d86754152062dc6c685beedc4f";
-                hash = "sha256-5hbj9pNkEo3M6SaIfnv7rsa9qKuWntJWNz7TOhUzUJw=";
+                rev = "3e8ac1617d141bafa229a7ed86295fc42e5b7256";
+                hash = "sha256-00r172ltsfh5WDFitj8KdrSrfQGZNUAJmV1CDtqznxU=";
             };
             sourceRoot = null;
             passthru = (old.passthru or {}) // {

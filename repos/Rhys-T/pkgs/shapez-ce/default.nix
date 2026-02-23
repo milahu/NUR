@@ -3,23 +3,21 @@
     buildNpmPackage, fetchNpmDeps,
     fetchFromGitHub, fetchurl,
     nodejs_22,
-    electron_37,
+    electron,
     ffmpeg, jre, zip,
     rsync,
     removeReferencesTo, buildPackages, makeBinaryWrapper,
     copyDesktopItems, makeDesktopItem, iconConvTools,
     symlinkJoin, writeShellApplication, unstableGitUpdater,
     maintainers,
-}: buildNpmPackage (finalAttrs: let
-    electron = electron_37;
-in {
+}: buildNpmPackage (finalAttrs: {
     pname = "shapez-ce";
-    version = "0-unstable-2026-01-22";
+    version = "0-unstable-2026-02-14";
     src = fetchFromGitHub {
         owner = "tobspr-games";
         repo = "shapez-community-edition";
-        rev = "3c06f9e597a2da2826b6ebb89c5f7030eda2be11";
-        hash = "sha256-FMtF68/snrkY2NZAsHwRKewqCT9bXbPJDwFUlZG73Ig=";
+        rev = "76b0f8716ca7c8cfdda7809bcb0cc2788cb8ee58";
+        hash = "sha256-FU/Ay1rypMVSZA+V5EHD/S6B78YxahGmuQbzZ9ILU+A=";
     };
     texturePacker = fetchurl {
         url = "https://web.archive.org/web/20241202185338id_/https://libgdx-nightlies.s3.amazonaws.com/libgdx-runnables/runnable-texturepacker.jar";
@@ -29,7 +27,7 @@ in {
     nodejs = nodejs_22;
     npmRebuildFlags = [ "--ignore-scripts" ];
     env.ELECTRON_SKIP_BINARY_DOWNLOAD = "1";
-    npmDepsHash = "sha256-c1JErEwRjNCHOuBkTIsuMG3NtSU02yUD4/L73hPhCiU=";
+    npmDepsHash = "sha256-lfL6Mc/FHaCxA1XSUChqwpGggkHyCssKkHOYUY62rfs=";
     electronNpmDeps = fetchNpmDeps {
         name = "${finalAttrs.finalPackage.name}-electron-npm-deps";
         inherit (finalAttrs) src;
@@ -43,7 +41,7 @@ in {
         ' gulp/buildutils.js
         # Fix build type string so it doesn't show up as 'undefined'
         # Base G_BUILD_TIME on SOURCE_DATE_EPOCH for reproducibility
-        substituteInPlace gulp/webpack.production.config.js \
+        substituteInPlace gulp/rspack.production.config.js \
             --replace-fail \
                 '"G_APP_ENVIRONMENT": JSON.stringify("release")' \
                 '"G_APP_ENVIRONMENT": JSON.stringify("prod")' \

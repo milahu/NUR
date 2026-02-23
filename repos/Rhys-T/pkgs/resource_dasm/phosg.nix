@@ -3,17 +3,16 @@
     needsFmt = fuzziqersoftwareFmtPatchHook.isNeeded;
 in stdenv.mkDerivation rec {
     pname = "phosg";
-    version = "0-unstable-2025-11-24";
+    version = "0-unstable-2026-02-13";
     src = fetchFromGitHub {
         owner = "fuzziqersoftware";
         repo = "phosg";
-        rev = "d292a91b61052ed8b4b56424c252c2f583c90302";
-        hash = "sha256-WK0XLgPAGEBKQY/L4Y+k/luM9iDsRBh+BB+h8G7UdNQ=";
+        rev = "07526381e8c9ff8e3df5dc1ce8360bd74643c64e";
+        hash = "sha256-K81XJd2OCWGu3F9ibB7LpH7OouxCkwaCVHdv3U1CQFY=";
     };
     postPatch = ''
         substituteInPlace CMakeLists.txt \
-            --replace-fail 'set(CMAKE_OSX_ARCHITECTURES' '#set(CMAKE_OSX_ARCHITECTURES' \
-            --replace-fail 'target_link_libraries(phosg atomic)' 'target_link_libraries(phosg PRIVATE atomic)'
+            --replace-fail 'set(CMAKE_OSX_ARCHITECTURES' '#set(CMAKE_OSX_ARCHITECTURES'
     '';
     nativeBuildInputs = [cmake] ++ lib.optionals needsMemorymapping [memorymappingHook] ++ lib.optionals needsFmt [fuzziqersoftwareFmtPatchHook];
     buildInputs = [zlib];
