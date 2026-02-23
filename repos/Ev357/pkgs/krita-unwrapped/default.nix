@@ -59,14 +59,14 @@
 }:
 mkDerivation rec {
   pname = "krita-unwrapped";
-  version = "5.3.0-prealpha";
+  version = "5.4.0-prealpha";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "graphics";
     repo = "krita";
-    rev = "2f7160e6f0e5e60f0f4e04a44a8820fe42c25cc3";
-    hash = "sha256-dTHImcEwt6if+VPYxXiKHwhN95+hLIhUZE4WY04Pnis=";
+    rev = "6173cb83c5459e2618203ddb7b6dd6d63c1b6969";
+    hash = "sha256-Aoic9dIdN4wKFzkKnI8IHqM6LPHoXleeP66CYJTjoAQ=";
   };
 
   passthru.updateScript =

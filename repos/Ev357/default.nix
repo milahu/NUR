@@ -11,6 +11,7 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  bitwarden = pkgs.callPackage ./pkgs/raycast-bitwarden {};
   catppuccin-obsidian = pkgs.callPackage ./pkgs/catppuccin-obsidian {};
   cmdr = pkgs.callPackage ./pkgs/cmdr {};
   folder-notes = pkgs.callPackage ./pkgs/folder-notes {};
@@ -27,4 +28,5 @@
   obsidian-style-settings = pkgs.callPackage ./pkgs/obsidian-style-settings {};
   obsidian-vim-yank-highlight = pkgs.callPackage ./pkgs/obsidian-vim-yank-highlight {};
   obsidian-vimrc-support = pkgs.callPackage ./pkgs/obsidian-vimrc-support {};
+  vaultwarden = pkgs.callPackage ./pkgs/vaultwarden {};
 }
