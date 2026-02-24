@@ -61,9 +61,7 @@ specify {
   htop.patch = ./library/assets/htop_colors.patch; # htop-dev/htop#1416
   incremental-compress = any;
   inkscape = { patch = ./library/assets/inkscape_png-no-comment.patch; ccache = true; dontEval = true /* FIXME: infinite recursion */; }; # Pending inkscape/inkscape!7193
-  inkscape-extensions.applytransforms = { overlay = a: recursiveUpdate a { meta.broken = versionAtLeast (findFirst (p: p ? pname && p.pname == "libxml2") null (findFirst (p: p.pname == "lxml") null (findFirst (p: p.pname == "inkex") null a.nativeCheckInputs).passthru.dependencies).nativeBuildInputs).version "2.15"; }; search = pin "55d3fa58ff9642d799d7489a7f8b0c218723fe07" "sha256-YzAIb9sYIujKmezFvAsyi6bXjqBWfcm3XY5kvQ3GDjM="; }; # Workaround for inkscape/extensions#617 (https://hydra.nixos.org/build/314374425)
-  ios-safari-remote-debug-kit = any;
-  ios-webkit-debug-proxy = any;
+  inkscape-extensions.applytransforms = { overlay = a: recursiveUpdate a { meta.broken = let libxml2 = (findFirst (p: p ? pname && p.pname == "libxml2") null (findFirst (p: p.pname == "lxml") null (findFirst (p: p.pname == "inkex") null a.nativeCheckInputs).passthru.dependencies).nativeBuildInputs); in libxml2 != null && versionAtLeast libxml2.version "2.15"; }; }; # Workaround for inkscape/extensions#617 (https://hydra.nixos.org/build/314374425) pending NixOS/nixpkgs#483120
   iosevka-custom = any;
   iptables_exporter = any;
   jj-dynamic-default-description = any;

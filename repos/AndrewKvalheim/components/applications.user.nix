@@ -34,6 +34,7 @@ in
       defaultApplications = foldlAttrs (byType: handler: types: byType // (listToAttrs (map (type: nameValuePair type handler) types))) { } {
         "codium.desktop" = [ "application/gpx+xml" "application/json" "application/rss+xml" "application/x-shellscript" "application/xml" "message/rfc822" "text/markdown" "text/plain" ];
         "firefox.desktop" = [ "application/xhtml+xml" "text/html" "x-scheme-handler/http" "x-scheme-handler/https" ];
+        "fstlapp-fstl.desktop" = [ "model/stl" ];
         "org.gnome.Loupe.desktop" = [ "image/heif" ];
         "org.gnome.Papers.desktop" = [ "image/x-eps" ];
         "writer.desktop" = [ "application/vnd.oasis.opendocument.text" "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ];
