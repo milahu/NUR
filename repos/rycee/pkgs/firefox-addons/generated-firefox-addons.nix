@@ -1590,6 +1590,33 @@
         platforms = platforms.all;
       };
     };
+    "cardpointers-x" = buildMozillaXpiAddon {
+      pname = "cardpointers-x";
+      version = "7.2.11";
+      addonId = "firefox@cardpointers.com";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4700901/cardpointers_x-7.2.11.xpi";
+      sha256 = "d811d483875ab58f618f344d82e01c683845913f46ec9f379eaf4dc6d95f3a5e";
+      meta = with lib;
+      {
+        homepage = "https://cardpointers.com/";
+        description = "Maximize your Amex/Chase offers, cashback and all of your credit card rewards on every site.";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [
+          "storage"
+          "unlimitedStorage"
+          "activeTab"
+          "scripting"
+          "http://*/*"
+          "https://*/*"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "castkodi" = buildMozillaXpiAddon {
       pname = "castkodi";
       version = "7.18.0";
@@ -13429,6 +13456,20 @@
         description = "Help people in censored countries access the Internet without restrictions. Once you install and enable the extension, wait for the snowflake icon to turn green, this means a censored user is connecting through your extension to access the Internet!";
         license = licenses.bsd3;
         mozPermissions = [ "storage" ];
+        platforms = platforms.all;
+      };
+    };
+    "solarize-fox" = buildMozillaXpiAddon {
+      pname = "solarize-fox";
+      version = "2.3.6";
+      addonId = "{467c0f66-2faa-4636-93bb-9a5eda23389f}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3517030/solarize_fox-2.3.6.xpi";
+      sha256 = "497aed33672e2ef81ec66c39d9907ae08237b27d9c4c76d5cdf65a1e28342b3d";
+      meta = with lib;
+      {
+        description = "Relax for your eyes.\nSidebar and new tab included.";
+        license = licenses.cc-by-sa-30;
+        mozPermissions = [];
         platforms = platforms.all;
       };
     };
