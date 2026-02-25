@@ -39,26 +39,18 @@ rec {
       "github.com/caddy-dns/route53@v1.6.0"
       "github.com/caddyserver/cache-handler@v0.16.0"
     ];
-    hash = "sha256-jeWmPFBk/bveFIOcCQVhEZ3c4Il1t8Y/GvAewVU7QWA=";
+    hash = {
+      "2.10.2" = "sha256-jeWmPFBk/bveFIOcCQVhEZ3c4Il1t8Y/GvAewVU7QWA=";
+      "2.11.1" = "sha256-LZeANuFX2bbpdrpgn7wliVowipLtF+cchDErD/2vSiU=";
+    }."${pkgs.caddy.version}" or lib.fakeHash;
   }).overrideAttrs (c: recursiveUpdate c { meta.broken = versionOlder pkgs.go.version "1.25.6"; /* Pending NixOS/nixpkgs#480465 */ });
   ch57x-keyboard-tool = callPackage ./library/ch57x-keyboard-tool.pkg.nix { };
   chunker = callPackage ./library/chunker.pkg.nix { };
   co2monitor = callPackage ./library/co2monitor.pkg.nix { };
   decompiler-mc = callPackage ./library/decompiler-mc.pkg.nix { };
   dmarc-report-notifier = callPackage ./library/dmarc-report-notifier.pkg.nix {
-    python3Packages = (pkgs.python3.override {
+    python313Packages = (pkgs.python313.override {
       packageOverrides = _: pythonPackages: {
-        # Pending mjs/imapclient#629
-        imapclient = warnIf (versionOlder "3.0.1" pythonPackages.imapclient.version) "python3Packages.imapclient no longer requires a version override"
-          pythonPackages.imapclient.overrideAttrs
-          (imapclient: {
-            version = "3.0.1-unstable-2026-01-02";
-            src = imapclient.src.override {
-              tag = null;
-              rev = "f3813a42f5712cf4b8848c823935eabf487ca494";
-              hash = "sha256-Yb89xlnrpB3iimJMG4Z5CMLDahqzM/NMk0zi7frw/Vk=";
-            };
-          });
         # Pending NixOS/nixpkgs#337081
         msgraph-core = warnIfNot pkgs.python3Packages.parsedmarc.meta.broken "python3Packages.parsedmarc is no longer broken"
           (findFirst (p: p.pname == "msgraph-core") null pkgs.parsedmarc.requiredPythonModules);
@@ -78,7 +70,11 @@ rec {
   journal-brief = callPackage ./library/journal-brief.pkg.nix { };
   little-a-map = callPackage ./library/little-a-map.pkg.nix { };
   mark-applier = callPackage ./library/mark-applier.pkg.nix { };
-  meshtastic-url = callPackage ./library/meshtastic-url.pkg.nix { };
+  meshtastic-url = (callPackage ./library/meshtastic-url.pkg.nix { }).overrideAttrs (m: recursiveUpdate m {
+    # Pending NixOS/nixpkgs#493409
+    meta.broken = versionAtLeast pkgs.python3Packages.numpy.version "2.4"
+      && versionAtLeast "6.5.2" pkgs.python3Packages.plotly.version;
+  });
   minemap = callPackage ./library/minemap.pkg.nix { };
   nbt-explorer = callPackage ./library/nbt-explorer.pkg.nix { };
   oxvg = callPackage ./library/oxvg.pkg.nix { };

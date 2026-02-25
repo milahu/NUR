@@ -21,7 +21,7 @@ let
 
   # Repositories
   defaultExtra = genAttrs resolvedSearch.right (name: mkRepo name (findFile nixPath name));
-  mkNur = repo: (import nur { pkgs = repo; }) // { _local = true; _name = "NUR packages${optionalString (! repoEq repo stable) " using ${repoName repo}"}"; };
+  mkNur = repo: (import nur { pkgs = repo; }) // { _local = true; _used = repoName repo; _name = "NUR packages${optionalString (! repoEq repo stable) " using ${repoName repo}"}"; };
   pin = rev: hash: mkRepo "pin ${rev}" (fetchgit { inherit hash rev; name = "nixpkgs-pin-${rev}"; url = "https://github.com/NixOS/nixpkgs.git"; });
   pr = id: hash: mkRepo "PR #${toString id}" (fetchgit { inherit hash; name = "nixpkgs-pr-${toString id}"; url = "https://github.com/NixOS/nixpkgs.git"; rev = "refs/pull/${toString id}/head"; });
   resolvedSearch = partition (name: (tryEval (pathExists (findFile nixPath name))).value) search;
@@ -105,7 +105,7 @@ let
             && ((isFunctor r path || isScope r path || isSet r path) || (packageSuffices (getAttrFromPath path r)))
       );
       base = uniqueBy repoName ([ target ] ++ (attrValues defaultExtra));
-      nurs = optionals (nur != null) (map mkNur base);
+      nurs = optionals (nur != null) (map mkNur (base ++ extra));
       extra = if search == null then [ ] else imap1 (i: s: { _extra = i; _name = "search"; } // s) (toList search);
       repos = base ++ extra ++ nurs ++ files;
       repo = if doPythonPackages then scope else (if version == "∞" then findGreatest else findFirst) repoSuffices null repos;
@@ -164,7 +164,7 @@ let
         (optionalString (! repoEq repo stable) " via ${repoName repo}");
       unnecessary = repo != null && (repoEq repo stable) && !doOverlay && !doOverride && !doWrapper && version != "∞";
       unnecessaryFiles = concatStringsSep ", " (optionals (repo != null && ! isLocal repo) (filter pathExists files));
-      unnecessarySearches = concatMapStringsSep ", " repoName (filter (r: repo != null && r._extra > repo._extra or 0) extra);
+      unnecessarySearches = concatMapStringsSep ", " repoName (filter (r: repo != null && r._extra > repo._extra or 0 && ! (repo ? _used && repo._used == repoName r)) extra);
     in
     if pname == "pythonPackages" then
       nameValuePair "pythonPackagesExtensions"
@@ -179,9 +179,9 @@ let
         else if recurseForDerivations || (isSet repo path) then
           (attrByPath path { } repo) // (mapAttrs' (resolve path) (removeAttrs spec [ "recurseForDerivations" ]))
         else
-          (throwIf (unnecessaryFiles != "") "${query} no longer requires ${unnecessaryFiles}")
-            (throwIf (unnecessarySearches != "") "${query} no longer requires searching ${unnecessarySearches}")
-            (throwIf unnecessary "${query} no longer requires an override")
+          (throwIf (unnecessaryFiles != "") "${summary} and it longer requires ${unnecessaryFiles}")
+            (throwIf (unnecessarySearches != "") "${summary} and it longer requires searching ${unnecessarySearches}")
+            (throwIf unnecessary "${summary} and it no longer requires an override")
             (info summary package_with_overlay_with_override_with_wrapper)
       )
   ;

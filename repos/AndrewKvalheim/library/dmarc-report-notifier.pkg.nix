@@ -1,10 +1,13 @@
 { fetchFromGitea
 , gitUpdater
 , lib
-, python3Packages
+, python313Packages
 }:
 
-python3Packages.buildPythonApplication rec {
+let
+  inherit (import ../library/utilities.lib.nix { inherit lib; }) versionsSatisfied;
+in
+python313Packages.buildPythonApplication rec {
   pname = "dmarc-report-notifier";
   version = "1.1.12";
 
@@ -18,11 +21,11 @@ python3Packages.buildPythonApplication rec {
 
   format = "pyproject";
 
-  nativeBuildInputs = with python3Packages; [
+  nativeBuildInputs = with python313Packages; [
     hatchling
   ];
 
-  propagatedBuildInputs = with python3Packages; [
+  propagatedBuildInputs = with python313Packages; [
     jinja2
     jinja2-pluralize
     matrix-nio
@@ -36,5 +39,8 @@ python3Packages.buildPythonApplication rec {
     homepage = "https://codeberg.org/AndrewKvalheim/dmarc-report-notifier";
     license = lib.licenses.gpl3;
     mainProgram = "dmarc-report-notifier";
+    broken = with python313Packages; ! versionsSatisfied [
+      [ parsedmarc "≥8.3.2,<9" ]
+    ];
   };
 }
