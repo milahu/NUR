@@ -2852,10 +2852,10 @@
     };
     "darkreader" = buildMozillaXpiAddon {
       pname = "darkreader";
-      version = "4.9.120";
+      version = "4.9.121";
       addonId = "addon@darkreader.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4690081/darkreader-4.9.120.xpi";
-      sha256 = "496bf5a0e4a4d26226528ecce0ae051ee3f23153ee48d504d51f0f22afaf0fdd";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4690921/darkreader-4.9.121.xpi";
+      sha256 = "c0ec5d504e971dfbeaddc46f879c740a5f4c7c037a678ecd319afb7986fe63eb";
       meta = with lib;
       {
         homepage = "https://darkreader.org/";
@@ -9674,10 +9674,10 @@
     };
     "momentumdash" = buildMozillaXpiAddon {
       pname = "momentumdash";
-      version = "2.25.8";
+      version = "2.26.0";
       addonId = "momentum@momentumdash.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4677297/momentumdash-2.25.8.xpi";
-      sha256 = "d79267d86d79f7823c357db83aeaf07a1ef936f98dc24b75701ec5b0a8ee45aa";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4689918/momentumdash-2.26.0.xpi";
+      sha256 = "d9e551bdf71f25c67d7237b203b591b760b7c963ea55e4fd27ff124ca0dcb135";
       meta = with lib;
       {
         homepage = "https://momentumdash.com";
@@ -14722,10 +14722,10 @@
     };
     "tridactyl" = buildMozillaXpiAddon {
       pname = "tridactyl";
-      version = "1.24.4";
+      version = "1.24.5";
       addonId = "tridactyl.vim@cmcaine.co.uk";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4549492/tridactyl_vim-1.24.4.xpi";
-      sha256 = "9ba7d6bc3be555631c981c3acdd25cab6942c1f4a6f0cb511bbe8fa81d79dd9d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4704384/tridactyl_vim-1.24.5.xpi";
+      sha256 = "0bf18c2a3a8edbcbf46c991548988ec510734b19b95f325beb76f4484079fb07";
       meta = with lib;
       {
         homepage = "https://tridactyl.xyz";
@@ -16457,10 +16457,10 @@
     };
     "widegithub" = buildMozillaXpiAddon {
       pname = "widegithub";
-      version = "3.3.2";
+      version = "3.3.3";
       addonId = "{72742915-c83b-4485-9023-b55dc5a1e730}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4685457/widegithub-3.3.2.xpi";
-      sha256 = "ed5e4bc9af5f63e480b00e8a515a74fb52c60cf1bbe6f13ab80b64d0bd0811e7";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4704774/widegithub-3.3.3.xpi";
+      sha256 = "1cccb90ab6b3c4ae1e43f8632a831ded96b987f30cb1a5e21f7fbf6c33aec530";
       meta = with lib;
       {
         homepage = "https://github.com/fabiocchetti/wide-github/";
