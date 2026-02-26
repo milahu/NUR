@@ -8,6 +8,7 @@
   fetchFromGitHub,
   nix-update-script,
 }:
+
 stdenv.mkDerivation (finalAttrs: {
   pname = "nix-fix-hash";
   version = "0.1.1";
@@ -54,7 +55,7 @@ stdenv.mkDerivation (finalAttrs: {
   passthru.updateScript = nix-update-script {
     extraArgs = [
       "--commit"
-      "${finalAttrs.pname}"
+      finalAttrs.pname
     ];
   };
 

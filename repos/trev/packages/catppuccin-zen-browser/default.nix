@@ -1,10 +1,11 @@
 {
-  stdenv,
   fetchFromGitHub,
   lib,
   nix-update-script,
+  stdenv,
 }:
-stdenv.mkDerivation {
+
+stdenv.mkDerivation (finalAttrs: {
   pname = "catppuccin-zen-browser";
   version = "0-unstable-2025-09-28";
 
@@ -25,7 +26,7 @@ stdenv.mkDerivation {
     extraArgs = [
       "--commit"
       "--version=branch=main"
-      "catppuccin-zen-browser"
+      finalAttrs.pname
     ];
   };
 
@@ -35,4 +36,4 @@ stdenv.mkDerivation {
     changelog = "https://github.com/catppuccin/zen-browser/commits/main";
     platforms = lib.platforms.all;
   };
-}
+})

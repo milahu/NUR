@@ -16,6 +16,7 @@
   stdenv,
   uv,
 }:
+
 stdenv.mkDerivation (finalAttrs: {
   pname = "bumper";
   version = "0.10.4";
@@ -82,7 +83,7 @@ stdenv.mkDerivation (finalAttrs: {
   passthru.updateScript = nix-update-script {
     extraArgs = [
       "--commit"
-      "${finalAttrs.pname}"
+      finalAttrs.pname
     ];
   };
 

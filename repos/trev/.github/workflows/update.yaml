@@ -24,20 +24,14 @@ jobs:
     runs-on: ${{ matrix.image }}
     steps:
       - name: Initialize
-        uses: spotdemo4/nix-init@404b7e941df54f8cde2a4efb20c2affa819af909 # v1.30.0
+        uses: spotdemo4/nix-init@f88963412ff6a2e9c4dc40233e10729444aa7b05 # v1.31.0
         with:
           app_id: ${{ vars.CLIENT_ID }}
           app_key: ${{ secrets.PRIVATE_KEY }}
           shell: update
 
-      - name: Create branch
-        run: git checkout -B "update-packages-${{ matrix.image }}"
-
       - name: Update packages
-        run: update
-
-      - name: Push changes
-        run: git push --force origin "update-packages-${{ matrix.image }}"
+        run: ./utils/update/update.sh
 
   pkgs-pr:
     needs: pkgs
@@ -51,29 +45,8 @@ jobs:
           private-key: ${{ secrets.PRIVATE_KEY }}
           fetch-depth: 0
 
-      - name: Create branch
-        run: |
-          git checkout -B update-packages
-          git merge -X ours --no-ff origin/update-packages-ubuntu-24.04
-          git merge -X ours --no-ff origin/update-packages-ubuntu-24.04-arm
-          git merge -X ours --no-ff origin/update-packages-macos-26
-          git push --force origin update-packages
-
-      - id: pr
-        name: Create pull request
-        run: |
-          if url=$(gh pr create --title "package updates" --body "updated some packages" --head update-packages --base main); then
-            echo "Created PR: ${url}"
-            echo "url=${url}" >> $GITHUB_OUTPUT
-          else
-            echo "Could not create PR"
-          fi
-        env:
-          GH_TOKEN: ${{ steps.checkout.outputs.token }}
-
-      - if: ${{ steps.pr.outputs.url }}
-        name: Enable automerge
-        run: gh pr merge --rebase --auto "${{ steps.pr.outputs.url }}"
+      - name: Merge packages
+        run: ./utils/update/merge.sh
         env:
           GH_TOKEN: ${{ steps.checkout.outputs.token }}
 
@@ -82,14 +55,11 @@ jobs:
     steps:
       - id: init
         name: Initialize
-        uses: spotdemo4/nix-init@404b7e941df54f8cde2a4efb20c2affa819af909 # v1.30.0
+        uses: spotdemo4/nix-init@f88963412ff6a2e9c4dc40233e10729444aa7b05 # v1.31.0
         with:
           app_id: ${{ vars.CLIENT_ID }}
           app_key: ${{ secrets.PRIVATE_KEY }}
           shell: update
-
-      - name: Nix path
-        run: echo "${NIX_PATH}"
 
       - name: Renovate
         run: renovate

@@ -1,22 +1,24 @@
 {
-  buildPythonPackage,
   fetchFromGitHub,
   lib,
   nix-update-script,
-  pkgs,
   rustPlatform,
+  uv,
+
+  # python packages
+  buildPythonPackage,
 }:
 
 buildPythonPackage (finalAttrs: {
   pname = "uv-build";
-  version = "0.10.4";
+  version = "0.10.6";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "astral-sh";
     repo = "uv";
     tag = finalAttrs.version;
-    hash = "sha256-+6u8rmTLwZlEvbnF7Ng/06uYcs6HJGAEyOhEwzYVHVE=";
+    hash = "sha256-KOoAj5v0k9SDsiFmjjaiLMRGn+VELulF//Rvv62U7CU=";
   };
 
   nativeBuildInputs = [
@@ -26,7 +28,7 @@ buildPythonPackage (finalAttrs: {
 
   cargoDeps = rustPlatform.fetchCargoVendor {
     inherit (finalAttrs) pname version src;
-    hash = "sha256-jpaOD98n0FBnYzexDiLhtHLRLmzSOZN38KKzcc+o5WQ=";
+    hash = "sha256-IY1Js0PrUjYX4pqUQY44BX41YGpjxCY5tceRaoiiz0o=";
   };
 
   buildAndTestSubdir = "crates/uv-build";
@@ -39,34 +41,17 @@ buildPythonPackage (finalAttrs: {
   # The package has no tests
   doCheck = false;
 
-  passthru = {
-    updateScript = nix-update-script {
-      extraArgs = [
-        "--commit"
-        "${finalAttrs.pname}"
-      ];
-    };
-    python311 = pkgs.callPackage ./. {
-      inherit (pkgs.python311Packages) buildPythonPackage;
-    };
-    python312 = pkgs.callPackage ./. {
-      inherit (pkgs.python312Packages) buildPythonPackage;
-    };
-    python313 = pkgs.callPackage ./. {
-      inherit (pkgs.python313Packages) buildPythonPackage;
-    };
-    python314 = pkgs.callPackage ./. {
-      inherit (pkgs.python314Packages) buildPythonPackage;
-    };
-    python315 = pkgs.callPackage ./. {
-      inherit (pkgs.python315Packages) buildPythonPackage;
-    };
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--commit"
+      finalAttrs.pname
+    ];
   };
 
   meta = {
     description = "Minimal build backend for uv";
     homepage = "https://docs.astral.sh/uv/reference/settings/#build-backend";
-    inherit (pkgs.uv.meta) changelog license;
+    inherit (uv.meta) changelog license;
     platforms = lib.platforms.all;
   };
 })

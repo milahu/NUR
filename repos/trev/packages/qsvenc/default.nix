@@ -24,6 +24,7 @@
   wget,
   intel-compute-runtime,
 }:
+
 stdenv.mkDerivation (finalAttrs: {
   pname = "qsvenc";
   version = "8.04";
@@ -123,7 +124,7 @@ stdenv.mkDerivation (finalAttrs: {
   passthru.updateScript = nix-update-script {
     extraArgs = [
       "--commit"
-      "${finalAttrs.pname}"
+      finalAttrs.pname
     ];
   };
 

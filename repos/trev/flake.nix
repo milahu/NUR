@@ -31,6 +31,7 @@
       let
         pkgs = import nixpkgs {
           inherit system;
+          config.allowUnfree = true;
         };
         fs = pkgs.lib.fileset;
       in
@@ -73,53 +74,38 @@
 
         devShells = {
           default = pkgs.mkShell {
-            name = "dev";
-            packages =
-              let
-                nix-fix-hash = pkgs.callPackage ./packages/nix-fix-hash { };
-                fetch-hash = pkgs.callPackage ./packages/fetch-hash { };
-                update = pkgs.callPackage ./utils/update { inherit system; };
-              in
-              with pkgs;
-              [
-                nix-fix-hash
-                fetch-hash
-                nixfmt
-                prettier
-                nix-update
-                update
-              ];
-            shellHook =
-              let
-                shellhook = pkgs.callPackage ./packages/shellhook { };
-              in
-              shellhook.ref;
+            packages = with pkgs; [
+              # lint
+              shellcheck
+
+              # format
+              nixfmt
+              prettier
+
+              # util
+              nix-update
+              gh
+              (pkgs.callPackage ./packages/nix-fix-hash { })
+              (pkgs.callPackage ./packages/fetch-hash { })
+            ];
+            shellHook = (pkgs.callPackage ./packages/shellhook { }).ref;
           };
 
           check = pkgs.mkShell {
-            name = "check";
             packages = with pkgs; [
               nix-fast-build
             ];
           };
 
           update = pkgs.mkShell {
-            name = "update";
-            packages =
-              let
-                nix-fix-hash = pkgs.callPackage ./packages/nix-fix-hash { };
-                trenovate = pkgs.callPackage ./packages/renovate { };
-                update = pkgs.callPackage ./utils/update { inherit system; };
-              in
-              [
-                nix-fix-hash
-                trenovate
-                update
-              ];
+            packages = with pkgs; [
+              (pkgs.callPackage ./packages/nix-fix-hash { })
+              (pkgs.callPackage ./packages/renovate { })
+              nix-update
+            ];
           };
 
           vulnerable = pkgs.mkShell {
-            name = "vulnerable";
             packages = with pkgs; [
               # flake
               flake-checker
@@ -152,13 +138,9 @@
                 root = ./.github;
                 fileset = ./.github/renovate.json;
               };
-              deps =
-                let
-                  trenovate = pkgs.callPackage ./packages/renovate { };
-                in
-                [
-                  trenovate
-                ];
+              deps = [
+                (pkgs.callPackage ./packages/renovate { })
+              ];
               script = ''
                 renovate-config-validator renovate.json
               '';
@@ -174,6 +156,19 @@
               ];
               script = ''
                 treefmt --ci
+              '';
+            };
+
+            shell = {
+              src = fs.toSource {
+                root = ./.;
+                fileset = fs.fileFilter (file: file.hasExt "sh") ./.;
+              };
+              deps = with pkgs; [
+                shellcheck
+              ];
+              script = ''
+                find -type f -name '*.sh' -exec shellcheck {} +
               '';
             };
 

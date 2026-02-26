@@ -1,30 +1,45 @@
 {
-  lib,
-  python3Packages,
   atomicparsley,
+  atomicparsleySupport ? true,
   deno,
   fetchFromGitHub,
   ffmpeg-headless,
+  ffmpegSupport ? true,
   installShellFiles,
+  javascriptSupport ? true,
+  lib,
+  nix-update-script,
   pandoc,
   rtmpdump,
-  atomicparsleySupport ? true,
-  ffmpegSupport ? true,
-  javascriptSupport ? true,
   rtmpSupport ? true,
-  nix-update-script,
+  stdenv,
+
+  # python packages
+  brotli,
+  buildPythonApplication,
+  certifi,
+  cffi,
+  curl-cffi,
+  hatchling,
+  mutagen,
+  pycryptodomex,
+  requests,
+  secretstorage,
+  urllib3,
+  websockets,
+  yt-dlp-ejs,
 }:
 
-python3Packages.buildPythonApplication rec {
+buildPythonApplication rec {
   pname = "yt-dlp";
-  version = "2026.02.21-unstable-2026-02-21";
+  version = "2026.02.21-unstable-2026-02-22";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "yt-dlp";
     repo = "yt-dlp";
-    rev = "e2a9cc7d137c88843e064bc9ea11cdca5cd4c82a";
-    hash = "sha256-r9I/zLyqGPeIzsHsLxJcfnLC3jpuyKMyX1UaMoM08jk=";
+    rev = "e3118604aa99a5514342d6a002c9b4a3fe1235b4";
+    hash = "sha256-/wRhO2hMxte3LptrP08Pyndzvf/mu5YyUo4Vvq8Vabg=";
   };
 
   postPatch = ''
@@ -39,7 +54,7 @@ python3Packages.buildPythonApplication rec {
     ''}
   '';
 
-  build-system = with python3Packages; [ hatchling ];
+  build-system = [ hatchling ];
 
   nativeBuildInputs = [
     installShellFiles
@@ -50,22 +65,18 @@ python3Packages.buildPythonApplication rec {
   dependencies = lib.concatAttrValues optional-dependencies;
 
   optional-dependencies = {
-    default =
-      with python3Packages;
-      [
-        brotli
-        certifi
-        mutagen
-        pycryptodomex
-        requests
-        urllib3
-        websockets
-      ]
-      ++ [
-        passthru.ejs # keep pinned version in sync!
-      ];
-    curl-cffi = [ python3Packages.curl-cffi ];
-    secretstorage = with python3Packages; [
+    default = [
+      brotli
+      certifi
+      mutagen
+      pycryptodomex
+      requests
+      urllib3
+      websockets
+      yt-dlp-ejs
+    ];
+    curl-cffi = [ curl-cffi ];
+    secretstorage = lib.optionals (!stdenv.isDarwin) [
       cffi
       secretstorage
     ];
@@ -126,15 +137,12 @@ python3Packages.buildPythonApplication rec {
     install -Dm644 Changelog.md README.md -t "$out/share/doc/yt_dlp"
   '';
 
-  passthru = {
-    ejs = python3Packages.callPackage ./ejs.nix { };
-    updateScript = nix-update-script {
-      extraArgs = [
-        "--commit"
-        "--version=branch=master"
-        "${pname}"
-      ];
-    };
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--commit"
+      "--version=branch=master"
+      pname
+    ];
   };
 
   meta = {

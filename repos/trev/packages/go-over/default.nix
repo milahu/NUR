@@ -4,6 +4,7 @@
   lib,
   nix-update-script,
 }:
+
 gleam.build rec {
   pname = "go-over";
   version = "3.2.2";
@@ -23,7 +24,7 @@ gleam.build rec {
       extraArgs = [
         "--flake"
         "--commit"
-        "${pname}"
+        pname
       ];
     };
   };

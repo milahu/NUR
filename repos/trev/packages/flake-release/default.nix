@@ -20,15 +20,16 @@
   xz,
   zip,
 }:
+
 stdenv.mkDerivation (finalAttrs: {
   pname = "flake-release";
-  version = "0.11.3";
+  version = "0.11.5";
 
   src = fetchFromGitHub {
     owner = "spotdemo4";
     repo = "flake-release";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-YUSlKcrnMFluPvVWigsXl3ulLHEvLSugXxK5puM8XvY=";
+    hash = "sha256-jdcvQfjSa7PDNtytGTX9jlVOvCA0aZd+V0f9OyftVFw=";
   };
 
   nativeBuildInputs = [
@@ -61,7 +62,7 @@ stdenv.mkDerivation (finalAttrs: {
   configurePhase = ''
     chmod +w src
     sed -i '1c\#!${runtimeShell}' src/flake-release.sh
-    sed -i '2c\export PATH="${lib.makeBinPath finalAttrs.runtimeInputs}:$PATH"' src/flake-release.sh
+    sed -i '2i\export PATH="${lib.makeBinPath finalAttrs.runtimeInputs}:$PATH"' src/flake-release.sh
   '';
 
   doCheck = true;
@@ -82,7 +83,7 @@ stdenv.mkDerivation (finalAttrs: {
   passthru.updateScript = nix-update-script {
     extraArgs = [
       "--commit"
-      "${finalAttrs.pname}"
+      finalAttrs.pname
     ];
   };
 
