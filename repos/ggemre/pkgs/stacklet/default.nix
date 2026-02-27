@@ -1,5 +1,9 @@
-{ lib, rustPlatform, fetchFromGitHub, ncurses }:
-
+{
+  lib,
+  rustPlatform,
+  fetchFromGitHub,
+  ncurses,
+}:
 rustPlatform.buildRustPackage rec {
   pname = "stacklet";
   version = "1.0.1";
@@ -12,7 +16,7 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoHash = "sha256-SUt4uvs7iUYO480z4qODOc06biwnHXiwVdmuAXDMTjg=";
-  buildInputs = [ ncurses ];
+  buildInputs = [ncurses];
 
   meta = with lib; {
     description = "Generate custom applets and menus";
