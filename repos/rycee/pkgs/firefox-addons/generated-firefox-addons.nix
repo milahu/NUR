@@ -3729,16 +3729,16 @@
     };
     "export-tabs-urls-and-titles" = buildMozillaXpiAddon {
       pname = "export-tabs-urls-and-titles";
-      version = "0.3.3";
+      version = "0.3.4";
       addonId = "{17165bd9-9b71-4323-99a5-3d4ce49f3d75}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4702571/export_tabs_urls_and_titles-0.3.3.xpi";
-      sha256 = "8b8bc3f0c58891d67a69f810d41146d9c985eda7069a5851fea018ae879aa38c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4706630/export_tabs_urls_and_titles-0.3.4.xpi";
+      sha256 = "b86ffc67ff9a33363ff100f17863c9fd975f34ec80f5276c76cce43656409514";
       meta = with lib;
       {
         homepage = "https://github.com/alct/export-tabs-urls";
         description = "List the URLs of all the open tabs and copy that list to clipboard or export it to a file.\n\nFeatures:\n- include titles\n- custom format (e.g. markdown, html…)\n- filter tabs\n- limit to current window\n- list non-HTTP(s) URLs\n- ignore pinned tabs";
         license = licenses.gpl3;
-        mozPermissions = [ "notifications" "storage" "tabs" ];
+        mozPermissions = [ "storage" "tabs" ];
         platforms = platforms.all;
       };
     };
@@ -8601,6 +8601,27 @@
           "webNavigation"
           "webRequest"
           "webRequestBlocking"
+        ];
+        platforms = platforms.all;
+      };
+    };
+    "lockedin-yt" = buildMozillaXpiAddon {
+      pname = "lockedin-yt";
+      version = "1.0.99";
+      addonId = "kartik@lockedin.com";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4701858/lockedin_yt-1.0.99.xpi";
+      sha256 = "6b26a909bb519b090d6ab4e2a7b0960bf879ecf76174864e7fbb216042dada9e";
+      meta = with lib;
+      {
+        homepage = "https://kartikhalkunde.github.io/LockedIn-YT/";
+        description = "Hide YouTube Shorts, Feed, Irrelevant Search Results and many more with LockedIn, Plus its OPEN SOURCE!";
+        license = licenses.mit;
+        mozPermissions = [
+          "storage"
+          "alarms"
+          "*://www.youtube.com/*"
+          "*://m.youtube.com/*"
+          "*://youtube.com/*"
         ];
         platforms = platforms.all;
       };
