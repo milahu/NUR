@@ -16,5 +16,14 @@ let
       ;
   };
 
+  packages = generatedPackages // {
+    tbkeys = import ./tbkeys.nix {
+      inherit
+        buildMozillaXpiAddon
+        lib
+        ;
+    };
+  };
+
 in
-generatedPackages
+packages

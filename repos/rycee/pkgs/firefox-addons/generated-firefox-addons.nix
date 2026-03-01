@@ -237,10 +237,10 @@
     };
     "ahrefs-seo-toolbar" = buildMozillaXpiAddon {
       pname = "ahrefs-seo-toolbar";
-      version = "3.2.7";
+      version = "3.2.8";
       addonId = "ahrefs@AhrefsPteLtd";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4645384/ahrefs_seo_toolbar-3.2.7.xpi";
-      sha256 = "553cf9b91cea87437941399ef2d53d40be9d41b6e78242f0dfc4a0667e72d670";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4708386/ahrefs_seo_toolbar-3.2.8.xpi";
+      sha256 = "352ee5edc989a3db16765da0aed8ffe8c0d297603c4f96fe12bb0498313e5ffa";
       meta = with lib;
       {
         homepage = "https://ahrefs.com/seo-toolbar";
@@ -2757,10 +2757,10 @@
     };
     "danish-language-pack" = buildMozillaXpiAddon {
       pname = "danish-language-pack";
-      version = "149.0.20260225.100912";
+      version = "149.0.20260227.92902";
       addonId = "langpack-da@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4705439/dansk_da_language_pack-149.0.20260225.100912.xpi";
-      sha256 = "d78384164f98f8aa19008df272f40804c7a32241ae5678b9af471fc854999967";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4707865/dansk_da_language_pack-149.0.20260227.92902.xpi";
+      sha256 = "005543616ded252f3c36f66c6069faac732fa149a4d2e61e9766a1050362d1d3";
       meta = with lib;
       {
         description = "Firefox Language Pack for Dansk (da) – Danish";
@@ -2970,10 +2970,10 @@
     };
     "deutsch-de-language-pack" = buildMozillaXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "149.0.20260225.100912";
+      version = "149.0.20260227.92902";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4705442/deutsch_de_language_pack-149.0.20260225.100912.xpi";
-      sha256 = "7ca4c7dc19dc7695d801d8b2a125fca6850d5407517e975de249b00903b4212d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4707905/deutsch_de_language_pack-149.0.20260227.92902.xpi";
+      sha256 = "a13216151db10653c4430fbc526984dcea95fc22dd116f0b1081dc3e78f06d1e";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -3101,7 +3101,7 @@
       meta = with lib;
       {
         homepage = "https://disconnect.me/";
-        description = "Make the web faster, more private, and more secure.";
+        description = "Block the trackers that feed AI-powered attacks. Disconnect stops thousands of hidden trackers across advertising, analytics, social, and fingerprinting, making pages load up to 44% faster. Trusted to help protect 350M+ users.";
         license = licenses.gpl3;
         mozPermissions = [
           "tabs"
@@ -3729,16 +3729,16 @@
     };
     "export-tabs-urls-and-titles" = buildMozillaXpiAddon {
       pname = "export-tabs-urls-and-titles";
-      version = "0.3.4";
+      version = "0.3.5";
       addonId = "{17165bd9-9b71-4323-99a5-3d4ce49f3d75}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4706630/export_tabs_urls_and_titles-0.3.4.xpi";
-      sha256 = "b86ffc67ff9a33363ff100f17863c9fd975f34ec80f5276c76cce43656409514";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4708117/export_tabs_urls_and_titles-0.3.5.xpi";
+      sha256 = "b1484de30858f5cdea1977145b125fc275e3871a095e377eca9e44f3be37ec56";
       meta = with lib;
       {
         homepage = "https://github.com/alct/export-tabs-urls";
         description = "List the URLs of all the open tabs and copy that list to clipboard or export it to a file.\n\nFeatures:\n- include titles\n- custom format (e.g. markdown, html…)\n- filter tabs\n- limit to current window\n- list non-HTTP(s) URLs\n- ignore pinned tabs";
         license = licenses.gpl3;
-        mozPermissions = [ "storage" "tabs" ];
+        mozPermissions = [ "storage" "tabs" "tabGroups" ];
         platforms = platforms.all;
       };
     };
@@ -4472,10 +4472,10 @@
     };
     "french-language-pack" = buildMozillaXpiAddon {
       pname = "french-language-pack";
-      version = "149.0.20260225.100912";
+      version = "149.0.20260227.92902";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4705450/francais_language_pack-149.0.20260225.100912.xpi";
-      sha256 = "9cdb529b150e5c25f1625eea64f0e1bfc0c47ab2440fbdd2aeb4574000bff3e5";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4707889/francais_language_pack-149.0.20260227.92902.xpi";
+      sha256 = "f033582b0bb65e40d3506a6242f76221fe67ea4cd1b3785f3858c9216d2e55a6";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4509,10 +4509,10 @@
     };
     "gaidhlig-language-pack" = buildMozillaXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "149.0.20260225.100912";
+      version = "149.0.20260227.92902";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4705460/gaidhlig_language_pack-149.0.20260225.100912.xpi";
-      sha256 = "6ec25fb33f4ae7b9bdec21dc4712305b8c072df2833ea541de05fe5b5544b35c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4707929/gaidhlig_language_pack-149.0.20260227.92902.xpi";
+      sha256 = "dc9486c8b2cf63a5639c1078fa9e0692e31bb07e4cc4175c6812844eaf356b16";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -4669,10 +4669,10 @@
     };
     "github-isometric-contributions" = buildMozillaXpiAddon {
       pname = "github-isometric-contributions";
-      version = "1.2.1";
+      version = "1.2.2";
       addonId = "isometric-contributions@jasonlong.me";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4678436/github_isometric_contributions-1.2.1.xpi";
-      sha256 = "da2128370c5b864ef7a369c45d2fe5d52be850bca66e2a926ea46a5386fec5eb";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4708681/github_isometric_contributions-1.2.2.xpi";
+      sha256 = "f7b6d4fe3d7ab00d037ec42f3c947232bfb695c84a968abdc726d8f387298892";
       meta = with lib;
       {
         description = "Renders an isometric pixel view of GitHub contribution graphs.";
@@ -10721,10 +10721,10 @@
     };
     "pakkujs" = buildMozillaXpiAddon {
       pname = "pakkujs";
-      version = "2026.2.1";
+      version = "2026.3.1";
       addonId = "{646d57f4-d65c-4f0d-8e80-5800b92cfdaa}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4680711/pakkujs-2026.2.1.xpi";
-      sha256 = "1c07bf5edde945df9224d9a6b75653b6d327a7f1823557ff542aec81d1274320";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4708288/pakkujs-2026.3.1.xpi";
+      sha256 = "57753cd7bf08f1001fd63d320d5127e0c35285335bd0dfd8d767f0ad26c4488b";
       meta = with lib;
       {
         homepage = "http://s.xmcp.ltd/pakkujs/?src=amo_homepage";
@@ -11614,10 +11614,10 @@
     };
     "private-grammar-checker-harper" = buildMozillaXpiAddon {
       pname = "private-grammar-checker-harper";
-      version = "1.8.0";
+      version = "1.9.0";
       addonId = "harper@writewithharper.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4698974/private_grammar_checker_harper-1.8.0.xpi";
-      sha256 = "37e7c252f61659d37be37496527cf8285b480bd0f91babc2370b418b69b79e33";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4708425/private_grammar_checker_harper-1.9.0.xpi";
+      sha256 = "e49daf5a4f40b42a631f48667b64406f037cdce6cd3fc249c277879d703ca47a";
       meta = with lib;
       {
         homepage = "https://writewithharper.com";
@@ -12885,10 +12885,10 @@
     };
     "scots-language-pack" = buildMozillaXpiAddon {
       pname = "scots-language-pack";
-      version = "149.0.20260225.100912";
+      version = "149.0.20260227.92902";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4705404/scots_language_pack-149.0.20260225.100912.xpi";
-      sha256 = "b2861139f7000c9caac0580914fc34c0145b1400b626e9f46c95a3eb5e26ae5b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4707970/scots_language_pack-149.0.20260227.92902.xpi";
+      sha256 = "deef1d99d317c066d3f21ad5650f43de2311d4e41cf548a04a359237fe050565";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
@@ -13860,6 +13860,33 @@
         description = "A transparent toot fetcher for Mastodon. Loads missing replies to boosted toots in your feed directly from the source server.\n\nMake sure you set your home instance(s) in preferences to start using this!";
         license = licenses.mit;
         mozPermissions = [ "storage" "scripting" ];
+        platforms = platforms.all;
+      };
+    };
+    "super-agent" = buildMozillaXpiAddon {
+      pname = "super-agent";
+      version = "3.47";
+      addonId = "{a9cc4ef5-1149-47a9-8b94-490f324fe157}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4706916/super_agent-3.47.xpi";
+      sha256 = "aa0f32202a409218f8702ac567933a4950269fe4fb2b84cb99765d9874855385";
+      meta = with lib;
+      {
+        description = "Super Agent automatically fills out website's cookie consent forms for you based on your preferences. Super Agent will save you a lot of clicks and let you take control of your privacy in a very easy way.";
+        license = {
+          shortName = "super-agent";
+          fullName = "End-User License Agreement for Super Agent - Automatic cookie consent";
+          url = "https://addons.mozilla.org/en-US/firefox/addon/super-agent/eula/";
+          free = false;
+        };
+        mozPermissions = [
+          "storage"
+          "theme"
+          "tabs"
+          "cookies"
+          "activeTab"
+          "http://*/*"
+          "https://*/*"
+        ];
         platforms = platforms.all;
       };
     };
@@ -16121,10 +16148,10 @@
     };
     "web-clipper-obsidian" = buildMozillaXpiAddon {
       pname = "web-clipper-obsidian";
-      version = "0.12.0";
+      version = "1.0.2";
       addonId = "clipper@obsidian.md";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4585733/web_clipper_obsidian-0.12.0.xpi";
-      sha256 = "9db0c8c9609a4b8489d2e179e0c709a1bd4c91b0c42dfbe7f5f5d102a1eab5b7";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4707389/web_clipper_obsidian-1.0.2.xpi";
+      sha256 = "2fd3498de3982ff761d71ad630d96478227768863f593258dc92c89147bcd1cd";
       meta = with lib;
       {
         homepage = "https://obsidian.md/clipper";

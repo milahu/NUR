@@ -75,10 +75,11 @@ Update Mozilla Addons:
       fi
 
     # Update Thunderbird addons
+    - pkgs/thunderbird-addons/tbkeys-update.sh pkgs/thunderbird-addons/tbkeys.nix
     - mozilla-addons-to-nix --api-base-url https://addons.thunderbird.net/api/v4 $THUNDERBIRD_INPUT $THUNDERBIRD_OUTPUT
     - |
       if [ "$(git status --porcelain --untracked-files=no)" ] ; then
-        git commit -m "Automatic update of Thunderbird addons" $THUNDERBIRD_OUTPUT
+        git commit -m "Automatic update of Thunderbird addons" $THUNDERBIRD_OUTPUT pkgs/thunderbird-addons/tbkeys.nix
       else
         echo No changes to commit
       fi
