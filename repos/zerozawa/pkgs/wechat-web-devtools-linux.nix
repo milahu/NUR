@@ -32,8 +32,7 @@
   mesa,
   curl,
   ...
-}:
-let
+}: let
   aur = stdenv.mkDerivation rec {
     pname = "wechat-devtools-git";
     version = "cda885a20b6aedfbd30703c0ccf1bed88829b58f";
@@ -50,92 +49,94 @@ let
     '';
   };
 in
-stdenv.mkDerivation rec {
-  pname = "wechat-web-devtools-linux";
-  version = "2.01.2510280-1";
-  src = fetchurl {
-    url = "https://github.com/msojocs/${pname}/releases/download/v${version}/WeChat_Dev_Tools_v${version}_x86_64_linux.tar.gz";
-    hash = "sha256-R3TViHl1BrCnWuVAsEwjt432kxbYK3omkmVxRLgR/24=";
-  };
+  stdenv.mkDerivation rec {
+    pname = "wechat-web-devtools-linux";
+    version = "2.01.2510280-2";
+    src = fetchurl {
+      url = "https://github.com/msojocs/${pname}/releases/download/v${version}/WeChat_Dev_Tools_v${version}_x86_64_linux.tar.gz";
+      hash = "sha256-afzbxUeVh5NBo0mW8r0HgOzzul65xuQfEznw3K//sAs=";
+    };
 
-  nativeBuildInputs = [
-    makeWrapper
-    autoPatchelfHook
-  ];
+    nativeBuildInputs = [
+      makeWrapper
+      autoPatchelfHook
+    ];
 
-  buildInputs = [
-    glib
-    nss
-    nspr
-    at-spi2-core
-    cups
-    libdrm
-    dbus
-    expat
-    alsa-lib
-    libxcb
-    libxkbcommon
-    libxkbfile
-    libX11
-    libxext
-    libxfixes
-    libxrandr
-    libgbm
-    pango
-    cairo
-    gtk3
-    krb5
-    systemd
-    mesa
-    curl
-  ]
-  ++ (with xorg; [
-    libXdamage
-    libXcomposite
-    libxshmfence
-  ]);
-
-  # 忽略 musl libc，因为这是 @swc/core 的可选依赖
-  autoPatchelfIgnoreMissingDeps = [
-    "libc.musl-x86_64.so.1"
-  ];
-
-  installPhase = ''
-    runHook preInstall
-    install -d "$out/opt/${pname}"
-    install -d "$out/bin"
-    install -d "$out/share/applications"
-    install -d "$out/share/icons"
-    cp -r ./* "$out/opt/${pname}"
-    install -Dm644 "${aur}/wechat-devtools.desktop" "$out/share/applications/${pname}.desktop"
-    install -Dm644 "${aur}/wechat-devtools.png" "$out/share/icons/${pname}.png"
-    ln -s $out/opt/${pname}/bin/wechat-devtools $out/bin/${pname}
-    ln -s $out/opt/${pname}/bin/wechat-devtools-cli $out/bin/${pname}-cli
-    substituteInPlace $out/share/applications/${pname}.desktop \
-      --replace-fail wechat-devtools ${pname}
-  ''
-  + (lib.concatStringsSep "\n" (
-    lib.map
-      (x: ''
-        wrapProgram ${x} \
-          --prefix LD_LIBRARY_PATH : "$out/opt/${pname}/nwjs/lib" \
-          --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath buildInputs} \
-          --set-default XDG_CONFIG_HOME "\$HOME/.config" \
-          --set LIBGL_DRIVERS_PATH "${mesa}/lib/dri"
-      '')
+    buildInputs =
       [
-        "$out/bin/${pname}"
-        "$out/bin/${pname}-cli"
+        glib
+        nss
+        nspr
+        at-spi2-core
+        cups
+        libdrm
+        dbus
+        expat
+        alsa-lib
+        libxcb
+        libxkbcommon
+        libxkbfile
+        libX11
+        libxext
+        libxfixes
+        libxrandr
+        libgbm
+        pango
+        cairo
+        gtk3
+        krb5
+        systemd
+        mesa
+        curl
       ]
-  ))
-  + "\nrunHook postInstall";
+      ++ (with xorg; [
+        libXdamage
+        libXcomposite
+        libxshmfence
+      ]);
 
-  meta = with lib; {
-    description = "msojocs/wechat-web-devtools-linux: 适用于微信小程序的微信开发者工具 Linux移植版";
-    homepage = "https://github.com/msojocs/wechat-web-devtools-linux";
-    license = with licenses; [ mit ];
-    platforms = with platforms; (intersectLists x86_64 linux);
-    mainProgram = pname;
-    sourceProvenance = with sourceTypes; [ binaryBytecode ];
-  };
-}
+    # 忽略 musl libc，因为这是 @swc/core 的可选依赖
+    autoPatchelfIgnoreMissingDeps = [
+      "libc.musl-x86_64.so.1"
+    ];
+
+    installPhase =
+      ''
+        runHook preInstall
+        install -d "$out/opt/${pname}"
+        install -d "$out/bin"
+        install -d "$out/share/applications"
+        install -d "$out/share/icons"
+        cp -r ./* "$out/opt/${pname}"
+        install -Dm644 "${aur}/wechat-devtools.desktop" "$out/share/applications/${pname}.desktop"
+        install -Dm644 "${aur}/wechat-devtools.png" "$out/share/icons/${pname}.png"
+        ln -s $out/opt/${pname}/bin/wechat-devtools $out/bin/${pname}
+        ln -s $out/opt/${pname}/bin/wechat-devtools-cli $out/bin/${pname}-cli
+        substituteInPlace $out/share/applications/${pname}.desktop \
+          --replace-fail wechat-devtools ${pname}
+      ''
+      + (lib.concatStringsSep "\n" (
+        lib.map
+        (x: ''
+          wrapProgram ${x} \
+            --prefix LD_LIBRARY_PATH : "$out/opt/${pname}/nwjs/lib" \
+            --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath buildInputs} \
+            --set-default XDG_CONFIG_HOME "\$HOME/.config" \
+            --set LIBGL_DRIVERS_PATH "${mesa}/lib/dri"
+        '')
+        [
+          "$out/bin/${pname}"
+          "$out/bin/${pname}-cli"
+        ]
+      ))
+      + "\nrunHook postInstall";
+
+    meta = with lib; {
+      description = "msojocs/wechat-web-devtools-linux: 适用于微信小程序的微信开发者工具 Linux移植版";
+      homepage = "https://github.com/msojocs/wechat-web-devtools-linux";
+      license = with licenses; [mit];
+      platforms = with platforms; (intersectLists x86_64 linux);
+      mainProgram = pname;
+      sourceProvenance = with sourceTypes; [binaryBytecode];
+    };
+  }

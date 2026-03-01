@@ -1,11 +1,8 @@
 {
   lib,
-  config,
   fetchFromGitHub,
-  cudaSupport ? config.cudaSupport,
-  cudaPackages ? { },
+  fetchurl,
   stdenv,
-  autoAddDriverRunpath,
   autoPatchelfHook,
   flutter,
   yq-go,
@@ -23,31 +20,24 @@
   copyDesktopItems,
   runCommand,
   ...
-}:
-let
-  stdenv' = if cudaSupport then cudaPackages.backendStdenv else stdenv;
+}: let
   pname = "Fladder";
-  version = "0.9.0";
+  version = "0.10.1";
   src = fetchFromGitHub {
     owner = "DonutWare";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-IX3qbIgfi9d8rP24yIGlBzi5l28YQWnvLD+dD+7uIZc=";
+    hash = "sha256-lmtEgBxCmEYcckhSAXhMPDzNQBluTyW0yjkt6Rr9byA=";
   };
-  media_kit_rev = "e3c72e76a7005d97c6f2b20ad3e38c5d52ed85b5";
-  media_kit_hash = "sha256-oJQ9sRQI4HpAIzoS995yfnzvx5ZzIubVANzbmxTt6LE=";
-  importYaml =
-    file:
-    let
-      converted = runCommand "converted-yaml.json" { nativeBuildInputs = [ yq-go ]; } ''
-        yq -e -o=json . ${file} > $out
-      '';
-    in
+  media_kit_hash = "sha256-wQ5HOztwfJRymo+GzgTgHcRS/rzJfZcvBul5teSf/h8=";
+  importYaml = file: let
+    converted = runCommand "converted-yaml.json" {nativeBuildInputs = [yq-go];} ''
+      yq -e -o=json . ${file} > $out
+    '';
+  in
     builtins.fromJSON (builtins.readFile converted);
 in
-(flutter.override {
-  stdenv = stdenv';
-}).buildFlutterApplication
+  flutter.buildFlutterApplication
   rec {
     inherit pname version src;
     pubspecLock = importYaml "${src}/pubspec.lock";
@@ -64,22 +54,21 @@ in
 
     # 覆盖内置的 media_kit_libs_linux 包源构建器，使用 DonutWare 的 fork
     customSourceBuilders = {
-      media_kit_libs_linux =
-        {
-          version,
-          src,
-          ...
-        }:
-        # 使用 NixOS 内置的构建器逻辑，但替换为 DonutWare 的源
-        let
-          # DonutWare fork 的源码（与 gitHashes 中的 commit 一致）
-          donutware-src = fetchFromGitHub {
-            owner = "DonutWare";
-            repo = "media-kit";
-            rev = media_kit_rev;
-            hash = "sha256-oJQ9sRQI4HpAIzoS995yfnzvx5ZzIubVANzbmxTt6LE=";
-          };
-        in
+      media_kit_libs_linux = {
+        version,
+        src,
+        ...
+      }:
+      # 使用 NixOS 内置的构建器逻辑，但替换为 DonutWare 的源
+      let
+        # DonutWare fork 的源码（与 gitHashes 中的 commit 一致）
+        donutware-src = fetchFromGitHub {
+          owner = "DonutWare";
+          repo = "media-kit";
+          rev = "34bde583caa800bf2beb06ec6287c943eda24296";
+          hash = "sha256-wQ5HOztwfJRymo+GzgTgHcRS/rzJfZcvBul5teSf/h8=";
+        };
+      in
         stdenv.mkDerivation {
           pname = "media_kit_libs_linux";
           inherit version;
@@ -108,33 +97,31 @@ in
         };
 
       # 为 fvp 插件添加自定义构建器，预下载 mdk-sdk
-      fvp =
-        {
-          version,
-          src,
-          ...
-        }:
-        let
-          # 预下载 mdk-sdk Linux 版本
-          mdk-sdk-linux = stdenv.mkDerivation rec {
-            pname = "mdk-sdk-linux";
-            version = "0.35.0";
+      fvp = {
+        version,
+        src,
+        ...
+      }: let
+        # 预下载 mdk-sdk Linux 版本
+        mdk-sdk-linux = stdenv.mkDerivation rec {
+          pname = "mdk-sdk-linux";
+          version = "0.35.0";
 
-            src = builtins.fetchurl {
-              url = "https://github.com/wang-bin/mdk-sdk/releases/download/v${version}/${pname}-x64.tar.xz";
-              sha256 = "044yw4iln4qq6zshmp3f5k08dq8rl6vsnh3xn5ldh04lh4sxm88r";
-            };
-
-            unpackPhase = ''
-              tar -xf $src
-            '';
-
-            installPhase = ''
-              mkdir -p $out
-              cp -r . $out/
-            '';
+          src = fetchurl {
+            url = "https://github.com/wang-bin/mdk-sdk/releases/download/v${version}/${pname}-x64.tar.xz";
+            sha256 = "044yw4iln4qq6zshmp3f5k08dq8rl6vsnh3xn5ldh04lh4sxm88r";
           };
-        in
+
+          unpackPhase = ''
+            tar -xf $src
+          '';
+
+          installPhase = ''
+            mkdir -p $out
+            cp -r . $out/
+          '';
+        };
+      in
         stdenv.mkDerivation {
           pname = "fvp";
           inherit version src;
@@ -143,6 +130,17 @@ in
           dontBuild = true;
 
           postPatch = ''
+            # 预创建 lib/src/version.h 文件，避免 CMake 尝试写入只读位置
+            mkdir -p lib/src
+            echo '#pragma once' > lib/src/version.h
+            echo '#define FVP_VERSION "${version}"' >> lib/src/version.h
+
+            # 修改 cmake/deps.cmake 禁用 file(WRITE) 调用
+            if [ -f cmake/deps.cmake ]; then
+              substituteInPlace cmake/deps.cmake \
+                --replace 'file(WRITE ''${VERSION_HEADER_FILE}' '# file(WRITE ''${VERSION_HEADER_FILE}'
+            fi
+
             # 禁用网络下载，使用预下载的 mdk-sdk
             if [ -f linux/CMakeLists.txt ]; then
               substituteInPlace linux/CMakeLists.txt \
@@ -167,28 +165,20 @@ in
       pkg-config
       autoPatchelfHook
       copyDesktopItems
-    ]
-    ++ lib.optionals cudaSupport [
-      autoAddDriverRunpath
-      cudaPackages.cuda_nvcc
-      (lib.getDev cudaPackages.cuda_cudart)
     ];
-    buildInputs = [
-      mpv
-      gtk3
-      alsa-lib
-      glib
-      libepoxy
-      sqlite
-      libunwind
-      libdovi
-      libdvdcss
-    ]
-    ++ mpv.unwrapped.buildInputs
-    ++ lib.optionals cudaSupport [
-      cudaPackages.cudatoolkit
-      cudaPackages.cuda_cudart
-    ];
+    buildInputs =
+      [
+        mpv
+        gtk3
+        alsa-lib
+        glib
+        libepoxy
+        sqlite
+        libunwind
+        libdovi
+        libdvdcss
+      ]
+      ++ mpv.unwrapped.buildInputs;
     desktopItems = [
       (makeDesktopItem {
         name = pname;
@@ -211,14 +201,26 @@ in
       cp ${src}/icons/production/fladder_icon_desktop.png $out/share/pixmaps/fladder_icon_desktop.png
     '';
 
-    preferLocalBuild = true;
+    postPatch = ''
+      # 修复 RepeatMode 命名冲突 - Flutter 3.41.2 添加了新的 RepeatMode，与 Fladder 的冲突
+      # 将 Fladder 的 RepeatMode 使用前缀
+      for file in lib/models/playback/direct_playback_model.dart lib/models/playback/transcode_playback_model.dart; do
+        if [ -f "$file" ]; then
+          # 将 RepeatMode 替换为 fpd.RepeatMode (假设使用 fully qualified prefix)
+          sed -i 's/RepeatMode\./fpd.RepeatMode./g' "$file" 2>/dev/null || true
+          # 在导入语句中添加 fpd 前缀
+          sed -i '1i\import "package:fladder/jellyfin/jellyfin_open_api.enums.swagger.dart" as fpd;' "$file" 2>/dev/null || true
+        fi
+      done
+    '';
 
+    preferLocalBuild = true;
     meta = with lib; {
       description = "A Simple Jellyfin Frontend built on top of Flutter.";
       homepage = "https://github.com/DonutWare/Fladder";
       platforms = with platforms; (intersectLists x86 linux);
-      license = with licenses; [ gpl3Only ];
+      license = with licenses; [gpl3Only];
       mainProgram = pname;
-      sourceProvenance = with sourceTypes; [ fromSource ];
+      sourceProvenance = with sourceTypes; [fromSource];
     };
   }

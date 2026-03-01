@@ -43,13 +43,13 @@ stdenv.mkDerivation rec {
   '';
 
   installPhase = ''
-      runHook preInstall
+    runHook preInstall
 
-      mkdir -p $out/share/fortune/hitokoto
-      cp -r output/* $out/share/fortune/hitokoto/
+    mkdir -p $out/share/fortune/hitokoto
+    cp -r output/* $out/share/fortune/hitokoto/
 
-      runHook postInstall
-    '';
+    runHook postInstall
+  '';
 
   meta = with lib; {
     description = ''一言开源社区官方提供的语句库，系 `hitokoto.cn` 数据打包集合。语句接口默认使用此库。(fortune 适配版本)'';

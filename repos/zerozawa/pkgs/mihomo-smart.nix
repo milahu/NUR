@@ -2,48 +2,47 @@
   lib,
   fetchFromGitHub,
   buildGoModule,
-}:
-let
-  rev = "d685a8fdec4b0d5f37daa8d07fef6f455659c3f1";
+}: let
+  rev = "b905b638cfd55eb8a7f584a2761022415671db22";
 in
-buildGoModule rec {
-  pname = "mihomo-smart";
-  version = "0-unstable-${builtins.substring 0 7 rev}";
+  buildGoModule rec {
+    pname = "mihomo-smart";
+    version = "0-unstable-${builtins.substring 0 7 rev}";
 
-  src = fetchFromGitHub {
-    owner = "vernesong";
-    repo = "mihomo";
-    inherit rev;
-    hash = "sha256-kpPD4t9x7EOOkHKsGCSvBI2wExxTOVmMe8vtiDl4KTU=";
-  };
+    src = fetchFromGitHub {
+      owner = "vernesong";
+      repo = "mihomo";
+      inherit rev;
+      hash = "sha256-43cPPD5kaYPvEWn+/IUbkDrKP7eSNnu276zvUTB4D8E=";
+    };
 
-  vendorHash = "sha256-yvrHroc1hG6Uj29A12SzeUx9cp5kGjyY9Hjj17O4DM8=";
+    vendorHash = "sha256-ugqh2EyaFeMWMRuZRYLa8ZGChKghKg4t2qZatpkS/h0=";
 
-  excludedPackages = [ "./test" ];
+    excludedPackages = ["./test"];
 
-  ldflags = [
-    "-s"
-    "-w"
-    "-X github.com/metacubex/mihomo/constant.Version=${version}"
-  ];
+    ldflags = [
+      "-s"
+      "-w"
+      "-X github.com/metacubex/mihomo/constant.Version=${version}"
+    ];
 
-  tags = [
-    "with_gvisor"
-  ];
+    tags = [
+      "with_gvisor"
+    ];
 
-  # network required
-  doCheck = false;
+    # network required
+    doCheck = false;
 
-  postInstall = ''
-    mv $out/bin/mihomo $out/bin/mihomo-smart
-  '';
+    postInstall = ''
+      mv $out/bin/mihomo $out/bin/mihomo-smart
+    '';
 
-  meta = with lib; {
-    description = "A rule-based tunnel in Go with Smart Groups functionality (fork of mihomo)";
-    homepage = "https://github.com/vernesong/mihomo";
-    license = licenses.gpl3Only;
-    mainProgram = pname;
-    platforms = platforms.all;
-    sourceProvenance = with sourceTypes; [ fromSource ];
-  };
-}
+    meta = with lib; {
+      description = "A rule-based tunnel in Go with Smart Groups functionality (fork of mihomo)";
+      homepage = "https://github.com/vernesong/mihomo";
+      license = licenses.gpl3Only;
+      mainProgram = pname;
+      platforms = platforms.all;
+      sourceProvenance = with sourceTypes; [fromSource];
+    };
+  }

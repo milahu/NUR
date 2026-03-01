@@ -19,29 +19,29 @@ buildGoModule rec {
 
   # 修复 go.mod 版本问题：依赖使用了 Go 1.18 泛型特性
   postPatch = ''
-    substituteInPlace go.mod \
-      --replace-fail 'go 1.15' 'go 1.18'
+        substituteInPlace go.mod \
+          --replace-fail 'go 1.15' 'go 1.18'
 
-    # 删除 vendor 目录，让 Nix 重新获取依赖
-    rm -rf vendor
+        # 删除 vendor 目录，让 Nix 重新获取依赖
+        rm -rf vendor
 
-    # 添加缺失的间接依赖到 go.mod
-    cat >> go.mod <<EOF
+        # 添加缺失的间接依赖到 go.mod
+        cat >> go.mod <<EOF
 
-require (
-	github.com/gdamore/encoding v1.0.0 // indirect
-	github.com/golang/protobuf v1.5.2 // indirect
-	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
-	github.com/mattn/go-runewidth v0.0.13 // indirect
-	github.com/pkg/errors v0.9.1 // indirect
-	github.com/rivo/uniseg v0.4.2 // indirect
-	github.com/tidwall/match v1.1.1 // indirect
-	github.com/tidwall/pretty v1.2.0 // indirect
-	golang.org/x/sys v0.0.0-20220318055525-2edf467146b5 // indirect
-	golang.org/x/term v0.0.0-20210220032956-6a3ed077a48d // indirect
-	golang.org/x/text v0.3.7 // indirect
-)
-EOF
+    require (
+    	github.com/gdamore/encoding v1.0.0 // indirect
+    	github.com/golang/protobuf v1.5.2 // indirect
+    	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
+    	github.com/mattn/go-runewidth v0.0.13 // indirect
+    	github.com/pkg/errors v0.9.1 // indirect
+    	github.com/rivo/uniseg v0.4.2 // indirect
+    	github.com/tidwall/match v1.1.1 // indirect
+    	github.com/tidwall/pretty v1.2.0 // indirect
+    	golang.org/x/sys v0.0.0-20220318055525-2edf467146b5 // indirect
+    	golang.org/x/term v0.0.0-20210220032956-6a3ed077a48d // indirect
+    	golang.org/x/text v0.3.7 // indirect
+    )
+    EOF
   '';
 
   ldflags = [
