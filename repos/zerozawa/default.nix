@@ -23,44 +23,41 @@
   sr-vulkan-with-models = pkgs.callPackage ./pkgs/sr-vulkan.nix {
     inherit sr-vulkan-models;
   };
-in
-  {
-    # The `lib`, `modules`, and `overlays` names are special
-    lib = import ./lib {inherit pkgs;}; # functions
-    modules = import ./modules; # NixOS modules
-    overlays = import ./overlays; # nixpkgs overlays
+in {
+  # The `lib`, `modules`, and `overlays` names are special
+  lib = import ./lib {inherit pkgs;}; # functions
+  modules = import ./modules; # NixOS modules
+  overlays = import ./overlays; # nixpkgs overlays
 
-    # SR Vulkan packages
-    inherit
-      sr-vulkan-model-waifu2x
-      sr-vulkan-model-realcugan
-      sr-vulkan-model-realesrgan
-      sr-vulkan-model-realsr
-      ;
+  # SR Vulkan packages
+  inherit
+    sr-vulkan-model-waifu2x
+    sr-vulkan-model-realcugan
+    sr-vulkan-model-realesrgan
+    sr-vulkan-model-realsr
+    ;
 
-    # Base sr-vulkan without models (for custom use)
-    sr-vulkan = pkgs.callPackage ./pkgs/sr-vulkan.nix {};
+  # Base sr-vulkan without models (for custom use)
+  sr-vulkan = pkgs.callPackage ./pkgs/sr-vulkan.nix {};
 
-    fortune-mod-zh = pkgs.callPackage ./pkgs/fortune-mod-zh.nix {};
-    fortune-mod-hitokoto = pkgs.callPackage ./pkgs/fortune-mod-hitokoto.nix {};
+  fortune-mod-zh = pkgs.callPackage ./pkgs/fortune-mod-zh.nix {};
+  fortune-mod-hitokoto = pkgs.callPackage ./pkgs/fortune-mod-hitokoto.nix {};
 
-    JMComic-qt = pkgs.callPackage ./pkgs/JMComic-qt.nix {
-      sr-vulkan = sr-vulkan-with-models;
-    };
-    picacg-qt = pkgs.callPackage ./pkgs/picacg-qt.nix {
-      sr-vulkan = sr-vulkan-with-models;
-    };
+  JMComic-qt = pkgs.callPackage ./pkgs/JMComic-qt.nix {
+    sr-vulkan = sr-vulkan-with-models;
+  };
+  picacg-qt = pkgs.callPackage ./pkgs/picacg-qt.nix {
+    sr-vulkan = sr-vulkan-with-models;
+  };
 
-    mikusays = pkgs.callPackage ./pkgs/mikusays.nix {};
-    sddm-eucalyptus-drop = pkgs.callPackage ./pkgs/sddm-eucalyptus-drop.nix {};
-    wechat-web-devtools-linux = pkgs.callPackage ./pkgs/wechat-web-devtools-linux.nix {};
-    zsh-url-highlighter = pkgs.callPackage ./pkgs/zsh-url-highlighter.nix {};
-    waybar-vd = pkgs.callPackage ./pkgs/waybar-vd {};
-    mihomo-smart = pkgs.callPackage ./pkgs/mihomo-smart.nix {};
-    # Fladder handled separately using optionalAttrs
-    StartLive = pkgs.callPackage ./pkgs/StartLive.nix {};
-    bilibili_live_tui = pkgs.callPackage ./pkgs/bilibili_live_tui.nix {};
-  }
-  // (pkgs.lib.optionalAttrs (builtins.tryEval (pkgs.callPackage ./pkgs/Fladder.nix {})).success {
-    Fladder = pkgs.callPackage ./pkgs/Fladder.nix {};
-  })
+  mikusays = pkgs.callPackage ./pkgs/mikusays.nix {};
+  sddm-eucalyptus-drop = pkgs.callPackage ./pkgs/sddm-eucalyptus-drop.nix {};
+  wechat-web-devtools-linux = pkgs.callPackage ./pkgs/wechat-web-devtools-linux.nix {};
+  zsh-url-highlighter = pkgs.callPackage ./pkgs/zsh-url-highlighter.nix {};
+  waybar-vd = pkgs.callPackage ./pkgs/waybar-vd {};
+  mihomo-smart = pkgs.callPackage ./pkgs/mihomo-smart.nix {};
+  # Fladder handled separately using optionalAttrs
+  StartLive = pkgs.callPackage ./pkgs/StartLive.nix {};
+  bilibili_live_tui = pkgs.callPackage ./pkgs/bilibili_live_tui.nix {};
+  Fladder = pkgs.callPackage ./pkgs/Fladder {};
+}

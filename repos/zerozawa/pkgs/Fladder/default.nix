@@ -18,7 +18,8 @@
   libdvdcss,
   makeDesktopItem,
   copyDesktopItems,
-  runCommand,
+  bash,
+  writeScriptBin,
   ...
 }: let
   pname = "Fladder";
@@ -30,17 +31,17 @@
     hash = "sha256-lmtEgBxCmEYcckhSAXhMPDzNQBluTyW0yjkt6Rr9byA=";
   };
   media_kit_hash = "sha256-wQ5HOztwfJRymo+GzgTgHcRS/rzJfZcvBul5teSf/h8=";
-  importYaml = file: let
-    converted = runCommand "converted-yaml.json" {nativeBuildInputs = [yq-go];} ''
-      yq -e -o=json . ${file} > $out
-    '';
-  in
-    builtins.fromJSON (builtins.readFile converted);
 in
   flutter.buildFlutterApplication
   rec {
     inherit pname version src;
-    pubspecLock = importYaml "${src}/pubspec.lock";
+    passthru = {
+      pubspecLock2Json = writeScriptBin "pubspec-lock-to-json" ''
+        #!${lib.getExe bash}
+        ${lib.getExe yq-go} -e -o=json . ${src}/pubspec.lock > $1
+      '';
+    };
+    pubspecLock = lib.importJSON ./pubspec-lock.json;
     gitHashes = {
       media_kit = media_kit_hash;
       media_kit_libs_android_video = media_kit_hash;
