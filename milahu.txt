@@ -1,4 +1,4 @@
-trace: evaluation warning: fontforge-20251009 was overridden with `version` but not `src` at ./default.nix:842:5.
+trace: evaluation warning: fontforge-20251009 was overridden with `version` but not `src` at ./default.nix:844:5.
 
 This is most likely not what you want. In order to properly change the version of a package, override
 both the `version` and `src` attributes:
@@ -14,23 +14,31 @@ hello.overrideAttrs (oldAttrs: rec {
 (To silence this warning, set `__intentionallyOverridingVersion = true` in your `overrideAttrs` call.)
 
 trace: evaluation warning: dontRecurseIntoAttrs has been removed from pkgs, use `lib.dontRecurseIntoAttrs` instead
+trace: evaluation warning: dontRecurseIntoAttrs has been removed from pkgs, use `lib.dontRecurseIntoAttrs` instead
+trace: evaluation warning: 'makeOverridable' has been removed from pkgs, use `lib.makeOverridable` instead
+trace: evaluation warning: wine-11.0 was overridden with `version` but not `src` at ./pkgs/applications/emulators/wine/nocheckowner.nix:18:3.
+
+This is most likely not what you want. In order to properly change the version of a package, override
+both the `version` and `src` attributes:
+
+hello.overrideAttrs (oldAttrs: rec {
+  version = "1.0.0";
+  src = pkgs.fetchurl {
+    url = "mirror://gnu/hello/hello-${version}.tar.gz";
+    hash = "...";
+  };
+})
+
+(To silence this warning, set `__intentionallyOverridingVersion = true` in your `overrideAttrs` call.)
+
 error:
-… from call site
+… while querying the derivation named 'python3.13-fs-2.4.17'
 
-  at ./default.nix:742:23:
+error: undefined variable 'lovek323'
 
-   741|
-   742|   mediawiki-scraper = python3.pkgs.callPackage ./pkgs/tools/networking/mediawiki-scraper/mediawiki-scraper.nix { };
-      |                       ^
-   743|
+at ./pkgs/development/python-modules/fs/default.nix:100:39:
 
-… while calling 'callPackageWith'
-
-  at <nixpkgs> + /lib/customisation.nix:276:19:
-
-   275|   callPackageWith =
-   276|     autoArgs: fn: args:
-      |                   ^
-   277|     let
-
-error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "nose" at ./pkgs/tools/networking/mediawiki-scraper/mediawiki-scraper.nix:24, did you mean "cose", "gose" or "jose"?'
+    99|     license = licenses.bsd3;
+   100|     maintainers = with maintainers; [ lovek323 ];
+      |                                       ^
+   101|     platforms = platforms.unix;
