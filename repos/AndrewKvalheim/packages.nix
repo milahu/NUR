@@ -3,7 +3,7 @@ resolved: stable:
 with import ./library/override-utils.lib.nix { inherit stable; nur = ./nur.nix; search = [ "unstable" "unstable-small" ]; };
 
 let
-  inherit (lib) findFirst hasInfix makeBinPath recursiveUpdate throwIf versionAtLeast versionOlder;
+  inherit (lib) findFirst hasInfix makeBinPath throwIf versionAtLeast versionOlder;
   inherit (stable) fetchurl lib;
 
   community-vscode-extensions = (import <community-vscode-extensions>).extensions.${stable.stdenv.hostPlatform.system}.forVSCodeVersion resolved.vscodium.version;
@@ -20,11 +20,11 @@ specify {
   affine-font = any;
   ai-robots-txt = any;
   album-art = any;
-  ansible-lint.overlay = a: recursiveUpdate a { meta.broken = versionOlder (findFirst (p: p.pname == "ansible-compat") null a.passthru.dependencies).version "25.8"; }; # NixOS/nixpkgs#460422
+  ansible-lint.broken = a: versionOlder (findFirst (p: p.pname == "ansible-compat") null a.passthru.dependencies).version "25.8"; # NixOS/nixpkgs#460422
   ansible-vault-pass-client = any;
   apex = any;
   attachments = any;
-  aws-sam-cli = { version = "≠1.143.0"; } /* NixOS/nixpkgs#459334 */ // { overlay = a: recursiveUpdate a { meta.broken = versionAtLeast "1.154.0" a.version && versionAtLeast (findFirst (p: p.pname == "ruamel-yaml") null a.passthru.dependencies).version "0.19"; }; search = pin "28b0c9a726c808030179c680756f9840172dc9d7" "sha256-W3ZsYpy0B56cznd7rbYGUMTVdj/J5T5kkyHe7zovQYI="; } /* https://hydra.nixos.org/build/322100022 */;
+  aws-sam-cli = { version = "≠1.143.0"; } /* NixOS/nixpkgs#459334 */ // { broken = a: versionAtLeast "1.154.0" a.version && versionAtLeast (findFirst (p: p.pname == "ruamel-yaml") null a.passthru.dependencies).version "0.19"; search = pin "28b0c9a726c808030179c680756f9840172dc9d7" "sha256-W3ZsYpy0B56cznd7rbYGUMTVdj/J5T5kkyHe7zovQYI="; } /* https://hydra.nixos.org/build/322100022 */;
   blocky-ui = any;
   busyserve = any;
   caddy-with-cache-route53 = any;
@@ -61,7 +61,7 @@ specify {
   htop.patch = ./library/assets/htop_colors.patch; # htop-dev/htop#1416
   incremental-compress = any;
   inkscape = { patch = ./library/assets/inkscape_png-no-comment.patch; ccache = true; dontEval = true /* FIXME: infinite recursion */; }; # Pending inkscape/inkscape!7193
-  inkscape-extensions.applytransforms = { overlay = a: recursiveUpdate a { meta.broken = let libxml2 = (findFirst (p: p ? pname && p.pname == "libxml2") null (findFirst (p: p.pname == "lxml") null (findFirst (p: p.pname == "inkex") null a.nativeCheckInputs).passthru.dependencies).nativeBuildInputs); in libxml2 != null && versionAtLeast libxml2.version "2.15"; }; }; # Workaround for inkscape/extensions#617 (https://hydra.nixos.org/build/314374425) pending NixOS/nixpkgs#483120
+  inkscape-extensions.applytransforms.broken = a: let libxml2 = (findFirst (p: p ? pname && p.pname == "libxml2") null (findFirst (p: p.pname == "lxml") null (findFirst (p: p.pname == "inkex") null a.nativeCheckInputs).passthru.dependencies).nativeBuildInputs); in libxml2 != null && versionAtLeast libxml2.version "2.15"; # Workaround for inkscape/extensions#617 (https://hydra.nixos.org/build/314374425) pending NixOS/nixpkgs#483120
   iosevka-custom = any;
   iptables_exporter = any;
   jj-dynamic-default-description = any;
@@ -78,6 +78,7 @@ specify {
   meshtastic-url = any;
   minemap = any;
   mozjpeg-simple = any;
+  navidrome.overlay = n: { CGO_CFLAGS_ALLOW = ".*--define-prefix.*"; }; # Workaround for NixOS/nixpkgs#481611
   nbt-explorer = any;
   nix-preview = any;
   nom-wrappers = any;

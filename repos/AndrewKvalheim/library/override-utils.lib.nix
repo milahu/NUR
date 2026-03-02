@@ -56,6 +56,7 @@ let
     , ccache ? false
 
       # Package attribute overlay
+    , broken ? null
     , gappsWrapperArgs ? null
     , overlay ? null
     , patch ? null
@@ -73,8 +74,14 @@ let
         removeAttrs spec (attrNames (functionArgs (resolve scope pname)))
         // optionalAttrs ccache { stdenv = ccacheStdenv; };
 
+      # Dependent parameters
+      overlay' = if broken == null && overlay == null then null else
+      composeOverrides
+        (a: recursiveUpdate a { meta.broken = a.meta.broken or false || (defaultTo (const false) broken) a; })
+        (defaultTo (const { }) overlay);
+
       # Mode
-      doOverlay = gappsWrapperArgs != null || overlay != null || patch != null;
+      doOverlay = gappsWrapperArgs != null || overlay' != null || patch != null;
       doOverride = ! isEmpty override;
       doPythonPackages = isPythonPackages scope;
       doWrapper = ! isEmpty wrapperArgs;
@@ -88,7 +95,7 @@ let
         let viable = filter predicate candidates; version = last (naturalSort (map getVersion viable)); in
         findFirst (r: getVersion r == version) default viable;
       packageSuffices = p:
-        let p' = if overlay == null then p else p.overrideAttrs overlay; in
+        let p' = if overlay' == null then p else p.overrideAttrs overlay'; in
         (tryEval p').success
         && (! (p' ? meta && p'.meta.broken))
         && (version == null || versionSatisfied p.version version)
@@ -125,7 +132,7 @@ let
                 (optionalAttrs (patch != null) { patches = a.patches or [ ] ++ (toList patch); }) //
                 (optionalAttrs (gappsWrapperArgs != null) { preFixup = a.preFixup or "" + "\ngappsWrapperArgs+=(${gappsWrapperArgs})"; })
               )
-              (defaultTo (const { }) overlay)
+              (defaultTo (const { }) overlay')
             )
         else package;
 

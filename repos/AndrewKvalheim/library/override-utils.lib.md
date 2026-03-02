@@ -121,6 +121,14 @@ specify {
 }
 ```
 
+Annotate broken packages:
+
+```nix
+specify {
+  hello.broken = hello: ! elem "--enable-fix" hello.configureFlags;
+}
+```
+
 Modify arbitrary attributes:
 
 ```nix

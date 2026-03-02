@@ -5,6 +5,10 @@ let
   inherit (config.services) unison;
   inherit (lib) mapAttrs' mkForce mkIf mkOption nameValuePair;
   inherit (lib.types) attrsOf nullOr str submodule;
+
+  mkUnits = f: mapAttrs'
+    (n: p: nameValuePair "unison-pair-${n}" (mkIf (p.when != null) (f p)))
+    unison.pairs;
 in
 {
   options = {
@@ -20,11 +24,14 @@ in
   config = {
     services.unison.enable = length (attrNames unison.pairs) > 0;
 
-    systemd.user.timers = mapAttrs'
-      (n: p: nameValuePair "unison-pair-${n}" (mkIf (p.when != null) {
-        Install.WantedBy = mkForce [ p.when ];
-        Unit.StopWhenUnneeded = true;
-      }))
-      unison.pairs;
+    systemd.user.services = mkUnits (pair: {
+      Service.CPUSchedulingPolicy = mkForce "batch";
+      Service.IOSchedulingClass = mkForce "best-effort";
+    });
+
+    systemd.user.timers = mkUnits (pair: {
+      Install.WantedBy = mkForce [ pair.when ];
+      Unit.StopWhenUnneeded = true;
+    });
   };
 }
