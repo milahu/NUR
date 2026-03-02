@@ -3729,10 +3729,10 @@
     };
     "export-tabs-urls-and-titles" = buildMozillaXpiAddon {
       pname = "export-tabs-urls-and-titles";
-      version = "0.3.5";
+      version = "0.3.6";
       addonId = "{17165bd9-9b71-4323-99a5-3d4ce49f3d75}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4708117/export_tabs_urls_and_titles-0.3.5.xpi";
-      sha256 = "b1484de30858f5cdea1977145b125fc275e3871a095e377eca9e44f3be37ec56";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4709437/export_tabs_urls_and_titles-0.3.6.xpi";
+      sha256 = "c664ec64815b51015b9c2e6fc74a13f146bf61d38ef51a94f32c77a7075b1a72";
       meta = with lib;
       {
         homepage = "https://github.com/alct/export-tabs-urls";
@@ -9756,10 +9756,10 @@
     };
     "mtab" = buildMozillaXpiAddon {
       pname = "mtab";
-      version = "1.11.1";
+      version = "1.11.2";
       addonId = "contact@maxhu.dev";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4702602/mtab-1.11.1.xpi";
-      sha256 = "cfa8c1b36f91a07816509a07b7397be4b2bc59a3439be0ee4bc5f1f4f7cb7596";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4708880/mtab-1.11.2.xpi";
+      sha256 = "41254688a8a2834c80a0084a97ccceabc89869363c8561a6aff5dd4de03709a4";
       meta = with lib;
       {
         homepage = "https://get-mtab.vercel.app";
@@ -10039,10 +10039,10 @@
     };
     "nextcloud-passwords" = buildMozillaXpiAddon {
       pname = "nextcloud-passwords";
-      version = "2.8.0";
+      version = "2.9.0";
       addonId = "ncpasswords@mdns.eu";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4477517/nextcloud_passwords-2.8.0.xpi";
-      sha256 = "a7c7bf7bd054e619f7c280c65986c75909fc621c58accb3119e033d0567f05ba";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4709329/nextcloud_passwords-2.9.0.xpi";
+      sha256 = "025489648447968aa828f129512710300eb1af2b19c33297d27f7d018bbef101";
       meta = with lib;
       {
         homepage = "https://github.com/marius-wieschollek/passwords-webextension";
