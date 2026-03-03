@@ -1,0 +1,11 @@
+error:
+… while querying the derivation named 'biplanes-revival-1.2.1'
+
+error: undefined variable 'federicoschonborn'
+
+at ./pkgs/by-name/biplanes-revival/package.nix:72:43:
+
+    71|     platforms = lib.platforms.unix;
+    72|     maintainers = with lib.maintainers; [ federicoschonborn ];
+      |                                           ^
+    73|   };
