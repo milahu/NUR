@@ -1384,10 +1384,10 @@
     };
     "british-english-dictionary-2" = buildMozillaXpiAddon {
       pname = "british-english-dictionary-2";
-      version = "4.0.5";
+      version = "4.0.6";
       addonId = "marcoagpinto@mail.telepac.pt";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4681245/british_english_dictionary_2-4.0.5.xpi";
-      sha256 = "613b71bfd519857968768f09d12044135f9423d013a80d458fc1d976c06a1fb2";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4709658/british_english_dictionary_2-4.0.6.xpi";
+      sha256 = "a0b5c46d2873bf17e63cf91d2d7a4752063b01d6358e2f8394150127785618f3";
       meta = with lib;
       {
         homepage = "https://proofingtoolgui.org";
@@ -1704,10 +1704,10 @@
     };
     "chameleon-ext" = buildMozillaXpiAddon {
       pname = "chameleon-ext";
-      version = "0.22.80.1";
+      version = "0.22.81.1";
       addonId = "{3579f63b-d8ee-424f-bbb6-6d0ce3285e6a}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4669240/chameleon_ext-0.22.80.1.xpi";
-      sha256 = "9325eb2a51090d0575f0ad2b04dd4497ed240632109dc94f6004e5d480a254e1";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4710334/chameleon_ext-0.22.81.1.xpi";
+      sha256 = "85de73454a8e36a1eb0cdfe907f7ad9fe052dd3a352d1d46a6694c71400499e5";
       meta = with lib;
       {
         homepage = "https://sereneblue.github.io/chameleon";
@@ -12604,10 +12604,10 @@
     };
     "remove-youtube-s-suggestions" = buildMozillaXpiAddon {
       pname = "remove-youtube-s-suggestions";
-      version = "4.3.71";
+      version = "4.3.72";
       addonId = "{21f1ba12-47e1-4a9b-ad4e-3a0260bbeb26}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4695816/remove_youtube_s_suggestions-4.3.71.xpi";
-      sha256 = "6fffa13c2cf98561420fcde46027472977e259d722d9c533bdfde6c3ef764c3d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4710465/remove_youtube_s_suggestions-4.3.72.xpi";
+      sha256 = "bffd4945f8fe4b22024c2ccd66434b418646f2681584de7bb6f090fe285c5700";
       meta = with lib;
       {
         homepage = "https://lawrencehook.com/rys/";
