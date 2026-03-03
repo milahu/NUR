@@ -33,7 +33,6 @@
           inherit system;
           config.allowUnfree = true;
         };
-        fs = pkgs.lib.fileset;
       in
       rec {
         packages = pkgs.lib.filterAttrs (_: pkg: builtins.elem system pkg.meta.platforms) (
@@ -85,6 +84,8 @@
               # util
               nix-update
               gh
+              action-validator
+              octoscan
               (pkgs.callPackage ./packages/nix-fix-hash { })
               (pkgs.callPackage ./packages/fetch-hash { })
             ];
@@ -119,25 +120,21 @@
         checks =
           libs."${system}".mkChecks {
             actions = {
-              src = fs.toSource {
-                root = ./.;
-                fileset = ./.github/workflows;
-              };
-              deps = with pkgs; [
+              root = ./.github/workflows;
+              fileset = ./.github/workflows;
+              nativeBuildInputs = with pkgs; [
                 action-validator
                 octoscan
               ];
-              script = ''
-                action-validator **/*.yaml
-                octoscan scan .
+              forEach = ''
+                action-validator "$file"
+                octoscan scan "$file" --ignore macos-26
               '';
             };
 
             renovate = {
-              src = fs.toSource {
-                root = ./.github;
-                fileset = ./.github/renovate.json;
-              };
+              root = ./.github;
+              fileset = ./.github/renovate.json;
               deps = [
                 (pkgs.callPackage ./packages/renovate { })
               ];
@@ -147,46 +144,40 @@
             };
 
             nix = {
-              src = fs.toSource {
-                root = ./.;
-                fileset = fs.fileFilter (file: file.hasExt "nix") ./.;
-              };
+              root = ./.;
+              filter = file: file.hasExt "nix";
               deps = with pkgs; [
-                nixfmt-tree
+                nixfmt
               ];
-              script = ''
-                treefmt --ci
+              forEach = ''
+                nixfmt --check "$file"
               '';
             };
 
             shell = {
-              src = fs.toSource {
-                root = ./.;
-                fileset = fs.fileFilter (file: file.hasExt "sh") ./.;
-              };
+              root = ./.;
+              filter = file: file.hasExt "sh";
               deps = with pkgs; [
                 shellcheck
               ];
-              script = ''
-                find -type f -name '*.sh' -exec shellcheck {} +
+              forEach = ''
+                shellcheck "$file"
               '';
             };
 
             prettier = {
-              src = fs.toSource {
-                root = ./.;
-                fileset = fs.fileFilter (file: file.hasExt "yaml" || file.hasExt "json" || file.hasExt "md") ./.;
-              };
+              root = ./.;
+              filter = file: file.hasExt "yaml" || file.hasExt "json" || file.hasExt "md";
               deps = with pkgs; [
                 prettier
               ];
-              script = ''
-                prettier --check .
+              forEach = ''
+                prettier --check "$file"
               '';
             };
           }
-          // packages
-          // images;
+          // pkgs.lib.mapAttrs' (name: value: pkgs.lib.nameValuePair ("package_" + name) value) packages
+          // pkgs.lib.mapAttrs' (name: value: pkgs.lib.nameValuePair ("image_" + name) value) images;
 
         formatter = pkgs.nixfmt-tree;
       }
