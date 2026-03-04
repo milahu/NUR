@@ -13,13 +13,13 @@ let
 in
 stdenv.mkDerivation {
   pname = "ansible-vault-pass-client";
-  version = "1.0.1-unstable-2022-04-21";
+  version = "1.0.1-unstable-2026-03-01";
 
   src = fetchFromGitHub {
     owner = "me-vlad";
     repo = "ansible-vault-pass-client";
-    rev = "14158aa7803ac93801979baf4c6cafd072610e14";
-    hash = "sha256-wD7vGXydfiuCAPihAu67sgk1LJzhs/5Jz36h1I7RiAY=";
+    rev = "e9240197612e4a328ffefd4b5cfb76cb900fa863";
+    hash = "sha256-Fz0+Xy63kdrN4XtneUetIStGAMd+Gu8eL/nkQNP53Yk=";
   };
 
   postPatch = ''

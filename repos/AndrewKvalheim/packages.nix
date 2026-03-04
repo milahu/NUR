@@ -78,7 +78,6 @@ specify {
   meshtastic-url = any;
   minemap = any;
   mozjpeg-simple = any;
-  navidrome.overlay = n: { CGO_CFLAGS_ALLOW = ".*--define-prefix.*"; }; # Workaround for NixOS/nixpkgs#481611
   nbt-explorer = any;
   nix-preview = any;
   nom-wrappers = any;
