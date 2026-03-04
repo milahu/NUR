@@ -24,13 +24,13 @@ assert lib.assertMsg (!(vidpid != "" && (usbVID != "" || usbPID != ""))) "pico-f
 stdenvNoCC.mkDerivation (finalAttrs: {
 
   pname = "pico-fido";
-  version = "7.4";
+  version = "7.4.1-librekeys";
 
   src = fetchFromGitHub {
     owner = "librekeys";
     repo = "pico-fido";
-    rev = "v7.4-librekeys";
-    hash = "sha256-kPIhVMV5pZYDredoE4crF0scragmKIt2LHfZTaqKQ64=";
+    rev = "v${finalAttrs.version}";
+    hash = "sha256-2Q1qgWGYXSVZ8VJNqwwgnRIUnryqQi2MQr0zqmNRa+k=";
     fetchSubmodules = true;
   };
 
@@ -71,6 +71,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     "-DCMAKE_CXX_COMPILER=${lib.getExe' gcc-arm-embedded "arm-none-eabi-g++"}"
     "-DCMAKE_AR=${lib.getExe' gcc-arm-embedded "arm-none-eabi-ar"}"
     "-DCMAKE_RANLIB=${lib.getExe' gcc-arm-embedded "arm-none-eabi-ranlib"}"
+    "-DCMAKE_BUILD_TYPE=MinSizeRel"
   ]
   ++ lib.optionals (picoBoard != "pico") [ "-DPICO_BOARD=${picoBoard}" ]
   ++ lib.optionals (vidpid != "") [ "-DVIDPID=${vidpid}" ]
