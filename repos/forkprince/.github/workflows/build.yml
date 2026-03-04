@@ -18,9 +18,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Install Bun
-        uses: oven-sh/setup-bun@v2
-
       - name: Install Nix
         uses: nixbuild/nix-quick-install-action@v34
         with:
@@ -41,7 +38,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Notify (Discord)
+      - name: Notify Update Failures
         if: steps.update.outputs.failed_apps != ''
         run: |
           app_list=$(printf '%b' "${{ steps.update.outputs.failed_apps }}" | sed '/^$/d' | sed 's/^/• /')
@@ -52,6 +49,7 @@ jobs:
             '{
               username: "NUR",
               avatar_url: "https://api.serversmp.xyz/upload/69a58cf144d40b74d08297dc.webp",
+              content: "@everyone",
               embeds: [{
                 title: $title,
                 description: "The following apps failed to update:\n```\n\($apps)\n```",
@@ -87,7 +85,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Notify (Discord)
+      - name: Notify Retry Failures
         if: steps.retry.outputs.still_failed_apps != ''
         run: |
           app_list=$(printf '%b' "${{ steps.retry.outputs.still_failed_apps }}" | sed '/^$/d' | sed 's/^/• /')
@@ -98,6 +96,7 @@ jobs:
             '{
               username: "NUR",
               avatar_url: "https://api.serversmp.xyz/upload/69a58cf144d40b74d08297dc.webp",
+              content: "@everyone",
               embeds: [{
                 title: $title,
                 description: "The following apps failed even after retry:\n```\n\($apps)\n```",
@@ -188,48 +187,31 @@ jobs:
             exit 1
           fi
 
-      - name: Checks
+      - name: Notify Build Failures
         if: steps.build.outcome == 'failure'
         run: |
-          grep -oP 'attribute.*(?=.*hash mismatch)' build.log | sed 's/attribute //' | sed 's/://g' > failed_packages.txt || true
-          if [ -s failed_packages.txt ]; then
-            echo "Found packages with hash mismatches:"
-            cat failed_packages.txt
-          fi
+          payload=$(jq -n \
+            --arg title "❌ NUR build failures on ${{ matrix.os }}" \
+            --arg url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            '{
+              username: "NUR",
+              avatar_url: "https://api.serversmp.xyz/upload/69a58cf144d40b74d08297dc.webp",
+              content: "@everyone",
+              embeds: [{
+                title: $title,
+                description: "Build failed, check the logs for details.",
+                color: 15158332,
+                url: $url
+              }]
+            }')
+          curl -s -o /dev/null -w "%{http_code}" \
+            -H "Content-Type: application/json" \
+            -d "$payload" \
+            "${{ secrets.DISCORD }}"
 
-      - name: Install Bun
+      - name: Fail Job
         if: steps.build.outcome == 'failure'
-        uses: oven-sh/setup-bun@v2
-
-      - name: Update Packages
-        if: steps.build.outcome == 'failure'
-        run: |
-          if [ -f failed_packages.txt ] && [ -s failed_packages.txt ]; then
-            while read -r pkg; do
-              version_file="./pkgs/${pkg}/version.json"
-              if [ -f "$version_file" ]; then
-                echo "Re-running update with --force for $pkg"
-                bun ./scripts/index.js --force "$version_file" || true
-              fi
-            done < failed_packages.txt
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Commit fixes
-        if: steps.build.outcome == 'failure'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if ! git diff --cached --quiet; then
-            git commit -m "fix: update hashes for failed packages"
-            git push
-          fi
-
-      - name: Retry builds
-        if: steps.build.outcome == 'failure'
-        run: nix shell -f '<nixpkgs>' nix-build-uncached -c nix-build-uncached ci.nix -A cacheOutputs
+        run: exit 1
 
   nur:
     needs: tests
