@@ -182,10 +182,10 @@
     };
     "adnauseam" = buildMozillaXpiAddon {
       pname = "adnauseam";
-      version = "3.27.0";
+      version = "3.28.2";
       addonId = "adnauseam@rednoise.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4634365/adnauseam-3.27.0.xpi";
-      sha256 = "629000b5412f7f18c2380444ff8d4bfcf6dc96be0dfa95d7b8da233fd5aa9948";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4696939/adnauseam-3.28.2.xpi";
+      sha256 = "aee6af4f94df1dcbbd31367e9a04a032e64eb2cc2b3e21d957dbaaaa290f7165";
       meta = with lib;
       {
         homepage = "https://adnauseam.io";
@@ -2323,10 +2323,10 @@
     };
     "control-panel-for-twitter" = buildMozillaXpiAddon {
       pname = "control-panel-for-twitter";
-      version = "4.22.0";
+      version = "4.22.2";
       addonId = "{5cce4ab5-3d47-41b9-af5e-8203eea05245}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4692594/control_panel_for_twitter-4.22.0.xpi";
-      sha256 = "400775141f2db41b58c88b4372784655d4abb7614f2810033074c6f32dc31f2e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4700540/control_panel_for_twitter-4.22.2.xpi";
+      sha256 = "789c74b0ed5366c59392ffccedbe5f1e811a3e522f8482b029c6baf8b50103bb";
       meta = with lib;
       {
         homepage = "https://soitis.dev/control-panel-for-twitter";
@@ -2757,10 +2757,10 @@
     };
     "danish-language-pack" = buildMozillaXpiAddon {
       pname = "danish-language-pack";
-      version = "149.0.20260227.92902";
+      version = "149.0.20260302.93328";
       addonId = "langpack-da@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4707865/dansk_da_language_pack-149.0.20260227.92902.xpi";
-      sha256 = "005543616ded252f3c36f66c6069faac732fa149a4d2e61e9766a1050362d1d3";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4711138/dansk_da_language_pack-149.0.20260302.93328.xpi";
+      sha256 = "5559c16224a40c6a16a978e669685c2226fb342b7a0c2456b9d40a730076ce9b";
       meta = with lib;
       {
         description = "Firefox Language Pack for Dansk (da) – Danish";
@@ -2970,10 +2970,10 @@
     };
     "deutsch-de-language-pack" = buildMozillaXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "149.0.20260227.92902";
+      version = "149.0.20260302.93328";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4707905/deutsch_de_language_pack-149.0.20260227.92902.xpi";
-      sha256 = "a13216151db10653c4430fbc526984dcea95fc22dd116f0b1081dc3e78f06d1e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4711147/deutsch_de_language_pack-149.0.20260302.93328.xpi";
+      sha256 = "c4ae3832e05cdfff8a7fb9d824ab09ba2484bc76138d6b4c64a06ae6c2d8faba";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -3136,15 +3136,15 @@
     };
     "docsafterdark" = buildMozillaXpiAddon {
       pname = "docsafterdark";
-      version = "1.1.1";
+      version = "2.0.4";
       addonId = "{e8ffc3db-2875-4c7f-af38-d03e7f7f8ab9}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4420694/docsafterdark-1.1.1.xpi";
-      sha256 = "4b64f97b110beb5552a1326f0bc772d185b1a39279c330d4b54b68a8f7ec7285";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4707556/docsafterdark-2.0.4.xpi";
+      sha256 = "ce97a36ef5f707a08624cdcdbc38d6823c8991f41eb56bde0630b61569624b33";
       meta = with lib;
       {
         homepage = "https://docsafterdark.com/";
         description = "Beyond dark mode for Google Docs";
-        license = licenses.gpl3;
+        license = licenses.mpl20;
         mozPermissions = [
           "storage"
           "activeTab"
@@ -3729,10 +3729,10 @@
     };
     "export-tabs-urls-and-titles" = buildMozillaXpiAddon {
       pname = "export-tabs-urls-and-titles";
-      version = "0.3.6";
+      version = "0.3.7";
       addonId = "{17165bd9-9b71-4323-99a5-3d4ce49f3d75}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4709437/export_tabs_urls_and_titles-0.3.6.xpi";
-      sha256 = "c664ec64815b51015b9c2e6fc74a13f146bf61d38ef51a94f32c77a7075b1a72";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4710902/export_tabs_urls_and_titles-0.3.7.xpi";
+      sha256 = "347c4c3ed8dc2e837a08cbc84d4568833099007d40944ea7ed28e6792b8d55d5";
       meta = with lib;
       {
         homepage = "https://github.com/alct/export-tabs-urls";
@@ -4472,10 +4472,10 @@
     };
     "french-language-pack" = buildMozillaXpiAddon {
       pname = "french-language-pack";
-      version = "149.0.20260227.92902";
+      version = "149.0.20260302.93328";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4707889/francais_language_pack-149.0.20260227.92902.xpi";
-      sha256 = "f033582b0bb65e40d3506a6242f76221fe67ea4cd1b3785f3858c9216d2e55a6";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4711077/francais_language_pack-149.0.20260302.93328.xpi";
+      sha256 = "f2f42a953e1a5597cc9b23ee2a60858341b291182a18059ac749390aedbc40aa";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4509,10 +4509,10 @@
     };
     "gaidhlig-language-pack" = buildMozillaXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "149.0.20260227.92902";
+      version = "149.0.20260302.93328";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4707929/gaidhlig_language_pack-149.0.20260227.92902.xpi";
-      sha256 = "dc9486c8b2cf63a5639c1078fa9e0692e31bb07e4cc4175c6812844eaf356b16";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4711129/gaidhlig_language_pack-149.0.20260302.93328.xpi";
+      sha256 = "a8e137ae9b62f9d16f54108f3ef87c6e462ad7cfe4707ee3f38d777c62770955";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -4573,10 +4573,10 @@
     };
     "ghostery" = buildMozillaXpiAddon {
       pname = "ghostery";
-      version = "10.5.29";
+      version = "10.5.31";
       addonId = "firefox@ghostery.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4689598/ghostery-10.5.29.xpi";
-      sha256 = "5222c18ca11e56fc658eb03a78bb6cb6ae6c53f1208e491b151dbbf223acd7c2";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4704163/ghostery-10.5.31.xpi";
+      sha256 = "7f24ceec7642425d8dd251b6a7dfeaa58fb849427830c42ad7176d153cdad673";
       meta = with lib;
       {
         homepage = "http://www.ghostery.com/";
@@ -9695,10 +9695,10 @@
     };
     "momentumdash" = buildMozillaXpiAddon {
       pname = "momentumdash";
-      version = "2.26.0";
+      version = "2.26.1";
       addonId = "momentum@momentumdash.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4689918/momentumdash-2.26.0.xpi";
-      sha256 = "d9e551bdf71f25c67d7237b203b591b760b7c963ea55e4fd27ff124ca0dcb135";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4708761/momentumdash-2.26.1.xpi";
+      sha256 = "4b49e5693e29ac57c008a043689c52407cc1339b3650bcebfdc9532dd34c4168";
       meta = with lib;
       {
         homepage = "https://momentumdash.com";
@@ -9756,10 +9756,10 @@
     };
     "mtab" = buildMozillaXpiAddon {
       pname = "mtab";
-      version = "1.11.2";
+      version = "1.11.7";
       addonId = "contact@maxhu.dev";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4708880/mtab-1.11.2.xpi";
-      sha256 = "41254688a8a2834c80a0084a97ccceabc89869363c8561a6aff5dd4de03709a4";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4711471/mtab-1.11.7.xpi";
+      sha256 = "da1dfe55adbd2811f69f08bda32b95d532ed9510f99a6460e3ae55a8a4b1653b";
       meta = with lib;
       {
         homepage = "https://get-mtab.vercel.app";
@@ -10212,10 +10212,10 @@
     };
     "noscript" = buildMozillaXpiAddon {
       pname = "noscript";
-      version = "13.5.12";
+      version = "13.6.3";
       addonId = "{73a6fe31-595d-460b-a920-fcc0f8843232}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4674630/noscript-13.5.12.xpi";
-      sha256 = "58ef492544cd1a2eae0252f37bd4d5b090eff5fa5bfe0516972467c5e21f4c2a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4711048/noscript-13.6.3.xpi";
+      sha256 = "a9f1e206efdc7e6aeb41b62a75c82d2a496d5e5d22a807b97c7bde3b21c4dbf0";
       meta = with lib;
       {
         homepage = "https://noscript.net";
@@ -12604,10 +12604,10 @@
     };
     "remove-youtube-s-suggestions" = buildMozillaXpiAddon {
       pname = "remove-youtube-s-suggestions";
-      version = "4.3.72";
+      version = "4.3.74";
       addonId = "{21f1ba12-47e1-4a9b-ad4e-3a0260bbeb26}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4710465/remove_youtube_s_suggestions-4.3.72.xpi";
-      sha256 = "bffd4945f8fe4b22024c2ccd66434b418646f2681584de7bb6f090fe285c5700";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4711720/remove_youtube_s_suggestions-4.3.74.xpi";
+      sha256 = "a6bcd692a3a64f2d4dd57ad95bb24e2d9728ec08f3294935ac1b2b6c41dd6b12";
       meta = with lib;
       {
         homepage = "https://lawrencehook.com/rys/";
@@ -12617,7 +12617,6 @@
           "storage"
           "*://www.youtube.com/*"
           "*://m.youtube.com/*"
-          "https://server.lawrencehook.com/*"
         ];
         platforms = platforms.all;
       };
@@ -12806,10 +12805,10 @@
     };
     "save-all-images-webextension" = buildMozillaXpiAddon {
       pname = "save-all-images-webextension";
-      version = "0.8.4";
+      version = "0.8.5";
       addonId = "{32af1358-428a-446d-873e-5f8eb5f2a72e}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4494884/save_all_images_webextension-0.8.4.xpi";
-      sha256 = "56fb6f2eefd63046c48a1bc025c045b18f730a24284a3a5b7eaf346d496c834f";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4694656/save_all_images_webextension-0.8.5.xpi";
+      sha256 = "5df87c1884d4bb4dbd8bcdd73aef802c9dbb85d8feaf0e099744e7f7e657ba74";
       meta = with lib;
       {
         homepage = "https://webextension.org/listing/save-images.html";
@@ -12885,10 +12884,10 @@
     };
     "scots-language-pack" = buildMozillaXpiAddon {
       pname = "scots-language-pack";
-      version = "149.0.20260227.92902";
+      version = "149.0.20260302.93328";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4707970/scots_language_pack-149.0.20260227.92902.xpi";
-      sha256 = "deef1d99d317c066d3f21ad5650f43de2311d4e41cf548a04a359237fe050565";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4711061/scots_language_pack-149.0.20260302.93328.xpi";
+      sha256 = "f5165f59774c421cdeb2553c15a12311586a21830d96dbec536c368775f7c0c5";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
@@ -14737,10 +14736,10 @@
     };
     "tree-style-tab" = buildMozillaXpiAddon {
       pname = "tree-style-tab";
-      version = "4.2.9";
+      version = "4.2.10";
       addonId = "treestyletab@piro.sakura.ne.jp";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4670379/tree_style_tab-4.2.9.xpi";
-      sha256 = "995208a5b5458ca3dcc31bbe637332fd1aa8410d3fbba0ceec86212b7c7d3723";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4698277/tree_style_tab-4.2.10.xpi";
+      sha256 = "cafd025b04025005b391b1bf23831ae22d6eec53cd0e968a00c058bcd300a9a5";
       meta = with lib;
       {
         homepage = "http://piro.sakura.ne.jp/xul/_treestyletab.html.en";
@@ -14973,10 +14972,10 @@
     };
     "tweaks-for-youtube" = buildMozillaXpiAddon {
       pname = "tweaks-for-youtube";
-      version = "3.86.2";
+      version = "3.87.0";
       addonId = "{84c8edb0-65ca-43a5-bc53-0e80f41486e1}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4663339/tweaks_for_youtube-3.86.2.xpi";
-      sha256 = "b476eb7a35354df7a5bf5c3f518520773fcefe16dd6fd77d9e2eb612b50ebcbe";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4711690/tweaks_for_youtube-3.87.0.xpi";
+      sha256 = "fcc4acc62371fe9487fc1c509af5a975f9c9360393e53206efb42e67ba09f2ed";
       meta = with lib;
       {
         description = "Seek, navigate chapters, control volume, speed, and more with mouse and keyboard shortcuts. Adjust player controls, progress bar, subtitles, process audio, show playlist duration, take video snapshot, set initial volume, speed, resolution, and more.";
@@ -15829,10 +15828,10 @@
     };
     "vimium" = buildMozillaXpiAddon {
       pname = "vimium";
-      version = "2.3.1";
+      version = "2.4.0";
       addonId = "{d7742d87-e61d-4b78-b8a1-b469842139fa}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4618554/vimium_ff-2.3.1.xpi";
-      sha256 = "2c1b861cb41939c2a26e4e60b95d1e74e465e807c2c549a30c909c1923591473";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4698049/vimium_ff-2.4.0.xpi";
+      sha256 = "9ad35d0857031770e5c2f419789a5dfa8ea2fa3de7056c1dd32ca0bc81bb4d37";
       meta = with lib;
       {
         homepage = "https://github.com/philc/vimium";
@@ -16119,10 +16118,10 @@
     };
     "web-archives" = buildMozillaXpiAddon {
       pname = "web-archives";
-      version = "7.2.0";
+      version = "7.3.0";
       addonId = "{d07ccf11-c0cd-4938-a265-2a4d6ad01189}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4635665/view_page_archive-7.2.0.xpi";
-      sha256 = "e234d7d22863881b3676f5685306602443bea432c20af761959454f1696e779b";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4695473/view_page_archive-7.3.0.xpi";
+      sha256 = "dbcaf1ad02c164e8a4465cbdc013687c16b6dfa80fc42b04a2e97e9f3c00447a";
       meta = with lib;
       {
         homepage = "https://github.com/dessant/web-archives#readme";
