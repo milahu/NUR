@@ -66,7 +66,7 @@ let
 
   linuxdeployPluginAppimage = fetchurl {
     url = "https://github.com/linuxdeploy/linuxdeploy-plugin-appimage/releases/download/continuous/linuxdeploy-plugin-appimage-x86_64.AppImage";
-    hash = "sha256-gueLhAZ3TgVqToMmtgaf7DwHoK5Q2TPSAQBRipiaDkc=";
+    hash = "sha256-BPa/jVUOXQVXD5dUB6q/7Bt8/yJh9o5ihMx96e3hi9g=";
   };
 
   appimageTools =
@@ -99,13 +99,13 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "pake";
-  version = "3.7.2-unstable-20260114";
+  version = "3.10.0";
 
   src = fetchFromGitHub {
     owner = "tw93";
     repo = "Pake";
-    rev = "838cc932ffd1db6bc5ca81ced64f73bcd8568175";
-    hash = "sha256-sEjj0a9aGCwv5EFn7PWkYU1j3U5MLO7lj0qL2CkfKOM=";
+    rev = "V${finalAttrs.version}";
+    hash = "sha256-0JF35A0/qF5LirMZN5YL/ZSwer2LmrLINX0OarLgryw=";
   };
 
   patches = [
@@ -128,8 +128,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
-    fetcherVersion = 2;
-    hash = "sha256-gW29F1FDCnMU8l4f22HnDhsX8tkmeel5Fj60YYHLMMk=";
+    fetcherVersion = 3;
+    hash = "sha256-SsiU/u2Oenl8ym0cfHSoOgBEXpLJVUm5yIdzwE5D08U=";
   };
 
   env = {
