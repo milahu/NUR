@@ -20,4 +20,7 @@ find . -name '*.nix' \
 if [[ -z $CHECK_ARG ]] ; then
   jq 'sort_by(.slug)' < pkgs/firefox-addons/addons.json \
     | sponge pkgs/firefox-addons/addons.json
+
+  jq 'sort_by(.slug)' < pkgs/thunderbird-addons/addons.json \
+    | sponge pkgs/thunderbird-addons/addons.json
 fi
