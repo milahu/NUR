@@ -1,0 +1,74 @@
+{
+  description = "ijohanne's NUR repository";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    # Vim/Neovim plugins
+    nvim-tree-docs = { url = "github:nvim-treesitter/nvim-tree-docs/5db023d783da1e55339e5e25caaf72a59597e626"; flake = false; };
+
+    # Fish plugins
+    oh-my-fish-plugin-foreign-env = { url = "github:oh-my-fish/plugin-foreign-env/dddd9213272a0ab848d474d0cbde12ad034e65bc"; flake = false; };
+    oh-my-fish-plugin-ssh = { url = "github:oh-my-fish/plugin-ssh/850ec718f23d4182c0fc751adc04e9318e451f21"; flake = false; };
+
+    # Tools
+    hexokinase = { url = "github:RRethy/hexokinase/11fc3efc6752b580083ea7891db8216377571b6d"; flake = false; };
+
+    # Prometheus exporters
+    hue_exporter = { url = "github:aexel90/hue_exporter"; flake = false; };
+    netatmo-exporter = { url = "github:xperimental/netatmo-exporter/b555053621a2e61c4242f7c11e90a093c026b8b3"; flake = false; };
+    nftables_exporter = { url = "github:Intrinsec/nftables_exporter/3fc66b606fa60b35bc36d9fc27855e5f50beea8d"; flake = false; };
+    prometheus-tplink-p110-exporter = { url = "github:ijohanne/prometheus-tplink-p110-exporter"; };
+    ts3exporter = { url = "github:hikhvar/ts3exporter/a38c91b397a67f3675af4985ecd2f8c0e5354a7c"; flake = false; };
+
+    # Other packages
+    multicast-relay = { url = "github:alsmith/multicast-relay/2c0e4c743127066388de2c5fd6a7eed676d9b523"; flake = false; };
+    nixpkgs-firefox-addons = { url = "github:ijohanne/nixpkgs-firefox-addons/215fb67222ad97261efd7a8bef65a2154586b335"; flake = false; };
+    sddm-chili = { url = "github:MarianArlt/sddm-chili/6516d50176c3b34df29003726ef9708813d06271"; flake = false; };
+    sddm-sugar-dark = { url = "github:MarianArlt/sddm-sugar-dark/9fc363cc3f6b3f70df948c88cbe26989386ee20d"; flake = false; };
+  };
+
+  outputs = { self, nixpkgs, ... }@inputs:
+    let
+      packSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      devSystems = packSystems ++ [
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+      forPackSystems = f: nixpkgs.lib.genAttrs packSystems (system: f system);
+      forDevSystems = f: nixpkgs.lib.genAttrs devSystems (system: f system);
+      sources = builtins.removeAttrs inputs [ "self" "nixpkgs" "prometheus-tplink-p110-exporter" ];
+    in
+    {
+      legacyPackages = forPackSystems (system:
+        (import ./default.nix {
+          pkgs = import nixpkgs { inherit system; };
+          inherit sources;
+        }) // {
+          prometheus-tplink-p110-exporter = inputs.prometheus-tplink-p110-exporter.packages.${system}.default;
+        });
+
+      devShells = forDevSystems (system:
+        let pkgs = import nixpkgs { inherit system; };
+        in {
+          default = pkgs.mkShell {
+            name = "nur-packages-shell";
+            buildInputs = with pkgs; [
+              nixpkgs-fmt
+              shellcheck
+              shfmt
+              git
+            ];
+          };
+        });
+
+      overlays.default = import ./overlay.nix;
+
+      nixosModules = (import ./modules) // {
+        prometheus-tplink-p110-exporter = inputs.prometheus-tplink-p110-exporter.nixosModules.default;
+      };
+    };
+}
