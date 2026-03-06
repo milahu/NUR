@@ -9,24 +9,24 @@ system ? builtins.currentSystem
 }:
 let
   shaMap = {
-    x86_64-linux = "00lbm1s21kngh4a83d7bgycmpcij00p6hl7fvykj2lcz7xr20b5k";
-    armv7l-linux = "0j354rlc7hdmxc03apy5mh2psy0qisjphs7ld9bqbgmiyl1w02m7";
-    aarch64-linux = "019ha62gvhkmmfnw1hcv52jqa27l5gfa4y78z3k2kp0a0w53khgn";
-    x86_64-darwin = "0cnwnm6nk8mj3043g6skig84sr765ff60hbvj4icz1ajbqf52qi5";
-    aarch64-darwin = "1qpfqg52rnhflqp1n803dwczag4mmr5xl8s4nav1l9z62041m29a";
+    x86_64-linux = "16fg5d7nkd5667f93gw02241ghad0rf0bw9lmy4r6icxka0zlah1";
+    armv7l-linux = "1vqscr2dvb2m7z2whrb82kj30js7frh63vrnprags3iam1sklxy7";
+    aarch64-linux = "0d335gq1ibgc867hhmk6194f3nmwcx3fl1yiig440xd3w0aahkfs";
+    x86_64-darwin = "12kb00l8dcdlxx7y96wafjs85rp4rbfm9k0km4iavh6whdbvai0s";
+    aarch64-darwin = "05aj1n7wsmfysqjf7wcp97zqpwm2amlyz985aqk3fkw3a26x6dg7";
   };
 
   urlMap = {
-    x86_64-linux = "https://dl.dagger.io/dagger/releases/0.20.0/dagger_v0.20.0_linux_amd64.tar.gz";
-    armv7l-linux = "https://dl.dagger.io/dagger/releases/0.20.0/dagger_v0.20.0_linux_armv7.tar.gz";
-    aarch64-linux = "https://dl.dagger.io/dagger/releases/0.20.0/dagger_v0.20.0_linux_arm64.tar.gz";
-    x86_64-darwin = "https://dl.dagger.io/dagger/releases/0.20.0/dagger_v0.20.0_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://dl.dagger.io/dagger/releases/0.20.0/dagger_v0.20.0_darwin_arm64.tar.gz";
+    x86_64-linux = "https://dl.dagger.io/dagger/releases/0.20.1/dagger_v0.20.1_linux_amd64.tar.gz";
+    armv7l-linux = "https://dl.dagger.io/dagger/releases/0.20.1/dagger_v0.20.1_linux_armv7.tar.gz";
+    aarch64-linux = "https://dl.dagger.io/dagger/releases/0.20.1/dagger_v0.20.1_linux_arm64.tar.gz";
+    x86_64-darwin = "https://dl.dagger.io/dagger/releases/0.20.1/dagger_v0.20.1_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://dl.dagger.io/dagger/releases/0.20.1/dagger_v0.20.1_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "dagger";
-  version = "0.20.0";
+  version = "0.20.1";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
