@@ -6,7 +6,7 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import <nixpkgs> { }, fenixRustPlatform ? null }:
 
 {
   # The `lib`, `modules`, and `overlays` names are special
@@ -14,10 +14,12 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  tfcmt = pkgs.callPackage ./pkgs/tfcmt { };
+  deck = pkgs.callPackage ./pkgs/deck { };
   gwq = pkgs.callPackage ./pkgs/gwq { };
+  gws = pkgs.callPackage ./pkgs/gws { inherit fenixRustPlatform; };
   mado = pkgs.callPackage ./pkgs/mado { };
   notizen = pkgs.callPackage ./pkgs/mado { };
+  tfcmt = pkgs.callPackage ./pkgs/tfcmt { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }
