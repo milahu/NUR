@@ -6,9 +6,7 @@ let
   inherit (lib) mapAttrs' mkForce mkIf mkOption nameValuePair;
   inherit (lib.types) attrsOf nullOr str submodule;
 
-  mkUnits = f: mapAttrs'
-    (n: p: nameValuePair "unison-pair-${n}" (mkIf (p.when != null) (f p)))
-    unison.pairs;
+  mkUnits = f: mapAttrs' (n: p: nameValuePair "unison-pair-${n}" (f p)) unison.pairs;
 in
 {
   options = {
@@ -24,13 +22,13 @@ in
   config = {
     services.unison.enable = length (attrNames unison.pairs) > 0;
 
-    systemd.user.services = mkUnits (pair: {
+    systemd.user.services = mkUnits (_: {
       Service.CPUSchedulingPolicy = mkForce "batch";
       Service.IOSchedulingClass = mkForce "best-effort";
     });
 
-    systemd.user.timers = mkUnits (pair: {
-      Install.WantedBy = mkForce [ pair.when ];
+    systemd.user.timers = mkUnits ({ when, ... }: mkIf (when != null) {
+      Install.WantedBy = mkForce [ when ];
       Unit.StopWhenUnneeded = true;
     });
   };

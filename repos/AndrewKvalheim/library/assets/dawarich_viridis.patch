@@ -2,8 +2,8 @@ Note that `minOpacity` is misnamed (mourner/simpleheat#31).
 
 --- a/app/javascript/controllers/maps_controller.js
 +++ b/app/javascript/controllers/maps_controller.js
-@@ -193 +193,14 @@
--    this.heatmapLayer = L.heatLayer(this.heatmapMarkers, { radius: 20 }).addTo(this.map);
+@@ -224 +224,14 @@
+-    this.heatmapLayer = L.heatLayer(this.heatmapMarkers, { radius: 20 }).addTo(
 +    const gradient = {
 +      0.50: '#440154', // minOpacity
 +      0.55: '#482475',
@@ -17,4 +17,4 @@ Note that `minOpacity` is misnamed (mourner/simpleheat#31).
 +      0.95: '#bddf26',
 +      1.00: '#fde725',
 +    };
-+    this.heatmapLayer = L.heatLayer(this.heatmapMarkers, { radius: 20, gradient }).addTo(this.map);
++    this.heatmapLayer = L.heatLayer(this.heatmapMarkers, { radius: 20, gradient }).addTo(

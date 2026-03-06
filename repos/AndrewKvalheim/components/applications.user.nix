@@ -117,6 +117,7 @@ in
       gopass
       gopass-env
       gopass-ydotool
+      gradia
       gucharmap
       guetzli
       guvcview
