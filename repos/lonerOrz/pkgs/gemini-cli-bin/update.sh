@@ -55,7 +55,7 @@ cd "$script_dir"
 # 计算 tarball URL 和 hash
 tarball_url="https://registry.npmjs.org/@google/gemini-cli/-/gemini-cli-${latest_version}.tgz"
 echo "Fetching tarball hash from fetch-sri-hash.sh..."
-tarball_hash=$("$script_dir/../../.github/script/fetch-sri-hash.sh" "$tarball_url" --unpack)
+tarball_hash=$("$script_dir/../../.github/script/fetch-sri-hash.sh" "$tarball_url")
 echo "Tarball hash: $tarball_hash"
 
 # 获取 npmDeps hash
@@ -67,7 +67,7 @@ echo "npmDeps hash: $npmdeps_hash"
 echo "Updating default.nix..."
 sed -i "s|version = \".*\";|version = \"$latest_version\";|" "$package_file"
 sed -i -E "s|url = \".*\";|url = \"$tarball_url\";|" "$package_file"
-sed -i -E "s|srcHash = \"sha256-[^\"]+\";|srcHash = \"sha256-$tarball_hash\";|" "$package_file"
+sed -i -E "s|srcHash = \"[^\"]+\";|srcHash = \"$tarball_hash\";|" "$package_file"
 sed -i -E "s|npmDepsHash = \"sha256-[^\"]+\";|npmDepsHash = \"$npmdeps_hash\";|" "$package_file"
 
 echo "✅ Update completed successfully!"

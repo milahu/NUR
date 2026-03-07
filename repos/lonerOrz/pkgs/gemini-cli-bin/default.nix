@@ -11,7 +11,7 @@
 let
   pname = "gemini-cli-bin";
   version = "0.32.1";
-  srcHash = "sha256-sha256-zgIm3qLnuJrIoPxf7vIBeV5CJ5w4T8smcNz7fNjoxrw=";
+  srcHash = "sha256-WsAbGrxZFxpnVpjWkC5mdPrlqKdxNCtbLgOa7VSwokE=";
   npmDepsHash = "sha256-eqLCPvtJCCrJ4+CMFbjUy9U3PLox4lwvfTC737lEiss=";
 
   src = runCommand "gemini-cli-src-with-lock" { } ''

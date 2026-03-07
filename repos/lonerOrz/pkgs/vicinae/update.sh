@@ -44,7 +44,7 @@ echo "ext hash: $EXT_HASH"
 cd ../..
 
 sed -i "s|version = \".*\";|version = \"${LATEST_TAG#v}\";|" $PACKAGE_NIX
-sed -i "s|srcHash = \".*\";|srcHash = \"sha256-$SRC_HASH\";|" $PACKAGE_NIX
+sed -i "s|srcHash = \".*\";|srcHash = \"$SRC_HASH\";|" $PACKAGE_NIX
 sed -i "s|apiDepsHash = \".*\";|apiDepsHash = \"$API_HASH\";|" $PACKAGE_NIX
 sed -i "s|extensionManagerDepsHash = \".*\";|extensionManagerDepsHash = \"$EXT_HASH\";|" $PACKAGE_NIX
 
