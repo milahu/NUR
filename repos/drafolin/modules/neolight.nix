@@ -7,12 +7,18 @@
 
 let
   cfg = config.services.xserver.xkb.neolight;
+  neolightPkg = pkgs.callPackage ../pkgs/neolight { };
 in
 {
   _class = "nixos";
 
   options.services.xserver.xkb.neolight = {
-    package = lib.mkPackageOption pkgs "neolight" { };
+    package = lib.mkOption {
+      type = lib.types.package;
+      default = neolightPkg;
+      defaultText = lib.literalExpression "nur.repos.drafolin.neolight";
+      description = "The neolight package to use.";
+    };
     enable = lib.mkEnableOption "neolight xkb layout, extra keyboard layers for programming based on Neo";
   };
 
