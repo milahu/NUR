@@ -1,4 +1,4 @@
-trace: evaluation warning: fontforge-20251009 was overridden with `version` but not `src` at ./default.nix:854:5.
+trace: evaluation warning: fontforge-20251009 was overridden with `version` but not `src` at ./default.nix:864:5.
 
 This is most likely not what you want. In order to properly change the version of a package, override
 both the `version` and `src` attributes:
@@ -32,13 +32,31 @@ hello.overrideAttrs (oldAttrs: rec {
 (To silence this warning, set `__intentionallyOverridingVersion = true` in your `overrideAttrs` call.)
 
 error:
-… while querying the derivation named 'python3.13-fs-2.4.17'
+… while querying the derivation named 'tor-browser-13.0.13'
 
-error: undefined variable 'lovek323'
+… while calling the 'foldl'' builtin
 
-at ./pkgs/development/python-modules/fs/default.nix:100:39:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:579:21:
 
-    99|     license = licenses.bsd3;
-   100|     maintainers = with maintainers; [ lovek323 ];
-      |                                       ^
-   101|     platforms = platforms.unix;
+   578|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
+   579|       maintainers = unique (
+      |                     ^
+   580|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/lists.nix:1901:25:
+
+  1900|   */
+  1901|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
+      |                         ^
+  1902|
+
+error: undefined variable 'joachifm'
+
+at ./pkgs/applications/networking/browsers/tor-browser/default.nix:330:55:
+
+   329|     platforms = attrNames sources;
+   330|     maintainers = with maintainers; [ felschr panicgh joachifm hax404 ];
+      |                                                       ^
+   331|     # MPL2.0+, GPL+, &c.  While it's not entirely clear whether
