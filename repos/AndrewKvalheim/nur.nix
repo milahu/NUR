@@ -1,7 +1,7 @@
 { pkgs }:
 
 let
-  inherit (lib) findFirst recursiveUpdate versionAtLeast versionOlder warnIf warnIfNot;
+  inherit (lib) fakeHash findFirst recursiveUpdate versionAtLeast versionOlder warnIfNot;
   inherit (pkgs) callPackage lib;
 in
 # Published as nur.repos.AndrewKvalheim (https://nur.nix-community.org/repos/andrewkvalheim/)
@@ -42,7 +42,8 @@ rec {
     hash = {
       "2.10.2" = "sha256-jeWmPFBk/bveFIOcCQVhEZ3c4Il1t8Y/GvAewVU7QWA=";
       "2.11.1" = "sha256-LZeANuFX2bbpdrpgn7wliVowipLtF+cchDErD/2vSiU=";
-    }."${pkgs.caddy.version}" or lib.fakeHash;
+      "2.11.2" = "sha256-3sgytV6hcjNd1Z510e0XiBVCLqAywVkVKLK4j2k1iZs=";
+    }."${pkgs.caddy.version}" or fakeHash;
   }).overrideAttrs (c: recursiveUpdate c { meta.broken = versionOlder pkgs.go.version "1.25.6"; /* Pending NixOS/nixpkgs#480465 */ });
   ch57x-keyboard-tool = callPackage ./library/ch57x-keyboard-tool.pkg.nix { };
   chunker = callPackage ./library/chunker.pkg.nix { };
