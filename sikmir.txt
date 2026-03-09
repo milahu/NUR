@@ -1,0 +1,20 @@
+error:
+… from call site
+
+  at ./pkgs/default.nix:73:14:
+
+    72|     gpxelevations = callPackage ./development/python-modules/gpxelevations { };
+    73|     hardpy = callPackage ./development/python-modules/hardpy { };
+      |              ^
+    74|     jsonseq = callPackage ./development/python-modules/jsonseq { };
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:275:19:
+
+   274|   callPackageWith =
+   275|     autoArgs: fn: args:
+      |                   ^
+   276|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "requests-oauth2client" at ./pkgs/development/python-modules/hardpy/default.nix:6'
