@@ -58,10 +58,10 @@ jobs:
       flake_jobs: ${{ steps.collect_flake_jobs.outputs.flake_jobs }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.2
 
       - name: Install Nix
-        uses: cachix/install-nix-action@v31.9.0
+        uses: cachix/install-nix-action@v31.10.0
         with:
           install_url: ${{ env.CI_NIX_INSTALL_URL }}
 
@@ -127,10 +127,10 @@ jobs:
       )
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.2
 
       - name: Install Nix
-        uses: cachix/install-nix-action@v31.9.0
+        uses: cachix/install-nix-action@v31.10.0
         with:
           install_url: ${{ env.CI_NIX_INSTALL_URL }}
 

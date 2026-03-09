@@ -30,12 +30,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.2
         with:
           persist-credentials: false
 
       - name: Install Nix
-        uses: cachix/install-nix-action@v31.9.0
+        uses: cachix/install-nix-action@v31.10.0
         with:
           install_url: ${{ env.CI_NIX_INSTALL_URL }}
           nix_path: nixpkgs=channel:nixos-unstable
@@ -74,7 +74,7 @@ jobs:
 
       - name: Create a PR
         id: pr
-        uses: peter-evans/create-pull-request@v8.0.0
+        uses: peter-evans/create-pull-request@v8.1.0
         with:
           token: ${{ steps.token.outputs.token }}
           commit-message: "chore(${{ matrix.item }}): Automatic update"

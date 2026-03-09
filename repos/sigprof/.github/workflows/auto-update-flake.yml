@@ -23,10 +23,10 @@ jobs:
       matrix: ${{ steps.generate_matrix.outputs.matrix }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.2
 
       - name: Install Nix
-        uses: cachix/install-nix-action@v31.9.0
+        uses: cachix/install-nix-action@v31.10.0
         with:
           install_url: ${{ env.CI_NIX_INSTALL_URL }}
 
@@ -49,12 +49,12 @@ jobs:
       automerge: ${{ (matrix.input == 'nixpkgs') || (matrix.input == 'nixos-unstable') }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.2
         with:
           persist-credentials: false
 
       - name: Install Nix
-        uses: cachix/install-nix-action@v31.9.0
+        uses: cachix/install-nix-action@v31.10.0
         with:
           install_url: ${{ env.CI_NIX_INSTALL_URL }}
           nix_path: nixpkgs=channel:nixos-unstable
