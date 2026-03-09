@@ -54,6 +54,8 @@
       externalInterface = "enp1s0";
       internalInterfaces = [
         "br0"
+        "br0.20"
+        "br0.30"
       ];
     };
     firewall = {
@@ -82,9 +84,63 @@
           443
         ];
       };
+      interfaces."br0.20" = {
+        allowedTCPPorts = [ 53 ];
+        allowedUDPPorts = [
+          53
+          67
+          68
+        ];
+      };
+      interfaces."br0.30" = {
+        allowedTCPPorts = [ 53 ];
+        allowedUDPPorts = [
+          53
+          67
+          68
+        ];
+      };
+    };
+    nftables.tables.vlan-isolation = {
+      family = "inet";
+      content = ''
+        chain forward {
+          type filter hook forward priority filter; policy accept;
+
+          # Allow established/related traffic (enables CDWifi->IoT return traffic)
+          ct state established,related accept
+
+          # Allow CDWifi (br0) to initiate connections to IoT (VLAN 30)
+          iifname "br0" oifname "br0.30" accept
+
+          # Guest (VLAN 20): drop all forwarding to private subnets
+          iifname "br0.20" ip daddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 } drop
+          iifname "br0.20" ip6 daddr { fc00::/7 } drop
+
+          # IoT (VLAN 30): drop all forwarding to private subnets
+          iifname "br0.30" ip daddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 } drop
+          iifname "br0.30" ip6 daddr { fc00::/7 } drop
+        }
+      '';
     };
   };
   boot = {
+    kernel.sysctl = {
+      # Prevent IP spoofing
+      "net.ipv4.conf.all.rp_filter" = 1;
+      "net.ipv4.conf.default.rp_filter" = 1;
+      # Ignore ICMP redirects
+      "net.ipv4.conf.all.accept_redirects" = 0;
+      "net.ipv6.conf.all.accept_redirects" = 0;
+      # Don't send ICMP redirects
+      "net.ipv4.conf.all.send_redirects" = 0;
+      # Log martian packets
+      "net.ipv4.conf.all.log_martians" = 1;
+      # Ignore broadcast pings
+      "net.ipv4.icmp_echo_ignore_broadcasts" = 1;
+      # SYN flood protection
+      "net.ipv4.tcp_syncookies" = 1;
+    };
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     initrd.availableKernelModules = [
@@ -117,16 +173,81 @@
       };
       networks.br0 = {
         matchConfig.Name = "br0";
+        address = [
+          "192.168.0.1/24"
+          "fdbd:2025:0518::1/64"
+        ];
         networkConfig = {
-          Address = "192.168.0.1/24";
           IPMasquerade = "ipv4";
           MulticastDNS = true;
+          IPv6SendRA = true;
         };
+        ipv6SendRAConfig = {
+          EmitDNS = true;
+          DNS = [ "fdbd:2025:0518::1" ];
+        };
+        ipv6Prefixes = [
+          { Prefix = "fdbd:2025:0518::/64"; }
+        ];
+        vlan = [
+          "br0.20"
+          "br0.30"
+        ];
+      };
+      networks."br0.20" = {
+        matchConfig.Name = "br0.20";
+        address = [
+          "192.168.20.1/24"
+          "fdbd:2025:0518:20::1/64"
+        ];
+        networkConfig = {
+          IPMasquerade = "ipv4";
+          IPv6SendRA = true;
+        };
+        ipv6SendRAConfig = {
+          EmitDNS = true;
+          DNS = [ "fdbd:2025:0518::1" ];
+        };
+        ipv6Prefixes = [
+          { Prefix = "fdbd:2025:0518:20::/64"; }
+        ];
+      };
+      networks."br0.30" = {
+        matchConfig.Name = "br0.30";
+        address = [
+          "192.168.30.1/24"
+          "fdbd:2025:0518:30::1/64"
+        ];
+        networkConfig = {
+          IPMasquerade = "ipv4";
+          IPv6SendRA = true;
+        };
+        ipv6SendRAConfig = {
+          EmitDNS = true;
+          DNS = [ "fdbd:2025:0518::1" ];
+        };
+        ipv6Prefixes = [
+          { Prefix = "fdbd:2025:0518:30::/64"; }
+        ];
       };
       netdevs.br0.netdevConfig = {
         Name = "br0";
         Kind = "bridge";
         MACAddress = "none";
+      };
+      netdevs."br0.20" = {
+        netdevConfig = {
+          Name = "br0.20";
+          Kind = "vlan";
+        };
+        vlanConfig.Id = 20;
+      };
+      netdevs."br0.30" = {
+        netdevConfig = {
+          Name = "br0.30";
+          Kind = "vlan";
+        };
+        vlanConfig.Id = 30;
       };
       links.br0 = {
         matchConfig.OriginalName = "br0";
@@ -150,6 +271,8 @@
             interfaces-config = {
               interfaces = [
                 "br0"
+                "br0.20"
+                "br0.30"
               ];
               dhcp-socket-type = "raw";
             };
@@ -175,6 +298,36 @@
                   {
                     name = "routers";
                     data = "192.168.0.1";
+                  }
+                ];
+              }
+              {
+                id = 20;
+                pools = [
+                  {
+                    pool = "192.168.20.${toString reserved} - 192.168.20.254";
+                  }
+                ];
+                subnet = "192.168.20.0/24";
+                option-data = [
+                  {
+                    name = "routers";
+                    data = "192.168.20.1";
+                  }
+                ];
+              }
+              {
+                id = 30;
+                pools = [
+                  {
+                    pool = "192.168.30.${toString reserved} - 192.168.30.254";
+                  }
+                ];
+                subnet = "192.168.30.0/24";
+                option-data = [
+                  {
+                    name = "routers";
+                    data = "192.168.30.1";
                   }
                 ];
               }
@@ -208,6 +361,8 @@
           settings = {
             interfaces-config.interfaces = [
               "br0"
+              "br0.20"
+              "br0.30"
             ];
             lease-database = {
               name = "/var/lib/kea/dhcp6.leases";
@@ -227,6 +382,24 @@
                   }
                 ];
                 subnet = "fdbd:2025:0518::/64";
+              }
+              {
+                id = 20;
+                pools = [
+                  {
+                    pool = "fdbd:2025:0518:20::${lib.toHexString reserved} - fdbd:2025:0518:20::ffff";
+                  }
+                ];
+                subnet = "fdbd:2025:0518:20::/64";
+              }
+              {
+                id = 30;
+                pools = [
+                  {
+                    pool = "fdbd:2025:0518:30::${lib.toHexString reserved} - fdbd:2025:0518:30::ffff";
+                  }
+                ];
+                subnet = "fdbd:2025:0518:30::/64";
               }
             ];
             option-data = [

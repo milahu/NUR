@@ -8,7 +8,7 @@
 let
   cfg = config.userPresets;
   homePath = if pkgs.stdenv.isDarwin then "/Users" else "/home";
-  enableGui = config.profiles.gui.enable;
+  enableGui = config.profiles.gui.enable or false;
 in
 {
   options.userPresets = {
@@ -22,6 +22,7 @@ in
   };
 
   config = lib.mkIf cfg.toyvo.enable {
+    sops.secrets.toyvo_hashed_password.neededForUsers = true;
     users = {
       users = {
         ${cfg.toyvo.name} = (
@@ -46,8 +47,8 @@ in
                 "uinput"
                 cfg.toyvo.name
               ]
-              ++ lib.optionals config.containerPresets.podman.enable [ "podman" ];
-              initialHashedPassword = "$y$j9T$tkZ4b5vK1fCsRP0oWUb0e1$w0QbUEv9swXir33ivvM70RYTYflQszeLBi3vubYTqd8";
+              ++ lib.optionals (config.containerPresets.podman.enable or false) [ "podman" ];
+              hashedPasswordFile = config.sops.secrets.toyvo_hashed_password.path;
             })
           ]
         );
