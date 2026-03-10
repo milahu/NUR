@@ -70,6 +70,7 @@ in
         jnoortheen.nix-ide
         kahole.magit
         karunamurti.haml
+        kdl-org.kdl
         kokakiwi.vscode-just
         leighlondon.eml
         loriscro.super
@@ -141,6 +142,7 @@ in
         "advancedLocalFormatters.formatters" = with pkgs; [
           { languages = [ "diff" ]; command = [ (getExe' patchutils "rediff") "-" ]; }
           { languages = [ "hurl" ]; command = [ (getExe' hurl "hurlfmt") ]; }
+          { languages = [ "kdl" ]; command = [ (getExe kdlfmt) "format" "-" ]; }
         ];
 
         # Advertisements

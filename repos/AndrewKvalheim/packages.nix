@@ -113,6 +113,7 @@ specify {
     jjk.jjk = any;
     jnbt.vscode-rufo.search = open-vsx;
     joaompinto.vscode-graphviz.search = open-vsx;
+    kdl-org.kdl.search = [ open-vsx vscode-marketplace ];
     kokakiwi.vscode-just.search = open-vsx;
     leighlondon.eml.search = [ open-vsx vscode-marketplace ];
     loriscro.super.search = open-vsx;

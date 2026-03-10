@@ -59,6 +59,7 @@ in
     "3d-printing" = {
       when = "run-media-ak-ANDREW.mount"; # TODO: Provide escapeSystemdPath in Home Manager
       roots = [ "${homeDirectory}/akorg/project/current/3d-printing" "/run/media/ak/ANDREW/3d-printing" ];
+      commandOptions.fat = "true";
     };
   };
 
