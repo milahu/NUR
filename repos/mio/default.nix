@@ -18,9 +18,6 @@
 with (import ./private.nix { inherit pkgs; });
 let
   inherit (pkgs) callPackage;
-  inherit (lib) recurseIntoAttrs;
-  stdenv = pkgs.stdenv;
-  llvmPackages_19 = pkgs.llvmPackages_19;
 in
 {
   # note: some packages might be commented out to reduce package numbers. garnix has hardcoded limit of 100.
@@ -76,13 +73,16 @@ in
         # nixos-unstable 20260224
         "sha256-8NvRodMtq9Yrock7QRvF6ZOjuqpiK0KS3UeJzYcIbsg=:1.25.7" =
           "sha256-7giclWYDZTZqqrQedQzfMuDSFMS1gLFh9ISXE9Wm9Oo=";
+        # nixos-unstable 20260310
+        "sha256-QoGq8+lhaSQuC1VwIYE8h8N/ZC1ozfmIwmsIPk29Jos=:1.25.7" =
+          "sha256-18QmFEF57R+a9YCPXJd2nHgW8fg2EdcY3qhvWAfxbwI=";
       };
       srcHash = pkgs.caddy.src.outputHash;
       goVersion = pkgs.caddy.passthru.go.version;
       lookupKey = "${srcHash}:${goVersion}";
       pluginsHash =
         caddyPluginsHashTable.${lookupKey}
-          or (lib.warn "Unknown caddy source hash + Go version: ${lookupKey}. Please update caddyPluginsHashTable in default.nix" "");
+          or (throw "Unknown caddy source hash + Go version: ${lookupKey}. Please update caddyPluginsHashTable in default.nix");
     in
     (goV3OverrideAttrs pkgs.caddy).withPlugins {
       # https://github.com/crowdsecurity/example-docker-compose/blob/main/caddy/Dockerfile
