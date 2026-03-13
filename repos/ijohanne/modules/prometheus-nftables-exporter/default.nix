@@ -1,8 +1,17 @@
+self:
 { config, lib, pkgs, ... }:
 with lib;
 let
   cfg = config.services.prometheus-nftables-exporter;
   name = "nftables";
+  package = self.legacyPackages.${pkgs.system}.prometheus-nftables-exporter;
+  configFile = pkgs.writeText "nftables_exporter.yaml" (builtins.toJSON {
+    nftables_exporter = {
+      bind_to = "${cfg.listenAddress}:${toString cfg.port}";
+      url_path = "/metrics";
+      nft_location = "${pkgs.nftables}/bin/nft";
+    };
+  });
 in
 {
   options.services.prometheus-nftables-exporter = with types; mkOption {
@@ -12,7 +21,7 @@ in
         enableLocalScraping = mkEnableOption "enable scraping by local prometheus";
         port = mkOption {
           type = types.port;
-          default = 9732;
+          default = 9630;
           description = ''
             Port to listen on.
           '';
@@ -22,13 +31,6 @@ in
           default = "127.0.0.1";
           description = ''
             Address to listen on.
-          '';
-        };
-        extraFlags = mkOption {
-          type = types.listOf types.str;
-          default = [ ];
-          description = ''
-            Extra commandline options to pass to the ${name} exporter.
           '';
         };
         user = mkOption {
@@ -58,20 +60,18 @@ in
     users.groups."${cfg.group}" = { };
 
     systemd.services."prometheus-${name}-exporter" = {
-      environment = { };
       wantedBy = [ "multi-user.target" ];
       after = [ "network.target" ];
-      serviceConfig.Restart = "always";
-      serviceConfig.PrivateTmp = true;
-      serviceConfig.WorkingDirectory = /tmp;
-      serviceConfig.DynamicUser = false;
-      serviceConfig.User = "${cfg.user}";
-      serviceConfig.Group = "${cfg.group}";
-      serviceConfig.AmbientCapabilities = [ "CAP_NET_ADMIN" "CAP_SYS_ADMIN" ];
-      serviceConfig.ExecStart = ''
-        ${getBin pkgs.prometheus-nftables-exporter}/bin/nftables_exporter ${concatStringsSep " " cfg.extraFlags} \
-        --web.listen-address "${cfg.listenAddress}:${toString cfg.port}"
-      '';
+      serviceConfig = {
+        Restart = "always";
+        PrivateTmp = true;
+        WorkingDirectory = "/tmp";
+        DynamicUser = false;
+        User = cfg.user;
+        Group = cfg.group;
+        AmbientCapabilities = [ "CAP_NET_ADMIN" ];
+        ExecStart = "${getBin package}/bin/nftables-exporter -config ${configFile}";
+      };
     };
 
     services.prometheus.scrapeConfigs = mkIf cfg.enableLocalScraping [

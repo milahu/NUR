@@ -17,7 +17,7 @@
     # Prometheus exporters
     hue_exporter = { url = "github:aexel90/hue_exporter"; flake = false; };
     netatmo-exporter = { url = "github:xperimental/netatmo-exporter/b555053621a2e61c4242f7c11e90a093c026b8b3"; flake = false; };
-    nftables_exporter = { url = "github:Intrinsec/nftables_exporter/3fc66b606fa60b35bc36d9fc27855e5f50beea8d"; flake = false; };
+    nftables-exporter = { url = "github:metal-stack/nftables-exporter/v0.4.3"; flake = false; };
     prometheus-tplink-p110-exporter = { url = "github:ijohanne/prometheus-tplink-p110-exporter"; };
     ts3exporter = { url = "github:hikhvar/ts3exporter/a38c91b397a67f3675af4985ecd2f8c0e5354a7c"; flake = false; };
 
@@ -68,6 +68,9 @@
       overlays.default = import ./overlay.nix;
 
       nixosModules = (import ./modules) // {
+        multicast-relay = import ./modules/multicast-relay self;
+        prometheus-hue-exporter = import ./modules/prometheus-hue-exporter self;
+        prometheus-nftables-exporter = import ./modules/prometheus-nftables-exporter self;
         prometheus-tplink-p110-exporter = inputs.prometheus-tplink-p110-exporter.nixosModules.default;
       };
     };

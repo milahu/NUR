@@ -1,7 +1,9 @@
+self:
 { config, lib, pkgs, ... }:
 with lib;
 let
   cfg = config.services.multicast-relay;
+  package = self.legacyPackages.${pkgs.system}.multicast-relay;
 in
 {
   options.services.multicast-relay = with types; mkOption {
@@ -50,22 +52,23 @@ in
     users.groups."${cfg.group}" = { };
 
     systemd.services."multicast-relay" = {
-      environment = { };
       wantedBy = [ "multi-user.target" ];
       after = [ "network.target" ];
-      serviceConfig.Restart = "always";
-      serviceConfig.PrivateTmp = true;
-      serviceConfig.WorkingDirectory = /tmp;
-      serviceConfig.DynamicUser = false;
-      serviceConfig.AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" "CAP_NET_BROADCAST" "CAP_NET_RAW" ];
-      serviceConfig.User = "${cfg.user}";
-      serviceConfig.Group = "${cfg.group}";
-      serviceConfig.ExecStart = ''
-        ${getBin pkgs.multicast-relay}/bin/multicast-relay \
-        --interfaces ${builtins.concatStringsSep " " cfg.interfaces} \
-        --foreground \
-        ${cfg.extraConfig}
-      '';
+      serviceConfig = {
+        Restart = "always";
+        PrivateTmp = true;
+        WorkingDirectory = "/tmp";
+        DynamicUser = false;
+        AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" "CAP_NET_BROADCAST" "CAP_NET_RAW" ];
+        User = cfg.user;
+        Group = cfg.group;
+        ExecStart = ''
+          ${getBin package}/bin/multicast-relay \
+          --interfaces ${builtins.concatStringsSep " " cfg.interfaces} \
+          --foreground \
+          ${cfg.extraConfig}
+        '';
+      };
     };
   };
 }
