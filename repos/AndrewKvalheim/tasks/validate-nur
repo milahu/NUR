@@ -5,7 +5,7 @@ shopt -s lastpipe
 trap 'exit 1' SIGINT SIGTERM
 
 results=()
-code='0'
+return_code='0'
 
 for channel in 'unstable-small' 'nixpkgs'; do
   nix_args=(
@@ -18,16 +18,18 @@ for channel in 'unstable-small' 'nixpkgs'; do
   | jq --raw-output 'to_entries[] | "\(.key)\(.value.meta.broken)"' \
   | while IFS='' read -r name broken; do
     echo "[34mValidating $name@$channel[39m"
-    if [[ $broken == 'true' ]]; then
+    if [[ "$broken" == 'true' ]]; then
       results+=("[33m$name@$channel marked as broken[39m")
     elif nix-build "${nix_args[@]}" 'nur.nix' --attr "$name" --no-out-link; then
       results+=("$name@$channel successfully built")
     else
       results+=("[31m$name@$channel failed to build[39m")
-      code='1'
+      return_code='1'
     fi
   done
 done
 
-printf '\nValidation results:\n\n'; printf '  - %s\n' "${results[@]}"
-exit "$code"
+printf '\nValidation results:\n\n'
+printf '  - %s\n' "${results[@]}" | sort
+
+exit "$return_code"

@@ -12,7 +12,8 @@
 }:
 
 let
-  inherit (lib) escapeShellArg versionAtLeast;
+  inherit (builtins) match;
+  inherit (lib) concatStrings escapeShellArg;
 in
 stdenv.mkDerivation (chunker: {
   pname = "chunker";
@@ -26,10 +27,12 @@ stdenv.mkDerivation (chunker: {
     hash = "sha256-8fOBYN/o7Ew+pS6eHp7fpvWQbIyl2rkAl/g6TYsk3qI=";
   };
 
-  mitmCache = gradle_9.fetchDeps {
-    pkg = chunker.finalPackage;
-    data = ./assets/chunker-deps.json; # To generate, run `$(path 'chunker.mitmCache.updateScript')`
-  };
+  mitmCache =
+    let tag = "gradle${concatStrings (match "([[:digit:]]+)\\.([[:digit:]]+).*" gradle_9.version)}"; in
+    gradle_9.fetchDeps {
+      pkg = chunker.finalPackage;
+      data = ./assets/chunker-deps-${tag}.json; # To generate, run `$(nix-build --pure '<nixpkgs>' --attr 'chunker.mitmCache.updateScript')`
+    };
 
   nativeBuildInputs = [ git gradle_9 makeBinaryWrapper ];
   gradleFlags = [ "-Dorg.gradle.java.home=${temurin-bin-17}" ];
