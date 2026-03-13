@@ -19,7 +19,6 @@
   scenefx,
   wlroots_0_19,
   libGL,
-  nix-update-script,
   enableXWayland ? true,
 }:
 stdenv.mkDerivation (finalAttrs: {
@@ -65,12 +64,11 @@ stdenv.mkDerivation (finalAttrs: {
 
   passthru = {
     providedSessions = ["mango"];
-    updateScript = nix-update-script {};
   };
 
   meta = {
     mainProgram = "mango";
-    description = "A streamlined but feature-rich Wayland compositor";
+    description = "A streamlined but feature-rich Wayland compositor.";
     homepage = "https://github.com/mangowm/mango";
     license = lib.licenses.gpl3Plus;
     maintainers = [];
