@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":0.566,
-"eval_time":0.368,
+"fetch_time":0.828,
+"eval_time":0.357,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"f1a07446ab30544663f8803e4fa29d2dc9d1be9f",
-"sha256":"1fy4qwz87fgq98v2nax90x5a1ls70b3dxiy3h98hsy7h72pvwfhh",
+"rev":"05ad06232d3d9349395402ee7ba6a8e3bfa4e0ad",
+"sha256":"094wn08ikqkzy5jmsh9i6rx6i3b080as9s0a8j4zh4yyfygmkrsj",
 "date":null
 },
-"source_storepath":"/nix/store/s5qpg6lfj7d83mm0ws7gskaw57psb09q-source",
-"nixpkgs_storepath":"/nix/store/9sa246acv76d7yfk3llini1pmja028p5-source",
-"nur_combined_rev":"0d868008ff37a9d8738d85e1015721e47fd0c43e",
+"source_storepath":"/nix/store/8466g9yc2hslsac69myhd3r23rwvmzbw-source",
+"nixpkgs_storepath":"/nix/store/afajahngjcmbcxlp4wv3k3vbpdy7da1q-source",
+"nur_combined_rev":"896d2556c1e0579d318ee6d0eaa771ae74cb4340",
 "packages":{
 "bobgen":{
 "meta":{
@@ -302,7 +302,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/bufbuild/buf/releases/tag/v1.64.0",
+"changelog":"https://github.com/bufbuild/buf/releases/tag/v1.66.1",
 "description":"Create consistent Protobuf APIs that preserve compatibility and comply with design best-practices",
 "homepage":"https://buf.build",
 "identifiers":{
@@ -344,6 +344,12 @@
 "mainProgram":"buf",
 "maintainers":[
 {
+"github":"Hythera",
+"githubId":87016780,
+"matrix":"@hythera:matrix.org",
+"name":"Hythera"
+},
+{
 "email":"hello+nixpkgs@j-k.io",
 "github":"06kellyjac",
 "githubId":9866621,
@@ -359,11 +365,17 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9sa246acv76d7yfk3llini1pmja028p5-source/pkgs/by-name/bu/buf/package.nix",
+"file":"/nix/store/afajahngjcmbcxlp4wv3k3vbpdy7da1q-source/pkgs/by-name/bu/buf/package.nix",
 "line":90
 },
-"name":"buf-1.64.0",
+"name":"buf-1.66.1",
 "nonTeamMaintainers":[
+{
+"github":"Hythera",
+"githubId":87016780,
+"matrix":"@hythera:matrix.org",
+"name":"Hythera"
+},
 {
 "email":"hello+nixpkgs@j-k.io",
 "github":"06kellyjac",
@@ -416,14 +428,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"buf-1.64.0",
+"name":"buf-1.66.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"buf",
 "system":"x86_64-linux",
-"version":"1.64.0"
+"version":"1.66.1"
 },
 "bumper":{
 "meta":{
@@ -774,7 +786,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9sa246acv76d7yfk3llini1pmja028p5-source/pkgs/by-name/de/deno/package.nix",
+"file":"/nix/store/afajahngjcmbcxlp4wv3k3vbpdy7da1q-source/pkgs/by-name/de/deno/package.nix",
 "line":260
 },
 "name":"deno-2.6.10",
@@ -1389,7 +1401,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9sa246acv76d7yfk3llini1pmja028p5-source/pkgs/by-name/gl/gleam/package.nix",
+"file":"/nix/store/afajahngjcmbcxlp4wv3k3vbpdy7da1q-source/pkgs/by-name/gl/gleam/package.nix",
 "line":83
 },
 "name":"gleam-1.14.0",
@@ -1526,7 +1538,7 @@
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/9sa246acv76d7yfk3llini1pmja028p5-source/pkgs/by-name/gl/gleam/package.nix",
+"file":"/nix/store/afajahngjcmbcxlp4wv3k3vbpdy7da1q-source/pkgs/by-name/gl/gleam/package.nix",
 "line":87
 },
 "unfree":false,
@@ -1873,7 +1885,7 @@
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/9sa246acv76d7yfk3llini1pmja028p5-source/pkgs/development/compilers/go/1.26.nix",
+"file":"/nix/store/afajahngjcmbcxlp4wv3k3vbpdy7da1q-source/pkgs/development/compilers/go/1.26.nix",
 "line":192
 },
 "unfree":false,
@@ -2903,7 +2915,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/renovatebot/renovate/releases/tag/43.66.4",
+"changelog":"https://github.com/renovatebot/renovate/releases/tag/43.73.1",
 "description":"Cross-platform dependency automation, with patches for nix",
 "homepage":"https://github.com/renovatebot/renovate",
 "identifiers":{
@@ -2944,7 +2956,7 @@
 },
 "mainProgram":"renovate",
 "maintainers":[],
-"name":"renovate-43.66.4",
+"name":"renovate-43.73.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2975,14 +2987,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"renovate-43.66.4",
+"name":"renovate-43.73.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"renovate",
 "system":"x86_64-linux",
-"version":"43.66.4"
+"version":"43.73.1"
 },
 "shellhook":{
 "meta":{
@@ -3202,7 +3214,7 @@
 }
 ],
 "maintainers":[],
-"name":"python3.13-uv-build-0.10.9",
+"name":"python3.13-uv-build-0.10.10",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3291,7 +3303,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-uv-build-0.10.9",
+"name":"python3.13-uv-build-0.10.10",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3299,13 +3311,13 @@
 },
 "pname":"python3.13-uv-build",
 "system":"x86_64-linux",
-"version":"0.10.9"
+"version":"0.10.10"
 },
 "yt-dlp":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/yt-dlp/commits/990fdf36dd985403cb171e4b92d1d7f01a4e273d",
+"changelog":"https://github.com/yt-dlp/yt-dlp/commits/e68afb28277b4bee39726dbcbb06801edde9f659",
 "description":"Feature-rich command-line audio/video downloader - master branch",
 "homepage":"https://github.com/yt-dlp/yt-dlp/",
 "identifiers":{

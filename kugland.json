@@ -1,17 +1,17 @@
 {
 "name":"kugland",
-"fetch_time":1.069,
-"eval_time":0.386,
+"fetch_time":0.889,
+"eval_time":0.348,
 "source":{
 "url":"https://github.com/kugland/nur-packages",
-"rev":"74d832151d7ee0a0209f73658b8743bc9a2ade07",
-"sha256":"010vs0c8q0jvpjaa08v1dkxlqxl5gi07h480pqhzanlq9084vx91",
+"rev":"e21373b537c865271c8b164aa338bbede38084fc",
+"sha256":"06amf0qfvmw7f1p517kizxqblbfnghi2rs2swh0cmm41c17pnki2",
 "date":null,
 "submodules":true
 },
-"source_storepath":"/nix/store/4hapzk4bh4x990al8mi92jqpwbrsi8qi-nur-packages",
-"nixpkgs_storepath":"/nix/store/2yj9mj836l1qxy816bg983d7harkh6cy-source",
-"nur_combined_rev":"f7a98ec343e581f4898752e288bdaff5395d3955",
+"source_storepath":"/nix/store/g34q087cp3rlr225qyj5b6rjj5m6567a-nur-packages",
+"nixpkgs_storepath":"/nix/store/afajahngjcmbcxlp4wv3k3vbpdy7da1q-source",
+"nur_combined_rev":"871040d991affb3f0f1347de7f520dae68fd7490",
 "packages":{
 "auditok":{
 "meta":{
@@ -102,8 +102,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4hapzk4bh4x990al8mi92jqpwbrsi8qi-nur-packages/pkgs/auditok/default.nix",
-"line":27
+"file":"/nix/store/g34q087cp3rlr225qyj5b6rjj5m6567a-nur-packages/pkgs/auditok/default.nix",
+"line":25
 },
 "name":"python3.13-auditok-0.1.5",
 "nonTeamMaintainers":[
@@ -154,7 +154,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/auditok/default.nix:24",
+"position":"./pkgs/auditok/default.nix:22",
 "unfree":false,
 "unsupported":false
 },
@@ -226,7 +226,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4hapzk4bh4x990al8mi92jqpwbrsi8qi-nur-packages/pkgs/bip39/default.nix",
+"file":"/nix/store/g34q087cp3rlr225qyj5b6rjj5m6567a-nur-packages/pkgs/bip39/default.nix",
 "line":33
 },
 "name":"bip39-0.2.1",
@@ -362,7 +362,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4hapzk4bh4x990al8mi92jqpwbrsi8qi-nur-packages/pkgs/bop/default.nix",
+"file":"/nix/store/g34q087cp3rlr225qyj5b6rjj5m6567a-nur-packages/pkgs/bop/default.nix",
 "line":28
 },
 "name":"bop-20250124",
@@ -480,7 +480,7 @@
 "available":false,
 "broken":false,
 "changelog":"https://github.com/getcursor/cursor/releases",
-"description":"AI-first code editor built on VS Code, designed to enhance productivity through AI-assisted coding",
+"description":"AI-first code editor built on VS Code",
 "downloadPage":"https://cursor.com/download",
 "homepage":"https://cursor.com",
 "identifiers":{
@@ -517,7 +517,7 @@
 "redistributable":false,
 "shortName":"unfree"
 },
-"longDescription":"Cursor is an AI-powered code editor that extends VS Code's functionality with advanced AI capabilities,\nsuch as AI-assisted code completion and refactoring, natural language command processing.\n",
+"longDescription":"Cursor is an AI-powered code editor that extends VS Code's functionality with advanced\nAI capabilities, such as AI-assisted code completion and refactoring, natural language\ncommand processing.\n",
 "mainProgram":"cursor",
 "maintainers":[
 {
@@ -534,10 +534,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4hapzk4bh4x990al8mi92jqpwbrsi8qi-nur-packages/pkgs/cursor/default.nix",
-"line":53
+"file":"/nix/store/g34q087cp3rlr225qyj5b6rjj5m6567a-nur-packages/pkgs/cursor/default.nix",
+"line":56
 },
-"name":"cursor-2.6",
+"name":"cursor-2.6.19",
 "nonTeamMaintainers":[
 {
 "email":"kugland@gmail.com",
@@ -558,7 +558,7 @@
 "x86_64-linux",
 "aarch64-linux"
 ],
-"position":"./pkgs/cursor/default.nix:43",
+"position":"./pkgs/cursor/default.nix:45",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -568,14 +568,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"cursor-2.6",
+"name":"cursor-2.6.19",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cursor",
 "system":"x86_64-linux",
-"version":"2.6"
+"version":"2.6.19"
 },
 "ffsubsync":{
 "meta":{
@@ -667,8 +667,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4hapzk4bh4x990al8mi92jqpwbrsi8qi-nur-packages/pkgs/ffsubsync/default.nix",
-"line":70
+"file":"/nix/store/g34q087cp3rlr225qyj5b6rjj5m6567a-nur-packages/pkgs/ffsubsync/default.nix",
+"line":64
 },
 "name":"python3.12-ffsubsync-0.4.26",
 "nonTeamMaintainers":[
@@ -719,7 +719,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/ffsubsync/default.nix:67",
+"position":"./pkgs/ffsubsync/default.nix:61",
 "unfree":false,
 "unsupported":false
 },
@@ -794,8 +794,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4hapzk4bh4x990al8mi92jqpwbrsi8qi-nur-packages/pkgs/musescore/default.nix",
-"line":37
+"file":"/nix/store/g34q087cp3rlr225qyj5b6rjj5m6567a-nur-packages/pkgs/musescore/default.nix",
+"line":38
 },
 "name":"musescore-4.6.5.253511702",
 "nonTeamMaintainers":[
@@ -816,10 +816,9 @@
 ],
 "platforms":[
 "x86_64-linux",
-"aarch64-linux",
-"armv7l-linux"
+"aarch64-linux"
 ],
-"position":"./pkgs/musescore/default.nix:26",
+"position":"./pkgs/musescore/default.nix:27",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -896,7 +895,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4hapzk4bh4x990al8mi92jqpwbrsi8qi-nur-packages/pkgs/my-bookmarks-pl/default.nix",
+"file":"/nix/store/g34q087cp3rlr225qyj5b6rjj5m6567a-nur-packages/pkgs/my-bookmarks-pl/default.nix",
 "line":45
 },
 "name":"my-bookmarks.pl-0.1.1",
@@ -1078,10 +1077,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4hapzk4bh4x990al8mi92jqpwbrsi8qi-nur-packages/pkgs/neocities-deploy/default.nix",
+"file":"/nix/store/g34q087cp3rlr225qyj5b6rjj5m6567a-nur-packages/pkgs/neocities-deploy/default.nix",
 "line":22
 },
-"name":"neocities-deploy-0.1.22",
+"name":"neocities-deploy-0.1.23",
 "nonTeamMaintainers":[
 {
 "email":"kugland@gmail.com",
@@ -1142,14 +1141,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"neocities-deploy-0.1.22",
+"name":"neocities-deploy-0.1.23",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"neocities-deploy",
 "system":"x86_64-linux",
-"version":"0.1.22"
+"version":"0.1.23"
 },
 "pd-else":{
 "meta":{
@@ -1209,7 +1208,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4hapzk4bh4x990al8mi92jqpwbrsi8qi-nur-packages/pkgs/pd-else/default.nix",
+"file":"/nix/store/g34q087cp3rlr225qyj5b6rjj5m6567a-nur-packages/pkgs/pd-else/default.nix",
 "line":78
 },
 "name":"pd-else-1.0-rc13",
@@ -1377,8 +1376,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4hapzk4bh4x990al8mi92jqpwbrsi8qi-nur-packages/pkgs/pysubs2/default.nix",
-"line":21
+"file":"/nix/store/g34q087cp3rlr225qyj5b6rjj5m6567a-nur-packages/pkgs/pysubs2/default.nix",
+"line":19
 },
 "name":"python3.13-pysubs2-1.6.1",
 "nonTeamMaintainers":[
@@ -1429,7 +1428,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/pysubs2/default.nix:18",
+"position":"./pkgs/pysubs2/default.nix:16",
 "unfree":false,
 "unsupported":false
 },
