@@ -3,21 +3,21 @@ error:
 
 … while calling the 'foldl'' builtin
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:628:21:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:579:21:
 
-   627|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
-   628|       maintainers = unique (
+   578|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
+   579|       maintainers = unique (
       |                     ^
-   629|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
+   580|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/lists.nix:1859:25:
+  at <nixpkgs> + /lib/lists.nix:1901:25:
 
-  1858|   */
-  1859|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
+  1900|   */
+  1901|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
       |                         ^
-  1860|
+  1902|
 
 error: undefined variable 'arcayr'
 
