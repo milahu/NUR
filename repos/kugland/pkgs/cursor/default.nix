@@ -1,26 +1,28 @@
-{ pkgs
-, lib
+{ lib
+, stdenv
+, appimageTools
+, fetchurl
 ,
 }:
 let
   pname = "cursor";
-  version = "2.6";
+  version = "2.6.19";
   sources = {
-    x86_64.url = "https://api2.cursor.sh/updates/download/golden/linux-x64/cursor/2.6";
-    x86_64.hash = "sha256-5jiZJ6afm5+lNXkFejkCWHbeJkK9fDRIVA+YqB+tuyU=";
-    aarch64.url = "https://api2.cursor.sh/updates/download/golden/linux-arm64/cursor/2.6";
-    aarch64.hash = "sha256-37T+25saAH8YwTJHJUUIddf9sEgHl2f9P5XLb+EfkAI=";
+    x86_64.url = "https://downloads.cursor.com/production/224838f96445be37e3db643a163a817c15b3606c/linux/x64/Cursor-2.6.19-x86_64.AppImage";
+    x86_64.hash = "sha256-KPHcY7KhcWTpiFPvHUXmP57ePOW1ouANYVtFMaSzN3Y=";
+    aarch64.url = "https://downloads.cursor.com/production/224838f96445be37e3db643a163a817c15b3606c/linux/arm64/Cursor-2.6.19-aarch64.AppImage";
+    aarch64.hash = "sha256-oyWGiuMkfEgwVd5c28CWfPjZHK3agtfrWZ54/Bk4c6E=";
   };
-  src = pkgs.fetchurl (
-    if pkgs.stdenv.hostPlatform.isx86_64
+  src = fetchurl (
+    if stdenv.hostPlatform.isx86_64
     then sources.x86_64
-    else if pkgs.stdenv.hostPlatform.isAarch64
+    else if stdenv.hostPlatform.isAarch64
     then sources.aarch64
     else throw "Unsupported architecture for Cursor"
   );
-  appimageContents = pkgs.appimageTools.extract { inherit pname version src; };
+  appimageContents = appimageTools.extract { inherit pname version src; };
 in
-pkgs.appimageTools.wrapType2 {
+appimageTools.wrapType2 {
   inherit pname version src;
   extraInstallCommands = ''
     mkdir -p $out/share/icons
@@ -39,19 +41,20 @@ pkgs.appimageTools.wrapType2 {
     # Patch desktop file to use the correct executable
     sed -i 's|^Exec=/usr/share/cursor/cursor|Exec=cursor|' $out/share/applications/*.desktop
   '';
-  meta = {
-    description = "AI-first code editor built on VS Code, designed to enhance productivity through AI-assisted coding";
+  meta = with lib; {
+    description = "AI-first code editor built on VS Code";
     longDescription = ''
-      Cursor is an AI-powered code editor that extends VS Code's functionality with advanced AI capabilities,
-      such as AI-assisted code completion and refactoring, natural language command processing.
+      Cursor is an AI-powered code editor that extends VS Code's functionality with advanced
+      AI capabilities, such as AI-assisted code completion and refactoring, natural language
+      command processing.
     '';
     homepage = "https://cursor.com";
     downloadPage = "https://cursor.com/download";
     changelog = "https://github.com/getcursor/cursor/releases";
-    license = lib.licenses.unfree;
+    license = licenses.unfree;
     platforms = [ "x86_64-linux" "aarch64-linux" ];
-    maintainers = [ lib.maintainers.kugland ];
+    maintainers = with maintainers; [ maintainers.kugland ];
     mainProgram = "cursor";
-    sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
+    sourceProvenance = [ sourceTypes.binaryNativeCode ];
   };
 }
