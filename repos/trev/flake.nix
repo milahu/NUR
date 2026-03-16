@@ -34,10 +34,10 @@
           inherit system;
           config.allowUnfree = true;
         };
-        mkPackages = import ./libs/mkPackages { inherit nixpkgs; };
+        mkPackages = import ./libs/mkPackages { inherit nixpkgs system pkgs; };
       in
       rec {
-        packages = mkPackages pkgs (
+        packages = mkPackages (
           target:
           pkgs.lib.filterAttrs (_: pkg: builtins.elem system (pkg.meta.platforms or [ ])) (
             import ./packages {
@@ -49,7 +49,7 @@
 
         # the entire attribute set
         legacyPackages = import ./. {
-          inherit system pkgs;
+          inherit nixpkgs system pkgs;
         };
 
         bundlers = import ./bundlers {
@@ -59,14 +59,13 @@
         libs =
           # pure libs without pkgs/system injected
           import ./libs/pure.nix {
-            inherit nixpkgs;
             systems = import systems;
           }
           # libs for each system
           // pkgs.lib.genAttrs (import systems) (
             system:
             import ./libs {
-              inherit system pkgs;
+              inherit nixpkgs system pkgs;
             }
           );
 
@@ -74,9 +73,9 @@
           inherit system pkgs;
         };
 
-        overlays = import ./overlays;
+        overlays = import ./overlays { inherit nixpkgs; };
 
-        nixosModules = import ./modules;
+        nixosModules = import ./modules { inherit nixpkgs; };
 
         devShells = {
           default = pkgs.mkShell {
