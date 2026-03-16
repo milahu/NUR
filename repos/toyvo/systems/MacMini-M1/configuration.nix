@@ -1,5 +1,4 @@
 {
-  openclaw-pr,
   inputs,
   system,
   homelab,
@@ -49,5 +48,4 @@
     host = "0.0.0.0";
     port = homelab.MacMini-M1.services.ollama.port;
   };
-  environment.systemPackages = [ openclaw-pr.legacyPackages.${system}.openclaw ];
 }
