@@ -16,8 +16,28 @@ in
     GIT_TEMPLATE_DIR = pkgs.emptyDirectory.outPath;
   };
 
+  programs.ssh.extraConfig = ''
+    Host github.com gitlab.com git.sr.ht codeberg.org
+      IdentitiesOnly yes
+      IdentityFile ~/.ssh/id_nagy
+    Host git.mgmt.innovo-cloud.de git.wiit.one
+      IdentitiesOnly yes
+      IdentityFile ~/.ssh/id_nagywiit
+  '';
+
   programs.git = {
+    enable = true;
     config = {
+      user.name = "Daniel Nagy";
+      user.email = "danielnagy" + "@" + "posteo.de";
+      user.signingkey = "/home/user/.ssh/id_nagy";
+      gpg = {
+        format = "ssh";
+        ssh.allowedSignersFile = pkgs.writeText "allowed_signers" ''
+          danielnagy@posteo.de ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVwcaKID2HpE4ZRYClT1URJCRXiSPsJR4FC5TwnlmCS
+          daniel.nagy@wiit.cloud ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILP3LpZ81RkReP5MG3A+MoRB93E+XENLCFh9qmQNcuXV
+        '';
+      };
       alias = {
         # c = "commit"; # in included git aliases
         # co = "checkout"; # in included git aliases
@@ -52,6 +72,38 @@ in
           };
         in
         "${git-alias}/gitalias.txt";
+
+      includeIf."hasconfig:remote.*.url:git@github.com:*/**".path =
+        pkgs.writeText "gitconfig-includeIf" ''
+          [commit]
+              gpgsign = true
+        '';
+      includeIf."hasconfig:remote.*.url:git@github.com:wiit-cloud/**".path =
+        pkgs.writeText "gitconfig-includeIf" ''
+          [user]
+              name = Daniel Nagy
+              email = daniel.nagy@wiit.cloud
+              signingkey = /home/user/.ssh/id_nagywiit
+        '';
+      includeIf."hasconfig:remote.*.url:git@git.wiit.one:*/**".path =
+        pkgs.writeText "gitconfig-includeIf" ''
+          [commit]
+              gpgsign = true
+          [user]
+              name = Daniel Nagy
+              email = daniel.nagy@wiit.cloud
+              signingkey = /home/user/.ssh/id_nagywiit
+        '';
+      includeIf."hasconfig:remote.*.url:git@git.mgmt.innovo-cloud.de:*/**".path =
+        pkgs.writeText "gitconfig-includeIf" ''
+          [commit]
+              gpgsign = true
+          [user]
+              name = Daniel Nagy
+              email = daniel.nagy@wiit.cloud
+              signingkey = /home/user/.ssh/id_nagywiit
+        '';
+
       merge.conflictStyle = "diff3";
       gc = {
         auto = "0";

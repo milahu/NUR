@@ -8,6 +8,25 @@ let
   self = import ../. { inherit pkgs; };
 in
 {
+  users.users.user = {
+    isNormalUser = true;
+    uid = 1000;
+    extraGroups = [
+      "wheel"
+      "dialout"
+    ];
+  };
+  services.getty.autologinUser = lib.mkForce "user";
+
+  users.users."user".openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVwcaKID2HpE4ZRYClT1URJCRXiSPsJR4FC5TwnlmCS"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILP3LpZ81RkReP5MG3A+MoRB93E+XENLCFh9qmQNcuXV daniel.nagy@wiit.cloud"
+  ];
+  users.users."root".openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVwcaKID2HpE4ZRYClT1URJCRXiSPsJR4FC5TwnlmCS"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILP3LpZ81RkReP5MG3A+MoRB93E+XENLCFh9qmQNcuXV daniel.nagy@wiit.cloud"
+  ];
+
   environment.systemPackages = with pkgs; [
     jq
     yq-go
@@ -67,6 +86,10 @@ in
     '';
   };
 
+  services.openssh = {
+    enable = lib.mkDefault true;
+  };
+
   programs.fuse.userAllowOther = true;
 
   environment.shellAliases = {
@@ -120,6 +143,8 @@ in
     # https://github.com/pola-rs/polars/issues/23128#issuecomment-2976179171
     _RJEM_MALLOC_CONF = "background_thread:true,dirty_decay_ms:500,muzzy_decay_ms:500";
   };
+
+  networking.nameservers = lib.mkDefault [ "1.1.1.1" ];
 
   # too noisy, not needed by default
   networking.firewall.logRefusedConnections = lib.mkDefault false;
