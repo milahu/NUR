@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  fetchFromGitHub,
+  fetchFromGitLab,
   meson,
   ninja,
   pkg-config,
@@ -48,11 +48,11 @@ let
 in
 generic {
   pname = "wshowlyrics-unstable";
-  version = "2026-03-05";
-  src = fetchFromGitHub {
-    owner = "unstable-code";
-    repo = "lyrics";
-    rev = "0cbcae5b501d547f7303a2c8ff3c2264113497a2";
-    hash = "sha256-4cZTzZCQHeQNFjX0A+OZ8wobgn82wfjFNhZPuXdcWto=";
+  version = "2026-03-15";
+  src = fetchFromGitLab {
+    owner = "wshowlyrics";
+    repo = "wshowlyrics";
+    rev = "0d059356e0c855281003c0442ff43b0e189ec85f";
+    hash = "sha256-+hvLReLwa1mKwKke0zSUuClkK6ziC1nvPAPcCGLbLpc=";
   };
 }
