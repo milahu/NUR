@@ -1373,7 +1373,6 @@
       {
         homepage = "https://www.github.com/dudor/BookmarkHub";
         description = "BookmarkHub,sync bookmarks across different browsers";
-        license = licenses.gpl3;
         mozPermissions = [
           "bookmarks"
           "storage"
@@ -2182,10 +2181,10 @@
     };
     "competitive-companion" = buildMozillaXpiAddon {
       pname = "competitive-companion";
-      version = "2.63.0";
+      version = "2.64.0";
       addonId = "{74e326aa-c645-4495-9287-b6febc5565a7}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4606404/competitive_companion-2.63.0.xpi";
-      sha256 = "ec81a3680dc6528cb9687f1195983247600ba9e07395fe3afdd3c97b48b013db";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4727426/competitive_companion-2.64.0.xpi";
+      sha256 = "867e5d065db77f7278b02cc496c3ac9688d38992a7fb532398f41a1e7557f6df";
       meta = with lib;
       {
         homepage = "https://github.com/jmerle/competitive-companion";
@@ -3585,6 +3584,21 @@
         description = "Experience a beautiful image from Google Earth every time you open a new tab.";
         license = licenses.asl20;
         mozPermissions = [ "https://www.gstatic.com/prettyearth/*" ];
+        platforms = platforms.all;
+      };
+    };
+    "easy-container-shortcuts" = buildMozillaXpiAddon {
+      pname = "easy-container-shortcuts";
+      version = "1.8.0";
+      addonId = "firefox.container-shortcuts@strategery.io";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4710923/easy_container_shortcuts-1.8.0.xpi";
+      sha256 = "acdfe15f9a93f5cd0e1000f3af67006e187f239903b642528f5ea875e2ff6c79";
+      meta = with lib;
+      {
+        homepage = "https://github.com/gsomoza/firefox-easy-container-shortcuts";
+        description = "Easy keyboard shortcuts to open new tabs and windows on different containers";
+        license = licenses.bsd2;
+        mozPermissions = [ "tabs" "contextualIdentities" "cookies" ];
         platforms = platforms.all;
       };
     };
@@ -5091,6 +5105,21 @@
         description = "Share links with GSConnect, direct to the browser or by SMS. Requires at least v7 of the Gnome Shell extension to function.";
         license = licenses.gpl2;
         mozPermissions = [ "nativeMessaging" "tabs" "contextMenus" ];
+        platforms = platforms.all;
+      };
+    };
+    "gumbo-twitch-companion" = buildMozillaXpiAddon {
+      pname = "gumbo-twitch-companion";
+      version = "1.21.3";
+      addonId = "{59a39734-1e66-452e-a7b8-cc79f72062f0}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4701614/gumbo_twitch_companion-1.21.3.xpi";
+      sha256 = "e05c9c04213cd629c2935d3ed140e8101ed76a0ffcdf972ef1d54d302b8ed59e";
+      meta = with lib;
+      {
+        homepage = "https://github.com/seldszar/gumbo";
+        description = "Swollen companion keeping you updated on your Twitch experience";
+        license = licenses.mit;
+        mozPermissions = [ "alarms" "notifications" "storage" ];
         platforms = platforms.all;
       };
     };
@@ -8332,10 +8361,10 @@
     };
     "linkding-injector" = buildMozillaXpiAddon {
       pname = "linkding-injector";
-      version = "1.3.7";
+      version = "1.3.9";
       addonId = "{19561335-5a63-4b4e-8182-1eced17f9b47}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4662632/linkding_injector-1.3.7.xpi";
-      sha256 = "4796d1e1bd5a7bebe546ee4f33751e74572a90d56e53cfb7bb694e338c6ed9bd";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4727363/linkding_injector-1.3.9.xpi";
+      sha256 = "495c966d91fe8da40fd11fb58f645cdd0c04384f7949a9e56475ed949bbe4363";
       meta = with lib;
       {
         homepage = "https://github.com/Fivefold/linkding-injector";
@@ -10239,6 +10268,21 @@
       {
         description = "A theme with the nord color scheme.";
         license = licenses.cc-by-30;
+        mozPermissions = [];
+        platforms = platforms.all;
+      };
+    };
+    "norsk-bokmal-ordliste" = buildMozillaXpiAddon {
+      pname = "norsk-bokmal-ordliste";
+      version = "2.2.0.2resigned1";
+      addonId = "nb-NO@dictionaries.addons.mozilla.org";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4270193/norsk_bokmal_ordliste-2.2.0.2resigned1.xpi";
+      sha256 = "cacf57c358287459244ba30f7bdd524efa889bffa89c627fadbcd2af26c367a1";
+      meta = with lib;
+      {
+        homepage = "http://firefox.no";
+        description = "Norsk bokmål ordliste for Mozilla Firefox, Mozilla Thunderbird og SeaMonkey.";
+        license = licenses.gpl3;
         mozPermissions = [];
         platforms = platforms.all;
       };
@@ -12710,10 +12754,10 @@
     };
     "remove-youtube-s-suggestions" = buildMozillaXpiAddon {
       pname = "remove-youtube-s-suggestions";
-      version = "4.3.74";
+      version = "4.3.75";
       addonId = "{21f1ba12-47e1-4a9b-ad4e-3a0260bbeb26}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4711720/remove_youtube_s_suggestions-4.3.74.xpi";
-      sha256 = "a6bcd692a3a64f2d4dd57ad95bb24e2d9728ec08f3294935ac1b2b6c41dd6b12";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4727370/remove_youtube_s_suggestions-4.3.75.xpi";
+      sha256 = "fba5b4349b88339b5b2543062a9726ec1b320acd43c2ba2bf8d0052713a76f42";
       meta = with lib;
       {
         homepage = "https://lawrencehook.com/rys/";
