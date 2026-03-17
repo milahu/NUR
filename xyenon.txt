@@ -1,0 +1,13 @@
+error:
+… while querying the derivation named 'nh-unwrapped-4.3.0-unstable-2026-03-15'
+
+… while evaluating a path segment
+
+  at <nixpkgs> + /pkgs/by-name/nh/nh-unwrapped/package.nix:103:59:
+
+   102|   meta = {
+   103|     changelog = "https://github.com/nix-community/nh/blob/${finalAttrs.src.tag}/CHANGELOG.md";
+      |                                                           ^
+   104|     description = "Yet another nix cli helper";
+
+error: cannot coerce null to a string
