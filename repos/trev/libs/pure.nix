@@ -1,4 +1,5 @@
 {
+  nixpkgs ? <nixpkgs>,
   systems ? [
     "aarch64-linux"
     "aarch64-darwin"
@@ -6,5 +7,7 @@
   ],
 }:
 {
-  mkFlake = import ./mkFlake { inherit systems; };
+  mkFlake = import ./mkFlake { inherit nixpkgs systems; };
+  mkImages = import ./mkImages { inherit nixpkgs; };
+  mkPackages = import ./mkPackages { inherit nixpkgs; };
 }

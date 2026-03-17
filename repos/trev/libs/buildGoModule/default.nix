@@ -1,0 +1,5 @@
+{
+  buildGoLatestModule,
+}:
+
+buildGoLatestModule
