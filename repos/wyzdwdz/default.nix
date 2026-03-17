@@ -17,4 +17,6 @@
   spl-token-cli = pkgs.callPackage ./pkgs/spl-token-cli { };
   assfonts-gui = pkgs.callPackage ./pkgs/assfonts-gui { };
   assfonts = pkgs.callPackage ./pkgs/assfonts { };
+  archon = pkgs.callPackage ./pkgs/archon { };
+  xivlauncher-rb = pkgs.callPackage ./pkgs/xivlauncher-rb { };
 }
