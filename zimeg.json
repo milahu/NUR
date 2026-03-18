@@ -1,16 +1,16 @@
 {
 "name":"zimeg",
-"fetch_time":0.914,
-"eval_time":0.251,
+"fetch_time":0.759,
+"eval_time":0.355,
 "source":{
 "url":"https://github.com/zimeg/nur-packages",
-"rev":"d5c0ec4ac213ceb2f8c0b0083580e10c07965965",
-"sha256":"0dmm5mvivj44gyzq0ahgi9z5f8rkfbzlvwbwpjlby02h1mm3w5gm",
+"rev":"11165f3ccfcf4a78d6bfe9a15bbe431da27bdbde",
+"sha256":"042g45rsvik5vx2p4hvydkcnqn84vd2ynbvcmslb37w6gdx92pz6",
 "date":null
 },
-"source_storepath":"/nix/store/wirhp988p7cb8lwqia90cdw570rx8wcn-source",
-"nixpkgs_storepath":"/nix/store/j5zs40b1kh04nikqhzda34dgw3kfzlsi-source",
-"nur_combined_rev":"ae352a244581dfa67d968a41fd95d3f01d3099bf",
+"source_storepath":"/nix/store/flclcdg0b5qgkjzq7pq8p4jq3qqardpr-source",
+"nixpkgs_storepath":"/nix/store/dgmmhy3y4chhi8w2vj87h7shfxv2adqn-source",
+"nur_combined_rev":"49c857fc30e41b693534fb3f68137cc76c55fe2b",
 "packages":{
 "changesets":{
 "meta":{
@@ -58,7 +58,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wirhp988p7cb8lwqia90cdw570rx8wcn-source/pkgs/changesets/default.nix",
+"file":"/nix/store/flclcdg0b5qgkjzq7pq8p4jq3qqardpr-source/pkgs/changesets/default.nix",
 "line":30
 },
 "name":"changesets-cli-2.29.7",
@@ -148,7 +148,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wirhp988p7cb8lwqia90cdw570rx8wcn-source/pkgs/etime/default.nix",
+"file":"/nix/store/flclcdg0b5qgkjzq7pq8p4jq3qqardpr-source/pkgs/etime/default.nix",
 "line":39
 },
 "name":"etime-1.1.1",
@@ -324,7 +324,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/jtt-nvim/default.nix:20",
 "unfree":false,
@@ -343,7 +345,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/breuleux/jurigged/releases/tag/v26.05pre948338.bcc4a9d9533c",
+"changelog":"https://github.com/breuleux/jurigged/releases/tag/v26.05pre963857.f8573b9c935c",
 "description":"Hot reloading for Python",
 "homepage":"https://github.com/breuleux/jurigged",
 "identifiers":{
@@ -417,7 +419,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wirhp988p7cb8lwqia90cdw570rx8wcn-source/pkgs/jurigged/default.nix",
+"file":"/nix/store/flclcdg0b5qgkjzq7pq8p4jq3qqardpr-source/pkgs/jurigged/default.nix",
 "line":82
 },
 "name":"jurigged-0.5.8",
@@ -645,7 +647,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/newsflash-nvim/default.nix:20",
 "unfree":false,
@@ -784,7 +788,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/proximity-nvim/default.nix:20",
 "unfree":false,
@@ -846,7 +852,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wirhp988p7cb8lwqia90cdw570rx8wcn-source/pkgs/quill/default.nix",
+"file":"/nix/store/flclcdg0b5qgkjzq7pq8p4jq3qqardpr-source/pkgs/quill/default.nix",
 "line":32
 },
 "name":"quill-0.5.1",
@@ -946,7 +952,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wirhp988p7cb8lwqia90cdw570rx8wcn-source/pkgs/zsh-wd/default.nix",
+"file":"/nix/store/flclcdg0b5qgkjzq7pq8p4jq3qqardpr-source/pkgs/zsh-wd/default.nix",
 "line":38
 },
 "name":"wd-0.7.0",
