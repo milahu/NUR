@@ -1,3 +1,7 @@
+Work around paperwm/PaperWM#943
+
+Partially reverts kovidgoyal/kitty@849dcd424db630dcac345874d2bc3665f04276c1
+
 --- i/glfw/wl_window.c
 +++ w/glfw/wl_window.c
 @@ -1747,3 +1746,0 @@

@@ -2,7 +2,7 @@
 
 let
   inherit (config.home) homeDirectory;
-  inherit (lib) escapeShellArg getExe getExe' mkForce;
+  inherit (lib) escapeShellArg getExe getExe';
   inherit (pkgs) substitute writeShellScript;
 
   system = import <nixpkgs/nixos> { };
@@ -40,7 +40,6 @@ in
   # Packages
   home.packages = with pkgs; [
     album-art
-    alpaca
     attachments
     awscli2
     calibre
@@ -56,7 +55,6 @@ in
     gpsprune
     graphviz
     hugin
-    jan
     jitsi-meet-electron
     josm
     kdePackages.kdenlive

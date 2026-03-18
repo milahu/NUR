@@ -202,7 +202,7 @@ in
                     type = "Commit";
                     max_length = 16;
                     surround_with_quotes = true;
-                    empty_text = "TODO";
+                    empty_text = "WIP";
                     bg_color = "Blue";
                     color = "Black";
                     bold = true;
@@ -212,7 +212,7 @@ in
                     separator = " ";
                     conflict = { text = "[conflict]"; bg_color = "Blue"; color = "Black"; bold = true; };
                     divergent = { text = "[divergent]"; bg_color = "Blue"; color = "Black"; bold = true; };
-                    empty = { text = "∅"; bg_color = "Blue"; color = "Black"; bold = true; };
+                    empty = { text = "✓"; bg_color = "Blue"; color = "Black"; bold = true; };
                     immutable = { text = "[immutable]"; bg_color = "Blue"; color = "Black"; bold = true; };
                     hidden = { text = "[hidden]"; bg_color = "Blue"; color = "Black"; bold = true; };
                   }

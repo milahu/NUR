@@ -172,8 +172,8 @@ in
 
       # Reference: https://github.com/jj-vcs/jj/blob/main/cli/src/config/templates.toml
       template-aliases = {
-        description_placeholder = "label(\"description placeholder\", \"TODO\")";
-        empty_commit_marker = "label(\"empty\", \"∅\")";
+        description_placeholder = "label(\"description placeholder\", \"WIP\")";
+        empty_commit_marker = "label(\"empty\", \"✓\")";
         "format_short_signature(s)" = "coalesce(s.name(), s.email(), name_placeholder)";
         "format_short_signature_oneline(s)" = "coalesce(s.name(), s.email(), name_placeholder)";
       };
@@ -197,7 +197,7 @@ in
         tag = bookmark;
         tags = tag;
         "description placeholder" = { fg = "red"; italic = true; };
-        "empty description placeholder" = { fg = "red"; italic = true; };
+        "empty description placeholder" = { fg = "bright black"; italic = true; };
 
         "working_copy commit_id" = commit_id;
         "working_copy change_id" = change_id;
@@ -210,7 +210,7 @@ in
         "working_copy tags" = tags;
         "working_copy description" = "magenta";
         "working_copy description placeholder" = { fg = "magenta"; italic = true; };
-        "working_copy empty description placeholder" = { fg = "magenta"; italic = true; };
+        "working_copy empty description placeholder" = { fg = "bright black"; italic = true; };
 
         "diff empty" = "cyan";
         "diff binary" = "cyan";

@@ -20,6 +20,7 @@ in
     ./components/fonts.user.nix
     ./components/git.user.nix
     ./components/keyboard.user.nix
+    ./components/llm.user.nix
     ./components/nix.user.nix
     ./components/openpgp.user.nix
     ./components/shell.user.nix

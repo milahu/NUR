@@ -1,8 +1,9 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
 let
+  inherit (config) host;
   inherit (lib) mkOption;
-  inherit (lib.types) float int path submodule;
+  inherit (lib.types) bool float int path submodule;
 in
 {
   imports = [
@@ -13,6 +14,7 @@ in
     ./components/desktop.system.nix
     ./components/firmware.system.nix
     ./components/keyboard.system.nix
+    ./components/llm.system.nix
     ./components/locale.system.nix
     ./components/logs.system.nix
     ./components/mail.system.nix
@@ -36,19 +38,22 @@ in
 
   options = {
     host = {
-      cpu_cores = mkOption { type = int; };
-      cpu_mark = mkOption {
-        type = submodule {
-          options = {
-            multi = mkOption { type = int; };
-            single = mkOption { type = int; };
-          };
-        };
-      };
       dir = mkOption { type = path; };
-      display_density = mkOption { type = float; };
-      display_width = mkOption { type = int; };
-      ram_gb = mkOption { type = int; };
+
+      metrics = {
+        cpuCores = mkOption { type = int; };
+        cpuMarkMulti = mkOption { type = int; };
+        cpuMarkSingle = mkOption { type = int; };
+        displayDensity = mkOption { type = float; };
+        displayWidth = mkOption { type = int; };
+        ramGb = mkOption { type = int; };
+        vramGb = mkOption { type = int; };
+      };
+
+      features = with host.metrics; {
+        llm = mkOption { type = bool; default = vramGb >= 8; };
+        vm = mkOption { type = bool; default = cpuMarkMulti >= 10000 && ramGb >= 8; };
+      };
     };
   };
 }

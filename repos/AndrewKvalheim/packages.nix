@@ -72,6 +72,10 @@ specify {
   just-local = any;
   kitty.patch = ./library/assets/kitty_paperwm.patch; # Workaround for paperwm/PaperWM#943
   little-a-map = any;
+  llmfit = {
+    version = ">0.7.2"; # AlexsJones/llmfit#230
+    search = specify { llmfit = { version = "∞"; overlay = l: rec { version = "0.7.4"; src = l.src.override { tag = "v${version}"; hash = "sha256-DLxDT0fGCnAWhQWc2hjmWOmVp0U9i1ESU3Xk+5C3f20="; }; cargoDeps = stable.rustPlatform.importCargoLock { lockFile = src + "/Cargo.lock"; }; /* Workaround for NixOS/nixpkgs#415397 */ }; }; };
+  };
   losslesscut-bin.args = [ "--disable-networking" ];
   mark-applier = any;
   may-upgrade = any;

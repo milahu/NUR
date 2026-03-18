@@ -1,11 +1,11 @@
-Note that `minOpacity` is misnamed (mourner/simpleheat#31).
+Apply viridis color palette
 
 --- a/app/javascript/controllers/maps_controller.js
 +++ b/app/javascript/controllers/maps_controller.js
 @@ -224 +224,14 @@
 -    this.heatmapLayer = L.heatLayer(this.heatmapMarkers, { radius: 20 }).addTo(
 +    const gradient = {
-+      0.50: '#440154', // minOpacity
++      0.50: '#440154', // minOpacity (misnamed; see mourner/simpleheat#31)
 +      0.55: '#482475',
 +      0.60: '#414487',
 +      0.65: '#355f8d',

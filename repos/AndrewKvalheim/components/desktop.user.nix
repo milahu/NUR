@@ -84,7 +84,7 @@ in
         gap = border + margin;
 
         # Reference widths
-        full = (system.host.display_width / system.host.display_density) - margin * 2;
+        full = (system.host.metrics.displayWidth / system.host.metrics.displayDensity) - margin * 2;
         externalFull = (external_display_width / external_display_density) - margin * 2;
 
         # Window widths

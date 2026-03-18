@@ -276,7 +276,7 @@ in
           "8" = [ red vermilion orange yellow green teal blue purple ];
           "12" = [ red red-dim orange orange-dim yellow yellow-dim green green-dim blue blue-dim purple purple-dim ];
           "16" = [ red red-dim vermilion vermilion-dim orange orange-dim yellow yellow-dim green green-dim teal teal-dim blue blue-dim purple purple-dim ];
-        }."${toString system.host.cpu_cores}"
+        }."${toString system.host.metrics.cpuCores}"
       );
       mem-color = orange;
       swap-color = purple;

@@ -15,13 +15,17 @@ in
 
   # Host parameters
   host = {
-    cpu_cores = 16;
-    cpu_mark = { multi = 24435; single = 3680; };
-    dir = ./.;
-    display_density = 1.75;
-    display_width = 3840;
     name = "main";
-    ram_gb = 64;
+    dir = ./.;
+    metrics = rec{
+      cpuCores = 16;
+      cpuMarkMulti = 24435;
+      cpuMarkSingle = 3680;
+      displayDensity = 1.75;
+      displayWidth = 3840;
+      ramGb = 64 - vramGb;
+      vramGb = 8;
+    };
   };
 
   # Workaround for drm/amd#3787, drm/amd#3925, drm/amd#4141
@@ -118,9 +122,6 @@ in
 
   # Devices
   services.udev.packages = with pkgs; [ espressif-serial ];
-
-  # LLM
-  nixpkgs.config.rocmSupport = true;
 
   # Permissions
   users.users.${identity.username}.extraGroups = [ "adbusers" "usbmux" "wireshark" ];

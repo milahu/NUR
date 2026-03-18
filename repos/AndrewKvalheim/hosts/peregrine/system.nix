@@ -13,13 +13,17 @@ in
 
   # Host parameters
   host = {
-    cpu_cores = 4;
-    cpu_mark = { multi = 5345; single = 1894; };
-    dir = ./.;
-    display_density = 1.0;
-    display_width = 1280;
     name = "peregrine";
-    ram_gb = 12;
+    dir = ./.;
+    metrics = rec {
+      cpuCores = 4;
+      cpuMarkMulti = 5345;
+      cpuMarkSingle = 1894;
+      displayDensity = 1.0;
+      displayWidth = 1280;
+      ramGb = 12 - vramGb;
+      vramGb = 0 /* 8 MB */;
+    };
   };
 
   # Kernel

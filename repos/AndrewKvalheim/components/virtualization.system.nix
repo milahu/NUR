@@ -32,7 +32,7 @@ mkMerge [
     systemd.timers.podman-prune.unitConfig.ConditionACPower = true;
     users.extraGroups.podman.members = [ identity.username ];
   }
-  (mkIf (host.cpu_mark.multi >= 10000 && host.ram_gb >= 8) {
+  (mkIf host.features.vm {
     # VirtualBox
     virtualisation.virtualbox.host.enable = true;
     users.extraGroups.vboxusers.members = [ identity.username ];

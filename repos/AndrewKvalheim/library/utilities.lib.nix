@@ -193,6 +193,7 @@ rec {
         else if operator == "∞" then true
         else if operator == "≠" then v' != reference
         else if operator == "<" then versionOlder v' reference
+        else if operator == ">" then versionOlder reference v'
         else if operator == "≥" then versionAtLeast v' reference
         else throw "version operator not implemented: ${toJSON operator}";
     in
