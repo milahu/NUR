@@ -1,16 +1,16 @@
 {
 "name":"chrjabs",
 "fetch_time":0.871,
-"eval_time":0.276,
+"eval_time":0.352,
 "source":{
 "url":"https://github.com/chrjabs/nur-packages",
-"rev":"0123914f3b437a6d2a3147ac1bc91037c3c69a39",
-"sha256":"0412pn649i0l4v60kglmc4nyzwrvcyw6rw28sqiddgphx8l19y6b",
+"rev":"1a3e5b094937d3d5be4a9b12597ca339454038bb",
+"sha256":"05z6r9ddfv5x2g7866v61dwxhn2s87j18cfv6l4c5w3k1ls74dnh",
 "date":null
 },
-"source_storepath":"/nix/store/5l882cipdgi3x50d9571k85w8w5iyl18-source",
-"nixpkgs_storepath":"/nix/store/r93g913i74s7yrixlgxw5y176g75dhdv-source",
-"nur_combined_rev":"d9c799b39f122c1d50e5a2fb1dcdd04e55e21e10",
+"source_storepath":"/nix/store/qjkq05k2jlkn15ja0860i5p60aj3kmji-source",
+"nixpkgs_storepath":"/nix/store/dgmmhy3y4chhi8w2vj87h7shfxv2adqn-source",
+"nur_combined_rev":"280d9b1bc37444edd6c0b871e1f53cf08edfc3b8",
 "packages":{
 "cargo-afl":{
 "meta":{
@@ -83,7 +83,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5l882cipdgi3x50d9571k85w8w5iyl18-source/pkgs/cargo-afl/default.nix",
+"file":"/nix/store/qjkq05k2jlkn15ja0860i5p60aj3kmji-source/pkgs/cargo-afl/default.nix",
 "line":62
 },
 "name":"cargo-afl-0.15.22",
@@ -214,7 +214,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5l882cipdgi3x50d9571k85w8w5iyl18-source/pkgs/coveralls/default.nix",
+"file":"/nix/store/qjkq05k2jlkn15ja0860i5p60aj3kmji-source/pkgs/coveralls/default.nix",
 "line":36
 },
 "name":"coveralls-0.6.17",
@@ -322,7 +322,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5l882cipdgi3x50d9571k85w8w5iyl18-source/pkgs/dblp-tools/default.nix",
+"file":"/nix/store/qjkq05k2jlkn15ja0860i5p60aj3kmji-source/pkgs/dblp-tools/default.nix",
 "line":31
 },
 "name":"dblp-tools-0.1.0-unstable",
@@ -476,7 +476,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5l882cipdgi3x50d9571k85w8w5iyl18-source/pkgs/dodeca/default.nix",
+"file":"/nix/store/qjkq05k2jlkn15ja0860i5p60aj3kmji-source/pkgs/dodeca/default.nix",
 "line":122
 },
 "name":"dodeca-0.13.0",
@@ -639,7 +639,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5l882cipdgi3x50d9571k85w8w5iyl18-source/pkgs/gbd/default.nix",
+"file":"/nix/store/qjkq05k2jlkn15ja0860i5p60aj3kmji-source/pkgs/gbd/default.nix",
 "line":47
 },
 "name":"python3.13-gbd-5.0.0-multi-opt",
@@ -794,7 +794,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5l882cipdgi3x50d9571k85w8w5iyl18-source/pkgs/gbdc/shared.nix",
+"file":"/nix/store/qjkq05k2jlkn15ja0860i5p60aj3kmji-source/pkgs/gbdc/shared.nix",
 "line":29
 },
 "name":"python3.13-gbdc-0.3.3-multi-opt",
@@ -890,7 +890,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/gbdc/shared.nix:26",
 "unfree":false,
@@ -964,7 +966,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5l882cipdgi3x50d9571k85w8w5iyl18-source/pkgs/gbdc/shared.nix",
+"file":"/nix/store/qjkq05k2jlkn15ja0860i5p60aj3kmji-source/pkgs/gbdc/shared.nix",
 "line":29
 },
 "name":"gbdc-0.3.3-multi-opt",
@@ -1060,7 +1062,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/gbdc/tool.nix:28",
 "unfree":false,
@@ -1134,7 +1138,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5l882cipdgi3x50d9571k85w8w5iyl18-source/pkgs/gimsatul/default.nix",
+"file":"/nix/store/qjkq05k2jlkn15ja0860i5p60aj3kmji-source/pkgs/gimsatul/default.nix",
 "line":72
 },
 "name":"gimsatul-1.1.3",
@@ -1293,7 +1297,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5l882cipdgi3x50d9571k85w8w5iyl18-source/pkgs/gungraun-runner/default.nix",
+"file":"/nix/store/qjkq05k2jlkn15ja0860i5p60aj3kmji-source/pkgs/gungraun-runner/default.nix",
 "line":39
 },
 "name":"gungraun-runner-0.17.0",
@@ -1455,7 +1459,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5l882cipdgi3x50d9571k85w8w5iyl18-source/pkgs/janus-swi/default.nix",
+"file":"/nix/store/qjkq05k2jlkn15ja0860i5p60aj3kmji-source/pkgs/janus-swi/default.nix",
 "line":42
 },
 "name":"python3.13-janus-swi-1.5.2",
@@ -1610,7 +1614,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5l882cipdgi3x50d9571k85w8w5iyl18-source/pkgs/python-mip/default.nix",
+"file":"/nix/store/qjkq05k2jlkn15ja0860i5p60aj3kmji-source/pkgs/python-mip/default.nix",
 "line":94
 },
 "name":"python3.11-mip-1.15.0",
@@ -1757,7 +1761,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5l882cipdgi3x50d9571k85w8w5iyl18-source/pkgs/veripb/default.nix",
+"file":"/nix/store/qjkq05k2jlkn15ja0860i5p60aj3kmji-source/pkgs/veripb/default.nix",
 "line":27
 },
 "name":"veripb-3.0.1",
