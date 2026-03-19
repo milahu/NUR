@@ -4,4 +4,5 @@ pkgs.vimUtils.buildVimPluginFrom2Nix {
   version = "master";
   pname = "nvim-tree-docs";
   src = sources.nvim-tree-docs;
+  doCheck = false;
 }

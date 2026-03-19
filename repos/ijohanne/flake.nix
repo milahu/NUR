@@ -21,6 +21,8 @@
     prometheus-tplink-p110-exporter = { url = "github:ijohanne/prometheus-tplink-p110-exporter"; };
     ts3exporter = { url = "github:hikhvar/ts3exporter/a38c91b397a67f3675af4985ecd2f8c0e5354a7c"; flake = false; };
 
+    pg-exporter = { url = "github:pgsty/pg_exporter/v1.2.0"; flake = false; };
+
     # Other packages
     multicast-relay = { url = "github:alsmith/multicast-relay/2c0e4c743127066388de2c5fd6a7eed676d9b523"; flake = false; };
     nixpkgs-firefox-addons = { url = "github:ijohanne/nixpkgs-firefox-addons/215fb67222ad97261efd7a8bef65a2154586b335"; flake = false; };
@@ -72,6 +74,7 @@
         prometheus-hue-exporter = import ./modules/prometheus-hue-exporter self;
         prometheus-nftables-exporter = import ./modules/prometheus-nftables-exporter self;
         prometheus-tplink-p110-exporter = inputs.prometheus-tplink-p110-exporter.nixosModules.default;
+        pg-exporter = import ./modules/pg-exporter self;
       };
     };
 }

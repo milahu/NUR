@@ -12,4 +12,5 @@
   prometheus-nftables-exporter = pkgs.callPackage ./prometheus-nftables-exporter { inherit pkgs sources; };
   prometheus-netatmo-exporter = pkgs.callPackage ./prometheus-netatmo-exporter { inherit pkgs sources; };
   multicast-relay = pkgs.callPackage ./multicast-relay { inherit pkgs sources; };
+  pg-exporter = pkgs.callPackage ./pg-exporter { inherit pkgs sources; };
 }

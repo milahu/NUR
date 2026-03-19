@@ -202,6 +202,23 @@
         "type": "github"
       }
     },
+    "pg-exporter": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770896005,
+        "narHash": "sha256-MnnxYXb6fwo9hjTCxpAlSon1d9m3O/OmjsasDSyJYtg=",
+        "owner": "pgsty",
+        "repo": "pg_exporter",
+        "rev": "c75dd09e84a205f70856bea8ce0062c081838026",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pgsty",
+        "ref": "v1.2.0",
+        "repo": "pg_exporter",
+        "type": "github"
+      }
+    },
     "prometheus-tplink-p110-exporter": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -234,6 +251,7 @@
         "nvim-tree-docs": "nvim-tree-docs",
         "oh-my-fish-plugin-foreign-env": "oh-my-fish-plugin-foreign-env",
         "oh-my-fish-plugin-ssh": "oh-my-fish-plugin-ssh",
+        "pg-exporter": "pg-exporter",
         "prometheus-tplink-p110-exporter": "prometheus-tplink-p110-exporter",
         "sddm-chili": "sddm-chili",
         "sddm-sugar-dark": "sddm-sugar-dark",
