@@ -11,15 +11,17 @@
 }:
 {
   imports = [
-    ../../modules/os/defaults.nix
-    ../../modules/os/console.nix
-    ../../modules/os/podman.nix
-    ../../modules/os/users/toyvo.nix
-    ../../modules/nixos/defaults.nix
-    ../../modules/nixos/services/minecraft.nix
-    ../../modules/nixos/containers/podman.nix
-    ../../modules/nixos/containers/portainer.nix
-    ../../modules/nixos/vintagestory.nix
+    inputs.nixcfg.modules.os.defaults
+    inputs.nixcfg.modules.os.console
+    inputs.nixcfg.modules.os.podman
+    inputs.nixcfg.modules.os.users.toyvo
+    inputs.nixcfg.modules.nixos.defaults
+    inputs.nixcfg.modules.nixos.monitoring.default
+    inputs.nixcfg.modules.nixos.services.minecraft
+    inputs.nixcfg.modules.nixos.wireguard.default
+    inputs.nixcfg.modules.nixos.containers.podman
+    inputs.nixcfg.modules.nixos.containers.portainer
+    inputs.nixcfg.modules.nixos.vintagestory
     "${inputs.nixpkgs-unstable}/nixos/modules/profiles/qemu-guest.nix"
     inputs.arion.nixosModules.arion
     inputs.catppuccin.nixosModules.catppuccin
@@ -94,9 +96,27 @@
       enable = true;
       settings.PasswordAuthentication = false;
     };
+    monitoring.enable = true;
+    wireguard-tunnel = {
+      enable = true;
+      role = "peer";
+      address = "10.100.0.2/24";
+      privateKeySecret = "wireguard-oracle-private-key";
+      peerPublicKey = "9EZ8ZiCF34RiMr06QiKBIYGckS9DFUBeX85boFhz2yo=";
+      peerEndpoint = "toyvo.dev:51820";
+      peerAllowedIPs = [
+        "10.100.0.0/24"
+        "10.1.0.0/24"
+      ];
+    };
     caddy = {
       enable = true;
       email = "collin@diekvoss.com";
+      globalConfig = ''
+        servers {
+          metrics
+        }
+      '';
       virtualHosts."mc.toyvo.dev" = {
         useACMEHost = "mc.toyvo.dev";
         extraConfig = "reverse_proxy http://0.0.0.0:7878";
@@ -144,6 +164,7 @@
     cloudflare_w_dns_r_zone_token = { };
     "discord_bot.env" = { };
     "rclone.conf" = { };
+    "wireguard-oracle-private-key" = { };
   };
   users.users.caddy.extraGroups = [ "acme" ];
   userPresets.toyvo.enable = true;

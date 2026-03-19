@@ -13,18 +13,22 @@ let
 in
 {
   imports = [
-    ../../modules/os/defaults.nix
-    ../../modules/os/console.nix
-    ../../modules/os/dev.nix
-    ../../modules/os/podman.nix
-    ../../modules/os/users/toyvo.nix
-    ../../modules/os/users/chloe.nix
-    ../../modules/nixos/defaults.nix
-    ../../modules/nixos/filesystems.nix
-    ../../modules/nixos/services/ollama.nix
-    ../../modules/nixos/containers/podman.nix
-    ../../modules/nixos/containers/portainer.nix
-    ../../modules/nixos/containers/chat.nix
+    inputs.nixcfg.modules.os.defaults
+    inputs.nixcfg.modules.os.console
+    inputs.nixcfg.modules.os.dev
+    inputs.nixcfg.modules.os.podman
+    inputs.nixcfg.modules.os.users.toyvo
+    inputs.nixcfg.modules.os.users.chloe
+    inputs.nixcfg.modules.nixos.defaults
+    inputs.nixcfg.modules.nixos.filesystems
+    inputs.nixcfg.modules.nixos.services.ollama
+    inputs.nixcfg.modules.nixos.containers.podman
+    inputs.nixcfg.modules.nixos.containers.portainer
+    inputs.nixcfg.modules.nixos.containers.chat
+    inputs.nixcfg.modules.nixos.monitoring.default
+    inputs.nixcfg.modules.nixos.monitoring.grafana
+    inputs.nixcfg.modules.nixos.monitoring.prometheus
+    inputs.nixcfg.modules.nixos.monitoring.loki
     ./samba.nix
     ./nextcloud.nix
     ./homepage.nix
@@ -176,7 +180,6 @@ in
       port = homelab.${hostName}.services.immich.port;
       group = "multimedia";
       package = stablePkgs.immich;
-      database.enableVectors = false;
     };
     jellyfin = {
       enable = true;
@@ -232,6 +235,12 @@ in
     };
     spice-vdagentd.enable = true;
     qbittorrent.enable = true;
+    monitoring = {
+      enable = true;
+      grafana.enable = true;
+      prometheus.enable = true;
+      loki.enable = true;
+    };
   };
   containerPresets = {
     podman.enable = true;
@@ -290,5 +299,13 @@ in
   sops.secrets."discord_bot.env" = {
     owner = "discord_bot";
     group = "discord_bot";
+  };
+  sops.secrets."grafana-admin-password" = {
+    owner = "grafana";
+    group = "grafana";
+  };
+  sops.secrets."grafana-secret-key" = {
+    owner = "grafana";
+    group = "grafana";
   };
 }
