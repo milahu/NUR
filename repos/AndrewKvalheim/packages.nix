@@ -86,6 +86,7 @@ specify {
   nix-preview = any;
   nom-wrappers = any;
   numbat.version = "≥1.23"; # sharkdp/numbat#825
+  numbat-ui = any;
   off = any;
   oxvg = any;
   pdfalyzer = any;

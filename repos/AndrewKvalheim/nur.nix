@@ -78,6 +78,7 @@ rec {
   });
   minemap = callPackage ./library/minemap.pkg.nix { };
   nbt-explorer = callPackage ./library/nbt-explorer.pkg.nix { };
+  numbat-ui = callPackage ./library/numbat-ui.pkg.nix { };
   oxvg = callPackage ./library/oxvg.pkg.nix { };
   pdfalyzer = callPackage ./library/pdfalyzer.pkg.nix { };
   pngquant-interactive = callPackage ./library/pngquant-interactive.pkg.nix { };
