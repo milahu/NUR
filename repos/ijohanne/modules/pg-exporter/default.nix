@@ -73,6 +73,7 @@ in
           description = "User to run the service as. If null, DynamicUser is used.";
         };
         enableLocalScraping = mkEnableOption "scraping by local prometheus";
+        grafanaDashboard = mkEnableOption "Grafana dashboard provisioning for pg_exporter";
       };
     };
     default = { };
@@ -105,6 +106,16 @@ in
         EnvironmentFile = cfg.environmentFile;
       };
     };
+
+    services.grafana.provision.dashboards.settings.providers = mkIf cfg.grafanaDashboard [
+      {
+        name = "pg-exporter";
+        options.path = pkgs.runCommand "pg-exporter-dashboards" { } ''
+          mkdir -p $out
+          cp ${./dashboard.json} $out/postgres.json
+        '';
+      }
+    ];
 
     services.prometheus.scrapeConfigs = mkIf cfg.enableLocalScraping [
       {
