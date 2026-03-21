@@ -33,7 +33,7 @@ in
           };
           protocol direct {
             ipv6;
-            # include zt interfaces and any other local interfaces you want to route
+            # include zt interfaces
             interface "anchor-0"; 
           }
 
@@ -48,6 +48,7 @@ in
 
           filter to_hortus {
             if in_hortus() && (source = RTS_BABEL || source = RTS_DEVICE) then accept;
+            if in_hortus() && (source = RTS_BGP) then accept;
             if proto = "ext" then accept;
             reject;
           };
