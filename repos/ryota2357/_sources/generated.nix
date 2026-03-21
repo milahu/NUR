@@ -16,6 +16,20 @@
       fetchSubmodules = false;
       sha256 = "sha256-16NSGJTBbKEhWymfL2UaBfkRZzJ7yn+XT45lSHAhw88=";
     };
+    cargoLock."Cargo.lock" = {
+      lockFile = ./. + "/sha256-16NSGJTBbKEhWymfL2UaBfkRZzJ7yn+XT45lSHAhw88=/Cargo.lock";
+      outputHashes = {
+        
+      };
+    };
+  };
+  pleckjp-font = {
+    pname = "pleckjp-font";
+    version = "v2.1.2";
+    src = fetchurl {
+      url = "https://github.com/ryota2357/PleckJP/releases/download/v2.1.2/PleckJP_v2.1.2.zip";
+      sha256 = "sha256-h7iW/arXNQZuW+9OpKdAWF9FtjSyi9/DLIuyuE1ckCY=";
+    };
   };
   vm_stat2 = {
     pname = "vm_stat2";

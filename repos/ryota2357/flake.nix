@@ -32,6 +32,7 @@
         {
           default = pkgs.mkShellNoCC {
             packages = with pkgs; [
+              nil
               nvfetcher
             ];
           };

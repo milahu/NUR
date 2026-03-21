@@ -8,9 +8,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   inherit (source) pname src;
   version = builtins.replaceStrings [ "v" ] [ "" ] source.version;
 
-  cargoLock = {
-    lockFile = "${finalAttrs.src}/Cargo.lock";
-  };
+  cargoLock = source.cargoLock."Cargo.lock";
 
   meta = {
     description = "CLI for the MICAL configuration language";
