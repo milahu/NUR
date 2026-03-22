@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "agent-skills-cli": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772171868,
+        "narHash": "sha256-6ssCiawvixcXglGa22CvRZSQv14X+DWbrra6LE4vTcY=",
+        "owner": "Karanjot786",
+        "repo": "agent-skills-cli",
+        "rev": "9504db2a3d62284e209186a7881457633209a890",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Karanjot786",
+        "repo": "agent-skills-cli",
+        "rev": "9504db2a3d62284e209186a7881457633209a890",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -241,6 +258,7 @@
     },
     "root": {
       "inputs": {
+        "agent-skills-cli": "agent-skills-cli",
         "hexokinase": "hexokinase",
         "hue_exporter": "hue_exporter",
         "multicast-relay": "multicast-relay",
