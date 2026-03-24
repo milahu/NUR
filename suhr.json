@@ -1,16 +1,16 @@
 {
 "name":"suhr",
-"fetch_time":0.491,
-"eval_time":0.316,
+"fetch_time":0.524,
+"eval_time":0.317,
 "source":{
 "url":"https://github.com/suhr/nur-packages",
-"rev":"2667d9d96d815cf115b60e4e63da7c7eb6b0e00f",
-"sha256":"0mn2zlg8xjn8rkcdrp5vnr1831bdwqcd4mch4wxpzcka42qwyq89",
+"rev":"1150a2f1d51e5d7f57f62b054eebe788b265f9fe",
+"sha256":"0bsjmx53frinr97rcxdcgakhmbz5vpihxcb154mb6jx0mnqdz58d",
 "date":null
 },
-"source_storepath":"/nix/store/414ihvmwqig02gcdb9kqcikwbbz1ad98-source",
-"nixpkgs_storepath":"/nix/store/8f61099d48m51h0y8jkfdhlsrl2jrr16-source",
-"nur_combined_rev":"65ab5d598f1dc41c0f1a744c032fc23910325aba",
+"source_storepath":"/nix/store/0aw3vkvywj6djylpx56c0yi0y6w9bbkj-source",
+"nixpkgs_storepath":"/nix/store/8zhwjag50xsflz2i30i9bm9grrn21w3x-source",
+"nur_combined_rev":"7fbfafb29e3a6fabd0c5e823ad2113093abbd261",
 "packages":{
 "augr":{
 "meta":{
@@ -75,7 +75,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/414ihvmwqig02gcdb9kqcikwbbz1ad98-source/pkgs/augr/default.nix",
+"file":"/nix/store/0aw3vkvywj6djylpx56c0yi0y6w9bbkj-source/pkgs/augr/default.nix",
 "line":22
 },
 "name":"augr-0.2.1",
@@ -195,7 +195,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/414ihvmwqig02gcdb9kqcikwbbz1ad98-source/pkgs/gtoolkit/default.nix",
+"file":"/nix/store/0aw3vkvywj6djylpx56c0yi0y6w9bbkj-source/pkgs/gtoolkit/default.nix",
 "line":146
 },
 "name":"glamoroustoolkit-1.1.54",
@@ -286,10 +286,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8f61099d48m51h0y8jkfdhlsrl2jrr16-source/pkgs/by-name/io/iosevka/package.nix",
+"file":"/nix/store/8zhwjag50xsflz2i30i9bm9grrn21w3x-source/pkgs/by-name/io/iosevka/package.nix",
 "line":151
 },
-"name":"Iosevka-34.1.0",
+"name":"Iosevka-34.2.1",
 "nonTeamMaintainers":[
 {
 "email":"suhr@i2pmail.org",
@@ -377,7 +377,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/io/iosevka/package.nix:143",
 "unfree":false,
@@ -433,7 +435,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/414ihvmwqig02gcdb9kqcikwbbz1ad98-source/pkgs/minimal-sddm-theme/default.nix",
+"file":"/nix/store/0aw3vkvywj6djylpx56c0yi0y6w9bbkj-source/pkgs/minimal-sddm-theme/default.nix",
 "line":31
 },
 "name":"minimal-sddm-theme-0.1.0",
@@ -541,7 +543,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/414ihvmwqig02gcdb9kqcikwbbz1ad98-source/pkgs/octasine/default.nix",
+"file":"/nix/store/0aw3vkvywj6djylpx56c0yi0y6w9bbkj-source/pkgs/octasine/default.nix",
 "line":46
 },
 "name":"octasine-0.9.1",
@@ -640,7 +642,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/414ihvmwqig02gcdb9kqcikwbbz1ad98-source/pkgs/pianoteq-stage/default.nix",
+"file":"/nix/store/0aw3vkvywj6djylpx56c0yi0y6w9bbkj-source/pkgs/pianoteq-stage/default.nix",
 "line":45
 },
 "name":"pianoteq-stage-7.5.4",
@@ -734,7 +736,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/414ihvmwqig02gcdb9kqcikwbbz1ad98-source/pkgs/quake3-data/default.nix",
+"file":"/nix/store/0aw3vkvywj6djylpx56c0yi0y6w9bbkj-source/pkgs/quake3-data/default.nix",
 "line":24
 },
 "name":"quake3-data-1.11-6",
@@ -818,7 +820,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/quake3-data/default.nix:21",
 "unfree":true,
@@ -885,7 +889,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/414ihvmwqig02gcdb9kqcikwbbz1ad98-source/pkgs/ripplerx/default.nix",
+"file":"/nix/store/0aw3vkvywj6djylpx56c0yi0y6w9bbkj-source/pkgs/ripplerx/default.nix",
 "line":63
 },
 "name":"ripplerx-1.5.18",
@@ -989,7 +993,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/414ihvmwqig02gcdb9kqcikwbbz1ad98-source/pkgs/shortcircuit-xt/default.nix",
+"file":"/nix/store/0aw3vkvywj6djylpx56c0yi0y6w9bbkj-source/pkgs/shortcircuit-xt/default.nix",
 "line":110
 },
 "name":"shortcircuit-xt-2026-01-01",
@@ -1077,7 +1081,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/414ihvmwqig02gcdb9kqcikwbbz1ad98-source/pkgs/soapysdrplay/default.nix",
+"file":"/nix/store/0aw3vkvywj6djylpx56c0yi0y6w9bbkj-source/pkgs/soapysdrplay/default.nix",
 "line":42
 },
 "name":"soapysdr-sdrplay3-0.5.2",
@@ -1196,7 +1200,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/414ihvmwqig02gcdb9kqcikwbbz1ad98-source/pkgs/surge-xt/default.nix",
+"file":"/nix/store/0aw3vkvywj6djylpx56c0yi0y6w9bbkj-source/pkgs/surge-xt/default.nix",
 "line":101
 },
 "name":"surge-XT-1.3.4",
