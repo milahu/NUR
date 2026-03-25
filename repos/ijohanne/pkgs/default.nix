@@ -14,4 +14,5 @@
   multicast-relay = pkgs.callPackage ./multicast-relay { inherit pkgs sources; };
   pg-exporter = pkgs.callPackage ./pg-exporter { inherit pkgs sources; };
   agent-skills-cli = pkgs.callPackage ./agent-skills-cli { inherit pkgs sources; };
+  zot = pkgs.callPackage ./zot { inherit pkgs sources; };
 }

@@ -26,6 +26,9 @@
     # CLI tools
     agent-skills-cli = { url = "github:Karanjot786/agent-skills-cli/9504db2a3d62284e209186a7881457633209a890"; flake = false; };
 
+    # Container registry
+    zot = { url = "github:project-zot/zot/v2.1.15"; flake = false; };
+
     # Other packages
     multicast-relay = { url = "github:alsmith/multicast-relay/2c0e4c743127066388de2c5fd6a7eed676d9b523"; flake = false; };
     nixpkgs-firefox-addons = { url = "github:ijohanne/nixpkgs-firefox-addons/215fb67222ad97261efd7a8bef65a2154586b335"; flake = false; };
@@ -77,6 +80,7 @@
         prometheus-nftables-exporter = import ./modules/prometheus-nftables-exporter self;
         prometheus-tplink-p110-exporter = inputs.prometheus-tplink-p110-exporter.nixosModules.default;
         pg-exporter = import ./modules/pg-exporter self;
+        zot = import ./modules/zot self;
       };
     };
 }

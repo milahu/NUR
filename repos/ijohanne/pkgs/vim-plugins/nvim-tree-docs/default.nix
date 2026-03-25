@@ -1,5 +1,5 @@
 { pkgs, sources }:
-pkgs.vimUtils.buildVimPluginFrom2Nix {
+pkgs.vimUtils.buildVimPlugin {
   name = "nvim-tree-docs-master";
   version = "master";
   pname = "nvim-tree-docs";
