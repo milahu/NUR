@@ -1,16 +1,16 @@
 {
 "name":"zeratax",
-"fetch_time":0.451,
-"eval_time":0.28,
+"fetch_time":1.052,
+"eval_time":0.347,
 "source":{
 "url":"https://github.com/ZerataX/nur-packages",
-"rev":"1f5d577511a1bdbe67c7eb1b4ce2376e61f7a0ef",
-"sha256":"1rlpyldms02fy53rwbaki81478xnqjwiv5jdhr6hm8smmijjnbwr",
+"rev":"dec9b1a2c7f7028dd57c934aee09cd1d31d88ef5",
+"sha256":"1b0nkcrdxd1ps0xssxag24y225zdh58zysi9f1rjd535jipra40p",
 "date":null
 },
-"source_storepath":"/nix/store/h7r22k1qqgn9rd1im9vxdaws2w3fip1v-source",
-"nixpkgs_storepath":"/nix/store/j5bby71mk3m5ygkvg96xmm5jhscjxizm-source",
-"nur_combined_rev":"750d72bdd133c68a2a7cda55fcc94e5ff23ff6f6",
+"source_storepath":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source",
+"nixpkgs_storepath":"/nix/store/q80rgzlzszpxilcdjbz8m7vg0fgn3x33-source",
+"nur_combined_rev":"1f4b201c0080910bea87041a3f03bfa4074b0a66",
 "packages":{
 "bukkitPlugins.bluemap":{
 "meta":{
@@ -60,10 +60,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h7r22k1qqgn9rd1im9vxdaws2w3fip1v-source/pkgs/bukkit-plugins/bluemap/default.nix",
+"file":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source/pkgs/bukkit-plugins/bluemap/default.nix",
 "line":30
 },
 "name":"bluemap-5.13",
+"nonTeamMaintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -128,10 +141,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h7r22k1qqgn9rd1im9vxdaws2w3fip1v-source/pkgs/bukkit-plugins/bluemap-marker-manager/default.nix",
+"file":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source/pkgs/bukkit-plugins/bluemap-marker-manager/default.nix",
 "line":30
 },
 "name":"bluemap-marker-manger-2.1.12",
+"nonTeamMaintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -196,10 +222,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h7r22k1qqgn9rd1im9vxdaws2w3fip1v-source/pkgs/bukkit-plugins/bluemap-offline-player-markers/default.nix",
+"file":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source/pkgs/bukkit-plugins/bluemap-offline-player-markers/default.nix",
 "line":29
 },
 "name":"bluemap-offline-player-markers-3.0",
+"nonTeamMaintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -264,25 +303,38 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h7r22k1qqgn9rd1im9vxdaws2w3fip1v-source/pkgs/bukkit-plugins/custom-discs/default.nix",
-"line":29
+"file":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source/pkgs/bukkit-plugins/custom-discs/default.nix",
+"line":28
 },
-"name":"custom-discs-5.1.2",
+"name":"custom-discs-5.2.0",
+"nonTeamMaintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/bukkit-plugins/custom-discs/default.nix:28",
+"position":"./pkgs/bukkit-plugins/custom-discs/default.nix:27",
 "unfree":false,
 "unsupported":false
 },
-"name":"custom-discs-5.1.2",
+"name":"custom-discs-5.2.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"custom-discs",
 "system":"x86_64-linux",
-"version":"5.1.2"
+"version":"5.2.0"
 },
 "bukkitPlugins.discordsrv":{
 "meta":{
@@ -328,6 +380,7 @@
 },
 "maintainers":[],
 "name":"discordsrv-1.24.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -401,10 +454,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h7r22k1qqgn9rd1im9vxdaws2w3fip1v-source/pkgs/bukkit-plugins/dynmap/default.nix",
+"file":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source/pkgs/bukkit-plugins/dynmap/default.nix",
 "line":48
 },
 "name":"dynmap-3.2.1",
+"nonTeamMaintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -478,10 +544,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h7r22k1qqgn9rd1im9vxdaws2w3fip1v-source/pkgs/bukkit-plugins/harbor/default.nix",
+"file":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source/pkgs/bukkit-plugins/harbor/default.nix",
 "line":27
 },
 "name":"harbor-1.6.4-b1",
+"nonTeamMaintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -508,6 +587,87 @@
 "pname":"harbor",
 "system":"x86_64-linux",
 "version":"1.6.4-b1"
+},
+"bukkitPlugins.packet-events":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"A cross-platform Bukkit and Velocity packet library.",
+"homepage":"https://github.com/retrooper/packetevents",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"packet-events",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"packet-events",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[]
+}
+},
+"insecure":false,
+"maintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source/pkgs/bukkit-plugins/packet-events/default.nix",
+"line":28
+},
+"name":"packet-events-2.11.2",
+"nonTeamMaintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
+"outputsToInstall":[
+"out"
+],
+"position":"./pkgs/bukkit-plugins/packet-events/default.nix:27",
+"unfree":false,
+"unsupported":false
+},
+"name":"packet-events-2.11.2",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"packet-events",
+"system":"x86_64-linux",
+"version":"2.11.2"
 },
 "bukkitPlugins.paper-tweaks":{
 "meta":{
@@ -557,10 +717,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h7r22k1qqgn9rd1im9vxdaws2w3fip1v-source/pkgs/bukkit-plugins/paper-tweaks/default.nix",
+"file":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source/pkgs/bukkit-plugins/paper-tweaks/default.nix",
 "line":29
 },
 "name":"PaperTweaks-0.5.0",
+"nonTeamMaintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -625,10 +798,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h7r22k1qqgn9rd1im9vxdaws2w3fip1v-source/pkgs/bukkit-plugins/protocol-lib/default.nix",
+"file":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source/pkgs/bukkit-plugins/protocol-lib/default.nix",
 "line":29
 },
 "name":"protocol-lib-5.4.0",
+"nonTeamMaintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -693,10 +879,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h7r22k1qqgn9rd1im9vxdaws2w3fip1v-source/pkgs/bukkit-plugins/simple-voice-chat/default.nix",
+"file":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source/pkgs/bukkit-plugins/simple-voice-chat/default.nix",
 "line":29
 },
 "name":"SimpleVoiceChat-2.6.6",
+"nonTeamMaintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -717,15 +916,15 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Spigot plugin for Vivecraft, the VR mod for Java Minecraft.",
-"homepage":"https://www.vivecraft.org",
+"description":"Official Vivecraft server-side Spigot extension for VR support.",
+"homepage":"https://github.com/Vivecraft/Vivecraft-Spigot-Extension",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
 "language":"*",
 "other":"*",
 "part":"a",
-"product":"VivecraftSpigot",
+"product":"vivecraft",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -737,7 +936,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
-"product":"VivecraftSpigot",
+"product":"vivecraft",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -761,25 +960,38 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h7r22k1qqgn9rd1im9vxdaws2w3fip1v-source/pkgs/bukkit-plugins/vivecraft/default.nix",
-"line":29
+"file":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source/pkgs/bukkit-plugins/vivecraft/default.nix",
+"line":28
 },
-"name":"VivecraftSpigot-3.2.0",
+"name":"vivecraft-1.3.6-1",
+"nonTeamMaintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/bukkit-plugins/vivecraft/default.nix:28",
+"position":"./pkgs/bukkit-plugins/vivecraft/default.nix:27",
 "unfree":false,
 "unsupported":false
 },
-"name":"VivecraftSpigot-3.2.0",
+"name":"vivecraft-1.3.6-1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"VivecraftSpigot",
+"pname":"vivecraft",
 "system":"x86_64-linux",
-"version":"3.2.0"
+"version":"1.3.6-1"
 },
 "bukkitPlugins.voicechat-interactions-paper":{
 "meta":{
@@ -829,10 +1041,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h7r22k1qqgn9rd1im9vxdaws2w3fip1v-source/pkgs/bukkit-plugins/voicechat-interaction-paper/default.nix",
+"file":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source/pkgs/bukkit-plugins/voicechat-interaction-paper/default.nix",
 "line":29
 },
 "name":"voicechat-interaction-paper-1.3.1",
+"nonTeamMaintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -906,10 +1131,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h7r22k1qqgn9rd1im9vxdaws2w3fip1v-source/pkgs/dmnd-bot/default.nix",
+"file":"/nix/store/xmapwi593g4986r0qcjgrs389g9vz5kg-source/pkgs/dmnd-bot/default.nix",
 "line":39
 },
 "name":"dmnd-bot-0.2.3",
+"nonTeamMaintainers":[
+{
+"email":"mail@zera.tax",
+"github":"zeratax",
+"githubId":5024958,
+"keys":[
+{
+"fingerprint":"44F7 B797 9D3A 27B1 89E0  841E 8333 735E 784D F9D4"
+}
+],
+"name":"Jona Abdinghoff"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -963,6 +1201,7 @@
 "insecure":false,
 "maintainers":[],
 "name":"vimplugin-vim-crystal",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1042,9 +1281,11 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
-"position":"<nixpkgs> + /pkgs/applications/editors/vim/plugins/utils/vim-utils.nix:490",
+"position":"<nixpkgs> + /pkgs/applications/editors/vim/plugins/utils/vim-utils.nix:516",
 "unfree":false,
 "unsupported":false
 },
