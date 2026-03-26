@@ -72,9 +72,7 @@ rec {
   little-a-map = callPackage ./library/little-a-map.pkg.nix { };
   mark-applier = callPackage ./library/mark-applier.pkg.nix { };
   meshtastic-url = (callPackage ./library/meshtastic-url.pkg.nix { }).overrideAttrs (m: recursiveUpdate m {
-    # Pending NixOS/nixpkgs#493409
-    meta.broken = versionAtLeast pkgs.python3Packages.numpy.version "2.4"
-      && versionAtLeast "6.5.2" pkgs.python3Packages.plotly.version;
+    meta.broken = with pkgs.python3Packages; (versionAtLeast "2.7.8" meshtastic.version) && (versionAtLeast tabulate.version "0.10");
   });
   minemap = callPackage ./library/minemap.pkg.nix { };
   nbt-explorer = callPackage ./library/nbt-explorer.pkg.nix { };

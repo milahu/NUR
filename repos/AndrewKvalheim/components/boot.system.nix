@@ -6,8 +6,6 @@ let
   palette = import ../library/palette.lib.nix { inherit lib pkgs; };
 in
 {
-  allowedUnfree = [ "memtest86-efi" ];
-
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
