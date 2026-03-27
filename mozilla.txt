@@ -4,90 +4,90 @@ error:
 
 … in the left operand of the AND (&&) operator
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:731:9:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:645:9:
 
-   730|         validity.valid != "no"
-   731|         && (
+   644|         validity.valid != "no"
+   645|         && ((config.checkMetaRecursively or false) -> all (d: d.meta.available or true) references);
       |         ^
-   732|           if config.checkMetaRecursively or false then all (d: d.meta.available or true) references else true
+   646|     };
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:836:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:833:18:
 
-   835|       };
-   836|       validity = checkMeta.assertValidity { inherit meta attrs; };
+   832|       };
+   833|       validity = checkMeta.assertValidity { inherit meta attrs; };
       |                  ^
-   837|
+   834|
 
 … while calling 'assertValidity'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:737:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:686:5:
 
-   736|   assertValidity =
-   737|     { meta, attrs }:
+   685|   assertValidity =
+   686|     { meta, attrs }:
       |     ^
-   738|     let
+   687|     let
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:739:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:688:17:
 
-   738|     let
-   739|       validity = checkValidity attrs;
-      |                  ^
-   740|       inherit (validity) valid;
+   687|     let
+   688|       invalid = checkValidity attrs;
+      |                 ^
+   689|       problems = checkProblems attrs;
 
-… while calling anonymous lambda
+… while calling 'checkValidity'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:497:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:417:5:
 
-   496|     in
-   497|     attrs:
+   416|   checkValidity =
+   417|     attrs:
       |     ^
-   498|     # Check meta attribute types first, to make sure it is always called even when there are other issues
+   418|     # Check meta attribute types first, to make sure it is always called even when there are other issues
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:543:40:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:462:13:
 
-   542|       }
-   543|     else if !allowUnsupportedSystem && hasUnsupportedPlatform attrs then
-      |                                        ^
-   544|       let
+   461|       }
+   462|     else if hasUnsupportedPlatform attrs && !allowUnsupportedSystem then
+      |             ^
+   463|       let
 
 … while calling 'hasUnsupportedPlatform'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:143:28:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:136:28:
 
-   142|
-   143|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+   135|
+   136|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
       |                            ^
-   144|
+   137|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:143:35:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:136:35:
 
-   142|
-   143|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
+   135|
+   136|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
       |                                   ^
-   144|
+   137|
 
 … while calling 'availableOn'
 
-  at <nixpkgs> + /lib/meta.nix:303:15:
+  at <nixpkgs> + /lib/meta.nix:369:15:
 
-   302|   availableOn =
-   303|     platform: pkg:
+   368|   availableOn =
+   369|     platform: pkg:
       |               ^
-   304|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
+   370|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
 
 error: attribute 'targetPlatforms' missing
 
-at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:168:76:
+at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:181:76:
 
-   167|         # default to Rust's platforms
-   168|         platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
+   180|         # default to Rust's platforms
+   181|         platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
       |                                                                            ^
-   169|       };
+   182|       };

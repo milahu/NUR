@@ -1,0 +1,62 @@
+error:
+… from call site
+
+  at ./default.nix:72:18:
+
+    71|
+    72|   keepOnlyVST3 = p ./pkgs/audio/keepOnlyVST3.nix { };
+      |                  ^
+    73|
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:275:19:
+
+   274|   callPackageWith =
+   275|     autoArgs: fn: args:
+      |                   ^
+   276|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1081:5:
+
+  1080|     # TODO: Should we add call-time "type" checking like built in?
+  1081|     __functor = self: f;
+      |     ^
+  1082|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:177:7:
+
+   176|     decorate (
+   177|       origArgs:
+      |       ^
+   178|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:179:18:
+
+   178|       let
+   179|         result = f origArgs;
+      |                  ^
+   180|
+
+… while calling anonymous lambda
+
+  at ./pkgs/audio/keepOnlyVST3.nix:1:1:
+
+     1| drv:
+      | ^
+     2| drv.overrideAttrs (oldAttrs: {
+
+error: attribute 'overrideAttrs' missing
+
+at ./pkgs/audio/keepOnlyVST3.nix:2:1:
+
+     1| drv:
+     2| drv.overrideAttrs (oldAttrs: {
+      | ^
+     3|   postInstall = (oldAttrs.postInstall or "") + ''
