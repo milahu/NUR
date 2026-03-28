@@ -1,0 +1,56 @@
+error:
+… from call site
+
+  at ./nur.nix:34:11:
+
+    33|   # Main packages
+    34|   zlint = pkgs.callPackage ./pkgs/zlint { };
+      |           ^
+    35|   zlint-unstable = pkgs.callPackage ./pkgs/zlint/unstable.nix { };
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:275:19:
+
+   274|   callPackageWith =
+   275|     autoArgs: fn: args:
+      |                   ^
+   276|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:289:11:
+
+   288|         (
+   289|           filterAttrs (name: value: !value)
+      |           ^
+   290|             # Filter out arguments that would be passed
+
+… while calling 'filterAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:662:23:
+
+   661|   */
+   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                       ^
+   663|
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:278:15:
+
+   277|       f = if isFunction fn then fn else import fn;
+   278|       fargs = functionArgs f;
+      |               ^
+   279|
+
+… while calling 'functionArgs'
+
+  at <nixpkgs> + /lib/trivial.nix:1104:5:
+
+  1103|   functionArgs =
+  1104|     f:
+      |     ^
+  1105|     if f ? __functor then
+
+error: getting status of './pkgs/zlint': No such file or directory
