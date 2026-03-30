@@ -158,6 +158,8 @@ in
       user.name = identity.name.long;
       user.email = identity.email;
 
+      signing.backend = "gpg";
+
       merge-tools = {
         delta = {
           program = getExe delta.finalPackage;

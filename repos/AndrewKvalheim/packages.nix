@@ -72,7 +72,10 @@ specify {
   just-local = any;
   kitty.patch = ./library/assets/kitty_paperwm.patch; # Workaround for paperwm/PaperWM#943
   little-a-map = any;
-  llmfit.version = ">0.7.2"; # AlexsJones/llmfit#230
+  llmfit = {
+    version = "≥0.8.5"; # AlexsJones/llmfit#230
+    search = specify { llmfit = { version = "∞"; overlay = l: rec { version = "0.8.5"; src = l.src.override { tag = "v${version}"; hash = "sha256-PKPG/7aRfzg3JyCA+09S6jZGtcyXoOdbBCpKPrtDQE0="; }; cargoDeps = stable.rustPlatform.importCargoLock { lockFile = src + "/Cargo.lock"; }; /* Workaround for NixOS/nixpkgs#415397 */ }; }; };
+  };
   losslesscut-bin.args = [ "--disable-networking" ];
   mark-applier = any;
   may-upgrade = any;
@@ -85,6 +88,7 @@ specify {
   numbat.version = "≥1.23"; # sharkdp/numbat#825
   numbat-ui = any;
   off = any;
+  office-hours = any;
   oxvg = any;
   pdfalyzer = any;
   picard.overlay = p: { preFixup = p.preFixup + "\nmakeWrapperArgs+=(--prefix PATH : ${makeBinPath [ resolved.rsgain ]})"; }; # NixOS/nixpkgs#255222
