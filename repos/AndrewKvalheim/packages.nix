@@ -129,7 +129,6 @@ specify {
     sissel.shopify-liquid.search = open-vsx;
     syler.sass-indented.search = open-vsx;
     sysoev.language-stylus.search = open-vsx;
-    theaflowers.qalc.search = open-vsx;
     volkerdobler.insertnums.search = open-vsx;
     webfreak.advanced-local-formatters.search = open-vsx;
     ybaumes.highlight-trailing-white-spaces.search = open-vsx;

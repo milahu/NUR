@@ -166,7 +166,6 @@ in
       pup
       pwgen
       pwvucontrol
-      qalculate-gtk
       rsync
       s-tui
       snitch

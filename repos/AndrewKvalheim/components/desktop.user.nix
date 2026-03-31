@@ -132,7 +132,6 @@ in
           { wm_class = "emote"; scratch_layer = true; }
           { wm_class = "firefox"; title = "Picture-in-Picture"; scratch_layer = true; }
           { wm_class = "@joplin/app-desktop"; preferredWidth = "${toString term}px"; }
-          { wm_class = "qalculate-gtk"; preferredWidth = "480px"; }
           { wm_class = "stretch-break"; scratch_layer = true; }
           { wm_class = "io.github.pieterdd.StretchBreak"; scratch_layer = true; }
           { wm_class = "Tor Browser"; scratch_layer = true; }
@@ -239,7 +238,6 @@ in
       toggle-quick-settings = [ ];
     };
     xdg.configFile."run-or-raise/shortcuts.conf".text = ''
-      XF86NotificationCenter,qalculate-gtk,qalculate-gtk,
       <Super>c,codium,VSCodium,
       <Super>f,firefox,firefox,
       <Super>j,joplin-desktop,@joplin/app-desktop,

@@ -95,7 +95,6 @@ in
         syler.sass-indented
         sysoev.language-stylus
         tamasfe.even-better-toml
-        theaflowers.qalc
         timonwong.shellcheck
         unifiedjs.vscode-mdx
         volkerdobler.insertnums
@@ -129,7 +128,6 @@ in
         "php.validate.executablePath" = getExe pkgs.php;
         "prettier.prettierPath" = "${pkgs.nodePackages.prettier}/lib/node_modules/prettier/index.cjs"; # Pending prettier/prettier-vscode#3100
         "python.formatting.blackPath" = getExe pkgs.black;
-        "qalc.path" = getExe pkgs.libqalculate;
         "rubyLsp.customRubyCommand" = "PATH=${makeBinPath (with pkgs; [ nodejs ruby ruby-lsp ])}:$PATH";
         "ruff.path" = [ (getExe pkgs.ruff) ];
         "ruff.nativeServer" = true;
