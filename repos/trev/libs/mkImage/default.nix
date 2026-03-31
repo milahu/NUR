@@ -2,9 +2,12 @@
   system ? builtins.currentSystem,
   pkgs ? import <nixpkgs> { inherit system; },
 }:
-package:
+pkg:
 { ... }@args:
-
+let
+  package =
+    if pkgs.stdenv.hostPlatform.isStatic then pkg.${pkgs.stdenv.hostPlatform.system} or pkg else pkg;
+in
 (pkgs.dockerTools.buildLayeredImage (
   args
   // {

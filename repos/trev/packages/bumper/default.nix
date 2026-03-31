@@ -1,68 +1,38 @@
 {
+  autoPatchelfHook,
   fetchFromGitHub,
-  gnused,
-  jq,
   lib,
-  makeWrapper,
-  ncurses,
+  libgcc,
   nix-update-script,
-  nix-update,
-  runtimeShell,
-  shellcheck,
+  openssl,
+  pkg-config,
+  rustPlatform,
   stdenv,
+  buildRustPackage ? rustPlatform.buildRustPackage,
 }:
 
-stdenv.mkDerivation (finalAttrs: {
+buildRustPackage (finalAttrs: {
   pname = "bumper";
-  version = "0.11.2";
+  version = "0.14.1";
 
   src = fetchFromGitHub {
     owner = "spotdemo4";
     repo = "bumper";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-v06QrTl7SOzmu2wm9okGQvyTtX1/gdhrxaj/vLzXSOk=";
+    hash = "sha256-9TBFSXeJp0uxNmqLrhWaaMCHSmsPJtebDTbfm9GD7HA=";
   };
 
+  cargoHash = "sha256-c+q+Jis7baed+lZfDv4uTaiY0EikmQbtEdk5Ytjov74=";
+
   nativeBuildInputs = [
-    makeWrapper
-    shellcheck
+    pkg-config
+  ]
+  ++ lib.optional (!stdenv.hostPlatform.isStatic && stdenv.hostPlatform.isLinux) autoPatchelfHook;
+
+  buildInputs = [
+    libgcc
+    openssl
   ];
-
-  runtimeInputs = [
-    ncurses
-    gnused
-    jq
-
-    # nix
-    nix-update
-  ];
-
-  unpackPhase = ''
-    cp -a "$src/." .
-  '';
-
-  dontBuild = true;
-
-  configurePhase = ''
-    chmod +w src
-    sed -i '1c\#!${runtimeShell}' src/bumper.sh
-    sed -i '2c\export PATH="${lib.makeBinPath finalAttrs.runtimeInputs}:$PATH"' src/bumper.sh
-  '';
-
-  doCheck = true;
-  checkPhase = ''
-    shellcheck **/*.sh
-  '';
-
-  installPhase = ''
-    mkdir -p $out/lib/bumper
-    cp -R src/*.sh $out/lib/bumper
-
-    mkdir -p $out/bin
-    makeWrapper "$out/lib/bumper/bumper.sh" "$out/bin/bumper"
-  '';
-
-  dontFixup = true;
 
   passthru.updateScript = nix-update-script {
     extraArgs = [
@@ -74,9 +44,10 @@ stdenv.mkDerivation (finalAttrs: {
   meta = {
     description = "Git semantic version bumper";
     mainProgram = "bumper";
-    homepage = "https://github.com/spotdemo4/bumper";
-    changelog = "https://github.com/spotdemo4/bumper/releases/tag/v${finalAttrs.version}";
     license = lib.licenses.mit;
     platforms = lib.platforms.all;
+    homepage = "https://github.com/spotdemo4/bumper";
+    changelog = "https://github.com/spotdemo4/bumper/releases/tag/v${finalAttrs.version}";
+    downloadPage = "https://github.com/spotdemo4/bumper/releases/tag/v${finalAttrs.version}";
   };
 })
