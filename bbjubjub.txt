@@ -1,0 +1,20 @@
+error:
+… from call site
+
+  at ./default.nix:18:12:
+
+    17|   # Libraries
+    18|   girara = pkgs.callPackage ./pkgs/girara { gtk = pkgs.gtk3; };
+      |            ^
+    19|   libutf = pkgs.callPackage ./pkgs/libutf { };
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:275:19:
+
+   274|   callPackageWith =
+   275|     autoArgs: fn: args:
+      |                   ^
+   276|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "pkgconfig" at ./pkgs/girara/default.nix:1, did you mean "pkg-config" or "pkgconf"?'
