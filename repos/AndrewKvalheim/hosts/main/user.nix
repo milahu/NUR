@@ -67,7 +67,7 @@ in
     minemap
     nbt-explorer
     picard
-    prismlauncher
+    (prismlauncher.override { jdks = [ jdk25 ]; })
     prusa-slicer
     qgis
     rapid-photo-downloader

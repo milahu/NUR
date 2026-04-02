@@ -256,6 +256,7 @@ in
     };
     home.file.".npmrc".text = toKeyValue { } {
       fund = false;
+      ignore-scripts = true;
       sign-git-tag = true;
       update-notifier = false;
     };

@@ -17,14 +17,14 @@ let
 in
 stdenv.mkDerivation (chunker: {
   pname = "chunker";
-  version = "1.15.0";
+  version = "1.16.0";
 
   src = fetchFromGitHub {
     owner = "HiveGamesOSS";
     repo = "Chunker";
     rev = "refs/tags/${chunker.version}";
     leaveDotGit = true;
-    hash = "sha256-8fOBYN/o7Ew+pS6eHp7fpvWQbIyl2rkAl/g6TYsk3qI=";
+    hash = "sha256-cEOw56f8wKnaXkjY21tJnTboIyNn1I6K3PuyjDN4SWo=";
   };
 
   mitmCache =
