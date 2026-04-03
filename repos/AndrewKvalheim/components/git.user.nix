@@ -285,5 +285,7 @@ in
     custom_commands = {
       tug = { args = [ "tug" ]; key = [ "alt+t" ]; };
     };
+
+    revisions.revset = "::(present(@) | ancestors(immutable_heads().., 2) | trunk())";
   };
 }
