@@ -25,6 +25,7 @@ in
     inputs.nixcfg.modules.nixos.services.ollama
     inputs.nixcfg.modules.nixos.containers.podman
     inputs.nixcfg.modules.nixos.containers.portainer
+    inputs.nixcfg.modules.nixos.containers.starr
     inputs.nixcfg.modules.nixos.containers.chat
     inputs.nixcfg.modules.nixos.monitoring.default
     inputs.nixcfg.modules.nixos.monitoring.grafana
@@ -34,8 +35,6 @@ in
     ./samba.nix
     ./nextcloud.nix
     ./homepage.nix
-    ./qbittorrent.nix
-    ./wireguard.nix
     inputs.arion.nixosModules.arion
     inputs.catppuccin.nixosModules.catppuccin
     inputs.dioxus_monorepo.nixosModules.discord_bot
@@ -109,12 +108,6 @@ in
   fileSystemPresets.boot.enable = true;
   fileSystemPresets.btrfs.enable = true;
   services = {
-    bazarr = {
-      enable = true;
-      openFirewall = true;
-      group = "multimedia";
-      listenPort = homelab.${hostName}.services.bazarr.port;
-    };
     cockpit = {
       enable = true;
       openFirewall = true;
@@ -139,11 +132,6 @@ in
         PORT = homelab.${hostName}.services.discord_bot.port;
         BASE_URL = "https://toyvo.dev";
       };
-    };
-    flaresolverr = {
-      enable = true;
-      openFirewall = true;
-      port = homelab.${hostName}.services.flaresolverr.port;
     };
     home-assistant = {
       enable = true;
@@ -194,12 +182,6 @@ in
       openFirewall = true;
       group = "multimedia";
     };
-    lidarr = {
-      enable = true;
-      openFirewall = true;
-      group = "multimedia";
-      settings.server.port = homelab.${hostName}.services.lidarr.port;
-    };
     nextcloud.enable = true;
     nix-serve = {
       enable = true;
@@ -228,32 +210,8 @@ in
         host  discord_bot  discord_bot  10.1.0.0/16  scram-sha-256
       '';
     };
-    prowlarr = {
-      enable = true;
-      openFirewall = true;
-      settings.server.port = homelab.${hostName}.services.prowlarr.port;
-    };
-    radarr = {
-      enable = true;
-      openFirewall = true;
-      group = "multimedia";
-      settings.server.port = homelab.${hostName}.services.radarr.port;
-    };
-    readarr = {
-      enable = true;
-      openFirewall = true;
-      group = "multimedia";
-      settings.server.port = homelab.${hostName}.services.readarr.port;
-    };
     samba.enable = true;
-    sonarr = {
-      enable = true;
-      openFirewall = true;
-      group = "multimedia";
-      settings.server.port = homelab.${hostName}.services.sonarr.port;
-    };
     spice-vdagentd.enable = true;
-    qbittorrent.enable = true;
     monitoring = {
       enable = true;
       grafana.enable = true;
@@ -274,6 +232,29 @@ in
       enable = true;
       openFirewall = true;
       sport = homelab.${hostName}.services.portainer.port;
+    };
+    starr = {
+      enable = true;
+      natInterface = "eno1";
+      hostAddress = "10.200.0.1";
+      localAddress = "10.200.0.2";
+      stateDir = "/mnt/POOL/starr";
+      # this dir is also exposed via samba
+      mediaDir = "/mnt/POOL/Public";
+      protonvpn = {
+        privateKeyFile = config.sops.secrets."protonvpn-US-IL-503.key".path;
+        publicKey = "Ad0UnBi3NeIgVpM1baC8HAp6wfSli0wGS1OCmS7uYRo=";
+        endpoint = "79.127.187.156:51820";
+      };
+      qbittorrent.serverConfig = {
+        Preferences = {
+          WebUI = {
+            Username = "toyvo";
+            Password_PBKDF2 = "@ByteArray(w/tVwkQ82PheDXAAMg5D7A==:exy5JA4JdCm7pZ6n0cci16mEmZYxSaFe642TmZBvq9MIzps3tnZY7vbUIj3esJNClzy/YrRI4Dkexg1luhSveg==)";
+          };
+          General.Locale = "en";
+        };
+      };
     };
   };
   fileSystems."/mnt/POOL" = {
@@ -328,4 +309,8 @@ in
     owner = "grafana";
     group = "grafana";
   };
+  # The ProtonVPN private key is decrypted here on the host by sops-nix so that
+  # it can be bind-mounted read-only into the starr container, where the WireGuard
+  # interface and network namespace are actually configured.
+  sops.secrets."protonvpn-US-IL-503.key" = { };
 }
