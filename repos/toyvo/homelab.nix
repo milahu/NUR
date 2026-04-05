@@ -12,7 +12,7 @@
       port = 3000;
       displayName = "AdGuard Home";
       description = "DNS Adblocker";
-      category = "Networking";
+      category = "Router";
       icon = "sh-adguard-home";
       widget = {
         type = "adguard";
@@ -32,7 +32,7 @@
       selfSigned = true;
       displayName = "Omada";
       description = "Omada Controller UI";
-      category = "Networking";
+      category = "Omada";
       icon = "sh-omada";
       widget = {
         type = "omada";
@@ -52,114 +52,69 @@
         port = 8082;
         subdomain = "@";
         description = "Hosted Services UI";
-        category = "Sites";
+        category = "Nas";
         icon = "sh-homepage";
       };
       ollama = {
         port = 11434;
         # TODO: load balance with the mac mini, though this is much slower due to the gpu in the machine
         subdomain = "slollama";
-        category = "APIs";
+        category = "Nas";
         displayName = "Ollama";
         description = "Ollama API (Slower)";
         icon = "sh-ollama";
-      };
-      open-webui = {
-        port = 11435;
-        subdomain = "chat";
-        category = "AI";
-        displayName = "Open WebUI";
-        description = "Chat with LLMs";
-        icon = "sh-open-webui";
       };
       discord_bot = {
         port = 8080;
         subdomain = "@";
         domain = "toyvo.dev";
         description = "Discord Bot";
-        category = "APIs";
+        category = "Nas";
         displayName = "Discord Bot UI";
-      };
-      # port not configured through nix
-      jellyfin = {
-        port = 8096;
-        displayName = "Jellyfin";
-        description = "Media Server";
-        category = "Media";
-        icon = "sh-jellyfin";
-        widget = {
-          type = "jellyfin";
-          url = "https://jellyfin.diekvoss.net";
-          key = "{{HOMEPAGE_VAR_JELLYFIN_API_KEY}}";
-        };
-      };
-      portainer = {
-        port = 9443;
-        selfSigned = true;
-        displayName = "Portainer";
-        description = "Adhoc Container Management";
-        category = "DevOps";
-        icon = "sh-portainer";
-        widget = {
-          type = "portainer";
-          url = "https://portainer.diekvoss.net";
-          key = "{{HOMEPAGE_VAR_PORTAINER_API_KEY}}";
-          env = "2";
-        };
-      };
-      coder = {
-        port = 7080;
-        displayName = "Coder";
-        description = "Dev Container Environments";
-        category = "DevOps";
-        icon = "sh-coder";
       };
       cockpit = {
         port = 9091;
         selfSigned = true;
         displayName = "Cockpit";
         description = "Server Management";
-        category = "DevOps";
+        category = "Nas";
         icon = "sh-cockpit";
       };
-      grafana = {
-        port = 3000;
-        displayName = "Grafana";
-        description = "Observability Dashboards";
-        category = "DevOps";
-        icon = "sh-grafana";
+      nix-serve = {
+        port = 5000;
+        subdomain = "cache";
+        domain = "toyvo.dev";
+        displayName = "Nix Cache";
+        description = "Binary Cache";
+        category = "Nas";
+        icon = "sh-nixos";
       };
-      immich = {
-        port = 2283;
-        displayName = "Immich";
-        description = "Photo Management";
-        category = "Media";
-        icon = "sh-immich";
-        widget = {
-          type = "immich";
-          url = "https://immich.diekvoss.net";
-          key = "{{HOMEPAGE_VAR_IMMICH_API_KEY}}";
-          version = "2";
-        };
+    };
+  };
+  immich = {
+    ip = "10.200.0.12";
+    services.immich = {
+      port = 2283;
+      displayName = "Immich";
+      description = "Photo Management";
+      category = "Media";
+      icon = "sh-immich";
+      widget = {
+        type = "immich";
+        url = "https://immich.diekvoss.net";
+        key = "{{HOMEPAGE_VAR_IMMICH_API_KEY}}";
+        version = "2";
       };
-      home-assistant = {
-        port = 8123;
-        displayName = "Home Assistant";
-        description = "Home Automation";
-        category = "DevOps";
-        icon = "sh-home-assistant";
-        widget = {
-          type = "homeassistant";
-          url = "https://home-assistant.diekvoss.net";
-          key = "{{HOMEPAGE_VAR_HOMEASSISTANT_API_KEY}}";
-        };
-      };
-      # port not configured through nix
+    };
+  };
+  nextcloud = {
+    ip = "10.200.0.10";
+    services = {
       nextcloud = {
         port = 80;
         displayName = "Nextcloud";
         description = "Cloud Storage";
-        category = "DevOps";
+        category = "Nextcloud";
         icon = "sh-nextcloud";
         widget = {
           type = "nextcloud";
@@ -168,21 +123,65 @@
           password = "{{HOMEPAGE_VAR_NEXTCLOUD_PASSWORD}}";
         };
       };
-      nix-serve = {
-        port = 5000;
-        subdomain = "cache";
-        domain = "toyvo.dev";
-        displayName = "Nix Cache";
-        description = "Binary Cache";
-        category = "Utilities";
-        icon = "sh-nixos";
-      };
       collabora = {
         port = 9980;
         displayName = "Collabora";
         description = "Office Suite for Nextcloud";
-        category = "APIs";
+        category = "Nextcloud";
         icon = "sh-docs-collaboration";
+      };
+    };
+  };
+  home-assistant = {
+    ip = "10.200.0.8";
+    services.home-assistant = {
+      port = 8123;
+      displayName = "Home Assistant";
+      description = "Home Automation";
+      category = "Home Assistant";
+      icon = "sh-home-assistant";
+      widget = {
+        type = "homeassistant";
+        url = "https://home-assistant.diekvoss.net";
+        key = "{{HOMEPAGE_VAR_HOMEASSISTANT_API_KEY}}";
+      };
+    };
+  };
+  jellyfin = {
+    ip = "10.200.0.6";
+    services.jellyfin = {
+      port = 8096;
+      displayName = "Jellyfin";
+      description = "Media Server";
+      category = "Jellyfin";
+      icon = "sh-jellyfin";
+      widget = {
+        type = "jellyfin";
+        url = "https://jellyfin.diekvoss.net";
+        key = "{{HOMEPAGE_VAR_JELLYFIN_API_KEY}}";
+      };
+    };
+  };
+  open-webui = {
+    ip = "10.200.0.14";
+    services.open-webui = {
+      port = 11435;
+      subdomain = "chat";
+      category = "Nas";
+      displayName = "Open WebUI";
+      description = "Chat with LLMs";
+      icon = "sh-open-webui";
+    };
+  };
+  monitoring = {
+    ip = "10.200.0.4";
+    services = {
+      grafana = {
+        port = 3000;
+        displayName = "Grafana";
+        description = "Observability Dashboards";
+        category = "Monitoring";
+        icon = "sh-grafana";
       };
     };
   };
@@ -205,7 +204,7 @@
         port = 8191;
         displayName = "FlareSolverr";
         description = "Cloudflare Bypass";
-        category = "APIs";
+        category = "Starr";
         icon = "sh-flaresolverr";
       };
       lidarr = {
@@ -272,7 +271,7 @@
         port = 4080;
         displayName = "qBittorrent";
         description = "Torrent Client";
-        category = "Media";
+        category = "Starr";
         icon = "sh-qbittorrent";
         widget = {
           type = "qbittorrent";
@@ -354,7 +353,7 @@
     # mac = "4c:20:b8:df:d1:5b";
     services.ollama = {
       port = 11434;
-      category = "APIs";
+      category = "MacMini";
       displayName = "Ollama";
       description = "Ollama API";
       icon = "sh-ollama";
@@ -384,37 +383,38 @@
       port = 7878;
       subdomain = "mc";
       domain = "toyvo.dev";
-      category = "Games";
+      category = "Oracle";
       displayName = "Minecraft";
       description = "Minecraft Server";
       icon = "sh-minecraft";
     };
   };
-  github.services = {
+  # cloudflare pages hosted deployments
+  cloudflare.services = {
     schedule1 = {
       domain = "toyvo.dev";
-      category = "Games";
+      category = "Cloudflare";
       displayName = "Schedule I Calculator";
       description = "Schedule I Calculator";
     };
     LackLuster = {
       subdomain = "lackluster";
       domain = "toyvo.dev";
-      category = "Games";
+      category = "Cloudflare";
       displayName = "Lack Luster";
       description = "University Game Project";
     };
     minecraft_modpack = {
       subdomain = "packwiz";
       domain = "toyvo.dev";
-      category = "Games";
+      category = "Cloudflare";
       displayName = "Minecraft Modpack";
       description = "Minecraft Packwiz Modpack Definition";
     };
     pdf_margins = {
       subdomain = "pdf";
       domain = "toyvo.dev";
-      category = "Utilities";
+      category = "Cloudflare";
       displayName = "PDF Margins";
       description = "Center PDFs within a physical page for printing";
     };
@@ -423,7 +423,7 @@
       domain = "diekvoss.com";
       displayName = "Portfolio";
       description = "Portfolio Website";
-      category = "Sites";
+      category = "Cloudflare";
     };
   };
   publicKeys = {

@@ -23,19 +23,18 @@ in
     inputs.nixcfg.modules.nixos.defaults
     inputs.nixcfg.modules.nixos.filesystems
     inputs.nixcfg.modules.nixos.services.ollama
+    inputs.hermes-agent.nixosModules.default
     inputs.nixcfg.modules.nixos.containers.podman
-    inputs.nixcfg.modules.nixos.containers.portainer
     inputs.nixcfg.modules.nixos.containers.starr
-    inputs.nixcfg.modules.nixos.containers.chat
+    inputs.nixcfg.modules.nixos.containers.open-webui
+    inputs.nixcfg.modules.nixos.containers.monitoring
+    inputs.nixcfg.modules.nixos.containers.jellyfin
+    inputs.nixcfg.modules.nixos.containers.home-assistant
+    inputs.nixcfg.modules.nixos.containers.nextcloud
+    inputs.nixcfg.modules.nixos.containers.immich
     inputs.nixcfg.modules.nixos.monitoring.default
-    inputs.nixcfg.modules.nixos.monitoring.grafana
-    inputs.nixcfg.modules.nixos.monitoring.prometheus
-    inputs.nixcfg.modules.nixos.monitoring.loki
-    inputs.nixcfg.modules.nixos.monitoring.tempo
     ./samba.nix
-    ./nextcloud.nix
     ./homepage.nix
-    inputs.arion.nixosModules.arion
     inputs.catppuccin.nixosModules.catppuccin
     inputs.dioxus_monorepo.nixosModules.discord_bot
     inputs.disko.nixosModules.disko
@@ -68,13 +67,11 @@ in
         443
         5432
         8080
-        7080
       ];
       allowedUDPPorts = [
         53
         443
         8080
-        7080
       ];
     };
   };
@@ -103,7 +100,6 @@ in
   users.groups.multimedia.members = [
     "chloe"
     "toyvo"
-    "nextcloud"
   ];
   fileSystemPresets.boot.enable = true;
   fileSystemPresets.btrfs.enable = true;
@@ -119,11 +115,6 @@ in
         cockpit-files
       ];
     };
-    coder = {
-      enable = true;
-      accessUrl = "https://coder.diekvoss.net";
-      listenAddress = "0.0.0.0:${toString homelab.${hostName}.services.coder.port}";
-    };
     discord_bot = {
       enable = true;
       env_file = config.sops.secrets."discord_bot.env".path;
@@ -133,56 +124,7 @@ in
         BASE_URL = "https://toyvo.dev";
       };
     };
-    home-assistant = {
-      enable = true;
-      package = stablePkgs.home-assistant.override {
-        extraComponents = [
-          "analytics"
-          "google_pubsub"
-          "google_translate"
-          "html5"
-          "isal"
-          "met"
-          "nest"
-          "radio_browser"
-          "shopping_list"
-          "tplink_omada"
-        ];
-        extraPackages =
-          ps: with ps; [
-            grpcio
-          ];
-      };
-      openFirewall = true;
-      config = {
-        default_config = { };
-        homeassistant = {
-          name = "Home";
-          unit_system = "metric";
-          temperature_unit = "F";
-        };
-        http = {
-          use_x_forwarded_for = true;
-          trusted_proxies = [ homelab.router.ip ];
-          server_port = homelab.${hostName}.services.home-assistant.port;
-        };
-      };
-    };
     homepage-dashboard.enable = true;
-    immich = {
-      enable = true;
-      openFirewall = true;
-      host = "0.0.0.0";
-      port = homelab.${hostName}.services.immich.port;
-      group = "multimedia";
-      package = stablePkgs.immich;
-    };
-    jellyfin = {
-      enable = true;
-      openFirewall = true;
-      group = "multimedia";
-    };
-    nextcloud.enable = true;
     nix-serve = {
       enable = true;
       openFirewall = true;
@@ -212,26 +154,80 @@ in
     };
     samba.enable = true;
     spice-vdagentd.enable = true;
-    monitoring = {
-      enable = true;
-      grafana.enable = true;
-      prometheus.enable = true;
-      loki.enable = true;
-      tempo.enable = true;
-    };
+    monitoring.enable = true;
   };
   containerPresets = {
     podman.enable = true;
     open-webui = {
       enable = true;
-      openFirewall = true;
-      dataDir = "/mnt/POOL/open-webui";
-      port = homelab.${hostName}.services.open-webui.port;
+      stateDir = "/mnt/POOL/open-webui";
+      port = homelab.open-webui.services.open-webui.port;
+      ollamaBaseUrl = "https://ollama.diekvoss.net";
     };
-    portainer = {
+    immich = {
       enable = true;
-      openFirewall = true;
-      sport = homelab.${hostName}.services.portainer.port;
+      natInterface = "eno1";
+      stateDir = "/mnt/POOL/immich";
+      package = stablePkgs.immich;
+      immichUid = 354;
+    };
+    jellyfin = {
+      enable = true;
+      natInterface = "eno1";
+      stateDir = "/mnt/POOL/jellyfin";
+      mediaDir = "/mnt/POOL/Public";
+    };
+    nextcloud = {
+      enable = true;
+      natInterface = "eno1";
+      stateDir = "/mnt/POOL/nextcloud";
+      nextcloudAdminPasswordFile = config.sops.secrets."nextcloud_admin_password".path;
+      package = pkgs.nextcloud33;
+      extraAppNames = [
+        "bookmarks"
+        "calendar"
+        "contacts"
+        "cookbook"
+        "mail"
+        "music"
+        "notes"
+        "richdocuments"
+        "tasks"
+      ];
+    };
+    home-assistant = {
+      enable = true;
+      natInterface = "eno1";
+      stateDir = "/mnt/POOL/home-assistant";
+      package = stablePkgs.home-assistant.override {
+        extraComponents = [
+          "analytics"
+          "google_pubsub"
+          "google_translate"
+          "html5"
+          "isal"
+          "met"
+          "nest"
+          "radio_browser"
+          "shopping_list"
+          "tplink_omada"
+        ];
+        extraPackages = ps: with ps; [ grpcio ];
+      };
+      haConfig = {
+        default_config = { };
+        homeassistant = {
+          name = "Home";
+          unit_system = "metric";
+          temperature_unit = "F";
+        };
+      };
+    };
+    monitoring = {
+      enable = true;
+      stateDir = "/mnt/POOL/monitoring";
+      grafanaAdminPasswordFile = config.sops.secrets."grafana-admin-password".path;
+      grafanaSecretKeyFile = config.sops.secrets."grafana-secret-key".path;
     };
     starr = {
       enable = true;
@@ -261,13 +257,7 @@ in
     device = "/dev/disk/by-label/POOL";
     fsType = "btrfs";
   };
-  users.users = {
-    toyvo.extraGroups = [ "libvirtd" ];
-    jellyfin.extraGroups = [
-      "video"
-      "render"
-    ];
-  };
+  users.users.toyvo.extraGroups = [ "libvirtd" ];
   home-manager.users.toyvo.programs.beets.settings.directory = "/mnt/POOL/Public/Music";
   programs.dconf.enable = true;
   environment.systemPackages = with pkgs; [
@@ -282,6 +272,7 @@ in
     libosinfo
     win-spice
     distrobox
+    signal-cli
   ];
   virtualisation = {
     libvirtd = {
@@ -296,19 +287,36 @@ in
     hibernate.enable = false;
     hybrid-sleep.enable = false;
   };
+  services.hermes-agent = {
+    enable = true;
+    settings = {
+      model = {
+        default = "glm-5";
+        provider = "opencode-go";
+        base_url = "https://opencode.ai/zen/go/v1";
+        api_mode = "chat_completions";
+      };
+      toolsets = [ "hermes-cli" ];
+      display.personality = "kawaii";
+    };
+    stateDir = "/mnt/POOL/hermes";
+    environmentFiles = [ config.sops.secrets."hermes.env".path ];
+    addToSystemPackages = true;
+  };
+  sops.secrets."hermes.env".owner = "hermes";
   sops.secrets."cache-priv-key.pem" = { };
   sops.secrets."discord_bot.env" = {
     owner = "discord_bot";
     group = "discord_bot";
   };
-  sops.secrets."grafana-admin-password" = {
-    owner = "grafana";
-    group = "grafana";
-  };
-  sops.secrets."grafana-secret-key" = {
-    owner = "grafana";
-    group = "grafana";
-  };
+  # Grafana credentials are bind-mounted into the monitoring container where the grafana user
+  # reads them via $__file{}. mode 0444 allows any process (including container-side grafana) to
+  # read them without needing to match UIDs across the host/container boundary.
+  # Nextcloud admin password bind-mounted into the nextcloud container; mode 0444 so
+  # the nextcloud user inside the container can read it without UID alignment on the host.
+  sops.secrets."nextcloud_admin_password".mode = "0444";
+  sops.secrets."grafana-admin-password".mode = "0444";
+  sops.secrets."grafana-secret-key".mode = "0444";
   # The ProtonVPN private key is decrypted here on the host by sops-nix so that
   # it can be bind-mounted read-only into the starr container, where the WireGuard
   # interface and network namespace are actually configured.
