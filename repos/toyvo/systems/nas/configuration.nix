@@ -23,8 +23,9 @@ in
     inputs.nixcfg.modules.nixos.defaults
     inputs.nixcfg.modules.nixos.filesystems
     inputs.nixcfg.modules.nixos.services.ollama
+    inputs.nixcfg.modules.nixos.services.signal-cli
     inputs.hermes-agent.nixosModules.default
-    inputs.nixcfg.modules.nixos.containers.podman
+    inputs.nixcfg.modules.nixos.podman
     inputs.nixcfg.modules.nixos.containers.starr
     inputs.nixcfg.modules.nixos.containers.open-webui
     inputs.nixcfg.modules.nixos.containers.monitoring
@@ -41,7 +42,7 @@ in
     inputs.home-manager.nixosModules.default
     inputs.nh.nixosModules.default
     inputs.nix-index-database.nixosModules.nix-index
-    inputs.nixpkgs-unstable.nixosModules.notDetected
+    inputs.nixos-unstable.nixosModules.notDetected
     inputs.nur.modules.nixos.default
     inputs.sops-nix.nixosModules.sops
   ];
@@ -67,6 +68,7 @@ in
         443
         5432
         8080
+        8642 # hermes-agent API (reachable from open-webui container via veth)
       ];
       allowedUDPPorts = [
         53
@@ -157,12 +159,17 @@ in
     monitoring.enable = true;
   };
   containerPresets = {
-    podman.enable = true;
     open-webui = {
       enable = true;
+      natInterface = "eno1";
       stateDir = "/mnt/POOL/open-webui";
       port = homelab.open-webui.services.open-webui.port;
-      ollamaBaseUrl = "https://ollama.diekvoss.net";
+      ollamaBaseUrl = "http://${homelab.MacMini-M1.ip}:${toString homelab.MacMini-M1.services.ollama.port}";
+      environmentFile = config.sops.secrets."openwebui.env".path;
+      environment = {
+        # Hermes agent OpenAI-compatible API (host IP from container's perspective)
+        OPENAI_API_BASE_URL = "http://${config.containerPresets.open-webui.hostAddress}:8642/v1";
+      };
     };
     immich = {
       enable = true;
@@ -225,6 +232,7 @@ in
     };
     monitoring = {
       enable = true;
+      natInterface = "eno1";
       stateDir = "/mnt/POOL/monitoring";
       grafanaAdminPasswordFile = config.sops.secrets."grafana-admin-password".path;
       grafanaSecretKeyFile = config.sops.secrets."grafana-secret-key".path;
@@ -287,6 +295,10 @@ in
     hibernate.enable = false;
     hybrid-sleep.enable = false;
   };
+  services.signal-cli = {
+    enable = true;
+    environmentFile = config.sops.secrets."signal-cli.env".path;
+  };
   services.hermes-agent = {
     enable = true;
     settings = {
@@ -301,9 +313,11 @@ in
     };
     stateDir = "/mnt/POOL/hermes";
     environmentFiles = [ config.sops.secrets."hermes.env".path ];
+    environment.API_SERVER_HOST = "0.0.0.0";
     addToSystemPackages = true;
   };
   sops.secrets."hermes.env".owner = "hermes";
+  sops.secrets."signal-cli.env".owner = "signal-cli";
   sops.secrets."cache-priv-key.pem" = { };
   sops.secrets."discord_bot.env" = {
     owner = "discord_bot";
@@ -314,6 +328,7 @@ in
   # read them without needing to match UIDs across the host/container boundary.
   # Nextcloud admin password bind-mounted into the nextcloud container; mode 0444 so
   # the nextcloud user inside the container can read it without UID alignment on the host.
+  sops.secrets."openwebui.env".mode = "0444";
   sops.secrets."nextcloud_admin_password".mode = "0444";
   sops.secrets."grafana-admin-password".mode = "0444";
   sops.secrets."grafana-secret-key".mode = "0444";

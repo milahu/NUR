@@ -18,18 +18,18 @@
     inputs.nixcfg.modules.nixos.defaults
     inputs.nixcfg.modules.nixos.monitoring.default
     inputs.nixcfg.modules.nixos.wireguard.default
-    inputs.nixcfg.modules.nixos.containers.podman
+    inputs.nixcfg.modules.nixos.podman
     inputs.nixcfg.modules.nixos.containers.minecraft
     inputs.nixcfg.modules.nixos.containers.vintagestory
     inputs.nixcfg.modules.nixos.containers.terraria
-    "${inputs.nixpkgs-unstable}/nixos/modules/profiles/qemu-guest.nix"
+    "${inputs.nixos-unstable}/nixos/modules/profiles/qemu-guest.nix"
     inputs.catppuccin.nixosModules.catppuccin
     inputs.dioxus_monorepo.nixosModules.discord_bot
     inputs.disko.nixosModules.disko
     inputs.home-manager.nixosModules.default
     inputs.nh.nixosModules.default
     inputs.nix-index-database.nixosModules.nix-index
-    inputs.nixpkgs-unstable.nixosModules.notDetected
+    inputs.nixos-unstable.nixosModules.notDetected
     inputs.nur.modules.nixos.default
     inputs.sops-nix.nixosModules.sops
   ];
@@ -53,9 +53,6 @@
       "virtio_scsi"
     ];
     binfmt.emulatedSystems = [ "x86_64-linux" ];
-  };
-  containerPresets = {
-    podman.enable = true;
   };
   home-manager.users.toyvo.programs.beets.enable = lib.mkForce false;
   networking = {
@@ -95,6 +92,7 @@
       peerAllowedIPs = [
         "10.100.0.0/24"
         "10.1.0.0/24"
+        "10.200.0.0/16"
       ];
     };
     caddy = {

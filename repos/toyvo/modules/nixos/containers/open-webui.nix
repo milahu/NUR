@@ -53,18 +53,44 @@ in
       default = { };
       description = "Extra environment variables passed to Open WebUI";
     };
+
+    environmentFile = lib.mkOption {
+      type = lib.types.nullOr lib.types.path;
+      default = null;
+      description = "Host path to an environment file bind-mounted into the container and passed to Open WebUI (useful for secrets)";
+    };
+
+    natInterface = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      description = "Host WAN-facing interface for NAT masquerade; required when Open WebUI needs to reach LAN hosts outside the container network";
+    };
   };
 
   config = lib.mkIf cfg.enable {
+    networking.nat = lib.mkIf (cfg.natInterface != null) {
+      enable = true;
+      externalInterface = cfg.natInterface;
+      internalInterfaces = [ "ve-open-webui" ];
+    };
+
     containers.open-webui = {
       autoStart = true;
       privateNetwork = true;
       hostAddress = cfg.hostAddress;
       localAddress = cfg.localAddress;
 
-      bindMounts."/var/lib/open-webui" = {
-        hostPath = cfg.stateDir;
-        isReadOnly = false;
+      bindMounts = {
+        "/var/lib/open-webui" = {
+          hostPath = cfg.stateDir;
+          isReadOnly = false;
+        };
+      }
+      // lib.optionalAttrs (cfg.environmentFile != null) {
+        "/run/secrets/open-webui.env" = {
+          hostPath = cfg.environmentFile;
+          isReadOnly = true;
+        };
       };
 
       config =
@@ -79,6 +105,7 @@ in
               // lib.optionalAttrs (cfg.ollamaBaseUrl != null) {
                 OLLAMA_BASE_URL = cfg.ollamaBaseUrl;
               };
+            environmentFile = lib.mkIf (cfg.environmentFile != null) "/run/secrets/open-webui.env";
           };
 
           # services.open-webui uses DynamicUser=true which conflicts with the
