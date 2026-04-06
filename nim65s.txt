@@ -1,0 +1,9 @@
+error: attribute 'nerdfonts' missing
+
+at ./packages.nix:57:20:
+
+    56|
+    57|   sauce-code-pro = pkgs.nerdfonts.override { fonts = [ "SourceCodePro" ]; };
+      |                    ^
+    58|   sway-disable-titlebar = pkgs.sway.override { sway-unwrapped = sway-disable-titlebar-unwrapped; };
+Did you mean nerd-fonts?

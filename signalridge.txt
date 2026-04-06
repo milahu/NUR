@@ -1,0 +1,17 @@
+error:
+… from call site
+
+  at ./default.nix:5:9:
+
+     4| {
+     5|   lib = import ./lib { inherit pkgs; };
+      |         ^
+     6|   modules = import ./modules;
+
+error: function 'anonymous lambda' called with unexpected argument 'pkgs'
+
+at ./lib/default.nix:1:1:
+
+     1| { }: { }
+      | ^
+     2|
