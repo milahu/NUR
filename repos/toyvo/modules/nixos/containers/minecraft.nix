@@ -131,6 +131,8 @@ in
       ];
     };
 
+    systemd.nspawn.minecraft.execConfig.LinkJournal = "host";
+
     containers.minecraft = {
       autoStart = true;
       privateNetwork = true;

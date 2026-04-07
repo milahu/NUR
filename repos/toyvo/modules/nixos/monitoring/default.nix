@@ -92,11 +92,15 @@ let
     // The receiver of this component is intentionally unused.
     loki.relabel "journal" {
       rule {
-        source_labels = ["__journal__SYSTEMD_UNIT"]
+        source_labels = ["__journal__systemd_unit"]
         target_label  = "unit"
       }
       rule {
-        source_labels = ["__journal_SYSLOG_IDENTIFIER"]
+        source_labels = ["__journal__hostname"]
+        target_label  = "machine"
+      }
+      rule {
+        source_labels = ["__journal_syslog_identifier"]
         target_label  = "syslog_identifier"
       }
       forward_to = []

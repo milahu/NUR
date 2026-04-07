@@ -83,6 +83,8 @@ in
       internalInterfaces = [ "ve-jellyfin" ];
     };
 
+    systemd.nspawn.jellyfin.execConfig.LinkJournal = "host";
+
     containers.jellyfin = {
       autoStart = true;
       privateNetwork = true;

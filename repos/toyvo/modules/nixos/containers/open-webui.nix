@@ -74,6 +74,8 @@ in
       internalInterfaces = [ "ve-open-webui" ];
     };
 
+    systemd.nspawn."open-webui".execConfig.LinkJournal = "host";
+
     containers.open-webui = {
       autoStart = true;
       privateNetwork = true;

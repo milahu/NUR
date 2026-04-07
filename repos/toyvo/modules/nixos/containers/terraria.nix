@@ -107,6 +107,8 @@ in
       allowedUDPPorts = [ cfg.port ];
     };
 
+    systemd.nspawn.terraria.execConfig.LinkJournal = "host";
+
     containers.terraria = {
       autoStart = true;
       privateNetwork = true;
