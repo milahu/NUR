@@ -195,6 +195,21 @@
       "web/package-lock.json" = ./. + "/sha256-VXkRDVHrRbU2TEl47jUhEmjXCkGzJgGYLKZBE_m9Ka8=/web/package-lock.json";
     };
   };
+  headscale-ui = {
+    pname = "headscale-ui";
+    version = "ce7569c8473b70f6f8359385f2dbd6af66f21e55";
+    src = fetchFromGitHub {
+      owner = "gurucomputing";
+      repo = "headscale-ui";
+      rev = "ce7569c8473b70f6f8359385f2dbd6af66f21e55";
+      fetchSubmodules = false;
+      sha256 = "sha256-JR+VLwXqMKACWB+4AIgWLIpZh0xtU9uCsiskra71BHQ=";
+    };
+    extract = {
+      "package-lock.json" = ./. + "/sha256-JR+VLwXqMKACWB+4AIgWLIpZh0xtU9uCsiskra71BHQ=/package-lock.json";
+      "package.json" = ./. + "/sha256-JR+VLwXqMKACWB+4AIgWLIpZh0xtU9uCsiskra71BHQ=/package.json";
+    };date = "2026-03-16";
+  };
   libinput-three-finger-drag = {
     pname = "libinput-three-finger-drag";
     version = "6acd3f84b551b855b5f21b08db55e95dae3305c5";
@@ -230,6 +245,29 @@
     };
     date = "2026-03-29";
   };
+  meta-rules-converter = {
+    pname = "meta-rules-converter";
+    version = "7dea27841a3579a633189830c98c08a0434e8b79";
+    src = fetchFromGitHub {
+      owner = "MetaCubeX";
+      repo = "meta-rules-converter";
+      rev = "7dea27841a3579a633189830c98c08a0434e8b79";
+      fetchSubmodules = false;
+      sha256 = "sha256-PwM5EH4v4MWePVeSjIGjCSu1ACYCIQ/wVq4sBTbrF9M=";
+    };
+    date = "2025-12-01";
+  };
+  metacubex-geo = {
+    pname = "metacubex-geo";
+    version = "v1.1";
+    src = fetchFromGitHub {
+      owner = "metacubex";
+      repo = "geo";
+      rev = "v1.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-lwFBevf3iP90LgnfUqweCjPBJPr2vMFtRqQXXUC+cRA=";
+    };
+  };
   mm-geofeed-verifier = {
     pname = "mm-geofeed-verifier";
     version = "v4.0.0";
@@ -243,21 +281,21 @@
   };
   mpv-danmaku = {
     pname = "mpv-danmaku";
-    version = "902bc2023964d7113398e0c770e9c8b56490901a";
+    version = "433499b21d62c7af7a1f9aab1be213d4e82fe4d2";
     src = fetchFromGitHub {
       owner = "moraxyc";
       repo = "mpv-danmaku";
-      rev = "902bc2023964d7113398e0c770e9c8b56490901a";
+      rev = "433499b21d62c7af7a1f9aab1be213d4e82fe4d2";
       fetchSubmodules = false;
-      sha256 = "sha256-ikjrynETyTEIh+RvjwJ0Y7SgzXtBJr+FldczBs5yLJ0=";
+      sha256 = "sha256-1Qg+ThTovdjQey0vEmM7XxSHGBu2i1PaNWk+GDPHfdg=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-ikjrynETyTEIh+RvjwJ0Y7SgzXtBJr+FldczBs5yLJ0=/Cargo.lock";
+      lockFile = ./. + "/sha256-1Qg+ThTovdjQey0vEmM7XxSHGBu2i1PaNWk+GDPHfdg=/Cargo.lock";
       outputHashes = {
         
       };
     };
-    date = "2026-03-30";
+    date = "2026-04-06";
   };
   mpv-danmaku-stable = {
     pname = "mpv-danmaku-stable";
@@ -335,18 +373,18 @@
   };
   v2ray-rules-dat-geoip = {
     pname = "v2ray-rules-dat-geoip";
-    version = "202604042223";
+    version = "202604052224";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202604042223/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202604052224/geoip.dat";
       sha256 = "sha256-AJER8xsjX8WP1AxBEB+2xPXdzqDTc5xjVGpTvxzM+NA=";
     };
   };
   v2ray-rules-dat-geosite = {
     pname = "v2ray-rules-dat-geosite";
-    version = "202604042223";
+    version = "202604052224";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202604042223/geosite.dat";
-      sha256 = "sha256-s4gYwuLOpqbAybWEcGHVPlEIFZluRezLeKQAbrpKzyA=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202604052224/geosite.dat";
+      sha256 = "sha256-jzuXDVSxY41Mf8vaqWYOPcJTTWIRW49Mh60mJVwUlEg=";
     };
   };
   yass = {

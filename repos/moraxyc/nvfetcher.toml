@@ -158,3 +158,16 @@ git.fetchSubmodules = true
 src.github = "ferstar/gestures"
 fetch.github = "ferstar/gestures"
 cargo_lock = ["Cargo.lock"]
+
+[metacubex-geo]
+src.github = "metacubex/geo"
+fetch.github = "metacubex/geo"
+
+[meta-rules-converter]
+src.git = "https://github.com/MetaCubeX/meta-rules-converter"
+fetch.github = "MetaCubeX/meta-rules-converter"
+
+[headscale-ui]
+src.git = "https://github.com/gurucomputing/headscale-ui"
+fetch.github = "gurucomputing/headscale-ui"
+extract = ["package-lock.json", "package.json"]

@@ -330,6 +330,30 @@
         },
         "version": "v1.2.0"
     },
+    "headscale-ui": {
+        "cargoLock": null,
+        "date": "2026-03-16",
+        "extract": {
+            "package-lock.json": "sha256-JR+VLwXqMKACWB+4AIgWLIpZh0xtU9uCsiskra71BHQ=/package-lock.json",
+            "package.json": "sha256-JR+VLwXqMKACWB+4AIgWLIpZh0xtU9uCsiskra71BHQ=/package.json"
+        },
+        "name": "headscale-ui",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "gurucomputing",
+            "repo": "headscale-ui",
+            "rev": "ce7569c8473b70f6f8359385f2dbd6af66f21e55",
+            "sha256": "sha256-JR+VLwXqMKACWB+4AIgWLIpZh0xtU9uCsiskra71BHQ=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "ce7569c8473b70f6f8359385f2dbd6af66f21e55"
+    },
     "libinput-three-finger-drag": {
         "cargoLock": null,
         "date": "2024-06-17",
@@ -393,6 +417,48 @@
         },
         "version": "0303f707788e3f6f2d2228a5dc55c9f94cfc19e6"
     },
+    "meta-rules-converter": {
+        "cargoLock": null,
+        "date": "2025-12-01",
+        "extract": null,
+        "name": "meta-rules-converter",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "MetaCubeX",
+            "repo": "meta-rules-converter",
+            "rev": "7dea27841a3579a633189830c98c08a0434e8b79",
+            "sha256": "sha256-PwM5EH4v4MWePVeSjIGjCSu1ACYCIQ/wVq4sBTbrF9M=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "7dea27841a3579a633189830c98c08a0434e8b79"
+    },
+    "metacubex-geo": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "metacubex-geo",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "metacubex",
+            "repo": "geo",
+            "rev": "v1.1",
+            "sha256": "sha256-lwFBevf3iP90LgnfUqweCjPBJPr2vMFtRqQXXUC+cRA=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v1.1"
+    },
     "mm-geofeed-verifier": {
         "cargoLock": null,
         "date": null,
@@ -417,11 +483,11 @@
     "mpv-danmaku": {
         "cargoLock": {
             "Cargo.lock": [
-                "sha256-ikjrynETyTEIh+RvjwJ0Y7SgzXtBJr+FldczBs5yLJ0=/Cargo.lock",
+                "sha256-1Qg+ThTovdjQey0vEmM7XxSHGBu2i1PaNWk+GDPHfdg=/Cargo.lock",
                 {}
             ]
         },
-        "date": "2026-03-30",
+        "date": "2026-04-06",
         "extract": null,
         "name": "mpv-danmaku",
         "passthru": null,
@@ -433,12 +499,12 @@
             "name": null,
             "owner": "moraxyc",
             "repo": "mpv-danmaku",
-            "rev": "902bc2023964d7113398e0c770e9c8b56490901a",
-            "sha256": "sha256-ikjrynETyTEIh+RvjwJ0Y7SgzXtBJr+FldczBs5yLJ0=",
+            "rev": "433499b21d62c7af7a1f9aab1be213d4e82fe4d2",
+            "sha256": "sha256-1Qg+ThTovdjQey0vEmM7XxSHGBu2i1PaNWk+GDPHfdg=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "902bc2023964d7113398e0c770e9c8b56490901a"
+        "version": "433499b21d62c7af7a1f9aab1be213d4e82fe4d2"
     },
     "mpv-danmaku-stable": {
         "cargoLock": null,
@@ -586,9 +652,9 @@
             "name": null,
             "sha256": "sha256-AJER8xsjX8WP1AxBEB+2xPXdzqDTc5xjVGpTvxzM+NA=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202604042223/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202604052224/geoip.dat"
         },
-        "version": "202604042223"
+        "version": "202604052224"
     },
     "v2ray-rules-dat-geosite": {
         "cargoLock": null,
@@ -599,11 +665,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-s4gYwuLOpqbAybWEcGHVPlEIFZluRezLeKQAbrpKzyA=",
+            "sha256": "sha256-jzuXDVSxY41Mf8vaqWYOPcJTTWIRW49Mh60mJVwUlEg=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202604042223/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202604052224/geosite.dat"
         },
-        "version": "202604042223"
+        "version": "202604052224"
     },
     "yass": {
         "cargoLock": null,
