@@ -2,7 +2,7 @@
 
 let
   inherit (builtins) filter toFile;
-  inherit (lib) fakeHash findFirst hasInfix recursiveUpdate remove versionAtLeast versionOlder warnIf warnIfNot;
+  inherit (lib) findFirst hasInfix recursiveUpdate remove versionAtLeast versionOlder warnIf warnIfNot;
   inherit (pkgs) callPackage fetchFromGitHub lib;
 in
 # Published as nur.repos.AndrewKvalheim (https://nur.nix-community.org/repos/andrewkvalheim/)
@@ -41,10 +41,9 @@ rec {
       "github.com/caddyserver/cache-handler@v0.16.0"
     ];
     hash = {
-      "2.10.2" = "sha256-jeWmPFBk/bveFIOcCQVhEZ3c4Il1t8Y/GvAewVU7QWA=";
-      "2.11.1" = "sha256-LZeANuFX2bbpdrpgn7wliVowipLtF+cchDErD/2vSiU=";
-      "2.11.2" = "sha256-3sgytV6hcjNd1Z510e0XiBVCLqAywVkVKLK4j2k1iZs=";
-    }."${pkgs.caddy.version}" or fakeHash;
+      "2.11.2@1.25.8" = "sha256-OSKTgpMrnosZxTNTc8Hhs3i7E8wfrRJsgyjrEcJLyCE=";
+      "2.11.2@1.26.1" = "sha256-zuV/T+cJ3fbQawt7dmzr0c3pTVT1d/4vD3KoTKByWLc=";
+    }."${pkgs.caddy.version}@${pkgs.caddy.go.version}";
   }).overrideAttrs (c: recursiveUpdate c { meta.broken = versionOlder pkgs.go.version "1.25.6"; /* Pending NixOS/nixpkgs#480465 */ });
   ch57x-keyboard-tool = callPackage ./library/ch57x-keyboard-tool.pkg.nix { };
   chunker = callPackage ./library/chunker.pkg.nix { };
@@ -106,7 +105,6 @@ rec {
   pngquant-interactive = callPackage ./library/pngquant-interactive.pkg.nix { };
   spf-check = callPackage ./library/spf-check.pkg.nix { };
   spf-tree = callPackage ./library/spf-tree.pkg.nix { };
-  starship-jj = callPackage ./library/starship-jj.pkg.nix { };
   stretch-break = callPackage ./library/stretch-break.pkg.nix { };
   tile-stitch = callPackage ./library/tile-stitch.pkg.nix { };
   wireguard-vanity-address = callPackage ./library/wireguard-vanity-address.pkg.nix { };

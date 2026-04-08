@@ -56,7 +56,7 @@ specify {
   gopass-env = any;
   gopass-ydotool = any;
   gpx-reduce = any;
-  graalvmPackages.graaljs.overlay = g: throwIf (hasInfix "jvm" g.src.url) "graaljs no longer requires an overlay" { src = fetchurl { url = builtins.replaceStrings [ "community" ] [ "community-jvm" ] g.src.url; hash = ({ "24.2.2" = "sha256-LDuMh4hhJSbKb8m5DSH8/tcb8rxiRG6FKS5okcUn2JY="; }).${g.version}; }; buildInputs = g.buildInputs ++ stable.graalvmPackages.graalvm-ce.buildInputs; }; # https://discourse.nixos.org/t/36314
+  graalvmPackages.graaljs.overlay = g: throwIf (hasInfix "jvm" g.src.url) "graaljs no longer requires an overlay" { src = fetchurl { url = builtins.replaceStrings [ "community" ] [ "community-jvm" ] g.src.url; hash = ({ "24.2.2" = "sha256-LDuMh4hhJSbKb8m5DSH8/tcb8rxiRG6FKS5okcUn2JY="; "25.0.2" = "sha256-HutawQBIbMSU+M7xe8C6nBsxoIi6Kz1O0weSvR9LeIk="; }).${g.version}; }; buildInputs = g.buildInputs ++ stable.graalvmPackages.graalvm-ce.buildInputs; }; # https://discourse.nixos.org/t/36314
   graalvmPackages.graalvm-ce.overlay = g: throwIf (hasInfix "font" g.preFixup) "graalvm-ce no longer requires an overlay" { preFixup = g.preFixup + "\nfind \"$out\" -name libfontmanager.so -exec patchelf --add-needed libfontconfig.so {} \\;"; }; # Workaround for https://github.com/NixOS/nixpkgs/pull/215583#issuecomment-1615369844
   htop.patch = ./library/assets/htop_colors.patch; # htop-dev/htop#1416
   incremental-compress = any;
