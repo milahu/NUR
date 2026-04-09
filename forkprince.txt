@@ -1,0 +1,29 @@
+error:
+… while querying the derivation named 'beeper-nightly-4.2.718'
+
+… while calling the 'foldl'' builtin
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:558:21:
+
+   557|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
+   558|       maintainers = unique (
+      |                     ^
+   559|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/lists.nix:1901:25:
+
+  1900|   */
+  1901|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
+      |                         ^
+  1902|
+
+error: undefined variable 'edmundmiller'
+
+at ./pkgs/beeper-nightly/default.nix:30:7:
+
+    29|       jshcmpbll
+    30|       edmundmiller
+      |       ^
+    31|       zh4ngx
