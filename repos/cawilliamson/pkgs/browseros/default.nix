@@ -8,8 +8,8 @@
 
 let
   pname = "browseros";
-  versionShort = "0.37.0";
-  version = "0.37.0.3";
+  version = "0.43.0";
+  assetVersion = version; # override when upstream uses a different version in asset filenames (e.g. "0.42.0.1")
 
   desktopItem = makeDesktopItem {
     name = "${pname}";
@@ -25,8 +25,8 @@ let
 
   src = fetchurl {
     name = "browseros.AppImage";
-    sha256 = "sha256-nGnPRb2J86sA9d9XD3U/CPYAK+zimqzwb46JjNwm/4o=";
-    url = "https://github.com/browseros-ai/BrowserOS/releases/download/v${versionShort}/BrowserOS_v${version}_x64.AppImage";
+    sha256 = "sha256-CfpMSc+mo5LI1oIWoi93lCnm7t0CNMvaKfl8AGcywxE=";
+    url = "https://github.com/browseros-ai/BrowserOS/releases/download/v${version}/BrowserOS_v${assetVersion}_x64.AppImage";
   };
 
   appimageContents = appimageTools.extractType2 { inherit pname version src; };
