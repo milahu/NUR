@@ -23,6 +23,8 @@
   Elegant-grub2-themes = pkgs.callPackage ./pkgs/Elegant-grub2-themes { };
   sddm-eucalyptus-drop = pkgs.callPackage ./pkgs/sddm-eucalyptus-drop { };
   pot-translation = pkgs.callPackage ./pkgs/pot-translation { };
+  rime-prelude = pkgs.callPackage ./pkgs/rime-prelude { };
+  typst-package-check = pkgs.callPackage ./pkgs/typst-package-check { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }
