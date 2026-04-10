@@ -1,8 +1,7 @@
 {
   stdenv,
   lib,
-  path,
-  callPackage,
+  buildVscode,
   fetchurl,
   commandLineArgs ? "",
 }:
@@ -25,19 +24,19 @@ let
 
   sha256 =
     {
-      x86_64-linux = "0lii9qmwfr2n1qsljflzfbhvz9qws0d597jinzfwf1ahdz0wxkd7";
-      x86_64-darwin = "0bfppx538x1ycihmz8799vpwvf7v1isdli2a27ypgwzzqqrf7nc1";
-      aarch64-linux = "15xizckz010b5fb9i88gz851b0xigizqqr09aqg1bv9mh4q9x1zw";
-      aarch64-darwin = "1f6j2sqnl7qs142jlvd5gv8pd03bl0skw9mcdwgx267ccpv5ar6l";
-      armv7l-linux = "09388xsmij54gvnrhd1wcs0k83m9kc4yd2m0mxfn3swyjq2sw7zb";
+      x86_64-linux = "0vca91cv25hxfpi6r58yjxf1sh0md1kyfcj52p4xmxqp0rl7y8ih";
+      x86_64-darwin = "0ks7f87sgfnf0mblma1pd6ilqknhi5620kpm5sbz4cdyy2b018yx";
+      aarch64-linux = "19zkvi4vs0wkjk5f66gp9ffbmcbm6jk606qraf4bww729xi0n71j";
+      aarch64-darwin = "03ndjic3678v6rcxsd38hk91i6w4v4vahqj3r52pdsmi1ps2d5dw";
+      armv7l-linux = "0mpnbdwbim47h5zs3f5f29cishfq8p1xr16wmn3s7gfr9mmd6zjj";
     }
     .${system} or throwSystem;
 
   sourceRoot = if stdenv.isDarwin then "" else ".";
 in
 
-callPackage "${path}/pkgs/applications/editors/vscode/generic.nix" rec {
-  version = "1.110.01172-insider";
+buildVscode rec {
+  version = "1.112.02251-insider";
   pname = "vscodium-insiders";
   updateScript = ./update.sh;
 
@@ -54,7 +53,7 @@ callPackage "${path}/pkgs/applications/editors/vscode/generic.nix" rec {
   };
   inherit sourceRoot;
 
-  # tests = nixosTests.vscodium;
+  tests = {};
 
   meta = with lib; {
     description = ''
