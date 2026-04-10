@@ -15,7 +15,8 @@ from nima.expressions import FunctionCall
 FORCE_BLACKLIST = [
     Path("./pkgs/by-name/libfprint-focaltech-2808-a658-alt/package.nix"),
     Path("./pkgs/by-name/fprintd/package.nix"),
-    Path("./pkgs/by-name/surge/package.nix"),
+    Path("./pkgs/by-name/surge/package.nix"),  # because of vendorHash
+    Path("./pkgs/by-name/typos/package.nix"),  # because of npmDeps hash
 ]
 
 
@@ -264,7 +265,7 @@ def update_github_src(attrs, scoped_vars):
         date = str(datetime.datetime.fromisoformat(result["date"]).date())
         attrs.argument["version"].value = f"unstable-{date}"
     if tag:
-        src.argument["tag"].value = f"refs/tags/{latest_tag}"
+        src.argument["tag"].value = latest_tag
 
         version = latest_tag
         if version.startswith(("v", "V")):

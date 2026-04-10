@@ -5,11 +5,11 @@
 }:
 stdenv.mkDerivation rec {
     pname = "librusty_v8";
-    version = "146.0.0";
+    version = "147.0.0";
 
     src = fetchurl {
         url = "https://github.com/denoland/rusty_v8/releases/download/v${version}/librusty_v8_release_x86_64-unknown-linux-gnu.a.gz";
-        hash = "sha256-a0C9diiRsrccQ2ZzU/qCSCN03UUZcIigMMNWwA4pFYg=";
+        hash = "sha256-IWTeoa6yXRT0mDKnXdBtMb/GOnU+uhEoFbHVU/F4/KA=";
     };
 
     nativeBuildInputs = [ gzip ];
