@@ -2,28 +2,38 @@
   lib,
   buildNpmPackage,
   fetchgit,
+  writeScript,
   ...
 }:
 buildNpmPackage rec {
   pname = "bitwarden";
   version = "1.0.0";
 
-  src =
-    fetchgit {
-      url = "https://github.com/raycast/extensions";
-      rev = "4a6e46f1dae389a4f8c52f12eb5722542cdfe6f3";
-      sha256 = "sha256-/kVt//0L7KnwDMTW/JzixTDWeAj/e36YOwT4OKYFUCU=";
-      sparseCheckout = [
-        "/extensions/${pname}"
-      ];
-    }
-    + "/extensions/${pname}";
+  src = fetchgit {
+    url = "https://github.com/raycast/extensions";
+    rev = "8cae8edb0658a3d1fb81841a792acc29523f1653";
+    sha256 = "sha256-s4yFFTl0qDfDNW+2EZmNd6XZlDrHX3th1leyjPYPZXE=";
+    sparseCheckout = [
+      "/extensions/${pname}"
+    ];
+    rootDir = "/extensions/${pname}";
+  };
 
-  patches = [
-    ./windows-shortcut-casing.patch
-  ];
+  passthru.updateScript =
+    writeScript "update-${pname}"
+    # bash
+    ''
+      #!/usr/bin/env nix-shell
+      #!nix-shell -i bash -p curl jq common-updater-scripts
 
-  npmDepsHash = "sha256-f4YTY0PxAfZ3boxNSUNVHIePxvU1KZXCBLum+j1hEL4=";
+      set -eu -o pipefail
+
+      REV="$(curl -s https://api.github.com/repos/raycast/extensions/commits?per_page=1 | jq -r '.[0].sha')"
+      update-source-version raycast-${pname} "${version}" --ignore-same-version --rev="$REV"
+      update-source-version raycast-${pname} "${version}" --ignore-same-version --source-key=npmDeps
+    '';
+
+  npmDepsHash = "sha256-wvi/IzNCWdcU96Bn7B2YOUihx/IHC4sCJAElmvNK3Qc=";
 
   installPhase =
     # bash

@@ -1,15 +1,14 @@
 {
-  lib,
-  libsForQt5,
   symlinkJoin,
-  unwrapped ? libsForQt5.callPackage ../krita-unwrapped {},
   krita-plugin-gmic,
   binaryPlugins ? [
     krita-plugin-gmic
   ],
+  callPackage,
+  unwrapped ? callPackage ../krita-unwrapped {},
 }:
 symlinkJoin {
-  name = lib.replaceStrings ["-unwrapped"] [""] unwrapped.name;
+  pname = "krita";
   inherit
     (unwrapped)
     version
@@ -20,11 +19,13 @@ symlinkJoin {
 
   paths = [unwrapped] ++ binaryPlugins;
 
-  postBuild = ''
-    wrapQtApp "$out/bin/krita" \
-      --prefix PYTHONPATH : "$PYTHONPATH" \
-      --set KRITA_PLUGIN_PATH "$out/lib/kritaplugins"
-  '';
+  postBuild =
+    # bash
+    ''
+      wrapQtApp "$out/bin/krita" \
+        --prefix PYTHONPATH : "$PYTHONPATH" \
+        --set KRITA_PLUGIN_PATH "$out/lib/kritaplugins"
+    '';
 
   passthru = {
     inherit unwrapped binaryPlugins;

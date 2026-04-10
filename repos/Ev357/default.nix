@@ -11,7 +11,7 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  bitwarden = pkgs.callPackage ./pkgs/raycast-bitwarden {};
+  raycast-bitwarden = pkgs.callPackage ./pkgs/raycast-bitwarden {};
   catppuccin-obsidian = pkgs.callPackage ./pkgs/catppuccin-obsidian {};
   cmdr = pkgs.callPackage ./pkgs/cmdr {};
   folder-notes = pkgs.callPackage ./pkgs/folder-notes {};
@@ -21,6 +21,9 @@
   krita = pkgs.callPackage ./pkgs/krita {};
   krita-unwrapped = pkgs.libsForQt5.callPackage ./pkgs/krita-unwrapped {};
   obsidian-excalidraw-plugin = pkgs.callPackage ./pkgs/obsidian-excalidraw-plugin {};
+  obsidian-excalidraw-plugin-patched = pkgs.callPackage ./pkgs/obsidian-excalidraw-plugin {
+    enableHiddenScriptPatch = true;
+  };
   obsidian-git = pkgs.callPackage ./pkgs/obsidian-git {};
   obsidian-hider = pkgs.callPackage ./pkgs/obsidian-hider {};
   obsidian-relative-line-numbers = pkgs.callPackage ./pkgs/obsidian-relative-line-numbers {};
@@ -28,5 +31,4 @@
   obsidian-style-settings = pkgs.callPackage ./pkgs/obsidian-style-settings {};
   obsidian-vim-yank-highlight = pkgs.callPackage ./pkgs/obsidian-vim-yank-highlight {};
   obsidian-vimrc-support = pkgs.callPackage ./pkgs/obsidian-vimrc-support {};
-  vaultwarden = pkgs.callPackage ./pkgs/vaultwarden {};
 }

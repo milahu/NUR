@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  enableHiddenScriptPatch ? false,
   ...
 }: let
   owner = "zsviczian";
@@ -8,12 +9,12 @@
 in
   pkgs.buildNpmPackage rec {
     pname = "obsidian-excalidraw-plugin";
-    version = "2.20.5";
+    version = "2.22.0";
 
     src = pkgs.fetchFromGitHub {
       inherit owner repo;
       rev = version;
-      sha256 = "sha256-bxiVnySnTU4yvBhJeybSNb/J3pWClHqq0UuBzEdnVR4=";
+      sha256 = "sha256-nx0nfn7ck/EUt2Svt7ByMuvg0ShGa59PcZfj8Hxc5kI=";
     };
 
     passthru.updateScript =
@@ -38,7 +39,11 @@ in
         nix-update ${pname} --flake
       '';
 
-    npmDepsHash = "sha256-eEczre9rTLlrJV1g/9HlUPr9ToyI+OG9eOIV9fxAOfg=";
+    npmDepsHash = "sha256-ag/vPvq7/Gt9WXyXoZiKNPRkWZYpScNj27Ss4hHsMY4=";
+
+    patches =
+      []
+      ++ lib.optional enableHiddenScriptPatch ./hidden-script.patch;
 
     postPatch =
       # bash
