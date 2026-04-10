@@ -95,6 +95,7 @@ in
       bustle
       cavif
       cargo-msrv
+      constrict
       darktable
       dconf-editor
       deskflow

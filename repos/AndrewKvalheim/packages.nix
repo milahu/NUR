@@ -33,6 +33,7 @@ specify {
   chunker.dontEval = true /* FIXME: infinite recursion */;
   chromium.commandLineArgs = "--enable-features=WaylandTextInputV3"; # Pending https://crbug.com/40272818, NixOS/nixpkgs#394395
   co2monitor = any;
+  constrict = any;
   dawarich.patch = ./library/assets/dawarich_viridis.patch;
   decompiler-mc = any;
   dmarc-report-converter = any;

@@ -286,6 +286,6 @@ in
       tug = { args = [ "tug" ]; key = [ "alt+t" ]; };
     };
 
-    revisions.revset = "::(present(@) | ancestors(immutable_heads().., 2) | trunk())";
+    revisions.revset = "::(present(@) | ancestors(immutable_heads().., 2) | trunk() | tags() | bookmarks() | remote_bookmarks())";
   };
 }
