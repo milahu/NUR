@@ -10,8 +10,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      cfg.package
-    ];
+    programs.calibre = {
+      enable = true;
+
+      inherit (cfg) package;
+    };
   };
 }
