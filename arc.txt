@@ -19,90 +19,100 @@ error:
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:276:19:
+  at <nixpkgs> + /lib/customisation.nix:275:19:
 
-   275|   callPackageWith =
-   276|     autoArgs: fn: args:
+   274|   callPackageWith =
+   275|     autoArgs: fn: args:
       |                   ^
-   277|     let
+   276|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:1021:5:
+  at <nixpkgs> + /lib/trivial.nix:1081:5:
 
-  1020|     # TODO: Should we add call-time "type" checking like built in?
-  1021|     __functor = self: f;
+  1080|     # TODO: Should we add call-time "type" checking like built in?
+  1081|     __functor = self: f;
       |     ^
-  1022|     __functionArgs = args;
+  1082|     __functionArgs = args;
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:178:7:
+  at <nixpkgs> + /lib/customisation.nix:177:7:
 
-   177|     decorate (
-   178|       origArgs:
+   176|     decorate (
+   177|       origArgs:
       |       ^
-   179|       let
+   178|       let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:180:18:
+  at <nixpkgs> + /lib/customisation.nix:179:18:
 
-   179|       let
-   180|         result = f origArgs;
+   178|       let
+   179|         result = f origArgs;
       |                  ^
-   181|
-
-… while calling 'jimtcl-minimal'
-
-  at ./pkgs/customized/default.nix:468:22:
-
-   467|
-   468|     jimtcl-minimal = { lib, hostPlatform, tcl, jimtcl, readline }: (jimtcl.override { SDL = null; SDL_gfx = null; sqlite = null; }).overrideAttrs (old: {
-      |                      ^
-   469|       pname = "jimtcl-minimal";
-
-… from call site
-
-  at <nixpkgs> + /lib/trivial.nix:1021:5:
-
-  1020|     # TODO: Should we add call-time "type" checking like built in?
-  1021|     __functor = self: f;
-      |     ^
-  1022|     __functionArgs = args;
+   180|
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:194:11:
+  at ./pkgs/public/github-label-sync/default.nix:1:1:
 
-   193|           */
-   194|           newArgs: makeOverridable f (overrideWith newArgs)
-      |           ^
-   195|         );
-
-… from call site
-
-  at <nixpkgs> + /lib/trivial.nix:1021:5:
-
-  1020|     # TODO: Should we add call-time "type" checking like built in?
-  1021|     __functor = self: f;
-      |     ^
-  1022|     __functionArgs = args;
-
-… while calling anonymous lambda
-
-  at <nixpkgs> + /lib/customisation.nix:178:7:
-
-   177|     decorate (
-   178|       origArgs:
-      |       ^
-   179|       let
-
-error: function 'anonymous lambda' called with unexpected argument 'SDL_gfx'
-
-at <nixpkgs> + /pkgs/by-name/ji/jimtcl/package.nix:1:1:
-
-     1| {
+     1| { nodeEnv, callPackage, fetchurl }: let
       | ^
-     2|   lib,
-Did you mean SDL2_gfx?
+     2|   nodePackages = callPackage ./node-packages.nix {
+
+… from call site
+
+  at ./build-support/default.nix:30:17:
+
+    29|
+    30|       nodeEnv = self.callPackage (self.path + "/pkgs/development/node-packages/node-env.nix") { };
+      |                 ^
+    31|     };
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:275:19:
+
+   274|   callPackageWith =
+   275|     autoArgs: fn: args:
+      |                   ^
+   276|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:289:11:
+
+   288|         (
+   289|           filterAttrs (name: value: !value)
+      |           ^
+   290|             # Filter out arguments that would be passed
+
+… while calling 'filterAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:662:23:
+
+   661|   */
+   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                       ^
+   663|
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:278:15:
+
+   277|       f = if isFunction fn then fn else import fn;
+   278|       fargs = functionArgs f;
+      |               ^
+   279|
+
+… while calling 'functionArgs'
+
+  at <nixpkgs> + /lib/trivial.nix:1104:5:
+
+  1103|   functionArgs =
+  1104|     f:
+      |     ^
+  1105|     if f ? __functor then
+
+error: getting status of '<nixpkgs> + /pkgs/development/node-packages': No such file or directory

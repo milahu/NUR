@@ -3,12 +3,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:553:15:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:557:13:
 
-   552|               in
-   553|               lib.strings.sanitizeDerivationName (
-      |               ^
-   554|                 if attrs ? name then
+   556|             in
+   557|             lib.strings.sanitizeDerivationName (
+      |             ^
+   558|               if attrs ? name then
 
 … while calling anonymous lambda
 
@@ -21,12 +21,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:558:26:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:562:24:
 
-   557|                   # we cannot coerce null to a string below
-   558|                   assert assertMsg (
-      |                          ^
-   559|                     attrs ? version && attrs.version != null
+   561|                 # we cannot coerce null to a string below
+   562|                 assert assertMsg (
+      |                        ^
+   563|                   attrs ? version && attrs.version != null
 
 … while calling 'assertMsg'
 
@@ -39,12 +39,12 @@ error:
 
 … from call site
 
-  at ./pkgs/actuate/package.nix:13:13:
+  at ./pkgs/actuate/package.nix:14:13:
 
-    12|   inherit (sources.actuate) pname src;
-    13|   version = lib.removePrefix "v" sources.actuate.version;
+    13|   inherit (sources.actuate) pname src;
+    14|   version = lib.removePrefix "v" sources.actuate.version;
       |             ^
-    14|   cargoLock = sources.actuate.cargoLock."Cargo.lock";
+    15|   cargoLock = sources.actuate.cargoLock."Cargo.lock";
 
 … while calling 'removePrefix'
 
@@ -66,12 +66,12 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/trivial.nix:852:50:
+  at <nixpkgs> + /lib/trivial.nix:912:50:
 
-   851|   */
-   852|   warnIf = cond: msg: if cond then warn msg else x: x;
+   911|   */
+   912|   warnIf = cond: msg: if cond then warn msg else x: x;
       |                                                  ^
-   853|
+   913|
 
 … from call site
 
@@ -84,47 +84,47 @@ error:
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:276:19:
+  at <nixpkgs> + /lib/customisation.nix:275:19:
 
-   275|   callPackageWith =
-   276|     autoArgs: fn: args:
+   274|   callPackageWith =
+   275|     autoArgs: fn: args:
       |                   ^
-   277|     let
+   276|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:290:11:
+  at <nixpkgs> + /lib/customisation.nix:289:11:
 
-   289|         (
-   290|           filterAttrs (name: value: !value)
+   288|         (
+   289|           filterAttrs (name: value: !value)
       |           ^
-   291|             # Filter out arguments that would be passed
+   290|             # Filter out arguments that would be passed
 
 … while calling 'filterAttrs'
 
-  at <nixpkgs> + /lib/attrsets.nix:663:23:
+  at <nixpkgs> + /lib/attrsets.nix:662:23:
 
-   662|   */
-   663|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+   661|   */
+   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
       |                       ^
-   664|
+   663|
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:279:15:
+  at <nixpkgs> + /lib/customisation.nix:278:15:
 
-   278|       f = if isFunction fn then fn else import fn;
-   279|       fargs = functionArgs f;
+   277|       f = if isFunction fn then fn else import fn;
+   278|       fargs = functionArgs f;
       |               ^
-   280|
+   279|
 
 … while calling 'functionArgs'
 
-  at <nixpkgs> + /lib/trivial.nix:1044:5:
+  at <nixpkgs> + /lib/trivial.nix:1104:5:
 
-  1043|   functionArgs =
-  1044|     f:
+  1103|   functionArgs =
+  1104|     f:
       |     ^
-  1045|     if f ? __functor then
+  1105|     if f ? __functor then
 
-error: path '/nix/store/qbj5lxdlgk2gmml56apv2vlwjrmjs1w5-package.nix' is not valid
+error: path '/nix/store/3cxby3y5vcc14p2fa1wv70d4qzn4qz92-package.nix' is not valid

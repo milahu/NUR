@@ -10,11 +10,11 @@ error:
 
 … while calling 'callPackageWith'
 
-  at <nixpkgs> + /lib/customisation.nix:276:19:
+  at <nixpkgs> + /lib/customisation.nix:275:19:
 
-   275|   callPackageWith =
-   276|     autoArgs: fn: args:
+   274|   callPackageWith =
+   275|     autoArgs: fn: args:
       |                   ^
-   277|     let
+   276|     let
 
 error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "lzma" at ./pkgs-by-lang/C/HDiffPatch/default.nix:6, did you mean "lima", "lzsa" or "azmq"?'
