@@ -1,16 +1,16 @@
 {
 "name":"andreasrid",
-"fetch_time":0.548,
-"eval_time":0.244,
+"fetch_time":0.526,
+"eval_time":0.311,
 "source":{
 "url":"https://github.com/andreasrid/nur-packages",
-"rev":"34461efc30cc10cc9db786dc93ab8077921c018f",
-"sha256":"0sl37x65hy21j8q1lcnwjbnda7w6362ajkkxr6qnph06w4gzplxp",
+"rev":"3da8f43e292cf43760471c252d54e912fec9cb53",
+"sha256":"043zmmsj29rf48dx72bl1myqxfvb0cvqxmpf20mif34s8xyanpd9",
 "date":null
 },
-"source_storepath":"/nix/store/38pl262c5na38sb7l0ss2001vqaqrymg-source",
-"nixpkgs_storepath":"/nix/store/6na3zkzwdp5y1pffscx9pmzvhwxdxjmk-source",
-"nur_combined_rev":"4aa6ff0fcb348c7e7f7993cb8ff3e986e80a4927",
+"source_storepath":"/nix/store/qc7rhhrz1dxv2phqy2jnsyff78xmcp9c-source",
+"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
+"nur_combined_rev":"72680b36c72f53c9341555aef15a8f40cb77c205",
 "packages":{
 "jlink-systemview":{
 "meta":{
@@ -50,10 +50,11 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/6na3zkzwdp5y1pffscx9pmzvhwxdxjmk-source/pkgs/stdenv/generic/check-meta.nix",
-"line":625
+"file":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source/pkgs/stdenv/generic/check-meta.nix",
+"line":558
 },
 "name":"jlink-systemview-360d",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -158,10 +159,13 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/38pl262c5na38sb7l0ss2001vqaqrymg-source/pkgs/linguee-api/default.nix",
-"line":63
+"file":"/nix/store/qc7rhhrz1dxv2phqy2jnsyff78xmcp9c-source/pkgs/linguee-api/default.nix",
+"line":71
 },
 "name":"python3.13-linguee-api-2.6.3",
+"nonTeamMaintainers":[
+"Andreas Rid"
+],
 "outputsToInstall":[
 "out"
 ],
@@ -197,7 +201,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/linguee-api/default.nix:60",
+"position":"./pkgs/linguee-api/default.nix:68",
 "unfree":false,
 "unsupported":false
 },
@@ -243,10 +247,11 @@
 "mainProgram":"linguee-api-server",
 "maintainers":[],
 "name":"linguee-api-server",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:80",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:264",
 "unfree":false,
 "unsupported":false
 },
@@ -324,6 +329,7 @@
 ],
 "maintainers":[],
 "name":"python3.13-xextract-0.1.8",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -411,17 +417,18 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/38pl262c5na38sb7l0ss2001vqaqrymg-source/pkgs/stm32cubeide/default.nix",
-"line":68
+"file":"/nix/store/qc7rhhrz1dxv2phqy2jnsyff78xmcp9c-source/pkgs/stm32cubeide/default.nix",
+"line":72
 },
 "name":"stm32cubeide-1.17.0_23558_20241125_2245",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/stm32cubeide/default.nix:62",
+"position":"./pkgs/stm32cubeide/default.nix:66",
 "sourceProvenance":[
 {
 "isSource":false,

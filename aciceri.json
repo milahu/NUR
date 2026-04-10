@@ -1,16 +1,16 @@
 {
 "name":"aciceri",
-"fetch_time":0.285,
-"eval_time":0.313,
+"fetch_time":0.527,
+"eval_time":0.319,
 "source":{
 "url":"https://github.com/aciceri/nur",
-"rev":"9f480b75c86f3550023b8dd06c428cd800ae84b7",
-"sha256":"1rjscnhb7a6fbi35az5h47p9hm7n0ari99786a8kbdah8b6mfbjg",
+"rev":"18e724adf726ee901ade4bceeb673a5c9c5a83a6",
+"sha256":"03sxndry61h3wk4c7kzb9dz7q4yvzfjp71hwar43yx1wx2hclqm3",
 "date":null
 },
-"source_storepath":"/nix/store/w0rzyzcnp1shpzrzdszhhmz5dkwzzisr-source",
-"nixpkgs_storepath":"/nix/store/660ljssgj5ky0ph0z8pwc1jw8q39xb6j-source",
-"nur_combined_rev":"e0125037cd119a2518931b861f3f772f8c88000b",
+"source_storepath":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source",
+"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
+"nur_combined_rev":"3546edbaee754e285c39ca5fdfd240f874086362",
 "packages":{
 "asciinema-player":{
 "meta":{
@@ -64,10 +64,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w0rzyzcnp1shpzrzdszhhmz5dkwzzisr-source/asciinema-player/_package.nix",
+"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/asciinema-player/_package.nix",
 "line":78
 },
-"name":"asciinema-player-3.15.0",
+"name":"asciinema-player-3.15.1",
 "nonTeamMaintainers":[
 {
 "email":"andrea.ciceri@autistici.org",
@@ -155,20 +155,22 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./asciinema-player/_package.nix:75",
 "unfree":false,
 "unsupported":false
 },
-"name":"asciinema-player-3.15.0",
+"name":"asciinema-player-3.15.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"asciinema-player",
 "system":"x86_64-linux",
-"version":"3.15.0"
+"version":"3.15.1"
 },
 "dms-ccusage-plugin":{
 "meta":{
@@ -221,8 +223,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w0rzyzcnp1shpzrzdszhhmz5dkwzzisr-source/dms-ccusage-plugin/_package.nix",
-"line":44
+"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/dms-ccusage-plugin/_package.nix",
+"line":55
 },
 "name":"dms-ccusage-plugin-1.0.0",
 "nonTeamMaintainers":[
@@ -236,7 +238,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./dms-ccusage-plugin/_package.nix:42",
+"position":"./dms-ccusage-plugin/_package.nix:53",
 "unfree":false,
 "unsupported":false
 },
@@ -313,7 +315,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w0rzyzcnp1shpzrzdszhhmz5dkwzzisr-source/helix-master/_package.nix",
+"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/helix-master/_package.nix",
 "line":80
 },
 "name":"helix-master",
@@ -433,7 +435,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w0rzyzcnp1shpzrzdszhhmz5dkwzzisr-source/hyphenopoly/_package.nix",
+"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/hyphenopoly/_package.nix",
 "line":58
 },
 "name":"hyphenopoly-6.1.0",
@@ -534,7 +536,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/w0rzyzcnp1shpzrzdszhhmz5dkwzzisr-source/mirror-checks/_package.nix",
+"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/mirror-checks/_package.nix",
 "line":22
 },
 "name":"mirror-checks",
@@ -616,7 +618,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w0rzyzcnp1shpzrzdszhhmz5dkwzzisr-source/opencode-claude-max-proxy/_package.nix",
+"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/opencode-claude-max-proxy/_package.nix",
 "line":124
 },
 "name":"opencode-claude-max-proxy-1.0.2-unstable-2026-01-30",
@@ -693,7 +695,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w0rzyzcnp1shpzrzdszhhmz5dkwzzisr-source/reinstall-magisk-on-lineageos/_package.nix",
+"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/reinstall-magisk-on-lineageos/_package.nix",
 "line":45
 },
 "name":"reinstall-magisk-on-lineageos",
@@ -708,7 +710,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:231",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:229",
 "repository":"https://github.com/NicolasWebDev/reinstall-magisk-on-lineageos",
 "unfree":false,
 "unsupported":false
@@ -726,7 +728,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/yt-dlp/blob/2026.02.04/Changelog.md",
+"changelog":"https://github.com/yt-dlp/yt-dlp/blob/2026.03.17/Changelog.md",
 "description":"Feature-rich command-line audio/video downloader",
 "homepage":"https://github.com/yt-dlp/yt-dlp/",
 "identifiers":{
@@ -823,10 +825,10 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/w0rzyzcnp1shpzrzdszhhmz5dkwzzisr-source/yt-dlp-master/_package.nix",
+"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/yt-dlp-master/_package.nix",
 "line":23
 },
-"name":"yt-dlp-master-2026.02.21-unstable-2026-02-21",
+"name":"yt-dlp-master-2026.03.17-unstable-2026-04-07",
 "nonTeamMaintainers":[
 {
 "email":"sandro.jaeckel@gmail.com",
@@ -884,11 +886,11 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/yt/yt-dlp/package.nix:138",
+"position":"<nixpkgs> + /pkgs/by-name/yt/yt-dlp/package.nix:143",
 "unfree":false,
 "unsupported":false
 },
-"name":"yt-dlp-master-2026.02.21-unstable-2026-02-21",
+"name":"yt-dlp-master-2026.03.17-unstable-2026-04-07",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -896,7 +898,7 @@
 },
 "pname":"yt-dlp-master",
 "system":"x86_64-linux",
-"version":"2026.02.21-unstable-2026-02-21"
+"version":"2026.03.17-unstable-2026-04-07"
 }
 }
 }

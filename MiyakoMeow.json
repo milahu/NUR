@@ -1,16 +1,16 @@
 {
 "name":"MiyakoMeow",
-"fetch_time":0.285,
-"eval_time":0.313,
+"fetch_time":0.568,
+"eval_time":0.411,
 "source":{
 "url":"https://github.com/MiyakoMeow/nur-packages",
-"rev":"32c029cfe263685d7d6bb9753528b66de284627c",
-"sha256":"061j2473xm6dhx4vl7n2md4mqjhyh8rshljh63jnc9xz67p4y4vc",
+"rev":"53e673fba4aabe9e93a9958a1aa51af7c2f41487",
+"sha256":"19wy9arn8ksalq2i9mr824mxmx6kx6igclcmn9q3jbxl2cgjfzjp",
 "date":null
 },
-"source_storepath":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source",
-"nixpkgs_storepath":"/nix/store/660ljssgj5ky0ph0z8pwc1jw8q39xb6j-source",
-"nur_combined_rev":"688e7c9c24ec8e33d72db7c405aae24a7367f0ba",
+"source_storepath":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source",
+"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
+"nur_combined_rev":"0826ab7876af20f6f320958eb3a685589825b3ca",
 "packages":{
 "baidunetdisk":{
 "meta":{
@@ -56,7 +56,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/ba/baidunetdisk/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/ba/baidunetdisk/package.nix",
 "line":135
 },
 "name":"baidunetdisk-4.17.7",
@@ -313,12 +313,6 @@
 "name":"Emily"
 },
 {
-"email":"jason@oconal.id.au",
-"github":"lovek323",
-"githubId":265084,
-"name":"Jason O'Conal"
-},
-{
 "email":"rrbutani+nix@gmail.com",
 "github":"rrbutani",
 "githubId":7833358,
@@ -335,12 +329,42 @@
 "github":"sternenseemann",
 "githubId":3154475,
 "name":"Lukas Epple"
+},
+{
+"email":"balsoft75@gmail.com",
+"github":"balsoft",
+"githubId":18467667,
+"name":"Alexander Bantyev"
+},
+{
+"email":"contact@infinisil.com",
+"github":"infinisil",
+"githubId":20525370,
+"keys":[
+{
+"fingerprint":"6C2B 55D4 4E04 8266 6B7D  DA1A 422E 9EDA E015 7170"
+}
+],
+"matrix":"@infinisil:matrix.org",
+"name":"Silvan Mosberger"
+},
+{
+"email":"pyrox@pyrox.dev",
+"github":"pyrox0",
+"githubId":35778371,
+"keys":[
+{
+"fingerprint":"4CA9 72FB ADC8 1416 0F10  3138 FE1D 8A7D 620C 611F"
+}
+],
+"matrix":"@pyrox:pyrox.dev",
+"name":"Pyrox"
 }
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/660ljssgj5ky0ph0z8pwc1jw8q39xb6j-source/pkgs/stdenv/generic/check-meta.nix",
-"line":629
+"file":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source/pkgs/stdenv/generic/check-meta.nix",
+"line":558
 },
 "name":"clang-21.1.8",
 "nonTeamMaintainers":[
@@ -382,12 +406,6 @@
 "name":"Emily"
 },
 {
-"email":"jason@oconal.id.au",
-"github":"lovek323",
-"githubId":265084,
-"name":"Jason O'Conal"
-},
-{
 "email":"rrbutani+nix@gmail.com",
 "github":"rrbutani",
 "githubId":7833358,
@@ -404,6 +422,36 @@
 "github":"sternenseemann",
 "githubId":3154475,
 "name":"Lukas Epple"
+},
+{
+"email":"balsoft75@gmail.com",
+"github":"balsoft",
+"githubId":18467667,
+"name":"Alexander Bantyev"
+},
+{
+"email":"contact@infinisil.com",
+"github":"infinisil",
+"githubId":20525370,
+"keys":[
+{
+"fingerprint":"6C2B 55D4 4E04 8266 6B7D  DA1A 422E 9EDA E015 7170"
+}
+],
+"matrix":"@infinisil:matrix.org",
+"name":"Silvan Mosberger"
+},
+{
+"email":"pyrox@pyrox.dev",
+"github":"pyrox0",
+"githubId":35778371,
+"keys":[
+{
+"fingerprint":"4CA9 72FB ADC8 1416 0F10  3138 FE1D 8A7D 620C 611F"
+}
+],
+"matrix":"@pyrox:pyrox.dev",
+"name":"Pyrox"
 }
 ],
 "outputsToInstall":[
@@ -418,6 +466,7 @@
 "aarch64_be-none",
 "aarch64-none",
 "aarch64-windows",
+"aarch64-uefi",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -463,6 +512,7 @@
 "x86_64-redox",
 "x86_64-windows",
 "i686-windows",
+"x86_64-uefi",
 "riscv32-linux",
 "riscv64-linux",
 "riscv32-netbsd",
@@ -546,12 +596,6 @@
 "name":"Emily"
 },
 {
-"email":"jason@oconal.id.au",
-"github":"lovek323",
-"githubId":265084,
-"name":"Jason O'Conal"
-},
-{
 "email":"rrbutani+nix@gmail.com",
 "github":"rrbutani",
 "githubId":7833358,
@@ -572,11 +616,69 @@
 ],
 "scope":"Maintain LLVM package sets and related packages",
 "shortName":"LLVM"
+},
+{
+"github":"security-review",
+"githubId":16430758,
+"githubMaintainers":[
+{
+"email":"balsoft75@gmail.com",
+"github":"balsoft",
+"githubId":18467667,
+"name":"Alexander Bantyev"
+},
+{
+"email":"contact@infinisil.com",
+"github":"infinisil",
+"githubId":20525370,
+"keys":[
+{
+"fingerprint":"6C2B 55D4 4E04 8266 6B7D  DA1A 422E 9EDA E015 7170"
+}
+],
+"matrix":"@infinisil:matrix.org",
+"name":"Silvan Mosberger"
+}
+],
+"members":[
+{
+"email":"balsoft75@gmail.com",
+"github":"balsoft",
+"githubId":18467667,
+"name":"Alexander Bantyev"
+},
+{
+"email":"contact@infinisil.com",
+"github":"infinisil",
+"githubId":20525370,
+"keys":[
+{
+"fingerprint":"6C2B 55D4 4E04 8266 6B7D  DA1A 422E 9EDA E015 7170"
+}
+],
+"matrix":"@infinisil:matrix.org",
+"name":"Silvan Mosberger"
+},
+{
+"email":"pyrox@pyrox.dev",
+"github":"pyrox0",
+"githubId":35778371,
+"keys":[
+{
+"fingerprint":"4CA9 72FB ADC8 1416 0F10  3138 FE1D 8A7D 620C 611F"
+}
+],
+"matrix":"@pyrox:pyrox.dev",
+"name":"Pyrox"
+}
+],
+"scope":"Reviews changes to core packages for Nixpkgs security vulnerabilities: https://github.com/NixOS/nixpkgs/issues/494349",
+"shortName":"Security review"
 }
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/660ljssgj5ky0ph0z8pwc1jw8q39xb6j-source/pkgs/development/compilers/llvm/common/common-let.nix",
+"file":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source/pkgs/development/compilers/llvm/common/common-let.nix",
 "line":23
 },
 "unfree":false,
@@ -637,7 +739,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/cl/claude-code-setting-switcher/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/cl/claude-code-setting-switcher/package.nix",
 "line":48
 },
 "name":"claude-code-setting-switcher-0-unstable-2025-07-15",
@@ -751,10 +853,10 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/co/continue-cli/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/co/continue-cli/package.nix",
 "line":49
 },
-"name":"continue-cli-1.5.43",
+"name":"continue-cli-1.5.45",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -835,20 +937,22 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/by-name/co/continue-cli/package.nix:45",
 "unfree":false,
 "unsupported":false
 },
-"name":"continue-cli-1.5.43",
+"name":"continue-cli-1.5.45",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"continue-cli",
 "system":"x86_64-linux",
-"version":"1.5.43"
+"version":"1.5.45"
 },
 "free-download-manager":{
 "meta":{
@@ -894,10 +998,10 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/fr/free-download-manager/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/fr/free-download-manager/package.nix",
 "line":149
 },
-"name":"free-download-manager-6.33.1.6648",
+"name":"free-download-manager-6.33.2.6656",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -909,14 +1013,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"free-download-manager-6.33.1.6648",
+"name":"free-download-manager-6.33.2.6656",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"free-download-manager",
 "system":"x86_64-linux",
-"version":"6.33.1.6648"
+"version":"6.33.2.6656"
 },
 "hn-linux-client":{
 "meta":{
@@ -962,7 +1066,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/hn/hn-linux-client/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/hn/hn-linux-client/package.nix",
 "line":112
 },
 "name":"hn-linux-client-V2-64",
@@ -1031,7 +1135,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/jp/jportaudio/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/jp/jportaudio/package.nix",
 "line":82
 },
 "name":"jportaudio-0-unstable-2026-02-13",
@@ -1099,7 +1203,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/la/lampghost/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/la/lampghost/package.nix",
 "line":112
 },
 "name":"lampghost-0.3.1",
@@ -1193,7 +1297,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/la/lampghost-dev/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/la/lampghost-dev/package.nix",
 "line":117
 },
 "name":"lampghost-dev-0.3.1-unstable-2025-11-06",
@@ -1285,7 +1389,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/lr/lr2oraja/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/lr/lr2oraja/package.nix",
 "line":42
 },
 "name":"lr2oraja-build11611350155",
@@ -1369,7 +1473,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/by-name/lr/lr2oraja/package.nix:39",
 "unfree":false,
@@ -1429,7 +1535,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/lr/lr2oraja-endlessdream/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/lr/lr2oraja-endlessdream/package.nix",
 "line":34
 },
 "name":"lr2oraja-endlessdream-0.4.0",
@@ -1520,7 +1626,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/mb/mbmconfig/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/mb/mbmconfig/package.nix",
 "line":84
 },
 "name":"mbmconfig-3.24.0824.0",
@@ -1591,7 +1697,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/mb/mbmplay/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/mb/mbmplay/package.nix",
 "line":82
 },
 "name":"mbmplay-3.24.0824.1",
@@ -1660,7 +1766,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/pb/pbmsc/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/pb/pbmsc/package.nix",
 "line":81
 },
 "name":"pbmsc-3.5.5.16",
@@ -1730,7 +1836,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/x5yj7dmn307mqvqa8ywb99k1civjxmfm-source/pkgs/by-name/we/wechat-latest/package.nix",
+"file":"/nix/store/f5nwa6psmxvs6rnx5kfp2iq4r8y5lj29-source/pkgs/by-name/we/wechat-latest/package.nix",
 "line":121
 },
 "name":"wechat-latest-20260214.152742",
