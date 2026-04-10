@@ -23,12 +23,14 @@ paths with no runtime rebuild hacks.
 `mkOpencodePlugin` in `pkgs/opencode/plugins/default.nix`:
 
 - Copies dependencies to `./node_modules`.
+- Runs optional `buildCommand` before files are copied to `$out`.
 - Copies source tree to `$out`.
 - Runs `postInstall` after files are in `$out`.
 - Supports per-plugin toolchain extensions via:
   - `nativeBuildInputs = [bun] ++ (args.nativeBuildInputs or [])`
 
-Implication: `postInstall` should usually start with `cd "$out"`.
+Implication: use `buildCommand` for normal compilation and keep `postInstall`
+for package-root tweaks that must happen in `$out`.
 
 ## New Plugin Workflow
 
@@ -36,7 +38,8 @@ Implication: `postInstall` should usually start with `cd "$out"`.
 2. Choose dependency strategy:
    - `dependencyHash = null` for no external npm deps.
    - Set `dependencyHash` for plugins requiring `node_modules`.
-3. Add build/codegen in `postInstall` if upstream ships TS or generated assets.
+3. Add normal compilation in `buildCommand`; keep `postInstall` only for
+   package-root tweaks in `$out`.
 4. Ensure output `package.json` `main` resolves to JS at runtime.
 5. Build and smoke-test import.
 6. Update consumer config to use package-root URL (`file://${pkg}`).
@@ -68,12 +71,11 @@ mkOpencodePlugin rec {
   # Optional: add per-plugin build tools.
   nativeBuildInputs = lib.optionals (typescript != null) [typescript];
 
-  # Optional: build JS and generated assets inside $out.
-  postInstall = ''
-    cd "$out"
+  # Optional: compile sources before install.
+  buildCommand = "bun run build";
 
-    # Example build steps (adjust per plugin).
-    bun run build
+  # Optional: package-root tweaks inside $out.
+  postInstall = ''
 
     # If upstream main points to TS, rewrite to built JS.
     substituteInPlace package.json \
@@ -134,13 +136,17 @@ Look for one `service=plugin path=file:///nix/store/...` line per plugin.
 ## Existing Package Patterns
 
 - `cc-safety-net`: no extra build step.
-- `dynamic-context-pruning`: prompt generation + `tsc` compile.
+- `dynamic-context-pruning`: `tsc` compile.
 - `notifier`: upstream build script (`bun run build`).
 - `morph-fast-apply`: direct bun build + main rewrite.
 - `unmoji`: `fetchFromCodeberg` + direct
   `bun build src/index.ts --outdir dist --target node --format esm`.
 
 ## Consumer Config Pattern
+
+Two supported consumption patterns are documented here.
+
+### Direct OpenCode Config
 
 In Home Manager/NixOS config, load package roots only:
 
@@ -149,3 +155,87 @@ programs.opencode.settings.plugin = [
   "file://${pkgs.nur.repos.adam0.opencodePlugins.<name>}"
 ];
 ```
+
+### Home Manager Module
+
+This repository also exports a Home Manager module that adds
+`programs.opencode.plugins.<name>.enable`,
+`programs.opencode.plugins.auto-resume.settings`,
+`programs.opencode.plugins.notifier.settings`, and
+`programs.opencode.plugins.extraPackages`.
+
+When using flakes, enable the NUR overlay in configuration so `pkgs.nur` is
+available on the existing package set, then import
+`pkgs.nur.repos.adam0.hmModules.opencode-plugins`:
+
+```nix
+{
+  outputs = inputs@{ self, nixpkgs, home-manager, nur, ... }: {
+    homeConfigurations.me = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+      };
+      modules = [
+        {
+          nixpkgs.overlays = [ nur.overlays.default ];
+        }
+        pkgs.nur.repos.adam0.hmModules.opencode-plugins
+        {
+          programs.opencode = {
+            enable = true;
+
+            plugins.notifier = {
+              enable = true;
+              settings = {
+                sound = false;
+              };
+            };
+
+            plugins.auto-resume = {
+              enable = true;
+              settings = {
+                chunkTimeoutMs = 45000;
+                maxRetries = 3;
+              };
+            };
+
+            plugins.<name>.enable = true;
+
+            plugins.extraPackages = [
+              pkgs.my-opencode-plugin
+            ];
+          };
+        }
+      ];
+    };
+  };
+}
+```
+
+`programs.opencode.plugins.notifier.settings` accepts either:
+
+- a JSON attrset/list/value, which is written to
+  `opencode/opencode-notifier.json`
+- a path to an existing JSON file, which is used as the file source directly
+
+Example with an existing file:
+
+```nix
+programs.opencode.plugins.notifier.settings = ./opencode-notifier.json;
+```
+
+`programs.opencode.plugins.auto-resume.settings` accepts a JSON attrset/list/value
+and writes the plugin entry as:
+
+```nix
+[
+  "file://${pkgs.nur.repos.adam0.opencodePlugins.auto-resume}"
+  {
+    chunkTimeoutMs = 45000;
+    maxRetries = 3;
+  }
+]
+```
+
+The module still writes package-root plugin URLs under the hood, so do not use
+explicit entrypoint paths like `/dist/index.js`.

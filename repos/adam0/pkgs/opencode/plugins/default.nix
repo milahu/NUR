@@ -4,6 +4,18 @@
   stdenvNoCC,
   bun,
 }: let
+  inherit
+    (builtins)
+    readDir
+    mapAttrs
+    ;
+  inherit
+    (lib)
+    filterAttrs
+    pipe
+    platforms
+    ;
+
   root = ./.;
 
   mkOpencodePlugin = args @ {
@@ -11,6 +23,7 @@
     version,
     src,
     dependencyHash ? null,
+    buildCommand ? null,
     meta ? {},
     ...
   }: let
@@ -54,7 +67,8 @@
         };
   in
     stdenvNoCC.mkDerivation (
-      (lib.removeAttrs args [
+      (removeAttrs args [
+        "buildCommand"
         "dependencyHash"
         "meta"
       ])
@@ -67,8 +81,14 @@
 
           cp -r ${deps}/node_modules ./node_modules
 
+          runHook preBuild
+          ${lib.optionalString (buildCommand != null) buildCommand}
+          runHook postBuild
+
           mkdir -p "$out"
           cp -r . "$out/"
+
+          cd "$out"
 
           runHook postInstall
         '';
@@ -77,17 +97,17 @@
           meta
           // {
             description = meta.description or "";
-            platforms = meta.platforms or lib.platforms.unix;
+            platforms = meta.platforms or platforms.unix;
           };
       }
     );
 
   call = name: callPackage (root + "/${name}") {inherit mkOpencodePlugin;};
 in
-  lib.pipe root [
-    builtins.readDir
-    (lib.filterAttrs (_: type: type == "directory"))
-    (builtins.mapAttrs (name: _: call name))
+  pipe root [
+    readDir
+    (filterAttrs (_: type: type == "directory"))
+    (mapAttrs (name: _: call name))
   ]
   // {
     inherit mkOpencodePlugin;

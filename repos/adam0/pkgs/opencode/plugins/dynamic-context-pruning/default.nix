@@ -6,25 +6,20 @@
 }:
 mkOpencodePlugin rec {
   pname = "dynamic-context-pruning";
-  version = "2.1.7";
+  version = "3.1.9";
 
   src = fetchFromGitHub {
     owner = "Opencode-DCP";
     repo = "opencode-${pname}";
     rev = "v${version}";
-    hash = "sha256-27o8o2EH8JUMzaQ+rfWFceYDAViwtN/10b0iU+lOEdk=";
+    hash = "sha256-a5WrJ6OWgrF/fNmo7Dq6TiyJcsU+utbH5NaCP6wsJFk=";
   };
 
-  dependencyHash = "sha256-NTGo30IouPx94hwJiw+/MHChakq1+BkQs6BNLrO9tIE=";
+  dependencyHash = "sha256-+VbW5R9zVDu2QSQud7DJ8sya/pR1aKNayzLZVF9hP9s=";
 
   nativeBuildInputs = [typescript];
 
-  postInstall = ''
-    cd "$out"
-
-    bun scripts/generate-prompts.ts
-    tsc -p tsconfig.json
-  '';
+  buildCommand = "tsc -p tsconfig.json";
 
   meta = {
     description = "OpenCode plugin for dynamic context pruning and token usage optimization";

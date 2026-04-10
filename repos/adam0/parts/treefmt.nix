@@ -1,11 +1,14 @@
-_: {
-  perSystem.treefmt.programs = {
-    alejandra.enable = true;
-    nixf-diagnose.enable = true;
-    deadnix.enable = true;
-    statix.enable = true;
+{inputs, ...}: {
+  imports = [inputs.treefmt-nix.flakeModule];
 
-    rumdl-check.enable = true;
-    rumdl-format.enable = true;
+  perSystem = _: {
+    treefmt.programs = {
+      alejandra.enable = true;
+      nixf-diagnose.enable = true;
+      deadnix.enable = true;
+      statix.enable = true;
+
+      rumdl-format.enable = true;
+    };
   };
 }

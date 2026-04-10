@@ -5,19 +5,19 @@
 }:
 mkOpencodePlugin rec {
   pname = "cc-safety-net";
-  version = "0.7.1";
+  version = "0.8.2";
 
   src = fetchFromGitHub {
     owner = "kenryu42";
     repo = "claude-code-safety-net";
     rev = "v${version}";
-    hash = "sha256-7KlV5Ni/nnwAsy+PFHT0CgvamLpC8upWM5pyuplk56s=";
+    hash = "sha256-pdcKPrma0L13tMrU6bjuMSHwvqgdIQ6nw66G1rbNRkI=";
   };
 
   dependencyHash = null;
 
   meta = {
-    description = "OpenCode plugin that blocks destructive git and filesystem commands";
+    description = "A coding agent hook that acts as a safety net";
     homepage = "https://github.com/kenryu42/claude-code-safety-net";
     license = lib.licenses.mit;
   };

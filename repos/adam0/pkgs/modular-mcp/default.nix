@@ -105,6 +105,7 @@ in
       description = "A Model Context Protocol (MCP) proxy server that enables efficient management of large tool collections";
       homepage = "https://github.com/d-kimuson/modular-mcp";
       license = licenses.mit;
-      mainProgram = "${pname}";
+      mainProgram = pname;
+      platforms = platforms.unix;
     };
   }
