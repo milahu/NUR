@@ -62,6 +62,7 @@ jobs:
               # "mame",
               "hbmame",
               "qemu-screamer",
+              "lix-game-darwin",
             empty] as $subsets |
             
             {include: [
@@ -78,7 +79,8 @@ jobs:
               }[$qemuSystem] else null end) as $qemuSystemForAction |
               # (if $qemuSystem then $subsets[] else "all" end) as $subset |
               $subsets[] as $subset |
-              select(($runner | startswith("macos")) or ($subset != "mame")) |
+              # select(($runner | startswith("macos")) or ($subset != "mame")) |
+              select(($runner | startswith("macos")) or ($subset != "lix-game-darwin")) |
               (if $nixpkgs | test("^[0-9a-f]{40}$") then $nixpkgs else "refs/heads/\($nixpkgs)" end) as $nixpkgsPath |
               ($nixpkgs |
                 gsub("^nixpkgs-"; "NP-") |
@@ -100,7 +102,7 @@ jobs:
           echo -E "cachePrefix=$cachePrefix" >> "$GITHUB_OUTPUT"
       - name: Restore GHA cache of Nix cache
         id: cache
-        uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        uses: actions/cache/restore@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
         with:
           path: |
             ~/.cache/nix/*
@@ -136,7 +138,7 @@ jobs:
           "$result"
       - name: Get token for deleting cache
         if: ${{ steps.fetch.outputs.shouldDeleteCache == 'true' }}
-        uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
         id: app-token
         with:
           # required
@@ -149,7 +151,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
       - name: Save GHA cache of Nix cache
-        uses: actions/cache/save@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        uses: actions/cache/save@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
         with:
           path: |
             ~/.cache/nix/*
@@ -174,7 +176,7 @@ jobs:
         echo 'nurRepo=${{ matrix.nurRepo }}' >> "$GITHUB_OUTPUT"
     - name: Install qemu-user-static
       if: ${{ matrix.qemuSystem != null }}
-      uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
+      uses: docker/setup-qemu-action@ce360397dd3f832beb865e1373c09c0e9f86d70a # v4.0.0
       with:
         platforms: ${{ matrix.qemuSystemForAction }}
     - name: Install nix
@@ -183,7 +185,7 @@ jobs:
         nix_conf: |
           ${{ matrix.qemuSystem && format('extra-platforms = {0}', matrix.qemuSystem) || '' }}
     - name: Restore Nixpkgs cache
-      uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      uses: actions/cache/restore@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
       with:
         path: |
             ~/.cache/nix/*
@@ -197,7 +199,7 @@ jobs:
     - name: Show nixpkgs version
       run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
     - name: Setup cachix
-      uses: cachix/cachix-action@3ba601ff5bbb07c7220846facfa2cd81eeee15a1 # v16
+      uses: cachix/cachix-action@1eb2ef646ac0255473d23a5907ad7b04ce94065c # v17
       # Don't replace <YOUR_CACHIX_NAME> here!
       if: ${{ matrix.cachixName != '<YOUR_CACHIX_NAME>' }}
       with:
@@ -216,7 +218,7 @@ jobs:
           -I $PWD
     - name: Restore cached build failures
       id: restoreFailCache
-      uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      uses: actions/cache/restore@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
       with:
         path: /tmp/buildFailures
         key: buildFailures-${{ github.run_id }}-${{ github.run_attempt }}
@@ -264,7 +266,7 @@ jobs:
         '
     - name: Upload build logs
       if: '!cancelled()'
-      uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+      uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
       with:
         name: Rhys-T-nur-packages-build-logs-${{ matrix.runner }}${{ matrix.qemuSystem && format('+qemu-{0}', matrix.qemuSystem) || '' }}-${{ matrix.nixpkgs }}-${{ matrix.subset }}
         path: |
@@ -275,7 +277,7 @@ jobs:
           !/nix/var/log/nix/drvs/*/*user-environment*
         if-no-files-found: ignore
     - name: Find build failures for subset
-      if: ${{ !cancelled() && steps.build.outcome == 'failure' }}
+      if: ${{ !cancelled() && steps.build.outcome == 'failure' && (matrix.subset != 'lix-game-darwin' || matrix.nixpkgs != 'nixpkgs-unstable') }}
       run: |
         mv /tmp/buildFailures{,-old} || true
         mkdir /tmp/buildFailures
@@ -300,8 +302,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
     - name: Upload build failures for subset
-      if: ${{ !cancelled() && steps.build.outcome == 'failure' }}
-      uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+      if: ${{ !cancelled() && steps.build.outcome == 'failure' && (matrix.subset != 'lix-game-darwin' || matrix.nixpkgs != 'nixpkgs-unstable') }}
+      uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
       with:
         name: buildFailures-${{ matrix.cacheName }}
         path: /tmp/buildFailures/*.drv.json
@@ -331,13 +333,13 @@ jobs:
       - tests
     steps:
       - name: Merge build failure cache
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           pattern: buildFailures-*
           path: /tmp/buildFailures
           merge-multiple: true
       - name: Save merged build failure cache
-        uses: actions/cache/save@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        uses: actions/cache/save@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
         with:
           path: /tmp/buildFailures
           key: buildFailures-${{ github.run_id }}-${{ github.run_attempt }}
