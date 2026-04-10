@@ -22,20 +22,15 @@ src.prefix = "DXVK-GPLALL-"
 fetch.github = "conor42/fxz"
 src.git = "https://github.com/conor42/fxz"
 
-[imfile-arm]
-fetch.url = "https://github.com/imfile-io/imfile-desktop/releases/download/v$ver/imFile-$ver-arm64.AppImage"
-src.github = "imfile-io/imfile-desktop"
-src.prefix = "v"
-
-[imfile-x86]
-fetch.url = "https://github.com/imfile-io/imfile-desktop/releases/download/v$ver/imFile-$ver.AppImage"
-src.github = "imfile-io/imfile-desktop"
-src.prefix = "v"
-
 [jaq]
 cargo_lock = ["Cargo.lock"]
 fetch.github = "01mf02/jaq"
 src.github_tag = "01mf02/jaq"
+
+[kikoflu]
+extract = ["pubspec.lock"]
+fetch.github = "pa-jesusf/KikoFlu"
+src.github = "pa-jesusf/KikoFlu"
 
 [linux-enable-ir-emitter]
 cargo_lock = ["Cargo.lock"]
@@ -53,9 +48,15 @@ src.github = "lxgw/LxgwWenkaiGB"
 
 [lyrica]
 cargo_lock = ["Cargo.lock"]
-extract = ["plasmoid/metadata.json"]
-fetch.github = "ccicnce113424/lyrica"
-src.git = "https://github.com/ccicnce113424/lyrica"
+extract = ["Cargo.toml", "frontend/kde/metadata.json"]
+fetch.github = "chiyuki0325/lyrica"
+src.branch = "v1"
+src.git = "https://github.com/chiyuki0325/lyrica"
+
+[motrix-next]
+cargo_lock = ["src-tauri/Cargo.lock"]
+fetch.github = "AnInsomniacy/motrix-next"
+src.github_tag = "AnInsomniacy/motrix-next"
 
 [piliplus]
 extract = ["pubspec.lock"]
@@ -76,6 +77,11 @@ src.git = "https://github.com/wgh136/pixes"
 cargo_lock = ["Cargo.lock"]
 fetch.github = "imsyy/SPlayer"
 src.git = "https://github.com/imsyy/SPlayer"
+
+[splayer-kde-bar-lyc]
+extract = ["metadata.json"]
+fetch.github = "lrst6963/Splayer-kde-bar-lyc"
+src.git = "https://github.com/lrst6963/Splayer-kde-bar-lyc"
 
 [svt-av1-hdr]
 fetch.github = "juliobbv-p/svt-av1-hdr"

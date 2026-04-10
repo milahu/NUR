@@ -8,12 +8,7 @@ let
   unstableVersion = src: "0-unstable-${src.date}";
 in
 rec {
-  _7zip-zstd = pkgs.callPackage ./_7zip-zstd { inherit asmc-linux; };
-  _7zip-zstd-rar = _7zip-zstd.override { enableUnfree = true; };
-
   algermusicplayer = pkgs.callPackage ./algermusicplayer { inherit fetchedSrc; };
-
-  asmc-linux = pkgs.callPackage ./asmc-linux/package.nix { };
 
   daed = pkgs.callPackage ./daed { };
 
@@ -59,11 +54,15 @@ rec {
       }
     );
 
-  imfile = pkgs.callPackage ./imfile { inherit fetchedSrc; };
-
   jaq = pkgs.callPackage ./jaq rec {
     sources = fetchedSrc.jaq;
     version = stableVersion sources;
+  };
+
+  kikoflu = pkgs.callPackage ./kikoflu rec {
+    sources = fetchedSrc.kikoflu;
+    version = stableVersion sources;
+    srcInfo = lib.importJSON ./kikoflu/src-info.json;
   };
 
   linux-enable-ir-emitter = pkgs.callPackage ./linux-enable-ir-emitter rec {
@@ -90,6 +89,12 @@ rec {
     inherit lyrica;
   };
 
+  motrix-next = pkgs.callPackage ./motrix-next rec {
+    inherit (lib.importJSON ./motrix-next/src-info.json) hash;
+    sources = fetchedSrc.motrix-next;
+    version = stableVersion sources;
+  };
+
   piliplus = pkgs.callPackage ./piliplus rec {
     sources = fetchedSrc.piliplus;
     inherit (sources) version;
@@ -110,9 +115,13 @@ rec {
   shijima-qt = pkgs.callPackage ./shijima-qt { };
 
   splayer-git = pkgs.callPackage ./splayer-git rec {
-    inherit ((lib.importJSON ./splayer-git/src-info.json)) hash;
+    inherit (lib.importJSON ./splayer-git/src-info.json) hash;
     sources = fetchedSrc.splayer-git;
     version = unstableVersion sources;
+  };
+
+  splayer-kde-bar-lyc = pkgs.callPackage ./splayer-kde-bar-lyc {
+    sources = fetchedSrc.splayer-kde-bar-lyc;
   };
 
   svt-av1-hdr = pkgs.callPackage ./svt-av1-psy rec {

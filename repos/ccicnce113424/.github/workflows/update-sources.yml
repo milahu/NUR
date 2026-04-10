@@ -1,12 +1,13 @@
 name: Update Sources
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
   workflow_dispatch: # allows manual triggering
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 6 * * *"
+      timezone: "Asia/Shanghai"
 
 concurrency:
   group: update-sources
@@ -33,11 +34,11 @@ jobs:
           nix flake update
           export NIX_PATH="nixpkgs=$(nix eval --raw .#nixpkgs)"
           nix run .#nvfetcher-bin
-          nix fmt _sources
           git add .
-          pkgs/_7zip-zstd/update.sh
           pkgs/daed/update.sh
+          pkgs/kikoflu/update.sh
           pkgs/loveiwara/update.sh
+          pkgs/motrix-next/update.sh
           pkgs/piliplus/update.sh
           pkgs/pixes/update.sh
           pkgs/pixes/update-git.sh

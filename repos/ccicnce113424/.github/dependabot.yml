@@ -5,7 +5,9 @@
 
 version: 2
 updates:
-  - package-ecosystem: "github-actions" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: "daily"
+      interval: "cron"
+      cronjob: "30 6 * * *"
+      timezone: "Asia/Shanghai"
