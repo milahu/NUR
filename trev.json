@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":0.397,
-"eval_time":0.355,
+"fetch_time":0.455,
+"eval_time":0.36,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"7a1bb5742d53cafd0d878cd2d4f5f57f7c8ece9d",
-"sha256":"1zqvv0yqw4msh0f9918pd3hv2wf5gj69q827dsl0lr2qvprn5v3a",
+"rev":"d32a12605bedfc9ba52fe27640d854936c1646a1",
+"sha256":"1iw0zsmvyqd3mc1bz9h3sna593sa16hp3hjr6zv687zhdzr2myiq",
 "date":null
 },
-"source_storepath":"/nix/store/fz060ka7pm7hafyyzsv2zp6hkjhk20nw-source",
-"nixpkgs_storepath":"/nix/store/5qbh034dwcx8igp4p0mbyar9z1bkdyi4-source",
-"nur_combined_rev":"244a64f0e71661e827eca66a4bec9628ec26cc9a",
+"source_storepath":"/nix/store/sqvijynrggd4nms88s1y1zv6sxnqfhii-source",
+"nixpkgs_storepath":"/nix/store/jbrk15x786sf4i12hxrp0wgfzckb6qb8-source",
+"nur_combined_rev":"4ef7822d4b3eb36fb1c796f37b4ffcf8df1a8b5b",
 "packages":{
 "bobgen":{
 "meta":{
@@ -159,7 +159,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/stephenafamo/bob/commits/d4f6947b4a26a3cf66909b8ee259d05409b85d42/",
+"changelog":"https://github.com/stephenafamo/bob/commits/50353154d23970235c43264d6c704f56b246b254/",
 "description":"SQL query builder and ORM/Factory generator for Go - main branch",
 "homepage":"https://github.com/stephenafamo/bob",
 "identifiers":{
@@ -200,7 +200,7 @@
 },
 "mainProgram":"bobgen-sql",
 "maintainers":[],
-"name":"bobgen-0.42.0-unstable-2026-03-11",
+"name":"bobgen-0.42.0-unstable-2026-04-05",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -289,14 +289,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"bobgen-0.42.0-unstable-2026-03-11",
+"name":"bobgen-0.42.0-unstable-2026-04-05",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"bobgen",
 "system":"x86_64-linux",
-"version":"0.42.0-unstable-2026-03-11"
+"version":"0.42.0-unstable-2026-04-05"
 },
 "buf":{
 "meta":{
@@ -365,7 +365,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5qbh034dwcx8igp4p0mbyar9z1bkdyi4-source/pkgs/by-name/bu/buf/package.nix",
+"file":"/nix/store/jbrk15x786sf4i12hxrp0wgfzckb6qb8-source/pkgs/by-name/bu/buf/package.nix",
 "line":90
 },
 "name":"buf-1.67.0",
@@ -843,8 +843,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5qbh034dwcx8igp4p0mbyar9z1bkdyi4-source/pkgs/by-name/de/deno/package.nix",
-"line":266
+"file":"/nix/store/jbrk15x786sf4i12hxrp0wgfzckb6qb8-source/pkgs/by-name/de/deno/package.nix",
+"line":275
 },
 "name":"deno-2.7.9",
 "nonTeamMaintainers":[
@@ -871,7 +871,7 @@
 "aarch64-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/de/deno/package.nix:254",
+"position":"<nixpkgs> + /pkgs/by-name/de/deno/package.nix:263",
 "unfree":false,
 "unsupported":false
 },
@@ -1615,7 +1615,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/imputnet/helium-linux/releases/tag/V0.10.8.1",
+"changelog":"https://github.com/imputnet/helium-linux/releases/tag/V0.10.9.1",
 "description":"Helium Browser for Linux",
 "homepage":"https://github.com/imputnet/helium-linux",
 "identifiers":{
@@ -1656,7 +1656,7 @@
 },
 "mainProgram":"helium",
 "maintainers":[],
-"name":"helium-0.10.8.1",
+"name":"helium-0.10.9.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1674,14 +1674,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"helium-0.10.8.1",
+"name":"helium-0.10.9.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"helium",
 "system":"x86_64-linux",
-"version":"0.10.8.1"
+"version":"0.10.9.1"
 },
 "igsc":{
 "meta":{
@@ -2395,7 +2395,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/opengrep/opengrep/releases/tag/v1.17.0",
+"changelog":"https://github.com/opengrep/opengrep/releases/tag/v1.19.0",
 "description":"Static code analysis engine to find security issues in code",
 "homepage":"https://github.com/opengrep/opengrep",
 "identifiers":{
@@ -2468,7 +2468,7 @@
 },
 "mainProgram":"opengrep",
 "maintainers":[],
-"name":"opengrep-1.17.0",
+"name":"opengrep-1.19.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2482,7 +2482,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"opengrep-1.17.0",
+"name":"opengrep-1.19.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -2490,7 +2490,7 @@
 },
 "pname":"opengrep",
 "system":"x86_64-linux",
-"version":"1.17.0"
+"version":"1.19.0"
 },
 "protoc-gen-connect-openapi":{
 "meta":{
@@ -3211,7 +3211,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/astral-sh/uv/blob/0.11.3/CHANGELOG.md",
+"changelog":"https://github.com/astral-sh/uv/blob/0.11.4/CHANGELOG.md",
 "description":"Minimal build backend for uv",
 "homepage":"https://docs.astral.sh/uv/reference/settings/#build-backend",
 "identifiers":{
@@ -3303,7 +3303,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5qbh034dwcx8igp4p0mbyar9z1bkdyi4-source/pkgs/development/python-modules/uv-build/default.nix",
+"file":"/nix/store/jbrk15x786sf4i12hxrp0wgfzckb6qb8-source/pkgs/development/python-modules/uv-build/default.nix",
 "line":53
 },
 "name":"python3.13-uv-build-0.10.0",
@@ -3368,7 +3368,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/yt-dlp/commits/0f45ecc920f31c3c5704c62bad8da2e2844ff9bc",
+"changelog":"https://github.com/yt-dlp/yt-dlp/commits/a4acc4223289eeb4d32af7b798bfe6e9c38f4b8d",
 "description":"Feature-rich command-line audio/video downloader - master branch",
 "homepage":"https://github.com/yt-dlp/yt-dlp/",
 "identifiers":{
@@ -3441,7 +3441,7 @@
 },
 "mainProgram":"yt-dlp",
 "maintainers":[],
-"name":"yt-dlp-2026.03.17-unstable-2026-04-04",
+"name":"yt-dlp-2026.03.17-unstable-2026-04-07",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3530,7 +3530,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yt-dlp-2026.03.17-unstable-2026-04-04",
+"name":"yt-dlp-2026.03.17-unstable-2026-04-07",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3538,13 +3538,13 @@
 },
 "pname":"yt-dlp",
 "system":"x86_64-linux",
-"version":"2026.03.17-unstable-2026-04-04"
+"version":"2026.03.17-unstable-2026-04-07"
 },
 "yt-dlp-ejs":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/ejs/commits/4fb477f4af56880cfd324c48bd4294a2d2294e50",
+"changelog":"https://github.com/yt-dlp/ejs/commits/2231f1fd6e13aa88ee9b3af7a3193a81e07e6a27",
 "description":"External JavaScript for yt-dlp supporting many runtimes",
 "homepage":"https://github.com/yt-dlp/ejs/",
 "identifiers":{
@@ -3636,7 +3636,7 @@
 }
 ],
 "maintainers":[],
-"name":"python3.13-yt-dlp-ejs-0.8.0-unstable-2026-03-17",
+"name":"python3.13-yt-dlp-ejs-0.8.0-unstable-2026-04-07",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3677,7 +3677,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-yt-dlp-ejs-0.8.0-unstable-2026-03-17",
+"name":"python3.13-yt-dlp-ejs-0.8.0-unstable-2026-04-07",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3685,7 +3685,7 @@
 },
 "pname":"python3.13-yt-dlp-ejs",
 "system":"x86_64-linux",
-"version":"0.8.0-unstable-2026-03-17"
+"version":"0.8.0-unstable-2026-04-07"
 },
 "zig-protobuf":{
 "meta":{
