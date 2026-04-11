@@ -23,9 +23,7 @@ rustPlatform.buildRustPackage rec {
     zlib
   ];
 
-  nativeBuildInputs = [
-    pkg-config
-  ];
+  nativeBuildInputs = [ pkg-config ];
 
   cargoHash = "sha256-lid1tyR8Y6lvjpeGJ4vGzqDTY6V2y/5rL9fGyjyF3yw=";
   doCheck = false; # this requires network access

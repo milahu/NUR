@@ -1,14 +1,18 @@
-{ lib, buildGoModule, fetchFromGitHub }:
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
+}:
 
 buildGoModule rec {
   pname = "git-credential-1password";
-  version = "1.3.0";
+  version = "1.5.0";
 
   src = fetchFromGitHub {
     owner = "ethrgeist";
     repo = pname;
     tag = "v${version}";
-    hash = "sha256-KiMpBQ4jEm2pXRitfZLEyGjkKJHC2KNKIX8tfenVTAw=";
+    hash = "sha256-FkmhnU8w51LzBMIFd1385gAaTl9O5G2JuFtnsN2zWTo=";
   };
 
   vendorHash = null;

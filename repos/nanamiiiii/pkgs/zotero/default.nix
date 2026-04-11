@@ -116,9 +116,7 @@ let
     inherit version nodejs;
     src = "${src}/pdf-worker";
     npmDepsHash = "sha256-TGuN1fZOClzm6xD2rmn5BAemN4mbyOVaLbSRyMeDIm8=";
-    nativeBuildInputs = [
-      rsync
-    ];
+    nativeBuildInputs = [ rsync ];
     postPatch = ''
       rm -rf pdf.js
       cp -r ${pdf-js} pdf.js
@@ -242,9 +240,7 @@ buildNpmPackage (finalAttrs: {
   # Build with test support if `doCheck` is enabled.
   env.ZOTERO_TEST = doCheck;
 
-  nativeCheckInputs = [
-    xvfb-run
-  ];
+  nativeCheckInputs = [ xvfb-run ];
 
   checkPhase = ''
     runHook preCheck
