@@ -1,4 +1,4 @@
-trace: evaluation warning: fontforge-20251009 was overridden with `version` but not `src` at ./default.nix:874:5.
+trace: evaluation warning: fontforge-20251009 was overridden with `version` but not `src` at ./default.nix:880:5.
 
 This is most likely not what you want. In order to properly change the version of a package, override
 both the `version` and `src` attributes:
@@ -36,12 +36,12 @@ error:
 
 … while calling the 'foldl'' builtin
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:558:21:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:556:21:
 
-   557|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
-   558|       maintainers = unique (
+   555|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
+   556|       maintainers = unique (
       |                     ^
-   559|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
+   557|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
 
 … while calling anonymous lambda
 
