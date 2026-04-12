@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":0.455,
-"eval_time":0.36,
+"fetch_time":0.579,
+"eval_time":0.358,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"d32a12605bedfc9ba52fe27640d854936c1646a1",
-"sha256":"1iw0zsmvyqd3mc1bz9h3sna593sa16hp3hjr6zv687zhdzr2myiq",
+"rev":"17b02ac6c769eb6721362c63f5921973f10d0139",
+"sha256":"1k7v7yazwvmj9z4bz4jmpz738ilx02izn84mhmw2989khv23yy7y",
 "date":null
 },
-"source_storepath":"/nix/store/sqvijynrggd4nms88s1y1zv6sxnqfhii-source",
-"nixpkgs_storepath":"/nix/store/jbrk15x786sf4i12hxrp0wgfzckb6qb8-source",
-"nur_combined_rev":"4ef7822d4b3eb36fb1c796f37b4ffcf8df1a8b5b",
+"source_storepath":"/nix/store/qvbf0n01jw97khhgqvw18m88l6i67a7a-source",
+"nixpkgs_storepath":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source",
+"nur_combined_rev":"4d8be05dcddd0d4aec77f6c937af737e070da46a",
 "packages":{
 "bobgen":{
 "meta":{
@@ -159,7 +159,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/stephenafamo/bob/commits/50353154d23970235c43264d6c704f56b246b254/",
+"changelog":"https://github.com/stephenafamo/bob/commits/ce9f085c8e3cb3beb3ec919d9c362bb9c49a4c7b/",
 "description":"SQL query builder and ORM/Factory generator for Go - main branch",
 "homepage":"https://github.com/stephenafamo/bob",
 "identifiers":{
@@ -200,7 +200,7 @@
 },
 "mainProgram":"bobgen-sql",
 "maintainers":[],
-"name":"bobgen-0.42.0-unstable-2026-04-05",
+"name":"bobgen-0.42.0-unstable-2026-04-10",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -289,14 +289,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"bobgen-0.42.0-unstable-2026-04-05",
+"name":"bobgen-0.42.0-unstable-2026-04-10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"bobgen",
 "system":"x86_64-linux",
-"version":"0.42.0-unstable-2026-04-05"
+"version":"0.42.0-unstable-2026-04-10"
 },
 "buf":{
 "meta":{
@@ -365,7 +365,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jbrk15x786sf4i12hxrp0wgfzckb6qb8-source/pkgs/by-name/bu/buf/package.nix",
+"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/by-name/bu/buf/package.nix",
 "line":90
 },
 "name":"buf-1.67.0",
@@ -843,7 +843,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jbrk15x786sf4i12hxrp0wgfzckb6qb8-source/pkgs/by-name/de/deno/package.nix",
+"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/by-name/de/deno/package.nix",
 "line":275
 },
 "name":"deno-2.7.9",
@@ -2650,7 +2650,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/nyudenkov/pysentry/releases/tag/v0.4.3",
+"changelog":"https://github.com/nyudenkov/pysentry/releases/tag/v0.4.4",
 "description":"Scans your Python dependencies for known security vulnerabilities",
 "homepage":"https://github.com/nyudenkov/pysentry",
 "identifiers":{
@@ -2691,7 +2691,7 @@
 },
 "mainProgram":"pysentry",
 "maintainers":[],
-"name":"pysentry-0.4.3",
+"name":"pysentry-0.4.4",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2740,14 +2740,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"pysentry-0.4.3",
+"name":"pysentry-0.4.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"pysentry",
 "system":"x86_64-linux",
-"version":"0.4.3"
+"version":"0.4.4"
 },
 "qsvenc":{
 "meta":{
@@ -2819,7 +2819,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/renovatebot/renovate/releases/tag/43.104.2",
+"changelog":"https://github.com/renovatebot/renovate/releases/tag/43.110.14",
 "description":"Cross-platform dependency automation, with patches for nix",
 "homepage":"https://github.com/renovatebot/renovate",
 "identifiers":{
@@ -2860,7 +2860,7 @@
 },
 "mainProgram":"renovate",
 "maintainers":[],
-"name":"renovate-43.104.2",
+"name":"renovate-43.110.14",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2891,14 +2891,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"renovate-43.104.2",
+"name":"renovate-43.110.14",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"renovate",
 "system":"x86_64-linux",
-"version":"43.104.2"
+"version":"43.110.14"
 },
 "shellhook":{
 "meta":{
@@ -3108,7 +3108,7 @@
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "maintainers":[],
-"name":"python3.13-synchronicity-0.12.1",
+"name":"python3.13-synchronicity-0.12.2",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3197,7 +3197,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-synchronicity-0.12.1",
+"name":"python3.13-synchronicity-0.12.2",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3205,13 +3205,13 @@
 },
 "pname":"python3.13-synchronicity",
 "system":"x86_64-linux",
-"version":"0.12.1"
+"version":"0.12.2"
 },
 "uv-build":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/astral-sh/uv/blob/0.11.4/CHANGELOG.md",
+"changelog":"https://github.com/astral-sh/uv/blob/0.11.6/CHANGELOG.md",
 "description":"Minimal build backend for uv",
 "homepage":"https://docs.astral.sh/uv/reference/settings/#build-backend",
 "identifiers":{
@@ -3303,7 +3303,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jbrk15x786sf4i12hxrp0wgfzckb6qb8-source/pkgs/development/python-modules/uv-build/default.nix",
+"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/development/python-modules/uv-build/default.nix",
 "line":53
 },
 "name":"python3.13-uv-build-0.10.0",
@@ -3368,7 +3368,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/yt-dlp/commits/a4acc4223289eeb4d32af7b798bfe6e9c38f4b8d",
+"changelog":"https://github.com/yt-dlp/yt-dlp/commits/2c28ee5d76d2c0d350407fd81dbdd71394b67993",
 "description":"Feature-rich command-line audio/video downloader - master branch",
 "homepage":"https://github.com/yt-dlp/yt-dlp/",
 "identifiers":{
@@ -3441,7 +3441,7 @@
 },
 "mainProgram":"yt-dlp",
 "maintainers":[],
-"name":"yt-dlp-2026.03.17-unstable-2026-04-07",
+"name":"yt-dlp-2026.03.17-unstable-2026-04-10",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3530,7 +3530,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yt-dlp-2026.03.17-unstable-2026-04-07",
+"name":"yt-dlp-2026.03.17-unstable-2026-04-10",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3538,7 +3538,7 @@
 },
 "pname":"yt-dlp",
 "system":"x86_64-linux",
-"version":"2026.03.17-unstable-2026-04-07"
+"version":"2026.03.17-unstable-2026-04-10"
 },
 "yt-dlp-ejs":{
 "meta":{
