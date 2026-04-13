@@ -60,12 +60,16 @@ in
     optipng
     taplo
     libjxl
-    perl # needed for magit cherry spinout
     jqfmt
     jless
     self.all-converters
     glab
     jc
+
+    # for man pages
+    (lib.getMan pkgs.msmtp)
+    (lib.getMan pkgs.isync)
+    pkgs.darkhttpd
   ];
 
   # tmpfs on all machines
@@ -174,6 +178,7 @@ in
 
   # too noisy, not needed by default
   networking.firewall.logRefusedConnections = lib.mkDefault false;
+  networking.firewall.rejectPackets = lib.mkDefault true;
 
   boot.kernel.sysctl = {
     # disable coredumps

@@ -73,6 +73,9 @@
       "\e\C-Dm": dump-macros
       "\e\C-Dv": dump-variables
 
+      # Unbind
+      "\C-o":
+
       $if Bash
         # Do history expansion on !$/!^/!!/!* when space is pressed
         Space: magic-space
@@ -101,6 +104,7 @@
        "\eG": "\C-a\C-kfd -j 1 -L\C-m"
 
        # nix stuff
+       "\eo\eh": "https://"
        "\eo\en": "/nix/store/"
        "\eo\eN": "/nixfs/"
 

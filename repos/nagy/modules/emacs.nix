@@ -16,6 +16,20 @@ let
     (
       nur.repos.nagy.emacsPackages # add all packages from this repository
       // {
+
+        magit = super.magit.overrideAttrs (
+          {
+            postPatch ? "",
+            ...
+          }:
+          {
+            # needed for magit cherry spinout
+            postPatch = postPatch + ''
+              substituteInPlace lisp/magit-sequence.el \
+                --replace-fail 'magit-perl-executable "perl"' 'magit-perl-executable "${lib.getExe pkgs.perl}"'
+            '';
+          }
+        );
         sotlisp = super.sotlisp.overrideAttrs {
           src = pkgs.fetchFromGitHub {
             owner = "nagy";
@@ -78,33 +92,16 @@ let
           preferLocalBuild = true;
           allowSubstitutes = false;
         };
-
-        # the unstable (5.2.0) variant gives some errors need to adapt
-        # to 5.1.0.
-        # The error is:
-        # >   command-line()
-        # >   normal-top-level()
-        # > reference to free variable `c'
-        # For full logs, run:
-        #   nix log /nix/store/ll46fqw8ypi4pxxhb44plc9a07icrxwh-emacs-nagy-modus-themes-0.0.1.drv
-        # modus-themes = super.elpaPackages.modus-themes;
-        modus-themes = super.melpaStablePackages.modus-themes.overrideAttrs {
-          version = "5.1.0.0.20251228.92854";
-          src = pkgs.fetchFromGitHub {
-            owner = "protesilaos";
-            repo = "modus-themes";
-            rev = "refs/tags/5.1.0";
-            hash = "sha256-TP1t8fKyc8M0CUixPH7bAJrtSRNcSjeIqXuuaUlfiqk=";
-          };
-          preferLocalBuild = true;
-          allowSubstitutes = false;
-        };
-
       }
       // (lib.optionalAttrs (lib.pathExists ~/emacs-map-extras) {
         map-extras = import ~/emacs-map-extras {
           emacsPackages = self;
         };
+      })
+      // (lib.optionalAttrs (lib.pathExists ~/ox-typst) {
+        ox-typst = super.ox-typst.overrideAttrs ({
+          src = lib.cleanSource ~/ox-typst;
+        });
       })
     )
   );
@@ -135,9 +132,11 @@ in
         [ epkgs.treesit-grammars.with-all-grammars ]
         ++ (mkDirectoryPackagesValues cfg.packageDirectories epkgs)
       ))
+      # perl # needed for magit cherry spinout
     ];
 
     # to allow "malloc-trim" to trim memory of emacs.
-    boot.kernel.sysctl."kernel.yama.ptrace_scope" = lib.mkForce 0;
+    # somehow it seems to work without this now.
+    # boot.kernel.sysctl."kernel.yama.ptrace_scope" = lib.mkForce 0;
   };
 }
