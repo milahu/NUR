@@ -6,6 +6,18 @@
   dockerTools,
 }:
 {
+  macos-ime = {
+    pname = "macos-ime";
+    version = "748fd3f9e050729e7fa916ffed63bcdeb440acf1";
+    src = fetchFromGitHub {
+      owner = "ryota2357";
+      repo = "macos-ime";
+      rev = "748fd3f9e050729e7fa916ffed63bcdeb440acf1";
+      fetchSubmodules = false;
+      sha256 = "sha256-Pow98INUfKgLNxYARjwKPgBRYW1/i50B9hiyqP8bAh0=";
+    };
+    date = "2026-04-13";
+  };
   mical = {
     pname = "mical";
     version = "v0.0.2";
@@ -33,14 +45,14 @@
   };
   vm_stat2 = {
     pname = "vm_stat2";
-    version = "83349699f0773be1d18daed358f7d50b5fefccda";
+    version = "a72c0e027931312d732e279c95ebc6025399db2d";
     src = fetchFromGitHub {
       owner = "ryota2357";
       repo = "vm_stat2";
-      rev = "83349699f0773be1d18daed358f7d50b5fefccda";
+      rev = "a72c0e027931312d732e279c95ebc6025399db2d";
       fetchSubmodules = false;
-      sha256 = "sha256-UGJAghgqbuN3HIYrE+/ImjMwErrE6lYKeXhVk8nc+ZE=";
+      sha256 = "sha256-JKgLGOBYJkf6U22FoG+5peR4Wo68Py6u3RWwqqa765o=";
     };
-    date = "2026-01-12";
+    date = "2026-04-13";
   };
 }
