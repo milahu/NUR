@@ -107,9 +107,13 @@ in
       allowedUDPPorts = [ cfg.port ];
     };
 
+    systemd.tmpfiles.rules = [
+      "d /var/lib/nixos-containers/terraria/var/log/journal 0755 root systemd-journal -"
+    ];
+
     containers.terraria = {
       autoStart = true;
-      extraFlags = [ "--link-journal=host" ];
+      extraFlags = [ "--link-journal=guest" ];
       privateNetwork = true;
       hostAddress = cfg.hostAddress;
       localAddress = cfg.localAddress;

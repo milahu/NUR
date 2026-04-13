@@ -131,9 +131,13 @@ in
       ];
     };
 
+    systemd.tmpfiles.rules = [
+      "d /var/lib/nixos-containers/minecraft/var/log/journal 0755 root systemd-journal -"
+    ];
+
     containers.minecraft = {
       autoStart = true;
-      extraFlags = [ "--link-journal=host" ];
+      extraFlags = [ "--link-journal=guest" ];
       privateNetwork = true;
       hostAddress = cfg.hostAddress;
       localAddress = cfg.localAddress;

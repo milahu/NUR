@@ -66,9 +66,13 @@ in
       internalInterfaces = [ "ve-hass" ];
     };
 
+    systemd.tmpfiles.rules = [
+      "d /var/lib/nixos-containers/hass/var/log/journal 0755 root systemd-journal -"
+    ];
+
     containers.hass = {
       autoStart = true;
-      extraFlags = [ "--link-journal=host" ];
+      extraFlags = [ "--link-journal=guest" ];
       privateNetwork = true;
       hostAddress = cfg.hostAddress;
       localAddress = cfg.localAddress;

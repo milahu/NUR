@@ -83,9 +83,13 @@ in
       internalInterfaces = [ "ve-jellyfin" ];
     };
 
+    systemd.tmpfiles.rules = [
+      "d /var/lib/nixos-containers/jellyfin/var/log/journal 0755 root systemd-journal -"
+    ];
+
     containers.jellyfin = {
       autoStart = true;
-      extraFlags = [ "--link-journal=host" ];
+      extraFlags = [ "--link-journal=guest" ];
       privateNetwork = true;
       hostAddress = cfg.hostAddress;
       localAddress = cfg.localAddress;

@@ -85,9 +85,13 @@ in
       allowedUDPPorts = [ cfg.port ];
     };
 
+    systemd.tmpfiles.rules = [
+      "d /var/lib/nixos-containers/vintagestory/var/log/journal 0755 root systemd-journal -"
+    ];
+
     containers.vintagestory = {
       autoStart = true;
-      extraFlags = [ "--link-journal=host" ];
+      extraFlags = [ "--link-journal=guest" ];
       privateNetwork = true;
       hostAddress = cfg.hostAddress;
       localAddress = cfg.localAddress;
