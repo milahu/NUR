@@ -94,6 +94,7 @@ specify {
   pythonPackages.busylight-core.patch = ./library/assets/busylight-core_led-mask.patch;
   pythonPackages.busylight-for-humans.patch = ./library/assets/busylight-for-humans_fix-speed.patch; # Pending ≥0.45.3
   signal-desktop.args = [ "--use-tray-icon" ];
+  smartcut = any;
   snitch = any;
   spf-check = any;
   spf-tree = any;

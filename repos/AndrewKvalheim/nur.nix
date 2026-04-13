@@ -103,6 +103,7 @@ rec {
   oxvg = callPackage ./library/oxvg.pkg.nix { };
   pdfalyzer = callPackage ./library/pdfalyzer.pkg.nix { };
   pngquant-interactive = callPackage ./library/pngquant-interactive.pkg.nix { };
+  smartcut = callPackage ./library/smartcut.pkg.nix { };
   spf-check = callPackage ./library/spf-check.pkg.nix { };
   spf-tree = callPackage ./library/spf-tree.pkg.nix { };
   stretch-break = callPackage ./library/stretch-break.pkg.nix { };
