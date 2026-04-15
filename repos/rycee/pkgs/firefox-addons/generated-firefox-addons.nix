@@ -1277,6 +1277,30 @@
         platforms = platforms.all;
       };
     };
+    "block-website" = buildMozillaXpiAddon {
+      pname = "block-website";
+      version = "0.5.7";
+      addonId = "{54e2eb33-18eb-46ad-a4e4-1329c29f6e17}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4620194/block_website-0.5.7.xpi";
+      sha256 = "85000c3363339bcdd6864261dda032f8d1f017b74f720824185dabe3f458865a";
+      meta = with lib;
+      {
+        homepage = "https://webextension.org/listing/block-site.html";
+        description = "A customizable, password-protected website blocker and redirector.";
+        license = licenses.mpl20;
+        mozPermissions = [
+          "activeTab"
+          "storage"
+          "notifications"
+          "alarms"
+          "contextMenus"
+          "declarativeNetRequestWithHostAccess"
+          "idle"
+          "<all_urls>"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "blocktube" = buildMozillaXpiAddon {
       pname = "blocktube";
       version = "0.4.8";
@@ -2854,10 +2878,10 @@
     };
     "danish-language-pack" = buildMozillaXpiAddon {
       pname = "danish-language-pack";
-      version = "150.0.20260410.90436";
+      version = "150.0.20260413.90345";
       addonId = "langpack-da@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4759633/dansk_da_language_pack-150.0.20260410.90436.xpi";
-      sha256 = "18ca589b83fdbc9746e4ae15baa9d9172863c84ed124a701012146deae281a9d";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4763210/dansk_da_language_pack-150.0.20260413.90345.xpi";
+      sha256 = "ed043344b1f4d21db0ab78634bfaef5e28aff2b3d9ad94006711ece1727d71e4";
       meta = with lib;
       {
         description = "Firefox Language Pack for Dansk (da) – Danish";
@@ -3068,10 +3092,10 @@
     };
     "deutsch-de-language-pack" = buildMozillaXpiAddon {
       pname = "deutsch-de-language-pack";
-      version = "150.0.20260410.90436";
+      version = "150.0.20260413.90345";
       addonId = "langpack-de@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4759636/deutsch_de_language_pack-150.0.20260410.90436.xpi";
-      sha256 = "c7f1288630e18166746ccc3b4c5d42d5a7cc2c3af05bd3d369bf61eb8aa0cbfa";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4763214/deutsch_de_language_pack-150.0.20260413.90345.xpi";
+      sha256 = "edb3e8a9d70e9c1e19221fe7f73776a8354b199ccb0d9f978570de4b657d7250";
       meta = with lib;
       {
         description = "Firefox Language Pack for Deutsch (de) – German";
@@ -3104,10 +3128,10 @@
     };
     "dictionaries" = buildMozillaXpiAddon {
       pname = "dictionaries";
-      version = "7.3.2";
+      version = "7.3.3";
       addonId = "revir.qing@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4751844/dictionaries-7.3.2.xpi";
-      sha256 = "0c6e85ff4f0aabed69c2cda8619b359fedbd533a9f1a6b65f5713efeeb04edbb";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4763749/dictionaries-7.3.3.xpi";
+      sha256 = "0bc7b2ef64c9cdcc97ebddb93f3daea4c185ebbe0934a41567d85784fdd8875b";
       meta = with lib;
       {
         homepage = "https://dictionariez.pnl.dev";
@@ -3545,10 +3569,10 @@
     };
     "dualsub" = buildMozillaXpiAddon {
       pname = "dualsub";
-      version = "2.68.4";
+      version = "2.69.0";
       addonId = "{104db41e-43f7-4484-bda8-a59536364925}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4757950/dualsub-2.68.4.xpi";
-      sha256 = "a1f6138a18b5f06cb8e5e832a122c7031750ee31e0417cb9d42b771fd5609786";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4762679/dualsub-2.69.0.xpi";
+      sha256 = "219527d0dcf8ffb65403555156d6faa7373c780bed1eafc3311ae51dfd845849";
       meta = with lib;
       {
         homepage = "https://www.dualsub.xyz/en/";
@@ -4546,10 +4570,10 @@
     };
     "french-language-pack" = buildMozillaXpiAddon {
       pname = "french-language-pack";
-      version = "150.0.20260410.90436";
+      version = "150.0.20260413.90345";
       addonId = "langpack-fr@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4759717/francais_language_pack-150.0.20260410.90436.xpi";
-      sha256 = "756f49087eb92d43a68477c694815a3a0dbe633b451efca3978dbbb227053480";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4763125/francais_language_pack-150.0.20260413.90345.xpi";
+      sha256 = "cadf485cd9287b4fa38a93ad7b82d6878d8d15e2e585994e327074b723fd1d7f";
       meta = with lib;
       {
         description = "Firefox Language Pack for Français (fr) – French";
@@ -4583,10 +4607,10 @@
     };
     "gaidhlig-language-pack" = buildMozillaXpiAddon {
       pname = "gaidhlig-language-pack";
-      version = "150.0.20260410.90436";
+      version = "150.0.20260413.90345";
       addonId = "langpack-gd@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4759653/gaidhlig_language_pack-150.0.20260410.90436.xpi";
-      sha256 = "37c61c694addb7eef1ddc7286756954c6cfd20df77c65beddc7141daf1e0ae73";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4763152/gaidhlig_language_pack-150.0.20260413.90345.xpi";
+      sha256 = "51c9b8ad57d22c7aa5e14339b3626a4bdb4fbdc27ac40ff94ac61eec1d5305f7";
       meta = with lib;
       {
         description = "Firefox Language Pack for Gàidhlig (gd) – Scottish Gaelic";
@@ -6424,10 +6448,10 @@
     };
     "hyperchat" = buildMozillaXpiAddon {
       pname = "hyperchat";
-      version = "3.1.1";
+      version = "3.2.0";
       addonId = "{14a15c41-13f4-498e-986c-7f00435c4d00}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4553316/hyperchat-3.1.1.xpi";
-      sha256 = "659381b936445560ad62ff3141e57d7498f7fc18599c4d47b38ec596836208cf";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4763987/hyperchat-3.2.0.xpi";
+      sha256 = "dbcb501506dc125e0937679dc34d21cb01242aac5db47fd543380ab6b1276321";
       meta = with lib;
       {
         homepage = "https://livetl.app/hyperchat/";
@@ -8683,10 +8707,10 @@
     };
     "livetl" = buildMozillaXpiAddon {
       pname = "livetl";
-      version = "9.0.9";
+      version = "9.1.1";
       addonId = "{ae865fed-3ca7-4701-bb86-f129e77deef5}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4621087/livetl-9.0.9.xpi";
-      sha256 = "ff0c7587b7e9c17447e71983515299eb9de0c4f9aec79ad087ea2ab2e8a06226";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4765198/livetl-9.1.1.xpi";
+      sha256 = "bf1182861cf5e8be7666c66a0716856782e025f7f0af4016e082b6dd77a060c4";
       meta = with lib;
       {
         homepage = "https://livetl.app/";
@@ -9945,6 +9969,28 @@
         platforms = platforms.all;
       };
     };
+    "monochromate" = buildMozillaXpiAddon {
+      pname = "monochromate";
+      version = "1.5.2";
+      addonId = "{cdf4f419-70fa-491b-abcb-14bc1ad3d36f}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4748236/monochromate-1.5.2.xpi";
+      sha256 = "723a8f971c19964dd16d9a04b123d436aa02a9b67caf02d753e1407cc633c63a";
+      meta = with lib;
+      {
+        homepage = "https://monochromate.lirena.in/";
+        description = "A browser extension that applies a grayscale filter to websites, reducing eye strain and helping prevent doomscrolling. Customize intensity, exclude sites, and browse more mindfully.";
+        license = licenses.mit;
+        mozPermissions = [
+          "storage"
+          "activeTab"
+          "scripting"
+          "alarms"
+          "commands"
+          "<all_urls>"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "move-unloaded-tabs-for-tst" = buildMozillaXpiAddon {
       pname = "move-unloaded-tabs-for-tst";
       version = "2.4";
@@ -10980,6 +11026,36 @@
         platforms = platforms.all;
       };
     };
+    "page-assist" = buildMozillaXpiAddon {
+      pname = "page-assist";
+      version = "1.5.55";
+      addonId = "page-assist@nazeem";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4710051/page_assist-1.5.55.xpi";
+      sha256 = "d3272a2b8a188d75e3c38b98d545a555e6b751c17f57dfe2fe9f554a8d61739f";
+      meta = with lib;
+      {
+        homepage = "https://github.com/n4ze3m/page-assist";
+        description = "Use your locally running AI models to assist you in your web browsing.";
+        license = licenses.mit;
+        mozPermissions = [
+          "storage"
+          "activeTab"
+          "scripting"
+          "unlimitedStorage"
+          "contextMenus"
+          "webRequest"
+          "webRequestBlocking"
+          "notifications"
+          "http://*/*"
+          "https://*/*"
+          "file://*/*"
+          "*://huggingface.co/*"
+          "*://ollama.com/*"
+          "*://www.youtube.com/watch*"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "pakkujs" = buildMozillaXpiAddon {
       pname = "pakkujs";
       version = "2026.3.2";
@@ -11282,6 +11358,29 @@
         homepage = "https://github.com/polkadot-js/extension";
         description = "Manage your Polkadot accounts outside of dapps. Injects the accounts and allows signs transactions for a specific account.";
         mozPermissions = [ "storage" "tabs" "http://*/*" "https://*/*" ];
+        platforms = platforms.all;
+      };
+    };
+    "port-authority" = buildMozillaXpiAddon {
+      pname = "port-authority";
+      version = "2.2.0";
+      addonId = "{6c00218c-707a-4977-84cf-36df1cef310f}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4516988/port_authority-2.2.0.xpi";
+      sha256 = "432cde898230c6d432cf08a1ee7a605fcac8c620b8327d3f8da4f08944392731";
+      meta = with lib;
+      {
+        homepage = "https://github.com/ACK-J/Port_Authoirty";
+        description = "Blocks malicious websites from port-scanning your computer/network and dynamically blocks all LexisNexis endpoints from running their invasive data collection scripts.";
+        license = licenses.gpl2;
+        mozPermissions = [
+          "webRequest"
+          "webRequestBlocking"
+          "storage"
+          "tabs"
+          "notifications"
+          "dns"
+          "<all_urls>"
+        ];
         platforms = platforms.all;
       };
     };
@@ -12392,6 +12491,21 @@
         platforms = platforms.all;
       };
     };
+    "readingruler" = buildMozillaXpiAddon {
+      pname = "readingruler";
+      version = "1.8";
+      addonId = "{e1cad622-f77c-4035-8137-33b8296e5c9d}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4001032/readingruler-1.8.xpi";
+      sha256 = "3baed915dacd20dd6f2b292afaa256ad9bc0fb346da6bb4f749b3d8c2c3f735d";
+      meta = with lib;
+      {
+        homepage = "https://github.com/orentrutner/reading-ruler";
+        description = "Highlights the line of text you are reading.";
+        license = licenses.gpl3;
+        mozPermissions = [ "storage" "tabs" "http://*/*" "https://*/*" ];
+        platforms = platforms.all;
+      };
+    };
     "readwise-highlighter" = buildMozillaXpiAddon {
       pname = "readwise-highlighter";
       version = "0.15.25";
@@ -13188,10 +13302,10 @@
     };
     "scots-language-pack" = buildMozillaXpiAddon {
       pname = "scots-language-pack";
-      version = "150.0.20260410.90436";
+      version = "150.0.20260413.90345";
       addonId = "langpack-sco@firefox.mozilla.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4759705/scots_language_pack-150.0.20260410.90436.xpi";
-      sha256 = "b35cf8a0029b9b2a92a265118d0ac1a15e74365acb24132464c8ca98e077b3a2";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4763160/scots_language_pack-150.0.20260413.90345.xpi";
+      sha256 = "9db2bd1fa072ff798e0b80195c19cba2f57268252001df93b9133ea2c4609389";
       meta = with lib;
       {
         description = "Firefox Language Pack for Scots (sco)";
@@ -13975,10 +14089,10 @@
     };
     "statshunters" = buildMozillaXpiAddon {
       pname = "statshunters";
-      version = "3.2.6";
+      version = "3.3.0";
       addonId = "browserextension@statshunters.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4750072/statshunters-3.2.6.xpi";
-      sha256 = "fe3c5829e3bd314ee4577c2a2c7235b4f581f75a15d28a381c9e2b9d705d65ea";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4765019/statshunters-3.3.0.xpi";
+      sha256 = "705e133b8381061c48545512ccd2b2c406463d6eac58d2a39960fac842b3d184";
       meta = with lib;
       {
         homepage = "https://www.statshunters.com";
@@ -14420,6 +14534,20 @@
         description = "Tab unload options for Tree Style Tab.";
         license = licenses.gpl3;
         mozPermissions = [ "storage" "menus" ];
+        platforms = platforms.all;
+      };
+    };
+    "tab-unloader-we" = buildMozillaXpiAddon {
+      pname = "tab-unloader-we";
+      version = "2020.1.2";
+      addonId = "tab-unloader-we@afnankhan";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3497629/tab_unloader_we-2020.1.2.xpi";
+      sha256 = "0424c8b3709955566b21c918e61fbb668e60904415b63b5f13485c88f2de3a59";
+      meta = with lib;
+      {
+        description = "Unload tabs to free up system resources";
+        license = licenses.mit;
+        mozPermissions = [ "storage" "menus" "tabs" "bookmarks" "*://*/*" ];
         platforms = platforms.all;
       };
     };
