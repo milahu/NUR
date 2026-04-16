@@ -7,23 +7,7 @@
   ],
 }:
 let
-  overlays = import ../../overlays {
-    inherit nixpkgs;
-  };
-
-  mkPackages =
-    system:
-    import nixpkgs {
-      inherit system;
-      overlays = [
-        overlays.images
-        overlays.libs
-        overlays.packages
-      ];
-      config.allowUnfree = true;
-    };
-
-  # Ignore flake output attributes that are not per-system.
+  # Flake output attributes that are not per-system
   ignoredAttrs = [
     "hydraJobs"
     "libs"
@@ -33,6 +17,74 @@ let
     "schemas"
     "templates"
   ];
+
+  # Flake output attributes that can be cross-compiled
+  crossAttrs = [
+    "packages"
+    "images"
+    "appimages"
+  ];
+
+  overlays = import ../../overlays {
+    inherit nixpkgs;
+  };
+
+  mkPackages =
+    localSystem:
+    import nixpkgs {
+      inherit localSystem;
+      overlays = [
+        overlays.images
+        overlays.libs
+        overlays.packages
+      ];
+      config = {
+        allowUnfree = true;
+        allowDeprecatedx86_64Darwin = true;
+      };
+    };
+
+  mkCrossPackages =
+    localSystem: crossSystem:
+    import nixpkgs {
+      inherit localSystem crossSystem;
+      overlays = [
+        overlays.images
+        overlays.libs
+        overlays.packages
+      ];
+      config = {
+        allowUnfree = true;
+        allowDeprecatedx86_64Darwin = true;
+      };
+    };
+
+  fixPackage =
+    package:
+    if package == null then
+      null
+    else
+      package.overrideAttrs (
+        _: prev:
+        (
+          if (prev.stdenv.hostPlatform.isStatic or false) && (!builtins.elem "dev" (prev.outputs or [ ])) then
+            {
+              outputs = (prev.outputs or [ ]) ++ [ "dev" ];
+            }
+          else
+            { }
+        )
+        // (
+          if (prev.meta.mainProgram or null) != null && (prev.stdenv.hostPlatform.isWindows or false) then
+            {
+              meta = (prev.meta or { }) // {
+                mainProgram = "${prev.meta.mainProgram}.exe";
+              };
+            }
+          else
+            { }
+        )
+      );
 
   # Applies a merge operation across systems.
   eachSystemOp =
@@ -44,29 +96,164 @@ let
         # Add the current system if the --impure flag is used.
         systems ++ [ builtins.currentSystem ]
     );
+
+  platformsToCross =
+    platforms:
+    builtins.concatLists (
+      map (
+        platform:
+        if
+          platform == "x86_64-linux"
+          || platform == "aarch64-linux"
+          || platform == "armv7l-linux"
+          || platform == "armv6l-linux"
+        then
+          [
+            (platform + "-gnu")
+            (platform + "-musl")
+          ]
+        else
+          [
+            platform
+          ]
+      ) platforms
+    );
 in
+
 # Builds a map from <attr>.value to <attr>.<system>.value for each system.
 eachSystemOp (
   # Merge outputs for each system.
   f: attrs: system:
   let
-    ret = f system (mkPackages system);
+    default = f system (mkPackages system);
+
+    # https://github.com/NixOS/nixpkgs/blob/master/lib/systems/examples.nix
+    crosspkgs = {
+      x86_64-linux-gnu = f system (
+        mkCrossPackages system {
+          config = "x86_64-unknown-linux-gnu";
+        }
+      );
+      x86_64-linux-musl = f system (
+        mkCrossPackages system {
+          config = "x86_64-unknown-linux-musl";
+          isStatic = true;
+        }
+      );
+
+      aarch64-linux-gnu = f system (
+        mkCrossPackages system {
+          config = "aarch64-unknown-linux-gnu";
+        }
+      );
+      aarch64-linux-musl = f system (
+        mkCrossPackages system {
+          config = "aarch64-unknown-linux-musl";
+          isStatic = true;
+        }
+      );
+
+      armv7l-linux-gnu = f system (
+        mkCrossPackages system {
+          config = "armv7l-unknown-linux-gnueabihf";
+        }
+      );
+      armv7l-linux-musl = f system (
+        mkCrossPackages system {
+          config = "armv7l-unknown-linux-musleabihf";
+          isStatic = true;
+        }
+      );
+
+      armv6l-linux-gnu = f system (
+        mkCrossPackages system {
+          config = "armv6l-unknown-linux-gnueabihf";
+        }
+      );
+      armv6l-linux-musl = f system (
+        mkCrossPackages system {
+          config = "armv6l-unknown-linux-musleabihf";
+          isStatic = true;
+        }
+      );
+
+      x86_64-windows = f system (
+        mkCrossPackages system {
+          config = "x86_64-w64-mingw32";
+          libc = "ucrt";
+        }
+      );
+      aarch64-windows = f system (
+        mkCrossPackages system {
+          config = "aarch64-w64-mingw32";
+          libc = "ucrt";
+          rust.rustcTarget = "aarch64-pc-windows-gnullvm";
+          useLLVM = true;
+        }
+      );
+
+      x86_64-darwin = f system (
+        mkCrossPackages system {
+          config = "x86_64-apple-darwin";
+          xcodePlatform = "MacOSX";
+          platform = { };
+        }
+      );
+      aarch64-darwin = f system (
+        mkCrossPackages system {
+          config = "arm64-apple-darwin";
+          xcodePlatform = "MacOSX";
+          platform = { };
+        }
+      );
+    };
+
   in
+
   builtins.foldl' (
     attrs: key:
     if builtins.elem key ignoredAttrs then
-      # Bypass setting <system>
+      # Set as <attr>.value
       attrs
       // {
-        ${key} = (attrs.${key} or { }) // ret.${key};
+        ${key} = (attrs.${key} or { }) // default.${key};
+      }
+    else if builtins.elem key crossAttrs then
+      # Set as <attr>.<system>.value that merges cross-compilation outputs for each system
+      attrs
+      // {
+        ${key} = (attrs.${key} or { }) // {
+          ${system} =
+            builtins.mapAttrs
+              (
+                name: package:
+                package.overrideAttrs (
+                  _: prev: {
+                    passthru =
+                      (prev.passthru or { })
+                      // builtins.listToAttrs (
+                        builtins.filter (pv: pv.value != null) (
+                          map (crossPlatform: {
+                            name = crossPlatform;
+                            value = fixPackage (crosspkgs.${crossPlatform}.${key}.${name} or null);
+                          }) (platformsToCross (prev.meta.platforms or [ ]))
+                        )
+                      );
+                  }
+                )
+              )
+              (
+                nixpkgs.lib.filterAttrs (_: v: builtins.elem system (v.meta.platforms or [ system ])) default.${key}
+              );
+        };
       }
     else
       # Set as <attr>.<system>.value
       attrs
       // {
         ${key} = (attrs.${key} or { }) // {
-          ${system} = ret.${key};
+          ${system} = default.${key};
         };
       }
-  ) attrs (builtins.attrNames ret)
+  ) attrs (builtins.attrNames default)
 ) systems
