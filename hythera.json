@@ -1,16 +1,16 @@
 {
 "name":"hythera",
-"fetch_time":1.058,
-"eval_time":0.239,
+"fetch_time":0.394,
+"eval_time":0.319,
 "source":{
 "url":"https://github.com/Hythera/nur-packages",
-"rev":"cac1a4e0f74a2d329642f0603a6455da2b7a239f",
-"sha256":"0z4f25hkhpfdfgn510db56hlqfjp5zmzrd45aak5hdhimg0yca6w",
+"rev":"cb687e6711f94d3f96eeec086f73c6dda9a8c042",
+"sha256":"13vfcvl17v0r18ljf8ajalm1aic7p7nqw5b6hxb1il4p3ir2x79h",
 "date":null
 },
-"source_storepath":"/nix/store/zqpkzlvsixxa5fg63crr13br0ql2jkqw-source",
-"nixpkgs_storepath":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source",
-"nur_combined_rev":"978d4ef6f676fdad7be3f017f4166dcc6c8dd16a",
+"source_storepath":"/nix/store/n4a1malcmg399bmvvwd61p2d45ivwkxv-source",
+"nixpkgs_storepath":"/nix/store/jxqdhmbbbsckx9gps961ypaq7ynigbl1-source",
+"nur_combined_rev":"a66e9a31c2bf48ac688d49f4cc2d392a06eebce4",
 "packages":{
 "rootapp":{
 "meta":{
@@ -56,6 +56,7 @@
 "mainProgram":"rootapp",
 "maintainers":[],
 "name":"rootapp-0.9.83",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -106,7 +107,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/BrowserWorks/waterfox/releases/tag/6.6.8",
+"changelog":"https://github.com/BrowserWorks/waterfox/releases/tag/6.6.11",
 "description":"A privacy-focused Firefox Fork",
 "homepage":"https://www.waterfox.com",
 "hydraPlatforms":[],
@@ -150,11 +151,12 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/stdenv/generic/check-meta.nix",
-"line":628
+"file":"/nix/store/jxqdhmbbbsckx9gps961ypaq7ynigbl1-source/pkgs/stdenv/generic/check-meta.nix",
+"line":556
 },
 "maxSilent":14400,
-"name":"waterfox-unwrapped-6.6.8",
+"name":"waterfox-unwrapped-6.6.11",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -204,19 +206,19 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/browsers/firefox/wrapper.nix:581",
+"position":"<nixpkgs> + /pkgs/applications/networking/browsers/firefox/wrapper.nix:592",
 "priority":4,
 "unfree":false,
 "unsupported":false
 },
-"name":"waterfox-6.6.8",
+"name":"waterfox-6.6.11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"waterfox",
 "system":"x86_64-linux",
-"version":"6.6.8"
+"version":"6.6.11"
 },
 "waterfox-bin":{
 "meta":{
@@ -265,10 +267,11 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/w506ha0gn4wkyg4niklydhbr004csnxk-source/pkgs/stdenv/generic/check-meta.nix",
-"line":628
+"file":"/nix/store/jxqdhmbbbsckx9gps961ypaq7ynigbl1-source/pkgs/stdenv/generic/check-meta.nix",
+"line":556
 },
-"name":"waterfox-bin-unwrapped-6.6.8",
+"name":"waterfox-bin-unwrapped-6.6.11",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -277,7 +280,7 @@
 "x86_64-darwin",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/browsers/firefox/wrapper.nix:581",
+"position":"<nixpkgs> + /pkgs/applications/networking/browsers/firefox/wrapper.nix:592",
 "priority":4,
 "sourceProvenance":[
 {
@@ -288,14 +291,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"waterfox-bin-6.6.8",
+"name":"waterfox-bin-6.6.11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"waterfox-bin",
 "system":"x86_64-linux",
-"version":"6.6.8"
+"version":"6.6.11"
 },
 "waterfox-bin-unwrapped":{
 "meta":{
@@ -341,7 +344,8 @@
 },
 "mainProgram":"waterfox",
 "maintainers":[],
-"name":"waterfox-bin-unwrapped-6.6.8",
+"name":"waterfox-bin-unwrapped-6.6.11",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -360,20 +364,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"waterfox-bin-unwrapped-6.6.8",
+"name":"waterfox-bin-unwrapped-6.6.11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"waterfox-bin-unwrapped",
 "system":"x86_64-linux",
-"version":"6.6.8"
+"version":"6.6.11"
 },
 "waterfox-unwrapped":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/BrowserWorks/waterfox/releases/tag/6.6.8",
+"changelog":"https://github.com/BrowserWorks/waterfox/releases/tag/6.6.11",
 "description":"A privacy-focused Firefox Fork",
 "homepage":"https://www.waterfox.com",
 "identifiers":{
@@ -415,7 +419,8 @@
 "mainProgram":"waterfox",
 "maintainers":[],
 "maxSilent":14400,
-"name":"waterfox-unwrapped-6.6.8",
+"name":"waterfox-unwrapped-6.6.11",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -469,7 +474,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"waterfox-unwrapped-6.6.8",
+"name":"waterfox-unwrapped-6.6.11",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -478,7 +483,7 @@
 },
 "pname":"waterfox-unwrapped",
 "system":"x86_64-linux",
-"version":"6.6.8"
+"version":"6.6.11"
 }
 }
 }
