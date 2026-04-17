@@ -25,6 +25,58 @@ let
     "appimages"
   ];
 
+  # https://github.com/NixOS/nixpkgs/blob/master/lib/systems/examples.nix
+  platforms = [
+    {
+      config = "x86_64-unknown-linux-gnu";
+    }
+    {
+      config = "x86_64-unknown-linux-musl";
+      isStatic = true;
+    }
+    {
+      config = "aarch64-unknown-linux-gnu";
+    }
+    {
+      config = "aarch64-unknown-linux-musl";
+      isStatic = true;
+    }
+    {
+      config = "armv7l-unknown-linux-gnueabihf";
+    }
+    {
+      config = "armv7l-unknown-linux-musleabihf";
+      isStatic = true;
+    }
+    {
+      config = "armv6l-unknown-linux-gnueabihf";
+    }
+    {
+      config = "armv6l-unknown-linux-musleabihf";
+      isStatic = true;
+    }
+    {
+      config = "x86_64-w64-mingw32";
+      libc = "ucrt";
+    }
+    {
+      config = "aarch64-w64-mingw32";
+      libc = "ucrt";
+      rust.rustcTarget = "aarch64-pc-windows-gnullvm";
+      useLLVM = true;
+    }
+    {
+      config = "x86_64-apple-darwin";
+      xcodePlatform = "MacOSX";
+      platform = { };
+    }
+    {
+      config = "arm64-apple-darwin";
+      xcodePlatform = "MacOSX";
+      platform = { };
+    }
+  ];
+
   overlays = import ../../overlays {
     inherit nixpkgs;
   };
@@ -96,28 +148,6 @@ let
         # Add the current system if the --impure flag is used.
         systems ++ [ builtins.currentSystem ]
     );
-
-  platformsToCross =
-    platforms:
-    builtins.concatLists (
-      map (
-        platform:
-        if
-          platform == "x86_64-linux"
-          || platform == "aarch64-linux"
-          || platform == "armv7l-linux"
-          || platform == "armv6l-linux"
-        then
-          [
-            (platform + "-gnu")
-            (platform + "-musl")
-          ]
-        else
-          [
-            platform
-          ]
-      ) platforms
-    );
 in
 
 # Builds a map from <attr>.value to <attr>.<system>.value for each system.
@@ -125,89 +155,11 @@ eachSystemOp (
   # Merge outputs for each system.
   f: attrs: system:
   let
-    default = f system (mkPackages system);
-
-    # https://github.com/NixOS/nixpkgs/blob/master/lib/systems/examples.nix
-    crosspkgs = {
-      x86_64-linux-gnu = f system (
-        mkCrossPackages system {
-          config = "x86_64-unknown-linux-gnu";
-        }
-      );
-      x86_64-linux-musl = f system (
-        mkCrossPackages system {
-          config = "x86_64-unknown-linux-musl";
-          isStatic = true;
-        }
-      );
-
-      aarch64-linux-gnu = f system (
-        mkCrossPackages system {
-          config = "aarch64-unknown-linux-gnu";
-        }
-      );
-      aarch64-linux-musl = f system (
-        mkCrossPackages system {
-          config = "aarch64-unknown-linux-musl";
-          isStatic = true;
-        }
-      );
-
-      armv7l-linux-gnu = f system (
-        mkCrossPackages system {
-          config = "armv7l-unknown-linux-gnueabihf";
-        }
-      );
-      armv7l-linux-musl = f system (
-        mkCrossPackages system {
-          config = "armv7l-unknown-linux-musleabihf";
-          isStatic = true;
-        }
-      );
-
-      armv6l-linux-gnu = f system (
-        mkCrossPackages system {
-          config = "armv6l-unknown-linux-gnueabihf";
-        }
-      );
-      armv6l-linux-musl = f system (
-        mkCrossPackages system {
-          config = "armv6l-unknown-linux-musleabihf";
-          isStatic = true;
-        }
-      );
-
-      x86_64-windows = f system (
-        mkCrossPackages system {
-          config = "x86_64-w64-mingw32";
-          libc = "ucrt";
-        }
-      );
-      aarch64-windows = f system (
-        mkCrossPackages system {
-          config = "aarch64-w64-mingw32";
-          libc = "ucrt";
-          rust.rustcTarget = "aarch64-pc-windows-gnullvm";
-          useLLVM = true;
-        }
-      );
-
-      x86_64-darwin = f system (
-        mkCrossPackages system {
-          config = "x86_64-apple-darwin";
-          xcodePlatform = "MacOSX";
-          platform = { };
-        }
-      );
-      aarch64-darwin = f system (
-        mkCrossPackages system {
-          config = "arm64-apple-darwin";
-          xcodePlatform = "MacOSX";
-          platform = { };
-        }
-      );
-    };
-
+    flake = f system (mkPackages system);
+    crosses = map (platform: {
+      platform = nixpkgs.lib.systems.elaborate platform;
+      flake = f system (mkCrossPackages system platform);
+    }) platforms;
   in
 
   builtins.foldl' (
@@ -216,7 +168,7 @@ eachSystemOp (
       # Set as <attr>.value
       attrs
       // {
-        ${key} = (attrs.${key} or { }) // default.${key};
+        ${key} = (attrs.${key} or { }) // flake.${key};
       }
     else if builtins.elem key crossAttrs then
       # Set as <attr>.<system>.value that merges cross-compilation outputs for each system
@@ -233,17 +185,23 @@ eachSystemOp (
                       (prev.passthru or { })
                       // builtins.listToAttrs (
                         builtins.filter (pv: pv.value != null) (
-                          map (crossPlatform: {
-                            name = crossPlatform;
-                            value = fixPackage (crosspkgs.${crossPlatform}.${key}.${name} or null);
-                          }) (platformsToCross (prev.meta.platforms or [ ]))
+                          map (cross: {
+                            name = cross.platform.config;
+                            value =
+                              if (nixpkgs.lib.meta.availableOn cross.platform package) then
+                                fixPackage cross.flake.${key}.${name}
+                              else
+                                null;
+                          }) crosses
                         )
                       );
                   }
                 )
               )
               (
-                nixpkgs.lib.filterAttrs (_: v: builtins.elem system (v.meta.platforms or [ system ])) default.${key}
+                nixpkgs.lib.filterAttrs (
+                  _: package: nixpkgs.lib.meta.availableOn { inherit system; } package
+                ) flake.${key}
               );
         };
       }
@@ -252,8 +210,8 @@ eachSystemOp (
       attrs
       // {
         ${key} = (attrs.${key} or { }) // {
-          ${system} = default.${key};
+          ${system} = flake.${key};
         };
       }
-  ) attrs (builtins.attrNames default)
+  ) attrs (builtins.attrNames flake)
 ) systems
