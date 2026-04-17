@@ -9,7 +9,18 @@
 # then your CI will be able to build and cache only those packages for
 # which this is possible.
 
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? (
+    let
+      inherit (builtins) fetchTree fromJSON readFile;
+      inherit ((fromJSON (readFile ./flake.lock)).nodes) nixpkgs gomod2nix;
+    in
+    import (fetchTree nixpkgs.locked) {
+      overlays = [
+        (import "${fetchTree gomod2nix.locked}/overlay.nix")
+      ];
+    }
+  )
+}:
 
 with builtins;
 let
@@ -19,18 +30,22 @@ let
   isCacheable = p: !(p.preferLocalBuild or false);
   shouldRecurseForDerivations = p: isAttrs p && p.recurseForDerivations or false;
 
+  excludedNames = [
+    "vagrant-vmware-utility"
+  ];
   nameValuePair = n: v: { name = n; value = v; };
 
   concatMap = builtins.concatMap or (f: xs: concatLists (map f xs));
 
   flattenPkgs = s:
     let
-      f = p:
-        if shouldRecurseForDerivations p then flattenPkgs p
+      f = n: p:
+        if elem n excludedNames then []
+        else if shouldRecurseForDerivations p then flattenPkgs p
         else if isDerivation p then [ p ]
         else [ ];
     in
-    concatMap f (attrValues s);
+    concatMap (n: f n s.${n}) (attrNames s);
 
   outputsOf = p: map (o: p.${o}) p.outputs;
 
