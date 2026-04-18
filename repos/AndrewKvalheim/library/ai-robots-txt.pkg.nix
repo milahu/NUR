@@ -19,7 +19,7 @@ stdenv.mkDerivation (ai-robots-txt: {
     runHook preInstall
 
     mkdir --parents "$out/share/ai-robots-txt"
-    cp --reflink=auto --target-directory "$out/share/ai-robots-txt" \
+    cp --target-directory "$out/share/ai-robots-txt" \
       '.htaccess' \
       'Caddyfile' \
       'haproxy-block-ai-bots.txt' \

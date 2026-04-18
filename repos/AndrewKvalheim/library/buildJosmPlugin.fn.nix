@@ -38,11 +38,11 @@ extendMkDerivation {
     };
 
     unpackPhase = ''
-      cp --no-preserve=mode --recursive --reflink=auto $srcJosmPlugins josm
-      mkdir josm/core && cp --no-preserve=mode --recursive --reflink=auto $srcJosmTools josm/core/tools
+      cp --no-preserve=mode --recursive $srcJosmPlugins josm
+      mkdir josm/core && cp --no-preserve=mode --recursive $srcJosmTools josm/core/tools
       mkdir josm/core/dist && ln --symbolic ${josm}/share/josm/josm.jar josm/core/dist/josm-custom.jar
       ln --symbolic josm/core/tools josm/plugins/00_core_tools
-      cp --no-preserve=mode --recursive --reflink=auto $src josm/plugins/${pluginName}
+      cp --no-preserve=mode --recursive $src josm/plugins/${pluginName}
     '';
 
     patches = [

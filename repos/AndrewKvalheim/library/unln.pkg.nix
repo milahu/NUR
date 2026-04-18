@@ -14,6 +14,6 @@ writeShellApplication {
 
   text = ''
     canonical="$(readlink --canonicalize-existing "$1")"
-    cp --reflink=always --remove-destination --verbose "$canonical" "$1"
+    cp --remove-destination --verbose "$canonical" "$1"
   '';
 }

@@ -114,7 +114,7 @@ rec {
         config = buildPythonPackage rec {
           pname = "config";
           version = "0.5.1";
-          src = fetchPypi { inherit pname version; extension = "zip"; hash = "sha256-LdSgOqOD0wcR1aMyWhhY3iJTKNYZUKhb5bdMEA9jAW0="; };
+          src = pkgs.fetchPypi { inherit pname version; extension = "zip"; hash = "sha256-LdSgOqOD0wcR1aMyWhhY3iJTKNYZUKhb5bdMEA9jAW0="; };
           format = "pyproject";
           nativeBuildInputs = [ setuptools ];
         };

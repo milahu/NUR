@@ -15,7 +15,7 @@ in
         user_path='/var/lib/AccountsService/users/'${escapeShellArg user.name}
 
         if [[ -f "$face_path" ]]; then
-          cp --reflink=auto --update --verbose "$face_path" "$icon_path"
+          cp --update --verbose "$face_path" "$icon_path"
           ${getExe crudini} --verbose --ini-options 'nospace' --set "$user_path" 'User' 'Icon' "$icon_path"
         fi
       '';

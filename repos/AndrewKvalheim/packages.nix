@@ -101,6 +101,7 @@ specify {
   starship-jj = any;
   stretch-break = any;
   tile-stitch = any;
+  udon = any;
   unln = any;
   vscode-extensions = namespaced {
     andrewkvalheim.monokai-achromatic-gray = any;

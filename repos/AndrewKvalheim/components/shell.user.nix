@@ -319,7 +319,6 @@ in
         all-history = "fc -l -Di 0";
         as = "gopass-env";
         cat = "bat --plain";
-        cp = "cp --reflink=auto";
         get-clipboard = "wl-paste --no-newline --type 'text'";
         get-public-ip = "${getExe pkgs.dig} +short @208.67.222.222 myip.opendns.com";
         e = "eza --all --group-directories-first --long --header --time-style long-iso";

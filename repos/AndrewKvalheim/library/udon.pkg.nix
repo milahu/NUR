@@ -4,6 +4,7 @@
 , makeWrapper
 , stdenv
 , testers
+, unstableGitUpdater
 , writeScriptBin
 
   # Dependencies
@@ -13,7 +14,7 @@
 
 let
   inherit (builtins) toFile;
-  inherit (lib) getExe licenses makeBinPath;
+  inherit (lib) getExe getExe' licenses makeBinPath;
 in
 stdenv.mkDerivation (udon: {
   pname = "udon";
@@ -27,7 +28,7 @@ stdenv.mkDerivation (udon: {
   };
 
   patches = [
-    # Checking for an `sqlite3` executable is pointless; SQLite is compiled into Python
+    # Don’t check for an `sqlite3` executable; SQLite is compiled into Python
     (toFile "skip-verify-sqlite3.patch" ''
       --- a/src/test_libudon.py
       +++ b/src/test_libudon.py
@@ -49,7 +50,7 @@ stdenv.mkDerivation (udon: {
   buildPhase = ''
     runHook preBuild
 
-    ${getExe (python3.withPackages (ps: with ps; [ grpcio-tools ]))} -m 'grpc_tools.protoc' \
+    ${getExe' python3.pkgs.grpcio-tools "python-grpc-tools-protoc"} \
       --proto_path='src' \
       --python_out='src' \
       --grpc_python_out='src' \
@@ -62,7 +63,7 @@ stdenv.mkDerivation (udon: {
     runHook preInstall
 
     mkdir --parents "$out/share/udon"
-    cp --recursive --reflink=auto --target-directory "$out/share/udon" \
+    cp --target-directory "$out/share/udon" \
       'src/libudon.py' \
       'src/test_libudon.py' \
       'src/udon' \
@@ -109,6 +110,8 @@ stdenv.mkDerivation (udon: {
       '';
     };
   };
+
+  passthru.updateScript = unstableGitUpdater { };
 
   meta = {
     description = "Network messaging library and tools";
