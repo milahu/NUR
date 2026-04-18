@@ -23,13 +23,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "flake-release";
-  version = "0.14.4";
+  version = "0.14.8";
 
   src = fetchFromGitHub {
     owner = "spotdemo4";
     repo = "flake-release";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-pPfdiCgtwfIwCVXV0Mi6Uv2FiHW3ZE70Zi01BvPWx/c=";
+    hash = "sha256-No4k1X14FWTu9Nnfp5VPhpInATxjKyFR6VCmrafOQBg=";
   };
 
   nativeBuildInputs = [

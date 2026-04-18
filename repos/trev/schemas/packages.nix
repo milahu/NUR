@@ -1,31 +1,7 @@
 {
   lib,
+  helpers,
 }:
-let
-  isEmpty = set: builtins.attrNames set == [ ];
-  mkChildren = children: { inherit children; };
-  try =
-    e: default:
-    let
-      res = builtins.tryEval e;
-    in
-    if res.success then res.value else default;
-
-  platformConfigs = [
-    "x86_64-unknown-linux-gnu"
-    "x86_64-unknown-linux-musl"
-    "aarch64-unknown-linux-gnu"
-    "aarch64-unknown-linux-musl"
-    "armv7l-unknown-linux-gnueabihf"
-    "armv7l-unknown-linux-musleabihf"
-    "armv6l-unknown-linux-gnueabihf"
-    "armv6l-unknown-linux-musleabihf"
-    "x86_64-w64-mingw32"
-    "aarch64-w64-mingw32"
-    "x86_64-apple-darwin"
-    "arm64-apple-darwin"
-  ];
-in
 {
   version = 1;
   doc = ''
@@ -41,7 +17,7 @@ in
   defaultAttrPath = [ "default" ];
   inventory =
     output:
-    mkChildren (
+    helpers.mkChildren (
       builtins.mapAttrs (systemType: packagesForSystem: {
         forSystems = [ systemType ];
         children =
@@ -52,18 +28,23 @@ in
                 attrName: attrs:
 
                 # Necessary to deal with `AAAAAASomeThingsFailToEvaluate` etc. in Nixpkgs.
-                try (
+                helpers.try (
                   if lib.isDerivation attrs then
                     let
-                      platforms = lib.filterAttrs (n: _: builtins.elem n platformConfigs) attrs;
+                      platforms = lib.filterAttrs (n: _: builtins.elem n helpers.platforms) attrs;
                     in
                     {
                       forSystems = [ attrs.system ];
                       shortDescription = attrs.meta.description or "";
-                      derivationAttrPath = [ ];
                       what = "Package";
+                      derivationAttrPath = [ ];
                     }
-                    // (if isEmpty platforms then { } else { children = recurse (prefix + attrName + ".") platforms; })
+                    // (
+                      if helpers.isSingle platforms then
+                        { }
+                      else
+                        { children = recurse (prefix + attrName + ".") platforms; }
+                    )
 
                   else
 

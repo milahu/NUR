@@ -58,8 +58,8 @@ lib.checkListOfEnum "catppuccin-gtk-theme: theme variants"
 
   stdenvNoCC.mkDerivation
   (finalAttrs: {
-    pname = "catppuccin-gtk-theme";
-    version = "unstable-2025-10-23";
+    pname = "catppuccin-gtk";
+    version = "0-unstable-2025-10-23";
 
     src = fetchFromGitHub {
       owner = "Fausto-Korpsvart";
@@ -101,6 +101,7 @@ lib.checkListOfEnum "catppuccin-gtk-theme: theme variants"
     passthru.updateScript = nix-update-script {
       extraArgs = [
         "--commit"
+        "--version=branch=main"
         finalAttrs.pname
       ];
     };

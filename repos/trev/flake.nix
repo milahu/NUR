@@ -64,7 +64,7 @@
 
       packages = forEachSystem (
         system: pkgs:
-        pkgs.lib.filterAttrs (_: v: builtins.elem system (v.meta.platforms or [ system ])) (
+        pkgs.lib.filterAttrs (_: package: pkgs.lib.meta.availableOn { inherit system; } package) (
           import ./packages {
             inherit system pkgs;
           }
@@ -142,7 +142,7 @@
         self.libs."${system}".mkChecks {
           actions = {
             root = ./.github/workflows;
-            nativeBuildInputs = with pkgs; [
+            packages = with pkgs; [
               action-validator
               octoscan
             ];
@@ -154,8 +154,8 @@
 
           renovate = {
             root = ./.github;
-            fileset = ./.github/renovate.json;
-            deps = [
+            files = ./.github/renovate.json;
+            packages = [
               (pkgs.callPackage ./packages/renovate { })
             ];
             script = ''
@@ -166,7 +166,7 @@
           nix = {
             root = ./.;
             filter = file: file.hasExt "nix";
-            deps = with pkgs; [
+            packages = with pkgs; [
               nixfmt
             ];
             forEach = ''
@@ -177,7 +177,7 @@
           shell = {
             root = ./.;
             filter = file: file.hasExt "sh";
-            deps = with pkgs; [
+            packages = with pkgs; [
               shellcheck
             ];
             forEach = ''
@@ -188,7 +188,7 @@
           prettier = {
             root = ./.;
             filter = file: file.hasExt "yaml" || file.hasExt "json" || file.hasExt "md";
-            deps = with pkgs; [
+            packages = with pkgs; [
               prettier
             ];
             forEach = ''

@@ -111,32 +111,59 @@ let
       };
     };
 
-  fixPackage =
+  # fixes the mainProgram attribute for windows packages
+  fixWindows =
     package:
     if package == null then
       null
-    else
+    else if package.stdenv.hostPlatform.isWindows then
       package.overrideAttrs (
-        _: prev:
-        (
-          if (prev.stdenv.hostPlatform.isStatic or false) && (!builtins.elem "dev" (prev.outputs or [ ])) then
-            {
-              outputs = (prev.outputs or [ ]) ++ [ "dev" ];
-            }
-          else
-            { }
-        )
-        // (
-          if (prev.meta.mainProgram or null) != null && (prev.stdenv.hostPlatform.isWindows or false) then
-            {
-              meta = (prev.meta or { }) // {
-                mainProgram = "${prev.meta.mainProgram}.exe";
-              };
-            }
-          else
-            { }
-        )
-      );
+        _: prev: {
+          meta = prev.meta // {
+            mainProgram = "${prev.meta.mainProgram or prev.pname or prev.name}.exe";
+          };
+        }
+      )
+    else
+      package;
+
+  # cross-compilation from linux to darwin doesn't work yet
+  # https://nixos.org/manual/nixpkgs/stable/#sec-platform-breakdown
+  fixDarwin =
+    package:
+    if package == null then
+      null
+    else if package.stdenv.hostPlatform.isDarwin && package.stdenv.buildPlatform.isLinux then
+      null
+    else
+      package;
+
+  # add dev otherwise the result will have the entire buildInputs closure
+  # https://github.com/NixOS/nixpkgs/issues/83667
+  fixStatic =
+    package:
+    if package == null then
+      null
+    else if package.stdenv.hostPlatform.isStatic then
+      package.overrideAttrs (
+        _: prev: {
+          postFixup = prev.postFixup or "" + ''
+            # HACK: Otherwise the result will have the entire buildInputs closure
+            # injected by the pkgsStatic stdenv
+            # <https://github.com/NixOS/nixpkgs/issues/83667>
+            rm -f $out/nix-support/propagated-build-inputs
+          '';
+        }
+      )
+    else
+      package;
+
+  tryEval =
+    package:
+    let
+      res = builtins.tryEval package;
+    in
+    if res.success then res.value else null;
 
   # Applies a merge operation across systems.
   eachSystemOp =
@@ -189,7 +216,7 @@ eachSystemOp (
                             name = cross.platform.config;
                             value =
                               if (nixpkgs.lib.meta.availableOn cross.platform package) then
-                                fixPackage cross.flake.${key}.${name}
+                                tryEval (fixWindows (fixDarwin (fixStatic (cross.flake.${key}.${name}))))
                               else
                                 null;
                           }) crosses
