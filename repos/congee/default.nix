@@ -16,9 +16,8 @@
 
   pruner = pkgs.callPackage ./pkgs/pruner { };
   some-sass-language-server = pkgs.callPackage ./pkgs/some-sass-language-server { };
-  playwright-cli = pkgs.callPackage ./pkgs/playwright-cli { };
+  gh-image = pkgs.callPackage ./pkgs/gh-image { };
   rsql = pkgs.callPackage ./pkgs/rsql { };
   skills = pkgs.callPackage ./pkgs/skills { };
-  gh-clean-notifications = pkgs.callPackage ./pkgs/gh-clean-notifications { };
   sentry = pkgs.callPackage ./pkgs/sentry { };
 }
