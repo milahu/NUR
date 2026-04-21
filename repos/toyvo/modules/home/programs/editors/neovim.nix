@@ -193,7 +193,6 @@ in
           enable = true;
           lightbulb.enable = true;
           trouble.enable = true;
-          lspSignature.enable = true;
           lspconfig.sources.nix-lsp = lib.mkForce ''
             lspconfig.nil_ls.setup{
               capabilities = capabilities,
@@ -228,13 +227,15 @@ in
           enableFormat = true;
           enableTreesitter = true;
           bash.enable = true;
+          css.enable = true;
           go.enable = true;
+          html.enable = true;
           lua.enable = true;
           markdown.enable = true;
           nix.enable = true;
           python.enable = true;
           rust.enable = true;
-          ts.enable = true;
+          typescript.enable = true;
           yaml.enable = true;
         };
 
@@ -242,6 +243,7 @@ in
         statusline.lualine.enable = true;
         telescope.enable = true;
         autocomplete.blink-cmp.enable = true;
+        autocomplete.blink-cmp.setupOpts.signature.enabled = true;
         binds.whichKey.enable = true;
         git.enable = true;
       };
