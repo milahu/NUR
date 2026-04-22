@@ -1,16 +1,16 @@
 {
 "name":"AndrewKvalheim",
-"fetch_time":3.177,
-"eval_time":0.355,
+"fetch_time":2.819,
+"eval_time":0.367,
 "source":{
 "url":"https://codeberg.org/AndrewKvalheim/configuration",
-"rev":"d5dcca4ecc3c8b8f16b9df87a1149874f0e26a25",
-"sha256":"0dgkmrwmqa3i2ls212f9x5x0cjf9qly3rcil11mgnshr6c1gxmxa",
+"rev":"cdc21dd485ef2560fc0c397a8622ab2820efcf57",
+"sha256":"1fwm4qz8ym7p8mchh9hvpwpdqwb6rs93p3jrm2k3b7fhrcq8sp7d",
 "date":null
 },
-"source_storepath":"/nix/store/dbl44kl20jadlsim8kjxb0vjincb7n91-configuration",
-"nixpkgs_storepath":"/nix/store/jxqdhmbbbsckx9gps961ypaq7ynigbl1-source",
-"nur_combined_rev":"a869f6477235c1ff81de2b074c09665cd143f7de",
+"source_storepath":"/nix/store/gdvc21i8f257rp83wj461imxg4qm22vs-configuration",
+"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
+"nur_combined_rev":"3c9f5819cab2f060f63abadc77f397838803fac8",
 "packages":{
 "ai-robots-txt":{
 "meta":{
@@ -60,7 +60,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./library/ai-robots-txt.pkg.nix:36",
+"position":"./library/ai-robots-txt.pkg.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -125,6 +125,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -152,7 +153,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./library/apex.pkg.nix:17",
+"position":"./library/apex.pkg.nix:13",
 "unfree":false,
 "unsupported":false
 },
@@ -216,6 +217,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -243,7 +245,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./library/blocky-ui.pkg.nix:33",
+"position":"./library/blocky-ui.pkg.nix:14",
 "unfree":true,
 "unsupported":false
 },
@@ -292,6 +294,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -349,7 +352,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jxqdhmbbbsckx9gps961ypaq7ynigbl1-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
+"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
 "line":74
 },
 "name":"python3.13-busyserve-0.45.3",
@@ -373,6 +376,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -511,6 +515,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -649,7 +654,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./library/ch57x-keyboard-tool.pkg.nix:35",
+"position":"./library/ch57x-keyboard-tool.pkg.nix:18",
 "unfree":false,
 "unsupported":false
 },
@@ -711,7 +716,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./library/chunker.pkg.nix:56",
+"position":"./library/chunker.pkg.nix:22",
 "unfree":false,
 "unsupported":false
 },
@@ -777,6 +782,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -804,7 +810,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./library/co2monitor.pkg.nix:30",
+"position":"./library/co2monitor.pkg.nix:18",
 "unfree":false,
 "unsupported":false
 },
@@ -886,7 +892,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./library/decompiler-mc.pkg.nix:39",
+"position":"./library/decompiler-mc.pkg.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -934,6 +940,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -982,6 +989,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1012,7 +1020,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./library/dmarc-report-notifier.pkg.nix:38",
+"position":"./library/dmarc-report-notifier.pkg.nix:15",
 "unfree":false,
 "unsupported":false
 },
@@ -1187,7 +1195,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./library/fastnbt-tools.pkg.nix:21",
+"position":"./library/fastnbt-tools.pkg.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -1235,6 +1243,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1283,6 +1292,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1313,7 +1323,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./library/fediblockhole.pkg.nix:31",
+"position":"./library/fediblockhole.pkg.nix:15",
 "unfree":false,
 "unsupported":false
 },
@@ -1376,7 +1386,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./library/git-diff-image.pkg.nix:70",
+"position":"./library/git-diff-image.pkg.nix:51",
 "unfree":false,
 "unsupported":false
 },
@@ -1437,7 +1447,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./library/gpx-reduce.pkg.nix:33",
+"position":"./library/gpx-reduce.pkg.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -1503,6 +1513,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1530,7 +1541,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./library/incremental-compress.pkg.nix:28",
+"position":"./library/incremental-compress.pkg.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -1654,7 +1665,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./library/iptables_exporter.pkg.nix:33",
+"position":"./library/iptables_exporter.pkg.nix:15",
 "unfree":false,
 "unsupported":false
 },
@@ -1715,7 +1726,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./library/josm-imagery-used.pkg.nix:24",
+"position":"./library/josm-imagery-used.pkg.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -1763,6 +1774,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1811,6 +1823,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1841,7 +1854,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./library/journal-brief.pkg.nix:39",
+"position":"./library/journal-brief.pkg.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -1955,7 +1968,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./library/little-a-map.pkg.nix:37",
+"position":"./library/little-a-map.pkg.nix:18",
 "unfree":false,
 "unsupported":false
 },
@@ -2023,6 +2036,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2038,7 +2052,7 @@
 "x86_64-linux",
 "s390x-linux"
 ],
-"position":"./library/mark-applier.pkg.nix:22",
+"position":"./library/mark-applier.pkg.nix:13",
 "unfree":false,
 "unsupported":false
 },
@@ -2148,7 +2162,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./library/minemap.pkg.nix:67",
+"position":"./library/minemap.pkg.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -2210,7 +2224,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./library/nbt-explorer.pkg.nix:70",
+"position":"./library/nbt-explorer.pkg.nix:24",
 "unfree":false,
 "unsupported":false
 },
@@ -2384,7 +2398,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./library/oxvg.pkg.nix:25",
+"position":"./library/oxvg.pkg.nix:15",
 "unfree":false,
 "unsupported":false
 },
@@ -2432,6 +2446,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2480,6 +2495,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2510,7 +2526,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./library/pdfalyzer.pkg.nix:33",
+"position":"./library/pdfalyzer.pkg.nix:19",
 "unfree":false,
 "unsupported":false
 },
@@ -2624,7 +2640,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./library/pngquant-interactive.pkg.nix:42",
+"position":"./library/pngquant-interactive.pkg.nix:26",
 "unfree":false,
 "unsupported":false
 },
@@ -2672,6 +2688,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2720,6 +2737,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2750,7 +2768,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./library/smartcut.pkg.nix:35",
+"position":"./library/smartcut.pkg.nix:16",
 "unfree":false,
 "unsupported":false
 },
@@ -2813,7 +2831,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./library/spf-check.pkg.nix:33",
+"position":"./library/spf-check.pkg.nix:17",
 "unfree":false,
 "unsupported":false
 },
@@ -2878,6 +2896,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2905,7 +2924,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./library/spf-tree.pkg.nix:25",
+"position":"./library/spf-tree.pkg.nix:14",
 "unfree":false,
 "unsupported":false
 },
@@ -3018,7 +3037,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./library/stretch-break.pkg.nix:91",
+"position":"./library/stretch-break.pkg.nix:32",
 "unfree":false,
 "unsupported":false
 },
@@ -3079,7 +3098,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./library/tile-stitch.pkg.nix:35",
+"position":"./library/tile-stitch.pkg.nix:22",
 "unfree":false,
 "unsupported":false
 },
@@ -3136,23 +3155,23 @@
 },
 "mainProgram":"udon",
 "maintainers":[],
-"name":"udon-0-unstable-2026-04-15",
+"name":"udon-0-unstable-2026-04-19",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
-"position":"./library/udon.pkg.nix:117",
+"position":"./library/udon.pkg.nix:22",
 "unfree":false,
 "unsupported":false
 },
-"name":"udon-0-unstable-2026-04-15",
+"name":"udon-0-unstable-2026-04-19",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"udon",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-04-15"
+"version":"0-unstable-2026-04-19"
 },
 "wireguard-vanity-address":{
 "meta":{
@@ -3253,7 +3272,7 @@
 "x86_64-redox",
 "wasm32-wasi"
 ],
-"position":"./library/wireguard-vanity-address.pkg.nix:27",
+"position":"./library/wireguard-vanity-address.pkg.nix:15",
 "unfree":false,
 "unsupported":false
 },

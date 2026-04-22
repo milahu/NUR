@@ -1,16 +1,16 @@
 {
 "name":"ihaveamac",
-"fetch_time":0.601,
-"eval_time":0.37,
+"fetch_time":0.386,
+"eval_time":0.374,
 "source":{
 "url":"https://github.com/ihaveamac/nur-packages",
-"rev":"9bdef82d17367dd039af9b60b616208d96201ccb",
-"sha256":"1j0zlnkhc6c34ixn37x1gq6npm3g0rfha6f41s5mcvmpag9mxsf7",
+"rev":"a2dbb28115142d57201e569dc695755ac6abad1d",
+"sha256":"1mhvjqyrp18l126gswf23z9iw29phyy49a1ywmb26036d12ngxw4",
 "date":null
 },
-"source_storepath":"/nix/store/5anmfggapbmb2w4y05flh1v0cfxm3mrq-source",
-"nixpkgs_storepath":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source",
-"nur_combined_rev":"0adbd1d35b73ee58a275c47aecabbeac18542785",
+"source_storepath":"/nix/store/ybham4z6fva4bvfwljmd5f8zvjf1wibm-source",
+"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
+"nur_combined_rev":"898b41fa9cc2276c09c6d6fb1f0a36a74814d861",
 "packages":{
 "_3beans":{
 "meta":{
@@ -56,7 +56,7 @@
 },
 "mainProgram":"3beans",
 "maintainers":[],
-"name":"3beans-release-unstable-2026-04-11",
+"name":"3beans-release-unstable-2026-04-19",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -75,6 +75,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -145,14 +146,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"3beans-release-unstable-2026-04-11",
+"name":"3beans-release-unstable-2026-04-19",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"3beans-release-unstable",
 "system":"x86_64-linux",
-"version":"2026-04-11"
+"version":"2026-04-19"
 },
 "_3dslink":{
 "meta":{
@@ -208,6 +209,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -350,6 +352,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -482,6 +485,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -612,6 +616,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -710,10 +715,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/by-name/az/azahar/package.nix",
+"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/az/azahar/package.nix",
 "line":199
 },
-"name":"azahar-2125.0.1-unstable-2026-04-11",
+"name":"azahar-2125.1.1-unstable-2026-04-21",
 "nonTeamMaintainers":[
 {
 "email":"marcin@serwin.dev",
@@ -732,6 +737,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -760,14 +766,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"azahar-2125.0.1-unstable-2026-04-11",
+"name":"azahar-2125.1.1-unstable-2026-04-21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"azahar",
 "system":"x86_64-linux",
-"version":"2125.0.1-unstable-2026-04-11"
+"version":"2125.1.1-unstable-2026-04-21"
 },
 "bannertool":{
 "meta":{
@@ -832,6 +838,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -974,6 +981,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1088,6 +1096,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1148,6 +1157,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1287,6 +1297,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1390,6 +1401,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1523,6 +1535,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1665,6 +1678,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1798,6 +1812,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1931,6 +1946,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2064,6 +2080,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2262,6 +2279,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2360,6 +2378,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2502,6 +2521,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2622,6 +2642,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2895,6 +2916,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3037,6 +3059,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3181,6 +3204,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3325,6 +3349,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3467,6 +3492,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3609,6 +3635,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3751,6 +3778,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3893,6 +3921,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4035,6 +4064,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4177,6 +4207,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4319,6 +4350,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4461,6 +4493,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4599,6 +4632,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4710,6 +4744,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4851,6 +4886,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4993,6 +5029,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5135,6 +5172,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5342,6 +5380,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5484,6 +5523,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5727,6 +5767,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5815,6 +5856,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5956,6 +5998,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -6211,6 +6254,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -6344,6 +6388,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -6466,7 +6511,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"vacuumtube-1.6.1",
+"name":"vacuumtube-1.6.4",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -6481,6 +6526,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -6521,14 +6567,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"vacuumtube-1.6.1",
+"name":"vacuumtube-1.6.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vacuumtube",
 "system":"x86_64-linux",
-"version":"1.6.1"
+"version":"1.6.4"
 },
 "vanilla":{
 "meta":{
@@ -6581,6 +6627,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -6679,6 +6726,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -6812,6 +6860,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
