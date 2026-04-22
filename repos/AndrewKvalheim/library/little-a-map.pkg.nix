@@ -8,9 +8,20 @@
 , cmake
 }:
 
+let
+  inherit (lib) licenses;
+in
 rustPlatform.buildRustPackage (little-a-map: {
   pname = "little-a-map";
   version = "0.13.10";
+  meta = {
+    description = "Compositor of player-created Minecraft map items";
+    homepage = "https://codeberg.org/AndrewKvalheim/little-a-map";
+    license = licenses.gpl3;
+    mainProgram = "little-a-map";
+  };
+
+  passthru.updateScript = gitUpdater { rev-prefix = "v"; };
 
   src = fetchFromGitea {
     domain = "codeberg.org";
@@ -28,15 +39,6 @@ rustPlatform.buildRustPackage (little-a-map: {
     export TEST_OUTPUT_PATH="$TMPDIR"
   '';
 
-  nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
-
-  passthru.updateScript = gitUpdater { rev-prefix = "v"; };
-
-  meta = {
-    description = "Compositor of player-created Minecraft map items";
-    homepage = "https://codeberg.org/AndrewKvalheim/little-a-map";
-    license = lib.licenses.gpl3;
-    mainProgram = "little-a-map";
-  };
+  nativeInstallCheckInputs = [ versionCheckHook ];
 })

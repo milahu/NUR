@@ -8,22 +8,21 @@
 
 let
   inherit (builtins) toFile;
-
-  python = python3.withPackages (p: with p; [
-    icalendar
-    more-itertools
-    pydantic
-    pydash
-    requests
-    requests-cache
-    requests-ratelimiter
-    sunrisesunset
-    xdg-base-dirs
-  ]);
+  inherit (lib) licenses;
 in
 stdenv.mkDerivation (office-hours: {
   pname = "office-hours";
   version = "1.0.0";
+  meta = {
+    description = "Generate a calendar of office hours";
+    homepage = "https://github.com/AndrewKvalheim/office-hours";
+    license = licenses.gpl3;
+    mainProgram = "office-hours";
+  };
+
+  postInstall = ''
+    install -D 'office-hours.py' "$out/bin/office-hours"
+  '';
 
   src = fetchFromGitHub {
     owner = "AndrewKvalheim";
@@ -42,16 +41,17 @@ stdenv.mkDerivation (office-hours: {
     '')
   ];
 
-  buildInputs = [ python ];
-
-  postInstall = ''
-    install -D 'office-hours.py' "$out/bin/office-hours"
-  '';
-
-  meta = {
-    description = "Generate a calendar of office hours";
-    homepage = "https://github.com/AndrewKvalheim/office-hours";
-    license = lib.licenses.gpl3;
-    mainProgram = "office-hours";
-  };
+  buildInputs = [
+    (python3.withPackages (ps: with ps; [
+      icalendar
+      more-itertools
+      pydantic
+      pydash
+      requests
+      requests-cache
+      requests-ratelimiter
+      sunrisesunset
+      xdg-base-dirs
+    ]))
+  ];
 })

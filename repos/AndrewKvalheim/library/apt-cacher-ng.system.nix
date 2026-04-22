@@ -16,7 +16,7 @@ let
           DynamicUser = true;
           CacheDirectory = "%N";
           RuntimeDirectory = "%N";
-          WorkingDirectory = "/run/apt-cacher-ng";
+          WorkingDirectory = "%t/apt-cacher-ng";
           IPAccounting = true;
 
           CapabilityBoundingSet = "";

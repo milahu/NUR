@@ -5,11 +5,23 @@
 }:
 
 let
+  inherit (lib) licenses;
   inherit (import ../library/utilities.lib.nix { inherit lib; }) versionsSatisfied;
 in
 python313Packages.buildPythonApplication rec {
   pname = "dmarc-report-notifier";
   version = "1.1.12";
+  meta = {
+    description = "Headless periodic DMARC report handler";
+    homepage = "https://codeberg.org/AndrewKvalheim/dmarc-report-notifier";
+    license = licenses.gpl3;
+    mainProgram = "dmarc-report-notifier";
+    broken = with python313Packages; ! versionsSatisfied [
+      [ parsedmarc "≥8.3.2,<9" ]
+    ];
+  };
+
+  passthru.updateScript = gitUpdater { rev-prefix = "v"; };
 
   src = fetchFromGitea {
     domain = "codeberg.org";
@@ -20,27 +32,13 @@ python313Packages.buildPythonApplication rec {
   };
 
   format = "pyproject";
-
   nativeBuildInputs = with python313Packages; [
     hatchling
   ];
-
-  propagatedBuildInputs = with python313Packages; [
+  dependencies = with python313Packages; [
     jinja2
     jinja2-pluralize
     matrix-nio
     parsedmarc
   ];
-
-  passthru.updateScript = gitUpdater { rev-prefix = "v"; };
-
-  meta = {
-    description = "Headless periodic DMARC report handler";
-    homepage = "https://codeberg.org/AndrewKvalheim/dmarc-report-notifier";
-    license = lib.licenses.gpl3;
-    mainProgram = "dmarc-report-notifier";
-    broken = with python313Packages; ! versionsSatisfied [
-      [ parsedmarc "≥8.3.2,<9" ]
-    ];
-  };
 }

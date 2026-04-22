@@ -4,9 +4,20 @@
 , lib
 }:
 
+let
+  inherit (lib) licenses;
+in
 buildGoModule (blocky-ui: {
   pname = "blocky-ui";
   version = "0.1";
+  meta = {
+    description = "Simple web interface for Blocky";
+    homepage = "https://github.com/ivvija/blocky-ui";
+    license = licenses.unfree; # No license;
+    mainProgram = "blocky-ui";
+  };
+
+  passthru.updateScript = gitUpdater { rev-prefix = "v"; };
 
   src = fetchFromGitHub {
     owner = "ivvija";
@@ -23,16 +34,7 @@ buildGoModule (blocky-ui: {
   vendorHash = "sha256-3xyV1TaKK7tiKz6crKikTF4Hf7m1IOyBRJt36i2a4mU=";
 
   postInstall = ''
-    mkdir --parents $out/lib
-    cp --recursive assets $out/lib/assets
+    mkdir --parents "$out/lib"
+    cp --recursive 'assets' "$out/lib/assets"
   '';
-
-  passthru.updateScript = gitUpdater { rev-prefix = "v"; };
-
-  meta = {
-    description = "Simple web interface for Blocky";
-    homepage = "https://github.com/ivvija/blocky-ui";
-    license = lib.licenses.unfree; # No license;
-    mainProgram = "blocky-ui";
-  };
 })

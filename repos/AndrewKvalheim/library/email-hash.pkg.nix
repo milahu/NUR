@@ -18,6 +18,6 @@ rustPlatform.buildRustPackage (email-hash: {
 
   buildInputs = [ sqlite ];
 
-  nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
+  nativeInstallCheckInputs = [ versionCheckHook ];
 })

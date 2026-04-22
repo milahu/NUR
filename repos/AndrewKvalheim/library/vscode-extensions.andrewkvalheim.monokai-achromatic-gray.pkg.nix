@@ -83,26 +83,26 @@ let
   '';
 in
 vscode-utils.buildVscodeExtension (extension: {
-  name = "monokai-achromatic-gray";
+  pname = "${extension.vscodeExtPublisher}-${extension.vscodeExtName}";
   version = vscodium.version;
 
-  pname = "${extension.vscodeExtPublisher}-${extension.vscodeExtName}";
-
-  vscodeExtPublisher = "andrewkvalheim";
-  vscodeExtName = extension.name;
-  vscodeExtUniqueId = "${extension.vscodeExtPublisher}.${extension.vscodeExtName}";
-
   src = vscodium + /lib/vscode/resources/app/extensions/theme-monokai;
-
   preUnpack = "sourceRoot='theme-monokai'"; # Override hard coding of buildVscodeExtension
-
-  nativeBuildInputs = [ jaq moreutils ];
-
-  BLACK = blackLevel;
 
   postPatch = ''
     jaq --in-place ${escapeShellArg patchPackage} 'package.json'
     jaq --in-place ${escapeShellArg patchPackageNls} 'package.nls.json'
     <'themes/monokai-color-theme.json' ${patchTheme} | sponge 'themes/monokai-color-theme.json'
   '';
+
+  name = "monokai-achromatic-gray";
+  vscodeExtPublisher = "andrewkvalheim";
+  vscodeExtName = extension.name;
+  vscodeExtUniqueId = "${extension.vscodeExtPublisher}.${extension.vscodeExtName}";
+  nativeBuildInputs = [
+    jaq
+    moreutils
+  ];
+
+  BLACK = blackLevel;
 })

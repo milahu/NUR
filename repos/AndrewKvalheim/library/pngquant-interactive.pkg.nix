@@ -16,9 +16,20 @@
 , pkg-config
 }:
 
+let
+  inherit (lib) licenses;
+in
 rustPlatform.buildRustPackage (pngquant-interactive: {
   pname = "pngquant-interactive";
   version = "0.2.1";
+  meta = {
+    description = "Graphical interface for pngquant with a live preview";
+    homepage = "https://codeberg.org/AndrewKvalheim/pngquant-interactive";
+    license = licenses.gpl3;
+    mainProgram = "pngquant-interactive";
+  };
+
+  passthru.updateScript = gitUpdater { rev-prefix = "v"; };
 
   src = fetchFromGitea {
     domain = "codeberg.org";
@@ -30,18 +41,20 @@ rustPlatform.buildRustPackage (pngquant-interactive: {
 
   cargoHash = "sha256-rnBknfO4+Y0GlHIysmiPz5Y2O5tByqdl6CBT7PC65fk=";
 
-  nativeBuildInputs = [ cmake curl git pkg-config ];
-  buildInputs = [ libXcursor libXfixes libXinerama mesa pango ];
+  nativeBuildInputs = [
+    cmake
+    curl
+    git
+    pkg-config
+  ];
+  buildInputs = [
+    libXcursor
+    libXfixes
+    libXinerama
+    mesa
+    pango
+  ];
 
-  nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
-
-  passthru.updateScript = gitUpdater { rev-prefix = "v"; };
-
-  meta = {
-    description = "Graphical interface for pngquant with a live preview";
-    homepage = "https://codeberg.org/AndrewKvalheim/pngquant-interactive";
-    license = lib.licenses.gpl3;
-    mainProgram = "pngquant-interactive";
-  };
+  nativeInstallCheckInputs = [ versionCheckHook ];
 })

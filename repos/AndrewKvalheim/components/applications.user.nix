@@ -25,6 +25,7 @@ in
   config = {
     # Unfree packages
     allowedUnfree = [
+      "ffmpeg"
       "vagrant"
     ];
 
@@ -108,7 +109,7 @@ in
       exiftool
       eyedropper
       fast-cli
-      ffmpeg
+      (ffmpeg.override { withUnfree = true; withFdkAac = true; })
       file
       fstl
       fq

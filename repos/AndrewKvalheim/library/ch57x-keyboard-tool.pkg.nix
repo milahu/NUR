@@ -14,6 +14,13 @@ in
 rustPlatform.buildRustPackage (ch57x-keyboard-tool: {
   pname = "ch57x-keyboard-tool";
   version = "1.7.0";
+  meta = {
+    description = "Command-line tool for programming ch57x keyboard";
+    homepage = "https://github.com/kriomant/ch57x-keyboard-tool";
+    license = lib.licenses.mit;
+  };
+
+  passthru.updateScript = nix-update-script { };
 
   src = fetchCrate {
     inherit (ch57x-keyboard-tool) pname version;
@@ -23,17 +30,9 @@ rustPlatform.buildRustPackage (ch57x-keyboard-tool: {
   cargoHash = "sha256-ojQ9tiN9H7xYFdunYTjj93QX7d/ZJDtrtqg56B27ysU=";
 
   postInstall = ''
-    install -D ${rules} $out/etc/udev/rules.d/70-ch57x.rules
+    install -D ${rules} "$out/etc/udev/rules.d/70-ch57x.rules"
   '';
 
-  nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
-
-  passthru.updateScript = nix-update-script { };
-
-  meta = {
-    description = "Command-line tool for programming ch57x keyboard";
-    homepage = "https://github.com/kriomant/ch57x-keyboard-tool";
-    license = lib.licenses.mit;
-  };
+  nativeInstallCheckInputs = [ versionCheckHook ];
 })

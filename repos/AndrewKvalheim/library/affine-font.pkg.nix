@@ -7,9 +7,18 @@
 , fontforge
 }:
 
+let
+  inherit (lib) licenses;
+in
 stdenv.mkDerivation {
   pname = "affine-font";
   version = "0-unstable-2023-02-09";
+  meta = {
+    homepage = "https://codeberg.org/AndrewKvalheim/affine";
+    license = licenses.cc-by-nc-sa-40;
+  };
+
+  passthru.updateScript = unstableGitUpdater { };
 
   src = fetchFromGitea {
     domain = "codeberg.org";
@@ -20,15 +29,17 @@ stdenv.mkDerivation {
   };
 
   nativeBuildInputs = [ fontforge ];
+  buildPhase = ''
+    runHook preBuild
 
-  buildPhase = "make otf";
+    make otf
 
-  installPhase = "install -m444 -Dt $out/share/fonts/opentype build/*.otf";
+    runHook postBuild
+  '';
 
-  passthru.updateScript = unstableGitUpdater { };
-
-  meta = {
-    homepage = "https://codeberg.org/AndrewKvalheim/affine";
-    license = lib.licenses.cc-by-nc-sa-40;
-  };
+  installPhase = ''
+    mkdir --parents "$out/share/fonts/opentype"
+    cp --target-directory "$out/share/fonts/opentype" \
+      build/*.otf
+  '';
 }

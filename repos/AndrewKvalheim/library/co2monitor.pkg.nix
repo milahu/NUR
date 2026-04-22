@@ -5,6 +5,8 @@
 }:
 
 let
+  inherit (lib) licenses;
+
   rules = writeText "co2monitor.rules" ''
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="04d9", ATTRS{idProduct}=="a052", MODE="0660", TAG+="uaccess", GROUP="co2monitor", SYMLINK+="co2monitor", TAG+="systemd", ENV{SYSTEMD_ALIAS}+="/dev/co2monitor"
   '';
@@ -12,6 +14,12 @@ in
 buildGoModule {
   pname = "co2monitor";
   version = "0-unstable-2021-08-10";
+  meta = {
+    description = "CO₂ and temperature monitor";
+    homepage = "https://github.com/larsp/co2monitor";
+    license = licenses.mit;
+    mainProgram = "co2monitor";
+  };
 
   src = fetchFromGitHub {
     owner = "larsp";
@@ -22,14 +30,9 @@ buildGoModule {
 
   vendorHash = "sha256-WsNFsAAfaORA9EyRuBt3gqv+6MyZ2amSYtVdNCo6ps8=";
 
-  postInstall = "install -D ${rules} $out/etc/udev/rules.d/50-co2monitor.rules";
-
   doCheck = false; # Requires hardware
 
-  meta = {
-    description = "CO₂ and temperature monitor";
-    homepage = "https://github.com/larsp/co2monitor";
-    license = lib.licenses.mit;
-    mainProgram = "co2monitor";
-  };
+  postInstall = ''
+    install -D ${rules} "$out/etc/udev/rules.d/50-co2monitor.rules"
+  '';
 }

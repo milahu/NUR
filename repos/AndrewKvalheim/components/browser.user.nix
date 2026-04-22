@@ -113,9 +113,6 @@ in
     # Enable spell checking in all text fields
     "layout.spellcheckDefault" = 2 /* single- and multi-line */;
 
-    # Copy pretty URLs from address bar
-    "browser.urlbar.decodeURLsOnCopy" = true;
-
     # Disable Pocket
     "extensions.pocket.enabled" = false;
 

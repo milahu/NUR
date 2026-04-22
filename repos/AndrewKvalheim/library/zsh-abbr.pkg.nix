@@ -1,8 +1,19 @@
-{ fetchFromGitHub, lib, stdenv }:
+{ fetchFromGitHub
+, lib
+, stdenv
+}:
 
+let
+  inherit (lib) licenses;
+in
 stdenv.mkDerivation {
   pname = "zsh-abbr";
   version = "4.5.0"; # Note: 4.6.0 introduces noncommercial license
+  meta = {
+    description = "Manager of auto-expanding abbreviations for Zsh";
+    homepage = "https://github.com/olets/zsh-abbr";
+    license = licenses.mit;
+  };
 
   src = fetchFromGitHub {
     owner = "olets";
@@ -14,14 +25,13 @@ stdenv.mkDerivation {
   dontBuild = true;
 
   installPhase = ''
-    install -D -t $out/share/zsh/plugins/zsh-abbr \
-      zsh-abbr.zsh \
-      zsh-abbr.plugin.zsh
-  '';
+    runHook preInstall
 
-  meta = {
-    description = "Manager of auto-expanding abbreviations for Zsh";
-    homepage = "https://github.com/olets/zsh-abbr";
-    license = lib.licenses.mit;
-  };
+    mkdir --parents "$out/share/zsh/plugins/zsh-abbr"
+    cp --target-directory "$out/share/zsh/plugins/zsh-abbr" \
+      'zsh-abbr.zsh' \
+      'zsh-abbr.plugin.zsh'
+
+    runHook postInstall
+  '';
 }

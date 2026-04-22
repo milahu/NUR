@@ -5,9 +5,20 @@
 , versionCheckHook
 }:
 
+let
+  inherit (lib) licenses;
+in
 rustPlatform.buildRustPackage (oxvg: {
   pname = "oxvg";
   version = "0.0.5";
+  meta = {
+    description = "Rust alternative to SVGO";
+    homepage = "https://github.com/noahbald/oxvg";
+    license = licenses.mit;
+    mainProgram = "oxvg";
+  };
+
+  passthru.updateScript = nix-update-script { };
 
   src = fetchCrate {
     inherit (oxvg) pname version;
@@ -16,15 +27,6 @@ rustPlatform.buildRustPackage (oxvg: {
 
   cargoHash = "sha256-+dfM2/SjUTwNAoKC7cjw2Ba1RNp6BwmbR1TxXtp9W4E=";
 
-  nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
-
-  passthru.updateScript = nix-update-script { };
-
-  meta = {
-    description = "Rust alternative to SVGO";
-    homepage = "https://github.com/noahbald/oxvg";
-    license = lib.licenses.mit;
-    mainProgram = "oxvg";
-  };
+  nativeInstallCheckInputs = [ versionCheckHook ];
 })

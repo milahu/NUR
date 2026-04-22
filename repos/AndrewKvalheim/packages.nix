@@ -34,6 +34,7 @@ specify {
   chromium.commandLineArgs = "--enable-features=WaylandTextInputV3"; # Pending https://crbug.com/40272818, NixOS/nixpkgs#394395
   co2monitor = any;
   constrict = any;
+  darktable.version = "≥5.4"; # 5.2 was freezing 🤷
   dawarich.patch = ./library/assets/dawarich_viridis.patch;
   decompiler-mc = any;
   dmarc-report-converter = any;

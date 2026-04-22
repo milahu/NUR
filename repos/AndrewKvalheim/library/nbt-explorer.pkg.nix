@@ -15,11 +15,21 @@
 
 let
   inherit (builtins) placeholder;
-  inherit (lib) getExe;
+  inherit (lib) getExe licenses;
 in
 stdenv.mkDerivation (nbt-explorer: {
   pname = "nbt-explorer";
   version = "2.8.0";
+  meta = {
+    description = "Graphical NBT editor for all Minecraft NBT data sources";
+    homepage = "https://github.com/jaquadro/NBTExplorer";
+    license = licenses.mit;
+    mainProgram = "nbt-explorer";
+  };
+
+  passthru.updateScript = nix-update-script {
+    extraArgs = [ "--version-regex" "(.*)-win" ];
+  };
 
   src = fetchzip {
     url = "https://github.com/jaquadro/NBTExplorer/releases/download/v${nbt-explorer.version}-win/NBTExplorer-${nbt-explorer.version}.zip";
@@ -46,30 +56,25 @@ stdenv.mkDerivation (nbt-explorer: {
     })
   ];
 
-  nativeBuildInputs = [ copyDesktopItems makeWrapper xdg-utils ];
+  nativeBuildInputs = [
+    copyDesktopItems
+    makeWrapper
+    xdg-utils
+  ];
+
   postInstall = ''
-    mkdir -p $out/lib
-    cp --target-directory $out/lib \
-      $src/NBTExplorer.exe \
-      $src/NBTModel.dll \
-      $src/Substrate.dll
+    mkdir --parents "$out/lib"
+    cp --target-directory "$out/lib" \
+      'NBTExplorer.exe' \
+      'NBTModel.dll' \
+      'Substrate.dll'
 
-    makeWrapper ${getExe mono} $out/bin/nbt-explorer \
+    makeWrapper ${getExe mono} "$out/bin/nbt-explorer" \
       --add-flags "$out/lib/NBTExplorer.exe" \
-      --suffix LD_LIBRARY_PATH : ${gtk2-x11}/lib
+      --suffix LD_LIBRARY_PATH : '${gtk2-x11}/lib'
 
-    env XDG_DATA_HOME="$out/share" xdg-icon-resource install --noupdate --novendor \
-      --context 'apps' --size '256' "$iconSrc/NBTExplorer/Resources/Dead_Bush_256.png" "${nbt-explorer.pname}"
+    env XDG_DATA_HOME="$out/share" \
+      xdg-icon-resource install --noupdate --novendor \
+        --context 'apps' --size '256' "$iconSrc/NBTExplorer/Resources/Dead_Bush_256.png" '${nbt-explorer.pname}'
   '';
-
-  passthru.updateScript = nix-update-script {
-    extraArgs = [ "--version-regex" "(.*)-win" ];
-  };
-
-  meta = {
-    description = "Graphical NBT editor for all Minecraft NBT data sources";
-    homepage = "https://github.com/jaquadro/NBTExplorer";
-    license = lib.licenses.mit;
-    mainProgram = "nbt-explorer";
-  };
 })

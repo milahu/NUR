@@ -9,11 +9,18 @@
 }:
 
 let
-  inherit (lib) getExe;
+  inherit (lib) getExe licenses;
 in
 stdenv.mkDerivation {
   pname = "ansible-vault-pass-client";
   version = "1.0.1-unstable-2026-03-01";
+  meta = {
+    description = "Script to integrate Ansible Vault and pass or gopass";
+    homepage = "https://github.com/me-vlad/ansible-vault-pass-client";
+    license = licenses.mit;
+  };
+
+  passthru.updateScript = unstableGitUpdater { };
 
   src = fetchFromGitHub {
     owner = "me-vlad";
@@ -23,21 +30,15 @@ stdenv.mkDerivation {
   };
 
   postPatch = ''
-    substituteInPlace ansible-vault-pass-client \
+    substituteInPlace 'ansible-vault-pass-client' \
       --replace-fail "'pass'" "'${getExe gopass}'"
   '';
 
-  buildInputs = [ python3 ];
+  buildInputs = [
+    python3
+  ];
 
   postInstall = ''
-    install -D -t $out/bin/ ansible-vault-pass-client
+    install -D --target-directory "$out/bin" 'ansible-vault-pass-client'
   '';
-
-  passthru.updateScript = unstableGitUpdater { };
-
-  meta = {
-    description = "Script to integrate Ansible Vault and pass or gopass";
-    homepage = "https://github.com/me-vlad/ansible-vault-pass-client";
-    license = lib.licenses.mit;
-  };
 }

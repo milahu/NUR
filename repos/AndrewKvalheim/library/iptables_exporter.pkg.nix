@@ -6,11 +6,17 @@
 }:
 
 let
-  inherit (lib) getExe;
+  inherit (lib) getExe licenses;
 in
 rustPlatform.buildRustPackage (iptables_exporter: {
   pname = "iptables_exporter";
   version = "0.4.0";
+  meta = {
+    description = "Prometheus exporter for iptables";
+    homepage = "https://github.com/kbknapp/iptables_exporter";
+    license = with licenses; [ afl20 mit ];
+    mainProgram = "iptables_exporter";
+  };
 
   src = fetchCrate {
     inherit (iptables_exporter) pname version;
@@ -18,21 +24,14 @@ rustPlatform.buildRustPackage (iptables_exporter: {
   };
 
   patches = [ ./assets/iptables_exporter_no-git.patch ];
-
   postPatch = ''
-    git_hash=$(${getExe jq} --raw-output '.git.sha1' '.cargo_vcs_info.json')
-    substituteInPlace build.rs --replace-fail '@git_hash@' "$git_hash"
+    git_hash="$(${getExe jq} --raw-output '.git.sha1' '.cargo_vcs_info.json')"
+    substituteInPlace 'build.rs' \
+      --replace-fail '@git_hash@' "$git_hash"
   '';
 
   cargoHash = "sha256-emqF0cGyIld6r6G1rL6gou4p8ERYs61kqnxopV2LxL8=";
 
-  nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
-
-  meta = {
-    description = "Prometheus exporter for iptables";
-    homepage = "https://github.com/kbknapp/iptables_exporter";
-    license = with lib.licenses; [ afl20 mit ];
-    mainProgram = "iptables_exporter";
-  };
+  nativeInstallCheckInputs = [ versionCheckHook ];
 })

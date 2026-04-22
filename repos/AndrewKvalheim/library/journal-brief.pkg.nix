@@ -5,11 +5,19 @@
 }:
 
 let
-  inherit (lib) escapeShellArg;
+  inherit (lib) escapeShellArg licenses;
 in
 python3Packages.buildPythonApplication rec {
   pname = "journal-brief";
   version = "1.1.8";
+  meta = {
+    description = "Show interesting new systemd journal entries since last run";
+    homepage = "https://github.com/twaugh/journal-brief";
+    license = licenses.gpl2Only;
+    mainProgram = "journal-brief";
+  };
+
+  passthru.updateScript = nix-update-script { };
 
   src = fetchPypi {
     inherit pname version;
@@ -17,7 +25,9 @@ python3Packages.buildPythonApplication rec {
   };
 
   format = "pyproject";
-  nativeBuildInputs = with python3Packages; [ setuptools ];
+  nativeBuildInputs = with python3Packages; [
+    setuptools
+  ];
   dependencies = with python3Packages; [
     pyyaml
     systemd-python
@@ -32,13 +42,4 @@ python3Packages.buildPythonApplication rec {
     [[ "$help" != *'version'* ]]
     [[ "$help" != *${escapeShellArg version}* ]]
   '';
-
-  passthru.updateScript = nix-update-script { };
-
-  meta = {
-    description = "Show interesting new systemd journal entries since last run";
-    homepage = "https://github.com/twaugh/journal-brief";
-    license = lib.licenses.gpl2Only;
-    mainProgram = "journal-brief";
-  };
 }

@@ -7,9 +7,20 @@
 , python3
 }:
 
+let
+  inherit (lib) licenses;
+in
 stdenv.mkDerivation {
   pname = "spf-check";
   version = "0-unstable-2023-11-20";
+  meta = {
+    description = "Recursively check DNS lookups in SPF record";
+    homepage = "https://github.com/gsvitins/spf-dns-lookup-check";
+    license = licenses.unlicense;
+    mainProgram = "spf-check";
+  };
+
+  passthru.updateScript = unstableGitUpdater { };
 
   src = fetchFromGitHub {
     owner = "gsvitins";
@@ -21,18 +32,11 @@ stdenv.mkDerivation {
   buildInputs = [ (python3.withPackages (p: with p; [ dnspython ])) ];
 
   doCheck = true;
-  checkPhase = "python3 spf-check.py --help > /dev/null";
-
-  postInstall = ''
-    install -D spf-check.py $out/bin/spf-check
+  checkPhase = ''
+    python3 'spf-check.py' --help > '/dev/null'
   '';
 
-  passthru.updateScript = unstableGitUpdater { };
-
-  meta = {
-    description = "Recursively check DNS lookups in SPF record";
-    homepage = "https://github.com/gsvitins/spf-dns-lookup-check";
-    license = lib.licenses.unlicense;
-    mainProgram = "spf-check";
-  };
+  postInstall = ''
+    install -D 'spf-check.py' "$out/bin/spf-check"
+  '';
 }

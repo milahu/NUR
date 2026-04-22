@@ -4,9 +4,19 @@
 , stdenv
 }:
 
+let
+  inherit (lib) licenses;
+in
 stdenv.mkDerivation (ai-robots-txt: {
   pname = "ai-robots-txt";
   version = "1.45";
+  meta = {
+    description = "List of AI agents and robots to block";
+    homepage = "https://github.com/ai-robots-txt/ai.robots.txt";
+    license = licenses.mit;
+  };
+
+  passthru.updateScript = gitUpdater { rev-prefix = "v"; };
 
   src = fetchFromGitHub {
     owner = "ai-robots-txt";
@@ -29,12 +39,4 @@ stdenv.mkDerivation (ai-robots-txt: {
 
     runHook postInstall
   '';
-
-  passthru.updateScript = gitUpdater { rev-prefix = "v"; };
-
-  meta = {
-    description = "List of AI agents and robots to block";
-    homepage = "https://github.com/ai-robots-txt/ai.robots.txt";
-    license = lib.licenses.mit;
-  };
 })

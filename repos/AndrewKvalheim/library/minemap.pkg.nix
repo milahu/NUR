@@ -15,11 +15,19 @@
 
 let
   inherit (builtins) placeholder;
-  inherit (lib) getExe;
+  inherit (lib) getExe licenses;
 in
 stdenv.mkDerivation (minemap: {
   pname = "minemap";
   version = "1.0.26";
+  meta = {
+    description = "Efficient map viewer for Minecraft seed in a nice GUI with utilities";
+    homepage = "https://github.com/hube12/Minemap";
+    license = licenses.mit;
+    mainProgram = "minemap";
+  };
+
+  passthru.updateScript = nix-update-script { };
 
   src = fetchurl {
     url = "https://github.com/hube12/Minemap/releases/download/${minemap.version}/MineMap-${minemap.version}.jar";
@@ -46,27 +54,25 @@ stdenv.mkDerivation (minemap: {
     })
   ];
 
-  nativeBuildInputs = [ copyDesktopItems imagemagick makeWrapper xdg-utils ];
+  nativeBuildInputs = [
+    copyDesktopItems
+    imagemagick
+    makeWrapper
+    xdg-utils
+  ];
   buildPhase = ''
-    magick $iconSrc/logo.png -crop '68x68+44+7' +repage \
+    magick "$iconSrc/logo.png" -crop '68x68+44+7' +repage \
       \( +clone -crop '4x38+0+22' -geometry '+64+26' -flop \) \
-      -compose copy -composite -filter 'point' -resize '200%' ${minemap.pname}.png
+      -compose 'copy' -composite -filter 'point' -resize '200%' '${minemap.pname}.png'
   '';
+
   postInstall = ''
-    install -D $src $out/share/minemap.jar
-    makeWrapper ${getExe jre} $out/bin/minemap \
+    install -D "$src" "$out/share/minemap.jar"
+    makeWrapper ${getExe jre} "$out/bin/minemap" \
       --add-flags "-jar $out/share/minemap.jar"
 
-    env XDG_DATA_HOME="$out/share" xdg-icon-resource install --noupdate --novendor \
-      --context 'apps' --size "$(( 68 * 2 ))" "${minemap.pname}.png"
+    env XDG_DATA_HOME="$out/share" \
+      xdg-icon-resource install --noupdate --novendor \
+        --context 'apps' --size "$(( 68 * 2 ))" '${minemap.pname}.png'
   '';
-
-  passthru.updateScript = nix-update-script { };
-
-  meta = {
-    description = "Efficient map viewer for Minecraft seed in a nice GUI with utilities";
-    homepage = "https://github.com/hube12/Minemap";
-    license = lib.licenses.mit;
-    mainProgram = "minemap";
-  };
 })

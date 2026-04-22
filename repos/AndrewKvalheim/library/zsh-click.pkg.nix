@@ -26,10 +26,14 @@ stdenv.mkDerivation {
   dontBuild = true;
 
   installPhase = ''
-    install -D $src $out/share/zsh/plugins/click/click.plugin.zsh
-    install ${./assets/click.wav} $out/share/zsh/plugins/click/click.wav
+    runHook preInstall
+
+    install -D "$src" "$out/share/zsh/plugins/click/click.plugin.zsh"
+    install ${./assets/click.wav} "$out/share/zsh/plugins/click/click.wav"
 
     # Pending abathur/resholve#85
-    sed --in-place 's/@AMPERSAND_EXCLAMATION@/\&!/g' $out/share/zsh/plugins/click/click.plugin.zsh
+    sed --in-place 's/@AMPERSAND_EXCLAMATION@/\&!/g' "$out/share/zsh/plugins/click/click.plugin.zsh"
+
+    runHook postInstall
   '';
 }

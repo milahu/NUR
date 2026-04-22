@@ -4,9 +4,19 @@
 , lib
 }:
 
+let
+  inherit (lib) licenses;
+in
 buildJosmPlugin (josm-imagery-used: {
   pname = "josm-imagery-used";
   version = "0.0.1";
+  meta = {
+    description = "JOSM plugin to populate imagery_used in changesets";
+    homepage = "https://codeberg.org/AndrewKvalheim/imagery_used";
+    license = licenses.gpl3;
+  };
+
+  passthru.updateScript = gitUpdater { rev-prefix = "v"; };
 
   src = fetchFromGitea {
     domain = "codeberg.org";
@@ -17,12 +27,4 @@ buildJosmPlugin (josm-imagery-used: {
   };
 
   pluginName = "imagery_used";
-
-  passthru.updateScript = gitUpdater { rev-prefix = "v"; };
-
-  meta = {
-    description = "JOSM plugin to populate imagery_used in changesets";
-    homepage = "https://codeberg.org/AndrewKvalheim/imagery_used";
-    license = lib.licenses.gpl3;
-  };
 })

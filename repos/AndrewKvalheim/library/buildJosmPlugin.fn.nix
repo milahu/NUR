@@ -38,11 +38,11 @@ extendMkDerivation {
     };
 
     unpackPhase = ''
-      cp --no-preserve=mode --recursive $srcJosmPlugins josm
-      mkdir josm/core && cp --no-preserve=mode --recursive $srcJosmTools josm/core/tools
-      mkdir josm/core/dist && ln --symbolic ${josm}/share/josm/josm.jar josm/core/dist/josm-custom.jar
-      ln --symbolic josm/core/tools josm/plugins/00_core_tools
-      cp --no-preserve=mode --recursive $src josm/plugins/${pluginName}
+      cp --no-preserve=mode --recursive "$srcJosmPlugins" 'josm'
+      mkdir 'josm/core' && cp --no-preserve=mode --recursive "$srcJosmTools" 'josm/core/tools'
+      mkdir 'josm/core/dist' && ln --symbolic '${josm}/share/josm/josm.jar' 'josm/core/dist/josm-custom.jar'
+      ln --symbolic 'josm/core/tools' 'josm/plugins/00_core_tools'
+      cp --no-preserve=mode --recursive "$src" 'josm/plugins/${pluginName}'
     '';
 
     patches = [
@@ -64,11 +64,17 @@ extendMkDerivation {
     nativeBuildInputs = [ ant jdk ];
 
     buildPhase = ''
-      env --chdir josm/plugins/${pluginName} ant
+      runHook preBuild
+
+      env --chdir 'josm/plugins/${pluginName}' \
+        ant
+
+      runHook postBuild
     '';
 
     installPhase = ''
-      install -D -t $out/share/JOSM/plugins /build/josm/dist/${pluginName}.jar
+      install -D --target-directory "$out/share/JOSM/plugins" \
+        '/build/josm/dist/${pluginName}.jar'
     '';
   };
 }

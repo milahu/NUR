@@ -3,9 +3,17 @@
 , lib
 }:
 
+let
+  inherit (lib) licenses;
+in
 buildNpmPackage {
   pname = "mark-applier";
   version = "0.5.0";
+  meta = {
+    description = "Generate a barebones GitHub-readme-themed website from markdown";
+    homepage = "https://github.com/suchipi/mark-applier";
+    license = licenses.mit;
+  };
 
   src = fetchFromGitHub {
     owner = "suchipi";
@@ -17,10 +25,4 @@ buildNpmPackage {
   npmDepsHash = "sha256-yb2hXa1re5rBQnAvdP5pXaOdidg85KQLrXWgz411JNM=";
 
   npmBuildScript = "app:build"; # Omit manual-tests:build
-
-  meta = {
-    description = "Generate a barebones GitHub-readme-themed website from markdown";
-    homepage = "https://github.com/suchipi/mark-applier";
-    license = lib.licenses.mit;
-  };
 }

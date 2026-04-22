@@ -13,11 +13,19 @@
 
 let
   inherit (builtins) match;
-  inherit (lib) concatStrings escapeShellArg;
+  inherit (lib) concatStrings escapeShellArg licenses;
 in
 stdenv.mkDerivation (chunker: {
   pname = "chunker";
   version = "1.16.0";
+  meta = {
+    description = "Convert Minecraft worlds between game versions";
+    homepage = "https://www.chunker.app/";
+    license = licenses.mit;
+    mainProgram = "chunker";
+  };
+
+  passthru.updateScript = nix-update-script { };
 
   src = fetchFromGitHub {
     owner = "HiveGamesOSS";
@@ -47,15 +55,6 @@ stdenv.mkDerivation (chunker: {
     runHook postInstall
   '';
 
-  nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
-
-  passthru.updateScript = nix-update-script { };
-
-  meta = {
-    description = "Convert Minecraft worlds between game versions";
-    homepage = "https://www.chunker.app/";
-    license = lib.licenses.mit;
-    mainProgram = "chunker";
-  };
+  nativeInstallCheckInputs = [ versionCheckHook ];
 })

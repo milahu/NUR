@@ -4,9 +4,20 @@
 , unstableGitUpdater
 }:
 
+let
+  inherit (lib) licenses;
+in
 buildGoModule (incremental-compress: {
   pname = "incremental-compress";
   version = "0-unstable-2025-03-30";
+  meta = {
+    description = "Incremental compression tool for static page generators";
+    homepage = "https://github.com/scottlaird/incremental-compress";
+    license = licenses.asl20;
+    mainProgram = "incremental-compress";
+  };
+
+  passthru.updateScript = unstableGitUpdater { };
 
   src = fetchFromGitHub {
     owner = "scottlaird";
@@ -19,15 +30,6 @@ buildGoModule (incremental-compress: {
 
   doInstallCheck = true;
   postInstallCheck = ''
-    $out/bin/${incremental-compress.meta.mainProgram} --help
+    "$out/bin/${incremental-compress.meta.mainProgram}" --help
   '';
-
-  passthru.updateScript = unstableGitUpdater { };
-
-  meta = {
-    description = "Incremental compression tool for static page generators";
-    homepage = "https://github.com/scottlaird/incremental-compress";
-    license = lib.licenses.asl20;
-    mainProgram = "incremental-compress";
-  };
 })

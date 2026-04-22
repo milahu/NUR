@@ -88,7 +88,7 @@ in
 
       serviceConfig = rec {
         RuntimeDirectory = "%N";
-        BindReadOnlyPaths = [ "/etc/group" "/etc/passwd" ];
+        BindReadOnlyPaths = [ "%E/group" "%E/passwd" ];
         BindPaths = [ syncthing.dataDir ]
           ++ mapAttrsToList (id: share: "${share.path}:/mnt/${id}") host.syncthing.shares;
 

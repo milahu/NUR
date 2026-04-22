@@ -23,11 +23,19 @@
 
 let
   inherit (builtins) placeholder;
-  inherit (lib) escapeShellArg;
+  inherit (lib) escapeShellArg licenses;
 in
 rustPlatform.buildRustPackage (stretch-break: {
   pname = "stretch-break";
   version = "0.1.9";
+  meta = {
+    description = "Helps you take regular breaks from using your computer";
+    homepage = "https://github.com/pieterdd/StretchBreak";
+    license = licenses.gpl3;
+    mainProgram = "stretch-break";
+  };
+
+  passthru.updateScript = nix-update-script { };
 
   src = fetchFromGitHub {
     owner = "pieterdd";
@@ -71,8 +79,9 @@ rustPlatform.buildRustPackage (stretch-break: {
       "$out/share/dbus-1/services/io.github.pieterdd.StretchBreak.Core.service" \
       --replace-fail '/usr/bin' "$out/bin"
 
-    env XDG_DATA_HOME="$out/share" xdg-icon-resource install --noupdate --novendor \
-      --context 'apps' --size '256' "$src/meta/logo-color-256x256.png" 'io.github.pieterdd.StretchBreak'
+    env XDG_DATA_HOME="$out/share" \
+      xdg-icon-resource install --noupdate --novendor \
+        --context 'apps' --size '256' "$src/meta/logo-color-256x256.png" 'io.github.pieterdd.StretchBreak'
   '';
 
   doInstallCheck = true;
@@ -84,13 +93,4 @@ rustPlatform.buildRustPackage (stretch-break: {
     [[ "$help" != *'version'* ]]
     [[ "$help" != *${escapeShellArg stretch-break.version}* ]]
   '';
-
-  passthru.updateScript = nix-update-script { };
-
-  meta = {
-    description = "Helps you take regular breaks from using your computer";
-    homepage = "https://github.com/pieterdd/StretchBreak";
-    license = lib.licenses.gpl3;
-    mainProgram = "stretch-break";
-  };
 })
