@@ -1,16 +1,16 @@
 {
 "name":"zimeg",
-"fetch_time":0.603,
-"eval_time":0.318,
+"fetch_time":0.447,
+"eval_time":0.353,
 "source":{
 "url":"https://github.com/zimeg/nur-packages",
-"rev":"da7d646d755b0eb1c8ce61af09e82f7a5728f3b9",
-"sha256":"1ydb2qc4fd1l8188s79nmgm8598nd0dnm7av3amgl2s1mn6w3rb7",
+"rev":"49a29139b5a81cd8662ff68cab98e37b6831eb78",
+"sha256":"1av7y0a3dm9cn82y04an85jf2rxzcggy98lg5hv6wc8mynqzasxk",
 "date":null
 },
-"source_storepath":"/nix/store/5mdvgqvw8wbbbrsx5n3dp0jdqvq1fv0b-source",
-"nixpkgs_storepath":"/nix/store/jxqdhmbbbsckx9gps961ypaq7ynigbl1-source",
-"nur_combined_rev":"77d05a61061cfe73709957d1041323c1d7692e8c",
+"source_storepath":"/nix/store/3lwn71gqll2ychw8jp8vcciqvkpslpvq-source",
+"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
+"nur_combined_rev":"738cd08a267d1456569c4dbd51df70b0ff24e60a",
 "packages":{
 "changesets":{
 "meta":{
@@ -58,7 +58,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5mdvgqvw8wbbbrsx5n3dp0jdqvq1fv0b-source/pkgs/changesets/default.nix",
+"file":"/nix/store/3lwn71gqll2ychw8jp8vcciqvkpslpvq-source/pkgs/changesets/default.nix",
 "line":30
 },
 "name":"changesets-cli-2.29.7",
@@ -73,6 +73,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -148,7 +149,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5mdvgqvw8wbbbrsx5n3dp0jdqvq1fv0b-source/pkgs/etime/default.nix",
+"file":"/nix/store/3lwn71gqll2ychw8jp8vcciqvkpslpvq-source/pkgs/etime/default.nix",
 "line":39
 },
 "name":"etime-1.1.1",
@@ -160,6 +161,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -262,6 +264,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -345,7 +348,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/breuleux/jurigged/releases/tag/v26.05pre980800.566acc07c54d",
+"changelog":"https://github.com/breuleux/jurigged/releases/tag/v26.05pre981196.b86751bc4085",
 "description":"Hot reloading for Python",
 "homepage":"https://github.com/breuleux/jurigged",
 "identifiers":{
@@ -377,6 +380,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -419,7 +423,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5mdvgqvw8wbbbrsx5n3dp0jdqvq1fv0b-source/pkgs/jurigged/default.nix",
+"file":"/nix/store/3lwn71gqll2ychw8jp8vcciqvkpslpvq-source/pkgs/jurigged/default.nix",
 "line":82
 },
 "name":"jurigged-0.5.8",
@@ -429,6 +433,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -585,6 +590,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -726,6 +732,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -852,7 +859,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5mdvgqvw8wbbbrsx5n3dp0jdqvq1fv0b-source/pkgs/quill/default.nix",
+"file":"/nix/store/3lwn71gqll2ychw8jp8vcciqvkpslpvq-source/pkgs/quill/default.nix",
 "line":32
 },
 "name":"quill-0.5.1",
@@ -864,6 +871,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -952,7 +960,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5mdvgqvw8wbbbrsx5n3dp0jdqvq1fv0b-source/pkgs/zsh-wd/default.nix",
+"file":"/nix/store/3lwn71gqll2ychw8jp8vcciqvkpslpvq-source/pkgs/zsh-wd/default.nix",
 "line":38
 },
 "name":"wd-0.7.0",
@@ -970,6 +978,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",

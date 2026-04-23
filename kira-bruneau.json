@@ -1,16 +1,16 @@
 {
 "name":"kira-bruneau",
-"fetch_time":0.332,
-"eval_time":0.502,
+"fetch_time":0.302,
+"eval_time":0.508,
 "source":{
 "url":"https://gitlab.com/kira-bruneau/nur-packages",
-"rev":"38e4c1dbc84c7d1a9c73830e155d597c65c739d3",
-"sha256":"0j8hsbxhbw9xahbi1hi9cianryy0i2f21p5xdr794njg2ds05hj2",
+"rev":"348c27e2a928837899d18b1886979f4edd9724e0",
+"sha256":"06b8pynxcs15vyal2x1xfr5zifgjmvl0rfb4n05y8bwibaq3nm3p",
 "date":null
 },
-"source_storepath":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source",
-"nixpkgs_storepath":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source",
-"nur_combined_rev":"adc7eee90dc7f50869c52ffded8b24f51365f6b5",
+"source_storepath":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source",
+"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
+"nur_combined_rev":"8c3379e511cbd6ab6798f265a1472d2366937f6e",
 "packages":{
 "anytype":{
 "meta":{
@@ -64,7 +64,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/an/anytype/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/an/anytype/package.nix",
 "line":132
 },
 "name":"anytype-0.53.1",
@@ -81,6 +81,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -168,7 +169,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/an/anytype-heart/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/an/anytype-heart/package.nix",
 "line":91
 },
 "name":"anytype-heart-0.44.0-nightly.20251220.1",
@@ -185,6 +186,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -272,7 +274,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/an/anytype/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/an/anytype/package.nix",
 "line":132
 },
 "name":"anytype-0.53.1",
@@ -289,6 +291,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -377,7 +380,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/bl/bluetooth-autoconnect/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/bl/bluetooth-autoconnect/package.nix",
 "line":48
 },
 "name":"bluetooth-autoconnect-1.3",
@@ -394,6 +397,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -433,7 +437,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://ccache.dev/releasenotes.html#_ccache_4_13_2",
+"changelog":"https://ccache.dev/releasenotes.html#_ccache_4_13_4",
 "description":"Compiler cache for fast recompilation of C/C++ code",
 "downloadPage":"https://ccache.dev/download.html",
 "homepage":"https://ccache.dev",
@@ -490,10 +494,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/cc/ccache/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/cc/ccache/package.nix",
 "line":188
 },
-"name":"ccache-4.13.2",
+"name":"ccache-4.13.4",
 "nonTeamMaintainers":[
 {
 "email":"kira.bruneau@pm.me",
@@ -522,6 +526,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -562,7 +567,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ccache-4.13.2",
+"name":"ccache-4.13.4",
 "outputName":"out",
 "outputs":{
 "man":null,
@@ -570,7 +575,7 @@
 },
 "pname":"ccache",
 "system":"x86_64-linux",
-"version":"4.13.2"
+"version":"4.13.4"
 },
 "cec-sync":{
 "meta":{
@@ -636,7 +641,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/ce/cec-sync/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/ce/cec-sync/package.nix",
 "line":44
 },
 "name":"cec-sync-0-unstable-2025-07-16",
@@ -742,7 +747,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/cl/clonehero/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/cl/clonehero/package.nix",
 "line":124
 },
 "name":"clonehero-1.0.0.4080",
@@ -823,6 +828,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -873,7 +879,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/cm/cmake-language-server/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/cm/cmake-language-server/package.nix",
 "line":85
 },
 "name":"cmake-language-server-0.1.11",
@@ -890,6 +896,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -992,10 +999,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm/package.nix",
 "line":22
 },
-"name":"emacs-acm-0-unstable-2026-04-06",
+"name":"emacs-acm-0-unstable-2026-04-11",
 "nonTeamMaintainers":[
 {
 "email":"fb@fx-ttr.de",
@@ -1027,6 +1034,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1097,14 +1105,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-acm-0-unstable-2026-04-06",
+"name":"emacs-acm-0-unstable-2026-04-11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-acm",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-04-06"
+"version":"0-unstable-2026-04-11"
 },
 "emacsPackages.acm-terminal":{
 "meta":{
@@ -1158,7 +1166,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm-terminal/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm-terminal/package.nix",
 "line":32
 },
 "name":"emacs-acm-terminal-0-unstable-2023-12-06",
@@ -1187,6 +1195,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1318,7 +1327,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/flymake-bridge/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/flymake-bridge/package.nix",
 "line":28
 },
 "name":"emacs-flymake-bridge-0-unstable-2025-01-23",
@@ -1347,6 +1356,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1484,10 +1494,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/lsp-bridge/default.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/lsp-bridge/default.nix",
 "line":108
 },
-"name":"emacs-lsp-bridge-0-unstable-2026-04-06",
+"name":"emacs-lsp-bridge-0-unstable-2026-04-11",
 "nonTeamMaintainers":[
 {
 "email":"fb@fx-ttr.de",
@@ -1519,6 +1529,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1589,14 +1600,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-lsp-bridge-0-unstable-2026-04-06",
+"name":"emacs-lsp-bridge-0-unstable-2026-04-11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-lsp-bridge",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-04-06"
+"version":"0-unstable-2026-04-11"
 },
 "emacsPackages.majutsu":{
 "meta":{
@@ -1650,10 +1661,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/majutsu/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/majutsu/package.nix",
 "line":32
 },
-"name":"emacs-majutsu-0.6.0-unstable-2026-03-13",
+"name":"emacs-majutsu-0.6.0-unstable-2026-04-22",
 "nonTeamMaintainers":[
 {
 "email":"kira.bruneau@pm.me",
@@ -1679,6 +1690,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1749,14 +1761,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"emacs-majutsu-0.6.0-unstable-2026-03-13",
+"name":"emacs-majutsu-0.6.0-unstable-2026-04-22",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"emacs-majutsu",
 "system":"x86_64-linux",
-"version":"0.6.0-unstable-2026-03-13"
+"version":"0.6.0-unstable-2026-04-22"
 },
 "ender3-v3-se-klipper-config":{
 "meta":{
@@ -1802,7 +1814,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/en/ender3-v3-se-klipper-config/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/en/ender3-v3-se-klipper-config/package.nix",
 "line":37
 },
 "name":"ender3-v3-se-full-klipper-0-unstable-2024-01-24",
@@ -1831,6 +1843,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1991,7 +2004,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/servers/klipper/default.nix",
+"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/servers/klipper/default.nix",
 "line":117
 },
 "name":"ender3-v3-se-klipper-with-display-1.0.0-unstable-2026-01-20",
@@ -2035,6 +2048,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2124,7 +2138,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/ga/gamemode/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/ga/gamemode/package.nix",
 "line":113
 },
 "name":"gamemode-1.8.2",
@@ -2142,6 +2156,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2216,6 +2231,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2266,7 +2282,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/gi/git-review/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/gi/git-review/package.nix",
 "line":52
 },
 "name":"git-review-2.5.0",
@@ -2284,6 +2300,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2402,10 +2419,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/ha/habitica/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/ha/habitica/package.nix",
 "line":135
 },
-"name":"habitica-5.47.3",
+"name":"habitica-5.47.6",
 "nonTeamMaintainers":[
 {
 "email":"kira.bruneau@pm.me",
@@ -2431,6 +2448,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2501,7 +2519,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"habitica-5.47.3",
+"name":"habitica-5.47.6",
 "outputName":"out",
 "outputs":{
 "apidoc":null,
@@ -2510,7 +2528,7 @@
 },
 "pname":"habitica",
 "system":"x86_64-linux",
-"version":"5.47.3"
+"version":"5.47.6"
 },
 "home-assistant-waves-theme":{
 "meta":{
@@ -2556,7 +2574,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/wa/home-assistant-waves-theme/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/wa/home-assistant-waves-theme/package.nix",
 "line":30
 },
 "name":"home-assistant-waves-theme-2.4.1",
@@ -2585,6 +2603,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2737,10 +2756,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/ha/habitica/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/ha/habitica/package.nix",
 "line":135
 },
-"name":"jakirica-5.47.3",
+"name":"jakirica-5.47.6",
 "nonTeamMaintainers":[
 {
 "email":"kira.bruneau@pm.me",
@@ -2766,6 +2785,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2836,7 +2856,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"jakirica-5.47.3",
+"name":"jakirica-5.47.6",
 "outputName":"out",
 "outputs":{
 "apidoc":null,
@@ -2845,7 +2865,7 @@
 },
 "pname":"jakirica",
 "system":"x86_64-linux",
-"version":"5.47.3"
+"version":"5.47.6"
 },
 "jakirica-client":{
 "meta":{
@@ -2920,10 +2940,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/ha/habitica/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/ha/habitica/package.nix",
 "line":135
 },
-"name":"habitica-5.47.3",
+"name":"habitica-5.47.6",
 "nonTeamMaintainers":[
 {
 "email":"kira.bruneau@pm.me",
@@ -2949,6 +2969,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3019,20 +3040,20 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"jakirica-client-5.47.3",
+"name":"jakirica-client-5.47.6",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"jakirica-client",
 "system":"x86_64-linux",
-"version":"5.47.3"
+"version":"5.47.6"
 },
 "linuxPackages.xpadneo":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/atar-axis/xpadneo/releases/tag/v0.10.1",
+"changelog":"https://github.com/atar-axis/xpadneo/releases/tag/v0.10.2",
 "description":"Advanced Linux driver for Xbox One wireless controllers",
 "homepage":"https://atar-axis.github.io/xpadneo",
 "identifiers":{
@@ -3092,10 +3113,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/os-specific/linux/xpadneo/default.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/os-specific/linux/xpadneo/default.nix",
 "line":58
 },
-"name":"xpadneo-0.10.1",
+"name":"xpadneo-0.10.2",
 "nonTeamMaintainers":[
 {
 "email":"kira.bruneau@pm.me",
@@ -3109,6 +3130,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3135,14 +3157,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"xpadneo-0.10.1",
+"name":"xpadneo-0.10.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"xpadneo",
 "system":"x86_64-linux",
-"version":"0.10.1"
+"version":"0.10.2"
 },
 "mangohud":{
 "meta":{
@@ -3209,7 +3231,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/ma/mangohud/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/ma/mangohud/package.nix",
 "line":250
 },
 "name":"mangohud-0.8.2",
@@ -3238,6 +3260,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3340,7 +3363,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/mo/mozlz4a/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/mo/mozlz4a/package.nix",
 "line":38
 },
 "name":"mozlz4a-2022-03-19",
@@ -3369,6 +3392,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3465,7 +3489,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/na/nautilus-taildrop/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/na/nautilus-taildrop/package.nix",
 "line":31
 },
 "name":"nautilus-taildrop-0-unstable-2025-12-31",
@@ -3494,6 +3518,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3652,7 +3677,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/ne/newsflash/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/ne/newsflash/package.nix",
 "line":110
 },
 "name":"newsflash-5.0.0",
@@ -3683,6 +3708,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3749,7 +3775,7 @@
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/ne/newsflash/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/ne/newsflash/package.nix",
 "line":114
 },
 "unfree":false,
@@ -3773,6 +3799,7 @@
 "homepage":"http://www.jemarch.net/poke",
 "hydraPlatforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3841,7 +3868,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/po/poke/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/po/poke/package.nix",
 "line":99
 },
 "name":"poke-4.3",
@@ -3867,6 +3894,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3973,7 +4001,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/po/pokemmo-installer/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/po/pokemmo-installer/package.nix",
 "line":69
 },
 "name":"pokemmo-installer-1.4.8",
@@ -3990,6 +4018,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4078,7 +4107,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/po/powertools/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/po/powertools/package.nix",
 "line":95
 },
 "name":"powertools-2.0.3",
@@ -4107,6 +4136,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4222,6 +4252,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4271,7 +4302,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/pr/protontricks/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/pr/protontricks/package.nix",
 "line":91
 },
 "name":"protontricks-1.14.1",
@@ -4340,6 +4371,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4389,7 +4421,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/development/python-modules/debugpy/default.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/development/python-modules/debugpy/default.nix",
 "line":161
 },
 "name":"python3.13-debugpy-1.8.20",
@@ -4462,6 +4494,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4511,7 +4544,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/development/python-modules/pygls/default.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/development/python-modules/pygls/default.nix",
 "line":70
 },
 "name":"python3.13-pygls-2.1.1",
@@ -4528,6 +4561,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4608,6 +4642,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4657,7 +4692,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/development/python-modules/pytest-datadir/default.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/development/python-modules/pytest-datadir/default.nix",
 "line":36
 },
 "name":"python3.13-pytest-datadir-1.8.0",
@@ -4674,6 +4709,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4753,6 +4789,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4802,7 +4839,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/development/python-modules/vdf/default.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/development/python-modules/vdf/default.nix",
 "line":46
 },
 "name":"python3.13-vdf-3.4",
@@ -4819,6 +4856,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4899,6 +4937,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4948,7 +4987,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/development/python-modules/debugpy/default.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/development/python-modules/debugpy/default.nix",
 "line":161
 },
 "name":"python3.14-debugpy-1.8.20",
@@ -5021,6 +5060,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5070,7 +5110,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/development/python-modules/pygls/default.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/development/python-modules/pygls/default.nix",
 "line":70
 },
 "name":"python3.14-pygls-2.1.1",
@@ -5087,6 +5127,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5167,6 +5208,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5216,7 +5258,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/development/python-modules/pytest-datadir/default.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/development/python-modules/pytest-datadir/default.nix",
 "line":36
 },
 "name":"python3.14-pytest-datadir-1.8.0",
@@ -5233,6 +5275,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5312,6 +5355,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5361,7 +5405,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/development/python-modules/vdf/default.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/development/python-modules/vdf/default.nix",
 "line":46
 },
 "name":"python3.14-vdf-3.4",
@@ -5378,6 +5422,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5476,7 +5521,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/by-name/sw/swaylock/package.nix",
+"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/sw/swaylock/package.nix",
 "line":69
 },
 "name":"swaylock-fprintd-0-unstable-2025-09-05",
@@ -5493,6 +5538,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5591,7 +5637,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/ta/tantivy-go/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/ta/tantivy-go/package.nix",
 "line":38
 },
 "name":"tantivy-go-1.0.4",
@@ -5730,7 +5776,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/te/texlab/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/te/texlab/package.nix",
 "line":52
 },
 "name":"texlab-5.25.1",
@@ -5821,7 +5867,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/NiceneNerd/ukmm/blob/refs/tags/v0.15.0/CHANGELOG.md",
+"changelog":"https://github.com/NiceneNerd/ukmm/blob/refs/tags/v0.17.0/CHANGELOG.md",
 "description":"New mod manager for The Legend of Zelda: Breath of the Wild",
 "homepage":"https://github.com/NiceneNerd/ukmm",
 "identifiers":{
@@ -5871,10 +5917,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/uk/ukmm/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/uk/ukmm/package.nix",
 "line":99
 },
-"name":"ukmm-0.15.0",
+"name":"ukmm-0.17.0",
 "nonTeamMaintainers":[
 {
 "email":"kira.bruneau@pm.me",
@@ -5911,14 +5957,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ukmm-0.15.0",
+"name":"ukmm-0.17.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ukmm",
 "system":"x86_64-linux",
-"version":"0.15.0"
+"version":"0.17.0"
 },
 "undistract-me":{
 "meta":{
@@ -5972,7 +6018,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/un/undistract-me/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/un/undistract-me/package.nix",
 "line":82
 },
 "name":"undistract-me-0-unstable-2020-08-09",
@@ -5989,6 +6035,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -6075,7 +6122,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/vi/virtualparadise/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/vi/virtualparadise/package.nix",
 "line":30
 },
 "name":"virtualparadise-0.4.9",
@@ -6164,7 +6211,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/tools/graphics/vkbasalt/default.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/tools/graphics/vkbasalt/default.nix",
 "line":61
 },
 "name":"vkbasalt-0.3.2.10",
@@ -6181,6 +6228,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -6269,7 +6317,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/ya/yabridge/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/ya/yabridge/package.nix",
 "line":170
 },
 "name":"yabridge-5.1.1",
@@ -6365,7 +6413,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/ya/yabridgectl/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/ya/yabridgectl/package.nix",
 "line":44
 },
 "name":"yabridgectl-5.1.1",
@@ -6449,7 +6497,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/ya/yarg/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/ya/yarg/package.nix",
 "line":124
 },
 "name":"yarg-0.14.0",
@@ -6539,7 +6587,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/zy/zynaddsubfx/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/zy/zynaddsubfx/package.nix",
 "line":200
 },
 "name":"zynaddsubfx-3.0.6",
@@ -6568,6 +6616,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -6701,7 +6750,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/zy/zynaddsubfx/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/zy/zynaddsubfx/package.nix",
 "line":200
 },
 "name":"zynaddsubfx-3.0.6",
@@ -6730,6 +6779,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -6863,7 +6913,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yi9bcnais267bbkcz5nrqbjsi9a817bx-source/pkgs/by-name/zy/zynaddsubfx/package.nix",
+"file":"/nix/store/krk8p1rmsvrcjhni7d7nx9ig0varzw7i-source/pkgs/by-name/zy/zynaddsubfx/package.nix",
 "line":200
 },
 "name":"zynaddsubfx-3.0.6",
@@ -6892,6 +6942,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
