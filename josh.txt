@@ -52,11 +52,4 @@ error:
       | ^
      2|   lib,
 
-error: attribute 'python' missing
-
-at ./pkgs/ceph/ceph.nix:13:39:
-
-    12| in
-    13| if (lib.trivial.release == "26.05" && ceph.python.pkgs.sphinx.disabled) then pkgs'.ceph else ceph
-      |                                       ^
-    14|
+error: access to URI 'https://github.com/NixOS/nixpkgs/archive/724cf38d99ba81fbb4a347081db93e2e3a9bc2ae.tar.gz' is forbidden in restricted mode
