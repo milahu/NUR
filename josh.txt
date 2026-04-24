@@ -46,10 +46,10 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/ceph/ceph.nix:1:1:
+  at ./pkgs/pimalaya/neverest-pinned.nix:1:1:
 
-     1| {
+     1| { stdenv }:
       | ^
-     2|   lib,
+     2| let
 
-error: access to URI 'https://github.com/NixOS/nixpkgs/archive/724cf38d99ba81fbb4a347081db93e2e3a9bc2ae.tar.gz' is forbidden in restricted mode
+error: access to URI 'https://github.com/NixOS/nixpkgs/archive/f937f8ecd1c70efd7e9f90ba13dfb400cf559de4.tar.gz' is forbidden in restricted mode
