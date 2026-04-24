@@ -100,6 +100,24 @@
     moduleName = "github.com/mholt/caddy-webdav";
     date = "20260127042217";
   };
+  nh = {
+    pname = "nh";
+    version = "3a05580c4279705ec3c62a83ecb7b26bc2a59d49";
+    src = fetchFromGitHub {
+      owner = "XYenon";
+      repo = "nh";
+      rev = "3a05580c4279705ec3c62a83ecb7b26bc2a59d49";
+      fetchSubmodules = false;
+      sha256 = "sha256-XBAcK8eImkhtFfzHSlHfYQELoa0F88Lgkqt0TrSBySs=";
+    };
+    cargoLock."Cargo.lock" = {
+      lockFile = ./. + "/sha256-XBAcK8eImkhtFfzHSlHfYQELoa0F88Lgkqt0TrSBySs=/Cargo.lock";
+      outputHashes = {
+        
+      };
+    };
+    date = "2026-04-21";
+  };
   nix-package-versions = {
     pname = "nix-package-versions";
     version = "6cdfa21a11f5e8e7ea8a0736c8ddf7941898c9fe";
@@ -145,14 +163,14 @@
   };
   yazi-rs-plugins = {
     pname = "yazi-rs-plugins";
-    version = "442d9080da7524c8e58e10c610b832538c87464d";
+    version = "ac82af3e10f9a32cecd9f87ac64b3f9de7c7aea7";
     src = fetchFromGitHub {
       owner = "yazi-rs";
       repo = "plugins";
-      rev = "442d9080da7524c8e58e10c610b832538c87464d";
+      rev = "ac82af3e10f9a32cecd9f87ac64b3f9de7c7aea7";
       fetchSubmodules = false;
-      sha256 = "sha256-5WxCUf/Lv3wms7IPgkK0lJuJhIPa1E46obOFASS8eZU=";
+      sha256 = "sha256-svc7I2E+tVMEUWUvIS6i3oTGfLq13eaI61T0c1MQ8qQ=";
     };
-    date = "2026-04-16";
+    date = "2026-04-23";
   };
 }
