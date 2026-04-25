@@ -51,6 +51,7 @@ in
         compilouit.xkb
         coolbear.systemd-unit-file
         csstools.postcss
+        denoland.vscode-deno
         earshinov.permute-lines
         earshinov.simple-alignment
         editorconfig.editorconfig
@@ -120,6 +121,7 @@ in
         # Dependencies
         "biome.lsp.bin" = getExe pkgs.biome;
         "clang-format.executable" = getExe' pkgs.clang-tools "clang-format";
+        "deno.path" = getExe pkgs.deno;
         "flow.pathToFlow" = getExe pkgs.flow;
         "hadolint.hadolintPath" = getExe pkgs.hadolint;
         "jjk.jjPath" = getExe pkgs.jujutsu;
