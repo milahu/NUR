@@ -1,16 +1,16 @@
 {
 "name":"natsukium",
-"fetch_time":0.366,
-"eval_time":0.34,
+"fetch_time":0.67,
+"eval_time":0.342,
 "source":{
 "url":"https://github.com/natsukium/nur-packages",
-"rev":"fdc43b787763bbe0e888f6f566133b4d15108b09",
-"sha256":"0vr48y55idvj6a6ykb93q5khv8bg7px0sc12g0yqn75nx8sj9fja",
+"rev":"da3828c1678f06131d1559449d031133cae65ef8",
+"sha256":"1zpch1m45jwx6s7qdj3kmrvwml9k2hcdgz4vcnv9j19hvh6k5wn9",
 "date":null
 },
-"source_storepath":"/nix/store/qbi4zpf28hlrap059nnzqy97fzczgc97-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"d2177dc9217edd7ae5bb4a41bec27730027122e0",
+"source_storepath":"/nix/store/r93kszzl4jhdg12wf640x2layv62m29h-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"44dd9d2ffe8a0d97c344b90df719eef1bd0bf5c8",
 "packages":{
 "copyq":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -66,7 +67,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/co/copyq/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/co/copyq/package.nix",
 "line":66
 },
 "name":"CopyQ-13.0.0",
@@ -92,6 +93,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -154,11 +156,11 @@
 }
 },
 "insecure":false,
-"knownVulnerabilities":[],
 "license":{
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -207,7 +209,7 @@
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/applications/editors/emacs/sources.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/applications/editors/emacs/sources.nix",
 "line":82
 },
 "name":"emacs-plus-30.2",
@@ -307,6 +309,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -371,6 +374,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -442,6 +446,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -471,6 +476,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -550,6 +556,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -579,6 +586,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -658,6 +666,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -687,6 +696,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -764,6 +774,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU Lesser General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl3",
 "spdxId":"LGPL-3.0",
@@ -813,6 +824,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -920,6 +932,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -963,6 +976,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1070,6 +1084,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1107,6 +1122,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1216,6 +1232,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1281,6 +1298,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
@@ -1302,6 +1320,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1367,6 +1386,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1439,6 +1459,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1466,6 +1487,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -1495,7 +1517,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/qu/qutebrowser/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/qu/qutebrowser/package.nix",
 "line":169
 },
 "name":"qutebrowser-3.7.0",
@@ -1582,6 +1604,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -1653,6 +1676,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1680,6 +1704,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -1702,6 +1727,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1776,6 +1802,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1809,6 +1836,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1918,6 +1946,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"zlib License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"zlib",
 "spdxId":"Zlib",
@@ -1951,6 +1980,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2060,6 +2090,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2093,6 +2124,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2202,6 +2234,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -2228,10 +2261,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/vi/vivaldi/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/vi/vivaldi/package.nix",
 "line":238
 },
-"name":"vivaldi-7.9.3970.50",
+"name":"vivaldi-7.9.3970.55",
 "nonTeamMaintainers":[
 {
 "email":"marcus@means.no",
@@ -2269,14 +2302,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"vivaldi-7.9.3970.50",
+"name":"vivaldi-7.9.3970.55",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vivaldi",
 "system":"x86_64-linux",
-"version":"7.9.3970.50"
+"version":"7.9.3970.55"
 },
 "zen-browser":{
 "meta":{
@@ -2315,13 +2348,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
 "maintainers":[],
-"name":"zen-browser-1.19.8b",
+"name":"zen-browser-1.19.9b",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2339,14 +2373,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"zen-browser-1.19.8b",
+"name":"zen-browser-1.19.9b",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zen-browser",
 "system":"x86_64-linux",
-"version":"1.19.8b"
+"version":"1.19.9b"
 }
 }
 }

@@ -1,16 +1,16 @@
 {
 "name":"mio",
-"fetch_time":0.575,
-"eval_time":0.893,
+"fetch_time":0.976,
+"eval_time":0.91,
 "source":{
 "url":"https://github.com/mio-19/nurpkgs",
-"rev":"638cbb0cf70ae8d2b27ef44c384c8c86e5534490",
-"sha256":"02px19dys43pjmg8rrrm3m3l8n2s9p0km3f24jnx512pjmsc9pj7",
+"rev":"30590ba098e6c4d6e872ed58fed1ccbaccfc2bf3",
+"sha256":"1vcinxhh3hbiqmwvbwh5ji83f8n47q1y51n7y9lbwa2hy9c1xn59",
 "date":null
 },
-"source_storepath":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"11ea48ff8d0828bebba76dbf2b4ffd21b9d77b6a",
+"source_storepath":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"8af6e2ba37d02bdeeb146ea55be08f5965bad425",
 "packages":{
 "altus":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -115,6 +116,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -131,7 +133,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/android-translation-layer/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/android-translation-layer/package.nix",
 "line":102
 },
 "name":"android-translation-layer-0-unstable-2026-01-19",
@@ -168,6 +170,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -278,6 +281,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"zlib License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"zlib",
 "spdxId":"Zlib",
@@ -293,7 +297,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/an/angelscript/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/an/angelscript/package.nix",
 "line":38
 },
 "name":"angelscript-2.35.1",
@@ -330,6 +334,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -439,6 +444,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -461,6 +467,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -526,6 +533,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -546,6 +554,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -612,6 +621,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Plus",
 "spdxId":"GPL-2.0-or-later",
@@ -634,7 +644,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/ar/aria2/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/ar/aria2/package.nix",
 "line":79
 },
 "name":"aria2-1.37.0",
@@ -674,6 +684,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -756,7 +767,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:229",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:230",
 "unfree":false,
 "unsupported":false
 },
@@ -806,6 +817,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -819,7 +831,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/ar/art-standalone/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/ar/art-standalone/package.nix",
 "line":91
 },
 "name":"art-standalone-0-unstable-2025-10-09",
@@ -898,6 +910,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
@@ -907,7 +920,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/by-name/artcraft/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/by-name/artcraft/package.nix",
 "line":214
 },
 "name":"artcraft-0.11.0",
@@ -986,6 +999,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
@@ -1014,7 +1028,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/beammp-launcher/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/beammp-launcher/package.nix",
 "line":129
 },
 "name":"beammp-launcher-2.7.0",
@@ -1051,6 +1065,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1118,6 +1133,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
@@ -1127,7 +1143,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/beammp-server/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/beammp-server/package.nix",
 "line":124
 },
 "name":"beammp-server-3.9.0",
@@ -1145,6 +1161,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1210,6 +1227,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -1226,7 +1244,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/be/bees/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/be/bees/package.nix",
 "line":82
 },
 "name":"bees-0.11",
@@ -1251,6 +1269,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1317,6 +1336,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -1326,8 +1346,8 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/stdenv/generic/check-meta.nix",
-"line":556
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/stdenv/generic/check-meta.nix",
+"line":560
 },
 "name":"betterbird-unwrapped-140.7.1esr-bb18",
 "nonTeamMaintainers":[],
@@ -1352,6 +1372,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1432,6 +1453,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -1462,6 +1484,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1542,6 +1565,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1551,7 +1575,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/bifrost/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/bifrost/package.nix",
 "line":157
 },
 "name":"bifrost-unwrapped-2.1.0",
@@ -1569,6 +1593,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1646,6 +1671,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1655,7 +1681,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/bifrost/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/bifrost/package.nix",
 "line":157
 },
 "name":"bifrost-unwrapped-2.1.0",
@@ -1673,6 +1699,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1751,6 +1778,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -1758,6 +1786,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1787,7 +1816,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/by-name/bilibili/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/by-name/bilibili/package.nix",
 "line":177
 },
 "name":"bilibili-1.17.5-3",
@@ -1878,6 +1907,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -1891,7 +1921,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/bi/bionic-translation/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/bi/bionic-translation/package.nix",
 "line":46
 },
 "name":"bionic-translation-0-unstable-2025-11-25",
@@ -1928,6 +1958,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2037,6 +2068,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -2106,6 +2138,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
@@ -2178,6 +2211,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -2207,7 +2241,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/ca/caddy/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/ca/caddy/package.nix",
 "line":96
 },
 "name":"caddy-2.11.2",
@@ -2247,6 +2281,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2316,7 +2351,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:229",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:230",
 "unfree":false,
 "unsupported":false
 },
@@ -2366,13 +2401,14 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/ccleste/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/ccleste/package.nix",
 "line":91
 },
 "name":"ccleste-1.4.0-unstable-2025-01-18",
@@ -2390,6 +2426,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2455,6 +2492,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -2477,6 +2515,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2542,6 +2581,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -2562,6 +2602,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2627,6 +2668,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
@@ -2649,6 +2691,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2715,6 +2758,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -2732,7 +2776,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/by-name/darling/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/by-name/darling/package.nix",
 "line":246
 },
 "name":"darling-0.1.20251023-unstable-2025-12-14",
@@ -2802,6 +2846,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -2828,7 +2873,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/davinci-resolve-201/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/davinci-resolve-201/package.nix",
 "line":327
 },
 "name":"davinci-resolve-studio-20.1.1",
@@ -2914,6 +2959,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2948,6 +2994,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3057,6 +3104,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -3066,7 +3114,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/by-name/downkyicore/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/by-name/downkyicore/package.nix",
 "line":137
 },
 "name":"downkyicore-1.0.23",
@@ -3132,6 +3180,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -3141,6 +3190,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -3150,6 +3200,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -3159,6 +3210,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Creative Commons Zero v1.0 Universal",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"cc0",
 "spdxId":"CC0-1.0",
@@ -3176,7 +3228,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/eden/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/eden/package.nix",
 "line":186
 },
 "name":"eden-0.2.0-rc2",
@@ -3201,6 +3253,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3266,6 +3319,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree redistributable",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unfreeRedistributable"
 },
@@ -3302,7 +3356,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://www.mozilla.org/en-US/firefox/140.9.1/releasenotes/",
+"changelog":"https://www.firefox.com/en-US/firefox/140.10.0/releasenotes/",
 "description":"Web browser built from Firefox source tree",
 "homepage":"http://www.mozilla.com/en-US/firefox/",
 "hydraPlatforms":[],
@@ -3337,6 +3391,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -3354,11 +3409,11 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/applications/networking/browsers/firefox/packages/firefox-esr-140.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/applications/networking/browsers/firefox/packages/firefox-esr-140.nix",
 "line":23
 },
 "maxSilent":14400,
-"name":"firefox-unwrapped-140.9.1esr",
+"name":"firefox-unwrapped-140.10.0esr",
 "nonTeamMaintainers":[
 {
 "email":"hexa@darmstadt.ccc.de",
@@ -3389,6 +3444,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3423,20 +3479,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"firefox-140.9.1esr",
+"name":"firefox-140.10.0esr",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"firefox",
 "system":"x86_64-linux",
-"version":"140.9.1esr"
+"version":"140.10.0esr"
 },
 "firefox-widevine-esr-mobile":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://www.mozilla.org/en-US/firefox/140.9.1/releasenotes/",
+"changelog":"https://www.firefox.com/en-US/firefox/140.10.0/releasenotes/",
 "description":"Web browser built from Firefox source tree",
 "homepage":"http://www.mozilla.com/en-US/firefox/",
 "hydraPlatforms":[],
@@ -3471,6 +3527,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -3488,11 +3545,11 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/applications/networking/browsers/firefox/packages/firefox-esr-140.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/applications/networking/browsers/firefox/packages/firefox-esr-140.nix",
 "line":23
 },
 "maxSilent":14400,
-"name":"firefox-unwrapped-140.9.1esr",
+"name":"firefox-unwrapped-140.10.0esr",
 "nonTeamMaintainers":[
 {
 "email":"hexa@darmstadt.ccc.de",
@@ -3523,6 +3580,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3557,20 +3615,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"firefox-140.9.1esr",
+"name":"firefox-140.10.0esr",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"firefox",
 "system":"x86_64-linux",
-"version":"140.9.1esr"
+"version":"140.10.0esr"
 },
 "firefox-widevine-mobile":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://www.mozilla.org/en-US/firefox/149.0.2/releasenotes/",
+"changelog":"https://www.firefox.com/en-US/firefox/150.0/releasenotes/",
 "description":"Web browser built from Firefox source tree",
 "homepage":"http://www.mozilla.com/en-US/firefox/",
 "hydraPlatforms":[],
@@ -3605,6 +3663,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -3628,11 +3687,11 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/applications/networking/browsers/firefox/packages/firefox.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/applications/networking/browsers/firefox/packages/firefox.nix",
 "line":22
 },
 "maxSilent":14400,
-"name":"firefox-unwrapped-149.0.2",
+"name":"firefox-unwrapped-150.0",
 "nonTeamMaintainers":[
 {
 "email":"ihar.hrachyshka@gmail.com",
@@ -3669,6 +3728,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3703,14 +3763,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"firefox-149.0.2",
+"name":"firefox-150.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"firefox",
 "system":"x86_64-linux",
-"version":"149.0.2"
+"version":"150.0"
 },
 "firefox_nightly":{
 "meta":{
@@ -3750,6 +3810,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -3766,7 +3827,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/firefox-nightly/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/firefox-nightly/default.nix",
 "line":56
 },
 "maxSilent":14400,
@@ -3800,6 +3861,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3880,6 +3942,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -3896,7 +3959,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/firefox-nightly/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/firefox-nightly/default.nix",
 "line":56
 },
 "maxSilent":14400,
@@ -3930,6 +3993,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4011,6 +4075,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -4032,6 +4097,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4098,6 +4164,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -4120,7 +4187,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/tools/security/ghidra/build.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/tools/security/ghidra/build.nix",
 "line":218
 },
 "name":"ghidra-12.0.4",
@@ -4207,6 +4274,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -4229,6 +4297,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4304,6 +4373,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -4313,7 +4383,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/tools/misc/grub/default.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/tools/misc/grub/default.nix",
 "line":774
 },
 "name":"grub-2.12",
@@ -4327,6 +4397,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4354,6 +4425,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4420,6 +4492,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -4442,6 +4515,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4507,6 +4581,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"ISC License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"isc",
 "spdxId":"ISC",
@@ -4529,6 +4604,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4594,6 +4670,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -4618,7 +4695,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/ladybird/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/ladybird/package.nix",
 "line":162
 },
 "name":"ladybird-0-unstable-2026-01-11",
@@ -4697,6 +4774,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -4718,6 +4796,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4784,6 +4863,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -4817,11 +4897,11 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/li/librewolf-unwrapped/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/li/librewolf-unwrapped/package.nix",
 "line":31
 },
 "maxSilent":14400,
-"name":"librewolf-unwrapped-149.0-1",
+"name":"librewolf-unwrapped-149.0.2-2",
 "nonTeamMaintainers":[
 {
 "email":"email@dwrege.de",
@@ -4868,6 +4948,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4902,14 +4983,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"librewolf-149.0-1",
+"name":"librewolf-149.0.2-2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"librewolf",
 "system":"x86_64-linux",
-"version":"149.0-1"
+"version":"149.0.2-2"
 },
 "lmms":{
 "meta":{
@@ -4948,6 +5029,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Plus",
 "spdxId":"GPL-2.0-or-later",
@@ -4969,7 +5051,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/lmms/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/lmms/package.nix",
 "line":116
 },
 "name":"lmms-1.2.2-unstable-2026-04-21",
@@ -5042,6 +5124,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -5064,7 +5147,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/local-ai/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/local-ai/package.nix",
 "line":618
 },
 "name":"local-ai-3.9.0",
@@ -5095,6 +5178,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5160,6 +5244,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -5182,7 +5267,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/local-ai/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/local-ai/package.nix",
 "line":618
 },
 "name":"local-ai-3.9.0",
@@ -5213,6 +5298,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5279,6 +5365,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -5313,7 +5400,7 @@
 ],
 "maintainersPosition":{
 "column":9,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/ma/materialgram/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/ma/materialgram/package.nix",
 "line":32
 },
 "name":"materialgram-unwrapped-6.4.0.1",
@@ -5367,6 +5454,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5487,6 +5575,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -5496,7 +5585,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/mdbook-generate-summary/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/mdbook-generate-summary/default.nix",
 "line":24
 },
 "name":"mdbook-generate-summary-0.3.0",
@@ -5594,6 +5683,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Plus",
 "spdxId":"LGPL-2.1-or-later",
@@ -5603,7 +5693,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/minetest580/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/minetest580/default.nix",
 "line":145
 },
 "name":"minetest-5.8.0",
@@ -5621,6 +5711,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5688,6 +5779,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Plus",
 "spdxId":"LGPL-2.1-or-later",
@@ -5697,7 +5789,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/minetest580/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/minetest580/default.nix",
 "line":145
 },
 "name":"minetest-5.8.0",
@@ -5715,6 +5807,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5782,6 +5875,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Plus",
 "spdxId":"LGPL-2.1-or-later",
@@ -5791,7 +5885,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/minetest580/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/minetest580/default.nix",
 "line":145
 },
 "name":"minetest-5.8.0",
@@ -5809,6 +5903,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5876,6 +5971,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Plus",
 "spdxId":"LGPL-2.1-or-later",
@@ -5885,7 +5981,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/minetest580/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/minetest580/default.nix",
 "line":145
 },
 "name":"minetest-5.8.0",
@@ -5903,6 +5999,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5970,6 +6067,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Plus",
 "spdxId":"LGPL-2.1-or-later",
@@ -5979,7 +6077,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/minetest591/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/minetest591/default.nix",
 "line":147
 },
 "name":"minetest-5.9.1",
@@ -5997,6 +6095,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6064,6 +6163,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Plus",
 "spdxId":"LGPL-2.1-or-later",
@@ -6073,7 +6173,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/minetest591/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/minetest591/default.nix",
 "line":147
 },
 "name":"minetest-5.9.1",
@@ -6091,6 +6191,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6158,6 +6259,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Plus",
 "spdxId":"LGPL-2.1-or-later",
@@ -6167,7 +6269,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/minetest591/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/minetest591/default.nix",
 "line":147
 },
 "name":"minetest-5.9.1",
@@ -6185,6 +6287,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6252,6 +6355,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Plus",
 "spdxId":"LGPL-2.1-or-later",
@@ -6275,7 +6379,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/tu/tuxguitar/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/tu/tuxguitar/package.nix",
 "line":231
 },
 "name":"tuxguitar-2.0.1",
@@ -6351,6 +6455,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -6359,7 +6464,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/miscutil/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/miscutil/default.nix",
 "line":46
 },
 "name":"miscutil-0-unstable-20101223",
@@ -6377,6 +6482,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6442,6 +6548,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -6470,7 +6577,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/mu/musescore/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/mu/musescore/package.nix",
 "line":159
 },
 "name":"musescore-4.6.3-alex-unstable-20251228",
@@ -6515,6 +6622,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6594,6 +6702,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Only",
 "spdxId":"GPL-2.0-only",
@@ -6603,7 +6712,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/by-name/musescore-evolution/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/by-name/musescore-evolution/package.nix",
 "line":214
 },
 "name":"musescore-evolution-0-unstable-2026-02-28",
@@ -6629,6 +6738,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6713,6 +6823,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -6734,7 +6845,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/my/mygui/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/my/mygui/package.nix",
 "line":78
 },
 "name":"mygui-3.4.3",
@@ -6773,6 +6884,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6852,6 +6964,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -6885,6 +6998,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6996,6 +7110,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -7005,6 +7120,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Netdata Cloud UI License v1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ncul1",
 "spdxId":"NCUL1",
@@ -7034,7 +7150,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/tools/system/netdata/default.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/tools/system/netdata/default.nix",
 "line":347
 },
 "name":"netdata-2.9.0",
@@ -7079,6 +7195,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -7158,6 +7275,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Plus",
 "spdxId":"AGPL-3.0-or-later",
@@ -7175,8 +7293,8 @@
 ],
 "maintainersPosition":{
 "column":54,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/development/haskell-modules/generic-builder.nix",
-"line":1109
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/development/haskell-modules/generic-builder.nix",
+"line":1107
 },
 "name":"nix-output-monitor-2.1.8-unstable-20260117",
 "nonTeamMaintainers":[
@@ -7213,6 +7331,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -7289,7 +7408,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/nss-dev/nss/blob/master/doc/rst/releases/nss_3_122_1.rst",
+"changelog":"https://github.com/nss-dev/nss/blob/master/doc/rst/releases/nss_3_123.rst",
 "description":"Set of libraries for development of security-enabled client and server applications",
 "homepage":"https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS",
 "identifiers":{
@@ -7323,6 +7442,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -7346,10 +7466,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/development/libraries/nss/generic.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/development/libraries/nss/generic.nix",
 "line":264
 },
-"name":"nss-unstable-20260423052936-fa0c7fd",
+"name":"nss-unstable-20260424053459-01bf7ef",
 "nonTeamMaintainers":[
 {
 "email":"hexa@darmstadt.ccc.de",
@@ -7392,6 +7512,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -7455,7 +7576,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nss-unstable-20260423052936-fa0c7fd",
+"name":"nss-unstable-20260424053459-01bf7ef",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -7465,7 +7586,7 @@
 },
 "pname":"nss-unstable",
 "system":"x86_64-linux",
-"version":"20260423052936-fa0c7fd"
+"version":"20260424053459-01bf7ef"
 },
 "ogre-1_11":{
 "meta":{
@@ -7504,6 +7625,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -7525,6 +7647,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -7561,7 +7684,7 @@
 "description":"Implementation of the SSH protocol",
 "homepage":"https://www.openssh.com/",
 "identifiers":{
-"cpe":"cpe:2.3:a:openbsd:openssh:10.2p1:*:*:*:*:*:*:*",
+"cpe":"cpe:2.3:a:openbsd:openssh:10.3p1:*:*:*:*:*:*:*",
 "cpeParts":{
 "edition":"*",
 "language":"*",
@@ -7573,11 +7696,11 @@
 "target_sw":"*",
 "update":"*",
 "vendor":"openbsd",
-"version":"10.2p1"
+"version":"10.3p1"
 },
 "possibleCPEs":[
 {
-"cpe":"cpe:2.3:a:openbsd:openssh:10.2p1:*:*:*:*:*:*:*",
+"cpe":"cpe:2.3:a:openbsd:openssh:10.3p1:*:*:*:*:*:*:*",
 "cpeParts":{
 "edition":"*",
 "language":"*",
@@ -7589,12 +7712,12 @@
 "target_sw":"*",
 "update":"*",
 "vendor":"openbsd",
-"version":"10.2p1"
+"version":"10.3p1"
 }
 }
 ],
 "v1":{
-"cpe":"cpe:2.3:a:openbsd:openssh:10.2p1:*:*:*:*:*:*:*",
+"cpe":"cpe:2.3:a:openbsd:openssh:10.3p1:*:*:*:*:*:*:*",
 "cpeParts":{
 "edition":"*",
 "language":"*",
@@ -7606,11 +7729,11 @@
 "target_sw":"*",
 "update":"*",
 "vendor":"openbsd",
-"version":"10.2p1"
+"version":"10.3p1"
 },
 "possibleCPEs":[
 {
-"cpe":"cpe:2.3:a:openbsd:openssh:10.2p1:*:*:*:*:*:*:*",
+"cpe":"cpe:2.3:a:openbsd:openssh:10.3p1:*:*:*:*:*:*:*",
 "cpeParts":{
 "edition":"*",
 "language":"*",
@@ -7622,7 +7745,7 @@
 "target_sw":"*",
 "update":"*",
 "vendor":"openbsd",
-"version":"10.2p1"
+"version":"10.3p1"
 }
 }
 ]
@@ -7633,6 +7756,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -7709,10 +7833,10 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/tools/networking/openssh/default.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/tools/networking/openssh/default.nix",
 "line":32
 },
-"name":"openssh-10.2p1",
+"name":"openssh-10.3p1",
 "nonTeamMaintainers":[
 {
 "email":"janne@hess.ooo",
@@ -7773,6 +7897,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -7805,7 +7930,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/tools/networking/openssh/common.nix:308",
+"position":"<nixpkgs> + /pkgs/tools/networking/openssh/common.nix:309",
 "teams":[
 {
 "github":"security-review",
@@ -7868,13 +7993,13 @@
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/tools/networking/openssh/common.nix",
-"line":314
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/tools/networking/openssh/common.nix",
+"line":315
 },
 "unfree":false,
 "unsupported":false
 },
-"name":"openssh-10.2p1",
+"name":"openssh-10.3p1",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -7883,7 +8008,7 @@
 },
 "pname":"openssh",
 "system":"x86_64-linux",
-"version":"10.2p1"
+"version":"10.3p1"
 },
 "openssh_hpn":{
 "meta":{
@@ -7965,6 +8090,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -8017,7 +8143,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/tools/networking/openssh/default.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/tools/networking/openssh/default.nix",
 "line":80
 },
 "name":"openssh-with-hpn-10.2p1",
@@ -8057,6 +8183,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8089,7 +8216,7 @@
 "x86_64-windows",
 "i686-windows"
 ],
-"position":"<nixpkgs> + /pkgs/tools/networking/openssh/common.nix:308",
+"position":"<nixpkgs> + /pkgs/tools/networking/openssh/common.nix:309",
 "teams":[
 {
 "github":"security-review",
@@ -8152,8 +8279,8 @@
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/tools/networking/openssh/common.nix",
-"line":314
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/tools/networking/openssh/common.nix",
+"line":315
 },
 "unfree":false,
 "unsupported":false
@@ -8206,6 +8333,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -8228,6 +8356,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8295,6 +8424,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -8317,6 +8447,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8388,6 +8519,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8415,6 +8547,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -8437,6 +8570,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8517,6 +8651,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Library General Public License v2 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl2Plus",
 "spdxId":"LGPL-2.0-or-later",
@@ -8546,6 +8681,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8582,7 +8718,7 @@
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/polkit/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/polkit/package.nix",
 "line":200
 },
 "unfree":false,
@@ -8637,6 +8773,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -8679,7 +8816,7 @@
 ],
 "maintainersPosition":{
 "column":34,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/pr/prismlauncher/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/pr/prismlauncher/package.nix",
 "line":122
 },
 "name":"prismlauncher-11.0.2",
@@ -8729,6 +8866,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8794,6 +8932,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -8809,7 +8948,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-cachyos",
@@ -8875,6 +9014,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -8890,7 +9030,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-cachyos",
@@ -8956,6 +9096,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -8971,7 +9112,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-cachyos",
@@ -9037,6 +9178,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -9052,7 +9194,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-cachyos",
@@ -9118,6 +9260,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -9133,7 +9276,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-cachyos",
@@ -9199,6 +9342,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -9214,7 +9358,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-cachyos",
@@ -9280,6 +9424,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -9295,7 +9440,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/proton-bin/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/proton-bin/default.nix",
 "line":79
 },
 "name":"proton-ge-custom",
@@ -9363,6 +9508,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -9385,6 +9531,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -9452,6 +9599,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -9474,6 +9622,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -9539,6 +9688,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -9547,7 +9697,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/rocksmith-custom-song-toolkit/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/rocksmith-custom-song-toolkit/default.nix",
 "line":157
 },
 "name":"rocksmith-custom-song-toolkit-2.9.2.1",
@@ -9565,6 +9715,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -9630,6 +9781,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Only",
 "spdxId":"GPL-2.0-only",
@@ -9639,7 +9791,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/rocksmith2tab/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/rocksmith2tab/default.nix",
 "line":150
 },
 "name":"rocksmith2tab-0-unstable-20250126",
@@ -9657,6 +9809,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -9722,6 +9875,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -9755,6 +9909,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -9864,6 +10019,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -9879,7 +10035,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/stuntrally/default.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/stuntrally/default.nix",
 "line":126
 },
 "name":"stuntrally-2.7",
@@ -9904,6 +10060,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -9969,6 +10126,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Plus",
 "spdxId":"GPL-2.0-or-later",
@@ -9985,7 +10143,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/pkgs/superTux/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/pkgs/superTux/package.nix",
 "line":103
 },
 "name":"supertux-0.7.0-beta.1",
@@ -10010,6 +10168,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -10124,6 +10283,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -10133,6 +10293,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -10142,6 +10303,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Creative Commons Zero v1.0 Universal",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"cc0",
 "spdxId":"CC0-1.0",
@@ -10151,6 +10313,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Plus",
 "spdxId":"LGPL-2.1-or-later",
@@ -10160,6 +10323,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Library General Public License v2 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl2Plus",
 "spdxId":"LGPL-2.0-or-later",
@@ -10169,6 +10333,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -10178,6 +10343,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT No Attribution",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit0",
 "spdxId":"MIT-0",
@@ -10187,6 +10353,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -10196,6 +10363,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Public Domain",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"publicDomain"
 }
@@ -10344,7 +10512,7 @@
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/by-name/systemd258/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/by-name/systemd258/package.nix",
 "line":1051
 },
 "unfree":false,
@@ -10400,6 +10568,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -10417,7 +10586,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/applications/networking/instant-messengers/telegram/telegram-desktop/unwrapped.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/applications/networking/instant-messengers/telegram/telegram-desktop/unwrapped.nix",
 "line":136
 },
 "name":"telegram-desktop-unwrapped-6.7.5",
@@ -10454,6 +10623,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -10563,6 +10733,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Plus",
 "spdxId":"LGPL-2.1-or-later",
@@ -10573,7 +10744,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/by-name/tuxguitar/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/by-name/tuxguitar/package.nix",
 "line":231
 },
 "name":"tuxguitar-2.0.1",
@@ -10642,6 +10813,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -10669,6 +10841,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -10691,6 +10864,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -10757,6 +10931,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -10766,7 +10941,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/by-name/vllm-run-cluster/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/by-name/vllm-run-cluster/package.nix",
 "line":69
 },
 "name":"vllm-run-cluster-unstable-2024-11-21",
@@ -10784,6 +10959,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -10855,6 +11031,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -10884,7 +11061,7 @@
 ],
 "maintainersPosition":{
 "column":3,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/wi/widevine-cdm/meta.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/wi/widevine-cdm/meta.nix",
 "line":6
 },
 "name":"widevine-cdm-4.10.2934.0",
@@ -10976,6 +11153,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -10983,7 +11161,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/by-name/wigglypaint/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/by-name/wigglypaint/package.nix",
 "line":38
 },
 "name":"wigglypaint-1.4",
@@ -11013,6 +11191,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -11128,6 +11307,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -11137,8 +11317,8 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/stdenv/generic/check-meta.nix",
-"line":556
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/stdenv/generic/check-meta.nix",
+"line":560
 },
 "name":"wireguird-unwrapped-1.1.0-unstable-2024-10-31",
 "nonTeamMaintainers":[],
@@ -11155,6 +11335,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -11222,6 +11403,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -11256,7 +11438,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hrca4xh4rc0d9c0hvqdyh9kfwfj2dwvp-source/by-name/zen-browser/package.nix",
+"file":"/nix/store/swc1kgxy7rzyfiqkcwjs1nlxad8z0agk-source/by-name/zen-browser/package.nix",
 "line":106
 },
 "maxSilent":14400,
@@ -11301,6 +11483,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -11369,6 +11552,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },

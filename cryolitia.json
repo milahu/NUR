@@ -1,16 +1,16 @@
 {
 "name":"cryolitia",
-"fetch_time":0.448,
-"eval_time":0.313,
+"fetch_time":0.576,
+"eval_time":0.312,
 "source":{
 "url":"https://github.com/Cryolitia/nur-packages",
-"rev":"6021a0807b5dfdab45420a2ca02e2359904b834f",
-"sha256":"11cfhaza01ch5j561mpv38n52z9c9ca21lbhnw15dxfk30ksq99s",
+"rev":"7b15487ec1e94021cae040f4a6cbf8a840d200e6",
+"sha256":"1hpbz3yra1gwg189sxrc97bnwq2adryhk764qypbdy4bjmm17ywc",
 "date":null
 },
-"source_storepath":"/nix/store/vjhfjqsb006xndfz7mk6picciq3n9zff-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"5159af84efe975bee278f4f55557f1512283123c",
+"source_storepath":"/nix/store/qvqq4n8npxm6jy3wz2f19vn9vlswzlds-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"6a2933057d3bb3d34c522f2143d454e148b6a96d",
 "packages":{
 "aic8800-firmware":{
 "meta":{
@@ -48,6 +48,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Only",
 "spdxId":"GPL-2.0-only",
@@ -69,7 +70,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vjhfjqsb006xndfz7mk6picciq3n9zff-source/pkgs/by-name/aic8800-firmware/package.nix",
+"file":"/nix/store/qvqq4n8npxm6jy3wz2f19vn9vlswzlds-source/pkgs/by-name/aic8800-firmware/package.nix",
 "line":36
 },
 "name":"aic8800-firmware",
@@ -99,6 +100,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -175,6 +177,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -197,7 +200,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vjhfjqsb006xndfz7mk6picciq3n9zff-source/pkgs/by-name/cn-font-split/package.nix",
+"file":"/nix/store/qvqq4n8npxm6jy3wz2f19vn9vlswzlds-source/pkgs/by-name/cn-font-split/package.nix",
 "line":40
 },
 "name":"cn-font-split-7.6.8",
@@ -304,6 +307,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -325,7 +329,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vjhfjqsb006xndfz7mk6picciq3n9zff-source/pkgs/by-name/get-lrc/package.nix",
+"file":"/nix/store/qvqq4n8npxm6jy3wz2f19vn9vlswzlds-source/pkgs/by-name/get-lrc/package.nix",
 "line":24
 },
 "name":"get-lrc-0.02",
@@ -357,6 +361,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -427,6 +432,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -448,7 +454,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vjhfjqsb006xndfz7mk6picciq3n9zff-source/pkgs/by-name/gr-satellites/package.nix",
+"file":"/nix/store/qvqq4n8npxm6jy3wz2f19vn9vlswzlds-source/pkgs/by-name/gr-satellites/package.nix",
 "line":53
 },
 "name":"gr-satellites-5.9.0",
@@ -478,6 +484,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -556,6 +563,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -576,7 +584,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vjhfjqsb006xndfz7mk6picciq3n9zff-source/pkgs/by-name/mdbook-typst-pdf/package.nix",
+"file":"/nix/store/qvqq4n8npxm6jy3wz2f19vn9vlswzlds-source/pkgs/by-name/mdbook-typst-pdf/package.nix",
 "line":36
 },
 "name":"mdbook-typst-pdf-0.7.3",
@@ -686,6 +694,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -707,7 +716,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vjhfjqsb006xndfz7mk6picciq3n9zff-source/pkgs/by-name/pdf2htmlex/package.nix",
+"file":"/nix/store/qvqq4n8npxm6jy3wz2f19vn9vlswzlds-source/pkgs/by-name/pdf2htmlex/package.nix",
 "line":114
 },
 "name":"pdf2htmlex-0.18.8.rc1",
@@ -737,6 +746,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -804,6 +814,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -824,7 +835,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vjhfjqsb006xndfz7mk6picciq3n9zff-source/pkgs/by-name/rime-latex/package.nix",
+"file":"/nix/store/qvqq4n8npxm6jy3wz2f19vn9vlswzlds-source/pkgs/by-name/rime-latex/package.nix",
 "line":27
 },
 "name":"rime-latex-unstable-20230703",
@@ -905,7 +916,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vjhfjqsb006xndfz7mk6picciq3n9zff-source/pkgs/by-name/rime-project-trans/package.nix",
+"file":"/nix/store/qvqq4n8npxm6jy3wz2f19vn9vlswzlds-source/pkgs/by-name/rime-project-trans/package.nix",
 "line":35
 },
 "name":"rime-project-trans-unstable-20231115",
@@ -975,6 +986,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -996,7 +1008,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vjhfjqsb006xndfz7mk6picciq3n9zff-source/pkgs/by-name/ssdv/package.nix",
+"file":"/nix/store/qvqq4n8npxm6jy3wz2f19vn9vlswzlds-source/pkgs/by-name/ssdv/package.nix",
 "line":40
 },
 "name":"ssdv-0-unstable-20250812",
@@ -1026,6 +1038,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1094,6 +1107,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -1114,7 +1128,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vjhfjqsb006xndfz7mk6picciq3n9zff-source/pkgs/by-name/vscode-vtuber/package.nix",
+"file":"/nix/store/qvqq4n8npxm6jy3wz2f19vn9vlswzlds-source/pkgs/by-name/vscode-vtuber/package.nix",
 "line":26
 },
 "name":"vscode-1.116.0",
@@ -1191,6 +1205,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1212,7 +1227,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/vjhfjqsb006xndfz7mk6picciq3n9zff-source/pkgs/by-name/vutronmusic/package.nix",
+"file":"/nix/store/qvqq4n8npxm6jy3wz2f19vn9vlswzlds-source/pkgs/by-name/vutronmusic/package.nix",
 "line":38
 },
 "name":"vutronmusic-3.2.0",

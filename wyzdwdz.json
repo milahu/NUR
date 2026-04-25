@@ -1,16 +1,16 @@
 {
 "name":"wyzdwdz",
-"fetch_time":0.953,
-"eval_time":0.349,
+"fetch_time":0.679,
+"eval_time":0.356,
 "source":{
 "url":"https://github.com/wyzdwdz/nur-pkgs",
-"rev":"e5cd93d4bdec9c282cd60795507a2abc6b42cc79",
-"sha256":"1w3i4g7wwn6w65ql5ahzb8ls4p110zcsi79gqb0bkffqw9gv97m1",
+"rev":"1b72ec3e25f0e2d6ba7fcd4aa94824fc31c93dc6",
+"sha256":"0jnamgi090gjq6v62wbw0slvd1iik2s4lvx44hs10fa413kdx208",
 "date":null
 },
-"source_storepath":"/nix/store/9rvffcwd4qifb7476ijyxr9j5vgm2w64-source",
-"nixpkgs_storepath":"/nix/store/29wcak36qsc1mzzdjxl1q4lbs3f0zg7n-source",
-"nur_combined_rev":"4d3733520457bdb48443a8c7198127c9a5ae6202",
+"source_storepath":"/nix/store/p0l8f76cbf7n11r4vi1mgddqnhyps3zk-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"f00c6da4cf7fd01a614ef0765449363a881c6e93",
 "packages":{
 "ab-download-manager":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -56,7 +57,7 @@
 },
 "mainProgram":"ABDownloadManager",
 "maintainers":[],
-"name":"ab-download-manager-1.8.7",
+"name":"ab-download-manager-1.8.8",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -78,14 +79,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ab-download-manager-1.8.7",
+"name":"ab-download-manager-1.8.8",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ab-download-manager",
 "system":"x86_64-linux",
-"version":"1.8.7"
+"version":"1.8.8"
 },
 "archon":{
 "meta":{
@@ -124,6 +125,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -194,6 +196,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -266,6 +269,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -273,6 +277,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -300,6 +305,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -326,6 +332,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -333,6 +340,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -460,6 +468,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -549,6 +558,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },

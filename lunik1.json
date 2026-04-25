@@ -1,16 +1,16 @@
 {
 "name":"lunik1",
-"fetch_time":0.504,
+"fetch_time":0.783,
 "eval_time":0.316,
 "source":{
 "url":"https://github.com/lunik1/nur-packages",
-"rev":"244795426b1471f5aae5efe345f9f3e81fb25eb1",
-"sha256":"00s28vih2952cgi8ybm2kmlciw9lvxbrh5j8y3lz3hz67pns7rbs",
+"rev":"ee5a1437562d4871d9d2252ea9f4d6762a6d60a7",
+"sha256":"0azxphfcjrd68caia793gmxq0864nszqh8fsksh4z5qq0ivi3vk9",
 "date":null
 },
-"source_storepath":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"4b4ca3029f817cb632f84ecbb035e400aeabee6f",
+"source_storepath":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"ef8811a2341b856adfc7c1472aa4181db3299f56",
 "packages":{
 "amazing-marvin":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -69,7 +70,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/amazing-marvin/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/amazing-marvin/default.nix",
 "line":41
 },
 "name":"amazing-marvin-1.69.1",
@@ -111,6 +112,181 @@
 "pname":"amazing-marvin",
 "system":"x86_64-linux",
 "version":"1.69.1"
+},
+"asap-condensed":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Asap Condensed font family",
+"homepage":"https://fonts.google.com/specimen/Asap+Condensed",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"asap-condensed",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"asap-condensed",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"ofl",
+"spdxId":"OFL-1.1",
+"url":"https://spdx.org/licenses/OFL-1.1.html"
+},
+"maintainers":[
+{
+"email":"ch.nixpkgs@themaw.xyz",
+"github":"lunik1",
+"githubId":13547699,
+"keys":[
+{
+"fingerprint":"6E69 6A19 4BD8 BFAE 7362  ACDB 6437 4619 95CA 7F16"
+}
+],
+"matrix":"@lunik1:lunik.one",
+"name":"Corin Hoad"
+}
+],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/asap-condensed/default.nix",
+"line":30
+},
+"name":"asap-condensed-3.001",
+"nonTeamMaintainers":[
+{
+"email":"ch.nixpkgs@themaw.xyz",
+"github":"lunik1",
+"githubId":13547699,
+"keys":[
+{
+"fingerprint":"6E69 6A19 4BD8 BFAE 7362  ACDB 6437 4619 95CA 7F16"
+}
+],
+"matrix":"@lunik1:lunik.one",
+"name":"Corin Hoad"
+}
+],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"i686-cygwin",
+"x86_64-cygwin",
+"x86_64-darwin",
+"aarch64-darwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd",
+"aarch64-genode",
+"i686-genode",
+"x86_64-genode",
+"x86_64-solaris",
+"javascript-ghcjs",
+"aarch64-linux",
+"arc-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"sh4-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"mmix-mmixware",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"aarch64_be-none",
+"aarch64-none",
+"arm-none",
+"armv6l-none",
+"avr-none",
+"i686-none",
+"microblaze-none",
+"microblazeel-none",
+"mips-none",
+"mips64-none",
+"msp430-none",
+"or1k-none",
+"m68k-none",
+"powerpc-none",
+"powerpcle-none",
+"riscv32-none",
+"riscv64-none",
+"rx-none",
+"s390-none",
+"s390x-none",
+"vc4-none",
+"x86_64-none",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox",
+"wasm64-wasi",
+"wasm32-wasi",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
+],
+"position":"./pkgs/asap-condensed/default.nix:26",
+"unfree":false,
+"unsupported":false
+},
+"name":"asap-condensed-3.001",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"asap-condensed",
+"system":"x86_64-linux",
+"version":"3.001"
 },
 "bach":{
 "meta":{
@@ -160,6 +336,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD-2-Clause Plus Patent License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2Patent",
 "spdxId":"BSD-2-Clause-Patent",
@@ -181,7 +358,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/bach/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/bach/default.nix",
 "line":24
 },
 "name":"bach-0.3",
@@ -303,6 +480,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -325,7 +503,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/doukutsu-rs/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/doukutsu-rs/default.nix",
 "line":69
 },
 "name":"doukutsu-rs-0.102.0-beta7",
@@ -417,6 +595,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -439,7 +618,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/efficient-compression-tool/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/efficient-compression-tool/default.nix",
 "line":40
 },
 "name":"efficient-compression-tool-0.9.5",
@@ -470,6 +649,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -535,6 +715,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl3Plus",
 "spdxId":"LGPL-3.0-or-later",
@@ -556,7 +737,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/mpv-shaders/fsrcnnx/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/mpv-shaders/fsrcnnx/default.nix",
 "line":43
 },
 "name":"fsrcnnx-x2-16-0-4-1-1.1",
@@ -599,6 +780,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -708,6 +890,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl3Plus",
 "spdxId":"LGPL-3.0-or-later",
@@ -729,7 +912,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/mpv-shaders/fsrcnnx/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/mpv-shaders/fsrcnnx/default.nix",
 "line":43
 },
 "name":"fsrcnnx-x2-8-0-4-1-1.1",
@@ -772,6 +955,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -881,6 +1065,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl3Plus",
 "spdxId":"LGPL-3.0-or-later",
@@ -902,7 +1087,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/mpv-shaders/krig-bilateral/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/mpv-shaders/krig-bilateral/default.nix",
 "line":32
 },
 "name":"krig-bilateral-unstable-2023-10-26",
@@ -945,6 +1130,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1054,6 +1240,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Artistic License 1.0 w/clause 8",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"artistic1-cl8",
 "spdxId":"Artistic-1.0-cl8",
@@ -1075,7 +1262,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/ls-colors/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/ls-colors/default.nix",
 "line":32
 },
 "name":"ls-colors-unstable-2024-12-20",
@@ -1118,6 +1305,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1227,6 +1415,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -1248,7 +1437,7 @@
 ],
 "maintainersPosition":{
 "column":15,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/myosevka/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/myosevka/default.nix",
 "line":179
 },
 "name":"myosevka-aile-34.4.0",
@@ -1291,6 +1480,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1400,6 +1590,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -1421,7 +1612,7 @@
 ],
 "maintainersPosition":{
 "column":15,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/myosevka/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/myosevka/default.nix",
 "line":179
 },
 "name":"myosevka-etoile-34.4.0",
@@ -1464,6 +1655,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1573,6 +1765,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -1594,7 +1787,7 @@
 ],
 "maintainersPosition":{
 "column":15,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/myosevka/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/myosevka/default.nix",
 "line":179
 },
 "name":"myosevka-mono-34.4.0",
@@ -1637,6 +1830,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1746,6 +1940,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -1767,7 +1962,7 @@
 ],
 "maintainersPosition":{
 "column":15,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/myosevka/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/myosevka/default.nix",
 "line":179
 },
 "name":"myosevka-proportional-34.4.0",
@@ -1810,6 +2005,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1918,6 +2114,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl3Plus",
 "spdxId":"LGPL-3.0-or-later",
@@ -1939,7 +2136,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/mpv-shaders/ssim-downscaler/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/mpv-shaders/ssim-downscaler/default.nix",
 "line":31
 },
 "name":"ssim-downscaler-unstable-2024-09-05",
@@ -1982,6 +2179,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2091,6 +2289,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl3Plus",
 "spdxId":"LGPL-3.0-or-later",
@@ -2112,7 +2311,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/mpv-shaders/ssim-super-res/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/mpv-shaders/ssim-super-res/default.nix",
 "line":32
 },
 "name":"ssim-super-res-unstable-2022-02-07",
@@ -2155,6 +2354,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2264,6 +2464,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2285,7 +2486,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/thelounge-theme-zenburn/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/thelounge-theme-zenburn/default.nix",
 "line":30
 },
 "name":"thelounge-theme-zenburn-1.0.5",
@@ -2320,6 +2521,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -2379,6 +2581,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2400,7 +2603,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/trash-d/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/trash-d/default.nix",
 "line":37
 },
 "name":"trash-d-19",
@@ -2474,6 +2677,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -2493,7 +2697,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s1p6c9phr8d7rqgm7bsa02xjchh78g8g-source/pkgs/xcompose/default.nix",
+"file":"/nix/store/sbnpfhmzplbgpxby1p3qr6kfjjimi9kh-source/pkgs/xcompose/default.nix",
 "line":45
 },
 "name":"xcompose-unstable-2024-03-11",
@@ -2536,6 +2740,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
