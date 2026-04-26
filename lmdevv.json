@@ -1,16 +1,16 @@
 {
 "name":"lmdevv",
-"fetch_time":0.356,
-"eval_time":0.317,
+"fetch_time":0.507,
+"eval_time":0.308,
 "source":{
 "url":"https://github.com/lmdevv/nur-packages",
-"rev":"4ca904501be55301e492741eb5b8fcf3e66f9c31",
-"sha256":"0qvkwsv5rz30car3li8jl3083argxh2cfzk7gfkhivca4qdgs1s5",
+"rev":"ebcc47d87bd652b03a1fccf8fc180ed15dce5945",
+"sha256":"0fl5yvj2pmp4j2q0n6rk256z2axcyi1xi6797k2w2s8471zfdb58",
 "date":null
 },
-"source_storepath":"/nix/store/y3p09frh7prpqdvlg3d2zlnc8rfafswg-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"e2f64767742d39282bc6cd18b4a150e465be9878",
+"source_storepath":"/nix/store/n5a9kzcl5r3736fzkbp375a4scaiwcyy-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"e918f59517ec63b305d2403ab27b50f84f5d3915",
 "packages":{
 "code-cursor":{
 "meta":{
@@ -50,6 +50,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -57,10 +58,10 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y3p09frh7prpqdvlg3d2zlnc8rfafswg-source/pkgs/code-cursor/default.nix",
+"file":"/nix/store/n5a9kzcl5r3736fzkbp375a4scaiwcyy-source/pkgs/code-cursor/default.nix",
 "line":93
 },
-"name":"cursor-3.1.17",
+"name":"cursor-3.2.11",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -80,14 +81,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"cursor-3.1.17",
+"name":"cursor-3.2.11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cursor",
 "system":"x86_64-linux",
-"version":"3.1.17"
+"version":"3.2.11"
 },
 "coderabbit-cli":{
 "meta":{
@@ -126,6 +127,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -136,10 +138,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y3p09frh7prpqdvlg3d2zlnc8rfafswg-source/pkgs/coderabbit-cli/default.nix",
+"file":"/nix/store/n5a9kzcl5r3736fzkbp375a4scaiwcyy-source/pkgs/coderabbit-cli/default.nix",
 "line":104
 },
-"name":"coderabbit-cli-0.4.2",
+"name":"coderabbit-cli-0.4.3",
 "nonTeamMaintainers":[
 "lmdevv"
 ],
@@ -162,14 +164,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"coderabbit-cli-0.4.2",
+"name":"coderabbit-cli-0.4.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"coderabbit-cli",
 "system":"x86_64-linux",
-"version":"0.4.2"
+"version":"0.4.3"
 },
 "commiter":{
 "meta":{
@@ -208,6 +210,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -218,7 +221,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y3p09frh7prpqdvlg3d2zlnc8rfafswg-source/pkgs/commiter/default.nix",
+"file":"/nix/store/n5a9kzcl5r3736fzkbp375a4scaiwcyy-source/pkgs/commiter/default.nix",
 "line":24
 },
 "name":"committer-0.3.2",
@@ -240,6 +243,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -310,6 +314,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -320,7 +325,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y3p09frh7prpqdvlg3d2zlnc8rfafswg-source/pkgs/cursor-agent/default.nix",
+"file":"/nix/store/n5a9kzcl5r3736fzkbp375a4scaiwcyy-source/pkgs/cursor-agent/default.nix",
 "line":101
 },
 "name":"cursor-agent-2026.04.16-2d20146",
@@ -393,6 +398,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -404,7 +410,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y3p09frh7prpqdvlg3d2zlnc8rfafswg-source/pkgs/t3code/default.nix",
+"file":"/nix/store/n5a9kzcl5r3736fzkbp375a4scaiwcyy-source/pkgs/t3code/default.nix",
 "line":87
 },
 "name":"t3code-0.0.21",

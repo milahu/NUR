@@ -1,16 +1,16 @@
 {
 "name":"codgician",
-"fetch_time":0.388,
-"eval_time":0.319,
+"fetch_time":0.568,
+"eval_time":0.325,
 "source":{
 "url":"https://github.com/codgician/nur-packages",
-"rev":"49452603095e1499ec06af85943e40a27effecf5",
-"sha256":"1p0zwz6n5zxxc8m9ab2jba6rbwp5rc7q80mjv11lj714lbi871g8",
+"rev":"fa7de7269ac7c47e159e21c4163697efabdfbd42",
+"sha256":"06j6xj9dbvsvdp26l50jqhlmf3y82yqnab4m9cm4x6ivr04kkycp",
 "date":null
 },
-"source_storepath":"/nix/store/d64z39qnyy7szp0fv5x0kwlvm9accgwx-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"26cf716806741e1a0723ca0cca7a871699485ae7",
+"source_storepath":"/nix/store/nf8znffwi7kimk3idprfg1j4v80sxvdq-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"9697b460056e5a7e10e4da6e40db5cffc978d7f0",
 "packages":{
 "agent-browser":{
 "meta":{
@@ -60,6 +60,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -76,7 +77,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d64z39qnyy7szp0fv5x0kwlvm9accgwx-source/pkgs/agent-browser/default.nix",
+"file":"/nix/store/nf8znffwi7kimk3idprfg1j4v80sxvdq-source/pkgs/agent-browser/default.nix",
 "line":127
 },
 "name":"agent-browser-0.26.0",
@@ -170,6 +171,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -238,6 +240,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -252,10 +255,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d64z39qnyy7szp0fv5x0kwlvm9accgwx-source/pkgs/droid/default.nix",
+"file":"/nix/store/nf8znffwi7kimk3idprfg1j4v80sxvdq-source/pkgs/droid/default.nix",
 "line":79
 },
-"name":"droid-0.108.0",
+"name":"droid-0.109.1",
 "nonTeamMaintainers":[
 {
 "email":"codgician@outlook.com",
@@ -283,14 +286,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"droid-0.108.0",
+"name":"droid-0.109.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"droid",
 "system":"x86_64-linux",
-"version":"0.108.0"
+"version":"0.109.1"
 },
 "edk2-cix":{
 "meta":{
@@ -335,7 +338,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d64z39qnyy7szp0fv5x0kwlvm9accgwx-source/pkgs/edk2-cix/default.nix",
+"file":"/nix/store/nf8znffwi7kimk3idprfg1j4v80sxvdq-source/pkgs/edk2-cix/default.nix",
 "line":131
 },
 "name":"edk2-cix-1.2.1",
@@ -410,7 +413,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d64z39qnyy7szp0fv5x0kwlvm9accgwx-source/pkgs/gddr6/default.nix",
+"file":"/nix/store/nf8znffwi7kimk3idprfg1j4v80sxvdq-source/pkgs/gddr6/default.nix",
 "line":34
 },
 "name":"gddr6-0-unstable-2025-04-21",
@@ -475,6 +478,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -490,7 +494,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d64z39qnyy7szp0fv5x0kwlvm9accgwx-source/pkgs/ms213x-rename/default.nix",
+"file":"/nix/store/nf8znffwi7kimk3idprfg1j4v80sxvdq-source/pkgs/ms213x-rename/default.nix",
 "line":32
 },
 "name":"ms213x-rename-0.0.2-unstable-2025-01-14",
@@ -517,6 +521,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -587,6 +592,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -603,7 +609,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d64z39qnyy7szp0fv5x0kwlvm9accgwx-source/pkgs/nanokvm-usb/default.nix",
+"file":"/nix/store/nf8znffwi7kimk3idprfg1j4v80sxvdq-source/pkgs/nanokvm-usb/default.nix",
 "line":170
 },
 "name":"nanokvm-usb-1.1.4",
@@ -628,6 +634,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -702,7 +709,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d64z39qnyy7szp0fv5x0kwlvm9accgwx-source/pkgs/samsung-dc-toolkit-3/default.nix",
+"file":"/nix/store/nf8znffwi7kimk3idprfg1j4v80sxvdq-source/pkgs/samsung-dc-toolkit-3/default.nix",
 "line":36
 },
 "name":"samsung-dc-toolkit-2.1",
@@ -777,7 +784,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d64z39qnyy7szp0fv5x0kwlvm9accgwx-source/pkgs/samsung-dc-toolkit-3/default.nix",
+"file":"/nix/store/nf8znffwi7kimk3idprfg1j4v80sxvdq-source/pkgs/samsung-dc-toolkit-3/default.nix",
 "line":36
 },
 "name":"samsung-dc-toolkit-3.0",
@@ -846,6 +853,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -862,7 +870,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d64z39qnyy7szp0fv5x0kwlvm9accgwx-source/pkgs/sasl-xoauth2/default.nix",
+"file":"/nix/store/nf8znffwi7kimk3idprfg1j4v80sxvdq-source/pkgs/sasl-xoauth2/default.nix",
 "line":81
 },
 "name":"sasl-xoauth2-0.27",
@@ -887,6 +895,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -959,7 +968,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d64z39qnyy7szp0fv5x0kwlvm9accgwx-source/pkgs/sst/default.nix",
+"file":"/nix/store/nf8znffwi7kimk3idprfg1j4v80sxvdq-source/pkgs/sst/default.nix",
 "line":61
 },
 "name":"sst-2.7",
@@ -1028,6 +1037,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -1044,7 +1054,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d64z39qnyy7szp0fv5x0kwlvm9accgwx-source/pkgs/waydroid-script/default.nix",
+"file":"/nix/store/nf8znffwi7kimk3idprfg1j4v80sxvdq-source/pkgs/waydroid-script/default.nix",
 "line":70
 },
 "name":"waydroid-script-0-unstable-2026-01-05",
@@ -1069,6 +1079,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

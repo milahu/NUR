@@ -1,16 +1,16 @@
 {
 "name":"dtomvan",
-"fetch_time":0.475,
-"eval_time":0.363,
+"fetch_time":0.599,
+"eval_time":0.358,
 "source":{
 "url":"https://github.com/dtomvan/nur-packages",
-"rev":"4b0baf3cab3ed2cfe92b0b4086a9aec9f9386022",
-"sha256":"1igzj77bmbrz6rrsddygl0xdyciig9f0444h5cjrqxz7fgh9fxfg",
+"rev":"ff9ae255e323bc46b24b98d597ddf92672e0dfb6",
+"sha256":"010kjpgxwckwm30mxylaqvpfmxm5azwksdq2cdgqsl083pwd4nvn",
 "date":null
 },
-"source_storepath":"/nix/store/3kky624fqrlkkmng5vgxh34wngxpmy9z-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"371d9246e136a768caed27b53e54b3b7d881575c",
+"source_storepath":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"356bf9d4a0cbd006d7566dafd2fefacdaa344cac",
 "packages":{
 "aporetic-patched":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -64,7 +65,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/ap/aporetic/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/ap/aporetic/package.nix",
 "line":64
 },
 "name":"aporetic-1.2.0",
@@ -101,6 +102,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -173,6 +175,124 @@
 "system":"x86_64-linux",
 "version":"1.2.0"
 },
+"cclip":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Clipboard manager for wayland",
+"homepage":"https://github.com/heather7283/cclip",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"cclip",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"cclip",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"gpl3Only",
+"spdxId":"GPL-3.0-only",
+"url":"https://spdx.org/licenses/GPL-3.0-only.html"
+},
+"mainProgram":"cclip",
+"maintainers":[
+{
+"email":"18gatenmaker6@gmail.com",
+"github":"dtomvan",
+"githubId":51440893,
+"keys":[
+{
+"fingerprint":"D044 F07B 8863 B681 26BD  79FE 7A98 4C82 07AD BA51"
+}
+],
+"name":"Tom van Dijk"
+}
+],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/cclip/package.nix",
+"line":53
+},
+"name":"cclip-3.3.1",
+"nonTeamMaintainers":[
+{
+"email":"18gatenmaker6@gmail.com",
+"github":"dtomvan",
+"githubId":51440893,
+"keys":[
+{
+"fingerprint":"D044 F07B 8863 B681 26BD  79FE 7A98 4C82 07AD BA51"
+}
+],
+"name":"Tom van Dijk"
+}
+],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"arc-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"sh4-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/cclip/package.nix:50",
+"unfree":false,
+"unsupported":false
+},
+"name":"cclip-3.3.1",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"cclip",
+"system":"x86_64-linux",
+"version":"3.3.1"
+},
 "darkreader":{
 "meta":{
 "available":true,
@@ -209,6 +329,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -229,7 +350,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3kky624fqrlkkmng5vgxh34wngxpmy9z-source/pkgs/darkreader/package.nix",
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/darkreader/package.nix",
 "line":49
 },
 "mozPermissions":[
@@ -279,6 +400,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -351,6 +473,132 @@
 "system":"x86_64-linux",
 "version":"4.9.119"
 },
+"fsel":{
+"meta":{
+"available":true,
+"badPlatforms":[
+{
+"abi":{
+"abi":"n32"
+},
+"cpu":{
+"bits":64,
+"family":"mips"
+}
+}
+],
+"broken":false,
+"description":"Fast TUI app launcher for GNU/Linux and *BSD",
+"homepage":"https://github.com/Mjoyufull/fsel",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"fsel",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"fsel",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"bsd2",
+"spdxId":"BSD-2-Clause",
+"url":"https://spdx.org/licenses/BSD-2-Clause.html"
+},
+"mainProgram":"fsel",
+"maintainers":[
+{
+"email":"18gatenmaker6@gmail.com",
+"github":"dtomvan",
+"githubId":51440893,
+"keys":[
+{
+"fingerprint":"D044 F07B 8863 B681 26BD  79FE 7A98 4C82 07AD BA51"
+}
+],
+"name":"Tom van Dijk"
+}
+],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/fsel/package.nix",
+"line":28
+},
+"name":"fsel-3.4.1",
+"nonTeamMaintainers":[
+{
+"email":"18gatenmaker6@gmail.com",
+"github":"dtomvan",
+"githubId":51440893,
+"keys":[
+{
+"fingerprint":"D044 F07B 8863 B681 26BD  79FE 7A98 4C82 07AD BA51"
+}
+],
+"name":"Tom van Dijk"
+}
+],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-darwin",
+"aarch64-darwin",
+"aarch64-linux",
+"armv6l-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv64-linux",
+"s390x-linux",
+"x86_64-linux",
+"armv5tel-linux",
+"armv7a-linux",
+"m68k-linux",
+"mips-linux",
+"mips64-linux",
+"mipsel-linux",
+"mips64el-linux",
+"riscv32-linux"
+],
+"position":"./pkgs/fsel/package.nix:25",
+"unfree":false,
+"unsupported":false
+},
+"name":"fsel-3.4.1",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"fsel",
+"system":"x86_64-linux",
+"version":"3.4.1"
+},
 "jj-pre-push":{
 "meta":{
 "available":true,
@@ -394,6 +642,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -421,6 +670,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -442,7 +692,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3kky624fqrlkkmng5vgxh34wngxpmy9z-source/pkgs/jj-pre-push/package.nix",
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/jj-pre-push/package.nix",
 "line":60
 },
 "name":"jj-pre-push-0.3.5",
@@ -472,6 +722,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -545,6 +796,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -565,7 +817,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3kky624fqrlkkmng5vgxh34wngxpmy9z-source/pkgs/keepassxc-browser/package.nix",
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/keepassxc-browser/package.nix",
 "line":46
 },
 "mozPermissions":[
@@ -624,6 +876,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -732,6 +985,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -752,7 +1006,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3kky624fqrlkkmng5vgxh34wngxpmy9z-source/pkgs/obsidian-web-clipper/package.nix",
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/obsidian-web-clipper/package.nix",
 "line":44
 },
 "mozPermissions":[
@@ -843,6 +1097,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -864,7 +1119,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3kky624fqrlkkmng5vgxh34wngxpmy9z-source/pkgs/pandora-launcher/package.nix",
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/pandora-launcher/package.nix",
 "line":152
 },
 "name":"pandora-launcher-5.0.0",
@@ -973,6 +1228,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -993,7 +1249,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3kky624fqrlkkmng5vgxh34wngxpmy9z-source/pkgs/sidebery/package.nix",
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/sidebery/package.nix",
 "line":53
 },
 "mozPermissions":[
@@ -1049,6 +1305,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1156,6 +1413,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -1176,7 +1434,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3kky624fqrlkkmng5vgxh34wngxpmy9z-source/pkgs/steam-database/package.nix",
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/steam-database/package.nix",
 "line":43
 },
 "mozPermissions":[
@@ -1260,6 +1518,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1381,6 +1640,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1402,7 +1662,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3kky624fqrlkkmng5vgxh34wngxpmy9z-source/pkgs/tetro-tui/package.nix",
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/tetro-tui/package.nix",
 "line":25
 },
 "name":"tetro-tui-3.1.0",
@@ -1512,6 +1772,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1574,6 +1835,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1636,6 +1898,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1709,6 +1972,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1811,6 +2075,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1835,6 +2100,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1905,6 +2171,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1967,6 +2234,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1993,6 +2261,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -2052,6 +2321,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2076,6 +2346,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2146,6 +2417,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2167,7 +2439,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3kky624fqrlkkmng5vgxh34wngxpmy9z-source/pkgs/tsodingPackages/mujsc/package.nix",
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/tsodingPackages/mujsc/package.nix",
 "line":30
 },
 "name":"mujsc-0-unstable-2025-09-20",
@@ -2209,6 +2481,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2318,6 +2591,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2381,6 +2655,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2390,6 +2665,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",
@@ -2452,6 +2728,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2513,6 +2790,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2547,6 +2825,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2656,6 +2935,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2732,6 +3012,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2888,6 +3169,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2912,6 +3194,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2982,6 +3265,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -3044,6 +3328,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -3120,6 +3405,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -3221,6 +3507,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -3241,7 +3528,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3kky624fqrlkkmng5vgxh34wngxpmy9z-source/pkgs/ublock-origin/package.nix",
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/ublock-origin/package.nix",
 "line":75
 },
 "mozPermissions":[
@@ -3308,6 +3595,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3417,6 +3705,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -3454,7 +3743,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/vi/vintagestory/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/vi/vintagestory/package.nix",
 "line":138
 },
 "name":"vintagestory-1.22.0-rc.8",
@@ -3549,6 +3838,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -3569,7 +3859,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3kky624fqrlkkmng5vgxh34wngxpmy9z-source/pkgs/violentmonkey/package.nix",
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/violentmonkey/package.nix",
 "line":87
 },
 "mozPermissions":[
@@ -3623,6 +3913,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3730,6 +4021,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Plus",
 "spdxId":"AGPL-3.0-or-later",
@@ -3750,7 +4042,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3kky624fqrlkkmng5vgxh34wngxpmy9z-source/pkgs/zotero-connector/package.nix",
+"file":"/nix/store/dvh2vyc1kmy96s1pw7sicnmjqyshfw5l-source/pkgs/zotero-connector/package.nix",
 "line":85
 },
 "mozPermissions":[
@@ -3807,6 +4099,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

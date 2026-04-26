@@ -1,16 +1,16 @@
 {
 "name":"tnmt",
-"fetch_time":0.448,
-"eval_time":0.302,
+"fetch_time":0.548,
+"eval_time":0.308,
 "source":{
 "url":"https://github.com/tnmt/nur-packages",
-"rev":"9527ac212a18eef78144e315d62ed5ed8fa478c9",
-"sha256":"1wj0gjmcbr2kwz4kw3sb0szri4q9bspqcn7sbhdwcg2ark9jgx1g",
+"rev":"665191232b99906bee371714135943d5d47f4de9",
+"sha256":"1474p0n7wlj58wd09n9kid2hb74msp0b9ysh539488zhvjav0xzq",
 "date":null
 },
-"source_storepath":"/nix/store/5ikncm0ra4sky095dkq3qixfr0g7gvj6-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"54995d053b4a2201f3513805a6388ec0f14f8ebc",
+"source_storepath":"/nix/store/gc2nrk8wvrg7rsy19165vw4drw70k4ky-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"cf93e395e4c1ce35f7d21c346a74dd5c57f773e2",
 "packages":{
 "ccpocket-bridge":{
 "meta":{
@@ -49,12 +49,13 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
 "mainProgram":"ccpocket-bridge",
 "maintainers":[],
-"name":"ccpocket-bridge-1.39.1",
+"name":"ccpocket-bridge-1.45.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -69,6 +70,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -88,14 +90,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"ccpocket-bridge-1.39.1",
+"name":"ccpocket-bridge-1.45.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ccpocket-bridge",
 "system":"x86_64-linux",
-"version":"1.39.1"
+"version":"1.45.1"
 },
 "ccusage":{
 "meta":{
@@ -134,6 +136,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -196,6 +199,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -220,6 +224,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -290,6 +295,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -314,6 +320,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -384,6 +391,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -416,6 +424,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
