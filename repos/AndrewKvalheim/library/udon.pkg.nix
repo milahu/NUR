@@ -17,7 +17,7 @@ let
 in
 stdenv.mkDerivation (udon: {
   pname = "udon";
-  version = "0-unstable-2026-04-19";
+  version = "0-unstable-2026-04-23";
   meta = {
     description = "Network messaging library and tools";
     homepage = "https://github.com/treedavies/udon";
@@ -30,8 +30,8 @@ stdenv.mkDerivation (udon: {
   src = fetchFromGitHub {
     owner = "treedavies";
     repo = "udon";
-    rev = "06afd3b8e855e1a620b1548af04e89e512e5488f";
-    hash = "sha256-nxW3O5lL1zCuVFjdctukXIM1uwHEG7rRq4nULNLMHIE=";
+    rev = "1e5dc54b17206268bb61039595136b979c41b538";
+    hash = "sha256-M4XMMIICqb1PKJumi6rDF4rKmnY2u+/nILyj+m/aUI8=";
   };
 
   nativeBuildInputs = [
