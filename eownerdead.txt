@@ -65,12 +65,12 @@ error:
 
 … while calling 'outputs'
 
-  at /nix/store/v6jyiac2s5gshmx8li3qla0mvcpbvgz8-source/flake.nix:30:5:
+  at /nix/store/l1rjzh86g5q3p1ghnzzh957f32rfx81x-source/flake.nix:54:5:
 
-    29|   outputs =
-    30|     inputs@{ self, parts, ... }:
+    53|   outputs =
+    54|     inputs@{ parts, ... }:
       |     ^
-    31|     let
+    55|     parts.lib.mkFlake { inherit inputs; } (
 
 … while calling anonymous lambda
 
@@ -90,4 +90,4 @@ error:
       |             ^
     11|         let
 
-error: access to URI 'github:hercules-ci/flake-parts/758cf7296bee11f1706a574c77d072b8a7baa881' is forbidden in restricted mode
+error: access to URI 'github:hercules-ci/flake-parts/3107b77cd68437b9a76194f0f7f9c55f2329ca5b' is forbidden in restricted mode
