@@ -1,16 +1,16 @@
 {
 "name":"hhr2020",
-"fetch_time":0.415,
-"eval_time":0.313,
+"fetch_time":0.836,
+"eval_time":0.321,
 "source":{
 "url":"https://github.com/hhr2020/nur-packages",
-"rev":"66fade2b991dccab41ec128622723c51168bbe9a",
-"sha256":"0kyhc8pr3djnw1q2gvgf5frb8h14i9347x5k8l8v2cv07drfxfry",
+"rev":"3168e6835ac69cd35219c6ea2b0b34e1f5890f53",
+"sha256":"102l5c8cvdj6zhpjnpmkm8kf8n2rvgvav6jshps3whwfia8pcls9",
 "date":null
 },
-"source_storepath":"/nix/store/lrys1fh94pbd88mr9a9x97mhd3ad7h1y-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"f2954786b6d5ea2691850177dc2cebdc483f494d",
+"source_storepath":"/nix/store/pfdhk797fh540bgls2qndsbcckpkgn89-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"6c7602c3005a3f2f340ed20fc72ebbc5308c2847",
 "packages":{
 "celechron":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -64,7 +65,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lrys1fh94pbd88mr9a9x97mhd3ad7h1y-source/pkgs/celechron/default.nix",
+"file":"/nix/store/pfdhk797fh540bgls2qndsbcckpkgn89-source/pkgs/celechron/default.nix",
 "line":109
 },
 "name":"celechron-1.1.0",
@@ -100,6 +101,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -211,6 +213,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl3Only",
 "spdxId":"LGPL-3.0-only",
@@ -226,7 +229,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lrys1fh94pbd88mr9a9x97mhd3ad7h1y-source/pkgs/ez4connect/default.nix",
+"file":"/nix/store/pfdhk797fh540bgls2qndsbcckpkgn89-source/pkgs/ez4connect/default.nix",
 "line":51
 },
 "name":"ez4connect-1.5.2",
@@ -262,6 +265,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -383,6 +387,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -398,7 +403,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lrys1fh94pbd88mr9a9x97mhd3ad7h1y-source/pkgs/fiz/default.nix",
+"file":"/nix/store/pfdhk797fh540bgls2qndsbcckpkgn89-source/pkgs/fiz/default.nix",
 "line":75
 },
 "name":"fiz-0.3.9",
@@ -502,6 +507,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"European Union Public License 1.2",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"eupl12",
 "spdxId":"EUPL-1.2",
@@ -517,7 +523,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lrys1fh94pbd88mr9a9x97mhd3ad7h1y-source/pkgs/loko/default.nix",
+"file":"/nix/store/pfdhk797fh540bgls2qndsbcckpkgn89-source/pkgs/loko/default.nix",
 "line":72
 },
 "name":"loko-0.12.2",
@@ -553,6 +559,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -662,6 +669,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Plus",
 "spdxId":"GPL-2.0-or-later",
@@ -724,6 +732,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -737,7 +746,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lrys1fh94pbd88mr9a9x97mhd3ad7h1y-source/pkgs/qbittorrent-dual-boot/default.nix",
+"file":"/nix/store/pfdhk797fh540bgls2qndsbcckpkgn89-source/pkgs/qbittorrent-dual-boot/default.nix",
 "line":30
 },
 "name":"qbittorrent-dual-boot-1.0.0",
@@ -763,6 +772,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -845,6 +855,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -860,7 +871,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lrys1fh94pbd88mr9a9x97mhd3ad7h1y-source/pkgs/soar/default.nix",
+"file":"/nix/store/pfdhk797fh540bgls2qndsbcckpkgn89-source/pkgs/soar/default.nix",
 "line":42
 },
 "name":"soar-0.12.1",
@@ -945,6 +956,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
@@ -960,7 +972,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lrys1fh94pbd88mr9a9x97mhd3ad7h1y-source/pkgs/zju-connect/default.nix",
+"file":"/nix/store/pfdhk797fh540bgls2qndsbcckpkgn89-source/pkgs/zju-connect/default.nix",
 "line":26
 },
 "name":"zju-connect-1.0.0",
@@ -986,6 +998,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1068,6 +1081,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1083,7 +1097,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lrys1fh94pbd88mr9a9x97mhd3ad7h1y-source/pkgs/zju-learning-assistant/default.nix",
+"file":"/nix/store/pfdhk797fh540bgls2qndsbcckpkgn89-source/pkgs/zju-learning-assistant/default.nix",
 "line":79
 },
 "name":"zju-learning-assistant-0.3.13",

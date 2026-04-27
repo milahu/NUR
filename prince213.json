@@ -1,16 +1,16 @@
 {
 "name":"prince213",
-"fetch_time":0.973,
-"eval_time":0.43,
+"fetch_time":0.807,
+"eval_time":0.431,
 "source":{
 "url":"https://github.com/Prince213/nix-packages",
-"rev":"7f44b0554a6fd81f09b0eb1d78211f24cb88c2a3",
-"sha256":"023s1qr3i5njmc1js62cr13md2f8im1bkk9b97v0n9yqiqvcn3md",
+"rev":"b9843e6311ae0eb6be03a58d0e0b76acbd65e458",
+"sha256":"1zr2602llkfqpa522ha1vz9qcz982dz895b8pjjnlk4573j9rb3f",
 "date":null
 },
-"source_storepath":"/nix/store/fk67wzbr546xly9d99mc2l0laxg6dp8n-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"1ca30085b5366c62fb2abdef6edc6b61c5e3cb49",
+"source_storepath":"/nix/store/vmyj81hg2cyaax1h2jxmyzvakpb9gzyw-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"509b02fa91454f89409c4e004698d5c1c4ff6ffa",
 "packages":{
 "aidoku-cli":{
 "meta":{
@@ -60,6 +60,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -82,7 +83,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fk67wzbr546xly9d99mc2l0laxg6dp8n-source/pkgs/aidoku-cli/package.nix",
+"file":"/nix/store/vmyj81hg2cyaax1h2jxmyzvakpb9gzyw-source/pkgs/aidoku-cli/package.nix",
 "line":31
 },
 "name":"aidoku-cli-0-unstable-2026-04-07",
@@ -194,6 +195,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree redistributable",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unfreeRedistributable"
 },
@@ -214,7 +216,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/an/anytype/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/an/anytype/package.nix",
 "line":138
 },
 "name":"anytype-0.54.11",
@@ -290,6 +292,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -311,7 +314,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fk67wzbr546xly9d99mc2l0laxg6dp8n-source/pkgs/cronet-go/package.nix",
+"file":"/nix/store/vmyj81hg2cyaax1h2jxmyzvakpb9gzyw-source/pkgs/cronet-go/package.nix",
 "line":95
 },
 "name":"cronet-go-147.0.7727.49-1",
@@ -344,6 +347,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -409,6 +413,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -430,7 +435,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fk67wzbr546xly9d99mc2l0laxg6dp8n-source/pkgs/gallant/package.nix",
+"file":"/nix/store/vmyj81hg2cyaax1h2jxmyzvakpb9gzyw-source/pkgs/gallant/package.nix",
 "line":44
 },
 "name":"gallant-0-unstable-2025-12-06",
@@ -503,6 +508,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -525,7 +531,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fk67wzbr546xly9d99mc2l0laxg6dp8n-source/pkgs/imunes/package.nix",
+"file":"/nix/store/vmyj81hg2cyaax1h2jxmyzvakpb9gzyw-source/pkgs/imunes/package.nix",
 "line":40
 },
 "name":"imunes-3.0.0b",
@@ -559,6 +565,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -635,6 +642,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -656,7 +664,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fk67wzbr546xly9d99mc2l0laxg6dp8n-source/pkgs/kodama/package.nix",
+"file":"/nix/store/vmyj81hg2cyaax1h2jxmyzvakpb9gzyw-source/pkgs/kodama/package.nix",
 "line":27
 },
 "name":"kodama-0.9.9-delta",
@@ -768,6 +776,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -788,7 +797,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/lt/ltspice/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/lt/ltspice/package.nix",
 "line":87
 },
 "name":"ltspice-26.0.1",
@@ -870,6 +879,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -889,7 +899,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fk67wzbr546xly9d99mc2l0laxg6dp8n-source/pkgs/mccgdi/package.nix",
+"file":"/nix/store/vmyj81hg2cyaax1h2jxmyzvakpb9gzyw-source/pkgs/mccgdi/package.nix",
 "line":70
 },
 "name":"mccgdi-2.0.10",
@@ -936,7 +946,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/klzgrad/naiveproxy/releases/tag/v147.0.7727.49-1",
+"changelog":"https://github.com/klzgrad/naiveproxy/releases/tag/v147.0.7727.49-2",
 "description":"Use Chromium's network stack to camouflage traffic",
 "downloadPage":"https://github.com/klzgrad/naiveproxy/releases",
 "homepage":"https://github.com/klzgrad/naiveproxy",
@@ -971,6 +981,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -993,10 +1004,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fk67wzbr546xly9d99mc2l0laxg6dp8n-source/pkgs/naiveproxy/package.nix",
-"line":118
+"file":"/nix/store/vmyj81hg2cyaax1h2jxmyzvakpb9gzyw-source/pkgs/naiveproxy/package.nix",
+"line":119
 },
-"name":"naiveproxy-147.0.7727.49-1",
+"name":"naiveproxy-147.0.7727.49-2",
 "nonTeamMaintainers":[
 {
 "email":"prc.zhao@outlook.com",
@@ -1026,6 +1037,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1041,18 +1053,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/naiveproxy/package.nix:113",
+"position":"./pkgs/naiveproxy/package.nix:114",
 "unfree":false,
 "unsupported":false
 },
-"name":"naiveproxy-147.0.7727.49-1",
+"name":"naiveproxy-147.0.7727.49-2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"naiveproxy",
 "system":"x86_64-linux",
-"version":"147.0.7727.49-1"
+"version":"147.0.7727.49-2"
 },
 "qqmusic-darwin":{
 "meta":{
@@ -1091,6 +1103,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -1111,7 +1124,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/qq/qqmusic/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/qq/qqmusic/package.nix",
 "line":142
 },
 "name":"qqmusic-1.1.8",
@@ -1146,14 +1159,14 @@
 "unfree":true,
 "unsupported":true
 },
-"name":"qqmusic-11.3.1.0",
+"name":"qqmusic-11.4.0.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qqmusic",
 "system":"x86_64-linux",
-"version":"11.3.1.0"
+"version":"11.4.0.1"
 },
 "rime-wubi98":{
 "meta":{
@@ -1192,6 +1205,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU Lesser General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl3",
 "spdxId":"LGPL-3.0",
@@ -1213,7 +1227,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fk67wzbr546xly9d99mc2l0laxg6dp8n-source/pkgs/rime-wubi98/package.nix",
+"file":"/nix/store/vmyj81hg2cyaax1h2jxmyzvakpb9gzyw-source/pkgs/rime-wubi98/package.nix",
 "line":41
 },
 "name":"rime-wubi98-0-unstable-2025-07-10",
@@ -1295,6 +1309,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -1317,7 +1332,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fk67wzbr546xly9d99mc2l0laxg6dp8n-source/pkgs/rindex/package.nix",
+"file":"/nix/store/vmyj81hg2cyaax1h2jxmyzvakpb9gzyw-source/pkgs/rindex/package.nix",
 "line":28
 },
 "name":"rindex-0-unstable-2025-11-11",
@@ -1428,6 +1443,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1449,10 +1465,10 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/fk67wzbr546xly9d99mc2l0laxg6dp8n-source/pkgs/shanghaitech-mirror-frontend/package.nix",
-"line":93
+"file":"/nix/store/vmyj81hg2cyaax1h2jxmyzvakpb9gzyw-source/pkgs/shanghaitech-mirror-frontend/package.nix",
+"line":90
 },
-"name":"shanghaitech-mirror-frontend-0-unstable-2025-12-05",
+"name":"shanghaitech-mirror-frontend-0-unstable-2026-01-06",
 "nonTeamMaintainers":[
 {
 "email":"prc.zhao@outlook.com",
@@ -1471,23 +1487,20 @@
 "out"
 ],
 "platforms":[
-"aarch64-darwin",
-"aarch64-linux",
-"x86_64-darwin",
 "x86_64-linux"
 ],
-"position":"./pkgs/shanghaitech-mirror-frontend/package.nix:89",
+"position":"./pkgs/shanghaitech-mirror-frontend/package.nix:86",
 "unfree":false,
 "unsupported":false
 },
-"name":"shanghaitech-mirror-frontend-0-unstable-2025-12-05",
+"name":"shanghaitech-mirror-frontend-0-unstable-2026-01-06",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"shanghaitech-mirror-frontend",
 "system":"x86_64-linux",
-"version":"0-unstable-2025-12-05"
+"version":"0-unstable-2026-01-06"
 },
 "sing-box-app":{
 "meta":{
@@ -1526,6 +1539,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -1554,7 +1568,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/si/sing-box/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/si/sing-box/package.nix",
 "line":74
 },
 "name":"sing-box-1.13.5",
@@ -1597,6 +1611,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1621,14 +1636,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sing-box-app-1.13.8",
+"name":"sing-box-app-1.13.11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sing-box-app",
 "system":"x86_64-linux",
-"version":"1.13.8"
+"version":"1.13.11"
 },
 "sing-box-app-beta":{
 "meta":{
@@ -1667,6 +1682,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -1695,10 +1711,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/si/sing-box/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/si/sing-box/package.nix",
 "line":74
 },
-"name":"sing-box-beta-1.14.0-alpha.14",
+"name":"sing-box-beta-1.14.0-alpha.18",
 "nonTeamMaintainers":[
 {
 "email":"nickcao@nichi.co",
@@ -1738,6 +1754,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1762,14 +1779,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sing-box-app-beta-1.14.0-alpha.14",
+"name":"sing-box-app-beta-1.14.0-alpha.18",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sing-box-app-beta",
 "system":"x86_64-linux",
-"version":"1.14.0-alpha.14"
+"version":"1.14.0-alpha.18"
 },
 "sing-box-beta":{
 "meta":{
@@ -1808,6 +1825,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -1836,10 +1854,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/si/sing-box/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/si/sing-box/package.nix",
 "line":74
 },
-"name":"sing-box-beta-1.14.0-alpha.14",
+"name":"sing-box-beta-1.14.0-alpha.18",
 "nonTeamMaintainers":[
 {
 "email":"nickcao@nichi.co",
@@ -1875,6 +1893,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1899,14 +1918,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sing-box-beta-1.14.0-alpha.14",
+"name":"sing-box-beta-1.14.0-alpha.18",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sing-box-beta",
 "system":"x86_64-linux",
-"version":"1.14.0-alpha.14"
+"version":"1.14.0-alpha.18"
 },
 "termius-app":{
 "meta":{
@@ -1947,6 +1966,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -1967,7 +1987,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fk67wzbr546xly9d99mc2l0laxg6dp8n-source/pkgs/termius-app/package.nix",
+"file":"/nix/store/vmyj81hg2cyaax1h2jxmyzvakpb9gzyw-source/pkgs/termius-app/package.nix",
 "line":29
 },
 "name":"termius-app-9.37.6",
@@ -2050,6 +2070,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Library General Public License v2 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl2Plus",
 "spdxId":"LGPL-2.0-or-later",
@@ -2078,7 +2099,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/vi/vips/package.nix",
+"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/by-name/vi/vips/package.nix",
 "line":172
 },
 "name":"vips-8.14.5",
@@ -2128,6 +2149,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2211,6 +2233,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",
@@ -2232,7 +2255,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fk67wzbr546xly9d99mc2l0laxg6dp8n-source/pkgs/wubi98-fonts/package.nix",
+"file":"/nix/store/vmyj81hg2cyaax1h2jxmyzvakpb9gzyw-source/pkgs/wubi98-fonts/package.nix",
 "line":35
 },
 "name":"wubi98-fonts-2024-01-31",
@@ -2275,6 +2298,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

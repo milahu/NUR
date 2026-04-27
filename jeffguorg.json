@@ -1,16 +1,16 @@
 {
 "name":"jeffguorg",
-"fetch_time":0.393,
-"eval_time":0.318,
+"fetch_time":0.84,
+"eval_time":0.312,
 "source":{
 "url":"https://github.com/jeffguorg/nur-packages",
-"rev":"28e3d6b4090f4b3e158bc1d0b5492ae97ab43f42",
-"sha256":"1znyww6kmg2wc9r59fsshxcq3i8azc7nqki1q3afcmsfg074ld54",
+"rev":"b965a968ff53a99f383ffbf07e52e093ea3f645a",
+"sha256":"1pnksywx6wzi3vkv32zrlcamd49v3jh706s3y0nc1vrqzhypip2n",
 "date":null
 },
-"source_storepath":"/nix/store/bzs98qydzw3zsf6hgx4rz5mwxfn8naqp-source",
-"nixpkgs_storepath":"/nix/store/jxqdhmbbbsckx9gps961ypaq7ynigbl1-source",
-"nur_combined_rev":"65d5d952ea77292b1ee5cc21adc8de38f3c955ee",
+"source_storepath":"/nix/store/1qdifc7hrgcigczavyv9iymrrgjkx0d5-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"6e5263d3bbc19d4a39997d7c850ff6ab7cba629e",
 "packages":{
 "claude-code-bin":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -56,7 +57,7 @@
 },
 "mainProgram":"claude",
 "maintainers":[],
-"name":"claude-code-bin-amd64-linux-2.1.110",
+"name":"claude-code-bin-amd64-linux-2.1.119",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -71,14 +72,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"claude-code-bin-amd64-linux-2.1.110",
+"name":"claude-code-bin-amd64-linux-2.1.119",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"claude-code-bin-amd64-linux",
 "system":"x86_64-linux",
-"version":"2.1.110"
+"version":"2.1.119"
 },
 "codex":{
 "meta":{
@@ -95,7 +96,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://raw.githubusercontent.com/openai/codex/refs/tags/rust-v0.121.0/CHANGELOG.md",
+"changelog":"https://raw.githubusercontent.com/openai/codex/refs/tags/rust-v0.125.0/CHANGELOG.md",
 "description":"Lightweight coding agent that runs in your terminal",
 "homepage":"https://github.com/openai/codex",
 "identifiers":{
@@ -129,6 +130,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -136,7 +138,7 @@
 },
 "mainProgram":"codex",
 "maintainers":[],
-"name":"codex-0.121.0",
+"name":"codex-0.125.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -182,14 +184,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"codex-0.121.0",
+"name":"codex-0.125.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"codex",
 "system":"x86_64-linux",
-"version":"0.121.0"
+"version":"0.125.0"
 },
 "codex-bin":{
 "meta":{
@@ -228,6 +230,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -235,7 +238,7 @@
 },
 "mainProgram":"codex",
 "maintainers":[],
-"name":"codex-bin-amd64-linux-0.121.0",
+"name":"codex-bin-amd64-linux-0.125.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -250,14 +253,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"codex-bin-amd64-linux-0.121.0",
+"name":"codex-bin-amd64-linux-0.125.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"codex-bin-amd64-linux",
 "system":"x86_64-linux",
-"version":"0.121.0"
+"version":"0.125.0"
 },
 "create-tauri-app":{
 "meta":{
@@ -397,6 +400,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree redistributable",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unfreeRedistributable"
 },
@@ -464,6 +468,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -471,6 +476,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -545,6 +551,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -552,6 +559,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
