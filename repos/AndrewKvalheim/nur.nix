@@ -37,13 +37,12 @@ rec {
   busyserve = (callPackage ./library/busyserve.pkg.nix { });
   caddy-with-cache-route53 = (pkgs.caddy.withPlugins {
     plugins = [
-      "github.com/caddy-dns/route53@v1.6.0"
+      "github.com/caddy-dns/route53@v1.6.2"
       "github.com/caddyserver/cache-handler@v0.16.0"
     ];
     hash = {
-      "2.11.2@1.25.8" = "sha256-OSKTgpMrnosZxTNTc8Hhs3i7E8wfrRJsgyjrEcJLyCE=";
-      "2.11.2@1.26.1" = "sha256-zuV/T+cJ3fbQawt7dmzr0c3pTVT1d/4vD3KoTKByWLc=";
-      "2.11.2@1.26.2" = "sha256-boVr1ivGWMjm6kbjoePKgX2f2YHoYrsWhQrdk0Qh2YY=";
+      "2.11.2@1.25.8" = "sha256-2vfw7z9wWSA41QfYuQaxVmo3Xp2UQtB8ahRkc3Xm4JM=";
+      "2.11.2@1.26.2" = "sha256-4n1XYs6wl2cvULgpFD/P3QMKtMuX1DxDA/NqBZ5E7N8=";
     }."${pkgs.caddy.version}@${pkgs.caddy.go.version}";
   }).overrideAttrs (c: recursiveUpdate c { meta.broken = versionOlder pkgs.go.version "1.25.6"; /* Pending NixOS/nixpkgs#480465 */ });
   ch57x-keyboard-tool = callPackage ./library/ch57x-keyboard-tool.pkg.nix { };
