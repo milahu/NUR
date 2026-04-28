@@ -1,16 +1,16 @@
 {
 "name":"nanamiiiii",
-"fetch_time":0.431,
-"eval_time":0.304,
+"fetch_time":0.415,
+"eval_time":0.314,
 "source":{
 "url":"https://github.com/Nanamiiiii/nur",
-"rev":"07edb177f244de63009030718a2d08978ea5bd36",
-"sha256":"1rz1hn3bklw7nxvpswkhsi3gaqhkjfydac9as5hg3qccdmm0dl44",
+"rev":"22292b4bf211115d16b5662e9febe1c89afab7ff",
+"sha256":"0ghaw2pmsvmcw30r9xv5c1pjfhhlx836hb25my6qafgcpn87z20g",
 "date":null
 },
-"source_storepath":"/nix/store/6pxy1ibfz0i27i9h3dzzh7az357cxnfy-source",
-"nixpkgs_storepath":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source",
-"nur_combined_rev":"3b04f9297764337d912ae00683d33261ddedf7fc",
+"source_storepath":"/nix/store/wn89jsbsgya8bjlys3hb6g54vkld6zwh-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"ad5678ccdcc247358f7b8f6a7b6261f2572d1deb",
 "packages":{
 "cargo-compete":{
 "meta":{
@@ -61,6 +61,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -71,7 +72,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/6pxy1ibfz0i27i9h3dzzh7az357cxnfy-source/pkgs/cargo-compete/default.nix",
+"file":"/nix/store/wn89jsbsgya8bjlys3hb6g54vkld6zwh-source/pkgs/cargo-compete/default.nix",
 "line":42
 },
 "name":"cargo-compete-0.10.7",
@@ -180,6 +181,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -188,7 +190,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/6pxy1ibfz0i27i9h3dzzh7az357cxnfy-source/pkgs/clock-tui/default.nix",
+"file":"/nix/store/wn89jsbsgya8bjlys3hb6g54vkld6zwh-source/pkgs/clock-tui/default.nix",
 "line":27
 },
 "name":"clock-tui-0.6.1",
@@ -287,6 +289,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -296,7 +299,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/6pxy1ibfz0i27i9h3dzzh7az357cxnfy-source/pkgs/git-credential-1password/default.nix",
+"file":"/nix/store/wn89jsbsgya8bjlys3hb6g54vkld6zwh-source/pkgs/git-credential-1password/default.nix",
 "line":25
 },
 "name":"git-credential-1password-1.5.0",
@@ -308,6 +311,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -315,6 +319,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -385,6 +390,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -392,7 +398,7 @@
 },
 "mainProgram":"md2puki",
 "maintainers":[],
-"name":"md2puki-0.3.0",
+"name":"md2puki-0.3.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -401,6 +407,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -408,6 +415,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -432,14 +440,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"md2puki-0.3.0",
+"name":"md2puki-0.3.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"md2puki",
 "system":"x86_64-linux",
-"version":"0.3.0"
+"version":"0.3.1"
 },
 "npiperelay":{
 "meta":{
@@ -478,6 +486,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -542,6 +551,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -602,6 +612,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -615,6 +626,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -622,6 +634,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -687,6 +700,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",
@@ -701,6 +715,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -708,6 +723,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -776,6 +792,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -785,6 +802,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 }
@@ -800,7 +818,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/6pxy1ibfz0i27i9h3dzzh7az357cxnfy-source/pkgs/xpipe/default.nix",
+"file":"/nix/store/wn89jsbsgya8bjlys3hb6g54vkld6zwh-source/pkgs/xpipe/default.nix",
 "line":156
 },
 "name":"xpipe-15.7.1",

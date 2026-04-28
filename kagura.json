@@ -1,16 +1,16 @@
 {
 "name":"kagura",
-"fetch_time":0.567,
-"eval_time":0.279,
+"fetch_time":0.397,
+"eval_time":0.308,
 "source":{
 "url":"https://github.com/icewithcola/nur-packages",
-"rev":"b146a18060e1d277801e185a30ee3a216b227ab3",
-"sha256":"0milgjrv299wpsxaz5k57g8hpcdlb00ajs453sbv6g0waqqyvlzm",
+"rev":"6f3adf30e73b56a000a2b9dd3b770e733a50145f",
+"sha256":"0w2syj7vxfmf9ns3pw19j20cfmyr4pzzq4xrj2j9jy8sj3hv3iaz",
 "date":null
 },
-"source_storepath":"/nix/store/1zza8g02p0k88y6hxxy7bxbbpirac5r4-source",
-"nixpkgs_storepath":"/nix/store/jxqdhmbbbsckx9gps961ypaq7ynigbl1-source",
-"nur_combined_rev":"7e150c1d54912bcf60e2734646fa60b81c4ea7f6",
+"source_storepath":"/nix/store/yv5sz99izn2262gp1mv4j72r3l0ck9jb-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"55442b4dbb926621e052738da25f3516a8b717bf",
 "packages":{
 "google-chrome-138":{
 "meta":{
@@ -50,6 +50,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -70,7 +71,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/1zza8g02p0k88y6hxxy7bxbbpirac5r4-source/pkgs/google-chrome-138/default.nix",
+"file":"/nix/store/yv5sz99izn2262gp1mv4j72r3l0ck9jb-source/pkgs/google-chrome-138/default.nix",
 "line":325
 },
 "name":"google-chrome-138-138.0.7204.183",
@@ -152,6 +153,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -174,7 +176,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/1zza8g02p0k88y6hxxy7bxbbpirac5r4-source/pkgs/noto-fonts-cjk-sans-static/default.nix",
+"file":"/nix/store/yv5sz99izn2262gp1mv4j72r3l0ck9jb-source/pkgs/noto-fonts-cjk-sans-static/default.nix",
 "line":51
 },
 "name":"noto-fonts-cjk-sans-static-2.004",
@@ -209,6 +211,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -216,6 +219,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -326,11 +330,12 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
 "maintainers":[],
-"name":"tencent-yuanbao-2.64.0.637",
+"name":"tencent-yuanbao-2.65.0.636",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -349,14 +354,14 @@
 "unfree":true,
 "unsupported":true
 },
-"name":"tencent-yuanbao-2.64.0.637",
+"name":"tencent-yuanbao-2.65.0.636",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tencent-yuanbao",
 "system":"x86_64-linux",
-"version":"2.64.0.637"
+"version":"2.65.0.636"
 }
 }
 }

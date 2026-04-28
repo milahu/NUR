@@ -1,16 +1,16 @@
 {
 "name":"zimeg",
-"fetch_time":0.447,
-"eval_time":0.353,
+"fetch_time":0.634,
+"eval_time":0.352,
 "source":{
 "url":"https://github.com/zimeg/nur-packages",
-"rev":"49a29139b5a81cd8662ff68cab98e37b6831eb78",
-"sha256":"1av7y0a3dm9cn82y04an85jf2rxzcggy98lg5hv6wc8mynqzasxk",
+"rev":"e597c163d1d717f1bf8704757c59e67aed9020c6",
+"sha256":"1nikrgipvg7b1cc4s2crfa6gjlknnjz4f3qx962cjn4yr2kjk2s1",
 "date":null
 },
-"source_storepath":"/nix/store/3lwn71gqll2ychw8jp8vcciqvkpslpvq-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"738cd08a267d1456569c4dbd51df70b0ff24e60a",
+"source_storepath":"/nix/store/7qfgi61rky0md8wpj73vs3fwz0giysgp-source",
+"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
+"nur_combined_rev":"c11e94383fea9be8f6bac5867a4663f982c8e284",
 "packages":{
 "changesets":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -58,7 +59,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3lwn71gqll2ychw8jp8vcciqvkpslpvq-source/pkgs/changesets/default.nix",
+"file":"/nix/store/7qfgi61rky0md8wpj73vs3fwz0giysgp-source/pkgs/changesets/default.nix",
 "line":30
 },
 "name":"changesets-cli-2.29.7",
@@ -80,6 +81,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -140,6 +142,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -149,7 +152,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3lwn71gqll2ychw8jp8vcciqvkpslpvq-source/pkgs/etime/default.nix",
+"file":"/nix/store/7qfgi61rky0md8wpj73vs3fwz0giysgp-source/pkgs/etime/default.nix",
 "line":39
 },
 "name":"etime-1.1.1",
@@ -169,6 +172,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -239,6 +243,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -272,6 +277,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -348,7 +354,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/breuleux/jurigged/releases/tag/v26.05pre981196.b86751bc4085",
+"changelog":"https://github.com/breuleux/jurigged/releases/tag/v26.05pre985930.01fbdeef22b7",
 "description":"Hot reloading for Python",
 "homepage":"https://github.com/breuleux/jurigged",
 "identifiers":{
@@ -388,6 +394,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -415,6 +422,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -423,7 +431,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3lwn71gqll2ychw8jp8vcciqvkpslpvq-source/pkgs/jurigged/default.nix",
+"file":"/nix/store/7qfgi61rky0md8wpj73vs3fwz0giysgp-source/pkgs/jurigged/default.nix",
 "line":82
 },
 "name":"jurigged-0.5.8",
@@ -441,6 +449,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -565,6 +574,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -598,6 +608,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -707,6 +718,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -740,6 +752,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -850,6 +863,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -859,7 +873,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3lwn71gqll2ychw8jp8vcciqvkpslpvq-source/pkgs/quill/default.nix",
+"file":"/nix/store/7qfgi61rky0md8wpj73vs3fwz0giysgp-source/pkgs/quill/default.nix",
 "line":32
 },
 "name":"quill-0.5.1",
@@ -879,6 +893,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -950,6 +965,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -960,7 +976,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/3lwn71gqll2ychw8jp8vcciqvkpslpvq-source/pkgs/zsh-wd/default.nix",
+"file":"/nix/store/7qfgi61rky0md8wpj73vs3fwz0giysgp-source/pkgs/zsh-wd/default.nix",
 "line":38
 },
 "name":"wd-0.7.0",
@@ -986,6 +1002,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
