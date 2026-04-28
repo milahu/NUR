@@ -30,6 +30,7 @@ in
           core.autocrlf = "input";
           gpg.format = "ssh";
           init.defaultBranch = "main";
+          init.defaultRefFormat = "reftable";
           url."git@github.com:".pushInsteadOf = "https://github.com/";
           alias = {
             a = "add";
@@ -50,6 +51,7 @@ in
             ignore = "update-index --assume-unchanged";
             unignore = "update-index --no-assume-unchanged";
             ignored = "!git ls-files -v | grep ^h | cut -c 3-";
+            bare-clone = "!f() { git clone --bare \"$@\" && git -C \"$${*: -1}\" config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' && git -C \"$${*: -1}\" fetch; }; f";
             rbm = "!git fetch && git rebase origin/main";
             rbc = "-c core.editor=true rebase --continue";
           };

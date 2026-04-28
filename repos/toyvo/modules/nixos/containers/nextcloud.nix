@@ -131,6 +131,8 @@ in
           };
           users.groups.nextcloud.gid = lib.mkForce cfg.nextcloudGid;
 
+          networking.defaultGateway = cfg.hostAddress;
+
           services.nextcloud = {
             enable = true;
             hostName = "nextcloud.diekvoss.net";
@@ -141,7 +143,17 @@ in
               dbtype = "pgsql";
               dbhost = "/run/postgresql";
             };
-            settings.overwriteprotocol = "https";
+            phpOptions = {
+              "opcache.interned_strings_buffer" = "32";
+            };
+            settings = {
+              overwriteprotocol = "https";
+              "overwrite.cli.url" = "https://nextcloud.diekvoss.net";
+              trusted_proxies = [ homelab.router.ip ];
+              maintenance_window_start = 2;
+              default_phone_region = "US";
+              log_type = "file";
+            };
             database.createLocally = true;
             extraApps = lib.genAttrs cfg.extraAppNames (
               name: config.services.nextcloud.package.packages.apps.${name}
@@ -178,6 +190,18 @@ in
               };
             };
           };
+
+          systemd.services.nextcloud-mimetype-migrations =
+            let
+              inherit (config.services.nextcloud) occ;
+            in
+            {
+              wantedBy = [ "multi-user.target" ];
+              after = [ "nextcloud-setup.service" ];
+              requires = [ "nextcloud-setup.service" ];
+              script = "${occ}/bin/nextcloud-occ maintenance:repair --include-expensive";
+              serviceConfig.Type = "oneshot";
+            };
 
           # Configure the richdocuments app to point at the co-located collabora instance
           systemd.services.nextcloud-config-collabora =
