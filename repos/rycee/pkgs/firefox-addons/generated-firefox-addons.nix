@@ -774,6 +774,28 @@
         platforms = platforms.all;
       };
     };
+    "auto-reject-cookies" = buildMozillaXpiAddon {
+      pname = "auto-reject-cookies";
+      version = "1.7.3";
+      addonId = "auto-reject-cookies@example.com";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4751838/auto_reject_cookies-1.7.3.xpi";
+      sha256 = "93cede331f63169378188502e52f87bd41b672b2af0d5c62709eaa4153b3ab2d";
+      meta = with lib;
+      {
+        homepage = "https://github.com/mjkuniversal/auto-reject-cookies";
+        description = "Automatically rejects cookie consent banners and sends Global Privacy Control signals. Supports 25+ consent platforms in 10+ languages. No data collection.";
+        license = licenses.mit;
+        mozPermissions = [
+          "storage"
+          "activeTab"
+          "tabs"
+          "webRequest"
+          "webRequestBlocking"
+          "<all_urls>"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "auto-sort-bookmarks" = buildMozillaXpiAddon {
       pname = "auto-sort-bookmarks";
       version = "3.4.5";
@@ -1680,10 +1702,10 @@
     };
     "castkodi" = buildMozillaXpiAddon {
       pname = "castkodi";
-      version = "7.18.0";
+      version = "7.19.0";
       addonId = "castkodi@regseb.github.io";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4677320/castkodi-7.18.0.xpi";
-      sha256 = "50c3a2551302d3bdf91002d0c5ee0dcc8299ac7204763db208f436d486d73dda";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4780034/castkodi-7.19.0.xpi";
+      sha256 = "97389cd70a0b0695a7978c287fe3e44f89bba233583453524dd6dd02fabc824a";
       meta = with lib;
       {
         homepage = "https://github.com/regseb/castkodi";
@@ -2107,10 +2129,10 @@
     };
     "click-and-read" = buildMozillaXpiAddon {
       pname = "click-and-read";
-      version = "4.3.0";
+      version = "4.4.0";
       addonId = "inist.users@gmail.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4714690/click_and_read-4.3.0.xpi";
-      sha256 = "e2b6db638bf1704410cca25345596de3e3a297a77799d9d03dd08ea096e64bf1";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4781190/click_and_read-4.4.0.xpi";
+      sha256 = "1db42d66cd7684cffd0bcb0039d96eae16b24f4b473e262997adeaf51c555346";
       meta = with lib;
       {
         homepage = "https://clickandread.inist.fr/";
@@ -2559,10 +2581,10 @@
     };
     "copy-link-text" = buildMozillaXpiAddon {
       pname = "copy-link-text";
-      version = "1.6.7";
+      version = "1.6.8";
       addonId = "{b144be59-6bdc-41e0-9141-9f8d00373d93}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4778762/copy_link_text_webextension-1.6.7.xpi";
-      sha256 = "0b25881a89dad2f7a01c896a496f3f42bce23963f56972b3a827c64cad95bd9e";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4780317/copy_link_text_webextension-1.6.8.xpi";
+      sha256 = "8392d061385a27db45a5343400bb51dcebac04c143439cfa5fd6b8d492771acf";
       meta = with lib;
       {
         homepage = "https://github.com/def00111/copy-link-text";
@@ -3606,7 +3628,7 @@
       meta = with lib;
       {
         homepage = "https://duckduckgo.com/app";
-        description = "Actively protects your data in your current browser";
+        description = "⚡Protects your data. Private search with optional AI, private browsing, and ad blocking.";
         license = licenses.asl20;
         mozPermissions = [
           "contextMenus"
@@ -9613,10 +9635,10 @@
     };
     "material-icons-for-github" = buildMozillaXpiAddon {
       pname = "material-icons-for-github";
-      version = "1.14.0";
+      version = "1.14.1";
       addonId = "{eac6e624-97fa-4f28-9d24-c06c9b8aa713}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4746796/material_icons_for_github-1.14.0.xpi";
-      sha256 = "820212207e29fe3fa53d078338f8f0f0f78731a0ee0af58206b2224137893d43";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4781117/material_icons_for_github-1.14.1.xpi";
+      sha256 = "b2c18c6cfb0e48aca68d218b57fac745dd54dce73b2310d67fddd40e65d5618e";
       meta = with lib;
       {
         homepage = "https://github.com/material-extensions/material-icons-browser-extension";
@@ -10030,10 +10052,10 @@
     };
     "mtab" = buildMozillaXpiAddon {
       pname = "mtab";
-      version = "1.12.3";
+      version = "1.12.4";
       addonId = "contact@maxhu.dev";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4775084/mtab-1.12.3.xpi";
-      sha256 = "dad452989020e5ce517c54db2304941269366bf6e72779a6c9159d1a2e618889";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4779978/mtab-1.12.4.xpi";
+      sha256 = "3efe30f037debcb0a1cf05e3323427d7956a9e5de1deb15b3ad4f1acc2ff2b5c";
       meta = with lib;
       {
         homepage = "https://mtab.maxhu.dev";
@@ -14090,10 +14112,10 @@
     };
     "statshunters" = buildMozillaXpiAddon {
       pname = "statshunters";
-      version = "3.3.2";
+      version = "3.3.3";
       addonId = "browserextension@statshunters.com";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4778518/statshunters-3.3.2.xpi";
-      sha256 = "e5948c50535c612fa9bdfa181ad2e6e528d2e0c7533097e92c30be93b57f6694";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4780642/statshunters-3.3.3.xpi";
+      sha256 = "9f27a2e0e0d1cd97d37e066e703893b05d2ab6c27ebc2093a3ab2d24fd10d475";
       meta = with lib;
       {
         homepage = "https://www.statshunters.com";
@@ -14858,10 +14880,10 @@
     };
     "themesong-for-youtube-music" = buildMozillaXpiAddon {
       pname = "themesong-for-youtube-music";
-      version = "1.3.0";
+      version = "1.3.1";
       addonId = "{6458ac08-a9d7-4e42-a1b0-f0c43bf90f7d}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4605253/themesong_for_youtube_music-1.3.0.xpi";
-      sha256 = "edca74009cf6cedbab9c15dfda71e9a7a8ea215223a080fc8c7ae3bcba61b5e6";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4780877/themesong_for_youtube_music-1.3.1.xpi";
+      sha256 = "f1436df84b9896ab825ed7369ee6cb5f09abdd5edf7b4fecce36b5c26df8ecfc";
       meta = with lib;
       {
         homepage = "https://www.themesong.app";
@@ -16662,7 +16684,7 @@
       sha256 = "cca7a8015a4f2463dbab63102575b02acd922730b64a3167fce693efd1b7fa9b";
       meta = with lib;
       {
-        homepage = "https://web-scrobbler.com";
+        homepage = "https://webscrobbler.com";
         description = "Scrobble music all around the web!";
         license = licenses.mit;
         mozPermissions = [
@@ -17500,6 +17522,21 @@
           "https://studio.youtube.com/live_chat_replay*"
           "https://www.youtube.com/embed/ytcfilter_embed?*"
         ];
+        platforms = platforms.all;
+      };
+    };
+    "yubal" = buildMozillaXpiAddon {
+      pname = "yubal";
+      version = "0.1.0";
+      addonId = "yubal@guillevc.xyz";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4713932/yubal-0.1.0.xpi";
+      sha256 = "952c8123b11fe54fac3e56fd778e59039ba5a773305fb5658cb3aa20b5514724";
+      meta = with lib;
+      {
+        homepage = "https://yubal.guillevc.dev";
+        description = "Browser companion for yubal, a self-hosted YouTube Music library manager. Queue downloads and subscribe to playlists directly from YouTube pages.";
+        license = licenses.mit;
+        mozPermissions = [ "storage" "activeTab" "tabs" ];
         platforms = platforms.all;
       };
     };
