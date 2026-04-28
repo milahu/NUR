@@ -1,5 +1,5 @@
 {
-  python313Packages,
+  python3Packages,
   fetchPypi,
 }:
 with let
@@ -15,7 +15,7 @@ with let
     });
   };
 in
-python313Packages.override {
+python3Packages.override {
   inherit overrides;
 };
 buildPythonApplication rec {
@@ -31,6 +31,7 @@ buildPythonApplication rec {
   dependencies = [
     requests
     rich
+    pysocks
   ];
   meta = {
     homepage = "https://pypi.org/project/wallpaper-fetcher";
