@@ -29,16 +29,17 @@ stdenv.mkDerivation (finalAttrs: {
 
   passthru.updateScript = nix-update-script {
     extraArgs = [
+      "--subpackage=gleamDeps"
       "--commit"
       finalAttrs.pname
     ];
   };
 
   meta = {
-    description = "Bundles your Gleam-on-Erlang project into an escript";
     mainProgram = "gleescript";
+    description = "Bundles your Gleam-on-Erlang project into an escript";
+    platforms = lib.platforms.all;
     homepage = "https://github.com/lpil/gleescript";
     changelog = "https://github.com/lpil/gleescript/releases/tag/v${finalAttrs.version}";
-    platforms = lib.platforms.all;
   };
 })

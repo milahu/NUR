@@ -6,7 +6,11 @@
 }:
 
 let
-  gleam' = gleam;
+  # avoid deno https://github.com/NixOS/nixpkgs/issues/511900
+  gleam' = gleam.overrideAttrs {
+    nativeCheckInputs = [ ];
+    doCheck = false;
+  };
 in
 
 lib.makeOverridable (
@@ -35,7 +39,7 @@ lib.makeOverridable (
     (
       args'
       // {
-        name = "${pname}-gleam-deps";
+        pname = "${pname}-gleam-deps";
 
         nativeBuildInputs = [
           gleam

@@ -12,7 +12,6 @@ concurrency:
 
 permissions:
   contents: read
-  id-token: write
 
 jobs:
   check:
@@ -24,9 +23,11 @@ jobs:
           - macos-26
       fail-fast: false
     runs-on: ${{ matrix.image }}
+    permissions:
+      id-token: write
     steps:
       - name: Initialize
-        uses: spotdemo4/nix-init@0570d65d7c69d827384b0749108a291c40b67b34 # v1.44.1
+        uses: spotdemo4/nix-init@78cb37091fca621cf273ed076027ebfbaf906457 # v1.44.2
 
       - name: Check flake
         run: nix flake check
@@ -41,6 +42,7 @@ jobs:
             -I "$PWD"
 
   build:
+    needs: check
     strategy:
       matrix:
         nix:
@@ -52,9 +54,11 @@ jobs:
           - macos-26
       fail-fast: false
     runs-on: ${{ matrix.image }}
+    permissions:
+      id-token: write
     steps:
       - name: Initialize
-        uses: spotdemo4/nix-init@0570d65d7c69d827384b0749108a291c40b67b34 # v1.44.1
+        uses: spotdemo4/nix-init@78cb37091fca621cf273ed076027ebfbaf906457 # v1.44.2
         with:
           shell: check
 
