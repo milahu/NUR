@@ -71,6 +71,52 @@ in
       description = "Pinned GID for the nextcloud group (must match state dir ownership on host)";
     };
 
+    smtp = lib.mkOption {
+      type = lib.types.nullOr (
+        lib.types.submodule {
+          options = {
+            host = lib.mkOption {
+              type = lib.types.str;
+              description = "SMTP server hostname reachable from within the container (e.g. the host-side veth address).";
+            };
+            port = lib.mkOption {
+              type = lib.types.port;
+              default = 1025;
+              description = "SMTP server port.";
+            };
+            secure = lib.mkOption {
+              type = lib.types.enum [
+                ""
+                "tls"
+                "ssl"
+              ];
+              default = "tls";
+              description = "SMTP connection security: empty for none, tls for STARTTLS, ssl for SMTPS.";
+            };
+            username = lib.mkOption {
+              type = lib.types.str;
+              description = "SMTP auth username (the Proton Mail account address).";
+            };
+            passwordFile = lib.mkOption {
+              type = lib.types.path;
+              description = "Host path to the SMTP password file (bridge-generated, decrypted by sops).";
+            };
+            fromAddress = lib.mkOption {
+              type = lib.types.str;
+              default = "nextcloud";
+              description = "Local part of the From address (domain is set separately).";
+            };
+            domain = lib.mkOption {
+              type = lib.types.str;
+              description = "Domain part of the From address.";
+            };
+          };
+        }
+      );
+      default = null;
+      description = "When set, configures Nextcloud outgoing mail via occ at startup. Leave null to skip mail setup.";
+    };
+
     ports = {
       collabora = lib.mkOption {
         type = lib.types.port;
@@ -118,6 +164,12 @@ in
           hostPath = cfg.mediaDir;
           isReadOnly = false;
         };
+      }
+      // lib.optionalAttrs (cfg.smtp != null) {
+        "/run/secrets/nextcloud_smtp_password" = {
+          hostPath = cfg.smtp.passwordFile;
+          isReadOnly = true;
+        };
       };
 
       config =
@@ -153,6 +205,24 @@ in
               maintenance_window_start = 2;
               default_phone_region = "US";
               log_type = "file";
+            }
+            // lib.optionalAttrs (cfg.smtp != null) {
+              mail_smtpmode = "smtp";
+              mail_smtphost = cfg.smtp.host;
+              mail_smtpport = cfg.smtp.port;
+              mail_smtpsecure = cfg.smtp.secure;
+              mail_smtpauth = true;
+              mail_smtpname = cfg.smtp.username;
+              mail_from_address = cfg.smtp.fromAddress;
+              mail_domain = cfg.smtp.domain;
+              # Bridge uses a self-signed cert; disable PHP SSL verification for this local veth connection.
+              mail_smtpstreamoptions = {
+                ssl = {
+                  verify_peer = false;
+                  verify_peer_name = false;
+                  allow_self_signed = true;
+                };
+              };
             };
             database.createLocally = true;
             extraApps = lib.genAttrs cfg.extraAppNames (
@@ -230,6 +300,25 @@ in
               '';
               serviceConfig.Type = "oneshot";
             };
+
+          systemd.services.nextcloud-config-smtp = lib.mkIf (cfg.smtp != null) (
+            let
+              inherit (config.services.nextcloud) occ;
+            in
+            {
+              wantedBy = [ "multi-user.target" ];
+              after = [
+                "nextcloud-setup.service"
+                "nextcloud-mimetype-migrations.service"
+                "nextcloud-update-db.service"
+              ];
+              requires = [ "nextcloud-setup.service" ];
+              serviceConfig.Type = "oneshot";
+              script = ''
+                ${occ}/bin/nextcloud-occ config:system:set mail_smtppassword --value "$(cat /run/secrets/nextcloud_smtp_password)"
+              '';
+            }
+          );
 
           networking.firewall.allowedTCPPorts = [
             80 # nginx serving nextcloud
