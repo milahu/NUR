@@ -1,16 +1,16 @@
 {
 "name":"dmfrpro",
-"fetch_time":0.421,
-"eval_time":0.233,
+"fetch_time":0.98,
+"eval_time":0.304,
 "source":{
 "url":"https://github.com/dmfrpro/nur-packages",
-"rev":"5900cf7ae16d6da79cc59a3dfc71a993fa08f299",
-"sha256":"0pd297lyrkarfa10ln9i3pmabpdqyfhi1nfzp6cpb4aaf5nlq4bj",
+"rev":"af3216607cd21b00e98b17ffeefd671ad53f675b",
+"sha256":"04ykr993n7i9xmh3s3bs8vy3vpv32rgakq9023wnmgrd9pvdg7hx",
 "date":null
 },
-"source_storepath":"/nix/store/fni461f7yzpz0sipir290cv41fvips3p-source",
-"nixpkgs_storepath":"/nix/store/660ljssgj5ky0ph0z8pwc1jw8q39xb6j-source",
-"nur_combined_rev":"eb9394f6dbd1a30722174482a54dec7911df7bd2",
+"source_storepath":"/nix/store/f4fb284bk5hfhy3rgwzc05s6zy9lqi2n-source",
+"nixpkgs_storepath":"/nix/store/mzrhrmpmvry81cbhf1p46ali0imp8vby-source",
+"nur_combined_rev":"2624792c0dad24e6105a3040b92cb8db21b243d3",
 "packages":{
 "auroraos-asbt-apptool":{
 "meta":{
@@ -20,6 +20,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -84,6 +85,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -93,7 +95,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fni461f7yzpz0sipir290cv41fvips3p-source/pkgs/auroraos-platform-sdk/default.nix",
+"file":"/nix/store/f4fb284bk5hfhy3rgwzc05s6zy9lqi2n-source/pkgs/auroraos-platform-sdk/default.nix",
 "line":212
 },
 "name":"auroraos-platform-sdk-5.2.0.180-release",
@@ -162,6 +164,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Only",
 "spdxId":"GPL-2.0-only",
@@ -188,6 +191,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -195,6 +199,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -250,7 +255,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/checkpatch/default.nix:62",
 "sourceProvenance":[
@@ -305,6 +312,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -315,7 +323,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fni461f7yzpz0sipir290cv41fvips3p-source/pkgs/mtk-udev-rules/default.nix",
+"file":"/nix/store/f4fb284bk5hfhy3rgwzc05s6zy9lqi2n-source/pkgs/mtk-udev-rules/default.nix",
 "line":23
 },
 "name":"rockchip-udev-rules",
@@ -327,6 +335,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -334,6 +343,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -405,6 +415,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -416,7 +427,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fni461f7yzpz0sipir290cv41fvips3p-source/pkgs/rkflashtool/default.nix",
+"file":"/nix/store/f4fb284bk5hfhy3rgwzc05s6zy9lqi2n-source/pkgs/rkflashtool/default.nix",
 "line":30
 },
 "name":"rkflashtool-unstable-2025-09-30",
@@ -428,6 +439,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -435,6 +447,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -503,6 +516,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -513,7 +527,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fni461f7yzpz0sipir290cv41fvips3p-source/pkgs/rockchip-udev-rules/default.nix",
+"file":"/nix/store/f4fb284bk5hfhy3rgwzc05s6zy9lqi2n-source/pkgs/rockchip-udev-rules/default.nix",
 "line":23
 },
 "name":"rockchip-udev-rules",
@@ -525,6 +539,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -532,6 +547,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -603,6 +619,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -612,7 +629,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fni461f7yzpz0sipir290cv41fvips3p-source/pkgs/spflashtool5/default.nix",
+"file":"/nix/store/f4fb284bk5hfhy3rgwzc05s6zy9lqi2n-source/pkgs/spflashtool5/default.nix",
 "line":150
 },
 "name":"spflashtool5-5.2228",
@@ -681,6 +698,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -690,7 +708,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fni461f7yzpz0sipir290cv41fvips3p-source/pkgs/spflashtool6/default.nix",
+"file":"/nix/store/f4fb284bk5hfhy3rgwzc05s6zy9lqi2n-source/pkgs/spflashtool6/default.nix",
 "line":62
 },
 "name":"spflashtool6-6.2228",
@@ -759,6 +777,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -768,7 +787,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fni461f7yzpz0sipir290cv41fvips3p-source/pkgs/upgrade_tool/default.nix",
+"file":"/nix/store/f4fb284bk5hfhy3rgwzc05s6zy9lqi2n-source/pkgs/upgrade_tool/default.nix",
 "line":36
 },
 "name":"upgrade_tool-2.44",
