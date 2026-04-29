@@ -1,0 +1,208 @@
+trace: evaluation warning: fontforge-20251009 was overridden with `version` but not `src` at ./default.nix:940:5.
+
+This is most likely not what you want. In order to properly change the version of a package, override
+both the `version` and `src` attributes:
+
+hello.overrideAttrs (oldAttrs: rec {
+  version = "1.0.0";
+  src = pkgs.fetchurl {
+    url = "mirror://gnu/hello/hello-${version}.tar.gz";
+    hash = "...";
+  };
+})
+
+(To silence this warning, set `__intentionallyOverridingVersion = true` in your `overrideAttrs` call.)
+
+trace: evaluation warning: dontRecurseIntoAttrs has been removed from pkgs, use `lib.dontRecurseIntoAttrs` instead
+error:
+… from call site
+
+  at ./default.nix:1319:17:
+
+  1318|
+  1319|   nginxStable = callPackage ./pkgs/servers/http/nginx/stable.nix {
+      |                 ^
+  1320|     withPerl = false;
+
+… while calling 'callPackageWith'
+
+  at <nixpkgs> + /lib/customisation.nix:275:19:
+
+   274|   callPackageWith =
+   275|     autoArgs: fn: args:
+      |                   ^
+   276|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1081:5:
+
+  1080|     # TODO: Should we add call-time "type" checking like built in?
+  1081|     __functor = self: f;
+      |     ^
+  1082|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:177:7:
+
+   176|     decorate (
+   177|       origArgs:
+      |       ^
+   178|       let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:179:18:
+
+   178|       let
+   179|         result = f origArgs;
+      |                  ^
+   180|
+
+… while calling anonymous lambda
+
+  at ./pkgs/servers/http/nginx/stable.nix:1:1:
+
+     1| { callPackage, ... }@args:
+      | ^
+     2|
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1081:5:
+
+  1080|     # TODO: Should we add call-time "type" checking like built in?
+  1081|     __functor = self: f;
+      |     ^
+  1082|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at ./pkgs/servers/http/nginx/generic.nix:32:1:
+
+    31|
+    32| {
+      | ^
+    33|   pname ? "nginx",
+
+… from call site
+
+  at ./pkgs/servers/http/nginx/generic.nix:90:1:
+
+    89|
+    90| stdenv.mkDerivation {
+      | ^
+    91|   inherit pname version nginxVersion;
+
+… while calling 'mkDerivation'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:70:18:
+
+    69|   */
+    70|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                  ^
+    71|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:70:29:
+
+    69|   */
+    70|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                             ^
+    71|
+
+… while calling 'makeDerivationExtensible'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:81:5:
+
+    80|   makeDerivationExtensible =
+    81|     rattrs:
+      |     ^
+    82|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:138:22:
+
+   137|
+   138|       finalPackage = mkDerivationSimple overrideAttrs args;
+      |                      ^
+   139|
+
+… while calling 'mkDerivationSimple'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:769:5:
+
+   768|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   769|     {
+      |     ^
+   770|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:877:5:
+
+   876|
+   877|     extendDerivation validity.handled (
+      |     ^
+   878|       {
+
+… while calling 'extendDerivation'
+
+  at <nixpkgs> + /lib/customisation.nix:410:26:
+
+   409|   extendDerivation =
+   410|     condition: passthru: drv:
+      |                          ^
+   411|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:811:23:
+
+   810|
+   811|       derivationArg = makeDerivationArgument (
+      |                       ^
+   812|         removeAttrs attrs [
+
+… while calling 'makeDerivationArgument'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:301:5:
+
+   300|     #   Explanation about derivations in general
+   301|     {
+      |     ^
+   302|
+
+error: evaluation aborted with the following error message: 'mkDerivation was called with unsupported hardening flags: {
+  erroneousHardeningFlags = [
+    "pie"
+  ];
+  hardeningDisable = [ ];
+  hardeningEnable = [
+    "pie"
+  ];
+  knownHardeningFlags = [
+    "bindnow"
+    "format"
+    "fortify"
+    "fortify3"
+    "strictflexarrays1"
+    "strictflexarrays3"
+    "shadowstack"
+    "nostrictaliasing"
+    "pacret"
+    "pic"
+    "relro"
+    "stackprotector"
+    "glibcxxassertions"
+    "libcxxhardeningfast"
+    "libcxxhardeningextensive"
+    "stackclashprotection"
+    "strictoverflow"
+    "trivialautovarinit"
+    "zerocallusedregs"
+  ];
+}'
