@@ -1,4 +1,4 @@
-trace: evaluation warning: fontforge-20251009 was overridden with `version` but not `src` at ./default.nix:940:5.
+trace: evaluation warning: fontforge-20251009 was overridden with `version` but not `src` at ./default.nix:943:5.
 
 This is most likely not what you want. In order to properly change the version of a package, override
 both the `version` and `src` attributes:
@@ -14,15 +14,43 @@ hello.overrideAttrs (oldAttrs: rec {
 (To silence this warning, set `__intentionallyOverridingVersion = true` in your `overrideAttrs` call.)
 
 trace: evaluation warning: dontRecurseIntoAttrs has been removed from pkgs, use `lib.dontRecurseIntoAttrs` instead
+trace: evaluation warning: dontRecurseIntoAttrs has been removed from pkgs, use `lib.dontRecurseIntoAttrs` instead
 error:
+… while evaluating the attribute 'openssh.override'
+
+  at ./pkgs/tools/networking/openssh/default.nix:6:3:
+
+     5| {
+     6|   openssh = common rec {
+      |   ^
+     7|     pname = "openssh";
+
 … from call site
 
-  at ./default.nix:1319:17:
+  at ./pkgs/tools/networking/openssh/default.nix:6:13:
 
-  1318|
-  1319|   nginxStable = callPackage ./pkgs/servers/http/nginx/stable.nix {
-      |                 ^
-  1320|     withPerl = false;
+     5| {
+     6|   openssh = common rec {
+      |             ^
+     7|     pname = "openssh";
+
+… while calling 'common'
+
+  at ./pkgs/tools/networking/openssh/default.nix:3:12:
+
+     2| let
+     3|   common = opts: callPackage (import ./common.nix opts) { };
+      |            ^
+     4| in
+
+… from call site
+
+  at ./pkgs/tools/networking/openssh/default.nix:3:18:
+
+     2| let
+     3|   common = opts: callPackage (import ./common.nix opts) { };
+      |                  ^
+     4| in
 
 … while calling 'callPackageWith'
 
@@ -62,38 +90,21 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/servers/http/nginx/stable.nix:1:1:
+  at ./pkgs/tools/networking/openssh/common.nix:11:1:
 
-     1| { callPackage, ... }@args:
+    10|
+    11| { lib, stdenv
       | ^
-     2|
+    12| # This *is* correct, though unusual. as a way of getting krb5-config from the
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:1081:5:
+  at ./pkgs/tools/networking/openssh/common.nix:37:1:
 
-  1080|     # TODO: Should we add call-time "type" checking like built in?
-  1081|     __functor = self: f;
-      |     ^
-  1082|     __functionArgs = args;
-
-… while calling anonymous lambda
-
-  at ./pkgs/servers/http/nginx/generic.nix:32:1:
-
-    31|
-    32| {
+    36|
+    37| stdenv.mkDerivation {
       | ^
-    33|   pname ? "nginx",
-
-… from call site
-
-  at ./pkgs/servers/http/nginx/generic.nix:90:1:
-
-    89|
-    90| stdenv.mkDerivation {
-      | ^
-    91|   inherit pname version nginxVersion;
+    38|   inherit pname version src;
 
 … while calling 'mkDerivation'
 
