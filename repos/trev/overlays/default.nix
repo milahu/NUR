@@ -3,9 +3,8 @@
 }:
 {
   default = import ./trev.nix { inherit nixpkgs; };
-  trev = import ./trev.nix { inherit nixpkgs; };
-  packages = import ./packages.nix { };
-  libs = import ./libs.nix { inherit nixpkgs; };
-  python = import ./python.nix { };
   images = import ./images.nix { };
+  libs = import ./libs.nix { inherit nixpkgs; };
+  packages = import ./packages.nix { };
+  trev = import ./trev.nix { inherit nixpkgs; };
 }

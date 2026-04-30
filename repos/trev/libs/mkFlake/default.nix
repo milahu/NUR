@@ -92,9 +92,9 @@ let
     import nixpkgs {
       inherit localSystem;
       overlays = [
+        overlays.packages
         overlays.images
         overlays.libs
-        overlays.packages
       ];
       config = {
         allowUnfree = true;
@@ -107,9 +107,9 @@ let
     import nixpkgs {
       inherit localSystem crossSystem;
       overlays = [
+        overlays.packages
         overlays.images
         overlays.libs
-        overlays.packages
       ];
       config = {
         allowUnfree = true;
