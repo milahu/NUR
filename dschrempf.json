@@ -1,16 +1,16 @@
 {
 "name":"dschrempf",
-"fetch_time":0.805,
-"eval_time":0.26,
+"fetch_time":0.424,
+"eval_time":0.351,
 "source":{
 "url":"https://github.com/dschrempf/nur-packages",
-"rev":"4cc87696f4d6a5d945fdaa7ec2f42e4febb26f47",
-"sha256":"054qphpgaml5625j6rhka2sn76ba1r7zj2fggbadzbldc8m3azd2",
+"rev":"ca5db2540197e1f2b5400ad8361638c3f001201d",
+"sha256":"0ilp47292jqlxny8kjsz92f1q71y07jirgpz060b00cxbmawa13l",
 "date":null
 },
-"source_storepath":"/nix/store/d49rccam8zycmp1004yz35jd11xb5snl-source",
-"nixpkgs_storepath":"/nix/store/bshp8kl7zl8bzwhbbg3lq11cw4wrn81m-source",
-"nur_combined_rev":"328caf603940c05dba0189daa40abd4354eaeb2a",
+"source_storepath":"/nix/store/vvrhginpjmvvqpna5dnc6pps7v5hwq6r-source",
+"nixpkgs_storepath":"/nix/store/kav6vrhvdfav67rmyddl6i6m0nlxrkg6-source",
+"nur_combined_rev":"aabde544b135a9b888741fa46a6226a3b73ef649",
 "packages":{
 "beast":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Only",
 "spdxId":"LGPL-2.1-only",
@@ -69,10 +70,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d49rccam8zycmp1004yz35jd11xb5snl-source/pkgs/evolution/beast/default.nix",
+"file":"/nix/store/vvrhginpjmvvqpna5dnc6pps7v5hwq6r-source/pkgs/evolution/beast/default.nix",
 "line":57
 },
 "name":"beast-sars-cov-2-origins",
+"nonTeamMaintainers":[
+{
+"email":"dominik.schrempf@gmail.com",
+"github":"dschrempf",
+"githubId":5596239,
+"keys":[
+{
+"fingerprint":"62BC E2BD 49DF ECC7 35C7  E153 875F 2BCF 163F 1B29"
+}
+],
+"name":"Dominik Schrempf"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -90,6 +104,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -97,6 +112,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -152,7 +168,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/evolution/beast/default.nix:54",
 "unfree":false,
@@ -204,6 +222,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Only",
 "spdxId":"LGPL-2.1-only",
@@ -224,10 +243,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d49rccam8zycmp1004yz35jd11xb5snl-source/pkgs/evolution/beast2/default.nix",
+"file":"/nix/store/vvrhginpjmvvqpna5dnc6pps7v5hwq6r-source/pkgs/evolution/beast2/default.nix",
 "line":62
 },
 "name":"beast2-2.6.7",
+"nonTeamMaintainers":[
+{
+"email":"dominik.schrempf@gmail.com",
+"github":"dschrempf",
+"githubId":5596239,
+"keys":[
+{
+"fingerprint":"62BC E2BD 49DF ECC7 35C7  E153 875F 2BCF 163F 1B29"
+}
+],
+"name":"Dominik Schrempf"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -245,6 +277,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -252,6 +285,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -307,7 +341,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/evolution/beast2/default.nix:59",
 "unfree":false,
@@ -359,6 +395,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -377,15 +414,29 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d49rccam8zycmp1004yz35jd11xb5snl-source/pkgs/coding/codeium/default.nix",
+"file":"/nix/store/vvrhginpjmvvqpna5dnc6pps7v5hwq6r-source/pkgs/coding/codeium/default.nix",
 "line":23
 },
 "name":"codeium-1.1.62",
+"nonTeamMaintainers":[
+{
+"email":"dominik.schrempf@gmail.com",
+"github":"dschrempf",
+"githubId":5596239,
+"keys":[
+{
+"fingerprint":"62BC E2BD 49DF ECC7 35C7  E153 875F 2BCF 163F 1B29"
+}
+],
+"name":"Dominik Schrempf"
+}
+],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -393,6 +444,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -458,6 +510,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Plus",
 "spdxId":"GPL-2.0-or-later",
@@ -478,10 +531,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d49rccam8zycmp1004yz35jd11xb5snl-source/pkgs/evolution/fasttree/default.nix",
+"file":"/nix/store/vvrhginpjmvvqpna5dnc6pps7v5hwq6r-source/pkgs/evolution/fasttree/default.nix",
 "line":20
 },
 "name":"fasttree-2.1",
+"nonTeamMaintainers":[
+{
+"email":"dominik.schrempf@gmail.com",
+"github":"dschrempf",
+"githubId":5596239,
+"keys":[
+{
+"fingerprint":"62BC E2BD 49DF ECC7 35C7  E153 875F 2BCF 163F 1B29"
+}
+],
+"name":"Dominik Schrempf"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -546,10 +612,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d49rccam8zycmp1004yz35jd11xb5snl-source/pkgs/evolution/figtree/default.nix",
+"file":"/nix/store/vvrhginpjmvvqpna5dnc6pps7v5hwq6r-source/pkgs/evolution/figtree/default.nix",
 "line":50
 },
 "name":"figtree-1.4.4",
+"nonTeamMaintainers":[
+{
+"email":"dominik.schrempf@gmail.com",
+"github":"dschrempf",
+"githubId":5596239,
+"keys":[
+{
+"fingerprint":"62BC E2BD 49DF ECC7 35C7  E153 875F 2BCF 163F 1B29"
+}
+],
+"name":"Dominik Schrempf"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -567,6 +646,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -574,6 +654,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -629,7 +710,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/evolution/figtree/default.nix:48",
 "unfree":false,
@@ -680,6 +763,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2",
 "spdxId":"GPL-2.0",
@@ -700,10 +784,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d49rccam8zycmp1004yz35jd11xb5snl-source/pkgs/misc/jugglinglab/default.nix",
+"file":"/nix/store/vvrhginpjmvvqpna5dnc6pps7v5hwq6r-source/pkgs/misc/jugglinglab/default.nix",
 "line":57
 },
 "name":"jugglinglab-1.4.1",
+"nonTeamMaintainers":[
+{
+"email":"dominik.schrempf@gmail.com",
+"github":"dschrempf",
+"githubId":5596239,
+"keys":[
+{
+"fingerprint":"62BC E2BD 49DF ECC7 35C7  E153 875F 2BCF 163F 1B29"
+}
+],
+"name":"Dominik Schrempf"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -721,6 +818,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -728,6 +826,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -783,7 +882,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/misc/jugglinglab/default.nix:55",
 "unfree":false,
@@ -797,54 +898,6 @@
 "pname":"jugglinglab",
 "system":"x86_64-linux",
 "version":"1.4.1"
-},
-"mtplayer":{
-"meta":{
-"available":true,
-"broken":false,
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"mainProgram":"mtplayer",
-"maintainers":[],
-"name":"mtplayer",
-"outputsToInstall":[
-"out"
-],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:80",
-"unfree":false,
-"unsupported":false
-},
-"name":"mtplayer",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"mtplayer",
-"system":"x86_64-linux",
-"version":""
 },
 "paml":{
 "meta":{
@@ -883,6 +936,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -903,10 +957,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d49rccam8zycmp1004yz35jd11xb5snl-source/pkgs/evolution/paml/default.nix",
+"file":"/nix/store/vvrhginpjmvvqpna5dnc6pps7v5hwq6r-source/pkgs/evolution/paml/default.nix",
 "line":29
 },
 "name":"paml-4.10.6",
+"nonTeamMaintainers":[
+{
+"email":"dominik.schrempf@gmail.com",
+"github":"dschrempf",
+"githubId":5596239,
+"keys":[
+{
+"fingerprint":"62BC E2BD 49DF ECC7 35C7  E153 875F 2BCF 163F 1B29"
+}
+],
+"name":"Dominik Schrempf"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -971,10 +1038,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d49rccam8zycmp1004yz35jd11xb5snl-source/pkgs/evolution/phylobayes/default.nix",
+"file":"/nix/store/vvrhginpjmvvqpna5dnc6pps7v5hwq6r-source/pkgs/evolution/phylobayes/default.nix",
 "line":58
 },
 "name":"phylobayes-4.1e",
+"nonTeamMaintainers":[
+{
+"email":"dominik.schrempf@gmail.com",
+"github":"dschrempf",
+"githubId":5596239,
+"keys":[
+{
+"fingerprint":"62BC E2BD 49DF ECC7 35C7  E153 875F 2BCF 163F 1B29"
+}
+],
+"name":"Dominik Schrempf"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -1039,10 +1119,23 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d49rccam8zycmp1004yz35jd11xb5snl-source/pkgs/evolution/tracer/default.nix",
+"file":"/nix/store/vvrhginpjmvvqpna5dnc6pps7v5hwq6r-source/pkgs/evolution/tracer/default.nix",
 "line":51
 },
 "name":"tracer-1.7.2",
+"nonTeamMaintainers":[
+{
+"email":"dominik.schrempf@gmail.com",
+"github":"dschrempf",
+"githubId":5596239,
+"keys":[
+{
+"fingerprint":"62BC E2BD 49DF ECC7 35C7  E153 875F 2BCF 163F 1B29"
+}
+],
+"name":"Dominik Schrempf"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -1060,6 +1153,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1067,6 +1161,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1122,7 +1217,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/evolution/tracer/default.nix:49",
 "unfree":false,

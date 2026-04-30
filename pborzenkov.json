@@ -1,16 +1,16 @@
 {
 "name":"pborzenkov",
-"fetch_time":0.547,
-"eval_time":0.314,
+"fetch_time":0.421,
+"eval_time":0.309,
 "source":{
 "url":"https://github.com/pborzenkov/nur-packages",
-"rev":"87561b7e8cfe41677326060effa3d6be8fa884af",
-"sha256":"0ba1krrxhn6gi5zs6xxl05l87dh1j9zq3ngqabvx9bs9y4qzhj0a",
+"rev":"4327555dbdb94dcfd391c89dbe0fd95b20761ab9",
+"sha256":"0466n53s4mj9njzgqd82hn6pih7sd024v163q6fyxlgbzdnihh9z",
 "date":null
 },
-"source_storepath":"/nix/store/5r566hymbzq00gygj8xmgamfs27l8inj-source",
-"nixpkgs_storepath":"/nix/store/8zhwjag50xsflz2i30i9bm9grrn21w3x-source",
-"nur_combined_rev":"bdd178c028233f930fba918b948b2c929bf0ee1e",
+"source_storepath":"/nix/store/a1g9qhxnw8kda4hzz6xqcf4nqng6sbdi-source",
+"nixpkgs_storepath":"/nix/store/kav6vrhvdfav67rmyddl6i6m0nlxrkg6-source",
+"nur_combined_rev":"df8b5c16cac41507790fb9dc220e1992e196c9de",
 "packages":{
 "firefox-addons.shiori_ext":{
 "meta":{
@@ -47,6 +47,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -78,6 +79,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -85,6 +87,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -206,6 +209,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -222,7 +226,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5r566hymbzq00gygj8xmgamfs27l8inj-source/pkgs/koreader-syncd/default.nix",
+"file":"/nix/store/a1g9qhxnw8kda4hzz6xqcf4nqng6sbdi-source/pkgs/koreader-syncd/default.nix",
 "line":23
 },
 "name":"koreader-syncd-0.1.0",
@@ -339,6 +343,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -355,7 +360,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5r566hymbzq00gygj8xmgamfs27l8inj-source/pkgs/osccopy/default.nix",
+"file":"/nix/store/a1g9qhxnw8kda4hzz6xqcf4nqng6sbdi-source/pkgs/osccopy/default.nix",
 "line":23
 },
 "name":"osccopy-0.1.0",
@@ -461,6 +466,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -477,7 +483,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5r566hymbzq00gygj8xmgamfs27l8inj-source/pkgs/tg-bot-skyeng/default.nix",
+"file":"/nix/store/a1g9qhxnw8kda4hzz6xqcf4nqng6sbdi-source/pkgs/tg-bot-skyeng/default.nix",
 "line":25
 },
 "name":"tg-bot-skyeng-2021-04-08-645c17d",
@@ -496,6 +502,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -503,6 +510,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -535,119 +543,6 @@
 "pname":"tg-bot-skyeng",
 "system":"x86_64-linux",
 "version":"2021-04-08-645c17d"
-},
-"tg-bot-transmission":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"Telegram bot for Transmission torrent client.",
-"homepage":"https://github.com/pborzenkov/tg-bot-transmission",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"tg-bot-transmission",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"tg-bot-transmission",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"license":[
-{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-}
-],
-"maintainers":[
-{
-"email":"pavel@borzenkov.net",
-"github":"pborzenkov",
-"githubId":434254,
-"name":"Pavel Borzenkov"
-}
-],
-"maintainersPosition":{
-"column":5,
-"file":"/nix/store/5r566hymbzq00gygj8xmgamfs27l8inj-source/pkgs/tg-bot-transmission/default.nix",
-"line":27
-},
-"name":"tg-bot-transmission-0.2.0",
-"nonTeamMaintainers":[
-{
-"email":"pavel@borzenkov.net",
-"github":"pborzenkov",
-"githubId":434254,
-"name":"Pavel Borzenkov"
-}
-],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"x86_64-darwin",
-"aarch64-darwin",
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"wasm64-wasi",
-"wasm32-wasi",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd"
-],
-"position":"./pkgs/tg-bot-transmission/default.nix:24",
-"unfree":false,
-"unsupported":false
-},
-"name":"tg-bot-transmission-0.2.0",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"tg-bot-transmission",
-"system":"x86_64-linux",
-"version":"0.2.0"
 },
 "transmission-exporter":{
 "meta":{
@@ -687,6 +582,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -703,7 +599,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5r566hymbzq00gygj8xmgamfs27l8inj-source/pkgs/transmission-exporter/default.nix",
+"file":"/nix/store/a1g9qhxnw8kda4hzz6xqcf4nqng6sbdi-source/pkgs/transmission-exporter/default.nix",
 "line":30
 },
 "name":"transmission-exporter-0.2.0",
@@ -722,6 +618,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -729,6 +626,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -800,6 +698,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Unspecified free software license",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"free"
 }
@@ -814,7 +713,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5r566hymbzq00gygj8xmgamfs27l8inj-source/pkgs/vlmcsd/default.nix",
+"file":"/nix/store/a1g9qhxnw8kda4hzz6xqcf4nqng6sbdi-source/pkgs/vlmcsd/default.nix",
 "line":38
 },
 "name":"vlmcsd-1113",

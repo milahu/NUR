@@ -1,16 +1,16 @@
 {
 "name":"ymstnt",
-"fetch_time":0.417,
-"eval_time":0.328,
+"fetch_time":0.471,
+"eval_time":0.317,
 "source":{
 "url":"https://github.com/ymstnt/nur-packages",
-"rev":"9ea8299ddda1f1565abd163f13919ff1dd3a3bea",
-"sha256":"0fk4ia1gj31m3ilwr840dwcy73faqwcsh98nwga01l9m3wv38rfg",
+"rev":"d32d978ae6e965bdc3311c90cf703176eb58de0f",
+"sha256":"1ip9h7iwnhy1nhb0bz276ww7wlc7pda6a21sqzvzcp2lyc62yy95",
 "date":null
 },
-"source_storepath":"/nix/store/hk6rh28a9qkbsjb3fadvmfb6iv6savfd-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"890e8024a0ef4278ca77a16320aaec814f7bc8cd",
+"source_storepath":"/nix/store/x0zwi5klc1rdi9bd2zgwyqzas5l68nig-source",
+"nixpkgs_storepath":"/nix/store/kav6vrhvdfav67rmyddl6i6m0nlxrkg6-source",
+"nur_combined_rev":"bf374b2d6682027e0b125dd2e69c29bb86bf2e57",
 "packages":{
 "beeper":{
 "meta":{
@@ -49,13 +49,14 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
 "longDescription":"Beeper is a universal chat app. With Beeper, you can send\nand receive messages to friends, family and colleagues on\nmany different chat networks.\n",
 "mainProgram":"beeper",
 "maintainers":[],
-"name":"beeper-4.2.770",
+"name":"beeper-4.2.785",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -73,14 +74,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"beeper-4.2.770",
+"name":"beeper-4.2.785",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"beeper",
 "system":"x86_64-linux",
-"version":"4.2.770"
+"version":"4.2.785"
 },
 "deepdwn":{
 "meta":{
@@ -120,6 +121,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -189,13 +191,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
 "maintainers":[],
-"name":"equicord-2026-04-23",
+"name":"equicord-2026-04-29",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -210,6 +213,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -229,14 +233,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"equicord-2026-04-23",
+"name":"equicord-2026-04-29",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"equicord",
 "system":"x86_64-linux",
-"version":"2026-04-23"
+"version":"2026-04-29"
 },
 "how-to-convert":{
 "meta":{
@@ -276,6 +280,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -345,6 +350,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -354,7 +360,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hk6rh28a9qkbsjb3fadvmfb6iv6savfd-source/pkgs/lifeograph/default.nix",
+"file":"/nix/store/x0zwi5klc1rdi9bd2zgwyqzas5l68nig-source/pkgs/lifeograph/default.nix",
 "line":50
 },
 "name":"lifeograph-2.0.3",
@@ -372,6 +378,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -439,6 +446,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -509,6 +517,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Common Development and Distribution License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"cddl",
 "spdxId":"CDDL-1.0",
@@ -577,6 +586,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -646,6 +656,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -711,6 +722,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -726,7 +738,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hk6rh28a9qkbsjb3fadvmfb6iv6savfd-source/pkgs/uni-week-counter/default.nix",
+"file":"/nix/store/x0zwi5klc1rdi9bd2zgwyqzas5l68nig-source/pkgs/uni-week-counter/default.nix",
 "line":25
 },
 "name":"uni-week-counter-1.2.0-unstable-2026-02-15",
@@ -762,6 +774,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
