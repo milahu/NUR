@@ -1,16 +1,16 @@
 {
 "name":"k3a",
-"fetch_time":0.437,
-"eval_time":0.303,
+"fetch_time":0.552,
+"eval_time":0.301,
 "source":{
 "url":"https://github.com/k3a/nurpkgs",
-"rev":"1b08b9b0d92d90740e7d40b3a593957d59730093",
-"sha256":"096h3fi5h51rn92gpqi2gxcs4rspfk46201q51zmxcm8w222vfb0",
+"rev":"55e530ca1fa2d018e6d50bd5b0d0f487faa9c8f6",
+"sha256":"0087ky3fgpnr9m6a9h76mgkr436fxhgx69l6hz3yp3zj7aqqwwy7",
 "date":null
 },
-"source_storepath":"/nix/store/1xdl6dvl9c3lk4kz2znvqjggg3dijqz3-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"50614991020ae5f151ec38bdc0981071feadf791",
+"source_storepath":"/nix/store/bygahvd6i81s8ylfbsq06af6xz047vpx-source",
+"nixpkgs_storepath":"/nix/store/yfy6a1sq4vm3k1xfxawsfhzsa6f05nfz-source",
+"nur_combined_rev":"dea897d41cb89c1912a967585edede0a0fb3f50c",
 "packages":{
 "ib-tws":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -62,10 +63,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/1xdl6dvl9c3lk4kz2znvqjggg3dijqz3-source/pkgs/ib-tws/default.nix",
+"file":"/nix/store/bygahvd6i81s8ylfbsq06af6xz047vpx-source/pkgs/ib-tws/default.nix",
 "line":161
 },
-"name":"ib-tws-10.46.1c",
+"name":"ib-tws-10.46.1d",
 "nonTeamMaintainers":[
 {
 "email":"git+nix@catmail.app",
@@ -84,14 +85,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"ib-tws-10.46.1c",
+"name":"ib-tws-10.46.1d",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ib-tws",
 "system":"x86_64-linux",
-"version":"10.46.1c"
+"version":"10.46.1d"
 },
 "steghide":{
 "meta":{
@@ -130,6 +131,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2",
 "spdxId":"GPL-2.0",
@@ -145,7 +147,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/1xdl6dvl9c3lk4kz2znvqjggg3dijqz3-source/pkgs/steghide/default.nix",
+"file":"/nix/store/bygahvd6i81s8ylfbsq06af6xz047vpx-source/pkgs/steghide/default.nix",
 "line":33
 },
 "name":"steghide-0.5.1",
@@ -178,6 +180,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
