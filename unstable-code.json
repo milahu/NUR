@@ -1,16 +1,16 @@
 {
 "name":"unstable-code",
-"fetch_time":0.859,
-"eval_time":0.314,
+"fetch_time":0.419,
+"eval_time":0.302,
 "source":{
 "url":"https://github.com/unstable-code/nur-packages",
-"rev":"46d81d6766905897b7685df8be62f23729ac8f8d",
-"sha256":"1fgfp06y7pq3fq4bfwy7z5lnq74ny15xjbmfrv7gq4zrsn7y7fjj",
+"rev":"df6e9e51b01517f98c890ae097819ce9f3008d77",
+"sha256":"0cisl7ffkr9lyzw85x9vxv8csn421j1phar17w2glhf9zylw1yqj",
 "date":null
 },
-"source_storepath":"/nix/store/h5cz0zrbzbblvylsgl51f4v8b4hb9k1a-source",
-"nixpkgs_storepath":"/nix/store/iyzvfr3ifmgaliazg1vc5jdsp0m760rk-source",
-"nur_combined_rev":"1313bec82b358708361db6f615ebbf31acac5377",
+"source_storepath":"/nix/store/ndjiiy78kw0l8c1k9n6hn21frvc1cl57-source",
+"nixpkgs_storepath":"/nix/store/gbbajm9axchsvx9fwzccq18414f1ndql-source",
+"nur_combined_rev":"291f769ba4df1d85466a58d3c02bedfbbd58d083",
 "packages":{
 "wshowlyrics":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -60,7 +61,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h5cz0zrbzbblvylsgl51f4v8b4hb9k1a-source/pkgs/wshowlyrics/generic.nix",
+"file":"/nix/store/ndjiiy78kw0l8c1k9n6hn21frvc1cl57-source/pkgs/wshowlyrics/generic.nix",
 "line":89
 },
 "name":"wshowlyrics-0.10.0",
@@ -72,6 +73,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -79,6 +81,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -144,6 +147,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -155,10 +159,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h5cz0zrbzbblvylsgl51f4v8b4hb9k1a-source/pkgs/wshowlyrics/generic.nix",
+"file":"/nix/store/ndjiiy78kw0l8c1k9n6hn21frvc1cl57-source/pkgs/wshowlyrics/generic.nix",
 "line":89
 },
-"name":"wshowlyrics-unstable-2026-03-15",
+"name":"wshowlyrics-unstable-2026-05-03",
 "nonTeamMaintainers":[
 "unstable-code"
 ],
@@ -167,6 +171,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -174,6 +179,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -193,14 +199,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"wshowlyrics-unstable-2026-03-15",
+"name":"wshowlyrics-unstable-2026-05-03",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"wshowlyrics-unstable",
 "system":"x86_64-linux",
-"version":"2026-03-15"
+"version":"2026-05-03"
 }
 }
 }
