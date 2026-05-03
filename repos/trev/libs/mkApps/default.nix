@@ -1,32 +1,27 @@
 {
-  runtimeShell,
   stdenvNoCC,
+  replaceVars,
 }:
 
 builtins.mapAttrs (
   name: script:
   let
-    program = stdenvNoCC.mkDerivation {
-      name = name;
+    program = stdenvNoCC.mkDerivation (finalAttrs: {
+      inherit name;
+
+      app = replaceVars ./app.sh {
+        inherit script;
+      };
 
       dontUnpack = true;
       dontConfigure = true;
-
-      buildPhase = ''
-        echo "#!${runtimeShell}" >> ${name}
-        echo "${script}" >> ${name}
-        chmod +x ${name}
-      '';
-
+      dontBuild = true;
       doCheck = false;
 
       installPhase = ''
-        mkdir -p $out/bin
-        cp ${name} $out/bin/${name}
+        install -D ${finalAttrs.app} $out/bin/${name}
       '';
-
-      dontFixup = true;
-    };
+    });
   in
   {
     type = "app";
