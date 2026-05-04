@@ -1,0 +1,61 @@
+trace: evaluation warning: fontforge-20251009 was overridden with `version` but not `src` at ./default.nix:947:5.
+
+This is most likely not what you want. In order to properly change the version of a package, override
+both the `version` and `src` attributes:
+
+hello.overrideAttrs (oldAttrs: rec {
+  version = "1.0.0";
+  src = pkgs.fetchurl {
+    url = "mirror://gnu/hello/hello-${version}.tar.gz";
+    hash = "...";
+  };
+})
+
+(To silence this warning, set `__intentionallyOverridingVersion = true` in your `overrideAttrs` call.)
+
+trace: evaluation warning: dontRecurseIntoAttrs has been removed from pkgs, use `lib.dontRecurseIntoAttrs` instead
+trace: evaluation warning: 'makeOverridable' has been removed from pkgs, use `lib.makeOverridable` instead
+trace: evaluation warning: wine-11.0 was overridden with `version` but not `src` at ./pkgs/applications/emulators/wine/nocheckowner.nix:18:3.
+
+This is most likely not what you want. In order to properly change the version of a package, override
+both the `version` and `src` attributes:
+
+hello.overrideAttrs (oldAttrs: rec {
+  version = "1.0.0";
+  src = pkgs.fetchurl {
+    url = "mirror://gnu/hello/hello-${version}.tar.gz";
+    hash = "...";
+  };
+})
+
+(To silence this warning, set `__intentionallyOverridingVersion = true` in your `overrideAttrs` call.)
+
+error:
+… while querying the derivation named 'git-bug-0.8.0-unstable-2024-09-05'
+
+… while calling the 'foldl'' builtin
+
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:560:21:
+
+   559|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
+   560|       maintainers = unique (
+      |                     ^
+   561|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/lists.nix:1901:25:
+
+  1900|   */
+  1901|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
+      |                         ^
+  1902|
+
+error: undefined variable 'sudoforge'
+
+at ./pkgs/applications/version-management/git-bug/default.nix:46:62:
+
+    45|     license = licenses.gpl3Plus;
+    46|     maintainers = with maintainers; [ royneary DeeUnderscore sudoforge ];
+      |                                                              ^
+    47|     mainProgram = "git-bug";
