@@ -28,8 +28,8 @@
     description = "A Download Manager that speeds up your downloads";
     homepage = "https://abdownloadmanager.com/";
     license = lib.licenses.asl20;
-    platforms = lib.platforms.darwin ++ ["x86_64-linux"];
-    maintainers = ["Prinky"];
+    platforms = lib.platforms.unix;
+    maintainers = with lib.maintainers; [Prinky];
     mainProgram = "ab-download-manager";
     sourceProvenance = [lib.sourceTypes.binaryNativeCode];
   };

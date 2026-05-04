@@ -24,11 +24,14 @@
   passepartout = lib.callPackage ./pkgs/passepartout {};
   diffusionbee = lib.callPackage ./pkgs/diffusionbee {};
   redream-dev = lib.callPackage ./pkgs/redream-dev {};
+  betteraudio = lib.callPackage ./pkgs/betteraudio {};
+  linearmouse = lib.callPackage ./pkgs/linearmouse {};
   cot-editor = lib.callPackage ./pkgs/cot-editor {};
   playcover = lib.callPackage ./pkgs/playcover {};
   dropshare = lib.callPackage ./pkgs/dropshare {};
   convierto = lib.callPackage ./pkgs/convierto {};
   crossover = lib.callPackage ./pkgs/crossover {};
+  finetune = lib.callPackage ./pkgs/finetune {};
   open-emu = lib.callPackage ./pkgs/open-emu {};
   wg-nord = lib.callPackage ./pkgs/wg-nord {};
   roblox = lib.callPackage ./pkgs/roblox {};
@@ -82,10 +85,11 @@
   proton-sarek-bin = lib.callPackage ./pkgs/proton-sarek-bin {};
   proton-dw-bin = lib.callPackage ./pkgs/proton-dw-bin {};
   proton-em-bin = lib.callPackage ./pkgs/proton-em-bin {};
+
+  luxtorpeda-bin = lib.callPackage ./pkgs/luxtorpeda-bin {};
   boxtron-bin = lib.callPackage ./pkgs/boxtron-bin {};
 
   proton-cachyos-arm-bin = lib.callPackage ./pkgs/proton-cachyos-bin {type = "arm";};
   proton-cachyos-v1-bin = lib.callPackage ./pkgs/proton-cachyos-bin {type = "v1";};
   proton-cachyos-v3-bin = lib.callPackage ./pkgs/proton-cachyos-bin {type = "v3";};
-  proton-cachyos-v4-bin = lib.callPackage ./pkgs/proton-cachyos-bin {type = "v4";};
 }

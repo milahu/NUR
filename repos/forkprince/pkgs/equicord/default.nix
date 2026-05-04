@@ -1,32 +1,46 @@
 {
+  nix-update-script,
   fetchFromGitHub,
   fetchPnpmDeps,
-  stdenvNoCC,
   equicord,
   pnpm_10,
-  lib,
   ...
 }: let
-  ver = lib.helper.read ./version.json;
-  platform = stdenvNoCC.hostPlatform.system;
+  version = "2026-05-03";
 
-  src = fetchFromGitHub (lib.helper.getSingle ver);
+  src = fetchFromGitHub {
+    owner = "Equicord";
+    repo = "Equicord";
+    tag = version;
+    hash = "sha256-FjZnMKxtEQc0mjQwwHUd3O4waHHyuTVdS8ncjljPDsQ=";
+  };
+
+  pnpmDeps = fetchPnpmDeps {
+    inherit (equicord) pname;
+    inherit version src;
+    pnpm = pnpm_10;
+    fetcherVersion = 3;
+    hash = "sha256-RwppRWrEzIKZDb3QLVAMd1bHXyFwiatYNiNccVgrcWA=";
+  };
 in
-  equicord.overrideAttrs (old: rec {
-    inherit (ver) version;
-    inherit src;
-
-    pnpmDeps = fetchPnpmDeps {
-      inherit (old) pname;
-      inherit version src;
-      pnpm = pnpm_10;
-      fetcherVersion = 1;
-      hash = ver.pnpmHash.${platform};
-    };
+  equicord.overrideAttrs (old: {
+    inherit version src pnpmDeps;
 
     env =
       old.env
       // {
         EQUICORD_HASH = src.tag;
+      };
+
+    passthru =
+      (old.passthru or {})
+      // {
+        inherit pnpmDeps;
+        updateScript = nix-update-script {
+          extraArgs = [
+            "--version-regex"
+            "^(\\d{4}-\\d{2}-\\d{2})$"
+          ];
+        };
       };
   })
