@@ -69,6 +69,32 @@
       sha256 = "sha256-zVZgAvq6V85hxO79Ct8s+VVyf9yPa/YbRL4D5z31qEs=";
     };
   };
+  cpa-usage-keeper = {
+    pname = "cpa-usage-keeper";
+    version = "7e8b2707345d46f15180e2999e4da3733687d0a8";
+    src = fetchFromGitHub {
+      owner = "Willxup";
+      repo = "cpa-usage-keeper";
+      rev = "7e8b2707345d46f15180e2999e4da3733687d0a8";
+      fetchSubmodules = false;
+      sha256 = "sha256-7xBPKpOaea80/d83vOOPNfyUYUdB13mimNmQHwGN6Ik=";
+    };
+    extract = {
+      "web/package.json" = ./. + "/sha256-7xBPKpOaea80_d83vOOPNfyUYUdB13mimNmQHwGN6Ik=/web/package.json";
+      "web/package-lock.json" = ./. + "/sha256-7xBPKpOaea80_d83vOOPNfyUYUdB13mimNmQHwGN6Ik=/web/package-lock.json";
+    };date = "2026-05-03";
+  };
+  cpa-usage-keeper-stable = {
+    pname = "cpa-usage-keeper-stable";
+    version = "v1.3.3";
+    src = fetchFromGitHub {
+      owner = "Willxup";
+      repo = "cpa-usage-keeper";
+      rev = "v1.3.3";
+      fetchSubmodules = false;
+      sha256 = "sha256-7xBPKpOaea80/d83vOOPNfyUYUdB13mimNmQHwGN6Ik=";
+    };
+  };
   english_words = {
     pname = "english_words";
     version = "20f5cc9b3f0ccc8ce45d814c532b7c2031bba31c";
@@ -210,6 +236,25 @@
       "package.json" = ./. + "/sha256-JR+VLwXqMKACWB+4AIgWLIpZh0xtU9uCsiskra71BHQ=/package.json";
     };date = "2026-03-16";
   };
+  hmcl-dev-bin = {
+    pname = "hmcl-dev-bin";
+    version = "3.14.0.343";
+    src = fetchurl {
+      url = "https://github.com/HMCL-dev/HMCL/releases/download/v3.14.0.343/HMCL-3.14.0.343.jar";
+      sha256 = "sha256-aI7u4POi91EweLfqLs9GLJFA8IykPrycMeHADVopk84=";
+    };
+  };
+  hmcl-dev-src = {
+    pname = "hmcl-dev-src";
+    version = "v3.14.0.343";
+    src = fetchFromGitHub {
+      owner = "HMCL-dev";
+      repo = "HMCL";
+      rev = "v3.14.0.343";
+      fetchSubmodules = false;
+      sha256 = "sha256-zmgtg2GY58YcV0k8rP82KWlYT4Bv2kzTl5ScwDHXK9o=";
+    };
+  };
   libinput-three-finger-drag = {
     pname = "libinput-three-finger-drag";
     version = "6acd3f84b551b855b5f21b08db55e95dae3305c5";
@@ -310,18 +355,18 @@
   };
   nipaplay-reload-darwin = {
     pname = "nipaplay-reload-darwin";
-    version = "1.10.0";
+    version = "1.10.3";
     src = fetchurl {
-      url = "https://github.com/MCDFsteve/NipaPlay-Reload/releases/download/v1.10.0/NipaPlay_1.10.0_macOS_Universal.dmg";
-      sha256 = "sha256-KcProdsZ6E5xgY88Sa30tiI503zoclI1qGHGXue5MN4=";
+      url = "https://github.com/MCDFsteve/NipaPlay-Reload/releases/download/v1.10.3/NipaPlay_1.10.3_macOS_Universal.dmg";
+      sha256 = "sha256-mp8X/Yz55qnyDAra263Piyx+iJkmAdohKlbQRx1VJrw=";
     };
   };
   nipaplay-reload-x86_64-linux = {
     pname = "nipaplay-reload-x86_64-linux";
-    version = "1.10.0";
+    version = "1.10.3";
     src = fetchurl {
-      url = "https://github.com/MCDFsteve/NipaPlay-Reload/releases/download/v1.10.0/NipaPlay-1.10.0-Linux-amd64.AppImage";
-      sha256 = "sha256-LSNnqkW7ZltuAPd7V035K6sV397kcJj6yO8m+Vp2Oqg=";
+      url = "https://github.com/MCDFsteve/NipaPlay-Reload/releases/download/v1.10.3/NipaPlay-1.10.3-Linux-amd64.AppImage";
+      sha256 = "sha256-XNG9xrj9Shv8PX+9mT2JqbNvvXr6cxxhPVj+uyCwX/I=";
     };
   };
   pixy2 = {
@@ -373,29 +418,29 @@
   };
   v2ray-rules-dat-geoip = {
     pname = "v2ray-rules-dat-geoip";
-    version = "202605012242";
+    version = "202605022234";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202605012242/geoip.dat";
-      sha256 = "sha256-BoQBGsBQdyUkFPCXmYpspP0dcoGDSWoO69iiq9aZDD4=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202605022234/geoip.dat";
+      sha256 = "sha256-pAUICnzzXjsCRzCgcpN8Dclx6HDafWYW77o8qmk8pgo=";
     };
   };
   v2ray-rules-dat-geosite = {
     pname = "v2ray-rules-dat-geosite";
-    version = "202605012242";
+    version = "202605022234";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202605012242/geosite.dat";
-      sha256 = "sha256-y6g8i7aAO5bvZC3lpP7z/P8Al5Ig4KPRmVvn5AQmhLA=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202605022234/geosite.dat";
+      sha256 = "sha256-gCxZQj+lSKK61Sc0E5OMxtP5RDI9qbHbpmIFWp381Uo=";
     };
   };
   yass = {
     pname = "yass";
-    version = "1.24.7";
+    version = "1.24.8";
     src = fetchFromGitHub {
       owner = "hukeyue";
       repo = "yass";
-      rev = "1.24.7";
+      rev = "1.24.8";
       fetchSubmodules = true;
-      sha256 = "sha256-JaLMBv8NcVfmFp9MVE2bLPStCgIqwiELjRgq0v7VcIA=";
+      sha256 = "sha256-SbCMvGY743Xld6A/xqXrxZUzvGdX2NOlCypYbWHx/dk=";
     };
   };
 }
