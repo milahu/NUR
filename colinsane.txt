@@ -8,14 +8,14 @@ error:
       |                     ^
     50|       } else if type == "directory" then {
 
-… while calling 'callPackageWith'
+… while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:275:19:
+  at <nixpkgs> + /lib/customisation.nix:308:19:
 
-   274|   callPackageWith =
-   275|     autoArgs: fn: args:
+   307|     in
+   308|     autoArgs: fn: args:
       |                   ^
-   276|     let
+   309|     let
 
 … from call site
 
@@ -26,23 +26,23 @@ error:
       |     ^
   1082|     __functionArgs = args;
 
-… while calling anonymous lambda
+… while calling 'f''
 
-  at <nixpkgs> + /lib/customisation.nix:177:7:
+  at <nixpkgs> + /lib/customisation.nix:159:9:
 
-   176|     decorate (
-   177|       origArgs:
-      |       ^
-   178|       let
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:179:18:
+  at <nixpkgs> + /lib/customisation.nix:161:20:
 
-   178|       let
-   179|         result = f origArgs;
-      |                  ^
-   180|
+   160|         let
+   161|           result = f origArgs;
+      |                    ^
+   162|
 
 … while calling anonymous lambda
 
@@ -117,11 +117,11 @@ error:
 
 … while calling 'extendDerivation'
 
-  at <nixpkgs> + /lib/customisation.nix:410:26:
+  at <nixpkgs> + /lib/customisation.nix:401:26:
 
-   409|   extendDerivation =
-   410|     condition: passthru: drv:
+   400|   extendDerivation =
+   401|     condition: passthru: drv:
       |                          ^
-   411|     let
+   402|     let
 
-error: path '/nix/store/vngw6yi1liy3i6d7qlbbkpi9mx2mkak0-source.drv' is not valid
+error: path '/nix/store/6h1vi3829dmzc1ip11a96sgx7yr8ab4b-source.drv' is not valid
