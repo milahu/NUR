@@ -15,7 +15,6 @@ in
     environment.systemPackages = [ cfg.package ];
     environment.etc."crush/crush.json" = lib.mkIf (cfg.settings != { }) {
       source = charmLib.toCleanJSON cfg.settings;
-      mode = "0644";
     };
   };
 }
