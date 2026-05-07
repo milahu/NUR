@@ -1,16 +1,16 @@
 {
 "name":"prince213",
-"fetch_time":0.866,
-"eval_time":0.42,
+"fetch_time":0.777,
+"eval_time":0.452,
 "source":{
 "url":"https://github.com/Prince213/nix-packages",
-"rev":"fd7c22bfd93fe1c3c39a39a8c33c2a6940589fce",
-"sha256":"12x2vymy2s883isr9fs4xldf99hwjlbbvwcdsvvki4kas77kcsk6",
+"rev":"ac7dfd4f118a8921c0363c862d9fec652cf42acc",
+"sha256":"1prgqcwg9pb6y6zvr6niz8zz82idb8nx1z41qlmm0x3lq6srmwnk",
 "date":null
 },
-"source_storepath":"/nix/store/8njm4v9p4i12wi2qcl8nm3vs8nc2m83d-source",
-"nixpkgs_storepath":"/nix/store/mzrhrmpmvry81cbhf1p46ali0imp8vby-source",
-"nur_combined_rev":"f21a1e1bcffc360bf7a6a960d827adb98da93ff0",
+"source_storepath":"/nix/store/z93wjhh66nvms19ys38zhrr8ni8kfvjg-source",
+"nixpkgs_storepath":"/nix/store/f1bsvvkml2mdrwdjf095ahh03m84w9x1-source",
+"nur_combined_rev":"7097fd81b3fcb1389dd089319cd7f8d3c8f8e602",
 "packages":{
 "aidoku-cli":{
 "meta":{
@@ -83,10 +83,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8njm4v9p4i12wi2qcl8nm3vs8nc2m83d-source/pkgs/aidoku-cli/package.nix",
+"file":"/nix/store/z93wjhh66nvms19ys38zhrr8ni8kfvjg-source/pkgs/aidoku-cli/package.nix",
 "line":31
 },
-"name":"aidoku-cli-0-unstable-2026-04-07",
+"name":"aidoku-cli-0-unstable-2026-05-04",
 "nonTeamMaintainers":[
 {
 "email":"prc.zhao@outlook.com",
@@ -148,20 +148,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"aidoku-cli-0-unstable-2026-04-07",
+"name":"aidoku-cli-0-unstable-2026-05-04",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"aidoku-cli",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-04-07"
+"version":"0-unstable-2026-05-04"
 },
 "anytype-darwin":{
 "meta":{
 "available":false,
 "broken":false,
-"changelog":"https://community.anytype.io/t/anytype-desktop-0-54-0-released",
+"changelog":"https://github.com/anyproto/anytype-ts/releases/tag/v0.54.11",
 "description":"P2P note-taking tool",
 "homepage":"https://anytype.io/",
 "identifiers":{
@@ -216,22 +216,29 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/mzrhrmpmvry81cbhf1p46ali0imp8vby-source/pkgs/by-name/an/anytype/package.nix",
-"line":138
+"file":"/nix/store/f1bsvvkml2mdrwdjf095ahh03m84w9x1-source/pkgs/by-name/an/anytype/package.nix",
+"line":136
 },
 "name":"anytype-0.54.11",
 "nonTeamMaintainers":[
 {
-"email":"prc.zhao@outlook.com",
-"github":"Prince213",
-"githubId":25235514,
-"keys":[
+"email":"michal@koutensky.net",
+"github":"autrimpo",
+"githubId":5968483,
+"name":"Michal Koutensk\u00fd"
+},
 {
-"fingerprint":"2589 45E5 C556 7B4D B36C  3E28 A64B 5235 356E 16D1"
-}
-],
-"matrix":"@prince213:matrix.org",
-"name":"Sizhe Zhao"
+"email":"chocholaty.david@protonmail.com",
+"github":"adda0",
+"githubId":52529234,
+"matrix":"@adda0:matrix.org",
+"name":"David Chocholat\u00fd"
+},
+{
+"email":"kira.bruneau@pm.me",
+"github":"kira-bruneau",
+"githubId":382041,
+"name":"Kira Bruneau"
 }
 ],
 "outputsToInstall":[
@@ -245,14 +252,14 @@
 "unfree":true,
 "unsupported":true
 },
-"name":"anytype-0.54.11",
+"name":"anytype-0.55.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"anytype",
 "system":"x86_64-linux",
-"version":"0.54.11"
+"version":"0.55.4"
 },
 "cronet-go":{
 "meta":{
@@ -314,10 +321,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8njm4v9p4i12wi2qcl8nm3vs8nc2m83d-source/pkgs/cronet-go/package.nix",
+"file":"/nix/store/z93wjhh66nvms19ys38zhrr8ni8kfvjg-source/pkgs/cronet-go/package.nix",
 "line":95
 },
-"name":"cronet-go-147.0.7727.49-1",
+"name":"cronet-go-148.0.7778.96-1-unstable-2026-05-02",
 "nonTeamMaintainers":[
 {
 "email":"prc.zhao@outlook.com",
@@ -367,14 +374,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cronet-go-147.0.7727.49-1",
+"name":"cronet-go-148.0.7778.96-1-unstable-2026-05-02",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cronet-go",
 "system":"x86_64-linux",
-"version":"147.0.7727.49-1"
+"version":"148.0.7778.96-1-unstable-2026-05-02"
 },
 "gallant":{
 "meta":{
@@ -435,7 +442,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8njm4v9p4i12wi2qcl8nm3vs8nc2m83d-source/pkgs/gallant/package.nix",
+"file":"/nix/store/z93wjhh66nvms19ys38zhrr8ni8kfvjg-source/pkgs/gallant/package.nix",
 "line":44
 },
 "name":"gallant-0-unstable-2025-12-06",
@@ -531,7 +538,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8njm4v9p4i12wi2qcl8nm3vs8nc2m83d-source/pkgs/imunes/package.nix",
+"file":"/nix/store/z93wjhh66nvms19ys38zhrr8ni8kfvjg-source/pkgs/imunes/package.nix",
 "line":40
 },
 "name":"imunes-3.0.0b",
@@ -664,7 +671,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8njm4v9p4i12wi2qcl8nm3vs8nc2m83d-source/pkgs/kodama/package.nix",
+"file":"/nix/store/z93wjhh66nvms19ys38zhrr8ni8kfvjg-source/pkgs/kodama/package.nix",
 "line":27
 },
 "name":"kodama-0.9.9-delta",
@@ -797,22 +804,25 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/mzrhrmpmvry81cbhf1p46ali0imp8vby-source/pkgs/by-name/lt/ltspice/package.nix",
+"file":"/nix/store/f1bsvvkml2mdrwdjf095ahh03m84w9x1-source/pkgs/by-name/lt/ltspice/package.nix",
 "line":87
 },
 "name":"ltspice-26.0.1",
 "nonTeamMaintainers":[
 {
-"email":"prc.zhao@outlook.com",
-"github":"Prince213",
-"githubId":25235514,
+"email":"zimward@zimward.moe",
+"github":"zimward",
+"githubId":96021122,
 "keys":[
 {
-"fingerprint":"2589 45E5 C556 7B4D B36C  3E28 A64B 5235 356E 16D1"
+"fingerprint":"CBF7 FA5E F4B5 8B68 5977  3E3E 4CAC 61D6 A482 FCD9"
+},
+{
+"fingerprint":"E22F 760E E074 E57A 21CB  1733 8DD2 9BB5 2C25 EA09"
 }
 ],
-"matrix":"@prince213:matrix.org",
-"name":"Sizhe Zhao"
+"matrix":"@zimward:zimward.moe",
+"name":"zimward"
 }
 ],
 "outputsToInstall":[
@@ -899,7 +909,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8njm4v9p4i12wi2qcl8nm3vs8nc2m83d-source/pkgs/mccgdi/package.nix",
+"file":"/nix/store/z93wjhh66nvms19ys38zhrr8ni8kfvjg-source/pkgs/mccgdi/package.nix",
 "line":70
 },
 "name":"mccgdi-2.0.10",
@@ -946,7 +956,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/klzgrad/naiveproxy/releases/tag/v147.0.7727.49-2",
+"changelog":"https://github.com/klzgrad/naiveproxy/releases/tag/v148.0.7778.96-3",
 "description":"Use Chromium's network stack to camouflage traffic",
 "downloadPage":"https://github.com/klzgrad/naiveproxy/releases",
 "homepage":"https://github.com/klzgrad/naiveproxy",
@@ -1004,10 +1014,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8njm4v9p4i12wi2qcl8nm3vs8nc2m83d-source/pkgs/naiveproxy/package.nix",
-"line":119
+"file":"/nix/store/z93wjhh66nvms19ys38zhrr8ni8kfvjg-source/pkgs/naiveproxy/package.nix",
+"line":162
 },
-"name":"naiveproxy-147.0.7727.49-2",
+"name":"naiveproxy-148.0.7778.96-3",
 "nonTeamMaintainers":[
 {
 "email":"prc.zhao@outlook.com",
@@ -1053,18 +1063,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/naiveproxy/package.nix:114",
+"position":"./pkgs/naiveproxy/package.nix:157",
 "unfree":false,
 "unsupported":false
 },
-"name":"naiveproxy-147.0.7727.49-2",
+"name":"naiveproxy-148.0.7778.96-3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"naiveproxy",
 "system":"x86_64-linux",
-"version":"147.0.7727.49-2"
+"version":"148.0.7778.96-3"
 },
 "qqmusic-darwin":{
 "meta":{
@@ -1124,22 +1134,24 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/mzrhrmpmvry81cbhf1p46ali0imp8vby-source/pkgs/by-name/qq/qqmusic/package.nix",
+"file":"/nix/store/f1bsvvkml2mdrwdjf095ahh03m84w9x1-source/pkgs/by-name/qq/qqmusic/package.nix",
 "line":142
 },
 "name":"qqmusic-1.1.8",
 "nonTeamMaintainers":[
 {
-"email":"prc.zhao@outlook.com",
-"github":"Prince213",
-"githubId":25235514,
+"email":"b980120@hotmail.com",
+"github":"xddxdd",
+"githubId":5778879,
 "keys":[
 {
-"fingerprint":"2589 45E5 C556 7B4D B36C  3E28 A64B 5235 356E 16D1"
+"fingerprint":"2306 7C13 B6AE BDD7 C0BB  5673 27F3 1700 E751 EC22"
+},
+{
+"fingerprint":"B195 E8FB 873E 6020 DCD1  C0C6 B50E C319 385F CB0D"
 }
 ],
-"matrix":"@prince213:matrix.org",
-"name":"Sizhe Zhao"
+"name":"Yuhui Xu"
 }
 ],
 "outputsToInstall":[
@@ -1227,7 +1239,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8njm4v9p4i12wi2qcl8nm3vs8nc2m83d-source/pkgs/rime-wubi98/package.nix",
+"file":"/nix/store/z93wjhh66nvms19ys38zhrr8ni8kfvjg-source/pkgs/rime-wubi98/package.nix",
 "line":41
 },
 "name":"rime-wubi98-0-unstable-2025-07-10",
@@ -1332,7 +1344,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8njm4v9p4i12wi2qcl8nm3vs8nc2m83d-source/pkgs/rindex/package.nix",
+"file":"/nix/store/z93wjhh66nvms19ys38zhrr8ni8kfvjg-source/pkgs/rindex/package.nix",
 "line":28
 },
 "name":"rindex-0-unstable-2025-11-11",
@@ -1465,7 +1477,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8njm4v9p4i12wi2qcl8nm3vs8nc2m83d-source/pkgs/shanghaitech-mirror-frontend/package.nix",
+"file":"/nix/store/z93wjhh66nvms19ys38zhrr8ni8kfvjg-source/pkgs/shanghaitech-mirror-frontend/package.nix",
 "line":90
 },
 "name":"shanghaitech-mirror-frontend-0-unstable-2026-01-06",
@@ -1568,10 +1580,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/mzrhrmpmvry81cbhf1p46ali0imp8vby-source/pkgs/by-name/si/sing-box/package.nix",
+"file":"/nix/store/f1bsvvkml2mdrwdjf095ahh03m84w9x1-source/pkgs/by-name/si/sing-box/package.nix",
 "line":74
 },
-"name":"sing-box-1.13.9",
+"name":"sing-box-1.13.11",
 "nonTeamMaintainers":[
 {
 "email":"nickcao@nichi.co",
@@ -1711,10 +1723,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/mzrhrmpmvry81cbhf1p46ali0imp8vby-source/pkgs/by-name/si/sing-box/package.nix",
+"file":"/nix/store/f1bsvvkml2mdrwdjf095ahh03m84w9x1-source/pkgs/by-name/si/sing-box/package.nix",
 "line":74
 },
-"name":"sing-box-beta-1.14.0-alpha.20",
+"name":"sing-box-beta-1.14.0-alpha.21",
 "nonTeamMaintainers":[
 {
 "email":"nickcao@nichi.co",
@@ -1779,14 +1791,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sing-box-app-beta-1.14.0-alpha.20",
+"name":"sing-box-app-beta-1.14.0-alpha.21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sing-box-app-beta",
 "system":"x86_64-linux",
-"version":"1.14.0-alpha.20"
+"version":"1.14.0-alpha.21"
 },
 "sing-box-beta":{
 "meta":{
@@ -1854,10 +1866,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/mzrhrmpmvry81cbhf1p46ali0imp8vby-source/pkgs/by-name/si/sing-box/package.nix",
+"file":"/nix/store/f1bsvvkml2mdrwdjf095ahh03m84w9x1-source/pkgs/by-name/si/sing-box/package.nix",
 "line":74
 },
-"name":"sing-box-beta-1.14.0-alpha.20",
+"name":"sing-box-beta-1.14.0-alpha.21",
 "nonTeamMaintainers":[
 {
 "email":"nickcao@nichi.co",
@@ -1918,14 +1930,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sing-box-beta-1.14.0-alpha.20",
+"name":"sing-box-beta-1.14.0-alpha.21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sing-box-beta",
 "system":"x86_64-linux",
-"version":"1.14.0-alpha.20"
+"version":"1.14.0-alpha.21"
 },
 "termius-app":{
 "meta":{
@@ -1987,10 +1999,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8njm4v9p4i12wi2qcl8nm3vs8nc2m83d-source/pkgs/termius-app/package.nix",
-"line":29
+"file":"/nix/store/z93wjhh66nvms19ys38zhrr8ni8kfvjg-source/pkgs/termius-app/package.nix",
+"line":28
 },
-"name":"termius-app-9.37.6",
+"name":"termius-app-9.38.1",
 "nonTeamMaintainers":[
 {
 "email":"prc.zhao@outlook.com",
@@ -2013,7 +2025,7 @@
 "x86_64-darwin",
 "x86_64-linux"
 ],
-"position":"./pkgs/termius-app/package.nix:23",
+"position":"./pkgs/termius-app/package.nix:22",
 "sourceProvenance":[
 {
 "isSource":false,
@@ -2023,14 +2035,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"termius-app-9.37.6",
+"name":"termius-app-9.38.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"termius-app",
 "system":"x86_64-linux",
-"version":"9.37.6"
+"version":"9.38.1"
 },
 "vips_8_14_5":{
 "meta":{
@@ -2099,7 +2111,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/mzrhrmpmvry81cbhf1p46ali0imp8vby-source/pkgs/by-name/vi/vips/package.nix",
+"file":"/nix/store/f1bsvvkml2mdrwdjf095ahh03m84w9x1-source/pkgs/by-name/vi/vips/package.nix",
 "line":172
 },
 "name":"vips-8.14.5",
@@ -2255,7 +2267,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8njm4v9p4i12wi2qcl8nm3vs8nc2m83d-source/pkgs/wubi98-fonts/package.nix",
+"file":"/nix/store/z93wjhh66nvms19ys38zhrr8ni8kfvjg-source/pkgs/wubi98-fonts/package.nix",
 "line":35
 },
 "name":"wubi98-fonts-2024-01-31",

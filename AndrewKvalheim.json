@@ -1,16 +1,16 @@
 {
 "name":"AndrewKvalheim",
-"fetch_time":2.979,
-"eval_time":0.367,
+"fetch_time":3.655,
+"eval_time":0.385,
 "source":{
 "url":"https://codeberg.org/AndrewKvalheim/configuration",
-"rev":"c00dfe12717f59ae4c32eb728e551fa8f219dceb",
-"sha256":"0w74wjphf24c36vm06nx1wij8asxgv2cn5yipdzzp6nmpyfj93j1",
+"rev":"4ae952e97d8d1abf9a130404a25404eec241c5c1",
+"sha256":"0xy7lxjb60krivf99j954nap6xckfp2llck3db9zr7plmc0725ck",
 "date":null
 },
-"source_storepath":"/nix/store/2w59yzld81r4rmg8d1ds7p3cysqz3frr-configuration",
-"nixpkgs_storepath":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source",
-"nur_combined_rev":"f4e2c5e4abab42eb0319584830882a3f38678547",
+"source_storepath":"/nix/store/s2lf8j2md1zsyp3xa72rrkqs6s95d43f-configuration",
+"nixpkgs_storepath":"/nix/store/f1bsvvkml2mdrwdjf095ahh03m84w9x1-source",
+"nur_combined_rev":"e699082192506476304dc03bf24c3e29ccaa4fef",
 "packages":{
 "ai-robots-txt":{
 "meta":{
@@ -267,7 +267,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/JnyJny/busylight/releases/tag/v0.45.3",
+"changelog":"https://github.com/JnyJny/busylight/releases/tag/v0.48.0",
 "description":"Control USB connected presence lights from multiple vendors via the command-line or web API",
 "homepage":"https://github.com/JnyJny/busylight",
 "identifiers":{
@@ -359,10 +359,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/zrmz5bl7nn6n242w90f2nw06pa4qh15s-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
-"line":74
+"file":"/nix/store/f1bsvvkml2mdrwdjf095ahh03m84w9x1-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
+"line":75
 },
-"name":"python3.13-busyserve-0.45.3",
+"name":"python3.13-busyserve-0.48.0",
 "nonTeamMaintainers":[
 {
 "email":"janne@hess.ooo",
@@ -415,11 +415,11 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/development/python-modules/busylight-for-humans/default.nix:70",
+"position":"<nixpkgs> + /pkgs/development/python-modules/busylight-for-humans/default.nix:71",
 "unfree":false,
 "unsupported":false
 },
-"name":"busyserve-0.45.3",
+"name":"busyserve-0.48.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -427,7 +427,7 @@
 },
 "pname":"busyserve",
 "system":"x86_64-linux",
-"version":"0.45.3"
+"version":"0.48.0"
 },
 "caddy-with-cache-route53":{
 "meta":{
@@ -728,7 +728,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./library/chunker.pkg.nix:22",
+"position":"./library/chunker.pkg.nix:38",
 "unfree":false,
 "unsupported":false
 },
