@@ -1,0 +1,116 @@
+error:
+… from call site
+
+  at <nixpkgs> + /lib/filesystem.nix:393:27:
+
+   392|               # recurse into directories
+   393|               "${name}" = packagesFromDirectoryRecursive (
+      |                           ^
+   394|                 args
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/filesystem.nix:415:5:
+
+   414|     in
+   415|     {
+      |     ^
+   416|       callPackage,
+
+… from call site
+
+  at <nixpkgs> + /lib/filesystem.nix:425:7:
+
+   424|       # if `${directory}/package.nix` exists, call it directly
+   425|       callPackage defaultPath { }
+      |       ^
+   426|     else if args ? newScope then
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+
+   307|     in
+   308|     autoArgs: fn: args:
+      |                   ^
+   309|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1081:5:
+
+  1080|     # TODO: Should we add call-time "type" checking like built in?
+  1081|     __functor = self: f;
+      |     ^
+  1082|     __functionArgs = args;
+
+… while calling 'f''
+
+  at <nixpkgs> + /lib/customisation.nix:159:9:
+
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:161:20:
+
+   160|         let
+   161|           result = f origArgs;
+      |                    ^
+   162|
+
+… while calling anonymous lambda
+
+  at ./pkgs/vintagestory-beta/package.nix:1:1:
+
+     1| {
+      | ^
+     2|   vintagestory,
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1081:5:
+
+  1080|     # TODO: Should we add call-time "type" checking like built in?
+  1081|     __functor = self: f;
+      |     ^
+  1082|     __functionArgs = args;
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:172:13:
+
+   171|             */
+   172|             newArgs: makeOverridable f (origArgs // (if isFunction newArgs then newArgs origArgs else newArgs))
+      |             ^
+   173|           );
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1081:5:
+
+  1080|     # TODO: Should we add call-time "type" checking like built in?
+  1081|     __functor = self: f;
+      |     ^
+  1082|     __functionArgs = args;
+
+… while calling 'f''
+
+  at <nixpkgs> + /lib/customisation.nix:159:9:
+
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
+
+error: function 'anonymous lambda' called with unexpected argument 'dotnet-runtime_8'
+
+at <nixpkgs> + /pkgs/by-name/vi/vintagestory/package.nix:1:1:
+
+     1| {
+      | ^
+     2|   lib,
+Did you mean dotnet-runtime_10?

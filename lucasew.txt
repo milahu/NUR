@@ -26,13 +26,13 @@ error:
       |               ^
     10|   in
 
-… while calling 'callPackageWith'
+… while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:275:19:
+  at <nixpkgs> + /lib/customisation.nix:308:19:
 
-   274|   callPackageWith =
-   275|     autoArgs: fn: args:
+   307|     in
+   308|     autoArgs: fn: args:
       |                   ^
-   276|     let
+   309|     let
 
 error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "flake" at ./nix/pkgs/custom/neovim/default.nix:3, did you mean "flare", "blaze" or "bmake"?'
