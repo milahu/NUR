@@ -19,4 +19,6 @@
   coderabbit-cli = pkgs.callPackage ./pkgs/coderabbit-cli { };
   commiter = pkgs.callPackage ./pkgs/commiter { };
   t3code = pkgs.callPackage ./pkgs/t3code { };
+  hunk = pkgs.callPackage ./pkgs/hunk { };
+  plannotator = pkgs.callPackage ./pkgs/plannotator { };
 }
