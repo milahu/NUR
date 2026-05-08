@@ -31,16 +31,16 @@ hello.overrideAttrs (oldAttrs: rec {
 (To silence this warning, set `__intentionallyOverridingVersion = true` in your `overrideAttrs` call.)
 
 error:
-… while querying the derivation named 'git-bug-0.8.0-unstable-2024-09-05'
+… while querying the derivation named 'httpdirfs-1.2.7-3b4632d'
 
 … while calling the 'foldl'' builtin
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:560:21:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:569:21:
 
-   559|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
-   560|       maintainers = unique (
+   568|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
+   569|       maintainers = unique (
       |                     ^
-   561|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
+   570|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
 
 … while calling anonymous lambda
 
@@ -51,11 +51,11 @@ error:
       |                         ^
   1902|
 
-error: undefined variable 'sudoforge'
+error: undefined variable 'sbruder'
 
-at ./pkgs/applications/version-management/git-bug/default.nix:46:62:
+at ./pkgs/by-name/ht/httpdirfs/package.nix:64:7:
 
-    45|     license = licenses.gpl3Plus;
-    46|     maintainers = with maintainers; [ royneary DeeUnderscore sudoforge ];
-      |                                                              ^
-    47|     mainProgram = "git-bug";
+    63|     maintainers = with lib.maintainers; [
+    64|       sbruder
+      |       ^
+    65|       schnusch

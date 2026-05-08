@@ -1,0 +1,47 @@
+error:
+… while evaluating the 'name' attribute of a derivation
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:551:13:
+
+   550|             in
+   551|             lib.strings.sanitizeDerivationName (
+      |             ^
+   552|               if attrs ? name then
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/strings.nix:2902:5:
+
+  2901|     in
+  2902|     string:
+      |     ^
+  2903|     # First detect the common case of already valid strings, to speed those up
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:556:24:
+
+   555|                 # we cannot coerce null to a string below
+   556|                 assert assertMsg (
+      |                        ^
+   557|                   attrs ? version && attrs.version != null
+
+… while calling 'assertMsg'
+
+  at <nixpkgs> + /lib/asserts.nix:50:21:
+
+    49|   # TODO(Profpatsch): add tests that check stderr
+    50|   assertMsg = pred: msg: pred || throw msg;
+      |                     ^
+    51|
+
+error: attribute 'agent-run' missing
+
+at ./pkgs/agent-run.nix:9:20:
+
+     8| let
+     9|   agentRunSource = sources.agent-run;
+      |                    ^
+    10|   shortCommit = lib.substring 0 7 agentRunSource.version;
