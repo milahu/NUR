@@ -8,7 +8,7 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "mqtt-cli";
-  version = "4.50.0";
+  version = "4.51.0";
 
   __structuredAttrs = true;
 
@@ -16,7 +16,7 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "hivemq";
     repo = "mqtt-cli";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-nkoQ52sfnp+rt8WzrgKLGEg1Cqq6Dad00wiItbWQ7G8=";
+    hash = "sha256-LeqQ1VCWcvQS1IfWN3Z6kdMUHOX6jidOo43ur769aDg=";
     name = "mqtt-cli-${finalAttrs.version}.jar";
   };
 
