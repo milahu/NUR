@@ -1,16 +1,16 @@
 {
 "name":"ilya-fedin",
-"fetch_time":0.592,
-"eval_time":0.353,
+"fetch_time":0.553,
+"eval_time":0.341,
 "source":{
 "url":"https://github.com/ilya-fedin/nur-repository",
-"rev":"05d5912cc2b28c2d0b25b04123c8478a36c0691b",
-"sha256":"1ci4af66qmzwcqxyfpav4n6i19kqbwfyisyb15kd4q1kqkzxcrby",
+"rev":"a9ec06ecb4d222835f3a870afdb6de35767c2e72",
+"sha256":"05anv7421ykkv7dy446xjjbyzc6l89v2yqb220cs4m9a2gki5fq5",
 "date":null
 },
-"source_storepath":"/nix/store/fvi443w3x79jbrfg7cw30518qzhqih20-source",
-"nixpkgs_storepath":"/nix/store/8zhwjag50xsflz2i30i9bm9grrn21w3x-source",
-"nur_combined_rev":"71283800e14ea3b8fa897b631cb50875d67d7465",
+"source_storepath":"/nix/store/ifwd211zqypcp1nk77n92ppgd91ady7w-source",
+"nixpkgs_storepath":"/nix/store/wzrd2zpvw41bki91h5mzmw5mchh43zjr-source",
+"nur_combined_rev":"025bfc9e976c2c51fa412df9e210398fbbe8315a",
 "packages":{
 "airsane":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -70,6 +71,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -77,6 +79,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -203,6 +206,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -210,6 +214,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -237,6 +242,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -250,7 +256,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8zhwjag50xsflz2i30i9bm9grrn21w3x-source/pkgs/by-name/hp/hplip/package.nix",
+"file":"/nix/store/wzrd2zpvw41bki91h5mzmw5mchh43zjr-source/pkgs/by-name/hp/hplip/package.nix",
 "line":361
 },
 "name":"hplip-3.25.2",
@@ -321,7 +327,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:231",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:230",
 "unfree":false,
 "unsupported":false
 },
@@ -371,6 +377,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -404,7 +411,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8zhwjag50xsflz2i30i9bm9grrn21w3x-source/pkgs/tools/misc/qt6ct/default.nix",
+"file":"/nix/store/wzrd2zpvw41bki91h5mzmw5mchh43zjr-source/pkgs/tools/misc/qt6ct/default.nix",
 "line":46
 },
 "name":"qt6ct-0.11",
@@ -438,6 +445,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -445,6 +453,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -477,7 +486,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://www.samba.org/samba/history/samba-4.22.7.html",
+"changelog":"https://www.samba.org/samba/history/samba-4.23.5.html",
 "description":"Standard Windows interoperability suite of programs for Linux and Unix",
 "homepage":"https://www.samba.org",
 "identifiers":{
@@ -511,6 +520,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -526,10 +536,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8zhwjag50xsflz2i30i9bm9grrn21w3x-source/pkgs/servers/samba/4.x.nix",
-"line":346
+"file":"/nix/store/wzrd2zpvw41bki91h5mzmw5mchh43zjr-source/pkgs/servers/samba/4.x.nix",
+"line":354
 },
-"name":"samba-4.22.7",
+"name":"samba-4.23.5",
 "nonTeamMaintainers":[
 {
 "email":"aneeshusa@gmail.com",
@@ -562,6 +572,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -569,6 +580,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -598,11 +610,11 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/servers/samba/4.x.nix:342",
+"position":"<nixpkgs> + /pkgs/servers/samba/4.x.nix:350",
 "unfree":false,
 "unsupported":false
 },
-"name":"samba-4.22.7",
+"name":"samba-4.23.5",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -611,7 +623,7 @@
 },
 "pname":"samba",
 "system":"x86_64-linux",
-"version":"4.22.7"
+"version":"4.23.5"
 },
 "silver":{
 "meta":{
@@ -661,6 +673,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",
@@ -742,7 +755,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:231",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:230",
 "unfree":false,
 "unsupported":false
 },

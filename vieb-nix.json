@@ -1,22 +1,22 @@
 {
 "name":"vieb-nix",
-"fetch_time":0.494,
-"eval_time":0.279,
+"fetch_time":0.518,
+"eval_time":0.3,
 "source":{
 "url":"https://github.com/tejing1/vieb-nix",
-"rev":"980dff47eec61233a60066edfed6e904c700e459",
-"sha256":"1sbwfk7fvhr6d3741vwj3s1s1ll88slj54b729xga4gybvjkv4vr",
+"rev":"9bfaa2761e6328e293d8214365da495dcbe20428",
+"sha256":"1yaclf9wnhxwb3j6kn0208ny23lalm59cgr88kpzbs5sp5n6caqc",
 "date":null
 },
-"source_storepath":"/nix/store/dmm1spk97sv0n5yn6ymq21yzjwl812ca-source",
-"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
-"nur_combined_rev":"517917e38a34485570df3832d193dfe744e4cc16",
+"source_storepath":"/nix/store/gg26gpz0g4347124wq1ilyfh7pgfa04f-source",
+"nixpkgs_storepath":"/nix/store/wzrd2zpvw41bki91h5mzmw5mchh43zjr-source",
+"nur_combined_rev":"df18fc3985757fcc4a0eeee8c061d7cc5929a38c",
 "packages":{
 "vieb":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/Jelmerro/Vieb/releases/tag/12.8.0",
+"changelog":"https://github.com/Jelmerro/Vieb/releases/tag/12.9.0",
 "description":"Vim Inspired Electron Browser",
 "homepage":"https://vieb.dev/",
 "identifiers":{
@@ -50,6 +50,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -57,7 +58,7 @@
 },
 "mainProgram":"vieb",
 "maintainers":[],
-"name":"vieb-12.8.0",
+"name":"vieb-12.9.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -72,6 +73,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -79,6 +81,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -112,14 +115,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"vieb-12.8.0",
+"name":"vieb-12.9.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vieb",
 "system":"x86_64-linux",
-"version":"12.8.0"
+"version":"12.9.0"
 }
 }
 }
