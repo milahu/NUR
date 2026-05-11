@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="backnotprop/plannotator"
-NIX_FILE="pkgs/plannotator/default.nix"
+REPO="schpet/linear-cli"
+NIX_FILE="pkgs/linear-cli/default.nix"
 
 die() {
-  echo "error: $*" >&2
+  printf 'error: %s\n' "$*" >&2
   exit 1
 }
 
@@ -30,12 +30,12 @@ prefetch_sri() {
   local url="$1"
   nix --extra-experimental-features 'nix-command flakes' \
     store prefetch-file --json "$url" \
-    | python3 -c 'import sys, json; d=json.load(sys.stdin); print(d.get("hash") or d["narHash"])'
+    | python3 -c 'import json, sys; data = json.load(sys.stdin); print(data.get("hash") or data["narHash"])'
 }
 
 discover_latest_version() {
   if [ -n "${FORCE_VERSION:-}" ]; then
-    echo "$FORCE_VERSION"
+    printf '%s\n' "$FORCE_VERSION"
     return 0
   fi
 
@@ -43,7 +43,7 @@ discover_latest_version() {
   tag=$(curl -fsSL -H 'Accept: application/vnd.github+json' \
     "https://api.github.com/repos/${REPO}/releases/latest" \
     | python3 -c 'import json, sys; print(json.load(sys.stdin)["tag_name"])')
-  echo "${tag#v}"
+  printf '%s\n' "${tag#v}"
 }
 
 current_version() {
@@ -111,46 +111,34 @@ main() {
 
   if [ -z "$ver" ]; then
     echo "warning: could not discover latest version automatically." >&2
-    if [ -n "${FORCE_VERSION:-}" ]; then
-      echo "using FORCE_VERSION=$FORCE_VERSION" >&2
-      ver="$FORCE_VERSION"
-    else
-      echo "nothing to do; exiting successfully" >&2
-      exit 0
-    fi
+    exit 0
   fi
 
   if [ "$ver" = "$cur" ] && [ -z "${FORCE_VERSION:-}" ]; then
-    echo "plannotator is already up-to-date ($ver)."
+    echo "linear-cli is already up-to-date ($ver)."
     exit 0
   fi
 
   if [ "$ver" = "$cur" ]; then
-    echo "Refreshing plannotator hashes for version $ver"
+    echo "Refreshing linear-cli hashes for version $ver"
   else
-    echo "Updating plannotator: $cur -> $ver"
+    echo "Updating linear-cli: $cur -> $ver"
   fi
 
-  declare -A OS_BY_SYSTEM=(
-    [x86_64-linux]=linux
-    [aarch64-linux]=linux
-    [x86_64-darwin]=darwin
-    [aarch64-darwin]=darwin
-  )
-  declare -A ARCH_BY_SYSTEM=(
-    [x86_64-linux]=x64
-    [aarch64-linux]=arm64
-    [x86_64-darwin]=x64
-    [aarch64-darwin]=arm64
+  declare -A TARGET_BY_SYSTEM=(
+    [x86_64-linux]=x86_64-unknown-linux-gnu
+    [aarch64-linux]=aarch64-unknown-linux-gnu
+    [x86_64-darwin]=x86_64-apple-darwin
+    [aarch64-darwin]=aarch64-apple-darwin
   )
 
   local systems=(x86_64-linux aarch64-linux x86_64-darwin aarch64-darwin)
   declare -A HASH
 
   for sys in "${systems[@]}"; do
-    os="${OS_BY_SYSTEM[$sys]}"
-    arch="${ARCH_BY_SYSTEM[$sys]}"
-    url="https://github.com/${REPO}/releases/download/v${ver}/plannotator-${os}-${arch}"
+    local target url
+    target="${TARGET_BY_SYSTEM[$sys]}"
+    url="https://github.com/${REPO}/releases/download/v${ver}/linear-${target}.tar.xz"
     echo "Prefetching $sys from $url ..." >&2
     HASH[$sys]=$(prefetch_sri "$url")
   done
