@@ -62,12 +62,6 @@ let
       libc = "ucrt";
     }
     {
-      config = "aarch64-w64-mingw32";
-      libc = "ucrt";
-      rust.rustcTarget = "aarch64-pc-windows-gnullvm";
-      useLLVM = true;
-    }
-    {
       config = "x86_64-apple-darwin";
       xcodePlatform = "MacOSX";
       platform = { };
@@ -95,6 +89,7 @@ let
         overlays.packages
         overlays.images
         overlays.libs
+        overlays.trev
       ];
       config = {
         allowUnfree = true;
@@ -216,27 +211,41 @@ eachSystemOp (
       attrs
       // {
         ${key} = (attrs.${key} or { }) // {
-          ${system} = builtins.mapAttrs (
-            name: package:
-            package.overrideAttrs (
-              _: prev: {
-                passthru =
-                  (prev.passthru or { })
-                  // builtins.listToAttrs (
-                    builtins.filter (pv: pv.value != null) (
-                      map (cross: {
-                        name = cross.platform.config;
-                        value =
-                          if (lib.meta.availableOn cross.platform package) then
-                            tryEval (fixWindows (fixDarwin (fixStatic (cross.flake.${key}.${name}))))
-                          else
-                            null;
-                      }) crosses
-                    )
-                  );
-              }
-            )
-          ) (lib.filterAttrs (_: package: lib.meta.availableOn { inherit system; } package) flake.${key});
+          ${system} =
+            builtins.mapAttrs
+              (
+                name: package:
+                package.overrideAttrs (
+                  _: prev: {
+                    passthru =
+                      (prev.passthru or { })
+                      // builtins.listToAttrs (
+                        builtins.filter (pv: pv.value != null) (
+                          map (cross: {
+                            name = cross.platform.config;
+                            value =
+                              if (lib.meta.availableOn cross.platform package) then
+                                tryEval (fixWindows (fixDarwin (fixStatic (cross.flake.${key}.${name}))))
+                              else
+                                null;
+                          }) crosses
+                        )
+                      );
+                  }
+                )
+              )
+              (
+                lib.filterAttrs (
+                  name: package:
+                  let
+                    res = builtins.tryEval package;
+                  in
+                  if res.success then
+                    lib.meta.availableOn { inherit system; } package
+                  else
+                    builtins.warn "Failed to evaluate ${key}.${name} for system ${system}" false
+                ) flake.${key}
+              );
         };
       }
 
