@@ -284,13 +284,24 @@
   };
   xdg = {
     pname = "xdg";
-    version = "0.7.0";
+    version = "0.16.0";
     src = fetchFromGitHub {
       owner = "wrvsrx";
       repo = "xdg";
-      rev = "0.7.0";
+      rev = "0.16.0";
       fetchSubmodules = false;
-      sha256 = "sha256-BQ+lc8R8GxK4ucin6rKMIL8R2ZzPiF2ezfRAb8AOePg=";
+      sha256 = "sha256-Urw4KJESiDLEg9fZ8haNlq5iP+P92bcHdgieIR/Xjvg=";
+    };
+  };
+  xdg-user-dirs = {
+    pname = "xdg-user-dirs";
+    version = "0.3.0";
+    src = fetchFromGitHub {
+      owner = "wrvsrx";
+      repo = "xdg-user-dirs";
+      rev = "0.3.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-s62/B5MUn5Dk6gjYbE6UN3H1+bnEF3iwjQxsPkm/me8=";
     };
   };
 }
