@@ -63,57 +63,57 @@ error:
 
 … while calling 'mkDerivation'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:72:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:83:18:
 
-    71|   */
-    72|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+    82|   */
+    83|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
       |                  ^
-    73|
+    84|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:72:29:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:83:29:
 
-    71|   */
-    72|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+    82|   */
+    83|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
       |                             ^
-    73|
+    84|
 
 … while calling 'makeDerivationExtensible'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:83:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:94:5:
 
-    82|   makeDerivationExtensible =
-    83|     rattrs:
+    93|   makeDerivationExtensible =
+    94|     rattrs:
       |     ^
-    84|     let
+    95|     let
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:140:22:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:151:22:
 
-   139|
-   140|       finalPackage = mkDerivationSimple overrideAttrs args;
+   150|
+   151|       finalPackage = mkDerivationSimple overrideAttrs args;
       |                      ^
-   141|
+   152|
 
 … while calling 'mkDerivationSimple'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:771:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:895:5:
 
-   770|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
-   771|     {
+   894|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   895|     {
       |     ^
-   772|
+   896|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:879:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:985:5:
 
-   878|
-   879|     extendDerivation validity.handled (
+   984|
+   985|     extendDerivation validity.handled (
       |     ^
-   880|       {
+   986|       {
 
 … while calling 'extendDerivation'
 
@@ -124,4 +124,4 @@ error:
       |                          ^
    402|     let
 
-error: path '/nix/store/53n1xzrb75wazmlla5brb9lh55cdvjqb-source.drv' is not valid
+error: path '/nix/store/hl9v3vxb1b08gz0gcd1xny3ag86fpj8z-source.drv' is not valid

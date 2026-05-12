@@ -1,4 +1,4 @@
-trace: Nixpkgs version : 25.11pre883899.02f2cb8e0feb,
+trace: Nixpkgs version : 26.05pre995785.c6e5ca3c836a,
   Nixos Version : master,
   Local Usage : false
 error:
@@ -11,41 +11,41 @@ error:
       |                   ^
     66|   go-sdl2 = pkgs.callPackage ./pkgs/go-sdl2 { inherit (mylib.gomod2nix) buildGoApplication; };
 
-… while calling 'callPackageWith'
-
-  at <nixpkgs> + /lib/customisation.nix:260:19:
-
-   259|   callPackageWith =
-   260|     autoArgs: fn: args:
-      |                   ^
-   261|     let
-
-… from call site
-
-  at <nixpkgs> + /lib/trivial.nix:1009:5:
-
-  1008|     # TODO: Should we add call-time "type" checking like built in?
-  1009|     __functor = self: f;
-      |     ^
-  1010|     __functionArgs = args;
-
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:162:7:
+  at <nixpkgs> + /lib/customisation.nix:308:19:
 
-   161|     mirrorArgs (
-   162|       origArgs:
-      |       ^
-   163|       let
+   307|     in
+   308|     autoArgs: fn: args:
+      |                   ^
+   309|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:164:18:
+  at <nixpkgs> + /lib/trivial.nix:1081:5:
 
-   163|       let
-   164|         result = f origArgs;
-      |                  ^
-   165|
+  1080|     # TODO: Should we add call-time "type" checking like built in?
+  1081|     __functor = self: f;
+      |     ^
+  1082|     __functionArgs = args;
+
+… while calling 'f''
+
+  at <nixpkgs> + /lib/customisation.nix:159:9:
+
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:161:20:
+
+   160|         let
+   161|           result = f origArgs;
+      |                    ^
+   162|
 
 … while calling anonymous lambda
 
@@ -64,49 +64,31 @@ error:
       |              ^
      7| in {
 
-… while calling 'callPackageWith'
+… while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:260:19:
+  at <nixpkgs> + /lib/customisation.nix:308:19:
 
-   259|   callPackageWith =
-   260|     autoArgs: fn: args:
+   307|     in
+   308|     autoArgs: fn: args:
       |                   ^
-   261|     let
+   309|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:274:11:
+  at <nixpkgs> + /lib/customisation.nix:311:15:
 
-   273|         (
-   274|           filterAttrs (name: value: !value)
-      |           ^
-   275|             # Filter out arguments that would be passed
-
-… while calling 'filterAttrs'
-
-  at <nixpkgs> + /lib/attrsets.nix:663:23:
-
-   662|   */
-   663|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
-      |                       ^
-   664|
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:263:15:
-
-   262|       f = if isFunction fn then fn else import fn;
-   263|       fargs = functionArgs f;
+   310|       f = if isFunction fn then fn else import fn;
+   311|       fargs = functionArgs f;
       |               ^
-   264|
+   312|
 
 … while calling 'functionArgs'
 
-  at <nixpkgs> + /lib/trivial.nix:1027:5:
+  at <nixpkgs> + /lib/trivial.nix:1104:5:
 
-  1026|   functionArgs =
-  1027|     f:
+  1103|   functionArgs =
+  1104|     f:
       |     ^
-  1028|     if f ? __functor then
+  1105|     if f ? __functor then
 
 error: getting status of './lib/gomod2nix/builder': No such file or directory
