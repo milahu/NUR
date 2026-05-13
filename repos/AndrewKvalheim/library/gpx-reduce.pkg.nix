@@ -1,18 +1,15 @@
 { fetchFromGitHub
 , lib
-, stdenv
+, python3Packages
 , unstableGitUpdater
-
-  # Dependencies
-, python3
 }:
 
 let
   inherit (lib) licenses;
 in
-stdenv.mkDerivation {
+python3Packages.buildPythonApplication {
   pname = "gpx-reduce";
-  version = "0-unstable-2022-11-18";
+  version = "0-unstable-2026-05-07";
   meta = {
     description = "Script that removes unnecessary points from GPX files";
     homepage = "https://github.com/Alezy80/gpx_reduce";
@@ -24,17 +21,17 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "Alezy80";
     repo = "gpx_reduce";
-    rev = "2f6d6d006871dfb19a15718ed6c6717009705abc";
-    hash = "sha256-unmarEs4xs5OYZg6xEdxYU+eoZnyYwpPQ/+cxouDfqE=";
+    rev = "9696a3df3380b5d857ba18da56b812386ff0a09b";
+    hash = "sha256-qvjS+bRrGRbClSHxiyjxU1hgCAy+Svh3pUDNLeYUKzQ=";
   };
 
-  buildInputs = [
-    (python3.withPackages (ps: with ps; [
-      iso8601
-      lxml
-      matplotlib
-      numpy
-    ]))
+  format = "pyproject";
+  nativeBuildInputs = with python3Packages; [ setuptools ];
+  dependencies = with python3Packages; [
+    iso8601
+    lxml
+    matplotlib
+    numpy
   ];
 
   doCheck = true;
