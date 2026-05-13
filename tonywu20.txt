@@ -1,20 +1,11 @@
 error:
-… from call site
+… while querying the derivation named 'amd-aocl-gcc-5.1.0'
 
-  at ./default.nix:26:19:
+error: attribute 'tonywu20' missing
 
-    25|
-    26|   nvidia-hpcsdk = pkgs.callPackage ./pkgs/nvidia/nvhpc.nix { };
-      |                   ^
-    27|
+at ./pkgs/amd/aocl.nix:115:21:
 
-… while calling 'callPackageWith'
-
-  at <nixpkgs> + /lib/customisation.nix:275:19:
-
-   274|   callPackageWith =
-   275|     autoArgs: fn: args:
-      |                   ^
-   276|     let
-
-error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "python310" at ./pkgs/nvidia/nvhpc.nix:18, did you mean "python311", "python312" or "python313"?'
+   114|     platforms = platforms.linux;
+   115|     maintainers = [ maintainers.tonywu20 ];
+      |                     ^
+   116|   };

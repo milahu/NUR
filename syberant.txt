@@ -1,0 +1,11 @@
+error:
+… while querying the derivation named 'Digital-0.29'
+
+error: attribute 'syberant' missing
+
+at ./pkgs/digital/default.nix:34:21:
+
+    33|     license = licenses.gpl3;
+    34|     maintainers = [ maintainers.syberant ];
+      |                     ^
+    35|     platforms = platforms.linux;
