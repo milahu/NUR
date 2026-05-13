@@ -1,16 +1,16 @@
 {
 "name":"itscrystalline",
-"fetch_time":0.417,
-"eval_time":0.357,
+"fetch_time":0.428,
+"eval_time":0.342,
 "source":{
 "url":"https://github.com/itscrystalline/nur-packages",
-"rev":"59f3880c60bfcfb304e431c99d20ea4d389752f2",
-"sha256":"0igzr8261skmk30q82l1ix6mnpnv285nywcm9zdf5zgi8g2ysy5a",
+"rev":"565cac2dc9303a501c3e0888a0918e790f1c4ec5",
+"sha256":"0nm9893vgrnxap2c6b6cl7ks7m009lgsa4ckrrhbdrgz5xv1x8hn",
 "date":null
 },
-"source_storepath":"/nix/store/69lf764ldg7472b45i46rgddc4jc8yx8-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"1c7e1e35b68446baa2e10b7c5144e6e9ace3e541",
+"source_storepath":"/nix/store/znlwabphf1wfrm30f5vw6qvkg2sazwj2-source",
+"nixpkgs_storepath":"/nix/store/gprk2qi3zgak4bfwjfp9ajffb69n0dsg-source",
+"nur_combined_rev":"35d9c12ca6db89e01da3d5cd64031b040d8666f8",
 "packages":{
 "app2unit":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -58,7 +59,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/69lf764ldg7472b45i46rgddc4jc8yx8-source/pkgs/app2unit/default.nix",
+"file":"/nix/store/znlwabphf1wfrm30f5vw6qvkg2sazwj2-source/pkgs/app2unit/default.nix",
 "line":32
 },
 "name":"app2unit-1.0.0",
@@ -87,11 +88,8 @@
 },
 "box64-static":{
 "meta":{
-"available":true,
+"available":false,
 "broken":false,
-"changelog":"https://github.com/ptitSeb/box64/releases/tag/v0.4.0",
-"description":"Lets you run x86_64 Linux programs on non-x86_64 Linux systems",
-"homepage":"https://box86.org/",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -119,83 +117,186 @@
 }
 },
 "insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"mainProgram":"box64",
-"maintainers":[
-{
-"email":"florian.brandes@posteo.de",
-"github":"gador",
-"githubId":1883533,
-"keys":[
-{
-"fingerprint":"0200 3EF8 8D2B CF2D 8F00  FFDC BBB3 E40E 5379 7FD9"
-}
-],
-"name":"Florian Brandes"
-},
-{
-"email":"opna2608@protonmail.com",
-"github":"OPNA2608",
-"githubId":23431373,
-"name":"Cosima Neidahl"
-}
-],
-"maintainersPosition":{
-"column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/applications/emulators/box64/default.nix",
-"line":105
-},
-"name":"box64-0.4.0",
-"nonTeamMaintainers":[
-{
-"email":"florian.brandes@posteo.de",
-"github":"gador",
-"githubId":1883533,
-"keys":[
-{
-"fingerprint":"0200 3EF8 8D2B CF2D 8F00  FFDC BBB3 E40E 5379 7FD9"
-}
-],
-"name":"Florian Brandes"
-},
-{
-"email":"opna2608@protonmail.com",
-"github":"OPNA2608",
-"githubId":23431373,
-"name":"Cosima Neidahl"
-}
-],
+"maintainers":[],
+"name":"box64-0.4.2",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
-"x86_64-linux",
 "aarch64-linux",
 "riscv64-linux",
 "powerpc64le-linux",
 "loongarch64-linux",
 "mips64el-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/emulators/box64/default.nix:102",
+"position":"<nixpkgs> + /pkgs/applications/emulators/box64/default.nix:27",
 "unfree":false,
-"unsupported":false
+"unsupported":true
 },
-"name":"box64-0.4.0",
+"name":"box64-0.4.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"box64",
 "system":"x86_64-linux",
-"version":"0.4.0"
+"version":"0.4.2"
+},
+"direnv-nvim":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"Lua implementation of direnv.vim for automatic .envrc handling & syntax. ",
+"homepage":"https://github.com/NotAShelf/direnv.nvim",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"direnv-nvim",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"direnv-nvim",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"mpl20",
+"spdxId":"MPL-2.0",
+"url":"https://spdx.org/licenses/MPL-2.0.html"
+},
+"maintainers":[],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/znlwabphf1wfrm30f5vw6qvkg2sazwj2-source/pkgs/direnv-nvim/default.nix",
+"line":22
+},
+"name":"vimplugin-direnv-nvim-5641462",
+"nonTeamMaintainers":[],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"i686-cygwin",
+"x86_64-cygwin",
+"x86_64-darwin",
+"aarch64-darwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd",
+"aarch64-genode",
+"i686-genode",
+"x86_64-genode",
+"x86_64-solaris",
+"javascript-ghcjs",
+"aarch64-linux",
+"arc-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"sh4-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"mmix-mmixware",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"aarch64_be-none",
+"aarch64-none",
+"arm-none",
+"armv6l-none",
+"avr-none",
+"i686-none",
+"microblaze-none",
+"microblazeel-none",
+"mips-none",
+"mips64-none",
+"msp430-none",
+"or1k-none",
+"m68k-none",
+"powerpc-none",
+"powerpcle-none",
+"riscv32-none",
+"riscv64-none",
+"rx-none",
+"s390-none",
+"s390x-none",
+"vc4-none",
+"x86_64-none",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox",
+"wasm64-wasi",
+"wasm32-wasi",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
+],
+"position":"./pkgs/direnv-nvim/default.nix:18",
+"sourceProvenance":[
+{
+"isSource":true,
+"shortName":"fromSource"
+}
+],
+"unfree":false,
+"unsupported":false
+},
+"name":"vimplugin-direnv-nvim-5641462",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"vimplugin-direnv-nvim",
+"system":"x86_64-linux",
+"version":"5641462"
 },
 "esp-config":{
 "meta":{
@@ -246,6 +347,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -255,6 +357,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -265,7 +368,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/69lf764ldg7472b45i46rgddc4jc8yx8-source/pkgs/esp-config/default.nix",
+"file":"/nix/store/znlwabphf1wfrm30f5vw6qvkg2sazwj2-source/pkgs/esp-config/default.nix",
 "line":33
 },
 "name":"esp-config-1.0.0",
@@ -370,6 +473,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -397,6 +501,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -405,7 +510,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/69lf764ldg7472b45i46rgddc4jc8yx8-source/pkgs/ha_tuya_ble/default.nix",
+"file":"/nix/store/znlwabphf1wfrm30f5vw6qvkg2sazwj2-source/pkgs/ha_tuya_ble/default.nix",
 "line":32
 },
 "name":"python3.14-jbsky/tuya_ble-0.2.4",
@@ -423,6 +528,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -501,6 +607,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -528,6 +635,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -536,7 +644,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/69lf764ldg7472b45i46rgddc4jc8yx8-source/pkgs/hass-localtuya/default.nix",
+"file":"/nix/store/znlwabphf1wfrm30f5vw6qvkg2sazwj2-source/pkgs/hass-localtuya/default.nix",
 "line":24
 },
 "name":"python3.14-xZetsubou/localtuya-2025.11.0",
@@ -554,6 +662,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -625,6 +734,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -633,7 +743,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/69lf764ldg7472b45i46rgddc4jc8yx8-source/pkgs/ipynb-nvim/default.nix",
+"file":"/nix/store/znlwabphf1wfrm30f5vw6qvkg2sazwj2-source/pkgs/ipynb-nvim/default.nix",
 "line":36
 },
 "name":"vimplugin-ipynb-nvim-1.6.6",
@@ -663,6 +773,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -779,6 +890,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -788,7 +900,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/69lf764ldg7472b45i46rgddc4jc8yx8-source/pkgs/irony-mod-manager/default.nix",
+"file":"/nix/store/znlwabphf1wfrm30f5vw6qvkg2sazwj2-source/pkgs/irony-mod-manager/default.nix",
 "line":78
 },
 "name":"irony-mod-manager-1.27.158",
@@ -863,6 +975,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",
@@ -872,7 +985,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/69lf764ldg7472b45i46rgddc4jc8yx8-source/pkgs/occasion/default.nix",
+"file":"/nix/store/znlwabphf1wfrm30f5vw6qvkg2sazwj2-source/pkgs/occasion/default.nix",
 "line":25
 },
 "name":"occasion-0.3.0",
@@ -982,6 +1095,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1009,6 +1123,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Universal Permissive License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"upl",
 "spdxId":"UPL-1.0",
@@ -1018,7 +1133,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/69lf764ldg7472b45i46rgddc4jc8yx8-source/pkgs/oci-image-migrate/default.nix",
+"file":"/nix/store/znlwabphf1wfrm30f5vw6qvkg2sazwj2-source/pkgs/oci-image-migrate/default.nix",
 "line":70
 },
 "name":"oci-image-migrate-0.11.6",
@@ -1036,6 +1151,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1114,6 +1230,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1141,6 +1258,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Universal Permissive License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"upl",
 "spdxId":"UPL-1.0",
@@ -1150,7 +1268,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/69lf764ldg7472b45i46rgddc4jc8yx8-source/pkgs/oci-utils/default.nix",
+"file":"/nix/store/znlwabphf1wfrm30f5vw6qvkg2sazwj2-source/pkgs/oci-utils/default.nix",
 "line":114
 },
 "name":"oci-utils-0.11.6",
@@ -1168,6 +1286,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1240,6 +1359,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Universal Permissive License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"upl",
 "spdxId":"UPL-1.0",
@@ -1249,7 +1369,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/69lf764ldg7472b45i46rgddc4jc8yx8-source/pkgs/oracle-cloud-agent/default.nix",
+"file":"/nix/store/znlwabphf1wfrm30f5vw6qvkg2sazwj2-source/pkgs/oracle-cloud-agent/default.nix",
 "line":74
 },
 "name":"oracle-cloud-agent-1.56.0-7",
@@ -1317,6 +1437,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -1351,6 +1472,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
