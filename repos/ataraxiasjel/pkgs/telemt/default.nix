@@ -6,16 +6,16 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "telemt";
-  version = "3.3.39";
+  version = "3.4.11";
 
   src = fetchFromGitHub {
     owner = "telemt";
     repo = "telemt";
     rev = finalAttrs.version;
-    hash = "sha256-HTerDyqfTqC2x2BN/NjLkSLqSsAQHbecdJjpIAIfHqs=";
+    hash = "sha256-jBspeSj8aRbHngK8bviVt/i1UiYUPRHSd8+7dnmJOQY=";
   };
 
-  cargoHash = "sha256-cW5iVcUg3wnOfpN9CY89FCSObgZlbu55L4V9C4qPjJo=";
+  cargoHash = "sha256-x5/SLSlYeGx40oXj/I/5zvyTNgSBwKsA33OwVIq9LGw=";
 
   passthru.updateScript = nix-update-script { };
 
