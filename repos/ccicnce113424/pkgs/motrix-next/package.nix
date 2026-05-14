@@ -25,16 +25,16 @@ let
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "motrix-next";
-  version = "3.6.3";
+  version = "3.8.9";
 
   src = fetchFromGitHub {
     owner = "AnInsomniacy";
     repo = "motrix-next";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-u4t/QIRFDuvGPA4+p4OuS6tDnU6+ZmEJSfOYIh//NaQ=";
+    hash = "sha256-Z3oGUwol6vtnrjpvJdPtrdaoaANaW3dtl2vNwpmMXEM=";
   };
 
-  cargoHash = "sha256-WcYXb5UF4mhahYQ5Jomsph+UHWqa+3cjRQdJyydw7oY=";
+  cargoHash = "sha256-BWPYzGYw6W3Gl1T+eXINFgbo58rvOzOUMa83fcOHJq0=";
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs)
@@ -43,7 +43,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
       src
       ;
     inherit pnpm;
-    hash = "sha256-WvcN4LLRKiOxYEjImZ7VerwHFj33ELJvDKyP3F2UYG8=";
+    hash = "sha256-BjBC7w2I5VCP59H7TqsIpDLvsfOhGVkfUPmvfzyndaI=";
     fetcherVersion = 3;
   };
 
@@ -73,7 +73,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   cargoRoot = "src-tauri";
   buildAndTestSubdir = finalAttrs.cargoRoot;
 
-  checkFlags = lib.optional stdenv.hostPlatform.isDarwin "--skip=commands::protocol::tests::macos_tests::get_default_handler_bundle_id_returns_some_for_https";
+  # Some tests on macOS attempt to retrieve system settings, such as the default browser and system proxy.
+  doCheck = !stdenv.hostPlatform.isDarwin;
 
   # Deactivate the upstream update mechanism
   postPatch = ''
@@ -84,7 +85,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     src-tauri/tauri.conf.json | sponge src-tauri/tauri.conf.json
   '';
 
-  preFixup = lib.optionalString stdenv.hostPlatform.isLinux ''
+  postFixup = lib.optionalString stdenv.hostPlatform.isLinux ''
     gappsWrapperArgs+=(
       --prefix LD_LIBRARY_PATH : ${
         lib.makeLibraryPath [
@@ -98,7 +99,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
         ]
       }
       # Tricky way to make the protocol handler desktop file point to the wrapper
-      --set-default APPIMAGE $out/bin/motrix-next
+      --set-default APPIMAGE motrix-next
     )
     wrapGApp $out/bin/motrix-next
   '';

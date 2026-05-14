@@ -1,13 +1,27 @@
-# from flake-compat readme
-(import (
-  let
-    lock = builtins.fromJSON (builtins.readFile ./flake.lock);
-    nodeName = lock.nodes.root.inputs.flake-compat;
-  in
-  fetchTarball {
-    url =
-      lock.nodes.${nodeName}.locked.url
-        or "https://github.com/edolstra/flake-compat/archive/${lock.nodes.${nodeName}.locked.rev}.tar.gz";
-    sha256 = lock.nodes.${nodeName}.locked.narHash;
-  }
-) { src = ./.; }).defaultNix
+let
+  lockFile = builtins.fromJSON (builtins.readFile ./flake.lock);
+  flake-compat-node = lockFile.nodes.${lockFile.nodes.root.inputs.flake-compat};
+  flake-compat =
+    let
+      inherit (flake-compat-node) locked;
+    in
+    fetchTarball {
+      url =
+        locked.url or (
+          if locked.type == "github" then
+            "https://github.com/${locked.owner}/${locked.repo}/archive/${locked.rev}.tar.gz"
+          else
+            throw "Unsupported source type ${locked.type} for flake-compat"
+        );
+      sha256 = locked.narHash;
+    };
+
+  flake = (
+    import flake-compat {
+      src = ./.;
+      copySourceTreeToStore = false;
+      # useBuiltinsFetchTree = true;
+    }
+  );
+in
+flake.defaultNix

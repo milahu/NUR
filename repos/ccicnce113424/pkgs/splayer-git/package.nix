@@ -42,8 +42,8 @@ stdenv.mkDerivation (finalAttrs: {
       src
       ;
     inherit pnpm;
-    fetcherVersion = 2;
-    hash = "sha256-PTfZopse+9RS7qh0miLu3duYlWDfifZS254tZKqgxKk=";
+    fetcherVersion = 3;
+    hash = "sha256-NaKI2369TlF8DDMy6Q3RUqb2B2/T756Zd6gu4ATz/yc=";
   };
 
   cargoDeps = rustPlatform.fetchCargoVendor {
@@ -91,7 +91,6 @@ stdenv.mkDerivation (finalAttrs: {
     # of better-sqlite3. It has a native part that it wants to build using a
     # script which is disallowed.
     # What's more, we need to use headers from electron to avoid ABI mismatches.
-    # Adapted from mkYarnModules.
     for f in $(find . -path '*/node_modules/better-sqlite3' -type d); do
       (cd "$f" && (
       npm run build-release --offline --nodedir="${electron.headers}"

@@ -8,7 +8,7 @@ rec {
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-compat.url = "github:edolstra/flake-compat";
+    flake-compat.url = "github:lix-project/flake-compat";
     nvfetcher = {
       url = "github:berberman/nvfetcher/0.8.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,11 +25,14 @@ rec {
     flake-parts.lib.mkFlake { inherit inputs; } {
       _module.args = { inherit nixConfig; };
       systems = [ "x86_64-linux" ];
+      debug = true;
       imports = [
         ./treefmt.nix
         # optional: introduce nixpkgs into perSystem
         ./nixpkgs.nix
         ./pkgs/flake-module.nix
+        ./modules/flake-module.nix
+        ./tests/flake-module.nix
         ./github-actions.nix
       ];
       perSystem =
@@ -57,13 +60,11 @@ rec {
     accept-flake-config = true;
     extra-substituters = [
       "https://nix-community.cachix.org"
-      "https://numtide.cachix.org"
       "https://ccicnce113424.cachix.org"
       # "https://cache.garnix.io"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
       "ccicnce113424.cachix.org-1:OWV4fSkx7o7TinVCSD98zPG8udShCIjhyaAdOIRNetw="
       # "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
     ];

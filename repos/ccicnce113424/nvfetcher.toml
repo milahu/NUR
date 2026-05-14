@@ -13,7 +13,7 @@ fetch.github = "hihkm/DanmakuFactory"
 src.github = "hihkm/DanmakuFactory"
 
 [dxvk-gplall]
-fetch.url = "https://github.com/Digger1955/dxvk-gplasync-lowlatency/releases/download/DXVK-GPLALL-$ver/DXVK-GPLALL-MSVC-Windows-AVX2-O2-LTCG-AMD64.$ver.zip"
+fetch.url = "https://github.com/Digger1955/dxvk-gplasync-lowlatency/releases/download/DXVK-GPLALL-$ver/DXVK-GPLALL-MSVC-Windows-AVX2-O1_Oi_Ob3-LTCG-AMD64.$ver.zip"
 src.github_tag = "Digger1955/dxvk-gplasync-lowlatency"
 src.include_regex = "^DXVK-GPLALL-.+"
 src.prefix = "DXVK-GPLALL-"
@@ -27,10 +27,24 @@ cargo_lock = ["Cargo.lock"]
 fetch.github = "01mf02/jaq"
 src.github_tag = "01mf02/jaq"
 
+[jj-lsp]
+cargo_lock = ["Cargo.lock"]
+fetch.github = "nilskch/jj-lsp"
+src.github = "nilskch/jj-lsp"
+
 [kikoflu]
 extract = ["pubspec.lock"]
 fetch.github = "pa-jesusf/KikoFlu"
 src.github = "pa-jesusf/KikoFlu"
+
+[krunner-fd-plugin]
+fetch.github = "wangzk/krunner-fd-plugin"
+src.git = "https://github.com/wangzk/krunner-fd-plugin"
+
+[krunner-zed]
+cargo_lock = ["Cargo.lock"]
+fetch.github = "hron/krunner-zed"
+src.github = "hron/krunner-zed"
 
 [linux-enable-ir-emitter]
 cargo_lock = ["Cargo.lock"]
@@ -53,7 +67,7 @@ fetch.github = "chiyuki0325/lyrica"
 src.branch = "v1"
 src.git = "https://github.com/chiyuki0325/lyrica"
 
-[motrix-next]
+[motrix-next-beta]
 cargo_lock = ["src-tauri/Cargo.lock"]
 fetch.github = "AnInsomniacy/motrix-next"
 src.github_tag = "AnInsomniacy/motrix-next"
@@ -73,6 +87,10 @@ extract = ["pubspec.lock"]
 fetch.github = "wgh136/pixes"
 src.git = "https://github.com/wgh136/pixes"
 
+[pwasio]
+fetch.github = "golfiros/pwasio"
+src.git = "https://github.com/golfiros/pwasio"
+
 [splayer-git]
 cargo_lock = ["Cargo.lock"]
 fetch.github = "imsyy/SPlayer"
@@ -82,6 +100,15 @@ src.git = "https://github.com/imsyy/SPlayer"
 extract = ["metadata.json"]
 fetch.github = "lrst6963/Splayer-kde-bar-lyc"
 src.git = "https://github.com/lrst6963/Splayer-kde-bar-lyc"
+
+[splayer-next-dev]
+cargo_lock = ["Cargo.lock"]
+fetch.github = "SPlayer-Dev/SPlayer-Next"
+src.git = "https://github.com/SPlayer-Dev/SPlayer-Next"
+
+[svt-av1-essential]
+fetch.github = "nekotrix/SVT-AV1-Essential"
+src.github = "nekotrix/SVT-AV1-Essential"
 
 [svt-av1-hdr]
 fetch.github = "juliobbv-p/svt-av1-hdr"
