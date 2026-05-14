@@ -1,24 +1,24 @@
-{
-  lib,
-  rustPlatform,
-  fetchFromGitHub,
-  pkg-config,
-  udev,
-  libiio,
-  libevdev,
+{ lib
+, rustPlatform
+, fetchFromGitHub
+, pkg-config
+, udev
+, libiio
+, libevdev
+,
 }:
 
 rustPlatform.buildRustPackage rec {
   pname = "inputplumber";
-  
+
   version = "0.62.2";
-    src = fetchFromGitHub {
-      owner = "ShadowBlip";
-      repo = "InputPlumber";
-      rev = "v${version}";
-      hash = "sha256-dtRQeB2E/setGm0DEM/ikywU0LIRhOOjyRV0yuvuJQU=";
-    };
-    cargoHash = "sha256-EGIBBriAhqeAUQqlWPcAGdBAYWmYYnvc3ncYGc0ir3o=";
+  src = fetchFromGitHub {
+    owner = "ShadowBlip";
+    repo = "InputPlumber";
+    rev = "v${version}";
+    hash = "sha256-dtRQeB2E/setGm0DEM/ikywU0LIRhOOjyRV0yuvuJQU=";
+  };
+  cargoHash = "sha256-EGIBBriAhqeAUQqlWPcAGdBAYWmYYnvc3ncYGc0ir3o=";
 
   nativeBuildInputs = [
     pkg-config

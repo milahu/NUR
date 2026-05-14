@@ -9,10 +9,9 @@
 { pkgs ? import <nixpkgs> { }
 , pkgs-stable ? import <nixpkgs> { }
 , pkgs-yuzu ? import <nixpkgs> { }
+, pkgs-chaotic ? null
 ,
 }:
-
-
 
 rec {
   # The `lib`, `modules`, and `overlay` names are special
@@ -27,23 +26,26 @@ rec {
   buildtools = pkgs-stable.callPackage ./buildtools/shell { };
 
   # Rust
-  ncmdump-rs = pkgs.callPackage ./pkgs-by-lang/Rust/ncmdump.rs { };
-  rescrobbled = pkgs.callPackage ./pkgs-by-lang/Rust/rescrobbled { };
   #waylyrics = pkgs.callPackage ./pkgs-by-lang/Rust/waylyrics { };
-  aichat = pkgs.callPackage ./pkgs-by-lang/Rust/aichat { };
-  fww-checkin-rs = pkgs.callPackage ./pkgs-by-lang/Rust/fww-checkin-rs { };
+  quarkdrive-webdav = pkgs.callPackage ./pkgs-by-lang/Rust/quarkdrive-webdav { };
 
   # Dotnet
   BBDown = pkgs.callPackage ./pkgs-by-lang/Dotnet/BBDown { };
 
   # Go
+  dnstt = pkgs.callPackage ./pkgs-by-lang/Go/dnstt { };
+  fofax = pkgs.callPackage ./pkgs-by-lang/Go/fofax { };
   #open-snell = pkgs.callPackage ./pkgs-by-lang/Go/open-snell { };
   #mieru = pkgs.callPackage ./pkgs-by-lang/Go/mieru { };
+  T2D = pkgs.callPackage ./pkgs-by-lang/Go/T2D { };
+
 
   # Python
   jjwxcCrawler = pkgs.callPackage ./pkgs-by-lang/Python/jjwxcCrawler { };
   pynat = pkgs.callPackage ./pkgs-by-lang/Python/pynat { };
   pystun3 = pkgs.callPackage ./pkgs-by-lang/Python/pystun3 { };
+  kani = pkgs.callPackage ./pkgs-by-lang/Python/kani { };
+  routellm = pkgs.callPackage ./pkgs-by-lang/Python/routellm { };
   #LinguaGacha = pkgs.callPackage ./pkgs-by-lang/Python/LinguaGacha { };
 
   # C
@@ -52,9 +54,11 @@ rec {
   kagi-cli-shortcut = pkgs.callPackage ./pkgs-by-lang/C/kagi-cli-shortcut { };
   #koboldcpp = pkgs.callPackage ./pkgs-by-lang/C/koboldcpp { };
   Penguin-Subtitle-Player = pkgs.libsForQt5.callPackage ./pkgs-by-lang/C/Penguin-Subtitle-Player { };
+  slipstream = pkgs.callPackage ./pkgs-by-lang/C/slipstream { };
   suyu = pkgs-yuzu.qt6.callPackage ./pkgs-by-lang/C/suyu { };
   yuzu-early-access = pkgs-yuzu.qt6.callPackage ./pkgs-by-lang/C/yuzu { };
   rtptun = pkgs.callPackage ./pkgs-by-lang/C/rtptun { };
+  dwarfs = pkgs.callPackage ./pkgs-by-lang/C/dwarfs { };
 
   # Nodejs
 
@@ -75,22 +79,21 @@ rec {
     mpv = (pkgs.mpv-unwrapped.override { cddaSupport = true; });
     scripts = [ pkgs.mpvScripts.mpris ];
   };
-  misskey-new = pkgs.callPackage ./pkgs/Overrides/misskey { };
   llama-cpp-cuda = (pkgs.llama-cpp.override { config = { cudaSupport = true; rocmSupport = false; }; });
+  linux_cachyos-lto-x86_64-v3 =
+    if pkgs-chaotic != null then
+      (pkgs-chaotic.linuxPackages_cachyos-lto.cachyOverride { mArch = "GENERIC_V3"; }).kernel
+    else null;
+  inputplumber = pkgs.callPackage ./pkgs-by-lang/Rust/inputplumber { };
+  #xivlauncher-cn = pkgs.callPackage ./pkgs/Overrides/xivlauncher { };
 
   # System Fonts override
   JetBrainsMono-nerdfonts = pkgs.nerd-fonts.jetbrains-mono;
 
-  # Garnix generate cache
-  mongodb = pkgs-stable.mongodb;
-  cudatoolkit = pkgs.cudaPackages_12.cudatoolkit;
-  misskey = pkgs.misskey;
-  koboldcpp = (pkgs.koboldcpp.override { cublasSupport = true; clblastSupport = true; vulkanSupport = true; cudaArches = [ "sm_75" ]; });
   # Fonts
   ttf-ms-win10 = pkgs.callPackage ./pkgs/Fonts/ttf-ms-win10 { };
 
   # dream2nix
-
   # dream2nix-packages = dream2nix.lib.importPackages {
   #   projectRoot = ./.;
   #   projectRootFile = ".project-root";
@@ -100,18 +103,15 @@ rec {
   # aichat = dream2nix.lib.evalModules {
   #   packageSets.nixpkgs = pkgs;
   #   modules = [
-  #     # Import our actual package definiton as a dream2nix module from ./default.nix
   #     ./pkgs-dream2nix/aichat/default.nix
   #     {
-  #       # Aid dream2nix to find the project root. This setup should also works for mono
-  #       # repos. If you only have a single project, the defaults should be good enough.
   #       paths.projectRoot = ./.;
-  #       # can be changed to ".git" or "flake.nix" to get rid of .project-root
   #       paths.projectRootFile = "flake.nix";
   #       paths.package = ./.;
   #     }
   #   ];
   # };
+
 
 
   # Broken
@@ -123,7 +123,6 @@ rec {
   #DownOnSpot = pkgs.callPackage ./pkgs-by-lang/Rust/DownOnSpot { };
   #forkgram = pkgs.qt6.callPackage ./pkgs/Overrides/forkgram { };
   #torzu = pkgs.qt6.callPackage ./pkgs-by-lang/C/torzu { };
-  #ab-av1 = pkgs.callPackage ./pkgs-by-lang/Rust/ab-av1 { };
   #Anime4k-rs = pkgs.callPackage ./pkgs-by-lang/Rust/Anime4k-rs { };
   #av1an = pkgs.callPackage ./pkgs-by-lang/Rust/av1an { };
   #onedrive-fuse = pkgs.callPackage ./pkgs-by-lang/Rust/onedrive-fuse { };

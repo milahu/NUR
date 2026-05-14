@@ -15,27 +15,28 @@ pkgs.inputplumber.overrideAttrs (
     };
     cargoHash = "sha256-";
 
-  nativeBuildInputs = with pkgs; [
-    pkg-config
-    rustPlatform.bindgenHook
-  ];
+    nativeBuildInputs = with pkgs; [
+      pkg-config
+      rustPlatform.bindgenHook
+    ];
 
-  buildInputs = with pkgs; [
-    udev
-    libevdev
-    libiio
-  ];
+    buildInputs = with pkgs; [
+      udev
+      libevdev
+      libiio
+    ];
 
-  postInstall = ''
-    cp -r rootfs/usr/* $out/
-  '';
+    postInstall = ''
+      cp -r rootfs/usr/* $out/
+    '';
 
-  meta = {
-    description = "Open source input router and remapper daemon for Linux";
-    homepage = "https://github.com/ShadowBlip/InputPlumber";
-    license = lib.licenses.gpl3Plus;
-    changelog = "https://github.com/ShadowBlip/InputPlumber/releases/tag/v${version}";
-    maintainers = with lib.maintainers; [ shadowapex ];
-    mainProgram = "inputplumber"; };
+    meta = {
+      description = "Open source input router and remapper daemon for Linux";
+      homepage = "https://github.com/ShadowBlip/InputPlumber";
+      license = lib.licenses.gpl3Plus;
+      changelog = "https://github.com/ShadowBlip/InputPlumber/releases/tag/v${version}";
+      maintainers = with lib.maintainers; [ shadowapex ];
+      mainProgram = "inputplumber";
+    };
   }
 )

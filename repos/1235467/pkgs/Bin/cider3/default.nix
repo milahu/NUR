@@ -9,8 +9,8 @@
 
 let
   src = fetchurl {
-    url = "https://repo.cider.sh/arch/cider-v3.0.0-linux-x64.pkg.tar.zst";
-    sha256 = "sha256-+Rdak70dPmL/+DV5LhEY94ypEUz9FhxhOwVQ2V2Q/Xg=";
+    url = "https://repo.cider.sh/arch/cider-v3.1.8-linux-x64.pkg.tar.zst";
+    sha256 = "sha256-u8Ax2NqKxHhmzmm4eGUi6XpfPXHy6FndujtplnUfze4=";
   };
   resource = stdenv.mkDerivation rec {
     name = "cider-pkg";
@@ -25,7 +25,7 @@ let
 
   };
   steam-run = (pkgs.steam.override {
-    extraPkgs = p: (with pkgs; [ resource nss  ]);
+    extraPkgs = p: (with pkgs; [ resource nss ]);
     #runtimeOnly = true;
   }).run;
   startScript = pkgs.writeShellScript "cider" ''
@@ -35,10 +35,10 @@ let
   #libs = lib.makeLibraryPath  (with pkgs; [ dbus stdenv.cc.cc.lib glib nss]);
 in
 
-  
+
 stdenv.mkDerivation {
   pname = "cider";
-  version = "3.0.0";
+  version = "3.1.8";
   phases = [ "installPhase" ];
   nativeBuildInputs = [ autoPatchelfHook makeWrapper ];
   installPhase = ''

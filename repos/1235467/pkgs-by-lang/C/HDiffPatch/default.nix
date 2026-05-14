@@ -3,7 +3,6 @@
 , fetchFromGitHub
 , pkg-config
 , xz
-, lzma
 , bzip2
 , zstd
 , zlib
@@ -68,6 +67,6 @@ stdenv.mkDerivation rec {
     cp hpatchz $out/bin
   '';
 
-  nativeBuildInputs = [ pkg-config bzip2 xz zstd lzma zlib ];
-  BuildInputs = [ bzip2 xz zstd lzma zlib ];
+  nativeBuildInputs = [ pkg-config bzip2 xz zstd zlib ];
+  BuildInputs = [ bzip2 xz zstd zlib ];
 }

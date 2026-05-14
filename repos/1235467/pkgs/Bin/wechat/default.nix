@@ -1,6 +1,6 @@
 { stdenv
 , fetchurl
-, buildFHSUserEnvBubblewrap
+, buildFHSEnvBubblewrap
 , writeShellScript
 , electron
 , lib
@@ -43,7 +43,7 @@ let
     ${electron}/bin/electron \
       ${resource}/lib/wechat-uos
   '';
-  fhs = buildFHSUserEnvBubblewrap {
+  fhs = buildFHSEnvBubblewrap {
     name = "wechat-uos";
     targetPkgs = pkgs:
       with pkgs; [

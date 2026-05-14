@@ -33,14 +33,14 @@ stdenv.mkDerivation {
   nativeBuildInputs = [ autoPatchelfHook makeWrapper ];
   #inherit libs;
   installPhase = ''
-      mkdir -p $out/lib 
-      mkdir -p $out/bin
-      mkdir -p $out/share
-      cp -r ${resource}/lib/* $out/lib/
-      echo "$out/lib/cider/Cider --no-sandbox --disable-gpu-sandbox" > $out/bin/cider
-      cp -r ${resource}/share/* $out/share/
-      chmod 755 -R $out
-      autoPatchelf $out/lib/cider/Cider
+    mkdir -p $out/lib 
+    mkdir -p $out/bin
+    mkdir -p $out/share
+    cp -r ${resource}/lib/* $out/lib/
+    echo "$out/lib/cider/Cider --no-sandbox --disable-gpu-sandbox" > $out/bin/cider
+    cp -r ${resource}/share/* $out/share/
+    chmod 755 -R $out
+    autoPatchelf $out/lib/cider/Cider
   '';
   buildInputs = with pkgs; [
     stdenv.cc.cc.lib

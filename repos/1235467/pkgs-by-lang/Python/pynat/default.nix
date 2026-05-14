@@ -9,5 +9,7 @@ buildPythonApplication rec {
   propagatedBuildInputs = [
     six
   ];
+  pyproject = true;
+  build-system = [ setuptools ];
   inherit (sources.pynat) version src;
 }

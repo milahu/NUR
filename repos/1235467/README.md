@@ -8,24 +8,31 @@
 
 ### Packages
 
-* ab-av1
-* Anime4K-rs
-* av1an
 * BBDown
-* Cider 2.3.0 Unfree
-* DownOnSpot
 * HDiffPatch (required by dawn upgrade scripts for Genshin Impact)
-* Hydrogen Music
-* idntag
-* jjwxcCrawler
-* mpv with cdda support
-* ncmdump.rs
-* onedrive-fuse
 * Penguin-Subtitle-Player
+* aichat
+* candy
+* Cider 2.3.0 Unfree
+* cider3
+* feishu
+* fww-checkin-rs
+* Hydrogen Music
+* jjwxcCrawler
+* kagi-cli-shortcut
+* koboldcpp
+* llama-cpp-cuda
+* misskey-new
+* mpv with cdda support
+* ncmdump-rs
+* pynat
+* pystun3
+* quarkdrive-webdav
 * reflac
 * rescrobbled
-* sakaya
-* vkbasalt older version
-* waylyrics
-* kagi-cli-shortcut
-* open-snell
+* rtptun
+* slipstream
+* suyu
+* ttf-ms-win10
+* wechat
+* yuzu-early-access

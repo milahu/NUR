@@ -17,8 +17,13 @@
     flake = false;
   };
   #inputs.chaotic.url = "github:chaotic-cx/nyx/dc2d9e585f0dac249f4458d107da14bc132482cb";
-  inputs.chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";  
-
+  inputs.chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+  inputs.go-overlay = {
+    url = "github:purpleclay/go-overlay";
+    inputs = {
+      nixpkgs.follows = "nixpkgs";
+    };
+  };
   outputs =
     { self
     , nixpkgs
@@ -69,19 +74,45 @@
           #waylyrics = pkgs.callPackage ./pkgs-by-lang/Rust/waylyrics { };
           aichat = pkgs.callPackage ./pkgs-by-lang/Rust/aichat { };
           fww-checkin-rs = pkgs.callPackage ./pkgs-by-lang/Rust/fww-checkin-rs { };
+          quarkdrive-webdav = pkgs.callPackage ./pkgs-by-lang/Rust/quarkdrive-webdav { };
 
           # Dotnet
           BBDown = pkgs.callPackage ./pkgs-by-lang/Dotnet/BBDown { };
 
           # Go
+          dnstt = pkgs.callPackage ./pkgs-by-lang/Go/dnstt { };
+          fofax = pkgs.callPackage ./pkgs-by-lang/Go/fofax { };
           #open-snell = pkgs.callPackage ./pkgs-by-lang/Go/open-snell { };
           #mieru = pkgs.callPackage ./pkgs-by-lang/Go/mieru { };
           T2D = pkgs.callPackage ./pkgs-by-lang/Go/T2D { };
+
+          # Go packages requiring newer Go toolchain (via go-overlay)
+          pkgs-go = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+            overlays = [ inputs.go-overlay.overlays.default ];
+          };
+          bifrost-src = pkgs-go.fetchFromGitHub {
+            owner = "maximhq";
+            repo = "bifrost";
+            rev = "transports/v1.4.9";
+            sha256 = "sha256-/ZRl3f3DtcbviaI0TOtNMkwCD0eljQ1JbIM2DBlHakA=";
+          };
+          bifrost-ui = pkgs-go.callPackage ./pkgs-by-lang/Node/bifrost-ui {
+            src = bifrost-src;
+            version = "1.4.9";
+          };
+          bifrost = pkgs-go.callPackage ./pkgs-by-lang/Go/bifrost {
+            src = bifrost-src;
+            bifrost-ui = bifrost-ui;
+          };
 
           # Python
           jjwxcCrawler = pkgs.callPackage ./pkgs-by-lang/Python/jjwxcCrawler { };
           pynat = pkgs.callPackage ./pkgs-by-lang/Python/pynat { };
           pystun3 = pkgs.callPackage ./pkgs-by-lang/Python/pystun3 { };
+          kani = pkgs.callPackage ./pkgs-by-lang/Python/kani { };
+          routellm = pkgs.callPackage ./pkgs-by-lang/Python/routellm { };
           #LinguaGacha = pkgs.callPackage ./pkgs-by-lang/Python/LinguaGacha { };
 
           # C
@@ -90,9 +121,11 @@
           kagi-cli-shortcut = pkgs.callPackage ./pkgs-by-lang/C/kagi-cli-shortcut { };
           #koboldcpp = pkgs.callPackage ./pkgs-by-lang/C/koboldcpp { };
           Penguin-Subtitle-Player = pkgs.libsForQt5.callPackage ./pkgs-by-lang/C/Penguin-Subtitle-Player { };
+          slipstream = pkgs.callPackage ./pkgs-by-lang/C/slipstream { };
           suyu = pkgs-yuzu.qt6.callPackage ./pkgs-by-lang/C/suyu { };
           yuzu-early-access = pkgs-yuzu.qt6.callPackage ./pkgs-by-lang/C/yuzu { };
           rtptun = pkgs.callPackage ./pkgs-by-lang/C/rtptun { };
+          dwarfs = pkgs.callPackage ./pkgs-by-lang/C/dwarfs { };
 
           # Nodejs
 
@@ -113,20 +146,16 @@
             mpv = (pkgs.mpv-unwrapped.override { cddaSupport = true; });
             scripts = [ pkgs.mpvScripts.mpris ];
           };
-          misskey-new = pkgs.callPackage ./pkgs/Overrides/misskey { };
           llama-cpp-cuda = (pkgs.llama-cpp.override { config = { cudaSupport = true; rocmSupport = false; }; });
           linux_cachyos-lto-x86_64-v3 = (pkgs-chaotic.linuxPackages_cachyos-lto.cachyOverride { mArch = "GENERIC_V3"; }).kernel; # for cache
           inputplumber = pkgs.callPackage ./pkgs-by-lang/Rust/inputplumber { };
-          xivlauncher-cn = pkgs.callPackage ./pkgs/Overrides/xivlauncher { };
+          #xivlauncher-cn = pkgs.callPackage ./pkgs/Overrides/xivlauncher { };
 
           # System Fonts override
           JetBrainsMono-nerdfonts = pkgs.nerd-fonts.jetbrains-mono;
 
           # Garnix generate cache
           mongodb = pkgs-stable.mongodb;
-          cudatoolkit = pkgs.cudaPackages_12.cudatoolkit;
-          misskey = pkgs.misskey;
-          koboldcpp = (pkgs.koboldcpp.override { cublasSupport = true; clblastSupport = true; vulkanSupport = true; cudaArches = [ "sm_75" ]; });
           # Fonts
           ttf-ms-win10 = pkgs.callPackage ./pkgs/Fonts/ttf-ms-win10 { };
         }
