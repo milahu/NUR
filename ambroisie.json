@@ -1,16 +1,16 @@
 {
 "name":"ambroisie",
-"fetch_time":0.769,
-"eval_time":0.283,
+"fetch_time":0.392,
+"eval_time":0.303,
 "source":{
 "url":"https://github.com/ambroisie/nix-config",
-"rev":"eaf542722a8e55a8695cbf23fcb680cf59db8d41",
-"sha256":"0ckm8jxnk3y7ifxaafxapcxhyhdjf7xwd2v2699jf3714fv0mkhj",
+"rev":"c71306edfbd266f723e0d54e12c335a214cce129",
+"sha256":"03g16dn5za33dj5nad6ckwnjxbp3skdfbynflvkkbbsqn93v1ygy",
 "date":null
 },
-"source_storepath":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source",
-"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
-"nur_combined_rev":"6995ddf92e62d63c22d8d5d38df5203210075813",
+"source_storepath":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source",
+"nixpkgs_storepath":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source",
+"nur_combined_rev":"692879b00e9591b5275f57f46b16a33931707c3e",
 "packages":{
 "bw-pass":{
 "meta":{
@@ -50,6 +50,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -67,7 +68,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/bw-pass/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/bw-pass/default.nix",
 "line":40
 },
 "name":"bw-pass-0.1.0",
@@ -84,6 +85,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -91,6 +93,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -157,6 +160,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -174,7 +178,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/change-audio/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/change-audio/default.nix",
 "line":39
 },
 "name":"change-audio-0.3.0",
@@ -191,6 +195,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -198,6 +203,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -264,6 +270,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -281,7 +288,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/change-backlight/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/change-backlight/default.nix",
 "line":39
 },
 "name":"change-backlight-0.1.0",
@@ -298,6 +305,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -305,6 +313,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -371,6 +380,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -388,7 +398,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/comma/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/comma/default.nix",
 "line":37
 },
 "name":"comma-0.1.0",
@@ -413,6 +423,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -420,6 +431,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -500,6 +512,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -517,7 +530,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/diff-flake/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/diff-flake/default.nix",
 "line":38
 },
 "name":"diff-flake-0.4.0",
@@ -542,6 +555,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -549,6 +563,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -628,6 +643,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -644,7 +660,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/dragger/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/dragger/default.nix",
 "line":27
 },
 "name":"dragger-0.1.0",
@@ -661,6 +677,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -668,6 +685,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -734,6 +752,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -751,7 +770,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/drone-rsync/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/drone-rsync/default.nix",
 "line":38
 },
 "name":"drone-rsync-0.1.0",
@@ -776,6 +795,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -783,6 +803,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -863,6 +884,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -880,7 +902,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/i3-get-window-criteria/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/i3-get-window-criteria/default.nix",
 "line":39
 },
 "name":"i3-get-window-criteria-0.1.0",
@@ -905,6 +927,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -912,6 +935,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1003,6 +1027,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1012,6 +1037,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -1029,7 +1055,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/lohr/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/lohr/default.nix",
 "line":20
 },
 "name":"lohr-0.4.6",
@@ -1131,6 +1157,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1147,7 +1174,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/matrix-notifier/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/matrix-notifier/default.nix",
 "line":42
 },
 "name":"matrix-notifier-0.4.0",
@@ -1172,6 +1199,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1179,6 +1207,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1259,6 +1288,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1276,7 +1306,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/osc52/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/osc52/default.nix",
 "line":38
 },
 "name":"osc52-0.1.0",
@@ -1293,6 +1323,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1300,6 +1331,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1366,6 +1398,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1383,7 +1416,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/osc777/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/osc777/default.nix",
 "line":38
 },
 "name":"osc777-0.1.0",
@@ -1400,6 +1433,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1407,6 +1441,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1473,6 +1508,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1490,7 +1526,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/rbw-pass/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/rbw-pass/default.nix",
 "line":38
 },
 "name":"rbw-pass-0.1.0",
@@ -1507,6 +1543,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1514,6 +1551,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1577,6 +1615,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1593,7 +1632,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/unbound-zones-adblock/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/unbound-zones-adblock/default.nix",
 "line":37
 },
 "name":"unbound-zones-adblock",
@@ -1622,6 +1661,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1629,6 +1669,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1738,6 +1779,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1753,7 +1795,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msb0nfig9m3qwrqz61mv328zcrjiva5j-source/pkgs/zsh-done/default.nix",
+"file":"/nix/store/9iax54wcra7r1sjkm2gvila974q1xdlr-source/pkgs/zsh-done/default.nix",
 "line":32
 },
 "name":"zsh-done-0.1.1",
@@ -1778,6 +1820,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1785,6 +1828,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

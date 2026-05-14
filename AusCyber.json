@@ -1,16 +1,16 @@
 {
 "name":"AusCyber",
-"fetch_time":1.512,
-"eval_time":0.287,
+"fetch_time":1.229,
+"eval_time":0.305,
 "source":{
 "url":"https://github.com/Auscyber/nur-packages",
-"rev":"d6466addd30afb15c87e281a2d37863833a8781d",
-"sha256":"0bpa6icryvxdbyajr5inl7sgqhli60zb66ackahp8rh6rxk0zwpi",
+"rev":"5d677b0de94e18ab7e3717df8b6eddacb670f83b",
+"sha256":"1sfx154ihjlnm303y5sjaia0ssvdp7v01f9l3jilh28zcsfx84ad",
 "date":null
 },
-"source_storepath":"/nix/store/4n3adhc6v8md0iyxqfix852m7k5iszkx-source",
-"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
-"nur_combined_rev":"ca667a5bf7b3d1f5f02c57b8e78078e6fb3146fc",
+"source_storepath":"/nix/store/8p1xznshbrcpm54kba2llz0dq81xy1nz-source",
+"nixpkgs_storepath":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source",
+"nur_combined_rev":"270c9d31ea9aeb8db5bd242dcadb228cebe08134",
 "packages":{
 "bartender":{
 "meta":{
@@ -51,6 +51,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 }
@@ -123,6 +124,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -141,7 +143,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4n3adhc6v8md0iyxqfix852m7k5iszkx-source/pkgs/ghostty/default.nix",
+"file":"/nix/store/8p1xznshbrcpm54kba2llz0dq81xy1nz-source/pkgs/ghostty/default.nix",
 "line":79
 },
 "name":"ghostty-1.3.1",
@@ -289,6 +291,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl3Only",
 "spdxId":"LGPL-3.0-only",
@@ -318,10 +321,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source/pkgs/by-name/ka/kanata/package.nix",
+"file":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source/pkgs/by-name/ka/kanata/package.nix",
 "line":74
 },
-"name":"kanata-v1.12.0-prerelease-1",
+"name":"kanata-v1.12.0-prerelease-2",
 "nonTeamMaintainers":[
 {
 "email":"me@linj.tech",
@@ -387,14 +390,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"kanata-v1.12.0-prerelease-1",
+"name":"kanata-v1.12.0-prerelease-2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"kanata-v1.12.0-prerelease",
 "system":"x86_64-linux",
-"version":"1"
+"version":"2"
 },
 "kanata-tray":{
 "meta":{
@@ -434,6 +437,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -450,7 +454,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/4n3adhc6v8md0iyxqfix852m7k5iszkx-source/pkgs/kanata-tray/default.nix",
+"file":"/nix/store/8p1xznshbrcpm54kba2llz0dq81xy1nz-source/pkgs/kanata-tray/default.nix",
 "line":54
 },
 "name":"kanata-tray-v0.8.0",
@@ -476,6 +480,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -483,6 +488,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -625,13 +631,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"yabai-v7.1.18",
+"name":"yabai-v7.1.25",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -644,12 +651,12 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"yabai-v7.1.18",
+"name":"yabai-v7.1.25",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"yabai-v7.1.18",
+"pname":"yabai-v7.1.25",
 "system":"x86_64-linux",
 "version":""
 },
@@ -690,13 +697,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
 "maintainers":[],
-"name":"zen-1.19.8b",
+"name":"zen-1.19.12b",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -714,14 +722,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"zen-1.19.8b",
+"name":"zen-1.19.12b",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zen",
 "system":"x86_64-linux",
-"version":"1.19.8b"
+"version":"1.19.12b"
 },
 "zen-browser-twilight":{
 "meta":{
@@ -760,13 +768,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
 "maintainers":[],
-"name":"zen-twilight-1.19.8b",
+"name":"zen-twilight-1.19.12b",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -784,14 +793,14 @@
 "unfree":false,
 "unsupported":true
 },
-"name":"zen-twilight-1.19.8b",
+"name":"zen-twilight-1.19.12b",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zen-twilight",
 "system":"x86_64-linux",
-"version":"1.19.8b"
+"version":"1.19.12b"
 }
 }
 }

@@ -1,16 +1,16 @@
 {
 "name":"Ev357",
-"fetch_time":0.809,
-"eval_time":0.294,
+"fetch_time":0.324,
+"eval_time":0.304,
 "source":{
 "url":"https://github.com/Ev357/nur-packages",
-"rev":"46c06aa3e5c89a704df374b48b2250d0de376d15",
-"sha256":"17ril04nc0n397q53cifql0cvc68pab8k2z0cy4x1hzd6s0w5aa6",
+"rev":"2901061d9f0aa327a75ce30eef92af97a21986a2",
+"sha256":"12pg4ia20psml07c16k689r1n0ld1dacw0hqc2hg139gc4r2mvkb",
 "date":null
 },
-"source_storepath":"/nix/store/q4dlnbp8pwba57zf6hy1fysgy62isbq2-source",
-"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
-"nur_combined_rev":"961674c743f1a599f1981a3054cab203ce66825c",
+"source_storepath":"/nix/store/c09v5q1wncj9rk50cvwijg4gmjhp3rax-source",
+"nixpkgs_storepath":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source",
+"nur_combined_rev":"6d2de0cff196918c1b116f426b8df01354369232",
 "packages":{
 "catppuccin-obsidian":{
 "meta":{
@@ -50,6 +50,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -78,7 +79,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/phibr0/obsidian-commander/releases/tag/0.5.4",
+"changelog":"https://github.com/phibr0/obsidian-commander/releases/tag/0.5.5",
 "description":"Customize your workspace by adding commands everywhere, create Macros and supercharge your mobile toolbar.",
 "homepage":"https://github.com/phibr0/obsidian-commander",
 "identifiers":{
@@ -112,13 +113,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"cmdr-0.5.4",
+"name":"cmdr-0.5.5",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -130,12 +132,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -149,14 +153,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cmdr-0.5.4",
+"name":"cmdr-0.5.5",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cmdr",
 "system":"x86_64-linux",
-"version":"0.5.4"
+"version":"0.5.5"
 },
 "folder-notes":{
 "meta":{
@@ -196,6 +200,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
@@ -214,12 +219,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -280,6 +287,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Business Source License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsl11",
 "spdxId":"BUSL-1.1",
@@ -287,7 +295,7 @@
 },
 "mainProgram":"hayase",
 "maintainers":[],
-"name":"hayase-6.4.57",
+"name":"hayase-6.4.66",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -302,20 +310,20 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"hayase-6.4.57",
+"name":"hayase-6.4.66",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"hayase",
 "system":"x86_64-linux",
-"version":"6.4.57"
+"version":"6.4.66"
 },
 "helium":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/imputnet/helium-linux/releases/tag/0.10.8.1",
+"changelog":"https://github.com/imputnet/helium-linux/releases/tag/0.12.1.1",
 "description":"Private, fast, and honest web browser based on Chromium",
 "homepage":"https://github.com/imputnet/helium-chromium",
 "identifiers":{
@@ -349,6 +357,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -356,7 +365,7 @@
 },
 "mainProgram":"helium",
 "maintainers":[],
-"name":"helium-0.10.8.1",
+"name":"helium-0.12.1.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -375,14 +384,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"helium-0.10.8.1",
+"name":"helium-0.12.1.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"helium",
 "system":"x86_64-linux",
-"version":"0.10.8.1"
+"version":"0.12.1.1"
 },
 "hyprshot":{
 "meta":{
@@ -421,6 +430,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -448,7 +458,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source/pkgs/by-name/hy/hyprshot/package.nix",
+"file":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source/pkgs/by-name/hy/hyprshot/package.nix",
 "line":55
 },
 "name":"hyprshot-1.3.0",
@@ -476,6 +486,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -483,6 +494,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -551,6 +563,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -560,8 +573,8 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source/pkgs/stdenv/generic/check-meta.nix",
-"line":558
+"file":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source/pkgs/stdenv/generic/check-meta.nix",
+"line":576
 },
 "name":"krita-unwrapped-6.1.0-prealpha",
 "nonTeamMaintainers":[],
@@ -570,6 +583,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -577,6 +591,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -642,6 +657,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -656,6 +672,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -663,6 +680,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -695,7 +713,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.22.0",
+"changelog":"https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.22.3",
 "description":"An Obsidian plugin to edit and view Excalidraw drawings",
 "homepage":"https://excalidraw-obsidian.online",
 "identifiers":{
@@ -729,13 +747,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"obsidian-excalidraw-plugin-2.22.0",
+"name":"obsidian-excalidraw-plugin-2.22.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -747,12 +766,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -766,20 +787,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"obsidian-excalidraw-plugin-2.22.0",
+"name":"obsidian-excalidraw-plugin-2.22.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"obsidian-excalidraw-plugin",
 "system":"x86_64-linux",
-"version":"2.22.0"
+"version":"2.22.3"
 },
 "obsidian-excalidraw-plugin-patched":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.22.0",
+"changelog":"https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.22.3",
 "description":"An Obsidian plugin to edit and view Excalidraw drawings",
 "homepage":"https://excalidraw-obsidian.online",
 "identifiers":{
@@ -813,13 +834,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"obsidian-excalidraw-plugin-2.22.0",
+"name":"obsidian-excalidraw-plugin-2.22.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -831,12 +853,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -850,20 +874,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"obsidian-excalidraw-plugin-2.22.0",
+"name":"obsidian-excalidraw-plugin-2.22.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"obsidian-excalidraw-plugin",
 "system":"x86_64-linux",
-"version":"2.22.0"
+"version":"2.22.3"
 },
 "obsidian-git":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/Vinzent03/obsidian-git/releases/tag/2.38.0",
+"changelog":"https://github.com/Vinzent03/obsidian-git/releases/tag/2.38.2",
 "description":"Integrate Git version control with automatic backup and other advanced features.",
 "homepage":"https://github.com/Vinzent03/obsidian-git",
 "identifiers":{
@@ -897,13 +921,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"obsidian-git-2.38.0",
+"name":"obsidian-git-2.38.2",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -912,14 +937,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"obsidian-git-2.38.0",
+"name":"obsidian-git-2.38.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"obsidian-git",
 "system":"x86_64-linux",
-"version":"2.38.0"
+"version":"2.38.2"
 },
 "obsidian-hider":{
 "meta":{
@@ -959,6 +984,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -977,12 +1003,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -1043,6 +1071,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Unspecified free software license",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"free"
 },
@@ -1059,12 +1088,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -1125,6 +1156,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1143,12 +1175,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -1209,6 +1243,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -1271,6 +1306,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1289,12 +1325,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -1355,6 +1393,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1373,12 +1412,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -1438,6 +1479,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1456,12 +1498,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",

@@ -1,16 +1,16 @@
 {
 "name":"ataraxiasjel",
-"fetch_time":0.564,
-"eval_time":0.445,
+"fetch_time":0.242,
+"eval_time":0.455,
 "source":{
 "url":"https://github.com/AtaraxiaSjel/nur",
-"rev":"ad69d67257eefdeb0af3e66d257674dbb6d75958",
-"sha256":"0yv2bgnf554jgfr180lvcl449f278ad48fva6sbnx8k8nkhzngsv",
+"rev":"8a1f1e9e219ebccaf8a3e08c3510cfec81fcb546",
+"sha256":"0hkk2g6qk3snpb1m1bihgy0pi5c3h4qmb79jkpn4k4jgfkfcazf0",
 "date":null
 },
-"source_storepath":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source",
-"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
-"nur_combined_rev":"b40140ff33dd6124a2111c93276727948231b7e9",
+"source_storepath":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source",
+"nixpkgs_storepath":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source",
+"nur_combined_rev":"1381ba3b1ab82a4ff5accea6b10a72d1864623c7",
 "packages":{
 "a2ln":{
 "meta":{
@@ -47,6 +47,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -54,6 +55,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -81,6 +83,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -102,7 +105,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/a2ln/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/a2ln/default.nix",
 "line":54
 },
 "name":"a2ln-1.1.15",
@@ -124,6 +127,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -131,6 +135,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -197,6 +202,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -217,10 +223,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/arkenfox-userjs/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/arkenfox-userjs/default.nix",
 "line":42
 },
-"name":"arkenfox-userjs-140.1",
+"name":"arkenfox-userjs-144.0",
 "nonTeamMaintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -251,6 +257,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -258,6 +265,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -321,14 +329,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"arkenfox-userjs-140.1",
+"name":"arkenfox-userjs-144.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"arkenfox-userjs",
 "system":"x86_64-linux",
-"version":"140.1"
+"version":"144.0"
 },
 "bibata-cursors-tokyonight":{
 "meta":{
@@ -367,6 +375,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",
@@ -387,7 +396,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/bibata-cursors-tokyonight/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/bibata-cursors-tokyonight/default.nix",
 "line":37
 },
 "name":"bibata-cursors-tokyonight-1.0",
@@ -421,6 +430,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -428,6 +438,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -537,6 +548,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -556,7 +568,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/ceserver/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/ceserver/default.nix",
 "line":50
 },
 "name":"ceserver-7.5",
@@ -578,6 +590,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -585,6 +598,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -650,6 +664,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -671,7 +686,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/endfield-daily/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/endfield-daily/default.nix",
 "line":26
 },
 "name":"endfield-daily-1.0.0",
@@ -695,6 +710,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -702,6 +718,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -772,6 +789,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -819,10 +837,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source/pkgs/by-name/ga/gamescope/package.nix",
-"line":207
+"file":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source/pkgs/by-name/ga/gamescope/package.nix",
+"line":215
 },
-"name":"gamescope-3.16.22",
+"name":"gamescope-3.16.23",
 "nonTeamMaintainers":[
 {
 "email":"root@pedrohlc.com",
@@ -867,6 +885,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -874,6 +893,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -889,18 +909,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/ga/gamescope/package.nix:204",
+"position":"<nixpkgs> + /pkgs/by-name/ga/gamescope/package.nix:212",
 "unfree":false,
 "unsupported":false
 },
-"name":"gamescope-3.16.22",
+"name":"gamescope-3.16.23",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"gamescope",
 "system":"x86_64-linux",
-"version":"3.16.22"
+"version":"3.16.23"
 },
 "gamescope-wsi":{
 "meta":{
@@ -939,6 +959,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -986,10 +1007,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source/pkgs/by-name/ga/gamescope/package.nix",
-"line":207
+"file":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source/pkgs/by-name/ga/gamescope/package.nix",
+"line":215
 },
-"name":"gamescope-3.16.22",
+"name":"gamescope-3.16.23",
 "nonTeamMaintainers":[
 {
 "email":"root@pedrohlc.com",
@@ -1034,6 +1055,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1041,6 +1063,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1056,18 +1079,18 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/ga/gamescope/package.nix:204",
+"position":"<nixpkgs> + /pkgs/by-name/ga/gamescope/package.nix:212",
 "unfree":false,
 "unsupported":false
 },
-"name":"gamescope-3.16.22",
+"name":"gamescope-3.16.23",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"gamescope",
 "system":"x86_64-linux",
-"version":"3.16.22"
+"version":"3.16.23"
 },
 "hoyolab-claim-bot":{
 "meta":{
@@ -1117,6 +1140,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1137,7 +1161,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/hoyolab-claim-bot/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/hoyolab-claim-bot/default.nix",
 "line":31
 },
 "name":"hoyolab-claim-bot-1.1.0",
@@ -1223,6 +1247,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1244,7 +1269,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/json-liquid-rs/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/json-liquid-rs/default.nix",
 "line":26
 },
 "name":"json-liquid-rs-1.0.2",
@@ -1319,6 +1344,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1340,7 +1366,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/kes/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/kes/default.nix",
 "line":24
 },
 "name":"kes-2025-03-12T09-35-18Z",
@@ -1415,6 +1441,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1436,7 +1463,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/mpris-ctl/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/mpris-ctl/default.nix",
 "line":56
 },
 "name":"mpris-ctl-1.0.1",
@@ -1458,6 +1485,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1465,6 +1493,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1528,6 +1557,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1535,6 +1565,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1562,6 +1593,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1583,7 +1615,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/nix-update-docker-image/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/nix-update-docker-image/default.nix",
 "line":37
 },
 "name":"nix-update-docker-image-0.1.0",
@@ -1605,6 +1637,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1612,6 +1645,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1687,6 +1721,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -1706,7 +1741,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/ocis-bin/generic.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/ocis-bin/generic.nix",
 "line":56
 },
 "name":"ocis-6.6.1",
@@ -1791,6 +1826,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -1810,7 +1846,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/ocis-bin/generic.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/ocis-bin/generic.nix",
 "line":56
 },
 "name":"ocis-7.3.2",
@@ -1895,6 +1931,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -1914,7 +1951,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/ocis-bin/generic.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/ocis-bin/generic.nix",
 "line":56
 },
 "name":"ocis-8.0.1",
@@ -1998,6 +2035,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -2019,7 +2057,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/prometheus/podman-exporter.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/prometheus/podman-exporter.nix",
 "line":51
 },
 "name":"prometheus-podman-exporter-1.21.0",
@@ -2043,6 +2081,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2050,6 +2089,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2120,6 +2160,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -2141,7 +2182,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/protonhax/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/protonhax/default.nix",
 "line":41
 },
 "name":"protonhax-1.0.5",
@@ -2214,6 +2255,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",
@@ -2234,7 +2276,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/prts-cursor/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/prts-cursor/default.nix",
 "line":33
 },
 "name":"prts-cursor-0.1.0",
@@ -2302,6 +2344,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2309,6 +2352,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2336,6 +2380,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",
@@ -2356,7 +2401,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/python3Packages/bottle-cors/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/python3Packages/bottle-cors/default.nix",
 "line":32
 },
 "name":"python3.13-bottle-cors-0.1.5",
@@ -2378,6 +2423,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2385,6 +2431,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2457,6 +2504,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2464,6 +2512,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2491,6 +2540,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -2511,7 +2561,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/python3Packages/cs3apis/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/python3Packages/cs3apis/default.nix",
 "line":39
 },
 "name":"python3.13-cs3apis-0.1.dev105",
@@ -2533,6 +2583,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2540,6 +2591,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2612,6 +2664,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2619,6 +2672,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2646,6 +2700,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -2666,7 +2721,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/python3Packages/cs3client/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/python3Packages/cs3client/default.nix",
 "line":56
 },
 "name":"python3.13-cs3client-1.1.0",
@@ -2688,6 +2743,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2695,6 +2751,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2767,6 +2824,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2774,6 +2832,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2801,6 +2860,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2821,7 +2881,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/python3Packages/cygrpc/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/python3Packages/cygrpc/default.nix",
 "line":50
 },
 "name":"python3.13-cygrpc-1.0.4.post6",
@@ -2843,6 +2903,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2850,6 +2911,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2924,6 +2986,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -2945,7 +3008,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/realrtcw/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/realrtcw/default.nix",
 "line":68
 },
 "name":"realrtcw-4.0-432ce5c",
@@ -2967,6 +3030,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2974,6 +3038,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3039,6 +3104,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",
@@ -3059,10 +3125,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/reshade-shaders/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/reshade-shaders/default.nix",
 "line":40
 },
-"name":"reshade-shaders-0-unstable-2026-01-10",
+"name":"reshade-shaders-0-unstable-2026-04-12",
 "nonTeamMaintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -3093,6 +3159,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3100,6 +3167,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3163,14 +3231,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"reshade-shaders-0-unstable-2026-01-10",
+"name":"reshade-shaders-0-unstable-2026-04-12",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"reshade-shaders",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-01-10"
+"version":"0-unstable-2026-04-12"
 },
 "rosepine-gtk-icons":{
 "meta":{
@@ -3209,6 +3277,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -3229,7 +3298,7 @@
 ],
 "maintainersPosition":{
 "column":11,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/rosepine-gtk/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/rosepine-gtk/default.nix",
 "line":42
 },
 "name":"rosepine-gtk-icons-0-unstable-2025-10-23",
@@ -3263,6 +3332,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3270,6 +3340,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3379,6 +3450,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -3399,7 +3471,7 @@
 ],
 "maintainersPosition":{
 "column":11,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/rosepine-gtk/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/rosepine-gtk/default.nix",
 "line":42
 },
 "name":"rosepine-gtk-theme-0-unstable-2025-10-23",
@@ -3433,6 +3505,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3440,6 +3513,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3549,6 +3623,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -3570,10 +3645,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/seadrive-fuse/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/seadrive-fuse/default.nix",
 "line":63
 },
-"name":"seadrive-fuse-3.0.21",
+"name":"seadrive-fuse-3.0.22",
 "nonTeamMaintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -3592,6 +3667,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3599,6 +3675,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3618,14 +3695,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"seadrive-fuse-3.0.21",
+"name":"seadrive-fuse-3.0.22",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"seadrive-fuse",
 "system":"x86_64-linux",
-"version":"3.0.21"
+"version":"3.0.22"
 },
 "sing-box-beta":{
 "meta":{
@@ -3664,6 +3741,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -3685,10 +3763,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/sing-box/beta.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/sing-box/beta.nix",
 "line":73
 },
-"name":"sing-box-1.14.0-alpha.9",
+"name":"sing-box-1.14.0-alpha.23",
 "nonTeamMaintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -3709,6 +3787,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3716,6 +3795,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3740,14 +3820,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sing-box-1.14.0-alpha.9",
+"name":"sing-box-1.14.0-alpha.23",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sing-box",
 "system":"x86_64-linux",
-"version":"1.14.0-alpha.9"
+"version":"1.14.0-alpha.23"
 },
 "sing-box-extended":{
 "meta":{
@@ -3786,6 +3866,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -3807,10 +3888,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/sing-box/extended.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/sing-box/extended.nix",
 "line":66
 },
-"name":"sing-box-extended-1.13.2-extended-1.6.2",
+"name":"sing-box-extended-1.13.11-extended-2.1.0",
 "nonTeamMaintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -3831,6 +3912,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3838,6 +3920,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3862,14 +3945,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sing-box-extended-1.13.2-extended-1.6.2",
+"name":"sing-box-extended-1.13.11-extended-2.1.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sing-box-extended",
 "system":"x86_64-linux",
-"version":"1.13.2-extended-1.6.2"
+"version":"1.13.11-extended-2.1.0"
 },
 "syncyomi":{
 "meta":{
@@ -3909,6 +3992,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Only",
 "spdxId":"GPL-2.0-only",
@@ -3937,7 +4021,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/syncyomi/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/syncyomi/default.nix",
 "line":100
 },
 "name":"syncyomi-1.1.7",
@@ -3966,6 +4050,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3973,6 +4058,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4051,6 +4137,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -4070,10 +4157,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/telemt/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/telemt/default.nix",
 "line":27
 },
-"name":"telemt-3.3.39",
+"name":"telemt-3.4.11",
 "nonTeamMaintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -4115,14 +4202,14 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"telemt-3.3.39",
+"name":"telemt-3.4.11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"telemt",
 "system":"x86_64-linux",
-"version":"3.3.39"
+"version":"3.4.11"
 },
 "tokyonight-gtk-icons":{
 "meta":{
@@ -4161,6 +4248,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -4181,7 +4269,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/tokyonight-gtk/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/tokyonight-gtk/default.nix",
 "line":20
 },
 "name":"tokyonight-gtk-icons-0-unstable-2025-04-24",
@@ -4215,6 +4303,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4222,6 +4311,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4331,6 +4421,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -4351,7 +4442,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/tokyonight-gtk/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/tokyonight-gtk/default.nix",
 "line":20
 },
 "name":"tokyonight-gtk-theme-0-unstable-2025-04-24",
@@ -4385,6 +4476,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4392,6 +4484,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4499,6 +4592,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4506,6 +4600,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4533,6 +4628,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -4554,7 +4650,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/waydroid-script/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/waydroid-script/default.nix",
 "line":73
 },
 "name":"waydroid-script-0-unstable-2026-01-05",
@@ -4576,6 +4672,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4583,6 +4680,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4647,6 +4745,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4654,6 +4753,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4681,6 +4781,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -4702,10 +4803,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/whoogle-search/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/whoogle-search/default.nix",
 "line":79
 },
-"name":"whoogle-search-1.2.3",
+"name":"whoogle-search-1.2.4",
 "nonTeamMaintainers":[
 {
 "email":"nix@ataraxiadev.com",
@@ -4724,6 +4825,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4731,6 +4833,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4750,7 +4853,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"whoogle-search-1.2.3",
+"name":"whoogle-search-1.2.4",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -4758,7 +4861,7 @@
 },
 "pname":"whoogle-search",
 "system":"x86_64-linux",
-"version":"1.2.3"
+"version":"1.2.4"
 },
 "wopiserver":{
 "meta":{
@@ -4795,6 +4898,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4802,6 +4906,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4829,6 +4934,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -4850,7 +4956,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wv0nwq6bkicipjzd9p1prs646mfk6cm7-source/pkgs/wopiserver/default.nix",
+"file":"/nix/store/vpbd164chrjjdnz49x967riywqp894zk-source/pkgs/wopiserver/default.nix",
 "line":80
 },
 "name":"wopiserver-11.3.2",
@@ -4872,6 +4978,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4879,6 +4986,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

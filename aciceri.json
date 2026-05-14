@@ -1,16 +1,16 @@
 {
 "name":"aciceri",
-"fetch_time":0.527,
-"eval_time":0.319,
+"fetch_time":0.258,
+"eval_time":0.353,
 "source":{
 "url":"https://github.com/aciceri/nur",
-"rev":"18e724adf726ee901ade4bceeb673a5c9c5a83a6",
-"sha256":"03sxndry61h3wk4c7kzb9dz7q4yvzfjp71hwar43yx1wx2hclqm3",
+"rev":"4e8a186eb570240a49c8724e7e8be325ad539853",
+"sha256":"17jlfj9aiq49cx6h331z665z0ixm653jy2grh5ifgddkchi26j71",
 "date":null
 },
-"source_storepath":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source",
-"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
-"nur_combined_rev":"3546edbaee754e285c39ca5fdfd240f874086362",
+"source_storepath":"/nix/store/fnl6hi5ijfiv0vzrnqga0yvhxqwi7y6v-source",
+"nixpkgs_storepath":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source",
+"nur_combined_rev":"017334eb176a6bd84eb12286eec93165d65f7d2a",
 "packages":{
 "asciinema-player":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -64,7 +65,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/asciinema-player/_package.nix",
+"file":"/nix/store/fnl6hi5ijfiv0vzrnqga0yvhxqwi7y6v-source/asciinema-player/_package.nix",
 "line":78
 },
 "name":"asciinema-player-3.15.1",
@@ -93,6 +94,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -100,6 +102,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -208,6 +211,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -223,7 +227,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/dms-ccusage-plugin/_package.nix",
+"file":"/nix/store/fnl6hi5ijfiv0vzrnqga0yvhxqwi7y6v-source/dms-ccusage-plugin/_package.nix",
 "line":55
 },
 "name":"dms-ccusage-plugin-1.0.0",
@@ -299,6 +303,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -315,7 +320,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/helix-master/_package.nix",
+"file":"/nix/store/fnl6hi5ijfiv0vzrnqga0yvhxqwi7y6v-source/helix-master/_package.nix",
 "line":80
 },
 "name":"helix-master",
@@ -420,6 +425,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -435,7 +441,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/hyphenopoly/_package.nix",
+"file":"/nix/store/fnl6hi5ijfiv0vzrnqga0yvhxqwi7y6v-source/hyphenopoly/_package.nix",
 "line":58
 },
 "name":"hyphenopoly-6.1.0",
@@ -457,12 +463,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -520,6 +528,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -536,7 +545,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/mirror-checks/_package.nix",
+"file":"/nix/store/fnl6hi5ijfiv0vzrnqga0yvhxqwi7y6v-source/mirror-checks/_package.nix",
 "line":22
 },
 "name":"mirror-checks",
@@ -601,6 +610,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -618,7 +628,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/opencode-claude-max-proxy/_package.nix",
+"file":"/nix/store/fnl6hi5ijfiv0vzrnqga0yvhxqwi7y6v-source/opencode-claude-max-proxy/_package.nix",
 "line":124
 },
 "name":"opencode-claude-max-proxy-1.0.2-unstable-2026-01-30",
@@ -680,6 +690,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",
@@ -695,7 +706,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/reinstall-magisk-on-lineageos/_package.nix",
+"file":"/nix/store/fnl6hi5ijfiv0vzrnqga0yvhxqwi7y6v-source/reinstall-magisk-on-lineageos/_package.nix",
 "line":45
 },
 "name":"reinstall-magisk-on-lineageos",
@@ -710,7 +721,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:229",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:230",
 "repository":"https://github.com/NicolasWebDev/reinstall-magisk-on-lineageos",
 "unfree":false,
 "unsupported":false
@@ -760,6 +771,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -767,6 +779,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -794,6 +807,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",
@@ -825,10 +839,10 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8rv241zspnj4wqqdr8cgbrglc81skvpx-source/yt-dlp-master/_package.nix",
+"file":"/nix/store/fnl6hi5ijfiv0vzrnqga0yvhxqwi7y6v-source/yt-dlp-master/_package.nix",
 "line":23
 },
-"name":"yt-dlp-master-2026.03.17-unstable-2026-04-07",
+"name":"yt-dlp-master-2026.03.17-unstable-2026-05-05",
 "nonTeamMaintainers":[
 {
 "email":"sandro.jaeckel@gmail.com",
@@ -856,6 +870,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -863,6 +878,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -890,7 +906,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yt-dlp-master-2026.03.17-unstable-2026-04-07",
+"name":"yt-dlp-master-2026.03.17-unstable-2026-05-05",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -898,7 +914,7 @@
 },
 "pname":"yt-dlp-master",
 "system":"x86_64-linux",
-"version":"2026.03.17-unstable-2026-04-07"
+"version":"2026.03.17-unstable-2026-05-05"
 }
 }
 }

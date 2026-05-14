@@ -1,16 +1,16 @@
 {
 "name":"abszero",
-"fetch_time":0.682,
-"eval_time":0.445,
+"fetch_time":0.303,
+"eval_time":0.462,
 "source":{
 "url":"https://github.com/Weathercold/nixfiles",
-"rev":"453fbffa3f6873d077e324bdcdad9156b987ab96",
-"sha256":"1gfdg77kpppgdq1k7c7xhvcv7458sh0j6hgc5dp98rimh38k5mqg",
+"rev":"ab9ec94efc65e0c89f6ccdad8cc5197801f05e4d",
+"sha256":"0p4vy2jb5j6lg66qnzqni95kv30vj5msv2j9vzq9zfib2f00bkfa",
 "date":null
 },
-"source_storepath":"/nix/store/glx86fdmv91js615g88znzdmi1lcr4hi-source",
-"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
-"nur_combined_rev":"74c898b82990eaf2f821ccd359478a9a0e7b7955",
+"source_storepath":"/nix/store/pym7dqa8ws2ksrcxj0mndhidmyj6dwjr-source",
+"nixpkgs_storepath":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source",
+"nur_combined_rev":"f5485ab871caad5d30c764812479b91bd02dacab",
 "packages":{
 "anki-bin-wayland":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Plus",
 "spdxId":"AGPL-3.0-or-later",
@@ -72,7 +73,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source/pkgs/by-name/an/anki-bin/package.nix",
+"file":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source/pkgs/by-name/an/anki-bin/package.nix",
 "line":70
 },
 "name":"anki-bin-25.02.5",
@@ -146,6 +147,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -153,6 +155,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -180,6 +183,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Plus",
 "spdxId":"AGPL-3.0-or-later",
@@ -219,10 +223,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source/pkgs/by-name/an/anki/package.nix",
-"line":357
+"file":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source/pkgs/by-name/an/anki/package.nix",
+"line":359
 },
-"name":"anki-25.09.2",
+"name":"anki-25.09.3",
 "nonTeamMaintainers":[
 {
 "email":"euank-nixpkg@euank.com",
@@ -266,6 +270,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -273,6 +278,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -302,7 +308,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/an/anki/package.nix:340",
+"position":"<nixpkgs> + /pkgs/by-name/an/anki/package.nix:342",
 "unfree":false,
 "unsupported":false
 },
@@ -352,6 +358,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -373,7 +380,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/glx86fdmv91js615g88znzdmi1lcr4hi-source/pkgs/ca/catppuccin-wallpapers/package.nix",
+"file":"/nix/store/pym7dqa8ws2ksrcxj0mndhidmyj6dwjr-source/pkgs/ca/catppuccin-wallpapers/package.nix",
 "line":58
 },
 "name":"catppuccin-wallpapers-0-unstable-2022-08-23",
@@ -408,6 +415,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -415,6 +423,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -524,6 +533,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -539,7 +549,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source/pkgs/by-name/co/colloid-gtk-theme/package.nix",
+"file":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source/pkgs/by-name/co/colloid-gtk-theme/package.nix",
 "line":101
 },
 "name":"colloid-gtk-theme-2025-07-31-unstable-2025-12-05",
@@ -564,6 +574,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -571,6 +582,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -650,6 +662,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -671,7 +684,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/glx86fdmv91js615g88znzdmi1lcr4hi-source/pkgs/co/comfyui-autocomplete-plus/package.nix",
+"file":"/nix/store/pym7dqa8ws2ksrcxj0mndhidmyj6dwjr-source/pkgs/co/comfyui-autocomplete-plus/package.nix",
 "line":39
 },
 "name":"comfyui-autocomplete-plus-1.11.0",
@@ -742,6 +755,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -763,7 +777,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/glx86fdmv91js615g88znzdmi1lcr4hi-source/pkgs/co/comfyui-teacache/package.nix",
+"file":"/nix/store/pym7dqa8ws2ksrcxj0mndhidmyj6dwjr-source/pkgs/co/comfyui-teacache/package.nix",
 "line":37
 },
 "name":"comfyui-teacache-0-unstable-2025-08-21",
@@ -845,6 +859,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -867,7 +882,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/glx86fdmv91js615g88znzdmi1lcr4hi-source/pkgs/fr/framework_rgbafan/package.nix",
+"file":"/nix/store/pym7dqa8ws2ksrcxj0mndhidmyj6dwjr-source/pkgs/fr/framework_rgbafan/package.nix",
 "line":43
 },
 "name":"framework_rgbafan-0-unstable-2026-04-03",
@@ -979,6 +994,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -1007,10 +1023,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source/pkgs/by-name/io/iosevka/package.nix",
-"line":151
+"file":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source/pkgs/by-name/io/iosevka/package.nix",
+"line":149
 },
-"name":"IosevkaInconsolata-34.3.0",
+"name":"IosevkaInconsolata-34.4.0",
 "nonTeamMaintainers":[
 {
 "email":"ttuegel@mailbox.org",
@@ -1048,6 +1064,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1055,6 +1072,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1118,14 +1136,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"IosevkaInconsolata-34.3.0",
+"name":"IosevkaInconsolata-34.4.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"IosevkaInconsolata",
 "system":"x86_64-linux",
-"version":"34.3.0"
+"version":"34.4.0"
 },
 "noita_save_manager":{
 "meta":{
@@ -1162,6 +1180,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1169,6 +1188,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1196,6 +1216,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1218,7 +1239,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/glx86fdmv91js615g88znzdmi1lcr4hi-source/pkgs/no/noita_save_manager/package.nix",
+"file":"/nix/store/pym7dqa8ws2ksrcxj0mndhidmyj6dwjr-source/pkgs/no/noita_save_manager/package.nix",
 "line":65
 },
 "name":"noita-save-manager-0.1.4-unstable-2021-08-10",
@@ -1241,6 +1262,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1248,6 +1270,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1314,6 +1337,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1334,10 +1358,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source/pkgs/by-name/nu/nu_scripts/package.nix",
+"file":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source/pkgs/by-name/nu/nu_scripts/package.nix",
 "line":37
 },
-"name":"nu_scripts-0-unstable-2026-04-09",
+"name":"nu_scripts-0-unstable-2026-05-13",
 "nonTeamMaintainers":[
 {
 "email":"kiran@ostrolenk.co.uk",
@@ -1364,6 +1388,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1371,6 +1396,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1404,14 +1430,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nu_scripts-0-unstable-2026-04-09",
+"name":"nu_scripts-0-unstable-2026-05-13",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nu_scripts",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-04-09"
+"version":"0-unstable-2026-05-13"
 },
 "palgen":{
 "meta":{
@@ -1450,6 +1476,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -1471,10 +1498,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/glx86fdmv91js615g88znzdmi1lcr4hi-source/pkgs/pa/palgen/package.nix",
+"file":"/nix/store/pym7dqa8ws2ksrcxj0mndhidmyj6dwjr-source/pkgs/pa/palgen/package.nix",
 "line":28
 },
-"name":"palgen-1.6.1-unstable-2025-05-06",
+"name":"palgen-0-unstable-2026-04-25",
 "nonTeamMaintainers":[
 {
 "email":"weathercold.scr@proton.me",
@@ -1506,6 +1533,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1513,6 +1541,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1576,14 +1605,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"palgen-1.6.1-unstable-2025-05-06",
+"name":"palgen-0-unstable-2026-04-25",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"palgen",
 "system":"x86_64-linux",
-"version":"1.6.1-unstable-2025-05-06"
+"version":"0-unstable-2026-04-25"
 },
 "v2ray-rules-dat":{
 "meta":{
@@ -1623,6 +1652,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -1644,10 +1674,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/glx86fdmv91js615g88znzdmi1lcr4hi-source/pkgs/v2/v2ray-rules-dat/package.nix",
+"file":"/nix/store/pym7dqa8ws2ksrcxj0mndhidmyj6dwjr-source/pkgs/v2/v2ray-rules-dat/package.nix",
 "line":69
 },
-"name":"v2ray-rules-dat-202604082233",
+"name":"v2ray-rules-dat-202605122254",
 "nonTeamMaintainers":[
 {
 "email":"weathercold.scr@proton.me",
@@ -1680,6 +1710,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1687,6 +1718,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1750,7 +1782,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"v2ray-rules-dat-202604082233",
+"name":"v2ray-rules-dat-202605122254",
 "outputName":"out",
 "outputs":{
 "geoip":null,
@@ -1759,7 +1791,7 @@
 },
 "pname":"v2ray-rules-dat",
 "system":"x86_64-linux",
-"version":"202604082233"
+"version":"202605122254"
 },
 "win2xcur":{
 "meta":{
@@ -1796,6 +1828,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1803,6 +1836,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1830,6 +1864,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -1849,10 +1884,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/glx86fdmv91js615g88znzdmi1lcr4hi-source/pkgs/wi/win2xcur/package.nix",
+"file":"/nix/store/pym7dqa8ws2ksrcxj0mndhidmyj6dwjr-source/pkgs/wi/win2xcur/package.nix",
 "line":36
 },
-"name":"python3.13-win2xcur-0.2.0-unstable-2026-02-16",
+"name":"python3.13-win2xcur-0-unstable-2026-05-05",
 "nonTeamMaintainers":[
 {
 "email":"weathercold.scr@proton.me",
@@ -1884,6 +1919,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1891,6 +1927,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1954,7 +1991,7 @@
 "unfree":true,
 "unsupported":false
 },
-"name":"python3.13-win2xcur-0.2.0-unstable-2026-02-16",
+"name":"python3.13-win2xcur-0-unstable-2026-05-05",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -1962,7 +1999,7 @@
 },
 "pname":"python3.13-win2xcur",
 "system":"x86_64-linux",
-"version":"0.2.0-unstable-2026-02-16"
+"version":"0-unstable-2026-05-05"
 }
 }
 }

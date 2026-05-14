@@ -1,16 +1,16 @@
 {
 "name":"blemouzy",
-"fetch_time":0.527,
-"eval_time":0.316,
+"fetch_time":0.241,
+"eval_time":0.344,
 "source":{
 "url":"https://github.com/blemouzy/nur-packages",
-"rev":"cf4c98b26de3d23724fd0cd55bd6b8248596c208",
-"sha256":"15g0vz1wpsgys1z2fnvfnxzavfcrgd5w8vqiv017y0432qam3zq2",
+"rev":"b0e231ac6ee5c7c734fe0a1e8c92af24793aad01",
+"sha256":"1ds2fb78ihc2i35ppdbi88jl8s08151dgmxsq4bm6n7pgvshn12h",
 "date":null
 },
-"source_storepath":"/nix/store/xmjbn81jnrv62f7cpr13590bmigw0yyf-source",
-"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
-"nur_combined_rev":"9c3c38a0fa5463f338483a190c22e63ff7a561aa",
+"source_storepath":"/nix/store/cpskb16q5rz4vj49xgiy64097r1yln5c-source",
+"nixpkgs_storepath":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source",
+"nur_combined_rev":"a8ef04c611c5027aba8108565ec971b183db2694",
 "packages":{
 "bb-imager":{
 "meta":{
@@ -60,6 +60,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -70,10 +71,10 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xmjbn81jnrv62f7cpr13590bmigw0yyf-source/pkgs/bb-imager-rs/default.nix",
+"file":"/nix/store/cpskb16q5rz4vj49xgiy64097r1yln5c-source/pkgs/bb-imager-rs/default.nix",
 "line":87
 },
-"name":"bb-imager-rs-0.0.20",
+"name":"bb-imager-rs-1.0.5",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -122,14 +123,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"bb-imager-rs-0.0.20",
+"name":"bb-imager-rs-1.0.5",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"bb-imager-rs",
 "system":"x86_64-linux",
-"version":"0.0.20"
+"version":"1.0.5"
 },
 "bb-imager-cli":{
 "meta":{
@@ -179,6 +180,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -189,10 +191,10 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xmjbn81jnrv62f7cpr13590bmigw0yyf-source/pkgs/bb-imager-rs/default.nix",
+"file":"/nix/store/cpskb16q5rz4vj49xgiy64097r1yln5c-source/pkgs/bb-imager-rs/default.nix",
 "line":87
 },
-"name":"bb-imager-rs-0.0.20",
+"name":"bb-imager-rs-1.0.5",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -241,14 +243,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"bb-imager-rs-0.0.20",
+"name":"bb-imager-rs-1.0.5",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"bb-imager-rs",
 "system":"x86_64-linux",
-"version":"0.0.20"
+"version":"1.0.5"
 },
 "cst":{
 "meta":{
@@ -287,6 +289,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -362,6 +365,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"ISC License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"isc",
 "spdxId":"ISC",
@@ -372,7 +376,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xmjbn81jnrv62f7cpr13590bmigw0yyf-source/pkgs/dtsfmt/default.nix",
+"file":"/nix/store/cpskb16q5rz4vj49xgiy64097r1yln5c-source/pkgs/dtsfmt/default.nix",
 "line":32
 },
 "name":"dtsfmt-0.8.0",
@@ -481,6 +485,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -491,7 +496,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xmjbn81jnrv62f7cpr13590bmigw0yyf-source/pkgs/envoluntary/default.nix",
+"file":"/nix/store/cpskb16q5rz4vj49xgiy64097r1yln5c-source/pkgs/envoluntary/default.nix",
 "line":40
 },
 "name":"envoluntary-0.1.4-e2efbbe",
@@ -587,6 +592,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -594,6 +600,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -621,6 +628,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2",
 "spdxId":"GPL-2.0",
@@ -637,7 +645,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xmjbn81jnrv62f7cpr13590bmigw0yyf-source/pkgs/potracer/default.nix",
+"file":"/nix/store/cpskb16q5rz4vj49xgiy64097r1yln5c-source/pkgs/potracer/default.nix",
 "line":35
 },
 "name":"python3.13-potracer-0.0.4",
@@ -655,6 +663,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -662,6 +671,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -734,6 +744,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -741,6 +752,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -768,6 +780,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -785,7 +798,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xmjbn81jnrv62f7cpr13590bmigw0yyf-source/pkgs/supernote-tool/default.nix",
+"file":"/nix/store/cpskb16q5rz4vj49xgiy64097r1yln5c-source/pkgs/supernote-tool/default.nix",
 "line":54
 },
 "name":"supernote-tool-0.7.0",
@@ -815,6 +828,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -822,6 +836,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -932,6 +947,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",

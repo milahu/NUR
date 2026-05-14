@@ -1,16 +1,16 @@
 {
 "name":"Vortriz",
-"fetch_time":0.666,
-"eval_time":0.32,
+"fetch_time":0.273,
+"eval_time":0.346,
 "source":{
 "url":"https://github.com/Vortriz/nur-packages",
-"rev":"a12b93e0260f744f341ee8b4c018d2a4983347c1",
-"sha256":"188p27vb9a7v02n0qk46vgsdrkk93hfckqas3hjn7nflab9s93qb",
+"rev":"010194b2ce0ab88825b6f27e0d8064285a8f83f9",
+"sha256":"13i5fnwc6ch2dwach4604gpn41hmqf6mqvrl05hb75c25rpb5r5l",
 "date":null
 },
-"source_storepath":"/nix/store/xipqgs5m9bnvxs07fmy1sf2ls7pkfk9k-source",
-"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
-"nur_combined_rev":"fb5bb7e2231fc3241d754660f407a574cd7a8b1d",
+"source_storepath":"/nix/store/7l60wy91vwv7k4insah8kmwy4jvr93sg-source",
+"nixpkgs_storepath":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source",
+"nur_combined_rev":"b9fb5af3d2bd9e5849a2b42a29145c2c3327bff1",
 "packages":{
 "batteryd":{
 "meta":{
@@ -60,6 +60,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -160,6 +161,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -167,6 +169,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -194,6 +197,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -208,6 +212,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -215,6 +220,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -287,6 +293,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -294,6 +301,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -321,6 +329,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -328,13 +337,14 @@
 },
 "mainProgram":"doi2bib3",
 "maintainers":[],
-"name":"doi2bib3-0.7.0",
+"name":"doi2bib3-0.9.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -342,6 +352,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -369,7 +380,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"doi2bib3-0.7.0",
+"name":"doi2bib3-0.9.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -377,7 +388,7 @@
 },
 "pname":"doi2bib3",
 "system":"x86_64-linux",
-"version":"0.7.0"
+"version":"0.9.0"
 },
 "dunefetch":{
 "meta":{
@@ -414,6 +425,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -421,6 +433,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -448,6 +461,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -462,6 +476,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -469,6 +484,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -645,6 +661,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Plus",
 "spdxId":"GPL-2.0-or-later",
@@ -658,6 +675,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -665,6 +683,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -743,6 +762,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Only",
 "spdxId":"GPL-2.0-only",
@@ -750,7 +770,7 @@
 },
 "mainProgram":"fresh",
 "maintainers":[],
-"name":"fresh-unstable-2026-04-09",
+"name":"fresh-unstable-2026-05-13",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -799,14 +819,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"fresh-unstable-2026-04-09",
+"name":"fresh-unstable-2026-05-13",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fresh-unstable",
 "system":"x86_64-linux",
-"version":"2026-04-09"
+"version":"2026-05-13"
 },
 "goldfish":{
 "meta":{
@@ -856,6 +876,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -863,7 +884,7 @@
 },
 "mainProgram":"goldfish",
 "maintainers":[],
-"name":"goldfish-unstable-2025-11-02",
+"name":"goldfish-unstable-2026-04-30",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -912,14 +933,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"goldfish-unstable-2025-11-02",
+"name":"goldfish-unstable-2026-04-30",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"goldfish-unstable",
 "system":"x86_64-linux",
-"version":"2025-11-02"
+"version":"2026-04-30"
 },
 "libfprint-focaltech-2808-a658-alt":{
 "meta":{
@@ -958,6 +979,7 @@
 "deprecated":false,
 "free":false,
 "fullName":"Unfree",
+"licenseType":"simple",
 "redistributable":false,
 "shortName":"unfree"
 },
@@ -1021,7 +1043,7 @@
 },
 "insecure":false,
 "maintainers":[],
-"name":"librusty_v8-147.0.0",
+"name":"librusty_v8-147.4.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1030,14 +1052,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"librusty_v8-147.0.0",
+"name":"librusty_v8-147.4.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"librusty_v8",
 "system":"x86_64-linux",
-"version":"147.0.0"
+"version":"147.4.0"
 },
 "nima":{
 "meta":{
@@ -1074,6 +1096,7 @@
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1081,6 +1104,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1108,6 +1132,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl3Plus",
 "spdxId":"LGPL-3.0-or-later",
@@ -1122,6 +1147,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1129,6 +1155,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1253,6 +1280,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1260,7 +1288,7 @@
 },
 "mainProgram":"surge",
 "maintainers":[],
-"name":"surge-0.7.8",
+"name":"surge-0.8.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1269,6 +1297,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1276,6 +1305,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1296,18 +1326,18 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/by-name/surge/package.nix:30",
+"position":"./pkgs/by-name/surge/package.nix:34",
 "unfree":false,
 "unsupported":false
 },
-"name":"surge-0.7.8",
+"name":"surge-0.8.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"surge",
 "system":"x86_64-linux",
-"version":"0.7.8"
+"version":"0.8.3"
 },
 "typos":{
 "meta":{
@@ -1357,6 +1387,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -1459,6 +1490,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1473,6 +1505,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1480,6 +1513,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1545,6 +1579,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1570,6 +1605,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1577,6 +1613,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1686,6 +1723,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1711,6 +1749,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1718,6 +1757,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1827,13 +1867,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"enhance-piper.yazi-unstable-2026-01-01",
+"name":"enhance-piper.yazi-unstable-2026-04-09",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1852,6 +1893,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1859,6 +1901,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1922,14 +1965,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"enhance-piper.yazi-unstable-2026-01-01",
+"name":"enhance-piper.yazi-unstable-2026-04-09",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"enhance-piper.yazi-unstable",
 "system":"x86_64-linux",
-"version":"2026-01-01"
+"version":"2026-04-09"
 },
 "yaziPlugins.file-extra-metadata":{
 "meta":{
@@ -1968,13 +2011,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"file-extra-metadata.yazi-unstable-2026-02-16",
+"name":"file-extra-metadata.yazi-unstable-2026-04-22",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1993,6 +2037,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2000,6 +2045,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2063,14 +2109,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"file-extra-metadata.yazi-unstable-2026-02-16",
+"name":"file-extra-metadata.yazi-unstable-2026-04-22",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"file-extra-metadata.yazi-unstable",
 "system":"x86_64-linux",
-"version":"2026-02-16"
+"version":"2026-04-22"
 },
 "yaziPlugins.gvfs":{
 "meta":{
@@ -2109,6 +2155,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2134,6 +2181,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2141,6 +2189,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2250,6 +2299,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2275,6 +2325,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2282,6 +2333,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2391,6 +2443,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2416,6 +2469,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2423,6 +2477,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2532,6 +2587,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2557,6 +2613,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2564,6 +2621,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2673,13 +2731,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"Better BibTeX for Zotero-9.0.12",
+"name":"Better BibTeX for Zotero-9.0.23",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2688,14 +2747,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"Better-BibTeX-for-Zotero-9.0.12",
+"name":"Better-BibTeX-for-Zotero-9.0.23",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"Better-BibTeX-for-Zotero",
 "system":"x86_64-linux",
-"version":"9.0.12"
+"version":"9.0.23"
 },
 "zoteroAddons.zotero-scipdf":{
 "meta":{
@@ -2734,6 +2793,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Plus",
 "spdxId":"AGPL-3.0-or-later",
@@ -2795,13 +2855,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
 "maintainers":[],
-"name":"ZotMoov-1.2.28",
+"name":"ZotMoov-1.2.29",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2810,14 +2871,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ZotMoov-1.2.28",
+"name":"ZotMoov-1.2.29",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ZotMoov",
 "system":"x86_64-linux",
-"version":"1.2.28"
+"version":"1.2.29"
 }
 }
 }
