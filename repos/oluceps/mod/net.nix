@@ -21,17 +21,14 @@ let
       firewall = {
         enable = true;
         checkReversePath = false;
+        logRefusedConnections = true;
         trustedInterfaces = [
           "virbr0"
           "podman*"
         ];
         allowedUDPPorts = [
-          5353
-          1901
         ];
         allowedTCPPorts = [
-          8080
-          1901
         ];
       };
       nftables = {
@@ -50,7 +47,9 @@ in
     (lib.mkMerge [
       {
         networking = {
-          hosts = config.data.hosts.${config.networking.hostName};
+          hosts = config.data.hosts.${config.networking.hostName} // {
+            "localhost" = [ "alert.nyaw.xyz" ];
+          };
           hostName = "hastur"; # Define your hostname.
           firewall = {
             allowedTCPPorts = [
@@ -76,7 +75,6 @@ in
             anyInterface = true;
             ignoredInterfaces = [
               "wlan0"
-              "wg0"
             ];
           };
           links = {
@@ -152,7 +150,9 @@ in
     (lib.mkMerge [
       {
         networking = {
-          hosts = config.data.hosts.${config.networking.hostName};
+          hosts = config.data.hosts.${config.networking.hostName} // {
+            "localhost" = [ "alert.nyaw.xyz" ];
+          };
           hostName = "eihort"; # Define your hostname.
           firewall = {
             allowedTCPPorts = [ 21027 ];
@@ -311,7 +311,6 @@ in
               IPv4Forwarding = true;
               IPv6Forwarding = true;
               IPv6AcceptRA = true;
-              MulticastDNS = true;
             };
 
             address = [
@@ -341,12 +340,8 @@ in
           enable = true;
 
           wait-online = {
-            enable = false;
+            enable = true;
             anyInterface = true;
-            ignoredInterfaces = [
-              "wlan0"
-              "wg0"
-            ];
           };
           links = {
 
@@ -412,11 +407,14 @@ in
       }
     ];
   flake.modules.nixos."net/uubboo" =
-    { ... }:
+    { config, ... }:
     lib.mkMerge [
       common
       {
         networking = {
+          hosts = config.data.hosts.${config.networking.hostName} // {
+            "localhost" = [ "alert.nyaw.xyz" ];
+          };
           hostName = "uubboo";
         };
         systemd.network = {
