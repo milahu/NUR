@@ -14,7 +14,6 @@
           allowUnfree = true;
           permittedInsecurePackages = [
             "olm-3.2.16" # mautrix-telegramgo
-
             "quickjs-2025-09-13-2" # subconverter
           ];
         };
@@ -22,7 +21,9 @@
           (final: prev: {
             local = config.packages;
             upstream = prev;
+            nixosTests = prev.nixosTests // config.nixosTests;
           })
+          inputs.nvfetcher.overlays.default
         ];
       };
     in
