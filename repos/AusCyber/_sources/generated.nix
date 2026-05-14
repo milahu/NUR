@@ -20,10 +20,10 @@
     version = "flake-compat";
     src = fetchTarball {
       url = "https://git.lix.systems/lix-project/flake-compat/archive/main.tar.gz";
-      sha256 = "sha256-NKw96t+BgHIYzHUjkTK95FqYRVKB8DHpVhefWSz/kTw=";
+      sha256 = "sha256-Eg9b/rq/ECYwNwEXs5i9wHyhxNI0JrYx2srdI2uZMaQ=";
     };
     extract = {
-      "default.nix" = ./. + "/sha256-NKw96t+BgHIYzHUjkTK95FqYRVKB8DHpVhefWSz_kTw=/default.nix";
+      "default.nix" = ./. + "/sha256-Eg9b_rq_ECYwNwEXs5i9wHyhxNI0JrYx2srdI2uZMaQ=/default.nix";
     };
   };
   ghostty = {
@@ -39,40 +39,40 @@
     version = "tip";
     src = fetchurl {
       url = "https://github.com/ghostty-org/ghostty/releases/download/tip/ghostty-macos-universal.zip";
-      sha256 = "sha256-rnNOy1rFm0kUClL8N+urPrVhIkHOigOHRmMQZ4lY4hU=";
+      sha256 = "sha256-6m3Q5/E8qwzIhZ1cL1/QIzWwzEa3d40syxZ8tFdECA4=";
     };
   };
   helium-linux = {
     pname = "helium-linux";
-    version = "0.10.9.1";
+    version = "0.12.1.1";
     src = fetchFromGitHub {
       owner = "imputnet";
       repo = "helium-linux";
-      rev = "0.10.9.1";
+      rev = "0.12.1.1";
       fetchSubmodules = false;
-      sha256 = "sha256-L5gg4joKxFPnmCZg+p7cLzksoEBzCdq13qQ/Z2ImEjI=";
+      sha256 = "sha256-flPvX38r0QyGJ5vzsbq8cMq2pK0FuXFXMK2tUGrz+II=";
     };
   };
   helium-macos = {
     pname = "helium-macos";
-    version = "0.10.9.1";
+    version = "0.12.1.1";
     src = fetchurl {
-      url = "https://github.com/imputnet/helium-macos/releases/download/0.10.9.1/helium_0.10.9.1_arm64-macos.dmg";
-      sha256 = "sha256-qLsd9TNAri8ytp2LyRiRQmCxrvC60r/JYQZCpdEP8es=";
+      url = "https://github.com/imputnet/helium-macos/releases/download/0.12.1.1/helium_0.12.1.1_arm64-macos.dmg";
+      sha256 = "sha256-JLziPZ1Hl0WMpOgN5eliSeAjw/NQhtURQZvqWdQdJyk=";
     };
   };
   kanata = {
     pname = "kanata";
-    version = "v1.12.0-prerelease-1";
+    version = "v1.12.0-prerelease-2";
     src = fetchFromGitHub {
       owner = "jtroo";
       repo = "kanata";
-      rev = "v1.12.0-prerelease-1";
+      rev = "v1.12.0-prerelease-2";
       fetchSubmodules = false;
-      sha256 = "sha256-aYKjC4g3QKfTlZsI2axRNdKEzdW9VSb6o7EtRBmQiqY=";
+      sha256 = "sha256-bNUlQBsyGxCu3GHP+qgrYLikLagXxzLjjuZFZFi7Vzk=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-aYKjC4g3QKfTlZsI2axRNdKEzdW9VSb6o7EtRBmQiqY=/Cargo.lock";
+      lockFile = ./. + "/sha256-bNUlQBsyGxCu3GHP+qgrYLikLagXxzLjjuZFZFi7Vzk=/Cargo.lock";
       outputHashes = {
         
       };
@@ -103,40 +103,40 @@
   };
   karabiner-dk = {
     pname = "karabiner-dk";
-    version = "v6.12.0";
+    version = "v6.14.0";
     src = fetchFromGitHub {
       owner = "pqrs-org";
       repo = "Karabiner-DriverKit-VirtualHIDDevice";
-      rev = "v6.12.0";
+      rev = "v6.14.0";
       fetchSubmodules = false;
-      sha256 = "sha256-Yo4oyD0NRYg6gg20ryE2C7zwBdULhw0xrSMkXSgyD7U=";
+      sha256 = "sha256-v/BIsyf4bYbXcxeUmVW5tUvnDsJcHqzinm9CBlhJ9DA=";
     };
   };
   yabai = {
     pname = "yabai";
-    version = "v7.1.18";
+    version = "v7.1.25";
     src = fetchFromGitHub {
       owner = "koekeishiya";
       repo = "yabai";
-      rev = "v7.1.18";
+      rev = "v7.1.25";
       fetchSubmodules = false;
-      sha256 = "sha256-go3CsFxJCHpEJ8EGv9B5pXt/1AifGLM8S5TIXkhKgDc=";
+      sha256 = "sha256-61knfbahxxlJnVZy47347slsjUGiQUJyZh58G97SDkE=";
     };
   };
   zen = {
     pname = "zen";
-    version = "1.19.8b";
+    version = "1.19.12b";
     src = fetchurl {
-      url = "https://github.com/zen-browser/desktop/releases/download/1.19.8b/zen.macos-universal.dmg";
-      sha256 = "sha256-CLBogf6omfxPKtrJMjLAKKcTNLu6aUWgAmgnnjEQg1U=";
+      url = "https://github.com/zen-browser/desktop/releases/download/1.19.12b/zen.macos-universal.dmg";
+      sha256 = "sha256-XFZJQdYRfoesfrTP4RsKH613K+LgLW8K9I0494i+oBI=";
     };
   };
   zen-twilight = {
     pname = "zen-twilight";
-    version = "1.19.8b";
+    version = "1.19.12b";
     src = fetchurl {
       url = "https://github.com/zen-browser/desktop/releases/download/twilight-1/zen.macos-universal.dmg";
-      sha256 = "sha256-jmT64NFpKKJ8mDsCqgpjDiaNkG7zXBqU8mdMiya57Zs=";
+      sha256 = "sha256-OdNels+Pl1zPash4g51l3PZYrJWjdcWWy1L0849CXR8=";
     };
   };
 }
