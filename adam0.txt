@@ -1,0 +1,129 @@
+error:
+… while evaluating the file './default.nix':
+
+… from call site
+
+  at ./default.nix:3:21:
+
+     2|                     with import <nixpkgs> {};
+     3|                     import ./evalRepo.nix {
+      |                     ^
+     4|                         name = "adam0";
+
+… while calling anonymous lambda
+
+  at ./evalRepo.nix:1:1:
+
+     1| { name
+      | ^
+     2| , url
+
+… from call site
+
+  at ./evalRepo.nix:33:11:
+
+    32|     might result in infinite recursion when used with NixOS modules.
+    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+      |           ^
+    34|
+
+… while calling anonymous lambda
+
+  at ./default.nix:8:1:
+
+     7| #     nix-build -A mypackage
+     8| {pkgs ? import <nixpkgs> {}, ...}: let
+      | ^
+     9|   inherit (builtins) isAttrs;
+
+… from call site
+
+  at ./default.nix:42:17:
+
+    41|
+    42|   allPackages = filterAttrs (_: isDerivation) (mapAttrs (_: normalizePackage) discoveredPackages);
+      |                 ^
+    43| in
+
+… while calling 'filterAttrs'
+
+  at <nixpkgs> + /lib/attrsets.nix:662:23:
+
+   661|   */
+   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                       ^
+   663|
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/attrsets.nix:662:53:
+
+   661|   */
+   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                                                     ^
+   663|
+
+… from call site
+
+  at <nixpkgs> + /lib/attrsets.nix:662:60:
+
+   661|   */
+   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                                                            ^
+   663|
+
+… while calling 'isDerivation'
+
+  at <nixpkgs> + /lib/attrsets.nix:1412:18:
+
+  1411|   */
+  1412|   isDerivation = value: value.type or null == "derivation";
+      |                  ^
+  1413|
+
+… while calling 'normalizePackage'
+
+  at ./default.nix:28:22:
+
+    27|
+    28|   normalizePackage = v:
+      |                      ^
+    29|     if isDerivation v
+
+… from call site
+
+  at ./default.nix:31:41:
+
+    30|     then v
+    31|     else if isAttrs v && v ? default && isDerivation v.default
+      |                                         ^
+    32|     then v.default
+
+… while calling 'isDerivation'
+
+  at <nixpkgs> + /lib/attrsets.nix:1412:18:
+
+  1411|   */
+  1412|   isDerivation = value: value.type or null == "derivation";
+      |                  ^
+  1413|
+
+… from call site
+
+  at <nixpkgs> + /lib/filesystem.nix:403:47:
+
+   402|               # call .nix files
+   403|               "${removeSuffix ".nix" name}" = callPackage path { };
+      |                                               ^
+   404|             }
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+
+   307|     in
+   308|     autoArgs: fn: args:
+      |                   ^
+   309|     let
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "plasma5Packages" at ./pkgs/gruvbox-plus-icons/default.nix:9'

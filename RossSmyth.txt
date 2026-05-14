@@ -1,164 +1,119 @@
 error:
 … from call site
 
-  at ./default.nix:18:20:
+  at ./default.nix:22:20:
 
-    17|         # c2rust requires an old (2022) nightly
-    18|         old-rust = pkgs.extend (
+    21|         # c2rust requires an old (2022) nightly
+    22|         old-rust = pkgs.extend (
       |                    ^
-    19|           import (
+    23|           import (
 
 … while calling 'extend'
 
-  at <nixpkgs> + /pkgs/top-level/stage.nix:308:14:
+  at <nixpkgs> + /pkgs/top-level/stage.nix:287:14:
 
-   307|     # Prefer appendOverlays if used repeatedly.
-   308|     extend = f: self.appendOverlays [ f ];
+   286|     # Prefer appendOverlays if used repeatedly.
+   287|     extend = f: self.appendOverlays [ f ];
       |              ^
-   309|
+   288|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/top-level/stage.nix:308:17:
+  at <nixpkgs> + /pkgs/top-level/stage.nix:287:17:
 
-   307|     # Prefer appendOverlays if used repeatedly.
-   308|     extend = f: self.appendOverlays [ f ];
+   286|     # Prefer appendOverlays if used repeatedly.
+   287|     extend = f: self.appendOverlays [ f ];
       |                 ^
-   309|
+   288|
 
 … while calling 'appendOverlays'
 
-  at <nixpkgs> + /pkgs/top-level/stage.nix:298:7:
+  at <nixpkgs> + /pkgs/top-level/stage.nix:274:7:
 
-   297|     appendOverlays =
-   298|       extraOverlays:
+   273|     appendOverlays =
+   274|       extraOverlays:
       |       ^
-   299|       if extraOverlays == [ ] then self else nixpkgsFun { overlays = args.overlays ++ extraOverlays; };
+   275|       if extraOverlays == [ ] then
 
 … from call site
 
-  at <nixpkgs> + /pkgs/top-level/stage.nix:299:46:
+  at <nixpkgs> + /pkgs/top-level/stage.nix:278:9:
 
-   298|       extraOverlays:
-   299|       if extraOverlays == [ ] then self else nixpkgsFun { overlays = args.overlays ++ extraOverlays; };
-      |                                              ^
-   300|
+   277|       else
+   278|         nixpkgsFun { overlays = args.overlays ++ extraOverlays; };
+      |         ^
+   279|
 
 … while calling 'nixpkgsFun'
 
-  at <nixpkgs> + /pkgs/top-level/default.nix:161:16:
+  at <nixpkgs> + /pkgs/top-level/default.nix:191:16:
 
-   160|   # experience here.)
-   161|   nixpkgsFun = newArgs: import ./. (args // newArgs);
+   190|   # experience here.)
+   191|   nixpkgsFun = newArgs: import ./. (args // newArgs);
       |                ^
-   162|
+   192|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/top-level/default.nix:161:25:
+  at <nixpkgs> + /pkgs/top-level/default.nix:191:25:
 
-   160|   # experience here.)
-   161|   nixpkgsFun = newArgs: import ./. (args // newArgs);
+   190|   # experience here.)
+   191|   nixpkgsFun = newArgs: import ./. (args // newArgs);
       |                         ^
-   162|
+   192|
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/top-level/default.nix:21:1:
+  at <nixpkgs> + /pkgs/top-level/default.nix:40:1:
 
-    20|
-    21| {
+    39|
+    40| {
       | ^
-    22|   # The system packages will be built on. See the manual for the
+    41|   # The system packages will be built on. See the manual for the
 
 … from call site
 
-  at <nixpkgs> + /pkgs/top-level/default.nix:82:5:
+  at <nixpkgs> + /pkgs/top-level/default.nix:99:6:
 
-    81|   checked =
-    82|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list." lib.foldr
-      |     ^
-    83|       (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.")
-
-… while calling 'foldr'
-
-  at <nixpkgs> + /lib/lists.nix:139:14:
-
-   138|   foldr =
-   139|     op: nul: list:
-      |              ^
-   140|     let
-
-… from call site
-
-  at <nixpkgs> + /lib/lists.nix:144:5:
-
-   143|     in
-   144|     fold' 0;
-      |     ^
-   145|
-
-… while calling 'fold''
-
-  at <nixpkgs> + /lib/lists.nix:142:15:
-
-   141|       len = length list;
-   142|       fold' = n: if n == len then nul else op (elemAt list n) (fold' (n + 1));
-      |               ^
-   143|     in
-
-… from call site
-
-  at <nixpkgs> + /lib/lists.nix:142:44:
-
-   141|       len = length list;
-   142|       fold' = n: if n == len then nul else op (elemAt list n) (fold' (n + 1));
-      |                                            ^
-   143|     in
+    98|   checked =
+    99|     (throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list.")
+      |      ^
+   100|       (throwIfNot (lib.all lib.isFunction overlays) "All overlays passed to nixpkgs must be functions.")
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/top-level/default.nix:83:8:
+  at <nixpkgs> + /lib/trivial.nix:980:40:
 
-    82|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list." lib.foldr
-    83|       (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.")
-      |        ^
-    84|       (r: r)
+   979|   */
+   980|   throwIfNot = cond: msg: if cond then x: x else throw msg;
+      |                                        ^
+   981|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/top-level/default.nix:83:11:
+  at <nixpkgs> + /pkgs/top-level/default.nix:100:8:
 
-    82|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list." lib.foldr
-    83|       (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.")
-      |           ^
-    84|       (r: r)
+    99|     (throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list.")
+   100|       (throwIfNot (lib.all lib.isFunction overlays) "All overlays passed to nixpkgs must be functions.")
+      |        ^
+   101|       (throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list.")
 
 … while calling 'throwIfNot'
 
-  at <nixpkgs> + /lib/trivial.nix:913:22:
+  at <nixpkgs> + /lib/trivial.nix:980:22:
 
-   912|   */
-   913|   throwIfNot = cond: msg: if cond then x: x else throw msg;
+   979|   */
+   980|   throwIfNot = cond: msg: if cond then x: x else throw msg;
       |                      ^
-   914|
-
-… from call site
-
-  at <nixpkgs> + /pkgs/top-level/default.nix:83:23:
-
-    82|     throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list." lib.foldr
-    83|       (x: throwIfNot (lib.isFunction x) "All overlays passed to nixpkgs must be functions.")
-      |                       ^
-    84|       (r: r)
+   981|
 
 … while calling 'isFunction'
 
-  at <nixpkgs> + /lib/trivial.nix:1043:16:
+  at <nixpkgs> + /lib/trivial.nix:1126:16:
 
-  1042|   */
-  1043|   isFunction = f: builtins.isFunction f || (f ? __functor && isFunction (f.__functor f));
+  1125|   */
+  1126|   isFunction = f: builtins.isFunction f || (f ? __functor && isFunction (f.__functor f));
       |                ^
-  1044|
+  1127|
 
 error: access to URI 'https://github.com/oxalica/rust-overlay/archive/snapshot/2024-08-01.tar.gz' is forbidden in restricted mode

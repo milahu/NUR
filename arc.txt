@@ -17,14 +17,14 @@ error:
       |                                    ^
     69|   };
 
-… while calling 'callPackageWith'
+… while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:275:19:
+  at <nixpkgs> + /lib/customisation.nix:308:19:
 
-   274|   callPackageWith =
-   275|     autoArgs: fn: args:
+   307|     in
+   308|     autoArgs: fn: args:
       |                   ^
-   276|     let
+   309|     let
 
 … from call site
 
@@ -35,23 +35,23 @@ error:
       |     ^
   1082|     __functionArgs = args;
 
-… while calling anonymous lambda
+… while calling 'f''
 
-  at <nixpkgs> + /lib/customisation.nix:177:7:
+  at <nixpkgs> + /lib/customisation.nix:159:9:
 
-   176|     decorate (
-   177|       origArgs:
-      |       ^
-   178|       let
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:179:18:
+  at <nixpkgs> + /lib/customisation.nix:161:20:
 
-   178|       let
-   179|         result = f origArgs;
-      |                  ^
-   180|
+   160|         let
+   161|           result = f origArgs;
+      |                    ^
+   162|
 
 … while calling anonymous lambda
 
@@ -70,41 +70,23 @@ error:
       |                 ^
     31|     };
 
-… while calling 'callPackageWith'
+… while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:275:19:
+  at <nixpkgs> + /lib/customisation.nix:308:19:
 
-   274|   callPackageWith =
-   275|     autoArgs: fn: args:
+   307|     in
+   308|     autoArgs: fn: args:
       |                   ^
-   276|     let
+   309|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:289:11:
+  at <nixpkgs> + /lib/customisation.nix:311:15:
 
-   288|         (
-   289|           filterAttrs (name: value: !value)
-      |           ^
-   290|             # Filter out arguments that would be passed
-
-… while calling 'filterAttrs'
-
-  at <nixpkgs> + /lib/attrsets.nix:662:23:
-
-   661|   */
-   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
-      |                       ^
-   663|
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:278:15:
-
-   277|       f = if isFunction fn then fn else import fn;
-   278|       fargs = functionArgs f;
+   310|       f = if isFunction fn then fn else import fn;
+   311|       fargs = functionArgs f;
       |               ^
-   279|
+   312|
 
 … while calling 'functionArgs'
 

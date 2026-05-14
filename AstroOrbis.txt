@@ -8,13 +8,13 @@ error:
       |                              ^
     14|   mtgatool-desktop = pkgs.callPackage ./pkgs/mtgatool-desktop { };
 
-… while calling 'callPackageWith'
+… while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:276:19:
+  at <nixpkgs> + /lib/customisation.nix:308:19:
 
-   275|   callPackageWith =
-   276|     autoArgs: fn: args:
+   307|     in
+   308|     autoArgs: fn: args:
       |                   ^
-   277|     let
+   309|     let
 
 error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "python310" at ./pkgs/agave-platform-tools-bin/default.nix:14, did you mean "python311", "python312" or "python313"?'

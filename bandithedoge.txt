@@ -3,39 +3,21 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:557:13:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:649:13:
 
-   556|             in
-   557|             lib.strings.sanitizeDerivationName (
+   648|             in
+   649|             sanitizeDerivationName (
       |             ^
-   558|               if attrs ? name then
+   650|               if attrs ? name then
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/strings.nix:2902:5:
+  at <nixpkgs> + /lib/strings.nix:2901:5:
 
-  2901|     in
-  2902|     string:
+  2900|     in
+  2901|     string:
       |     ^
-  2903|     # First detect the common case of already valid strings, to speed those up
-
-… from call site
-
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:562:24:
-
-   561|                 # we cannot coerce null to a string below
-   562|                 assert assertMsg (
-      |                        ^
-   563|                   attrs ? version && attrs.version != null
-
-… while calling 'assertMsg'
-
-  at <nixpkgs> + /lib/asserts.nix:50:21:
-
-    49|   # TODO(Profpatsch): add tests that check stderr
-    50|   assertMsg = pred: msg: pred || throw msg;
-      |                     ^
-    51|
+  2902|     # First detect the common case of already valid strings, to speed those up
 
 … from call site
 
@@ -48,21 +30,21 @@ error:
 
 … while calling 'removePrefix'
 
-  at <nixpkgs> + /lib/strings.nix:1855:13:
+  at <nixpkgs> + /lib/strings.nix:1854:13:
 
-  1854|   removePrefix =
-  1855|     prefix: str:
+  1853|   removePrefix =
+  1854|     prefix: str:
       |             ^
-  1856|     # Before 23.05, paths would be copied to the store before converting them
+  1855|     # Before 23.05, paths would be copied to the store before converting them
 
 … from call site
 
-  at <nixpkgs> + /lib/strings.nix:1858:5:
+  at <nixpkgs> + /lib/strings.nix:1857:5:
 
-  1857|     # to strings and comparing. This was surprising and confusing.
-  1858|     warnIf (isPath prefix)
+  1856|     # to strings and comparing. This was surprising and confusing.
+  1857|     warnIf (isPath prefix)
       |     ^
-  1859|       ''
+  1858|       ''
 
 … while calling anonymous lambda
 
@@ -82,41 +64,23 @@ error:
       |                     ^
     16|             (
 
-… while calling 'callPackageWith'
+… while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:275:19:
+  at <nixpkgs> + /lib/customisation.nix:308:19:
 
-   274|   callPackageWith =
-   275|     autoArgs: fn: args:
+   307|     in
+   308|     autoArgs: fn: args:
       |                   ^
-   276|     let
+   309|     let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:289:11:
+  at <nixpkgs> + /lib/customisation.nix:311:15:
 
-   288|         (
-   289|           filterAttrs (name: value: !value)
-      |           ^
-   290|             # Filter out arguments that would be passed
-
-… while calling 'filterAttrs'
-
-  at <nixpkgs> + /lib/attrsets.nix:662:23:
-
-   661|   */
-   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
-      |                       ^
-   663|
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:278:15:
-
-   277|       f = if isFunction fn then fn else import fn;
-   278|       fargs = functionArgs f;
+   310|       f = if isFunction fn then fn else import fn;
+   311|       fargs = functionArgs f;
       |               ^
-   279|
+   312|
 
 … while calling 'functionArgs'
 
