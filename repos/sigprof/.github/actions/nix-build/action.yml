@@ -82,7 +82,7 @@ runs:
       if: (inputs.maximize-build-space == 'true') && (runner.os == 'Linux')
 
     - name: Install Nix
-      uses: cachix/install-nix-action@v31.10.0
+      uses: cachix/install-nix-action@v31.10.6
       with:
         install_url: ${{ inputs.nix-install-url }}
         install_options: ${{ inputs.nix-install-options }}
@@ -90,7 +90,7 @@ runs:
         extra_nix_config: ${{ inputs.nix-extra-config }}
 
     - name: Setup Cachix
-      uses: cachix/cachix-action@v16
+      uses: cachix/cachix-action@v17
       if: inputs.cachix-name
       with:
         name: ${{ inputs.cachix-name }}
@@ -177,7 +177,7 @@ runs:
 
     - name: Upload build logs
       if: always()
-      uses: actions/upload-artifact@v7.0.0
+      uses: actions/upload-artifact@v7.0.1
       with:
         name: build-logs-${{inputs.system}}-${{github.job}}-${{strategy.job-index}}
         path: ".build/logs/*"
