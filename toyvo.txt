@@ -1,0 +1,253 @@
+error:
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/attrsets.nix:1707:17:
+
+  1706|         zipAttrsWith (
+  1707|           name: values:
+      |                 ^
+  1708|           let
+
+… while calling anonymous lambda
+
+  at ./lib/default.nix:76:18:
+
+    75|     in
+    76|     mapAttrs (_: f: f extraArgs) (
+      |                  ^
+    77|       fix (
+
+… from call site
+
+  at ./lib/default.nix:76:21:
+
+    75|     in
+    76|     mapAttrs (_: f: f extraArgs) (
+      |                     ^
+    77|       fix (
+
+… while calling 'value'
+
+  at ./lib/default.nix:83:15:
+
+    82|             value =
+    83|               args:
+      |               ^
+    84|               callPackageWith (recursiveUpdate scope (mapAttrs (_: f: f extraArgs) nurPkgs)) (concatStringsSep "/"
+
+… from call site
+
+  at ./lib/default.nix:84:15:
+
+    83|               args:
+    84|               callPackageWith (recursiveUpdate scope (mapAttrs (_: f: f extraArgs) nurPkgs)) (concatStringsSep "/"
+      |               ^
+    85|                 ([ dir ] ++ path)
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+
+   307|     in
+   308|     autoArgs: fn: args:
+      |                   ^
+   309|     let
+
+… from call site
+
+  at <nixpkgs> + /lib/trivial.nix:1081:5:
+
+  1080|     # TODO: Should we add call-time "type" checking like built in?
+  1081|     __functor = self: f;
+      |     ^
+  1082|     __functionArgs = args;
+
+… while calling 'f''
+
+  at <nixpkgs> + /lib/customisation.nix:159:9:
+
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
+
+… from call site
+
+  at <nixpkgs> + /lib/customisation.nix:161:20:
+
+   160|         let
+   161|           result = f origArgs;
+      |                    ^
+   162|
+
+… while calling anonymous lambda
+
+  at ./pkgs/toyvo-neovim/package.nix:1:1:
+
+     1| {
+      | ^
+     2|   pkgs,
+
+… from call site
+
+  at ./pkgs/toyvo-neovim/package.nix:255:1:
+
+   254|
+   255| lib.mkWrappedProgram pkgs {
+      | ^
+   256|   name = "toyvo-neovim";
+
+… while calling anonymous lambda
+
+  at ./lib/mkWrappedProgram.nix:25:1:
+
+    24|
+    25| {
+      | ^
+    26|   name,
+
+… from call site
+
+  at ./lib/mkWrappedProgram.nix:36:1:
+
+    35|
+    36| runCommand name
+      | ^
+    37|   {
+
+… while calling anonymous lambda
+
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:76:5:
+
+    75|     }:
+    76|     buildCommand:
+      |     ^
+    77|     stdenv.mkDerivation (
+
+… from call site
+
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:77:5:
+
+    76|     buildCommand:
+    77|     stdenv.mkDerivation (
+      |     ^
+    78|       {
+
+… while calling 'mkDerivation'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:83:18:
+
+    82|   */
+    83|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                  ^
+    84|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:83:29:
+
+    82|   */
+    83|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+      |                             ^
+    84|
+
+… while calling 'makeDerivationExtensible'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:94:5:
+
+    93|   makeDerivationExtensible =
+    94|     rattrs:
+      |     ^
+    95|     let
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:151:22:
+
+   150|
+   151|       finalPackage = mkDerivationSimple overrideAttrs args;
+      |                      ^
+   152|
+
+… while calling 'mkDerivationSimple'
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:895:5:
+
+   894|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   895|     {
+      |     ^
+   896|
+
+… from call site
+
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:985:5:
+
+   984|
+   985|     extendDerivation validity.handled (
+      |     ^
+   986|       {
+
+… while calling 'extendDerivation'
+
+  at <nixpkgs> + /lib/customisation.nix:401:26:
+
+   400|   extendDerivation =
+   401|     condition: passthru: drv:
+      |                          ^
+   402|     let
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:2:23:
+
+     1|
+     2| lockFileStr: rootSrc: rootSubdir:
+      |                       ^
+     3|
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:10:13:
+
+     9|     builtins.mapAttrs
+    10|       (key: node:
+      |             ^
+    11|         let
+
+… from call site
+
+  at /call-flake.nix:47:21:
+
+    46|
+    47|           outputs = flake.outputs (inputs // { self = result; });
+      |                     ^
+    48|
+
+… while calling 'outputs'
+
+  at ./flake.nix:77:5:
+
+    76|   outputs =
+    77|     flake_inputs@{
+      |     ^
+    78|       devshell,
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:25:25:
+
+    24|           inputs = builtins.mapAttrs
+    25|             (inputName: inputSpec: allNodes.${resolveInput inputSpec})
+      |                         ^
+    26|             (node.inputs or {});
+
+… while calling anonymous lambda
+
+  at /call-flake.nix:10:13:
+
+     9|     builtins.mapAttrs
+    10|       (key: node:
+      |             ^
+    11|         let
+
+error: access to URI 'github:hercules-ci/flake-parts/f7c1a2d347e4c52d5fb8d10cb4d94b5884e546fb' is forbidden in restricted mode
