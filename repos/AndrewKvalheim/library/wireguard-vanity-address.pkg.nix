@@ -26,7 +26,7 @@ rustPlatform.buildRustPackage (wireguard-vanity-address: {
 
   # Workaround for NixOS/nixpkgs#392872
   cargoDeps = rustPlatform.importCargoLock {
-    lockFile = wireguard-vanity-address.src + "/Cargo.lock";
+    lockFile = ./assets/wireguard-vanity-address-Cargo.lock; # Copied from src
   };
 
   # versionCheckHook pending warner/wireguard-vanity-address#32
