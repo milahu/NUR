@@ -17,6 +17,8 @@ rec {
 
   aria-csv = pkgs.callPackage ./pkgs/aria-csv { };
 
+  consolas-nl = pkgs.callPackage ./pkgs/consolas-nl { };
+
   asmjit = pkgs.callPackage ./pkgs/asmjit { };
 
   autodiff = pkgs.callPackage ./pkgs/autodiff { };
@@ -109,7 +111,7 @@ rec {
 
   kumi = pkgs.callPackage ./pkgs/kumi { inherit copacabana; };
 
-  lexy = pkgs.callPackage ./pkgs/lexy { };
+  foonathan-lexy = pkgs.callPackage ./pkgs/foonathan-lexy { };
 
   libdwarf = pkgs.callPackage ./pkgs/libdwarf { };
 
@@ -122,8 +124,6 @@ rec {
   };
 
   linasm = pkgs.callPackage ./pkgs/linasm { };
-
-  libnano = pkgs.callPackage ./pkgs/libnano { };
 
   plutovg = pkgs.callPackage ./pkgs/plutovg { };
 
