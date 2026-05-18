@@ -1,16 +1,16 @@
 {
 "name":"foolnotion",
-"fetch_time":0.941,
-"eval_time":0.363,
+"fetch_time":0.433,
+"eval_time":0.346,
 "source":{
 "url":"https://github.com/foolnotion/nur-pkg",
-"rev":"994e91ede0266fe77c5a176b7880e231cd2fa3f1",
-"sha256":"1b2yhcir5y3gw19kdh7j2addmywfc3r3g0k17a6az328wa9gnbym",
+"rev":"35978c3f610d3a28008a14011c44033aff7e50b0",
+"sha256":"0pjwz8y20dv7d4qbv1mr9y14rgwzm3drp50irpqkhx7fmigaaykx",
 "date":null
 },
-"source_storepath":"/nix/store/0i0nnmyby659n9bnsy6zvzgivx14kijd-source",
-"nixpkgs_storepath":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source",
-"nur_combined_rev":"e4d164ea2167ddac9ef804ca0d187064a3582ca2",
+"source_storepath":"/nix/store/c8kh3qrfd2a3dl9yiy6z2zmjf9xnv29b-source",
+"nixpkgs_storepath":"/nix/store/837gqq5wrk8s96zm7wjf0ipr74jzpwnz-source",
+"nur_combined_rev":"c5c09862f9073e0ebfb897c4e7ad12e8ee7c01ab",
 "packages":{
 "aria-csv":{
 "meta":{
@@ -49,6 +49,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -82,6 +83,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -190,6 +192,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"zlib License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"zlib",
 "spdxId":"Zlib",
@@ -219,6 +222,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -298,13 +302,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"autodiff-v1.1.2",
+"name":"autodiff-1.1.2",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -331,6 +336,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -394,14 +400,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"autodiff-v1.1.2",
+"name":"autodiff-1.1.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"autodiff-v1.1.2",
+"pname":"autodiff",
 "system":"x86_64-linux",
-"version":""
+"version":"1.1.2"
 },
 "beman-optional":{
 "meta":{
@@ -440,13 +446,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "maintainers":[],
-"name":"optional-0.0.0",
+"name":"optional-1.0.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -473,6 +480,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -536,14 +544,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"optional-0.0.0",
+"name":"optional-1.0.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"optional",
 "system":"x86_64-linux",
-"version":"0.0.0"
+"version":"1.0.0"
 },
 "berserk":{
 "meta":{
@@ -582,6 +590,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -649,13 +658,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
 "maintainers":[],
-"name":"boost-assert-1.90.0",
+"name":"boost-assert-1.91.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -682,6 +692,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -745,14 +756,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boost-assert-1.90.0",
+"name":"boost-assert-1.91.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"boost-assert",
 "system":"x86_64-linux",
-"version":"1.90.0"
+"version":"1.91.0"
 },
 "boost-config":{
 "meta":{
@@ -791,13 +802,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
 "maintainers":[],
-"name":"boost-config-1.90.0",
+"name":"boost-config-1.91.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -824,6 +836,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -887,14 +900,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boost-config-1.90.0",
+"name":"boost-config-1.91.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"boost-config",
 "system":"x86_64-linux",
-"version":"1.90.0"
+"version":"1.91.0"
 },
 "boost-container-hash":{
 "meta":{
@@ -933,13 +946,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
 "maintainers":[],
-"name":"boost-container-hash-1.90.0",
+"name":"boost-container-hash-1.91.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -966,6 +980,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1029,14 +1044,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boost-container-hash-1.90.0",
+"name":"boost-container-hash-1.91.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"boost-container-hash",
 "system":"x86_64-linux",
-"version":"1.90.0"
+"version":"1.91.0"
 },
 "boost-core":{
 "meta":{
@@ -1075,13 +1090,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
 "maintainers":[],
-"name":"boost-core-1.90.0",
+"name":"boost-core-1.91.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1108,6 +1124,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1171,14 +1188,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boost-core-1.90.0",
+"name":"boost-core-1.91.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"boost-core",
 "system":"x86_64-linux",
-"version":"1.90.0"
+"version":"1.91.0"
 },
 "boost-hana":{
 "meta":{
@@ -1217,13 +1234,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
 "maintainers":[],
-"name":"boost-hana-1.90.0",
+"name":"boost-hana-1.91.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1250,6 +1268,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1313,14 +1332,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boost-hana-1.90.0",
+"name":"boost-hana-1.91.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"boost-hana",
 "system":"x86_64-linux",
-"version":"1.90.0"
+"version":"1.91.0"
 },
 "boost-parser":{
 "meta":{
@@ -1359,13 +1378,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
 "maintainers":[],
-"name":"boost-parser-1.90.0",
+"name":"boost-parser-1.91.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1392,6 +1412,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1455,14 +1476,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boost-parser-1.90.0",
+"name":"boost-parser-1.91.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"boost-parser",
 "system":"x86_64-linux",
-"version":"1.90.0"
+"version":"1.91.0"
 },
 "boost-throw-exception":{
 "meta":{
@@ -1501,13 +1522,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
 "maintainers":[],
-"name":"boost-throw-exception-1.90.0",
+"name":"boost-throw-exception-1.91.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1534,6 +1556,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1597,14 +1620,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boost-throw-exception-1.90.0",
+"name":"boost-throw-exception-1.91.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"boost-throw-exception",
 "system":"x86_64-linux",
-"version":"1.90.0"
+"version":"1.91.0"
 },
 "boost-type-index":{
 "meta":{
@@ -1643,13 +1666,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
 "maintainers":[],
-"name":"boost-type-index-1.90.0",
+"name":"boost-type-index-1.91.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1676,6 +1700,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1739,14 +1764,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boost-type-index-1.90.0",
+"name":"boost-type-index-1.91.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"boost-type-index",
 "system":"x86_64-linux",
-"version":"1.90.0"
+"version":"1.91.0"
 },
 "boost_unordered":{
 "meta":{
@@ -1785,13 +1810,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
 "maintainers":[],
-"name":"boost_unordered-1.87.1",
+"name":"boost_unordered-1.91.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1818,6 +1844,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1881,14 +1908,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"boost_unordered-1.87.1",
+"name":"boost_unordered-1.91.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"boost_unordered",
 "system":"x86_64-linux",
-"version":"1.87.1"
+"version":"1.91.0"
 },
 "byte-lite":{
 "meta":{
@@ -1927,6 +1954,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
@@ -1960,6 +1988,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2075,6 +2104,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2102,6 +2132,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -2131,6 +2162,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2209,6 +2241,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -2242,6 +2275,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2357,6 +2391,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2384,6 +2419,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2413,6 +2449,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2456,6 +2493,91 @@
 "system":"x86_64-linux",
 "version":"0.1.6"
 },
+"consolas-nl":{
+"meta":{
+"available":false,
+"broken":false,
+"description":"Consolas patched for Linux HiDPI: TrueType hints stripped, vertical metrics corrected, family renamed to Consolas NL",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"consolas-nl",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"consolas-nl",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":false,
+"fullName":"Unfree redistributable",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"unfreeRedistributable"
+},
+"maintainers":[],
+"name":"consolas-nl-1.0",
+"nonTeamMaintainers":[],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-linux",
+"arc-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"sh4-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux"
+],
+"position":"./pkgs/consolas-nl/default.nix:36",
+"unfree":true,
+"unsupported":false
+},
+"name":"consolas-nl-1.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"consolas-nl",
+"system":"x86_64-linux",
+"version":"1.0"
+},
 "copacabana":{
 "meta":{
 "available":true,
@@ -2491,6 +2613,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
@@ -2524,6 +2647,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2633,6 +2757,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
@@ -2666,6 +2791,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2775,13 +2901,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"cpp-lazy-8.0.0",
+"name":"cpp-lazy-8.0.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2808,6 +2935,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2871,14 +2999,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cpp-lazy-8.0.0",
+"name":"cpp-lazy-8.0.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cpp-lazy",
 "system":"x86_64-linux",
-"version":"8.0.0"
+"version":"8.0.1"
 },
 "cpp-sort":{
 "meta":{
@@ -2917,6 +3045,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2950,6 +3079,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3059,13 +3189,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
 "url":"https://spdx.org/licenses/BSD-2-Clause.html"
 },
 "maintainers":[],
-"name":"cppitertools-2.1",
+"name":"cppitertools-2.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3092,6 +3223,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3155,14 +3287,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cppitertools-2.1",
+"name":"cppitertools-2.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cppitertools",
 "system":"x86_64-linux",
-"version":"2.1"
+"version":"2.3"
 },
 "cpptrace":{
 "meta":{
@@ -3201,6 +3333,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -3221,7 +3354,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0i0nnmyby659n9bnsy6zvzgivx14kijd-source/pkgs/cpptrace/default.nix",
+"file":"/nix/store/c8kh3qrfd2a3dl9yiy6z2zmjf9xnv29b-source/pkgs/cpptrace/default.nix",
 "line":30
 },
 "name":"cpptrace-1.0.4",
@@ -3263,6 +3396,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3372,13 +3506,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"dynamic_bitset-1.3.2",
+"name":"dynamic_bitset-1.3.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3405,6 +3540,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3468,14 +3604,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"dynamic_bitset-1.3.2",
+"name":"dynamic_bitset-1.3.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"dynamic_bitset",
 "system":"x86_64-linux",
-"version":"1.3.2"
+"version":"1.3.3"
 },
 "eve":{
 "meta":{
@@ -3514,6 +3650,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -3547,6 +3684,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3656,13 +3794,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
 "maintainers":[],
-"name":"expected-lite-0.8.0",
+"name":"expected-lite-0.10.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3689,6 +3828,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3752,14 +3892,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"expected-lite-0.8.0",
+"name":"expected-lite-0.10.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"expected-lite",
 "system":"x86_64-linux",
-"version":"0.8.0"
+"version":"0.10.0"
 },
 "fast-float-6_1_6":{
 "meta":{
@@ -3799,6 +3939,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -3808,6 +3949,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
@@ -3817,6 +3959,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -3833,7 +3976,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/iqiaj7arm8qnqnfvf1xn5wlil87nd9jh-source/pkgs/by-name/fa/fast-float/package.nix",
+"file":"/nix/store/837gqq5wrk8s96zm7wjf0ipr74jzpwnz-source/pkgs/by-name/fa/fast-float/package.nix",
 "line":29
 },
 "name":"fast-float-6.1.6",
@@ -3870,6 +4013,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3979,6 +4123,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -4012,6 +4157,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4084,6 +4230,150 @@
 "system":"x86_64-linux",
 "version":"0.6.4"
 },
+"foonathan-lexy":{
+"meta":{
+"available":true,
+"broken":false,
+"description":"A parser combinator library for C++17 and onwards.",
+"homepage":"https://github.com/foonathan/lexy",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"lexy",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"lexy",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Boost Software License 1.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"boost",
+"spdxId":"BSL-1.0",
+"url":"https://spdx.org/licenses/BSL-1.0.html"
+},
+"maintainers":[],
+"name":"lexy-2025.05.0",
+"nonTeamMaintainers":[],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"i686-cygwin",
+"x86_64-cygwin",
+"x86_64-darwin",
+"aarch64-darwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd",
+"aarch64-genode",
+"i686-genode",
+"x86_64-genode",
+"x86_64-solaris",
+"javascript-ghcjs",
+"aarch64-linux",
+"arc-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"sh4-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"mmix-mmixware",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"aarch64_be-none",
+"aarch64-none",
+"arm-none",
+"armv6l-none",
+"avr-none",
+"i686-none",
+"microblaze-none",
+"microblazeel-none",
+"mips-none",
+"mips64-none",
+"msp430-none",
+"or1k-none",
+"m68k-none",
+"powerpc-none",
+"powerpcle-none",
+"riscv32-none",
+"riscv64-none",
+"rx-none",
+"s390-none",
+"s390x-none",
+"vc4-none",
+"x86_64-none",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox",
+"wasm64-wasi",
+"wasm32-wasi",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
+],
+"position":"./pkgs/foonathan-lexy/default.nix:50",
+"unfree":false,
+"unsupported":false
+},
+"name":"lexy-2025.05.0",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"lexy",
+"system":"x86_64-linux",
+"version":"2025.05.0"
+},
 "fplus":{
 "meta":{
 "available":true,
@@ -4121,13 +4411,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
 "maintainers":[],
-"name":"FunctionalPlus-0.2.25",
+"name":"FunctionalPlus-0.2.28",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -4154,6 +4445,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4217,14 +4509,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"FunctionalPlus-0.2.25",
+"name":"FunctionalPlus-0.2.28",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"FunctionalPlus",
 "system":"x86_64-linux",
-"version":"0.2.25"
+"version":"0.2.28"
 },
 "gch-small-vector":{
 "meta":{
@@ -4263,6 +4555,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -4296,6 +4589,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4405,6 +4699,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -4438,6 +4733,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4547,6 +4843,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -4612,6 +4909,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -4645,6 +4943,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4754,13 +5053,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
 "maintainers":[],
-"name":"kumi-3.1",
+"name":"kumi-4.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -4787,6 +5087,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4850,156 +5151,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"kumi-3.1",
+"name":"kumi-4.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"kumi",
 "system":"x86_64-linux",
-"version":"3.1"
-},
-"lexy":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"A parser combinator library for C++17 and onwards.",
-"homepage":"https://github.com/foonathan/lexy",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"lexy",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"lexy",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"Boost Software License 1.0",
-"redistributable":true,
-"shortName":"boost",
-"spdxId":"BSL-1.0",
-"url":"https://spdx.org/licenses/BSL-1.0.html"
-},
-"maintainers":[],
-"name":"lexy-2025.05.0",
-"nonTeamMaintainers":[],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"i686-cygwin",
-"x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd",
-"aarch64-genode",
-"i686-genode",
-"x86_64-genode",
-"x86_64-solaris",
-"javascript-ghcjs",
-"aarch64-linux",
-"arc-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"mmix-mmixware",
-"aarch64-netbsd",
-"armv6l-netbsd",
-"armv7a-netbsd",
-"armv7l-netbsd",
-"i686-netbsd",
-"m68k-netbsd",
-"mipsel-netbsd",
-"powerpc-netbsd",
-"riscv32-netbsd",
-"riscv64-netbsd",
-"x86_64-netbsd",
-"aarch64_be-none",
-"aarch64-none",
-"arm-none",
-"armv6l-none",
-"avr-none",
-"i686-none",
-"microblaze-none",
-"microblazeel-none",
-"mips-none",
-"mips64-none",
-"msp430-none",
-"or1k-none",
-"m68k-none",
-"powerpc-none",
-"powerpcle-none",
-"riscv32-none",
-"riscv64-none",
-"rx-none",
-"s390-none",
-"s390x-none",
-"vc4-none",
-"x86_64-none",
-"i686-openbsd",
-"x86_64-openbsd",
-"x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
-"aarch64-windows",
-"x86_64-windows",
-"i686-windows",
-"aarch64-uefi",
-"x86_64-uefi"
-],
-"position":"./pkgs/lexy/default.nix:50",
-"unfree":false,
-"unsupported":false
-},
-"name":"lexy-2025.05.0",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"lexy",
-"system":"x86_64-linux",
-"version":"2025.05.0"
+"version":"4.0"
 },
 "libassert":{
 "meta":{
@@ -5038,6 +5197,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -5071,6 +5231,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5180,6 +5341,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Plus",
 "spdxId":"LGPL-2.1-or-later",
@@ -5195,10 +5357,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0i0nnmyby659n9bnsy6zvzgivx14kijd-source/pkgs/libdwarf/default.nix",
+"file":"/nix/store/c8kh3qrfd2a3dl9yiy6z2zmjf9xnv29b-source/pkgs/libdwarf/default.nix",
 "line":24
 },
-"name":"libdwarf-2.0.0",
+"name":"libdwarf-2.3.1",
 "nonTeamMaintainers":[
 {
 "email":"yang-bo@yang-bo.com",
@@ -5228,6 +5390,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5261,156 +5424,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"libdwarf-2.0.0",
+"name":"libdwarf-2.3.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"libdwarf",
 "system":"x86_64-linux",
-"version":"2.0.0"
-},
-"libnano":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"Extensive collection of numerical optimization algorithms in C++",
-"homepage":"https://github.com/accosmin-org/libnano",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"libnano",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"libnano",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"maintainers":[],
-"name":"libnano-0.0.1",
-"nonTeamMaintainers":[],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"i686-cygwin",
-"x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd",
-"aarch64-genode",
-"i686-genode",
-"x86_64-genode",
-"x86_64-solaris",
-"javascript-ghcjs",
-"aarch64-linux",
-"arc-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"mmix-mmixware",
-"aarch64-netbsd",
-"armv6l-netbsd",
-"armv7a-netbsd",
-"armv7l-netbsd",
-"i686-netbsd",
-"m68k-netbsd",
-"mipsel-netbsd",
-"powerpc-netbsd",
-"riscv32-netbsd",
-"riscv64-netbsd",
-"x86_64-netbsd",
-"aarch64_be-none",
-"aarch64-none",
-"arm-none",
-"armv6l-none",
-"avr-none",
-"i686-none",
-"microblaze-none",
-"microblazeel-none",
-"mips-none",
-"mips64-none",
-"msp430-none",
-"or1k-none",
-"m68k-none",
-"powerpc-none",
-"powerpcle-none",
-"riscv32-none",
-"riscv64-none",
-"rx-none",
-"s390-none",
-"s390x-none",
-"vc4-none",
-"x86_64-none",
-"i686-openbsd",
-"x86_64-openbsd",
-"x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
-"aarch64-windows",
-"x86_64-windows",
-"i686-windows",
-"aarch64-uefi",
-"x86_64-uefi"
-],
-"position":"./pkgs/libnano/default.nix:32",
-"unfree":false,
-"unsupported":false
-},
-"name":"libnano-0.0.1",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"libnano",
-"system":"x86_64-linux",
-"version":"0.0.1"
+"version":"2.3.1"
 },
 "linasm":{
 "meta":{
@@ -5449,6 +5470,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU Lesser General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl3",
 "spdxId":"LGPL-3.0",
@@ -5478,6 +5500,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5557,6 +5580,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -5590,6 +5614,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5698,6 +5723,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"zlib License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"zlib",
 "spdxId":"Zlib",
@@ -5727,6 +5753,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5806,6 +5833,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -5839,6 +5867,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5948,6 +5977,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -5981,6 +6011,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6090,6 +6121,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -6123,6 +6155,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6232,13 +6265,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "maintainers":[],
-"name":"ned14-outcome-2.2.13",
+"name":"ned14-outcome-2.2.15",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -6265,6 +6299,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6328,14 +6363,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ned14-outcome-2.2.13",
+"name":"ned14-outcome-2.2.15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ned14-outcome",
 "system":"x86_64-linux",
-"version":"2.2.13"
+"version":"2.2.15"
 },
 "ned14-quickcpplib":{
 "meta":{
@@ -6374,6 +6409,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -6407,6 +6443,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6516,6 +6553,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -6549,6 +6587,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6658,6 +6697,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -6691,6 +6731,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6800,6 +6841,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -6833,6 +6875,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -6942,13 +6985,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
 "url":"https://spdx.org/licenses/BSL-1.0.html"
 },
 "maintainers":[],
-"name":"PEGTL-3.2.7",
+"name":"PEGTL-3.2.8",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -6975,6 +7019,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -7038,14 +7083,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"PEGTL-3.2.7",
+"name":"PEGTL-3.2.8",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"PEGTL",
 "system":"x86_64-linux",
-"version":"3.2.7"
+"version":"3.2.8"
 },
 "perf-cpp":{
 "meta":{
@@ -7084,13 +7129,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"perf-cpp-0.12.3",
+"name":"perf-cpp-0.14.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -7117,6 +7163,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -7180,14 +7227,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"perf-cpp-0.12.3",
+"name":"perf-cpp-0.14.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"perf-cpp",
 "system":"x86_64-linux",
-"version":"0.12.3"
+"version":"0.14.1"
 },
 "plutovg":{
 "meta":{
@@ -7226,6 +7273,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -7259,6 +7307,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -7374,6 +7423,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -7401,6 +7451,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -7422,6 +7473,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -7496,6 +7548,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -7529,6 +7582,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -7636,6 +7690,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Public Domain",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"publicDomain"
 },
@@ -7649,7 +7704,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0i0nnmyby659n9bnsy6zvzgivx14kijd-source/pkgs/practrand-rng-test/default.nix",
+"file":"/nix/store/c8kh3qrfd2a3dl9yiy6z2zmjf9xnv29b-source/pkgs/practrand-rng-test/default.nix",
 "line":33
 },
 "name":"PractRand",
@@ -7714,6 +7769,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2",
 "spdxId":"GPL-2.0",
@@ -7747,6 +7803,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -7852,7 +7909,7 @@
 "insecure":false,
 "mainProgram":"qobuz-linux",
 "maintainers":[],
-"name":"qobuz-linux-1.0.1-f15d602",
+"name":"qobuz-linux-1.0.1-65b8d71",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -7867,14 +7924,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"qobuz-linux-1.0.1-f15d602",
+"name":"qobuz-linux-1.0.1-65b8d71",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qobuz-linux",
 "system":"x86_64-linux",
-"version":"1.0.1-f15d602"
+"version":"1.0.1-65b8d71"
 },
 "scidb":{
 "meta":{
@@ -7913,6 +7970,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -7934,6 +7992,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -7949,7 +8008,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/scidb/default.nix:198",
+"position":"./pkgs/scidb/default.nix:197",
 "unfree":false,
 "unsupported":false
 },
@@ -7999,6 +8058,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -8032,6 +8092,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8141,6 +8202,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -8174,6 +8236,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8283,6 +8346,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -8316,6 +8380,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8425,6 +8490,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
@@ -8458,6 +8524,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8567,6 +8634,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
@@ -8600,6 +8668,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8709,6 +8778,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -8742,6 +8812,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8851,13 +8922,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"tessil-robin-map-1.4.0",
+"name":"tessil-robin-map-1.4.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -8884,6 +8956,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -8947,14 +9020,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tessil-robin-map-1.4.0",
+"name":"tessil-robin-map-1.4.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tessil-robin-map",
 "system":"x86_64-linux",
-"version":"1.4.0"
+"version":"1.4.1"
 },
 "testu01":{
 "meta":{
@@ -8991,6 +9064,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -9006,7 +9080,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0i0nnmyby659n9bnsy6zvzgivx14kijd-source/pkgs/testu01/default.nix",
+"file":"/nix/store/c8kh3qrfd2a3dl9yiy6z2zmjf9xnv29b-source/pkgs/testu01/default.nix",
 "line":19
 },
 "name":"TestU01-1.2.3",
@@ -9071,6 +9145,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Creative Commons Zero v1.0 Universal",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"cc0",
 "spdxId":"CC0-1.0",
@@ -9104,6 +9179,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -9213,6 +9289,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -9246,6 +9323,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -9355,6 +9433,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Boost Software License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"boost",
 "spdxId":"BSL-1.0",
@@ -9388,6 +9467,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -9497,13 +9577,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
 "maintainers":[],
-"name":"trng-4.27",
+"name":"trng-4.28",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -9530,6 +9611,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -9593,14 +9675,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"trng-4.27",
+"name":"trng-4.28",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"trng",
 "system":"x86_64-linux",
-"version":"4.27"
+"version":"4.28"
 },
 "unordered_dense":{
 "meta":{
@@ -9639,13 +9721,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"unordered_dense-4.5.0",
+"name":"unordered_dense-4.8.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -9672,6 +9755,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -9735,14 +9819,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"unordered_dense-4.5.0",
+"name":"unordered_dense-4.8.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"unordered_dense",
 "system":"x86_64-linux",
-"version":"4.5.0"
+"version":"4.8.1"
 },
 "vdt":{
 "meta":{
@@ -9781,6 +9865,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -9814,6 +9899,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -9923,13 +10009,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "maintainers":[],
-"name":"vectorclass-2.02.01",
+"name":"vectorclass-2.02.03",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -9956,6 +10043,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -10019,14 +10107,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"vectorclass-2.02.01",
+"name":"vectorclass-2.02.03",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"vectorclass",
 "system":"x86_64-linux",
-"version":"2.02.01"
+"version":"2.02.03"
 },
 "xad":{
 "meta":{
@@ -10065,13 +10153,14 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
 "url":"https://spdx.org/licenses/AGPL-3.0-only.html"
 },
 "maintainers":[],
-"name":"xad-1.8.0",
+"name":"xad-2.1.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -10098,6 +10187,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -10161,14 +10251,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"xad-1.8.0",
+"name":"xad-2.1.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"xad",
 "system":"x86_64-linux",
-"version":"1.8.0"
+"version":"2.1.0"
 },
 "xxhash_cpp":{
 "meta":{
@@ -10207,6 +10297,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -10240,6 +10331,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
