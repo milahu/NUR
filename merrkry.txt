@@ -1,0 +1,13 @@
+error:
+… while querying the derivation named 't3code-0.0.24'
+
+… while evaluating a path segment
+
+  at ./pkgs/t3code.nix:244:69:
+
+   243|       downloadPage = "https://t3.codes/download";
+   244|       changelog = "https://github.com/pingdotgg/t3code/releases/tag/${finalAttrs.src.tag}";
+      |                                                                     ^
+   245|       license = lib.licenses.mit;
+
+error: cannot coerce null to a string
