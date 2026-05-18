@@ -1,11 +1,12 @@
-{ lib
-, buildNpmPackage
-, fetchFromGitHub
+{
+  lib,
+  buildNpmPackage,
+  fetchFromGitHub,
 }:
 
 buildNpmPackage rec {
   pname = "mushroom";
-  version = "5.0.8";
+  version = "5.2.0";
 
   src = fetchFromGitHub {
     owner = "piitaya";

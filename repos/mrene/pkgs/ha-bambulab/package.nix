@@ -8,7 +8,7 @@
 
 buildHomeAssistantComponent rec {
   pname = "ha-bambulab";
-  version = "2.2.7";
+  version = "2.2.22";
 
   owner = "greghesp";
   domain = "bambu_lab";
@@ -17,7 +17,7 @@ buildHomeAssistantComponent rec {
     owner = "greghesp";
     repo = "ha-bambulab";
     rev = "v${version}";
-    hash = "sha256-ugt7I4mHvi4lnkQwwZHgvVVeUjwcczyFRORp4THCq+w=";
+    hash = "sha256-JRJ+tfllDuMrtz+5VQL2l5nkhJQXRoNvsvFnrReSZHE=";
   };
 
   dependencies = with home-assistant.python.pkgs; [
@@ -25,18 +25,21 @@ buildHomeAssistantComponent rec {
     cloudscraper
   ];
 
-  passthru.cards = runCommand "ha-bambulab-cards" {
-    pname = "ha-bambulab-cards";
-    inherit version;
-  } ''
-    mkdir $out
-    cp ${src}/custom_components/bambu_lab/frontend/ha-bambulab-cards.js $out/
-  '';
+  passthru.cards =
+    runCommand "ha-bambulab-cards"
+      {
+        pname = "ha-bambulab-cards";
+        inherit version;
+      }
+      ''
+        mkdir $out
+        cp ${src}/custom_components/bambu_lab/frontend/ha-bambulab-cards.js $out/
+      '';
 
   meta = {
     description = "A Home Assistant Integration for Bambu Lab Printers";
     homepage = "https://github.com/greghesp/ha-bambulab/";
-    maintainers = with lib.maintainers; [ mrene  ];
+    maintainers = with lib.maintainers; [ mrene ];
     mainProgram = "ha-bambulab";
     platforms = lib.platforms.linux;
   };

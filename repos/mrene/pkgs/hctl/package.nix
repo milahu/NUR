@@ -7,7 +7,7 @@
 
 buildGoModule rec {
   pname = "hctl";
-  version = "0.7.0";
+  version = "0.9.0";
 
   src = fetchFromGitHub {
     owner = "xx4h";
@@ -27,7 +27,7 @@ buildGoModule rec {
     "-X=github.com/xx4h/hctl/cmd.date=1970-01-01T00:00:00Z"
   ];
 
-  nativeBuildInputs = [installShellFiles];
+  nativeBuildInputs = [ installShellFiles ];
 
   postInstall = ''
     installShellCompletion --cmd hctl \

@@ -1,61 +1,63 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, cmake
-, uhd
-, rtl-sdr
-, hackrf
-, sox
-, fdk_aac
-, boost181
-, gnuradio-boost181
-, git
-, spdlog
-, gmp
-, volk
-, openssl
-, curl
-, mpir
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  cmake,
+  uhd,
+  rtl-sdr,
+  hackrf,
+  sox,
+  fdk_aac,
+  boost181,
+  gnuradio-boost181,
+  git,
+  spdlog,
+  gmp,
+  volk,
+  openssl,
+  curl,
+  mpir,
 }:
 
 stdenv.mkDerivation rec {
   pname = "trunk-recorder";
-  version = "5.1.0";
+  version = "5.2.1";
 
   # src = ./trunk-recorder;
   src = fetchFromGitHub {
     owner = "robotastic";
     repo = "trunk-recorder";
     rev = "v${version}";
-    hash = "sha256-Bta/NP+ApWTZat0IwUd4TXdajWDUZ9Be7TFRs6Q3u90=";
+    hash = "sha256-cLreyYLPIMPLYBcsj8QUukbeRnIMIEF3VSTTg9AOumM=";
   };
 
   nativeBuildInputs = [
     cmake
   ];
 
-  buildInputs = let 
-    # # Recent updates upgraded boost to an incompatible version because trunk-recorder uses deprecated functions.
-    # # Since boost versions have to match, override it to the last known working version
-    # gnuradio' = (gnuradio.override { unwrapped = gnuradio.unwrapped.override { boost = boost181; }; });
-  in [
-    uhd
-    rtl-sdr
-    hackrf
-    sox
-    fdk_aac
-    gnuradio-boost181
-    gnuradio-boost181.passthru.pkgs.osmosdr
-    git
-    spdlog
-    gmp
-    boost181
-    volk
-    openssl
-    curl
-    mpir
-  ];
-
+  buildInputs =
+    let
+      # # Recent updates upgraded boost to an incompatible version because trunk-recorder uses deprecated functions.
+      # # Since boost versions have to match, override it to the last known working version
+      # gnuradio' = (gnuradio.override { unwrapped = gnuradio.unwrapped.override { boost = boost181; }; });
+    in
+    [
+      uhd
+      rtl-sdr
+      hackrf
+      sox
+      fdk_aac
+      gnuradio-boost181
+      gnuradio-boost181.passthru.pkgs.osmosdr
+      git
+      spdlog
+      gmp
+      boost181
+      volk
+      openssl
+      curl
+      mpir
+    ];
 
   cmakeFlags = [
     (lib.cmakeBool "CMAKE_SKIP_BUILD_RPATH" true)
