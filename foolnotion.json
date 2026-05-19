@@ -1,16 +1,16 @@
 {
 "name":"foolnotion",
-"fetch_time":0.433,
-"eval_time":0.346,
+"fetch_time":0.43,
+"eval_time":0.344,
 "source":{
 "url":"https://github.com/foolnotion/nur-pkg",
-"rev":"35978c3f610d3a28008a14011c44033aff7e50b0",
-"sha256":"0pjwz8y20dv7d4qbv1mr9y14rgwzm3drp50irpqkhx7fmigaaykx",
+"rev":"24a0f018cee1a93d85439da450fdfd4fcb3700d5",
+"sha256":"062kql06hid62rq5h4n52vcj69h5g1raigfm36idjd6v4w1qmrkq",
 "date":null
 },
-"source_storepath":"/nix/store/c8kh3qrfd2a3dl9yiy6z2zmjf9xnv29b-source",
+"source_storepath":"/nix/store/qi6dl9d3h6c1l7324px5h6xp0fcnnyjf-source",
 "nixpkgs_storepath":"/nix/store/837gqq5wrk8s96zm7wjf0ipr74jzpwnz-source",
-"nur_combined_rev":"c5c09862f9073e0ebfb897c4e7ad12e8ee7c01ab",
+"nur_combined_rev":"0aea575610c198b795e09b39395b76d14db28d57",
 "packages":{
 "aria-csv":{
 "meta":{
@@ -2497,7 +2497,7 @@
 "meta":{
 "available":false,
 "broken":false,
-"description":"Consolas patched for Linux HiDPI: TrueType hints stripped, vertical metrics corrected, family renamed to Consolas NL",
+"description":"Consolas patched for HiDPI: TrueType hints stripped, vertical metrics corrected, box drawing added, family renamed to Consolas NL",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -2563,9 +2563,11 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux"
+"x86_64-linux",
+"x86_64-darwin",
+"aarch64-darwin"
 ],
-"position":"./pkgs/consolas-nl/default.nix:36",
+"position":"./pkgs/consolas-nl/default.nix:38",
 "unfree":true,
 "unsupported":false
 },
@@ -3354,7 +3356,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/c8kh3qrfd2a3dl9yiy6z2zmjf9xnv29b-source/pkgs/cpptrace/default.nix",
+"file":"/nix/store/qi6dl9d3h6c1l7324px5h6xp0fcnnyjf-source/pkgs/cpptrace/default.nix",
 "line":30
 },
 "name":"cpptrace-1.0.4",
@@ -5357,7 +5359,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/c8kh3qrfd2a3dl9yiy6z2zmjf9xnv29b-source/pkgs/libdwarf/default.nix",
+"file":"/nix/store/qi6dl9d3h6c1l7324px5h6xp0fcnnyjf-source/pkgs/libdwarf/default.nix",
 "line":24
 },
 "name":"libdwarf-2.3.1",
@@ -7704,7 +7706,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/c8kh3qrfd2a3dl9yiy6z2zmjf9xnv29b-source/pkgs/practrand-rng-test/default.nix",
+"file":"/nix/store/qi6dl9d3h6c1l7324px5h6xp0fcnnyjf-source/pkgs/practrand-rng-test/default.nix",
 "line":33
 },
 "name":"PractRand",
@@ -9080,7 +9082,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/c8kh3qrfd2a3dl9yiy6z2zmjf9xnv29b-source/pkgs/testu01/default.nix",
+"file":"/nix/store/qi6dl9d3h6c1l7324px5h6xp0fcnnyjf-source/pkgs/testu01/default.nix",
 "line":19
 },
 "name":"TestU01-1.2.3",
