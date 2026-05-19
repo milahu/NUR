@@ -46,82 +46,11 @@ error:
 
 … while calling anonymous lambda
 
-  at ./pkgs/by-name/nur/package.nix:1:1:
+  at ./pkgs/by-name/pkgsSpliced/package.nix:20:1:
 
-     1| {
+    19| # detect this by querying `recurseForDerivations`: `pkgs/top-level/splice.nix` sets it `false` when splicing is activate.
+    20| {
       | ^
-     2|   callPackage,
+    21|   config,
 
-… from call site
-
-  at ./pkgs/by-name/nur/package.nix:13:1:
-
-    12| in
-    13| stdenv.mkDerivation (finalAttrs: {
-      | ^
-    14|   pname = "nur";
-
-… while calling 'mkDerivation'
-
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:83:18:
-
-    82|   */
-    83|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
-      |                  ^
-    84|
-
-… from call site
-
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:83:29:
-
-    82|   */
-    83|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
-      |                             ^
-    84|
-
-… while calling 'makeDerivationExtensible'
-
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:94:5:
-
-    93|   makeDerivationExtensible =
-    94|     rattrs:
-      |     ^
-    95|     let
-
-… from call site
-
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:151:22:
-
-   150|
-   151|       finalPackage = mkDerivationSimple overrideAttrs args;
-      |                      ^
-   152|
-
-… while calling 'mkDerivationSimple'
-
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:895:5:
-
-   894|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
-   895|     {
-      |     ^
-   896|
-
-… from call site
-
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:985:5:
-
-   984|
-   985|     extendDerivation validity.handled (
-      |     ^
-   986|       {
-
-… while calling 'extendDerivation'
-
-  at <nixpkgs> + /lib/customisation.nix:401:26:
-
-   400|   extendDerivation =
-   401|     condition: passthru: drv:
-      |                          ^
-   402|     let
-
-error: path '/nix/store/n0x467bqrlx42dlsnbqc3asylc69jgs3-source.drv' is not valid
+error: path '/nix/store/cmafx2dzfszndgwr2i4wfb72z78dbbbl-837gqq5wrk8s96zm7wjf0ipr74jzpwnz-source' is not valid

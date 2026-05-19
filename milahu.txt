@@ -1,0 +1,28 @@
+error:
+… while evaluating the file './default.nix':
+
+… from call site
+
+  at ./default.nix:3:21:
+
+     2|                     with import <nixpkgs> {};
+     3|                     import ./evalRepo.nix {
+      |                     ^
+     4|                         name = "milahu";
+
+… while calling anonymous lambda
+
+  at ./evalRepo.nix:1:1:
+
+     1| { name
+      | ^
+     2| , url
+
+error: undefined variable 'config'
+
+at ./default.nix:1480:18:
+
+  1479|     pkgs.callPackage ./pkgs/tools/package-management/nix {
+  1480|       storeDir = config.nix.storeDir or "/nix/store";
+      |                  ^
+  1481|       stateDir = config.nix.stateDir or "/nix/var";
