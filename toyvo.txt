@@ -117,75 +117,75 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:76:5:
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:77:5:
 
-    75|     }:
-    76|     buildCommand:
+    76|     }:
+    77|     buildCommand:
       |     ^
-    77|     stdenv.mkDerivation (
+    78|     stdenv.mkDerivation (
 
 … from call site
 
-  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:77:5:
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:78:5:
 
-    76|     buildCommand:
-    77|     stdenv.mkDerivation (
+    77|     buildCommand:
+    78|     stdenv.mkDerivation (
       |     ^
-    78|       {
+    79|       {
 
 … while calling 'mkDerivation'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:83:18:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:84:18:
 
-    82|   */
-    83|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+    83|   */
+    84|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
       |                  ^
-    84|
+    85|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:83:29:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:84:29:
 
-    82|   */
-    83|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
+    83|   */
+    84|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
       |                             ^
-    84|
+    85|
 
 … while calling 'makeDerivationExtensible'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:94:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:95:5:
 
-    93|   makeDerivationExtensible =
-    94|     rattrs:
+    94|   makeDerivationExtensible =
+    95|     rattrs:
       |     ^
-    95|     let
+    96|     let
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:151:22:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:152:22:
 
-   150|
-   151|       finalPackage = mkDerivationSimple overrideAttrs args;
+   151|
+   152|       finalPackage = mkDerivationSimple overrideAttrs args;
       |                      ^
-   152|
+   153|
 
 … while calling 'mkDerivationSimple'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:895:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:901:5:
 
-   894|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
-   895|     {
+   900|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   901|     {
       |     ^
-   896|
+   902|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:985:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:991:5:
 
-   984|
-   985|     extendDerivation validity.handled (
+   990|
+   991|     extendDerivation validity.handled (
       |     ^
-   986|       {
+   992|       {
 
 … while calling 'extendDerivation'
 
