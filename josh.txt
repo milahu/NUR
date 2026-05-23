@@ -10,12 +10,12 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:308:19:
+  at <nixpkgs> + /lib/customisation.nix:307:19:
 
-   307|     in
-   308|     autoArgs: fn: args:
+   306|     in
+   307|     autoArgs: fn: args:
       |                   ^
-   309|     let
+   308|     let
 
 … from call site
 
@@ -28,21 +28,21 @@ error:
 
 … while calling 'f''
 
-  at <nixpkgs> + /lib/customisation.nix:159:9:
+  at <nixpkgs> + /lib/customisation.nix:158:9:
 
-   158|       f' =
-   159|         origArgs:
+   157|       f' =
+   158|         origArgs:
       |         ^
-   160|         let
+   159|         let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:161:20:
+  at <nixpkgs> + /lib/customisation.nix:160:20:
 
-   160|         let
-   161|           result = f origArgs;
+   159|         let
+   160|           result = f origArgs;
       |                    ^
-   162|
+   161|
 
 … while calling anonymous lambda
 

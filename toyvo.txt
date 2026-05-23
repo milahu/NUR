@@ -46,12 +46,12 @@ error:
 
 … while calling anonymous lambda
 
-  at <nixpkgs> + /lib/customisation.nix:308:19:
+  at <nixpkgs> + /lib/customisation.nix:307:19:
 
-   307|     in
-   308|     autoArgs: fn: args:
+   306|     in
+   307|     autoArgs: fn: args:
       |                   ^
-   309|     let
+   308|     let
 
 … from call site
 
@@ -64,21 +64,21 @@ error:
 
 … while calling 'f''
 
-  at <nixpkgs> + /lib/customisation.nix:159:9:
+  at <nixpkgs> + /lib/customisation.nix:158:9:
 
-   158|       f' =
-   159|         origArgs:
+   157|       f' =
+   158|         origArgs:
       |         ^
-   160|         let
+   159|         let
 
 … from call site
 
-  at <nixpkgs> + /lib/customisation.nix:161:20:
+  at <nixpkgs> + /lib/customisation.nix:160:20:
 
-   160|         let
-   161|           result = f origArgs;
+   159|         let
+   160|           result = f origArgs;
       |                    ^
-   162|
+   161|
 
 … while calling anonymous lambda
 
@@ -162,39 +162,39 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:152:22:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:170:22:
 
-   151|
-   152|       finalPackage = mkDerivationSimple overrideAttrs args;
+   169|
+   170|       finalPackage = mkDerivationSimple overrideAttrs args;
       |                      ^
-   153|
+   171|
 
 … while calling 'mkDerivationSimple'
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:901:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:922:5:
 
-   900|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
-   901|     {
+   921|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   922|     {
       |     ^
-   902|
+   923|
 
 … from call site
 
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:991:5:
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1012:5:
 
-   990|
-   991|     extendDerivation validity.handled (
+  1011|
+  1012|     extendDerivation validity.handled (
       |     ^
-   992|       {
+  1013|       {
 
 … while calling 'extendDerivation'
 
-  at <nixpkgs> + /lib/customisation.nix:401:26:
+  at <nixpkgs> + /lib/customisation.nix:400:26:
 
-   400|   extendDerivation =
-   401|     condition: passthru: drv:
+   399|   extendDerivation =
+   400|     condition: passthru: drv:
       |                          ^
-   402|     let
+   401|     let
 
 … while calling anonymous lambda
 
