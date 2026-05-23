@@ -1,22 +1,22 @@
 {
 "name":"trev",
-"fetch_time":0.624,
-"eval_time":0.466,
+"fetch_time":1.211,
+"eval_time":0.276,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"63d77f426eccd5186c1a995d3fe3370d17542d7d",
-"sha256":"1wjp88qjd0n32q10xvi3vcdfbkchgabc2fm9p2n8y473q2dzn2m5",
+"rev":"0ab76ae8e6db75ab23c51a40e3e518437333bbbf",
+"sha256":"15cvh5liiar8zrc81s93g35hfzi6ywrarcfs9vgiqx7ggd1vynzn",
 "date":null
 },
-"source_storepath":"/nix/store/q1jp7jh8l9sdj4j11fbv464a8434wi8y-source",
-"nixpkgs_storepath":"/nix/store/achilcark6jwgyb0y853izi2ab8c9b2j-source",
-"nur_combined_rev":"c7694ec1fb479ec092a53d61d864aa3389755e68",
+"source_storepath":"/nix/store/c0pvz6k03pddmbdh0s1ffzvi4r8v9qsh-source",
+"nixpkgs_storepath":"/nix/store/d1c2ls27802mdfv7vkvhzcvaad10j9rg-source",
+"nur_combined_rev":"0533663aa9cfb25bc522cb8493fba3156bb5462d",
 "packages":{
 "bobgen":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/stephenafamo/bob/releases/tag/v0.43.0",
+"changelog":"https://github.com/stephenafamo/bob/releases/tag/v0.44.0",
 "description":"SQL query builder and ORM/Factory generator for Go",
 "homepage":"https://github.com/stephenafamo/bob",
 "identifiers":{
@@ -58,7 +58,7 @@
 },
 "mainProgram":"bobgen-sql",
 "maintainers":[],
-"name":"bobgen-0.43.0",
+"name":"bobgen-0.44.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -149,20 +149,20 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"bobgen-0.43.0",
+"name":"bobgen-0.44.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"bobgen",
 "system":"x86_64-linux",
-"version":"0.43.0"
+"version":"0.44.0"
 },
 "bobgen-unstable":{
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/stephenafamo/bob/commits/676e5f1fa88c2fca0ebe0a4f16de94196aa5b96b/",
+"changelog":"https://github.com/stephenafamo/bob/commits/3a2d784792208c5a0fe8963efb4a1ebb25e528a6/",
 "description":"SQL query builder and ORM/Factory generator for Go - main branch",
 "homepage":"https://github.com/stephenafamo/bob",
 "identifiers":{
@@ -204,7 +204,7 @@
 },
 "mainProgram":"bobgen-sql",
 "maintainers":[],
-"name":"bobgen-0-unstable-2026-05-19",
+"name":"bobgen-0-unstable-2026-05-21",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -295,14 +295,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"bobgen-0-unstable-2026-05-19",
+"name":"bobgen-0-unstable-2026-05-21",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"bobgen",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-05-19"
+"version":"0-unstable-2026-05-21"
 },
 "bumper":{
 "meta":{
@@ -2512,7 +2512,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/renovatebot/renovate/releases/tag/43.191.1",
+"changelog":"https://github.com/renovatebot/renovate/releases/tag/43.192.0",
 "description":"Cross-platform dependency automation, with patches for nix",
 "homepage":"https://github.com/renovatebot/renovate",
 "identifiers":{
@@ -2554,7 +2554,7 @@
 },
 "mainProgram":"renovate",
 "maintainers":[],
-"name":"renovate-43.191.1",
+"name":"renovate-43.192.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2587,14 +2587,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"renovate-43.191.1",
+"name":"renovate-43.192.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"renovate",
 "system":"x86_64-linux",
-"version":"43.191.1"
+"version":"43.192.0"
 },
 "shellhook":{
 "meta":{
@@ -3004,7 +3004,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/astral-sh/uv/blob/0.11.14/CHANGELOG.md",
+"changelog":"https://github.com/astral-sh/uv/blob/0.11.15/CHANGELOG.md",
 "description":"Minimal build backend for uv",
 "homepage":"https://docs.astral.sh/uv/reference/settings/#build-backend",
 "identifiers":{
@@ -3091,7 +3091,7 @@
 }
 ],
 "maintainers":[],
-"name":"python3.13-uv-build-0.11.15",
+"name":"python3.13-uv-build-0.11.16",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3182,7 +3182,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-uv-build-0.11.15",
+"name":"python3.13-uv-build-0.11.16",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3190,7 +3190,7 @@
 },
 "pname":"python3.13-uv-build",
 "system":"x86_64-linux",
-"version":"0.11.15"
+"version":"0.11.16"
 },
 "yt-dlp":{
 "meta":{
