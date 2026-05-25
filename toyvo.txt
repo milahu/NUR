@@ -55,12 +55,12 @@ error:
 
 … from call site
 
-  at <nixpkgs> + /lib/trivial.nix:1081:5:
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
 
-  1080|     # TODO: Should we add call-time "type" checking like built in?
-  1081|     __functor = self: f;
-      |     ^
-  1082|     __functionArgs = args;
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
 
 … while calling 'f''
 
