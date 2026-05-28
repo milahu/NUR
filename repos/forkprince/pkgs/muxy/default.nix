@@ -1,20 +1,20 @@
 {
-  dolphin-emu,
   stdenvNoCC,
   fetchurl,
   _7zz,
   lib,
   ...
-}:
-if stdenvNoCC.isDarwin
-then let
+}: let
   ver = lib.helper.read ./version.json;
+  platform = stdenvNoCC.hostPlatform.system;
+
+  src = fetchurl (lib.helper.getPlatform platform ver);
+  inherit (ver) version;
 in
   stdenvNoCC.mkDerivation {
-    pname = "dolphin-emu";
+    pname = "muxy";
 
-    src = fetchurl (lib.helper.getSingle ver);
-    inherit (ver) version;
+    inherit version src;
 
     nativeBuildInputs = [_7zz];
 
@@ -32,12 +32,11 @@ in
     '';
 
     meta = {
-      description = "Gamecube/Wii/Triforce emulator for x86_64 and ARMv8";
-      homepage = "https://dolphin-emu.org";
+      description = "Lightweight and Memory efficient terminal for Mac built with SwiftUI and libghostty";
+      homepage = "https://muxy.app/";
       maintainers = with lib.maintainers; [Prinky];
-      license = lib.licenses.gpl2Plus;
+      license = lib.licenses.mit;
       platforms = lib.platforms.darwin;
       sourceProvenance = [lib.sourceTypes.binaryNativeCode];
     };
   }
-else dolphin-emu

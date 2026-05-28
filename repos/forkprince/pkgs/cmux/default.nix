@@ -1,26 +1,19 @@
-# NOTE: MacOS version is untested
 {
-  podman-desktop,
   stdenvNoCC,
   fetchurl,
-  unzip,
+  _7zz,
   lib,
   ...
-}:
-if stdenvNoCC.isDarwin
-then let
+}: let
   ver = lib.helper.read ./version.json;
-  platform = stdenvNoCC.hostPlatform.system;
-
-  src = fetchurl (lib.helper.getPlatform platform ver);
-  inherit (ver) version;
 in
   stdenvNoCC.mkDerivation {
-    pname = "podman-desktop";
+    pname = "cmux";
 
-    inherit version src;
+    src = fetchurl (lib.helper.getSingle ver);
+    inherit (ver) version;
 
-    nativeBuildInputs = [unzip];
+    nativeBuildInputs = [_7zz];
 
     sourceRoot = ".";
 
@@ -36,12 +29,11 @@ in
     '';
 
     meta = {
-      description = "Graphical tool for developing on containers and Kubernetes";
-      homepage = "https://podman-desktop.io";
+      description = "Ghostty-based terminal with vertical tabs and notifications for AI coding agents";
+      homepage = "https://www.cmux.dev/";
       maintainers = with lib.maintainers; [Prinky];
-      license = lib.licenses.asl20;
+      license = lib.licenses.gpl3Plus;
       platforms = lib.platforms.darwin;
       sourceProvenance = [lib.sourceTypes.binaryNativeCode];
     };
   }
-else podman-desktop

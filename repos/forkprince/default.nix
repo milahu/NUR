@@ -7,7 +7,6 @@
   twintaillauncher = lib.callPackage ./pkgs/twintaillauncher {};
   hyprpanel = lib.callPackage ./pkgs/hyprpanel {};
   syslock = lib.callPackage ./pkgs/syslock {};
-  nirius = lib.callPackage ./pkgs/nirius {};
 
   note-block-studio = lib.callPackage ./pkgs/note-block-studio {};
   re-lunatic-player = lib.callPackage ./pkgs/re-lunatic-player {};
@@ -41,14 +40,14 @@
   roblox = lib.callPackage ./pkgs/roblox {};
   figura = lib.callPackage ./pkgs/figura {};
   achico = lib.callPackage ./pkgs/achico {};
+  cmux = lib.callPackage ./pkgs/cmux {};
+  muxy = lib.callPackage ./pkgs/muxy {};
   blip = lib.callPackage ./pkgs/blip {};
   clop = lib.callPackage ./pkgs/clop {};
 
   github-desktop = lib.callPackage ./pkgs/github-desktop {};
-  podman-desktop = lib.callPackage ./pkgs/podman-desktop {};
   sublime-text = lib.callPackage ./pkgs/sublime-text {};
   pixelflasher = lib.callPackage ./pkgs/pixelflasher {};
-  dolphin-emu = lib.callPackage ./pkgs/dolphin-emu {};
   orca-slicer = lib.callPackage ./pkgs/orca-slicer {};
   zed-editor = lib.callPackage ./pkgs/zed-editor {};
   obs-studio = lib.callPackage ./pkgs/obs-studio {};
@@ -56,7 +55,6 @@
   overlayed = lib.callPackage ./pkgs/overlayed {};
   tiny-rdm = lib.callPackage ./pkgs/tiny-rdm {};
   openrct2 = lib.callPackage ./pkgs/openrct2 {};
-  lmstudio = lib.callPackage ./pkgs/lmstudio {};
   ghostty = lib.callPackage ./pkgs/ghostty {};
   equibop = lib.callPackage ./pkgs/equibop {};
   vscode = lib.callPackage ./pkgs/vscode {};
@@ -87,7 +85,6 @@
 
   proton-ge-rtsp-bin = lib.callPackage ./pkgs/proton-ge-rtsp-bin {};
   proton-sarek-bin = lib.callPackage ./pkgs/proton-sarek-bin {};
-  proton-dw-bin = lib.callPackage ./pkgs/proton-dw-bin {};
   proton-em-bin = lib.callPackage ./pkgs/proton-em-bin {};
 
   luxtorpeda-bin = lib.callPackage ./pkgs/luxtorpeda-bin {};
