@@ -4,32 +4,29 @@
   rustPlatform,
 }:
 
-let
+rustPlatform.buildRustPackage {
+  pname = "claw";
+  version = "0.1.3";
+
   src = fetchFromGitHub {
     owner = "ultraworkers";
     repo = "claw-code";
     rev = "main";
     hash = "sha256-4cc14TtAhbXWsI/F9Drem2bErWMuOtG5JgD8H5m12DA=";
   };
-in
-rustPlatform.buildRustPackage {
-  pname = "claw";
-  version = "0.1.3";
 
-  inherit src;
+  cargoHash = "sha256-bmMscPgzy33nEEmv0KpOKa6bwsoxfi2lscQiyz65zM8=";
 
-  cargoLock.lockFile = "${src}/rust/Cargo.lock";
-
-  sourceRoot = "${src.name}/rust";
+  sourceRoot = "source/rust";
 
   cargoBuildFlags = [ "-p" "rusty-claude-cli" ];
 
   doCheck = false;
 
-  meta = {
+  meta = with lib; {
     description = "Rust implementation of the claw CLI agent harness for Claude";
     homepage = "https://github.com/ultraworkers/claw-code";
-    license = lib.licenses.mit;
+    license = licenses.mit;
     mainProgram = "claw";
   };
 }
