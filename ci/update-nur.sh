@@ -47,10 +47,14 @@ export EVAL_RESULTS_PATH=$ROOT/nur-eval-results
 export EVAL_ERRORS_LOCK_PATH=$ROOT/nur-eval-errors/repos.json.lock
 export PREFETCH_CACHE_PATH=$ROOT/prefetch-cache.pickle
 export COMBINED_REPOS_PATH=$ROOT/nur-combined
+export NOTIFY_ON_EVAL_ERRORS_JSON_PATH=nur-notify-on-eval-errors/notify-on-eval-errors.json
+export NOTIFY_ON_EVAL_ERRORS_JSON_PATH=nur-repos-notify-on-eval-errors/repos-notify-on-eval-errors.json
 
 # branches of the NUR repo
 main_branch=master
-extra_branches=(gh-pages nur-combined nur-eval-results nur-eval-errors nur-repos nur-repos-lock nur-search-html)
+extra_branches=(gh-pages nur-combined nur-eval-results nur-eval-errors nur-repos nur-repos-lock nur-search-html
+  nur-repos-notify-on-eval-errors
+)
 
 # required envs
 if ! [ -v API_TOKEN_GITHUB ]; then echo "error: missing env API_TOKEN_GITHUB"; exit 1; fi
@@ -59,6 +63,9 @@ if ! [ -v API_TOKEN_GITHUB ]; then echo "error: missing env API_TOKEN_GITHUB"; e
 if ! [ -v GITHUB_REPOSITORY_OWNER ]; then GITHUB_REPOSITORY_OWNER=milahu; fi
 if ! [ -v GITHUB_REPOSITORY ]; then GITHUB_REPOSITORY=$GITHUB_REPOSITORY_OWNER/NUR; fi
 if ! [ -v API_USER_GITHUB ]; then API_USER_GITHUB=$GITHUB_REPOSITORY_OWNER; fi
+
+if ! [ -v API_TOKEN_GITHUB_ISSUES ]; then echo "warning: missing env API_TOKEN_GITHUB_ISSUES"; fi
+if ! [ -v API_USERNAME_GITHUB_ISSUES ]; then echo "warning: missing env API_USERNAME_GITHUB_ISSUES"; fi
 
 this_repo_url=github.com/$GITHUB_REPOSITORY
 
