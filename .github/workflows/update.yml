@@ -27,6 +27,8 @@ jobs:
         enable_kvm: false
     #- uses: DeterminateSystems/nix-installer-action@main
     #- uses: DeterminateSystems/magic-nix-cache-action@main
+    - name: nix version
+      run: nix --version
     - run: sudo apt install -y git-filter-repo
     - uses: actions/setup-python@v5
       with:
