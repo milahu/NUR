@@ -120,7 +120,6 @@ lib.filesystem.packagesFromDirectoryRecursive {
   #  ${pkgs.aria2}/bin/aria2c -s65536 -j65536 -x16 -k1M "$@"
   #'';
   # audacity4 = nodarwin (pkgs.qt6Packages.callPackage ./pkgs/audacity4/package.nix { });
-  cb = pkgs.callPackage ./pkgs/cb { };
   electron_castlabs_38 = pkgs.callPackage ./pkgs/electron-castlabs-38 { };
   cider = pkgs.callPackage ./pkgs/cider {
     electron = electron_castlabs_38;
@@ -128,13 +127,10 @@ lib.filesystem.packagesFromDirectoryRecursive {
   local-ai = pkgs.callPackage ./pkgs/local-ai/package.nix { };
   local-ai-cuda = local-ai.override { with_cublas = true; };
   mdbook-generate-summary = v3overrideAttrs (pkgs.callPackage ./pkgs/mdbook-generate-summary { });
-  miscutil = pkgs.callPackage ./pkgs/miscutil { };
   gifcurry = nonurbot (pkgs.callPackage ./pkgs/gifcurry { });
   browser-115-bin = pkgs.callPackage ./pkgs/115-browser-bin { };
-  browseros = pkgs.callPackage ./pkgs/browseros { };
-  icloud-for-linux = pkgs.callPackage ./pkgs/icloud-for-linux { };
-  icloud-mail = pkgs.callPackage ./pkgs/icloud-mail { };
-  github-store = pkgs.callPackage ./pkgs/github-store { };
+  youku-bin = pkgs.callPackage ./pkgs/youku-bin/package.nix { };
+  dtv = pkgs.callPackage ./pkgs/dtv/package.nix { };
   # currently no changes so just use nixpkgs version of bionic-translation and art-standalone
   bionic-translation = pkgs.bionic-translation; # pkgs.callPackage ./pkgs/bionic-translation/package.nix { };
   art-standalone = pkgs.art-standalone;
@@ -152,8 +148,6 @@ lib.filesystem.packagesFromDirectoryRecursive {
   };
   beammp-server = pkgs.callPackage ./pkgs/beammp-server/package.nix { };
   chatall = pkgs.callPackage ./pkgs/chatall/package.nix { };
-  dl-librescore = pkgs.callPackage ./pkgs/dl-librescore/package.nix { };
-  superTux = pkgs.callPackage ./pkgs/superTux/package.nix { };
   ogre-1_11 = v3overrideAttrs (pkgs.callPackage ./pkgs/ogre-1_11/package.nix { });
   angelscript_2_35_1 = v3overrideAttrs (
     pkgs.angelscript.overrideAttrs (
@@ -183,10 +177,6 @@ lib.filesystem.packagesFromDirectoryRecursive {
     socketw = socketw;
     angelscript = angelscript_2_35_1;
   };
-  rain = pkgs.callPackage ./pkgs/rain/package.nix { };
-  overmorrow = pkgs.callPackage ./pkgs/overmorrow/package.nix { };
-  ccleste = pkgs.callPackage ./pkgs/ccleste/package.nix { };
-  pixelle-video = pkgs.callPackage ./pkgs/pixelle-video/package.nix { };
 
   firefox_nightly-unwrapped = v3override (
     v3overrideAttrs (
@@ -205,13 +195,9 @@ lib.filesystem.packagesFromDirectoryRecursive {
     libName = "betterbird";
   };
 
-  bifrost = pkgs.callPackage ./pkgs/bifrost/package.nix { };
-  bifrost-unwrapped = bifrost.unwrapped;
-
   eden = nodarwin (v3overrideAttrs (pkgs.callPackage ./pkgs/eden/package.nix { }));
 
   layan-sddm = nodarwin (pkgs.callPackage ./pkgs/layan-sddm { });
-  needy-girl-overdose-theme = pkgs.callPackage ./pkgs/needy-girl-overdose-theme { };
   zw3d = pkgs.callPackage ./pkgs/zw3d {
     notoFontsCjk = pkgs.noto-fonts-cjk-sans;
   };
@@ -226,12 +212,8 @@ lib.filesystem.packagesFromDirectoryRecursive {
   apple-music-pake = pkgs.callPackage ./pkgs/apple-music-pake/package.nix {
     inherit makePakeApp;
   };
-  altus = pkgs.callPackage ./pkgs/altus/package.nix { };
   apple-music-desktop = pkgs.callPackage ./pkgs/apple-music-desktop/package.nix {
     electron = electron_castlabs_38;
-  };
-
-  ladybird = pkgs.callPackage ./pkgs/ladybird/package.nix {
   };
 
   #systemd257 = (pkgs.callPackage ./pkgs/systemd257 { });
