@@ -1,253 +1,362 @@
 error:
+… while evaluating the attribute 'toyvo-neovim'
+
+… from call site
+  at <nixpkgs> + /lib/attrsets.nix:1707:11:
+  1706|         zipAttrsWith (
+  1707|           name: values:
+      |           ^
+  1708|           let
+
 … while calling anonymous lambda
-
   at <nixpkgs> + /lib/attrsets.nix:1707:17:
-
   1706|         zipAttrsWith (
   1707|           name: values:
       |                 ^
   1708|           let
 
+… while calling the 'head' builtin
+  at <nixpkgs> + /lib/attrsets.nix:1712:13:
+  1711|           if length values == 1 || pred here (elemAt values 1) (head values) then
+  1712|             head values
+      |             ^
+  1713|           else
+
 … while calling anonymous lambda
-
   at ./lib/default.nix:76:18:
-
     75|     in
     76|     mapAttrs (_: f: f extraArgs) (
       |                  ^
     77|       fix (
 
 … from call site
-
   at ./lib/default.nix:76:21:
-
     75|     in
     76|     mapAttrs (_: f: f extraArgs) (
       |                     ^
     77|       fix (
 
 … while calling 'value'
-
   at ./lib/default.nix:83:15:
-
     82|             value =
     83|               args:
       |               ^
     84|               callPackageWith (recursiveUpdate scope (mapAttrs (_: f: f extraArgs) nurPkgs)) (concatStringsSep "/"
 
 … from call site
-
   at ./lib/default.nix:84:15:
-
     83|               args:
     84|               callPackageWith (recursiveUpdate scope (mapAttrs (_: f: f extraArgs) nurPkgs)) (concatStringsSep "/"
       |               ^
     85|                 ([ dir ] ++ path)
 
 … while calling anonymous lambda
-
   at <nixpkgs> + /lib/customisation.nix:307:19:
-
    306|     in
    307|     autoArgs: fn: args:
       |                   ^
    308|     let
 
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:322:7:
+   321|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   322|       makeOverridable f allArgs
+      |       ^
+   323|     else
+
 … from call site
-
   at <nixpkgs> + /lib/trivial.nix:1183:7:
-
   1182|     g: {
   1183|       __functor = self: g;
       |       ^
   1184|       __functionArgs = fArgs;
 
 … while calling 'f''
-
   at <nixpkgs> + /lib/customisation.nix:158:9:
-
    157|       f' =
    158|         origArgs:
       |         ^
    159|         let
 
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:174:9:
+   173|         in
+   174|         if isAttrs result then
+      |         ^
+   175|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:174:12:
+   173|         in
+   174|         if isAttrs result then
+      |            ^
+   175|           result
+
 … from call site
-
   at <nixpkgs> + /lib/customisation.nix:160:20:
-
    159|         let
    160|           result = f origArgs;
       |                    ^
    161|
 
 … while calling anonymous lambda
-
   at ./pkgs/toyvo-neovim/package.nix:1:1:
-
      1| {
       | ^
      2|   pkgs,
 
 … from call site
-
   at ./pkgs/toyvo-neovim/package.nix:255:1:
-
    254|
    255| lib.mkWrappedProgram pkgs {
       | ^
    256|   name = "toyvo-neovim";
 
 … while calling anonymous lambda
-
   at ./lib/mkWrappedProgram.nix:25:1:
-
     24|
     25| {
       | ^
     26|   name,
 
 … from call site
-
   at ./lib/mkWrappedProgram.nix:36:1:
-
     35|
     36| runCommand name
       | ^
     37|   {
 
 … while calling anonymous lambda
-
   at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:77:5:
-
     76|     }:
     77|     buildCommand:
       |     ^
     78|     stdenv.mkDerivation (
 
 … from call site
-
   at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:78:5:
-
     77|     buildCommand:
     78|     stdenv.mkDerivation (
       |     ^
     79|       {
 
 … while calling 'mkDerivation'
-
   at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:84:18:
-
     83|   */
     84|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
       |                  ^
     85|
 
 … from call site
-
   at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:84:29:
-
     83|   */
     84|   mkDerivation = fnOrAttrs: makeDerivationExtensible (toFunction fnOrAttrs);
       |                             ^
     85|
 
 … while calling 'makeDerivationExtensible'
-
   at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:95:5:
-
     94|   makeDerivationExtensible =
     95|     rattrs:
       |     ^
     96|     let
 
 … from call site
-
   at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:170:22:
-
    169|
    170|       finalPackage = mkDerivationSimple overrideAttrs args;
       |                      ^
    171|
 
 … while calling 'mkDerivationSimple'
-
   at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:922:5:
-
    921|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
    922|     {
       |     ^
    923|
 
 … from call site
-
   at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1012:5:
-
   1011|
   1012|     extendDerivation validity.handled (
       |     ^
   1013|       {
 
 … while calling 'extendDerivation'
-
   at <nixpkgs> + /lib/customisation.nix:400:26:
-
    399|   extendDerivation =
    400|     condition: passthru: drv:
       |                          ^
    401|     let
 
-… while calling anonymous lambda
+… in the left operand of the update (//) operator
+  at <nixpkgs> + /lib/customisation.nix:425:5:
+   424|     in
+   425|     commonAttrs
+      |     ^
+   426|     // {
 
-  at /call-flake.nix:2:23:
+… in the left operand of the update (//) operator
+  at <nixpkgs> + /lib/customisation.nix:403:17:
+   402|       commonAttrs =
+   403|         drv // (listToAttrs outputsList) // { all = map (x: x.value) outputsList; } // passthru;
+      |                 ^
+   404|
 
-     1|
-     2| lockFileStr: rootSrc: rootSubdir:
-      |                       ^
-     3|
+… while calling the 'listToAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:403:17:
+   402|       commonAttrs =
+   403|         drv // (listToAttrs outputsList) // { all = map (x: x.value) outputsList; } // passthru;
+      |                 ^
+   404|
 
-… while calling anonymous lambda
-
-  at /call-flake.nix:10:13:
-
-     9|     builtins.mapAttrs
-    10|       (key: node:
-      |             ^
-    11|         let
+… while calling the 'map' builtin
+  at <nixpkgs> + /lib/customisation.nix:405:21:
+   404|
+   405|       outputsList = map (outputName: {
+      |                     ^
+   406|         name = outputName;
 
 … from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1068:8:
+  1067|         passthru
+  1068|     ) (derivation (derivationArg // checkedEnv));
+      |        ^
+  1069|
 
-  at /call-flake.nix:47:21:
+… in the right operand of the update (//) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1068:37:
+  1067|         passthru
+  1068|     ) (derivation (derivationArg // checkedEnv));
+      |                                     ^
+  1069|
 
-    46|
-    47|           outputs = flake.outputs (inputs // { self = result; });
-      |                     ^
-    48|
+… in the condition of the assert statement
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:989:9:
+   988|           || throw "`env` must be an attribute set of environment variables. Set `env.env` or pick a more specific name.";
+   989|         assert
+      |         ^
+   990|           (overlappingArgs == { })
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:991:11:
+   990|           (overlappingArgs == { })
+   991|           || throw (
+      |           ^
+   992|             let
+
+… while calling the 'intersectAttrs' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:984:29:
+   983|         let
+   984|           overlappingArgs = intersectAttrs env' derivationArg;
+      |                             ^
+   985|         in
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:961:9:
+   960|       env' =
+   961|         if attrs ? meta.mainProgram then env // { NIX_MAIN_PROGRAM = attrs.meta.mainProgram; } else env;
+      |         ^
+   962|
+
+… in the left operand of the update (//) operator
+  at ./lib/mkWrappedProgram.nix:39:12:
+    38|     nativeBuildInputs = [ makeWrapper ];
+    39|     meta = package.meta // {
+      |            ^
+    40|       description = "${package.meta.description or binaryName} with bundled configuration";
+
+… while calling the 'getFlake' builtin
+  at ./default.nix:8:11:
+     7|   lib = pkgs.lib;
+     8|   flake = builtins.getFlake self;
+      |           ^
+     9|   ourLib = import "${self}/lib/default.nix" {
+
+… while calling anonymous lambda
+  at «flakes-internal»/call-flake.nix:15:1:
+    14| # This is `prim_fetchFinalTree`.
+    15| fetchTreeFinal:
+      | ^
+    16|
+
+… while evaluating the attribute 'root.result'
+  at «flakes-internal»/call-flake.nix:94:7:
+    93|     {
+    94|       result =
+      |       ^
+    95|         if node.flake or true then
+
+… in the left operand of the update (//) operator
+  at «flakes-internal»/call-flake.nix:75:9:
+    74|       result =
+    75|         outputs
+      |         ^
+    76|         # We add the sourceInfo attribute for its metadata, as they are
+
+… from call site
+  at «flakes-internal»/call-flake.nix:72:17:
+    71|
+    72|       outputs = flake.outputs (inputs // { self = result; });
+      |                 ^
+    73|
 
 … while calling 'outputs'
-
   at ./flake.nix:77:5:
-
     76|   outputs =
     77|     flake_inputs@{
       |     ^
     78|       devshell,
 
-… while calling anonymous lambda
-
-  at /call-flake.nix:25:25:
-
-    24|           inputs = builtins.mapAttrs
-    25|             (inputName: inputSpec: allNodes.${resolveInput inputSpec})
-      |                         ^
-    26|             (node.inputs or {});
+… from call site
+  at ./flake.nix:115:5:
+   114|     in
+   115|     flake-parts.lib.mkFlake { inherit inputs; } (
+      |     ^
+   116|       {
 
 … while calling anonymous lambda
+  at «flakes-internal»/call-flake.nix:68:37:
+    67|
+    68|       inputs = mapAttrs (inputName: inputSpec: allNodes.${resolveInput inputSpec}.result) (
+      |                                     ^
+    69|         node.inputs or { }
 
-  at /call-flake.nix:10:13:
+… while evaluating the attribute 'flake-parts_2.result'
+  at «flakes-internal»/call-flake.nix:94:7:
+    93|     {
+    94|       result =
+      |       ^
+    95|         if node.flake or true then
 
-     9|     builtins.mapAttrs
-    10|       (key: node:
-      |             ^
-    11|         let
+… in the condition of the assert statement
+  at «flakes-internal»/call-flake.nix:96:11:
+    95|         if node.flake or true then
+    96|           assert builtins.isFunction flake.outputs;
+      |           ^
+    97|           result
 
-error: access to URI 'github:hercules-ci/flake-parts/f7c1a2d347e4c52d5fb8d10cb4d94b5884e546fb' is forbidden in restricted mode
+… while calling the 'isFunction' builtin
+  at «flakes-internal»/call-flake.nix:96:18:
+    95|         if node.flake or true then
+    96|           assert builtins.isFunction flake.outputs;
+      |                  ^
+    97|           result
+
+… while calling the 'import' builtin
+  at «flakes-internal»/call-flake.nix:66:15:
+    65|
+    66|       flake = import (outPath + "/flake.nix");
+      |               ^
+    67|
+
+… while realising the context of a path
+
+… while calling the 'fetchFinalTree' builtin
+  at «flakes-internal»/call-flake.nix:56:11:
+    55|           # Note: lock file entries are always final.
+    56|           fetchTreeFinal (node.info or { } // removeAttrs node.locked [ "dir" ]);
+      |           ^
+    57|
+
+error: access to URI 'github:hercules-ci/flake-parts/f7c1a2d347e4c52d5fb8d10cb4d94b5884e546fb?narHash=sha256-m1Yf0wZ8j1OHjTc2UwHwyQRSnNeSgLJOd7q5Y45hzi4%3D' is forbidden in restricted mode

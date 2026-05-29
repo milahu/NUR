@@ -1,0 +1,39 @@
+error:
+… while querying the derivation named 'gcfflasher'
+
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
+
+… while evaluating derivation 'gcfflasher'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:647:11
+
+… while evaluating attribute 'src' of derivation 'gcfflasher'
+  at ./pkgs/gcfflasher/default.nix:7:3:
+     6|
+     7|   src = fetchFromGitHub {
+      |   ^
+     8|     owner = "dresden-elektronik";
+
+… while calling the 'getAttr' builtin
+  at «nix-internal»/derivation-internal.nix:50:17:
+    49|     value = commonAttrs // {
+    50|       outPath = builtins.getAttr outputName strict;
+      |                 ^
+    51|       drvPath = strict.drvPath;
+
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
+
+… while evaluating derivation 'source'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:647:11
+
+error: unknown hash algorithm 'hash', expect 'blake3', 'md5', 'sha1', 'sha256', or 'sha512'
+Try 'nix-env --help' for more information.

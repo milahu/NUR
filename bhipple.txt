@@ -2,9 +2,7 @@ error:
 … while querying the derivation named 'boardspace-unstable-2024-06-26'
 
 error: undefined variable 'bhipple'
-
 at ./pkgs/boardspace/default.nix:24:43:
-
     23|     platforms = lib.platforms.linux;
     24|     maintainers = with lib.maintainers; [ bhipple ];
       |                                           ^
