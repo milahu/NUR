@@ -82,6 +82,7 @@ class Repo:
         #eval_result_json: Optional[str],
         eval_error_version: Optional[LockedVersion],
         eval_error_text: Optional[str],
+        extra_config: Optional[dict],
     ) -> None:
         self.name = name
         self.url = url
@@ -97,6 +98,10 @@ class Repo:
         self.eval_result_packages_json = None
         self.eval_error_version = None
         self.eval_error_text = None
+        self.extra_config = extra_config or dict()
+        for key, val in self.extra_config.items():
+            key = key.replace("-", "_")
+            setattr(self, key, val)
         self.fetch_time = 0
         self.eval_time = 0
         self.error = None
@@ -236,16 +241,18 @@ def load_manifest(manifest_path: PathType, lock_path: PathType, eval_errors_lock
 
     repos = []
     for name, repo in data["repos"].items():
-        url = urlparse(repo["url"])
-        submodules = repo.get("submodules", False)
-        branch_ = repo.get("branch")
-        file_ = repo.get("file", "default.nix")
-        type_ = repo.get("type", None)
+        url = urlparse(repo.pop("url"))
+        submodules = repo.pop("submodules", False)
+        branch_ = repo.pop("branch", None)
+        file_ = repo.pop("file", "default.nix")
+        type_ = repo.pop("type", None)
         locked_version = locked_versions.get(name)
         #eval_results_path = ...
         #eval_result_json = load_text_file(eval_results_path.joinpath(name + ".json"))
         eval_error_version = eval_error_versions.get(name)
         eval_error_text = load_eval_error_text(eval_errors_path, name)
-        repos.append(Repo(name, url, submodules, type_, file_, branch_, locked_version, eval_error_version, eval_error_text))
+        repos.append(Repo(name, url, submodules, type_, file_, branch_, locked_version, eval_error_version, eval_error_text,
+            extra_config=repo,
+        ))
 
     return Manifest(repos)

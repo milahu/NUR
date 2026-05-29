@@ -12,6 +12,7 @@ import cProfile, pstats, io
 from distutils.dir_util import copy_tree
 import shlex
 import json
+import traceback
 
 shlex_join_bak = shlex.join
 def shlex_join(args):
@@ -21,10 +22,14 @@ shlex.join = shlex_join
 from .error import EvalError, RepoNotFoundError
 from .manifest import Repo, load_manifest, update_lock_file, update_eval_errors, update_eval_errors_lock_file
 from .path import ROOT_PATH, EVALREPO_PATH, EVAL_RESULTS_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH, LOCK_PATH, MANIFEST_PATH, nixpkgs_path, COMBINED_REPOS_PATH
+from .path import (
+    NOTIFY_ON_EVAL_ERRORS_JSON_PATH,
+)
 from .prefetch import prefetch, update_version_github_repos, update_version_git_repos
 from .process import prctl_set_pdeathsig
 from . import combine
 from .combine import capture_check_call
+from .notify_github_issues import update_eval_error_github_issues
 
 logger = logging.getLogger(__name__)
 
@@ -561,9 +566,39 @@ def update_command_inner(args: Namespace) -> None:
     # write after every repo: 150s
     # write once: 100s
     # TODO write on KeyboardInterrupt so we can stop and resume
+    logger.debug(f"calling update_lock_file")
     update_lock_file(manifest.repos, LOCK_PATH)
+
+    logger.debug(f"calling update_eval_errors_lock_file")
     update_eval_errors_lock_file(manifest.repos, EVAL_ERRORS_LOCK_PATH)
+
+    logger.debug(f"calling update_eval_errors")
     update_eval_errors(manifest.repos, EVAL_ERRORS_PATH)
+
+    # merge repos-notify-on-eval-errors.json into repos.json
+    # for update_eval_error_github_issues
+    # TODO ideally the notify-on-eval-errors config should be stored in upstream repos.json
+    notify_config = load_json(NOTIFY_ON_EVAL_ERRORS_JSON_PATH)
+    logger.debug(f"notify_config: {notify_config}")
+    for repo_name, repo_notify_config in notify_config.get("repos", {}).items():
+        # FIXME manifest.repos should be a dict
+        for repo in manifest.repos:
+            if repo.name != repo_name: continue
+            # repo.extra_config.update(repo_notify_config)
+            for key, val in repo_notify_config.items():
+                # dont overwrite config in repos.json
+                if hasattr(repo, key.replace("-", "_")): continue
+                if key in repo.extra_config: continue
+                setattr(repo, key.replace("-", "_"), val)
+                repo.extra_config[key] = val
+            break
+
+    logger.debug(f"calling update_eval_error_github_issues")
+    try:
+        update_eval_error_github_issues(manifest.repos)
+
+    except Exception as exc:
+        logger.error(f"update_eval_error_github_issues failed: {type(exc).__name__}: {exc}\n{''.join(traceback.format_exception(exc))}")
 
     # TODO? join nur-eval-results/*.json into packages.json
 
@@ -572,6 +607,11 @@ def update_command_inner(args: Namespace) -> None:
     logger.info(f"Total fetch time: {total_fetch_time:.2f} seconds")
     logger.info(f"Total eval time: {total_eval_time:.2f} seconds")
     logger.info(f"Total time: {dt_update:.2f} seconds")
+
+
+def load_json(path):
+    with open(path, "r") as f:
+        return json.load(f)
 
 
 def update_command(args: Namespace) -> None:

@@ -37,8 +37,13 @@ jobs:
     - name: update nur
       run: date ; ./ci/update-nur.sh
       env:
+        # secrets
         # https://github.com/your_name/NUR/settings/secrets/actions
         API_TOKEN_GITHUB: '${{ secrets.API_TOKEN_GITHUB }}'
         API_USER_GITHUB: '${{ secrets.API_USER_GITHUB }}'
         GRAPHQL_TOKEN_GITHUB: '${{ secrets.GRAPHQL_TOKEN_GITHUB }}'
+        API_TOKEN_GITHUB_ISSUES: '${{ secrets.API_TOKEN_GITHUB_ISSUES }}'
+        # variables
+        # https://github.com/milahu/NUR/settings/variables/actions
+        API_USERNAME_GITHUB_ISSUES: '${{ vars.API_USERNAME_GITHUB_ISSUES }}'
         FORCE_NUR_SEARCH_UPDATE: '${{ vars.FORCE_NUR_SEARCH_UPDATE }}'

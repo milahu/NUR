@@ -42,6 +42,7 @@ EVAL_ERRORS_LOCK_PATH = Path(os.environ.get("EVAL_ERRORS_LOCK_PATH", ROOT_PATH.j
 # TODO use prefetch-cache.json -> make "class Repo" json-serializable
 PREFETCH_CACHE_PATH = Path(os.environ.get("PREFETCH_CACHE_PATH", ROOT_PATH.joinpath("prefetch-cache.pickle"))).resolve()
 COMBINED_REPOS_PATH = Path(os.environ.get("COMBINED_REPOS_PATH", ROOT_PATH.joinpath("nur-combined"))).resolve()
+NOTIFY_ON_EVAL_ERRORS_JSON_PATH = Path(os.environ.get("NOTIFY_ON_EVAL_ERRORS_JSON_PATH", ROOT_PATH.joinpath("repos-notify-on-eval-errors.json"))).resolve()
 
 _NIXPKGS_PATH = os.environ.get("NIXPKGS_PATH", None)
 
