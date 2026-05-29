@@ -8,10 +8,6 @@ fetch.url = "https://github.com/algerkong/AlgerMusicPlayer/releases/download/v$v
 src.github = "algerkong/AlgerMusicPlayer"
 src.prefix = "v"
 
-[danmakufactory]
-fetch.github = "hihkm/DanmakuFactory"
-src.github = "hihkm/DanmakuFactory"
-
 [dxvk-gplall]
 fetch.url = "https://github.com/Digger1955/dxvk-gplasync-lowlatency/releases/download/DXVK-GPLALL-$ver/DXVK-GPLALL-MSVC-Windows-AVX2-O1_Oi_Ob3-LTCG-AMD64.$ver.zip"
 src.github_tag = "Digger1955/dxvk-gplasync-lowlatency"
@@ -56,6 +52,10 @@ extract = ["pubspec.lock"]
 fetch.github = "FoxSensei001/LoveIwara"
 src.github = "FoxSensei001/LoveIwara"
 
+[lumine]
+fetch.git = "https://codeberg.org/PonyCW26/lumine.git"
+src.git = "https://codeberg.org/PonyCW26/lumine.git"
+
 [lxgw-wenkai-gb]
 fetch.url = "https://github.com/lxgw/LxgwWenkaiGB/releases/download/$ver/lxgw-wenkai-gb-$ver.tar.gz"
 src.github = "lxgw/LxgwWenkaiGB"
@@ -71,6 +71,10 @@ src.git = "https://github.com/chiyuki0325/lyrica"
 cargo_lock = ["src-tauri/Cargo.lock"]
 fetch.github = "AnInsomniacy/motrix-next"
 src.github_tag = "AnInsomniacy/motrix-next"
+
+[ntfsprogs-plus]
+fetch.github = "ntfsprogs-plus/ntfsprogs-plus"
+src.git = "https://github.com/ntfsprogs-plus/ntfsprogs-plus"
 
 [piliplus]
 extract = ["pubspec.lock"]
@@ -125,6 +129,16 @@ src.github = "Tony15246/uosc_danmaku"
 [uosc-danmaku-git]
 fetch.github = "Tony15246/uosc_danmaku"
 src.git = "https://github.com/Tony15246/uosc_danmaku"
+
+[waywallen-bin]
+fetch.url = "https://github.com/waywallen/waywallen/releases/download/v$ver/waywallen-$ver-x86_64.AppImage"
+src.prefix = "v"
+src.github = "waywallen/waywallen"
+
+[waywallen-display-bin]
+fetch.url = "https://github.com/waywallen/waywallen-display/releases/download/v$ver/waywallen-kde-$ver-x86_64-embed.zip"
+src.prefix = "v"
+src.github = "waywallen/waywallen-display"
 
 [wild]
 cargo_lock = ["rust/Cargo.lock"]

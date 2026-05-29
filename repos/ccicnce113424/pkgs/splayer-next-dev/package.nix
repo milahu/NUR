@@ -2,11 +2,11 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  pnpm_10_29_2,
+  pnpm_10,
   fetchPnpmDeps,
   pnpmConfigHook,
   nodejs,
-  electron_39,
+  electron_41,
   rustPlatform,
   cargo,
   rustc,
@@ -22,8 +22,8 @@
   removeReferencesTo,
 }:
 let
-  electron = electron_39;
-  pnpm = pnpm_10_29_2;
+  electron = electron_41;
+  pnpm = pnpm_10;
   shareDir = "$out/share/SPlayer-Next";
 in
 stdenv.mkDerivation (finalAttrs: {
