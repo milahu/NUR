@@ -18,11 +18,22 @@ error:
       | ^
      2| , url
 
-error: undefined variable 'config'
+… from call site
 
-at ./default.nix:1482:18:
+  at ./evalRepo.nix:33:11:
 
-  1481|     pkgs.callPackage ./pkgs/tools/package-management/nix {
-  1482|       storeDir = config.nix.storeDir or "/nix/store";
-      |                  ^
-  1483|       stateDir = config.nix.stateDir or "/nix/var";
+    32|     might result in infinite recursion when used with NixOS modules.
+    33|   '' else expr (builtins.intersectAttrs args passedArgs)
+      |           ^
+    34|
+
+… while calling anonymous lambda
+
+  at ./default.nix:9:1:
+
+     8|
+     9| {
+      | ^
+    10|   pkgs ? import <nixpkgs> { },
+
+error: test
