@@ -62,6 +62,24 @@ stdenv.mkDerivation (finalAttrs: {
         'function loadMifiLink() {' \
         'function loadMifiLink() { return undefined;'
 
+    # fix path to locales
+    substituteInPlace src/main/i18nCommon.ts \
+      --replace-fail \
+        "return join('locales', subPath);" \
+        "return join('$out/opt/losslesscut/locales', subPath);"
+
+    # FIXME Error: app.getSystemLocale() can only be called after app is ready
+    # so maybe app.getLocale is just called too early?
+    #
+    # fix default locale
+    # app.getLocale() always returns "en-US" (why?)
+    # app.getSystemLocale() returns the locale from the `LANG` environment variable
+    false &&
+    substituteInPlace src/main/i18n.ts \
+      --replace-fail \
+        "app.getLocale()" \
+        "app.getSystemLocale()"
+
     # add version to versions.json
     jq --arg v "${finalAttrs.version}" '
     if any(.[]; .version == $v)
@@ -77,6 +95,25 @@ stdenv.mkDerivation (finalAttrs: {
       '. * {"version":$v}' \
       package.json |
       sponge package.json
+
+    # patch lockfile version 9 for yarn 4.14
+    # TODO check the actual lockfile version
+    # NOTE this is also done in update.sh
+    echo "yarn version ${yarn-berry.version}"
+    # builtins.compareVersions a b
+    # +1: a > b
+    #  0: a == b
+    # -1: a < b
+    ${if (builtins.compareVersions yarn-berry.version "4.14") != -1 then "" else ''
+    # yarn-berry.version < 4.14
+    echo "not patching lockfile version 9 for yarn ${yarn-berry.version}"
+    echo "error: this build requires yarn >=4.14"
+    exit 1
+    ''}
+    # yarn-berry.version >= 4.14
+    # yarn 4.14 requires lockfile version 9
+    echo "patching lockfile version 9 for yarn ${yarn-berry.version}"
+    sed -i '1,5 s/version: 8$/version: 9/' yarn.lock
   '';
 
   nativeBuildInputs = [
@@ -131,6 +168,8 @@ stdenv.mkDerivation (finalAttrs: {
     mkdir -p $out/opt/losslesscut
 
     cp -v package.json $out/opt/losslesscut
+
+    cp -r locales $out/opt/losslesscut
 
 
 
@@ -199,7 +238,13 @@ stdenv.mkDerivation (finalAttrs: {
 
   offlineCache = yarn-berry.fetchYarnBerryDeps {
     inherit (finalAttrs) src missingHashes;
-    hash = "sha256-0HMeaTm4jx5FFwTVeqQOJMfTlWnNKTsJRjQEGz1zJmY="; # offlineCache.hash
+    inherit (finalAttrs) postPatch;
+    nativeBuildInputs = [
+      jq
+      moreutils # sponge
+      yarn-berry.yarn-berry-fetcher
+    ];
+    hash = "sha256-o0u9dAoo0sTEV+kjQg8TjRNAIcx8fqfk79HsDwAXriA="; # offlineCache.hash
   };
 
   meta = {
