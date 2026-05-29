@@ -115,7 +115,7 @@ def eval_repo(repo: Repo, repo_path: Path) -> str:
             raise EvalError(msg, f"nur.update: {msg}")
         if proc.returncode != 0:
             # normalize tempdir path
-            stderr = stderr.replace(str(d), ".")
+            stderr = stderr.replace(str(d), "$tempdir")
             # no. errors are too verbose.
             # print only the main_err_line and write full errors to nur-eval-errors/
             # print only new errors. old errors are stored in EVAL_ERRORS_PATH
