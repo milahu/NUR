@@ -26,9 +26,11 @@ logger = logging.getLogger(__name__)
 
 
 def nix_prefetch_zip(url: str) -> Tuple[str, Path]:
-    data = subprocess.check_output(
+    cmd = (
         ["nix-prefetch-url", "--name", "source", "--unpack", "--print-path", url]
     )
+    logger.debug(f"nix_prefetch_zip: running: {shlex.join(cmd)}")
+    data = subprocess.check_output(cmd)
     sha256, path = data.decode().strip().split("\n")
     return sha256, Path(path)
 
@@ -266,14 +268,14 @@ def prefetch(repo: Repo, force=False) -> Tuple[Repo, LockedVersion, Optional[Pat
     locked_version = repo.locked_version
     if not force and locked_version is not None:
         if locked_version.rev == commit:
-            #logger.debug(f"Repository {repo.name}: Up to date at {commit}")
+            logger.debug(f"Repository {repo.name}: Up to date at {commit}")
             return repo, locked_version, None
 
     # TODO refactor with repo.locked_version
     locked_version = repo.eval_error_version
     if not force and locked_version is not None:
         if locked_version.rev == commit:
-            #logger.debug(f"Repository {repo.name}: Up to date at {commit} (previous eval error)")
+            logger.debug(f"Repository {repo.name}: Up to date at {commit} (previous eval error)")
             return repo, locked_version, None
 
     """
@@ -466,7 +468,9 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
 
     # split graphql query into multiple smaller queries
     # 338 repos are too many -> always returns http 502 bad gateway
-    repos_per_query = 100
+    # 100 repos are too many -> often returns http 502 bad gateway
+    # TODO limit len(query_str)
+    repos_per_query = 80
     query_list = collections.deque()
     for github_repos_batch in itertools.batched(github_repos, repos_per_query):
         query = "query{\n"
@@ -501,11 +505,15 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
     retry_max = 100
     #for retry_idx in range(retry_max):
     while query_list:
+        # wait between graphql queries
+        # one graphql query takes about 5 seconds
+        time.sleep(5)
         query_list[0][2] += 1 # retry_idx += 1
         query_idx, query, retry_idx = query_list[0]
         if retry_idx > retry_max:
-            raise Exception(f"Github GraphQL query {query_idx} failed. giving up after {retry_max} retries")
+            raise Exception(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed. giving up after {retry_max} retries")
         logger.debug(f"Github GraphQL query {query_idx} try {retry_idx + 1} of {retry_max}")
+        query_str = json.dumps(query, separators=(',', ':'), ensure_ascii=False)
         t1 = time.time()
         try:
             response = requests.post(
@@ -514,7 +522,7 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
                 headers={"Authorization": f"token {github_api_token}"}
             )
         except Exception as exc:
-            logger.error(f"Github GraphQL query {query_idx} failed at try {retry_idx}: {type(exc).__name__}: {exc} -> retrying")
+            logger.error(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed at try {retry_idx}: {type(exc).__name__}: {exc} -> retrying")
             continue # retry
         if "X-RateLimit-Used" in response.headers:
             logger.debug("Github ratelimit status: Used %s of %s requests. Next reset in %s minutes" % (
@@ -533,23 +541,23 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
                 # timeout due to temporary overload?
                 # https://github.com/magit/ghub/issues/83
                 dt = random.randint(5, 30)
-                logger.debug(f"Github GraphQL query {query_idx} failed with '502 Bad Gateway'. retrying in {dt} seconds")
+                logger.debug(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed with '502 Bad Gateway'. retrying in {dt} seconds")
                 await asyncio.sleep(dt)
                 continue # retry
             if "<p><strong>We couldn't respond to your request in time.</strong></p>" in response.text:
                 dt = random.randint(5, 30)
-                logger.debug(f"Github GraphQL query {query_idx} failed with timeout. retrying in {dt} seconds")
+                logger.debug(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed with timeout. retrying in {dt} seconds")
                 await asyncio.sleep(dt)
                 continue # retry
-            logger.error(f"Github GraphQL query {query_idx} failed. response.text: {response.text}")
-            raise Exception(f"Github GraphQL query {query_idx} failed. response.status_code: {response.status_code}. response.headers: {response.headers}. response.text: {response.text}")
+            logger.error(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed. response.text: {response.text}")
+            raise Exception(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed. response.status_code: {response.status_code}. response.headers: {response.headers}. response.text: {response.text}")
         query_list.popleft() # dont retry
         t2 = time.time()
         dt = t2 - t1
         logger.debug(f"Github GraphQL query {query_idx} done in {dt:.2} seconds")
         data = response.json()
         if response.status_code != 200:
-            logger.error(f'Github GraphQL query {query_idx} failed with HTTP status {response.status_code}: {data} -> falling back to update_version_git_repos')
+            logger.error(f'Github GraphQL query {query_idx} ({len(query_str)} bytes) failed with HTTP status {response.status_code}: {data} -> falling back to update_version_git_repos')
             await update_version_git_repos(repos, aiohttp_session, filter_repos_fn)
             return
         new_dict = dict()

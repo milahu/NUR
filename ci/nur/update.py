@@ -136,6 +136,8 @@ def update(repo: Repo) -> Repo:
     if not eval_result_path.exists() and not eval_error_path.exists():
         force_eval = True
 
+    logger.debug(f"Repository {repo.name}: calling prefetch(repo, force={force_eval})")
+
     _cached_repo, new_version, repo_path = prefetch(repo, force=force_eval)
 
     """
@@ -148,12 +150,14 @@ def update(repo: Repo) -> Repo:
 
     #if False:
     if True:
-        logger.debug(f"new_version.rev = {new_version.rev}")
-        logger.debug(f"new_version.date = {new_version.date}")
+        logger.debug(f"locked_version =     {repo.locked_version}")
+        logger.debug(f"eval_error_version = {repo.eval_error_version}")
+        logger.debug(f"new_version =        {new_version}")
         logger.debug(f"repo_path = {repo_path}")
 
     # workaround for cached prefetch. cache key is only repo.name
     if not force_eval and new_version == repo.locked_version:
+        logger.debug(f"Repository {repo.name}: new_version == repo.locked_version")
         repo_path = None
 
     repo.new_version = new_version
@@ -161,6 +165,7 @@ def update(repo: Repo) -> Repo:
     if repo.locked_version == None:
         # repo was added only to repos.json but not to repos.json.lock
         # add repo to repos.json.lock
+        # TODO why do we have to set repo.locked_version
         repo.locked_version = repo.new_version
 
     """
@@ -173,11 +178,11 @@ def update(repo: Repo) -> Repo:
         eval_error_path = os.path.relpath(EVAL_ERRORS_PATH.joinpath(f"{repo.name}.txt"), ROOT_PATH)
         #raise EvalError(f"Repository {repo.name} did not evaluate in a previous run with version {repo.eval_error_version}. See error message in {eval_error_path}", repo.eval_error_text)
         #raise EvalError(f"Eval failed before at {repo.eval_error_version}. See {eval_error_path}", repo.eval_error_text)
-        #logger.debug(f"Eval failed before, see {eval_error_path}")
+        logger.debug(f"Repository {repo.name}: Eval failed before at this version, see {eval_error_path}")
         raise EvalError(f"Eval failed before, see {eval_error_path}", repo.eval_error_text)
 
     if not repo_path:
-        #logger.debug(f"Repository {repo.name}: Skipped eval. No change in version {repo.locked_version}")
+        logger.debug(f"Repository {repo.name}: Skipped eval. No change in version {repo.locked_version}")
         return repo
 
     # scan repo for secrets
@@ -220,13 +225,15 @@ def update(repo: Repo) -> Repo:
 
     repo.eval_repo_path = repo_path
 
+    logger.debug(f"Repository {repo.name}: calling eval_repo")
     t1 = time.time()
     try:
         # TODO merge ci/nur/index.py into here
         repo.eval_result_packages_json = eval_repo(repo, repo_path)
-    except Exception:
+    except Exception as exc:
         t2 = time.time()
         repo.eval_time = t2 - t1
+        logger.debug(f"Repository {repo.name}: eval_repo failed: {type(exc).__name__}: {exc}")
         raise
     t2 = time.time()
     repo.eval_time = t2 - t1
@@ -324,6 +331,9 @@ def update_command_inner(args: Namespace) -> None:
 
         if debug_nur_repo and repo.name != debug_nur_repo:
             continue
+
+        if debug_nur_repo:
+            logger.debug(f"Repository {repo.name}: calling update(repo)")
 
         try:
             update(repo)
