@@ -30,7 +30,12 @@ class LockedVersion:
         if type(other) is type(self):
             # no. date can be missing
             #return self.__dict__ == other.__dict__
-            return self.sha256 == other.sha256
+            # no, both can be None
+            # return self.sha256 == other.sha256
+            return (
+                self.rev == other.rev and
+                self.submodules == other.submodules
+            )
         return False
 
     def as_json(self) -> Dict[str, Any]:
