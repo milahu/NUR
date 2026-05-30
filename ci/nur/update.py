@@ -127,9 +127,14 @@ def eval_repo(repo: Repo, repo_path: Path) -> str:
             # print only the main_err_line and write full errors to nur-eval-errors/
             # print only new errors. old errors are stored in EVAL_ERRORS_PATH
             #print(stderr)
-            raise EvalError(f"Repository {repo.name} does not evaluate:\n$ {' '.join(cmd)}", stderr)
+            cmd_pretty = (
+                shlex.join(cmd)
+                .replace(str(nixpkgs_path), "$nixpkgs")
+                .replace(str(repo_path), f"$repo_{repo.name}")
+                .replace(str(d), "$tempdir")
+            )
+            raise EvalError(f"Repository {repo.name} does not evaluate. eval command: {cmd_pretty}", stderr)
         return stdout
-
 
 def update(repo: Repo) -> Repo:
 
