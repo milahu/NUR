@@ -58,6 +58,14 @@ let
       homepage = "https://github.com/gotgenes/pi-packages";
     };
 
+    "@gotgenes/pi-permission-system" = mkScopedPackage "@gotgenes" "pi-permission-system" {
+      version = "7.4.0";
+      hash = "sha256-3UrQrIKpOwp7ihBaMEOxqBJQfkaEzjtZ+IDQRBqQ0w4=";
+      npmDepsHash = "sha256-2j2GawLnOXl30aLWTAZxY7r5IqX52q97Px8gh8qXMRw=";
+      description = "Permission system extension for Pi coding agent";
+      homepage = "https://github.com/gotgenes/pi-packages";
+    };
+
     "@junghanacs/pi-shell-acp" = mkScopedPackage "@junghanacs" "pi-shell-acp" {
       version = "0.7.6";
       hash = "sha256-Tuy8DZQFTA7a+wjDZbKFze1ZUFfZOAKiEitdWcVh+kw=";
@@ -101,6 +109,34 @@ let
       description = "Plannotator Pi extension - interactive plan review with annotations, annotate agent messages, and review code/PRs";
       homepage = "https://github.com/backnotprop/plannotator";
       license = pkgs.lib.licenses.mit;  # MIT OR Apache-2.0
+    };
+
+    # ── Messaging Extensions ─────────────────────────────────────────────────
+
+    "@llblab/pi-telegram" = mkScopedPackage "@llblab" "pi-telegram" {
+      version = "0.13.2";
+      hash = "sha256-9vOwRiuqtQwxQOJWv7t17GNnLLT2CzBGMvP50T/jzR8=";
+      npmDepsHash = "";  # No dependencies, only peer dependencies
+      description = "Telegram integration for Pi coding agent";
+      homepage = "https://github.com/llblab/pi-telegram";
+    };
+
+    "@tmustier/pi-usage-extension" = mkScopedPackage "@tmustier" "pi-usage-extension" {
+      version = "0.3.2";
+      hash = "sha256-9n3tNqsjMXBF3bGVEv2WKdezpXJOjHzw49KGKlCc7Pg=";
+      npmDepsHash = "";  # No dependencies, only peer dependencies
+      description = "Usage tracking extension for Pi coding agent";
+      homepage = "https://github.com/tmustier/pi-usage-extension";
+    };
+
+    # ── Permission Extensions ──────────────────────────────────────────────────
+
+    "pi-permission-system" = mkPackage "pi-permission-system" {
+      version = "0.6.0";
+      hash = "sha256-Vci3fxl/9xRzaM6wEKyFg4wmR+PXAzuwE6WYUj4Yfy0=";
+      npmDepsHash = "sha256-cotzXcB8IqMUwZOjVnqmr6sUZj2KCG3njNcRIzUPj/g=";
+      description = "Permission system extension for Pi coding agent";
+      homepage = "https://github.com/MasuRii/pi-permission-system";
     };
 
     # ── TODO: Add more packages ──────────────────────────────────────────────
