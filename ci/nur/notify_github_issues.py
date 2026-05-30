@@ -480,10 +480,10 @@ def update_eval_error_github_issues(
         notify_repos.append(repo)
 
     if not notify_repos:
-        logger.debug(f"no repos to notify")
+        logger.info(f"no repos to notify")
         return
 
-    logger.debug(f"trying to notify {len(notify_repos)} repos")
+    logger.info(f"trying to notify {len(notify_repos)} repos")
 
     for repo in notify_repos:
 

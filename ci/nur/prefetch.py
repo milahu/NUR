@@ -268,22 +268,20 @@ def prefetch(repo: Repo, force=False) -> Tuple[Repo, LockedVersion, Optional[Pat
     locked_version = repo.locked_version
     if not force and locked_version is not None:
         if locked_version.rev == commit:
-            logger.debug(f"Repository {repo.name}: Up to date at {commit}")
+            logger.info(f"Repository {repo.name}: Up to date at {commit}")
             return repo, locked_version, None
 
     # TODO refactor with repo.locked_version
     locked_version = repo.eval_error_version
     if not force and locked_version is not None:
         if locked_version.rev == commit:
-            logger.debug(f"Repository {repo.name}: Up to date at {commit} (previous eval error)")
+            logger.info(f"Repository {repo.name}: Up to date at {commit} (previous eval error)")
             return repo, locked_version, None
 
-    """
-    logger.debug(f"Repository {repo.name}: repo.eval_error_version = {repo.eval_error_version}")
-    logger.debug(f"Repository {repo.name}: repo.locked_version     = {repo.locked_version}")
-    logger.debug(f"Repository {repo.name}: commit                  = {commit}")
-    logger.debug(f"Repository {repo.name}: force                   = {force}")
-    """
+    logger.debug(f"Repository {repo.name}: locked_version     = {repo.locked_version}")
+    logger.debug(f"Repository {repo.name}: eval_error_version = {repo.eval_error_version}")
+    logger.debug(f"Repository {repo.name}: new_version        = {commit}")
+    logger.debug(f"Repository {repo.name}: force = {force}")
 
     #logger.info(f"Repository {repo.name}: Version changed from {locked_version and locked_version.rev} to {commit}. Fetching ...")
     logger.info(f"Repository {repo.name}: Fetching new version {commit}")
@@ -316,7 +314,7 @@ async def update_version_git_repos(repos, aiohttp_session, filter_repos_fn):
     if len(git_repos) == 0:
         return
 
-    logger.debug(f"Updating versions of {len(git_repos)} git repos")
+    logger.info(f"Updating versions of {len(git_repos)} git repos")
     #logger.debug(f"Updating versions of {len(git_repos)} git repos: {list(map(lambda r: r.name, git_repos))}")
 
     # TODO shortcut + parallel fetch with aiohttp
@@ -359,11 +357,11 @@ async def update_version_git_repos(repos, aiohttp_session, filter_repos_fn):
         try:
             async with aiohttp_session.get(url) as response:
                 if response.status != 200:
-                    logger.debug(f"repo {repo.name}: failed to fetch new version from {url}: http status {response.status}")
+                    logger.error(f"repo {repo.name}: failed to fetch new version from {url}: http status {response.status}")
                     return
                 _bytes = await response.read()
         except Exception as exc:
-            logger.debug(f"repo {repo.name}: failed to fetch new version from {url}: {exc}")
+            logger.error(f"repo {repo.name}: failed to fetch new version from {url}: {exc}")
             return
 
         commit = None
@@ -390,7 +388,7 @@ async def update_version_git_repos(repos, aiohttp_session, filter_repos_fn):
                 break
 
         if commit == None:
-            logger.debug(f"repo {repo.name}: not found latest rev")
+            logger.error(f"repo {repo.name}: not found latest rev")
             return
 
         #logger.debug(f"repo {repo.name}: found latest rev {commit}")
@@ -487,7 +485,7 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
         retry_idx = -1
         query_idx = len(query_list)
         query_list.append([query_idx, query, retry_idx])
-        logger.debug(f"Github GraphQL query {query_idx}: len(query) = {len(query)}, len(github_repos_batch) = {len(github_repos_batch)}")
+        logger.info(f"Github GraphQL query {query_idx}: len(query) = {len(query)}, len(github_repos_batch) = {len(github_repos_batch)}")
 
     all_data = dict()
     all_data["data"] = dict()
@@ -504,7 +502,7 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
         query_idx, query, retry_idx = query_list[0]
         if retry_idx > retry_max:
             raise Exception(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed. giving up after {retry_max} retries")
-        logger.debug(f"Github GraphQL query {query_idx} try {retry_idx + 1} of {retry_max}")
+        logger.info(f"Github GraphQL query {query_idx} try {retry_idx + 1} of {retry_max}")
         query_str = json.dumps(query, separators=(',', ':'), ensure_ascii=False)
         t1 = time.time()
         try:
@@ -517,7 +515,7 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
             logger.error(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed at try {retry_idx}: {type(exc).__name__}: {exc} -> retrying")
             continue # retry
         if "X-RateLimit-Used" in response.headers:
-            logger.debug("Github ratelimit status: Used %s of %s requests. Next reset in %s minutes" % (
+            logger.info("Github ratelimit status: Used %s of %s requests. Next reset in %s minutes" % (
                 response.headers["X-RateLimit-Used"],
                 response.headers["X-RateLimit-Limit"],
                 datetime.fromtimestamp(int(response.headers["X-RateLimit-Reset"]) - time.time(), tz=timezone.utc).strftime("%M:%S")
@@ -533,12 +531,12 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
                 # timeout due to temporary overload?
                 # https://github.com/magit/ghub/issues/83
                 dt = random.randint(5, 30)
-                logger.debug(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed with '502 Bad Gateway'. retrying in {dt} seconds")
+                logger.error(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed with '502 Bad Gateway'. retrying in {dt} seconds")
                 await asyncio.sleep(dt)
                 continue # retry
             if "<p><strong>We couldn't respond to your request in time.</strong></p>" in response.text:
                 dt = random.randint(5, 30)
-                logger.debug(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed with timeout. retrying in {dt} seconds")
+                logger.error(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed with timeout. retrying in {dt} seconds")
                 await asyncio.sleep(dt)
                 continue # retry
             logger.error(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed. response.text: {response.text}")
@@ -546,7 +544,7 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
         query_list.popleft() # dont retry
         t2 = time.time()
         dt = t2 - t1
-        logger.debug(f"Github GraphQL query {query_idx} done in {dt:.2} seconds")
+        logger.info(f"Github GraphQL query {query_idx} done in {dt:.2} seconds")
         data = response.json()
         if response.status_code != 200:
             logger.error(f'Github GraphQL query {query_idx} ({len(query_str)} bytes) failed with HTTP status {response.status_code}: {data} -> falling back to update_version_git_repos')
