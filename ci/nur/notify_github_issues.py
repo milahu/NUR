@@ -1,3 +1,18 @@
+# TODO it should be trivial to subscribe to and unsubscribe from these notifications
+#
+# currently the NUR repo maintainer
+# has to modify the config file repos-notify-on-eval-errors.json
+# by setting the config value
+# notify-on-eval-errors = "github-issues"
+#
+# a trivial "subscribe to notifications"
+# could be implemented with a magic github comment like
+# @nurbot update repo config: {"notify-on-eval-errors": "github-issues"}
+#
+# a trivial "unsubscribe from notifications"
+# could be implemented with a magic github comment like
+# @nurbot update repo config: {"notify-on-eval-errors": null}
+
 import json
 import logging
 import os
@@ -6,6 +21,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
 from urllib.parse import urlparse
+import traceback
 
 import requests
 
@@ -72,8 +88,8 @@ def get_existing_issues(
 ) -> List[Dict]:
     """
     Return open github issues matching:
-        "eval error"
-        "repo {repo.name}: eval error"
+        "error"
+        "repo {repo.name}: error"
 
     Set repo._is_github_repo:
         if we succeed fetching issues from the user repo
@@ -87,12 +103,12 @@ def get_existing_issues(
     if repo._is_github_repo in (True, None):
         jobs.append(dict(
             owner_repo = repo._github_owner_repo,
-            title_prefix = "eval error",
+            title_prefix = "error",
             is_user_repo = True,
         ))
     jobs.append(dict(
         owner_repo = nur_github_owner_repo,
-        title_prefix = f"repo {repo.name}: eval error",
+        title_prefix = f"repo {repo.name}: error",
         is_user_repo = False,
     ))
 
@@ -141,8 +157,82 @@ def get_existing_issues(
     return matching_issues
 
 
-def get_details_tag(rev):
+def get_error_details_tag(rev):
     return f'<details class="eval-error" id="eval-error-{rev}">'
+
+
+def escape_html(s):
+    return (
+        s
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+    )
+
+
+def unescape_html(s):
+    return (
+        s
+        .replace("&gt;", ">")
+        .replace("&lt;", "<")
+        .replace("&amp;", "&")
+    )
+
+
+def eval_error_details_md_of_repo(repo):
+    # workaround for github:
+    # we have to add empty lines around "<pre>...</pre>"
+    # otherwise "<details>\n<pre>...</pre>\n</details>" produces broken html
+    # where leading whitespace (indented lines) is lost
+    rev = repo.eval_error_version.rev
+    body_parts = []
+    # dont add rev here
+    # because this only works in the user repo
+    # and we already have rev_url in the body
+    issue_title = issue_title_of_repo(repo, add_rev=False)
+    body_parts.append(get_error_details_tag(rev)) # <details>
+    body_parts.append(f"<summary>{escape_html(issue_title)}</summary>")
+    body_parts.append("") # empty line before <pre>
+    body_parts.append("<pre>" + escape_html(repo.eval_error_text.strip()) + "</pre>")
+    body_parts.append("") # empty line after </pre>
+    body_parts.append("</details>")
+    return body_parts
+
+
+# inverse of eval_error_details_md_of_repo
+eval_error_details_regex = re.compile(
+    (
+        # group 1: rev
+        r'<details class="eval-error" id="eval-error-([0-9a-f]+)">\n'
+        # group 2: escape_html(issue_title)
+        r'<summary>([^<]+)</summary>\n'
+        r'\n' # empty line before <pre>
+        # group 3: escape_html(repo.eval_error_text.strip())
+        r'<pre>([^<]+)</pre>\n'
+        r'\n' # empty line after </pre>
+        r'</details>'
+    ),
+    re.DOTALL,
+)
+
+
+def extract_last_eval_error_block(issue, comments):
+    for comment in reversed(comments):
+        if comment["user"]["login"] != github_issues_bot_username:
+            continue
+        m = eval_error_re.search(comment["body"])
+        if m:
+            return (
+                m.group(0),
+                comment["html_url"],
+            )
+    m = eval_error_re.search(issue["body"])
+    if m:
+        return (
+            m.group(0),
+            issue["html_url"],
+        )
+    return (None, None)
 
 
 def create_issue(
@@ -167,28 +257,7 @@ def create_issue(
 
     if body_parts:
         body_parts.append("")
-    body_parts.append(get_details_tag(rev))
-    if repo.eval_error_message:
-        # FIXME re-use issue title
-        body_parts.append(f"<summary>eval error: {repo.eval_error_message}</summary>")
-    else:
-        body_parts.append(f"<summary>eval error</summary>")
-    body_parts.append("")
-    if "\n```\n" in ("\n" + repo.eval_error_text + "\n"):
-        # we cannot use markdown code fence
-        body_parts.append("<pre>")
-        body_parts.append(
-            repo.eval_error_text.strip()
-            .replace("&", "&amp;")
-            .replace("<", "&lt;")
-        )
-        body_parts.append("</pre>")
-    else:
-        body_parts.append("```")
-        body_parts.append(repo.eval_error_text.strip())
-        body_parts.append("```")
-    body_parts.append("")
-    body_parts.append("</details>")
+    body_parts += eval_error_details_md_of_repo(repo)
 
     body_parts.append("")
     # TODO set notify-on-eval-errors in upstream repos.json
@@ -206,6 +275,25 @@ def create_issue(
 
     issue_title = issue_title_of_repo(repo)
 
+    # github docs say:
+    # NOTE: Only users with push access can set labels for new issues.
+    # Labels are silently dropped otherwise.
+    # ... but the github API throws HTTP status 403 forbidden
+    # when we try to create an issue with new labels
+    # new labels which do not yet exist in the repo
+    # message: You do not have permission to create labels on this repository.
+    # documentation_url: https://docs.github.com/v3/issues/labels/
+    # https://github.com/orgs/community/discussions/197408
+
+    # TODO maybe use a separate request to try to set labels
+    # https://docs.github.com/en/rest/issues/labels?apiVersion=2026-03-10#set-labels-for-an-issue
+
+    issue_labels = []
+
+    # NOTE: Only users with push access can set assignees for new issues.
+    # Assignees are silently dropped otherwise.
+    issue_assignees = []
+
     # repo._is_github_repo has been verified by get_existing_issues
     if repo._is_github_repo:
         # create an issue in the user repo
@@ -218,11 +306,30 @@ def create_issue(
         # TODO add issue label: eval-error
         # color: #d93f0b = lightred = same color as the default "bug" label
         # https://github.com/milahu/NUR/issues/labels
+        issue_labels = ["eval-error"]
+        issue_assignees = [github_contact]
 
     logger.info(f"Creating issue {issue_title!r} in https://github.com/{owner_repo}/issues")
 
     # https://docs.github.com/en/rest/issues/issues?apiVersion=2026-03-10#create-an-issue
     # Create an issue
+
+    r'''
+    2026-05-30T20:02:06.3439122Z notify_github_issues.py:276 create_issue Creating issue 'error: test4 (948979f)' in https://github.com/milahu/nur-packages/issues
+    2026-05-30T20:02:06.3446784Z connectionpool.py:1062 _new_conn Starting new HTTPS connection (1): api.github.com:443
+    2026-05-30T20:02:06.5264779Z connectionpool.py:544 _make_request https://api.github.com:443 "POST /repos/milahu/nur-packages/issues HTTP/1.1" 403 None
+    2026-05-30T20:02:06.5276001Z notify_github_issues.py:462 update_eval_error_github_issues milahu: RuntimeError: github api error 403: {"message":"You do not have permission to create labels on this repository.","errors":[{"resource":"Repository","field":"label","code":"unauthorized"}],"documentation_url":"https://docs.github.com/v3/issues/labels/","status":"403"}
+    2026-05-30T20:02:06.5277920Z Traceback (most recent call last):
+    2026-05-30T20:02:06.5288636Z   File "/home/runner/work/NUR/NUR/ci/nur/notify_github_issues.py", line 454, in update_eval_error_github_issues
+    2026-05-30T20:02:06.5289502Z     create_issue(repo)
+    2026-05-30T20:02:06.5290225Z   File "/home/runner/work/NUR/NUR/ci/nur/notify_github_issues.py", line 282, in create_issue
+    2026-05-30T20:02:06.5290918Z     github_api_request(
+    2026-05-30T20:02:06.5291585Z   File "/home/runner/work/NUR/NUR/ci/nur/notify_github_issues.py", line 55, in github_api_request
+    2026-05-30T20:02:06.5292299Z     raise RuntimeError(
+    2026-05-30T20:02:06.5293969Z RuntimeError: github api error 403: {"message":"You do not have permission to create labels on this repository.","errors":[{"resource":"Repository","field":"label","code":"unauthorized"}],"documentation_url":"https://docs.github.com/v3/issues/labels/","status":"403"}
+    2026-05-30T20:02:06.5295520Z 
+    '''
+
 
     # FIXME use a graphQL query to batch multiple requests
     github_api_request(
@@ -231,12 +338,8 @@ def create_issue(
         json_data={
             "title": issue_title,
             "body": issue_body,
-            # NOTE: Only users with push access can set labels for new issues.
-            # Labels are silently dropped otherwise.
-            "labels": ["eval-error"],
-            # NOTE: Only users with push access can set assignees for new issues.
-            # Assignees are silently dropped otherwise.
-            "assignees": [github_contact],
+            "labels": issue_labels,
+            "assignees": issue_assignees,
         },
     )
 
@@ -251,6 +354,15 @@ def close_issue(
     # f"working eval at {rev_url} &rarr; closing"
     # f"successful eval at {rev_url} &rarr; closing"
     # f"passing eval at {rev_url} &rarr; closing"
+    #
+    # there is no atomic "close with comment" operation
+    # so we have to
+    # 1. add comment
+    # 2. close issue
+    # see also
+    # https://github.com/atxtechbro/dotfiles/issues/777
+    # https://github.com/cli/cli/issues/1038
+    # https://github.com/terrylica/claude-code-skills-github-issues/blob/main/docs/references/github-cli-issues-comprehensive-guide.md#close-issues
 
     # TODO lock issue?
     # https://docs.github.com/en/rest/issues/issues?apiVersion=2026-03-10#lock-an-issue
@@ -265,14 +377,15 @@ def set_issue_title(
     return update_issue(issue, {"title": issue_title})
 
 
-def issue_title_of_repo(repo):
-    issue_title = "eval error"
+def issue_title_of_repo(repo, add_rev=True):
+    issue_title = "error"
     if repo.eval_error_message:
         issue_title += f": {repo.eval_error_message}"
-    # same format as in the subject of github emails
-    # [milahu/NUR] Run failed: Update - master (15b8d9f)
-    rev_short = repo.eval_error_version.rev[0:7]
-    issue_title += f" ({rev_short})"
+    if add_rev:
+        # same format as in the subject of github emails
+        # [milahu/NUR] Run failed: Update - master (15b8d9f)
+        rev_short = repo.eval_error_version.rev[:7]
+        issue_title += f" ({rev_short})"
     # repo._is_github_repo has been verified by get_existing_issues
     if not repo._is_github_repo:
         # create an issue in the NUR repo
@@ -366,23 +479,10 @@ def update_eval_error_github_issues(
                 # simple:
                 # check github API if an issue exists for repo.eval_error_version
 
-                # check if we have already reported this eval error
-                # check by proxy:
-                # when have we found this eval error?
-                # in this CI run or in a previous CI run?
-                # eval error found in this CI run -> report error
-                # eval error found in previous CI run -> dont report error
-
-                # NOTE we dont maintain an extra lockfile for notifications
-                # instead, we rely on repo.eval_error_version
+                # TODO maintain a lockfile for notifications
+                # for notifications, we cannot rely on repo.eval_error_version
                 # which is stored in EVAL_ERRORS_LOCK_PATH = "nur-eval-errors/repos.json.lock"
-                #
-                # if an eval error is stored there
-                # then we assume a notification has been sent
-                # but sending notifications can fail...
-
-                # if repo.eval_error_version == repo.old_eval_error_version:
-                #     # reachable only with force_eval=True
+                # because sending notifications can fail
 
                 if existing_issues:
                     existing_issue_numbers = [issue["number"] for issue in existing_issues]
@@ -397,8 +497,8 @@ def update_eval_error_github_issues(
                     if 1:
 
                         rev_short = rev_short_of_issue(issue)
-                        if rev_short == repo.eval_error_version[:7]:
-                            # issue exists for this eval error
+                        if rev_short == repo.eval_error_version.rev[:7]:
+                            # issue exists for this error
                             continue
 
                         new_title = issue_title_of_repo(repo)
@@ -425,13 +525,19 @@ def get_issue_comments(
 ) -> List[Dict]:
     owner_repo = owner_repo_of_issue(issue)
     issue_number = issue["number"]
-    # https://docs.github.com/en/rest/issues/issues?apiVersion=2026-03-10#get-an-issue
-    # Get an issue
-    return github_api_request(
+    # https://docs.github.com/en/rest/issues/comments?apiVersion=2026-03-10#list-issue-comments
+    # List issue comments
+    comments = github_api_request(
         "GET",
         f"/repos/{owner_repo}/issues/{issue_number}/comments",
         params={"per_page": 100},
     )
+    # we care only about our own comments
+    # "i am the only bot in the village!"
+    def filter_comment(comment):
+        return comment["user"]["login"] == github_issues_bot_username
+    comments = list(filter(filter_comment, comments))
+    return comments
 
 
 def add_issue_comment(
@@ -458,16 +564,71 @@ def ensure_rev_comment(
     if rev in issue.get("body", ""):
         return
 
-    # check all comments
+    # check our previous comments
     comments = get_issue_comments(issue)
-    details_tag = get_details_tag(rev)
+
+    # check if we have reported this rev already
     for comment in comments:
-        if comment["user"]["login"] != github_issues_bot_username:
-            continue
-        if details_tag in comment.get("body", ""):
+        if rev in comment.get("body", ""):
+            # dont add comment
             return
 
     # add comment
+
+    # check if this error text has been reported already
+    # if yes, we dont repeat the error text
+    # but add a link to the previous comment
+    new_error_html = escape_html(repo.eval_error_text.strip())
+    old_error_url = None
+    for comment in comments:
+        body = comment.get("body", "")
+        match = eval_error_details_regex.search(body)
+        if not match:
+            continue
+        old_error_html = match.group(3).strip()
+        if new_error_html == old_error_html:
+            # found duplicate error text
+            old_error_url = comment["html_url"]
+            break
+
+    if old_error_url is None:
+        # also look in the issue body
+        body = issue.get("body", "")
+        match = eval_error_details_regex.search(body)
+        if match:
+            old_error_html = match.group(3).strip()
+            if new_error_html == old_error_html:
+                # found duplicate error text
+
+                # github bug: this link target does not exist
+                # so we cannot link to the issue body
+                # https://github.com/orgs/community/discussions/197406
+                # old_error_url = issue["html_url"] + "#issue-" + str(issue["id"])
+                #
+                # the issue body has no id
+                # <div class="IssueBodyHeader-...">
+                # only some buttons in the issue body have ids
+                # but these ids may be unstable
+                # last edited by:
+                # <button ... id="_r_6l_">
+                # issue body actions:
+                # <button ... id="_r_24_">
+                #
+                # comments have ids
+                # <div id="issuecomment-4584067881" data-testid="comment-header" class="ActivityHeader-...">
+                #
+                # issue content has an id
+                # <div id="start-of-content" class="show-on-focus"></div>
+                old_error_url = issue["html_url"] + "#start-of-content"
+
     rev_url = f"{repo.url.geturl()}/commit/{rev}"
     comment_body = f"still fails to eval at {rev_url}"
+
+    if old_error_url:
+        # add link to old error
+        comment_body += f" with the same error as in {old_error_url}"
+    else:
+        # add new error
+        comment_body += "\n\n" + "\n".join(eval_error_details_md_of_repo(repo))
+
     add_issue_comment(issue, comment_body)
