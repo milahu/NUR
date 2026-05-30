@@ -143,7 +143,7 @@ def update(repo: Repo) -> Repo:
     if not eval_result_path.exists() and not eval_error_path.exists():
         force_eval = True
 
-    logger.debug(f"Repository {repo.name}: calling prefetch(repo, force={force_eval})")
+    logger.info(f"Repository {repo.name}: calling prefetch(repo, force={force_eval})")
 
     _cached_repo, new_version, repo_path = prefetch(repo, force=force_eval)
 
