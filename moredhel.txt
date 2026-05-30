@@ -1,12 +1,38 @@
 error:
+… while evaluating attribute 'src' of derivation 'shot'
+  at ./pkgs/shot/default.nix:38:3:
+    37|   name = "shot";
+    38|   src = writeTextFile {
+      |   ^
+    39|           name = "shot";
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:464:14:
+… while calling the 'getAttr' builtin
+  at «nix-internal»/derivation-internal.nix:50:17:
+    49|     value = commonAttrs // {
+    50|       outPath = builtins.getAttr outputName strict;
+      |                 ^
+    51|       drvPath = strict.drvPath;
 
-   463|
-   464|       inherit patches;
-      |              ^
-   465|
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
 
-error: list index 1 is out of bounds
+… while evaluating derivation 'shot'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:647:11
 
-at «none»:0: (source not available)
+… while evaluating attribute 'text' of derivation 'shot'
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:127:11:
+   126|           name
+   127|           text
+      |           ^
+   128|           executable
+
+error: undefined variable 'gnome3'
+at ./pkgs/shot/default.nix:11:3:
+    10|
+    11| ${gnome3.gnome-screenshot}/bin/gnome-screenshot --area --file="$file_orig"
+      |   ^
+    12|
