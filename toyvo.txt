@@ -1,6 +1,4 @@
 error:
-… while evaluating the attribute 'toyvo-neovim'
-
 … from call site
   at <nixpkgs> + /lib/attrsets.nix:1707:11:
   1706|         zipAttrsWith (
@@ -162,25 +160,25 @@ error:
     96|     let
 
 … from call site
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:170:22:
-   169|
-   170|       finalPackage = mkDerivationSimple overrideAttrs args;
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:174:22:
+   173|
+   174|       finalPackage = mkDerivationSimple overrideAttrs args;
       |                      ^
-   171|
+   175|
 
 … while calling 'mkDerivationSimple'
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:922:5:
-   921|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
-   922|     {
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:925:5:
+   924|     # * [package attributes]: https://nixos.org/manual/nix/stable/glossary#package-attribute-set
+   925|     {
       |     ^
-   923|
+   926|
 
 … from call site
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1012:5:
-  1011|
-  1012|     extendDerivation validity.handled (
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1015:5:
+  1014|
+  1015|     extendDerivation validity.handled (
       |     ^
-  1013|       {
+  1016|       {
 
 … while calling 'extendDerivation'
   at <nixpkgs> + /lib/customisation.nix:400:26:
@@ -190,74 +188,67 @@ error:
    401|     let
 
 … in the left operand of the update (//) operator
-  at <nixpkgs> + /lib/customisation.nix:425:5:
-   424|     in
-   425|     commonAttrs
-      |     ^
-   426|     // {
-
-… in the left operand of the update (//) operator
-  at <nixpkgs> + /lib/customisation.nix:403:17:
-   402|       commonAttrs =
-   403|         drv // (listToAttrs outputsList) // { all = map (x: x.value) outputsList; } // passthru;
-      |                 ^
-   404|
+  at <nixpkgs> + /lib/customisation.nix:404:12:
+   403|         drv
+   404|         // listToAttrs (
+      |            ^
+   405|           outputsList
 
 … while calling the 'listToAttrs' builtin
-  at <nixpkgs> + /lib/customisation.nix:403:17:
-   402|       commonAttrs =
-   403|         drv // (listToAttrs outputsList) // { all = map (x: x.value) outputsList; } // passthru;
-      |                 ^
-   404|
+  at <nixpkgs> + /lib/customisation.nix:404:12:
+   403|         drv
+   404|         // listToAttrs (
+      |            ^
+   405|           outputsList
 
 … while calling the 'map' builtin
-  at <nixpkgs> + /lib/customisation.nix:405:21:
-   404|
-   405|       outputsList = map (outputName: {
+  at <nixpkgs> + /lib/customisation.nix:423:21:
+   422|
+   423|       outputsList = map (outputName: {
       |                     ^
-   406|         name = outputName;
+   424|         name = outputName;
 
 … from call site
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1068:8:
-  1067|         passthru
-  1068|     ) (derivation (derivationArg // checkedEnv));
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1071:8:
+  1070|         passthru
+  1071|     ) (derivation (derivationArg // checkedEnv));
       |        ^
-  1069|
+  1072|
 
 … in the right operand of the update (//) operator
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1068:37:
-  1067|         passthru
-  1068|     ) (derivation (derivationArg // checkedEnv));
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:1071:37:
+  1070|         passthru
+  1071|     ) (derivation (derivationArg // checkedEnv));
       |                                     ^
-  1069|
+  1072|
 
 … in the condition of the assert statement
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:989:9:
-   988|           || throw "`env` must be an attribute set of environment variables. Set `env.env` or pick a more specific name.";
-   989|         assert
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:992:9:
+   991|           || throw "`env` must be an attribute set of environment variables. Set `env.env` or pick a more specific name.";
+   992|         assert
       |         ^
-   990|           (overlappingArgs == { })
+   993|           (overlappingArgs == { })
 
 … in the left operand of the OR (||) operator
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:991:11:
-   990|           (overlappingArgs == { })
-   991|           || throw (
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:994:11:
+   993|           (overlappingArgs == { })
+   994|           || throw (
       |           ^
-   992|             let
+   995|             let
 
 … while calling the 'intersectAttrs' builtin
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:984:29:
-   983|         let
-   984|           overlappingArgs = intersectAttrs env' derivationArg;
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:987:29:
+   986|         let
+   987|           overlappingArgs = intersectAttrs env' derivationArg;
       |                             ^
-   985|         in
+   988|         in
 
 … while evaluating a branch condition
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:961:9:
-   960|       env' =
-   961|         if attrs ? meta.mainProgram then env // { NIX_MAIN_PROGRAM = attrs.meta.mainProgram; } else env;
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:964:9:
+   963|       env' =
+   964|         if attrs ? meta.mainProgram then env // { NIX_MAIN_PROGRAM = attrs.meta.mainProgram; } else env;
       |         ^
-   962|
+   965|
 
 … in the left operand of the update (//) operator
   at ./lib/mkWrappedProgram.nix:39:12:
