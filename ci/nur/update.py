@@ -351,6 +351,10 @@ def update_command_inner(args: Namespace) -> None:
 
             err_lines = err.stdout.strip().split("\n")
             main_err_line = next((x for x in err_lines if x.startswith("error: ")), None)
+            if main_err_line:
+                err.main_error_message = main_err_line[len("error: "):]
+            else:
+                err.main_error_message = None
             if main_err_line == None:
                 main_err_line = err.stdout
 
@@ -426,6 +430,7 @@ def update_command_inner(args: Namespace) -> None:
 
             repo.eval_error_version = repo.new_version
             repo.eval_error_text = err.stdout
+            repo.eval_error_message = err.main_error_message
 
         except RepoNotFoundError as err:
             # Do not print stack traces
