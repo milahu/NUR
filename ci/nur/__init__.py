@@ -12,6 +12,11 @@ import importlib
 from .path import ROOT_PATH
 
 
+# https://stackoverflow.com/questions/73973332
+# is_ci_env = (os.getenv("GITHUB_ACTIONS") == "true")
+is_ci_env = (os.getenv("CI") == "true")
+
+
 LOG_LEVELS = dict(
     debug=logging.DEBUG,
     info=logging.INFO,
@@ -57,10 +62,15 @@ def parse_arguments(argv: List[str]) -> argparse.Namespace:
 
 def main() -> None:
     args = parse_arguments(sys.argv)
+    # log_format = '%(name)s %(module)s %(filename)s %(lineno)d %(funcName)s %(message)s'
+    log_format = '%(filename)s:%(lineno)d %(funcName)s %(message)s'
+    if not is_ci_env:
+        log_format = '%(asctime)s ' + log_format
+    # else: dont duplicate time prefix in CI log
+
     logging.basicConfig(
         level=LOG_LEVELS[args.log_level],
-        #format='%(asctime)s %(name)s %(module)s %(filename)s %(lineno)d %(funcName)s %(message)s',
-        format='%(asctime)s %(filename)s:%(lineno)d %(funcName)s %(message)s',
+        format=log_format,
     )
 
     # fix: ModuleNotFoundError: No module named 'nur'
