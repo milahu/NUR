@@ -1,0 +1,28 @@
+error:
+… while evaluating the attribute 'cargo-embed-ftdi'
+  at ./default.nix:39:3:
+    38|   probe-rs-cli-ftdi = lib.applyFtdiFeature pkgs.probe-rs-cli;
+    39|   cargo-embed-ftdi = lib.applyFtdiFeature pkgs.cargo-embed;
+      |   ^
+    40|
+
+… from call site
+  at ./default.nix:39:22:
+    38|   probe-rs-cli-ftdi = lib.applyFtdiFeature pkgs.probe-rs-cli;
+    39|   cargo-embed-ftdi = lib.applyFtdiFeature pkgs.cargo-embed;
+      |                      ^
+    40|
+
+… while calling 'applyFtdiFeature'
+  at ./lib/default.nix:8:22:
+     7|
+     8|   applyFtdiFeature = attr: attr.overrideAttrs (finalAttrs: prevAttrs: {
+      |                      ^
+     9|     buildInputs = prevAttrs.buildInputs ++ [ pkgs.libftdi1 ];
+
+error: attribute 'cargo-embed' missing
+at ./default.nix:39:43:
+    38|   probe-rs-cli-ftdi = lib.applyFtdiFeature pkgs.probe-rs-cli;
+    39|   cargo-embed-ftdi = lib.applyFtdiFeature pkgs.cargo-embed;
+      |                                           ^
+    40|

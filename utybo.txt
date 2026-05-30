@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'kuro'
+  at ./default.nix:19:3:
+    18|   git-credential-manager = pkgs.callPackage ./pkgs/git-credential-manager { git-credential-manager = git-credential-manager; };
+    19|   kuro = pkgs.callPackage ./pkgs/kuro { };
+      |   ^
+    20|   code-hotfix = pkgs.callPackage ./pkgs/codefix { };
+
+… from call site
+  at ./default.nix:19:10:
+    18|   git-credential-manager = pkgs.callPackage ./pkgs/git-credential-manager { git-credential-manager = git-credential-manager; };
+    19|   kuro = pkgs.callPackage ./pkgs/kuro { };
+      |          ^
+    20|   code-hotfix = pkgs.callPackage ./pkgs/codefix { };
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "electron_22" at ./pkgs/kuro/default.nix:8, did you mean "electron_42", "electron_35" or "electron_36"?'

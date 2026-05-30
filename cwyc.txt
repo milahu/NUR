@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'openframeworks'
+  at ./default.nix:17:3:
+    16|
+    17|   openframeworks = pkgs.callPackage ./pkgs/openframeworks {};
+      |   ^
+    18|   gtk-typescript-defs = pkgs.callPackage ./pkgs/gtk-typescript-defs.nix {};
+
+… from call site
+  at ./default.nix:17:20:
+    16|
+    17|   openframeworks = pkgs.callPackage ./pkgs/openframeworks {};
+      |                    ^
+    18|   gtk-typescript-defs = pkgs.callPackage ./pkgs/gtk-typescript-defs.nix {};
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "alsaLib" at ./pkgs/openframeworks/default.nix:4, did you mean "alsa-lib"?'

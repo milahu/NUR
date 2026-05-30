@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'fluidsynth'
+  at ./default.nix:20:3:
+    19|   operator-sdk = pkgs.callPackage ./pkgs/operator-sdk { };
+    20|   fluidsynth = pkgs.callPackage ./pkgs/fluidsynth {
+      |   ^
+    21|     inherit (pkgs.stdenv.darwin.apple_sdk.frameworks)
+
+… from call site
+  at ./default.nix:20:16:
+    19|   operator-sdk = pkgs.callPackage ./pkgs/operator-sdk { };
+    20|   fluidsynth = pkgs.callPackage ./pkgs/fluidsynth {
+      |                ^
+    21|     inherit (pkgs.stdenv.darwin.apple_sdk.frameworks)
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "alsaLib" at ./pkgs/fluidsynth/default.nix:4, did you mean "alsa-lib"?'

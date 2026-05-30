@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'avx-palemoon'
+  at ./default.nix:8:3:
+     7|
+     8|   avx-palemoon = pkgs.callPackage ./pkgs/avx-palemoon {};
+      |   ^
+     9|
+
+… from call site
+  at ./default.nix:8:18:
+     7|
+     8|   avx-palemoon = pkgs.callPackage ./pkgs/avx-palemoon {};
+      |                  ^
+     9|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "palemoon" at ./pkgs/avx-palemoon/default.nix:36, did you mean "pagemon"?'

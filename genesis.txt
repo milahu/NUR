@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'emulicious'
+  at ./default.nix:27:3:
+    26|   # clocktimer = pkgs.callPackage ./pkgs/clocktimer { lib = mylib; };
+    27|   emulicious = pkgs.callPackage ./pkgs/emulicious { lib = mylib; };
+      |   ^
+    28|   fragments-of-euclid = pkgs.callPackage ./pkgs/fragments-of-euclid { lib = mylib; };
+
+… from call site
+  at ./default.nix:27:16:
+    26|   # clocktimer = pkgs.callPackage ./pkgs/clocktimer { lib = mylib; };
+    27|   emulicious = pkgs.callPackage ./pkgs/emulicious { lib = mylib; };
+      |                ^
+    28|   fragments-of-euclid = pkgs.callPackage ./pkgs/fragments-of-euclid { lib = mylib; };
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "adoptopenjdk-jre-bin" at ./pkgs/emulicious/default.nix:1'

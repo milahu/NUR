@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'figma'
+  at ./default.nix:21:3:
+    20|   etherpad = pkgs.callPackage ./pkgs/etherpad.nix { };
+    21|   figma = pkgs.callPackage ./pkgs/figma.nix { };
+      |   ^
+    22|   git-conflict-nvim = pkgs.callPackage ./pkgs/git-conflict-nvim.nix { };
+
+… from call site
+  at ./default.nix:21:11:
+    20|   etherpad = pkgs.callPackage ./pkgs/etherpad.nix { };
+    21|   figma = pkgs.callPackage ./pkgs/figma.nix { };
+      |           ^
+    22|   git-conflict-nvim = pkgs.callPackage ./pkgs/git-conflict-nvim.nix { };
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "buildFHSUserEnv" at ./pkgs/figma.nix:7'

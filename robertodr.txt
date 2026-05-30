@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'git-along'
+  at ./default.nix:21:3:
+    20|
+    21|   git-along = pkgs.callPackage ./pkgs/git-along { };
+      |   ^
+    22|
+
+… from call site
+  at ./default.nix:21:15:
+    20|
+    21|   git-along = pkgs.callPackage ./pkgs/git-along { };
+      |               ^
+    22|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "buildGoPackage" at ./pkgs/git-along/default.nix:1'

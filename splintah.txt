@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'onedrive'
+  at ./default.nix:20:3:
+    19|   ocamlweb = pkgs.callPackage ./pkgs/ocamlweb { };
+    20|   onedrive = pkgs.callPackage ./pkgs/onedrive { };
+      |   ^
+    21|
+
+… from call site
+  at ./default.nix:20:14:
+    19|   ocamlweb = pkgs.callPackage ./pkgs/ocamlweb { };
+    20|   onedrive = pkgs.callPackage ./pkgs/onedrive { };
+      |              ^
+    21|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "pkgconfig" at ./pkgs/onedrive/default.nix:6, did you mean "pkg-config" or "pkgconf"?'

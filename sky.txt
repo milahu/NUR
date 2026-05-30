@@ -1,0 +1,39 @@
+error:
+… while evaluating attribute 'helper' of derivation 'lol-launchhelper-1'
+  at ./pkgs/lol-launchhelper/default.nix:26:3:
+    25|
+    26|   helper = writeShellScript "lol-launchhelper.sh" ''
+      |   ^
+    27|   ${python-with-packages}/bin/python ${src}/launchhelper2.py
+
+… while calling the 'getAttr' builtin
+  at «nix-internal»/derivation-internal.nix:50:17:
+    49|     value = commonAttrs // {
+    50|       outPath = builtins.getAttr outputName strict;
+      |                 ^
+    51|       drvPath = strict.drvPath;
+
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
+
+… while evaluating derivation 'lol-launchhelper.sh'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:647:11
+
+… while evaluating attribute 'text' of derivation 'lol-launchhelper.sh'
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:127:11:
+   126|           name
+   127|           text
+      |           ^
+   128|           executable
+
+error: attribute 'python39' missing
+at ./pkgs/lol-launchhelper/default.nix:4:26:
+     3| let
+     4|   python-with-packages = pkgs.python39.withPackages(ps: with ps; [ psutil ]);
+      |                          ^
+     5| in
+Did you mean one of python3, python, python2, python27 or python311?

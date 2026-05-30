@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'i3lock-color'
+  at ./default.nix:10:3:
+     9|   bitmap-fonts = pkgs.callPackage ./pkgs/bitmap-fonts { };
+    10|   i3lock-color = pkgs.callPackage ./pkgs/i3lock-color { };
+      |   ^
+    11|   sddm-chili = pkgs.callPackage ./pkgs/sddm-chili { };
+
+… from call site
+  at ./default.nix:10:18:
+     9|   bitmap-fonts = pkgs.callPackage ./pkgs/bitmap-fonts { };
+    10|   i3lock-color = pkgs.callPackage ./pkgs/i3lock-color { };
+      |                  ^
+    11|   sddm-chili = pkgs.callPackage ./pkgs/sddm-chili { };
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "pkgconfig" at ./pkgs/i3lock-color/default.nix:1, did you mean "pkg-config" or "pkgconf"?'

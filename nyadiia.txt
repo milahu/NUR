@@ -1,0 +1,23 @@
+error:
+… while evaluating attribute 'src' of derivation 'cockpit-machines-351'
+  at ./pkgs/cockpit-machines/default.nix:22:52:
+    21| stdenv.mkDerivation {
+    22|   inherit (sources.cockpit-machines) pname version src;
+      |                                                    ^
+    23|
+
+… while evaluating the attribute 'src'
+  at ./_sources/generated.nix:12:5:
+    11|     version = "351";
+    12|     src = fetchTarball {
+      |     ^
+    13|       url = "https://github.com/cockpit-project/cockpit-machines/releases/download/351/cockpit-machines-351.tar.xz";
+
+… while calling the 'fetchTarball' builtin
+  at ./_sources/generated.nix:12:11:
+    11|     version = "351";
+    12|     src = fetchTarball {
+      |           ^
+    13|       url = "https://github.com/cockpit-project/cockpit-machines/releases/download/351/cockpit-machines-351.tar.xz";
+
+error: access to URI 'https://github.com/cockpit-project/cockpit-machines/releases/download/351/cockpit-machines-351.tar.xz' is forbidden in restricted mode

@@ -1,0 +1,9 @@
+error:
+… while evaluating attribute '__contentAddressed' of derivation 'dmenu-5.4'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:749:11:
+   748|           # care about these anyways
+   749|           ${if __contentAddressed then "__contentAddressed" else null} = __contentAddressed;
+      |           ^
+   750|           ${if __contentAddressed then "outputHashAlgo" else null} = attrs.outputHashAlgo or "sha256";
+
+error: experimental Nix feature 'ca-derivations' is disabled; add '--extra-experimental-features ca-derivations' to enable it

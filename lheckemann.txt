@@ -1,0 +1,102 @@
+error:
+… while evaluating the attribute 'x11'
+  at ./default.nix:3:3:
+     2|   asql = pkgs.callPackage ./asql.nix {};
+     3|   x11 = pkgs.recurseIntoAttrs (pkgs.callPackages ./x11 {});
+      |   ^
+     4|   pb_cli = pkgs.runCommand "pb" {} ''
+
+… while evaluating the attribute 'bitmap'
+
+… while calling 'mkAttrOverridable'
+  at <nixpkgs> + /lib/customisation.nix:364:33:
+   363|       pkgs = f origArgs;
+   364|       mkAttrOverridable = name: _: makeOverridable (mirrorArgs (newArgs: (f newArgs).${name})) origArgs;
+      |                                 ^
+   365|     in
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:364:36:
+   363|       pkgs = f origArgs;
+   364|       mkAttrOverridable = name: _: makeOverridable (mirrorArgs (newArgs: (f newArgs).${name})) origArgs;
+      |                                    ^
+   365|     in
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:158:9:
+   157|       f' =
+   158|         origArgs:
+      |         ^
+   159|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:174:9:
+   173|         in
+   174|         if isAttrs result then
+      |         ^
+   175|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:174:12:
+   173|         in
+   174|         if isAttrs result then
+      |            ^
+   175|           result
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:160:20:
+   159|         let
+   160|           result = f origArgs;
+      |                    ^
+   161|
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:364:65:
+   363|       pkgs = f origArgs;
+   364|       mkAttrOverridable = name: _: makeOverridable (mirrorArgs (newArgs: (f newArgs).${name})) origArgs;
+      |                                                                 ^
+   365|     in
+
+… while evaluating the attribute 'bitmap'
+  at ./x11/default.nix:6:5:
+     5|   self = {
+     6|     bitmap = callPackage ./bitmap.nix {};
+      |     ^
+     7|   };
+
+… from call site
+  at ./x11/default.nix:6:14:
+     5|   self = {
+     6|     bitmap = callPackage ./bitmap.nix {};
+      |              ^
+     7|   };
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "pkgconfig" at ./x11/bitmap.nix:1, did you mean "pkg-config" or "pkgconf"?'

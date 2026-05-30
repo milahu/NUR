@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'gdl'
+  at ./default.nix:91:3:
+    90|   # GDL
+    91|   gdl = pkgs.callPackage ./pkgs/gdl { };
+      |   ^
+    92|
+
+… from call site
+  at ./default.nix:91:9:
+    90|   # GDL
+    91|   gdl = pkgs.callPackage ./pkgs/gdl { };
+      |         ^
+    92|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "wxGTK30" at ./pkgs/gdl/default.nix:2, did you mean "wxGTK31", "wxGTK32" or "wxGTK33"?'

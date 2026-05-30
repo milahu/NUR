@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'i3-wm-iconpatch'
+  at ./default.nix:9:3:
+     8|
+     9|   i3-wm-iconpatch = pkgs.callPackage pkgs/applications/window-managers/i3/icons.nix { };
+      |   ^
+    10|
+
+… from call site
+  at ./default.nix:9:21:
+     8|
+     9|   i3-wm-iconpatch = pkgs.callPackage pkgs/applications/window-managers/i3/icons.nix { };
+      |                     ^
+    10|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "pkgconfig" at ./pkgs/applications/window-managers/i3/icons.nix:1, did you mean "pkg-config" or "pkgconf"?'

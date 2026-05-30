@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'i3-swallow'
+  at ./default.nix:18:3:
+    17|   your-editor = pkgs.callPackage ./pkgs/your-editor { };
+    18|   i3-swallow = pkgs.callPackage ./pkgs/i3-swallow { };
+      |   ^
+    19|   zig-master = pkgs.callPackage ./pkgs/zig-master { };
+
+… from call site
+  at ./default.nix:18:16:
+    17|   your-editor = pkgs.callPackage ./pkgs/your-editor { };
+    18|   i3-swallow = pkgs.callPackage ./pkgs/i3-swallow { };
+      |                ^
+    19|   zig-master = pkgs.callPackage ./pkgs/zig-master { };
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "python39Packages" at ./pkgs/i3-swallow/default.nix:1, did you mean "python3Packages", "python27Packages" or "python2Packages"?'

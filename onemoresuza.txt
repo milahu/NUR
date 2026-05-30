@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'aercbook'
+  at ./default.nix:22:3:
+    21|   chawan = pkgs.callPackage ./pkgs/chawan {};
+    22|   aercbook = pkgs.callPackage ./pkgs/aercbook {};
+      |   ^
+    23|   pjeoffice = pkgs.callPackage ./pkgs/pjeoffice {};
+
+… from call site
+  at ./default.nix:22:14:
+    21|   chawan = pkgs.callPackage ./pkgs/chawan {};
+    22|   aercbook = pkgs.callPackage ./pkgs/aercbook {};
+      |              ^
+    23|   pjeoffice = pkgs.callPackage ./pkgs/pjeoffice {};
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "zig_0_11" at ./pkgs/aercbook/default.nix:5, did you mean "zig_0_12", "zig_0_13" or "zig_0_14"?'

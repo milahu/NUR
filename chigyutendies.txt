@@ -1,0 +1,35 @@
+error:
+… while calling the 'foldl'' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:576:21:
+   575|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
+   576|       maintainers = unique (
+      |                     ^
+   577|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/lists.nix:1901:25:
+  1900|   */
+  1901|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
+      |                         ^
+  1902|
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/lists.nix:1901:28:
+  1900|   */
+  1901|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
+      |                            ^
+  1902|
+
+… while calling the 'elem' builtin
+  at <nixpkgs> + /lib/lists.nix:1901:31:
+  1900|   */
+  1901|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
+      |                               ^
+  1902|
+
+error: undefined variable 'abbradar'
+at ./pkgs/citra/generic.nix:140:7:
+   139|     maintainers = with maintainers; [
+   140|       abbradar
+      |       ^
+   141|       ashley

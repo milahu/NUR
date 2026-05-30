@@ -1,0 +1,15 @@
+error:
+… while evaluating the attribute 'firacodenerd'
+  at ./default.nix:108:3:
+   107|   };
+   108|   firacodenerd = (pkgs.nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; });
+      |   ^
+   109|   instantst = pkgs.callPackage ./pkgs/instantSt { firacodenerd = self.firacodenerd; };
+
+error: attribute 'nerdfonts' missing
+at ./default.nix:108:19:
+   107|   };
+   108|   firacodenerd = (pkgs.nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; });
+      |                   ^
+   109|   instantst = pkgs.callPackage ./pkgs/instantSt { firacodenerd = self.firacodenerd; };
+Did you mean nerd-fonts?

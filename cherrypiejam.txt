@@ -1,0 +1,16 @@
+error:
+… while evaluating attribute 'src' of derivation 'protobuf-2.5.0'
+  at ./pkgs/protobuf.nix:14:3:
+    13|
+    14|   src = builtins.fetchTarball {
+      |   ^
+    15|     url = "https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.bz2";
+
+… while calling the 'fetchTarball' builtin
+  at ./pkgs/protobuf.nix:14:9:
+    13|
+    14|   src = builtins.fetchTarball {
+      |         ^
+    15|     url = "https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.bz2";
+
+error: access to URI 'https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.bz2' is forbidden in restricted mode

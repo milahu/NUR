@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'catalyst-browser'
+  at ./default.nix:17:3:
+    16|
+    17|   catalyst-browser = pkgs.callPackage ./pkgs/catalyst-browser { };
+      |   ^
+    18|   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
+
+… from call site
+  at ./default.nix:17:22:
+    16|
+    17|   catalyst-browser = pkgs.callPackage ./pkgs/catalyst-browser { };
+      |                      ^
+    18|   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "electron_33" at ./pkgs/catalyst-browser/default.nix:7, did you mean "electron_35", "electron_36" or "electron_37"?'

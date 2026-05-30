@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'emacsWithConfig'
+  at ./pkgs/default.nix:7:5:
+     6|   self = {
+     7|     emacsWithConfig = callPackage ./emacs-with-config {};
+      |     ^
+     8|     userEnv         = callPackage ./user-environment  {};
+
+… from call site
+  at ./pkgs/default.nix:7:23:
+     6|   self = {
+     7|     emacsWithConfig = callPackage ./emacs-with-config {};
+      |                       ^
+     8|     userEnv         = callPackage ./user-environment  {};
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "emacsWithPackages" at ./pkgs/emacs-with-config/default.nix:1'

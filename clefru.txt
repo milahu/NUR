@@ -1,0 +1,125 @@
+error:
+… while evaluating attribute 'buildCommand' of derivation 'parsecgaming'
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:81:17:
+    80|         enableParallelBuilding = true;
+    81|         inherit buildCommand name;
+      |                 ^
+    82|         passAsFile = [ "buildCommand" ] ++ (derivationArgs.passAsFile or [ ]);
+
+… while calling the 'getAttr' builtin
+  at «nix-internal»/derivation-internal.nix:50:17:
+    49|     value = commonAttrs // {
+    50|       outPath = builtins.getAttr outputName strict;
+      |                 ^
+    51|       drvPath = strict.drvPath;
+
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
+
+… while evaluating derivation 'parsecgaming-bwrap'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:647:11
+
+… while evaluating attribute 'text' of derivation 'parsecgaming-bwrap'
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:127:11:
+   126|           name
+   127|           text
+      |           ^
+   128|           executable
+
+… from call site
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:341:43:
+   340|
+   341|   bin = writeShellScript "${name}-bwrap" (bwrapCmd {
+      |                                           ^
+   342|     initArgs = ''"$@"'';
+
+… while calling 'bwrapCmd'
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:175:5:
+   174|   bwrapCmd =
+   175|     {
+      |     ^
+   176|       initArgs ? "",
+
+… while calling the 'getAttr' builtin
+  at «nix-internal»/derivation-internal.nix:50:17:
+    49|     value = commonAttrs // {
+    50|       outPath = builtins.getAttr outputName strict;
+      |                 ^
+    51|       drvPath = strict.drvPath;
+
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
+
+… while evaluating derivation 'parsecgaming-fhsenv-rootfs'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:647:11
+
+… while evaluating attribute 'exportReferencesGraph' of derivation 'parsecgaming-fhsenv-rootfs'
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/buildFHSEnv.nix:223:9:
+   222|         __structuredAttrs = true;
+   223|         exportReferencesGraph.graph = lib.concatMap (p: p.paths) allPaths;
+      |         ^
+   224|         inherit
+
+… while evaluating attribute 'graph'
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/buildFHSEnv.nix:223:9:
+   222|         __structuredAttrs = true;
+   223|         exportReferencesGraph.graph = lib.concatMap (p: p.paths) allPaths;
+      |         ^
+   224|         inherit
+
+… while calling the 'concatMap' builtin
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/buildFHSEnv.nix:223:39:
+   222|         __structuredAttrs = true;
+   223|         exportReferencesGraph.graph = lib.concatMap (p: p.paths) allPaths;
+      |                                       ^
+   224|         inherit
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/buildFHSEnv.nix:223:54:
+   222|         __structuredAttrs = true;
+   223|         exportReferencesGraph.graph = lib.concatMap (p: p.paths) allPaths;
+      |                                                      ^
+   224|         inherit
+
+… while evaluating the attribute 'paths'
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/buildFHSEnv.nix:174:11:
+   173|         {
+   174|           paths = cleanOutputs;
+      |           ^
+   175|           priority = drv.meta.priority or lib.meta.defaultPriority;
+
+… while calling the 'filter' builtin
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/buildFHSEnv.nix:171:26:
+   170|           extraOutputs = map (out: drv.${out} or null) extraOutputsToInstall;
+   171|           cleanOutputs = lib.filter (o: o != null) (pickedOutputs ++ extraOutputs);
+      |                          ^
+   172|         in
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/buildFHSEnv.nix:166:13:
+   165|           pickedOutputs =
+   166|             if isSpecifiedOutput || outputsToInstall == null then
+      |             ^
+   167|               [ drv ]
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/buildFHSEnv.nix:166:34:
+   165|           pickedOutputs =
+   166|             if isSpecifiedOutput || outputsToInstall == null then
+      |                                  ^
+   167|               [ drv ]
+
+error: undefined variable 'alsaLib'
+at ./pkgs/parsecgaming/default.nix:24:5:
+    23|   targetPkgs = pkgs: with pkgs; [
+    24|     alsaLib
+      |     ^
+    25|     cups

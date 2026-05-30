@@ -1,0 +1,9 @@
+error:
+… while querying the derivation named 'hello-2.10'
+
+error: attribute 'eelco' missing
+at ./pkgs/hello-nur/default.nix:28:21:
+    27|     license = licenses.gpl3Plus;
+    28|     maintainers = [ maintainers.eelco ];
+      |                     ^
+    29|     platforms = platforms.all;

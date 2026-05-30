@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'cockpit'
+  at ./default.nix:17:3:
+    16|
+    17|   cockpit = pkgs.callPackage ./pkgs/cockpit {};
+      |   ^
+    18|   cockpit-machines = pkgs.callPackage ./pkgs/cockpit/machines.nix {};
+
+… from call site
+  at ./default.nix:17:13:
+    16|
+    17|   cockpit = pkgs.callPackage ./pkgs/cockpit {};
+      |             ^
+    18|   cockpit-machines = pkgs.callPackage ./pkgs/cockpit/machines.nix {};
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "pkgconfig" at ./pkgs/cockpit/default.nix:1, did you mean "pkg-config" or "pkgconf"?'

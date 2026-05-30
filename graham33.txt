@@ -1,0 +1,65 @@
+error:
+… while evaluating the attribute 'pytest-homeassistant-custom-component'
+  at ./default.nix:104:5:
+   103|     pylint-per-file-ignores
+   104|     pytest-homeassistant-custom-component
+      |     ^
+   105|     smartbox
+
+… from call site
+  at ./default.nix:104:5:
+   103|     pylint-per-file-ignores
+   104|     pytest-homeassistant-custom-component
+      |     ^
+   105|     smartbox
+
+… while calling 'func'
+  at <nixpkgs> + /pkgs/development/interpreters/python/passthrufun.nix:42:19:
+    41|           func =
+    42|             name: value:
+      |                   ^
+    43|             if lib.isDerivation value then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/development/interpreters/python/passthrufun.nix:43:13:
+    42|             name: value:
+    43|             if lib.isDerivation value then
+      |             ^
+    44|               lib.extendDerivation (
+
+… from call site
+  at <nixpkgs> + /pkgs/development/interpreters/python/passthrufun.nix:43:16:
+    42|             name: value:
+    43|             if lib.isDerivation value then
+      |                ^
+    44|               lib.extendDerivation (
+
+… while calling 'isDerivation'
+  at <nixpkgs> + /lib/attrsets.nix:1412:18:
+  1411|   */
+  1412|   isDerivation = value: value.type or null == "derivation";
+      |                  ^
+  1413|
+
+… from call site
+  at ./default.nix:36:47:
+    35|       pynut2 = pySelf.callPackage ./pkgs/pynut2 { };
+    36|       pytest-homeassistant-custom-component = pySelf.callPackage ./pkgs/pytest-homeassistant-custom-component { };
+      |                                               ^
+    37|       pytest-picked = pySelf.callPackage ./pkgs/pytest-picked { };
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "isPy37" at ./pkgs/pytest-homeassistant-custom-component/default.nix:4, did you mean "isPy27", "isPy3k" or "isPy311"?'

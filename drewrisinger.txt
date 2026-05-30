@@ -1,0 +1,37 @@
+error:
+… while evaluating the attribute 'python3Packages'
+  at ./default.nix:35:3:
+    34|
+    35|   python3Packages = pkgs.recurseIntoAttrs rec {
+      |   ^
+    36|     # New packages NOT in NixOS/nixpkgs (and likely never will be)
+
+… while evaluating the attribute 'algopy'
+  at ./default.nix:94:5:
+    93|     # NOTE: remove once makes release version
+    94|     algopy = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/algopy { };
+      |     ^
+    95|     numdifftools = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/numdifftools { inherit algopy; };
+
+… from call site
+  at ./default.nix:94:14:
+    93|     # NOTE: remove once makes release version
+    94|     algopy = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/algopy { };
+      |              ^
+    95|     numdifftools = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/numdifftools { inherit algopy; };
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "nose" at ./pkgs/python-modules/algopy/default.nix:9, did you mean "cose", "gose" or "jose"?'

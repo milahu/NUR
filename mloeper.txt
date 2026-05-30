@@ -1,0 +1,30 @@
+error:
+… while evaluating the attribute 'cli-microsoft365'
+  at ./default.nix:47:3:
+    46|   nodejs_20_11_1 = pkgs.callPackage ./pkgs/nodejs { };
+    47|   cli-microsoft365 = pkgs.callPackage ./pkgs/cli-microsoft365 { };
+      |   ^
+    48|
+
+… from call site
+  at ./default.nix:47:22:
+    46|   nodejs_20_11_1 = pkgs.callPackage ./pkgs/nodejs { };
+    47|   cli-microsoft365 = pkgs.callPackage ./pkgs/cli-microsoft365 { };
+      |                      ^
+    48|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
+
+error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "nodejs_18" at ./pkgs/cli-microsoft365/default.nix:7, did you mean "nodejs_20", "nodejs_22" or "nodejs_24"?'

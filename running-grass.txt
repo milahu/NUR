@@ -1,0 +1,83 @@
+error:
+… while evaluating attribute 'buildCommand' of derivation 'Anytype-0.37.3'
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:81:17:
+    80|         enableParallelBuilding = true;
+    81|         inherit buildCommand name;
+      |                 ^
+    82|         passAsFile = [ "buildCommand" ] ++ (derivationArgs.passAsFile or [ ]);
+
+… while calling the 'getAttr' builtin
+  at «nix-internal»/derivation-internal.nix:50:17:
+    49|     value = commonAttrs // {
+    50|       outPath = builtins.getAttr outputName strict;
+      |                 ^
+    51|       drvPath = strict.drvPath;
+
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
+
+… while evaluating derivation 'Anytype-0.37.3-bwrap'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:647:11
+
+… while evaluating attribute 'text' of derivation 'Anytype-0.37.3-bwrap'
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:127:11:
+   126|           name
+   127|           text
+      |           ^
+   128|           executable
+
+… from call site
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:341:43:
+   340|
+   341|   bin = writeShellScript "${name}-bwrap" (bwrapCmd {
+      |                                           ^
+   342|     initArgs = ''"$@"'';
+
+… while calling 'bwrapCmd'
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:175:5:
+   174|   bwrapCmd =
+   175|     {
+      |     ^
+   176|       initArgs ? "",
+
+… while calling the 'getAttr' builtin
+  at «nix-internal»/derivation-internal.nix:50:17:
+    49|     value = commonAttrs // {
+    50|       outPath = builtins.getAttr outputName strict;
+      |                 ^
+    51|       drvPath = strict.drvPath;
+
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
+
+… while evaluating derivation 'Anytype-0.37.3-init'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:647:11
+
+… while evaluating attribute 'text' of derivation 'Anytype-0.37.3-init'
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:127:11:
+   126|           name
+   127|           text
+      |           ^
+   128|           executable
+
+… from call site
+  at <nixpkgs> + /pkgs/build-support/appimage/default.nix:92:15:
+    91|         inherit extraPkgs;
+    92|         src = extract (
+      |               ^
+    93|           lib.filterAttrs (
+
+error: function 'extract' called without required argument 'version'
+at <nixpkgs> + /pkgs/build-support/appimage/default.nix:34:5:
+    33|   extract =
+    34|     args@{
+      |     ^
+    35|       pname,

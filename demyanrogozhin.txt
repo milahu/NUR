@@ -1,0 +1,77 @@
+error:
+… while evaluating attribute 'buildInputs' of derivation 'particl-daemon-0.19.99.1.0-g6805257'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:718:11:
+   717|           depsHostHost = hostHostOutputs;
+   718|           buildInputs = hostTargetOutputs;
+      |           ^
+   719|           depsTargetTarget = targetTargetOutputs;
+
+… while calling the 'map' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:578:13:
+   577|           else
+   578|             map (drv: getDev drv.__spliced.hostTarget or drv) (checkDependencyList "buildInputs" buildInputs');
+      |             ^
+   579|         targetTargetOutputs =
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:578:64:
+   577|           else
+   578|             map (drv: getDev drv.__spliced.hostTarget or drv) (checkDependencyList "buildInputs" buildInputs');
+      |                                                                ^
+   579|         targetTargetOutputs =
+
+… while calling 'checkDependencyList''
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:486:26:
+   485|       checkDependencyList' =
+   486|         positions: name: deps:
+      |                          ^
+   487|         if all isSingularDependency deps then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:487:9:
+   486|         positions: name: deps:
+   487|         if all isSingularDependency deps then
+      |         ^
+   488|           deps
+
+… while calling the 'all' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:487:12:
+   486|         positions: name: deps:
+   487|         if all isSingularDependency deps then
+      |            ^
+   488|           deps
+
+… while calling 'isSingularDependency'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:302:26:
+   301|
+   302|   isSingularDependency = dep: dep == null || isDerivation dep || isString dep || isPath dep;
+      |                          ^
+   303|
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:302:79:
+   301|
+   302|   isSingularDependency = dep: dep == null || isDerivation dep || isString dep || isPath dep;
+      |                                                                               ^
+   303|
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:302:63:
+   301|
+   302|   isSingularDependency = dep: dep == null || isDerivation dep || isString dep || isPath dep;
+      |                                                               ^
+   303|
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:302:43:
+   301|
+   302|   isSingularDependency = dep: dep == null || isDerivation dep || isString dep || isPath dep;
+      |                                           ^
+   303|
+
+error: undefined variable 'boost170'
+at ./pkgs/particl-core/default.nix:20:7:
+    19|   buildInputs = with pkgs;
+    20|     [ boost170 miniupnpc_2 libevent zlib unixtools.hexdump python3 ]
+      |       ^
+    21|     ++ lib.optionals (!withoutWallet) [ db48 ]
