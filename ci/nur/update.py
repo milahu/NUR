@@ -416,6 +416,7 @@ def update_command_inner(args: Namespace) -> None:
             # normalize positions in repo.eval_error_text
             # for this nur-packages repo, show paths relative to the repo root
             if repo.eval_repo_path != None:
+                logger.debug(f"patching eval_repo_path: {str(repo.eval_repo_path)!r} -> '.'")
                 err.stdout = err.stdout.replace(str(repo.eval_repo_path), ".")
             # normalize nixpkgs paths from /nix/store/.../pkgs/... to <nixpkgs> + /pkgs/...
             err.stdout = err.stdout.replace(str(nixpkgs_path) + "/", "<nixpkgs> + /")
