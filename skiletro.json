@@ -1,7 +1,7 @@
 {
 "name":"skiletro",
-"fetch_time":0.795,
-"eval_time":0.325,
+"fetch_time":0.386,
+"eval_time":1.371,
 "source":{
 "url":"https://github.com/skiletro/nur-repo",
 "rev":"2604ffc5b67c0d5a177a41e159775f041e757922",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/8rgdhqryadid82jh44g4q6nx095n79m7-source",
-"nixpkgs_storepath":"/nix/store/q80rgzlzszpxilcdjbz8m7vg0fgn3x33-source",
-"nur_combined_rev":"0a019ecf9aa3960485ca980c933ba9670199821a",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "applet-darwinmenu":{
+"drvPath":"/nix/store/csxa297sl1xg2xqcr3a9g4g8ms81dibr-applet-darwinmenu.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -28,6 +29,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -38,7 +41,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -62,6 +66,7 @@
 "version":""
 },
 "applet-kara":{
+"drvPath":"/nix/store/acx55q6qghks107lyw73fr5ad9v9pg59-applet-kara.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -77,6 +82,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -87,7 +94,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -111,6 +119,7 @@
 "version":""
 },
 "gabarito":{
+"drvPath":"/nix/store/d6iymvg5nhn7zq9xd15600qgk8jm6jgh-gabarito.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -126,6 +135,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -136,7 +147,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -160,6 +172,7 @@
 "version":""
 },
 "mplus":{
+"drvPath":"/nix/store/a0zix46yz4av8ifwy83b702msr529lrg-mplus.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -175,6 +188,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -185,7 +200,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -209,6 +225,7 @@
 "version":""
 },
 "urbanist":{
+"drvPath":"/nix/store/ws1b20brdppr2r6m1di442902qqvjjdc-urbanist.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -224,6 +241,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -234,7 +253,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -258,6 +278,7 @@
 "version":""
 },
 "vacuumtube":{
+"drvPath":"/nix/store/l2ydgjmbxxid1r88yfiljsk94hgvhc7z-vacuumtube-1.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -274,6 +295,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -285,7 +308,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -302,12 +326,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -331,6 +357,7 @@
 "version":"1.1.0"
 },
 "wheelwizard":{
+"drvPath":"/nix/store/hdz1m3rqfyk0lk1xbqdzp5hs901rynqb-wheelwizard-2.2.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -347,6 +374,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -358,7 +387,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,

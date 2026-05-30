@@ -1,7 +1,7 @@
 {
 "name":"renesat",
-"fetch_time":0.462,
-"eval_time":0.367,
+"fetch_time":0.434,
+"eval_time":2.828,
 "source":{
 "url":"https://github.com/renesat/nur-renesat",
 "rev":"6e553b193510f7aa8aac507b925f67346a408df6",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/kr6jv6s7njdahya8id022yfnnz4pyvc1-source",
-"nixpkgs_storepath":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source",
-"nur_combined_rev":"22fb636d09ee4d86b01adce8aa4af8c3a7be9a9a",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "activitywatch-bin":{
+"drvPath":"/nix/store/f3km0cvrqqxbr3dp4hc4swzs4kirp86v-activitywatch-0.13.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -32,6 +33,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -43,7 +46,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -51,6 +55,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -73,7 +78,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/applications/office/activitywatch/wrapper.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/applications/office/activitywatch/wrapper.nix",
 "line":30
 },
 "name":"activitywatch-0.13.2",
@@ -96,6 +101,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -103,6 +109,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -132,6 +139,7 @@
 "version":"0.13.2"
 },
 "age-edit":{
+"drvPath":"/nix/store/57hn3kg8j2ad5srckiq5n8m6qjffvnw6-age-edit-0.16.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -149,6 +157,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -160,7 +170,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -168,6 +179,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -203,6 +215,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -210,6 +223,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -244,140 +258,6 @@
 "version":"0.16.0"
 },
 "aiolinkding":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"A Python3, async interface to the linkding REST API",
-"homepage":"https://github.com/bachya/aiolinkding",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"aiolinkding",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"aiolinkding",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"isBuildPythonPackage":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
-"aarch64-darwin",
-"aarch64-windows",
-"x86_64-windows",
-"i686-windows",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd"
-],
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"maintainers":[
-{
-"email":"smol.ivan97@gmail.com",
-"github":"renesat",
-"githubId":11363539,
-"name":"Ivan Smolyakov"
-}
-],
-"maintainersPosition":{
-"column":5,
-"file":"/nix/store/kr6jv6s7njdahya8id022yfnnz4pyvc1-source/pkgs/aiolinkding/default.nix",
-"line":69
-},
-"name":"python3.13-aiolinkding-2025.02.0",
-"nonTeamMaintainers":[
-{
-"email":"smol.ivan97@gmail.com",
-"github":"renesat",
-"githubId":11363539,
-"name":"Ivan Smolyakov"
-}
-],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
-"aarch64-darwin",
-"aarch64-windows",
-"x86_64-windows",
-"i686-windows",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd"
-],
-"position":"./pkgs/aiolinkding/default.nix:66",
-"unfree":false,
-"unsupported":false
-},
 "name":"python3.13-aiolinkding-2025.02.0",
 "outputName":"out",
 "outputs":{
@@ -389,6 +269,7 @@
 "version":"2025.02.0"
 },
 "arro3-core":{
+"drvPath":"/nix/store/k2hvcsr9vgisnwh9jampwvk1di16is4d-python3.13-arro3-core-0.5.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -406,6 +287,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -417,12 +300,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -430,6 +315,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -458,6 +344,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -467,6 +354,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -500,6 +388,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -507,6 +396,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -545,6 +435,7 @@
 "version":"0.5.1"
 },
 "autorestic":{
+"drvPath":"/nix/store/5rivc9z7601ah3dapziw0s33p7kka8qf-autorestic-1.8.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -562,6 +453,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -573,7 +466,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -581,6 +475,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -597,7 +492,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/by-name/au/autorestic/package.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/by-name/au/autorestic/package.nix",
 "line":35
 },
 "name":"autorestic-1.8.3",
@@ -616,6 +511,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -623,6 +519,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -657,6 +554,7 @@
 "version":"1.8.3"
 },
 "daqp":{
+"drvPath":"/nix/store/5zc0ccm74dra3zgn49alr7s0m5bmmaw7-daqp-0.7.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -674,6 +572,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -685,7 +585,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -693,6 +594,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -737,6 +639,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -744,6 +647,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -817,6 +721,7 @@
 "version":"0.7.1"
 },
 "daqp-python":{
+"drvPath":"/nix/store/gk862bsagkam0kl07fi2iv7wf8h9rs61-python3.13-daqp-0.7.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -834,6 +739,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -845,12 +752,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -858,6 +767,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -885,6 +795,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -900,7 +811,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/development/python-modules/daqp/default.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/development/python-modules/daqp/default.nix",
 "line":54
 },
 "name":"python3.13-daqp-0.7.2",
@@ -917,6 +828,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -924,6 +836,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -962,6 +875,7 @@
 "version":"0.7.2"
 },
 "datalad":{
+"drvPath":"/nix/store/rzhd3byy4hypgbgjw3abc4vdrnfcxk85-python3.13-datalad-1.3.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -980,6 +894,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -991,12 +907,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1004,6 +922,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1031,6 +950,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1063,7 +983,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/development/python-modules/datalad/default.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/development/python-modules/datalad/default.nix",
 "line":185
 },
 "name":"python3.13-datalad-1.3.4",
@@ -1097,6 +1017,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1104,6 +1025,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1142,6 +1064,7 @@
 "version":"1.3.4"
 },
 "dedoc":{
+"drvPath":"/nix/store/1dpax3a7kj976gbdakvpyaxzb7v6rg66-dedoc-0.2.9.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1170,6 +1093,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1181,7 +1106,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1189,6 +1115,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -1273,6 +1200,7 @@
 "version":"0.2.9"
 },
 "drawille":{
+"drvPath":"/nix/store/1z2l7s26xw4nwx73p6jf1w5l3ckb8jii-python3.13-drawille-0.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1290,6 +1218,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1301,12 +1231,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1314,6 +1246,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1341,6 +1274,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Plus",
 "spdxId":"AGPL-3.0-or-later",
@@ -1356,7 +1290,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/development/python-modules/drawille/default.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/development/python-modules/drawille/default.nix",
 "line":26
 },
 "name":"python3.13-drawille-0.2.0",
@@ -1385,6 +1319,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1392,6 +1327,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1466,6 +1402,7 @@
 "version":"0.2.0"
 },
 "drawilleplot":{
+"drvPath":"/nix/store/2f4ws0n054faasx450sk68layws8ql8j-python3.13-drawilleplot-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1483,6 +1420,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1494,12 +1433,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1507,6 +1448,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1534,6 +1476,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -1549,7 +1492,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/development/python-modules/drawilleplot/default.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/development/python-modules/drawilleplot/default.nix",
 "line":33
 },
 "name":"python3.13-drawilleplot-0.1.0",
@@ -1578,6 +1521,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1585,6 +1529,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1659,6 +1604,7 @@
 "version":"0.1.0"
 },
 "euporie":{
+"drvPath":"/nix/store/9pp2qq39dp9mrlq6qrpvp888zzc0mmib-python3.13-euporie-2.8.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1676,6 +1622,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1687,12 +1635,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1700,6 +1650,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1727,6 +1678,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1771,6 +1723,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1778,6 +1731,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1816,6 +1770,7 @@
 "version":"2.8.7"
 },
 "flatlatex":{
+"drvPath":"/nix/store/x86p9i661r4pnpmlv8y55p0qd2c6r6y4-python3.13-flatlatex-0.15.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1833,6 +1788,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1844,12 +1801,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1857,6 +1816,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1884,6 +1844,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -1928,6 +1889,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1935,6 +1897,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1973,6 +1936,7 @@
 "version":"0.15"
 },
 "gosuki":{
+"drvPath":"/nix/store/nvnassikjyfzlm9pbi0gynfmirr7gjbi-gosuki-1.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1990,6 +1954,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2001,7 +1967,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2009,6 +1976,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Plus",
 "spdxId":"AGPL-3.0-or-later",
@@ -2043,6 +2011,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2050,6 +2019,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2084,6 +2054,7 @@
 "version":"1.3.0"
 },
 "hazelnut":{
+"drvPath":"/nix/store/rb6gy97fcidl0kmls14yjlvmgl2np7ky-hazelnut-0.2.49.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2112,6 +2083,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2123,7 +2096,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2131,6 +2105,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -2215,6 +2190,7 @@
 "version":"0.2.49"
 },
 "hexhog":{
+"drvPath":"/nix/store/856kkc0c3pxm76c56kvd5ff9rwbi89l8-hexhog-0.1.3.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2243,6 +2219,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2254,7 +2232,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2262,6 +2241,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2346,6 +2326,7 @@
 "version":"0.1.3"
 },
 "hledger-utils":{
+"drvPath":"/nix/store/nhnim4h1pqag76v8c2551sxwz7n1l6b4-python3.13-hledger-utils-1.14.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2363,6 +2344,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2374,12 +2357,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2387,6 +2372,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2415,6 +2401,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Creative Commons Zero v1.0 Universal",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"cc0",
 "spdxId":"CC0-1.0",
@@ -2424,6 +2411,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Creative Commons Attribution 4.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"cc-by-40",
 "spdxId":"CC-BY-4.0",
@@ -2433,6 +2421,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -2449,7 +2438,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/development/python-modules/hledger-utils/default.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/development/python-modules/hledger-utils/default.nix",
 "line":66
 },
 "name":"python3.13-hledger-utils-1.14.0",
@@ -2478,6 +2467,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2485,6 +2475,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2559,6 +2550,7 @@
 "version":"1.14.0"
 },
 "imap-backup":{
+"drvPath":"/nix/store/f16im1zqf4dmmf1z8zwfnxczzgiwxn34-imap-backup-15.0.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2576,6 +2568,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2587,7 +2581,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2595,6 +2590,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2640,6 +2636,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2647,6 +2644,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2720,140 +2718,6 @@
 "version":"15.0.2"
 },
 "linkding-cli":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"A CLI to interface with an instance of linkding",
-"homepage":"https://github.com/bachya/linkding-cli",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"linkding-cli",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"linkding-cli",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"isBuildPythonPackage":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
-"aarch64-darwin",
-"aarch64-windows",
-"x86_64-windows",
-"i686-windows",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd"
-],
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"maintainers":[
-{
-"email":"smol.ivan97@gmail.com",
-"github":"renesat",
-"githubId":11363539,
-"name":"Ivan Smolyakov"
-}
-],
-"maintainersPosition":{
-"column":5,
-"file":"/nix/store/kr6jv6s7njdahya8id022yfnnz4pyvc1-source/pkgs/linkding-cli/default.nix",
-"line":64
-},
-"name":"python3.13-linkding-cli-2024.09.0",
-"nonTeamMaintainers":[
-{
-"email":"smol.ivan97@gmail.com",
-"github":"renesat",
-"githubId":11363539,
-"name":"Ivan Smolyakov"
-}
-],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
-"aarch64-darwin",
-"aarch64-windows",
-"x86_64-windows",
-"i686-windows",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd"
-],
-"position":"./pkgs/linkding-cli/default.nix:61",
-"unfree":false,
-"unsupported":false
-},
 "name":"python3.13-linkding-cli-2024.09.0",
 "outputName":"out",
 "outputs":{
@@ -2865,6 +2729,7 @@
 "version":"2024.09.0"
 },
 "llmfit":{
+"drvPath":"/nix/store/y1ics6zvyara0cvc3ldsba87wnkivf4n-llmfit-0.8.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2893,6 +2758,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2904,7 +2771,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2912,6 +2780,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2996,6 +2865,7 @@
 "version":"0.8.0"
 },
 "mal-cli":{
+"drvPath":"/nix/store/3wmj41n2czjy3r2g6rnrn60083p4h37z-mal-cli-0.2.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3024,6 +2894,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3035,7 +2907,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3043,6 +2916,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -3127,6 +3001,7 @@
 "version":"0.2.1"
 },
 "math-preview":{
+"drvPath":"/nix/store/wjl0jqr9x7qvyp92i526whxb7izmdham-math-preview-5.1.2-unstable-2024-08-01.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3144,6 +3019,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3155,7 +3032,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3163,6 +3041,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -3179,7 +3058,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/by-name/ma/math-preview/package.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/by-name/ma/math-preview/package.nix",
 "line":34
 },
 "name":"math-preview-5.1.2-unstable-2024-08-01",
@@ -3201,12 +3080,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -3230,6 +3111,7 @@
 "version":"5.1.2-unstable-2024-08-01"
 },
 "normcap":{
+"drvPath":"/nix/store/80ww4az8f1xdfms19fn7gqxf9h6486ah-normcap-0.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3248,6 +3130,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3259,12 +3143,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3272,6 +3158,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3299,6 +3186,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -3331,8 +3219,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/by-name/no/normcap/package.nix",
-"line":218
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/by-name/no/normcap/package.nix",
+"line":217
 },
 "name":"normcap-0.6.0",
 "nonTeamMaintainers":[
@@ -3364,6 +3252,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3371,6 +3260,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3394,7 +3284,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/no/normcap/package.nix:214",
+"position":"<nixpkgs> + /pkgs/by-name/no/normcap/package.nix:213",
 "unfree":false,
 "unsupported":false
 },
@@ -3409,6 +3299,7 @@
 "version":"0.6.0"
 },
 "puffin":{
+"drvPath":"/nix/store/0hb7jq77fz9h99y65vhfbn2k4gissvc7-puffin-2.1.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3426,6 +3317,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3437,7 +3330,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3445,6 +3339,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -3461,7 +3356,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/by-name/pu/puffin/package.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/by-name/pu/puffin/package.nix",
 "line":24
 },
 "name":"puffin-2.1.5",
@@ -3480,6 +3375,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3487,6 +3383,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3521,6 +3418,7 @@
 "version":"2.1.5"
 },
 "qpsolvers":{
+"drvPath":"/nix/store/knf46ppg5p1fg2d2afmdj55lzar06yza-python3.13-qpsolvers-4.11.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3539,6 +3437,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3550,12 +3450,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3563,6 +3465,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3590,6 +3493,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl3Plus",
 "spdxId":"LGPL-3.0-or-later",
@@ -3605,7 +3509,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/development/python-modules/qpsolvers/default.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/development/python-modules/qpsolvers/default.nix",
 "line":85
 },
 "name":"python3.13-qpsolvers-4.11.0",
@@ -3622,6 +3526,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3629,6 +3534,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3667,6 +3573,7 @@
 "version":"4.11.0"
 },
 "questdb":{
+"drvPath":"/nix/store/m4q934gz7gj73bwbg1kk568ffmvswi1q-questdb-9.3.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3684,6 +3591,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3695,7 +3604,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3703,6 +3613,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -3718,10 +3629,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/by-name/qu/questdb/package.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/by-name/qu/questdb/package.nix",
 "line":42
 },
-"name":"questdb-9.3.2",
+"name":"questdb-9.3.5",
 "nonTeamMaintainers":[
 {
 "email":"me@jakubpravda.net",
@@ -3735,6 +3646,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3742,6 +3654,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3767,16 +3680,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"questdb-9.3.2",
+"name":"questdb-9.3.5",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"questdb",
 "system":"x86_64-linux",
-"version":"9.3.2"
+"version":"9.3.5"
 },
 "sixelcrop":{
+"drvPath":"/nix/store/67gjl2axpaq67nn6j3misqmmi5i4h31d-python3.13-sixelcrop-0.1.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3794,6 +3708,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3805,12 +3721,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3818,6 +3736,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3845,6 +3764,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -3877,6 +3797,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3884,6 +3805,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3922,6 +3844,7 @@
 "version":"0.1.9"
 },
 "superseedr":{
+"drvPath":"/nix/store/llfjw2vm1w23dxwlqzyhvnhv4g1hgy8a-superseedr-1.0.3.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3950,6 +3873,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3961,7 +3886,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3969,6 +3895,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -4053,6 +3980,7 @@
 "version":"1.0.3"
 },
 "taskwarrior3":{
+"drvPath":"/nix/store/9d3jhq8d7xna0bbyg4cjn7r2hnshdprj-taskwarrior-3.4.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4071,6 +3999,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -4082,7 +4012,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -4090,6 +4021,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -4130,7 +4062,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/by-name/ta/taskwarrior3/package.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/by-name/ta/taskwarrior3/package.nix",
 "line":125
 },
 "name":"taskwarrior-3.4.2",
@@ -4179,6 +4111,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4186,6 +4119,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4229,6 +4163,7 @@
 "version":"3.4.2"
 },
 "timg":{
+"drvPath":"/nix/store/pizmprikkyz1jy80khvg7k2ci2p5b7fk-python3.13-timg-1.1.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4246,6 +4181,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -4257,12 +4194,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4270,6 +4209,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4297,6 +4237,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -4341,6 +4282,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4348,6 +4290,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4386,6 +4329,7 @@
 "version":"1.1.6"
 },
 "toutui":{
+"drvPath":"/nix/store/rflln6wrr9mw2rzzgyw3gq1h8njsphql-toutui-0.4.2-beta.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -4414,6 +4358,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -4425,7 +4371,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -4433,6 +4380,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -4517,6 +4465,7 @@
 "version":"0.4.2-beta"
 },
 "tubefeed":{
+"drvPath":"/nix/store/z8g0cbpgcgzprichrrk5cba8y0vvd8a2-python3.13-tubefeed-3.0.12.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4534,6 +4483,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -4545,12 +4496,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4558,6 +4511,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4585,6 +4539,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -4617,6 +4572,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4624,6 +4580,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4662,6 +4619,7 @@
 "version":"3.0.12"
 },
 "tukai":{
+"drvPath":"/nix/store/5k0crc9y9h2bx32d51k5csrrsl1967y9-tukai-0.2.3.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -4690,6 +4648,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -4701,7 +4661,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -4709,6 +4670,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -4793,6 +4755,7 @@
 "version":"0.2.3"
 },
 "typy":{
+"drvPath":"/nix/store/gqlxbnf9cf5q2sk71zp28gak60s2xx45-typy-0.9.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -4821,6 +4784,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -4832,7 +4797,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -4840,6 +4806,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -4924,6 +4891,7 @@
 "version":"0.9.0"
 },
 "vegafusion":{
+"drvPath":"/nix/store/dlh3pxg9kxmkm72llynk8r90vai98lqa-python3.13-vegafusion-2.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4941,6 +4909,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -4952,12 +4922,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -4965,6 +4937,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -4992,6 +4965,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -5024,6 +4998,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5031,6 +5006,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5069,6 +5045,7 @@
 "version":"2.0.1"
 },
 "vl-convert":{
+"drvPath":"/nix/store/jg8vmill7zn4k4rlm1rkx32y7z0vi0rr-vl-convert-1.7.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -5097,6 +5074,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -5108,7 +5087,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -5116,6 +5096,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -5200,6 +5181,7 @@
 "version":"1.7.0"
 },
 "vl-convert-python":{
+"drvPath":"/nix/store/zbnpc683hp90wkmkghpj17qy3jw4d8a3-python3.13-vl-convert-python-1.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5215,6 +5197,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -5226,12 +5210,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5239,6 +5225,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5270,6 +5257,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5277,6 +5265,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5315,6 +5304,7 @@
 "version":"1.7.0"
 },
 "voyage":{
+"drvPath":"/nix/store/xvnbbxchd1bp1y60sykkl1vn36rnarbz-voyage-0.0.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -5343,6 +5333,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -5354,7 +5346,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -5362,6 +5355,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -5446,6 +5440,7 @@
 "version":"0.0.1"
 },
 "warpd":{
+"drvPath":"/nix/store/a4m567j97hacpbi1ckhm2qljcdsiy7ys-warpd-1.3.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5464,6 +5459,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -5475,7 +5472,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -5483,6 +5481,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -5499,7 +5498,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source/pkgs/by-name/wa/warpd/package.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/by-name/wa/warpd/package.nix",
 "line":68
 },
 "name":"warpd-1.3.5",
@@ -5516,6 +5515,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5523,6 +5523,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5552,6 +5553,7 @@
 "version":"1.3.5"
 },
 "wwan-utils":{
+"drvPath":"/nix/store/d9i342kjszy428hvrir281ykylwzib3x-wwan-utils-2019-12-10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5569,6 +5571,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -5580,7 +5584,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -5592,6 +5597,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5599,6 +5605,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -5628,6 +5635,7 @@
 "version":"2019-12-10"
 },
 "yamusic-tui":{
+"drvPath":"/nix/store/a8aricwcnspcyrcdbpqx59nkkfm3jgph-yamusic-tui-0.7.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5645,6 +5653,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -5656,7 +5666,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -5664,6 +5675,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -5696,6 +5708,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -5703,6 +5716,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

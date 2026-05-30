@@ -1,7 +1,7 @@
 {
 "name":"etu",
-"fetch_time":1.08,
-"eval_time":0.282,
+"fetch_time":0.474,
+"eval_time":1.359,
 "source":{
 "url":"https://github.com/etu/nur-packages",
 "rev":"b10484ec659e5c1643455642361ca9b61aba1bcd",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/adidk31qln9w0kh8hln86xqd6v5nszqv-source",
-"nixpkgs_storepath":"/nix/store/dgmmhy3y4chhi8w2vj87h7shfxv2adqn-source",
-"nur_combined_rev":"e1a9dc8cdffa35ff023e989116853c921f6bcd59",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "chalet":{
+"drvPath":"/nix/store/10nwg0kfb9c37z7y8wnbnyh1c5kfvzx0-chalet-0.10.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -96,6 +100,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -103,6 +108,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -176,6 +182,7 @@
 "version":"0.10.2"
 },
 "font-etuvetica":{
+"drvPath":"/nix/store/nn8xxfqm2xjnzq219nlq4zm1n2csl7ar-etuvetica-1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -193,6 +200,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -204,7 +213,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -259,6 +269,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -266,6 +277,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -339,6 +351,7 @@
 "version":"1"
 },
 "font-talyznewroman":{
+"drvPath":"/nix/store/9zxrzr85xs91ia069klhyakwh9n0f29r-talyznewroman-1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -356,6 +369,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -367,7 +382,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -422,6 +438,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -429,6 +446,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -502,6 +520,7 @@
 "version":"1"
 },
 "g90updatefw":{
+"drvPath":"/nix/store/zhrvz7jrn193ih231x2jx9xkrj8k6wl5-g90updatefw-1.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -520,6 +539,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -531,7 +552,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -539,6 +561,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -595,6 +618,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -602,6 +626,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -675,6 +700,7 @@
 "version":"1.5"
 },
 "github-markdown-toc":{
+"drvPath":"/nix/store/yi0r85frx72225b0s2da9klg7vg3j2cz-github-markdown-toc-0.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -693,6 +719,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -704,7 +732,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -712,6 +741,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -768,6 +798,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -775,6 +806,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -848,6 +880,7 @@
 "version":"0.8.0"
 },
 "goprocmgr":{
+"drvPath":"/nix/store/snvrsly8xvddvw6w6x1hzbh3rhni7iwj-goprocmgr-1.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -866,6 +899,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -877,7 +912,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -885,6 +921,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"ISC License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"isc",
 "spdxId":"ISC",
@@ -941,6 +978,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -948,6 +986,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1021,6 +1060,7 @@
 "version":"1.5.0"
 },
 "llr":{
+"drvPath":"/nix/store/x6ch01n3cf56cq8mjfid9q68g7jwg8ga-llr-0.9.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1039,6 +1079,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1050,7 +1092,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1058,6 +1101,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"ISC License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"isc",
 "spdxId":"ISC",
@@ -1114,6 +1158,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1121,6 +1166,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1194,6 +1240,7 @@
 "version":"0.9.2"
 },
 "mkvcleaner":{
+"drvPath":"/nix/store/dik82pi7yr7pdw8fq6jdzv63zh0b7y4m-mkvcleaner-1.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1212,6 +1259,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1223,7 +1272,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1231,6 +1281,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -1287,6 +1338,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1294,6 +1346,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

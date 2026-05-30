@@ -1,7 +1,7 @@
 {
 "name":"neumantm",
-"fetch_time":0.518,
-"eval_time":0.275,
+"fetch_time":0.359,
+"eval_time":2.216,
 "source":{
 "url":"https://github.com/neumantm/nur-packages",
 "rev":"cd9efb8b3e75de5005f130e597a5fc0219302c2f",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/y0vv2slp1nlp8zz9b7m442l3hkw7c23r-source",
-"nixpkgs_storepath":"/nix/store/51cs49gm0y0pvanfjp611s6vgnmqcp09-source",
-"nur_combined_rev":"89a8140943ffdc51272e055beb9e67eff3cecf08",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "multiEclipse":{
+"drvPath":"/nix/store/lapmcggcrrpq7viip3pd25pjjjp6k3jv-multiEclipse.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -29,6 +30,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -39,7 +42,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -47,6 +51,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -55,11 +60,13 @@
 "longDescription":"Let's you choose the eclipse variant you need before starting.",
 "maintainers":[],
 "name":"multiEclipse",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -67,6 +74,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -82,7 +90,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:80",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:569",
 "unfree":false,
 "unsupported":false
 },
@@ -96,6 +104,7 @@
 "version":""
 },
 "prettifyJsonLog":{
+"drvPath":"/nix/store/60gqc2n87b0bxjn5m4ggvmbayfr92y9x-python3.13-prettifyJsonLog-1.0.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -113,6 +122,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -124,12 +135,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -137,6 +150,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -164,6 +178,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -171,11 +186,13 @@
 },
 "maintainers":[],
 "name":"python3.13-prettifyJsonLog-1.0.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -183,6 +200,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -221,6 +239,7 @@
 "version":"1.0.3"
 },
 "startFirefox":{
+"drvPath":"/nix/store/4byym3a2ygd8lfxm8xg8iviffqplqbca-startFirefox.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -237,6 +256,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -247,7 +268,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -255,6 +277,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -263,11 +286,13 @@
 "longDescription":"Let's you choose the firefox profile before starting.",
 "maintainers":[],
 "name":"startFirefox",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -275,6 +300,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -290,7 +316,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:80",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:569",
 "unfree":false,
 "unsupported":false
 },

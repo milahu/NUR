@@ -1,7 +1,7 @@
 {
 "name":"eh5",
-"fetch_time":1.023,
-"eval_time":0.307,
+"fetch_time":0.448,
+"eval_time":0.707,
 "source":{
 "url":"https://github.com/EHfive/flakes",
 "rev":"c297aaf815f2534de5e4740fc67527a213bb6047",
@@ -10,9 +10,10 @@
 },
 "source_storepath":"/nix/store/35r6xn838r6kwhfm4qgwrh50z23z83pf-source",
 "nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
-"nur_combined_rev":"f4f786f12e69218dcfe916ad930553b1bf39da20",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "dae-unstable":{
+"drvPath":"/nix/store/ryd9fvj12nn1b642jzf7vxvi1wb0vp1i-dae-1.1.0rc1-unstable-2026-04-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -105,6 +106,7 @@
 "version":"1.1.0rc1-unstable-2026-04-07"
 },
 "einat":{
+"drvPath":"/nix/store/az42x8c252g6vrdm0waxjizlh6j7bhzk-einat-0.1.10.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -202,6 +204,7 @@
 "version":"0.1.10"
 },
 "fake-hwclock":{
+"drvPath":"/nix/store/n48grfygpwh2w394s1miafg67740q660-fake-hwclock.drv",
 "meta":{
 "description":"Fake hardware clock",
 "license":{
@@ -225,6 +228,7 @@
 "version":""
 },
 "kcptun":{
+"drvPath":"/nix/store/r03sdl8l98mwccikx48m1fsaw3zzic55-kcptun-unstable-2025-02-25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -323,6 +327,7 @@
 "version":"2025-02-25"
 },
 "mosdns":{
+"drvPath":"/nix/store/08q5c9wyngx75ngsd40qyn7w1bwaakkw-mosdns-5.3.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -421,6 +426,7 @@
 "version":"5.3.4"
 },
 "rtl8152-led-ctrl":{
+"drvPath":"/nix/store/n7292sy19lj7p8rvjnf6i7i1ay25b8kq-rtl8152-led-ctrl-0.1.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -528,83 +534,6 @@
 "version":"0.1.1"
 },
 "ubootNanopiR2s":{
-"meta":{
-"available":false,
-"broken":false,
-"description":"Boot loader for embedded systems",
-"homepage":"https://www.denx.de/wiki/U-Boot/",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"uboot-nanopi-r2s-rk3328_defconfig",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purlParts":{},
-"purls":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"uboot-nanopi-r2s-rk3328_defconfig",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purls":[]
-}
-},
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"GNU General Public License v2.0 or later",
-"licenseType":"simple",
-"redistributable":true,
-"shortName":"gpl2Plus",
-"spdxId":"GPL-2.0-or-later",
-"url":"https://spdx.org/licenses/GPL-2.0-or-later.html"
-},
-"maintainers":[
-{
-"email":"benwolsieffer@gmail.com",
-"github":"lopsided98",
-"githubId":5624721,
-"name":"Ben Wolsieffer"
-}
-],
-"maintainersPosition":{
-"column":11,
-"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/misc/uboot/default.nix",
-"line":152
-},
-"name":"uboot-nanopi-r2s-rk3328_defconfig-2026.04",
-"nonTeamMaintainers":[
-{
-"email":"benwolsieffer@gmail.com",
-"github":"lopsided98",
-"githubId":5624721,
-"name":"Ben Wolsieffer"
-}
-],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux"
-],
-"position":"<nixpkgs> + /pkgs/misc/uboot/default.nix:150",
-"unfree":false,
-"unsupported":true
-},
 "name":"uboot-nanopi-r2s-rk3328_defconfig-2026.04",
 "outputName":"out",
 "outputs":{
@@ -615,6 +544,7 @@
 "version":"2026.04"
 },
 "udpspeeder":{
+"drvPath":"/nix/store/09lsmj16dn9sgfp5004lqyy3f9z3n8sh-udpspeeder-unstable-2023-07-22.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -683,6 +613,7 @@
 "version":"2023-07-22"
 },
 "vlmcsd":{
+"drvPath":"/nix/store/hx6lzj099zwiv60mvhdyzzscnf33chrz-vlmcsd-1113.drv",
 "meta":{
 "available":true,
 "broken":false,

@@ -1,7 +1,7 @@
 {
 "name":"moredread",
-"fetch_time":0.502,
-"eval_time":0.739,
+"fetch_time":0.412,
+"eval_time":1.808,
 "source":{
 "url":"https://github.com/Moredread/nur-packages",
 "rev":"ded6efb676375f6b3f845f5c74f89ccfa1902feb",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/6nsmv6mfkmn9zg6chsrrr2s6f0fb7yf5-source",
-"nixpkgs_storepath":"/nix/store/r3j9iijd6ynhvfmqd2aba91c6gxc31kg-source",
-"nur_combined_rev":"f3988708a11007c8fbe21d268d2c5cabee860f5e",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "greaseweazel":{
+"drvPath":"/nix/store/8im5x6qzk328iq99gh73ll7pwsjbcviw-greazeweazel-1.22.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -28,6 +29,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -39,12 +42,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -52,6 +57,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -77,11 +83,13 @@
 ],
 "maintainers":[],
 "name":"greazeweazel-1.22",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -89,6 +97,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -127,6 +136,7 @@
 "version":"1.22"
 },
 "hxcfloppyemulator":{
+"drvPath":"/nix/store/p96903hwrwmz16srwl8n4waybg4i7rcc-hxcfloppyemulator-unstable-2025-07-13.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -144,6 +154,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -155,7 +167,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -163,6 +176,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -172,11 +186,13 @@
 "mainProgram":"hxcfloppyemulator",
 "maintainers":[],
 "name":"hxcfloppyemulator-unstable-2025-07-13",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -184,6 +200,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -213,6 +230,7 @@
 "version":"2025-07-13"
 },
 "implicitcad":{
+"drvPath":"/nix/store/lghfjd2rx0s1pzz5h1ng0cgbfbgphnfr-implicitcad-8827fb0a.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -230,6 +248,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -241,7 +261,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -249,6 +270,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
@@ -256,6 +278,7 @@
 },
 "maintainers":[],
 "name":"implicitcad-8827fb0a",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -273,6 +296,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -280,6 +304,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -335,7 +360,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/implicitcad/default.nix:36",
 "unfree":false,
@@ -352,6 +379,7 @@
 "version":"8827fb0a"
 },
 "joplin-desktop":{
+"drvPath":"/nix/store/wwapdg0394yxdf9dqvz59yk0m92cypmr-joplin-desktop-3.4.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -369,6 +397,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -380,7 +410,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -388,6 +419,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -402,6 +434,7 @@
 "line":43
 },
 "name":"joplin-desktop-3.4.5",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -428,6 +461,7 @@
 "version":"3.4.5"
 },
 "mididings":{
+"drvPath":"/nix/store/qahx14l20jf8zlbgw2471lkypzbgddz1-python3.13-mididings-unstable-20250818.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -445,6 +479,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -456,12 +492,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -469,6 +507,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -496,6 +535,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Plus",
 "spdxId":"GPL-2.0-or-later",
@@ -508,11 +548,13 @@
 "line":67
 },
 "name":"python3.13-mididings-unstable-20250818",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -520,6 +562,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

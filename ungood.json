@@ -1,7 +1,7 @@
 {
 "name":"ungood",
-"fetch_time":0.427,
-"eval_time":0.223,
+"fetch_time":0.407,
+"eval_time":0.384,
 "source":{
 "url":"https://github.com/ungood/nur-packages",
 "rev":"fb8b4c8ae8cc8b90127b4f80cb6ebb20c522e26b",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/73zlkwmhv3yc113jghlym7hgaxm9zkv7-source",
-"nixpkgs_storepath":"/nix/store/yhhwrcfnpr2mcfbl7562cr0j9zh81x2i-source",
-"nur_combined_rev":"8d319fcdbfb8dd7aafa4cf1cac3e5ff0c8e9f6da",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "obsidian-cli":{
+"drvPath":"/nix/store/vldnc2ngxmyg21d543ay2zyn9sp458k5-obsidian-cli-0.1.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -62,6 +67,7 @@
 "line":27
 },
 "name":"obsidian-cli-0.1.9",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -69,6 +75,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -76,6 +83,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

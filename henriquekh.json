@@ -1,7 +1,7 @@
 {
 "name":"henriquekh",
-"fetch_time":0.853,
-"eval_time":0.198,
+"fetch_time":0.424,
+"eval_time":1.151,
 "source":{
 "url":"https://github.com/henriquekirchheck/nur-repo",
 "rev":"dd708b35edd229015c651a852c3334ee45a573f8",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/dl2z2yz8310cvnqinq2l83s6wld88vdl-source",
-"nixpkgs_storepath":"/nix/store/gxwv36g59813dh5f46qjnwsps5r7n51z-source",
-"nur_combined_rev":"98049b6b591a5817572174b9c0deab5a7407c404",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "beat-detector":{
+"drvPath":"/nix/store/hlr0ywrapvccp77d96iiclzqzliggr4y-beat-detector-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -31,6 +32,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -42,7 +45,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -50,6 +54,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -58,6 +63,7 @@
 "mainProgram":"beat-detector",
 "maintainers":[],
 "name":"beat-detector-0.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -75,6 +81,7 @@
 "version":"0.0.1"
 },
 "parade-db":{
+"drvPath":"/nix/store/xri4a1333ifzp2d98lfjlglp92s58xpm-pg_search-0.18.11.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -104,6 +111,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -115,7 +124,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -123,6 +133,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
@@ -135,6 +146,7 @@
 "line":106
 },
 "name":"pg_search-0.18.11",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],

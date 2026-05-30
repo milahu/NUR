@@ -1,7 +1,7 @@
 {
 "name":"reward",
-"fetch_time":0.523,
-"eval_time":0.306,
+"fetch_time":0.401,
+"eval_time":0.375,
 "source":{
 "url":"https://github.com/rewardenv/nur",
 "rev":"ab4d6136d2f7178da4ae901ab71bfdf93a45e307",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/glayhww37wxzli4f20qr83fincd6mn0f-source",
-"nixpkgs_storepath":"/nix/store/i0q9cbslq3ip4xdpv2nfgp58g222wfiz-source",
-"nur_combined_rev":"d4880a415c0dab5a32bfa652bb433c4d71dd77c3",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "reward":{
+"drvPath":"/nix/store/35cwfc3xax18gx378cz21nv0s4bv0zq5-reward-0.7.13.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",

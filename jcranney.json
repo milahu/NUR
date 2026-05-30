@@ -1,7 +1,7 @@
 {
 "name":"jcranney",
-"fetch_time":0.378,
-"eval_time":0.314,
+"fetch_time":0.38,
+"eval_time":0.614,
 "source":{
 "url":"https://github.com/jcranney/nur-packages",
 "rev":"f026a0303d54c76d79ab692ce32b7989ecb803a5",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/hgyf2ighgcx9jzw298pvk5fj9xf1mnc0-source",
-"nixpkgs_storepath":"/nix/store/jxqdhmbbbsckx9gps961ypaq7ynigbl1-source",
-"nur_combined_rev":"10ff662b7d1ce034da7ebf83ce6d8935144057ce",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "para-audit":{
+"drvPath":"/nix/store/17c9dgbqxz85q1aj2c7xf65253fdn4fb-para-audit-v0.1.15.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -41,6 +42,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -52,7 +55,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -60,6 +64,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",

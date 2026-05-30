@@ -1,7 +1,7 @@
 {
 "name":"grafcube",
-"fetch_time":0.557,
-"eval_time":0.303,
+"fetch_time":0.372,
+"eval_time":0.566,
 "source":{
 "url":"https://github.com/Grafcube/nur-packages",
 "rev":"cb237561a18f9c480c088b8f01374b3f32dd483e",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/mpzmdgq9n98vrma08667frq1ac3m4kf3-source",
-"nixpkgs_storepath":"/nix/store/cw6dilbw3gba38jhv5zaz8samzlb0f1w-source",
-"nur_combined_rev":"4419cb52a8a2227d025c83897746c15f9e340e14",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "antidot":{
+"drvPath":"/nix/store/3zb4lrv8s31wnqgab1d5adyy7f51jr1y-antidot-0.6.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -74,6 +79,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -81,6 +87,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -154,6 +161,7 @@
 "version":"0.6.3"
 },
 "doasedit":{
+"drvPath":"/nix/store/3n0k6ps9qqpn41zfg79bang6x42xzvpx-doasedit-1.0.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -171,6 +179,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -182,7 +192,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -190,6 +201,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -215,6 +227,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -222,6 +235,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

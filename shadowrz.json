@@ -1,7 +1,7 @@
 {
 "name":"shadowrz",
-"fetch_time":0.804,
-"eval_time":0.302,
+"fetch_time":0.438,
+"eval_time":1.231,
 "source":{
 "url":"https://github.com/ShadowRZ/nur-packages",
 "rev":"36f56ae867b931dd59f881c71dc46f96db19ec85",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/mbydk6z4r05779jmfayshzm87nddfpig-source",
-"nixpkgs_storepath":"/nix/store/2n2i983z59kjmw707xpddjdywyk8vn2g-source",
-"nur_combined_rev":"bcbb8dea5f9bed9f87471b8e1a82a11328abf27b",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "hanekokoro-mono":{
+"drvPath":"/nix/store/yys7ijdrlq4ixx5qncscc01bcykh0avb-hanekokoro-mono-0.2.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -74,6 +79,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -81,6 +87,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -154,6 +161,7 @@
 "version":"0.2.4"
 },
 "hanekokoro-mono-e":{
+"drvPath":"/nix/store/jnxr7ax3skz1w004iskf5rfghmf77l8a-hanekokoro-mono-e-0.2.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -171,6 +179,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -182,7 +192,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -190,6 +201,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -215,6 +227,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -222,6 +235,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -295,6 +309,7 @@
 "version":"0.2.4"
 },
 "hanekokoro-mono-k":{
+"drvPath":"/nix/store/biabqaqwinhlhdzajjwh2idz096n65zg-hanekokoro-mono-k-0.2.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -312,6 +327,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -323,7 +340,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -331,6 +349,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -356,6 +375,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -363,6 +383,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -436,6 +457,7 @@
 "version":"0.2.4"
 },
 "hanekokoro-sans":{
+"drvPath":"/nix/store/j9z9q3haxxq08y7kdyzsd62sxzcxza2v-hanekokoro-sans-0.2.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -453,6 +475,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -464,7 +488,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -472,6 +497,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -497,6 +523,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -504,6 +531,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -577,6 +605,7 @@
 "version":"0.2.4"
 },
 "kose-font":{
+"drvPath":"/nix/store/bsj5icdkq6i01j3kmzxdad9px6zgjdyw-kose-font-20210514.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -594,6 +623,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -605,7 +636,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -613,6 +645,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -638,6 +671,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -645,6 +679,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -718,6 +753,7 @@
 "version":"20210514"
 },
 "maoken-assorted-sans":{
+"drvPath":"/nix/store/q62g1a33ddid70025p00z7xhmk80v9hg-maoken-assorted-sans-1.60.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -735,6 +771,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -746,7 +784,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -754,6 +793,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -779,6 +819,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -786,6 +827,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -859,6 +901,7 @@
 "version":"1.60"
 },
 "mkxp-z":{
+"drvPath":"/nix/store/immhb0k8i2aaxrj0lpzivnrqaw5n9dd4-mkxp-z-0-unstable-2025-11-12.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -876,6 +919,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -887,7 +932,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -895,6 +941,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2",
 "spdxId":"GPL-2.0",
@@ -920,6 +967,7 @@
 "version":"0-unstable-2025-11-12"
 },
 "resource-han-rounded":{
+"drvPath":"/nix/store/mx5h1y0lh3vjjwql1m67pqvlcj6c5098-resource-han-rounded-0.990.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -937,6 +985,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -948,7 +998,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -956,6 +1007,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"SIL Open Font License 1.1",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"ofl",
 "spdxId":"OFL-1.1",
@@ -981,6 +1033,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -988,6 +1041,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1061,6 +1115,7 @@
 "version":"0.990"
 },
 "rvpacker-ng":{
+"drvPath":"/nix/store/7c7gh6cs3xr4g55fjfz8nkk0bs81gbic-rvpacker-ng-1.3.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1078,6 +1133,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1089,7 +1146,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1097,6 +1155,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1123,6 +1182,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1130,6 +1190,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

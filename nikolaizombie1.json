@@ -1,7 +1,7 @@
 {
 "name":"nikolaizombie1",
-"fetch_time":0.733,
-"eval_time":0.246,
+"fetch_time":0.398,
+"eval_time":1.235,
 "source":{
 "url":"https://github.com/nikolaizombie1/nur-packages",
 "rev":"0a588a984eea4428f6240dd52115a70cd25c2965",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/w1pzvw1y21vnp42lyl2ik26ghqsw5rfg-source",
-"nixpkgs_storepath":"/nix/store/0p3jjdn5wqnx2lsfwl7ygvg19vc2vks7-source",
-"nur_combined_rev":"86c4cfa404992e68a44624f743e46b64937ad056",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "color-scheme-generator":{
+"drvPath":"/nix/store/cva08ik8969s1zs8f0agmf2bkxx6bfwi-color-scheme-generator.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -30,11 +31,39 @@
 "changelog":"https://github.com/nikolaizombie1/color_scheme_generator/releases/tag/v1.0.0",
 "description":"Image-based color scheme generator for Waybar",
 "homepage":"https://github.com/nikolaizombie1/color_scheme_generator",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purlParts":{},
+"purls":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purls":[]
+}
+},
 "insecure":false,
 "license":{
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -43,6 +72,7 @@
 "longDescription":"color_scheme_generator is a command line utility used to analyze images and generate color themes from them given a path to an image.\nThis command line utility behaves like a standard UNIX utility where the path to the image can be either piped in or sent a command line argument.\nThe intended purpose of this application is to automatically create color themes for Waybar, but it can be used for the bar in AwesomeWM or other applications to theme based on the on an image. This utility has a cache for the image analysis. This means that once an image has been analyzed once, the result will be saved in the cache and when an image is analyzed again, the results will be returned instantly\n",
 "maintainers":[],
 "name":"color-scheme-generator",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -57,6 +87,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",
@@ -99,6 +130,7 @@
 "version":""
 },
 "waytrogen":{
+"drvPath":"/nix/store/s21b9ysgp3gj49fa58gjp62kjzkqmj33-waytrogen-0.6.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -115,11 +147,41 @@
 "broken":false,
 "description":"A lightning fast wallpaper setter for Wayland.",
 "homepage":"https://github.com/nikolaizombie1/waytrogen",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"waytrogen",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purlParts":{},
+"purls":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"waytrogen",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purls":[]
+}
+},
 "insecure":false,
 "license":{
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",
@@ -133,6 +195,7 @@
 "line":51
 },
 "name":"waytrogen-0.6.2",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -147,6 +210,7 @@
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"powerpc-linux",
 "powerpc64-linux",
 "powerpc64le-linux",
 "riscv64-linux",

@@ -1,7 +1,7 @@
 {
 "name":"nighthawk",
-"fetch_time":0.559,
-"eval_time":0.246,
+"fetch_time":0.375,
+"eval_time":0.619,
 "source":{
 "url":"https://github.com/CDotNightHawk/nur-packages",
 "rev":"4f8ab25f79b0c341227ecdba9e4a591ae6759c18",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/cy7cnkj89pyla0iryydrngmh4n4d9f35-source",
-"nixpkgs_storepath":"/nix/store/f2m9znvz8gphqqcvd8hpxr9ngvyhr9di-source",
-"nur_combined_rev":"aaa2ed0a85d5548c2a8dcd3efd5e57f81bd9d495",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "lnshot":{
+"drvPath":"/nix/store/xfjs8zc70vscl2hmaayybl34k1wgg4z6-lnshot-0.1.3.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -41,6 +42,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -52,7 +55,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -60,6 +64,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -68,6 +73,7 @@
 "mainProgram":"lnshot",
 "maintainers":[],
 "name":"lnshot-0.1.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],

@@ -1,7 +1,7 @@
 {
 "name":"mikidep",
-"fetch_time":0.813,
-"eval_time":0.256,
+"fetch_time":0.42,
+"eval_time":0.85,
 "source":{
 "url":"https://github.com/mikidep/nur-packages",
 "rev":"a87beb4918935f252eaab94133975b54c3680e5e",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/hvr2hyjdv18bgzsy5ifcmmipghy1w0gn-source",
-"nixpkgs_storepath":"/nix/store/hc64vazgs8k03l23xm09igvjrqyzilkv-source",
-"nur_combined_rev":"ad7b0ba68d0d35d8d90036ea237516722ffdc19d",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "codecad":{
+"drvPath":"/nix/store/xq9jvym2rbjhv6b6lp3q7dnyddsynv64-codecad-github-7ce7335.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -28,6 +29,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -39,12 +42,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "maintainers":[],
 "name":"codecad-github-7ce7335",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -62,6 +67,7 @@
 "version":"7ce7335"
 },
 "scadformat":{
+"drvPath":"/nix/store/wvjf25rbzs0xxd141k47rs610x28d0ps-scadformat-v0.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -79,6 +85,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -90,7 +98,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -98,6 +107,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2",
 "spdxId":"GPL-2.0",
@@ -106,6 +116,7 @@
 "mainProgram":"scadformat",
 "maintainers":[],
 "name":"scadformat-v0.9",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -123,6 +134,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -130,6 +142,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -185,7 +198,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/scadformat/default.nix:36",
 "unfree":false,
@@ -201,6 +216,7 @@
 "version":""
 },
 "ttymidi":{
+"drvPath":"/nix/store/am45d7mnsgd41i2b8xzwffprn298smgx-ttymidi.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -215,6 +231,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -225,12 +243,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "maintainers":[],
 "name":"ttymidi",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],

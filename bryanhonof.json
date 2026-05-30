@@ -1,7 +1,7 @@
 {
 "name":"bryanhonof",
-"fetch_time":0.46,
-"eval_time":0.283,
+"fetch_time":0.416,
+"eval_time":1.063,
 "source":{
 "url":"https://github.com/bryanhonof/nur-packages",
 "rev":"f0f994c864f526d29b929ccfcab006f55c5504e2",
@@ -9,103 +9,10 @@
 "date":null
 },
 "source_storepath":"/nix/store/9hs80cmzwzbqs8yqlwvmrp68kxlhw5m6-source",
-"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
-"nur_combined_rev":"62d8ffe7178e46c3eaeeaf9e535d59954a78cb77",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "matryoshka":{
-"meta":{
-"available":false,
-"broken":false,
-"description":"A Local Recursive Language Model",
-"homepage":"https://github.com/yogthos/Matryoshka",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"matryoshka",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"matryoshka",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
-},
-"mainProgram":"rlm",
-"maintainers":[
-{
-"email":"bryanhonof+nixpkgs@gmail.com",
-"github":"bryanhonof",
-"githubId":5932804,
-"name":"Bryan Honof"
-}
-],
-"maintainersPosition":{
-"column":5,
-"file":"/nix/store/9hs80cmzwzbqs8yqlwvmrp68kxlhw5m6-source/pkgs/matryoshka/default.nix",
-"line":24
-},
-"name":"matryoshka-main",
-"nonTeamMaintainers":[
-{
-"email":"bryanhonof+nixpkgs@gmail.com",
-"github":"bryanhonof",
-"githubId":5932804,
-"name":"Bryan Honof"
-}
-],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux"
-],
-"position":"./pkgs/matryoshka/default.nix:21",
-"unfree":true,
-"unsupported":false
-},
 "name":"matryoshka-main",
 "outputName":"out",
 "outputs":{
@@ -116,6 +23,7 @@
 "version":""
 },
 "oscmix":{
+"drvPath":"/nix/store/q6b3rr6ixkm1vwsxyq7wfn1241lhx2dq-oscmix-main.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -133,6 +41,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -144,7 +54,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -152,6 +63,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Unspecified free software license",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"free"
 },
@@ -183,6 +95,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -190,6 +103,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -219,6 +133,7 @@
 "version":""
 },
 "popup-mcp":{
+"drvPath":"/nix/store/hm7lnms9kfz8hgiq49v9nm9w62qqvw2a-popup-mcp-main.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -247,6 +162,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -258,7 +175,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -266,6 +184,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -332,6 +251,7 @@
 "version":""
 },
 "ratatouille":{
+"drvPath":"/nix/store/0z9nf37w9ipn4vvm64rg7chz4mnzagyn-ratatouille.lv2-0.9.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -349,6 +269,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -360,7 +282,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -368,6 +291,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -401,6 +325,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -408,6 +333,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -437,6 +363,7 @@
 "version":"0.9.11"
 },
 "stomptuner":{
+"drvPath":"/nix/store/h0lfxsz2aiwcl87wd4wpkqbqkh935wqv-StompTuner-0.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -454,6 +381,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -465,7 +394,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -473,6 +403,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -506,6 +437,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -513,6 +445,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

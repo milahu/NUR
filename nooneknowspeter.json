@@ -1,7 +1,7 @@
 {
 "name":"nooneknowspeter",
-"fetch_time":0.839,
-"eval_time":0.202,
+"fetch_time":0.388,
+"eval_time":0.385,
 "source":{
 "url":"https://github.com/nooneknowspeter/nurpkgs",
 "rev":"6b2aa064864e9ab89fe16fba01d874f4d2de63d8",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/szkvvf9mz3jdk6bybnh2gv2j7q3lyxmb-source",
-"nixpkgs_storepath":"/nix/store/84wapcnjsllnfz6cwqbv0077sjgv21kb-source",
-"nur_combined_rev":"5de0095588b276fb048e894ec41669d4c38d8859",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "legionlinuxtui":{
+"drvPath":"/nix/store/9v5gxmln0h08fwlz3373bq3zxmsxylb8-legionlinuxtui.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -40,7 +43,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -48,6 +52,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -56,11 +61,13 @@
 "mainProgram":"legionlinuxtui",
 "maintainers":[],
 "name":"legionlinuxtui",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -68,6 +75,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -97,6 +105,7 @@
 "version":""
 },
 "legionlinuxtui-git":{
+"drvPath":"/nix/store/3s287pnwgzbb7fvi787a7y1hmn2f0xpk-legionlinuxtui.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -114,6 +123,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -124,7 +135,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -132,6 +144,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -140,11 +153,13 @@
 "mainProgram":"legionlinuxtui",
 "maintainers":[],
 "name":"legionlinuxtui",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -152,6 +167,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

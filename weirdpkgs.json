@@ -1,7 +1,7 @@
 {
 "name":"weirdpkgs",
-"fetch_time":0.353,
-"eval_time":0.231,
+"fetch_time":0.503,
+"eval_time":0.909,
 "source":{
 "url":"https://github.com/weirdrock/weirdpkgs",
 "rev":"d2345fa23264262d306008e2f92a4a70d96b0988",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/yqamngivilv4vgdqlpnablavq73svmik-source",
-"nixpkgs_storepath":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source",
-"nur_combined_rev":"339fc2785e9dadd6224ce7ac1bfbda74bc305d71",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "MControlCenter":{
+"drvPath":"/nix/store/wr2agln4lai0ff2km2m0wk60z0p4zvp9-mcontrolcenter-0.5.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -56,6 +61,7 @@
 },
 "maintainers":[],
 "name":"mcontrolcenter-0.5.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -73,6 +79,7 @@
 "version":"0.5.1"
 },
 "ficsit-cli":{
+"drvPath":"/nix/store/j067hapav6sq06vnpxazv2q6k93cixzg-ficsit-cli-v0.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -90,6 +97,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -101,7 +110,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -109,6 +119,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -128,6 +139,14 @@
 "line":32
 },
 "name":"ficsit-cli-v0.6.0",
+"nonTeamMaintainers":[
+{
+"email":"me@vil.so",
+"github":"vilsol",
+"githubId":1759390,
+"name":"Vilsol"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -135,6 +154,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -142,6 +162,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

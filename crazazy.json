@@ -1,7 +1,7 @@
 {
 "name":"crazazy",
-"fetch_time":0.571,
-"eval_time":0.824,
+"fetch_time":0.533,
+"eval_time":2.25,
 "source":{
 "url":"https://github.com/crazazy/nixos-config",
 "rev":"defd68283d432e16a6511fd8de6e09fa648bf738",
@@ -10,9 +10,10 @@
 },
 "source_storepath":"/nix/store/zf6v0rzw8hrsnah6l94pr036j1d292nc-source",
 "nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
-"nur_combined_rev":"3b401a8cb092ec021b9a1e035c6355b9eca9d281",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "cakeml":{
+"drvPath":"/nix/store/22as1jq7brsawy2zp0sy2gdyzxbrch23-cakeml.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -64,6 +65,7 @@
 "version":""
 },
 "elm":{
+"drvPath":"/nix/store/9my5knf5ghw0di5nwmvk8c6m6w9wqrv6-elm-0.19.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -119,7 +121,7 @@
 }
 ],
 "maintainersPosition":{
-"column":54,
+"column":55,
 "file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1101
 },
@@ -232,6 +234,7 @@
 "version":"0.19.1"
 },
 "enso":{
+"drvPath":"/nix/store/7r723k9smg02ivcyjv0drdrh70rylm46-enso-2025.2.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -292,6 +295,7 @@
 "version":"2025.2.3"
 },
 "firefox-addons.bitwarden-password-manager":{
+"drvPath":"/nix/store/4i32p91xvlxg64n7q232dvvfi4ykydn8-bitwarden-password-manager.drv",
 "meta":{
 "description":"At home, at work, or on the go, Bitwarden easily secures all your passwords, passkeys, and sensitive information.",
 "homepage":"https://bitwarden.com",
@@ -398,6 +402,7 @@
 "version":""
 },
 "firefox-addons.feedbroreader":{
+"drvPath":"/nix/store/5adpzi09p7miyyfd8x6rs6xf8f2kibj5-feedbroreader.drv",
 "meta":{
 "description":"Advanced Feed Reader - Read news &amp; blogs or any RSS/Atom/RDF source.",
 "homepage":"http://nodetics.com/feedbro",
@@ -502,6 +507,7 @@
 "version":""
 },
 "firefox-addons.libredirect":{
+"drvPath":"/nix/store/82ljz5a165gnnd5j9rdq9j5hnwpkjh5d-libredirect.drv",
 "meta":{
 "description":"Redirects YouTube, Twitter, TikTok... requests to alternative privacy friendly frontends.",
 "homepage":"https://libredirect.github.io",
@@ -608,6 +614,7 @@
 "version":""
 },
 "firefox-addons.soundcloud-mp3-downloader":{
+"drvPath":"/nix/store/wdg0dl32y62bis0cvf9rspv7blygwcim-soundcloud-mp3-downloader.drv",
 "meta":{
 "description":"Add download link to all SoundClould tracks",
 "license":{
@@ -713,6 +720,7 @@
 "version":""
 },
 "firefox-addons.tabliss":{
+"drvPath":"/nix/store/c94nanrws0ixw3ianw2yw5v35s6lcpy9-tabliss.drv",
 "meta":{
 "description":"A beautiful New Tab page with many customisable backgrounds and widgets that does not require any permissions.",
 "homepage":"https://tabliss.io",
@@ -819,6 +827,7 @@
 "version":""
 },
 "firefox-addons.ublock-origin":{
+"drvPath":"/nix/store/daqsbg820g7nlvbyw1sgn7czcsj7cysz-ublock-origin.drv",
 "meta":{
 "description":"Finally, an efficient wide-spectrum content blocker. Easy on CPU and memory.",
 "homepage":"https://github.com/gorhill/uBlock#ublock-origin",
@@ -925,6 +934,7 @@
 "version":""
 },
 "firefox-addons.vim-vixen":{
+"drvPath":"/nix/store/1jifnww8xrkd2cwz8i8ljhp4rbblz49q-vim-vixen.drv",
 "meta":{
 "description":"Accelerates your web browsing with Vim power!!",
 "homepage":"https://github.com/ueokande/vim-vixen",
@@ -1031,6 +1041,7 @@
 "version":""
 },
 "firefox-addons.youtube_downloader_webx":{
+"drvPath":"/nix/store/a6g5z959ynwk8mdxlk71pv2n1rfx4ylj-youtube_downloader_webx.drv",
 "meta":{
 "description":"Download YouTube videos in all available formats and extract the original audio files",
 "homepage":"https://github.com/feller-prj/extractor-project",
@@ -1137,61 +1148,6 @@
 "version":""
 },
 "nix-gen-node-tools":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"Generates nix expressions for node.js CLI tools written in pure JS",
-"homepage":"https://github.com/crazazy/nix-gen-node-tools",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"nix-gen-node-tools",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purlParts":{},
-"purls":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"nix-gen-node-tools",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purls":[]
-}
-},
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"Apache License 2.0",
-"licenseType":"simple",
-"redistributable":true,
-"shortName":"asl20",
-"spdxId":"Apache-2.0",
-"url":"https://spdx.org/licenses/Apache-2.0.html"
-},
-"maintainers":[],
-"name":"nix-gen-node-tools-1.0.2",
-"nonTeamMaintainers":[],
-"outputsToInstall":[
-"out"
-],
-"position":"./pkgs/gen-node-env/default.nix:18",
-"unfree":false,
-"unsupported":false
-},
 "name":"nix-gen-node-tools-1.0.2",
 "outputName":"out",
 "outputs":{
@@ -1202,6 +1158,7 @@
 "version":"1.0.2"
 },
 "nvfetcher":{
+"drvPath":"/nix/store/ypl9s9g2n6h8a2zapggm634cgx2pxml1-nvfetcher-0.8.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1258,7 +1215,7 @@
 }
 ],
 "maintainersPosition":{
-"column":54,
+"column":55,
 "file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1101
 },
@@ -1371,64 +1328,6 @@
 "version":"0.8.0.0"
 },
 "seamonkey":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"Seamonkey browser.",
-"homepage":"https://www.seamonkey-project.org/",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purlParts":{},
-"purls":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purls":[]
-}
-},
-"insecure":false,
-"license":[
-{
-"deprecated":false,
-"free":true,
-"fullName":"Mozilla Public License 2.0",
-"licenseType":"simple",
-"redistributable":true,
-"shortName":"mpl20",
-"spdxId":"MPL-2.0",
-"url":"https://spdx.org/licenses/MPL-2.0.html"
-}
-],
-"maintainers":[],
-"name":"seamonkey",
-"nonTeamMaintainers":[],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"x86_64-linux"
-],
-"position":"./pkgs/seamonkey/default.nix:26",
-"unfree":false,
-"unsupported":false
-},
 "name":"seamonkey",
 "outputName":"out",
 "outputs":{
@@ -1439,6 +1338,7 @@
 "version":""
 },
 "wasmfxtime":{
+"drvPath":"/nix/store/5ng3hxrcqf6zjibbq3ddiynhh16d44cg-wasmtime-21540296f1c262188636fe0fb373cd2a9600d764.drv",
 "meta":{
 "available":true,
 "badPlatforms":[

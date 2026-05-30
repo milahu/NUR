@@ -1,7 +1,7 @@
 {
 "name":"sebrut",
-"fetch_time":0.443,
-"eval_time":0.227,
+"fetch_time":0.531,
+"eval_time":1.386,
 "source":{
 "url":"https://github.com/SebRut/personal-nix-packages-repository",
 "rev":"56182bcd9997c7231e04ecc25b9f620b15776382",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/9bzbp05bbnwd5sjni88sa2azjxg9imvp-source",
-"nixpkgs_storepath":"/nix/store/mfgmf94yh6dxynx3bp7bdjnk8xrkz331-source",
-"nur_combined_rev":"ae1e7b80959b45059f41e89b91ae6ecd5f5abe06",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "autotheme":{
+"drvPath":"/nix/store/dmpqggi3hwxfvksh32b1p2igxvsm5azc-autotheme-0.1.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -39,6 +40,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -50,7 +53,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -115,6 +119,7 @@
 "version":"0.1.0"
 },
 "envmon":{
+"drvPath":"/nix/store/ribzjnl2w2xqlhsy0cgmkvhxsi6wvm8s-envmon-0.2.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -141,6 +146,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -152,7 +159,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -217,6 +225,7 @@
 "version":"0.2.0"
 },
 "flathunter":{
+"drvPath":"/nix/store/ldvnvl2ww37gd4g7agakjypbsvgd4j46-flathunter-0.1.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -243,6 +252,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -254,7 +265,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -318,6 +330,7 @@
 "version":"0.1.0"
 },
 "go-hass-agent":{
+"drvPath":"/nix/store/y3hqifzl0b7b5m903xjam1hdi59k20i6-go-hass-agent-13.2.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -335,6 +348,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -346,7 +361,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -354,6 +370,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -399,6 +416,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -406,6 +424,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -440,6 +459,7 @@
 "version":"13.2.7"
 },
 "hostman":{
+"drvPath":"/nix/store/aldc9fsym0dhd3bdngv9538q1c7rn6sz-hostman-0.2.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -466,6 +486,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -477,7 +499,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -542,6 +565,7 @@
 "version":"0.2.0"
 },
 "kiot":{
+"drvPath":"/nix/store/v4v252myy05bxmid11y0ln7qlg3p767h-kiot-1b516256825214540192fe45de2a86018a05301b.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -557,6 +581,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -568,7 +594,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,

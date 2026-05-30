@@ -1,7 +1,7 @@
 {
 "name":"sorz",
-"fetch_time":0.85,
-"eval_time":0.198,
+"fetch_time":0.39,
+"eval_time":0.576,
 "source":{
 "url":"https://github.com/sorz/nur-packages",
 "rev":"092c73d7ec2638ca0413381a6c7569fd94586913",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/9bmwwmrpnchw268kv0hjj94955505jvb-source",
-"nixpkgs_storepath":"/nix/store/jmp6yz41lqg4hr5n5sqx6r2ssmwsfq3m-source",
-"nur_combined_rev":"5d52af6580c42904d2ecdb4655ac4eeb88ee2695",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "mtg":{
+"drvPath":"/nix/store/gr0j2yj0q084m2r5zzbc9ay3sp97lid4-mtg-v2.1.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -57,11 +62,13 @@
 "mainProgram":"mtg",
 "maintainers":[],
 "name":"mtg-v2.1.7",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -69,6 +76,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

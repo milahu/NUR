@@ -1,7 +1,7 @@
 {
 "name":"kalbasit",
-"fetch_time":0.799,
-"eval_time":0.22,
+"fetch_time":0.366,
+"eval_time":2.339,
 "source":{
 "url":"https://github.com/kalbasit/nur-packages",
 "rev":"30b1dedca90d53a69610b4a51f5c6f04a368a5f1",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/lm7q5m2b2wzla64dxrm7sg0qn08qs1cq-source",
-"nixpkgs_storepath":"/nix/store/bshp8kl7zl8bzwhbbg3lq11cw4wrn81m-source",
-"nur_combined_rev":"c1624f843adc0d4077e70c7c34194245f989f19c",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "chroot-enter":{
+"drvPath":"/nix/store/72si1n87px85yrf6rj8q14m6jgn7gh5w-chroot-enter-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -27,6 +28,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -37,12 +40,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "maintainers":[],
 "name":"chroot-enter-0.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -60,6 +65,7 @@
 "version":"0.0.1"
 },
 "download-archiver":{
+"drvPath":"/nix/store/3apv9lvc6d87krahk75mdxfqa16lqs0i-download-archiver-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -74,6 +80,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -84,12 +92,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "maintainers":[],
 "name":"download-archiver-0.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -107,6 +117,7 @@
 "version":"0.0.1"
 },
 "gpg-clean-up":{
+"drvPath":"/nix/store/ws9w7jr8b11v0n08pyjipaysxjn78z1w-gpg-clean-up-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -121,6 +132,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -131,12 +144,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "maintainers":[],
 "name":"gpg-clean-up-0.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -154,6 +169,7 @@
 "version":"0.0.1"
 },
 "ls-colors":{
+"drvPath":"/nix/store/qkvz0vll46kg36bkh32jhhkpx850bg1z-lscolors-unstable-2021-07-27.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -171,6 +187,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -182,7 +200,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -190,6 +209,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Artistic License 1.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"artistic1",
 "spdxId":"Artistic-1.0",
@@ -211,6 +231,15 @@
 "line":35
 },
 "name":"lscolors-unstable-2021-07-27",
+"nonTeamMaintainers":[
+{
+"email":"wael.nasreddine@gmail.com",
+"github":"kalbasit",
+"githubId":87115,
+"matrix":"@kalbasit:matrix.org",
+"name":"Wael Nasreddine"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -228,6 +257,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -235,6 +265,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -290,7 +321,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/ls-colors/default.nix:25",
 "unfree":false,
@@ -306,6 +339,7 @@
 "version":"2021-07-27"
 },
 "nix-verify":{
+"drvPath":"/nix/store/f76svlq5nh1wmxdfqzrkdikqgyw2qcnp-nix-verify.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -320,6 +354,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -330,12 +366,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "maintainers":[],
 "name":"nix-verify",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -353,6 +391,7 @@
 "version":""
 },
 "nixify":{
+"drvPath":"/nix/store/k5w27w4y4vjh4y9h90vfnlq88wisd8xd-nixify.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -367,6 +406,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -377,12 +418,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "maintainers":[],
 "name":"nixify",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -400,6 +443,7 @@
 "version":""
 },
 "rbrowser":{
+"drvPath":"/nix/store/8hpdsvxz3hdqhz6azkryviah80iq2yky-rbrowser.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -414,6 +458,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -424,12 +470,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "maintainers":[],
 "name":"rbrowser",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -447,6 +495,7 @@
 "version":""
 },
 "shrinkpdf":{
+"drvPath":"/nix/store/s516p2lkav2ssv8jysi6zv4yxpdfca6s-shrinkpdf-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -463,6 +512,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -473,7 +524,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -481,6 +533,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -502,6 +555,15 @@
 "line":34
 },
 "name":"shrinkpdf-0.0.1",
+"nonTeamMaintainers":[
+{
+"email":"wael.nasreddine@gmail.com",
+"github":"kalbasit",
+"githubId":87115,
+"matrix":"@kalbasit:matrix.org",
+"name":"Wael Nasreddine"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -519,6 +581,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -526,6 +589,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -581,7 +645,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/shrinkpdf/default.nix:22",
 "unfree":false,
@@ -597,6 +663,7 @@
 "version":"0.0.1"
 },
 "swm":{
+"drvPath":"/nix/store/zlqizvw9a0m3ibix743y45jvs8qmpb9v-swm-0.4.0-alpha6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -614,6 +681,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -625,7 +694,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -633,6 +703,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -653,6 +724,15 @@
 "line":51
 },
 "name":"swm-0.4.0-alpha6",
+"nonTeamMaintainers":[
+{
+"email":"wael.nasreddine@gmail.com",
+"github":"kalbasit",
+"githubId":87115,
+"matrix":"@kalbasit:matrix.org",
+"name":"Wael Nasreddine"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -660,6 +740,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -667,6 +748,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

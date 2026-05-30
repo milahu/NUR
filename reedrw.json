@@ -1,7 +1,7 @@
 {
 "name":"reedrw",
-"fetch_time":1.095,
-"eval_time":0.311,
+"fetch_time":0.441,
+"eval_time":1.612,
 "source":{
 "url":"https://github.com/reedrw/nur-packages",
 "rev":"48646173abe06907df83920e9db0002cb62a0857",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/j2yjbpsrcc55zw4wx9ag25kww4lchayb-source",
-"nixpkgs_storepath":"/nix/store/aa2qn07zfwgrvak5lm90l6lhj8p7fqm4-source",
-"nur_combined_rev":"b227b0987fd8abe831fd1c74fba2f77d9e775d54",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "artwiz-lemon":{
+"drvPath":"/nix/store/ff3lfhwmyimil5jncq00s26zmrwbpgsk-artwiz-lemon.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -29,6 +30,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -39,7 +42,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -47,6 +51,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -72,6 +77,7 @@
 "version":""
 },
 "bitwarden-rofi":{
+"drvPath":"/nix/store/96djjhqrq6c67vsaxknawqcxs9ac5r2m-bitwarden-rofi-git-2022-05-02.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -89,6 +95,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -100,7 +108,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -108,6 +117,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -121,6 +131,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -128,6 +139,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -156,92 +168,8 @@
 "system":"x86_64-linux",
 "version":"2022-05-02"
 },
-"rctpm":{
-"meta":{
-"available":true,
-"broken":false,
-"description":"OpenRCT2 Plugin Manager",
-"homepage":"https://github.com/tubbo/rctpm",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"rctpm",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"rctpm",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"maintainers":[],
-"name":"rctpm",
-"nonTeamMaintainers":[],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux"
-],
-"position":"./pkgs/rctpm/default.nix:32",
-"unfree":false,
-"unsupported":false
-},
-"name":"rctpm",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"rctpm",
-"system":"x86_64-linux",
-"version":""
-},
 "shairport-sync-metadata-reader":{
+"drvPath":"/nix/store/6h6flhwaxml5vlxyspcl962qc4kmw4yq-shairport-sync-metadata-reader.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -258,6 +186,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -268,7 +198,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -276,6 +207,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -301,6 +233,7 @@
 "version":""
 },
 "toonmux":{
+"drvPath":"/nix/store/ig36j7245pcirpfxc0pjbnknzmlm8qkb-toonmux.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -328,6 +261,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -338,7 +273,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -346,6 +282,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Plus",
 "spdxId":"AGPL-3.0-or-later",

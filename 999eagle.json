@@ -1,7 +1,7 @@
 {
 "name":"999eagle",
-"fetch_time":0.475,
-"eval_time":0.324,
+"fetch_time":0.5,
+"eval_time":1.846,
 "source":{
 "url":"https://git.catgirl.cloud/999eagle/nur-packages",
 "rev":"379c233fd3b04fa0abd7448352beabe386f5d088",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/gi0wdf5pfqa51zkn3l32v9n02byyqsz3-source",
-"nixpkgs_storepath":"/nix/store/jbrk15x786sf4i12hxrp0wgfzckb6qb8-source",
-"nur_combined_rev":"cc7fef2e72f94d09ebda00ff43ec730b48b7dce6",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "cargo-vibe":{
+"drvPath":"/nix/store/9dmyinirc98srhzlva8i7rc8c7qbp6jn-cargo-vibe-unstable-2025-01-02.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -41,6 +42,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -52,7 +55,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -60,6 +64,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -157,6 +162,7 @@
 "version":"2025-01-02"
 },
 "github-linguist":{
+"drvPath":"/nix/store/rzv633v69cwv3xch4z6zpjialk7b2jm3-github-linguist-9.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -174,6 +180,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -185,7 +193,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -193,6 +202,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -219,6 +229,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -226,6 +237,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -299,6 +311,7 @@
 "version":"9.1.0"
 },
 "make-gif":{
+"drvPath":"/nix/store/wqhlh8a7ji8ii281k2slp2s92y6rbv45-make-gif.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -313,6 +326,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -323,7 +338,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -334,7 +350,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:264",
+"position":"./pkgs/make-gif/default.nix:38",
 "unfree":false,
 "unsupported":false
 },
@@ -348,6 +364,7 @@
 "version":""
 },
 "openmoji":{
+"drvPath":"/nix/store/495cr96vfvfhsqn3153c1lys6s4n2gnj-openmoji-unstable-2023-11-08.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -363,6 +380,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -374,7 +393,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -398,6 +418,7 @@
 "version":"2023-11-08"
 },
 "pkcs11-provider":{
+"drvPath":"/nix/store/ic3sib2x7snd0bmmw5ghjnha24czhz63-pkcs11-provider-0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -415,6 +436,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -426,7 +449,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -434,6 +458,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -459,6 +484,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -466,6 +492,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -539,6 +566,7 @@
 "version":"0.1"
 },
 "potacat":{
+"drvPath":"/nix/store/dabd5pskg5p5ffacrnhlkif5ccvrzbyp-potacat-1.4.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -555,6 +583,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -566,7 +596,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -574,6 +605,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -593,12 +625,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -622,6 +656,7 @@
 "version":"1.4.3"
 },
 "subwoofer":{
+"drvPath":"/nix/store/cygnll73w1123afizp1q35bm44qa4ssn-subwoofer-unstable-2024-11-26.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -650,6 +685,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -661,7 +698,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -669,6 +707,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -766,6 +805,7 @@
 "version":"2024-11-26"
 },
 "swayaudioidleinhibit":{
+"drvPath":"/nix/store/ab5rxlb518phaiyda2w6h86vm975g52b-swayaudioidleinhibit-0.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -783,6 +823,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -794,7 +836,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -802,6 +845,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -827,6 +871,7 @@
 "version":"0.1.2"
 },
 "synapse-find-unreferenced-state-groups":{
+"drvPath":"/nix/store/0zpz1cnphv9vrwpi70wz5ql0bh3qmn5j-synapse-find-unreferenced-state-groups-unstable-2022-09-02.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -855,6 +900,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -866,7 +913,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -874,6 +922,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -971,6 +1020,7 @@
 "version":"2022-09-02"
 },
 "what":{
+"drvPath":"/nix/store/byya7dpak4v65910akzny6cfjxwwbxn8-what.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -985,6 +1035,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -995,7 +1047,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1022,6 +1075,7 @@
 "version":""
 },
 "wys":{
+"drvPath":"/nix/store/3h5qasfmsf2xlbz4s05677garjmj2b39-wys-0.1.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1037,6 +1091,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1048,7 +1104,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,

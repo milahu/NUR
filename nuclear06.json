@@ -1,7 +1,7 @@
 {
 "name":"nuclear06",
-"fetch_time":0.562,
-"eval_time":0.199,
+"fetch_time":0.38,
+"eval_time":0.369,
 "source":{
 "url":"https://github.com/nuclear06/NUR",
 "rev":"b43579ee64e3f86113f5bf067efc233e3ccfa9dd",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/8x9wsavzjmll3hw9gawqzynb3ksw9dk6-source",
-"nixpkgs_storepath":"/nix/store/vngszisnmq3if6h2ix1dxhpc49lf53pn-source",
-"nur_combined_rev":"c87430764c1dfddc08d7092641a606850701259c",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "rime-ice":{
+"drvPath":"/nix/store/8w0d0hrhzq3nqm284347nb38cx368x40-rime-ice-2024.12.12.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -56,6 +61,7 @@
 },
 "maintainers":[],
 "name":"rime-ice-2024.12.12",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -73,6 +79,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -80,6 +87,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -135,7 +143,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/rime-ice/default.nix:41",
 "unfree":false,

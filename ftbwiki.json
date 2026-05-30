@@ -1,7 +1,7 @@
 {
 "name":"ftbwiki",
-"fetch_time":1.009,
-"eval_time":0.224,
+"fetch_time":0.484,
+"eval_time":0.701,
 "source":{
 "url":"https://github.com/tomodachi94/nur-ftbwiki",
 "rev":"611cc21ae5f40d33f68248cb2eeaa6bdb4c6ce51",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/xy15dybwzkcbr9qli767kdlpmj2d29xs-source",
-"nixpkgs_storepath":"/nix/store/bshp8kl7zl8bzwhbbg3lq11cw4wrn81m-source",
-"nur_combined_rev":"c8d6b8547991c7fe398e571396b2205d7a536e39",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "ftb-rs":{
+"drvPath":"/nix/store/bkqj90y1lkdn3z4yf46s8iq8z5fhv23j-ftb-rs-2023-02-08.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -41,6 +42,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -52,7 +55,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -60,6 +64,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -68,6 +73,7 @@
 "mainProgram":"ftb",
 "maintainers":[],
 "name":"ftb-rs-2023-02-08",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -125,6 +131,7 @@
 "version":"2023-02-08"
 },
 "mediawiki-oredict":{
+"drvPath":"/nix/store/c4rd4vb8534c09va14kia488wm42pn8l-mediawiki-oredict-3.3.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -143,6 +150,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -154,7 +163,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -162,6 +172,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -169,6 +180,7 @@
 },
 "maintainers":[],
 "name":"mediawiki-oredict-3.3.5",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -186,6 +198,7 @@
 "version":"3.3.5"
 },
 "mediawiki-rs":{
+"drvPath":"/nix/store/fizbw6f9kz6ns0v0212ndx8jmcq6afvr-mediawiki-rs-2021-06-05.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -214,6 +227,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -225,7 +240,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -234,6 +250,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -243,6 +260,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -251,6 +269,7 @@
 ],
 "maintainers":[],
 "name":"mediawiki-rs-2021-06-05",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -308,6 +327,7 @@
 "version":"2021-06-05"
 },
 "mediawiki-tilesheets":{
+"drvPath":"/nix/store/bkaffbkpn3fpzylmvdc9d999a6x49wzf-mediawiki-tilesheets-5.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -326,6 +346,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -337,7 +359,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -345,6 +368,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -352,6 +376,7 @@
 },
 "maintainers":[],
 "name":"mediawiki-tilesheets-5.0.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],

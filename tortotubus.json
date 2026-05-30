@@ -1,7 +1,7 @@
 {
 "name":"tortotubus",
-"fetch_time":0.766,
-"eval_time":0.223,
+"fetch_time":0.416,
+"eval_time":1.259,
 "source":{
 "url":"https://github.com/tortotubus/nur-packages",
 "rev":"a50f104d9cc1763d14bc7f9cf98eb5bb7213c7bc",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/if2zvm2zl5zhdq4irdpajrjpkw7drp94-source",
-"nixpkgs_storepath":"/nix/store/88k4s9b30mylb5w7ixnhf71avr8m1jps-source",
-"nur_combined_rev":"174083f8677a3c84be26bb289815a1c32ba94806",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "pacific":{
+"drvPath":"/nix/store/24fm6nkq249hzbr5n74zv8k5yvfq10hd-pacific-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -57,11 +62,13 @@
 "mainProgram":"grains",
 "maintainers":[],
 "name":"pacific-0.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -69,6 +76,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

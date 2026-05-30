@@ -1,7 +1,7 @@
 {
 "name":"bot-wxt1221",
-"fetch_time":0.567,
-"eval_time":0.243,
+"fetch_time":0.379,
+"eval_time":0.477,
 "source":{
 "url":"https://github.com/Bot-wxt1221/Bot-wxt1221-nur",
 "rev":"e6702d40050cfbb7fd9efed4058d8670e14400fd",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/4nnhhkrbk2mp4yf6xr5cmkywp3hnlgzd-source",
-"nixpkgs_storepath":"/nix/store/6na3zkzwdp5y1pffscx9pmzvhwxdxjmk-source",
-"nur_combined_rev":"7dc539c5cac94de2505f251093bd23a062e09c2d",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "ddz-py":{
+"drvPath":"/nix/store/6w97h8gsm6cbwl0jav7qasg93ijp59ir-ddz_py-0-unstable-2025-01-27.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,12 +44,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -54,6 +59,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -81,17 +87,20 @@
 "deprecated":false,
 "free":true,
 "fullName":"Unspecified free software license",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"free"
 },
 "mainProgram":"ddz_client_deluxe",
 "maintainers":[],
 "name":"ddz_py-0-unstable-2025-01-27",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -99,6 +108,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

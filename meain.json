@@ -1,7 +1,7 @@
 {
 "name":"meain",
-"fetch_time":0.993,
-"eval_time":0.349,
+"fetch_time":0.545,
+"eval_time":0.809,
 "source":{
 "url":"https://github.com/meain/nur-packages",
 "rev":"a70e82c5ec2b4dd9c9456b3d66b12b44dd5d8629",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/3alfaw1f9d2qxzavr33m37si9l1w6022-source",
-"nixpkgs_storepath":"/nix/store/q80rgzlzszpxilcdjbz8m7vg0fgn3x33-source",
-"nur_combined_rev":"21b679ae3cd8c9e278129a18162cf23a9231fe5b",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "chainlink":{
+"drvPath":"/nix/store/0z6cwc4jqq32mc8c0s10psp28i304pnr-chainlink-1.4.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -86,6 +91,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -93,6 +99,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -127,6 +134,7 @@
 "version":"1.4.2"
 },
 "defuddle":{
+"drvPath":"/nix/store/iaminbdvxzildmmrvizbddv79bpd8qr3-defuddle-0.9.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -144,6 +152,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -155,7 +165,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -163,6 +174,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -203,12 +215,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -232,6 +246,7 @@
 "version":"0.9.0"
 },
 "esa":{
+"drvPath":"/nix/store/25nd0n2mzx9qa84isanjbp7pxq330dw4-esa-0.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -249,6 +264,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -260,7 +277,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -268,6 +286,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -305,6 +324,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -312,6 +332,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -346,132 +367,6 @@
 "version":"0.3.0"
 },
 "firefox-addons.a-n-i-m-a-t-e-d-kitty-cat":{
-"meta":{
-"available":false,
-"broken":false,
-"description":"Dogs have Owners, Cats have Staff.\n~ Unknown Source\n\nTAGS\ngallery gray cuddly cute black kitten feline domesticated animal love furry friend pets animated png animated ears &amp; tail walking paw prints footer whiskers\n\n=^..^=  \n(\") (\") SaSSyGirL",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"license":{
-"free":false,
-"fullName":"All Rights Reserved",
-"shortName":"allrightsreserved",
-"url":"https://addons.mozilla.org/en-US/firefox/addon/animated-kitty-cat/"
-},
-"maintainers":[],
-"mozPermissions":[],
-"name":"a-n-i-m-a-t-e-d-kitty-cat-2.0",
-"nonTeamMaintainers":[],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"i686-cygwin",
-"x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd",
-"aarch64-genode",
-"i686-genode",
-"x86_64-genode",
-"x86_64-solaris",
-"javascript-ghcjs",
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"mmix-mmixware",
-"aarch64-netbsd",
-"armv6l-netbsd",
-"armv7a-netbsd",
-"armv7l-netbsd",
-"i686-netbsd",
-"m68k-netbsd",
-"mipsel-netbsd",
-"powerpc-netbsd",
-"riscv32-netbsd",
-"riscv64-netbsd",
-"x86_64-netbsd",
-"aarch64_be-none",
-"aarch64-none",
-"arm-none",
-"armv6l-none",
-"avr-none",
-"i686-none",
-"microblaze-none",
-"microblazeel-none",
-"mips-none",
-"mips64-none",
-"msp430-none",
-"or1k-none",
-"m68k-none",
-"powerpc-none",
-"powerpcle-none",
-"riscv32-none",
-"riscv64-none",
-"rx-none",
-"s390-none",
-"s390x-none",
-"vc4-none",
-"x86_64-none",
-"i686-openbsd",
-"x86_64-openbsd",
-"x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
-"aarch64-windows",
-"x86_64-windows",
-"i686-windows",
-"aarch64-uefi",
-"x86_64-uefi"
-],
-"position":"./pkgs/firefox-addons/generated.nix:11",
-"unfree":true,
-"unsupported":false
-},
 "name":"a-n-i-m-a-t-e-d-kitty-cat-2.0",
 "outputName":"out",
 "outputs":{
@@ -482,6 +377,7 @@
 "version":"2.0"
 },
 "firefox-addons.aw-watcher-web":{
+"drvPath":"/nix/store/i5vn43fjnkwvvzdmz0vgkil611bgd2bm-aw-watcher-web-0.4.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -498,6 +394,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -508,7 +406,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -516,6 +415,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -550,6 +450,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -557,6 +458,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -630,6 +532,7 @@
 "version":"0.4.8"
 },
 "firefox-addons.awesome-rss":{
+"drvPath":"/nix/store/3n1l4p8xbfxm4mxdkdg4m2xnd0l2w5vy-awesome-rss-1.3.6resigned1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -645,6 +548,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -655,7 +560,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -663,6 +569,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -693,6 +600,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -700,6 +608,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -773,6 +682,7 @@
 "version":"1.3.6resigned1"
 },
 "firefox-addons.aws-sso-containers":{
+"drvPath":"/nix/store/n6py17m02gkg4426capynvyg6gzv0awj-aws-sso-containers-1.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -789,6 +699,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -799,7 +711,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -807,6 +720,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -849,6 +763,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -856,6 +771,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -929,6 +845,7 @@
 "version":"1.8"
 },
 "firefox-addons.containerise":{
+"drvPath":"/nix/store/2w8abxh3wvfnw4s77l0ws9dbvch8p4km-containerise-3.9.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -945,6 +862,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -955,7 +874,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -963,6 +883,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -997,6 +918,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1004,6 +926,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1077,6 +1000,7 @@
 "version":"3.9.0"
 },
 "firefox-addons.ghostpage":{
+"drvPath":"/nix/store/af55hszw3cp861bcmyc4sysfw8bma8lx-ghostpage-0.4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1092,6 +1016,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1102,7 +1028,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1110,6 +1037,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1138,6 +1066,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1145,6 +1074,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1218,138 +1148,6 @@
 "version":"0.4.0"
 },
 "firefox-addons.global-speed":{
-"meta":{
-"available":false,
-"broken":false,
-"description":"Set a default speed for video and audio.",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"license":{
-"free":false,
-"fullName":"All Rights Reserved",
-"shortName":"allrightsreserved",
-"url":"https://github.com/polywock/globalSpeed/issues/247"
-},
-"maintainers":[],
-"mozPermissions":[
-"storage",
-"https://*/*",
-"http://*/*",
-"file://*/*",
-"webNavigation"
-],
-"name":"global-speed-2.9.9971",
-"nonTeamMaintainers":[],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"i686-cygwin",
-"x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd",
-"aarch64-genode",
-"i686-genode",
-"x86_64-genode",
-"x86_64-solaris",
-"javascript-ghcjs",
-"aarch64-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"mmix-mmixware",
-"aarch64-netbsd",
-"armv6l-netbsd",
-"armv7a-netbsd",
-"armv7l-netbsd",
-"i686-netbsd",
-"m68k-netbsd",
-"mipsel-netbsd",
-"powerpc-netbsd",
-"riscv32-netbsd",
-"riscv64-netbsd",
-"x86_64-netbsd",
-"aarch64_be-none",
-"aarch64-none",
-"arm-none",
-"armv6l-none",
-"avr-none",
-"i686-none",
-"microblaze-none",
-"microblazeel-none",
-"mips-none",
-"mips64-none",
-"msp430-none",
-"or1k-none",
-"m68k-none",
-"powerpc-none",
-"powerpcle-none",
-"riscv32-none",
-"riscv64-none",
-"rx-none",
-"s390-none",
-"s390x-none",
-"vc4-none",
-"x86_64-none",
-"i686-openbsd",
-"x86_64-openbsd",
-"x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
-"aarch64-windows",
-"x86_64-windows",
-"i686-windows",
-"aarch64-uefi",
-"x86_64-uefi"
-],
-"position":"./pkgs/firefox-addons/generated.nix:135",
-"unfree":true,
-"unsupported":false
-},
 "name":"global-speed-2.9.9971",
 "outputName":"out",
 "outputs":{
@@ -1360,6 +1158,7 @@
 "version":"2.9.9971"
 },
 "firefox-addons.markdown-viewer-webext":{
+"drvPath":"/nix/store/ma6diip8w5g5gbs0jg23aab801np15sw-markdown-viewer-webext-1.8.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1376,6 +1175,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1386,7 +1187,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1394,6 +1196,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1446,6 +1249,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1453,6 +1257,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1526,6 +1331,7 @@
 "version":"1.8.1"
 },
 "firefox-addons.mastodon4-redirect":{
+"drvPath":"/nix/store/wz542hcy5m6nh6g8g8azfkiwqisv8gcb-mastodon4-redirect-1.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1541,6 +1347,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1551,7 +1359,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1559,6 +1368,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1588,6 +1398,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1595,6 +1406,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1668,6 +1480,7 @@
 "version":"1.4"
 },
 "firefox-addons.nattynote":{
+"drvPath":"/nix/store/aclxdrr381wyjlpbkkkjgnkyz1fjj0ir-nattynote-2.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1684,6 +1497,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1694,7 +1509,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1702,6 +1518,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -1732,6 +1549,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1739,6 +1557,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1812,6 +1631,7 @@
 "version":"2.1.1"
 },
 "firefox-addons.netflix-prime-auto-skip":{
+"drvPath":"/nix/store/pd2hrawnsd6kz40yql9kcql9w7izp0gl-netflix-prime-auto-skip-1.1.10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1828,6 +1648,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1838,7 +1660,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1846,6 +1669,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -1891,6 +1715,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1898,6 +1723,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1971,6 +1797,7 @@
 "version":"1.1.10"
 },
 "firefox-addons.notifications-preview-github":{
+"drvPath":"/nix/store/8p4kd8nsash78z7c04cm9cp8s4lr1gvx-notifications-preview-github-23.4.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1987,6 +1814,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1997,7 +1826,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2005,6 +1835,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -2034,6 +1865,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2041,6 +1873,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2114,6 +1947,7 @@
 "version":"23.4.6"
 },
 "firefox-addons.smartreader":{
+"drvPath":"/nix/store/izzjq24bnsn5ndikzscj87ncn3bawcij-smartreader-1.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2129,6 +1963,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2139,7 +1975,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2147,6 +1984,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -2177,6 +2015,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2184,6 +2023,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2257,6 +2097,7 @@
 "version":"1.6"
 },
 "firefox-addons.try-another-search-engine":{
+"drvPath":"/nix/store/6p7y9xpx55lr6cns1ac5x4k1j9pc3b6g-try-another-search-engine-0.10.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2272,6 +2113,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2282,7 +2125,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2290,6 +2134,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -2325,6 +2170,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2332,6 +2178,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2405,6 +2252,7 @@
 "version":"0.10.0"
 },
 "firefox-addons.unofficial-hypothesis":{
+"drvPath":"/nix/store/dwpzv9hbrs0jz4986iyiz7jak2j4la7l-unofficial-hypothesis-1.470.0.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2421,6 +2269,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2431,7 +2281,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2439,6 +2290,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 2-clause \"Simplified\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd2",
 "spdxId":"BSD-2-Clause",
@@ -2471,6 +2323,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2478,6 +2331,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2551,6 +2405,7 @@
 "version":"1.470.0.2"
 },
 "firefox-addons.watchmarker-for-youtube":{
+"drvPath":"/nix/store/f352ba3n7glpq64pkaysgsy192mw7zri-watchmarker-for-youtube-4.6.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2567,6 +2422,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2577,7 +2434,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2585,6 +2443,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -2621,6 +2480,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2628,6 +2488,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2701,6 +2562,7 @@
 "version":"4.6.1"
 },
 "gh-issues-to-rss":{
+"drvPath":"/nix/store/1rbj3fb4isd92syyazvahhha8nv3wq9p-gh-issues-to-rss-0.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2718,6 +2580,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2729,7 +2593,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2737,6 +2602,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -2750,6 +2616,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2757,6 +2624,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2788,6 +2656,7 @@
 "version":"0.6.0"
 },
 "gloc":{
+"drvPath":"/nix/store/r1vk1xycv64pilzkymlh7nhvbiq00ibb-gloc-0.0.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2805,6 +2674,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2816,7 +2687,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2824,6 +2696,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -2837,6 +2710,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2844,6 +2718,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2875,6 +2750,7 @@
 "version":"0.0.9"
 },
 "html-to-markdown":{
+"drvPath":"/nix/store/6b1122d5hw509197m3b1xxsl7r90w6rh-html-to-markdown-2.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2892,6 +2768,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2903,7 +2781,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2911,6 +2790,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -2948,6 +2828,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -2955,6 +2836,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -2989,6 +2871,7 @@
 "version":"2.3.0"
 },
 "kmonad":{
+"drvPath":"/nix/store/dnvn4a7ccdg0jfdbi3q6pks80h3pb0al-kmonad.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3006,6 +2889,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3017,7 +2902,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3025,6 +2911,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -3050,6 +2937,7 @@
 "version":""
 },
 "nn":{
+"drvPath":"/nix/store/0j8b9998wsikxqyzilqd5xfgy37pgvlk-nn-0.0.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3067,6 +2955,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3078,7 +2968,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3086,6 +2977,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -3099,6 +2991,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3106,6 +2999,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3137,6 +3031,7 @@
 "version":"0.0.3"
 },
 "probe":{
+"drvPath":"/nix/store/gsflsi5dq5200ks0bqqwys8f8b1l7808-probe-0.6.0-rc31.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3165,6 +3060,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3176,7 +3073,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3184,6 +3082,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -3271,6 +3170,7 @@
 "version":"0.6.0-rc31"
 },
 "protodot":{
+"drvPath":"/nix/store/lh5k62k0ag6l9dhkdnviw4sfsjadfn3a-protodot-87817c3d0a8e7af753af15508b51292e941bc7c6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3288,6 +3188,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3299,7 +3201,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3307,6 +3210,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -3327,6 +3231,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3334,6 +3239,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3368,6 +3274,7 @@
 "version":"87817c3d0a8e7af753af15508b51292e941bc7c6"
 },
 "prr":{
+"drvPath":"/nix/store/gws62cvq6gwi39wq8nx25virrxi0qn78-prr-0.20.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3396,6 +3303,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3407,7 +3316,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3415,6 +3325,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Only",
 "spdxId":"GPL-2.0-only",
@@ -3512,6 +3423,7 @@
 "version":"0.20.0"
 },
 "sirus":{
+"drvPath":"/nix/store/1ix4an5sr3l5b4j5bg9i07vw2qql2ynp-sirus-0.0.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3529,6 +3441,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3540,7 +3454,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3548,6 +3463,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -3561,6 +3477,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3568,6 +3485,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3599,108 +3517,6 @@
 "version":"0.0.8"
 },
 "toffee":{
-"meta":{
-"available":true,
-"badPlatforms":[
-{
-"abi":{
-"abi":"n32"
-},
-"cpu":{
-"bits":64,
-"family":"mips"
-}
-}
-],
-"broken":false,
-"description":"Universal test runner",
-"homepage":"https://github.com/meain/toffee",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"toffee",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"toffee",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"Apache License 2.0",
-"redistributable":true,
-"shortName":"asl20",
-"spdxId":"Apache-2.0",
-"url":"https://spdx.org/licenses/Apache-2.0.html"
-},
-"maintainers":[],
-"name":"toffee-0.5.2",
-"nonTeamMaintainers":[],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"x86_64-darwin",
-"aarch64-darwin",
-"i686-freebsd",
-"x86_64-freebsd",
-"x86_64-solaris",
-"aarch64-linux",
-"armv6l-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv64-linux",
-"s390x-linux",
-"x86_64-linux",
-"aarch64-netbsd",
-"armv7l-netbsd",
-"i686-netbsd",
-"powerpc-netbsd",
-"x86_64-netbsd",
-"i686-openbsd",
-"x86_64-openbsd",
-"i686-windows",
-"x86_64-windows",
-"armv5tel-linux",
-"armv7a-linux",
-"m68k-linux",
-"mips-linux",
-"mips64-linux",
-"mipsel-linux",
-"mips64el-linux",
-"riscv32-linux",
-"armv6l-netbsd",
-"mipsel-netbsd",
-"riscv64-netbsd",
-"x86_64-redox",
-"wasm32-wasi"
-],
-"position":"./pkgs/toffee/default.nix:24",
-"unfree":false,
-"unsupported":false
-},
 "name":"toffee-0.5.2",
 "outputName":"out",
 "outputs":{
@@ -3711,6 +3527,7 @@
 "version":"0.5.2"
 },
 "tojson":{
+"drvPath":"/nix/store/a4mczrzmd0rm2r5l0bfywaq8bvdwkb6m-tojson-0.3.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3739,6 +3556,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3750,7 +3569,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3758,6 +3578,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -3823,6 +3644,7 @@
 "version":"0.3.2"
 },
 "traffic":{
+"drvPath":"/nix/store/p0bvaa9692l6q8h7qn859x10d27s7mij-python3.13-traffic-0.5.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3840,6 +3662,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3851,12 +3675,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3864,6 +3690,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -3891,6 +3718,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -3904,6 +3732,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -3911,6 +3740,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

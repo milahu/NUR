@@ -1,7 +1,7 @@
 {
 "name":"swarsel",
-"fetch_time":0.429,
-"eval_time":0.232,
+"fetch_time":0.519,
+"eval_time":1.463,
 "source":{
 "url":"https://github.com/Swarsel/swarsel-nix",
 "rev":"f0ab1f68c94d777aa7d0a8f23745cb9aa8172fd4",
@@ -10,10 +10,11 @@
 "submodules":true
 },
 "source_storepath":"/nix/store/hzn8cdcg2ic67182b5862qr2dwz7nzcd-swarsel-nix",
-"nixpkgs_storepath":"/nix/store/wkl5vwyp0zy7iw95nnnr7miha927d8qi-source",
-"nur_combined_rev":"2ffc715dbcadc2fd1c2435adaecb25773018bfac",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "advanced-tables":{
+"drvPath":"/nix/store/c3ydxlymzmff04aqlgchgwvjsyhyfhbv-advanced-tables-0.22.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -32,6 +33,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -43,7 +46,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -51,6 +55,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -58,6 +63,7 @@
 },
 "maintainers":[],
 "name":"advanced-tables-0.22.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -75,6 +81,7 @@
 "version":"0.22.1"
 },
 "calendar":{
+"drvPath":"/nix/store/76nx1qp02rrd7sn0s5cl8mf4q2q6flyh-obsidian.plugins.calendar-2.0.0-beta.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -93,6 +100,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -104,7 +113,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -112,6 +122,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -119,6 +130,7 @@
 },
 "maintainers":[],
 "name":"obsidian.plugins.calendar-2.0.0-beta.2",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -136,6 +148,7 @@
 "version":"2.0.0-beta.2"
 },
 "eontimer":{
+"drvPath":"/nix/store/m1njybcjqrbfylrrid6xz2m17fx8pkdn-eontimer-3.0.0-rc.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -154,6 +167,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -165,12 +180,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -178,6 +195,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -205,6 +223,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -213,11 +232,13 @@
 "mainProgram":"eon-timer",
 "maintainers":[],
 "name":"eontimer-3.0.0-rc.6",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -225,6 +246,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -263,6 +285,7 @@
 "version":"3.0.0-rc.6"
 },
 "file-hider":{
+"drvPath":"/nix/store/5vb41p7sc5yz3phik61wwi5c936l7cji-obsidian.plugins.file-hider-1.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -281,6 +304,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -292,7 +317,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -300,6 +326,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -307,6 +334,7 @@
 },
 "maintainers":[],
 "name":"obsidian.plugins.file-hider-1.1.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -324,6 +352,7 @@
 "version":"1.1.1"
 },
 "linter":{
+"drvPath":"/nix/store/hp5x1szi3grrvb1cpf4y7vx6h534bybf-obsidian.plugins.linter-1.30.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -342,6 +371,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -353,7 +384,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -361,6 +393,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -368,6 +401,7 @@
 },
 "maintainers":[],
 "name":"obsidian.plugins.linter-1.30.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -385,6 +419,7 @@
 "version":"1.30.0"
 },
 "omnisearch":{
+"drvPath":"/nix/store/j8v2hjs2d3bl3ymygrys5qswgsf5nbwc-obsidian.plugins.omnisearch-1.27.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -403,6 +438,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -414,7 +451,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -422,6 +460,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -429,6 +468,7 @@
 },
 "maintainers":[],
 "name":"obsidian.plugins.omnisearch-1.27.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -446,55 +486,6 @@
 "version":"1.27.3"
 },
 "sort-and-permute-lines":{
-"meta":{
-"available":false,
-"broken":false,
-"changelog":"https://github.com/Vinzent03/obsidian-sort-and-permute-lines/releases/tag/0.7.0",
-"description":"Sort and Permute lines in whole file or selection. ",
-"homepage":"https://github.com/Vinzent03/obsidian-sort-and-permute-lines",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"obsidian.plugins.sort-and-permute-lines",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"obsidian.plugins.sort-and-permute-lines",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"redistributable":false,
-"shortName":"unfree"
-},
-"maintainers":[],
-"name":"obsidian.plugins.sort-and-permute-lines-0.7.0",
-"outputsToInstall":[
-"out"
-],
-"position":"./pkgs/obsidian/sort-and-permute-lines/default.nix:35",
-"unfree":true,
-"unsupported":false
-},
 "name":"obsidian.plugins.sort-and-permute-lines-0.7.0",
 "outputName":"out",
 "outputs":{
@@ -505,6 +496,7 @@
 "version":"0.7.0"
 },
 "table-editor":{
+"drvPath":"/nix/store/bayja5a5qnixf6j6lxsqr7svrjgrmmvd-obsidian.plugins.table-editor-0.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -523,6 +515,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -534,7 +528,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -542,6 +537,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -549,6 +545,7 @@
 },
 "maintainers":[],
 "name":"obsidian.plugins.table-editor-0.3.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -566,6 +563,7 @@
 "version":"0.3.1"
 },
 "tag-wrangler":{
+"drvPath":"/nix/store/qirlhx0wna5cn7xqm91gfxd3k94cf89i-obsidian.plugins.tag-wrangler-0.6.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -584,6 +582,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -595,7 +595,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -603,6 +604,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"ISC License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"isc",
 "spdxId":"ISC",
@@ -610,6 +612,7 @@
 },
 "maintainers":[],
 "name":"obsidian.plugins.tag-wrangler-0.6.4",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -627,45 +630,6 @@
 "version":"0.6.4"
 },
 "template":{
-"meta":{
-"available":false,
-"broken":true,
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"obsidian.plugins.template",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"obsidian.plugins.template",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"maintainers":[],
-"name":"obsidian.plugins.template-",
-"outputsToInstall":[
-"out"
-],
-"position":"./pkgs/obsidian/template/default.nix:4",
-"unfree":false,
-"unsupported":false
-},
 "name":"obsidian.plugins.template-",
 "outputName":"out",
 "outputs":{
@@ -676,6 +640,7 @@
 "version":""
 },
 "tray":{
+"drvPath":"/nix/store/87s0rxbza21p6x71mfkh6h2x7hx38yld-obsidian.plugins.tray-0.3.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -694,6 +659,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -705,7 +672,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -713,6 +681,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -720,6 +689,7 @@
 },
 "maintainers":[],
 "name":"obsidian.plugins.tray-0.3.5",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],

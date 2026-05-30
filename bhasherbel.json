@@ -1,7 +1,7 @@
 {
 "name":"bhasherbel",
-"fetch_time":0.368,
-"eval_time":0.239,
+"fetch_time":0.433,
+"eval_time":1.619,
 "source":{
 "url":"https://github.com/bhasherbel/nur-packages",
 "rev":"4cc492bb0457ea00d838b72d48cfdb3e4664f046",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/yw5sbns5x6clggl7pfdbczm6ggnhd3yj-source",
-"nixpkgs_storepath":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source",
-"nur_combined_rev":"9e14025db6863a0cbba7a113d251d48d603a68de",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "aw-awatcher":{
+"drvPath":"/nix/store/fmhsdp3v3mjq8mkf6yjklgd4n6n86rjq-aw-awatcher-v0.2.7.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -41,6 +42,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -52,7 +55,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -60,6 +64,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mpl20",
 "spdxId":"MPL-2.0",
@@ -68,6 +73,7 @@
 "mainProgram":"awatcher",
 "maintainers":[],
 "name":"aw-awatcher-v0.2.7",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -106,6 +112,7 @@
 "version":""
 },
 "rofi-unwrapped":{
+"drvPath":"/nix/store/cy43y91mig62ijmzsbf7b8wmk8n78f9g-rofi-unwrapped-1.7.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -123,6 +130,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -134,7 +143,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -142,6 +152,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -162,11 +173,20 @@
 "line":81
 },
 "name":"rofi-unwrapped-1.7.5",
+"nonTeamMaintainers":[
+{
+"email":"benoit.dechezelles@gmail.com",
+"github":"bew",
+"githubId":9730330,
+"name":"Benoit de Chezelles"
+}
+],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -174,6 +194,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -203,6 +224,7 @@
 "version":"1.7.5"
 },
 "rofi-wayland-unwrapped":{
+"drvPath":"/nix/store/kssnc9khdiq6swpcy5f0w466yv636phx-rofi-wayland-unwrapped-1.7.5+wayland3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -220,6 +242,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -231,7 +255,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -239,6 +264,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -259,11 +285,20 @@
 "line":36
 },
 "name":"rofi-wayland-unwrapped-1.7.5+wayland3",
+"nonTeamMaintainers":[
+{
+"email":"benoit.dechezelles@gmail.com",
+"github":"bew",
+"githubId":9730330,
+"name":"Benoit de Chezelles"
+}
+],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -271,6 +306,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

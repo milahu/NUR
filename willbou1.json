@@ -1,7 +1,7 @@
 {
 "name":"willbou1",
-"fetch_time":0.421,
-"eval_time":0.222,
+"fetch_time":0.387,
+"eval_time":1.046,
 "source":{
 "url":"https://github.com/willbou1/nur-packages",
 "rev":"46f25f7cd01439968ee8256524493446ededa9e9",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/35jgynl35wxs854vqp5qbig2m85844dr-source",
-"nixpkgs_storepath":"/nix/store/y3i9flcjrr36k39nvpfv6lj67m6jgyq2-source",
-"nur_combined_rev":"d5f2ad9dfa155f56613668849e39c2c8de91bcae",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "element-desktop-nightly":{
+"drvPath":"/nix/store/n43a8k2r75vnzxxlpi5lqliaaqhzykvw-element-desktop-nightly.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -29,6 +30,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -39,7 +42,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -47,6 +51,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -99,6 +104,46 @@
 "line":132
 },
 "name":"element-desktop-nightly",
+"nonTeamMaintainers":[
+{
+"email":"maximilian@mbosch.me",
+"github":"Ma27",
+"githubId":6025220,
+"matrix":"@ma27:nicht-so.sexy",
+"name":"Maximilian Bosch"
+},
+{
+"email":"code@mguentner.de",
+"github":"mguentner",
+"githubId":668926,
+"name":"Maximilian G\u00fcntner"
+},
+{
+"email":"daniel@dodsorf.as",
+"github":"D4ndellion",
+"githubId":990767,
+"matrix":"@dandellion:dodsorf.as",
+"name":"Daniel Olsen"
+},
+{
+"email":"nickcao@nichi.co",
+"github":"NickCao",
+"githubId":15247171,
+"name":"Nick Cao"
+},
+{
+"email":"teutates@mailbox.org",
+"github":"teutat3s",
+"githubId":10206665,
+"keys":[
+{
+"fingerprint":"81A1 1C61 F413 8C84 9139  A4FA 18DA E600 A6BB E705"
+}
+],
+"matrix":"@teutat3s:pub.solar",
+"name":"teutat3s"
+}
+],
 "outputsToInstall":[
 "out"
 ],

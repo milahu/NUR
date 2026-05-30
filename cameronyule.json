@@ -1,7 +1,7 @@
 {
 "name":"cameronyule",
-"fetch_time":0.343,
-"eval_time":0.208,
+"fetch_time":0.386,
+"eval_time":0.879,
 "source":{
 "url":"https://github.com/cameronyule/nurpkgs",
 "rev":"75e31a760c63692bf2a84efe7a3cd29ea9592cfd",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/y1ipvizq0s7qjrhlwhy9c9fdhhgrpyrh-source",
-"nixpkgs_storepath":"/nix/store/ilwc7yrd7sb78lp1qz059s6x3akrd35f-source",
-"nur_combined_rev":"413bf72d9a41db9647e2581394d591c355b0c1bc",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "lisp-format":{
+"drvPath":"/nix/store/nfi7hsy6i8nkhm21gdda3b96mdabjqqr-lisp-format-088c8f78ca41204b44f2636275517ac09a2de6a9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -56,6 +61,7 @@
 },
 "maintainers":[],
 "name":"lisp-format-088c8f78ca41204b44f2636275517ac09a2de6a9",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -69,6 +75,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -76,6 +83,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

@@ -1,7 +1,7 @@
 {
 "name":"spektrafilm-art",
-"fetch_time":0.364,
-"eval_time":0.442,
+"fetch_time":0.394,
+"eval_time":2.284,
 "source":{
 "url":"https://github.com/rafaelcgs10/spektrafilm-art",
 "rev":"36c8afbbe736e0738ac6c4c1b5f3cbae1babbde4",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/0wsnscpwv386z9d12nx9qbx6hchjfwkr-source",
-"nixpkgs_storepath":"/nix/store/jkfqxm0v4af2i2kvl4pbpfcppbwcd2pk-source",
-"nur_combined_rev":"7c23da7650134097468df478301a25cd2d6b9c76",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "spektrafilm":{
+"drvPath":"/nix/store/6kqjd5xlw1sih71s3iz5vhk53yrrfcc8-python3.13-spektrafilm-0.1.0-dev.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,12 +44,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -54,6 +59,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -86,6 +92,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -93,6 +100,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -131,6 +139,7 @@
 "version":"0.1.0-dev"
 },
 "spektrafilm-art":{
+"drvPath":"/nix/store/443ha857a731ibcivaqwjn0cfyhmp2m3-art-1.25.11-unstable-2026-04-01.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -148,6 +157,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -159,7 +170,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -167,6 +179,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -183,7 +196,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jkfqxm0v4af2i2kvl4pbpfcppbwcd2pk-source/pkgs/by-name/ar/art/package.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/by-name/ar/art/package.nix",
 "line":123
 },
 "name":"art-1.25.11-unstable-2026-04-01",
@@ -200,6 +213,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -207,6 +221,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

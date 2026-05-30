@@ -1,7 +1,7 @@
 {
 "name":"ltpie123",
-"fetch_time":0.965,
-"eval_time":0.213,
+"fetch_time":0.417,
+"eval_time":0.566,
 "source":{
 "url":"https://github.com/ltpie123/nur-packages",
 "rev":"eea71e5d030706b82dcf874617b1bee695d7a9c4",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/0607hrn77mkas91fxzk87mgx0yi3vmmj-source",
-"nixpkgs_storepath":"/nix/store/v1592bg1fba71i86n9yxy5rm68q3imwh-source",
-"nur_combined_rev":"6daa32031024e7c3029595023aab097a2879c1d7",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "lazymake":{
+"drvPath":"/nix/store/96axy8s7phmi7m8vxjz0gg1r1k2ba1s3-lazymake-0.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -31,6 +32,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -42,7 +45,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -50,6 +54,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -64,6 +69,7 @@
 "line":39
 },
 "name":"lazymake-0.2.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -77,6 +83,7 @@
 "aarch64-freebsd",
 "x86_64-solaris",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -84,6 +91,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

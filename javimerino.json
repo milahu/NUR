@@ -1,7 +1,7 @@
 {
 "name":"javimerino",
-"fetch_time":0.624,
-"eval_time":0.271,
+"fetch_time":0.397,
+"eval_time":1.063,
 "source":{
 "url":"https://github.com/JaviMerino/nur-packages",
 "rev":"bd9451cf20ff4d89418c2349302cf330d8a01535",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/4c7rcm9ahwvm61s27845xshb0ylirqp7-source",
-"nixpkgs_storepath":"/nix/store/qvfzbcl7p13bwl8lj5xgxq7plm3v1pli-source",
-"nur_combined_rev":"5ba8fe4d3fe9b0e2db9dfd799d1327269e588c71",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "ack-results-parser":{
+"drvPath":"/nix/store/hlavfjdy0j9kxnziqksm9w9ic4g4qhfr-ack-results-parser-0.1.0-20240611-af271293fbab.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,12 +44,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -54,6 +59,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -82,6 +88,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"The Unlicense",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"unlicense",
 "spdxId":"Unlicense",
@@ -115,6 +122,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -122,6 +130,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -160,6 +169,7 @@
 "version":"0.1.0-20240611-af271293fbab"
 },
 "guilt":{
+"drvPath":"/nix/store/vq5zjg998z4rqqrgq2xxr8flxvjidzbq-guilt-0.37-rc1-freddy77-20241004.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -177,6 +187,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -188,7 +200,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -197,6 +210,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2",
 "spdxId":"GPL-2.0",
@@ -215,7 +229,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/qvfzbcl7p13bwl8lj5xgxq7plm3v1pli-source/pkgs/by-name/gu/guilt/package.nix",
+"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/by-name/gu/guilt/package.nix",
 "line":90
 },
 "name":"guilt-0.37-rc1-freddy77-20241004",
@@ -244,6 +258,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -251,6 +266,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -306,7 +322,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/gu/guilt/package.nix:69",
 "unfree":false,
@@ -322,6 +340,7 @@
 "version":"0.37-rc1-freddy77-20241004"
 },
 "mail_replyer":{
+"drvPath":"/nix/store/h76lchwnl2lfn90mdabhfq3dqwk2bdvd-mail_replyer-0.1.0-20240813-67b189e9dc0d.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -339,6 +358,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -350,12 +371,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -363,6 +386,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -390,6 +414,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -422,6 +447,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -429,6 +455,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -467,6 +494,7 @@
 "version":"0.1.0-20240813-67b189e9dc0d"
 },
 "python-hwinfo":{
+"drvPath":"/nix/store/5s7d5y9qqlbba5whmw16s5bgnhx082xi-python3.13-python-hwinfo-0.1.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -484,6 +512,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -495,12 +525,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -508,6 +540,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -536,6 +569,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Lesser General Public License v2.1 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"lgpl21Only",
 "spdxId":"LGPL-2.1-only",
@@ -569,6 +603,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -576,6 +611,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -614,6 +650,7 @@
 "version":"0.1.7"
 },
 "python-qpid-proton":{
+"drvPath":"/nix/store/hl02ypmvvrgr933ik84wzb3z1yl7jlcd-python3.13-python-qpid-proton-0.39.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -631,6 +668,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -642,12 +681,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -655,6 +696,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -683,6 +725,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -717,6 +760,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -724,6 +768,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

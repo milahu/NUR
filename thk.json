@@ -1,7 +1,7 @@
 {
 "name":"thk",
-"fetch_time":0.625,
-"eval_time":0.257,
+"fetch_time":0.524,
+"eval_time":1.793,
 "source":{
 "url":"https://github.com/thkoch2001/nur-packages",
 "rev":"e3afcb25c7539d47b52023057b7f6f99cd025af3",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/hg3wbidxhd5yhb5afy9lbsb63s9sl87x-source",
-"nixpkgs_storepath":"/nix/store/yjxynr2w167srn6qx3d3yjjykvzlnjpm-source",
-"nur_combined_rev":"b958f7c58915cf9b41220ceb190174865b850a51",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "ydl-podcast":{
+"drvPath":"/nix/store/c33r5f1idjlrgwnqm358fg6s755m5y2k-ydl-podcast-1.9.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,12 +44,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -54,6 +59,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -81,6 +87,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -89,11 +96,13 @@
 "mainProgram":"ydl-podcast",
 "maintainers":[],
 "name":"ydl-podcast-1.9.11",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -101,6 +110,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -139,6 +149,7 @@
 "version":"1.9.11"
 },
 "yt2feed":{
+"drvPath":"/nix/store/bzkwg30a8lgfzw1797sqjql9zgi38755-yt2feed-0.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -156,6 +167,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -167,12 +180,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -180,6 +195,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -207,6 +223,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -215,11 +232,13 @@
 "mainProgram":"yt2feed",
 "maintainers":[],
 "name":"yt2feed-0.3.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -227,6 +246,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

@@ -1,7 +1,7 @@
 {
 "name":"make-42",
-"fetch_time":0.348,
-"eval_time":0.225,
+"fetch_time":0.403,
+"eval_time":1.295,
 "source":{
 "url":"https://github.com/make-42/NUR",
 "rev":"edae8d086ba20672408c580dbfd9e551a6f28716",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/s1ljkbgk1c1fvdk2x0p1221gmh3wi0gw-source",
-"nixpkgs_storepath":"/nix/store/y3i9flcjrr36k39nvpfv6lj67m6jgyq2-source",
-"nur_combined_rev":"1d83407f72df71b54c66fcee1029c41ea6987ae2",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "akai-ito":{
+"drvPath":"/nix/store/p1hihspx4fwkv1gsyvq3zj7zkhp40v83-akai-ito-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -61,11 +66,13 @@
 "line":46
 },
 "name":"akai-ito-0.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -73,6 +80,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -102,6 +110,7 @@
 "version":"0.0.1"
 },
 "assetripper":{
+"drvPath":"/nix/store/bkr6k9fn3qghf05krdqy1812g30dgj98-assetripper-1.1.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -119,6 +128,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -130,17 +141,20 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "maintainers":[],
 "name":"assetripper-1.1.11",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -148,6 +162,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -177,6 +192,7 @@
 "version":"1.1.11"
 },
 "creality-print-cli":{
+"drvPath":"/nix/store/1alva51l5qf8lr2x2k1wcp0sasj0pi93-creality-print-cli-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -194,6 +210,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -205,7 +223,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -213,6 +232,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -225,11 +245,13 @@
 "line":36
 },
 "name":"creality-print-cli-0.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -237,6 +259,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -266,6 +289,7 @@
 "version":"0.0.1"
 },
 "denise":{
+"drvPath":"/nix/store/3z5wb1ymbywqiahcf1s0p53ac9x5l1zd-denise-2.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -283,6 +307,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -294,17 +320,20 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "maintainers":[],
 "name":"denise-2.4",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -312,6 +341,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -341,6 +371,7 @@
 "version":"2.4"
 },
 "hayai":{
+"drvPath":"/nix/store/gfd0g1865da6ikw1rkkaidy1l2p2jply-hayai-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -358,6 +389,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -369,7 +402,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -377,6 +411,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -389,11 +424,13 @@
 "line":48
 },
 "name":"hayai-0.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -401,6 +438,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -430,6 +468,7 @@
 "version":"0.0.1"
 },
 "himitsu":{
+"drvPath":"/nix/store/yb1r8farj2wxsy1swb1svmygcqlndazz-himitsu-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -447,6 +486,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -458,7 +499,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -466,6 +508,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -478,11 +521,13 @@
 "line":36
 },
 "name":"himitsu-0.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -490,6 +535,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -519,6 +565,7 @@
 "version":"0.0.1"
 },
 "kuiper":{
+"drvPath":"/nix/store/crf7i6bsg37zzjc33x3wvphhbqhlx9d4-kuiper-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -536,6 +583,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -547,7 +596,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -555,6 +605,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -567,11 +618,13 @@
 "line":45
 },
 "name":"kuiper-0.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -579,6 +632,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -608,44 +662,6 @@
 "version":"0.0.1"
 },
 "meshroom":{
-"meta":{
-"available":true,
-"broken":false,
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"mainProgram":"meshroom",
-"maintainers":[],
-"name":"meshroom",
-"outputsToInstall":[
-"out"
-],
-"position":"./pkgs/meshroom/default.nix:36",
-"unfree":false,
-"unsupported":false
-},
 "name":"meshroom",
 "outputName":"out",
 "outputs":{
@@ -656,6 +672,7 @@
 "version":""
 },
 "nezumi-p":{
+"drvPath":"/nix/store/zk5hhy30brj39m40vj149v2l87rvrmwv-nezumi-p-0.0.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -684,6 +701,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -695,7 +714,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -703,6 +723,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -715,6 +736,7 @@
 "line":35
 },
 "name":"nezumi-p-0.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -753,6 +775,7 @@
 "version":"0.0.1"
 },
 "ntsc-rs":{
+"drvPath":"/nix/store/pdzpg2fhrxz6ysbsrab85xx2qdb1v230-ntsc-rs-0.9.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -770,6 +793,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -781,7 +806,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -789,6 +815,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -801,11 +828,13 @@
 "line":114
 },
 "name":"ntsc-rs-0.9.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -813,6 +842,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -842,6 +872,7 @@
 "version":"0.9.0"
 },
 "xyosc":{
+"drvPath":"/nix/store/w9sk7flck6nvwgm683amjdib0q4z9883-xyosc-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -859,6 +890,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -870,7 +903,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -878,6 +912,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -890,11 +925,13 @@
 "line":50
 },
 "name":"xyosc-0.0.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -902,6 +939,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

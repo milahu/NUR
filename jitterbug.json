@@ -1,7 +1,7 @@
 {
 "name":"jitterbug",
-"fetch_time":0.808,
-"eval_time":0.288,
+"fetch_time":0.394,
+"eval_time":1.875,
 "source":{
 "url":"https://github.com/JuniorIsAJitterbug/nur-packages",
 "rev":"1553002be6d8970f5a1807d3443dc4066330b821",
@@ -9,107 +9,10 @@
 "date":null
 },
 "source_storepath":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source",
-"nixpkgs_storepath":"/nix/store/iviam021ki8f9mjqsgd4gcnyc4aqxvc9-source",
-"nur_combined_rev":"75641f720becc3f07030791aaeb2160e7ce8ea70",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "amcdx-video-patcher-cli":{
-"meta":{
-"available":false,
-"broken":false,
-"description":"AMCDX Video Patcher CLI.",
-"downloadPage":"https://github.com/da8eat/VideoEditorInstaller",
-"homepage":"https://mogurenko.com",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"amcdx-video-patcher-cli",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"amcdx-video-patcher-cli",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":false,
-"fullName":"Unfree",
-"licenseType":"simple",
-"redistributable":false,
-"shortName":"unfree"
-},
-"mainProgram":"AMCDXVideoPatcherCLI",
-"maintainers":[
-{
-"email":"jitterbug@posteo.co.uk",
-"github":"JuniorIsAJitterbug",
-"githubId":3130448,
-"name":"Jitterbug"
-}
-],
-"maintainersPosition":{
-"column":12,
-"file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/amcdx-video-patcher-cli/default.nix",
-"line":44
-},
-"name":"amcdx-video-patcher-cli-0.7.0",
-"nonTeamMaintainers":[
-{
-"email":"jitterbug@posteo.co.uk",
-"github":"JuniorIsAJitterbug",
-"githubId":3130448,
-"name":"Jitterbug"
-}
-],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"aarch64-linux",
-"arc-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"sh4-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux"
-],
-"position":"./pkgs/amcdx-video-patcher-cli/default.nix:45",
-"unfree":true,
-"unsupported":false
-},
 "name":"amcdx-video-patcher-cli-0.7.0",
 "outputName":"out",
 "outputs":{
@@ -120,6 +23,7 @@
 "version":"0.7.0"
 },
 "binah":{
+"drvPath":"/nix/store/y4rsmzap3bcwyhfjg9xvpjz967gb5avs-Binah-2.0.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -137,6 +41,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -148,7 +54,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -171,7 +78,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/binah/default.nix",
 "line":57
 },
@@ -205,6 +112,7 @@
 "version":"2.0.4"
 },
 "cc-decoder":{
+"drvPath":"/nix/store/878n48z1yfl7sx9vr8xpvh74ciz7gynj-python3.13-cc-decoder-0-unstable-2026-05-22.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -222,6 +130,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -233,7 +143,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -291,7 +202,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/cc-decoder/default.nix",
 "line":46
 },
@@ -349,6 +260,7 @@
 "version":"0-unstable-2026-05-22"
 },
 "cxadc":{
+"drvPath":"/nix/store/l3iqnq4a8lim02brclj10p6rskgkc806-cxadc-0-unstable-2026-01-15.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -366,6 +278,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -377,7 +291,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -400,7 +315,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/cxadc/default.nix",
 "line":44
 },
@@ -456,6 +371,7 @@
 "version":"0-unstable-2026-01-15"
 },
 "cxadc-vhs-server":{
+"drvPath":"/nix/store/260z5zp6wlngb6hyqwh670vgcx8d9mf9-cxadc-vhs-server-1.4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -473,6 +389,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -484,7 +402,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -497,7 +416,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/cxadc-vhs-server/default.nix",
 "line":56
 },
@@ -553,6 +472,7 @@
 "version":"1.4.0"
 },
 "cxadc-vhs-server-jitterbug":{
+"drvPath":"/nix/store/hjsby2jnbihlfqmrb445pj61m57jfkdm-cxadc-vhs-server-jitterbug-1.4.0-unstable-024-05-24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -569,6 +489,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -580,7 +502,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -604,6 +527,7 @@
 "version":"1.4.0-unstable-024-05-24"
 },
 "decode-orc":{
+"drvPath":"/nix/store/a1jk19i7hzj0bmsx97w13lgmjx2yh9c5-decode-orc-1.1.13.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -621,6 +545,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -632,7 +558,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -655,7 +582,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/decode-orc/default.nix",
 "line":70
 },
@@ -713,6 +640,7 @@
 "version":"1.1.13"
 },
 "decode-orc-unstable":{
+"drvPath":"/nix/store/za3gyx3w6ppawd6nwqr7ri66zai649xi-decode-orc-unstable-1.1.13-unstable-2026-05-16.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -730,6 +658,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -741,7 +671,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -764,7 +695,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/decode-orc/default.nix",
 "line":70
 },
@@ -822,6 +753,7 @@
 "version":"1.1.13-unstable-2026-05-16"
 },
 "domesdayduplicator":{
+"drvPath":"/nix/store/6ad7dp91iifw9arrx5k7dk1hf9sa8z21-domesdayduplicator-2.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -839,6 +771,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -850,7 +784,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -873,7 +808,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/domesdayduplicator/default.nix",
 "line":53
 },
@@ -931,6 +866,7 @@
 "version":"2.4"
 },
 "ezpwd-reed-solomon":{
+"drvPath":"/nix/store/xhci713vrsvbpybr66cc2wdwfxywajwr-ezpwd-reed-solomon-1.8.0-unstable-2024-10-2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -948,6 +884,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -959,7 +897,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -982,7 +921,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/ezpwd-reed-solomon/default.nix",
 "line":36
 },
@@ -1040,6 +979,7 @@
 "version":"1.8.0-unstable-2024-10-2"
 },
 "hsdaoh":{
+"drvPath":"/nix/store/md2krbyy6c697ykf634m2v9r2d2f6zg1-hsdaoh-0-unstable-2026-04-04.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1057,6 +997,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1068,7 +1010,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1091,7 +1034,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/hsdaoh/default.nix",
 "line":51
 },
@@ -1149,6 +1092,7 @@
 "version":"0-unstable-2026-04-04"
 },
 "hsdaoh-misrc":{
+"drvPath":"/nix/store/qarriwqljna9iskn3qsw7szlygzri2vn-hsdaoh-misrc-0-unstable-2025-08-15.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1165,6 +1109,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1176,7 +1122,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1200,6 +1147,7 @@
 "version":"0-unstable-2025-08-15"
 },
 "hsdaoh-misrc-unstable":{
+"drvPath":"/nix/store/c3sp8s9kqn7cn25zz1v4ss3zzi7irrqd-hsdaoh-misrc-unstable-0-unstable-2025-09-24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1216,6 +1164,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1227,7 +1177,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1251,6 +1202,7 @@
 "version":"0-unstable-2025-09-24"
 },
 "ld-decode":{
+"drvPath":"/nix/store/y3b2zksnfkpx1xxvsxjazd5skf5bg54w-python3.13-ld-decode-7.2.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1268,6 +1220,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1279,7 +1233,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1337,7 +1292,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/ld-decode/default.nix",
 "line":55
 },
@@ -1396,6 +1351,7 @@
 "version":"7.2.1"
 },
 "ld-decode-tools":{
+"drvPath":"/nix/store/blnp5v8zc8lpf48fi5ns0irh471zhn3w-ld-decode-tools-0-unstable-2026-03-25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1413,6 +1369,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1424,7 +1382,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1448,7 +1407,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/ld-decode-tools/default.nix",
 "line":55
 },
@@ -1506,6 +1465,7 @@
 "version":"0-unstable-2026-03-25"
 },
 "ld-decode-unstable":{
+"drvPath":"/nix/store/ysbgs2i5p38qhgvybmv7knq1qwkhd6qs-python3.13-ld-decode-unstable-7.2.1-unstable-2025-05-03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1523,6 +1483,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1534,7 +1496,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1592,7 +1555,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/ld-decode/default.nix",
 "line":55
 },
@@ -1651,6 +1614,7 @@
 "version":"7.2.1-unstable-2025-05-03"
 },
 "ltfs":{
+"drvPath":"/nix/store/z8qyndqy27g00sr9drj2p80d3301b1rd-ltfs-2.4.8.2-10520.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1668,6 +1632,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1679,7 +1645,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1702,7 +1669,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/ltfs/default.nix",
 "line":56
 },
@@ -1758,6 +1725,7 @@
 "version":"2.4.8.2-10520"
 },
 "misrc-tools":{
+"drvPath":"/nix/store/8mc1c1d2vpra3n69y1ca019xk4zz0ykb-misrc-tools-0.5.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1775,6 +1743,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1786,7 +1756,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1809,7 +1780,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/misrc-tools/default.nix",
 "line":52
 },
@@ -1867,6 +1838,7 @@
 "version":"0.5.1"
 },
 "misrc-tools-unstable":{
+"drvPath":"/nix/store/w6ksmp42naq3xb8sybmls73drxpr5vn4-misrc-tools-unstable-0.5.1-unstable-2026-01-05.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1884,6 +1856,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1895,7 +1869,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1918,7 +1893,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/misrc-tools/default.nix",
 "line":52
 },
@@ -1976,6 +1951,7 @@
 "version":"0.5.1-unstable-2026-01-05"
 },
 "nodeeditor":{
+"drvPath":"/nix/store/33wx1w9z4nhh4nzqjnsnb3a8ds4grmx4-nodeeditor-3.0.16.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1993,6 +1969,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2004,7 +1982,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2027,7 +2006,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/nodeeditor/default.nix",
 "line":44
 },
@@ -2085,6 +2064,7 @@
 "version":"3.0.16"
 },
 "nodeeditor-unstable":{
+"drvPath":"/nix/store/f8rqvjn13mqvs62n3avq0a55fj04g987-nodeeditor-unstable-3.0.16-unstable-2026-03-25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2102,6 +2082,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2113,7 +2095,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2136,7 +2119,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/nodeeditor/default.nix",
 "line":44
 },
@@ -2194,6 +2177,7 @@
 "version":"3.0.16-unstable-2026-03-25"
 },
 "qwt-qt5":{
+"drvPath":"/nix/store/khn59b8k4ax59bqk6mvvn09ydf1k7dhx-qwt-qt5-6.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2211,6 +2195,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2222,7 +2208,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2257,7 +2244,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/qwt/default.nix",
 "line":57
 },
@@ -2316,6 +2303,7 @@
 "version":"6.3.0"
 },
 "qwt-qt6":{
+"drvPath":"/nix/store/pi5kfmpbn078jsiw1zh9w3p9ghird25j-qwt-qt6-6.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2333,6 +2321,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2344,7 +2334,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2379,7 +2370,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/qwt/default.nix",
 "line":57
 },
@@ -2438,6 +2429,7 @@
 "version":"6.3.0"
 },
 "stfs":{
+"drvPath":"/nix/store/3c0z7cjwni3qaflk400ki6c103wpf75i-stfs-0.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2455,6 +2447,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2466,7 +2460,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2489,7 +2484,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/stfs/default.nix",
 "line":28
 },
@@ -2545,6 +2540,7 @@
 "version":"0.1.1"
 },
 "tbc-raw-stack":{
+"drvPath":"/nix/store/6z1lvd4cyizd7kk6jw07vw2gk0yws1ip-tbc-raw-stack-0.2.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2573,6 +2569,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2584,7 +2582,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2607,7 +2606,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/tbc-raw-stack/default.nix",
 "line":32
 },
@@ -2660,6 +2659,7 @@
 "version":"0.2.0"
 },
 "tbc-tools":{
+"drvPath":"/nix/store/i1pk1dnrxdgds0n6h7j7af1wg1mxqfp8-tbc-tools-3.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2677,6 +2677,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2688,7 +2690,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2712,7 +2715,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/tbc-tools/default.nix",
 "line":73
 },
@@ -2770,6 +2773,7 @@
 "version":"3.1.0"
 },
 "tbc-tools-unstable":{
+"drvPath":"/nix/store/wbylr6hl048xix14awanay53nsli9gzz-tbc-tools-unstable-3.1.0-unstable-2026-05-20.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2787,6 +2791,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2798,7 +2804,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2822,7 +2829,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/tbc-tools/default.nix",
 "line":73
 },
@@ -2880,6 +2887,7 @@
 "version":"3.1.0-unstable-2026-05-20"
 },
 "tbc-video-export":{
+"drvPath":"/nix/store/40jl43drwn9ddas7yxaykb2m6far8i9z-python3.13-tbc-video-export-0.1.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2897,6 +2905,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -2908,7 +2918,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -2965,7 +2976,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/tbc-video-export/default.nix",
 "line":36
 },
@@ -3024,6 +3035,7 @@
 "version":"0.1.8"
 },
 "vapoursynth-analog":{
+"drvPath":"/nix/store/r6297g3pjgad45vg0hx5kp8xx4j7ijid-vapoursynth-analog-0.2.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3041,6 +3053,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3052,7 +3066,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3075,7 +3090,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/vapoursynth-analog/default.nix",
 "line":51
 },
@@ -3133,6 +3148,7 @@
 "version":"0.2.2"
 },
 "vapoursynth-bwdif":{
+"drvPath":"/nix/store/nkb6anqb0w42zhjmi7dq4j10l4c4jhds-vapoursynth-bwdif-4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3150,6 +3166,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3161,7 +3179,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3184,7 +3203,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/vapoursynth-bwdif/default.nix",
 "line":45
 },
@@ -3242,6 +3261,7 @@
 "version":"4.1"
 },
 "vapoursynth-neofft3d":{
+"drvPath":"/nix/store/5ck1h70fkxpsv04wa4wfsf5c1jrcm7gz-vapoursynth-neofft3d-r12-unstable-2025-05-24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3259,6 +3279,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3270,7 +3292,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3293,7 +3316,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/vapoursynth-neofft3d/default.nix",
 "line":47
 },
@@ -3351,6 +3374,7 @@
 "version":"2025-05-24"
 },
 "vapoursynth-vsrawsource":{
+"drvPath":"/nix/store/vrmfkblwzfywi8lbzkq200x8qq20h409-vapoursynth-vsrawsource-0.3.3-unstable-2017-01-31.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3368,6 +3392,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3379,7 +3405,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3402,7 +3429,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/vapoursynth-vsrawsource/default.nix",
 "line":40
 },
@@ -3460,6 +3487,7 @@
 "version":"0.3.3-unstable-2017-01-31"
 },
 "vhs-decode":{
+"drvPath":"/nix/store/1sw4zqhqdzg0vmvm4xsvsqgbi7md3lq2-python3.13-vhs-decode-0.3.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3477,6 +3505,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3488,7 +3518,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3546,7 +3577,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/vhs-decode/default.nix",
 "line":108
 },
@@ -3605,6 +3636,7 @@
 "version":"0.3.9"
 },
 "vhs-decode-auto-audio-align":{
+"drvPath":"/nix/store/3jjwh1nv570jr6xl6a2s1h4c42bns17h-vhs-decode-auto-audio-align-1.0.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3622,6 +3654,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3633,7 +3667,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3657,7 +3692,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/vhs-decode-auto-audio-align/default.nix",
 "line":74
 },
@@ -3691,6 +3726,7 @@
 "version":"1.0.2"
 },
 "vhs-decode-legacy":{
+"drvPath":"/nix/store/bbh2kwv2gpxrvd8z12fi2mrjvja41xzw-vhs-decode-legacy-0.3.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3708,6 +3744,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3719,7 +3757,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3743,7 +3782,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/vhs-decode-legacy/default.nix",
 "line":97
 },
@@ -3801,6 +3840,7 @@
 "version":"0.3.8"
 },
 "vhs-decode-unstable":{
+"drvPath":"/nix/store/4m1d2npdvvb84nb7maywd51kkbga6wp6-python3.13-vhs-decode-unstable-0.3.9-unstable-2026-05-09.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3818,6 +3858,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -3829,7 +3871,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -3887,7 +3930,7 @@
 }
 ],
 "maintainersPosition":{
-"column":12,
+"column":13,
 "file":"/nix/store/knvdfvf7bjlr53rb4wgdlfzh92ryxdl7-source/pkgs/vhs-decode/default.nix",
 "line":108
 },

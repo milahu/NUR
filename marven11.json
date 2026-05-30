@@ -1,7 +1,7 @@
 {
 "name":"marven11",
-"fetch_time":0.858,
-"eval_time":0.336,
+"fetch_time":0.379,
+"eval_time":1.192,
 "source":{
 "url":"https://github.com/Marven11/nur-packages",
 "rev":"d5c49e3262281c5eb3f59c5c407086aee78f229d",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/crsrlbwd8iywl1lwjs2blwmj3jd68mf9-source",
-"nixpkgs_storepath":"/nix/store/q80rgzlzszpxilcdjbz8m7vg0fgn3x33-source",
-"nur_combined_rev":"4f9a4c38cd75ffcf4bc84d54ca2c36cd82ee5ba6",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "ether-ghost":{
+"drvPath":"/nix/store/lwcyw48vxhpmhrqx1gf5m2kpnyijrfml-python3.13-ether-ghost-0.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -28,6 +29,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -39,12 +42,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -52,6 +57,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -83,6 +89,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -90,6 +97,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -128,6 +136,7 @@
 "version":"0.2.0"
 },
 "fenjing":{
+"drvPath":"/nix/store/f6r9vfxwm3v61260qbvi4ibxidya9g74-python3.13-fenjing-0.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -143,6 +152,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -154,12 +165,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -167,6 +180,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -198,6 +212,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -205,6 +220,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

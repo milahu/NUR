@@ -1,7 +1,7 @@
 {
 "name":"kokakiwi",
-"fetch_time":0.867,
-"eval_time":0.266,
+"fetch_time":0.495,
+"eval_time":1.375,
 "source":{
 "url":"https://github.com/KokaKiwi/nur-packages",
 "rev":"7f245bd9611698716f97ca1bc437cf3ae447e5d8",
@@ -9,112 +9,10 @@
 "date":null
 },
 "source_storepath":"/nix/store/ppkcvrmvvzpx7fpspihm5clq45vs8vdm-source",
-"nixpkgs_storepath":"/nix/store/y3i9flcjrr36k39nvpfv6lj67m6jgyq2-source",
-"nur_combined_rev":"f435e165edd71a78d183c8ed20e4d47ddc0dd551",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "agree":{
-"meta":{
-"available":false,
-"badPlatforms":[
-{
-"abi":{
-"abi":"n32"
-},
-"cpu":{
-"bits":64,
-"family":"mips"
-}
-}
-],
-"broken":true,
-"description":"A CLI application that implements multi-key-turn security via Shamir's Secret Sharing",
-"homepage":"https://github.com/replicadse/agree",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"agree",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"agree",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"mainProgram":"agree",
-"maintainers":[],
-"name":"agree-0.2.0",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"x86_64-darwin",
-"aarch64-darwin",
-"i686-freebsd",
-"x86_64-freebsd",
-"x86_64-solaris",
-"aarch64-linux",
-"armv6l-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv64-linux",
-"s390x-linux",
-"x86_64-linux",
-"aarch64-netbsd",
-"armv7l-netbsd",
-"i686-netbsd",
-"powerpc-netbsd",
-"x86_64-netbsd",
-"i686-openbsd",
-"x86_64-openbsd",
-"i686-windows",
-"x86_64-windows",
-"armv5tel-linux",
-"armv7a-linux",
-"m68k-linux",
-"mips-linux",
-"mips64-linux",
-"mipsel-linux",
-"mips64el-linux",
-"riscv32-linux",
-"armv6l-netbsd",
-"mipsel-netbsd",
-"riscv64-netbsd",
-"x86_64-redox",
-"wasm32-wasi"
-],
-"position":"./pkgs/applications/agree/default.nix:55",
-"unfree":false,
-"unsupported":false
-},
 "name":"agree-0.2.0",
 "outputName":"out",
 "outputs":{
@@ -125,6 +23,7 @@
 "version":"0.2.0"
 },
 "asncounter":{
+"drvPath":"/nix/store/ixyc2wgij643hj2w5zr5dmsqz8mxmwvc-asncounter-0.4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -142,6 +41,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -153,12 +54,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -166,6 +69,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -193,6 +97,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
@@ -201,11 +106,13 @@
 "mainProgram":"asncounter",
 "maintainers":[],
 "name":"asncounter-0.4.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -213,6 +120,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -251,6 +159,7 @@
 "version":"0.4.0"
 },
 "aura":{
+"drvPath":"/nix/store/09cgn1407frzhv6ppk6378apqzj8n1b8-aura-4.0.8.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -279,6 +188,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -290,7 +201,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -298,6 +210,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -306,6 +219,7 @@
 "mainProgram":"aura",
 "maintainers":[],
 "name":"aura-4.0.8",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -363,6 +277,7 @@
 "version":"4.0.8"
 },
 "edgee":{
+"drvPath":"/nix/store/sh26x6kkjzbdvwssbfkkkmmivai8nxvf-edgee-1.2.18.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -392,6 +307,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -403,7 +320,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -411,6 +329,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -419,6 +338,7 @@
 "mainProgram":"edgee",
 "maintainers":[],
 "name":"edgee-1.2.18",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -476,6 +396,7 @@
 "version":"1.2.18"
 },
 "enquirer":{
+"drvPath":"/nix/store/4426bn527zzv0biv0ni2mgh2cpwps5jh-enquirer-0.6.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -505,6 +426,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -516,7 +439,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -524,6 +448,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -532,6 +457,7 @@
 "mainProgram":"enquirer",
 "maintainers":[],
 "name":"enquirer-0.6.1",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -589,6 +515,7 @@
 "version":"0.6.1"
 },
 "fw-ectool":{
+"drvPath":"/nix/store/8c105h4xj43bhx6w0854awcshrjcp92y-fw-ectool-unstable-2024-06-23.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -606,6 +533,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -617,7 +546,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -625,6 +555,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"bsd3",
 "spdxId":"BSD-3-Clause",
@@ -633,6 +564,7 @@
 "mainProgram":"ectool",
 "maintainers":[],
 "name":"fw-ectool-unstable-2024-06-23",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -650,6 +582,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -657,6 +590,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -712,7 +646,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/applications/fw-ectool/default.nix:44",
 "unfree":false,
@@ -728,6 +664,7 @@
 "version":"2024-06-23"
 },
 "hl":{
+"drvPath":"/nix/store/bks08b7mmm4hw236rvgcfamc9hp1z7f0-hl-0.31.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -756,6 +693,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -767,7 +706,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -775,6 +715,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -783,6 +724,7 @@
 "mainProgram":"hl",
 "maintainers":[],
 "name":"hl-0.31.2",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -840,6 +782,7 @@
 "version":"0.31.2"
 },
 "imhex":{
+"drvPath":"/nix/store/hinc6y5jpz9nc4ksm63w1b9l00wdnd09-imhex-1.37.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -857,6 +800,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -868,7 +813,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -877,6 +823,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Only",
 "spdxId":"GPL-2.0-only",
@@ -885,11 +832,13 @@
 ],
 "maintainers":[],
 "name":"imhex-1.37.4",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -897,6 +846,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -927,6 +877,7 @@
 "version":"1.37.4"
 },
 "iocaine":{
+"drvPath":"/nix/store/fz1k4ygj62qxv7nhxr86p62rv2r3l5l5-iocaine-2.5.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -955,6 +906,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -966,7 +919,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -974,6 +928,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -982,6 +937,7 @@
 "mainProgram":"iocaine",
 "maintainers":[],
 "name":"iocaine-2.5.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1020,6 +976,7 @@
 "version":"2.5.0"
 },
 "lddtree":{
+"drvPath":"/nix/store/ad1msllfvjmila9jqm9m6s07xhbrr0ma-lddtree-0.4.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1048,6 +1005,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1059,7 +1018,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1067,6 +1027,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1075,6 +1036,7 @@
 "mainProgram":"lddtree",
 "maintainers":[],
 "name":"lddtree-0.4.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1132,6 +1094,7 @@
 "version":"0.4.0"
 },
 "ots":{
+"drvPath":"/nix/store/znk0z5m4hyfvskfl9gr85znpngcx4lq0-ots-1.18.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1149,6 +1112,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1160,7 +1125,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1168,6 +1134,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -1176,6 +1143,7 @@
 "mainProgram":"ots",
 "maintainers":[],
 "name":"ots-1.18.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1183,6 +1151,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1190,6 +1159,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1224,6 +1194,7 @@
 "version":"1.18.0"
 },
 "ots-cli":{
+"drvPath":"/nix/store/h3ywi8p9nmn2b6pv2xw41597ym2sl5hh-ots-cli-1.18.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1240,6 +1211,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1251,7 +1224,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1259,6 +1233,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -1267,6 +1242,7 @@
 "mainProgram":"ots-cli",
 "maintainers":[],
 "name":"ots-cli-1.18.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1274,6 +1250,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1281,6 +1258,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1315,6 +1293,7 @@
 "version":"1.18.0"
 },
 "safetwitch":{
+"drvPath":"/nix/store/q8dbj2v7f7a6h0w6b7qw7im53wqzljcd-safetwitch-1.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1332,6 +1311,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1343,7 +1324,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1351,6 +1333,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
@@ -1359,6 +1342,7 @@
 "mainProgram":"safetwitch",
 "maintainers":[],
 "name":"safetwitch-1.7.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1366,6 +1350,7 @@
 "x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -1373,6 +1358,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -1407,6 +1393,7 @@
 "version":"1.7.0"
 },
 "safetwitch-frontend":{
+"drvPath":"/nix/store/c3kxg5rdgfspmcjmbnq98nnjxdxkfv80-safetwitch-frontend-2.4.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1424,6 +1411,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1435,7 +1424,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1443,6 +1433,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
@@ -1450,6 +1441,7 @@
 },
 "maintainers":[],
 "name":"safetwitch-frontend-2.4.5",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1460,12 +1452,14 @@
 "x86_64-freebsd",
 "aarch64-freebsd",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
 "armv7l-linux",
 "i686-linux",
 "loongarch64-linux",
+"sh4-linux",
 "microblazeel-linux",
 "mips64el-linux",
 "mipsel-linux",
@@ -1489,6 +1483,7 @@
 "version":"2.4.5"
 },
 "sccache":{
+"drvPath":"/nix/store/fq36px2gmain2q29y3papkncbz1ivbwc-sccache-0.10.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1518,6 +1513,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1529,7 +1526,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1537,6 +1535,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -1545,6 +1544,7 @@
 "mainProgram":"sccache",
 "maintainers":[],
 "name":"sccache-0.10.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1602,6 +1602,7 @@
 "version":"0.10.0"
 },
 "streampager":{
+"drvPath":"/nix/store/gcqc8dzxc60gw944nlwx5j79l9nkp4n3-streampager-0.10.3.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1630,6 +1631,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1641,7 +1644,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1649,6 +1653,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -1657,6 +1662,7 @@
 "mainProgram":"streampager",
 "maintainers":[],
 "name":"streampager-0.10.3",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -1714,99 +1720,6 @@
 "version":"0.10.3"
 },
 "tumelune":{
-"meta":{
-"available":false,
-"badPlatforms":[
-{
-"abi":{
-"abi":"n32"
-},
-"cpu":{
-"bits":64,
-"family":"mips"
-}
-}
-],
-"broken":true,
-"description":"A simple program to browse and search in twitter and mastodon archives",
-"homepage":"https://fedi.doom.solutions/tumelune/",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"tumelune",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"tumelune",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[]
-}
-},
-"insecure":false,
-"mainProgram":"tumelune",
-"maintainers":[],
-"name":"tumelune-0.16.0",
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"x86_64-darwin",
-"aarch64-darwin",
-"i686-freebsd",
-"x86_64-freebsd",
-"x86_64-solaris",
-"aarch64-linux",
-"armv6l-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv64-linux",
-"s390x-linux",
-"x86_64-linux",
-"aarch64-netbsd",
-"armv7l-netbsd",
-"i686-netbsd",
-"powerpc-netbsd",
-"x86_64-netbsd",
-"i686-openbsd",
-"x86_64-openbsd",
-"i686-windows",
-"x86_64-windows",
-"armv5tel-linux",
-"armv7a-linux",
-"m68k-linux",
-"mips-linux",
-"mips64-linux",
-"mipsel-linux",
-"mips64el-linux",
-"riscv32-linux",
-"armv6l-netbsd",
-"mipsel-netbsd",
-"riscv64-netbsd",
-"x86_64-redox",
-"wasm32-wasi"
-],
-"position":"./pkgs/applications/tumelune/default.nix:25",
-"unfree":false,
-"unsupported":false
-},
 "name":"tumelune-0.16.0",
 "outputName":"out",
 "outputs":{
@@ -1817,6 +1730,7 @@
 "version":"0.16.0"
 },
 "vanta-agent":{
+"drvPath":"/nix/store/4c2vbgm6ws0w1qgxak581qjrbj9sx7ix-vanta-agent-2.13.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1834,6 +1748,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1845,7 +1761,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1864,6 +1781,14 @@
 "line":49
 },
 "name":"vanta-agent-2.13.1",
+"nonTeamMaintainers":[
+{
+"email":"contact@mateidibu.dev",
+"github":"matdibu",
+"githubId":24750154,
+"name":"Matei Dibu"
+}
+],
 "outputsToInstall":[
 "out"
 ],
@@ -1890,6 +1815,7 @@
 "version":"2.13.1"
 },
 "wit-deps":{
+"drvPath":"/nix/store/1rkr9y804d0z4x9dfi9avjy29l4slwh9-wit-deps-0.5.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1919,6 +1845,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -1930,7 +1858,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -1939,6 +1868,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"asl20",
 "spdxId":"Apache-2.0",
@@ -1948,6 +1878,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"LLVM Exception",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"llvm-exception",
 "spdxId":"LLVM-exception",
@@ -1957,6 +1888,7 @@
 "mainProgram":"wit-deps",
 "maintainers":[],
 "name":"wit-deps-0.5.0",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],

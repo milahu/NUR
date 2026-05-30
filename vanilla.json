@@ -1,7 +1,7 @@
 {
 "name":"vanilla",
-"fetch_time":0.44,
-"eval_time":0.231,
+"fetch_time":0.393,
+"eval_time":0.669,
 "source":{
 "url":"https://github.com/VergeDX/nur-packages",
 "rev":"396acf5658f4959efbddb2b17fc7ffc25e60cd50",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/s9rg3i160k15sm8d5dh4anxkgpsm1nh5-source",
-"nixpkgs_storepath":"/nix/store/jwzg7i0i7qmp5mzsrcidqlm0xplxkw8i-source",
-"nur_combined_rev":"df5cb1cdd26362d542c5459db0a694499ab8045d",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "Win10_LTSC_2021_fonts":{
+"drvPath":"/nix/store/ry6awcahmbfslq182i9dqrdnkj3fh27m-Win10_LTSC_2021_fonts-LTSC_2021.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -64,6 +68,19 @@
 "line":31
 },
 "name":"Win10_LTSC_2021_fonts-LTSC_2021",
+"nonTeamMaintainers":[
+{
+"email":"osu_vanilla@126.com",
+"github":"VergeDX",
+"githubId":25173827,
+"keys":[
+{
+"fingerprint":"2649 340C C909 F821 D251  6714 3750 028E D04F A42E"
+}
+],
+"name":"Vanilla"
+}
+],
 "outputsToInstall":[
 "out"
 ],

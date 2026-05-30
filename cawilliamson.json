@@ -1,7 +1,7 @@
 {
 "name":"cawilliamson",
-"fetch_time":0.594,
-"eval_time":0.317,
+"fetch_time":0.397,
+"eval_time":1.317,
 "source":{
 "url":"https://github.com/cawilliamson/nur-packages",
 "rev":"bc906b61071b66aaa3b65bed8814e5ed7da9e52e",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/ws9picczm3zjk2dcr78qbxq82zypdmjf-source",
-"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
-"nur_combined_rev":"75032feee611925b9a54589888e4aef6affeb34d",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "adjustor":{
+"drvPath":"/nix/store/xzinbl7m9r34nyv3kksicvs548mdbfn0-python3.13-adjustor-3.11.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,12 +44,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -54,6 +59,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -81,6 +87,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -112,6 +119,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -119,6 +127,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -149,6 +158,7 @@
 "version":"3.11.5"
 },
 "browseros":{
+"drvPath":"/nix/store/j5phbvsindwcmlk1fbzl500xi398lr3y-browseros-0.43.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -166,6 +176,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -177,7 +189,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -185,6 +198,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",

@@ -1,7 +1,7 @@
 {
 "name":"kongjian520",
-"fetch_time":0.452,
-"eval_time":0.195,
+"fetch_time":0.38,
+"eval_time":1.289,
 "source":{
 "url":"https://github.com/KongJian520/NUR",
 "rev":"edf0b4a08b68d7efb73f9240fb54e65f8279576b",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/jlhs7nfmn6iizy87glhg7bzfdrhjfw41-source",
-"nixpkgs_storepath":"/nix/store/r31wirw799wj990chh6zyh5bprhy67pz-source",
-"nur_combined_rev":"97275703cb90fff9de2362eaf9ac9145744ab108",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "aforg":{
+"drvPath":"/nix/store/gblncv601qzr7ydw1hs4p6gfnfsriv54-afrog-3.2.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -57,6 +62,7 @@
 "mainProgram":"afrog",
 "maintainers":[],
 "name":"afrog-3.2.2",
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -74,6 +80,7 @@
 "x86_64-solaris",
 "javascript-ghcjs",
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -81,6 +88,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -136,7 +144,9 @@
 "wasm32-wasi",
 "aarch64-windows",
 "x86_64-windows",
-"i686-windows"
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
 ],
 "position":"./pkgs/aforg/default.nix:45",
 "unfree":false,
@@ -152,6 +162,7 @@
 "version":"3.2.2"
 },
 "sliver":{
+"drvPath":"/nix/store/80j7jaggzsm6x97ka5dz7pyawrvckg08-sliver-1.5.43.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -169,6 +180,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -180,7 +193,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -188,6 +202,7 @@
 "deprecated":true,
 "free":true,
 "fullName":"GNU General Public License v3.0",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3",
 "spdxId":"GPL-3.0",
@@ -203,6 +218,9 @@
 "line":40
 },
 "name":"sliver-1.5.43",
+"nonTeamMaintainers":[
+"KongJian520"
+],
 "outputsToInstall":[
 "out"
 ],
@@ -220,6 +238,7 @@
 "version":"1.5.43"
 },
 "trzsz":{
+"drvPath":"/nix/store/ibljjfz1gb6yfjzkkj6vqc76wlg9i3l0-trzsz-go-1.1.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -237,6 +256,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -248,7 +269,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -256,6 +278,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -271,6 +294,9 @@
 "line":32
 },
 "name":"trzsz-go-1.1.5",
+"nonTeamMaintainers":[
+"KongJian520"
+],
 "outputsToInstall":[
 "out"
 ],
@@ -291,6 +317,7 @@
 "version":"1.1.5"
 },
 "trzsz-ssh":{
+"drvPath":"/nix/store/jn9q3i623a1ml66abgaxh8ybl8zl4q68-trzsz-ssh.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -308,6 +335,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -319,7 +348,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -327,6 +357,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -342,6 +373,9 @@
 "line":57
 },
 "name":"trzsz-ssh",
+"nonTeamMaintainers":[
+"KongJian520"
+],
 "outputsToInstall":[
 "out"
 ],
@@ -362,6 +396,7 @@
 "version":""
 },
 "yakit":{
+"drvPath":"/nix/store/fk3b0vm59amac3yayi3i92jh0a2i18pk-yakit-1.4.4-1017.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -380,6 +415,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -391,7 +428,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -399,6 +437,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"agpl3Only",
 "spdxId":"AGPL-3.0-only",
@@ -414,6 +453,9 @@
 "line":77
 },
 "name":"yakit-1.4.4-1017",
+"nonTeamMaintainers":[
+"KongJian520"
+],
 "outputsToInstall":[
 "out"
 ],

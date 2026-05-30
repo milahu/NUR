@@ -1,7 +1,7 @@
 {
 "name":"zjm54321",
-"fetch_time":0.84,
-"eval_time":0.289,
+"fetch_time":0.396,
+"eval_time":0.692,
 "source":{
 "url":"https://github.com/zjm54321/NUR",
 "rev":"3db24edf066b72d25f57bb43365fb93960c61f6e",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/xhfdqsnq8kdifzqahn7zghv6y32y8q2j-source",
-"nixpkgs_storepath":"/nix/store/7dgz1cqsgj8rgkzqxswf11sa5lnjkjp1-source",
-"nur_combined_rev":"203367c2e6b2e19b594a3844d91f7e66e4df2ab1",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "anyrun-qalculate":{
+"drvPath":"/nix/store/h2xg39xqiw8yv3a1l76pym6jql405g5w-anyrun-qalculate-0.1.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -41,6 +42,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -52,7 +55,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -60,6 +64,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -115,6 +120,7 @@
 "version":"0.1.0"
 },
 "anyrun-weather":{
+"drvPath":"/nix/store/qw5gf84i6v2svrd3771zbbg8lhc5gyfx-anyrun-weather-0.1.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -143,6 +149,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -154,7 +162,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -208,6 +217,7 @@
 "version":"0.1.2"
 },
 "taskwarrior-mcp":{
+"drvPath":"/nix/store/vq717jwyypiq8icmhkcqi2jg6vw6gqrq-taskwarrior-mcp-1.0.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -225,6 +235,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -236,7 +248,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -244,6 +257,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -257,6 +271,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -264,6 +279,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

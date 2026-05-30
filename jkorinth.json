@@ -1,7 +1,7 @@
 {
 "name":"jkorinth",
-"fetch_time":0.897,
-"eval_time":0.249,
+"fetch_time":0.409,
+"eval_time":0.578,
 "source":{
 "url":"https://github.com/jkorinth/nur-packages",
 "rev":"9aec340121aaa0c515e439b6a33ca2256021d6b0",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/135yljhifa8arrlvlck8q7yyhhc510rh-source",
-"nixpkgs_storepath":"/nix/store/v1592bg1fba71i86n9yxy5rm68q3imwh-source",
-"nur_combined_rev":"95209b696876cab05b5354940e66da227c324d98",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "mkdocs-roamlinks-plugin":{
+"drvPath":"/nix/store/v9kr1d14i6mp462fswkd3a69p6qic66v-python3.13-mkdocs-roamlinks-plugin-0.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,12 +44,14 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
 "isBuildPythonPackage":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -54,6 +59,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -81,6 +87,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -95,11 +102,15 @@
 "line":28
 },
 "name":"python3.13-mkdocs-roamlinks-plugin-0.2.0",
+"nonTeamMaintainers":[
+"jkorinth"
+],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -107,6 +118,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",

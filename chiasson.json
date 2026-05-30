@@ -1,7 +1,7 @@
 {
 "name":"chiasson",
-"fetch_time":0.44,
-"eval_time":0.274,
+"fetch_time":0.421,
+"eval_time":1.359,
 "source":{
 "url":"https://git.chiasson.cloud/Olivier/nur-packages",
 "rev":"bbc73fc47e1259e0561ab5a13fc4e2b2717bc33c",
@@ -9,10 +9,11 @@
 "date":null
 },
 "source_storepath":"/nix/store/l5hcrswgxsvawyprlna8gvadpw43rz7y-nur-packages",
-"nixpkgs_storepath":"/nix/store/jxqdhmbbbsckx9gps961ypaq7ynigbl1-source",
-"nur_combined_rev":"8071a52db06710ba5c2603ebe970c3e0b1cbe7f1",
+"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
+"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
 "packages":{
 "flow-browser-bin":{
+"drvPath":"/nix/store/z0fzwsivlfmaap54vvm2w403rdpb85dm-flow-browser-bin-0.8.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Only",
 "spdxId":"GPL-3.0-only",
@@ -85,6 +90,7 @@
 "version":"0.8.6"
 },
 "librepods":{
+"drvPath":"/nix/store/shsbvhwl4jbm2pg27wqavr3cqz6nvv5p-librepods-0.2.0-alpha.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -102,6 +108,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -113,7 +121,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -121,6 +130,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v3.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl3Plus",
 "spdxId":"GPL-3.0-or-later",
@@ -135,6 +145,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -142,6 +153,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
@@ -177,6 +189,7 @@
 "version":"0.2.0-alpha.2"
 },
 "looking-glass-client":{
+"drvPath":"/nix/store/jprr69kyb8vk2cmhq4py5jlgh74lffph-looking-glass-client-27fe47cb.drv",
 "meta":{
 "available":true,
 "branch":"master",
@@ -197,6 +210,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -208,7 +223,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -216,6 +232,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 or later",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"gpl2Plus",
 "spdxId":"GPL-2.0-or-later",
@@ -231,6 +248,7 @@
 ],
 "platforms":[
 "aarch64-linux",
+"arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
 "armv7a-linux",
@@ -238,6 +256,7 @@
 "i686-linux",
 "loongarch64-linux",
 "m68k-linux",
+"sh4-linux",
 "microblaze-linux",
 "microblazeel-linux",
 "mips-linux",
