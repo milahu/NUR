@@ -311,11 +311,7 @@ async def update_version_git_repos(repos, aiohttp_session, filter_repos_fn):
 
     git_repos = list(filter(filter_repos_fn, repos))
 
-    debug_nur_repo = os.getenv("DEBUG_NUR_REPO")
-    if debug_nur_repo:
-        def filter_fn(repo):
-            return repo.name == debug_nur_repo
-        git_repos = list(filter(filter_fn, git_repos))
+    git_repos = list(filter(filter_update_repo, git_repos))
 
     if len(git_repos) == 0:
         return
@@ -423,11 +419,7 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
 
     github_repos = list(filter(filter_repos_fn, repos))
 
-    debug_nur_repo = os.getenv("DEBUG_NUR_REPO")
-    if debug_nur_repo:
-        def filter_fn(repo):
-            return repo.name == debug_nur_repo
-        github_repos = list(filter(filter_fn, github_repos))
+    git_repos = list(filter(filter_update_repo, github_repos))
 
     if len(github_repos) == 0:
         return
@@ -615,3 +607,17 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
         if repo.new_version == repo.locked_version:
             logger.info(f"Repository {repo.name}: Done. No change in version {repo.locked_version.rev}")
             repo.done = True
+
+
+# NUR_UPDATE_REPOS is a space-separated list of repo names
+NUR_UPDATE_REPOS = os.getenv("NUR_UPDATE_REPOS").strip()
+if NUR_UPDATE_REPOS:
+    # update only some repos
+    nur_update_repos = set(NUR_UPDATE_REPOS.split())
+    def filter_update_repo(repo, nur_update_repos=nur_update_repos):
+        "returns True if this repo should be updated"
+        return repo.name in nur_update_repos
+else:
+    # update all repos
+    def filter_update_repo(repo):
+        return True

@@ -69,7 +69,8 @@ if ! [ -v API_USERNAME_GITHUB_ISSUES ]; then echo "warning: missing env API_USER
 
 this_repo_url=github.com/$GITHUB_REPOSITORY
 
-# export DEBUG_NUR_REPO="milahu" # debug: update only one repo
+# debug: update only these repos
+# export NUR_UPDATE_REPOS="milahu"
 
 # hide password in logs
 # todo: restore "set -x"
