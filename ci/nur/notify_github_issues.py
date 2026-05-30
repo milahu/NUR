@@ -265,10 +265,10 @@ def update_eval_error_github_issues(
         notify_repos.append(repo)
 
     if not notify_repos:
-        logger.debug(f"no repos to notify")
+        logger.info(f"no repos to notify")
         return
 
-    logger.debug(f"trying to notify {len(notify_repos)} repos")
+    logger.info(f"trying to notify {len(notify_repos)} repos")
 
     for repo in notify_repos:
 
@@ -292,7 +292,7 @@ def update_eval_error_github_issues(
                 # avoid creating duplicate issues
                 if existing_issues:
                     existing_issue_numbers = [issue["number"] for issue in existing_issues]
-                    logger.debug(f"{repo.name}: already has an eval error issue. existing_issue_numbers={existing_issue_numbers}")
+                    logger.info(f"{repo.name}: already has an eval error issue. existing_issue_numbers={existing_issue_numbers}")
                     continue
 
                 create_issue(repo)

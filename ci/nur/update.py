@@ -39,7 +39,7 @@ logger = logging.getLogger(__name__)
 
 #def eval_repo(repo: Repo, repo_path: Path) -> None:
 def eval_repo(repo: Repo, repo_path: Path) -> str:
-    #logger.debug(f"eval_repo: repo_path = {repo_path}")
+    logger.debug(f"eval_repo: repo_path = {repo_path}")
     # TODO use nix.py bindings for eval https://github.com/NixOS/nix/pull/7735
     # TODO(milahu) why?
     repo.file = os.path.normpath(repo.file)
@@ -162,14 +162,14 @@ def update(repo: Repo) -> Repo:
 
     #if False:
     if True:
-        logger.debug(f"locked_version =     {repo.locked_version}")
-        logger.debug(f"eval_error_version = {repo.eval_error_version}")
-        logger.debug(f"new_version =        {new_version}")
-        logger.debug(f"repo_path = {repo_path}")
+        logger.info(f"locked_version =     {repo.locked_version}")
+        logger.info(f"eval_error_version = {repo.eval_error_version}")
+        logger.info(f"new_version =        {new_version}")
+        logger.info(f"repo_path = {repo_path}")
 
     # workaround for cached prefetch. cache key is only repo.name
     if not force_eval and new_version == repo.locked_version:
-        logger.debug(f"Repository {repo.name}: new_version == repo.locked_version")
+        logger.info(f"Repository {repo.name}: new_version == repo.locked_version")
         repo_path = None
 
     repo.new_version = new_version
@@ -190,11 +190,11 @@ def update(repo: Repo) -> Repo:
         eval_error_path = os.path.relpath(EVAL_ERRORS_PATH.joinpath(f"{repo.name}.txt"), ROOT_PATH)
         #raise EvalError(f"Repository {repo.name} did not evaluate in a previous run with version {repo.eval_error_version}. See error message in {eval_error_path}", repo.eval_error_text)
         #raise EvalError(f"Eval failed before at {repo.eval_error_version}. See {eval_error_path}", repo.eval_error_text)
-        logger.debug(f"Repository {repo.name}: Eval failed before at this version, see {eval_error_path}")
+        logger.info(f"Repository {repo.name}: Eval failed before at this version, see {eval_error_path}")
         raise EvalError(f"Eval failed before, see {eval_error_path}", repo.eval_error_text)
 
     if not repo_path:
-        logger.debug(f"Repository {repo.name}: Skipped eval. No change in version {repo.locked_version}")
+        logger.info(f"Repository {repo.name}: Skipped eval. No change in version {repo.locked_version}")
         return repo
 
     # scan repo for secrets
@@ -237,7 +237,7 @@ def update(repo: Repo) -> Repo:
 
     repo.eval_repo_path = repo_path
 
-    logger.debug(f"Repository {repo.name}: calling eval_repo")
+    logger.info(f"Repository {repo.name}: calling eval_repo")
     t1 = time.time()
     try:
         # TODO merge ci/nur/index.py into here
@@ -245,7 +245,7 @@ def update(repo: Repo) -> Repo:
     except Exception as exc:
         t2 = time.time()
         repo.eval_time = t2 - t1
-        logger.debug(f"Repository {repo.name}: eval_repo failed: {type(exc).__name__}: {exc}")
+        logger.error(f"Repository {repo.name}: eval_repo failed: {type(exc).__name__}: {exc}")
         raise
     t2 = time.time()
     repo.eval_time = t2 - t1
@@ -339,7 +339,7 @@ def update_command_inner(args: Namespace) -> None:
 
     for repo in update_repos:
 
-        logger.debug(f"Repository {repo.name}: calling update(repo)")
+        logger.info(f"Repository {repo.name}: calling update(repo)")
 
         try:
             update(repo)
@@ -467,7 +467,7 @@ def update_command_inner(args: Namespace) -> None:
           # based on combine.commit_repo
           #repo_path = path.joinpath("repos", repo.name).resolve()
           repo_path = COMBINED_REPOS_PATH.joinpath("repos", repo.name).resolve()
-          logger.debug(f"replacing {repo.eval_repo_path} to {repo_path}")
+          logger.info(f"replacing {repo.eval_repo_path} to {repo_path}")
 
           '''
           tmp: Optional[TemporaryDirectory] = TemporaryDirectory(prefix=str(repo_path.parent))
@@ -501,15 +501,15 @@ def update_command_inner(args: Namespace) -> None:
               str(repo.eval_repo_path) + "/",
               str(repo_path) + "/",
           ]
-          #logger.debug("running: " + shlex.join(args))
+          logger.debug("running: " + shlex.join(args))
           subprocess.run(args, check=True, timeout=120)
 
           args = ["git", "-C", COMBINED_REPOS_PATH, "add", f"repos/{repo.name}"]
-          #logger.debug("running: " + shlex.join(args))
+          logger.debug("running: " + shlex.join(args))
           prc, out, err = capture_check_call(args)
 
           args = ["git", "-C", COMBINED_REPOS_PATH, "status", "--porcelain"]
-          #logger.debug("running: " + shlex.join(args))
+          logger.debug("running: " + shlex.join(args))
           prc, out, err = capture_check_call(args)
 
           if out.strip() != "":
@@ -536,18 +536,18 @@ def update_command_inner(args: Namespace) -> None:
 
               if message:
                   args = ["git", "-C", COMBINED_REPOS_PATH, "commit", "-m", message]
-                  #logger.debug("running: " + shlex.join(args))
+                  logger.debug("running: " + shlex.join(args))
                   prc, out, err = capture_check_call(args)
 
                   args = ["git", "-C", COMBINED_REPOS_PATH, "rev-parse", "HEAD"]
-                  #logger.debug("running: " + shlex.join(args))
+                  logger.debug("running: " + shlex.join(args))
                   prc, out, err = capture_check_call(args)
                   repo.nur_combined_rev = out.strip()
 
           if repo.nur_combined_rev == None:
 
               args = ["git", "-C", COMBINED_REPOS_PATH, "log", "-n1", "--format=%H", "--", f"repos/{repo.name}"]
-              #logger.debug("running: " + shlex.join(args))
+              logger.debug("running: " + shlex.join(args))
               prc, out, err = capture_check_call(args)
               repo.nur_combined_rev = out.strip()
 
@@ -585,7 +585,7 @@ def update_command_inner(args: Namespace) -> None:
               "nur_combined_rev": repo.nur_combined_rev,
               "packages": eval_result_packages,
           }
-          #logger.debug(f"writing {eval_result_path}")
+          logger.info(f"writing {eval_result_path}")
           with open(eval_result_path, "w") as f:
               #json.dump(eval_result, f) # too verbose
               # write compact json
@@ -622,13 +622,13 @@ def update_command_inner(args: Namespace) -> None:
     # write after every repo: 150s
     # write once: 100s
     # TODO write on KeyboardInterrupt so we can stop and resume
-    logger.debug(f"calling update_lock_file")
+    logger.info(f"calling update_lock_file")
     update_lock_file(manifest.repos, LOCK_PATH)
 
-    logger.debug(f"calling update_eval_errors_lock_file")
+    logger.info(f"calling update_eval_errors_lock_file")
     update_eval_errors_lock_file(manifest.repos, EVAL_ERRORS_LOCK_PATH)
 
-    logger.debug(f"calling update_eval_errors")
+    logger.info(f"calling update_eval_errors")
     update_eval_errors(manifest.repos, EVAL_ERRORS_PATH)
 
     # merge repos-notify-on-eval-errors.json into repos.json
@@ -649,7 +649,7 @@ def update_command_inner(args: Namespace) -> None:
                 repo.extra_config[key] = val
             break
 
-    logger.debug(f"calling update_eval_error_github_issues")
+    logger.info(f"calling update_eval_error_github_issues")
     try:
         update_eval_error_github_issues(update_repos)
 
