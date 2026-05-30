@@ -11,28 +11,18 @@ import requests
 logger = logging.getLogger(__name__)
 
 GITHUB_API = "https://api.github.com"
-GITHUB_REPO = "milahu/NUR"
 
-# NOTE envs are set in
-# https://github.com/milahu/NUR/settings/secrets/actions
-# and also have to be declared in
-# .github/workflows/update.yml
+# NOTE envs are set in .github/workflows/update.yml
 
 # TODO refactor envs, similar to paths
 
-# env var containing the github bot token
-api_token_github_issues = os.getenv("API_TOKEN_GITHUB_ISSUES")
-github_bot_username = os.getenv("API_USERNAME_GITHUB_ISSUES")
-
-GITHUB_BOT_USERNAME_ENV = ""
-
-
 repo_owner = os.getenv("GITHUB_REPOSITORY_OWNER") or "nix-community"
-# TODO use COMBINED_REPO_URL like in ci/update-nur-search.sh, dont require github
-combined_repo_name = os.getenv("COMBINED_REPO_NAME") or "NUR"
-combined_repo_branch = os.getenv("COMBINED_REPO_BRANCH") or "nur-combined"
 nur_repo_name = os.getenv("NUR_REPO_NAME") or "NUR"
+nur_github_owner_repo = f"{repo_owner}/{nur_repo_name}"
 
+# username and apikey of the github issues bot
+github_issues_bot_username = os.getenv("API_USERNAME_GITHUB_ISSUES")
+api_token_github_issues = os.getenv("API_TOKEN_GITHUB_ISSUES")
 
 
 def github_api_request(
@@ -92,7 +82,7 @@ def get_existing_issues(
             is_user_repo = True,
         ))
     jobs.append(dict(
-        owner_repo = GITHUB_REPO,
+        owner_repo = nur_github_owner_repo,
         title_prefix = f"{repo.name}: eval error",
         is_user_repo = False,
     ))
@@ -109,7 +99,7 @@ def get_existing_issues(
                 f"/repos/{owner_repo}/issues",
                 params={
                     "state": "open",
-                    "creator": github_bot_username,
+                    "creator": github_issues_bot_username,
                     "per_page": 100,
                 },
             )
@@ -198,7 +188,7 @@ def create_issue(
         # issue_title = f"eval error {time_str} {rev}"
         issue_title = f"eval error {rev}"
     else:
-        owner_repo = GITHUB_REPO
+        owner_repo = nur_github_owner_repo
         # issue_title = f"{repo.name}: eval error {time_str} {rev}"
         issue_title = f"{repo.name}: eval error {rev}"
 
@@ -223,7 +213,7 @@ def close_issue(
     if repo._is_github_repo:
         owner_repo = repo._github_owner_repo
     else:
-        owner_repo = GITHUB_REPO
+        owner_repo = nur_github_owner_repo
 
     logger.info(f"Closing issue https://github.com/{owner_repo}/issues/{issue_number}")
 
@@ -244,7 +234,7 @@ def update_eval_error_github_issues(
     if not api_token_github_issues:
         raise Exception(f"API_TOKEN_GITHUB_ISSUES is empty")
 
-    if not github_bot_username:
+    if not github_issues_bot_username:
         raise Exception(f"API_USERNAME_GITHUB_ISSUES is empty")
 
     notify_repos = []
@@ -289,10 +279,19 @@ def update_eval_error_github_issues(
             existing_issues = get_existing_issues(repo)
 
             if repo.eval_error_text:
-                # avoid creating duplicate issues
+
                 if existing_issues:
                     existing_issue_numbers = [issue["number"] for issue in existing_issues]
-                    logger.info(f"{repo.name}: already has an eval error issue. existing_issue_numbers={existing_issue_numbers}")
+                    existing_issue_numbers.sort()
+                    logger.info(f"{repo.name}: has open issues: {existing_issue_numbers}")
+
+                    # for issue in existing_issues:
+                    #     ensure_rev_comment(repo, issue)
+
+                    # comment only on the last issue
+                    issue = existing_issues[-1]
+                    ensure_rev_comment(repo, issue)
+
                     continue
 
                 create_issue(repo)
@@ -303,4 +302,55 @@ def update_eval_error_github_issues(
                     close_issue(repo, issue["number"])
 
         except Exception as exc:
-            logger.error(f"{repo.name}: update_eval_error_github_issues failed: {type(exc).__name__}: {exc}\n{''.join(traceback.format_exception(exc))}")
+            logger.error(f"{repo.name}: {type(exc).__name__}: {exc}\n{''.join(traceback.format_exception(exc))}")
+
+
+def get_issue_comments(
+    owner_repo: str,
+    issue_number: int,
+) -> List[Dict]:
+    return github_api_request(
+        "GET",
+        f"/repos/{owner_repo}/issues/{issue_number}/comments",
+        params={"per_page": 100},
+    )
+
+
+def add_issue_comment(
+    owner_repo: str,
+    issue_number: int,
+    body: str,
+) -> None:
+    logger.info(f"Adding comment to https://github.com/{owner_repo}/issues/{issue_number}")
+    github_api_request(
+        "POST",
+        f"/repos/{owner_repo}/issues/{issue_number}/comments",
+        json_data={"body": body},
+    )
+
+
+def ensure_rev_comment(
+    repo: "Repo",
+    issue: Dict,
+) -> None:
+    rev = repo.eval_error_version.rev
+
+    if repo._is_github_repo:
+        owner_repo = repo._github_owner_repo
+    else:
+        owner_repo = nur_github_owner_repo
+
+    # check issue body first
+    if rev in issue.get("body", ""):
+        return
+
+    # check all comments
+    comments = get_issue_comments(owner_repo, issue["number"])
+    for comment in comments:
+        if rev in comment.get("body", ""):
+            return
+
+    # add comment
+    rev_url = f"{repo.url.geturl()}/commit/{rev}"
+    comment_body = f"still fails to eval at {rev_url}"
+    add_issue_comment(owner_repo, issue["number"], comment_body)
