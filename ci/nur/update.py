@@ -130,10 +130,10 @@ def eval_repo(repo: Repo, repo_path: Path) -> str:
             cmd_pretty = (
                 shlex.join(cmd)
                 .replace(str(nixpkgs_path), "$nixpkgs")
-                .replace(str(repo_path), "$repo")
+                .replace(str(repo_path), f"$repo_{repo.name}")
                 .replace(str(d), "$tempdir")
             )
-            raise EvalError(f"Repository {repo.name} does not evaluate:\n$ {cmd_pretty}", stderr)
+            raise EvalError(f"Repository {repo.name} does not evaluate. eval command: {cmd_pretty}", stderr)
         return stdout
 
 def update(repo: Repo) -> Repo:
