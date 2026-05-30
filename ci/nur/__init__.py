@@ -1,3 +1,4 @@
+import os
 import argparse
 import logging
 import sys
@@ -23,8 +24,9 @@ def parse_arguments(argv: List[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         prog=argv[0], description="nur management commands"
     )
+    default_log_level = "debug" if os.getenv("NUR_UPDATE_DEBUG") == "1" else "info"
     parser.add_argument(
-        "--log-level", type=str, default="debug", choices=list(LOG_LEVELS.keys())
+        "--log-level", type=str, default=default_log_level, choices=list(LOG_LEVELS.keys())
     )
 
     subparsers = parser.add_subparsers(description="subcommands")
