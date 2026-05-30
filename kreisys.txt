@@ -1,33 +1,4 @@
 error:
-… while evaluating the file '/tmp/nur-update/default.nix':
-
-… from call site
-
-  at /tmp/nur-update/default.nix:3:21:
-
-     2|                     with import <nixpkgs> {};
-     3|                     import /tmp/nur-update/evalRepo.nix {
-      |                     ^
-     4|                         name = "kreisys";
-
-… while calling anonymous lambda
-
-  at /tmp/nur-update/evalRepo.nix:1:1:
-
-     1| { name
-      | ^
-     2| , url
-
-… from call site
-
-  at /tmp/nur-update/evalRepo.nix:33:11:
-
-    32|     might result in infinite recursion when used with NixOS modules.
-    33|   '' else expr (builtins.intersectAttrs args passedArgs)
-      |           ^
-    34|
-
-… while calling anonymous lambda
 
   at /nix/store/s6lqzi93bncfslf02ms2sih215vfh5iv-nur-packages/default.nix:9:1:
 
