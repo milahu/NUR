@@ -39,6 +39,10 @@ def eval_repo(repo: Repo, repo_path: Path) -> str:
     #logger.debug(f"eval_repo: repo_path = {repo_path}")
     # TODO use nix.py bindings for eval https://github.com/NixOS/nix/pull/7735
     # TODO(milahu) why?
+    repo.file = os.path.normpath(repo.file)
+    # block malicious repo.file
+    if repo.file.startswith("../"):
+        raise ValueError(f"bad repo.file: {repo.file!r}")
     temp_suffix = secrets.token_hex(nbytes=16)
     with tempfile.TemporaryDirectory(temp_suffix) as d:
         eval_path = Path(d).joinpath("default.nix")
