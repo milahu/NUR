@@ -372,22 +372,26 @@ def update_command_inner(args: Namespace) -> None:
 
             start = 0
             second_line_prefix = "  at /nix/store/"
-            logger.debug(f"trace: repo.file: {repo.file!r}")
-            logger.debug(f"trace: second_line_prefix: {second_line_prefix!r}")
+            logger.debug(f"{repo.name}: repo.file: {repo.file!r}")
+            logger.debug(f"{repo.name}: second_line_prefix: {second_line_prefix!r}")
             for line_idx, line in enumerate(err_lines):
-                logger.debug(f"trace: line {line_idx}: {line!r}")
+                logger.debug(f"{repo.name}: line {line_idx}: {line!r}")
                 if line.startswith(second_line_prefix):
                     # line_idx-1: … while calling anonymous lambda
                     # line_idx-0:   at /nix/store/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-nur-packages/default.nix:1:1:
                     start = line_idx - 1
-                    logger.debug(f"trace: found second_line_prefix in line {line_idx}")
+                    logger.debug(f"{repo.name}: found second_line_prefix in line {line_idx}")
                     break
                 if line_idx > 50:
                     # give up
                     # the wanted line should be at line_idx=24
                     break
-            if start > 0:
-                logger.debug(f"trace: skipping the first {start} lines")
+            # if start == 2: the main trace already is at the start
+            # line 0: error:
+            # line 1: … while evaluating the attribute 'httplib2shim'
+            # line 2:   at /nix/store/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-nur-packages/default.nix:1:1:
+            if start > 2:
+                logger.debug(f"{repo.name}: skipping the first {start} lines")
                 err_lines = ["error:"] + err_lines[start:]
                 err.stdout = "\n".join(err_lines) + "\n"
 
