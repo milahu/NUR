@@ -181,7 +181,7 @@ def update(repo: Repo) -> Repo:
     logger.debug(f"repo.new_version        = {repo.new_version}")
     """
 
-    if repo.eval_error_version == new_version:
+    if repo.eval_error_version == new_version and force_eval == False:
         eval_error_path = os.path.relpath(EVAL_ERRORS_PATH.joinpath(f"{repo.name}.txt"), ROOT_PATH)
         #raise EvalError(f"Repository {repo.name} did not evaluate in a previous run with version {repo.eval_error_version}. See error message in {eval_error_path}", repo.eval_error_text)
         #raise EvalError(f"Eval failed before at {repo.eval_error_version}. See {eval_error_path}", repo.eval_error_text)
