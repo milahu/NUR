@@ -26,6 +26,9 @@ from .path import (
     NOTIFY_ON_EVAL_ERRORS_JSON_PATH,
 )
 from .prefetch import prefetch, update_version_github_repos, update_version_git_repos
+from .prefetch import (
+    filter_update_repo,
+)
 from .process import prctl_set_pdeathsig
 from . import combine
 from .combine import capture_check_call
@@ -281,23 +284,21 @@ def update_command_inner(args: Namespace) -> None:
 
     manifest = load_manifest(MANIFEST_PATH, LOCK_PATH, EVAL_ERRORS_LOCK_PATH, EVAL_ERRORS_PATH)
 
-    debug_nur_repo = os.getenv("DEBUG_NUR_REPO")
-
     total_eval_time = 0
     total_fetch_time = 0
 
-    # no. this would remove repos from repos.json
-    """
-    if debug_nur_repo:
-        def filter_fn(repo):
-            return repo.name == debug_nur_repo
-        manifest.repos = list(filter(filter_fn, manifest.repos))
-    """
+    # NOTE we create a shallow copy of the manifest.repos list
+    # so when we modify a repo in update_repos
+    # then we also modify the repo in manifest.repos
+    # d=dict(a=1); l1=[d]; l2=l1[:]; l2[0]["a"]=11; l1[0]["a"]==11
 
-    if debug_nur_repo:
-        logger.info(f"Updating 1 repos")
-    else:
-        logger.info(f"Updating {len(manifest.repos)} repos")
+    update_repos = list(filter(filter_update_repo, manifest.repos))
+
+    # no. this would remove repos from repos.json.lock etc
+    # so we need manifest.repos for update_lock_file etc
+    # manifest.repos = update_repos
+
+    logger.info(f"Updating {len(update_repos)} repos")
 
     # currently, 225 of 246 repos are github repos = 90%
     t1 = time.time()
@@ -315,9 +316,9 @@ def update_command_inner(args: Namespace) -> None:
     async def async_fetcher():
         async with aiohttp.ClientSession() as aiohttp_session:
             await asyncio.gather(*map(asyncio.create_task, [
-                update_version_github_repos(manifest.repos, aiohttp_session, filter_github_repos),
+                update_version_github_repos(update_repos, aiohttp_session, filter_github_repos),
                 # 30 git repos: 1.5 versus 30 seconds
-                update_version_git_repos(manifest.repos, aiohttp_session, filter_git_repos),
+                update_version_git_repos(update_repos, aiohttp_session, filter_git_repos),
             ]))
 
     loop = asyncio.new_event_loop()
@@ -331,13 +332,9 @@ def update_command_inner(args: Namespace) -> None:
     combined_repos_path = Path(COMBINED_REPOS_PATH).joinpath("repos")
     os.makedirs(combined_repos_path, exist_ok=True)
 
-    for repo in manifest.repos:
+    for repo in update_repos:
 
-        if debug_nur_repo and repo.name != debug_nur_repo:
-            continue
-
-        if debug_nur_repo:
-            logger.debug(f"Repository {repo.name}: calling update(repo)")
+        logger.debug(f"Repository {repo.name}: calling update(repo)")
 
         try:
             update(repo)
@@ -615,6 +612,8 @@ def update_command_inner(args: Namespace) -> None:
           # git -C nur-eval-results add 0x4A6F.json
           # git -C nur-eval-results add .
 
+    # NOTE here we need manifest.repos not update_repos
+
     # write after every repo: 150s
     # write once: 100s
     # TODO write on KeyboardInterrupt so we can stop and resume
@@ -633,8 +632,8 @@ def update_command_inner(args: Namespace) -> None:
     notify_config = load_json(NOTIFY_ON_EVAL_ERRORS_JSON_PATH)
     logger.debug(f"notify_config: {notify_config}")
     for repo_name, repo_notify_config in notify_config.get("repos", {}).items():
-        # FIXME manifest.repos should be a dict
-        for repo in manifest.repos:
+        # FIXME update_repos should be a dict
+        for repo in update_repos:
             if repo.name != repo_name: continue
             # repo.extra_config.update(repo_notify_config)
             for key, val in repo_notify_config.items():
@@ -647,7 +646,7 @@ def update_command_inner(args: Namespace) -> None:
 
     logger.debug(f"calling update_eval_error_github_issues")
     try:
-        update_eval_error_github_issues(manifest.repos)
+        update_eval_error_github_issues(update_repos)
 
     except Exception as exc:
         logger.error(f"update_eval_error_github_issues failed: {type(exc).__name__}: {exc}\n{''.join(traceback.format_exception(exc))}")
