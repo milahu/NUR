@@ -350,12 +350,28 @@ def update_command_inner(args: Namespace) -> None:
             err.stdout = err.stdout.replace("\n       ", "\n") # remove indent
 
             err_lines = err.stdout.strip().split("\n")
+
             main_err_line = next((x for x in err_lines if x.startswith("error: ")), None)
+
             if main_err_line:
-                err.main_error_message = main_err_line[len("error: "):]
+                msg = main_err_line
+                # remove the "error: " prefix
+                msg = msg[len("error: "):]
+                # extract the abort error message
+                # https://github.com/NixOS/nix/blob/master/src/libexpr/primops.cc#L984
+                # static RegisterPrimOp primop_abort(
+                abort_msg_prefix = "evaluation aborted with the following error message: '"
+                if msg.startswith(abort_msg_prefix):#
+                    # -1: remove the closing singlequote
+                    msg = msg[len(abort_msg_prefix):-1]
+                err.main_error_message = msg
             else:
                 err.main_error_message = None
+
             if main_err_line == None:
+                # this should never happen...
+                # there should always be an "error: ..." line in the trace
+                logger.error(f"{repo.name}: not found main_error_message in trace:\n{err.stdout}")
                 main_err_line = err.stdout
 
             # skip the first blocks of the trace
