@@ -377,20 +377,50 @@ def set_issue_title(
     return update_issue(issue, {"title": issue_title})
 
 
+# github issues limit:
+# Title can not be longer than 256 characters
+MAX_TITLE_LEN = 256
+
+
 def issue_title_of_repo(repo, add_rev=True):
-    issue_title = "error"
-    if repo.eval_error_message:
-        issue_title += f": {repo.eval_error_message}"
-    if add_rev:
-        # same format as in the subject of github emails
-        # [milahu/NUR] Run failed: Update - master (15b8d9f)
-        rev_short = repo.eval_error_version.rev[:7]
-        issue_title += f" ({rev_short})"
+    prefix = "error"
+
     # repo._is_github_repo has been verified by get_existing_issues
     if not repo._is_github_repo:
         # create an issue in the NUR repo
         # add prefix to the issue title
-        issue_title = f"repo {repo.name}: {issue_title}"
+        prefix = f"repo {repo.name}: {prefix}"
+
+    suffix = ""
+    if add_rev:
+        # same format as in the subject of github emails
+        # [milahu/NUR] Run failed: Update - master (15b8d9f)
+        rev_short = repo.eval_error_version.rev[:7]
+        suffix += f" ({rev_short})"
+
+    message = ""
+    if repo.eval_error_message:
+        # f"error: {message}"
+        message = f": {repo.eval_error_message}"
+
+    issue_title = prefix + message + suffix
+
+    if len(issue_title) <= MAX_TITLE_LEN:
+        return issue_title
+
+    logger.warning(f"{repo.name}: issue_title is too long: {issue_title!r}")
+
+    # -1 for "…"
+    max_message_len = MAX_TITLE_LEN - len(prefix) - len(suffix) - 1
+
+    if max_message_len <= 0:
+        # Extremely long prefix/suffix; keep hard limit anyway.
+        issue_title = (prefix + suffix)[:MAX_TITLE_LEN]
+        return issue_title
+
+    # truncate the error message
+    message = message[:max_message_len] + "…"
+    issue_title = f"{prefix}{message}{suffix}"
     return issue_title
 
 
