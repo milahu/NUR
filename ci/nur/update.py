@@ -172,6 +172,8 @@ def update(repo: Repo) -> Repo:
         logger.info(f"Repository {repo.name}: new_version == repo.locked_version")
         repo_path = None
 
+    logger.info(f"{repo.name}: updating repo.new_version: {repo.new_version} -> {new_version}")
+    # TODO should we keep a backup of the old repo.new_version
     repo.new_version = new_version
 
     if repo.locked_version == None:
@@ -186,6 +188,9 @@ def update(repo: Repo) -> Repo:
     logger.debug(f"repo.new_version        = {repo.new_version}")
     """
 
+    # FIXME is this always true?
+    # when do we set: repo.eval_error_version = repo.new_version
+    # repo.eval_error_version == new_version
     if repo.eval_error_version == new_version and force_eval == False:
         eval_error_path = os.path.relpath(EVAL_ERRORS_PATH.joinpath(f"{repo.name}.txt"), ROOT_PATH)
         #raise EvalError(f"Repository {repo.name} did not evaluate in a previous run with version {repo.eval_error_version}. See error message in {eval_error_path}", repo.eval_error_text)
@@ -444,6 +449,7 @@ def update_command_inner(args: Namespace) -> None:
             err.stdout = err.stdout.replace(str(nixpkgs_path) + "/", "<nixpkgs> + /")
             err.stdout = err.stdout.replace(str(nixpkgs_path), "<nixpkgs>")
 
+            logger.debug(f"{repo.name}: updating repo.eval_error_version: {repo.eval_error_version} -> {repo.new_version}")
             repo.eval_error_version = repo.new_version
             repo.eval_error_text = err.stdout
             repo.eval_error_message = err.main_error_message
@@ -469,6 +475,7 @@ def update_command_inner(args: Namespace) -> None:
             if len(eval_result_packages) == 0:
                 repo.eval_result_packages_json = None
                 eval_result_packages = None
+                logger.debug(f"{repo.name}: updating repo.eval_error_version: {repo.eval_error_version} -> {repo.new_version}")
                 repo.eval_error_version = repo.new_version
                 repo.eval_error_text = (
                     f"nur.update: no packages in this repo"
@@ -630,6 +637,7 @@ def update_command_inner(args: Namespace) -> None:
               # eval failed: eval_result is too large
               os.unlink(eval_result_path)
               repo.eval_result_packages_json = None
+              logger.debug(f"{repo.name}: updating repo.eval_error_version: {repo.eval_error_version} -> {repo.new_version}")
               repo.eval_error_version = repo.new_version
               #repo.eval_error_text = "nur.update: evaluation timed out of after 15 seconds"
               eval_result_size_mib = eval_result_size / (1024 * 1024)
