@@ -447,6 +447,8 @@ def update_command_inner(args: Namespace) -> None:
             repo.eval_error_version = repo.new_version
             repo.eval_error_text = err.stdout
             repo.eval_error_message = err.main_error_message
+            if repo.eval_error_message:
+                logger.debug(f"{repo.name}: found eval_error_message: {repo.eval_error_message!r}")
 
         except RepoNotFoundError as err:
             # Do not print stack traces
