@@ -42,6 +42,8 @@
   zlib,
   udev,
   systemd,
+  fontconfig,
+  freetype,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -97,6 +99,8 @@ stdenv.mkDerivation (finalAttrs: {
     stdenv.cc.cc.lib
     systemd
     udev
+    fontconfig
+    freetype
   ];
 
   unpackPhase = ''
@@ -139,6 +143,7 @@ stdenv.mkDerivation (finalAttrs: {
         )
       }" \
       --prefix XDG_DATA_DIRS : "${addDriverRunpath.driverLink}/share" \
+      --set FONTCONFIG_FILE /etc/fonts/fonts.conf \
       --add-flags "--no-sandbox"
 
     # Install icons (using standard sizes if available)
@@ -147,6 +152,13 @@ stdenv.mkDerivation (finalAttrs: {
         mv "$out/share/icons/hicolor/''${size}x''${size}/apps/YouKu.png" "$out/share/icons/hicolor/''${size}x''${size}/apps/youku.png"
       fi
     done
+
+    # Fallback: copy icon from app resources if not in hicolor
+    if [ -f "$out/opt/youku/resources/assets/images/app_icon256.png" ]; then
+      install -Dm644 "$out/opt/youku/resources/assets/images/app_icon256.png" "$out/share/icons/hicolor/256x256/apps/youku.png"
+    elif [ -f "$out/opt/youku/resources/assets/images/app_icon32.png" ]; then
+      install -Dm644 "$out/opt/youku/resources/assets/images/app_icon32.png" "$out/share/icons/hicolor/32x32/apps/youku.png"
+    fi
 
     # Remove conflicting swiftshader bundled libraries if needed, though electron usually prefers its own unless stripped.
     # autoPatchelfHook will handle patching the bundled electron binaries.

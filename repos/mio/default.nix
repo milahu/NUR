@@ -116,6 +116,36 @@ in
       patches = (old.patches or [ ]) ++ [ ./patches/ghidra-ui-scale.patch ];
     })
   );
+  trayscale = pkgs.trayscale.overrideAttrs (old: {
+    nativeBuildInputs =
+      (old.nativeBuildInputs or [ ]) ++ pkgs.lib.optional pkgs.stdenv.hostPlatform.isDarwin pkgs.libicns;
+    postInstall =
+      (old.postInstall or "")
+      + pkgs.lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
+        app="$out/Applications/Trayscale.app"
+        mkdir -p "$app/Contents/MacOS" "$app/Contents/Resources"
+        ln -s "$out/bin/trayscale" "$app/Contents/MacOS/trayscale"
+        png2icns "$app/Contents/Resources/trayscale.icns" "$out/share/icons/hicolor/256x256/apps/dev.deedles.Trayscale.png"
+        cat > "$app/Contents/Info.plist" <<EOF
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+          <key>CFBundleExecutable</key>
+          <string>trayscale</string>
+          <key>CFBundleIdentifier</key>
+          <string>dev.deedles.Trayscale</string>
+          <key>CFBundleName</key>
+          <string>Trayscale</string>
+          <key>CFBundleIconFile</key>
+          <string>trayscale.icns</string>
+          <key>CFBundlePackageType</key>
+          <string>APPL</string>
+        </dict>
+        </plist>
+        EOF
+      '';
+  });
   nix-output-monitor = callPackage ./pkgs/nix-output-monitor/package.nix { };
 
   cached-set =
@@ -175,6 +205,7 @@ in
               #betterbird
               eden
               ghidra
+              trayscale
               prismlauncher-diegiwg
               android-translation-layer
               #pake # started failing recently
