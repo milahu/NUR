@@ -177,7 +177,13 @@ if [[ -f "$PIPACKAGES_FILE" ]]; then
     ["@tmustier/pi-usage-extension"]="tmustier/pi-usage-extension"
     ["@wenjinnn/pi-mimo-voice"]="wenjinnn/pi-mimo-voice"
     ["pi-permission-system"]="MasuRii/pi-permission-system"
+    ["pi-subagents"]="nicobailon/pi-subagents"
+    ["pi-interactive-shell"]="nicobailon/pi-interactive-shell"
+    ["pi-intercom"]="nicobailon/pi-intercom"
+    ["pi-caveman"]="jonjonrankin/pi-caveman"
     ["pi-weixinbot"]="huang-x-h/pi-weixinbot"
+    ["@aliou/pi-guardrails"]="aliou/pi-guardrails"
+    ["pi-lens"]="pi-dev/pi-lens"
   )
 
   for package in "${!PACKAGE_SOURCES[@]}"; do
