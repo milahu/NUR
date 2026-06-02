@@ -19,7 +19,27 @@
     inputs.nixos-unstable.nixosModules.notDetected
     inputs.nur.modules.nixos.default
     inputs.sops-nix.nixosModules.sops
+    # inputs.preservation.nixosModules.preservation  # Enable for ephemeral setup
   ];
+
+  # ============================================================================
+  # EPHEMERAL SETUP (Optional — requires reinstallation)
+  # ============================================================================
+  # To switch the Protectli to an impermanent (tmpfs-on-root) setup:
+  #
+  # 1. Uncomment the preservation module import above.
+  # 2. Uncomment the imports below.
+  # 3. Remove or comment out `fileSystemPresets.btrfs.enable` below.
+  # 4. On the Protectli, run from a NixOS installer:
+  #      nix run nixpkgs#disko -- --mode disko ./systems/Protectli/disko.nix
+  #      nixos-install --flake .#Protectli
+  # 5. Reboot.
+  #
+  # imports = [
+  #   ./disko.nix
+  #   ./preservation.nix
+  # ];
+  # ============================================================================
   home-manager = {
     extraSpecialArgs = {
       inherit
@@ -146,7 +166,18 @@
     ];
     kernelModules = [ "kvm-intel" ];
   };
-  profiles.defaults.enable = true;
+  nixcfg = {
+    nix.enable = true;
+    security.enable = true;
+    home-manager.enable = true;
+    networking.enable = true;
+    system.enable = true;
+    boot.enable = true;
+    shells.enable = true;
+    tools.enable = true;
+    session.enable = true;
+    sops-home.enable = true;
+  };
   userPresets.toyvo.enable = true;
   fileSystemPresets.boot.enable = true;
   fileSystemPresets.btrfs.enable = true;

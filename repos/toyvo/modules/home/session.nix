@@ -6,25 +6,19 @@
   ...
 }:
 let
-  cfg = config.profiles;
+  cfg = config.nixcfg.session;
 in
 {
-  options.profiles = {
-    defaults.enable = lib.mkEnableOption "Enable default profile";
-    gui.enable = lib.mkEnableOption "Enable GUI applications";
+  options = {
+    nixcfg.session.enable = lib.mkEnableOption "session configuration";
   };
 
-  config = lib.mkIf cfg.defaults.enable {
-    sops = {
-      defaultSopsFile = ../../secrets.yaml;
-      age = {
-        keyFile = "${config.home.homeDirectory}/${
-          if pkgs.stdenv.isDarwin then "Library/Application Support" else ".config"
-        }/sops/age/keys.txt";
-      };
-    };
+  config = lib.mkIf cfg.enable {
+    programs.home-manager.enable = true;
+
     home = {
       stateVersion = "26.05";
+      enableNixpkgsReleaseCheck = false;
       sessionPath =
         lib.optionals config.programs.volta.enable [
           "${config.programs.volta.voltaHome}/bin"
@@ -66,6 +60,7 @@ in
           "/Library/Apple/usr/bin"
         ];
     };
+
     xdg.configFile = {
       "nix/nix.conf".text = ''
         experimental-features = nix-command flakes pipe-operators
@@ -78,37 +73,6 @@ in
           allowBroken = true;
         }
       '';
-    };
-    programs = {
-      home-manager.enable = true;
-      starship = {
-        enable = true;
-        settings = {
-          right_format = "$time";
-          time.disabled = false;
-        };
-      };
-      zoxide.enable = true;
-      bat.enable = true;
-      eza.enable = true;
-      zsh.enable = true;
-      bash.enable = true;
-      fish.enable = true;
-      ion.enable = true;
-      nushell.enable = true;
-      powershell.enable = true;
-      nvim.enable = true;
-      nix-index-database.comma.enable = true;
-    };
-    services.easyeffects = lib.mkIf (pkgs.stdenv.isLinux && cfg.gui.enable) {
-      enable = true;
-    };
-    home.packages = lib.optionals (config.launchd.agents ? sops-nix) [
-      (pkgs.writeShellScriptBin "sops-nix-user" "${config.launchd.agents.sops-nix.config.Program}")
-    ];
-    catppuccin = {
-      flavor = lib.mkDefault "frappe";
-      accent = lib.mkDefault "red";
     };
   };
 }

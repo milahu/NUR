@@ -12,7 +12,11 @@
     ./containers/starr.nix
     ./containers/terraria.nix
     ./containers/vintagestory.nix
-    ./defaults.nix
+    ./boot.nix
+    ./kanata.nix
+    ./networking.nix
+    ./nix-ld.nix
+    ./system.nix
     ./ids.nix
     ./filesystems.nix
     ./gaming.nix
@@ -34,6 +38,7 @@
     ./services/hermes-dashboard.nix
     ./services/hermes-webui.nix
     ./services/signal-cli.nix
+    ./syncthing.nix
     ./tmpfiles.nix
     ./vintagestory.nix
   ];

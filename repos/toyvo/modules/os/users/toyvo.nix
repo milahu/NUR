@@ -8,7 +8,7 @@
 let
   cfg = config.userPresets;
   homePath = if pkgs.stdenv.isDarwin then "/Users" else "/home";
-  enableGui = config.profiles.gui.enable or false;
+  enableGui = config.nixcfg.gui.enable or false;
 in
 {
   options.userPresets = {
@@ -64,11 +64,25 @@ in
     home-manager.users.${cfg.toyvo.name} = {
       home.username = cfg.toyvo.name;
       home.homeDirectory = "${homePath}/${cfg.toyvo.name}";
-      profiles = {
-        defaults.enable = true;
+      nixcfg = {
+        shells.enable = true;
+        tools.enable = true;
+        session.enable = true;
+        sops-home.enable = true;
+        catppuccin-home.enable = true;
         gui.enable = enableGui;
-        toyvo.enable = true;
+        users.toyvo.enable = true;
       };
+    };
+
+    # NixOS activation resets home directory permissions via chmod,
+    # which wipes ACLs. Restore them after the users activation script.
+    system.activationScripts.fixToyVoACLs = lib.mkIf pkgs.stdenv.isLinux {
+      deps = [ "users" ];
+      text = ''
+        ${pkgs.acl}/bin/setfacl -m u:hermes:rx ${homePath}/${cfg.toyvo.name} 2>/dev/null || true
+        ${pkgs.acl}/bin/setfacl -d -m u:hermes:rx ${homePath}/${cfg.toyvo.name} 2>/dev/null || true
+      '';
     };
   };
 }

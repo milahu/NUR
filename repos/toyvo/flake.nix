@@ -45,6 +45,10 @@
     jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
     mac-app-util.url = "github:hraban/mac-app-util";
     nh.url = "github:toyvo/nh";
+    odysseus = {
+      url = "github:ToyVo/odysseus/feat-add-nix-darwin";
+      inputs.nixpkgs.follows = "nixos-unstable";
+    };
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixos-unstable";
@@ -66,6 +70,7 @@
     nur.url = "github:nix-community/nur";
     nvf.url = "github:NotAShelf/nvf";
     plasma-manager.url = "github:pjones/plasma-manager";
+    preservation.url = "github:WilliButz/preservation";
     rust-overlay.url = "github:oxalica/rust-overlay";
     sops-nix.url = "github:Mic92/sops-nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
@@ -119,7 +124,7 @@
         ...
       }:
       let
-        ourLib = (import libDir { inherit lib; }) // {
+        ourLib = (import libDir { inherit lib inputs; }) // {
           inherit import_nixpkgs;
         };
         lib' = lib.recursiveUpdate lib ourLib;
@@ -133,7 +138,11 @@
           darwinConfigurations = configurations.darwinConfigurations;
           homeConfigurations = configurations.homeConfigurations;
         };
-        systems = lib.systems.flakeExposed;
+        systems = [
+          "aarch64-darwin"
+          "aarch64-linux"
+          "x86_64-linux"
+        ];
         imports = [
           devshell.flakeModule
           flake-parts.flakeModules.easyOverlay
@@ -151,7 +160,7 @@
           let
             basePkgs = import_nixpkgs system nixos-unstable;
             pkgs' = recursiveUpdate basePkgs { lib = lib'; };
-            ourPackages = callDirPackageWithRecursive pkgs' pkgsDir;
+            ourPackages = callDirPackageWithRecursive pkgs' pkgsDir { inherit inputs; };
           in
           {
             _module.args = {

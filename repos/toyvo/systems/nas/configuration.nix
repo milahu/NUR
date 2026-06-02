@@ -16,6 +16,7 @@ in
   imports = [
     inputs.nixcfg.modules.nixos.default
     inputs.hermes-agent.nixosModules.default
+    inputs.odysseus.nixosModules.default
     ./samba.nix
     ./homepage.nix
     inputs.catppuccin.nixosModules.catppuccin
@@ -39,7 +40,62 @@ in
         ;
     };
     sharedModules = [ ./home.nix ];
+    users.toyvo.programs.git.settings.safe.directory = "/mnt/POOL/hermes/*";
+    users.hermes = {
+      home.username = "hermes";
+      home.homeDirectory = "/mnt/POOL/hermes";
+      nixcfg = {
+        shells.enable = true;
+        tools.enable = true;
+        session.enable = true;
+        sops-home.enable = true;
+        catppuccin-home.enable = true;
+      };
+      programs = {
+        git = {
+          enable = true;
+          settings = {
+            user.name = "Hermes Agent (${config.services.hermes-agent.settings.model.default} via ${config.services.hermes-agent.settings.model.provider}) for Collin Diekvoss";
+            user.email = "hermes@diekvoss.com";
+            safe.directory = "/home/toyvo/*";
+            core.editor = lib.mkForce "hx";
+          };
+        };
+        nvf.defaultEditor = lib.mkForce false;
+        helix = {
+          enable = true;
+          defaultEditor = true;
+        };
+        direnv = {
+          enable = true;
+          nix-direnv.enable = true;
+        };
+        fzf = {
+          enable = true;
+        };
+      };
+      home.packages = with pkgs; [
+        ripgrep
+        fd
+        jq
+        yq
+        nix-output-monitor
+        nix-tree
+        gh
+        tlrc
+        procs
+        dust
+        sd
+        hyperfine
+      ];
+    };
   };
+
+  # Allow root (and libgit2 via nix) to access the flake repo for rebuilds
+  environment.etc."gitconfig".text = ''
+    [safe]
+        directory = /home/toyvo/nixcfg
+  '';
   hardware.cpu.amd.updateMicrocode = true;
   networking = {
     hostName = "nas";
@@ -53,6 +109,7 @@ in
         8642 # hermes-agent API (reachable from open-webui container via veth)
         9119 # hermes-dashboard
         8787 # hermes-webui
+        7000 # odysseus
       ];
       allowedUDPPorts = [
         53
@@ -77,9 +134,17 @@ in
     kernelModules = [ "kvm-amd" ];
     binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
-  profiles = {
-    defaults.enable = true;
+  nixcfg = {
+    nix.enable = true;
+    security.enable = true;
+    home-manager.enable = true;
+    networking.enable = true;
+    system.enable = true;
+    boot.enable = true;
+    nix-ld.enable = true;
+    gui.enable = true;
     dev.enable = true;
+    users.hermes.enable = true;
   };
   userPresets.chloe.enable = true;
   userPresets.toyvo.enable = true;
@@ -133,6 +198,10 @@ in
       enable = true;
       port = homelab.${hostName}.services.ollama.port;
     };
+    odysseus = {
+      enable = true;
+      port = homelab.${hostName}.services.odysseus.port;
+    };
     openssh = {
       enable = true;
       settings.PasswordAuthentication = false;
@@ -155,8 +224,21 @@ in
     samba.enable = true;
     spice-vdagentd.enable = true;
     monitoring.enable = true;
+    syncthing = {
+      enable = true;
+      settings.folders."llm-wiki" = {
+        path = "/mnt/POOL/hermes/wiki";
+        id = "llm-wiki";
+        label = "LLM Wiki";
+        devices = [ ]; # Add devices manually via web UI after pairing
+        versioning = {
+          type = "simple";
+          params.keep = "5";
+        };
+      };
+    };
   };
-  containerPresets = {
+  nixcfg.containers = {
     open-webui = {
       enable = true;
       natInterface = "eno1";
@@ -166,7 +248,7 @@ in
       environmentFile = config.sops.secrets."openwebui.env".path;
       environment = {
         # Hermes agent OpenAI-compatible API (host IP from container's perspective)
-        OPENAI_API_BASE_URL = "http://${config.containerPresets.open-webui.hostAddress}:8642/v1";
+        OPENAI_API_BASE_URL = "http://${config.nixcfg.containers.open-webui.hostAddress}:8642/v1";
       };
     };
     immich = {
@@ -200,7 +282,7 @@ in
         "tasks"
       ];
       smtp = {
-        host = config.containerPresets.nextcloud.hostAddress;
+        host = config.nixcfg.containers.nextcloud.hostAddress;
         port = 1025;
         secure = "";
         username = "collin@diekvoss.com";
@@ -279,7 +361,7 @@ in
     wants = [ "protonmail-bridge.service" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.socat}/bin/socat TCP-LISTEN:1025,bind=${config.containerPresets.nextcloud.hostAddress},fork,reuseaddr TCP:127.0.0.1:1025";
+      ExecStart = "${pkgs.socat}/bin/socat TCP-LISTEN:1025,bind=${config.nixcfg.containers.nextcloud.hostAddress},fork,reuseaddr TCP:127.0.0.1:1025";
       Restart = "on-failure";
       RestartSec = "5s";
       DynamicUser = true;
@@ -315,6 +397,7 @@ in
     pre-commit
     eza
     tldr
+    python3
   ];
   virtualisation = {
     libvirtd = {
@@ -355,6 +438,7 @@ in
     enable = true;
     settings = {
       model = {
+        # see https://models.dev/?search=opencode&sort=output-costper&order=asc if considering different models, same api key, but url is different https://opencode.ai/zen/v1 vs https://opencode.ai/zen/go/v1
         default = "kimi-k2.6";
         provider = "opencode-go";
         base_url = "https://opencode.ai/zen/go/v1";
@@ -373,6 +457,18 @@ in
   };
   # Allow hermes-agent to use sudo for nixos-rebuild (upstream sets NoNewPrivileges=true)
   systemd.services.hermes-agent.serviceConfig.NoNewPrivileges = lib.mkForce false;
+
+  # Expand PATH for hermes services so spawned terminals/shells have access to
+  # system packages (nix, nixos-rebuild, git, etc.) and hermes's home-manager profile.
+  # The upstream units hardcode PATH to only coreutils/findutils/gnugrep/gnused/systemd.
+  # Appending a later Environment=PATH=... directive overrides the earlier one in systemd.
+  systemd.services.hermes-agent.serviceConfig.Environment = [
+    "PATH=/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/etc/profiles/per-user/hermes/bin:/mnt/POOL/hermes/.nix-profile/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  ];
+  systemd.services.hermes-webui.serviceConfig.Environment = [
+    "PATH=/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/etc/profiles/per-user/hermes/bin:/mnt/POOL/hermes/.nix-profile/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  ];
+
   sops.secrets."hermes.env".owner = "hermes";
   sops.secrets."signal-cli.env".owner = "signal-cli";
   sops.secrets."cache-priv-key.pem" = { };
