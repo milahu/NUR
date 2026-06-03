@@ -1,0 +1,148 @@
+error:
+… while calling anonymous lambda
+  at ./nur.nix:1:1:
+     1| {
+      | ^
+     2|   pkgs ? import (import ./nixpkgs.nix) { },
+
+… while evaluating the attribute 'ulypkgsPackagesDerivationsOnly'
+  at ./pkgs/default.nix:11:5:
+    10|
+    11|     ulypkgsPackagesDerivationsOnly = lib.filterAttrs (attr: package: lib.isDerivation package) (
+      |     ^
+    12|       removeAttrs ulypkgsPackages [ "ulypkgsPackagesDerivationsOnly" ] # avoid infrec
+
+… from call site
+  at ./pkgs/default.nix:11:38:
+    10|
+    11|     ulypkgsPackagesDerivationsOnly = lib.filterAttrs (attr: package: lib.isDerivation package) (
+      |                                      ^
+    12|       removeAttrs ulypkgsPackages [ "ulypkgsPackagesDerivationsOnly" ] # avoid infrec
+
+… while calling 'filterAttrs'
+  at <nixpkgs> + /lib/attrsets.nix:662:23:
+   661|   */
+   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                       ^
+   663|
+
+… while calling the 'removeAttrs' builtin
+  at <nixpkgs> + /lib/attrsets.nix:662:28:
+   661|   */
+   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                            ^
+   663|
+
+… while calling the 'filter' builtin
+  at <nixpkgs> + /lib/attrsets.nix:662:45:
+   661|   */
+   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                                             ^
+   663|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/attrsets.nix:662:53:
+   661|   */
+   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                                                     ^
+   663|
+
+… in the argument of the not operator
+  at <nixpkgs> + /lib/attrsets.nix:662:60:
+   661|   */
+   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                                                            ^
+   663|
+
+… from call site
+  at <nixpkgs> + /lib/attrsets.nix:662:60:
+   661|   */
+   662|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                                                            ^
+   663|
+
+… while calling anonymous lambda
+  at ./pkgs/default.nix:11:61:
+    10|
+    11|     ulypkgsPackagesDerivationsOnly = lib.filterAttrs (attr: package: lib.isDerivation package) (
+      |                                                             ^
+    12|       removeAttrs ulypkgsPackages [ "ulypkgsPackagesDerivationsOnly" ] # avoid infrec
+
+… from call site
+  at ./pkgs/default.nix:11:70:
+    10|
+    11|     ulypkgsPackagesDerivationsOnly = lib.filterAttrs (attr: package: lib.isDerivation package) (
+      |                                                                      ^
+    12|       removeAttrs ulypkgsPackages [ "ulypkgsPackagesDerivationsOnly" ] # avoid infrec
+
+… while calling 'isDerivation'
+  at <nixpkgs> + /lib/attrsets.nix:1412:18:
+  1411|   */
+  1412|   isDerivation = value: value.type or null == "derivation";
+      |                  ^
+  1413|
+
+… while evaluating the attribute 'python2'
+  at ./pkgs/default.nix:117:5:
+   116|
+   117|     python2 =
+      |     ^
+   118|       (pkgsSuper.python2.override {
+
+… from call site
+  at ./pkgs/default.nix:118:8:
+   117|     python2 =
+   118|       (pkgsSuper.python2.override {
+      |        ^
+   119|         self = pkgs.python2;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/top-level/aliases.nix:217:31:
+   216|   mapAliases =
+   217|     aliases: lib.mapAttrs (n: alias: removeRecurseForDerivations (checkInPkgs n alias)) aliases;
+      |                               ^
+   218|
+
+… from call site
+  at <nixpkgs> + /pkgs/top-level/aliases.nix:217:38:
+   216|   mapAliases =
+   217|     aliases: lib.mapAttrs (n: alias: removeRecurseForDerivations (checkInPkgs n alias)) aliases;
+      |                                      ^
+   218|
+
+… while calling 'removeRecurseForDerivations'
+  at <nixpkgs> + /pkgs/top-level/aliases.nix:25:5:
+    24|   removeRecurseForDerivations =
+    25|     alias:
+      |     ^
+    26|     if alias.recurseForDerivations or false then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/top-level/aliases.nix:26:5:
+    25|     alias:
+    26|     if alias.recurseForDerivations or false then
+      |     ^
+    27|       lib.removeAttrs alias [ "recurseForDerivations" ]
+
+… from call site
+  at <nixpkgs> + /pkgs/top-level/aliases.nix:217:67:
+   216|   mapAliases =
+   217|     aliases: lib.mapAttrs (n: alias: removeRecurseForDerivations (checkInPkgs n alias)) aliases;
+      |                                                                   ^
+   218|
+
+… while calling 'checkInPkgs'
+  at <nixpkgs> + /pkgs/top-level/aliases.nix:213:8:
+   212|   checkInPkgs =
+   213|     n: alias:
+      |        ^
+   214|     if builtins.hasAttr n super then abort "Alias ${n} is still in all-packages.nix" else alias;
+
+… while calling the 'throw' builtin
+  at <nixpkgs> + /pkgs/top-level/aliases.nix:1824:13:
+  1823|   pypolicyd-spf = throw "'pypolicyd-spf' has been renamed to/replaced by 'spf-engine'"; # Converted to throw 2025-10-27
+  1824|   python2 = throw "python2 has been removed; Python 2 is end-of-life. Use `python3` instead."; # Added 2026-05-03
+      |             ^
+  1825|   python2Full = throw "python2Full has been removed; Python 2 is end-of-life. Use `python3` instead."; # Added 2026-05-03
+
+error: python2 has been removed; Python 2 is end-of-life. Use `python3` instead.
