@@ -31,6 +31,11 @@ in
   supernote-tool = pkgs.python3Packages.callPackage ./pkgs/supernote-tool { inherit potracer; };
   trigger = pkgs.callPackage ./pkgs/trigger { };
   vscode-extensions = {
+    cschlosser.doxdocgen = pkgs.callPackage ./pkgs/vscode-extensions/cschlosser.doxdocgen { };
+    mcu-debug.debug-tracker-vscode =
+      pkgs.callPackage ./pkgs/vscode-extensions/mcu-debug.debug-tracker-vscode
+        { };
+    mcu-debug.memory-view = pkgs.callPackage ./pkgs/vscode-extensions/mcu-debug.memory-view { };
     mcu-debug.peripheral-viewer =
       pkgs.callPackage ./pkgs/vscode-extensions/mcu-debug.peripheral-viewer
         { };
@@ -39,7 +44,7 @@ in
       pkgs.callPackage ./pkgs/vscode-extensions/nordic-semiconductor.nrf-devicetree
         { };
     nordic-semiconductor.nrf-kconfig =
-      pkgs.callPackage ./pkgs/vscode-extensions/nordic-semiconductor.nrf-devicetree
+      pkgs.callPackage ./pkgs/vscode-extensions/nordic-semiconductor.nrf-kconfig
         { };
     nordic-semiconductor.nrf-terminal =
       pkgs.callPackage ./pkgs/vscode-extensions/nordic-semiconductor.nrf-terminal
