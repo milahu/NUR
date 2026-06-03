@@ -1,7 +1,6 @@
 {
   cmake,
   fetchFromGitHub,
-  git,
   lib,
   monero-cli,
   openssl,
@@ -16,16 +15,22 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "Cuprate";
     repo = "cuprate";
-    tag = "cuprated-${finalAttrs.version}";
-    hash = "sha256-MEvbeuWDjvKvrU1FRs3mGp+OXMxuzN3UcLOmFnJz9q4=";
-    leaveDotGit = true;
+    rev = "bc059f047651a743565330e8fe533e4f5a81d388";
+    hash = "sha256-IQcyLtQtc8xNGFt7V1Y1qBW5Zr941jZy7jdHOxiDvqo=";
   };
 
   cargoHash = "sha256-NDZb/DLNP35EKqsoLz/AallYyeHcm9M+DtNxZzq+PFQ=";
 
+  checkFlags = [
+    # Tests don't work in CI
+    "--skip rpc::client::tests::localhost"
+    "--skip rpc::client::tests::get"
+    "--skip data::statics::tests::block_same_as_rpc"
+    "--skip data::statics::tests::tx_same_as_rpc"
+  ];
+
   nativeBuildInputs = [
     cmake
-    git
     pkg-config
   ];
 
@@ -42,6 +47,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
     OPENSSL_NO_VENDOR = 1;
     # Use Rust nightly.
     RUSTC_BOOTSTRAP = 1;
+    # https://github.com/Cuprate/cuprate/blob/main/constants/build.rs
+    GITHUB_SHA = finalAttrs.src.rev;
   };
 
   meta = {

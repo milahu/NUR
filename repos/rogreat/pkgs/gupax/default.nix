@@ -2,7 +2,6 @@
   copyDesktopItems,
   cuprate,
   fetchFromGitHub,
-  git,
   lib,
   libGL,
   libx11,
@@ -24,7 +23,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "gupax-io";
     repo = "gupax";
-    tag = "v${finalAttrs.version}";
+    rev = "bb5827eb19d6494d1edb6eba7a991e71fd396f5e";
     hash = "sha256-LEVJI3AWrr85g+X0Xt1uuvD1AtXB9UCHiacp4i0egP0=";
   };
 
@@ -40,9 +39,12 @@ rustPlatform.buildRustPackage (finalAttrs: {
     "--skip helper::xvb::algorithm::test::test_manual_xvb_mode"
   ];
 
+  preBuild = ''
+    rm -f build.rs
+  '';
+
   nativeBuildInputs = [
     copyDesktopItems
-    git
     pkg-config
   ];
 
@@ -85,6 +87,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
     OPENSSL_NO_VENDOR = 1;
     # Use Rust nightly.
     RUSTC_BOOTSTRAP = 1;
+    # https://github.com/gupax-io/gupax/blob/main/build.rs
+    COMMIT = finalAttrs.src.rev;
     # https://github.com/Cuprate/cuprate/blob/main/constants/build.rs
     GITHUB_SHA = cuprate.src.rev;
   };
@@ -92,7 +96,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
   meta = {
     description = "GUI Uniting P2Pool And XMRig";
     homepage = "https://gupax.io";
-    changelog = "https://github.com/hinto-janai/gupax/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.gpl3Plus;
     maintainers = with lib.maintainers; [ RoGreat ];
     mainProgram = "gupax";
