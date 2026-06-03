@@ -1,16 +1,16 @@
 {
 "name":"vladexa",
-"fetch_time":0.359,
-"eval_time":0.721,
+"fetch_time":0.593,
+"eval_time":0.746,
 "source":{
 "url":"https://github.com/VlaDexa/nur-packages",
-"rev":"72bb9c397b5e04388563186e0ee424cfb327525a",
-"sha256":"0nc2jlkiasfqlkhcxpjlgbhir8q32z64d89d4h1frjihf6cys3bs",
+"rev":"88940934eaef6120c6a6a296df1608d119c7a6ba",
+"sha256":"0gd3z7irhhc3hhnf4yz44sk1iihhzqk3rdyqspax6pkhj1hjjm8p",
 "date":null
 },
-"source_storepath":"/nix/store/jk52jpxm0szw36x4757ry8p8andrmnbs-source",
-"nixpkgs_storepath":"/nix/store/g9hrrmckp32hmz0kzm0clmphg8fc354a-source",
-"nur_combined_rev":"1a493501cc21c786d4de031769c26a846ffeddef",
+"source_storepath":"/nix/store/fbk1vmc8m92qvxw14djhwhm9g6i912cn-source",
+"nixpkgs_storepath":"/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source",
+"nur_combined_rev":"2a77d2eea73f83096016435affaf244ad68a5ba6",
 "packages":{
 "SteamTokenDumper":{
 "drvPath":"/nix/store/jnm631mlgv3qspsxj21crm2jrm4s1kjf-SteamTokenDumper-2025.12.17.drv",
@@ -70,7 +70,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jk52jpxm0szw36x4757ry8p8andrmnbs-source/pkgs/SteamTokenDumper/package.nix",
+"file":"/nix/store/fbk1vmc8m92qvxw14djhwhm9g6i912cn-source/pkgs/SteamTokenDumper/package.nix",
 "line":31
 },
 "name":"SteamTokenDumper-2025.12.17",
@@ -161,7 +161,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jk52jpxm0szw36x4757ry8p8andrmnbs-source/pkgs/arangodb/package.nix",
+"file":"/nix/store/fbk1vmc8m92qvxw14djhwhm9g6i912cn-source/pkgs/arangodb/package.nix",
 "line":93
 },
 "name":"arangodb-3.10.14",
@@ -193,12 +193,13 @@
 "version":"3.10.14"
 },
 "avm":{
-"drvPath":"/nix/store/jvin04jk3nx0y0wvyqn35ak0hhahjmzx-avm-1.0.0.drv",
+"drvPath":"/nix/store/bjjp21n7l9nsmmydzj5q4ry7ak6jnxib-avm-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"AVM (AOM Video Model) is the reference software for next codec from Alliance for Open Media",
-"homepage":"https://gitlab.com/AOMediaCodec/avm",
+"changelog":"https://github.com/AOMediaCodec/avm/blob/v1.0.0/CHANGELOG",
+"description":"AVM (AOM Video Model) is the reference software for AV2 codec from Alliance for Open Media",
+"homepage":"https://github.com/AOMediaCodec/avm",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -239,6 +240,7 @@
 "spdxId":"BSD-3-Clause-Clear",
 "url":"https://spdx.org/licenses/BSD-3-Clause-Clear.html"
 },
+"mainProgram":"avmenc",
 "maintainers":[
 {
 "email":"vgrechannik@gmail.com",
@@ -249,8 +251,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jk52jpxm0szw36x4757ry8p8andrmnbs-source/pkgs/avm/package.nix",
-"line":52
+"file":"/nix/store/fbk1vmc8m92qvxw14djhwhm9g6i912cn-source/pkgs/avm/package.nix",
+"line":70
 },
 "name":"avm-1.0.0",
 "nonTeamMaintainers":[
@@ -264,7 +266,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"./pkgs/avm/package.nix:50",
+"position":"./pkgs/avm/package.nix:67",
 "unfree":false,
 "unsupported":false
 },
@@ -446,7 +448,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/jk52jpxm0szw36x4757ry8p8andrmnbs-source/pkgs/mozlz4/default.nix",
+"file":"/nix/store/fbk1vmc8m92qvxw14djhwhm9g6i912cn-source/pkgs/mozlz4/default.nix",
 "line":23
 },
 "name":"mozlz4-0.1.0",
@@ -571,7 +573,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/jk52jpxm0szw36x4757ry8p8andrmnbs-source/pkgs/proton-cachyos/package.nix",
+"file":"/nix/store/fbk1vmc8m92qvxw14djhwhm9g6i912cn-source/pkgs/proton-cachyos/package.nix",
 "line":88
 },
 "name":"proton-cachyos-bin-11.0-20260521-x86_64",
@@ -667,7 +669,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/jk52jpxm0szw36x4757ry8p8andrmnbs-source/pkgs/proton-cachyos/package.nix",
+"file":"/nix/store/fbk1vmc8m92qvxw14djhwhm9g6i912cn-source/pkgs/proton-cachyos/package.nix",
 "line":88
 },
 "name":"proton-cachyos-bin-11.0-20260521-arm64",
@@ -763,7 +765,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/jk52jpxm0szw36x4757ry8p8andrmnbs-source/pkgs/proton-cachyos/package.nix",
+"file":"/nix/store/fbk1vmc8m92qvxw14djhwhm9g6i912cn-source/pkgs/proton-cachyos/package.nix",
 "line":88
 },
 "name":"proton-cachyos-bin-11.0-20260521-x86_64_v3",
