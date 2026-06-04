@@ -1,38 +1,44 @@
 error:
+… while evaluating the attribute 'custom_neovim'
+  at ./nix/nur.nix:27:5:
+    26|     # custom things
+    27|     custom_neovim = p ./pkgs/custom/neovim;
+      |     ^
+    28|     custom_rofi = p ./pkgs/custom/rofi.nix;
+
 … from call site
-
   at ./nix/nur.nix:27:21:
-
     26|     # custom things
     27|     custom_neovim = p ./pkgs/custom/neovim;
       |                     ^
     28|     custom_rofi = p ./pkgs/custom/rofi.nix;
 
 … while calling 'p'
-
   at ./nix/nur.nix:9:9:
-
      8|     inherit (self) callPackage;
      9|     p = path: callPackage path { };
       |         ^
     10|   in
 
 … from call site
-
   at ./nix/nur.nix:9:15:
-
      8|     inherit (self) callPackage;
      9|     p = path: callPackage path { };
       |               ^
     10|   in
 
 … while calling anonymous lambda
-
   at <nixpkgs> + /lib/customisation.nix:307:19:
-
    306|     in
    307|     autoArgs: fn: args:
       |                   ^
    308|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:329:7:
+   328|       # which is especially relevant with allowAliases = false
+   329|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   330|
 
 error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "flake" at ./nix/pkgs/custom/neovim/default.nix:3, did you mean "flare", "blaze" or "bmake"?'
