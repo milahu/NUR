@@ -531,11 +531,13 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
                 # timeout due to temporary overload?
                 # https://github.com/magit/ghub/issues/83
                 dt = random.randint(5, 30)
+                dt = 5
                 logger.error(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed with '502 Bad Gateway'. retrying in {dt} seconds")
                 await asyncio.sleep(dt)
                 continue # retry
             if "<p><strong>We couldn't respond to your request in time.</strong></p>" in response.text:
                 dt = random.randint(5, 30)
+                dt = 5
                 logger.error(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed with timeout. retrying in {dt} seconds")
                 await asyncio.sleep(dt)
                 continue # retry
