@@ -545,7 +545,14 @@ async def update_version_github_repos(repos, aiohttp_session, filter_repos_fn):
         t2 = time.time()
         dt = t2 - t1
         logger.info(f"Github GraphQL query {query_idx} done in {dt:.2} seconds")
-        data = response.json()
+        try:
+            data = response.json()
+        except requests.exceptions.JSONDecodeError as exc:
+            # the graphql API can return an empty string
+            # which is invalid JSON
+            logger.error(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed. response.text: {response.text}")
+            logger.error(f"Github GraphQL query {query_idx} ({len(query_str)} bytes) failed at try {retry_idx}: {type(exc).__name__}: {exc} -> retrying")
+            continue # retry
         if response.status_code != 200:
             logger.error(f'Github GraphQL query {query_idx} ({len(query_str)} bytes) failed with HTTP status {response.status_code}: {data} -> falling back to update_version_git_repos')
             await update_version_git_repos(repos, aiohttp_session, filter_repos_fn)
