@@ -263,12 +263,15 @@ def create_issue(
     # TODO set notify-on-eval-errors in upstream repos.json
     repos_json_url = "https://github.com/nix-community/NUR/blob/main/repos.json"
     repos_json_url = "https://github.com/milahu/NUR/blob/nur-repos-notify-on-eval-errors/repos-notify-on-eval-errors.json"
+    eval_repo_sh_url = "https://github.com/milahu/NUR/blob/nur-packages-template/scripts/eval-repo.sh"
     body_parts += [
         'you are receiving this notification because you have set',
         '`notify-on-eval-errors="github-issues"`',
         f'for your repo in in [NUR/repos.json]({repos_json_url})',
         '',
         'i will close this issue when eval of your repo works again',
+        '',
+        f'hint: you can eval your repo locally with [eval-repo.sh]({eval_repo_sh_url})',
     ]
 
     issue_body = "\n".join(body_parts)
