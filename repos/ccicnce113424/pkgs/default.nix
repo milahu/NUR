@@ -28,6 +28,12 @@ lib.makeScope pkgs.newScope (self: {
     sourceRoot = "x64";
   };
 
+  enimul = self.callPackage ./enimul rec {
+    inherit (lib.importJSON ./enimul/src-info.json) hash;
+    sources = fetchedSrc.enimul;
+    version = stableVersion sources;
+  };
+
   fxz =
     let
       sources = fetchedSrc.fxz;
@@ -84,12 +90,6 @@ lib.makeScope pkgs.newScope (self: {
     srcInfo = lib.importJSON ./loveiwara/src-info.json;
   };
 
-  lumine = self.callPackage ./lumine rec {
-    inherit (lib.importJSON ./lumine/src-info.json) hash;
-    sources = fetchedSrc.lumine;
-    version = unstableVersion sources 0;
-  };
-
   lxgw-wenkai-gb = self.callPackage ./lxgw-wenkai-gb rec {
     sources = fetchedSrc.lxgw-wenkai-gb;
     version = stableVersion sources;
@@ -132,6 +132,27 @@ lib.makeScope pkgs.newScope (self: {
     sources = fetchedSrc.pwasio;
     version = unstableVersion sources 0;
   };
+
+  scx_flow = pkgs.scx.rustscheds.overrideAttrs (
+    final: _prev: {
+      pname = "scx_flow";
+      version = "3.0.2";
+      src = pkgs.fetchFromGitHub {
+        owner = "galpt";
+        repo = "scx";
+        rev = "scx_flow-v3.0.2";
+        hash = "sha256-NEzYl+FGY7JqEvPnXBFfVPsaCKejBoGNdF46OrCHbnQ=";
+      };
+      cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+        inherit (final)
+          pname
+          version
+          src
+          ;
+        hash = "sha256-3GD+9KJpst4Muiat5/XccA4oqWG4/S2eDNMTQjXk8Bg=";
+      };
+    }
+  );
 
   shijima-qt = self.callPackage ./shijima-qt { };
 
