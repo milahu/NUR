@@ -310,7 +310,10 @@ def create_issue(
         # color: #d93f0b = lightred = same color as the default "bug" label
         # https://github.com/milahu/NUR/issues/labels
         issue_labels = ["eval-error"]
-        issue_assignees = [github_contact]
+        # no. github api error 422
+        # error: Validation Failed. assignees {github_contact} cannot be assigned to this issue
+        # documentation_url: https://docs.github.com/rest/issues/issues#create-an-issue
+        # issue_assignees = [github_contact]
 
     logger.info(f"Creating issue {issue_title!r} in https://github.com/{owner_repo}/issues")
 
