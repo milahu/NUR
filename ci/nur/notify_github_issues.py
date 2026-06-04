@@ -83,6 +83,33 @@ def load_json(path: Path) -> Dict:
         return json.load(f)
 
 
+def get_github_repo_data(repo: "Repo") -> None:
+    if not hasattr(repo, "_github_owner_repo"):
+        repo._github_owner, repo._github_repo = repo.url.path.split("/", 3)[1:3]
+        repo._github_owner_repo = f"{repo._github_owner}/{repo._github_repo}"
+    return github_api_request(
+        "GET",
+        f"/repos/{repo._github_owner_repo}",
+    )
+
+
+def get_is_github_repo(repo: "Repo") -> None:
+    """
+    return True if repo is a github repo
+    and we can create new issues
+    """
+    if repo.url.hostname != "github.com":
+        return False
+    if not hasattr(repo, "_github_repo_data"):
+        repo._github_repo_data = get_github_repo_data(repo)
+    if repo._github_repo_data.get("archived") == True:
+        return False
+    if repo._github_repo_data.get("has_issues") == False:
+        return False
+    # else: create an issue in the user repo
+    return True
+
+
 def get_existing_issues(
     repo: "Repo",
 ) -> List[Dict]:
@@ -90,61 +117,34 @@ def get_existing_issues(
     Return open github issues matching:
         "error"
         "repo {repo.name}: error"
-
-    Set repo._is_github_repo:
-        if we succeed fetching issues from the user repo
-        then set: repo._is_github_repo = True
-        if we fail fetching issues from the user repo
-        then set: repo._is_github_repo = False
     """
+    if repo._is_github_repo:
+        # get issues from the user repo
+        owner_repo = repo._github_owner_repo
+        title_prefix = "error"
+        is_user_repo = True
+    else:
+        # get issues from the NUR repo
+        owner_repo = nur_github_owner_repo
+        title_prefix = f"repo {repo.name}: error"
+        is_user_repo = False
 
-    jobs = []
-    # None = maybe True, maybe False
-    if repo._is_github_repo in (True, None):
-        jobs.append(dict(
-            owner_repo = repo._github_owner_repo,
-            title_prefix = "error",
-            is_user_repo = True,
-        ))
-    jobs.append(dict(
-        owner_repo = nur_github_owner_repo,
-        title_prefix = f"repo {repo.name}: error",
-        is_user_repo = False,
-    ))
-
-    title_prefix = None
-    for job in jobs:
-        # FIXME use a graphQL query to batch multiple requests
-        owner_repo = job["owner_repo"]
-        title_prefix = job["title_prefix"]
-        try:
-            # TODO does this throw when user repo issues are disabled
-            # https://docs.github.com/en/rest/issues/issues?apiVersion=2026-03-10#list-repository-issues
-            # List repository issues
-            issues = github_api_request(
-                "GET",
-                f"/repos/{owner_repo}/issues",
-                params={
-                    "state": "open",
-                    "creator": github_issues_bot_username,
-                    "per_page": 100,
-                    # "sort": "created", # default
-                    # "sort": "updated",
-                    # "direction": "desc", # default
-                    # "direction": "asc",
-                },
-            )
-            if job["is_user_repo"]:
-                # user repo issues are enabled
-                # use user repo issues in future requests
-                repo._is_github_repo = True
-            break
-        except Exception as exc:
-            logger.error(f"{repo.name}: failed to get issues: {type(exc).__name__}: {exc}")
-            if job["is_user_repo"]:
-                # user repo issues are disabled
-                # dont try to use user repo issues in future requests
-                repo._is_github_repo = False
+    # FIXME use a graphQL query to batch multiple requests
+    # https://docs.github.com/en/rest/issues/issues?apiVersion=2026-03-10#list-repository-issues
+    # List repository issues
+    issues = github_api_request(
+        "GET",
+        f"/repos/{owner_repo}/issues",
+        params={
+            "state": "open",
+            "creator": github_issues_bot_username,
+            "per_page": 100,
+            # "sort": "created", # default
+            # "sort": "updated",
+            # "direction": "desc", # default
+            # "direction": "asc",
+        },
+    )
 
     matching_issues = []
     for issue in issues:
@@ -297,7 +297,6 @@ def create_issue(
     # Assignees are silently dropped otherwise.
     issue_assignees = []
 
-    # repo._is_github_repo has been verified by get_existing_issues
     if repo._is_github_repo:
         # create an issue in the user repo
         owner_repo = repo._github_owner_repo
@@ -398,7 +397,6 @@ MAX_TITLE_LEN = 256
 def issue_title_of_repo(repo, add_rev=True):
     prefix = "error"
 
-    # repo._is_github_repo has been verified by get_existing_issues
     if not repo._is_github_repo:
         # create an issue in the NUR repo
         # add prefix to the issue title
@@ -506,10 +504,9 @@ def update_eval_error_github_issues(
             # this can fail if the user repo's issues are disabled
             # so we fallback to the NUR repo
             # TODO try to use gitea issues
-            # we will set repo._is_github_repo later in get_existing_issues
-            repo._is_github_repo = None # maybe True, maybe False
             repo._github_owner, repo._github_repo = repo.url.path.split("/", 3)[1:3]
             repo._github_owner_repo = f"{repo._github_owner}/{repo._github_repo}"
+            repo._is_github_repo = get_is_github_repo(repo)
         else:
             # create an issue in the NUR repo
             repo._is_github_repo = False
