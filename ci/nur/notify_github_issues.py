@@ -349,6 +349,13 @@ def close_issue(
 ) -> None:
     logger.info(f"Closing issue {issue['html_url']}")
 
+    # no. "close with comment" sends 2 notification emails:
+    # 1. comment: "..."
+    # 2. close issue: "Closed #123 as completed."
+    # so a less noisy alternative would be
+    # to amend our last comment with something like
+    # "\n\n---\n\n" + f"edit: eval is working again at {rev_url} &rarr; closing"
+    #
     # TODO close with comment?
     # f"works to eval at {rev_url} &rarr; closing"
     # f"working eval at {rev_url} &rarr; closing"
