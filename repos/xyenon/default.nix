@@ -83,12 +83,6 @@ rec {
   };
   lsp-ai = callPackage ./pkgs/lsp-ai { };
   zsh-smart-suggestion = callPackage ./pkgs/zsh-smart-suggestion { };
-  hat-trie = callPackage ./pkgs/hat-trie { };
-  kvrocks = callPackage ./pkgs/kvrocks { inherit hat-trie; };
-  kvrocksTestHook = callPackage ./pkgs/kvrocksTestHook { inherit kvrocks; };
-  prometheus-kvrocks-exporter = callPackage ./pkgs/prometheus-kvrocks-exporter {
-    inherit kvrocksTestHook;
-  };
   nh-unwrapped = callPackage ./pkgs/nh-unwrapped {
     inherit (pkgs) nh-unwrapped;
     source = sources.nh;
@@ -96,5 +90,5 @@ rec {
   waypipe-darwin = callPackage ./pkgs/waypipe-darwin { };
   cocoa-way = callPackage ./pkgs/cocoa-way { inherit waypipe-darwin; };
   xurl = callPackage ./pkgs/xurl { };
-  attic-client = callPackage ./pkgs/attic { };
+  attic-client = callPackage ./pkgs/attic { inherit (pkgs) attic-client; };
 }
