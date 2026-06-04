@@ -393,9 +393,9 @@
         icon = "sh-ollama";
       };
       odysseus = {
-        port = 7000;
+        port = 7070;
         subdomain = "ody";
-        category = "Nas";
+        category = "MacMini";
         displayName = "Odysseus";
         description = "AI Assistant";
         icon = "sh-odysseus";

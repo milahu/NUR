@@ -28,6 +28,7 @@
     darwin.bash.enable = true;
     darwin.terminfo.enable = true;
     gui.enable = true;
+    system.enable = true;
     dev.enable = true;
   };
   userPresets.toyvo.enable = true;
@@ -54,7 +55,7 @@
     };
     odysseus = {
       enable = true;
-      port = homelab.${config.networking.hostName}.services.odysseus.port;
+      port = homelab.MacMini-M1.services.odysseus.port;
     };
   };
 }
