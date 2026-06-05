@@ -1,19 +1,19 @@
 {
 "name":"ihaveamac",
-"fetch_time":1.052,
-"eval_time":2.595,
+"fetch_time":0.464,
+"eval_time":2.621,
 "source":{
 "url":"https://github.com/ihaveamac/nur-packages",
-"rev":"33fffc0a25a42a280b5b0f65434f3c8b3c9d4d27",
-"sha256":"0rldbzkv4ms42p4kp2va1dkn2q5ahfd2pjly9l86rh37vmzhajy3",
+"rev":"166e63ddf5a87921b56cf8af92539de9bbf4c708",
+"sha256":"066q1vxm13jgpgd6hq1cw209c0ifiwx0yhvz3y7n6c8vqfv24985",
 "date":null
 },
-"source_storepath":"/nix/store/sfkqaqysgz2lbwapgk69nk0zi2x9gq7f-source",
-"nixpkgs_storepath":"/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source",
-"nur_combined_rev":"dedbe401c65ea7f8d61a78b4d914d01965f0d9e1",
+"source_storepath":"/nix/store/0fl26zc7agji2zdvncf5i3q3nf3lgs0a-source",
+"nixpkgs_storepath":"/nix/store/sixfvygd759vgqlj2dab825dldzzqp9s-source",
+"nur_combined_rev":"f8a1f73e1507fc8f59a3bfb6497fbcf0c67eb300",
 "packages":{
 "_3beans":{
-"drvPath":"/nix/store/jcfacyvvwy2f1azkdjayarx81j9bjs2z-3beans-release-unstable-2026-06-04.drv",
+"drvPath":"/nix/store/8b0bmrzb9i4pailj43zysa9ryx6wd5z4-3beans-release-unstable-2026-06-04.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -148,7 +148,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/3beans/package.nix:77",
+"position":"./pkgs/3beans/package.nix:64",
 "unfree":false,
 "unsupported":false
 },
@@ -686,7 +686,7 @@
 "version":"1.3"
 },
 "azahar-master":{
-"drvPath":"/nix/store/7im697kz323fkdjar1a4djrc8m82262j-azahar-2126.0-alpha1-unstable-2026-05-30.drv",
+"drvPath":"/nix/store/lr3yj2ycr75xqdc4hf286rjpsrapd033-azahar-2126.0-alpha1-unstable-2026-06-04.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -748,10 +748,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/nibawvqjrdqsn4cgchkavrh0gx5s0f9w-source/pkgs/by-name/az/azahar/package.nix",
+"file":"/nix/store/sixfvygd759vgqlj2dab825dldzzqp9s-source/pkgs/by-name/az/azahar/package.nix",
 "line":191
 },
-"name":"azahar-2126.0-alpha1-unstable-2026-05-30",
+"name":"azahar-2126.0-alpha1-unstable-2026-06-04",
 "nonTeamMaintainers":[
 {
 "email":"marcin@serwin.dev",
@@ -800,14 +800,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"azahar-2126.0-alpha1-unstable-2026-05-30",
+"name":"azahar-2126.0-alpha1-unstable-2026-06-04",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"azahar",
 "system":"x86_64-linux",
-"version":"2126.0-alpha1-unstable-2026-05-30"
+"version":"2126.0-alpha1-unstable-2026-06-04"
 },
 "bannertool":{
 "drvPath":"/nix/store/jlcg10qzxbl47bkynkr1haijar18fjgj-bannertool-2024-11-30.drv",
@@ -5471,6 +5471,12 @@
 "name":"Silvan Mosberger"
 },
 {
+"email":"andreas@rammhold.de",
+"github":"andir",
+"githubId":638836,
+"name":"Andreas Rammhold"
+},
+{
 "email":"pyrox@pyrox.dev",
 "github":"pyrox0",
 "githubId":35778371,
@@ -5485,7 +5491,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/sfkqaqysgz2lbwapgk69nk0zi2x9gq7f-source/pkgs/rsync-3.4.1/default.nix",
+"file":"/nix/store/0fl26zc7agji2zdvncf5i3q3nf3lgs0a-source/pkgs/rsync-3.4.1/default.nix",
 "line":92
 },
 "name":"rsync-3.4.1",
@@ -5586,6 +5592,12 @@
 "name":"Silvan Mosberger"
 },
 {
+"email":"andreas@rammhold.de",
+"github":"andir",
+"githubId":638836,
+"name":"Andreas Rammhold"
+},
+{
 "email":"pyrox@pyrox.dev",
 "github":"pyrox0",
 "githubId":35778371,
@@ -5604,7 +5616,7 @@
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/sfkqaqysgz2lbwapgk69nk0zi2x9gq7f-source/pkgs/rsync-3.4.1/default.nix",
+"file":"/nix/store/0fl26zc7agji2zdvncf5i3q3nf3lgs0a-source/pkgs/rsync-3.4.1/default.nix",
 "line":94
 },
 "unfree":false,
@@ -5878,6 +5890,12 @@
 "name":"Silvan Mosberger"
 },
 {
+"email":"andreas@rammhold.de",
+"github":"andir",
+"githubId":638836,
+"name":"Andreas Rammhold"
+},
+{
 "email":"pyrox@pyrox.dev",
 "github":"pyrox0",
 "githubId":35778371,
@@ -5892,7 +5910,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/sfkqaqysgz2lbwapgk69nk0zi2x9gq7f-source/pkgs/rsync-3.4.1/default.nix",
+"file":"/nix/store/0fl26zc7agji2zdvncf5i3q3nf3lgs0a-source/pkgs/rsync-3.4.1/default.nix",
 "line":92
 },
 "name":"rsync-3.4.1",
@@ -5993,6 +6011,12 @@
 "name":"Silvan Mosberger"
 },
 {
+"email":"andreas@rammhold.de",
+"github":"andir",
+"githubId":638836,
+"name":"Andreas Rammhold"
+},
+{
 "email":"pyrox@pyrox.dev",
 "github":"pyrox0",
 "githubId":35778371,
@@ -6011,7 +6035,7 @@
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/sfkqaqysgz2lbwapgk69nk0zi2x9gq7f-source/pkgs/rsync-3.4.1/default.nix",
+"file":"/nix/store/0fl26zc7agji2zdvncf5i3q3nf3lgs0a-source/pkgs/rsync-3.4.1/default.nix",
 "line":94
 },
 "unfree":false,
@@ -7193,7 +7217,7 @@
 "version":"1.7.1"
 },
 "vanilla":{
-"drvPath":"/nix/store/rp2yccybgylpn4swy55cndjz3kv787w6-vanilla-continuous-unstable-2026-05-14.drv",
+"drvPath":"/nix/store/pava9nv9njkrp87kdld2981ygdshcj6a-vanilla-continuous-unstable-2026-06-04.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7241,7 +7265,7 @@
 },
 "mainProgram":"vanilla",
 "maintainers":[],
-"name":"vanilla-continuous-unstable-2026-05-14",
+"name":"vanilla-continuous-unstable-2026-06-04",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -7276,7 +7300,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"vanilla-continuous-unstable-2026-05-14",
+"name":"vanilla-continuous-unstable-2026-06-04",
 "outputName":"out",
 "outputs":{
 "out":null,
@@ -7284,7 +7308,7 @@
 },
 "pname":"vanilla-continuous-unstable",
 "system":"x86_64-linux",
-"version":"2026-05-14"
+"version":"2026-06-04"
 },
 "wfs-tools":{
 "drvPath":"/nix/store/w3di1q1kk13cknd9wxp7jhslj0wc58pj-wfs-tools-1.2.3-unstable-2025-03-19.drv",
