@@ -249,10 +249,11 @@ def create_issue(
     body_parts = []
 
     rev = repo.eval_error_version.rev
+    rev_short = rev[:7]
     rev_url = f"{repo.url.geturl()}/commit/{rev}"
 
     body_parts += [
-        f"your repo fails to eval at {rev_url}",
+        f"your repo fails to eval at [{rev_short}]({rev_url})",
     ]
 
     if body_parts:
@@ -661,8 +662,9 @@ def ensure_rev_comment(
                 # <div id="start-of-content" class="show-on-focus"></div>
                 old_error_url = issue["html_url"] + "#start-of-content"
 
+    rev_short = rev[:7]
     rev_url = f"{repo.url.geturl()}/commit/{rev}"
-    comment_body = f"still fails to eval at {rev_url}"
+    comment_body = f"still fails to eval at [{rev_short}]({rev_url})"
 
     if old_error_url:
         # add link to old error
