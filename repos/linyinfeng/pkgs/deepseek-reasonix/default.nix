@@ -3,17 +3,16 @@
   fetchFromGitHub,
   lib,
   nix-update-script,
-  wails,
 }:
 
 buildGoModule rec {
-  pname = "reasonix";
-  version = "1.1.0";
+  pname = "deepseek-reasonix";
+  version = "1.2.0";
   src = fetchFromGitHub {
     owner = "esengine";
     repo = "DeepSeek-Reasonix";
     rev = "v${version}";
-    sha256 = "sha256-fRFqlXGAUcnB0zumwtr7NNzfHVdFu679n9J4ki7Yk3I=";
+    sha256 = "sha256-UHVHiCPbY6+JGwYRabAEsT1fLj0cumeyr4clGWkwlXM=";
   };
 
   vendorHash = "sha256-ObDfNr9Olc6mFfIYx3yb4UxesZD+HXzN7mjxr/iT2p4=";
