@@ -3,9 +3,6 @@ let
   saneCfg = config.sane;
   cfg = config.sane.programs;
 
-  makeSandboxArgs = pkgs.callPackage ./make-sandbox-args.nix { };
-  makeSandboxed = pkgs.callPackage ./make-sandboxed.nix { };
-
   # create a map:
   # {
   #   "${pkgName}" = {
@@ -57,6 +54,8 @@ let
           ++ lib.optionals (gsettingsPersist != [] && config.sane.programs.gsettings.enabled) [
             # the actual persistence happens in sane.programs.gsettings
             ".config/glib-2.0/settings"
+          ] ++ lib.optionals ((sandbox.whitelistWayland || sandbox.whitelistX) && config.sane.programs.sane-theme.enabled) [
+            ".config/gtk-4.0/settings.ini"
           ];
           # XXX: don't support dconf persisting until/unless i want to, since the dbus integration is icky
           # ++ lib.optionals (gsettingsPersist != [] && config.sane.programs.dconf.enabled) [
@@ -82,18 +81,21 @@ let
           "/var/run/dbus/system_bus_socket"  #< XXX: use /var/run/..., for the rare program which requires that (i.e. avahi users)
         ] ++ sandbox.extraPaths
         ;
-
-        sandboxArgs = makeSandboxArgs {
+      in
+        pkgs.makeSandboxed {
+          inherit pkgName package;
           inherit (sandbox)
             autodetectCliPaths
             capabilities
+            embedSandboxer
             extraConfig
             extraEnv
             keepIpc
             keepPids
-            tryKeepUsers
             method
+            tryKeepUsers
             whitelistPwd
+            wrapperType
           ;
           netDev = if vpn != null then
             vpn.name
@@ -117,15 +119,6 @@ let
           allowedPaths = lib.unique allowedPaths;
           allowedHomePaths = lib.unique allowedHomePaths;
           allowedRunPaths = lib.unique allowedRunPaths;
-        };
-      in
-        makeSandboxed {
-          inherit pkgName package;
-          inherit (sandbox)
-            embedSandboxer
-            wrapperType
-          ;
-          extraSandboxerArgs = sandboxArgs;
         }
   );
   pkgSpec = with lib; types.submodule ({ config, name, ... }: {
@@ -250,7 +243,7 @@ let
         default = {};
         description = ''
           map of regex -> command.
-          e.g. "^https?://(www.)?youtube.com/watch\?.*v=" = "mpv %U"
+          e.g. "^https?://(www.)?youtube.com/watch\\?.*v=" = "mpv %U"
         '';
       };
       persist = mkOption {
@@ -735,7 +728,7 @@ let
     in {
       enableFor.system = mkWeakDefault defaultEnables."${name}".system;
       enableFor.user = mkWeakDefault defaultEnables."${name}".user;
-      enabled = (config.enableFor.system || enabledForUser) && passesSlowTest;
+      enabled = passesSlowTest && (config.enableFor.system || enabledForUser);
       package = if config.packageUnwrapped == null then
         null
       else
@@ -976,9 +969,9 @@ let
       }
       {
         assertion = p.sandbox.net == "all" || p.sandbox.method != null || !p.enabled || p.package == null || config.sane.sandbox.strict != "assert";
-        message = ''program "${name}" requests net "${builtins.toString p.sandbox.net}", which requires sandboxing, but sandboxing wasn't configured'';
+        message = ''program "${name}" requests net "${toString p.sandbox.net}", which requires sandboxing, but sandboxing wasn't configured'';
       }
-    ] ++ builtins.map (sug: {
+    ] ++ map (sug: {
       assertion = cfg ? "${sug}";
       message = ''program "${sug}" referenced by "${name}", but not defined'';
     }) p.suggestedPrograms;
@@ -999,12 +992,12 @@ let
     };
 
     # conditionally add to user(s) PATH
-    users.users = lib.mapAttrs (userName: en: {
-      packages = lib.mkIf (p.package != null && en && p.enabled) [ p.package ];
+    users.users = lib.mapAttrs (userName: enableForUser: {
+      packages = lib.mkIf (p.enabled && enableForUser && p.package != null) [ p.package ];
     }) p.enableFor.user;
 
     # conditionally persist relevant user dirs and create files
-    sane.users = lib.mapAttrs (user: en: lib.mkIf (en && p.enabled) {
+    sane.users = lib.mapAttrs (user: enableForUser: lib.mkIf (p.enabled && enableForUser) {
       inherit (p) services;
       environment = lib.mapAttrs (k: v: lib.mkOverride p.mime.priority v) p.env;
       fs = lib.mkMerge [
@@ -1052,7 +1045,7 @@ let
 
     # make secrets available for each user
     sops.secrets = lib.concatMapAttrs
-      (user: en: lib.mkIf (en && p.enabled) (
+      (user: enableForUser: lib.mkIf (p.enabled && enableForUser) (
         lib.mapAttrs'
           (homePath: src: {
             # TODO: use the user's *actual* home directory, don't guess.

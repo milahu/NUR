@@ -7,6 +7,7 @@
   lib,
   linuxPackages,
   mpvScripts,
+  vimPlugins,
   newScope,
 #--- optionals, if you want to support cross compilation ---
   pkgsBuildBuild ? {},
@@ -49,13 +50,15 @@ lib.recurseIntoAttrs (
 
       mpvScripts =
       let
-        mpvScriptsAll = mpvScripts.overrideScope (mpvFinal: _mpvPrev:
-          sane.mpvScripts.packages mpvScriptsAll
+        mpvScriptsAll = mpvScripts.overrideScope (mpvScriptsFinal: _mpvScriptsPrev:
+          sane.mpvScripts.packages mpvScriptsFinal
         );
       in
-        sane.mpvScripts.overrideScope (_mpvFinal: _mpvPrev:
+        sane.mpvScripts.overrideScope (_mpvScriptsFinal: _mpvScriptsPrev:
           sane.mpvScripts.packages mpvScriptsAll
         );
+
+      # vimPlugins = ...  # XXX(2026-04-20): not needed because nixpkgs `vimPlugins` is an attrset, not a scope
     }
   )
 )

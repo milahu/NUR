@@ -1,5 +1,7 @@
 # track PRs on their way to master: <https://nixpk.gs/pr-tracker.htm>
-{ vendorPatch }:
+{
+  vendorPatch,
+}:
 let
   maybePatchNames = map
     (name: builtins.match "(.*)\\.patch" name)
@@ -16,3 +18,7 @@ in
       })
       patchNames
   )
+  //
+  {
+    recurseForDerivations = true;
+  }

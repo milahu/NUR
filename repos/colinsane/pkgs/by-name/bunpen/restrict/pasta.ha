@@ -165,7 +165,7 @@ fn attach_pasta(net: resources::net_subset, netns_fd: io::file, notify_fd: io::f
     "--foreground",
   ];
 
-  log::printfln("[namespace/pasta]: invoking pasta: {}", strings::join(" ", pasta_args...));
+  log::printfln("[namespace/pasta]: invoking pasta: {}", strings::join(" ", pasta_args...)!);
   return rt::ext::execvpe_or_default(
     config::PASTA,
     "pasta",
@@ -182,7 +182,7 @@ fn config_routing_in_ns(net: resources::net_subset) (void | os::exec::error | rt
   errors::ext::swallow("[namespace/pasta] raise CAP_NET_ADMIN to configure interface", rt::ext::cap_ambient_raise(rt::ext::cap::NET_ADMIN));
 
   // forward dns to the desired endpoint
-  let dnsdest = fmt::asprintf("{}:53", net.dns);
+  let dnsdest = fmt::asprintf("{}:53", net.dns)!;
   defer free(dnsdest);
   let rc = ps::shellvpe_or_default(
     config::IPTABLES,

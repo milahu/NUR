@@ -25,6 +25,10 @@
   - not great because things like `bitmagnet` expose unprotected admin APIs by default!
 
 ## REFACTORING:
+- hoist `updateTargets`/etc out of `default.nix`
+  - this can be an "ordinary" package which crawls the `sane` packageset.
+- implement some easy way to check that all `sane` packages build.
+  - generalize `scripts/check-*` into some `./scripts/check $attrPath`, ala `scripts/update $attrPath`?
 - fold hosts/modules/ into toplevel modules/
 - consolidate ~/dev and ~/ref
   - ~/dev becomes a link to ~/ref/cat/mine
@@ -64,8 +68,10 @@
 
 ## IMPROVEMENTS:
 - adopt `treefmt` for this repo (formats nix, markdown, etc)
-- nix: add a `post-build-hook` (`man nix.conf`) to add *every* built derivation as a gc root (or profile);
-  - then i can gc based on build date
+- nix: auto-gc roots _based on age_
+  - <https://github.com/linyinfeng/angrr>
+  - or: add a `post-build-hook` (`man nix.conf`) to add *every* built derivation as a gc root (or profile);
+    - then i can gc based on build date
 - sane-deadlines: show day of the week for upcoming items
   - and only show on "first" terminal opened; not on Ctrl+N terminals
 - curlftpfs: replace with something better
@@ -77,14 +83,18 @@
   - `network.protocol-handler.external.https = true` in about:config *seems* to do this,
     but breaks some webpages (e.g. Pleroma)
 - migrate firefox -> epiphany, *everywhere*
-- associate http(s)://*.pdf with my pdf handler
+- associate `http(s)://*.pdf` with my pdf handler
   - can't do that because lots of applications don't handle URIs
   - could workaround using a wrapper that downloads the file and then passes it to the program
 - geary: replace with envelope
 - gnome calls: implement dialpad for SIP accounts (DTMF): <https://gitlab.gnome.org/GNOME/calls/-/issues/715>
+- port diff activationScript to dix
+  - <https://github.com/faukah/dix>
+- replace `templates/` dir with `nix-init`
+  - <https://github.com/nix-community/nix-init>
+- enable `optnix` as a better `man configuration.nix`
+  - <https://git.sr.ht/~watersucks/optnix>
 - use `pkgsStatic` or `pkgsCross.musl64` where applicable, for much improved perf?
-- losslesscut: replace with a from-source build
-  - <https://github.com/NixOS/nixpkgs/pull/385535>
 
 ### security/resilience
 - /mnt/desko/home, etc, shouldn't include secrets (~/private)
@@ -162,6 +172,7 @@
   - starship-sf64 (i.e. starfox 64), via <https://github.com/NixOS/nixpkgs/pull/395865> and <https://github.com/PIBSAS/Nintendo64/blob/master/Star%20Fox%2064%20(USA)%20(Rev%201).z64>
 - sane-sync-music: remove empty dirs
 - soulseek: install a CLI app usable over ssh
+  - e.g. `slsk-batchdl`
 - moby: replace `spot` with its replacement, `riff` (<https://github.com/Diegovsky/riff>)
 - port wg-home -> TCP connection
   - then reactivate moby WoWLAN?

@@ -12,20 +12,26 @@
 {
   writeSymlinkFile = {
     contents,
+    path ? "",  # relative to $out
     # name ? "${pname}-${version}",
     # pname, version
     ...
   }@args: runCommandLocalOverridable' (args // {
     inherit contents;
-    command = ''
+    command = if path == "" then ''
       ln -s $contents $out
+    '' else ''
+      outPath=$out/$path
+      mkdir -p $(dirname $outPath)
+      ln -s $contents $outPath
     '';
+  } // lib.optionalAttrs (!(args ? name || args ? pname || args ? version)) {
+    name = if path != "" then path else contents;
   });
 
   # create a symlink from /nix/store/<hash>-${contents} -> ${contents}
   writeSymlink = contents: writeSymlinkFile {
     inherit contents;
-    name = contents;
   };
 
   # like `runCommandLocal`, but can be `.overrideAttrs` and supports standard phases/hooks like `postBuild`, etc.

@@ -392,7 +392,7 @@ in
         '')
       ]
       ++
-      lib.optionals config.boot.loader.systemd-boot.enable ([
+      lib.optionals config.boot.loader.systemd-boot.enable [
         pkgs.bootpart-systemd-boot
         # it'd be cool to use `config.system.build.installBootLoader` to install both the bootloader config AND the bootloader itself,
         # but the combination of custom nixpkgs logic + systemd's sanity checking makes it near impossible to use
@@ -441,7 +441,7 @@ in
             console-mode keep
           EOF
         '')
-      ])
+      ]
     ;
   };
 }

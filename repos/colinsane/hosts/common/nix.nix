@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+  nix.checkConfig = false;  #< don't error the build if we specify unknown settings; nix/lix handles those gracefully at runtime.
   nix.settings = {
     # see: `man nix.conf`
 
@@ -20,6 +21,12 @@
     # whether to build from source when binary substitution fails
     fallback = true;  # default: false
 
+    # give me `nix-build` style output in the repl, please (lix 2.95+)
+    # log-format: `raw-with-logs` = nix-build default style.
+    # log-format: `bar` = `nix repl` default style.
+    # log-format: `multiline-with-logs` is like `bar-with-logs`, but splits the status across multiple lines (`[A/B/C built]` / `Building ${pname} ${phase}`)
+    log-format = "bar-with-logs";
+
     # whether to keep building dependencies if any other one fails
     keep-going = true;  # default: false
 
@@ -29,7 +36,7 @@
     # how many lines to show from failed build
     log-lines = 30;  # default: 10
 
-    max-connect-timeout = 20;  # default 300; in seconds.
+    # max-connect-timeout = 20;  # default 300; in seconds.
 
     # how many substitution downloads to perform in parallel.
     # i wonder if parallelism is causing moby's substitutions to fail?

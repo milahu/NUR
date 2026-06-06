@@ -708,6 +708,11 @@ static const struct of_device_id rk818_charger_of_match[] = {
 	{ },
 };
 
+// this makes the module loadable on first use of `compatible = "rockchip,rk818-charger" in dtb.
+// it adds the following to `modules.alias`:
+// > alias of:N*T*Crockchip,rk818-charger rk818_charger
+MODULE_DEVICE_TABLE(of, rk818_charger_of_match);
+
 static struct platform_driver rk818_charger_driver = {
 	.probe = rk818_charger_probe,
 	.remove = rk818_charger_remove,

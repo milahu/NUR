@@ -5,14 +5,14 @@
   wrapFirefoxAddonsHook,
   zip,
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "passff";
   version = "1.23";
   src = fetchFromGitea {
     domain = "codeberg.org";
     owner = "PassFF";
     repo = "passff";
-    rev = version;
+    rev = finalAttrs.version;
     hash = "sha256-CQD9QOCV0uZDPVtrT1QQgF65ghXh1BxkUy3diuuI0ng=";
   };
 
@@ -22,7 +22,7 @@ stdenvNoCC.mkDerivation rec {
   ];
 
   makeFlags = [
-    "VERSION=${version}"
+    "VERSION=${finalAttrs.version}"
   ];
 
   installPhase = ''
@@ -35,4 +35,4 @@ stdenvNoCC.mkDerivation rec {
   extid = "passff@invicem.pro";
 
   passthru.updateScript = gitUpdater { };
-}
+})

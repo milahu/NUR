@@ -41,7 +41,7 @@
 
 let
   cfg = config.sane.programs.mpv;
-  uosc = pkgs.mpvScripts.uosc.overrideAttrs (upstream: rec {
+  uosc = pkgs.mpvScripts.uosc.overrideAttrs (upstream: {
     # version = "5.2.0-unstable-2024-05-07";
     # src = lib.warnIf (lib.versionOlder "5.2.0" upstream.version) "uosc outdated; remove patch?" pkgs.fetchFromGitHub {
     #   owner = "tomasklaen";
@@ -324,21 +324,21 @@ in
     mime.associations."video/x-flv" = "mpv.desktop";
     mime.associations."video/x-matroska" = "mpv.desktop";
     #v be the opener for YouTube videos
-    mime.urlAssociations."^https?://(m\.)?(www\.)?(music\.)?youtu.be/.+$" = "mpv.desktop";
-    mime.urlAssociations."^https?://(m\.)?(www\.)?(music\.)?youtube.com/embed/.+$" = "mpv.desktop";
-    mime.urlAssociations."^https?://(m\.)?(www\.)?(music\.)?youtube.com/playlist\?.*list=.+$" = "mpv.desktop";
-    mime.urlAssociations."^https?://(m\.)?(www\.)?(music\.)?youtube.com/shorts/.+$" = "mpv.desktop";
-    mime.urlAssociations."^https?://(m\.)?(www\.)?(music\.)?youtube.com/v/.+$" = "mpv.desktop";
-    mime.urlAssociations."^https?://(m\.)?(www\.)?(music\.)?youtube.com/watch\?.*v=.+$" = "mpv.desktop";
-    mime.urlAssociations."^https?://(m\.)?(www\.)?facebook.com/reel/.+$" = "mpv.desktop";
+    mime.urlAssociations."^https?://(m\\.)?(www\\.)?(music\\.)?youtu.be/.+$" = "mpv.desktop";
+    mime.urlAssociations."^https?://(m\\.)?(www\\.)?(music\\.)?youtube.com/embed/.+$" = "mpv.desktop";
+    mime.urlAssociations."^https?://(m\\.)?(www\\.)?(music\\.)?youtube.com/playlist\\?.*list=.+$" = "mpv.desktop";
+    mime.urlAssociations."^https?://(m\\.)?(www\\.)?(music\\.)?youtube.com/shorts/.+$" = "mpv.desktop";
+    mime.urlAssociations."^https?://(m\\.)?(www\\.)?(music\\.)?youtube.com/v/.+$" = "mpv.desktop";
+    mime.urlAssociations."^https?://(m\\.)?(www\\.)?(music\\.)?youtube.com/watch\\?.*v=.+$" = "mpv.desktop";
+    mime.urlAssociations."^https?://(m\\.)?(www\\.)?facebook.com/reel/.+$" = "mpv.desktop";
     #v be the opener for Tiktok
-    mime.urlAssociations."^https?://(www\.)?tiktok.com/@.*/video/.+$" = "mpv.desktop";
+    mime.urlAssociations."^https?://(www\\.)?tiktok.com/@.*/video/.+$" = "mpv.desktop";
     #v be the opener for A/V, generally. useful for e.g. feed readers like News Flash which open content through the portal
     #  also allows right-click -> xdg-open to open embedded videos
-    mime.urlAssociations."^https?://.*\.(mp3|mp4|ogg|ogv|opus|webm)(\\?.*)?$" = "mpv.desktop";
+    mime.urlAssociations."^https?://.*\\.(mp3|mp4|ogg|ogv|opus|webm)(\\?.*)?$" = "mpv.desktop";
     #v Loupe image viewer can't open URIs, so use mpv instead
-    mime.urlAssociations."^https?://i\.imgur.com/.+$" = "mpv.desktop";
-    mime.urlAssociations."^https?://.*\.(gif|heif|jpeg|jpg|png|svg|webp)(\\?.*)?$" = "mpv.desktop";
+    mime.urlAssociations."^https?://i\\.imgur.com/.+$" = "mpv.desktop";
+    mime.urlAssociations."^https?://.*\\.(gif|heif|jpeg|jpg|png|svg|webp)(\\?.*)?$" = "mpv.desktop";
   };
 
   sane.programs.yt-dlp.config = lib.mkIf cfg.enabled {

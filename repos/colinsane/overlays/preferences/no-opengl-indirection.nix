@@ -27,9 +27,22 @@
 #   -> /run/opengl-driver/share/glvnd/egl_vendor.d (satisfied by mesa)
 # - mesa -> vulkan-loader -> /run/opengl-driver/share (satisfied by mesa + ocl-icd)
 #
+# N.B.: the following packages are linked into /run/opengl-driver on a "normal" system:
+# - mesa/{bin,lib,share/drirc.d,share/glvnd,share/vulkan}
+#  - [x] desko
+#  - [x] flowy
+#  - [x] moby
+#  - [ ] servo
+# - ocl-icd/{.info,bin,etc,include,lib,llvm,share/doc,share/hip}
+#  - [x] desko
+#  - [ ] flowy
+#  - [ ] moby
+#  - [ ] servo
+#
 # to find how /run/opengl-driver is propagated at build time...
 # - `rg /run/opengl-driver $nixpkgs`
 # - `rg driverLink $nixpkgs`
+#
 ### non-exhaustive list of users:
 # addDriverRunpath: { driverLink = "/run/opengl-driver"; }
 # brave -> ${addDriverRunpath.driverLink}/share
@@ -62,14 +75,9 @@
 # SO:
 # - build a vulkan-loader from `FAKE_MESA` package set.
 # - build a mesa from `FAKE_MESA` package set.
-# - copy/symlink these into a single derivation (mesa-vulkan-loader) with split outputs.
-# - rewrite the FAKE_MESA references to be real to the real mesa (i.e. placeholder "out").
-# - overlay sets `vulkan-loader = merged.vulkan-loader`, `mesa = merged.mesa`
-# OR:
-# - build a vulkan-loader from `FAKE_MESA` package set.
-# - build a mesa from `FAKE_MESA` package set.
-# 
-# - addDriverRunpath.overrideAttrs { driverLink = FAKE_MESA; }
+# - copy/symlink these into a single derivation (`mesa`-with-inline-vulkan-loader)
+#   - this gets us a cycle-free `mesa` (and a cycle-free vulkan-loader, if we care)
+# - rewrite the FAKE_MESA references to point to this `mesa`-with-inline-vulkan-loader package.
 #
 # mesa functionality can be tested by running:
 # - clinfo
@@ -82,9 +90,7 @@ self: super:
 let
   inherit (self)
     lib
-    replaceDependencies
     runCommand
-    stdenv
     writeSymlink
   ;
 
@@ -165,6 +171,7 @@ in
           self.pkgsBuildBuild.gnused
         ];
         rawAttrs = vulkan-loader-for-inline.inputDerivation;
+        # TODO: remove the set -x & dead code here once i can tolerate a mass-rebuild
       } ''
         set -x
         cp "$rawAttrs" exports
@@ -302,260 +309,3 @@ in
     })
   ]
   self super
-
-#   fakedMesaPkgs = self.extend (self': super': {
-#     # N.B.: the following packages are linked into /run/opengl-driver on a "normal" system:
-#     # - mesa/{bin,lib,share/drirc.d,share/glvnd,share/vulkan}
-#     #  - [x] desko
-#     #  - [x] flowy
-#     #  - [x] moby
-#     #  - [ ] servo
-#     # - ocl-icd/{.info,bin,etc,include,lib,llvm,share/doc,share/hip}
-#     #  - [x] desko
-#     #  - [ ] flowy
-#     #  - [ ] moby
-#     #  - [ ] servo
-#     #
-#     # `addDriverRunpath` is a hook which adds `/run/opengl-driver/lib` to the rpath (as the earliest entry)
-#     # into any libraries (and binaries?) output by whatever derivation includes it.
-#     # TODO: i'd like for it to link both `mesa` and `ocl-icd` (if enabled?), but for now just link mesa.
-#     addDriverRunpath = super.addDriverRunpath.overrideAttrs {
-#       driverLink = writeSymlinkFile {
-#         inherit (super.mesa) pname;
-#         # we need to inherit version so that the store path is the same length,
-#         # however we don't want to actually rebuild this derivation on every mesa change,
-#         # so force version to be all `0` but of the correct length.
-#         version = lib.replaceStrings
-#           [ "0" "1" "2" "3" "4" "5" "7" "8" "9" ]
-#           [ "0" "0" "0" "0" "0" "0" "0" "0" "0" ]
-#           super.mesa.version;
-#         contents = "/run/opengl-driver";
-#       };
-#     };
-#   });
-# in
-# {
-#   mesa = (super.mesa.override {
-#     # mesa adds `vulkan-loader` to gallium's rpath; we can make that act like a no-op:
-#     vulkan-loader = placeholder "out";
-#     # libglvnd = self.emptyDirectory.overrideAttrs {
-#     #   # XXX `libglvnd` is in buildInputs: needs to be a derivation.
-#     #   passthru.driverLink = self.mesa;
-#     # };
-#     libgbm = null;
-#   }).overrideAttrs (upstream: let
-#     # a vulkan-loader with SYSCONFDIR = $out (not yet expanded) instead of /run/opengl-driver
-#     vulkan-loader-inline = (super.vulkan-loader.override {
-#       addDriverRunpath.driverLink = placeholder "out";
-#     }).overrideAttrs {
-#       # mesa builder would fail to source vulkan-loader builder if the two disagreed about structuredAttrs
-#       __structuredAttrs = true;
-#     };
-#     vulkan-loader-inputDerivation = vulkan-loader-inline.inputDerivation;
-#     # vulkan-loader-inputDerivation = lib.extendDerivation true {
-#     #   # inherit (vulkan-loader-inline) outputs;
-#     #   outputs = [ "out" "dev" ];
-#     # } vulkan-loader-inline.inputDerivation;
-#     vulkan-loader-inputs = runCommand "vulkan-loader-inputs" {
-#       nativeBuildInputs = [
-#         self.gnused
-#       ];
-#     } ''
-#       cat ${vulkan-loader-inputDerivation} > exports
-# 
-#       # inherit $out from the caller
-#       sed -i 's:${vulkan-loader-inputDerivation}:$out:g' exports
-#       # inherit ALL outputs of the caller.
-#       # otherwise, vulkan-loader gets built with `out` but no `dev` and fails install (inputDerivation forces to just one output)
-#       sed -i 's:declare -A outputs=.*:declare -A outputs=([out]="$out" [dev]="$dev"):g' exports
-# 
-#       # don't try to set "readonly" variables like BASHOPTS, else it just fails the builder
-#       sed -i 's/declare -r /# declare -r /g' exports
-#       sed -i 's/declare -ar /# declare -ar /g' exports
-#       sed -i 's/declare -ir /# declare -ir /g' exports
-# 
-#       # echo 'set -x' >> exports
-# 
-#       cp exports $out
-#     '';
-#   in {
-#     buildInputs = let
-#       parts = lib.partition (p: p != placeholder "out") upstream.buildInputs;
-#     in
-#       assert
-#         lib.assertMsg (parts.wrong != []) "failed to extract vulkan-loader from mesa.buildInputs";
-#         parts.right;
-# 
-#     # vulkan-loader expects to install its .pc files into a `dev` output, which mesa lacks
-#     outputs = upstream.outputs ++ [ "dev" ];
-# 
-#     # build and install our modified `vulkan-loader` inline, before running the normal mesa builder
-#     # TODO: we'll probably want to add `$dev` to PKG_CONFIG_PATH?
-#     postPatch = (upstream.postPatch or "") + ''
-#       NIX_ATTRS_SH_FILE=${vulkan-loader-inputs} \
-#         ${vulkan-loader-inline.builder} ${lib.concatStringsSep " " vulkan-loader-inline.args}
-#     '';
-# 
-#     mesonFlags = self.lib.pipe
-#       upstream.mesonFlags
-#       [
-#         (lib.remove (lib.mesonEnable "glvnd" true))
-#         (flags: flags ++ [(lib.mesonEnable "glvnd" false)])
-#         (lib.remove (lib.mesonBool "libgbm-external" true))
-#         (flags: flags ++ [(lib.mesonBool "libgbm-external" false)])
-#       ];
-# 
-#     disallowedReferences = [
-#       vulkan-loader-inline
-#       vulkan-loader-inputDerivation
-#       vulkan-loader-inputs
-#     ];
-# 
-#     passthru = (upstream.passthru or {}) // {
-#       inherit vulkan-loader-inline vulkan-loader-inputs;
-#     };
-#   });
-# }
-
-# {
-#   # if this fails, then possibly i provide mesa with just the vulkan-headers.
-#   mesa = super.mesa.overrideAttrs (upstream: {
-#     buildInputs = let
-#       parts = lib.partition (p: p != super.vulkan-loader) upstream.buildInputs;
-#     in
-#       assert
-#         lib.assertMsg (parts.wrong != []) "failed to extract vulkan-loader from mesa.buildInputs";
-#         parts.right;
-#   });
-# }
-
-# {
-#   addDriverRunpath = replaceDependencies {
-#     drv = fakedMesaPkgs.addDriverRunpath;
-#     replacements = [
-#       {
-#         oldDependency = fakedMesaPkgs.addDriverRunpath.driverLink;
-#         newDependency = self.mesa;
-#       }
-#     ];
-#   };
-# 
-#   # `ocl-icd` refers to /run/opengl-driver/etc/OpenCL/vendors, which is simply a symlink to itself.
-#   # so patch it to refer directly to itself.
-#   ocl-icd = super.ocl-icd.overrideAttrs (upstream: {
-#     configureFlags = let
-#       replaced = lib.map
-#         (f: lib.replaceString "/run/opengl-driver/etc/OpenCL" ("${placeholder "out"}/etc/OpenCL") f)
-#         upstream.configureFlags
-#       ;
-#     in
-#       lib.assertMsg
-#         (replaced != upstream.configureFlags)
-#         "failed to remove /run/opengl-driver from ocl-icd"
-#         replaced;
-#   });
-# }
-
-# {
-#   addMesaRunpath = self.addDriverRunpath.overrideAttrs {
-#     driverLink = self.mesaNoGlvnd;
-#   };
-# 
-#   alacritty = super.alacritty.override {
-#     libGL = self.mesaNoGlvnd;
-#   };
-# 
-#   # mesa by default would route opengl over to libglvnd, which then routes it _back_ into mesa.
-#   # this usually happens dynamically, indirected via /run/opengl-driver.
-#   # but if we remove that /run/opengl-driver indirection, then we get a build-time dependency loop.
-#   # the way around is to remove libglvnd from the picture altogether, and just have mesa provide lib/libEGL.so etc.
-#   mesaNoGlvnd = (self.mesa.override {
-#     libglvnd = self.emptyDirectory.overrideAttrs {
-#       # XXX `libglvnd` is in buildInputs: needs to be a derivation.
-#       passthru.driverLink = self.mesa;
-#     };
-#     libgbm = null;
-#   }).overrideAttrs (upstream: {
-#     mesonFlags = self.lib.pipe
-#       upstream.mesonFlags
-#       [
-#         (lib.remove (lib.mesonEnable "glvnd" true))
-#         (flags: flags ++ [(lib.mesonEnable "glvnd" false)])
-#         (lib.remove (lib.mesonBool "libgbm-external" true))
-#         (flags: flags ++ [(lib.mesonBool "libgbm-external" false)])
-#       ];
-#   });
-# 
-#   # TODO: `libgbm` comes from mesa -- i could unify `mesaNoGlvnd` and `libgbmNoGlvnd`?
-#   libgbmNoGlvnd = self.libgbm.override {
-#     libglvnd.driverLink = self.mesaNoGlvnd;
-#   };
-# 
-#   mpv-unwrapped = super.mpv-unwrapped.override {
-#     addDriverRunpath = self.addMesaRunpath;
-#   };
-# 
-#   vulkan-loaderNoGlvnd = self.vulkan-loader.override {
-#     addDriverRunpath = self.addMesaRunpath;
-#   };
-# 
-#   # needed by `sway`.
-#   # N.B.: there's wlroots_0_17, wlroots_0_18, ...; `wlroots` refers only to the latest.
-#   wlroots_0_19 = super.wlroots_0_19.override {
-#     libgbm = self.libgbmNoGlvnd;
-#     libGL = self.mesaNoGlvnd;
-#     # libdisplay-info = ...
-#     vulkan-loader = self.vulkan-loaderNoGlvnd;
-#   };
-#   # N.B.: this doesn't fix wlroots -> xwayland
-# }
-
-# fixing this globally would be the better thing but that's harrrrd.
-# probably i could take the first round of *NoGlvnd, then build a final `mesa = super.mesa.override { libgbm = libgbmNoGlvnd; ... }` to tie the knot
-#   (yes, this would mean building two mesa's)
-# {
-#   # nixos defaults to indirecting all opengl stuff through /run/opengl-driver.
-#   # instead, let's route that statically:
-#   addDriverRunpath = super.addDriverRunpath.overrideAttrs {
-#     driverLink = toString self.mesa;
-#     # driverLink = self.config.systemd.tmpfiles.settings.graphics-driver."/run/opengl-driver"."L+".argument;
-#   };
-# 
-#   # mesa by default would route opengl over to libglvnd, which then routes it _back_ into mesa.
-#   # this usually happens dynamically, indirected via /run/opengl-driver.
-#   # but if we remove that /run/opengl-driver indirection, then we get a build-time dependency loop.
-#   # the way around is to remove libglvnd from the picture altogether, and just have mesa provide lib/libEGL.so etc.
-#   mesa = (super.mesa.override {
-#     libglvnd = self.emptyDirectory.overrideAttrs {
-#       # XXX `libglvnd` is in buildInputs: needs to be a derivation.
-#       passthru.driverLink = self.mesa;
-#     };
-#     libgbm = null;
-#     libdisplay-info = self.libdisplay-info.override {
-#       v4l-utils = self.v4l-utils.override {
-#         withGUI = false;
-#       };
-#     };
-#     # libva-minimal = null;
-#     libva-minimal = self.libva-minimal.override {
-#       # mesa.driverLink = builtins.unsafeDiscardOutputDependency "${self.mesa}";
-#       mesa.driverLink = "";
-#     };
-#     # vulkan-loader = null;
-#     vulkan-loader = self.vulkan-loader.override {
-#       # addDriverRunpath.driverLink = builtins.unsafeDiscardOutputDependency (builtins.unsafeDiscardStringContext (self.mesa));
-#       addDriverRunpath.driverLink = "";
-#     };
-#   }).overrideAttrs (upstream: {
-#     mesonFlags = self.lib.pipe
-#       upstream.mesonFlags
-#       [
-#         (lib.remove (lib.mesonEnable "glvnd" true))
-#         (flags: flags ++ [(lib.mesonEnable "glvnd" false)])
-#         (lib.remove (lib.mesonBool "libgbm-external" true))
-#         (flags: flags ++ [(lib.mesonBool "libgbm-external" false)])
-#       ];
-#   });
-# 
-#   libgbm = self.mesa;
-# }

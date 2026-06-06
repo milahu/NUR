@@ -23,7 +23,7 @@
 # - "SENSITIVE" (vaguely, 4x slower to decrypt than "moderate")
   pwhashDifficulty ? "INTERACTIVE",
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "schlock";
   version = "unstable-2022-02-02";
 
@@ -163,14 +163,14 @@ stdenv.mkDerivation rec {
     })
   ];
 
-  meta = with lib; {
+  meta = {
     description = "Touchscreen locker for Wayland";
     longDescription = ''
       schlock is a fork of Swaylock adapted for touchscreen devices.
     '';
-    inherit (src.meta) homepage;
-    license = licenses.mit;
-    platforms = platforms.linux;
-    maintainers = with maintainers; [ colinsane ];
+    homepage = "https://github.com/telent/schlock";
+    license = lib.licenses.mit;
+    platforms = lib.platforms.linux;
+    maintainers = with lib.maintainers; [ colinsane ];
   };
 }

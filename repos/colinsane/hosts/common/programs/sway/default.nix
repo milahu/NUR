@@ -10,7 +10,8 @@ let
   # because then when things go wrong i have an actual shot at bisecting.
   # this has been useful as recently as 2024/08 when sway/wlroots updates straight up don't render output:
   # <https://gitlab.freedesktop.org/wlroots/wlroots/-/merge_requests/4715#note_2523517>
-  pkgs' = pkgs.extend pkgs.nixpkgs-wayland.overlay;
+  # pkgs' = pkgs.extend pkgs.nixpkgs-wayland.overlay;
+  pkgs' = pkgs;
   cfg = config.sane.programs.sway;
   enableXWayland = config.sane.programs.xwayland.enabled;
   wrapSway = configuredSway: let
@@ -44,59 +45,66 @@ let
       passthru.sway-unwrapped = configuredSway;
     };
 
-  wlroots = (pkgs'.wlroots.override {
-    # wlroots seems to launch Xwayland itself, and i can't easily just do that myself externally.
-    # so in order for the Xwayland it launches to be sandboxed, i need to patch the sandboxed version in here.
-    xwayland = config.sane.programs.xwayland.package;
-  })
-  .overrideAttrs (upstream: {
-    # 2023/09/08: fix so clicking a notification can activate the corresponding window.
-    # - test: run dino, receive a message while tabbed away, click the desktop notification.
-    #   - if sway activates the dino window (i.e. colors the workspace and tab), then all good
-    #   - do all of this with only a touchscreen (e.g. on mobile phone) -- NOT a mouse/pointer
-    # 2024/08/12: this patch is still necessary (for moby)
-    # 2025/12/24: this patch doesn't seem to fix activation anymore
-    # 2025/12/24: SwayNC has implemented xdg_activation_v1, but that doesn't seem to be enough alone to solve this (?)
-    # - <https://github.com/ErikReider/SwayNotificationCenter/pull/493>
-    # - particularly, xdg_activation_v1 works by:
-    #   1. swaync has focus -> logically, it can pass focus off to another app & remain "secure".
-    #   2. swaync requests an activation token from the compositor.
-    #   3. swaync gives that activation token to another app, via some side channel (unimplemented!?).
-    #   4. the app uses its activation token to request activation.
-    #   - swaync currently wires the activation token through to `ActivationToken()` signal,
-    #     but nothing listens to that. there seems no way to plumb that to the client where it can actually be made use of.
-    ## what this patch does:
-    # - allows any wayland window to request activation, at any time.
-    # - traditionally, wayland only allows windows to request activation if
-    #   the client requesting to transfer control has some connection to a recent user interaction.
-    #   - e.g. the active window may transfer control to any window
-    #   - a window which was very recently active may transfer control to itself
-    ## alternative (longer-term) solutions:
-    # - fix this class of bug in gtk:
-    #   - <https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/5782>
-    #   - N.B.: this linked PR doesn't actually fix it
-    # - add xdg_activation_v1 support to SwayNC (my notification daemon):
-    #   - PARTIALLY complete: <https://github.com/ErikReider/SwayNotificationCenter/issues/71>
-    #   - mako notification daemon supports activation, can use as a reference
-    #     - all of ~30 LoC, looks straight-forward
-    #     - however, it's not clear that gtk4 (or dino) actually support this mode of activation.
-    #     - i.e. my experience with dino is the same using mako as with SwayNC
-    postPatch = (upstream.postPatch or "") + ''
-      substituteInPlace types/wlr_xdg_activation_v1.c \
-        --replace-fail 'if (token->seat != NULL)' 'if (false && token->seat != NULL)'
-    '';
-  })
-  ;
+  patchWlroots = wlroots:
+    (wlroots.override {
+      # wlroots seems to launch Xwayland itself, and i can't easily just do that myself externally.
+      # so in order for the Xwayland it launches to be sandboxed, i need to patch the sandboxed version in here.
+      xwayland = config.sane.programs.xwayland.package;
+    })
+    .overrideAttrs (upstream: {
+      # 2023/09/08: fix so clicking a notification can activate the corresponding window.
+      # - test: run dino, receive a message while tabbed away, click the desktop notification.
+      #   - if sway activates the dino window (i.e. colors the workspace and tab), then all good
+      #   - do all of this with only a touchscreen (e.g. on mobile phone) -- NOT a mouse/pointer
+      # 2024/08/12: this patch is still necessary (for moby)
+      # 2025/12/24: this patch doesn't seem to fix activation anymore
+      # 2025/12/24: SwayNC has implemented xdg_activation_v1, but that doesn't seem to be enough alone to solve this (?)
+      # - <https://github.com/ErikReider/SwayNotificationCenter/pull/493>
+      # - particularly, xdg_activation_v1 works by:
+      #   1. swaync has focus -> logically, it can pass focus off to another app & remain "secure".
+      #   2. swaync requests an activation token from the compositor.
+      #   3. swaync gives that activation token to another app, via some side channel (unimplemented!?).
+      #   4. the app uses its activation token to request activation.
+      #   - swaync currently wires the activation token through to `ActivationToken()` signal,
+      #     but nothing listens to that. there seems no way to plumb that to the client where it can actually be made use of.
+      ## what this patch does:
+      # - allows any wayland window to request activation, at any time.
+      # - traditionally, wayland only allows windows to request activation if
+      #   the client requesting to transfer control has some connection to a recent user interaction.
+      #   - e.g. the active window may transfer control to any window
+      #   - a window which was very recently active may transfer control to itself
+      ## alternative (longer-term) solutions:
+      # - fix this class of bug in gtk:
+      #   - <https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/5782>
+      #   - N.B.: this linked PR doesn't actually fix it
+      # - add xdg_activation_v1 support to SwayNC (my notification daemon):
+      #   - PARTIALLY complete: <https://github.com/ErikReider/SwayNotificationCenter/issues/71>
+      #   - mako notification daemon supports activation, can use as a reference
+      #     - all of ~30 LoC, looks straight-forward
+      #     - however, it's not clear that gtk4 (or dino) actually support this mode of activation.
+      #     - i.e. my experience with dino is the same using mako as with SwayNC
+      postPatch = (upstream.postPatch or "") + ''
+        substituteInPlace types/wlr_xdg_activation_v1.c \
+          --replace-fail 'if (token->seat != NULL)' 'if (false && token->seat != NULL)'
+      '';
+    });
+
+    # does sway want `wlroots`? `wlroots_0_19`? detect it and patch as appropriate:
+    patchedWlroots = lib.concatMapAttrs
+      (k: overridden: lib.optionalAttrs (lib.hasPrefix "wlroots" k) {
+        ${k} = assert !overridden; patchWlroots pkgs'.${k};
+      })
+      pkgs'.sway-unwrapped;
+
   swayPackage = wrapSway (
-    (pkgs'.sway-unwrapped.override {
-      wlroots_0_19 = wlroots;
+    (pkgs'.sway-unwrapped.override (patchedWlroots // {
       # about xwayland:
       # - required by many electron apps, though some electron apps support NIXOS_OZONE_WL=1 for native wayland.
       # - when xwayland is enabled, KOreader incorrectly chooses the X11 backend
       #   -> slower; blurrier
       # - xwayland uses a small amount of memory (like 30MiB, IIRC?)
       inherit enableXWayland;
-    }).overrideAttrs (upstream: {
+    })).overrideAttrs (upstream: {
       # fix to create SWAYSOCK and WAYLAND_DISPLAY directly in a sandboxable subdirectory:
       # i can't simply move it after creation i think because that would
       # be an unsupported cross-device `mv`?
@@ -169,8 +177,8 @@ in
     packageUnwrapped = swayPackage;
     suggestedPrograms = [
       "guiApps"
-      "blueberry"  # GUI bluetooth manager
-      # "blueman"  # GUI bluetooth manager
+      # "blueberry"  # GUI bluetooth manager
+      "blueman"  # GUI bluetooth manager
       "brightnessctl"
       "conky"  # for a nice background
       "fcitx5"  # input method; emoji. this has been known to break and glitch input into any textbox -- disable here if that happens
@@ -267,7 +275,11 @@ in
     sandbox.net = "all";  # TODO: shouldn't be needed! but without this, mouse/kb hotplug doesn't work.
     sandbox.whitelistAudio = true;  # it runs playerctl directly
     sandbox.whitelistDbus.system = true;
-    sandbox.whitelistDbus.user = true;  # to e.g. launch apps (TODO: reduce)
+    sandbox.whitelistMpris.controlPlayers = true;
+    sandbox.whitelistPortal = [
+      "DynamicLauncher"
+      "OpenURI"
+    ];
     sandbox.whitelistDri = true;
     sandbox.whitelistSystemctl = true;  #< for Super+L to start the screen locker service
     sandbox.whitelistX = true;  # sway invokes xwayland itself

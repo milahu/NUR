@@ -7,6 +7,12 @@ self: super: {
     xdg-utils = self.emptyDirectory;  #< not actually used
   };
 
+  blueman = super.blueman.override {
+    # applet/TransferService.py uses xdg-open
+    # applet/GameControllerWakelock.py uses xdg-screensaver
+    xdg-utils = self.xdg-open;
+  };
+
   brave = (super.brave.override {
     xdg-utils = self.emptyDirectory;
   }).overrideAttrs (upstream: {

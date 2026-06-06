@@ -48,7 +48,10 @@
   },
 }:
 let
+  # inlined from <repo:nixos/nixpkgs:lib/attrsets.nix>
+  filterAttrs = pred: set: removeAttrs set (builtins.filter (name: !pred name set.${name}) (builtins.attrNames set));
   optionalAttrs = cond: attrs: if cond then attrs else {};
+
   # nixpkgs' update-source-version (updateScript) calculates the new hash for a `src` by specifying this hardcoded bogus hash and then attempting to realize it.
   sentinelSha256 = "sha256-AzH1rZFqEH8sovZZfJykvsEmCedEZWigQFHWHl6/PdE=";
   fetchBootstrap = { url, pname, version, ... }@args: {
@@ -110,7 +113,8 @@ let
         "${position.file}:${toString position.line}";
     };
 
-    patches = import ./patches/package.nix { vendorPatch = vendorPatch'; };
+    patchesScope = import ./patches/package.nix { vendorPatch = vendorPatch'; };
+    patches = filterAttrs (name: value: value.type or null == "derivation") patchesScope;
 
     patchedSrc = applyPatches' {
       name = "nixpkgs-${branch}-sane";
@@ -128,6 +132,7 @@ let
           meta = srcMeta;
           # for convenience:
           pkgs = import patchedSrc commonNixpkgsArgs;
+          inherit unpatchedNixpkgs;
           unpatchedSrc = src';
           patches = patches;
         } // optionalAttrs (nixpkgs-bootstrap-updater != null) {

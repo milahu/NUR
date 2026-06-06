@@ -6,13 +6,13 @@
   wrapFirefoxAddonsHook,
   zip,
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "i-still-dont-care-about-cookies";
   version = "1.1.9";
   src = fetchFromGitHub {
     owner = "OhMyGuus";
     repo = "I-Still-Dont-Care-About-Cookies";
-    rev = "v${version}";
+    rev = "v${finalAttrs.version}";
     hash = "sha256-bhrRS73l0124Xl54czIh6nJiqcjZRa3C19GuN4T+gu8=";
   };
 
@@ -46,4 +46,4 @@ stdenvNoCC.mkDerivation rec {
     description = ''Debloated fork of the extension "I don't care about cookies"'';
     maintainer = with lib.maintainers; [ colinsane ];
   };
-}
+})

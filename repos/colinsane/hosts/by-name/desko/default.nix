@@ -29,7 +29,8 @@
   sane.roles.client = true;
   sane.roles.pc = true;
   sane.roles.work = true;
-  sane.services.ollama.enable = lib.mkIf (config.sane.maxBuildCost >= 3) true;
+  # sane.services.ollama.enable = lib.mkIf (config.sane.maxBuildCost >= 3) true;
+  sane.services.llama-cpp.enable = lib.mkIf (config.sane.maxBuildCost >= 2) true;
   sane.services.wg-home.enable = true;
   sane.ovpn.addrV4 = "172.26.55.21";
   # sane.ovpn.addrV6 = "fd00:0000:1337:cafe:1111:1111:20c1:a73c";

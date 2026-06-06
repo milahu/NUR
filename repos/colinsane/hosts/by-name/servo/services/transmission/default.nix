@@ -35,6 +35,7 @@ let
         rsync
       ;
     };
+    merge = "prepend";
   };
 in
 {
@@ -179,12 +180,24 @@ in
   # and is knowledgeable enough to also inherit the profile of the torrent-done script...
   # but unless i define such a profile, then apparmor will complain:
   # > Feb 08 02:01:24 servo kernel: audit: type=1400 audit(...): apparmor="DENIED" operation="exec" class="file" info="profile transition not found" error=-13 profile="/nix/store/05pbi2xpappimpzl43mbcan7csl3ngni-transmission-4.0.6/bin/transmission-daemon" name="/nix/store/mgf31pv0ar816nw15rizq734vhz2ggk3-torrent-done-0.1.0/bin/torrent-done" pid=... comm="transmission-da" requested_mask="x" denied_mask="x" fsuid=70 ouid=0 target="&@{dirs}"
+  # N.B.: `$path/bin/** pixr` means: the referenced path can be read or executed; when executed we attempt an apparmor profile transition but fallback to inheriting the current profile if no explicit profile is defined.
+  # - TODO: what i actually want is "stacked" profiles; i.e. intersect the profiles. <https://gitlab.com/apparmor/apparmor/-/wikis/AppArmorStacking>
+  # N.B.: `abstractions/consoles` is included for when you run this interactively.
   security.apparmor.policies."bin.torrent-done".profile = ''
-    include "${
-      pkgs.apparmorRulesFromClosure
-        { name = "torrent-done"; }
-        [ torrent-done ]
-    }"
+    abi <abi/4.0>,
+    include <tunables/global>
+    profile ${lib.getExe torrent-done} {
+      include <abstractions/base>
+      include <abstractions/consoles>
+      include "${
+        pkgs.apparmorRulesFromClosure
+          { name = "torrent-done"; additionalRules = [ "$path/bin/** pixr" ]; }
+          [ torrent-done ]
+      }"
+      mr ${lib.getExe torrent-done},
+      /var/media/** rw,
+      include if exists <local/bin.torrent-done>
+    }
   '';
 }
 

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 
 {
   # docs: https://nixpkgs-manual-sphinx-markedown-example.netlify.app/generated/options-db.xml.html#users-users
@@ -116,7 +116,7 @@
   # environment.etc."userdb/colin.user".text = ''
   #   {
   #     "userName" : "colin",
-  #     "uid": ${builtins.toString config.users.users.colin.uid},
+  #     "uid": ${toString config.users.users.colin.uid},
   #     "capabilityAmbientSet": [
   #       "cap_net_admin",
   #       "cap_net_raw"
@@ -131,7 +131,7 @@
   # disable the `systemd --user` instance for colin.
   # systemd still starts a user.slice  when logging in via PAM (e.g. `ssh`, `login`),
   # but there's no user service manager which can start .service files or field `systemd --run` requests.
-  systemd.services."user@${builtins.toString config.users.users.colin.uid}".enable = false;
+  systemd.services."user@${toString config.users.users.colin.uid}".enable = false;
 
   # systemd-user-sessions depends on remote-fs, causing login to take stupidly long
   # systemd.services."systemd-user-sessions".enable = false;

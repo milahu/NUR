@@ -1,7 +1,8 @@
-{ lib, ... }:
-
-let path = rec {
-
+{
+  lib,
+  newScope,
+}:
+lib.makeScope newScope (self: {
   # split the string path into a list of string components.
   # root directory "/" becomes the empty list [].
   # implicitly performs normalization so that:
@@ -13,12 +14,12 @@ let path = rec {
   join = comps: "/" + (builtins.concatStringsSep "/" comps);
 
   # given an a sequence of string paths, concatenates them into one long string path
-  concat = paths: path.join (builtins.concatLists (map path.split paths));
+  concat = paths: self.join (builtins.concatLists (map self.split paths));
 
   # normalize the given path
   # canonical form is an *absolute* path;
   # always starting with '/', never trailing with '/' unless it's the empty (root) path
-  norm = str: path.join (path.split str);
+  norm = str: self.join (self.split str);
 
   # removes ".." and "." components from a path component list, by evaluating them logically.
   # Type realpathArray: [ str ] -> [ str ]
@@ -34,30 +35,30 @@ let path = rec {
   # removes ".." and "." from a path, by evaluating them logically.
   # has the effect of also normalizing the path, in the process.
   # Type realpath: str -> str
-  realpath = str: path.join (path.realpathArray (path.split str));
+  realpath = str: self.join (self.realpathArray (self.split str));
 
   # return the parent directory. doesn't care about leading/trailing slashes.
   # the parent of "/" is "/".
-  parent = str: path.norm (dirOf (path.norm str));
-  hasParent = str: (path.parent str) != (path.norm str);
+  parent = str: self.norm (dirOf (self.norm str));
+  hasParent = str: (self.parent str) != (self.norm str);
 
   # return the last path component; error on the empty path
-  leaf = str: lib.last (split str);
+  leaf = str: lib.last (self.split str);
 
   # return the path from `from` to `to`, but keeping absolute form
   # e.g. `pathFrom "/home/colin" "/home/colin/foo/bar"` -> "/foo/bar"
   from = start: end: let
-    s = path.norm start;
-    e = path.norm end;
+    s = self.norm start;
+    e = self.norm end;
   in (
-    assert isChild start end;
+    assert self.isChild start end;
     "/" + lib.removePrefix s e
   );
 
   isChild = parent: child:
     lib.any
-      (p: p == norm parent)
-      (walk "/" child)
+      (p: p == self.norm parent)
+      (self.walk "/" child)
   ;
 
   # yield every node between start and end, including each of the endpoints
@@ -67,7 +68,6 @@ let path = rec {
     [ start ]
   else
     assert end != "/";  # else there's no path from `start` to `end`!
-    (walk start (parent end)) ++ [ end ]
+    (self.walk start (self.parent end)) ++ [ end ]
   ;
-};
-in path
+})

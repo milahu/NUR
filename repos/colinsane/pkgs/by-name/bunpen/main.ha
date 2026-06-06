@@ -17,10 +17,10 @@ use types::c;
 
 fn do_exec(path: str, argv: []str, extra_env: []str) (void | rt::errno) = {
   {
-    let argv_joined = strings::join(" ", argv...);
+    let argv_joined = strings::join(" ", argv...)!;
     defer free(argv_joined);
 
-    let extra_env_joined = strings::join(" ", extra_env...);
+    let extra_env_joined = strings::join(" ", extra_env...)!;
     defer free(extra_env_joined);
 
     log::printfln("exec {} with argv: {}, extra_env: {}", path, argv_joined, extra_env_joined);
@@ -56,17 +56,17 @@ fn merge_env(base: []str, overrides: []str) []str = {
         keep_old = false;
     };
     if (keep_old)
-      append(merged, old);
+      append(merged, old)!;
   };
 
   for (let new .. overrides)
-    append(merged, new);
+    append(merged, new)!;
 
   return merged;
 };
 
 fn log_diagnostics() void = {
-  let argv_str = strings::join(" ", os::args...);
+  let argv_str = strings::join(" ", os::args...)!;
   defer free(argv_str);
   log::printfln("invoked with: {}", argv_str);
 };

@@ -24,8 +24,8 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.sane.programs.swaynotificationcenter;
-  buttons = import ./buttons.nix { inherit pkgs; };
-  scripts = import ./scripts.nix { inherit pkgs; };
+  buttons = import ./buttons.nix;
+  scripts = import ./scripts.nix;
 in
 {
   sane.programs.swaync-service-dispatcher = {

@@ -16,6 +16,12 @@ let
       selfTargetTarget = self.pkgsTargetTarget;
     };
   };
+  warnIfDef = new: prev: builtins.mapAttrs
+    (name: value:
+      super.lib.warnIf (builtins.hasAttr name prev && !(value.shadowNixpkgs or false)) "package ${name} shadows upstream package of same name" value
+    )
+    new
+  ;
   # these forms below cause infinite recursion but i don't understand why:
   # sane = self.callPackage ./unfixed.nix { inherit (super) lib; };
   # sane = import ./unfixed.nix self;
@@ -23,17 +29,30 @@ let
   #   inherit (super) lib;
   # });
 in
-  removeAttrs sane [
-    # nixpkgs generates `linuxPackages` via `kernelPackagesExtensions`:
-    # `sane.linuxPackages` is removed here, and re-expressed as an extension, below
-    "linuxPackages"
-  ] // {
+  (warnIfDef
+    (removeAttrs sane [
+      # nixpkgs generates `linuxPackages` via `kernelPackagesExtensions`:
+      # `sane.linuxPackages` is removed here, and re-expressed as an extension, below
+      "linuxPackages"
+    ])
+    super
+  ) // {
     kernelPackagesExtensions = super.kernelPackagesExtensions ++ [
-      (kFinal: _kPrev:
-        sane.linuxPackages.packages kFinal
+      (kFinal: kPrev:
+        warnIfDef
+          (sane.linuxPackages.packages kFinal)
+          kPrev
       )
     ];
-    mpvScripts = super.mpvScripts.overrideScope (mpvFinal: _mpvPrev:
-      sane.mpvScripts.packages mpvFinal
+    mpvScripts = super.mpvScripts.overrideScope (mpvScriptsFinal: mpvScriptsPrev:
+      warnIfDef
+        (sane.mpvScripts.packages mpvScriptsFinal)
+        mpvScriptsPrev
+    );
+    # XXX(2026-04-20): nixpkgs `vimPlugins` is a bare attrset -- not a scope
+    vimPlugins = super.vimPlugins // (
+      warnIfDef
+        (sane.vimPlugins.packages sane.vimPlugins)
+        super.vimPlugins
     );
   }

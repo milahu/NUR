@@ -19,7 +19,7 @@ let
     ${lib.getExe pkgs.mimeo-open-desktop} ${desktop} %U
       ${regex}
   '';
-  assocs = builtins.map
+  assocs = map
     (program: lib.mapAttrsToList fmtAssoc program.mime.urlAssociations)
     sortedPrograms;
   assocs' = lib.flatten assocs;
@@ -34,7 +34,7 @@ let
   fmtFallbackAssoc' = mimeType: desktop:
     lib.optionalString (desktop != "mimeo.desktop") (fmtFallbackAssoc mimeType desktop);
 
-  fallbackAssocs = builtins.map
+  fallbackAssocs = map
     (program: lib.mapAttrsToList fmtFallbackAssoc' program.mime.associations)
     sortedPrograms;
   fallbackAssocs' = lib.flatten fallbackAssocs;

@@ -10,7 +10,7 @@ let
       in !(
         # mimic .gitignore
         (path == toString ../../../build)
-        || (path == toString ../../../.working)
+        || (path == toString ../../../.work)
         || (name == "result")
         || (builtins.match "^core\\.[0-9]+$" name != null)
         || (builtins.match "^result-.+$" name != null)

@@ -3,6 +3,8 @@ ollama API isn't documented anywhere, and it has changed over time, but it's all
 1. it's similar to an "OCI registry".
 2. mention of endpoint: <https://github.com/ollama/ollama/issues/6470>
 - `https://registry.ollama.ai/v2/library/$model/manifests/$variant`
+huggingface API is documented via openapi, but i'm maybe pulling from the non-api...?
+- <https://huggingface.co/.well-known/openapi.json>
 
 ## choosing a model
 ### easy way:
@@ -35,6 +37,7 @@ ollama API isn't documented anywhere, and it has changed over time, but it's all
 
 
 ## recent model releases
+- <https://ollama.com/search?o=newest>
 - [x] nemotron-3-nano (30b)
   - released 2025-12-15
   - <https://ollama.com/library/nemotron-3-nano>

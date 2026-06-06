@@ -176,7 +176,7 @@ in
       };
 
       function switch() {
-        ~/nixos/scripts/deploy "$@"
+        ( cd ~/nixos && ./scripts/deploy "$@" )
       }
     '';
 

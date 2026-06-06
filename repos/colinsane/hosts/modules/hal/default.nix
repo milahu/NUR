@@ -2,6 +2,7 @@
 {
   imports = [
     ./aarch64.nix
+    ./aarch64-musl.nix
     ./intel.nix
     ./musl.nix
     ./pine64-pinephone

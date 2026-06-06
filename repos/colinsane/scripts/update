@@ -5,7 +5,7 @@
 # N.B.: not all update jobs are atomic; parallel updates _may_ cause failed updates if eval of some package `pkgFoo`
 # depends on the `src` field of some library `libBar`, and the two are updated simultaneously.
 # this typically only happens when `libBar` is nix code, and `import`'d.
-PARALLELISM=16
+PARALLELISM=12
 SELF_PATH=$PWD/$0
 
 usage() {

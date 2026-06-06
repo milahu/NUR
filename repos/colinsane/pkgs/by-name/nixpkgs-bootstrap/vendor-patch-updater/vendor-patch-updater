@@ -1,5 +1,5 @@
 #!/usr/bin/env -S NIX_BUILD_SHELL=/bin/sh nix-shell
-#!nix-shell -i bash ../../../../integrations/nix-shell --arg f 'ps: [ ps.bash ps.curl ps.nix ps.patchutils ]'
+#!nix-shell -i bash ../../../../integrations/nix-shell --arg f 'ps: [ ps.bash ps.curl ps.gitMinimal ps.nix ps.patchutils ]'
 
 set -eu
 
@@ -64,8 +64,9 @@ parseIdent() {
 }
 
 tryPatchesDir() {
+  echo "tryPatchesDir: have='${PATCHES_DIR:-}' .. considering='$1'"
   if [ -z "${PATCHES_DIR:-}" ] && [ -d "$1" ]; then
-    PATCHES_DIR=$1
+    export PATCHES_DIR=$1
   fi
 }
 
@@ -73,12 +74,18 @@ getPatchesDir() {
   # invoked from update script
   if [ -n "${UPDATE_NIX_ATTR_PATH:-}" ]; then
     local attrPos=$(nix-instantiate --raw --eval -A "$UPDATE_NIX_ATTR_PATH.meta.position")
-    tryPatchesDir "$(dirname $(dirname $attrPos))/patches"
+    if [ -n "$attrPos" ]; then
+      tryPatchesDir "$(dirname $(dirname $attrPos))/patches"
+    fi
   fi
-  # invoked from update script, but the attr path fails to eval (it's a quoting issue, for patches which aren't valid identifiers)
-  tryPatchesDir "$PWD/../../pkgs/by-name/nixpkgs-bootstrap/patches"
-  # invoked from repo root
-  tryPatchesDir "$PWD/pkgs/by-name/nixpkgs-bootstrap/patches"
+  # invoked from update script, but the attr path fails to eval (it's a quoting issue, for patches which aren't valid identifiers).
+  # or invoked from root
+  local gitTop=$(git rev-parse --show-toplevel || true)
+  if [ -n "$gitTop" ]; then
+    tryPatchesDir "$gitTop/pkgs/by-name/nixpkgs-bootstrap/patches"
+  fi
+  # fail if unable to locate
+  test -n "${PATCHES_DIR:-}"
 }
 
 tryUri() {

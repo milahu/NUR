@@ -26,9 +26,11 @@ lib.recurseIntoAttrs (lib.makeScope newScope (self: with self; {
   update-feed = static-nix-shell.mkPython3 {
     pname = "update-feed";
     srcRoot = ./.;
-    inherit
-      feedsearch-crawler
-      podcastindex-db
-      ;
+    pkgs = {
+      inherit
+        feedsearch-crawler
+        podcastindex-db
+        ;
+    };
   };
 }))

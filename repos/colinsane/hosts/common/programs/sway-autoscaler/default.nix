@@ -40,10 +40,10 @@ in
       partOf = lib.mkIf cfg.config.autostart [ "graphical-session" ];
       command = lib.escapeShellArgs [
         "env"
-        "SWAY_DEFAULT_SCALE=${builtins.toString cfg.config.defaultScale}"
+        "SWAY_DEFAULT_SCALE=${toString cfg.config.defaultScale}"
         "sway-autoscaler"
         "--loop-sec"
-        (builtins.toString cfg.config.interval)
+        (toString cfg.config.interval)
       ];
     };
   };

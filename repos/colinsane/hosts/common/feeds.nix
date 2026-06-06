@@ -30,7 +30,7 @@ let
   mkRss = format: url: { inherit url format; } // uncat // infrequent;
   # format-specific helpers
   mkText = mkRss "text";
-  mkImg = mkRss "image";
+  # mkImg = mkRss "image";
   mkPod = mkRss "podcast";
 
   # host-specific helpers
@@ -69,7 +69,6 @@ let
     (fromDb "anchor.fm/s/34c7232c/podcast/rss" // tech)  # Civboot -- https://anchor.fm/civboot
     (fromDb "anchor.fm/s/2da69154/podcast/rss" // tech)  # POD OF JAKE -- https://podofjake.com/
     (fromDb "bluecityblues.org.podcastpage.io" // pol)  # hosts overlap with Seattle Nice
-    (fromDb "buzzsprout.com/2126417" // tech)  # Mystery AI Hype Theater 3000
     (fromDb "cast.postmarketos.org" // tech)
     (fromDb "congressionaldish.libsyn.com" // pol)  # Jennifer Briney
     (fromDb "craphound.com" // pol)  # Cory Doctorow -- both podcast & text entries
@@ -116,6 +115,7 @@ let
     (fromDb "pods.media/api/rss/feed/channel/unchained" // tech)  # cryptocurrency happenings; rec via patio11
     (fromDb "politicalorphanage.libsyn.com" // pol)
     (fromDb "reverseengineering.libsyn.com/rss" // tech)  # UnNamed Reverse Engineering Podcast
+    (fromDb "ripcorp.biz" // pol)
     (fromDb "rss.acast.com/ft-tech-tonic" // tech)  # Financial Time's: Tech Tonic
     (fromDb "rss.art19.com/the-portal" // rat)  # Eric Weinstein
     (fromDb "seattlenice.buzzsprout.com" // pol)  # Seattle Nice
@@ -135,6 +135,7 @@ let
     (fromDb "whycast.podcast.audio/@whycast" // tech)  # What Hackers Yearn [for]: <https://why2025.org/>
     (mkPod "https://sfconservancy.org/casts/the-corresponding-source/feeds/ogg/" // tech)
 
+    # (fromDb "buzzsprout.com/2126417" // tech)  # Mystery AI Hype Theater 3000
     # (fromDb "feed.podbean.com/matrixlive/feed.xml" // tech)  # Matrix (chat) Live
     # (fromDb "feeds.libsyn.com/421877" // rat)  # Less Wrong Curated
     # (fromDb "feeds.megaphone.fm/CHTAL4990341033" // pol)  # ChinaTalk: https://www.chinatalk.media/podcast
@@ -285,6 +286,7 @@ let
     (fromDb "youtube.com/@Channel5YouTube" // pol)
     (fromDb "youtube.com/@ContraPoints" // pol)
     (fromDb "youtube.com/@Exurb1a")
+    (fromDb "youtube.com/@exurb2a114")  # Exurb1a's alt
     (fromDb "youtube.com/@hbomberguy")
     (fromDb "youtube.com/@JackStauber")
     (fromDb "youtube.com/@jaketran")
@@ -297,10 +299,12 @@ let
     (fromDb "youtube.com/@scenesbyben" // pol)  # video essays
     (fromDb "youtube.com/@TechnologyConnections" // tech)
     (fromDb "youtube.com/@theodd1sout")
+    (fromDb "youtube.com/@thisisironclad" // pol)
     (fromDb "youtube.com/@TomScottGo")
     (fromDb "youtube.com/@TVW_Washington" // pol)  # interviews with WA public officials
     (fromDb "youtube.com/@veritasium")
     (fromDb "youtube.com/@Vihart")
+    (fromDb "youtube.com/@businessreform" // tech)  # anti-surveillance tech
     (fromDb "youtube.com/@InnuendoStudios" // pol)  # breaks down the nastier political strategies, from a "politics is power" angle
 
     # (fromDb "youtube.com/@CasuallyExplained" // pol)

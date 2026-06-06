@@ -6,12 +6,12 @@
   wrapFirefoxAddonsHook,
   zip,
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "sponsorblock";
-  version = "6.1.2";
+  version = "6.1.5";
   src = fetchurl {
-    url = "https://github.com/ajayyy/SponsorBlock/releases/download/${version}/FirefoxSignedInstaller.xpi";
-    hash = "sha256-3fji3IsIpkkbmDYPU7S3wTG1f5PiopO28bI8NfSwvZw=";
+    url = "https://github.com/ajayyy/SponsorBlock/releases/download/${finalAttrs.version}/FirefoxSignedInstaller.xpi";
+    hash = "sha256-QI+bOeUpKkY1zDsfRB16yjIO7j+Ta7V4OnTtMZobLzw=";
     name = "FirefoxSignedInstaller.zip";
   };
   # .zip file has everything in the top-level; stdenv needs it to be extracted into a subdir:
@@ -50,4 +50,4 @@ stdenvNoCC.mkDerivation rec {
 
   extid = "sponsorBlocker@ajay.app";
   passthru.updateScript = addon-git-updater;
-}
+})

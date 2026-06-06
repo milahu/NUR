@@ -7,15 +7,15 @@
   zip,
 }:
 
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "archive-page";
-  version = "1.5.0";
+  version = "1.6.3";
 
   src = fetchFromGitHub {
     owner = "JNavas2";
     repo = "Archive-Page";
-    rev = "v${version}";
-    hash = "sha256-pfjzqu7C3D1+22S4cyzjhbRK7DITpMOIxjbh/msrM9A=";
+    rev = "v${finalAttrs.version}";
+    hash = "sha256-F74YWHkP9wdMo2f81ghkQDbjlXVOP+mxA4bmh3vnd10=";
   };
 
   nativeBuildInputs = [
@@ -62,4 +62,4 @@ stdenvNoCC.mkDerivation rec {
     description = "Official archive.is extension that provides a toolbar button to quickly archive (or view) any page";
     maintainer = with lib.maintainers; [ colinsane ];
   };
-}
+})

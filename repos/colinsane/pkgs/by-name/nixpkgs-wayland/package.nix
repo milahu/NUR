@@ -4,12 +4,12 @@
   pkgs,
 }:
 let
-  version = "0-unstable-2026-02-08";
+  version = "0-unstable-2026-06-01";
   src = fetchFromGitHub {
     owner = "nix-community";
     repo = "nixpkgs-wayland";
-    rev = "c1d44e8d60680abc85081f6a3ada7802b6c0fca3";
-    hash = "sha256-ajvQ8ZQWe+J8T6ejPWhssqRcXuIBpSq4cRZTvNmbSs4=";
+    rev = "dc2f99e859576e5bf5d865ccc3db298128b03cb5";
+    hash = "sha256-IhbaMM8Q4e29VSZ+ALrSxm+/rdf/KymxlGbRJpR/hZg=";
   };
   overlay = import "${src}/overlay.nix";
 
@@ -21,8 +21,9 @@ in src.overrideAttrs (base: {
   version = version;
 
   # passthru only nixpkgs-wayland's own packages -- not the whole nixpkgs-with-nixpkgs-wayland-as-overlay:
-  passthru = base.passthru // (overlay final pkgs) // {
+  passthru = base.passthru // {
     inherit overlay;
+    pkgs = overlay final pkgs;
     updateScript = nix-update-script {
       extraArgs = [ "--version" "branch" ];
     };

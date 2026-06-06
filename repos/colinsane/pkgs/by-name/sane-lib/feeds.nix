@@ -1,8 +1,10 @@
-{ lib, ... }:
-
-rec {
+{
+  lib,
+  newScope,
+}:
+lib.makeScope newScope (self: {
   # PRIMARY API: generate a OPML file from a list of feeds
-  feedsToOpml = feeds: opmlTopLevel (opmlGroups (partitionByCat feeds));
+  feedsToOpml = feeds: self.opmlTopLevel (self.opmlGroups (self.partitionByCat feeds));
 
   # only keep feeds whose category is one of the provided
   filterByFormat = fmts: builtins.filter (feed: builtins.elem feed.format fmts);
@@ -22,7 +24,7 @@ rec {
       ''<${tag} ${fmt-attrs} ${fmt-close}>'';
 
   # represents a single RSS feed.
-  opmlTerminal = feed: xmlTag "outline" true (
+  opmlTerminal = feed: self.xmlTag "outline" true (
     {
       xmlUrl = feed.url;
       type = "rss";
@@ -31,16 +33,16 @@ rec {
     }
   );
   # a list of RSS feeds.
-  opmlTerminals = feeds: lib.concatStringsSep "\n" (map opmlTerminal feeds);
+  opmlTerminals = feeds: lib.concatStringsSep "\n" (map self.opmlTerminal feeds);
   # one node which packages some flat grouping of terminals.
   opmlGroup = title: feeds: ''
     <outline text="${title}" title="${title}">
-      ${opmlTerminals feeds}
+      ${self.opmlTerminals feeds}
     </outline>
   '';
   # a list of groups (`groupMap` is an attrs mapping groupName => [ feed0 feed1 ... ]).
   opmlGroups = groupMap: lib.concatStringsSep "\n" (
-    builtins.attrValues (builtins.mapAttrs opmlGroup groupMap)
+    builtins.attrValues (builtins.mapAttrs self.opmlGroup groupMap)
   );
   # top-level OPML file which could be consumed by something else.
   opmlTopLevel = body: ''
@@ -51,4 +53,4 @@ rec {
       </body>
     </opml>
   '';
-}
+})

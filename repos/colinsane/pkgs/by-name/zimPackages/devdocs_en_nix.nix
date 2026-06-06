@@ -1,6 +1,6 @@
 { mkVersionedHttpZim }: mkVersionedHttpZim {
   owner = "devdocs";
   pname = "devdocs_en_nix";
-  version = "2026-01";
-  hash = "sha256-QxB9qDKSzzEU8t4droI08BXdYn+HMVkgiJMO3SoGTqM=";
+  version = "2026-04";
+  hash = "sha256-kxs/KgulIlF+PmL1raouxmGQVLzELUPNcfH8ejkQIJs=";
 }

@@ -56,6 +56,18 @@ in
           freebind = false;
         }
       ];
+
+      dnssec.negative-trust-anchors = [
+        # don't require DNSSEC in the ntp path, as DNSSEC requires a time-synchronized clock.
+        # ntp.org. in particular would seem to be frequently serving very fresh signatures,
+        # which appear to come from the future if the system RTC has inadvertently been
+        # switched to local time (i.e. 7-8 hours in the past).
+        "ntp.org."
+        # "pool.ntp.org."
+        # TODO: excluding `ntpns.org.` might not be required.
+        # it might be we just exclude the specific ntp server (i.e. `*.nixos.pool.ntp.org`)
+        "ntpns.org."  # `NS pool.ntp.org. {a,b,c...}.ntpns.org.`
+      ];
     };
 
     systemd.services.knot-resolver = {

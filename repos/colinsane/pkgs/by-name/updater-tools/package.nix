@@ -1,8 +1,9 @@
 {
   lib,
+  newScope,
   writeScriptBin,
 }:
-rec {
+lib.makeScope newScope (self: {
   # The actual shell command (argv) which can run the provided updateScript, after an environment has been configured for the updater:
   updateScriptToArgv = updateScript:
     if builtins.isList updateScript then
@@ -21,19 +22,19 @@ rec {
 
   updateArgvForPkg = pkg:
     if pkg ? updateScript then
-      updateScriptToArgv pkg.updateScript
+      self.updateScriptToArgv pkg.updateScript
     else
       null
   ;
 
   updateScriptToShellcode = updateScript:
-    lib.escapeShellArgs (updateScriptToArgv updateScript);
+    lib.escapeShellArgs (self.updateScriptToArgv updateScript);
 
   # try the first updateScript, if that one fails then try the next, and so on.
   # exits once the first updateScript succeeds.
   tryInSequence = updateScripts:
   let
-    shellCode = lib.concatMapStringsSep " || " updateScriptToShellcode updateScripts;
+    shellCode = lib.concatMapStringsSep " || " self.updateScriptToShellcode updateScripts;
   in
   {
     command = [(
@@ -43,11 +44,11 @@ rec {
 
   applyAll = updateScripts:
   let
-    shellCode = lib.concatMapStringsSep " ; " (s: "( ${updateScriptToShellcode s} )") updateScripts;
+    shellCode = lib.concatMapStringsSep " ; " (s: "( ${self.updateScriptToShellcode s} )") updateScripts;
   in
   {
     command = [(
       lib.getExe (writeScriptBin "apply-all" shellCode)
     )];
   };
-}
+})

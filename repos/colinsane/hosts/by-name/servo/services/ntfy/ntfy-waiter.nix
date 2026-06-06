@@ -16,14 +16,14 @@ let
     cli = [
       (lib.getExe cfg.package)
       "--port"
-      "${builtins.toString port}"
+      "${toString port}"
       "--silence"
-      "${builtins.toString silence}"
+      "${toString silence}"
     ] ++ flags;
   in {
-    "ntfy-waiter-${builtins.toString silence}" = {
+    "ntfy-waiter-${toString silence}" = {
       # TODO: run not as root (e.g. as ntfy-sh)
-      description = "wait for notification, with ${builtins.toString silence} seconds of guaranteed silence";
+      description = "wait for notification, with ${toString silence} seconds of guaranteed silence";
       serviceConfig = {
         Type = "simple";
         Restart = "always";
@@ -63,11 +63,11 @@ in
 
   config = lib.mkIf cfg.enable {
     sane.ports.ports = lib.mkMerge (lib.forEach portRange (port: {
-      "${builtins.toString port}" = {
+      "${toString port}" = {
         protocol = [ "tcp" ];
         visibleTo.doof = true;
         visibleTo.lan = true;
-        description = "colin-notification-waiter-${builtins.toString (port - portLow + 1)}-of-${builtins.toString numPorts}";
+        description = "colin-notification-waiter-${toString (port - portLow + 1)}-of-${toString numPorts}";
       };
     }));
     systemd.services = lib.mkMerge (builtins.map mkService portRange);

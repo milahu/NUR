@@ -11,7 +11,7 @@ let
   enabledProgramsWithPackage = builtins.filter (p: p.package != null) enabledPrograms;
 
   # [ { "<mime-type>" = { prority, desktop } ]
-  enabledWeightedMimes = builtins.map weightedMimes enabledPrograms;
+  enabledWeightedMimes = map weightedMimes enabledPrograms;
 
   # ProgramConfig -> { "<mime-type>" = { priority, desktop }; }
   weightedMimes = prog: builtins.mapAttrs
@@ -27,14 +27,14 @@ let
   sortOneMimeType = associations: builtins.sort
     (l: r: lib.throwIf
       (l.priority == r.priority)
-      "${l.desktop} and ${r.desktop} share a preferred mime type with identical priority ${builtins.toString l.priority} (and so the desired association is ambiguous)"
+      "${l.desktop} and ${r.desktop} share a preferred mime type with identical priority ${toString l.priority} (and so the desired association is ambiguous)"
       (l.priority < r.priority)
     )
     associations;
   sortMimes = mimes: builtins.mapAttrs (_k: sortOneMimeType) mimes;
   # { "<mime-type>"} = [ { priority, desktop } ... ]; } -> { "<mime-type>" = [ "<desktop>" ... ]; }
   removePriorities = mimes: builtins.mapAttrs
-    (_k: associations: builtins.map (a: a.desktop) associations)
+    (_k: associations: map (a: a.desktop) associations)
     mimes;
   # { "<mime-type>" = [ "<desktop>" ... ]; } -> { "<mime-type>" = "<desktop1>;<desktop2>;..."; }
   formatDesktopLists = mimes: builtins.mapAttrs
@@ -49,8 +49,8 @@ let
 
   localShareApplicationsPkg = (pkgs.symlinkJoin {
     name = "user-local-share-applications";
-    paths = builtins.map
-      (p: builtins.toString p.package)
+    paths = map
+      (p: toString p.package)
       (enabledProgramsWithPackage ++ [ { package=mimeappsListPkg; } ]);
   }).overrideAttrs (orig: {
     # like normal symlinkJoin, but don't error if the path doesn't exist.

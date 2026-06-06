@@ -55,15 +55,10 @@ in
     ];
   };
 
-  services.hickory-dns.settings.zones = lib.mapAttrsToList (zone: _: let
-    inherit (config.services.hickory-dns.package) version;
-  in {
+  services.hickory-dns.settings.zones = lib.mapAttrsToList (zone: _: {
     inherit zone;
-  } // (if lib.versionOlder config.services.hickory-dns.package.version "0.26.0" then {
-    allow_axfr = true;  # for versions <= 0.25.2
-  } else lib.warn "hickory-dns >= 0.26.0: remove allow_axfr fallback" {
-    axfr_policy = "AllowAll"; # for versions > 0.25.2
-  })) config.sane.dns.zones;
+    axfr_policy = "AllowAll";
+  }) config.sane.dns.zones;
 
   networking.nat.enable = true;  #< TODO: try removing this?
   # networking.nat.extraCommands = ''

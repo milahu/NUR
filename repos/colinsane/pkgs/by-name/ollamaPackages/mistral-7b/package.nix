@@ -2,9 +2,7 @@
 { mkOllamaModel }: mkOllamaModel {
   modelName = "mistral";
   variant = "7b";
-  manifestHash = "sha256-O45li3MlGdY+tk0vj3N5CS/RGoLGKE4KZZKiyAVEZC4=";
-  modelBlob = "ff82381e2bea77d91c1b824c7afb83f6fb73e9f7de9dda631bcdbca564aa5435";
-  modelBlobHash = "sha256-/4I4Hivqd9kcG4JMevuD9vtz6ffendpjG828pWSqVDU=";
+  manifestHash = "sha256-ZXeAOqmgNjaeSB1kiiuuuzgevG6Jfyu5p2aiqnv7wc8=";
+  modelBlob = "f5074b1221da0f5a2910d33b642efa5b9eb58cfdddca1c79e16d7ad28aa2b31f";
   paramsBlob = "ed11eda7790d05b49395598a42b155812b17e263214292f7b87d15e14003d337";
-  paramsBlobHash = "sha256-7RHtp3kNBbSTlVmKQrFVgSsX4mMhQpL3uH0V4UAD0zc=";
 }

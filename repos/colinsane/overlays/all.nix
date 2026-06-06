@@ -4,7 +4,14 @@
 let
   patches = import ./patches.nix;
   pkgs' = import ./pkgs.nix;
-  preferencesByName = builtins.mapAttrs (k: _: import ./preferences/${k}) (builtins.readDir ./preferences);
+  preferences = builtins.listToAttrs
+    (map
+      (file: {
+        name = builtins.head (builtins.match "^(.*)\\.nix$" file);
+        value = import ./preferences/${file};
+      })
+      (builtins.attrNames (builtins.readDir ./preferences))
+    );
   cross = import ./cross.nix;
   musl = import ./musl.nix;
   static = import ./static.nix;
@@ -24,7 +31,13 @@ in
     patches
     pkgs'
   ]
-  ++ (builtins.attrValues preferencesByName)
+  ++ [
+    preferences.electron-bin
+    preferences.misc
+    preferences.no-opengl-indirection
+    preferences.no-perl
+    preferences.reduce-closure
+  ]
   ++ [
     (optional isCross cross)
     (optional isMusl musl)

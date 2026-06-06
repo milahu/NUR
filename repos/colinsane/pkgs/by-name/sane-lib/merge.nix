@@ -1,6 +1,9 @@
-{ lib, sane-lib, ... }:
-
-rec {
+{
+  lib,
+  newScope,
+  sane-lib,
+}:
+lib.makeScope newScope (self: {
   # type-checked `lib.mkMerge`, intended to be usable at the top of a file.
   # `take` is a function which defines a spec enforced against every item to be merged.
   # for example:
@@ -12,11 +15,11 @@ rec {
   # Type: mkTypedMerge :: (Attrs -> Attrs) -> [Attrs] -> Attrs
   mkTypedMerge = take: l:
     let
-      pathsToMerge = findTerminalPaths take [];
-      discharged = dischargeAll l pathsToMerge;
-      merged = map (p: lib.setAttrByPath p (mergeAtPath p discharged)) pathsToMerge;
+      pathsToMerge = self.findTerminalPaths take [];
+      discharged = self.dischargeAll l pathsToMerge;
+      merged = map (p: lib.setAttrByPath p (self.mergeAtPath p discharged)) pathsToMerge;
     in
-      assert builtins.all (assertNoExtraPaths pathsToMerge) discharged;
+      assert builtins.all (self.assertNoExtraPaths pathsToMerge) discharged;
       sane-lib.joinAttrsetsRecursive merged;
 
   # `take` is as in mkTypedMerge. this function queries which items `take` is interested in.
@@ -45,11 +48,11 @@ rec {
   # Type: findTerminalPaths :: (Attrs -> Attrs) -> [String] -> [[String]]
   findTerminalPaths = take: path:
     let
-      subNames = findSubNames take path;
+      subNames = self.findSubNames take path;
     in if subNames == [] then
       [ path ]
     else
-      lib.concatMap (name: findTerminalPaths take (path ++ [name])) subNames;
+      lib.concatMap (name: self.findTerminalPaths take (path ++ [name])) subNames;
 
   # ensures that all nodes in the attrset from the root to and including the given path
   # are ordinary attrs -- if they exist.
@@ -78,20 +81,20 @@ rec {
       # e.g. each item is an ordinary attrset or primitive.
       # we still need to discharge the *rest* of the path though, for every item.
     in
-      lib.concatMap (dischargeDownstream path) items;
+      lib.concatMap (self.dischargeDownstream path) items;
 
   dischargeDownstream = path: it: if path != [] && it ? name then
-    map (v: it // { "${lib.head path}" = v; }) (dischargeToPath (lib.tail path) it."${lib.head path}")
+    map (v: it // { "${lib.head path}" = v; }) (self.dischargeToPath (lib.tail path) it."${lib.head path}")
   else
     [ it ];
 
   # discharge many items but only over one path.
   # Type: dischargeItemsToPaths :: [Attrs] -> String -> [Attrs]
-  dischargeItemsToPath = l: path: builtins.concatMap (dischargeToPath path) l;
+  dischargeItemsToPath = l: path: builtins.concatMap (self.dischargeToPath path) l;
 
   # Type: dischargeAll :: [Attrs] -> [String] -> [Attrs]
   dischargeAll = l: paths:
-    builtins.foldl' dischargeItemsToPath l paths;
+    builtins.foldl' self.dischargeItemsToPath l paths;
 
   # merges all present values for the provided path
   # Type: mergeAtPath :: [String] -> [Attrs] -> (lib.mkMerge)
@@ -106,10 +109,10 @@ rec {
       # since the act of discharging should have forced all the relevant data out to the leaves,
       # we just set each expected terminal to null (initializing the parents when necessary)
       # and that gives a standard value for any fully-consumed items that we can do equality comparisons with.
-      remainder = builtins.foldl' _wipePath i paths;
-      expected-remainder = builtins.foldl' _wipePath {} paths;
+      remainder = builtins.foldl' self._wipePath i paths;
+      expected-remainder = builtins.foldl' self._wipePath {} paths;
     in
       assert remainder == expected-remainder; true;
 
   _wipePath = acc: path: lib.recursiveUpdate acc (lib.setAttrByPath path null);
-}
+})

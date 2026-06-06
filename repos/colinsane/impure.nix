@@ -21,7 +21,7 @@ let
   nixpkgs = mkNixpkgs { branch = "master"; inherit localSystem; };
   inherit (nixpkgs) lib pkgs;
 
-  evalHost = { name, buildPlatform, config ? {}, branch ? "master", variant ? null, libc ? null, cpu ? null }:
+  evalHost = { name, buildPlatform, config ? {}, branch ? "master", variant ? null, libc ? null, buildLibc ? null, cpu ? null }:
   let
     nixpkgs = mkNixpkgs { inherit branch; localSystem = buildPlatform; };
     # ${nixpkgs}/nixos/lib/eval-config.nix is like `pkgs.nixos`, but doesn't set `config.nixpkgs.{pkgs,localSystem}`.
@@ -37,6 +37,7 @@ let
       ];
 
       sane.hostVariant = lib.mkIf (variant != null) variant;
+      sane.buildLibc = lib.mkIf (buildLibc != null) buildLibc;
       sane.libc = lib.mkIf (libc != null) libc;
       sane.cpu = lib.mkIf (cpu != null) cpu;
 
@@ -63,6 +64,7 @@ let
       "${hostName}" = args';
       "${hostName}-musl" = lib.recursiveUpdate args' { libc = "musl"; };
       "${hostName}-glibc" = lib.recursiveUpdate args' { libc = "glibc"; };
+      "${hostName}-musl-from-glibc" = lib.recursiveUpdate args' { libc = "musl"; buildLibc = "glibc"; };
       # "${hostName}-musl-cross" = lib.recursiveUpdate args' { hostPlatform.abi = abis.musl; };
       # "${hostName}-glibc-cross" = lib.recursiveUpdate args' { hostPlatform.abi = abis.gnu; };
     });
@@ -190,7 +192,7 @@ let
           # 2. updaters often write artifacts (e.g. `git-commits.txt`) to the working directory.
           # 3. tmp artifacts can be _large_ for things involving `git clone`, and scripts don't often do cleanup.
           REPO_ROOT=$(${lib.getExe pkgs.git} -C "$PWD" rev-parse --show-toplevel)
-          UNIQUE_TO_UPDATER=$REPO_ROOT/.working/update/${prefix}
+          UNIQUE_TO_UPDATER=$REPO_ROOT/.work/update/${prefix}
           rm -rf "$UNIQUE_TO_UPDATER"
           mkdir -p "$UNIQUE_TO_UPDATER"
 

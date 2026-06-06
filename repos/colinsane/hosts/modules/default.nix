@@ -40,6 +40,13 @@ in
       ];
       default = "glibc";
     };
+    sane.buildLibc = lib.mkOption {
+      type = lib.types.enum [
+        "glibc"
+        "musl"
+      ];
+      default = cfg.libc;
+    };
     sane.cpu = lib.mkOption {
       type = lib.types.enum [
         "aarch64"
@@ -80,10 +87,10 @@ in
       #   glibc = abis.gnu;
       #   musl = abis.musl;
       # }."${cfg.libc}";
-      abi = {
+      abiForLibc = libc: {
         glibc = "gnu";
         musl = "musl";
-      }."${cfg.libc}";
+      }."${libc}";
     in {
       # XXX(2026-01-29): nixpkgs doesn't properly merge `buildPlatform` or `hostPlatform` definitions,
       # so we must assign to it only once, to be predictable.
@@ -92,10 +99,10 @@ in
       # - `hostPlatform = { system = "x86_64-linux"; abi = "musl"; }`
       buildPlatform = {
         # we _could_ use different libc's on build v.s. host, but it largely doesn't make sense.
-        system = "${config.nixpkgs.system}-${abi}";
+        system = "${config.nixpkgs.system}-${abiForLibc cfg.buildLibc}";
       };
       hostPlatform = {
-        system = "${cfg.cpu}-linux-${abi}";
+        system = "${cfg.cpu}-linux-${abiForLibc cfg.libc}";
       };
     };
   };

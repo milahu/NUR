@@ -1,20 +1,19 @@
 {
-  callPackage,
   lib,
-  sane-lib,
+  newScope,
 }:
-{
-  feeds = callPackage ./feeds.nix { };
-  merge = callPackage ./merge.nix { };
-  path = callPackage ./path.nix { };
-  types = callPackage ./types.nix { };
+lib.makeScope newScope (self: {
+  feeds = self.callPackage ./feeds.nix { };
+  merge = self.callPackage ./merge.nix { };
+  path = self.callPackage ./path.nix { };
+  types = self.callPackage ./types.nix { };
 
   # re-exports
-  inherit (sane-lib.merge) mkTypedMerge;
+  inherit (self.merge) mkTypedMerge;
 
   # like `builtins.listToAttrs` but any duplicated `name` throws error on access.
   # Type: listToDisjointAttrs :: [{ name :: String, value :: Any }] -> AttrSet
-  listToDisjointAttrs = l: sane-lib.joinAttrsets (map sane-lib.nameValueToAttrs l);
+  listToDisjointAttrs = l: self.joinAttrsets (map self.nameValueToAttrs l);
 
   # true if p is a prefix of l (even if p == l)
   # Type: isPrefixOfList :: [Any] -> [Any] -> bool
@@ -53,7 +52,7 @@
   # transform a list into an AttrSet via a function which maps an element to a { name, value } pair.
   # it's an error for the same name to be specified more than once
   # Type: mapToAttrs :: (a -> { name :: String, value :: Any }) -> [a] -> AttrSet
-  mapToAttrs = f: list: sane-lib.listToDisjointAttrs (map f list);
+  mapToAttrs = f: list: self.listToDisjointAttrs (map f list);
 
   # flatten a nested AttrSet into a list of { path = [String]; value } items.
   # the output contains only non-attr leafs.
@@ -61,11 +60,11 @@
   # but e.g. { a.b = {}; } -> []
   #
   # Type: flattenAttrs :: AttrSet[AttrSet|Any] -> [{ path :: String, value :: Any }]
-  flattenAttrs = sane-lib.flattenAttrs' [];
+  flattenAttrs = self.flattenAttrs' [];
   flattenAttrs' = path: value: if builtins.isAttrs value then (
     builtins.concatLists (
       lib.mapAttrsToList
-        (name: sane-lib.flattenAttrs' (path ++ [ name ]))
+        (name: self.flattenAttrs' (path ++ [ name ]))
         value
     )
   ) else [
@@ -84,10 +83,10 @@
         (name: type:
           if type == "directory" then
             # enumerate this directory and then prefix each result with the directory's name
-            map (e: "${name}/${e}") (sane-lib.enumerateFilePaths (base + "/${name}"))
+            map (e: "${name}/${e}") (self.enumerateFilePaths (base + "/${name}"))
           else
             [ name ]
         )
         (builtins.readDir base)
     );
-}
+})

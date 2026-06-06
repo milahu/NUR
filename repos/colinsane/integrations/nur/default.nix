@@ -46,10 +46,15 @@ let
     "linux-postmarketos-allwinner"
     "linux-postmarketos-exynos5"
     "linux-postmarketos-pinephonepro"
+    # TODO(2026-05-18): mpvScripts.sane_cast takes sane-cast as callarg; that doesn't exist when packages are placed in a `sane` scope!
+    "mpvScripts"
+    "pkgsSpliced"  #< error: path ... did not exist in the store during evaluation
+    "pkgsStrictDeps"  #< error: path ... did not exist in the store during evaluation
     "sane-nix-files"
     # these use IFD by design
     "nixpkgs-bootstrap"
     "nixpkgs-wayland"
+    "nur" # redundant
     "sops-nix"
     "uninsane-dot-org"
   ];

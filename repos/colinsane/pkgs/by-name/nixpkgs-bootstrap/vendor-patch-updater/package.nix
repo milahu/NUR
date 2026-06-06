@@ -1,5 +1,6 @@
 {
   curl,
+  gitMinimal,
   lib,
   nix,
   patchutils,
@@ -12,6 +13,7 @@ let
     pkgs = {
       inherit
         curl
+        gitMinimal
         nix
         patchutils
         ;

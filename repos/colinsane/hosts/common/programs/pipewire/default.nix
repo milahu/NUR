@@ -97,8 +97,8 @@ in
       # 2. Pipewire buffering into each specific app (e.g. Dino).
       # note that pipewire default config includes `clock.power-of-two-quantum = true`
       context.properties = {
-        default.clock.min-quantum = ${builtins.toString cfg.config.min-quantum}
-        default.clock.max-quantum = ${builtins.toString cfg.config.max-quantum}
+        default.clock.min-quantum = ${toString cfg.config.min-quantum}
+        default.clock.max-quantum = ${toString cfg.config.max-quantum}
       }
     '';
     # fs.".config/pipewire/pipewire.conf.d/20-augmented-mic.conf".symlink.target = ./20-augmented-mic.conf;

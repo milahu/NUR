@@ -6,13 +6,13 @@
   zip,
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "bypass-paywalls-clean";
   version = "3.6.0.0";
   src = fetchFromGitLab {
     owner = "magnolia1234";
     repo = "bypass-paywalls-firefox-clean";
-    rev = "v${version}";
+    rev = "v${finalAttrs.version}";
     hash = "sha256-oP9ha4PXBF/EalmA8tt/PHJb/KgCi9mXvvyvtHDmTGM=";
   };
 
@@ -58,4 +58,4 @@ stdenv.mkDerivation rec {
     license = with lib.licenses; [ mit ];
     maintainer = with lib.maintainers; [ colinsane ];
   };
-}
+})

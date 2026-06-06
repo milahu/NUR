@@ -1,4 +1,5 @@
 {
+  buildPackages,
   jq,
   make-docset-index,
   nix,
@@ -27,7 +28,7 @@ let
     unpackPhase = ''
       cp ${./Info.plist} Info.plist
       cp ${builtins-locations}/locations.json locations.json
-      cp -R ${nix.doc}/share/doc/nix/manual nix-manual
+      cp -R ${nix.doc or buildPackages.nix.doc}/share/doc/nix/manual nix-manual
     '';
 
     buildPhase = ''

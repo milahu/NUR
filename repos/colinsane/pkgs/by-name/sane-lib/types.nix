@@ -1,42 +1,44 @@
-{ lib, ... }:
+{
+  lib,
+  newScope,
+}:
 
-with lib;
-rec {
+lib.makeScope newScope (self: {
   # "Access Control List", only it's just a user:group and file mode
   # compatible with `chown` and `chmod`
   aclMod = {
     options = {
-      user = mkOption {
-        type = types.str;  # TODO: use uid?
+      user = lib.mkOption {
+        type = lib.types.str;  # TODO: use uid?
       };
-      group = mkOption {
-        type = types.str;
+      group = lib.mkOption {
+        type = lib.types.str;
       };
-      mode = mkOption {
-        type = types.str;
+      mode = lib.mkOption {
+        type = lib.types.str;
       };
     };
   };
-  acl = types.submodule aclMod;
+  acl = lib.types.submodule self.aclMod;
 
   # this is acl, but doesn't require to be fully specified.
   # a typical use case is when there's a complete acl, and the user
   # wants to override just one attribute of it.
   aclOverrideMod = {
     options = {
-      user = mkOption {
-        type = types.nullOr types.str;
+      user = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
         default = null;
       };
-      group = mkOption {
-        type = types.nullOr types.str;
+      group = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
         default = null;
       };
-      mode = mkOption {
-        type = types.nullOr types.str;
+      mode = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
         default = null;
       };
     };
   };
-  aclOverride = types.submodule aclOverrideMod;
-}
+  aclOverride = lib.types.submodule self.aclOverrideMod;
+})

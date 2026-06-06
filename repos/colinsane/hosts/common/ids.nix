@@ -10,6 +10,8 @@
 
   # these ids are "required" to be "system users" (400..999).
   # this seems to be a `shadow` (package) concept; SYS_UID_MIN and SYS_UID_MAX
+  sane.ids.pcscd.uid = 897;
+  sane.ids.pcscd.gid = 897;
   sane.ids.usbmux.uid = 898;  # found on desko; services.usbmuxd.
   sane.ids.usbmux.gid = 898;
   sane.ids.plugdev.gid = 899;  # else "Group 'plugdev' is not a system group, ignoring."
@@ -32,7 +34,7 @@
   sane.ids.greeter.uid = 999;
   sane.ids.greeter.gid = 999;
 
-  # new servo users
+  # new servo users (and some desko users mixed in?)
   sane.ids.freshrss.uid = 2401;
   sane.ids.freshrss.gid = 2401;
   sane.ids.mediawiki.uid = 2402;
@@ -78,6 +80,8 @@
   sane.ids.anubis.gid = 2424;
   sane.ids.lemmy-ui.uid = 2425;
   sane.ids.lemmy-ui.gid = 2425;
+  sane.ids.llama-cpp.uid = 2426;
+  sane.ids.llama-cpp.gid = 2426;
 
   sane.ids.shelvacu.uid = 5431;
 

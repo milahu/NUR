@@ -88,6 +88,7 @@
     serviceConfig.SystemCallArchitectures = "native";  # prevents e.g. aarch64 syscalls in the event that the kernel is multi-architecture.
     serviceConfig.SystemCallFilter = [
       "@system-service"
+      "@privileged"
       # TODO: restrict SystemCallFilter more aggressively
     ];
     # TODO: restrict `DeviceAllow`
@@ -219,6 +220,7 @@
         (config.sane.services.hickory-dns.enable && config.sane.services.hickory-dns.asSystemResolver)
         || (config.services.unbound.enable && config.services.unbound.resolveLocalQueries)
         || config.services.bind.enable  # bind config isn't easily inspectable; assume that it's acting as local resolver
+        || config.services.knot-resolver.enable # assume it's local DNS resolver
       then
         "none"
       else

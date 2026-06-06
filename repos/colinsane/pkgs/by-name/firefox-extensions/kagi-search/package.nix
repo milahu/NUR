@@ -5,13 +5,13 @@
   wrapFirefoxAddonsHook,
   zip,
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "kagi-search";
   version = "0.7.4";
   src = fetchFromGitHub {
     owner = "kagisearch";
     repo = "browser_extensions";
-    rev = "release/${version}";
+    rev = "release/${finalAttrs.version}";
     hash = "sha256-OaydcKtrMgxMJMPpl6e2YXhm1FyqJPPpAMObEU45J84=";
   };
 
@@ -42,4 +42,4 @@ stdenvNoCC.mkDerivation rec {
   meta = {
     description = "A simple helper extension for setting Kagi as a default search engine, and automatically logging in to Kagi in incognito browsing windows.";
   };
-}
+})

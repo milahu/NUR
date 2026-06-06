@@ -66,6 +66,28 @@ self: super: {
   #   squeekboard = null;
   # };
 
+  # XXX(2026-03-29): this is specifically targeted to remove qtwebengine from krita's closure
+  pythonPackagesExtensions = super.pythonPackagesExtensions ++ [
+    (pyself: pysuper: {
+      pyqt6 = pysuper.pyqt6.override {
+        withPdf = false;
+      };
+      pyside6 = pysuper.pyside6.override {
+        python = pyself.python // {
+          pkgs = pyself.python.pkgs.overrideScope (self': super': {
+            qt6 = super'.qt6.overrideScope (_: _: {
+              qtwebengine = null;
+            });
+          });
+        };
+      };
+      # less targeted alternative to removing qtwebengine from the pyside6 closure
+      # qt6 = pysuper.qt6.overrideScope (_: _: {
+      #   qtwebengine = null;
+      # });
+    })
+  ];
+
   # rsyslog = super.rsyslog.override {
   #   # XXX(2024-07-28): required for cross compilation
   #   withGcrypt = false;

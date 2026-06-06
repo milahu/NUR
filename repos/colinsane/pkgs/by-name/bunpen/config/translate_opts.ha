@@ -52,17 +52,17 @@ fn cli_opts_get_exec_params(opts: cli_opts, env: env) exec_params = {
     // forward argv0
     if ((os::args[0] == "bunpen" || strings::hassuffix(os::args[0], "/bunpen")) && len(opts.cmd) > 0) {
       log::println("[config] using binary path as argv[0]");
-      append(params.args, opts.cmd[0]);
+      append(params.args, opts.cmd[0])!;
     } else {
       log::println("[config] forwarding argv[0]");
-      append(params.args, os::args[0]);
+      append(params.args, os::args[0])!;
     };
   };
 
   let saw_bin_path = false;
   for (let arg .. opts.cmd) {
     if (saw_bin_path) {
-      append(params.args, arg);
+      append(params.args, arg)!;
     } else {
       params.bin = arg;
       saw_bin_path = true;
@@ -73,7 +73,7 @@ fn cli_opts_get_exec_params(opts: cli_opts, env: env) exec_params = {
 
   for (let new .. opts.env) {
     let substituted = env_subst(env, new);
-    append(params.extra_env, substituted);
+    append(params.extra_env, substituted)!;
   };
 
   return params;
@@ -110,13 +110,13 @@ export fn ingest_cli_opts(opts: cli_opts) (cli_request | exec_params | help) = {
   let dbus_subset = resources::dbus_subset { ... };
   for (let i .. opts.dbus_call) {
     any_dbus = true;
-    append(dbus_subset.call, i);
+    append(dbus_subset.call, i)!;
   };
 
   //---- ingest `dbus_own` ----//
   for (let i .. opts.dbus_own) {
     any_dbus = true;
-    append(dbus_subset.own, i);
+    append(dbus_subset.own, i)!;
   };
 
   if (any_dbus)
@@ -163,7 +163,7 @@ export fn ingest_cli_opts(opts: cli_opts) (cli_request | exec_params | help) = {
     // TODO: respect the user's `$SHELL`.
     req.exec_params.bin = "/bin/sh";
     delete(req.exec_params.args[..]);
-    append(req.exec_params.args, "sh");
+    append(req.exec_params.args, "sh")!;
   };
 
   return req;
@@ -183,9 +183,9 @@ fn does_option_apply_to_self(value: str, exec_params: *const exec_params) bool =
   match (regex::compile(value)) {
     case let re: regex::regex =>
       defer regex::finish(&re);
-      if (regex::test(&re, exec_params.bin))
+      if (regex::test(&re, exec_params.bin)!)
         return true;
-      if (len(exec_params.args) > 0 && regex::test(&re, exec_params.args[0]))
+      if (len(exec_params.args) > 0 && regex::test(&re, exec_params.args[0])!)
         return true;
     case let e: regex::error =>
       log::printfln("[config] failed to parse option regex {}: {}", value, e);
@@ -263,7 +263,7 @@ fn try_as_path(
         return err;
   };
 
-  append(into, path_buf);
+  append(into, path_buf)!;
 };
 
 // ensure that the specified path exists.
@@ -331,5 +331,5 @@ fn getenv_default(key: str) str = {
 };
 
 fn env_subst(env: env, before: str) str = {
-  return strings::multireplace(before, ("$$", "$"), ("$HOME", env.home), ("$XDG_RUNTIME_DIR", env.xdg_runtime_dir));
+  return strings::multireplace(before, ("$$", "$"), ("$HOME", env.home), ("$XDG_RUNTIME_DIR", env.xdg_runtime_dir))!;
 };

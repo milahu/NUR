@@ -1,40 +1,41 @@
 # N.B.: this package relies on a rust-based library,
-# ordinarily built via git submodule + cargo invocation.
-# TODO: build that library using Nix; otherwise, it fails to build with raw cargo
-# due to a missing cargo vendor pack.
+# ordinarily built via git submodule + cargo invocation,
+# and none of the Cargo deps are pinned.
 {
   cargo,
   fetchFromGitHub,
-  gitUpdater,
+  nix-update-script,
   jq,
   rustPlatform,
-  stdenv,
   wasm-pack,
   wrapFirefoxAddonsHook,
   zip,
 }:
-let
-  version = "1.0.5";
+rustPlatform.buildRustPackage (finalAttrs: {
+  pname = "privacypass-extension";
+  version = "1.0.8";
+
   src = fetchFromGitHub {
     owner = "kagisearch";
     repo = "privacypass-extension";
     fetchSubmodules = true;
-    rev = "v${version}";
-    hash = "sha256-FtXX88WUWJ7AYnECsrEJB6+RqhvO3IxdYLS25f79yGc=";
+    rev = "v${finalAttrs.version}";
+    hash = "sha256-5YxcYp0hx90AqhTKURGTDPHJYvGu5UulJ/TKKXv9oTg=";
   };
-  privacypass-lib = rustPlatform.buildRustPackage {
-    pname = "privacypass-lib";
-    inherit src version;
-    srcRoot = "privacypass-lib";
 
-    # cargoHash = "";  # TODO: upstream doesn't provide a `Cargo.lock` file!
-    # postBuild = TODO (wasm-pack)
-    # meta = TODO
+  cargoRoot = "privacypass-lib/src";
+  cargoDeps = rustPlatform.importCargoLock {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "privacypass-0.2.0-pre.0" = "sha256-OpJkfhJ+Zjxd3uoVe+N3cNOA7e1aOkNcf0SIrhAGiiM=";
+    };
   };
-in
-stdenv.mkDerivation {
-  pname = "privacypass-extension";
-  inherit src version;
+
+  postPatch = ''
+    cp ${./Cargo.lock} privacypass-lib/src/Cargo.lock
+    chmod +x firefox.sh
+    patchShebangs --build firefox.sh
+  '';
 
   nativeBuildInputs = [
     cargo
@@ -47,12 +48,24 @@ stdenv.mkDerivation {
   buildPhase = ''
     runHook preBuild
 
-    # upstream method: let it run `cargo build` here, but requires network access to fetch deps.
-    # sh ./make.sh
+    mkdir -p build/firefox
 
-    cp -R ${privacypass-lib}/src/wasm/pkg src/scripts/kagippjs
+    # vvv upstream method: let it run `cargo build` here, but requires network access to fetch deps.
+    # sh ./make.sh
+    # cp -R privacypass-lib/src/wasm/pkg src/scripts/kagippjs
     # truthy DEBUG_BUILD enables `popup/debug.js` in the runtime
-    ./firefox.sh ''${DEBUG_BUILD:-1}
+    # ./firefox.sh ''${DEBUG_BUILD:-1}
+    # ^^^
+
+    # vvv inlined from `make.sh`, but with git operations removed
+      (cd privacypass-lib/src; bash build.sh)
+
+      rm -rf src/scripts/kagippjs
+      cp -r privacypass-lib/src/wasm/pkg src/scripts/kagippjs
+
+      # BUILDDIR=build/chrome bash chrome.sh $DEBUG
+      BUILDDIR=build/firefox bash firefox.sh $DEBUG
+    # ^^^
 
     runHook postBuild
   '';
@@ -81,8 +94,16 @@ stdenv.mkDerivation {
 
   extid = "privacypass@kagi.com";
 
+  meta.broken = true;  # XXX(2026-02-23): blind-rsa-signatures dependency fails build. this is why you use lockfiles.
+
   passthru = {
-    inherit privacypass-lib;
-    updateScript = gitUpdater {};
+    updateWithSuper = false;  # no way to validate any update, since the deps are broken (no lockfile).
+    updateScript = nix-update-script {
+      extraArgs = [
+        "--generate-lockfile"
+        "--lockfile-metadata-path"
+        "privacypass-lib/src"
+      ];
+    };
   };
-}
+})

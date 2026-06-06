@@ -6,12 +6,12 @@
   wrapFirefoxAddonsHook,
   zip,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "ublacklist";
-  version = "9.4.0";
+  version = "9.6.0";
   src = fetchurl {
-    url = "https://github.com/iorate/ublacklist/releases/download/v${version}/ublacklist-v${version}-firefox.zip";
-    hash = "sha256-n13M1mrOZqaeZKblkhv7aC6AdN557lQ+QWWNaX0DD+Y=";
+    url = "https://github.com/iorate/ublacklist/releases/download/v${finalAttrs.version}/ublacklist-v${finalAttrs.version}-firefox.zip";
+    hash = "sha256-0A8DhX0x6QQNH8GkT1ZnHnlmAIURmqtnSvk0jav0orU=";
   };
   # .zip file has everything in the top-level; stdenv needs it to be extracted into a subdir:
   sourceRoot = ".";
@@ -34,4 +34,4 @@ stdenv.mkDerivation rec {
 
   extid = "@ublacklist";
   passthru.updateScript = addon-git-updater;
-}
+})

@@ -3472,6 +3472,11 @@ static void rk818_battery_shutdown(struct platform_device *dev)
 		 di->algo_rest_mode, di->algo_rest_val);
 }
 
+// this makes the module loadable on first use of `compatible = "rockchip,rk818-battery" in dtb.
+// it adds the following to `modules.alias`:
+// > alias of:N*T*Crockchip,rk818-battery rk818_battery
+MODULE_DEVICE_TABLE(of, rk818_battery_of_match);
+
 static struct platform_driver rk818_battery_driver = {
 	.probe = rk818_battery_probe,
 	.suspend = rk818_battery_suspend,
@@ -3483,17 +3488,7 @@ static struct platform_driver rk818_battery_driver = {
 	},
 };
 
-static int __init battery_init(void)
-{
-	return platform_driver_register(&rk818_battery_driver);
-}
-fs_initcall_sync(battery_init);
-
-static void __exit battery_exit(void)
-{
-	platform_driver_unregister(&rk818_battery_driver);
-}
-module_exit(battery_exit);
+module_platform_driver(rk818_battery_driver);
 
 MODULE_LICENSE("GPL");
 MODULE_ALIAS("platform:rk818-battery");

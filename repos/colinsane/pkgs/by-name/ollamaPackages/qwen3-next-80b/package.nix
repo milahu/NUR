@@ -6,7 +6,5 @@
   variant = "80b";
   manifestHash = "sha256-suu5huTpYLs/LWNkcqRmtAJ5OcTY2aYvyCvtjr/Rrhk=";
   modelBlob = "8476acca2ca7dc4dd86ad2e069cb270fdbd44287d9ff3006d86e9a54cc19acd1";
-  modelBlobHash = "sha256-hHasyiyn3E3YatLgacsnD9vUQofZ/zAG2G6aVMwZrNE=";
   paramsBlob = "cff3f395ef3756ab63e58b0ad1b32bb6f802905cae1472e6a12034e4246fbbdb";
-  paramsBlobHash = "sha256-z/Pzle83Vqtj5YsK0bMrtvgCkFyuFHLmoSA05CRvu9s=";
 }

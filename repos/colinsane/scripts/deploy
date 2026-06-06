@@ -30,7 +30,7 @@ proc usage (;; status=1) {
   echo "    - if no host is specified, copies to all known hosts"
   echo "- --reboot: reboot the target machine after deploying (if deployed with no errors)"
   echo "- --reboot-force: reboot the target machine after deploying (even on error)"
-  echo "- --variant light|min|''|all  (default: '')"
+  echo "- --variant light|min|smoke|''|all  (default: '')"
   echo "- --wireguard always|never|opportunistic: deploy over wireguard"
   echo "- --ip <address>: deploy to the specific IP address"
   echo "- --deriv /nix/store/...: prebuilt store path (or .drv to realize) to deploy instead of (re-)building the default target"
@@ -164,7 +164,7 @@ func _parseArgs(p,cur=null, next=null, ...rest) {
         call p.hosts->append(cur)
         return (_parseArgs (p, next, ...rest))
       }
-      /^ <capture ('crappy'|'desko'|'flowy'|'lappy'|'moby'|'servo') as host> <capture ('-min'|'-light'|'-next-min'|'-next-light'|'-next') as variant> $/ {
+      /^ <capture ('crappy'|'desko'|'flowy'|'lappy'|'moby'|'servo') as host> <capture ('-smoke'|'-min'|'-light'|'-next-min'|'-next-light'|'-next') as variant> $/ {
         call p.flavoredHosts->append(Object(FlavoredHost, {
           host: _group('host'),
           variant: _group('variant'),
@@ -248,7 +248,7 @@ func timeoutFor (variant) {
     -min | -light | -next {
       return (3600)
     }
-    -next-min | -next-light {
+    -smoke | -next-min | -next-light {
       return (1800)
     }
     (else) {
@@ -349,6 +349,9 @@ proc deployOneHost (; nixcfg) {
         destructive runOnTarget "$netHost" sudo nix-env -p /nix/var/nix/profiles/system --set "$myStorePath" (translate_error=FAILED_SET_PROFILE)
       }
 
+      # XXX(2026-03-28): the below is false! setting the profile seems to only effect garbage collection and such;
+      # `NIXOS_INSTALL_BOOTLOADER=1 switch-to-configuration` updates /run/current-system *and* adds the bootloader entry.
+      #
       # at this point, the new profile will be booted into on next boot.
       # try to switch to that profile _now_, but allow this to be fallible
       # so as to support `--force-reboot` CLI option:

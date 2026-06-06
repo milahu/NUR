@@ -5,6 +5,11 @@
 # N.B.: `(flake-compat args).outputs.overrideAttrs { }` behaves strangely;
 # the result is effectively `flake-compat args`.
 # this is likely an upstream issue.
+#
+# see also:
+# - <https://github.com/fricklerhandwerk/flake-inputs>
+#   - possibly supports input overriding?
+# - <https://github.com/nix-community/dream2nix/blob/main/dev-flake/flake-compat.nix>
 {
   fetchFromGitea,
   lib,
@@ -12,13 +17,13 @@
   stdenv,
 }:
 let
-  version = "0-unstable-2025-07-05";
+  version = "0-unstable-2026-05-02";
   src = fetchFromGitea {
     domain = "git.lix.systems";
     owner = "lix-project";
     repo = "flake-compat";
-    rev = "549f2762aebeff29a2e5ece7a7dc0f955281a1d1";
-    hash = "sha256-NKw96t+BgHIYzHUjkTK95FqYRVKB8DHpVhefWSz/kTw=";
+    rev = "382052b74656a369c5408822af3f2501e9b1af81";
+    hash = "sha256-Eg9b/rq/ECYwNwEXs5i9wHyhxNI0JrYx2srdI2uZMaQ=";
   };
 
   # args:

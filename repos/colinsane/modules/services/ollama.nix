@@ -81,16 +81,17 @@ let
       # phi4-14b
       # qwen2_5-7b   # notably less quality than 32b (i.e. generates invalid code)
       # qwen2_5-14b  # *almost* same quality to 32b variant, but faster
-      # qwen3-8b
-      # qwen3-14b  # gives correct RDMA RoCEv2 UDP port
-      qwen3-30b
-      qwen3-next-80b
       # qwen2_5-32b-instruct-q2_K  # lower-res version of default 32b (so, slightly faster, but generates invalid code where the full res generates valid code)
       # qwen2_5-32b  # generates 3~5 words/sec, but notably more accurate than coder-7b
       # qwen2_5-abliterate-7b
       # qwen2_5-abliterate-14b
       qwen2_5-abliterate-32b
       # qwen2_5-coder-7b  # fast, and concise, but generates invalid code
+      # qwen3-8b
+      # qwen3-14b  # gives correct RDMA RoCEv2 UDP port
+      qwen3-30b
+      qwen3-next-80b
+      qwen3_5-35b-a3b
       # qwq-32b  # heavily restricted
       qwq-abliterated-32b
       # solar-pro-22b  # generates invalid code

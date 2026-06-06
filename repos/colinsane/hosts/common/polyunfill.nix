@@ -81,28 +81,30 @@ in
       in {
         options.systemd = {
           inherit (base.options.systemd)
-            package
-            enableStrictShellChecks
-            units
-            packages
             additionalUpstreamSystemUnits
             automounts
             ctrlAltDelUnit
             defaultUnit
+            enableStrictShellChecks
             generators
+            generatorEnvironment
+            generatorPath
             globalEnvironment
             managerEnvironment
             mounts
+            package
+            packages
             paths
             services
+            settings
             shutdown
+            sleep
             slices
             sockets
             suppressedSystemUnits
             targets
             timers
-            settings
-            sleep
+            units
             ;
         };
         # inherit (base.systemd) config;

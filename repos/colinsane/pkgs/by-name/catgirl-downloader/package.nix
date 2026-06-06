@@ -23,13 +23,13 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "catgirl-downloader";
-  version = "0.3.1";
+  version = "0.5";
 
   src = fetchFromGitHub {
     owner = "NyarchLinux";
     repo = "CatgirlDownloader";
     rev = finalAttrs.version;
-    hash = "sha256-lq9lCOtda5YXv9fm9T+HI2Hv7cq0a/9vUN6m+Bk480w=";
+    hash = "sha256-+RyQOgqPZN3AnVdd5mtgppQ/z51VIEeEsiW2RFTnVbk=";
   };
 
   # fix meson to use the host python when cross compiling.

@@ -11,33 +11,34 @@ self: super:
     unfreeIncludeHDCPBlob = false;
   };
 
-  go2tv = super.go2tv.overrideAttrs (upstream: {
-    postPatch = (upstream.postPatch or "") + ''
-      # by default, go2tv passes `ffmpeg -re`, which limits ffmpeg to never stream faster than realtime.
-      # patch that out to let the receiver stream as fast as it wants.
-      # maybe not necessary, was added during debugging.
-      substituteInPlace soapcalls/utils/transcode.go --replace-fail '"-re",' ""
-    '';
+  # XXX(2026-02-16): does not apply; i haven't made use of this in several months
+  # go2tv = super.go2tv.overrideAttrs (upstream: {
+  #   postPatch = (upstream.postPatch or "") + ''
+  #     # by default, go2tv passes `ffmpeg -re`, which limits ffmpeg to never stream faster than realtime.
+  #     # patch that out to let the receiver stream as fast as it wants.
+  #     # maybe not necessary, was added during debugging.
+  #     substituteInPlace soapcalls/utils/transcode.go --replace-fail '"-re",' ""
+  #   '';
 
-    patches = (upstream.patches or []) ++ [
-      (self.fetchpatch {
-        name = "enable ffmpeg functionality outside the GUI paths";
-        url = "https://git.uninsane.org/colin/go2tv/commit/9afa10dd2e2ef16def26be07eb72fbc5b0382ddd.patch";
-        hash = "sha256-PW989bb/xHk7EncZ3Ra69y2p1U1XeePKq2h7v5O47go=";
-      })
-      (self.fetchpatch {
-        # this causes it to advertize that weird `video/vnd.dlna.mpeg-tts` MIME type.
-        # TODO: try `video/mpeg`.
-        # the following were tried, and failed:
-        # - video/mp2t
-        # - video/x-mpegts
-        # - video/MP2T
-        name = "advertise the correct MediaType when transcoding";
-        url = "https://git.uninsane.org/colin/go2tv/commit/3bbb98318df2fc3d1a61cecd2b06d1bec9964651.patch";
-        hash = "sha256-9n43QXfCWyEn5qw1rWnmFb8oTY6xgkih5ySAcxdBVZo=";
-      })
-    ];
-  });
+  #   patches = (upstream.patches or []) ++ [
+  #     (self.fetchpatch {
+  #       name = "enable ffmpeg functionality outside the GUI paths";
+  #       url = "https://git.uninsane.org/colin/go2tv/commit/9afa10dd2e2ef16def26be07eb72fbc5b0382ddd.patch";
+  #       hash = "sha256-PW989bb/xHk7EncZ3Ra69y2p1U1XeePKq2h7v5O47go=";
+  #     })
+  #     (self.fetchpatch {
+  #       # this causes it to advertize that weird `video/vnd.dlna.mpeg-tts` MIME type.
+  #       # TODO: try `video/mpeg`.
+  #       # the following were tried, and failed:
+  #       # - video/mp2t
+  #       # - video/x-mpegts
+  #       # - video/MP2T
+  #       name = "advertise the correct MediaType when transcoding";
+  #       url = "https://git.uninsane.org/colin/go2tv/commit/3bbb98318df2fc3d1a61cecd2b06d1bec9964651.patch";
+  #       hash = "sha256-9n43QXfCWyEn5qw1rWnmFb8oTY6xgkih5ySAcxdBVZo=";
+  #     })
+  #   ];
+  # });
 
   yt-dlp = let
     # XXX(2026-02-04): yt-dlp accepts one of 4 JS runtimes, in order:

@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  fsOpts = import ./fs-opts.nix;
+  fsOpts = import ./fs-opts.nix { inherit lib; };
   ifSshAuthorized = lib.mkIf (((config.sane.hosts.by-name."${config.networking.hostName or ""}" or {}).ssh or {}).authorized or false);
 
   remoteHome = name: { host ? name }: let
