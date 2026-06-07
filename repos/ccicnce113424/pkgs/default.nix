@@ -143,8 +143,8 @@ lib.makeScope pkgs.newScope (
         src = pkgs.fetchFromGitHub {
           owner = "galpt";
           repo = "scx";
-          rev = "29241a0246ad75732dee1a8de0e5b9254f3b72bf";
-          hash = "sha256-T0Sfg3iL1zQmy4krPm4TqQUdko9SqYSK2kxQ1KeYroA=";
+          rev = "c3541bc9400bdd83495755bdb9fdd06b4af0fe2e";
+          hash = "sha256-qp85l/2s8U/bZrjSfX0gXDCq5KrYQIJ+opEARPpKKGk=";
         };
         cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
           inherit (final)
@@ -153,6 +153,27 @@ lib.makeScope pkgs.newScope (
             src
             ;
           hash = "sha256-OKcHEaWNYtyoMWiNUGTyq8c/9SsPglw/GYRwkKIzduc=";
+        };
+      }
+    );
+
+    scx_pandemonium = pkgs.scx.rustscheds.overrideAttrs (
+      final: _prev: {
+        pname = "scx_pandemonium";
+        version = "5.12.0";
+        src = pkgs.fetchFromGitHub {
+          owner = "wllclngn";
+          repo = "scx";
+          rev = "f61f50644f59a845f2cf6b7bb5cfd4358494d121";
+          hash = "sha256-29MNX/0M9Opzi2EBeyudGWJBOo6seCc30tHKwQ9bMN8=";
+        };
+        cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+          inherit (final)
+            pname
+            version
+            src
+            ;
+          hash = "sha256-O7oT3miXo9+H8Rb3+OtwdvD3QUOVsDitabRdNnyW884=";
         };
       }
     );
