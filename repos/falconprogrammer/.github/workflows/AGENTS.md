@@ -8,11 +8,11 @@ Two-workflow CI/CD suite for a NUR (Nix User Repository): one builds and caches 
 
 ### CI & Cache
 
-- [build.yml](./build.yml) — Evaluates NUR package set, builds via `nix-build-uncached` against `ci.nix#cacheOutputs`, pushes to Cachix, and POSTs to `nur-update.nix-community.org` for registry sync. Matrix over `nixos-unstable`, `nixpkgs-unstable`, `nixos-25.05`.
+- [build.yml](./build.yml) — Evaluates NUR package set, builds via `nix-build-uncached` against `ci.nix#cacheOutputs`, pushes to Cachix, and POSTs to `nur-update.nix-community.org` for registry sync. Matrix over `nixos-unstable`, `nixpkgs-unstable`, `nixos-25.11`, `nixos-26.05`.
 
 ### Automation
 
-- [auto-update-packages.yml](./auto-update-packages.yml) — Daily matrix job per tracked package (`opencode-sst`, `spec-kit`, `cco`); fetches latest release or commit SHA from GitHub API, recalculates `nix-prefetch-url` hash, patches `pkgs/<name>/default.nix`, builds, opens PR, auto-squash-merges on build success. Triggers `build.yml` on completion via `trigger-nur-sync` job.
+- [auto-update-packages.yml](./auto-update-packages.yml) — Daily matrix job per tracked package (`opencode`, `spec-kit`, `cco`); fetches latest release or commit SHA from GitHub API, recalculates `nix-prefetch-url` hash, patches `pkgs/<name>/default.nix`, builds, opens PR, auto-squash-merges on build success. Triggers `build.yml` on completion via `trigger-nur-sync` job.
 
 ## Architecture / Data Flow
 
@@ -20,17 +20,17 @@ Two-workflow CI/CD suite for a NUR (Nix User Repository): one builds and caches 
 cron / workflow_dispatch
         │
         ▼
-auto-update-packages (matrix: opencode-sst, spec-kit, cco)
+auto-update-packages (matrix: opencode, spec-kit, cco)
   ├─ GitHub API → latest version/rev
-  ├─ nix-prefetch-url → SRI hash
-  ├─ sed-patch pkgs/<name>/default.nix (version, rev, hash)
+  ├─ SRI hash: nix-prefetch-url (source) / curl+unpack+nix hash path (binary asset)
+  ├─ sed-patch pkgs/<name>/default.nix (version, rev, hash / per-arch hash_key)
   ├─ nix build .#<name> → build_success
   ├─ peter-evans/create-pull-request → PR (draft if build fails)
   ├─ gh pr merge --auto --squash (on build_success only)
   └─ trigger-nur-sync → gh workflow run build.yml
         │
         ▼
-build.yml (matrix: 3 nixpkgs channels)
+build.yml (matrix: 4 nixpkgs channels)
   ├─ nix-env eval check (restrict-eval)
   ├─ nix-build-uncached ci.nix#cacheOutputs
   ├─ cachix push (conditional on cachixName sentinel)
@@ -50,6 +50,8 @@ build.yml (matrix: 3 nixpkgs channels)
 | Release version strip | `sed 's/^v//'` |
 | Archive URL (release) | `v$LATEST_VERSION.tar.gz` |
 | Archive URL (commit) | `$LATEST_REV.tar.gz` |
+| Asset URL (binary) | `releases/download/v$LATEST_VERSION/<asset>` |
+| Binary hash patch | `sed` on `"<hash_key>" = "..."` (per-arch key in `hashes`) |
 | Duplicate detection window | `git log --oneline --grep="update <name>.*<version>" --since="30 days ago"` |
 | Cachix sentinel (skips push) | `cachixName == '<YOUR_CACHIX_NAME>'` |
 | NUR notify sentinel (skips curl) | `nurRepo == '<YOUR_REPO_NAME>'` |
@@ -63,9 +65,11 @@ build.yml (matrix: 3 nixpkgs channels)
 
 | `name` | `owner/repo` | `type` | `branch` |
 |---|---|---|---|
-| `opencode-sst` | `sst/opencode` | `release` | — |
+| `opencode` | `anomalyco/opencode` | `binary` | — |
 | `spec-kit` | `github/spec-kit` | `release` | — |
 | `cco` | `nikvdp/cco` | `commit` | `master` |
+
+`binary` packages add `asset` (release-asset filename) and `hash_key` (the platform key patched in `hashes = { ... }`). `opencode`: `asset: opencode-linux-x64.tar.gz`, `hash_key: x86_64-linux`.
 
 ## Configuration Requirements
 
