@@ -139,10 +139,10 @@ error:
    214|     if builtins.hasAttr n super then abort "Alias ${n} is still in all-packages.nix" else alias;
 
 … while calling the 'throw' builtin
-  at <nixpkgs> + /pkgs/top-level/aliases.nix:1824:13:
-  1823|   pypolicyd-spf = throw "'pypolicyd-spf' has been renamed to/replaced by 'spf-engine'"; # Converted to throw 2025-10-27
-  1824|   python2 = throw "python2 has been removed; Python 2 is end-of-life. Use `python3` instead."; # Added 2026-05-03
+  at <nixpkgs> + /pkgs/top-level/aliases.nix:1837:13:
+  1836|   pypolicyd-spf = throw "'pypolicyd-spf' has been renamed to/replaced by 'spf-engine'"; # Converted to throw 2025-10-27
+  1837|   python2 = throw "python2 has been removed; Python 2 is end-of-life. Use `python3` instead."; # Added 2026-05-03
       |             ^
-  1825|   python2Full = throw "python2Full has been removed; Python 2 is end-of-life. Use `python3` instead."; # Added 2026-05-03
+  1838|   python2Full = throw "python2Full has been removed; Python 2 is end-of-life. Use `python3` instead."; # Added 2026-05-03
 
 error: python2 has been removed; Python 2 is end-of-life. Use `python3` instead.
