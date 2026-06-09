@@ -1,21 +1,59 @@
 error:
-… while evaluating the file './default.nix':
+… while evaluating the file '$tempdir/default.nix':
 
 … from call site
-
-  at ./default.nix:3:21:
-
+  at $tempdir/default.nix:3:21:
      2|                     with import <nixpkgs> {};
-     3|                     import ./evalRepo.nix {
+     3|                     import $tempdir/evalRepo.nix {
       |                     ^
      4|                         name = "zzzsy";
 
 … while calling anonymous lambda
-
-  at ./evalRepo.nix:1:1:
-
+  at $tempdir/evalRepo.nix:1:1:
      1| { name
       | ^
      2| , url
 
-error: getting status of './parts/nur.nix': No such file or directory
+… while evaluating a branch condition
+  at $tempdir/evalRepo.nix:30:4:
+    29|
+    30| in if usesCallPackage then throw ''
+      |    ^
+    31|     NUR repository ${prettyName} is using the deprecated callPackage syntax which
+
+… in the argument of the not operator
+  at $tempdir/evalRepo.nix:28:23:
+    27|   # True if not all arguments are either passed by default (e.g. pkgs) or defaulted (e.g. foo ? 10)
+    28|   usesCallPackage = ! lib.all (arg: lib.elem arg (lib.attrNames passedArgs) || args.${arg}) (lib.attrNames args);
+      |                       ^
+    29|
+
+… while calling the 'all' builtin
+  at $tempdir/evalRepo.nix:28:23:
+    27|   # True if not all arguments are either passed by default (e.g. pkgs) or defaulted (e.g. foo ? 10)
+    28|   usesCallPackage = ! lib.all (arg: lib.elem arg (lib.attrNames passedArgs) || args.${arg}) (lib.attrNames args);
+      |                       ^
+    29|
+
+… while calling the 'attrNames' builtin
+  at $tempdir/evalRepo.nix:28:94:
+    27|   # True if not all arguments are either passed by default (e.g. pkgs) or defaulted (e.g. foo ? 10)
+    28|   usesCallPackage = ! lib.all (arg: lib.elem arg (lib.attrNames passedArgs) || args.${arg}) (lib.attrNames args);
+      |                                                                                              ^
+    29|
+
+… while calling the 'functionArgs' builtin
+  at $tempdir/evalRepo.nix:26:10:
+    25|   expr = import src;
+    26|   args = builtins.functionArgs expr;
+      |          ^
+    27|   # True if not all arguments are either passed by default (e.g. pkgs) or defaulted (e.g. foo ? 10)
+
+… while calling the 'import' builtin
+  at $tempdir/evalRepo.nix:25:10:
+    24|
+    25|   expr = import src;
+      |          ^
+    26|   args = builtins.functionArgs expr;
+
+error: path './parts/nur.nix' does not exist
