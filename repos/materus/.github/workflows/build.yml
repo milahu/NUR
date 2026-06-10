@@ -35,11 +35,11 @@ jobs:
         nixPath:
           - nixpkgs=channel:nixos-unstable
           - nixpkgs=channel:nixpkgs-unstable
-          - nixpkgs=channel:nixos-25.11
+          - nixpkgs=channel:nixos-26.05
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
     - name: Install nix
       uses: cachix/install-nix-action@v31
       with:
