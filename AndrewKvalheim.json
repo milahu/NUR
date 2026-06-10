@@ -1,16 +1,16 @@
 {
 "name":"AndrewKvalheim",
-"fetch_time":2.235,
-"eval_time":3.14,
+"fetch_time":3.341,
+"eval_time":3.216,
 "source":{
 "url":"https://codeberg.org/AndrewKvalheim/configuration",
-"rev":"130e93451a0b8490ddda18500a3e5458f93742c3",
-"sha256":"15i27r4kq6rz8g3p352flsypaxcl7hm5yvsjadlgpxrv4pricq1m",
+"rev":"90ceee2fd30ba4ef21d618b306e64dcab007ae62",
+"sha256":"1hx0baki4irps2525x6qy8ljzh3ry87as249jn4n8s14kq9i6qd1",
 "date":null
 },
-"source_storepath":"/nix/store/28bghfrxnwbjclpn811hfrf9p0wj4w2x-configuration",
-"nixpkgs_storepath":"/nix/store/sixfvygd759vgqlj2dab825dldzzqp9s-source",
-"nur_combined_rev":"b85c6a2ccc8d820999bd0f73f4c741666599d63d",
+"source_storepath":"/nix/store/q7w7if2n9sblm1g9yz757m9iqla88rli-configuration",
+"nixpkgs_storepath":"/nix/store/rf8y386qrylwnhi8bzmxcac7hrm0qi6h-source",
+"nur_combined_rev":"80de2a11142fbcaee851c43bc22f25e67a4f218c",
 "packages":{
 "ai-robots-txt":{
 "drvPath":"/nix/store/nkp5hrn9mgxjzd6qrzzy9d6vj6bypybf-ai-robots-txt-1.46.drv",
@@ -188,7 +188,7 @@
 "version":"0.1"
 },
 "busyserve":{
-"drvPath":"/nix/store/czj13lvs7yz8b2q9jx5asfcxxrafzi8i-python3.13-busyserve-0.48.0.drv",
+"drvPath":"/nix/store/82mb0rh923kgw8gb0d7xf5r40ijyc8vg-python3.13-busyserve-0.48.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -287,7 +287,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/sixfvygd759vgqlj2dab825dldzzqp9s-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
+"file":"/nix/store/rf8y386qrylwnhi8bzmxcac7hrm0qi6h-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
 "line":75
 },
 "name":"python3.13-busyserve-0.48.0",
@@ -358,11 +358,11 @@
 "version":"0.48.0"
 },
 "caddy-with-cache-route53":{
-"drvPath":"/nix/store/aib05z2x336akv17dc2893sclz1wxc78-caddy-2.11.3.drv",
+"drvPath":"/nix/store/i8rm0b5wd9frf304mmcbng292klbwd7b-caddy-2.11.4.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/caddyserver/caddy/releases/tag/v2.11.3",
+"changelog":"https://github.com/caddyserver/caddy/releases/tag/v2.11.4",
 "description":"Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS",
 "homepage":"https://caddyserver.com",
 "identifiers":{
@@ -429,10 +429,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/sixfvygd759vgqlj2dab825dldzzqp9s-source/pkgs/by-name/ca/caddy/package.nix",
+"file":"/nix/store/rf8y386qrylwnhi8bzmxcac7hrm0qi6h-source/pkgs/by-name/ca/caddy/package.nix",
 "line":96
 },
-"name":"caddy-2.11.3",
+"name":"caddy-2.11.4",
 "nonTeamMaintainers":[
 {
 "email":"ysun@hey.com",
@@ -494,17 +494,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"caddy-2.11.3",
+"name":"caddy-2.11.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"caddy",
 "system":"x86_64-linux",
-"version":"2.11.3"
+"version":"2.11.4"
 },
 "ch57x-keyboard-tool":{
-"drvPath":"/nix/store/vwxm2wj9kjy7inzapq6c5k951wns621a-ch57x-keyboard-tool-1.7.0.drv",
+"drvPath":"/nix/store/hsi94xlsrk3gqnnd973prqr17ymgfkx5-ch57x-keyboard-tool-1.7.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -621,7 +621,7 @@
 "version":"1.7.0"
 },
 "chunker":{
-"drvPath":"/nix/store/x2w3v6cliw1923fhcvvxz5gg3q702ak1-chunker-1.18.1.drv",
+"drvPath":"/nix/store/95pbf9f2zr2j2ss0im59x0mxsz243ag1-chunker-1.18.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -788,7 +788,7 @@
 "version":"0-unstable-2021-08-10"
 },
 "decompiler-mc":{
-"drvPath":"/nix/store/rznn9227yq4mlgkznaf68gvm3qyv7xsw-decompiler-mc-0.9-unstable-2026-01-17.drv",
+"drvPath":"/nix/store/8kxxqij55hlgbrvapchk29gdgk5i72hq-decompiler-mc-0.9-unstable-2026-01-17.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -877,7 +877,7 @@
 "version":"0.9-unstable-2026-01-17"
 },
 "dmarc-report-notifier":{
-"drvPath":"/nix/store/j08dddx97j6qq0w0xzhzgqp4aylafgi2-dmarc-report-notifier-1.1.13.drv",
+"drvPath":"/nix/store/lzndskan7w6aj2j4mfa3ggxj6m0vd05h-dmarc-report-notifier-1.1.13.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1013,7 +1013,7 @@
 "version":"1.1.13"
 },
 "easy-timeline":{
-"drvPath":"/nix/store/abrc2sxvg642zz906mxk8bk6x5cd1pcl-easy-timeline-1.90-unstable-2024-08-02.drv",
+"drvPath":"/nix/store/kvhm1xvnxry9gp3w18zmhn6k5gibkk9g-easy-timeline-1.90-unstable-2024-08-02.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1081,7 +1081,7 @@
 "version":"1.90-unstable-2024-08-02"
 },
 "fastnbt-tools":{
-"drvPath":"/nix/store/bmaxz7d4kq8f2hm5kxp4bldrcyhvi7pb-fastnbt-tools-0.27.0.drv",
+"drvPath":"/nix/store/iv7h2q8vwwdc4891b8vi12yakxgrv5xi-fastnbt-tools-0.27.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1334,7 +1334,7 @@
 "version":"0.4.6"
 },
 "git-diff-image":{
-"drvPath":"/nix/store/xbln89cqa5bxdp5cacb0df9wyg5fhgjj-git-diff-image-0-unstable-2023-09-04.drv",
+"drvPath":"/nix/store/d7mpw21rllg1c87m6gw8cxbmrjx5yvj6-git-diff-image-0-unstable-2023-09-04.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1401,7 +1401,7 @@
 "version":"0-unstable-2023-09-04"
 },
 "gpx-reduce":{
-"drvPath":"/nix/store/apn180lrynp73kzyi0bll7r4s0lrrlcw-gpx-reduce-0-unstable-2026-05-07.drv",
+"drvPath":"/nix/store/rlmhxd2mlv0k3ysjz9diyn3cvps24a2l-gpx-reduce-0-unstable-2026-05-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1636,7 +1636,7 @@
 "version":"0-unstable-2025-03-30"
 },
 "iptables_exporter":{
-"drvPath":"/nix/store/81d18hbjwbm5bl7zwc8n41ap14v2yql2-iptables_exporter-0.4.0.drv",
+"drvPath":"/nix/store/2zaqf1w9wcvlmw37ppjiq7iimfvhx9qj-iptables_exporter-0.4.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1766,7 +1766,7 @@
 "version":"0.4.0"
 },
 "josm-imagery-used":{
-"drvPath":"/nix/store/2ba4j415xk8s3bwnjq47pn4mq7q9h8mx-josm-imagery-used-0.0.1.drv",
+"drvPath":"/nix/store/w83h33lzpw52jk57mlmkcpfwbxwbnvh3-josm-imagery-used-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1832,7 +1832,7 @@
 "version":"0.0.1"
 },
 "journal-brief":{
-"drvPath":"/nix/store/sj6246m7ww3iqg55zqw5pkzkq1mj2q1c-journal-brief-1.1.8.drv",
+"drvPath":"/nix/store/qm0dsfpb9rbkib0km9z9dxjiwlf1qdan-journal-brief-1.1.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1968,7 +1968,7 @@
 "version":"1.1.8"
 },
 "little-a-map":{
-"drvPath":"/nix/store/q5y7lfdf01rmrmrnriw9mqwsimpbdrv1-little-a-map-0.13.10.drv",
+"drvPath":"/nix/store/4sda3a2sb2v71q75v5gsl1svfizykc65-little-a-map-0.13.10.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2086,7 +2086,7 @@
 "version":"0.13.10"
 },
 "mark-applier":{
-"drvPath":"/nix/store/bb46b9zvy9aik9f3wkc12z60xnxyac4c-mark-applier-0.5.0.drv",
+"drvPath":"/nix/store/62ib0mp6hnci5dk550dr6kh7b6gn2iwx-mark-applier-0.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2176,7 +2176,7 @@
 "version":"0.5.0"
 },
 "meshtastic-url":{
-"drvPath":"/nix/store/5jk256yn6v096zfjaxv7xqs58aciwimq-meshtastic-url.drv",
+"drvPath":"/nix/store/xmlgqcc427r5bp931f9zcxk9jsic9c6c-meshtastic-url.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2229,7 +2229,7 @@
 "version":""
 },
 "minemap":{
-"drvPath":"/nix/store/45b8j8zd1dmjayqvhjxgniq7x4m1h7fr-minemap-1.0.26.drv",
+"drvPath":"/nix/store/6yxm9kgrivl8ag71aaq8a6970dasylp8-minemap-1.0.26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2296,7 +2296,7 @@
 "version":"1.0.26"
 },
 "nbt-explorer":{
-"drvPath":"/nix/store/v6i14kqakf4012hmar5njvah7py6wl93-nbt-explorer-2.8.0.drv",
+"drvPath":"/nix/store/8pjag453l4nl7ihfdjcax76mskfjx4jw-nbt-explorer-2.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2363,7 +2363,7 @@
 "version":"2.8.0"
 },
 "office-hours":{
-"drvPath":"/nix/store/kgcm2h8136q2x3861f8wbp0ks1wfb7qx-office-hours-1.0.0.drv",
+"drvPath":"/nix/store/k2w8q0ln4q4j9xqw6v53r0dl6h3dwf2k-office-hours-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2429,7 +2429,7 @@
 "version":"1.0.0"
 },
 "oxvg":{
-"drvPath":"/nix/store/y5a057b2z4fqnpni8pbkppsw88zbq23b-oxvg-0.0.5.drv",
+"drvPath":"/nix/store/bmm8fhk1m6dxmrf722sgsghc6vm34h0b-oxvg-0.0.5.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2547,7 +2547,7 @@
 "version":"0.0.5"
 },
 "pdfalyzer":{
-"drvPath":"/nix/store/bna8p7ss7n7midwlqlgbjapck8j3h878-pdfalyzer-1.19.6.drv",
+"drvPath":"/nix/store/d92mkb1lhcgchq3a9zm4v9hzgq7zfzmk-pdfalyzer-1.19.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2683,7 +2683,7 @@
 "version":"1.19.6"
 },
 "pngquant-interactive":{
-"drvPath":"/nix/store/8s157c9fg4dfk2yspq4lghri4rd1hy4w-pngquant-interactive-0.2.1.drv",
+"drvPath":"/nix/store/yv5cymy8084rh85yk7hhb9fr9w183ll8-pngquant-interactive-0.2.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2967,7 +2967,7 @@
 "version":"0-unstable-2020-12-07"
 },
 "stretch-break":{
-"drvPath":"/nix/store/g4743v9a7wglicxzl8gxaasglh53q9yk-stretch-break-0.1.9.drv",
+"drvPath":"/nix/store/xgvfvp53vmrhdsy9cyr6hyr1kj6sbk00-stretch-break-0.1.9.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3151,7 +3151,7 @@
 "version":"0-unstable-2019-07-10"
 },
 "udon":{
-"drvPath":"/nix/store/sys8bmsakkpdflkwp2jblw8szddz7g4j-udon-0-unstable-2026-05-07.drv",
+"drvPath":"/nix/store/61x60xdc5jwh9wclyh3x9x4vcq9pc5k9-udon-0-unstable-2026-05-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3218,7 +3218,7 @@
 "version":"0-unstable-2026-05-07"
 },
 "wireguard-vanity-address":{
-"drvPath":"/nix/store/983yrxkvqhk18nnxvccryx471j3rzblm-wireguard-vanity-address-0.4.0.drv",
+"drvPath":"/nix/store/6hni130c2dbbwfx3xsv8f3093a1rwidh-wireguard-vanity-address-0.4.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
