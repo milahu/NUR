@@ -243,8 +243,69 @@ if inputs ? "nvf" then
             utility.sleuth.enable = true;
             statusline.lualine.enable = true;
             telescope.enable = true;
-            autocomplete.blink-cmp.enable = true;
-            autocomplete.blink-cmp.setupOpts.signature.enabled = true;
+            autocomplete.blink-cmp = {
+              enable = true;
+              setupOpts = {
+                signature.enabled = true;
+
+                completion = {
+                  list.selection = {
+                    preselect = false;
+                    auto_insert = false;
+                  };
+                  list.cycle = {
+                    from_bottom = true;
+                    from_top = true;
+                  };
+                  ghost_text = {
+                    enabled = true;
+                    show_with_selection = true;
+                    show_without_selection = false;
+                    show_with_menu = true;
+                    show_without_menu = false;
+                  };
+                };
+
+                keymap = {
+                  preset = "super-tab";
+                  "<CR>" = [
+                    "accept"
+                    "fallback"
+                  ];
+                };
+              };
+            };
+            assistant.avante-nvim = {
+              enable = true;
+              setupOpts = {
+                provider = "opencode";
+                auto_suggestions_provider = "opencode";
+                providers = {
+                  opencode = {
+                    __inherited_from = "openai";
+                    api_key_name = "OPENCODE_API_KEY";
+                    endpoint = "https://opencode.ai/zen/v1";
+                    model = "deepseek-v4-flash-free";
+                    timeout = 10000;
+                  };
+                };
+                behaviour = {
+                  auto_suggestions = true;
+                  auto_apply_diff_after_generation = false;
+                  enable_cursor_planning_mode = false;
+                  enable_claude_text_editor_tool_mode = false;
+                };
+                suggestion = {
+                  debounce = 300;
+                  throttle = 600;
+                };
+                windows = {
+                  position = "right";
+                  width = 40;
+                };
+                hints.enabled = true;
+              };
+            };
             binds.whichKey.enable = true;
             git.enable = true;
           };
