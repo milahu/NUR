@@ -1,16 +1,16 @@
 {
 "name":"materus",
-"fetch_time":1.007,
-"eval_time":1.394,
+"fetch_time":0.398,
+"eval_time":2.08,
 "source":{
 "url":"https://github.com/materusPL/Nixerus",
-"rev":"ba3310fb537a6990c5d35f5df524e59921586dfd",
-"sha256":"0974dwl0kqgd8ql2l93fp41xa308759jzx566n9b3dzysn0fqvg5",
+"rev":"57c8b3dc63c0d13b1122e3d12370722c41116497",
+"sha256":"1k4jqm3qaxa6xpwvazhyiv27x0p42x6fhibbwz9n8lbm2n0gxf73",
 "date":null
 },
-"source_storepath":"/nix/store/r8iqsmnkavkpdzc56wvxgiyy2dpf1pxz-source",
-"nixpkgs_storepath":"/nix/store/rf8y386qrylwnhi8bzmxcac7hrm0qi6h-source",
-"nur_combined_rev":"fbf56ec43bb98d46cb0fbee1e8f9ee2e1d873ce7",
+"source_storepath":"/nix/store/4dpll5wbiqwvdcj1gq6lhlxsh5kl1s0q-source",
+"nixpkgs_storepath":"/nix/store/sscwxk8v9k1fsg01mlbsbzca2gichdwi-source",
+"nur_combined_rev":"76920cc69f004dffe8cc3c8af38f6185e114470a",
 "packages":{
 "alvr":{
 "drvPath":"/nix/store/0kprcgnifjydjiiqvjx2zzccfa8jricz-alvr-v20.5.0.drv",
@@ -62,8 +62,8 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r8iqsmnkavkpdzc56wvxgiyy2dpf1pxz-source/pkgs/apps/games/alvr/default.nix",
-"line":67
+"file":"/nix/store/4dpll5wbiqwvdcj1gq6lhlxsh5kl1s0q-source/pkgs/apps/games/alvr/default.nix",
+"line":87
 },
 "name":"alvr-v20.5.0",
 "nonTeamMaintainers":[],
@@ -73,7 +73,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/apps/games/alvr/default.nix:65",
+"position":"./pkgs/apps/games/alvr/default.nix:85",
 "unfree":false,
 "unsupported":false
 },
@@ -173,7 +173,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/libs/amdgpu-pro-libs/firmware.nix:53",
+"position":"./pkgs/libs/amdgpu-pro-libs/firmware.nix:56",
 "unfree":false,
 "unsupported":false
 },
@@ -272,7 +272,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/apps/fbset.nix:34",
+"position":"./pkgs/apps/fbset.nix:43",
 "unfree":false,
 "unsupported":false
 },
@@ -391,7 +391,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/rf8y386qrylwnhi8bzmxcac7hrm0qi6h-source/pkgs/development/libraries/ffmpeg/generic.nix",
+"file":"/nix/store/sscwxk8v9k1fsg01mlbsbzca2gichdwi-source/pkgs/development/libraries/ffmpeg/generic.nix",
 "line":1081
 },
 "name":"ffmpeg-full-7.1.4",
@@ -531,6 +531,184 @@
 "system":"x86_64-linux",
 "version":"7.1.4"
 },
+"idea-oss-bin":{
+"drvPath":"/nix/store/f3bm6847dnn5rrwx20mx3z8n7zrnrmqc-idea-community-2026.1.3.drv",
+"meta":{
+"available":true,
+"broken":false,
+"description":"Java, Kotlin, Groovy and Scala IDE from JetBrains",
+"homepage":"https://www.jetbrains.com/idea/",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"idea-community",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purlParts":{},
+"purls":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"idea-community",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purls":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
+"longDescription":"IDE for Java SE, Groovy & Scala development Powerful environment for building Google Android apps Integration with JUnit, TestNG, popular SCMs, Ant & Maven.\nAlso known as IntelliJ.\n",
+"mainProgram":"idea",
+"maintainers":[
+{
+"email":"me@gytis.io",
+"github":"gytis-ivaskevicius",
+"githubId":23264966,
+"matrix":"@gytis-ivaskevicius:matrix.org",
+"name":"Gytis Ivaskevicius"
+},
+{
+"email":"oscar@tymscar.com",
+"github":"tymscar",
+"githubId":3742502,
+"name":"Oscar Molnar"
+},
+{
+"email":"nix@leona.is",
+"github":"leona-ya",
+"githubId":11006031,
+"name":"Leona Maroni"
+},
+{
+"email":"hello@capypara.de",
+"github":"theCapypara",
+"githubId":3512122,
+"keys":[
+{
+"fingerprint":"5F29 132D EFA8 5DA0 B598  5BF2 5941 754C 1CDE 33BB"
+}
+],
+"matrix":"@capypara:matrix.org",
+"name":"Marco K\u00f6pcke"
+},
+{
+"email":"james@jamesward.com",
+"github":"jamesward",
+"githubId":65043,
+"keys":[
+{
+"fingerprint":"82F9 4BBD F95C 247B BD21  396B 9A0B 94DE C0FF A7EE"
+}
+],
+"name":"James Ward"
+}
+],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/sscwxk8v9k1fsg01mlbsbzca2gichdwi-source/pkgs/applications/editors/jetbrains/ides/idea.nix",
+"line":71
+},
+"name":"idea-community-2026.1.3",
+"nonTeamMaintainers":[
+{
+"email":"me@gytis.io",
+"github":"gytis-ivaskevicius",
+"githubId":23264966,
+"matrix":"@gytis-ivaskevicius:matrix.org",
+"name":"Gytis Ivaskevicius"
+},
+{
+"email":"oscar@tymscar.com",
+"github":"tymscar",
+"githubId":3742502,
+"name":"Oscar Molnar"
+}
+],
+"outputsToInstall":[
+"out"
+],
+"position":"<nixpkgs> + /pkgs/applications/editors/jetbrains/ides/idea.nix:66",
+"sourceProvenance":[
+{
+"isSource":false,
+"shortName":"binaryBytecode"
+}
+],
+"teams":[
+{
+"members":[
+{
+"email":"nix@leona.is",
+"github":"leona-ya",
+"githubId":11006031,
+"name":"Leona Maroni"
+},
+{
+"email":"hello@capypara.de",
+"github":"theCapypara",
+"githubId":3512122,
+"keys":[
+{
+"fingerprint":"5F29 132D EFA8 5DA0 B598  5BF2 5941 754C 1CDE 33BB"
+}
+],
+"matrix":"@capypara:matrix.org",
+"name":"Marco K\u00f6pcke"
+},
+{
+"email":"james@jamesward.com",
+"github":"jamesward",
+"githubId":65043,
+"keys":[
+{
+"fingerprint":"82F9 4BBD F95C 247B BD21  396B 9A0B 94DE C0FF A7EE"
+}
+],
+"name":"James Ward"
+}
+],
+"scope":"Maintainers of the Jetbrains IDEs in nixpkgs",
+"shortName":"Jetbrains"
+}
+],
+"teamsPosition":{
+"column":9,
+"file":"/nix/store/sscwxk8v9k1fsg01mlbsbzca2gichdwi-source/pkgs/applications/editors/jetbrains/builder/default.nix",
+"line":66
+},
+"unfree":false,
+"unsupported":false
+},
+"name":"idea-community-2026.1.3",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"idea-community",
+"system":"x86_64-linux",
+"version":"2026.1.3"
+},
 "lh2ctrl":{
 "drvPath":"/nix/store/ylh7sxjq9hh4b6c75n61ci388y0hsbb4-lh2ctrl-1.1.0.drv",
 "meta":{
@@ -610,7 +788,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/apps/lh2ctrl.nix:23",
+"position":"./pkgs/apps/lh2ctrl.nix:29",
 "unfree":false,
 "unsupported":false
 },
@@ -682,7 +860,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/apps/games/polymc/default.nix:182",
+"position":"./pkgs/apps/games/polymc/default.nix:186",
 "unfree":false,
 "unsupported":false
 },
@@ -808,7 +986,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"./pkgs/libs/svt-av1-psyex.nix:47",
+"position":"./pkgs/libs/svt-av1-psyex.nix:45",
 "unfree":false,
 "unsupported":false
 },
@@ -900,7 +1078,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/apps/vpk_fuse.nix:23",
+"position":"./pkgs/apps/vpk_fuse.nix:30",
 "unfree":false,
 "unsupported":false
 },
