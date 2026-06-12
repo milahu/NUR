@@ -22,7 +22,9 @@ jq -c -n '
             # no. permalinks produce too much diff noise in gh-pages
             #"'$nur_combined_blob_url'" + $i.nur_combined_rev + "/repos/" + $i.name + (
             "'$nur_combined_repos_url'" + $i.name + "/" + (
-              .value.meta.position | sub(":(?<line>[0-9]+)$"; "#L\(.line)")
+              .value.meta.position |
+              sub("^\\./"; "") |
+              sub(":(?<line>[0-9]+)$"; "#L\(.line)")
             )
           ) end),
           # origin repo url
