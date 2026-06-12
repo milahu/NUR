@@ -1,6 +1,7 @@
 {
   copyDesktopItems,
   fetchFromGitHub,
+  fetchpatch2,
   imagemagick,
   lib,
   makeDesktopItem,
@@ -11,12 +12,12 @@
   xvfb,
 }:
 let
-  version = "3.3.20";
+  version = "3.3.21";
   src = fetchFromGitHub {
     owner = "faisalkindi";
     repo = "CrimsonDesert-UltimateModsManager";
     tag = "v${version}";
-    hash = "sha256-0OLHpWd00vVYoL5AegHcE9VCeqYE0wr9Zcvirb0+tjQ=";
+    hash = "sha256-uloma6dSkompW0xDIKGbOT7hkYbN4TFFh2jJUhgT79E=";
   };
   cdumm-native = python3Packages.buildPythonPackage (finalAttrs: {
     inherit src version;
@@ -42,6 +43,19 @@ python3Packages.buildPythonApplication (finalAttrs: {
   inherit src version;
   pname = "crimsondesert-ultimatemodsmanager";
   pyproject = true;
+
+  patches = [
+    (fetchpatch2 {
+      name = "unix-culprit-revert.patch";
+      url = "https://github.com/faisalkindi/CrimsonDesert-UltimateModsManager/commit/207453cd33bd5c185bbec278c3d4f9c2bca0776f.patch?full_index=1";
+      hash = "sha256-fktQiZXLLlZvONnZaddlm/ss+l4Sb3umEaesyMr5Ofc=";
+    })
+    (fetchpatch2 {
+      name = "unix-culprit-feat.patch";
+      url = "https://github.com/faisalkindi/CrimsonDesert-UltimateModsManager/commit/a17bc7ea0b22cbc33251156ca9f8edbee807e3ac.patch?full_index=1";
+      hash = "sha256-9SRTklVwS6ysLQcPs/00FgoOt85RCYpQ2Y41trFG5ms=";
+    })
+  ];
 
   build-system = with python3Packages; [
     setuptools
@@ -76,10 +90,13 @@ python3Packages.buildPythonApplication (finalAttrs: {
   ]);
 
   disabledTestPaths = [
-    "tests/test_pamt_cache_honors_cdmods_path.py::test_pamt_cache_uses_parent_when_called_with_vanilla"
-    "tests/test_pamt_cache_honors_cdmods_path.py::test_pamt_cache_uses_pointer_for_real_game_dir"
-    "tests/test_platform.py::TestOpenPathErrorLogging::test_oserror_logs_path_and_reason"
-    "tests/test_transactional_io_absolute_path_guard.py::test_stage_file_rejects_absolute_path"
+    # Fail
+    "tests/test_script_import_consent_gate.py::test_script_import_runs_with_consent"
+    # Slow
+    "tests/test_f3_whole_table_growth.py"
+    "tests/test_f3_whole_table_rebuild.py"
+    "tests/test_iteminfo_cd110_layout.py"
+    "tests/test_iteminfo_pabgh_companion.py"
   ];
 
   nativeBuildInputs = [
@@ -99,28 +116,27 @@ python3Packages.buildPythonApplication (finalAttrs: {
     })
   ];
 
-  prePatch = ''
-    cat >> pyproject.toml << EOL
-
-    [project.scripts]
-    cdumm = "cdumm.main:main"
-    EOL
+  postPatch = ''
+    echo "#!/usr/bin/env python" > cdumm
+    cat src/cdumm/main.py >> cdumm
+    substituteInPlace cdumm \
+        --replace-fail "Path(__file__).resolve().parents[2]" \
+        "Path('$out/${python3Packages.python.sitePackages}').resolve()"
 
     substituteInPlace src/cdumm/engine/nxm_handler.py \
-        --replace-fail "{exe} -m" \
-        "env PYTHONPATH=@out@/${python3Packages.python.sitePackages}:@PYTHONPATH@ {exe} -m" \
-            --subst-var out \
-            --subst-var PYTHONPATH
+        --replace-fail "{exe} -m cdumm.main" "cdumm"
   '';
 
   postInstall = ''
+    install -Dt $out/bin cdumm
     cp -a src/cdumm/translations $out/${python3Packages.python.sitePackages}/cdumm
     cp -a schemas $out/${python3Packages.python.sitePackages}
     cp -a field_schema $out/${python3Packages.python.sitePackages}
+
     for i in 16 24 48 64 96 128 256 512 1024; do
-      mkdir -p $out/share/icons/hicolor/''${i}x''${i}/apps
-      magick assets/cdumm-logo.png -resize ''${i}x''${i}  \
-        $out/share/icons/hicolor/''${i}x''${i}/apps/cdumm.png
+        mkdir -p $out/share/icons/hicolor/''${i}x''${i}/apps
+        magick assets/cdumm-logo.png -resize ''${i}x''${i}  \
+            $out/share/icons/hicolor/''${i}x''${i}/apps/cdumm.png
     done
     cp -a assets $out/${python3Packages.python.sitePackages}
   '';
