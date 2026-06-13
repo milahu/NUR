@@ -2,6 +2,7 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
+  fetchpatch,
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
@@ -11,11 +12,20 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "michel-kraemer";
     repo = "zsh-patina";
-    rev = "efe6e7593b9b21959996f0eee03b12db988b3e13";
-    hash = "sha256-hE7PFVE7CmLUALHwSfNWhwwXcy9ORiXYd4aP2Mg+c80=";
+    tag = finalAttrs.version;
+    hash = "sha256-sPlIT3UHtq+5+bpfrSPPfVXTdmqjEq+6k9tPShhG7h0=";
   };
 
-  cargoHash = "sha256-CYtYvQMcn3NdQbCrFo84y97amwCpM7aa+4B3dFAFk1o=";
+  cargoPatches = [
+    (fetchpatch {
+      url = "https://github.com/michel-kraemer/zsh-patina/pull/61.patch";
+      hash = "sha256-ofe8vmGmDSQlF8KpDi/1pRkI262EnQszCcgyYL1SLFg=";
+      excludes = [ "Cargo.lock" ];
+    })
+    ./Cargo.lock.patch
+  ];
+
+  cargoHash = "sha256-fKUbXGJ5P8SsybirVKdLMEpdRXLUtvWuYgSVZxkPZPA=";
 
   postInstall = ''
     mkdir -p $out/share/zsh-patina
