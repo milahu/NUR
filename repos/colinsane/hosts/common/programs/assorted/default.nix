@@ -174,6 +174,7 @@ in
       "htop"  # needed as a user package, for ~/.config/htop
       "hyperfine"  # benchmarking tool
       # "kagi"
+      "kagi-ken-cli"
       "lddtree"
       # "libsecret"  # for managing user keyrings (secret-tool)
       # "lm_sensors"  # for sensors-detect
@@ -460,7 +461,7 @@ in
       # "keymapp"
       # "kid3"  # audio tagging
       "krita"
-      "libreoffice"  # TODO: replace with an office suite that uses saner packaging?
+      # "libreoffice"  # TODO: replace with an office suite that uses saner packaging?
       "losslesscut"
       # "makemkv"  # x86-only
       # "monero-gui"  # x86-only
