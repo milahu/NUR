@@ -1,9 +1,0 @@
-error:
-… while evaluating a path segment
-  at ./pkgs/t3code.nix:257:69:
-   256|       downloadPage = "https://t3.codes/download";
-   257|       changelog = "https://github.com/pingdotgg/t3code/releases/tag/${finalAttrs.src.tag}";
-      |                                                                     ^
-   258|       license = lib.licenses.mit;
-
-error: cannot coerce null to a string: null
