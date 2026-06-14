@@ -5,7 +5,7 @@
 ![Build and populate cache](https://github.com/lz37/nur/workflows/Build%20and%20populate%20cache/badge.svg)
 [![Cachix Cache](https://img.shields.io/badge/cachix-zerozawa-blue.svg)](https://zerozawa.cachix.org)
 
-This repository currently exports **22 packages**, **1 library helper**, and placeholder `modules` / `overlays` namespaces.
+This repository currently exports **23 packages**, **1 library helper**, and placeholder `modules` / `overlays` namespaces.
 
 ## Current Exports
 
@@ -29,7 +29,9 @@ This repository currently exports **22 packages**, **1 library helper**, and pla
 | `wechat-web-devtools-linux` | Linux build of the WeChat Mini Program DevTools |
 | `agentic-contract` | Policy engine CLI for AI agents |
 | `hyprland-mcp-server` | MCP server for Hyprland automation |
+| `oh-my-pi` | AI coding agent CLI/TUI with sub-agent orchestration |
 | `mcp-cli` | Lightweight CLI for interacting with MCP servers |
+| `context-mode` | MCP server for context window optimization — sandboxed code execution, FTS5 knowledge base |
 
 #### Desktop customization and utilities
 
@@ -135,6 +137,9 @@ repo.lib.fetchPixiv {
 ```bash
 # Build a package exported from default.nix
 nix-build -A JMComic-qt
+
+# Build context-mode (requires NIXPKGS_ALLOW_UNFREE=1 for Elastic-2.0 license)
+NIXPKGS_ALLOW_UNFREE=1 nix-build -A context-mode
 nix-build -A hyprland-mcp-server
 
 # Build through flake outputs
@@ -167,13 +172,15 @@ nix.settings.trusted-public-keys = [
 ];
 ```
 
-## Developer Tooling
+## omp (Oh My Pi) Tooling
 
-This repository also carries local OpenCode metadata in `.opencode/`:
+This repository is designed to work with [oh-my-pi](https://github.com/can1357/oh-my-pi), an AI coding agent CLI/TUI.
+Local commands and skills are auto-discovered from `.agents/` when omp is run in this directory:
 
-- `.opencode/command/` contains repo-specific command docs for build, check, commit, and update workflows.
-- `.opencode/skill/nix-packaging/` contains the local Nix packaging skill used for this repo.
-- `.opencode/opencode.jsonc` configures the OpenCode provider and a remote `context7` MCP server.
+- `.agents/command/` — repo-specific commands for build, check, commit, and update workflows.
+  Usage: in omp session, refer to them via their path or name.
+- `.agents/skill/nix-packaging/` — reusable Nix packaging skill this agent follows when writing packages.
+  Usage: in omp session, reference via `skill://nix-packaging`.
 
 ## License
 
