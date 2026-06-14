@@ -3,15 +3,11 @@
   version,
   srcInfo,
   lib,
-  flutter332,
-  flutter335,
+  flutter344,
   makeDesktopItem,
   copyDesktopItems,
 }:
-let
-  flutter = if version == "1.2.0" then flutter332 else flutter335;
-in
-flutter.buildFlutterApplication {
+flutter344.buildFlutterApplication {
   inherit (sources) pname src;
   inherit version;
   inherit (srcInfo) pubspecLock;
@@ -47,7 +43,7 @@ flutter.buildFlutterApplication {
 
   meta = {
     description = "Unofficial pixiv app";
-    homepage = "https://github.com/wgh136/pixes";
+    homepage = "https://github.com/pixes-app/pixes";
     mainProgram = "pixes";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ ccicnce113424 ];
