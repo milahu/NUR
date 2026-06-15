@@ -1,19 +1,19 @@
 {
 "name":"ionutnechita",
-"fetch_time":0.374,
-"eval_time":0.779,
+"fetch_time":0.866,
+"eval_time":0.807,
 "source":{
 "url":"https://github.com/ionutnechita/ionutnechita-nur-packages",
-"rev":"a16eef14ec12440cd6aa8849c5060ff1961bb434",
-"sha256":"0z9wqibmfricbl0y4857rcmcaywgfchxw0zhclkk87n0nrfyf763",
+"rev":"41e4f16094d4401cb55f983715a3363d8b01de67",
+"sha256":"0qimq68nbpql1v47gpfp4z9wnlscw2s1m6lxfj0ld5x94qdvf8y9",
 "date":null
 },
-"source_storepath":"/nix/store/5irb9ddvs906rhmb6c9ynknrph6p487a-source",
-"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
-"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
+"source_storepath":"/nix/store/jmlvhar8lykvaajcxx1m8zfq7zmr44c3-source",
+"nixpkgs_storepath":"/nix/store/sifilimr8ymj1a7jdpiczmavl233f2bp-source",
+"nur_combined_rev":"47b1be1ebc9a3aaec589acea9501eea3121e7979",
 "packages":{
 "linux_sunlight":{
-"drvPath":"/nix/store/nii0xk12zgl2nzfs4lphy6zw6gknvaxm-linux-sunlight-7.0.0-rc6.drv",
+"drvPath":"/nix/store/s8ixmj3739rj4mi0ppmbkv31szzq4i65-linux-sunlight-7.0.0-rc6.drv",
 "meta":{
 "available":true,
 "badPlatforms":[],
@@ -160,6 +160,12 @@
 "name":"Silvan Mosberger"
 },
 {
+"email":"andreas@rammhold.de",
+"github":"andir",
+"githubId":638836,
+"name":"Andreas Rammhold"
+},
+{
 "email":"pyrox@pyrox.dev",
 "github":"pyrox0",
 "githubId":35778371,
@@ -174,7 +180,7 @@
 ],
 "maintainersPosition":{
 "column":11,
-"file":"/nix/store/5irb9ddvs906rhmb6c9ynknrph6p487a-source/pkgs/sunlight-kernels/default.nix",
+"file":"/nix/store/jmlvhar8lykvaajcxx1m8zfq7zmr44c3-source/pkgs/sunlight-kernels/default.nix",
 "line":115
 },
 "name":"linux-sunlight-7.0.0-rc6",
@@ -313,6 +319,12 @@
 "name":"Silvan Mosberger"
 },
 {
+"email":"andreas@rammhold.de",
+"github":"andir",
+"githubId":638836,
+"name":"Andreas Rammhold"
+},
+{
 "email":"pyrox@pyrox.dev",
 "github":"pyrox0",
 "githubId":35778371,
@@ -331,8 +343,8 @@
 ],
 "teamsPosition":{
 "column":7,
-"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/os-specific/linux/kernel/build.nix",
-"line":579
+"file":"/nix/store/sifilimr8ymj1a7jdpiczmavl233f2bp-source/pkgs/os-specific/linux/kernel/build.nix",
+"line":562
 },
 "timeout":14400,
 "unfree":false,
@@ -350,7 +362,7 @@
 "version":"7.0.0-rc6"
 },
 "linux_sunlight_stable":{
-"drvPath":"/nix/store/7dhh58pk971ylr7x9gp87xq5q0akc949-linux-sunlight-7.0.10.drv",
+"drvPath":"/nix/store/66qszrrs6mq6a12j1iyrns4f0hk2ylms-linux-sunlight-7.0.12.drv",
 "meta":{
 "available":true,
 "badPlatforms":[],
@@ -359,7 +371,7 @@
 "description":"Sunlight Kernel. Built with custom settings and new features built to provide a stable, responsive and smooth desktop experience",
 "homepage":"https://www.kernel.org/",
 "identifiers":{
-"cpe":"cpe:2.3:o:linux:linux_kernel:7.0.10:*:*:*:*:*:*:*",
+"cpe":"cpe:2.3:o:linux:linux_kernel:7.0.12:*:*:*:*:*:*:*",
 "cpeParts":{
 "edition":"*",
 "language":"*",
@@ -371,11 +383,11 @@
 "target_sw":"*",
 "update":"*",
 "vendor":"linux",
-"version":"7.0.10"
+"version":"7.0.12"
 },
 "possibleCPEs":[
 {
-"cpe":"cpe:2.3:o:linux:linux_kernel:7.0.10:*:*:*:*:*:*:*",
+"cpe":"cpe:2.3:o:linux:linux_kernel:7.0.12:*:*:*:*:*:*:*",
 "cpeParts":{
 "edition":"*",
 "language":"*",
@@ -387,14 +399,14 @@
 "target_sw":"*",
 "update":"*",
 "vendor":"linux",
-"version":"7.0.10"
+"version":"7.0.12"
 }
 }
 ],
 "purlParts":{},
 "purls":[],
 "v1":{
-"cpe":"cpe:2.3:o:linux:linux_kernel:7.0.10:*:*:*:*:*:*:*",
+"cpe":"cpe:2.3:o:linux:linux_kernel:7.0.12:*:*:*:*:*:*:*",
 "cpeParts":{
 "edition":"*",
 "language":"*",
@@ -406,11 +418,11 @@
 "target_sw":"*",
 "update":"*",
 "vendor":"linux",
-"version":"7.0.10"
+"version":"7.0.12"
 },
 "possibleCPEs":[
 {
-"cpe":"cpe:2.3:o:linux:linux_kernel:7.0.10:*:*:*:*:*:*:*",
+"cpe":"cpe:2.3:o:linux:linux_kernel:7.0.12:*:*:*:*:*:*:*",
 "cpeParts":{
 "edition":"*",
 "language":"*",
@@ -422,7 +434,7 @@
 "target_sw":"*",
 "update":"*",
 "vendor":"linux",
-"version":"7.0.10"
+"version":"7.0.12"
 }
 }
 ],
@@ -497,6 +509,12 @@
 "name":"Silvan Mosberger"
 },
 {
+"email":"andreas@rammhold.de",
+"github":"andir",
+"githubId":638836,
+"name":"Andreas Rammhold"
+},
+{
 "email":"pyrox@pyrox.dev",
 "github":"pyrox0",
 "githubId":35778371,
@@ -511,10 +529,10 @@
 ],
 "maintainersPosition":{
 "column":11,
-"file":"/nix/store/5irb9ddvs906rhmb6c9ynknrph6p487a-source/pkgs/sunlight-kernels/default.nix",
+"file":"/nix/store/jmlvhar8lykvaajcxx1m8zfq7zmr44c3-source/pkgs/sunlight-kernels/default.nix",
 "line":115
 },
-"name":"linux-sunlight-7.0.10",
+"name":"linux-sunlight-7.0.12",
 "nonTeamMaintainers":[
 {
 "email":"ionut_n2001@yahoo.com",
@@ -650,6 +668,12 @@
 "name":"Silvan Mosberger"
 },
 {
+"email":"andreas@rammhold.de",
+"github":"andir",
+"githubId":638836,
+"name":"Andreas Rammhold"
+},
+{
 "email":"pyrox@pyrox.dev",
 "github":"pyrox0",
 "githubId":35778371,
@@ -668,14 +692,14 @@
 ],
 "teamsPosition":{
 "column":7,
-"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/os-specific/linux/kernel/build.nix",
-"line":579
+"file":"/nix/store/sifilimr8ymj1a7jdpiczmavl233f2bp-source/pkgs/os-specific/linux/kernel/build.nix",
+"line":562
 },
 "timeout":14400,
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-sunlight-7.0.10",
+"name":"linux-sunlight-7.0.12",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -684,7 +708,7 @@
 },
 "pname":"linux-sunlight",
 "system":"x86_64-linux",
-"version":"7.0.10"
+"version":"7.0.12"
 }
 }
 }
