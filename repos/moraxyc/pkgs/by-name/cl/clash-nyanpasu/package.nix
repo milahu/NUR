@@ -29,7 +29,10 @@
   webkitgtk_4_1,
   wrapGAppsHook4,
   xdotool,
+  yq-go,
   zstd,
+
+  enableLTO ? false,
 
   sources,
   source ? sources.clash-nyanpasu,
@@ -85,7 +88,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
       ;
     inherit pnpm;
     fetcherVersion = 4;
-    hash = "sha256-WYjsw+bOaiyNJ+mFjEEyUyzGABxuVUCMsjl6KS6lZnk=";
+    hash = "sha256-vG6HYyU+yM5wAcAvpqO8AnAmZQL8YJZvopJGaatfNu4=";
   };
 
   nativeBuildInputs = [
@@ -98,6 +101,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     pnpm
     pnpmConfigHook
     wrapGAppsHook4
+    yq-go
   ];
 
   buildInputs = [
@@ -126,6 +130,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   };
 
   postPatch = ''
+    yq -i -p toml -o toml '.profile.release.lto = ${lib.boolToString enableLTO}' backend/Cargo.toml
+
     # Tauri
     jq '
       .bundle.createUpdaterArtifacts = false |
@@ -211,5 +217,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
     sourceProvenance = with lib.sourceTypes; [ fromSource ];
     mainProgram = "Clash Nyanpasu";
     maintainers = with lib.maintainers; [ moraxyc ];
+    broken = with stdenv.hostPlatform; isDarwin || (isAarch64 && isLinux);
   };
 })
