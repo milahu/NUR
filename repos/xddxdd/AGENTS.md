@@ -18,7 +18,9 @@
   - 在 `nativeInstallCheckInputs` 中添加 `versionCheckHook`
   - 设置 `doInstallCheck = true`
   - 如果程序需要特定参数来显示版本，设置 `versionCheckProgramArg`（如 `--version`）
+- **不要禁用测试**：`doCheck` 默认启用，不需要设置 `doCheck = false`。仅当上游测试在 Nix 构建环境中确实无法通过时（如需要网络访问、需要特定硬件等），才应禁用测试
 - **禁用测试时启用安装检查**：如果设置 `doCheck = false` 禁用测试，必须同时设置 `doInstallCheck = true` 以确保 `versionCheckHook` 正常工作
+- **上游版本不一致处理**：当上游 Cargo.toml / package.json 等文件中的版本号与发布标签不一致时，可在 `postPatch` 中使用 `sed` 正则动态修正版本号，以使 `versionCheckHook` 正常工作
 - **处理 execstack 标记**：打包上游二进制时如遇到 `cannot enable executable stack`，用 `execstack -c`（`pax-utils`）或 `patchelf --clear-execstack` 清理需要可执行栈的 ELF（常见于某些 `.so`）
 - **使用顶层 Xorg 包**：Xorg 相关的库和工具现在可以直接作为顶层包引用，不要使用 `xorg.` 前缀。例如使用 `libX11` 而不是 `xorg.libX11`，使用 `xcbutilimage` 而不是 `xorg.xcbutilimage`
 
@@ -139,3 +141,22 @@ appimageTools.wrapType2 {
 - 使用 `nix build .#package-name` 构建包
 - 只需指定包名本身，无需中间路径
 - 示例：`pkgs/uncategorized/package-name` 应构建为 `nix build .#package-name`
+
+## pnpm 前端构建
+
+### fetchPnpmDeps 配置
+
+- **必须设置 `fetcherVersion`**：`fetchPnpmDeps` 要求显式设置 `fetcherVersion`，推荐使用 `fetcherVersion = 3`
+- **使用 `sourceRoot = "source/<子目录>"`**：当 `src` 来自 `fetchFromGitHub` 而项目在子目录中时，`sourceRoot` 需加 `source/` 前缀（如 `source/frontend`）
+- **锁定 pnpm 版本**：当上游 lockfile 与最新 pnpm 版本不兼容时，通过 `pnpm = pnpm_10` 指定兼容的 pnpm 版本
+- **`pnpmConfigHook` 自动安装依赖**：该钩子在 `postConfigure` 阶段自动运行 `pnpm install --offline --frozen-lockfile`，无需手动安装
+
+### 多组件 pname 命名
+
+- **每个派生使用不同的 pname**：对于包含多个派生（如前端依赖、前端构建产物、主程序）的包，每个派生的 `pname` 应添加不同的后缀加以区分
+- **不要全局 inherit**：不要在 `let` 顶层写 `inherit (sources.xxx) version src;`，各派生应分别在自身作用域内通过 `inherit (sources.xxx) version src;` 获取所需字段
+
+### Go + 前端项目
+
+- **分开构建前端和 Go**：将前端构建为独立派生，在 `buildGoModule` 的 `preBuild` 中将构建产物复制到 Go embed 目录
+- **复制到 embed 路径**：如果 Go 使用 `//go:embed` 嵌入前端产物，构建产物必须先放置到对应目录再执行 Go 编译
