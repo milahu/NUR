@@ -14,8 +14,10 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-0IhLBGtqjOvXXrcJhYoAEZ5YbuNnU2u7WcTJ0ET92VE=";
   };
 
-  # Cargo dependency vendor hash (computed by Nix)
-  cargoHash = "sha256-E3FgqSoRYS0PiZfw1dYvRS8S7vo3xBsLTPp38FwgWdw=";
+  # Vendor Cargo dependencies from the committed lockfile.
+  # Avoids the crates.io download API (HTTP 403) used by fetch-cargo-vendor;
+  # registry crates are fetched from static.crates.io instead.
+  cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs = lib.optional completion.enable installShellFiles;
 
@@ -37,7 +39,7 @@ rustPlatform.buildRustPackage rec {
       
       generateCompletions = shell: ''
         mkdir -p $out/${shellCompletionDir.${shell}}
-        $out/bin/dogma completion ${shell} > $out/${shellCompletionDir.${shell}}/${shellCompletionFile.${shell}}
+        $out/bin/dogma completions ${shell} > $out/${shellCompletionDir.${shell}}/${shellCompletionFile.${shell}}
       '';
     in
       lib.concatMapStringsSep "\n" generateCompletions completion.shells
