@@ -1,16 +1,16 @@
 {
 "name":"falconprogrammer",
-"fetch_time":0.855,
-"eval_time":3.169,
+"fetch_time":0.672,
+"eval_time":3.174,
 "source":{
 "url":"https://github.com/JonBoyleCoding/falconprogrammer-nur",
-"rev":"860078c4c744f45c61c03d471800ccb8584f7617",
-"sha256":"1s4ckaz5pcs7mscwnnqm2wgxg3y5mndfd87dg6gfkz9hmhrpkpnl",
+"rev":"ec3e04824438294a60a43a136b077b95060dd2a6",
+"sha256":"0zidrrg5ivy4y22jjzn0dbi945prfa2l11p0y1h8xcwpcbk7n31i",
 "date":null
 },
-"source_storepath":"/nix/store/pbficzddp6dhv1rrl0xp9h2gyivrm58s-source",
-"nixpkgs_storepath":"/nix/store/sifilimr8ymj1a7jdpiczmavl233f2bp-source",
-"nur_combined_rev":"7be4cc26b362a289d05d59f7e9ebfddb9235eb6a",
+"source_storepath":"/nix/store/90vqc1kgdbwsqv9kf3c2zgh5mw6w328k-source",
+"nixpkgs_storepath":"/nix/store/lvzmhvqzp2x0br4fy2ibw53ggdsd07dk-source",
+"nur_combined_rev":"b0313ba363f1be91b822498e5d09d6146b3b0c7e",
 "packages":{
 "alvr":{
 "drvPath":"/nix/store/v3barpwqlbx1yhdp2fi35n1jybh3jnyc-alvr-20.8.1.drv",
@@ -71,7 +71,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pbficzddp6dhv1rrl0xp9h2gyivrm58s-source/pkgs/alvr/default.nix",
+"file":"/nix/store/90vqc1kgdbwsqv9kf3c2zgh5mw6w328k-source/pkgs/alvr/default.nix",
 "line":89
 },
 "name":"alvr-20.8.1",
@@ -177,7 +177,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pbficzddp6dhv1rrl0xp9h2gyivrm58s-source/pkgs/cco/default.nix",
+"file":"/nix/store/90vqc1kgdbwsqv9kf3c2zgh5mw6w328k-source/pkgs/cco/default.nix",
 "line":88
 },
 "name":"cco-0-unstable-2026-04-30",
@@ -265,7 +265,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pbficzddp6dhv1rrl0xp9h2gyivrm58s-source/pkgs/g13d/default.nix",
+"file":"/nix/store/90vqc1kgdbwsqv9kf3c2zgh5mw6w328k-source/pkgs/g13d/default.nix",
 "line":46
 },
 "name":"g13-master-2024-12-30",
@@ -454,7 +454,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pbficzddp6dhv1rrl0xp9h2gyivrm58s-source/pkgs/gitignore-template/default.nix",
+"file":"/nix/store/90vqc1kgdbwsqv9kf3c2zgh5mw6w328k-source/pkgs/gitignore-template/default.nix",
 "line":42
 },
 "name":"gitignore-template-1.2.4",
@@ -595,7 +595,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pbficzddp6dhv1rrl0xp9h2gyivrm58s-source/pkgs/hyuga/default.nix",
+"file":"/nix/store/90vqc1kgdbwsqv9kf3c2zgh5mw6w328k-source/pkgs/hyuga/default.nix",
 "line":57
 },
 "name":"hyuga-1.0.0-unstable-2025-01-26",
@@ -652,7 +652,7 @@
 "version":"1.0.0-unstable-2025-01-26"
 },
 "opencode":{
-"drvPath":"/nix/store/7sghhdarrz36s4cx3jybhc1l4pxwj2ii-opencode-1.17.6.drv",
+"drvPath":"/nix/store/sskmn3cqrh5ml89fxxdn0kaag13h93ib-opencode-1.17.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -701,7 +701,7 @@
 "longDescription":"OpenCode is an AI coding agent built for the terminal.\n\nNIXOS COMPATIBILITY: OpenCode downloads TUI binaries at runtime that use\ngeneric Linux dynamic linkers (/lib64/ld-linux-x86-64.so.2) which don't\nexist on NixOS. This package includes automatic patching to fix the\ndynamic linker paths for NixOS compatibility.\n\nUSAGE OPTIONS:\n- Run 'opencode' - includes automatic NixOS patching\n- Or manually patch cache: $(nix-build -A opencode-sst)/share/opencode/patch-opencode-cache.sh\n\nThe package provides Node.js 24.15.0 to avoid downloading issues.\n",
 "mainProgram":"opencode",
 "maintainers":[],
-"name":"opencode-1.17.6",
+"name":"opencode-1.17.7",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -738,17 +738,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"opencode-1.17.6",
+"name":"opencode-1.17.7",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"opencode",
 "system":"x86_64-linux",
-"version":"1.17.6"
+"version":"1.17.7"
 },
 "opencode-sst":{
-"drvPath":"/nix/store/7sghhdarrz36s4cx3jybhc1l4pxwj2ii-opencode-1.17.6.drv",
+"drvPath":"/nix/store/sskmn3cqrh5ml89fxxdn0kaag13h93ib-opencode-1.17.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -797,7 +797,7 @@
 "longDescription":"OpenCode is an AI coding agent built for the terminal.\n\nNIXOS COMPATIBILITY: OpenCode downloads TUI binaries at runtime that use\ngeneric Linux dynamic linkers (/lib64/ld-linux-x86-64.so.2) which don't\nexist on NixOS. This package includes automatic patching to fix the\ndynamic linker paths for NixOS compatibility.\n\nUSAGE OPTIONS:\n- Run 'opencode' - includes automatic NixOS patching\n- Or manually patch cache: $(nix-build -A opencode-sst)/share/opencode/patch-opencode-cache.sh\n\nThe package provides Node.js 24.15.0 to avoid downloading issues.\n",
 "mainProgram":"opencode",
 "maintainers":[],
-"name":"opencode-1.17.6",
+"name":"opencode-1.17.7",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -834,14 +834,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"opencode-1.17.6",
+"name":"opencode-1.17.7",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"opencode",
 "system":"x86_64-linux",
-"version":"1.17.6"
+"version":"1.17.7"
 },
 "python-jwt_312":{
 "drvPath":"/nix/store/21qhr76dvg63w1w798jn5zwnzimzbyfv-python3.12-python-jwt-4.0.0.drv",
@@ -927,7 +927,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pbficzddp6dhv1rrl0xp9h2gyivrm58s-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/90vqc1kgdbwsqv9kf3c2zgh5mw6w328k-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.12-python-jwt-4.0.0",
@@ -1067,7 +1067,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pbficzddp6dhv1rrl0xp9h2gyivrm58s-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/90vqc1kgdbwsqv9kf3c2zgh5mw6w328k-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.13-python-jwt-4.0.0",
@@ -1208,7 +1208,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pbficzddp6dhv1rrl0xp9h2gyivrm58s-source/pkgs/spec-kit/default.nix",
+"file":"/nix/store/90vqc1kgdbwsqv9kf3c2zgh5mw6w328k-source/pkgs/spec-kit/default.nix",
 "line":51
 },
 "name":"spec-kit-0.10.2",
@@ -1349,7 +1349,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pbficzddp6dhv1rrl0xp9h2gyivrm58s-source/pkgs/timew-sync-client/default.nix",
+"file":"/nix/store/90vqc1kgdbwsqv9kf3c2zgh5mw6w328k-source/pkgs/timew-sync-client/default.nix",
 "line":59
 },
 "name":"timew-sync-client-unstable-2023-10-25",
@@ -1588,7 +1588,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/sifilimr8ymj1a7jdpiczmavl233f2bp-source/pkgs/applications/emulators/wine/base.nix",
+"file":"/nix/store/lvzmhvqzp2x0br4fy2ibw53ggdsd07dk-source/pkgs/applications/emulators/wine/base.nix",
 "line":372
 },
 "name":"wine-wow-staging-11.9",
@@ -1726,7 +1726,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/pbficzddp6dhv1rrl0xp9h2gyivrm58s-source/pkgs/xgen/default.nix",
+"file":"/nix/store/90vqc1kgdbwsqv9kf3c2zgh5mw6w328k-source/pkgs/xgen/default.nix",
 "line":25
 },
 "name":"xgen-unstable-2023-07-02",
