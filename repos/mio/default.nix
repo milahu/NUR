@@ -148,7 +148,6 @@ in
         EOF
       '';
   });
-  nix-output-monitor = callPackage ./pkgs/nix-output-monitor/package.nix { };
 
   cached-set =
     let
@@ -188,7 +187,6 @@ in
               minetest591client
               minetest580client
               musescore-alex
-              downkyicore
             ];
           }
         );
@@ -211,7 +209,6 @@ in
               #pake # started failing recently
               cider
               rocksmith2tab
-              superTux
               #nix-output-monitor
               darling
               supertuxkart-evolution
