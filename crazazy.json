@@ -1,16 +1,16 @@
 {
 "name":"crazazy",
-"fetch_time":0.516,
-"eval_time":2.226,
+"fetch_time":0.724,
+"eval_time":1.707,
 "source":{
 "url":"https://github.com/crazazy/nixos-config",
-"rev":"49e2584b469cc1407ae2b7bd0d53651288a2ac1d",
-"sha256":"1v64ipb2rnqvl63870kic7ghmnbhf8dvg9j4sli9bx0kqsdbyfzq",
+"rev":"1b3ad9f7a3824a1445d270fdf2f14b29b362edcb",
+"sha256":"03k9xbxa6l9l8jcsxd2dqqhwajj7fz6fbiyn545cgzq0aqg97cy1",
 "date":null
 },
-"source_storepath":"/nix/store/7gx1brsbldqhndg5dk2h2pvwmfv4b689-source",
-"nixpkgs_storepath":"/nix/store/rf8y386qrylwnhi8bzmxcac7hrm0qi6h-source",
-"nur_combined_rev":"60a5d656a7c3f9b334f77b4a45718dcdaa1737a6",
+"source_storepath":"/nix/store/ja7g6f5qfxvg01bhk3akal9kq6xfbwsp-source",
+"nixpkgs_storepath":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source",
+"nur_combined_rev":"d6fc335762f81a8a5f8662af75b9e8240350f1c0",
 "packages":{
 "cakeml":{
 "drvPath":"/nix/store/22as1jq7brsawy2zp0sy2gdyzxbrch23-cakeml.drv",
@@ -65,7 +65,7 @@
 "version":""
 },
 "elm":{
-"drvPath":"/nix/store/jjyp1px1jvbx2ml0nnzbdmimnw1q9jm5-elm-0.19.1.drv",
+"drvPath":"/nix/store/60q6bx1l9vf9fxz5q88psbd8fawkix79-elm-0.19.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -122,7 +122,7 @@
 ],
 "maintainersPosition":{
 "column":55,
-"file":"/nix/store/rf8y386qrylwnhi8bzmxcac7hrm0qi6h-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1101
 },
 "name":"elm-0.19.1",
@@ -234,7 +234,7 @@
 "version":"0.19.1"
 },
 "enso":{
-"drvPath":"/nix/store/mfcy9m8al833cbg501maa4i7q4pr3i6j-enso-2025.2.3.drv",
+"drvPath":"/nix/store/bnx8w330clkni6q7921xzykawzy46v23-enso-2025.2.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1158,7 +1158,7 @@
 "version":"1.0.2"
 },
 "nvfetcher":{
-"drvPath":"/nix/store/3sj5d76qnz4flxhkmyfigd6b2makhf4a-nvfetcher-0.8.0.0.drv",
+"drvPath":"/nix/store/7f5zspn4kky86dvmiq7ddxqshx70qbjp-nvfetcher-0.8.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1216,7 +1216,7 @@
 ],
 "maintainersPosition":{
 "column":55,
-"file":"/nix/store/rf8y386qrylwnhi8bzmxcac7hrm0qi6h-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1101
 },
 "name":"nvfetcher-0.8.0.0",
@@ -1314,7 +1314,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:502119",
+"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:502104",
 "unfree":false,
 "unsupported":false
 },
@@ -1338,7 +1338,7 @@
 "version":""
 },
 "wasmfxtime":{
-"drvPath":"/nix/store/pf3z703a2zk9lmjas0dfn26a8wri78sv-wasmtime-21540296f1c262188636fe0fb373cd2a9600d764.drv",
+"drvPath":"/nix/store/fwa4gr49g6ylhy367irbglygfrl5chdm-wasmtime-21540296f1c262188636fe0fb373cd2a9600d764.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1362,7 +1362,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v45.0.0/RELEASES.md",
+"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v45.0.1/RELEASES.md",
 "description":"wasmtime WebAssembly runner with support for delmited continuations",
 "homepage":"https://wasmtime.dev/",
 "identifiers":{
@@ -1435,10 +1435,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/rf8y386qrylwnhi8bzmxcac7hrm0qi6h-source/pkgs/by-name/wa/wasmtime/package.nix",
+"file":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/pkgs/by-name/wa/wasmtime/package.nix",
 "line":113
 },
-"name":"wasmtime-45.0.0",
+"name":"wasmtime-45.0.1",
 "nonTeamMaintainers":[
 {
 "email":"ereslibre@ereslibre.es",
