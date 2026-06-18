@@ -1,0 +1,68 @@
+# This file describes your repository contents.
+# It should return a set of nix derivations
+# and optionally the special attributes `lib`, `modules` and `overlays`.
+# It should NOT import <nixpkgs>. Instead, you should take pkgs as an argument.
+# Having pkgs default to <nixpkgs> is fine though, and it lets you use short
+# commands such as:
+#     nix-build -A mypackage
+
+{ pkgs ? import <nixpkgs> { } }:
+
+let
+    maintainers = import ./maintainers.nix;
+in {
+  # The `lib`, `modules`, and `overlays` names are special
+  lib = import ./lib { inherit pkgs; }; # functions
+  modules = import ./modules; # NixOS modules
+  overlays = import ./overlays; # nixpkgs overlays
+
+  example-package = pkgs.callPackage ./pkgs/example-package { };
+  lceda-pro = pkgs.callPackage ./pkgs/lceda-pro {
+      inherit maintainers;
+  };
+  jlc-assistant = pkgs.callPackage ./pkgs/jlc-assistant {
+      inherit maintainers;
+  };
+  vivado-2022_2 = pkgs.callPackage ./pkgs/vivado-2022_2 {
+      inherit maintainers;
+  };
+  ag = pkgs.callPackage ./pkgs/ag {
+      inherit maintainers;
+  };
+  # peerbanhelper = pkgs.callPackage ./pkgs/peerbanhelper {
+  #     inherit maintainers;
+  # };
+  simple-toml-configurator = pkgs.callPackage ./pkgs/simple-toml-configurator {
+    inherit maintainers;
+  };
+  jyyslide-util = pkgs.callPackage ./pkgs/jyyslide-util {
+    inherit maintainers;
+  };
+  keystroke = pkgs.callPackage ./pkgs/keystroke {
+      inherit maintainers;
+  };
+  adif-manage = pkgs.callPackage ./pkgs/adif-manage {
+      inherit maintainers;
+  };
+  bibox = pkgs.callPackage ./pkgs/bibox {
+      inherit maintainers;
+  };
+  deepseek-tui = pkgs.callPackage ./pkgs/deepseek-tui {
+      inherit maintainers;
+  };
+  sootty = pkgs.callPackage ./pkgs/sootty {
+      inherit maintainers;
+  };
+  waveql = pkgs.callPackage ./pkgs/waveql {
+      inherit maintainers;
+  };
+  pywellen-mcp = pkgs.callPackage ./pkgs/pywellen-mcp {
+      inherit maintainers;
+  };
+  kwm = pkgs.callPackage ./pkgs/kwm {
+      inherit maintainers;
+  };
+  # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
+  # ...
+}
+
