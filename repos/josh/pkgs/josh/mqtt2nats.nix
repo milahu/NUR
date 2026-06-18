@@ -5,17 +5,17 @@
   nix-update-script,
 }:
 buildGoModule (finalAttrs: {
-  pname = "jmap2nats";
-  version = "0.3.3";
+  pname = "mqtt2nats";
+  version = "0.0.2";
 
   src = fetchFromGitHub {
     owner = "josh";
-    repo = "jmap2nats";
+    repo = "mqtt2nats";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-0fCJBwrzpIbaGjVYQAhJynpW70XlRw6aCYhpaYhpFEE=";
+    hash = "sha256-da5yTihCYgjeBVOUXPoybPY0LEbA+EtytxFB+XVSnzw=";
   };
 
-  vendorHash = "sha256-osoKMrdwMTlgOXzTSeDeop7l8UiZqAAYYL5cpCQ1gEo=";
+  vendorHash = "sha256-R5ogsNHxVv/siwimAi5jA1iEMGuLpuLXG2Ni/2ZUrQE=";
 
   ldflags = [
     "-s"
@@ -25,10 +25,10 @@ buildGoModule (finalAttrs: {
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=stable" ]; };
 
   meta = {
-    description = "Bridge JMAP email push events to NATS JetStream";
-    homepage = "https://github.com/josh/jmap2nats";
+    description = "Relay MQTT messages to NATS";
+    homepage = "https://github.com/josh/mqtt2nats";
     license = lib.licenses.mit;
     platforms = lib.platforms.all;
-    mainProgram = "jmap2nats";
+    mainProgram = "mqtt2nats";
   };
 })
