@@ -371,17 +371,17 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "82c0298031254299cf1265dad4ae7dd54013fdb7";
+    version = "4e3e23212dbd5d5ee5fb87fccb35b48072a7ad13";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "82c0298031254299cf1265dad4ae7dd54013fdb7";
+      rev = "4e3e23212dbd5d5ee5fb87fccb35b48072a7ad13";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-Bq5/7wQs9OyUKzzCnEpbdja9x9c9FaFZfg/By4KrJxE=";
+      sha256 = "sha256-PKGdD/E+Pi4eiD26MwHG8aFS+u7OlmR2B8YEyoEW11I=";
     };
-    date = "2026-06-10";
+    date = "2026-06-18";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
@@ -497,17 +497,17 @@
   };
   rime-wugniu = {
     pname = "rime-wugniu";
-    version = "abd1ee98efbf170258fcf43875c21a4259e00b61";
+    version = "2818f4812af3b6f11fc0248fa8918966a3312d2c";
     src = fetchgit {
       url = "https://github.com/rime/rime-wugniu.git";
-      rev = "abd1ee98efbf170258fcf43875c21a4259e00b61";
+      rev = "2818f4812af3b6f11fc0248fa8918966a3312d2c";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-mNqUJ9iXSDCHqvnBoJ0TxXJjS0aAtx4NCN5SxkYjxWI=";
+      sha256 = "sha256-yt3d5kYusF5l8rwl0S6BMCYaSZKl4nbRpW04jO00wBs=";
     };
-    date = "2019-01-20";
+    date = "2026-06-18";
   };
   rlt = {
     pname = "rlt";
