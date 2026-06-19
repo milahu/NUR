@@ -124,7 +124,7 @@
             name = "claude-launcher";
             text = ''
               shift
-              exec claude-mimo "$@"
+              exec claude-qwen "$@"
             '';
           }
         );
@@ -166,32 +166,8 @@
   sops.secrets.gw_api_base = { };
   sops.secrets.gw_api_key = { };
   xdg.configFile."kilo/config.json".text = builtins.toJSON {
-    model = "mimo/mimo-v2.5-pro";
-    small_model = "mimo/mimo-v2.5";
+    model = "google/gemma-4-31b-it";
     provider = {
-      mimo = {
-        env = [ "MIMO_API_KEY" ];
-        models = {
-          "mimo-v2.5-pro" = {
-            name = "mimo-v2.5-pro";
-            limit = {
-              context = 1048576;
-              output = 131072;
-            };
-          };
-          "mimo-v2.5" = {
-            name = "mimo-v2.5";
-            limit = {
-              context = 1048576;
-              output = 131072;
-            };
-          };
-        };
-        options = {
-          apiKey = "{file:${config.sops.secrets.anthropic_auth_token.path}}";
-          baseURL = "https://token-plan-cn.xiaomimimo.com/v1";
-        };
-      };
       llamacpp = {
         models = {
           "preset/Qwen3.6-35B-A3B-MTP" = {
@@ -214,16 +190,7 @@
           baseURL = "http://127.0.0.1:8080/v1";
         };
       };
-      gw = {
-        models = {
-          "gemini/gemini-mux" = {
-            name = "Gemini Mux";
-            limit = {
-              context = 1048576;
-              output = 131072;
-            };
-          };
-        };
+      google = {
         options = {
           apiKey = "{file:${config.sops.secrets.gw_api_key.path}}";
           baseURL = "{file:${config.sops.secrets.gw_api_base.path}}";
