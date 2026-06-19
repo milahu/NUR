@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":0.604,
-"eval_time":2.248,
+"fetch_time":1.19,
+"eval_time":2.842,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"782397af4fe5eaa164403f8d42bcf11e8ac58afb",
-"sha256":"0az7kmm7rw0li3ls7mk4jcl00sndwfpl2x0vmha7s19hgd612r1b",
+"rev":"1a1cb252ff3365c91a1e143a8552e462f79db471",
+"sha256":"1iidllpcqxd38h14p0nv6qqc58y4jzdp9dvh4hii76pl4dm96pqf",
 "date":null
 },
-"source_storepath":"/nix/store/26zkdxki8skw696vgp6305bals8yyb4n-source",
+"source_storepath":"/nix/store/cx6r5b768hwywwk6ssx23bnfvcnx6klb-source",
 "nixpkgs_storepath":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source",
-"nur_combined_rev":"6a3083b9f161bc94a0376dafd54e216d947aa328",
+"nur_combined_rev":"015c986ea7176853cbff53bb53eff4da70ec0a18",
 "packages":{
 "bumper":{
 "drvPath":"/nix/store/ckj4la1bkjdpp4b0bkfjmc5lz66ai61c-bumper-0.18.1.drv",
@@ -463,11 +463,11 @@
 "version":"0-unstable-2025-09-28"
 },
 "chrome-devtools-mcp":{
-"drvPath":"/nix/store/insbhn8i7mb3ly4x22n4myh50j7fshrw-chrome-devtools-mcp-1.2.0.drv",
+"drvPath":"/nix/store/0dnvd4sc77nqczk1bp8zkk2g8a1hv6mx-chrome-devtools-mcp-1.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/ChromeDevTools/chrome-devtools-mcp/releases/tag/v1.2.0",
+"changelog":"https://github.com/ChromeDevTools/chrome-devtools-mcp/releases/tag/v1.3.0",
 "description":"Chrome DevTools for coding agents",
 "homepage":"https://github.com/ChromeDevTools/chrome-devtools-mcp",
 "identifiers":{
@@ -512,7 +512,7 @@
 },
 "mainProgram":"chrome-devtools-mcp",
 "maintainers":[],
-"name":"chrome-devtools-mcp-1.2.0",
+"name":"chrome-devtools-mcp-1.3.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -547,14 +547,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"chrome-devtools-mcp-1.2.0",
+"name":"chrome-devtools-mcp-1.3.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"chrome-devtools-mcp",
 "system":"x86_64-linux",
-"version":"1.2.0"
+"version":"1.3.0"
 },
 "codex-commit":{
 "drvPath":"/nix/store/v8mifzljx3ggw2d3d7ihglfqs42iamny-codex-commit-0.0.1.drv",
@@ -677,11 +677,11 @@
 "version":"0.0.1"
 },
 "duckdb":{
-"drvPath":"/nix/store/298zhcgmrn811ji1rhy0x1nklm1piacf-duckdb-1.5.3.drv",
+"drvPath":"/nix/store/3q6qmjs74z857zyj8fv3k51crvnj9n8d-duckdb-1.5.4.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/duckdb/duckdb/releases/tag/v1.5.3",
+"changelog":"https://github.com/duckdb/duckdb/releases/tag/v1.5.4",
 "description":"Embeddable SQL OLAP Database Management System",
 "homepage":"https://duckdb.org/",
 "identifiers":{
@@ -735,10 +735,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/26zkdxki8skw696vgp6305bals8yyb4n-source/packages/duckdb/default.nix",
+"file":"/nix/store/cx6r5b768hwywwk6ssx23bnfvcnx6klb-source/packages/duckdb/default.nix",
 "line":354
 },
-"name":"duckdb-1.5.3",
+"name":"duckdb-1.5.4",
 "nonTeamMaintainers":[
 {
 "email":"me@trev.xyz",
@@ -836,7 +836,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"duckdb-1.5.3",
+"name":"duckdb-1.5.4",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -845,7 +845,7 @@
 },
 "pname":"duckdb",
 "system":"x86_64-linux",
-"version":"1.5.3"
+"version":"1.5.4"
 },
 "fetch-hash":{
 "drvPath":"/nix/store/bh8s69gz2gr6qpl1qmpzqjns9z2iayc3-fetch-hash.drv",
@@ -1510,11 +1510,11 @@
 "version":"3.3.0"
 },
 "helium":{
-"drvPath":"/nix/store/0hbjn984bg9h6rk76wsjgjl3vn9bpwy5-helium-0.13.3.1.drv",
+"drvPath":"/nix/store/619n0sd7ybgc7q3551zqw66jva0r7i8d-helium-0.13.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/imputnet/helium-linux/releases/tag/V0.13.3.1",
+"changelog":"https://github.com/imputnet/helium-linux/releases/tag/V0.13.4.1",
 "description":"Helium Browser for Linux",
 "homepage":"https://github.com/imputnet/helium-linux",
 "identifiers":{
@@ -1559,7 +1559,7 @@
 },
 "mainProgram":"helium",
 "maintainers":[],
-"name":"helium-0.13.3.1",
+"name":"helium-0.13.4.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1577,14 +1577,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"helium-0.13.3.1",
+"name":"helium-0.13.4.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"helium",
 "system":"x86_64-linux",
-"version":"0.13.3.1"
+"version":"0.13.4.1"
 },
 "igsc":{
 "drvPath":"/nix/store/2vwpjxzpkxad779hm16a9vm00x12r1ni-igsc-1.3.0.drv",
@@ -2764,11 +2764,11 @@
 "version":"0.4.6"
 },
 "qsvenc":{
-"drvPath":"/nix/store/wmxnqyqx1aaj15i57v2shryrdnqf6891-qsvenc-8.15.drv",
+"drvPath":"/nix/store/75p43jbflif7rcdkjrrfb002r5fmiw4v-qsvenc-8.16.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/rigaya/QSVEnc/releases/tag/8.15",
+"changelog":"https://github.com/rigaya/QSVEnc/releases/tag/8.16",
 "description":"QSV high-speed encoding performance experiment tool",
 "homepage":"https://github.com/rigaya/QSVEnc",
 "identifiers":{
@@ -2813,7 +2813,7 @@
 },
 "mainProgram":"qsvencc",
 "maintainers":[],
-"name":"qsvenc-8.15",
+"name":"qsvenc-8.16",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2825,14 +2825,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"qsvenc-8.15",
+"name":"qsvenc-8.16",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qsvenc",
 "system":"x86_64-linux",
-"version":"8.15"
+"version":"8.16"
 },
 "renovate":{
 "drvPath":"/nix/store/yl3iw9yvdka7s10ynncasbcz18mxzprr-renovate-43.220.0.drv",
@@ -3631,11 +3631,11 @@
 "version":"0.1.20"
 },
 "yt-dlp":{
-"drvPath":"/nix/store/b1gxx6yii1fm2yfx0qq7q5za64wk35z8-yt-dlp-2026.06.09-unstable-2026-06-16.drv",
+"drvPath":"/nix/store/96b8yb7jhja2794v06jvrnsskfb2bgm2-yt-dlp-2026.06.09-unstable-2026-06-18.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/yt-dlp/commits/ad6b5f4b3552472c17b3955a3f1525296bed6137",
+"changelog":"https://github.com/yt-dlp/yt-dlp/commits/2b27a203f7573cb491c8bef77cb4d944cee6f8cf",
 "description":"Feature-rich command-line audio/video downloader - master branch",
 "homepage":"https://github.com/yt-dlp/yt-dlp/",
 "identifiers":{
@@ -3714,7 +3714,7 @@
 },
 "mainProgram":"yt-dlp",
 "maintainers":[],
-"name":"yt-dlp-2026.06.09-unstable-2026-06-16",
+"name":"yt-dlp-2026.06.09-unstable-2026-06-18",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3726,7 +3726,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yt-dlp-2026.06.09-unstable-2026-06-16",
+"name":"yt-dlp-2026.06.09-unstable-2026-06-18",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3734,7 +3734,7 @@
 },
 "pname":"yt-dlp",
 "system":"x86_64-linux",
-"version":"2026.06.09-unstable-2026-06-16"
+"version":"2026.06.09-unstable-2026-06-18"
 },
 "yt-dlp-ejs":{
 "drvPath":"/nix/store/5yy8v1kxw6rj892i3prg0d7sp9slks4l-python3.13-yt-dlp-ejs-0.8.0-unstable-2026-06-09.drv",
