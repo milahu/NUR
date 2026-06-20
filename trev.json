@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":1.19,
-"eval_time":2.842,
+"fetch_time":0.64,
+"eval_time":2.927,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"1a1cb252ff3365c91a1e143a8552e462f79db471",
-"sha256":"1iidllpcqxd38h14p0nv6qqc58y4jzdp9dvh4hii76pl4dm96pqf",
+"rev":"a76bb5adfad13cfe7e29eed2ecfa02a6df64b76e",
+"sha256":"1nq6hifkk9g8fbb87pfsb6agsiwpnqbpzagb5d0ibnh6l6awz6q3",
 "date":null
 },
-"source_storepath":"/nix/store/cx6r5b768hwywwk6ssx23bnfvcnx6klb-source",
+"source_storepath":"/nix/store/s3sbkwxc5cwgizds7l0c38y07hyhnal6-source",
 "nixpkgs_storepath":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source",
-"nur_combined_rev":"015c986ea7176853cbff53bb53eff4da70ec0a18",
+"nur_combined_rev":"a23144bfc9d256df079f34548b4d0a44ff40a18b",
 "packages":{
 "bumper":{
 "drvPath":"/nix/store/ckj4la1bkjdpp4b0bkfjmc5lz66ai61c-bumper-0.18.1.drv",
@@ -735,7 +735,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cx6r5b768hwywwk6ssx23bnfvcnx6klb-source/packages/duckdb/default.nix",
+"file":"/nix/store/s3sbkwxc5cwgizds7l0c38y07hyhnal6-source/packages/duckdb/default.nix",
 "line":354
 },
 "name":"duckdb-1.5.4",
@@ -2050,7 +2050,7 @@
 "version":"0.1.5-unstable-2026-05-27"
 },
 "modal":{
-"drvPath":"/nix/store/n4pi32ilm1cyzys1r2fbrvsb5nh9nlwa-python3.13-modal-1.5.0.drv",
+"drvPath":"/nix/store/b2l7f5dqfjr63azy52ghdvg8j1ssysmq-python3.13-modal-1.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2387,11 +2387,11 @@
 "version":"0.0.11"
 },
 "opengrep":{
-"drvPath":"/nix/store/0bsl9xmy1a8kpi3a3rvswyd2qs3jbwgl-opengrep-1.22.0.drv",
+"drvPath":"/nix/store/c40a0f3qy0jl3vazif3jhxb897dr1xqc-opengrep-1.23.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/opengrep/opengrep/releases/tag/v1.22.0",
+"changelog":"https://github.com/opengrep/opengrep/releases/tag/v1.23.0",
 "description":"Static code analysis engine to find security issues in code",
 "homepage":"https://github.com/opengrep/opengrep",
 "identifiers":{
@@ -2470,7 +2470,7 @@
 },
 "mainProgram":"opengrep",
 "maintainers":[],
-"name":"opengrep-1.22.0",
+"name":"opengrep-1.23.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2484,7 +2484,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"opengrep-1.22.0",
+"name":"opengrep-1.23.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -2492,7 +2492,7 @@
 },
 "pname":"opengrep",
 "system":"x86_64-linux",
-"version":"1.22.0"
+"version":"1.23.0"
 },
 "protoc-gen-connect-openapi":{
 "drvPath":"/nix/store/7jj1igcrjb3dhrqgcki7651j9dkgj1vm-protoc-gen-connect-openapi-0.25.7.drv",
@@ -3064,7 +3064,7 @@
 "version":""
 },
 "synchronicity":{
-"drvPath":"/nix/store/h9scys4h3vd3kmriz06dr8nmhjqc5w6h-python3.13-synchronicity-0.12.4.drv",
+"drvPath":"/nix/store/babznwi3gh2cmy8m3wmsfsh4nhzs7sgs-python3.13-synchronicity-0.12.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3147,7 +3147,7 @@
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "maintainers":[],
-"name":"python3.13-synchronicity-0.12.4",
+"name":"python3.13-synchronicity-0.12.5",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3238,7 +3238,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-synchronicity-0.12.4",
+"name":"python3.13-synchronicity-0.12.5",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3246,7 +3246,7 @@
 },
 "pname":"python3.13-synchronicity",
 "system":"x86_64-linux",
-"version":"0.12.4"
+"version":"0.12.5"
 },
 "type2-runtime":{
 "drvPath":"/nix/store/3b35wkrnr66f18v1x5grw4kla2ayp5jp-type2-runtime-static-x86_64-unknown-linux-musl-20251108-unstable-2026-03-07.drv",
@@ -3343,7 +3343,7 @@
 "version":"20251108-unstable-2026-03-07"
 },
 "uv-build-latest":{
-"drvPath":"/nix/store/772dlqcaqyn81b6phpl500bx8kz7y54g-python3.13-uv-build-0.11.21.drv",
+"drvPath":"/nix/store/3q836rzblgl0nz02xzw2lzc41xlcyjka-python3.13-uv-build-0.11.22.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3437,7 +3437,7 @@
 }
 ],
 "maintainers":[],
-"name":"python3.13-uv-build-0.11.21",
+"name":"python3.13-uv-build-0.11.22",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3528,7 +3528,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-uv-build-0.11.21",
+"name":"python3.13-uv-build-0.11.22",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3536,7 +3536,7 @@
 },
 "pname":"python3.13-uv-build",
 "system":"x86_64-linux",
-"version":"0.11.21"
+"version":"0.11.22"
 },
 "xdg-desktop-portal-luminous":{
 "drvPath":"/nix/store/q1p00bach529iwrv9p9rvs94cm04cfnk-xdg-desktop-portal-luminous-0.1.20.drv",
@@ -3631,11 +3631,11 @@
 "version":"0.1.20"
 },
 "yt-dlp":{
-"drvPath":"/nix/store/96b8yb7jhja2794v06jvrnsskfb2bgm2-yt-dlp-2026.06.09-unstable-2026-06-18.drv",
+"drvPath":"/nix/store/30vwa3zy82lxlh8824q8l3mpf08f0ix3-yt-dlp-2026.06.09-unstable-2026-06-18.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/yt-dlp/commits/2b27a203f7573cb491c8bef77cb4d944cee6f8cf",
+"changelog":"https://github.com/yt-dlp/yt-dlp/commits/9ae7df9a22b29e2f81825230c9bba7d444190de0",
 "description":"Feature-rich command-line audio/video downloader - master branch",
 "homepage":"https://github.com/yt-dlp/yt-dlp/",
 "identifiers":{
