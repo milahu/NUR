@@ -174,7 +174,8 @@ in
       "htop"  # needed as a user package, for ~/.config/htop
       "hyperfine"  # benchmarking tool
       # "kagi"
-      "kagi-ken-cli"
+      "kagi-cli"
+      # "kagi-ken-cli"
       "lddtree"
       # "libsecret"  # for managing user keyrings (secret-tool)
       # "lm_sensors"  # for sensors-detect
@@ -367,6 +368,7 @@ in
       "gst-device-monitor"  # for debugging audio/video
       "gst-launch"  # for debugging audio/video
       # "gthumb"
+      "kagi-epiphany"
       # "lemoa"  # lemmy app
       "libcamera"  # for `cam` binary (useful for debugging cameras)
       "libnotify"  # for notify-send; debugging
