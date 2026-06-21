@@ -218,6 +218,7 @@ in
         host  all all ::1/128      md5
         host  dioxus_music  dioxus_music  10.1.0.0/16  scram-sha-256
         host  discord_bot  discord_bot  10.1.0.0/16  scram-sha-256
+        host  authentik  authentik  10.200.0.0/16  scram-sha-256
       '';
     };
     protonmail-bridge.enable = true;
@@ -238,6 +239,14 @@ in
       };
     };
   };
+
+  # Set authentik user password from sops secret at activation time
+  systemd.services.postgresql.postStart = ''
+    ${pkgs.postgresql_16}/bin/psql -tAc "ALTER ROLE authentik PASSWORD '$(cat ${
+      config.sops.secrets."authentik-db-password".path
+    })';"
+  '';
+
   catppuccin = {
     enable = true;
     autoEnable = true;
@@ -352,6 +361,13 @@ in
           General.Locale = "en";
         };
       };
+    };
+    authentik = {
+      enable = true;
+      natInterface = "eno1";
+      db.passwordFile = config.sops.secrets."authentik-db-password".path;
+      secretKeyFile = config.sops.secrets."authentik-secret-key".path;
+      bootstrapPasswordFile = config.sops.secrets."authentik-bootstrap-password".path;
     };
   };
   # Relay the bridge's localhost-only SMTP port to the nextcloud container's veth address.
@@ -491,6 +507,12 @@ in
   sops.secrets."protonmail-bridge-smtp-password".mode = "0444";
   sops.secrets."grafana-admin-password".mode = "0444";
   sops.secrets."grafana-secret-key".mode = "0444";
+  sops.secrets."authentik-secret-key".mode = "0444";
+  sops.secrets."authentik-bootstrap-password".mode = "0444";
+  sops.secrets."authentik-db-password" = {
+    owner = "postgres";
+    mode = "0444";
+  };
   # The ProtonVPN private key is decrypted here on the host by sops-nix so that
   # it can be bind-mounted read-only into the starr container, where the WireGuard
   # interface and network namespace are actually configured.
@@ -577,6 +599,14 @@ in
     ];
     "/mnt/POOL/open-webui" = with config.ids.uids; [
       open-webui
+      toyvo
+    ];
+    "/mnt/POOL/authentik" = with config.ids.uids; [
+      authentik
+      toyvo
+    ];
+    "/mnt/POOL/authentik-redis" = with config.ids.uids; [
+      authentik
       toyvo
     ];
   };
