@@ -10,9 +10,9 @@
 let
   variants = {
     stable = {
-      version = "7.0.12";
+      version = "7.0.13";
       suffix = "lowlatency-sunlight1";
-      hash = "sha256-veQg7G+4GkJR0fyCgJSIk2mcYJT98TA6JPLeuvnF6GM=";
+      hash = "sha256-w/z2Ue0i5xgrtYvUvNGZkYIcut1zS5B0v1zOv+K5XZI=";
     };
     mainline = {
       version = "7.0.0-rc6";
@@ -73,6 +73,7 @@ let
           LATENCYTOP = yes;
 
           PREEMPT = lib.mkOverride 60 yes;
+          PREEMPT_LAZY = lib.mkForce no;
           PREEMPT_VOLUNTARY = lib.mkForce no;
           PREEMPT_NONE = lib.mkForce no;
 
