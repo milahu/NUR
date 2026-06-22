@@ -1,17 +1,66 @@
 error:
-… while calling 'outputs'
-  at /nix/store/58pgycak8s7i7j5ayvpqinyjxrh9llzd-source/flake.nix:54:5:
-    53|   outputs =
-    54|     inputs@{ parts, ... }:
-      |     ^
-    55|     parts.lib.mkFlake { inherit inputs; } (
+… while calling anonymous lambda
+  at ./default.nix:2:1:
+     1| # Packages for NUR
+     2| {
+      | ^
+     3|   pkgs ? import <nixpkgs> { },
+
+… in the left operand of the update (//) operator
+  at ./default.nix:9:1:
+     8| in
+     9| flake.packages."${system}"
+      | ^
+    10| // {
+
+… while calling the 'getFlake' builtin
+  at ./default.nix:6:11:
+     5| let
+     6|   flake = builtins.getFlake (toString ./.);
+      |           ^
+     7|   inherit (pkgs) system;
+
+… while calling anonymous lambda
+  at «flakes-internal»/call-flake.nix:15:1:
+    14| # This is `prim_fetchFinalTree`.
+    15| fetchTreeFinal:
+      | ^
+    16|
+
+… while evaluating the attribute 'root.result'
+  at «flakes-internal»/call-flake.nix:94:7:
+    93|     {
+    94|       result =
+      |       ^
+    95|         if node.flake or true then
+
+… in the left operand of the update (//) operator
+  at «flakes-internal»/call-flake.nix:75:9:
+    74|       result =
+    75|         outputs
+      |         ^
+    76|         # We add the sourceInfo attribute for its metadata, as they are
 
 … from call site
-  at /nix/store/58pgycak8s7i7j5ayvpqinyjxrh9llzd-source/flake.nix:55:5:
-    54|     inputs@{ parts, ... }:
-    55|     parts.lib.mkFlake { inherit inputs; } (
+  at «flakes-internal»/call-flake.nix:72:17:
+    71|
+    72|       outputs = flake.outputs (inputs // { self = result; });
+      |                 ^
+    73|
+
+… while calling 'outputs'
+  at /nix/store/smkx5ry0y9wzc8drq69g58ri9rzkbls7-source/flake.nix:58:5:
+    57|   outputs =
+    58|     inputs@{ parts, ... }:
       |     ^
-    56|       {
+    59|     parts.lib.mkFlake { inherit inputs; } (
+
+… from call site
+  at /nix/store/smkx5ry0y9wzc8drq69g58ri9rzkbls7-source/flake.nix:59:5:
+    58|     inputs@{ parts, ... }:
+    59|     parts.lib.mkFlake { inherit inputs; } (
+      |     ^
+    60|       {
 
 … while calling anonymous lambda
   at «flakes-internal»/call-flake.nix:68:37:
@@ -57,4 +106,4 @@ error:
       |           ^
     57|
 
-error: access to URI 'github:hercules-ci/flake-parts/0678d8986be1661af6bb555f3489f2fdfc31f6ff?narHash=sha256-qIoWPDs%2B0/8JecyYgE3gpKQxW/4bLW/gp45vow9ioCQ%3D' is forbidden in restricted mode
+error: access to URI 'github:hercules-ci/flake-parts/f7c1a2d347e4c52d5fb8d10cb4d94b5884e546fb?narHash=sha256-m1Yf0wZ8j1OHjTc2UwHwyQRSnNeSgLJOd7q5Y45hzi4%3D' is forbidden in restricted mode
