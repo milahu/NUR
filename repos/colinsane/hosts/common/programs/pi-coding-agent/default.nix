@@ -46,16 +46,26 @@ let
         command = "ha-mcp";
         directTools = false;
       };
+      # XXX(2026-06-18): kagimcp requires emailing kagi support to be whitelisted
+      # kagi = {
+      #   command = "kagimcp";
+      # };
       # markitdown = {
       #   # provides one "markitdown_convert_to_markdown" tool.
       #   # 67 tokens.. LLMs reach for it naturally, but takes 1-2 seconds to initialize.
       #   command = "markitdown-mcp";
       #   directTools = true;
       # };
-      # XXX(2026-06-18): kagimcp requires emailing kagi support to be whitelisted
-      # kagi = {
-      #   command = "kagimcp";
-      # };
+      playwright = {
+        command = "playwright-mcp";
+        # directTools = false;
+        args = [
+          # from <repo:NixOS/nixpkgs:pkgs/by-name/pl/playwright-mcp/package.nix>
+          "--headless"
+          "--isolated"
+          "--output-dir"  "/tmp"
+        ];
+      };
       search = {
         command = "kagi";
         args = [ "mcp" ];
@@ -113,6 +123,7 @@ in
       "nanogpt-api"
       "nix-prefetch-git"  # agents make use of this
       # "pandoc"  # for pi-markdown-preview
+      "playwright-mcp"
     ];
 
     sandbox.net = "clearnet";
@@ -165,12 +176,14 @@ in
       packages = [
         pkgs.edb-context-viewer  #< adds `/context` slash command
         pkgs.edb-diff-files  #< adds `/diff-files` slash command
-        pkgs.pi-caveman  #< adds `/caveman` slash command
+        # pkgs.pi-caveman  #< adds `/caveman` slash command
         # pkgs.pi-kagi  #< adds `web_search` tool
         pkgs.pi-mcp-adapter  #< adds MCP (Model Context Protocol) support
-        pkgs.pi-md-export  #< adds `/md` slash command
-        pkgs.pi-move-session  #< adds `/move-session` slash command
-        pkgs.pi-simplify  #< adds `/simplify` slash command
+        # pkgs.pi-md-export  #< adds `/md` slash command
+        # pkgs.pi-move-session  #< adds `/move-session` slash command
+        pkgs.pi-subagents
+        pkgs.pi-tool-repair  #< repairs "Error: Upstream emitted malformed tool call data that could not be repaired"
+        # pkgs.pi-simplify  #< adds `/simplify` slash command
         pkgs.pi-vim  #< makes the input textarea behave like vim
         # pkgs.pi-markdown-preview  #< renders $LaTeX$, etc, but needs more deps (puppeteer?)
       ];
@@ -182,8 +195,9 @@ in
         "llama-cpp/${llamaCppModels.gemma-4-31b-it-qat-ud-q4_k_xl.id}"
         "llama-cpp/${llamaCppModels.qwen3_6-35b-a3b-mtp-ud-q4_k_m.id}"
         "llama-cpp/${llamaCppModels.qwen3_6-27b-mtp-q4_k_m.id}"
-        "llama-cpp/${llamaCppModels.qwen3_5-122b-a10b-ud-q4_k_xl.id}"
         "llama-cpp/${llamaCppModels.qwen3_5-9b-q4_k_m.id}"
+        "llama-cpp/${llamaCppModels.qwen3_5-122b-a10b-ud-q4_k_xl.id}"
+        "llama-cpp/${llamaCppModels.step3_7-flash-iq4_xs.id}"
         "google/gemma-4-31b-it"
         "moonshotai/kimi-latest"
         "deepseek/deepseek-latest"
