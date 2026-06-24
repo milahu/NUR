@@ -1,19 +1,19 @@
 {
 "name":"trev",
-"fetch_time":0.916,
-"eval_time":3.008,
+"fetch_time":0.669,
+"eval_time":2.968,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"e564c12ef4cf4908ae4b113e028aa246d08d8bfa",
-"sha256":"1p5gimq6sawwdaaafcj73f6748nlrw2r9nx0md88rm3cpjwx64j6",
+"rev":"b898b710e1054550c39506fa94c3134ed1f2580a",
+"sha256":"1xk5xxbkgxhfc6d5qww3qyzjgp0kx6h6l8ffbxrwrlkwdg4qjdhf",
 "date":null
 },
-"source_storepath":"/nix/store/bh52k0xpyqfcyg11pcr21gin7ypxqwa5-source",
-"nixpkgs_storepath":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source",
-"nur_combined_rev":"5b0facfd10df5b75491f1a8a0122182d9709e896",
+"source_storepath":"/nix/store/hdk4v1a02dv4bww24wfi17j4mxkdh9l3-source",
+"nixpkgs_storepath":"/nix/store/b4l1fx59h1av2jvkrrccf8r4gswp34qq-source",
+"nur_combined_rev":"764522c1f7adbf065709bd71854daabe2e5029b6",
 "packages":{
 "bumper":{
-"drvPath":"/nix/store/ckj4la1bkjdpp4b0bkfjmc5lz66ai61c-bumper-0.18.1.drv",
+"drvPath":"/nix/store/3bywgj7cpy20ibbmj1p7vbw51j9rbw8k-bumper-0.18.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -133,7 +133,7 @@
 "version":"0.18.1"
 },
 "bwrap-apprun":{
-"drvPath":"/nix/store/rpm0xwblr6a44lyf6knlhrq0s8qj4jb7-bwrap-apprun-static-x86_64-unknown-linux-musl-0.0.1.drv",
+"drvPath":"/nix/store/296z8qich5anl8bbpyraa522famd2v2y-bwrap-apprun-static-x86_64-unknown-linux-musl-0.0.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -232,7 +232,7 @@
 "version":"0.0.1"
 },
 "catppuccin-gtk":{
-"drvPath":"/nix/store/dv0dna171bzmlpi1153hi1ifpprivgm5-catppuccin-gtk-1.0.0-unstable-2026-06-17.drv",
+"drvPath":"/nix/store/qsjz9k076lwlw22ncgavmhgb0235k01n-catppuccin-gtk-1.0.1-unstable-2026-06-22.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -279,7 +279,7 @@
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
 "maintainers":[],
-"name":"catppuccin-gtk-1.0.0-unstable-2026-06-17",
+"name":"catppuccin-gtk-1.0.1-unstable-2026-06-22",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -314,17 +314,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"catppuccin-gtk-1.0.0-unstable-2026-06-17",
+"name":"catppuccin-gtk-1.0.1-unstable-2026-06-22",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"catppuccin-gtk",
 "system":"x86_64-linux",
-"version":"1.0.0-unstable-2026-06-17"
+"version":"1.0.1-unstable-2026-06-22"
 },
 "catppuccin-zen-browser":{
-"drvPath":"/nix/store/bhxq6q8kl9ial9l0gi2jz5xpaxl0hzz3-catppuccin-zen-browser-0-unstable-2025-09-28.drv",
+"drvPath":"/nix/store/7x5wgcmwiinyq467xy1agjbxy0l9hnkv-catppuccin-zen-browser-0-unstable-2025-09-28.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -463,11 +463,11 @@
 "version":"0-unstable-2025-09-28"
 },
 "chrome-devtools-mcp":{
-"drvPath":"/nix/store/0dnvd4sc77nqczk1bp8zkk2g8a1hv6mx-chrome-devtools-mcp-1.3.0.drv",
+"drvPath":"/nix/store/l0mi7dgmjj2l4yfwx8m8yca5473bya69-chrome-devtools-mcp-1.4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/ChromeDevTools/chrome-devtools-mcp/releases/tag/v1.3.0",
+"changelog":"https://github.com/ChromeDevTools/chrome-devtools-mcp/releases/tag/v1.4.0",
 "description":"Chrome DevTools for coding agents",
 "homepage":"https://github.com/ChromeDevTools/chrome-devtools-mcp",
 "identifiers":{
@@ -512,7 +512,7 @@
 },
 "mainProgram":"chrome-devtools-mcp",
 "maintainers":[],
-"name":"chrome-devtools-mcp-1.3.0",
+"name":"chrome-devtools-mcp-1.4.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -547,17 +547,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"chrome-devtools-mcp-1.3.0",
+"name":"chrome-devtools-mcp-1.4.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"chrome-devtools-mcp",
 "system":"x86_64-linux",
-"version":"1.3.0"
+"version":"1.4.0"
 },
 "codex-commit":{
-"drvPath":"/nix/store/v8mifzljx3ggw2d3d7ihglfqs42iamny-codex-commit-0.0.1.drv",
+"drvPath":"/nix/store/657fwynwcg15msy6zjnlsx80b8mphzz0-codex-commit-0.0.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -677,7 +677,7 @@
 "version":"0.0.1"
 },
 "duckdb":{
-"drvPath":"/nix/store/3q6qmjs74z857zyj8fv3k51crvnj9n8d-duckdb-1.5.4.drv",
+"drvPath":"/nix/store/24svpi84bihhcsq8zw4bpxxyx6jnk8cf-duckdb-1.5.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -735,7 +735,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/bh52k0xpyqfcyg11pcr21gin7ypxqwa5-source/packages/duckdb/default.nix",
+"file":"/nix/store/hdk4v1a02dv4bww24wfi17j4mxkdh9l3-source/packages/duckdb/default.nix",
 "line":354
 },
 "name":"duckdb-1.5.4",
@@ -848,7 +848,7 @@
 "version":"1.5.4"
 },
 "fetch-hash":{
-"drvPath":"/nix/store/bh8s69gz2gr6qpl1qmpzqjns9z2iayc3-fetch-hash.drv",
+"drvPath":"/nix/store/qj8cr323v7i4qkhfrlcdzfqvmnzcl41d-fetch-hash.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -985,7 +985,7 @@
 "version":""
 },
 "fix-hash":{
-"drvPath":"/nix/store/pax7zzw96hdikrm3ygngq9i8xvs0kkfd-fix-hash-0.3.1.drv",
+"drvPath":"/nix/store/dbzqqlbqizigq24g6rnzfyfs9czxp85a-fix-hash-0.4.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1000,7 +1000,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/spotdemo4/nix-fix-hash/releases/tag/v0.3.1",
+"changelog":"https://github.com/spotdemo4/nix-fix-hash/releases/tag/v0.4.0",
 "description":"Nix hash fixer",
 "homepage":"https://github.com/spotdemo4/nix-fix-hash",
 "identifiers":{
@@ -1045,7 +1045,7 @@
 },
 "mainProgram":"fix-hash",
 "maintainers":[],
-"name":"fix-hash-0.3.1",
+"name":"fix-hash-0.4.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1094,17 +1094,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"fix-hash-0.3.1",
+"name":"fix-hash-0.4.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"fix-hash",
 "system":"x86_64-linux",
-"version":"0.3.1"
+"version":"0.4.0"
 },
 "flake-release":{
-"drvPath":"/nix/store/jchkgd203lfq6qgb7w2ap8gk6nkzhf3b-flake-release-0.20.2.drv",
+"drvPath":"/nix/store/8kf7yzaqha9xrcqhl3b3llvgr53irmd4-flake-release-0.20.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1220,7 +1220,7 @@
 "version":"0.20.2"
 },
 "gleescript":{
-"drvPath":"/nix/store/m0cd655kcpq8ihqmbr4d7a4vcai7cbyn-gleescript-1.5.2.drv",
+"drvPath":"/nix/store/r9n95vlc37jcb99hpm4facz3h0bx78xy-gleescript-1.5.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1360,7 +1360,7 @@
 "version":"1.5.2"
 },
 "go-over":{
-"drvPath":"/nix/store/9mixygvc2z5566xfmw0lhbchx5dykrf5-go-over-3.3.1.drv",
+"drvPath":"/nix/store/zj2s0a7zj8r5w5wkbxrg9k78f2fkyw2p-go-over-3.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1510,7 +1510,7 @@
 "version":"3.3.1"
 },
 "helium":{
-"drvPath":"/nix/store/619n0sd7ybgc7q3551zqw66jva0r7i8d-helium-0.13.4.1.drv",
+"drvPath":"/nix/store/7kxl1h2bmvwglbir3hbgjdc0ci8gc5ky-helium-0.13.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1587,7 +1587,7 @@
 "version":"0.13.4.1"
 },
 "igsc":{
-"drvPath":"/nix/store/2vwpjxzpkxad779hm16a9vm00x12r1ni-igsc-1.3.0.drv",
+"drvPath":"/nix/store/ni6f7ravyhd2vzhds8l41z6aglx83lff-igsc-1.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1681,7 +1681,7 @@
 "version":"1.3.0"
 },
 "kagiapi":{
-"drvPath":"/nix/store/wvj22i74ff3y91k5xhmasrnfzi62060p-python3.13-kagiapi-0-unstable-2025-04-18.drv",
+"drvPath":"/nix/store/di3vzd9q4dvnvr967xqxnxvw2mxqf2aq-python3.13-kagiapi-0-unstable-2025-04-18.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1865,7 +1865,7 @@
 "version":"0-unstable-2025-04-18"
 },
 "kagimcp":{
-"drvPath":"/nix/store/a96qqbvndmdhlimi63vyw9p43v1wdbzx-python3.13-kagimcp-0.1.5-unstable-2026-05-27.drv",
+"drvPath":"/nix/store/pcyz2lish1xw310x0zqdx7q4r2parzyp-python3.13-kagimcp-0.1.5-unstable-2026-05-27.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2050,7 +2050,7 @@
 "version":"0.1.5-unstable-2026-05-27"
 },
 "libwtf":{
-"drvPath":"/nix/store/mprcldqh3jhsqs6r4949gllmfl5hkxk6-libwtf-0-unstable-2026-06-14.drv",
+"drvPath":"/nix/store/lrv4p9b3b3x5cl5lh1i6vahihw27fdgw-libwtf-0-unstable-2026-06-14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2143,7 +2143,7 @@
 "version":"0-unstable-2026-06-14"
 },
 "modal":{
-"drvPath":"/nix/store/b2l7f5dqfjr63azy52ghdvg8j1ssysmq-python3.13-modal-1.5.0.drv",
+"drvPath":"/nix/store/2byifjw8hd330dqi6srz7lagcvi3qf5m-python3.13-modal-1.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2329,7 +2329,7 @@
 "version":"1.5.0"
 },
 "nix-scan":{
-"drvPath":"/nix/store/i8j6jz8y9jcnyx6l1sv9lp3lvyaj72n2-nix-scan-1.1.2.drv",
+"drvPath":"/nix/store/ypw466kjxvh7xqznqn1mvwggasj8ck7a-nix-scan-1.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2480,7 +2480,7 @@
 "version":"0.0.11"
 },
 "opengrep":{
-"drvPath":"/nix/store/c40a0f3qy0jl3vazif3jhxb897dr1xqc-opengrep-1.23.0.drv",
+"drvPath":"/nix/store/624sxqyscnwb0wfa1wx5pck5rbgghrd0-opengrep-1.23.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2588,7 +2588,7 @@
 "version":"1.23.0"
 },
 "protoc-gen-connect-openapi":{
-"drvPath":"/nix/store/7jj1igcrjb3dhrqgcki7651j9dkgj1vm-protoc-gen-connect-openapi-0.25.7.drv",
+"drvPath":"/nix/store/sp4z1mbn2xp01z6sli3zgqwwgqccwajn-protoc-gen-connect-openapi-0.25.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2738,7 +2738,7 @@
 "version":"0.25.7"
 },
 "pysentry":{
-"drvPath":"/nix/store/sqm32hw46pz1h74sr7nvscdz4ql5zw05-pysentry-0.4.6.drv",
+"drvPath":"/nix/store/ahgq8vyam92k7v464577nvqhwsd3f9mv-pysentry-0.4.7.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2753,7 +2753,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/nyudenkov/pysentry/releases/tag/v0.4.6",
+"changelog":"https://github.com/nyudenkov/pysentry/releases/tag/v0.4.7",
 "description":"Scans your Python dependencies for known security vulnerabilities",
 "homepage":"https://github.com/nyudenkov/pysentry",
 "identifiers":{
@@ -2798,7 +2798,7 @@
 },
 "mainProgram":"pysentry",
 "maintainers":[],
-"name":"pysentry-0.4.6",
+"name":"pysentry-0.4.7",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2847,21 +2847,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"pysentry-0.4.6",
+"name":"pysentry-0.4.7",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"pysentry",
 "system":"x86_64-linux",
-"version":"0.4.6"
+"version":"0.4.7"
 },
 "qsvenc":{
-"drvPath":"/nix/store/75p43jbflif7rcdkjrrfb002r5fmiw4v-qsvenc-8.16.drv",
+"drvPath":"/nix/store/pf9gqbg5jwi3bnzp4pxzdy908riscpim-qsvenc-8.17.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/rigaya/QSVEnc/releases/tag/8.16",
+"changelog":"https://github.com/rigaya/QSVEnc/releases/tag/8.17",
 "description":"QSV high-speed encoding performance experiment tool",
 "homepage":"https://github.com/rigaya/QSVEnc",
 "identifiers":{
@@ -2906,7 +2906,7 @@
 },
 "mainProgram":"qsvencc",
 "maintainers":[],
-"name":"qsvenc-8.16",
+"name":"qsvenc-8.17",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2918,17 +2918,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"qsvenc-8.16",
+"name":"qsvenc-8.17",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qsvenc",
 "system":"x86_64-linux",
-"version":"8.16"
+"version":"8.17"
 },
 "renovate":{
-"drvPath":"/nix/store/yl3iw9yvdka7s10ynncasbcz18mxzprr-renovate-43.220.0.drv",
+"drvPath":"/nix/store/121l031d6wklpzz2c4z4b2hm5i9nnpmd-renovate-43.220.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3020,7 +3020,7 @@
 "version":"43.220.0"
 },
 "shellhook":{
-"drvPath":"/nix/store/f722c7dhkf3l0djj4km7bmayxmh5fhmz-shellhook.drv",
+"drvPath":"/nix/store/lppvg54fx82v654lj45ivzfsagqndlxv-shellhook.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3157,7 +3157,7 @@
 "version":""
 },
 "synchronicity":{
-"drvPath":"/nix/store/babznwi3gh2cmy8m3wmsfsh4nhzs7sgs-python3.13-synchronicity-0.12.5.drv",
+"drvPath":"/nix/store/hz8inw4pk8wjmj09qjdy88xv83jyism0-python3.13-synchronicity-0.12.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3342,7 +3342,7 @@
 "version":"0.12.5"
 },
 "type2-runtime":{
-"drvPath":"/nix/store/3b35wkrnr66f18v1x5grw4kla2ayp5jp-type2-runtime-static-x86_64-unknown-linux-musl-20251108-unstable-2026-03-07.drv",
+"drvPath":"/nix/store/n0ds98v0339d81zl6gm2hq2zi1jm40z1-type2-runtime-static-x86_64-unknown-linux-musl-20251108-unstable-2026-03-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3436,11 +3436,11 @@
 "version":"20251108-unstable-2026-03-07"
 },
 "uv-build-latest":{
-"drvPath":"/nix/store/i5jgizmjxvg3pr6h2iv36q28sjdskghr-python3.13-uv-build-0.11.23.drv",
+"drvPath":"/nix/store/qjclxj6lrbknfs3z8m7qr9l732zhd3s0-python3.13-uv-build-0.11.23.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/astral-sh/uv/blob/0.11.19/CHANGELOG.md",
+"changelog":"https://github.com/astral-sh/uv/blob/0.11.22/CHANGELOG.md",
 "description":"Minimal build backend for uv",
 "homepage":"https://docs.astral.sh/uv/reference/settings/#build-backend",
 "identifiers":{
@@ -3632,7 +3632,7 @@
 "version":"0.11.23"
 },
 "xdg-desktop-portal-luminous":{
-"drvPath":"/nix/store/q1p00bach529iwrv9p9rvs94cm04cfnk-xdg-desktop-portal-luminous-0.1.20.drv",
+"drvPath":"/nix/store/gypgm317wals2sssf8199qh0dfpml93w-xdg-desktop-portal-luminous-0.1.20.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3724,7 +3724,7 @@
 "version":"0.1.20"
 },
 "yt-dlp":{
-"drvPath":"/nix/store/6gmyc826d1xbxnrlc5nnkfd9bzglf0da-yt-dlp-2026.06.09-unstable-2026-06-21.drv",
+"drvPath":"/nix/store/rn82l688l2qmrdfidfa858v92zhbv3gz-yt-dlp-2026.06.09-unstable-2026-06-21.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3830,11 +3830,11 @@
 "version":"2026.06.09-unstable-2026-06-21"
 },
 "yt-dlp-ejs":{
-"drvPath":"/nix/store/5yy8v1kxw6rj892i3prg0d7sp9slks4l-python3.13-yt-dlp-ejs-0.8.0-unstable-2026-06-09.drv",
+"drvPath":"/nix/store/4hi8cikfxdb6f73mip16mgxvriplc1si-python3.13-yt-dlp-ejs-0.8.0-unstable-2026-06-20.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/ejs/commits/2597979114d2b5ca68dc5b9e802476ce29cc5b7c",
+"changelog":"https://github.com/yt-dlp/ejs/commits/6f8587bb7009a1fc81038538071d2cb66b8b8ed0",
 "description":"External JavaScript for yt-dlp supporting many runtimes",
 "homepage":"https://github.com/yt-dlp/ejs/",
 "identifiers":{
@@ -3934,7 +3934,7 @@
 }
 ],
 "maintainers":[],
-"name":"python3.13-yt-dlp-ejs-0.8.0-unstable-2026-06-09",
+"name":"python3.13-yt-dlp-ejs-0.8.0-unstable-2026-06-20",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3977,7 +3977,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-yt-dlp-ejs-0.8.0-unstable-2026-06-09",
+"name":"python3.13-yt-dlp-ejs-0.8.0-unstable-2026-06-20",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3985,10 +3985,10 @@
 },
 "pname":"python3.13-yt-dlp-ejs",
 "system":"x86_64-linux",
-"version":"0.8.0-unstable-2026-06-09"
+"version":"0.8.0-unstable-2026-06-20"
 },
 "zig-protobuf":{
-"drvPath":"/nix/store/034dvgbzsfcbpm2h0ww69bn0pszcqwr3-zig-protobuf-5.0.0.drv",
+"drvPath":"/nix/store/xfpsw0ascx3pzmjkiqsxbygqm8ijzgmk-zig-protobuf-5.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
