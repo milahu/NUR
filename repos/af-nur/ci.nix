@@ -3,22 +3,25 @@
 # so if you correctly mark packages as
 #
 # - broken (using `meta.broken`),
-# - unfree (using `meta.license.free`), and
 # - locally built (using `preferLocalBuild`)
 #
 # then your CI will be able to build and cache only those packages for
-# which this is possible.
+# which this is possible. This repository's Cachix is allowed to cache
+# unfree and insecure packages.
 
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import <nixpkgs> {
+    config = {
+      allowUnfree = true;
+      allowInsecurePredicate = _: true;
+    };
+  }
+}:
 
 with builtins;
 let
   isReserved = n: n == "lib" || n == "overlays" || n == "modules";
   isDerivation = p: isAttrs p && p ? type && p.type == "derivation";
-  isBuildable = p: let
-    licenseFromMeta = p.meta.license or [];
-    licenseList = if builtins.isList licenseFromMeta then licenseFromMeta else [licenseFromMeta];
-  in !(p.meta.broken or false) && builtins.all (license: license.free or true) licenseList;
+  isBuildable = p: !(p.meta.broken or false);
   isCacheable = p: !(p.preferLocalBuild or false);
   shouldRecurseForDerivations = p: isAttrs p && p.recurseForDerivations or false;
 
@@ -37,7 +40,10 @@ let
 
   outputsOf = p: map (o: p.${o}) p.outputs;
 
-  nurAttrs = import ./default.nix { inherit pkgs; };
+  flake = builtins.getFlake (toString ./.);
+  system = pkgs.stdenv.hostPlatform.system;
+  bun2nix = flake.inputs.bun2nix.packages.${system}.default;
+  nurAttrs = import ./default.nix { inherit pkgs bun2nix; };
 
   nurPkgs =
     flattenPkgs
