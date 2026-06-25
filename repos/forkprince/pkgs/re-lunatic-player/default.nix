@@ -1,8 +1,7 @@
 {
   electron,
   nodejs,
-  pnpm_10,
-  zip,
+  pnpm_10_29_2,
   stdenvNoCC,
   autoPatchelfHook,
   copyDesktopItems,
@@ -34,28 +33,27 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     [
       makeWrapper
       pnpmConfigHook
+      pnpm_10_29_2
       nodejs
-      pnpm_10
-      zip
     ]
     ++ lib.optionals stdenvNoCC.hostPlatform.isLinux [
       autoPatchelfHook
       copyDesktopItems
     ];
 
-  buildInputs = lib.optionals stdenvNoCC.hostPlatform.isLinux [
-    electron
+  buildInputs =
+    [electron]
+    ++ lib.optionals stdenvNoCC.hostPlatform.isLinux [
+      alsa-lib
+      gtk3
+      mesa
+      nss
 
-    alsa-lib
-    gtk3
-    mesa
-    nss
+      libpulseaudio
+      libxslt
 
-    libpulseaudio
-    libxslt
-
-    libx11
-  ];
+      libx11
+    ];
 
   env = {
     ELECTRON_SKIP_BINARY_DOWNLOAD = 1;
@@ -90,7 +88,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
-    pnpm = pnpm_10;
+    pnpm = pnpm_10_29_2;
     fetcherVersion = 3;
     hash = "sha256-BHcHLDE4KBVWrG1Jevg9OPq/xdaN1PdtIfoqzDKDGYY=";
   };
@@ -98,62 +96,63 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   buildPhase = ''
     export npm_config_nodedir=${electron.headers}
 
-    # disabling this fixes darwin builds
-    substituteInPlace node_modules/@electron-forge/plugin-fuses/dist/FusesPlugin.js \
-      --replace-fail "resetAdHocDarwinSignature: !hasOSXSignConfig &&" \
-                     "resetAdHocDarwinSignature: false &&"
-
-    # override the detected electron version
-    substituteInPlace node_modules/@electron-forge/core-utils/dist/electron-version.js \
-      --replace-fail "return version" "return '${electron.version}'"
-
-    # create the electron archive to be used by electron-packager
-    cp -r ${electron.dist} electron-dist
-    chmod -R u+w electron-dist
-
-    pushd electron-dist
-    zip -0Xqr ../electron.zip .
-    popd
-
-    rm -r electron-dist
-
-    # force @electron/packager to use our electron instead of downloading it
-    substituteInPlace node_modules/@electron/packager/dist/packager.js \
-      --replace-fail "await this.getElectronZipPath(downloadOpts)" "'$(pwd)/electron.zip'"
-
-    pnpm package
+    mkdir -p out/Re-Lunatic-Player-linux-x64/resources
+    node node_modules/@electron/asar/bin/asar.js pack . \
+      out/Re-Lunatic-Player-linux-x64/resources/app.asar \
+      --unpack "*.{node,dll}" \
+      --unpack-dir "{node_modules/**/*.node,node_modules/**/*.dll}"
   '';
 
-  installPhase = builtins.concatStringsSep "\n" [
-    (
-      lib.optionalString stdenvNoCC.hostPlatform.isLinux
-      ''
-        mkdir -p $out/share
-        cp -r out/*/resources{,.pak} "$out/share"
+  installPhase =
+    if stdenvNoCC.hostPlatform.isLinux
+    then ''
+      mkdir -p $out/share
+      cp -r out/*/resources "$out/share/"
 
-        makeWrapper ${lib.getExe electron} $out/bin/re-lunatic-player \
-          --add-flags $out/share/resources/app.asar \
-          --set ELECTRON_FORCE_IS_PACKAGED 1 \
-          --inherit-argv0
+      makeWrapper ${lib.getExe electron} $out/bin/re-lunatic-player \
+        --add-flags $out/share/resources/app.asar \
+        --set ELECTRON_FORCE_IS_PACKAGED 1 \
+        --inherit-argv0
 
-        install -Dm644 src/img/logo.png $out/share/icons/hicolor/256x256/apps/re-lunatic-player.png
-      ''
-    )
-    (
-      lib.optionalString stdenvNoCC.hostPlatform.isDarwin
-      ''
-        mkdir -p $out/Applications
-        cp -r out/*/Re-Lunatic\ Player.app $out/Applications
+      install -Dm644 src/img/logo.png $out/share/icons/hicolor/256x256/apps/re-lunatic-player.png
 
-        makeWrapper "$out/Applications/Re-Lunatic Player.app/Contents/MacOS/re-lunatic-player" "$out/bin/re-lunatic-player" \
-          --set ELECTRON_FORCE_IS_PACKAGED 1 \
-          --inherit-argv0
-      ''
-    )
-    ''
       runHook postInstall
     ''
-  ];
+    else ''
+      APP="$out/Applications/Re-Lunatic-Player.app"
+      mkdir -p "$out/Applications"
+
+      cp -pr "${electron}/Applications/Electron.app" "$APP"
+      chmod -R u+w "$APP"
+
+      cp src/img/logo.icns "$APP/Contents/Resources/electron.icns"
+      rm -f "$APP/Contents/Resources/default_app.asar"
+      cp -r out/*/resources/. "$APP/Contents/Resources/"
+
+      cat > "$APP/Contents/Info.plist" <<EOF
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>CFBundleName</key>
+        <string>Re:Lunatic Player</string>
+        <key>CFBundleDisplayName</key>
+        <string>Re:Lunatic Player</string>
+        <key>CFBundleExecutable</key>
+        <string>Electron</string>
+        <key>CFBundleIdentifier</key>
+        <string>com.${finalAttrs.pname}</string>
+        <key>CFBundleIconFile</key>
+        <string>electron.icns</string>
+      </dict>
+      </plist>
+      EOF
+
+      mkdir -p $out/bin
+      ln -s "$APP/Contents/MacOS/Electron" $out/bin/${finalAttrs.pname}
+
+      runHook postInstall
+    '';
 
   meta = {
     description = "Music player for Gensokyo Radio";
