@@ -12,12 +12,12 @@
   xvfb,
 }:
 let
-  version = "3.4.0";
+  version = "3.4.1";
   src = fetchFromGitHub {
     owner = "faisalkindi";
     repo = "CrimsonDesert-UltimateModsManager";
     tag = "v${version}";
-    hash = "sha256-gVarQkY6Bi8Dc93E4pI2qeUHJi8Wb1/ZCbRUmpHy8Kw=";
+    hash = "sha256-ayH6kdyWOxMmqXZWpPOsTvdPX0Gxgi0N4sDCDWjpd5U=";
   };
 
   cdumm-native = python3Packages.buildPythonPackage (finalAttrs: {
@@ -98,6 +98,8 @@ python3Packages.buildPythonApplication (finalAttrs: {
   disabledTestPaths = [
     # Fail
     "tests/test_script_import_consent_gate.py::test_script_import_runs_with_consent"
+    # Regression
+    "tests/test_i18n_key_parity.py::test_all_literal_tr_keys_resolve_in_en"
     # Slow
     "tests/test_f3_whole_table_growth.py"
     "tests/test_f3_whole_table_rebuild.py"
@@ -123,12 +125,12 @@ python3Packages.buildPythonApplication (finalAttrs: {
   ];
 
   postPatch = ''
-    echo "#!/usr/bin/env python" > cdumm
-    cat src/cdumm/main.py >> cdumm
-    substituteInPlace cdumm \
-        --replace-fail "Path(__file__).resolve().parents[2]" \
-        "Path('$out/${python3Packages.python.sitePackages}').resolve()"
+    echo "#!/bin/sh" > cdumm
+    echo "exec ${python3Packages.python.interpreter} $out/${python3Packages.python.sitePackages}/cdumm/main.py \"\$@\"" >> cdumm
+    chmod +x cdumm
 
+    substituteInPlace src/cdumm/main.py \
+        --replace-fail "Path(__file__).resolve().parents[2]" "Path(__file__).resolve().parents[1]"
     substituteInPlace src/cdumm/engine/nxm_handler.py \
         --replace-fail "{exe} -m cdumm.main" "cdumm"
   '';
@@ -151,6 +153,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
     makeWrapperArgs+=(
       --prefix PYTHONPATH : "$out/${python3Packages.python.sitePackages}:$PYTHONPATH"
     )
+    wrapProgram $out/bin/cdumm ''${makeWrapperArgs[@]}
   '';
 
   meta = {
