@@ -12,6 +12,7 @@ pkgs ? import <nixpkgs> { }
 , pkgs2411 ? pkgs
 , pkgs2505 ? pkgs
 , pkgs2511 ? pkgs
+, pkgs2605 ? pkgs
 , pkgsUnstable ? pkgs
 , cljNix ? null
 }:
@@ -71,5 +72,5 @@ pkgs ? import <nixpkgs> { }
   stardrop = pkgs.callPackage ./pkgs/stardrop { };
   redlib = pkgs.callPackage ./pkgs/redlib { };
 
-  phantom = pkgs.callPackage ./pkgs/phantom { };
+  #phantom = pkgs.callPackage ./pkgs/phantom { templ = pkgs2511.templ; };
 }
