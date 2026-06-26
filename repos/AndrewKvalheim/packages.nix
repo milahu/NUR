@@ -24,7 +24,7 @@ specify {
   apex = any;
   attachments.deps = { inherit (import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/303bd8071377433a2d8f76e684ec773d70c5b642.tar.gz") { config.allowUnfree = true; overlays = [ ]; }) yarn2nix-moretea; }; # TODO: Migrate
   blocky-ui = any;
-  bobby.search = pr 535015 "sha256-YfR6/FvFtywHikFHAh1FyLONUOR4rkzRqwlFPtNqyQQ=";
+  bobby = any;
   busyserve = any;
   caddy-with-cache-route53 = any;
   cc-icons-unicode = any;
@@ -51,6 +51,7 @@ specify {
   git-remote = any;
   gnome-shell = { patch = [ ./library/assets/gnome-shell_accent-color.patch ./library/assets/gnome-shell_screenshot-location.patch ]; ccache = true; }; # Pending GNOME/gnome-shell#5370
   gnomeExtensions.launcher.patch = [ ./library/assets/gnome-extension-launcher_icon.patch ./library/assets/gnome-extension-launcher_hide-settings.patch ./library/assets/gnome-extension-launcher_gnome-50.patch /* Pending hedgieinsocks/gnome-extension-launcher#14 */ ];
+  gnomeExtensions.whatcable.patch = ./library/assets/gnome-extension-whatcable_gnome-50.patch; # Pending bjuergens/whatcable-gnome#12
   gopass-await = any;
   gopass-env = any;
   gopass-ydotool = any;
