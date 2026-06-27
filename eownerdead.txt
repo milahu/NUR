@@ -1,13 +1,62 @@
 error:
+… while calling anonymous lambda
+  at ./default.nix:2:1:
+     1| # Packages for NUR
+     2| {
+      | ^
+     3|   pkgs ? import <nixpkgs> { },
+
+… in the left operand of the update (//) operator
+  at ./default.nix:9:1:
+     8| in
+     9| flake.packages."${system}"
+      | ^
+    10| // {
+
+… while calling the 'getFlake' builtin
+  at ./default.nix:6:11:
+     5| let
+     6|   flake = builtins.getFlake (toString ./.);
+      |           ^
+     7|   inherit (pkgs) system;
+
+… while calling anonymous lambda
+  at «flakes-internal»/call-flake.nix:15:1:
+    14| # This is `prim_fetchFinalTree`.
+    15| fetchTreeFinal:
+      | ^
+    16|
+
+… while evaluating the attribute 'root.result'
+  at «flakes-internal»/call-flake.nix:94:7:
+    93|     {
+    94|       result =
+      |       ^
+    95|         if node.flake or true then
+
+… in the left operand of the update (//) operator
+  at «flakes-internal»/call-flake.nix:75:9:
+    74|       result =
+    75|         outputs
+      |         ^
+    76|         # We add the sourceInfo attribute for its metadata, as they are
+
+… from call site
+  at «flakes-internal»/call-flake.nix:72:17:
+    71|
+    72|       outputs = flake.outputs (inputs // { self = result; });
+      |                 ^
+    73|
+
 … while calling 'outputs'
-  at /nix/store/smkx5ry0y9wzc8drq69g58ri9rzkbls7-source/flake.nix:58:5:
+  at /nix/store/3rhx8mpfbgsqigdr0mkfhvg4s9y97kia-source/flake.nix:58:5:
     57|   outputs =
     58|     inputs@{ parts, ... }:
       |     ^
     59|     parts.lib.mkFlake { inherit inputs; } (
 
 … from call site
-  at /nix/store/smkx5ry0y9wzc8drq69g58ri9rzkbls7-source/flake.nix:59:5:
+  at /nix/store/3rhx8mpfbgsqigdr0mkfhvg4s9y97kia-source/flake.nix:59:5:
     58|     inputs@{ parts, ... }:
     59|     parts.lib.mkFlake { inherit inputs; } (
       |     ^
