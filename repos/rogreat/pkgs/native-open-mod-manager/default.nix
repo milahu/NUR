@@ -2,12 +2,15 @@
   fetchFromGitHub,
   gettext,
   glib,
+  gnome,
   gobject-introspection,
   lib,
   libadwaita,
   libnotify,
   p7zip,
   python3Packages,
+  unrar-free,
+  webp-pixbuf-loader,
   wrapGAppsHook4,
 }:
 
@@ -48,6 +51,9 @@ python3Packages.buildPythonApplication (finalAttrs: {
         --replace-fail 'copy2' 'copyfile' \
         --replace-fail 'gresource_path = "resources.gresource"' \
            'gresource_path = os.path.join(os.path.join(GLib.get_user_data_dir(), "nomm"), "resources.gresource")'
+
+    substituteInPlace src/gui/dashboard.py src/core/archive_manager.py \
+        --replace-fail '/app/bin/unrar' "${lib.getExe unrar-free}"
   '';
 
   # https://github.com/Allexio/nomm/blob/main/build/flatpak/com.nomm.Nomm.yaml
@@ -70,6 +76,14 @@ python3Packages.buildPythonApplication (finalAttrs: {
 
     mkdir -p $out/share/locale/fr/LC_MESSAGES
     msgfmt locale/fr.po -o $out/share/locale/fr/LC_MESSAGES/com.nomm.Nomm.mo
+
+    export GDK_PIXBUF_MODULE_FILE="${
+      gnome._gdkPixbufCacheBuilder_DO_NOT_USE {
+        extraLoaders = [
+          webp-pixbuf-loader
+        ];
+      }
+    }"
 
     runHook postInstall
   '';
