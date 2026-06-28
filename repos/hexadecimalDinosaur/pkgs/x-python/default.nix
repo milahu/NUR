@@ -9,13 +9,13 @@
 }:
 buildPythonPackage rec {
   pname = "x-python";
-  version = "1.5.2";
+  version = "1.5.3";
 
   src = fetchFromGitHub {
     owner = "rocky";
     repo = "x-python";
     tag = version;
-    hash = "sha256-HUJkVeAIyXDjoZeORkDX2Uf1pAiJ/vEqPnOcK3vyceQ=";
+    hash = "sha256-R4c0AjcORUrtboPgSARSXlHx4NUML6eigSK5DjQlE0M=";
   };
 
   pyproject = true;
@@ -29,6 +29,8 @@ buildPythonPackage rec {
     six
   ];
 
+  pythonRelaxDeps = [ "xdis" ];
+
   pythonImportsCheck = [ "xpython" ];
 
   meta = {
@@ -38,5 +40,6 @@ buildPythonPackage rec {
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ ivyfanchiang ];
     mainProgram = "xpython";
+    broken = true;
   };
 }
