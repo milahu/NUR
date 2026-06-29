@@ -1,19 +1,19 @@
 {
 "name":"peacock0803sz",
-"fetch_time":0.346,
-"eval_time":0.553,
+"fetch_time":0.831,
+"eval_time":0.41,
 "source":{
 "url":"https://github.com/peacock0803sz/nur-packages",
-"rev":"a18f9d81050361b628b93604e330e36bffd908de",
-"sha256":"1f58w1w7709376k2sfxwh2drrs69z96i9kz1rymb6767n3b8f6c1",
+"rev":"dd564a75d91d656d79d6a81dc28c8d4992b3d14c",
+"sha256":"0y2bminyn9hbww0fdfivj6mj46qj1qmmbhwhdyvqsh872ix4ldqa",
 "date":null
 },
-"source_storepath":"/nix/store/6ry32793zr6jl7ys8cjvqpwdz88bign5-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"c360feb35e7d8a73e7b74c918fba16fc56cff46d",
+"source_storepath":"/nix/store/w8kn9p509sn86k092wwnfhs7yg5yw9rd-source",
+"nixpkgs_storepath":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source",
+"nur_combined_rev":"502d5e1781650abe2a4561cca2999cd6edf746ab",
 "packages":{
 "deck":{
-"drvPath":"/nix/store/qzazc8r0msy6mabz4ai4npd18ii1davr-deck-1.23.1.drv",
+"drvPath":"/nix/store/h79z3nwyyqgapbzf43zx9lhlp5gjmjvd-deck-1.23.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -149,6 +149,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/deck/default.nix:27",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -162,7 +168,7 @@
 "version":"1.23.1"
 },
 "deno":{
-"drvPath":"/nix/store/wxj1v5vw6gi30zdnfx5v9rqnzp3607rb-deno-2.8.1.drv",
+"drvPath":"/nix/store/5qk48l74vlw6mwsb3m6wcs5r8394ydas-deno-2.8.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -221,6 +227,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/deno/default.nix:53",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -240,7 +252,7 @@
 "version":"2.8.1"
 },
 "gwq":{
-"drvPath":"/nix/store/gfg973vpjwb4p5d3564bvab2pzrr4x04-gwq-0.0.13.drv",
+"drvPath":"/nix/store/i86i5h8hi0357y48yr86s2mr37licjiz-gwq-0.0.13.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -376,6 +388,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/gwq/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -389,7 +407,7 @@
 "version":"0.0.13"
 },
 "mado":{
-"drvPath":"/nix/store/y136fxwj3w1zcvjnhmlqsz18gsd7jqp0-mado-1.0.0.drv",
+"drvPath":"/nix/store/dqm6y6mh4r78s84h78s9wrljkdxg9lkh-mado-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -525,6 +543,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/mado/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -538,7 +562,7 @@
 "version":"1.0.0"
 },
 "notizen":{
-"drvPath":"/nix/store/y136fxwj3w1zcvjnhmlqsz18gsd7jqp0-mado-1.0.0.drv",
+"drvPath":"/nix/store/dqm6y6mh4r78s84h78s9wrljkdxg9lkh-mado-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -674,6 +698,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/mado/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -687,7 +717,7 @@
 "version":"1.0.0"
 },
 "tfcmt":{
-"drvPath":"/nix/store/rx1hi3ic16nydafmgx04fakjcbb5b31i-tfcmt-4.14.12.drv",
+"drvPath":"/nix/store/4yk71i9jc6zcsw5skz9qxmxnbsna30yx-tfcmt-4.14.12.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -823,6 +853,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/tfcmt/default.nix:20",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

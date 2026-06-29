@@ -1,19 +1,19 @@
 {
 "name":"lonerOrz",
-"fetch_time":0.729,
-"eval_time":2.767,
+"fetch_time":1.038,
+"eval_time":2.186,
 "source":{
 "url":"https://github.com/lonerOrz/loneros-nur",
-"rev":"4e02e8a3b7e8d3bfd61f600511fd4174459da8be",
-"sha256":"1p98kz7zx5d8h876lcl3x4jcwfxgl4khg7n0hwqw979jwkhiffaf",
+"rev":"8962e06bd191f064d6a3d4fd4fe578b9d9301357",
+"sha256":"0na8ql38gq6xlczz54ygsswg0bypjarhrvk5p5fdyz4v4znpgrph",
 "date":null
 },
-"source_storepath":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"204bc5cda9a7436452a04284ddd719a1a92775f9",
+"source_storepath":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source",
+"nixpkgs_storepath":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source",
+"nur_combined_rev":"81106a0e8125a40226c90ba79eedaa5c361c00c5",
 "packages":{
 "abdm":{
-"drvPath":"/nix/store/brvqzfni6aygycc12nxbjh5annhh0n37-abdownloadmanager-bin-1.9.2-dev1.drv",
+"drvPath":"/nix/store/xkpy06jk9kwrqzivndcygx22x0qx5zwq-abdownloadmanager-bin-1.9.2-dev1.drv",
 "meta":{
 "available":true,
 "binaryNativeCode":true,
@@ -93,6 +93,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/abdm/default.nix:117",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -106,7 +112,7 @@
 "version":"1.9.2-dev1"
 },
 "aerion":{
-"drvPath":"/nix/store/4sjkddvx3fdn9wgh4y6adz2vzzl4rvm5-aerion-0.3.0.drv",
+"drvPath":"/nix/store/lh1pwh4fg50hh84va38q3fw38dfsxwvl-aerion-0.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -163,7 +169,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/aerion/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/aerion/default.nix",
 "line":142
 },
 "name":"aerion-0.3.0",
@@ -205,6 +211,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/aerion/default.nix:137",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -218,7 +225,7 @@
 "version":"0.3.0"
 },
 "aethertune":{
-"drvPath":"/nix/store/pw0fmlxnmlb7n0a2jvdgpdqmyxjy574m-aethertune-0.9.0.drv",
+"drvPath":"/nix/store/y39vhs6b4zyivzzfazj32ib4nx2lahzz-aethertune-0.9.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -286,7 +293,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/aethertune/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/aethertune/default.nix",
 "line":37
 },
 "name":"aethertune-0.9.0",
@@ -342,6 +349,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/aethertune/default.nix:33",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -365,7 +373,7 @@
 "version":"1.23.2-4781536860569600"
 },
 "astronaut-sddm":{
-"drvPath":"/nix/store/z9icrraf6aj4mqw4llw948sp3shng0h5-astronaut-0-unstable-2026-06-17.drv",
+"drvPath":"/nix/store/jd95172m5m3qxr45zgrxk50bha9bz5la-astronaut-0-unstable-2026-06-17.drv",
 "meta":{
 "available":true,
 "binaryNativeCode":false,
@@ -445,6 +453,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/astronaut-sddm/default.nix:57",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -458,7 +472,7 @@
 "version":"0-unstable-2026-06-17"
 },
 "batctl":{
-"drvPath":"/nix/store/qv1g6h50kb63hl0rjlcdpqdx6765dplb-batctl-2026.3.13.drv",
+"drvPath":"/nix/store/5qbcpz962k3fm8hg73xv50wbd4qiwrq6-batctl-2026.3.13.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -515,7 +529,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/batctl/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/batctl/default.nix",
 "line":37
 },
 "name":"batctl-2026.3.13",
@@ -557,6 +571,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/batctl/default.nix:32",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -580,7 +595,7 @@
 "version":"1.16.0"
 },
 "bongocat-wayland":{
-"drvPath":"/nix/store/fhzcfxp8dzjq5jxazsy7nhzwgl3jnlj6-wayland-bongocat-2.0.0.drv",
+"drvPath":"/nix/store/ygzzk8sbam6vhhyv5r00a1cv8gi8qyaw-wayland-bongocat-2.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -637,7 +652,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/bongocat-wayland/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/bongocat-wayland/default.nix",
 "line":53
 },
 "name":"wayland-bongocat-2.0.0",
@@ -679,6 +694,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/bongocat-wayland/default.nix:48",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -692,7 +708,7 @@
 "version":"2.0.0"
 },
 "chameleos":{
-"drvPath":"/nix/store/2r63p569s5p3ajw7z9mp3shainlzapq3-chameleos-0.1.2.drv",
+"drvPath":"/nix/store/fc36h8vy6h9ji5mp01v0limz10smczdh-chameleos-0.1.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -760,7 +776,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/chameleos/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/chameleos/default.nix",
 "line":57
 },
 "name":"chameleos-0.1.2",
@@ -797,6 +813,7 @@
 "riscv32-linux"
 ],
 "position":"./pkgs/chameleos/default.nix:53",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -810,7 +827,7 @@
 "version":"0.1.2"
 },
 "dgop":{
-"drvPath":"/nix/store/pdf228gn5121gagfbsxy38yfnh8gak9v-dgop-0.2.2.drv",
+"drvPath":"/nix/store/xzrmynd15p6mq3c9hwqk64kj68yskcv6-dgop-0.2.2.drv",
 "meta":{
 "available":true,
 "binaryNativeCode":true,
@@ -868,7 +885,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/dgop/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/dgop/default.nix",
 "line":40
 },
 "name":"dgop-0.2.2",
@@ -910,6 +927,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/dgop/default.nix:34",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -923,7 +941,7 @@
 "version":"0.2.2"
 },
 "drift":{
-"drvPath":"/nix/store/9cf7g3q02psgkcp73z2z7r42avvszk6g-drift-1.1.0.drv",
+"drvPath":"/nix/store/aiwcdfmdci88sim26rdlv21zvasa4p0s-drift-1.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -980,7 +998,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/drift/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/drift/default.nix",
 "line":32
 },
 "name":"drift-1.1.0",
@@ -1022,6 +1040,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/drift/default.nix:27",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1035,7 +1054,7 @@
 "version":"1.1.0"
 },
 "duolingo-desktop":{
-"drvPath":"/nix/store/0sib6in1ngz9m8z6msy0hr8lf4mq2vjj-duolingo-desktop-4.3.0.drv",
+"drvPath":"/nix/store/mw6ch1p6yizbdh5q5qlxg2afwzf939yx-duolingo-desktop-4.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1092,7 +1111,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/duolingo-desktop/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/duolingo-desktop/default.nix",
 "line":85
 },
 "name":"duolingo-desktop-4.3.0",
@@ -1111,6 +1130,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/duolingo-desktop/default.nix:82",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1124,7 +1144,7 @@
 "version":"4.3.0"
 },
 "fabric":{
-"drvPath":"/nix/store/qx56sjb1nz54b0m24xb7qkcmmg42c1p2-python3.13-fabric-0-unstable-20260627-b7b0f9975.drv",
+"drvPath":"/nix/store/125qnbrni656hdq7dymrlaxfhrdpyg6z-python3.13-fabric-0-unstable-20260628-b7b0f9975.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1215,10 +1235,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/fabric/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/fabric/default.nix",
 "line":77
 },
-"name":"python3.13-fabric-0-unstable-20260627-b7b0f9975",
+"name":"python3.13-fabric-0-unstable-20260628-b7b0f9975",
 "nonTeamMaintainers":[
 {
 "email":"2788892716@qq.com",
@@ -1265,10 +1285,11 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/fabric/default.nix:70",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-fabric-0-unstable-20260627-b7b0f9975",
+"name":"python3.13-fabric-0-unstable-20260628-b7b0f9975",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -1276,10 +1297,10 @@
 },
 "pname":"python3.13-fabric",
 "system":"x86_64-linux",
-"version":"0-unstable-20260627-b7b0f9975"
+"version":"0-unstable-20260628-b7b0f9975"
 },
 "fabric-cli":{
-"drvPath":"/nix/store/6yrckkrf7wxcspj5318s7jk4z8b8cg4n-fabric-cli-0-unstable-2025-08-24.drv",
+"drvPath":"/nix/store/kqdi2hf4fy9c4mg5sbxxqmz89vksbddg-fabric-cli-0-unstable-2025-08-24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1337,7 +1358,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/fabric-cli/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/fabric-cli/default.nix",
 "line":31
 },
 "name":"fabric-cli-0-unstable-2025-08-24",
@@ -1386,6 +1407,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/fabric-cli/default.nix:23",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1399,7 +1421,7 @@
 "version":"0-unstable-2025-08-24"
 },
 "fabric-glace":{
-"drvPath":"/nix/store/979sr1d5l7q3wk2znrl10220b1wffrlx-fabric-glace-0-unstable-2026-06-16.drv",
+"drvPath":"/nix/store/cxlwxcybhvw2s6f3zj2qrrhfhwzlak2i-fabric-glace-0-unstable-2026-06-16.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1455,7 +1477,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/fabric-glace/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/fabric-glace/default.nix",
 "line":51
 },
 "name":"fabric-glace-0-unstable-2026-06-16",
@@ -1471,6 +1493,7 @@
 "out"
 ],
 "position":"./pkgs/fabric-glace/default.nix:48",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1485,7 +1508,7 @@
 "version":"0-unstable-2026-06-16"
 },
 "fabric-gray":{
-"drvPath":"/nix/store/ckdwxw9280j9k67b7ylvfl8sqd2ik8f1-fabric-gray-0-unstable-2024-12-12.drv",
+"drvPath":"/nix/store/sg3w555y5b3qnaa4m30nga10rhjyni6g-fabric-gray-0-unstable-2024-12-12.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1541,7 +1564,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/fabric-gray/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/fabric-gray/default.nix",
 "line":51
 },
 "name":"fabric-gray-0-unstable-2024-12-12",
@@ -1557,6 +1580,7 @@
 "out"
 ],
 "position":"./pkgs/fabric-gray/default.nix:48",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1571,7 +1595,7 @@
 "version":"0-unstable-2024-12-12"
 },
 "fluxer":{
-"drvPath":"/nix/store/3c1mbcnwwvyqlc97kfll5ncji8jmvka2-fluxer-0.0.8.drv",
+"drvPath":"/nix/store/10rxpak5lxa6syxnc7hp9f368xmblycg-fluxer-0.0.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1628,7 +1652,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/fluxer/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/fluxer/default.nix",
 "line":92
 },
 "name":"fluxer-0.0.8",
@@ -1648,6 +1672,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/fluxer/default.nix:87",
+"problems":{},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -1667,7 +1692,7 @@
 "version":"0.0.8"
 },
 "folia-major":{
-"drvPath":"/nix/store/silh91gcnpg2la8ms8rv3m3sq157hgqf-folia-major-bin-0.5.15.drv",
+"drvPath":"/nix/store/db8mn5b9kvw2rpqgzqhj03msx422i6v6-folia-major-bin-0.5.15.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1724,7 +1749,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/folia-major/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/folia-major/default.nix",
 "line":144
 },
 "name":"folia-major-bin-0.5.15",
@@ -1743,6 +1768,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/folia-major/default.nix:140",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1756,7 +1782,7 @@
 "version":"0.5.15"
 },
 "folo":{
-"drvPath":"/nix/store/7ayaxb2si3zgahcgsxm55g95dfpmaid3-folo-1.0.0.drv",
+"drvPath":"/nix/store/cmwvx1aaxrbbz61l1b4m4swnd2fz3jmn-folo-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1814,7 +1840,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/folo/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/folo/default.nix",
 "line":139
 },
 "name":"folo-1.0.0",
@@ -1856,6 +1882,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/folo/default.nix:135",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1869,7 +1896,7 @@
 "version":"1.0.0"
 },
 "gemini-cli-bin":{
-"drvPath":"/nix/store/a45l083c8v8dpgvh47a9vhb2sp51102i-gemini-cli-bin-0.49.0.drv",
+"drvPath":"/nix/store/fcsx51s3v4vnan52ckpc9vydp968m49i-gemini-cli-bin-0.49.0.drv",
 "meta":{
 "available":true,
 "binaryNativeCode":true,
@@ -2006,6 +2033,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/gemini-cli-bin/default.nix:48",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2019,7 +2052,7 @@
 "version":"0.49.0"
 },
 "go-musicfox":{
-"drvPath":"/nix/store/2yvc0crl17xl3hacq440zfkjrfcy1q3q-go-musicfox-4.8.5.drv",
+"drvPath":"/nix/store/bjhq6g3bfr05smm6rm9vdjfl1nsd1ay6-go-musicfox-4.8.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2076,7 +2109,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/go-musicfox/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/go-musicfox/default.nix",
 "line":56
 },
 "name":"go-musicfox-4.8.5",
@@ -2125,6 +2158,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/go-musicfox/default.nix:52",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2138,7 +2172,7 @@
 "version":"4.8.5"
 },
 "gremlin":{
-"drvPath":"/nix/store/s6xd9xdi74zmck91ski2aw1skvg6acr4-gremlin-0-unstable-2025-12-11.drv",
+"drvPath":"/nix/store/nkp4qsy3kczibaa6k96l4h19pczqlsaq-gremlin-0-unstable-2025-12-11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2229,7 +2263,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/gremlin/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/gremlin/default.nix",
 "line":154
 },
 "name":"gremlin-0-unstable-2025-12-11",
@@ -2271,6 +2305,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/gremlin/default.nix:149",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2285,7 +2320,7 @@
 "version":"0-unstable-2025-12-11"
 },
 "helium":{
-"drvPath":"/nix/store/m86vk8kqv2zan20piiljn7vjgpy3aj1z-helium-0.13.6.1.drv",
+"drvPath":"/nix/store/hisk27fp02q0vcbznw0zrfmnnnskrr0i-helium-0.13.6.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2343,7 +2378,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/helium/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/helium/default.nix",
 "line":47
 },
 "name":"helium-0.13.6.1",
@@ -2363,6 +2398,7 @@
 "aarch64-linux"
 ],
 "position":"./pkgs/helium/default.nix:39",
+"problems":{},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -2382,7 +2418,7 @@
 "version":"0.13.6.1"
 },
 "hyprzoom":{
-"drvPath":"/nix/store/p14v75jxmg44a5admz21cgrxg6lycjd0-hyprzoom-0-unstable-2025-12-18.drv",
+"drvPath":"/nix/store/3yvq7bc9bcxnqahpb9n3gb3168lfin31-hyprzoom-0-unstable-2025-12-18.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2450,7 +2486,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/hyprzoom/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/hyprzoom/default.nix",
 "line":27
 },
 "name":"hyprzoom-0-unstable-2025-12-18",
@@ -2506,6 +2542,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/hyprzoom/default.nix:24",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2519,7 +2556,7 @@
 "version":"0-unstable-2025-12-18"
 },
 "kapitano":{
-"drvPath":"/nix/store/zar18zrf5fxkxdgn4wc5w20khqh8c60z-kapitano-1.1.5.drv",
+"drvPath":"/nix/store/wzcggqrbfnn70v2674w89xjhkimcbkwm-kapitano-1.1.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2610,7 +2647,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/kapitano/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/kapitano/default.nix",
 "line":72
 },
 "name":"kapitano-1.1.5",
@@ -2652,6 +2689,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/kapitano/default.nix:67",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2665,7 +2703,7 @@
 "version":"1.1.5"
 },
 "kazumi":{
-"drvPath":"/nix/store/6mi059pw4iwgpp3qsa5bj478hshy7rpy-kazumi-2.1.7.drv",
+"drvPath":"/nix/store/v2dhpf6kn13yhmgfc94psgadifv62363-kazumi-2.1.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2715,7 +2753,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/kazumi/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/kazumi/default.nix",
 "line":116
 },
 "name":"kazumi-2.1.7",
@@ -2750,6 +2788,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/kazumi/default.nix:112",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2765,7 +2809,7 @@
 "version":"2.1.7"
 },
 "linux-wallpaperengine":{
-"drvPath":"/nix/store/frvszk6fxh6y9y1ngxzvdn17q4kpc170-linux-wallpaperengine-0-unstable-2026-06-27.drv",
+"drvPath":"/nix/store/xxscli6k92667iqj5whzlbszk6hk2q9q-linux-wallpaperengine-0-unstable-2026-06-28.drv",
 "meta":{
 "available":true,
 "binaryNativeCode":true,
@@ -2814,7 +2858,7 @@
 },
 "mainProgram":"linux-wallpaperengine",
 "maintainers":[],
-"name":"linux-wallpaperengine-0-unstable-2026-06-27",
+"name":"linux-wallpaperengine-0-unstable-2026-06-28",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2846,20 +2890,26 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/linux-wallpaperengine/default.nix:183",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
-"name":"linux-wallpaperengine-0-unstable-2026-06-27",
+"name":"linux-wallpaperengine-0-unstable-2026-06-28",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"linux-wallpaperengine",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-06-27"
+"version":"0-unstable-2026-06-28"
 },
 "lrcsnc":{
-"drvPath":"/nix/store/6ihwmvcqwh87kdf1d8mik45spiams6f2-lrcsnc-0.1.3-1.drv",
+"drvPath":"/nix/store/xxgsqdjs5g29hh6nx0av1l6fw68a0cq8-lrcsnc-0.1.3-1.drv",
 "meta":{
 "available":true,
 "binaryNativeCode":true,
@@ -2917,7 +2967,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/lrcsnc/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/lrcsnc/default.nix",
 "line":42
 },
 "name":"lrcsnc-0.1.3-1",
@@ -2959,6 +3009,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/lrcsnc/default.nix:36",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2972,7 +3023,7 @@
 "version":"0.1.3-1"
 },
 "minegrub-theme":{
-"drvPath":"/nix/store/9rabbhk1hzl2j02gxh3fbl4ggpy92px6-minegrub-theme-3.1.0.drv",
+"drvPath":"/nix/store/dp86k59iigwn921ff6vzw09kqhzwnl04-minegrub-theme-3.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3028,7 +3079,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/minegrub-theme/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/minegrub-theme/default.nix",
 "line":66
 },
 "name":"minegrub-theme-3.1.0",
@@ -3070,6 +3121,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/minegrub-theme/default.nix:62",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3083,7 +3135,7 @@
 "version":"3.1.0"
 },
 "mpv-handler":{
-"drvPath":"/nix/store/aw8fxzbv0262fcab8j63j15mw81y57i3-mpv-handler-0.4.2.drv",
+"drvPath":"/nix/store/qlycwdzscfc36kripg2zfmzfpavc2xrh-mpv-handler-0.4.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3186,6 +3238,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/mpv-handler/default.nix:40",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3199,7 +3257,7 @@
 "version":"0.4.2"
 },
 "niri-git":{
-"drvPath":"/nix/store/imk7vmvh9bbq42jadj5ilfljfrl8z45f-niri-git-26.04-unstable-2026-06-18.drv",
+"drvPath":"/nix/store/v8n1wxjz9h891p08fxmgnd0lv12i1ly4-niri-git-26.04-unstable-2026-06-18.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3268,7 +3326,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/niri-git/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/niri-git/default.nix",
 "line":156
 },
 "name":"niri-git-26.04-unstable-2026-06-18",
@@ -3305,6 +3363,7 @@
 "riscv32-linux"
 ],
 "position":"./pkgs/niri-git/default.nix:151",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3319,7 +3378,7 @@
 "version":"26.04-unstable-2026-06-18"
 },
 "nmag":{
-"drvPath":"/nix/store/9z7hr0bzb9x0mbanill9qdyi7jyrs7cz-nmag-0.1.2.drv",
+"drvPath":"/nix/store/mgpy94afrhkw0rjkgid0cwwagmkyr4iq-nmag-0.1.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3387,7 +3446,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/nmag/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/nmag/default.nix",
 "line":55
 },
 "name":"nmag-0.1.2",
@@ -3424,6 +3483,7 @@
 "riscv32-linux"
 ],
 "position":"./pkgs/nmag/default.nix:51",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3437,7 +3497,7 @@
 "version":"0.1.2"
 },
 "nmgui":{
-"drvPath":"/nix/store/3y48jq56hlp2daf0122g0irwkrrx79s3-nmgui-1.0.0.drv",
+"drvPath":"/nix/store/3gi1wc08xw8gmff9cvh4lz2g4mjyyz2f-nmgui-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3528,7 +3588,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/nmgui/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/nmgui/default.nix",
 "line":114
 },
 "name":"nmgui-1.0.0",
@@ -3592,6 +3652,7 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/nmgui/default.nix:109",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3605,7 +3666,7 @@
 "version":"1.0.0"
 },
 "noctalia":{
-"drvPath":"/nix/store/30h4wj1s8f70m4aghg7b4v0sv915fzp3-noctalia-0-unstable-20260627-ebf763a9b.drv",
+"drvPath":"/nix/store/y4pd2zgy5wyk9400cw8rjaacx3fdpz61-noctalia-0-unstable-20260628-73cd864d1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3662,10 +3723,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/noctalia/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/noctalia/default.nix",
 "line":117
 },
-"name":"noctalia-0-unstable-20260627-ebf763a9b",
+"name":"noctalia-0-unstable-20260628-73cd864d1",
 "nonTeamMaintainers":[
 {
 "email":"2788892716@qq.com",
@@ -3704,20 +3765,21 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/noctalia/default.nix:112",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"noctalia-0-unstable-20260627-ebf763a9b",
+"name":"noctalia-0-unstable-20260628-73cd864d1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"noctalia",
 "system":"x86_64-linux",
-"version":"0-unstable-20260627-ebf763a9b"
+"version":"0-unstable-20260628-73cd864d1"
 },
 "noctalia-qs":{
-"drvPath":"/nix/store/f0a7ykvadm12lvm3wf79jsg8ajjw3723-noctalia-qs-0-unstable-20260627-fc1bdab9a.drv",
+"drvPath":"/nix/store/khd57gwzx4xvrds2fcf3638kr3i6prjd-noctalia-qs-0-unstable-20260628-6213df378.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3774,10 +3836,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/noctalia-qs/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/noctalia-qs/default.nix",
 "line":99
 },
-"name":"noctalia-qs-0-unstable-20260627-fc1bdab9a",
+"name":"noctalia-qs-0-unstable-20260628-6213df378",
 "nonTeamMaintainers":[
 {
 "email":"2788892716@qq.com",
@@ -3816,10 +3878,11 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/noctalia-qs/default.nix:95",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"noctalia-qs-0-unstable-20260627-fc1bdab9a",
+"name":"noctalia-qs-0-unstable-20260628-6213df378",
 "outputName":"out",
 "outputs":{
 "debug":null,
@@ -3827,10 +3890,10 @@
 },
 "pname":"noctalia-qs",
 "system":"x86_64-linux",
-"version":"0-unstable-20260627-fc1bdab9a"
+"version":"0-unstable-20260628-6213df378"
 },
 "nsearch-tv":{
-"drvPath":"/nix/store/i2f1s48bygp77qjxysfra2jgyz54nkkn-nix-search-tv-2.2.8.drv",
+"drvPath":"/nix/store/wn1y1bm7gysikxk0v76iq0xmpniw75sa-nix-search-tv-2.2.8.drv",
 "meta":{
 "available":true,
 "binaryNativeCode":true,
@@ -3913,6 +3976,12 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/nsearch-tv/default.nix:57",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3926,7 +3995,7 @@
 "version":"2.2.8"
 },
 "openscreen":{
-"drvPath":"/nix/store/rjq8ni592bhi6m7wzxskbql9bqkqd55f-openscreen-1.4.0.drv",
+"drvPath":"/nix/store/4pwn2a7whlca13y0rpbcyq7sknxb639q-openscreen-1.4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3983,7 +4052,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/openscreen/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/openscreen/default.nix",
 "line":53
 },
 "name":"openscreen-1.4.0",
@@ -4002,6 +4071,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/openscreen/default.nix:49",
+"problems":{},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -4021,7 +4091,7 @@
 "version":"1.4.0"
 },
 "pantry":{
-"drvPath":"/nix/store/qk44hjg2bk21yj4p0rqwmm4x188gnl2s-pantry-0.3.3-unstable-2026-06-22.drv",
+"drvPath":"/nix/store/b5dnis7nrs3da75mwg6a27j0mw05v96d-pantry-0.3.3-unstable-2026-06-22.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -4089,7 +4159,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/pantry/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/pantry/default.nix",
 "line":55
 },
 "name":"pantry-0.3.3-unstable-2026-06-22",
@@ -4145,6 +4215,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/pantry/default.nix:52",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4158,7 +4229,7 @@
 "version":"0.3.3-unstable-2026-06-22"
 },
 "pear-desktop":{
-"drvPath":"/nix/store/f2sr4dx7iba3x9swbrk99ndzmncvsw0g-pear-desktop-3.10.0.drv",
+"drvPath":"/nix/store/g24klh8nsw33hgk6wsn83ijfp5bk6xd4-pear-desktop-3.10.0.drv",
 "meta":{
 "available":true,
 "binaryNativeCode":true,
@@ -4215,7 +4286,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/pear-desktop/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/pear-desktop/default.nix",
 "line":152
 },
 "name":"pear-desktop-3.10.0",
@@ -4259,6 +4330,7 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/pear-desktop/default.nix:148",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4272,7 +4344,7 @@
 "version":"3.10.0"
 },
 "phonto":{
-"drvPath":"/nix/store/m6q5jviwmj8x8y1kq24qbg4gc048nhbw-phonto-0.5.0.drv",
+"drvPath":"/nix/store/psg6cn2akrdm921qj5wg9yf9m8zjksid-phonto-0.5.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -4340,7 +4412,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/phonto/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/phonto/default.nix",
 "line":64
 },
 "name":"phonto-0.5.0",
@@ -4379,6 +4451,7 @@
 "riscv32-linux"
 ],
 "position":"./pkgs/phonto/default.nix:60",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4402,7 +4475,7 @@
 "version":"3.2.29-2026-05-30"
 },
 "qwen-code-bin":{
-"drvPath":"/nix/store/j498lnnhj1b18bg9wgp44z2n75jpxbmp-qwen-code-0.19.2.drv",
+"drvPath":"/nix/store/m2mxdhsjd73aks85c40khbfr5l2ni5c6-qwen-code-0.19.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4459,10 +4532,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/qwen-code-bin/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/qwen-code-bin/default.nix",
 "line":46
 },
-"name":"qwen-code-0.19.2",
+"name":"qwen-code-0.19.3",
 "nonTeamMaintainers":[
 {
 "email":"2788892716@qq.com",
@@ -4557,20 +4630,21 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/qwen-code-bin/default.nix:41",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"qwen-code-0.19.2",
+"name":"qwen-code-0.19.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qwen-code",
 "system":"x86_64-linux",
-"version":"0.19.2"
+"version":"0.19.3"
 },
 "run-fabric":{
-"drvPath":"/nix/store/nab3zr1wmw85152bg1hs3ki3ng588xrs-run-fabric-1.0.0.drv",
+"drvPath":"/nix/store/6wk4qnhirv7s5i9mm4s5jnqw902wjb2h-run-fabric-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4627,7 +4701,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/run-fabric/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/run-fabric/default.nix",
 "line":93
 },
 "name":"run-fabric-1.0.0",
@@ -4643,6 +4717,7 @@
 "out"
 ],
 "position":"./pkgs/run-fabric/default.nix:90",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4656,7 +4731,7 @@
 "version":"1.0.0"
 },
 "sonar":{
-"drvPath":"/nix/store/v25md512irm1qffgvwz3q0k448zdvhil-sonar-0.4.0.drv",
+"drvPath":"/nix/store/smjdkiin9mjk8va5hi74gl28clzlqxn4-sonar-0.4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4713,7 +4788,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/sonar/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/sonar/default.nix",
 "line":32
 },
 "name":"sonar-0.4.0",
@@ -4755,6 +4830,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/sonar/default.nix:27",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4768,7 +4844,7 @@
 "version":"0.4.0"
 },
 "sparkle":{
-"drvPath":"/nix/store/34yv7adxyim31rmg58362c6dzbfrfr8s-sparkle-1.7.0.drv",
+"drvPath":"/nix/store/rhpasv1p7dng2y7qvjkyxpwkgwghlcpa-sparkle-1.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4825,7 +4901,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/sparkle/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/sparkle/default.nix",
 "line":101
 },
 "name":"sparkle-1.7.0",
@@ -4845,6 +4921,7 @@
 "aarch64-linux"
 ],
 "position":"./pkgs/sparkle/default.nix:94",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4858,7 +4935,7 @@
 "version":"1.7.0"
 },
 "surge":{
-"drvPath":"/nix/store/aabgl2hmij6qghpcfkv9hyh4g8b432q7-surge-0.10.0.drv",
+"drvPath":"/nix/store/fvj54c4ff5j477db8ddnln8b9l84s0rp-surge-0.10.0.drv",
 "meta":{
 "available":true,
 "binaryNativeCode":true,
@@ -4916,7 +4993,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/surge/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/surge/default.nix",
 "line":37
 },
 "name":"surge-0.10.0",
@@ -4958,6 +5035,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/surge/default.nix:31",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4971,7 +5049,7 @@
 "version":"0.10.0"
 },
 "tinct":{
-"drvPath":"/nix/store/cavnjm3whzjkwk6vhj6l7i8gqgvmx70q-tinct-0-unstable-2026-06-22.drv",
+"drvPath":"/nix/store/88797dv3qa72dq0yawzzi2r91z2hhn09-tinct-0-unstable-2026-06-22.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -5039,7 +5117,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/tinct/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/tinct/default.nix",
 "line":28
 },
 "name":"tinct-0-unstable-2026-06-22",
@@ -5095,6 +5173,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/tinct/default.nix:24",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -5118,7 +5197,7 @@
 "version":"2.3.29372"
 },
 "uv-nix":{
-"drvPath":"/nix/store/vps2vpn04m8j2449dqh83gzaz3k8ylpq-mkproject.drv",
+"drvPath":"/nix/store/j5qvq2ypb627ywx0mhxdvnqfnb285p24-mkproject.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5173,7 +5252,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/uv-nix/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/uv-nix/default.nix",
 "line":65
 },
 "name":"mkproject",
@@ -5189,6 +5268,7 @@
 "out"
 ],
 "position":"./pkgs/uv-nix/default.nix:9",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -5202,7 +5282,7 @@
 "version":""
 },
 "vicinae":{
-"drvPath":"/nix/store/m1xi519drg1shmafkzjlv4jjfl88mg1k-vicinae-0.22.0.drv",
+"drvPath":"/nix/store/m8ix3v9zs5xkp6v76z2qhsjzn3a0wwxr-vicinae-0.22.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5259,7 +5339,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/vicinae/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/vicinae/default.nix",
 "line":125
 },
 "name":"vicinae-0.22.0",
@@ -5301,6 +5381,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/vicinae/default.nix:120",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -5314,7 +5395,7 @@
 "version":"0.22.0"
 },
 "vidbee":{
-"drvPath":"/nix/store/bnivcmc88wlf02ikgmhhsza3k5wkx1wa-vidbee-1.3.10.drv",
+"drvPath":"/nix/store/yiggavlgjlh0i3lkaqwjj4cablzz3hbi-vidbee-1.3.10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5371,7 +5452,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/vidbee/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/vidbee/default.nix",
 "line":201
 },
 "name":"vidbee-1.3.10",
@@ -5413,6 +5494,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/vidbee/default.nix:198",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -5426,7 +5508,7 @@
 "version":"1.3.10"
 },
 "vxwm":{
-"drvPath":"/nix/store/adbksy0fvv87k0liixpqq13qh06bnxvk-vxwm-0-unstable-2026-06-13.drv",
+"drvPath":"/nix/store/7cnds93y06xabrapwl2qr1vynjvih1km-vxwm-0-unstable-2026-06-13.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5483,7 +5565,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/vxwm/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/vxwm/default.nix",
 "line":91
 },
 "name":"vxwm-0-unstable-2026-06-13",
@@ -5525,6 +5607,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/vxwm/default.nix:86",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -5538,7 +5621,7 @@
 "version":"0-unstable-2026-06-13"
 },
 "watt-toolkit":{
-"drvPath":"/nix/store/8wjim13mbxh4hlml8mfiw3w03186xla7-watt-toolkit-3.1.0.drv",
+"drvPath":"/nix/store/qc9rc2vnqf5ckqfqilv3j7c9iaw9f9c4-watt-toolkit-3.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5595,7 +5678,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/watt-toolkit/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/watt-toolkit/default.nix",
 "line":189
 },
 "name":"watt-toolkit-3.1.0",
@@ -5614,6 +5697,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/watt-toolkit/default.nix:185",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -5627,7 +5711,7 @@
 "version":"3.1.0"
 },
 "wayclick":{
-"drvPath":"/nix/store/bng33nfjqz2qj87h7cfyv51isz8qrj4h-wayclick-1.0.0.drv",
+"drvPath":"/nix/store/j037dl9lyk06655ij3jql4s5kwmq8snp-wayclick-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5684,7 +5768,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/wayclick/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/wayclick/default.nix",
 "line":67
 },
 "name":"wayclick-1.0.0",
@@ -5726,6 +5810,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/wayclick/default.nix:63",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -5749,7 +5834,7 @@
 "version":"4.1.1.7"
 },
 "wooz":{
-"drvPath":"/nix/store/2cr07x63wxny6lx7z4600ncsklc320ib-wooz-0.1.0.drv",
+"drvPath":"/nix/store/sapfh4kpn0x1zd6d6qd7brys0qnpag7h-wooz-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5806,7 +5891,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/wooz/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/wooz/default.nix",
 "line":41
 },
 "name":"wooz-0.1.0",
@@ -5848,6 +5933,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/wooz/default.nix:36",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -5861,7 +5947,7 @@
 "version":"0.1.0"
 },
 "wsl-open":{
-"drvPath":"/nix/store/y30szbrg93h2a85j3giffks1h6sjgk2v-wsl-open-0.1.0-unstable-2026-05-17.drv",
+"drvPath":"/nix/store/n6z42jhf7qz53gl1dd8x38pmqd361zjv-wsl-open-0.1.0-unstable-2026-05-17.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -5929,7 +6015,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/wsl-open/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/wsl-open/default.nix",
 "line":27
 },
 "name":"wsl-open-0.1.0-unstable-2026-05-17",
@@ -5985,6 +6071,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/wsl-open/default.nix:24",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -5998,7 +6085,7 @@
 "version":"0.1.0-unstable-2026-05-17"
 },
 "xdman7":{
-"drvPath":"/nix/store/lyjwfipf7jxw311v8cc2sz7r9f19nxg1-xdman-7.2.11.drv",
+"drvPath":"/nix/store/fb06821gq810qc35znvps964gk7zvgyp-xdman-7.2.11.drv",
 "meta":{
 "available":true,
 "binaryNativeCode":true,
@@ -6078,6 +6165,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/xdman7/default.nix:61",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -6091,7 +6184,7 @@
 "version":"7.2.11"
 },
 "zarumet":{
-"drvPath":"/nix/store/1wq47674wybba7d2gi83x2zdmsfz6q3h-zarumet-0-unstable-2026-06-21.drv",
+"drvPath":"/nix/store/hfgg4a87m2i92nv8vszla8n9v58zai9p-zarumet-0-unstable-2026-06-28.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -6159,10 +6252,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0j8makiwhyn95rwwc5zrxy2brzhqdp3c-source/pkgs/zarumet/default.nix",
+"file":"/nix/store/hscrf16c7wr3rwg7mmpp4sqhk8mz6b6c-source/pkgs/zarumet/default.nix",
 "line":40
 },
-"name":"zarumet-0-unstable-2026-06-21",
+"name":"zarumet-0-unstable-2026-06-28",
 "nonTeamMaintainers":[
 {
 "email":"2788892716@qq.com",
@@ -6215,17 +6308,18 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/zarumet/default.nix:37",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"zarumet-0-unstable-2026-06-21",
+"name":"zarumet-0-unstable-2026-06-28",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zarumet",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-06-21"
+"version":"0-unstable-2026-06-28"
 }
 }
 }

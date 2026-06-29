@@ -1,19 +1,19 @@
 {
 "name":"ilya-fedin",
-"fetch_time":0.342,
-"eval_time":1.428,
+"fetch_time":0.798,
+"eval_time":1.057,
 "source":{
 "url":"https://github.com/ilya-fedin/nur-repository",
-"rev":"ca8f90fb731ad50f2f69824edbea5b09c49976e9",
-"sha256":"11xi97b9xr43wdyqpwjfjkfvnc7imxysa1a9fvjmx9kyx6ph8gs6",
+"rev":"46f18362d19baf03d0fbbbeba2fd8282a040733d",
+"sha256":"07b99l5l29xw136a90p1wk5z90wchf1i788s6n19xxanzkcr6x7h",
 "date":null
 },
-"source_storepath":"/nix/store/77yhrs2isffmzg9agafb410dsvjg5ksb-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"681ccad673f11e7cdac7f9a7d426c26356334f32",
+"source_storepath":"/nix/store/8pvbjg00zhhys108c82mg349p7i0rwm7-source",
+"nixpkgs_storepath":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source",
+"nur_combined_rev":"1021341cc617de67c7408c4f2cd2a145a8775dbf",
 "packages":{
 "airsane":{
-"drvPath":"/nix/store/svf7mrm209chf4m3xqhy8yhdjk2axqz1-airsane-0.4.6.drv",
+"drvPath":"/nix/store/hlfz5a3xq2pbkw1brilcnr1rgps940jh-airsane-0.4.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -114,6 +114,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/airsane/default.nix:49",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -127,7 +133,7 @@
 "version":"0.4.6"
 },
 "exo2":{
-"drvPath":"/nix/store/7f7gzqi0vnlnx903vqxp8lgya08z0fhy-exo2.drv",
+"drvPath":"/nix/store/izs7xrwcqkymldylp2xnxiskr4icnxzq-exo2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -166,6 +172,7 @@
 "out"
 ],
 "position":"./default.nix:14",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -189,7 +196,7 @@
 "version":"3.26.4"
 },
 "nixos-collect-garbage":{
-"drvPath":"/nix/store/d5ky7m0k7irvi7bnhkcy3q94m95d4lzi-nixos-collect-garbage.drv",
+"drvPath":"/nix/store/wa6c5v9zs563wpljis54n8ccfsk4p8l0-nixos-collect-garbage.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -229,6 +236,7 @@
 "out"
 ],
 "position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:248",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -242,7 +250,7 @@
 "version":""
 },
 "qt6ct":{
-"drvPath":"/nix/store/qchfsm32wznvd04niqz38h73s3zay5qw-qt6ct-0.11.drv",
+"drvPath":"/nix/store/j2xrvq6v88bplgp8xwizcpdk7q5dw48w-qt6ct-0.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -316,7 +324,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/tools/misc/qt6ct/default.nix",
+"file":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source/pkgs/tools/misc/qt6ct/default.nix",
 "line":46
 },
 "name":"qt6ct-0.11",
@@ -375,6 +383,7 @@
 "x86_64-linux"
 ],
 "position":"<nixpkgs> + /pkgs/tools/misc/qt6ct/default.nix:42",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -388,7 +397,7 @@
 "version":"0.11"
 },
 "sambaWithMDNS":{
-"drvPath":"/nix/store/zvbx4ld9qg87g8jm01b1rslyrab0v8l2-samba-4.23.8.drv",
+"drvPath":"/nix/store/dqcvkplviz45w44ihk5dw2gv3x2nxwby-samba-4.23.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -445,7 +454,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/servers/samba/4.x.nix",
+"file":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source/pkgs/servers/samba/4.x.nix",
 "line":370
 },
 "name":"samba-4.23.8",
@@ -520,6 +529,7 @@
 "x86_64-redox"
 ],
 "position":"<nixpkgs> + /pkgs/servers/samba/4.x.nix:366",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -545,7 +555,7 @@
 "version":"2.0.0"
 },
 "termbin":{
-"drvPath":"/nix/store/pbfzllzqb192rd1pnx8m3y8ymicdxyp3-tb.drv",
+"drvPath":"/nix/store/7ssdbwwsbdcmaqqyiqxark57sdmpz0w8-tb.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -585,6 +595,7 @@
 "out"
 ],
 "position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:248",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },

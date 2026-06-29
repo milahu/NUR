@@ -1,19 +1,19 @@
 {
 "name":"codgician",
-"fetch_time":0.663,
-"eval_time":2.076,
+"fetch_time":0.891,
+"eval_time":1.635,
 "source":{
 "url":"https://github.com/codgician/nur-packages",
-"rev":"8d37856cd356530b7f7956ed4050143d658e8531",
-"sha256":"0v5w2pdl1zq82gywygwbrslxjv8w5m601i9z66zn6j9spc0p4ssx",
+"rev":"0e95773e893735c16eddda4497f0c4752d1c98a8",
+"sha256":"0r1kmg3626312x2lj4db9pfwwp38kx3h4vqqz2s8kaprgdmnxy3a",
 "date":null
 },
-"source_storepath":"/nix/store/88fvpypyll6c3aziik2d5x571n7406hw-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"40715ea29cb3f868599dd44f9a46e2cfa28d1dbb",
+"source_storepath":"/nix/store/28kn9n7k1s7hb6v316jg7hxdxk8kh1df-source",
+"nixpkgs_storepath":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source",
+"nur_combined_rev":"2689c7b4a895a0a5f4244d50f62e9a51878b20b5",
 "packages":{
 "agent-browser":{
-"drvPath":"/nix/store/hr8hi6src3p61wvvksmraxajfrbajpqc-agent-browser-0.30.1.drv",
+"drvPath":"/nix/store/pnfpin9w9pcr021i8pgh8k97bnldqcdn-agent-browser-0.30.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -81,7 +81,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88fvpypyll6c3aziik2d5x571n7406hw-source/pkgs/agent-browser/default.nix",
+"file":"/nix/store/28kn9n7k1s7hb6v316jg7hxdxk8kh1df-source/pkgs/agent-browser/default.nix",
 "line":149
 },
 "name":"agent-browser-0.30.1",
@@ -120,6 +120,7 @@
 "riscv32-linux"
 ],
 "position":"./pkgs/agent-browser/default.nix:144",
+"problems":{},
 "sourceProvenance":[
 {
 "isSource":true,
@@ -139,7 +140,7 @@
 "version":"0.30.1"
 },
 "aiursoft-tracer":{
-"drvPath":"/nix/store/0686f1awvdj7gpa19wrj91rq9idccvdk-aiursoft-tracer-0-unstable-2026-06-24.drv",
+"drvPath":"/nix/store/9l3fpxvcx6zqv3faw257d0k6h85b50in-aiursoft-tracer-0-unstable-2026-06-24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -199,6 +200,12 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/aiursoft-tracer/default.nix:75",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -212,7 +219,7 @@
 "version":"0-unstable-2026-06-24"
 },
 "appmenu-gtk-module":{
-"drvPath":"/nix/store/n3ngabwcra2vbn0v6dy5f3k0jna8h5br-appmenu-gtk-module-25.04.drv",
+"drvPath":"/nix/store/2hifrmgxzg9zib9bnshx8prm0qicbmv5-appmenu-gtk-module-25.04.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -268,7 +275,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88fvpypyll6c3aziik2d5x571n7406hw-source/pkgs/appmenu-gtk-module/default.nix",
+"file":"/nix/store/28kn9n7k1s7hb6v316jg7hxdxk8kh1df-source/pkgs/appmenu-gtk-module/default.nix",
 "line":59
 },
 "name":"appmenu-gtk-module-25.04",
@@ -310,6 +317,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/appmenu-gtk-module/default.nix:56",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -323,17 +331,17 @@
 "version":"25.04"
 },
 "droid":{
-"name":"droid-0.158.0",
+"name":"droid-0.159.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"droid",
 "system":"x86_64-linux",
-"version":"0.158.0"
+"version":"0.159.1"
 },
 "edk2-cix":{
-"drvPath":"/nix/store/q52mk972bw1r1w270yjwwgl71dphbr42-edk2-cix-1.2.3.drv",
+"drvPath":"/nix/store/63n0h172c283l1sbx4avkkd48j6k1k4l-edk2-cix-1.2.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -379,7 +387,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88fvpypyll6c3aziik2d5x571n7406hw-source/pkgs/edk2-cix/default.nix",
+"file":"/nix/store/28kn9n7k1s7hb6v316jg7hxdxk8kh1df-source/pkgs/edk2-cix/default.nix",
 "line":159
 },
 "name":"edk2-cix-1.2.3",
@@ -399,6 +407,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/edk2-cix/default.nix:157",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -412,7 +421,7 @@
 "version":"1.2.3"
 },
 "gddr6":{
-"drvPath":"/nix/store/31vbrpflqw08bj0xq72mkkbp1giim5b7-gddr6-0-unstable-2025-04-21.drv",
+"drvPath":"/nix/store/4q42j8xnfdsy6zp9gbh3pj03v3kv3kyy-gddr6-0-unstable-2025-04-21.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -458,7 +467,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88fvpypyll6c3aziik2d5x571n7406hw-source/pkgs/gddr6/default.nix",
+"file":"/nix/store/28kn9n7k1s7hb6v316jg7hxdxk8kh1df-source/pkgs/gddr6/default.nix",
 "line":34
 },
 "name":"gddr6-0-unstable-2025-04-21",
@@ -474,6 +483,7 @@
 "out"
 ],
 "position":"./pkgs/gddr6/default.nix:32",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -487,7 +497,7 @@
 "version":"0-unstable-2025-04-21"
 },
 "litellm-rust":{
-"drvPath":"/nix/store/6wasxq66bas3mmlwj0bzhx2gyxbr0yv3-litellm-rust-0-unstable-2026-06-04.drv",
+"drvPath":"/nix/store/3grchwipd6an5cp3lh5nf4mgwg97bncm-litellm-rust-0-unstable-2026-06-25.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -555,10 +565,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88fvpypyll6c3aziik2d5x571n7406hw-source/pkgs/litellm-rust/default.nix",
+"file":"/nix/store/28kn9n7k1s7hb6v316jg7hxdxk8kh1df-source/pkgs/litellm-rust/default.nix",
 "line":39
 },
-"name":"litellm-rust-0-unstable-2026-06-04",
+"name":"litellm-rust-0-unstable-2026-06-25",
 "nonTeamMaintainers":[
 {
 "email":"codgician@outlook.com",
@@ -594,6 +604,7 @@
 "riscv32-linux"
 ],
 "position":"./pkgs/litellm-rust/default.nix:34",
+"problems":{},
 "sourceProvenance":[
 {
 "isSource":true,
@@ -603,17 +614,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"litellm-rust-0-unstable-2026-06-04",
+"name":"litellm-rust-0-unstable-2026-06-25",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"litellm-rust",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-06-04"
+"version":"0-unstable-2026-06-25"
 },
 "ms213x-rename":{
-"drvPath":"/nix/store/zybs4g8lk5xklwyzmv3dh2kyg5kym6hh-ms213x-rename-0.0.2-unstable-2025-01-14.drv",
+"drvPath":"/nix/store/dlwvvazxaani9j613mmq7kjn1cs1h9ws-ms213x-rename-0.0.2-unstable-2025-01-14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -669,7 +680,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88fvpypyll6c3aziik2d5x571n7406hw-source/pkgs/ms213x-rename/default.nix",
+"file":"/nix/store/28kn9n7k1s7hb6v316jg7hxdxk8kh1df-source/pkgs/ms213x-rename/default.nix",
 "line":32
 },
 "name":"ms213x-rename-0.0.2-unstable-2025-01-14",
@@ -718,6 +729,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/ms213x-rename/default.nix:29",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -731,7 +743,7 @@
 "version":"0.0.2-unstable-2025-01-14"
 },
 "nanokvm-usb":{
-"drvPath":"/nix/store/arrn5zh3asmvry64cmsjb7jcc58ya16n-nanokvm-usb-1.1.4.drv",
+"drvPath":"/nix/store/cgmp9s3kpq85ja4bf9jqifhk4g06lmp2-nanokvm-usb-1.1.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -788,7 +800,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88fvpypyll6c3aziik2d5x571n7406hw-source/pkgs/nanokvm-usb/default.nix",
+"file":"/nix/store/28kn9n7k1s7hb6v316jg7hxdxk8kh1df-source/pkgs/nanokvm-usb/default.nix",
 "line":186
 },
 "name":"nanokvm-usb-1.1.4",
@@ -832,6 +844,7 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/nanokvm-usb/default.nix:181",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -845,7 +858,7 @@
 "version":"1.1.4"
 },
 "samsung-dc-toolkit-2":{
-"drvPath":"/nix/store/3qfz0yh3c4hnz7kqifd8p9dj5sq2vph6-samsung-dc-toolkit-2.1.drv",
+"drvPath":"/nix/store/a6mdsqhfpj1j1i7z03fw8bb1m4c4pxjl-samsung-dc-toolkit-2.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -892,7 +905,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88fvpypyll6c3aziik2d5x571n7406hw-source/pkgs/samsung-dc-toolkit-3/default.nix",
+"file":"/nix/store/28kn9n7k1s7hb6v316jg7hxdxk8kh1df-source/pkgs/samsung-dc-toolkit-3/default.nix",
 "line":36
 },
 "name":"samsung-dc-toolkit-2.1",
@@ -911,6 +924,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/samsung-dc-toolkit-3/default.nix:32",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -924,7 +938,7 @@
 "version":"2.1"
 },
 "samsung-dc-toolkit-3":{
-"drvPath":"/nix/store/z00862cj24h8v6f1bqdnra04ckqm427f-samsung-dc-toolkit-3.0.drv",
+"drvPath":"/nix/store/lwzg8y1l734fr9n77a2dw1vfhdzgzkaj-samsung-dc-toolkit-3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -971,7 +985,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88fvpypyll6c3aziik2d5x571n7406hw-source/pkgs/samsung-dc-toolkit-3/default.nix",
+"file":"/nix/store/28kn9n7k1s7hb6v316jg7hxdxk8kh1df-source/pkgs/samsung-dc-toolkit-3/default.nix",
 "line":36
 },
 "name":"samsung-dc-toolkit-3.0",
@@ -990,6 +1004,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/samsung-dc-toolkit-3/default.nix:32",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1003,7 +1018,7 @@
 "version":"3.0"
 },
 "sasl-xoauth2":{
-"drvPath":"/nix/store/scsqx27dv4m1n897ibk1khx5dbj6aiki-sasl-xoauth2-0.27.drv",
+"drvPath":"/nix/store/jnr1mcxl71311f47bxggljk1rq4xqsaw-sasl-xoauth2-0.27.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1061,7 +1076,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88fvpypyll6c3aziik2d5x571n7406hw-source/pkgs/sasl-xoauth2/default.nix",
+"file":"/nix/store/28kn9n7k1s7hb6v316jg7hxdxk8kh1df-source/pkgs/sasl-xoauth2/default.nix",
 "line":81
 },
 "name":"sasl-xoauth2-0.27",
@@ -1103,6 +1118,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/sasl-xoauth2/default.nix:77",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1116,7 +1132,7 @@
 "version":"0.27"
 },
 "sst":{
-"drvPath":"/nix/store/8xrkg7i44skaa6rli3llijww08j2cq48-sst-3.0.drv",
+"drvPath":"/nix/store/9pg5zf4y6294j792fv2rj5gg735l3pmq-sst-3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1163,7 +1179,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88fvpypyll6c3aziik2d5x571n7406hw-source/pkgs/sst/default.nix",
+"file":"/nix/store/28kn9n7k1s7hb6v316jg7hxdxk8kh1df-source/pkgs/sst/default.nix",
 "line":61
 },
 "name":"sst-3.0",
@@ -1183,6 +1199,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/sst/default.nix:55",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1196,7 +1213,7 @@
 "version":"3.0"
 },
 "waydroid-script":{
-"drvPath":"/nix/store/i9yfvzcc35ryxgyryvijax245pspyfdi-waydroid-script-0-unstable-2026-01-05.drv",
+"drvPath":"/nix/store/r0v0an581n0ia799g14r5lr3yj2m01l8-waydroid-script-0-unstable-2026-01-05.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1253,7 +1270,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/88fvpypyll6c3aziik2d5x571n7406hw-source/pkgs/waydroid-script/default.nix",
+"file":"/nix/store/28kn9n7k1s7hb6v316jg7hxdxk8kh1df-source/pkgs/waydroid-script/default.nix",
 "line":70
 },
 "name":"waydroid-script-0-unstable-2026-01-05",
@@ -1295,6 +1312,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/waydroid-script/default.nix:65",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },

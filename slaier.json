@@ -1,19 +1,19 @@
 {
 "name":"slaier",
-"fetch_time":0.421,
-"eval_time":0.834,
+"fetch_time":0.906,
+"eval_time":0.648,
 "source":{
 "url":"https://github.com/slaier/nixos-config",
-"rev":"d2a604ec708b72a4475ef96e786036bdc8e30039",
-"sha256":"0ql9j0zf23q127l0x2sfinww9zyb5ysrhij5d65kr1y8wsawqi4k",
+"rev":"0f74fa657125664c1f48f3614f054b49ffd6915e",
+"sha256":"1r60kqx9m6vbp9032b78jz3f8r8w3p5cdhg5s86z6j4hdz5q97ww",
 "date":null
 },
-"source_storepath":"/nix/store/jm7815xir53yl7qcsf07ayy3r67k0a3x-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"a283fcfb047b3454f79fb8aadfe7dd09a2bb2f4a",
+"source_storepath":"/nix/store/kkl8y3gzw4ixjik48ymyg5a910ap8958-source",
+"nixpkgs_storepath":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source",
+"nur_combined_rev":"b6410a1b25c10b1340a5223d300b2bef422afe6f",
 "packages":{
 "CloudflareSpeedTest":{
-"drvPath":"/nix/store/3yszjasm1q058bdgapd5jb4grqzpxqrq-CloudflareSpeedTest-2.3.5.drv",
+"drvPath":"/nix/store/2wshp5qn8r3fwix2ksnlizpzishycscv-CloudflareSpeedTest-2.3.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -100,6 +100,12 @@
 "aarch64-freebsd"
 ],
 "position":"./modules/CloudflareSpeedTest/package.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -113,7 +119,7 @@
 "version":"2.3.5"
 },
 "ccometixline":{
-"drvPath":"/nix/store/sx3r9kc40rhca64fj247xhas3ydwyprz-ccometixline-1.1.2.drv",
+"drvPath":"/nix/store/qfcw1zdskwzm7vnpypl3r852wb068zkq-ccometixline-1.1.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -218,6 +224,12 @@
 "wasm32-wasi"
 ],
 "position":"./modules/ai/ccometixline/package.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -231,7 +243,7 @@
 "version":"1.1.2"
 },
 "mattpocock-skills":{
-"drvPath":"/nix/store/8v15y3mnwsm4agakm0xickkwcg95av0j-mattpocock-skills-1.0.1.drv",
+"drvPath":"/nix/store/brq17qqchsbmas1vgscci8a5p03gm09g-mattpocock-skills-1.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -366,6 +378,12 @@
 "x86_64-uefi"
 ],
 "position":"./modules/ai/mattpocock-skills/package.nix:35",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -379,7 +397,7 @@
 "version":"1.0.1"
 },
 "mediaplayer":{
-"drvPath":"/nix/store/0vgaf61zpqc9a9ljvp9r6vrw4iv9bmzc-waybar-mediaplayer-0.1.0.drv",
+"drvPath":"/nix/store/niy2q3x8vkxcabnyr6lnsl70m14qvzhs-waybar-mediaplayer-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -481,6 +499,12 @@
 "x86_64-redox"
 ],
 "position":"./modules/waybar/mediaplayer/package.nix:38",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -494,7 +518,7 @@
 "version":"0.1.0"
 },
 "playwright-cli":{
-"drvPath":"/nix/store/pyrm5cn7a7xc52kpgkfc7y75h59ilbrh-playwright-cli-0.1.14.drv",
+"drvPath":"/nix/store/2cgl7dwxj58rk1w0824axbhj6prg952l-playwright-cli-0.1.14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -572,6 +596,12 @@
 "s390x-linux"
 ],
 "position":"./modules/ai/playwright-cli/package.nix:25",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -585,7 +615,7 @@
 "version":"0.1.14"
 },
 "summarize":{
-"drvPath":"/nix/store/b2g6jqqlzm6gcniqk5n0nff9cxyjnl7y-summarize-0.20.0.drv",
+"drvPath":"/nix/store/251s8ssm4x0ngxnjwi85ildqxad0ymhb-summarize-0.20.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -663,6 +693,12 @@
 "s390x-linux"
 ],
 "position":"./modules/ai/summarize/package.nix:25",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

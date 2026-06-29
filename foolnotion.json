@@ -1,19 +1,19 @@
 {
 "name":"foolnotion",
-"fetch_time":0.627,
-"eval_time":1.611,
+"fetch_time":1.044,
+"eval_time":1.195,
 "source":{
 "url":"https://github.com/foolnotion/nur-pkg",
-"rev":"c3ce6c392c44dbdd0f8b0fed0b326c8e7e545250",
-"sha256":"05g5r6dnfgywfn965yzklhpsbd0vndm7hrlnb88ggpyac0ilbphs",
+"rev":"19057f03ce5aa68941b8a2e9d883664d46280664",
+"sha256":"0yq2q1zpmdlclmj4wawv17mfsf4nxz5g3fjk4h56kfi892i487fv",
 "date":null
 },
-"source_storepath":"/nix/store/xibciak19f7vpqpkdjcgqd8rslbhg9bp-source",
-"nixpkgs_storepath":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source",
-"nur_combined_rev":"8aba344284c2cdad97035b429de8f9a5de3a3cd5",
+"source_storepath":"/nix/store/79lzqgd2gcajql0qqc7nil9aivjpp1ai-source",
+"nixpkgs_storepath":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source",
+"nur_combined_rev":"b46e23319b9bad04f1783519f568bf890c9b735d",
 "packages":{
 "aria-csv":{
-"drvPath":"/nix/store/qwx1fk3v4ld9i3p939wyd1c4a3mig5ds-aria-csv-git.drv",
+"drvPath":"/nix/store/ys6zdy5pfbnx0ii7kisr4s8j6adih316-aria-csv-git.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -148,6 +148,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/aria-csv/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -161,7 +167,7 @@
 "version":""
 },
 "asmjit":{
-"drvPath":"/nix/store/pfckrxf8ixywdfxn4mhh781705mrrb0p-asmjit-git.drv",
+"drvPath":"/nix/store/ln9b8fmk25g4iiilcbbj43h0w3xws4pc-asmjit-git.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -261,6 +267,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/asmjit/default.nix:24",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -274,7 +286,7 @@
 "version":""
 },
 "autodiff":{
-"drvPath":"/nix/store/iisbdn4brm47sm408fbwx0hxnh75wckr-autodiff-1.1.2.drv",
+"drvPath":"/nix/store/6232fgr6m7m27a403rx2519nmq4v7mzv-autodiff-1.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -409,6 +421,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/autodiff/default.nix:28",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -422,7 +440,7 @@
 "version":"1.1.2"
 },
 "beman-optional":{
-"drvPath":"/nix/store/z0ymj5w51ncs5450xwinzxgggs2pcliw-optional-1.0.0.drv",
+"drvPath":"/nix/store/hsich02m6gni9wiq23z73q7gm34v2skf-optional-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -557,6 +575,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/beman-optional/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -570,7 +594,7 @@
 "version":"1.0.0"
 },
 "berserk":{
-"drvPath":"/nix/store/lgz42824i0rii10vk6s2x6kpniclyk6p-berserk-13.drv",
+"drvPath":"/nix/store/71i0rc5psf28xhp5xlyrj9l9l9690rj4-berserk-13.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -629,6 +653,12 @@
 "aarch64-linux"
 ],
 "position":"./pkgs/berserk/default.nix:45",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -642,7 +672,7 @@
 "version":"13"
 },
 "boost-assert":{
-"drvPath":"/nix/store/344gzidcw4p61m1jjx751f7cskmi8sgn-boost-assert-1.91.0.drv",
+"drvPath":"/nix/store/gxgwsyh9i4j7daaqnhba8xwxq080w8i0-boost-assert-1.91.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -777,6 +807,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/boost-assert/default.nix:31",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -790,7 +826,7 @@
 "version":"1.91.0"
 },
 "boost-config":{
-"drvPath":"/nix/store/46m0nhbch4rq6kp62dnixw2lf9p4a8mw-boost-config-1.91.0.drv",
+"drvPath":"/nix/store/vkpqr1yf4kivrzp17bw4wi6vfjl24kig-boost-config-1.91.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -925,6 +961,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/boost-config/default.nix:29",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -938,7 +980,7 @@
 "version":"1.91.0"
 },
 "boost-container-hash":{
-"drvPath":"/nix/store/8n0bf33iyj3dyx808b7kagss060xppqz-boost-container-hash-1.91.0.drv",
+"drvPath":"/nix/store/nn82pr90krjd1zrg5732f8gkpfz20nhx-boost-container-hash-1.91.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1073,6 +1115,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/boost-container-hash/default.nix:31",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1086,7 +1134,7 @@
 "version":"1.91.0"
 },
 "boost-core":{
-"drvPath":"/nix/store/rdcgckmqnyxl0rxgy8a4lv047vd9ain2-boost-core-1.91.0.drv",
+"drvPath":"/nix/store/qkb5z4r5b10vl5rrcnqy3qzgvpfakdmp-boost-core-1.91.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1221,6 +1269,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/boost-core/default.nix:31",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1234,7 +1288,7 @@
 "version":"1.91.0"
 },
 "boost-hana":{
-"drvPath":"/nix/store/fvvbc7q4q6krv4a3kpjrcrwsf5vw17xf-boost-hana-1.91.0.drv",
+"drvPath":"/nix/store/zanhfnk127cgjrnb2z2bbhlsxyjy9lxy-boost-hana-1.91.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1369,6 +1423,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/boost-hana/default.nix:31",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1382,7 +1442,7 @@
 "version":"1.91.0"
 },
 "boost-parser":{
-"drvPath":"/nix/store/hlh4hk74nfq9a7801anmg5gwmcqcmkrh-boost-parser-1.91.0.drv",
+"drvPath":"/nix/store/zn8rfbx9a5gqrwb9apqgqbx6mmgvffnp-boost-parser-1.91.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1517,6 +1577,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/boost-parser/default.nix:54",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1530,7 +1596,7 @@
 "version":"1.91.0"
 },
 "boost-throw-exception":{
-"drvPath":"/nix/store/n2m2a9k1n8sd6287lvpbjpn0fxx0kdwm-boost-throw-exception-1.91.0.drv",
+"drvPath":"/nix/store/nv523a0ilzqfqpyvlqjy3hhq1dfjj33c-boost-throw-exception-1.91.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1665,6 +1731,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/boost-throw-exception/default.nix:31",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1678,7 +1750,7 @@
 "version":"1.91.0"
 },
 "boost-type-index":{
-"drvPath":"/nix/store/g37cbfps0j8a960nrkfy3ppvwqnayixx-boost-type-index-1.91.0.drv",
+"drvPath":"/nix/store/nfslh2lgh7w1w7781lyc3apxycmrsq1x-boost-type-index-1.91.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1813,6 +1885,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/boost-type-index/default.nix:43",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1826,7 +1904,7 @@
 "version":"1.91.0"
 },
 "boost_unordered":{
-"drvPath":"/nix/store/ffx0qmxyw74y388p5xxzmcr3vjz1m7sp-boost_unordered-1.91.0.drv",
+"drvPath":"/nix/store/vb0c1xgx6q1wi0lazlwbli0kk288gbmh-boost_unordered-1.91.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1961,6 +2039,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/boost_unordered/default.nix:25",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1974,7 +2058,7 @@
 "version":"1.91.0"
 },
 "byte-lite":{
-"drvPath":"/nix/store/6s9k8sb21bkjm3p39ql1hkrjq5fqax8s-byte-lite-0.3.0.drv",
+"drvPath":"/nix/store/q8l3jba6jj1544kxa8acgkslbmn10i2m-byte-lite-0.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2109,6 +2193,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/byte-lite/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2122,7 +2212,7 @@
 "version":"0.3.0"
 },
 "cmake-init":{
-"drvPath":"/nix/store/apdc7brypqjqn8l27yrj0a1d85qsa30z-python3.13-cmake-init-0.41.1.drv",
+"drvPath":"/nix/store/qpl4v284bckhavkfs38qjfli7fydsdnd-python3.13-cmake-init-0.41.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2257,6 +2347,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/cmake-init/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2271,7 +2367,7 @@
 "version":"0.41.1"
 },
 "cmake-utils":{
-"drvPath":"/nix/store/77ak9l0v7qkibk8lp2bg6nn82qxlwi1v-cmake-utils.drv",
+"drvPath":"/nix/store/zg09w1b4n20qazp7gnspa8f7cdhjrhgj-cmake-utils.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2404,6 +2500,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/cmake-utils/default.nix:23",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2417,7 +2519,7 @@
 "version":""
 },
 "cmaketools":{
-"drvPath":"/nix/store/f2ikbn9cmzmy6jypjvn3g3mqsxrxgbsr-python3.13-cmaketools-0.1.6.drv",
+"drvPath":"/nix/store/n3f3d9hbj1pp5x148yyg1fyaqfflf5n5-python3.13-cmaketools-0.1.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2552,6 +2654,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/cmaketools/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2576,7 +2684,7 @@
 "version":"1.0"
 },
 "copacabana":{
-"drvPath":"/nix/store/vmb5jm4vc5qxncnmyfzcwppw1rjjqwn1-copacabana.drv",
+"drvPath":"/nix/store/jqhl60y5nsa0xi8g2jqs2c32gk16yw17-copacabana.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2709,6 +2817,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/copacabana/default.nix:24",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2721,8 +2835,128 @@
 "system":"x86_64-linux",
 "version":""
 },
+"core-math":{
+"drvPath":"/nix/store/bfx6gdmg799jk0xcg1b1dn64fygqxijj-core-math-unstable-2026-06-25.drv",
+"meta":{
+"available":true,
+"broken":false,
+"description":"High-performance mathematical functions with correct rounding",
+"homepage":"https://core-math.gitlabpages.inria.fr/",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"core-math",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purlParts":{},
+"purls":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"core-math",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purls":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"maintainers":[],
+"name":"core-math-unstable-2026-06-25",
+"nonTeamMaintainers":[],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"i686-cygwin",
+"x86_64-cygwin",
+"x86_64-darwin",
+"aarch64-darwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd",
+"x86_64-solaris",
+"aarch64-linux",
+"arc-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"sh4-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"x86_64-linux",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox"
+],
+"position":"./pkgs/core-math/default.nix:80",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
+"unfree":false,
+"unsupported":false
+},
+"name":"core-math-unstable-2026-06-25",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"core-math-unstable",
+"system":"x86_64-linux",
+"version":"2026-06-25"
+},
 "cpp-flux":{
-"drvPath":"/nix/store/5lm4hsv654gqv49h5pqgb8n78f35x92b-cpp-flux-0.4.0.drv",
+"drvPath":"/nix/store/1lhbxa4bbdf981g4b2k105j87wqvnpid-cpp-flux-0.4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2857,6 +3091,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/cpp-flux/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2870,7 +3110,7 @@
 "version":"0.4.0"
 },
 "cpp-lazy":{
-"drvPath":"/nix/store/2r1wscvaxjyzycf9jppc4lldzpcfcvr6-cpp-lazy-8.0.1.drv",
+"drvPath":"/nix/store/5igywj55f5pnnrihgfp4r3df57wsdma2-cpp-lazy-8.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3005,6 +3245,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/cpp-lazy/default.nix:25",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3018,7 +3264,7 @@
 "version":"8.0.1"
 },
 "cpp-sort":{
-"drvPath":"/nix/store/wrags5bcwz7gk4bnsdanskfnpk0jib1g-cppsort-2.1.0.drv",
+"drvPath":"/nix/store/5jl53dayhmjchq2bz9qynbw29v4fw69r-cppsort-2.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3153,6 +3399,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/cpp-sort/default.nix:30",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3166,7 +3418,7 @@
 "version":"2.1.0"
 },
 "cppitertools":{
-"drvPath":"/nix/store/ivy7vyqsi4mlakm56x955l4zxqqxghkx-cppitertools-2.3.drv",
+"drvPath":"/nix/store/6wrc3b889wpcxcz4m454snjaa83pdck0-cppitertools-2.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3301,6 +3553,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/cppitertools/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3314,7 +3572,7 @@
 "version":"2.3"
 },
 "cpptrace":{
-"drvPath":"/nix/store/dw08xna00xc5ygm5bzayqykgsvaxf3x3-cpptrace-1.0.4.drv",
+"drvPath":"/nix/store/1agl41rcvn2v7h03c2czb6gzz2cx0pcp-cpptrace-1.0.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3375,7 +3633,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xibciak19f7vpqpkdjcgqd8rslbhg9bp-source/pkgs/cpptrace/default.nix",
+"file":"/nix/store/79lzqgd2gcajql0qqc7nil9aivjpp1ai-source/pkgs/cpptrace/default.nix",
 "line":30
 },
 "name":"cpptrace-1.0.4",
@@ -3478,6 +3736,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/cpptrace/default.nix:26",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3491,7 +3750,7 @@
 "version":"1.0.4"
 },
 "dynamic-bitset":{
-"drvPath":"/nix/store/08zm09kjkk6if5yiqgdbn04q613lyjsq-dynamic_bitset-1.3.3.drv",
+"drvPath":"/nix/store/3piw40ffla4rsvvvzfb55aj9ihvz9qrl-dynamic_bitset-1.3.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3626,6 +3885,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/dynamic-bitset/default.nix:35",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3639,7 +3904,7 @@
 "version":"1.3.3"
 },
 "eve":{
-"drvPath":"/nix/store/3gp4l49836ndyj07ik8j0qxv12v4g9f0-eve-unstable-2026-05-26.drv",
+"drvPath":"/nix/store/rvarbd5xbxn88qvcs9kafv2d1j6wmf64-eve-unstable-2026-05-26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3774,6 +4039,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/eve/default.nix:23",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3787,7 +4058,7 @@
 "version":"2026-05-26"
 },
 "expected-lite":{
-"drvPath":"/nix/store/mn7cj47d7j46n43mxryljpap6paf31r7-expected-lite-0.10.0.drv",
+"drvPath":"/nix/store/q1rpl077ma40aiw5djk5g9crssa84lwi-expected-lite-0.10.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3922,6 +4193,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/expected-lite/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3935,7 +4212,7 @@
 "version":"0.10.0"
 },
 "fast-float-6_1_6":{
-"drvPath":"/nix/store/kv3ja3bqf0v8a4dxpvis3xibszi1bg7d-fast-float-6.1.6.drv",
+"drvPath":"/nix/store/0126f2v0ywjxnbr7745db9lkxbcly9bf-fast-float-6.1.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4013,7 +4290,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source/pkgs/by-name/fa/fast-float/package.nix",
+"file":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source/pkgs/by-name/fa/fast-float/package.nix",
 "line":29
 },
 "name":"fast-float-6.1.6",
@@ -4111,6 +4388,7 @@
 "x86_64-uefi"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/fa/fast-float/package.nix:22",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4124,7 +4402,7 @@
 "version":"6.1.6"
 },
 "fastor":{
-"drvPath":"/nix/store/w2hvh3270d1xwyb6vxga9r8qhhx65dq1-Fastor-0.6.4.drv",
+"drvPath":"/nix/store/f1ijflz394n99w0nvv8yblc4a98bm8kn-Fastor-0.6.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4259,6 +4537,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/fastor/default.nix:23",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -4272,7 +4556,7 @@
 "version":"0.6.4"
 },
 "foonathan-lexy":{
-"drvPath":"/nix/store/fnmmx21qg8m0gn57npiffybajspvikrw-lexy-2025.05.0.drv",
+"drvPath":"/nix/store/wmk9jsbj1sm77j73xpcw6pb0chrxin4n-lexy-2025.05.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4407,6 +4691,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/foonathan-lexy/default.nix:50",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -4420,7 +4710,7 @@
 "version":"2025.05.0"
 },
 "fplus":{
-"drvPath":"/nix/store/l2ffrchdhswwvdsnf81i9clvcms0x1nb-FunctionalPlus-0.2.28.drv",
+"drvPath":"/nix/store/2011vwkmfwdlqmr68117w20kgi2p0z2g-FunctionalPlus-0.2.28.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4555,6 +4845,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/fplus/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -4568,7 +4864,7 @@
 "version":"0.2.28"
 },
 "gch-small-vector":{
-"drvPath":"/nix/store/knz3ypzqnjkcaw575n603cwkdzbrvwk1-small_vector-0.10.2.drv",
+"drvPath":"/nix/store/g5vh6jlvdrg7j8vdmh48xcjgcg5c3wir-small_vector-0.10.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4703,6 +4999,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/gch-small-vector/default.nix:23",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -4716,7 +5018,7 @@
 "version":"0.10.2"
 },
 "gtl":{
-"drvPath":"/nix/store/j7ryxazc8kf29w5x28qawdvf6ajwapwg-gtl-1.2.0.drv",
+"drvPath":"/nix/store/np1k3bvi65qns72g4fz7y6f5hq64awvs-gtl-1.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4851,6 +5153,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/gtl/default.nix:46",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -4864,7 +5172,7 @@
 "version":"1.2.0"
 },
 "koivisto":{
-"drvPath":"/nix/store/yfqcxi9w5wi0jxg9viybabd5jfwz5hwj-Koivisto-9.0.drv",
+"drvPath":"/nix/store/q939s3vgy39flky6lbh1sc59awc6f6jr-Koivisto-9.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4921,6 +5229,12 @@
 "i686-linux"
 ],
 "position":"./pkgs/koivisto/default.nix:36",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -4934,7 +5248,7 @@
 "version":"9.0"
 },
 "ktl":{
-"drvPath":"/nix/store/ipdbvcmh6rkr8q13arw9017vm1a0ghrw-ktl-1.4.2.drv",
+"drvPath":"/nix/store/sc4lbsw7w2yw10znbd6m4v1rw10lrc5w-ktl-1.4.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5069,6 +5383,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/ktl/default.nix:22",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -5082,7 +5402,7 @@
 "version":"1.4.2"
 },
 "kumi":{
-"drvPath":"/nix/store/hllfnmxbpsilsyr42hsiyqylc8b830q6-kumi-4.0.drv",
+"drvPath":"/nix/store/hsxmmhbbmkg6c56yg12l8w9vbnsap9bz-kumi-4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5217,6 +5537,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/kumi/default.nix:32",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -5230,7 +5556,7 @@
 "version":"4.0"
 },
 "libassert":{
-"drvPath":"/nix/store/mfhgzpjs6kcd95q4jflqjnd8qfdc030r-libassert-2.2.1.drv",
+"drvPath":"/nix/store/6d4ba26fczgpk6z82hqbzlsifd8wmf75-libassert-2.2.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5365,6 +5691,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/libassert/default.nix:30",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -5378,7 +5710,7 @@
 "version":"2.2.1"
 },
 "libdwarf":{
-"drvPath":"/nix/store/f5zccfgkgp8h021z2adpqdjhbibndsqg-libdwarf-2.3.1.drv",
+"drvPath":"/nix/store/8vc62q5rq62kqmxll07bm03sy5hywyrc-libdwarf-2.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5434,7 +5766,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xibciak19f7vpqpkdjcgqd8rslbhg9bp-source/pkgs/libdwarf/default.nix",
+"file":"/nix/store/79lzqgd2gcajql0qqc7nil9aivjpp1ai-source/pkgs/libdwarf/default.nix",
 "line":24
 },
 "name":"libdwarf-2.3.1",
@@ -5498,6 +5830,7 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/libdwarf/default.nix:20",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -5511,7 +5844,7 @@
 "version":"2.3.1"
 },
 "linasm":{
-"drvPath":"/nix/store/mc7rfmlf2r3mlihwasnxf0342v3pfwzw-linasm-1.13.drv",
+"drvPath":"/nix/store/5027nmwrfqvk5dq9wwg792qi503gh3aw-linasm-1.13.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5612,6 +5945,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/linasm/default.nix:35",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -5625,7 +5964,7 @@
 "version":"1.13"
 },
 "lunasvg":{
-"drvPath":"/nix/store/565kz3wpq7q10m24xxb39qm8xafvg48y-lunasvg-3.5.0.drv",
+"drvPath":"/nix/store/gqrmbajqdglikibhc1ra8d45mpmd79m7-lunasvg-3.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5760,6 +6099,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/lunasvg/default.nix:25",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -5773,7 +6118,7 @@
 "version":"3.5.0"
 },
 "mathpresso":{
-"drvPath":"/nix/store/8nav7jmi79bkqcf1hxawrjwn8zl0x1xs-mathpresso-git.drv",
+"drvPath":"/nix/store/s81migrxyv1syv15fldb06fw3kmd74xd-mathpresso-git.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5873,6 +6218,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/mathpresso/default.nix:39",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -5886,7 +6237,7 @@
 "version":""
 },
 "mdspan":{
-"drvPath":"/nix/store/x885hbx3has9i9732cz39sdk04hjvl18-mdspan-0.6.0.drv",
+"drvPath":"/nix/store/rzpg3q1ncb4rzm0xw2q7bljjgk5k9fiq-mdspan-0.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6021,6 +6372,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/mdspan/default.nix:29",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -6034,7 +6391,7 @@
 "version":"0.6.0"
 },
 "mppp":{
-"drvPath":"/nix/store/fny0zb94hxjys1vl2s48xqrckd6ys2kw-mppp-2.0.0.drv",
+"drvPath":"/nix/store/3fqiifa6h2wpjz9xc2vabgcfwpls5h30-mppp-2.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6169,6 +6526,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/mppp/default.nix:22",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -6182,7 +6545,7 @@
 "version":"2.0.0"
 },
 "nanobench":{
-"drvPath":"/nix/store/gzb8nwd4cs3yk62n3124ddlzgsr0b94r-nanobench-4.3.11.drv",
+"drvPath":"/nix/store/dvmfv7939kjva6y7cgazfi0yfqs3cd1b-nanobench-4.3.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6317,6 +6680,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/nanobench/default.nix:29",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -6330,7 +6699,7 @@
 "version":"4.3.11"
 },
 "ned14-outcome":{
-"drvPath":"/nix/store/zr4aa6v75diwc1zvv5kp2nzfjm3rc2l9-ned14-outcome-2.2.15.drv",
+"drvPath":"/nix/store/5h673yp80jr1nwkgj3r098k85wx8bw7p-ned14-outcome-2.2.15.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6465,6 +6834,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/ned14-outcome/default.nix:37",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -6478,7 +6853,7 @@
 "version":"2.2.15"
 },
 "ned14-quickcpplib":{
-"drvPath":"/nix/store/qbhyjzvq44p6vhzig5mgp6h2ny60mih8-ned14-quickcpplib-0.1.0.0.drv",
+"drvPath":"/nix/store/vdizn6wkdaqa8cl9qdl6sqjrypyzm0a8-ned14-quickcpplib-0.1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6613,6 +6988,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/ned14-quickcpplib/default.nix:34",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -6626,7 +7007,7 @@
 "version":"0.1.0.0"
 },
 "ned14-status-code":{
-"drvPath":"/nix/store/r3ay37fgc7kdysgvi3l570hspjfc0bi4-ned14-status-code-0.1.0.0.drv",
+"drvPath":"/nix/store/s8rf2gcmsavrjl80yz6xdirk6az1frbl-ned14-status-code-0.1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6761,6 +7142,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/ned14-status-code/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -6774,7 +7161,7 @@
 "version":"0.1.0.0"
 },
 "parallel-hashmap":{
-"drvPath":"/nix/store/1lqryglamssjbqb4dxm4is6kxdbxchwx-parallel-hashmap-2.0.0.drv",
+"drvPath":"/nix/store/znwfc859229fiayrf2jy5ynw17zmf2fs-parallel-hashmap-2.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6909,6 +7296,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/parallel-hashmap/default.nix:30",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -6922,7 +7315,7 @@
 "version":"2.0.0"
 },
 "pareto":{
-"drvPath":"/nix/store/v33nw26m8sk3ag356i8wslk2hd4yv31w-pareto-1.2.0.drv",
+"drvPath":"/nix/store/dzb6vqwvpx37q95w00mrzrcny9ghhy66-pareto-1.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7057,6 +7450,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/pareto/default.nix:29",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -7070,7 +7469,7 @@
 "version":"1.2.0"
 },
 "pegtl":{
-"drvPath":"/nix/store/wzp39vxzxn9kignkhpiqbmxkddyvmh6p-PEGTL-3.2.8.drv",
+"drvPath":"/nix/store/s9w49frfjbcq87grv4k5mmldjhhs7a9i-PEGTL-3.2.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7205,6 +7604,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/pegtl/default.nix:28",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -7218,7 +7623,7 @@
 "version":"3.2.8"
 },
 "perf-cpp":{
-"drvPath":"/nix/store/93cfifwwrg72clmybxnd7kdf3jvcxm35-perf-cpp-0.14.1.drv",
+"drvPath":"/nix/store/vl1vfi0dyn1p2jidby9gsq8myhb14cjr-perf-cpp-0.14.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7353,6 +7758,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/perf-cpp/default.nix:28",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -7366,7 +7777,7 @@
 "version":"0.14.1"
 },
 "plutovg":{
-"drvPath":"/nix/store/y3sqg0zysszg2wigd83a41j91ca8d7m8-plutovg-1.3.2.drv",
+"drvPath":"/nix/store/k5pcc11jk988nz46w4dvf867ix094db7-plutovg-1.3.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7501,6 +7912,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/plutovg/default.nix:24",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -7514,7 +7931,7 @@
 "version":"1.3.2"
 },
 "pmlb":{
-"drvPath":"/nix/store/p860mhpdimijw5mr2shi0s5l5fycxdxh-python3.13-pmlb-1.0.2a0.drv",
+"drvPath":"/nix/store/9c9ayd14w2bx0w1y86i29cpwvlwcs5j9-python3.13-pmlb-1.0.2a0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7635,6 +8052,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/pmlb/default.nix:22",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -7649,7 +8072,7 @@
 "version":"1.0.2a0"
 },
 "pmt":{
-"drvPath":"/nix/store/jplfk7x4yg5wk49w7pwpaxgbxia57rgv-pmt-1.3.1.drv",
+"drvPath":"/nix/store/vxs4nqh5l2r88h4a54igvzxvrmvqfxfn-pmt-1.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7784,6 +8207,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/pmt/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -7797,7 +8226,7 @@
 "version":"1.3.1"
 },
 "practrand-rng-test":{
-"drvPath":"/nix/store/lm79zic9bqmpbyzpqg4bqikh793spja9-PractRand.drv",
+"drvPath":"/nix/store/nbx1vxl4r4gsa0z28ag1cl75fnlb32b8-PractRand.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7849,7 +8278,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/xibciak19f7vpqpkdjcgqd8rslbhg9bp-source/pkgs/practrand-rng-test/default.nix",
+"file":"/nix/store/79lzqgd2gcajql0qqc7nil9aivjpp1ai-source/pkgs/practrand-rng-test/default.nix",
 "line":33
 },
 "name":"PractRand",
@@ -7865,6 +8294,7 @@
 "out"
 ],
 "position":"./pkgs/practrand-rng-test/default.nix:30",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -7878,7 +8308,7 @@
 "version":""
 },
 "q5go":{
-"drvPath":"/nix/store/947ba38062krjyfhb2sddv40whsylyrk-q5go-2.1.3.drv",
+"drvPath":"/nix/store/ggysjpvhblha0459fwczr8bmvd8rj8q4-q5go-2.1.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8013,6 +8443,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/q5go/default.nix:27",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -8026,7 +8462,7 @@
 "version":"2.1.3"
 },
 "qobuz-linux":{
-"drvPath":"/nix/store/xsphgvk4z2p1bvbbrsr32nib1f9fb4h1-qobuz-linux-1.0.1-65b8d71.drv",
+"drvPath":"/nix/store/6pqz5r2325ch6ggf7amzlvdk4r64py4j-qobuz-linux-1.0.1-65b8d71.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8068,6 +8504,7 @@
 "out"
 ],
 "position":"./pkgs/qobuz-linux/default.nix:12",
+"problems":{},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -8087,7 +8524,7 @@
 "version":"1.0.1-65b8d71"
 },
 "scidb":{
-"drvPath":"/nix/store/ms55hszg03byaagrrrg3vvg8pcccind0-scidb-r1573.drv",
+"drvPath":"/nix/store/k671sjkn4nvilvxr2pj8033wa629xvc6-scidb-r1573.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8166,6 +8603,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/scidb/default.nix:197",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -8179,7 +8622,7 @@
 "version":""
 },
 "scnlib":{
-"drvPath":"/nix/store/l8p5mh0fr3qa0dja9vvi42babwpxrd69-scnlib-4.0.1.drv",
+"drvPath":"/nix/store/lq8krkm181zyfhmynv6ixx9mj8raxjjl-scnlib-4.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8314,6 +8757,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/scnlib/default.nix:40",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -8327,7 +8776,7 @@
 "version":"4.0.1"
 },
 "seq":{
-"drvPath":"/nix/store/p5y136qwcs69mzf8n4s2j0xx42yy8v6s-seq-2.0.drv",
+"drvPath":"/nix/store/yyxpa4yb9hxbxxlxppzrdwsrznyjmlv9-seq-2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8462,6 +8911,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/seq/default.nix:27",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -8475,7 +8930,7 @@
 "version":"2.0"
 },
 "singleton":{
-"drvPath":"/nix/store/il7s5sx4f5xjh5hlm6npbyyhijmkayl7-singleton-1.6.0.drv",
+"drvPath":"/nix/store/mv0jp364s31p3b28r8mdl3wlvwc3ygj5-singleton-1.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8610,6 +9065,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/singleton/default.nix:25",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -8623,7 +9084,7 @@
 "version":"1.6.0"
 },
 "sleef":{
-"drvPath":"/nix/store/j55svgv7ffbrfn8yraw0fm9kaajvax4z-sleef-3.9.0.drv",
+"drvPath":"/nix/store/fmsbfssl669l0q3r10rwdp041ignx6f1-sleef-3.9.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8758,6 +9219,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/sleef/default.nix:33",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -8771,7 +9238,7 @@
 "version":"3.9.0"
 },
 "span-lite":{
-"drvPath":"/nix/store/g8jxbk5phjrc5xazjwk3krfmj1shkzyf-span-lite-0.11.0.drv",
+"drvPath":"/nix/store/pz01rzv21gzspp4zkqk127zf5pbz4fq7-span-lite-0.11.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8906,6 +9373,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/span-lite/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -8919,7 +9392,7 @@
 "version":"0.11.0"
 },
 "taskflow":{
-"drvPath":"/nix/store/drih9lzz81w1p9drvzpcrg7fx06nkgr5-taskflow-4.0.0.drv",
+"drvPath":"/nix/store/k8af25hlhdq50p1r8qhdvy0hbw4s0b83-taskflow-4.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9054,6 +9527,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/taskflow/default.nix:36",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -9067,7 +9546,7 @@
 "version":"4.0.0"
 },
 "tessil-robin-map":{
-"drvPath":"/nix/store/rxvynp89yyy41if2dvbj31qzxbc2j47k-tessil-robin-map-1.4.1.drv",
+"drvPath":"/nix/store/scnyswlvxmzbhp6zwq0461kh84xrkkhj-tessil-robin-map-1.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9202,6 +9681,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/tessil-robin-map/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -9225,7 +9710,7 @@
 "version":"1.2.3"
 },
 "tl-expected":{
-"drvPath":"/nix/store/r3m802srrl9mcsvxzxjbnsgs0pcxdsbz-tl-expected-1.3.1.drv",
+"drvPath":"/nix/store/dnfia5nj2bzdfyj23zsig2yh2v68famm-tl-expected-1.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9360,6 +9845,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/tl-expected/default.nix:25",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -9373,7 +9864,7 @@
 "version":"1.3.1"
 },
 "tlfloat":{
-"drvPath":"/nix/store/560n29kqqs66v5q97vi55hxgqmi19xcr-tlfloat-1.15.0.drv",
+"drvPath":"/nix/store/2a1daxwq9p87hw27cizjrbz0fb9i87kw-tlfloat-1.15.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9508,6 +9999,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/tlfloat/default.nix:25",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -9521,7 +10018,7 @@
 "version":"1.15.0"
 },
 "tlx":{
-"drvPath":"/nix/store/p5mg5vg79m4cg1j43naxfxm0k0ahbhl7-tlx-0.6.1.drv",
+"drvPath":"/nix/store/f9jz5chw09a01lmbalxpzz5r1jjdw2jp-tlx-0.6.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9656,6 +10153,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/tlx/default.nix:27",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -9669,7 +10172,7 @@
 "version":"0.6.1"
 },
 "trng":{
-"drvPath":"/nix/store/2vpj0ziazx2b0r37hys00d43yswlqzls-trng-4.28.drv",
+"drvPath":"/nix/store/7ar5ijkj7biqs9wj75r3zj6szmz3x8vd-trng-4.28.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9804,6 +10307,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/trng/default.nix:33",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -9817,7 +10326,7 @@
 "version":"4.28"
 },
 "unordered_dense":{
-"drvPath":"/nix/store/nkr0gqphhv6cx1j8y6b7d9abyazgyz0a-unordered_dense-4.8.1.drv",
+"drvPath":"/nix/store/vqicxlmfymhk8jpmd5y6cdd1964p63vl-unordered_dense-4.8.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9952,6 +10461,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/unordered_dense/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -9965,7 +10480,7 @@
 "version":"4.8.1"
 },
 "vdt":{
-"drvPath":"/nix/store/xb67bvb1kfsradi9aa2w6ci9cy03gxar-vdt-0.4.4.drv",
+"drvPath":"/nix/store/xi6cika536rl0lns4qkcbhl5wvb63k4y-vdt-0.4.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10100,6 +10615,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/vdt/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -10113,7 +10634,7 @@
 "version":"0.4.4"
 },
 "vectorclass":{
-"drvPath":"/nix/store/gdp7bs2ygajx7kpr6lbmp2xhf0cx8195-vectorclass-2.02.03.drv",
+"drvPath":"/nix/store/paib2i58ba7fvn7gwm9kpwimqhrjlf6z-vectorclass-2.02.03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10248,6 +10769,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/vectorclass/default.nix:40",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -10261,7 +10788,7 @@
 "version":"2.02.03"
 },
 "xad":{
-"drvPath":"/nix/store/pgvmmi627crfh45bkgg4gyzcspbg6yz8-xad-2.1.0.drv",
+"drvPath":"/nix/store/w84a2xn6nsapgj50pp90r71rg1zrx9nh-xad-2.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10396,6 +10923,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/xad/default.nix:28",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -10409,7 +10942,7 @@
 "version":"2.1.0"
 },
 "xxhash_cpp":{
-"drvPath":"/nix/store/8i759xvxcp68m5xa6c9yaijmmc00cdx3-xxhash_cpp-0.8.1.drv",
+"drvPath":"/nix/store/6r1apn7jr9fpngv7dpz1g0108xgq4iqr-xxhash_cpp-0.8.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10544,6 +11077,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/xxhash_cpp/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

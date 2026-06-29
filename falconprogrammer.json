@@ -1,19 +1,19 @@
 {
 "name":"falconprogrammer",
-"fetch_time":0.748,
-"eval_time":3.083,
+"fetch_time":0.907,
+"eval_time":2.385,
 "source":{
 "url":"https://github.com/JonBoyleCoding/falconprogrammer-nur",
-"rev":"a791d8d9c76aabaa0038cc8bbf4cb3f853395ca4",
-"sha256":"1sfkxd50sqmp0zvc6jq32x5bydvkigxpkk0vn9qdca9mwkjsm99l",
+"rev":"a0db9b5d9aee8bf1462463ae4446f4efa411d431",
+"sha256":"0k8xnfprpxm2gmji3gj3dq8lfhpqjdlsgaqb0b2a4vynd11yrfpi",
 "date":null
 },
-"source_storepath":"/nix/store/10mb9pb4v43c03vjazx6wrh0lyq0lwsh-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"306eac2031cc304dc8793971cb5ba6597f5ef89d",
+"source_storepath":"/nix/store/0p4yz84c0c99m7cypj018fqmqiskiib6-source",
+"nixpkgs_storepath":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source",
+"nur_combined_rev":"9d6a3f393da44efe313761b77dda6228f3ef953b",
 "packages":{
 "alvr":{
-"drvPath":"/nix/store/8yqsvhglmrdji7kbf99739zs7d1nyx3m-alvr-20.8.1.drv",
+"drvPath":"/nix/store/0nk4kw9h4w4qryl1nimcfrqpmd8cy2kr-alvr-20.8.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -71,7 +71,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/10mb9pb4v43c03vjazx6wrh0lyq0lwsh-source/pkgs/alvr/default.nix",
+"file":"/nix/store/0p4yz84c0c99m7cypj018fqmqiskiib6-source/pkgs/alvr/default.nix",
 "line":89
 },
 "name":"alvr-20.8.1",
@@ -113,6 +113,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/alvr/default.nix:85",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -126,7 +127,7 @@
 "version":"20.8.1"
 },
 "cco":{
-"drvPath":"/nix/store/gzznhjf6fw73q5r7w94vvqvr40grp3wf-cco-0-unstable-2026-04-30.drv",
+"drvPath":"/nix/store/c84fyki51npqvjlhnq10qprf2fqw71d6-cco-0-unstable-2026-06-27.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -177,10 +178,10 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/10mb9pb4v43c03vjazx6wrh0lyq0lwsh-source/pkgs/cco/default.nix",
+"file":"/nix/store/0p4yz84c0c99m7cypj018fqmqiskiib6-source/pkgs/cco/default.nix",
 "line":88
 },
-"name":"cco-0-unstable-2026-04-30",
+"name":"cco-0-unstable-2026-06-27",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -212,20 +213,26 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/cco/default.nix:85",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
-"name":"cco-0-unstable-2026-04-30",
+"name":"cco-0-unstable-2026-06-27",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cco",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-04-30"
+"version":"0-unstable-2026-06-27"
 },
 "g13d":{
-"drvPath":"/nix/store/7svyky1dzqsfhmlwai4fm998asxbxmmz-g13-master-2024-12-30.drv",
+"drvPath":"/nix/store/mr8x3hwzfymk1c1kw6zfffjbrv5f4cj8-g13-master-2024-12-30.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -265,7 +272,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/10mb9pb4v43c03vjazx6wrh0lyq0lwsh-source/pkgs/g13d/default.nix",
+"file":"/nix/store/0p4yz84c0c99m7cypj018fqmqiskiib6-source/pkgs/g13d/default.nix",
 "line":46
 },
 "name":"g13-master-2024-12-30",
@@ -356,6 +363,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/g13d/default.nix:43",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -369,7 +382,7 @@
 "version":"2024-12-30"
 },
 "gitignore-template":{
-"drvPath":"/nix/store/9706lw93zv9l06jdq082q0lljf21kpxq-gitignore-template-1.2.4.drv",
+"drvPath":"/nix/store/f1kmjfj9j0rqck8gas31kcnih7ivrb6w-gitignore-template-1.2.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -454,7 +467,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/10mb9pb4v43c03vjazx6wrh0lyq0lwsh-source/pkgs/gitignore-template/default.nix",
+"file":"/nix/store/0p4yz84c0c99m7cypj018fqmqiskiib6-source/pkgs/gitignore-template/default.nix",
 "line":42
 },
 "name":"gitignore-template-1.2.4",
@@ -497,6 +510,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/gitignore-template/default.nix:38",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -511,7 +530,7 @@
 "version":"1.2.4"
 },
 "hyuga":{
-"drvPath":"/nix/store/mwdmpskk5iph77x4kpaw2mjmbijcdx9i-hyuga-1.0.0-unstable-2025-01-26.drv",
+"drvPath":"/nix/store/x1zid7f0j73xjs3hqn1v9cir0a79w7cl-hyuga-1.0.0-unstable-2025-01-26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -595,7 +614,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/10mb9pb4v43c03vjazx6wrh0lyq0lwsh-source/pkgs/hyuga/default.nix",
+"file":"/nix/store/0p4yz84c0c99m7cypj018fqmqiskiib6-source/pkgs/hyuga/default.nix",
 "line":57
 },
 "name":"hyuga-1.0.0-unstable-2025-01-26",
@@ -638,6 +657,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/hyuga/default.nix:54",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -652,7 +677,7 @@
 "version":"1.0.0-unstable-2025-01-26"
 },
 "opencode":{
-"drvPath":"/nix/store/p8m98g6n8cdw9j83yahhsgg069lvsi7s-opencode-1.17.11.drv",
+"drvPath":"/nix/store/9qjaldyhrhqbmnd1s86ahj5r62lx1gp4-opencode-1.17.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -698,7 +723,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"longDescription":"OpenCode is an AI coding agent built for the terminal.\n\nNIXOS COMPATIBILITY: OpenCode downloads TUI binaries at runtime that use\ngeneric Linux dynamic linkers (/lib64/ld-linux-x86-64.so.2) which don't\nexist on NixOS. This package includes automatic patching to fix the\ndynamic linker paths for NixOS compatibility.\n\nUSAGE OPTIONS:\n- Run 'opencode' - includes automatic NixOS patching\n- Or manually patch cache: $(nix-build -A opencode-sst)/share/opencode/patch-opencode-cache.sh\n\nThe package provides Node.js 24.15.0 to avoid downloading issues.\n",
+"longDescription":"OpenCode is an AI coding agent built for the terminal.\n\nNIXOS COMPATIBILITY: OpenCode downloads TUI binaries at runtime that use\ngeneric Linux dynamic linkers (/lib64/ld-linux-x86-64.so.2) which don't\nexist on NixOS. This package includes automatic patching to fix the\ndynamic linker paths for NixOS compatibility.\n\nUSAGE OPTIONS:\n- Run 'opencode' - includes automatic NixOS patching\n- Or manually patch cache: $(nix-build -A opencode-sst)/share/opencode/patch-opencode-cache.sh\n\nThe package provides Node.js 24.16.0 to avoid downloading issues.\n",
 "mainProgram":"opencode",
 "maintainers":[],
 "name":"opencode-1.17.11",
@@ -735,6 +760,12 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/opencode/default.nix:125",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -748,7 +779,7 @@
 "version":"1.17.11"
 },
 "opencode-sst":{
-"drvPath":"/nix/store/p8m98g6n8cdw9j83yahhsgg069lvsi7s-opencode-1.17.11.drv",
+"drvPath":"/nix/store/9qjaldyhrhqbmnd1s86ahj5r62lx1gp4-opencode-1.17.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -794,7 +825,7 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"longDescription":"OpenCode is an AI coding agent built for the terminal.\n\nNIXOS COMPATIBILITY: OpenCode downloads TUI binaries at runtime that use\ngeneric Linux dynamic linkers (/lib64/ld-linux-x86-64.so.2) which don't\nexist on NixOS. This package includes automatic patching to fix the\ndynamic linker paths for NixOS compatibility.\n\nUSAGE OPTIONS:\n- Run 'opencode' - includes automatic NixOS patching\n- Or manually patch cache: $(nix-build -A opencode-sst)/share/opencode/patch-opencode-cache.sh\n\nThe package provides Node.js 24.15.0 to avoid downloading issues.\n",
+"longDescription":"OpenCode is an AI coding agent built for the terminal.\n\nNIXOS COMPATIBILITY: OpenCode downloads TUI binaries at runtime that use\ngeneric Linux dynamic linkers (/lib64/ld-linux-x86-64.so.2) which don't\nexist on NixOS. This package includes automatic patching to fix the\ndynamic linker paths for NixOS compatibility.\n\nUSAGE OPTIONS:\n- Run 'opencode' - includes automatic NixOS patching\n- Or manually patch cache: $(nix-build -A opencode-sst)/share/opencode/patch-opencode-cache.sh\n\nThe package provides Node.js 24.16.0 to avoid downloading issues.\n",
 "mainProgram":"opencode",
 "maintainers":[],
 "name":"opencode-1.17.11",
@@ -831,6 +862,12 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/opencode/default.nix:125",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -844,7 +881,7 @@
 "version":"1.17.11"
 },
 "python-jwt_312":{
-"drvPath":"/nix/store/2sbdanjr1gq4q16n2fdwm6l786p786jy-python3.12-python-jwt-4.0.0.drv",
+"drvPath":"/nix/store/hbz5gxbasm19ps30h8cz3zcna050rvsj-python3.12-python-jwt-4.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -927,7 +964,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/10mb9pb4v43c03vjazx6wrh0lyq0lwsh-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/0p4yz84c0c99m7cypj018fqmqiskiib6-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.12-python-jwt-4.0.0",
@@ -970,6 +1007,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/python-jwt/default.nix:33",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -984,7 +1027,7 @@
 "version":"4.0.0"
 },
 "python-jwt_313":{
-"drvPath":"/nix/store/77f8i4ch84v6ca5ji043s683n90wi2ib-python3.13-python-jwt-4.0.0.drv",
+"drvPath":"/nix/store/x7dh9pl1zkx8izyxwhig1j90q1hwf67b-python3.13-python-jwt-4.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1067,7 +1110,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/10mb9pb4v43c03vjazx6wrh0lyq0lwsh-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/0p4yz84c0c99m7cypj018fqmqiskiib6-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.13-python-jwt-4.0.0",
@@ -1110,6 +1153,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/python-jwt/default.nix:33",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1124,7 +1173,7 @@
 "version":"4.0.0"
 },
 "spec-kit":{
-"drvPath":"/nix/store/igr55xkk81q74j8gzdk9mch5fgb863cv-spec-kit-0.11.9.drv",
+"drvPath":"/nix/store/q92jr3v3l062ca9np9jl4r44zibv9d54-spec-kit-0.11.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1208,7 +1257,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/10mb9pb4v43c03vjazx6wrh0lyq0lwsh-source/pkgs/spec-kit/default.nix",
+"file":"/nix/store/0p4yz84c0c99m7cypj018fqmqiskiib6-source/pkgs/spec-kit/default.nix",
 "line":51
 },
 "name":"spec-kit-0.11.9",
@@ -1251,6 +1300,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/spec-kit/default.nix:48",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1265,7 +1320,7 @@
 "version":"0.11.9"
 },
 "timew-sync-client":{
-"drvPath":"/nix/store/gnzd3xdqprz6mgnkfbsix4h14pr3p3kp-timew-sync-client-unstable-2023-10-25.drv",
+"drvPath":"/nix/store/56z2q5i6nrfv1wbys8wbi6lnr2cqak4p-timew-sync-client-unstable-2023-10-25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1349,7 +1404,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/10mb9pb4v43c03vjazx6wrh0lyq0lwsh-source/pkgs/timew-sync-client/default.nix",
+"file":"/nix/store/0p4yz84c0c99m7cypj018fqmqiskiib6-source/pkgs/timew-sync-client/default.nix",
 "line":59
 },
 "name":"timew-sync-client-unstable-2023-10-25",
@@ -1392,6 +1447,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/timew-sync-client/default.nix:56",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1406,7 +1467,7 @@
 "version":"2023-10-25"
 },
 "vpuppr-gd3":{
-"drvPath":"/nix/store/m9pl0rnmfxy23s7wrfbj75whl13lp943-vpuppr-0.9.0.drv",
+"drvPath":"/nix/store/mjmhkm93mlcn76y357riyw6m8pinlrpd-vpuppr-0.9.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1462,6 +1523,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/vpuppr-gd3/default.nix:104",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -1481,7 +1548,7 @@
 "version":"0.9.0"
 },
 "wine-fusion":{
-"drvPath":"/nix/store/pl76dn1xv07xgapj5xap97h5axnlw975-wine-wow-staging-11.9.drv",
+"drvPath":"/nix/store/r5xgm7c523a5f87sf35jmjfy2gq5vh2d-wine-wow-staging-11.9.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1588,7 +1655,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/applications/emulators/wine/base.nix",
+"file":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source/pkgs/applications/emulators/wine/base.nix",
 "line":372
 },
 "name":"wine-wow-staging-11.9",
@@ -1652,6 +1719,7 @@
 "x86_64-linux"
 ],
 "position":"<nixpkgs> + /pkgs/applications/emulators/wine/base.nix:368",
+"problems":{},
 "sourceProvenance":[
 {
 "isSource":true,
@@ -1676,7 +1744,7 @@
 "version":"11.9"
 },
 "xgen":{
-"drvPath":"/nix/store/i67hk2i92vzi5xwlkx35g18wvcn71djy-xgen-unstable-2023-07-02.drv",
+"drvPath":"/nix/store/96bpr9ifbqfz8fx8m6h94g320k55jd7i-xgen-unstable-2023-07-02.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1726,7 +1794,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/10mb9pb4v43c03vjazx6wrh0lyq0lwsh-source/pkgs/xgen/default.nix",
+"file":"/nix/store/0p4yz84c0c99m7cypj018fqmqiskiib6-source/pkgs/xgen/default.nix",
 "line":25
 },
 "name":"xgen-unstable-2023-07-02",
@@ -1768,6 +1836,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/xgen/default.nix:22",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

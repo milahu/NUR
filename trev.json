@@ -1,19 +1,19 @@
 {
 "name":"trev",
-"fetch_time":0.894,
-"eval_time":2.837,
+"fetch_time":1.067,
+"eval_time":2.241,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"4effaa1479720b90ede39d31fe9301bd5ece98d6",
-"sha256":"0yzg5ymnl36qwwxaz6jq59wyh5h0iiwd4dimkg8rdmalpkm5xkxd",
+"rev":"f33f57393fbf3c177c9e9e1f964dd7bd07313e2e",
+"sha256":"1519wij530264ck369c6wv82qx1p13hf9njg8gnn6wbfb5kw8zsn",
 "date":null
 },
-"source_storepath":"/nix/store/6g39j09khqw4ad6390n1ms39bl8vm13a-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"eb291b607fd5f4511740b516956812587c226614",
+"source_storepath":"/nix/store/q29vl7wfgkrgg85rmxsif6f9p32h69z4-source",
+"nixpkgs_storepath":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source",
+"nur_combined_rev":"e21562da08214e2031195d411506df11485994e6",
 "packages":{
 "bumper":{
-"drvPath":"/nix/store/3bywgj7cpy20ibbmj1p7vbw51j9rbw8k-bumper-0.18.1.drv",
+"drvPath":"/nix/store/l4s20vzr0xmd1vm0j7xc3drn6a0n5vg2-bumper-0.18.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -120,6 +120,12 @@
 "wasm32-wasi"
 ],
 "position":"./packages/bumper/default.nix:45",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -133,7 +139,7 @@
 "version":"0.18.1"
 },
 "bwrap-apprun":{
-"drvPath":"/nix/store/296z8qich5anl8bbpyraa522famd2v2y-bwrap-apprun-static-x86_64-unknown-linux-musl-0.0.1.drv",
+"drvPath":"/nix/store/xlhkf9w7xmw5sc5558gmgaciywvxjby0-bwrap-apprun-static-x86_64-unknown-linux-musl-0.0.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -219,6 +225,12 @@
 "riscv32-linux"
 ],
 "position":"./packages/bwrap-apprun/default.nix:28",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -232,7 +244,7 @@
 "version":"0.0.1"
 },
 "catppuccin-gtk":{
-"drvPath":"/nix/store/93fiszvcvcrpi7byn4w1073xa8n1511a-catppuccin-gtk-1.0.1-unstable-2026-06-25.drv",
+"drvPath":"/nix/store/jxsjpkg16xjak1vlbdf76wapapqhpr75-catppuccin-gtk-1.0.1-unstable-2026-06-25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -311,6 +323,12 @@
 "x86_64-linux"
 ],
 "position":"./packages/catppuccin-gtk/default.nix:118",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -324,7 +342,7 @@
 "version":"1.0.1-unstable-2026-06-25"
 },
 "catppuccin-zen-browser":{
-"drvPath":"/nix/store/7x5wgcmwiinyq467xy1agjbxy0l9hnkv-catppuccin-zen-browser-0-unstable-2025-09-28.drv",
+"drvPath":"/nix/store/j2azbinwfvdiw06ldjafl1pldx8s8bx3-catppuccin-zen-browser-0-unstable-2025-09-28.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -450,6 +468,12 @@
 "x86_64-uefi"
 ],
 "position":"./packages/catppuccin-zen-browser/default.nix:34",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -463,7 +487,7 @@
 "version":"0-unstable-2025-09-28"
 },
 "chrome-devtools-mcp":{
-"drvPath":"/nix/store/l0mi7dgmjj2l4yfwx8m8yca5473bya69-chrome-devtools-mcp-1.4.0.drv",
+"drvPath":"/nix/store/amcijmc2drs3zmia4qsk5kshrrwm8mlk-chrome-devtools-mcp-1.4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -544,6 +568,12 @@
 "x86_64-linux"
 ],
 "position":"./packages/chrome-devtools-mcp/default.nix:38",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -557,7 +587,7 @@
 "version":"1.4.0"
 },
 "codex-commit":{
-"drvPath":"/nix/store/657fwynwcg15msy6zjnlsx80b8mphzz0-codex-commit-0.0.1.drv",
+"drvPath":"/nix/store/41klm1gjdy4m6im8bi5kz254cx26p9b1-codex-commit-0.0.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -664,6 +694,12 @@
 "wasm32-wasi"
 ],
 "position":"./packages/codex-commit/default.nix:23",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -677,7 +713,7 @@
 "version":"0.0.1"
 },
 "duckdb":{
-"drvPath":"/nix/store/24svpi84bihhcsq8zw4bpxxyx6jnk8cf-duckdb-1.5.4.drv",
+"drvPath":"/nix/store/4r6sh7h9llky2kr5bwqrp439ahzsywfa-duckdb-1.5.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -735,7 +771,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/6g39j09khqw4ad6390n1ms39bl8vm13a-source/packages/duckdb/default.nix",
+"file":"/nix/store/q29vl7wfgkrgg85rmxsif6f9p32h69z4-source/packages/duckdb/default.nix",
 "line":354
 },
 "name":"duckdb-1.5.4",
@@ -833,6 +869,7 @@
 "x86_64-uefi"
 ],
 "position":"./packages/duckdb/default.nix:350",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -848,7 +885,7 @@
 "version":"1.5.4"
 },
 "fetch-hash":{
-"drvPath":"/nix/store/qj8cr323v7i4qkhfrlcdzfqvmnzcl41d-fetch-hash.drv",
+"drvPath":"/nix/store/pqsb3ai5bcchzyj3bmsd825wwdc5prbl-fetch-hash.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -972,6 +1009,12 @@
 "x86_64-uefi"
 ],
 "position":"./packages/fetch-hash/default.nix:49",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -985,7 +1028,7 @@
 "version":""
 },
 "fix-hash":{
-"drvPath":"/nix/store/dbzqqlbqizigq24g6rnzfyfs9czxp85a-fix-hash-0.4.0.drv",
+"drvPath":"/nix/store/04f0axifbxhagizzigkngq3hwslbqf6w-fix-hash-0.4.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1091,6 +1134,12 @@
 "wasm32-wasi"
 ],
 "position":"./packages/fix-hash/default.nix:31",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1104,7 +1153,7 @@
 "version":"0.4.0"
 },
 "flake-release":{
-"drvPath":"/nix/store/8kf7yzaqha9xrcqhl3b3llvgr53irmd4-flake-release-0.20.2.drv",
+"drvPath":"/nix/store/kq3p6a2da3ygn6hapk12dqwz3459hr98-flake-release-0.20.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1207,6 +1256,12 @@
 "x86_64-redox"
 ],
 "position":"./packages/flake-release/default.nix:43",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1220,7 +1275,7 @@
 "version":"0.20.2"
 },
 "gleescript":{
-"drvPath":"/nix/store/r9n95vlc37jcb99hpm4facz3h0bx78xy-gleescript-1.5.2.drv",
+"drvPath":"/nix/store/irdfzy4miqxlchq85xyi83g8j0mlal1y-gleescript-1.5.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1347,6 +1402,12 @@
 "x86_64-uefi"
 ],
 "position":"./packages/gleescript/default.nix:40",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1360,7 +1421,7 @@
 "version":"1.5.2"
 },
 "go-over":{
-"drvPath":"/nix/store/zj2s0a7zj8r5w5wkbxrg9k78f2fkyw2p-go-over-3.3.1.drv",
+"drvPath":"/nix/store/ndh621v106j1s3dy6yf4z7rqg803fdby-go-over-3.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1497,6 +1558,12 @@
 "x86_64-uefi"
 ],
 "position":"./packages/go-over/default.nix:40",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1510,7 +1577,7 @@
 "version":"3.3.1"
 },
 "helium":{
-"drvPath":"/nix/store/8219slixi1cl9ysd4gibchgwabi7438d-helium-0.13.6.1.drv",
+"drvPath":"/nix/store/g7m5x8g201z8d7r2ky84g8hn0hbb8bma-helium-0.13.6.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1568,6 +1635,12 @@
 "x86_64-linux"
 ],
 "position":"./packages/helium/default.nix:37",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -1587,7 +1660,7 @@
 "version":"0.13.6.1"
 },
 "igsc":{
-"drvPath":"/nix/store/ni6f7ravyhd2vzhds8l41z6aglx83lff-igsc-1.3.0.drv",
+"drvPath":"/nix/store/g07xghf2hfsp5ipprclc354rxm1k24fl-igsc-1.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1668,6 +1741,12 @@
 "x86_64-linux"
 ],
 "position":"./packages/igsc/default.nix:46",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1681,7 +1760,7 @@
 "version":"1.3.0"
 },
 "kagiapi":{
-"drvPath":"/nix/store/di3vzd9q4dvnvr967xqxnxvw2mxqf2aq-python3.13-kagiapi-0-unstable-2025-04-18.drv",
+"drvPath":"/nix/store/lpyq764pqi3am7b89d0rw6xwb0a8b545-python3.13-kagiapi-0-unstable-2025-04-18.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1851,6 +1930,12 @@
 "x86_64-uefi"
 ],
 "position":"./packages/kagimcp/kagiapi.nix:44",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1865,7 +1950,7 @@
 "version":"0-unstable-2025-04-18"
 },
 "kagimcp":{
-"drvPath":"/nix/store/kni0w4v3706x3cwcz73gfx4kmwf349pd-python3.13-kagimcp-0.1.5-unstable-2026-06-26.drv",
+"drvPath":"/nix/store/q2qv14010mh3a3xxgbjxj5hx5xxclgjg-python3.13-kagimcp-0.1.5-unstable-2026-06-26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2036,6 +2121,12 @@
 "x86_64-uefi"
 ],
 "position":"./packages/kagimcp/default.nix:53",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2050,7 +2141,7 @@
 "version":"0.1.5-unstable-2026-06-26"
 },
 "libwtf":{
-"drvPath":"/nix/store/lrv4p9b3b3x5cl5lh1i6vahihw27fdgw-libwtf-0-unstable-2026-06-14.drv",
+"drvPath":"/nix/store/nrs7id3981vmf2aa87jhs9m3r6b25vqq-libwtf-0-unstable-2026-06-14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2130,6 +2221,12 @@
 "x86_64-linux"
 ],
 "position":"./packages/libwtf/default.nix:49",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2143,7 +2240,7 @@
 "version":"0-unstable-2026-06-14"
 },
 "modal":{
-"drvPath":"/nix/store/2nm370abjs6wnvh5vplb0f3bmaiakzlb-python3.13-modal-1.5.1.drv",
+"drvPath":"/nix/store/yb7hi4cq8jh4nmi47xd7z1irjv1dvk6s-python3.13-modal-1.5.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2315,6 +2412,12 @@
 "x86_64-uefi"
 ],
 "position":"./packages/modal/default.nix:70",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2329,7 +2432,7 @@
 "version":"1.5.1"
 },
 "nix-scan":{
-"drvPath":"/nix/store/ypw466kjxvh7xqznqn1mvwggasj8ck7a-nix-scan-1.1.2.drv",
+"drvPath":"/nix/store/5i58i7nki6k0fdkf80s8nvlnvhdxh0fg-nix-scan-1.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2456,6 +2559,12 @@
 "x86_64-uefi"
 ],
 "position":"./packages/nix-scan/default.nix:69",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2480,7 +2589,7 @@
 "version":"0.0.11"
 },
 "opengrep":{
-"drvPath":"/nix/store/624sxqyscnwb0wfa1wx5pck5rbgghrd0-opengrep-1.23.0.drv",
+"drvPath":"/nix/store/xiac9cg31nivyspaj2dmklq15ssgbk60-opengrep-1.23.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2574,6 +2683,12 @@
 "x86_64-linux"
 ],
 "position":"./packages/opengrep/default.nix:142",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2588,7 +2703,7 @@
 "version":"1.23.0"
 },
 "protoc-gen-connect-openapi":{
-"drvPath":"/nix/store/sp4z1mbn2xp01z6sli3zgqwwgqccwajn-protoc-gen-connect-openapi-0.25.7.drv",
+"drvPath":"/nix/store/2idgy7c29ycg2y8pnjaikzzv1bxj6k1m-protoc-gen-connect-openapi-0.25.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2725,6 +2840,12 @@
 "x86_64-uefi"
 ],
 "position":"./packages/protoc-gen-connect-openapi/default.nix:29",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2738,7 +2859,7 @@
 "version":"0.25.7"
 },
 "pysentry":{
-"drvPath":"/nix/store/ahgq8vyam92k7v464577nvqhwsd3f9mv-pysentry-0.4.7.drv",
+"drvPath":"/nix/store/jc62qig17mzq5fn65j8ngridkwyncajy-pysentry-0.4.7.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2844,6 +2965,12 @@
 "wasm32-wasi"
 ],
 "position":"./packages/pysentry/default.nix:34",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2857,11 +2984,11 @@
 "version":"0.4.7"
 },
 "qsvenc":{
-"drvPath":"/nix/store/pf9gqbg5jwi3bnzp4pxzdy908riscpim-qsvenc-8.17.drv",
+"drvPath":"/nix/store/627q6vrsx937kqk6lhg2zr0pspg3fwkz-qsvenc-8.19.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/rigaya/QSVEnc/releases/tag/8.17",
+"changelog":"https://github.com/rigaya/QSVEnc/releases/tag/8.19",
 "description":"QSV high-speed encoding performance experiment tool",
 "homepage":"https://github.com/rigaya/QSVEnc",
 "identifiers":{
@@ -2906,7 +3033,7 @@
 },
 "mainProgram":"qsvencc",
 "maintainers":[],
-"name":"qsvenc-8.17",
+"name":"qsvenc-8.19",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2915,20 +3042,26 @@
 "x86_64-linux"
 ],
 "position":"./packages/qsvenc/default.nix:109",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
-"name":"qsvenc-8.17",
+"name":"qsvenc-8.19",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"qsvenc",
 "system":"x86_64-linux",
-"version":"8.17"
+"version":"8.19"
 },
 "renovate":{
-"drvPath":"/nix/store/3ji8vcf6yjih7y4bpx0msd4ak732d4q0-renovate-43.220.0.drv",
+"drvPath":"/nix/store/nmw198ykvz8w7agcbwvidsllsb1b1g91-renovate-43.220.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3007,6 +3140,12 @@
 "s390x-linux"
 ],
 "position":"./packages/renovate/default.nix:117",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3020,7 +3159,7 @@
 "version":"43.220.0"
 },
 "shellhook":{
-"drvPath":"/nix/store/lppvg54fx82v654lj45ivzfsagqndlxv-shellhook.drv",
+"drvPath":"/nix/store/i1pyrmv1512g87lp2b0q2vd0iwahd5bm-shellhook.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3144,6 +3283,12 @@
 "x86_64-uefi"
 ],
 "position":"./packages/shellhook/default.nix:66",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3157,7 +3302,7 @@
 "version":""
 },
 "synchronicity":{
-"drvPath":"/nix/store/hz8inw4pk8wjmj09qjdy88xv83jyism0-python3.13-synchronicity-0.12.5.drv",
+"drvPath":"/nix/store/5cnawhk1z9v6860gsqimaa75321l1ab1-python3.13-synchronicity-0.12.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3328,6 +3473,12 @@
 "x86_64-uefi"
 ],
 "position":"./packages/synchronicity/default.nix:40",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3342,7 +3493,7 @@
 "version":"0.12.5"
 },
 "type2-runtime":{
-"drvPath":"/nix/store/x030743fpav5n4045f55b3qf3vga9fqg-type2-runtime-static-x86_64-unknown-linux-musl-20251108-unstable-2026-06-23.drv",
+"drvPath":"/nix/store/3i265jg9in4xwnfpw11m45064i993fzw-type2-runtime-static-x86_64-unknown-linux-musl-20251108-unstable-2026-06-23.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3423,6 +3574,12 @@
 "x86_64-linux"
 ],
 "position":"./packages/type2-runtime/default.nix:80",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3436,7 +3593,7 @@
 "version":"20251108-unstable-2026-06-23"
 },
 "uv-build-latest":{
-"drvPath":"/nix/store/qz14pj34ac6bz4xi2phcywxkdv1bils2-python3.13-uv-build-0.11.25.drv",
+"drvPath":"/nix/store/nasqwzs35ikv8zx4f10zz8n42v6yh3fw-python3.13-uv-build-0.11.25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3618,6 +3775,12 @@
 "x86_64-uefi"
 ],
 "position":"./packages/uv-build/default.nix:52",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3632,7 +3795,7 @@
 "version":"0.11.25"
 },
 "xdg-desktop-portal-luminous":{
-"drvPath":"/nix/store/v8f40zqcjmc5wq1p0p95zyxr2cjwp58y-xdg-desktop-portal-luminous-0.1.20.drv",
+"drvPath":"/nix/store/v7iha4blnhxpd3jkrbndkbdnw87093hq-xdg-desktop-portal-luminous-0.1.20.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3711,6 +3874,12 @@
 "x86_64-linux"
 ],
 "position":"./packages/xdg-desktop-portal-luminous/default.nix:75",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3724,11 +3893,11 @@
 "version":"0.1.20"
 },
 "yt-dlp":{
-"drvPath":"/nix/store/01f67z6rzw2riavf43iw12gdpx2rm9x7-yt-dlp-2026.06.09-unstable-2026-06-26.drv",
+"drvPath":"/nix/store/b8xbad2p8vvyqq4hzm5sdc9ppbaiz995-yt-dlp-2026.06.09-unstable-2026-06-27.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/yt-dlp/commits/d23e6f5a387d5933bc24e1eb5437da8fd563c1f0",
+"changelog":"https://github.com/yt-dlp/yt-dlp/commits/c13e2f8a20fc1fafb31cba4e6287c874bc0c0cc0",
 "description":"Feature-rich command-line audio/video downloader - master branch",
 "homepage":"https://github.com/yt-dlp/yt-dlp/",
 "identifiers":{
@@ -3807,7 +3976,7 @@
 },
 "mainProgram":"yt-dlp",
 "maintainers":[],
-"name":"yt-dlp-2026.06.09-unstable-2026-06-26",
+"name":"yt-dlp-2026.06.09-unstable-2026-06-27",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3816,10 +3985,16 @@
 "x86_64-linux"
 ],
 "position":"./packages/yt-dlp/default.nix:150",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
-"name":"yt-dlp-2026.06.09-unstable-2026-06-26",
+"name":"yt-dlp-2026.06.09-unstable-2026-06-27",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3827,10 +4002,10 @@
 },
 "pname":"yt-dlp",
 "system":"x86_64-linux",
-"version":"2026.06.09-unstable-2026-06-26"
+"version":"2026.06.09-unstable-2026-06-27"
 },
 "yt-dlp-ejs":{
-"drvPath":"/nix/store/9h8lyiys3fzkl34j313a5jqraqfr8j5z-python3.13-yt-dlp-ejs-0.8.0-unstable-2026-06-20.drv",
+"drvPath":"/nix/store/sd5kvncrqz91s5s7y1bfay2qr9wb4bl3-python3.13-yt-dlp-ejs-0.8.0-unstable-2026-06-20.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3974,6 +4149,12 @@
 "aarch64-freebsd"
 ],
 "position":"./packages/yt-dlp/ejs.nix:68",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3988,7 +4169,7 @@
 "version":"0.8.0-unstable-2026-06-20"
 },
 "zig-protobuf":{
-"drvPath":"/nix/store/xfpsw0ascx3pzmjkiqsxbygqm8ijzgmk-zig-protobuf-5.0.0.drv",
+"drvPath":"/nix/store/1ms4sz5svdyr9srk02hq7szjab55pjrs-zig-protobuf-5.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4125,6 +4306,12 @@
 "x86_64-uefi"
 ],
 "position":"./packages/zig-protobuf/default.nix:43",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

@@ -1,19 +1,19 @@
 {
 "name":"natsukium",
-"fetch_time":0.887,
-"eval_time":1.37,
+"fetch_time":1.135,
+"eval_time":1.108,
 "source":{
 "url":"https://github.com/natsukium/nur-packages",
-"rev":"9cd3aeef9e46285c4a132beb6216d0e0c552d006",
-"sha256":"163krrv1xii0cg3ca6lyfiixsbq84hmabn8sigmbaq6kyj4cwpam",
+"rev":"e14840cf0a5d1d97ca700495a853e6c830d08bf1",
+"sha256":"1fsfki8hf5ryfx1n2969sjgh00lahpzjmd92i69n3ihahiyqf15i",
 "date":null
 },
-"source_storepath":"/nix/store/89fpfyzvp8kpd8ygdds4cw4mqvb63h8x-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"74d03426520cd8c029dacb4d4f222f358b5d4787",
+"source_storepath":"/nix/store/d58bjgm1siv8n5qmw6nmcykf2ppxy2kc-source",
+"nixpkgs_storepath":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source",
+"nur_combined_rev":"8d0823406e3a03d921d602ead7c7fd16b2d2e228",
 "packages":{
 "copyq":{
-"drvPath":"/nix/store/7l96izy50k9y8ja8kax9z54i4wndxscs-CopyQ-16.0.0.drv",
+"drvPath":"/nix/store/ss9sda0m8a76zg2d6vl6bazwrzqh3lq0-CopyQ-16.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -71,7 +71,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/by-name/co/copyq/package.nix",
+"file":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source/pkgs/by-name/co/copyq/package.nix",
 "line":64
 },
 "name":"CopyQ-16.0.0",
@@ -114,6 +114,7 @@
 "x86_64-linux"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/co/copyq/package.nix:62",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -157,7 +158,7 @@
 "version":"1.1.1"
 },
 "liga-hackgen-font":{
-"drvPath":"/nix/store/yxpjmsicilhxwhi36p2wfk0nlgz76c2k-liga-hackgen-font-0.1.0.drv",
+"drvPath":"/nix/store/pd0knvqjqic67vwkgn3f7xd30i4mcp5k-liga-hackgen-font-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -258,6 +259,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/data/fonts/liga-hackgen/default.nix:40",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -271,7 +278,7 @@
 "version":"0.1.0"
 },
 "liga-hackgen-nf-font":{
-"drvPath":"/nix/store/hbj85b6hkja5mmhbrkh5knqy6jbpq2cv-liga-hackgen-nf-font-0.1.0.drv",
+"drvPath":"/nix/store/ygcawfgr6gbmxy3n0952rgprl01p617k-liga-hackgen-nf-font-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -372,6 +379,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/data/fonts/liga-hackgen/default.nix:40",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -385,7 +398,7 @@
 "version":"0.1.0"
 },
 "ligaturizer":{
-"drvPath":"/nix/store/2zd8s8fqpn1afqm785p7brhygx31aycb-ligaturizer-5.drv",
+"drvPath":"/nix/store/x5lzl03vsdzvnb0w3ls7fx2kw28qzwd8-ligaturizer-5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -486,6 +499,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/ligaturizer/default.nix:43",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -499,7 +518,7 @@
 "version":"5"
 },
 "my-firefox-addons.adguard-adblocker":{
-"drvPath":"/nix/store/fdd5rrxl8l9a81d98b740p16l2aiqxji-adguard-adblocker-5.4.3.1.drv",
+"drvPath":"/nix/store/6i54h5wvhjm9lzblrxlkw2skfmn10fk1-adguard-adblocker-5.4.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -651,6 +670,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/firefox-addons/default.nix:12",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -664,7 +689,7 @@
 "version":"5.4.3.1"
 },
 "my-firefox-addons.calilay":{
-"drvPath":"/nix/store/98vy37v5m6vh4jbwn6ksysl2g038qzxi-calilay-0.41.9.drv",
+"drvPath":"/nix/store/8dch8vicg2l8ddi3pzchr0vxrc4zcrn6-calilay-0.41.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -807,6 +832,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/firefox-addons/default.nix:45",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -820,7 +851,7 @@
 "version":"0.41.9"
 },
 "my-firefox-addons.kiseppe-price-chart-kindle":{
-"drvPath":"/nix/store/1py8a87xdvarhcw8rakwkjaii6xnnln0-kiseppe-price-chart-kindle-2.0.11.drv",
+"drvPath":"/nix/store/k4xl3n7yk2fb3yfwmnf6f2z3m39bg0az-kiseppe-price-chart-kindle-2.0.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -957,6 +988,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/firefox-addons/default.nix:69",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -980,7 +1017,7 @@
 "version":"0-unstable-2026-05-29"
 },
 "psipred":{
-"drvPath":"/nix/store/3mljy6j1zpwsj68whj8y6ly1x23qkz2w-psipred-4.0.drv",
+"drvPath":"/nix/store/8w6cx529n5rswllf3pqchmwhi37fx951-psipred-4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1059,6 +1096,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/psipred/default.nix:53",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1082,7 +1125,7 @@
 "version":"0.3.3"
 },
 "qutebrowser":{
-"drvPath":"/nix/store/cz91074i0wjmgnivrvcyz0zn5ixq7b8j-qutebrowser-3.7.0.drv",
+"drvPath":"/nix/store/mwkyqhiccknyb3rmjj4dklh9mzb9w4sw-qutebrowser-3.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1187,7 +1230,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/by-name/qu/qutebrowser/package.nix",
+"file":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source/pkgs/by-name/qu/qutebrowser/package.nix",
 "line":169
 },
 "name":"qutebrowser-3.7.0",
@@ -1224,6 +1267,7 @@
 "x86_64-linux"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/qu/qutebrowser/package.nix:165",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1248,7 +1292,7 @@
 "version":"2026-03-06"
 },
 "skills-ref":{
-"drvPath":"/nix/store/mpsi0930i04md1k1psqis1fvwr212p6g-skills-ref-0-unstable-2026-05-20.drv",
+"drvPath":"/nix/store/xkq0fnc797snrlzqzf5pps3zmdpavy2q-skills-ref-0-unstable-2026-05-20.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1370,6 +1414,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/skills-ref/default.nix:25",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1384,7 +1434,7 @@
 "version":"0-unstable-2026-05-20"
 },
 "vimPlugins.claudecode-nvim":{
-"drvPath":"/nix/store/50rj05w1828jqzpcnnl44rg69z56v1k9-vimplugin-claudecode-nvim-unstable-2026-06-25.drv",
+"drvPath":"/nix/store/m5p7z1adrf0ppi7v62y2gl2vszm6zvb4-vimplugin-claudecode-nvim-unstable-2026-06-25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1519,6 +1569,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/vim-plugins/claudecode-nvim/default.nix:14",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1532,7 +1588,7 @@
 "version":"2026-06-25"
 },
 "vimPlugins.skkeleton":{
-"drvPath":"/nix/store/81g5rs77ffp146djxmcshqmhiwazh7zp-vimplugin-skkeleton-unstable-2026-05-05.drv",
+"drvPath":"/nix/store/xcka1vkdkzr206qr55jz15rm4ygp6y9s-vimplugin-skkeleton-unstable-2026-05-05.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1667,6 +1723,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/vim-plugins/skkeleton/default.nix:14",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1680,7 +1742,7 @@
 "version":"2026-05-05"
 },
 "vimPlugins.vim-edgemotion":{
-"drvPath":"/nix/store/pv3d2m9gm714w55racfajwxzn7qf951c-vimplugin-vim-edgemotion-unstable-2017-12-26.drv",
+"drvPath":"/nix/store/0dmcvnc0imslx7c1cypmf69mijprqix9-vimplugin-vim-edgemotion-unstable-2017-12-26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1815,6 +1877,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/vim-plugins/vim-edgemotion/default.nix:20",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1838,14 +1906,14 @@
 "version":"8.0.4033.50"
 },
 "zen-browser":{
-"name":"zen-browser-1.21.3b",
+"name":"zen-browser-1.21.4b",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zen-browser",
 "system":"x86_64-linux",
-"version":"1.21.3b"
+"version":"1.21.4b"
 }
 }
 }

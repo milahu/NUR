@@ -1,19 +1,19 @@
 {
 "name":"rypkgs",
-"fetch_time":0.9,
-"eval_time":1.701,
+"fetch_time":0.853,
+"eval_time":1.356,
 "source":{
 "url":"https://github.com/Ryder-C/rypkgs",
-"rev":"3165257646b93638778cf5041e4275d4676bc7c9",
-"sha256":"0jhfqvdyq02g1m4z6a6ajb818px38n0adjpk1l8c6j6crs1mkgwn",
+"rev":"31e019b72fb0c087f143fdc6521deb61405d6232",
+"sha256":"196zg6p4407qk726m19jbfzqq7qhsrlgprnki69nihprkwqgzlsy",
 "date":null
 },
-"source_storepath":"/nix/store/dqq0zfpyc9j6a1bcyx8383mlsb24h4md-source",
-"nixpkgs_storepath":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source",
-"nur_combined_rev":"1976c7da2a4736bc1260a93a806814266628ba34",
+"source_storepath":"/nix/store/95q3c2yw1pn73y5bj7rfhcv6dy57wb98-source",
+"nixpkgs_storepath":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source",
+"nur_combined_rev":"6ec4b77abbaa5fff5c34caf1b7169c98526bc148",
 "packages":{
 "aw-watcher-media-player":{
-"drvPath":"/nix/store/js163hn40625cin4243in4jjpv18w6dk-aw-watcher-media-player-1.1.4.drv",
+"drvPath":"/nix/store/7kzs5y7xqf6wqk4fzb6wvjx5wfp1hagn-aw-watcher-media-player-1.1.4.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -74,7 +74,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dqq0zfpyc9j6a1bcyx8383mlsb24h4md-source/pkgs/aw-watcher-media-player/default.nix",
+"file":"/nix/store/95q3c2yw1pn73y5bj7rfhcv6dy57wb98-source/pkgs/aw-watcher-media-player/default.nix",
 "line":36
 },
 "name":"aw-watcher-media-player-1.1.4",
@@ -104,6 +104,12 @@
 "riscv32-linux"
 ],
 "position":"./pkgs/aw-watcher-media-player/default.nix:33",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -127,7 +133,7 @@
 "version":"1.0.0-alpha04"
 },
 "bluevein":{
-"drvPath":"/nix/store/mrqd86l5xq58qk1p74l3scnj3f10imwk-bluevein-1.1.2.drv",
+"drvPath":"/nix/store/c2mmaiv4qhs7zs6f29fix2a9dwdsaq5b-bluevein-1.1.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -188,7 +194,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dqq0zfpyc9j6a1bcyx8383mlsb24h4md-source/pkgs/bluevein/default.nix",
+"file":"/nix/store/95q3c2yw1pn73y5bj7rfhcv6dy57wb98-source/pkgs/bluevein/default.nix",
 "line":40
 },
 "name":"bluevein-1.1.2",
@@ -218,6 +224,12 @@
 "riscv32-linux"
 ],
 "position":"./pkgs/bluevein/default.nix:37",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

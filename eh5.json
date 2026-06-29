@@ -1,19 +1,19 @@
 {
 "name":"eh5",
-"fetch_time":0.424,
-"eval_time":0.657,
+"fetch_time":0.944,
+"eval_time":0.517,
 "source":{
 "url":"https://github.com/EHfive/flakes",
-"rev":"b236b63e76e7ef2654a47e23038e620cf7556545",
-"sha256":"0yamffzyfxzkwn57hvpswdaivi379b41jk6rlcz3ynxrj0hailm7",
+"rev":"de42cfc075298daa78adf0b8be0533a93f64eee2",
+"sha256":"0x7zwh72fj8n5scv1pzpr4mrrvwxa92hx1237wif2c64ayqqd8sg",
 "date":null
 },
-"source_storepath":"/nix/store/cr3qhin7q9z4wxb5pxfbqlrxa3jygcsp-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"55a71e711537989849ef39aac6dd0704c4b65a10",
+"source_storepath":"/nix/store/y83smz4j23mr00akscnchzh1dwcr5j63-source",
+"nixpkgs_storepath":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source",
+"nur_combined_rev":"44556be653d2609b05086d82f149bd2fc7458374",
 "packages":{
 "dae-unstable":{
-"drvPath":"/nix/store/navzzznkkfy4g8cmx4wa1ib0g4hi6hrv-dae-1.1.0rc1-unstable-2026-04-07.drv",
+"drvPath":"/nix/store/ia0ipfaz9j6ffj3nwgpx0yrf3r64li3g-dae-2.0.0rc1-unstable-2026-06-14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -61,7 +61,7 @@
 },
 "mainProgram":"dae",
 "maintainers":[],
-"name":"dae-1.1.0rc1-unstable-2026-04-07",
+"name":"dae-2.0.0rc1-unstable-2026-06-14",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -93,20 +93,26 @@
 "x86_64-linux"
 ],
 "position":"./packages/dae-unstable/default.nix:65",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
-"name":"dae-1.1.0rc1-unstable-2026-04-07",
+"name":"dae-2.0.0rc1-unstable-2026-06-14",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"dae",
 "system":"x86_64-linux",
-"version":"1.1.0rc1-unstable-2026-04-07"
+"version":"2.0.0rc1-unstable-2026-06-14"
 },
 "einat":{
-"drvPath":"/nix/store/qdpyf95z63qnfm6gaw6zk0s9rzp3bryc-einat-0.1.10.drv",
+"drvPath":"/nix/store/y8h28bqz3nvb932ik5zi3xj8w9zz3z9m-einat-0.1.11.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -164,7 +170,7 @@
 "url":"https://spdx.org/licenses/GPL-2.0-only.html"
 },
 "maintainers":[],
-"name":"einat-0.1.10",
+"name":"einat-0.1.11",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -190,21 +196,27 @@
 "mips64el-linux",
 "riscv32-linux"
 ],
-"position":"./packages/einat/default.nix:44",
+"position":"./packages/einat/default.nix:45",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
-"name":"einat-0.1.10",
+"name":"einat-0.1.11",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"einat",
 "system":"x86_64-linux",
-"version":"0.1.10"
+"version":"0.1.11"
 },
 "fake-hwclock":{
-"drvPath":"/nix/store/n48grfygpwh2w394s1miafg67740q660-fake-hwclock.drv",
+"drvPath":"/nix/store/dm144mkpajimv9d814qx9maaz2vd28hc-fake-hwclock.drv",
 "meta":{
 "description":"Fake hardware clock",
 "license":{
@@ -228,7 +240,7 @@
 "version":""
 },
 "kcptun":{
-"drvPath":"/nix/store/p0jwiwhvik1s3ngfaqzljhxwkqkmbiaw-kcptun-unstable-2025-02-25.drv",
+"drvPath":"/nix/store/6872aplag9rr8p1qg3dkyp1nwdxbwqma-kcptun-unstable-2025-02-25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -314,6 +326,12 @@
 "aarch64-freebsd"
 ],
 "position":"./packages/kcptun/default.nix:28",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -327,7 +345,7 @@
 "version":"2025-02-25"
 },
 "mosdns":{
-"drvPath":"/nix/store/w1cvf6frznq53iziv3a7x9s4y5b08i95-mosdns-5.3.4.drv",
+"drvPath":"/nix/store/pwcprjy0jkglahidsf3xq8q16a83r93a-mosdns-5.3.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -413,6 +431,12 @@
 "aarch64-freebsd"
 ],
 "position":"./packages/mosdns/default.nix:31",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -426,7 +450,7 @@
 "version":"5.3.4"
 },
 "rtl8152-led-ctrl":{
-"drvPath":"/nix/store/dbl8g44znczjgk8p1sf3i4asd9jwkbij-rtl8152-led-ctrl-0.1.1.drv",
+"drvPath":"/nix/store/n32l71f1hbpbsx6d31hw11637rnv95xx-rtl8152-led-ctrl-0.1.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -521,6 +545,12 @@
 "wasm32-wasi"
 ],
 "position":"./packages/rtl8152-led-ctrl/default.nix:30",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -544,7 +574,7 @@
 "version":"2026.04"
 },
 "udpspeeder":{
-"drvPath":"/nix/store/0mgq6npsacszlxascv7c4ar5y1lsh64h-udpspeeder-unstable-2023-07-22.drv",
+"drvPath":"/nix/store/zdxziwcrnlbc9vw59ag2jiwsqkg4s87q-udpspeeder-unstable-2023-07-22.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -600,6 +630,12 @@
 "out"
 ],
 "position":"./packages/udpspeeder/default.nix:39",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -613,7 +649,7 @@
 "version":"2023-07-22"
 },
 "vlmcsd":{
-"drvPath":"/nix/store/a1fpng5swb0nsqf1pr77bf0z3r7d3pw8-vlmcsd-1113.drv",
+"drvPath":"/nix/store/8kgg0q8xkii1br3766slf4k6qrslgrqq-vlmcsd-1113.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -666,6 +702,12 @@
 "out"
 ],
 "position":"./packages/vlmcsd/default.nix:34",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
