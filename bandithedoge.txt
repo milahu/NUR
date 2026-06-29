@@ -1,94 +1,172 @@
 error:
-… while evaluating the 'name' attribute of a derivation
-
 … from call site
-
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:649:13:
-
-   648|             in
-   649|             sanitizeDerivationName (
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:682:13:
+   681|             in
+   682|             sanitizeDerivationName (
       |             ^
-   650|               if attrs ? name then
+   683|               if attrs ? name then
 
 … while calling anonymous lambda
-
-  at <nixpkgs> + /lib/strings.nix:2901:5:
-
-  2900|     in
-  2901|     string:
+  at <nixpkgs> + /lib/strings.nix:2908:5:
+  2907|     in
+  2908|     string:
       |     ^
-  2902|     # First detect the common case of already valid strings, to speed those up
+  2909|     # First detect the common case of already valid strings, to speed those up
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/strings.nix:2910:5:
+  2909|     # First detect the common case of already valid strings, to speed those up
+  2910|     if stringLength string <= 207 && okRegex string != null then
+      |     ^
+  2911|       unsafeDiscardStringContext string
+
+… in the left operand of the AND (&&) operator
+  at <nixpkgs> + /lib/strings.nix:2910:35:
+  2909|     # First detect the common case of already valid strings, to speed those up
+  2910|     if stringLength string <= 207 && okRegex string != null then
+      |                                   ^
+  2911|       unsafeDiscardStringContext string
+
+… in the argument of the not operator
+  at <nixpkgs> + /lib/strings.nix:2910:28:
+  2909|     # First detect the common case of already valid strings, to speed those up
+  2910|     if stringLength string <= 207 && okRegex string != null then
+      |                            ^
+  2911|       unsafeDiscardStringContext string
+
+… while calling the 'lessThan' builtin
+  at <nixpkgs> + /lib/strings.nix:2910:28:
+  2909|     # First detect the common case of already valid strings, to speed those up
+  2910|     if stringLength string <= 207 && okRegex string != null then
+      |                            ^
+  2911|       unsafeDiscardStringContext string
+
+… while calling the 'stringLength' builtin
+  at <nixpkgs> + /lib/strings.nix:2910:8:
+  2909|     # First detect the common case of already valid strings, to speed those up
+  2910|     if stringLength string <= 207 && okRegex string != null then
+      |        ^
+  2911|       unsafeDiscardStringContext string
+
+… in the condition of the assert statement
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:687:17:
+   686|                 # we cannot coerce null to a string below
+   687|                 assert
+      |                 ^
+   688|                   (attrs ? version && attrs.version != null) || throw "The `version` attribute cannot be null.";
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:688:62:
+   687|                 assert
+   688|                   (attrs ? version && attrs.version != null) || throw "The `version` attribute cannot be null.";
+      |                                                              ^
+   689|                 "${attrs.pname}${staticMarker}${hostSuffix}-${attrs.version}"
+
+… in the right operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:688:36:
+   687|                 assert
+   688|                   (attrs ? version && attrs.version != null) || throw "The `version` attribute cannot be null.";
+      |                                    ^
+   689|                 "${attrs.pname}${staticMarker}${hostSuffix}-${attrs.version}"
+
+… while evaluating the attribute 'version'
+  at ./pkgs/actuate/package.nix:14:3:
+    13|   inherit (sources.actuate) pname src;
+    14|   version = lib.removePrefix "v" sources.actuate.version;
+      |   ^
+    15|   cargoLock = sources.actuate.cargoLock."Cargo.lock";
 
 … from call site
-
   at ./pkgs/actuate/package.nix:14:13:
-
     13|   inherit (sources.actuate) pname src;
     14|   version = lib.removePrefix "v" sources.actuate.version;
       |             ^
     15|   cargoLock = sources.actuate.cargoLock."Cargo.lock";
 
-… while calling 'removePrefix'
-
-  at <nixpkgs> + /lib/strings.nix:1854:13:
-
-  1853|   removePrefix =
-  1854|     prefix: str:
-      |             ^
-  1855|     # Before 23.05, paths would be copied to the store before converting them
-
-… from call site
-
-  at <nixpkgs> + /lib/strings.nix:1857:5:
-
-  1856|     # to strings and comparing. This was surprising and confusing.
-  1857|     warnIf (isPath prefix)
-      |     ^
-  1858|       ''
-
 … while calling anonymous lambda
+  at <nixpkgs> + /lib/strings.nix:1879:7:
+  1878|     else
+  1879|       str:
+      |       ^
+  1880|       if substring 0 preLen str == prefix then
 
-  at <nixpkgs> + /lib/trivial.nix:912:50:
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/strings.nix:1880:7:
+  1879|       str:
+  1880|       if substring 0 preLen str == prefix then
+      |       ^
+  1881|         # -1 will take the string until the end
 
-   911|   */
-   912|   warnIf = cond: msg: if cond then warn msg else x: x;
-      |                                                  ^
-   913|
+… while calling the 'substring' builtin
+  at <nixpkgs> + /lib/strings.nix:1880:10:
+  1879|       str:
+  1880|       if substring 0 preLen str == prefix then
+      |          ^
+  1881|         # -1 will take the string until the end
 
 … from call site
-
   at ./all.nix:15:21:
-
     14|           inherit callPackage';
     15|           sources = pkgs.callPackage (
       |                     ^
     16|             (
 
 … while calling anonymous lambda
-
-  at <nixpkgs> + /lib/customisation.nix:308:19:
-
-   307|     in
-   308|     autoArgs: fn: args:
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
       |                   ^
-   309|     let
+   308|     let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:321:5:
+   320|     # if nonempty, check if the function has defaults for those other args
+   321|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |     ^
+   322|       makeOverridable f allArgs
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /lib/customisation.nix:321:28:
+   320|     # if nonempty, check if the function has defaults for those other args
+   321|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |                            ^
+   322|       makeOverridable f allArgs
+
+… while calling the 'removeAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:317:22:
+   316|       # arguments that weren't passed automatically to the function
+   317|       unpassedArgs = removeAttrs fargs (attrNames allArgs);
+      |                      ^
+   318|
 
 … from call site
-
-  at <nixpkgs> + /lib/customisation.nix:311:15:
-
-   310|       f = if isFunction fn then fn else import fn;
-   311|       fargs = functionArgs f;
+  at <nixpkgs> + /lib/customisation.nix:310:15:
+   309|       f = if isFunction fn then fn else import fn;
+   310|       fargs = functionArgs f;
       |               ^
-   312|
+   311|
 
-… while calling 'functionArgs'
-
-  at <nixpkgs> + /lib/trivial.nix:1104:5:
-
-  1103|   functionArgs =
-  1104|     f:
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/trivial.nix:1109:5:
+  1108|     in
+  1109|     f: if f ? __functor then f.__functionArgs or (functionArgs (f.__functor f)) else functionArgs f;
       |     ^
-  1105|     if f ? __functor then
+  1110|
 
-error: path '/nix/store/3cxby3y5vcc14p2fa1wv70d4qzn4qz92-package.nix' is not valid
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/trivial.nix:1109:8:
+  1108|     in
+  1109|     f: if f ? __functor then f.__functionArgs or (functionArgs (f.__functor f)) else functionArgs f;
+      |        ^
+  1110|
+
+… while calling the 'import' builtin
+  at <nixpkgs> + /lib/customisation.nix:309:41:
+   308|     let
+   309|       f = if isFunction fn then fn else import fn;
+      |                                         ^
+   310|       fargs = functionArgs f;
+
+… while realising the context of path './pkgs/actuate/_sources/generated.nix'
+
+error: path 'jdiznbxq8isyvad0ay30wcj6d30ckxjg-package.nix' is not valid

@@ -49,14 +49,14 @@ error:
     73|
 
 … while calling 'outputs'
-  at /nix/store/3rhx8mpfbgsqigdr0mkfhvg4s9y97kia-source/flake.nix:58:5:
+  at /nix/store/5ym1rx7vaj1i4chggzwmxcmbsmnpr5v6-source/flake.nix:58:5:
     57|   outputs =
     58|     inputs@{ parts, ... }:
       |     ^
     59|     parts.lib.mkFlake { inherit inputs; } (
 
 … from call site
-  at /nix/store/3rhx8mpfbgsqigdr0mkfhvg4s9y97kia-source/flake.nix:59:5:
+  at /nix/store/5ym1rx7vaj1i4chggzwmxcmbsmnpr5v6-source/flake.nix:59:5:
     58|     inputs@{ parts, ... }:
     59|     parts.lib.mkFlake { inherit inputs; } (
       |     ^
