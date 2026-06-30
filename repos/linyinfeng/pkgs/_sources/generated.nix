@@ -19,16 +19,16 @@
   };
   baibot = {
     pname = "baibot";
-    version = "v1.24.0";
+    version = "v1.25.0";
     src = fetchFromGitHub {
       owner = "etkecc";
       repo = "baibot";
-      rev = "v1.24.0";
+      rev = "v1.25.0";
       fetchSubmodules = false;
-      sha256 = "sha256-kveiWAvHrYuB8oZEIb6907LutZA/kFsh111PmJuQ5x0=";
+      sha256 = "sha256-VS/e1yKCUif6AMUQ1aMOdQc3j+cHNb5VM4851IDhWgs=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-kveiWAvHrYuB8oZEIb6907LutZA_kFsh111PmJuQ5x0=/Cargo.lock";
+      lockFile = ./. + "/sha256-VS_e1yKCUif6AMUQ1aMOdQc3j+cHNb5VM4851IDhWgs=/Cargo.lock";
       outputHashes = {
         "anthropic-0.0.8" = "sha256-I7mpWrolVy1SkLa2ovy2TXAHFnVFABXnxaA8uKzRGuw=";
       };
@@ -36,27 +36,27 @@
   };
   codestable = {
     pname = "codestable";
-    version = "2001285a64bc842418b013487ab1f24f25c1c382";
+    version = "baa2eb2e4d5cb52fec64fda106ad2ee5f2f03b36";
     src = fetchgit {
       url = "https://github.com/liuzhengdongfortest/CodeStable";
-      rev = "2001285a64bc842418b013487ab1f24f25c1c382";
+      rev = "baa2eb2e4d5cb52fec64fda106ad2ee5f2f03b36";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-JKGDpejsQSRDJUEk3JDy5Efla1QvhMkVt7L59le6L2g=";
+      sha256 = "sha256-SuAQpRwdP5PcVxT3oZShTIDWae95dZprs/OhfUpKJV0=";
     };
-    date = "2026-06-29";
+    date = "2026-06-30";
   };
   cowrie = {
     pname = "cowrie";
-    version = "v3.0.4";
+    version = "v3.0.5";
     src = fetchFromGitHub {
       owner = "cowrie";
       repo = "cowrie";
-      rev = "v3.0.4";
+      rev = "v3.0.5";
       fetchSubmodules = false;
-      sha256 = "sha256-JpnLmay+EBjAmgUgE3ihHABATsFMqeYp91HQhSFCF2k=";
+      sha256 = "sha256-cfECng27sL8Z39QbGJSgD9rJ6vmX3MpWJicNFRBjjpg=";
     };
   };
   dot-tar = {
@@ -329,17 +329,17 @@
   };
   rime-cantonese = {
     pname = "rime-cantonese";
-    version = "ec6ee73e83138fc47e658bbdc7a6b1d67e3075fc";
+    version = "b6a719b112cf2d9d2e9addc47157f3c4649a2915";
     src = fetchgit {
       url = "https://github.com/rime/rime-cantonese.git";
-      rev = "ec6ee73e83138fc47e658bbdc7a6b1d67e3075fc";
+      rev = "b6a719b112cf2d9d2e9addc47157f3c4649a2915";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-ePoZAuAFk83DjybVpJMtpsITrYsQX2u1mqED29/zsag=";
+      sha256 = "sha256-AYmpGp/4NcdlYhAHVL2TJYi+tY59U5JqprStBDOBwZg=";
     };
-    date = "2026-03-08";
+    date = "2026-06-29";
   };
   rime-double-pinyin = {
     pname = "rime-double-pinyin";
