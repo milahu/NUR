@@ -12,12 +12,12 @@
   xvfb,
 }:
 let
-  version = "3.4.1";
+  version = "3.4.2";
   src = fetchFromGitHub {
     owner = "faisalkindi";
     repo = "CrimsonDesert-UltimateModsManager";
     tag = "v${version}";
-    hash = "sha256-ayH6kdyWOxMmqXZWpPOsTvdPX0Gxgi0N4sDCDWjpd5U=";
+    hash = "sha256-446HJMLvDmxfQEnFFDIG7a33QLpII0Rx6eYRSKG+loU=";
   };
 
   cdumm-native = python3Packages.buildPythonPackage (finalAttrs: {
@@ -96,15 +96,14 @@ python3Packages.buildPythonApplication (finalAttrs: {
   ]);
 
   disabledTestPaths = [
-    # Fail
+    # Fail on rerun
     "tests/test_script_import_consent_gate.py::test_script_import_runs_with_consent"
-    # Regression
-    "tests/test_i18n_key_parity.py::test_all_literal_tr_keys_resolve_in_en"
-    # Slow
-    "tests/test_f3_whole_table_growth.py"
+    # Slow on rerun
     "tests/test_f3_whole_table_rebuild.py"
-    "tests/test_iteminfo_cd110_layout.py"
-    "tests/test_iteminfo_pabgh_companion.py"
+  ];
+
+  disabledTestMarks = [
+    "slow"
   ];
 
   desktopItems = [
