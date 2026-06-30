@@ -71,7 +71,7 @@ rustPlatform.buildRustPackage rec {
     installPhase = "cp pnpm-lock.yaml $out";
     outputHashMode = "flat";
     outputHashAlgo = "sha256";
-    outputHash = "sha256-BNLG36jc/0Z6fy2FuFZat1OuLFQhIx0IjMYO9Mw4U1Y=";
+    outputHash = "sha256-cHPJb+cW7TUEeeUnUa838iOxpT/R3Mq4R88cMZwUyyE=";
   };
 
   pnpmDepsSrc = runCommand "pnpm-deps-src" { } ''
@@ -88,7 +88,7 @@ rustPlatform.buildRustPackage rec {
     inherit pname version;
     src = pnpmDepsSrc;
     pnpm = pnpmWrapper;
-    hash = "sha256-Kp1muVGm9ipL9CkQZs5yTRRXVqb1BPntfz+Kh3yW5Ac=";
+    hash = "sha256-YFfOo0ugYKEhjt3ZMpOmCDcByoUMqIK43jmbkBj/TPI=";
     fetcherVersion = 3;
   };
 

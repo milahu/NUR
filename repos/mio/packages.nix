@@ -309,6 +309,22 @@ byName
     inherit (librewolf-unwrapped) extraPrefsFiles extraPoliciesFiles;
     libName = "librewolf";
   };
+
+  davinci-resolve-studio2033 = davinci-resolve2033.override {
+    studioVariant = true;
+  };
+
+  baobab = pkgs.baobab.overrideAttrs (old: {
+    nativeBuildInputs =
+      (old.nativeBuildInputs or [ ])
+      ++ pkgs.lib.optional pkgs.stdenv.hostPlatform.isDarwin pkgs.desktopToDarwinBundle;
+  });
+
+  evince = pkgs.evince.overrideAttrs (old: {
+    nativeBuildInputs =
+      (old.nativeBuildInputs or [ ])
+      ++ pkgs.lib.optional pkgs.stdenv.hostPlatform.isDarwin pkgs.desktopToDarwinBundle;
+  });
 })
 // (lib.optionalAttrs (!nurbot) (
   with byName;
