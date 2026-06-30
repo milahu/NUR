@@ -1,19 +1,19 @@
 {
 "name":"definfo",
-"fetch_time":0.684,
-"eval_time":1.296,
+"fetch_time":0.512,
+"eval_time":1.272,
 "source":{
 "url":"https://github.com/definfo/nur-packages",
-"rev":"0e25f3322b2f1145464a3c8434bfe6cb2761de53",
-"sha256":"19pw98krkjq6y7v5waqjdaal4y8s332wdrmzgafr85rc2hyaq28x",
+"rev":"fab299b5db5167af1511da1678a738373d2edadf",
+"sha256":"0bv2pm5ckmi6zhm11h7fa5svxhyyddmbkprps88c6da6xh0ay0l9",
 "date":null
 },
-"source_storepath":"/nix/store/cilzb5g3kgdnxijkq4drxmqjzlr3d0xd-source",
-"nixpkgs_storepath":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source",
-"nur_combined_rev":"6814e0729e34b253e9edd56481a9a7bfbbd5bd8d",
+"source_storepath":"/nix/store/jil4bb2k0qxv4p2faswgggmp31asay4a-source",
+"nixpkgs_storepath":"/nix/store/jlcv47l7dkx3pykdykag7036pnmwg2gk-source",
+"nur_combined_rev":"6cf8e7c5f2bf23a3ed991f24a34de5adad500dd0",
 "packages":{
 "cli-proxy-api":{
-"drvPath":"/nix/store/ka9fmm0zphiz8q9bf47xdk6r1i2jvjsl-cli-proxy-api-7.1.43.drv",
+"drvPath":"/nix/store/cmws0kwjllw3h7g65z5s8cc4lsakp1m4-cli-proxy-api-7.1.43.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -92,6 +92,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/cli-proxy-api/default.nix:53",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -105,7 +111,7 @@
 "version":"7.1.43"
 },
 "dnsmasq-china-list_smartdns":{
-"drvPath":"/nix/store/wkbi2cal03vs0yznm2dz5nl0b4vii6rh-dnsmasq-china-list-0-unstable-2026-06-02.drv",
+"drvPath":"/nix/store/91aqi26x119gbsf7mf2nq04bbybmqbwn-dnsmasq-china-list-0-unstable-2026-06-02.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -161,7 +167,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cilzb5g3kgdnxijkq4drxmqjzlr3d0xd-source/pkgs/dnsmasq-china-list_smartdns/default.nix",
+"file":"/nix/store/jil4bb2k0qxv4p2faswgggmp31asay4a-source/pkgs/dnsmasq-china-list_smartdns/default.nix",
 "line":42
 },
 "name":"dnsmasq-china-list-0-unstable-2026-06-02",
@@ -259,6 +265,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/dnsmasq-china-list_smartdns/default.nix:38",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -272,7 +279,7 @@
 "version":"0-unstable-2026-06-02"
 },
 "nsub":{
-"drvPath":"/nix/store/2y2m719r8j77lxv9wzibb7wkydbxnr2f-nsub-0-unstable-2024-07-06.drv",
+"drvPath":"/nix/store/c55phy1irabh24awblqsl544kj4fbpv3-nsub-0-unstable-2024-07-06.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -328,7 +335,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cilzb5g3kgdnxijkq4drxmqjzlr3d0xd-source/pkgs/nsub/default.nix",
+"file":"/nix/store/jil4bb2k0qxv4p2faswgggmp31asay4a-source/pkgs/nsub/default.nix",
 "line":34
 },
 "name":"nsub-0-unstable-2024-07-06",
@@ -426,6 +433,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/nsub/default.nix:31",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -439,7 +447,7 @@
 "version":"0-unstable-2024-07-06"
 },
 "sarasa-term-sc-nerd":{
-"drvPath":"/nix/store/y32534mwj1xfa0x96cdzc0zzkxvmrpc1-sarasa-term-sc-nerd-2.3.1.drv",
+"drvPath":"/nix/store/spbr1vii0byk3zni455b9srhc4yqzlcs-sarasa-term-sc-nerd-2.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -495,7 +503,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cilzb5g3kgdnxijkq4drxmqjzlr3d0xd-source/pkgs/sarasa-term-sc-nerd/default.nix",
+"file":"/nix/store/jil4bb2k0qxv4p2faswgggmp31asay4a-source/pkgs/sarasa-term-sc-nerd/default.nix",
 "line":62
 },
 "name":"sarasa-term-sc-nerd-2.3.1",
@@ -593,6 +601,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/sarasa-term-sc-nerd/default.nix:58",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -606,7 +615,7 @@
 "version":"2.3.1"
 },
 "waylrc":{
-"drvPath":"/nix/store/h6l9zcsya3zk77xjjbx9lg124llqxh71-waylrc-2.2.4.drv",
+"drvPath":"/nix/store/q5rs8lghs7kqkrq5z82azymjf9d3zs60-waylrc-2.2.4.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -695,7 +704,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cilzb5g3kgdnxijkq4drxmqjzlr3d0xd-source/pkgs/waylrc/default.nix",
+"file":"/nix/store/jil4bb2k0qxv4p2faswgggmp31asay4a-source/pkgs/waylrc/default.nix",
 "line":34
 },
 "name":"waylrc-2.2.4",
@@ -732,6 +741,7 @@
 "riscv32-linux"
 ],
 "position":"./pkgs/waylrc/default.nix:26",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -745,7 +755,7 @@
 "version":"2.2.4"
 },
 "wemeet":{
-"drvPath":"/nix/store/anzvzjr2f06r1hr5lhhld6mzy2jdgdc5-wemeet-3.26.10.401.drv",
+"drvPath":"/nix/store/69hdjrhs0p2fan49df6jxsnrdp6ix8a2-wemeet-3.26.10.401.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -793,6 +803,12 @@
 "aarch64-linux"
 ],
 "position":"./pkgs/wemeet/linux.nix:313",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,

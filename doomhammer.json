@@ -1,19 +1,19 @@
 {
 "name":"doomhammer",
-"fetch_time":0.755,
-"eval_time":0.747,
+"fetch_time":0.521,
+"eval_time":0.806,
 "source":{
 "url":"https://github.com/doomhammer/nur-packages",
-"rev":"12fb2cb916faf654e86d0c4160ba9ac286a02d89",
-"sha256":"0smcg0h8lyfagqdv87n5di2x7py0hfb76pnaq723z8xn1hjjdna7",
+"rev":"8406a70b7e059b320b672b7ee91432aba660796e",
+"sha256":"07jxas71m2asyyjirj8lys2ifl7xkljmnwnb1cg4ps96y81lxnfv",
 "date":null
 },
-"source_storepath":"/nix/store/8bicr551m07ml4jyxrfahyj2ibc3jgd8-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"2fa9e6c422d4872aad80eb4e7ba22dc92e3c19ad",
+"source_storepath":"/nix/store/jppkjws42m2m4zhxcbjl9cw1m2mc3nqz-source",
+"nixpkgs_storepath":"/nix/store/jlcv47l7dkx3pykdykag7036pnmwg2gk-source",
+"nur_combined_rev":"bbe51d09ea2b8f85af68403f56458fa1b0605d00",
 "packages":{
 "gitpane":{
-"drvPath":"/nix/store/rzyk4sc5gjyya2ypd77qk67rpil16h8s-gitpane-v0.7.15.drv",
+"drvPath":"/nix/store/f6f57b66vm00xf0ay4c6hijv81f7fx7j-gitpane-v0.8.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -71,7 +71,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"gitpane-v0.7.15",
+"name":"gitpane-v0.8.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -117,15 +117,21 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/gitpane/default.nix:29",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
-"name":"gitpane-v0.7.15",
+"name":"gitpane-v0.8.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"gitpane-v0.7.15",
+"pname":"gitpane-v0.8.0",
 "system":"x86_64-linux",
 "version":""
 },
@@ -140,7 +146,7 @@
 "version":"1.1.1"
 },
 "mermaid-rs-renderer":{
-"drvPath":"/nix/store/kvc413skl2j7gqhy595dmyzwyvncw8sn-mermaid-rs-renderer-v0.2.2.drv",
+"drvPath":"/nix/store/9mc401knsrkmcn7zhphdwgxld2a42ild-mermaid-rs-renderer-v0.2.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -245,6 +251,12 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/mermaid-rs-renderer/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -278,7 +290,7 @@
 "version":"0-unstable-2026-05-29"
 },
 "powershell-beautifier":{
-"drvPath":"/nix/store/2pjf0qfj9pryklfh078i7pnmp2nbj3hl-powershell-beautifier.drv",
+"drvPath":"/nix/store/ajx3ck1c3slrqyqybipyj4wqaiy7mh6h-powershell-beautifier.drv",
 "meta":{
 "description":"A whitespace reformatter and code cleaner for Windows PowerShell and PowerShell Core",
 "homepage":"https://github.com/DTW-DanWard/PowerShell-Beautifier",

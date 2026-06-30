@@ -1,16 +1,16 @@
 {
 "name":"charmbracelet",
-"fetch_time":0.376,
-"eval_time":1.237,
+"fetch_time":0.493,
+"eval_time":1.29,
 "source":{
 "url":"https://github.com/charmbracelet/nur",
-"rev":"46e90ed9569cbfa50bfc217da1d079ff224c9f4e",
-"sha256":"1jxs2l0bz8ll5r363j4kz8kk7blxa5yrhzryfr9m10aj3dnycagi",
+"rev":"44d8511d6d72829192f973145ffcd53e29e9ad9e",
+"sha256":"1hyyyp7ip5qlng5jb5x9z2akkh8bd4krvcgqb1a36f9x67i3w6dg",
 "date":null
 },
-"source_storepath":"/nix/store/0lwmdj7vwfqwgzwi81v4am1xvr2b6xsa-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"17475753db3db4e10c723209b9105b3c1aaad4b1",
+"source_storepath":"/nix/store/hadj21pj1ww4dxa2aq7asg4ni48rd41s-source",
+"nixpkgs_storepath":"/nix/store/jlcv47l7dkx3pykdykag7036pnmwg2gk-source",
+"nur_combined_rev":"1139bddf991d1d5b3fbd2dbf8ac97042ae00d1dd",
 "packages":{
 "charm":{
 "name":"charm-0.12.6",
@@ -23,7 +23,7 @@
 "version":"0.12.6"
 },
 "confettysh":{
-"drvPath":"/nix/store/mx1ajfizmbzxi6n6iv54s03qgshbymy7-confettysh-1.1.2.drv",
+"drvPath":"/nix/store/qrvdghm3szfy0x0fbfqfig99i12ml8xf-confettysh-1.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -84,6 +84,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/confettysh/default.nix:55",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -103,17 +109,17 @@
 "version":"1.1.2"
 },
 "crush":{
-"name":"crush-0.80.0",
+"name":"crush-0.81.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"crush",
 "system":"x86_64-linux",
-"version":"0.80.0"
+"version":"0.81.0"
 },
 "freeze":{
-"drvPath":"/nix/store/95qfxi24bni35yhfrb2bi9y2gdy9gy55-freeze-0.2.2.drv",
+"drvPath":"/nix/store/0z7gaspmw8vnqv81z9g1zi7hj5h4ci3s-freeze-0.2.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -174,6 +180,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/freeze/default.nix:55",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -193,7 +205,7 @@
 "version":"0.2.2"
 },
 "glow":{
-"drvPath":"/nix/store/jgfk1b2m3x3arasbwipivfkzq6aqhqbi-glow-2.1.2.drv",
+"drvPath":"/nix/store/m2nr29fl2qc9zifz79a4dayjgi5rv54i-glow-2.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -254,6 +266,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/glow/default.nix:57",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -273,7 +291,7 @@
 "version":"2.1.2"
 },
 "gum":{
-"drvPath":"/nix/store/g9ic0hsx50fkllnqadj927wff67j94pb-gum-0.17.0.drv",
+"drvPath":"/nix/store/paid9isszrg1gq9j6i7d3a3af85fqdvq-gum-0.17.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -335,6 +353,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/gum/default.nix:60",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -354,7 +378,7 @@
 "version":"0.17.0"
 },
 "markscribe":{
-"drvPath":"/nix/store/a15r359mkhj1kzbbfr98h40dl05206x7-markscribe-0.8.1.drv",
+"drvPath":"/nix/store/q0f5z4ic56smz64rrz9yb7gslh9x6qgb-markscribe-0.8.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -415,6 +439,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/markscribe/default.nix:55",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -434,7 +464,7 @@
 "version":"0.8.1"
 },
 "melt":{
-"drvPath":"/nix/store/w8b7zxjm378imnv3y0lify9jzxpss25x-melt-0.6.2.drv",
+"drvPath":"/nix/store/s5jllsklgwyakmx6hbldqigpmax48v1x-melt-0.6.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -496,6 +526,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/melt/default.nix:60",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -515,7 +551,7 @@
 "version":"0.6.2"
 },
 "mods":{
-"drvPath":"/nix/store/a3xdl4igpi7rj4c4k07y584mljxzxbd0-mods-1.8.1.drv",
+"drvPath":"/nix/store/qq11f92f2na560zf99rq0b1bl5w5rmk0-mods-1.8.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -576,6 +612,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/mods/default.nix:57",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -595,7 +637,7 @@
 "version":"1.8.1"
 },
 "pop":{
-"drvPath":"/nix/store/7lk0f0dr9y26wz677z027g6yzirpjf7n-pop-0.2.1.drv",
+"drvPath":"/nix/store/6vpci82jwhsnja6k0kkcf7nf6h6zggrz-pop-0.2.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -657,6 +699,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/pop/default.nix:60",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -676,7 +724,7 @@
 "version":"0.2.1"
 },
 "sequin":{
-"drvPath":"/nix/store/wzdnpv5lx57flrjhwy81arbhqs2l958n-sequin-0.3.1.drv",
+"drvPath":"/nix/store/pqpzarzpwnvdplq59bg126by3xi1y6x6-sequin-0.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -737,6 +785,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/sequin/default.nix:55",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -756,7 +810,7 @@
 "version":"0.3.1"
 },
 "skate":{
-"drvPath":"/nix/store/1m4z1y9cqc6y1lcgav5p6hxy33g6nxh2-skate-1.0.1.drv",
+"drvPath":"/nix/store/8yism62ynlkyc66r032rlrqm3kkdilx8-skate-1.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -817,6 +871,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/skate/default.nix:55",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -836,7 +896,7 @@
 "version":"1.0.1"
 },
 "soft-serve":{
-"drvPath":"/nix/store/anzn4zlssbih73chkylrcjdfykbqi8xc-soft-serve-0.11.6.drv",
+"drvPath":"/nix/store/km48f45fd0v0dhx0pzgzs38648b1d25r-soft-serve-0.11.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -897,6 +957,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/soft-serve/default.nix:57",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -916,7 +982,7 @@
 "version":"0.11.6"
 },
 "vhs":{
-"drvPath":"/nix/store/l1799d7anky0g29f6aax1fl44qmq2ir9-vhs-0.11.0.drv",
+"drvPath":"/nix/store/qg0hdid91mjam2jlahmj5q3nlmc2wnfq-vhs-0.11.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -977,6 +1043,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/vhs/default.nix:62",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -996,7 +1068,7 @@
 "version":"0.11.0"
 },
 "wishlist":{
-"drvPath":"/nix/store/3f14cp1m5ygf8himnbkn758kfbjb0k7m-wishlist-0.15.2.drv",
+"drvPath":"/nix/store/p7mxkbpa06gjbcxsrhiwhdd9bawdxliv-wishlist-0.15.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1058,6 +1130,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/wishlist/default.nix:60",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,

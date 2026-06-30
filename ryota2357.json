@@ -1,16 +1,16 @@
 {
 "name":"ryota2357",
-"fetch_time":0.898,
-"eval_time":0.659,
+"fetch_time":0.519,
+"eval_time":0.628,
 "source":{
 "url":"https://github.com/ryota2357/nur-packages",
-"rev":"2fc59932461e35a5bce65f37b6064ef22e6ba964",
-"sha256":"0y6vsd3l9z7183pz9rzn2wd4a955rwwfpmjb3z4rq497fclz7985",
+"rev":"6308cdfd33e82b03446a8a1dd40e4511e48593f3",
+"sha256":"17dg9l2ifvss6rcsxr7628678qbgzadg79k9kqx54sx2kw6wviyc",
 "date":null
 },
-"source_storepath":"/nix/store/66snzfnrlr47v8m05gi6x9957yw9gjzi-source",
-"nixpkgs_storepath":"/nix/store/rf8y386qrylwnhi8bzmxcac7hrm0qi6h-source",
-"nur_combined_rev":"34c6f172e710d4e6d0b95fe9597beab4edfd4b4c",
+"source_storepath":"/nix/store/nlk2jlbqi3d19mg4cbjvs8a4yghv0hcc-source",
+"nixpkgs_storepath":"/nix/store/jlcv47l7dkx3pykdykag7036pnmwg2gk-source",
+"nur_combined_rev":"4b452cb6d06b1bb734ec1c25b2a5ebdb239a27d5",
 "packages":{
 "macos-ime":{
 "name":"macos-ime-unstable-2026-04-14",
@@ -23,7 +23,7 @@
 "version":"2026-04-14"
 },
 "mical":{
-"drvPath":"/nix/store/d06vhs2756vzqi8lbzwj7k2p3mmxvdi4-mical-0.0.2.drv",
+"drvPath":"/nix/store/57ia2hyslglr3rpbp9xk65ns9z9liqx0-mical-0.0.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -128,6 +128,12 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/mical/default.nix:14",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -141,7 +147,7 @@
 "version":"0.0.2"
 },
 "pleckjp-font":{
-"drvPath":"/nix/store/246p3xba7ws3vd5vsr7ql1hsl2ljzl09-pleckjp-font-2.1.2.drv",
+"drvPath":"/nix/store/vvximk0qgzpq7nmyp002vy76jld2dws2-pleckjp-font-2.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -276,6 +282,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/pleckjp-font/default.nix:31",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

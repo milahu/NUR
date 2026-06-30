@@ -1,19 +1,19 @@
 {
 "name":"wrvsrx",
-"fetch_time":0.772,
-"eval_time":2.561,
+"fetch_time":0.722,
+"eval_time":2.709,
 "source":{
 "url":"https://github.com/wrvsrx/nur-packages",
-"rev":"fefcec10ee0513c39741def05216c2a7e1873e72",
-"sha256":"1d51c5sr83fgcl92ba9bfxdj0p9ihv7n4kbm7hp70as88vb67l32",
+"rev":"6e936084f22143399d6503d32ad95b0fd5a97d3b",
+"sha256":"17f8lnsbv3njk3nw95q2pdp6cchijjjdrhvi838a9iddyfnvfpah",
 "date":null
 },
-"source_storepath":"/nix/store/5578pi2q52mbmfwsmqvg8bvzl630pn2h-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"7625943dfabe37ad5d787c50875ba44f0e5d876a",
+"source_storepath":"/nix/store/a49y8lgl99dlrcrm9wg9sc7gyv3sw6gc-source",
+"nixpkgs_storepath":"/nix/store/jlcv47l7dkx3pykdykag7036pnmwg2gk-source",
+"nur_combined_rev":"90f904c68588f010076370f1ce9eb0f0c64b586e",
 "packages":{
 "amgcl":{
-"drvPath":"/nix/store/pia35q5m55hmrhifnqkfn4j1yw5dbk1n-amgcl-1.4.7.drv",
+"drvPath":"/nix/store/kxr3dg5c5xhw97x7xcpss32s0r7dndln-amgcl-1.4.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -54,6 +54,7 @@
 "out"
 ],
 "position":"./pkgs/amgcl/default.nix:7",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -67,7 +68,7 @@
 "version":"1.4.7"
 },
 "autodiff":{
-"drvPath":"/nix/store/bbgqj6xx6bkrd815xkcr6jrcn47nh5nj-autodiff-1.1.2.drv",
+"drvPath":"/nix/store/h7g8rmxzgrkj5xpnzbil65qyf2cr91zp-autodiff-1.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -203,6 +204,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/autodiff/default.nix:50",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -216,7 +223,7 @@
 "version":"1.1.2"
 },
 "cmdlime":{
-"drvPath":"/nix/store/13s08w1xdcmq8kmhzbzx86isda4dwpig-cmdlime-2.7.0.drv",
+"drvPath":"/nix/store/vnmxmbkwg9465zcqfbmzwrdrydby85i9-cmdlime-2.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -257,6 +264,7 @@
 "out"
 ],
 "position":"./pkgs/cmdlime/default.nix:11",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -270,7 +278,7 @@
 "version":"2.7.0"
 },
 "cnpy":{
-"drvPath":"/nix/store/lvn0i4g6f809sgpsysvnh1b7sdzpavd5-cnpy-0-unstable-2018-05-31.drv",
+"drvPath":"/nix/store/20xgxd7xi7wxaq9b02gk1lhv3zc4jpk9-cnpy-0-unstable-2018-05-31.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -311,6 +319,7 @@
 "out"
 ],
 "position":"./pkgs/cnpy/default.nix:10",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -324,7 +333,7 @@
 "version":"0-unstable-2018-05-31"
 },
 "cuda-samples-common":{
-"drvPath":"/nix/store/nmrspnc6gvl7xhhd7vd7zxmi87xc4nxc-cuda-samples-common-12.8.drv",
+"drvPath":"/nix/store/icsxhjz3grcahff7wpw0ikwaw0nj76hq-cuda-samples-common-12.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -365,6 +374,7 @@
 "out"
 ],
 "position":"./pkgs/cuda-samples-common/default.nix:17",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -378,7 +388,7 @@
 "version":"12.8"
 },
 "cyCodeBase":{
-"drvPath":"/nix/store/izibwmqdc33y11ijrpndhj1j01x0lbnd-cyCodeBase-0-unstable-2024-05-26.drv",
+"drvPath":"/nix/store/cn039zlf2507n7fw6yrrmj96ciznghsk-cyCodeBase-0-unstable-2024-05-26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -419,6 +429,7 @@
 "out"
 ],
 "position":"./pkgs/cyCodeBase/default.nix:10",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -432,7 +443,7 @@
 "version":"0-unstable-2024-05-26"
 },
 "djot-tools":{
-"drvPath":"/nix/store/s5dsjw04vkpbqf7wpdjwhpcihfjsi6b9-djot-tools-0.19.1.drv",
+"drvPath":"/nix/store/jw52hr9lm7j0ky86mi2y90yy5bzlgsv6-djot-tools-0.21.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -478,7 +489,7 @@
 },
 "insecure":false,
 "maintainers":[],
-"name":"djot-tools-0.19.1",
+"name":"djot-tools-0.21.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -524,20 +535,21 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/djot-tools/default.nix:7",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"djot-tools-0.19.1",
+"name":"djot-tools-0.21.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"djot-tools",
 "system":"x86_64-linux",
-"version":"0.19.1"
+"version":"0.21.1"
 },
 "fcitx5-rime":{
-"drvPath":"/nix/store/jkcwmgihi1jkaz8a54y05lxxgcb3404v-fcitx5-rime-5.1.14.drv",
+"drvPath":"/nix/store/y9a6z369j8jkfcf7gqkx12qns1y2wlc3-fcitx5-rime-5.1.14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -598,7 +610,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/by-name/fc/fcitx5-rime/package.nix",
+"file":"/nix/store/jlcv47l7dkx3pykdykag7036pnmwg2gk-source/pkgs/by-name/fc/fcitx5-rime/package.nix",
 "line":62
 },
 "name":"fcitx5-rime-5.1.14",
@@ -645,6 +657,7 @@
 "x86_64-linux"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/fc/fcitx5-rime/package.nix:59",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -658,7 +671,7 @@
 "version":"5.1.14"
 },
 "giraffe-wallpaper":{
-"drvPath":"/nix/store/prziy5gdm85ym94h3p2kyygg24h2rzsy-giraffe-wallpaper-0-unstable-2025-04-06.drv",
+"drvPath":"/nix/store/9dlppfz1z8j6lc2jlls5m8k3smypxyyl-giraffe-wallpaper-0-unstable-2025-04-06.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -699,6 +712,7 @@
 "out"
 ],
 "position":"./pkgs/giraffe-wallpaper/default.nix:14",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -712,7 +726,7 @@
 "version":"0-unstable-2025-04-06"
 },
 "goauthing":{
-"drvPath":"/nix/store/6rri4z8rjv1hvx016w2af1bkc3flzbjs-goauthing-2.4.0.drv",
+"drvPath":"/nix/store/4nwdjxrkjxvap77cvv4pb82pw246d7yq-goauthing-2.4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -799,6 +813,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/goauthing/default.nix:20",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -812,7 +832,7 @@
 "version":"2.4.0"
 },
 "happly":{
-"drvPath":"/nix/store/p1c42rxp5lkhp7gx2chkx5yjwva5mnk6-happly-0-unstable-2024-02-06.drv",
+"drvPath":"/nix/store/ppra2pvrigv5jz0hcvhnpsip3dw0zp82-happly-0-unstable-2024-02-06.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -853,6 +873,7 @@
 "out"
 ],
 "position":"./pkgs/happly/default.nix:9",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -866,7 +887,7 @@
 "version":"0-unstable-2024-02-06"
 },
 "haskellPackages.task-utils":{
-"drvPath":"/nix/store/gynjsb8ddgygsprg9fqk3vinl932fv82-task-utils-0-unstable-2026-02-26.drv",
+"drvPath":"/nix/store/jbczl3f444qvhn76ca50c9qn60dqycgz-task-utils-0-unstable-2026-02-26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1001,6 +1022,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/haskell-overlay/task-utils/default.nix:35",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1014,7 +1036,7 @@
 "version":"0-unstable-2026-02-26"
 },
 "hougeo":{
-"drvPath":"/nix/store/i7fn2qv43480whw36ya4k4f3bvv882wk-hougeo-0-unstable-2015-10-31.drv",
+"drvPath":"/nix/store/6ggi4dxdbbb3rafsjv41gw4bq42dc79s-hougeo-0-unstable-2015-10-31.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1055,6 +1077,7 @@
 "out"
 ],
 "position":"./pkgs/hougeo/default.nix:9",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1068,7 +1091,7 @@
 "version":"0-unstable-2015-10-31"
 },
 "iwe":{
-"drvPath":"/nix/store/80m0frnzfzczcmbxzk6llph747kpy98s-iwe-0.1.7.drv",
+"drvPath":"/nix/store/rsmlklw74s88djdzw2aqs0z4ip6h6wwa-iwe-0.1.7.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1143,7 +1166,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5578pi2q52mbmfwsmqvg8bvzl630pn2h-source/pkgs/iwe/default.nix",
+"file":"/nix/store/a49y8lgl99dlrcrm9wg9sc7gyv3sw6gc-source/pkgs/iwe/default.nix",
 "line":48
 },
 "name":"iwe-0.1.7",
@@ -1206,6 +1229,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/iwe/default.nix:45",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1219,7 +1243,7 @@
 "version":"0.1.7"
 },
 "kdePackages.qt6ct":{
-"drvPath":"/nix/store/n87h01p6y1w9n6rnsp2gfv64k3fi5cvc-qt6ct-0.11.drv",
+"drvPath":"/nix/store/nmhx4jbnhx6z9yws5944pa1l0m54sazh-qt6ct-0.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1293,7 +1317,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/tools/misc/qt6ct/default.nix",
+"file":"/nix/store/jlcv47l7dkx3pykdykag7036pnmwg2gk-source/pkgs/tools/misc/qt6ct/default.nix",
 "line":46
 },
 "name":"qt6ct-0.11",
@@ -1352,6 +1376,7 @@
 "x86_64-linux"
 ],
 "position":"<nixpkgs> + /pkgs/tools/misc/qt6ct/default.nix:42",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1365,7 +1390,7 @@
 "version":"0.11"
 },
 "leanPackages.get-environment":{
-"drvPath":"/nix/store/9dmzqdwgl23izgqdch10sw1xq7a45f19-lean4-get-environment-0.3.0.drv",
+"drvPath":"/nix/store/0myc5mwx38vmlfiv4g95dv52qg3a4isv-lean4-get-environment-0.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1488,6 +1513,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/lean-packages/get-environment/default.nix:7",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1501,7 +1527,7 @@
 "version":"0.3.0"
 },
 "leanPackages.xdg":{
-"drvPath":"/nix/store/mydjz0k27p61a47g6bmb16x04idgzkjb-lean4-xdg-0.17.0.drv",
+"drvPath":"/nix/store/0x5nsfnx6y3y01rprin2pkr6jcrkiki8-lean4-xdg-0.17.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1624,6 +1650,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/lean-packages/xdg/default.nix:7",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1637,7 +1664,7 @@
 "version":"0.17.0"
 },
 "leanPackages.xdg-user-dirs":{
-"drvPath":"/nix/store/biii330kgs4i39j1cbxfagy0hw97navc-lean4-xdg-user-dirs-0.3.0.drv",
+"drvPath":"/nix/store/77yih2h2qx25r24w6jy51am63xabgbz9-lean4-xdg-user-dirs-0.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1760,6 +1787,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/lean-packages/xdg-user-dirs/default.nix:10",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1773,7 +1801,7 @@
 "version":"0.3.0"
 },
 "leanPackages.xml":{
-"drvPath":"/nix/store/cahmfkgs3zjwvwdf4nh9s6klcsg5zs2f-lean4-xml-0.1.0.drv",
+"drvPath":"/nix/store/5d3446w2vp12s60gnbad6bxr38kand2q-lean4-xml-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1896,6 +1924,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/lean-packages/xml/default.nix:7",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1909,7 +1938,7 @@
 "version":"0.1.0"
 },
 "librime":{
-"drvPath":"/nix/store/9bi86w7k7wp11ca61zdbiywd26fv6yhc-librime-1.17.0.drv",
+"drvPath":"/nix/store/f37d3iidy3y0h7c1rjygi1blg5n93pz5-librime-1.17.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1965,7 +1994,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/by-name/li/librime/package.nix",
+"file":"/nix/store/jlcv47l7dkx3pykdykag7036pnmwg2gk-source/pkgs/by-name/li/librime/package.nix",
 "line":65
 },
 "name":"librime-1.17.0",
@@ -2009,6 +2038,7 @@
 "aarch64-darwin"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/li/librime/package.nix:63",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2022,7 +2052,7 @@
 "version":"1.17.0"
 },
 "libsForQt5.qt5ct":{
-"drvPath":"/nix/store/1nlbzbsy0sqrciv2rfj4k1zh896ijyvk-qt5ct-1.9.drv",
+"drvPath":"/nix/store/bfdnanlhkjlf88fc8jak9h3cfqvip5q3-qt5ct-1.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2072,7 +2102,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/tools/misc/qt5ct/default.nix",
+"file":"/nix/store/jlcv47l7dkx3pykdykag7036pnmwg2gk-source/pkgs/tools/misc/qt5ct/default.nix",
 "line":45
 },
 "name":"qt5ct-1.9",
@@ -2107,6 +2137,12 @@
 "x86_64-linux"
 ],
 "position":"<nixpkgs> + /pkgs/tools/misc/qt5ct/default.nix:41",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2120,7 +2156,7 @@
 "version":"1.9"
 },
 "niri":{
-"drvPath":"/nix/store/dxjq6lv9j5khj3afdlrnhp9p971hmj46-niri-26.04.drv",
+"drvPath":"/nix/store/9vbxrasf0yjv1qpqas5l236nw2x5a01a-niri-26.04.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2211,7 +2247,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/by-name/ni/niri/package.nix",
+"file":"/nix/store/jlcv47l7dkx3pykdykag7036pnmwg2gk-source/pkgs/by-name/ni/niri/package.nix",
 "line":140
 },
 "name":"niri-26.04",
@@ -2270,6 +2306,7 @@
 "riscv32-linux"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/ni/niri/package.nix:136",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2284,7 +2321,7 @@
 "version":"26.04"
 },
 "pam_ssh_agent_auth":{
-"drvPath":"/nix/store/hqs0qw9b997n9fdwcspl75mgdra5lvr1-pam_ssh_agent_auth-0.10.4.drv",
+"drvPath":"/nix/store/rvd9cmj8y4rvsrrd3d0apnnxii3vv85k-pam_ssh_agent_auth-0.10.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2323,7 +2360,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/by-name/pa/pam_ssh_agent_auth/package.nix",
+"file":"/nix/store/jlcv47l7dkx3pykdykag7036pnmwg2gk-source/pkgs/by-name/pa/pam_ssh_agent_auth/package.nix",
 "line":100
 },
 "name":"pam_ssh_agent_auth-0.10.4",
@@ -2358,6 +2395,12 @@
 "x86_64-linux"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/pa/pam_ssh_agent_auth/package.nix:99",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2371,7 +2414,7 @@
 "version":"0.10.4"
 },
 "pandoc-to-anki":{
-"drvPath":"/nix/store/8i5p5l01jc77mcpjqpamcshrq01rqfm9-pandoc-to-anki-0.3.0.drv",
+"drvPath":"/nix/store/40j0r98n90advh0van4dakd32dgiwyzk-pandoc-to-anki-0.3.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2463,6 +2506,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/pandoc-to-anki/default.nix:8",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2476,7 +2520,7 @@
 "version":"0.3.0"
 },
 "ptrace-time-hook":{
-"drvPath":"/nix/store/lbvakv656dfpgkhl4dslcxd6dr6g1f0m-ptrace-time-hook-0.1.0.drv",
+"drvPath":"/nix/store/5cizvzjzj2v6kmvca7klbp1z8l1c6xdj-ptrace-time-hook-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2526,7 +2570,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5578pi2q52mbmfwsmqvg8bvzl630pn2h-source/pkgs/ptrace-time-hook/default.nix",
+"file":"/nix/store/a49y8lgl99dlrcrm9wg9sc7gyv3sw6gc-source/pkgs/ptrace-time-hook/default.nix",
 "line":93
 },
 "name":"ptrace-time-hook-0.1.0",
@@ -2538,6 +2582,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/ptrace-time-hook/default.nix:78",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2551,7 +2601,7 @@
 "version":"0.1.0"
 },
 "python3Packages.autobean-format":{
-"drvPath":"/nix/store/4g5m2r3yi95p9glfp29bry5gflcgbgnl-python3.13-autobean-format-0.1.6.drv",
+"drvPath":"/nix/store/5ldywfxcr7wh1c4af4fb79bslpcrka6d-python3.13-autobean-format-0.1.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2660,6 +2710,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/python-overlay/autobean-format/default.nix:10",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2674,7 +2725,7 @@
 "version":"0.1.6"
 },
 "python3Packages.autobean-refactor":{
-"drvPath":"/nix/store/d13h1ncddzb57xpqii4kz1gl4af7wkkq-python3.13-autobean-refactor-0.2.5.drv",
+"drvPath":"/nix/store/1ighjiw5l6qxkbn2dsnvx6c1h8hraq10-python3.13-autobean-refactor-0.2.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2783,6 +2834,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/python-overlay/autobean-refactor/default.nix:11",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2797,7 +2849,7 @@
 "version":"0.2.5"
 },
 "python3Packages.e3nn-jax":{
-"drvPath":"/nix/store/0q35phnwl2xf3p64jdp8ixhkmkk4n6dg-python3.13-e3nn-jax-0.20.7.drv",
+"drvPath":"/nix/store/aij09lc3xqbc1wih2kajkmy96h4mibqq-python3.13-e3nn-jax-0.20.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2906,6 +2958,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/python-overlay/e3nn-jax/default.nix:14",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2931,7 +2984,7 @@
 "version":"0.2.8"
 },
 "python3Packages.jraph":{
-"drvPath":"/nix/store/l6qkd1yjz154sir7fajg86s626qyfvy6-python3.13-jraph-0.0.6.dev0.drv",
+"drvPath":"/nix/store/r53jvgydfw2fggmxcxr3zypa9sgz1zl9-python3.13-jraph-0.0.6.dev0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3040,6 +3093,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/python-overlay/jraph/default.nix:11",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3054,7 +3108,7 @@
 "version":"0.0.6.dev0"
 },
 "python3Packages.keymap-drawer":{
-"drvPath":"/nix/store/5j060b6zbjji58yk6dglayjllqx8c6z9-python3.13-keymap-drawer-0.22.1.drv",
+"drvPath":"/nix/store/zidl0n7skngmkddl2khqhvi0xl247dc8-python3.13-keymap-drawer-0.22.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3163,6 +3217,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/python-overlay/keymap-drawer/default.nix:22",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3177,7 +3232,7 @@
 "version":"0.22.1"
 },
 "python3Packages.tree-sitter-devicetree":{
-"drvPath":"/nix/store/zbxddbi1s1f038yzf3qpbkqx5s5iw1zg-python3.13-tree-sitter-devicetree-0.15.0.drv",
+"drvPath":"/nix/store/4rkjrd8y10ff6p2jr604b2g7j4zbgwvy-python3.13-tree-sitter-devicetree-0.15.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3286,6 +3341,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/python-overlay/tree-sitter-devicetree/default.nix:11",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3300,7 +3356,7 @@
 "version":"0.15.0"
 },
 "rimePackages.rime-fcitx5":{
-"drvPath":"/nix/store/mk9pz0qkscz02jqqy58d3qnavhx6yc8s-rime-fcitx5-5.1.14.drv",
+"drvPath":"/nix/store/sp2h9blzwr6x6d7czglpnibidxxcml0y-rime-fcitx5-5.1.14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3341,6 +3397,7 @@
 "out"
 ],
 "position":"./pkgs/rime-packages/rime-fcitx5/default.nix:10",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3354,7 +3411,7 @@
 "version":"5.1.14"
 },
 "rimePackages.rime-ice-double-pinyin":{
-"drvPath":"/nix/store/va7y7bwy57z1jxwxy9f8qq9xm9vy9psy-rime-ice-double-pinyin-2026.06.03-03.drv",
+"drvPath":"/nix/store/j9giwjx4ag8mmw7d3sk36q0nwmi84sa7-rime-ice-double-pinyin-2026.06.03-03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3395,6 +3452,7 @@
 "out"
 ],
 "position":"./pkgs/rime-packages/rime-ice-modular/components.nix:35",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3408,7 +3466,7 @@
 "version":"2026.06.03-03"
 },
 "rimePackages.rime-ice-double-pinyin-abc":{
-"drvPath":"/nix/store/j5imkxfwkbqhww6kwrvjpsy9zy8r5li1-rime-ice-double-pinyin-abc-2026.06.03-03.drv",
+"drvPath":"/nix/store/n937s29pc01bpcam3zh1bvgpv7xfh40i-rime-ice-double-pinyin-abc-2026.06.03-03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3449,6 +3507,7 @@
 "out"
 ],
 "position":"./pkgs/rime-packages/rime-ice-modular/components.nix:35",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3462,7 +3521,7 @@
 "version":"2026.06.03-03"
 },
 "rimePackages.rime-ice-double-pinyin-flypy":{
-"drvPath":"/nix/store/rq9v661gl0c990zdp9zw44pcw6a6bnl9-rime-ice-double-pinyin-flypy-2026.06.03-03.drv",
+"drvPath":"/nix/store/4gnfwn2ny0fwn435xw7dgldppsnyg37s-rime-ice-double-pinyin-flypy-2026.06.03-03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3503,6 +3562,7 @@
 "out"
 ],
 "position":"./pkgs/rime-packages/rime-ice-modular/components.nix:35",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3516,7 +3576,7 @@
 "version":"2026.06.03-03"
 },
 "rimePackages.rime-ice-double-pinyin-mspy":{
-"drvPath":"/nix/store/5cn8s07r1qim56szaql01g2qn5bb8i1l-rime-ice-double-pinyin-mspy-2026.06.03-03.drv",
+"drvPath":"/nix/store/gl2kzs295p3asag3b90wb1h9cga2vcp4-rime-ice-double-pinyin-mspy-2026.06.03-03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3557,6 +3617,7 @@
 "out"
 ],
 "position":"./pkgs/rime-packages/rime-ice-modular/components.nix:35",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3570,7 +3631,7 @@
 "version":"2026.06.03-03"
 },
 "rimePackages.rime-ice-double-pinyin-sogou":{
-"drvPath":"/nix/store/g6i364gf1nx6hsi76hb281gnl8pkk20c-rime-ice-double-pinyin-sogou-2026.06.03-03.drv",
+"drvPath":"/nix/store/yy0sbna5zk3y63wpca4by2z2s11zf4ii-rime-ice-double-pinyin-sogou-2026.06.03-03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3611,6 +3672,7 @@
 "out"
 ],
 "position":"./pkgs/rime-packages/rime-ice-modular/components.nix:35",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3624,7 +3686,7 @@
 "version":"2026.06.03-03"
 },
 "rimePackages.rime-ice-double-pinyin-ziguang":{
-"drvPath":"/nix/store/9qbz1vnk28bwpygyxw3mbkpa3c58437f-rime-ice-double-pinyin-ziguang-2026.06.03-03.drv",
+"drvPath":"/nix/store/a0jwdd3pbvxr5isdq0rsm8xv712fggvb-rime-ice-double-pinyin-ziguang-2026.06.03-03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3665,6 +3727,7 @@
 "out"
 ],
 "position":"./pkgs/rime-packages/rime-ice-modular/components.nix:35",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3678,7 +3741,7 @@
 "version":"2026.06.03-03"
 },
 "rimePackages.rime-ice-pinyin":{
-"drvPath":"/nix/store/isb4qd8l5snaj37czjp8zjizhgpyf1vd-rime-ice-pinyin-2026.06.03-03.drv",
+"drvPath":"/nix/store/jb8k9hwhrnmagyhqdnz9f3m6vldqbxk3-rime-ice-pinyin-2026.06.03-03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3719,6 +3782,7 @@
 "out"
 ],
 "position":"./pkgs/rime-packages/rime-ice-modular/components.nix:35",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3732,7 +3796,7 @@
 "version":"2026.06.03-03"
 },
 "rimePackages.rime-prelude":{
-"drvPath":"/nix/store/0yrxc4iqiwfn14cd7611ax9i845r6z8d-rime-prelude-0-unstable-2024-05-19.drv",
+"drvPath":"/nix/store/b1bcrqcmnh4x777vpwdza8cfb714qwki-rime-prelude-0-unstable-2024-05-19.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3773,6 +3837,7 @@
 "out"
 ],
 "position":"./pkgs/rime-packages/rime-prelude/default.nix:7",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3786,7 +3851,7 @@
 "version":"0-unstable-2024-05-19"
 },
 "rimePackages.rimeDataBuildHook":{
-"drvPath":"/nix/store/j9y1akccriz53pyr6z2f42frsqgvksxm-rime-data-build-hook.sh.drv",
+"drvPath":"/nix/store/6i4y6klbn5xxmvkmnwpd8wd2sqd4bjya-rime-data-build-hook.sh.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3827,6 +3892,7 @@
 "out"
 ],
 "position":"./externals/linyinfeng/pkgs/rime-packages/hooks/default.nix:5",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3840,7 +3906,7 @@
 "version":""
 },
 "seal_lake":{
-"drvPath":"/nix/store/8q1qbhbg7rs3mdj16zs3x49an31n20a2-seal_lake-0.2.0.drv",
+"drvPath":"/nix/store/mk1yaklzs4p5qnghkn0hmagwp2iig5pc-seal_lake-0.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3881,6 +3947,7 @@
 "out"
 ],
 "position":"./pkgs/seal_lake/default.nix:8",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3894,7 +3961,7 @@
 "version":"0.2.0"
 },
 "sfun":{
-"drvPath":"/nix/store/zzw2q03cjqhj7cnlgzfjgfzl3pjz01aj-sfun-5.1.0.drv",
+"drvPath":"/nix/store/cpr3fw3ar4hhm6ad5d8a6l4mc8izdjdw-sfun-5.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3935,6 +4002,7 @@
 "out"
 ],
 "position":"./pkgs/sfun/default.nix:11",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3948,7 +4016,7 @@
 "version":"5.1.0"
 },
 "structopt":{
-"drvPath":"/nix/store/29wh0lndx0s1ll98lj4fwn8063kszzlm-structopt-0.1.3.drv",
+"drvPath":"/nix/store/gnsqqkxz25j3yl58npwdsdgnxcn1vaqg-structopt-0.1.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3989,6 +4057,7 @@
 "out"
 ],
 "position":"./pkgs/structopt/default.nix:9",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4002,7 +4071,7 @@
 "version":"0.1.3"
 },
 "v2ray-rules-dat":{
-"drvPath":"/nix/store/h64xzm1a91wzqpx2mbsbwqgnn5hmfd30-v2ray-rules-dat-202604272244.drv",
+"drvPath":"/nix/store/189dmrdp2zdg4bj6z6jgb5zjrdfk0ksg-v2ray-rules-dat-202604272244.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4043,6 +4112,7 @@
 "out"
 ],
 "position":"./pkgs/v2ray-rules-dat/default.nix:9",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4056,7 +4126,7 @@
 "version":"202604272244"
 },
 "vimPlugins.iwe-nvim":{
-"drvPath":"/nix/store/jgjvqapylnypxv2n57vm08dv1rzbdqy2-vimplugin-iwe-nvim-0-unstable-2026-05-17.drv",
+"drvPath":"/nix/store/6zh5yrfyg3wv79hr3lxsh203w2f3xcjw-vimplugin-iwe-nvim-0-unstable-2026-05-17.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4179,6 +4249,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/vim-plugins-overlay/iwe-nvim/default.nix:4",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4192,7 +4263,7 @@
 "version":"0-unstable-2026-05-17"
 },
 "vscode-markdown-languageserver":{
-"drvPath":"/nix/store/zj7ii5yj0b4d3r0iz1prydj5aznkb0f3-vscode-markdown-languageserver-0.5.0-alpha.12.drv",
+"drvPath":"/nix/store/jyfsqrq62qwwck5i8iib91qlky0jnam4-vscode-markdown-languageserver-0.5.0-alpha.12.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4257,6 +4328,7 @@
 "s390x-linux"
 ],
 "position":"./pkgs/vscode-markdown-languageserver/default.nix:9",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4270,7 +4342,7 @@
 "version":"0.5.0-alpha.12"
 },
 "wl-uinput-proxy":{
-"drvPath":"/nix/store/4r0635ds0xi31m9yir0l2gmgwgh7b5zc-wl-uinput-proxy-0.0.4.drv",
+"drvPath":"/nix/store/jikk9c4w83bhdrw8490gsmvjmr3z8lz8-wl-uinput-proxy-0.0.4.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -4357,6 +4429,12 @@
 "riscv32-linux"
 ],
 "position":"./pkgs/wl-uinput-proxy/default.nix:20",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -4370,7 +4448,7 @@
 "version":"0.0.4"
 },
 "xclip":{
-"drvPath":"/nix/store/2icra3hximby04f380cariihqaj3cnlj-xclip-0.13-unstable-2022-01-29.drv",
+"drvPath":"/nix/store/kvrsvjimkhc39ikahhffz06j040y0hy3-xclip-0.13-unstable-2022-01-29.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4506,6 +4584,12 @@
 "x86_64-uefi"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/xc/xclip/package.nix:25",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
