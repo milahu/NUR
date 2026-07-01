@@ -1,31 +1,31 @@
 error:
 … while evaluating the attribute 'list-auto-roots'
-  at <nixpkgs> + /lib/attrsets.nix:982:47:
-   981|   */
-   982|   nameValuePair = name: value: { inherit name value; };
+  at <nixpkgs> + /lib/attrsets.nix:987:47:
+   986|   */
+   987|   nameValuePair = name: value: { inherit name value; };
       |                                               ^
-   983|
+   988|
 
 … from call site
-  at <nixpkgs> + /lib/attrsets.nix:1343:61:
-  1342|   */
-  1343|   genAttrs = names: f: genAttrs' names (n: nameValuePair n (f n));
+  at <nixpkgs> + /lib/attrsets.nix:1348:61:
+  1347|   */
+  1348|   genAttrs = names: f: genAttrs' names (n: nameValuePair n (f n));
       |                                                             ^
-  1344|
+  1349|
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/attrsets.nix:586:44:
-   585|   */
-   586|   getAttrs = names: attrs: genAttrs names (name: attrs.${name});
+  at <nixpkgs> + /lib/attrsets.nix:591:44:
+   590|   */
+   591|   getAttrs = names: attrs: genAttrs names (name: attrs.${name});
       |                                            ^
-   587|
+   592|
 
 … from call site
-  at <nixpkgs> + /lib/attrsets.nix:586:50:
-   585|   */
-   586|   getAttrs = names: attrs: genAttrs names (name: attrs.${name});
+  at <nixpkgs> + /lib/attrsets.nix:591:50:
+   590|   */
+   591|   getAttrs = names: attrs: genAttrs names (name: attrs.${name});
       |                                                  ^
-   587|
+   592|
 
 … while calling anonymous lambda
   at ./overlays/newPackages.nix:5:23:
