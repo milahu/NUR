@@ -1,19 +1,19 @@
 {
 "name":"tnmt",
-"fetch_time":0.912,
-"eval_time":1.304,
+"fetch_time":0.371,
+"eval_time":1.398,
 "source":{
 "url":"https://github.com/tnmt/nur-packages",
-"rev":"b8f4414026dc7773d564ea17d818699cf5d14bb8",
-"sha256":"05x5r04k864yqmzzk8fgjib6nsbp4smila0rglandkfba3sijpm9",
+"rev":"37e71fa16fb1318dd376672b401442d796683100",
+"sha256":"1q36zr563nc88pc9vrzcvw19d5n3k9icwswj3b4gsxsd63rcdrgb",
 "date":null
 },
-"source_storepath":"/nix/store/5bhpxwsh6vjzmq07hb7hc5s99w795v4n-source",
-"nixpkgs_storepath":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source",
-"nur_combined_rev":"a7c9b7072ad39ffc06cd1e99b9f4b5726482bd43",
+"source_storepath":"/nix/store/jkq9y3xx92ka4hhh5qrk3vv1yhfkjj18-source",
+"nixpkgs_storepath":"/nix/store/y03zsf7wq1m7naqg718mbr12w2jf2wlf-source",
+"nur_combined_rev":"12d19d5e130602afc0828cf1fcfcb7fce1db2b33",
 "packages":{
 "brave-origin":{
-"drvPath":"/nix/store/6rnfdqsy80yslsgmvkb0fcg3g6qkbzr5-brave-origin-1.91.175.drv",
+"drvPath":"/nix/store/m3y6lxnrax50p0njh0gjl31ls6nahsbf-brave-origin-1.91.175.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -71,6 +71,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/brave-origin/default.nix:261",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -100,7 +106,7 @@
 "version":"1.63.5"
 },
 "ccusage":{
-"drvPath":"/nix/store/jlv2y5ra7k07ir070bbd6hg6c1c3a1bq-ccusage-20.0.11.drv",
+"drvPath":"/nix/store/bcn2rw8xzyzwrq5q7k55b036kv5j9zl5-ccusage-20.0.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -154,6 +160,12 @@
 "out"
 ],
 "position":"./pkgs/ccusage/default.nix:31",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -167,7 +179,7 @@
 "version":"20.0.11"
 },
 "git-wt":{
-"drvPath":"/nix/store/3020fi9f4hdbvz5vq9jy8wbxnvjbmmri-git-wt-0.29.0.drv",
+"drvPath":"/nix/store/vb0006957vrlpdzh690ah6i70wxnid4j-git-wt-0.29.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -254,6 +266,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/git-wt/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -267,7 +285,7 @@
 "version":"0.29.0"
 },
 "givy":{
-"drvPath":"/nix/store/5hm43vhfjjl39kykxrawlic6vrw33h4p-givy-0.7.0.drv",
+"drvPath":"/nix/store/n0gsn0rdmqf0z9xcyf6x4ziqhrrm9p3v-givy-0.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -317,7 +335,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5bhpxwsh6vjzmq07hb7hc5s99w795v4n-source/pkgs/givy/default.nix",
+"file":"/nix/store/jkq9y3xx92ka4hhh5qrk3vv1yhfkjj18-source/pkgs/givy/default.nix",
 "line":83
 },
 "name":"givy-0.7.0",
@@ -359,6 +377,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/givy/default.nix:79",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -372,7 +396,7 @@
 "version":"0.7.0"
 },
 "herdr":{
-"drvPath":"/nix/store/w9iw94j989j1d0d1ab340cfcj6c3in6z-herdr-0.7.0.drv",
+"drvPath":"/nix/store/nkvramqj87hk8alx2gab4fggg654lf64-herdr-0.7.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -422,10 +446,10 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5bhpxwsh6vjzmq07hb7hc5s99w795v4n-source/pkgs/herdr/default.nix",
+"file":"/nix/store/jkq9y3xx92ka4hhh5qrk3vv1yhfkjj18-source/pkgs/herdr/default.nix",
 "line":58
 },
-"name":"herdr-0.7.0",
+"name":"herdr-0.7.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -437,6 +461,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/herdr/default.nix:52",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -446,17 +476,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"herdr-0.7.0",
+"name":"herdr-0.7.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"herdr",
 "system":"x86_64-linux",
-"version":"0.7.0"
+"version":"0.7.1"
 },
 "kagiana":{
-"drvPath":"/nix/store/yyf7ygc4xw7fayfin91ang7hagmigrnr-kagiana-0.5.0.drv",
+"drvPath":"/nix/store/nd48skb6ggls9hqf487hi1pg8768615y-kagiana-0.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -543,6 +573,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/kagiana/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -556,7 +592,7 @@
 "version":"0.5.0"
 },
 "mo":{
-"drvPath":"/nix/store/pqw1hbspyqapxmff4z78hrsla6xw6b4q-mo-1.5.2.drv",
+"drvPath":"/nix/store/c1w3hr36lrgnyp4r8d6jc7cay9b31lv8-mo-1.5.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -606,7 +642,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/5bhpxwsh6vjzmq07hb7hc5s99w795v4n-source/pkgs/mo/default.nix",
+"file":"/nix/store/jkq9y3xx92ka4hhh5qrk3vv1yhfkjj18-source/pkgs/mo/default.nix",
 "line":102
 },
 "name":"mo-1.5.2",
@@ -648,6 +684,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/mo/default.nix:98",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -671,7 +713,7 @@
 "version":"0.7.2"
 },
 "roots":{
-"drvPath":"/nix/store/nlqbk7dariawnicmpz8md2jbid1p6wdx-roots-0.4.1.drv",
+"drvPath":"/nix/store/baccdby5wvh87bmbys5l26c90v7bz0y4-roots-0.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -758,6 +800,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/roots/default.nix:27",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -771,7 +819,7 @@
 "version":"0.4.1"
 },
 "symbol-desktop-wallet":{
-"drvPath":"/nix/store/msmm8fl0i43d0hfcbz05r2bd29wbm149-symbol-desktop-wallet-1.2.0.drv",
+"drvPath":"/nix/store/7v4jlcrn7zw346zgjlfq93wmfjqs5fns-symbol-desktop-wallet-1.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -828,6 +876,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/symbol-desktop-wallet/default.nix:62",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,

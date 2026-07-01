@@ -1,19 +1,19 @@
 {
 "name":"jeffguorg",
-"fetch_time":0.784,
-"eval_time":1.153,
+"fetch_time":0.458,
+"eval_time":1.208,
 "source":{
 "url":"https://github.com/jeffguorg/nur-packages",
-"rev":"21b7d462eff9fdefd271a78404e4ffb242eb6f94",
-"sha256":"1n92hh16j4gy8zmjfjjw512wrgbqh3a79yzpyknx953fa9w42pvw",
+"rev":"cccd17cfb0b170484781f9410cec5dd1d181d51c",
+"sha256":"0p7a90kmnw2f7ary5bhh75n9idfrdn9whmncpkav9k6psw9q3ls6",
 "date":null
 },
-"source_storepath":"/nix/store/frv17nzzzjlsvnlrrqhgpljdy31vjl94-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"84aca2681b850570d610cb4bf20f0cd4e2050f1f",
+"source_storepath":"/nix/store/4hicm0j44a42zz4622612x0339350fmz-source",
+"nixpkgs_storepath":"/nix/store/y03zsf7wq1m7naqg718mbr12w2jf2wlf-source",
+"nur_combined_rev":"b640d396f527d1db3fc543b651611397a28e076e",
 "packages":{
 "agent-run":{
-"drvPath":"/nix/store/92mn48w0qy57zwa6l4gylkg2ib2dvzk8-agent-run-2026-06-13-e21c767.drv",
+"drvPath":"/nix/store/5j49ai42zac1hh8kk5gfz365408dzkfn-agent-run-2026-06-13-e21c767.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -115,6 +115,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/agent-run.nix:42",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -128,7 +134,7 @@
 "version":"2026-06-13-e21c767"
 },
 "caddy-with-plugins":{
-"drvPath":"/nix/store/kh1p24zv57qjbzbal83s2w3f4rijikr9-caddy-2.11.4.drv",
+"drvPath":"/nix/store/0g8s0rgwcmdnrc6055gcvh4p79slxg8g-caddy-2.11.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -199,7 +205,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/by-name/ca/caddy/package.nix",
+"file":"/nix/store/y03zsf7wq1m7naqg718mbr12w2jf2wlf-source/pkgs/by-name/ca/caddy/package.nix",
 "line":96
 },
 "name":"caddy-2.11.4",
@@ -261,6 +267,7 @@
 "aarch64-freebsd"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/ca/caddy/package.nix:92",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -274,7 +281,7 @@
 "version":"2.11.4"
 },
 "claude-code-bin":{
-"drvPath":"/nix/store/670k3nahyc0f0a103s9qq2lp9hy1viph-claude-code-bin-2.1.195.drv",
+"drvPath":"/nix/store/73s72x46n6ibkcs003yp4ngmhqnwy6d2-claude-code-bin-2.1.196.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -322,7 +329,7 @@
 },
 "mainProgram":"claude",
 "maintainers":[],
-"name":"claude-code-bin-2.1.195",
+"name":"claude-code-bin-2.1.196",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -334,20 +341,26 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/claude-code/default.nix:51",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
-"name":"claude-code-bin-2.1.195",
+"name":"claude-code-bin-2.1.196",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"claude-code-bin",
 "system":"x86_64-linux",
-"version":"2.1.195"
+"version":"2.1.196"
 },
 "codex":{
-"drvPath":"/nix/store/2m20a9lswv6gn6vas4d8dc96x6968a3n-codex-0.142.3.drv",
+"drvPath":"/nix/store/pj09cfw8h82fzfhi78asyjrybvaxsblc-codex-0.142.4.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -362,7 +375,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://raw.githubusercontent.com/openai/codex/refs/tags/rust-v0.142.3/CHANGELOG.md",
+"changelog":"https://raw.githubusercontent.com/openai/codex/refs/tags/rust-v0.142.4/CHANGELOG.md",
 "description":"Lightweight coding agent that runs in your terminal",
 "homepage":"https://github.com/openai/codex",
 "identifiers":{
@@ -407,7 +420,7 @@
 },
 "mainProgram":"codex",
 "maintainers":[],
-"name":"codex-0.142.3",
+"name":"codex-0.142.4",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -450,20 +463,26 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/codex/build.nix:85",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
-"name":"codex-0.142.3",
+"name":"codex-0.142.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"codex",
 "system":"x86_64-linux",
-"version":"0.142.3"
+"version":"0.142.4"
 },
 "codex-bin":{
-"drvPath":"/nix/store/zhwalwjzn4wnwgi391imc9kw93lmvpc8-codex-bin-0.142.3.drv",
+"drvPath":"/nix/store/zgah97jvicyi5p0x06iqilf1pdlry3h7-codex-bin-0.142.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -511,7 +530,7 @@
 },
 "mainProgram":"codex",
 "maintainers":[],
-"name":"codex-bin-0.142.3",
+"name":"codex-bin-0.142.4",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -523,20 +542,26 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/codex/bin.nix:90",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
-"name":"codex-bin-0.142.3",
+"name":"codex-bin-0.142.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"codex-bin",
 "system":"x86_64-linux",
-"version":"0.142.3"
+"version":"0.142.4"
 },
 "create-tauri-app":{
-"drvPath":"/nix/store/g7q8s6sli3g44kmidr0xfh2ixpqrjrq9-create-tauri-app-create-tauri-app-v4.7.3.drv",
+"drvPath":"/nix/store/l7kw5r0v11r3bnkby0wfryqc611k0n03-create-tauri-app-create-tauri-app-v4.7.3.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -628,6 +653,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/create-tauri-app/default.nix:7",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -661,7 +687,7 @@
 "version":"8.1.0.6021101"
 },
 "kwok":{
-"drvPath":"/nix/store/w3yqpwa9zjgn0g2nnax05b1nr636gcmc-kwok-v0.8.0.drv",
+"drvPath":"/nix/store/z6m01k3pmjk4wd9rxgvxy2lyrgw4lg1s-kwok-v0.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -735,6 +761,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/kwok/default.nix:20",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
