@@ -2,13 +2,13 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "augenblick";
-  version = "0.2.9"; # without "v"
+  version = "0.2.12"; # without "v"
 
   src = fetchFromGitHub {
     owner = "x71c9";
     repo = "augenblick";
     rev = "v${version}";
-    hash = "sha256-CguiiqnU/G+OoZSwBlZs01wOdT4ZQwMiLNAQdrgYfm4=";
+    hash = "sha256-67kJN/lyXrg3CURSfnByc2EXdyfjPmAp5hxFFs7hcoc=";
   };
 
   cargoLock.lockFile = ./Cargo.lock;
@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
   mainProgram = "augenblick";
 
   meta = with lib; {
-    description = "Fullscreen eye-blink overlay for X11";
+    description = "Fullscreen eye-blink overlay for X11 and Wayland";
     homepage = "https://github.com/x71c9/augenblick";
     license = licenses.mit;
     maintainers = [];
