@@ -98,6 +98,11 @@ let
             pkgs.curl # to get newer versions
             pkgs.websocat
             self.ggufmeta
+            (pkgs.callPackage (builtins.fetchGit {
+              url = "https://github.com/nagy/jsonrpc-httpproxy";
+              ref = "master";
+            }) { })
+            pkgs.ron-lsp
           ];
 
           services.xserver.enable = true;
