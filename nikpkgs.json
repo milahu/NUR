@@ -1,19 +1,19 @@
 {
 "name":"nikpkgs",
-"fetch_time":0.42,
-"eval_time":0.804,
+"fetch_time":1.161,
+"eval_time":0.798,
 "source":{
 "url":"https://github.com/nikp123/nur-packages",
-"rev":"e9e87c29dc21a097e86603c91a1c105ab630d352",
-"sha256":"0fl2v59wxsx75f3y6c5sd58r80x61lj8a6zzjwfckn1amiinici5",
+"rev":"cfd3fd425b675a5cb37c6eebdd3245f9c6a2bb8d",
+"sha256":"0340jibin1w28nwz4xdz3w1ld1rlizf2mz0cdhqgbjb8xxa1i690",
 "date":null
 },
-"source_storepath":"/nix/store/yxpxawiww3sxf1nknjn70vd8h54rs9sr-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"bc7b4fd916426899dfd28225e9b70b6b5a7680e9",
+"source_storepath":"/nix/store/fs7wzk4qzmlg76w3y97irg833p938q7h-source",
+"nixpkgs_storepath":"/nix/store/l50fg3iji73p3fgfgfsx6rq76ivncjhk-source",
+"nur_combined_rev":"8720bb6603baef21df5f2902350ccb56d543ea21",
 "packages":{
 "amdgpu-clocks":{
-"drvPath":"/nix/store/ln3br0jwbgin5xkgj7561w0vwvlyfjvy-amdgpu-clocks-0.1.0.drv",
+"drvPath":"/nix/store/5q5nafja64rbhd1kdy2dj39pa32m7yi4-amdgpu-clocks-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -92,6 +92,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/amdgpu-clocks/default.nix:30",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -105,7 +111,7 @@
 "version":"0.1.0"
 },
 "avahi2dns":{
-"drvPath":"/nix/store/ils39xhnj5j4hdxq1h7kdh9pgrkz92yd-avahi2dns-0.0.2.drv",
+"drvPath":"/nix/store/d0iall2f18yffdwgpba6bh3vijdbrxda-avahi2dns-0.0.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -191,6 +197,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/avahi2dns/default.nix:25",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -204,7 +216,7 @@
 "version":"0.0.2"
 },
 "cockpit-podman":{
-"drvPath":"/nix/store/a468vhgryp8hsibcmak62gycv1yapf3k-cockpit-podman-128.drv",
+"drvPath":"/nix/store/bcsw5a0xmwg3w0nykfjrrq8hg5v3i8rx-cockpit-podman-128.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -253,7 +265,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yxpxawiww3sxf1nknjn70vd8h54rs9sr-source/pkgs/cockpit-podman/default.nix",
+"file":"/nix/store/fs7wzk4qzmlg76w3y97irg833p938q7h-source/pkgs/cockpit-podman/default.nix",
 "line":25
 },
 "name":"cockpit-podman-128",
@@ -288,6 +300,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/cockpit-podman/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -301,7 +319,7 @@
 "version":"128"
 },
 "inotify-consumers":{
-"drvPath":"/nix/store/mar1qk0v7hr9rn6z69pah7z12hlclwj5-inotify-consumers-1.0.0.drv",
+"drvPath":"/nix/store/dh18gqsyqvs84l8f99g82kpg9jwx47w7-inotify-consumers-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -378,6 +396,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/inotify-consumers/default.nix:24",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -391,7 +415,7 @@
 "version":"1.0.0"
 },
 "libva-v4l2-request":{
-"drvPath":"/nix/store/l6n0abc8rsv0i9hk3fmxr1f3gcadpnmx-libva-v4l2-request-fix-kernel-6.6.drv",
+"drvPath":"/nix/store/2b7f029ll3ymkfcy40brvp5klqv7k6p2-libva-v4l2-request-fix-kernel-6.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -484,6 +508,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/libva-v4l2-request/default.nix:47",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -498,7 +528,7 @@
 "version":"6.6"
 },
 "netsed-quiet":{
-"drvPath":"/nix/store/aya2d0hw3rqchnq06aijabshn6rxvksh-netsed-20230501.drv",
+"drvPath":"/nix/store/hz7lv071nv0ycy086zwydvhbigknwa6m-netsed-20230501.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -551,6 +581,12 @@
 "out"
 ],
 "position":"./pkgs/netsed/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -564,7 +600,7 @@
 "version":"20230501"
 },
 "overlayfs-tools":{
-"drvPath":"/nix/store/jkfkmafr6dsljzac5q71ibb6kksrn7xa-overlayfs-tools-unstable.drv",
+"drvPath":"/nix/store/lih06yyvr15y99lb9q4c943yg2d2q2f4-overlayfs-tools-unstable.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -617,6 +653,12 @@
 "out"
 ],
 "position":"./pkgs/overlayfs-tools/default.nix:33",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -630,7 +672,7 @@
 "version":""
 },
 "plank-themes":{
-"drvPath":"/nix/store/q0i58fv75wslsybnlwd7pfvf5fc0gras-plank-themes-0.0.1.drv",
+"drvPath":"/nix/store/06g5062a06jgmy6wpda84ichn2qj479r-plank-themes-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -683,6 +725,12 @@
 "out"
 ],
 "position":"./pkgs/plank-themes/default.nix:30",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -696,7 +744,7 @@
 "version":"0.0.1"
 },
 "pw_wp_bluetooth_rpi_speaker":{
-"drvPath":"/nix/store/f3n182w52hqngsdfwnb1m6q2kgb88bdy-pw_wp_bluetooth_rpi_speaker-master.drv",
+"drvPath":"/nix/store/lpg180l3pn67r0ps5zv4y3c777n0qpvv-pw_wp_bluetooth_rpi_speaker-master.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -817,6 +865,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/pw_wp_bluetooth_rpi_speaker/default.nix:33",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

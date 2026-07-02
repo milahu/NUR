@@ -1,19 +1,19 @@
 {
 "name":"crazazy",
-"fetch_time":0.515,
-"eval_time":2.303,
+"fetch_time":1.36,
+"eval_time":2.317,
 "source":{
 "url":"https://github.com/crazazy/nixos-config",
-"rev":"3c5b830e441850b4efb52e3ed94e1f03c73a3f3b",
-"sha256":"1msy6kvrbn49w05gla92b7hmwp3kxkagawjsp5rfgzvflbyy25pl",
+"rev":"442015d39f87c1eb22344dc6cf15c9835e0c2755",
+"sha256":"072yqjdg4yf53y073x57ybjdxk57d5xm3rgfc1hy2266hi2hyv4i",
 "date":null
 },
-"source_storepath":"/nix/store/7p87pzgackwa0kqvqn8f3881ppfifppk-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"db888ed3bc80bd8667fb8f95fabf9340e0d4b287",
+"source_storepath":"/nix/store/pkfn18r6dgnc0lgajm8c3sl1nqm4q97s-source",
+"nixpkgs_storepath":"/nix/store/l50fg3iji73p3fgfgfsx6rq76ivncjhk-source",
+"nur_combined_rev":"fc9f8a131615e3cbaacb3573c9392b273af9fe3f",
 "packages":{
 "cakeml":{
-"drvPath":"/nix/store/2ki0dxchmsykkp53m6v9ssw8i56caqmp-cakeml.drv",
+"drvPath":"/nix/store/wb561lf105dh5a5v9z41gzah5shz46fj-cakeml.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -52,6 +52,7 @@
 "out"
 ],
 "position":"./pkgs/cakeml/default.nix:5",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -65,7 +66,7 @@
 "version":""
 },
 "elm":{
-"drvPath":"/nix/store/7885l78nbl34bfrxpz1hvrcsa40v6a0g-elm-0.19.1.drv",
+"drvPath":"/nix/store/9gkp3n500iyg035wjani6gwsa402hk5c-elm-0.19.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -122,7 +123,7 @@
 ],
 "maintainersPosition":{
 "column":55,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/l50fg3iji73p3fgfgfsx6rq76ivncjhk-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1101
 },
 "name":"elm-0.19.1",
@@ -220,6 +221,7 @@
 "x86_64-uefi"
 ],
 "position":"<nixpkgs> + /pkgs/development/compilers/elm/packages/ghc9_6/elm/default.nix:40",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -234,7 +236,7 @@
 "version":"0.19.1"
 },
 "enso":{
-"drvPath":"/nix/store/acygw374xny3lqgivw7nf714wj8145bp-enso-2025.2.3.drv",
+"drvPath":"/nix/store/kkfy9mng0zj2q1blxcckall90kvsqwfb-enso-2025.2.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -276,6 +278,7 @@
 "out"
 ],
 "position":"./pkgs/enso/default.nix:4",
+"problems":{},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -295,7 +298,7 @@
 "version":"2025.2.3"
 },
 "firefox-addons.bitwarden-password-manager":{
-"drvPath":"/nix/store/gkwmkdv30igls98z9caihwcqik5kgbsv-bitwarden-password-manager.drv",
+"drvPath":"/nix/store/55jf4q4mdq6k65488970psj3drk0vzh6-bitwarden-password-manager.drv",
 "meta":{
 "description":"At home, at work, or on the go, Bitwarden easily secures all your passwords, passkeys, and sensitive information.",
 "homepage":"https://bitwarden.com",
@@ -402,7 +405,7 @@
 "version":""
 },
 "firefox-addons.feedbroreader":{
-"drvPath":"/nix/store/jj9zdv4xnz98zay9synfiy20w7f30ixq-feedbroreader.drv",
+"drvPath":"/nix/store/fpgzw31xa3wiz9jm3ml5q18rzh9py7z4-feedbroreader.drv",
 "meta":{
 "description":"Advanced Feed Reader - Read news &amp; blogs or any RSS/Atom/RDF source.",
 "homepage":"http://nodetics.com/feedbro",
@@ -507,7 +510,7 @@
 "version":""
 },
 "firefox-addons.libredirect":{
-"drvPath":"/nix/store/21mj3h77h6pfzwhlqmf7v41pnhbh3pbx-libredirect.drv",
+"drvPath":"/nix/store/jd666m1c4fbjchjyxrpqjikjdy90wgs8-libredirect.drv",
 "meta":{
 "description":"Redirects YouTube, Twitter, TikTok... requests to alternative privacy friendly frontends.",
 "homepage":"https://libredirect.github.io",
@@ -614,7 +617,7 @@
 "version":""
 },
 "firefox-addons.soundcloud-mp3-downloader":{
-"drvPath":"/nix/store/z6km2h84rzinxwwc7nnzd9jy2ban4kms-soundcloud-mp3-downloader.drv",
+"drvPath":"/nix/store/rv13q599v8rf2gk6d3y1nv1jfv84iapc-soundcloud-mp3-downloader.drv",
 "meta":{
 "description":"Add download link to all SoundClould tracks",
 "license":{
@@ -720,7 +723,7 @@
 "version":""
 },
 "firefox-addons.tabliss":{
-"drvPath":"/nix/store/2zmdzn4sw015fpv2q20dvwp249w5qcwq-tabliss.drv",
+"drvPath":"/nix/store/m73lhd0im427ywckzy1ydp4hpwcphqs2-tabliss.drv",
 "meta":{
 "description":"A beautiful New Tab page with many customisable backgrounds and widgets that does not require any permissions.",
 "homepage":"https://tabliss.io",
@@ -827,7 +830,7 @@
 "version":""
 },
 "firefox-addons.ublock-origin":{
-"drvPath":"/nix/store/w6w15x40qh80r6ms9mnlaw9vgs488zr5-ublock-origin.drv",
+"drvPath":"/nix/store/pznngx2b4nzyfgm9v20skh595rbi5q0q-ublock-origin.drv",
 "meta":{
 "description":"Finally, an efficient wide-spectrum content blocker. Easy on CPU and memory.",
 "homepage":"https://github.com/gorhill/uBlock#ublock-origin",
@@ -934,7 +937,7 @@
 "version":""
 },
 "firefox-addons.vim-vixen":{
-"drvPath":"/nix/store/di9m0g7kpb2n08l7avyz0z9g93gkw1i9-vim-vixen.drv",
+"drvPath":"/nix/store/cammd291igyizv4x3bzpl34714ifh811-vim-vixen.drv",
 "meta":{
 "description":"Accelerates your web browsing with Vim power!!",
 "homepage":"https://github.com/ueokande/vim-vixen",
@@ -1041,7 +1044,7 @@
 "version":""
 },
 "firefox-addons.youtube_downloader_webx":{
-"drvPath":"/nix/store/89fql536wv9nirmh1kzyq0iw3v4p47lf-youtube_downloader_webx.drv",
+"drvPath":"/nix/store/mchcvqhjdshgdv8dxhdnlq3q9x4zwq6w-youtube_downloader_webx.drv",
 "meta":{
 "description":"Download YouTube videos in all available formats and extract the original audio files",
 "homepage":"https://github.com/feller-prj/extractor-project",
@@ -1158,7 +1161,7 @@
 "version":"1.0.2"
 },
 "nvfetcher":{
-"drvPath":"/nix/store/6pz7xldl0rv9jfbr2za96m6yr5jdwpqs-nvfetcher-0.8.0.0.drv",
+"drvPath":"/nix/store/3cjn0nd74kxzjxx9pksyjndbb74n83c0-nvfetcher-0.8.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1216,7 +1219,7 @@
 ],
 "maintainersPosition":{
 "column":55,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/l50fg3iji73p3fgfgfsx6rq76ivncjhk-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1101
 },
 "name":"nvfetcher-0.8.0.0",
@@ -1315,6 +1318,7 @@
 "x86_64-uefi"
 ],
 "position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:502104",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1338,7 +1342,7 @@
 "version":""
 },
 "wasmfxtime":{
-"drvPath":"/nix/store/hn8cb5xhzm52mfp0nz85kkd7f4dd7pd4-wasmtime-21540296f1c262188636fe0fb373cd2a9600d764.drv",
+"drvPath":"/nix/store/lha7f2z6gzldxgf8241k707fsbzjk5ik-wasmtime-21540296f1c262188636fe0fb373cd2a9600d764.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1435,8 +1439,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/by-name/wa/wasmtime/package.nix",
-"line":113
+"file":"/nix/store/l50fg3iji73p3fgfgfsx6rq76ivncjhk-source/pkgs/by-name/wa/wasmtime/package.nix",
+"line":130
 },
 "name":"wasmtime-45.0.2",
 "nonTeamMaintainers":[
@@ -1495,6 +1499,7 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/wasmfxtime/default.nix:8",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
