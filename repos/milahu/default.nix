@@ -674,6 +674,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       kobo-book-downloader = callPackage ./pkgs/development/python-modules/kobo-book-downloader { };
 
+      python-fontconfig = callPackage ./pkgs/development/python-modules/python-fontconfig { };
+
     #}))); # python3.pkgs
 
   #}))); # python3
@@ -1530,6 +1532,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   har-extractor = callPackage ./pkgs/by-name/ha/har-extractor/package.nix { };
 
   ffmpeg-malicious = callPackage ./pkgs/by-name/ff/ffmpeg-malicious/package.nix { };
+
+  vobsub2srt = callPackage ./pkgs/by-name/vo/vobsub2srt/package.nix { };
 
 }
 
