@@ -36,17 +36,17 @@
   };
   codestable = {
     pname = "codestable";
-    version = "f1862c7fe1989d45310b671533d827b8d59f54b4";
+    version = "cd7e1d33f0c754207fe7b575bcca8623abf479e2";
     src = fetchgit {
       url = "https://github.com/liuzhengdongfortest/CodeStable";
-      rev = "f1862c7fe1989d45310b671533d827b8d59f54b4";
+      rev = "cd7e1d33f0c754207fe7b575bcca8623abf479e2";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-sYdTTFVJY7a7khtGe9Xq6b9P8aFOW4WPWrmcTTkr1qo=";
+      sha256 = "sha256-M7NHQ3GfvJjp+/PmlquLw5wqrjD85w8YAE6PeppdOQk=";
     };
-    date = "2026-07-01";
+    date = "2026-07-02";
   };
   cowrie = {
     pname = "cowrie";
@@ -120,13 +120,13 @@
   };
   linux-intel-lts = {
     pname = "linux-intel-lts";
-    version = "lts-v6.18.33-linux-260623T022223Z";
+    version = "lts-v6.18.37-linux-260629T040856Z";
     src = fetchFromGitHub {
       owner = "intel";
       repo = "linux-intel-lts";
-      rev = "lts-v6.18.33-linux-260623T022223Z";
+      rev = "lts-v6.18.37-linux-260629T040856Z";
       fetchSubmodules = false;
-      sha256 = "sha256-aqpBxvrCYg2qz9W1h1bBJZHcpdaWXDo7gw3ZW0nlIGM=";
+      sha256 = "sha256-vZNYWdy1Esn2pK5Uh/q99T7bjTlJ+Ut7QUkHhDBPopc=";
     };
   };
   linux-intel-mainline-tracking = {
@@ -329,17 +329,17 @@
   };
   rime-cantonese = {
     pname = "rime-cantonese";
-    version = "b6a719b112cf2d9d2e9addc47157f3c4649a2915";
+    version = "c99b16e44d2df77a5cb8fb0867dd2bab7a112cb0";
     src = fetchgit {
       url = "https://github.com/rime/rime-cantonese.git";
-      rev = "b6a719b112cf2d9d2e9addc47157f3c4649a2915";
+      rev = "c99b16e44d2df77a5cb8fb0867dd2bab7a112cb0";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-AYmpGp/4NcdlYhAHVL2TJYi+tY59U5JqprStBDOBwZg=";
+      sha256 = "sha256-M2zFuhKAmSJ3X7zP0+itakhmuHqwtxZVOHS/fn+NSZo=";
     };
-    date = "2026-06-29";
+    date = "2026-07-02";
   };
   rime-double-pinyin = {
     pname = "rime-double-pinyin";
@@ -385,17 +385,17 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "6810e8916d160498620a16fef2135956fecbd485";
+    version = "846e5fcae56f0e3f4dcd8570319ffaf377e15471";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "6810e8916d160498620a16fef2135956fecbd485";
+      rev = "846e5fcae56f0e3f4dcd8570319ffaf377e15471";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-HReBFYih39ohqZ2UAX6wPjjh0KuIauJPSOjk6ZXidss=";
+      sha256 = "sha256-Ccf3BgSHlUKGD5WHSyxxrt5HSBP+WvfsCbfWFTeWmfI=";
     };
-    date = "2026-06-27";
+    date = "2026-07-02";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
