@@ -1,19 +1,19 @@
 {
 "name":"tsukumo",
-"fetch_time":0.401,
-"eval_time":0.802,
+"fetch_time":0.872,
+"eval_time":0.84,
 "source":{
 "url":"https://github.com/Thukumo/NUR",
-"rev":"f593b1ea1e3d6fa8dc8c3aadbd407a5176ddbc21",
-"sha256":"0808lx03v0ikcs4jp9pk6nhknk0hmhh7alk851c1jp4q09i9ayx5",
+"rev":"cbf3caef3539e0b404d6709c0f6edacc50e6b1e4",
+"sha256":"1rgpq6x4sqgxdvsv4na5f9ym4b3xnrqi589xjh2zwn78v1qnl0hq",
 "date":null
 },
-"source_storepath":"/nix/store/c11ryfm87ppa5scasgd745agajihh9c2-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"ded4c2e11f4fce3745f92b79db8ae04ea45fc5e2",
+"source_storepath":"/nix/store/lwczivgygm44i2a332zyyhpjkj2fnzk7-source",
+"nixpkgs_storepath":"/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source",
+"nur_combined_rev":"b97bd158917c5521752da16688fb604f544ad083",
 "packages":{
 "jnethack":{
-"drvPath":"/nix/store/2k7w2fdp1xk9ng7qjq349z4ds65zvnmi-jnethack-3.6.7.drv",
+"drvPath":"/nix/store/xfqlvlrd5c4zvlk5gjcgzsxds6s0pdnj-jnethack-3.6.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -69,7 +69,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/c11ryfm87ppa5scasgd745agajihh9c2-source/pkgs/jnethack/default.nix",
+"file":"/nix/store/lwczivgygm44i2a332zyyhpjkj2fnzk7-source/pkgs/jnethack/default.nix",
 "line":134
 },
 "name":"jnethack-3.6.7",
@@ -133,6 +133,7 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/jnethack/default.nix:131",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -146,7 +147,7 @@
 "version":"3.6.7"
 },
 "yogabook-iio-sensor-proxy":{
-"drvPath":"/nix/store/0v3l08yxxbz2c8j1lvh94gbrpi0y9spp-iio-sensor-proxy-yogabook-3.1-patched.drv",
+"drvPath":"/nix/store/227xk4629f4c57k94j8jvv7w7i9lxymw-iio-sensor-proxy-yogabook-3.1-patched.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -225,6 +226,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/yogabook-linux.nix:101",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -238,7 +245,7 @@
 "version":"3.1-patched"
 },
 "yogabook-kernel":{
-"drvPath":"/nix/store/z6w4gy01f4y7nwpaz3y2b6hax2qk7srp-linux-6.17.4-yogabook.drv",
+"drvPath":"/nix/store/pdvgm2my0v1dvzq8ap29sissamsh441f-linux-6.17.4-yogabook.drv",
 "meta":{
 "available":true,
 "badPlatforms":[],
@@ -372,22 +379,16 @@
 "name":"Alexander Bantyev"
 },
 {
-"email":"contact@infinisil.com",
-"github":"infinisil",
-"githubId":20525370,
-"keys":[
-{
-"fingerprint":"6C2B 55D4 4E04 8266 6B7D  DA1A 422E 9EDA E015 7170"
-}
-],
-"matrix":"@infinisil:matrix.org",
-"name":"Silvan Mosberger"
-},
-{
 "email":"andreas@rammhold.de",
 "github":"andir",
 "githubId":638836,
 "name":"Andreas Rammhold"
+},
+{
+"email":"nix@leona.is",
+"github":"leona-ya",
+"githubId":11006031,
+"name":"Leona Maroni"
 },
 {
 "email":"pyrox@pyrox.dev",
@@ -404,8 +405,8 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/os-specific/linux/kernel/build.nix",
-"line":559
+"file":"/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/pkgs/os-specific/linux/kernel/build.nix",
+"line":561
 },
 "name":"linux-6.17.4-yogabook",
 "nonTeamMaintainers":[
@@ -445,6 +446,7 @@
 "s390x-linux",
 "x86_64-linux"
 ],
+"problems":{},
 "teams":[
 {
 "github":"linux-kernel",
@@ -508,18 +510,6 @@
 "github":"balsoft",
 "githubId":18467667,
 "name":"Alexander Bantyev"
-},
-{
-"email":"contact@infinisil.com",
-"github":"infinisil",
-"githubId":20525370,
-"keys":[
-{
-"fingerprint":"6C2B 55D4 4E04 8266 6B7D  DA1A 422E 9EDA E015 7170"
-}
-],
-"matrix":"@infinisil:matrix.org",
-"name":"Silvan Mosberger"
 }
 ],
 "members":[
@@ -530,22 +520,16 @@
 "name":"Alexander Bantyev"
 },
 {
-"email":"contact@infinisil.com",
-"github":"infinisil",
-"githubId":20525370,
-"keys":[
-{
-"fingerprint":"6C2B 55D4 4E04 8266 6B7D  DA1A 422E 9EDA E015 7170"
-}
-],
-"matrix":"@infinisil:matrix.org",
-"name":"Silvan Mosberger"
-},
-{
 "email":"andreas@rammhold.de",
 "github":"andir",
 "githubId":638836,
 "name":"Andreas Rammhold"
+},
+{
+"email":"nix@leona.is",
+"github":"leona-ya",
+"githubId":11006031,
+"name":"Leona Maroni"
 },
 {
 "email":"pyrox@pyrox.dev",
@@ -566,8 +550,8 @@
 ],
 "teamsPosition":{
 "column":7,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/os-specific/linux/kernel/build.nix",
-"line":560
+"file":"/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/pkgs/os-specific/linux/kernel/build.nix",
+"line":562
 },
 "timeout":14400,
 "unfree":false,
@@ -585,7 +569,7 @@
 "version":"6.17.4-yogabook"
 },
 "yogabook-modes-handler":{
-"drvPath":"/nix/store/6bgnnxjm2ahs9c50cx6k636h1jp2h0yd-yogabook-modes-handler-1.0.0.drv",
+"drvPath":"/nix/store/z5xqdgymlmp5vp993fdgsns4vw0wv28c-yogabook-modes-handler-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -653,6 +637,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/yogabook-linux.nix:73",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -666,7 +656,7 @@
 "version":"1.0.0"
 },
 "yogabook-touch-keyboard":{
-"drvPath":"/nix/store/60d5nbkzkaz5hw0cf0zh9xzl8kf7fiwf-touch-keyboard-yogabook-1.0.0.drv",
+"drvPath":"/nix/store/hviz6b8wgw9wdhq5qspmfymyfh8hkkf6-touch-keyboard-yogabook-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -745,6 +735,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/yogabook-linux.nix:42",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

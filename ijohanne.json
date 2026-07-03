@@ -1,19 +1,19 @@
 {
 "name":"ijohanne",
-"fetch_time":0.42,
-"eval_time":2.164,
+"fetch_time":0.936,
+"eval_time":2.201,
 "source":{
 "url":"https://github.com/ijohanne/nur-packages",
-"rev":"816b80d83d87ae3ef2d872b603ef2275685ee389",
-"sha256":"1jdilnjm42vpqliyh2yylcpnwbb5j4n9wzd5qnyban63dya8fymx",
+"rev":"eae244389b89bd0da37f4c1d325b314adb3fcb25",
+"sha256":"1zzr1qz63kb218csq4r48rzs3rf9j94p3jcsvjkr813qlnknr1wx",
 "date":null
 },
-"source_storepath":"/nix/store/1da0mb07vld8bfr5hdrd3jrvnf40glsh-source",
-"nixpkgs_storepath":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source",
-"nur_combined_rev":"672275d2401aa999a7033b31d310f7f2fb2e2667",
+"source_storepath":"/nix/store/w2vyma2zfnbkrqnihyhs404ad2g5lrvi-source",
+"nixpkgs_storepath":"/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source",
+"nur_combined_rev":"a05a130ad65a663edf03753d0aa2382293669956",
 "packages":{
 "agent-skills-cli":{
-"drvPath":"/nix/store/nyiar6a2zax2vm85s8fgvfarx8hmw88f-agent-skills-cli-1.1.7.drv",
+"drvPath":"/nix/store/rwwdhq2j97ra4yxk235q50c5d5wpq3ws-agent-skills-cli-1.1.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -79,6 +79,7 @@
 "s390x-linux"
 ],
 "position":"./pkgs/agent-skills-cli/default.nix:4",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -92,11 +93,11 @@
 "version":"1.1.7"
 },
 "firefox-hardened":{
-"drvPath":"/nix/store/a6bfsj3l94a23i4gx16vay3v6qjsywk9-firefox-140.11.0esr.drv",
+"drvPath":"/nix/store/hm9wq6sr44lcqgwgbww65pahnyk8jsi0-firefox-140.12.0esr.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://www.firefox.com/en-US/firefox/140.11.0/releasenotes/",
+"changelog":"https://www.firefox.com/en-US/firefox/140.12.0/releasenotes/",
 "description":"Web browser built from Firefox source tree",
 "homepage":"http://www.mozilla.com/en-US/firefox/",
 "hydraPlatforms":[],
@@ -152,11 +153,11 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/applications/networking/browsers/firefox/packages/firefox-esr-140.nix",
+"file":"/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/pkgs/applications/networking/browsers/firefox/packages/firefox-esr-140.nix",
 "line":23
 },
 "maxSilent":14400,
-"name":"firefox-unwrapped-140.11.0esr",
+"name":"firefox-unwrapped-140.12.0esr",
 "nonTeamMaintainers":[
 {
 "email":"hexa@darmstadt.ccc.de",
@@ -217,22 +218,23 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/browsers/firefox/wrapper.nix:596",
+"position":"<nixpkgs> + /pkgs/applications/networking/browsers/firefox/wrapper.nix:597",
 "priority":4,
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"firefox-140.11.0esr",
+"name":"firefox-140.12.0esr",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"firefox",
 "system":"x86_64-linux",
-"version":"140.11.0esr"
+"version":"140.12.0esr"
 },
 "firefoxPlugins.bitwarden-password-manager":{
-"drvPath":"/nix/store/5p1mz12vl9ajlnbpcpch5w2lmfdf5c79-bitwarden-password-manager.drv",
+"drvPath":"/nix/store/48vl8xj8mqg38jiiyzgs8z0fdy6llhwv-bitwarden-password-manager.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -271,6 +273,7 @@
 "out"
 ],
 "position":"<nixpkgs> + /pkgs/build-support/fetchfirefoxaddon/default.nix:39",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -284,7 +287,7 @@
 "version":""
 },
 "firefoxPlugins.certificate-pinner":{
-"drvPath":"/nix/store/a3x2kzp5rzxyr5vljrc3hj0wqalkv4g1-certificate-pinner.drv",
+"drvPath":"/nix/store/gl4qjm2yl6ka9b5xlg7zxh4gx35l6lv3-certificate-pinner.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -323,6 +326,7 @@
 "out"
 ],
 "position":"<nixpkgs> + /pkgs/build-support/fetchfirefoxaddon/default.nix:39",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -336,7 +340,7 @@
 "version":""
 },
 "firefoxPlugins.darkreader":{
-"drvPath":"/nix/store/hh1w4kb000xqsy09frg8kvpglk6px7b6-darkreader.drv",
+"drvPath":"/nix/store/mn06ppc9pvjl2brb7ss851qjhpr7dhzd-darkreader.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -375,6 +379,7 @@
 "out"
 ],
 "position":"<nixpkgs> + /pkgs/build-support/fetchfirefoxaddon/default.nix:39",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -388,7 +393,7 @@
 "version":""
 },
 "firefoxPlugins.enhancer-for-youtube":{
-"drvPath":"/nix/store/2bj6nv08ilnrwsb65jrfv1hd0jnp7zdf-enhancer-for-youtube.drv",
+"drvPath":"/nix/store/rvfp1w11s2295s5104lfy4zr95g322zd-enhancer-for-youtube.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -427,6 +432,7 @@
 "out"
 ],
 "position":"<nixpkgs> + /pkgs/build-support/fetchfirefoxaddon/default.nix:39",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -440,7 +446,7 @@
 "version":""
 },
 "firefoxPlugins.facebook-container":{
-"drvPath":"/nix/store/vc47grcxawa5jgvsral8qz5whpsvjf9z-facebook-container.drv",
+"drvPath":"/nix/store/f046vxgw849xavij8mc6l38bw3wh0yxj-facebook-container.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -479,6 +485,7 @@
 "out"
 ],
 "position":"<nixpkgs> + /pkgs/build-support/fetchfirefoxaddon/default.nix:39",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -492,7 +499,7 @@
 "version":""
 },
 "firefoxPlugins.fx-cast":{
-"drvPath":"/nix/store/gg3kqhxp1ci9vp64gb2r2ykzx67cw5i5-fx_cast.drv",
+"drvPath":"/nix/store/75631fyqvh6jn7175riqv7fl1nf7ksbx-fx_cast.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -531,6 +538,7 @@
 "out"
 ],
 "position":"<nixpkgs> + /pkgs/build-support/fetchfirefoxaddon/default.nix:39",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -544,7 +552,7 @@
 "version":""
 },
 "firefoxPlugins.reddit-enhancement-suite":{
-"drvPath":"/nix/store/14jcm46ydyrdi8616rnb3wvsyzvyh2ly-reddit-enhancement-suite.drv",
+"drvPath":"/nix/store/5mj9dgwnpxp7dxd7yrxla3j80683cdlg-reddit-enhancement-suite.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -583,6 +591,7 @@
 "out"
 ],
 "position":"<nixpkgs> + /pkgs/build-support/fetchfirefoxaddon/default.nix:39",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -596,7 +605,7 @@
 "version":""
 },
 "firefoxPlugins.ublock-origin":{
-"drvPath":"/nix/store/4ry1xscagv3vdq1iqkhzhjcprkwxkp84-ublock-origin.drv",
+"drvPath":"/nix/store/y07xpyx4vhs58dhx3wihx5ph3v4p4jqd-ublock-origin.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -635,6 +644,7 @@
 "out"
 ],
 "position":"<nixpkgs> + /pkgs/build-support/fetchfirefoxaddon/default.nix:39",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -648,7 +658,7 @@
 "version":""
 },
 "hexokinase":{
-"drvPath":"/nix/store/9f8sg78g2gq4afzgfbrwhxvm53361xs0-hexokinase-master.drv",
+"drvPath":"/nix/store/w65kknwgc2ksjpxir6yb1r7ix1mfasc0-hexokinase-master.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -734,6 +744,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/hexokinase/default.nix:14",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -747,7 +763,7 @@
 "version":""
 },
 "multicast-relay":{
-"drvPath":"/nix/store/1dvzj5lcj02hpsawrs1z1hr9kbavda52-multicast-relay.drv",
+"drvPath":"/nix/store/1rjic89zl5045yi1525ncnzycb5nxcn2-multicast-relay.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -786,6 +802,7 @@
 "out"
 ],
 "position":"./pkgs/multicast-relay/default.nix:4",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -799,7 +816,7 @@
 "version":""
 },
 "nixpkgs-firefox-addons":{
-"drvPath":"/nix/store/1v0kcs689jl6k6fn013vfky2nbaz9h5d-nixpkgs-firefox-addons-0.8.0.drv",
+"drvPath":"/nix/store/0lpxjigvwhq5wdp36kv9wdmdqfx4p0ga-nixpkgs-firefox-addons-0.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -860,7 +877,7 @@
 ],
 "maintainersPosition":{
 "column":55,
-"file":"/nix/store/hjpr2qmr0vgs870lpaiz4m218cxsf65n-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1101
 },
 "name":"nixpkgs-firefox-addons-0.8.0",
@@ -963,6 +980,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/firefox-addons-generator/default.nix:16",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -978,7 +996,7 @@
 "version":"0.8.0"
 },
 "pg-exporter":{
-"drvPath":"/nix/store/d3fmxdigggpp0gy198p4cmdlcm79b4a5-pg-exporter-1.2.0.drv",
+"drvPath":"/nix/store/zpnga40q02rxcyspsgd5gw2mqqgcsysg-pg-exporter-1.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1064,6 +1082,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/pg-exporter/default.nix:15",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1077,7 +1101,7 @@
 "version":"1.2.0"
 },
 "prometheus-hue-exporter":{
-"drvPath":"/nix/store/lf6x86s1qsvpcdmq3wskxra2wmkgzj77-prometheus-hue-exporter.drv",
+"drvPath":"/nix/store/fqyvxnf05bxvzfa4fy59f8ajl3zb70l5-prometheus-hue-exporter.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1149,6 +1173,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/prometheus-hue-exporter/default.nix:3",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1162,7 +1187,7 @@
 "version":""
 },
 "prometheus-netatmo-exporter":{
-"drvPath":"/nix/store/dj0p7z7dgd0i9c36b09kyzf3k7x0nx8z-prometheus-netatmo-exporter.drv",
+"drvPath":"/nix/store/ccik6gk9cnj9mc175xh9w0q22x2iagbn-prometheus-netatmo-exporter.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1234,6 +1259,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/prometheus-netatmo-exporter/default.nix:3",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1247,7 +1273,7 @@
 "version":""
 },
 "prometheus-nftables-exporter":{
-"drvPath":"/nix/store/36fv1s5is9rcxq4zqp7r2ci23khvw2ay-prometheus-nftables-exporter-0.4.3.drv",
+"drvPath":"/nix/store/sm944cjc8zycqsbg8dl7pkqvl0yiaj66-prometheus-nftables-exporter-0.4.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1333,6 +1359,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/prometheus-nftables-exporter/default.nix:9",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1346,7 +1378,7 @@
 "version":"0.4.3"
 },
 "prometheus-teamspeak3-exporter":{
-"drvPath":"/nix/store/2cc53q70imqczrca8znxp9py8ack9flp-prometheus-teamspeak3-exporter.drv",
+"drvPath":"/nix/store/894gkdchvkdvxz1h9zakg0s7iqs4rxw9-prometheus-teamspeak3-exporter.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1418,6 +1450,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/prometheus-teamspeak3-exporter/default.nix:3",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1431,7 +1464,7 @@
 "version":""
 },
 "vimPlugins.nvim-tree-docs":{
-"drvPath":"/nix/store/wfa3h7irnr568r74lvqsp9vspspfs1v7-vimplugin-nvim-tree-docs-master.drv",
+"drvPath":"/nix/store/rqi96n9gjxmr4qh7q9aimzqfflbvrhfx-vimplugin-nvim-tree-docs-master.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1554,6 +1587,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/vim-plugins/nvim-tree-docs/default.nix:4",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1567,7 +1601,7 @@
 "version":""
 },
 "zot":{
-"drvPath":"/nix/store/8hghn85jwca4v9yjfz6x8xfsbir81sh8-zot-2.1.15.drv",
+"drvPath":"/nix/store/4i1s1siw1sf5acmbzlklw1a9m2sdl978-zot-2.1.15.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1653,6 +1687,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/zot/default.nix:51",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

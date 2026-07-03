@@ -1,19 +1,19 @@
 {
 "name":"mattrobenolt",
-"fetch_time":0.394,
-"eval_time":0.872,
+"fetch_time":0.898,
+"eval_time":0.887,
 "source":{
 "url":"https://github.com/mattrobenolt/nixpkgs",
-"rev":"72ff14fadc6df6e00afff30b5ef81648d3ebf513",
-"sha256":"0qrk61pnbl9v96wfa8q4czz2ysfg7qjddc6pfzixm9x9cg9b3kn7",
+"rev":"4496c7806de92c3321914fb2b689ae2cad5cffeb",
+"sha256":"103rkm60sf0n2packaffxshyz98lw3i794mljvislw637aj35ffb",
 "date":null
 },
-"source_storepath":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"953df6df1b873a11eb903cbfa51e903acb8fde8f",
+"source_storepath":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source",
+"nixpkgs_storepath":"/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source",
+"nur_combined_rev":"1e32beda5054299e0cec97974518dc2d84fe8b74",
 "packages":{
 "benchstat":{
-"drvPath":"/nix/store/fyf7r1jkgxbsggj24qz31apgd7mpchb0-benchstat-unstable-2026-06-15.drv",
+"drvPath":"/nix/store/vfpks2fxcmkvdmvvhimvipn9glf9kn0q-benchstat-unstable-2026-06-15.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -63,7 +63,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/benchstat/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/benchstat/package.nix",
 "line":26
 },
 "name":"benchstat-unstable-2026-06-15",
@@ -105,6 +105,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/benchstat/package.nix:23",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -118,7 +124,7 @@
 "version":"2026-06-15"
 },
 "default":{
-"drvPath":"/nix/store/clvx966dmjdic8rpb1kva08c3yk6s4b4-ziglint-0.5.2.drv",
+"drvPath":"/nix/store/hmj21y5j2q8ds9vqp3n1k5z04r3c1zsn-ziglint-0.5.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -168,7 +174,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/ziglint/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/ziglint/package.nix",
 "line":53
 },
 "name":"ziglint-0.5.2",
@@ -182,6 +188,12 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/ziglint/package.nix:45",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -201,7 +213,7 @@
 "version":"0.5.2"
 },
 "go-bin":{
-"drvPath":"/nix/store/bzjspbkbc77zx0jj9bzj8an6nz4wyj95-go-bin-1.26.4.drv",
+"drvPath":"/nix/store/50ywnf6zg1g99cxn0x318r9wrma4jrxm-go-bin-1.26.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -251,7 +263,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/go-bin/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/go-bin/package.nix",
 "line":47
 },
 "name":"go-bin-1.26.4",
@@ -288,6 +300,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/go-bin/package.nix:43",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -307,7 +325,7 @@
 "version":"1.26.4"
 },
 "go-bin_1_24":{
-"drvPath":"/nix/store/dmzzhians1zjfkhnkncnrlvm86w55qpn-go-bin-1.24.13.drv",
+"drvPath":"/nix/store/59wpihh7gn6jli54nm83482k2sy3pl1a-go-bin-1.24.13.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -357,7 +375,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/go-bin/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/go-bin/package.nix",
 "line":47
 },
 "name":"go-bin-1.24.13",
@@ -394,6 +412,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/go-bin/package.nix:43",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -413,7 +437,7 @@
 "version":"1.24.13"
 },
 "go-bin_1_25":{
-"drvPath":"/nix/store/cmwdb5mhjpngv0xyjhr4i11h3bn604pa-go-bin-1.25.11.drv",
+"drvPath":"/nix/store/hbn3kjkpnga89bwglrhbpyvk28mp7aqs-go-bin-1.25.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -463,7 +487,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/go-bin/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/go-bin/package.nix",
 "line":47
 },
 "name":"go-bin-1.25.11",
@@ -500,6 +524,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/go-bin/package.nix:43",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -519,7 +549,7 @@
 "version":"1.25.11"
 },
 "go-bin_1_26":{
-"drvPath":"/nix/store/bzjspbkbc77zx0jj9bzj8an6nz4wyj95-go-bin-1.26.4.drv",
+"drvPath":"/nix/store/50ywnf6zg1g99cxn0x318r9wrma4jrxm-go-bin-1.26.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -569,7 +599,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/go-bin/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/go-bin/package.nix",
 "line":47
 },
 "name":"go-bin-1.26.4",
@@ -606,6 +636,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/go-bin/package.nix:43",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -625,7 +661,7 @@
 "version":"1.26.4"
 },
 "go-bin_next":{
-"drvPath":"/nix/store/19r7062d9ip7k8fnjd3j3psz2041p237-go-bin-1.27rc1.drv",
+"drvPath":"/nix/store/fqgvdvy58yfi6spnb29pnw31vg1mh9km-go-bin-1.27rc1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -675,7 +711,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/go-bin/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/go-bin/package.nix",
 "line":47
 },
 "name":"go-bin-1.27rc1",
@@ -712,6 +748,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/go-bin/package.nix:43",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -731,7 +773,7 @@
 "version":"1.27rc1"
 },
 "hunk":{
-"drvPath":"/nix/store/zjqr5a6x39wg02cd5ssc542y4vvgf3a8-hunk-0.15.0.drv",
+"drvPath":"/nix/store/b93i4a61a1rns5lp6bqg2aa387iy51w8-hunk-0.15.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -781,7 +823,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/hunk/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/hunk/package.nix",
 "line":67
 },
 "name":"hunk-0.15.0",
@@ -796,6 +838,12 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/hunk/package.nix:58",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -815,7 +863,7 @@
 "version":"0.15.0"
 },
 "inbox":{
-"drvPath":"/nix/store/sqw1g8374sx7icfc1fcwmqms8g3ymx50-inbox-0.0.6.drv",
+"drvPath":"/nix/store/nkq2vb2hc01ss575kzx95vd13j8g3899-inbox-0.0.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -865,7 +913,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/inbox/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/inbox/package.nix",
 "line":52
 },
 "name":"inbox-0.0.6",
@@ -880,6 +928,12 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/inbox/package.nix:43",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -899,7 +953,7 @@
 "version":"0.0.6"
 },
 "prismacat":{
-"drvPath":"/nix/store/picxbp9cgadm0bh337hprax489wkd3ra-prismacat-0.2.0.drv",
+"drvPath":"/nix/store/4wd45qgrs65x0mgabh0a6x34vb5y4bwi-prismacat-0.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -949,7 +1003,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/prismacat/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/prismacat/package.nix",
 "line":50
 },
 "name":"prismacat-0.2.0",
@@ -963,6 +1017,12 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/prismacat/package.nix:42",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -982,7 +1042,7 @@
 "version":"0.2.0"
 },
 "tracy":{
-"drvPath":"/nix/store/407y7zds8hpxc6h8j2k7iskw45587l30-tracy-0.13.1.drv",
+"drvPath":"/nix/store/ar0266icgcyxm9d6z1zz8c150nkkwi07-tracy-0.13.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1062,6 +1122,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/tracy/package.nix:195",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1075,7 +1141,7 @@
 "version":"0.13.1"
 },
 "txtar":{
-"drvPath":"/nix/store/xm3mw79djxl72nrazzrrpsihdir00mj1-txtar-0.1.0.drv",
+"drvPath":"/nix/store/pb8k1l4nxm3amvmsd9q34yzn9r7xb6fj-txtar-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1125,7 +1191,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/txtar/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/txtar/package.nix",
 "line":50
 },
 "name":"txtar-0.1.0",
@@ -1139,6 +1205,12 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/txtar/package.nix:42",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -1158,7 +1230,7 @@
 "version":"0.1.0"
 },
 "uvShellHook":{
-"drvPath":"/nix/store/0mav2g1avkb8y6pkyvlm64zs58jbghh8-uv-venv-shell-hook.drv",
+"drvPath":"/nix/store/vvmz9r1i6d30jhsf8n24j6jc8q7wjrj9-uv-venv-shell-hook.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1199,6 +1271,7 @@
 "out"
 ],
 "position":"./pkgs/uv/venv-shell-hook.nix:8",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1212,7 +1285,7 @@
 "version":""
 },
 "zed":{
-"drvPath":"/nix/store/swyyi1zz0plkrrmn4hwpzrds9isdd709-zed-1.8.2.drv",
+"drvPath":"/nix/store/6l5inibigblx9s2gi7mskr43rskd31p4-zed-1.9.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1262,10 +1335,10 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/zed/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/zed/package.nix",
 "line":91
 },
-"name":"zed-1.8.2",
+"name":"zed-1.9.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1275,6 +1348,12 @@
 "aarch64-linux"
 ],
 "position":"./pkgs/zed/package.nix:83",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -1284,17 +1363,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zed-1.8.2",
+"name":"zed-1.9.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zed",
 "system":"x86_64-linux",
-"version":"1.8.2"
+"version":"1.9.0"
 },
 "zed-preview":{
-"drvPath":"/nix/store/5ryvvpb1pzp8z1cdbmz8817jdadm3rzv-zed-preview-1.9.0-pre.drv",
+"drvPath":"/nix/store/7vq5fjm515m1zl03qq5cy3wcn4lr87i1-zed-preview-1.10.0-pre.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1344,10 +1423,10 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/zed/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/zed/package.nix",
 "line":91
 },
-"name":"zed-preview-1.9.0-pre",
+"name":"zed-preview-1.10.0-pre",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1357,6 +1436,12 @@
 "aarch64-linux"
 ],
 "position":"./pkgs/zed/package.nix:83",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -1366,17 +1451,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"zed-preview-1.9.0-pre",
+"name":"zed-preview-1.10.0-pre",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"zed-preview",
 "system":"x86_64-linux",
-"version":"1.9.0-pre"
+"version":"1.10.0-pre"
 },
 "zigdoc":{
-"drvPath":"/nix/store/pmq27aqbrv6x2f2cdxfwr9j093aqa9py-zigdoc-0.3.0.drv",
+"drvPath":"/nix/store/i4i82nf63cxab6v6vhah95m89v4dxr02-zigdoc-0.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1426,7 +1511,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ps2dhcylndiycmrjpc204k5v2b0fl98x-source/pkgs/zigdoc/package.nix",
+"file":"/nix/store/fxwppy9vyhzkf0qxgqm3wc65zwgj290m-source/pkgs/zigdoc/package.nix",
 "line":36
 },
 "name":"zigdoc-0.3.0",
@@ -1517,6 +1602,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/zigdoc/package.nix:33",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

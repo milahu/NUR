@@ -1,20 +1,20 @@
 {
 "name":"swarsel",
-"fetch_time":1.099,
-"eval_time":1.396,
+"fetch_time":1.191,
+"eval_time":1.44,
 "source":{
 "url":"https://github.com/Swarsel/swarsel-nix",
-"rev":"e5a790be522c50b769396effb54efb63a0a40cfc",
-"sha256":"1lnr4yhiigjvcjjgz32zp5g98z7nkx7whcyy0dj81dkwdfvga5wa",
+"rev":"99fe624e1233af2d657f2d9936fc6c538ab77a9c",
+"sha256":"0j1h05r8rkx3h0wf39bg8q1na814cy8dka4pgd2hay9rdrmqn4vn",
 "date":null,
 "submodules":true
 },
-"source_storepath":"/nix/store/sbaqcdx3q4da2x1qz8d4qp34sk3b4zzx-swarsel-nix",
-"nixpkgs_storepath":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source",
-"nur_combined_rev":"b915d65b71be4ee6bc42381ba5f6b38ec4d591eb",
+"source_storepath":"/nix/store/qv1fgnq129nymlb42h5qma4x1pa56nj8-swarsel-nix",
+"nixpkgs_storepath":"/nix/store/pbdsbca6a1kw809vvwc6y97bwjcxm5hh-source",
+"nur_combined_rev":"c87edcd3f858bd6c22aa260b770040d821d9ad7f",
 "packages":{
 "advanced-tables":{
-"drvPath":"/nix/store/c3ydxlymzmff04aqlgchgwvjsyhyfhbv-advanced-tables-0.22.1.drv",
+"drvPath":"/nix/store/8jdbxrwvrb79m3imijif050f53gr71fz-advanced-tables-0.22.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -68,6 +68,12 @@
 "out"
 ],
 "position":"./pkgs/obsidian/advanced-tables/default.nix:35",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -81,7 +87,7 @@
 "version":"0.22.1"
 },
 "calendar":{
-"drvPath":"/nix/store/qvgqsk73m3crcy3h579gisxlmlrz1kc7-obsidian.plugins.calendar-2.0.0-beta.2.drv",
+"drvPath":"/nix/store/s5rv8s51kq109l7njn12j451k6617mgs-obsidian.plugins.calendar-2.0.0-beta.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -135,6 +141,12 @@
 "out"
 ],
 "position":"./pkgs/obsidian/calendar/default.nix:36",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -148,7 +160,7 @@
 "version":"2.0.0-beta.2"
 },
 "eontimer":{
-"drvPath":"/nix/store/i8snb2yg17rjm1mw9gdhcn0x3871fn8k-eontimer-3.0.0-rc.6.drv",
+"drvPath":"/nix/store/m89z34sl9p6l322gmdpizw82kpwzx439-eontimer-3.0.0-rc.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -271,6 +283,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/general/eontimer/default.nix:90",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -285,7 +303,7 @@
 "version":"3.0.0-rc.6"
 },
 "file-hider":{
-"drvPath":"/nix/store/5vb41p7sc5yz3phik61wwi5c936l7cji-obsidian.plugins.file-hider-1.1.1.drv",
+"drvPath":"/nix/store/lydwr9ibbzl429p63dhqw66dn41k2w69-obsidian.plugins.file-hider-1.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -339,6 +357,12 @@
 "out"
 ],
 "position":"./pkgs/obsidian/file-hider/default.nix:29",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -352,7 +376,7 @@
 "version":"1.1.1"
 },
 "linter":{
-"drvPath":"/nix/store/hp5x1szi3grrvb1cpf4y7vx6h534bybf-obsidian.plugins.linter-1.30.0.drv",
+"drvPath":"/nix/store/a0f06lh5xggp8kfh7qf1sgcy9pkbly9p-obsidian.plugins.linter-1.30.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -406,6 +430,12 @@
 "out"
 ],
 "position":"./pkgs/obsidian/linter/default.nix:35",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -419,7 +449,7 @@
 "version":"1.30.0"
 },
 "omnisearch":{
-"drvPath":"/nix/store/j8v2hjs2d3bl3ymygrys5qswgsf5nbwc-obsidian.plugins.omnisearch-1.27.3.drv",
+"drvPath":"/nix/store/bdzz49crgqa5lmrsvf57xvs978zrfxgn-obsidian.plugins.omnisearch-1.27.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -473,6 +503,12 @@
 "out"
 ],
 "position":"./pkgs/obsidian/omnisearch/default.nix:34",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -496,7 +532,7 @@
 "version":"0.7.0"
 },
 "table-editor":{
-"drvPath":"/nix/store/gz0bzsdbnv70v940clzcc9dpid5mgva1-obsidian.plugins.table-editor-0.3.1.drv",
+"drvPath":"/nix/store/fd8zfywx65vaid1f78xlca8mlhz1cggd-obsidian.plugins.table-editor-0.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -550,6 +586,12 @@
 "out"
 ],
 "position":"./pkgs/obsidian/table-editor/default.nix:35",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -563,7 +605,7 @@
 "version":"0.3.1"
 },
 "tag-wrangler":{
-"drvPath":"/nix/store/qirlhx0wna5cn7xqm91gfxd3k94cf89i-obsidian.plugins.tag-wrangler-0.6.4.drv",
+"drvPath":"/nix/store/a87kkifn67858djkcrzqi09r1a08mcfw-obsidian.plugins.tag-wrangler-0.6.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -617,6 +659,12 @@
 "out"
 ],
 "position":"./pkgs/obsidian/tag-wrangler/default.nix:35",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -640,7 +688,7 @@
 "version":""
 },
 "tray":{
-"drvPath":"/nix/store/87s0rxbza21p6x71mfkh6h2x7hx38yld-obsidian.plugins.tray-0.3.5.drv",
+"drvPath":"/nix/store/imlhxxdh9bn342kidl2vlm77n8nrryk4-obsidian.plugins.tray-0.3.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -694,6 +742,12 @@
 "out"
 ],
 "position":"./pkgs/obsidian/tray/default.nix:35",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
