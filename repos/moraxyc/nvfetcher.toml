@@ -106,6 +106,11 @@ fetch.url = "https://github.com/P3TERX/GeoLite.mmdb/releases/download/$ver/GeoLi
 src.github_tag = "cyanheads/git-mcp-server"
 fetch.github = "cyanheads/git-mcp-server"
 
+[grok-search-rs]
+src.github = "Episkey-G/GrokSearch-rs"
+fetch.github = "Episkey-G/GrokSearch-rs"
+cargo_lock = ['Cargo.lock']
+
 [happydeliver]
 src.github = "happyDomain/happydeliver"
 fetch.github = "happyDomain/happydeliver"
@@ -258,9 +263,13 @@ fetch.github = "Loyalsoldier/v2ray-rules-dat"
 src.branch = "release"
 
 [whois42d-ng]
-src.github = "moraxyc/whois42d-ng"
+src.git = "https://github.com/moraxyc/whois42d-ng.git"
 fetch.github = "moraxyc/whois42d-ng"
 cargo_lock = ['Cargo.lock']
+
+[whois42d-ng-stable]
+src.github = "moraxyc/whois42d-ng"
+fetch.github = "moraxyc/whois42d-ng"
 
 [zsh-patina]
 src.github = "michel-kraemer/zsh-patina"
