@@ -7,46 +7,46 @@ error:
    683|               if attrs ? name then
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/strings.nix:2908:5:
-  2907|     in
-  2908|     string:
+  at <nixpkgs> + /lib/strings.nix:2909:5:
+  2908|     in
+  2909|     string:
       |     ^
-  2909|     # First detect the common case of already valid strings, to speed those up
+  2910|     # First detect the common case of already valid strings, to speed those up
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/strings.nix:2910:5:
-  2909|     # First detect the common case of already valid strings, to speed those up
-  2910|     if stringLength string <= 207 && okRegex string != null then
+  at <nixpkgs> + /lib/strings.nix:2911:5:
+  2910|     # First detect the common case of already valid strings, to speed those up
+  2911|     if stringLength string <= 207 && okRegex string != null then
       |     ^
-  2911|       unsafeDiscardStringContext string
+  2912|       unsafeDiscardStringContext string
 
 … in the left operand of the AND (&&) operator
-  at <nixpkgs> + /lib/strings.nix:2910:35:
-  2909|     # First detect the common case of already valid strings, to speed those up
-  2910|     if stringLength string <= 207 && okRegex string != null then
+  at <nixpkgs> + /lib/strings.nix:2911:35:
+  2910|     # First detect the common case of already valid strings, to speed those up
+  2911|     if stringLength string <= 207 && okRegex string != null then
       |                                   ^
-  2911|       unsafeDiscardStringContext string
+  2912|       unsafeDiscardStringContext string
 
 … in the argument of the not operator
-  at <nixpkgs> + /lib/strings.nix:2910:28:
-  2909|     # First detect the common case of already valid strings, to speed those up
-  2910|     if stringLength string <= 207 && okRegex string != null then
+  at <nixpkgs> + /lib/strings.nix:2911:28:
+  2910|     # First detect the common case of already valid strings, to speed those up
+  2911|     if stringLength string <= 207 && okRegex string != null then
       |                            ^
-  2911|       unsafeDiscardStringContext string
+  2912|       unsafeDiscardStringContext string
 
 … while calling the 'lessThan' builtin
-  at <nixpkgs> + /lib/strings.nix:2910:28:
-  2909|     # First detect the common case of already valid strings, to speed those up
-  2910|     if stringLength string <= 207 && okRegex string != null then
+  at <nixpkgs> + /lib/strings.nix:2911:28:
+  2910|     # First detect the common case of already valid strings, to speed those up
+  2911|     if stringLength string <= 207 && okRegex string != null then
       |                            ^
-  2911|       unsafeDiscardStringContext string
+  2912|       unsafeDiscardStringContext string
 
 … while calling the 'stringLength' builtin
-  at <nixpkgs> + /lib/strings.nix:2910:8:
-  2909|     # First detect the common case of already valid strings, to speed those up
-  2910|     if stringLength string <= 207 && okRegex string != null then
+  at <nixpkgs> + /lib/strings.nix:2911:8:
+  2910|     # First detect the common case of already valid strings, to speed those up
+  2911|     if stringLength string <= 207 && okRegex string != null then
       |        ^
-  2911|       unsafeDiscardStringContext string
+  2912|       unsafeDiscardStringContext string
 
 … in the condition of the assert statement
   at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:687:17:
