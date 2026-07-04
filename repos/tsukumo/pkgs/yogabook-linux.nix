@@ -8,7 +8,7 @@ let
     fetchSubmodules = true;
   };
 in
-{
+rec {
   src = yogabook-src;
 
   touch-keyboard = pkgs.stdenv.mkDerivation {
@@ -105,14 +105,28 @@ in
     };
   };
 
+  yogabook-config = pkgs.runCommandCC "yogabook-kernel-config" {
+    nativeBuildInputs = with pkgs; [ gnumake bison flex elfutils perl ];
+  } ''
+    cp -r ${yogabook-src}/yogabook-linux-kernel/* .
+    chmod -R +w .
+    make ARCH=x86 yogabook_defconfig
+    cp .config $out
+  '';
+
   yogabook-kernel = pkgs.linuxManualConfig {
     inherit (pkgs) stdenv;
     src = "${yogabook-src}/yogabook-linux-kernel";
-    configfile = "${yogabook-src}/yogabook-linux-kernel/arch/x86/configs/yogabook_defconfig";
+    configfile = yogabook-config;
     version = "6.17.4-yogabook";
     modDirVersion = "6.17.4";
     config = {
       CONFIG_MODULES = "y";
+    };
+    features = {
+      efiBootStub = true;
+      netfilterRPFilter = true;
+      ia32Emulation = true;
     };
   };
 }
