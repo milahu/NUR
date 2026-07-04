@@ -1,26 +1,26 @@
 {
 "name":"ymstnt",
-"fetch_time":0.439,
-"eval_time":1.579,
+"fetch_time":0.83,
+"eval_time":1.672,
 "source":{
 "url":"https://github.com/ymstnt/nur-packages",
-"rev":"f4c7e911dff60e15604f0f7a025d469191afbecc",
-"sha256":"0d4d86mwwawkm9761k82lh0vlb6mpw3kx0y75xz2nlq1i70776bb",
+"rev":"d419587d89000797d732078e8f7eeeb0070dc953",
+"sha256":"1js4gis05y8zy8qq1dqjry0j0w09mvyxvg0g4d9imyl0vc6fkrn5",
 "date":null
 },
-"source_storepath":"/nix/store/nf9zbnl4j1rkr2fr2ii8x8ic2ljk9k9q-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"8aa92778ab95b7d72149580eb0743abb299bed6a",
+"source_storepath":"/nix/store/b6533pcn0668x7qmanjswil44h14fzjn-source",
+"nixpkgs_storepath":"/nix/store/pwnyll1k7z26iw4c7xvsqbv1097ks8vk-source",
+"nur_combined_rev":"c17804c12734aa57f840a4dcb838c85fa0440645",
 "packages":{
 "beeper":{
-"name":"beeper-4.2.948",
+"name":"beeper-4.2.957",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"beeper",
 "system":"x86_64-linux",
-"version":"4.2.948"
+"version":"4.2.957"
 },
 "deepdwn":{
 "name":"deepdwn-0.41.0",
@@ -33,7 +33,7 @@
 "version":"0.41.0"
 },
 "equicord":{
-"drvPath":"/nix/store/faxwymh2icaiwciy5p4n4vrz7x0b8njr-equicord-2026-06-26.drv",
+"drvPath":"/nix/store/0krrml92lbbrjgfgmv0ichrlblgngqk1-equicord-2026-07-03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -80,7 +80,7 @@
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
 "maintainers":[],
-"name":"equicord-2026-06-26",
+"name":"equicord-2026-07-03",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -112,17 +112,23 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/equicord/default.nix:72",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
-"name":"equicord-2026-06-26",
+"name":"equicord-2026-07-03",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"equicord",
 "system":"x86_64-linux",
-"version":"2026-06-26"
+"version":"2026-07-03"
 },
 "how-to-convert":{
 "name":"how-to-convert-1.3.0",
@@ -135,7 +141,7 @@
 "version":"1.3.0"
 },
 "lifeograph":{
-"drvPath":"/nix/store/jlz3wha2s1yb5ayxlhy0lvvw50s0jlx3-lifeograph-2.0.3.drv",
+"drvPath":"/nix/store/xxjpp3z23k67d3965q088q4m83rghqn7-lifeograph-2.0.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -185,7 +191,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/nf9zbnl4j1rkr2fr2ii8x8ic2ljk9k9q-source/pkgs/lifeograph/default.nix",
+"file":"/nix/store/b6533pcn0668x7qmanjswil44h14fzjn-source/pkgs/lifeograph/default.nix",
 "line":50
 },
 "name":"lifeograph-2.0.3",
@@ -220,6 +226,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/lifeograph/default.nix:48",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -243,7 +255,7 @@
 "version":"2.1.29"
 },
 "minecraft-console-client":{
-"drvPath":"/nix/store/c2h7ylm6qps2z3h91k6ykqrsbwdvp1h4-minecraft-console-client-20250522-285.drv",
+"drvPath":"/nix/store/yn9pg2ysbqhmplqs6gbd799fl8449dll-minecraft-console-client-20250522-285.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -303,6 +315,12 @@
 "aarch64-darwin"
 ],
 "position":"./pkgs/minecraft-console-client/default.nix:29",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -326,7 +344,7 @@
 "version":"0.5.19"
 },
 "trmnl-preview":{
-"drvPath":"/nix/store/5ahxk1rh40xss58chjrrs93kd2iyk01q-trmnl_preview-0.6.0.drv",
+"drvPath":"/nix/store/kczh1nx8lxmll87dcn7xawpjkvbnq2d0-trmnl_preview-0.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -383,6 +401,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/trmnl-preview/default.nix:48",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -396,7 +420,7 @@
 "version":"0.6.0"
 },
 "uni-week-counter":{
-"drvPath":"/nix/store/x45ivcswwrcnwmp4mav83cxq1bcnqkdx-uni-week-counter-1.3.0-unstable-2026-05-24.drv",
+"drvPath":"/nix/store/qygdz1qdk5pw5az5ddycp63nls7wwz52-uni-week-counter-1.3.0-unstable-2026-05-24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -452,7 +476,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/nf9zbnl4j1rkr2fr2ii8x8ic2ljk9k9q-source/pkgs/uni-week-counter/default.nix",
+"file":"/nix/store/b6533pcn0668x7qmanjswil44h14fzjn-source/pkgs/uni-week-counter/default.nix",
 "line":25
 },
 "name":"uni-week-counter-1.3.0-unstable-2026-05-24",
@@ -549,6 +573,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/uni-week-counter/default.nix:22",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
