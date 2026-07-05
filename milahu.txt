@@ -1,17 +1,24 @@
 error:
-… while evaluating the attribute 'example-package'
-  at ./default.nix:22:3:
-    21|
-    22|   example-package = pkgs.callPackage ./pkgs/example-package { };
+… while evaluating the attribute 'python3Packages'
+  at ./default.nix:159:3:
+   158|   #python3Packages = lib.recurseIntoAttrs (lib.makeScope pkgs.python3Packages.newScope (self: with self; ({
+   159|   python3Packages = lib.recurseIntoAttrs (pkgs.lib.makeScope pkgs.python3Packages.newScope (self: let inherit (self) callPackage; in ({
       |   ^
-    23|   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
+   160|   #python3Packages = lib.recurseIntoAttrs (pkgs.lib.makeScope pkgs.python3Packages.newScope (self: let inherit (self) callPackage; in (pkgs.python3Packages // {
+
+… while evaluating the attribute 'epub-toc'
+  at ./default.nix:681:7:
+   680|
+   681|       epub-toc = callPackage ./pkgs/development/python-modules/epub-toc { };
+      |       ^
+   682|
 
 … from call site
-  at ./default.nix:22:21:
-    21|
-    22|   example-package = pkgs.callPackage ./pkgs/example-package { };
-      |                     ^
-    23|   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
+  at ./default.nix:681:18:
+   680|
+   681|       epub-toc = callPackage ./pkgs/development/python-modules/epub-toc { };
+      |                  ^
+   682|
 
 … while calling anonymous lambda
   at <nixpkgs> + /lib/customisation.nix:307:19:
@@ -69,4 +76,9 @@ error:
       |                                         ^
    310|       fargs = functionArgs f;
 
-error: path './pkgs/example-package' does not exist
+error: syntax error, unexpected '=', expecting ';'
+at ./pkgs/development/python-modules/epub-toc/default.nix:10:13:
+     9|   version = "0-unstable-2026-07-04"
+    10|   pyproject = true;
+      |             ^
+    11|

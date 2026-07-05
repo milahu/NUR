@@ -1,0 +1,14 @@
+error:
+… while evaluating the attribute 'yogabook-kernel'
+  at ./default.nix:35:3:
+    34|   yogabook-config = yogabook-linux.yogabook-config;
+    35|   yogabook-kernel = yogabook-linux.yogabook-kernel;
+      |   ^
+    36|   yogabook-modules = yogabook-linux.yogabook-modules {
+
+error: attribute 'yogabook-kernel' missing
+at ./default.nix:35:21:
+    34|   yogabook-config = yogabook-linux.yogabook-config;
+    35|   yogabook-kernel = yogabook-linux.yogabook-kernel;
+      |                     ^
+    36|   yogabook-modules = yogabook-linux.yogabook-modules {

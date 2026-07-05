@@ -4,14 +4,14 @@ error:
     26|     # custom things
     27|     custom_neovim = p ./pkgs/custom/neovim;
       |     ^
-    28|     custom_rofi = p ./pkgs/custom/rofi.nix;
+    28|
 
 … from call site
   at ./nix/nur.nix:27:21:
     26|     # custom things
     27|     custom_neovim = p ./pkgs/custom/neovim;
       |                     ^
-    28|     custom_rofi = p ./pkgs/custom/rofi.nix;
+    28|
 
 … while calling 'p'
   at ./nix/nur.nix:9:9:
