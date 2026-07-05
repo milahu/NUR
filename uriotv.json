@@ -1,19 +1,19 @@
 {
 "name":"uriotv",
-"fetch_time":0.892,
-"eval_time":1.983,
+"fetch_time":0.423,
+"eval_time":1.895,
 "source":{
 "url":"https://github.com/urioTV/urio-nur",
-"rev":"1919a436d7bf6a7ee253904766319c4f9a08c238",
-"sha256":"14azk2rx3yl9aw0ln0mf1jpiigl79h6s2pclsipd2m3hikpg46c4",
+"rev":"f3894793b3d8ad94190ba19141e224206a1343a9",
+"sha256":"1yxj4hp9x035ilkklkbg8na83a1nabjnvjskr4q4nlj8dcmr2p4k",
 "date":null
 },
-"source_storepath":"/nix/store/gl91mpsgxs14jdbsq53l7dmklq1n8n6d-source",
-"nixpkgs_storepath":"/nix/store/sixfvygd759vgqlj2dab825dldzzqp9s-source",
-"nur_combined_rev":"fe70453db83798130c738d5862198a32478b5af5",
+"source_storepath":"/nix/store/r8injxx2yjayv58ddlp8s4k10rzqc71y-source",
+"nixpkgs_storepath":"/nix/store/64m416fjn0p9qm5lnhyzyld78lnvb9pm-source",
+"nur_combined_rev":"feb5e6668110bcca3aea243927fd64e6e4ce3d64",
 "packages":{
 "cybergrub2077":{
-"drvPath":"/nix/store/pmpfcn1qihgzxdd4s6j6bv0wyncassdz-cyber-grub-2077-2.0.1-unstable-2026-02-28.drv",
+"drvPath":"/nix/store/jfjhyxck93baf6cf6k1ykgm7bwgq7xcf-cyber-grub-2077-2.0.1-unstable-2026-02-28.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -92,6 +92,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/cybergrub2077/default.nix:37",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -105,7 +111,7 @@
 "version":"2077-2.0.1-unstable-2026-02-28"
 },
 "optipatcher-install":{
-"drvPath":"/nix/store/gb6f4d3xcqgllgxvmc5lkff7bnd8fk3f-optipatcher-install.drv",
+"drvPath":"/nix/store/cp2gcr59ygky7a4b1p1c9ifl7iln5mn0-optipatcher-install.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -183,6 +189,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/optipatcher-install/default.nix:12",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -196,7 +208,7 @@
 "version":""
 },
 "optiscaler-client":{
-"drvPath":"/nix/store/rr7rvmszmfnga0354bjy9l8ak7ysamrb-optiscaler-client-1.0.5.drv",
+"drvPath":"/nix/store/5ralnw8cg8s8sbiwcspvp8zgcxs5icr0-optiscaler-client-1.0.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -254,6 +266,12 @@
 "aarch64-linux"
 ],
 "position":"./pkgs/optiscaler-client/default.nix:145",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":true,
@@ -281,7 +299,7 @@
 "version":"1.0.5"
 },
 "optiscaler-install":{
-"drvPath":"/nix/store/w8pfnd7kbdndv0rrdfj8q8n0alr9w5l0-optiscaler-install.drv",
+"drvPath":"/nix/store/m81jcjrm9qfsb59rbbb948iylhsmxp1f-optiscaler-install.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -359,6 +377,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/optiscaler-install/default.nix:11",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -372,7 +396,7 @@
 "version":""
 },
 "rimsort-appimage":{
-"drvPath":"/nix/store/fa9qm3b26zk69b1h68dp90y41dn8064v-rimsort-1.2.2.drv",
+"drvPath":"/nix/store/afydcv6slsc3fiyvz8w39z7a4n3b5ami-rimsort-1.7.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -420,7 +444,7 @@
 },
 "mainProgram":"rimsort",
 "maintainers":[],
-"name":"rimsort-1.2.2",
+"name":"rimsort-1.7.2",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -429,6 +453,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/rimsort-appimage/default.nix:97",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -438,17 +468,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rimsort-1.2.2",
+"name":"rimsort-1.7.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rimsort",
 "system":"x86_64-linux",
-"version":"1.2.2"
+"version":"1.7.2"
 },
 "scopebuddy":{
-"drvPath":"/nix/store/pg2kyg586x5kdcyc1dwv3a4wks2w6iag-scopebuddy-1.4.0.drv",
+"drvPath":"/nix/store/dkjvd3z7r4kqrv1zw63sj1a6hyxs1jir-scopebuddy-1.4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -528,6 +558,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/scopebuddy/default.nix:56",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -541,7 +577,7 @@
 "version":"1.4.0"
 },
 "vs-launcher":{
-"drvPath":"/nix/store/6i46qbw56dx9wv5kcyrjmhcwk242z2xy-vs-launcher-1.5.8.drv",
+"drvPath":"/nix/store/ccjkzbg860h4ah92fnhzpb6hnmf6vkd2-vs-launcher-1.5.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -598,6 +634,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/vs-launcher/default.nix:87",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -617,7 +659,7 @@
 "version":"1.5.8"
 },
 "wowup-cf":{
-"drvPath":"/nix/store/biplb2h0qprfs0gmnjhi4l1xp7kxm77p-wowup-cf-2.22.0.drv",
+"drvPath":"/nix/store/w3v81l4qyaryvk61pkjj9yafwac9jrbz-wowup-cf-2.22.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -674,6 +716,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/wowup-cf/default.nix:78",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
