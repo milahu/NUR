@@ -48,9 +48,14 @@
                   extraConfig =
                     let
                       forwardAuthBlock = lib.optionalString (protected && !selfSigned) ''
-                        forward_auth http://${homelab.router.ip}:9000 {
+                        forward_auth http://${homelab.authentik.ip}:9000 {
                           uri /outpost.goauthentik.io/auth/caddy
                           copy_headers X-Authentik-Username X-Authentik-Groups X-Authentik-Jwt X-Authentik-Email X-Authentik-Name X-Authentik-Uid X-Authentik-Session-Issuer
+                          header_up X-Forwarded-Method {method}
+                          header_up X-Forwarded-Proto {scheme}
+                          header_up X-Forwarded-Host {host}
+                          header_up X-Forwarded-Uri {uri}
+                          header_up X-Forwarded-For {remote}
                         }
                       '';
                     in
@@ -59,8 +64,8 @@
                       if selfSigned then
                         ''
                           header Strict-Transport-Security "max-age=15552000; includeSubDomains; preload"
-                          header_down -Server
                           reverse_proxy https://${ip}:${toString port} {
+                            header_down -Server
                             transport http {
                               tls_insecure_skip_verify
                             }
@@ -69,8 +74,9 @@
                       else
                         ''
                           header Strict-Transport-Security "max-age=15552000; includeSubDomains; preload"
-                          header_down -Server
-                          reverse_proxy http://${ip}:${toString port}
+                          reverse_proxy http://${ip}:${toString port} {
+                            header_down -Server
+                          }
                         ''
                     );
                 };
