@@ -1,19 +1,19 @@
 {
 "name":"chrjabs",
-"fetch_time":0.631,
-"eval_time":1.1,
+"fetch_time":0.345,
+"eval_time":1.124,
 "source":{
 "url":"https://github.com/chrjabs/nur-packages",
-"rev":"ca30d710f6915c12b9c109cc1dbba9896e1455e9",
-"sha256":"0b42ciw512598a02nrxjsaa54kp8rdyn1pfabn2izkqq1pric2x4",
+"rev":"5ac22953b0158fa26f8f7c7272df9b82469ef77f",
+"sha256":"0zxn1nv7m22f7ibz7q3vlf7h39zfqnrmxp3c0r9k64gllxzl87w1",
 "date":null
 },
-"source_storepath":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source",
-"nixpkgs_storepath":"/nix/store/lvzmhvqzp2x0br4fy2ibw53ggdsd07dk-source",
-"nur_combined_rev":"19acf66952bfcc7933fa3df23e9ac9d2f55c6692",
+"source_storepath":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source",
+"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
+"nur_combined_rev":"3a00406c8d3610f0fd294456aefbf74a4c562578",
 "packages":{
 "cargo-afl":{
-"drvPath":"/nix/store/gqjigw6g1rfvx10xzlk98fmw8gqk5ykj-cargo-afl-0.15.22.drv",
+"drvPath":"/nix/store/mwaca89icq3zw9gpy2xidlazsp2kd93q-cargo-afl-0.15.22.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -88,7 +88,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source/pkgs/cargo-afl/default.nix",
+"file":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source/pkgs/cargo-afl/default.nix",
 "line":62
 },
 "name":"cargo-afl-0.15.22",
@@ -149,6 +149,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/cargo-afl/default.nix:56",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -162,7 +163,7 @@
 "version":"0.15.22"
 },
 "coveralls":{
-"drvPath":"/nix/store/l5agp88h8pk89padq4hrxhh1848csrah-coveralls-0.6.17.drv",
+"drvPath":"/nix/store/8nrqnch289m52dd0hvxxm9kg962yq601-coveralls-0.6.17.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -224,7 +225,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source/pkgs/coveralls/default.nix",
+"file":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source/pkgs/coveralls/default.nix",
 "line":36
 },
 "name":"coveralls-0.6.17",
@@ -251,6 +252,7 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/coveralls/default.nix:33",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -264,7 +266,7 @@
 "version":"0.6.17"
 },
 "dblp-tools":{
-"drvPath":"/nix/store/yzk9fhlmnc4lgxlh5mapa12by2xpip3l-dblp-tools-0.1.0-unstable.drv",
+"drvPath":"/nix/store/dyhg99m8dv7x5513imsvb0s8r1c99ykz-dblp-tools-0.1.0-unstable.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -337,7 +339,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source/pkgs/dblp-tools/default.nix",
+"file":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source/pkgs/dblp-tools/default.nix",
 "line":31
 },
 "name":"dblp-tools-0.1.0-unstable",
@@ -398,6 +400,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/dblp-tools/default.nix:27",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -411,7 +414,7 @@
 "version":"0.1.0-unstable"
 },
 "dodeca":{
-"drvPath":"/nix/store/7jxay982y8hfk86w32024ynwz084v72l-dodeca-0.13.0.drv",
+"drvPath":"/nix/store/089i755yks4h9jxg1rc84qhdmr1pz0hr-dodeca-0.13.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -497,7 +500,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source/pkgs/dodeca/default.nix",
+"file":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source/pkgs/dodeca/default.nix",
 "line":122
 },
 "name":"dodeca-0.13.0",
@@ -558,6 +561,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/dodeca/default.nix:115",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -571,7 +575,7 @@
 "version":"0.13.0"
 },
 "gbd":{
-"drvPath":"/nix/store/z7syn6hry8igcbwq6mkpbc1lbmd0zv9h-python3.13-gbd-5.0.0-multi-opt.drv",
+"drvPath":"/nix/store/jpakip8nd17fz5bc7qyji95hmciclgl3-python3.13-gbd-5.0.0-multi-opt.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -667,7 +671,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source/pkgs/gbd/default.nix",
+"file":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source/pkgs/gbd/default.nix",
 "line":47
 },
 "name":"python3.13-gbd-5.0.0-multi-opt",
@@ -722,6 +726,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/gbd/default.nix:44",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -736,7 +741,7 @@
 "version":"5.0.0-multi-opt"
 },
 "gbdc":{
-"drvPath":"/nix/store/gqf0398j9wibgdg6ia9c3lmm56aqxa00-python3.13-gbdc-0.3.3-multi-opt.drv",
+"drvPath":"/nix/store/wizdq9j113zpvxdc2kdk7xrfnag6dc10-python3.13-gbdc-0.3.3-multi-opt.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -831,7 +836,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source/pkgs/gbdc/shared.nix",
+"file":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source/pkgs/gbdc/shared.nix",
 "line":29
 },
 "name":"python3.13-gbdc-0.3.3-multi-opt",
@@ -934,6 +939,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/gbdc/shared.nix:26",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -948,7 +954,7 @@
 "version":"0.3.3-multi-opt"
 },
 "gbdc-tool":{
-"drvPath":"/nix/store/na5y52xav4iwvfs672xh1fnlap2ilpd9-gbdc-0.3.3-multi-opt.drv",
+"drvPath":"/nix/store/csqq6jpyz32f0fan7cqfl1vih0fq76mw-gbdc-0.3.3-multi-opt.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1010,7 +1016,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source/pkgs/gbdc/shared.nix",
+"file":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source/pkgs/gbdc/shared.nix",
 "line":29
 },
 "name":"gbdc-0.3.3-multi-opt",
@@ -1113,6 +1119,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/gbdc/tool.nix:28",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1126,7 +1133,7 @@
 "version":"0.3.3-multi-opt"
 },
 "gimsatul":{
-"drvPath":"/nix/store/9isaqjrjaz1hrrnpss809cpdsr83j211-gimsatul-1.1.3.drv",
+"drvPath":"/nix/store/hr40xnd3jm152w6wnydiq40xfhrhrdhn-gimsatul-1.1.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1189,7 +1196,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source/pkgs/gimsatul/default.nix",
+"file":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source/pkgs/gimsatul/default.nix",
 "line":72
 },
 "name":"gimsatul-1.1.3",
@@ -1258,6 +1265,7 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/gimsatul/default.nix:60",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1271,7 +1279,7 @@
 "version":"1.1.3"
 },
 "gungraun-runner":{
-"drvPath":"/nix/store/zx809hr6v24bfn85flg00bjfifkhlsln-gungraun-runner-0.19.2.drv",
+"drvPath":"/nix/store/bl2137frfp3zs8jx2zllw89pgkgq04ip-gungraun-runner-0.19.3.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1356,10 +1364,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source/pkgs/gungraun-runner/default.nix",
+"file":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source/pkgs/gungraun-runner/default.nix",
 "line":36
 },
-"name":"gungraun-runner-0.19.2",
+"name":"gungraun-runner-0.19.3",
 "nonTeamMaintainers":[
 {
 "email":"contact@christophjabs.info",
@@ -1417,20 +1425,21 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/gungraun-runner/default.nix:29",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"gungraun-runner-0.19.2",
+"name":"gungraun-runner-0.19.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"gungraun-runner",
 "system":"x86_64-linux",
-"version":"0.19.2"
+"version":"0.19.3"
 },
 "janus-swi":{
-"drvPath":"/nix/store/ycxm2qpydxq7vf02a0j2y02f9m5dd2cl-python3.13-janus-swi-1.5.2.drv",
+"drvPath":"/nix/store/vmdvhq63wfm973f0lx3crnhp02mhvnzs-python3.13-janus-swi-1.5.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1525,7 +1534,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source/pkgs/janus-swi/default.nix",
+"file":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source/pkgs/janus-swi/default.nix",
 "line":42
 },
 "name":"python3.13-janus-swi-1.5.2",
@@ -1580,6 +1589,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/janus-swi/default.nix:39",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1594,7 +1604,7 @@
 "version":"1.5.2"
 },
 "python-mip":{
-"drvPath":"/nix/store/rjd6zim6cjp6b5r6m1dv33vj9y2nxpim-python3.11-mip-1.15.0.drv",
+"drvPath":"/nix/store/lw3x5sh51wf8zqc5d8g93z21w5r2zizl-python3.11-mip-1.15.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1689,7 +1699,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source/pkgs/python-mip/default.nix",
+"file":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source/pkgs/python-mip/default.nix",
 "line":94
 },
 "name":"python3.11-mip-1.15.0",
@@ -1744,6 +1754,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/python-mip/default.nix:91",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1758,7 +1769,7 @@
 "version":"1.15.0"
 },
 "runsolver":{
-"drvPath":"/nix/store/axjyswpbwc7gd3qjbxnkdprx8rmgv8ci-runsolver-3.4.1.drv",
+"drvPath":"/nix/store/0g1v67nxqnsgixnymsffr8wnn0zfcmm2-runsolver-3.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1822,7 +1833,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source/pkgs/runsolver/default.nix",
+"file":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source/pkgs/runsolver/default.nix",
 "line":44
 },
 "name":"runsolver-3.4.1",
@@ -1843,6 +1854,7 @@
 "out"
 ],
 "position":"./pkgs/runsolver/default.nix:39",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1856,7 +1868,7 @@
 "version":"3.4.1"
 },
 "veripb":{
-"drvPath":"/nix/store/alllfc2dibcv5d4dzw6jpmnkmbcqr5dl-veripb-3.0.2-unstable.drv",
+"drvPath":"/nix/store/2pjilbap629ha52d43ndkyk4ccmrp8ni-veripb-3.0.2-unstable.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1942,7 +1954,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/y7qi2qr06cvbmc62s4qaip988wvqmzkj-source/pkgs/veripb/default.nix",
+"file":"/nix/store/n9f2drb79qw4qc795nqss11xl5hj49qi-source/pkgs/veripb/default.nix",
 "line":28
 },
 "name":"veripb-3.0.2-unstable",
@@ -2003,6 +2015,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/veripb/default.nix:21",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
