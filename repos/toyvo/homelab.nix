@@ -185,6 +185,7 @@
     ip = "10.200.0.6";
     services.jellyfin = {
       port = 8096;
+      protected = false;
       displayName = "Jellyfin";
       description = "Media Server";
       category = "Jellyfin";
@@ -224,6 +225,7 @@
     services.authentik = {
       port = 9000;
       subdomain = "auth";
+      protected = false;
       displayName = "Authentik";
       description = "Identity Provider";
       category = "Infrastructure";
