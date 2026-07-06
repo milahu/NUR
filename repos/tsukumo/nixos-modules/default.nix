@@ -8,11 +8,10 @@
 
       yogabook-linux = pkgs.callPackage ../pkgs/yogabook-linux.nix {};
 
-      # Expose packages from consolidated set
-      touch-keyboard = yogabook-linux.touch-keyboard;
-      yogabook-modes-handler = yogabook-linux.yogabook-modes-handler;
-      iio-sensor-proxy-yogabook = yogabook-linux.iio-sensor-proxy-yogabook;
-      yogabook-kernel = yogabook-linux.yogabook-kernel;
+      inherit (yogabook-linux)
+        touch-keyboard
+        yogabook-modes-handler
+        iio-sensor-proxy-yogabook;
 
       # Expose src for alsa-ucm-conf overriding
       yogabook-src = yogabook-linux.src;
@@ -23,20 +22,125 @@
         cp -r ${pkgs.alsa-ucm-conf}/share/alsa/ucm2/* $out/share/alsa/ucm2/
         chmod -R +w $out/share/alsa/ucm2
         cp -r ${yogabook-src}/alsa-ucm-conf-yogabook/ucm2/* $out/share/alsa/ucm2/
+
+        # Add PlaybackMixerElem to separate Speaker and Headphone volumes in UCM
+        substituteInPlace $out/share/alsa/ucm2/cht-yogabook/Speaker.conf \
+          --replace-fail 'PlaybackPCM "hw:''${CardId}"' 'PlaybackPCM "hw:''${CardId}"
+		PlaybackMixerElem "DAC1"'
+        substituteInPlace $out/share/alsa/ucm2/cht-yogabook/HeadsetPhones.conf \
+          --replace-fail 'PlaybackPCM "hw:''${CardId}"' 'PlaybackPCM "hw:''${CardId}"
+		PlaybackMixerElem "DAC2"'
       '';
+
+      # Custom layout files shipped in this NUR repo (e.g. jp106)
+      customLayouts = ../pkgs/layouts;
+
+      # Create custom etc directory for touch-keyboard with layout.csv symlink
+      touch-keyboard-etc = pkgs.runCommand "touch-keyboard-etc" {} ''
+        mkdir -p $out
+        cp -r ${touch-keyboard}/etc/touch_keyboard/* $out/
+        chmod -R +w $out/layouts
+        # Overlay custom layouts from our repo (adds jp106 etc.)
+        cp ${customLayouts}/*.csv $out/layouts/ 2>/dev/null || true
+        ln -sf layouts/YB1-X9x-${cfg.keyboardLayout}.csv $out/layout.csv
+      '';
+
+      yogabookKernelModules = [
+        "lenovo-yogabook"
+        "x86-android-tablets"
+        "drv260x"
+        "hideep"
+        "uinput"
+        "evdev"
+        "i2c-dev"
+        "goodix_ts"
+        "i2c-designware-platform"
+        "i2c-designware-core"
+      ] ++ lib.optionals cfg.enableCustomAudio [
+        "snd-soc-acpi-intel-match"
+        "snd-soc-sst-cht-yogabook"
+      ];
     in {
       options.hardware.yogabook = {
         enable = lib.mkEnableOption "Lenovo Yoga Book YB1 hardware support";
         useCustomKernel = lib.mkOption {
           type = lib.types.bool;
-          default = true;
+          default = false;
           description = "Whether to use the custom patched Yoga Book kernel. Disabling this will use the default NixOS kernel.";
+        };
+        enableCustomAudio = lib.mkOption {
+          type = lib.types.bool;
+          default = true;
+          description = "Whether to enable custom out-of-tree sound modules and UCM configuration for the Yoga Book. Disabling this will skip building/loading the audio modules, preventing compilation errors on newer kernels.";
+        };
+        keyboardLayout = lib.mkOption {
+          type = lib.types.enum [ "pc104" "pc105" "jp106" ];
+          default = "pc105";
+          description = "The physical keyboard layout of the Yoga Book (pc104 for US, pc105 for EU/ISO, jp106 for Japanese JIS).";
+        };
+        chargeTargetVoltage = lib.mkOption {
+          type = lib.types.enum [ 9 12 ];
+          default = 9;
+          description = "Target charging voltage in Volts for Pump Express fast charging (9V or 12V).";
+        };
+        enableHapticCalibration = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+          description = "Whether to calibrate haptic motors on boot (causes vibration at startup).";
         };
       };
 
       config = lib.mkIf cfg.enable {
-        # Custom kernel setup
-        boot.kernelPackages = lib.mkIf cfg.useCustomKernel (pkgs.linuxPackagesFor yogabook-kernel);
+        # Custom kernel setup (mutually exclusive with out-of-tree modules below)
+        boot.kernelPackages = lib.mkIf cfg.useCustomKernel
+          (pkgs.linuxPackagesFor yogabook-linux.yogabook-config);
+
+        # Extra kernel modules compiled out-of-tree for the standard NixOS kernel
+        boot.extraModulePackages = lib.mkIf (!cfg.useCustomKernel) [
+          (yogabook-linux.yogabook-modules {
+            inherit (config.boot.kernelPackages) kernel kernelModuleMakeFlags;
+            inherit (cfg) enableHapticCalibration;
+            enableAudio = cfg.enableCustomAudio;
+          })
+        ];
+
+        # Load necessary modules in order on boot
+        boot.kernelModules = yogabookKernelModules;
+
+        # Required for LUKS password entry via touch keyboard in initrd
+        boot.initrd.kernelModules = yogabookKernelModules;
+
+        # Udev rules in initrd: symlink Goodix touch digitizer as /dev/touch_keyboard
+        boot.initrd.services.udev.packages = [ touch-keyboard ];
+        boot.initrd.services.udev.rules = ''
+          # Symlink touchscreen digitizer for the keyboard driver directly using parent name attribute
+          ACTION=="add|change", SUBSYSTEM=="input", KERNEL=="event*", ATTRS{name}=="Goodix Capacitive TouchScreen", SYMLINK+="touch_keyboard"
+        '';
+
+        boot.initrd.systemd.storePaths = [
+          touch-keyboard
+        ];
+
+        # Copy layout config into initrd
+        boot.initrd.systemd.contents = {
+          "/etc/touch_keyboard".source = touch-keyboard-etc;
+        };
+
+        # Start touch-keyboard-handler in initrd (enables typing LUKS passphrase)
+        boot.initrd.systemd.services.touch-keyboard-handler = {
+          description = "Touch keyboard handler in initrd";
+          wantedBy = [ "initrd.target" ];
+          after = [ "systemd-udev-trigger.service" ];
+          requires = [ "systemd-udevd.service" ];
+          serviceConfig = {
+            Type = "simple";
+            WorkingDirectory = "/etc/touch_keyboard";
+            ExecStartPre = "${config.boot.initrd.systemd.package}/bin/udevadm wait --timeout=10 /dev/touch_keyboard";
+            ExecStart = "${touch-keyboard}/bin/touch_keyboard_handler -m 1.0 -D 6";
+            Restart = "on-failure";
+            RestartSec = "2s";
+          };
+        };
 
         # Kernel command-line parameters for screen rotation and power management
         boot.kernelParams = [
@@ -49,23 +153,28 @@
         # Enable firmware
         hardware.enableRedistributableFirmware = true;
 
-        # Nixpkgs Overlay to replace iio-sensor-proxy
+        # Replace iio-sensor-proxy with the patched Yoga Book version
         nixpkgs.overlays = [
-          (final: prev: {
+          (_final: _prev: {
             iio-sensor-proxy = iio-sensor-proxy-yogabook;
           })
         ];
 
         # Override UCM2 directory via environment variable to avoid rebuilds of GUI apps
-        environment.sessionVariables = {
+        environment.sessionVariables = lib.mkIf cfg.enableCustomAudio {
           ALSA_CONFIG_UCM2 = "${alsa-ucm-conf-yogabook}/share/alsa/ucm2";
         };
+
+        # Ensure that audio services (which run as systemd user services) also see the custom UCM configurations
+        systemd.user.services.pipewire.environment.ALSA_CONFIG_UCM2 = lib.mkIf cfg.enableCustomAudio "${alsa-ucm-conf-yogabook}/share/alsa/ucm2";
+        systemd.user.services.wireplumber.environment.ALSA_CONFIG_UCM2 = lib.mkIf cfg.enableCustomAudio "${alsa-ucm-conf-yogabook}/share/alsa/ucm2";
+        systemd.user.services.pulseaudio.environment.ALSA_CONFIG_UCM2 = lib.mkIf cfg.enableCustomAudio "${alsa-ucm-conf-yogabook}/share/alsa/ucm2";
 
         # Disable default initrd modules when using the custom kernel to prevent
         # errors from missing legacy storage modules (ahci, ata_piix, etc.) and
         # keyboard modules (atkbd, i8042) which are not built in the custom kernel.
         boot.initrd.includeDefaultModules = lib.mkDefault (!cfg.useCustomKernel);
-        boot.initrd.availableKernelModules = [
+        boot.initrd.availableKernelModules = lib.mkIf cfg.useCustomKernel [
           # Storage / MMC
           "sdhci"
           "sdhci_acpi"
@@ -110,6 +219,9 @@
 
           # Import sensor HWDB rules
           ACTION=="add|change", SUBSYSTEM=="iio", KERNEL=="iio*", SUBSYSTEMS=="usb|i2c|platform", IMPORT{builtin}="hwdb 'sensor:modalias:$attr{modalias}:id:$id:$attr{[dmi/id]modalias}'"
+
+          # Trigger Pump Express handshake when charger is plugged in
+          SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_NAME}=="cht_wcove_pwrsrc", ENV{POWER_SUPPLY_ONLINE}=="1", ENV{POWER_SUPPLY_USB_TYPE}=="*DCP*", TAG+="systemd", ENV{SYSTEMD_WANTS}+="pe-handshake.service"
         '';
 
         # HWDB Settings
@@ -158,6 +270,7 @@
           touch-keyboard-handler = {
             description = "Touch keyboard handler";
             wantedBy = [ "multi-user.target" ];
+            restartTriggers = [ touch-keyboard-etc ];
             serviceConfig = {
               Type = "simple";
               WorkingDirectory = "/etc/touch_keyboard";
@@ -174,10 +287,66 @@
               StandardOutput = "journal";
             };
           };
+
+          pe-handshake = {
+            description = "Yoga Book Pump Express High Voltage Charge Handshake";
+            serviceConfig = {
+              Type = "oneshot";
+              ExecStart = "${pkgs.writeShellScript "pe-handshake" ''
+                # Enable PUMPX_EN (Reg 4 -> 0xc2)
+                echo "Enabling PUMPX_EN..."
+                ${pkgs.i2c-tools}/bin/i2cset -f -y 7 0x6b 4 0xc2
+
+                prev_voltage_mv=0
+                for i in {1..8}; do
+                  echo "--- Try $i ---"
+                  # Read current VBUS
+                  vbus_raw=$(${pkgs.i2c-tools}/bin/i2cget -f -y 7 0x6b 17)
+                  vbus_dec=$((vbus_raw & 0x7f))
+                  # 2.6V + 0.1V * vbus_dec
+                  voltage_mv=$((2600 + vbus_dec * 100))
+                  echo "Current VBUS voltage: ''${voltage_mv} mV"
+
+                  # Stop if we reached target voltage
+                  if [ $voltage_mv -gt ${if cfg.chargeTargetVoltage == 12 then "10500" else "8000"} ]; then
+                    echo "Voltage is high! Handshake succeeded!"
+                    break
+                  fi
+
+                  if [ $i -gt 1 ] && [ $voltage_mv -le $prev_voltage_mv ]; then
+                    echo "Voltage did not increase. Stopping."
+                    break
+                  fi
+
+                  prev_voltage_mv=$voltage_mv
+
+                  echo "Sending PUMPX_UP pulse..."
+                  ${pkgs.i2c-tools}/bin/i2cset -f -y 7 0x6b 9 0x46
+
+                  # Wait for it to clear
+                  echo "Waiting for pulse to complete..."
+                  for w in {1..40}; do
+                    reg9=$(${pkgs.i2c-tools}/bin/i2cget -f -y 7 0x6b 9)
+                    if [ $((reg9 & 0x02)) -eq 0 ]; then
+                      echo "Pulse complete after $w iterations"
+                      break
+                    fi
+                    sleep 0.1
+                  done
+
+                  sleep 1.0
+                done
+
+                # Disable PUMPX_EN (Reg 4 -> 0x42)
+                echo "Disabling PUMPX_EN..."
+                ${pkgs.i2c-tools}/bin/i2cset -f -y 7 0x6b 4 0x42
+              ''}";
+            };
+          };
         };
 
         # Configuration layout files placement
-        environment.etc."touch_keyboard".source = "${touch-keyboard}/etc/touch_keyboard";
+        environment.etc."touch_keyboard".source = touch-keyboard-etc;
       };
     };
 }
