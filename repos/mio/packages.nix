@@ -325,6 +325,7 @@ byName
       (old.nativeBuildInputs or [ ])
       ++ pkgs.lib.optional pkgs.stdenv.hostPlatform.isDarwin pkgs.desktopToDarwinBundle;
   });
+
 })
 // (lib.optionalAttrs (!nurbot) (
   with byName;
