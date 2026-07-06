@@ -32,13 +32,13 @@
   };
   enimul = {
     pname = "enimul";
-    version = "v0.3.0";
+    version = "v0.3.1";
     src = fetchFromGitHub {
       owner = "lzpls";
       repo = "enimul";
-      rev = "v0.3.0";
+      rev = "v0.3.1";
       fetchSubmodules = false;
-      sha256 = "sha256-Kbk6ifIKyVYIf60o3ybk/J+FqVJZwHN/i16VplN7NRg=";
+      sha256 = "sha256-7Jutd8WYe6WOEjFf4vHJnm3+4F9AevYprJfT2aqGIiI=";
     };
   };
   fxz = {
@@ -149,16 +149,16 @@
   };
   loveiwara = {
     pname = "loveiwara";
-    version = "0.4.4";
+    version = "0.5.0";
     src = fetchFromGitHub {
       owner = "FoxSensei001";
       repo = "LoveIwara";
-      rev = "0.4.4";
+      rev = "0.5.0";
       fetchSubmodules = false;
-      sha256 = "sha256-Vdf3ERybsOXG8SlNmQ/QRtBu7RS0T9t0V22UTMjXTls=";
+      sha256 = "sha256-q+w0W7b8wmYmG80UJZo78s2+gQcYHABcF5Zc0aSiGAM=";
     };
     extract = {
-      "pubspec.lock" = ./. + "/sha256-Vdf3ERybsOXG8SlNmQ_QRtBu7RS0T9t0V22UTMjXTls=/pubspec.lock";
+      "pubspec.lock" = ./. + "/sha256-q+w0W7b8wmYmG80UJZo78s2+gQcYHABcF5Zc0aSiGAM=/pubspec.lock";
     };
   };
   lxgw-wenkai-gb = {
@@ -381,10 +381,10 @@
   };
   waywallen-bin = {
     pname = "waywallen-bin";
-    version = "0.2.3";
+    version = "0.2.4";
     src = fetchurl {
-      url = "https://github.com/waywallen/waywallen/releases/download/v0.2.3/waywallen-0.2.3-x86_64.AppImage";
-      sha256 = "sha256-q+IsQuuDb52wrLCqItTSBAiKSSvXA2SU/Qh0LBlY+xo=";
+      url = "https://github.com/waywallen/waywallen/releases/download/v0.2.4/waywallen-0.2.4-x86_64.AppImage";
+      sha256 = "sha256-qgCyJdtRkkT3cTdswJ+lILIdx8I5FqULjceRNpiODGU=";
     };
   };
   waywallen-display-bin = {
