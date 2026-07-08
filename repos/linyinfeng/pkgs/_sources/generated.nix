@@ -385,17 +385,17 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "846e5fcae56f0e3f4dcd8570319ffaf377e15471";
+    version = "6917e5040c4e1b70939960408931b8a4361612dc";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "846e5fcae56f0e3f4dcd8570319ffaf377e15471";
+      rev = "6917e5040c4e1b70939960408931b8a4361612dc";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-Ccf3BgSHlUKGD5WHSyxxrt5HSBP+WvfsCbfWFTeWmfI=";
+      sha256 = "sha256-A+wMBG2rwrnqm813r67uKadPPEj8H0ekXcoy+yDJYE0=";
     };
-    date = "2026-07-02";
+    date = "2026-07-07";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
@@ -542,13 +542,13 @@
   };
   secureboot_objects = {
     pname = "secureboot_objects";
-    version = "v1.6.4-signed";
+    version = "v1.6.5";
     src = fetchFromGitHub {
       owner = "microsoft";
       repo = "secureboot_objects";
-      rev = "v1.6.4-signed";
+      rev = "v1.6.5";
       fetchSubmodules = false;
-      sha256 = "sha256-KLy6+vlkVP1s/ZAIQbZK5/FjM3Sfu3RUi6Qbq1M2if4=";
+      sha256 = "sha256-JEcZw7IhHo02OiKf5LrQaUW3cQyvHSDMcFljgbRLDlo=";
     };
   };
   telegram-send = {
