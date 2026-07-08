@@ -1,19 +1,19 @@
 {
 "name":"mic92",
-"fetch_time":0.657,
-"eval_time":1.012,
+"fetch_time":0.575,
+"eval_time":1.037,
 "source":{
 "url":"https://github.com/Mic92/nur-packages",
-"rev":"517c7751ff562eb96d645ee14125a492bf528d7d",
-"sha256":"0mqf814j00clp6f5jpa76ryasdmn5r0ja9c475hv00zfh6557p2f",
+"rev":"83bb845e8a798fc81523e301b9cee97169dfd34d",
+"sha256":"0cjz3a56vh2p9qw4qqw2gq1gbcldl0gs3cv6wi4a5nbqx57w743w",
 "date":null
 },
-"source_storepath":"/nix/store/s5axd5l4ap2x9k3mn8vvw1zc32aqnnxq-source",
-"nixpkgs_storepath":"/nix/store/b4l1fx59h1av2jvkrrccf8r4gswp34qq-source",
-"nur_combined_rev":"b9b4671896e3bc1a9dc55d41c6b4e7675c30cf09",
+"source_storepath":"/nix/store/aqlg1yf8f5h0m652rcv53wwypmdmik41-source",
+"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
+"nur_combined_rev":"374856c006c40d317eb0015287a0f8992616d24f",
 "packages":{
 "goatcounter":{
-"drvPath":"/nix/store/x6w2bkps7bwbmy6hsl5s1wvhjx9a29ay-goatcounter-2.6.0.drv",
+"drvPath":"/nix/store/cc8jvk8bkpk1g30pxzy454yywdwiqkw2-goatcounter-2.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -70,7 +70,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s5axd5l4ap2x9k3mn8vvw1zc32aqnnxq-source/pkgs/goatcounter/default.nix",
+"file":"/nix/store/aqlg1yf8f5h0m652rcv53wwypmdmik41-source/pkgs/goatcounter/default.nix",
 "line":26
 },
 "name":"goatcounter-2.6.0",
@@ -135,6 +135,7 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/goatcounter/default.nix:23",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -148,7 +149,7 @@
 "version":"2.6.0"
 },
 "hello-nur":{
-"drvPath":"/nix/store/dyr3zshrzmr8vpi16pqa7vcfk8jslfxg-hello-2.10.drv",
+"drvPath":"/nix/store/5yaf6dj84jr34hvpkmk1vzpmm0mc918n-hello-2.10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -199,7 +200,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s5axd5l4ap2x9k3mn8vvw1zc32aqnnxq-source/pkgs/hello-nur/default.nix",
+"file":"/nix/store/aqlg1yf8f5h0m652rcv53wwypmdmik41-source/pkgs/hello-nur/default.nix",
 "line":28
 },
 "name":"hello-2.10",
@@ -290,6 +291,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/hello-nur/default.nix:20",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -303,7 +310,7 @@
 "version":"2.10"
 },
 "irc-announce":{
-"drvPath":"/nix/store/jgziv7xg7ipwjdxp29cr99i35rgk5hs3-irc-announce.drv",
+"drvPath":"/nix/store/4mg0p4jqsc7klcgrswjrw0i69j55jjh5-irc-announce.drv",
 "meta":{
 "description":"IRC notifications implemented in ~25 lines shell script"
 },
@@ -317,7 +324,7 @@
 "version":""
 },
 "ircsink":{
-"drvPath":"/nix/store/bq2xnmjdqfnlv52ba55hhwm92gd44zph-ircsink-1.2.0.drv",
+"drvPath":"/nix/store/avlgrvdfsarvpr09mvx6swcbpirzc57n-ircsink-1.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -373,7 +380,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s5axd5l4ap2x9k3mn8vvw1zc32aqnnxq-source/pkgs/ircsink/default.nix",
+"file":"/nix/store/aqlg1yf8f5h0m652rcv53wwypmdmik41-source/pkgs/ircsink/default.nix",
 "line":44
 },
 "name":"ircsink-1.2.0",
@@ -438,6 +445,7 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/ircsink/default.nix:42",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -451,7 +459,7 @@
 "version":"1.2.0"
 },
 "mastodon-hnbot":{
-"drvPath":"/nix/store/bc40pzjl7x058hbmidvz66jaj6mixi2w-mastodon-hnbot-1.0.1.drv",
+"drvPath":"/nix/store/05lg89dn0sc7kmcils7r3yfswvyhni1l-mastodon-hnbot-1.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -572,6 +580,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/mastodon-hnbot/default.nix:19",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -586,7 +600,7 @@
 "version":"1.0.1"
 },
 "rspamd-learn-spam-ham":{
-"drvPath":"/nix/store/cxrpfk6732ypgg22n6ll4269xpi9vds4-rspamd-learn-spam-ham-1.0.0.drv",
+"drvPath":"/nix/store/g231dm2svm5gl605n4jyg8gl5rvay2nd-rspamd-learn-spam-ham-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -677,7 +691,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s5axd5l4ap2x9k3mn8vvw1zc32aqnnxq-source/pkgs/rspam-learn-spam-ham/default.nix",
+"file":"/nix/store/aqlg1yf8f5h0m652rcv53wwypmdmik41-source/pkgs/rspam-learn-spam-ham/default.nix",
 "line":23
 },
 "name":"rspamd-learn-spam-ham-1.0.0",
@@ -742,6 +756,7 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/rspam-learn-spam-ham/default.nix:20",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -756,7 +771,7 @@
 "version":"1.0.0"
 },
 "untilport":{
-"drvPath":"/nix/store/iga48iyhy4ascrbgrs9fjf0zp1laxky4-untilport.drv",
+"drvPath":"/nix/store/fjcqdwpx6aq50wf14i4wk6kj3f8dz3ql-untilport.drv",
 "meta":{
 "description":"Wait until tcp port is reachable"
 },
@@ -770,7 +785,7 @@
 "version":""
 },
 "vaultwarden_ldap":{
-"drvPath":"/nix/store/6psyx42pgn486nnlcw7dzlmfz7xjrkk8-vaultwarden_ldap-2.1.0.drv",
+"drvPath":"/nix/store/7ai3dzq1r2sb61710w8qfxk9hm0dchy1-vaultwarden_ldap-2.1.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -874,6 +889,12 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/vaultwarden_ldap/default.nix:29",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

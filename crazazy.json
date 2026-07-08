@@ -1,16 +1,16 @@
 {
 "name":"crazazy",
-"fetch_time":1.36,
-"eval_time":2.317,
+"fetch_time":0.687,
+"eval_time":2.3,
 "source":{
 "url":"https://github.com/crazazy/nixos-config",
-"rev":"442015d39f87c1eb22344dc6cf15c9835e0c2755",
-"sha256":"072yqjdg4yf53y073x57ybjdxk57d5xm3rgfc1hy2266hi2hyv4i",
+"rev":"58bdcb7d5f703a333c10dd98d4fbbadc8e0de6e6",
+"sha256":"1asrbxanx9v1kcsf02vd28741g66ghng8c8zqaghi61qrn9kwqia",
 "date":null
 },
-"source_storepath":"/nix/store/pkfn18r6dgnc0lgajm8c3sl1nqm4q97s-source",
-"nixpkgs_storepath":"/nix/store/l50fg3iji73p3fgfgfsx6rq76ivncjhk-source",
-"nur_combined_rev":"fc9f8a131615e3cbaacb3573c9392b273af9fe3f",
+"source_storepath":"/nix/store/f0aryw6vi2zrkh1hkdg5pfhw4kx3la16-source",
+"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
+"nur_combined_rev":"72738cfd06f55ed18ef162b7cf093ff1d9080f74",
 "packages":{
 "cakeml":{
 "drvPath":"/nix/store/wb561lf105dh5a5v9z41gzah5shz46fj-cakeml.drv",
@@ -123,7 +123,7 @@
 ],
 "maintainersPosition":{
 "column":55,
-"file":"/nix/store/l50fg3iji73p3fgfgfsx6rq76ivncjhk-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1101
 },
 "name":"elm-0.19.1",
@@ -1219,7 +1219,7 @@
 ],
 "maintainersPosition":{
 "column":55,
-"file":"/nix/store/l50fg3iji73p3fgfgfsx6rq76ivncjhk-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1101
 },
 "name":"nvfetcher-0.8.0.0",
@@ -1366,7 +1366,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v45.0.2/RELEASES.md",
+"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v46.0.1/RELEASES.md",
 "description":"wasmtime WebAssembly runner with support for delmited continuations",
 "homepage":"https://wasmtime.dev/",
 "identifiers":{
@@ -1399,8 +1399,18 @@
 }
 },
 "insecure":false,
-"license":[
-{
+"license":{
+"exception":{
+"deprecated":false,
+"free":true,
+"fullName":"LLVM Exception",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"llvm-exception",
+"spdxId":"LLVM-exception",
+"url":"https://spdx.org/licenses/LLVM-exception.html"
+},
+"license":{
 "deprecated":false,
 "free":true,
 "fullName":"Apache License 2.0",
@@ -1410,17 +1420,9 @@
 "spdxId":"Apache-2.0",
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
-{
-"deprecated":false,
-"free":true,
-"fullName":"LLVM Exception",
-"licenseType":"simple",
-"redistributable":true,
-"shortName":"llvm-exception",
-"spdxId":"LLVM-exception",
-"url":"https://spdx.org/licenses/LLVM-exception.html"
-}
-],
+"licenseType":"exception",
+"operator":"WITH"
+},
 "mainProgram":"wasmtime",
 "maintainers":[
 {
@@ -1439,10 +1441,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/l50fg3iji73p3fgfgfsx6rq76ivncjhk-source/pkgs/by-name/wa/wasmtime/package.nix",
-"line":130
+"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/by-name/wa/wasmtime/package.nix",
+"line":128
 },
-"name":"wasmtime-45.0.2",
+"name":"wasmtime-46.0.1",
 "nonTeamMaintainers":[
 {
 "email":"ereslibre@ereslibre.es",
