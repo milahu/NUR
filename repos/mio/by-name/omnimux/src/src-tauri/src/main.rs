@@ -39,14 +39,20 @@ struct TerminalExit {
 }
 
 #[tauri::command]
+fn create_session_id(state: State<'_, AppState>) -> Result<u64, String> {
+    Ok(state.next_session_id.fetch_add(1, Ordering::Relaxed))
+}
+
+#[tauri::command]
 fn start_session(
     app: tauri::AppHandle,
     state: State<'_, AppState>,
+    session_id: u64,
     host: String,
     cols: u16,
     rows: u16,
-) -> Result<u64, String> {
-    let session_id = state.next_session_id.fetch_add(1, Ordering::Relaxed);
+) -> Result<(), String> {
+
     let pty_system = NativePtySystem::default();
     let pair = pty_system
         .openpty(PtySize {
@@ -64,8 +70,8 @@ fn start_session(
         command
     } else {
         let mut command = CommandBuilder::new("ssh");
-        command.arg(host.clone());
         command.arg("-t");
+        command.arg(host.clone());
         command.arg("tmux a || tmux new");
         command
     };
@@ -128,7 +134,7 @@ fn start_session(
         let _ = exit_app.emit("terminal-exit", TerminalExit { session_id, status });
     });
 
-    Ok(session_id)
+    Ok(())
 }
 
 #[tauri::command]
@@ -185,6 +191,28 @@ fn stop_session(state: State<'_, AppState>, session_id: u64) -> Result<(), Strin
     Ok(())
 }
 
+#[tauri::command]
+fn get_ssh_hosts() -> Result<Vec<String>, String> {
+    let mut hosts = vec!["localhost".to_string()];
+    let home = std::env::var("HOME").map_err(|e| e.to_string())?;
+    let config_path = std::path::PathBuf::from(home).join(".ssh").join("config");
+    
+    if let Ok(content) = std::fs::read_to_string(config_path) {
+        for line in content.lines() {
+            let line = line.trim();
+            if line.to_lowercase().starts_with("host ") {
+                let host_part = line[5..].trim();
+                for host in host_part.split_whitespace() {
+                    if !host.contains('*') && !host.contains('?') {
+                        hosts.push(host.to_string());
+                    }
+                }
+            }
+        }
+    }
+    Ok(hosts)
+}
+
 fn main() {
     tauri::Builder::default()
         .manage(AppState {
@@ -193,10 +221,12 @@ fn main() {
         })
         .plugin(tauri_plugin_shell::init())
         .invoke_handler(tauri::generate_handler![
+            create_session_id,
             start_session,
             write_session,
             resize_session,
-            stop_session
+            stop_session,
+            get_ssh_hosts
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
