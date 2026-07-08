@@ -330,12 +330,23 @@ async def update_version_git_repos(repos, aiohttp_session, filter_repos_fn):
         seen_capabitilities = False
         while True:
             head = bio.read(4)
-            if head == b"":
+            if len(head) < 4:
+                logger.error(f"failed to read a line header from git_upload_pack: {_bytes!r}")
                 return
-            size = int(head, 16)
+            try:
+                size = int(head, 16)
+            except ValueError as exc:
+                # ValueError: invalid literal for int() with base 16: b'<!do'
+                # the server can return an HTML error page
+                # or an HTML anti-bot page (anubis_challenge, ...)
+                logger.error(f"failed to parse a line header from git_upload_pack: {_bytes!r}. error: {type(exc).__name__}: {exc}")
+                return
             if size == 0:
                 continue # ignore empty lines
             line = bio.read(size - 4)
+            if len(line) < size - 4:
+                logger.error(f"failed to read a line body from git_upload_pack: {_bytes!r}. line size: {size} bytes")
+                return
             # assume: server sends capabitilities only once
             if not seen_capabitilities:
                 parts = line.split(b"\0")
