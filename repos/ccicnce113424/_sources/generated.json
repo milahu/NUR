@@ -65,6 +65,55 @@
         },
         "version": "v0.3.1"
     },
+    "fast-nix-gc": {
+        "cargoLock": {
+            "Cargo.lock": [
+                "sha256-8bSrhuD0kGw0HlJqQsDDYidr9QG2aujOqS+46yNhW5Y=/Cargo.lock",
+                {
+                    "harmonia-file-core-3.1.0": "sha256-YklzRujFo5lvFsdLoedE6OL6OvSwNk/nfwlGxulyTS4="
+                }
+            ]
+        },
+        "date": "2026-07-04",
+        "extract": null,
+        "name": "fast-nix-gc",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Mic92",
+            "repo": "fast-nix-gc",
+            "rev": "aba1902a691f538d7655a8cb1f6c88adc8ced241",
+            "sha256": "sha256-8bSrhuD0kGw0HlJqQsDDYidr9QG2aujOqS+46yNhW5Y=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "aba1902a691f538d7655a8cb1f6c88adc8ced241"
+    },
+    "flake-linter": {
+        "cargoLock": null,
+        "date": "2026-07-05",
+        "extract": null,
+        "name": "flake-linter",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Mic92",
+            "repo": "flake-linter",
+            "rev": "453ac8cef41094a4e26cd78b32638969b55561c8",
+            "sha256": "sha256-RzOE3knD5IDJyNysscd40WOh5XUWdms8pbObABNTfwI=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "453ac8cef41094a4e26cd78b32638969b55561c8"
+    },
     "fxz": {
         "cargoLock": null,
         "date": "2022-01-09",
@@ -331,6 +380,27 @@
         },
         "version": "v3.9.7-beta.2"
     },
+    "nix-auth": {
+        "cargoLock": null,
+        "date": "2026-07-02",
+        "extract": null,
+        "name": "nix-auth",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "numtide",
+            "repo": "nix-auth",
+            "rev": "606cf8a61467a1c2ca208e7c9698c05b0a4631e9",
+            "sha256": "sha256-3uQHlsljEgAqermVRTNSgk+YKnIxnIEMammX4jYfoTc=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "606cf8a61467a1c2ca208e7c9698c05b0a4631e9"
+    },
     "ntfsprogs-plus": {
         "cargoLock": null,
         "date": "2026-05-07",
@@ -494,13 +564,13 @@
     "splayer-next-dev": {
         "cargoLock": {
             "Cargo.lock": [
-                "sha256-bDnnboVRXvhzU_IXSjFXGeRN_cMVfTCcbkTYTrecJGs=/Cargo.lock",
+                "sha256-vtilwjcx0d2+zJ+5JWYGBTgm4Un3dCKOyXRR89AP8lk=/Cargo.lock",
                 {
                     "ffmpeg_audio-0.1.0": "sha256-mcFNN6opRtmofuEg2BsWpOiutFQ23DAe+TCXBL1MQfE="
                 }
             ]
         },
-        "date": "2026-07-06",
+        "date": "2026-07-08",
         "extract": null,
         "name": "splayer-next-dev",
         "passthru": null,
@@ -512,12 +582,12 @@
             "name": null,
             "owner": "SPlayer-Dev",
             "repo": "SPlayer-Next",
-            "rev": "228b0dee6e7abfe11d468f7678a5490fd78a55f0",
-            "sha256": "sha256-bDnnboVRXvhzU/IXSjFXGeRN/cMVfTCcbkTYTrecJGs=",
+            "rev": "56796c70e90b8c23695a9286a81788a8c8658c32",
+            "sha256": "sha256-vtilwjcx0d2+zJ+5JWYGBTgm4Un3dCKOyXRR89AP8lk=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "228b0dee6e7abfe11d468f7678a5490fd78a55f0"
+        "version": "56796c70e90b8c23695a9286a81788a8c8658c32"
     },
     "svt-av1-essential": {
         "cargoLock": null,
