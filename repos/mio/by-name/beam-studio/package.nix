@@ -18,12 +18,14 @@
   freetype,
   fetchurl,
   appimageTools,
-  xorg,
+  libxcb,
+  libx11,
   cairo,
   libGL,
+  node-gyp,
 }:
 let
-  customBackend = pkgs.callPackage ./backend.nix {};
+  customBackend = pkgs.callPackage ./backend.nix { };
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "beam-studio";
@@ -47,6 +49,7 @@ stdenv.mkDerivation (finalAttrs: {
     makeWrapper
     python3
     nodejs
+    node-gyp
     pnpmConfigHook
     pnpm_10
     copyDesktopItems
@@ -58,8 +61,8 @@ stdenv.mkDerivation (finalAttrs: {
     stdenv.cc.cc.lib
     fontconfig
     freetype
-    xorg.libxcb
-    xorg.libX11
+    libxcb
+    libx11
     cairo
     libGL
   ];
@@ -73,6 +76,9 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildPhase = ''
     runHook preBuild
+
+    export XDG_CACHE_HOME=$(mktemp -d)
+    export FONTCONFIG_FILE=${pkgs.fontconfig.out}/etc/fonts/fonts.conf
 
     # prevent node-gyp from downloading Electron headers
     export ELECTRON_HEADERS_DIR="$PWD/.electron-headers"
@@ -91,6 +97,24 @@ stdenv.mkDerivation (finalAttrs: {
     pnpm --filter @beam-studio/app run build
     pnpm --filter @beam-studio/app run build-node
 
+    # In a Nix environment wrapper, process.defaultApp is true.
+    # This causes Electron to incorrectly use '.' instead of process.resourcesPath
+    # and opens DevTools on startup. Replace it with false.
+    sed -i 's/process.defaultApp/false/g' apps/app/public/js/node/main.js
+
+    # process.resourcesPath points to the electron binary's resources directory,
+    # not the app's resources directory. Fix it to point to our app.asar's parent.
+    sed -i 's|process.resourcesPath|require("path").join(__dirname, "../../../../")|g' apps/app/public/js/node/main.js
+
+    # Build font-scanner AFTER webpack to prevent fontconfig hangs during webpack
+    for dir in $(find node_modules -path "*/node_modules/font-scanner" -type d); do
+      if [ -f "$dir/binding.gyp" ]; then
+        echo "Building $dir"
+        (cd "$dir" && node-gyp rebuild)
+        autoPatchelf "$dir"
+      fi
+    done
+
     # Run electron-builder
     cp -r ${electron.dist} electron-dist
     chmod -R u+w electron-dist
@@ -101,6 +125,7 @@ stdenv.mkDerivation (finalAttrs: {
       -c.electronDist=../../electron-dist \
       -c.electronVersion=${electron.version} \
       -c.npmRebuild=false \
+      -c.asarUnpack="**/*.node" \
       -c.linux.target=dir
     cd ../..
 
@@ -120,9 +145,12 @@ stdenv.mkDerivation (finalAttrs: {
     ln -s ${customBackend}/bin/flux_api $out/share/beam-studio/resources/backend/flux_api/flux_api
 
     mkdir -p $out/bin
+    # The official AppImage explicitly hardcodes --no-sandbox in its desktop file to prevent
+    # Chromium sandbox crashes (like /dev/shm IPC failures) on various Linux distributions.
     makeWrapper ${electron}/bin/electron $out/bin/beam-studio \
       --add-flags $out/share/beam-studio/resources/app.asar \
       --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --wayland-text-input-version=3}}" \
+      --add-flags "--no-sandbox" \
       --set-default ELECTRON_FORCE_IS_PACKAGED 1 \
       --set-default ELECTRON_IS_DEV 0 \
       --inherit-argv0

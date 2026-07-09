@@ -7,15 +7,18 @@
   autoPatchelfHook,
 }:
 let
-  # We use NixOS 23.05 to access Python 3.8 and pre-compiled numpy/scipy versions.
+  # Pinned to NixOS 23.05 for Python 3.8 and pre-compiled numpy/scipy.
+  # The proprietary Beam Studio AppImage (2.6.8) provides .pyc files compiled for Python 3.8,
+  # meaning both the extraction (pyinstxtractor) and runtime must use Python 3.8.
+  # Upgrading to 23.11 fails because its numpy version dropped Python 3.8 support.
   oldPkgs =
     import
-      (builtins.fetchTarball {
+      (pkgs.fetchzip {
         url = "https://github.com/NixOS/nixpkgs/archive/nixos-23.05.tar.gz";
-        sha256 = "sha256-LWvKHp7kGxk/GEtlrGYV68qIvPHkU9iToomNFGagixU=";
+        hash = "sha256-LWvKHp7kGxk/GEtlrGYV68qIvPHkU9iToomNFGagixU=";
       })
       {
-        inherit (pkgs) system;
+        system = pkgs.stdenv.hostPlatform.system;
         config.allowUnfree = true;
       };
 
@@ -134,6 +137,7 @@ pkgs.stdenv.mkDerivation {
     # 4. Create the flux_api executable wrapper using our custom Python environment
     makeWrapper ${pythonEnv}/bin/python $out/bin/flux_api \
       --set PYTHONPATH "$out/lib/python3.8/site-packages" \
+      --set PYTHONUNBUFFERED "1" \
       --add-flags "-m ghost"
   '';
 }
