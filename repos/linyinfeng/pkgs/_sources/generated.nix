@@ -172,10 +172,10 @@
   };
   moe-koe-music = {
     pname = "moe-koe-music";
-    version = "v1.6.7";
+    version = "v1.6.8";
     src = fetchurl {
-      url = "https://github.com/iAJue/MoeKoeMusic/releases/download/v1.6.7/MoeKoe_Music_v1.6.7-x86_64.AppImage";
-      sha256 = "sha256-qGOj9rK1vv08UfIr04ShqaVV/MRxm2lkMZUTAPcsiF8=";
+      url = "https://github.com/iAJue/MoeKoeMusic/releases/download/v1.6.8/MoeKoe_Music_v1.6.8-x86_64.AppImage";
+      sha256 = "sha256-0d3i3W34jQZu/so1HKGr1hX3T8UKkAyhF+GpNGK2bMU=";
     };
   };
   mstickereditor = {
@@ -385,17 +385,17 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "6917e5040c4e1b70939960408931b8a4361612dc";
+    version = "3a543652a42c21904c62bd881d65e987600f0722";
     src = fetchgit {
       url = "https://github.com/iDvel/rime-ice.git";
-      rev = "6917e5040c4e1b70939960408931b8a4361612dc";
+      rev = "3a543652a42c21904c62bd881d65e987600f0722";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-A+wMBG2rwrnqm813r67uKadPPEj8H0ekXcoy+yDJYE0=";
+      sha256 = "sha256-lIOTc2zdZH9GXKHuH2lv40I8+KaZxo8nZGbZPyBfXbs=";
     };
-    date = "2026-07-07";
+    date = "2026-07-08";
   };
   rime-loengfan = {
     pname = "rime-loengfan";
