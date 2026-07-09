@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":1.012,
-"eval_time":2.994,
+"fetch_time":0.692,
+"eval_time":2.944,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"bce4af49c541df9a0979de0fcd591609aae5cd8d",
-"sha256":"10661h59cmp1shy7vczhi549ki37ahif5cbg3ax9gj95fls7x8rv",
+"rev":"746a50cbb8b2f4f276055eb472f42d1c33eddfa3",
+"sha256":"0lnz5qa62ywlfy1cxk3zzilf3z9mz3ki29n31lkjwpxs4axkhmks",
 "date":null
 },
-"source_storepath":"/nix/store/h9smqyz7z8jnl8h4h8l74df97fhzplvi-source",
+"source_storepath":"/nix/store/5ngbfdr3kcg916xx1w7pdhn1lpcqyq1j-source",
 "nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
-"nur_combined_rev":"46f55a73c029aaea7d8ae4be6daf801db282d22a",
+"nur_combined_rev":"875c580df86e4a0f930de914ac6b93e33792946b",
 "packages":{
 "bumper":{
 "drvPath":"/nix/store/l4s20vzr0xmd1vm0j7xc3drn6a0n5vg2-bumper-0.18.1.drv",
@@ -771,7 +771,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/h9smqyz7z8jnl8h4h8l74df97fhzplvi-source/packages/duckdb/default.nix",
+"file":"/nix/store/5ngbfdr3kcg916xx1w7pdhn1lpcqyq1j-source/packages/duckdb/default.nix",
 "line":354
 },
 "name":"duckdb-1.5.4",
@@ -1577,11 +1577,11 @@
 "version":"3.3.1"
 },
 "helium":{
-"drvPath":"/nix/store/31gi5yx45x20p6k2fri25774hx4n2vnx-helium-0.14.3.1.drv",
+"drvPath":"/nix/store/8lihvca54r1ikw6nzsp95r71bwpnz2x8-helium-0.14.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/imputnet/helium-linux/releases/tag/V0.14.3.1",
+"changelog":"https://github.com/imputnet/helium-linux/releases/tag/V0.14.4.1",
 "description":"Helium Browser for Linux",
 "homepage":"https://github.com/imputnet/helium-linux",
 "identifiers":{
@@ -1626,7 +1626,7 @@
 },
 "mainProgram":"helium",
 "maintainers":[],
-"name":"helium-0.14.3.1",
+"name":"helium-0.14.4.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1650,14 +1650,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"helium-0.14.3.1",
+"name":"helium-0.14.4.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"helium",
 "system":"x86_64-linux",
-"version":"0.14.3.1"
+"version":"0.14.4.1"
 },
 "igsc":{
 "drvPath":"/nix/store/g07xghf2hfsp5ipprclc354rxm1k24fl-igsc-1.3.0.drv",
@@ -1950,11 +1950,11 @@
 "version":"0-unstable-2025-04-18"
 },
 "kagimcp":{
-"drvPath":"/nix/store/sni8gmjwffanxjm001vam5ba1afjb4ka-python3.13-kagimcp-0.1.5-unstable-2026-06-26.drv",
+"drvPath":"/nix/store/a0k9alkjc34irpfxafrc51hvriqvx73c-python3.13-kagimcp-0.1.5-unstable-2026-07-07.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/kagisearch/kagimcp/releases/tag/v0.1.5-unstable-2026-06-26",
+"changelog":"https://github.com/kagisearch/kagimcp/releases/tag/v0.1.5-unstable-2026-07-07",
 "description":"Model Context Protocol (MCP) server for Kagi Search",
 "homepage":"https://github.com/kagisearch/kagimcp",
 "identifiers":{
@@ -2033,7 +2033,7 @@
 },
 "mainProgram":"kagimcp",
 "maintainers":[],
-"name":"python3.13-kagimcp-0.1.5-unstable-2026-06-26",
+"name":"python3.13-kagimcp-0.1.5-unstable-2026-07-07",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2130,7 +2130,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-kagimcp-0.1.5-unstable-2026-06-26",
+"name":"python3.13-kagimcp-0.1.5-unstable-2026-07-07",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -2138,7 +2138,7 @@
 },
 "pname":"python3.13-kagimcp",
 "system":"x86_64-linux",
-"version":"0.1.5-unstable-2026-06-26"
+"version":"0.1.5-unstable-2026-07-07"
 },
 "libwtf":{
 "drvPath":"/nix/store/nrs7id3981vmf2aa87jhs9m3r6b25vqq-libwtf-0-unstable-2026-06-14.drv",
@@ -3593,7 +3593,7 @@
 "version":"20251108-unstable-2026-06-23"
 },
 "uv-build-latest":{
-"drvPath":"/nix/store/8nijhf0s4bb76svs508mh7rhvsiv7drh-python3.13-uv-build-0.11.27.drv",
+"drvPath":"/nix/store/jsl5f7n3qamd15r2015s4p2j3vcnaaiq-python3.13-uv-build-0.11.28.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3687,7 +3687,7 @@
 }
 ],
 "maintainers":[],
-"name":"python3.13-uv-build-0.11.27",
+"name":"python3.13-uv-build-0.11.28",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3784,7 +3784,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-uv-build-0.11.27",
+"name":"python3.13-uv-build-0.11.28",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3792,7 +3792,7 @@
 },
 "pname":"python3.13-uv-build",
 "system":"x86_64-linux",
-"version":"0.11.27"
+"version":"0.11.28"
 },
 "xdg-desktop-portal-luminous":{
 "drvPath":"/nix/store/v7iha4blnhxpd3jkrbndkbdnw87093hq-xdg-desktop-portal-luminous-0.1.20.drv",
