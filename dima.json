@@ -1,19 +1,19 @@
 {
 "name":"dima",
-"fetch_time":0.384,
-"eval_time":1.266,
+"fetch_time":0.233,
+"eval_time":1.283,
 "source":{
 "url":"https://gitlab.com/shdima/nur-packages",
-"rev":"cb156d1a29cfef14aec040337b97a3bba3e17fb0",
-"sha256":"054vcsbyywvv4hxsnhzqrms73k3is1hv5376lfv5bdjhbpialavr",
+"rev":"2cb3271f9c352de243abbb91e058d6adae014500",
+"sha256":"1khd87wqcg89mny1vn8ya08mlmna95549srgxy9xhf8jfypwh3wy",
 "date":null
 },
-"source_storepath":"/nix/store/2g65nfqyb7nsd72dw42a2gy5h19rzkw3-source",
-"nixpkgs_storepath":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source",
-"nur_combined_rev":"7ca454e1328beb1c8fa569557a0934f14faf14d1",
+"source_storepath":"/nix/store/ggsnwna17p0ic64zwj5sscnbpkb2pm55-source",
+"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
+"nur_combined_rev":"3d291169518e30f287dfb4b6f6081375bf75768d",
 "packages":{
 "codemaxxing":{
-"drvPath":"/nix/store/4g236kj7w3z4i8rnlh3cp25wji9b500b-python3.13-codemaxxing-unstable-2026-04-13.drv",
+"drvPath":"/nix/store/wc3kspawd0f2mv7qq1flm0y2574achy1-python3.13-codemaxxing-unstable-2026-04-13.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -135,6 +135,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/codemaxxing/default.nix:20",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -149,7 +155,7 @@
 "version":"2026-04-13"
 },
 "hashdir":{
-"drvPath":"/nix/store/xkgpbhc0vcmrfgqx99vcxq0v7561nnck-python3.13-hashdir-0.24.drv",
+"drvPath":"/nix/store/wghcv66v9vmidiph45hymmc9wvsjpb9p-python3.13-hashdir-0.24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -271,6 +277,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/hashdir/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -285,7 +297,7 @@
 "version":"0.24"
 },
 "imohash":{
-"drvPath":"/nix/store/ag7l3gpvl2sp1dzq8hxgh0sl6xhj99hw-python3.13-imohash-1.1.0.drv",
+"drvPath":"/nix/store/fxrhnp6v6hnlxs6m3rcwijxlqnsa6mmd-python3.13-imohash-1.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -407,6 +419,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/imohash/default.nix:35",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -421,7 +439,7 @@
 "version":"1.1.0"
 },
 "jdnbtexplorer":{
-"drvPath":"/nix/store/gn8fpnhs15249wjz05pb91vi2zzin022-python3.13-jdNBTExplorer-3.0.drv",
+"drvPath":"/nix/store/18cvh2n8vc7i84zx0gcdw8xf4m4zv4kx-python3.13-jdNBTExplorer-3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -543,6 +561,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/jdnbtexplorer/default.nix:38",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -557,7 +581,7 @@
 "version":"3.0"
 },
 "mdremotifier":{
-"drvPath":"/nix/store/089h4563xh2migjg6j50p02r4wrag9xk-python3.13-mdremotifier-1.0.0.drv",
+"drvPath":"/nix/store/dpkfissw57lvyd04pi49i67d8z3380g8-python3.13-mdremotifier-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -679,6 +703,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/mdremotifier/default.nix:38",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -693,7 +723,7 @@
 "version":"1.0.0"
 },
 "nbt":{
-"drvPath":"/nix/store/dszx2xd243n9whkw37zq8c3h25v95xqn-python3.13-nbt-1.5.1.drv",
+"drvPath":"/nix/store/wq3gpp91xhvglqsp85ifb30ds2qk8dsf-python3.13-nbt-1.5.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -814,6 +844,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/nbt/default.nix:20",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -828,7 +864,7 @@
 "version":"1.5.1"
 },
 "obsidian-better-markdown-links":{
-"drvPath":"/nix/store/mmbw7zrqwrgycc566mzhclj5j9x4h9vd-obsidian-better-markdown-links-3.3.1.drv",
+"drvPath":"/nix/store/sxpwdqr2rj69qh3jbj95c02xdg3nzx71-obsidian-better-markdown-links-3.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -905,6 +941,12 @@
 "s390x-linux"
 ],
 "position":"./pkgs/obsidian-better-markdown-links/default.nix:39",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -918,7 +960,7 @@
 "version":"3.3.1"
 },
 "obsidian-filename-heading-sync":{
-"drvPath":"/nix/store/k8jjdawzdkwk2c910q3nsd8764ap1gx7-obsidian-filename-heading-sync-1.11.0.drv",
+"drvPath":"/nix/store/xq75w5h604zy9c1vfxiqhj7a59b0dwkr-obsidian-filename-heading-sync-1.11.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -995,6 +1037,12 @@
 "s390x-linux"
 ],
 "position":"./pkgs/obsidian-filename-heading-sync/default.nix:28",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1008,7 +1056,7 @@
 "version":"1.11.0"
 },
 "obsidian-folder-notes":{
-"drvPath":"/nix/store/za2c4mk5mf5l0haw99v1rvd650ikmx75-obsidian-folder-notes-1.8.18.drv",
+"drvPath":"/nix/store/r4vd7nz42gqg05smpizclj3b2drdr49c-obsidian-folder-notes-1.8.18.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1085,6 +1133,12 @@
 "s390x-linux"
 ],
 "position":"./pkgs/obsidian-folder-notes/default.nix:35",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1098,7 +1152,7 @@
 "version":"1.8.18"
 },
 "obsidian-privacy-screen":{
-"drvPath":"/nix/store/kyn6l5dnxhkqa85im32hbxfl7gxxl0xv-obsidian-privacy-screen-0.1.2.drv",
+"drvPath":"/nix/store/yzq7bbzdmfg1ls4ssd2bx5789kgh1037-obsidian-privacy-screen-0.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1175,6 +1229,12 @@
 "s390x-linux"
 ],
 "position":"./pkgs/obsidian-privacy-screen/default.nix:24",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1188,7 +1248,7 @@
 "version":"0.1.2"
 },
 "obsidian-show-whitespace":{
-"drvPath":"/nix/store/p6h0mp476aaa77qli07kqb5fk7lvfd5w-obsidian-show-whitespace-0.2.8.drv",
+"drvPath":"/nix/store/9nd8y1ax01yi8hd4abam2kw8wias757s-obsidian-show-whitespace-0.2.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1265,6 +1325,12 @@
 "s390x-linux"
 ],
 "position":"./pkgs/obsidian-show-whitespace/default.nix:41",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1278,7 +1344,7 @@
 "version":"0.2.8"
 },
 "obsidian-smart-typography":{
-"drvPath":"/nix/store/9kx56g0d41h1wqf6z0a6sqqs97rq11wd-obsidian-smart-typography-1.0.18.drv",
+"drvPath":"/nix/store/d68clyyz7dlnpfh178zd8nj4z7zyk417-obsidian-smart-typography-1.0.18.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1331,6 +1397,12 @@
 "out"
 ],
 "position":"./pkgs/obsidian-smart-typography/default.nix:47",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1344,7 +1416,7 @@
 "version":"1.0.18"
 },
 "playit-agent":{
-"drvPath":"/nix/store/nn976ald3q0kvmys1bmi80cj2wfxrbhq-playit-agent-1.0.5.drv",
+"drvPath":"/nix/store/3fii2yza9g84vhrg5shg6vamkr47vilh-playit-agent-1.0.5.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1448,6 +1520,12 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/playit-agent/default.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1461,7 +1539,7 @@
 "version":"1.0.5"
 },
 "rich-13-9-4":{
-"drvPath":"/nix/store/383vwx3jv3s14sp7axfz22qhvg5c3d4h-python3.13-rich-13.9.4.drv",
+"drvPath":"/nix/store/svfyiqinmh5yk553azq003k7ijyjnyiz-python3.13-rich-13.9.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1583,6 +1661,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/rich-13-9-4/default.nix:31",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1597,7 +1681,7 @@
 "version":"13.9.4"
 },
 "rich-argparse-rich-13-9-4":{
-"drvPath":"/nix/store/bp356am75hpi9p3m7wqdsc4ca41xsc1w-python3.13-rich-argparse-1.7.1.drv",
+"drvPath":"/nix/store/03zqzfggz4llrhbmmaxjpxlnjxca94s3-python3.13-rich-argparse-1.7.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1719,6 +1803,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/rich-argparse-rich-13-9-4/default.nix:24",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
