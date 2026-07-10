@@ -28,8 +28,6 @@ bambu-studio.overrideAttrs (oldAttrs: {
     (oldAttrs.nativeBuildInputs or [ ])
     ++ (lib.filter (p: (p.pname or p.name or "") == "wxwidgets") oldAttrs.buildInputs);
 
-  # Note: When creating or modifying patches, make sure line numbers remain unchanged
-  # so it's easier to compare with upstream. Pad with blank lines or comments if needed.
   patches = (oldAttrs.patches or [ ]) ++ [
     ./obn.patch
     ./skip-privacy.patch
@@ -37,8 +35,8 @@ bambu-studio.overrideAttrs (oldAttrs: {
 
   postPatch = (oldAttrs.postPatch or "") + ''
     substituteInPlace src/slic3r/Utils/NetworkAgent.cpp \
-      --replace-fail "@obn_plugin_path@" "${obn}/lib/libbambu_networking.so" \
-      --replace-fail "@obn_bambu_source_path@" "${obn}/lib/libBambuSource.so"
+      --replace-fail "@obn_plugin_path@" "${obn}/plugins/libbambu_networking.so" \
+      --replace-fail "@obn_bambu_source_path@" "${obn}/plugins/libBambuSource.so"
   '';
 
   meta = oldAttrs.meta // {

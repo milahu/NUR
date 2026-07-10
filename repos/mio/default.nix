@@ -196,12 +196,10 @@ in
             paths = with self; [
               self.materialgram_patched
               self.telegram-desktop_patched
-              lmms
               cb
               beammp-launcher
               mdbook-generate-summary
               #betterbird
-              eden
               ghidra
               trayscale
               prismlauncher-diegiwg
