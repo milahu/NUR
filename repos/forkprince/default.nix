@@ -17,6 +17,7 @@
   moonplayer = lib.callPackage ./pkgs/moonplayer {};
   equicord = lib.callPackage ./pkgs/equicord {};
   wg-nord = lib.callPackage ./pkgs/wg-nord {};
+  sonixd = lib.callPackage ./pkgs/sonixd {};
   hytale = lib.callPackage ./pkgs/hytale {};
   mcman = lib.callPackage ./pkgs/mcman {};
   sfw = lib.callPackage ./pkgs/sfw {};
@@ -31,6 +32,8 @@
   redream-dev = lib.callPackage ./pkgs/redream-dev {};
   betteraudio = lib.callPackage ./pkgs/betteraudio {};
   linearmouse = lib.callPackage ./pkgs/linearmouse {};
+  pearcleaner = lib.callPackage ./pkgs/pearcleaner {};
+  supercharge = lib.callPackage ./pkgs/supercharge {};
   cot-editor = lib.callPackage ./pkgs/cot-editor {};
   playcover = lib.callPackage ./pkgs/playcover {};
   dropshare = lib.callPackage ./pkgs/dropshare {};
@@ -40,9 +43,12 @@
   hyperkey = lib.callPackage ./pkgs/hyperkey {};
   finetune = lib.callPackage ./pkgs/finetune {};
   open-emu = lib.callPackage ./pkgs/open-emu {};
+  puremac = lib.callPackage ./pkgs/puremac {};
   roblox = lib.callPackage ./pkgs/roblox {};
   figura = lib.callPackage ./pkgs/figura {};
   achico = lib.callPackage ./pkgs/achico {};
+  nuvio = lib.callPackage ./pkgs/nuvio {};
+  orca = lib.callPackage ./pkgs/orca {};
   muxy = lib.callPackage ./pkgs/muxy {};
   blip = lib.callPackage ./pkgs/blip {};
   clop = lib.callPackage ./pkgs/clop {};
@@ -57,6 +63,7 @@
   overlayed = lib.callPackage ./pkgs/overlayed {};
   tiny-rdm = lib.callPackage ./pkgs/tiny-rdm {};
   openrct2 = lib.callPackage ./pkgs/openrct2 {};
+  rustdesk = lib.callPackage ./pkgs/rustdesk {};
   ghostty = lib.callPackage ./pkgs/ghostty {};
   equibop = lib.callPackage ./pkgs/equibop {};
   vscode = lib.callPackage ./pkgs/vscode {};
