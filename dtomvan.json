@@ -1,19 +1,19 @@
 {
 "name":"dtomvan",
-"fetch_time":0.434,
-"eval_time":1.515,
+"fetch_time":0.381,
+"eval_time":1.728,
 "source":{
 "url":"https://github.com/dtomvan/nur-packages",
-"rev":"3529579402d8e264921d9815a215732f31bb7e8c",
-"sha256":"0lmz4v4xrqhr3i6lkg5vvq8hi41idi25dhc2p3sifzc55ly3ki87",
+"rev":"00791031951d447fef4e0b44d071c67fc9ae1544",
+"sha256":"1j4splscrk0035mj7w07xc26q2l7zyksglra7wcgmp6s4i694vc1",
 "date":null
 },
-"source_storepath":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"55012649196c1261e56dce8be55bce3a91e66246",
+"source_storepath":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source",
+"nixpkgs_storepath":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source",
+"nur_combined_rev":"0aa0e82c5ca8831466315960c3b0893f55f82479",
 "packages":{
 "alertmanager-matrix":{
-"drvPath":"/nix/store/cfqgzlnwnz3mjq891vw7fskcfya58i8q-alertmanager-matrix-0.6.1.drv",
+"drvPath":"/nix/store/3g8d9c9fvpax6jv4m06066h56xb8fyd2-alertmanager-matrix-0.6.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -75,7 +75,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/alertmanager-matrix/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/alertmanager-matrix/package.nix",
 "line":51
 },
 "name":"alertmanager-matrix-0.6.1",
@@ -96,8 +96,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -121,7 +121,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -129,6 +128,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/alertmanager-matrix/package.nix:48",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -142,7 +142,7 @@
 "version":"0.6.1"
 },
 "aporetic-patched":{
-"drvPath":"/nix/store/8r847hc5wl4dkw4k77ak2fsqcj2q3d50-aporetic-patched-1.2.0.drv",
+"drvPath":"/nix/store/a6zg9b3sfwxdib235qr4wsjmrbab8kqg-aporetic-patched-1.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -198,7 +198,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/by-name/ap/aporetic/package.nix",
+"file":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source/pkgs/by-name/ap/aporetic/package.nix",
 "line":64
 },
 "name":"aporetic-1.2.0",
@@ -214,10 +214,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -226,7 +227,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -249,7 +249,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -296,6 +295,7 @@
 "x86_64-uefi"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/ap/aporetic/package.nix:59",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -309,7 +309,7 @@
 "version":"1.2.0"
 },
 "cclip":{
-"drvPath":"/nix/store/w27xg10c46vfm4n897j350wqzc0wj74m-cclip-3.3.1.drv",
+"drvPath":"/nix/store/kfkgavra668kiqbasb8ajpj4q9ydqqc0-cclip-3.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -371,7 +371,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/cclip/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/cclip/package.nix",
 "line":53
 },
 "name":"cclip-3.3.1",
@@ -392,6 +392,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -414,10 +415,10 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/cclip/package.nix:50",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -431,7 +432,7 @@
 "version":"3.3.1"
 },
 "darkreader":{
-"drvPath":"/nix/store/xzw6n5r32hw37dg5lwpsv9nb99gldvby-darkreader-4.9.119.drv",
+"drvPath":"/nix/store/0z01b624rmfhaib0a5chv931d5ap057q-darkreader-4.9.119.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -491,7 +492,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/darkreader/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/darkreader/package.nix",
 "line":49
 },
 "mozPermissions":[
@@ -520,10 +521,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -532,7 +534,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -555,7 +556,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -602,6 +602,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/darkreader/package.nix:46",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -615,7 +616,7 @@
 "version":"4.9.119"
 },
 "fsel":{
-"drvPath":"/nix/store/gv073rrlahyb2r9p8kly74d98w00xrcl-fsel-3.5.2.drv",
+"drvPath":"/nix/store/sd8i3ag9ihzdxwwna0986v5j0pwcvr9q-fsel-3.5.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -688,7 +689,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/fsel/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/fsel/package.nix",
 "line":28
 },
 "name":"fsel-3.5.2",
@@ -709,7 +710,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
 "armv6l-linux",
@@ -732,6 +732,7 @@
 "riscv32-linux"
 ],
 "position":"./pkgs/fsel/package.nix:25",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -745,7 +746,7 @@
 "version":"3.5.2"
 },
 "jorge":{
-"drvPath":"/nix/store/y33kss73g7ykrvrv90msf8w5if6wxb7k-jorge-0.10.1.drv",
+"drvPath":"/nix/store/zikj20dam5bd4kf78vq04jqdly919f58-jorge-0.10.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -807,8 +808,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/jorge/package.nix",
-"line":26
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/jorge/package.nix",
+"line":29
 },
 "name":"jorge-0.10.1",
 "nonTeamMaintainers":[
@@ -828,8 +829,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -853,14 +854,14 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/jorge/package.nix:23",
+"position":"./pkgs/jorge/package.nix:26",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -874,7 +875,7 @@
 "version":"0.10.1"
 },
 "keepassxc-browser":{
-"drvPath":"/nix/store/gjjkk3ssrag62i8ay7g3kih9hxnm40mz-keepassxc-browser-1.10.3.drv",
+"drvPath":"/nix/store/gnrd5p1wwl901ji3d7smzsaarwd25h8l-keepassxc-browser-1.10.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -934,7 +935,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/keepassxc-browser/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/keepassxc-browser/package.nix",
 "line":46
 },
 "mozPermissions":[
@@ -972,10 +973,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -984,7 +986,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1007,7 +1008,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1054,6 +1054,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/keepassxc-browser/package.nix:43",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1067,7 +1068,7 @@
 "version":"1.10.3"
 },
 "lappverk":{
-"drvPath":"/nix/store/mmfsh3xf6qkcz177zwinky2qdic8jz53-lappverk-0.1.0.drv",
+"drvPath":"/nix/store/azqnz7f91qpms43pr4wr875y4s94w36c-lappverk-0.1.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1141,7 +1142,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/lappverk/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/lappverk/package.nix",
 "line":49
 },
 "name":"lappverk-0.1.0",
@@ -1162,7 +1163,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -1202,6 +1202,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/lappverk/package.nix:45",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1215,7 +1216,7 @@
 "version":"0.1.0"
 },
 "nie":{
-"drvPath":"/nix/store/hcmqdja3qp8vvr8l0ax1ffslaj0swxdh-nie-0.1.3.drv",
+"drvPath":"/nix/store/y1r0yl49d90jyadmsj6jb3bv66gsl6wx-nie-0.1.3.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1288,7 +1289,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/nie/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/nie/package.nix",
 "line":54
 },
 "name":"nie-0.1.3",
@@ -1310,7 +1311,6 @@
 "man"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -1350,6 +1350,7 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/nie/package.nix:51",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1364,7 +1365,7 @@
 "version":"0.1.3"
 },
 "obsidian-web-clipper":{
-"drvPath":"/nix/store/qg6mj7vfip52w7nlsv0wmzxnykxnqi9w-obsidian-web-clipper-1.6.3.drv",
+"drvPath":"/nix/store/s1jlw19w0zkslwbk2bqqgl6rbm81ivpv-obsidian-web-clipper-1.6.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1424,7 +1425,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/obsidian-web-clipper/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/obsidian-web-clipper/package.nix",
 "line":44
 },
 "mozPermissions":[
@@ -1455,6 +1456,7 @@
 "out"
 ],
 "position":"./pkgs/obsidian-web-clipper/package.nix:43",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1468,7 +1470,7 @@
 "version":"1.6.3"
 },
 "panix":{
-"drvPath":"/nix/store/7gv9ysf29d6s35196rd73imk3bgr4rkc-panix-0.8.0.drv",
+"drvPath":"/nix/store/s43k2wqhpn9brc6vx209jr268h318py8-panix-0.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1536,7 +1538,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/panix/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/panix/package.nix",
 "line":39
 },
 "name":"panix-0.8.0",
@@ -1562,8 +1564,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1587,7 +1589,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -1595,6 +1596,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/panix/package.nix:35",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1608,7 +1610,7 @@
 "version":"0.8.0"
 },
 "sshp":{
-"drvPath":"/nix/store/4k9srx2m6wy6yal0rr1skq2zjyrqw15q-sshp-1.1.3.drv",
+"drvPath":"/nix/store/k0h3ic51i0x48hy27p1p5yfjl9i017lx-sshp-1.1.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1671,7 +1673,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/sshp/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/sshp/package.nix",
 "line":54
 },
 "name":"sshp-1.1.3",
@@ -1693,10 +1695,11 @@
 "man"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1705,7 +1708,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1728,7 +1730,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1775,6 +1776,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/sshp/package.nix:50",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1789,7 +1791,7 @@
 "version":"1.1.3"
 },
 "steam-database":{
-"drvPath":"/nix/store/91gdk1j48711d3n9gsmr7b5s110qvhcp-steam-database-4.34.drv",
+"drvPath":"/nix/store/id32gslnvqjzxxn86i4awbq2004dl7ym-steam-database-4.34.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1848,7 +1850,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/steam-database/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/steam-database/package.nix",
 "line":43
 },
 "mozPermissions":[
@@ -1911,10 +1913,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1923,7 +1926,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1946,7 +1948,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1993,6 +1994,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/steam-database/package.nix:41",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2006,7 +2008,7 @@
 "version":"4.34"
 },
 "tabby-terminal":{
-"drvPath":"/nix/store/f7s4k3fvlv536r77w5g631iq0nbjs8c4-tabby-terminal-1.0.234.drv",
+"drvPath":"/nix/store/fslqv0n01g3jj56q47vkx9hgqpqqi5mv-tabby-terminal-1.0.234.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2068,7 +2070,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/tabby-terminal/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/tabby-terminal/package.nix",
 "line":219
 },
 "name":"tabby-terminal-1.0.234",
@@ -2089,6 +2091,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2111,10 +2114,10 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/tabby-terminal/package.nix:215",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2128,7 +2131,7 @@
 "version":"1.0.234"
 },
 "tsodingPackages.blang":{
-"drvPath":"/nix/store/clnlhn1mw91hx1b73x8bcyl7y51bxmfq-b-0-unstable-2025-10-29.drv",
+"drvPath":"/nix/store/pwcbcac2j9zd8gqjxvs1qfw8ham5m4zc-b-0-unstable-2025-10-29.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2182,6 +2185,12 @@
 "out"
 ],
 "position":"./pkgs/tsodingPackages/blang/package.nix:82",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2195,63 +2204,6 @@
 "version":"0-unstable-2025-10-29"
 },
 "tsodingPackages.boomer":{
-"drvPath":"/nix/store/d3b3laxvp81gwlr71g6hmxllxp695lb7-boomer-0-unstable-2026-05-24.drv",
-"meta":{
-"available":true,
-"broken":false,
-"description":"Zoomer application for Linux",
-"homepage":"https://github.com/tsoding/boomer",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"boomer",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purlParts":{},
-"purls":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"boomer",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purls":[]
-}
-},
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"MIT License",
-"licenseType":"simple",
-"redistributable":true,
-"shortName":"mit",
-"spdxId":"MIT",
-"url":"https://spdx.org/licenses/MIT.html"
-},
-"mainProgram":"boomer",
-"maintainers":[],
-"name":"boomer-0-unstable-2026-05-24",
-"nonTeamMaintainers":[],
-"outputsToInstall":[
-"out"
-],
-"position":"./pkgs/tsodingPackages/boomer/package.nix:46",
-"unfree":false,
-"unsupported":false
-},
 "name":"boomer-0-unstable-2026-05-24",
 "outputName":"out",
 "outputs":{
@@ -2262,7 +2214,7 @@
 "version":"0-unstable-2026-05-24"
 },
 "tsodingPackages.ded":{
-"drvPath":"/nix/store/j0xqa6s8f9whzkvsi1dqspn2nbfiynln-ded-0-unstable-2023-07-17.drv",
+"drvPath":"/nix/store/pharp16d61mn14car3dcqlvdhb7c43wc-ded-0-unstable-2023-07-17.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2316,6 +2268,12 @@
 "out"
 ],
 "position":"./pkgs/tsodingPackages/ded/package.nix:48",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2329,7 +2287,7 @@
 "version":"0-unstable-2023-07-17"
 },
 "tsodingPackages.fourat":{
-"drvPath":"/nix/store/v64lln64a7vf3n2z8gm028m8v958r9nm-4at-0-unstable-2023-12-07.drv",
+"drvPath":"/nix/store/y4qm405kr6awgdzaqbnlzhr0xvks5xa0-4at-0-unstable-2023-12-07.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2394,7 +2352,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -2434,6 +2391,12 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/tsodingPackages/fourat/package.nix:28",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2447,7 +2410,7 @@
 "version":"0-unstable-2023-12-07"
 },
 "tsodingPackages.gatekeeper":{
-"drvPath":"/nix/store/x2a8f629y7d64w3br119irzkscx0kn1y-gatekeeper-0-unstable-2026-06-25.drv",
+"drvPath":"/nix/store/r6vnpvr6kc9vl98h762b4a5rsqp17gsz-gatekeeper-0-unstable-2026-06-25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2501,8 +2464,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2526,7 +2489,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -2534,6 +2496,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/tsodingPackages/gatekeeper/package.nix:35",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2547,7 +2515,7 @@
 "version":"0-unstable-2026-06-25"
 },
 "tsodingPackages.good_training_language":{
-"drvPath":"/nix/store/qwii5lz3vb11ilcryxh9vmjcqvypg9h2-good_training_language-0-unstable-2024-04-03.drv",
+"drvPath":"/nix/store/2p1sb8h7wnsnyy9fjdba2ashm1q4in16-good_training_language-0-unstable-2024-04-03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2601,6 +2569,12 @@
 "out"
 ],
 "position":"./pkgs/tsodingPackages/good_training_language/package.nix:36",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2614,7 +2588,7 @@
 "version":"0-unstable-2024-04-03"
 },
 "tsodingPackages.koil":{
-"drvPath":"/nix/store/xc5y707mp3df15ppirbfslihmybpj706-koil-0-unstable-2025-05-11.drv",
+"drvPath":"/nix/store/6kw903r2msf27y6ghvinsa5dpg8cvza6-koil-0-unstable-2025-05-11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2668,12 +2642,12 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
+"x86_64-linux",
 "aarch64-darwin",
+"aarch64-linux",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -2688,10 +2662,15 @@
 "powerpc64le-linux",
 "riscv32-linux",
 "riscv64-linux",
-"x86_64-linux",
 "s390x-linux"
 ],
 "position":"./pkgs/tsodingPackages/koil/package.nix:95",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2705,7 +2684,7 @@
 "version":"0-unstable-2025-05-11"
 },
 "tsodingPackages.markut":{
-"drvPath":"/nix/store/rh1fxx4pj0wb3i3sm171j81av43b4x0i-markut-0-unstable-2026-04-26.drv",
+"drvPath":"/nix/store/f6h8l1wxgah819r1rd7s217dyplsffam-markut-0-unstable-2026-04-26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2759,8 +2738,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2784,7 +2763,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -2792,6 +2770,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/tsodingPackages/markut/package.nix:23",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -2805,7 +2789,7 @@
 "version":"0-unstable-2026-04-26"
 },
 "tsodingPackages.mine":{
-"drvPath":"/nix/store/wh9h6c14lb6pmfapz67j8290bg0j1h32-mine-0-unstable-2026-05-03.drv",
+"drvPath":"/nix/store/bwlbg7pjga8ll36g43kn3fl45n154c64-mine-0-unstable-2026-05-03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2867,7 +2851,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/tsodingPackages/mine/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/tsodingPackages/mine/package.nix",
 "line":46
 },
 "name":"mine-0-unstable-2026-05-03",
@@ -2888,15 +2872,15 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -2919,7 +2903,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -2936,6 +2919,7 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/tsodingPackages/mine/package.nix:43",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2949,7 +2933,7 @@
 "version":"0-unstable-2026-05-03"
 },
 "tsodingPackages.mujsc":{
-"drvPath":"/nix/store/cb7h7vlb27wsbja0kpvyjy715vmkmv5f-mujsc-0-unstable-2025-09-20.drv",
+"drvPath":"/nix/store/f9vg46m63v2cyrcrhxx4xcl6n7d30lm5-mujsc-0-unstable-2025-09-20.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3011,7 +2995,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/tsodingPackages/mujsc/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/tsodingPackages/mujsc/package.nix",
 "line":30
 },
 "name":"mujsc-0-unstable-2025-09-20",
@@ -3032,10 +3016,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -3044,7 +3029,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -3067,7 +3051,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -3114,6 +3097,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/tsodingPackages/mujsc/package.nix:27",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -3127,7 +3111,7 @@
 "version":"0-unstable-2025-09-20"
 },
 "tsodingPackages.musializer":{
-"drvPath":"/nix/store/al1ngjv6cpi7m9pbr6pmjwzylgyiwya3-musializer-alpha2-unstable-2025-08-23.drv",
+"drvPath":"/nix/store/l93fdccdm1cf5k594qhq7z5k3xh924kz-musializer-alpha2-unstable-2025-08-23.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3181,6 +3165,12 @@
 "out"
 ],
 "position":"./pkgs/tsodingPackages/musializer/package.nix:76",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3194,7 +3184,7 @@
 "version":"2025-08-23"
 },
 "tsodingPackages.nob_h":{
-"drvPath":"/nix/store/i3yj1l0im3r4qwglkj3nw6aj570qpr88-nob.h-3.8.2-unstable-2026-04-01.drv",
+"drvPath":"/nix/store/1b6674wrwr7zsp5wr05v9464xx9il1iz-nob.h-3.8.2-unstable-2026-04-01.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3259,6 +3249,12 @@
 "out"
 ],
 "position":"./pkgs/tsodingPackages/nob_h/package.nix:33",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3272,7 +3268,7 @@
 "version":"3.8.2-unstable-2026-04-01"
 },
 "tsodingPackages.olive_c":{
-"drvPath":"/nix/store/38jgs1p4klspxvawiwkgwk2sg475174a-olive.c-0-unstable-2025-09-27.drv",
+"drvPath":"/nix/store/862icsbs80d5fv1r1675q8wncn14cl16-olive.c-0-unstable-2025-09-27.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3325,6 +3321,12 @@
 "out"
 ],
 "position":"./pkgs/tsodingPackages/olive_c/package.nix:68",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3338,7 +3340,7 @@
 "version":"0-unstable-2025-09-27"
 },
 "tsodingPackages.panim":{
-"drvPath":"/nix/store/g7zk3y5xr8dcjzdzq7dcfzsbid47jxb2-panim-0-unstable-2024-12-23.drv",
+"drvPath":"/nix/store/nhw4qgjnm5a11spfilrj8h3m1nw707rr-panim-0-unstable-2024-12-23.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3392,10 +3394,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -3404,7 +3407,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -3427,7 +3429,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -3474,6 +3475,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/tsodingPackages/panim/package.nix:33",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3487,7 +3494,7 @@
 "version":"0-unstable-2024-12-23"
 },
 "tsodingPackages.porth":{
-"drvPath":"/nix/store/dxblkqbg11ws6badmj6gm2g2zr76qxw6-porth-0-unstable-2025-10-11.drv",
+"drvPath":"/nix/store/wvakhblba94ncjl3kz5ncnkhgm10rqzm-porth-0-unstable-2025-10-11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3544,6 +3551,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/tsodingPackages/porth/package.nix:52",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3557,7 +3570,7 @@
 "version":"0-unstable-2025-10-11"
 },
 "tsodingPackages.seroost":{
-"drvPath":"/nix/store/7m8ldbfarn0yg0flk8774ycj71y54ani-seroost-0-unstable-2023-04-03.drv",
+"drvPath":"/nix/store/ywcpnrs7zqix81s8z3nkgqqg5zynsgfn-seroost-0-unstable-2023-04-03.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3622,7 +3635,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -3662,6 +3674,12 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/tsodingPackages/seroost/package.nix:36",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3685,7 +3703,7 @@
 "version":"0-unstable-2025-03-29"
 },
 "tsodingPackages.snitch":{
-"drvPath":"/nix/store/p3zp534gx9gwj4xnbm8iq1431sxi0k3l-snitch-0-unstable-2021-11-24.drv",
+"drvPath":"/nix/store/gkfaqxd28yr8c3nhws2n3skarki5jacq-snitch-0-unstable-2021-11-24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3739,8 +3757,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3764,7 +3782,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -3772,6 +3789,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/tsodingPackages/snitch/package.nix:23",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3785,7 +3808,7 @@
 "version":"0-unstable-2021-11-24"
 },
 "tsodingPackages.sowon":{
-"drvPath":"/nix/store/iaqcpfvbywf4xb4z3kmw13dm4vcp8hwh-sowon-0-unstable-2025-12-03.drv",
+"drvPath":"/nix/store/8zwblrlja8x458134liz4n352vg3grpy-sowon-0-unstable-2025-12-03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3839,6 +3862,12 @@
 "out"
 ],
 "position":"./pkgs/tsodingPackages/sowon/package.nix:45",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3852,7 +3881,7 @@
 "version":"0-unstable-2025-12-03"
 },
 "tsodingPackages.todo":{
-"drvPath":"/nix/store/72c1r57cmkqnckzl4h7qdqvkjjg621wi-todo-0-unstable-2023-09-24.drv",
+"drvPath":"/nix/store/zls0njw8l1gn3wss3xpbds7ggpy9avqf-todo-0-unstable-2023-09-24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3909,6 +3938,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/tsodingPackages/todo/package.nix:22",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -3922,7 +3957,7 @@
 "version":"0-unstable-2023-09-24"
 },
 "tsodingPackages.tula":{
-"drvPath":"/nix/store/6a2iyp2c1rgrp9hr9bv6kzykj9sg2yrf-tula-0-unstable-2024-06-26.drv",
+"drvPath":"/nix/store/g7znb999qnfv7xkpyl50dhgpclfyr1yd-tula-0-unstable-2024-06-26.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3987,7 +4022,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -4027,6 +4061,12 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/tsodingPackages/tula/package.nix:27",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -4040,7 +4080,7 @@
 "version":"0-unstable-2024-06-26"
 },
 "tsodingPackages.zoomer":{
-"drvPath":"/nix/store/ik7ljc36lir357bf4jlihxi86nb6ah56-zoomer-0-unstable-2026-05-23.drv",
+"drvPath":"/nix/store/59cfyj37g451yl44njj0rkvqg27i3hbj-zoomer-0-unstable-2026-05-23.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4102,7 +4142,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/tsodingPackages/zoomer/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/tsodingPackages/zoomer/package.nix",
 "line":53
 },
 "name":"zoomer-0-unstable-2026-05-23",
@@ -4123,6 +4163,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4145,10 +4186,10 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/tsodingPackages/zoomer/package.nix:50",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4162,7 +4203,7 @@
 "version":"0-unstable-2026-05-23"
 },
 "tyck":{
-"drvPath":"/nix/store/6qsjb67519yi02j3460cadd3v643dih0-tyck-0.1.0.drv",
+"drvPath":"/nix/store/2ddrbaa7pgl8sv6d53s9c3ml1vjdilm5-tyck-0.1.0-unstable-2026-07-10.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -4235,10 +4276,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/tyck/package.nix",
-"line":63
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/tyck/package.nix",
+"line":65
 },
-"name":"tyck-0.1.0",
+"name":"tyck-0.1.0-unstable-2026-07-10",
 "nonTeamMaintainers":[
 {
 "email":"18gatenmaker6@gmail.com",
@@ -4276,21 +4317,22 @@
 "mips64el-linux",
 "riscv32-linux"
 ],
-"position":"./pkgs/tyck/package.nix:60",
+"position":"./pkgs/tyck/package.nix:62",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"tyck-0.1.0",
+"name":"tyck-0.1.0-unstable-2026-07-10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tyck",
 "system":"x86_64-linux",
-"version":"0.1.0"
+"version":"0.1.0-unstable-2026-07-10"
 },
 "ublock-origin":{
-"drvPath":"/nix/store/vqfl6va7g2kimsi4831hklg1bipvn3lm-ublock-origin-1.71.1b4.drv",
+"drvPath":"/nix/store/qr0dwwmx9chcamvpiflmfbdfzyx73zzc-ublock-origin-1.71.1b4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4350,7 +4392,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/ublock-origin/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/ublock-origin/package.nix",
 "line":75
 },
 "mozPermissions":[
@@ -4396,10 +4438,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -4408,7 +4451,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -4431,7 +4473,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -4478,6 +4519,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/ublock-origin/package.nix:72",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4501,7 +4543,7 @@
 "version":"1.22.0-rc.10"
 },
 "violentmonkey":{
-"drvPath":"/nix/store/75j9pyy285lfag1g5vkjkn5g0b0447cl-violentmonkey-2.35.0.drv",
+"drvPath":"/nix/store/5jf5qs397s0sappkjj6s57afnwprpki6-violentmonkey-2.35.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4560,7 +4602,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/violentmonkey/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/violentmonkey/package.nix",
 "line":87
 },
 "mozPermissions":[
@@ -4593,10 +4635,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -4605,7 +4648,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -4628,7 +4670,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -4675,6 +4716,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/violentmonkey/package.nix:84",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -4688,7 +4730,7 @@
 "version":"2.35.0"
 },
 "zotero-connector":{
-"drvPath":"/nix/store/8zizjhcsvm8f1sb2d2sgfh7c91631d9m-zotero-connector-5.0.200.drv",
+"drvPath":"/nix/store/041g4j8q6m14kk9c0g84wwsal6z1l6f5-zotero-connector-5.0.200.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4747,7 +4789,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syxmxllfd5drqd1y1nl6s2xc5p81fr7z-source/pkgs/zotero-connector/package.nix",
+"file":"/nix/store/rm7f1k4b9zph8z5vbxxp5mdfapknpd3m-source/pkgs/zotero-connector/package.nix",
 "line":85
 },
 "mozPermissions":[
@@ -4783,10 +4825,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -4795,7 +4838,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -4818,7 +4860,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -4865,6 +4906,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/zotero-connector/package.nix:66",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },

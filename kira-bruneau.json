@@ -1,16 +1,16 @@
 {
 "name":"kira-bruneau",
-"fetch_time":0.247,
-"eval_time":4.399,
+"fetch_time":0.29,
+"eval_time":4.761,
 "source":{
 "url":"https://gitlab.com/kira-bruneau/nur-packages",
-"rev":"a995282fd04b09de997260940e05209852f0d6ce",
-"sha256":"0fi5rkc2vnzbapawky8b4inqdd0kkvl5x1jhia18nmzgkrb49wj5",
+"rev":"9b5dd37f1cb64532cb1ee370a33d2dbc4dcc337e",
+"sha256":"0a5qwxlkb41zfv2kzmvd5hmw2ki2zb0whj0ngiq2fa537b8vx8pa",
 "date":null
 },
-"source_storepath":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source",
-"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
-"nur_combined_rev":"a78b980d018d7684c14a8c3de8b2b5c815c64e9b",
+"source_storepath":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source",
+"nixpkgs_storepath":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source",
+"nur_combined_rev":"30f8a58219b2ad10fab9fb405ed35a8c68dd5264",
 "packages":{
 "anytype":{
 "name":"anytype-0.53.1",
@@ -43,7 +43,7 @@
 "version":"0.53.1"
 },
 "bluetooth-autoconnect":{
-"drvPath":"/nix/store/swh92jv0x3v00b75dzkxswix0qmsld4l-bluetooth-autoconnect-1.3.drv",
+"drvPath":"/nix/store/m84lv73y71q85m3ryb7yx7lp4irnyvya-bluetooth-autoconnect-1.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -100,7 +100,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/bl/bluetooth-autoconnect/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/bl/bluetooth-autoconnect/package.nix",
 "line":48
 },
 "name":"bluetooth-autoconnect-1.3",
@@ -116,6 +116,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -138,8 +139,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/by-name/bl/bluetooth-autoconnect/package.nix:45",
 "problems":{},
@@ -156,7 +156,7 @@
 "version":"1.3"
 },
 "ccache":{
-"drvPath":"/nix/store/ylnsz2jrx8cs25fcs95yccga61b7rmpr-ccache-4.13.6.drv",
+"drvPath":"/nix/store/7kqrrwjpmin00wa28686q0xgczcc4zqf-ccache-4.13.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -221,7 +221,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/cc/ccache/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/cc/ccache/package.nix",
 "line":187
 },
 "name":"ccache-4.13.6",
@@ -244,15 +244,15 @@
 "man"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -275,7 +275,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -307,7 +306,7 @@
 "version":"4.13.6"
 },
 "cec-sync":{
-"drvPath":"/nix/store/7lxh60fgvh5y9zzldvxfan8hc7a6af9f-cec-sync-0-unstable-2025-07-16.drv",
+"drvPath":"/nix/store/5p58j62j7y0hqf3l9cx8wdxjq7s5bixv-cec-sync-0-unstable-2025-07-16.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -375,7 +374,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/ce/cec-sync/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/ce/cec-sync/package.nix",
 "line":44
 },
 "name":"cec-sync-0-unstable-2025-07-16",
@@ -436,7 +435,7 @@
 "version":"1.1.0.6085"
 },
 "cmake-language-server":{
-"drvPath":"/nix/store/x5rn7f91fynz81jmy546c22nwc9zymdg-cmake-language-server-0.1.11.drv",
+"drvPath":"/nix/store/7xfiakxf1i526j30ysylv8fh72d03jbv-cmake-language-server-0.1.11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -474,6 +473,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -497,8 +497,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -528,7 +526,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/cm/cmake-language-server/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/cm/cmake-language-server/package.nix",
 "line":85
 },
 "name":"cmake-language-server-0.1.11",
@@ -544,6 +542,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -567,8 +566,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -593,7 +590,7 @@
 "version":"0.1.11"
 },
 "emacsPackages.acm":{
-"drvPath":"/nix/store/v3cm1rbj7ib2bgglvl4grrcqgi2n2gfw-emacs-acm-0-unstable-2026-06-27.drv",
+"drvPath":"/nix/store/hbjiw4xrgvxy2pr2gaav0gvlhv3qpx3i-emacs-acm-0-unstable-2026-06-27.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -655,7 +652,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm/package.nix",
 "line":22
 },
 "name":"emacs-acm-0-unstable-2026-06-27",
@@ -677,10 +674,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -689,7 +687,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -712,7 +709,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -773,7 +769,7 @@
 "version":"0-unstable-2026-06-27"
 },
 "emacsPackages.acm-terminal":{
-"drvPath":"/nix/store/6hjzrzqfxy73pg03nhqix87md7f09ahl-emacs-acm-terminal-0-unstable-2023-12-06.drv",
+"drvPath":"/nix/store/ym0fs3k5yl78yyvxi4nljw3b1272qsr0-emacs-acm-terminal-0-unstable-2023-12-06.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -829,7 +825,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm-terminal/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/acm-terminal/package.nix",
 "line":32
 },
 "name":"emacs-acm-terminal-0-unstable-2023-12-06",
@@ -845,10 +841,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -857,7 +854,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -880,7 +876,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -941,7 +936,7 @@
 "version":"0-unstable-2023-12-06"
 },
 "emacsPackages.flymake-bridge":{
-"drvPath":"/nix/store/9h6gidcw1b5idvd0fcap75ka819m0xzd-emacs-flymake-bridge-0-unstable-2025-01-23.drv",
+"drvPath":"/nix/store/m9qrhkcamhs7x8pbccw49mi81qs42p60-emacs-flymake-bridge-0-unstable-2025-01-23.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -997,7 +992,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/flymake-bridge/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/flymake-bridge/package.nix",
 "line":28
 },
 "name":"emacs-flymake-bridge-0-unstable-2025-01-23",
@@ -1013,10 +1008,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1025,7 +1021,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1048,7 +1043,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1109,7 +1103,7 @@
 "version":"0-unstable-2025-01-23"
 },
 "emacsPackages.lsp-bridge":{
-"drvPath":"/nix/store/4h1h9ai1hdwq775dmj7z048fqiipxwzn-emacs-lsp-bridge-0-unstable-2026-06-27.drv",
+"drvPath":"/nix/store/cblllmdslk128cl4y1rlkbbas9d9il13-emacs-lsp-bridge-0-unstable-2026-06-27.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1171,7 +1165,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/lsp-bridge/default.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/lsp-bridge/default.nix",
 "line":108
 },
 "name":"emacs-lsp-bridge-0-unstable-2026-06-27",
@@ -1193,10 +1187,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1205,7 +1200,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1228,7 +1222,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1289,7 +1282,7 @@
 "version":"0-unstable-2026-06-27"
 },
 "emacsPackages.majutsu":{
-"drvPath":"/nix/store/8hsvk59am0p5y1pyfbqdp5gicq02paqi-emacs-majutsu-0.6.0.drv",
+"drvPath":"/nix/store/apkwfqq2dw9wwwsjmnvfw7qszbs6bpjr-emacs-majutsu-0.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1345,7 +1338,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/majutsu/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/applications/editors/emacs/elisp-packages/manual-packages/majutsu/package.nix",
 "line":32
 },
 "name":"emacs-majutsu-0.6.0",
@@ -1361,10 +1354,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1373,7 +1367,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1396,7 +1389,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1457,7 +1449,7 @@
 "version":"0.6.0"
 },
 "ender3-v3-se-klipper-config":{
-"drvPath":"/nix/store/zih4l0xhnpbbndpn7d0av3lch7gmzmkj-ender3-v3-se-full-klipper-0-unstable-2024-01-24.drv",
+"drvPath":"/nix/store/28h6vy8bc4g1ph2pqgfbkfqyvv1qiw5g-ender3-v3-se-full-klipper-0-unstable-2024-01-24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1504,7 +1496,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/en/ender3-v3-se-klipper-config/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/en/ender3-v3-se-klipper-config/package.nix",
 "line":37
 },
 "name":"ender3-v3-se-full-klipper-0-unstable-2024-01-24",
@@ -1520,10 +1512,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1532,7 +1525,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1555,7 +1547,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1617,12 +1608,12 @@
 "version":"0-unstable-2024-01-24"
 },
 "ender3-v3-se-klipper-with-display":{
-"drvPath":"/nix/store/xh79cj415x4hh32nq544cbs79vnk4cji-ender3-v3-se-klipper-with-display-1.0.0-unstable-2026-01-20.drv",
+"drvPath":"/nix/store/0nmshf6r6xgykb3fm6y6yw3ibnfdyfzp-ender3-v3-se-klipper-with-display-1.0.0-unstable-2026-01-20.drv",
 "meta":{
 "available":true,
 "broken":false,
 "description":"Fork of klipper with auto Z-offset calibration & display support for the Ender3 V3 SE",
-"homepage":"https://github.com/KevinOConnor/klipper",
+"homepage":"https://github.com/Klipper3d/klipper",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -1701,7 +1692,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/servers/klipper/default.nix",
+"file":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source/pkgs/servers/klipper/default.nix",
 "line":148
 },
 "name":"ender3-v3-se-klipper-with-display-1.0.0-unstable-2026-01-20",
@@ -1744,6 +1735,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1766,8 +1758,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/by-name/en/ender3-v3-se-klipper-with-display/package.nix:26",
 "problems":{},
@@ -1784,7 +1775,7 @@
 "version":"1.0.0-unstable-2026-01-20"
 },
 "gamemode":{
-"drvPath":"/nix/store/hdvfxa0bqqj7q10p5zpkl5nsyrql2r9f-gamemode-1.8.2.drv",
+"drvPath":"/nix/store/in7xdm89qcndss16ph1fhpfqzz816f5w-gamemode-1.8.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1842,7 +1833,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/ga/gamemode/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/ga/gamemode/package.nix",
 "line":113
 },
 "name":"gamemode-1.8.2",
@@ -1859,6 +1850,7 @@
 "man"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1881,8 +1873,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/by-name/ga/gamemode/package.nix:109",
 "problems":{},
@@ -1902,7 +1893,7 @@
 "version":"1.8.2"
 },
 "git-review":{
-"drvPath":"/nix/store/y62n75vhjg8z2xb7cbrmg9cvhm08bql9-git-review-2.5.0.drv",
+"drvPath":"/nix/store/gcjwkjh9j40aay3h7wzlv76bxzdmw82l-git-review-2.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1940,6 +1931,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1963,8 +1955,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1994,7 +1984,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/gi/git-review/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/gi/git-review/package.nix",
 "line":53
 },
 "name":"git-review-2.5.0",
@@ -2011,6 +2001,7 @@
 "man"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2034,8 +2025,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -2072,7 +2061,7 @@
 "version":"5.48.6"
 },
 "home-assistant-waves-theme":{
-"drvPath":"/nix/store/hjc7vkc5k5jlrarwmsjllp9k3b9cdbfz-home-assistant-waves-theme-2.4.1.drv",
+"drvPath":"/nix/store/0fvgj8zh19siy450dbqlymkz1zzzyhf4-home-assistant-waves-theme-2.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2119,7 +2108,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/wa/home-assistant-waves-theme/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/wa/home-assistant-waves-theme/package.nix",
 "line":36
 },
 "name":"home-assistant-waves-theme-2.4.1",
@@ -2135,10 +2124,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -2147,7 +2137,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -2170,7 +2159,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -2252,11 +2240,11 @@
 "version":"5.48.6"
 },
 "linuxPackages.xpadneo":{
-"drvPath":"/nix/store/nhs55pb0c9l0pb177iw60c7ld1hbkbb9-xpadneo-0.10.2.drv",
+"drvPath":"/nix/store/f56kv476b02x91nb4bk511l9k55kqx0w-xpadneo-0.10.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/atar-axis/xpadneo/releases/tag/v0.10.2",
+"changelog":"https://github.com/atar-axis/xpadneo/releases/tag/v0.10.3.1",
 "description":"Advanced Linux driver for Xbox One wireless controllers",
 "homepage":"https://atar-axis.github.io/xpadneo",
 "identifiers":{
@@ -2321,10 +2309,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/os-specific/linux/xpadneo/default.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/os-specific/linux/xpadneo/default.nix",
 "line":58
 },
-"name":"xpadneo-0.10.2",
+"name":"xpadneo-0.10.3.1",
 "nonTeamMaintainers":[
 {
 "email":"kira.bruneau@pm.me",
@@ -2337,6 +2325,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2359,25 +2348,24 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/os-specific/linux/xpadneo/default.nix:51",
 "problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"xpadneo-0.10.2",
+"name":"xpadneo-0.10.3.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"xpadneo",
 "system":"x86_64-linux",
-"version":"0.10.2"
+"version":"0.10.3.1"
 },
 "mangohud":{
-"drvPath":"/nix/store/zhdqzwd3h9l8g6bh00lqm20pjjbdfi2c-mangohud-0.8.4.drv",
+"drvPath":"/nix/store/v0j6vmiljsv6wnnaxb8925bn4r3m961w-mangohud-0.8.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2446,7 +2434,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/ma/mangohud/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/ma/mangohud/package.nix",
 "line":260
 },
 "name":"mangohud-0.8.4",
@@ -2474,6 +2462,7 @@
 "man"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2496,8 +2485,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/by-name/ma/mangohud/package.nix:255",
 "problems":{},
@@ -2516,7 +2504,7 @@
 "version":"0.8.4"
 },
 "mozlz4a":{
-"drvPath":"/nix/store/3mngx0bll3bn3m3nggxnhcm1ara9v75i-mozlz4a-2022-03-19.drv",
+"drvPath":"/nix/store/fqp5axxfjdi58c1c3jjvifnv5wlif9wg-mozlz4a-2022-03-19.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2585,7 +2573,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/mo/mozlz4a/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/mo/mozlz4a/package.nix",
 "line":38
 },
 "name":"mozlz4a-2022-03-19",
@@ -2613,6 +2601,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2636,8 +2625,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -2661,7 +2648,7 @@
 "version":"2022-03-19"
 },
 "nautilus-taildrop":{
-"drvPath":"/nix/store/9kx3gz9c5x5wsnb4spd3payql2z3kmqw-nautilus-taildrop-0-unstable-2025-12-31.drv",
+"drvPath":"/nix/store/cxj5j35sfcvirffv3g7hh3yryalqkhnp-nautilus-taildrop-0-unstable-2025-12-31.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2718,7 +2705,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/na/nautilus-taildrop/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/na/nautilus-taildrop/package.nix",
 "line":31
 },
 "name":"nautilus-taildrop-0-unstable-2025-12-31",
@@ -2734,10 +2721,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -2746,7 +2734,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -2769,7 +2756,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -2830,7 +2816,7 @@
 "version":"0-unstable-2025-12-31"
 },
 "newsflash":{
-"drvPath":"/nix/store/cgv4yl8hb3cdyfl2zzw974av1ciz9wjk-newsflash-5.1.0.drv",
+"drvPath":"/nix/store/d1f8w0pk5hjpgb11rg96gw3fnn5zl6rv-newsflash-5.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2913,7 +2899,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/ne/newsflash/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/ne/newsflash/package.nix",
 "line":117
 },
 "name":"newsflash-5.1.0",
@@ -2935,15 +2921,15 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -2966,7 +2952,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -3013,7 +2998,7 @@
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/ne/newsflash/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/ne/newsflash/package.nix",
 "line":121
 },
 "unfree":false,
@@ -3029,7 +3014,7 @@
 "version":"5.1.0"
 },
 "poke":{
-"drvPath":"/nix/store/v7a7crc7ybc63757a3qrx77dagi0ka53-poke-4.3.drv",
+"drvPath":"/nix/store/1cab14spq4lhzlnl91xicw8zsvvy4mnl-poke-4.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3037,6 +3022,7 @@
 "description":"Interactive, extensible editor for binary data",
 "homepage":"http://www.jemarch.net/poke",
 "hydraPlatforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3059,8 +3045,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "identifiers":{
 "cpeParts":{
@@ -3112,7 +3097,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/po/poke/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/po/poke/package.nix",
 "line":99
 },
 "name":"poke-4.3",
@@ -3129,15 +3114,15 @@
 "man"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -3160,7 +3145,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -3195,7 +3179,7 @@
 "version":"4.3"
 },
 "pokemmo-installer":{
-"drvPath":"/nix/store/xmvzpmnsac0is6m328m0a0gpbzcx72x0-pokemmo-installer-1.4.8.drv",
+"drvPath":"/nix/store/1ns1njhyq4pxp53s8pghkmw95fqn1q80-pokemmo-installer-1.4.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3252,7 +3236,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/po/pokemmo-installer/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/po/pokemmo-installer/package.nix",
 "line":69
 },
 "name":"pokemmo-installer-1.4.8",
@@ -3268,6 +3252,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3290,8 +3275,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/by-name/po/pokemmo-installer/package.nix:66",
 "problems":{},
@@ -3308,165 +3292,6 @@
 "version":"1.4.8"
 },
 "powertools":{
-"drvPath":"/nix/store/vc7gyagwmifvg0hagfcis4dc7mc01c3b-powertools-2.0.3.drv",
-"meta":{
-"available":true,
-"broken":false,
-"description":"Steam Deck power tweaks for power users",
-"homepage":"https://git.ngni.us/NG-SD-Plugins/PowerTools",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"powertools",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purlParts":{},
-"purls":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"powertools",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purls":[]
-}
-},
-"insecure":false,
-"license":{
-"deprecated":false,
-"free":true,
-"fullName":"GNU General Public License v3.0 only",
-"licenseType":"simple",
-"redistributable":true,
-"shortName":"gpl3Only",
-"spdxId":"GPL-3.0-only",
-"url":"https://spdx.org/licenses/GPL-3.0-only.html"
-},
-"mainProgram":"backend",
-"maintainers":[
-{
-"email":"kira.bruneau@pm.me",
-"github":"kira-bruneau",
-"githubId":382041,
-"name":"Kira Bruneau"
-}
-],
-"maintainersPosition":{
-"column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/po/powertools/package.nix",
-"line":95
-},
-"name":"powertools-2.0.3",
-"nonTeamMaintainers":[
-{
-"email":"kira.bruneau@pm.me",
-"github":"kira-bruneau",
-"githubId":382041,
-"name":"Kira Bruneau"
-}
-],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"i686-cygwin",
-"x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd",
-"aarch64-genode",
-"i686-genode",
-"x86_64-genode",
-"x86_64-solaris",
-"javascript-ghcjs",
-"aarch64-linux",
-"arc-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"sh4-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"x86_64-linux",
-"mmix-mmixware",
-"aarch64-netbsd",
-"armv6l-netbsd",
-"armv7a-netbsd",
-"armv7l-netbsd",
-"i686-netbsd",
-"m68k-netbsd",
-"mipsel-netbsd",
-"powerpc-netbsd",
-"riscv32-netbsd",
-"riscv64-netbsd",
-"x86_64-netbsd",
-"aarch64_be-none",
-"aarch64-none",
-"arm-none",
-"armv6l-none",
-"avr-none",
-"i686-none",
-"microblaze-none",
-"microblazeel-none",
-"mips-none",
-"mips64-none",
-"msp430-none",
-"or1k-none",
-"m68k-none",
-"powerpc-none",
-"powerpcle-none",
-"riscv32-none",
-"riscv64-none",
-"rx-none",
-"s390-none",
-"s390x-none",
-"vc4-none",
-"x86_64-none",
-"i686-openbsd",
-"x86_64-openbsd",
-"x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
-"aarch64-windows",
-"x86_64-windows",
-"i686-windows",
-"aarch64-uefi",
-"x86_64-uefi"
-],
-"position":"./pkgs/by-name/po/powertools/package.nix:92",
-"problems":{},
-"unfree":false,
-"unsupported":false
-},
 "name":"powertools-2.0.3",
 "outputName":"out",
 "outputs":{
@@ -3477,7 +3302,7 @@
 "version":"2.0.3"
 },
 "protontricks":{
-"drvPath":"/nix/store/11md8ld69g5w6hl7ncz89h45nvidqizp-protontricks-1.14.1.drv",
+"drvPath":"/nix/store/jv92mpn752h2h87ly2wzi45j092psida-protontricks-1.14.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3515,6 +3340,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3538,8 +3364,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -3568,7 +3392,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/pr/protontricks/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/pr/protontricks/package.nix",
 "line":91
 },
 "name":"protontricks-1.14.1",
@@ -3603,7 +3427,7 @@
 "version":"1.14.1"
 },
 "python313Packages.debugpy":{
-"drvPath":"/nix/store/iz6nrypixjqb4mmr77h5if6y2ppcrffb-python3.13-debugpy-1.8.21.drv",
+"drvPath":"/nix/store/n7nsjwgnrz2nxkaiamvh55xm0n4hj5c3-python3.13-debugpy-1.8.21.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3641,6 +3465,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3664,8 +3489,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -3694,7 +3517,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/development/python-modules/debugpy/default.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/development/python-modules/debugpy/default.nix",
 "line":154
 },
 "name":"python3.13-debugpy-1.8.21",
@@ -3733,7 +3556,7 @@
 "version":"1.8.21"
 },
 "python313Packages.pygls":{
-"drvPath":"/nix/store/ni14dw88d2knb6wzqhylwr2hav0i87gd-python3.13-pygls-2.1.1.drv",
+"drvPath":"/nix/store/3w7wmv45wcgn1v2wpy3lzn9c35iwicvd-python3.13-pygls-2.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3771,6 +3594,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3794,8 +3618,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -3824,7 +3646,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/development/python-modules/pygls/default.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/development/python-modules/pygls/default.nix",
 "line":70
 },
 "name":"python3.13-pygls-2.1.1",
@@ -3840,6 +3662,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3863,8 +3686,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -3889,7 +3710,7 @@
 "version":"2.1.1"
 },
 "python313Packages.pytest-datadir":{
-"drvPath":"/nix/store/p32q31q2qikk067zr1i5wgdzi05xrz2q-python3.13-pytest-datadir-1.8.0.drv",
+"drvPath":"/nix/store/p012dpqlq90zg1y765cx22qa7xzz3hdg-python3.13-pytest-datadir-1.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3927,6 +3748,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3950,8 +3772,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -3980,7 +3800,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/development/python-modules/pytest-datadir/default.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/development/python-modules/pytest-datadir/default.nix",
 "line":36
 },
 "name":"python3.13-pytest-datadir-1.8.0",
@@ -3996,6 +3816,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4019,8 +3840,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -4045,7 +3864,7 @@
 "version":"1.8.0"
 },
 "python313Packages.vdf":{
-"drvPath":"/nix/store/fmdyqmfmdgnd9yzw8lcfqp7ap7ci0d4d-python3.13-vdf-3.4.drv",
+"drvPath":"/nix/store/31mv8fjnjx1zavrqlwhakx4pa22ydsn2-python3.13-vdf-3.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4082,6 +3901,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4105,8 +3925,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -4135,7 +3953,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/development/python-modules/vdf/default.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/development/python-modules/vdf/default.nix",
 "line":46
 },
 "name":"python3.13-vdf-3.4",
@@ -4151,6 +3969,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4174,8 +3993,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -4200,7 +4017,7 @@
 "version":"3.4"
 },
 "python314Packages.debugpy":{
-"drvPath":"/nix/store/zcw143a4n6y5a3f1099vvkm53isx85qw-python3.14-debugpy-1.8.21.drv",
+"drvPath":"/nix/store/cd7qfr8rzjfhrl3agxa59rqhj272ahk2-python3.14-debugpy-1.8.21.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4238,6 +4055,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4261,8 +4079,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -4291,7 +4107,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/development/python-modules/debugpy/default.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/development/python-modules/debugpy/default.nix",
 "line":154
 },
 "name":"python3.14-debugpy-1.8.21",
@@ -4330,7 +4146,7 @@
 "version":"1.8.21"
 },
 "python314Packages.pygls":{
-"drvPath":"/nix/store/q7r82yd95k5wnl9my2lkzbbxv2xm7l2h-python3.14-pygls-2.1.1.drv",
+"drvPath":"/nix/store/rxfsblxwcbqhny87nagspsnms8b7dc6m-python3.14-pygls-2.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4368,6 +4184,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4391,8 +4208,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -4421,7 +4236,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/development/python-modules/pygls/default.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/development/python-modules/pygls/default.nix",
 "line":70
 },
 "name":"python3.14-pygls-2.1.1",
@@ -4437,6 +4252,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4460,8 +4276,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -4486,7 +4300,7 @@
 "version":"2.1.1"
 },
 "python314Packages.pytest-datadir":{
-"drvPath":"/nix/store/cshhdkgcf0syggyn32pirgc05281kg12-python3.14-pytest-datadir-1.8.0.drv",
+"drvPath":"/nix/store/1dwhv6l2jyc1kx86qyd7hfxkn1180ffa-python3.14-pytest-datadir-1.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4524,6 +4338,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4547,8 +4362,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -4577,7 +4390,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/development/python-modules/pytest-datadir/default.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/development/python-modules/pytest-datadir/default.nix",
 "line":36
 },
 "name":"python3.14-pytest-datadir-1.8.0",
@@ -4593,6 +4406,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4616,8 +4430,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -4642,7 +4454,7 @@
 "version":"1.8.0"
 },
 "python314Packages.vdf":{
-"drvPath":"/nix/store/x38cfsvwg69nlyi92nvghrd4vfn2v6lc-python3.14-vdf-3.4.drv",
+"drvPath":"/nix/store/rc14i1aky2822ksyps06f42l3x8gh0yl-python3.14-vdf-3.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4679,6 +4491,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4702,8 +4515,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -4732,7 +4543,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/development/python-modules/vdf/default.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/development/python-modules/vdf/default.nix",
 "line":46
 },
 "name":"python3.14-vdf-3.4",
@@ -4748,6 +4559,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4771,8 +4583,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -4797,7 +4607,7 @@
 "version":"3.4"
 },
 "swaylock-fprintd":{
-"drvPath":"/nix/store/rnzdzmpqd68cp6ybd0j4fknxzrlb72qf-swaylock-fprintd-0-unstable-2025-09-05.drv",
+"drvPath":"/nix/store/aksxdh9kjmky2wf4fa7gd68zzg07cxpp-swaylock-fprintd-0-unstable-2025-09-05.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4855,7 +4665,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/by-name/sw/swaylock/package.nix",
+"file":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source/pkgs/by-name/sw/swaylock/package.nix",
 "line":69
 },
 "name":"swaylock-fprintd-0-unstable-2025-09-05",
@@ -4871,6 +4681,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4893,8 +4704,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/sw/swaylock/package.nix:59",
 "problems":{},
@@ -4911,7 +4721,7 @@
 "version":"0-unstable-2025-09-05"
 },
 "tantivy-go":{
-"drvPath":"/nix/store/cxck966qr2irvkbx9v7ahdkwlkfhd57i-tantivy-go-1.0.4.drv",
+"drvPath":"/nix/store/vzh41yvzj60ad42l4xhgh4zx2mkcpv58-tantivy-go-1.0.4.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -4978,7 +4788,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/ta/tantivy-go/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/ta/tantivy-go/package.nix",
 "line":38
 },
 "name":"tantivy-go-1.0.4",
@@ -4994,7 +4804,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -5048,7 +4857,7 @@
 "version":"1.0.4"
 },
 "texlab":{
-"drvPath":"/nix/store/n45g28lnrxz954y972xxdsgw2q98jznv-texlab-5.26.0.drv",
+"drvPath":"/nix/store/j1yg3svpmhhks1nc7kg2va16x2zrmmzl-texlab-5.26.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -5123,7 +4932,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/te/texlab/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/te/texlab/package.nix",
 "line":52
 },
 "name":"texlab-5.26.0",
@@ -5146,7 +4955,6 @@
 "man"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -5201,7 +5009,7 @@
 "version":"5.26.0"
 },
 "ukmm":{
-"drvPath":"/nix/store/x4s9yi1k69z3n8jrxpd4lxgkdnf5raj6-ukmm-0.17.1.drv",
+"drvPath":"/nix/store/82jxdb7knadjvq57lk6bl81rvbjcwjl5-ukmm-0.17.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -5270,7 +5078,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/uk/ukmm/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/uk/ukmm/package.nix",
 "line":99
 },
 "name":"ukmm-0.17.1",
@@ -5321,7 +5129,7 @@
 "version":"0.17.1"
 },
 "undistract-me":{
-"drvPath":"/nix/store/vb4r33p20pmvf7pdqwzmg4j3zks7p6gk-undistract-me-0-unstable-2020-08-09.drv",
+"drvPath":"/nix/store/17lr6idnqqqg1i2aaccqbi1wiaf9b7c3-undistract-me-0-unstable-2020-08-09.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5377,7 +5185,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/un/undistract-me/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/un/undistract-me/package.nix",
 "line":82
 },
 "name":"undistract-me-0-unstable-2020-08-09",
@@ -5393,6 +5201,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -5415,8 +5224,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/by-name/un/undistract-me/package.nix:79",
 "problems":{},
@@ -5443,7 +5251,7 @@
 "version":"0.4.9"
 },
 "vkbasalt":{
-"drvPath":"/nix/store/hf5c6n8d9y4ksz0f3r27r44rnsig3g5p-vkbasalt-0.3.2.10.drv",
+"drvPath":"/nix/store/v7bbgx27qiiqsvgzxiag4cf0ksrdmaqs-vkbasalt-0.3.2.10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5499,7 +5307,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/vk/vkbasalt/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/vk/vkbasalt/package.nix",
 "line":64
 },
 "name":"vkbasalt-0.3.2.10",
@@ -5515,6 +5323,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -5537,8 +5346,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/by-name/vk/vkbasalt/package.nix:61",
 "problems":{},
@@ -5555,7 +5363,7 @@
 "version":"0.3.2.10"
 },
 "yabridge":{
-"drvPath":"/nix/store/kkwjrkx2rzjiq8q82d63ixna92z5w27q-yabridge-5.1.1.drv",
+"drvPath":"/nix/store/nfdqz81drjh3fpd307ncw0y8qsimvhz9-yabridge-5.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5612,7 +5420,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/ya/yabridge/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/ya/yabridge/package.nix",
 "line":170
 },
 "name":"yabridge-5.1.1",
@@ -5645,7 +5453,7 @@
 "version":"5.1.1"
 },
 "yabridgectl":{
-"drvPath":"/nix/store/khm6j57p2dh1y9jpa2ng2xsxprhn5vvi-yabridgectl-5.1.1.drv",
+"drvPath":"/nix/store/0nqfdd4nm1rdizw6dp2mlw17jazrpdhd-yabridgectl-5.1.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -5714,7 +5522,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/ya/yabridgectl/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/ya/yabridgectl/package.nix",
 "line":44
 },
 "name":"yabridgectl-5.1.1",
@@ -5747,7 +5555,7 @@
 "version":"5.1.1"
 },
 "yarg":{
-"drvPath":"/nix/store/i65jbnjb6k1p5i1yzqyh05h51yg417y3-yarg-0.15.0.drv",
+"drvPath":"/nix/store/43nvfwgqjnnidyv1jxdsz7bnqpkfv8cj-yarg-0.15.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5805,7 +5613,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/ya/yarg/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/ya/yarg/package.nix",
 "line":124
 },
 "name":"yarg-0.15.0",
@@ -5844,7 +5652,7 @@
 "version":"0.15.0"
 },
 "zynaddsubfx":{
-"drvPath":"/nix/store/s1qz4pr3f6wlqc6jrbyxznywjxxi5smq-zynaddsubfx-3.0.6.drv",
+"drvPath":"/nix/store/bwmw81m4q7fbq5mnh6xlb1b0zkpprhi0-zynaddsubfx-3.0.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5901,7 +5709,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/zy/zynaddsubfx/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/zy/zynaddsubfx/package.nix",
 "line":200
 },
 "name":"zynaddsubfx-3.0.6",
@@ -5917,10 +5725,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -5929,7 +5738,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -5952,7 +5760,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -6014,7 +5821,7 @@
 "version":"3.0.6"
 },
 "zynaddsubfx-fltk":{
-"drvPath":"/nix/store/vnf4ml3f0qrvyyrr81pmm120h1m4caqz-zynaddsubfx-3.0.6.drv",
+"drvPath":"/nix/store/y9xal8fyjxzsj67qbnmd7hq338kvimw8-zynaddsubfx-3.0.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6071,7 +5878,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/zy/zynaddsubfx/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/zy/zynaddsubfx/package.nix",
 "line":200
 },
 "name":"zynaddsubfx-3.0.6",
@@ -6087,10 +5894,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -6099,7 +5907,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -6122,7 +5929,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -6184,7 +5990,7 @@
 "version":"3.0.6"
 },
 "zynaddsubfx-ntk":{
-"drvPath":"/nix/store/894hsdz87d0jic4mdvxakfsaphg5gpf3-zynaddsubfx-3.0.6.drv",
+"drvPath":"/nix/store/v6f7yg1jcc8j6g6x7zishwh1fkc8v813-zynaddsubfx-3.0.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6241,7 +6047,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2h311a28k56bmr9g1crvhxv5sfm265mv-source/pkgs/by-name/zy/zynaddsubfx/package.nix",
+"file":"/nix/store/filfrspd55xjnyvg9zilk1a126cy44qq-source/pkgs/by-name/zy/zynaddsubfx/package.nix",
 "line":200
 },
 "name":"zynaddsubfx-3.0.6",
@@ -6257,10 +6063,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -6269,7 +6076,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -6292,7 +6098,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",

@@ -1,19 +1,19 @@
 {
 "name":"linyinfeng",
-"fetch_time":0.462,
-"eval_time":6.046,
+"fetch_time":0.373,
+"eval_time":6.188,
 "source":{
 "url":"https://github.com/linyinfeng/nur-packages",
-"rev":"7f9d11e8375b11a63a4303373d1096077bca80ef",
-"sha256":"1i4g9sk3lbaz27ayv9nzxf9dh2m881qs5yzjwvhl3806g7dbk8ww",
+"rev":"f4b6844090d939e420f4d86d337ca426917b4b0f",
+"sha256":"1szazjcgf00h3dp4h7wprcflvz5cxkxfh11z02kskmb7c63afjyy",
 "date":null
 },
-"source_storepath":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source",
-"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
-"nur_combined_rev":"23e6c82b413a1be30e91c2ea00e17939cfdb6ae8",
+"source_storepath":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source",
+"nixpkgs_storepath":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source",
+"nur_combined_rev":"f410ed486acda7071c31d723681362e2795ce73c",
 "packages":{
 "activate-dpt":{
-"drvPath":"/nix/store/lns9qnjgsblh6qj3cwgxrjawpgnlgw11-activate-dpt-0.1.drv",
+"drvPath":"/nix/store/1i8icbivsgij7by7ggjxqzs23q1dkzhg-activate-dpt-0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -68,7 +68,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/activate-dpt/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/activate-dpt/default.nix",
 "line":28
 },
 "name":"activate-dpt-0.1",
@@ -98,7 +98,7 @@
 "version":"0.1"
 },
 "aws-s3-reverse-proxy":{
-"drvPath":"/nix/store/2z6vipnn1nv9knvj91ikwsk11y2b2qg3-aws-s3-reverse-proxy-1.1.1-patched.4.drv",
+"drvPath":"/nix/store/l22ng31lw76dn6rzhck8nbmm52mbqf6k-aws-s3-reverse-proxy-1.1.1-patched.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -154,7 +154,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/aws-s3-reverse-proxy/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/aws-s3-reverse-proxy/default.nix",
 "line":29
 },
 "name":"aws-s3-reverse-proxy-1.1.1-patched.4",
@@ -170,8 +170,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -195,7 +195,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -217,7 +216,7 @@
 "version":"1.1.1-patched.4"
 },
 "aws-sigv4-proxy":{
-"drvPath":"/nix/store/c1riqgx5bwmrsvy5mlqmx7yifk00yi64-aws-sigv4-proxy-v1.11.1.drv",
+"drvPath":"/nix/store/2icq7wlva25c4jk4y7lv5k0iq12cka80-aws-sigv4-proxy-v1.11.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -273,7 +272,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/aws-sigv4-proxy/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/aws-sigv4-proxy/default.nix",
 "line":19
 },
 "name":"aws-sigv4-proxy-v1.11.1",
@@ -289,8 +288,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -314,7 +313,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -336,7 +334,7 @@
 "version":""
 },
 "baibot":{
-"drvPath":"/nix/store/ap94f5pgkqk91q0gz1a7410770h0z8sy-baibot-v1.25.0.drv",
+"drvPath":"/nix/store/6k0r5r70yc48c4dbksjqj5f8x0pmfw27-baibot-v1.25.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -403,7 +401,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/baibot/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/baibot/default.nix",
 "line":27
 },
 "name":"baibot-v1.25.0",
@@ -419,7 +417,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -473,7 +470,7 @@
 "version":""
 },
 "canokey-udev-rules":{
-"drvPath":"/nix/store/07ii5hz0riynx8s2jsw6i4bka0xib1hy-canokey-udev-rules-0.1.drv",
+"drvPath":"/nix/store/biznw74w5y2l39591vndml51mab8f2p4-canokey-udev-rules-0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -519,7 +516,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/canokey-udev-rules/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/canokey-udev-rules/default.nix",
 "line":17
 },
 "name":"canokey-udev-rules-0.1",
@@ -549,7 +546,7 @@
 "version":"0.1"
 },
 "cf-terraforming":{
-"drvPath":"/nix/store/i4h88ljr3zr9qrzpslzlcs87pgmybvhi-cf-terraforming-0.27.0.drv",
+"drvPath":"/nix/store/60aywxzc128v3mw6y225p3dsyxc20844-cf-terraforming-0.27.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -605,7 +602,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/cf-terraforming/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/cf-terraforming/default.nix",
 "line":38
 },
 "name":"cf-terraforming-0.27.0",
@@ -621,8 +618,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -646,7 +643,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -668,7 +664,7 @@
 "version":"0.27.0"
 },
 "codestable":{
-"drvPath":"/nix/store/z0nsigrdjd1bjrik23590wiskaikbpka-codestable-cd7e1d33f0c754207fe7b575bcca8623abf479e2.drv",
+"drvPath":"/nix/store/kk509j079y7slrn1bkyapb4l3d4kv72s-codestable-30fecaae5e747dbad1f0e599d592d7c04cc7f0c4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -703,7 +699,7 @@
 },
 "insecure":false,
 "maintainers":[],
-"name":"codestable-cd7e1d33f0c754207fe7b575bcca8623abf479e2",
+"name":"codestable-30fecaae5e747dbad1f0e599d592d7c04cc7f0c4",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -713,17 +709,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"codestable-cd7e1d33f0c754207fe7b575bcca8623abf479e2",
+"name":"codestable-30fecaae5e747dbad1f0e599d592d7c04cc7f0c4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"codestable-cd7e1d33f0c754207fe7b575bcca8623abf479e2",
+"pname":"codestable",
 "system":"x86_64-linux",
-"version":""
+"version":"30fecaae5e747dbad1f0e599d592d7c04cc7f0c4"
 },
 "deepseek-reasonix":{
-"drvPath":"/nix/store/mk4cmc1k8jf2cbdbcwxy5b4ypc5d2hv0-deepseek-reasonix-1.17.9.drv",
+"drvPath":"/nix/store/0d6jhpahi1v7skjsspg7n059zmzx5ks8-deepseek-reasonix-1.17.10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -779,10 +775,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/deepseek-reasonix/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/deepseek-reasonix/default.nix",
 "line":38
 },
-"name":"deepseek-reasonix-1.17.9",
+"name":"deepseek-reasonix-1.17.10",
 "nonTeamMaintainers":[
 {
 "email":"lin.yinfeng@outlook.com",
@@ -795,8 +791,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -820,7 +816,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -832,17 +827,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"deepseek-reasonix-1.17.9",
+"name":"deepseek-reasonix-1.17.10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"deepseek-reasonix",
 "system":"x86_64-linux",
-"version":"1.17.9"
+"version":"1.17.10"
 },
 "devPackages.nvfetcher-self":{
-"drvPath":"/nix/store/pxngynz721i9kymn0c042raasx24bzrw-nvfetcher-self-0.1.0.0.drv",
+"drvPath":"/nix/store/8637zd6h4gnip1kggv8alpds6plq2xnz-nvfetcher-self-0.1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -886,7 +881,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/dev-packages/nvfetcher-self/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/dev-packages/nvfetcher-self/default.nix",
 "line":25
 },
 "name":"nvfetcher-self-0.1.0.0",
@@ -920,7 +915,7 @@
 "version":"0.1.0.0"
 },
 "devPackages.update":{
-"drvPath":"/nix/store/8vm72zx82gc31nkxihpcy6kkn7z0n736-update.drv",
+"drvPath":"/nix/store/d8s7bxxzkgmkr598wfxdkvbrjllh9c31-update.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -963,7 +958,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/dev-packages/update/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/dev-packages/update/default.nix",
 "line":99
 },
 "name":"update",
@@ -996,7 +991,7 @@
 "version":""
 },
 "dot-tar":{
-"drvPath":"/nix/store/8nd1xr3pwwlnd7swzx06331jv8w7r5jc-dot-tar-b5f1f3f37abd9f65dd75cc5e74d32e6356090534.drv",
+"drvPath":"/nix/store/m0praax81cy1zzls021riccdrx2drj3z-dot-tar-b5f1f3f37abd9f65dd75cc5e74d32e6356090534.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1063,7 +1058,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/dot-tar/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/dot-tar/default.nix",
 "line":20
 },
 "name":"dot-tar-b5f1f3f37abd9f65dd75cc5e74d32e6356090534",
@@ -1079,7 +1074,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -1133,7 +1127,7 @@
 "version":""
 },
 "dpt-rp1-py":{
-"drvPath":"/nix/store/rl80g1gi4gah5mgzqx8z9f65xck49zkm-dpt-rp1-py-v0.1.19.drv",
+"drvPath":"/nix/store/gynyw98z6j2aa02mqmf8n72j04fcbiws-dpt-rp1-py-v0.1.19.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1170,6 +1164,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1193,8 +1188,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1223,7 +1216,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/dpt-rp1-py/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/dpt-rp1-py/default.nix",
 "line":34
 },
 "name":"dpt-rp1-py-v0.1.19",
@@ -1239,6 +1232,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1262,8 +1256,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1288,7 +1280,7 @@
 "version":""
 },
 "easylpac":{
-"drvPath":"/nix/store/qbm9b333fpi5bi779mzdc37kdn12gp3j-easylpac-0.8.0.3.drv",
+"drvPath":"/nix/store/rh4l2wlgj49hcnpmwlqj5n6immzna2x0-easylpac-0.8.0.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1345,7 +1337,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/easylpac/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/easylpac/default.nix",
 "line":65
 },
 "name":"easylpac-0.8.0.3",
@@ -1361,8 +1353,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1386,7 +1378,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -1418,7 +1409,7 @@
 "version":"87594b2a4d6391cf69475257b286d3b844791571"
 },
 "fishPlugins.bang-bang":{
-"drvPath":"/nix/store/plgqv0fd7kbc78mwp5cahk3vikhcc0nw-fishplugin-plugin-bang-bang-ec991b80ba7d4dda7a962167b036efc5c2d79419.drv",
+"drvPath":"/nix/store/57c5s49677p324qxfwckqh2jkh24lfys-fishplugin-plugin-bang-bang-ec991b80ba7d4dda7a962167b036efc5c2d79419.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1474,7 +1465,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/fish-plugins/bang-bang/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/fish-plugins/bang-bang/default.nix",
 "line":14
 },
 "name":"fishplugin-plugin-bang-bang-ec991b80ba7d4dda7a962167b036efc5c2d79419",
@@ -1504,7 +1495,7 @@
 "version":""
 },
 "fishPlugins.git":{
-"drvPath":"/nix/store/ad66wvnmx3myrfchg737akszb8cwcvm6-fishplugin-plugin-git-dd1f559c01cde4cf0d16581b60e20d29f33c0665.drv",
+"drvPath":"/nix/store/k76k249rivj2hbgakayaf99qf1jn2d2i-fishplugin-plugin-git-dd1f559c01cde4cf0d16581b60e20d29f33c0665.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1560,7 +1551,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/fish-plugins/git/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/fish-plugins/git/default.nix",
 "line":14
 },
 "name":"fishplugin-plugin-git-dd1f559c01cde4cf0d16581b60e20d29f33c0665",
@@ -1590,7 +1581,7 @@
 "version":""
 },
 "fishPlugins.replay":{
-"drvPath":"/nix/store/7xzwdwhs04c4yi051xcbshxayq0apvx3-fishplugin-replay-fish-1.2.1.drv",
+"drvPath":"/nix/store/7ycxni1j6fcd60xmmwvxlygv82rbj0gs-fishplugin-replay-fish-1.2.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1646,7 +1637,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/fish-plugins/replay/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/fish-plugins/replay/default.nix",
 "line":14
 },
 "name":"fishplugin-replay-fish-1.2.1",
@@ -1676,7 +1667,7 @@
 "version":"1.2.1"
 },
 "hexecute":{
-"drvPath":"/nix/store/ifqrifjriiivy607x4sda7nsj91i055x-hexecute-0.2.0.drv",
+"drvPath":"/nix/store/4dw17rj8yg9z03qxs08nfw7pyyh187px-hexecute-0.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1729,6 +1720,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1751,8 +1743,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/hexecute/default.nix:53",
 "problems":{
@@ -1774,7 +1765,7 @@
 "version":"0.2.0"
 },
 "libva-v4l2":{
-"drvPath":"/nix/store/nhx9icba3wp3hqg0vskz82jgmkp25mcy-libva-v4l2-4bcd48cdeae182c7af5d23526068b51338c01b05.drv",
+"drvPath":"/nix/store/rcp7x01zr4iidv5anmjfpv201jwpqfls-libva-v4l2-4bcd48cdeae182c7af5d23526068b51338c01b05.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1830,7 +1821,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/libva-v4l2/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/libva-v4l2/default.nix",
 "line":39
 },
 "name":"libva-v4l2-4bcd48cdeae182c7af5d23526068b51338c01b05",
@@ -1864,7 +1855,7 @@
 "version":"4bcd48cdeae182c7af5d23526068b51338c01b05"
 },
 "llm-wiki-compiler":{
-"drvPath":"/nix/store/vpyslgmhb0ikidyxs7xy5s63f9v0xry9-llm-wiki-compiler-0.11.0.drv",
+"drvPath":"/nix/store/fir8rfjppx7py6ncrjy5kax9ilci3nmq-llm-wiki-compiler-0.11.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1921,7 +1912,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/llm-wiki-compiler/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/llm-wiki-compiler/default.nix",
 "line":41
 },
 "name":"llm-wiki-compiler-0.11.0",
@@ -1937,12 +1928,12 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
+"x86_64-linux",
 "aarch64-darwin",
+"aarch64-linux",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1957,7 +1948,6 @@
 "powerpc64le-linux",
 "riscv32-linux",
 "riscv64-linux",
-"x86_64-linux",
 "s390x-linux"
 ],
 "position":"./pkgs/llm-wiki-compiler/default.nix:37",
@@ -1975,7 +1965,7 @@
 "version":"0.11.0"
 },
 "lpac":{
-"drvPath":"/nix/store/rnwcsg0zjw2n1c0lx6764zs8d6pg9wk0-lpac-v2.3.0.drv",
+"drvPath":"/nix/store/6hb7rx6c1i4vc1y0x2r198a4zwgm9xbi-lpac-v2.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2044,7 +2034,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/lpac/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/lpac/default.nix",
 "line":47
 },
 "name":"lpac-v2.3.0",
@@ -2074,7 +2064,7 @@
 "version":""
 },
 "ly2video":{
-"drvPath":"/nix/store/xkfhfs0zc0mqxaawhgv5r00pycj3zkqv-python3.12-ly2video-v0.5.0.drv",
+"drvPath":"/nix/store/xwh66mnqls77hz3x5hkdn28j06azavgz-python3.12-ly2video-v0.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2111,6 +2101,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2134,8 +2125,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -2164,7 +2153,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/ly2video/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/ly2video/default.nix",
 "line":35
 },
 "name":"python3.12-ly2video-v0.5.0",
@@ -2180,6 +2169,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2203,8 +2193,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -2269,7 +2257,7 @@
 "version":"2025-10-15T17-29-55Z"
 },
 "moe-koe-music":{
-"drvPath":"/nix/store/hjkx3z5v5vyppqdphzhirzdimcdd5lfc-moe-koe-music-v1.6.8.drv",
+"drvPath":"/nix/store/1zfx99kc9x9c6lf3zhaygm38x4qsx39s-moe-koe-music-v1.6.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2332,7 +2320,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/moe-koe-music/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/moe-koe-music/default.nix",
 "line":34
 },
 "name":"moe-koe-music-v1.6.8",
@@ -2377,7 +2365,7 @@
 "version":""
 },
 "mstickereditor":{
-"drvPath":"/nix/store/6mvylhcam28018dwsn6p9ssk5529fn7y-mstickereditor-v0.3.7.drv",
+"drvPath":"/nix/store/3ncfziy0iwrwg0xj7p6pzxm33n265shz-mstickereditor-v0.3.7.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2444,7 +2432,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/mstickereditor/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/mstickereditor/default.nix",
 "line":34
 },
 "name":"mstickereditor-v0.3.7",
@@ -2460,7 +2448,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -2514,7 +2501,7 @@
 "version":""
 },
 "niri-taskbar":{
-"drvPath":"/nix/store/5m28z4qxyy9qdz4syiiryviswqz9xzg0-niri-taskbar-v0.4.0+niri.25.11.drv",
+"drvPath":"/nix/store/52hfjk492ywvsnflaw8h7i40piykiwmr-niri-taskbar-v0.4.0+niri.25.11.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2581,7 +2568,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/niri-taskbar/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/niri-taskbar/default.nix",
 "line":30
 },
 "name":"niri-taskbar-v0.4.0+niri.25.11",
@@ -2597,7 +2584,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -2651,7 +2637,7 @@
 "version":""
 },
 "nvfetcher-changes":{
-"drvPath":"/nix/store/b5aaqfz29y4v41sbgbl0f7z8qw72sgf5-nvfetcher-changes.drv",
+"drvPath":"/nix/store/0lfp4l12gdh242xlgs8ykrgv91lzknkc-nvfetcher-changes.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2705,7 +2691,7 @@
 "version":""
 },
 "nvfetcher-changes-commit":{
-"drvPath":"/nix/store/7mkl42c34wnhrc694wn6wpnlizm0lcya-nvfetcher-changes-commit.drv",
+"drvPath":"/nix/store/k8s2dn3ymfaz31w8s28v6mkkcqfyx9y7-nvfetcher-changes-commit.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2759,7 +2745,7 @@
 "version":""
 },
 "otf2psf":{
-"drvPath":"/nix/store/31kd1pr9xxxamdj585njffxcxi9zwlmw-otf2psf-9b4dd578ad8f0cceb1ed3085c6447be98e087842.drv",
+"drvPath":"/nix/store/2nq93735xvwzlqqdhds72xa3xpidzh1x-otf2psf-9b4dd578ad8f0cceb1ed3085c6447be98e087842.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2826,7 +2812,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/otf2psf/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/otf2psf/default.nix",
 "line":15
 },
 "name":"otf2psf-9b4dd578ad8f0cceb1ed3085c6447be98e087842",
@@ -2842,7 +2828,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -2896,7 +2881,7 @@
 "version":"9b4dd578ad8f0cceb1ed3085c6447be98e087842"
 },
 "plangothic":{
-"drvPath":"/nix/store/6a6r6prh5j6rn3780jr4l699pjzbs6mj-plangothic-2.9.5795.drv",
+"drvPath":"/nix/store/4a6hnwc30ys69s9bi6jnfhk1yc041dc2-plangothic-2.9.5795.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2952,7 +2937,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/plangothic/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/plangothic/default.nix",
 "line":57
 },
 "name":"plangothic-2.9.5795",
@@ -2987,7 +2972,7 @@
 "version":"2.9.5795"
 },
 "rcon-cli":{
-"drvPath":"/nix/store/cn5yggxcxiinipj21knbzzzymidbgb0i-rcon-cli-0.10.3.drv",
+"drvPath":"/nix/store/83rg32gfs6b880abbqh7xy041wqy8218-rcon-cli-0.10.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3043,7 +3028,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rcon-cli/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rcon-cli/default.nix",
 "line":36
 },
 "name":"rcon-cli-0.10.3",
@@ -3059,8 +3044,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3084,7 +3069,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -3106,7 +3090,7 @@
 "version":"0.10.3"
 },
 "rimePackages.librime":{
-"drvPath":"/nix/store/jy104yvg4ikvdc6nzia6zjvh12wp6r5s-librime-1.17.0.drv",
+"drvPath":"/nix/store/c4cqi1psm8pzm5d1s7b0chckrlg2x81d-librime-1.17.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3162,7 +3146,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/by-name/li/librime/package.nix",
+"file":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source/pkgs/by-name/li/librime/package.nix",
 "line":65
 },
 "name":"librime-1.17.0",
@@ -3178,6 +3162,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3201,8 +3186,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/li/librime/package.nix:63",
@@ -3220,7 +3203,7 @@
 "version":"1.17.0"
 },
 "rimePackages.rime-bopomofo":{
-"drvPath":"/nix/store/wbp6djsv2q0r436ljfq4sfggmjjpbddf-rime-bopomofo-6085c9a38a4a728047862b33d67eee18aa86f3b9.drv",
+"drvPath":"/nix/store/17k7fjkb165b1yzcv2h0pkhk1100cgxm-rime-bopomofo-6085c9a38a4a728047862b33d67eee18aa86f3b9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3276,7 +3259,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-bopomofo/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-bopomofo/default.nix",
 "line":42
 },
 "name":"rime-bopomofo-6085c9a38a4a728047862b33d67eee18aa86f3b9",
@@ -3306,7 +3289,7 @@
 "version":"6085c9a38a4a728047862b33d67eee18aa86f3b9"
 },
 "rimePackages.rime-cangjie":{
-"drvPath":"/nix/store/iah7ciqm0fzvplp08plkfsq7kz3n6509-rime-cangjie-52d90a1b1312e74042b38c1cbc8142defbc53171.drv",
+"drvPath":"/nix/store/mp1m74wkidykrr6bmygdimpghknbs50h-rime-cangjie-52d90a1b1312e74042b38c1cbc8142defbc53171.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3362,7 +3345,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-cangjie/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-cangjie/default.nix",
 "line":39
 },
 "name":"rime-cangjie-52d90a1b1312e74042b38c1cbc8142defbc53171",
@@ -3392,7 +3375,7 @@
 "version":"52d90a1b1312e74042b38c1cbc8142defbc53171"
 },
 "rimePackages.rime-cantonese":{
-"drvPath":"/nix/store/4sh7v5390ny93as0iksszgkxm85mzjj8-rime-cantonese-c99b16e44d2df77a5cb8fb0867dd2bab7a112cb0.drv",
+"drvPath":"/nix/store/5k2fbzlcjd1wkvxyl5frwbvlhyznp72n-rime-cantonese-c99b16e44d2df77a5cb8fb0867dd2bab7a112cb0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3460,7 +3443,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-cantonese/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-cantonese/default.nix",
 "line":54
 },
 "name":"rime-cantonese-c99b16e44d2df77a5cb8fb0867dd2bab7a112cb0",
@@ -3490,7 +3473,7 @@
 "version":""
 },
 "rimePackages.rime-double-pinyin":{
-"drvPath":"/nix/store/zz5d51xxb4wd3fg62jfa77yql302h2a4-rime-double-pinyin-01a13287cbd27819be1c34fa1ddc1b3643d5001b.drv",
+"drvPath":"/nix/store/qnxrjrpqfkr83jqbir439qqx5fdjifdz-rime-double-pinyin-01a13287cbd27819be1c34fa1ddc1b3643d5001b.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3546,7 +3529,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-double-pinyin/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-double-pinyin/default.nix",
 "line":42
 },
 "name":"rime-double-pinyin-01a13287cbd27819be1c34fa1ddc1b3643d5001b",
@@ -3576,7 +3559,7 @@
 "version":"01a13287cbd27819be1c34fa1ddc1b3643d5001b"
 },
 "rimePackages.rime-emoji":{
-"drvPath":"/nix/store/4h8cx4s21xw01npvy3p5varfy8p8yd23-rime-emoji-d1dbb424124fc50452a179300c7f287dbcc0db64.drv",
+"drvPath":"/nix/store/qzjks0dplaj5rfglga60qrf1cr5apmn2-rime-emoji-d1dbb424124fc50452a179300c7f287dbcc0db64.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3632,7 +3615,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-emoji/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-emoji/default.nix",
 "line":19
 },
 "name":"rime-emoji-d1dbb424124fc50452a179300c7f287dbcc0db64",
@@ -3662,7 +3645,7 @@
 "version":""
 },
 "rimePackages.rime-essay":{
-"drvPath":"/nix/store/m8fpbx23bgwb6wdjx9m2mf7g2arx1rqa-rime-essay-0debef3f5ae37f081758dd8bbd1fe79719410f7c.drv",
+"drvPath":"/nix/store/7m1wld2xhallnvmfzgacvwxd4dvkn3wd-rime-essay-0debef3f5ae37f081758dd8bbd1fe79719410f7c.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3718,7 +3701,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-essay/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-essay/default.nix",
 "line":20
 },
 "name":"rime-essay-0debef3f5ae37f081758dd8bbd1fe79719410f7c",
@@ -3748,7 +3731,7 @@
 "version":"0debef3f5ae37f081758dd8bbd1fe79719410f7c"
 },
 "rimePackages.rime-ice":{
-"drvPath":"/nix/store/gfaw17lcgnx0irk87iqzh9w4aplql90c-rime-ice-3a543652a42c21904c62bd881d65e987600f0722.drv",
+"drvPath":"/nix/store/na5adh094xf3si3zhnyknihvmgms3n40-rime-ice-3a543652a42c21904c62bd881d65e987600f0722.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3804,7 +3787,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-ice/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-ice/default.nix",
 "line":116
 },
 "name":"rime-ice-3a543652a42c21904c62bd881d65e987600f0722",
@@ -3834,7 +3817,7 @@
 "version":"3a543652a42c21904c62bd881d65e987600f0722"
 },
 "rimePackages.rime-loengfan":{
-"drvPath":"/nix/store/4gjxvp2xb1z3cmkn4lrxk4bdjrbhzlxq-rime-loengfan-987ac95b02f957e8764a2f45222a4006c188ed50.drv",
+"drvPath":"/nix/store/c7vqgz5arcmyl6zbjcxrhsd4rfbcrck3-rime-loengfan-987ac95b02f957e8764a2f45222a4006c188ed50.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3890,7 +3873,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-loengfan/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-loengfan/default.nix",
 "line":39
 },
 "name":"rime-loengfan-987ac95b02f957e8764a2f45222a4006c188ed50",
@@ -3920,7 +3903,7 @@
 "version":"987ac95b02f957e8764a2f45222a4006c188ed50"
 },
 "rimePackages.rime-luna-pinyin":{
-"drvPath":"/nix/store/m1iqfqgsxwnnxpnp4rfbhs5m6na1rw2f-rime-luna-pinyin-32f4a2cf3a3ab82d2a8a306eb843233de579b5c7.drv",
+"drvPath":"/nix/store/a92rmkinhp73bfw4kdjv5bx3kkiymh21-rime-luna-pinyin-32f4a2cf3a3ab82d2a8a306eb843233de579b5c7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3976,7 +3959,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-luna-pinyin/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-luna-pinyin/default.nix",
 "line":36
 },
 "name":"rime-luna-pinyin-32f4a2cf3a3ab82d2a8a306eb843233de579b5c7",
@@ -4006,7 +3989,7 @@
 "version":"32f4a2cf3a3ab82d2a8a306eb843233de579b5c7"
 },
 "rimePackages.rime-pinyin-simp":{
-"drvPath":"/nix/store/wpmb86v0jpnp1v5dymkm30fsfm6wh7yx-rime-pinyin-simp-0c6861ef7420ee780270ca6d993d18d4101049d0.drv",
+"drvPath":"/nix/store/a8a5snn8r5p1c86vsgg9icg8q5igh0ik-rime-pinyin-simp-0c6861ef7420ee780270ca6d993d18d4101049d0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4062,7 +4045,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-pinyin-simp/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-pinyin-simp/default.nix",
 "line":36
 },
 "name":"rime-pinyin-simp-0c6861ef7420ee780270ca6d993d18d4101049d0",
@@ -4092,7 +4075,7 @@
 "version":"0c6861ef7420ee780270ca6d993d18d4101049d0"
 },
 "rimePackages.rime-prelude":{
-"drvPath":"/nix/store/hrnh8k47jyfkwv2gilm4f061g99lsxi4-rime-prelude-082425ea0684bca36474415d4a0e8db9b016487e.drv",
+"drvPath":"/nix/store/8lrvcmdh4yz36ljzh7rj0h5gqjwbrc8i-rime-prelude-082425ea0684bca36474415d4a0e8db9b016487e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4148,7 +4131,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-prelude/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-prelude/default.nix",
 "line":31
 },
 "name":"rime-prelude-082425ea0684bca36474415d4a0e8db9b016487e",
@@ -4178,7 +4161,7 @@
 "version":"082425ea0684bca36474415d4a0e8db9b016487e"
 },
 "rimePackages.rime-quick":{
-"drvPath":"/nix/store/fa13clhph8clbk1a8f3grzgwzrq5ia4c-rime-quick-739ec781a1b88b862823beebb81edaa2d37150cf.drv",
+"drvPath":"/nix/store/5r8k4x7v613vn1s20fac4i133pyvarzb-rime-quick-739ec781a1b88b862823beebb81edaa2d37150cf.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4234,7 +4217,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-quick/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-quick/default.nix",
 "line":38
 },
 "name":"rime-quick-739ec781a1b88b862823beebb81edaa2d37150cf",
@@ -4264,7 +4247,7 @@
 "version":"739ec781a1b88b862823beebb81edaa2d37150cf"
 },
 "rimePackages.rime-stroke":{
-"drvPath":"/nix/store/2l7a1bzlk1ibjinimq405qwi85yarpyk-rime-stroke-3a4b0f4013e2b4c14b1e80c92b1d4723eb65f39c.drv",
+"drvPath":"/nix/store/yzmrzzmq4x33i089qhnk0015kf3phy2p-rime-stroke-3a4b0f4013e2b4c14b1e80c92b1d4723eb65f39c.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4320,7 +4303,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-stroke/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-stroke/default.nix",
 "line":36
 },
 "name":"rime-stroke-3a4b0f4013e2b4c14b1e80c92b1d4723eb65f39c",
@@ -4350,7 +4333,7 @@
 "version":"3a4b0f4013e2b4c14b1e80c92b1d4723eb65f39c"
 },
 "rimePackages.rime-terra-pinyin":{
-"drvPath":"/nix/store/nhgh591kqd3vq1459w1fk3gnvzb96g23-rime-terra-pinyin-8ddd679e4485e1d2f411e90f104244eddf580382.drv",
+"drvPath":"/nix/store/5vwfqdfd52cw0ryj7z9nbq3gpbjcyh0w-rime-terra-pinyin-8ddd679e4485e1d2f411e90f104244eddf580382.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4406,7 +4389,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-terra-pinyin/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-terra-pinyin/default.nix",
 "line":36
 },
 "name":"rime-terra-pinyin-8ddd679e4485e1d2f411e90f104244eddf580382",
@@ -4436,7 +4419,7 @@
 "version":"8ddd679e4485e1d2f411e90f104244eddf580382"
 },
 "rimePackages.rime-wubi":{
-"drvPath":"/nix/store/m1gn89c78dx4q23cnnvqf9wsqsfs5rnv-rime-wubi-152a0d3f3efe40cae216d1e3b338242446848d07.drv",
+"drvPath":"/nix/store/9w0409zs5lil0ilx7kmx1l7wc9jzk9d3-rime-wubi-152a0d3f3efe40cae216d1e3b338242446848d07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4492,7 +4475,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-wubi/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-wubi/default.nix",
 "line":35
 },
 "name":"rime-wubi-152a0d3f3efe40cae216d1e3b338242446848d07",
@@ -4522,7 +4505,7 @@
 "version":"152a0d3f3efe40cae216d1e3b338242446848d07"
 },
 "rimePackages.rime-wugniu":{
-"drvPath":"/nix/store/gnxbdn5aak6npsls2x4691jn5gjr4f5n-rime-wugniu-2818f4812af3b6f11fc0248fa8918966a3312d2c.drv",
+"drvPath":"/nix/store/hyy7ncn6d077qv1zi1hy2n5cjgzlxvyv-rime-wugniu-2818f4812af3b6f11fc0248fa8918966a3312d2c.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4578,7 +4561,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rime-packages/rime-wugniu/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rime-packages/rime-wugniu/default.nix",
 "line":35
 },
 "name":"rime-wugniu-2818f4812af3b6f11fc0248fa8918966a3312d2c",
@@ -4608,7 +4591,7 @@
 "version":"2818f4812af3b6f11fc0248fa8918966a3312d2c"
 },
 "rimePackages.rimeDataBuildHook":{
-"drvPath":"/nix/store/6i4y6klbn5xxmvkmnwpd8wd2sqd4bjya-rime-data-build-hook.sh.drv",
+"drvPath":"/nix/store/qi5pw25wzv8bv6n64pwv7lixfgzb4q9z-rime-data-build-hook.sh.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4663,7 +4646,7 @@
 "version":""
 },
 "rlt":{
-"drvPath":"/nix/store/g62b5fva1vpjzr8gwccvabkqywwz272x-rlt-v0.1.7.drv",
+"drvPath":"/nix/store/p3cka1chnx0cz4akfpmakkpgzylnmfsg-rlt-v0.1.7.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -4730,7 +4713,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/rlt/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/rlt/default.nix",
 "line":25
 },
 "name":"rlt-v0.1.7",
@@ -4746,7 +4729,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -4800,7 +4782,7 @@
 "version":""
 },
 "ssl-handshake":{
-"drvPath":"/nix/store/if6qdl82vnpcn3gxcybw3h7i67lzv41k-ssl-handshake-1.9.drv",
+"drvPath":"/nix/store/nig7zl2sz2fzqaw2gkdifhfb5h99767g-ssl-handshake-1.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4857,7 +4839,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/ssl-handshake/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/ssl-handshake/default.nix",
 "line":37
 },
 "name":"ssl-handshake-1.9",
@@ -4873,8 +4855,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4898,7 +4880,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -4931,7 +4912,7 @@
 "version":""
 },
 "tg-send":{
-"drvPath":"/nix/store/pxpxl7b8v6idhl1v855a6kp7vpp3hhb0-tg-send-d3aea3f2dc37c39521ce59c5fb156427764ad68f.drv",
+"drvPath":"/nix/store/lgsi8dqxn4ml9awmdsisf42l76g49wi6-tg-send-d3aea3f2dc37c39521ce59c5fb156427764ad68f.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -4998,7 +4979,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/tg-send/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/tg-send/default.nix",
 "line":23
 },
 "name":"tg-send-d3aea3f2dc37c39521ce59c5fb156427764ad68f",
@@ -5014,7 +4995,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -5078,7 +5058,7 @@
 "version":"2f1346b0e7d88d4cbbbcc05fe15b4e369c3de23f"
 },
 "vlmcsd":{
-"drvPath":"/nix/store/ka8ncvw1kh00sgxnlwlsrnmvkw09wlbw-vlmcsd-svn1113.drv",
+"drvPath":"/nix/store/6zzdm5gdw2c8c6a1v9nwfc4if5yi6986-vlmcsd-svn1113.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5124,7 +5104,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/vlmcsd/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/vlmcsd/default.nix",
 "line":37
 },
 "name":"vlmcsd-svn1113",
@@ -5154,7 +5134,7 @@
 "version":""
 },
 "yacd":{
-"drvPath":"/nix/store/rrwbdxllsgmkdzrwf7s4wj8zzrm4cpzz-yacd-v0.3.8.drv",
+"drvPath":"/nix/store/kxncbbvlp2vcgjg0prc408q87jqsgi25-yacd-v0.3.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5210,7 +5190,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/yacd/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/yacd/default.nix",
 "line":18
 },
 "name":"yacd-v0.3.8",
@@ -5240,7 +5220,7 @@
 "version":""
 },
 "zeronsd":{
-"drvPath":"/nix/store/4nrflhcsj0fzcp0x5a1akpg6xqgpnr4q-zeronsd-v0.5.2.drv",
+"drvPath":"/nix/store/mnmbn9r7icy293zpg07f77valqj5hanv-zeronsd-v0.5.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -5307,7 +5287,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/cq3s7f1lj3j4s8f20pyzpq8y24gs245w-source/pkgs/zeronsd/default.nix",
+"file":"/nix/store/bmi26ypldnqdjg4s03f8fvslijdssahc-source/pkgs/zeronsd/default.nix",
 "line":26
 },
 "name":"zeronsd-v0.5.2",
@@ -5323,7 +5303,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",

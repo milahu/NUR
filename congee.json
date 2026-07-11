@@ -1,19 +1,19 @@
 {
 "name":"congee",
-"fetch_time":0.437,
-"eval_time":0.708,
+"fetch_time":0.331,
+"eval_time":0.825,
 "source":{
 "url":"https://github.com/congee/nur",
-"rev":"6fe581c75f08928ddecdfce2f6c1b80e953521d0",
-"sha256":"131b5khap6aihb2rsr236alvyrn36w0j8c3pslab2krww3ylqknd",
+"rev":"cd7e941b05e5f3ac68571a9c60fc34c884364cf5",
+"sha256":"18qvjq37yx3cch5jh54ag2q6m57zlckz7agx3b5p64m2dwkmhphy",
 "date":null
 },
-"source_storepath":"/nix/store/2sws7znr9j2jsp8cspavncs1fvza08v5-source",
-"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
-"nur_combined_rev":"6ab970465512da48fc640566eac41134d59da3ad",
+"source_storepath":"/nix/store/4hcgl42cgbhx05p1rbjblwvdk991n0zr-source",
+"nixpkgs_storepath":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source",
+"nur_combined_rev":"da416fbcca3dce4ad0e3b475540033662d2e03d5",
 "packages":{
 "engram":{
-"drvPath":"/nix/store/yr7kw7s8dh7i8v4hdpnvvp02xl9kn35y-engram-1.19.0.drv",
+"drvPath":"/nix/store/lzlmspaddv55vv2qz77l0b68f4zvzwl3-engram-1.19.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -72,7 +72,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2sws7znr9j2jsp8cspavncs1fvza08v5-source/pkgs/engram/default.nix",
+"file":"/nix/store/4hcgl42cgbhx05p1rbjblwvdk991n0zr-source/pkgs/engram/default.nix",
 "line":41
 },
 "name":"engram-1.19.0",
@@ -89,8 +89,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -114,7 +114,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -136,7 +135,7 @@
 "version":"1.19.0"
 },
 "gh-image":{
-"drvPath":"/nix/store/bym8ml98qy61ykkf29xhbfdknrynimn5-gh-image-1.1.0.drv",
+"drvPath":"/nix/store/a37kz3kxqprswqa19bbb8yvz13ck158a-gh-image-1.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -195,7 +194,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2sws7znr9j2jsp8cspavncs1fvza08v5-source/pkgs/gh-image/default.nix",
+"file":"/nix/store/4hcgl42cgbhx05p1rbjblwvdk991n0zr-source/pkgs/gh-image/default.nix",
 "line":42
 },
 "name":"gh-image-1.1.0",
@@ -212,8 +211,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -237,7 +236,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -280,7 +278,7 @@
 "version":"0.10.5"
 },
 "rsql":{
-"drvPath":"/nix/store/y7z5xcwhal48kc3hmqvv2p59w64cn09g-rsql-0.19.4.drv",
+"drvPath":"/nix/store/dfg31zyf679l123ih1bja1phmkxhjayz-rsql-0.19.4.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -362,7 +360,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2sws7znr9j2jsp8cspavncs1fvza08v5-source/pkgs/rsql/default.nix",
+"file":"/nix/store/4hcgl42cgbhx05p1rbjblwvdk991n0zr-source/pkgs/rsql/default.nix",
 "line":63
 },
 "name":"rsql-0.19.4",
@@ -379,7 +377,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -433,7 +430,7 @@
 "version":"0.19.4"
 },
 "sentry":{
-"drvPath":"/nix/store/228dr846fh3s3hqnayvlkd0y85r90l22-sentry-0.38.0.drv",
+"drvPath":"/nix/store/vwdxvxgm1240zvjwfczsb22xb6303mb3-sentry-0.38.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -492,7 +489,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2sws7znr9j2jsp8cspavncs1fvza08v5-source/pkgs/sentry/default.nix",
+"file":"/nix/store/4hcgl42cgbhx05p1rbjblwvdk991n0zr-source/pkgs/sentry/default.nix",
 "line":109
 },
 "name":"sentry-0.38.0",
@@ -523,7 +520,7 @@
 "version":"0.38.0"
 },
 "some-sass-language-server":{
-"drvPath":"/nix/store/1alh0h4pw1dxc54ma7z6xnxg7anrhcjd-some-sass-language-server-2.3.8.drv",
+"drvPath":"/nix/store/lvfv11avi3jk11yfd86nr8gx9nl5lx8c-some-sass-language-server-2.3.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -582,7 +579,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2sws7znr9j2jsp8cspavncs1fvza08v5-source/pkgs/some-sass-language-server/default.nix",
+"file":"/nix/store/4hcgl42cgbhx05p1rbjblwvdk991n0zr-source/pkgs/some-sass-language-server/default.nix",
 "line":38
 },
 "name":"some-sass-language-server-2.3.8",

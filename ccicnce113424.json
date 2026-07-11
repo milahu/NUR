@@ -1,19 +1,19 @@
 {
 "name":"ccicnce113424",
-"fetch_time":0.558,
-"eval_time":4.4,
+"fetch_time":0.45,
+"eval_time":4.782,
 "source":{
 "url":"https://github.com/ccicnce113424/nix-packages",
-"rev":"51408258a736c994af26dcd960d068ad8c98a0b3",
-"sha256":"0bf0hhrsjd7m00bxzp97hamfzmxk3rf1ahsm8bnsiyrywh3ravfm",
+"rev":"caef9026de4a18e499cd5c041d72e474fd19bc18",
+"sha256":"16583zkpnh347j9gmgj9wzw8sww3rm5xpzbwirjp7wxjs7b54mr4",
 "date":null
 },
-"source_storepath":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source",
-"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
-"nur_combined_rev":"6c721a61f5571afd2f9d5294a36401a589d716ac",
+"source_storepath":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source",
+"nixpkgs_storepath":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source",
+"nur_combined_rev":"d41fb75abfcb34b41e4d575edc7b67b0cf9dfdcb",
 "packages":{
 "algermusicplayer":{
-"drvPath":"/nix/store/bk4nk19hiszg8sph08wq72g7zba00x2s-algermusicplayer-5.1.0.drv",
+"drvPath":"/nix/store/654ihlb5f0pz56x8kwdlfc8pknv6qk2h-algermusicplayer-5.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -71,7 +71,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/algermusicplayer/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/algermusicplayer/default.nix",
 "line":37
 },
 "name":"algermusicplayer-5.1.0",
@@ -112,7 +112,7 @@
 "version":"5.1.0"
 },
 "avm":{
-"drvPath":"/nix/store/kn8c7w4vqphhm7gzg578mqgivp4n6rqr-avm-1.0.0.drv",
+"drvPath":"/nix/store/74n4wqkbs7dzqm26qmwrnakr3i3kqxf3-avm-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -169,7 +169,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/avm/package.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/avm/package.nix",
 "line":53
 },
 "name":"avm-1.0.0",
@@ -202,7 +202,7 @@
 "version":"1.0.0"
 },
 "daed":{
-"drvPath":"/nix/store/3jlpxdfa2imspcp5h3aasppcl4kxlcnj-daed-1.27.0.drv",
+"drvPath":"/nix/store/mg1hi759lvqx1k4nirxdwq7z8vi1hhic-daed-1.27.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -266,7 +266,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/daed/package.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/daed/package.nix",
 "line":127
 },
 "name":"daed-1.27.0",
@@ -289,6 +289,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -311,8 +312,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/daed/package.nix:124",
 "problems":{},
@@ -329,7 +329,7 @@
 "version":"1.27.0"
 },
 "dav2d":{
-"drvPath":"/nix/store/z2far2z8kahxlawa3pzmgy642xg3r7z5-dav2d-0.0.1.drv",
+"drvPath":"/nix/store/vf7nc5rkcf941pk9j2ppjxffr8p149r8-dav2d-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -387,7 +387,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/dav2d/package.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/dav2d/package.nix",
 "line":47
 },
 "name":"dav2d-0.0.1",
@@ -404,15 +404,15 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -435,7 +435,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -468,7 +467,7 @@
 "version":"0.0.1"
 },
 "dxvk-gplall-bin-w32":{
-"drvPath":"/nix/store/xhwr9rvm0bw3niicbbidrwsak11bbgxp-dxvk-gplall-2.7.1-4.drv",
+"drvPath":"/nix/store/w8923r19zb24xz07vwgxsjbn6khwfxsx-dxvk-gplall-2.7.1-4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -525,7 +524,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/dxvk-gplall-bin/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/dxvk-gplall-bin/default.nix",
 "line":32
 },
 "name":"dxvk-gplall-2.7.1-4",
@@ -562,7 +561,7 @@
 "version":"2.7.1-4"
 },
 "dxvk-gplall-bin-w64":{
-"drvPath":"/nix/store/xyflk864yngavgnlwqh4winhh0lqcpv8-dxvk-gplall-2.7.1-4.drv",
+"drvPath":"/nix/store/61jzgaj0pw88db4rkfx4i33rrqmnqfs5-dxvk-gplall-2.7.1-4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -619,7 +618,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/dxvk-gplall-bin/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/dxvk-gplall-bin/default.nix",
 "line":32
 },
 "name":"dxvk-gplall-2.7.1-4",
@@ -656,7 +655,7 @@
 "version":"2.7.1-4"
 },
 "enimul":{
-"drvPath":"/nix/store/j5zr3i53m2bbhvklyp8ryw0rlm69ssnw-enimul-0.3.1.drv",
+"drvPath":"/nix/store/hqdl9dwizrkg7rbaa84gmvw419v5na3y-enimul-0.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -714,7 +713,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/enimul/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/enimul/default.nix",
 "line":17
 },
 "name":"enimul-0.3.1",
@@ -731,8 +730,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -756,7 +755,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -778,7 +776,7 @@
 "version":"0.3.1"
 },
 "fast-nix-gc":{
-"drvPath":"/nix/store/11kmbqdn88p6gcr6rkz6yc01l5x0l8ly-fast-nix-gc-0-unstable-2026-07-04.drv",
+"drvPath":"/nix/store/j23bfv172knkq44l9q8gqwic4lq1xcpq-fast-nix-gc-0-unstable-2026-07-04.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -843,7 +841,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -902,7 +899,7 @@
 "version":"0-unstable-2026-07-04"
 },
 "flake-linter":{
-"drvPath":"/nix/store/nb2lbnrw8vnzhw0rkb4nrxazfmzvs18g-python3.13-flake-linter-0-unstable-2026-07-05.drv",
+"drvPath":"/nix/store/kni1sisy6d8yvciqnnfd3zzd93dm47dm-python3.14-flake-linter-0-unstable-2026-07-05.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -939,6 +936,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -962,8 +960,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -994,10 +990,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/flake-linter/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/flake-linter/default.nix",
 "line":18
 },
-"name":"python3.13-flake-linter-0-unstable-2026-07-05",
+"name":"python3.14-flake-linter-0-unstable-2026-07-05",
 "nonTeamMaintainers":[
 {
 "email":"ccicnce113424@gmail.com",
@@ -1011,6 +1007,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1034,8 +1031,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1049,18 +1044,18 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-flake-linter-0-unstable-2026-07-05",
+"name":"python3.14-flake-linter-0-unstable-2026-07-05",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.13-flake-linter",
+"pname":"python3.14-flake-linter",
 "system":"x86_64-linux",
 "version":"0-unstable-2026-07-05"
 },
 "fxz":{
-"drvPath":"/nix/store/ii4mpwi7935s02sf506ddkxcyxqhj936-fxz-0-unstable-2022-01-09.drv",
+"drvPath":"/nix/store/nqn4aiwadfah6j6ql8viq5c7y8nxgdfk-fxz-0-unstable-2022-01-09.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1173,10 +1168,11 @@
 "libflzma"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1185,7 +1181,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1208,7 +1203,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1278,7 +1272,7 @@
 "version":"0-unstable-2022-01-09"
 },
 "jaq":{
-"drvPath":"/nix/store/jc9z1xx4bg0qgaii3h0l5cb66slf50pv-jaq-3.1.0.drv",
+"drvPath":"/nix/store/1myhjy4s6wjhphalr8nnps7d80mqzr5q-jaq-3.1.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1344,7 +1338,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -1403,7 +1396,7 @@
 "version":"3.1.0"
 },
 "jj-lsp":{
-"drvPath":"/nix/store/yv0ijbn9yixa76aa7r6lmgbjclicrczy-jj-lsp-0.1.0.drv",
+"drvPath":"/nix/store/rcyii1wh1ggm5g1k9c4bp6n3gz2r026k-jj-lsp-0.1.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1468,7 +1461,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -1527,7 +1519,7 @@
 "version":"0.1.0"
 },
 "kanzi-cpp":{
-"drvPath":"/nix/store/n2x9v7sgfca90ps230zl005gjyvq6fhr-kanzi-cpp-2.5.3.drv",
+"drvPath":"/nix/store/2117lvqqsldp5kiyr8rl60xy0yf8qycl-kanzi-cpp-2.5.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1585,7 +1577,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/kanzi-cpp/package.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/kanzi-cpp/package.nix",
 "line":43
 },
 "name":"kanzi-cpp-2.5.3",
@@ -1620,7 +1612,7 @@
 "version":"2.5.3"
 },
 "kikoflu":{
-"drvPath":"/nix/store/hq02q6gs9pwradj1w60cl8n4kgr7avg7-kikoflu-3.5.0.drv",
+"drvPath":"/nix/store/chcmgfv6xvx9hc61bv62c2jf17yhm7mb-kikoflu-3.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1678,7 +1670,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/kikoflu/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/kikoflu/default.nix",
 "line":55
 },
 "name":"kikoflu-3.5.0",
@@ -1695,6 +1687,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1717,8 +1710,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/kikoflu/default.nix:51",
 "problems":{},
@@ -1737,7 +1729,7 @@
 "version":"3.5.0"
 },
 "krunner-fd-plugin":{
-"drvPath":"/nix/store/wvj6sm83579l24rgkbn28b1qa9c1s9r5-krunner-fd-plugin-0-unstable-2026-03-21.drv",
+"drvPath":"/nix/store/ca55g59c4db2incvfy2zdmagr68i0aic-krunner-fd-plugin-0-unstable-2026-03-21.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1794,7 +1786,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/krunner-fd-plugin/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/krunner-fd-plugin/default.nix",
 "line":50
 },
 "name":"krunner-fd-plugin-0-unstable-2026-03-21",
@@ -1825,7 +1817,7 @@
 "version":"0-unstable-2026-03-21"
 },
 "krunner-zed":{
-"drvPath":"/nix/store/bm517fh77av1djjabyxwp9v6sgcqkgy1-krunner-zed-0.1.5.drv",
+"drvPath":"/nix/store/j25pyxfb5sg5psgrn64sfa4aw5ybhkkv-krunner-zed-0.1.5.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1893,7 +1885,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/krunner-zed/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/krunner-zed/default.nix",
 "line":25
 },
 "name":"krunner-zed-0.1.5",
@@ -1910,7 +1902,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -1964,7 +1955,7 @@
 "version":"0.1.5"
 },
 "linux-enable-ir-emitter":{
-"drvPath":"/nix/store/3cr0wm5q1pgbjc8lq8hij2v6v1ibl2iv-linux-enable-ir-emitter-7.0.0-beta.drv",
+"drvPath":"/nix/store/93xf6gjgn24rq7189m5hn7aqkccpqwik-linux-enable-ir-emitter-7.0.0-beta.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2030,7 +2021,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -2089,7 +2079,7 @@
 "version":"7.0.0-beta"
 },
 "loveiwara":{
-"drvPath":"/nix/store/0qz3ipsfhiz5bn56fmx4cv9x720byybk-loveiwara-0.5.0.drv",
+"drvPath":"/nix/store/cdx2xany3ffgajq2mbhxpzjyvn1il6rv-loveiwara-0.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2147,7 +2137,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/loveiwara/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/loveiwara/default.nix",
 "line":95
 },
 "name":"loveiwara-0.5.0",
@@ -2164,6 +2154,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2186,8 +2177,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/loveiwara/default.nix:91",
 "problems":{},
@@ -2206,7 +2196,7 @@
 "version":"0.5.0"
 },
 "lxgw-wenkai-gb":{
-"drvPath":"/nix/store/ml3nlgyc7fn7ps332273p32br5mhq9w5-lxgw-wenkai-gb-1.522.drv",
+"drvPath":"/nix/store/xz2kf2y36fflqnsfjdbwi354jy5n6rrp-lxgw-wenkai-gb-1.522.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2263,7 +2253,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/lxgw-wenkai-gb/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/lxgw-wenkai-gb/default.nix",
 "line":30
 },
 "name":"lxgw-wenkai-gb-1.522",
@@ -2280,10 +2270,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -2292,7 +2283,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -2315,7 +2305,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -2376,7 +2365,7 @@
 "version":"1.522"
 },
 "lyrica":{
-"drvPath":"/nix/store/r0qiiwhyinhi0vw7cbxkh51wjxhrxxsp-lyrica-0.24.0.drv",
+"drvPath":"/nix/store/gl8gmhq96i710gijlspbcgqv9v7nipr9-lyrica-0.24.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2444,7 +2433,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/lyrica/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/lyrica/default.nix",
 "line":45
 },
 "name":"lyrica-0.24.0",
@@ -2461,7 +2450,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -2515,7 +2503,7 @@
 "version":"0.24.0"
 },
 "motrix-next":{
-"drvPath":"/nix/store/cm85ddilk9d7yixhpkqzqwkiynwl3h8q-motrix-next-3.9.6.drv",
+"drvPath":"/nix/store/00f4rvb3r6x4vvn5lhy043dys2ln5vm8-motrix-next-3.9.6.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2597,7 +2585,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/motrix-next/package.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/motrix-next/package.nix",
 "line":123
 },
 "name":"motrix-next-3.9.6",
@@ -2614,7 +2602,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
 "armv6l-linux",
@@ -2661,7 +2648,7 @@
 "version":"3.9.6"
 },
 "motrix-next-beta":{
-"drvPath":"/nix/store/1ayb8kvb42s1djn11mmjfn5q85rzs8rj-motrix-next-beta-3.9.7-beta.2.drv",
+"drvPath":"/nix/store/r5xzq02zqw8a0lfvvisn4awpa0jp2pbm-motrix-next-beta-3.9.7-beta.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2743,7 +2730,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/motrix-next/package.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/motrix-next/package.nix",
 "line":123
 },
 "name":"motrix-next-beta-3.9.7-beta.2",
@@ -2760,7 +2747,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-linux",
 "armv6l-linux",
@@ -2807,7 +2793,7 @@
 "version":"3.9.7-beta.2"
 },
 "nix-auth":{
-"drvPath":"/nix/store/w4bv3m6nbfg9l7igb9hm0zmz0502c2rr-nix-auth-0-unstable-2026-07-02.drv",
+"drvPath":"/nix/store/1rqm8n9wc22vs6k07rlv1n6hv2jk303g-nix-auth-0-unstable-2026-07-02.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2865,7 +2851,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/nix-auth/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/nix-auth/default.nix",
 "line":17
 },
 "name":"nix-auth-0-unstable-2026-07-02",
@@ -2882,8 +2868,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2907,7 +2893,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -2929,7 +2914,7 @@
 "version":"0-unstable-2026-07-02"
 },
 "ntfsprogs-plus":{
-"drvPath":"/nix/store/7ny3ajx85njai420p8kylalsbrmnvgnc-ntfsprogs-plus-1.0.0-unstable-2026-05-07.drv",
+"drvPath":"/nix/store/7ffp54nbqr0n2qlvkcjx8r7rlpjfxy72-ntfsprogs-plus-1.0.0-unstable-2026-05-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2986,7 +2971,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/ntfsprogs-plus/package.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/ntfsprogs-plus/package.nix",
 "line":57
 },
 "name":"ntfsprogs-plus-1.0.0-unstable-2026-05-07",
@@ -3004,15 +2989,15 @@
 "man"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -3035,7 +3020,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -3069,7 +3053,7 @@
 "version":"1.0.0-unstable-2026-05-07"
 },
 "piliplus":{
-"drvPath":"/nix/store/m3222irzbnjaya94yih96ih5431gajks-piliplus-2.0.9.2.drv",
+"drvPath":"/nix/store/dfrf86gwkn8dkbpfzda7lvj049im9hpy-piliplus-2.0.9.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3135,7 +3119,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/piliplus/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/piliplus/default.nix",
 "line":90
 },
 "name":"piliplus-2.0.9.2",
@@ -3159,6 +3143,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3181,8 +3166,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/piliplus/default.nix:86",
 "problems":{},
@@ -3201,7 +3185,7 @@
 "version":"2.0.9.2"
 },
 "pixes":{
-"drvPath":"/nix/store/666xzlw1xx8pgbsyx3013y6mr7sa04ma-pixes-1.2.2.drv",
+"drvPath":"/nix/store/1apgs6aacxwrpwcgklwr3zwka9xjw3r6-pixes-1.2.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3259,7 +3243,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/pixes/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/pixes/default.nix",
 "line":52
 },
 "name":"pixes-1.2.2",
@@ -3276,6 +3260,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3298,8 +3283,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/pixes/default.nix:48",
 "problems":{},
@@ -3318,7 +3302,7 @@
 "version":"1.2.2"
 },
 "pixes-git":{
-"drvPath":"/nix/store/gshzqy7r5wqghbpz3d17h04xpgaw06nc-pixes-git-1.2.2-unstable-2026-07-04.drv",
+"drvPath":"/nix/store/n69hbwc9jn1fvgvykbb8qc6vr9ykn474-pixes-git-1.2.2-unstable-2026-07-04.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3376,7 +3360,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/pixes/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/pixes/default.nix",
 "line":52
 },
 "name":"pixes-git-1.2.2-unstable-2026-07-04",
@@ -3393,6 +3377,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3415,8 +3400,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/pixes/default.nix:48",
 "problems":{},
@@ -3435,7 +3419,7 @@
 "version":"1.2.2-unstable-2026-07-04"
 },
 "pwasio":{
-"drvPath":"/nix/store/hll2395sia3m9r9mwrhn62sfdn35kbw2-pwasio-0-unstable-2026-06-10.drv",
+"drvPath":"/nix/store/290z2wgyksid9vgmm31fbj814rb3xzd4-pwasio-0-unstable-2026-06-10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3492,7 +3476,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/pwasio/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/pwasio/default.nix",
 "line":44
 },
 "name":"pwasio-0-unstable-2026-06-10",
@@ -3523,7 +3507,7 @@
 "version":"0-unstable-2026-06-10"
 },
 "scx_flow":{
-"drvPath":"/nix/store/7bfj7lcrwpzhzhk54sc52bx70achkx2y-scx_flow-3.1.0.drv",
+"drvPath":"/nix/store/9nmlga9ayd8zsrwp4xgagamxvqzxv4rw-scx_flow-3.1.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3597,7 +3581,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/os-specific/linux/scx/scx_rustscheds.nix",
+"file":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source/pkgs/os-specific/linux/scx/scx_rustscheds.nix",
 "line":122
 },
 "name":"scx_flow-3.1.0",
@@ -3653,7 +3637,7 @@
 "version":"3.1.0"
 },
 "scx_pandemonium":{
-"drvPath":"/nix/store/5f7xqypjsw8kf32jk44bgmzs2m509v9x-scx_pandemonium-5.14.0.drv",
+"drvPath":"/nix/store/vs7yg6bcdf80ag17jh2bgbvg7klr62kw-scx_pandemonium-5.14.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3727,7 +3711,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/os-specific/linux/scx/scx_rustscheds.nix",
+"file":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source/pkgs/os-specific/linux/scx/scx_rustscheds.nix",
 "line":122
 },
 "name":"scx_pandemonium-5.14.0",
@@ -3783,7 +3767,7 @@
 "version":"5.14.0"
 },
 "shijima-qt":{
-"drvPath":"/nix/store/q7cgal2s572mrdr5888vyslxj2f4984n-shijima-qt-0.1.0.drv",
+"drvPath":"/nix/store/xrv5hwk4cahdb5c3lkvma9mjkqy80gl7-shijima-qt-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3840,7 +3824,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/shijima-qt/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/shijima-qt/default.nix",
 "line":99
 },
 "name":"shijima-qt-0.1.0",
@@ -3856,6 +3840,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3878,8 +3863,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/shijima-qt/default.nix:96",
 "problems":{},
@@ -3896,7 +3880,7 @@
 "version":"0.1.0"
 },
 "splayer-git":{
-"drvPath":"/nix/store/hd2rc5clyx0dy17xb0351j2ljkn2b2rd-splayer-git-3.1.1-unstable-2026-06-10.drv",
+"drvPath":"/nix/store/cyhp3nhc22fl2zy801krv7i7yg5isifr-splayer-git-3.1.1-unstable-2026-06-10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3955,7 +3939,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/splayer-git/package.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/splayer-git/package.nix",
 "line":170
 },
 "name":"splayer-git-3.1.1-unstable-2026-06-10",
@@ -3972,6 +3956,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3994,8 +3979,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/splayer-git/package.nix:166",
 "problems":{},
@@ -4022,7 +4006,7 @@
 "version":"3.1.1-unstable-2026-06-10"
 },
 "splayer-kde-bar-lyc":{
-"drvPath":"/nix/store/nczzazzy4p70pwgc652a1pqdm8hyq27a-splayer-kde-bar-lyc-1.6.drv",
+"drvPath":"/nix/store/210m00bmnd2msl37bigr1x1gwrfjypcm-splayer-kde-bar-lyc-1.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4079,7 +4063,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/splayer-kde-bar-lyc/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/splayer-kde-bar-lyc/default.nix",
 "line":42
 },
 "name":"splayer-kde-bar-lyc-1.6",
@@ -4110,11 +4094,11 @@
 "version":"1.6"
 },
 "splayer-next-dev":{
-"drvPath":"/nix/store/2074m5rbv8ipz1izfbq75fcfp0lra20k-splayer-next-dev-0-unstable-2026-07-09.drv",
+"drvPath":"/nix/store/mrdd7mw2b93z10ydxh63qnwffb2r863x-splayer-next-dev-0-unstable-2026-07-10.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/SPlayer-Dev/SPlayer-Next/releases/tag/v0-unstable-2026-07-09",
+"changelog":"https://github.com/SPlayer-Dev/SPlayer-Next/releases/tag/v0-unstable-2026-07-10",
 "description":"Simple Netease Cloud Music player",
 "homepage":"https://github.com/SPlayer-Dev/SPlayer-Next",
 "identifiers":{
@@ -4169,10 +4153,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/splayer-next-dev/package.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/splayer-next-dev/package.nix",
 "line":167
 },
-"name":"splayer-next-dev-0-unstable-2026-07-09",
+"name":"splayer-next-dev-0-unstable-2026-07-10",
 "nonTeamMaintainers":[
 {
 "email":"ccicnce113424@gmail.com",
@@ -4186,6 +4170,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -4208,25 +4193,24 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/splayer-next-dev/package.nix:163",
 "problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"splayer-next-dev-0-unstable-2026-07-09",
+"name":"splayer-next-dev-0-unstable-2026-07-10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"splayer-next-dev",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-07-09"
+"version":"0-unstable-2026-07-10"
 },
 "svt-av1-essential":{
-"drvPath":"/nix/store/xqjcjfa6qxc0csvv4bmn6r0px3345mp0-svt-av1-essential-4.0.1-Essential.drv",
+"drvPath":"/nix/store/gwv6b3knrw95g9mw6hnx90dw0xls092p-svt-av1-essential-4.0.1-Essential.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4295,7 +4279,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/svt-av1-shared/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/svt-av1-shared/default.nix",
 "line":67
 },
 "name":"svt-av1-essential-4.0.1-Essential",
@@ -4312,15 +4296,15 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -4343,7 +4327,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -4374,7 +4357,7 @@
 "version":"4.0.1-Essential"
 },
 "svt-av1-hdr":{
-"drvPath":"/nix/store/9y2qdvwf807038kz03m1jc7gxfwdf8z1-svt-av1-hdr-4.1.0.drv",
+"drvPath":"/nix/store/2qv9x5awjl9kv2rxg21y5g7msxarrn72-svt-av1-hdr-4.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4443,7 +4426,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/svt-av1-shared/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/svt-av1-shared/default.nix",
 "line":67
 },
 "name":"svt-av1-hdr-4.1.0",
@@ -4460,15 +4443,15 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -4491,7 +4474,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -4522,7 +4504,7 @@
 "version":"4.1.0"
 },
 "svt-av1-psyex":{
-"drvPath":"/nix/store/mpmcwzl40v3ydca0gykdxp72q5l23176-svt-av1-psyex-3.0.2-B.drv",
+"drvPath":"/nix/store/j7xx33ynynw3crgjplnzqml51am1ygp3-svt-av1-psyex-3.0.2-B.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4591,7 +4573,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/svt-av1-shared/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/svt-av1-shared/default.nix",
 "line":67
 },
 "name":"svt-av1-psyex-3.0.2-B",
@@ -4608,15 +4590,15 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -4639,7 +4621,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -4670,7 +4651,7 @@
 "version":"3.0.2-B"
 },
 "uosc-danmaku-git":{
-"drvPath":"/nix/store/4rzmmvwddnp9pq1fnjgpv8apvwxhffid-uosc-danmaku-2.0.0-unstable-2026-06-26.drv",
+"drvPath":"/nix/store/lbdaaajxlswyqs9w8bzmr3svb5ha0xlw-uosc-danmaku-2.0.0-unstable-2026-06-26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4726,7 +4707,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/by-name/mp/mpv/scripts/uosc-danmaku.nix",
+"file":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source/pkgs/by-name/mp/mpv/scripts/uosc-danmaku.nix",
 "line":39
 },
 "name":"uosc-danmaku-2.0.0-unstable-2026-06-26",
@@ -4756,7 +4737,7 @@
 "version":"2.0.0-unstable-2026-06-26"
 },
 "waywallen-bin":{
-"drvPath":"/nix/store/6pvj3kl4kl1ycdjvsn3hw8b8n79fvhx2-waywallen-0.2.4.drv",
+"drvPath":"/nix/store/sh36d4bzxf51sq0a7wwz1gvv7d3hfbha-waywallen-0.2.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4814,7 +4795,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/waywallen-bin/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/waywallen-bin/default.nix",
 "line":26
 },
 "name":"waywallen-0.2.4",
@@ -4854,7 +4835,7 @@
 "version":"0.2.4"
 },
 "waywallen-display-bin":{
-"drvPath":"/nix/store/9bnxm5i258fcjdnjm8ayyi21ij8i1a8v-waywallen-display-0.2.8.drv",
+"drvPath":"/nix/store/7hbxsnar5kxzhqzgv8wa5k2ps7zr8357-waywallen-display-0.2.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4911,7 +4892,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/waywallen-display-bin/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/waywallen-display-bin/default.nix",
 "line":39
 },
 "name":"waywallen-display-0.2.8",
@@ -4951,7 +4932,7 @@
 "version":"0.2.8"
 },
 "wild-reader":{
-"drvPath":"/nix/store/zph8fzxzzsqav0xy8sjmc162qibarhiy-wild-0.0.14.drv",
+"drvPath":"/nix/store/l08nh9snczc542jk9nhk2vyd9jiz1ng1-wild-0.0.14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5009,7 +4990,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/wild-reader/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/wild-reader/default.nix",
 "line":21
 },
 "name":"wild-0.0.14",
@@ -5026,6 +5007,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -5048,8 +5030,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/wild-reader/default.nix:18",
 "problems":{},
@@ -5068,7 +5049,7 @@
 "version":"0.0.14"
 },
 "zhuque":{
-"drvPath":"/nix/store/k9k9jm16bd3nbiz948d817gnwy1ihzi1-zhuque-0.212.drv",
+"drvPath":"/nix/store/jldq98h4y3a6wms5is7d53p8g20wsamg-zhuque-0.212.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5125,7 +5106,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/98wmfa4kbp1fkfmn80pb5hgj9vb1llvw-source/pkgs/zhuque/default.nix",
+"file":"/nix/store/bad92f573wnljv666cp3dlh2hdisgmva-source/pkgs/zhuque/default.nix",
 "line":36
 },
 "name":"zhuque-0.212",
@@ -5142,10 +5123,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -5154,7 +5136,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -5177,7 +5158,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",

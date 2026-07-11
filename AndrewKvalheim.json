@@ -1,19 +1,19 @@
 {
 "name":"AndrewKvalheim",
-"fetch_time":2.87,
-"eval_time":2.96,
+"fetch_time":2.522,
+"eval_time":3.674,
 "source":{
 "url":"https://codeberg.org/AndrewKvalheim/configuration",
-"rev":"34f204b0e8a72b5b3cdc7de50d95846650a43f11",
-"sha256":"0c5b3wqmw6bvjg578y02bw3ixrjxa53g0qvi0jc4d6z08l0vj05f",
+"rev":"ec36c939bb49fa787b63eb9733a1b0250b97a712",
+"sha256":"1j4xc6cbwzs2f1jzvaqki7d6ybcj8aw24rxkdb4y8iqchjnbjm88",
 "date":null
 },
-"source_storepath":"/nix/store/fcka510frch7h5snzd3lykn5fajsb9yz-configuration",
-"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
-"nur_combined_rev":"9c5e3598a1de891c4c1e9862397991bd2e925972",
+"source_storepath":"/nix/store/2ggbw52x5fy80dpvwjqw0q052dhksb79-configuration",
+"nixpkgs_storepath":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source",
+"nur_combined_rev":"75cde98cc711becec3f218854c2f1fd499514da2",
 "packages":{
 "ai-robots-txt":{
-"drvPath":"/nix/store/5xa5lvjxw8laxr0hq2c4il59ih01npvi-ai-robots-txt-1.46.drv",
+"drvPath":"/nix/store/vvdrgpwsn84730b9b97ram3w89nhxpai-ai-robots-txt-1.47.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -60,7 +60,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"ai-robots-txt-1.46",
+"name":"ai-robots-txt-1.47",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -75,17 +75,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ai-robots-txt-1.46",
+"name":"ai-robots-txt-1.47",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ai-robots-txt",
 "system":"x86_64-linux",
-"version":"1.46"
+"version":"1.47"
 },
 "apex":{
-"drvPath":"/nix/store/34nvznz0w1mik9vz8hqdrhvm2hnbanm6-apex-1.0.0-rc4-unstable-2021-12-09.drv",
+"drvPath":"/nix/store/q40f6cw2lcwccan83mi5agx5brbwr85b-apex-1.0.0-rc4-unstable-2021-12-09.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -138,8 +138,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -163,7 +163,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -200,7 +199,7 @@
 "version":"0.1"
 },
 "busyserve":{
-"drvPath":"/nix/store/bigpl8gwqmsc05jhfz5jm53ksxay32l7-python3.13-busyserve-0.48.0.drv",
+"drvPath":"/nix/store/6ldna9jvcgn5gvzjf76kmfc3hvz5ncsx-python3.14-busyserve-0.48.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -238,6 +237,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -261,8 +261,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -299,10 +297,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
+"file":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
 "line":75
 },
-"name":"python3.13-busyserve-0.48.0",
+"name":"python3.14-busyserve-0.48.0",
 "nonTeamMaintainers":[
 {
 "email":"janne@hess.ooo",
@@ -322,6 +320,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -345,8 +344,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -371,7 +368,7 @@
 "version":"0.48.0"
 },
 "caddy-with-cache-route53":{
-"drvPath":"/nix/store/xciyi8vqk5rgvp9b65nfkrpbh00wdf9c-caddy-2.11.4.drv",
+"drvPath":"/nix/store/8yahahhdgs7c208iab0mjwc8ssi4p0wv-caddy-2.11.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -442,8 +439,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/by-name/ca/caddy/package.nix",
-"line":96
+"file":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source/pkgs/by-name/ca/caddy/package.nix",
+"line":101
 },
 "name":"caddy-2.11.4",
 "nonTeamMaintainers":[
@@ -471,8 +468,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -496,14 +493,13 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/ca/caddy/package.nix:92",
+"position":"<nixpkgs> + /pkgs/by-name/ca/caddy/package.nix:97",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -518,7 +514,7 @@
 "version":"2.11.4"
 },
 "cc-icons-unicode":{
-"drvPath":"/nix/store/ybvddlpsj0hj22rkgxx0h0r0rvrnaa20-cc-icons-unicode-0-unstable-2020-09-29.drv",
+"drvPath":"/nix/store/xnk7mijv40jcsmbbxi9wfn89zrif2i33-cc-icons-unicode-0-unstable-2020-09-29.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -591,7 +587,7 @@
 "version":"0-unstable-2020-09-29"
 },
 "ch57x-keyboard-tool":{
-"drvPath":"/nix/store/p5dy87rkrlr357084nxs4lxyqw3cyl71-ch57x-keyboard-tool-1.7.0.drv",
+"drvPath":"/nix/store/sb1a9vyj5x9mbdh7ck5v814mad5d64ms-ch57x-keyboard-tool-1.7.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -655,7 +651,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -714,7 +709,7 @@
 "version":"1.7.0"
 },
 "chunker":{
-"drvPath":"/nix/store/vp2h5wg4g74n9rav2fs1mk7fb1y9savr-chunker-1.18.1.drv",
+"drvPath":"/nix/store/r52s61a5ah5rm7kr2krqaq67g69dnk1w-chunker-1.18.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -787,7 +782,7 @@
 "version":"1.18.1"
 },
 "co2monitor":{
-"drvPath":"/nix/store/071sgdm2vlmafnkvdpbg2svanfas9rbg-co2monitor-0-unstable-2021-08-10.drv",
+"drvPath":"/nix/store/89bkyi78pspp7dms6bsvr3jdwrsymbkb-co2monitor-0-unstable-2021-08-10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -841,8 +836,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -866,7 +861,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -893,7 +887,7 @@
 "version":"0-unstable-2021-08-10"
 },
 "decompiler-mc":{
-"drvPath":"/nix/store/0v3670173nkhqvb7sj9whq4qacghhc41-decompiler-mc-0.9-unstable-2026-01-17.drv",
+"drvPath":"/nix/store/dccl619715yipmsvzp7l9cwijsak2gvc-decompiler-mc-0.9-unstable-2026-01-17.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -988,7 +982,7 @@
 "version":"0.9-unstable-2026-01-17"
 },
 "dmarc-report-notifier":{
-"drvPath":"/nix/store/5bi6rg5hrhjlnlji56ck493k2nfpsvak-dmarc-report-notifier-1.1.15.drv",
+"drvPath":"/nix/store/yw1m43bbsqr0vj65m244rgzxxiahgcxw-dmarc-report-notifier-1.1.15.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1025,6 +1019,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1048,8 +1043,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1076,6 +1069,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1099,8 +1093,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1130,7 +1122,7 @@
 "version":"1.1.15"
 },
 "easy-timeline":{
-"drvPath":"/nix/store/rlcfx2vv30yjvknr3ac6m725dnizffvq-easy-timeline-1.90-unstable-2024-08-02.drv",
+"drvPath":"/nix/store/7mqg5rjx23lzzfzac33qdy5dg95gjfw4-easy-timeline-1.90-unstable-2024-08-02.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1204,7 +1196,7 @@
 "version":"1.90-unstable-2024-08-02"
 },
 "fastnbt-tools":{
-"drvPath":"/nix/store/lwx57h427vdjgv7b3mfa6dvwnmp4kzdj-fastnbt-tools-0.27.0.drv",
+"drvPath":"/nix/store/68wr4m0hzcqp0hmxgmrqsjpv8s9rbwky-fastnbt-tools-0.27.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1268,7 +1260,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -1327,7 +1318,7 @@
 "version":"0.27.0"
 },
 "fediblockhole":{
-"drvPath":"/nix/store/mqcb504k652gzybzzylipyi4r4fn5ywb-fediblockhole-0.4.6.drv",
+"drvPath":"/nix/store/a629dsyfg9qs7in61vy3sf2h28w5mwlj-fediblockhole-0.4.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1364,6 +1355,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1387,8 +1379,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1415,6 +1405,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1438,8 +1429,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1469,7 +1458,7 @@
 "version":"0.4.6"
 },
 "git-diff-image":{
-"drvPath":"/nix/store/sdd4qi8alala2z1ha5s38h0hh1n8qsgn-git-diff-image-0-unstable-2023-09-04.drv",
+"drvPath":"/nix/store/sgqkb3bblzbykn1w0lk0xqzznszfzwd1-git-diff-image-0-unstable-2023-09-04.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1542,7 +1531,7 @@
 "version":"0-unstable-2023-09-04"
 },
 "gpx-reduce":{
-"drvPath":"/nix/store/xq4njdnvw37jfgyddyw4in4kk2wdmcqb-gpx-reduce-0-unstable-2026-05-07.drv",
+"drvPath":"/nix/store/sfp1qxb7rlc1b823888l3ych65ca1ckg-gpx-reduce-0-unstable-2026-05-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1579,6 +1568,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1602,8 +1592,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1629,6 +1617,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1652,8 +1641,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1683,7 +1670,7 @@
 "version":"0-unstable-2026-05-07"
 },
 "incremental-compress":{
-"drvPath":"/nix/store/k2yw8h943wqbbq85jihj68mr8s7w92zp-incremental-compress-0-unstable-2025-03-30.drv",
+"drvPath":"/nix/store/g4b8g5djwapy8c8aknzzrlnhpp2kgxml-incremental-compress-0-unstable-2025-03-30.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1737,8 +1724,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1762,7 +1749,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -1789,7 +1775,7 @@
 "version":"0-unstable-2025-03-30"
 },
 "iptables_exporter":{
-"drvPath":"/nix/store/yvsl7lknyjl9k1h6gfiajidfnsk06dvq-iptables_exporter-0.4.0.drv",
+"drvPath":"/nix/store/r53636n9inj2zwvmdcxx38vld8qmjkbl-iptables_exporter-0.4.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1866,7 +1852,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -1925,7 +1910,7 @@
 "version":"0.4.0"
 },
 "josm-imagery-used":{
-"drvPath":"/nix/store/gxhckrvznzcjw1p4z49sadx876vr35f4-josm-imagery-used-0.0.1.drv",
+"drvPath":"/nix/store/9h5hjgm8rpn8xcw5c78arh8mf9lz61y4-josm-imagery-used-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1997,7 +1982,7 @@
 "version":"0.0.1"
 },
 "journal-brief":{
-"drvPath":"/nix/store/w157p2z8cc2wdmlcc3y2nqa1yspax810-journal-brief-1.1.8.drv",
+"drvPath":"/nix/store/vkxix85w6zh5kkzgw6ircrjaqf3pa0qv-journal-brief-1.1.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2034,6 +2019,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2057,8 +2043,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -2085,6 +2069,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2108,8 +2093,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -2139,7 +2122,7 @@
 "version":"1.1.8"
 },
 "little-a-map":{
-"drvPath":"/nix/store/x20cv562681rzrl2rp5g9zwjifwzkhqj-little-a-map-0.13.11.drv",
+"drvPath":"/nix/store/adyl81dkn76js5n8rwfxgmi4f9g0vi5n-little-a-map-0.13.11.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2204,7 +2187,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -2263,7 +2245,7 @@
 "version":"0.13.11"
 },
 "mark-applier":{
-"drvPath":"/nix/store/q2z0clhpx3id7l56pcll35ws1vajwynb-mark-applier-0.5.0.drv",
+"drvPath":"/nix/store/c9qj7rihy3pplz5liddympihapmpr7hk-mark-applier-0.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2316,12 +2298,12 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
+"x86_64-linux",
 "aarch64-darwin",
+"aarch64-linux",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -2336,7 +2318,6 @@
 "powerpc64le-linux",
 "riscv32-linux",
 "riscv64-linux",
-"x86_64-linux",
 "s390x-linux"
 ],
 "position":"./library/mark-applier.pkg.nix:13",
@@ -2359,7 +2340,7 @@
 "version":"0.5.0"
 },
 "meshtastic-url":{
-"drvPath":"/nix/store/fgv5kf84dld3z138hrhmwifxzv31ghqz-meshtastic-url.drv",
+"drvPath":"/nix/store/skdzns8r3ks60zxrwv9zmd12kzkbjkzx-meshtastic-url.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2413,7 +2394,7 @@
 "version":""
 },
 "minemap":{
-"drvPath":"/nix/store/91vdnhpqqqf10wn4dclvj7qkwpd91m4d-minemap-1.0.26.drv",
+"drvPath":"/nix/store/2x4ngfz422qgs8ssxlcayv100qjvpcxm-minemap-1.0.26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2486,7 +2467,7 @@
 "version":"1.0.26"
 },
 "nbt-explorer":{
-"drvPath":"/nix/store/9gjkpji1pqy9kc0zkkdpb4v3nh3v51w1-nbt-explorer-2.8.0.drv",
+"drvPath":"/nix/store/b3dfwpxyzzb7n18nzdhkjyq2drzc3hkf-nbt-explorer-2.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2559,7 +2540,7 @@
 "version":"2.8.0"
 },
 "office-hours":{
-"drvPath":"/nix/store/w012cp0n8k4dqns6kb9d8ywkdc96riv9-office-hours-1.0.0.drv",
+"drvPath":"/nix/store/y5aa150z654g93gl4hc6wzrmr43xr347-office-hours-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2631,7 +2612,7 @@
 "version":"1.0.0"
 },
 "pdfalyzer":{
-"drvPath":"/nix/store/mbqk41p19gq1b3qjbn5mz86imqmivyyf-pdfalyzer-1.19.6.drv",
+"drvPath":"/nix/store/xapw5k9a6fnrwrcks5zxf9idmal85sjk-pdfalyzer-1.19.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2668,6 +2649,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2691,8 +2673,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -2719,6 +2699,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2742,8 +2723,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -2773,7 +2752,7 @@
 "version":"1.19.6"
 },
 "pngquant-interactive":{
-"drvPath":"/nix/store/z7k7z47lm7czdk4q6mjwmfw9p095di1m-pngquant-interactive-0.2.1.drv",
+"drvPath":"/nix/store/2bx4lhsbf4xn2rrjlm2s3vl03sydm4sk-pngquant-interactive-0.2.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2838,7 +2817,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -2897,7 +2875,7 @@
 "version":"0.2.1"
 },
 "sort-domains":{
-"drvPath":"/nix/store/4gjrsm6h0ik9zm9dv8y89q9h6dd87a1w-sort-domains.drv",
+"drvPath":"/nix/store/jn99kkk8rnajzdydalpmgqlkxfx2wipa-sort-domains.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2951,7 +2929,7 @@
 "version":""
 },
 "spf-check":{
-"drvPath":"/nix/store/7i7k4ydh7jhnjsk3h9aidvs5x6jrkd6r-spf-check-0-unstable-2023-11-20.drv",
+"drvPath":"/nix/store/b0zcspbp5lb5gqaxcxcpgp5fw7kizbg8-spf-check-0-unstable-2023-11-20.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3024,7 +3002,7 @@
 "version":"0-unstable-2023-11-20"
 },
 "spf-tree":{
-"drvPath":"/nix/store/bjl1jgzx0rpas7fxl6mh8a2xqrirhd0j-spf-tree-0-unstable-2020-12-07.drv",
+"drvPath":"/nix/store/nkkggwqpj7xdp4bd9rirsbhhzs757ghk-spf-tree-0-unstable-2020-12-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3077,8 +3055,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -3102,7 +3080,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -3129,7 +3106,7 @@
 "version":"0-unstable-2020-12-07"
 },
 "stretch-break":{
-"drvPath":"/nix/store/58z4rya3rlb5l3zqwffryrby7wnfzh65-stretch-break-0.1.9.drv",
+"drvPath":"/nix/store/qwnfjds21xiv4wkln2i7ykwap29phqi3-stretch-break-0.1.9.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3194,7 +3171,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -3253,7 +3229,7 @@
 "version":"0.1.9"
 },
 "tile-stitch":{
-"drvPath":"/nix/store/vcymzlg779k3jrlx6g566m6chiqwymn6-tile-stitch-0-unstable-2019-07-10.drv",
+"drvPath":"/nix/store/3g709dir05s4l382glxxb3wlif6m59wy-tile-stitch-0-unstable-2019-07-10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3325,7 +3301,7 @@
 "version":"0-unstable-2019-07-10"
 },
 "udon":{
-"drvPath":"/nix/store/6k7816rfac9mgvfjl4d95f42fiy7z2ih-udon-0-unstable-2026-05-07.drv",
+"drvPath":"/nix/store/spg1pvjcmjvfgf4ydzkrfnyw5m0ds767-udon-0-unstable-2026-05-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3398,7 +3374,7 @@
 "version":"0-unstable-2026-05-07"
 },
 "wireguard-vanity-address":{
-"drvPath":"/nix/store/7fp4gmn6nxi4k4v3crdxzg00fpl1jzph-wireguard-vanity-address-0.4.0.drv",
+"drvPath":"/nix/store/avxxzn9byxnkmizjspcl3h8r7s9kk5i9-wireguard-vanity-address-0.4.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3462,7 +3438,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",

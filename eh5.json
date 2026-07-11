@@ -1,19 +1,19 @@
 {
 "name":"eh5",
-"fetch_time":0.49,
-"eval_time":0.672,
+"fetch_time":0.448,
+"eval_time":0.774,
 "source":{
 "url":"https://github.com/EHfive/flakes",
-"rev":"96b4e11b3b334a2a6ec52e5276b0c1bec5551d04",
-"sha256":"1cz7rrdn8hkih0qyj1ldsm58a60r992vci68p4qpabih4yvva3b7",
+"rev":"bcf9ef8effe886366d5661dcb5976270ad81396b",
+"sha256":"12lqmvin7ykfqy23q3pz3iry0xkijp6g9691bn4c7b8x2r3s32v2",
 "date":null
 },
-"source_storepath":"/nix/store/j39fysb4801jhx643jwwdyfnr1v2vn7k-source",
-"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
-"nur_combined_rev":"e868c2769aa2c29464ad3ed341c9eced653bd9a1",
+"source_storepath":"/nix/store/aanh8nvr8p630fnqmg6w4nzgqhq5qlwv-source",
+"nixpkgs_storepath":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source",
+"nur_combined_rev":"16b0b3f3ddd5a2d47aa42d0012176ba66486b210",
 "packages":{
 "dae-unstable":{
-"drvPath":"/nix/store/h51iq64h4804xxr15789xyrq99sirdyj-dae-1.1.0rc1-unstable-2026-04-07.drv",
+"drvPath":"/nix/store/d8nal6cl9cxlzsvmafm4l9rzlgfvypxx-dae-1.1.0rc1-unstable-2026-04-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -67,6 +67,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -89,8 +90,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./packages/dae-unstable/default.nix:65",
 "problems":{
@@ -112,7 +112,7 @@
 "version":"1.1.0rc1-unstable-2026-04-07"
 },
 "einat":{
-"drvPath":"/nix/store/y8h28bqz3nvb932ik5zi3xj8w9zz3z9m-einat-0.1.11.drv",
+"drvPath":"/nix/store/brjzcv93pcca851zpnf1vrd52r71vazf-einat-0.1.11.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -216,7 +216,7 @@
 "version":"0.1.11"
 },
 "fake-hwclock":{
-"drvPath":"/nix/store/dm144mkpajimv9d814qx9maaz2vd28hc-fake-hwclock.drv",
+"drvPath":"/nix/store/1s6m4q6qw3ghjj42d8sxrpra26fha2c3-fake-hwclock.drv",
 "meta":{
 "description":"Fake hardware clock",
 "license":{
@@ -240,7 +240,7 @@
 "version":""
 },
 "kcptun":{
-"drvPath":"/nix/store/6872aplag9rr8p1qg3dkyp1nwdxbwqma-kcptun-unstable-2025-02-25.drv",
+"drvPath":"/nix/store/9ldvfnn1g7q4cpc52l8jhqj1vqa97avf-kcptun-unstable-2025-02-25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -293,8 +293,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -318,7 +318,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -345,7 +344,7 @@
 "version":"2025-02-25"
 },
 "mosdns":{
-"drvPath":"/nix/store/pwcprjy0jkglahidsf3xq8q16a83r93a-mosdns-5.3.4.drv",
+"drvPath":"/nix/store/k7xrwjlnl0nkirsc0dyq0msj30iyjhgl-mosdns-5.3.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -398,8 +397,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -423,7 +422,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -450,7 +448,7 @@
 "version":"5.3.4"
 },
 "rtl8152-led-ctrl":{
-"drvPath":"/nix/store/n32l71f1hbpbsx6d31hw11637rnv95xx-rtl8152-led-ctrl-0.1.1.drv",
+"drvPath":"/nix/store/ivilvfd8gj9qcx9gas1xr83dhayrd9j8-rtl8152-led-ctrl-0.1.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -505,7 +503,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -564,17 +561,17 @@
 "version":"0.1.1"
 },
 "ubootNanopiR2s":{
-"name":"uboot-nanopi-r2s-rk3328_defconfig-2026.04",
+"name":"uboot-nanopi-r2s-rk3328_defconfig-2026.07",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"uboot-nanopi-r2s-rk3328_defconfig",
 "system":"x86_64-linux",
-"version":"2026.04"
+"version":"2026.07"
 },
 "udpspeeder":{
-"drvPath":"/nix/store/zdxziwcrnlbc9vw59ag2jiwsqkg4s87q-udpspeeder-unstable-2023-07-22.drv",
+"drvPath":"/nix/store/lya3nvn8ricfqyj2fl3rcn58781nb62h-udpspeeder-unstable-2023-07-22.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -649,7 +646,7 @@
 "version":"2023-07-22"
 },
 "vlmcsd":{
-"drvPath":"/nix/store/8kgg0q8xkii1br3766slf4k6qrslgrqq-vlmcsd-1113.drv",
+"drvPath":"/nix/store/6xi4dpvim0kkwvs68lk5z3c65lp6mwan-vlmcsd-1113.drv",
 "meta":{
 "available":true,
 "broken":false,

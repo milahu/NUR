@@ -1,19 +1,19 @@
 {
 "name":"falconprogrammer",
-"fetch_time":0.478,
-"eval_time":3.099,
+"fetch_time":0.359,
+"eval_time":3.578,
 "source":{
 "url":"https://github.com/JonBoyleCoding/falconprogrammer-nur",
-"rev":"fa27cce6e1fd043bb8a8c7611a26f0b0cf466c53",
-"sha256":"1kgyj44l8pmgias7y9dmp8943099rz48pa93pf78h8zwvzvx9xp7",
+"rev":"3be474464fd4ae4d94fb7d45d9e7d82c9ca43157",
+"sha256":"186i8qbi9vmjmymwk796v3ifhh1mj8ahygmd63cq8n57lnay7asd",
 "date":null
 },
-"source_storepath":"/nix/store/0a55ww187dqhxdhapljmay92j3sj7gmg-source",
-"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
-"nur_combined_rev":"4cfba0e3d53773e8121e1aae34e30ae047435884",
+"source_storepath":"/nix/store/dba074z25ivvb5mkggwhd1b6c3l97wl7-source",
+"nixpkgs_storepath":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source",
+"nur_combined_rev":"031b42d52d3907011aaad46883c5c888dc62c001",
 "packages":{
 "alvr":{
-"drvPath":"/nix/store/0nk4kw9h4w4qryl1nimcfrqpmd8cy2kr-alvr-20.8.1.drv",
+"drvPath":"/nix/store/5k3kp7j1rr7df4z92c51nlhq8a06c357-alvr-20.8.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -71,7 +71,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0a55ww187dqhxdhapljmay92j3sj7gmg-source/pkgs/alvr/default.nix",
+"file":"/nix/store/dba074z25ivvb5mkggwhd1b6c3l97wl7-source/pkgs/alvr/default.nix",
 "line":89
 },
 "name":"alvr-20.8.1",
@@ -87,6 +87,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -109,8 +110,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/alvr/default.nix:85",
 "problems":{},
@@ -127,7 +127,7 @@
 "version":"20.8.1"
 },
 "cco":{
-"drvPath":"/nix/store/f65xpki51yq08w7fkcmij3j2vq1dnwb1-cco-0-unstable-2026-06-27.drv",
+"drvPath":"/nix/store/dyk2lf6krbcrvyc1sa15zzm8r0cv1llh-cco-0-unstable-2026-06-27.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -178,7 +178,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0a55ww187dqhxdhapljmay92j3sj7gmg-source/pkgs/cco/default.nix",
+"file":"/nix/store/dba074z25ivvb5mkggwhd1b6c3l97wl7-source/pkgs/cco/default.nix",
 "line":88
 },
 "name":"cco-0-unstable-2026-06-27",
@@ -187,6 +187,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -209,8 +210,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/cco/default.nix:85",
 "problems":{
@@ -232,7 +232,7 @@
 "version":"0-unstable-2026-06-27"
 },
 "g13d":{
-"drvPath":"/nix/store/mr8x3hwzfymk1c1kw6zfffjbrv5f4cj8-g13-master-2024-12-30.drv",
+"drvPath":"/nix/store/m8iyqx0wfpnf71mq8pgk9b061rg4fa37-g13-master-2024-12-30.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -272,7 +272,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0a55ww187dqhxdhapljmay92j3sj7gmg-source/pkgs/g13d/default.nix",
+"file":"/nix/store/dba074z25ivvb5mkggwhd1b6c3l97wl7-source/pkgs/g13d/default.nix",
 "line":46
 },
 "name":"g13-master-2024-12-30",
@@ -281,10 +281,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -293,7 +294,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -316,7 +316,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -382,7 +381,7 @@
 "version":"2024-12-30"
 },
 "gitignore-template":{
-"drvPath":"/nix/store/f1kmjfj9j0rqck8gas31kcnih7ivrb6w-gitignore-template-1.2.4.drv",
+"drvPath":"/nix/store/1xc8r52q03ijy2d8pcz93bdaqr89hhf0-gitignore-template-1.2.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -420,6 +419,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -443,8 +443,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -467,7 +465,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0a55ww187dqhxdhapljmay92j3sj7gmg-source/pkgs/gitignore-template/default.nix",
+"file":"/nix/store/dba074z25ivvb5mkggwhd1b6c3l97wl7-source/pkgs/gitignore-template/default.nix",
 "line":42
 },
 "name":"gitignore-template-1.2.4",
@@ -476,6 +474,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -499,8 +498,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -530,7 +527,7 @@
 "version":"1.2.4"
 },
 "hyuga":{
-"drvPath":"/nix/store/x1zid7f0j73xjs3hqn1v9cir0a79w7cl-hyuga-1.0.0-unstable-2025-01-26.drv",
+"drvPath":"/nix/store/a1hz71w3ar4knxlylfibc358rva1la5v-hyuga-1.0.0-unstable-2025-01-26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -567,6 +564,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -590,8 +588,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -614,7 +610,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0a55ww187dqhxdhapljmay92j3sj7gmg-source/pkgs/hyuga/default.nix",
+"file":"/nix/store/dba074z25ivvb5mkggwhd1b6c3l97wl7-source/pkgs/hyuga/default.nix",
 "line":57
 },
 "name":"hyuga-1.0.0-unstable-2025-01-26",
@@ -623,6 +619,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -646,8 +643,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -677,7 +672,7 @@
 "version":"1.0.0-unstable-2025-01-26"
 },
 "opencode":{
-"drvPath":"/nix/store/2vi7kxhyhf89fzzqia3446wcm1n22niw-opencode-1.17.16.drv",
+"drvPath":"/nix/store/2rsdj77wy1hg3wjp0m067b9kxnr6cm6a-opencode-1.17.18.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -723,15 +718,16 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"longDescription":"OpenCode is an AI coding agent built for the terminal.\n\nNIXOS COMPATIBILITY: OpenCode downloads TUI binaries at runtime that use\ngeneric Linux dynamic linkers (/lib64/ld-linux-x86-64.so.2) which don't\nexist on NixOS. This package includes automatic patching to fix the\ndynamic linker paths for NixOS compatibility.\n\nUSAGE OPTIONS:\n- Run 'opencode' - includes automatic NixOS patching\n- Or manually patch cache: $(nix-build -A opencode-sst)/share/opencode/patch-opencode-cache.sh\n\nThe package provides Node.js 24.16.0 to avoid downloading issues.\n",
+"longDescription":"OpenCode is an AI coding agent built for the terminal.\n\nNIXOS COMPATIBILITY: OpenCode downloads TUI binaries at runtime that use\ngeneric Linux dynamic linkers (/lib64/ld-linux-x86-64.so.2) which don't\nexist on NixOS. This package includes automatic patching to fix the\ndynamic linker paths for NixOS compatibility.\n\nUSAGE OPTIONS:\n- Run 'opencode' - includes automatic NixOS patching\n- Or manually patch cache: $(nix-build -A opencode-sst)/share/opencode/patch-opencode-cache.sh\n\nThe package provides Node.js 24.18.0 to avoid downloading issues.\n",
 "mainProgram":"opencode",
 "maintainers":[],
-"name":"opencode-1.17.16",
+"name":"opencode-1.17.18",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -755,8 +751,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin"
 ],
 "position":"./pkgs/opencode/default.nix:125",
@@ -769,17 +763,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"opencode-1.17.16",
+"name":"opencode-1.17.18",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"opencode",
 "system":"x86_64-linux",
-"version":"1.17.16"
+"version":"1.17.18"
 },
 "opencode-sst":{
-"drvPath":"/nix/store/2vi7kxhyhf89fzzqia3446wcm1n22niw-opencode-1.17.16.drv",
+"drvPath":"/nix/store/2rsdj77wy1hg3wjp0m067b9kxnr6cm6a-opencode-1.17.18.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -825,15 +819,16 @@
 "spdxId":"MIT",
 "url":"https://spdx.org/licenses/MIT.html"
 },
-"longDescription":"OpenCode is an AI coding agent built for the terminal.\n\nNIXOS COMPATIBILITY: OpenCode downloads TUI binaries at runtime that use\ngeneric Linux dynamic linkers (/lib64/ld-linux-x86-64.so.2) which don't\nexist on NixOS. This package includes automatic patching to fix the\ndynamic linker paths for NixOS compatibility.\n\nUSAGE OPTIONS:\n- Run 'opencode' - includes automatic NixOS patching\n- Or manually patch cache: $(nix-build -A opencode-sst)/share/opencode/patch-opencode-cache.sh\n\nThe package provides Node.js 24.16.0 to avoid downloading issues.\n",
+"longDescription":"OpenCode is an AI coding agent built for the terminal.\n\nNIXOS COMPATIBILITY: OpenCode downloads TUI binaries at runtime that use\ngeneric Linux dynamic linkers (/lib64/ld-linux-x86-64.so.2) which don't\nexist on NixOS. This package includes automatic patching to fix the\ndynamic linker paths for NixOS compatibility.\n\nUSAGE OPTIONS:\n- Run 'opencode' - includes automatic NixOS patching\n- Or manually patch cache: $(nix-build -A opencode-sst)/share/opencode/patch-opencode-cache.sh\n\nThe package provides Node.js 24.18.0 to avoid downloading issues.\n",
 "mainProgram":"opencode",
 "maintainers":[],
-"name":"opencode-1.17.16",
+"name":"opencode-1.17.18",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -857,8 +852,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin"
 ],
 "position":"./pkgs/opencode/default.nix:125",
@@ -871,17 +864,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"opencode-1.17.16",
+"name":"opencode-1.17.18",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"opencode",
 "system":"x86_64-linux",
-"version":"1.17.16"
+"version":"1.17.18"
 },
 "python-jwt_312":{
-"drvPath":"/nix/store/hbz5gxbasm19ps30h8cz3zcna050rvsj-python3.12-python-jwt-4.0.0.drv",
+"drvPath":"/nix/store/8hvjzq99xkxmdgrwph9jfg5fpq2zd17s-python3.12-python-jwt-4.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -918,6 +911,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -941,8 +935,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -964,7 +956,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0a55ww187dqhxdhapljmay92j3sj7gmg-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/dba074z25ivvb5mkggwhd1b6c3l97wl7-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.12-python-jwt-4.0.0",
@@ -973,6 +965,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -996,8 +989,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1027,7 +1018,7 @@
 "version":"4.0.0"
 },
 "python-jwt_313":{
-"drvPath":"/nix/store/x7dh9pl1zkx8izyxwhig1j90q1hwf67b-python3.13-python-jwt-4.0.0.drv",
+"drvPath":"/nix/store/1x8skp0nghx9s545k1nv53m8a2qz5mdb-python3.13-python-jwt-4.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1064,6 +1055,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1087,8 +1079,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1110,7 +1100,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0a55ww187dqhxdhapljmay92j3sj7gmg-source/pkgs/python-jwt/default.nix",
+"file":"/nix/store/dba074z25ivvb5mkggwhd1b6c3l97wl7-source/pkgs/python-jwt/default.nix",
 "line":36
 },
 "name":"python3.13-python-jwt-4.0.0",
@@ -1119,6 +1109,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1142,8 +1133,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1173,7 +1162,7 @@
 "version":"4.0.0"
 },
 "spec-kit":{
-"drvPath":"/nix/store/h3qj31nc56l4l7787m29p26clg6hfzjm-spec-kit-0.12.8.drv",
+"drvPath":"/nix/store/hpi95qnlraiv6j8j1hpy3x7hjfi0mzyc-spec-kit-0.12.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1210,6 +1199,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1233,8 +1223,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1257,15 +1245,16 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0a55ww187dqhxdhapljmay92j3sj7gmg-source/pkgs/spec-kit/default.nix",
+"file":"/nix/store/dba074z25ivvb5mkggwhd1b6c3l97wl7-source/pkgs/spec-kit/default.nix",
 "line":51
 },
-"name":"spec-kit-0.12.8",
+"name":"spec-kit-0.12.9",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1289,8 +1278,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1309,7 +1296,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"spec-kit-0.12.8",
+"name":"spec-kit-0.12.9",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -1317,10 +1304,10 @@
 },
 "pname":"spec-kit",
 "system":"x86_64-linux",
-"version":"0.12.8"
+"version":"0.12.9"
 },
 "timew-sync-client":{
-"drvPath":"/nix/store/56z2q5i6nrfv1wbys8wbi6lnr2cqak4p-timew-sync-client-unstable-2023-10-25.drv",
+"drvPath":"/nix/store/amc6mdyj65hfi182mxy7cf02i8j4ibyi-timew-sync-client-unstable-2023-10-25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1357,6 +1344,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1380,8 +1368,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1404,7 +1390,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0a55ww187dqhxdhapljmay92j3sj7gmg-source/pkgs/timew-sync-client/default.nix",
+"file":"/nix/store/dba074z25ivvb5mkggwhd1b6c3l97wl7-source/pkgs/timew-sync-client/default.nix",
 "line":59
 },
 "name":"timew-sync-client-unstable-2023-10-25",
@@ -1413,6 +1399,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1436,8 +1423,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1467,7 +1452,7 @@
 "version":"2023-10-25"
 },
 "vpuppr-gd3":{
-"drvPath":"/nix/store/mjmhkm93mlcn76y357riyw6m8pinlrpd-vpuppr-0.9.0.drv",
+"drvPath":"/nix/store/5kmzqpy8idq3yfza9bf4zbxws22pwzsr-vpuppr-0.9.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1548,7 +1533,7 @@
 "version":"0.9.0"
 },
 "wine-fusion":{
-"drvPath":"/nix/store/pzrk3qikccxqy5n63w2x48bj7cbz6sq3-wine-wow-staging-11.12.drv",
+"drvPath":"/nix/store/lm2h5g0lfbrc7xvwn85s3ngccsj1b8j6-wine-wow-staging-11.12.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1655,8 +1640,8 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/applications/emulators/wine/base.nix",
-"line":372
+"file":"/nix/store/qsgdv188iqqzjlfnvypppc6k50mgxhig-source/pkgs/applications/emulators/wine/base.nix",
+"line":377
 },
 "name":"wine-wow-staging-11.12",
 "nonTeamMaintainers":[
@@ -1718,7 +1703,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"<nixpkgs> + /pkgs/applications/emulators/wine/base.nix:368",
+"position":"<nixpkgs> + /pkgs/applications/emulators/wine/base.nix:373",
 "problems":{},
 "sourceProvenance":[
 {
@@ -1744,7 +1729,7 @@
 "version":"11.12"
 },
 "xgen":{
-"drvPath":"/nix/store/96bpr9ifbqfz8fx8m6h94g320k55jd7i-xgen-unstable-2023-07-02.drv",
+"drvPath":"/nix/store/j3v5cawdhn6wrdabd22sfzfyl6r085i4-xgen-unstable-2023-07-02.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1794,7 +1779,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/0a55ww187dqhxdhapljmay92j3sj7gmg-source/pkgs/xgen/default.nix",
+"file":"/nix/store/dba074z25ivvb5mkggwhd1b6c3l97wl7-source/pkgs/xgen/default.nix",
 "line":25
 },
 "name":"xgen-unstable-2023-07-02",
@@ -1803,8 +1788,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1828,7 +1813,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
