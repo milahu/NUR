@@ -37,22 +37,40 @@ let
 
   spektrafilm-python = spektrafilm-pkgs.python3.withPackages (ps: with ps; [ numpy scipy spektrafilm ]) ;
   spektrafilm-art = (pkgs.art.overrideAttrs (oldAttrs: {
-    version = "1.25.11-unstable-2026-04-01";
+    version = "1.26.6";
     src = pkgs.fetchFromGitHub {
       owner = "artraweditor";
       repo = "ART";
-      rev = "27554bbeab0adcd98335b0470b37c7bd3db1ae80";
-      hash = "sha256-lCn/qBQ9PEx4pf+0y0fnWHZ2b68Lu6eLKHgcDzNAYio=";
+      rev = "9fee76b983b7727b9371b630f2fa61cf0ba94562";
+      hash = "sha256-m5KQUY7loLKH7X2cDw5n7biH1GJTVONTbguILdjNWrI=";
     };
+    meta = (oldAttrs.meta or {}) // {
+      mainProgram = "ART";
+    };
+    patches = (oldAttrs.patches or []) ++ [
+      ./pkgs/spektrafilm/art-spektrafilm-luts-dir.patch
+    ];
     postInstall = (oldAttrs.postInstall or "") + ''
       mkdir -p $out/share/ART/extlut
       cp -r $src/tools/extlut/* $out/share/ART/extlut/
+
+      mkdir -p $out/share/ART/spektrafilm-luts
+      cp $out/share/ART/extlut/ART_spektrafilm.json $out/share/ART/spektrafilm-luts/
+      cp $out/share/ART/extlut/spektrafilm_mklut.py $out/share/ART/spektrafilm-luts/
+      substituteInPlace $out/share/ART/extlut/ART_spektrafilm.json \
+        --replace-fail '"command" : "python3 spektrafilm_mklut.py --server",' \
+                       '"command" : "${spektrafilm-python}/bin/python spektrafilm_mklut.py --server",'
+      substituteInPlace $out/share/ART/spektrafilm-luts/ART_spektrafilm.json \
+        --replace-fail '"command" : "python3 spektrafilm_mklut.py --server",' \
+                       '"command" : "${spektrafilm-python}/bin/python spektrafilm_mklut.py --server",'
     '';
     nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
     postFixup = (oldAttrs.postFixup or "") + ''
       wrapProgram $out/bin/ART \
+        --run 'spektrafilm_luts_data_home="''${XDG_DATA_HOME:-''${HOME:+$HOME/.local/share}}"; spektrafilm_luts_dir="$spektrafilm_luts_data_home/ART/spektrafilm-luts"; if [ -n "$spektrafilm_luts_data_home" ]; then mkdir -p "$spektrafilm_luts_data_home/ART"; if [ -L "$spektrafilm_luts_dir" ] || [ ! -e "$spektrafilm_luts_dir" ]; then ln -sfn '"$out"'/share/ART/spektrafilm-luts "$spektrafilm_luts_dir"; fi; fi' \
         --prefix PATH : "${spektrafilm-python}/bin"
       wrapProgram $out/bin/ART-cli \
+        --run 'spektrafilm_luts_data_home="''${XDG_DATA_HOME:-''${HOME:+$HOME/.local/share}}"; spektrafilm_luts_dir="$spektrafilm_luts_data_home/ART/spektrafilm-luts"; if [ -n "$spektrafilm_luts_data_home" ]; then mkdir -p "$spektrafilm_luts_data_home/ART"; if [ -L "$spektrafilm_luts_dir" ] || [ ! -e "$spektrafilm_luts_dir" ]; then ln -sfn '"$out"'/share/ART/spektrafilm-luts "$spektrafilm_luts_dir"; fi; fi' \
         --prefix PATH : "${spektrafilm-python}/bin"
     '';
   }));
