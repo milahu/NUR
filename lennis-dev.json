@@ -1,19 +1,19 @@
 {
 "name":"lennis-dev",
-"fetch_time":0.39,
-"eval_time":0.854,
+"fetch_time":0.817,
+"eval_time":0.918,
 "source":{
 "url":"https://github.com/lennis-dev/nur-packages",
-"rev":"41e339fa8e011d4711b59898b32d4660a434f54d",
-"sha256":"0jqclmnak8p4hk4yb34gqkb1qhdccna7f5kswzm03ja9q24dpnb1",
+"rev":"f7c64fc9d43fdb6f2b1e9aafebcc922454ef5745",
+"sha256":"0zhn03dwsnj6y85sb5akqvdx3l3l4yq3r8phwjzsjm0pqhzlqm2s",
 "date":null
 },
-"source_storepath":"/nix/store/7bs2grwnfbbjqciwcy3vvidmq20s4jg5-source",
-"nixpkgs_storepath":"/nix/store/rf8y386qrylwnhi8bzmxcac7hrm0qi6h-source",
-"nur_combined_rev":"de928b55a0d05cc51ef4799fc1c867faa58d7e3a",
+"source_storepath":"/nix/store/75zgdk32sv8ick3s50l24rp81j0d41qx-source",
+"nixpkgs_storepath":"/nix/store/wmp3qya4vvz0z3lscxlfhrhq74z891jv-source",
+"nur_combined_rev":"ee864eccc8046bf595722130141a4c9209562aa3",
 "packages":{
 "dev-lennis-www":{
-"drvPath":"/nix/store/h6bmja4528yzp94kkma2hidkj3pm5rgj-dev-lennis-www-77e7d3f.drv",
+"drvPath":"/nix/store/cl48xg8ldg17yzlmkklvx1ncwap7l4db-dev-lennis-www-77e7d3f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -64,6 +64,12 @@
 "out"
 ],
 "position":"./pkgs/dev-lennis-www/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -77,7 +83,7 @@
 "version":"77e7d3f"
 },
 "email-obfuscater":{
-"drvPath":"/nix/store/hls2mvb11ls3mh1i4dw56jw7ywbpx1qn-dev-lennis-email-obfuscater-8984185.drv",
+"drvPath":"/nix/store/85zagq652pd73kahl0l9jyja1sa4g322-dev-lennis-email-obfuscater-8984185.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -128,6 +134,12 @@
 "out"
 ],
 "position":"./pkgs/email-obfuscater/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -141,7 +153,7 @@
 "version":"8984185"
 },
 "gio-project-avatar-fetcher":{
-"drvPath":"/nix/store/5cgk83k7865zrh2kzgr5fchmwr5r5k1j-dev-lennis-gio-project-avatar-fetcher-4faa096.drv",
+"drvPath":"/nix/store/lw9i0l3w7qayrrzydpv8x0kby5mz73nc-dev-lennis-gio-project-avatar-fetcher-4faa096.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -191,6 +203,12 @@
 "out"
 ],
 "position":"./pkgs/gio-project-avatar-fetcher/default.nix:22",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -204,7 +222,7 @@
 "version":"4faa096"
 },
 "hackit":{
-"drvPath":"/nix/store/q9g8vsc1blsvm1f9k5vk26992qkizr52-dev-lennis-hackit-fb6949d.drv",
+"drvPath":"/nix/store/vsyqych77qd4dp1akxjhknb5n91qa872-dev-lennis-hackit-fb6949d.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -255,6 +273,12 @@
 "out"
 ],
 "position":"./pkgs/hackit/default.nix:26",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -268,7 +292,7 @@
 "version":""
 },
 "update-my-nur":{
-"drvPath":"/nix/store/z0fgak0ps418a1q48npxlgvq6iqj49bq-update-my-nur.drv",
+"drvPath":"/nix/store/i69b811wbij9s35a94ia2pgmzhp6rnrw-update-my-nur.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -307,6 +331,7 @@
 "out"
 ],
 "position":"./pkgs/update-my-nur/default.nix:12",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -320,7 +345,7 @@
 "version":""
 },
 "xauth-server":{
-"drvPath":"/nix/store/h8n12ra3r5jvv5s7hrj687szfcn0s3dh-dev-lennis-xauth-server-78caf02.drv",
+"drvPath":"/nix/store/7yqp7n08r3wjs2b916l3vxkapx5j8f9c-dev-lennis-xauth-server-78caf02.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -371,6 +396,12 @@
 "out"
 ],
 "position":"./pkgs/xauth-server/default.nix:38",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
