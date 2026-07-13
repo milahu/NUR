@@ -1,32 +1,31 @@
 {
-  firefox-unwrapped,
+  buildMozillaMach,
   lib,
+  stdenv,
   sources,
 }:
-firefox-unwrapped.overrideAttrs (old: {
-  inherit (sources.invisible-firefox) version src;
+(buildMozillaMach {
+  inherit (sources.invisible-firefox) pname src;
+  version = "150.0.0"; # keep compatibility with patch version ranges
 
-  # Skip macOS specific patches
-  prePatch = (old.prePatch or "") + ''
-    local -a patchesArray
-    concatTo patchesArray patches
-    for i in "''${!patchesArray[@]}"; do
-      if grep "/macos_fake_sdk/" "''${patchesArray[i]}" >/dev/null 2>&1; then
-        echo "skipping patch ''${patchesArray[i]}"
-        unset 'patchesArray[i]'
-      fi
-    done
-    patches="''${patchesArray[@]}"
-    echo "Final patches: $patches"
-  '';
-
-  postPatch = (old.postPatch or "") + ''
-    # Remove mozconfig changes causing build failure
-    rm -f .mozconfig
-  '';
-
-  meta = old.meta // {
+  meta = {
     maintainers = with lib.maintainers; [ xddxdd ];
     description = "Firefox with anti fingerprinting modifications";
+    platforms = lib.platforms.unix;
+    broken = stdenv.buildPlatform.is32bit;
+    maxSilent = 14400; # 4h, double the default of 7200s (c.f. #129212, #129115)
+    license = lib.licenses.mpl20;
+    mainProgram = "firefox";
   };
-})
+}).overrideAttrs
+  (old: {
+    patches = (old.patches or [ ]) ++ [
+      ./153-cbindgen-0.29.4-compat.patch
+      ./fix-ttc.patch
+    ];
+
+    postPatch = (old.postPatch or "") + ''
+      # Remove mozconfig changes causing build failure
+      rm -f .mozconfig
+    '';
+  })

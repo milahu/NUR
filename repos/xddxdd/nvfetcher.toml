@@ -67,10 +67,6 @@ src.github_tag = "qjfoidnh/BaiduPCS-Go"
 fetch.url = "https://github.com/bambulab/BambuStudio/releases/download/v02.05.02.51/BambuStudio_ubuntu-24.04_v02.05.02.51-20260327222803.AppImage"
 src.manual = "02.05.02.51"
 
-[bepasty]
-fetch.pypi = "bepasty"
-src.pypi = "bepasty"
-
 [bergamot-translator]
 fetch.github = "browsermt/bergamot-translator"
 git.fetchSubmodules = true
@@ -477,9 +473,8 @@ fetch.url = "https://github.com/share121/inter-knot/releases/download/$ver/inter
 src.github = "share121/inter-knot"
 
 [invisible-firefox]
-fetch.github = "feder-cr/invisible-firefox"
-src.git = "https://github.com/feder-cr/invisible-firefox.git"
-src.branch = "stealth/150"
+fetch.github = "feder-cr/firefox_antidetect_patch"
+src.github = "feder-cr/firefox_antidetect_patch"
 
 [invisible-firefox-bin-linux-arm64]
 fetch.url = "https://github.com/feder-cr/invisible_playwright/releases/download/firefox-$ver/firefox-150.0.1-stealth-linux-arm64.tar.gz"
@@ -603,10 +598,6 @@ fetch.github = "LinguaSpark/server"
 git.fetchSubmodules = true
 src.git = "https://github.com/LinguaSpark/server.git"
 
-[llama-cpp]
-fetch.github = "ggerganov/llama.cpp"
-src.github = "ggerganov/llama.cpp"
-
 [loralib]
 fetch.github = "microsoft/LoRA"
 src.git = "https://github.com/microsoft/LoRA.git"
@@ -646,6 +637,10 @@ src.github_tag = "adsb-related-code/mlat-client"
 [modelscope]
 fetch.github = "modelscope/modelscope"
 src.github = "modelscope/modelscope"
+
+[modelscope-hub]
+fetch.github = "modelscope/modelscope_hub"
+src.github = "modelscope/modelscope_hub"
 
 [mtkclient]
 fetch.github = "bkerler/mtkclient"
@@ -768,7 +763,10 @@ src.git = "https://github.com/sftcd/openssl.git"
 src.branch = "ECH-draft-13c"
 
 [openssl-oqs-provider]
-# fetch.github = "open-quantum-safe/oqs-provider"
+fetch.github = "open-quantum-safe/oqs-provider"
+src.git = "https://github.com/open-quantum-safe/oqs-provider.git"
+
+[openssl-oqs-provider-stable]
 fetch.url = "https://github.com/open-quantum-safe/oqs-provider/archive/refs/tags/$ver.tar.gz"
 src.github = "open-quantum-safe/oqs-provider"
 
