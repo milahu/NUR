@@ -17,11 +17,30 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-NuNiOx2Moupi23q1yX/aDIoleg0bGUvlcFYTqAPVkgU=";
   };
 
-  zigDeps = zig.fetchDeps {
-    inherit (finalAttrs) src pname version;
-    hash = "sha256-zqf9fK99IfmQ+UKzDxrUq1ocdpfI7kT3ijotx67OcO4=";
-    fetchAll = true;
-  };
+  postPatch = ''
+    substituteInPlace build.zig \
+      --replace-fail 'const include = if (try build_util.getProtocDependency(b)) |protoc| protoc.path("include") else b.path("");' \
+      'const include = b.path("");'
+  '';
+
+  zigDeps =
+    (zig.fetchDeps {
+      inherit (finalAttrs) src pname version;
+      hash = "sha256-J3Q8DV96naximacTUL+NjDsHZLYFRqFhO1FLvJAciNE=";
+      fetchAll = true;
+    }).overrideAttrs
+      (oldAttrs: {
+        buildCommand =
+          lib.replaceStrings
+            [ "export ZIG_GLOBAL_CACHE_DIR=$(mktemp -d)\n" ]
+            [
+              ''
+                export ZIG_GLOBAL_CACHE_DIR=$(mktemp -d)
+                mkdir -p "$ZIG_GLOBAL_CACHE_DIR/tmp"
+              ''
+            ]
+            oldAttrs.buildCommand;
+      });
 
   nativeBuildInputs = [
     zig.hook
