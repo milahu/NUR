@@ -5,27 +5,26 @@
   stdenv,
   openssl,
   pkg-config,
-  darwin,
+  apple-sdk,
 }:
 
 rustPlatform.buildRustPackage rec {
   pname = "prr";
-  version = "0.20.0";
+  version = "0.21.0";
 
   src = fetchFromGitHub {
     owner = "danobi";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-duoC3TMgW+h5OrRCbqYPppMtnQBfS9R7ZpHQySgPRv4=";
+    hash = "sha256-G8/T3Jyr0ZtY302AvYxhaC+8Ld03cVL5Cuflz62e0mw=";
   };
 
-  cargoHash = "sha256-PuPCm6IyX/dBcigBhroNaKDwY4TypUDjVODy+2iUix0=";
+  cargoHash = "sha256-s/6fRbex4xACU64EGWsN459huTV56D92hBG0QPPDK5g=";
 
   buildInputs =
     [ openssl ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [
-      darwin.apple_sdk.frameworks.Security
-      darwin.apple_sdk.frameworks.SystemConfiguration
+      apple-sdk
     ];
 
   nativeBuildInputs = [ pkg-config ];
