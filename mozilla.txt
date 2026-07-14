@@ -1,92 +1,139 @@
-trace: evaluation warning: 'makeOverridable' has been removed from pkgs, use `lib.makeOverridable` instead
 error:
-… while querying the derivation named 'rust-cbindgen-0.14.3'
+… in the condition of the assert statement
+  at <nixpkgs> + /lib/customisation.nix:416:13:
+   415|           drvPath =
+   416|             assert condition;
+      |             ^
+   417|             drv.drvPath;
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:983:18:
+   982|       };
+   983|       validity = assertValidity { inherit meta attrs; };
+      |                  ^
+   984|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:705:5:
+   704|     in
+   705|     { meta, attrs }:
+      |     ^
+   706|     let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:710:5:
+   709|     in
+   710|     if invalid == null then
+      |     ^
+   711|       if problems == null then
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:707:17:
+   706|     let
+   707|       invalid = checkValidity' attrs;
+      |                 ^
+   708|       problems = checkProblems attrs;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:406:5:
+   405|     in
+   406|     attrs:
+      |     ^
+   407|     if !attrs ? meta then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:448:10:
+   447|       }
+   448|     else if hasUnsupportedPlatform' attrs && !allowUnsupportedSystem then
+      |          ^
+   449|       let
 
 … in the left operand of the AND (&&) operator
-
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:645:9:
-
-   644|         validity.valid != "no"
-   645|         && ((config.checkMetaRecursively or false) -> all (d: d.meta.available or true) references);
-      |         ^
-   646|     };
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:448:43:
+   447|       }
+   448|     else if hasUnsupportedPlatform' attrs && !allowUnsupportedSystem then
+      |                                           ^
+   449|       let
 
 … from call site
-
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:833:18:
-
-   832|       };
-   833|       validity = checkMeta.assertValidity { inherit meta attrs; };
-      |                  ^
-   834|
-
-… while calling 'assertValidity'
-
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:686:5:
-
-   685|   assertValidity =
-   686|     { meta, attrs }:
-      |     ^
-   687|     let
-
-… from call site
-
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:688:17:
-
-   687|     let
-   688|       invalid = checkValidity attrs;
-      |                 ^
-   689|       problems = checkProblems attrs;
-
-… while calling 'checkValidity'
-
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:417:5:
-
-   416|   checkValidity =
-   417|     attrs:
-      |     ^
-   418|     # Check meta attribute types first, to make sure it is always called even when there are other issues
-
-… from call site
-
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:462:13:
-
-   461|       }
-   462|     else if hasUnsupportedPlatform attrs && !allowUnsupportedSystem then
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:448:13:
+   447|       }
+   448|     else if hasUnsupportedPlatform' attrs && !allowUnsupportedSystem then
       |             ^
-   463|       let
+   449|       let
 
-… while calling 'hasUnsupportedPlatform'
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:133:5:
+   132|     in
+   133|     pkg:
+      |     ^
+   134|     pkg ? meta.platforms && !(anyHostPlatform pkg.meta.platforms)
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:136:28:
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:135:5:
+   134|     pkg ? meta.platforms && !(anyHostPlatform pkg.meta.platforms)
+   135|     || pkg ? meta.badPlatforms && anyHostPlatform pkg.meta.badPlatforms;
+      |     ^
+   136|
 
-   135|
-   136|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
-      |                            ^
-   137|
+… in the right operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:134:26:
+   133|     pkg:
+   134|     pkg ? meta.platforms && !(anyHostPlatform pkg.meta.platforms)
+      |                          ^
+   135|     || pkg ? meta.badPlatforms && anyHostPlatform pkg.meta.badPlatforms;
+
+… in the argument of the not operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:134:31:
+   133|     pkg:
+   134|     pkg ? meta.platforms && !(anyHostPlatform pkg.meta.platforms)
+      |                               ^
+   135|     || pkg ? meta.badPlatforms && anyHostPlatform pkg.meta.badPlatforms;
 
 … from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:134:31:
+   133|     pkg:
+   134|     pkg ? meta.platforms && !(anyHostPlatform pkg.meta.platforms)
+      |                               ^
+   135|     || pkg ? meta.badPlatforms && anyHostPlatform pkg.meta.badPlatforms;
 
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:136:35:
+… while calling 'anyHostPlatform'
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:131:25:
+   130|       # intensive platformMatch if necessary
+   131|       anyHostPlatform = list: elem system list || any (platformMatch hostPlatform) list;
+      |                         ^
+   132|     in
 
-   135|
-   136|   hasUnsupportedPlatform = pkg: !(availableOn hostPlatform pkg);
-      |                                   ^
-   137|
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:131:48:
+   130|       # intensive platformMatch if necessary
+   131|       anyHostPlatform = list: elem system list || any (platformMatch hostPlatform) list;
+      |                                                ^
+   132|     in
 
-… while calling 'availableOn'
+… while calling the 'elem' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:131:31:
+   130|       # intensive platformMatch if necessary
+   131|       anyHostPlatform = list: elem system list || any (platformMatch hostPlatform) list;
+      |                               ^
+   132|     in
 
-  at <nixpkgs> + /lib/meta.nix:369:15:
+… while evaluating the attribute 'meta.platforms'
+  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:181:9:
+   180|         # default to Rust's platforms
+   181|         platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
+      |         ^
+   182|       };
 
-   368|   availableOn =
-   369|     platform: pkg:
-      |               ^
-   370|     ((!pkg ? meta.platforms) || any (platformMatch platform) pkg.meta.platforms)
+… while calling the 'filter' builtin
+  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:181:21:
+   180|         # default to Rust's platforms
+   181|         platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
+      |                     ^
+   182|       };
 
 error: attribute 'targetPlatforms' missing
-
 at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:181:76:
-
    180|         # default to Rust's platforms
    181|         platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
       |                                                                            ^
