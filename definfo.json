@@ -1,19 +1,19 @@
 {
 "name":"definfo",
-"fetch_time":0.678,
-"eval_time":1.267,
+"fetch_time":0.717,
+"eval_time":1.392,
 "source":{
 "url":"https://github.com/definfo/nur-packages",
-"rev":"b32f90ae7baf0bf485cb7609659b08b19afe644d",
-"sha256":"04x39pcsmfdzjifxq9hmwx9z1b31im03j39zdrqcicxbg0i07qcr",
+"rev":"a04c74f48136ce1f8072e64d5a78288141983c39",
+"sha256":"10l8mkzs732c2m9jpsvcj5cdyhcacqj0pyl3y6i88yn5m7n6q4qp",
 "date":null
 },
-"source_storepath":"/nix/store/7rnlm28sl5mv88gj9d3rn4ganga8hmcg-source",
-"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
-"nur_combined_rev":"927e214ebb475305565b6211cc514f7832ecb2df",
+"source_storepath":"/nix/store/wrlvi6486qnz99ds7yq46as4haddjvds-source",
+"nixpkgs_storepath":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source",
+"nur_combined_rev":"8fab0ff121c4f8af31a2db3b8c5f8cbe1ee3757b",
 "packages":{
 "cli-proxy-api":{
-"drvPath":"/nix/store/cmws0kwjllw3h7g65z5s8cc4lsakp1m4-cli-proxy-api-7.1.43.drv",
+"drvPath":"/nix/store/g67pvhscp34jf49c82qgbh4h7ymdzi5x-cli-proxy-api-7.1.43.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -66,6 +66,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -88,8 +89,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/cli-proxy-api/default.nix:53",
 "problems":{
@@ -111,7 +111,7 @@
 "version":"7.1.43"
 },
 "dnsmasq-china-list_smartdns":{
-"drvPath":"/nix/store/91aqi26x119gbsf7mf2nq04bbybmqbwn-dnsmasq-china-list-0-unstable-2026-06-02.drv",
+"drvPath":"/nix/store/nixg7x7h6cavvdjggvwk558m330bavlv-dnsmasq-china-list-0-unstable-2026-06-02.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -167,7 +167,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7rnlm28sl5mv88gj9d3rn4ganga8hmcg-source/pkgs/dnsmasq-china-list_smartdns/default.nix",
+"file":"/nix/store/wrlvi6486qnz99ds7yq46as4haddjvds-source/pkgs/dnsmasq-china-list_smartdns/default.nix",
 "line":42
 },
 "name":"dnsmasq-china-list-0-unstable-2026-06-02",
@@ -183,10 +183,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -195,7 +196,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -218,7 +218,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -279,7 +278,7 @@
 "version":"0-unstable-2026-06-02"
 },
 "nsub":{
-"drvPath":"/nix/store/c55phy1irabh24awblqsl544kj4fbpv3-nsub-0-unstable-2024-07-06.drv",
+"drvPath":"/nix/store/jba0if0372hqs5wq4jazyrx9w8sn6816-nsub-0-unstable-2024-07-06.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -335,7 +334,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7rnlm28sl5mv88gj9d3rn4ganga8hmcg-source/pkgs/nsub/default.nix",
+"file":"/nix/store/wrlvi6486qnz99ds7yq46as4haddjvds-source/pkgs/nsub/default.nix",
 "line":34
 },
 "name":"nsub-0-unstable-2024-07-06",
@@ -351,10 +350,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -363,7 +363,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -386,7 +385,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -447,7 +445,7 @@
 "version":"0-unstable-2024-07-06"
 },
 "sarasa-term-sc-nerd":{
-"drvPath":"/nix/store/spbr1vii0byk3zni455b9srhc4yqzlcs-sarasa-term-sc-nerd-2.3.1.drv",
+"drvPath":"/nix/store/55zs0vrrkyh2w7kr7gqijvrqmbi1b70x-sarasa-term-sc-nerd-2.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -503,7 +501,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7rnlm28sl5mv88gj9d3rn4ganga8hmcg-source/pkgs/sarasa-term-sc-nerd/default.nix",
+"file":"/nix/store/wrlvi6486qnz99ds7yq46as4haddjvds-source/pkgs/sarasa-term-sc-nerd/default.nix",
 "line":62
 },
 "name":"sarasa-term-sc-nerd-2.3.1",
@@ -519,10 +517,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -531,7 +530,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -554,7 +552,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -615,7 +612,7 @@
 "version":"2.3.1"
 },
 "waylrc":{
-"drvPath":"/nix/store/q5rs8lghs7kqkrq5z82azymjf9d3zs60-waylrc-2.2.4.drv",
+"drvPath":"/nix/store/73h43rrrjp2n4q3y7i1j81p3g44g8kac-waylrc-2.2.4.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -704,7 +701,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7rnlm28sl5mv88gj9d3rn4ganga8hmcg-source/pkgs/waylrc/default.nix",
+"file":"/nix/store/wrlvi6486qnz99ds7yq46as4haddjvds-source/pkgs/waylrc/default.nix",
 "line":34
 },
 "name":"waylrc-2.2.4",
@@ -755,7 +752,7 @@
 "version":"2.2.4"
 },
 "wemeet":{
-"drvPath":"/nix/store/69hdjrhs0p2fan49df6jxsnrdp6ix8a2-wemeet-3.26.10.401.drv",
+"drvPath":"/nix/store/y3dibrka2jscl0fh5h7gz188a6crpqrm-wemeet-3.26.10.401.drv",
 "meta":{
 "available":true,
 "broken":false,

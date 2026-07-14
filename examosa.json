@@ -1,19 +1,19 @@
 {
 "name":"examosa",
-"fetch_time":0.99,
-"eval_time":0.704,
+"fetch_time":1.002,
+"eval_time":0.768,
 "source":{
 "url":"https://codeberg.org/examosa/nur-packages",
-"rev":"7dc84621f71ed148e105229b9b45c05c6826e1d0",
-"sha256":"0sirjxm4jg4ik4iaz1bs17q412a2rh1hcv0xcz69jplndk5ndbf5",
+"rev":"09f81cd9c30584bbe4a54852e9c5bf5e5183d878",
+"sha256":"17s2hx36shy7yl8j3w6zmyip6y09j2djysr1mb29lgbysp19acd6",
 "date":null
 },
-"source_storepath":"/nix/store/9756jdpzn8nbbsmjxipn8qli848wk6lv-nur-packages",
-"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
-"nur_combined_rev":"dd10fccf148c936cd72a759d6c6e90e152bc4c22",
+"source_storepath":"/nix/store/ij6v2pvm28ndas3p09vmzrllwklg09as-nur-packages",
+"nixpkgs_storepath":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source",
+"nur_combined_rev":"18131414c6092f2f825533d3237b2c5b0c50da48",
 "packages":{
 "attempt":{
-"drvPath":"/nix/store/rd274v4alj0s2nccdjp41ygzv6arp6a3-attempt-1.1.1.drv",
+"drvPath":"/nix/store/rvfbz6x25pf3p9arl8ahdg7ckx9imbdp-attempt-1.1.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -78,7 +78,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -137,7 +136,7 @@
 "version":"1.1.1"
 },
 "aube":{
-"drvPath":"/nix/store/rr46danvyv7c6b8hj4r55hv7nlmvdcvk-aube-1.26.0.drv",
+"drvPath":"/nix/store/z6bh8hkw3vmpqrj9w4lhxqpxrk8va0zx-aube-1.26.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -215,7 +214,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -274,7 +272,7 @@
 "version":"1.26.0"
 },
 "crgx":{
-"drvPath":"/nix/store/x4950xajcfqiyinq8vazhyqh8qswfbp9-crgx-0.1.0.drv",
+"drvPath":"/nix/store/71n6c9x6158cwminya91wb949bxsjzg5-crgx-0.1.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -340,7 +338,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -399,7 +396,7 @@
 "version":"0.1.0"
 },
 "dra":{
-"drvPath":"/nix/store/gx7xxri9ca1hh2v41ixacbpc2p8yh0l9-dra-0.10.2.drv",
+"drvPath":"/nix/store/d467y0fcb25dyz0nmrnv59h20zkhdmlf-dra-0.10.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -465,7 +462,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -534,7 +530,7 @@
 "version":"30.2"
 },
 "exec-as":{
-"drvPath":"/nix/store/b2zs25hg46cw7m1f0qv00p4d8g8rjmsg-exec-as-1.2.3.drv",
+"drvPath":"/nix/store/saryz8h30kjf2agpq2858pbla5aclbsm-exec-as-1.2.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -588,10 +584,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -600,7 +597,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -623,7 +619,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -689,7 +684,7 @@
 "version":"1.2.3"
 },
 "fnox":{
-"drvPath":"/nix/store/88x54ca7iw1bs51g0wxywjsxrqnwlbyl-fnox-1.29.0.drv",
+"drvPath":"/nix/store/wd3i509qagw4kac2xa0rg0qd7k0k82bh-fnox-1.29.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -755,7 +750,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -814,7 +808,7 @@
 "version":"1.29.0"
 },
 "gethome":{
-"drvPath":"/nix/store/qg8jml983hfrq5q9xp5vcdya94qav28a-gethome.drv",
+"drvPath":"/nix/store/f5ving1a2jsqydk0z6dkj23iz1yplyyj-gethome.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -877,8 +871,18 @@
 "system":"x86_64-linux",
 "version":"2026-06-28"
 },
+"mklaunchd":{
+"name":"mklaunchd-2026-05-07",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"mklaunchd",
+"system":"x86_64-linux",
+"version":"2026-05-07"
+},
 "restish":{
-"drvPath":"/nix/store/9g1cgzd0jwppl86w8hfrbwxbg39710a8-restish-2.3.0.drv",
+"drvPath":"/nix/store/g2vg7p70svqyvbvw0kkywj1cgrxbxkg7-restish-2.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -934,8 +938,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -959,7 +963,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -986,7 +989,7 @@
 "version":"2.3.0"
 },
 "rw-rs":{
-"drvPath":"/nix/store/43s1j59jxg2vac5lxmfdamwhwj8xnsrc-rw-rs-1.0.1.drv",
+"drvPath":"/nix/store/4qpdj7myzdcg64zh8r90ds1qnddlnhgy-rw-rs-1.0.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1051,7 +1054,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -1110,7 +1112,7 @@
 "version":"1.0.1"
 },
 "seed7":{
-"drvPath":"/nix/store/24mhq5ksr6q8bci7fxfzq04ds24rgcb9-seed7-5.4.10.drv",
+"drvPath":"/nix/store/j2yv1bn1sgld1yh28njkh36jm6hid6c9-seed7-5.4.10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1166,10 +1168,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1178,7 +1181,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1201,7 +1203,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1277,7 +1278,7 @@
 "version":"0.6.0"
 },
 "ubi":{
-"drvPath":"/nix/store/nzxs3xvwfnv7svnh86kxcm8khiqkjrfn-ubi-0.9.0.drv",
+"drvPath":"/nix/store/463ksz8lw7m8mq04ym9f8n1h88m5riy8-ubi-0.9.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1355,7 +1356,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -1414,7 +1414,7 @@
 "version":"0.9.0"
 },
 "within":{
-"drvPath":"/nix/store/nggn56dn54vj6aq76vnv81zw2ki9hscs-within-1.1.4.drv",
+"drvPath":"/nix/store/ybqd89ch2x8j7agnq1m6r4yqvc8fch52-within-1.1.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1468,10 +1468,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1480,7 +1481,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1503,7 +1503,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",

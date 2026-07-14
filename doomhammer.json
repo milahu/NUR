@@ -1,19 +1,19 @@
 {
 "name":"doomhammer",
-"fetch_time":0.566,
-"eval_time":0.793,
+"fetch_time":0.538,
+"eval_time":0.837,
 "source":{
 "url":"https://github.com/doomhammer/nur-packages",
-"rev":"19dbb90df27b05e51b21d576f79c404d334cbc34",
-"sha256":"182yqjlji757fcnf970prnn238zshnxjqyl55vg01cjvjdbqwcag",
+"rev":"03aa4565b9b603a2ae9c78678468f7148041e2bb",
+"sha256":"0synb3mq0f3rw04shbcal91lnli05i7x3lmjv9dy3wkxmhfxn6yc",
 "date":null
 },
-"source_storepath":"/nix/store/lfzfan5z39im7syymrdnrxmx9av9nsv0-source",
-"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
-"nur_combined_rev":"e7995187b21b3003dcc647ebee1f88711e6a718f",
+"source_storepath":"/nix/store/b5z1m2lxblb7qbidgp4265912akjhv2g-source",
+"nixpkgs_storepath":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source",
+"nur_combined_rev":"b81ffecdcd06c8152df6af6ad6762041576c8a1f",
 "packages":{
 "gitpane":{
-"drvPath":"/nix/store/zhck937kirspx8ci2majvcfd9q5awy52-gitpane-v0.8.2.drv",
+"drvPath":"/nix/store/g47c799hjnl37qdn8bqpz8fnwhnkcscl-gitpane-v0.8.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -77,7 +77,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -146,7 +145,7 @@
 "version":"1.1.1"
 },
 "mermaid-rs-renderer":{
-"drvPath":"/nix/store/9mc401knsrkmcn7zhphdwgxld2a42ild-mermaid-rs-renderer-v0.2.2.drv",
+"drvPath":"/nix/store/iq0477bh2vwzq611cj0fp8bf0ixih9n4-mermaid-rs-renderer-v0.2.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -211,7 +210,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -290,7 +288,7 @@
 "version":"0-unstable-2026-05-29"
 },
 "powershell-beautifier":{
-"drvPath":"/nix/store/ajx3ck1c3slrqyqybipyj4wqaiy7mh6h-powershell-beautifier.drv",
+"drvPath":"/nix/store/wmbls6c8sbcmhpjwvksf26ryw6l6pgrb-powershell-beautifier.drv",
 "meta":{
 "description":"A whitespace reformatter and code cleaner for Windows PowerShell and PowerShell Core",
 "homepage":"https://github.com/DTW-DanWard/PowerShell-Beautifier",
@@ -306,10 +304,11 @@
 },
 "mainProgram":"power-shell-beautifier",
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -318,7 +317,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -341,7 +339,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
