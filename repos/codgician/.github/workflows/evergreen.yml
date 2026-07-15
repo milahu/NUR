@@ -256,7 +256,7 @@ jobs:
             printf 'ai-repaired' > "$RUNNER_TEMP/candidate/origin"
           fi
       - name: Upload candidate
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: evergreen-candidate-${{ matrix.package }}
           path: ${{ runner.temp }}/candidate
@@ -284,7 +284,7 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
       - name: Download candidate
-        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: evergreen-candidate-${{ matrix.package }}
           path: ${{ runner.temp }}/candidate
@@ -340,7 +340,7 @@ jobs:
             cp "$RUNNER_TEMP/candidate/changelog" "$RUNNER_TEMP/verified/changelog"
           fi
       - name: Upload verified result
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: evergreen-verified-${{ matrix.package }}
           path: ${{ runner.temp }}/verified
@@ -368,13 +368,21 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
       - name: Download verified result
-        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
+        id: verified
+        continue-on-error: true
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: evergreen-verified-${{ matrix.package }}
           path: ${{ runner.temp }}/verified
       - name: Apply verified result
         id: result
+        env:
+          VERIFIED_DOWNLOAD: ${{ steps.verified.outcome }}
         run: |
+          if [[ "$VERIFIED_DOWNLOAD" != "success" ]]; then
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           state=$(cat "$RUNNER_TEMP/verified/state")
           if [[ "$state" == "up-to-date" ]]; then
             echo "publish=false" >> "$GITHUB_OUTPUT"
@@ -426,6 +434,7 @@ jobs:
             echo "origin_label=$origin_label"
           } >> "$GITHUB_OUTPUT"
       - name: Generate publisher token
+        if: steps.result.outputs.publish == 'true'
         id: app-token
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3
         with:
