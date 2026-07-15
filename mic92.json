@@ -1,19 +1,19 @@
 {
 "name":"mic92",
-"fetch_time":0.575,
-"eval_time":1.037,
+"fetch_time":0.831,
+"eval_time":1.117,
 "source":{
 "url":"https://github.com/Mic92/nur-packages",
-"rev":"83bb845e8a798fc81523e301b9cee97169dfd34d",
-"sha256":"0cjz3a56vh2p9qw4qqw2gq1gbcldl0gs3cv6wi4a5nbqx57w743w",
+"rev":"59365b1db3df45896779a4c5d4d1f9f52df86b91",
+"sha256":"02nbg0i913lx5sn55bd738v63n3rxl9c5wdcjk01dsbf9spzcp7n",
 "date":null
 },
-"source_storepath":"/nix/store/aqlg1yf8f5h0m652rcv53wwypmdmik41-source",
-"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
-"nur_combined_rev":"374856c006c40d317eb0015287a0f8992616d24f",
+"source_storepath":"/nix/store/7ilflwh8nphj7qjn2886gsakgiwbdnsg-source",
+"nixpkgs_storepath":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source",
+"nur_combined_rev":"cdce4b6f2002f152548d5650b09e321406b3381f",
 "packages":{
 "goatcounter":{
-"drvPath":"/nix/store/cc8jvk8bkpk1g30pxzy454yywdwiqkw2-goatcounter-2.6.0.drv",
+"drvPath":"/nix/store/ayfbls6dfzx9fd9lw6c7arj5dg4i3x0v-goatcounter-2.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -70,7 +70,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/aqlg1yf8f5h0m652rcv53wwypmdmik41-source/pkgs/goatcounter/default.nix",
+"file":"/nix/store/7ilflwh8nphj7qjn2886gsakgiwbdnsg-source/pkgs/goatcounter/default.nix",
 "line":26
 },
 "name":"goatcounter-2.6.0",
@@ -87,15 +87,15 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -118,7 +118,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -149,7 +148,7 @@
 "version":"2.6.0"
 },
 "hello-nur":{
-"drvPath":"/nix/store/5yaf6dj84jr34hvpkmk1vzpmm0mc918n-hello-2.10.drv",
+"drvPath":"/nix/store/la0wbav5vi67kfaclvgzjzwl662348cy-hello-2.10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -200,7 +199,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/aqlg1yf8f5h0m652rcv53wwypmdmik41-source/pkgs/hello-nur/default.nix",
+"file":"/nix/store/7ilflwh8nphj7qjn2886gsakgiwbdnsg-source/pkgs/hello-nur/default.nix",
 "line":28
 },
 "name":"hello-2.10",
@@ -209,10 +208,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -221,7 +221,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -244,7 +243,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -310,7 +308,7 @@
 "version":"2.10"
 },
 "irc-announce":{
-"drvPath":"/nix/store/4mg0p4jqsc7klcgrswjrw0i69j55jjh5-irc-announce.drv",
+"drvPath":"/nix/store/axlrbv8zvwlgrp69m6swpqdkwpcdqj1g-irc-announce.drv",
 "meta":{
 "description":"IRC notifications implemented in ~25 lines shell script"
 },
@@ -324,7 +322,7 @@
 "version":""
 },
 "ircsink":{
-"drvPath":"/nix/store/avlgrvdfsarvpr09mvx6swcbpirzc57n-ircsink-1.2.0.drv",
+"drvPath":"/nix/store/rxdwhc8zalsfdhp4810by22r2gqcy18n-ircsink-1.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -380,7 +378,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/aqlg1yf8f5h0m652rcv53wwypmdmik41-source/pkgs/ircsink/default.nix",
+"file":"/nix/store/7ilflwh8nphj7qjn2886gsakgiwbdnsg-source/pkgs/ircsink/default.nix",
 "line":44
 },
 "name":"ircsink-1.2.0",
@@ -397,15 +395,15 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -428,7 +426,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -459,7 +456,7 @@
 "version":"1.2.0"
 },
 "mastodon-hnbot":{
-"drvPath":"/nix/store/05lg89dn0sc7kmcils7r3yfswvyhni1l-mastodon-hnbot-1.0.1.drv",
+"drvPath":"/nix/store/cgyi6fw6sjf2jqbnhx8hjsz2pp4v2f78-mastodon-hnbot-1.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -496,6 +493,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -519,8 +517,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -546,6 +542,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -569,8 +566,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -600,7 +595,7 @@
 "version":"1.0.1"
 },
 "rspamd-learn-spam-ham":{
-"drvPath":"/nix/store/g231dm2svm5gl605n4jyg8gl5rvay2nd-rspamd-learn-spam-ham-1.0.0.drv",
+"drvPath":"/nix/store/i6x2axzr64wg2xz5lx5jyxzmvr3f5fqf-rspamd-learn-spam-ham-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -637,6 +632,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -660,8 +656,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -691,7 +685,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/aqlg1yf8f5h0m652rcv53wwypmdmik41-source/pkgs/rspam-learn-spam-ham/default.nix",
+"file":"/nix/store/7ilflwh8nphj7qjn2886gsakgiwbdnsg-source/pkgs/rspam-learn-spam-ham/default.nix",
 "line":23
 },
 "name":"rspamd-learn-spam-ham-1.0.0",
@@ -708,15 +702,15 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -739,7 +733,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -771,7 +764,7 @@
 "version":"1.0.0"
 },
 "untilport":{
-"drvPath":"/nix/store/fjcqdwpx6aq50wf14i4wk6kj3f8dz3ql-untilport.drv",
+"drvPath":"/nix/store/6albmikpyxawm4d7ba6pjhv4ryg5dg4a-untilport.drv",
 "meta":{
 "description":"Wait until tcp port is reachable"
 },
@@ -785,7 +778,7 @@
 "version":""
 },
 "vaultwarden_ldap":{
-"drvPath":"/nix/store/7ai3dzq1r2sb61710w8qfxk9hm0dchy1-vaultwarden_ldap-2.1.0.drv",
+"drvPath":"/nix/store/0s5pkbr9abgnqbnlw4jcrmy2b9yj6m2c-vaultwarden_ldap-2.1.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -849,7 +842,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
