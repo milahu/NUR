@@ -1,16 +1,16 @@
 {
 "name":"jetcookies",
-"fetch_time":0.764,
-"eval_time":0.928,
+"fetch_time":0.861,
+"eval_time":0.953,
 "source":{
 "url":"https://github.com/jetcookies/nur-packages",
-"rev":"5ab21e8015d8d7f08ba0d7173b19ed977616a065",
-"sha256":"1p4y4ia0nv8bkn4gcynvspzajlcfxl8277psg0c0k4vbyzbslr2q",
+"rev":"c4f608b0d9512ed1d291a87bb972dd237b4fbb6f",
+"sha256":"0qf3qlzxwfy2pkwhbnnp0hal0ghvxxvyxry3xpgwbhql6f8wix1m",
 "date":null
 },
-"source_storepath":"/nix/store/qmpaspa3lpr7xibbchmddhmgvm1yvr0l-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"a8c98c3289cdea742938c6a2d1140d3a09ac15b2",
+"source_storepath":"/nix/store/hb8vpx0md3mm3wg4bsjxy8wbg5qh1dvl-source",
+"nixpkgs_storepath":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source",
+"nur_combined_rev":"30f1011af87f2bc2f95fbfee820f7ea224051518",
 "packages":{
 "dectalk":{
 "name":"dectalk-0-unstable-2023-10-30",
@@ -23,7 +23,7 @@
 "version":"0-unstable-2023-10-30"
 },
 "libtinycbor":{
-"drvPath":"/nix/store/0ia906zar8zyznks9laywzk4my038c52-libtinycbor-7.0.drv",
+"drvPath":"/nix/store/8h8qxr6s06x8qwpg2r3idyw8608pgmd6-libtinycbor-7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -77,6 +77,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -99,10 +100,15 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/libtinycbor/default.nix:24",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -116,7 +122,7 @@
 "version":"7.0"
 },
 "pico-fido":{
-"drvPath":"/nix/store/hb0dh7prrq3jc9ng9zgd0jwq72jhdxc6-pico-fido-7.4.1-librekeys.drv",
+"drvPath":"/nix/store/2jjw4ag2n2mj4xzh3sc1cjri7zcb2294-pico-fido-7.4.1-librekeys.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -169,15 +175,15 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -200,7 +206,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -217,6 +222,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/pico-fido/default.nix:96",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -230,7 +241,7 @@
 "version":"7.4.1-librekeys"
 },
 "picoforge":{
-"drvPath":"/nix/store/gks8wy0svj96k779898bmwaqs8v1sdd8-picoforge-0.6.0.drv",
+"drvPath":"/nix/store/7jqdd62744sq0b7rss9wbkgnbjibjgzg-picoforge-0.6.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -317,6 +328,12 @@
 "riscv32-linux"
 ],
 "position":"./pkgs/picoforge/default.nix:97",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -330,7 +347,7 @@
 "version":"0.6.0"
 },
 "rime-lmdg":{
-"drvPath":"/nix/store/x0q86axpvrv09dli0bp7p9nky6z5a2k7-rime-lmdg-0-unstable-2026-06-24.drv",
+"drvPath":"/nix/store/nymqigkrmc1b5flzpa7g0clv59krqhl2-rime-lmdg-0-unstable-2026-06-24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -384,10 +401,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -396,7 +414,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -419,7 +436,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -466,6 +482,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/rime-lmdg/default.nix:32",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -485,7 +507,7 @@
 "version":"0-unstable-2026-06-24"
 },
 "typewords":{
-"drvPath":"/nix/store/kg23fh0j4yjr4yi8rnbvm94m3sn8wlji-typewords-3.0.3-unstable-2026-06-24.drv",
+"drvPath":"/nix/store/ndwjcxh3h34wnhb42papqsifr4h73mds-typewords-3.0.3-unstable-2026-07-02.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -532,16 +554,17 @@
 "url":"https://spdx.org/licenses/GPL-3.0-only.html"
 },
 "maintainers":[],
-"name":"typewords-3.0.3-unstable-2026-06-24",
+"name":"typewords-3.0.3-unstable-2026-07-02",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -550,7 +573,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -573,7 +595,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -620,20 +641,26 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/typewords/default.nix:57",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
-"name":"typewords-3.0.3-unstable-2026-06-24",
+"name":"typewords-3.0.3-unstable-2026-07-02",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"typewords",
 "system":"x86_64-linux",
-"version":"3.0.3-unstable-2026-06-24"
+"version":"3.0.3-unstable-2026-07-02"
 },
 "v2dat":{
-"drvPath":"/nix/store/w438hm5381dg1fmn1lrg9h4xikgx8a1k-v2dat-0-unstable-2022-12-15.drv",
+"drvPath":"/nix/store/0b8fzam5xiqsh0brh55y2iccp3c2j0i6-v2dat-0-unstable-2022-12-15.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -687,6 +714,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -710,11 +738,15 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin"
 ],
 "position":"./pkgs/v2dat/default.nix:24",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -728,7 +760,7 @@
 "version":"0-unstable-2022-12-15"
 },
 "virtualgamepad-pc":{
-"drvPath":"/nix/store/9v1za3i1zgghp00h9m5rgy0li5z5pwha-virtualgamepad-pc-0.4.1.drv",
+"drvPath":"/nix/store/n3qdk56l3nprfaa8v9ck41faafzhmknw-virtualgamepad-pc-0.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -783,6 +815,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -805,10 +838,15 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/virtualgamepad-pc/default.nix:73",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -822,7 +860,7 @@
 "version":"0.4.1"
 },
 "x4-xmldiff":{
-"drvPath":"/nix/store/qh4sb1wrmw7dqrafkz8m370raqqg76xz-x4-xmldiff-1.2.1.drv",
+"drvPath":"/nix/store/radsbkmdrrara67qy4fp0jzadn7cpax1-x4-xmldiff-1.2.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -879,10 +917,15 @@
 "platforms":[
 "x86_64-linux",
 "aarch64-linux",
-"x86_64-darwin",
 "aarch64-darwin"
 ],
 "position":"./pkgs/x4-xmldiff/default.nix:29",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

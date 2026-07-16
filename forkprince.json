@@ -1,16 +1,16 @@
 {
 "name":"forkprince",
-"fetch_time":0.927,
-"eval_time":4.002,
+"fetch_time":1.048,
+"eval_time":3.603,
 "source":{
 "url":"https://github.com/forkprince/nur-packages",
-"rev":"84a69954d9a37394653850557a9b0756be21aa12",
-"sha256":"0c16bm5rdaviabzbkvw7v2avfxv06zq9w0vdq43x0iml5h5gdikd",
+"rev":"9bf4d9d170528d992357f98f76c024138f5ec19e",
+"sha256":"1k0xhbck3kxdy38wh5lmvin013c5iv1h8sjmkk70lv82fpgk3d2c",
 "date":null
 },
-"source_storepath":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source",
-"nixpkgs_storepath":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source",
-"nur_combined_rev":"d1e1974fe460127d30ee00c266a0c7bc8129ef76",
+"source_storepath":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source",
+"nixpkgs_storepath":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source",
+"nur_combined_rev":"61fed480c04b4448053c989d00caec586b1bc363",
 "packages":{
 "ab-download-manager":{
 "drvPath":"/nix/store/fwq5l35pkzd7yk3c0pkyfd5acrqy2hvy-ab-download-manager-1.9.2.drv",
@@ -69,8 +69,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/abdm/default.nix",
-"line":31
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/abdm/default.nix",
+"line":33
 },
 "name":"ab-download-manager-1.9.2",
 "nonTeamMaintainers":[
@@ -110,7 +110,7 @@
 "s390x-linux",
 "aarch64-darwin"
 ],
-"position":"./pkgs/abdm/default.nix:27",
+"position":"./pkgs/abdm/default.nix:29",
 "problems":{},
 "sourceProvenance":[
 {
@@ -141,7 +141,7 @@
 "version":"3.2.1"
 },
 "app-librescore":{
-"drvPath":"/nix/store/imckinad01zcvsyd8k4yp4k4xwq74yv6-app-librescore-6.0.23.drv",
+"drvPath":"/nix/store/20kprr6l01d15mxrqybcimaf730qa4sn-app-librescore-6.0.23.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -197,7 +197,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/app-librescore/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/app-librescore/default.nix",
 "line":19
 },
 "name":"app-librescore-6.0.23",
@@ -334,7 +334,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/boxtron-bin/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/boxtron-bin/default.nix",
 "line":61
 },
 "name":"boxtron-bin-0.5.4",
@@ -535,7 +535,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/eq/equibop/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/eq/equibop/package.nix",
 "line":176
 },
 "name":"equibop-3.2.1",
@@ -608,7 +608,7 @@
 "version":"3.2.1"
 },
 "equicord":{
-"drvPath":"/nix/store/8rij63kahnjvd32pmbcfm8ry6zavcvpf-equicord-2026-07-14.drv",
+"drvPath":"/nix/store/6nvl3lp7chp4zxxc8d6m008zcd4m7z1h-equicord-2026-07-15.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -665,10 +665,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/eq/equicord/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/eq/equicord/package.nix",
 "line":85
 },
-"name":"equicord-2026-07-14",
+"name":"equicord-2026-07-15",
 "nonTeamMaintainers":[
 {
 "email":"raf@notashelf.dev",
@@ -733,14 +733,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"equicord-2026-07-14",
+"name":"equicord-2026-07-15",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"equicord",
 "system":"x86_64-linux",
-"version":"2026-07-14"
+"version":"2026-07-15"
 },
 "figura":{
 "name":"figura-1.4.2",
@@ -763,7 +763,7 @@
 "version":"1.9.0"
 },
 "fluxer-bin":{
-"drvPath":"/nix/store/d7qfjigj88x71yhrn1c5nk1pcrl4jcg3-fluxer-bin-0.0.8.drv",
+"drvPath":"/nix/store/7fxf3ypz878lg1gkpah5rm8p6xhpjjhs-fluxer-bin-0.0.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -824,7 +824,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/fluxer-bin/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/fluxer-bin/default.nix",
 "line":22
 },
 "name":"fluxer-bin-0.0.8",
@@ -954,7 +954,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/gh/ghostty/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/gh/ghostty/package.nix",
 "line":184
 },
 "name":"ghostty-1.3.1",
@@ -1099,7 +1099,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/applications/graphics/gimp/default.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/applications/graphics/gimp/default.nix",
 "line":346
 },
 "name":"gimp-3.2.4",
@@ -1228,7 +1228,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/gi/github-desktop/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/gi/github-desktop/package.nix",
 "line":209
 },
 "name":"github-desktop-3.6.1",
@@ -1289,7 +1289,7 @@
 "version":"3.6.1"
 },
 "helium-nightly":{
-"drvPath":"/nix/store/8y769lrl8456jz8ifzqrq1dm5qnh28v3-helium-0.14.5.1.drv",
+"drvPath":"/nix/store/w4ccd1z41d8a4432simvzk23zk0ll9ya-helium-0.14.5.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1356,7 +1356,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/helium-nightly/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/helium-nightly/default.nix",
 "line":25
 },
 "name":"helium-0.14.5.1",
@@ -1428,7 +1428,7 @@
 "version":"0.14.5.1"
 },
 "heroic":{
-"drvPath":"/nix/store/xzr8kxibb1d7mnyglvgqydi06ay8yn4n-heroic-2.22.0.drv",
+"drvPath":"/nix/store/1bvsg8kcw9f7ycqyfj7qvjif3yibmkd1-heroic-2.22.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1516,7 +1516,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/he/heroic-unwrapped/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/he/heroic-unwrapped/package.nix",
 "line":142
 },
 "name":"heroic-unwrapped-2.22.0",
@@ -1645,7 +1645,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/hyprcursor-bibata/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/hyprcursor-bibata/default.nix",
 "line":68
 },
 "name":"hyprcursor-bibata-1.0",
@@ -1762,7 +1762,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/hyprpanel/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/hyprpanel/default.nix",
 "line":69
 },
 "name":"hyprpanel-0.3.0",
@@ -1885,7 +1885,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/luxtorpeda-bin/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/luxtorpeda-bin/default.nix",
 "line":46
 },
 "name":"luxtorpeda-bin-76.3.0",
@@ -1991,7 +1991,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/mcman/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/mcman/default.nix",
 "line":42
 },
 "name":"mcman-0.4.5",
@@ -2039,6 +2039,16 @@
 "pname":"mcman",
 "system":"x86_64-linux",
 "version":"0.4.5"
+},
+"mcpelauncher-swift":{
+"name":"mcpelauncher-swift-0.1.12",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"mcpelauncher-swift",
+"system":"x86_64-linux",
+"version":"0.1.12"
 },
 "micro":{
 "drvPath":"/nix/store/ccapabdqg7x4qg1l7y9ybcsify4334p2-micro-wrapped-2.0.15.drv",
@@ -2101,7 +2111,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/mi/micro/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/mi/micro/package.nix",
 "line":92
 },
 "name":"micro-2.0.15",
@@ -2222,7 +2232,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/moonplayer/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/moonplayer/default.nix",
 "line":23
 },
 "name":"moonplayer-4.3",
@@ -2294,7 +2304,7 @@
 "version":"1.2.1"
 },
 "note-block-studio":{
-"drvPath":"/nix/store/1xwdz3yiymirn4qa02qb8bnsz55153kr-note-block-studio-2025-01-09.drv",
+"drvPath":"/nix/store/58h9m738dgg30v32fpnyrg3jcpcm9429-note-block-studio-2025-01-09.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2350,7 +2360,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/note-block-studio/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/note-block-studio/default.nix",
 "line":16
 },
 "name":"note-block-studio-2025-01-09",
@@ -2486,7 +2496,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/applications/video/obs-studio/default.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/applications/video/obs-studio/default.nix",
 "line":256
 },
 "name":"obs-studio-32.1.2",
@@ -2549,7 +2559,7 @@
 "version":"2.4.1"
 },
 "openrct2":{
-"drvPath":"/nix/store/p5gjdyq14sqsqwpphc1xqixr6gn6i6s2-openrct2-0.5.3.drv",
+"drvPath":"/nix/store/ckf2l7lnzivhhdzck3ra7fz582q816im-openrct2-0.5.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2615,8 +2625,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/op/openrct2/package.nix",
-"line":182
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/op/openrct2/package.nix",
+"line":181
 },
 "name":"openrct2-0.5.3",
 "nonTeamMaintainers":[
@@ -2662,7 +2672,7 @@
 "s390-linux",
 "s390x-linux"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/op/openrct2/package.nix:158",
+"position":"<nixpkgs> + /pkgs/by-name/op/openrct2/package.nix:157",
 "problems":{},
 "sourceProvenance":[
 {
@@ -2683,17 +2693,17 @@
 "version":"0.5.3"
 },
 "orca":{
-"name":"orca-1.4.139",
+"name":"orca-1.4.141",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"orca",
 "system":"x86_64-linux",
-"version":"1.4.139"
+"version":"1.4.141"
 },
 "orca-slicer":{
-"drvPath":"/nix/store/xjw1yzdp6dw3h4hm72jxrs0hwpysr840-orca-slicer-2.4.2.drv",
+"drvPath":"/nix/store/igzv30gwwdlmcd2dp49bp2xqwbx909aj-orca-slicer-2.4.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2781,7 +2791,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/or/orca-slicer/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/or/orca-slicer/package.nix",
 "line":236
 },
 "name":"orca-slicer-2.4.2",
@@ -2947,7 +2957,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/ov/overlayed/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/ov/overlayed/package.nix",
 "line":78
 },
 "name":"overlayed-0.6.2",
@@ -3097,7 +3107,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/pc/pcsx2/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/pc/pcsx2/package.nix",
 "line":160
 },
 "name":"pcsx2-2.6.3",
@@ -3234,7 +3244,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/pe/peazip/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/pe/peazip/package.nix",
 "line":138
 },
 "name":"peazip-11.1.0",
@@ -3297,7 +3307,7 @@
 "version":"11.1.0"
 },
 "pixelflasher":{
-"drvPath":"/nix/store/z52fq7habbjqkmzd3fy6vr4ycysmm2y6-pixelflasher-8.14.3.1.drv",
+"drvPath":"/nix/store/569s0b7yc6q0v8svi1v42qdxd8jhnmb1-pixelflasher-8.14.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3388,7 +3398,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/pi/pixelflasher/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/pi/pixelflasher/package.nix",
 "line":96
 },
 "name":"pixelflasher-8.14.3.1",
@@ -3509,7 +3519,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/proton-cachyos-bin/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/proton-cachyos-bin/default.nix",
 "line":54
 },
 "name":"proton-cachyos-arm-bin-cachyos-11.0-20260702-slr",
@@ -3603,7 +3613,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/proton-cachyos-bin/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/proton-cachyos-bin/default.nix",
 "line":54
 },
 "name":"proton-cachyos-v1-bin-cachyos-11.0-20260702-slr",
@@ -3697,7 +3707,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/proton-cachyos-bin/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/proton-cachyos-bin/default.nix",
 "line":54
 },
 "name":"proton-cachyos-v3-bin-cachyos-11.0-20260702-slr",
@@ -3791,7 +3801,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/proton-em-bin/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/proton-em-bin/default.nix",
 "line":57
 },
 "name":"proton-em-bin-EM-10.0-37-HDR",
@@ -3885,7 +3895,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/proton-ge-rtsp-bin/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/proton-ge-rtsp-bin/default.nix",
 "line":52
 },
 "name":"proton-ge-rtsp-bin-proton-rtsp-11.0-20260609-1",
@@ -3979,7 +3989,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/proton-sarek-bin/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/proton-sarek-bin/default.nix",
 "line":52
 },
 "name":"proton-sarek-bin-Proton-Sarek10-29",
@@ -4089,7 +4099,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/re-lunatic-player/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/re-lunatic-player/default.nix",
 "line":161
 },
 "name":"re-lunatic-player-1.2.1",
@@ -4210,7 +4220,7 @@
 "version":"1.13.1"
 },
 "sonixd":{
-"drvPath":"/nix/store/415zjq44v1cfdbicy5bz26vz5b93dvy1-sonixd-0.15.5.drv",
+"drvPath":"/nix/store/w3qbvhii9jz4xb7am5rv5d899bw494h2-sonixd-0.15.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4272,7 +4282,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/sonixd/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/sonixd/default.nix",
 "line":18
 },
 "name":"sonixd-0.15.5",
@@ -4426,7 +4436,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/syslock/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/syslock/default.nix",
 "line":70
 },
 "name":"syslock-unstable-2025-05-10",
@@ -4464,7 +4474,7 @@
 "version":"2025-05-10"
 },
 "tenacity":{
-"drvPath":"/nix/store/nasra0ri83k168ma6r9inr51lvb8v9qj-tenacity-1.3.4.drv",
+"drvPath":"/nix/store/6ww4llz5fjfr421llwb24jg4j5rycsab-tenacity-1.3.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4534,7 +4544,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/te/tenacity/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/te/tenacity/package.nix",
 "line":191
 },
 "name":"tenacity-1.3.4",
@@ -4676,7 +4686,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/ti/tiny-rdm/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/ti/tiny-rdm/package.nix",
 "line":112
 },
 "name":"tiny-rdm-1.2.7",
@@ -4786,7 +4796,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/twintaillauncher/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/twintaillauncher/default.nix",
 "line":111
 },
 "name":"twintaillauncher-unwrapped-2.3.0",
@@ -4929,8 +4939,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/waterfox-bin/default.nix",
-"line":52
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/waterfox-bin/default.nix",
+"line":62
 },
 "name":"waterfox-6.6.16.1",
 "nonTeamMaintainers":[
@@ -4952,7 +4962,7 @@
 "aarch64-darwin",
 "x86_64-linux"
 ],
-"position":"./pkgs/waterfox-bin/default.nix:47",
+"position":"./pkgs/waterfox-bin/default.nix:57",
 "problems":{},
 "sourceProvenance":[
 {
@@ -5029,7 +5039,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/8jsjgbxnw6zp2dlc2h2pv05vxfk5w8z7-source/pkgs/wg-nord/default.nix",
+"file":"/nix/store/aw9kdk4nyqgq96yw2chyqgh2w7z5x1ym-source/pkgs/wg-nord/default.nix",
 "line":36
 },
 "name":"wg-nord-1.0.1",
@@ -5250,8 +5260,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/ze/zed-editor/package.nix",
-"line":326
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/ze/zed-editor/package.nix",
+"line":330
 },
 "name":"zed-editor-1.10.0",
 "nonTeamMaintainers":[

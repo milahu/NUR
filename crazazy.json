@@ -1,19 +1,19 @@
 {
 "name":"crazazy",
-"fetch_time":0.687,
-"eval_time":2.3,
+"fetch_time":1.285,
+"eval_time":2.154,
 "source":{
 "url":"https://github.com/crazazy/nixos-config",
-"rev":"58bdcb7d5f703a333c10dd98d4fbbadc8e0de6e6",
-"sha256":"1asrbxanx9v1kcsf02vd28741g66ghng8c8zqaghi61qrn9kwqia",
+"rev":"e9210336c9ba83f0ac2a07ac88f6034242eb2db7",
+"sha256":"11ck9ah9pc6pivm3l29myz9ixsh93vy85zra0n49bvng3g1zjmcb",
 "date":null
 },
-"source_storepath":"/nix/store/f0aryw6vi2zrkh1hkdg5pfhw4kx3la16-source",
-"nixpkgs_storepath":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source",
-"nur_combined_rev":"72738cfd06f55ed18ef162b7cf093ff1d9080f74",
+"source_storepath":"/nix/store/cnsxscjwqxnvvdgdnc5jlwkgnr632hmm-source",
+"nixpkgs_storepath":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source",
+"nur_combined_rev":"4911bd624f7fef03b6aa96d5524246f03464084b",
 "packages":{
 "cakeml":{
-"drvPath":"/nix/store/wb561lf105dh5a5v9z41gzah5shz46fj-cakeml.drv",
+"drvPath":"/nix/store/47q1gc8ds69vg1ma14ikwwy627a0yarj-cakeml.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -66,7 +66,7 @@
 "version":""
 },
 "elm":{
-"drvPath":"/nix/store/9gkp3n500iyg035wjani6gwsa402hk5c-elm-0.19.1.drv",
+"drvPath":"/nix/store/d6cqhbwcg1djz7w8czwskdxf8icn9g3s-elm-0.19.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -123,7 +123,7 @@
 ],
 "maintainersPosition":{
 "column":55,
-"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1101
 },
 "name":"elm-0.19.1",
@@ -139,10 +139,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -151,7 +152,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -174,7 +174,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -236,7 +235,7 @@
 "version":"0.19.1"
 },
 "enso":{
-"drvPath":"/nix/store/kkfy9mng0zj2q1blxcckall90kvsqwfb-enso-2025.2.3.drv",
+"drvPath":"/nix/store/6ix42chq2hi2v5mds4z8fjca28kzpmkk-enso-2025.2.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -298,7 +297,7 @@
 "version":"2025.2.3"
 },
 "firefox-addons.bitwarden-password-manager":{
-"drvPath":"/nix/store/55jf4q4mdq6k65488970psj3drk0vzh6-bitwarden-password-manager.drv",
+"drvPath":"/nix/store/w04whpwm3fspfhscj2q1hlairgh5n3kq-bitwarden-password-manager.drv",
 "meta":{
 "description":"At home, at work, or on the go, Bitwarden easily secures all your passwords, passkeys, and sensitive information.",
 "homepage":"https://bitwarden.com",
@@ -313,10 +312,11 @@
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -325,7 +325,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -348,7 +347,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -405,7 +403,7 @@
 "version":""
 },
 "firefox-addons.feedbroreader":{
-"drvPath":"/nix/store/fpgzw31xa3wiz9jm3ml5q18rzh9py7z4-feedbroreader.drv",
+"drvPath":"/nix/store/abdf6p0f4nc4s1xx6n69sk8bh74dr10j-feedbroreader.drv",
 "meta":{
 "description":"Advanced Feed Reader - Read news &amp; blogs or any RSS/Atom/RDF source.",
 "homepage":"http://nodetics.com/feedbro",
@@ -418,10 +416,11 @@
 "shortName":"unfree"
 },
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -430,7 +429,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -453,7 +451,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -510,7 +507,7 @@
 "version":""
 },
 "firefox-addons.libredirect":{
-"drvPath":"/nix/store/jd666m1c4fbjchjyxrpqjikjdy90wgs8-libredirect.drv",
+"drvPath":"/nix/store/8anrvi1m3vqhvx0bq81hj891qkqiakrw-libredirect.drv",
 "meta":{
 "description":"Redirects YouTube, Twitter, TikTok... requests to alternative privacy friendly frontends.",
 "homepage":"https://libredirect.github.io",
@@ -525,10 +522,11 @@
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -537,7 +535,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -560,7 +557,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -617,7 +613,7 @@
 "version":""
 },
 "firefox-addons.soundcloud-mp3-downloader":{
-"drvPath":"/nix/store/rv13q599v8rf2gk6d3y1nv1jfv84iapc-soundcloud-mp3-downloader.drv",
+"drvPath":"/nix/store/vni4vpms5ykb3mrvq3s8bsbp3280xyi7-soundcloud-mp3-downloader.drv",
 "meta":{
 "description":"Add download link to all SoundClould tracks",
 "license":{
@@ -631,10 +627,11 @@
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -643,7 +640,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -666,7 +662,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -723,7 +718,7 @@
 "version":""
 },
 "firefox-addons.tabliss":{
-"drvPath":"/nix/store/m73lhd0im427ywckzy1ydp4hpwcphqs2-tabliss.drv",
+"drvPath":"/nix/store/6015pbvxpqy2275kkj631wjpv66ix38f-tabliss.drv",
 "meta":{
 "description":"A beautiful New Tab page with many customisable backgrounds and widgets that does not require any permissions.",
 "homepage":"https://tabliss.io",
@@ -738,10 +733,11 @@
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -750,7 +746,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -773,7 +768,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -830,7 +824,7 @@
 "version":""
 },
 "firefox-addons.ublock-origin":{
-"drvPath":"/nix/store/pznngx2b4nzyfgm9v20skh595rbi5q0q-ublock-origin.drv",
+"drvPath":"/nix/store/a9d83sl8s6sk9xxd67vs03q42kz4sxrp-ublock-origin.drv",
 "meta":{
 "description":"Finally, an efficient wide-spectrum content blocker. Easy on CPU and memory.",
 "homepage":"https://github.com/gorhill/uBlock#ublock-origin",
@@ -845,10 +839,11 @@
 "url":"https://spdx.org/licenses/GPL-3.0.html"
 },
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -857,7 +852,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -880,7 +874,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -937,7 +930,7 @@
 "version":""
 },
 "firefox-addons.vim-vixen":{
-"drvPath":"/nix/store/cammd291igyizv4x3bzpl34714ifh811-vim-vixen.drv",
+"drvPath":"/nix/store/zdj5s685vac2is5wgwbw5qg87v71n88a-vim-vixen.drv",
 "meta":{
 "description":"Accelerates your web browsing with Vim power!!",
 "homepage":"https://github.com/ueokande/vim-vixen",
@@ -952,10 +945,11 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -964,7 +958,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -987,7 +980,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1044,7 +1036,7 @@
 "version":""
 },
 "firefox-addons.youtube_downloader_webx":{
-"drvPath":"/nix/store/mchcvqhjdshgdv8dxhdnlq3q9x4zwq6w-youtube_downloader_webx.drv",
+"drvPath":"/nix/store/i4igjp08nh8c6rknw6mdi5ijb169mif5-youtube_downloader_webx.drv",
 "meta":{
 "description":"Download YouTube videos in all available formats and extract the original audio files",
 "homepage":"https://github.com/feller-prj/extractor-project",
@@ -1059,10 +1051,11 @@
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1071,7 +1064,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1094,7 +1086,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1161,7 +1152,7 @@
 "version":"1.0.2"
 },
 "nvfetcher":{
-"drvPath":"/nix/store/3cjn0nd74kxzjxx9pksyjndbb74n83c0-nvfetcher-0.8.0.0.drv",
+"drvPath":"/nix/store/2l5hgdqqm6al9wnvmy9p37dkqpnm16sl-nvfetcher-0.8.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1219,7 +1210,7 @@
 ],
 "maintainersPosition":{
 "column":55,
-"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1101
 },
 "name":"nvfetcher-0.8.0.0",
@@ -1236,10 +1227,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1248,7 +1240,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1271,7 +1262,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1342,7 +1332,7 @@
 "version":""
 },
 "wasmfxtime":{
-"drvPath":"/nix/store/lha7f2z6gzldxgf8241k707fsbzjk5ik-wasmtime-21540296f1c262188636fe0fb373cd2a9600d764.drv",
+"drvPath":"/nix/store/z54dd12jky387gnizsh7x0db9dwl920i-wasmtime-21540296f1c262188636fe0fb373cd2a9600d764.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1441,7 +1431,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7p72xv6qmaypc2w4iqv0c9fkix31byc9-source/pkgs/by-name/wa/wasmtime/package.nix",
+"file":"/nix/store/8iszxvm9iysvs7fygchajx57z92hya7w-source/pkgs/by-name/wa/wasmtime/package.nix",
 "line":128
 },
 "name":"wasmtime-46.0.1",
@@ -1464,7 +1454,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
