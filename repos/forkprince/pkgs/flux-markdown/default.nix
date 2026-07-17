@@ -1,25 +1,26 @@
 {
   stdenvNoCC,
   fetchurl,
-  pcsx2,
+  _7zz,
   lib,
-  ...
-}:
-if stdenvNoCC.isDarwin
-then let
+}: let
   ver = lib.helper.read ./version.json;
 in
   stdenvNoCC.mkDerivation (lib.helper.mkDarwin {
-    pname = "pcsx2";
+    pname = "flux-markdown";
     inherit (ver) version;
 
     src = fetchurl (lib.helper.getSingle ver);
 
+    nativeBuildInputs = [_7zz];
+
     meta = {
-      description = "Playstation 2 emulator (precompiled binary, repacked from official website)";
-      homepage = "https://pcsx2.net/";
-      license = with lib.licenses; [gpl3Plus lgpl3Plus];
+      description = "Markdown Preview Enhanced for macOS QuickLook";
+      homepage = "https://github.com/xykong/flux-markdown";
       maintainers = with lib.maintainers; [Prinky];
+      license = with lib.licenses; [
+        unfree
+        gpl3
+      ];
     };
   })
-else pcsx2
