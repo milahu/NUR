@@ -1,19 +1,19 @@
 {
 "name":"minegameYTB",
-"fetch_time":0.811,
-"eval_time":1.962,
+"fetch_time":0.711,
+"eval_time":1.816,
 "source":{
 "url":"https://github.com/minegameYTB/nurpkgs-repo",
-"rev":"94f59d92113994f22d95f30b97f21870bc387ff7",
-"sha256":"172xfydy97df8i2cysx4nd4cwka357ab7y6vc4gqpw84dg8gdcp2",
+"rev":"65421667fc7925a867385e9afa0baeb76a97cce0",
+"sha256":"17zwgply196p8alcaxzyr9hanz34pgy7vfdy3fhyjnpn9hv5f4sk",
 "date":null
 },
-"source_storepath":"/nix/store/rvd9m4c30d96khl8s656gxkkai5scy75-source",
-"nixpkgs_storepath":"/nix/store/pwnyll1k7z26iw4c7xvsqbv1097ks8vk-source",
-"nur_combined_rev":"34d7280f0982e367de1ec8d37e8b9a854b885f8a",
+"source_storepath":"/nix/store/9qalh451v2d5g667qdl5ql57llbk46bx-source",
+"nixpkgs_storepath":"/nix/store/klahlrlzhcqz436frpbwlwjbms16ykpb-source",
+"nur_combined_rev":"a95543b198d4f7dd82a3be4f46ea3bc7bcf1630a",
 "packages":{
 "GLFfetch":{
-"drvPath":"/nix/store/bqkkv1ybaksizzhi8jvklhpqvyzhdys5-GLFfetch-0-unstable-2025-09-01.drv",
+"drvPath":"/nix/store/v37f3gs3qzlw9pyhq40a7mfxvycvk9am-GLFfetch-0-unstable-2025-09-01.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -67,6 +67,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -89,8 +90,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/misc/GLFfetch/default.nix:114",
 "problems":{
@@ -113,7 +113,7 @@
 "version":"0-unstable-2025-09-01"
 },
 "GLFfetch-glfos":{
-"drvPath":"/nix/store/nw30vll7xhkk8i3qmwbyqs087l1pr9x6-GLFfetch-0-unstable-2025-09-01.drv",
+"drvPath":"/nix/store/wisfxpgq4akhijf1i4l0ajf3jlrj86np-GLFfetch-0-unstable-2025-09-01.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -167,6 +167,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -189,8 +190,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/misc/GLFfetch/default.nix:114",
 "problems":{
@@ -213,7 +213,7 @@
 "version":"0-unstable-2025-09-01"
 },
 "gsettings-diff":{
-"drvPath":"/nix/store/kal8c7ddv88sbnbz7mwc282gw8irznvw-gsettings-diff-0.0.0.drv",
+"drvPath":"/nix/store/22knia7qflsjyvj2d2g63gj7b5cxn4dk-gsettings-diff-0.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -257,6 +257,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -279,8 +280,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/tools/gsettings-diff/default.nix:49",
 "problems":{
@@ -308,7 +308,7 @@
 "version":"0.0.0"
 },
 "kvm-archive":{
-"drvPath":"/nix/store/d4l5dbvh21hx734rmizsk322lbwyk7z0-kvm-archive-0.0.0.drv",
+"drvPath":"/nix/store/dzgmphpjwgcjly36anns60rlqjyrigiv-kvm-archive-0.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -351,6 +351,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -373,10 +374,9 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
-"position":"./pkgs/tools/kvm-archive/default.nix:77",
+"position":"./pkgs/tools/kvm-archive/default.nix:79",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -402,7 +402,7 @@
 "version":"0.0.0"
 },
 "sshrm":{
-"drvPath":"/nix/store/h5g9pvzy1962951g8lz5733ik3f1ykzp-sshrm-0.0.0.drv",
+"drvPath":"/nix/store/4k06iq95qh5r24vs2f9rd54w5y8xg951-sshrm-0.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -456,6 +456,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -478,8 +479,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/tools/sshrm/default.nix:51",
 "problems":{

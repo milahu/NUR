@@ -1,19 +1,19 @@
 {
 "name":"zimeg",
-"fetch_time":0.48,
-"eval_time":0.863,
+"fetch_time":0.858,
+"eval_time":0.812,
 "source":{
 "url":"https://github.com/zimeg/nur-packages",
-"rev":"f9e4a9a4e29592c58fdd6ff0666fa54163714551",
-"sha256":"0wfxrqpnxnrkfwjm2xf17ba73x4l0l82awgiy9kfbf8nq80xkm5a",
+"rev":"6c8e1842328874cf054d8747e16909eff45b78c1",
+"sha256":"1r1lx2yns1zwlih0za2br0gafkmms0phmsmm8rar6qmnpap4q991",
 "date":null
 },
-"source_storepath":"/nix/store/a7m6m7jzpspb27pfjsqfpzgjwsii8m0g-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"90f0d049bb3e447339dc70289829892269fb952c",
+"source_storepath":"/nix/store/s7la7rhwjr724cvclcij0nmxcff44kyj-source",
+"nixpkgs_storepath":"/nix/store/klahlrlzhcqz436frpbwlwjbms16ykpb-source",
+"nur_combined_rev":"ee147bf91b164956b539d532f07567dfa407e877",
 "packages":{
 "changesets":{
-"drvPath":"/nix/store/n29qxsl2vyfgcl2w5h5snhxp1jld5yl9-changesets-cli-2.29.7.drv",
+"drvPath":"/nix/store/dvwgglzb3rvsjjqjv7qqwqjqx65s62yf-changesets-cli-2.29.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -63,7 +63,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/a7m6m7jzpspb27pfjsqfpzgjwsii8m0g-source/pkgs/changesets/default.nix",
+"file":"/nix/store/s7la7rhwjr724cvclcij0nmxcff44kyj-source/pkgs/changesets/default.nix",
 "line":30
 },
 "name":"changesets-cli-2.29.7",
@@ -72,12 +72,12 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
+"x86_64-linux",
 "aarch64-darwin",
+"aarch64-linux",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -92,10 +92,15 @@
 "powerpc64le-linux",
 "riscv32-linux",
 "riscv64-linux",
-"x86_64-linux",
 "s390x-linux"
 ],
 "position":"./pkgs/changesets/default.nix:27",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -109,7 +114,7 @@
 "version":"2.29.7"
 },
 "etime":{
-"drvPath":"/nix/store/6sn73anr1d29fwmgdf29d6crnpv37j0x-etime-1.1.1.drv",
+"drvPath":"/nix/store/vf99jwff07764lfa1na6xzpj9dnlzsrx-etime-1.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -160,7 +165,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/a7m6m7jzpspb27pfjsqfpzgjwsii8m0g-source/pkgs/etime/default.nix",
+"file":"/nix/store/s7la7rhwjr724cvclcij0nmxcff44kyj-source/pkgs/etime/default.nix",
 "line":39
 },
 "name":"etime-1.1.1",
@@ -169,8 +174,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -194,7 +199,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -202,6 +206,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/etime/default.nix:35",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -215,7 +225,7 @@
 "version":"1.1.1"
 },
 "jtt-nvim":{
-"drvPath":"/nix/store/xd7gqslvmdwvnrjsjmrf0dvfiwbnalg6-vimplugin-jtt.nvim-unversioned.drv",
+"drvPath":"/nix/store/4nqa4mlw8vv0nnw33zglj74ydy4vdwhv-vimplugin-jtt.nvim-unversioned.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -268,10 +278,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -280,7 +291,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -303,7 +313,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -350,6 +359,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/jtt-nvim/default.nix:20",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -363,11 +378,11 @@
 "version":""
 },
 "jurigged":{
-"drvPath":"/nix/store/j0dsdb62jhnb5g0948wxz42zp7086dw5-jurigged-0.5.8.drv",
+"drvPath":"/nix/store/7qvqx3xlhrhv4cz4vzy6pda9g4lhrcrh-jurigged-0.5.8.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/breuleux/jurigged/releases/tag/v26.11pre1020805.89570f24e97e",
+"changelog":"https://github.com/breuleux/jurigged/releases/tag/v26.11pre1035778.6368bc923cec",
 "description":"Hot reloading for Python",
 "homepage":"https://github.com/breuleux/jurigged",
 "identifiers":{
@@ -401,6 +416,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -424,8 +440,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -447,7 +461,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/a7m6m7jzpspb27pfjsqfpzgjwsii8m0g-source/pkgs/jurigged/default.nix",
+"file":"/nix/store/s7la7rhwjr724cvclcij0nmxcff44kyj-source/pkgs/jurigged/default.nix",
 "line":82
 },
 "name":"jurigged-0.5.8",
@@ -456,6 +470,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -479,8 +494,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -490,6 +503,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/jurigged/default.nix:78",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -504,7 +523,7 @@
 "version":"0.5.8"
 },
 "llrt":{
-"drvPath":"/nix/store/z94j1s91341vwqb9mkbk1ahk3q3grfib-llrt-0.1.10-beta.drv",
+"drvPath":"/nix/store/042lh4j3r6acml33f69iw1p5fidzf5lp-llrt-0.1.10-beta.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -545,6 +564,7 @@
 "out"
 ],
 "position":"./pkgs/llrt/default.nix:21",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -558,7 +578,7 @@
 "version":"0.1.10-beta"
 },
 "newsflash-nvim":{
-"drvPath":"/nix/store/pi8p0ksszip184g6a1h0wy6d44fa1fqh-vimplugin-newsflash.nvim-0.1.0.drv",
+"drvPath":"/nix/store/p4i2z1p9kzhn98dgj1sviqnjvqy644h4-vimplugin-newsflash.nvim-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -611,10 +631,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -623,7 +644,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -646,7 +666,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -693,6 +712,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/newsflash-nvim/default.nix:20",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -706,7 +731,7 @@
 "version":"0.1.0"
 },
 "proximity-nvim":{
-"drvPath":"/nix/store/wi1ck15476rpml3l9jn6gy8jahbi5jfy-vimplugin-proximity.nvim-0.1.1.drv",
+"drvPath":"/nix/store/89kn2mksn8dy423l7f3wsk1sviggmvvq-vimplugin-proximity.nvim-0.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -759,10 +784,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -771,7 +797,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -794,7 +819,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -841,6 +865,12 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/proximity-nvim/default.nix:20",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -854,7 +884,7 @@
 "version":"0.1.1"
 },
 "quill":{
-"drvPath":"/nix/store/pddwmbqwmcwdgdqjxn6vgakw1843ia3y-quill-0.5.1.drv",
+"drvPath":"/nix/store/x9vrk1zwlwa2xwzv1vzs82627zh753y6-quill-0.5.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -905,7 +935,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/a7m6m7jzpspb27pfjsqfpzgjwsii8m0g-source/pkgs/quill/default.nix",
+"file":"/nix/store/s7la7rhwjr724cvclcij0nmxcff44kyj-source/pkgs/quill/default.nix",
 "line":32
 },
 "name":"quill-0.5.1",
@@ -914,8 +944,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -939,7 +969,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "wasm64-wasi",
 "wasm32-wasi",
 "i686-freebsd",
@@ -947,6 +976,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/quill/default.nix:28",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -960,7 +995,7 @@
 "version":"0.5.1"
 },
 "recon":{
-"drvPath":"/nix/store/cnmr5wj5p93lv0lzivakhs8hpyc77fm2-recon-0.6.1-unstable-2026-06-25.drv",
+"drvPath":"/nix/store/f330xax7bvi5wylyhb5rn2b3a3yvry9a-recon-0.6.1-unstable-2026-06-25.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1021,7 +1056,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/a7m6m7jzpspb27pfjsqfpzgjwsii8m0g-source/pkgs/recon/default.nix",
+"file":"/nix/store/s7la7rhwjr724cvclcij0nmxcff44kyj-source/pkgs/recon/default.nix",
 "line":26
 },
 "name":"recon-0.6.1-unstable-2026-06-25",
@@ -1030,7 +1065,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -1070,6 +1104,12 @@
 "wasm32-wasi"
 ],
 "position":"./pkgs/recon/default.nix:23",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1083,7 +1123,7 @@
 "version":"0.6.1-unstable-2026-06-25"
 },
 "zsh-wd":{
-"drvPath":"/nix/store/k6n60y3wbim629k2kdlyk7741l6qz7bj-wd-0.7.0.drv",
+"drvPath":"/nix/store/20lblwk5saiqm02w7wgajcjqsdn13ih9-wd-0.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1135,7 +1175,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/a7m6m7jzpspb27pfjsqfpzgjwsii8m0g-source/pkgs/zsh-wd/default.nix",
+"file":"/nix/store/s7la7rhwjr724cvclcij0nmxcff44kyj-source/pkgs/zsh-wd/default.nix",
 "line":38
 },
 "name":"wd-0.7.0",
@@ -1144,15 +1184,15 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1175,7 +1215,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -1192,6 +1231,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/zsh-wd/default.nix:29",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

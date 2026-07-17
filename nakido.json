@@ -1,19 +1,19 @@
 {
 "name":"nakido",
-"fetch_time":0.76,
-"eval_time":1.199,
+"fetch_time":0.65,
+"eval_time":1.202,
 "source":{
 "url":"https://github.com/nakido-official/nix_nurpkgs",
-"rev":"bd482eb4a5b8791e7234a5de572b4afc0ca73b32",
-"sha256":"1jwrj139592yfb8dbhhwmha14yh8a85rbys6jdq568bi604c5h5w",
+"rev":"9b7f130c2aa05cc08bec488a97273dcc438e6f2b",
+"sha256":"1qkkrws319nxmfrjaznjja6bqc0mcm8v8kgw38dc1ihchszdzzdh",
 "date":null
 },
-"source_storepath":"/nix/store/9qa1r908a3k2866f3niy47rsr2sivr2d-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"882b214e6d19b2f9b066ce63308c383fdd023516",
+"source_storepath":"/nix/store/lm5rv6jpr052cq1dg8v89h7j02wmyf6j-source",
+"nixpkgs_storepath":"/nix/store/klahlrlzhcqz436frpbwlwjbms16ykpb-source",
+"nur_combined_rev":"5f6e355c648e460210835fa495734b276ec3c853",
 "packages":{
 "fresh":{
-"drvPath":"/nix/store/nsl25ysyvp383q1gf26w1dw17sdm1jp5-fresh-0.3.5.drv",
+"drvPath":"/nix/store/yprzwzlw5888i2752zjiv27va7h4ik8g-fresh-0.3.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -70,6 +70,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/fresh/default.nix:10",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -89,7 +95,7 @@
 "version":"0.3.5"
 },
 "panel-transparency-toggle-plasma6":{
-"drvPath":"/nix/store/142pg65bhay1r6gh016ysn7c8i1zp8c6-panel-transparency-toggle-plasma6-unstable-739c70f.drv",
+"drvPath":"/nix/store/427kxz2nv7v0clvm2v7qzc44113gan9q-panel-transparency-toggle-plasma6-unstable-739c70f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -142,6 +148,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -164,10 +171,15 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/plasma-addons/panel-transparency-toggle-plasma6/default.nix:9",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":true,
@@ -187,7 +199,7 @@
 "version":"739c70f"
 },
 "plasma-vantage":{
-"drvPath":"/nix/store/fnk7cn498gayna6x07krq8zwnxk122la-plasma-vantage-0.29.drv",
+"drvPath":"/nix/store/nnvyqkknl05fm8cfbbaz3p1djvw0j0dr-plasma-vantage-0.29.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -240,6 +252,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -262,10 +275,15 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/plasma-addons/plasma-vantage/default.nix:10",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":true,
@@ -285,7 +303,7 @@
 "version":"0.29"
 },
 "tabby":{
-"drvPath":"/nix/store/j7h9q0nvz22fjybxpa4r09zsraz2szz6-tabby-1.0.215.drv",
+"drvPath":"/nix/store/qxaal67mz1ym5w1232jgaz4aaxdhjxjc-tabby-1.0.215.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -342,6 +360,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/tabby/default.nix:10",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -361,7 +385,7 @@
 "version":"1.0.215"
 },
 "zellij-forgot":{
-"drvPath":"/nix/store/qf4dq02i7cz9gy5rykh5kvb8z8inxgjj-zellij-forgot-0.4.2.drv",
+"drvPath":"/nix/store/inq5p53jl2g8j80awvkbgi52j2839mln-zellij-forgot-0.4.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -412,6 +436,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -434,10 +459,15 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/zellij-plugins/zellij-forgot/default.nix:9",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
@@ -457,7 +487,7 @@
 "version":"0.4.2"
 },
 "zjstatus":{
-"drvPath":"/nix/store/bwcir2fw7fkz85hvnfxgv3vap5y8zy97-zjstatus-0.22.0.drv",
+"drvPath":"/nix/store/n7p7xaikw8bhm6wg4kcl0i28nq1amw7h-zjstatus-0.22.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -510,6 +540,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -532,10 +563,15 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/zellij-plugins/zjstatus/default.nix:9",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,
