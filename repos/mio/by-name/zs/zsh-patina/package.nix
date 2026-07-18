@@ -1,13 +1,17 @@
 {
   lib,
+  stdenv,
   rustPlatform,
   fetchFromGitHub,
-  fetchpatch,
+  installShellFiles,
+  nix-update-script,
+  versionCheckHook,
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "zsh-patina";
   version = "1.8.0";
+  __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "michel-kraemer";
@@ -18,15 +22,26 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-4Meb4BDV/Um8/YMA5DkeNDcgCMS5cA8olKhOIq9coIU=";
 
+  nativeBuildInputs = [ installShellFiles ];
   postInstall = ''
-    mkdir -p $out/share/zsh-patina
-    echo 'eval "$('"$out/bin/zsh-patina"' activate)"' > $out/share/zsh-patina/zsh-patina.plugin.zsh
+    install -Dm644 LICENSE $out/share/licenses/zsh-patina/LICENSE
+  ''
+  + lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
+    installShellCompletion --cmd zsh-patina --zsh <($out/bin/zsh-patina completion)
   '';
 
+  doInstallCheck = true;
+  nativeInstallCheckInputs = [ versionCheckHook ];
+
+  passthru.updateScript = nix-update-script { };
+
   meta = {
-    description = "A blazingly fast Zsh plugin performing syntax highlighting of your command line while you type";
+    description = "Zsh syntax highlighter";
     homepage = "https://github.com/michel-kraemer/zsh-patina";
+    changelog = "https://github.com/michel-kraemer/zsh-patina/blob/${finalAttrs.version}/CHANGELOG.md";
     license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ ];
     platforms = lib.platforms.unix;
+    mainProgram = "zsh-patina";
   };
 })
