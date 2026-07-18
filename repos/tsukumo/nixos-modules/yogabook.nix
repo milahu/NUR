@@ -70,6 +70,11 @@ in
       default = false;
       description = "Whether to calibrate haptic motors on boot (causes vibration at startup).";
     };
+    chargeInputCurrentLimit = lib.mkOption {
+      type = lib.types.int;
+      default = 2000000;
+      description = "Input current limit in microAmps (µA) for charging (e.g. 2000000 for 2A, 3000000 for 3A).";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -91,14 +96,16 @@ in
     # Required for LUKS password entry via touch keyboard in initrd
     boot.initrd.kernelModules = yogabookKernelModules;
 
-    # Udev rules in initrd (symlink touch keyboard device for the handler)
+    # Udev rules in initrd: symlink Goodix touch digitizer as /dev/touch_keyboard
+    boot.initrd.services.udev.packages = [ touch-keyboard ];
     boot.initrd.services.udev.rules = ''
-      # Tag Goodix Capacitive TouchScreen with TOUCH_KEYBOARD=1 directly
-      ACTION=="add|change", SUBSYSTEM=="input", ATTRS{name}=="Goodix Capacitive TouchScreen", ENV{TOUCH_KEYBOARD}="1"
-
-      # Symlink touchscreen digitizer for the keyboard driver
-      ACTION=="add|change", SUBSYSTEM=="input", KERNEL=="event*", ENV{TOUCH_KEYBOARD}=="1", SYMLINK+="touch_keyboard", TAG+="systemd", ENV{SYSTEMD_WANTS}+="touch-keyboard-handler.service"
+      # Symlink touchscreen digitizer for the keyboard driver directly using parent name attribute
+      ACTION=="add|change", SUBSYSTEM=="input", KERNEL=="event*", ATTRS{name}=="Goodix Capacitive TouchScreen", SYMLINK+="touch_keyboard"
     '';
+
+    boot.initrd.systemd.storePaths = [
+      touch-keyboard
+    ];
 
     # Copy layout config into initrd
     boot.initrd.systemd.contents = {
@@ -109,12 +116,18 @@ in
     boot.initrd.systemd.services.touch-keyboard-handler = {
       description = "Touch keyboard handler in initrd";
       wantedBy = [ "initrd.target" ];
-      after = [ "initrd-root-device.target" ];
+      after = [ "systemd-udevd.service" "systemd-udev-trigger.service" ];
+      requires = [ "systemd-udevd.service" ];
+      unitConfig = {
+        DefaultDependencies = false;
+      };
       serviceConfig = {
         Type = "simple";
         WorkingDirectory = "/etc/touch_keyboard";
+        ExecStartPre = "${config.boot.initrd.systemd.package}/bin/udevadm wait --timeout=10 /dev/touch_keyboard";
         ExecStart = "${touch-keyboard}/bin/touch_keyboard_handler -m 1.0 -D 6";
-        DefaultDependencies = false;
+        Restart = "on-failure";
+        RestartSec = "2s";
       };
     };
 
@@ -193,6 +206,9 @@ in
 
       # Trigger Pump Express handshake when charger is plugged in
       SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_NAME}=="cht_wcove_pwrsrc", ENV{POWER_SUPPLY_ONLINE}=="1", ENV{POWER_SUPPLY_USB_TYPE}=="*DCP*", TAG+="systemd", ENV{SYSTEMD_WANTS}+="pe-handshake.service"
+
+      # Set input current limit for bq25890 charger when added or changed
+      SUBSYSTEM=="power_supply", KERNEL=="bq25890-charger-*", ACTION=="add|change", RUN+="${pkgs.bash}/bin/bash -c 'echo ${toString cfg.chargeInputCurrentLimit} > /sys/class/power_supply/%k/input_current_limit'"
     '';
 
     # HWDB Settings
