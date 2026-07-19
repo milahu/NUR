@@ -58,6 +58,17 @@
     };
     date = "2026-07-06";
   };
+  playwright-cli = {
+    pname = "playwright-cli";
+    version = "v0.1.17";
+    src = fetchFromGitHub {
+      owner = "microsoft";
+      repo = "playwright-cli";
+      rev = "v0.1.17";
+      fetchSubmodules = false;
+      sha256 = "sha256-tc/2Qck3mm6BqWTu2lvvfsM0/BHO/Z0ZvCdFZ7QQqKI=";
+    };
+  };
   qmk-toolbox = {
     pname = "qmk-toolbox";
     version = "0.3.3";
@@ -73,18 +84,6 @@
       url = "https://github.com/qutebrowser/qutebrowser/releases/download/v3.7.0/qutebrowser-3.7.0-arm64.dmg";
       sha256 = "sha256-mBcCQb8Sov4d6r/8gSC3DcjgDlVbtxLDh1HESPBJVKM=";
     };
-  };
-  sbarlua = {
-    pname = "sbarlua";
-    version = "dba9cc421b868c918d5c23c408544a28aadf2f2f";
-    src = fetchFromGitHub {
-      owner = "FelixKratz";
-      repo = "SbarLua";
-      rev = "dba9cc421b868c918d5c23c408544a28aadf2f2f";
-      fetchSubmodules = false;
-      sha256 = "sha256-lhLTrdufA3ALJ2S5HLdgNOr5seWIWEHkVhZNPObzbvI=";
-    };
-    date = "2026-03-06";
   };
   skills-ref = {
     pname = "skills-ref";

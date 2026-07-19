@@ -19,14 +19,17 @@ jobs:
         token: ${{ steps.app-token.outputs.token }}
         persist-credentials: false
     - name: Install nix
-      uses: cachix/install-nix-action@8aa03977d8d733052d78f4e008a241fd1dbf36b3 # v31.10.6
+      uses: nixbuild/nix-quick-install-action@9f63be77f412a248c9d9a65a4c82cf066cdf8f0c # v35
       with:
-        extra_nix_config: |
+        nix_conf: |
           experimental-features = nix-command flakes
     - name: Update sources
       run: nix run nixpkgs#nvfetcher
     - name: Update firefox addons
       run: nix run git+https://git.sr.ht/~rycee/mozilla-addons-to-nix pkgs/firefox-addons/{addons.json,default.nix}
+    # nvfetcher bumps the source but cannot compute npmDepsHash; refresh it here.
+    - name: Update playwright-cli npm deps hash
+      run: nix run nixpkgs#nix-update -- --flake --version=npmDeps playwright-cli
     - name: Update readme
       run: nix develop -c update-readme
     - name: Create Pull Request
