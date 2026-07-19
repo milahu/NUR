@@ -348,10 +348,10 @@
     };
     "angular-devtools" = buildMozillaXpiAddon {
       pname = "angular-devtools";
-      version = "1.16.0";
+      version = "1.17.0";
       addonId = "{20a9bb38-ed7c-4faf-9aaf-7c5d241fd747}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4845693/angular_devtools-1.16.0.xpi";
-      sha256 = "f09a6327f8f9cf4da4b54904cdaa51f65593f7c5b62993dd3381e125e8120b94";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4902165/angular_devtools-1.17.0.xpi";
+      sha256 = "a1aab15ed1bf8ec6f188aae4df2f018bf118b28e13497ec883aa4832614f2843";
       meta = with lib;
       {
         homepage = "https://angular.dev/tools/devtools/";
@@ -2778,10 +2778,10 @@
     };
     "csgofloat" = buildMozillaXpiAddon {
       pname = "csgofloat";
-      version = "5.15.1";
+      version = "5.16.0";
       addonId = "{194d0dc6-7ada-41c6-88b8-95d7636fe43c}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4791498/csgofloat-5.15.1.xpi";
-      sha256 = "c87a739ce36751c7dc93370b2cc8a3ede58768736f0790e9a12fb0ba7441d1d3";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4897673/csgofloat-5.16.0.xpi";
+      sha256 = "8fd6c0c0bab28ca779ee304fed7ab39ccb26cb0615077760cc7b6358950c8db1";
       meta = with lib;
       {
         homepage = "https://csgofloat.com";
@@ -3065,10 +3065,10 @@
     };
     "dearrow" = buildMozillaXpiAddon {
       pname = "dearrow";
-      version = "2.3.9";
+      version = "2.3.10";
       addonId = "deArrow@ajay.app";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4844316/dearrow-2.3.9.xpi";
-      sha256 = "29347fa23449225c707cc33636230a93aa3ea9ac00b76c03617e4217c989739a";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4897568/dearrow-2.3.10.xpi";
+      sha256 = "3151a51db8093746be646c041af3ead553e5de95fa4ebd5fae033e039e1056d1";
       meta = with lib;
       {
         homepage = "https://dearrow.ajay.app";
@@ -3290,6 +3290,21 @@
           "contextMenus"
           "activeTab"
         ];
+        platforms = platforms.all;
+      };
+    };
+    "dizionario-italiano" = buildMozillaXpiAddon {
+      pname = "dizionario-italiano";
+      version = "5.2";
+      addonId = "it-IT@dictionaries.addons.mozilla.org";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4812244/dizionario_italiano-5.2.xpi";
+      sha256 = "223def795b58f233c70ff440b765b249eac99d47d4ea752f5f732c42c6be889e";
+      meta = with lib;
+      {
+        homepage = "https://github.com/flodolo/dizionario-it";
+        description = "Add support for Italian to spellchecking";
+        license = licenses.gpl3;
+        mozPermissions = [];
         platforms = platforms.all;
       };
     };
@@ -4341,10 +4356,10 @@
     };
     "floccus" = buildMozillaXpiAddon {
       pname = "floccus";
-      version = "5.10.1";
+      version = "5.10.2";
       addonId = "floccus@handmadeideas.org";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4887521/floccus-5.10.1.xpi";
-      sha256 = "ff42ae958319b2f33deeddd020bd91f22b57a6f382040f72f1273a439d5b2136";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4905907/floccus-5.10.2.xpi";
+      sha256 = "e84bc56c4e1bfc3cc3aec2a74003c9955ab8f55a3f51394754d2c773afe4f483";
       meta = with lib;
       {
         homepage = "https://floccus.org";
@@ -7093,6 +7108,31 @@
         platforms = platforms.all;
       };
     };
+    "infy-scroll" = buildMozillaXpiAddon {
+      pname = "infy-scroll";
+      version = "10";
+      addonId = "infy-scroll@webextensions";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4795234/infy_scroll-10.xpi";
+      sha256 = "6cb50a6dc86fb7bbccd4971e78fa6cada8bf4d71c6fec5d1ddef0c7ed5ab8219";
+      meta = with lib;
+      {
+        description = "Add customized infinite scrolling to websites and auto load the next page. Supports the AutoPagerize and InfyScroll Databases.";
+        license = {
+          shortName = "allrightsreserved";
+          fullName = "All Rights Reserved";
+          url = "https://en.wikipedia.org/w/index.php?title=All_rights_reserved&oldid=1101263186";
+          free = false;
+        };
+        mozPermissions = [
+          "activeTab"
+          "contextMenus"
+          "scripting"
+          "storage"
+          "<all_urls>"
+        ];
+        platforms = platforms.all;
+      };
+    };
     "inkah" = buildMozillaXpiAddon {
       pname = "inkah";
       version = "1.0.43";
@@ -8456,10 +8496,10 @@
     };
     "lichess-tools-by-siderite" = buildMozillaXpiAddon {
       pname = "lichess-tools-by-siderite";
-      version = "2.4.222";
+      version = "2.4.223";
       addonId = "{052ad9f9-a99a-483b-bd8b-67e1a7065548}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4902595/lichess_tools_by_siderite-2.4.222.xpi";
-      sha256 = "ccd9ec658387ceb82b4392be2d1ed3fea8cd802b6bf695f0f978bdce98f4c1b7";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4905893/lichess_tools_by_siderite-2.4.223.xpi";
+      sha256 = "bf914db327e3473b651c9b3082e82c3ed168525ffd05f46e5e7e3f1167d6ac90";
       meta = with lib;
       {
         homepage = "https://siderite.dev/LiChessTools/";
@@ -10915,10 +10955,10 @@
     };
     "onepassword-password-manager" = buildMozillaXpiAddon {
       pname = "onepassword-password-manager";
-      version = "8.12.26.40";
+      version = "8.12.28.25";
       addonId = "{d634138d-c276-4fc8-924b-40a0ea21d284}";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4875695/1password_x_password_manager-8.12.26.40.xpi";
-      sha256 = "1ba3a2466f7aac959bdd9a176b215bd44235a0e4999590594ea28b6a77fc3f5c";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4899098/1password_x_password_manager-8.12.28.25.xpi";
+      sha256 = "fc369b5ee7958a57c519aa37e7ba540ebe08d58b4bc976fab1ba2e91bc01bc25";
       meta = with lib;
       {
         homepage = "https://1password.com";
@@ -12631,10 +12671,10 @@
     };
     "readwise-highlighter" = buildMozillaXpiAddon {
       pname = "readwise-highlighter";
-      version = "0.17.0";
+      version = "0.17.1";
       addonId = "team@readwise.io";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4781975/readwise_highlighter-0.17.0.xpi";
-      sha256 = "8229be685f56e18b423701614de2e7a4c363952fc757101d8a9fbeecc57a68e4";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4904735/readwise_highlighter-0.17.1.xpi";
+      sha256 = "7eaabd7570486d087e198faf1324dccaa788a275ad8036ebbf883057a3dabc31";
       meta = with lib;
       {
         homepage = "https://read.readwise.io";
@@ -12781,10 +12821,10 @@
     };
     "reddit-enhancement-suite" = buildMozillaXpiAddon {
       pname = "reddit-enhancement-suite";
-      version = "5.24.9";
+      version = "5.24.10";
       addonId = "jid1-xUfzOsOFlzSOXg@jetpack";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4881407/reddit_enhancement_suite-5.24.9.xpi";
-      sha256 = "dacde06a8289b558d7f3a95cda112459430e3fac3042929eae2ded6a67e440d8";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4899821/reddit_enhancement_suite-5.24.10.xpi";
+      sha256 = "4573cfdb10193467e99e1dd5a792f23ae69764540c2e06d0444f12a81cdc4f0a";
       meta = with lib;
       {
         homepage = "https://redditenhancementsuite.com/";
@@ -14604,10 +14644,10 @@
     };
     "tab-session-manager" = buildMozillaXpiAddon {
       pname = "tab-session-manager";
-      version = "7.3.0";
+      version = "7.4.0";
       addonId = "Tab-Session-Manager@sienori";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4703091/tab_session_manager-7.3.0.xpi";
-      sha256 = "ce22dd7e7ee737d28fccf4d50066cf6cfd171e599edd97b852c6277bbb7c3af0";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4905104/tab_session_manager-7.4.0.xpi";
+      sha256 = "10ddc3bc27179cb32962fa8629e87d9d2c3897a604ba347666ebe16a1488751b";
       meta = with lib;
       {
         homepage = "https://tab-session-manager.sienori.com/";
