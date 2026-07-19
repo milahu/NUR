@@ -1,16 +1,16 @@
 {
 "name":"nagy",
-"fetch_time":0.936,
-"eval_time":3.367,
+"fetch_time":0.889,
+"eval_time":2.224,
 "source":{
 "url":"https://github.com/nagy/nur-packages",
-"rev":"21b3fe831603327a347cf69505dcafb95e0ba784",
-"sha256":"1m49wz8izk2qldzjh873l4m08ybhwzjz8pvajc8yzahyarmg35jg",
+"rev":"2010c794c993acf0b1197ff776a8bf845a045138",
+"sha256":"0allgqmv853l1xqwx2j3f5iw5l4cblacgvxb154r13963a8ffycg",
 "date":null
 },
-"source_storepath":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source",
-"nixpkgs_storepath":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source",
-"nur_combined_rev":"0b7b9305f87c71e0161edcd70e15870da5e50286",
+"source_storepath":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source",
+"nixpkgs_storepath":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source",
+"nur_combined_rev":"1dc6fdb9761d230a66d6de22207372731c58cf90",
 "packages":{
 "all-converters":{
 "drvPath":"/nix/store/6mwl9f8lzbviwz77g892i02a2n0ri0pb-all-converters.drv",
@@ -298,7 +298,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/cbor.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/cbor.nix",
 "line":29
 },
 "name":"cbor-1.0.0",
@@ -446,7 +446,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/co/coredns/package.nix",
+"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/by-name/co/coredns/package.nix",
 "line":149
 },
 "name":"coredns-1.14.3",
@@ -904,7 +904,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/cxxtimer.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/cxxtimer.nix",
 "line":31
 },
 "name":"cxxtimer-1.1.0",
@@ -1080,7 +1080,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/emacs-packages/elisp-reader.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/elisp-reader.nix",
 "line":25
 },
 "name":"emacs-elisp-reader-0-unstable-2024-06-02",
@@ -1257,7 +1257,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/emacs-packages/emacspy.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/emacspy.nix",
 "line":41
 },
 "name":"emacs-emacspy-0-unstable-2023-03-04",
@@ -1372,6 +1372,183 @@
 "system":"x86_64-linux",
 "version":"0-unstable-2023-03-04"
 },
+"emacsPackages.magit-difftastic":{
+"drvPath":"/nix/store/l9y6nllvm88bfv97f11x8d56i7r86pmb-emacs-magit-difftastic-0-unstable-2026-06-30.drv",
+"meta":{
+"available":true,
+"broken":false,
+"description":"Difftastic-rendered, stageable sections in Magit",
+"homepage":"https://github.com/rschmukler/magit-difftastic",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"magit-difftastic",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purlParts":{},
+"purls":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"magit-difftastic",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purls":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
+"maintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
+"maintainersPosition":{
+"column":5,
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/magit-difftastic.nix",
+"line":29
+},
+"name":"emacs-magit-difftastic-0-unstable-2026-06-30",
+"nonTeamMaintainers":[
+{
+"email":"danielnagy@posteo.de",
+"github":"nagy",
+"githubId":692274,
+"keys":[
+{
+"fingerprint":"F6AE 2C60 9196 A1BC ECD8  7108 1B8E 8DCB 576F B671"
+}
+],
+"name":"Daniel Nagy"
+}
+],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
+"i686-cygwin",
+"x86_64-cygwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd",
+"aarch64-genode",
+"i686-genode",
+"x86_64-genode",
+"x86_64-solaris",
+"javascript-ghcjs",
+"arc-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"sh4-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"mmix-mmixware",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"aarch64_be-none",
+"aarch64-none",
+"arm-none",
+"armv6l-none",
+"avr-none",
+"i686-none",
+"microblaze-none",
+"microblazeel-none",
+"mips-none",
+"mips64-none",
+"msp430-none",
+"or1k-none",
+"m68k-none",
+"powerpc-none",
+"powerpcle-none",
+"riscv32-none",
+"riscv64-none",
+"rx-none",
+"s390-none",
+"s390x-none",
+"vc4-none",
+"x86_64-none",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox",
+"wasm64-wasi",
+"wasm32-wasi",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
+],
+"position":"./pkgs/emacs-packages/magit-difftastic.nix:27",
+"problems":{},
+"unfree":false,
+"unsupported":false
+},
+"name":"emacs-magit-difftastic-0-unstable-2026-06-30",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"emacs-magit-difftastic",
+"system":"x86_64-linux",
+"version":"0-unstable-2026-06-30"
+},
 "emacsPackages.obvious":{
 "drvPath":"/nix/store/923ja76nd7nyaa5q92av7dh56jcpvwgy-emacs-obvious-0-unstable-2023-04-07.drv",
 "meta":{
@@ -1433,7 +1610,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/emacs-packages/obvious.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/obvious.nix",
 "line":21
 },
 "name":"emacs-obvious-0-unstable-2023-04-07",
@@ -1609,7 +1786,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/emacs-packages/org-pretty-table.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/org-pretty-table.nix",
 "line":21
 },
 "name":"emacs-org-pretty-table-0-unstable-2023-03-19",
@@ -1786,7 +1963,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/emacs-packages/passage.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/passage.nix",
 "line":35
 },
 "name":"emacs-passage-0-unstable-2025-02-28",
@@ -1963,7 +2140,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/emacs-packages/typst-ts-mode.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/typst-ts-mode.nix",
 "line":23
 },
 "name":"emacs-typst-ts-mode-0-unstable-2025-11-05",
@@ -2183,7 +2360,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/feather-tools.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/feather-tools.nix",
 "line":42
 },
 "name":"feather-tools-1.1.0",
@@ -2315,7 +2492,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/ggufmeta.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/ggufmeta.nix",
 "line":40
 },
 "name":"ggufmeta-0-unstable-2023-12-28",
@@ -2484,6 +2661,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -2685,7 +2863,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/ht-headless-terminal.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/ht-headless-terminal.nix",
 "line":24
 },
 "name":"ht-0.4.0",
@@ -2741,6 +2919,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -2879,7 +3058,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/iec16022.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/iec16022.nix",
 "line":29
 },
 "name":"iec16022-0.3.1",
@@ -3141,7 +3320,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/jsonrpc-debugger.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/jsonrpc-debugger.nix",
 "line":32
 },
 "name":"jsonrpc-debugger-0.1.9",
@@ -3197,6 +3376,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -3288,7 +3468,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/koji.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/koji.nix",
 "line":50
 },
 "name":"koji-3.3.1",
@@ -3344,6 +3524,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -3424,7 +3605,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/ksuid.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/ksuid.nix",
 "line":30
 },
 "name":"ksuid-1.0.4",
@@ -4027,7 +4208,7 @@
 ],
 "maintainersPosition":{
 "column":17,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/development/lisp-modules/nix-cl.nix",
+"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/development/lisp-modules/nix-cl.nix",
 "line":289
 },
 "name":"sbcl-cl-raylib-0.0.2-unstable-2024-07-15",
@@ -4122,7 +4303,7 @@
 ],
 "teamsPosition":{
 "column":17,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/development/lisp-modules/nix-cl.nix",
+"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/development/lisp-modules/nix-cl.nix",
 "line":290
 },
 "unfree":false,
@@ -4234,7 +4415,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/llm-ttok.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/llm-ttok.nix",
 "line":37
 },
 "name":"llm-ttok-0.3",
@@ -4365,7 +4546,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/mcptools.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/mcptools.nix",
 "line":29
 },
 "name":"mcptools-0.7.1",
@@ -4500,8 +4681,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/mi/micropython/package.nix",
-"line":150
+"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/by-name/mi/micropython/package.nix",
+"line":149
 },
 "name":"micropython-1.27.0",
 "nonTeamMaintainers":[
@@ -4573,7 +4754,7 @@
 "x86_64-openbsd",
 "x86_64-redox"
 ],
-"position":"<nixpkgs> + /pkgs/by-name/mi/micropython/package.nix:146",
+"position":"<nixpkgs> + /pkgs/by-name/mi/micropython/package.nix:145",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -4650,7 +4831,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/mpy-cross.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/mpy-cross.nix",
 "line":28
 },
 "name":"mpy-cross-1.27.0",
@@ -4794,7 +4975,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/mpy-tool.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/mpy-tool.nix",
 "line":30
 },
 "name":"mpy-tool-1.27.0",
@@ -5054,7 +5235,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/nanoid-cli.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/nanoid-cli.nix",
 "line":24
 },
 "name":"nanoid-cli-1.0.0",
@@ -5110,6 +5291,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -5346,7 +5528,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/ns/nsxiv/package.nix",
+"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/by-name/ns/nsxiv/package.nix",
 "line":72
 },
 "name":"nsxiv-31",
@@ -5644,7 +5826,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/paperify.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/paperify.nix",
 "line":46
 },
 "name":"paperify-0.1.1",
@@ -5834,7 +6016,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/pass-otp-unstable.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/pass-otp-unstable.nix",
 "line":37
 },
 "name":"pass-otp-unstable-0-unstable-2025-08-09",
@@ -5999,7 +6181,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/pa/passage/package.nix",
+"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/by-name/pa/passage/package.nix",
 "line":75
 },
 "name":"passage-1.7.4a2",
@@ -6266,7 +6448,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/pluscodes.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/pluscodes.nix",
 "line":22
 },
 "name":"pluscodes-0.5.0",
@@ -6322,6 +6504,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -6475,7 +6658,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/pug.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/pug.nix",
 "line":33
 },
 "name":"pug-0.6.5",
@@ -6637,7 +6820,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/aioice.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/aioice.nix",
 "line":52
 },
 "name":"python3.14-aioice-0.10.1",
@@ -6801,7 +6984,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/aiortc.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/aiortc.nix",
 "line":60
 },
 "name":"python3.14-aiortc-1.13.0",
@@ -7236,7 +7419,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/images-upload-cli.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/images-upload-cli.nix",
 "line":46
 },
 "name":"python3.14-images-upload-cli-3.0.6",
@@ -7393,7 +7576,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/iteround.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/iteround.nix",
 "line":32
 },
 "name":"python3.14-iteround-1.0.4",
@@ -7709,7 +7892,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/makeelf.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/makeelf.nix",
 "line":30
 },
 "name":"python3.14-makeelf-0.3.4",
@@ -7873,7 +8056,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/mintalib.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/mintalib.nix",
 "line":47
 },
 "name":"python3.14-mintalib-0-unstable-2025-11-11",
@@ -8037,7 +8220,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/mrz.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/mrz.nix",
 "line":32
 },
 "name":"python3.14-mrz-0.6.2",
@@ -8201,7 +8384,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/openpyxl-image-loader.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/openpyxl-image-loader.nix",
 "line":35
 },
 "name":"python3.14-openpyxl-image-loader-1.0.5",
@@ -8376,7 +8559,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/pybase62.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/pybase62.nix",
 "line":32
 },
 "name":"python3.14-pybase62-0.6.0",
@@ -8540,7 +8723,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/pyclang.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/pyclang.nix",
 "line":37
 },
 "name":"python3.14-pyclang-0.5.0",
@@ -8703,7 +8886,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/pylibsrtp.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/pylibsrtp.nix",
 "line":52
 },
 "name":"python3.14-pylibsrtp-0.12.0",
@@ -8877,7 +9060,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/pytest-embedded.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/pytest-embedded.nix",
 "line":38
 },
 "name":"python3.14-pytest-embedded-1.16.0",
@@ -9041,7 +9224,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/ssort.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/ssort.nix",
 "line":29
 },
 "name":"ssort-0.13.0",
@@ -9218,7 +9401,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/ta-lib.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/ta-lib.nix",
 "line":58
 },
 "name":"python3.14-ta-lib-0.6.8",
@@ -9382,7 +9565,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/python3-packages/tvdatafeed.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/tvdatafeed.nix",
 "line":44
 },
 "name":"python3.14-tvdatafeed-0-unstable-2024-05-07",
@@ -9506,7 +9689,7 @@
 "version":"2022-09-06"
 },
 "qemuImages.raspberryPi.buster-lite-newimage":{
-"drvPath":"/nix/store/4r5h6mi48nhrnfkvvky47b1lhhm2gsld-newimage.qcow2.drv",
+"drvPath":"/nix/store/nxgz2qbmwxir7k7kz8kd5nsl0qiwwhpn-newimage.qcow2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9612,7 +9795,7 @@
 "version":"2022-09-06.qcow2"
 },
 "qemuImages.raspberryPi.buster-lite-script":{
-"drvPath":"/nix/store/4w7xgl0xal5xklh7hbck6mwg34axx0xi-raspberrypi-interact.drv",
+"drvPath":"/nix/store/sr3cwyh2isjpryw8y7g2bai75a5fmv61-raspberrypi-interact.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9781,7 +9964,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/rom64.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/rom64.nix",
 "line":35
 },
 "name":"rom64-0.5.4",
@@ -9949,6 +10132,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -10045,7 +10229,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/rustdoc-md.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/rustdoc-md.nix",
 "line":24
 },
 "name":"rustdoc-md-0-unstable-2025-10-28",
@@ -10101,6 +10285,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -10192,7 +10377,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/rustdoc-text.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/rustdoc-text.nix",
 "line":35
 },
 "name":"rustdoc-text-0.3.3",
@@ -10248,6 +10433,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -10367,6 +10553,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -10463,7 +10650,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/sane-fmt.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/sane-fmt.nix",
 "line":37
 },
 "name":"sane-fmt-0.18.1",
@@ -10519,6 +10706,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -10751,8 +10939,7 @@
 }
 },
 "insecure":false,
-"license":[
-{
+"license":{
 "deprecated":false,
 "free":true,
 "fullName":"GNU General Public License v2.0 only",
@@ -10761,8 +10948,7 @@
 "shortName":"gpl2Only",
 "spdxId":"GPL-2.0-only",
 "url":"https://spdx.org/licenses/GPL-2.0-only.html"
-}
-],
+},
 "mainProgram":"socat",
 "maintainers":[
 {
@@ -10774,7 +10960,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source/pkgs/by-name/so/socat/package.nix",
+"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/by-name/so/socat/package.nix",
 "line":58
 },
 "name":"socat-patched-1.8.0.0",
@@ -10950,6 +11136,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -11035,7 +11222,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/terraform-graph-beautifier.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/terraform-graph-beautifier.nix",
 "line":35
 },
 "name":"terraform-graph-beautifier-0.3.4",
@@ -11197,7 +11384,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/tokei-pie.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/tokei-pie.nix",
 "line":30
 },
 "name":"tokei-pie-1.2.0",
@@ -11566,7 +11753,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/uuinfo.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/uuinfo.nix",
 "line":32
 },
 "name":"uuinfo-0.7.5",
@@ -11622,6 +11809,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -11801,7 +11989,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/w2c2.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/w2c2.nix",
 "line":38
 },
 "name":"w2c2-0-unstable-2025-09-30",
@@ -12090,6 +12278,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -12175,7 +12364,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/wax.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/wax.nix",
 "line":32
 },
 "name":"wax-0.0.1-unstable-2025-03-03",
@@ -12210,7 +12399,7 @@
 "version":"0.0.1-unstable-2025-03-03"
 },
 "wikipedia-mcp":{
-"drvPath":"/nix/store/njhs3khn9sigj8dkg7vqaw5197wiws7s-wikipedia-mcp-1.6.0.drv",
+"drvPath":"/nix/store/6495rfdgyxjsmnydyxvjmm2372v7iy11-wikipedia-mcp-1.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12306,7 +12495,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/wikipedia-mcp.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/wikipedia-mcp.nix",
 "line":52
 },
 "name":"wikipedia-mcp-1.6.0",
@@ -12476,6 +12665,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -12594,7 +12784,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/yaml-shellcheck.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/yaml-shellcheck.nix",
 "line":45
 },
 "name":"yaml-shellcheck-1.8.0",
@@ -12725,7 +12915,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/lf3cd7dygfgjr2r715jwac8iyxjwv8d8-source/pkgs/by-name/yggmail.nix",
+"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/yggmail.nix",
 "line":29
 },
 "name":"yggmail-0-unstable-2026-02-24",
