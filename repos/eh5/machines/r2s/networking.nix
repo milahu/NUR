@@ -4,6 +4,9 @@
   lib,
   ...
 }:
+let
+  inherit (config.sops) secrets;
+in
 {
   boot.kernelModules = [
     "tcp_bbr"
@@ -149,7 +152,7 @@
     #   DNS = [ "_server_address" ];
     # };
     dhcpPrefixDelegationConfig = {
-      UplinkInterface = "extern0";
+      UplinkInterface = "ppp0";
       Token = "static:::1";
     };
     ipv6SendRAConfig = {
@@ -161,22 +164,25 @@
 
   systemd.network.networks."11-extern0" = {
     name = "extern0";
-    networkConfig = {
-      Address = "192.168.4.16/24";
-      ConfigureWithoutCarrier = true;
-      DHCP = "yes";
+    linkConfig = {
+      Unmanaged = true;
     };
-    dhcpV4Config = {
-      SendHostname = true;
-      # UseRoutes = false;
-    };
-    dhcpV6Config = {
-      WithoutRA = "solicit";
-      PrefixDelegationHint = "::/64";
-      # use SLAAC addresses only
-      UseAddress = false;
-    };
-    linkConfig.ActivationPolicy = "always-up";
+    # networkConfig = {
+    #   Address = "192.168.4.16/24";
+    #   ConfigureWithoutCarrier = true;
+    #   DHCP = "yes";
+    # };
+    # dhcpV4Config = {
+    #   SendHostname = true;
+    #   # UseRoutes = false;
+    # };
+    # dhcpV6Config = {
+    #   WithoutRA = "solicit";
+    #   PrefixDelegationHint = "::/64";
+    #   # use SLAAC addresses only
+    #   UseAddress = false;
+    # };
+    # linkConfig.ActivationPolicy = "always-up";
     # routes = [{
     #   routeConfig = {
     #     Gateway = "_dhcp4";
@@ -185,34 +191,73 @@
     # }];
   };
 
-  ## Uncoment after https://github.com/SagerNet/sing-tun/pull/16 being merged
-  #
-  # systemd.network.netdevs."tun0" = {
-  #   netdevConfig = {
-  #     Name = "tun0";
-  #     Kind = "tun";
-  #   };
-  # };
-  systemd.network.networks."tun0" = {
-    matchConfig.Name = "tun0";
-    networkConfig = {
-      Address = "198.18.0.1/15";
-      ConfigureWithoutCarrier = true;
+  services.pppd.enable = true;
+  services.pppd.peers."ppp0".config = ''
+    plugin pppoe.so extern0
+    ifname ppp0
+    usepeerdns
+    persist
+    maxfail 0
+    holdoff 5
+    defaultroute
+    defaultroute-metric 1
+    default-asyncmap
+    noauth
+    noaccomp
+    noremoteip
+    noipdefault
+    nodetach
+    +ipv6
+    ipv6cp-use-ipaddr
+    file ${secrets."ppp-secret.conf".path}
+  '';
+  systemd.services."pppd-ppp0" = {
+    bindsTo = [ "sys-subsystem-net-devices-extern0.device" ];
+    after = [ "sys-subsystem-net-devices-extern0.device" ];
+    wantedBy = [ "sys-devices-virtual-net-ppp0.device" ];
+    preStart = ''
+      # force PPPoE baby jumbo frames, seems it's allowed by my ISP depiste it not responding PPP-Max-Payload tag
+      ${pkgs.iproute2}/bin/ip link set extern0 mtu 1508
+      ${pkgs.iproute2}/bin/ip link set extern0 up
+    '';
+    serviceConfig = {
+      ReadWritePaths = [ "/etc/ppp" ];
     };
-    routes = [
-      {
-        Destination = "0.0.0.0/0";
-        Gateway = "198.18.0.2";
-        Metric = 1;
-        Table = 200;
-      }
-    ];
-    routingPolicyRules = [
-      {
-        FirewallMark = 10;
-        Table = 200;
-      }
-    ];
+  };
+
+  environment.etc.ppp-up = {
+    target = "ppp/ip-pre-up";
+    mode = "0755";
+    text = ''
+      #!${pkgs.bash}/bin/bash
+      # force 1500 MTU
+      if [[ $IFNAME == ppp0 ]]; then
+        ${pkgs.iproute2}/bin/ip link set dev $IFNAME mtu 1500
+      fi
+    '';
+  };
+
+  systemd.network.networks."11-ppp0" = {
+    name = "ppp0";
+    networkConfig = {
+      DHCP = "ipv6";
+      DefaultRouteOnDevice = true;
+      KeepConfiguration = "static";
+    };
+    dhcpV6Config = {
+      WithoutRA = "solicit";
+      PrefixDelegationHint = "::/60";
+      # use SLAAC addresses only
+      UseAddress = false;
+      UseDNS = false;
+      UseNTP = false;
+      UseHostname = false;
+      UseDomains = false;
+    };
+    extraConfig = ''
+      [CAKE]
+      Parent=root
+    '';
   };
 
   systemd.services."tweak-network-settings" = {
