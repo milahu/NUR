@@ -185,9 +185,6 @@ byName
   zw3d = pkgs.callPackage ./pkgs/zw3d {
     notoFontsCjk = pkgs.noto-fonts-cjk-sans;
   };
-  makePakeApp = pkgs.callPackage ./pkgs/makePakeApp {
-    inherit pake;
-  };
   chatgpt-pake = pkgs.callPackage ./pkgs/chatgpt-pake/package.nix {
     inherit makePakeApp;
   };
@@ -230,10 +227,6 @@ byName
         ))
       ];
     });
-
-  rocksmith2tab = pkgs.callPackage ./pkgs/rocksmith2tab {
-    rocksmith-custom-song-toolkit = rocksmith-custom-song-toolkit;
-  };
 
   davinci-resolve-studio2033 = davinci-resolve2033.override {
     studioVariant = true;

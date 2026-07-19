@@ -53,6 +53,7 @@ in
         "26.05:2.11.4:go1.26.3" = "sha256-gg2FrWBzumTkp77AA5faAPOQx68JzureGMignc0r1lA=";
         "26.05:2.11.4:go1.26.4" = "sha256-Bv00eNLSJof+kWkLaJAPRjGzaXd/gvKoPt9fmBYG3uw=";
         "26.11:2.11.4:go1.26.4" = "sha256-Bv00eNLSJof+kWkLaJAPRjGzaXd/gvKoPt9fmBYG3uw=";
+        "26.05:2.11.4:go1.26.5" = "sha256-QVKOjWXBEEQQkTJNcisiKMr2D63jjH9Gcv09aMaJkGk=";
       };
       nixosVersion = pkgs.lib.versions.majorMinor pkgs.lib.version;
       caddyVersion = pkgs.caddy.version;
@@ -72,26 +73,6 @@ in
       ];
       hash = pluginsHash;
     };
-  telegram-desktop_patched = pkgs.telegram-desktop.overrideAttrs (old: {
-    unwrapped = v3overridegcc (
-      old.unwrapped.overrideAttrs (old2: {
-        # see https://github.com/Layerex/telegram-desktop-patches
-        patches = (pkgs.telegram-desktop.unwrapped.patches or [ ]) ++ [
-          ./patches/0001-telegramPatches.patch
-        ];
-      })
-    );
-  });
-  materialgram_patched = pkgs.materialgram.overrideAttrs (old: {
-    unwrapped = v3overridegcc (
-      old.unwrapped.overrideAttrs (old2: {
-        # see https://github.com/Layerex/telegram-desktop-patches
-        patches = (pkgs.materialgram.unwrapped.patches or [ ]) ++ [
-          ./patches/0001-materialgramPatches.patch
-        ];
-      })
-    );
-  });
   openssh = v3override (
     (pkgs.openssh_10_2 or pkgs.openssh).overrideAttrs (old: {
       patches = (old.patches or [ ]) ++ [ ./patches/openssh.patch ];
@@ -187,6 +168,7 @@ in
               minetest591client
               minetest580client
               musescore-alex
+              omnimux
             ];
           }
         );
