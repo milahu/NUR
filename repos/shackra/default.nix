@@ -1,8 +1,8 @@
 ##########################################################################
 #                                                                        #
-#  This file is part of the shackra/nur project                          #
+#  This file is part of the elzorrorebelde/nur project                   #
 #                                                                        #
-#  Copyright (C) 2025 Jorge Javier Araya Navarro                         #
+#  Copyright (C) 2025-2026 Jorge Javier Araya Navarro                    #
 #                                                                        #
 #  SPDX-License-Identifier: MIT                                          #
 #                                                                        #
@@ -14,6 +14,10 @@
 }:
 
 rec {
+  abw-abcde = pkgs.callPackage ./packages/abw-abcde { };
   ngpost = pkgs.libsForQt5.callPackage ./packages/ngpost { };
   gtkcsslanguageserver = pkgs.callPackage ./packages/gtk-css-language-server { };
+  mkpsxiso = pkgs.callPackage ./packages/mkpsxiso { };
+  ppf = pkgs.callPackage ./packages/ppf { };
+  tilemolester = pkgs.callPackage ./packages/tilemolester { };
 }
