@@ -1,29 +1,29 @@
 {
 "name":"lunik1",
-"fetch_time":0.861,
-"eval_time":0.602,
+"fetch_time":12.808,
+"eval_time":0.976,
 "source":{
 "url":"https://github.com/lunik1/nur-packages",
-"rev":"de20bd6ff2aa52293f380c00cc2e5ec8c8409806",
-"sha256":"130x166yxk9iia94cdbijsn3b2xpfba8jyb1h0am727q46j1kali",
+"rev":"03d21a64ca7014301a667d6337dfa40292e9eef4",
+"sha256":"0nc8jdn3xlh0igyybjwk3yan70ywxkb0x65d383d421q8l899qr2",
 "date":null
 },
-"source_storepath":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source",
-"nixpkgs_storepath":"/nix/store/ybnhgfkzp8hsmhk6qn0c92gvkvyvd7hc-source",
-"nur_combined_rev":"3e478bf0a2385a31cc135e1211903e88899005ae",
+"source_storepath":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source",
+"nixpkgs_storepath":"/nix/store/p87jvvz3dyn2c51590rq9xqypk637s96-source",
+"nur_combined_rev":"03384c6fa2f561c416c41e2cae11e1ae0c01b072",
 "packages":{
 "amazing-marvin":{
-"name":"amazing-marvin-1.69.1",
+"name":"amazing-marvin-1.70.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"amazing-marvin",
 "system":"x86_64-linux",
-"version":"1.69.1"
+"version":"1.70.0"
 },
 "asap-condensed":{
-"drvPath":"/nix/store/5c4361c0nqqmhmaqgbi9ihx9bl894292-asap-condensed-3.001.drv",
+"drvPath":"/nix/store/9vdx83dsp0yhx7nb1swnvcrkzdbw94iy-asap-condensed-3.001.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -85,7 +85,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/asap-condensed/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/asap-condensed/default.nix",
 "line":30
 },
 "name":"asap-condensed-3.001",
@@ -107,10 +107,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -119,7 +120,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -142,7 +142,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -203,7 +202,7 @@
 "version":"3.001"
 },
 "bach":{
-"drvPath":"/nix/store/nak24mvp9z5azshnvyxl3baav7fjw7qs-bach-0.3.drv",
+"drvPath":"/nix/store/mdy5q5g3na5jmkdq55xx96mr5pzm4j9h-bach-0.3.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -276,7 +275,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/bach/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/bach/default.nix",
 "line":24
 },
 "name":"bach-0.3",
@@ -298,7 +297,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -334,6 +332,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -352,7 +351,7 @@
 "version":"0.3"
 },
 "doukutsu-rs":{
-"drvPath":"/nix/store/jb9j1nxmnw3rqwld56f8kdyc9h8zgkbh-doukutsu-rs-1.0.0.drv",
+"drvPath":"/nix/store/jr3pp3xwxzvc87c3l6np05az979fa735-doukutsu-rs-1.0.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -426,7 +425,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/doukutsu-rs/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/doukutsu-rs/default.nix",
 "line":69
 },
 "name":"doukutsu-rs-1.0.0",
@@ -483,7 +482,7 @@
 "version":"1.0.0"
 },
 "efficient-compression-tool":{
-"drvPath":"/nix/store/wik9lw7pk6n6lfzrr1pkvs0bgxbdc701-efficient-compression-tool-0.9.5.drv",
+"drvPath":"/nix/store/xwxmfp7mj3p25wiydjyamj8m18zxwb37-efficient-compression-tool-0.9.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -546,7 +545,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/efficient-compression-tool/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/efficient-compression-tool/default.nix",
 "line":40
 },
 "name":"efficient-compression-tool-0.9.5",
@@ -568,6 +567,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -590,8 +590,7 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/efficient-compression-tool/default.nix:37",
 "problems":{},
@@ -608,7 +607,7 @@
 "version":"0.9.5"
 },
 "fsrcnnx-x2-16-0-4-1":{
-"drvPath":"/nix/store/ddfsljfypv66p1nhlpdlnmwzbkyj4vj3-fsrcnnx-x2-16-0-4-1-1.1.drv",
+"drvPath":"/nix/store/3j9fd715rkl3nshkrvap8m8djflwczm2-fsrcnnx-x2-16-0-4-1-1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -670,7 +669,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/mpv-shaders/fsrcnnx/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/mpv-shaders/fsrcnnx/default.nix",
 "line":43
 },
 "name":"fsrcnnx-x2-16-0-4-1-1.1",
@@ -692,10 +691,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -704,7 +704,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -727,7 +726,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -788,7 +786,7 @@
 "version":"16-0-4-1-1.1"
 },
 "fsrcnnx-x2-8-0-4-1":{
-"drvPath":"/nix/store/p27hlvqa4zqq04p5fw65sn0zjqnj3qn2-fsrcnnx-x2-8-0-4-1-1.1.drv",
+"drvPath":"/nix/store/h3m0np44ipk9zpvjn6wdi1apg4f7n0mq-fsrcnnx-x2-8-0-4-1-1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -850,7 +848,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/mpv-shaders/fsrcnnx/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/mpv-shaders/fsrcnnx/default.nix",
 "line":43
 },
 "name":"fsrcnnx-x2-8-0-4-1-1.1",
@@ -872,10 +870,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -884,7 +883,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -907,7 +905,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -968,7 +965,7 @@
 "version":"8-0-4-1-1.1"
 },
 "krig-bilateral":{
-"drvPath":"/nix/store/0ynn1wm906zyqb979gyi8v20mj4dsgkp-krig-bilateral-unstable-2023-10-26.drv",
+"drvPath":"/nix/store/sn9fx5jb1crz9rxkqb8x8jdcqk2fdsd2-krig-bilateral-unstable-2023-10-26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1030,7 +1027,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/mpv-shaders/krig-bilateral/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/mpv-shaders/krig-bilateral/default.nix",
 "line":32
 },
 "name":"krig-bilateral-unstable-2023-10-26",
@@ -1052,10 +1049,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1064,7 +1062,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1087,7 +1084,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1148,7 +1144,7 @@
 "version":"2023-10-26"
 },
 "ls-colors":{
-"drvPath":"/nix/store/n2r4s8hi23bjm0mpxass4b9a9n8j9cns-ls-colors-unstable-2025-06-06.drv",
+"drvPath":"/nix/store/4ns93d7ijwh5maqmxdvq5yad2k5wfj9w-ls-colors-unstable-2025-06-06.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1210,7 +1206,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/ls-colors/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/ls-colors/default.nix",
 "line":32
 },
 "name":"ls-colors-unstable-2025-06-06",
@@ -1232,10 +1228,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1244,7 +1241,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1267,7 +1263,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1328,7 +1323,7 @@
 "version":"2025-06-06"
 },
 "myosevka.aile":{
-"drvPath":"/nix/store/zb26zdmxyav61fwp6x3bd0fbidfbcn7b-myosevka-aile-34.7.0.drv",
+"drvPath":"/nix/store/z7xgxbfshv6w3iyv83vm3iin76yh3zyl-myosevka-aile-34.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1390,7 +1385,7 @@
 ],
 "maintainersPosition":{
 "column":15,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/myosevka/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/myosevka/default.nix",
 "line":179
 },
 "name":"myosevka-aile-34.7.0",
@@ -1412,10 +1407,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1424,7 +1420,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1447,7 +1442,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1508,7 +1502,7 @@
 "version":"34.7.0"
 },
 "myosevka.etoile":{
-"drvPath":"/nix/store/fkvy39x8q0rvns3i7cglrnv0s4kd8i9a-myosevka-etoile-34.7.0.drv",
+"drvPath":"/nix/store/0n7klzc1baaaqzqlaigb9qvq6hpq6mhi-myosevka-etoile-34.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1570,7 +1564,7 @@
 ],
 "maintainersPosition":{
 "column":15,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/myosevka/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/myosevka/default.nix",
 "line":179
 },
 "name":"myosevka-etoile-34.7.0",
@@ -1592,10 +1586,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1604,7 +1599,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1627,7 +1621,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1688,7 +1681,7 @@
 "version":"34.7.0"
 },
 "myosevka.mono":{
-"drvPath":"/nix/store/ij9mkh9fbllvrpbdasw020bm6zbbwgr4-myosevka-mono-34.7.0.drv",
+"drvPath":"/nix/store/056ab6ml4xmbv2f1vzz8y2x5kwv919sz-myosevka-mono-34.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1750,7 +1743,7 @@
 ],
 "maintainersPosition":{
 "column":15,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/myosevka/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/myosevka/default.nix",
 "line":179
 },
 "name":"myosevka-mono-34.7.0",
@@ -1772,10 +1765,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1784,7 +1778,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1807,7 +1800,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1868,7 +1860,7 @@
 "version":"34.7.0"
 },
 "myosevka.proportional":{
-"drvPath":"/nix/store/glydfkd4ciyrjvdlgzrggjgykli27g8l-myosevka-proportional-34.7.0.drv",
+"drvPath":"/nix/store/34wqkrycd2yjzmqg434dfvhwp5pa8nnv-myosevka-proportional-34.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1930,7 +1922,7 @@
 ],
 "maintainersPosition":{
 "column":15,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/myosevka/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/myosevka/default.nix",
 "line":179
 },
 "name":"myosevka-proportional-34.7.0",
@@ -1952,10 +1944,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -1964,7 +1957,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1987,7 +1979,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -2048,7 +2039,7 @@
 "version":"34.7.0"
 },
 "ssim-downscaler":{
-"drvPath":"/nix/store/bg2ncbfqljhyjrb72sy8prmn7jsybg0w-ssim-downscaler-unstable-2024-09-05.drv",
+"drvPath":"/nix/store/yl5fnv3h2pl73cr67zs6y2fqhs00y698-ssim-downscaler-unstable-2024-09-05.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2109,7 +2100,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/mpv-shaders/ssim-downscaler/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/mpv-shaders/ssim-downscaler/default.nix",
 "line":31
 },
 "name":"ssim-downscaler-unstable-2024-09-05",
@@ -2131,10 +2122,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -2143,7 +2135,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -2166,7 +2157,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -2227,7 +2217,7 @@
 "version":"2024-09-05"
 },
 "ssim-super-res":{
-"drvPath":"/nix/store/bw54zkm4mp0q42ih7jj5k2asijlnpn26-ssim-super-res-unstable-2022-02-07.drv",
+"drvPath":"/nix/store/xgz22w55wjx9wa52bg1bagkvf6iswk3a-ssim-super-res-unstable-2022-02-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2289,7 +2279,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/mpv-shaders/ssim-super-res/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/mpv-shaders/ssim-super-res/default.nix",
 "line":32
 },
 "name":"ssim-super-res-unstable-2022-02-07",
@@ -2311,10 +2301,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -2323,7 +2314,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -2346,7 +2336,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -2407,7 +2396,7 @@
 "version":"2022-02-07"
 },
 "thelounge-theme-zenburn":{
-"drvPath":"/nix/store/wybxma9lamz795837w01glzrg6aij6am-thelounge-theme-zenburn-1.0.5.drv",
+"drvPath":"/nix/store/7hdrpb9qkwjiy7zbi3mxi0qs5mk1rsiw-thelounge-theme-zenburn-1.0.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2469,7 +2458,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/thelounge-theme-zenburn/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/thelounge-theme-zenburn/default.nix",
 "line":30
 },
 "name":"thelounge-theme-zenburn-1.0.5",
@@ -2491,12 +2480,12 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
+"x86_64-linux",
 "aarch64-darwin",
+"aarch64-linux",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -2511,7 +2500,6 @@
 "powerpc64le-linux",
 "riscv32-linux",
 "riscv64-linux",
-"x86_64-linux",
 "s390x-linux"
 ],
 "position":"./pkgs/thelounge-theme-zenburn/default.nix:27",
@@ -2529,7 +2517,7 @@
 "version":"1.0.5"
 },
 "trash-d":{
-"drvPath":"/nix/store/f12jfhpylxz3cs6ks1fhgbiqhxrjyabf-trash-d-19.drv",
+"drvPath":"/nix/store/hncjkha4v01x27afc78iwdg8a6knvj31-trash-d-19.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2591,7 +2579,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/fi18f81za7jpaimlasllk47cq2qqqi3n-source/pkgs/trash-d/default.nix",
+"file":"/nix/store/bs8ai0pqpbrmna78in8ci73virawl96c-source/pkgs/trash-d/default.nix",
 "line":37
 },
 "name":"trash-d-19",

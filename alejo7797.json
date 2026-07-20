@@ -1,19 +1,19 @@
 {
 "name":"alejo7797",
-"fetch_time":1.334,
-"eval_time":3.986,
+"fetch_time":1.735,
+"eval_time":3.611,
 "source":{
 "url":"https://codeberg.org/alejo7797/nix-expressions",
-"rev":"e37416141895a54ca3ece01a8182b25bbb19337a",
-"sha256":"1xx3ki8awmn1asq7vmpvhp1fqrvxlbi6k8pvsx4aslfgvjs3m41n",
+"rev":"b6a06f3d049b3eff3607d83245ee53ba2e1b9d47",
+"sha256":"1b7f8m9w7haz63wmlj70qq4hv1ggix81kppskbn66i0c26q2wfrw",
 "date":null
 },
-"source_storepath":"/nix/store/638zx7pywigihsapr5b1256ccg6ci0c9-nix-expressions",
-"nixpkgs_storepath":"/nix/store/isyw47di86w5pc5cx22qrsn7sm83c486-source",
-"nur_combined_rev":"69bd830fb3bda1f5f3d3976d6c508a9a39a0a684",
+"source_storepath":"/nix/store/5azq37w10zb6vf9y4ixh1swx3fx970lf-nix-expressions",
+"nixpkgs_storepath":"/nix/store/p87jvvz3dyn2c51590rq9xqypk637s96-source",
+"nur_combined_rev":"22c45f9b8298257a51f726d02cd1300394bbd818",
 "packages":{
 "audio-switch":{
-"drvPath":"/nix/store/7v1c0i8l39ry1jsyr9c6ccxkk9qax40w-audio-switch.drv",
+"drvPath":"/nix/store/22cispm7nwljpvdvssgf9w92q5g8ziar-audio-switch.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -65,6 +65,12 @@
 "out"
 ],
 "position":"./pkgs/shell-scripts/default.nix:13",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -78,7 +84,7 @@
 "version":""
 },
 "dev-manager-desktop":{
-"drvPath":"/nix/store/gfw88gpf69xdkfj0a7jy1rqfw6d177k8-dev-manager-desktop-1.99.16.drv",
+"drvPath":"/nix/store/la2yk22xbsr8ybhwcvh2g38rsrvi20a4-dev-manager-desktop-1.99.16.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -143,7 +149,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -179,10 +184,17 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
 "position":"./pkgs/webos/dev-manager-desktop/default.nix:74",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -196,7 +208,7 @@
 "version":"1.99.16"
 },
 "frobby":{
-"drvPath":"/nix/store/6zd1bm7pcwhqxi6kx0v0fslywansx2fc-frobby-0.9.9.drv",
+"drvPath":"/nix/store/5xzma634ig9pmy5q8xa3chmaw0wh4fr0-frobby-0.9.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -250,6 +262,12 @@
 "out"
 ],
 "position":"./pkgs/math/frobby/default.nix:34",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -264,7 +282,7 @@
 "version":"0.9.9"
 },
 "gfan_0_8beta":{
-"drvPath":"/nix/store/rwxl8y0l410kf4w22cxzw25py5apvv0k-gfan-0.8beta.drv",
+"drvPath":"/nix/store/ya2xpg0627av0yw75v8yncma4k6p58c2-gfan-0.8beta.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -317,15 +335,15 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
 "x86_64-solaris",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -348,7 +366,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-netbsd",
 "armv6l-netbsd",
 "armv7a-netbsd",
@@ -365,6 +382,12 @@
 "x86_64-redox"
 ],
 "position":"./pkgs/math/gfan/0_8beta.nix:38",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -378,7 +401,7 @@
 "version":"0.8beta"
 },
 "khoca":{
-"drvPath":"/nix/store/l7s043yr5104q1pzxsbpc1acfin83bn8-khoca-1.5-unstable-2026-03-20.drv",
+"drvPath":"/nix/store/h6ayap418vjbjn9wgp6dpd73pynfd3ki-khoca-1.5-unstable-2026-03-20.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -415,6 +438,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -438,8 +462,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -466,6 +488,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -489,8 +512,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -500,6 +521,12 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/math/khoca/default.nix:50",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -514,7 +541,7 @@
 "version":"1.5-unstable-2026-03-20"
 },
 "knotjob":{
-"drvPath":"/nix/store/a34c7v9lv9dck5fp8nm9gxa1v9aswpbm-knotjob-0-chartreuse-2026-02-12.drv",
+"drvPath":"/nix/store/ng5d9x4kyx2q4sw808dk7890k9jcxvzd-knotjob-0-chartreuse-2026-02-12.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -568,6 +595,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -590,10 +618,15 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/math/knotjob/default.nix:85",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -618,7 +651,7 @@
 "version":"2024-10-29"
 },
 "macaulay2":{
-"drvPath":"/nix/store/m1mk5v7fhc4y06wdmv0db51qndfjrbfl-macaulay2-1.26.06.drv",
+"drvPath":"/nix/store/rrzfx45ckyybygkww5l0vdvnyargrd2v-macaulay2-1.26.06.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -672,6 +705,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -694,10 +728,15 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/math/macaulay2/default.nix:278",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -711,7 +750,7 @@
 "version":"1.26.06"
 },
 "massey-pari":{
-"drvPath":"/nix/store/bfmdx7vvc57c451b3q0bkx134jbxbxwy-massey-pari-0-unstable-2026-02-09.drv",
+"drvPath":"/nix/store/g7gql6l0l3l1754lhfvq68p2im79d196-massey-pari-0-unstable-2026-02-09.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -765,6 +804,12 @@
 "out"
 ],
 "position":"./pkgs/math/massey-pari/yy/default.nix:49",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -778,7 +823,7 @@
 "version":"0-unstable-2026-02-09"
 },
 "regina-normal":{
-"drvPath":"/nix/store/2w3jxy3yhmal7fwj2fdmp3vr4bx5c1qx-regina-7.4.1.drv",
+"drvPath":"/nix/store/8pzl0l1svlf40gml3nw55vz8x5i4jdqn-regina-7.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -833,6 +878,12 @@
 "man"
 ],
 "position":"./pkgs/math/regina-normal/default.nix:144",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -848,7 +899,7 @@
 "version":"7.4.1"
 },
 "round-corners":{
-"drvPath":"/nix/store/hvcxc2wcjbdzkfgh2j165cm4598d1gnb-round-corners.drv",
+"drvPath":"/nix/store/8llngaphk0pr46ykxar4al8rk0nqavv4-round-corners.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -900,6 +951,12 @@
 "out"
 ],
 "position":"./pkgs/shell-scripts/default.nix:28",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -913,7 +970,7 @@
 "version":""
 },
 "sage":{
-"drvPath":"/nix/store/2habjdqjad0bn6l1szwiyl2xg9dxhhsl-sage-10.9.drv",
+"drvPath":"/nix/store/s1d9zxjgnanqij0g0j8kimyix24v15i9-sage-10.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -986,6 +1043,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1009,10 +1067,10 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "aarch64-darwin"
 ],
 "position":"<nixpkgs> + /pkgs/by-name/sa/sage/sage.nix:62",
+"problems":{},
 "teams":[
 {
 "members":[
@@ -1041,7 +1099,7 @@
 ],
 "teamsPosition":{
 "column":5,
-"file":"/nix/store/isyw47di86w5pc5cx22qrsn7sm83c486-source/pkgs/by-name/sa/sage/sage.nix",
+"file":"/nix/store/p87jvvz3dyn2c51590rq9xqypk637s96-source/pkgs/by-name/sa/sage/sage.nix",
 "line":66
 },
 "unfree":false,
@@ -1057,7 +1115,7 @@
 "version":"10.9"
 },
 "snappy-topology":{
-"drvPath":"/nix/store/my37w8lmq7bn64421x7j89mnzp5mjyxc-SnapPy.drv",
+"drvPath":"/nix/store/ni4i73xzz77bcknijqiagwm75mz5i7h4-SnapPy.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1095,6 +1153,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1118,8 +1177,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1160,10 +1217,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/isyw47di86w5pc5cx22qrsn7sm83c486-source/pkgs/development/python-modules/snappy/default.nix",
+"file":"/nix/store/p87jvvz3dyn2c51590rq9xqypk637s96-source/pkgs/development/python-modules/snappy/default.nix",
 "line":161
 },
-"name":"python3.13-snappy-3.3.2",
+"name":"python3.14-snappy-3.3.2",
 "nonTeamMaintainers":[
 {
 "github":"noiioiu",
@@ -1187,6 +1244,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1210,11 +1268,10 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin"
 ],
 "position":"<nixpkgs> + /pkgs/development/python-modules/snappy/default.nix:156",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1228,7 +1285,7 @@
 "version":"3.3.2"
 },
 "snarkjs":{
-"drvPath":"/nix/store/8d2684j3295k1a3yzqk17dxp3dlchr5j-snarkjs-0.7.6.drv",
+"drvPath":"/nix/store/ivwz6sc1grf41ds8l2mpw7y29jk924ab-snarkjs-0.7.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1282,12 +1339,12 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
+"x86_64-linux",
 "aarch64-darwin",
+"aarch64-linux",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -1302,10 +1359,15 @@
 "powerpc64le-linux",
 "riscv32-linux",
 "riscv64-linux",
-"x86_64-linux",
 "s390x-linux"
 ],
 "position":"./pkgs/zk/snarkjs/default.nix:22",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

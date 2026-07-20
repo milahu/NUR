@@ -1,16 +1,16 @@
 {
 "name":"ymstnt",
-"fetch_time":0.714,
-"eval_time":1.871,
+"fetch_time":0.912,
+"eval_time":1.671,
 "source":{
 "url":"https://github.com/ymstnt/nur-packages",
-"rev":"0e7ce626b462d047ccbcdf7ef18555d654e595e4",
-"sha256":"14zdmayhkbmp8km8jj2xgj06npcs1wjq5bg6i85j4pdlhdak6xpv",
+"rev":"769f70e546ecae2492b19a144436126e37738df5",
+"sha256":"1km8r02bzp911vmzxlkr1ib5y0dsbgzjcy55z33247jbvya7pij9",
 "date":null
 },
-"source_storepath":"/nix/store/9pvmxd0w558h3byjq8rc1kby0hqz5vx5-source",
-"nixpkgs_storepath":"/nix/store/klahlrlzhcqz436frpbwlwjbms16ykpb-source",
-"nur_combined_rev":"e0f611d6a844b6d3387d9fe4baa8915cbc854cfc",
+"source_storepath":"/nix/store/jy43amjhgr8nf4w37gs494985k907ww5-source",
+"nixpkgs_storepath":"/nix/store/p87jvvz3dyn2c51590rq9xqypk637s96-source",
+"nur_combined_rev":"e5afa820583371ee861b30774f0a2394fe77ae25",
 "packages":{
 "beeper":{
 "name":"beeper-4.2.985",
@@ -23,12 +23,12 @@
 "version":"4.2.985"
 },
 "brave-origin":{
-"drvPath":"/nix/store/i0hkx4mh7v681dcdnj8amgfcvq8h27l7-brave-origin-1.92.140.drv",
+"drvPath":"/nix/store/g9adh7jj1iazfiga6dxwi9avlm1qjga5-brave-origin-1.92.141.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/brave/brave-browser/blob/master/CHANGELOG_DESKTOP_ORIGIN.md#192140",
-"description":"Privacy-oriented browser for Desktop and Laptop computers",
+"changelog":"https://github.com/brave/brave-browser/releases/tag/v1.92.141",
+"description":"Privacy-oriented browser from Brave, built from Origin release artifacts",
 "homepage":"https://brave.com/origin",
 "identifiers":{
 "cpeParts":{
@@ -70,20 +70,17 @@
 "spdxId":"MPL-2.0",
 "url":"https://spdx.org/licenses/MPL-2.0.html"
 },
-"longDescription":"Brave browser blocks the ads and trackers that slow you down,\nchew up your bandwidth, and invade your privacy. Brave lets you\ncontribute to your favorite creators automatically.\n",
 "mainProgram":"brave-origin",
 "maintainers":[],
-"name":"brave-origin-1.92.140",
+"name":"brave-origin-1.92.141",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
-"aarch64-darwin",
-"aarch64-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/brave-origin/make-brave.nix:299",
+"position":"./pkgs/brave-origin/default.nix:202",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -99,14 +96,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"brave-origin-1.92.140",
+"name":"brave-origin-1.92.141",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"brave-origin",
 "system":"x86_64-linux",
-"version":"1.92.140"
+"version":"1.92.141"
 },
 "deepdwn":{
 "name":"deepdwn-0.41.0",
@@ -119,7 +116,7 @@
 "version":"0.41.0"
 },
 "equicord":{
-"drvPath":"/nix/store/896c1n110vxlp9afr8wm7w73ndkw23pg-equicord-2026-07-09.drv",
+"drvPath":"/nix/store/vzk89qskr9q9d10715m64ji0ndgap855-equicord-2026-07-09.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -277,7 +274,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9pvmxd0w558h3byjq8rc1kby0hqz5vx5-source/pkgs/lifeograph/default.nix",
+"file":"/nix/store/jy43amjhgr8nf4w37gs494985k907ww5-source/pkgs/lifeograph/default.nix",
 "line":50
 },
 "name":"lifeograph-2.0.3",
@@ -561,7 +558,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/9pvmxd0w558h3byjq8rc1kby0hqz5vx5-source/pkgs/uni-week-counter/default.nix",
+"file":"/nix/store/jy43amjhgr8nf4w37gs494985k907ww5-source/pkgs/uni-week-counter/default.nix",
 "line":25
 },
 "name":"uni-week-counter-1.3.0-unstable-2026-05-24",
