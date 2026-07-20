@@ -495,6 +495,28 @@ impl TerminalTabs {
         }
     }
 
+    /// Reset all settings toggles and font size to built-in defaults, persist, and
+    /// apply the default font to every open tab. Does not close tabs or wipe session.json.
+    fn restore_defaults(&mut self, cx: &mut Context<Self>) {
+        self.keep_tab_after_exit = true;
+        self.auto_reconnect = false;
+        self.remember_session = false;
+        self.sync_font_size_across_tabs = true;
+        self.remember_font_size = false;
+        self.font_size = px(DEFAULT_FONT_SIZE);
+        let size = self.font_size;
+        for tab in &self.tabs {
+            tab.update(cx, |session, cx| {
+                session.terminal_view.update(cx, |tv, cx| {
+                    let mut config = tv.config().clone();
+                    config.font_size = size;
+                    tv.update_config(config, cx);
+                });
+            });
+        }
+        save_settings(self);
+    }
+
     /// Focus the active terminal, then again next frame once it is in the tree.
     /// (A single focus during/just after creating the first tab often does not stick.)
     fn focus_active_session(&mut self, window: &mut Window, cx: &mut Context<Self>) {
@@ -866,47 +888,40 @@ impl Render for TerminalTabs {
             );
 
         if show_client_controls {
+            // Touch-friendly hit targets (~40×32). Tiny size_6 buttons are easy to
+            // miss on Plasma touchscreens; gnome-terminal's chrome is much larger.
+            let ctl = |id: &'static str| {
+                div()
+                    .id(id)
+                    .flex()
+                    .items_center()
+                    .justify_center()
+                    .min_w(px(40.0))
+                    .min_h(px(32.0))
+                    .w(px(40.0))
+                    .h(px(32.0))
+                    .ml_1()
+                    .rounded_sm()
+                    .cursor_pointer()
+            };
             title_bar = title_bar
                 .child(
-                    div()
-                        .id("win_min")
-                        .flex()
-                        .items_center()
-                        .justify_center()
-                        .size_6()
+                    ctl("win_min")
                         .ml_2()
-                        .rounded_sm()
-                        .cursor_pointer()
                         .hover(|s| s.bg(if is_dark { rgb(0x555555) } else { rgb(0xcccccc) }))
                         .window_control_area(WindowControlArea::Min)
                         .on_click(|_, window, _| window.minimize_window())
                         .child(div().child("–").text_color(text_color)),
                 )
                 .child(
-                    div()
-                        .id("win_max")
-                        .flex()
-                        .items_center()
-                        .justify_center()
-                        .size_6()
-                        .ml_1()
-                        .rounded_sm()
-                        .cursor_pointer()
+                    ctl("win_max")
                         .hover(|s| s.bg(if is_dark { rgb(0x555555) } else { rgb(0xcccccc) }))
                         .window_control_area(WindowControlArea::Max)
                         .on_click(|_, window, _| window.zoom_window())
                         .child(div().child("□").text_color(text_color)),
                 )
                 .child(
-                    div()
-                        .id("win_close")
-                        .flex()
-                        .items_center()
-                        .justify_center()
-                        .size_6()
-                        .ml_1()
-                        .rounded_sm()
-                        .cursor_pointer()
+                    ctl("win_close")
                         .hover(|s| s.bg(rgb(0xe81123)))
                         .window_control_area(WindowControlArea::Close)
                         .on_click(|_, window, _| window.remove_window())
@@ -1501,6 +1516,22 @@ impl Render for TerminalTabs {
                         })
                         .child(
                             div()
+                                .id("restore_defaults")
+                                .p_2()
+                                .mb_2()
+                                .bg(if is_dark { rgb(0x555555) } else { rgb(0xdddddd) })
+                                .rounded_sm()
+                                .cursor_pointer()
+                                .flex()
+                                .justify_center()
+                                .on_click(cx.listener(|this, _, _, cx| {
+                                    this.restore_defaults(cx);
+                                    cx.notify();
+                                }))
+                                .child(div().child("Restore defaults").text_color(text_color)),
+                        )
+                        .child(
+                            div()
                                 .id("close_settings")
                                 .p_2()
                                 .bg(if is_dark { rgb(0x444444) } else { rgb(0xcccccc) })
@@ -1537,6 +1568,8 @@ fn main() {
                     appears_transparent: true,
                     traffic_light_position: Some(point(px(12.0), px(10.0))),
                 }),
+                // Always client decorations so we have a single title bar (app chrome +
+                // window controls). Server decorations on Plasma doubled the chrome.
                 window_decorations: Some(WindowDecorations::Client),
                 app_id: Some("omnimux".into()),
                 ..Default::default()
