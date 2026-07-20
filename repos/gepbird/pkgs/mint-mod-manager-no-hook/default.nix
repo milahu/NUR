@@ -2,6 +2,7 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
+  fetchpatch,
   pkg-config,
   makeWrapper,
   gtk3,
@@ -12,7 +13,7 @@
   wayland,
 }:
 
-rustPlatform.buildRustPackage rec {
+rustPlatform.buildRustPackage (finalAttrs: {
   pname = "mint-mod-manager-no-hook";
   version = "0.2.10-unstable-2025-12-16";
 
@@ -31,6 +32,11 @@ rustPlatform.buildRustPackage rec {
   patches = [
     # https://github.com/rust-lang/rust/issues/51114
     ./0001-Drop-usage-of-unstable-if_let_guard-feature.patch
+    (fetchpatch {
+      name = "fix-mod.io-403-error.patch";
+      url = "https://github.com/Wasserkleber/mintfixed/commit/0170376189d46fc8f7b627f8ee0dcdf7b0b2c2ad.patch";
+      hash = "sha256-q+NasQ4xyI+E+ucBw5kJ/MHnZR9ydFxBc6AY9NEVQ04=";
+    })
   ];
 
   preConfigure = ''
@@ -60,7 +66,7 @@ rustPlatform.buildRustPackage rec {
 
   postInstall = ''
     wrapProgram $out/bin/mint \
-      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath buildInputs}" \
+      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath finalAttrs.buildInputs}" \
       --prefix XDG_DATA_DIRS : "${gtk3}/share/gsettings-schemas/${gtk3.name}"
   '';
 
@@ -74,7 +80,7 @@ rustPlatform.buildRustPackage rec {
       Use mint-mod-manager for personal use. The absence of the hook feature means mod install won't work for the first time, you will get a "Mint hook failed" error in game. With hook, it would install the necessary x3daudio1_7.dll file. This package only exists because it has a simpler build script.
     '';
     homepage = "https://github.com/trumank/mint";
-    changelog = "https://github.com/trumank/mint/commit/${src.rev}";
+    changelog = "https://github.com/trumank/mint/commit/${finalAttrs.src.rev}";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [
       gepbird
@@ -82,4 +88,4 @@ rustPlatform.buildRustPackage rec {
     mainProgram = "mint";
     platforms = [ "x86_64-linux" ];
   };
-}
+})

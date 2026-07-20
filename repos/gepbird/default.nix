@@ -6,7 +6,9 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{ pkgs ? import <nixpkgs> { } }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 
 {
   # The `lib`, `modules`, and `overlays` names are special
@@ -16,10 +18,11 @@
 
   mint-mod-manager = pkgs.callPackage ./pkgs/mint-mod-manager { };
   mint-mod-manager-no-hook = pkgs.callPackage ./pkgs/mint-mod-manager-no-hook { };
+  drg-mint-notag = pkgs.callPackage ./pkgs/drg-mint-notag { };
 
   xfce4-terminal-sixel = pkgs.callPackage ./pkgs/xfce4-terminal-sixel { };
 
-  orb-forge-gui= pkgs.callPackage ./pkgs/orb-forge-gui { };
+  orb-forge-gui = pkgs.callPackage ./pkgs/orb-forge-gui { };
 
   hytale-launcher = pkgs.callPackage ./pkgs/hytale-launcher { };
 }
