@@ -10,6 +10,16 @@ use std::time::{Duration, Instant};
 
 const DEFAULT_FONT_SIZE: f32 = 14.0;
 
+/// Fallback families for glyphs missing from the primary monospace (Starship nerd
+/// icons, powerline separators, and default emoji like hostname `ssh_symbol` 🌐).
+fn symbol_font_fallbacks() -> Vec<String> {
+    vec![
+        "Symbols Nerd Font Mono".into(),
+        "Symbols Nerd Font".into(),
+        "Noto Color Emoji".into(),
+    ]
+}
+
 struct TerminalSession {
     terminal_view: Entity<TerminalView>,
     child: std::sync::Arc<std::sync::Mutex<Box<dyn portable_pty::Child + Send + Sync>>>,
@@ -132,10 +142,7 @@ impl TerminalSession {
             scrollback: 10000,
             padding: Edges::default(),
             colors,
-            font_fallbacks: vec![
-                "Symbols Nerd Font Mono".into(),
-                "Symbols Nerd Font".into(),
-            ],
+            font_fallbacks: symbol_font_fallbacks(),
         };
 
         let terminal_view = cx.new(|cx| {
@@ -543,7 +550,62 @@ impl TerminalTabs {
         });
     }
 
-    fn new(cx: &mut Context<Self>) -> Self {
+    fn should_restore_terminal_focus(&self) -> bool {
+        self.prompt.is_none()
+            && !self.show_search
+            && !self.show_settings
+            && !self.tabs.is_empty()
+    }
+
+    /// Restore terminal focus when idle (no overlay). Used by window-level subscriptions.
+    fn restore_terminal_focus(&mut self, window: &mut Window, cx: &mut Context<Self>) {
+        if self.should_restore_terminal_focus() {
+            self.focus_active_session(window, cx);
+        }
+    }
+
+    /// Whether an exited session should be closed (matches the poll-loop removal rule).
+    fn should_close_exited_tab(session: &TerminalSession, auto_reconnect: bool) -> bool {
+        if !session.has_exited {
+            return false;
+        }
+        let success = session.exit_status == Some(0);
+        !(auto_reconnect && !success)
+    }
+
+    /// Drop tabs whose PTY has already exited when keep-tab is off.
+    fn remove_exited_tabs(&mut self, cx: &mut Context<Self>) {
+        if self.keep_tab_after_exit {
+            return;
+        }
+        let auto_reconnect = self.auto_reconnect;
+        let mut removed = false;
+        for i in (0..self.tabs.len()).rev() {
+            let close = Self::should_close_exited_tab(self.tabs[i].read(cx), auto_reconnect);
+            if close {
+                self.tabs.remove(i);
+                removed = true;
+            }
+        }
+        if !removed {
+            return;
+        }
+        self.active_tab = self.active_tab.min(self.tabs.len().saturating_sub(1));
+        if self.tabs.is_empty() {
+            self.prompt = Some(String::new());
+            self.selected_host_index = 0;
+            self.ssh_hosts = get_ssh_hosts();
+            self.focus_ui = true;
+        }
+        if self.remember_session {
+            let hosts: Vec<Option<String>> =
+                self.tabs.iter().map(|t| t.read(cx).host.clone()).collect();
+            save_session(&hosts);
+        }
+        cx.notify();
+    }
+
+    fn new(window: &mut Window, cx: &mut Context<Self>) -> Self {
         let settings = load_settings();
         let keep_tab_after_exit = settings.keep_tab_after_exit.unwrap_or(true);
         let auto_reconnect = settings.auto_reconnect.unwrap_or(false);
@@ -581,6 +643,24 @@ impl TerminalTabs {
 
         let start_prompt = initial_tabs.is_empty();
         let focus_handle = cx.focus_handle();
+
+        // Central focus recovery: WM maximize/resize (KDE Plasma), focus dropped to
+        // nothing, or window re-activated after minimize. Chrome clicks no longer
+        // need per-element refocus — track_focus lives on overlays only, not the root.
+        cx.observe_window_bounds(window, |this, window, cx| {
+            this.restore_terminal_focus(window, cx);
+        })
+        .detach();
+        cx.on_focus_lost(window, |this, window, cx| {
+            this.restore_terminal_focus(window, cx);
+        })
+        .detach();
+        cx.observe_window_activation(window, |this, window, cx| {
+            if window.is_window_active() {
+                this.restore_terminal_focus(window, cx);
+            }
+        })
+        .detach();
 
         cx.spawn(async move |this, mut cx| {
             loop {
@@ -642,7 +722,13 @@ impl TerminalTabs {
                                     session
                                 });
                                 needs_notify = true;
-                            } else if just_exited && !keep_tab && !(auto_reconnect && !success) {
+                            } else if just_exited
+                                && !keep_tab
+                                && Self::should_close_exited_tab(
+                                    this.tabs[i].read(cx),
+                                    auto_reconnect,
+                                )
+                            {
                                 this.tabs.remove(i);
                                 this.active_tab =
                                     this.active_tab.min(this.tabs.len().saturating_sub(1));
@@ -719,8 +805,15 @@ impl Render for TerminalTabs {
             }
         }
 
-        let mut tab_bar = div().flex().flex_row().bg(bg_color_bar).h(px(32.0)).items_center();
-        
+        let mut tab_bar = div()
+            .id("tab_bar")
+            .flex()
+            .flex_row()
+            .w_full()
+            .bg(bg_color_bar)
+            .h(px(32.0))
+            .items_center();
+
         for (i, session) in self.tabs.iter().enumerate() {
             let bg_color = if i == self.active_tab { bg_color_active } else { bg_color_bar };
             let tab_label = session.read(cx).host.clone().unwrap_or_else(|| "localhost".to_string());
@@ -955,13 +1048,14 @@ impl Render for TerminalTabs {
             self.focus_active_session(window, cx);
         }
 
+        // No track_focus on the root: a full-window hitbox steals focus from the
+        // terminal when clicking title/tab chrome (GPUI focus-on-mouse-down).
+        // Overlays attach track_focus when shown; global shortcuts use capture below.
         let mut main_div = div()
             .flex()
             .flex_col()
             .size_full()
             .bg(bg_color_active)
-            .track_focus(&self.focus_handle)
-            // Capture so prompt/search keys win even if a terminal under the overlay is focused.
             .capture_key_down(cx.listener(move |this, ev: &gpui::KeyDownEvent, window, cx| {
                 let mods = &ev.keystroke.modifiers;
 
@@ -1251,6 +1345,7 @@ impl Render for TerminalTabs {
                 .flex()
                 .justify_center()
                 .items_center()
+                .track_focus(&self.focus_handle)
                 .child(
                     div()
                         .w_96()
@@ -1289,6 +1384,7 @@ impl Render for TerminalTabs {
                 .p_3()
                 .shadow_md()
                 .flex_col()
+                .track_focus(&self.focus_handle)
                 .child(
                     div()
                         .flex()
@@ -1390,6 +1486,7 @@ impl Render for TerminalTabs {
                 .flex()
                 .justify_center()
                 .items_center()
+                .track_focus(&self.focus_handle)
                 .on_mouse_down(MouseButton::Left, cx.listener(|this, _, window, cx| {
                     // Click outside the panel closes settings.
                     this.show_settings = false;
@@ -1428,6 +1525,9 @@ impl Render for TerminalTabs {
                                 .on_click(move |checked, _, app| {
                                     entity.update(app, |this, cx| {
                                         this.keep_tab_after_exit = *checked;
+                                        if !*checked {
+                                            this.remove_exited_tabs(cx);
+                                        }
                                         save_settings(this);
                                         cx.notify();
                                     });
@@ -1574,7 +1674,7 @@ fn main() {
                 app_id: Some("omnimux".into()),
                 ..Default::default()
             },
-            |_, cx| cx.new(|cx| TerminalTabs::new(cx))
+            |window, cx| cx.new(|cx| TerminalTabs::new(window, cx))
         ).unwrap();
         cx.activate(true);
     });
@@ -1598,7 +1698,7 @@ fn symbol_font_dirs() -> Vec<std::path::PathBuf> {
     dirs
 }
 
-/// Load bundled Symbols Nerd Font into GPUI so Starship glyphs can fall back.
+/// Load bundled Nerd + emoji fonts into GPUI for Starship / powerline fallbacks.
 fn load_bundled_symbol_fonts(cx: &gpui::App) {
     use std::borrow::Cow;
 
