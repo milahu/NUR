@@ -1,16 +1,16 @@
 {
 "name":"hhr2020",
-"fetch_time":0.805,
-"eval_time":2.281,
+"fetch_time":0.427,
+"eval_time":1.976,
 "source":{
 "url":"https://github.com/hhr2020/nur-packages",
-"rev":"cdae5a939a372584b7d59fcf575f9728c719bb4e",
-"sha256":"0281sjgi030rpgb693s5kfg8za406gx58dwrn3asyhjkcc1r6ib4",
+"rev":"b18524b1ca3726f7a1bbba1347fbf41d11d5700d",
+"sha256":"0w7y50q8yccq312wr46ha0wr762iak1d4rnav2wg62mlsjfqi76q",
 "date":null
 },
-"source_storepath":"/nix/store/bkv0dh2918kyj8q6kd1q61s7692cimaf-source",
-"nixpkgs_storepath":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source",
-"nur_combined_rev":"7c5710c196e3c0f3fbf710cc06c75e812052e51d",
+"source_storepath":"/nix/store/qr4p6dghn08gp01il4fwgh6a1s29c687-source",
+"nixpkgs_storepath":"/nix/store/w0d0sydj6sbcyp1l36ya9wbjh0j56c3j-source",
+"nur_combined_rev":"ad42cc487852fda8661be53dc4e83e898c513ae6",
 "packages":{
 "celechron":{
 "drvPath":"/nix/store/rb26zci0a1nnl26smrd99ccyav1kvfrj-celechron-1.1.0.drv",
@@ -69,7 +69,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/bkv0dh2918kyj8q6kd1q61s7692cimaf-source/pkgs/celechron/default.nix",
+"file":"/nix/store/qr4p6dghn08gp01il4fwgh6a1s29c687-source/pkgs/celechron/default.nix",
 "line":109
 },
 "name":"celechron-1.1.0",
@@ -181,7 +181,7 @@
 "version":"1.1.0"
 },
 "ez4connect":{
-"drvPath":"/nix/store/ix1iw5q9nj4q507yyjk88b4brcaw5rsl-ez4connect-1.8.0.drv",
+"drvPath":"/nix/store/xiwxcc037zb3qv3drbb4gnhdfhdxw4ak-ez4connect-1.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -237,7 +237,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/bkv0dh2918kyj8q6kd1q61s7692cimaf-source/pkgs/ez4connect/default.nix",
+"file":"/nix/store/qr4p6dghn08gp01il4fwgh6a1s29c687-source/pkgs/ez4connect/default.nix",
 "line":51
 },
 "name":"ez4connect-1.8.0",
@@ -347,7 +347,7 @@
 "version":"1.8.0"
 },
 "fiz":{
-"drvPath":"/nix/store/amgc3mlkjqi9wy14543nk6rj24wnf96z-fiz-0.3.9.drv",
+"drvPath":"/nix/store/w4rlbr2bifl2wd9ngy1rkb63fz4hsvdh-fiz-0.3.9.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -415,7 +415,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/bkv0dh2918kyj8q6kd1q61s7692cimaf-source/pkgs/fiz/default.nix",
+"file":"/nix/store/qr4p6dghn08gp01il4fwgh6a1s29c687-source/pkgs/fiz/default.nix",
 "line":75
 },
 "name":"fiz-0.3.9",
@@ -465,6 +465,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -539,7 +540,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/bkv0dh2918kyj8q6kd1q61s7692cimaf-source/pkgs/loko/default.nix",
+"file":"/nix/store/qr4p6dghn08gp01il4fwgh6a1s29c687-source/pkgs/loko/default.nix",
 "line":72
 },
 "name":"loko-0.13.0",
@@ -649,7 +650,7 @@
 "version":"0.13.0"
 },
 "q5go":{
-"drvPath":"/nix/store/g2a3a8012gjngbcizanswb335gkrs4y9-q5go-2.1.3-unstable-2023-05-01.drv",
+"drvPath":"/nix/store/wrg5zxdmw8zr1mzpsq5g2k8qc61yk7ls-q5go-2.1.3-unstable-2023-05-01.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -800,7 +801,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/bkv0dh2918kyj8q6kd1q61s7692cimaf-source/pkgs/soar/default.nix",
+"file":"/nix/store/qr4p6dghn08gp01il4fwgh6a1s29c687-source/pkgs/soar/default.nix",
 "line":42
 },
 "name":"soar-0.12.6",
@@ -906,7 +907,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/bkv0dh2918kyj8q6kd1q61s7692cimaf-source/pkgs/zju-connect/default.nix",
+"file":"/nix/store/qr4p6dghn08gp01il4fwgh6a1s29c687-source/pkgs/zju-connect/default.nix",
 "line":26
 },
 "name":"zju-connect-1.1.1",
@@ -967,7 +968,7 @@
 "version":"1.1.1"
 },
 "zju-learning-assistant":{
-"drvPath":"/nix/store/bf4hby8b0iak280qhd8prllfa2h5kwj8-zju-learning-assistant-0.3.13.drv",
+"drvPath":"/nix/store/zhqp9w8qcylv8acxivg7af369kx6j6yx-zju-learning-assistant-0.3.13.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1035,7 +1036,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/bkv0dh2918kyj8q6kd1q61s7692cimaf-source/pkgs/zju-learning-assistant/default.nix",
+"file":"/nix/store/qr4p6dghn08gp01il4fwgh6a1s29c687-source/pkgs/zju-learning-assistant/default.nix",
 "line":79
 },
 "name":"zju-learning-assistant-0.3.13",
@@ -1085,6 +1086,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
