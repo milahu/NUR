@@ -50,6 +50,7 @@
 use crate::clipboard::Clipboard;
 use crate::colors::ColorPalette;
 use crate::event::{GpuiEventProxy, TerminalEvent};
+use crate::ime::{ime_cursor_bounds, paint_marked_text, TerminalInputHandler};
 use crate::input::keystroke_to_bytes;
 use crate::mouse::{
     encode_modifiers, mouse_button_report, mouse_drag_report, pixel_to_cell, pixels_to_scroll_lines,
@@ -152,6 +153,10 @@ pub struct TerminalConfig {
     /// Font families tried when a glyph is missing from [`Self::font_family`]
     /// (e.g. Starship / Nerd Font symbols).
     pub font_fallbacks: Vec<String>,
+
+    /// OSC 52 remote clipboard policy. Default [`Osc52Policy::Disabled`] so a
+    /// compromised remote cannot silently overwrite or read the system clipboard.
+    pub osc52: crate::terminal::Osc52Policy,
 }
 
 impl Default for TerminalConfig {
@@ -169,6 +174,7 @@ impl Default for TerminalConfig {
                 "Symbols Nerd Font Mono".into(),
                 "Symbols Nerd Font".into(),
             ],
+            osc52: crate::terminal::Osc52Policy::Disabled,
         }
     }
 }
@@ -316,6 +322,9 @@ pub type TitleCallback = Box<dyn Fn(&mut Window, &mut Context<TerminalView>, &st
 /// ```
 pub type ClipboardStoreCallback = Box<dyn Fn(&mut Window, &mut Context<TerminalView>, &str)>;
 
+/// Callback for Cmd/Ctrl+click on a URL (OSC 8 or plain `http(s)://` text).
+pub type LinkClickCallback = Box<dyn Fn(&mut Window, &mut Context<TerminalView>, &str)>;
+
 /// Callback for terminal exit events.
 ///
 /// This callback is invoked when the terminal process exits (e.g., shell exits,
@@ -428,6 +437,9 @@ pub struct TerminalView {
     /// Callback for clipboard store requests
     clipboard_store_callback: Option<ClipboardStoreCallback>,
 
+    /// Callback for Cmd/Ctrl+click URLs
+    link_click_callback: Option<LinkClickCallback>,
+
     /// Callback for terminal exit events
     exit_callback: Option<ExitCallback>,
 
@@ -447,6 +459,9 @@ pub struct TerminalView {
     /// Kept in sync during canvas layout so mouse→cell mapping matches what was drawn —
     /// important under Wayland fractional scaling (e.g. Plasma 225%).
     hit_test: Arc<parking_lot::Mutex<TerminalHitTest>>,
+
+    /// IME pre-edit (composing) state for CJK and similar input methods.
+    ime_state: Option<crate::ime::ImeState>,
 }
 
 /// Geometry used to map window-space mouse positions to terminal cells.
@@ -517,11 +532,12 @@ impl TerminalView {
         // Create event proxy for alacritty
         let event_proxy = GpuiEventProxy::new(event_tx);
 
-        // Create terminal state with configured scrollback
+        // Create terminal state with configured scrollback / OSC 52 policy
         let state = TerminalState::new_with_scrollback(
             config.cols,
             config.rows,
             config.scrollback,
+            config.osc52,
             event_proxy,
         );
 
@@ -596,12 +612,51 @@ impl TerminalView {
             bell_callback: None,
             title_callback: None,
             clipboard_store_callback: None,
+            link_click_callback: None,
             exit_callback: None,
             search_highlight: None,
             mouse_pressed: None,
             last_mouse_cell: None,
             selecting: false,
             hit_test: Arc::new(parking_lot::Mutex::new(TerminalHitTest::default())),
+            ime_state: None,
+        }
+    }
+
+    /// Cell width in pixels (for IME candidate positioning).
+    pub(crate) fn cell_width(&self) -> Pixels {
+        self.renderer.cell_width
+    }
+
+    /// UTF-16 range of the marked text for the platform IME.
+    pub(crate) fn marked_text_range(&self) -> Option<std::ops::Range<usize>> {
+        self.ime_state.as_ref().map(|state| {
+            0..state.marked_text.encode_utf16().count()
+        })
+    }
+
+    /// Set IME pre-edit text (composing).
+    pub(crate) fn set_marked_text(&mut self, text: String, cx: &mut Context<Self>) {
+        if text.is_empty() {
+            self.clear_marked_text(cx);
+            return;
+        }
+        self.ime_state = Some(crate::ime::ImeState { marked_text: text });
+        cx.notify();
+    }
+
+    /// Clear IME pre-edit state.
+    pub(crate) fn clear_marked_text(&mut self, cx: &mut Context<Self>) {
+        if self.ime_state.is_some() {
+            self.ime_state = None;
+            cx.notify();
+        }
+    }
+
+    /// Commit composed IME text to the PTY.
+    pub(crate) fn commit_ime_text(&mut self, text: &str) {
+        if !text.is_empty() {
+            self.write_pty_str(text);
         }
     }
 
@@ -723,6 +778,15 @@ impl TerminalView {
         self
     }
 
+    /// Cmd/Ctrl+click URL handler (OSC 8 or plain http(s) text).
+    pub fn with_link_click_callback(
+        mut self,
+        callback: impl Fn(&mut Window, &mut Context<TerminalView>, &str) + 'static,
+    ) -> Self {
+        self.link_click_callback = Some(Box::new(callback));
+        self
+    }
+
     /// Set a callback to be invoked when the terminal process exits.
     ///
     /// The callback receives a mutable reference to the window and context,
@@ -811,6 +875,28 @@ impl TerminalView {
         cx: &mut Context<Self>,
     ) {
         window.focus(&self.focus_handle);
+
+        // Cmd (macOS) / Ctrl (Linux) + left click → open URL when a handler is set.
+        let link_modifier = if cfg!(target_os = "macos") {
+            event.modifiers.platform
+        } else {
+            event.modifiers.control || event.modifiers.platform
+        };
+        if event.button == MouseButton::Left && link_modifier {
+            if let Some(ref callback) = self.link_click_callback {
+                let viewport = self.viewport_cell_at(event.position);
+                let grid_point = self.viewport_to_grid(viewport);
+                if let Some(url) = self.state.with_term(|term| {
+                    crate::links::find_url_at_point(term, grid_point)
+                }) {
+                    if crate::links::is_browser_url(&url) {
+                        callback(window, cx, &url);
+                        cx.notify();
+                        return;
+                    }
+                }
+            }
+        }
 
         let viewport = self.viewport_cell_at(event.position);
         let mode = self.state.mode();
@@ -996,9 +1082,25 @@ impl TerminalView {
     }
 
     /// Write raw text to the PTY (e.g. clipboard paste).
+    ///
+    /// When the application has bracketed paste enabled, wraps the payload in
+    /// `\e[200~` … `\e[201~` and strips any embedded end-bracket sequences so a
+    /// malicious clipboard cannot terminate the bracket early.
     pub fn write_input(&self, data: &str) {
-        self.write_pty_str(data);
+        let bracketed = self
+            .state
+            .mode()
+            .contains(alacritty_terminal::term::TermMode::BRACKETED_PASTE);
+        if bracketed {
+            let sanitized = data.replace("\x1b[201~", "");
+            self.write_pty_str(&format!("\x1b[200~{sanitized}\x1b[201~"));
+        } else {
+            self.write_pty_str(data);
+        }
     }
+
+    /// Maximum decoded OSC 52 clipboard payload accepted when store is enabled.
+    const OSC52_MAX_BYTES: usize = 1024 * 1024;
 
     /// Copy the current selection to the system clipboard.
     ///
@@ -1038,17 +1140,43 @@ impl TerminalView {
                     }
                 }
                 TerminalEvent::ClipboardStore(text) => {
-                    if let Some(ref callback) = self.clipboard_store_callback {
-                        callback(window, cx, &text);
-                    } else if let Ok(mut clipboard) = Clipboard::new() {
-                        let _ = clipboard.copy(&text);
+                    if text.len() > Self::OSC52_MAX_BYTES {
+                        eprintln!(
+                            "gpui-terminal: ignoring oversized OSC 52 store ({} bytes)",
+                            text.len()
+                        );
+                        continue;
+                    }
+                    match self.config.osc52 {
+                        crate::terminal::Osc52Policy::OnlyCopy
+                        | crate::terminal::Osc52Policy::CopyPaste => {
+                            if let Some(ref callback) = self.clipboard_store_callback {
+                                callback(window, cx, &text);
+                            } else if let Ok(mut clipboard) = Clipboard::new() {
+                                let _ = clipboard.copy(&text);
+                            }
+                        }
+                        crate::terminal::Osc52Policy::Disabled
+                        | crate::terminal::Osc52Policy::OnlyPaste => {}
                     }
                 }
                 TerminalEvent::ClipboardLoad(format) => {
-                    if let Ok(mut clipboard) = Clipboard::new() {
-                        if let Ok(text) = clipboard.paste() {
-                            self.write_pty_str(&format(&text));
+                    match self.config.osc52 {
+                        crate::terminal::Osc52Policy::OnlyPaste
+                        | crate::terminal::Osc52Policy::CopyPaste => {
+                            if let Ok(mut clipboard) = Clipboard::new() {
+                                if let Ok(text) = clipboard.paste() {
+                                    let capped = if text.len() > Self::OSC52_MAX_BYTES {
+                                        &text[..Self::OSC52_MAX_BYTES]
+                                    } else {
+                                        text.as_str()
+                                    };
+                                    self.write_pty_str(&format(capped));
+                                }
+                            }
                         }
+                        crate::terminal::Osc52Policy::Disabled
+                        | crate::terminal::Osc52Policy::OnlyCopy => {}
                     }
                 }
                 TerminalEvent::PtyWrite(data) => {
@@ -1278,6 +1406,21 @@ impl TerminalView {
     /// * `config` - The new configuration to apply
     /// * `cx` - The context for triggering a repaint
     pub fn update_config(&mut self, config: TerminalConfig, cx: &mut Context<Self>) {
+        // Only push OSC 52 / scrollback into alacritty when they change. Calling
+        // `set_options` on every font/theme update would reset unrelated Term
+        // options and re-emit title events.
+        if config.osc52 != self.config.osc52 || config.scrollback != self.config.scrollback {
+            let scrolling_history = config.scrollback;
+            let osc52 = config.osc52;
+            self.state.with_term_mut(|term| {
+                term.set_options(alacritty_terminal::term::Config {
+                    scrolling_history,
+                    osc52: osc52.into(),
+                    ..alacritty_terminal::term::Config::default()
+                });
+            });
+        }
+
         // Update renderer with new font settings and palette
         self.renderer.font_family = config.font_family.clone();
         self.renderer.font_fallbacks = config.font_fallbacks.clone();
@@ -1324,6 +1467,17 @@ impl Render for TerminalView {
         let search_highlight = self.search_highlight;
         let bg = self.config.colors.background();
         let hit_test = self.hit_test.clone();
+        let view_entity = cx.entity().clone();
+        let focus_handle = self.focus_handle.clone();
+        let font_family = self.config.font_family.clone();
+        let font_size = self.config.font_size;
+        let line_height = self.renderer.cell_height;
+        let fg = self.config.colors.foreground();
+        let marked_text = self
+            .ime_state
+            .as_ref()
+            .map(|s| s.marked_text.clone())
+            .unwrap_or_default();
 
         div()
             .size_full()
@@ -1434,6 +1588,46 @@ impl Render for TerminalView {
                             window,
                             cx,
                         );
+
+                        // Register IME input handler at the cursor cell (CJK, compose, etc.)
+                        let cursor_bounds = ime_cursor_bounds(
+                            bounds,
+                            padding,
+                            measured_renderer.cell_width,
+                            measured_renderer.cell_height,
+                            &term,
+                        );
+                        window.handle_input(
+                            &focus_handle,
+                            TerminalInputHandler {
+                                terminal_view: view_entity.clone(),
+                                cursor_bounds,
+                            },
+                            cx,
+                        );
+
+                        // Draw IME pre-edit text over the terminal at the cursor
+                        if !marked_text.is_empty() {
+                            if let Some(cb) = ime_cursor_bounds(
+                                bounds,
+                                padding,
+                                measured_renderer.cell_width,
+                                measured_renderer.cell_height,
+                                &term,
+                            ) {
+                                paint_marked_text(
+                                    &marked_text,
+                                    cb,
+                                    bg,
+                                    fg,
+                                    &font_family,
+                                    font_size,
+                                    line_height,
+                                    window,
+                                    cx,
+                                );
+                            }
+                        }
                     },
                 )
                 .size_full(),

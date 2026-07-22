@@ -2310,6 +2310,7 @@ dependencies = [
  "strum 0.27.2",
  "taffy",
  "thiserror 2.0.18",
+ "unicode-script",
  "usvg",
  "uuid",
  "waker-fn",
@@ -4003,18 +4004,13 @@ dependencies = [
 name = "omnimux"
 version = "0.1.0"
 dependencies = [
- "anyhow",
- "async-channel 2.5.0",
  "glob",
  "gpui",
  "gpui-component",
  "gpui-terminal",
- "parking_lot",
  "portable-pty",
  "serde",
  "serde_json",
- "smol",
- "tokio",
 ]
 
 [[package]]

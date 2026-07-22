@@ -35,6 +35,7 @@ Rough chronological / thematic summary of edits under this vendor tree for Omnim
 - `TerminalView::copy_selection()` for host shortcuts (⌘C / Ctrl+Shift+C handled in Omnimux).
 - Forward OSC 52 **store** (and default `arboard` fallback) and **load** back to the PTY.
 - Forward **`PtyWrite`**, **`ColorRequest`**, and **`TextAreaSizeRequest`** to the PTY (upstream event bridge dropped several of these).
+- **Security**: OSC 52 defaults to **`Disabled`** (`Osc52Policy` / alacritty `Config.osc52`) so a compromised remote cannot silently overwrite or exfiltrate the system clipboard. Omnimux sets this explicitly; store/load handlers are gated and size-capped. Paste uses **bracketed paste** when the app enables it.
 
 ### Rendering / metrics
 
@@ -49,6 +50,18 @@ Rough chronological / thematic summary of edits under this vendor tree for Omnim
 
 - In-grid search + highlight (`TerminalView::search` / `clear_search`) used by Omnimux’s search UI.
 
+### Hyperlinks (Omnimux opt-in)
+
+- `links.rs`: OSC 8 cell URI or plain `http(s)://` under the click point.
+- `with_link_click_callback` + Cmd (macOS) / Ctrl (Linux) + left click in `on_mouse_down`.
+- Omnimux gates this behind Settings → open links (default off) and a confirm overlay; only `http`/`https`.
+
+### IME (CJK input)
+
+- `ime.rs`: `TerminalInputHandler` registered during canvas paint via `window.handle_input`, following Zed’s `terminal_element` pattern.
+- Pre-edit (composing) text painted with underline at the terminal cursor; committed text is written to the PTY.
+- Works with Wayland `zwp_text_input_v3` and macOS IME through GPUI’s platform layer.
+
 ### Misc API / robustness
 
 - `write_input` for paste into the PTY.
@@ -57,7 +70,7 @@ Rough chronological / thematic summary of edits under this vendor tree for Omnim
 
 ## What Omnimux owns (not in this vendor)
 
-Tab chrome, SSH+tmux spawn, settings (theme sync, font sync/remember), focus hacks, packaging, and shortcut routing live in `by-name/om/omnimux/src/src/main.rs` (and `package.nix`), not here.
+Tab chrome, SSH+tmux spawn, settings (theme sync, font sync/remember), focus hacks, packaging, and shortcut routing live in `by-name/om/omnimux/src/src/tabs/` (and `package.nix`), not here.
 
 ## Refresh / rebase tips
 
