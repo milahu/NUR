@@ -1,16 +1,16 @@
 {
 "name":"elzorrorebelde",
-"fetch_time":0.262,
-"eval_time":1.109,
+"fetch_time":0.289,
+"eval_time":1.153,
 "source":{
 "url":"https://rosa.radicle.network/z3YkDws5EsBLkbzbbrjzrzB775AJX.git",
-"rev":"d8705a35175238fa7f444a4fb053156939f96dd0",
-"sha256":"1cf1k2a042w5il2ipalbhcm17nc3zqzpc0sfyjcxdm8r01kamp0y",
+"rev":"df5a51e73a1215d3f6b023a1df3b589a4361e12a",
+"sha256":"05kvlb8w0c589b0kwk96lf16r9bh0mmssssy3h6pgm8awv4i89jy",
 "date":null
 },
-"source_storepath":"/nix/store/2rr72hlvvcs3arfsnh5nif80k2yszj6y-z3YkDws5EsBLkbzbbrjzrzB775AJX",
+"source_storepath":"/nix/store/qwp8fm8pcb8ahkakxvl0xyvxqlsayymr-z3YkDws5EsBLkbzbbrjzrzB775AJX",
 "nixpkgs_storepath":"/nix/store/w0d0sydj6sbcyp1l36ya9wbjh0j56c3j-source",
-"nur_combined_rev":"aa492f1f4855dc08aa5eb5c76abec0c306d4b9de",
+"nur_combined_rev":"e9bb21da18ca1decb2bd43827c8ec716e05c900a",
 "packages":{
 "abw-abcde":{
 "name":"abw-abcde-0.0.10",
@@ -114,7 +114,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2rr72hlvvcs3arfsnh5nif80k2yszj6y-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/bof-text-editor/default.nix",
+"file":"/nix/store/qwp8fm8pcb8ahkakxvl0xyvxqlsayymr-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/bof-text-editor/default.nix",
 "line":43
 },
 "name":"python3.14-bof-text-unstable-2025-09-05",
@@ -226,7 +226,7 @@
 "version":"2025-09-05"
 },
 "bof3-text-extractor":{
-"drvPath":"/nix/store/1lrdd1rksjcg01vfyfirmkj9dvrw90ia-bof3-text-extractor-unstable-2022-11-30.drv",
+"drvPath":"/nix/store/706z4qdy0as0wdh5gfwqn9qakblr6wyg-bof3-text-extractor-unstable-2022-11-30.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -273,7 +273,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "longDescription":"A tool to extract the dialogue sections from AREAxxx.EMI files found in\nBreath of Fire III's game files. Supports both English and Japanese text\nextraction.\n",
-"mainProgram":"extractor",
+"mainProgram":"bof3-extractor",
 "maintainers":[
 {
 "email":"jorge@esavara.cr",
@@ -284,8 +284,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2rr72hlvvcs3arfsnh5nif80k2yszj6y-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/bof3-text-extractor/default.nix",
-"line":45
+"file":"/nix/store/qwp8fm8pcb8ahkakxvl0xyvxqlsayymr-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/bof3-text-extractor/default.nix",
+"line":68
 },
 "name":"bof3-text-extractor-unstable-2022-11-30",
 "nonTeamMaintainers":[
@@ -380,7 +380,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./packages/bof3-text-extractor/default.nix:37",
+"position":"./packages/bof3-text-extractor/default.nix:60",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -395,7 +395,7 @@
 "version":"2022-11-30"
 },
 "bof4-text-extractor":{
-"drvPath":"/nix/store/qr41g3pyac50y973a0q3rpq6k7fz9grl-bof4-text-extractor-unstable-2022-11-28.drv",
+"drvPath":"/nix/store/n0na3kr3ymkd1kb1h3ywwbpl8nnzg3nk-bof4-text-extractor-unstable-2022-11-28.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -442,7 +442,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "longDescription":"A tool to extract the dialogue sections from AREAxxx.EMI files found in\nBreath of Fire IV's game files. Supports both English and Japanese text\nextraction.\n",
-"mainProgram":"extractor",
+"mainProgram":"bof4-extractor",
 "maintainers":[
 {
 "email":"jorge@esavara.cr",
@@ -453,8 +453,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2rr72hlvvcs3arfsnh5nif80k2yszj6y-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/bof4-text-extractor/default.nix",
-"line":49
+"file":"/nix/store/qwp8fm8pcb8ahkakxvl0xyvxqlsayymr-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/bof4-text-extractor/default.nix",
+"line":80
 },
 "name":"bof4-text-extractor-unstable-2022-11-28",
 "nonTeamMaintainers":[
@@ -549,7 +549,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./packages/bof4-text-extractor/default.nix:41",
+"position":"./packages/bof4-text-extractor/default.nix:72",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -622,7 +622,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2rr72hlvvcs3arfsnh5nif80k2yszj6y-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/emi-extractor/default.nix",
+"file":"/nix/store/qwp8fm8pcb8ahkakxvl0xyvxqlsayymr-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/emi-extractor/default.nix",
 "line":43
 },
 "name":"emi-extractor-unstable-2022-02-28",
@@ -790,7 +790,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2rr72hlvvcs3arfsnh5nif80k2yszj6y-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/gtk-css-language-server/default.nix",
+"file":"/nix/store/qwp8fm8pcb8ahkakxvl0xyvxqlsayymr-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/gtk-css-language-server/default.nix",
 "line":63
 },
 "name":"gtk-css-language-server-2023.12",
@@ -905,7 +905,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2rr72hlvvcs3arfsnh5nif80k2yszj6y-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/mkpsxiso/default.nix",
+"file":"/nix/store/qwp8fm8pcb8ahkakxvl0xyvxqlsayymr-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/mkpsxiso/default.nix",
 "line":43
 },
 "name":"mkpsxiso-2.30",
@@ -1073,7 +1073,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2rr72hlvvcs3arfsnh5nif80k2yszj6y-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/ngpost/default.nix",
+"file":"/nix/store/qwp8fm8pcb8ahkakxvl0xyvxqlsayymr-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/ngpost/default.nix",
 "line":58
 },
 "name":"ngpost-4.16",
@@ -1240,7 +1240,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2rr72hlvvcs3arfsnh5nif80k2yszj6y-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/ppf/default.nix",
+"file":"/nix/store/qwp8fm8pcb8ahkakxvl0xyvxqlsayymr-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/ppf/default.nix",
 "line":71
 },
 "name":"ppf-3.0-unstable-2018-09-01",
@@ -1410,7 +1410,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2rr72hlvvcs3arfsnh5nif80k2yszj6y-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/tilemolester/default.nix",
+"file":"/nix/store/qwp8fm8pcb8ahkakxvl0xyvxqlsayymr-z3YkDws5EsBLkbzbbrjzrzB775AJX/packages/tilemolester/default.nix",
 "line":75
 },
 "name":"tilemolester-0.21",

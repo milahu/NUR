@@ -1,16 +1,16 @@
 {
 "name":"mic92",
-"fetch_time":0.831,
-"eval_time":1.117,
+"fetch_time":0.427,
+"eval_time":0.995,
 "source":{
 "url":"https://github.com/Mic92/nur-packages",
-"rev":"59365b1db3df45896779a4c5d4d1f9f52df86b91",
-"sha256":"02nbg0i913lx5sn55bd738v63n3rxl9c5wdcjk01dsbf9spzcp7n",
+"rev":"dae36a1ce6b1a0bbfa5d6a3a965b1390131eea1e",
+"sha256":"10gz8qasyh3yy7lhvdykwn19z9ndh24h0p3i5nhw4nnbaf5v0nh1",
 "date":null
 },
-"source_storepath":"/nix/store/7ilflwh8nphj7qjn2886gsakgiwbdnsg-source",
-"nixpkgs_storepath":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source",
-"nur_combined_rev":"cdce4b6f2002f152548d5650b09e321406b3381f",
+"source_storepath":"/nix/store/z6n2185k7b8rv3ckyk7lxnzgz423w9gi-source",
+"nixpkgs_storepath":"/nix/store/w0d0sydj6sbcyp1l36ya9wbjh0j56c3j-source",
+"nur_combined_rev":"82200697d155c16ef2adcf65dfe8d4a9824008c2",
 "packages":{
 "goatcounter":{
 "drvPath":"/nix/store/ayfbls6dfzx9fd9lw6c7arj5dg4i3x0v-goatcounter-2.6.0.drv",
@@ -70,7 +70,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7ilflwh8nphj7qjn2886gsakgiwbdnsg-source/pkgs/goatcounter/default.nix",
+"file":"/nix/store/z6n2185k7b8rv3ckyk7lxnzgz423w9gi-source/pkgs/goatcounter/default.nix",
 "line":26
 },
 "name":"goatcounter-2.6.0",
@@ -199,7 +199,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7ilflwh8nphj7qjn2886gsakgiwbdnsg-source/pkgs/hello-nur/default.nix",
+"file":"/nix/store/z6n2185k7b8rv3ckyk7lxnzgz423w9gi-source/pkgs/hello-nur/default.nix",
 "line":28
 },
 "name":"hello-2.10",
@@ -378,7 +378,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7ilflwh8nphj7qjn2886gsakgiwbdnsg-source/pkgs/ircsink/default.nix",
+"file":"/nix/store/z6n2185k7b8rv3ckyk7lxnzgz423w9gi-source/pkgs/ircsink/default.nix",
 "line":44
 },
 "name":"ircsink-1.2.0",
@@ -685,7 +685,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/7ilflwh8nphj7qjn2886gsakgiwbdnsg-source/pkgs/rspam-learn-spam-ham/default.nix",
+"file":"/nix/store/z6n2185k7b8rv3ckyk7lxnzgz423w9gi-source/pkgs/rspam-learn-spam-ham/default.nix",
 "line":23
 },
 "name":"rspamd-learn-spam-ham-1.0.0",
@@ -877,6 +877,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
