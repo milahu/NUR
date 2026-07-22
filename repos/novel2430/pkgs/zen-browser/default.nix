@@ -1,10 +1,9 @@
 { stdenv, lib, fetchurl, autoPatchelfHook, makeWrapper, copyDesktopItems, makeDesktopItem, writeText
 , dbus-glib
 , gtk3
-, xorg
 , nss
 , systemd
-, ffmpeg-headless
+, ffmpeg_7-headless
 , libnotify
 , zlib
 , mesa
@@ -28,16 +27,24 @@
 , hunspellDicts
 , networkmanager
 , speechd-minimal
+, libXt
+, libX11
+, libXext
+, libxcb
+, libXcomposite
+, libXdamage
+, libXrandr
+, libXxf86dga
+, libXxf86vm
 }:
 let
   pname = "zen-browser-bin";
-  version = "1.15.5b";
-
+  version = "1.21.8b";
   _pname = "zen-browser";
 
   src = fetchurl {
     url = "https://github.com/zen-browser/desktop/releases/download/${version}/zen.linux-x86_64.tar.xz";
-    hash = "sha256-EJdtOTUyejJiFXQH5A5rrZrh22/nqA0ul+cHQuEEf2g=";
+    hash = "sha256-BaNmV+TJ2+cA5UouOUH3r0ZWq74zBpCqdNjPeTrzlvQ=";
   };
 
   libs = [
@@ -45,7 +52,7 @@ let
     gtk3 
     nss
     systemd
-    ffmpeg-headless
+    ffmpeg_7-headless
     libnotify
     libglvnd
     pciutils
@@ -70,15 +77,15 @@ let
     networkmanager
     speechd-minimal
     # X stuff
-    xorg.libXt
-    xorg.libX11
-    xorg.libXext
-    xorg.libxcb
-    xorg.libXcomposite
-    xorg.libXdamage
-    xorg.libXrandr
-    xorg.libXxf86dga
-    xorg.libXxf86vm
+    libXt
+    libX11
+    libXext
+    libxcb
+    libXcomposite
+    libXdamage
+    libXrandr
+    libXxf86dga
+    libXxf86vm
   ];
 
   enterprisePolicies = {

@@ -3,7 +3,7 @@
   stdenv,
   makeWrapper,
   fetchurl,
-  wrapGAppsHook,
+  wrapGAppsHook3,
   glib,
   gtk3,
   unzip,
@@ -20,10 +20,17 @@
   gdk-pixbuf,
   nss,
   nspr,
-  xorg,
   pango,
   systemd,
   pciutils,
+  libX11,
+  libxcb,
+  libXcomposite,
+  libXdamage,
+  libXext,
+  libXfixes,
+  libXrandr,
+  libxkbfile,
 }:
 let
   headersFetcher =
@@ -45,14 +52,14 @@ let
       gtk3
       nss
       nspr
-      xorg.libX11
-      xorg.libxcb
-      xorg.libXcomposite
-      xorg.libXdamage
-      xorg.libXext
-      xorg.libXfixes
-      xorg.libXrandr
-      xorg.libxkbfile
+      libX11
+      libxcb
+      libXcomposite
+      libXdamage
+      libXext
+      libXfixes
+      libXrandr
+      libxkbfile
       pango
       pciutils
       stdenv.cc.cc.lib
@@ -65,10 +72,10 @@ let
 in
 stdenv.mkDerivation {
   pname = "electron_11";
-  version = "11.5.0";
+  version = "11.4.9";
   src = fetchurl {
-    url = "https://github.com/electron/electron/releases/download/v11.5.0/electron-v11.5.0-x86_64-linux.zip";
-    sha256 = "613ef8ac00c5abda425dfa48778a68f58a2e9c7c1f82539bb1a41afabbd6193f";
+    url = "https://github.com/electron/electron/releases/download/v11.4.9/electron-v11.4.9-linux-x64.zip";
+    sha256 = "sha256-wY7S4W5gyh7d0Bqy5P/yu/2fGXqxe3V3FV8FaHKX174=";
   };
 
   passthru.headers = headersFetcher;
@@ -81,7 +88,7 @@ stdenv.mkDerivation {
   nativeBuildInputs = [
     unzip
     makeWrapper
-    wrapGAppsHook
+    wrapGAppsHook3
   ];
 
   dontUnpack = true;

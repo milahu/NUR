@@ -5,7 +5,6 @@
 , dpkg
 , nss
 , nspr
-, xorg
 , pango
 , zlib
 , atkmm
@@ -46,13 +45,31 @@
 , buildFHSEnvBubblewrap
 , xhost
 , xdg-user-dirs
-
+, krb5
+, libXdamage
+, libXtst
+, libXv
+, libXScrnSaver
+, libxcb
+, libX11
+, libXrender
+, libSM
+, libICE
+, libXcursor
+, libXt
+, libXext
+, libxshmfence
+, libXi
+, libXft
+, libXfixes
+, libXcomposite
+, libXrandr
 , makeWrapper
 , copyDesktopItems
 , makeDesktopItem
 }:
 let
-  libraries = with xorg; [
+  libraries = [
     # Make sure our glibc without hardening gets picked up first
     (lib.hiPrio glibcWithoutHardening)
     stdenv.cc.cc
@@ -113,13 +130,14 @@ let
     pulseaudio
     qt6.qt5compat
     bzip2
+    krb5
   ];
 
   _lib_uos = "libuosdevicea";
   _pkgname = "wechat-universal";
   xdg-dir = "${xdg-user-dirs}/bin";
-  # ver = "4.0.0.23";
-  ver = "4.0.1.11";
+  # ver = "4.0.1.13";
+  ver = "4.1.1.4";
   
   # zerocallusedregs hardening breaks WeChat
   glibcWithoutHardening = stdenv.cc.libc.overrideAttrs (old: {
@@ -157,10 +175,9 @@ let
     version = "${ver}";
 
     src = fetchurl {
-      # url = "https://pro-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_${version}_amd64.deb";
-      # hash = "sha256-Q3gmo83vJddj9p4prhBHm16LK6CAtW3ltd5j4FqPcgM=";
       url = "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb";
-      hash = "sha256-FkEODKeJXlqjdSgt5eSLLV/LlYsGPeay3P0CvtGQzAE=";
+      hash = "sha256-zmpcIBg5OD1qsBmMAm7OwnS9YoAwRK7GH9yiDgLHl+I=";
+
     };
     
     nativeBuildInputs = [
