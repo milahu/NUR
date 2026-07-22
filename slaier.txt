@@ -1,0 +1,72 @@
+error:
+… while evaluating attribute 'cargoDeps' of derivation 'pw-duck-0.2.5'
+  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:104:7:
+   103|
+   104|       cargoDeps =
+      |       ^
+   105|         if cargoVendorDir != null then
+
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
+
+… while evaluating derivation 'cargo-vendor-dir'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:651:11
+
+… while evaluating attribute 'buildCommand' of derivation 'cargo-vendor-dir'
+  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:81:17:
+    80|         enableParallelBuilding = true;
+    81|         inherit buildCommand name;
+      |                 ^
+    82|         passAsFile = [ "buildCommand" ] ++ (derivationArgs.passAsFile or [ ]);
+
+… while calling the 'toString' builtin
+  at <nixpkgs> + /pkgs/build-support/rust/import-cargo-lock.nix:318:28:
+   317|
+   318|             for crate in ${toString depCrates}; do
+      |                            ^
+   319|               # Link the crate directory, removing the output path hash from the destination.
+
+… while calling the 'deepSeq' builtin
+  at <nixpkgs> + /pkgs/build-support/rust/import-cargo-lock.nix:78:15:
+    77|   # being evaluated otherwise, since there could be no git dependencies.
+    78|   depCrates = builtins.deepSeq gitShaOutputHash (map mkCrate depPackages);
+      |               ^
+    79|
+
+… while calling the 'map' builtin
+  at <nixpkgs> + /pkgs/build-support/rust/import-cargo-lock.nix:78:50:
+    77|   # being evaluated otherwise, since there could be no git dependencies.
+    78|   depCrates = builtins.deepSeq gitShaOutputHash (map mkCrate depPackages);
+      |                                                  ^
+    79|
+
+… while calling the 'filter' builtin
+  at <nixpkgs> + /pkgs/build-support/rust/import-cargo-lock.nix:71:17:
+    70|   # safely skip it.
+    71|   depPackages = builtins.filter (p: p ? "source") packages;
+      |                 ^
+    72|
+
+… while calling the 'fromTOML' builtin
+  at <nixpkgs> + /pkgs/build-support/rust/import-cargo-lock.nix:60:20:
+    59|
+    60|   parsedLockFile = fromTOML lockFileContents;
+      |                    ^
+    61|
+
+… while evaluating the argument passed to builtins.fromTOML
+
+… while calling the 'readFile' builtin
+  at <nixpkgs> + /pkgs/build-support/rust/import-cargo-lock.nix:58:47:
+    57|   # shadows args.lockFileContents
+    58|   lockFileContents = if lockFile != null then builtins.readFile lockFile else args.lockFileContents;
+      |                                               ^
+    59|
+
+… while realising the context of path '/nix/store/a9csrxrcg29w0vcirhfb744a6qlwh3lz-source/Cargo.lock'
+
+error: path '/nix/store/mp4n7pj6fr6c3bn5686g79f2l2a8ly1x-source.drv' is not valid
