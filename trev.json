@@ -1,16 +1,16 @@
 {
 "name":"trev",
-"fetch_time":0.726,
-"eval_time":2.811,
+"fetch_time":1.166,
+"eval_time":2.599,
 "source":{
 "url":"https://github.com/spotdemo4/nur",
-"rev":"36b36ef1835a4e59a2c26d152ed6141f138296e8",
-"sha256":"095s1w6j5ay43pa5zmm1r765wxc65crsba7lcszn420gdhh5ankc",
+"rev":"2e25e60d092202ba0acf4a7e75d00b7f4a8f8a7f",
+"sha256":"149x0xxgz29ls12i4s5yzma9c5qysmyfj56mc7g1168wm2l5c85h",
 "date":null
 },
-"source_storepath":"/nix/store/hfmd9hknm42wg0qwjz6vv5js1kghr2kk-source",
+"source_storepath":"/nix/store/izyr4n5pp6xq1h4hg308051c2rb26nwr-source",
 "nixpkgs_storepath":"/nix/store/w0d0sydj6sbcyp1l36ya9wbjh0j56c3j-source",
-"nur_combined_rev":"5d9e87a9a325f6b3c6a343af82828c12929ef4b5",
+"nur_combined_rev":"5603161d8be719e87e7de522c9e1750369be283d",
 "packages":{
 "bumper":{
 "drvPath":"/nix/store/i970c07kxnfqc4kb6399zx9z4gj9hlwz-bumper-0.19.0.drv",
@@ -712,11 +712,11 @@
 "version":"0.0.1"
 },
 "duckdb":{
-"drvPath":"/nix/store/s3szi8yq1kbg74x6j014s6imlcj7dm94-duckdb-1.5.4.drv",
+"drvPath":"/nix/store/zrfzflp0kyjbkpxhjdp8kjrm763d5bl9-duckdb-1.5.5.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/duckdb/duckdb/releases/tag/v1.5.4",
+"changelog":"https://github.com/duckdb/duckdb/releases/tag/v1.5.5",
 "description":"Embeddable SQL OLAP Database Management System",
 "homepage":"https://duckdb.org/",
 "identifiers":{
@@ -770,10 +770,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/hfmd9hknm42wg0qwjz6vv5js1kghr2kk-source/packages/duckdb/default.nix",
+"file":"/nix/store/izyr4n5pp6xq1h4hg308051c2rb26nwr-source/packages/duckdb/default.nix",
 "line":354
 },
-"name":"duckdb-1.5.4",
+"name":"duckdb-1.5.5",
 "nonTeamMaintainers":[
 {
 "email":"me@trev.xyz",
@@ -871,7 +871,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"duckdb-1.5.4",
+"name":"duckdb-1.5.5",
 "outputName":"out",
 "outputs":{
 "dev":null,
@@ -880,7 +880,7 @@
 },
 "pname":"duckdb",
 "system":"x86_64-linux",
-"version":"1.5.4"
+"version":"1.5.5"
 },
 "fetch-hash":{
 "drvPath":"/nix/store/490c8ngr17pbnb9v2q86a95h7fk2w17b-fetch-hash.drv",
@@ -3574,7 +3574,7 @@
 "version":"20251108-unstable-2026-06-23"
 },
 "uv-build-latest":{
-"drvPath":"/nix/store/75jcvj3f63ycj7zignqglvlhs9sb0i0l-python3.14-uv-build-0.11.30.drv",
+"drvPath":"/nix/store/3wcn2ask0jvhrksjrcm4s5g112my8idi-python3.14-uv-build-0.11.31.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3667,7 +3667,7 @@
 }
 ],
 "maintainers":[],
-"name":"python3.14-uv-build-0.11.30",
+"name":"python3.14-uv-build-0.11.31",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3763,7 +3763,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.14-uv-build-0.11.30",
+"name":"python3.14-uv-build-0.11.31",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3771,7 +3771,7 @@
 },
 "pname":"python3.14-uv-build",
 "system":"x86_64-linux",
-"version":"0.11.30"
+"version":"0.11.31"
 },
 "xdg-desktop-portal-luminous":{
 "drvPath":"/nix/store/2sc7jffhmx9q2jz21srjhkfcl8161im7-xdg-desktop-portal-luminous-0.1.20.drv",
@@ -3872,11 +3872,11 @@
 "version":"0.1.20"
 },
 "yt-dlp":{
-"drvPath":"/nix/store/0lyachn8cxl6fy89nkj28zjn54bnxjc5-yt-dlp-2026.07.04-unstable-2026-07-20.drv",
+"drvPath":"/nix/store/6n8gzxna30qnx2z81c4q9jximbw47b77-yt-dlp-2026.07.04-unstable-2026-07-21.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/yt-dlp/yt-dlp/commits/a8be438aac1b90c3888e974056d967b8be90fa7e",
+"changelog":"https://github.com/yt-dlp/yt-dlp/commits/aaf7405ba3a45b32c59f160426efc9b561af035a",
 "description":"Feature-rich command-line audio/video downloader - master branch",
 "homepage":"https://github.com/yt-dlp/yt-dlp/",
 "identifiers":{
@@ -3954,7 +3954,7 @@
 },
 "mainProgram":"yt-dlp",
 "maintainers":[],
-"name":"yt-dlp-2026.07.04-unstable-2026-07-20",
+"name":"yt-dlp-2026.07.04-unstable-2026-07-21",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3972,7 +3972,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yt-dlp-2026.07.04-unstable-2026-07-20",
+"name":"yt-dlp-2026.07.04-unstable-2026-07-21",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -3980,7 +3980,7 @@
 },
 "pname":"yt-dlp",
 "system":"x86_64-linux",
-"version":"2026.07.04-unstable-2026-07-20"
+"version":"2026.07.04-unstable-2026-07-21"
 },
 "yt-dlp-ejs":{
 "drvPath":"/nix/store/rs0fbfnhksrb8nclqz36ak7fpqx97lw4-python3.14-yt-dlp-ejs-0.8.0-unstable-2026-06-20.drv",
