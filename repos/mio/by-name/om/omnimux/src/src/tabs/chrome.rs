@@ -9,18 +9,28 @@ pub fn render_title_bar(
     window: &mut Window,
     cx: &mut Context<TerminalTabs>,
 ) -> impl IntoElement {
-    let title_btn = |id: &'static str, label: &'static str| {
+    // Use text-presentation symbols for broad cross-platform support:
+    // avoid KDE color-emoji sizing while not relying on Nerd Font PUA coverage.
+    let title_btn = |id: &'static str, label: SharedString| {
+        let label_el = div()
+            .child(label)
+            .text_color(colors.text)
+            // Slightly larger glyphs without changing the 32px button box height.
+            .text_lg()
+            .font_weight(FontWeight::MEDIUM);
         div()
             .id(id)
             .flex()
             .items_center()
             .justify_center()
-            .size_6()
+            .h(px(32.0))
+            .min_w(px(44.0))
+            .px_3()
             .ml_1()
             .rounded_sm()
             .cursor_pointer()
             .hover(|style| style.bg(colors.hover))
-            .child(div().child(label).text_color(colors.text))
+            .child(label_el)
     };
 
     let show_client_controls = matches!(window.window_decorations(), Decorations::Client { .. })
@@ -64,17 +74,17 @@ pub fn render_title_bar(
                         .text_sm(),
                 ),
         )
-        .child(title_btn("new_tab_btn", "+").on_click(cx.listener(
+        .child(title_btn("new_tab_btn", "+".into()).on_click(cx.listener(
             |this, _, window, cx| {
                 this.open_host_prompt(window, cx);
             },
         )))
-        .child(title_btn("search_btn", "⌕").on_click(cx.listener(
+        .child(title_btn("search_btn", "⌕".into()).on_click(cx.listener(
             |this, _, window, cx| {
                 this.find(window, cx);
             },
         )))
-        .child(title_btn("settings_btn", "⚙").on_click(cx.listener(
+        .child(title_btn("settings_btn", "⚙\u{FE0E}".into()).on_click(cx.listener(
             |this, _, _, cx| {
                 this.show_settings = true;
                 this.focus_ui = true;
@@ -104,21 +114,37 @@ pub fn render_title_bar(
                     .hover(|s| s.bg(colors.hover))
                     .window_control_area(WindowControlArea::Min)
                     .on_click(|_, window, _| window.minimize_window())
-                    .child(div().child("–").text_color(colors.text)),
+                    .child(
+                        div()
+                            .child("–")
+                            .text_color(colors.text)
+                            .text_lg(),
+                    ),
             )
             .child(
                 ctl("win_max")
                     .hover(|s| s.bg(colors.hover))
                     .window_control_area(WindowControlArea::Max)
                     .on_click(|_, window, _| window.zoom_window())
-                    .child(div().child("□").text_color(colors.text)),
+                    // □ = maximize; ❐ = restore (already maximized).
+                    .child(
+                        div()
+                            .child(if window.is_maximized() { "❐" } else { "□" })
+                            .text_color(colors.text)
+                            .text_lg(),
+                    ),
             )
             .child(
                 ctl("win_close")
                     .hover(|s| s.bg(rgb(0xe81123)))
                     .window_control_area(WindowControlArea::Close)
                     .on_click(|_, window, _| window.remove_window())
-                    .child(div().child("✕").text_color(colors.text)),
+                    .child(
+                        div()
+                            .child("✕")
+                            .text_color(colors.text)
+                            .text_lg(),
+                    ),
             );
     }
 

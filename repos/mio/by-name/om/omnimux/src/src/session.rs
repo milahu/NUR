@@ -1,4 +1,4 @@
-use crate::palette::symbol_font_fallbacks;
+use crate::palette::{colorfgbg_for_palette, symbol_font_fallbacks};
 use crate::tabs::TerminalTabs;
 use gpui::prelude::*;
 use gpui::*;
@@ -52,7 +52,20 @@ impl TerminalSession {
             }
         };
 
-        let tmux_cmd = "tmux -u has-session 2>/dev/null && exec tmux -u attach \\; set -g mouse on || exec tmux -u new-session \\; set -g mouse on";
+        // Prefer tmux when available; macOS GUI apps get a minimal PATH so include
+        // Homebrew/MacPorts, and fall back to a login shell when tmux is missing.
+        let tmux_cmd = r#"PATH="/opt/homebrew/bin:/usr/local/bin:/opt/local/bin:$PATH"
+if command -v tmux >/dev/null 2>&1; then
+  tmux -u has-session 2>/dev/null && exec tmux -u attach \; set -g mouse on || exec tmux -u new-session \; set -g mouse on
+elif [ -n "${SHELL:-}" ] && [ -x "$SHELL" ]; then
+  exec "$SHELL" -l
+elif [ -x /bin/zsh ]; then
+  exec /bin/zsh -l
+elif [ -x /bin/bash ]; then
+  exec /bin/bash -l
+else
+  exec /bin/sh
+fi"#;
 
         let mut cmd = if let Some(ref h) = host {
             if !crate::hosts::is_safe_ssh_destination(h) {
@@ -86,6 +99,8 @@ impl TerminalSession {
         };
         cmd.env("TERM", "xterm-256color");
         cmd.env("COLORTERM", "truecolor");
+        // Fallback for TUIs that skip/fail OSC 11 (Cursor CLI documents COLORFGBG).
+        cmd.env("COLORFGBG", colorfgbg_for_palette(&colors));
 
         let child_proc = match pair.slave.spawn_command(cmd) {
             Ok(child) => child,
@@ -215,6 +230,7 @@ impl TerminalSession {
         let session_for_exit = session.clone();
         let tabs_for_exit = tabs.clone();
         let tabs_for_link = tabs.clone();
+        let tabs_for_menu = tabs.clone();
 
         view.with_title_callback(move |_window, cx, title| {
             let title = title.to_string();
@@ -239,6 +255,11 @@ impl TerminalSession {
             let url = url.to_string();
             let _ = tabs_for_link.update(cx, |tabs, cx| {
                 tabs.request_open_url(url, window, cx);
+            });
+        })
+        .with_context_menu_callback(move |window, cx, position| {
+            let _ = tabs_for_menu.update(cx, |tabs, cx| {
+                tabs.show_terminal_context_menu(position, window, cx);
             });
         })
         .with_exit_callback(move |_window, cx| {
@@ -361,12 +382,29 @@ impl TerminalSession {
             return;
         }
         if let Ok(mut child) = self.child.lock() {
-            if let Ok(Some(status)) = child.try_wait() {
-                self.has_exited = true;
-                self.exit_status = Some(status.exit_code() as u32);
-            } else {
-                self.has_exited = true;
-                self.exit_status = Some(255);
+            match child.try_wait() {
+                Ok(Some(status)) => {
+                    self.has_exited = true;
+                    self.exit_status = Some(status.exit_code() as u32);
+                }
+                Ok(None) => {
+                    // PTY EOF can race slightly ahead of waitpid. Poll briefly
+                    // without a blocking wait (must not stall the UI thread).
+                    let mut code = None;
+                    for _ in 0..20 {
+                        std::thread::sleep(std::time::Duration::from_millis(1));
+                        if let Ok(Some(status)) = child.try_wait() {
+                            code = Some(status.exit_code() as u32);
+                            break;
+                        }
+                    }
+                    self.has_exited = true;
+                    self.exit_status = Some(code.unwrap_or(255));
+                }
+                Err(_) => {
+                    self.has_exited = true;
+                    self.exit_status = Some(255);
+                }
             }
         } else {
             self.has_exited = true;

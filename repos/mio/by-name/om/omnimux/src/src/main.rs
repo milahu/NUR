@@ -14,6 +14,7 @@ use actions::{
 use fonts::load_bundled_symbol_fonts;
 use gpui::prelude::*;
 use gpui::*;
+use settings::load_settings;
 use tabs::TerminalTabs;
 
 /// Keymap context for chrome shortcuts that must not steal terminal key bindings.
@@ -39,12 +40,20 @@ fn main() {
             KeyBinding::new("ctrl--", ZoomOut, Some(CHROME)),
             KeyBinding::new("cmd-0", ZoomReset, Some(CHROME)),
             KeyBinding::new("ctrl-0", ZoomReset, Some(CHROME)),
-            KeyBinding::new("cmd-c", Copy, Some(CHROME)),
+            // Copy/Paste must work while the terminal is focused (Zed Terminal context).
+            // CHROME (`!omnimux_terminal`) would let ctrl-shift-c fall through as ^C.
+            KeyBinding::new("cmd-c", Copy, Some("omnimux")),
+            KeyBinding::new("cmd-c", Copy, Some("omnimux_terminal")),
             #[cfg(not(target_os = "macos"))]
-            KeyBinding::new("ctrl-shift-c", Copy, Some(CHROME)),
-            KeyBinding::new("cmd-v", Paste, Some(CHROME)),
+            KeyBinding::new("ctrl-shift-c", Copy, Some("omnimux")),
             #[cfg(not(target_os = "macos"))]
-            KeyBinding::new("ctrl-shift-v", Paste, Some(CHROME)),
+            KeyBinding::new("ctrl-shift-c", Copy, Some("omnimux_terminal")),
+            KeyBinding::new("cmd-v", Paste, Some("omnimux")),
+            KeyBinding::new("cmd-v", Paste, Some("omnimux_terminal")),
+            #[cfg(not(target_os = "macos"))]
+            KeyBinding::new("ctrl-shift-v", Paste, Some("omnimux")),
+            #[cfg(not(target_os = "macos"))]
+            KeyBinding::new("ctrl-shift-v", Paste, Some("omnimux_terminal")),
             KeyBinding::new("escape", CloseOverlay, Some(CHROME)),
             KeyBinding::new("escape", CloseOverlay, Some("omnimux_prompt")),
             KeyBinding::new("escape", CloseOverlay, Some("omnimux_search")),
@@ -62,9 +71,14 @@ fn main() {
         ]);
 
         let bounds = Bounds::centered(None, size(px(800.0), px(600.0)), cx);
+        let window_bounds = if load_settings().window_maximized.unwrap_or(false) {
+            WindowBounds::Maximized(bounds)
+        } else {
+            WindowBounds::Windowed(bounds)
+        };
         cx.open_window(
             WindowOptions {
-                window_bounds: Some(WindowBounds::Windowed(bounds)),
+                window_bounds: Some(window_bounds),
                 titlebar: Some(TitlebarOptions {
                     title: Some("omnimux".into()),
                     appears_transparent: true,

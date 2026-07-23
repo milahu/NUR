@@ -1,4 +1,5 @@
 use gpui::WindowAppearance;
+use gpui_terminal::color_scheme::is_dark_rgb;
 use gpui_terminal::ColorPalette;
 
 pub const DEFAULT_FONT_SIZE: f32 = 14.0;
@@ -18,6 +19,16 @@ pub fn is_dark_appearance(appearance: WindowAppearance) -> bool {
         appearance,
         WindowAppearance::Dark | WindowAppearance::VibrantDark
     )
+}
+
+/// `COLORFGBG` hint used by Cursor CLI and others when OSC 11 is unavailable.
+/// Format is `fg;bg` as ANSI color indices (see Cursor terminal-setup docs).
+pub fn colorfgbg_for_palette(colors: &ColorPalette) -> &'static str {
+    if is_dark_rgb(colors.background_rgb()) {
+        "15;0" // light-on-dark
+    } else {
+        "0;15" // dark-on-light
+    }
 }
 
 pub fn palette_for_appearance(appearance: WindowAppearance) -> ColorPalette {

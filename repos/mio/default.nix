@@ -84,7 +84,7 @@ in
       patches = (old.patches or [ ]) ++ [ ./patches/openssh.patch ];
     })
   );
-  grub2 = nodarwin (
+  grub2_patched = nodarwin (
     v3overridegcc (
       pkgs.grub2.overrideAttrs (old: {
         patches = (old.patches or [ ]) ++ [ ./patches/grub-os-prober-title.patch ];

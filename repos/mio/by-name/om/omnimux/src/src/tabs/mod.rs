@@ -17,6 +17,7 @@ use crate::ssh_config::get_ssh_hosts;
 use gpui::prelude::*;
 use gpui::*;
 use gpui_component::input::{InputEvent, InputState};
+use gpui_component::menu::PopupMenu;
 use gpui_terminal::ColorPalette;
 
 pub struct TerminalTabs {
@@ -40,6 +41,8 @@ pub struct TerminalTabs {
     pub(crate) open_links: bool,
     /// Pending URL awaiting confirm before `cx.open_url`.
     pub(crate) pending_open_url: Option<String>,
+    /// Right-click terminal context menu (Copy/Paste).
+    pub(crate) context_menu: Option<(Entity<PopupMenu>, Point<Pixels>, Subscription)>,
     pub(crate) font_size: Pixels,
     pub(crate) last_appearance: Option<WindowAppearance>,
     pub(crate) focus_active_terminal: bool,
@@ -76,7 +79,9 @@ impl TerminalTabs {
             px(DEFAULT_FONT_SIZE)
         };
 
-        let terminal_palette = palette_for_appearance(WindowAppearance::Light);
+        // Seed sessions with the current window appearance so OSC color queries
+        // (e.g. OSC 11 background) are correct from the first prompt.
+        let terminal_palette = palette_for_appearance(window.appearance());
         let tabs_weak = cx.entity().downgrade();
         let osc52_policy = osc52.into();
 
@@ -157,7 +162,9 @@ impl TerminalTabs {
                 this.sync_appearance(appearance, window, cx);
             }),
             cx.observe_window_bounds(window, |this, window, cx| {
+                crate::settings::save_window_maximized(window.is_maximized());
                 this.restore_terminal_focus(window, cx);
+                cx.notify();
             }),
             cx.on_focus_lost(window, |this, window, cx| {
                 this.restore_terminal_focus(window, cx);
@@ -200,6 +207,7 @@ impl TerminalTabs {
             osc52,
             open_links,
             pending_open_url: None,
+            context_menu: None,
             font_size,
             last_appearance: None,
             focus_active_terminal: !start_prompt,
@@ -250,6 +258,18 @@ impl Render for TerminalTabs {
         }
         if self.pending_open_url.is_some() {
             main_div = main_div.child(overlays::render_open_url_confirm(self, colors, cx));
+        }
+        if let Some((menu, position, _)) = &self.context_menu {
+            main_div = main_div.child(
+                deferred(
+                    anchored()
+                        .position(*position)
+                        .anchor(Corner::TopLeft)
+                        .snap_to_window_with_margin(Edges::all(px(8.)))
+                        .child(menu.clone()),
+                )
+                .with_priority(1),
+            );
         }
 
         main_div
