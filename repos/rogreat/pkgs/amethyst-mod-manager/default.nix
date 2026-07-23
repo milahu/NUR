@@ -1,15 +1,16 @@
 {
   _7zz,
   bash,
+  cabextract,
   fetchFromGitHub,
   glib,
   lib,
   libloot-python,
   meson,
   ninja,
-  protontricks,
   python3Packages,
   qt6,
+  winetricks,
   xdg-utils,
 }:
 
@@ -21,7 +22,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
   src = fetchFromGitHub {
     owner = "RoGreat";
     repo = "Amethyst-Mod-Manager";
-    rev = "3ac3572a9445f229970a4cf2a6f85226b675c900";
+    rev = "acd073701e46cb5669d59cf2c8a5303321050a0f";
     hash = "sha256-kxvQifoQo2AZs3gpAGeXVl5J5iIQz4Nz2RYrRUd5V+g=";
   };
 
@@ -35,39 +36,36 @@ python3Packages.buildPythonApplication (finalAttrs: {
     qt6.qtbase
   ];
 
-  # https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=amethyst-mod-manager
   dependencies = [
     libloot-python
   ]
   ++ (with python3Packages; [
-    bsdiff4
-    certifi
-    cryptography
-    jeepney
-    keyring
-    lz4
-    msgpack
-    pillow
-    py7zr # fallback
+    # https://github.com/ChrisDKN/Amethyst-Mod-Manager/blob/main/src/requirements-vendor.txt
     pyside6
-    requests
-    secretstorage
-    tkinter
-    websocket-client
+    py7zr
+    pillow
+    lz4
     zstandard
+    requests
+    websocket-client
+    keyring
+    jeepney
+    msgpack
+    bsdiff4
   ]);
 
   postPatch = ''
+    substituteInPlace src/LOOT/eligibility.py src/LOOT/loot_sorter.py \
+        --replace-fail 'import LOOT.loot as loot' 'import loot'
+
+    substituteInPlace src/Utils/protontricks.py \
+        --replace-fail '_get_tools_dir() / "winetricks"' 'Path("${lib.getExe winetricks}")' \
+        --replace-fail '_get_tools_dir() / "cabextract"' 'Path("${lib.getExe cabextract}")'
+
     substituteInPlace src/Nexus/nxm_handler.py \
         --replace-fail \
             "f'{cls._quote_if_needed(exe)} {cls._quote_if_needed(script)} --nxm %u'" \
             "'amethyst-mod-manager --nxm %u'"
-  '';
-
-  # https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=amethyst-mod-manager
-  postInstall = ''
-    ln -s ${libloot-python}/${(builtins.elemAt libloot-python.propagatedBuildInputs 0).sitePackages}/loot/loot.cpython-*-x86_64-linux-gnu.so \
-        $out/${python3Packages.python.sitePackages}/LOOT
   '';
 
   dontWrapQtApps = true;
@@ -77,10 +75,13 @@ python3Packages.buildPythonApplication (finalAttrs: {
         "''${qtWrapperArgs[@]}"
         --suffix PATH : "${
           lib.makeBinPath [
+            # https://github.com/ChrisDKN/Amethyst-Mod-Manager/blob/main/flatpak/io.github.Amethyst.ModManager.yml
             _7zz
+            cabextract
+            winetricks
+
             bash
             glib # gio, gdbus
-            protontricks
             python3Packages.python
             xdg-utils # xdg-open, xdg-mime, xdg-settings
           ]
