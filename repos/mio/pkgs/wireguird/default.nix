@@ -14,7 +14,6 @@
   libxcursor,
   libxinerama,
   libxi,
-  systemd,
   pkg-config,
   makeBinaryWrapper,
   wireguard-tools,
@@ -116,6 +115,11 @@ let
       mainProgram = "wireguird";
     };
   };
+
+  # Do not put systemd on PATH here: its resolvconf (resolvectl) would beat
+  # wireguard-tools' openresolv PATH suffix and break DNS= when openresolv is
+  # the backend. programs.wireguird prefixes networking.resolvconf.package.
+  wireguardToolPath = "/run/wrappers/bin:${lib.makeBinPath [ wireguard-tools ]}";
 in
 stdenv.mkDerivation {
   pname = "wireguird";
@@ -123,31 +127,28 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [
     wrapGAppsHook3
+    makeBinaryWrapper
   ];
 
   buildInputs = [
     gtk3
     gsettings-desktop-schemas
-    systemd
   ];
 
   dontUnpack = true;
   dontBuild = true;
 
   installPhase = ''
-    mkdir -p "$out/bin" "$out/share"
+    mkdir -p "$out/bin" "$out/share/applications"
     ln -s ${wireguird-unwrapped}/share/icons "$out/share/icons"
     ln -s ${wireguird-unwrapped}/share/wireguird "$out/share/wireguird"
 
+    # Runs as the logged-in user. On NixOS, programs.wireguird installs
+    # cap_net_admin wrappers in /run/wrappers/bin (wireguird, wg-quick, wg).
     makeWrapper "${wireguird-unwrapped}/bin/wireguird" "$out/bin/wireguird" \
-      --prefix PATH : ${
-        lib.makeBinPath [
-          wireguard-tools
-          systemd
-        ]
-      }
+      "''${gappsWrapperArgs[@]}" \
+      --prefix PATH : ${wireguardToolPath}
 
-    # Desktop entry
     install -Dm644 /dev/stdin "$out/share/applications/wireguird.desktop" <<EOF
       [Desktop Entry]
       Type=Application
