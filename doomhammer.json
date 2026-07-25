@@ -1,19 +1,19 @@
 {
 "name":"doomhammer",
-"fetch_time":0.538,
-"eval_time":0.837,
+"fetch_time":0.84,
+"eval_time":0.521,
 "source":{
 "url":"https://github.com/doomhammer/nur-packages",
-"rev":"03aa4565b9b603a2ae9c78678468f7148041e2bb",
-"sha256":"0synb3mq0f3rw04shbcal91lnli05i7x3lmjv9dy3wkxmhfxn6yc",
+"rev":"c174aedef9993d51f3fcc7d4942c331dd41444cc",
+"sha256":"0spkkzd8hjghqp5k7qwn8l2vm5z7bb2mrlrp2277ggplannhamnh",
 "date":null
 },
-"source_storepath":"/nix/store/b5z1m2lxblb7qbidgp4265912akjhv2g-source",
-"nixpkgs_storepath":"/nix/store/r66anqkjwpgyxqlkjpi4rwld2jxkyvm6-source",
-"nur_combined_rev":"b81ffecdcd06c8152df6af6ad6762041576c8a1f",
+"source_storepath":"/nix/store/afjrxlhlbbfd4ifn48n51qya2iv25nzn-source",
+"nixpkgs_storepath":"/nix/store/n6ifn3cyn97hvwkbc8ajp4gi89mklggf-source",
+"nur_combined_rev":"d004841eabc242e0d172c1ae94d0f87bd301ed97",
 "packages":{
 "gitpane":{
-"drvPath":"/nix/store/g47c799hjnl37qdn8bqpz8fnwhnkcscl-gitpane-v0.8.2.drv",
+"drvPath":"/nix/store/jjaz7r35ncm61ql49rr62k1zwc3snp7w-gitpane-v0.8.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -112,6 +112,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -145,7 +146,7 @@
 "version":"1.1.1"
 },
 "mermaid-rs-renderer":{
-"drvPath":"/nix/store/iq0477bh2vwzq611cj0fp8bf0ixih9n4-mermaid-rs-renderer-v0.2.2.drv",
+"drvPath":"/nix/store/70ijw5j9fl65z733vy1sqh64jscfwh55-mermaid-rs-renderer-v0.2.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -245,6 +246,7 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
@@ -288,7 +290,7 @@
 "version":"0-unstable-2026-05-29"
 },
 "powershell-beautifier":{
-"drvPath":"/nix/store/wmbls6c8sbcmhpjwvksf26ryw6l6pgrb-powershell-beautifier.drv",
+"drvPath":"/nix/store/dabs6vw65xs9r0xi49s9261h9lyqklmy-powershell-beautifier.drv",
 "meta":{
 "description":"A whitespace reformatter and code cleaner for Windows PowerShell and PowerShell Core",
 "homepage":"https://github.com/DTW-DanWard/PowerShell-Beautifier",
