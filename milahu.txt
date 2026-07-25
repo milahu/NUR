@@ -1,0 +1,158 @@
+error:
+… in the condition of the assert statement
+  at <nixpkgs> + /lib/customisation.nix:416:13:
+   415|           drvPath =
+   416|             assert condition;
+      |             ^
+   417|             drv.drvPath;
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:983:18:
+   982|       };
+   983|       validity = assertValidity { inherit meta attrs; };
+      |                  ^
+   984|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:705:5:
+   704|     in
+   705|     { meta, attrs }:
+      |     ^
+   706|     let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:710:5:
+   709|     in
+   710|     if invalid == null then
+      |     ^
+   711|       if problems == null then
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:707:17:
+   706|     let
+   707|       invalid = checkValidity' attrs;
+      |                 ^
+   708|       problems = checkProblems attrs;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:406:5:
+   405|     in
+   406|     attrs:
+      |     ^
+   407|     if !attrs ? meta then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:430:10:
+   429|     # --- Put checks that can be ignored here ---
+   430|     else if hasDeniedUnfreeLicense attrs && !(allowlist != [ ] && hasAllowlistedLicense attrs) then
+      |          ^
+   431|       {
+
+… in the left operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:430:42:
+   429|     # --- Put checks that can be ignored here ---
+   430|     else if hasDeniedUnfreeLicense attrs && !(allowlist != [ ] && hasAllowlistedLicense attrs) then
+      |                                          ^
+   431|       {
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:430:13:
+   429|     # --- Put checks that can be ignored here ---
+   430|     else if hasDeniedUnfreeLicense attrs && !(allowlist != [ ] && hasAllowlistedLicense attrs) then
+      |             ^
+   431|       {
+
+… while calling 'hasDeniedUnfreeLicense'
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:164:5:
+   163|   hasDeniedUnfreeLicense =
+   164|     attrs: hasUnfreeLicense attrs && !allowUnfree && !allowUnfreePredicate attrs;
+      |     ^
+   165|
+
+… in the left operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:164:51:
+   163|   hasDeniedUnfreeLicense =
+   164|     attrs: hasUnfreeLicense attrs && !allowUnfree && !allowUnfreePredicate attrs;
+      |                                                   ^
+   165|
+
+… in the left operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:164:35:
+   163|   hasDeniedUnfreeLicense =
+   164|     attrs: hasUnfreeLicense attrs && !allowUnfree && !allowUnfreePredicate attrs;
+      |                                   ^
+   165|
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:164:12:
+   163|   hasDeniedUnfreeLicense =
+   164|     attrs: hasUnfreeLicense attrs && !allowUnfree && !allowUnfreePredicate attrs;
+      |            ^
+   165|
+
+… while calling 'hasUnfreeLicense'
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:119:22:
+   118|
+   119|   hasUnfreeLicense = attrs: attrs ? meta.license && isUnfree attrs.meta.license;
+      |                      ^
+   120|
+
+… in the right operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:119:50:
+   118|
+   119|   hasUnfreeLicense = attrs: attrs ? meta.license && isUnfree attrs.meta.license;
+      |                                                  ^
+   120|
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:119:53:
+   118|
+   119|   hasUnfreeLicense = attrs: attrs ? meta.license && isUnfree attrs.meta.license;
+      |                                                     ^
+   120|
+
+… while calling 'isUnfree'
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:105:5:
+   104|   isUnfree =
+   105|     licenses:
+      |     ^
+   106|     if isAttrs licenses && licenses ? "licenseType" then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:106:5:
+   105|     licenses:
+   106|     if isAttrs licenses && licenses ? "licenseType" then
+      |     ^
+   107|       !(lib.licenses.isFree licenses)
+
+… in the left operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:106:25:
+   105|     licenses:
+   106|     if isAttrs licenses && licenses ? "licenseType" then
+      |                         ^
+   107|       !(lib.licenses.isFree licenses)
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:106:8:
+   105|     licenses:
+   106|     if isAttrs licenses && licenses ? "licenseType" then
+      |        ^
+   107|       !(lib.licenses.isFree licenses)
+
+… while evaluating the attribute 'meta.license'
+  at ./pkgs/servers/http/nginx/generic.nix:328:9:
+   327|         homepage = "http://nginx.org";
+   328|         license = [ lib.licenses.bsd2 ] ++ lib.concatMap (m: m.meta.license) modules;
+      |         ^
+   329|         broken = lib.any (m: m.meta.broken or false) modules;
+
+… while calling the 'concatMap' builtin
+  at ./pkgs/servers/http/nginx/generic.nix:328:44:
+   327|         homepage = "http://nginx.org";
+   328|         license = [ lib.licenses.bsd2 ] ++ lib.concatMap (m: m.meta.license) modules;
+      |                                            ^
+   329|         broken = lib.any (m: m.meta.broken or false) modules;
+
+… while evaluating the return value of the function passed to builtins.concatMap
+
+error: expected a list but found a set: { deprecated = false; free = true; fullName = "BSD 2-clause \"Simplified\" License"; licenseType = "simple"; redistributable = true; shortName = "bsd2"; spdxId = "BSD-2-Clause"; url = "https://spdx.org/licenses/BSD-2-Clause.html"; }
