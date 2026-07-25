@@ -21,8 +21,9 @@ let
   };
 
   cdumm-native = python3Packages.buildPythonPackage (finalAttrs: {
-    inherit src version;
+    inherit src;
     pname = "cdumm-native";
+    version = "0.1.0";
     pyproject = true;
 
     sourceRoot = "${src.name}/native";
@@ -145,7 +146,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
   dontWrapQtApps = true;
 
   preFixup = ''
-    wrapQtApp $out/bin/cdumm --prefix PYTHONPATH : "$out/${python3Packages.python.sitePackages}:$PYTHONPATH"
+    wrapQtApp $out/bin/cdumm --set PYTHONPATH "$out/${python3Packages.python.sitePackages}:$PYTHONPATH"
   '';
 
   meta = {

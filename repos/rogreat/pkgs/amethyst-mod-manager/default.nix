@@ -6,8 +6,6 @@
   glib,
   lib,
   libloot-python,
-  meson,
-  ninja,
   python3Packages,
   qt6,
   winetricks,
@@ -20,15 +18,13 @@ python3Packages.buildPythonApplication (finalAttrs: {
   pyproject = false;
 
   src = fetchFromGitHub {
-    owner = "RoGreat";
+    owner = "ChrisDKN";
     repo = "Amethyst-Mod-Manager";
-    rev = "acd073701e46cb5669d59cf2c8a5303321050a0f";
-    hash = "sha256-kxvQifoQo2AZs3gpAGeXVl5J5iIQz4Nz2RYrRUd5V+g=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-z6T4aqUkFZC8Ihb26lovqzDJRQYD6H9Gna3x1OzRhLA=";
   };
 
   nativeBuildInputs = [
-    meson
-    ninja
     qt6.wrapQtAppsHook
   ];
 
@@ -68,25 +64,58 @@ python3Packages.buildPythonApplication (finalAttrs: {
             "'amethyst-mod-manager --nxm %u'"
   '';
 
+  # https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=amethyst-mod-manager
+  installPhase = ''
+    runHook preInstall
+
+    pushd src > /dev/null
+    find . -path "./appimage" -prune -o \
+        -not -name "requirements*.txt" \
+        -not -name "rebuild_libloot.sh" \
+        -not -name "run_qt.sh" \
+        -not -name "loot.cpython*.so" \
+        -type f \
+        -exec install -Dm 755 '{}' "$out/${python3Packages.python.sitePackages}/{}" \;
+    popd > /dev/null
+
+    install -d $out/bin/
+
+    echo "#!/bin/sh" > $out/bin/amethyst-mod-manager
+    echo "exec ${python3Packages.python.interpreter} $out/${python3Packages.python.sitePackages}/run_qt.py \"\$@\"" >> $out/bin/amethyst-mod-manager
+    chmod +x $out/bin/amethyst-mod-manager
+
+    echo "#!/bin/sh" > "$out/bin/amethyst-mod-manager-cli"
+    echo "exec ${python3Packages.python.interpreter} $out/${python3Packages.python.sitePackages}/cli.py \"\$@\"" >> $out/bin/amethyst-mod-manager-cli
+    chmod +x $out/bin/amethyst-mod-manager-cli
+
+    install -Dm644 flatpak/io.github.Amethyst.ModManager.desktop $out/share/applications/io.github.Amethyst.ModManager.desktop
+    install -Dm644 src/appimage/mod-manager.png $out/share/icons/hicolor/256x256/apps/io.github.Amethyst.ModManager.png
+
+    install -Dm644 Changelog.txt $out/${python3Packages.python.sitePackages}/Changelog.txt
+
+    runHook postInstall
+  '';
+
   dontWrapQtApps = true;
 
   preFixup = ''
     makeWrapperArgs+=(
-        "''${qtWrapperArgs[@]}"
+        --set PYTHONPATH "$out/${python3Packages.python.sitePackages}:$PYTHONPATH"
         --suffix PATH : "${
           lib.makeBinPath [
             # https://github.com/ChrisDKN/Amethyst-Mod-Manager/blob/main/flatpak/io.github.Amethyst.ModManager.yml
             _7zz
-            cabextract
-            winetricks
-
             bash
+            cabextract
             glib # gio, gdbus
             python3Packages.python
+            winetricks
             xdg-utils # xdg-open, xdg-mime, xdg-settings
           ]
         }"
     )
+    wrapQtApp $out/bin/amethyst-mod-manager "''${makeWrapperArgs[@]}"
+    wrapProgram $out/bin/amethyst-mod-manager-cli "''${makeWrapperArgs[@]}"
   '';
 
   meta = {
