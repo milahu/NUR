@@ -13,6 +13,7 @@
   libglvnd,
   freetype,
   fontconfig,
+  git,
   cairo,
   pango,
   harfbuzz,
@@ -29,6 +30,8 @@
   libqalculate,
   libxml2,
   md4c,
+  libsecret,
+  libsodium,
   stb,
   fetchFromGitHub,
   nlohmann_json,
@@ -36,10 +39,11 @@
   wireplumber,
   jemalloc,
   autoAddDriverRunpath,
+  makeWrapper,
   cudaSupport ? config.cudaSupport,
 }:
 let
-  version = "5.0.0-beta2";
+  version = "5.0.0-beta.4";
   stb' = stb.overrideAttrs (_: {
     version = "unstable-2025-10-26";
     src = fetchFromGitHub {
@@ -58,12 +62,12 @@ stdenv.mkDerivation {
     owner = "noctalia-dev";
     repo = "noctalia";
     tag = "v${version}";
-    hash = "sha256-yqkHIypClzlztMmt4HVytCdU8Kqy3EqHJotHtbyFulI=";
+    hash = "sha256-jXz2vFHgidbyU46ScROLSuBIhsqqtyqNu2M0tmGX/FA=";
   };
 
-  postPatch = ''
-    # Remove -march=native and -mtune=native for reproducible builds
-    sed -i "s/'-march=native', '-mtune=native',//" meson.build
+  postFixup = ''
+    wrapProgram $out/bin/noctalia \
+      --prefix PATH : ${lib.makeBinPath [ git ]}
   '';
 
   nativeBuildInputs = [
@@ -72,6 +76,7 @@ stdenv.mkDerivation {
     pkg-config
     wayland-scanner
     jemalloc
+    makeWrapper
   ]
   ++ lib.optional cudaSupport autoAddDriverRunpath;
 
@@ -99,6 +104,8 @@ stdenv.mkDerivation {
     libqalculate
     libxml2
     md4c
+    libsecret
+    libsodium
     stb'
     nlohmann_json
     tomlplusplus
@@ -109,7 +116,7 @@ stdenv.mkDerivation {
   ninjaFlags = [ "-v" ];
 
   meta = with lib; {
-    description = "A lightweight Wayland shell and bar built directly on Wayland + OpenGL ES";
+    description = "A sleek, customizable desktop shell crafted for Wayland.";
     homepage = "https://github.com/noctalia-dev/noctalia-shell";
     license = licenses.mit;
     platforms = platforms.linux;
