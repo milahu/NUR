@@ -1065,6 +1065,64 @@ impl TerminalView {
         cx.notify();
     }
 
+    /// Finish local selection and/or send an SGR button-release if a press is held.
+    ///
+    /// Used for normal mouse-up and for recovering from a lost press-finish
+    /// (touch cancel, up outside the hitbox, pointer Leave clearing platform state).
+    fn end_pointer_press(
+        &mut self,
+        position: Point<Pixels>,
+        modifiers: Modifiers,
+        cx: &mut Context<Self>,
+    ) {
+        let mut changed = false;
+
+        if self.selecting {
+            let viewport = self.viewport_cell_at(position);
+            let grid_point = self.viewport_to_grid(viewport);
+            let side = self.selection_side_at(position);
+            self.state.with_term_mut(|term| {
+                if let Some(sel) = term.selection.as_mut() {
+                    sel.update(grid_point, side);
+                }
+            });
+            self.selecting = false;
+            changed = true;
+        }
+
+        // Always release to the PTY if we reported a press — even when Shift is
+        // held on up. Skipping the release here left tmux in a stuck drag.
+        if let Some((button, _)) = self.mouse_pressed.take() {
+            let point = self.viewport_cell_at(position);
+            let mode = self.state.mode();
+            let report_mods = encode_modifiers(false, modifiers.alt, modifiers.control);
+            if let Some(bytes) = mouse_button_report(button, false, point, report_mods, mode)
+            {
+                let mut writer = self.stdin_writer.lock();
+                let _ = writer.write_all(&bytes);
+                let _ = writer.flush();
+            }
+            changed = true;
+        }
+        self.last_mouse_cell = None;
+        if changed {
+            cx.notify();
+        }
+    }
+
+    /// End any held local selection / SGR mouse press.
+    ///
+    /// Call on window deactivate (alt-tab) or other host-level recovery so a
+    /// lost mouse-up cannot leave tmux or local select stuck.
+    pub fn release_pointer_press(&mut self, cx: &mut Context<Self>) {
+        if self.mouse_pressed.is_none() && !self.selecting {
+            return;
+        }
+        let hit = *self.hit_test.lock();
+        let position = hit.content_origin;
+        self.end_pointer_press(position, Modifiers::default(), cx);
+    }
+
     /// Handle mouse up events — finish local selection or SGR release.
     fn on_mouse_up(
         &mut self,
@@ -1072,41 +1130,20 @@ impl TerminalView {
         _window: &mut Window,
         cx: &mut Context<Self>,
     ) {
-        if self.selecting {
-            let viewport = self.viewport_cell_at(event.position);
-            let grid_point = self.viewport_to_grid(viewport);
-            let side = self.selection_side_at(event.position);
-            self.state.with_term_mut(|term| {
-                if let Some(sel) = term.selection.as_mut() {
-                    sel.update(grid_point, side);
-                }
-            });
-            self.selecting = false;
-            cx.notify();
-            return;
-        }
+        self.end_pointer_press(event.position, event.modifiers, cx);
+    }
 
-        if event.modifiers.shift {
-            self.mouse_pressed = None;
-            self.last_mouse_cell = None;
-            return;
+    /// Mouse up outside the terminal still ends press/select (GPUI `on_mouse_up`
+    /// only fires while hovered).
+    fn on_mouse_up_out(
+        &mut self,
+        event: &MouseUpEvent,
+        _window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
+        if self.mouse_pressed.is_some() || self.selecting {
+            self.end_pointer_press(event.position, event.modifiers, cx);
         }
-
-        let point = self.viewport_cell_at(event.position);
-        let mode = self.state.mode();
-        let modifiers = encode_modifiers(
-            false,
-            event.modifiers.alt,
-            event.modifiers.control,
-        );
-
-        if let Some(bytes) = mouse_button_report(event.button, false, point, modifiers, mode) {
-            let mut writer = self.stdin_writer.lock();
-            let _ = writer.write_all(&bytes);
-            let _ = writer.flush();
-        }
-        self.mouse_pressed = None;
-        self.last_mouse_cell = None;
     }
 
     /// Handle mouse move — extend local selection or SGR drag reports.
@@ -1116,6 +1153,15 @@ impl TerminalView {
         _window: &mut Window,
         cx: &mut Context<Self>,
     ) {
+        // Platform reports no held button but we still think we're pressed —
+        // the finish event was lost (touch cancel, orphaned up, etc.).
+        if event.pressed_button.is_none()
+            && (self.mouse_pressed.is_some() || self.selecting)
+        {
+            self.end_pointer_press(event.position, event.modifiers, cx);
+            return;
+        }
+
         let viewport = self.viewport_cell_at(event.position);
 
         if self.selecting {
@@ -1642,6 +1688,11 @@ impl Render for TerminalView {
             .on_mouse_up(MouseButton::Left, cx.listener(Self::on_mouse_up))
             .on_mouse_up(MouseButton::Middle, cx.listener(Self::on_mouse_up))
             .on_mouse_up(MouseButton::Right, cx.listener(Self::on_mouse_up))
+            // GPUI only delivers on_mouse_up while hovered; release outside still
+            // ends tmux/local drag so a lost in-hitbox up cannot stick.
+            .on_mouse_up_out(MouseButton::Left, cx.listener(Self::on_mouse_up_out))
+            .on_mouse_up_out(MouseButton::Middle, cx.listener(Self::on_mouse_up_out))
+            .on_mouse_up_out(MouseButton::Right, cx.listener(Self::on_mouse_up_out))
             .on_mouse_move(cx.listener(Self::on_mouse_move))
             .on_scroll_wheel(cx.listener(Self::on_scroll))
             .child(
@@ -1757,6 +1808,24 @@ impl Render for TerminalView {
                             },
                             cx,
                         );
+
+                        // Zed-style: keep extending drag/select while the button is
+                        // held even if the pointer left this hitbox (title bar, etc.).
+                        // Hovered moves also hit `on_mouse_move`; last_mouse_cell
+                        // dedupes SGR floods.
+                        window.on_mouse_event({
+                            let view = view_entity.clone();
+                            move |e: &MouseMoveEvent, phase, window, cx| {
+                                if phase != DispatchPhase::Bubble {
+                                    return;
+                                }
+                                view.update(cx, |this, cx| {
+                                    if this.selecting || this.mouse_pressed.is_some() {
+                                        this.on_mouse_move(e, window, cx);
+                                    }
+                                });
+                            }
+                        });
 
                         // Draw IME pre-edit text over the terminal at the cursor
                         if !marked_text.is_empty() {
