@@ -1,0 +1,140 @@
+evaluation warning: fluxer-bin has been renamed to fluxer-stable-bin, please update your inputs
+error:
+… while evaluating the attribute 'overlayed'
+  at ./default.nix:67:3:
+    66|   retroarch = lib.callPackage ./pkgs/retroarch {};
+    67|   overlayed = lib.callPackage ./pkgs/overlayed {};
+      |   ^
+    68|   tiny-rdm = lib.callPackage ./pkgs/tiny-rdm {};
+
+… from call site
+  at ./default.nix:67:15:
+    66|   retroarch = lib.callPackage ./pkgs/retroarch {};
+    67|   overlayed = lib.callPackage ./pkgs/overlayed {};
+      |               ^
+    68|   tiny-rdm = lib.callPackage ./pkgs/tiny-rdm {};
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:307:19:
+   306|     in
+   307|     autoArgs: fn: args:
+      |                   ^
+   308|     let
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:322:7:
+   321|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   322|       makeOverridable f allArgs
+      |       ^
+   323|     else
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:158:9:
+   157|       f' =
+   158|         origArgs:
+      |         ^
+   159|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:174:9:
+   173|         in
+   174|         if isAttrs result then
+      |         ^
+   175|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:174:12:
+   173|         in
+   174|         if isAttrs result then
+      |            ^
+   175|           result
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:160:20:
+   159|         let
+   160|           result = f origArgs;
+      |                    ^
+   161|
+
+… while calling anonymous lambda
+  at ./pkgs/overlayed/default.nix:1:1:
+     1| {
+      | ^
+     2|   fetchPnpmDeps,
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at ./pkgs/overlayed/default.nix:31:4:
+    30| else
+    31|   (overlayed.override {
+      |    ^
+    32|     pnpm_9 = pnpm_10;
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:171:13:
+   170|             */
+   171|             newArgs: makeOverridable f (origArgs // (if isFunction newArgs then newArgs origArgs else newArgs))
+      |             ^
+   172|           );
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:171:22:
+   170|             */
+   171|             newArgs: makeOverridable f (origArgs // (if isFunction newArgs then newArgs origArgs else newArgs))
+      |                      ^
+   172|           );
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:158:9:
+   157|       f' =
+   158|         origArgs:
+      |         ^
+   159|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:174:9:
+   173|         in
+   174|         if isAttrs result then
+      |         ^
+   175|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:174:12:
+   173|         in
+   174|         if isAttrs result then
+      |            ^
+   175|           result
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:160:20:
+   159|         let
+   160|           result = f origArgs;
+      |                    ^
+   161|
+
+error: function 'anonymous lambda' called with unexpected argument 'pnpm_9'
+at <nixpkgs> + /pkgs/by-name/ov/overlayed/package.nix:1:1:
+     1| {
+      | ^
+     2|   lib,
+Did you mean pnpm_10?
