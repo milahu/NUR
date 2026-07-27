@@ -162,7 +162,14 @@ impl TerminalTabs {
                 this.sync_appearance(appearance, window, cx);
             }),
             cx.observe_window_bounds(window, |this, window, cx| {
-                crate::settings::save_window_maximized(window.is_maximized());
+                let window_handle = window.window_handle();
+                cx.spawn(async move |_, mut cx| {
+                    gpui::Timer::after(std::time::Duration::from_millis(500)).await;
+                    let _ = window_handle.update(cx, |_, window, _| {
+                        crate::settings::save_window_maximized(window.is_maximized());
+                    });
+                })
+                .detach();
                 this.restore_terminal_focus(window, cx);
                 cx.notify();
             }),
