@@ -3,6 +3,7 @@
   lib,
   pkgs,
   homelab,
+  stablePkgs,
   ...
 }:
 let
@@ -12,6 +13,11 @@ in
 {
   options.nixcfg.containers.authentik = {
     enable = lib.mkEnableOption "Authentik SSO container";
+
+    package = lib.mkOption {
+      type = lib.types.package;
+      default = stablePkgs.authentik;
+    };
 
     hostAddress = lib.mkOption {
       type = lib.types.str;
@@ -238,7 +244,7 @@ in
             User = "authentik";
             Group = "authentik";
             WorkingDirectory = "/var/lib/authentik";
-            ExecStart = "${pkgs.authentik}/bin/ak server";
+            ExecStart = "${cfg.package}/bin/ak server";
             Restart = "on-failure";
             RestartSec = "5s";
           };
@@ -361,7 +367,7 @@ in
             User = "authentik";
             Group = "authentik";
             WorkingDirectory = "/var/lib/authentik";
-            ExecStart = "${pkgs.authentik}/bin/ak worker";
+            ExecStart = "${cfg.package}/bin/ak worker";
             Restart = "on-failure";
             RestartSec = "5s";
           };
@@ -393,7 +399,7 @@ in
             User = "authentik";
             Group = "authentik";
             WorkingDirectory = "/var/lib/authentik";
-            ExecStart = "${pkgs.authentik}/bin/ak beat";
+            ExecStart = "${cfg.package}/bin/ak beat";
             Restart = "on-failure";
             RestartSec = "5s";
           };
@@ -438,7 +444,7 @@ in
       };
 
       config = { ... }: {
-        services.redis = {
+        services.redis.servers.authentik = {
           enable = true;
           bind = cfg.redisLocalAddress;
           port = cfg.redis.port;

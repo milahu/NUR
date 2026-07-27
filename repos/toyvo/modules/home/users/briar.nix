@@ -1,28 +1,21 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
   cfg = config.nixcfg;
 in
 {
-  options.nixcfg.users.chloe.enable = lib.mkEnableOption "Enable chloe profile";
+  options.nixcfg.users.briar.enable = lib.mkEnableOption "Enable briar profile";
 
-  config = lib.mkIf cfg.users.chloe.enable {
+  config = lib.mkIf cfg.users.briar.enable {
     catppuccin = {
       enable = true;
       autoEnable = true;
       flavor = "latte";
       accent = "pink";
     };
-    home.packages =
-      with pkgs;
-      lib.optionals config.nixcfg.gui.enable [
-        spotify
-        discord
-      ];
     services.easyeffects.enable = pkgs.stdenv.isLinux && cfg.gui.enable;
   };
 }
