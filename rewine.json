@@ -1,16 +1,16 @@
 {
 "name":"rewine",
-"fetch_time":0.586,
-"eval_time":1.418,
+"fetch_time":0.332,
+"eval_time":1.333,
 "source":{
 "url":"https://github.com/wineee/nur-packages",
-"rev":"a8880595a25273bb89be41b332e15017574fa57e",
-"sha256":"1317mnp6zhjd0sxvml1z12x6cgr19pxpyynpqr0xm1cm44bf1p57",
+"rev":"3eae0f5d6b2e917ef59dd06e9303c7752e1c9a42",
+"sha256":"1rrwrdv71khwwzbyld6crp13qlnhl6ssxpjcc476hjs3yg7fyr2p",
 "date":null
 },
-"source_storepath":"/nix/store/23pc0cbv89gwk8fhbjnbj60cp3jgjs4i-source",
-"nixpkgs_storepath":"/nix/store/lvzmhvqzp2x0br4fy2ibw53ggdsd07dk-source",
-"nur_combined_rev":"186e51d46efdef911f79684aa9b98be226310c5a",
+"source_storepath":"/nix/store/p2gis3ixl31h7pr0xr9qxysmsj2xja0b-source",
+"nixpkgs_storepath":"/nix/store/jb572h0lzj1h14cwpyf1c7v78qb6m3nh-source",
+"nur_combined_rev":"a60afb58a5c9b88f9abdcaa5f7467392fd0748bb",
 "packages":{
 "cmd-markdown":{
 "name":"cmd-markdown-2017-01-14",
@@ -23,7 +23,7 @@
 "version":"2017-01-14"
 },
 "deepin-translation-utils":{
-"drvPath":"/nix/store/scd951hkq9y9j9k1n09cciy5gkphjb5y-deepin-translation-utils-0.6.1.drv",
+"drvPath":"/nix/store/8lg92w31c47szxnrina9wc03dzz1006d-deepin-translation-utils-0.6.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -91,7 +91,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/23pc0cbv89gwk8fhbjnbj60cp3jgjs4i-source/pkgs/deepin-translation-utils/default.nix",
+"file":"/nix/store/p2gis3ixl31h7pr0xr9qxysmsj2xja0b-source/pkgs/deepin-translation-utils/default.nix",
 "line":24
 },
 "name":"deepin-translation-utils-0.6.1",
@@ -107,7 +107,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -143,10 +142,12 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
 "position":"./pkgs/deepin-translation-utils/default.nix:21",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -160,7 +161,7 @@
 "version":"0.6.1"
 },
 "electron-netease-cloud-music":{
-"drvPath":"/nix/store/qdyssy55qa8ng39z9yjlkfsjnasdymvx-electron-netease-cloud-music-0.9.39.drv",
+"drvPath":"/nix/store/103isf813q08540z8acn5qmnkj93z3ay-electron-netease-cloud-music-0.9.39.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -216,7 +217,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/23pc0cbv89gwk8fhbjnbj60cp3jgjs4i-source/pkgs/electron-netease-cloud-music/default.nix",
+"file":"/nix/store/p2gis3ixl31h7pr0xr9qxysmsj2xja0b-source/pkgs/electron-netease-cloud-music/default.nix",
 "line":66
 },
 "name":"electron-netease-cloud-music-0.9.39",
@@ -232,6 +233,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -254,10 +256,10 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/electron-netease-cloud-music/default.nix:63",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -271,7 +273,7 @@
 "version":"0.9.39"
 },
 "git-commit-helper":{
-"drvPath":"/nix/store/k3365y1pf49rlzcnclmfysxv19y023y0-git-commit-helper-0.8.0.drv",
+"drvPath":"/nix/store/376aap96ywclnkv23ysmhqc18iy8lgmq-git-commit-helper-0.8.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -339,7 +341,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/23pc0cbv89gwk8fhbjnbj60cp3jgjs4i-source/pkgs/git-commit-helper/default.nix",
+"file":"/nix/store/p2gis3ixl31h7pr0xr9qxysmsj2xja0b-source/pkgs/git-commit-helper/default.nix",
 "line":49
 },
 "name":"git-commit-helper-0.8.0",
@@ -355,7 +357,6 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
@@ -391,10 +392,12 @@
 "armv6l-netbsd",
 "mipsel-netbsd",
 "riscv64-netbsd",
+"riscv32-none",
 "x86_64-redox",
 "wasm32-wasi"
 ],
 "position":"./pkgs/git-commit-helper/default.nix:46",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -408,7 +411,7 @@
 "version":"0.8.0"
 },
 "graphbuilder":{
-"drvPath":"/nix/store/mnrhv3d8xg6qxfdqfkxagcd6rpiml9ah-GraphBuilder-1.3.0.drv",
+"drvPath":"/nix/store/zshz7h674jfjb95zd2446bjbi8xpz3qg-GraphBuilder-1.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -461,6 +464,12 @@
 "out"
 ],
 "position":"./pkgs/graphbuilder/default.nix:27",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -474,7 +483,7 @@
 "version":"1.3.0"
 },
 "lazycat-terminal":{
-"drvPath":"/nix/store/gp9yvza6dw2m68rax52xqrbimnscba0v-lazycat-terminal-0.1.4.drv",
+"drvPath":"/nix/store/7wdvxyyrb132yyq0q6jn3nan1zy3pszy-lazycat-terminal-0.1.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -531,7 +540,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/23pc0cbv89gwk8fhbjnbj60cp3jgjs4i-source/pkgs/lazycat-terminal/default.nix",
+"file":"/nix/store/p2gis3ixl31h7pr0xr9qxysmsj2xja0b-source/pkgs/lazycat-terminal/default.nix",
 "line":44
 },
 "name":"lazycat-terminal-0.1.4",
@@ -547,10 +556,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -559,7 +569,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -582,7 +591,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -629,6 +637,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/lazycat-terminal/default.nix:41",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -642,7 +651,7 @@
 "version":"0.1.4"
 },
 "nextssh":{
-"drvPath":"/nix/store/l6nnpn14dwgqr9avy3yvvbxn318sffih-nextssh.drv",
+"drvPath":"/nix/store/nhn4h6rkanhlwjbmivrr5r1i3nd606gi-nextssh.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -682,6 +691,7 @@
 "out"
 ],
 "position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:248",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -695,7 +705,7 @@
 "version":""
 },
 "nowide":{
-"drvPath":"/nix/store/h111z1gjjfazrcryw39mjfi8ssr0a9qf-nowide-11.3.0.drv",
+"drvPath":"/nix/store/p9x9lp6i4fqjkifbcj1s1915p49052z2-nowide-11.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -751,7 +761,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/23pc0cbv89gwk8fhbjnbj60cp3jgjs4i-source/pkgs/nowide/default.nix",
+"file":"/nix/store/p2gis3ixl31h7pr0xr9qxysmsj2xja0b-source/pkgs/nowide/default.nix",
 "line":31
 },
 "name":"nowide-11.3.0",
@@ -767,6 +777,7 @@
 "out"
 ],
 "position":"./pkgs/nowide/default.nix:28",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -800,7 +811,7 @@
 "version":"0-unstable-2024-10-29"
 },
 "wayland-debug":{
-"drvPath":"/nix/store/qcrzciyfcydqms945nl7b0q4bb8nkcki-wayland-debug-0-unstable-2026-05-22.drv",
+"drvPath":"/nix/store/r8xqyygg145k3wvnfh69mgzcmh369f55-wayland-debug-0-unstable-2026-05-22.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -857,7 +868,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/23pc0cbv89gwk8fhbjnbj60cp3jgjs4i-source/pkgs/wayland-debug/default.nix",
+"file":"/nix/store/p2gis3ixl31h7pr0xr9qxysmsj2xja0b-source/pkgs/wayland-debug/default.nix",
 "line":39
 },
 "name":"wayland-debug-0-unstable-2026-05-22",
@@ -873,6 +884,7 @@
 "out"
 ],
 "position":"./pkgs/wayland-debug/default.nix:36",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -886,7 +898,7 @@
 "version":"0-unstable-2026-05-22"
 },
 "wlanalyze":{
-"drvPath":"/nix/store/z3m2hcn6rdgfjm66p5c3hjdxg7zkqir5-wlanalyze-0-unstable-2025-08-12.drv",
+"drvPath":"/nix/store/597yg4wm4v5gd593lbw7h1hhg4n58cyf-wlanalyze-0-unstable-2025-08-12.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -943,7 +955,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/23pc0cbv89gwk8fhbjnbj60cp3jgjs4i-source/pkgs/wlanalyze/default.nix",
+"file":"/nix/store/p2gis3ixl31h7pr0xr9qxysmsj2xja0b-source/pkgs/wlanalyze/default.nix",
 "line":33
 },
 "name":"wlanalyze-0-unstable-2025-08-12",
@@ -959,10 +971,11 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
 "i686-cygwin",
 "x86_64-cygwin",
-"x86_64-darwin",
-"aarch64-darwin",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd",
@@ -971,7 +984,6 @@
 "x86_64-genode",
 "x86_64-solaris",
 "javascript-ghcjs",
-"aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
 "armv6l-linux",
@@ -994,7 +1006,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
 "mmix-mmixware",
 "aarch64-netbsd",
 "armv6l-netbsd",
@@ -1041,6 +1052,7 @@
 "x86_64-uefi"
 ],
 "position":"./pkgs/wlanalyze/default.nix:30",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1054,7 +1066,7 @@
 "version":"0-unstable-2025-08-12"
 },
 "wldbg":{
-"drvPath":"/nix/store/vvm07p2ap051xji0w811wj5z4jqvmvcs-wldbg-0.2.0-unstable-2023-10-19.drv",
+"drvPath":"/nix/store/p3x3dp572c1c1wlpcpsazjdyiz5y1dcb-wldbg-0.2.0-unstable-2023-10-19.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1107,6 +1119,12 @@
 "out"
 ],
 "position":"./pkgs/wldbg/default.nix:27",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -1120,7 +1138,7 @@
 "version":"0.2.0-unstable-2023-10-19"
 },
 "wlhax":{
-"drvPath":"/nix/store/555z9mzkc4jbb75idax5l17xq8rpbrxv-wlhax-0.2.0.drv",
+"drvPath":"/nix/store/bhmrmzbqk910p1r4n5b04w30nvd7cqk2-wlhax-0.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1177,7 +1195,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/23pc0cbv89gwk8fhbjnbj60cp3jgjs4i-source/pkgs/wlhax/default.nix",
+"file":"/nix/store/p2gis3ixl31h7pr0xr9qxysmsj2xja0b-source/pkgs/wlhax/default.nix",
 "line":24
 },
 "name":"wlhax-0.2.0",
@@ -1193,6 +1211,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1215,10 +1234,10 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/wlhax/default.nix:20",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
