@@ -1,0 +1,119 @@
+error:
+… while evaluating attribute 'preFixup' of derivation 'wemeet-3.26.10.401'
+  at ./pkgs/wemeet/linux.nix:292:3:
+   291|
+   292|   preFixup = ''
+      |   ^
+   293|     makeWrapper $out/app/wemeet/bin/wemeetapp $out/bin/wemeet \
+
+… from call site
+  at ./pkgs/wemeet/linux.nix:300:9:
+   299|       --prefix LD_LIBRARY_PATH : $out/app/wemeet/lib:${
+   300|         lib.makeLibraryPath [
+      |         ^
+   301|           libxext
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/strings.nix:611:13:
+   610|     in
+   611|     subDir: pkgs:
+      |             ^
+   612|     concatStringsSep ":" (
+
+… while calling the 'concatStringsSep' builtin
+  at <nixpkgs> + /lib/strings.nix:612:5:
+   611|     subDir: pkgs:
+   612|     concatStringsSep ":" (
+      |     ^
+   613|       concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]) pkgs
+
+… while calling the 'concatMap' builtin
+  at <nixpkgs> + /lib/strings.nix:613:7:
+   612|     concatStringsSep ":" (
+   613|       concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]) pkgs
+      |       ^
+   614|     );
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/strings.nix:613:18:
+   612|     concatStringsSep ":" (
+   613|       concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]) pkgs
+      |                  ^
+   614|     );
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/strings.nix:613:24:
+   612|     concatStringsSep ":" (
+   613|       concatMap (path: if path != null then [ (getOutput' path + "/" + subDir) ] else [ ]) pkgs
+      |                        ^
+   614|     );
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at ./pkgs/wemeet/default.nix:13:15:
+    12|   callPackage ./linux.nix {
+    13|     opencv4 = opencv4.override {
+      |               ^
+    14|       # ── BUILD_LIST: only core + imgproc ──────────────────────────
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:171:13:
+   170|             */
+   171|             newArgs: makeOverridable f (origArgs // (if isFunction newArgs then newArgs origArgs else newArgs))
+      |             ^
+   172|           );
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:171:22:
+   170|             */
+   171|             newArgs: makeOverridable f (origArgs // (if isFunction newArgs then newArgs origArgs else newArgs))
+      |                      ^
+   172|           );
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:158:9:
+   157|       f' =
+   158|         origArgs:
+      |         ^
+   159|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:174:9:
+   173|         in
+   174|         if isAttrs result then
+      |         ^
+   175|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:174:12:
+   173|         in
+   174|         if isAttrs result then
+      |            ^
+   175|           result
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:160:20:
+   159|         let
+   160|           result = f origArgs;
+      |                    ^
+   161|
+
+error: function 'anonymous lambda' called with unexpected argument 'enableGtk2'
+at <nixpkgs> + /pkgs/development/libraries/opencv/4.x.nix:1:1:
+     1| {
+      | ^
+     2|   lib,
+Did you mean one of enableGtk3 or enableVtk?
