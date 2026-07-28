@@ -1,16 +1,16 @@
 {
 "name":"dima",
-"fetch_time":0.259,
-"eval_time":1.258,
+"fetch_time":0.269,
+"eval_time":1.215,
 "source":{
 "url":"https://gitlab.com/shdima/nur-packages",
-"rev":"4ebfb83f20709d106bad168778bba49fc73a1d11",
-"sha256":"1yhlqkcacc71xl6x4dayhykzn4gghgb256k9ndcgf38smnvxa5l2",
+"rev":"5a51ab8c2b281d890b01148203d14e5aea62ef4e",
+"sha256":"11b0zl7qb9q5aa1q81gjvhw161nz3qd2azfrh2bapm0dnv3qp2ir",
 "date":null
 },
-"source_storepath":"/nix/store/bjghry0rnfrh6wcy7vjxy9674fxp7abs-source",
-"nixpkgs_storepath":"/nix/store/iiyffi761z4nv8797iyznrk1sxzwkhk5-source",
-"nur_combined_rev":"79ff06a76ed4fc371bdcd0ec892836474cb1e8d9",
+"source_storepath":"/nix/store/v70xk6az5nqm204ixl902y0nhr3nhk4k-source",
+"nixpkgs_storepath":"/nix/store/wwlv1b9k93rwcbdqxdbyfw3rs5i80f72-source",
+"nur_combined_rev":"f5eee586f48c6bba9653dfc9d37d534ed98acbec",
 "packages":{
 "codemaxxing":{
 "drvPath":"/nix/store/18a6gva1bjzbqdyq5iya2bnniaj5zfr8-python3.14-codemaxxing-unstable-2026-04-13.drv",
@@ -573,7 +573,7 @@
 "version":"3.0"
 },
 "mdremotifier":{
-"drvPath":"/nix/store/0qnn5nqk5093vids1bdr9yf5wwvy7f9s-python3.14-mdremotifier-1.0.0.drv",
+"drvPath":"/nix/store/sysnxvrqk919xf82qi7dvwy2m083s8dp-python3.14-mdremotifier-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -927,7 +927,7 @@
 "riscv64-linux",
 "s390x-linux"
 ],
-"position":"./pkgs/obsidian-better-markdown-links/default.nix:39",
+"position":"./pkgs/obsidian-better-markdown-links/default.nix:41",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -1047,7 +1047,7 @@
 "available":true,
 "broken":false,
 "description":"Create notes within folders that can be accessed without collapsing the folder, similar to the functionality offered in Notion",
-"homepage":"https://github.com/LostPaul",
+"homepage":"https://github.com/LostPaul/obsidian-folder-notes",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -1232,7 +1232,7 @@
 "version":"0.1.2"
 },
 "obsidian-show-whitespace":{
-"drvPath":"/nix/store/s5ji84l7ml96s8q6rwqzq6c2m3za7myk-obsidian-show-whitespace-0.2.8.drv",
+"drvPath":"/nix/store/xn53ln2yh7clvn4za4v2xyfq2wjmbvns-obsidian-show-whitespace-0.2.14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1279,7 +1279,7 @@
 "url":"https://spdx.org/licenses/AGPL-3.0-only.html"
 },
 "maintainers":[],
-"name":"obsidian-show-whitespace-0.2.8",
+"name":"obsidian-show-whitespace-0.2.14",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1317,14 +1317,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"obsidian-show-whitespace-0.2.8",
+"name":"obsidian-show-whitespace-0.2.14",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"obsidian-show-whitespace",
 "system":"x86_64-linux",
-"version":"0.2.8"
+"version":"0.2.14"
 },
 "obsidian-smart-typography":{
 "drvPath":"/nix/store/isgvw6anlig8pkr099gz96f5q5yxbqnj-obsidian-smart-typography-1.0.18.drv",
@@ -1399,7 +1399,7 @@
 "version":"1.0.18"
 },
 "playit-agent":{
-"drvPath":"/nix/store/2fydf3r1xhgqly3r4m468652xn7fyrrj-playit-agent-1.0.5.drv",
+"drvPath":"/nix/store/xrhg7g8yvmgxsbqh951nqvhqlyn7gphd-playit-agent-1.0.10.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1457,7 +1457,7 @@
 "url":"https://spdx.org/licenses/BSD-2-Clause.html"
 },
 "maintainers":[],
-"name":"playit-agent-1.0.5",
+"name":"playit-agent-1.0.10",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1512,14 +1512,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"playit-agent-1.0.5",
+"name":"playit-agent-1.0.10",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"playit-agent",
 "system":"x86_64-linux",
-"version":"1.0.5"
+"version":"1.0.10"
 },
 "rich-13-9-4":{
 "drvPath":"/nix/store/a6ag4x2z25qwls4amjmmml0dw3hyb006-python3.14-rich-13.9.4.drv",
@@ -1662,11 +1662,11 @@
 "version":"13.9.4"
 },
 "rich-argparse-rich-13-9-4":{
-"drvPath":"/nix/store/hzysz7pvah0mjv2c3jw9849yh7h14rq3-python3.14-rich-argparse-1.7.1.drv",
+"drvPath":"/nix/store/94zixwzyk9pj9gx4ply3bmcgnjc25wzi-python3.14-rich-argparse-1.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/hamdanal/rich-argparse/blob/v1.7.1/CHANGELOG.md",
+"changelog":"https://github.com/hamdanal/rich-argparse/blob/v1.8.0/CHANGELOG.md",
 "description":"Format argparse help output using rich",
 "homepage":"https://github.com/hamdanal/rich-argparse",
 "identifiers":{
@@ -1743,7 +1743,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"python3.14-rich-argparse-1.7.1",
+"name":"python3.14-rich-argparse-1.8.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1791,7 +1791,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.14-rich-argparse-1.7.1",
+"name":"python3.14-rich-argparse-1.8.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -1799,7 +1799,7 @@
 },
 "pname":"python3.14-rich-argparse",
 "system":"x86_64-linux",
-"version":"1.7.1"
+"version":"1.8.0"
 },
 "stripzip":{
 "drvPath":"/nix/store/k4ip23h13xhwr46h6f9m9ysnmynz5wbz-stripzip-unstable-2016-02-11.drv",
