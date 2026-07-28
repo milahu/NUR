@@ -1,6 +1,8 @@
 {
   lib,
+  stdenv,
   stdenvNoCC,
+  autoPatchelfHook,
   bun,
   clang,
   cmake,
@@ -16,14 +18,14 @@
 }:
 
 let
-  version = "17.1.3";
+  version = "17.1.6";
   pname = "oh-my-pi";
 
   src = fetchFromGitHub {
     owner = "can1357";
     repo = "oh-my-pi";
     rev = "v${version}";
-    hash = "sha256-TCDYc+qJDn2z7EwdwE4RIFFUQBmobaPPynZiGC8Ysjc=";
+    hash = "sha256-lp/29t5plHsn6Yp7/mI8/aZc0ZwlJTV9ot+MLUYQ4s8=";
   };
 
   # Platform mapping
@@ -72,7 +74,7 @@ let
       runHook postInstall
     '';
 
-    outputHash = "sha256-w2G4BX+zAnF5u0yY8Bu2NFL3E/iyP5TnMt/LD0x1MTs=";
+    outputHash = "sha256-tZY7jEjjxdggmqnB6fj8wlKCvSo8czA6NEwcLOSXvkg=";
     outputHashAlgo = "sha256";
     outputHashMode = "recursive";
   };
@@ -84,14 +86,12 @@ let
     pname = "${pname}-pi-natives";
     inherit version src;
 
-    cargoHash = "sha256-47qCSiHyDLyKxo/xcBOXHA38Cg0VSP/asO2tYzoecOE=";
+    cargoHash = "sha256-dMR7ubR+sKjIIb8mmiS1G+1Ei7x7Oa24yHCYt6cznss=";
 
     nativeBuildInputs = [
-      bun
       clang
       cmake
       pkg-config
-      nodejs
     ];
 
     buildInputs = [
@@ -132,16 +132,26 @@ let
       mkdir -p "$CARGO_TARGET_DIR"
     '';
 
-    buildPhase = ''
-      runHook preBuild
-      bun --bun --cwd=packages/natives run build
-      runHook postBuild
-    '';
-
     installPhase = ''
       runHook preInstall
       mkdir -p "$out/native"
-      cp -vr packages/natives/native/*.node "$out/native/" 2>/dev/null || true
+
+      # Find the built cdylib .so file
+      local so_file=$(find "$CARGO_TARGET_DIR" -name 'libpi_natives.so' -type f 2>/dev/null | head -1)
+      if [ -z "$so_file" ]; then
+        echo "ERROR: libpi_natives.so not found in CARGO_TARGET_DIR"
+        exit 1
+      fi
+
+      # Determine variant: auto-detect AVX2
+      local variant="baseline"
+      if [ -r /proc/cpuinfo ] && grep -q '^flags.* avx2 ' /proc/cpuinfo 2>/dev/null; then
+        variant="modern"
+      fi
+
+      cp "$so_file" "$out/native/pi_natives.linux-x64-$variant.node"
+
+      # Copy JS/TS files from source
       cp -vr packages/natives/native/*.js "$out/native/" 2>/dev/null || true
       cp -vr packages/natives/native/*.d.ts "$out/native/" 2>/dev/null || true
       runHook postInstall
@@ -166,10 +176,15 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   strictDeps = true;
 
   nativeBuildInputs = [
+    autoPatchelfHook
     bun
     nodejs
     makeBinaryWrapper
     writableTmpDirAsHomeHook
+  ];
+
+  buildInputs = [
+    stdenv.cc.cc.lib
   ];
 
   configurePhase = ''
@@ -243,6 +258,29 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     rm -rf $out/lib/oh-my-pi/node_modules
     mkdir -p $out/lib/oh-my-pi/node_modules
     cp -R ${node_modules}/node_modules/. $out/lib/oh-my-pi/node_modules/
+    chmod -R u+w $out/lib/oh-my-pi/node_modules
+    # ── Deduplicate libonnxruntime.so.1 SONAME ──
+    # Multiple onnxruntime-node versions ship libonnxruntime.so.1 with
+    # the same SONAME. The dynamic linker loads only the first one
+    # encountered, which can mismatch the binding that needs a specific
+    # version (e.g. VERS_1.24.3 vs VERS_1.26.0).
+    # Fix: give each copy a unique SONAME and update all local NEEDED refs.
+    for lib in $(find $out -name 'libonnxruntime.so.1' -type f 2>/dev/null); do
+      dir=$(dirname "$lib")
+      # Deterministic suffix from directory path
+      suffix=$(echo "$dir" | cksum | cut -d' ' -f1)
+      new_soname="libonnxruntime.so.1.$suffix"
+      echo "Dedup SONAME: $lib → $new_soname"
+      patchelf --set-soname "$new_soname" "$lib"
+      # Rename the file to match the new SONAME, so the dynamic linker
+      # can find it when searching RPATH directories by NEEDED name.
+      mv "$lib" "$dir/$new_soname"
+      lib="$dir/$new_soname"
+      for elf in "$dir"/*; do
+        [ -f "$elf" ] || continue
+        patchelf --replace-needed libonnxruntime.so.1 "$new_soname" "$elf" 2>/dev/null || true
+      done
+    done
 
     # Overlay native addon from Rust build
     mkdir -p $out/lib/oh-my-pi/packages/natives/native
@@ -269,7 +307,28 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     runHook postInstall
   '';
 
-  dontFixup = true;
+  # ── postFixup: add self-directory to RPATH after autoPatchelfHook ──
+  # autoPatchelfHook replaces RPATH with Nix store paths only, stripping
+  # $ORIGIN and non-store paths. The onnxruntime .node/.so pairs need to
+  # find each other in the same directory. Using postPhases ensures this
+  # runs AFTER fixupPhase (and thus after autoPatchelfHook).
+  postPhases = [ "onnxRpathPhase" ];
+  onnxRpathPhase = ''
+    runHook preOnnxRpath
+    for lib in $(find $out -name 'libonnxruntime.so.1.*' -type f 2>/dev/null); do
+      dir=$(dirname "$lib")
+      patchelf --add-rpath "$dir" "$lib" 2>/dev/null || true
+      for elf in "$dir"/*; do
+        [ -f "$elf" ] || continue
+        patchelf --add-rpath "$dir" "$elf" 2>/dev/null || true
+      done
+    done
+    runHook postOnnxRpath
+  '';
+
+  dontPatchElf = true;
+  dontStrip = true;
+  autoPatchelfIgnoreMissingDeps = [ "*" ];
 
   passthru = {
     inherit node_modules piNatives;

@@ -35,11 +35,14 @@ nix-prefetch-github <owner> <repo> --rev v<version>
 - Rust packages may need `Cargo.lock` handling (`waybar-vd`).
 - Flutter packages may need pub-lock refresh and native-asset validation (`LoveIwara`).
 - Python GUI apps may need wrapper/runtime checks (`JMComic-qt`, `picacg-qt`).
-- npm packages may need `npmDepsHash` refresh (`hyprland-mcp-server`).
+- npm packages may need `npmDepsHash` refresh (`codegraph`).
 - bun-built packages may need dependency/output hash refresh (`mcp-cli`).
+- **`oh-my-pi`**: after updating hashes, run the full ELF verification from
+  `pkgs/oh-my-pi/AGENTS.md` step 4. Restart omp and check `~/.omp/logs/` for
+  `libonnxruntime`, `libstdc++`, or `VERS_` errors (step 5).
 
 ## Examples
 
 - `nix-build -A mihomo-smart`
 - `nix-build -A LoveIwara`
-- `nix-build -A hyprland-mcp-server`
+- `nix-build -A deskbrid`
