@@ -29,9 +29,10 @@ let
                 cmake ninja;
               inherit (final) qt6;
             };
+            pyconify = python-final.callPackage ./pkgs/spektrafilm/pyconify.nix { };
             spektrafilm = python-final.callPackage ./pkgs/spektrafilm/spektrafilm.nix {
               inherit (final) makeWrapper mesa libglvnd;
-              qt5 = final.libsForQt5.qt5;
+              inherit (final) qt6;
             };
           })
         ];
@@ -83,7 +84,7 @@ in
   spektrafilm = spektrafilm-pkgs.python3Packages.spektrafilm;
   spektrafilm-art = spektrafilm-art;
 
-  # darktable built from the Arecsu spektrafilm-draft branch (native C module,
+  # darktable built from the spektrafilm PR branch (native C module,
   # independent of the spektrafilm Python package above). Based on pkgsDarktable
   # (nixpkgs-unstable) for a dependency set close to the 5.8.0 source.
   darktable-spektrafilm =
