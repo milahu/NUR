@@ -91,23 +91,19 @@ impl TerminalTabs {
     }
 
     pub(crate) fn paste(&mut self, cx: &mut Context<Self>) {
-        if let Ok(mut clipboard) = Clipboard::new() {
-            if let Ok(text) = clipboard.paste() {
-                if let Some(session) = self.tabs.get(self.active_tab) {
+        if let Ok(mut clipboard) = Clipboard::new()
+            && let Ok(text) = clipboard.paste()
+                && let Some(session) = self.tabs.get(self.active_tab) {
                     session.update(cx, |s, cx| {
                         s.terminal_view.update(cx, |tv, _| {
                             tv.write_input(&text);
                         });
                     });
                 }
-            }
-        }
     }
 
     pub(crate) fn close_overlay(&mut self, window: &mut Window, cx: &mut Context<Self>) {
-        if self.context_menu.take().is_some() {
-            self.focus_active_session(window, cx);
-        } else if self.pending_open_url.take().is_some() {
+        if self.context_menu.take().is_some() || self.pending_open_url.take().is_some() {
             self.focus_active_session(window, cx);
         } else if self.show_settings {
             self.show_settings = false;
@@ -129,9 +125,6 @@ impl TerminalTabs {
         window: &mut Window,
         cx: &mut Context<Self>,
     ) {
-        if !self.open_links {
-            return;
-        }
         if !gpui_terminal::is_browser_url(&url) {
             return;
         }
@@ -266,7 +259,6 @@ impl TerminalTabs {
         self.sync_font_size_across_tabs = true;
         self.remember_font_size = false;
         self.osc52 = crate::settings::Osc52Setting::Disabled;
-        self.open_links = false;
         self.font_size = px(DEFAULT_FONT_SIZE);
         let size = self.font_size;
         let osc52 = self.osc52.into();

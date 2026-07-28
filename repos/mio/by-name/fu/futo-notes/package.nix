@@ -17,23 +17,23 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "futo-notes";
-  version = "1.6.0";
+  version = "1.6.1";
 
   src = fetchFromGitLab {
     domain = "gitlab.futo.org";
     owner = "futo-notes";
     repo = "futo-notes";
     rev = "v${version}";
-    hash = "sha256-D5f7FXe+Df+py3cVYY3R3mG7goCgOPiw8oKmJqCl7L4=";
+    hash = "sha256-ILtfrU/Pr+Gmnngt65W2A4NBx93OwfHHAVCA8r7Nm4c=";
   };
 
   pnpmDeps = pnpm_10.fetchDeps {
     inherit pname version src;
-    hash = "sha256-sSG4erdcpRqzxPvSqa0lef8X/iAWQMyqk9tw1oeAMz4=";
+    hash = "sha256-QlvQ+7Q3ZTHEYELKkge99CsfXgBGiF9+WLpmqg7Gx5E=";
     fetcherVersion = 4;
   };
 
-  cargoHash = "sha256-5v2NXqc/2Do5LBo4aLwg3AONo3+AamEHW7WRPL57vkM=";
+  cargoHash = "sha256-ZeCFObDMeI37QqklsqqqWMe0CBsaXoyyrfI7X5IayP4=";
 
   # The Cargo workspace root is in the repo root
   # We just want to build the tauri app
