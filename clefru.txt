@@ -1,17 +1,10 @@
 error:
 … while evaluating attribute 'buildCommand' of derivation 'parsecgaming'
-  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:81:17:
-    80|         enableParallelBuilding = true;
-    81|         inherit buildCommand name;
-      |                 ^
-    82|         passAsFile = [ "buildCommand" ] ++ (derivationArgs.passAsFile or [ ]);
-
-… while calling the 'getAttr' builtin
-  at «nix-internal»/derivation-internal.nix:50:17:
-    49|     value = commonAttrs // {
-    50|       outPath = builtins.getAttr outputName strict;
-      |                 ^
-    51|       drvPath = strict.drvPath;
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:341:9:
+   340|       {
+   341|         buildCommand = ''
+      |         ^
+   342|           mkdir -p $out/bin
 
 … while calling the 'derivationStrict' builtin
   at «nix-internal»/derivation-internal.nix:37:12:
@@ -31,25 +24,18 @@ error:
    128|           executable
 
 … from call site
-  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:341:43:
-   340|
-   341|   bin = writeShellScript "${name}-bwrap" (bwrapCmd {
-      |                                           ^
-   342|     initArgs = ''"$@"'';
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:336:49:
+   335|
+   336|         bin = writeShellScript "${name}-bwrap" (bwrapCmd {
+      |                                                 ^
+   337|           initArgs = ''"$@"'';
 
 … while calling 'bwrapCmd'
-  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:175:5:
-   174|   bwrapCmd =
-   175|     {
-      |     ^
-   176|       initArgs ? "",
-
-… while calling the 'getAttr' builtin
-  at «nix-internal»/derivation-internal.nix:50:17:
-    49|     value = commonAttrs // {
-    50|       outPath = builtins.getAttr outputName strict;
-      |                 ^
-    51|       drvPath = strict.drvPath;
+  at <nixpkgs> + /pkgs/build-support/build-fhsenv-bubblewrap/default.nix:170:11:
+   169|         bwrapCmd =
+   170|           {
+      |           ^
+   171|             initArgs ? "",
 
 … while calling the 'derivationStrict' builtin
   at «nix-internal»/derivation-internal.nix:37:12:
