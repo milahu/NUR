@@ -65,6 +65,9 @@ Source of the touch logic:
   class as touch). Enter does not clear an in-flight press.
 - Touch uses the same multi-click (`click_count`) tracking as `wl_pointer`, so
   title-bar double-tap can maximize like a mouse double-click.
+- Added `GPUI_TOUCHSCREEN_DRAG_SCROLLS` environment variable logic. When enabled,
+  a single-finger touch motion emulates a scroll wheel (if it exceeds a 8px threshold)
+  instead of emulating a left-click drag, improving touch scrolling on Wayland.
 - `Pixels`: use `f32::from(...)` instead of `.as_f32()` (not on 0.2.2).
 - `platform/linux/text_system.rs`: extend cosmic-text's Unix font fallback list
   with `Symbols Nerd Font Mono` / `Symbols Nerd Font` (Omnimux ships them for
@@ -83,3 +86,5 @@ Source of the touch logic:
 - Hosting this same patched tree on a separate git remote would only avoid
   committing files here; it would still be our patched crates.io 0.2.2, not
   upstream tip.
+
+**Update (July 2026):** We investigated upgrading `gpui-component` to its latest `main` commit. However, `gpui-component` has radically changed how it depends on GPUI. It now pulls directly from `zed-industries/zed` via git. Upstream Zed has completely restructured the GPUI codebase (e.g., splitting Wayland code into a separate `gpui_linux` crate) and still has not merged the `wl_touch` PR. Upgrading would require vendoring the entire Zed monorepo (or its GPUI crates) into a new `vendor/zed` directory and porting our ~900-line Wayland touch patch to the new crate architecture. Thus, we remain on `gpui-component` 0.5.1 and this patched crates.io 0.2.2 release for now.

@@ -141,8 +141,10 @@ let
         ''
           runHook preInstall
 
-          cp --recursive desktop/build/compose/binaries/main-release/app/Bifrost $out
-          install -D --mode=0644 $out/lib/Bifrost.png \
+          mkdir -p $out/opt/bifrost
+          cp --recursive desktop/build/compose/binaries/main-release/app/Bifrost/* $out/opt/bifrost/
+          rm -rf $out/opt/bifrost/lib/runtime
+          install -D --mode=0644 $out/opt/bifrost/lib/Bifrost.png \
             $out/share/icons/hicolor/512x512/apps/bifrost.png
 
           runHook postInstall
@@ -246,7 +248,7 @@ stdenv.mkDerivation {
         #!/usr/bin/env bash
         set -euo pipefail
 
-        appdir="${bifrost-unwrapped}/lib/app"
+        appdir="${bifrost-unwrapped}/opt/bifrost/lib/app"
         cfg="$appdir/Bifrost.cfg"
         classpath=""
         main_class=""
@@ -317,7 +319,6 @@ stdenv.mkDerivation {
         chmod +x $out/bin/Bifrost
 
         ln -s ${bifrost-unwrapped}/share $out/share
-        ln -s ${bifrost-unwrapped}/lib $out/lib
 
         runHook postInstall
       '';

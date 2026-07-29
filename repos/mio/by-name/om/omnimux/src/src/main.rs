@@ -9,7 +9,8 @@ mod tabs;
 
 use actions::{
     CloseOverlay, CloseTab, Copy, FindInTerminal, HostListDown, HostListUp, NewTab, NextTab,
-    Paste, PrevTab, SearchNext, SearchPrev, ZoomIn, ZoomOut, ZoomReset,
+    PassthroughShiftTab, PassthroughTab, Paste, PrevTab, SearchNext, SearchPrev, ZoomIn, ZoomOut,
+    ZoomReset,
 };
 use fonts::load_bundled_symbol_fonts;
 use gpui::prelude::*;
@@ -21,7 +22,13 @@ use tabs::TerminalTabs;
 const CHROME: &str = "omnimux && !omnimux_terminal";
 
 fn main() {
-    gpui::Application::new().run(|cx: &mut gpui::App| {
+    let settings = load_settings();
+    let drag_scrolls = settings.touchscreen_drag_scrolls.unwrap_or(true);
+    unsafe {
+        std::env::set_var("GPUI_TOUCHSCREEN_DRAG_SCROLLS", if drag_scrolls { "1" } else { "0" });
+    }
+
+    gpui::Application::new().run(move |cx: &mut gpui::App| {
         gpui_component::init(cx);
         load_bundled_symbol_fonts(cx);
 
@@ -68,6 +75,9 @@ fn main() {
             KeyBinding::new("ctrl-g", SearchNext, Some("omnimux_search")),
             KeyBinding::new("cmd-shift-g", SearchPrev, Some("omnimux_search")),
             KeyBinding::new("ctrl-shift-g", SearchPrev, Some("omnimux_search")),
+            // Override gpui-component Root focus-cycle bindings inside the terminal.
+            KeyBinding::new("tab", PassthroughTab, Some("omnimux_terminal")),
+            KeyBinding::new("shift-tab", PassthroughShiftTab, Some("omnimux_terminal")),
         ]);
 
         let bounds = Bounds::centered(None, size(px(800.0), px(600.0)), cx);

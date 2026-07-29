@@ -47,6 +47,8 @@ pub struct TerminalTabs {
     pub(crate) focus_ui: bool,
     pub(crate) focus_handle: FocusHandle,
     pub(crate) terminal_palette: ColorPalette,
+    pub(crate) touchscreen_drag_scrolls: bool,
+    pub(crate) confirm_link_open: bool,
     _subscriptions: Vec<Subscription>,
 }
 
@@ -59,12 +61,14 @@ impl Focusable for TerminalTabs {
 impl TerminalTabs {
     pub fn new(window: &mut Window, cx: &mut Context<Self>) -> Self {
         let settings = load_settings();
-        let keep_tab_after_exit = settings.keep_tab_after_exit.unwrap_or(true);
+        let keep_tab_after_exit = settings.keep_tab_after_exit.unwrap_or(false);
         let auto_reconnect = settings.auto_reconnect.unwrap_or(false);
         let remember_session = settings.remember_session.unwrap_or(false);
         let sync_font_size_across_tabs = settings.sync_font_size_across_tabs.unwrap_or(true);
         let remember_font_size = settings.remember_font_size.unwrap_or(false);
-        let osc52 = settings.osc52.unwrap_or_default();
+        let osc52 = settings.osc52.unwrap_or(Osc52Setting::Disabled);
+        let touchscreen_drag_scrolls = settings.touchscreen_drag_scrolls.unwrap_or(true);
+        let confirm_link_open = settings.confirm_link_open.unwrap_or(false);
         let font_size = if remember_font_size {
             px(
                 settings
@@ -221,6 +225,8 @@ impl TerminalTabs {
             focus_ui: start_prompt,
             focus_handle,
             terminal_palette,
+            touchscreen_drag_scrolls,
+            confirm_link_open,
             _subscriptions: subscriptions,
         }
     }

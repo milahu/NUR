@@ -121,7 +121,57 @@ stdenv.mkDerivation (finalAttrs: {
     runHook preInstall
 
     # Compose Multiplatform packageName = "Komi-Store"
-    cp -r composeApp/build/compose/binaries/main/app/Komi-Store $out
+    mkdir -p $out/opt/komi-store $out/bin
+    cp -r composeApp/build/compose/binaries/main/app/Komi-Store/* $out/opt/komi-store/
+    rm -rf $out/opt/komi-store/lib/runtime
+
+    cat > $out/bin/komi-store <<'EOF'
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    appdir="@out@/opt/komi-store/lib/app"
+    cfg="$appdir/Komi-Store.cfg"
+    classpath=""
+    main_class=""
+    java_opts=()
+
+    while IFS= read -r line; do
+      case "$line" in
+        app.classpath=*)
+          entry="''${line#app.classpath=}"
+          entry="''${entry//\$APPDIR/$appdir}"
+          if [ -z "$classpath" ]; then
+            classpath="$entry"
+          else
+            classpath="$classpath:$entry"
+          fi
+          ;;
+        app.mainclass=*)
+          main_class="''${line#app.mainclass=}"
+          ;;
+        java-options=*)
+          opt="''${line#java-options=}"
+          opt="''${opt//\$APPDIR/$appdir}"
+          java_opts+=("$opt")
+          ;;
+      esac
+    done < "$cfg"
+
+    if [ -z "$main_class" ]; then
+      echo "Missing main class in $cfg" >&2
+      exit 1
+    fi
+
+    exec "@jdk@/bin/java" \
+      "''${java_opts[@]}" \
+      -cp "$classpath" \
+      "$main_class" \
+      "$@"
+    EOF
+    substituteInPlace $out/bin/komi-store \
+      --replace-fail "@out@" "$out" \
+      --replace-fail "@jdk@" "${jdk21}"
+    chmod +x $out/bin/komi-store
 
     install -Dm644 composeApp/src/jvmMain/resources/logo/app_icon.png \
       $out/share/icons/hicolor/512x512/apps/komi-store.png
@@ -132,7 +182,7 @@ stdenv.mkDerivation (finalAttrs: {
   desktopItems = [
     (makeDesktopItem {
       name = "komi-store";
-      exec = "Komi-Store";
+      exec = "komi-store";
       icon = "komi-store";
       desktopName = "Komi Store";
       comment = finalAttrs.meta.description;

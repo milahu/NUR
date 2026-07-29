@@ -476,6 +476,12 @@ pub struct TerminalView {
 
     /// IME pre-edit (composing) state for CJK and similar input methods.
     ime_state: Option<crate::ime::ImeState>,
+
+    /// Whether the pointer is currently hovering over a link while holding Ctrl.
+    hovering_link: bool,
+
+    /// Last known mouse position for re-evaluating hover state on modifier change.
+    last_mouse_pos: Option<Point<Pixels>>,
 }
 
 /// Geometry used to map window-space mouse positions to terminal cells.
@@ -669,6 +675,8 @@ impl TerminalView {
             hit_test: Arc::new(parking_lot::Mutex::new(TerminalHitTest::default())),
             color_scheme: ColorSchemeState::default(),
             ime_state: None,
+            hovering_link: false,
+            last_mouse_pos: None,
         }
     }
 
@@ -1159,6 +1167,22 @@ impl TerminalView {
         }
 
         let viewport = self.viewport_cell_at(event.position);
+        self.last_mouse_pos = Some(event.position);
+
+        let is_hovering_link = if event.modifiers.control {
+            let grid_point = self.viewport_to_grid(viewport);
+            let url = self.state.with_term(|term| {
+                crate::links::find_url_at_point(term, grid_point)
+            });
+            url.map(|u| crate::links::is_browser_url(&u)).unwrap_or(false)
+        } else {
+            false
+        };
+
+        if self.hovering_link != is_hovering_link {
+            self.hovering_link = is_hovering_link;
+            cx.notify();
+        }
 
         if self.selecting {
             let grid_point = self.viewport_to_grid(viewport);
@@ -1241,6 +1265,14 @@ impl TerminalView {
         let mut writer = self.stdin_writer.lock();
         let _ = writer.write_all(data.as_bytes());
         let _ = writer.flush();
+    }
+
+    /// Write a raw byte sequence to the PTY without any bracketed-paste wrapping.
+    ///
+    /// Use this for key-generated escape sequences (e.g. Tab `\t`, Shift-Tab `\x1b[Z`)
+    /// that must arrive verbatim regardless of whether bracketed-paste mode is active.
+    pub fn write_raw_str(&self, data: &str) {
+        self.write_pty_str(data);
     }
 
     /// Write raw text to the PTY (e.g. clipboard paste).
@@ -1676,6 +1708,7 @@ impl Render for TerminalView {
             .size_full()
             .bg(bg)
             .key_context("omnimux_terminal")
+            .cursor(if self.hovering_link { CursorStyle::PointingHand } else { CursorStyle::IBeam })
             .track_focus(&self.focus_handle)
             .on_key_down(cx.listener(Self::on_key_down))
             .on_mouse_down(MouseButton::Left, cx.listener(Self::on_mouse_down))
@@ -1691,7 +1724,27 @@ impl Render for TerminalView {
             .on_mouse_up_out(MouseButton::Right, cx.listener(Self::on_mouse_up_out))
             .on_mouse_move(cx.listener(Self::on_mouse_move))
             .on_scroll_wheel(cx.listener(Self::on_scroll))
-            .on_modifiers_changed({ let entity = view_entity.clone(); move |_, _, cx| entity.update(cx, |_, cx| cx.notify()) })
+            .on_modifiers_changed({ 
+                let entity = view_entity.clone(); 
+                move |event, _, cx| entity.update(cx, |this, cx| {
+                    if let Some(pos) = this.last_mouse_pos {
+                        let is_hovering_link = if event.modifiers.control {
+                            let viewport = this.viewport_cell_at(pos);
+                            let grid_point = this.viewport_to_grid(viewport);
+                            let url = this.state.with_term(|term| {
+                                crate::links::find_url_at_point(term, grid_point)
+                            });
+                            url.map(|u| crate::links::is_browser_url(&u)).unwrap_or(false)
+                        } else {
+                            false
+                        };
+                        if this.hovering_link != is_hovering_link {
+                            this.hovering_link = is_hovering_link;
+                            cx.notify();
+                        }
+                    }
+                }) 
+            })
             .child(
                 canvas(
                     move |bounds, _window, _cx| bounds,
