@@ -1,8 +1,8 @@
 # AB Download Manager
 
-## Install
+## Package
 
-With NUR:
+### NUR
 
 ```nix
 environment.systemPackages = [
@@ -10,34 +10,28 @@ environment.systemPackages = [
 ];
 ```
 
-With the repository flake:
+### Flake
 
 ```bash
 nix run github:so1ve/nur-packages#ab-download-manager
 nix profile install github:so1ve/nur-packages#ab-download-manager
 ```
 
-The command-line client can be run with:
-
-```bash
-nix run github:so1ve/nur-packages#ab-download-manager-cli
-```
-
 ## Home Manager
 
-With NUR:
+### NUR
 
 ```nix
 {
   imports = [
-    pkgs.nur.repos.so1ve.modules.homeManager.ab-download-manager
+    inputs.nur.repos.so1ve.homeModules.ab-download-manager
   ];
 
   programs.ab-download-manager.enable = true;
 }
 ```
 
-With the repository as a flake input:
+### Repository flake
 
 ```nix
 {
@@ -49,7 +43,7 @@ With the repository as a flake input:
 }
 ```
 
-Available options:
+## Options
 
 ```nix
 programs.ab-download-manager = {
@@ -64,27 +58,3 @@ programs.ab-download-manager = {
   };
 };
 ```
-
-## Overlay
-
-```nix
-nixpkgs.overlays = [
-  inputs.so1ve-nur.overlays.default
-];
-
-environment.systemPackages = [
-  pkgs.ab-download-manager
-];
-```
-
-## Update
-
-From the repository root:
-
-```bash
-nix run .#update-ab-download-manager
-nix run .#update-ab-download-manager -- 1.10.2
-```
-
-Release tags use the form
-`ab-download-manager-v<version>-<packaging-revision>`.
