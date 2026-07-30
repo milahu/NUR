@@ -1,19 +1,19 @@
 {
 "name":"crazazy",
-"fetch_time":1.415,
-"eval_time":1.921,
+"fetch_time":0.755,
+"eval_time":2.023,
 "source":{
 "url":"https://github.com/crazazy/nixos-config",
-"rev":"013f2b6377b32924d518acd47c2f3add4959ab58",
-"sha256":"17jgs9hwnx9bk72d2bjsz5jfv31za79h6p8njf0s8cym9f30x5bk",
+"rev":"796e843c852dba603616c46684fdb6fccaabbbf7",
+"sha256":"0dsgc7mg606yp5r55avc228rmsf0br935dbgy66n8vjl0hxjfj3p",
 "date":null
 },
-"source_storepath":"/nix/store/2pyn7a3zrkhbg16yaqf76hc246ry1sih-source",
-"nixpkgs_storepath":"/nix/store/w0d0sydj6sbcyp1l36ya9wbjh0j56c3j-source",
-"nur_combined_rev":"5a862fa77b62d929f8a54945fd5ba895524f41bf",
+"source_storepath":"/nix/store/v5g2xjq996mgahq4sv9wp9r0dq2hck3i-source",
+"nixpkgs_storepath":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source",
+"nur_combined_rev":"9c43461911a4eb41a0119dd173c651af71f14e5f",
 "packages":{
 "cakeml":{
-"drvPath":"/nix/store/47q1gc8ds69vg1ma14ikwwy627a0yarj-cakeml.drv",
+"drvPath":"/nix/store/qyikl8f8zz2vwscvij9jcbjgqzzvmzw1-cakeml.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -66,7 +66,7 @@
 "version":""
 },
 "elm":{
-"drvPath":"/nix/store/d6cqhbwcg1djz7w8czwskdxf8icn9g3s-elm-0.19.1.drv",
+"drvPath":"/nix/store/zdwzzi7jc63z7k5q9xz4c1x8h3q5vf4h-elm-0.19.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -123,7 +123,7 @@
 ],
 "maintainersPosition":{
 "column":55,
-"file":"/nix/store/w0d0sydj6sbcyp1l36ya9wbjh0j56c3j-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1101
 },
 "name":"elm-0.19.1",
@@ -211,8 +211,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -235,7 +235,7 @@
 "version":"0.19.1"
 },
 "enso":{
-"drvPath":"/nix/store/k1sl703w58hkhd119c8jdj0hxz0b296a-enso-2025.2.3.drv",
+"drvPath":"/nix/store/nna8f7aqrhaxc137j9kkkabwm2g45ycc-enso-2025.2.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -297,7 +297,7 @@
 "version":"2025.2.3"
 },
 "firefox-addons.bitwarden-password-manager":{
-"drvPath":"/nix/store/w04whpwm3fspfhscj2q1hlairgh5n3kq-bitwarden-password-manager.drv",
+"drvPath":"/nix/store/4fn0yfkd1h6ccl9ilf46xskzgs1r9gjb-bitwarden-password-manager.drv",
 "meta":{
 "description":"At home, at work, or on the go, Bitwarden easily secures all your passwords, passkeys, and sensitive information.",
 "homepage":"https://bitwarden.com",
@@ -384,8 +384,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -403,7 +403,7 @@
 "version":""
 },
 "firefox-addons.feedbroreader":{
-"drvPath":"/nix/store/abdf6p0f4nc4s1xx6n69sk8bh74dr10j-feedbroreader.drv",
+"drvPath":"/nix/store/64s4rs1msmcqz4bmafbpbhk2j5brw1bx-feedbroreader.drv",
 "meta":{
 "description":"Advanced Feed Reader - Read news &amp; blogs or any RSS/Atom/RDF source.",
 "homepage":"http://nodetics.com/feedbro",
@@ -488,8 +488,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -507,7 +507,7 @@
 "version":""
 },
 "firefox-addons.libredirect":{
-"drvPath":"/nix/store/8anrvi1m3vqhvx0bq81hj891qkqiakrw-libredirect.drv",
+"drvPath":"/nix/store/gxvj61k6nvn89s3cizlyqkawmcbxmbqm-libredirect.drv",
 "meta":{
 "description":"Redirects YouTube, Twitter, TikTok... requests to alternative privacy friendly frontends.",
 "homepage":"https://libredirect.github.io",
@@ -594,8 +594,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -613,7 +613,7 @@
 "version":""
 },
 "firefox-addons.soundcloud-mp3-downloader":{
-"drvPath":"/nix/store/vni4vpms5ykb3mrvq3s8bsbp3280xyi7-soundcloud-mp3-downloader.drv",
+"drvPath":"/nix/store/iipcw2hkl1sfdw84bbb57bwy7yla6vj8-soundcloud-mp3-downloader.drv",
 "meta":{
 "description":"Add download link to all SoundClould tracks",
 "license":{
@@ -699,8 +699,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -718,7 +718,7 @@
 "version":""
 },
 "firefox-addons.tabliss":{
-"drvPath":"/nix/store/6015pbvxpqy2275kkj631wjpv66ix38f-tabliss.drv",
+"drvPath":"/nix/store/hwgryxblyfsqy65p858v2zd4jcgb9l1c-tabliss.drv",
 "meta":{
 "description":"A beautiful New Tab page with many customisable backgrounds and widgets that does not require any permissions.",
 "homepage":"https://tabliss.io",
@@ -805,8 +805,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -824,7 +824,7 @@
 "version":""
 },
 "firefox-addons.ublock-origin":{
-"drvPath":"/nix/store/a9d83sl8s6sk9xxd67vs03q42kz4sxrp-ublock-origin.drv",
+"drvPath":"/nix/store/jvsvppk4yi5qvf59bysqlv2qaaajd64n-ublock-origin.drv",
 "meta":{
 "description":"Finally, an efficient wide-spectrum content blocker. Easy on CPU and memory.",
 "homepage":"https://github.com/gorhill/uBlock#ublock-origin",
@@ -911,8 +911,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -930,7 +930,7 @@
 "version":""
 },
 "firefox-addons.vim-vixen":{
-"drvPath":"/nix/store/zdj5s685vac2is5wgwbw5qg87v71n88a-vim-vixen.drv",
+"drvPath":"/nix/store/9084qbzyw8ml0xv0m7ka92kmpfcqs0v0-vim-vixen.drv",
 "meta":{
 "description":"Accelerates your web browsing with Vim power!!",
 "homepage":"https://github.com/ueokande/vim-vixen",
@@ -1017,8 +1017,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -1036,7 +1036,7 @@
 "version":""
 },
 "firefox-addons.youtube_downloader_webx":{
-"drvPath":"/nix/store/i4igjp08nh8c6rknw6mdi5ijb169mif5-youtube_downloader_webx.drv",
+"drvPath":"/nix/store/5jplgan1b7vni3rpfflvxl82c1v89j05-youtube_downloader_webx.drv",
 "meta":{
 "description":"Download YouTube videos in all available formats and extract the original audio files",
 "homepage":"https://github.com/feller-prj/extractor-project",
@@ -1123,8 +1123,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -1152,7 +1152,7 @@
 "version":"1.0.2"
 },
 "nvfetcher":{
-"drvPath":"/nix/store/nj8lzibqly6qqjd2mzvks9jxnv3b6rfa-nvfetcher-0.8.0.0.drv",
+"drvPath":"/nix/store/sn6w05c4pajqbw245p90j609cwzwalhl-nvfetcher-0.8.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1210,7 +1210,7 @@
 ],
 "maintainersPosition":{
 "column":55,
-"file":"/nix/store/w0d0sydj6sbcyp1l36ya9wbjh0j56c3j-source/pkgs/development/haskell-modules/generic-builder.nix",
+"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/development/haskell-modules/generic-builder.nix",
 "line":1101
 },
 "name":"nvfetcher-0.8.0.0",
@@ -1299,15 +1299,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:502104",
+"position":"<nixpkgs> + /pkgs/development/haskell-modules/hackage-packages.nix:502103",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -1332,7 +1332,7 @@
 "version":""
 },
 "wasmfxtime":{
-"drvPath":"/nix/store/z54dd12jky387gnizsh7x0db9dwl920i-wasmtime-21540296f1c262188636fe0fb373cd2a9600d764.drv",
+"drvPath":"/nix/store/z2lb14fv3shynbz7i8m27b8nwkahhn8i-wasmtime-21540296f1c262188636fe0fb373cd2a9600d764.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1356,7 +1356,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v46.0.1/RELEASES.md",
+"changelog":"https://github.com/bytecodealliance/wasmtime/blob/v47.0.2/RELEASES.md",
 "description":"wasmtime WebAssembly runner with support for delmited continuations",
 "homepage":"https://wasmtime.dev/",
 "identifiers":{
@@ -1431,10 +1431,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/w0d0sydj6sbcyp1l36ya9wbjh0j56c3j-source/pkgs/by-name/wa/wasmtime/package.nix",
+"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/by-name/wa/wasmtime/package.nix",
 "line":128
 },
-"name":"wasmtime-46.0.1",
+"name":"wasmtime-47.0.2",
 "nonTeamMaintainers":[
 {
 "email":"ereslibre@ereslibre.es",

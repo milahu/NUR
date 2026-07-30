@@ -1,16 +1,16 @@
 {
 "name":"josh",
-"fetch_time":0.799,
-"eval_time":2.129,
+"fetch_time":0.63,
+"eval_time":2.082,
 "source":{
 "url":"https://github.com/josh/nurpkgs",
-"rev":"022442dca3a3d6e5798f9014ee332a0a93a4dcfc",
-"sha256":"0fimqx9bsphzdaxzcam139gsabg00gphz1cc2wx31aapbq1s7087",
+"rev":"0a7b4871a0610dfbfd700a251c0470dd6c39fbf1",
+"sha256":"0w8qp39xcd6b459vspjq1rvn82p8zn4r3g52wp4pbvjgvhm54sgh",
 "date":null
 },
-"source_storepath":"/nix/store/5my3gj4507khddvsyydzlp9jyp2cjbj0-source",
-"nixpkgs_storepath":"/nix/store/wwlv1b9k93rwcbdqxdbyfw3rs5i80f72-source",
-"nur_combined_rev":"c9608041e8fcd21543727018a18ffa85f8507349",
+"source_storepath":"/nix/store/s2jq276a6g8h3hxx3s8br6mdrq5qlrs1-source",
+"nixpkgs_storepath":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source",
+"nur_combined_rev":"d70104901c3f97ceb7cad66b7267fbc7c9dd170a",
 "packages":{
 "age":{
 "drvPath":"/nix/store/6m3wa8z77yhy4pjyjnnl1ac68rzi1n21-age-1.3.1.drv",
@@ -93,13 +93,13 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/FiloSottile/age.nix:37",
+"position":"./pkgs/FiloSottile/age.nix:61",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -199,13 +199,13 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/FiloSottile/age-old.nix:37",
+"position":"./pkgs/FiloSottile/age-old.nix:45",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -225,7 +225,7 @@
 "version":"1.2.1"
 },
 "age-plugin-se":{
-"drvPath":"/nix/store/i7flbkidavr5ca666dn35lgl6rs6sjd5-age-plugin-se-0.2.1.drv",
+"drvPath":"/nix/store/kw4a47cqwjz0ibja36xchc7rvhxzibll-age-plugin-se-0.2.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -283,7 +283,7 @@
 "aarch64-linux",
 "aarch64-darwin"
 ],
-"position":"./pkgs/remko/age-plugin-se.nix:58",
+"position":"./pkgs/remko/age-plugin-se.nix:62",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -309,7 +309,7 @@
 "version":"0.2.1"
 },
 "age-plugin-se-old":{
-"drvPath":"/nix/store/6khshp1hcqmv644558imx254iv7z4g5g-age-plugin-se-0.1.4.drv",
+"drvPath":"/nix/store/9wa5s65p0l3jb5ca6hxzqrcz9gaw719s-age-plugin-se-0.1.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -367,7 +367,7 @@
 "aarch64-linux",
 "aarch64-darwin"
 ],
-"position":"./pkgs/remko/age-plugin-se-old.nix:58",
+"position":"./pkgs/remko/age-plugin-se-old.nix:62",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -519,15 +519,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/Foxboron/age-plugin-tpm.nix:34",
+"position":"./pkgs/Foxboron/age-plugin-tpm.nix:48",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -673,15 +673,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/Foxboron/age-plugin-tpm-old.nix:34",
+"position":"./pkgs/Foxboron/age-plugin-tpm-old.nix:48",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -826,8 +826,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -854,11 +854,12 @@
 "version":"0-unstable-2025-11-05"
 },
 "argo-cd-chart":{
-"drvPath":"/nix/store/lqwxfa7pqrcqvxvi7yya8xm8xc3hj2jw-argo-cd-chart-10.2.1.drv",
+"drvPath":"/nix/store/i1w8rms23h1wa7lb8hvas1f414q6jwg8-argo-cd-chart-10.2.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"A Helm chart for Argo CD, a declarative, GitOps continuous delivery tool for Kubernetes",
+"homepage":"https://github.com/argoproj/argo-helm",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -889,6 +890,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"argo-cd-chart-10.2.1",
 "nonTeamMaintainers":[],
@@ -968,8 +979,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -991,7 +1002,7 @@
 "version":"10.2.1"
 },
 "argo-cd-manifests":{
-"drvPath":"/nix/store/3jc3ndmkb563hjk11wzy698h1m22w8h6-argo-cd-manifests-3.4.5.drv",
+"drvPath":"/nix/store/p0mlynfyx4gms4vbagl843jd1i1nyn7y-argo-cd-manifests-3.4.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1116,15 +1127,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/argoproj/argo-cd-manifests.nix:28",
+"position":"./pkgs/argoproj/argo-cd-manifests.nix:44",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -1270,15 +1281,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/bugjour.nix:29",
+"position":"./pkgs/josh/bugjour.nix:43",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -1424,8 +1435,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -1452,11 +1463,12 @@
 "version":"0-unstable-2026-01-06"
 },
 "ceph-csi-cephfs-chart":{
-"drvPath":"/nix/store/w09d4c5jllnbgg3s2s5waic1a5p1ia67-ceph-csi-cephfs-chart-3.17.0.drv",
+"drvPath":"/nix/store/8ijfkck7blr87wk1piw8i0dkcq22646b-ceph-csi-cephfs-chart-3.17.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Container Storage Interface (CSI) driver, provisioner, snapshotter, resizer and attacher for Ceph cephfs",
+"homepage":"https://github.com/ceph/ceph-csi",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -1487,6 +1499,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"ceph-csi-cephfs-chart-3.17.0",
 "nonTeamMaintainers":[],
@@ -1566,8 +1588,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -1589,7 +1611,7 @@
 "version":"3.17.0"
 },
 "ceph-csi-cephfs-manifests":{
-"drvPath":"/nix/store/41py8kvi18a421q4habv26my1rc2cazg-ceph-csi-cephfs-manifests-3.17.0.drv",
+"drvPath":"/nix/store/qman4zgg5h62plpnbi1h4bvfp1s6ysw7-ceph-csi-cephfs-manifests-3.17.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1714,15 +1736,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/ceph/ceph-csi-cephfs-manifests.nix:39",
+"position":"./pkgs/ceph/ceph-csi-cephfs-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -1742,11 +1764,12 @@
 "version":"3.17.0"
 },
 "ceph-csi-rbd-chart":{
-"drvPath":"/nix/store/cjcgzn1s0w7q2fxwvi1l7wbjlbg9kmjx-ceph-csi-rbd-chart-3.17.0.drv",
+"drvPath":"/nix/store/j30qg789qsiyva34dlkc3ql1kg7nj0f9-ceph-csi-rbd-chart-3.17.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Container Storage Interface (CSI) driver, provisioner, snapshotter, resizer and attacher for Ceph RBD",
+"homepage":"https://github.com/ceph/ceph-csi",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -1777,6 +1800,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"ceph-csi-rbd-chart-3.17.0",
 "nonTeamMaintainers":[],
@@ -1856,8 +1889,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -1879,7 +1912,7 @@
 "version":"3.17.0"
 },
 "ceph-csi-rbd-manifests":{
-"drvPath":"/nix/store/bzp51qka6939fs772x51cjxflvsgm6vs-ceph-csi-rbd-manifests-3.17.0.drv",
+"drvPath":"/nix/store/f89cj4n949nlpamh4xxx3x828g6s54mc-ceph-csi-rbd-manifests-3.17.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2004,15 +2037,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/ceph/ceph-csi-rbd-manifests.nix:39",
+"position":"./pkgs/ceph/ceph-csi-rbd-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -2032,7 +2065,7 @@
 "version":"3.17.0"
 },
 "ceph-dashboards":{
-"drvPath":"/nix/store/lbfyimjjghax8lxl0b8vhavlvszx9qg1-ceph-dashboards-20.2.2.drv",
+"drvPath":"/nix/store/qrkn1p93w50sg8mx4jfqws0p8659rjf1-ceph-dashboards-20.2.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2197,15 +2230,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/ceph/ceph-dashboards.nix:17",
+"position":"./pkgs/ceph/ceph-dashboards.nix:50",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -2302,11 +2335,11 @@
 "version":"0.6.0"
 },
 "ceph-mgr-endpoint-controller-chart":{
-"drvPath":"/nix/store/0czdqwx2ilkkji91s3v9mb536d0i1pzl-ceph-mgr-endpoint-controller-chart.drv",
+"drvPath":"/nix/store/44dmz7nnsfznj98jz5w93fw77d790nc8-ceph-mgr-endpoint-controller-chart-0.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"A Helm chart for ceph-mgr-endpoint-controller",
+"description":"Helm chart for the Ceph manager endpoint controller",
 "homepage":"https://github.com/josh/ceph-mgr-endpoint-controller/tree/main/charts/ceph-mgr-endpoint-controller",
 "identifiers":{
 "cpeParts":{
@@ -2314,6 +2347,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
+"product":"ceph-mgr-endpoint-controller-chart",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -2327,6 +2361,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
+"product":"ceph-mgr-endpoint-controller-chart",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -2347,7 +2382,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"ceph-mgr-endpoint-controller-chart",
+"name":"ceph-mgr-endpoint-controller-chart-0.6.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2425,15 +2460,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/ceph-mgr-endpoint-controller-chart.nix:16",
+"position":"./pkgs/josh/ceph-mgr-endpoint-controller-chart.nix:27",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -2443,17 +2478,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ceph-mgr-endpoint-controller-chart",
+"name":"ceph-mgr-endpoint-controller-chart-0.6.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ceph-mgr-endpoint-controller-chart",
 "system":"x86_64-linux",
-"version":""
+"version":"0.6.0"
 },
 "ceph-mgr-endpoint-controller-manifests":{
-"drvPath":"/nix/store/v82zkcgh0wdinlidqdhhr78zvi70c3a3-ceph-mgr-endpoint-controller-manifests-0.6.0.drv",
+"drvPath":"/nix/store/f1kmdyddqqbgdvbjr0qwqfhyqzxg2cp2-ceph-mgr-endpoint-controller-manifests-0.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2578,15 +2613,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/ceph-mgr-endpoint-controller-manifests.nix:38",
+"position":"./pkgs/josh/ceph-mgr-endpoint-controller-manifests.nix:39",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -2606,7 +2641,7 @@
 "version":"0.6.0"
 },
 "ceph-mgr-ts-gateway":{
-"drvPath":"/nix/store/nwrwyyxp164x99wfjywck3pjnb50sjbk-ceph-mgr-ts-gateway-0.2.0.drv",
+"drvPath":"/nix/store/zfin8629gv5vbmk3wjfcg7dn5bjwm7ar-ceph-mgr-ts-gateway-0.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2685,13 +2720,13 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/josh/ceph-mgr-ts-gateway.nix:29",
+"position":"./pkgs/josh/ceph-mgr-ts-gateway.nix:43",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -2711,11 +2746,12 @@
 "version":"0.2.0"
 },
 "cert-manager-chart":{
-"drvPath":"/nix/store/8yhrrqrlfs4dhgajhljbxlrad5lrlfyw-cert-manager-chart-1.21.0.drv",
+"drvPath":"/nix/store/ds31xvbxmkjmh8vr8n2cr110yh0aqjis-cert-manager-chart-1.21.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"A Helm chart for cert-manager",
+"homepage":"https://cert-manager.io",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -2746,8 +2782,18 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
-"name":"cert-manager-chart-1.21.0",
+"name":"cert-manager-chart-1.21.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2825,8 +2871,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -2838,17 +2884,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cert-manager-chart-1.21.0",
+"name":"cert-manager-chart-1.21.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cert-manager-chart",
 "system":"x86_64-linux",
-"version":"1.21.0"
+"version":"1.21.1"
 },
 "cert-manager-manifests":{
-"drvPath":"/nix/store/2am7cqfwybsp7lfsn632x6lcy8vgqp58-cert-manager-manifests-1.21.0.drv",
+"drvPath":"/nix/store/ajimy7pnzsvmvarnvs51xw1x8s27rfb0-cert-manager-manifests-1.21.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2895,7 +2941,7 @@
 "url":"https://spdx.org/licenses/BSD-3-Clause.html"
 },
 "maintainers":[],
-"name":"cert-manager-manifests-1.21.0",
+"name":"cert-manager-manifests-1.21.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2973,15 +3019,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/cert-manager/cert-manager-manifests.nix:39",
+"position":"./pkgs/cert-manager/cert-manager-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -2991,21 +3037,22 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cert-manager-manifests-1.21.0",
+"name":"cert-manager-manifests-1.21.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cert-manager-manifests",
 "system":"x86_64-linux",
-"version":"1.21.0"
+"version":"1.21.1"
 },
 "cilium-chart":{
-"drvPath":"/nix/store/1hchqw0rxxm7pkb1hxgj3qd9jbwwp5r5-cilium-chart-1.19.6.drv",
+"drvPath":"/nix/store/9wbsc5h99jnmsljnj2i410jc026yf0k3-cilium-chart-1.20.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"eBPF-based Networking, Security, and Observability",
+"homepage":"https://cilium.io",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -3036,8 +3083,18 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
-"name":"cilium-chart-1.19.6",
+"name":"cilium-chart-1.20.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3115,8 +3172,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -3128,17 +3185,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cilium-chart-1.19.6",
+"name":"cilium-chart-1.20.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cilium-chart",
 "system":"x86_64-linux",
-"version":"1.19.6"
+"version":"1.20.0"
 },
 "cilium-manifests":{
-"drvPath":"/nix/store/i7daljfqjmpd491qwcvbvpgjg4kmx14q-cilium-manifests-1.19.6.drv",
+"drvPath":"/nix/store/42p2s8jg06saajn2nz5llrq2n7ixm8ni-cilium-manifests-1.20.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3185,7 +3242,7 @@
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "maintainers":[],
-"name":"cilium-manifests-1.19.6",
+"name":"cilium-manifests-1.20.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -3263,15 +3320,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/cilium/cilium-manifests.nix:48",
+"position":"./pkgs/cilium/cilium-manifests.nix:49",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -3281,21 +3338,22 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"cilium-manifests-1.19.6",
+"name":"cilium-manifests-1.20.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"cilium-manifests",
 "system":"x86_64-linux",
-"version":"1.19.6"
+"version":"1.20.0"
 },
 "cloudnative-pg-chart":{
-"drvPath":"/nix/store/p6092azyb7ih3j34xj2z7mxcdm6a4rcj-cloudnative-pg-0.29.0.drv",
+"drvPath":"/nix/store/1qb2mih00n9krdzzn3rqcbmb29hlnc1x-cloudnative-pg-0.29.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"CloudNativePG Operator Helm Chart",
+"homepage":"https://cloudnative-pg.io",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -3326,6 +3384,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"cloudnative-pg-0.29.0",
 "nonTeamMaintainers":[],
@@ -3405,8 +3473,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -3428,11 +3496,12 @@
 "version":"0.29.0"
 },
 "cloudnative-pg-cluster-chart":{
-"drvPath":"/nix/store/bqdfd589x0hlhp4xxcdw5rnrmhnq5cbw-cloudnative-pg-cluster-0.8.1.drv",
+"drvPath":"/nix/store/zwcx1gd4f78j3nzhwf7hqhblrkvkaif7-cloudnative-pg-cluster-0.8.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Deploys and manages a CloudNativePG cluster and its associated resources",
+"homepage":"https://cloudnative-pg.io",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -3463,6 +3532,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"cloudnative-pg-cluster-0.8.1",
 "nonTeamMaintainers":[],
@@ -3542,8 +3621,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -3565,7 +3644,7 @@
 "version":"0.8.1"
 },
 "cloudnative-pg-manifests":{
-"drvPath":"/nix/store/69jp9nkfc4qp4jsz4ra7lgh2fw2vk6gc-cloudnative-pg-manifests-0.29.0.drv",
+"drvPath":"/nix/store/df0jp4h291rwm4rjnmymda74wssbnarf-cloudnative-pg-manifests-0.29.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3690,15 +3769,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/cloudnative-pg/cloudnative-pg-manifests.nix:39",
+"position":"./pkgs/cloudnative-pg/cloudnative-pg-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -3728,11 +3807,12 @@
 "version":"1.2"
 },
 "ext-postgres-operator-chart":{
-"drvPath":"/nix/store/maxkyhv2yndr40p7y75a7xcpm5wjwbqy-ext-postgres-operator-chart-3.0.0.drv",
+"drvPath":"/nix/store/yz2y9jmm9karnkhshrnk2x22fc2b8zbn-ext-postgres-operator-chart-3.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"A Helm chart for the External Postgres operator",
+"homepage":"https://github.com/movetokube/postgres-operator",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -3763,6 +3843,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
 "maintainers":[],
 "name":"ext-postgres-operator-chart-3.0.0",
 "nonTeamMaintainers":[],
@@ -3842,8 +3932,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -3865,11 +3955,12 @@
 "version":"3.0.0"
 },
 "external-dns-chart":{
-"drvPath":"/nix/store/nb5h5vb24g2w8d0q3j3cipk74d89glqy-external-dns-chart-1.21.1.drv",
+"drvPath":"/nix/store/xvwj0ps2z5f6s9cbiw57sjlh49h99jnp-external-dns-chart-1.21.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"ExternalDNS synchronizes exposed Kubernetes Services and Ingresses with DNS providers",
+"homepage":"https://github.com/kubernetes-sigs/external-dns",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -3900,6 +3991,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"external-dns-chart-1.21.1",
 "nonTeamMaintainers":[],
@@ -3979,8 +4080,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -4002,7 +4103,7 @@
 "version":"1.21.1"
 },
 "external-dns-manifests":{
-"drvPath":"/nix/store/rip9r5w9kb0iw4cdmwlz6wvbs3ycbfrh-external-dns-manifests-1.21.1.drv",
+"drvPath":"/nix/store/2nwv3sg2l6wfaifihk1sj945gdkminjv-external-dns-manifests-1.21.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4127,15 +4228,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/kubernetes-sigs/external-dns-manifests.nix:39",
+"position":"./pkgs/kubernetes-sigs/external-dns-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -4155,11 +4256,12 @@
 "version":"1.21.1"
 },
 "external-secrets-chart":{
-"drvPath":"/nix/store/mfvfhy4hylnwkg99nrl170jj72jpmxdq-external-secrets-chart-2.8.0.drv",
+"drvPath":"/nix/store/raly8n2q5mb8rypnllj2ry17jprvrqvz-external-secrets-chart-2.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"External secrets management for Kubernetes",
+"homepage":"https://github.com/external-secrets/external-secrets",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -4190,6 +4292,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"external-secrets-chart-2.8.0",
 "nonTeamMaintainers":[],
@@ -4269,8 +4381,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -4292,7 +4404,7 @@
 "version":"2.8.0"
 },
 "external-secrets-manifests":{
-"drvPath":"/nix/store/vbzq8ig080v5ksjpmhjf4ah5hxdkwvr3-external-secrets-manifests-2.8.0.drv",
+"drvPath":"/nix/store/ncm0l1z0f8wbhi7c3glbnqac2nnyagpj-external-secrets-manifests-2.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4417,15 +4529,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/external-secrets/external-secrets-manifests.nix:39",
+"position":"./pkgs/external-secrets/external-secrets-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -4445,7 +4557,7 @@
 "version":"2.8.0"
 },
 "external-snapshotter-manifests":{
-"drvPath":"/nix/store/j2qrqps4l5iqkymirl4cck9xk2kjl5fd-external-snapshotter-manifests-8.6.0.drv",
+"drvPath":"/nix/store/bl641c7mz142jra25wdrzpv3d5j9xnha-external-snapshotter-manifests-8.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4570,15 +4682,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/kubernetes-csi/external-snapshotter-manifests.nix:34",
+"position":"./pkgs/kubernetes-csi/external-snapshotter-manifests.nix:49",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -4598,7 +4710,7 @@
 "version":"8.6.0"
 },
 "fish-catppuccin":{
-"drvPath":"/nix/store/5k40nm51l43x49p9p4v9lv53ni13s9nb-fishplugin-fish-catppuccin-0-unstable-2026-03-13.drv",
+"drvPath":"/nix/store/70gd2das2ay7sjb8zylp55grlja2p90v-fishplugin-fish-catppuccin-0-unstable-2026-03-13.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4723,15 +4835,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/catppuccin/fish-catppuccin.nix:74",
+"position":"./pkgs/catppuccin/fish-catppuccin.nix:76",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -4751,11 +4863,12 @@
 "version":"0-unstable-2026-03-13"
 },
 "forgejo-chart":{
-"drvPath":"/nix/store/q0jdcrdnh284agb8w85chly5z1mwfpzm-forgejo-chart-17.1.3.drv",
+"drvPath":"/nix/store/3a83vgaj6cqasxac36z2wghax5n6dw0l-forgejo-chart-17.1.3.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Forgejo Helm chart for Kubernetes",
+"homepage":"https://forgejo.org",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -4786,6 +4899,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
 "maintainers":[],
 "name":"forgejo-chart-17.1.3",
 "nonTeamMaintainers":[],
@@ -4865,8 +4988,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -4888,7 +5011,7 @@
 "version":"17.1.3"
 },
 "forgejo-manifests":{
-"drvPath":"/nix/store/k258c3nsy7swkv81w57sz9idbs0vp72z-forgejo-manifests-17.1.3.drv",
+"drvPath":"/nix/store/mpa59kvz4h3x6z2anq4vc0dcpw8vw3ka-forgejo-manifests-17.1.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5013,15 +5136,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/forgejo/forgejo-manifests.nix:46",
+"position":"./pkgs/forgejo/forgejo-manifests.nix:47",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -5211,15 +5334,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/gh-audit.nix:34",
+"position":"./pkgs/josh/gh-audit.nix:54",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -5240,11 +5363,12 @@
 "version":"0.2.0-unstable-2026-07-24"
 },
 "gha-runner-scale-set-chart":{
-"drvPath":"/nix/store/vxarfcs15dzcghpjg0zx780dx3qpki4d-gha-runner-scale-set-chart-0.14.2.drv",
+"drvPath":"/nix/store/3mkbwnfdzd1mhaapg5p23g58xdy3zpwq-gha-runner-scale-set-chart-0.14.2.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"A Helm chart for deploying an AutoScalingRunnerSet",
+"homepage":"https://github.com/actions/actions-runner-controller",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -5275,6 +5399,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"gha-runner-scale-set-chart-0.14.2",
 "nonTeamMaintainers":[],
@@ -5354,8 +5488,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -5377,11 +5511,12 @@
 "version":"0.14.2"
 },
 "gha-runner-scale-set-controller-chart":{
-"drvPath":"/nix/store/qj0h90k5p5hj15r81m9mm20cklbwjaxq-gha-runner-scale-set-controller-chart-0.14.2.drv",
+"drvPath":"/nix/store/bgjb3d7qim88s69bw2r5ld6ci2kl9jwa-gha-runner-scale-set-controller-chart-0.14.2.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"A Helm chart for install actions-runner-controller CRD",
+"homepage":"https://github.com/actions/actions-runner-controller",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -5412,6 +5547,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"gha-runner-scale-set-controller-chart-0.14.2",
 "nonTeamMaintainers":[],
@@ -5491,8 +5636,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -5514,7 +5659,7 @@
 "version":"0.14.2"
 },
 "gha-runner-scale-set-controller-manifests":{
-"drvPath":"/nix/store/3czcbxs5cpzcci5ynvm3l54cjk3nxcfz-gha-runner-scale-set-controller-manifests-0.14.2.drv",
+"drvPath":"/nix/store/nllm9kxac50zfm06mhygyfy6cnxaa460-gha-runner-scale-set-controller-manifests-0.14.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5639,15 +5784,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/github/gha-runner-scale-set-controller-manifests.nix:39",
+"position":"./pkgs/github/gha-runner-scale-set-controller-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -5782,15 +5927,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/jasonlong/ghostty-theme-icons.nix:30",
+"position":"./pkgs/jasonlong/ghostty-theme-icons.nix:48",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -5810,11 +5955,12 @@
 "version":"0-unstable-2026-04-30"
 },
 "gitea-actions-chart":{
-"drvPath":"/nix/store/jw8wqsg3xvf1ap6siaff5lms83kki34h-actions-chart-0.1.2.drv",
+"drvPath":"/nix/store/53xapbpwkfih6gmnmckvqkmyv2amcvrs-actions-chart-0.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Gitea Actions Helm chart for Kubernetes",
+"homepage":"https://gitea.com/gitea/helm-actions",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -5845,6 +5991,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
 "maintainers":[],
 "name":"actions-chart-0.1.2",
 "nonTeamMaintainers":[],
@@ -5924,8 +6080,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -5947,11 +6103,12 @@
 "version":"0.1.2"
 },
 "gitea-chart":{
-"drvPath":"/nix/store/9w61z0qrvm9jc12j61da4ypia5smd1mf-gitea-chart-12.7.0.drv",
+"drvPath":"/nix/store/7wmcknyn44h5cphmmwnb682s6ykxib16-gitea-chart-12.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Gitea Helm chart for Kubernetes",
+"homepage":"https://gitea.com/gitea/helm-gitea",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -5982,6 +6139,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
 "maintainers":[],
 "name":"gitea-chart-12.7.0",
 "nonTeamMaintainers":[],
@@ -6061,8 +6228,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -6084,7 +6251,7 @@
 "version":"12.7.0"
 },
 "gitea-manifests":{
-"drvPath":"/nix/store/id7syj6i1zpwv4d85ra050zw4gdl2f6m-gitea-manifests-12.7.0.drv",
+"drvPath":"/nix/store/c1asfij0cjw0kacwnhbrpgf1x65azp4g-gitea-manifests-12.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6209,15 +6376,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/gitea/gitea-manifests.nix:39",
+"position":"./pkgs/gitea/gitea-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -6316,13 +6483,13 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/tailscale/golink.nix:38",
+"position":"./pkgs/tailscale/golink.nix:37",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -6342,11 +6509,12 @@
 "version":"1.0.0-unstable-2026-02-25"
 },
 "golink-chart":{
-"drvPath":"/nix/store/hzg7zd667gg4z2kdbcrih36cczj6cg1r-golink-chart-0.8.0.drv",
+"drvPath":"/nix/store/hjgk2zp3w9drk7gd8qczrwlpxmyicl80-golink-chart-0.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Tailscale's golink application",
+"homepage":"https://github.com/tiesmaster/golink-helm-chart",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -6377,6 +6545,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
 "maintainers":[],
 "name":"golink-chart-0.8.0",
 "nonTeamMaintainers":[],
@@ -6456,8 +6634,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -6479,11 +6657,12 @@
 "version":"0.8.0"
 },
 "grafana-chart":{
-"drvPath":"/nix/store/ahfnc4pa3j344frl4p34z5wygwfj831m-grafana-chart-12.10.0.drv",
+"drvPath":"/nix/store/pj9ask0n5y1pj23wmj5xywb5h5smzk07-grafana-chart-12.10.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"The leading tool for querying and visualizing time series and metrics",
+"homepage":"https://grafana.com",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -6514,6 +6693,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"grafana-chart-12.10.0",
 "nonTeamMaintainers":[],
@@ -6593,8 +6782,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -6616,11 +6805,12 @@
 "version":"12.10.0"
 },
 "grafana-operator-chart":{
-"drvPath":"/nix/store/vh4mwy88vxdyqhzy4dvk89y02vzshhac-grafana-operator-chart-5.24.0.drv",
+"drvPath":"/nix/store/k92r9av84nl8q6i00ljxq43m2sdakc4i-grafana-operator-chart-5.24.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Helm chart for the Grafana Operator",
+"homepage":"https://github.com/grafana/grafana-operator",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -6651,6 +6841,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"grafana-operator-chart-5.24.0",
 "nonTeamMaintainers":[],
@@ -6730,8 +6930,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -6753,11 +6953,12 @@
 "version":"5.24.0"
 },
 "harbor-chart":{
-"drvPath":"/nix/store/5i78izmcqdc1bb2lfpq5r321myq54hqp-harbor-chart-1.19.1.drv",
+"drvPath":"/nix/store/5x6vmd7xg43mlhb8p3h2fv2ib6dz3blf-harbor-chart-1.19.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"An open source trusted cloud native registry that stores, signs, and scans content",
+"homepage":"https://goharbor.io",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -6788,6 +6989,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"harbor-chart-1.19.1",
 "nonTeamMaintainers":[],
@@ -6867,8 +7078,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -6890,11 +7101,12 @@
 "version":"1.19.1"
 },
 "headlamp-chart":{
-"drvPath":"/nix/store/j1psafpi85w9r86qn3br789r6yr4wfbg-headlamp-chart-0.43.0.drv",
+"drvPath":"/nix/store/039q42s8z195zn3jai601a09aswnbg50-headlamp-chart-0.44.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Headlamp is an easy-to-use and extensible Kubernetes web UI",
+"homepage":"https://headlamp.dev",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -6925,8 +7137,18 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
-"name":"headlamp-chart-0.43.0",
+"name":"headlamp-chart-0.44.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -7004,8 +7226,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -7017,17 +7239,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"headlamp-chart-0.43.0",
+"name":"headlamp-chart-0.44.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"headlamp-chart",
 "system":"x86_64-linux",
-"version":"0.43.0"
+"version":"0.44.0"
 },
 "headlamp-manifests":{
-"drvPath":"/nix/store/138dwqp3ksddv4x14kbxvx6gjffdln3j-headlamp-manifests-0.43.0.drv",
+"drvPath":"/nix/store/ajp37psv0r6bwyrbs98jf6051svx4wb1-headlamp-manifests-0.44.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7074,7 +7296,7 @@
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "maintainers":[],
-"name":"headlamp-manifests-0.43.0",
+"name":"headlamp-manifests-0.44.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -7152,15 +7374,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/kubernetes-sigs/headlamp-manifests.nix:39",
+"position":"./pkgs/kubernetes-sigs/headlamp-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -7170,14 +7392,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"headlamp-manifests-0.43.0",
+"name":"headlamp-manifests-0.44.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"headlamp-manifests",
 "system":"x86_64-linux",
-"version":"0.43.0"
+"version":"0.44.0"
 },
 "histutils":{
 "drvPath":"/nix/store/vx9m1aqz1810cwvacw7ing7fyqvxhrm3-histutils-1.0.3.drv",
@@ -7195,7 +7417,7 @@
 }
 ],
 "broken":false,
-"description":"Import, export or merge zsh or fish history files.",
+"description":"Import, export or merge zsh or fish history files",
 "homepage":"https://github.com/josh/histutils",
 "identifiers":{
 "cpeParts":{
@@ -7282,9 +7504,9 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
-"position":"./pkgs/josh/histutils.nix:23",
+"position":"./pkgs/josh/histutils.nix:31",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -7463,15 +7685,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/imdb-data.nix:34",
+"position":"./pkgs/josh/imdb-data.nix:50",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -7492,7 +7714,7 @@
 "version":"0.1.0-unstable-2026-07-26"
 },
 "imdb-plex-sync":{
-"drvPath":"/nix/store/68br1kwwp4wxavfi21lw8xrz7v4x3qpc-imdb-plex-sync-0.2.0.drv",
+"drvPath":"/nix/store/3x7p4japymyg8y7vbk5aasq6jkqxihj9-imdb-plex-sync-0.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7651,15 +7873,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/imdb-plex-sync.nix:33",
+"position":"./pkgs/josh/imdb-plex-sync.nix:50",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -7839,15 +8061,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/imdb-trakt-sync.nix:33",
+"position":"./pkgs/josh/imdb-trakt-sync.nix:49",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -8014,15 +8236,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/jmap2nats.nix:28",
+"position":"./pkgs/josh/jmap2nats.nix:42",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -8042,11 +8264,11 @@
 "version":"1.0.0"
 },
 "jmap2nats-chart":{
-"drvPath":"/nix/store/crg5ipjrqlki1sir4mw1hss5dgshzxgm-jmap2nats-chart.drv",
+"drvPath":"/nix/store/cinpnlx54g8azgj7xdhzjd7lm65blrki-jmap2nats-chart-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"A Helm chart for jmap2nats",
+"description":"Helm chart for the JMAP to NATS bridge",
 "homepage":"https://github.com/josh/jmap2nats/tree/main/charts/jmap2nats",
 "identifiers":{
 "cpeParts":{
@@ -8054,6 +8276,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
+"product":"jmap2nats-chart",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -8067,6 +8290,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
+"product":"jmap2nats-chart",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -8087,7 +8311,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"jmap2nats-chart",
+"name":"jmap2nats-chart-1.0.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -8165,15 +8389,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/jmap2nats-chart.nix:16",
+"position":"./pkgs/josh/jmap2nats-chart.nix:27",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -8183,17 +8407,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"jmap2nats-chart",
+"name":"jmap2nats-chart-1.0.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"jmap2nats-chart",
 "system":"x86_64-linux",
-"version":""
+"version":"1.0.0"
 },
 "jmap2nats-manifests":{
-"drvPath":"/nix/store/zpi50wl8iq7alvvqx0bx1xd6hjvz0f7w-jmap2nats-manifests-1.0.0.drv",
+"drvPath":"/nix/store/jb1r0lhifibhxds1fczqkymwjgzby5aa-jmap2nats-manifests-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8318,15 +8542,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/jmap2nats-manifests.nix:38",
+"position":"./pkgs/josh/jmap2nats-manifests.nix:39",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -8346,11 +8570,12 @@
 "version":"1.0.0"
 },
 "kube-prometheus-stack-chart":{
-"drvPath":"/nix/store/4q20qf87w2jbwm4irpd0l6bgvby70xb4-kube-prometheus-stack-chart-87.21.0.drv",
+"drvPath":"/nix/store/36hj7ggrdrppzpbhgkyv0i4nzy1ljczb-kube-prometheus-stack-chart-87.21.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator",
+"homepage":"https://github.com/prometheus-operator/kube-prometheus",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -8381,6 +8606,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"kube-prometheus-stack-chart-87.21.0",
 "nonTeamMaintainers":[],
@@ -8460,8 +8695,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -8483,11 +8718,12 @@
 "version":"87.21.0"
 },
 "kube-state-metrics-chart":{
-"drvPath":"/nix/store/0xkvra6wqd2fliw7mpwz77h8m31r4dj4-kube-state-metrics-chart-8.0.0.drv",
+"drvPath":"/nix/store/38n35rb4bg2r4nqw91kq9mld961shyd5-kube-state-metrics-chart-8.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Install kube-state-metrics to generate and expose cluster-level metrics",
+"homepage":"https://github.com/kubernetes/kube-state-metrics",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -8518,6 +8754,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"kube-state-metrics-chart-8.0.0",
 "nonTeamMaintainers":[],
@@ -8597,8 +8843,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -8620,7 +8866,7 @@
 "version":"8.0.0"
 },
 "kubernetes-helm_3":{
-"drvPath":"/nix/store/h1hza5lafg9zrqrbfllykvkxfqiqwymc-kubernetes-helm-3.20.2.drv",
+"drvPath":"/nix/store/h4c9v5y61zy1nfmamav7m1bbb050zqg2-kubernetes-helm-3.20.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8667,98 +8913,9 @@
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "mainProgram":"helm",
-"maintainers":[
-{
-"email":"richard.lupton@gmail.com",
-"github":"rlupton20",
-"githubId":13752145,
-"name":"Richard Lupton"
-},
-{
-"email":"michael@melenion.com",
-"github":"edude03",
-"githubId":494483,
-"name":"Michael Francis"
-},
-{
-"email":"mail@saschagrunert.de",
-"github":"saschagrunert",
-"githubId":695473,
-"name":"Sascha Grunert"
-},
-{
-"email":"me@slukjanov.name",
-"github":"Frostman",
-"githubId":134872,
-"name":"Sergei Lukianov"
-},
-{
-"email":"dr.elhombrechile@gmail.com",
-"github":"Chili-Man",
-"githubId":631802,
-"keys":[
-{
-"fingerprint":"099E 3F97 FA08 3D47 8C75  EBEC E0EB AD78 F019 0BD9"
-}
-],
-"name":"Diego Rodriguez"
-},
-{
-"email":"techknowlogick@gitea.com",
-"github":"techknowlogick",
-"githubId":164197,
-"name":"techknowlogick"
-}
-],
-"maintainersPosition":{
-"column":5,
-"file":"/nix/store/5my3gj4507khddvsyydzlp9jyp2cjbj0-source/pkgs/helm/kubernetes-helm_3.nix",
-"line":97
-},
+"maintainers":[],
 "name":"kubernetes-helm-3.20.2",
-"nonTeamMaintainers":[
-{
-"email":"richard.lupton@gmail.com",
-"github":"rlupton20",
-"githubId":13752145,
-"name":"Richard Lupton"
-},
-{
-"email":"michael@melenion.com",
-"github":"edude03",
-"githubId":494483,
-"name":"Michael Francis"
-},
-{
-"email":"mail@saschagrunert.de",
-"github":"saschagrunert",
-"githubId":695473,
-"name":"Sascha Grunert"
-},
-{
-"email":"me@slukjanov.name",
-"github":"Frostman",
-"githubId":134872,
-"name":"Sergei Lukianov"
-},
-{
-"email":"dr.elhombrechile@gmail.com",
-"github":"Chili-Man",
-"githubId":631802,
-"keys":[
-{
-"fingerprint":"099E 3F97 FA08 3D47 8C75  EBEC E0EB AD78 F019 0BD9"
-}
-],
-"name":"Diego Rodriguez"
-},
-{
-"email":"techknowlogick@gitea.com",
-"github":"techknowlogick",
-"githubId":164197,
-"name":"techknowlogick"
-}
-],
+"nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
@@ -8788,14 +8945,19 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
 "position":"./pkgs/helm/kubernetes-helm_3.nix:94",
-"problems":{},
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -8819,7 +8981,7 @@
 "version":"1.0.0"
 },
 "librados":{
-"drvPath":"/nix/store/jraswfkccg3vb873zvblwhz6b4ia4v70-librados-20.2.2.drv",
+"drvPath":"/nix/store/z21mzbfmh34id3x9x3fd44jwikyll125-librados-20.2.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8916,7 +9078,7 @@
 "aarch64-linux",
 "aarch64-darwin"
 ],
-"position":"./pkgs/ceph/librados.nix:307",
+"position":"./pkgs/ceph/librados.nix:308",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -8940,7 +9102,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"A Helm chart for litestream-restic-backup",
+"description":"Helm chart for Litestream backups replicated with restic",
 "homepage":"https://github.com/josh/litestream-restic-backup/tree/main/charts/litestream-restic-backup",
 "identifiers":{
 "cpeParts":{
@@ -9061,15 +9223,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/litestream-restic-backup-chart.nix:26",
+"position":"./pkgs/josh/litestream-restic-backup-chart.nix:42",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -9089,7 +9251,7 @@
 "version":"0.2.2"
 },
 "local-path-provisioner-chart":{
-"drvPath":"/nix/store/6w5dq929w24l8lr8dzv5c5zgzan77x8k-local-path-provisioner-chart-0.0.36.drv",
+"drvPath":"/nix/store/nb44s5sjl9gn3x0ikwizj0cmxpiydpcx-local-path-provisioner-chart-0.0.36.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9214,15 +9376,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/rancher/local-path-provisioner-chart.nix:28",
+"position":"./pkgs/rancher/local-path-provisioner-chart.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -9242,7 +9404,7 @@
 "version":"0.0.36"
 },
 "local-path-provisioner-manifests":{
-"drvPath":"/nix/store/mmj360cb1yzq83gad9l8d8f7jynn5vj6-local-path-provisioner-manifests-0.0.36.drv",
+"drvPath":"/nix/store/7l4c4wgrjdj1xykbijjqhhaipgkaanb7-local-path-provisioner-manifests-0.0.36.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9367,15 +9529,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/rancher/local-path-provisioner-manifests.nix:28",
+"position":"./pkgs/rancher/local-path-provisioner-manifests.nix:43",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -9395,11 +9557,12 @@
 "version":"0.0.36"
 },
 "metallb-chart":{
-"drvPath":"/nix/store/2sy7z33y7dyz2l82y4p9fxx59hzz8hmc-metallb-chart-0.16.1.drv",
+"drvPath":"/nix/store/far47bc2sh2ggqxwm15pf25ddvg4qqms-metallb-chart-0.16.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"A network load-balancer implementation for Kubernetes using standard routing protocols",
+"homepage":"https://metallb.universe.tf",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -9430,6 +9593,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"metallb-chart-0.16.1",
 "nonTeamMaintainers":[],
@@ -9509,8 +9682,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -9532,11 +9705,12 @@
 "version":"0.16.1"
 },
 "metrics-server-chart":{
-"drvPath":"/nix/store/5a8k8i3x7hnpb4gld7ik49zwlrn2jj0s-metrics-server-chart-3.13.1.drv",
+"drvPath":"/nix/store/h44m03yy939blpmkfz8w2q1pxmj91nfg-metrics-server-chart-3.13.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines",
+"homepage":"https://github.com/kubernetes-sigs/metrics-server",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -9567,6 +9741,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"metrics-server-chart-3.13.1",
 "nonTeamMaintainers":[],
@@ -9646,8 +9830,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -9669,7 +9853,7 @@
 "version":"3.13.1"
 },
 "metrics-server-manifests":{
-"drvPath":"/nix/store/gnssj3vh6ac2lhfdh0q7615zmshbc6ps-metrics-server-manifests-3.13.1.drv",
+"drvPath":"/nix/store/y6gg9v505ax08xk2jkclpk767alvh40i-metrics-server-manifests-3.13.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9794,15 +9978,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/kubernetes-sigs/metrics-server-manifests.nix:39",
+"position":"./pkgs/kubernetes-sigs/metrics-server-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -9948,15 +10132,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/mqtt2nats.nix:28",
+"position":"./pkgs/josh/mqtt2nats.nix:42",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -9976,11 +10160,11 @@
 "version":"0.0.2"
 },
 "mqtt2nats-chart":{
-"drvPath":"/nix/store/ki1z566h2bkrj16v4q1xjawl1fizdw53-mqtt2nats-chart.drv",
+"drvPath":"/nix/store/nzdainn6xd67znqj02w1jwyqz0qjk2kd-mqtt2nats-chart-0.0.2.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"A Helm chart for mqtt2nats",
+"description":"Helm chart for the MQTT to NATS bridge",
 "homepage":"https://github.com/josh/mqtt2nats/tree/main/charts/mqtt2nats",
 "identifiers":{
 "cpeParts":{
@@ -9988,6 +10172,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
+"product":"mqtt2nats-chart",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -10001,6 +10186,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
+"product":"mqtt2nats-chart",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -10021,7 +10207,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"mqtt2nats-chart",
+"name":"mqtt2nats-chart-0.0.2",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -10099,15 +10285,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/mqtt2nats-chart.nix:16",
+"position":"./pkgs/josh/mqtt2nats-chart.nix:27",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -10117,17 +10303,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"mqtt2nats-chart",
+"name":"mqtt2nats-chart-0.0.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"mqtt2nats-chart",
 "system":"x86_64-linux",
-"version":""
+"version":"0.0.2"
 },
 "mqtt2nats-manifests":{
-"drvPath":"/nix/store/kb1pgl56k0x81k873l4psvpzsh8p2fvw-mqtt2nats-manifests-0.0.2.drv",
+"drvPath":"/nix/store/4wlfmq53ykp7kmxwg31lgbmg79sbnd75-mqtt2nats-manifests-0.0.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10252,15 +10438,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/mqtt2nats-manifests.nix:38",
+"position":"./pkgs/josh/mqtt2nats-manifests.nix:39",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -10280,11 +10466,12 @@
 "version":"0.0.2"
 },
 "nack-chart":{
-"drvPath":"/nix/store/3hbrya0a3hsih0mx0rrd7s32g1y4ml67-nack-chart-0.34.0.drv",
+"drvPath":"/nix/store/adylbanavd50jcmskmghv5ckm5xnrky2-nack-chart-0.34.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"A Helm chart for NACK - NATS Controller for Kubernetes",
+"homepage":"https://github.com/nats-io/k8s",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -10315,6 +10502,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"nack-chart-0.34.0",
 "nonTeamMaintainers":[],
@@ -10394,8 +10591,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -10417,7 +10614,7 @@
 "version":"0.34.0"
 },
 "nack-manifests":{
-"drvPath":"/nix/store/czjnpj7q52dwp2d13n66nc6lm7kzkhlf-nack-manifests-0.34.0.drv",
+"drvPath":"/nix/store/7vpirs9j4hzr2g179vfbxxpvsrsryfxs-nack-manifests-0.34.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10542,15 +10739,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/nats-io/nack-manifests.nix:39",
+"position":"./pkgs/nats-io/nack-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -10590,11 +10787,12 @@
 "version":"0-unstable-2026-03-04"
 },
 "nats-chart":{
-"drvPath":"/nix/store/cr3rbln5mqlf6fdpd0vxva0g504j7aly-nats-chart-2.14.2.drv",
+"drvPath":"/nix/store/8n9wl5v0k97mbbr75s7ry7g8myz4h4nv-nats-chart-2.14.2.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"A Helm chart for the NATS.io High Speed Cloud Native Distributed Communications Technology",
+"homepage":"https://github.com/nats-io/k8s",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -10625,6 +10823,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"nats-chart-2.14.2",
 "nonTeamMaintainers":[],
@@ -10704,8 +10912,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -10727,11 +10935,11 @@
 "version":"2.14.2"
 },
 "nats-manifests":{
-"drvPath":"/nix/store/l99fc232fa582plyx7g0p2x9x7l63qbc-nats-manifests-2.14.2.drv",
+"drvPath":"/nix/store/sv8i4w47wz4mya1h7iyybpzw7fx0xqlx-nats-manifests-2.14.2.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"A Helm chart for the NATS.io High Speed Cloud Native Distributed Communications Technology.",
+"description":"A Helm chart for the NATS.io High Speed Cloud Native Distributed Communications Technology",
 "homepage":"https://github.com/nats-io/k8s/tree/main/helm/charts/nats",
 "identifiers":{
 "cpeParts":{
@@ -10852,15 +11060,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/nats-io/nats-manifests.nix:39",
+"position":"./pkgs/nats-io/nats-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -11006,15 +11214,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/nats-static.nix:28",
+"position":"./pkgs/josh/nats-static.nix:37",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -11034,11 +11242,11 @@
 "version":"0.0.2"
 },
 "nats-static-chart":{
-"drvPath":"/nix/store/h0jpywk2g0zq8kgxpn507wmi9r9l0j20-nats-static-chart.drv",
+"drvPath":"/nix/store/m79d6ainq0z6s2xn8gdpgdkq7izma28h-nats-static-chart-0.0.2.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"A Helm chart for nats-static",
+"description":"Helm chart for the nats-static file server",
 "homepage":"https://github.com/josh/nats-static/tree/main/charts/nats-static",
 "identifiers":{
 "cpeParts":{
@@ -11046,6 +11254,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
+"product":"nats-static-chart",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -11059,6 +11268,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
+"product":"nats-static-chart",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -11079,7 +11289,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"nats-static-chart",
+"name":"nats-static-chart-0.0.2",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -11157,15 +11367,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/nats-static-chart.nix:16",
+"position":"./pkgs/josh/nats-static-chart.nix:27",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -11175,17 +11385,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"nats-static-chart",
+"name":"nats-static-chart-0.0.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"nats-static-chart",
 "system":"x86_64-linux",
-"version":""
+"version":"0.0.2"
 },
 "nats-static-manifests":{
-"drvPath":"/nix/store/qsi2i5579qsac2pdgznisb31h12wzaf1-nats-static-manifests-0.0.2.drv",
+"drvPath":"/nix/store/l1pjpbrm8ffri9l68vqbkapp00y8mssp-nats-static-manifests-0.0.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11310,15 +11520,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/nats-static-manifests.nix:38",
+"position":"./pkgs/josh/nats-static-manifests.nix:39",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -11337,143 +11547,8 @@
 "system":"x86_64-linux",
 "version":"0.0.2"
 },
-"nixhelm-update":{
-"drvPath":"/nix/store/yxf5703j9gj9phkdwy18wssfd4qrpbia-nixhelm-update.drv",
-"meta":{
-"available":true,
-"broken":false,
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purlParts":{},
-"purls":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purls":[]
-}
-},
-"insecure":false,
-"mainProgram":"nixhelm-update",
-"maintainers":[],
-"name":"nixhelm-update",
-"nonTeamMaintainers":[],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"x86_64-linux",
-"aarch64-darwin",
-"aarch64-linux",
-"i686-cygwin",
-"x86_64-cygwin",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd",
-"aarch64-genode",
-"i686-genode",
-"x86_64-genode",
-"x86_64-solaris",
-"javascript-ghcjs",
-"arc-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"sh4-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"mmix-mmixware",
-"aarch64-netbsd",
-"armv6l-netbsd",
-"armv7a-netbsd",
-"armv7l-netbsd",
-"i686-netbsd",
-"m68k-netbsd",
-"mipsel-netbsd",
-"powerpc-netbsd",
-"riscv32-netbsd",
-"riscv64-netbsd",
-"x86_64-netbsd",
-"aarch64_be-none",
-"aarch64-none",
-"arm-none",
-"armv6l-none",
-"avr-none",
-"i686-none",
-"microblaze-none",
-"microblazeel-none",
-"mips-none",
-"mips64-none",
-"msp430-none",
-"or1k-none",
-"m68k-none",
-"powerpc-none",
-"powerpcle-none",
-"riscv32-none",
-"riscv64-none",
-"rx-none",
-"s390-none",
-"s390x-none",
-"vc4-none",
-"x86_64-none",
-"i686-openbsd",
-"x86_64-openbsd",
-"x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
-"aarch64-windows",
-"x86_64-windows",
-"i686-windows",
-"aarch64-uefi",
-"x86_64-uefi"
-],
-"position":"./internal/nixhelm-update.nix:16",
-"problems":{},
-"unfree":false,
-"unsupported":false
-},
-"name":"nixhelm-update",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"nixhelm-update",
-"system":"x86_64-linux",
-"version":""
-},
 "offlineimap":{
-"drvPath":"/nix/store/qvlp06a8a92g9sxin38c9yps9bdahrrq-offlineimap-8.0.0.72.drv",
+"drvPath":"/nix/store/5yj3cms0mcms8jfk6yxwxs60a00gz1i9-offlineimap-8.0.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11568,10 +11643,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wwlv1b9k93rwcbdqxdbyfw3rs5i80f72-source/pkgs/by-name/of/offlineimap/package.nix",
+"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/by-name/of/offlineimap/package.nix",
 "line":78
 },
-"name":"offlineimap-8.0.0.72",
+"name":"offlineimap-8.0.3",
 "nonTeamMaintainers":[
 {
 "email":"stephen.huan@cgdct.moe",
@@ -11626,7 +11701,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"offlineimap-8.0.0.72",
+"name":"offlineimap-8.0.3",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -11634,14 +11709,15 @@
 },
 "pname":"offlineimap",
 "system":"x86_64-linux",
-"version":"8.0.0.72"
+"version":"8.0.3"
 },
 "open-webui-chart":{
-"drvPath":"/nix/store/pxc6c264yr5mdipr0b0paviyn8pwwmxf-open-webui-chart-15.2.0.drv",
+"drvPath":"/nix/store/pgssjgz5ng7nawfz8bbigbfqymn56d52-open-webui-chart-15.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Open WebUI: A User-Friendly Web Interface for Chat Interactions",
+"homepage":"https://www.openwebui.com",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -11751,8 +11827,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -11873,7 +11949,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/wwlv1b9k93rwcbdqxdbyfw3rs5i80f72-source/pkgs/development/python-modules/polars/default.nix",
+"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/development/python-modules/polars/default.nix",
 "line":294
 },
 "name":"python3.14-polars-1.42.1",
@@ -11969,8 +12045,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -11993,11 +12069,12 @@
 "version":"1.42.1"
 },
 "prometheus-blackbox-exporter-chart":{
-"drvPath":"/nix/store/29ai7wwfqh78qi1b4wqs96dnazx5g1sb-prometheus-blackbox-exporter-chart-11.16.0.drv",
+"drvPath":"/nix/store/l4hi5jbbnfc9x0d22gvdz22vmkgz66bq-prometheus-blackbox-exporter-chart-11.16.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Prometheus Blackbox Exporter",
+"homepage":"https://github.com/prometheus/blackbox_exporter",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -12028,6 +12105,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"prometheus-blackbox-exporter-chart-11.16.0",
 "nonTeamMaintainers":[],
@@ -12107,8 +12194,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -12130,11 +12217,12 @@
 "version":"11.16.0"
 },
 "prometheus-chart":{
-"drvPath":"/nix/store/7gyipj06qlnysdbwknr3ynrr4kkmy11s-prometheus-chart-29.19.0.drv",
+"drvPath":"/nix/store/dwm17igpgwar6649hg1r6fa6nwrx5blg-prometheus-chart-29.20.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Prometheus is a monitoring system and time series database",
+"homepage":"https://prometheus.io",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -12165,8 +12253,18 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
-"name":"prometheus-chart-29.19.0",
+"name":"prometheus-chart-29.20.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -12244,8 +12342,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -12257,14 +12355,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"prometheus-chart-29.19.0",
+"name":"prometheus-chart-29.20.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"prometheus-chart",
 "system":"x86_64-linux",
-"version":"29.19.0"
+"version":"29.20.0"
 },
 "prometheus-github-exporter":{
 "drvPath":"/nix/store/a824jmjpvx7pys7vp4v1vh43kfdaby5r-prometheus-github-exporter-1.3.1.drv",
@@ -12393,8 +12491,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -12547,15 +12645,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/edgard/prometheus-iperf3-exporter.nix:46",
+"position":"./pkgs/edgard/prometheus-iperf3-exporter.nix:47",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -12575,11 +12673,12 @@
 "version":"1.3.1"
 },
 "prometheus-node-exporter-chart":{
-"drvPath":"/nix/store/pnk121bm9kkpzrwhwfqrccj3x55n8w6p-prometheus-node-exporter-chart-4.56.1.drv",
+"drvPath":"/nix/store/0f01vghpkbi1g1aw1260fhlmim8cifx0-prometheus-node-exporter-chart-4.56.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"A Helm chart for prometheus node-exporter",
+"homepage":"https://github.com/prometheus/node_exporter",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -12610,6 +12709,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"prometheus-node-exporter-chart-4.56.1",
 "nonTeamMaintainers":[],
@@ -12689,8 +12798,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -12838,15 +12947,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/prometheus-restic-exporter.nix:67",
+"position":"./pkgs/josh/prometheus-restic-exporter.nix:77",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -12993,8 +13102,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -13146,15 +13255,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/mittelab/proxmox-via-prometheus-dashboard.nix:38",
+"position":"./pkgs/mittelab/proxmox-via-prometheus-dashboard.nix:55",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -13175,7 +13284,7 @@
 "version":"0-unstable-2023-04-25"
 },
 "python3-lru-cache":{
-"drvPath":"/nix/store/3j1yhk4y25vqv7ri5xx494s85n7bxv2z-python3.14-lru-cache-1.0.2.drv",
+"drvPath":"/nix/store/28zwiwlaprw87pg67rarb83nqqad87ik-python3.14-lru-cache-1.0.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -13333,15 +13442,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/python3-lru-cache.nix:31",
+"position":"./pkgs/josh/python3-lru-cache.nix:33",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -13362,7 +13471,7 @@
 "version":"1.0.2"
 },
 "reddit-top-rss":{
-"drvPath":"/nix/store/jgsx5an12h8l0jabxmdyzf9cbqgp1z4b-reddit-top-rss-0-unstable-2025-02-10.drv",
+"drvPath":"/nix/store/k6r1pr7axc1ycbvamm77khg455snmn2i-reddit-top-rss-0-unstable-2025-02-10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -13487,15 +13596,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/johnwarne/reddit-top-rss.nix:82",
+"position":"./pkgs/johnwarne/reddit-top-rss.nix:91",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -13641,15 +13750,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/restic-age-key.nix:74",
+"position":"./pkgs/josh/restic-age-key.nix:76",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -13726,7 +13835,7 @@
 "x86_64-linux",
 "aarch64-linux"
 ],
-"position":"./pkgs/josh/restic-rados-server.nix:59",
+"position":"./pkgs/josh/restic-rados-server.nix:55",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -13746,11 +13855,11 @@
 "version":"0.9.0"
 },
 "restic-rados-server-chart":{
-"drvPath":"/nix/store/3p3ggqkbn68p4yv3zj21ng8zgd2mvsym-restic-rados-server-chart.drv",
+"drvPath":"/nix/store/jcrvpkbnc4cccxkvqyck5p0z4r2vh5kl-restic-rados-server-chart-0.9.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"A Helm chart for restic-rados-server",
+"description":"Helm chart for the restic REST server backed by RADOS",
 "homepage":"https://github.com/josh/restic-rados-server/tree/main/charts/restic-rados-server",
 "identifiers":{
 "cpeParts":{
@@ -13758,6 +13867,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
+"product":"restic-rados-server-chart",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -13771,6 +13881,7 @@
 "language":"*",
 "other":"*",
 "part":"a",
+"product":"restic-rados-server-chart",
 "sw_edition":"*",
 "target_hw":"*",
 "target_sw":"*"
@@ -13791,7 +13902,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"restic-rados-server-chart",
+"name":"restic-rados-server-chart-0.9.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -13869,15 +13980,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/restic-rados-server-chart.nix:16",
+"position":"./pkgs/josh/restic-rados-server-chart.nix:27",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -13887,14 +13998,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"restic-rados-server-chart",
+"name":"restic-rados-server-chart-0.9.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"restic-rados-server-chart",
 "system":"x86_64-linux",
-"version":""
+"version":"0.9.0"
 },
 "rfmoz-grafana-dashboards":{
 "drvPath":"/nix/store/0b5i188rylp40r8jplqyimh63wipgqmy-rfmoz-grafana-dashboards-0-unstable-2026-07-09.drv",
@@ -14022,15 +14133,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/rfmoz/rfmoz-grafana-dashboards.nix:30",
+"position":"./pkgs/rfmoz/rfmoz-grafana-dashboards.nix:47",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -14050,11 +14161,12 @@
 "version":"0-unstable-2026-07-09"
 },
 "rook-ceph-chart":{
-"drvPath":"/nix/store/nahhkiskxy0kwichvdgd75dx38mxjks5-rook-ceph-chart-1.20.2.drv",
+"drvPath":"/nix/store/rg2k1rbxlsdp3vvyfndall05jz1jgdkk-rook-ceph-chart-1.20.3.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"File, Block, and Object Storage Services for your Cloud-Native Environment",
+"homepage":"https://github.com/rook/rook",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -14085,8 +14197,18 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
-"name":"rook-ceph-chart-1.20.2",
+"name":"rook-ceph-chart-1.20.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -14164,8 +14286,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -14177,21 +14299,22 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rook-ceph-chart-1.20.2",
+"name":"rook-ceph-chart-1.20.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rook-ceph-chart",
 "system":"x86_64-linux",
-"version":"1.20.2"
+"version":"1.20.3"
 },
 "rook-ceph-cluster-chart":{
-"drvPath":"/nix/store/wi8ncc4hkv5rqqb7jxs3zcjqh80w899i-rook-ceph-cluster-chart-1.20.2.drv",
+"drvPath":"/nix/store/4h8inwadidg2h4ks13x6d7l8pa4m8fri-rook-ceph-cluster-chart-1.20.3.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Manages a single Ceph cluster namespace for Rook",
+"homepage":"https://github.com/rook/rook",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -14222,8 +14345,18 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
-"name":"rook-ceph-cluster-chart-1.20.2",
+"name":"rook-ceph-cluster-chart-1.20.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -14301,8 +14434,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -14314,17 +14447,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rook-ceph-cluster-chart-1.20.2",
+"name":"rook-ceph-cluster-chart-1.20.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rook-ceph-cluster-chart",
 "system":"x86_64-linux",
-"version":"1.20.2"
+"version":"1.20.3"
 },
 "rook-ceph-cluster-manifests":{
-"drvPath":"/nix/store/gmyps4s3cmab4billyrlcs0hw39yam3z-rook-ceph-cluster-manifests-1.20.2.drv",
+"drvPath":"/nix/store/26kqg86qhzmn674xf9va0wb8i5hhqiiz-rook-ceph-cluster-manifests-1.20.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -14371,7 +14504,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"rook-ceph-cluster-manifests-1.20.2",
+"name":"rook-ceph-cluster-manifests-1.20.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -14449,15 +14582,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/ceph/rook-ceph-cluster-manifests.nix:39",
+"position":"./pkgs/ceph/rook-ceph-cluster-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -14467,17 +14600,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rook-ceph-cluster-manifests-1.20.2",
+"name":"rook-ceph-cluster-manifests-1.20.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rook-ceph-cluster-manifests",
 "system":"x86_64-linux",
-"version":"1.20.2"
+"version":"1.20.3"
 },
 "rook-ceph-manifests":{
-"drvPath":"/nix/store/glzzz2z99ipb851nzaqbxzqqrq2i6sp4-rook-ceph-manifests-1.20.2.drv",
+"drvPath":"/nix/store/mzv7xd1cl74pkg0q4qfv3anw6ps4jdgj-rook-ceph-manifests-1.20.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -14524,7 +14657,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"rook-ceph-manifests-1.20.2",
+"name":"rook-ceph-manifests-1.20.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -14602,15 +14735,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/ceph/rook-ceph-manifests.nix:39",
+"position":"./pkgs/ceph/rook-ceph-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -14620,14 +14753,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"rook-ceph-manifests-1.20.2",
+"name":"rook-ceph-manifests-1.20.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"rook-ceph-manifests",
 "system":"x86_64-linux",
-"version":"1.20.2"
+"version":"1.20.3"
 },
 "rose-pine-kitty":{
 "drvPath":"/nix/store/pz8ky2a2frrskg3p7yn81ll1923yfhxi-rose-pine-kitty-0-unstable-2025-11-05.drv",
@@ -14755,8 +14888,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -14908,8 +15041,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -14936,11 +15069,12 @@
 "version":"0-unstable-2026-06-22"
 },
 "rqlite-chart":{
-"drvPath":"/nix/store/7ncmykxv9j2bx7wy6b2y5328hd608dx1-rqlite-chart-2.0.0.drv",
+"drvPath":"/nix/store/g738km3x823l8ynda0ymb75jlb9c5d3g-rqlite-chart-2.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"The lightweight, distributed relational database built on SQLite",
+"homepage":"https://rqlite.io",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -14971,6 +15105,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"MIT License",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"mit",
+"spdxId":"MIT",
+"url":"https://spdx.org/licenses/MIT.html"
+},
 "maintainers":[],
 "name":"rqlite-chart-2.0.0",
 "nonTeamMaintainers":[],
@@ -15050,8 +15194,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -15073,11 +15217,12 @@
 "version":"2.0.0"
 },
 "rsshub-chart":{
-"drvPath":"/nix/store/sp15i4p2l5amiv1jq94rw0y6mvrj560z-rsshub-chart-0.2.9.drv",
+"drvPath":"/nix/store/2ggbingzwnkpqlyvcdqr89fnaszs30in-rsshub-chart-0.2.9.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"RSSHub Helm chart",
+"homepage":"https://github.com/NaturalSelectionLabs/helm-charts",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -15187,8 +15332,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -15210,7 +15355,7 @@
 "version":"0.2.9"
 },
 "rsshub-manifests":{
-"drvPath":"/nix/store/a2xxr1g0b970mvan6rwaa2lp0mwan0mz-rsshub-manifests-0.2.9.drv",
+"drvPath":"/nix/store/y35ka7hdzf5yl8zh4p61a1w3r39vy5i4-rsshub-manifests-0.2.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15335,15 +15480,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/NaturalSelectionLabs/rsshub-manifests.nix:39",
+"position":"./pkgs/NaturalSelectionLabs/rsshub-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -15363,11 +15508,12 @@
 "version":"0.2.9"
 },
 "snapshot-controller-chart":{
-"drvPath":"/nix/store/gcvy4bvjgyicj2ixwbwmmnwavrdd4q4k-snapshot-controller-chart-5.2.0.drv",
+"drvPath":"/nix/store/894s266hf2q34jx154p0lcac9f8ldq5h-snapshot-controller-chart-5.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Deploys a Snapshot Controller in a cluster. Snapshot Controllers are often bundled with the Kubernetes distribution, this chart is meant for cases where it is not",
+"homepage":"https://github.com/piraeusdatastore/helm-charts",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -15398,6 +15544,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"snapshot-controller-chart-5.2.0",
 "nonTeamMaintainers":[],
@@ -15477,8 +15633,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -15510,11 +15666,12 @@
 "version":"1.2.2"
 },
 "sops-secrets-operator-chart":{
-"drvPath":"/nix/store/8909hsfs6j6vifc87d8i0kvmnvycvxxx-sops-secrets-operator-chart-0.28.0.drv",
+"drvPath":"/nix/store/1b1vh4059gml4fk734dazv2b76hddjq3-sops-secrets-operator-chart-0.28.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Helm chart deploys sops-secrets-operator",
+"homepage":"https://github.com/isindir/sops-secrets-operator.git",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -15545,6 +15702,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Mozilla Public License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"mpl20",
+"spdxId":"MPL-2.0",
+"url":"https://spdx.org/licenses/MPL-2.0.html"
+},
 "maintainers":[],
 "name":"sops-secrets-operator-chart-0.28.0",
 "nonTeamMaintainers":[],
@@ -15624,8 +15791,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -15647,7 +15814,7 @@
 "version":"0.28.0"
 },
 "sops-secrets-operator-manifests":{
-"drvPath":"/nix/store/mfd50jv3wnwjn7ld4sj7hzffqgkba8f6-sops-secrets-operator-manifests-0.28.0.drv",
+"drvPath":"/nix/store/x04dkbgp59c8rlspcavmf4vvc1mcna4r-sops-secrets-operator-manifests-0.28.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15772,15 +15939,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/isindir/sops-secrets-operator-manifests.nix:42",
+"position":"./pkgs/isindir/sops-secrets-operator-manifests.nix:43",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -15800,7 +15967,7 @@
 "version":"0.28.0"
 },
 "swiftly":{
-"drvPath":"/nix/store/vds31dfjr3yf6q0ap6kzml1sj9nikla3-swiftly-0.3.0.drv",
+"drvPath":"/nix/store/bzg95cq08rli7hv6bcvj051vlgrm3h14-swiftly-0.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15858,7 +16025,7 @@
 "aarch64-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/swiftlang/swiftly.nix:75",
+"position":"./pkgs/swiftlang/swiftly.nix:74",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -16010,8 +16177,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -16038,11 +16205,12 @@
 "version":"0-unstable-2025-10-30"
 },
 "tailscale-operator-chart":{
-"drvPath":"/nix/store/1yhkfh8lqwispgw2f2mg6rljbdljwvl7-tailscale-operator-chart-1.98.9.drv",
+"drvPath":"/nix/store/3vp21fsiklk6i6k31b7ahw0czvd793p4-tailscale-operator-chart-1.98.9.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"A Helm chart for Tailscale Kubernetes operator",
+"homepage":"https://github.com/tailscale/tailscale",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -16073,6 +16241,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"bsd3",
+"spdxId":"BSD-3-Clause",
+"url":"https://spdx.org/licenses/BSD-3-Clause.html"
+},
 "maintainers":[],
 "name":"tailscale-operator-chart-1.98.9",
 "nonTeamMaintainers":[],
@@ -16152,8 +16330,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -16175,7 +16353,7 @@
 "version":"1.98.9"
 },
 "tailscale-operator-manifests":{
-"drvPath":"/nix/store/v55773bpqw172mlpdrgqpx3kna8klfn4-tailscale-operator-manifests-1.98.9.drv",
+"drvPath":"/nix/store/6kwh3cr03rqpbsilcqnbzm122chnj03w-tailscale-operator-manifests-1.98.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -16300,15 +16478,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/tailscale/tailscale-operator-manifests.nix:39",
+"position":"./pkgs/tailscale/tailscale-operator-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -16342,6 +16520,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"description":"Terraform provider for managing Ceph resources",
 "homepage":"https://github.com/josh/terraform-provider-ceph",
 "identifiers":{
 "cpeParts":{
@@ -16415,14 +16594,19 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/cluster/terraform-providers/default.nix:43",
-"problems":{},
+"position":"./pkgs/josh/terraform-provider-ceph.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -16440,6 +16624,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"description":"Terraform provider for NATS Synadia Cloud",
 "homepage":"https://github.com/mikluko/terraform-provider-nsc",
 "identifiers":{
 "cpeParts":{
@@ -16513,14 +16698,19 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/cluster/terraform-providers/default.nix:43",
-"problems":{},
+"position":"./pkgs/mikluko/terraform-provider-nsc.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -16538,6 +16728,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"description":"Terraform provider for Proxmox VE",
 "homepage":"https://github.com/Telmate/terraform-provider-proxmox",
 "identifiers":{
 "cpeParts":{
@@ -16611,14 +16802,19 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/cluster/terraform-providers/default.nix:43",
-"problems":{},
+"position":"./pkgs/Telmate/terraform-provider-proxmox.nix:20",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -16709,8 +16905,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -16734,6 +16930,7 @@
 "meta":{
 "available":true,
 "broken":false,
+"description":"Terraform provider for UniFi network controllers",
 "homepage":"https://github.com/ubiquiti-community/terraform-provider-unifi",
 "identifiers":{
 "cpeParts":{
@@ -16807,14 +17004,19 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/applications/networking/cluster/terraform-providers/default.nix:43",
-"problems":{},
+"position":"./pkgs/ubiquiti-community/terraform-provider-unifi.nix:21",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -16954,15 +17156,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/rogpeppe/testscript.nix:29",
+"position":"./pkgs/rogpeppe/testscript.nix:44",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -16982,7 +17184,7 @@
 "version":"1.15.0"
 },
 "tmdb-index":{
-"drvPath":"/nix/store/03wic3pvarf4999d8jf4xk7vc4l8i2pf-tmdb-index-1.0.0-unstable-2026-07-28.drv",
+"drvPath":"/nix/store/0a5y5cmf0ar2ni9jxr24y02pkr3qcjjp-tmdb-index-1.0.0-unstable-2026-07-28.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17141,15 +17343,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/tmdb-index.nix:34",
+"position":"./pkgs/josh/tmdb-index.nix:51",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -17408,7 +17610,7 @@
 "version":"7.0.0"
 },
 "tofu-age-encryption":{
-"drvPath":"/nix/store/6dlxljq9v2r6hhjrc4lgfa8sgw2z63p8-tofu-age-encryption-1.1.1.drv",
+"drvPath":"/nix/store/r00xcyxiaq1aw2xkr389fc0h4y9w9bix-tofu-age-encryption-1.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17534,15 +17736,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/tofu-age-encryption.nix:54",
+"position":"./pkgs/josh/tofu-age-encryption.nix:62",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -17562,7 +17764,7 @@
 "version":"1.1.1"
 },
 "tokyonight-extras":{
-"drvPath":"/nix/store/7m1gq576agij6yn1k24c9pz8rda894ry-tokyonight-extras-stable-unstable-2026-03-24.drv",
+"drvPath":"/nix/store/bapyf75m49axvlkkwmb0dwg2400k28j2-tokyonight-extras-4.14.1-unstable-2026-03-24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17609,7 +17811,7 @@
 "url":"https://spdx.org/licenses/Apache-2.0.html"
 },
 "maintainers":[],
-"name":"tokyonight-extras-stable-unstable-2026-03-24",
+"name":"tokyonight-extras-4.14.1-unstable-2026-03-24",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -17687,15 +17889,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/folke/tokyonight-extras.nix:30",
+"position":"./pkgs/folke/tokyonight-extras.nix:35",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -17705,21 +17907,22 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tokyonight-extras-stable-unstable-2026-03-24",
+"name":"tokyonight-extras-4.14.1-unstable-2026-03-24",
 "outputName":"out",
 "outputs":{
 "out":null
 },
-"pname":"tokyonight-extras-stable-unstable",
+"pname":"tokyonight-extras",
 "system":"x86_64-linux",
-"version":"2026-03-24"
+"version":"4.14.1-unstable-2026-03-24"
 },
 "traefik-chart":{
-"drvPath":"/nix/store/smvqcpxpypavwhzzgj9k956rd3pjlia4-traefik-chart-41.0.2.drv",
+"drvPath":"/nix/store/5y36l23b2rqmqjanw12384m5r9ivwrid-traefik-chart-41.0.2.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"A Traefik based Kubernetes ingress controller",
+"homepage":"https://traefik.io",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -17750,6 +17953,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"traefik-chart-41.0.2",
 "nonTeamMaintainers":[],
@@ -17829,8 +18042,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -17852,7 +18065,7 @@
 "version":"41.0.2"
 },
 "traefik-manifests":{
-"drvPath":"/nix/store/bclj5kwnf8i89lwcishgc5amv8c4vdih-traefik-manifests-41.0.2.drv",
+"drvPath":"/nix/store/4gc7ni33jrijfvv4mwqngyq089zgigf4-traefik-manifests-41.0.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17977,15 +18190,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/traefik/traefik-manifests.nix:39",
+"position":"./pkgs/traefik/traefik-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -18164,15 +18377,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/trakt-data.nix:34",
+"position":"./pkgs/josh/trakt-data.nix:59",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -18193,7 +18406,7 @@
 "version":"0-unstable-2026-07-22"
 },
 "trakt-plex-sync":{
-"drvPath":"/nix/store/16vm6mbf0qq51w2dz1yq64yfbs83raws-trakt-plex-sync-0.2.0-unstable-2026-07-23.drv",
+"drvPath":"/nix/store/k3f54f8nv5x4sd2hrpx3msqylawla0f4-trakt-plex-sync-0.2.0-unstable-2026-07-23.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18352,15 +18565,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/trakt-plex-sync.nix:34",
+"position":"./pkgs/josh/trakt-plex-sync.nix:54",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -18381,11 +18594,12 @@
 "version":"0.2.0-unstable-2026-07-23"
 },
 "trust-manager-chart":{
-"drvPath":"/nix/store/s2qaqiilf573g9p3jjp20z82r24ff3qn-trust-manager-chart-0.24.0.drv",
+"drvPath":"/nix/store/qfcvaqwafxz815wj1hl0np05dn1424dl-trust-manager-chart-0.24.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"trust-manager is the easiest way to manage TLS trust bundles in Kubernetes and OpenShift clusters",
+"homepage":"https://cert-manager.io/docs/trust/trust-manager",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -18416,6 +18630,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"trust-manager-chart-0.24.0",
 "nonTeamMaintainers":[],
@@ -18495,8 +18719,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -18518,11 +18742,12 @@
 "version":"0.24.0"
 },
 "tuppr-chart":{
-"drvPath":"/nix/store/4k4xzri8x66bbh3wf0imqyg7jjncfdwf-tuppr-chart-0.4.1.drv",
+"drvPath":"/nix/store/329iq46nr2jdpkml20alvqjizkf790xx-tuppr-chart-0.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"A Helm chart for tuppr - Talos Linux Upgrade Controller",
+"homepage":"https://github.com/home-operations/tuppr",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -18553,6 +18778,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"agpl3Only",
+"spdxId":"AGPL-3.0-only",
+"url":"https://spdx.org/licenses/AGPL-3.0-only.html"
+},
 "maintainers":[],
 "name":"tuppr-chart-0.4.1",
 "nonTeamMaintainers":[],
@@ -18632,8 +18867,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -18655,7 +18890,7 @@
 "version":"0.4.1"
 },
 "unpoller-dashboards":{
-"drvPath":"/nix/store/9r1svcp6sds01471bb6bab0vrwmfm9mj-unpoller-dashboards-0-unstable-2026-06-15.drv",
+"drvPath":"/nix/store/vgy7hnw0lq3admj54r44gaq1kjp374jx-unpoller-dashboards-0-unstable-2026-06-15.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18780,15 +19015,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/unpoller/unpoller-dashboards.nix:52",
+"position":"./pkgs/unpoller/unpoller-dashboards.nix:69",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -18810,7 +19045,7 @@
 "version":"0-unstable-2026-06-15"
 },
 "upvote-rss":{
-"drvPath":"/nix/store/032v6mixn2i1jx4ai4j9vnnns9w1pi8w-upvote-rss-1.8.1.drv",
+"drvPath":"/nix/store/y1mj1k0rlb5lcvl0256x5hnrwp4asv4z-upvote-rss-1.8.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18935,8 +19170,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -18963,11 +19198,12 @@
 "version":"1.8.1"
 },
 "victoria-logs-agent-chart":{
-"drvPath":"/nix/store/a631n2i6d57r3hjbw1j1cpx0zmxk1vb7-victoria-logs-agent-chart-0.2.9.drv",
+"drvPath":"/nix/store/n51aw919d9y34q4fafbw5gadbh55865n-victoria-logs-agent-chart-0.2.9.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"VictoriaLogs Agent - accepts logs from various protocols and replicates them across multiple VictoriaLogs instances",
+"homepage":"https://github.com/VictoriaMetrics/helm-charts",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -18998,6 +19234,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"victoria-logs-agent-chart-0.2.9",
 "nonTeamMaintainers":[],
@@ -19077,8 +19323,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -19100,11 +19346,11 @@
 "version":"0.2.9"
 },
 "victoria-logs-agent-manifests":{
-"drvPath":"/nix/store/nmc8sw3v17smw81fqds9a167v7096248-victoria-logs-agent-manifests-0.2.9.drv",
+"drvPath":"/nix/store/498fwz95s2kbhsm7d9i5j8ay9dq2h0hc-victoria-logs-agent-manifests-0.2.9.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"VictoriaLogs Agent - accepts logs from various protocols and replicates them across multiple VictoriaLogs instances.",
+"description":"VictoriaLogs Agent - accepts logs from various protocols and replicates them across multiple VictoriaLogs instances",
 "homepage":"https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-logs-agent",
 "identifiers":{
 "cpeParts":{
@@ -19225,15 +19471,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/victoriametrics/victoria-logs-agent-manifests.nix:43",
+"position":"./pkgs/victoriametrics/victoria-logs-agent-manifests.nix:44",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -19253,11 +19499,12 @@
 "version":"0.2.9"
 },
 "victoria-logs-cluster-chart":{
-"drvPath":"/nix/store/09vil78140wj3f646avnmklsz1iqqhyh-victoria-logs-cluster-chart-0.2.8.drv",
+"drvPath":"/nix/store/nm0l9cdas8lgmkil66p2137rvxspaxns-victoria-logs-cluster-chart-0.2.8.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"The VictoriaLogs cluster Helm chart deploys VictoriaLogs cluster database in Kubernetes",
+"homepage":"https://github.com/VictoriaMetrics/helm-charts",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -19288,6 +19535,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"victoria-logs-cluster-chart-0.2.8",
 "nonTeamMaintainers":[],
@@ -19367,8 +19624,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -19390,11 +19647,11 @@
 "version":"0.2.8"
 },
 "victoria-logs-cluster-manifests":{
-"drvPath":"/nix/store/1hyn64wrnj1i7074kc60g6p8iqwy4vln-victoria-logs-cluster-manifests-0.2.8.drv",
+"drvPath":"/nix/store/6r0kiyv05br63z9gyhr90s1chwkmlwnx-victoria-logs-cluster-manifests-0.2.8.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"The VictoriaLogs cluster Helm chart deploys VictoriaLogs cluster database in Kubernetes.",
+"description":"The VictoriaLogs cluster Helm chart deploys VictoriaLogs cluster database in Kubernetes",
 "homepage":"https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-logs-cluster",
 "identifiers":{
 "cpeParts":{
@@ -19515,15 +19772,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/victoriametrics/victoria-logs-cluster-manifests.nix:39",
+"position":"./pkgs/victoriametrics/victoria-logs-cluster-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -19543,11 +19800,12 @@
 "version":"0.2.8"
 },
 "victoria-logs-collector-chart":{
-"drvPath":"/nix/store/3b92y03dvpvkfas17kgari6prrc22mj8-victoria-logs-collector-chart-0.3.7.drv",
+"drvPath":"/nix/store/0pcq1xsyxvxrf7b93m0n75pq2wb43wy8-victoria-logs-collector-chart-0.3.7.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"VictoriaLogs Collector - collects logs from Kubernetes containers and stores them to VictoriaLogs",
+"homepage":"https://github.com/VictoriaMetrics/helm-charts",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -19578,6 +19836,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"victoria-logs-collector-chart-0.3.7",
 "nonTeamMaintainers":[],
@@ -19657,8 +19925,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -19680,7 +19948,7 @@
 "version":"0.3.7"
 },
 "victoria-logs-collector-manifests":{
-"drvPath":"/nix/store/9q0m5k9xqw1pih01zpikqrxa3y9bnx24-victoria-logs-collector-manifests-0.3.7.drv",
+"drvPath":"/nix/store/biiinn35y7h53bwq43p9vs1vwk908dmj-victoria-logs-collector-manifests-0.3.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -19805,15 +20073,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/victoriametrics/victoria-logs-collector-manifests.nix:43",
+"position":"./pkgs/victoriametrics/victoria-logs-collector-manifests.nix:44",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -19958,15 +20226,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/victoriametrics/victoria-logs-dashboards.nix:40",
+"position":"./pkgs/victoriametrics/victoria-logs-dashboards.nix:57",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -19988,11 +20256,12 @@
 "version":"1.52.0"
 },
 "victoria-logs-single-chart":{
-"drvPath":"/nix/store/07nbgkbxjmsaavwcan540l033nq65x7y-victoria-logs-single-chart-0.13.9.drv",
+"drvPath":"/nix/store/xdn1dlzzpdlyf97h1yijl134ydnhmmy2-victoria-logs-single-chart-0.13.9.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"The VictoriaLogs single Helm chart deploys VictoriaLogs database in Kubernetes",
+"homepage":"https://github.com/VictoriaMetrics/helm-charts",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -20023,6 +20292,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"victoria-logs-single-chart-0.13.9",
 "nonTeamMaintainers":[],
@@ -20102,8 +20381,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -20125,11 +20404,11 @@
 "version":"0.13.9"
 },
 "victoria-logs-single-manifests":{
-"drvPath":"/nix/store/a8zcwmzcnkpj2l6nv3aj1qajicy9faxj-victoria-logs-single-manifests-0.13.9.drv",
+"drvPath":"/nix/store/4mcm6baj2n804k2msmj7k9kn1insic4q-victoria-logs-single-manifests-0.13.9.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"The VictoriaLogs single Helm chart deploys VictoriaLogs database in Kubernetes.",
+"description":"The VictoriaLogs single Helm chart deploys VictoriaLogs database in Kubernetes",
 "homepage":"https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-logs-single",
 "identifiers":{
 "cpeParts":{
@@ -20250,15 +20529,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/victoriametrics/victoria-logs-single-manifests.nix:39",
+"position":"./pkgs/victoriametrics/victoria-logs-single-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -20278,11 +20557,12 @@
 "version":"0.13.9"
 },
 "victoria-metrics-agent-chart":{
-"drvPath":"/nix/store/yry08gmdl4n0k4csb5r2pbnz4hm2hxhk-victoria-metrics-agent-chart-0.44.0.drv",
+"drvPath":"/nix/store/wyksapl2n4wjc1zk2pngi7asb5kfa8xr-victoria-metrics-agent-chart-0.44.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"VictoriaMetrics Agent - collects metrics from various sources and stores them to VictoriaMetrics",
+"homepage":"https://github.com/VictoriaMetrics/helm-charts",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -20313,6 +20593,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"victoria-metrics-agent-chart-0.44.0",
 "nonTeamMaintainers":[],
@@ -20392,8 +20682,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -20415,7 +20705,7 @@
 "version":"0.44.0"
 },
 "victoria-metrics-agent-manifests":{
-"drvPath":"/nix/store/w3phcczg0r1dhv49c2phrdxjprjybrr1-victoria-metrics-agent-manifests-0.44.0.drv",
+"drvPath":"/nix/store/kvn7gdjcihanasm7bh360gm7b5k461fw-victoria-metrics-agent-manifests-0.44.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20540,15 +20830,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/victoriametrics/victoria-metrics-agent-manifests.nix:43",
+"position":"./pkgs/victoriametrics/victoria-metrics-agent-manifests.nix:44",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -20568,11 +20858,12 @@
 "version":"0.44.0"
 },
 "victoria-metrics-cluster-chart":{
-"drvPath":"/nix/store/g6dnfm6zn23isra7z4nkchx059d2rwf8-victoria-metrics-cluster-chart-0.47.0.drv",
+"drvPath":"/nix/store/r7ybw0y4awv15r553qp4mqcqfn750xsj-victoria-metrics-cluster-chart-0.47.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"VictoriaMetrics Cluster version - high-performance, cost-effective and scalable TSDB, long-term remote storage for Prometheus",
+"homepage":"https://github.com/VictoriaMetrics/helm-charts",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -20603,6 +20894,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"victoria-metrics-cluster-chart-0.47.0",
 "nonTeamMaintainers":[],
@@ -20682,8 +20983,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -20705,7 +21006,7 @@
 "version":"0.47.0"
 },
 "victoria-metrics-cluster-manifests":{
-"drvPath":"/nix/store/z9sg02l9701ivysaq35zcr0j66fxm0j9-victoria-metrics-cluster-manifests-0.47.0.drv",
+"drvPath":"/nix/store/adry2ci30rmb9cmdkg7rkzx0br41lafx-victoria-metrics-cluster-manifests-0.47.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20830,15 +21131,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/victoriametrics/victoria-metrics-cluster-manifests.nix:39",
+"position":"./pkgs/victoriametrics/victoria-metrics-cluster-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -20983,15 +21284,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/victoriametrics/victoria-metrics-dashboards.nix:40",
+"position":"./pkgs/victoriametrics/victoria-metrics-dashboards.nix:57",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -21013,11 +21314,12 @@
 "version":"1.148.0-cluster"
 },
 "victoria-metrics-k8s-stack-chart":{
-"drvPath":"/nix/store/az2f0g5p5ywfdmgs7cidmv8qqa52l97v-victoria-metrics-k8s-stack-chart-0.87.0.drv",
+"drvPath":"/nix/store/nxnw32s1s7i4dnpz5kxs3is43i337y9d-victoria-metrics-k8s-stack-chart-0.87.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Kubernetes monitoring on VictoriaMetrics stack. Includes VictoriaMetrics Operator, Grafana dashboards, ServiceScrapes and VMRules",
+"homepage":"https://github.com/VictoriaMetrics/helm-charts",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -21048,6 +21350,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"victoria-metrics-k8s-stack-chart-0.87.0",
 "nonTeamMaintainers":[],
@@ -21127,8 +21439,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -21150,11 +21462,12 @@
 "version":"0.87.0"
 },
 "victoria-metrics-operator-chart":{
-"drvPath":"/nix/store/zizh52rvk72ckbrdms3hhz8l6cbc9dm6-victoria-metrics-operator-chart-0.66.3.drv",
+"drvPath":"/nix/store/6w4zyy6xnfmrg9q90r3kra0hlszaz4f3-victoria-metrics-operator-chart-0.66.3.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"VictoriaMetrics Operator",
+"homepage":"https://github.com/VictoriaMetrics/operator",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -21185,6 +21498,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"victoria-metrics-operator-chart-0.66.3",
 "nonTeamMaintainers":[],
@@ -21264,8 +21587,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -21287,7 +21610,7 @@
 "version":"0.66.3"
 },
 "victoria-metrics-operator-manifests":{
-"drvPath":"/nix/store/c286mp77awa4xlnasjm8hriln1jv1fkv-victoria-metrics-operator-manifests-0.66.3.drv",
+"drvPath":"/nix/store/i6xnh5g95sv1xk0c8bpsxc2r5jvsqhwf-victoria-metrics-operator-manifests-0.66.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21412,15 +21735,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/victoriametrics/victoria-metrics-operator-manifests.nix:41",
+"position":"./pkgs/victoriametrics/victoria-metrics-operator-manifests.nix:42",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -21440,11 +21763,12 @@
 "version":"0.66.3"
 },
 "victoria-metrics-single-chart":{
-"drvPath":"/nix/store/4bknf9mp7w1slqzmhba6ysy4lmg1w0h1-victoria-metrics-single-chart-0.43.0.drv",
+"drvPath":"/nix/store/yyaqv95v8i9wx7gydgv8pkcbi0cmw9n4-victoria-metrics-single-chart-0.43.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"VictoriaMetrics Single version - high-performance, cost-effective and scalable TSDB, long-term remote storage for Prometheus",
+"homepage":"https://github.com/VictoriaMetrics/helm-charts",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -21475,6 +21799,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
 "maintainers":[],
 "name":"victoria-metrics-single-chart-0.43.0",
 "nonTeamMaintainers":[],
@@ -21554,8 +21888,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -21577,7 +21911,7 @@
 "version":"0.43.0"
 },
 "victoria-metrics-single-manifests":{
-"drvPath":"/nix/store/n67q9cd2j9wcib57rl7qn6kbswr83gb0-victoria-metrics-single-manifests-0.43.0.drv",
+"drvPath":"/nix/store/bn6dm8nlnmqk0lqd2zfyqq0lf1a08ml9-victoria-metrics-single-manifests-0.43.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21702,15 +22036,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/victoriametrics/victoria-metrics-single-manifests.nix:39",
+"position":"./pkgs/victoriametrics/victoria-metrics-single-manifests.nix:40",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -21730,11 +22064,12 @@
 "version":"0.43.0"
 },
 "volsync-chart":{
-"drvPath":"/nix/store/pjcc9y5d7iqhighh11gd584pvmqhhry1-volsync-chart-0.16.0.drv",
+"drvPath":"/nix/store/q58mbmi4p97rb9nazvhjx5qkbbjj3ih6-volsync-chart-0.16.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Fetch Helm chart",
+"description":"Asynchronous data replication for Kubernetes",
+"homepage":"https://volsync.readthedocs.io",
 "identifiers":{
 "cpeParts":{
 "edition":"*",
@@ -21765,6 +22100,16 @@
 }
 },
 "insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU Affero General Public License v3.0 only",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"agpl3Only",
+"spdxId":"AGPL-3.0-only",
+"url":"https://spdx.org/licenses/AGPL-3.0-only.html"
+},
 "maintainers":[],
 "name":"volsync-chart-0.16.0",
 "nonTeamMaintainers":[],
@@ -21844,8 +22189,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -21993,8 +22338,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -22021,7 +22366,7 @@
 "version":"1.1.4"
 },
 "wezterm-tabline":{
-"drvPath":"/nix/store/l5fs8g5qmn1q6qn9ll9gw3p6x4fgzd75-wezterm-tabline-1.6.0.drv",
+"drvPath":"/nix/store/c1766fhlrp6v0nym92w0b4jcjqk7almq-wezterm-tabline-1.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -22146,15 +22491,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/michaelbrusegard/wezterm-tabline.nix:25",
+"position":"./pkgs/michaelbrusegard/wezterm-tabline.nix:27",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -22299,15 +22644,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/zydepoint/zydepoint-tailscale-dashboard.nix:34",
+"position":"./pkgs/zydepoint/zydepoint-tailscale-dashboard.nix:50",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",

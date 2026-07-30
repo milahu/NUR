@@ -1,19 +1,19 @@
 {
 "name":"nagy",
-"fetch_time":0.889,
-"eval_time":2.224,
+"fetch_time":0.628,
+"eval_time":2.882,
 "source":{
 "url":"https://github.com/nagy/nur-packages",
-"rev":"2010c794c993acf0b1197ff776a8bf845a045138",
-"sha256":"0allgqmv853l1xqwx2j3f5iw5l4cblacgvxb154r13963a8ffycg",
+"rev":"e6bcbd28ac0662bd080f8d9069d006a87f10e456",
+"sha256":"0r8kfrkxak0avaqj0hvca7h422ns1z0y0xnbfhzqf6mnmlmjkrlh",
 "date":null
 },
-"source_storepath":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source",
-"nixpkgs_storepath":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source",
-"nur_combined_rev":"1dc6fdb9761d230a66d6de22207372731c58cf90",
+"source_storepath":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source",
+"nixpkgs_storepath":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source",
+"nur_combined_rev":"13a3a86ba9b1fd9a923ca2b5fb1caf1b5da20978",
 "packages":{
 "all-converters":{
-"drvPath":"/nix/store/6mwl9f8lzbviwz77g892i02a2n0ri0pb-all-converters.drv",
+"drvPath":"/nix/store/s7107iaqby9p3pi1mqmhx1ipcgv5j9ac-all-converters.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -66,7 +66,7 @@
 "version":""
 },
 "apertium":{
-"drvPath":"/nix/store/hdk072d8yrq30cqx6z5j8xj0w6sg4c3v-apertium-3.9.12.drv",
+"drvPath":"/nix/store/xghzc3nksgbk71wv2m23wkcs3295ph2q-apertium-3.9.12.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -164,7 +164,7 @@
 "version":"3.9.12"
 },
 "bollux":{
-"drvPath":"/nix/store/d1fmzsjqxhwl0s20xxybdqwv5synmq7c-bollux-0.4.3.drv",
+"drvPath":"/nix/store/xwmiql49fcak2lqzzn8asiqk35rl7qs3-bollux-0.4.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -238,7 +238,7 @@
 "version":"0.4.3"
 },
 "cbor":{
-"drvPath":"/nix/store/3ah8cql0z8ngh0yimxjj3gpcrwvm4vxb-cbor-1.0.0.drv",
+"drvPath":"/nix/store/6wk1b4mpbwl4v2rr3wb0nk2smlyp17wm-cbor-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -298,7 +298,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/cbor.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/cbor.nix",
 "line":29
 },
 "name":"cbor-1.0.0",
@@ -344,8 +344,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -365,7 +365,7 @@
 "version":"1.0.0"
 },
 "coredns-meship":{
-"drvPath":"/nix/store/s6n5pivryi13x1a86cjffhbpv0r61s4x-coredns-1.14.3.drv",
+"drvPath":"/nix/store/86byic7wynvj87vlycqi7asy6wqrlb0k-coredns-1.14.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -446,10 +446,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/by-name/co/coredns/package.nix",
+"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/by-name/co/coredns/package.nix",
 "line":149
 },
-"name":"coredns-1.14.3",
+"name":"coredns-1.14.6",
 "nonTeamMaintainers":[
 {
 "email":"deltaduartedavid@gmail.com",
@@ -512,8 +512,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -523,7 +523,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"coredns-1.14.3",
+"name":"coredns-1.14.6",
 "outputName":"out",
 "outputs":{
 "man":null,
@@ -531,10 +531,10 @@
 },
 "pname":"coredns",
 "system":"x86_64-linux",
-"version":"1.14.3"
+"version":"1.14.6"
 },
 "cpp-httplib":{
-"drvPath":"/nix/store/sfgp8slw65q1l4560xzzqk2xqsh211y0-cpp-httplib-0.20.0.drv",
+"drvPath":"/nix/store/0bphiski65nbjl58f63s4vpz9lsjk883-cpp-httplib-0.20.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -659,8 +659,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -687,7 +687,7 @@
 "version":"0.20.0"
 },
 "cxxmatrix":{
-"drvPath":"/nix/store/r9rxbnfgq8x4rhflvf0nl73xbfxd29bf-cxxmatrix-0-unstable-2024-06-17.drv",
+"drvPath":"/nix/store/x4axhrxgw7gdfn8xxrypf0k42kh5g15l-cxxmatrix-0-unstable-2024-06-17.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -814,8 +814,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -843,7 +843,7 @@
 "version":"0-unstable-2024-06-17"
 },
 "cxxtimer":{
-"drvPath":"/nix/store/vq4997pky485p20dgparhiysi0iggdxk-cxxtimer-1.1.0.drv",
+"drvPath":"/nix/store/a61lzgh913a854053p2pc1rfka2qbbwg-cxxtimer-1.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -904,7 +904,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/cxxtimer.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/cxxtimer.nix",
 "line":31
 },
 "name":"cxxtimer-1.1.0",
@@ -997,8 +997,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -1020,7 +1020,7 @@
 "version":"1.1.0"
 },
 "emacsPackages.elisp-reader":{
-"drvPath":"/nix/store/pc1r3y3i1wz3w8qn9kz0v4ysw04xzw9a-emacs-elisp-reader-0-unstable-2024-06-02.drv",
+"drvPath":"/nix/store/pdqq0cpg6fbfmh047rgl05ydsbcmxsff-emacs-elisp-reader-0-unstable-2024-06-02.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1080,7 +1080,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/elisp-reader.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/emacs-packages/elisp-reader.nix",
 "line":25
 },
 "name":"emacs-elisp-reader-0-unstable-2024-06-02",
@@ -1173,8 +1173,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -1196,7 +1196,7 @@
 "version":"0-unstable-2024-06-02"
 },
 "emacsPackages.emacspy":{
-"drvPath":"/nix/store/ckblzwmf0a96rbry29w9kvh3jkr2c10i-emacs-emacspy-0-unstable-2023-03-04.drv",
+"drvPath":"/nix/store/mfa3nlpz6g4rgls3fdgf877cid9vq51d-emacs-emacspy-0-unstable-2023-03-04.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1257,7 +1257,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/emacspy.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/emacs-packages/emacspy.nix",
 "line":41
 },
 "name":"emacs-emacspy-0-unstable-2023-03-04",
@@ -1350,8 +1350,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -1373,7 +1373,7 @@
 "version":"0-unstable-2023-03-04"
 },
 "emacsPackages.magit-difftastic":{
-"drvPath":"/nix/store/l9y6nllvm88bfv97f11x8d56i7r86pmb-emacs-magit-difftastic-0-unstable-2026-06-30.drv",
+"drvPath":"/nix/store/h8r4rg8v37ccsg3j7p60fm8g9g8ydfm1-emacs-magit-difftastic-0-unstable-2026-06-30.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1434,7 +1434,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/magit-difftastic.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/emacs-packages/magit-difftastic.nix",
 "line":29
 },
 "name":"emacs-magit-difftastic-0-unstable-2026-06-30",
@@ -1527,8 +1527,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -1550,7 +1550,7 @@
 "version":"0-unstable-2026-06-30"
 },
 "emacsPackages.obvious":{
-"drvPath":"/nix/store/923ja76nd7nyaa5q92av7dh56jcpvwgy-emacs-obvious-0-unstable-2023-04-07.drv",
+"drvPath":"/nix/store/zpwhdrs1w4qzs2vmsjmdlsp36bsfvjs4-emacs-obvious-0-unstable-2023-04-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1610,7 +1610,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/obvious.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/emacs-packages/obvious.nix",
 "line":21
 },
 "name":"emacs-obvious-0-unstable-2023-04-07",
@@ -1703,8 +1703,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -1726,7 +1726,7 @@
 "version":"0-unstable-2023-04-07"
 },
 "emacsPackages.org-pretty-table":{
-"drvPath":"/nix/store/vpnj7zyjhl2fjsy1hih60ignnvdpw4jr-emacs-org-pretty-table-0-unstable-2023-03-19.drv",
+"drvPath":"/nix/store/wn534i299wld4m063zxq94cv03hf8pzf-emacs-org-pretty-table-0-unstable-2023-03-19.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1786,7 +1786,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/org-pretty-table.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/emacs-packages/org-pretty-table.nix",
 "line":21
 },
 "name":"emacs-org-pretty-table-0-unstable-2023-03-19",
@@ -1879,8 +1879,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -1902,7 +1902,7 @@
 "version":"0-unstable-2023-03-19"
 },
 "emacsPackages.passage":{
-"drvPath":"/nix/store/3422h3s74yp0hkgw3s6bnn6x37smnc60-emacs-passage-0-unstable-2025-02-28.drv",
+"drvPath":"/nix/store/ivivc7f5ry1xhaj90q72nxvvqrry87v5-emacs-passage-0-unstable-2025-02-28.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1963,7 +1963,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/passage.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/emacs-packages/passage.nix",
 "line":35
 },
 "name":"emacs-passage-0-unstable-2025-02-28",
@@ -2056,8 +2056,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -2079,7 +2079,7 @@
 "version":"0-unstable-2025-02-28"
 },
 "emacsPackages.typst-ts-mode":{
-"drvPath":"/nix/store/gzkrlamw08fv042zdsjns4hl1qkdfndh-emacs-typst-ts-mode-0-unstable-2025-11-05.drv",
+"drvPath":"/nix/store/c9xsivba2avxrfrpqz846jmfr23q498z-emacs-typst-ts-mode-0-unstable-2025-11-05.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2140,7 +2140,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/emacs-packages/typst-ts-mode.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/emacs-packages/typst-ts-mode.nix",
 "line":23
 },
 "name":"emacs-typst-ts-mode-0-unstable-2025-11-05",
@@ -2233,8 +2233,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -2266,7 +2266,7 @@
 "version":"0-unstable-2024-05-16"
 },
 "feather-tools":{
-"drvPath":"/nix/store/15nwhhaf9mhd27vvhq19gv85w1k6glbd-feather-tools-1.1.0.drv",
+"drvPath":"/nix/store/sg8gh3aws5g4cqi99xjsgzcj1z52v36g-feather-tools-1.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2360,7 +2360,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/feather-tools.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/feather-tools.nix",
 "line":42
 },
 "name":"feather-tools-1.1.0",
@@ -2429,7 +2429,7 @@
 "version":"1.1.0"
 },
 "ggufmeta":{
-"drvPath":"/nix/store/3b49af0lzlpl3cj9x02jfc3vdrnqlzbb-ggufmeta-0-unstable-2023-12-28.drv",
+"drvPath":"/nix/store/c84hyvdrgs2i0nhqkydzis6h82spvgii-ggufmeta-0-unstable-2023-12-28.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2492,7 +2492,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/ggufmeta.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/ggufmeta.nix",
 "line":40
 },
 "name":"ggufmeta-0-unstable-2023-12-28",
@@ -2538,8 +2538,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -2559,7 +2559,7 @@
 "version":"0-unstable-2023-12-28"
 },
 "hackernews-tui":{
-"drvPath":"/nix/store/46mg8hqrar88m73s473m4i3yfx25yfcj-hackernews-tui-0.13.5.drv",
+"drvPath":"/nix/store/71xdgqy48b37d6071qjbq8d9nn927slp-hackernews-tui-0.13.5.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2663,7 +2663,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/hackernews-tui.nix:25",
 "problems":{
@@ -2685,7 +2685,7 @@
 "version":"0.13.5"
 },
 "har-tools":{
-"drvPath":"/nix/store/9pyc4jshf6mdcn233rxlmxn1aafvpasb-har-tools-1.0.1.drv",
+"drvPath":"/nix/store/y2618a86i1sq01vngl4dznxmg6gn6p8f-har-tools-1.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2764,8 +2764,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -2790,7 +2790,7 @@
 "version":"1.0.1"
 },
 "ht-headless-terminal":{
-"drvPath":"/nix/store/a8dyngk6n0g0g0syarmhybcccizab1pq-ht-0.4.0.drv",
+"drvPath":"/nix/store/xil8f8ysjclnbs1fgqvh0962qg18ksjl-ht-0.4.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2863,7 +2863,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/ht-headless-terminal.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/ht-headless-terminal.nix",
 "line":24
 },
 "name":"ht-0.4.0",
@@ -2921,7 +2921,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/ht-headless-terminal.nix:21",
 "problems":{},
@@ -2938,7 +2938,7 @@
 "version":"0.4.0"
 },
 "hyperspec":{
-"drvPath":"/nix/store/ah6dpcgj6yjb4lcrna9a36ivasrrwkvn-hyperspec-7.0.drv",
+"drvPath":"/nix/store/094dm96njm3ya1yh10dpcrx6kdvrd2y3-hyperspec-7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2995,7 +2995,7 @@
 "version":"7.0"
 },
 "iec16022":{
-"drvPath":"/nix/store/lqqcjpqnq5ynn3r2k456mgcijkajq01n-iec16022-0.3.1.drv",
+"drvPath":"/nix/store/m0mn92kfrzzb2xry8ch5qk931r4jrh0p-iec16022-0.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3058,7 +3058,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/iec16022.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/iec16022.nix",
 "line":29
 },
 "name":"iec16022-0.3.1",
@@ -3151,8 +3151,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -3174,7 +3174,7 @@
 "version":"0.3.1"
 },
 "jj":{
-"drvPath":"/nix/store/8amfx14fyzh5vmnk22pjl8rwnllvhx10-jj-0.9.drv",
+"drvPath":"/nix/store/7d2jav15gzxznd7qyyspqmvw465g8vkk-jj-0.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3247,7 +3247,7 @@
 "version":"0.9"
 },
 "jsonrpc-debugger":{
-"drvPath":"/nix/store/wml08yz2v57mjspbihxviha90igkgy86-jsonrpc-debugger-0.1.9.drv",
+"drvPath":"/nix/store/5pal9v1ghcg5k8z58zf1md3d31x9hmy9-jsonrpc-debugger-0.1.9.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3320,7 +3320,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/jsonrpc-debugger.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/jsonrpc-debugger.nix",
 "line":32
 },
 "name":"jsonrpc-debugger-0.1.9",
@@ -3378,7 +3378,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/jsonrpc-debugger.nix:29",
 "problems":{},
@@ -3395,7 +3395,7 @@
 "version":"0.1.9"
 },
 "koji":{
-"drvPath":"/nix/store/bgba7988v30mic8kwlbpi51ad3cz4vmk-koji-3.3.1.drv",
+"drvPath":"/nix/store/ffv3wzzmk577fqkijmw8ala4xmb2c2ps-koji-3.3.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3468,7 +3468,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/koji.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/koji.nix",
 "line":50
 },
 "name":"koji-3.3.1",
@@ -3526,7 +3526,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/koji.nix:46",
 "problems":{},
@@ -3543,7 +3543,7 @@
 "version":"3.3.1"
 },
 "ksuid":{
-"drvPath":"/nix/store/il3wg05y8894a2gxj353cyv2xrrqgliw-ksuid-1.0.4.drv",
+"drvPath":"/nix/store/56z0241y67wph3z1pnqj7vw3jfzjgdx0-ksuid-1.0.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3605,7 +3605,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/ksuid.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/ksuid.nix",
 "line":30
 },
 "name":"ksuid-1.0.4",
@@ -3651,8 +3651,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -3672,7 +3672,7 @@
 "version":"1.0.4"
 },
 "ksv":{
-"drvPath":"/nix/store/591mpsy1wak6nkb7dpr43rkp4x7bk5v0-kaitai-struct-visualizer-0.7.drv",
+"drvPath":"/nix/store/rgvcl8ips90kfrfd92s31xngz9bw8lxy-kaitai-struct-visualizer-0.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3786,15 +3786,15 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"<nixpkgs> + /pkgs/development/ruby-modules/bundler-app/default.nix:60",
+"position":"<nixpkgs> + /pkgs/development/ruby-modules/bundler-app/default.nix:62",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -3809,7 +3809,7 @@
 "version":"0.7"
 },
 "libetc":{
-"drvPath":"/nix/store/iv3cslxk8lcmc2fjfwgrrhgma22z4pqd-libetc-0.4.drv",
+"drvPath":"/nix/store/5drykkl8aq70jsbifpj3j1pzxi7ml6k9-libetc-0.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3907,7 +3907,7 @@
 "version":"0.4"
 },
 "libfastcdc":{
-"drvPath":"/nix/store/b560h9qm71cm0qymiw6gswb9l1lb8dp5-libfastcdc-unstable-2023-01-14.drv",
+"drvPath":"/nix/store/nv1f8a5h7vchblrs7yzavwn3n7r2cf8p-libfastcdc-unstable-2023-01-14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3982,7 +3982,7 @@
 "version":"2023-01-14"
 },
 "libzstd-seek":{
-"drvPath":"/nix/store/i6hjba3wn4mnbfrbp43indx15sad9907-libzstd-seek-1.2.0.drv",
+"drvPath":"/nix/store/78nrpc4ami6pb3zirl8cflxm5bvhcmvj-libzstd-seek-1.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4107,8 +4107,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -4135,7 +4135,7 @@
 "version":"1.2.0"
 },
 "lispPackages.cl-raylib":{
-"drvPath":"/nix/store/ky4df7zfn58w9vkklavnyn9c43xm4rbc-sbcl-cl-raylib-0.0.2-unstable-2024-07-15.drv",
+"drvPath":"/nix/store/w0dk9b4sg96am1lzgr54h83v3m1vsyv1-sbcl-cl-raylib-0.0.2-unstable-2024-07-15.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4208,7 +4208,7 @@
 ],
 "maintainersPosition":{
 "column":17,
-"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/development/lisp-modules/nix-cl.nix",
+"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/development/lisp-modules/nix-cl.nix",
 "line":289
 },
 "name":"sbcl-cl-raylib-0.0.2-unstable-2024-07-15",
@@ -4303,7 +4303,7 @@
 ],
 "teamsPosition":{
 "column":17,
-"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/development/lisp-modules/nix-cl.nix",
+"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/development/lisp-modules/nix-cl.nix",
 "line":290
 },
 "unfree":false,
@@ -4319,7 +4319,7 @@
 "version":"0.0.2-unstable-2024-07-15"
 },
 "llm-ttok":{
-"drvPath":"/nix/store/zv9qzanyapa4xz3h2cihhn44g5qyw511-llm-ttok-0.3.drv",
+"drvPath":"/nix/store/qvi3p5jsi3y44b0pql812kq4q0x8cjjp-llm-ttok-0.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4415,7 +4415,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/llm-ttok.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/llm-ttok.nix",
 "line":37
 },
 "name":"llm-ttok-0.3",
@@ -4484,7 +4484,7 @@
 "version":"0.3"
 },
 "mcptools":{
-"drvPath":"/nix/store/x54lcrarfh1bv8sdmvz2jx39svxm5dl1-mcptools-0.7.1.drv",
+"drvPath":"/nix/store/xq1yj9lhk6gpkpl8ha5djx0d0zq4dn9q-mcptools-0.7.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4546,7 +4546,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/mcptools.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/mcptools.nix",
 "line":29
 },
 "name":"mcptools-0.7.1",
@@ -4592,8 +4592,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -4613,7 +4613,7 @@
 "version":"0.7.1"
 },
 "micropython-esp32":{
-"drvPath":"/nix/store/13ybpvqyi2sajxpkm1cljzikw5xjday1-micropython-1.27.0.drv",
+"drvPath":"/nix/store/qrmnp6wwbqn488mp23d94f605y83b4hd-micropython-1.27.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4681,7 +4681,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/by-name/mi/micropython/package.nix",
+"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/by-name/mi/micropython/package.nix",
 "line":149
 },
 "name":"micropython-1.27.0",
@@ -4769,7 +4769,7 @@
 "version":"1.27.0"
 },
 "mpy-cross":{
-"drvPath":"/nix/store/8k2nvgf8qbzl2ibyylhw5bnq2jz8rbfa-mpy-cross-1.27.0.drv",
+"drvPath":"/nix/store/mv438zzq3ly1lf0xm2lh3zzgbi401aqa-mpy-cross-1.27.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4831,7 +4831,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/mpy-cross.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/mpy-cross.nix",
 "line":28
 },
 "name":"mpy-cross-1.27.0",
@@ -4913,7 +4913,7 @@
 "version":"1.27.0"
 },
 "mpy-tool":{
-"drvPath":"/nix/store/p4ic8b56kk1sh3nlbd8ppyi15s243vdr-mpy-tool-1.27.0.drv",
+"drvPath":"/nix/store/jwak38qb11lkvh7j25qxjvya0rpbjd3g-mpy-tool-1.27.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4975,7 +4975,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/mpy-tool.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/mpy-tool.nix",
 "line":30
 },
 "name":"mpy-tool-1.27.0",
@@ -5057,7 +5057,7 @@
 "version":"1.27.0"
 },
 "mqziti":{
-"drvPath":"/nix/store/fqdhib27qdmbqggn8yjzv5klww0wcjf7-mqziti-0-unstable-2022-08-25.drv",
+"drvPath":"/nix/store/hn96kdj39iy9vapp3fkz7lskkjl8gh1p-mqziti-0-unstable-2022-08-25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5136,8 +5136,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -5162,7 +5162,7 @@
 "version":"0-unstable-2022-08-25"
 },
 "nanoid-cli":{
-"drvPath":"/nix/store/pnc2gy1i730r76ri0l5839c4my24zfkq-nanoid-cli-1.0.0.drv",
+"drvPath":"/nix/store/r3sfwmcn9z5lybavi2ps2shawi9wqwa6-nanoid-cli-1.0.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -5235,7 +5235,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/nanoid-cli.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/nanoid-cli.nix",
 "line":24
 },
 "name":"nanoid-cli-1.0.0",
@@ -5293,7 +5293,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/nanoid-cli.nix:21",
 "problems":{},
@@ -5310,7 +5310,7 @@
 "version":"1.0.0"
 },
 "npt":{
-"drvPath":"/nix/store/lxp8bklkx502186l54ijsb0jnqrpbasm-npt-1.1.1.drv",
+"drvPath":"/nix/store/vdky7qpy97116m6kh1gr74w5hw2bz0vg-npt-1.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5435,8 +5435,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -5463,7 +5463,7 @@
 "version":"1.1.1"
 },
 "nsxivBigThumbs":{
-"drvPath":"/nix/store/43s78ghvbcydip031sglrnci30pvnvp0-nsxiv-31.drv",
+"drvPath":"/nix/store/mrm7rbwwcfq0n8kdsnjyfh6pk4hr16r2-nsxiv-31.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5528,7 +5528,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/by-name/ns/nsxiv/package.nix",
+"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/by-name/ns/nsxiv/package.nix",
 "line":72
 },
 "name":"nsxiv-31",
@@ -5614,7 +5614,7 @@
 "version":"31"
 },
 "oauth2token":{
-"drvPath":"/nix/store/589276b2wzdn57n2lm9aabfs59rks1p3-oauth2token-0.0.3.drv",
+"drvPath":"/nix/store/w90bq41l9hbgvj58pwfa6ii2m061z8b2-oauth2token-0.0.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5764,7 +5764,7 @@
 "version":"0-unstable-2023-06-21"
 },
 "paperify":{
-"drvPath":"/nix/store/kc0m4y8cp8x5idkhn6lqbka6qybxx7f9-paperify-0.1.1.drv",
+"drvPath":"/nix/store/i81af1miam3z9cb5zazh2fv1hib4fybk-paperify-0.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5826,7 +5826,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/paperify.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/paperify.nix",
 "line":46
 },
 "name":"paperify-0.1.1",
@@ -5919,8 +5919,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -5942,7 +5942,7 @@
 "version":"0.1.1"
 },
 "pass-otp-unstable":{
-"drvPath":"/nix/store/4iqzr354rxnn4h6if2ylh3wlcm97yhls-pass-otp-unstable-0-unstable-2025-08-09.drv",
+"drvPath":"/nix/store/hixj4lr55nzrf6dy32zrsdd6n0avnbjm-pass-otp-unstable-0-unstable-2025-08-09.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6016,7 +6016,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/pass-otp-unstable.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/pass-otp-unstable.nix",
 "line":37
 },
 "name":"pass-otp-unstable-0-unstable-2025-08-09",
@@ -6111,7 +6111,7 @@
 "version":"0-unstable-2025-08-09"
 },
 "passage-with-otp":{
-"drvPath":"/nix/store/qhw1i48nsxryify0ix3jh5ywzzrvjdq7-passage-1.7.4a2.drv",
+"drvPath":"/nix/store/cgm2hx0y062a952qapa5mb2m3j181qk8-passage-1.7.4a2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6181,7 +6181,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/by-name/pa/passage/package.nix",
+"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/by-name/pa/passage/package.nix",
 "line":75
 },
 "name":"passage-1.7.4a2",
@@ -6270,7 +6270,7 @@
 "version":"1.7.4a2"
 },
 "pigo":{
-"drvPath":"/nix/store/mrmb5c6kah2vijka6v6x61n4mf42lk76-pigo-1.4.6.drv",
+"drvPath":"/nix/store/dsirxngqn4ia3pivgfifgqqbwl769m34-pigo-1.4.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6349,8 +6349,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -6375,7 +6375,7 @@
 "version":"1.4.6"
 },
 "pluscodes":{
-"drvPath":"/nix/store/4fs2yli5p1g3gyi7m1r4zh2phyqa9riy-pluscodes-0.5.0.drv",
+"drvPath":"/nix/store/g35rqzcj0gwgb6qwk2szmqzbhqnc4xcj-pluscodes-0.5.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -6448,7 +6448,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/pluscodes.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/pluscodes.nix",
 "line":22
 },
 "name":"pluscodes-0.5.0",
@@ -6506,7 +6506,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/pluscodes.nix:19",
 "problems":{},
@@ -6523,7 +6523,7 @@
 "version":"0.5.0"
 },
 "pngattach":{
-"drvPath":"/nix/store/czs0vknq59dlap6nwmdxrw5gdl10flih-pngattach-0-unstable-2025-03-12.drv",
+"drvPath":"/nix/store/jrb6dh878xy3mc4by092sjmx799qbbrb-pngattach-0-unstable-2025-03-12.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6595,7 +6595,7 @@
 "version":"0-unstable-2025-03-12"
 },
 "pug":{
-"drvPath":"/nix/store/hf5q502d4kjvvkfy87w0dssm7iv8gm4c-pug-0.6.5.drv",
+"drvPath":"/nix/store/52ikjdfdvw60bqvmdf3nzg66hmdgr3jr-pug-0.6.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6658,7 +6658,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/pug.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/pug.nix",
 "line":33
 },
 "name":"pug-0.6.5",
@@ -6704,8 +6704,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -6725,7 +6725,7 @@
 "version":"0.6.5"
 },
 "python3Packages.aioice":{
-"drvPath":"/nix/store/7h81qlswbb3ldid5an5rh35w1kgmfnng-python3.14-aioice-0.10.1.drv",
+"drvPath":"/nix/store/fjkv1mq7a4pyqrqwrxam3mbhw2i49nlq-python3.14-aioice-0.10.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6820,7 +6820,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/aioice.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/aioice.nix",
 "line":52
 },
 "name":"python3.14-aioice-0.10.1",
@@ -6889,7 +6889,7 @@
 "version":"0.10.1"
 },
 "python3Packages.aiortc":{
-"drvPath":"/nix/store/7ggjji06dgdgqdncwycbykl661k4s99v-python3.14-aiortc-1.13.0.drv",
+"drvPath":"/nix/store/hxrwqwaqddibdwgl6h7h5sp4f1ldr5bv-python3.14-aiortc-1.13.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6984,7 +6984,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/aiortc.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/aiortc.nix",
 "line":60
 },
 "name":"python3.14-aiortc-1.13.0",
@@ -7053,7 +7053,7 @@
 "version":"1.13.0"
 },
 "python3Packages.flameshow":{
-"drvPath":"/nix/store/mv8xi54kjszav2lb7f9jwxh0n0b7z3kg-flameshow-1.1.4.drv",
+"drvPath":"/nix/store/vqiwkc4v0chhqqmf7a1313zlajqnx03p-flameshow-1.1.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7186,7 +7186,7 @@
 "version":"1.1.4"
 },
 "python3Packages.imagehash":{
-"drvPath":"/nix/store/ankcv4bqgzmfbg8cpjda5xy6sdf3iajv-python3.14-imagehash-4.3.1.drv",
+"drvPath":"/nix/store/hvaivas1zii98srzhd0shi7amlh02cm5-python3.14-imagehash-4.3.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7325,7 +7325,7 @@
 "version":"4.3.1"
 },
 "python3Packages.images-upload-cli":{
-"drvPath":"/nix/store/mdiiynz3d0f6v3hdj64aybbxiyycig21-python3.14-images-upload-cli-3.0.6.drv",
+"drvPath":"/nix/store/crgskj6p81a3hl74cpys9c63362z3s8w-python3.14-images-upload-cli-3.0.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7419,7 +7419,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/images-upload-cli.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/images-upload-cli.nix",
 "line":46
 },
 "name":"python3.14-images-upload-cli-3.0.6",
@@ -7481,7 +7481,7 @@
 "version":"3.0.6"
 },
 "python3Packages.iteround":{
-"drvPath":"/nix/store/16bh0g86b3pddwphv041h2zf961psi8q-python3.14-iteround-1.0.4.drv",
+"drvPath":"/nix/store/rc7pskb93z6l9x51g1y70sqw114pd3ff-python3.14-iteround-1.0.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7576,7 +7576,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/iteround.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/iteround.nix",
 "line":32
 },
 "name":"python3.14-iteround-1.0.4",
@@ -7645,7 +7645,7 @@
 "version":"1.0.4"
 },
 "python3Packages.jtbl":{
-"drvPath":"/nix/store/v3cx9xfljx72rw3njpx257qbwqq1jl4z-jtbl-1.6.0.drv",
+"drvPath":"/nix/store/8gn6havzcavljcn5j3cilrsnzb66j6rf-jtbl-1.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7798,7 +7798,7 @@
 "version":"1.6.0"
 },
 "python3Packages.makeelf":{
-"drvPath":"/nix/store/2x31ccgn64ni4hjv1k2p3y1vj75j11m3-python3.14-makeelf-0.3.4.drv",
+"drvPath":"/nix/store/0ahdcvvmnlxsgcgl4kqjc27cr3zwpvn6-python3.14-makeelf-0.3.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7892,7 +7892,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/makeelf.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/makeelf.nix",
 "line":30
 },
 "name":"python3.14-makeelf-0.3.4",
@@ -7961,7 +7961,7 @@
 "version":"0.3.4"
 },
 "python3Packages.mintalib":{
-"drvPath":"/nix/store/bj8ljbiiq3pcfrnvrzgnwzdfg3igs500-python3.14-mintalib-0-unstable-2025-11-11.drv",
+"drvPath":"/nix/store/rmlsiz6hmf4wqj0kw3xpcz8mx3rh2qwk-python3.14-mintalib-0-unstable-2025-11-11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8056,7 +8056,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/mintalib.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/mintalib.nix",
 "line":47
 },
 "name":"python3.14-mintalib-0-unstable-2025-11-11",
@@ -8125,7 +8125,7 @@
 "version":"0-unstable-2025-11-11"
 },
 "python3Packages.mrz":{
-"drvPath":"/nix/store/1fdbv1qag6zhj7kg80y21dw6gyscw8y9-python3.14-mrz-0.6.2.drv",
+"drvPath":"/nix/store/sy971c5x6ak1vm9bmzk8i4svazn7m299-python3.14-mrz-0.6.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8220,7 +8220,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/mrz.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/mrz.nix",
 "line":32
 },
 "name":"python3.14-mrz-0.6.2",
@@ -8289,7 +8289,7 @@
 "version":"0.6.2"
 },
 "python3Packages.openpyxl-image-loader":{
-"drvPath":"/nix/store/yh0610liz865hb4ghivpgg6z9cynjwnl-python3.14-openpyxl-image-loader-1.0.5.drv",
+"drvPath":"/nix/store/pfrh408xv8chahb233v6hzfi8pi6akmw-python3.14-openpyxl-image-loader-1.0.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8384,7 +8384,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/openpyxl-image-loader.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/openpyxl-image-loader.nix",
 "line":35
 },
 "name":"python3.14-openpyxl-image-loader-1.0.5",
@@ -8464,7 +8464,7 @@
 "version":"1.23.0"
 },
 "python3Packages.pybase62":{
-"drvPath":"/nix/store/alk8l8b9s4wbb7phjgw8p59yjn5ihkrx-python3.14-pybase62-0.6.0.drv",
+"drvPath":"/nix/store/yka3clh99xq4xhizp8nv7h9981qzyzm1-python3.14-pybase62-0.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8559,7 +8559,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/pybase62.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/pybase62.nix",
 "line":32
 },
 "name":"python3.14-pybase62-0.6.0",
@@ -8628,7 +8628,7 @@
 "version":"0.6.0"
 },
 "python3Packages.pyclang":{
-"drvPath":"/nix/store/67fy5hc0545gakf196vy6vcc37nsy0px-python3.14-pyclang-0.5.0.drv",
+"drvPath":"/nix/store/735crh0gqla860ly834v0yjv6c20m5ac-python3.14-pyclang-0.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8723,7 +8723,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/pyclang.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/pyclang.nix",
 "line":37
 },
 "name":"python3.14-pyclang-0.5.0",
@@ -8792,7 +8792,7 @@
 "version":"0.5.0"
 },
 "python3Packages.pylibsrtp":{
-"drvPath":"/nix/store/yw4wr35bzykz36ji49l9n6bkirsf3kbf-python3.14-pylibsrtp-0.12.0.drv",
+"drvPath":"/nix/store/pwvf25fx8a545yicafrxnl68rj85j6ws-python3.14-pylibsrtp-0.12.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8886,7 +8886,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/pylibsrtp.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/pylibsrtp.nix",
 "line":52
 },
 "name":"python3.14-pylibsrtp-0.12.0",
@@ -8966,7 +8966,7 @@
 "version":"1.0.4"
 },
 "python3Packages.pytest-embedded":{
-"drvPath":"/nix/store/0i70fasvyv3zadhx7jl3g8gx0zm6vlg0-python3.14-pytest-embedded-1.16.0.drv",
+"drvPath":"/nix/store/76b5pkh6yyb073f6dg3rwpnx6lnrsahs-python3.14-pytest-embedded-1.16.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9060,7 +9060,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/pytest-embedded.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/pytest-embedded.nix",
 "line":38
 },
 "name":"python3.14-pytest-embedded-1.16.0",
@@ -9129,7 +9129,7 @@
 "version":"1.16.0"
 },
 "python3Packages.ssort":{
-"drvPath":"/nix/store/s3f27fig1hma4wk06cypmsym7kqi87ql-ssort-0.13.0.drv",
+"drvPath":"/nix/store/1xmi82hdqlqaq0m90h56z2chwfz0f52c-ssort-0.13.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9224,7 +9224,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/ssort.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/ssort.nix",
 "line":29
 },
 "name":"ssort-0.13.0",
@@ -9307,7 +9307,7 @@
 "version":"0.13.0"
 },
 "python3Packages.ta-lib":{
-"drvPath":"/nix/store/l5h1g5023m6yb9fawr84ihc8vqn28bh2-python3.14-ta-lib-0.6.8.drv",
+"drvPath":"/nix/store/44i3z92bmy5d7impwn2nz71zq20p7j8w-python3.14-ta-lib-0.6.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9401,7 +9401,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/ta-lib.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/ta-lib.nix",
 "line":58
 },
 "name":"python3.14-ta-lib-0.6.8",
@@ -9470,7 +9470,7 @@
 "version":"0.6.8"
 },
 "python3Packages.tvdatafeed":{
-"drvPath":"/nix/store/bxikl2sqavpfzk12rrwb2wvmllmg4nk0-python3.14-tvdatafeed-0-unstable-2024-05-07.drv",
+"drvPath":"/nix/store/kbrnjzl587r9hkhzaw19lzslrgp7z7az-python3.14-tvdatafeed-0-unstable-2024-05-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9565,7 +9565,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/python3-packages/tvdatafeed.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/python3-packages/tvdatafeed.nix",
 "line":44
 },
 "name":"python3.14-tvdatafeed-0-unstable-2024-05-07",
@@ -9634,7 +9634,7 @@
 "version":"0-unstable-2024-05-07"
 },
 "qemuImages.raspberryPi.buster-lite":{
-"drvPath":"/nix/store/114yk16gr1hb6zkzmq7hgs5f3diag7dh-raspios-buster-armhf-lite-2022-09-06.drv",
+"drvPath":"/nix/store/wl29j7vysa39c0kyxwa7dpjfy6nh7s9j-raspios-buster-armhf-lite-2022-09-06.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9689,7 +9689,7 @@
 "version":"2022-09-06"
 },
 "qemuImages.raspberryPi.buster-lite-newimage":{
-"drvPath":"/nix/store/nxgz2qbmwxir7k7kz8kd5nsl0qiwwhpn-newimage.qcow2.drv",
+"drvPath":"/nix/store/dm5cigdr41hkiwzpmnvb9ys1m7lfhqbd-newimage.qcow2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9742,7 +9742,7 @@
 "version":""
 },
 "qemuImages.raspberryPi.buster-lite-qcow2":{
-"drvPath":"/nix/store/wfhvw5mlb9vgn252sk9l74d7i6cq37xg-raspios-buster-armhf-lite-2022-09-06.qcow2.drv",
+"drvPath":"/nix/store/wq2cl3c1r8mdnsjh85ig18j931fxkgl9-raspios-buster-armhf-lite-2022-09-06.qcow2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9795,7 +9795,7 @@
 "version":"2022-09-06.qcow2"
 },
 "qemuImages.raspberryPi.buster-lite-script":{
-"drvPath":"/nix/store/sr3cwyh2isjpryw8y7g2bai75a5fmv61-raspberrypi-interact.drv",
+"drvPath":"/nix/store/laqshhiz9yyjnwr0q851mw6mh9pwn9hi-raspberrypi-interact.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9834,7 +9834,7 @@
 "outputsToInstall":[
 "out"
 ],
-"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:81",
+"position":"<nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:84",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -9849,7 +9849,7 @@
 "version":""
 },
 "rfcs":{
-"drvPath":"/nix/store/zgvyrdymhgcd8z73abq0yyjbpkydal3l-rfcs.drv",
+"drvPath":"/nix/store/30cmbsmk7b6bydbbl7kvj34na1l63v33-rfcs.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9902,7 +9902,7 @@
 "version":""
 },
 "rom64":{
-"drvPath":"/nix/store/hzw41mjfhi0j7q0gx4zqaf3jcsl6z975-rom64-0.5.4.drv",
+"drvPath":"/nix/store/r6l4zqkxfwbb9l4x2ww7cb24ampyf6bv-rom64-0.5.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9964,7 +9964,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/rom64.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/rom64.nix",
 "line":35
 },
 "name":"rom64-0.5.4",
@@ -10010,8 +10010,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -10031,7 +10031,7 @@
 "version":"0.5.4"
 },
 "rust-u2f":{
-"drvPath":"/nix/store/kb5rb46cj8yijyb6lz9d5qz6l1zmp6yq-rust-u2f-0.4.2.drv",
+"drvPath":"/nix/store/1p8qar203r0ndfz5cbbxq62d8ylkd7dx-rust-u2f-0.4.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -10134,7 +10134,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/rust-u2f.nix:34",
 "problems":{
@@ -10156,7 +10156,7 @@
 "version":"0.4.2"
 },
 "rustdoc-md":{
-"drvPath":"/nix/store/5y0ljviid60cf96w1ilbbfr6pvyy7x8v-rustdoc-md-0-unstable-2025-10-28.drv",
+"drvPath":"/nix/store/v3y233f0jrjhxcrbfi3yxyxv42h6xzha-rustdoc-md-0-unstable-2025-10-28.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -10229,7 +10229,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/rustdoc-md.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/rustdoc-md.nix",
 "line":24
 },
 "name":"rustdoc-md-0-unstable-2025-10-28",
@@ -10287,7 +10287,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/rustdoc-md.nix:21",
 "problems":{},
@@ -10304,7 +10304,7 @@
 "version":"0-unstable-2025-10-28"
 },
 "rustdoc-text":{
-"drvPath":"/nix/store/5b62ywjqlpfwk7wwmklb7zsza63rrzhw-rustdoc-text-0.3.3.drv",
+"drvPath":"/nix/store/f3idw77515xq94mncl8xpqvwkvs4pv4j-rustdoc-text-0.3.3.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -10377,7 +10377,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/rustdoc-text.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/rustdoc-text.nix",
 "line":35
 },
 "name":"rustdoc-text-0.3.3",
@@ -10435,7 +10435,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/rustdoc-text.nix:32",
 "problems":{},
@@ -10452,7 +10452,7 @@
 "version":"0.3.3"
 },
 "rustfilt":{
-"drvPath":"/nix/store/lm4xdpcimrlwxpqcjpxsm7hqc3qdjsxb-rustfilt-0.2.1.drv",
+"drvPath":"/nix/store/3jb5841yc782d8chwhyzl2vr7kb7hp8a-rustfilt-0.2.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -10555,7 +10555,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/rustfilt.nix:21",
 "problems":{
@@ -10577,7 +10577,7 @@
 "version":"0.2.1"
 },
 "sane-fmt":{
-"drvPath":"/nix/store/pg90rwg0q4i0z400xpzmxmk0yz1x1xy4-sane-fmt-0.18.1.drv",
+"drvPath":"/nix/store/zl1h0zl29vzjrkk9snzidvk7vijcw5qc-sane-fmt-0.18.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -10650,7 +10650,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/sane-fmt.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/sane-fmt.nix",
 "line":37
 },
 "name":"sane-fmt-0.18.1",
@@ -10708,7 +10708,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/sane-fmt.nix:34",
 "problems":{},
@@ -10725,7 +10725,7 @@
 "version":"0.18.1"
 },
 "schemaorg":{
-"drvPath":"/nix/store/di3vqar94jizvnc7sqgawz2s7s0mxi21-schemaorg-29.3.drv",
+"drvPath":"/nix/store/4v3bzcl8yshb4xqgbrrai49nh9f7v8bm-schemaorg-29.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10798,7 +10798,7 @@
 "version":"29.3"
 },
 "snid":{
-"drvPath":"/nix/store/xcricphcg28lw8i8bxmiqa4frnp9nh1s-snid-0.4.0.drv",
+"drvPath":"/nix/store/m3f3qdwlda2lvvklrawrqdn13dqh4jf3-snid-0.4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10877,8 +10877,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -10903,7 +10903,7 @@
 "version":"0.4.0"
 },
 "socat-patched":{
-"drvPath":"/nix/store/ynkm70dxvcg9vkm2bbws3d757v13sld7-socat-patched-1.8.0.0.drv",
+"drvPath":"/nix/store/q2f7rwwagl1cl36cdbbam8dgm301xgwb-socat-patched-1.8.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10960,7 +10960,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/z60jwrj29ja4h4wbzvqy3ln0wwdkfk4p-source/pkgs/by-name/so/socat/package.nix",
+"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/by-name/so/socat/package.nix",
 "line":58
 },
 "name":"socat-patched-1.8.0.0",
@@ -11037,7 +11037,7 @@
 "version":"1.8.0.0"
 },
 "sqlite-zstd":{
-"drvPath":"/nix/store/gr71b5l5wak1ilgr3ls0b5v2irjacvm9-sqlite-zstd-0.3.2.drv",
+"drvPath":"/nix/store/1iidirddyq5x57mw13s34iyln0x7psvh-sqlite-zstd-0.3.2.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -11138,7 +11138,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/sqlite-zstd.nix:24",
 "problems":{
@@ -11160,7 +11160,7 @@
 "version":"0.3.2"
 },
 "terraform-graph-beautifier":{
-"drvPath":"/nix/store/4zfnf8v6cpz96a5pvscx5l7yg353w6n5-terraform-graph-beautifier-0.3.4.drv",
+"drvPath":"/nix/store/kz8y2xk85b6k8acp7ppad4pxqy4ibybz-terraform-graph-beautifier-0.3.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11222,7 +11222,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/terraform-graph-beautifier.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/terraform-graph-beautifier.nix",
 "line":35
 },
 "name":"terraform-graph-beautifier-0.3.4",
@@ -11268,8 +11268,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -11289,7 +11289,7 @@
 "version":"0.3.4"
 },
 "tokei-pie":{
-"drvPath":"/nix/store/z71j9m6lcfk56vf3j3m2mrqhy5z5s743-tokei-pie-1.2.0.drv",
+"drvPath":"/nix/store/kmqayy0v1f6bcm9iga3mjj762bxyc62g-tokei-pie-1.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11384,7 +11384,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/tokei-pie.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/tokei-pie.nix",
 "line":30
 },
 "name":"tokei-pie-1.2.0",
@@ -11453,7 +11453,7 @@
 "version":"1.2.0"
 },
 "u8strings":{
-"drvPath":"/nix/store/7yss985phsxqcxixa5ilf9wi5wr19sib-u8strings-0.1.3.drv",
+"drvPath":"/nix/store/8gg27cr86753c7985vg8bvsgp5kck761-u8strings-0.1.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11578,8 +11578,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -11606,7 +11606,7 @@
 "version":"0.1.3"
 },
 "unum":{
-"drvPath":"/nix/store/rcwhb6qd8gr1ldqn9lxlxnq2rxyfqm1p-unum-3.6.drv",
+"drvPath":"/nix/store/jfbfamhgvpk2ay10aha7ynbr6l8jkby4-unum-3.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11679,7 +11679,7 @@
 "version":"3.6"
 },
 "uuinfo":{
-"drvPath":"/nix/store/fblrkhw7fjg09zds9gdpvl5my3x8k6xn-uuinfo-0.7.5.drv",
+"drvPath":"/nix/store/h0sad5pnyia2mlvvfhjysqjzhzc6fbs0-uuinfo-0.7.5.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -11753,7 +11753,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/uuinfo.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/uuinfo.nix",
 "line":32
 },
 "name":"uuinfo-0.7.5",
@@ -11811,7 +11811,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/uuinfo.nix:28",
 "problems":{},
@@ -11828,7 +11828,7 @@
 "version":"0.7.5"
 },
 "vncterm":{
-"drvPath":"/nix/store/pjrgwpx0s2xx39iknr37i2jq4sni4wwp-vncterm-0.9.10.drv",
+"drvPath":"/nix/store/p3izfhg8ivj4c9r9ii7zxv855nkz4y4y-vncterm-0.9.10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11927,7 +11927,7 @@
 "version":"0.9.10"
 },
 "w2c2":{
-"drvPath":"/nix/store/i77pg8gawjr8mf8xy65j4pncbf1yrrn1-w2c2-0-unstable-2025-09-30.drv",
+"drvPath":"/nix/store/hhisqsv5466p2mxvk3qbykaj4624nsgq-w2c2-0-unstable-2025-09-30.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11989,7 +11989,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/w2c2.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/w2c2.nix",
 "line":38
 },
 "name":"w2c2-0-unstable-2025-09-30",
@@ -12082,8 +12082,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -12105,7 +12105,7 @@
 "version":"0-unstable-2025-09-30"
 },
 "waforth":{
-"drvPath":"/nix/store/fiyrrzf9avp8qminlhlwzabw24s8p551-waforth-0.20.1.drv",
+"drvPath":"/nix/store/dr860pwr3k2pqvrl0c04g98cpm5avclc-waforth-0.20.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12179,7 +12179,7 @@
 "version":"0.20.1"
 },
 "wagi":{
-"drvPath":"/nix/store/8n1gjbl06w61cqjpy6xryxw873zmfi40-wagi-0.8.1.drv",
+"drvPath":"/nix/store/m2flcyqciaklzcdi9whhvq6wi7k4gbr2-wagi-0.8.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -12280,7 +12280,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/wagi.nix:31",
 "problems":{
@@ -12302,7 +12302,7 @@
 "version":"0.8.1"
 },
 "wax":{
-"drvPath":"/nix/store/a8cyjhcpw37xqsh5nhs7mb4kjlqd885h-wax-0.0.1-unstable-2025-03-03.drv",
+"drvPath":"/nix/store/ni8hhsvhx7wky1gw15p57x3dlf08sm35-wax-0.0.1-unstable-2025-03-03.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12364,7 +12364,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/wax.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/wax.nix",
 "line":32
 },
 "name":"wax-0.0.1-unstable-2025-03-03",
@@ -12399,7 +12399,7 @@
 "version":"0.0.1-unstable-2025-03-03"
 },
 "wikipedia-mcp":{
-"drvPath":"/nix/store/6495rfdgyxjsmnydyxvjmm2372v7iy11-wikipedia-mcp-1.6.0.drv",
+"drvPath":"/nix/store/9k0fkvq46bzlvlwsjrwg9703gvdyipdg-wikipedia-mcp-1.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12495,7 +12495,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/wikipedia-mcp.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/wikipedia-mcp.nix",
 "line":52
 },
 "name":"wikipedia-mcp-1.6.0",
@@ -12564,7 +12564,7 @@
 "version":"1.6.0"
 },
 "wonnx":{
-"drvPath":"/nix/store/p6hkdm1rk7b8y25gr7nqadw3av30rxfl-wonnx-0.5.1.drv",
+"drvPath":"/nix/store/z8bjc0nngyv75djhiv6ywvd4c23j43lv-wonnx-0.5.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -12667,7 +12667,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/by-name/wonnx.nix:30",
 "problems":{
@@ -12689,7 +12689,7 @@
 "version":"0.5.1"
 },
 "yaml-shellcheck":{
-"drvPath":"/nix/store/73q25k7d9g9vmacxl4j1s6f1smhkhq6l-yaml-shellcheck-1.8.0.drv",
+"drvPath":"/nix/store/d5arjr05sqfc79a71vgx8agjmbv259nj-yaml-shellcheck-1.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12784,7 +12784,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/yaml-shellcheck.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/yaml-shellcheck.nix",
 "line":45
 },
 "name":"yaml-shellcheck-1.8.0",
@@ -12853,7 +12853,7 @@
 "version":"1.8.0"
 },
 "yggmail":{
-"drvPath":"/nix/store/dlczkay54wk7rvwizs2mfd8wgbnpmh4d-yggmail-0-unstable-2026-02-24.drv",
+"drvPath":"/nix/store/170c4r8zkcg827d0pijz38752c66mvrc-yggmail-0-unstable-2026-02-24.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12915,7 +12915,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/dyj41aqajwqnx87mz7pq7n1hm0dhmblh-source/pkgs/by-name/yggmail.nix",
+"file":"/nix/store/hvkyn7v9awpwfl9wkrxyz9ljdqdfm255-source/pkgs/by-name/yggmail.nix",
 "line":29
 },
 "name":"yggmail-0-unstable-2026-02-24",
@@ -12961,8 +12961,8 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
@@ -12982,7 +12982,7 @@
 "version":"0-unstable-2026-02-24"
 },
 "zforth":{
-"drvPath":"/nix/store/52m2j4019bryq70qakcbqnvhnl6r97ch-zforth-0-unstable-2025-03-30.drv",
+"drvPath":"/nix/store/igbivsydk8vxnb5z8psrd7vjcg8f4zna-zforth-0-unstable-2025-03-30.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -13057,7 +13057,7 @@
 "version":"0-unstable-2025-03-30"
 },
 "zippey":{
-"drvPath":"/nix/store/jslb76dflsw9k4lc9s07plpzl2skd5si-zippey-unstable-2014-05-28.drv",
+"drvPath":"/nix/store/2xc94h1z8i5xxrg49jrk9w71w6xw1yxb-zippey-unstable-2014-05-28.drv",
 "meta":{
 "available":true,
 "broken":false,
