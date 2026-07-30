@@ -1,16 +1,16 @@
 {
   lib,
   fishPlugins,
-  writeText,
   fetchFromGitHub,
   catppuccin-whiskers,
   nix-update-script,
+  writeText,
 }:
 let
   fishTerra = writeText "fish.terra" ''
     ---
     whiskers:
-      version: 2.1.0
+      version: ${catppuccin-whiskers.version}
       matrix:
         - flavor
       filename: "conf.d/catppuccin_{{ flavor.identifier }}.fish"
@@ -61,11 +61,13 @@ fishPlugins.buildFishPlugin {
     hash = "sha256-3KNWYXfOMzZovdjwjBpjSH8cVlD4CO2QmQcCyQE4Dac=";
   };
 
+  nativeBuildInputs = [ catppuccin-whiskers ];
+
   preInstall = ''
     mkdir -p $out/share/fish/themes
     install -m644 themes/*.theme $out/share/fish/themes/
 
-    ${catppuccin-whiskers}/bin/whiskers ${fishTerra}
+    whiskers ${fishTerra}
   '';
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };

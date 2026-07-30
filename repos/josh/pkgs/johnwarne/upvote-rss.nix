@@ -2,8 +2,8 @@
   lib,
   stdenvNoCC,
   fetchFromGitHub,
-  nix-update-script,
   php,
+  nix-update-script,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "upvote-rss";
@@ -23,7 +23,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   checkPhase = ''
     runHook preCheck
 
-    php -l ./*.php ./**/*.php
+    find . -name '*.php' -print0 | xargs -0 -n1 php -l
 
     runHook postCheck
   '';

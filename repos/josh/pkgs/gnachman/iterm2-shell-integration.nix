@@ -2,10 +2,12 @@
   lib,
   stdenvNoCC,
   fetchFromGitHub,
-  makeWrapper,
+
   bash,
+  makeWrapper,
   perl,
   python3,
+
   nix-update-script,
   runCommand,
 }:
@@ -25,6 +27,13 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   __structuredAttrs = true;
 
+  nativeBuildInputs = [
+    makeWrapper
+    bash
+    perl
+    venv
+  ];
+
   makeWrapperArgs = [
     "--prefix"
     "PATH"
@@ -36,11 +45,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     ])
   ];
 
-  nativeBuildInputs = [ makeWrapper ];
-
   buildCommand = ''
     mkdir -p $out/bin
     cp -r $src/utilities/* $out/bin/
+    patchShebangs $out/bin
     for bin in $out/bin/*; do
       wrapProgram "$bin" "''${makeWrapperArgs[@]}"
     done
@@ -104,7 +112,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   meta = {
     description = "Shell integration and utilities for iTerm2";
     homepage = "https://github.com/gnachman/iTerm2-shell-integration";
-    license = lib.licenses.gpl2;
+    license = lib.licenses.gpl2Only;
     platforms = lib.platforms.darwin;
   };
 })

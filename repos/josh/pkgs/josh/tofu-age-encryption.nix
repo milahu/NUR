@@ -2,11 +2,14 @@
   lib,
   buildGoModule,
   fetchFromGitHub,
-  nix-update-script,
-  testers,
+
   age,
   jq,
   opentofu,
+
+  nix-update-script,
+  runCommand,
+  testers,
 }:
 buildGoModule (finalAttrs: {
   pname = "tofu-age-encryption";
@@ -48,6 +51,11 @@ buildGoModule (finalAttrs: {
         package = tofu-age-encryption;
         inherit (finalAttrs) version;
       };
+
+      age-path = runCommand "test-tofu-age-encryption-age-path" { } ''
+        grep --text --quiet "${lib.strings.makeBinPath finalAttrs.agePlugins}" "${lib.getExe tofu-age-encryption}"
+        touch $out
+      '';
     };
 
   meta = {

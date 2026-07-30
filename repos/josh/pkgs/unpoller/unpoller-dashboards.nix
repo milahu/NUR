@@ -2,11 +2,19 @@
   lib,
   stdenvNoCC,
   fetchFromGitHub,
+  jq,
   nix-update-script,
+  runCommand,
 }:
-stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "unpoller-dashboards";
   version = "0-unstable-2026-06-15";
+
+  outputs = [
+    "out"
+    "influxdb"
+    "prometheus"
+  ];
 
   src = fetchFromGitHub {
     owner = "unpoller";
@@ -14,12 +22,6 @@ stdenvNoCC.mkDerivation {
     rev = "d79ef7ef30129a2ba9a60141e339a93d4bcc1bec";
     hash = "sha256-O3xAHqHiqqiQQyIkV+XK89T6Sk4GhaRpzb46SSA0ZI4=";
   };
-
-  outputs = [
-    "out"
-    "influxdb"
-    "prometheus"
-  ];
 
   installPhase = ''
     runHook preInstall
@@ -33,7 +35,7 @@ stdenvNoCC.mkDerivation {
       dst=''${basename/ - InfluxDB/}
       cp "$src" "$influxdb/$dst"
     done
-    substituteInPlace $influxdb/*.json --replace-warn ' - InfluxDB' ""
+    substituteInPlace $influxdb/*.json --replace-fail ' - InfluxDB' ""
 
     mkdir $prometheus
     for src in ./v2.0.0/*Prometheus.json; do
@@ -41,12 +43,27 @@ stdenvNoCC.mkDerivation {
       dst=''${basename/ - Prometheus/}
       cp "$src" "$prometheus/$dst"
     done
-    substituteInPlace $prometheus/*.json --replace-warn ' - Prometheus' ""
+    substituteInPlace $prometheus/*.json --replace-fail ' - Prometheus' ""
 
     runHook postInstall
   '';
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
+
+  passthru.tests = {
+    json =
+      runCommand "test-unpoller-dashboards-json"
+        {
+          __structuredAttrs = true;
+          nativeBuildInputs = [ jq ];
+        }
+        ''
+          readarray -t files < <(find ${finalAttrs.finalPackage} ${finalAttrs.finalPackage.influxdb} ${finalAttrs.finalPackage.prometheus} -name '*.json')
+          [ "''${#files[@]}" -gt 0 ]
+          jq --exit-status . "''${files[@]}" >/dev/null
+          touch $out
+        '';
+  };
 
   meta = {
     description = "UniFi Poller Grafana Dashboards";
@@ -54,4 +71,4 @@ stdenvNoCC.mkDerivation {
     license = lib.licenses.mit;
     platforms = lib.platforms.all;
   };
-}
+})

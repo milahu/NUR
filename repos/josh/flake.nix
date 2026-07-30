@@ -21,6 +21,14 @@
       eachSystem = lib.genAttrs systems;
       addAttrsetPrefix = prefix: lib.attrsets.concatMapAttrs (n: v: { "${prefix}${n}" = v; });
 
+      importNixpkgs =
+        flake: system:
+        import flake.outPath {
+          inherit system;
+          config.allowUnfree = true;
+          overlays = [ ];
+        };
+
       mkPackages =
         pkgs:
         let
@@ -54,7 +62,7 @@
         nur.repos.josh = import ./default.nix { pkgs = final; };
       };
 
-      packages = eachSystem (system: mkPackages nixpkgs.legacyPackages.${system});
+      packages = eachSystem (system: mkPackages (importNixpkgs nixpkgs system));
 
       formatter = eachSystem (system: treefmt-nix.${system}.wrapper);
       checks = eachSystem (
@@ -62,8 +70,8 @@
         {
           formatting = treefmt-nix.${system}.check self;
         }
-        // (mkChecks "stable" internal-inputs.nixpkgs-stable.legacyPackages.${system})
-        // (mkChecks "unstable" internal-inputs.nixpkgs-unstable.legacyPackages.${system})
+        // (mkChecks "stable" (importNixpkgs internal-inputs.nixpkgs-stable system))
+        // (mkChecks "unstable" (importNixpkgs internal-inputs.nixpkgs-unstable system))
       );
     };
 }

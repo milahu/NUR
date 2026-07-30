@@ -2,18 +2,19 @@
   lib,
   stdenvNoCC,
   fetchFromGitHub,
+  nur,
   nix-update-script,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
-  __structuredAttrs = true;
-
   pname = "local-path-provisioner-chart";
   version = "0.0.36";
+
+  __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "rancher";
     repo = "local-path-provisioner";
-    rev = "v${finalAttrs.version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-pMcyabGJEdlV+CvdCjm0JcXUvWyNkdJRPEzVKIK7xOo=";
   };
 
@@ -23,6 +24,17 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   '';
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=stable" ]; };
+
+  passthru.tests = {
+    render = nur.repos.josh.renderHelmTemplate {
+      src = finalAttrs.finalPackage;
+      chartName = "local-path-provisioner";
+    };
+    images = nur.repos.josh.checkKubeImages {
+      src = finalAttrs.passthru.tests.render;
+      inherit (finalAttrs) pname version;
+    };
+  };
 
   meta = {
     description = "Dynamically provisioning persistent local storage with Kubernetes";

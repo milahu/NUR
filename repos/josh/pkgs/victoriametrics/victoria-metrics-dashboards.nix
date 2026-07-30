@@ -2,11 +2,19 @@
   lib,
   stdenvNoCC,
   fetchFromGitHub,
+  jq,
   nix-update-script,
+  runCommand,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "victoria-metrics-dashboards";
   version = "1.148.0-cluster";
+
+  outputs = [
+    "out"
+    "prometheus"
+    "vm"
+  ];
 
   src = fetchFromGitHub {
     owner = "VictoriaMetrics";
@@ -14,12 +22,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     tag = "v${finalAttrs.version}";
     hash = "sha256-Xx2K0eFk5Gylav+HtIuz4XFTU8GUc+wW3i0raE+BZ8Q=";
   };
-
-  outputs = [
-    "out"
-    "prometheus"
-    "vm"
-  ];
 
   dontBuild = true;
 
@@ -35,6 +37,21 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   '';
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=stable" ]; };
+
+  passthru.tests = {
+    json =
+      runCommand "test-victoria-metrics-dashboards-json"
+        {
+          __structuredAttrs = true;
+          nativeBuildInputs = [ jq ];
+        }
+        ''
+          readarray -t files < <(find ${finalAttrs.finalPackage} ${finalAttrs.finalPackage.prometheus} ${finalAttrs.finalPackage.vm} -name '*.json')
+          [ "''${#files[@]}" -gt 0 ]
+          jq --exit-status . "''${files[@]}" >/dev/null
+          touch $out
+        '';
+  };
 
   meta = {
     description = "VictoriaMetrics Grafana Dashboards";

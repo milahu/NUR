@@ -3,17 +3,19 @@
   stdenvNoCC,
   fetchFromGitHub,
   nix-update-script,
+  runCommand,
+  yq,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
-  __structuredAttrs = true;
-
   pname = "local-path-provisioner-manifests";
   version = "0.0.36";
+
+  __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "rancher";
     repo = "local-path-provisioner";
-    rev = "v${finalAttrs.version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-pMcyabGJEdlV+CvdCjm0JcXUvWyNkdJRPEzVKIK7xOo=";
   };
 
@@ -23,6 +25,19 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   '';
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=stable" ]; };
+
+  passthru.tests = {
+    parse =
+      runCommand "test-local-path-provisioner-manifests-parse"
+        {
+          __structuredAttrs = true;
+          nativeBuildInputs = [ yq ];
+        }
+        ''
+          find ${finalAttrs.finalPackage} -name '*.yaml' -exec yq -r '.kind? // empty' {} + | grep -q .
+          touch $out
+        '';
+  };
 
   meta = {
     description = "Dynamically provisioning persistent local storage with Kubernetes";

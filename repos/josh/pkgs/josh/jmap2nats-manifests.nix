@@ -1,9 +1,9 @@
 {
   lib,
   stdenvNoCC,
+  nur,
   kubernetes-helm,
   yq,
-  nur,
 }:
 stdenvNoCC.mkDerivation {
   pname = "jmap2nats-manifests";
@@ -22,6 +22,7 @@ stdenvNoCC.mkDerivation {
 
   buildPhase = ''
     runHook preBuild
+    export HELM_CACHE_HOME=$TMPDIR/cache
     yq --yaml-output '.helmValues' "$NIX_ATTRS_JSON_FILE" >values.yaml
     helm template "$helmChartName" "$src/charts/jmap2nats" --output-dir . --values values.yaml "''${helmArgs[@]}"
     runHook postBuild

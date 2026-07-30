@@ -1,16 +1,14 @@
 {
   lib,
   stdenv,
+  fetchFromGitHub,
+  fetchpatch,
   fetchurl,
-  runCommandCC,
-  writeText,
-  ceph,
 
   # Build tools
   autoconf,
   automake,
   cmake,
-  fmt,
   git,
   libtool,
   pkg-config,
@@ -20,18 +18,18 @@
   # Dependencies
   boost187,
   bzip2,
+  ceph,
   curl,
-  fetchFromGitHub,
-  openssl,
   gtest,
   icu,
   lmdb,
   lua5_4,
   lz4,
-  nss,
   nspr,
+  nss,
   oath-toolkit,
   openldap,
+  openssl,
   rocksdb,
   snappy,
   sqlite,
@@ -42,8 +40,8 @@
   # Linux only
   babeltrace,
   gnugrep,
-  kmod,
   keyutils,
+  kmod,
   libcap,
   libcap_ng,
   libnl,
@@ -58,6 +56,9 @@
 
   # Darwin only
   apple-sdk,
+
+  runCommandCC,
+  writeText,
 }:
 
 let
@@ -70,7 +71,7 @@ let
       ceph.src
     else
       fetchurl {
-        url = "https://download.ceph.com/tarballs/ceph-20.2.0.tar.gz";
+        url = "https://download.ceph.com/tarballs/ceph-${version}.tar.gz";
         hash = "sha256-jeBk1pgx7zJzOVOfIzx47IJ/o1HEDO2amRbwtBdMZoU=";
       };
 
@@ -79,15 +80,15 @@ let
     ps.pyyaml
   ]);
 
-  ceph-rocksdb = rocksdb.overrideAttrs {
+  ceph-rocksdb = rocksdb.overrideAttrs (finalAttrs: {
     version = "7.9.2";
     src = fetchFromGitHub {
       owner = "facebook";
       repo = "rocksdb";
-      tag = "v7.9.2";
+      tag = "v${finalAttrs.version}";
       hash = "sha256-5P7IqJ14EZzDkbjaBvbix04ceGGdlWBuVFH/5dpD5VM=";
     };
-  };
+  });
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "librados";
@@ -95,10 +96,12 @@ stdenv.mkDerivation (finalAttrs: {
 
   patches = lib.optionals (!lib.versionAtLeast version "20.2.1") [
     # PyO3 workaround — allows build on Python 3.12 (merged upstream in 20.2.1)
-    (fetchurl {
+    # https://github.com/ceph/ceph/pull/66794
+    # Pinned base...head range of that PR; PR diff URLs are mutable
+    (fetchpatch {
       name = "ceph-upstream-pyo3-workaround.patch";
-      url = "https://github.com/ceph/ceph/pull/66794.diff?full_index=1";
-      hash = "sha256-+OrG9JpMOfZwtzAPJkBrzt+8BGKKiNjQMMpkJSHpGFo=";
+      url = "https://github.com/ceph/ceph/compare/ba0181c0fc1118f6199dc21db58da8ccc94ca0b7...411fcaa78fcf75392dd235533ba9b8d351971b08.diff";
+      hash = "sha256-bZvcCNf9R3JpcHP0r3x6iRE9lp3CGOPCqi44fj15U1E=";
     })
   ];
 
@@ -106,7 +109,6 @@ stdenv.mkDerivation (finalAttrs: {
     autoconf
     automake
     cmake
-    fmt
     git
     libtool
     pkg-config
@@ -279,8 +281,7 @@ stdenv.mkDerivation (finalAttrs: {
     cp ../src/include/rados/inline_memory.h $out/include/rados/
     cp ../src/include/rados/page.h $out/include/rados/
     cp ../src/include/rados/crc32c.h $out/include/rados/
-  ''
-  + ''
+
     runHook postInstall
   '';
 

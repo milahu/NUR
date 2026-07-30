@@ -1,11 +1,13 @@
 {
   lib,
-  writeText,
-  fetchFromGitHub,
   swiftPackages,
+  fetchFromGitHub,
+  sqlite,
   swift,
   swiftpm,
-  sqlite,
+  runCommand,
+  testers,
+  writeText,
 }:
 let
   sqliteModuleMap = writeText "CSQLite.modulemap" ''
@@ -37,8 +39,13 @@ swiftPackages.stdenv.mkDerivation (finalAttrs: {
   ];
 
   postPatch = ''
-    substituteInPlace Sources/**/*.swift \
-      --replace-quiet "import SQLite3" "import CSQLite"
+    grep -rlF "import SQLite3" Sources | while IFS= read -r f; do
+      substituteInPlace "$f" --replace-fail "import SQLite3" "import CSQLite"
+    done
+    grep -rqF "import CSQLite" Sources
+    status=0
+    grep -rqF "import SQLite3" Sources || status=$?
+    test "$status" -eq 1
   '';
 
   swiftpmFlags = [
@@ -51,6 +58,24 @@ swiftPackages.stdenv.mkDerivation (finalAttrs: {
     install -Dm755 .build/release/tccpolicy $out/bin/tccpolicy
     runHook postInstall
   '';
+
+  passthru.tests = {
+    version = testers.testVersion {
+      package = finalAttrs.finalPackage;
+      inherit (finalAttrs) version;
+    };
+
+    help =
+      runCommand "test-tccpolicy-help"
+        {
+          __structuredAttrs = true;
+          nativeBuildInputs = [ finalAttrs.finalPackage ];
+        }
+        ''
+          tccpolicy --help
+          touch $out
+        '';
+  };
 
   meta = {
     description = "Manage macOS TCC database declaratively";

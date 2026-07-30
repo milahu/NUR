@@ -1,9 +1,9 @@
 {
   lib,
   stdenvNoCC,
+  nur,
   kubernetes-helm,
   yq,
-  nur,
 }:
 stdenvNoCC.mkDerivation {
   pname = "victoria-logs-single-manifests";
@@ -23,6 +23,7 @@ stdenvNoCC.mkDerivation {
 
   buildPhase = ''
     runHook preBuild
+    export HELM_CACHE_HOME=$TMPDIR/cache
     yq --yaml-output '.helmValues' "$NIX_ATTRS_JSON_FILE" >values.yaml
     helm template "$helmChartName" "$src" --output-dir . --values values.yaml "''${helmArgs[@]}"
     runHook postBuild
@@ -36,7 +37,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = {
-    description = "The VictoriaLogs single Helm chart deploys VictoriaLogs database in Kubernetes.";
+    description = "The VictoriaLogs single Helm chart deploys VictoriaLogs database in Kubernetes";
     homepage = "https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-logs-single";
     license = lib.licenses.asl20;
     platforms = lib.platforms.all;

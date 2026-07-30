@@ -4,25 +4,27 @@
   fetchFromGitHub,
   nix-update-script,
 }:
-python3Packages.buildPythonPackage rec {
+python3Packages.buildPythonPackage (finalAttrs: {
   pname = "lru-cache";
   version = "1.0.2";
+
+  pyproject = true;
+  __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "josh";
     repo = "lru-cache-python";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-p+pQdBBRxWwyymvWUtvcs3dVAuyE+nAzZj1jAi8tKFk=";
   };
-
-  pyproject = true;
-  __structuredAttrs = true;
 
   build-system = with python3Packages; [
     hatchling
   ];
 
   nativeCheckInputs = [ python3Packages.pytestCheckHook ];
+
+  pythonImportsCheck = [ "lru_cache" ];
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=stable" ]; };
 
@@ -32,4 +34,4 @@ python3Packages.buildPythonPackage rec {
     license = lib.licenses.mit;
     platforms = lib.platforms.all;
   };
-}
+})

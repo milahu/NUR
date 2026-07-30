@@ -11,6 +11,11 @@ buildGoModule (finalAttrs: {
   pname = "prometheus-restic-exporter";
   version = "1.0.3";
 
+  outputs = [
+    "out"
+    "grafana"
+  ];
+
   src = fetchFromGitHub {
     owner = "josh";
     repo = "restic-exporter";
@@ -31,11 +36,6 @@ buildGoModule (finalAttrs: {
 
   nativeCheckInputs = [
     restic
-  ];
-
-  outputs = [
-    "out"
-    "grafana"
   ];
 
   postInstall = ''
@@ -61,6 +61,16 @@ buildGoModule (finalAttrs: {
           restic-exporter --help
           touch $out
         '';
+
+    restic-path = runCommand "test-prometheus-restic-exporter-restic-path" { } ''
+      grep --text --quiet "${lib.getExe restic}" "${lib.getExe finalAttrs.finalPackage}"
+      touch $out
+    '';
+
+    restic-version = runCommand "test-prometheus-restic-exporter-restic-version" { } ''
+      grep --text --quiet "${restic.version}" "${lib.getExe finalAttrs.finalPackage}"
+      touch $out
+    '';
   };
 
   meta = {
