@@ -10,7 +10,7 @@ buildGoModule rec {
   inherit (source) pname src;
   version = lib.removePrefix "v" source.version;
 
-  vendorHash = "sha256-lERAJk7yzjI5yjXQmXL6iRv3C6yZgfCKkDaLjrnId0o=";
+  vendorHash = "sha256-OwbE1gz2Kc/bbobk2sDeyWmdweGJvOrDJWVsszKxYrk=";
 
   subPackages = ["cmd/server"];
 
@@ -60,7 +60,7 @@ buildGoModule rec {
   '';
 
   meta = {
-    description = "Proxy server providing OpenAI, Gemini, Claude, Codex, and Grok compatible APIs for AI CLIs";
+    description = "CCS-maintained fork of CLIProxyAPIPlus (MIT snapshot, Apr 2026) with daily auto-sync from router-for-me/CLIProxyAPI. See plans for context";
     homepage = "https://github.com/kaitranntt/CLIProxyAPIPlus";
     changelog = "https://github.com/kaitranntt/CLIProxyAPIPlus/releases/tag/v${version}";
     license = lib.licenses.mit;
