@@ -16,19 +16,22 @@ let
 in
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "iterm2-shell-integration";
-  version = "0-unstable-2026-07-17";
+  version = "0-unstable-2026-07-29";
+
+  __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "gnachman";
     repo = "iTerm2-shell-integration";
-    rev = "a34730dbd2d77f5a4b64205eb83c1b483307d707";
-    hash = "sha256-OH0wwer20UpIvPW1tyNC+VKzapUUvl6gjYflBh582SU=";
+    rev = "195281b1557531acc61af5f0bce56ecb6b3fe293";
+    hash = "sha256-x2+5pCz/QOg8Lbuykn7gRJeQ2mhWEupWb16/bNnNxAw=";
   };
-
-  __structuredAttrs = true;
 
   nativeBuildInputs = [
     makeWrapper
+  ];
+
+  buildInputs = [
     bash
     perl
     venv
@@ -48,7 +51,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   buildCommand = ''
     mkdir -p $out/bin
     cp -r $src/utilities/* $out/bin/
-    patchShebangs $out/bin
+    patchShebangs --host $out/bin
     for bin in $out/bin/*; do
       wrapProgram "$bin" "''${makeWrapperArgs[@]}"
     done

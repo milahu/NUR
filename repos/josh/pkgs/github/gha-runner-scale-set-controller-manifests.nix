@@ -8,9 +8,10 @@
 stdenvNoCC.mkDerivation {
   pname = "gha-runner-scale-set-controller-manifests";
   inherit (nur.repos.josh.gha-runner-scale-set-controller-chart) version;
-  src = nur.repos.josh.gha-runner-scale-set-controller-chart;
 
   __structuredAttrs = true;
+
+  src = nur.repos.josh.gha-runner-scale-set-controller-chart;
 
   nativeBuildInputs = [
     kubernetes-helm
@@ -39,7 +40,7 @@ stdenvNoCC.mkDerivation {
   meta = {
     description = "Actions Runner Controller - Kubernetes controller for GitHub Actions self-hosted runners";
     homepage = "https://github.com/actions/actions-runner-controller";
-    license = lib.licenses.mit;
+    license = lib.licenses.asl20;
     platforms = lib.platforms.all;
   };
 }

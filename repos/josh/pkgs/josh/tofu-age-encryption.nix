@@ -53,7 +53,7 @@ buildGoModule (finalAttrs: {
       };
 
       age-path = runCommand "test-tofu-age-encryption-age-path" { } ''
-        grep --text --quiet "${lib.strings.makeBinPath finalAttrs.agePlugins}" "${lib.getExe tofu-age-encryption}"
+        grep --text --quiet "${lib.strings.makeBinPath finalAttrs.agePlugins}" "${lib.meta.getExe tofu-age-encryption}"
         touch $out
       '';
     };
@@ -62,8 +62,8 @@ buildGoModule (finalAttrs: {
     description = "Encrypt OpenTofu state data with age encryption keys";
     homepage = "https://github.com/josh/tofu-age-encryption";
     license = lib.licenses.mit;
-    platforms = lib.platforms.all;
     mainProgram = "tofu-age-encryption";
+    platforms = lib.platforms.all;
     broken = lib.strings.versionOlder opentofu.version "1.10.0";
   };
 })

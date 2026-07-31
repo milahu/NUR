@@ -30,6 +30,8 @@ python3Packages.buildPythonApplication (finalAttrs: {
     pyyaml
   ];
 
+  pythonImportsCheck = [ "gh_audit" ];
+
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
 
   passthru.tests = {
@@ -54,7 +56,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
     description = "Personal GitHub repository meta linting tool for consistent configuration";
     homepage = "https://github.com/josh/gh-audit";
     license = lib.licenses.mit;
-    platforms = lib.platforms.all;
     mainProgram = "gh-audit";
+    platforms = lib.platforms.all;
   };
 })

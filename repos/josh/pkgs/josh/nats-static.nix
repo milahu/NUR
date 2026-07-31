@@ -18,6 +18,7 @@ buildGoModule (finalAttrs: {
 
   vendorHash = "sha256-sgodlK/gsDWCyL6/f0ArqFr53cV2eig0tOLFbdzNcYk=";
 
+  env.CGO_ENABLED = 0;
   ldflags = [
     "-s"
     "-w"
@@ -37,7 +38,7 @@ buildGoModule (finalAttrs: {
     description = "Serve static files from a NATS JetStream object store over HTTP";
     homepage = "https://github.com/josh/nats-static";
     license = lib.licenses.mit;
-    platforms = lib.platforms.all;
     mainProgram = "nats-static";
+    platforms = lib.platforms.all;
   };
 })

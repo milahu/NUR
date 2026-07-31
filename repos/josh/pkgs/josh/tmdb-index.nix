@@ -30,6 +30,8 @@ python3Packages.buildPythonApplication (finalAttrs: {
     tqdm
   ];
 
+  pythonImportsCheck = [ "tmdb_index" ];
+
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
 
   passthru.tests = {
@@ -51,8 +53,8 @@ python3Packages.buildPythonApplication (finalAttrs: {
     description = "Compact TMDB external ID index";
     homepage = "https://github.com/josh/tmdb-index";
     license = lib.licenses.mit;
-    platforms = lib.platforms.all;
     mainProgram = "tmdb-index";
-    broken = lib.strings.versionOlder python3Packages.polars.version "1.30";
+    platforms = lib.platforms.all;
+    broken = lib.strings.versionOlder nur.repos.josh.polars.version "1.30";
   };
 })

@@ -29,6 +29,8 @@ python3Packages.buildPythonApplication (finalAttrs: {
     nur.repos.josh.polars
   ];
 
+  pythonImportsCheck = [ "imdb_plex_sync" ];
+
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=stable" ]; };
 
   passthru.tests = {
@@ -50,7 +52,8 @@ python3Packages.buildPythonApplication (finalAttrs: {
     description = "Sync IMDb watchlist to Plex watchlist";
     homepage = "https://github.com/josh/imdb-plex-sync";
     license = lib.licenses.mit;
-    platforms = lib.platforms.all;
     mainProgram = "imdb-plex-sync";
+    platforms = lib.platforms.all;
+    broken = lib.strings.versionOlder nur.repos.josh.polars.version "1.30";
   };
 })

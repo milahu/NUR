@@ -3,12 +3,12 @@
   python3Packages,
   fetchFromGitHub,
   nur,
-  runCommand,
   nix-update-script,
+  runCommand,
 }:
 python3Packages.buildPythonApplication (finalAttrs: {
   pname = "trakt-plex-sync";
-  version = "0.2.0-unstable-2026-07-23";
+  version = "0.2.0-unstable-2026-07-30";
 
   pyproject = true;
   __structuredAttrs = true;
@@ -16,8 +16,8 @@ python3Packages.buildPythonApplication (finalAttrs: {
   src = fetchFromGitHub {
     owner = "josh";
     repo = "trakt-plex-sync";
-    rev = "10019ab745f5a5c085909b843bb8bd049d498639";
-    hash = "sha256-h4v4q8oOjto54ztE5HBExrQ1hTXw4az0MewWdpjg8Pg=";
+    rev = "b86b8a3fefc5eda8aba7836b46ba1991d6a9a0c8";
+    hash = "sha256-UsPqjDHtba6fkLWl5Kf7fSpYsM6lBsTyPqCDXeQGycs=";
   };
 
   build-system = with python3Packages; [
@@ -27,7 +27,6 @@ python3Packages.buildPythonApplication (finalAttrs: {
   dependencies = with python3Packages; [
     nur.repos.josh.python3-lru-cache
     plexapi
-    requests
   ];
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
@@ -54,7 +53,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
     description = "Sync Trakt history to Plex library";
     homepage = "https://github.com/josh/trakt-plex-sync";
     license = lib.licenses.mit;
-    platforms = lib.platforms.all;
     mainProgram = "trakt-plex-sync";
+    platforms = lib.platforms.all;
   };
 })

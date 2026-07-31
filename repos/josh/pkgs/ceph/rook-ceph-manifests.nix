@@ -8,9 +8,10 @@
 stdenvNoCC.mkDerivation {
   pname = "rook-ceph-manifests";
   inherit (nur.repos.josh.rook-ceph-chart) version;
-  src = nur.repos.josh.rook-ceph-chart;
 
   __structuredAttrs = true;
+
+  src = nur.repos.josh.rook-ceph-chart;
 
   nativeBuildInputs = [
     kubernetes-helm
@@ -39,7 +40,7 @@ stdenvNoCC.mkDerivation {
   meta = {
     description = "Rook-Ceph Operator - Storage Orchestration for Kubernetes";
     homepage = "https://github.com/rook/rook";
-    license = lib.licenses.mit;
+    license = lib.licenses.asl20;
     platforms = lib.platforms.all;
   };
 }

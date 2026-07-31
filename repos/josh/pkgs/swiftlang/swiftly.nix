@@ -34,18 +34,22 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   __structuredAttrs = true;
 
   src = sources.${stdenvNoCC.hostPlatform.system};
+
   dontUnpack = true;
+
   nativeBuildInputs = [
     autoPatchelfHook
   ];
+
   buildInputs = [
     stdenv.cc.cc.lib
     zlib
   ];
+
   installPhase = ''
     runHook preInstall
 
-    mkdir -p "$out/bin" "$out/share/swiftly"
+    mkdir -p "$out/bin"
     cp "$src" "$out/bin/swiftly"
     chmod +x "$out/bin/swiftly"
 
@@ -71,7 +75,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   };
 
   meta = {
-    description = "A Swift toolchain installer and manager, written in Swift";
+    description = "Swift toolchain installer and manager, written in Swift";
     longDescription = ''
       swiftly is a CLI tool for installing, managing, and switching between Swift toolchains, written in Swift.
     '';

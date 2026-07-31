@@ -2,9 +2,9 @@
   lib,
   stdenvNoCC,
   fetchFromGitHub,
+  yq,
   nix-update-script,
   runCommand,
-  yq,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "external-snapshotter-manifests";
@@ -40,7 +40,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
           nativeBuildInputs = [ yq ];
         }
         ''
-          find ${finalAttrs.finalPackage} -name '*.yaml' -exec yq -r '.kind? // empty' {} + | grep -q .
+          find ${finalAttrs.finalPackage} -name '*.yaml' -exec yq -r '.kind? // empty' {} + >kinds.txt
+          grep -q . kinds.txt
           touch $out
         '';
   };

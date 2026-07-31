@@ -7,7 +7,7 @@
 }:
 python3Packages.buildPythonApplication (finalAttrs: {
   pname = "trakt-data";
-  version = "0-unstable-2026-07-22";
+  version = "0-unstable-2026-07-30";
 
   pyproject = true;
   __structuredAttrs = true;
@@ -15,8 +15,8 @@ python3Packages.buildPythonApplication (finalAttrs: {
   src = fetchFromGitHub {
     owner = "josh";
     repo = "trakt-data";
-    rev = "4291cef480d203b8b7362854a3f0a4d2bf4515a2";
-    hash = "sha256-7JHG8ofwgsREA2hxBEqvS9z0SCs9mKwqS5mQKbNtxeI=";
+    rev = "72b6b209b45790c448acec607b28c276f912fa90";
+    hash = "sha256-cjr5Q6teFWVscEXK44yXcHM2xMvM11/Y9ccgL3qXEAk=";
   };
 
   build-system = with python3Packages; [
@@ -28,6 +28,8 @@ python3Packages.buildPythonApplication (finalAttrs: {
     prometheus-client
     requests
   ];
+
+  pythonImportsCheck = [ "trakt_data" ];
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
 
@@ -59,7 +61,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
     description = "Export Trakt data";
     homepage = "https://github.com/josh/trakt-data";
     license = lib.licenses.mit;
-    platforms = lib.platforms.all;
     mainProgram = "trakt-data";
+    platforms = lib.platforms.all;
   };
 })

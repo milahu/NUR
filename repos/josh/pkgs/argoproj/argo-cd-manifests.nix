@@ -2,9 +2,9 @@
   lib,
   stdenvNoCC,
   fetchFromGitHub,
+  yq,
   nix-update-script,
   runCommand,
-  yq,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "argo-cd-manifests";
@@ -34,8 +34,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
           nativeBuildInputs = [ yq ];
         }
         ''
-          yq -r '.kind? // empty' ${finalAttrs.finalPackage}/install.yaml | grep -q .
-          yq -r '.kind? // empty' ${finalAttrs.finalPackage}/namespace-install.yaml | grep -q .
+          yq -r '.kind? // empty' ${finalAttrs.finalPackage}/install.yaml >kinds.txt
+          grep -q . kinds.txt
+          yq -r '.kind? // empty' ${finalAttrs.finalPackage}/namespace-install.yaml >kinds.txt
+          grep -q . kinds.txt
           touch $out
         '';
   };

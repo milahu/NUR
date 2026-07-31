@@ -23,6 +23,8 @@ python3Packages.buildPythonApplication (finalAttrs: {
     hatchling
   ];
 
+  pythonImportsCheck = [ "gametrack_data" ];
+
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=stable" ]; };
 
   passthru.tests = {
@@ -44,7 +46,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
     description = "Export GameTrack data to CSV";
     homepage = "https://github.com/josh/gametrack-data";
     license = lib.licenses.mit;
-    platforms = lib.platforms.darwin;
     mainProgram = "gametrack-data";
+    platforms = lib.platforms.darwin;
   };
 })
