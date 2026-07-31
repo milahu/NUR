@@ -1,10 +1,10 @@
 error:
 … while evaluating the attribute 'jetbrains_idea-oss'
-  at ./packages.nix:35:19:
-    34|                   inherit name;
-    35|                   value = self.callPackage (subdir + "/${name}/package.nix") { };
+  at ./packages.nix:30:19:
+    29|                   inherit name;
+    30|                   value = self.callPackage (subdir + "/${name}/package.nix") { };
       |                   ^
-    36|                 })
+    31|                 })
 
 … while evaluating the 'name' attribute of a derivation
 
