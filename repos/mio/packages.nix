@@ -2,20 +2,15 @@
 
 {
   pkgs ? import <nixpkgs> {
-    #config.permittedInsecurePackages = [
-    #  "qtwebengine-5.15.19"
-    #];
     config.allowUnfree = true;
   },
-  nurbot ? true,
+  no-ifd ? true,
 }:
 with (import ./private.nix { inherit pkgs; });
 let
-  nonurbot = x: if nurbot then null else x;
+  nonurbot = x: if no-ifd then null else x;
   callPackage = pkgs.callPackage;
   lib = pkgs.lib // import ./lib { inherit pkgs; };
-  stdenv = pkgs.stdenv;
-  fetchFromGitHub = pkgs.fetchFromGitHub;
   byName = lib.makeScope pkgs.newScope (
     self:
     let
@@ -52,7 +47,6 @@ byName
 // (with byName; rec {
   wireguird = goV3OverrideAttrs (pkgs.callPackage ./pkgs/wireguird { });
   graphene-hardened-malloc = v3overrideAttrs pkgs.graphene-hardened-malloc;
-  jetbrains_idea-oss = (pkgs.callPackage ./pkgs/jetbrains_idea-oss { }).idea-oss;
 
   # https://github.com/a1ive/grub — a1ive's GRUB fork with mouse/touchscreen support
   # (efi_mouse + ps2mouse modules). Archived upstream but buildable.
@@ -273,9 +267,12 @@ byName
   });
 
 })
-// (lib.optionalAttrs (!nurbot) (
+// (lib.optionalAttrs (!no-ifd) (
   with byName;
   rec {
+
+    jetbrains_idea-oss = pkgs.callPackage ./pkgs/jetbrains_idea-oss/package.nix {
+    };
 
     supertuxkart-evolution = v3override (
       pkgs.callPackage ./pkgs/supertuxkart-evolution/default.nix { }

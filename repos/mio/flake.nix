@@ -2,7 +2,8 @@
   description = "My personal NUR repository";
   #inputs.nixpkgs.url = "github:NixOS/nixpkgs/master";
   #inputs.nixpkgs.url = "github:NixOS/nixpkgs/a98f368960a921d4fdc048e3a2401d12739bc1f9";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  #inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  inputs.nixpkgs.url = "https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz";
   #inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
   outputs =
     { self, nixpkgs }:
@@ -15,12 +16,9 @@
         import ./default.nix {
           pkgs = import nixpkgs {
             inherit system;
-            #config.permittedInsecurePackages = [
-            #  "qtwebengine-5.15.19"
-            #];
             config.allowUnfree = true;
           };
-          nurbot = false;
+          no-ifd = false;
         }
       );
       packages = forAllSystems (
