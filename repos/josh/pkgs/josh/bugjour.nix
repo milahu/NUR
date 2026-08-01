@@ -2,9 +2,10 @@
   lib,
   buildGoModule,
   fetchFromGitHub,
-  nix-update-script,
   runCommand,
 }:
+# Upstream was archived 2025-12-23; no update script, bump manually if ever
+# needed
 buildGoModule (finalAttrs: {
   pname = "bugjour";
   version = "0.1.1";
@@ -24,8 +25,6 @@ buildGoModule (finalAttrs: {
     "-w"
   ];
 
-  passthru.updateScript = nix-update-script { extraArgs = [ "--version=stable" ]; };
-
   passthru.tests = {
     help =
       runCommand "test-bugjour-help"
@@ -44,6 +43,5 @@ buildGoModule (finalAttrs: {
     homepage = "https://github.com/josh/bugjour";
     license = lib.licenses.mit;
     mainProgram = "bugjour";
-    platforms = lib.platforms.all;
   };
 })

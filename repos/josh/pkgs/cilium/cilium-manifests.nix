@@ -4,8 +4,9 @@
   nur,
   kubernetes-helm,
   yq,
+  runCommand,
 }:
-stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "cilium-manifests";
   inherit (nur.repos.josh.cilium-chart) version;
 
@@ -26,6 +27,8 @@ stdenvNoCC.mkDerivation {
   buildPhase = ''
     runHook preBuild
     export HELM_CACHE_HOME=$TMPDIR/cache
+    export HELM_CONFIG_HOME=$TMPDIR/config
+    export HELM_DATA_HOME=$TMPDIR/data
     yq --yaml-output '.helmValues' "$NIX_ATTRS_JSON_FILE" >values.yaml
     if [ -n "$helmOutputDir" ]; then
       helm template "$helmChartName" "$src" --output-dir . --values values.yaml "''${helmArgs[@]}"
@@ -39,12 +42,26 @@ stdenvNoCC.mkDerivation {
     runHook preInstall
     if [ -n "$helmOutputDir" ]; then
       mkdir -p $out
-      cp -R ./"$helmChartName"/* $out
+      cp -R ./"$helmChartName"/. $out/
     else
       cp manifests.yaml $out
     fi
     runHook postInstall
   '';
+
+  passthru.tests = {
+    parse =
+      runCommand "test-cilium-manifests-parse"
+        {
+          __structuredAttrs = true;
+          nativeBuildInputs = [ yq ];
+        }
+        ''
+          find ${finalAttrs.finalPackage} \( -name '*.yaml' -o -name '*.yml' \) -exec yq -r '.kind? // empty' {} + >kinds.txt
+          grep -q . kinds.txt
+          touch $out
+        '';
+  };
 
   meta = {
     description = "Kubernetes manifests for Cilium, eBPF-based networking, observability, and security";
@@ -52,4 +69,4 @@ stdenvNoCC.mkDerivation {
     license = lib.licenses.asl20;
     platforms = lib.platforms.all;
   };
-}
+})

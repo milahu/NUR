@@ -4,8 +4,9 @@
   nur,
   kubernetes-helm,
   yq,
+  runCommand,
 }:
-stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "external-secrets-manifests";
   inherit (nur.repos.josh.external-secrets-chart) version;
 
@@ -25,6 +26,8 @@ stdenvNoCC.mkDerivation {
   buildPhase = ''
     runHook preBuild
     export HELM_CACHE_HOME=$TMPDIR/cache
+    export HELM_CONFIG_HOME=$TMPDIR/config
+    export HELM_DATA_HOME=$TMPDIR/data
     yq --yaml-output '.helmValues' "$NIX_ATTRS_JSON_FILE" >values.yaml
     helm template "$helmChartName" "$src" --output-dir . --values values.yaml "''${helmArgs[@]}"
     runHook postBuild
@@ -33,14 +36,28 @@ stdenvNoCC.mkDerivation {
   installPhase = ''
     runHook preInstall
     mkdir -p $out
-    cp -R ./"$helmChartName"/* $out
+    cp -R ./"$helmChartName"/. $out/
     runHook postInstall
   '';
 
+  passthru.tests = {
+    parse =
+      runCommand "test-external-secrets-manifests-parse"
+        {
+          __structuredAttrs = true;
+          nativeBuildInputs = [ yq ];
+        }
+        ''
+          find ${finalAttrs.finalPackage} \( -name '*.yaml' -o -name '*.yml' \) -exec yq -r '.kind? // empty' {} + >kinds.txt
+          grep -q . kinds.txt
+          touch $out
+        '';
+  };
+
   meta = {
-    description = "External Secrets Operator - Integrates external secret management systems with Kubernetes";
+    description = "Kubernetes manifests for the External Secrets Operator, integrating external secret management systems with Kubernetes";
     homepage = "https://github.com/external-secrets/external-secrets";
     license = lib.licenses.asl20;
     platforms = lib.platforms.all;
   };
-}
+})

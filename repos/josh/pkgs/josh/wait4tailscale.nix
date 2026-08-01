@@ -1,5 +1,6 @@
 {
   lib,
+  stdenv,
   buildGoModule,
   fetchFromGitHub,
   coreutils,
@@ -26,7 +27,7 @@ buildGoModule (finalAttrs: {
     "-X main.Version=${finalAttrs.version}"
   ];
 
-  postInstall = ''
+  postInstall = lib.strings.optionalString stdenv.hostPlatform.isLinux ''
     substituteInPlace ./systemd/*.service \
       --replace-fail /usr/bin/wait4tailscale $out/bin/wait4tailscale \
       --replace-fail /usr/bin/rm ${coreutils}/bin/rm
@@ -50,6 +51,5 @@ buildGoModule (finalAttrs: {
     homepage = "https://github.com/josh/wait4tailscale";
     license = lib.licenses.mit;
     mainProgram = "wait4tailscale";
-    platforms = lib.platforms.all;
   };
 })

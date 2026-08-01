@@ -1,5 +1,6 @@
 {
   lib,
+  stdenv,
   buildGoModule,
   fetchFromGitHub,
   nix-update-script,
@@ -26,7 +27,7 @@ buildGoModule (finalAttrs: {
     "-X main.Version=${finalAttrs.version}"
   ];
 
-  postInstall = ''
+  postInstall = lib.strings.optionalString stdenv.hostPlatform.isLinux ''
     substituteInPlace ./systemd/*.service --replace-fail /usr/bin/github_exporter $out/bin/github_exporter
     install -D --mode=0444 --target-directory $out/lib/systemd/system ./systemd/*
   '';
@@ -53,6 +54,5 @@ buildGoModule (finalAttrs: {
     homepage = "https://github.com/josh/github_exporter";
     license = lib.licenses.mit;
     mainProgram = "github_exporter";
-    platforms = lib.platforms.all;
   };
 })

@@ -44,7 +44,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   };
 
   meta = {
-    description = "Grafana dashboards";
+    description = "Grafana dashboards for Node Exporter and other Prometheus exporters";
     homepage = "https://github.com/rfmoz/grafana-dashboards";
     license = lib.licenses.asl20;
     platforms = lib.platforms.all;

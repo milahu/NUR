@@ -1,5 +1,6 @@
 { lib, nur }:
 nur.repos.josh.fetchhelm {
+  pname = "gitea-actions-chart";
   url = "https://dl.gitea.com/charts/";
   chart = "actions";
   version = "0.1.2";
@@ -12,7 +13,7 @@ nur.repos.josh.fetchhelm {
   };
 
   meta = {
-    description = "Gitea Actions Helm chart for Kubernetes";
+    description = "Helm chart for Gitea Actions runners";
     homepage = "https://gitea.com/gitea/helm-actions";
     license = lib.licenses.mit;
   };

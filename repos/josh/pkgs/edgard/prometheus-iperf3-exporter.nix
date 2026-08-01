@@ -2,6 +2,10 @@
   lib,
   buildGoModule,
   fetchFromGitHub,
+
+  iperf3,
+  makeWrapper,
+
   nix-update-script,
   runCommand,
   testers,
@@ -19,6 +23,8 @@ buildGoModule (finalAttrs: {
 
   vendorHash = "sha256-tA0lx6xOVLw5uZzxYXkAE6IpaW4WjaB25w/AsH4piw8=";
 
+  nativeBuildInputs = [ makeWrapper ];
+
   env.CGO_ENABLED = 0;
   ldflags = [
     "-s"
@@ -26,7 +32,18 @@ buildGoModule (finalAttrs: {
     "-X github.com/prometheus/common/version.Version=${finalAttrs.version}"
   ];
 
-  passthru.updateScript = nix-update-script { extraArgs = [ "--version=stable" ]; };
+  postInstall = ''
+    wrapProgram $out/bin/iperf3_exporter --prefix PATH : ${lib.strings.makeBinPath [ iperf3 ]}
+  '';
+
+  # Upstream switched from v-prefixed to bare numeric tags; the regex pins
+  # the bare scheme so a stray v-tag cannot produce an unfetchable version
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--version=stable"
+      "--version-regex=^([0-9][0-9.]*)$"
+    ];
+  };
 
   passthru.tests = {
     version = testers.testVersion {
@@ -41,13 +58,19 @@ buildGoModule (finalAttrs: {
           iperf3_exporter --help
           touch $out
         '';
+
+    iperf3-path = runCommand "test-prometheus-iperf3-exporter-iperf3-path" { } ''
+      grep --text --quiet "${
+        lib.strings.makeBinPath [ iperf3 ]
+      }" "${lib.meta.getExe finalAttrs.finalPackage}"
+      touch $out
+    '';
   };
 
   meta = {
-    description = "Simple server that probes iPerf3 endpoints and exports results via HTTP for Prometheus consumption";
+    description = "Server that probes iPerf3 endpoints and exports results via HTTP for Prometheus consumption";
     homepage = "https://github.com/edgard/iperf3_exporter";
     license = lib.licenses.asl20;
     mainProgram = "iperf3_exporter";
-    platforms = lib.platforms.all;
   };
 })

@@ -4,14 +4,15 @@
   nur,
   kubernetes-helm,
   yq,
+  runCommand,
 }:
-stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "nats-static-manifests";
-  inherit (nur.repos.josh.nats-static) version;
+  inherit (nur.repos.josh.nats-static-chart) version;
 
   __structuredAttrs = true;
 
-  inherit (nur.repos.josh.nats-static) src;
+  src = nur.repos.josh.nats-static-chart;
 
   nativeBuildInputs = [
     kubernetes-helm
@@ -25,22 +26,38 @@ stdenvNoCC.mkDerivation {
   buildPhase = ''
     runHook preBuild
     export HELM_CACHE_HOME=$TMPDIR/cache
+    export HELM_CONFIG_HOME=$TMPDIR/config
+    export HELM_DATA_HOME=$TMPDIR/data
     yq --yaml-output '.helmValues' "$NIX_ATTRS_JSON_FILE" >values.yaml
-    helm template "$helmChartName" "$src/charts/nats-static" --output-dir . --values values.yaml "''${helmArgs[@]}"
+    helm template "$helmChartName" "$src" --output-dir . --values values.yaml "''${helmArgs[@]}"
     runHook postBuild
   '';
 
   installPhase = ''
     runHook preInstall
     mkdir -p $out
-    cp -R ./"$helmChartName"/* $out
+    cp -R ./"$helmChartName"/. $out/
     runHook postInstall
   '';
 
+  passthru.tests = {
+    parse =
+      runCommand "test-nats-static-manifests-parse"
+        {
+          __structuredAttrs = true;
+          nativeBuildInputs = [ yq ];
+        }
+        ''
+          find ${finalAttrs.finalPackage} \( -name '*.yaml' -o -name '*.yml' \) -exec yq -r '.kind? // empty' {} + >kinds.txt
+          grep -q . kinds.txt
+          touch $out
+        '';
+  };
+
   meta = {
-    description = "Kubernetes manifests for nats-static";
+    description = "Kubernetes manifests for the nats-static file server";
     homepage = "https://github.com/josh/nats-static/tree/main/charts/nats-static";
     license = lib.licenses.mit;
     platforms = lib.platforms.all;
   };
-}
+})

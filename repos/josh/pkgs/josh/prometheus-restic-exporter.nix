@@ -1,8 +1,12 @@
 {
   lib,
+  stdenv,
   buildGoModule,
   fetchFromGitHub,
+
+  jq,
   restic,
+
   nix-update-script,
   runCommand,
   testers,
@@ -38,13 +42,16 @@ buildGoModule (finalAttrs: {
     restic
   ];
 
-  postInstall = ''
-    substituteInPlace ./systemd/*.service --replace-fail /usr/bin/restic-exporter $out/bin/restic-exporter
-    install -D --mode=0444 --target-directory $out/lib/systemd/system ./systemd/*
+  postInstall =
+    lib.strings.optionalString stdenv.hostPlatform.isLinux ''
+      substituteInPlace ./systemd/*.service --replace-fail /usr/bin/restic-exporter $out/bin/restic-exporter
+      install -D --mode=0444 --target-directory $out/lib/systemd/system ./systemd/*
+    ''
+    + ''
 
-    mkdir $grafana
-    cp -R ./grafana/* $grafana/
-  '';
+      mkdir $grafana
+      cp -R ./grafana/* $grafana/
+    '';
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--version=stable" ]; };
 
@@ -66,6 +73,24 @@ buildGoModule (finalAttrs: {
       grep --text --quiet "${lib.meta.getExe restic}" "${lib.meta.getExe finalAttrs.finalPackage}"
       touch $out
     '';
+
+    restic-version = runCommand "test-prometheus-restic-exporter-restic-version" { } ''
+      grep --text --quiet "${restic.version}" "${lib.meta.getExe finalAttrs.finalPackage}"
+      touch $out
+    '';
+
+    grafana-json =
+      runCommand "test-prometheus-restic-exporter-grafana-json"
+        {
+          __structuredAttrs = true;
+          nativeBuildInputs = [ jq ];
+        }
+        ''
+          readarray -t files < <(find ${finalAttrs.finalPackage.grafana} -name '*.json')
+          [ "''${#files[@]}" -gt 0 ]
+          jq --exit-status . "''${files[@]}" >/dev/null
+          touch $out
+        '';
   };
 
   meta = {
@@ -73,6 +98,5 @@ buildGoModule (finalAttrs: {
     homepage = "https://github.com/josh/restic-exporter";
     license = lib.licenses.mit;
     mainProgram = "restic-exporter";
-    platforms = lib.platforms.all;
   };
 })

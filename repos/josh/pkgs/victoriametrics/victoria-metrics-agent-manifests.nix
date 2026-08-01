@@ -4,8 +4,9 @@
   nur,
   kubernetes-helm,
   yq,
+  runCommand,
 }:
-stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "victoria-metrics-agent-manifests";
   inherit (nur.repos.josh.victoria-metrics-agent-chart) version;
 
@@ -29,6 +30,8 @@ stdenvNoCC.mkDerivation {
   buildPhase = ''
     runHook preBuild
     export HELM_CACHE_HOME=$TMPDIR/cache
+    export HELM_CONFIG_HOME=$TMPDIR/config
+    export HELM_DATA_HOME=$TMPDIR/data
     yq --yaml-output '.helmValues' "$NIX_ATTRS_JSON_FILE" >values.yaml
     helm template "$helmChartName" "$src" --output-dir . --values values.yaml "''${helmArgs[@]}"
     runHook postBuild
@@ -37,14 +40,28 @@ stdenvNoCC.mkDerivation {
   installPhase = ''
     runHook preInstall
     mkdir -p $out
-    cp -R ./"$helmChartName"/* $out
+    cp -R ./"$helmChartName"/. $out/
     runHook postInstall
   '';
 
+  passthru.tests = {
+    parse =
+      runCommand "test-victoria-metrics-agent-manifests-parse"
+        {
+          __structuredAttrs = true;
+          nativeBuildInputs = [ yq ];
+        }
+        ''
+          find ${finalAttrs.finalPackage} \( -name '*.yaml' -o -name '*.yml' \) -exec yq -r '.kind? // empty' {} + >kinds.txt
+          grep -q . kinds.txt
+          touch $out
+        '';
+  };
+
   meta = {
-    description = "VictoriaMetrics Agent - collects metrics from various sources and stores them to VictoriaMetrics";
+    description = "Kubernetes manifests for the VictoriaMetrics agent, collecting metrics and forwarding them to VictoriaMetrics";
     homepage = "https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-metrics-agent";
     license = lib.licenses.asl20;
     platforms = lib.platforms.all;
   };
-}
+})
