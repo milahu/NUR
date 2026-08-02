@@ -1,23 +1,23 @@
 {
 "name":"zerozawa",
-"fetch_time":0.665,
-"eval_time":2.602,
+"fetch_time":0.59,
+"eval_time":2.517,
 "source":{
 "url":"https://github.com/lz37/nur",
-"rev":"4cb005f89bfb1ea029db881c27f0d20d493edb8b",
-"sha256":"0srjh4rfxa83a9zgwl9iqk8d9xykd6dwd8x0689m4z680r2k2qjd",
+"rev":"2e6bbedefe8c4d11ad53ed9e988fcf5e95577e23",
+"sha256":"0p5b8jmq8w2hmddxxxmh41pj9qbxcghpwl98pmvgcwd7cqfws2sc",
 "date":null
 },
-"source_storepath":"/nix/store/f6l3jrpgq4qs813lgci222acgb77dh4p-source",
-"nixpkgs_storepath":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source",
-"nur_combined_rev":"9bb3d632750b920307ba8cf3c6b96a73a4020958",
+"source_storepath":"/nix/store/686d5i97rjyrm129va2yjzx2p6x5snb7-source",
+"nixpkgs_storepath":"/nix/store/dz3d9iaf1jjv358nprx80c21x8mzvqdb-source",
+"nur_combined_rev":"07d396b4d0b2c5061645833b92d1672d2a3b5d57",
 "packages":{
 "JMComic-qt":{
-"drvPath":"/nix/store/np2n5wcjaslx33x76dmzzsazwsn2215p-JMComic-qt-1.3.4.drv",
+"drvPath":"/nix/store/g88f41xygxf1xy2zvqfjz39z8cwv9d2c-JMComic-qt-1.3.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"\u7981\u6f2b\u5929\u5802\uff0c18comic\uff0c\u4f7f\u7528qt\u5b9e\u73b0\u7684PC\u5ba2\u6237\u7aef\uff0c\u652f\u6301Windows\uff0cLinux\uff0cMacOS",
+"description":"\u7981\u6f2b\u5929\u5802PC\u5ba2\u6237\u7aef\uff08\u652f\u6301window\u3001Linux\u548cmacOS\uff09\uff0c\u754c\u9762\u4f7f\u7528QT",
 "homepage":"https://github.com/tonquer/JMComic-qt",
 "identifiers":{
 "cpeParts":{
@@ -94,7 +94,7 @@
 },
 "mainProgram":"JMComic-qt",
 "maintainers":[],
-"name":"JMComic-qt-1.3.4",
+"name":"JMComic-qt-1.3.4.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -141,14 +141,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"JMComic-qt-1.3.4",
+"name":"JMComic-qt-1.3.4.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"JMComic-qt",
 "system":"x86_64-linux",
-"version":"1.3.4"
+"version":"1.3.4.1"
 },
 "LoveIwara":{
 "drvPath":"/nix/store/xwx23p1cdg7y3k6ayll8zykmjww610sx-loveiwara-0.5.0.drv",
@@ -156,7 +156,7 @@
 "available":true,
 "broken":false,
 "changelog":"https://github.com/FoxSensei001/LoveIwara/releases/tag/0.5.0",
-"description":"A fast, beautiful, cross-platform third-party Iwara client built with Flutter.",
+"description":"Love Iwara (also known as i_iwara or 2i) is a third-party client for Iwara built with Flutter. It aims to deliver a smooth, native-feeling experience across phones, tablets, and desktops \u2014 all from a single codebase covering Android, Windows, macOS, Linux, and iOS.",
 "homepage":"https://github.com/FoxSensei001/LoveIwara",
 "identifiers":{
 "cpeParts":{
@@ -257,7 +257,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"\u7ed5\u8fc7B\u7ad9\u76f4\u64ad\u59ec\u83b7\u53d6\u63a8\u6d41\u5730\u5740 - Bypass Bilibili LiveHime to get streaming address",
+"description":"Bypass the requirement to use Bilibili\u2019s official \"LiveHime\" client to start streaming.",
 "homepage":"https://github.com/Radekyspec/StartLive",
 "identifiers":{
 "cpeParts":{
@@ -407,7 +407,7 @@
 }
 ],
 "broken":false,
-"description":"Policy engine CLI for AI agents",
+"description":"Policy engine for AI agents.",
 "homepage":"https://github.com/agentralabs/agentic-contract",
 "identifiers":{
 "cpeParts":{
@@ -480,7 +480,7 @@
 "mips64el-linux",
 "riscv32-linux"
 ],
-"position":"./pkgs/agentic-contract.nix:76",
+"position":"./pkgs/agentic-contract.nix:73",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -510,7 +510,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Third-party Bangumi desktop client built with .NET and Avalonia",
+"description":"BangumiNet \u662f\u4e00\u4e2a\u57fa\u4e8e .NET \u4e0e Avalonia \u5f00\u53d1\u7684\u7b2c\u4e09\u65b9 Bangumi \u756a\u7ec4\u8ba1\u5212 \u684c\u9762\u5ba2\u6237\u7aef\uff0c\u652f\u6301 Windows\u3001Linux \u548c MacOS\u3002",
 "homepage":"https://github.com/ajtn123/BangumiNet",
 "identifiers":{
 "cpeParts":{
@@ -689,7 +689,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Pre-indexed code knowledge graph \u2014 semantic code intelligence via MCP",
+"description":"The fastest complete code graph \u00b7 surgical context \u00b7 built for how agents actually work \u00b7 100% local",
 "homepage":"https://github.com/colbymchenry/codegraph",
 "identifiers":{
 "cpeParts":{
@@ -816,7 +816,7 @@
 ],
 "broken":false,
 "changelog":"https://github.com/coe0718/deskbrid/releases/tag/v1.3.0",
-"description":"Linux desktop HAL for AI agents \u2014 one daemon, one socket, every desktop action",
+"description":"The HAL your Linux desktop agents are missing.",
 "homepage":"https://github.com/coe0718/deskbrid",
 "identifiers":{
 "cpeParts":{
@@ -1039,139 +1039,12 @@
 "system":"x86_64-linux",
 "version":"1.0.872"
 },
-"fortune-mod-zh":{
-"drvPath":"/nix/store/mklp3bsqjx6irki4s5l4m0w3hzxiy0qj-fortune-mod-zh-2.98.1.drv",
-"meta":{
-"available":true,
-"broken":false,
-"description":"Debian Chinese Team: fortune-zh",
-"homepage":"https://salsa.debian.org/chinese-team/fortunes-zh",
-"identifiers":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"fortune-mod-zh",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purlParts":{},
-"purls":[],
-"v1":{
-"cpeParts":{
-"edition":"*",
-"language":"*",
-"other":"*",
-"part":"a",
-"product":"fortune-mod-zh",
-"sw_edition":"*",
-"target_hw":"*",
-"target_sw":"*"
-},
-"possibleCPEs":[],
-"purls":[]
-}
-},
-"insecure":false,
-"license":[
-{
-"deprecated":true,
-"free":true,
-"fullName":"GNU Lesser General Public License v3.0",
-"licenseType":"simple",
-"redistributable":true,
-"shortName":"lgpl3",
-"spdxId":"LGPL-3.0",
-"url":"https://spdx.org/licenses/LGPL-3.0.html"
-}
-],
-"maintainers":[],
-"name":"fortune-mod-zh-2.98.1",
-"nonTeamMaintainers":[],
-"outputsToInstall":[
-"out"
-],
-"platforms":[
-"x86_64-linux",
-"aarch64-darwin",
-"aarch64-linux",
-"i686-cygwin",
-"x86_64-cygwin",
-"i686-freebsd",
-"x86_64-freebsd",
-"aarch64-freebsd",
-"x86_64-solaris",
-"arc-linux",
-"armv5tel-linux",
-"armv6l-linux",
-"armv7a-linux",
-"armv7l-linux",
-"i686-linux",
-"loongarch64-linux",
-"m68k-linux",
-"sh4-linux",
-"microblaze-linux",
-"microblazeel-linux",
-"mips-linux",
-"mips64-linux",
-"mips64el-linux",
-"mipsel-linux",
-"powerpc-linux",
-"powerpc64-linux",
-"powerpc64le-linux",
-"riscv32-linux",
-"riscv64-linux",
-"s390-linux",
-"s390x-linux",
-"aarch64-netbsd",
-"armv6l-netbsd",
-"armv7a-netbsd",
-"armv7l-netbsd",
-"i686-netbsd",
-"m68k-netbsd",
-"mipsel-netbsd",
-"powerpc-netbsd",
-"riscv32-netbsd",
-"riscv64-netbsd",
-"x86_64-netbsd",
-"i686-openbsd",
-"x86_64-openbsd",
-"x86_64-redox"
-],
-"position":"./pkgs/fortune-mod-zh.nix:52",
-"problems":{
-"maintainerless":{
-"kind":"maintainerless",
-"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
-}
-},
-"sourceProvenance":[
-{
-"isSource":true,
-"shortName":"fromSource"
-}
-],
-"unfree":false,
-"unsupported":false
-},
-"name":"fortune-mod-zh-2.98.1",
-"outputName":"out",
-"outputs":{
-"out":null
-},
-"pname":"fortune-mod-zh",
-"system":"x86_64-linux",
-"version":"2.98.1"
-},
 "grub-theme-yorha":{
 "drvPath":"/nix/store/gl6pqz6yr92dvw17pbp6b460bc214lxc-grub-theme-yorha-0-unstable-4d9cd37.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"YoRHa GRUB theme packaged as a pure asset copy with selectable resolution",
+"description":"YoRHa GRUB theme",
 "homepage":"https://github.com/OliveThePuffin/yorha-grub-theme",
 "identifiers":{
 "cpeParts":{
@@ -1262,11 +1135,11 @@
 "version":"0-unstable-4d9cd37"
 },
 "lightnovel-crawler":{
-"drvPath":"/nix/store/16niyi081rf1f4jn8a48f899aqgi4d8d-lightnovel-crawler-4.13.1.drv",
+"drvPath":"/nix/store/262d26i7j03f3ffxrrav4bjnck7g27ak-lightnovel-crawler-4.13.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Download lightnovels from various online sources and generate e-books",
+"description":"Lightnovel Crawler downloads web novels and similar fiction from hundreds of online reading sites and saves them as e-books \u2014 so you can read offline on your phone, tablet, or e-reader.",
 "homepage":"https://github.com/lncrawl/lightnovel-crawler",
 "identifiers":{
 "cpeParts":{
@@ -1407,7 +1280,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"Lightweight CLI to interact with MCP servers",
+"description":"A lightweight, Bun-based CLI for interacting with MCP (Model Context Protocol) servers.",
 "homepage":"https://github.com/philschmid/mcp-cli",
 "identifiers":{
 "cpeParts":{
@@ -1461,7 +1334,7 @@
 "platforms":[
 "x86_64-linux"
 ],
-"position":"./pkgs/mcp-cli.nix:92",
+"position":"./pkgs/mcp-cli.nix:91",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -1487,7 +1360,7 @@
 "version":"0.3.0"
 },
 "mihomo-smart":{
-"drvPath":"/nix/store/dbnxk5h8d7paw37wmms047x49qh1s52d-mihomo-smart-0-unstable-f35e876.drv",
+"drvPath":"/nix/store/5x0985jcdzb1kfhhdnvkwgaq0cmn5ajh-mihomo-smart-0-unstable-653d388.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1535,7 +1408,7 @@
 },
 "mainProgram":"mihomo-smart",
 "maintainers":[],
-"name":"mihomo-smart-0-unstable-f35e876",
+"name":"mihomo-smart-0-unstable-653d388",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1637,14 +1510,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"mihomo-smart-0-unstable-f35e876",
+"name":"mihomo-smart-0-unstable-653d388",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"mihomo-smart",
 "system":"x86_64-linux",
-"version":"0-unstable-f35e876"
+"version":"0-unstable-653d388"
 },
 "mikusays":{
 "drvPath":"/nix/store/9h84z4yjd02642g37l2xknav18vnb2fj-mikusays-0.1.4-2.drv",
@@ -1763,11 +1636,11 @@
 "version":"0.1.4-2"
 },
 "oh-my-pi":{
-"drvPath":"/nix/store/gb24yyrvhyaf73kcqbnkm25f1qzb9y45-oh-my-pi-17.2.1.drv",
+"drvPath":"/nix/store/640x77zwcs99qncy2g53lm7n4lhkr0qb-oh-my-pi-17.2.3.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"AI coding agent CLI/TUI with 32 built-in tools, 40+ LLM providers, and sub-agent orchestration",
+"description":"The most capable agent surface that ships. Continuously tuned by real-world use \u2014 complete out of the box, open all the way down.",
 "homepage":"https://github.com/can1357/oh-my-pi",
 "identifiers":{
 "cpeParts":{
@@ -1811,16 +1684,15 @@
 },
 "mainProgram":"omp",
 "maintainers":[],
-"name":"oh-my-pi-17.2.1",
+"name":"oh-my-pi-17.2.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
 ],
 "platforms":[
-"x86_64-linux",
-"aarch64-linux"
+"x86_64-linux"
 ],
-"position":"./pkgs/oh-my-pi/default.nix:338",
+"position":"./pkgs/oh-my-pi/default.nix:348",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -1836,17 +1708,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"oh-my-pi-17.2.1",
+"name":"oh-my-pi-17.2.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"oh-my-pi",
 "system":"x86_64-linux",
-"version":"17.2.1"
+"version":"17.2.3"
 },
 "pctx":{
-"drvPath":"/nix/store/xsn46mfbr23357xhaxlgk0a5cjbj8634-pctx-0.7.3.drv",
+"drvPath":"/nix/store/dj590nr67hf28nbg1qfcwxgix3p7ch35-pctx-0.7.4.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1861,7 +1733,7 @@
 }
 ],
 "broken":false,
-"description":"Execution layer for agentic tool calls and MCP servers",
+"description":"The open source framework to connect AI agents to tools and mcp with Code Mode",
 "homepage":"https://github.com/portofcontext/pctx",
 "identifiers":{
 "cpeParts":{
@@ -1905,7 +1777,7 @@
 },
 "mainProgram":"pctx",
 "maintainers":[],
-"name":"pctx-0.7.3",
+"name":"pctx-0.7.4",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1934,21 +1806,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"pctx-0.7.3",
+"name":"pctx-0.7.4",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"pctx",
 "system":"x86_64-linux",
-"version":"0.7.3"
+"version":"0.7.4"
 },
 "picacg-qt":{
 "drvPath":"/nix/store/d51c4p300ncdl8w7m22q6c3pdkdd4ybp-picacg-qt-1.5.4.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"\u54d4\u5494\u6f2b\u753b\uff0cPicACG comic PC client (Windows, Linux, MacOS)",
+"description":"\u54d4\u5494\u6f2b\u753bPC\u5ba2\u6237\u7aef\uff08\u652f\u6301window\u3001Linux\u548cmacOS\uff09\uff0c\u754c\u9762\u4f7f\u7528QT",
 "homepage":"https://github.com/tonquer/picacg-qt",
 "identifiers":{
 "cpeParts":{
@@ -2188,11 +2060,11 @@
 "version":"2.0.0"
 },
 "spec-kit":{
-"drvPath":"/nix/store/0m52qzc1r7n88kjssdziw6p0r01hqgw4-spec-kit-0.15.0.drv",
+"drvPath":"/nix/store/rc0xclxpfzshyi6xnk524chc1hl4gjja-spec-kit-0.15.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Specify CLI \u2014 toolkit for Spec-Driven Development (SDD) from GitHub",
+"description":"Define what to build before building it \u2014 with any AI coding agent.",
 "homepage":"https://github.com/github/spec-kit",
 "identifiers":{
 "cpeParts":{
@@ -2272,10 +2144,10 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/f6l3jrpgq4qs813lgci222acgb77dh4p-source/pkgs/spec-kit.nix",
+"file":"/nix/store/686d5i97rjyrm129va2yjzx2p6x5snb7-source/pkgs/spec-kit.nix",
 "line":55
 },
-"name":"spec-kit-0.15.0",
+"name":"spec-kit-0.15.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2322,7 +2194,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"spec-kit-0.15.0",
+"name":"spec-kit-0.15.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -2330,14 +2202,14 @@
 },
 "pname":"spec-kit",
 "system":"x86_64-linux",
-"version":"0.15.0"
+"version":"0.15.1"
 },
 "sr-vulkan":{
 "drvPath":"/nix/store/v7zz3qrxac0a6ri45q4hh2d5pb8kzbh0-python3.13-sr-vulkan-2.0.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"A super resolution python tool using Vulkan",
+"description":"This is modified waifu2x-ncnn-vulkan, realsr-ncnn-vulkan realcugan-ncnn-vulkan, Export pyd and so files to Python",
 "homepage":"https://github.com/tonquer/waifu2x-vulkan",
 "identifiers":{
 "cpeParts":{
@@ -3219,6 +3091,166 @@
 "system":"x86_64-linux",
 "version":"1.0.1"
 },
+"truenas-mcp":{
+"drvPath":"/nix/store/42dnrajf5pnr1n8srny6pll7mfkx5acv-truenas-mcp-0.0.6.drv",
+"meta":{
+"available":true,
+"broken":false,
+"description":"A Model Context Protocol (MCP) server for TrueNAS that enables AI models to interact with the TrueNAS API using natural language queries.",
+"homepage":"https://github.com/truenas/truenas-mcp",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"truenas-mcp",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purlParts":{},
+"purls":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"truenas-mcp",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purls":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"GNU General Public License v3.0 only",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"gpl3Only",
+"spdxId":"GPL-3.0-only",
+"url":"https://spdx.org/licenses/GPL-3.0-only.html"
+},
+"mainProgram":"truenas-mcp",
+"maintainers":[],
+"name":"truenas-mcp-0.0.6",
+"nonTeamMaintainers":[],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
+"i686-cygwin",
+"x86_64-cygwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd",
+"aarch64-genode",
+"i686-genode",
+"x86_64-genode",
+"x86_64-solaris",
+"javascript-ghcjs",
+"arc-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"sh4-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"mmix-mmixware",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"aarch64_be-none",
+"aarch64-none",
+"arm-none",
+"armv6l-none",
+"avr-none",
+"i686-none",
+"microblaze-none",
+"microblazeel-none",
+"mips-none",
+"mips64-none",
+"msp430-none",
+"or1k-none",
+"m68k-none",
+"powerpc-none",
+"powerpcle-none",
+"riscv32-none",
+"riscv64-none",
+"rx-none",
+"s390-none",
+"s390x-none",
+"vc4-none",
+"x86_64-none",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox",
+"wasm64-wasip1",
+"wasm32-wasip1",
+"aarch64-windows",
+"x86_64-windows",
+"i686-windows",
+"aarch64-uefi",
+"x86_64-uefi"
+],
+"position":"./pkgs/truenas-mcp.nix:25",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
+"sourceProvenance":[
+{
+"isSource":true,
+"shortName":"fromSource"
+}
+],
+"unfree":false,
+"unsupported":false
+},
+"name":"truenas-mcp-0.0.6",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"truenas-mcp",
+"system":"x86_64-linux",
+"version":"0.0.6"
+},
 "waybar-vd":{
 "drvPath":"/nix/store/h0zsjkaf7zwnqb0150r50vnryn4bs7s4-waybar-vd-0.1.1.drv",
 "meta":{
@@ -3314,11 +3346,11 @@
 "version":"0.1.1"
 },
 "wechat-web-devtools-linux":{
-"drvPath":"/nix/store/7vq1n4dzk5zc0gv63a3fb1c6yp3prdrf-wechat-web-devtools-linux-2.01.2510290-2.drv",
+"drvPath":"/nix/store/vg8d3dyw5lsnjzxzc5m5flxlzpi3r7fm-wechat-web-devtools-linux-2.01.2510290-2.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"msojocs/wechat-web-devtools-linux: \u9002\u7528\u4e8e\u5fae\u4fe1\u5c0f\u7a0b\u5e8f\u7684\u5fae\u4fe1\u5f00\u53d1\u8005\u5de5\u5177 Linux\u79fb\u690d\u7248",
+"description":"\u8fd9\u662f\u5fae\u4fe1\u5f00\u53d1\u8005\u5de5\u5177 Linux\u7248",
 "homepage":"https://github.com/msojocs/wechat-web-devtools-linux",
 "identifiers":{
 "cpeParts":{
@@ -3402,7 +3434,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"A plugin for zsh-syntax-highlighting that turns URLs green if they respond with a \" good \"** status, and red otherwise. Useful for checking URL typos.",
+"description":"A plugin for zsh-syntax-highlighting that turns URLs green if they respond with a \"good\" status, and red otherwise.",
 "homepage":"https://github.com/ascii-soup/zsh-url-highlighter",
 "identifiers":{
 "cpeParts":{

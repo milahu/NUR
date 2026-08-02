@@ -1,19 +1,19 @@
 {
 "name":"hexadecimalDinosaur",
-"fetch_time":0.783,
-"eval_time":2.209,
+"fetch_time":0.47,
+"eval_time":2.364,
 "source":{
 "url":"https://github.com/hexadecimalDinosaur/nur",
-"rev":"63077a6fdcc0773993110be3eeb9d4a206aacf49",
-"sha256":"1d1q6ws7rhznh9bdfknbimfnhvm1ihhsamzskminkzd6zy3w4x8d",
+"rev":"35e0ed424c8328eb3ce33b41c129ccad3c7a003e",
+"sha256":"01w88vdmgkpg6k7l9bmd4zygj12w88pmjl7k1x49jhwpcbq0a01c",
 "date":null
 },
-"source_storepath":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source",
-"nixpkgs_storepath":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source",
-"nur_combined_rev":"a9fabc727703c5e76e4e88d81d73b083201d35bb",
+"source_storepath":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source",
+"nixpkgs_storepath":"/nix/store/dz3d9iaf1jjv358nprx80c21x8mzvqdb-source",
+"nur_combined_rev":"06e97052ce7dbe9efe4ff00009768b1a4117fe60",
 "packages":{
 "android-unpinner":{
-"drvPath":"/nix/store/86mdbkq1bnz0gddvilmv9iq0axgy9q73-python3.13-android-unpinner-202107.1047.drv",
+"drvPath":"/nix/store/hc5h3krg3fk24yg14im2zn258azn2mas-python3.14-android-unpinner-202107.1047.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -51,6 +51,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -74,8 +75,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -105,10 +104,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/android-unpinner/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/android-unpinner/default.nix",
 "line":37
 },
-"name":"python3.13-android-unpinner-202107.1047",
+"name":"python3.14-android-unpinner-202107.1047",
 "nonTeamMaintainers":[
 {
 "email":"dev@ivyfanchiang.ca",
@@ -121,6 +120,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -144,8 +144,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -155,21 +153,22 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/android-unpinner/default.nix:33",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-android-unpinner-202107.1047",
+"name":"python3.14-android-unpinner-202107.1047",
 "outputName":"out",
 "outputs":{
 "dist":null,
 "out":null
 },
-"pname":"python3.13-android-unpinner",
+"pname":"python3.14-android-unpinner",
 "system":"x86_64-linux",
 "version":"202107.1047"
 },
 "endcord":{
-"drvPath":"/nix/store/qqwhvvjis3wm3lchf37vmaq6a6kb8239-endcord-1.4.1.drv",
+"drvPath":"/nix/store/v856gnbh8nz34fjmar5zayx42grqs8c9-endcord-1.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -227,7 +226,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/endcord/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/endcord/default.nix",
 "line":141
 },
 "name":"endcord-1.4.1",
@@ -243,6 +242,7 @@
 "out"
 ],
 "position":"./pkgs/endcord/default.nix:137",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -256,7 +256,7 @@
 "version":"1.4.1"
 },
 "fzf-tab-completion":{
-"drvPath":"/nix/store/v0z7jdsq1jgvhrf3a675lpcam9wmc1sj-fzf-tab-completion-2025-01-20.drv",
+"drvPath":"/nix/store/chb1m9v6y6dc7ayixnhigma54wl6sy6m-fzf-tab-completion-2025-01-20.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -312,7 +312,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/fzf-tab-completion/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/fzf-tab-completion/default.nix",
 "line":49
 },
 "name":"fzf-tab-completion-2025-01-20",
@@ -328,6 +328,7 @@
 "out"
 ],
 "position":"./pkgs/fzf-tab-completion/default.nix:46",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -351,7 +352,7 @@
 "version":"1.48.261"
 },
 "python313Packages.davey":{
-"drvPath":"/nix/store/hvc1id261mgfxwrgx2sz9bkirslydfny-python3.13-davey-0.1.5.drv",
+"drvPath":"/nix/store/f8gzwj9j7vjh4zxvlw6dds4rq8qkz7jj-python3.13-davey-0.1.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -389,6 +390,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -412,8 +414,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -442,7 +442,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/davey/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/davey/default.nix",
 "line":43
 },
 "name":"python3.13-davey-0.1.5",
@@ -458,6 +458,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -481,8 +482,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -492,6 +491,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/davey/default.nix:39",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -506,7 +506,7 @@
 "version":"0.1.5"
 },
 "python313Packages.dearpygui":{
-"drvPath":"/nix/store/lkpbmc279lxk72q6d3nnp5qpmz1qvwkq-python3.13-dearpygui-2.0.0.drv",
+"drvPath":"/nix/store/lnc3y31am0wbybr1m40phxlwsmfjm13c-python3.13-dearpygui-2.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -544,6 +544,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -567,8 +568,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -597,7 +596,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/dearpygui/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/dearpygui/default.nix",
 "line":53
 },
 "name":"python3.13-dearpygui-2.0.0",
@@ -613,6 +612,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -636,8 +636,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -647,6 +645,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/dearpygui/default.nix:49",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -661,7 +660,7 @@
 "version":"2.0.0"
 },
 "python313Packages.django-colorfield":{
-"drvPath":"/nix/store/821i0swvwx0smp9z8h7yl50r2x677xyk-python3.13-django-colorfield-0.14.0.drv",
+"drvPath":"/nix/store/aq9rqxjl2wq86in36lhpj078crxn3pr6-python3.13-django-colorfield-0.14.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -699,6 +698,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -722,8 +722,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -752,7 +750,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/django-colorfield/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/django-colorfield/default.nix",
 "line":54
 },
 "name":"python3.13-django-colorfield-0.14.0",
@@ -768,6 +766,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -791,8 +790,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -802,6 +799,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/django-colorfield/default.nix:50",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -816,7 +814,7 @@
 "version":"0.14.0"
 },
 "python313Packages.doc2dash":{
-"drvPath":"/nix/store/9gbalbjrfk74qv9blg2hpd4hgqlppyv5-python3.13-doc2dash-3.1.0.drv",
+"drvPath":"/nix/store/m4qxv7x9zh3bqnday8dprmmrgy1y1z30-python3.13-doc2dash-3.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -854,6 +852,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -877,8 +876,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -907,7 +904,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/doc2dash/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/doc2dash/default.nix",
 "line":66
 },
 "name":"python3.13-doc2dash-3.1.0",
@@ -923,6 +920,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -946,8 +944,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -957,6 +953,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/doc2dash/default.nix:62",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -971,7 +968,7 @@
 "version":"3.1.0"
 },
 "python313Packages.flask-apscheduler":{
-"drvPath":"/nix/store/kamgifd4aywgca92kj22a1pljxy0vqq2-python3.13-flask-apscheduler-1.13.1.drv",
+"drvPath":"/nix/store/8fxiwwyfdj8a76ix097jzhmgxircfk3x-python3.13-flask-apscheduler-1.13.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1009,6 +1006,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1032,8 +1030,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1062,7 +1058,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/flask-apscheduler/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/flask-apscheduler/default.nix",
 "line":46
 },
 "name":"python3.13-flask-apscheduler-1.13.1",
@@ -1078,6 +1074,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1101,8 +1098,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1112,6 +1107,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/flask-apscheduler/default.nix:42",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1126,7 +1122,7 @@
 "version":"1.13.1"
 },
 "python313Packages.lib3to6":{
-"drvPath":"/nix/store/g3xg3xcp5wfi0c75b0zqavhm94y3h6kn-python3.13-lib3to6-202107.1047.drv",
+"drvPath":"/nix/store/kw1sxh37xaz1d79l3ccbx0znx47z0ifv-python3.13-lib3to6-202107.1047.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1164,6 +1160,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1187,8 +1184,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1218,7 +1213,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/lib3to6/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/lib3to6/default.nix",
 "line":54
 },
 "name":"python3.13-lib3to6-202107.1047",
@@ -1234,6 +1229,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1257,8 +1253,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1268,6 +1262,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/lib3to6/default.nix:50",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1282,7 +1277,7 @@
 "version":"202107.1047"
 },
 "python313Packages.markdown-katex":{
-"drvPath":"/nix/store/ad98r17356igzzj0b7pjp5l45c2xcp9i-python3.13-markdown-katex-202406.1035.drv",
+"drvPath":"/nix/store/5vslccpz4i15l9v4h8bg6jinv41x4rbl-python3.13-markdown-katex-202406.1035.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1320,6 +1315,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1343,8 +1339,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1373,7 +1367,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/markdown-katex/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/markdown-katex/default.nix",
 "line":67
 },
 "name":"python3.13-markdown-katex-202406.1035",
@@ -1389,6 +1383,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1412,8 +1407,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1423,6 +1416,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/markdown-katex/default.nix:63",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1437,7 +1431,7 @@
 "version":"202406.1035"
 },
 "python313Packages.protobuf-inspector":{
-"drvPath":"/nix/store/9czcwm3vdd6q278sm16idbcms8z7339k-python3.13-protobuf-inspector-0.2.0.drv",
+"drvPath":"/nix/store/i02jh38cslw8bf539pphjk1acyjiz6ig-python3.13-protobuf-inspector-0.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1475,6 +1469,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1498,8 +1493,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1528,7 +1521,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/protobuf-inspector/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/protobuf-inspector/default.nix",
 "line":35
 },
 "name":"python3.13-protobuf-inspector-0.2.0",
@@ -1544,6 +1537,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1567,8 +1561,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1578,6 +1570,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/protobuf-inspector/default.nix:31",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1592,11 +1585,11 @@
 "version":"0.2.0"
 },
 "python313Packages.pyinstxtractor-ng":{
-"drvPath":"/nix/store/11h4px5zy7bzs0ngqm7i9saigan2d2qn-python3.13-pyinstxtractor-ng-2025.01.06-unstable.drv",
+"drvPath":"/nix/store/kipkkvx5wrzf76vfwjm45ma6in0hr0bd-python3.13-pyinstxtractor-ng-2026.07.03.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/pyinstxtractor/pyinstxtractor-ng/releases/tag/2025.01.06-unstable",
+"changelog":"https://github.com/pyinstxtractor/pyinstxtractor-ng/releases/tag/2026.07.03",
 "description":"Tool to extract the contents of a Pyinstaller generated executable file",
 "homepage":"https://github.com/pyinstxtractor/pyinstxtractor-ng/",
 "identifiers":{
@@ -1630,6 +1623,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1653,8 +1647,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1684,10 +1676,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/pyinstxtractor-ng/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/pyinstxtractor-ng/default.nix",
 "line":44
 },
-"name":"python3.13-pyinstxtractor-ng-2025.01.06-unstable",
+"name":"python3.13-pyinstxtractor-ng-2026.07.03",
 "nonTeamMaintainers":[
 {
 "email":"dev@ivyfanchiang.ca",
@@ -1700,6 +1692,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1723,8 +1716,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1734,10 +1725,11 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/pyinstxtractor-ng/default.nix:40",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.13-pyinstxtractor-ng-2025.01.06-unstable",
+"name":"python3.13-pyinstxtractor-ng-2026.07.03",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -1745,10 +1737,10 @@
 },
 "pname":"python3.13-pyinstxtractor-ng",
 "system":"x86_64-linux",
-"version":"2025.01.06-unstable"
+"version":"2026.07.03"
 },
 "python313Packages.pylingual":{
-"drvPath":"/nix/store/wgz50fm1a0gv9fayhiw3hdnk8dvr16ch-python3.13-pylingual-0.1.0-2025.08.05.unstable.drv",
+"drvPath":"/nix/store/fd3rr9bm0jwiqqmj86758i93md9csr1d-python3.13-pylingual-0.1.0-2025.08.05.unstable.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1785,6 +1777,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1808,8 +1801,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1839,7 +1830,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/pylingual/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/pylingual/default.nix",
 "line":77
 },
 "name":"python3.13-pylingual-0.1.0-2025.08.05.unstable",
@@ -1855,6 +1846,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1878,8 +1870,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -1889,6 +1879,7 @@
 "aarch64-freebsd"
 ],
 "position":"./pkgs/pylingual/default.nix:74",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -1903,7 +1894,7 @@
 "version":"0.1.0-2025.08.05.unstable"
 },
 "python313Packages.xdis":{
-"drvPath":"/nix/store/gfjn7ryiw9npbn5zs7vaxkr7nyw786r8-python3.13-xdis-6.3.0.drv",
+"drvPath":"/nix/store/lcdk404a2fa3jp0q1iibaxln4zbqc9bl-python3.13-xdis-6.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1941,6 +1932,7 @@
 },
 "insecure":false,
 "isBuildPythonPackage":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -1964,8 +1956,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -2005,7 +1995,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/01nxvrz54zbawyy0nnk8whd3qbazra37-source/pkgs/development/python-modules/xdis/default.nix",
+"file":"/nix/store/dz3d9iaf1jjv358nprx80c21x8mzvqdb-source/pkgs/development/python-modules/xdis/default.nix",
 "line":79
 },
 "name":"python3.13-xdis-6.3.0",
@@ -2032,6 +2022,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2055,8 +2046,6 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"x86_64-darwin",
 "aarch64-darwin",
 "aarch64-windows",
 "x86_64-windows",
@@ -2066,6 +2055,7 @@
 "aarch64-freebsd"
 ],
 "position":"<nixpkgs> + /pkgs/development/python-modules/xdis/default.nix:75",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2170,7 +2160,7 @@
 "version":"10.0.26100.1742"
 },
 "tulip":{
-"drvPath":"/nix/store/sarlp0i5zh6bmv4x30n6zd3cgqx3n1dz-tulip-1.0.1-2025.07.03.unstable.drv",
+"drvPath":"/nix/store/c9p4mf7jl4kl3l4j0xpq6nfrn0d2wj0k-tulip-1.0.1-2025.07.03.unstable.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2227,7 +2217,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/tulip/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/tulip/default.nix",
 "line":26
 },
 "name":"tulip-1.0.1-2025.07.03.unstable",
@@ -2243,6 +2233,7 @@
 "out"
 ],
 "position":"./pkgs/tulip/default.nix:23",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2256,7 +2247,7 @@
 "version":"1.0.1-2025.07.03.unstable"
 },
 "tulip-api":{
-"drvPath":"/nix/store/567j4mgm2w8k3f4az3i0bard3pqhwi50-tulip-api-1.0.1-2025.07.03.unstable.drv",
+"drvPath":"/nix/store/d2rxfwrbk23ra8wsvaawxhj0815si46q-tulip-api-1.0.1-2025.07.03.unstable.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2313,7 +2304,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/tulip-api/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/tulip-api/default.nix",
 "line":53
 },
 "name":"tulip-api-1.0.1-2025.07.03.unstable",
@@ -2329,6 +2320,7 @@
 "out"
 ],
 "position":"./pkgs/tulip-api/default.nix:50",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2342,7 +2334,7 @@
 "version":"1.0.1-2025.07.03.unstable"
 },
 "tulip-assembler":{
-"drvPath":"/nix/store/797d39ggl2rwbf1aj5cb8khg3a1gaqpa-tulip-assembler-1.0.1-2025.07.03.unstable.drv",
+"drvPath":"/nix/store/1dm07ffvrsik220h37123408lkqf51m0-tulip-assembler-1.0.1-2025.07.03.unstable.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2399,7 +2391,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/tulip-assembler/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/tulip-assembler/default.nix",
 "line":52
 },
 "name":"tulip-assembler-1.0.1-2025.07.03.unstable",
@@ -2415,8 +2407,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2440,14 +2432,14 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
 "position":"./pkgs/tulip-assembler/default.nix:49",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2461,7 +2453,7 @@
 "version":"1.0.1-2025.07.03.unstable"
 },
 "tulip-enricher":{
-"drvPath":"/nix/store/48afrxjs273ig265bqmxflwrxn7bqkvz-tulip-enricher-1.0.1-2025.07.03.unstable.drv",
+"drvPath":"/nix/store/4mdzclk36hvd5pia9g3cygy84c5l6gmy-tulip-enricher-1.0.1-2025.07.03.unstable.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2518,7 +2510,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/tulip-enricher/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/tulip-enricher/default.nix",
 "line":38
 },
 "name":"tulip-enricher-1.0.1-2025.07.03.unstable",
@@ -2534,8 +2526,8 @@
 "out"
 ],
 "platforms":[
-"x86_64-darwin",
 "aarch64-darwin",
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -2559,14 +2551,14 @@
 "riscv64-linux",
 "s390-linux",
 "s390x-linux",
-"x86_64-linux",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "i686-freebsd",
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
 "position":"./pkgs/tulip-enricher/default.nix:35",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2580,7 +2572,7 @@
 "version":"1.0.1-2025.07.03.unstable"
 },
 "tulip-flagids":{
-"drvPath":"/nix/store/6l42s2drb4230fh9kkwqicbhsr0njj8m-tulip-flagids-1.0.1-2025.07.03.unstable.drv",
+"drvPath":"/nix/store/iy5xawsmnngqg5c6smnq2d4ggy1b4zgx-tulip-flagids-1.0.1-2025.07.03.unstable.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2637,7 +2629,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/tulip-flagids/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/tulip-flagids/default.nix",
 "line":47
 },
 "name":"tulip-flagids-1.0.1-2025.07.03.unstable",
@@ -2653,6 +2645,7 @@
 "out"
 ],
 "position":"./pkgs/tulip-flagids/default.nix:44",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -2666,7 +2659,7 @@
 "version":"1.0.1-2025.07.03.unstable"
 },
 "tulip-frontend":{
-"drvPath":"/nix/store/bsv6ghvfz0az7qpcl9aw4ly0kx27wsd9-tulip-frontend-1.0.1-2025.07.03.unstable.drv",
+"drvPath":"/nix/store/jrplavvzks55mqvxiciplxgmbvk5l140-tulip-frontend-1.0.1-2025.07.03.unstable.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2722,7 +2715,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/syaxv631g1p0npcx1rdfw7lad48hhhq3-source/pkgs/tulip-frontend/default.nix",
+"file":"/nix/store/kr8an2213h928wjdfywd0d0y6qw5pdb6-source/pkgs/tulip-frontend/default.nix",
 "line":68
 },
 "name":"tulip-frontend-1.0.1-2025.07.03.unstable",
@@ -2738,6 +2731,7 @@
 "out"
 ],
 "position":"./pkgs/tulip-frontend/default.nix:65",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
