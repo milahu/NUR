@@ -17,8 +17,9 @@ Batch-check exported packages for new upstream versions.
 3. Produce a table of current version, latest version, and update status.
 4. Ask for confirmation before editing many packages.
 5. Update packages one by one with build verification.
-6. **Test runtime dependencies**: for each updated package, run the built binary (`result/bin/<name> --help` or equivalent) to catch missing shared library errors. If it crashes on a missing `lib*.so`, add it to `runtimeDeps` / `buildInputs` / `propagatedBuildInputs`, rebuild, and re-test.
-7. Refresh docs if package inventory or behavior changed.
+6. **Check `meta.description` on each touched package**: it must match the upstream project's own one-line pitch. Do NOT write it yourself — open the upstream repo (GitHub/GitLab/other) README and copy the most concise tagline or slogan verbatim from the first line(s). Update the `description` if it drifted or is stale.
+7. **Test runtime dependencies**: for each updated package, run the built binary (`result/bin/<name> --help` or equivalent) to catch missing shared library errors. If it crashes on a missing `lib*.so`, add it to `runtimeDeps` / `buildInputs` / `propagatedBuildInputs`, rebuild, and re-test.
+8. Refresh docs if package inventory or behavior changed.
 
 ## Repo-specific notes
 

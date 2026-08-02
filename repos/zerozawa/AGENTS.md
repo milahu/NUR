@@ -178,6 +178,22 @@ Specific expectations:
 - `.agents/command/*.md` should describe current commands using actual attr names and workflows.
 - `.agents/skill/nix-packaging/SKILL.md` should reflect current repo packaging patterns.
 
+## Package `description` Rule
+
+Every exported package's `meta.description` must match the upstream project's own
+one-line pitch — never write one yourself from memory or from the package code.
+
+When updating a package, and periodically for all packages:
+
+1. Open the upstream repo (GitHub / GitLab / other code platform) README.
+2. Take the first line or first few lines — the project's own tagline/slogan.
+3. Copy the most concise sentence verbatim into `meta.description` (trim trailing
+   punctuation if needed, keep the wording identical).
+4. If the current `description` drifted, is stale, or never matched upstream,
+   replace it with the verbatim upstream line.
+
+Do not paraphrase, translate, or compose descriptions yourself.
+
 ## Common Pitfalls
 
 1. **Documenting from memory instead of code**

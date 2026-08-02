@@ -18,14 +18,14 @@
 }:
 
 let
-  version = "17.2.1";
+  version = "17.2.3";
   pname = "oh-my-pi";
 
   src = fetchFromGitHub {
     owner = "can1357";
     repo = "oh-my-pi";
     rev = "v${version}";
-    hash = "sha256-N0hyTDeNAqhgt4M3jbU3C8rRj+5beEcNCCc1ZKNyAcY=";
+    hash = "sha256-yh6iETM0pMzoW3SzYfx/SrPQiOCbKgcS094DicfO66A=";
   };
 
   # Platform mapping
@@ -57,8 +57,8 @@ let
       export HOME=$TMPDIR
       export BUN_INSTALL_CACHE_DIR=$(mktemp -d)
       bun install \
-        --cpu="*" \
-        --os="*" \
+        --cpu="x64" \
+        --os="linux" \
         --frozen-lockfile \
         --ignore-scripts \
         --no-progress
@@ -74,7 +74,7 @@ let
       runHook postInstall
     '';
 
-    outputHash = "sha256-Cj3QfBjGiO6xUCA3OUQIoNiS4Q/R+TwzbtUNdSo29SI=";
+    outputHash = "sha256-ZqUFCnqjGifhrZyPXu9njXhQMfxgCgbtGkDrIM7bxf4=";
     outputHashAlgo = "sha256";
     outputHashMode = "recursive";
   };
@@ -86,7 +86,7 @@ let
     pname = "${pname}-pi-natives";
     inherit version src;
 
-    cargoHash = "sha256-hoJup9f3tCG39mlsNa5fzdoERPj9Mwk6CFjkzAxRHQQ=";
+    cargoHash = "sha256-GxS2ROf/W5kDzzgbyhbYFd70yEDNzIGsRDqFUCuoa5c=";
 
     nativeBuildInputs = [
       clang
@@ -163,7 +163,6 @@ let
       description = "Native Rust addon for oh-my-pi";
       platforms = [
         "x86_64-linux"
-        "aarch64-linux"
       ];
     };
   };
@@ -259,6 +258,17 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     mkdir -p $out/lib/oh-my-pi/node_modules
     cp -R ${node_modules}/node_modules/. $out/lib/oh-my-pi/node_modules/
     chmod -R u+w $out/lib/oh-my-pi/node_modules
+    # ── Prune musl sharp platform packages ──
+    # `bun install --cpu="*" --os="*"` fetches every platform variant of
+    # sharp, including the musl-libc builds. autoPatchelfHook then resolves
+    # the NEEDED libvips-cpp.so of @img/sharp-linux-x64 to the *musl* copy
+    # (its dir wins the search), rewriting the RUNPATH to the musl libvips.
+    # On glibc hosts that dlopen fails with `libc.musl-x86_64.so.1: cannot
+    # open shared object file`, which breaks any code path that loads sharp
+    # (e.g. the local tiny-title worker → no session titles). Drop the musl
+    # builds so autoPatchelfHook resolves to the glibc libvips instead.
+    rm -rf $out/lib/oh-my-pi/node_modules/@img/sharp-libvips-linuxmusl-* \
+           $out/lib/oh-my-pi/node_modules/@img/sharp-linuxmusl-*
     # ── Deduplicate libonnxruntime.so.1 SONAME ──
     # Multiple onnxruntime-node versions ship libonnxruntime.so.1 with
     # the same SONAME. The dynamic linker loads only the first one
@@ -335,12 +345,11 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   };
 
   meta = {
-    description = "AI coding agent CLI/TUI with 32 built-in tools, 40+ LLM providers, and sub-agent orchestration";
+    description = "The most capable agent surface that ships. Continuously tuned by real-world use — complete out of the box, open all the way down.";
     homepage = "https://github.com/can1357/oh-my-pi";
     license = lib.licenses.mit;
     platforms = [
       "x86_64-linux"
-      "aarch64-linux"
     ];
     mainProgram = "omp";
     sourceProvenance = with lib.sourceTypes; [ fromSource ];

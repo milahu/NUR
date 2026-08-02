@@ -46,13 +46,13 @@ let
 in
 python313Packages.buildPythonApplication rec {
   pname = "JMComic-qt";
-  version = "1.3.4";
+  version = "1.3.4.1";
 
   src = fetchFromGitHub {
     owner = "tonquer";
     repo = "JMComic-qt";
     rev = "v${version}";
-    hash = "sha256:0qq267rz422wffipvaw0hz1dg7qm4k23p7lvgh6wafkcvfghc04g";
+    hash = "sha256-8z8VZ7mzY+1ntdqwFt3DjZZmprgjYgsk/EYow0VJ40E=";
   };
 
   format = "other";
@@ -162,7 +162,7 @@ python313Packages.buildPythonApplication rec {
   doCheck = false;
 
   meta = with lib; {
-    description = "禁漫天堂，18comic，使用qt实现的PC客户端，支持Windows，Linux，MacOS";
+    description = "禁漫天堂PC客户端（支持window、Linux和macOS），界面使用QT";
     homepage = "https://github.com/tonquer/JMComic-qt";
     license = licenses.lgpl3;
     platforms = platforms.linux;

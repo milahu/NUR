@@ -6,7 +6,7 @@
 
 python3Packages.buildPythonApplication rec {
   pname = "spec-kit";
-  version = "0.15.0";
+  version = "0.15.1";
 
   pyproject = true;
 
@@ -14,7 +14,7 @@ python3Packages.buildPythonApplication rec {
     owner = "github";
     repo = "spec-kit";
     rev = "v${version}";
-    hash = "sha256-obe4mBsDHpAKrqQKeD0kcR5znYjY1dYct7r00jSvzj4=";
+    hash = "sha256-YKmSB1mbSYAQSug7IB3ecBTG43XVkRKQymslij9mUjg=";
   };
 
   build-system = with python3Packages; [
@@ -38,7 +38,7 @@ python3Packages.buildPythonApplication rec {
   doCheck = false;
 
   meta = with lib; {
-    description = "Specify CLI — toolkit for Spec-Driven Development (SDD) from GitHub";
+    description = "Define what to build before building it — with any AI coding agent.";
     longDescription = ''
       Spec Kit is GitHub's official toolkit for Spec-Driven Development.
       It flips the traditional script: specifications become executable,
