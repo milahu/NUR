@@ -63,7 +63,7 @@ in
         pkgs.rocmPackages.rocblas
       ]} \
       --set UR_ADAPTERS_FORCE_LOAD ${intelLlvmHip}/lib/libur_adapter_hip.so.0 \
-      --set ONEAPI_DEVICE_SELECTOR hip:*
+      --run 'export ONEAPI_DEVICE_SELECTOR=hip:*'
   '';
 
   passthru = (old.passthru or { }) // {
