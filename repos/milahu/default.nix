@@ -686,6 +686,10 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       securedrop = callPackage ./pkgs/development/python-modules/securedrop { };
 
+      nvgpu = callPackage ./pkgs/development/python-modules/nvgpu { };
+
+      llm-aided-ocr = callPackage ./pkgs/development/python-modules/llm-aided-ocr { };
+
     #}))); # python3.pkgs
 
   #}))); # python3
