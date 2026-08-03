@@ -1,9 +1,0 @@
-error:
-… while querying the derivation named 'fabric-1.14-0.19.2-1.1.1'
-
-error: undefined variable 'toyvo'
-at ./pkgs/fabricServers/derivation.nix:55:43:
-    54|     platforms = platforms.unix;
-    55|     maintainers = with lib.maintainers; [ toyvo ];
-      |                                           ^
-    56|     mainProgram = "minecraft-server";

@@ -1,0 +1,16 @@
+error:
+… while evaluating attribute 'postPatch' of derivation 'invisible-firefox-unwrapped-153.0esr'
+  at ./pkgs/lantian-customized/firefox-unwrapped/default.nix:54:9:
+    53|
+    54|         postPatch = (old.postPatch or "") + ''
+      |         ^
+    55|           # Stealthfox bundled-font persona: ship the Windows core font set from the
+
+… while selecting an attribute
+  at ./pkgs/lantian-customized/firefox-unwrapped/default.nix:11:18:
+    10| let
+    11|   windowsFonts = inputs.chinese-fonts-overlay.packages.${stdenv.hostPlatform.system}.windows-fonts;
+      |                  ^
+    12|   pythonWithFontTools = python3.withPackages (p: [ p.fonttools ]);
+
+error: expected a set but found null: null
