@@ -12,6 +12,7 @@ Ray's personal [NUR](https://github.com/nix-community/NUR) repository
 | `ab-download-manager` | [Usage](pkgs/ab-download-manager/README.md) |
 | `firefoxpwa-xwayland` | [Usage](pkgs/firefoxpwa-xwayland/README.md) |
 | `r-maple-mono-nf-cn` | [Usage](pkgs/r-maple-mono-nf-cn/README.md) |
+| `winboat` | [Usage](pkgs/winboat/README.md) |
 
 ## [NUR](https://github.com/nix-community/NUR)
 
@@ -44,10 +45,7 @@ nix profile install github:so1ve/nur-packages#ab-download-manager
 
 ```nix
 {
-  inputs.so1ve-nur = {
-    url = "github:so1ve/nur-packages";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+  inputs.so1ve.url = "github:so1ve/nur-packages";
 }
 ```
 
