@@ -13,7 +13,6 @@ pub use colors::ChromeColors;
 use crate::palette::{is_dark_appearance, palette_for_appearance, DEFAULT_FONT_SIZE};
 use crate::session::TerminalSession;
 use crate::settings::{load_session, load_settings, Osc52Setting};
-use crate::ssh_config::get_ssh_hosts;
 use gpui::prelude::*;
 use gpui::*;
 use gpui_component::input::{InputEvent, InputState};
@@ -24,7 +23,7 @@ pub struct TerminalTabs {
     pub(crate) active_tab: usize,
     pub(crate) tabs: Vec<Entity<TerminalSession>>,
     pub(crate) show_host_prompt: bool,
-    pub(crate) ssh_hosts: Vec<String>,
+    pub(crate) ssh_hosts: Vec<crate::hosts::HostItem>,
     pub(crate) selected_host_index: usize,
     pub(crate) show_settings: bool,
     pub(crate) show_search: bool,
@@ -59,6 +58,74 @@ impl Focusable for TerminalTabs {
 }
 
 impl TerminalTabs {
+    pub(crate) fn get_available_hosts(tabs: &[Entity<TerminalSession>], cx: &App) -> Vec<crate::hosts::HostItem> {
+        let mut open_hosts = std::collections::HashSet::new();
+        for tab in tabs {
+            if let Some(h) = &tab.read(cx).host {
+                open_hosts.insert(h.clone());
+            } else {
+                open_hosts.insert("localhost".to_string());
+            }
+        }
+        
+        let recent = crate::settings::load_recent_hosts();
+        let ssh_hosts = crate::ssh_config::get_ssh_hosts();
+        
+        let mut final_list = Vec::new();
+        let mut seen = std::collections::HashSet::new();
+        
+        let ssh_set: std::collections::HashSet<_> = ssh_hosts.iter().cloned().collect();
+
+        for h in recent.into_iter() {
+            if seen.insert(h.clone()) {
+                final_list.push(crate::hosts::HostItem {
+                    host: h.clone(),
+                    is_open: open_hosts.contains(&h),
+                    is_recent: true,
+                    is_ssh_config: ssh_set.contains(&h),
+                });
+            }
+        }
+        
+        for h in ssh_hosts.into_iter() {
+            if seen.insert(h.clone()) {
+                final_list.push(crate::hosts::HostItem {
+                    host: h.clone(),
+                    is_open: open_hosts.contains(&h),
+                    is_recent: false,
+                    is_ssh_config: true,
+                });
+            }
+        }
+        
+        for h in open_hosts.into_iter() {
+            if seen.insert(h.clone()) {
+                final_list.push(crate::hosts::HostItem {
+                    host: h,
+                    is_open: true,
+                    is_recent: false,
+                    is_ssh_config: false,
+                });
+            }
+        }
+        
+        final_list
+    }
+
+    pub(crate) fn get_visible_hosts(&self, cx: &App) -> Vec<crate::hosts::HostItem> {
+        let input = self.host_input.read(cx).value().to_string();
+        let is_empty = input.is_empty();
+        let filtered = crate::hosts::filter_hosts(crate::hosts::host_query(&input), &self.ssh_hosts);
+        
+        filtered.into_iter().filter(|h| {
+            if is_empty && h.is_open {
+                false
+            } else {
+                true
+            }
+        }).collect()
+    }
+
     pub fn new(window: &mut Window, cx: &mut Context<Self>) -> Self {
         let settings = load_settings();
         let keep_tab_after_exit = settings.keep_tab_after_exit.unwrap_or(false);
@@ -202,9 +269,9 @@ impl TerminalTabs {
 
         Self {
             active_tab: 0,
+            ssh_hosts: Self::get_available_hosts(&initial_tabs, cx),
             tabs: initial_tabs,
             show_host_prompt: start_prompt,
-            ssh_hosts: get_ssh_hosts(),
             selected_host_index: 0,
             show_settings: false,
             show_search: false,

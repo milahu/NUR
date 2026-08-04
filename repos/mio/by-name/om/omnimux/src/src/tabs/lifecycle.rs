@@ -2,7 +2,6 @@ use super::TerminalTabs;
 use crate::hosts::{host_option, resolve_host};
 use crate::session::TerminalSession;
 use crate::settings::save_session;
-use crate::ssh_config::get_ssh_hosts;
 use gpui::prelude::*;
 use gpui::*;
 use std::time::{Duration, Instant};
@@ -153,7 +152,7 @@ impl TerminalTabs {
             self.active_tab = 0;
             self.show_host_prompt = true;
             self.selected_host_index = 0;
-            self.ssh_hosts = get_ssh_hosts();
+            self.ssh_hosts = Self::get_available_hosts(&self.tabs, cx);
             self.focus_ui = true;
         } else {
             self.active_tab = self.active_tab.min(self.tabs.len().saturating_sub(1));
@@ -166,7 +165,7 @@ impl TerminalTabs {
     pub(crate) fn open_host_prompt(&mut self, window: &mut Window, cx: &mut Context<Self>) {
         self.show_host_prompt = true;
         self.selected_host_index = 0;
-        self.ssh_hosts = get_ssh_hosts();
+        self.ssh_hosts = Self::get_available_hosts(&self.tabs, cx);
         self.host_input.update(cx, |input, cx| {
             input.set_value("", window, cx);
         });
@@ -180,6 +179,7 @@ impl TerminalTabs {
         window: &mut Window,
         cx: &mut Context<Self>,
     ) {
+        crate::settings::add_recent_host(host_opt.as_deref().unwrap_or("localhost"));
         if let Some(ref target_host) = host_opt {
             let mut to_remove = None;
             for (i, tab) in self.tabs.iter().enumerate() {
@@ -209,11 +209,11 @@ impl TerminalTabs {
     }
 
     pub(crate) fn submit_host_prompt(&mut self, window: &mut Window, cx: &mut Context<Self>) {
-        let input = self.host_input.read(cx).value().to_string();
-        let visible = crate::hosts::filter_hosts(crate::hosts::host_query(&input), &self.ssh_hosts);
+        let visible = self.get_visible_hosts(cx);
         let selected = visible
             .get(self.selected_host_index.min(visible.len().saturating_sub(1)))
-            .map(|s| s.as_str());
+            .map(|s| s.host.as_str());
+        let input = self.host_input.read(cx).value().to_string();
         let final_host = resolve_host(&input, selected);
         let host_opt = host_option(&final_host);
         self.open_tab_for_host(host_opt, window, cx);
