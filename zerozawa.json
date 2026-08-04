@@ -1,19 +1,19 @@
 {
 "name":"zerozawa",
-"fetch_time":1.191,
-"eval_time":2.633,
+"fetch_time":0.406,
+"eval_time":2.796,
 "source":{
 "url":"https://github.com/lz37/nur",
-"rev":"22cd1afd0fb0876aa37bc51c9899974e54723a50",
-"sha256":"1ls88fmigd4y6g1f0dijp0mhds3fz141v6jsahaka8ws6d9x94md",
+"rev":"e24c52a059072f7f5200acca13b8cb0385e085b3",
+"sha256":"1rykjsncyck52jvgp8yjfnckdwsddmvrmihnvdhpzplignx2kv4n",
 "date":null
 },
-"source_storepath":"/nix/store/yb62ylkckrgnhqvpv60kr9zvv45ifj64-source",
-"nixpkgs_storepath":"/nix/store/p6wbvbf52ridpawj7wlyi8j2f3zpy3s2-source",
-"nur_combined_rev":"63205f541884db9f92d819719c454f07cbbd2709",
+"source_storepath":"/nix/store/l2yy57818kllpfnz2q879h0i0mnfbnqx-source",
+"nixpkgs_storepath":"/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source",
+"nur_combined_rev":"f90b4f3dd697cb03f15b3db6a02a001d13993d0a",
 "packages":{
 "JMComic-qt":{
-"drvPath":"/nix/store/h4i7pa6ah7bfi5shwazg8xrbxccj7awq-JMComic-qt-1.3.4.1.drv",
+"drvPath":"/nix/store/n3hcywala2x31c7c5rrnnvp69ka62rhw-JMComic-qt-1.3.4.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -151,7 +151,7 @@
 "version":"1.3.4.1"
 },
 "LoveIwara":{
-"drvPath":"/nix/store/w10rjzidig6g6n5xzp6dnsh0n4i8yfpf-loveiwara-0.5.0.drv",
+"drvPath":"/nix/store/szvbmzx1kdr3sb1q7504nn48acnwnay4-loveiwara-0.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -253,7 +253,7 @@
 "version":"0.5.0"
 },
 "StartLive":{
-"drvPath":"/nix/store/xmda1fh0l1982k2dmqr3nri8dl5sasaq-StartLive-1.1.2.drv",
+"drvPath":"/nix/store/kv4wxjpnq0q7prhn8y394n1836vhylpv-StartLive-1.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1135,11 +1135,11 @@
 "version":"0-unstable-4d9cd37"
 },
 "lightnovel-crawler":{
-"drvPath":"/nix/store/b2w4xcd6wy4a88wq6vdbbrv3330q2k7y-lightnovel-crawler-4.13.1.drv",
+"drvPath":"/nix/store/l0f916n2pcfk4nd0sdavv399a5d84zqg-lightnovel-crawler-4.14.0.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"Lightnovel Crawler downloads web novels and similar fiction from hundreds of online reading sites and saves them as e-books \u2014 so you can read offline on your phone, tablet, or e-reader.",
+"description":"Turn a web novel into an e-book with one command \u2014 or run a private server that keeps your whole library downloaded, translated, and readable in the browser.",
 "homepage":"https://github.com/lncrawl/lightnovel-crawler",
 "identifiers":{
 "cpeParts":{
@@ -1218,7 +1218,7 @@
 ],
 "mainProgram":"lncrawl",
 "maintainers":[],
-"name":"lightnovel-crawler-4.13.1",
+"name":"lightnovel-crawler-4.14.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1249,7 +1249,7 @@
 "s390-linux",
 "s390x-linux"
 ],
-"position":"./pkgs/lightnovel-crawler.nix:215",
+"position":"./pkgs/lightnovel-crawler.nix:217",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -1265,7 +1265,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"lightnovel-crawler-4.13.1",
+"name":"lightnovel-crawler-4.14.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -1273,7 +1273,7 @@
 },
 "pname":"lightnovel-crawler",
 "system":"x86_64-linux",
-"version":"4.13.1"
+"version":"4.14.0"
 },
 "mcp-cli":{
 "drvPath":"/nix/store/84b4wk7rhp6ww77yfq4z09f4bjfs4nfl-mcp-cli-0.3.0.drv",
@@ -1360,11 +1360,11 @@
 "version":"0.3.0"
 },
 "mihomo-smart":{
-"drvPath":"/nix/store/2c6z0w3h70qpsv72lsl8irj0h0kjph0m-mihomo-smart-0-unstable-653d388.drv",
+"drvPath":"/nix/store/n5l6c8rrcm6jjhii4hc5in6056nhjhfb-mihomo-smart-0-unstable-629465a.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"A rule-based tunnel in Go with Smart Groups functionality (fork of mihomo)",
+"description":"Another Mihomo Kernel.",
 "homepage":"https://github.com/vernesong/mihomo",
 "identifiers":{
 "cpeParts":{
@@ -1408,7 +1408,7 @@
 },
 "mainProgram":"mihomo-smart",
 "maintainers":[],
-"name":"mihomo-smart-0-unstable-653d388",
+"name":"mihomo-smart-0-unstable-629465a",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1510,14 +1510,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"mihomo-smart-0-unstable-653d388",
+"name":"mihomo-smart-0-unstable-629465a",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"mihomo-smart",
 "system":"x86_64-linux",
-"version":"0-unstable-653d388"
+"version":"0-unstable-629465a"
 },
 "mikusays":{
 "drvPath":"/nix/store/ibc2mwwkc9wcdm8nkkdr91v0x5ndzwac-mikusays-0.1.4-2.drv",
@@ -1636,7 +1636,7 @@
 "version":"0.1.4-2"
 },
 "oh-my-pi":{
-"drvPath":"/nix/store/dmmv4izgfgc62fzzqjkvw2pgg85yxsgn-oh-my-pi-17.2.4.drv",
+"drvPath":"/nix/store/giaqp805s72500n49kna19d6iss1gjn5-oh-my-pi-17.2.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1684,7 +1684,7 @@
 },
 "mainProgram":"omp",
 "maintainers":[],
-"name":"oh-my-pi-17.2.4",
+"name":"oh-my-pi-17.2.6",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -1708,14 +1708,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"oh-my-pi-17.2.4",
+"name":"oh-my-pi-17.2.6",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"oh-my-pi",
 "system":"x86_64-linux",
-"version":"17.2.4"
+"version":"17.2.6"
 },
 "pctx":{
 "drvPath":"/nix/store/d0c3hla0144lqxcp0y3fxjwdpgs5d380-pctx-0.7.4.drv",
@@ -1816,7 +1816,7 @@
 "version":"0.7.4"
 },
 "picacg-qt":{
-"drvPath":"/nix/store/pai516rbj8l67cl8428yrs7168y0crmb-picacg-qt-1.5.4.drv",
+"drvPath":"/nix/store/slhc95svy3zr76yizcy7a9qb1zxdypkq-picacg-qt-1.5.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2144,7 +2144,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/yb62ylkckrgnhqvpv60kr9zvv45ifj64-source/pkgs/spec-kit.nix",
+"file":"/nix/store/l2yy57818kllpfnz2q879h0i0mnfbnqx-source/pkgs/spec-kit.nix",
 "line":55
 },
 "name":"spec-kit-0.15.1",
@@ -3346,7 +3346,7 @@
 "version":"0.1.1"
 },
 "wechat-web-devtools-linux":{
-"drvPath":"/nix/store/dd7my2xsljhg0qym0ph422vmyb8l1imd-wechat-web-devtools-linux-2.01.2510290-2.drv",
+"drvPath":"/nix/store/nimigm95mkqm535hxgbybl4f50qv8s1g-wechat-web-devtools-linux-2.01.2510290-2.drv",
 "meta":{
 "available":true,
 "broken":false,
