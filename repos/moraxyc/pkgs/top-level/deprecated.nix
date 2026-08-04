@@ -4,7 +4,10 @@ let
 
   deprecatedPkgs = {
     # Upstreamed
+    cronet-go = "upstreamed";
     flapalerted = "upstreamed";
+    ghostfolio = "upstreamed";
+    sing-box = "upstreamed";
     sub-store = "upstreamed";
     sub-store-frontend = "upstreamed";
     zsh-patina = "upstreamed";
