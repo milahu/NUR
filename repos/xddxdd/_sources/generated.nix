@@ -173,20 +173,20 @@
   };
   bilibili = {
     pname = "bilibili";
-    version = "v1.17.9-2";
+    version = "v1.18.0-1";
     src = fetchurl {
-      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.17.9-2/bilibili-asar-v1.17.9-2.tar.gz";
-      hash = "sha256-E6GPPXWW4Xgh9iCWFtmzGBD2IcbEtfl1n9UrBgUBix4=";
+      url = "https://github.com/msojocs/bilibili-linux/releases/download/v1.18.0-1/bilibili-asar-v1.18.0-1.tar.gz";
+      hash = "sha256-t0l4R9toyvfZmKKIH/tZlQ5hln/BXR9hH9th1cmMJfk=";
     };
   };
   bilibili-src = {
     pname = "bilibili-src";
-    version = "v1.17.9-2";
+    version = "v1.18.0-1";
     src = fetchFromGitHub {
       owner = "msojocs";
       repo = "bilibili-linux";
-      tag = "v1.17.9-2";
-      hash = "sha256-JDBQvTfVR73vGOtRz1YZEzWQ/AJv+tJGYtrDyU282Rg=";
+      tag = "v1.18.0-1";
+      hash = "sha256-JRXf1C587OWC5aIUfaf8YPjYlnGxGC1KIvzAXZmCtMg=";
     };
   };
   bin-cpuflags-x86 = {
@@ -305,12 +305,12 @@
   };
   cliproxyapi = {
     pname = "cliproxyapi";
-    version = "v7.2.113";
+    version = "v7.2.116";
     src = fetchFromGitHub {
       owner = "router-for-me";
       repo = "CLIProxyAPI";
-      tag = "v7.2.113";
-      hash = "sha256-aget6PRnWkzNy/QAG54qCRjHfTRui3srplM+U73Hlbc=";
+      tag = "v7.2.116";
+      hash = "sha256-qBsvkGmzyY9cFhlLSAPEiHQHmzJYws9TssQ96zM44nk=";
     };
   };
   cockpy = {
@@ -618,12 +618,12 @@
   };
   easycli = {
     pname = "easycli";
-    version = "v0.2.9";
+    version = "v0.2.12";
     src = fetchFromGitHub {
       owner = "router-for-me";
       repo = "EasyCLI";
-      tag = "v0.2.9";
-      hash = "sha256-+MDjEKfhRc57Tpuq8GG/9+5vK9HXSCvncHwKKjYYpss=";
+      tag = "v0.2.12";
+      hash = "sha256-y5UKX4mZif+scew4RVLSYp2bXxoKlCW1qbO9xpUhs9k=";
     };
   };
   edge-tts = {
@@ -822,14 +822,14 @@
   };
   funasr = {
     pname = "funasr";
-    version = "d1007c323068d0c5aaa8e0f198668aaebc1a4fc2";
+    version = "99879903d2dfe9e2c87d411e331c483848b496c9";
     src = fetchFromGitHub {
       owner = "modelscope";
       repo = "FunASR";
-      rev = "d1007c323068d0c5aaa8e0f198668aaebc1a4fc2";
-      hash = "sha256-xV6G36fVnQPfKzQ35RrwPGQGp4m69YXUdyxEdTF9y3Y=";
+      rev = "99879903d2dfe9e2c87d411e331c483848b496c9";
+      hash = "sha256-lUdgTghR2Vuc4S58ArWCiheWK0FRLUd+N4K3zpOeEjE=";
     };
-    date = "2026-07-31";
+    date = "2026-08-04";
   };
   geolite2-asn = {
     pname = "geolite2-asn";
@@ -992,14 +992,14 @@
   };
   i915-sriov-dkms = {
     pname = "i915-sriov-dkms";
-    version = "e3c384c19719afdd8fe480f5e39e2a49763843f6";
+    version = "bef2b42864f5224b85845920554003371b11f3af";
     src = fetchFromGitHub {
       owner = "strongtz";
       repo = "i915-sriov-dkms";
-      rev = "e3c384c19719afdd8fe480f5e39e2a49763843f6";
-      hash = "sha256-pf57l1bxKOSpv930lyXU8ODV3lpDSjp4bM4NUYBtqi8=";
+      rev = "bef2b42864f5224b85845920554003371b11f3af";
+      hash = "sha256-5qw5I2PTJAnhAzKKZ6inSECfXpj5j1m7pg4JmbXiT8o=";
     };
-    date = "2026-07-28";
+    date = "2026-08-02";
   };
   igsc = {
     pname = "igsc";
@@ -1027,16 +1027,6 @@
     src = fetchurl {
       url = "https://github.com/share121/inter-knot/releases/download/v2.16.9+36/inter_knot_linux.zip";
       hash = "sha256-0+rYXM7kS1iHcc/NpHEFKtYDoLKET5XWhmA7Keh71lk=";
-    };
-  };
-  invisible-firefox = {
-    pname = "invisible-firefox";
-    version = "firefox-18";
-    src = fetchFromGitHub {
-      owner = "feder-cr";
-      repo = "firefox_antidetect_patch";
-      tag = "firefox-18";
-      hash = "sha256-f31Djr7aj8/XthYJZ0vSeUBtXYKEw02chKY+qMCTbpE=";
     };
   };
   it-tools = {
@@ -1392,14 +1382,14 @@
   };
   mtkclient = {
     pname = "mtkclient";
-    version = "382fb302f31c442c5c83d4938ee19640d07b3305";
+    version = "0542a8729993000661e2325e838217ee754d1632";
     src = fetchFromGitHub {
       owner = "bkerler";
       repo = "mtkclient";
-      rev = "382fb302f31c442c5c83d4938ee19640d07b3305";
-      hash = "sha256-luTT8yUZDXKdltQVMgj0bnCAFNQoYpGjpP2xRGzGLdY=";
+      rev = "0542a8729993000661e2325e838217ee754d1632";
+      hash = "sha256-sl6u9HbJmUCuAeKhd1qwpceBqa88nekgpTVXvZ6Rd4o=";
     };
-    date = "2026-07-21";
+    date = "2026-08-02";
   };
   n8n-openai-bridge = {
     pname = "n8n-openai-bridge";
@@ -1537,14 +1527,14 @@
   };
   nginx-module-vts = {
     pname = "nginx-module-vts";
-    version = "49608d3d76082d52fc7db34a566222d12e22239c";
+    version = "8c4d5455cd9f961c792e30814f1498498f1418bb";
     src = fetchFromGitHub {
       owner = "vozlt";
       repo = "nginx-module-vts";
-      rev = "49608d3d76082d52fc7db34a566222d12e22239c";
-      hash = "sha256-yq+Dtdoy8m/opWUKp2e5zuIQb1By7enp5yfm+1pTbbU=";
+      rev = "8c4d5455cd9f961c792e30814f1498498f1418bb";
+      hash = "sha256-3OZzvVh83csqPKp5jOxlA908X7FPniF7aYtw0uewUj4=";
     };
-    date = "2026-08-01";
+    date = "2026-08-03";
   };
   nginx-njs = {
     pname = "nginx-njs";
@@ -1828,23 +1818,23 @@
   };
   pterodactyl-wings = {
     pname = "pterodactyl-wings";
-    version = "28af6dd8aea12f50e6ac0c1c7f1153893bb54dc4";
+    version = "981634f42a3d8b8f52acec030c9391746880793a";
     src = fetchFromGitHub {
       owner = "pterodactyl";
       repo = "wings";
-      rev = "28af6dd8aea12f50e6ac0c1c7f1153893bb54dc4";
-      hash = "sha256-rvt5eqpHDxARivgYfGqM/BC3wxvVtx/b3PJVbJh+tac=";
+      rev = "981634f42a3d8b8f52acec030c9391746880793a";
+      hash = "sha256-T7SsKiY/hbzE9cttwMuxvOisHcMXEK9a7mQwGnjL/vk=";
     };
-    date = "2026-07-30";
+    date = "2026-08-03";
   };
   pterodactyl-wings-stable = {
     pname = "pterodactyl-wings-stable";
-    version = "v1.13.1";
+    version = "v1.13.2";
     src = fetchFromGitHub {
       owner = "pterodactyl";
       repo = "wings";
-      tag = "v1.13.1";
-      hash = "sha256-WADZUUaQZiJEcl3IeyH6L8SNJxYvWzsfGdWIYNrdRVs=";
+      tag = "v1.13.2";
+      hash = "sha256-rvt5eqpHDxARivgYfGqM/BC3wxvVtx/b3PJVbJh+tac=";
     };
   };
   pyhss = {
@@ -2096,14 +2086,14 @@
   };
   rime-ice = {
     pname = "rime-ice";
-    version = "8a3d9470c00add3cc93da20aac0c6d4a1ab37895";
+    version = "569ff3bc65dd4aec0a26b33c49c8bbdfa8b5fd57";
     src = fetchFromGitHub {
       owner = "iDvel";
       repo = "rime-ice";
-      rev = "8a3d9470c00add3cc93da20aac0c6d4a1ab37895";
-      hash = "sha256-+C/4Z44+hguaGgA8SShNLs1wKbgVYOFTLkJqGFiOqb8=";
+      rev = "569ff3bc65dd4aec0a26b33c49c8bbdfa8b5fd57";
+      hash = "sha256-U1aof8zSRKMXPDNXIB+LxbeRz5lBTegEG37iaFXS6fY=";
     };
-    date = "2026-07-31";
+    date = "2026-08-02";
   };
   rime-moegirl = {
     pname = "rime-moegirl";
@@ -2154,14 +2144,14 @@
   };
   rtpengine = {
     pname = "rtpengine";
-    version = "b6889883634fa16a5d69d2d6cd9eed0c730d48d0";
+    version = "c2a410d7e96f1ec383b2195776aa3928751342a6";
     src = fetchFromGitHub {
       owner = "sipwise";
       repo = "rtpengine";
-      rev = "b6889883634fa16a5d69d2d6cd9eed0c730d48d0";
-      hash = "sha256-2EYMlZvYqY8h0LLn9TWSHceudrGWYZDs7h/OdeBv7JA=";
+      rev = "c2a410d7e96f1ec383b2195776aa3928751342a6";
+      hash = "sha256-ntRGwnSTanPS1Fmn7Dm8TQi3A/06jCEKh1oWUgnsUqc=";
     };
-    date = "2026-07-31";
+    date = "2026-08-03";
   };
   rtpengine-stable = {
     pname = "rtpengine-stable";
@@ -2185,12 +2175,12 @@
   };
   runpodctl = {
     pname = "runpodctl";
-    version = "v2.8.0";
+    version = "v2.8.1";
     src = fetchFromGitHub {
       owner = "runpod";
       repo = "runpodctl";
-      tag = "v2.8.0";
-      hash = "sha256-ZbqpeXQQA6ulcKn70BqHtYmdUQLsZuSnFd/GqrtWb5w=";
+      tag = "v2.8.1";
+      hash = "sha256-3l0j5CuBT9XfX9LX5zktNMlvTo82reA9f2QlALLm/r8=";
     };
   };
   sam-toki-mouse-cursors = {
