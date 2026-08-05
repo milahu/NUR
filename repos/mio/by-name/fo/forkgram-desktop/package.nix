@@ -30,7 +30,7 @@ telegram-desktop.override {
     meta = old.meta // {
       description = "Forkgram desktop messaging app";
       homepage = "https://github.com/forkgram/tdesktop";
-      mainProgram = "telegram-desktop";
+      mainProgram = "Forkgram";
     };
   });
 }

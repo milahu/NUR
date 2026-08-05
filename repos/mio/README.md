@@ -75,7 +75,7 @@ files are copied from following locations. some are modified in this repo and so
 + wireguird <https://discourse.nixos.org/t/go-version-error-requires-go1-17-or-later/69176/4>
 + shared folder, zfs-impermanence-on-shutdown.nix <https://github.com/chaotic-cx/nyx/commit/39b1da91e4344890e38f406f64e3e0d5731c5e5f>
 + betterbird package — <https://github.com/NixOS/nixpkgs/pull/528210> (PR commit 64438b57119d6895698b2bbf5f7d0479c3f26de8); version/source hashes updated locally since then
-+ buildMozillaMach (`by-name/bu/buildMozillaMach/`) — copied from nixpkgs commit [421eebfd0ec7bccd4abe826ce62d7e6e83129493](https://github.com/NixOS/nixpkgs/tree/421eebfd0ec7bccd4abe826ce62d7e6e83129493/pkgs/build-support/build-mozilla-mach) (`pkgs/build-support/build-mozilla-mach/default.nix` + patches), plus PR #528210 (`finalBinaryName`, `withWasiSysroot`, `extraPreConfigure`) and local Betterbird install-path `finalBinaryName` patch (<https://github.com/mio-19/nurpkgs/commit/20876484d4e71203aaa00519e11ca8b1a4a80861>); re-synced with that nixpkgs commit for `python313`, cbindgen patch, and structured attrs
++ buildMozillaMach (`by-name/bu/buildMozillaMach/`) — copied from nixpkgs commit [a2a125b55a76e59cd23f5784fd0c790206070953](https://github.com/NixOS/nixpkgs/tree/a2a125b55a76e59cd23f5784fd0c790206070953/pkgs/build-support/build-mozilla-mach) (`pkgs/build-support/build-mozilla-mach/default.nix` + patches), plus PR #528210 (`finalBinaryName`, `withWasiSysroot`, `extraPreConfigure`) and local Betterbird install-path `finalBinaryName` patch (<https://github.com/mio-19/nurpkgs/commit/20876484d4e71203aaa00519e11ca8b1a4a80861>)
 + wrapFirefox (`by-name/wr/wrapFirefox/`) — copied from nixpkgs commit [421eebfd0ec7bccd4abe826ce62d7e6e83129493](https://github.com/NixOS/nixpkgs/tree/421eebfd0ec7bccd4abe826ce62d7e6e83129493/pkgs/applications/networking/browsers/firefox/wrapper.nix), plus PR #528210 `isMail` flag (desktop metadata no longer keyed off `libName` prefix `thunderbird`)
 + wrapThunderbird (`by-name/wr/wrapThunderbird/`) — copied from nixpkgs commit [421eebfd0ec7bccd4abe826ce62d7e6e83129493](https://github.com/NixOS/nixpkgs/tree/421eebfd0ec7bccd4abe826ce62d7e6e83129493/pkgs/applications/networking/mailreaders/thunderbird/wrapper.nix), plus PR #528210 `isMail = true`
 + beammp-launcher nixpkgs commit 68990df0529b74cde8b63cd1d5f5f5550e630a0c
@@ -95,12 +95,13 @@ files are copied from following locations. some are modified in this repo and so
 + fdroidcl_git - copied from nixpkgs and updated to <https://github.com/Hoverth/fdroidcl/commit/d870160f16a22836d13f59acdabcd70709c68db6>
 
 
-+ antigravity-cli <https://github.com/numtide/llm-agents.nix/tree/main/packages/antigravity-cli> commit 04df876de28f0684a0d7110444d7f64da5c14d17
-+ antigravity-cli-wrapped: same as above, but with NO_COLOR=1 enforced.
 + versionCheckHomeHook <https://github.com/numtide/llm-agents.nix/tree/main/packages/versionCheckHomeHook> commit 04df876de28f0684a0d7110444d7f64da5c14d17
 + ryubing - copied from nixpkgs commit [9b50d450945903abb6fb7933c6cfd8f483f0dc2d](https://github.com/NixOS/nixpkgs/tree/9b50d450945903abb6fb7933c6cfd8f483f0dc2d) and modified to copy the desktop/icon files on Darwin to allow `desktopToDarwinBundle` to generate a macOS application bundle.
 + telegram-desktop_682 nixpkgs 8dc49b8b206a683d1f6605e0fd993c0f5d49c98d
 + jetbrains_idea-oss - copied from nixpkgs commit 38a4887411571457d700c51c64a6e49ead2ed5ab
++ qq_bwrap - adapted from linuxqq-nt-bwrap https://aur.archlinux.org/packages/linuxqq-nt-bwrap
++ wechat_bwrap - adapted from AUR package wechat-universal-bwrap (https://aur.archlinux.org/packages/wechat-universal-bwrap) by 7Ji, leaeasy, and devome
++ gcenx-wine-staging / gcenx-wine-devel / gcenx-wine-stable — packaging adapted from [nobbmaestro/wine-stable-nix](https://github.com/nobbmaestro/wine-stable-nix); prebuilt Wine.app binaries from [Gcenx/macOS_Wine_builds](https://github.com/Gcenx/macOS_Wine_builds). Prefixed `gcenx-` to distinguish from nixpkgs `wine*` (Linux source builds; Darwin unsupported on nixpkgs-unstable).
 
 ## todo - reading
 
