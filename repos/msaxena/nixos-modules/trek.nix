@@ -114,8 +114,10 @@ in {
       type = lib.types.bool;
       default = false;
       description = ''
-        Enable HTTPS redirect, HSTS, CSP upgrade-insecure-requests and secure
-        cookies. Only enable this behind a TLS-terminating reverse proxy.
+        Enable HTTPS redirect, HSTS and CSP upgrade-insecure-requests. Only
+        enable this behind a TLS-terminating reverse proxy. Note this does
+        *not* gate secure cookies on its own here — see
+        {option}`services.trek.cookieSecure`.
       '';
     };
 
@@ -123,9 +125,14 @@ in {
       type = lib.types.bool;
       default = false;
       description = ''
-        Add `includeSubDomains` to the HSTS header. Only effective when
-        `forceHttps` is enabled. Leave disabled if other services run on
-        sibling subdomains over plain HTTP.
+        Add `includeSubDomains` to the HSTS header. TREK sends HSTS whenever
+        `NODE_ENV=production` (which this module always sets) or
+        `forceHttps` is enabled — in practice that means always, regardless
+        of `forceHttps`. This is normally harmless (browsers ignore HSTS
+        headers received over a plain HTTP connection), but leave it
+        disabled if you run other services on sibling subdomains that are
+        themselves reachable over plain HTTP through a shared TLS-terminating
+        proxy.
       '';
     };
 
@@ -133,9 +140,16 @@ in {
       type = lib.types.nullOr lib.types.bool;
       default = null;
       description = ''
-        Whether cookies require HTTPS. Left unset, TREK derives this itself
-        (secure when `forceHttps` is enabled). Set to `false` to force
-        cookies over plain HTTP.
+        Whether the session cookie requires HTTPS. Left unset, this tracks
+        {option}`services.trek.forceHttps` (secure when `forceHttps` is
+        enabled). Upstream itself would otherwise auto-derive this from
+        `NODE_ENV=production` -- which this module always sets, making
+        cookies secure unconditionally -- so this module pins `COOKIE_SECURE`
+        explicitly instead of leaving it to that auto-derivation. Set this to
+        `false` to force cookies over plain HTTP even with `forceHttps`
+        enabled (not recommended); set it to `true` to force secure cookies
+        while `forceHttps` is off (e.g. a TLS-terminating proxy where you
+        don't want TREK's own HTTPS redirect/HSTS behavior).
       '';
     };
 
@@ -146,6 +160,18 @@ in {
       description = ''
         Number of trusted reverse-proxy hops. Needed for `forceHttps` to
         work correctly behind a reverse proxy.
+
+        This cannot be used to *disable* trusting proxy headers: TREK's own
+        `if (NODE_ENV=production || TRUST_PROXY) app.set('trust proxy',
+        parseInt(TRUST_PROXY) || 1)` treats an explicit `0` the same as
+        unset, and this module always sets `NODE_ENV=production` — so
+        Express trusts one `X-Forwarded-For`/`X-Forwarded-Proto` hop
+        unconditionally regardless of this option. If you expose TREK
+        directly (see {option}`services.trek.openFirewall`) without a
+        reverse proxy that strips inbound `X-Forwarded-*` headers from
+        untrusted clients, those headers are effectively attacker-controlled
+        input: they can spoof the IP the per-IP login rate limiter and audit
+        log key on, defeating both.
       '';
     };
 
@@ -160,7 +186,36 @@ in {
     };
 
     defaultLanguage = lib.mkOption {
-      type = lib.types.nullOr (lib.types.enum ["de" "en" "es" "fr" "hu" "nl" "br" "cs" "pl" "ru" "zh" "zh-TW" "it" "ar"]);
+      # Keep in sync with shared/src/i18n/languages.ts's SUPPORTED_LANGUAGES
+      # at whatever tag pkgs/trek is pinned to -- it grows as translations
+      # are added upstream.
+      type = lib.types.nullOr (
+        lib.types.enum [
+          "de"
+          "en"
+          "es"
+          "fr"
+          "hu"
+          "nl"
+          "br"
+          "cs"
+          "pl"
+          "ru"
+          "zh"
+          "zh-TW"
+          "it"
+          "tr"
+          "ar"
+          "id"
+          "ja"
+          "ko"
+          "uk"
+          "gr"
+          "sv"
+          "vi"
+          "ca"
+        ]
+      );
       default = null;
       description = ''
         Default language on the login page for users with no saved
@@ -341,11 +396,23 @@ in {
     openFirewall = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Open <option>services.trek.port</option> in the firewall.";
+      description = ''
+        Open <option>services.trek.port</option> in the firewall. See
+        {option}`services.trek.trustProxy` — TREK always trusts one
+        `X-Forwarded-For`/`X-Forwarded-Proto` hop, so only enable this if
+        clients cannot reach the service directly without going through a
+        reverse proxy that strips those headers first.
+      '';
     };
   };
 
   config = lib.mkIf cfg.enable {
+    users.users.trek = {
+      isSystemUser = true;
+      group = "trek";
+    };
+    users.groups.trek = {};
+
     systemd.services.trek = {
       description = "TREK travel planner";
       after = ["network.target"];
@@ -362,6 +429,15 @@ in {
           HSTS_INCLUDE_SUBDOMAINS = lib.boolToString cfg.hstsIncludeSubdomains;
           ALLOW_INTERNAL_NETWORK = lib.boolToString cfg.allowInternalNetwork;
           DEMO_MODE = lib.boolToString cfg.demoMode;
+          # Always set explicitly rather than leaving COOKIE_SECURE unset:
+          # upstream's own auto-derivation is "secure when NODE_ENV=production
+          # OR FORCE_HTTPS=true", and this module always sets
+          # NODE_ENV=production above, so leaving it to auto-derive would
+          # make cookies secure unconditionally -- silently breaking login
+          # over plain HTTP for anyone running with forceHttps = false.
+          COOKIE_SECURE = lib.boolToString (
+            if cfg.cookieSecure != null then cfg.cookieSecure else cfg.forceHttps
+          );
         }
         // optionalEnv "ALLOWED_ORIGINS" (
           if cfg.allowedOrigins == []
@@ -373,11 +449,6 @@ in {
           if cfg.trustProxy == null
           then null
           else toString cfg.trustProxy
-        )
-        // optionalEnv "COOKIE_SECURE" (
-          if cfg.cookieSecure == null
-          then null
-          else lib.boolToString cfg.cookieSecure
         )
         // optionalEnv "DEFAULT_LANGUAGE" cfg.defaultLanguage
         // optionalEnv "SESSION_DURATION" cfg.sessionDuration
@@ -421,14 +492,20 @@ in {
         {
           Type = "simple";
 
-          # DynamicUser means systemd allocates a transient user; with the
-          # default dataDir, it also owns the StateDirectory entries below
-          # (chowned automatically before the service starts -- no
-          # ExecStartPre required, and no ownership question to deal with
-          # separately for impermanence, since the underlying bind mount
-          # simply replaces /var/lib/trek's content before systemd even gets
-          # there).
-          DynamicUser = true;
+          # A static user, not DynamicUser: with DynamicUser, systemd's
+          # StateDirectory implementation stores the real files under
+          # /var/lib/private/trek/... and presents them at /var/lib/trek/...
+          # through an idmapped mount scoped to *that* mount point. Our own
+          # BindPaths= below bind-mounts the same source onto a second target
+          # (inside the store) -- a plain rbind, which does not carry that
+          # idmap translation along -- so the app would see the untranslated
+          # underlying ownership through the bind-mounted view and fail with
+          # EACCES even though the "native" /var/lib/trek/data path is
+          # perfectly writable. A static user's StateDirectory is chowned
+          # for real (no idmap indirection), so every path referencing it,
+          # bind-mounted or not, agrees on the same plain ownership.
+          User = "trek";
+          Group = "trek";
 
           # The server resolves node_modules and tsconfig.json (for
           # tsconfig-paths) relative to the working directory, so it must
@@ -464,6 +541,16 @@ in {
           RestrictRealtime = true;
           RestrictSUIDSGID = true;
           RemoveIPC = true;
+          CapabilityBoundingSet = [];
+          SystemCallArchitectures = "native";
+          ProtectHostname = true;
+          ProtectKernelLogs = true;
+          ProtectClock = true;
+          # "invisible" only hides *other* users' /proc/<pid> entries; trek's
+          # own plugin child processes run as the same "trek" user and stay
+          # visible to it.
+          ProtectProc = "invisible";
+          UMask = "0077";
           ReadWritePaths = [cfg.dataDir];
         }
         // lib.optionalAttrs isDefaultDataDir {
