@@ -1,54 +1,87 @@
 error:
+… while evaluating the attribute 'finiteflow'
+  at ./default.nix:23:3:
+    22|   ginac = pkgs.callPackage ./pkgs/ginac { };
+    23|   finiteflow = pkgs.callPackage ./pkgs/finiteflow { };
+      |   ^
+    24|   fire6 = pkgs.callPackage ./pkgs/fire6 { };
 
+… from call site
   at ./default.nix:23:16:
-
     22|   ginac = pkgs.callPackage ./pkgs/ginac { };
     23|   finiteflow = pkgs.callPackage ./pkgs/finiteflow { };
       |                ^
     24|   fire6 = pkgs.callPackage ./pkgs/fire6 { };
 
 … while calling anonymous lambda
-
   at <nixpkgs> + /lib/customisation.nix:307:19:
-
    306|     in
    307|     autoArgs: fn: args:
       |                   ^
    308|     let
 
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:322:7:
+   321|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   322|       makeOverridable f allArgs
+      |       ^
+   323|     else
+
 … from call site
-
   at <nixpkgs> + /lib/trivial.nix:1183:7:
-
   1182|     g: {
   1183|       __functor = self: g;
       |       ^
   1184|       __functionArgs = fArgs;
 
 … while calling 'f''
-
   at <nixpkgs> + /lib/customisation.nix:158:9:
-
    157|       f' =
    158|         origArgs:
       |         ^
    159|         let
 
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:174:9:
+   173|         in
+   174|         if isAttrs result then
+      |         ^
+   175|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:174:12:
+   173|         in
+   174|         if isAttrs result then
+      |            ^
+   175|           result
+
 … from call site
-
   at <nixpkgs> + /lib/customisation.nix:160:20:
-
    159|         let
    160|           result = f origArgs;
       |                    ^
    161|
 
 … while calling anonymous lambda
-
   at ./pkgs/finiteflow/default.nix:1:1:
-
      1| { }:
       | ^
      2| let
+
+… while calling the 'import' builtin
+  at ./pkgs/finiteflow/default.nix:4:10:
+     3|   # finiteflow depends on cmake 3, so we need an old nixpkgs
+     4|   pkgs = import (fetchTarball {
+      |          ^
+     5|     url = "https://github.com/NixOS/nixpkgs/archive/f4b140d5b253f5e2a1ff4e5506edbf8267724bde.tar.gz";
+
+… while realising the context of a path
+
+… while calling the 'fetchTarball' builtin
+  at ./pkgs/finiteflow/default.nix:4:18:
+     3|   # finiteflow depends on cmake 3, so we need an old nixpkgs
+     4|   pkgs = import (fetchTarball {
+      |                  ^
+     5|     url = "https://github.com/NixOS/nixpkgs/archive/f4b140d5b253f5e2a1ff4e5506edbf8267724bde.tar.gz";
 
 error: access to URI 'https://github.com/NixOS/nixpkgs/archive/f4b140d5b253f5e2a1ff4e5506edbf8267724bde.tar.gz' is forbidden in restricted mode

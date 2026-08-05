@@ -1,29 +1,9 @@
 error:
-… while querying the derivation named 'burpsuite-2025.1.4'
+… while querying the derivation named 'mudita-center-3.2.0'
 
-… while calling the 'foldl'' builtin
-
-  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:558:21:
-
-   557|       # if you add a new maintainer or team attribute please ensure that this expectation is still met.
-   558|       maintainers = unique (
-      |                     ^
-   559|         attrs.meta.maintainers or [ ] ++ concatMap (team: team.members or [ ]) attrs.meta.teams or [ ]
-
-… while calling anonymous lambda
-
-  at <nixpkgs> + /lib/lists.nix:1901:25:
-
-  1900|   */
-  1901|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
-      |                         ^
-  1902|
-
-error: undefined variable 'arcayr'
-
-at ./pkgs/burpsuite/generic.nix:97:7:
-
-    96|     maintainers = with maintainers; [
-    97|       arcayr
-      |       ^
-    98|       bennofs
+error: undefined variable 'hackeryarn'
+at ./pkgs/mudita-center/default.nix:35:43:
+    34|     license = lib.licenses.gpl3Only;
+    35|     maintainers = with lib.maintainers; [ hackeryarn ];
+      |                                           ^
+    36|     mainProgram = "mudita-center";
