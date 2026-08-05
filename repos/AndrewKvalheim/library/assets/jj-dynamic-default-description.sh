@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-description_path="$1"
+readonly description_path="$1"
 
 debug() { [[ -z "${DEBUG:-}" ]] || echo "$1" >&2; }
 

@@ -2,6 +2,8 @@
 set -Eeuo pipefail
 shopt -s lastpipe
 
+readonly attr="${1:-}"
+
 trap 'exit 1' SIGINT SIGTERM
 
 results=()
@@ -17,6 +19,8 @@ for channel in 'unstable-small' 'nixpkgs'; do
   nix-env "${nix_args[@]}" --file 'nur.nix' --query '*' --available --meta --json \
   | jq --raw-output 'to_entries[] | "\(.key)\(.value.meta.broken)"' \
   | while IFS='' read -r name broken; do
+     [[ -z "$attr" || "$name" == "$attr" ]] || continue
+
     echo "[34mValidating $name@$channel[39m"
     if [[ "$broken" == 'true' ]]; then
       results+=("[33m$name@$channel marked as broken[39m")

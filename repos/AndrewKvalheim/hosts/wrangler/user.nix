@@ -21,6 +21,7 @@ in
 
   # Nix
   home.stateVersion = "22.05"; # Permanent
+  news.display = "silent";
 
   # System configuration
   system = system.config;

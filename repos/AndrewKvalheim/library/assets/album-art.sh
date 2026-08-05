@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-src="$1"
-jpg="$HOME/Downloads/cover.jpg"
+readonly src="$1"
+readonly jpg="$HOME/Downloads/cover.jpg"
 
 magick "$src" -resize '1200x>' "ppm:-" \
   | cjpeg -optimize -quality '75' \
@@ -25,6 +25,6 @@ else
     -gravity 'center' \
     -append \
     -border '64x64' \
-    ppm:- \
+    'ppm:-' \
   | display
 fi

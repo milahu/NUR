@@ -1,28 +1,31 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
-shopt -s nullglob
+shopt -s extglob nullglob
 
-EXIT_CONTINUE='193'
+readonly EXIT_CONTINUE='193'
 
-handlers_dir="$HOME/.organize-downloads/handlers"
-screenshots_dir="$HOME/screenshots"
+readonly handlers_dir="$HOME/.organize-downloads/handlers"
+readonly screenshots_dir="$HOME/screenshots"
 
 emit() { local from="$1" dir="${2%/*}" name="${2##*/}"
-  local stem="${name%%.*}"
-  local extensions="${name#"$stem"}"
+  local prefix="${name%%*(.+([[:alnum:]]))}"
+  local suffix="${name#"$prefix"}"
 
-  echo "Emit: $dir/$stem$extensions" >&2
+  local to="$dir/$prefix$suffix"
+  echo "Emit: $to" >&2
   mkdir --parents "$dir"
-  strict_mv "$from" "$dir/$stem$extensions" && return || :
+  strict_mv "$from" "$to" && return || :
 
   local mtime; mtime="$(stat --format '%Y' "$from")"
-  local timestamp; timestamp="$(date --date "@$mtime" --iso-8601=seconds)"
-  echo "Retry emit: $dir/$stem ($timestamp)$extensions" >&2
-  strict_mv "$from" "$dir/$stem ($timestamp)$extensions" && return || :
+  local timestamp; timestamp="$(date --date "@$mtime" --iso-8601='seconds')"
+  to="$dir/$prefix ($timestamp)$suffix"
+  echo "Retry emit: $to" >&2
+  strict_mv "$from" "$to" && return || :
 
   local n='1'; while (( n++ && n <= 100 )); do
-    echo "Retry emit: $dir/$stem ($timestamp #$n)$extensions" >&2
-    strict_mv "$from" "$dir/$stem ($timestamp #$n)$extensions" && return || :
+    to="$dir/$prefix ($timestamp #$n)$suffix"
+    echo "Retry emit: $to" >&2
+    strict_mv "$from" "$to" && return || :
   done
 
   echo "Failed to emit from: $from" >&2
@@ -61,7 +64,7 @@ process() { local path="$1"
 
   local rc; for handler in "$handlers_dir/"*; do
     [[ -x "$handler" ]] || continue
-    $handler "$path" && rc="$?" || rc="$?"
+    "$handler" "$path" && rc="$?" || rc="$?"
     (( rc == EXIT_CONTINUE )) && continue || return "$rc"
   done
 
@@ -78,15 +81,16 @@ process() { local path="$1"
 
 process_screenshot() { local path="$1"
   local name="${path##*/}"; name="${name#⏳️ }"
-  local stem="${name%%.*}" extensions=".${name#*.}"
+  local prefix="${name%%*(.+([[:alnum:]]))}"
+  local suffix="${name#"$prefix"}"
 
   local mtime; mtime="$(stat --format '%Y' "$path")"
-  if [[ "$stem" != *"$(date --date "@$mtime" +'%Y')"* ]]; then
-    stem+=" $(date --date "@$mtime" --iso-8601=seconds)"
-    name="$stem$extensions"
+  if [[ "$prefix" != *"$(date --date "@$mtime" +'%Y')"* ]]; then
+    prefix+=" $(date --date "@$mtime" --iso-8601='seconds')"
+    name="$prefix$suffix"
   fi
 
-  case "${extensions##*.}" in
+  case "${suffix##*.}" in
     'jpg') emit "$(optimize_jpg_jxl "$path")" "$screenshots_dir/${name%.jpg}.jxl";;
     'png') emit "$(optimize_png "$path")" "$screenshots_dir/$name";;
     *) echo "Unimplemented: $path" >&2; return 1;;

@@ -92,69 +92,105 @@ in
 
     # Packages
     home.packages = with pkgs; [
-      add-words
-      bacon
-      binsider
-      bobby
-      bubblewrap # Required by nixpkgs-review --sandbox
-      bustle
-      cavif
-      cargo-msrv
-      constrict
-      darktable
-      dconf-editor
-      deskflow
-      dig
-      displaycal
-      dive
-      doh
-      dua
-      duperemove
-      efficient-compression-tool
-      (makeAutostartItem { name = "com.tomjwatson.Emote"; package = emote; })
-      exiftool
-      eyedropper
-      (ffmpeg.override { withUnfree = true; withFdkAac = true; })
-      file
+      # 3D model
       fstl
-      fq
-      gifsicle
-      gimp3-with-plugins
-      gnome-decoder
-      gopass
-      gopass-env
-      gopass-ydotool
-      gradia
-      gucharmap
-      guetzli
-      guvcview
-      hdparm
-      htop
-      hurl
-      hydra-check
-      identity
-      ijq
-      imagemagickBig
-      img2pdf
-      (inkscape-with-extensions.override { inkscapeExtensions = with inkscape-extensions; [ applytransforms ]; })
-      ipcalc
-      iperf
-      isd
-      jless
+
+      # Container/VM
+      dive
+      vagrant
+
+      # Command line
       just
       just-local
-      killall
-      (onlyBinMan libjxl)
-      (onlyBinMan libnotify)
-      (onlyBinMan libwebp)
-      lsof
-      magic-wormhole
-      miller
       moreutils
+      trash-cli
+
+      # Data
+      bobby
+      ijq
+      jless
+      miller
+      sort-domains
+      sqlitebrowser
+      uniscribe
+      xan
+      yq
+
+      # Disk
+      hdparm
+      popsicle
+      smartmontools
+
+      # Document
+      img2pdf
+      kdePackages.okular
+      pdfarranger
+      pdfcpu
+      poppler-utils
+      pup
+
+      # Desktop
+      deskflow
+      (makeAutostartItem { name = "com.tomjwatson.Emote"; package = emote; })
+      eyedropper
+      gnome-decoder
+      (onlyBinMan libnotify)
+      pwvucontrol
+      wl-clipboard
+
+      # File
+      binsider
+      duperemove
+      file
+      fq
+      magic-wormhole
+      rsync
+      unln
+      unzip
+      warp
+
+      # Font
+      gucharmap
+      texlive.pkgs.albatross
+
+      # Image
+      cavif
+      darktable
+      efficient-compression-tool
+      exiftool
+      gifsicle
+      gimp3-with-plugins
+      gradia
+      guetzli
+      identity
+      imagemagickBig
+      (inkscape-with-extensions.override { inkscapeExtensions = with inkscape-extensions; [ applytransforms ]; })
+      (onlyBinMan libjxl)
+      (onlyBinMan libwebp)
       mozjpeg-simple
+      oxvg
+      pngquant
+      pngtools
+      svgo
+
+      # Network
+      dig
+      doh
+      hurl
+      ipcalc
+      iperf
       mtr
-      multitail
       netdiscover
+      oha
+      step-cli
+      whois
+      wireguard-tools
+      xh
+
+      # Nix
+      add-words
+      bubblewrap # Dependency of nixpkgs-review --sandbox
+      hydra-check
       nix-output-monitor
       nix-preview
       nix-top
@@ -162,48 +198,43 @@ in
       nixpkgs-hammering
       nixpkgs-review
       nom-wrappers
-      (off.override { docker = docker.package; nix = nix.package; systemd = systemd.package; })
-      oha
-      kdePackages.okular
-      oxvg
-      patchutils
-      pdfarranger
-      pdfcpu
-      popsicle
-      pngquant
-      pngtools
-      poppler-utils # pdfinfo
-      pup
+
+      # Secret
+      gopass
+      gopass-env
+      gopass-ydotool
       pwgen
-      pwvucontrol
-      rsync
+      xkcdpass
+
+      # Software
+      bacon
+      cargo-msrv
+      patchutils
+
+      # System
+      bustle
+      dconf-editor
+      displaycal
+      dua
+      htop
+      isd
+      killall
+      lsof
+      multitail
+      (off.override { docker = docker.package; nix = nix.package; systemd = systemd.package; })
       s-tui
       snitch
-      smartmontools
-      sort-domains
-      sqlitebrowser
-      step-cli
-      svgo
-      texlive.pkgs.albatross
-      trash-cli
-      uniscribe
-      unln
-      unzip
       usbutils
-      v4l-utils
-      vagrant
-      vivictpp
-      warp
       watchlog
       wev
-      whois
-      wireguard-tools
-      wl-clipboard
-      xan
       xev
-      xh
-      xkcdpass
-      yq
+
+      # Video
+      constrict
+      (ffmpeg.override { withUnfree = true; withFdkAac = true; })
+      guvcview
+      v4l-utils
+      vivictpp
     ];
 
     # Nautilus scripts

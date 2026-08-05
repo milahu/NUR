@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-message='Update spell check word list'
-path="$ADD_WORDS_WORDLIST_PATH"
-words=( "$@" )
+readonly message='Update spell check word list'
+readonly path="$ADD_WORDS_WORDLIST_PATH"
+readonly words=( "$@" )
 
 add_words() {
   printf '%s\n' "$@" | sort "$path" - | uniq | sponge "$path"

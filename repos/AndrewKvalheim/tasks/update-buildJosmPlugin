@@ -6,7 +6,7 @@ set -Eeuo pipefail
 info() { echo "buildJosmPlugin/josm: $1" >&2; }
 sgrep() { grep --max-count '1' --null-data --only-matching --perl-regexp "$@" | tr --delete '\0'; }
 
-path='library/buildJosmPlugin.fn.nix'
+readonly path='library/buildJosmPlugin.fn.nix'
 
 src="$(sgrep '(?s)(?<=srcJosmPlugins = )fetchsvn {.*?}' "$path")"
 rev_previous="$(sgrep '(?<=\brev = ").*?(?=")' <<<"$src")"

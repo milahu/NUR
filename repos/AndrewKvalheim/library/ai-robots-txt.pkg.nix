@@ -9,7 +9,7 @@ let
 in
 stdenv.mkDerivation (ai-robots-txt: {
   pname = "ai-robots-txt";
-  version = "1.47";
+  version = "1.49";
   meta = {
     description = "List of AI agents and robots to block";
     homepage = "https://github.com/ai-robots-txt/ai.robots.txt";
@@ -22,7 +22,7 @@ stdenv.mkDerivation (ai-robots-txt: {
     owner = "ai-robots-txt";
     repo = "ai.robots.txt";
     rev = "refs/tags/v${ai-robots-txt.version}";
-    hash = "sha256-xQQbMCShCi/Sk1Mr6VcrVrJo7HhIwhiL1MW91M6N+Js=";
+    hash = "sha256-v0vXVXCIRksRwBRoYTBZwhwiL0/tZvp0B4PK5PBNC9I=";
   };
 
   installPhase = ''

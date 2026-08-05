@@ -8,10 +8,10 @@ if [[ ! ( "${2-}" =~ ^~?([-_[:alnum:]]+)/([-_.[:alnum:]]+)$ ) ]]; then
   exit 1
 fi
 
-hostname="$1"
-owner="${BASH_REMATCH[1]}"
-repo="${BASH_REMATCH[2]}"
-path="${3:-$repo}"
+readonly hostname="$1"
+readonly owner="${BASH_REMATCH[1]}"
+readonly repo="${BASH_REMATCH[2]}"
+readonly path="${3:-$repo}"
 
 case "$hostname" in
   'codeberg.org'|'github.com'|'gist.github.com'|'gitlab.'*)

@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-path="$1"
-shift
+readonly path="$1"
 
-eval "$(gopass-await "$path" env)"
-
-exec "$@"
+eval "$(gopass-await "$path" 'env')"
+exec "${@:2}"

@@ -11,4 +11,7 @@ in
 
   # Custom packages
   nixpkgs.overlays = [ (import ../packages.nix) ];
+
+  # Maintenance
+  nix.gc = { automatic = true; options = "--delete-older-than 7d"; };
 }

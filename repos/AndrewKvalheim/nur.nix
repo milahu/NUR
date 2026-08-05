@@ -2,7 +2,7 @@
 
 let
   inherit (builtins) filter toFile;
-  inherit (lib) hasInfix hasPrefix recursiveUpdate remove versionAtLeast warnIf;
+  inherit (lib) hasInfix hasPrefix recursiveUpdate remove versionAtLeast versionOlder warnIf;
   inherit (pkgs) callPackage fetchFromGitHub lib;
 
   isStable = hasPrefix "." lib.trivial.versionSuffix;
@@ -35,7 +35,9 @@ rec {
   apex = callPackage ./library/apex.pkg.nix { };
   blocky-ui = callPackage ./library/blocky-ui.pkg.nix { };
   buildJosmPlugin = callPackage ./library/buildJosmPlugin.fn.nix { };
-  busyserve = (callPackage ./library/busyserve.pkg.nix { });
+  busyserve = (callPackage ./library/busyserve.pkg.nix { }).overrideAttrs (o: recursiveUpdate o {
+    meta.broken = versionOlder pkgs.python3Packages.busylight-for-humans.version "1.0.1" && versionAtLeast pkgs.python3Packages.fastapi.version "0.137"; # NixOS/nixpkgs#548189
+  });
   caddy-with-cache-route53 = pkgs.caddy.withPlugins {
     plugins = [
       "github.com/caddy-dns/route53@v1.6.2"

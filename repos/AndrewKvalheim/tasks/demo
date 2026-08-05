@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-attr="$1"
+readonly attr="$1"
 
 nix-instantiate \
   --show-trace \

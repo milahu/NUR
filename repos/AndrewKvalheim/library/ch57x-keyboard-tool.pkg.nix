@@ -13,7 +13,7 @@ let
 in
 rustPlatform.buildRustPackage (ch57x-keyboard-tool: {
   pname = "ch57x-keyboard-tool";
-  version = "1.7.0";
+  version = "1.8.0";
   meta = {
     description = "Command-line tool for programming ch57x keyboard";
     homepage = "https://github.com/kriomant/ch57x-keyboard-tool";
@@ -24,10 +24,10 @@ rustPlatform.buildRustPackage (ch57x-keyboard-tool: {
 
   src = fetchCrate {
     inherit (ch57x-keyboard-tool) pname version;
-    sha256 = "sha256-IBrimdhosz8a5oQd8hfVXp7VTjVCXwn6vvPjHQ9/43I=";
+    sha256 = "sha256-0AtZG9ASDLtqKFpeR9zhbfxu4hTK9o7BOJ0ZpzErR7A=";
   };
 
-  cargoHash = "sha256-ojQ9tiN9H7xYFdunYTjj93QX7d/ZJDtrtqg56B27ysU=";
+  cargoHash = "sha256-OIyS7uLxijM3bZj6656ShTqF3UR0VpkXMRcauFujoxk=";
 
   postInstall = ''
     install -D ${rules} "$out/etc/udev/rules.d/70-ch57x.rules"
