@@ -1,19 +1,19 @@
 {
 "name":"AndrewKvalheim",
-"fetch_time":2.384,
-"eval_time":3.242,
+"fetch_time":3.013,
+"eval_time":2.743,
 "source":{
 "url":"https://codeberg.org/AndrewKvalheim/configuration",
-"rev":"f9723c3b6d0e65e554815bebfe74c3e25d518207",
-"sha256":"05mj0d1d90qmrymz69kp1ki7f91q5f2w8iddzn9fncaxaz2iv3x9",
+"rev":"3a749ed3858c4200f85c0e7d3f00d033a08b0588",
+"sha256":"0qqp12p7jc0bfxxgchvw7hx0c7j5ak4kdk3382lbxdcpgsr9y9nv",
 "date":null
 },
-"source_storepath":"/nix/store/9flrk0kpc5qiyjhaxfnx3v1mxyb9s02q-configuration",
-"nixpkgs_storepath":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source",
-"nur_combined_rev":"a980774b0165c83e058acca03623c750fb81666b",
+"source_storepath":"/nix/store/1wqcpf6fad3w2s9q6ypp5g10k3ir00p1-configuration",
+"nixpkgs_storepath":"/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source",
+"nur_combined_rev":"82794070734eb2e9d45e34c3bf8bbe6e9a2c649d",
 "packages":{
 "ai-robots-txt":{
-"drvPath":"/nix/store/sgmdij6bf5qn8v53l14sl7s05wi96kyh-ai-robots-txt-1.47.drv",
+"drvPath":"/nix/store/bs6hra8hgl4n8k24aga8mpxyak2xnrq0-ai-robots-txt-1.49.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -60,7 +60,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"ai-robots-txt-1.47",
+"name":"ai-robots-txt-1.49",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -75,17 +75,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ai-robots-txt-1.47",
+"name":"ai-robots-txt-1.49",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ai-robots-txt",
 "system":"x86_64-linux",
-"version":"1.47"
+"version":"1.49"
 },
 "apex":{
-"drvPath":"/nix/store/wra038fp39z6lwfh5nwip2djyswfrrvd-apex-1.0.0-rc4-unstable-2021-12-09.drv",
+"drvPath":"/nix/store/4gpd47k3niassj19vhp1qiyg67cfzl2x-apex-1.0.0-rc4-unstable-2021-12-09.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -199,11 +199,11 @@
 "version":"0.1"
 },
 "busyserve":{
-"drvPath":"/nix/store/1cv4hllnz47lrncsw1p5ird8pi18rw64-python3.14-busyserve-0.48.0.drv",
+"drvPath":"/nix/store/xa1nxclvjj2kkx17p4z4zk1zy5danvyn-python3.14-busyserve-1.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/JnyJny/busylight/releases/tag/v0.48.0",
+"changelog":"https://github.com/JnyJny/busylight/blob/busylight-cli/v1.0.1/packages/busylight/CHANGELOG.md",
 "description":"Control USB connected presence lights from multiple vendors via the command-line or web API",
 "homepage":"https://github.com/JnyJny/busylight",
 "identifiers":{
@@ -295,12 +295,7 @@
 "name":"Joachim Ernst"
 }
 ],
-"maintainersPosition":{
-"column":5,
-"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/development/python-modules/busylight-for-humans/default.nix",
-"line":75
-},
-"name":"python3.14-busyserve-0.48.0",
+"name":"python3.14-busyserve-1.0.1",
 "nonTeamMaintainers":[
 {
 "email":"janne@hess.ooo",
@@ -352,12 +347,11 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"<nixpkgs> + /pkgs/development/python-modules/busylight-for-humans/default.nix:71",
 "problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"busyserve-0.48.0",
+"name":"busyserve-1.0.1",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -365,10 +359,10 @@
 },
 "pname":"busyserve",
 "system":"x86_64-linux",
-"version":"0.48.0"
+"version":"1.0.1"
 },
 "caddy-with-cache-route53":{
-"drvPath":"/nix/store/9ygnmq7v120r6wsas8sn24b0i9nlq587-caddy-2.11.4.drv",
+"drvPath":"/nix/store/qc71s1kmh85xzkc43msqvffniqll8kp4-caddy-2.11.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -439,7 +433,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/829lzns1qrjp3p94j5mjpn2h7ipal94g-source/pkgs/by-name/ca/caddy/package.nix",
+"file":"/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/pkgs/by-name/ca/caddy/package.nix",
 "line":101
 },
 "name":"caddy-2.11.4",
@@ -514,7 +508,7 @@
 "version":"2.11.4"
 },
 "cc-icons-unicode":{
-"drvPath":"/nix/store/hp4vhwqj4c6kf934cvpm27658a1m3z6x-cc-icons-unicode-0-unstable-2020-09-29.drv",
+"drvPath":"/nix/store/sjhlzyb4k3gzilkjz0ka3kwml8d8hsf8-cc-icons-unicode-0-unstable-2020-09-29.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -587,7 +581,7 @@
 "version":"0-unstable-2020-09-29"
 },
 "ch57x-keyboard-tool":{
-"drvPath":"/nix/store/hq6q38dlpwvqan7ydnyisghw3kap437z-ch57x-keyboard-tool-1.7.0.drv",
+"drvPath":"/nix/store/4zj5nvdngrng4zf3nnm3gsghbaf09b92-ch57x-keyboard-tool-1.8.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -645,7 +639,7 @@
 "url":"https://spdx.org/licenses/MIT.html"
 },
 "maintainers":[],
-"name":"ch57x-keyboard-tool-1.7.0",
+"name":"ch57x-keyboard-tool-1.8.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -700,17 +694,17 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ch57x-keyboard-tool-1.7.0",
+"name":"ch57x-keyboard-tool-1.8.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ch57x-keyboard-tool",
 "system":"x86_64-linux",
-"version":"1.7.0"
+"version":"1.8.0"
 },
 "chunker":{
-"drvPath":"/nix/store/fgjv4fbbh5m5raja0fhikl1a0m7ngnkz-chunker-1.18.1.drv",
+"drvPath":"/nix/store/jha2bs9xjvq9dcg4pprqm8wngm2chgqr-chunker-1.18.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -783,7 +777,7 @@
 "version":"1.18.1"
 },
 "co2monitor":{
-"drvPath":"/nix/store/8r09ak0226jl226692cr1ncq9ca8w097-co2monitor-0-unstable-2021-08-10.drv",
+"drvPath":"/nix/store/9j7bdfl2r0w5sn9q8ld1v185lkz8lmwq-co2monitor-0-unstable-2021-08-10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -888,7 +882,7 @@
 "version":"0-unstable-2021-08-10"
 },
 "decompiler-mc":{
-"drvPath":"/nix/store/z70wfbz9lrcfkspmzjysfcjz1y77759n-decompiler-mc-0.9-unstable-2026-01-17.drv",
+"drvPath":"/nix/store/9l0xb5qsh805rl68qnbbn5jyapx51yxr-decompiler-mc-0.9-unstable-2026-01-17.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -983,7 +977,7 @@
 "version":"0.9-unstable-2026-01-17"
 },
 "dmarc-report-notifier":{
-"drvPath":"/nix/store/57kqq7ph154g3xgk3gzcngb98zyg70g2-dmarc-report-notifier-1.1.15.drv",
+"drvPath":"/nix/store/aaxq1ijh5z26ka57q13362llg0wjsg8m-dmarc-report-notifier-1.1.15.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1123,7 +1117,7 @@
 "version":"1.1.15"
 },
 "doh":{
-"drvPath":"/nix/store/rl7inibrssv1mayw7fs3zgy8brymwhmr-doh-0.1-unstable-2026-04-28.drv",
+"drvPath":"/nix/store/58n5qnhzqm0bqgm6m3miz7vnx6d9kl85-doh-0.1-unstable-2026-04-28.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1196,7 +1190,7 @@
 "version":"0.1-unstable-2026-04-28"
 },
 "easy-timeline":{
-"drvPath":"/nix/store/kd1lyx9k90j7b703n9wzjnikckjpj2i8-easy-timeline-1.90-unstable-2024-08-02.drv",
+"drvPath":"/nix/store/i55lbhc9h5bk5hziznqfa6ny9dp9hsxa-easy-timeline-1.90-unstable-2024-08-02.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1270,7 +1264,7 @@
 "version":"1.90-unstable-2024-08-02"
 },
 "fastnbt-tools":{
-"drvPath":"/nix/store/3kk43hh5qygk5mn66n24zl6a1jvhpqrs-fastnbt-tools-0.27.0.drv",
+"drvPath":"/nix/store/v3ks287rjibwvqy7ij1ynq1pi5nbxfg8-fastnbt-tools-0.27.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1393,7 +1387,7 @@
 "version":"0.27.0"
 },
 "fediblockhole":{
-"drvPath":"/nix/store/9gzfzd7iplsqm2ni06wh68nrsq89frkf-fediblockhole-0.4.6.drv",
+"drvPath":"/nix/store/0w2jpga27qakm3yzljp21lkpv69swpb6-fediblockhole-0.4.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1533,7 +1527,7 @@
 "version":"0.4.6"
 },
 "git-diff-image":{
-"drvPath":"/nix/store/w7fpdcvd7qf06skmb7z59plpj829n84g-git-diff-image-0-unstable-2023-09-04.drv",
+"drvPath":"/nix/store/32m56g9va2h1151mx4kyv1dn2rpgw846-git-diff-image-0-unstable-2023-09-04.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1606,7 +1600,7 @@
 "version":"0-unstable-2023-09-04"
 },
 "gpx-reduce":{
-"drvPath":"/nix/store/rky29qd75rafh6ms50pmm1n4qd3iswbb-gpx-reduce-0-unstable-2026-05-07.drv",
+"drvPath":"/nix/store/s201p4hgi8zwm2hjbhfm0swny4jz2day-gpx-reduce-0-unstable-2026-05-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1745,7 +1739,7 @@
 "version":"0-unstable-2026-05-07"
 },
 "incremental-compress":{
-"drvPath":"/nix/store/599sknn2p8zl0h4in7w18ri137ac1qc0-incremental-compress-0-unstable-2025-03-30.drv",
+"drvPath":"/nix/store/msbw7hjvn9i7ddqma0rb27ncy0bnbhh7-incremental-compress-0-unstable-2025-03-30.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1850,7 +1844,7 @@
 "version":"0-unstable-2025-03-30"
 },
 "iptables_exporter":{
-"drvPath":"/nix/store/kylcmkv1lwcy1bggixyhmj76pspiq03j-iptables_exporter-0.4.0.drv",
+"drvPath":"/nix/store/y5pcbzs3hpg325a7fr5h5a9nzgwkrx0l-iptables_exporter-0.4.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -1986,7 +1980,7 @@
 "version":"0.4.0"
 },
 "josm-imagery-used":{
-"drvPath":"/nix/store/kryckylj4j399gm16kkshmb8v0qcssks-josm-imagery-used-0.0.1.drv",
+"drvPath":"/nix/store/xfdff8qqvcs127nzara84sjh2yfp7avw-josm-imagery-used-0.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2058,7 +2052,7 @@
 "version":"0.0.1"
 },
 "journal-brief":{
-"drvPath":"/nix/store/680ymg8daf9rkfjmb3iy04djnhk8pifd-journal-brief-1.1.8.drv",
+"drvPath":"/nix/store/z7zizzvvcbrkmama6cv6g4npdc8bj0cn-journal-brief-1.1.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2198,7 +2192,7 @@
 "version":"1.1.8"
 },
 "little-a-map":{
-"drvPath":"/nix/store/p85qypkmd6zf5n8bzcqldvr7w3fl9577-little-a-map-0.13.11.drv",
+"drvPath":"/nix/store/k1ils3wcx194iz2yfpd54j28hwalnqbk-little-a-map-0.13.11.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2322,7 +2316,7 @@
 "version":"0.13.11"
 },
 "mark-applier":{
-"drvPath":"/nix/store/sd75rdx0zclk9q1fd3jpw4l09qdmm9ih-mark-applier-0.5.0.drv",
+"drvPath":"/nix/store/iw7d9ib57hvr3xxhz50vyvwcwx0fkqrl-mark-applier-0.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2417,7 +2411,7 @@
 "version":"0.5.0"
 },
 "meshtastic-url":{
-"drvPath":"/nix/store/zgfqsklzp9jngvw2ac5gl8q594fnpw17-meshtastic-url.drv",
+"drvPath":"/nix/store/0zkrlaaq654sz2b3s1av7f53jww09z4a-meshtastic-url.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2471,7 +2465,7 @@
 "version":""
 },
 "minemap":{
-"drvPath":"/nix/store/n21bq7f8gs2hbqssmjhhsr8ndskrj04r-minemap-1.0.26.drv",
+"drvPath":"/nix/store/66rw51l0yyb1in8h5mf3dw011zyhw4px-minemap-1.0.26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2544,7 +2538,7 @@
 "version":"1.0.26"
 },
 "nbt-explorer":{
-"drvPath":"/nix/store/icf2imbbl31g6056jnwvy3ghpy6aq45q-nbt-explorer-2.8.0.drv",
+"drvPath":"/nix/store/wqpyxk5q8d75fid2k07v7im05hljdprn-nbt-explorer-2.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2617,7 +2611,7 @@
 "version":"2.8.0"
 },
 "office-hours":{
-"drvPath":"/nix/store/hkkrb1jzah4rmf8gg924ymhn643rdy88-office-hours-1.0.0.drv",
+"drvPath":"/nix/store/lpkz798brg0fmbx3lzd7zhw33zcw7v2q-office-hours-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2689,7 +2683,7 @@
 "version":"1.0.0"
 },
 "pdfalyzer":{
-"drvPath":"/nix/store/4a81cgvch9a87aq0817zljj9jndhdh5v-pdfalyzer-1.19.6.drv",
+"drvPath":"/nix/store/nl20x6hnd3yg04vpimrlf846fdlp7rd0-pdfalyzer-1.19.6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2829,7 +2823,7 @@
 "version":"1.19.6"
 },
 "pngquant-interactive":{
-"drvPath":"/nix/store/mpdja2fdzp4yn9d03c873d6kmic1aqdg-pngquant-interactive-0.2.1.drv",
+"drvPath":"/nix/store/k6qcd6nx11m53zflwy1i373gp3s3n287-pngquant-interactive-0.2.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -2953,7 +2947,7 @@
 "version":"0.2.1"
 },
 "sort-domains":{
-"drvPath":"/nix/store/7s39x1njgfn3i6mic67cn00v4fwifnwa-sort-domains.drv",
+"drvPath":"/nix/store/mnqifi6k1qz8kpncq134pidncybivb28-sort-domains.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3007,7 +3001,7 @@
 "version":""
 },
 "spf-check":{
-"drvPath":"/nix/store/0652561gvq49m6rpq7f4h3ak48vn4kvf-spf-check-0-unstable-2023-11-20.drv",
+"drvPath":"/nix/store/mgpykzqf441x86zsa2swir0kmdrrf391-spf-check-0-unstable-2023-11-20.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3080,7 +3074,7 @@
 "version":"0-unstable-2023-11-20"
 },
 "spf-tree":{
-"drvPath":"/nix/store/71nn3gcm9khzpnb6vjc3ikwzmpfd0rlv-spf-tree-0-unstable-2020-12-07.drv",
+"drvPath":"/nix/store/xljpsjvpra68bcv2smpvbaicr0y0pjjj-spf-tree-0-unstable-2020-12-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3184,7 +3178,7 @@
 "version":"0-unstable-2020-12-07"
 },
 "stretch-break":{
-"drvPath":"/nix/store/98z8ilzdkb7jn2bm73yri1nxxbxra5v4-stretch-break-0.1.9.drv",
+"drvPath":"/nix/store/4gmpsqbvd2giy9ii07zmwjl0ljdj9vap-stretch-break-0.1.9.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -3308,7 +3302,7 @@
 "version":"0.1.9"
 },
 "tile-stitch":{
-"drvPath":"/nix/store/g7xrhcph1mzh728c1zs5iayl6qcccmbl-tile-stitch-0-unstable-2019-07-10.drv",
+"drvPath":"/nix/store/ff6y8qp0hgyxmb7kimg9n7fm3kvsiddy-tile-stitch-0-unstable-2019-07-10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3380,7 +3374,7 @@
 "version":"0-unstable-2019-07-10"
 },
 "udon":{
-"drvPath":"/nix/store/2wx88wlicpvl7sqlx2ywmlmji3prd586-udon-0-unstable-2026-05-07.drv",
+"drvPath":"/nix/store/v0jrrx3hbcs3m0246hkxfg3zzb3vcccp-udon-0-unstable-2026-05-07.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3453,7 +3447,7 @@
 "version":"0-unstable-2026-05-07"
 },
 "wireguard-vanity-address":{
-"drvPath":"/nix/store/npz4q7q1lla3q4smkrc00bqa2w6cpnwj-wireguard-vanity-address-0.4.0.drv",
+"drvPath":"/nix/store/miqwy2jb0lm1l7ywsq9k2b660z0bx0s5-wireguard-vanity-address-0.4.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[

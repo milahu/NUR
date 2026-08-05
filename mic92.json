@@ -1,19 +1,19 @@
 {
 "name":"mic92",
-"fetch_time":0.841,
-"eval_time":0.955,
+"fetch_time":0.748,
+"eval_time":0.799,
 "source":{
 "url":"https://github.com/Mic92/nur-packages",
-"rev":"1be4924e5d41cb44de115ba259b6410e6e6ba0ea",
-"sha256":"13ps2pjm5lj0bphgh50isn7j4y9ad9zj29d77cvh97al84x5wz1x",
+"rev":"01bb18fcc9414e83a7e7b85c09a68bdbbfd4a35d",
+"sha256":"0yh1436pbbq98pb0r7zwxa0ylm8gag5ykwjx8k78hd0zyi6w9jgx",
 "date":null
 },
-"source_storepath":"/nix/store/2ms1ydjjvbzbgqnf4s7yxwyjb2zkjr2k-source",
-"nixpkgs_storepath":"/nix/store/wwlv1b9k93rwcbdqxdbyfw3rs5i80f72-source",
-"nur_combined_rev":"4495065688f7c2e957fd8c17c126decec7bcf765",
+"source_storepath":"/nix/store/3dlr0ckyzvwphs5nxg24a4vf7qzj99r4-source",
+"nixpkgs_storepath":"/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source",
+"nur_combined_rev":"f9c95824ee9b75bff707e46546dc091443f4eff9",
 "packages":{
 "goatcounter":{
-"drvPath":"/nix/store/vn7d1ja56x6w57imkc3idp4z8cf8mij3-goatcounter-2.6.0.drv",
+"drvPath":"/nix/store/3jmb2b6iz0gviwwnq6dc47zkh9y3pqc3-goatcounter-2.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -70,7 +70,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2ms1ydjjvbzbgqnf4s7yxwyjb2zkjr2k-source/pkgs/goatcounter/default.nix",
+"file":"/nix/store/3dlr0ckyzvwphs5nxg24a4vf7qzj99r4-source/pkgs/goatcounter/default.nix",
 "line":26
 },
 "name":"goatcounter-2.6.0",
@@ -148,7 +148,7 @@
 "version":"2.6.0"
 },
 "hello-nur":{
-"drvPath":"/nix/store/d33x98hxavfix9xmr9hrj3jpfw1vkpfw-hello-2.10.drv",
+"drvPath":"/nix/store/34wqlvhyc245jlpis1ndbk08vfq6k2i3-hello-2.10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -199,7 +199,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2ms1ydjjvbzbgqnf4s7yxwyjb2zkjr2k-source/pkgs/hello-nur/default.nix",
+"file":"/nix/store/3dlr0ckyzvwphs5nxg24a4vf7qzj99r4-source/pkgs/hello-nur/default.nix",
 "line":28
 },
 "name":"hello-2.10",
@@ -280,8 +280,8 @@
 "i686-openbsd",
 "x86_64-openbsd",
 "x86_64-redox",
-"wasm64-wasi",
-"wasm32-wasi",
+"wasm64-wasip1",
+"wasm32-wasip1",
 "aarch64-windows",
 "x86_64-windows",
 "i686-windows",
@@ -308,7 +308,7 @@
 "version":"2.10"
 },
 "irc-announce":{
-"drvPath":"/nix/store/v8fjdwg2rik3h7a2igwwgkc9yqrmdd3q-irc-announce.drv",
+"drvPath":"/nix/store/87fw4822qiad7mbm1420fsfnip9f5rpi-irc-announce.drv",
 "meta":{
 "description":"IRC notifications implemented in ~25 lines shell script"
 },
@@ -322,7 +322,7 @@
 "version":""
 },
 "ircsink":{
-"drvPath":"/nix/store/6gw2z0207iqci9104q7xkqg8awbqcsgf-ircsink-1.2.0.drv",
+"drvPath":"/nix/store/kb8bh3j2f66b4rpndldyjz8763dvvd15-ircsink-1.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -378,7 +378,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2ms1ydjjvbzbgqnf4s7yxwyjb2zkjr2k-source/pkgs/ircsink/default.nix",
+"file":"/nix/store/3dlr0ckyzvwphs5nxg24a4vf7qzj99r4-source/pkgs/ircsink/default.nix",
 "line":44
 },
 "name":"ircsink-1.2.0",
@@ -456,7 +456,7 @@
 "version":"1.2.0"
 },
 "mastodon-hnbot":{
-"drvPath":"/nix/store/fmg2yf7111ynl2m2zigdhcl4xhlbiqap-mastodon-hnbot-1.0.1.drv",
+"drvPath":"/nix/store/3dmi6cs4gynfwc3ik9p20jvm1kmb3qdz-mastodon-hnbot-1.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -595,7 +595,7 @@
 "version":"1.0.1"
 },
 "rspamd-learn-spam-ham":{
-"drvPath":"/nix/store/k2x2ai2yrwi058fm9cigiv47wj7rn0yg-rspamd-learn-spam-ham-1.0.0.drv",
+"drvPath":"/nix/store/0xp0p1h7ywvlla07565r5arc6l0x63cw-rspamd-learn-spam-ham-1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -685,7 +685,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2ms1ydjjvbzbgqnf4s7yxwyjb2zkjr2k-source/pkgs/rspam-learn-spam-ham/default.nix",
+"file":"/nix/store/3dlr0ckyzvwphs5nxg24a4vf7qzj99r4-source/pkgs/rspam-learn-spam-ham/default.nix",
 "line":23
 },
 "name":"rspamd-learn-spam-ham-1.0.0",
@@ -764,7 +764,7 @@
 "version":"1.0.0"
 },
 "untilport":{
-"drvPath":"/nix/store/9z05dk7k67knkazn3b351kbjlrh3fk1y-untilport.drv",
+"drvPath":"/nix/store/7b8f0dr4zydhp1gh0x35rikfd2gy6kd6-untilport.drv",
 "meta":{
 "description":"Wait until tcp port is reachable"
 },
@@ -778,7 +778,7 @@
 "version":""
 },
 "vaultwarden_ldap":{
-"drvPath":"/nix/store/r6p7gmvfa5vi90dsjz6ix1banihq4d46-vaultwarden_ldap-2.1.0.drv",
+"drvPath":"/nix/store/hkxaa9xhf6mlb1shnxsaq41md7mmp8v0-vaultwarden_ldap-2.1.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -879,7 +879,7 @@
 "riscv64-netbsd",
 "riscv32-none",
 "x86_64-redox",
-"wasm32-wasi"
+"wasm32-wasip1"
 ],
 "position":"./pkgs/vaultwarden_ldap/default.nix:29",
 "problems":{

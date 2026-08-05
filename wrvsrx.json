@@ -1,16 +1,16 @@
 {
 "name":"wrvsrx",
-"fetch_time":0.508,
-"eval_time":2.558,
+"fetch_time":0.812,
+"eval_time":1.982,
 "source":{
 "url":"https://github.com/wrvsrx/nur-packages",
-"rev":"c783f472498dfb964d4a5d2a343792823d79e45d",
-"sha256":"1sfsn3w3x7yylpgcgf93jsqalwachby7r94rijm3d5kj3pd0qb6f",
+"rev":"8deb245bda7d41a2083487332b3d04067df26444",
+"sha256":"10kck8ssg2kkxfvwcvsns25n8bg7zxi26c6idkagjv7zwrlr7vir",
 "date":null
 },
-"source_storepath":"/nix/store/d8b2zy27y1rf4jpih3f8r11pqhw3ifyb-source",
+"source_storepath":"/nix/store/0ax77n2vax3lyjm670h08gspx4hrhb0d-source",
 "nixpkgs_storepath":"/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source",
-"nur_combined_rev":"d263f50bcbe47e54bd9a26bbac40a52a64dfbfe7",
+"nur_combined_rev":"a81d501c7c972e08dfe9f0697dc05d4f1cc3e76f",
 "packages":{
 "amgcl":{
 "drvPath":"/nix/store/7m5ddgimp1vfircq4mdrn74zlmpacdai-amgcl-1.4.7.drv",
@@ -1163,7 +1163,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d8b2zy27y1rf4jpih3f8r11pqhw3ifyb-source/pkgs/iwe/default.nix",
+"file":"/nix/store/0ax77n2vax3lyjm670h08gspx4hrhb0d-source/pkgs/iwe/default.nix",
 "line":48
 },
 "name":"iwe-0.1.7",
@@ -2147,6 +2147,221 @@
 "system":"x86_64-linux",
 "version":"1.9"
 },
+"neovim-unwrapped":{
+"drvPath":"/nix/store/0q8qnsq4ljfpvjbcc1r4s0l713s8fzs5-neovim-unwrapped-0.12.4.drv",
+"meta":{
+"available":true,
+"broken":false,
+"changelog":"https://github.com/neovim/neovim/releases/tag/v0.12.4",
+"description":"Vim text editor fork focused on extensibility and agility",
+"donationPage":"https://neovim.io/sponsors/",
+"homepage":"https://neovim.io",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"neovim-unwrapped",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purlParts":{},
+"purls":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"neovim-unwrapped",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purls":[]
+}
+},
+"insecure":false,
+"license":[
+{
+"deprecated":false,
+"free":true,
+"fullName":"Apache License 2.0",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"asl20",
+"spdxId":"Apache-2.0",
+"url":"https://spdx.org/licenses/Apache-2.0.html"
+},
+{
+"deprecated":false,
+"free":true,
+"fullName":"Vim License",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"vim",
+"spdxId":"Vim",
+"url":"https://spdx.org/licenses/Vim.html"
+}
+],
+"longDescription":"Neovim is a project that seeks to aggressively refactor Vim in order to:\n- Simplify maintenance and encourage contributions\n- Split the work between multiple developers\n- Enable the implementation of new/modern user interfaces without any\n  modifications to the core source\n- Improve extensibility with a new plugin architecture\n",
+"mainProgram":"nvim",
+"maintainers":[
+{
+"email":"gaetan@glepage.com",
+"github":"GaetanLepage",
+"githubId":33058747,
+"name":"Gaetan Lepage"
+},
+{
+"email":"nixpkgs@perchun.it",
+"github":"PerchunPak",
+"githubId":68118654,
+"keys":[
+{
+"fingerprint":"BBB5 1142 959D 8549 A3D2  F6C5 313F 67D1 EAB7 70F9"
+}
+],
+"name":"Perchun Pak"
+},
+{
+"email":"khaneliman12@gmail.com",
+"github":"khaneliman",
+"githubId":1778670,
+"name":"Austin Horstman"
+},
+{
+"email":"marc@jakobi.dev",
+"github":"mrcjkb",
+"githubId":12857160,
+"matrix":"@mrcjk:matrix.org",
+"name":"Marc Jakobi"
+}
+],
+"name":"neovim-unwrapped-0.12.4",
+"nonTeamMaintainers":[],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"x86_64-linux",
+"aarch64-darwin",
+"aarch64-linux",
+"i686-cygwin",
+"x86_64-cygwin",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd",
+"x86_64-solaris",
+"arc-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"sh4-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"aarch64-netbsd",
+"armv6l-netbsd",
+"armv7a-netbsd",
+"armv7l-netbsd",
+"i686-netbsd",
+"m68k-netbsd",
+"mipsel-netbsd",
+"powerpc-netbsd",
+"riscv32-netbsd",
+"riscv64-netbsd",
+"x86_64-netbsd",
+"i686-openbsd",
+"x86_64-openbsd",
+"x86_64-redox"
+],
+"position":"<nixpkgs> + /pkgs/by-name/ne/neovim-unwrapped/package.nix:278",
+"problems":{},
+"teams":[
+{
+"github":"neovim",
+"githubId":6748534,
+"githubMaintainers":[
+{
+"email":"gaetan@glepage.com",
+"github":"GaetanLepage",
+"githubId":33058747,
+"name":"Gaetan Lepage"
+}
+],
+"members":[
+{
+"email":"gaetan@glepage.com",
+"github":"GaetanLepage",
+"githubId":33058747,
+"name":"Gaetan Lepage"
+},
+{
+"email":"nixpkgs@perchun.it",
+"github":"PerchunPak",
+"githubId":68118654,
+"keys":[
+{
+"fingerprint":"BBB5 1142 959D 8549 A3D2  F6C5 313F 67D1 EAB7 70F9"
+}
+],
+"name":"Perchun Pak"
+},
+{
+"email":"khaneliman12@gmail.com",
+"github":"khaneliman",
+"githubId":1778670,
+"name":"Austin Horstman"
+},
+{
+"email":"marc@jakobi.dev",
+"github":"mrcjkb",
+"githubId":12857160,
+"matrix":"@mrcjk:matrix.org",
+"name":"Marc Jakobi"
+}
+],
+"scope":"Maintain the vim and neovim text editors and related packages",
+"shortName":"neovim"
+}
+],
+"teamsPosition":{
+"column":7,
+"file":"/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/pkgs/by-name/ne/neovim-unwrapped/package.nix",
+"line":300
+},
+"unfree":false,
+"unsupported":false
+},
+"name":"neovim-unwrapped-0.12.4",
+"outputName":"out",
+"outputs":{
+"debug":null,
+"out":null
+},
+"pname":"neovim-unwrapped",
+"system":"x86_64-linux",
+"version":"0.12.4"
+},
 "niri":{
 "drvPath":"/nix/store/ka9xfk50mai2yvcq71axlcr8vsdkklpx-niri-26.04.drv",
 "meta":{
@@ -2686,7 +2901,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/d8b2zy27y1rf4jpih3f8r11pqhw3ifyb-source/pkgs/ptrace-time-hook/default.nix",
+"file":"/nix/store/0ax77n2vax3lyjm670h08gspx4hrhb0d-source/pkgs/ptrace-time-hook/default.nix",
 "line":93
 },
 "name":"ptrace-time-hook-0.1.0",
@@ -4230,7 +4445,7 @@
 "version":"202604272244"
 },
 "vimPlugins.iwe-nvim":{
-"drvPath":"/nix/store/31i3i0k5wkp46xk7v1kj8kv991bpgk71-vimplugin-iwe-nvim-0-unstable-2026-05-17.drv",
+"drvPath":"/nix/store/n9qk15as5v6yfa3nlcq2r8vyjp9vpp2c-vimplugin-iwe-nvim-0-unstable-2026-05-17.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4366,7 +4581,7 @@
 "version":"0-unstable-2026-05-17"
 },
 "vimPlugins.nvim-treesitter-parsers.ada":{
-"drvPath":"/nix/store/81yf5k6ymxzwd15ymxarnpwlb97d49qy-vimplugin-nvim-treesitter-grammar-ada-0.0.0+rev=6b58259.drv",
+"drvPath":"/nix/store/nhvf6hbxl48jd3mj17wc7lkvz41nvy4f-vimplugin-nvim-treesitter-grammar-ada-0.0.0+rev=6b58259.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4514,7 +4729,7 @@
 "version":"0.0.0+rev=6b58259"
 },
 "vimPlugins.nvim-treesitter-parsers.agda":{
-"drvPath":"/nix/store/7af5spjzvlvbkrvblkr363hn5s28qr1m-vimplugin-nvim-treesitter-grammar-agda-0.0.0+rev=e8d47a6.drv",
+"drvPath":"/nix/store/9x1kjffmzi555g3iavsxpxp10lzd358d-vimplugin-nvim-treesitter-grammar-agda-0.0.0+rev=e8d47a6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4662,7 +4877,7 @@
 "version":"0.0.0+rev=e8d47a6"
 },
 "vimPlugins.nvim-treesitter-parsers.angular":{
-"drvPath":"/nix/store/26hyhnqj78wjgb58paqz71d9sr9mggvb-vimplugin-nvim-treesitter-grammar-angular-0.0.0+rev=38a8014.drv",
+"drvPath":"/nix/store/8qsj70k6q5jk7r432zzam660sqz7di6d-vimplugin-nvim-treesitter-grammar-angular-0.0.0+rev=38a8014.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4810,7 +5025,7 @@
 "version":"0.0.0+rev=38a8014"
 },
 "vimPlugins.nvim-treesitter-parsers.apex":{
-"drvPath":"/nix/store/2ybzqs5994kqwaxpzmwqhnk5sy2z68ph-vimplugin-nvim-treesitter-grammar-apex-0.0.0+rev=27a3091.drv",
+"drvPath":"/nix/store/v6046h4va97m2mnsdgdis1ddwyd24fpg-vimplugin-nvim-treesitter-grammar-apex-0.0.0+rev=27a3091.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4958,7 +5173,7 @@
 "version":"0.0.0+rev=27a3091"
 },
 "vimPlugins.nvim-treesitter-parsers.arduino":{
-"drvPath":"/nix/store/6mrxmx874ryrwskvnhmif65gbphzirri-vimplugin-nvim-treesitter-grammar-arduino-0.0.0+rev=11dd46c.drv",
+"drvPath":"/nix/store/ka0l3150wgcwky428zsgvgfl06aghiq8-vimplugin-nvim-treesitter-grammar-arduino-0.0.0+rev=11dd46c.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5106,7 +5321,7 @@
 "version":"0.0.0+rev=11dd46c"
 },
 "vimPlugins.nvim-treesitter-parsers.asm":{
-"drvPath":"/nix/store/6jj52799k2ir3v9gadi0vfks94x331ig-vimplugin-nvim-treesitter-grammar-asm-0.0.0+rev=839741f.drv",
+"drvPath":"/nix/store/rp28gj08xh4w0vkzgnifx0y587ybddln-vimplugin-nvim-treesitter-grammar-asm-0.0.0+rev=839741f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5254,7 +5469,7 @@
 "version":"0.0.0+rev=839741f"
 },
 "vimPlugins.nvim-treesitter-parsers.astro":{
-"drvPath":"/nix/store/22pkapfy1b11pjgrk9k2inf6175zcyd2-vimplugin-nvim-treesitter-grammar-astro-0.0.0+rev=213f6e6.drv",
+"drvPath":"/nix/store/bzm9ch9r40yapr7pk65sv4m9r01ahmxv-vimplugin-nvim-treesitter-grammar-astro-0.0.0+rev=213f6e6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5402,7 +5617,7 @@
 "version":"0.0.0+rev=213f6e6"
 },
 "vimPlugins.nvim-treesitter-parsers.authzed":{
-"drvPath":"/nix/store/4fckp9xs6yxlrr4azyfvpvpqr4syr1kf-vimplugin-nvim-treesitter-grammar-authzed-0.0.0+rev=83e5c26.drv",
+"drvPath":"/nix/store/bs3wh41rvbazim4nr3a2dw1bxyzmkbck-vimplugin-nvim-treesitter-grammar-authzed-0.0.0+rev=83e5c26.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5550,7 +5765,7 @@
 "version":"0.0.0+rev=83e5c26"
 },
 "vimPlugins.nvim-treesitter-parsers.awk":{
-"drvPath":"/nix/store/ss82g2zh8icx44s0qx0h0faj2z7hjxra-vimplugin-nvim-treesitter-grammar-awk-0.0.0+rev=34bbdc7.drv",
+"drvPath":"/nix/store/jb82wh75rsw8xzf3057rbmy0zarjha29-vimplugin-nvim-treesitter-grammar-awk-0.0.0+rev=34bbdc7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5698,7 +5913,7 @@
 "version":"0.0.0+rev=34bbdc7"
 },
 "vimPlugins.nvim-treesitter-parsers.bash":{
-"drvPath":"/nix/store/9i5c6rjsspknll5cx3spd58v9ng3ayys-vimplugin-nvim-treesitter-grammar-bash-0.0.0+rev=a06c2e4.drv",
+"drvPath":"/nix/store/dn835v7dljz30hxk5gkldql4gjr7szns-vimplugin-nvim-treesitter-grammar-bash-0.0.0+rev=a06c2e4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5846,7 +6061,7 @@
 "version":"0.0.0+rev=a06c2e4"
 },
 "vimPlugins.nvim-treesitter-parsers.bass":{
-"drvPath":"/nix/store/d5rkiqb96ylc5vllhw61i3sr022q6a12-vimplugin-nvim-treesitter-grammar-bass-0.0.0+rev=28dc705.drv",
+"drvPath":"/nix/store/p3pr9q9s6qly6lnz8a17lc1rcmgi9r99-vimplugin-nvim-treesitter-grammar-bass-0.0.0+rev=28dc705.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5994,7 +6209,7 @@
 "version":"0.0.0+rev=28dc705"
 },
 "vimPlugins.nvim-treesitter-parsers.beancount":{
-"drvPath":"/nix/store/km6i3mwzjcrcf6aknnlhxskvpxmn5kiz-vimplugin-nvim-treesitter-grammar-beancount-0.0.0+rev=c8a9780.drv",
+"drvPath":"/nix/store/2zb61rnxdasxak1gc0g9rzlrj80lxnpx-vimplugin-nvim-treesitter-grammar-beancount-0.0.0+rev=c8a9780.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6142,7 +6357,7 @@
 "version":"0.0.0+rev=c8a9780"
 },
 "vimPlugins.nvim-treesitter-parsers.bibtex":{
-"drvPath":"/nix/store/734davvvlwaq6r5rnwicvd0kl2zyhjnf-vimplugin-nvim-treesitter-grammar-bibtex-0.0.0+rev=8d04ed2.drv",
+"drvPath":"/nix/store/h9plwim85qj91a5pd2x6d8dcc4rzgh8v-vimplugin-nvim-treesitter-grammar-bibtex-0.0.0+rev=8d04ed2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6290,7 +6505,7 @@
 "version":"0.0.0+rev=8d04ed2"
 },
 "vimPlugins.nvim-treesitter-parsers.bicep":{
-"drvPath":"/nix/store/nbm2anhdwg8cz1b98air0jdcpv8fcsaa-vimplugin-nvim-treesitter-grammar-bicep-0.0.0+rev=bff5988.drv",
+"drvPath":"/nix/store/wdgvy3c4n335n4slqmgg3pswgczsrdc5-vimplugin-nvim-treesitter-grammar-bicep-0.0.0+rev=bff5988.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6438,7 +6653,7 @@
 "version":"0.0.0+rev=bff5988"
 },
 "vimPlugins.nvim-treesitter-parsers.bitbake":{
-"drvPath":"/nix/store/387j4d621hxgnx5qv9vg2l6vr2xn477z-vimplugin-nvim-treesitter-grammar-bitbake-0.0.0+rev=a5d04fd.drv",
+"drvPath":"/nix/store/gajrjjni9ggdf9lj4igvj74ihhffsd3z-vimplugin-nvim-treesitter-grammar-bitbake-0.0.0+rev=a5d04fd.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6586,7 +6801,7 @@
 "version":"0.0.0+rev=a5d04fd"
 },
 "vimPlugins.nvim-treesitter-parsers.blade":{
-"drvPath":"/nix/store/wfi6s42aamajzal8iqz1sllbriwys6sg-vimplugin-nvim-treesitter-grammar-blade-0.0.0+rev=5dbdcb0.drv",
+"drvPath":"/nix/store/w9f9qq00385d1ykw0gfvcr37rc82fsr6-vimplugin-nvim-treesitter-grammar-blade-0.0.0+rev=5dbdcb0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6734,7 +6949,7 @@
 "version":"0.0.0+rev=5dbdcb0"
 },
 "vimPlugins.nvim-treesitter-parsers.bp":{
-"drvPath":"/nix/store/0sanfij5h6w623vd0w6kdlqbwm4z5icb-vimplugin-nvim-treesitter-grammar-bp-0.0.0+rev=ee641d1.drv",
+"drvPath":"/nix/store/pwr5k0hh5d44zsicxhifznnzls5a77ah-vimplugin-nvim-treesitter-grammar-bp-0.0.0+rev=ee641d1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6882,7 +7097,7 @@
 "version":"0.0.0+rev=ee641d1"
 },
 "vimPlugins.nvim-treesitter-parsers.bpftrace":{
-"drvPath":"/nix/store/m3j5mvpams28sk80ljj10wp4zfl5l6dr-vimplugin-nvim-treesitter-grammar-bpftrace-0.0.0+rev=50b27d8.drv",
+"drvPath":"/nix/store/0q1wwvbrg02cq514xaxljfnn4d5qvny7-vimplugin-nvim-treesitter-grammar-bpftrace-0.0.0+rev=50b27d8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7030,7 +7245,7 @@
 "version":"0.0.0+rev=50b27d8"
 },
 "vimPlugins.nvim-treesitter-parsers.brightscript":{
-"drvPath":"/nix/store/vp6hay4rcigij275r5avh30cp2jhsj0y-vimplugin-nvim-treesitter-grammar-brightscript-0.0.0+rev=253fdfa.drv",
+"drvPath":"/nix/store/7j46h6kp9xlsnpv32ypaiha4mxm07wjp-vimplugin-nvim-treesitter-grammar-brightscript-0.0.0+rev=253fdfa.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7178,7 +7393,7 @@
 "version":"0.0.0+rev=253fdfa"
 },
 "vimPlugins.nvim-treesitter-parsers.c":{
-"drvPath":"/nix/store/3jjx0x2g81n62rc40yxwflgw7v4bvmz4-vimplugin-nvim-treesitter-grammar-c-0.0.0+rev=b780e47.drv",
+"drvPath":"/nix/store/caba77hmq2ip7paadzqnxah4yr6zvykj-vimplugin-nvim-treesitter-grammar-c-0.0.0+rev=b780e47.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7326,7 +7541,7 @@
 "version":"0.0.0+rev=b780e47"
 },
 "vimPlugins.nvim-treesitter-parsers.c3":{
-"drvPath":"/nix/store/x5mqay0fjq4slhl9bgp0mr8450bnsmzl-vimplugin-nvim-treesitter-grammar-c3-0.0.0+rev=1c6a952.drv",
+"drvPath":"/nix/store/y014qhgbj2yf7iwyjwyy6xc6hdqclj2v-vimplugin-nvim-treesitter-grammar-c3-0.0.0+rev=1c6a952.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7474,7 +7689,7 @@
 "version":"0.0.0+rev=1c6a952"
 },
 "vimPlugins.nvim-treesitter-parsers.c_sharp":{
-"drvPath":"/nix/store/vj1b4mviyhixc55fgcpalvw3gs13j9pg-vimplugin-nvim-treesitter-grammar-c_sharp-0.0.0+rev=v0.23.5.drv",
+"drvPath":"/nix/store/mz7i4b3znkpgjjxpclklyr7rb7gjw2i4-vimplugin-nvim-treesitter-grammar-c_sharp-0.0.0+rev=v0.23.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7622,7 +7837,7 @@
 "version":"0.0.0+rev=v0.23.5"
 },
 "vimPlugins.nvim-treesitter-parsers.caddy":{
-"drvPath":"/nix/store/gsv6z8cj1vx4jdl62dvfljdgjq51jrl9-vimplugin-nvim-treesitter-grammar-caddy-0.0.0+rev=2686186.drv",
+"drvPath":"/nix/store/wcxp4krcgk1gf0n4wyz4m90dkxykpc75-vimplugin-nvim-treesitter-grammar-caddy-0.0.0+rev=2686186.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7770,7 +7985,7 @@
 "version":"0.0.0+rev=2686186"
 },
 "vimPlugins.nvim-treesitter-parsers.cairo":{
-"drvPath":"/nix/store/9avbrgdl2m994qlwbjrxrvxvc6h8xwyf-vimplugin-nvim-treesitter-grammar-cairo-0.0.0+rev=6238f60.drv",
+"drvPath":"/nix/store/r1s1xmcvak8rkl1cszp9939d4f00vi0j-vimplugin-nvim-treesitter-grammar-cairo-0.0.0+rev=6238f60.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7918,7 +8133,7 @@
 "version":"0.0.0+rev=6238f60"
 },
 "vimPlugins.nvim-treesitter-parsers.capnp":{
-"drvPath":"/nix/store/gl6z5jhfmsam05ax9dai9ri8b306qc0j-vimplugin-nvim-treesitter-grammar-capnp-0.0.0+rev=7b0883c.drv",
+"drvPath":"/nix/store/5zvwgskrswv2pnynjf68xscr77nky276-vimplugin-nvim-treesitter-grammar-capnp-0.0.0+rev=7b0883c.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8066,7 +8281,7 @@
 "version":"0.0.0+rev=7b0883c"
 },
 "vimPlugins.nvim-treesitter-parsers.chatito":{
-"drvPath":"/nix/store/n9sybzn56m5am24k9k5dhzqllj9rp6dm-vimplugin-nvim-treesitter-grammar-chatito-0.0.0+rev=c0ed82c.drv",
+"drvPath":"/nix/store/5sdj8rhvfs7ijwn34k18fmy8c02mn3n0-vimplugin-nvim-treesitter-grammar-chatito-0.0.0+rev=c0ed82c.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8214,7 +8429,7 @@
 "version":"0.0.0+rev=c0ed82c"
 },
 "vimPlugins.nvim-treesitter-parsers.circom":{
-"drvPath":"/nix/store/yzrhr6fq8b7aa3ffckl0mvx8xql91bs0-vimplugin-nvim-treesitter-grammar-circom-0.0.0+rev=0215052.drv",
+"drvPath":"/nix/store/3vgk25pp89bgvkp3wxp29kgknlz2jkqs-vimplugin-nvim-treesitter-grammar-circom-0.0.0+rev=0215052.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8362,7 +8577,7 @@
 "version":"0.0.0+rev=0215052"
 },
 "vimPlugins.nvim-treesitter-parsers.clojure":{
-"drvPath":"/nix/store/hgc3bxzi2q8mg105gm4137ax227qxpl1-vimplugin-nvim-treesitter-grammar-clojure-0.0.0+rev=e43eff8.drv",
+"drvPath":"/nix/store/jamyk7z3apf61f9hy25ggh6f2qlvkli8-vimplugin-nvim-treesitter-grammar-clojure-0.0.0+rev=e43eff8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8510,7 +8725,7 @@
 "version":"0.0.0+rev=e43eff8"
 },
 "vimPlugins.nvim-treesitter-parsers.cmake":{
-"drvPath":"/nix/store/yvpkvsd3rqci2bf24j3x41dh12748jpk-vimplugin-nvim-treesitter-grammar-cmake-0.0.0+rev=ca627bb.drv",
+"drvPath":"/nix/store/8y9w5pzjaqyrf2m63d6dlfgs7g9znlf8-vimplugin-nvim-treesitter-grammar-cmake-0.0.0+rev=ca627bb.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8658,7 +8873,7 @@
 "version":"0.0.0+rev=ca627bb"
 },
 "vimPlugins.nvim-treesitter-parsers.comment":{
-"drvPath":"/nix/store/lwb4xgsa833ady6hr6yfa74qx6nlwkw5-vimplugin-nvim-treesitter-grammar-comment-0.0.0+rev=66272d2.drv",
+"drvPath":"/nix/store/fhsdi6ap16fdjcqsdbbpz285j1sdyri0-vimplugin-nvim-treesitter-grammar-comment-0.0.0+rev=66272d2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8806,7 +9021,7 @@
 "version":"0.0.0+rev=66272d2"
 },
 "vimPlugins.nvim-treesitter-parsers.commonlisp":{
-"drvPath":"/nix/store/596d3xv1q9gxd2wcmawz7z77z7psdiq8-vimplugin-nvim-treesitter-grammar-commonlisp-0.0.0+rev=3232350.drv",
+"drvPath":"/nix/store/kgdhfr1fway8ibb9pqajr36yf1rzm0b8-vimplugin-nvim-treesitter-grammar-commonlisp-0.0.0+rev=3232350.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8954,7 +9169,7 @@
 "version":"0.0.0+rev=3232350"
 },
 "vimPlugins.nvim-treesitter-parsers.cooklang":{
-"drvPath":"/nix/store/rx1vxqdzxj130cbzx58bdg57l3i9qiwn-vimplugin-nvim-treesitter-grammar-cooklang-0.0.0+rev=4ebe237.drv",
+"drvPath":"/nix/store/gmw55rvnksgiisdzs81911pfd0b21pmc-vimplugin-nvim-treesitter-grammar-cooklang-0.0.0+rev=4ebe237.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9102,7 +9317,7 @@
 "version":"0.0.0+rev=4ebe237"
 },
 "vimPlugins.nvim-treesitter-parsers.corn":{
-"drvPath":"/nix/store/jika50kwkv64v4n29ndah0zvnd2k0yal-vimplugin-nvim-treesitter-grammar-corn-0.0.0+rev=4646547.drv",
+"drvPath":"/nix/store/mzj9mrdakjj26kxdx61z2mmdqwsiwp2g-vimplugin-nvim-treesitter-grammar-corn-0.0.0+rev=4646547.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9250,7 +9465,7 @@
 "version":"0.0.0+rev=4646547"
 },
 "vimPlugins.nvim-treesitter-parsers.cpon":{
-"drvPath":"/nix/store/gz273ss5j7hk5px1h63468zmdhv5svy1-vimplugin-nvim-treesitter-grammar-cpon-0.0.0+rev=594289e.drv",
+"drvPath":"/nix/store/cld2bb1vqhp4xlrlaf9y0yyb5bvy96ll-vimplugin-nvim-treesitter-grammar-cpon-0.0.0+rev=594289e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9398,7 +9613,7 @@
 "version":"0.0.0+rev=594289e"
 },
 "vimPlugins.nvim-treesitter-parsers.cpp":{
-"drvPath":"/nix/store/f08wmcl78y5p22szifhfrds175i76kva-vimplugin-nvim-treesitter-grammar-cpp-0.0.0+rev=8b5b49e.drv",
+"drvPath":"/nix/store/kp13wagr8dnqb46y6nb8xr1g3jgan2ww-vimplugin-nvim-treesitter-grammar-cpp-0.0.0+rev=8b5b49e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9546,7 +9761,7 @@
 "version":"0.0.0+rev=8b5b49e"
 },
 "vimPlugins.nvim-treesitter-parsers.css":{
-"drvPath":"/nix/store/2l98lv5073ph5scr2x9zzvirzc4kiy86-vimplugin-nvim-treesitter-grammar-css-0.0.0+rev=dda5cfc.drv",
+"drvPath":"/nix/store/isxaqiif7wfm4b3slm4ixw2xshphm3pd-vimplugin-nvim-treesitter-grammar-css-0.0.0+rev=dda5cfc.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9694,7 +9909,7 @@
 "version":"0.0.0+rev=dda5cfc"
 },
 "vimPlugins.nvim-treesitter-parsers.csv":{
-"drvPath":"/nix/store/5nr2scb32x5gxc9xn8pji79fb3skggdh-vimplugin-nvim-treesitter-grammar-csv-0.0.0+rev=f6bf6e3.drv",
+"drvPath":"/nix/store/viy3vsp8hbjhgisx06rdn874zq7d28jk-vimplugin-nvim-treesitter-grammar-csv-0.0.0+rev=f6bf6e3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9842,7 +10057,7 @@
 "version":"0.0.0+rev=f6bf6e3"
 },
 "vimPlugins.nvim-treesitter-parsers.cuda":{
-"drvPath":"/nix/store/dk1ah4fqck06pqrd6nzv5m9d11x6wb6q-vimplugin-nvim-treesitter-grammar-cuda-0.0.0+rev=48b066f.drv",
+"drvPath":"/nix/store/56l2bprmjxi4r1m58yi6aaxjlfmk8x3r-vimplugin-nvim-treesitter-grammar-cuda-0.0.0+rev=48b066f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9990,7 +10205,7 @@
 "version":"0.0.0+rev=48b066f"
 },
 "vimPlugins.nvim-treesitter-parsers.cue":{
-"drvPath":"/nix/store/xilkbc1i4kjyhy825sfkslby102hmp2a-vimplugin-nvim-treesitter-grammar-cue-0.0.0+rev=dd7b90e.drv",
+"drvPath":"/nix/store/9cwwfrzxdby9ld6bn8dzjd7jskl43rvs-vimplugin-nvim-treesitter-grammar-cue-0.0.0+rev=dd7b90e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10138,7 +10353,7 @@
 "version":"0.0.0+rev=dd7b90e"
 },
 "vimPlugins.nvim-treesitter-parsers.cylc":{
-"drvPath":"/nix/store/1gp8vb6548j2ryxd1xlc7pjsp7xdh91d-vimplugin-nvim-treesitter-grammar-cylc-0.0.0+rev=6d1d811.drv",
+"drvPath":"/nix/store/pa4kzwdgs7h28r9qjyhmw8zjy2399wqf-vimplugin-nvim-treesitter-grammar-cylc-0.0.0+rev=6d1d811.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10286,7 +10501,7 @@
 "version":"0.0.0+rev=6d1d811"
 },
 "vimPlugins.nvim-treesitter-parsers.d":{
-"drvPath":"/nix/store/9f0xzw2px2c85zl7m59xigmasxyi1ng1-vimplugin-nvim-treesitter-grammar-d-0.0.0+rev=64f2793.drv",
+"drvPath":"/nix/store/zimwb54qvpjpzndyg8x025y7p0pg7x0z-vimplugin-nvim-treesitter-grammar-d-0.0.0+rev=64f2793.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10434,7 +10649,7 @@
 "version":"0.0.0+rev=64f2793"
 },
 "vimPlugins.nvim-treesitter-parsers.dart":{
-"drvPath":"/nix/store/4lrn0nsy2l4mxpvizxfaz815fv4klvjj-vimplugin-nvim-treesitter-grammar-dart-0.0.0+rev=be07cf7.drv",
+"drvPath":"/nix/store/hr27w1wxfi8mi85fvvisgcjxj0hrw4jl-vimplugin-nvim-treesitter-grammar-dart-0.0.0+rev=be07cf7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10582,7 +10797,7 @@
 "version":"0.0.0+rev=be07cf7"
 },
 "vimPlugins.nvim-treesitter-parsers.desktop":{
-"drvPath":"/nix/store/1q2v47ah45v212vip0x627xq7sq0151k-vimplugin-nvim-treesitter-grammar-desktop-0.0.0+rev=v1.1.1.drv",
+"drvPath":"/nix/store/bp46ly66ikndswqxcl807q27ldivmp3d-vimplugin-nvim-treesitter-grammar-desktop-0.0.0+rev=v1.1.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10730,7 +10945,7 @@
 "version":"0.0.0+rev=v1.1.1"
 },
 "vimPlugins.nvim-treesitter-parsers.devicetree":{
-"drvPath":"/nix/store/kya18zyymdpqv42l9izcrr54j96sadi3-vimplugin-nvim-treesitter-grammar-devicetree-0.0.0+rev=e78bf56.drv",
+"drvPath":"/nix/store/5a6hk6vcpi42nnvlgk0dzm1jjpjw1d9z-vimplugin-nvim-treesitter-grammar-devicetree-0.0.0+rev=e78bf56.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10878,7 +11093,7 @@
 "version":"0.0.0+rev=e78bf56"
 },
 "vimPlugins.nvim-treesitter-parsers.dhall":{
-"drvPath":"/nix/store/mx9qffjy67yvhjjdhq92bp6mlgzb15i2-vimplugin-nvim-treesitter-grammar-dhall-0.0.0+rev=6201325.drv",
+"drvPath":"/nix/store/a783bbc8i8ksnn5qb4mdarwykwm5swkm-vimplugin-nvim-treesitter-grammar-dhall-0.0.0+rev=6201325.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11026,7 +11241,7 @@
 "version":"0.0.0+rev=6201325"
 },
 "vimPlugins.nvim-treesitter-parsers.diff":{
-"drvPath":"/nix/store/raxk4d6f8g6w4v9jgc7bkln83w2af94b-vimplugin-nvim-treesitter-grammar-diff-0.0.0+rev=7d20331.drv",
+"drvPath":"/nix/store/4bslgn82cvafzn5zx7211fsx1jnh5r18-vimplugin-nvim-treesitter-grammar-diff-0.0.0+rev=7d20331.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11174,7 +11389,7 @@
 "version":"0.0.0+rev=7d20331"
 },
 "vimPlugins.nvim-treesitter-parsers.disassembly":{
-"drvPath":"/nix/store/avnl43h5xzi9p2bdjrv01vc4aiv8igkx-vimplugin-nvim-treesitter-grammar-disassembly-0.0.0+rev=0229c02.drv",
+"drvPath":"/nix/store/gkfvlpmfgkl0mbhr37zvczd6lhkwlnf0-vimplugin-nvim-treesitter-grammar-disassembly-0.0.0+rev=0229c02.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11322,7 +11537,7 @@
 "version":"0.0.0+rev=0229c02"
 },
 "vimPlugins.nvim-treesitter-parsers.djot":{
-"drvPath":"/nix/store/91k7hlnls2r2dm4kz8q2g4m4zdjd57lp-vimplugin-nvim-treesitter-grammar-djot-0.0.0+rev=759a618.drv",
+"drvPath":"/nix/store/0v9wa5dhrqwv803wkpvkvgzr7mimwrn2-vimplugin-nvim-treesitter-grammar-djot-0.0.0+rev=759a618.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11470,7 +11685,7 @@
 "version":"0.0.0+rev=759a618"
 },
 "vimPlugins.nvim-treesitter-parsers.dockerfile":{
-"drvPath":"/nix/store/pn86298ksfwjfs4a2xzhdhkim8mxjvxj-vimplugin-nvim-treesitter-grammar-dockerfile-0.0.0+rev=971acdd.drv",
+"drvPath":"/nix/store/zywzv0xdkab9jqd1zrnkn23pc2yvf38w-vimplugin-nvim-treesitter-grammar-dockerfile-0.0.0+rev=971acdd.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11618,7 +11833,7 @@
 "version":"0.0.0+rev=971acdd"
 },
 "vimPlugins.nvim-treesitter-parsers.dot":{
-"drvPath":"/nix/store/b78hy3qd6aw2m8phx59sglwrqazjjili-vimplugin-nvim-treesitter-grammar-dot-0.0.0+rev=80327ab.drv",
+"drvPath":"/nix/store/j9pdww9m9xx1dx8pniy40jxcnwvmbazi-vimplugin-nvim-treesitter-grammar-dot-0.0.0+rev=80327ab.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11766,7 +11981,7 @@
 "version":"0.0.0+rev=80327ab"
 },
 "vimPlugins.nvim-treesitter-parsers.doxygen":{
-"drvPath":"/nix/store/1i6ly7k82jb7an3qp7lys2b431slznc4-vimplugin-nvim-treesitter-grammar-doxygen-0.0.0+rev=ccd998f.drv",
+"drvPath":"/nix/store/wss56hqyq6hhbaricr3v8ly7i8pg7yby-vimplugin-nvim-treesitter-grammar-doxygen-0.0.0+rev=ccd998f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11914,7 +12129,7 @@
 "version":"0.0.0+rev=ccd998f"
 },
 "vimPlugins.nvim-treesitter-parsers.dtd":{
-"drvPath":"/nix/store/90qcax34gj3zvh8kf9g884fhh72ljf97-vimplugin-nvim-treesitter-grammar-dtd-0.0.0+rev=5000ae8.drv",
+"drvPath":"/nix/store/36bz4y85zvxcaa16bq2mvy0l7cv394xf-vimplugin-nvim-treesitter-grammar-dtd-0.0.0+rev=5000ae8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12062,7 +12277,7 @@
 "version":"0.0.0+rev=5000ae8"
 },
 "vimPlugins.nvim-treesitter-parsers.earthfile":{
-"drvPath":"/nix/store/9ch51mkz7rzqfgvik1027cp1d8ciics8-vimplugin-nvim-treesitter-grammar-earthfile-0.0.0+rev=5baef88.drv",
+"drvPath":"/nix/store/r2zb4cq01378yji438ldhvz0715pz191-vimplugin-nvim-treesitter-grammar-earthfile-0.0.0+rev=5baef88.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12210,7 +12425,7 @@
 "version":"0.0.0+rev=5baef88"
 },
 "vimPlugins.nvim-treesitter-parsers.ebnf":{
-"drvPath":"/nix/store/dgggckrf41rx8pg3ki76qa0msf91vrwv-vimplugin-nvim-treesitter-grammar-ebnf-0.0.0+rev=8e635b0.drv",
+"drvPath":"/nix/store/8wjb6x503sbnixx5br6bwyjag33ipljy-vimplugin-nvim-treesitter-grammar-ebnf-0.0.0+rev=8e635b0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12358,7 +12573,7 @@
 "version":"0.0.0+rev=8e635b0"
 },
 "vimPlugins.nvim-treesitter-parsers.editorconfig":{
-"drvPath":"/nix/store/sy9mlsbg56apn5ry1kvcwwlj7xp1hs01-vimplugin-nvim-treesitter-grammar-editorconfig-0.0.0+rev=v2.0.0.drv",
+"drvPath":"/nix/store/9b635qdlzk0ywbrsdz2kvz50a52s8mxj-vimplugin-nvim-treesitter-grammar-editorconfig-0.0.0+rev=v2.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12506,7 +12721,7 @@
 "version":"0.0.0+rev=v2.0.0"
 },
 "vimPlugins.nvim-treesitter-parsers.eds":{
-"drvPath":"/nix/store/qys8ifnr80s2s1bi2ywlddvkazbhpqjy-vimplugin-nvim-treesitter-grammar-eds-0.0.0+rev=26d529e.drv",
+"drvPath":"/nix/store/9mbvjsxmy0kczi37vy946ax1shnscw4y-vimplugin-nvim-treesitter-grammar-eds-0.0.0+rev=26d529e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12654,7 +12869,7 @@
 "version":"0.0.0+rev=26d529e"
 },
 "vimPlugins.nvim-treesitter-parsers.eex":{
-"drvPath":"/nix/store/5qb5qfk86qw07hzw4ysr0sndf57vdzbq-vimplugin-nvim-treesitter-grammar-eex-0.0.0+rev=f742f2f.drv",
+"drvPath":"/nix/store/yrgwpvxkg918d3cwf4mqldlcmalmsaj0-vimplugin-nvim-treesitter-grammar-eex-0.0.0+rev=f742f2f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12802,7 +13017,7 @@
 "version":"0.0.0+rev=f742f2f"
 },
 "vimPlugins.nvim-treesitter-parsers.elixir":{
-"drvPath":"/nix/store/fgcry97brmjlkrqf1gx2lhxmk0jf82qz-vimplugin-nvim-treesitter-grammar-elixir-0.0.0+rev=c4f9f5a.drv",
+"drvPath":"/nix/store/9zgz1dbj50pqasbljz7siskmyi02rz9n-vimplugin-nvim-treesitter-grammar-elixir-0.0.0+rev=c4f9f5a.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12950,7 +13165,7 @@
 "version":"0.0.0+rev=c4f9f5a"
 },
 "vimPlugins.nvim-treesitter-parsers.elm":{
-"drvPath":"/nix/store/danzyvfmpipx4ssbxk8zj5f3dh795x5j-vimplugin-nvim-treesitter-grammar-elm-0.0.0+rev=6bf1558.drv",
+"drvPath":"/nix/store/2pf9z4q59rrhq7vy1cyvnkffhq1rbvss-vimplugin-nvim-treesitter-grammar-elm-0.0.0+rev=6bf1558.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -13098,7 +13313,7 @@
 "version":"0.0.0+rev=6bf1558"
 },
 "vimPlugins.nvim-treesitter-parsers.elsa":{
-"drvPath":"/nix/store/jn6whxvciykz3gvd1ii80w9mzj305fk3-vimplugin-nvim-treesitter-grammar-elsa-0.0.0+rev=0a66b2b.drv",
+"drvPath":"/nix/store/sj7jnawkjlni7038z776iabklk85vdhh-vimplugin-nvim-treesitter-grammar-elsa-0.0.0+rev=0a66b2b.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -13246,7 +13461,7 @@
 "version":"0.0.0+rev=0a66b2b"
 },
 "vimPlugins.nvim-treesitter-parsers.elvish":{
-"drvPath":"/nix/store/1m4l8iqzjqgb3r2j54kldyva65cblpr9-vimplugin-nvim-treesitter-grammar-elvish-0.0.0+rev=5e7210d.drv",
+"drvPath":"/nix/store/rcnvvckd706f6726jczdqhrhwsz4zvak-vimplugin-nvim-treesitter-grammar-elvish-0.0.0+rev=5e7210d.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -13394,7 +13609,7 @@
 "version":"0.0.0+rev=5e7210d"
 },
 "vimPlugins.nvim-treesitter-parsers.embedded_template":{
-"drvPath":"/nix/store/6s0q64hn1jc2gkm0ifaimz01qwhbsii9-vimplugin-nvim-treesitter-grammar-embedded_template-0.0.0+rev=3499d85.drv",
+"drvPath":"/nix/store/975hgxsyxi2vv0aq51gckv8abh5jj57c-vimplugin-nvim-treesitter-grammar-embedded_template-0.0.0+rev=3499d85.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -13542,7 +13757,7 @@
 "version":"0.0.0+rev=3499d85"
 },
 "vimPlugins.nvim-treesitter-parsers.enforce":{
-"drvPath":"/nix/store/1bai7kdmyv6z599dqiivz3si9mwq1s31-vimplugin-nvim-treesitter-grammar-enforce-0.0.0+rev=d222ea5.drv",
+"drvPath":"/nix/store/lmvgz2fsv9lfacazp83n0l2zjsgawl6r-vimplugin-nvim-treesitter-grammar-enforce-0.0.0+rev=d222ea5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -13690,7 +13905,7 @@
 "version":"0.0.0+rev=d222ea5"
 },
 "vimPlugins.nvim-treesitter-parsers.erlang":{
-"drvPath":"/nix/store/wni6n4lw1aqbhgn0sf9032y4kr4g2x0s-vimplugin-nvim-treesitter-grammar-erlang-0.0.0+rev=836aa2b.drv",
+"drvPath":"/nix/store/2x4xisrfn8d41bg6vyl7whg55hj5b6p7-vimplugin-nvim-treesitter-grammar-erlang-0.0.0+rev=836aa2b.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -13838,7 +14053,7 @@
 "version":"0.0.0+rev=836aa2b"
 },
 "vimPlugins.nvim-treesitter-parsers.facility":{
-"drvPath":"/nix/store/n0jv34i6xv7406x265sbz0gpjv4qfnmv-vimplugin-nvim-treesitter-grammar-facility-0.0.0+rev=e4bfd3e.drv",
+"drvPath":"/nix/store/xxs06drd2a5wywqarh7554xgvsrir7cg-vimplugin-nvim-treesitter-grammar-facility-0.0.0+rev=e4bfd3e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -13986,7 +14201,7 @@
 "version":"0.0.0+rev=e4bfd3e"
 },
 "vimPlugins.nvim-treesitter-parsers.faust":{
-"drvPath":"/nix/store/nxcjr483zi9i19jhg0s0rq0n4f512szk-vimplugin-nvim-treesitter-grammar-faust-0.0.0+rev=6074204.drv",
+"drvPath":"/nix/store/afywkxsmfmyd66ci806kchh8q1rrw9zr-vimplugin-nvim-treesitter-grammar-faust-0.0.0+rev=6074204.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -14134,7 +14349,7 @@
 "version":"0.0.0+rev=6074204"
 },
 "vimPlugins.nvim-treesitter-parsers.fennel":{
-"drvPath":"/nix/store/38lgv2r5w825yqdmax45n4sg23zc40ka-vimplugin-nvim-treesitter-grammar-fennel-0.0.0+rev=3f0f6b2.drv",
+"drvPath":"/nix/store/sajxkhlmyvpb6zz705w822anw8fmpkip-vimplugin-nvim-treesitter-grammar-fennel-0.0.0+rev=3f0f6b2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -14282,7 +14497,7 @@
 "version":"0.0.0+rev=3f0f6b2"
 },
 "vimPlugins.nvim-treesitter-parsers.fidl":{
-"drvPath":"/nix/store/jr68apakxg2znbdyw082y63fapzxf79r-vimplugin-nvim-treesitter-grammar-fidl-0.0.0+rev=0a8910f.drv",
+"drvPath":"/nix/store/5lgqd9f3w5k63cgq09wyankiaslwcfc6-vimplugin-nvim-treesitter-grammar-fidl-0.0.0+rev=0a8910f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -14430,7 +14645,7 @@
 "version":"0.0.0+rev=0a8910f"
 },
 "vimPlugins.nvim-treesitter-parsers.firrtl":{
-"drvPath":"/nix/store/v20yx60fl4m60hf4bqmcr6z2qfdifllb-vimplugin-nvim-treesitter-grammar-firrtl-0.0.0+rev=8503d3a.drv",
+"drvPath":"/nix/store/vm486bvfn0s4jmj27hqglk1wvpsks37l-vimplugin-nvim-treesitter-grammar-firrtl-0.0.0+rev=8503d3a.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -14578,7 +14793,7 @@
 "version":"0.0.0+rev=8503d3a"
 },
 "vimPlugins.nvim-treesitter-parsers.fish":{
-"drvPath":"/nix/store/di656qhz1zdk64sfcqdibqf7mr92d7dh-vimplugin-nvim-treesitter-grammar-fish-0.0.0+rev=f435b0b.drv",
+"drvPath":"/nix/store/nzqhvincgx9b0af7ybfz8qzn85nsmzwn-vimplugin-nvim-treesitter-grammar-fish-0.0.0+rev=f435b0b.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -14726,7 +14941,7 @@
 "version":"0.0.0+rev=f435b0b"
 },
 "vimPlugins.nvim-treesitter-parsers.foam":{
-"drvPath":"/nix/store/csx0rss9rb2wpa4xa1486qxx6gm6b0w0-vimplugin-nvim-treesitter-grammar-foam-0.0.0+rev=472c24f.drv",
+"drvPath":"/nix/store/hsfpjsxav7rr54ba77kfbch9z3lgp8x5-vimplugin-nvim-treesitter-grammar-foam-0.0.0+rev=472c24f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -14874,7 +15089,7 @@
 "version":"0.0.0+rev=472c24f"
 },
 "vimPlugins.nvim-treesitter-parsers.forth":{
-"drvPath":"/nix/store/1h92am527si60b914f7wwlw9di1dai4q-vimplugin-nvim-treesitter-grammar-forth-0.0.0+rev=7190f21.drv",
+"drvPath":"/nix/store/4yps3ksl56awsmd2jxrg5hyw4bzrc6c1-vimplugin-nvim-treesitter-grammar-forth-0.0.0+rev=7190f21.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15022,7 +15237,7 @@
 "version":"0.0.0+rev=7190f21"
 },
 "vimPlugins.nvim-treesitter-parsers.fortran":{
-"drvPath":"/nix/store/7nb90skylwbd3k6rvfg521v45660i60h-vimplugin-nvim-treesitter-grammar-fortran-0.0.0+rev=7edacd2.drv",
+"drvPath":"/nix/store/3fbp13i8aj0a8whi86vd4yj2mwahc4gl-vimplugin-nvim-treesitter-grammar-fortran-0.0.0+rev=7edacd2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15170,7 +15385,7 @@
 "version":"0.0.0+rev=7edacd2"
 },
 "vimPlugins.nvim-treesitter-parsers.fsh":{
-"drvPath":"/nix/store/drvj7l7c269q7sr21yadrrxbdp475dij-vimplugin-nvim-treesitter-grammar-fsh-0.0.0+rev=fad2e17.drv",
+"drvPath":"/nix/store/flw7g6nar2cfkq74vhy8qabk3x40rzng-vimplugin-nvim-treesitter-grammar-fsh-0.0.0+rev=fad2e17.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15318,7 +15533,7 @@
 "version":"0.0.0+rev=fad2e17"
 },
 "vimPlugins.nvim-treesitter-parsers.fsharp":{
-"drvPath":"/nix/store/hbxjdz28p3s5xk906ppp46c1jmx8slrf-vimplugin-nvim-treesitter-grammar-fsharp-0.0.0+rev=148ea97.drv",
+"drvPath":"/nix/store/6bm6al2sd7kb9mdf2fm3vsqzgzs5njmj-vimplugin-nvim-treesitter-grammar-fsharp-0.0.0+rev=148ea97.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15466,7 +15681,7 @@
 "version":"0.0.0+rev=148ea97"
 },
 "vimPlugins.nvim-treesitter-parsers.func":{
-"drvPath":"/nix/store/iajqlksihzlvxcgxc1dliqzcqp96pjcj-vimplugin-nvim-treesitter-grammar-func-0.0.0+rev=f780ca5.drv",
+"drvPath":"/nix/store/41ygy6jlyl6gvpzm9rfw5lpxzjb9rpqk-vimplugin-nvim-treesitter-grammar-func-0.0.0+rev=f780ca5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15614,7 +15829,7 @@
 "version":"0.0.0+rev=f780ca5"
 },
 "vimPlugins.nvim-treesitter-parsers.gap":{
-"drvPath":"/nix/store/0aps70ag4d3gy8svxhzpzi71b7124k64-vimplugin-nvim-treesitter-grammar-gap-0.0.0+rev=96fe2e4.drv",
+"drvPath":"/nix/store/gad3h2khq5bcyvfg9v1l4n0c9i8k6sv0-vimplugin-nvim-treesitter-grammar-gap-0.0.0+rev=96fe2e4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15762,7 +15977,7 @@
 "version":"0.0.0+rev=96fe2e4"
 },
 "vimPlugins.nvim-treesitter-parsers.gaptst":{
-"drvPath":"/nix/store/c6f43r45jwk7wkqr7n57xvins5kpj9qn-vimplugin-nvim-treesitter-grammar-gaptst-0.0.0+rev=69086d7.drv",
+"drvPath":"/nix/store/ia6cjrbndfp1q7k2kz5dkbvykmk4l5by-vimplugin-nvim-treesitter-grammar-gaptst-0.0.0+rev=69086d7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15910,7 +16125,7 @@
 "version":"0.0.0+rev=69086d7"
 },
 "vimPlugins.nvim-treesitter-parsers.gdscript":{
-"drvPath":"/nix/store/jd68vbqm03mq9h68nb80p4iri057cc6x-vimplugin-nvim-treesitter-grammar-gdscript-0.0.0+rev=9686853.drv",
+"drvPath":"/nix/store/r0bmzxir1dm3dh55vwc2zvl150bk86af-vimplugin-nvim-treesitter-grammar-gdscript-0.0.0+rev=9686853.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -16058,7 +16273,7 @@
 "version":"0.0.0+rev=9686853"
 },
 "vimPlugins.nvim-treesitter-parsers.gdshader":{
-"drvPath":"/nix/store/bbg01nsjfqm4bcxxjl9zmd1zwmbbqxcy-vimplugin-nvim-treesitter-grammar-gdshader-0.0.0+rev=6826863.drv",
+"drvPath":"/nix/store/xhb6cygijmbnzq3adxf5fwz26a6fxjm4-vimplugin-nvim-treesitter-grammar-gdshader-0.0.0+rev=6826863.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -16206,7 +16421,7 @@
 "version":"0.0.0+rev=6826863"
 },
 "vimPlugins.nvim-treesitter-parsers.git_config":{
-"drvPath":"/nix/store/sx8aqqhd15k7z9grg5d56dqxzfzlj0fb-vimplugin-nvim-treesitter-grammar-git_config-0.0.0+rev=0fbc9f9.drv",
+"drvPath":"/nix/store/x7116phf9ivswn9njmbw8llb75sng4gx-vimplugin-nvim-treesitter-grammar-git_config-0.0.0+rev=0fbc9f9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -16354,7 +16569,7 @@
 "version":"0.0.0+rev=0fbc9f9"
 },
 "vimPlugins.nvim-treesitter-parsers.git_rebase":{
-"drvPath":"/nix/store/wqjbz7gjdlijz55k0xzhyzasqy5hyrm5-vimplugin-nvim-treesitter-grammar-git_rebase-0.0.0+rev=32686d6.drv",
+"drvPath":"/nix/store/sbk3sdqi6lknx24gww1xhpcfqyrfyj49-vimplugin-nvim-treesitter-grammar-git_rebase-0.0.0+rev=32686d6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -16502,7 +16717,7 @@
 "version":"0.0.0+rev=32686d6"
 },
 "vimPlugins.nvim-treesitter-parsers.gitattributes":{
-"drvPath":"/nix/store/bx3gjiin1pa80r4jxjk0c6f3jlaabc0c-vimplugin-nvim-treesitter-grammar-gitattributes-0.0.0+rev=1b7af09.drv",
+"drvPath":"/nix/store/yhqvw9889qpk1wjjbx18qj8g7d4dji5h-vimplugin-nvim-treesitter-grammar-gitattributes-0.0.0+rev=1b7af09.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -16650,7 +16865,7 @@
 "version":"0.0.0+rev=1b7af09"
 },
 "vimPlugins.nvim-treesitter-parsers.gitcommit":{
-"drvPath":"/nix/store/4b663691j8gc6d14wlgqm82db343fldn-vimplugin-nvim-treesitter-grammar-gitcommit-0.0.0+rev=49715a9.drv",
+"drvPath":"/nix/store/3smd13igwmpbjjz2jm8skb47k05y1l11-vimplugin-nvim-treesitter-grammar-gitcommit-0.0.0+rev=49715a9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -16798,7 +17013,7 @@
 "version":"0.0.0+rev=49715a9"
 },
 "vimPlugins.nvim-treesitter-parsers.gitignore":{
-"drvPath":"/nix/store/fj7mrjil1whqmxls0f71nccif5f2b34y-vimplugin-nvim-treesitter-grammar-gitignore-0.0.0+rev=f4685bf.drv",
+"drvPath":"/nix/store/pnllqjy73drjmxkk67vl7wkbv7snjvkg-vimplugin-nvim-treesitter-grammar-gitignore-0.0.0+rev=f4685bf.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -16946,7 +17161,7 @@
 "version":"0.0.0+rev=f4685bf"
 },
 "vimPlugins.nvim-treesitter-parsers.gleam":{
-"drvPath":"/nix/store/1wzway404h6fkiv1llc8s4g4p6nlzgx8-vimplugin-nvim-treesitter-grammar-gleam-0.0.0+rev=cefbd68.drv",
+"drvPath":"/nix/store/k2r3mhn7aj6ym0c1qb2zf8kk8z8db163-vimplugin-nvim-treesitter-grammar-gleam-0.0.0+rev=cefbd68.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17094,7 +17309,7 @@
 "version":"0.0.0+rev=cefbd68"
 },
 "vimPlugins.nvim-treesitter-parsers.glimmer":{
-"drvPath":"/nix/store/kp4afhjlj6rrf5vvsldlppm36cyf5a1h-vimplugin-nvim-treesitter-grammar-glimmer-0.0.0+rev=c67a736.drv",
+"drvPath":"/nix/store/dfgqdjis30bwddjm8nqawcgpwyydn3i8-vimplugin-nvim-treesitter-grammar-glimmer-0.0.0+rev=c67a736.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17242,7 +17457,7 @@
 "version":"0.0.0+rev=c67a736"
 },
 "vimPlugins.nvim-treesitter-parsers.glimmer_javascript":{
-"drvPath":"/nix/store/8l71kcha7z35fnv6njgs5y6kkqr7d1xq-vimplugin-nvim-treesitter-grammar-glimmer_javascript-0.0.0+rev=d9cf7a2.drv",
+"drvPath":"/nix/store/8yl424qj6wv5mj4fbnyn3iw0iija02na-vimplugin-nvim-treesitter-grammar-glimmer_javascript-0.0.0+rev=d9cf7a2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17390,7 +17605,7 @@
 "version":"0.0.0+rev=d9cf7a2"
 },
 "vimPlugins.nvim-treesitter-parsers.glimmer_typescript":{
-"drvPath":"/nix/store/0ilcfanmzlvwx76gc4v2m7v682bc28p7-vimplugin-nvim-treesitter-grammar-glimmer_typescript-0.0.0+rev=12d9894.drv",
+"drvPath":"/nix/store/9jzfyhfkr03zjij65l7xxlfl27swd78j-vimplugin-nvim-treesitter-grammar-glimmer_typescript-0.0.0+rev=12d9894.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17538,7 +17753,7 @@
 "version":"0.0.0+rev=12d9894"
 },
 "vimPlugins.nvim-treesitter-parsers.glsl":{
-"drvPath":"/nix/store/1h1kkf1znm22r9nsvwdrzp3cicpjn0sw-vimplugin-nvim-treesitter-grammar-glsl-0.0.0+rev=24a6c8e.drv",
+"drvPath":"/nix/store/agpl26k0id2dv3bmkmkx4f87kqr5vh6z-vimplugin-nvim-treesitter-grammar-glsl-0.0.0+rev=24a6c8e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17686,7 +17901,7 @@
 "version":"0.0.0+rev=24a6c8e"
 },
 "vimPlugins.nvim-treesitter-parsers.gn":{
-"drvPath":"/nix/store/a6gq0ixgkbzzggwycybm80csf94cgsyx-vimplugin-nvim-treesitter-grammar-gn-0.0.0+rev=bc06955.drv",
+"drvPath":"/nix/store/j15jxmyxykck6s961fqwz9jx34syhy3s-vimplugin-nvim-treesitter-grammar-gn-0.0.0+rev=bc06955.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17834,7 +18049,7 @@
 "version":"0.0.0+rev=bc06955"
 },
 "vimPlugins.nvim-treesitter-parsers.gnuplot":{
-"drvPath":"/nix/store/lplyh3m2k4b57f2g791gbp3i9xf0ppwh-vimplugin-nvim-treesitter-grammar-gnuplot-0.0.0+rev=20a9829.drv",
+"drvPath":"/nix/store/nvlb0wf151vns8pcaqi4q0qwypd320iy-vimplugin-nvim-treesitter-grammar-gnuplot-0.0.0+rev=20a9829.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17982,7 +18197,7 @@
 "version":"0.0.0+rev=20a9829"
 },
 "vimPlugins.nvim-treesitter-parsers.go":{
-"drvPath":"/nix/store/fs5bml1backl73gwmz1048wy26ml3cl1-vimplugin-nvim-treesitter-grammar-go-0.0.0+rev=2346a3a.drv",
+"drvPath":"/nix/store/rv3inlwybh5drsb17dbgbmq4975081ay-vimplugin-nvim-treesitter-grammar-go-0.0.0+rev=2346a3a.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18130,7 +18345,7 @@
 "version":"0.0.0+rev=2346a3a"
 },
 "vimPlugins.nvim-treesitter-parsers.goctl":{
-"drvPath":"/nix/store/2ccc0dynnw4b0qa0i3gpvv0xdhphhpw7-vimplugin-nvim-treesitter-grammar-goctl-0.0.0+rev=49c4353.drv",
+"drvPath":"/nix/store/mmjlx0wyqnzic7z1nxwga6w93xan8a56-vimplugin-nvim-treesitter-grammar-goctl-0.0.0+rev=49c4353.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18278,7 +18493,7 @@
 "version":"0.0.0+rev=49c4353"
 },
 "vimPlugins.nvim-treesitter-parsers.godot_resource":{
-"drvPath":"/nix/store/lkhs955661041j8yijyl920nf1ljvsp6-vimplugin-nvim-treesitter-grammar-godot_resource-0.0.0+rev=302c189.drv",
+"drvPath":"/nix/store/hclymmryvlza9ajp3msa63rhs5ikjadb-vimplugin-nvim-treesitter-grammar-godot_resource-0.0.0+rev=302c189.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18426,7 +18641,7 @@
 "version":"0.0.0+rev=302c189"
 },
 "vimPlugins.nvim-treesitter-parsers.gomod":{
-"drvPath":"/nix/store/75dw3y1h79nlnsf2ymms8jx60iwfindj-vimplugin-nvim-treesitter-grammar-gomod-0.0.0+rev=2e88687.drv",
+"drvPath":"/nix/store/ngi0c69c3m43hxiba5i7sx8sr8ibdkb1-vimplugin-nvim-treesitter-grammar-gomod-0.0.0+rev=2e88687.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18574,7 +18789,7 @@
 "version":"0.0.0+rev=2e88687"
 },
 "vimPlugins.nvim-treesitter-parsers.gosum":{
-"drvPath":"/nix/store/9jfqkmfny01gzqqrfcgvcrcp4scd04jw-vimplugin-nvim-treesitter-grammar-gosum-0.0.0+rev=27816eb.drv",
+"drvPath":"/nix/store/vwcb2mr1y3d489c4z97nfxl7ldlhm4ji-vimplugin-nvim-treesitter-grammar-gosum-0.0.0+rev=27816eb.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18722,7 +18937,7 @@
 "version":"0.0.0+rev=27816eb"
 },
 "vimPlugins.nvim-treesitter-parsers.gotmpl":{
-"drvPath":"/nix/store/md2wxwm020lwzhllv3dhrz7xkq7xqs2p-vimplugin-nvim-treesitter-grammar-gotmpl-0.0.0+rev=aa71f63.drv",
+"drvPath":"/nix/store/dsmfr8mlh91z7vrq0rcrgvxmbx0h8w6x-vimplugin-nvim-treesitter-grammar-gotmpl-0.0.0+rev=aa71f63.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18870,7 +19085,7 @@
 "version":"0.0.0+rev=aa71f63"
 },
 "vimPlugins.nvim-treesitter-parsers.gowork":{
-"drvPath":"/nix/store/mnzcax0qwy1bqzhi5dgsb5m0lcbjdhkf-vimplugin-nvim-treesitter-grammar-gowork-0.0.0+rev=949a8a4.drv",
+"drvPath":"/nix/store/shcj7cyn0cfwik9b6497al98crvzf7vv-vimplugin-nvim-treesitter-grammar-gowork-0.0.0+rev=949a8a4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -19018,7 +19233,7 @@
 "version":"0.0.0+rev=949a8a4"
 },
 "vimPlugins.nvim-treesitter-parsers.gpg":{
-"drvPath":"/nix/store/yx057ajf5w45fr8rx478inz9lb6iprpi-vimplugin-nvim-treesitter-grammar-gpg-0.0.0+rev=4024eb2.drv",
+"drvPath":"/nix/store/maw9xrng3vml43yv8vns465w2164d411-vimplugin-nvim-treesitter-grammar-gpg-0.0.0+rev=4024eb2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -19166,7 +19381,7 @@
 "version":"0.0.0+rev=4024eb2"
 },
 "vimPlugins.nvim-treesitter-parsers.graphql":{
-"drvPath":"/nix/store/v8pd5hga7kykx619vyzryh6n871gnw3y-vimplugin-nvim-treesitter-grammar-graphql-0.0.0+rev=5e66e96.drv",
+"drvPath":"/nix/store/frqdvynif8imppnxv7vav361i4dmmli5-vimplugin-nvim-treesitter-grammar-graphql-0.0.0+rev=5e66e96.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -19314,7 +19529,7 @@
 "version":"0.0.0+rev=5e66e96"
 },
 "vimPlugins.nvim-treesitter-parsers.gren":{
-"drvPath":"/nix/store/ca6hcid3nfhp3nnwfac222y24zbnbyf7-vimplugin-nvim-treesitter-grammar-gren-0.0.0+rev=cecd8ce.drv",
+"drvPath":"/nix/store/346i8h1qk19zkzz4zszfyq6fs8ipkn8k-vimplugin-nvim-treesitter-grammar-gren-0.0.0+rev=cecd8ce.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -19462,7 +19677,7 @@
 "version":"0.0.0+rev=cecd8ce"
 },
 "vimPlugins.nvim-treesitter-parsers.groovy":{
-"drvPath":"/nix/store/w2kkasnzzjsppf9c7ifxsh4j0ba41psi-vimplugin-nvim-treesitter-grammar-groovy-0.0.0+rev=deb0dcf.drv",
+"drvPath":"/nix/store/p2pixx0bl5bzvzx76q6rgyzx2rrmc42x-vimplugin-nvim-treesitter-grammar-groovy-0.0.0+rev=deb0dcf.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -19610,7 +19825,7 @@
 "version":"0.0.0+rev=deb0dcf"
 },
 "vimPlugins.nvim-treesitter-parsers.groq":{
-"drvPath":"/nix/store/29kzxj3yq07kiqjrwnwjxil0kmx31zlj-vimplugin-nvim-treesitter-grammar-groq-0.0.0+rev=1fa1ab0.drv",
+"drvPath":"/nix/store/976y4nyl769hkz61nv7msc5k6lnjbrfk-vimplugin-nvim-treesitter-grammar-groq-0.0.0+rev=1fa1ab0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -19758,7 +19973,7 @@
 "version":"0.0.0+rev=1fa1ab0"
 },
 "vimPlugins.nvim-treesitter-parsers.gstlaunch":{
-"drvPath":"/nix/store/mc5gac0340dpnpllxg0kvy56mz07w9m7-vimplugin-nvim-treesitter-grammar-gstlaunch-0.0.0+rev=549aef2.drv",
+"drvPath":"/nix/store/2rvam5n2lwaf4wfllsfpph8m8hf3yp98-vimplugin-nvim-treesitter-grammar-gstlaunch-0.0.0+rev=549aef2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -19906,7 +20121,7 @@
 "version":"0.0.0+rev=549aef2"
 },
 "vimPlugins.nvim-treesitter-parsers.hack":{
-"drvPath":"/nix/store/q77d7fvlnl68y7h995zns038bjy6rr71-vimplugin-nvim-treesitter-grammar-hack-0.0.0+rev=1a7ded9.drv",
+"drvPath":"/nix/store/g7qk6x6dd8lpc5h3a663f3c3v3a82mb3-vimplugin-nvim-treesitter-grammar-hack-0.0.0+rev=1a7ded9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20054,7 +20269,7 @@
 "version":"0.0.0+rev=1a7ded9"
 },
 "vimPlugins.nvim-treesitter-parsers.hare":{
-"drvPath":"/nix/store/89pl2clfdp196sbg4bfzsyyai0cwlp3n-vimplugin-nvim-treesitter-grammar-hare-0.0.0+rev=eed7ddf.drv",
+"drvPath":"/nix/store/nvfn1kr5fv9ky350c7cgi934s6f3pjjq-vimplugin-nvim-treesitter-grammar-hare-0.0.0+rev=eed7ddf.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20202,7 +20417,7 @@
 "version":"0.0.0+rev=eed7ddf"
 },
 "vimPlugins.nvim-treesitter-parsers.haskell":{
-"drvPath":"/nix/store/j1ka249wgdllqrzzq0sir9b7vna2zx3b-vimplugin-nvim-treesitter-grammar-haskell-0.0.0+rev=98aedbd.drv",
+"drvPath":"/nix/store/11xwzb3zc414dg9ar8kxplxbm43yyk7l-vimplugin-nvim-treesitter-grammar-haskell-0.0.0+rev=98aedbd.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20350,7 +20565,7 @@
 "version":"0.0.0+rev=98aedbd"
 },
 "vimPlugins.nvim-treesitter-parsers.haskell_persistent":{
-"drvPath":"/nix/store/l919bvnzxq9mp2ckk46rqm0mbcvl4v2p-vimplugin-nvim-treesitter-grammar-haskell_persistent-0.0.0+rev=577259b.drv",
+"drvPath":"/nix/store/6c96dzd4b8724m8q8mkppwbmd5pdd6dx-vimplugin-nvim-treesitter-grammar-haskell_persistent-0.0.0+rev=577259b.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20498,7 +20713,7 @@
 "version":"0.0.0+rev=577259b"
 },
 "vimPlugins.nvim-treesitter-parsers.hcl":{
-"drvPath":"/nix/store/vdpcl3rmv24192n0cl1cr46acvrmr7if-vimplugin-nvim-treesitter-grammar-hcl-0.0.0+rev=64ad627.drv",
+"drvPath":"/nix/store/kzq28myjcfdz68lz1lfzj43z4z99bg8l-vimplugin-nvim-treesitter-grammar-hcl-0.0.0+rev=64ad627.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20646,7 +20861,7 @@
 "version":"0.0.0+rev=64ad627"
 },
 "vimPlugins.nvim-treesitter-parsers.heex":{
-"drvPath":"/nix/store/3i5y71pih87cg0amq2sy5nf4668rnfgn-vimplugin-nvim-treesitter-grammar-heex-0.0.0+rev=5842537.drv",
+"drvPath":"/nix/store/xx6hgal12i0qhwr1il7bj49gjl4bgvm7-vimplugin-nvim-treesitter-grammar-heex-0.0.0+rev=5842537.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20794,7 +21009,7 @@
 "version":"0.0.0+rev=5842537"
 },
 "vimPlugins.nvim-treesitter-parsers.helm":{
-"drvPath":"/nix/store/dj37k9gz78jmffjad4a3c40b9cjnys01-vimplugin-nvim-treesitter-grammar-helm-0.0.0+rev=aa71f63.drv",
+"drvPath":"/nix/store/61h3nfankqs6c31psqdzpwpjsw5jn3pa-vimplugin-nvim-treesitter-grammar-helm-0.0.0+rev=aa71f63.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20942,7 +21157,7 @@
 "version":"0.0.0+rev=aa71f63"
 },
 "vimPlugins.nvim-treesitter-parsers.hjson":{
-"drvPath":"/nix/store/wm8nphjy8agqhrzw4gwnfzx5ak95xixr-vimplugin-nvim-treesitter-grammar-hjson-0.0.0+rev=02fa3b7.drv",
+"drvPath":"/nix/store/nlsjqb3srbq4wd5hnrpzzbkfhlsxsf88-vimplugin-nvim-treesitter-grammar-hjson-0.0.0+rev=02fa3b7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21090,7 +21305,7 @@
 "version":"0.0.0+rev=02fa3b7"
 },
 "vimPlugins.nvim-treesitter-parsers.hlsl":{
-"drvPath":"/nix/store/i8fnvhvc75i56jw9ck13z637shxnj8dc-vimplugin-nvim-treesitter-grammar-hlsl-0.0.0+rev=bab9111.drv",
+"drvPath":"/nix/store/x9m0nnsfw6c89sbhhv373vqq7fs9jnya-vimplugin-nvim-treesitter-grammar-hlsl-0.0.0+rev=bab9111.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21238,7 +21453,7 @@
 "version":"0.0.0+rev=bab9111"
 },
 "vimPlugins.nvim-treesitter-parsers.hocon":{
-"drvPath":"/nix/store/j2yg7al1cxp1i238i72kfj4l8ki1l6jb-vimplugin-nvim-treesitter-grammar-hocon-0.0.0+rev=c390f10.drv",
+"drvPath":"/nix/store/i6ajhwn7nnsgfl82741zrqbdrvbp1hac-vimplugin-nvim-treesitter-grammar-hocon-0.0.0+rev=c390f10.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21386,7 +21601,7 @@
 "version":"0.0.0+rev=c390f10"
 },
 "vimPlugins.nvim-treesitter-parsers.hoon":{
-"drvPath":"/nix/store/3pdv1l03fc3w9i2x757sscg5pd36mnq9-vimplugin-nvim-treesitter-grammar-hoon-0.0.0+rev=1545137.drv",
+"drvPath":"/nix/store/fzpfh1kpc6f4g0k58wqwx5qplg2x1c7r-vimplugin-nvim-treesitter-grammar-hoon-0.0.0+rev=1545137.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21534,7 +21749,7 @@
 "version":"0.0.0+rev=1545137"
 },
 "vimPlugins.nvim-treesitter-parsers.html":{
-"drvPath":"/nix/store/zgaby1w9d2ixx227m7jiz748gs7xxs8a-vimplugin-nvim-treesitter-grammar-html-0.0.0+rev=73a3947.drv",
+"drvPath":"/nix/store/lv5mbl0zqd196c97p79kqdikjjgvzylm-vimplugin-nvim-treesitter-grammar-html-0.0.0+rev=73a3947.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21682,7 +21897,7 @@
 "version":"0.0.0+rev=73a3947"
 },
 "vimPlugins.nvim-treesitter-parsers.htmldjango":{
-"drvPath":"/nix/store/0c4dn2k4a7xsz175nfkvk5cfqbnjhk5w-vimplugin-nvim-treesitter-grammar-htmldjango-0.0.0+rev=a103188.drv",
+"drvPath":"/nix/store/hqiyr5f45ahwccwyv82vyqbc9j9iyjnp-vimplugin-nvim-treesitter-grammar-htmldjango-0.0.0+rev=a103188.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21830,7 +22045,7 @@
 "version":"0.0.0+rev=a103188"
 },
 "vimPlugins.nvim-treesitter-parsers.http":{
-"drvPath":"/nix/store/gn54yx2ni65fc2cnk1kj050iq5z07vbi-vimplugin-nvim-treesitter-grammar-http-0.0.0+rev=db8b439.drv",
+"drvPath":"/nix/store/6mq37cgnjhfr6wjkjvmddh3wlxbyhazm-vimplugin-nvim-treesitter-grammar-http-0.0.0+rev=db8b439.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21978,7 +22193,7 @@
 "version":"0.0.0+rev=db8b439"
 },
 "vimPlugins.nvim-treesitter-parsers.hurl":{
-"drvPath":"/nix/store/a7lnfy24nhvpzriqihx86mimlyxhb2l5-vimplugin-nvim-treesitter-grammar-hurl-0.0.0+rev=597efbd.drv",
+"drvPath":"/nix/store/h4wymabbzllrvwyvxhygb31s1fk9fv14-vimplugin-nvim-treesitter-grammar-hurl-0.0.0+rev=597efbd.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -22126,7 +22341,7 @@
 "version":"0.0.0+rev=597efbd"
 },
 "vimPlugins.nvim-treesitter-parsers.hyprlang":{
-"drvPath":"/nix/store/spi8zmgr5by4sacmmm1gbgky3yxx049a-vimplugin-nvim-treesitter-grammar-hyprlang-0.0.0+rev=cecd6b7.drv",
+"drvPath":"/nix/store/xsc1id634sbqpmqdayl5p0cw8rf0z338-vimplugin-nvim-treesitter-grammar-hyprlang-0.0.0+rev=cecd6b7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -22274,7 +22489,7 @@
 "version":"0.0.0+rev=cecd6b7"
 },
 "vimPlugins.nvim-treesitter-parsers.idl":{
-"drvPath":"/nix/store/rygbxadhf419q31hp7r5amfska3dsi5m-vimplugin-nvim-treesitter-grammar-idl-0.0.0+rev=f319b8b.drv",
+"drvPath":"/nix/store/m92wyq3qgibij7zm0bsgclzs3sk3dpmy-vimplugin-nvim-treesitter-grammar-idl-0.0.0+rev=f319b8b.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -22422,7 +22637,7 @@
 "version":"0.0.0+rev=f319b8b"
 },
 "vimPlugins.nvim-treesitter-parsers.idris":{
-"drvPath":"/nix/store/k28hvgr0p09dw9xhpmz8sv8gnglwdi59-vimplugin-nvim-treesitter-grammar-idris-0.0.0+rev=c56a25c.drv",
+"drvPath":"/nix/store/6w4dp3m2f01cp6cz3hlz5ypkv772wyw0-vimplugin-nvim-treesitter-grammar-idris-0.0.0+rev=c56a25c.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -22570,7 +22785,7 @@
 "version":"0.0.0+rev=c56a25c"
 },
 "vimPlugins.nvim-treesitter-parsers.ini":{
-"drvPath":"/nix/store/7alp64kdr47rlycx2chrf2g7mdr8fcx0-vimplugin-nvim-treesitter-grammar-ini-0.0.0+rev=e4018b5.drv",
+"drvPath":"/nix/store/1bkj2i4gdqf5fhi583s4mk14178cs0m8-vimplugin-nvim-treesitter-grammar-ini-0.0.0+rev=e4018b5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -22718,7 +22933,7 @@
 "version":"0.0.0+rev=e4018b5"
 },
 "vimPlugins.nvim-treesitter-parsers.inko":{
-"drvPath":"/nix/store/iw7z0703p0sif1w3i4wvfk7mbrgl8af1-vimplugin-nvim-treesitter-grammar-inko-0.0.0+rev=v0.8.0.drv",
+"drvPath":"/nix/store/vnrdyfr3hvsmjf9lakd62lijdbp5ny5x-vimplugin-nvim-treesitter-grammar-inko-0.0.0+rev=v0.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -22866,7 +23081,7 @@
 "version":"0.0.0+rev=v0.8.0"
 },
 "vimPlugins.nvim-treesitter-parsers.ispc":{
-"drvPath":"/nix/store/yh3yq5y9rl6kfz95hnblqy2zdi4zqm68-vimplugin-nvim-treesitter-grammar-ispc-0.0.0+rev=ba1bb38.drv",
+"drvPath":"/nix/store/v3j8pczpb4hnkn4rkfig3xqcr85sfsqp-vimplugin-nvim-treesitter-grammar-ispc-0.0.0+rev=ba1bb38.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -23014,7 +23229,7 @@
 "version":"0.0.0+rev=ba1bb38"
 },
 "vimPlugins.nvim-treesitter-parsers.janet_simple":{
-"drvPath":"/nix/store/w4fhrpqyycc73lsqd55pzwlxpxb8vq50-vimplugin-nvim-treesitter-grammar-janet_simple-0.0.0+rev=3c1bdcf.drv",
+"drvPath":"/nix/store/xdakvrlgkxdxiqa3csrpa8r33i0m68al-vimplugin-nvim-treesitter-grammar-janet_simple-0.0.0+rev=3c1bdcf.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -23162,7 +23377,7 @@
 "version":"0.0.0+rev=3c1bdcf"
 },
 "vimPlugins.nvim-treesitter-parsers.java":{
-"drvPath":"/nix/store/dp9hmill2k703cwnwlhv9vqgjry523l5-vimplugin-nvim-treesitter-grammar-java-0.0.0+rev=e10607b.drv",
+"drvPath":"/nix/store/3fng13frh1kw6pg3z52b1i0qx4jbdw5g-vimplugin-nvim-treesitter-grammar-java-0.0.0+rev=e10607b.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -23310,7 +23525,7 @@
 "version":"0.0.0+rev=e10607b"
 },
 "vimPlugins.nvim-treesitter-parsers.javadoc":{
-"drvPath":"/nix/store/f3lqpfvf5jsgyv5jlmq4nrxvxryj8cgy-vimplugin-nvim-treesitter-grammar-javadoc-0.0.0+rev=51b55fb.drv",
+"drvPath":"/nix/store/7zh916p38qynpv5va69lb23rym8wbbl3-vimplugin-nvim-treesitter-grammar-javadoc-0.0.0+rev=51b55fb.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -23458,7 +23673,7 @@
 "version":"0.0.0+rev=51b55fb"
 },
 "vimPlugins.nvim-treesitter-parsers.javascript":{
-"drvPath":"/nix/store/xbxmk0c111x1rs06irb70f6gbg1fkd2y-vimplugin-nvim-treesitter-grammar-javascript-0.0.0+rev=58404d8.drv",
+"drvPath":"/nix/store/k71fyfrrnsilmakmpzd4nb8qgsgwa1w1-vimplugin-nvim-treesitter-grammar-javascript-0.0.0+rev=58404d8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -23606,7 +23821,7 @@
 "version":"0.0.0+rev=58404d8"
 },
 "vimPlugins.nvim-treesitter-parsers.jinja":{
-"drvPath":"/nix/store/1mrfq4van1mzsa1vjhycyl94ip9h0d7p-vimplugin-nvim-treesitter-grammar-jinja-0.0.0+rev=c213d37.drv",
+"drvPath":"/nix/store/ckl5q9rpi7swvkyk5w8hg8nqj1x6psnw-vimplugin-nvim-treesitter-grammar-jinja-0.0.0+rev=c213d37.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -23754,7 +23969,7 @@
 "version":"0.0.0+rev=c213d37"
 },
 "vimPlugins.nvim-treesitter-parsers.jinja_inline":{
-"drvPath":"/nix/store/cccfpck41l9qgbzcxrm0p09f9bhizsr8-vimplugin-nvim-treesitter-grammar-jinja_inline-0.0.0+rev=c213d37.drv",
+"drvPath":"/nix/store/l98gzas4wkn7rnr75z8zjwgyi77qib3a-vimplugin-nvim-treesitter-grammar-jinja_inline-0.0.0+rev=c213d37.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -23902,7 +24117,7 @@
 "version":"0.0.0+rev=c213d37"
 },
 "vimPlugins.nvim-treesitter-parsers.jjdescription":{
-"drvPath":"/nix/store/rgqm6v2jznj05yifl194xfczzfz52qvs-vimplugin-nvim-treesitter-grammar-jjdescription-0.0.0+rev=v1.0.3.drv",
+"drvPath":"/nix/store/8zgpa1xfpl7jqj1bsdaxm8lrkxvrl0yp-vimplugin-nvim-treesitter-grammar-jjdescription-0.0.0+rev=v1.0.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -24050,7 +24265,7 @@
 "version":"0.0.0+rev=v1.0.3"
 },
 "vimPlugins.nvim-treesitter-parsers.jq":{
-"drvPath":"/nix/store/6mng6hb3rdhvjda0lwshpiz9npmlik4y-vimplugin-nvim-treesitter-grammar-jq-0.0.0+rev=c204e36.drv",
+"drvPath":"/nix/store/pxlj7fgdwkxk21hi5mrxdvg5p23zn5cc-vimplugin-nvim-treesitter-grammar-jq-0.0.0+rev=c204e36.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -24198,7 +24413,7 @@
 "version":"0.0.0+rev=c204e36"
 },
 "vimPlugins.nvim-treesitter-parsers.jsdoc":{
-"drvPath":"/nix/store/qrab9ikgh44vkjpwkjis2cziqv71v05r-vimplugin-nvim-treesitter-grammar-jsdoc-0.0.0+rev=658d18d.drv",
+"drvPath":"/nix/store/sv1sa33gvlh0al949yswziq3mx1w90kn-vimplugin-nvim-treesitter-grammar-jsdoc-0.0.0+rev=658d18d.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -24346,7 +24561,7 @@
 "version":"0.0.0+rev=658d18d"
 },
 "vimPlugins.nvim-treesitter-parsers.json":{
-"drvPath":"/nix/store/wg2xgz076fv9i74wqqcmdmpz80si5x80-vimplugin-nvim-treesitter-grammar-json-0.0.0+rev=001c28d.drv",
+"drvPath":"/nix/store/gadmhqs5pvambk71w1bayaaqc1pcs132-vimplugin-nvim-treesitter-grammar-json-0.0.0+rev=001c28d.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -24494,7 +24709,7 @@
 "version":"0.0.0+rev=001c28d"
 },
 "vimPlugins.nvim-treesitter-parsers.json5":{
-"drvPath":"/nix/store/k7s3as43r752dpp7g3azb8pyh73qs2fs-vimplugin-nvim-treesitter-grammar-json5-0.0.0+rev=248b856.drv",
+"drvPath":"/nix/store/0y36p1mr5yfbgzamrkqgxzjazc151jrc-vimplugin-nvim-treesitter-grammar-json5-0.0.0+rev=248b856.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -24642,7 +24857,7 @@
 "version":"0.0.0+rev=248b856"
 },
 "vimPlugins.nvim-treesitter-parsers.jsonnet":{
-"drvPath":"/nix/store/g55vvfn2rc8i06n7k1fkx5np4cy0w36i-vimplugin-nvim-treesitter-grammar-jsonnet-0.0.0+rev=ddd075f.drv",
+"drvPath":"/nix/store/8d92zxb4cf7kiv0k0d014yn543adbh1g-vimplugin-nvim-treesitter-grammar-jsonnet-0.0.0+rev=ddd075f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -24790,7 +25005,7 @@
 "version":"0.0.0+rev=ddd075f"
 },
 "vimPlugins.nvim-treesitter-parsers.julia":{
-"drvPath":"/nix/store/m8am0sifbbzwixkizha0lf7y2ngjpxm0-vimplugin-nvim-treesitter-grammar-julia-0.0.0+rev=60fc237.drv",
+"drvPath":"/nix/store/amzpmn3g62nf80gbzdpr5w905rzqxibd-vimplugin-nvim-treesitter-grammar-julia-0.0.0+rev=60fc237.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -24938,7 +25153,7 @@
 "version":"0.0.0+rev=60fc237"
 },
 "vimPlugins.nvim-treesitter-parsers.just":{
-"drvPath":"/nix/store/6lxlkl3ww6gx2hha84wikc113yhxg6c5-vimplugin-nvim-treesitter-grammar-just-0.0.0+rev=5685543.drv",
+"drvPath":"/nix/store/mxsw8cwm14c5b72rn5zf0ihm35pr910a-vimplugin-nvim-treesitter-grammar-just-0.0.0+rev=5685543.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -25086,7 +25301,7 @@
 "version":"0.0.0+rev=5685543"
 },
 "vimPlugins.nvim-treesitter-parsers.kcl":{
-"drvPath":"/nix/store/y137n60pfjx513k670n39vmcj158ppi6-vimplugin-nvim-treesitter-grammar-kcl-0.0.0+rev=026f40f.drv",
+"drvPath":"/nix/store/20miapjkzky2054riz91xc663q86bi6q-vimplugin-nvim-treesitter-grammar-kcl-0.0.0+rev=026f40f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -25234,7 +25449,7 @@
 "version":"0.0.0+rev=026f40f"
 },
 "vimPlugins.nvim-treesitter-parsers.kconfig":{
-"drvPath":"/nix/store/6kbskw1j3hs70zrx9icgbksy27wdgck2-vimplugin-nvim-treesitter-grammar-kconfig-0.0.0+rev=9ac99fe.drv",
+"drvPath":"/nix/store/12z2d1p28kkc095i6rw8wwi7cwyvkwi8-vimplugin-nvim-treesitter-grammar-kconfig-0.0.0+rev=9ac99fe.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -25382,7 +25597,7 @@
 "version":"0.0.0+rev=9ac99fe"
 },
 "vimPlugins.nvim-treesitter-parsers.kdl":{
-"drvPath":"/nix/store/5p323ip1g0nk0h030xl4vg6909zhm8fi-vimplugin-nvim-treesitter-grammar-kdl-0.0.0+rev=b37e3d5.drv",
+"drvPath":"/nix/store/1sgh0sv6p2lnbds37nac5x1q1rvh7fa9-vimplugin-nvim-treesitter-grammar-kdl-0.0.0+rev=b37e3d5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -25530,7 +25745,7 @@
 "version":"0.0.0+rev=b37e3d5"
 },
 "vimPlugins.nvim-treesitter-parsers.kitty":{
-"drvPath":"/nix/store/wiki56f85kxv1czrrp79jcj176vsjvv9-vimplugin-nvim-treesitter-grammar-kitty-0.0.0+rev=4d93f64.drv",
+"drvPath":"/nix/store/cjcxm81lkc27vlx25qdis112k3dz1gv7-vimplugin-nvim-treesitter-grammar-kitty-0.0.0+rev=4d93f64.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -25678,7 +25893,7 @@
 "version":"0.0.0+rev=4d93f64"
 },
 "vimPlugins.nvim-treesitter-parsers.kos":{
-"drvPath":"/nix/store/6krd4k1jcxn5hzky5wv9gzc04fngagbc-vimplugin-nvim-treesitter-grammar-kos-0.0.0+rev=a733862.drv",
+"drvPath":"/nix/store/y5lvbglb5bvl4jfyqgranv9q2k4ziw4c-vimplugin-nvim-treesitter-grammar-kos-0.0.0+rev=a733862.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -25826,7 +26041,7 @@
 "version":"0.0.0+rev=a733862"
 },
 "vimPlugins.nvim-treesitter-parsers.kotlin":{
-"drvPath":"/nix/store/ki2wix5a7chk2xa0ynskz0xrm4r2xz36-vimplugin-nvim-treesitter-grammar-kotlin-0.0.0+rev=c8ac3d2.drv",
+"drvPath":"/nix/store/z0lix7205q74jbf79knvydkk5cawfkwp-vimplugin-nvim-treesitter-grammar-kotlin-0.0.0+rev=c8ac3d2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -25974,7 +26189,7 @@
 "version":"0.0.0+rev=c8ac3d2"
 },
 "vimPlugins.nvim-treesitter-parsers.koto":{
-"drvPath":"/nix/store/l47rmjpxqcxkk1ay966n9si6xrki54fm-vimplugin-nvim-treesitter-grammar-koto-0.0.0+rev=e8d41cb.drv",
+"drvPath":"/nix/store/4fdjpp5wmrb9r20mxy8wa7mgcncc1hs3-vimplugin-nvim-treesitter-grammar-koto-0.0.0+rev=e8d41cb.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -26122,7 +26337,7 @@
 "version":"0.0.0+rev=e8d41cb"
 },
 "vimPlugins.nvim-treesitter-parsers.kusto":{
-"drvPath":"/nix/store/dva8pb62rigk2ygppqh6bysv891yhlil-vimplugin-nvim-treesitter-grammar-kusto-0.0.0+rev=8353a12.drv",
+"drvPath":"/nix/store/xzvxz2ilcg2bs6wpfvr9lyqz1c4vv915-vimplugin-nvim-treesitter-grammar-kusto-0.0.0+rev=8353a12.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -26270,7 +26485,7 @@
 "version":"0.0.0+rev=8353a12"
 },
 "vimPlugins.nvim-treesitter-parsers.lalrpop":{
-"drvPath":"/nix/store/xsswkqakalyhxpsi40ldi6w1wnl8w2hc-vimplugin-nvim-treesitter-grammar-lalrpop-0.0.0+rev=27b0f7b.drv",
+"drvPath":"/nix/store/pxvaasyflmkg1ghi9qwgz6ahf9vq33zx-vimplugin-nvim-treesitter-grammar-lalrpop-0.0.0+rev=27b0f7b.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -26418,7 +26633,7 @@
 "version":"0.0.0+rev=27b0f7b"
 },
 "vimPlugins.nvim-treesitter-parsers.latex":{
-"drvPath":"/nix/store/8axj5320wvzm8l04qk4xjs8wh0kkinda-vimplugin-nvim-treesitter-grammar-latex-0.0.0+rev=7e0ecdc.drv",
+"drvPath":"/nix/store/0msfcnqfxgp99933gsrm326ycmwhzgf8-vimplugin-nvim-treesitter-grammar-latex-0.0.0+rev=7e0ecdc.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -26566,7 +26781,7 @@
 "version":"0.0.0+rev=7e0ecdc"
 },
 "vimPlugins.nvim-treesitter-parsers.ledger":{
-"drvPath":"/nix/store/c0p1vr5qabdx328r838rpdgp6xqmk7c8-vimplugin-nvim-treesitter-grammar-ledger-0.0.0+rev=22a1ab8.drv",
+"drvPath":"/nix/store/rlswghzj3lggqlldq1b7iklp9qv7l759-vimplugin-nvim-treesitter-grammar-ledger-0.0.0+rev=22a1ab8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -26714,7 +26929,7 @@
 "version":"0.0.0+rev=22a1ab8"
 },
 "vimPlugins.nvim-treesitter-parsers.leo":{
-"drvPath":"/nix/store/dxznz9i5pavbg3pnz3vzciq7yf3m0fsl-vimplugin-nvim-treesitter-grammar-leo-0.0.0+rev=6bc5564.drv",
+"drvPath":"/nix/store/sia5n50s7mar4sppl6b7ix4iyfrd7rqx-vimplugin-nvim-treesitter-grammar-leo-0.0.0+rev=6bc5564.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -26862,7 +27077,7 @@
 "version":"0.0.0+rev=6bc5564"
 },
 "vimPlugins.nvim-treesitter-parsers.linkerscript":{
-"drvPath":"/nix/store/8gmi1mf8ahzjwm3kn1ri9m06gyz0dfyz-vimplugin-nvim-treesitter-grammar-linkerscript-0.0.0+rev=f99011a.drv",
+"drvPath":"/nix/store/drpdcdnl0dxhhkbh3x1jhl9j0yqyhj9z-vimplugin-nvim-treesitter-grammar-linkerscript-0.0.0+rev=f99011a.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -27010,7 +27225,7 @@
 "version":"0.0.0+rev=f99011a"
 },
 "vimPlugins.nvim-treesitter-parsers.liquid":{
-"drvPath":"/nix/store/bqjn0v28mddvyjfzqp9i0asbhlzvklg5-vimplugin-nvim-treesitter-grammar-liquid-0.0.0+rev=e45dbac.drv",
+"drvPath":"/nix/store/d0arngn1h3bw8p0lgv6c280x0inyj933-vimplugin-nvim-treesitter-grammar-liquid-0.0.0+rev=e45dbac.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -27158,7 +27373,7 @@
 "version":"0.0.0+rev=e45dbac"
 },
 "vimPlugins.nvim-treesitter-parsers.liquidsoap":{
-"drvPath":"/nix/store/2mzwijzlydrkxmvxlrpq15dmmwzz3qjy-vimplugin-nvim-treesitter-grammar-liquidsoap-0.0.0+rev=0169d92.drv",
+"drvPath":"/nix/store/3bm8s4v51sy4r7llm0jcsalmfrjdg0ld-vimplugin-nvim-treesitter-grammar-liquidsoap-0.0.0+rev=0169d92.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -27306,7 +27521,7 @@
 "version":"0.0.0+rev=0169d92"
 },
 "vimPlugins.nvim-treesitter-parsers.llvm":{
-"drvPath":"/nix/store/wpd5dkhzcadbrgig00zxhq2wvjss3f5n-vimplugin-nvim-treesitter-grammar-llvm-0.0.0+rev=2914786.drv",
+"drvPath":"/nix/store/1dwvi4db7vlgchi28fn4adh4r3fsdga3-vimplugin-nvim-treesitter-grammar-llvm-0.0.0+rev=2914786.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -27454,7 +27669,7 @@
 "version":"0.0.0+rev=2914786"
 },
 "vimPlugins.nvim-treesitter-parsers.lua":{
-"drvPath":"/nix/store/bjdanpjgwq8vr8by1qyacvcska2nccma-vimplugin-nvim-treesitter-grammar-lua-0.0.0+rev=10fe005.drv",
+"drvPath":"/nix/store/6b4s3x8mm8m0wzkwlah2avr5x7l9y48p-vimplugin-nvim-treesitter-grammar-lua-0.0.0+rev=10fe005.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -27602,7 +27817,7 @@
 "version":"0.0.0+rev=10fe005"
 },
 "vimPlugins.nvim-treesitter-parsers.luadoc":{
-"drvPath":"/nix/store/i0gci6xpbzbi0kycd8vkmfi597bg1k2l-vimplugin-nvim-treesitter-grammar-luadoc-0.0.0+rev=873612a.drv",
+"drvPath":"/nix/store/q3qvi3fp60pr38x2n1v63b0r6mybis8f-vimplugin-nvim-treesitter-grammar-luadoc-0.0.0+rev=873612a.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -27750,7 +27965,7 @@
 "version":"0.0.0+rev=873612a"
 },
 "vimPlugins.nvim-treesitter-parsers.luap":{
-"drvPath":"/nix/store/lyf71fngzhanrbxy0b6i3c492vsnx742-vimplugin-nvim-treesitter-grammar-luap-0.0.0+rev=c134aae.drv",
+"drvPath":"/nix/store/bwik52phxdgqxyjla09mp82wr0kghzkv-vimplugin-nvim-treesitter-grammar-luap-0.0.0+rev=c134aae.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -27898,7 +28113,7 @@
 "version":"0.0.0+rev=c134aae"
 },
 "vimPlugins.nvim-treesitter-parsers.luau":{
-"drvPath":"/nix/store/naa0s6hvipwh5v0b09w2fvjfvh9p2rkw-vimplugin-nvim-treesitter-grammar-luau-0.0.0+rev=a8914d6.drv",
+"drvPath":"/nix/store/rv86f0ajn8mva83prcrl3qq44p1zr0ag-vimplugin-nvim-treesitter-grammar-luau-0.0.0+rev=a8914d6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -28046,7 +28261,7 @@
 "version":"0.0.0+rev=a8914d6"
 },
 "vimPlugins.nvim-treesitter-parsers.m68k":{
-"drvPath":"/nix/store/xh7sz4yqqv53k644xkpybbynx8f6661y-vimplugin-nvim-treesitter-grammar-m68k-0.0.0+rev=ab9f2ad.drv",
+"drvPath":"/nix/store/syakqw7h5l55drddlr657gp8kzl9sx66-vimplugin-nvim-treesitter-grammar-m68k-0.0.0+rev=ab9f2ad.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -28194,7 +28409,7 @@
 "version":"0.0.0+rev=ab9f2ad"
 },
 "vimPlugins.nvim-treesitter-parsers.make":{
-"drvPath":"/nix/store/ff3g2kmzzhj6kf3iw3l0sjgkw9dzk1f0-vimplugin-nvim-treesitter-grammar-make-0.0.0+rev=70613f3.drv",
+"drvPath":"/nix/store/z04nz1sxhnqjvba8mib6g5brkqhaah4j-vimplugin-nvim-treesitter-grammar-make-0.0.0+rev=70613f3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -28342,7 +28557,7 @@
 "version":"0.0.0+rev=70613f3"
 },
 "vimPlugins.nvim-treesitter-parsers.markdown":{
-"drvPath":"/nix/store/lv1dq6l9ln4lfhdwf2xys4yhikdx88bs-vimplugin-nvim-treesitter-grammar-markdown-0.0.0+rev=c357072.drv",
+"drvPath":"/nix/store/35w1yjdkxni8m1zdan9a9qm5rvdjchwp-vimplugin-nvim-treesitter-grammar-markdown-0.0.0+rev=c357072.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -28490,7 +28705,7 @@
 "version":"0.0.0+rev=c357072"
 },
 "vimPlugins.nvim-treesitter-parsers.markdown_inline":{
-"drvPath":"/nix/store/9s4h1hd3fyk4hbj778lfl9h95z62ndbr-vimplugin-nvim-treesitter-grammar-markdown_inline-0.0.0+rev=c357072.drv",
+"drvPath":"/nix/store/nxbrxj2a37c8sdpyw5pa4vhi4vj6r84x-vimplugin-nvim-treesitter-grammar-markdown_inline-0.0.0+rev=c357072.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -28638,7 +28853,7 @@
 "version":"0.0.0+rev=c357072"
 },
 "vimPlugins.nvim-treesitter-parsers.matlab":{
-"drvPath":"/nix/store/lhi4zgag7wlq5mkizp9n8adjkvd3gs19-vimplugin-nvim-treesitter-grammar-matlab-0.0.0+rev=c9ef947.drv",
+"drvPath":"/nix/store/0v8b48rzllhpsr7kg2h1484xl26j9257-vimplugin-nvim-treesitter-grammar-matlab-0.0.0+rev=c9ef947.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -28786,7 +29001,7 @@
 "version":"0.0.0+rev=c9ef947"
 },
 "vimPlugins.nvim-treesitter-parsers.menhir":{
-"drvPath":"/nix/store/hzw8lqfjkqssl78c3h3j90fmyvqxj8kp-vimplugin-nvim-treesitter-grammar-menhir-0.0.0+rev=be8866a.drv",
+"drvPath":"/nix/store/1dxddhrspnhxsrrm69kjszyf4wvzbihv-vimplugin-nvim-treesitter-grammar-menhir-0.0.0+rev=be8866a.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -28934,7 +29149,7 @@
 "version":"0.0.0+rev=be8866a"
 },
 "vimPlugins.nvim-treesitter-parsers.mermaid":{
-"drvPath":"/nix/store/83qvb1rb9h04lr51a9vkp3c88kvchxlg-vimplugin-nvim-treesitter-grammar-mermaid-0.0.0+rev=90ae195.drv",
+"drvPath":"/nix/store/2y00h1lgpzahschkg3qlx15p3mxgd80d-vimplugin-nvim-treesitter-grammar-mermaid-0.0.0+rev=90ae195.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -29082,7 +29297,7 @@
 "version":"0.0.0+rev=90ae195"
 },
 "vimPlugins.nvim-treesitter-parsers.meson":{
-"drvPath":"/nix/store/m7994kp3xy7nm6gkw46ck5rg2agldhqf-vimplugin-nvim-treesitter-grammar-meson-0.0.0+rev=aa8d472.drv",
+"drvPath":"/nix/store/fq7byvvaynmkpidi5qw866xlphwwxhsy-vimplugin-nvim-treesitter-grammar-meson-0.0.0+rev=aa8d472.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -29230,7 +29445,7 @@
 "version":"0.0.0+rev=aa8d472"
 },
 "vimPlugins.nvim-treesitter-parsers.mlir":{
-"drvPath":"/nix/store/z99wlffh1hfvqd2y8lrs4hxds4z991h5-vimplugin-nvim-treesitter-grammar-mlir-0.0.0+rev=a5bcbd0.drv",
+"drvPath":"/nix/store/k0dia47fjpm584s7g1rmqb82rsdkjmq1-vimplugin-nvim-treesitter-grammar-mlir-0.0.0+rev=a5bcbd0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -29378,7 +29593,7 @@
 "version":"0.0.0+rev=a5bcbd0"
 },
 "vimPlugins.nvim-treesitter-parsers.nasm":{
-"drvPath":"/nix/store/9ywg5j63rjx99alrf32hxc57bjvhcjcg-vimplugin-nvim-treesitter-grammar-nasm-0.0.0+rev=d1b3638.drv",
+"drvPath":"/nix/store/pmxqga0s3dfl5fzqrqaqa40h41rnmzfs-vimplugin-nvim-treesitter-grammar-nasm-0.0.0+rev=d1b3638.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -29526,7 +29741,7 @@
 "version":"0.0.0+rev=d1b3638"
 },
 "vimPlugins.nvim-treesitter-parsers.nginx":{
-"drvPath":"/nix/store/2n1kclqny6djs0dr2zylpxnjhbfyr4g4-vimplugin-nvim-treesitter-grammar-nginx-0.0.0+rev=47ade64.drv",
+"drvPath":"/nix/store/wjlaprx57xjcl08pz2xkr4ay4gz26vb6-vimplugin-nvim-treesitter-grammar-nginx-0.0.0+rev=47ade64.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -29674,7 +29889,7 @@
 "version":"0.0.0+rev=47ade64"
 },
 "vimPlugins.nvim-treesitter-parsers.nickel":{
-"drvPath":"/nix/store/wmyghgd2x4c2f6qfq7h93wfgr8dyrm33-vimplugin-nvim-treesitter-grammar-nickel-0.0.0+rev=7780a16.drv",
+"drvPath":"/nix/store/sn3vzadmwpd8z44vnssgrai7d97lnjw4-vimplugin-nvim-treesitter-grammar-nickel-0.0.0+rev=7780a16.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -29822,7 +30037,7 @@
 "version":"0.0.0+rev=7780a16"
 },
 "vimPlugins.nvim-treesitter-parsers.nim":{
-"drvPath":"/nix/store/ls6fi8pac77rvf08swsv71mnmsx96vph-vimplugin-nvim-treesitter-grammar-nim-0.0.0+rev=ac72ba3.drv",
+"drvPath":"/nix/store/qx4hh1mr3dxgjaqi7bwxma4v4a27n5kj-vimplugin-nvim-treesitter-grammar-nim-0.0.0+rev=ac72ba3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -29970,7 +30185,7 @@
 "version":"0.0.0+rev=ac72ba3"
 },
 "vimPlugins.nvim-treesitter-parsers.nim_format_string":{
-"drvPath":"/nix/store/x7wrb2j2yvriy3g37l7nh6xn6lrhnb48-vimplugin-nvim-treesitter-grammar-nim_format_string-0.0.0+rev=d45f750.drv",
+"drvPath":"/nix/store/pdl8nambpdnwx9s3jvbayglwbr975lwj-vimplugin-nvim-treesitter-grammar-nim_format_string-0.0.0+rev=d45f750.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30118,7 +30333,7 @@
 "version":"0.0.0+rev=d45f750"
 },
 "vimPlugins.nvim-treesitter-parsers.ninja":{
-"drvPath":"/nix/store/0x29fdg2072rayyy5bjkbq3k6xjxvfma-vimplugin-nvim-treesitter-grammar-ninja-0.0.0+rev=0a95cfd.drv",
+"drvPath":"/nix/store/a2qjrc6hy6qbjl1ijqsfxacgvykrjmhr-vimplugin-nvim-treesitter-grammar-ninja-0.0.0+rev=0a95cfd.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30266,7 +30481,7 @@
 "version":"0.0.0+rev=0a95cfd"
 },
 "vimPlugins.nvim-treesitter-parsers.nix":{
-"drvPath":"/nix/store/gbqabvdx7s6j1cjyr6d0fzyds3dhmv0g-vimplugin-nvim-treesitter-grammar-nix-0.0.0+rev=3d0173d.drv",
+"drvPath":"/nix/store/44ym2wqwbxk93va2l00v9is099gwz7cy-vimplugin-nvim-treesitter-grammar-nix-0.0.0+rev=3d0173d.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30414,7 +30629,7 @@
 "version":"0.0.0+rev=3d0173d"
 },
 "vimPlugins.nvim-treesitter-parsers.nqc":{
-"drvPath":"/nix/store/wjl771d41d7zm2wjlwcqa55i3ndghpxv-vimplugin-nvim-treesitter-grammar-nqc-0.0.0+rev=14e6da1.drv",
+"drvPath":"/nix/store/nplvbs55vnssxm8r3sxysr71hb6fbfys-vimplugin-nvim-treesitter-grammar-nqc-0.0.0+rev=14e6da1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30562,7 +30777,7 @@
 "version":"0.0.0+rev=14e6da1"
 },
 "vimPlugins.nvim-treesitter-parsers.nu":{
-"drvPath":"/nix/store/kbxlifwamnnzdrywmq47zygkf2m6vmwi-vimplugin-nvim-treesitter-grammar-nu-0.0.0+rev=d694570.drv",
+"drvPath":"/nix/store/pwq743zm4bk8yz146lavi8cnf28qq50y-vimplugin-nvim-treesitter-grammar-nu-0.0.0+rev=d694570.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30710,7 +30925,7 @@
 "version":"0.0.0+rev=d694570"
 },
 "vimPlugins.nvim-treesitter-parsers.objc":{
-"drvPath":"/nix/store/zqinsbjk3mjxf8pyv3xsss9vgb56rpix-vimplugin-nvim-treesitter-grammar-objc-0.0.0+rev=181a81b.drv",
+"drvPath":"/nix/store/0r4al057a7x2ly1pzx3ghsl2w5lpmj6v-vimplugin-nvim-treesitter-grammar-objc-0.0.0+rev=181a81b.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30858,7 +31073,7 @@
 "version":"0.0.0+rev=181a81b"
 },
 "vimPlugins.nvim-treesitter-parsers.objdump":{
-"drvPath":"/nix/store/882zj8xgliw7gc6wza60pabm8kw3xrnf-vimplugin-nvim-treesitter-grammar-objdump-0.0.0+rev=28d3b2e.drv",
+"drvPath":"/nix/store/62wn359fsd7m7m22mjbiw530dq1pp7yj-vimplugin-nvim-treesitter-grammar-objdump-0.0.0+rev=28d3b2e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -31006,7 +31221,7 @@
 "version":"0.0.0+rev=28d3b2e"
 },
 "vimPlugins.nvim-treesitter-parsers.ocaml":{
-"drvPath":"/nix/store/pdm75g0j4wygqzj0dcqz22acdq6cv3w6-vimplugin-nvim-treesitter-grammar-ocaml-0.0.0+rev=527d62e.drv",
+"drvPath":"/nix/store/p8rl9qg98raqd2fgfapvzjansa7g8vdb-vimplugin-nvim-treesitter-grammar-ocaml-0.0.0+rev=527d62e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -31154,7 +31369,7 @@
 "version":"0.0.0+rev=527d62e"
 },
 "vimPlugins.nvim-treesitter-parsers.ocaml_interface":{
-"drvPath":"/nix/store/7ndm0zzjx7kmbxjzzwdgl87hkhf079ij-vimplugin-nvim-treesitter-grammar-ocaml_interface-0.0.0+rev=527d62e.drv",
+"drvPath":"/nix/store/mkrip4d0ffbw3rkq73y1fc0rrflqv8is-vimplugin-nvim-treesitter-grammar-ocaml_interface-0.0.0+rev=527d62e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -31302,7 +31517,7 @@
 "version":"0.0.0+rev=527d62e"
 },
 "vimPlugins.nvim-treesitter-parsers.ocamllex":{
-"drvPath":"/nix/store/k0hjc5w4z0mviad3p1njfsbl497r46w3-vimplugin-nvim-treesitter-grammar-ocamllex-0.0.0+rev=33722b8.drv",
+"drvPath":"/nix/store/3aj592nxwkhr1yhgi0zsdagg9zprrxcf-vimplugin-nvim-treesitter-grammar-ocamllex-0.0.0+rev=33722b8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -31450,7 +31665,7 @@
 "version":"0.0.0+rev=33722b8"
 },
 "vimPlugins.nvim-treesitter-parsers.odin":{
-"drvPath":"/nix/store/gz8d47n55bwfnm3mp03cy979pjhmpbgm-vimplugin-nvim-treesitter-grammar-odin-0.0.0+rev=d2ca8ef.drv",
+"drvPath":"/nix/store/m2zaq2j8kkm4bimp5vj1vwzx4npidnzm-vimplugin-nvim-treesitter-grammar-odin-0.0.0+rev=d2ca8ef.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -31598,7 +31813,7 @@
 "version":"0.0.0+rev=d2ca8ef"
 },
 "vimPlugins.nvim-treesitter-parsers.pascal":{
-"drvPath":"/nix/store/b4q6b6zvh1x02z1qizr559rwsld5a82v-vimplugin-nvim-treesitter-grammar-pascal-0.0.0+rev=042119e.drv",
+"drvPath":"/nix/store/is1fpifc2kivlryy74zzadlh3lyq6w4z-vimplugin-nvim-treesitter-grammar-pascal-0.0.0+rev=042119e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -31746,7 +31961,7 @@
 "version":"0.0.0+rev=042119e"
 },
 "vimPlugins.nvim-treesitter-parsers.passwd":{
-"drvPath":"/nix/store/qbkj0lhns1wjlv4qrp9vcmbvv7zcsz50-vimplugin-nvim-treesitter-grammar-passwd-0.0.0+rev=2023939.drv",
+"drvPath":"/nix/store/jssy8n922q07pyd26dch6wlqjmk78fas-vimplugin-nvim-treesitter-grammar-passwd-0.0.0+rev=2023939.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -31894,7 +32109,7 @@
 "version":"0.0.0+rev=2023939"
 },
 "vimPlugins.nvim-treesitter-parsers.pem":{
-"drvPath":"/nix/store/2qh3pibqizgkyg53mc7qcrqhlhd90y2m-vimplugin-nvim-treesitter-grammar-pem-0.0.0+rev=e525b17.drv",
+"drvPath":"/nix/store/lxchbpk94975wknkq24k9pjs39k4r5k9-vimplugin-nvim-treesitter-grammar-pem-0.0.0+rev=e525b17.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -32042,7 +32257,7 @@
 "version":"0.0.0+rev=e525b17"
 },
 "vimPlugins.nvim-treesitter-parsers.perl":{
-"drvPath":"/nix/store/d2512lzzqbpvyjr3ijrbxgmn1mfhssi1-vimplugin-nvim-treesitter-grammar-perl-0.0.0+rev=c3e17b3.drv",
+"drvPath":"/nix/store/kx0wbyq8ni5gj4c9747pv99bxrgdykph-vimplugin-nvim-treesitter-grammar-perl-0.0.0+rev=c3e17b3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -32190,7 +32405,7 @@
 "version":"0.0.0+rev=c3e17b3"
 },
 "vimPlugins.nvim-treesitter-parsers.php":{
-"drvPath":"/nix/store/l5wj331hd6fs26qqgq4bb3353alqa6ax-vimplugin-nvim-treesitter-grammar-php-0.0.0+rev=3821698.drv",
+"drvPath":"/nix/store/qzqgcwnkkp6jq3p8z5ipcg0inasdvi3c-vimplugin-nvim-treesitter-grammar-php-0.0.0+rev=3821698.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -32338,7 +32553,7 @@
 "version":"0.0.0+rev=3821698"
 },
 "vimPlugins.nvim-treesitter-parsers.php_only":{
-"drvPath":"/nix/store/qakx0kikawhys9szy3rr0m73hxyydi93-vimplugin-nvim-treesitter-grammar-php_only-0.0.0+rev=3821698.drv",
+"drvPath":"/nix/store/g60pvqrng5prwkxbfnwxl7hjgdyi3wf0-vimplugin-nvim-treesitter-grammar-php_only-0.0.0+rev=3821698.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -32486,7 +32701,7 @@
 "version":"0.0.0+rev=3821698"
 },
 "vimPlugins.nvim-treesitter-parsers.phpdoc":{
-"drvPath":"/nix/store/a34kqw73cvzxcxr66mcx59vx5xfldpq4-vimplugin-nvim-treesitter-grammar-phpdoc-0.0.0+rev=12d5030.drv",
+"drvPath":"/nix/store/55qzzymd0l4j8d7vjv2nws57d8v80lsg-vimplugin-nvim-treesitter-grammar-phpdoc-0.0.0+rev=12d5030.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -32634,7 +32849,7 @@
 "version":"0.0.0+rev=12d5030"
 },
 "vimPlugins.nvim-treesitter-parsers.pioasm":{
-"drvPath":"/nix/store/hag7flbzgsrkq9c8ixxh5f7j02778mdx-vimplugin-nvim-treesitter-grammar-pioasm-0.0.0+rev=afece58.drv",
+"drvPath":"/nix/store/51lv371yq050yd8f7vi22vk99vbj37za-vimplugin-nvim-treesitter-grammar-pioasm-0.0.0+rev=afece58.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -32782,7 +32997,7 @@
 "version":"0.0.0+rev=afece58"
 },
 "vimPlugins.nvim-treesitter-parsers.pkl":{
-"drvPath":"/nix/store/fnkrzpcg2q5g5q66hjinyg7hqmm9fmk6-vimplugin-nvim-treesitter-grammar-pkl-0.0.0+rev=3486521.drv",
+"drvPath":"/nix/store/87fk8dqpx58yapczm0mfc1x2ryabxvk1-vimplugin-nvim-treesitter-grammar-pkl-0.0.0+rev=3486521.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -32930,7 +33145,7 @@
 "version":"0.0.0+rev=3486521"
 },
 "vimPlugins.nvim-treesitter-parsers.plumb":{
-"drvPath":"/nix/store/jp177v7gsc81ndidc23fv37vl5x60bd4-vimplugin-nvim-treesitter-grammar-plumb-0.16.0.drv",
+"drvPath":"/nix/store/7scixzdfrqd2j58g3slnxyg897af94w3-vimplugin-nvim-treesitter-grammar-plumb-0.16.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -33088,7 +33303,7 @@
 "version":"0.16.0"
 },
 "vimPlugins.nvim-treesitter-parsers.po":{
-"drvPath":"/nix/store/dcjxijgqxl2z210f5qy1g6f09vx5kvvk-vimplugin-nvim-treesitter-grammar-po-0.0.0+rev=bd860a0.drv",
+"drvPath":"/nix/store/8bb19rih88qddwpjjrhqvw0anxj3aq0j-vimplugin-nvim-treesitter-grammar-po-0.0.0+rev=bd860a0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -33236,7 +33451,7 @@
 "version":"0.0.0+rev=bd860a0"
 },
 "vimPlugins.nvim-treesitter-parsers.pod":{
-"drvPath":"/nix/store/cbgsn757hkybx9zh6b50cpxvqxqdnrch-vimplugin-nvim-treesitter-grammar-pod-0.0.0+rev=ffbd7f3.drv",
+"drvPath":"/nix/store/2hplbpnjrf4nfg0wk0h0pwbj8b1nwy2g-vimplugin-nvim-treesitter-grammar-pod-0.0.0+rev=ffbd7f3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -33384,7 +33599,7 @@
 "version":"0.0.0+rev=ffbd7f3"
 },
 "vimPlugins.nvim-treesitter-parsers.poe_filter":{
-"drvPath":"/nix/store/b7zk816wkklhll11fj19wwh41kkdy0b0-vimplugin-nvim-treesitter-grammar-poe_filter-0.0.0+rev=205a7d5.drv",
+"drvPath":"/nix/store/zab5r359ky4q5hcf2sd0bi6mlks9490a-vimplugin-nvim-treesitter-grammar-poe_filter-0.0.0+rev=205a7d5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -33532,7 +33747,7 @@
 "version":"0.0.0+rev=205a7d5"
 },
 "vimPlugins.nvim-treesitter-parsers.pony":{
-"drvPath":"/nix/store/hvgj2m845gk0apvrp01pl74yrjm2fj0h-vimplugin-nvim-treesitter-grammar-pony-0.0.0+rev=73ff874.drv",
+"drvPath":"/nix/store/ayjrpmdklmq6c1jmrdvngm51rxcbih2h-vimplugin-nvim-treesitter-grammar-pony-0.0.0+rev=73ff874.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -33680,7 +33895,7 @@
 "version":"0.0.0+rev=73ff874"
 },
 "vimPlugins.nvim-treesitter-parsers.powershell":{
-"drvPath":"/nix/store/6y9gr130pnpb26y24hhkrw63zjw4rxli-vimplugin-nvim-treesitter-grammar-powershell-0.0.0+rev=e7bd348.drv",
+"drvPath":"/nix/store/7vrczr03nhyyzr1ig1h148ncbkf1rnhg-vimplugin-nvim-treesitter-grammar-powershell-0.0.0+rev=e7bd348.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -33828,7 +34043,7 @@
 "version":"0.0.0+rev=e7bd348"
 },
 "vimPlugins.nvim-treesitter-parsers.printf":{
-"drvPath":"/nix/store/9vp43g3s13g2cjjg9j8ljzfrmy569ngd-vimplugin-nvim-treesitter-grammar-printf-0.0.0+rev=ec4e567.drv",
+"drvPath":"/nix/store/p6min6gfgq6bmy9w9m3ji4scbv0pbfmk-vimplugin-nvim-treesitter-grammar-printf-0.0.0+rev=ec4e567.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -33976,7 +34191,7 @@
 "version":"0.0.0+rev=ec4e567"
 },
 "vimPlugins.nvim-treesitter-parsers.prisma":{
-"drvPath":"/nix/store/2dnc2m17lb0byczmzj6fzvmfmcr5irm5-vimplugin-nvim-treesitter-grammar-prisma-0.0.0+rev=3556b2c.drv",
+"drvPath":"/nix/store/9gp7ji52y2kp3yplzvgm09vvhqwlk76y-vimplugin-nvim-treesitter-grammar-prisma-0.0.0+rev=3556b2c.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -34124,7 +34339,7 @@
 "version":"0.0.0+rev=3556b2c"
 },
 "vimPlugins.nvim-treesitter-parsers.promql":{
-"drvPath":"/nix/store/g3jg1cplby2knqmpq64hs52fi2219216-vimplugin-nvim-treesitter-grammar-promql-0.0.0+rev=77625d7.drv",
+"drvPath":"/nix/store/f85c2g23hzipdc6rsr5hwdhh4w8xiyv5-vimplugin-nvim-treesitter-grammar-promql-0.0.0+rev=77625d7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -34272,7 +34487,7 @@
 "version":"0.0.0+rev=77625d7"
 },
 "vimPlugins.nvim-treesitter-parsers.properties":{
-"drvPath":"/nix/store/y4q6wrf2q34y9vpca894cxky134d1fyg-vimplugin-nvim-treesitter-grammar-properties-0.0.0+rev=6310671.drv",
+"drvPath":"/nix/store/hd960qx5cfnykbj1blw6dl5sywb65aj2-vimplugin-nvim-treesitter-grammar-properties-0.0.0+rev=6310671.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -34420,7 +34635,7 @@
 "version":"0.0.0+rev=6310671"
 },
 "vimPlugins.nvim-treesitter-parsers.proto":{
-"drvPath":"/nix/store/d2qgjq268m654yzx9rsfyr8waj5iwx4j-vimplugin-nvim-treesitter-grammar-proto-0.0.0+rev=cf8e4eb.drv",
+"drvPath":"/nix/store/2q0z13rpimwvjlsk9dm45p28wqnvizdc-vimplugin-nvim-treesitter-grammar-proto-0.0.0+rev=cf8e4eb.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -34568,7 +34783,7 @@
 "version":"0.0.0+rev=cf8e4eb"
 },
 "vimPlugins.nvim-treesitter-parsers.prql":{
-"drvPath":"/nix/store/sj6y83z32cqdl74spj8v5fpqds1ydqff-vimplugin-nvim-treesitter-grammar-prql-0.0.0+rev=09e158c.drv",
+"drvPath":"/nix/store/zn3lnncw8i2jyfw89hx691vp1vs86f3n-vimplugin-nvim-treesitter-grammar-prql-0.0.0+rev=09e158c.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -34716,7 +34931,7 @@
 "version":"0.0.0+rev=09e158c"
 },
 "vimPlugins.nvim-treesitter-parsers.psv":{
-"drvPath":"/nix/store/gp5f4gyprpz9l7hyn88sp8rvzdsly6y4-vimplugin-nvim-treesitter-grammar-psv-0.0.0+rev=f6bf6e3.drv",
+"drvPath":"/nix/store/5wb59hvq4spvhiwrp28414q89jha1m08-vimplugin-nvim-treesitter-grammar-psv-0.0.0+rev=f6bf6e3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -34864,7 +35079,7 @@
 "version":"0.0.0+rev=f6bf6e3"
 },
 "vimPlugins.nvim-treesitter-parsers.pug":{
-"drvPath":"/nix/store/jm9sa00y8sc0086ryyrk4gpcanjv01p3-vimplugin-nvim-treesitter-grammar-pug-0.0.0+rev=13e9195.drv",
+"drvPath":"/nix/store/pyfm20kjif368am5ca38prkvwygf2kwr-vimplugin-nvim-treesitter-grammar-pug-0.0.0+rev=13e9195.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -35012,7 +35227,7 @@
 "version":"0.0.0+rev=13e9195"
 },
 "vimPlugins.nvim-treesitter-parsers.puppet":{
-"drvPath":"/nix/store/gyl7lln79a196vckm0pdsdyh2gz94r8k-vimplugin-nvim-treesitter-grammar-puppet-0.0.0+rev=15f1929.drv",
+"drvPath":"/nix/store/w0smyziqzwb08mrpg7f0fzmpjclv4aq7-vimplugin-nvim-treesitter-grammar-puppet-0.0.0+rev=15f1929.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -35160,7 +35375,7 @@
 "version":"0.0.0+rev=15f1929"
 },
 "vimPlugins.nvim-treesitter-parsers.purescript":{
-"drvPath":"/nix/store/rf6bqasdwxv46sqwjx7qndsqh0bb28pj-vimplugin-nvim-treesitter-grammar-purescript-0.0.0+rev=f541f95.drv",
+"drvPath":"/nix/store/jr1s6avjd9v6jql8fy5xqpv6nk9zlqm1-vimplugin-nvim-treesitter-grammar-purescript-0.0.0+rev=f541f95.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -35308,7 +35523,7 @@
 "version":"0.0.0+rev=f541f95"
 },
 "vimPlugins.nvim-treesitter-parsers.pymanifest":{
-"drvPath":"/nix/store/acaizh656sk15czka7f3vfi2nz3wrkgf-vimplugin-nvim-treesitter-grammar-pymanifest-0.0.0+rev=debbdb8.drv",
+"drvPath":"/nix/store/hv958h4q8cwiz1i9zc33d8kqlcj4fngk-vimplugin-nvim-treesitter-grammar-pymanifest-0.0.0+rev=debbdb8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -35456,7 +35671,7 @@
 "version":"0.0.0+rev=debbdb8"
 },
 "vimPlugins.nvim-treesitter-parsers.python":{
-"drvPath":"/nix/store/vfd0rifgich3is2l4vc5m0wmmig8f9rp-vimplugin-nvim-treesitter-grammar-python-0.0.0+rev=v0.25.0.drv",
+"drvPath":"/nix/store/jdvszmn81hqhmqak6dr6zh84waqlz97b-vimplugin-nvim-treesitter-grammar-python-0.0.0+rev=v0.25.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -35604,7 +35819,7 @@
 "version":"0.0.0+rev=v0.25.0"
 },
 "vimPlugins.nvim-treesitter-parsers.ql":{
-"drvPath":"/nix/store/50wc35z63hcsgsfc6zf9mx260fl86rld-vimplugin-nvim-treesitter-grammar-ql-0.0.0+rev=5b8ee9a.drv",
+"drvPath":"/nix/store/1mk8q5h02gz3vgyk5gxr96xxq3wl8s4r-vimplugin-nvim-treesitter-grammar-ql-0.0.0+rev=5b8ee9a.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -35752,7 +35967,7 @@
 "version":"0.0.0+rev=5b8ee9a"
 },
 "vimPlugins.nvim-treesitter-parsers.qmldir":{
-"drvPath":"/nix/store/7wk0jkamwag4hpzhrwrlfh7fnl9h1jwz-vimplugin-nvim-treesitter-grammar-qmldir-0.0.0+rev=c57e008.drv",
+"drvPath":"/nix/store/z0a34dix7acbxvbka9if0v8fzgcj2k9d-vimplugin-nvim-treesitter-grammar-qmldir-0.0.0+rev=c57e008.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -35900,7 +36115,7 @@
 "version":"0.0.0+rev=c57e008"
 },
 "vimPlugins.nvim-treesitter-parsers.qmljs":{
-"drvPath":"/nix/store/apgg63fjr2r5y2i06v8ifparqbl9jpy3-vimplugin-nvim-treesitter-grammar-qmljs-0.0.0+rev=de96ed6.drv",
+"drvPath":"/nix/store/rdbarzfki2za1sggx26dn86hwg5g7dl7-vimplugin-nvim-treesitter-grammar-qmljs-0.0.0+rev=de96ed6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -36048,7 +36263,7 @@
 "version":"0.0.0+rev=de96ed6"
 },
 "vimPlugins.nvim-treesitter-parsers.query":{
-"drvPath":"/nix/store/yx1g6zi05dqd32zyj5fq7bxck7lhlglz-vimplugin-nvim-treesitter-grammar-query-0.0.0+rev=8e9e223.drv",
+"drvPath":"/nix/store/wpkbnnnhnp8idvxqnxh4hgiiwxd2fi30-vimplugin-nvim-treesitter-grammar-query-0.0.0+rev=8e9e223.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -36196,7 +36411,7 @@
 "version":"0.0.0+rev=8e9e223"
 },
 "vimPlugins.nvim-treesitter-parsers.r":{
-"drvPath":"/nix/store/l4kb5f4qqflszbcwl34vsbh1h1pffh0q-vimplugin-nvim-treesitter-grammar-r-0.0.0+rev=58a2279.drv",
+"drvPath":"/nix/store/zcbckl3w8bk9aw8s0bkms631gnr04gwh-vimplugin-nvim-treesitter-grammar-r-0.0.0+rev=58a2279.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -36344,7 +36559,7 @@
 "version":"0.0.0+rev=58a2279"
 },
 "vimPlugins.nvim-treesitter-parsers.racket":{
-"drvPath":"/nix/store/b6dpjgyv0smgvl33pp5770b6k3j2fxqf-vimplugin-nvim-treesitter-grammar-racket-0.0.0+rev=e2b8064.drv",
+"drvPath":"/nix/store/ryd5sksp76isa59ck41ag103r9rb06cn-vimplugin-nvim-treesitter-grammar-racket-0.0.0+rev=e2b8064.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -36492,7 +36707,7 @@
 "version":"0.0.0+rev=e2b8064"
 },
 "vimPlugins.nvim-treesitter-parsers.ralph":{
-"drvPath":"/nix/store/9j5lz7p1bq3dyjjrpzjr1qsx3ckkdyzl-vimplugin-nvim-treesitter-grammar-ralph-0.0.0+rev=f6d81bf.drv",
+"drvPath":"/nix/store/w4ql46fac8ijpjf1j5bvwki5dq1h32g1-vimplugin-nvim-treesitter-grammar-ralph-0.0.0+rev=f6d81bf.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -36640,7 +36855,7 @@
 "version":"0.0.0+rev=f6d81bf"
 },
 "vimPlugins.nvim-treesitter-parsers.rasi":{
-"drvPath":"/nix/store/9li8vq5rp83nmy97ig4ygj7my8shx7j8-vimplugin-nvim-treesitter-grammar-rasi-0.0.0+rev=e735c68.drv",
+"drvPath":"/nix/store/xy225dibhxqb34ad18phjcm0959vdsyz-vimplugin-nvim-treesitter-grammar-rasi-0.0.0+rev=e735c68.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -36788,7 +37003,7 @@
 "version":"0.0.0+rev=e735c68"
 },
 "vimPlugins.nvim-treesitter-parsers.razor":{
-"drvPath":"/nix/store/lhmkc1k296rgih8b9fsm60i1nika0n4s-vimplugin-nvim-treesitter-grammar-razor-0.0.0+rev=900f53d.drv",
+"drvPath":"/nix/store/sdydzlv1kmb8nw4facl9cxjn7bcbg2lr-vimplugin-nvim-treesitter-grammar-razor-0.0.0+rev=900f53d.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -36936,7 +37151,7 @@
 "version":"0.0.0+rev=900f53d"
 },
 "vimPlugins.nvim-treesitter-parsers.rbs":{
-"drvPath":"/nix/store/jf82bcfnlmi2n3cygfqcksbx0b1xpz0s-vimplugin-nvim-treesitter-grammar-rbs-0.0.0+rev=5282e2f.drv",
+"drvPath":"/nix/store/d37gk7rvnv4451x7vl9s9716ybv5lw1f-vimplugin-nvim-treesitter-grammar-rbs-0.0.0+rev=5282e2f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -37084,7 +37299,7 @@
 "version":"0.0.0+rev=5282e2f"
 },
 "vimPlugins.nvim-treesitter-parsers.re2c":{
-"drvPath":"/nix/store/iws0c6v29672gjs3x4jhfzy30cpcdvbx-vimplugin-nvim-treesitter-grammar-re2c-0.0.0+rev=c18a3c2.drv",
+"drvPath":"/nix/store/grxlk93kqkwjm50mwf8zfq0vhym5s7vl-vimplugin-nvim-treesitter-grammar-re2c-0.0.0+rev=c18a3c2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -37232,7 +37447,7 @@
 "version":"0.0.0+rev=c18a3c2"
 },
 "vimPlugins.nvim-treesitter-parsers.readline":{
-"drvPath":"/nix/store/dqpqsndlpx3wx4rbphfn867jhrnm7pmj-vimplugin-nvim-treesitter-grammar-readline-0.0.0+rev=6b744c5.drv",
+"drvPath":"/nix/store/ld59jvw9rfcgd2k180icssa6yi99pbda-vimplugin-nvim-treesitter-grammar-readline-0.0.0+rev=6b744c5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -37380,7 +37595,7 @@
 "version":"0.0.0+rev=6b744c5"
 },
 "vimPlugins.nvim-treesitter-parsers.regex":{
-"drvPath":"/nix/store/jyhxsq8f9jj129l5lcwwxnvz5bc2fix8-vimplugin-nvim-treesitter-grammar-regex-0.0.0+rev=b2ac15e.drv",
+"drvPath":"/nix/store/cmp4lyykg5hx7cswxg9jd1ck6k42gwxr-vimplugin-nvim-treesitter-grammar-regex-0.0.0+rev=b2ac15e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -37528,7 +37743,7 @@
 "version":"0.0.0+rev=b2ac15e"
 },
 "vimPlugins.nvim-treesitter-parsers.rego":{
-"drvPath":"/nix/store/d8v49b4xpn408dgblfwxj826jw3y7nk3-vimplugin-nvim-treesitter-grammar-rego-0.0.0+rev=7f8a431.drv",
+"drvPath":"/nix/store/gmq86x6kpskivrzlrshzln51iddns8qw-vimplugin-nvim-treesitter-grammar-rego-0.0.0+rev=7f8a431.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -37676,7 +37891,7 @@
 "version":"0.0.0+rev=7f8a431"
 },
 "vimPlugins.nvim-treesitter-parsers.requirements":{
-"drvPath":"/nix/store/m8l26hp66k7a8n6k2gxp50aylscx3wsp-vimplugin-nvim-treesitter-grammar-requirements-0.0.0+rev=2c3bb29.drv",
+"drvPath":"/nix/store/m4qfjggzjhwqpfza2ngykkqcz11axz91-vimplugin-nvim-treesitter-grammar-requirements-0.0.0+rev=2c3bb29.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -37824,7 +38039,7 @@
 "version":"0.0.0+rev=2c3bb29"
 },
 "vimPlugins.nvim-treesitter-parsers.rescript":{
-"drvPath":"/nix/store/jwr2d9n9lyqar28v1k4ibhlvhyb32q3y-vimplugin-nvim-treesitter-grammar-rescript-0.0.0+rev=19ed8a8.drv",
+"drvPath":"/nix/store/bnm7r8afnf6452zgbwynwanb7qh5qki4-vimplugin-nvim-treesitter-grammar-rescript-0.0.0+rev=19ed8a8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -37972,7 +38187,7 @@
 "version":"0.0.0+rev=19ed8a8"
 },
 "vimPlugins.nvim-treesitter-parsers.rifleconf":{
-"drvPath":"/nix/store/mvvz1djc6i67kblbak0jp3qm1x7z59af-vimplugin-nvim-treesitter-grammar-rifleconf-0.0.0+rev=6389ef0.drv",
+"drvPath":"/nix/store/y7wyn4rrqbch447dw11pwjrjasp5zvd1-vimplugin-nvim-treesitter-grammar-rifleconf-0.0.0+rev=6389ef0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -38120,7 +38335,7 @@
 "version":"0.0.0+rev=6389ef0"
 },
 "vimPlugins.nvim-treesitter-parsers.rnoweb":{
-"drvPath":"/nix/store/ngjd7c01njq5v49mgmx7c79062dqpyyn-vimplugin-nvim-treesitter-grammar-rnoweb-0.0.0+rev=1a74dc0.drv",
+"drvPath":"/nix/store/1mi8lawjnhh1nm9v6jybpz8md20anzl5-vimplugin-nvim-treesitter-grammar-rnoweb-0.0.0+rev=1a74dc0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -38268,7 +38483,7 @@
 "version":"0.0.0+rev=1a74dc0"
 },
 "vimPlugins.nvim-treesitter-parsers.robot":{
-"drvPath":"/nix/store/jgw5dkffw6v6lhhvl6ir9inrpb3h491m-vimplugin-nvim-treesitter-grammar-robot-0.0.0+rev=v1.3.0.drv",
+"drvPath":"/nix/store/z7v7vjn31pyzhwzqjipk0pqvizfcpi65-vimplugin-nvim-treesitter-grammar-robot-0.0.0+rev=v1.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -38416,7 +38631,7 @@
 "version":"0.0.0+rev=v1.3.0"
 },
 "vimPlugins.nvim-treesitter-parsers.robots_txt":{
-"drvPath":"/nix/store/lkszmi7kws7r4k0rijsk4j971lq0rsa9-vimplugin-nvim-treesitter-grammar-robots_txt-0.0.0+rev=0c06610.drv",
+"drvPath":"/nix/store/zjc49vvqaw7r0y221pz173y3llasfzz3-vimplugin-nvim-treesitter-grammar-robots_txt-0.0.0+rev=0c06610.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -38564,7 +38779,7 @@
 "version":"0.0.0+rev=0c06610"
 },
 "vimPlugins.nvim-treesitter-parsers.roc":{
-"drvPath":"/nix/store/9k9d1ck22kaxpamsqg3adzgkddcqd047-vimplugin-nvim-treesitter-grammar-roc-0.0.0+rev=40e52f3.drv",
+"drvPath":"/nix/store/fll7zvhwsrjs85qqkm7qb6xbn29s3d14-vimplugin-nvim-treesitter-grammar-roc-0.0.0+rev=40e52f3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -38712,7 +38927,7 @@
 "version":"0.0.0+rev=40e52f3"
 },
 "vimPlugins.nvim-treesitter-parsers.ron":{
-"drvPath":"/nix/store/6q0fxgzzp14kd6jmpvjrv6q1g82305mr-vimplugin-nvim-treesitter-grammar-ron-0.0.0+rev=7893855.drv",
+"drvPath":"/nix/store/cbsz8vi75nrs9gi4gf7zwqz39lf037av-vimplugin-nvim-treesitter-grammar-ron-0.0.0+rev=7893855.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -38860,7 +39075,7 @@
 "version":"0.0.0+rev=7893855"
 },
 "vimPlugins.nvim-treesitter-parsers.rst":{
-"drvPath":"/nix/store/wi43nmfr86g0i52i0zcsa3l1mh69rsgx-vimplugin-nvim-treesitter-grammar-rst-0.0.0+rev=a60f107.drv",
+"drvPath":"/nix/store/9hml5p8ybz10plhd3klrj52sbq9g3vi1-vimplugin-nvim-treesitter-grammar-rst-0.0.0+rev=a60f107.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -39008,7 +39223,7 @@
 "version":"0.0.0+rev=a60f107"
 },
 "vimPlugins.nvim-treesitter-parsers.ruby":{
-"drvPath":"/nix/store/vjpghqfgklan5s04hv9b1n7zsxn0h0x0-vimplugin-nvim-treesitter-grammar-ruby-0.0.0+rev=ad907a6.drv",
+"drvPath":"/nix/store/ki5r1wrw4zlrfcpzfji86iyls693bpqn-vimplugin-nvim-treesitter-grammar-ruby-0.0.0+rev=ad907a6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -39156,7 +39371,7 @@
 "version":"0.0.0+rev=ad907a6"
 },
 "vimPlugins.nvim-treesitter-parsers.runescript":{
-"drvPath":"/nix/store/77r7k2i135qi701w6dqdnzcr5dn1664d-vimplugin-nvim-treesitter-grammar-runescript-0.0.0+rev=cf85bbd.drv",
+"drvPath":"/nix/store/v6jaqzqzdb9s4jd157j5xz1yb10rqa49-vimplugin-nvim-treesitter-grammar-runescript-0.0.0+rev=cf85bbd.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -39304,7 +39519,7 @@
 "version":"0.0.0+rev=cf85bbd"
 },
 "vimPlugins.nvim-treesitter-parsers.rust":{
-"drvPath":"/nix/store/bijnvar5401gky82f733qrnr8yx1l53p-vimplugin-nvim-treesitter-grammar-rust-0.0.0+rev=77a3747.drv",
+"drvPath":"/nix/store/b2garvg51dj1wnmab5w6q47qgybavpcv-vimplugin-nvim-treesitter-grammar-rust-0.0.0+rev=77a3747.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -39452,7 +39667,7 @@
 "version":"0.0.0+rev=77a3747"
 },
 "vimPlugins.nvim-treesitter-parsers.scala":{
-"drvPath":"/nix/store/4451663svhh97amyx054bqy1i0wngm74-vimplugin-nvim-treesitter-grammar-scala-0.0.0+rev=4d081d9.drv",
+"drvPath":"/nix/store/9phr1czccyc6z748bkv84r111zgqy1fb-vimplugin-nvim-treesitter-grammar-scala-0.0.0+rev=4d081d9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -39600,7 +39815,7 @@
 "version":"0.0.0+rev=4d081d9"
 },
 "vimPlugins.nvim-treesitter-parsers.scfg":{
-"drvPath":"/nix/store/n4dzcd1c90b3ws03x1c7yjxflwzm7a4k-vimplugin-nvim-treesitter-grammar-scfg-0.0.0+rev=d850fd4.drv",
+"drvPath":"/nix/store/dr4jrhlrnv6k8sm70z0jhsgc6i1bqccj-vimplugin-nvim-treesitter-grammar-scfg-0.0.0+rev=d850fd4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -39748,7 +39963,7 @@
 "version":"0.0.0+rev=d850fd4"
 },
 "vimPlugins.nvim-treesitter-parsers.scheme":{
-"drvPath":"/nix/store/b7x74h1zkqdj4463xvk0ag96df2f286w-vimplugin-nvim-treesitter-grammar-scheme-0.0.0+rev=c6cb7c7.drv",
+"drvPath":"/nix/store/sj2k5xm2ri3ksnx8g0rivdwlqqlpvy2j-vimplugin-nvim-treesitter-grammar-scheme-0.0.0+rev=c6cb7c7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -39896,7 +40111,7 @@
 "version":"0.0.0+rev=c6cb7c7"
 },
 "vimPlugins.nvim-treesitter-parsers.scss":{
-"drvPath":"/nix/store/3l4dwda96mmg8mmivv3q806qp4gxikyq-vimplugin-nvim-treesitter-grammar-scss-0.0.0+rev=c478c68.drv",
+"drvPath":"/nix/store/l2d11csvi3r84b2p6nrzrbqrjdlffvi7-vimplugin-nvim-treesitter-grammar-scss-0.0.0+rev=c478c68.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -40044,7 +40259,7 @@
 "version":"0.0.0+rev=c478c68"
 },
 "vimPlugins.nvim-treesitter-parsers.sflog":{
-"drvPath":"/nix/store/7js17cjsha9jpqp3d6x3d8hiqfcbmbwa-vimplugin-nvim-treesitter-grammar-sflog-0.0.0+rev=27a3091.drv",
+"drvPath":"/nix/store/qapmmf7fh1fzzbagpafxzsb3ws2p6hdg-vimplugin-nvim-treesitter-grammar-sflog-0.0.0+rev=27a3091.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -40192,7 +40407,7 @@
 "version":"0.0.0+rev=27a3091"
 },
 "vimPlugins.nvim-treesitter-parsers.slang":{
-"drvPath":"/nix/store/xn22v1zc6sm4dmjph17s1a4m170j7ii2-vimplugin-nvim-treesitter-grammar-slang-0.0.0+rev=1dbcc4a.drv",
+"drvPath":"/nix/store/7r0kirzq4dv6apfbw9nf5bmxqyrhn5cl-vimplugin-nvim-treesitter-grammar-slang-0.0.0+rev=1dbcc4a.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -40340,7 +40555,7 @@
 "version":"0.0.0+rev=1dbcc4a"
 },
 "vimPlugins.nvim-treesitter-parsers.slim":{
-"drvPath":"/nix/store/6836jcc6x2imm851klr39qc2f6faprg5-vimplugin-nvim-treesitter-grammar-slim-0.0.0+rev=d4ff7e3.drv",
+"drvPath":"/nix/store/g7fny2718v8c7rpv985jjms8isvb56fg-vimplugin-nvim-treesitter-grammar-slim-0.0.0+rev=d4ff7e3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -40488,7 +40703,7 @@
 "version":"0.0.0+rev=d4ff7e3"
 },
 "vimPlugins.nvim-treesitter-parsers.slint":{
-"drvPath":"/nix/store/nbqsqd73c5fn86dnwmrljxh61l4194mi-vimplugin-nvim-treesitter-grammar-slint-0.0.0+rev=68b2524.drv",
+"drvPath":"/nix/store/qp0hcq6l0jmvhrfg1vq0qb77s218zf4m-vimplugin-nvim-treesitter-grammar-slint-0.0.0+rev=68b2524.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -40636,7 +40851,7 @@
 "version":"0.0.0+rev=68b2524"
 },
 "vimPlugins.nvim-treesitter-parsers.smali":{
-"drvPath":"/nix/store/czm2p3krmbnz1ffc3dbazvjjf9nr40rr-vimplugin-nvim-treesitter-grammar-smali-0.0.0+rev=fdfa6a1.drv",
+"drvPath":"/nix/store/1c9ab9g148xk5ap593g9gk63pvz9k35q-vimplugin-nvim-treesitter-grammar-smali-0.0.0+rev=fdfa6a1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -40784,7 +40999,7 @@
 "version":"0.0.0+rev=fdfa6a1"
 },
 "vimPlugins.nvim-treesitter-parsers.smithy":{
-"drvPath":"/nix/store/mg15vaxqyyyjq291whpqrlkidj07ncz0-vimplugin-nvim-treesitter-grammar-smithy-0.0.0+rev=ec4fe14.drv",
+"drvPath":"/nix/store/sv80n5507sgx1inbb9j45rx8afsz6p45-vimplugin-nvim-treesitter-grammar-smithy-0.0.0+rev=ec4fe14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -40932,7 +41147,7 @@
 "version":"0.0.0+rev=ec4fe14"
 },
 "vimPlugins.nvim-treesitter-parsers.snakemake":{
-"drvPath":"/nix/store/hyxc043hwhmr2mv3lmlibimhs1f82qhc-vimplugin-nvim-treesitter-grammar-snakemake-0.0.0+rev=6801043.drv",
+"drvPath":"/nix/store/fd2242mw2x099lhxvhghy19ypvjj96i8-vimplugin-nvim-treesitter-grammar-snakemake-0.0.0+rev=6801043.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -41080,7 +41295,7 @@
 "version":"0.0.0+rev=6801043"
 },
 "vimPlugins.nvim-treesitter-parsers.snl":{
-"drvPath":"/nix/store/9qihjgfv6gmz9c6g1xgrb3nq4aska80r-vimplugin-nvim-treesitter-grammar-snl-0.0.0+rev=846e2d6.drv",
+"drvPath":"/nix/store/jcrjrrwfm7yqnhqnj0nj8pwzz8jcnqif-vimplugin-nvim-treesitter-grammar-snl-0.0.0+rev=846e2d6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -41228,7 +41443,7 @@
 "version":"0.0.0+rev=846e2d6"
 },
 "vimPlugins.nvim-treesitter-parsers.solidity":{
-"drvPath":"/nix/store/6chbwz3iwzzk6s2qsy7lca5yyd9v7dbg-vimplugin-nvim-treesitter-grammar-solidity-0.0.0+rev=048fe68.drv",
+"drvPath":"/nix/store/b3ix4jzkd1sf58h35vvmgw0r7107drhv-vimplugin-nvim-treesitter-grammar-solidity-0.0.0+rev=048fe68.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -41376,7 +41591,7 @@
 "version":"0.0.0+rev=048fe68"
 },
 "vimPlugins.nvim-treesitter-parsers.soql":{
-"drvPath":"/nix/store/zgkgn458kk9vx0s7k8d9di8gih8sidkm-vimplugin-nvim-treesitter-grammar-soql-0.0.0+rev=27a3091.drv",
+"drvPath":"/nix/store/p3cqd7fn03nvjvy6f16cpsrplalgj204-vimplugin-nvim-treesitter-grammar-soql-0.0.0+rev=27a3091.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -41524,7 +41739,7 @@
 "version":"0.0.0+rev=27a3091"
 },
 "vimPlugins.nvim-treesitter-parsers.sosl":{
-"drvPath":"/nix/store/p5wwv5scj7vvvpj70jf4kkihz2vvsaql-vimplugin-nvim-treesitter-grammar-sosl-0.0.0+rev=27a3091.drv",
+"drvPath":"/nix/store/xhbh000b1x0ms4nkizcmc1nijqfwqhcj-vimplugin-nvim-treesitter-grammar-sosl-0.0.0+rev=27a3091.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -41672,7 +41887,7 @@
 "version":"0.0.0+rev=27a3091"
 },
 "vimPlugins.nvim-treesitter-parsers.sourcepawn":{
-"drvPath":"/nix/store/wvbbj26n9yn75k5bk5b9312xakwxnmja-vimplugin-nvim-treesitter-grammar-sourcepawn-0.0.0+rev=5a8fdd4.drv",
+"drvPath":"/nix/store/p6ih8cgny67iyz9wnxw025jfqhmplzci-vimplugin-nvim-treesitter-grammar-sourcepawn-0.0.0+rev=5a8fdd4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -41820,7 +42035,7 @@
 "version":"0.0.0+rev=5a8fdd4"
 },
 "vimPlugins.nvim-treesitter-parsers.sparql":{
-"drvPath":"/nix/store/lvmajqx33nd2dixq492fi5wq7knzdycx-vimplugin-nvim-treesitter-grammar-sparql-0.0.0+rev=1ef52d3.drv",
+"drvPath":"/nix/store/qrbsk2q7r46dsa5dkwq71m1l09a8yrlq-vimplugin-nvim-treesitter-grammar-sparql-0.0.0+rev=1ef52d3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -41968,7 +42183,7 @@
 "version":"0.0.0+rev=1ef52d3"
 },
 "vimPlugins.nvim-treesitter-parsers.sproto":{
-"drvPath":"/nix/store/4s5gh3bhswwf2a17chwxwkcaab3an9rq-vimplugin-nvim-treesitter-grammar-sproto-0.0.0+rev=d554c14.drv",
+"drvPath":"/nix/store/d06p14sm49gg84yx2v7ndcb7wjsaazmd-vimplugin-nvim-treesitter-grammar-sproto-0.0.0+rev=d554c14.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -42116,7 +42331,7 @@
 "version":"0.0.0+rev=d554c14"
 },
 "vimPlugins.nvim-treesitter-parsers.sql":{
-"drvPath":"/nix/store/k39yynvfq69i2bw24jba7aiig4svnl3x-vimplugin-nvim-treesitter-grammar-sql-0.0.0+rev=851e9cb.drv",
+"drvPath":"/nix/store/qawqh2nicq295w87kcqq3mxdpqi8ll9j-vimplugin-nvim-treesitter-grammar-sql-0.0.0+rev=851e9cb.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -42264,7 +42479,7 @@
 "version":"0.0.0+rev=851e9cb"
 },
 "vimPlugins.nvim-treesitter-parsers.squirrel":{
-"drvPath":"/nix/store/iw6w297d0rm0a4ng70snq9jjzpi4ggbi-vimplugin-nvim-treesitter-grammar-squirrel-0.0.0+rev=072c969.drv",
+"drvPath":"/nix/store/9ny0zjlm3ip33r0q1ppbxadknyk09fmr-vimplugin-nvim-treesitter-grammar-squirrel-0.0.0+rev=072c969.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -42412,7 +42627,7 @@
 "version":"0.0.0+rev=072c969"
 },
 "vimPlugins.nvim-treesitter-parsers.ssh_config":{
-"drvPath":"/nix/store/aqgxvy2yxi3x2jygflbcnpi9h8l14pxw-vimplugin-nvim-treesitter-grammar-ssh_config-0.0.0+rev=b7db80e.drv",
+"drvPath":"/nix/store/xz18f5m0ppp7p7nbjv8vjdnkhsj9hkcp-vimplugin-nvim-treesitter-grammar-ssh_config-0.0.0+rev=b7db80e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -42560,7 +42775,7 @@
 "version":"0.0.0+rev=b7db80e"
 },
 "vimPlugins.nvim-treesitter-parsers.starlark":{
-"drvPath":"/nix/store/7s2r469l6zp5lyjb3w627nw6m0rx4phq-vimplugin-nvim-treesitter-grammar-starlark-0.0.0+rev=a453dbf.drv",
+"drvPath":"/nix/store/67vp6xi6awyp5jxrpakl8ndygpqgqmj9-vimplugin-nvim-treesitter-grammar-starlark-0.0.0+rev=a453dbf.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -42708,7 +42923,7 @@
 "version":"0.0.0+rev=a453dbf"
 },
 "vimPlugins.nvim-treesitter-parsers.strace":{
-"drvPath":"/nix/store/v00dfadr1w679hgrc3slskdbbm74058i-vimplugin-nvim-treesitter-grammar-strace-0.0.0+rev=ac874dd.drv",
+"drvPath":"/nix/store/mm4ja7y8f4mnq89cdj3khvbbyfrnn754-vimplugin-nvim-treesitter-grammar-strace-0.0.0+rev=ac874dd.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -42856,7 +43071,7 @@
 "version":"0.0.0+rev=ac874dd"
 },
 "vimPlugins.nvim-treesitter-parsers.styled":{
-"drvPath":"/nix/store/iqb4a3b7liq7rhasz0w4lqv49s8lqaah-vimplugin-nvim-treesitter-grammar-styled-0.0.0+rev=319cdca.drv",
+"drvPath":"/nix/store/rr6h5n62y9wf48bkgafqb20xlx1yc2xg-vimplugin-nvim-treesitter-grammar-styled-0.0.0+rev=319cdca.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -43004,7 +43219,7 @@
 "version":"0.0.0+rev=319cdca"
 },
 "vimPlugins.nvim-treesitter-parsers.supercollider":{
-"drvPath":"/nix/store/80g2sadmk0pd7ycsf0rvmd009il2395h-vimplugin-nvim-treesitter-grammar-supercollider-0.0.0+rev=2b03ff4.drv",
+"drvPath":"/nix/store/f23cybzkwk7kh4bh1ybk3zlih2ypybqb-vimplugin-nvim-treesitter-grammar-supercollider-0.0.0+rev=2b03ff4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -43152,7 +43367,7 @@
 "version":"0.0.0+rev=2b03ff4"
 },
 "vimPlugins.nvim-treesitter-parsers.superhtml":{
-"drvPath":"/nix/store/ynpajfyhf7681akvlp70wg0gc2d16i7g-vimplugin-nvim-treesitter-grammar-superhtml-0.0.0+rev=d4d81e1.drv",
+"drvPath":"/nix/store/x07xg45530xckqz6184vis7ajqpmkx81-vimplugin-nvim-treesitter-grammar-superhtml-0.0.0+rev=d4d81e1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -43300,7 +43515,7 @@
 "version":"0.0.0+rev=d4d81e1"
 },
 "vimPlugins.nvim-treesitter-parsers.surface":{
-"drvPath":"/nix/store/183av6157l22jb1m9ndpz7s3c0yw18j9-vimplugin-nvim-treesitter-grammar-surface-0.0.0+rev=f4586b3.drv",
+"drvPath":"/nix/store/j29bpm55y78nv7qdww0h12fz3cdfz89v-vimplugin-nvim-treesitter-grammar-surface-0.0.0+rev=f4586b3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -43448,7 +43663,7 @@
 "version":"0.0.0+rev=f4586b3"
 },
 "vimPlugins.nvim-treesitter-parsers.svelte":{
-"drvPath":"/nix/store/szy69nlc3cyj3cv2r8ris14gnywcdi4j-vimplugin-nvim-treesitter-grammar-svelte-0.0.0+rev=ae5199d.drv",
+"drvPath":"/nix/store/mys7viq2mbzc5ax12w48ki6khq3k9kpp-vimplugin-nvim-treesitter-grammar-svelte-0.0.0+rev=ae5199d.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -43596,7 +43811,7 @@
 "version":"0.0.0+rev=ae5199d"
 },
 "vimPlugins.nvim-treesitter-parsers.sway":{
-"drvPath":"/nix/store/zvlnsf0lzi28gss269z0j7n4f6h4m1sw-vimplugin-nvim-treesitter-grammar-sway-0.0.0+rev=9b7845c.drv",
+"drvPath":"/nix/store/31slw0sr8hhajaimywfk1jfi84b0swp4-vimplugin-nvim-treesitter-grammar-sway-0.0.0+rev=9b7845c.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -43744,7 +43959,7 @@
 "version":"0.0.0+rev=9b7845c"
 },
 "vimPlugins.nvim-treesitter-parsers.swift":{
-"drvPath":"/nix/store/skcb7bsp3aaxa89kqqdx2qgbll3yzxkw-vimplugin-nvim-treesitter-grammar-swift-0.0.0+rev=28fe3a8.drv",
+"drvPath":"/nix/store/7mbxqfra41cj2qz7dhfgj6njxp5706cg-vimplugin-nvim-treesitter-grammar-swift-0.0.0+rev=28fe3a8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -43892,7 +44107,7 @@
 "version":"0.0.0+rev=28fe3a8"
 },
 "vimPlugins.nvim-treesitter-parsers.sxhkdrc":{
-"drvPath":"/nix/store/fmkq3z03qzgnikm7j40x7898p8df7ifm-vimplugin-nvim-treesitter-grammar-sxhkdrc-0.0.0+rev=440d5f9.drv",
+"drvPath":"/nix/store/ap1iij2dj4q14hgq7lf1qpzj664nkd8z-vimplugin-nvim-treesitter-grammar-sxhkdrc-0.0.0+rev=440d5f9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -44040,7 +44255,7 @@
 "version":"0.0.0+rev=440d5f9"
 },
 "vimPlugins.nvim-treesitter-parsers.systemtap":{
-"drvPath":"/nix/store/jdzmy8fw14qvl08wxilbjxfzcbn8sj5v-vimplugin-nvim-treesitter-grammar-systemtap-0.0.0+rev=f2b378a.drv",
+"drvPath":"/nix/store/1z529dyzakcnascgfpqlv2fwbjcci1n7-vimplugin-nvim-treesitter-grammar-systemtap-0.0.0+rev=f2b378a.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -44188,7 +44403,7 @@
 "version":"0.0.0+rev=f2b378a"
 },
 "vimPlugins.nvim-treesitter-parsers.systemverilog":{
-"drvPath":"/nix/store/mba17sslqx040kki6n9zxp9m3vp2zjw3-vimplugin-nvim-treesitter-grammar-systemverilog-0.0.0+rev=aa09b90.drv",
+"drvPath":"/nix/store/p8apznnxmidchrs2gjkh47sc34qs5k0h-vimplugin-nvim-treesitter-grammar-systemverilog-0.0.0+rev=aa09b90.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -44336,7 +44551,7 @@
 "version":"0.0.0+rev=aa09b90"
 },
 "vimPlugins.nvim-treesitter-parsers.t32":{
-"drvPath":"/nix/store/y75ssqzhjmlq430bg3rk3wh0cjhmxbb1-vimplugin-nvim-treesitter-grammar-t32-0.0.0+rev=acc92b0.drv",
+"drvPath":"/nix/store/jrbq5ia5vmbg063qcgv1mb356n0571sk-vimplugin-nvim-treesitter-grammar-t32-0.0.0+rev=acc92b0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -44484,7 +44699,7 @@
 "version":"0.0.0+rev=acc92b0"
 },
 "vimPlugins.nvim-treesitter-parsers.tablegen":{
-"drvPath":"/nix/store/vh7cm4j2430jas0arcjgw1n0d7z8756v-vimplugin-nvim-treesitter-grammar-tablegen-0.0.0+rev=b117088.drv",
+"drvPath":"/nix/store/6dz9g0fsrgzn9qfhbgyd7zhjhiym9lk2-vimplugin-nvim-treesitter-grammar-tablegen-0.0.0+rev=b117088.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -44632,7 +44847,7 @@
 "version":"0.0.0+rev=b117088"
 },
 "vimPlugins.nvim-treesitter-parsers.tact":{
-"drvPath":"/nix/store/f49vz9n452k27fpq7cdk1wxpd7bmnxxv-vimplugin-nvim-treesitter-grammar-tact-0.0.0+rev=1c689f0.drv",
+"drvPath":"/nix/store/20a8ngpn6wvgc35fs43jpvjf1n7vldp0-vimplugin-nvim-treesitter-grammar-tact-0.0.0+rev=1c689f0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -44780,7 +44995,7 @@
 "version":"0.0.0+rev=1c689f0"
 },
 "vimPlugins.nvim-treesitter-parsers.tcl":{
-"drvPath":"/nix/store/480q53s6qmr47hjvwhk9vmsz5zy6604z-vimplugin-nvim-treesitter-grammar-tcl-0.0.0+rev=8f11ac7.drv",
+"drvPath":"/nix/store/8bj5iiafxiz5ibdw9brvnwb0051mfhig-vimplugin-nvim-treesitter-grammar-tcl-0.0.0+rev=8f11ac7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -44928,7 +45143,7 @@
 "version":"0.0.0+rev=8f11ac7"
 },
 "vimPlugins.nvim-treesitter-parsers.teal":{
-"drvPath":"/nix/store/rkyb0lniwydzh71b8dys9bmq44y8581c-vimplugin-nvim-treesitter-grammar-teal-0.0.0+rev=05d276e.drv",
+"drvPath":"/nix/store/4sgdifhl8613g2n18c4l15r2barki3bf-vimplugin-nvim-treesitter-grammar-teal-0.0.0+rev=05d276e.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -45076,7 +45291,7 @@
 "version":"0.0.0+rev=05d276e"
 },
 "vimPlugins.nvim-treesitter-parsers.templ":{
-"drvPath":"/nix/store/cx79fs65m0wnm5g95hwd1jxi809rkh8f-vimplugin-nvim-treesitter-grammar-templ-0.0.0+rev=04bae7c.drv",
+"drvPath":"/nix/store/ma4k2z3czjsbnglwifl218xr3f3l90vg-vimplugin-nvim-treesitter-grammar-templ-0.0.0+rev=04bae7c.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -45224,7 +45439,7 @@
 "version":"0.0.0+rev=04bae7c"
 },
 "vimPlugins.nvim-treesitter-parsers.tera":{
-"drvPath":"/nix/store/nqy3naaz6a3vbhg9q777swp9fs48x9yn-vimplugin-nvim-treesitter-grammar-tera-0.0.0+rev=3a38c36.drv",
+"drvPath":"/nix/store/rwnpsmplwcdzz3ljzf5p24hqkkw43jn1-vimplugin-nvim-treesitter-grammar-tera-0.0.0+rev=3a38c36.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -45372,7 +45587,7 @@
 "version":"0.0.0+rev=3a38c36"
 },
 "vimPlugins.nvim-treesitter-parsers.terraform":{
-"drvPath":"/nix/store/6awqwxj284g95s32dwyx8j9vl47lpiz9-vimplugin-nvim-treesitter-grammar-terraform-0.0.0+rev=64ad627.drv",
+"drvPath":"/nix/store/p6n6lbdvx1w9d0q9qgrqw4khkki8md9v-vimplugin-nvim-treesitter-grammar-terraform-0.0.0+rev=64ad627.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -45520,7 +45735,7 @@
 "version":"0.0.0+rev=64ad627"
 },
 "vimPlugins.nvim-treesitter-parsers.textproto":{
-"drvPath":"/nix/store/1znzfv6kscp2fwafjawkx90ylhlg1asr-vimplugin-nvim-treesitter-grammar-textproto-0.0.0+rev=568471b.drv",
+"drvPath":"/nix/store/vc48kjllym8k11l0sgayaysc4sxcxrbd-vimplugin-nvim-treesitter-grammar-textproto-0.0.0+rev=568471b.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -45668,7 +45883,7 @@
 "version":"0.0.0+rev=568471b"
 },
 "vimPlugins.nvim-treesitter-parsers.thrift":{
-"drvPath":"/nix/store/qyfxfqnjpabfwvj1q9q5ipycdkk4p68l-vimplugin-nvim-treesitter-grammar-thrift-0.0.0+rev=68fd0d8.drv",
+"drvPath":"/nix/store/6s9cksb7jgl30p56ci0gf509afqagbqy-vimplugin-nvim-treesitter-grammar-thrift-0.0.0+rev=68fd0d8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -45816,7 +46031,7 @@
 "version":"0.0.0+rev=68fd0d8"
 },
 "vimPlugins.nvim-treesitter-parsers.tiger":{
-"drvPath":"/nix/store/c2cc5z5m1mprvigj7lvr9iminqz1106w-vimplugin-nvim-treesitter-grammar-tiger-0.0.0+rev=4a77b2d.drv",
+"drvPath":"/nix/store/x9b0cf34wvmwrbhrz3fcyfc0jpqpkpnh-vimplugin-nvim-treesitter-grammar-tiger-0.0.0+rev=4a77b2d.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -45964,7 +46179,7 @@
 "version":"0.0.0+rev=4a77b2d"
 },
 "vimPlugins.nvim-treesitter-parsers.tlaplus":{
-"drvPath":"/nix/store/hqq9l1bpxq079sshnsikmvp4lf2drmh5-vimplugin-nvim-treesitter-grammar-tlaplus-0.0.0+rev=add4081.drv",
+"drvPath":"/nix/store/2gkvkka512spbb3wdjzjk2s84qxrsapq-vimplugin-nvim-treesitter-grammar-tlaplus-0.0.0+rev=add4081.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -46112,7 +46327,7 @@
 "version":"0.0.0+rev=add4081"
 },
 "vimPlugins.nvim-treesitter-parsers.todotxt":{
-"drvPath":"/nix/store/8r8xcxlmf7z71bas25x72bja2zvnwr38-vimplugin-nvim-treesitter-grammar-todotxt-0.0.0+rev=3937c5c.drv",
+"drvPath":"/nix/store/92lvs52qjjwn8i0cvizba3my9q70knv0-vimplugin-nvim-treesitter-grammar-todotxt-0.0.0+rev=3937c5c.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -46260,7 +46475,7 @@
 "version":"0.0.0+rev=3937c5c"
 },
 "vimPlugins.nvim-treesitter-parsers.toml":{
-"drvPath":"/nix/store/vhgbp74i7x5g63hlm97lg7nx8p66sm77-vimplugin-nvim-treesitter-grammar-toml-0.0.0+rev=64b5683.drv",
+"drvPath":"/nix/store/q7lqjiyc5sp3c86dm1qdy341xh9b2z4f-vimplugin-nvim-treesitter-grammar-toml-0.0.0+rev=64b5683.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -46408,7 +46623,7 @@
 "version":"0.0.0+rev=64b5683"
 },
 "vimPlugins.nvim-treesitter-parsers.tsv":{
-"drvPath":"/nix/store/aqf5lhlz3s1swz14ii4by0lm9723hggh-vimplugin-nvim-treesitter-grammar-tsv-0.0.0+rev=f6bf6e3.drv",
+"drvPath":"/nix/store/2yal7ygcwm7infgwsw4l3igx96bidxr6-vimplugin-nvim-treesitter-grammar-tsv-0.0.0+rev=f6bf6e3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -46556,7 +46771,7 @@
 "version":"0.0.0+rev=f6bf6e3"
 },
 "vimPlugins.nvim-treesitter-parsers.tsx":{
-"drvPath":"/nix/store/i3fcp1ggavdq6k9jn4584rbbmdv2l8xv-vimplugin-nvim-treesitter-grammar-tsx-0.0.0+rev=75b3874.drv",
+"drvPath":"/nix/store/jfzzkr5999ax9r392adl754si6abyhqg-vimplugin-nvim-treesitter-grammar-tsx-0.0.0+rev=75b3874.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -46704,7 +46919,7 @@
 "version":"0.0.0+rev=75b3874"
 },
 "vimPlugins.nvim-treesitter-parsers.turtle":{
-"drvPath":"/nix/store/j2x96251q3lb0gc5nxk6nqcbyc290nqs-vimplugin-nvim-treesitter-grammar-turtle-0.0.0+rev=7f789ea.drv",
+"drvPath":"/nix/store/lavv6xp1r61zzn6yk8mzf0bffcnhcgxr-vimplugin-nvim-treesitter-grammar-turtle-0.0.0+rev=7f789ea.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -46852,7 +47067,7 @@
 "version":"0.0.0+rev=7f789ea"
 },
 "vimPlugins.nvim-treesitter-parsers.twig":{
-"drvPath":"/nix/store/7q4clsndap4w9qik55lckypdh0mvgyc6-vimplugin-nvim-treesitter-grammar-twig-0.0.0+rev=0afd9a6.drv",
+"drvPath":"/nix/store/gby4jmzdbc2i202663n4cxayjlvk2ay0-vimplugin-nvim-treesitter-grammar-twig-0.0.0+rev=0afd9a6.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -47000,7 +47215,7 @@
 "version":"0.0.0+rev=0afd9a6"
 },
 "vimPlugins.nvim-treesitter-parsers.typescript":{
-"drvPath":"/nix/store/k6smc2785ajkc2yfa1hmcc6pfxqpvq63-vimplugin-nvim-treesitter-grammar-typescript-0.0.0+rev=75b3874.drv",
+"drvPath":"/nix/store/fgmg7hd6668zrybhzya03xpypywpfjad-vimplugin-nvim-treesitter-grammar-typescript-0.0.0+rev=75b3874.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -47148,7 +47363,7 @@
 "version":"0.0.0+rev=75b3874"
 },
 "vimPlugins.nvim-treesitter-parsers.typespec":{
-"drvPath":"/nix/store/fmvqpwi97sb6phnn3zhhzwr07fyhlndj-vimplugin-nvim-treesitter-grammar-typespec-0.0.0+rev=395bef1.drv",
+"drvPath":"/nix/store/ym6rklqamw64ibb5xgdc04myz4k6sqqf-vimplugin-nvim-treesitter-grammar-typespec-0.0.0+rev=395bef1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -47296,7 +47511,7 @@
 "version":"0.0.0+rev=395bef1"
 },
 "vimPlugins.nvim-treesitter-parsers.typoscript":{
-"drvPath":"/nix/store/sr98sfmkd3hvcvay1cfqcxhibh200jlh-vimplugin-nvim-treesitter-grammar-typoscript-0.0.0+rev=b5d0162.drv",
+"drvPath":"/nix/store/217j63ccbl4gdri1v5fh7dh8cg9c5vs6-vimplugin-nvim-treesitter-grammar-typoscript-0.0.0+rev=b5d0162.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -47444,7 +47659,7 @@
 "version":"0.0.0+rev=b5d0162"
 },
 "vimPlugins.nvim-treesitter-parsers.typst":{
-"drvPath":"/nix/store/3yzr26qrcyq899zs8kv1mkb2528c865n-vimplugin-nvim-treesitter-grammar-typst-0.0.0+rev=46cf4de.drv",
+"drvPath":"/nix/store/wbqdlfr5qy21rsrx1qg3y0ykkl9i46dd-vimplugin-nvim-treesitter-grammar-typst-0.0.0+rev=46cf4de.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -47592,7 +47807,7 @@
 "version":"0.0.0+rev=46cf4de"
 },
 "vimPlugins.nvim-treesitter-parsers.udev":{
-"drvPath":"/nix/store/0hafzxirxcz02qjaz0zf2vajqdl95p1b-vimplugin-nvim-treesitter-grammar-udev-0.0.0+rev=2fcb563.drv",
+"drvPath":"/nix/store/iqipy3laz5kqys39nlhbm8wkkslq31hh-vimplugin-nvim-treesitter-grammar-udev-0.0.0+rev=2fcb563.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -47740,7 +47955,7 @@
 "version":"0.0.0+rev=2fcb563"
 },
 "vimPlugins.nvim-treesitter-parsers.ungrammar":{
-"drvPath":"/nix/store/633ixcgv9l1cwncsl0cy641z02zs687k-vimplugin-nvim-treesitter-grammar-ungrammar-0.0.0+rev=debd26f.drv",
+"drvPath":"/nix/store/4q5h1bw92iczcbam5s3bpkvma7ghylkc-vimplugin-nvim-treesitter-grammar-ungrammar-0.0.0+rev=debd26f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -47888,7 +48103,7 @@
 "version":"0.0.0+rev=debd26f"
 },
 "vimPlugins.nvim-treesitter-parsers.unison":{
-"drvPath":"/nix/store/qwpzm7axgwaybrrl0k460z6zw5h1g6v9-vimplugin-nvim-treesitter-grammar-unison-0.0.0+rev=10365cc.drv",
+"drvPath":"/nix/store/jmxpsvfjy89bxinbdwx2x1k6smci4n8f-vimplugin-nvim-treesitter-grammar-unison-0.0.0+rev=10365cc.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -48036,7 +48251,7 @@
 "version":"0.0.0+rev=10365cc"
 },
 "vimPlugins.nvim-treesitter-parsers.usd":{
-"drvPath":"/nix/store/z8yl47k6dgvbhvrf3pxcvcpbqgh5pfba-vimplugin-nvim-treesitter-grammar-usd-0.0.0+rev=4e0875f.drv",
+"drvPath":"/nix/store/0rghpknbwckknfi16ijas3pzr265gr56-vimplugin-nvim-treesitter-grammar-usd-0.0.0+rev=4e0875f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -48184,7 +48399,7 @@
 "version":"0.0.0+rev=4e0875f"
 },
 "vimPlugins.nvim-treesitter-parsers.uxntal":{
-"drvPath":"/nix/store/cax3jl7l3h0921crs6wiadykqfqzm168-vimplugin-nvim-treesitter-grammar-uxntal-0.0.0+rev=ad9b638.drv",
+"drvPath":"/nix/store/f86awphxkf0y2g7f39rfm7wmxh31a846-vimplugin-nvim-treesitter-grammar-uxntal-0.0.0+rev=ad9b638.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -48332,7 +48547,7 @@
 "version":"0.0.0+rev=ad9b638"
 },
 "vimPlugins.nvim-treesitter-parsers.v":{
-"drvPath":"/nix/store/rsw8km788bdpr9a9nq76r8d15wbvavk5-vimplugin-nvim-treesitter-grammar-v-0.0.0+rev=925d457.drv",
+"drvPath":"/nix/store/gx55wwz2v2fsn0w7w6s436zz8zrl8wf8-vimplugin-nvim-treesitter-grammar-v-0.0.0+rev=925d457.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -48480,7 +48695,7 @@
 "version":"0.0.0+rev=925d457"
 },
 "vimPlugins.nvim-treesitter-parsers.vala":{
-"drvPath":"/nix/store/6j02bya00wharvkk3k0gk5ma926bwyxd-vimplugin-nvim-treesitter-grammar-vala-0.0.0+rev=97e6db3.drv",
+"drvPath":"/nix/store/qk3z4xv625nb1lz1ihc41q6dmnzq1qqb-vimplugin-nvim-treesitter-grammar-vala-0.0.0+rev=97e6db3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -48628,7 +48843,7 @@
 "version":"0.0.0+rev=97e6db3"
 },
 "vimPlugins.nvim-treesitter-parsers.vento":{
-"drvPath":"/nix/store/xxxpfp6rck1b9mi12gx862pz6fsl1fl6-vimplugin-nvim-treesitter-grammar-vento-0.0.0+rev=edd6596.drv",
+"drvPath":"/nix/store/p03c0kh34m2lfh4b0dpyr71awffgwcvf-vimplugin-nvim-treesitter-grammar-vento-0.0.0+rev=edd6596.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -48776,7 +48991,7 @@
 "version":"0.0.0+rev=edd6596"
 },
 "vimPlugins.nvim-treesitter-parsers.vhdl":{
-"drvPath":"/nix/store/qisjj9l6f9svz466a3plmfa2iycis901-vimplugin-nvim-treesitter-grammar-vhdl-0.0.0+rev=e97406d.drv",
+"drvPath":"/nix/store/xmlfw3d05i5mlsm9496fib4dcckqlpxn-vimplugin-nvim-treesitter-grammar-vhdl-0.0.0+rev=e97406d.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -48924,7 +49139,7 @@
 "version":"0.0.0+rev=e97406d"
 },
 "vimPlugins.nvim-treesitter-parsers.vhs":{
-"drvPath":"/nix/store/hhd8zylvaw8wc9s8ncdwafqfjsp96745-vimplugin-nvim-treesitter-grammar-vhs-0.0.0+rev=0c6fae9.drv",
+"drvPath":"/nix/store/bsdndccfbfk2s2a6a1n8gvzlhgmi6dph-vimplugin-nvim-treesitter-grammar-vhs-0.0.0+rev=0c6fae9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -49072,7 +49287,7 @@
 "version":"0.0.0+rev=0c6fae9"
 },
 "vimPlugins.nvim-treesitter-parsers.vim":{
-"drvPath":"/nix/store/v74348k6fbcgzzdcd720wn54ramp8fdk-vimplugin-nvim-treesitter-grammar-vim-0.0.0+rev=039c8d0.drv",
+"drvPath":"/nix/store/bcbhvahd05zfpn7a5r9lj7wrkiis4mhm-vimplugin-nvim-treesitter-grammar-vim-0.0.0+rev=039c8d0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -49220,7 +49435,7 @@
 "version":"0.0.0+rev=039c8d0"
 },
 "vimPlugins.nvim-treesitter-parsers.vimdoc":{
-"drvPath":"/nix/store/qz7ax4hbjlzxxx9iqx5cgy1iaw6brahy-vimplugin-nvim-treesitter-grammar-vimdoc-0.0.0+rev=23daa41.drv",
+"drvPath":"/nix/store/9rc0qqcbmzyvnw4i2h8xyqdy2n7h62nf-vimplugin-nvim-treesitter-grammar-vimdoc-0.0.0+rev=23daa41.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -49368,7 +49583,7 @@
 "version":"0.0.0+rev=23daa41"
 },
 "vimPlugins.nvim-treesitter-parsers.vrl":{
-"drvPath":"/nix/store/m6sf9fg3sr27hagjkv75x2hib3x196n6-vimplugin-nvim-treesitter-grammar-vrl-0.0.0+rev=274b3ce.drv",
+"drvPath":"/nix/store/54a1qfiws7wr7ffvary8rqsslwhyflp3-vimplugin-nvim-treesitter-grammar-vrl-0.0.0+rev=274b3ce.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -49516,7 +49731,7 @@
 "version":"0.0.0+rev=274b3ce"
 },
 "vimPlugins.nvim-treesitter-parsers.vue":{
-"drvPath":"/nix/store/qry9cn69f8ddvdmgiwl99pyz7jxkmvgh-vimplugin-nvim-treesitter-grammar-vue-0.0.0+rev=ce8011a.drv",
+"drvPath":"/nix/store/m7qcgxf9dyv424ylkkj3vhrnvhgk16va-vimplugin-nvim-treesitter-grammar-vue-0.0.0+rev=ce8011a.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -49664,7 +49879,7 @@
 "version":"0.0.0+rev=ce8011a"
 },
 "vimPlugins.nvim-treesitter-parsers.wgsl":{
-"drvPath":"/nix/store/s5msjskgkkd6h7pgzkys8wqh7ap1pvb5-vimplugin-nvim-treesitter-grammar-wgsl-0.0.0+rev=40259f3.drv",
+"drvPath":"/nix/store/y7q3r8ag8zjwpia1w1bg2bj5f2l65x8r-vimplugin-nvim-treesitter-grammar-wgsl-0.0.0+rev=40259f3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -49812,7 +50027,7 @@
 "version":"0.0.0+rev=40259f3"
 },
 "vimPlugins.nvim-treesitter-parsers.wgsl_bevy":{
-"drvPath":"/nix/store/vlj7ja8prkvfv4279lr5hs71n6wg6z9g-vimplugin-nvim-treesitter-grammar-wgsl_bevy-0.0.0+rev=d9306a7.drv",
+"drvPath":"/nix/store/hfgwyg3f3rbqjz64121gzqz2zpd0cnrq-vimplugin-nvim-treesitter-grammar-wgsl_bevy-0.0.0+rev=d9306a7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -49960,7 +50175,7 @@
 "version":"0.0.0+rev=d9306a7"
 },
 "vimPlugins.nvim-treesitter-parsers.wing":{
-"drvPath":"/nix/store/gyh8va3hxd5y6q228q3nd29c09xcjn5p-vimplugin-nvim-treesitter-grammar-wing-0.0.0+rev=76e0c25.drv",
+"drvPath":"/nix/store/656zhfmmrvv2p10fdwy14djkv888w7jh-vimplugin-nvim-treesitter-grammar-wing-0.0.0+rev=76e0c25.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -50108,7 +50323,7 @@
 "version":"0.0.0+rev=76e0c25"
 },
 "vimPlugins.nvim-treesitter-parsers.wit":{
-"drvPath":"/nix/store/9yz57h85gsykdh3mlyr3z79cs3zscp4j-vimplugin-nvim-treesitter-grammar-wit-0.0.0+rev=v1.4.0.drv",
+"drvPath":"/nix/store/bsdq27l7ada4gg76wdygbp8ylfb2swvz-vimplugin-nvim-treesitter-grammar-wit-0.0.0+rev=v1.4.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -50256,7 +50471,7 @@
 "version":"0.0.0+rev=v1.4.0"
 },
 "vimPlugins.nvim-treesitter-parsers.wxml":{
-"drvPath":"/nix/store/64k22rz1r91ihcnscmbdkish6fyss1y3-vimplugin-nvim-treesitter-grammar-wxml-0.0.0+rev=7b821c7.drv",
+"drvPath":"/nix/store/yyn8z2z04kcyswj3l59xf4vgxrmszmjl-vimplugin-nvim-treesitter-grammar-wxml-0.0.0+rev=7b821c7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -50404,7 +50619,7 @@
 "version":"0.0.0+rev=7b821c7"
 },
 "vimPlugins.nvim-treesitter-parsers.xcompose":{
-"drvPath":"/nix/store/f4v9q67kzi6qa1ynk6pcmpwa2inwvxa9-vimplugin-nvim-treesitter-grammar-xcompose-0.0.0+rev=a51d636.drv",
+"drvPath":"/nix/store/rjvxcx8m46df9f4xwg3ymjdxmmxmawfy-vimplugin-nvim-treesitter-grammar-xcompose-0.0.0+rev=a51d636.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -50552,7 +50767,7 @@
 "version":"0.0.0+rev=a51d636"
 },
 "vimPlugins.nvim-treesitter-parsers.xml":{
-"drvPath":"/nix/store/4m9vx7f8gm8ib26f2ksmzy1m22s424cv-vimplugin-nvim-treesitter-grammar-xml-0.0.0+rev=5000ae8.drv",
+"drvPath":"/nix/store/qjhg8ppab4g8fisgdwzjca0n8ixhyhcz-vimplugin-nvim-treesitter-grammar-xml-0.0.0+rev=5000ae8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -50700,7 +50915,7 @@
 "version":"0.0.0+rev=5000ae8"
 },
 "vimPlugins.nvim-treesitter-parsers.xresources":{
-"drvPath":"/nix/store/hjhw7v7amigqgaidjw9x8c7g11dxza0c-vimplugin-nvim-treesitter-grammar-xresources-0.0.0+rev=v1.0.0.drv",
+"drvPath":"/nix/store/p178vl1dz5ccgkykajvahmxhwc5z5gl9-vimplugin-nvim-treesitter-grammar-xresources-0.0.0+rev=v1.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -50848,7 +51063,7 @@
 "version":"0.0.0+rev=v1.0.0"
 },
 "vimPlugins.nvim-treesitter-parsers.yaml":{
-"drvPath":"/nix/store/823fwnshzayi32sgcs7xq0n2mkwzi8ys-vimplugin-nvim-treesitter-grammar-yaml-0.0.0+rev=a1c4812.drv",
+"drvPath":"/nix/store/wa8pj5r3zyksxfp9d7qpj2k9fwdh5lpl-vimplugin-nvim-treesitter-grammar-yaml-0.0.0+rev=a1c4812.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -50996,7 +51211,7 @@
 "version":"0.0.0+rev=a1c4812"
 },
 "vimPlugins.nvim-treesitter-parsers.yang":{
-"drvPath":"/nix/store/551x3r8ywp6d8m2a7gfy5lnp9i4gvnij-vimplugin-nvim-treesitter-grammar-yang-0.0.0+rev=2c0e6be.drv",
+"drvPath":"/nix/store/6w8aqk5swjfb7xg9g6kmhma19ivqqjmz-vimplugin-nvim-treesitter-grammar-yang-0.0.0+rev=2c0e6be.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -51144,7 +51359,7 @@
 "version":"0.0.0+rev=2c0e6be"
 },
 "vimPlugins.nvim-treesitter-parsers.yuck":{
-"drvPath":"/nix/store/j693zzg8ig4989jaydl1ljf5s1qc613m-vimplugin-nvim-treesitter-grammar-yuck-0.0.0+rev=6c60112.drv",
+"drvPath":"/nix/store/5w37l95mzcwjk6k12yyxpyirhzp3xxqc-vimplugin-nvim-treesitter-grammar-yuck-0.0.0+rev=6c60112.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -51292,7 +51507,7 @@
 "version":"0.0.0+rev=6c60112"
 },
 "vimPlugins.nvim-treesitter-parsers.zig":{
-"drvPath":"/nix/store/0xfv79cr82abiyd6x0db98mhf73algk1-vimplugin-nvim-treesitter-grammar-zig-0.0.0+rev=6479aa1.drv",
+"drvPath":"/nix/store/2zvmrcl6snlnagmzxd23dvhv0c6gjzvl-vimplugin-nvim-treesitter-grammar-zig-0.0.0+rev=6479aa1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -51440,7 +51655,7 @@
 "version":"0.0.0+rev=6479aa1"
 },
 "vimPlugins.nvim-treesitter-parsers.ziggy":{
-"drvPath":"/nix/store/nbzvckf8mnmjhpy8p6lxhzdv13cm9vqh-vimplugin-nvim-treesitter-grammar-ziggy-0.0.0+rev=4353b20.drv",
+"drvPath":"/nix/store/yqpf2by1vdlcww470mm021rmnmm8qp50-vimplugin-nvim-treesitter-grammar-ziggy-0.0.0+rev=4353b20.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -51588,7 +51803,7 @@
 "version":"0.0.0+rev=4353b20"
 },
 "vimPlugins.nvim-treesitter-parsers.ziggy_schema":{
-"drvPath":"/nix/store/i7zj04xdzhrkibyjs7i2dcan5q29arj6-vimplugin-nvim-treesitter-grammar-ziggy_schema-0.0.0+rev=4353b20.drv",
+"drvPath":"/nix/store/i980bakm720xy1xfapclfkikf3jw2v9z-vimplugin-nvim-treesitter-grammar-ziggy_schema-0.0.0+rev=4353b20.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -51736,7 +51951,7 @@
 "version":"0.0.0+rev=4353b20"
 },
 "vimPlugins.nvim-treesitter-parsers.zsh":{
-"drvPath":"/nix/store/n69y6igqdlzn7a45xl8yxwkhfjhf8n7h-vimplugin-nvim-treesitter-grammar-zsh-0.0.0+rev=7a59340.drv",
+"drvPath":"/nix/store/fljrkdjim2mxpgyw2gzlkqqjfpm7y53x-vimplugin-nvim-treesitter-grammar-zsh-0.0.0+rev=7a59340.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -51884,7 +52099,7 @@
 "version":"0.0.0+rev=7a59340"
 },
 "vimPlugins.plumb-nvim":{
-"drvPath":"/nix/store/37i07zljx8kmph7znxj4m1rvvny33n3f-vimplugin-plumb.nvim-0.16.0.drv",
+"drvPath":"/nix/store/amw0sk2wq40hgnswshkdi8jgs8s1vw6v-vimplugin-plumb.nvim-0.16.0.drv",
 "meta":{
 "available":true,
 "broken":false,
