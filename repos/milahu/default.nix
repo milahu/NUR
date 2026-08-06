@@ -690,6 +690,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
 
       llm-aided-ocr = callPackage ./pkgs/development/python-modules/llm-aided-ocr { };
 
+      fsindex = callPackage ./pkgs/development/python-modules/fsindex { };
+
     #}))); # python3.pkgs
 
   #}))); # python3
@@ -739,6 +741,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   kobo-book-downloader = python3Packages.kobo-book-downloader;
 
   epub-toc = python3Packages.epub-toc;
+
+  fsindex = python3Packages.fsindex;
 
   deno = pkgs.deno // {
     pkgs = (pkgs.deno.pkgs or {}) // (
@@ -1572,6 +1576,8 @@ pkgs.lib.makeScope pkgs.newScope (self: let inherit (self) callPackage; in rec {
   zfs = zfs_2_4;
 
   embed-pdf-fonts = callPackage ./pkgs/by-name/em/embed-pdf-fonts/package.nix { };
+
+  browsertrix-crawler = callPackage ./vendor/Skyb0rg007/packages/NixOS/pkgs/by-name/browsertrix-crawler/package.nix { };
 
 }
 
