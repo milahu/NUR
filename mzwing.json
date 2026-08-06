@@ -1,16 +1,16 @@
 {
 "name":"mzwing",
-"fetch_time":0.994,
-"eval_time":0.768,
+"fetch_time":0.589,
+"eval_time":0.917,
 "source":{
 "url":"https://github.com/mzwing/nur-packages",
-"rev":"aa6bfc53b7c6b31417868265ad7de74a279b1d54",
-"sha256":"1innhknzycraygdqv6nwyj1ibp90f4cmvk67vm9sj9pq9yqvvrzn",
+"rev":"b6dac2459038afdf600ce43298a8b90237531a94",
+"sha256":"0hhncri67biy0x4ka8y23h55wcf4ls0acfb6a49ik5a2dbnqnzag",
 "date":null
 },
-"source_storepath":"/nix/store/k13cc74zdf0z7371w9imgg3152ymqac0-source",
+"source_storepath":"/nix/store/s9wsf73gr93ykaq5pr9ws1hx6zg0rpsl-source",
 "nixpkgs_storepath":"/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source",
-"nur_combined_rev":"03859e47e969be2282d03dac28afea632925aad3",
+"nur_combined_rev":"366e591e3ec2b333bf165e59a393974912164060",
 "packages":{
 "ace-ctx":{
 "drvPath":"/nix/store/3lsajzy6c8i1db1bibm1kam4mv3ypzsx-ace-ctx-0.2.4.drv",
@@ -79,8 +79,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k13cc74zdf0z7371w9imgg3152ymqac0-source/pkgs/ace-ctx/default.nix",
-"line":57
+"file":"/nix/store/s9wsf73gr93ykaq5pr9ws1hx6zg0rpsl-source/pkgs/ace-ctx/default.nix",
+"line":47
 },
 "name":"ace-ctx-0.2.4",
 "nonTeamMaintainers":[
@@ -96,7 +96,7 @@
 "aarch64-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/ace-ctx/default.nix:52",
+"position":"./pkgs/ace-ctx/default.nix:42",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -177,8 +177,8 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k13cc74zdf0z7371w9imgg3152ymqac0-source/pkgs/autocli/default.nix",
-"line":81
+"file":"/nix/store/s9wsf73gr93ykaq5pr9ws1hx6zg0rpsl-source/pkgs/autocli/default.nix",
+"line":72
 },
 "name":"autocli-0.3.8",
 "nonTeamMaintainers":[
@@ -194,7 +194,7 @@
 "aarch64-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/autocli/default.nix:76",
+"position":"./pkgs/autocli/default.nix:67",
 "problems":{},
 "unfree":false,
 "unsupported":false
@@ -264,7 +264,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k13cc74zdf0z7371w9imgg3152ymqac0-source/pkgs/cliproxyapiplus/default.nix",
+"file":"/nix/store/s9wsf73gr93ykaq5pr9ws1hx6zg0rpsl-source/pkgs/cliproxyapiplus/default.nix",
 "line":68
 },
 "name":"cliproxyapiplus-7.2.116-5",
@@ -301,7 +301,7 @@
 "available":true,
 "broken":false,
 "changelog":"https://github.com/safedep/gryph/releases/tag/v0.7.0",
-"description":"Local-first observability and audit trail tool for AI coding agents",
+"description":"Security layer for AI coding agents",
 "homepage":"https://github.com/safedep/gryph",
 "identifiers":{
 "cpeParts":{
@@ -351,7 +351,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k13cc74zdf0z7371w9imgg3152ymqac0-source/pkgs/gryph/default.nix",
+"file":"/nix/store/s9wsf73gr93ykaq5pr9ws1hx6zg0rpsl-source/pkgs/gryph/default.nix",
 "line":49
 },
 "name":"gryph-0.7.0",
@@ -383,7 +383,7 @@
 "version":"0.7.0"
 },
 "pumpkin":{
-"drvPath":"/nix/store/4kwnzc4n8ayqbv012yjxbpdbkq289fs3-pumpkin-0-unstable-2026-08-04.drv",
+"drvPath":"/nix/store/najh4f78yfjcnq9ml1h3ds4a92aaj13k-pumpkin-0-unstable-2026-08-05.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -448,10 +448,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k13cc74zdf0z7371w9imgg3152ymqac0-source/pkgs/pumpkin/default.nix",
-"line":40
+"file":"/nix/store/s9wsf73gr93ykaq5pr9ws1hx6zg0rpsl-source/pkgs/pumpkin/default.nix",
+"line":30
 },
-"name":"pumpkin-0-unstable-2026-08-04",
+"name":"pumpkin-0-unstable-2026-08-05",
 "nonTeamMaintainers":[
 {
 "name":"mzwing"
@@ -465,26 +465,26 @@
 "aarch64-linux",
 "x86_64-linux"
 ],
-"position":"./pkgs/pumpkin/default.nix:36",
+"position":"./pkgs/pumpkin/default.nix:26",
 "problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"pumpkin-0-unstable-2026-08-04",
+"name":"pumpkin-0-unstable-2026-08-05",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"pumpkin",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-08-04"
+"version":"0-unstable-2026-08-05"
 },
 "sing-box-alpha":{
-"drvPath":"/nix/store/4whlv3whhvzbkip0bbqfchj5rckvp1x1-sing-box-alpha-1.14.0-beta.5.drv",
+"drvPath":"/nix/store/s2vp03i0laqk06xvhcyv1hbg721q5zn3-sing-box-alpha-1.14.0-beta.7.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/SagerNet/sing-box/releases/tag/v1.14.0-beta.5",
+"changelog":"https://github.com/SagerNet/sing-box/releases/tag/v1.14.0-beta.7",
 "description":"Universal proxy platform",
 "homepage":"https://sing-box.sagernet.org",
 "identifiers":{
@@ -553,7 +553,7 @@
 "file":"/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/pkgs/by-name/si/sing-box/package.nix",
 "line":111
 },
-"name":"sing-box-alpha-1.14.0-beta.5",
+"name":"sing-box-alpha-1.14.0-beta.7",
 "nonTeamMaintainers":[
 {
 "email":"nickcao@nichi.co",
@@ -614,21 +614,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sing-box-alpha-1.14.0-beta.5",
+"name":"sing-box-alpha-1.14.0-beta.7",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sing-box-alpha",
 "system":"x86_64-linux",
-"version":"1.14.0-beta.5"
+"version":"1.14.0-beta.7"
 },
 "sing-box-beta":{
-"drvPath":"/nix/store/f3hm4ddlabvpwckc8yqx1my6aphq4iav-sing-box-beta-1.14.0-beta.5.drv",
+"drvPath":"/nix/store/86fkkaimfg8xgc75v5cck5dxsm95n9sc-sing-box-beta-1.14.0-beta.7.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/SagerNet/sing-box/releases/tag/v1.14.0-beta.5",
+"changelog":"https://github.com/SagerNet/sing-box/releases/tag/v1.14.0-beta.7",
 "description":"Universal proxy platform",
 "homepage":"https://sing-box.sagernet.org",
 "identifiers":{
@@ -697,7 +697,7 @@
 "file":"/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/pkgs/by-name/si/sing-box/package.nix",
 "line":111
 },
-"name":"sing-box-beta-1.14.0-beta.5",
+"name":"sing-box-beta-1.14.0-beta.7",
 "nonTeamMaintainers":[
 {
 "email":"nickcao@nichi.co",
@@ -758,21 +758,21 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"sing-box-beta-1.14.0-beta.5",
+"name":"sing-box-beta-1.14.0-beta.7",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"sing-box-beta",
 "system":"x86_64-linux",
-"version":"1.14.0-beta.5"
+"version":"1.14.0-beta.7"
 },
 "typenix":{
 "drvPath":"/nix/store/vd19frpynzgh1xwa3hx2p5jdbnhywkjv-typenix-0-unstable-2026-03-11.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"TypeScript compiler in Go with native Nix support",
+"description":"Full typing for Nix based on TypeScript",
 "homepage":"https://github.com/ryanrasti/typenix",
 "identifiers":{
 "cpeParts":{
@@ -822,7 +822,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/k13cc74zdf0z7371w9imgg3152ymqac0-source/pkgs/typenix/default.nix",
+"file":"/nix/store/s9wsf73gr93ykaq5pr9ws1hx6zg0rpsl-source/pkgs/typenix/default.nix",
 "line":49
 },
 "name":"typenix-0-unstable-2026-03-11",
@@ -858,7 +858,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"TypeNix VS Code extension VSIX (build artifact)",
+"description":"Full TypeScript-grade typing for Nix \u2014 autocomplete, type errors, hover docs, go-to-definition",
 "homepage":"https://github.com/ryanrasti/typenix",
 "identifiers":{
 "cpeParts":{
@@ -935,7 +935,7 @@
 "meta":{
 "available":true,
 "broken":false,
-"description":"TypeNix VS Code extension - TypeScript IDE support for Nix",
+"description":"Full TypeScript-grade typing for Nix \u2014 autocomplete, type errors, hover docs, go-to-definition",
 "homepage":"https://github.com/ryanrasti/typenix",
 "identifiers":{
 "cpeParts":{
