@@ -5,9 +5,8 @@
 neovim-unwrapped.overrideAttrs (oldAttrs: {
   patches = (oldAttrs.patches or [ ]) ++ [
     (fetchpatch {
-      # lsp-single-line-folds-nvim-0.12.4-v3
-      url = "https://github.com/wrvsrx/neovim/commit/2435abd1fb.patch";
-      hash = "sha256-eoP6oO/sN45KSlshvYzmXmMoM6+2MXIMsb5Cwv/LJOY=";
+      url = "https://github.com/wrvsrx/neovim/compare/v0.12.4...lsp-single-line-folds-nvim-0.12.4-v6.diff";
+      hash = "sha256-vNE0O/kcOP8EnW73FIqF14MR2X/eU656wi6asSsaQsY=";
     })
   ];
 })
