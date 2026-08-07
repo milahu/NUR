@@ -19,31 +19,40 @@
   writableTmpDirAsHomeHook,
 }:
 
-# NOTE: Building TelegramSwift (the native Telegram for macOS client) from source
-# is notoriously complex in a pure Nix environment. It relies heavily on Xcode,
-# Swift Package Manager (which requires network access during the build), and
-# specific code-signing setups.
+# Native Telegram for macOS (TelegramSwift) via host Xcode.
 #
-# This derivation provides a foundation, but achieving a fully pure, functional
-# build will likely require:
-# 1. Impure builds (sandbox = false) to allow Xcode and SPM network access.
-# 2. Or, a complex translation of Swift Package Manager dependencies into Nix.
-# 3. Supplying valid `api_id` and `api_hash` credentials.
+# Sandbox strategy (Darwin, matching nixpkgs macvim):
+# - Keep the Nix sandbox ON (no __noChroot): network stays blocked.
+# - Use a broad sandboxProfile so xcodebuild can use host Xcode / Metal.
+# - Prefetch SwiftPM deps in a fixed-output derivation (FODs may use the network).
+#
+# Requires Xcode at /Applications/Xcode.app and the Shared Metal toolchain.
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "telegram-mac";
-  version = "10.14"; # Update to the latest desired version
+  # Latest published GitHub source is the `release` branch tip (no Release tags).
+  # Official DMGs may be newer; upstream MARKETING_VERSION here is 11.15.
+  version = "11.15";
 
   ffmpegSrc = fetchzip {
     url = "https://ffmpeg.org/releases/ffmpeg-7.1.tar.xz";
     hash = "sha256-cNb7sIx7YIoVcamG6/cCFAdELSAm/N0OFBaJ1imJDQk=";
   };
 
+  openh264Src = fetchzip {
+    url = "https://github.com/cisco/openh264/archive/refs/tags/v2.4.1.tar.gz";
+    hash = "sha256-ai7lcGcQQqpsLGSwHkSs7YAoEfGCIbxdClO6JpGA+MI=";
+  };
+
+  opensslSrc = fetchzip {
+    url = "https://github.com/openssl/openssl/archive/refs/tags/OpenSSL_1_1_1s.tar.gz";
+    hash = "sha256-HPiUGzF9j9TS5nr0tqg01EZuN6upO1FblbbKmDp2GJo=";
+  };
+
   src = stdenvNoCC.mkDerivation {
     name = "telegram-mac-source";
     outputHashMode = "recursive";
-    outputHashAlgo = "sha256";
-    outputHash = "sha256-hp1cI+6dbAWrgfgq5nNUScyDDe48E8k7GmaGWxyTCvM="; # Will need to be updated after first run
+    outputHash = "sha256-jBDhtqNNN0/m5C3fmtAmiLG0dAPMU5uf9yn0IkpfqRk=";
 
     nativeBuildInputs = [
       git
@@ -57,9 +66,64 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
       git clone https://github.com/overtake/TelegramSwift.git $out
       cd $out
-      git checkout 579cebbf0c01fd41b712eff3647fa7f69db9665d
+      git checkout 76ff8e4219452df317cd19e4df69b9e394dd5a87
+
+      # The release branch pins private upstream remotes; use public mirrors that
+      # contain the same commits (TelegramMessenger tag release-11.14 / overtake fork).
+      substituteInPlace .gitmodules \
+        --replace-fail 'git@gitlab.com:peter-iakovlev/telegram-ios.git' 'https://github.com/TelegramMessenger/Telegram-iOS.git' \
+        --replace-fail 'git@github.com:john-preston/tgcalls.git' 'https://github.com/overtake/tgcalls.git'
+
       git submodule update --init --recursive
       rm -rf .git
+    '';
+  };
+
+  # Fixed-output: may use the network. Produces Xcode's clonedSourcePackages tree.
+  spmDeps = stdenvNoCC.mkDerivation {
+    name = "telegram-mac-spm";
+    outputHashMode = "recursive";
+    outputHash = "sha256-2MxwU1tNz3oCCwRSNvSS5hRSWZd87gtlJDQfN7TFwaQ=";
+
+    inherit (finalAttrs) src;
+    nativeBuildInputs = [ writableTmpDirAsHomeHook ];
+
+    # Host Xcode must be visible while resolving packages (same profile as the app build).
+    sandboxProfile = ''
+      (allow file-read* file-write* process-exec mach-lookup)
+      (deny file-read* file-write* process-exec mach-lookup (subpath "/usr/local") (with no-log))
+    '';
+
+    buildCommand = ''
+      export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+      export PATH="$DEVELOPER_DIR/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+      export CFFIXED_USER_HOME=$HOME
+
+      cp -a "$src" src
+      chmod -R u+w src
+      cd src
+
+      mkdir -p "$out"
+      # Local-package path quirks can make resolve exit non-zero after remotes are fetched.
+      set +e
+      xcodebuild -resolvePackageDependencies \
+        -workspace Telegram-Mac.xcworkspace \
+        -scheme Telegram \
+        -clonedSourcePackagesDirPath "$out" \
+        -derivedDataPath "$TMPDIR/derived" \
+        -IDEPackageSupportDisableManifestSandbox=YES \
+        -IDEPackageSupportDisablePluginExecutionSandbox=YES
+      set -e
+
+      test -d "$out/checkouts/firebase-ios-sdk"
+      test -f "$out/workspace-state.json"
+
+      substituteInPlace "$out/workspace-state.json" \
+        --replace-fail "$out" '@SPM@' \
+        --replace-fail "$NIX_BUILD_TOP/src" '@SRC@'
+
+      # Drop checkout VCS dirs; keep repositories/ for Xcode's package graph.
+      find "$out/checkouts" -name .git -print0 | xargs -0 rm -rf
     '';
   };
 
@@ -79,9 +143,12 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     writableTmpDirAsHomeHook
   ];
 
-  # Using xcodebuild directly usually requires the environment to have Xcode available.
-  # This requires setting `sandbox = false` in your nix.conf for Darwin.
-  __noChroot = true; # Hint for Hydra/Nix to disable sandbox if possible
+  # Keep sandbox enabled (network blocked). Allow host Xcode like nixpkgs macvim.
+  sandboxProfile = ''
+    (allow file-read* file-write* process-exec mach-lookup)
+    (deny file-read* file-write* process-exec mach-lookup (subpath "/usr/local") (with no-log))
+  '';
+
   dontUseCmakeConfigure = true;
   dontUseMesonConfigure = true;
 
@@ -91,6 +158,14 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     # Copy FFmpeg source
     mkdir -p submodules/telegram-ios/submodules/ffmpeg/Sources/FFMpeg/ffmpeg-7.1
     cp -r ${finalAttrs.ffmpegSrc}/* submodules/telegram-ios/submodules/ffmpeg/Sources/FFMpeg/ffmpeg-7.1/
+
+    # Copy OpenH264 source to a safe place (Xcode might clean the build directory)
+    mkdir -p core-xprojects/OpenH264/openh264_src
+    cp -r ${finalAttrs.openh264Src}/* core-xprojects/OpenH264/openh264_src/
+
+    # Copy OpenSSL source to a safe place
+    mkdir -p core-xprojects/openssl_src
+    cp -r ${finalAttrs.opensslSrc}/* core-xprojects/openssl_src/
 
     # Prefer macOS BSD ln/tar over Nix GNU tools (scripts use ln -sfh, tar-on-zip).
     # Keep GNU cp: BSD cp -a dir/ dest/ copies contents, while GNU nests as dest/dir/,
@@ -104,23 +179,41 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     # CoreFoundation uses the user database for home dir, override it:
     export CFFIXED_USER_HOME=$HOME
 
+    # Prefetched SwiftPM tree (relocatable placeholders -> this build tree).
+    mkdir -p build/swiftpm
+    cp -a ${finalAttrs.spmDeps}/. build/swiftpm/
+    chmod -R u+w build/swiftpm
+    substituteInPlace build/swiftpm/workspace-state.json \
+      --replace-fail '@SPM@' "$PWD/build/swiftpm" \
+      --replace-fail '@SRC@' "$PWD"
+
     # Telegram for macOS requires framework configuration first
     echo "yes" > scripts/rebuild
 
     # Fix CMake 3.5 compatibility for Mozjpeg
     substituteInPlace submodules/telegram-ios/third-party/mozjpeg/mozjpeg/CMakeLists.txt \
-      --replace-warn "cmake_minimum_required(VERSION 2.8.12)" "cmake_minimum_required(VERSION 3.5)"
+      --replace-fail "cmake_minimum_required(VERSION 2.8.12)" "cmake_minimum_required(VERSION 3.5)"
 
     # Copy contents into existing build dirs (avoids nesting the source basename inside BUILD_DIR)
     substituteInPlace core-xprojects/webrtc/webrtc/build.sh \
-      --replace-warn 'cp -R $SOURCE_DIR $BUILD_DIR' 'cp -R "$SOURCE_DIR"/. "$BUILD_DIR"/'
+      --replace-fail 'cp -R $SOURCE_DIR $BUILD_DIR' 'cp -R "$SOURCE_DIR"/. "$BUILD_DIR"/'
 
     substituteInPlace core-xprojects/Mozjpeg/Mozjpeg/build.sh \
-      --replace-warn 'mozjpeg/" "''${BUILD_DIR}build/"' 'mozjpeg/"/. "''${BUILD_DIR}build/"'
+      --replace-fail 'mozjpeg/" "''${BUILD_DIR}build/"' 'mozjpeg/"/. "''${BUILD_DIR}build/"'
+
+    # Patch OpenH264 build script to use prefetched source instead of git clone
+    substituteInPlace core-xprojects/OpenH264/OpenH264/build.sh \
+      --replace-fail 'git clone -b v2.4.1 https://github.com/cisco/openh264.git ''${BUILD_DIR}/openh264' \
+                     'cp -R "$(dirname "''${BUILD_DIR}")/openh264_src" "''${BUILD_DIR}/openh264" && chmod -R u+w "''${BUILD_DIR}/openh264"'
+
+    # Patch OpenSSL build script to use prefetched source instead of git clone
+    substituteInPlace core-xprojects/openssl/OpenSSLEncryption/build.sh \
+      --replace-fail 'git clone -b OpenSSL_1_1_1-stable https://github.com/openssl/openssl build/''${NAME}' \
+                     'cp -R ../openssl_src build/''${NAME} && chmod -R u+w build/''${NAME}'
 
     # GNU cp nests libopus headers at .../include/opus/include/; match that here.
     substituteInPlace core-xprojects/webrtc/webrtc.xcodeproj/project.pbxproj \
-      --replace-warn 'libopus/build/libopus/include/opus' 'libopus/build/libopus/include/opus/include'
+      --replace-fail 'libopus/build/libopus/include/opus' 'libopus/build/libopus/include/opus/include'
 
     # Fix the custom pkg-config wrapper to parse custom paths properly when ffmpeg prepends them
     cat > submodules/telegram-ios/submodules/ffmpeg/Sources/FFMpeg/pkg-config <<'EOF'
@@ -263,6 +356,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
                  -configuration Release \
                  -derivedDataPath build \
                  -clonedSourcePackagesDirPath build/swiftpm \
+                 -disableAutomaticPackageResolution \
+                 -onlyUsePackageVersionsFromResolvedFile \
                  -IDEPackageSupportDisableManifestSandbox=YES \
                  -IDEPackageSupportDisablePluginExecutionSandbox=YES \
                  VALIDATE_PRODUCT=NO \
@@ -335,11 +430,14 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   meta = {
     description = "Telegram for macOS (Native Swift Client)";
     longDescription = ''
-      The native macOS Telegram client, built from source. 
-      Warning: Building this requires Xcode and is generally not pure.
+      Native macOS Telegram client built from source with host Xcode.
+      Darwin builds use a macvim-style sandboxProfile (sandbox stays on;
+      SwiftPM deps are prefetched as a fixed-output derivation).
     '';
     homepage = "https://github.com/overtake/TelegramSwift";
     license = lib.licenses.gpl2Plus;
     platforms = lib.platforms.darwin;
+    # Host Xcode + Shared Metal toolchain; not buildable on Hydra.
+    hydraPlatforms = [ ];
   };
 })

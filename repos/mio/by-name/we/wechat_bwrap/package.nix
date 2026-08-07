@@ -12,9 +12,9 @@
   bindDownloads ? true,
   bindDesktop ? false,
   bindDocuments ? false,
-  # LD_PRELOAD libwechat_appearance.so (from wechat_patched). Opt-in.
+  # LD_PRELOAD libwechat_appearance.so (from wechat_appearance_plugin). Opt-in.
   followSystemAppearance ? false,
-  wechat_patched,
+  wechat_appearance_plugin,
 }:
 
 stdenv.mkDerivation {
@@ -76,10 +76,12 @@ stdenv.mkDerivation {
     printf '%s\n' '#!/bin/sh' 'exit 0' | install -Dm755 /dev/stdin "$wechat_root/fhs-usr/bin/lsblk"
 
     install -Dm755 wechat-universal.sh "$wechat_root/common.sh"
+    install -Dm644 pulse-client.conf "$wechat_root/pulse-client.conf"
 
     substituteInPlace "$wechat_root/common.sh" \
       --replace-fail "/{usr/lib/flatpak-xdg-utils,sandbox}/xdg-open" "${flatpak-xdg-utils}/bin/xdg-open /sandbox/xdg-open" \
       --replace-fail "/usr/lib/wechat-universal/common.sh" "$wechat_root/common.sh" \
+      --replace-fail "/usr/lib/wechat-universal/pulse-client.conf" "$wechat_root/pulse-client.conf" \
       --replace-fail "/opt/wechat-universal{,}" "${wechat.src}/opt/wechat /opt/wechat-universal" \
       --replace-fail "{/usr/lib/wechat-universal,}/usr/lib/license" "$wechat_root/usr/lib/license /usr/lib/license" \
       --replace-fail "{/usr/lib/wechat-universal,}/etc/lsb-release" "$wechat_root/etc/lsb-release /etc/lsb-release" \
@@ -90,7 +92,6 @@ stdenv.mkDerivation {
       --replace-fail 'PATH="/sandbox:''${PATH}"' 'PATH="/sandbox:''${PATH}" LD_LIBRARY_PATH="/usr/lib:/usr/lib64"' \
       --replace-fail '--dev-bind /run/dbus{,}' '--dev-bind-try /run/dbus{,}' \
       --replace-fail '--ro-bind "''${DBUS_SESSION_BUS_PATH}"{,}' '--ro-bind-try "''${DBUS_SESSION_BUS_PATH}"{,}' \
-      --replace-fail '--bind "''${XDG_RUNTIME_DIR}/pulse"{,}' '--bind-try "''${XDG_RUNTIME_DIR}/pulse"{,}' \
       --replace-fail '@bindDownloads@' '${if bindDownloads then "1" else "0"}' \
       --replace-fail '@bindDesktop@' '${if bindDesktop then "1" else "0"}' \
       --replace-fail '@bindDocuments@' '${if bindDocuments then "1" else "0"}' \
@@ -98,7 +99,7 @@ stdenv.mkDerivation {
       --replace-fail '@appearancePreloadBlock@' ${
         lib.escapeShellArg (
           if followSystemAppearance then
-            "\n    # LD_PRELOAD follow-system appearance (wechat_patched).\n        BWRAP_ARGS+=(--setenv LD_PRELOAD \"${wechat_patched}/lib/libwechat_appearance.so\${LD_PRELOAD:+:$LD_PRELOAD}\")\n"
+            "\n    # LD_PRELOAD follow-system appearance (wechat_appearance_plugin).\n        BWRAP_ARGS+=(--setenv LD_PRELOAD \"${wechat_appearance_plugin}/lib/libwechat_appearance.so\${LD_PRELOAD:+:$LD_PRELOAD}\")\n"
           else
             ""
         )

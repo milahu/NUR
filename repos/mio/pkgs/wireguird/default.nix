@@ -27,7 +27,7 @@ let
       owner = "UnnoTed";
       repo = "fileb0x";
       rev = "v1.1.4";
-      sha256 = "sha256-/g4Im1R4VKVyl0qN3FYcvKTBHhiIKll4civs987Mo64=";
+      hash = "sha256-/g4Im1R4VKVyl0qN3FYcvKTBHhiIKll4civs987Mo64=";
     };
     vendorHash = "sha256-56A+xFvgJLS8xWodcSzMuN0fB+vXb4Qm8OwbAig2KSM=";
 
@@ -44,7 +44,7 @@ let
       repo = "wireguird";
       # https://github.com/UnnoTed/wireguird/pull/61#issuecomment-2449554201 and https://github.com/nvlbg/wireguird/tree/tray_tunnels_submenu
       rev = "6dac3cd8784118f4fe7ea6d544a583c26d589572";
-      sha256 = "sha256-iv0/HSu/6IOVmRZcyCazLdJyyBsu5PyTajLubk0speI=";
+      hash = "sha256-iv0/HSu/6IOVmRZcyCazLdJyyBsu5PyTajLubk0speI=";
     };
     proxyVendor = true;
 
@@ -135,19 +135,32 @@ stdenv.mkDerivation {
     gsettings-desktop-schemas
   ];
 
-  dontUnpack = true;
-  dontBuild = true;
+  unpackPhase = "true";
+
+  buildPhase = ''
+    cat <<'EOF' > wrapper.c
+    #include <sys/prctl.h>
+    #include <unistd.h>
+    int main(int argc, char **argv) {
+        // The capability wrapper marks the process non-dumpable; the kernel then
+        // denies /proc/<pid>/root to xdg-desktop-portal, breaking GTK dark mode.
+        // Re-enable dumpable so the portal can read our settings.
+        prctl(PR_SET_DUMPABLE, 1, 0, 0, 0);
+        execv("${wireguird-unwrapped}/bin/wireguird", argv);
+        return 1;
+    }
+    EOF
+    $CC -O2 wrapper.c -o wireguird-dumpable
+  '';
 
   installPhase = ''
     mkdir -p "$out/bin" "$out/share/applications"
     ln -s ${wireguird-unwrapped}/share/icons "$out/share/icons"
     ln -s ${wireguird-unwrapped}/share/wireguird "$out/share/wireguird"
 
-    # Runs as the logged-in user. On NixOS, programs.wireguird installs
-    # cap_net_admin wrappers in /run/wrappers/bin (wireguird, wg-quick, wg).
-    makeWrapper "${wireguird-unwrapped}/bin/wireguird" "$out/bin/wireguird" \
-      "''${gappsWrapperArgs[@]}" \
-      --prefix PATH : ${wireguardToolPath}
+    # Install the C wrapper as the main binary. wrapGAppsHook3 will wrap it
+    # automatically in the fixup phase.
+    install -Dm755 wireguird-dumpable "$out/bin/wireguird"
 
     install -Dm644 /dev/stdin "$out/share/applications/wireguird.desktop" <<EOF
       [Desktop Entry]
@@ -159,6 +172,12 @@ stdenv.mkDerivation {
       Icon=wireguird
       Categories=Network;Security;
     EOF
+  '';
+
+  # Runs as the logged-in user. On NixOS, programs.wireguird installs
+  # cap_net_admin wrappers in /run/wrappers/bin (wireguird, wg-quick, wg).
+  preFixup = ''
+    gappsWrapperArgs+=(--prefix PATH : ${wireguardToolPath})
   '';
 
   passthru.unwrapped = wireguird-unwrapped;
