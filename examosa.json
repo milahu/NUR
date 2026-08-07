@@ -1,16 +1,16 @@
 {
 "name":"examosa",
-"fetch_time":1.001,
-"eval_time":0.644,
+"fetch_time":1.14,
+"eval_time":0.445,
 "source":{
 "url":"https://codeberg.org/examosa/nur-packages",
-"rev":"c98aac23d304f3e0427056663ed6c36445369e7f",
-"sha256":"1k2cyg76kv1w6292cm86hmjn1bfi85v4c98fxmjz1mrr1xmd62zd",
+"rev":"8218db17b7c984c94cf57f25f145f56a668b6a7c",
+"sha256":"1xbgiky6iykd27fjy98zc6hhk1kyxhaq1izpbn1ls2gxb4hc52h3",
 "date":null
 },
-"source_storepath":"/nix/store/vsdj6l75ax7c4k75l1k0hwvan0xbml52-nur-packages",
+"source_storepath":"/nix/store/dnq69gsvhhg96m1pjzszjp9wxsfbl7j3-nur-packages",
 "nixpkgs_storepath":"/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source",
-"nur_combined_rev":"6d922e27b7c7f971e4c3323076ff4a4fff1a4cfe",
+"nur_combined_rev":"2507219f416f99795e09789cdd912c70b7a22dc5",
 "packages":{
 "attempt":{
 "drvPath":"/nix/store/1bijgjjwydb5nax62sas61pnn77xzghx-attempt-1.1.1.drv",
@@ -137,7 +137,7 @@
 "version":"1.1.1"
 },
 "aube":{
-"drvPath":"/nix/store/3rn4pn8yz4s6dv2vaccjs9x7rz1kmp0w-aube-1.26.0.drv",
+"drvPath":"/nix/store/b25mm4vij94mv1s6m3zvjwgglnwacs2l-aube-1.34.0.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -152,7 +152,7 @@
 }
 ],
 "broken":false,
-"changelog":"https://github.com/endevco/aube/blob/refs/tags/v1.26.0/CHANGELOG.md",
+"changelog":"https://github.com/endevco/aube/blob/refs/tags/v1.34.0/CHANGELOG.md",
 "description":"A fast Node.js package manager",
 "homepage":"https://github.com/endevco/aube",
 "identifiers":{
@@ -209,7 +209,7 @@
 ],
 "mainProgram":"aube",
 "maintainers":[],
-"name":"aube-1.26.0",
+"name":"aube-1.34.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -254,7 +254,7 @@
 "x86_64-redox",
 "wasm32-wasip1"
 ],
-"position":"./packages/aube.nix:81",
+"position":"./packages/aube.nix:86",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -264,14 +264,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"aube-1.26.0",
+"name":"aube-1.34.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"aube",
 "system":"x86_64-linux",
-"version":"1.26.0"
+"version":"1.34.0"
 },
 "crgx":{
 "drvPath":"/nix/store/am7j6bz8v0k2mlacgy1gp5w94d2pxj3x-crgx-0.1.0.drv",
@@ -688,7 +688,7 @@
 "version":"1.2.3"
 },
 "fnox":{
-"drvPath":"/nix/store/s32nxirvpv7skpvsp982kr1ba0vx7rxc-fnox-1.31.1.drv",
+"drvPath":"/nix/store/87j3hb6jdj8fdwzs2kzgmip88v5ddy0x-fnox-1.31.1.drv",
 "meta":{
 "available":true,
 "badPlatforms":[
@@ -793,7 +793,7 @@
 "x86_64-redox",
 "wasm32-wasip1"
 ],
-"position":"./packages/fnox.nix:63",
+"position":"./packages/fnox.nix:66",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
