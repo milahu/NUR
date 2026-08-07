@@ -1,0 +1,92 @@
+error:
+… while evaluating attribute 'cargoDeps' of derivation 'ace-ctx-0.2.4'
+  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:104:7:
+   103|
+   104|       cargoDeps =
+      |       ^
+   105|         if cargoVendorDir != null then
+
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
+
+… while evaluating derivation 'ace-ctx-0.2.4-vendor'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:651:11
+
+… while evaluating attribute 'vendorStaging' of derivation 'ace-ctx-0.2.4-vendor'
+  at <nixpkgs> + /pkgs/build-support/rust/fetch-cargo-vendor.nix:114:13:
+   113|   {
+   114|     inherit vendorStaging;
+      |             ^
+   115|     nativeBuildInputs = [
+
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
+
+… while evaluating derivation 'ace-ctx-0.2.4-vendor-staging'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:651:11
+
+… while evaluating attribute 'src' of derivation 'ace-ctx-0.2.4-vendor-staging'
+  at <nixpkgs> + /lib/attrsets.nix:987:47:
+   986|   */
+   987|   nameValuePair = name: value: { inherit name value; };
+      |                                               ^
+   988|
+
+… from call site
+  at <nixpkgs> + /lib/attrsets.nix:1348:61:
+  1347|   */
+  1348|   genAttrs = names: f: genAttrs' names (n: nameValuePair n (f n));
+      |                                                             ^
+  1349|
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/attrsets.nix:591:44:
+   590|   */
+   591|   getAttrs = names: attrs: genAttrs names (name: attrs.${name});
+      |                                            ^
+   592|
+
+… while evaluating the attribute 'src'
+  at ./pkgs/ace-ctx/default.nix:66:9:
+    65|         pname
+    66|         src
+      |         ^
+    67|         version
+
+… while evaluating the attribute 'src'
+  at ./internal/sources.nix:72:27:
+    71|   // lib.genAttrs evalReadSources (
+    72|     name: raw.${name} // {src = evalSrc raw.${name}.src;}
+      |                           ^
+    73|   )
+
+… from call site
+  at ./internal/sources.nix:72:33:
+    71|   // lib.genAttrs evalReadSources (
+    72|     name: raw.${name} // {src = evalSrc raw.${name}.src;}
+      |                                 ^
+    73|   )
+
+… while calling 'evalSrc'
+  at ./internal/sources.nix:44:13:
+    43|
+    44|   evalSrc = src:
+      |             ^
+    45|     if src.fetchSubmodules or false
+
+… while calling the 'fetchTarball' builtin
+  at ./internal/sources.nix:53:7:
+    52|     else
+    53|       builtins.fetchTarball {
+      |       ^
+    54|         inherit (src) url;
+
+error: access to URI 'https://github.com/CodingOX/ace-ctx/archive/v0.2.4.tar.gz' is forbidden in restricted mode

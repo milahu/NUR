@@ -1,0 +1,9 @@
+error:
+… while querying the derivation named 'toyvo-helix'
+
+error: undefined variable 'toyvo'
+at ./lib/default.nix:89:49:
+    88|           platforms = platformsOf ([ package ] ++ runtimeDeps);
+    89|           maintainers = with lib.maintainers; [ toyvo ];
+      |                                                 ^
+    90|         };
