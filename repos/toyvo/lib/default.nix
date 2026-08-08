@@ -2,112 +2,8 @@
   lib,
   inputs,
 }:
-with builtins;
-with lib;
-rec {
-  # Add your library functions here
-  #
-  # hexint = x: hexvals.${toLower x};
-  maintainers.toyvo = {
-    name = "Collin Diekvoss";
-    email = "Collin@Diekvoss.com";
-    matrix = "@toyvo:matrix.org";
-    github = "ToyVo";
-    githubId = 5168912;
-  };
-
-  # These ones are actually used by us!
-  mkWrappedProgram = pkgs: (import ./mkWrappedProgram.nix) { inherit pkgs inputs; };
-
-  readDirRecursive =
-    path:
-    mapAttrs (
-      path': type:
-      (if (type == "directory" || type == "symlink") then readDirRecursive "${path}/${path'}" else type)
-    ) (readDir path);
-  initValueAtPath =
-    path: value:
-    if length path == 0 then value else { ${head path} = initValueAtPath (tail path) value; };
-  attrNamesRecursive = mapAttrsToList (
-    name: value:
-    if isAttrs value then map (path: [ name ] ++ path) (attrNamesRecursive value) else [ name ]
-  );
-  filterAttrsRecursive' =
-    filter: attrs:
-    mapAttrs (
-      name: value:
-      if isAttrs value then
-        filterAttrsRecursive' (path: value': filter ([ name ] ++ path) value') value
-      else
-        value
-    ) (filterAttrs (name: value: (isAttrs value) || (filter [ name ] value)) attrs);
-  mapAttrsRecursive' =
-    mapping: attrs:
-    foldlAttrs (
-      acc: name: value:
-      let
-        result =
-          if isAttrs value then
-            mapAttrsRecursive' (path': value': mapping ([ name ] ++ path') value') value
-          else
-            let
-              mapped = mapping [ name ] value;
-            in
-            initValueAtPath mapped.path mapped.value;
-      in
-      recursiveUpdate acc result
-    ) { } attrs;
-  filterAndMapAttrsRecursive' =
-    filter: mapping: attrs:
-    mapAttrsRecursive' mapping (filterAttrsRecursive' filter attrs);
-
-  importDirRecursive =
-    dir:
-    filterAndMapAttrsRecursive' (path: value: (hasSuffix ".nix" (last path)) && value == "regular") (
-      path: _: {
-        path = (dropEnd 1 path) ++ [ (removeSuffix ".nix" (last path)) ];
-        value = (import (concatStringsSep "/" ([ dir ] ++ path)));
-      }) (readDirRecursive dir);
-  callDirPackageWithRecursive =
-    pkgs: dir: extraArgs:
-    let
-      scope = recursiveUpdate pkgs extraArgs;
-    in
-    mapAttrs (_: f: f extraArgs) (
-      fix (
-        nurPkgs:
-        filterAndMapAttrsRecursive' (path: value: (last path == "package.nix") && value == "regular") (
-          path: _: {
-            path = dropEnd 1 path;
-            value =
-              args:
-              callPackageWith (recursiveUpdate scope (mapAttrs (_: f: f extraArgs) nurPkgs)) (concatStringsSep "/"
-                ([ dir ] ++ path)
-              ) args;
-          }) (readDirRecursive dir)
-      )
-    );
-  callDirPackageWithRecursive' =
-    pkgs: dir: extraArgs:
-    let
-      scope = recursiveUpdate pkgs extraArgs;
-    in
-    filterAndMapAttrsRecursive' (path: value: (last path == "package.nix") && value == "regular") (
-      path: {
-        path = dropEnd 1 path;
-        value = callPackageWith scope (concatStringsSep "/" ([ dir ] ++ path)) { };
-      }) (readDirRecursive dir);
-
-  isReserved = n: n == "lib" || n == "overlays" || n == "modules";
-  isBuildable =
-    p:
-    let
-      licenseFromMeta = p.meta.license or [ ];
-      licenseList = if isList licenseFromMeta then licenseFromMeta else [ licenseFromMeta ];
-    in
-    !(p.meta.broken or false) && all (license: license.free or true) licenseList;
-  isCacheable = p: !(p.preferLocalBuild or false);
-  shouldRecurseForDerivations = p: isAttrs p && p.recurseForDerivations or false;
+let
+  shouldRecurseForDerivations = p: lib.isAttrs p && p.recurseForDerivations or false;
 
   flattenPkgs =
     s:
@@ -116,12 +12,55 @@ rec {
         p:
         if shouldRecurseForDerivations p then
           flattenPkgs p
-        else if isDerivation p then
+        else if lib.isDerivation p then
           [ p ]
         else
           [ ];
     in
-    concatMap f (attrValues s);
+    builtins.concatMap f (builtins.attrValues s);
+  platformsOf =
+    ps:
+    (
+      lists:
+      builtins.foldl' (
+        list1: list2: builtins.filter (x: builtins.elem x list2) list1
+      ) (builtins.head lists) (builtins.tail lists)
+    )
+      (builtins.map (p: p.meta.platforms or lib.platforms.all) ps);
+
+  toyvo = {
+    name = "Collin Diekvoss";
+    email = "Collin@Diekvoss.com";
+    matrix = "@toyvo:matrix.org";
+    github = "ToyVo";
+    githubId = 5168912;
+  };
+in
+{
+  # Add your library functions here
+  #
+  # hexint = x: hexvals.${toLower x};
+  maintainers.toyvo = toyvo;
+
+  isReserved =
+    n:
+    n == "lib"
+    || n == "overlays"
+    || n == "modules"
+    || n == "nixosModules"
+    || n == "homeModules"
+    || n == "darwinModules"
+    || n == "flakeModules";
+  isBuildable =
+    p:
+    let
+      licenseFromMeta = p.meta.license or [ ];
+      licenseList = if builtins.isList licenseFromMeta then licenseFromMeta else [ licenseFromMeta ];
+    in
+    !(p.meta.broken or false) && builtins.all (license: license.free or true) licenseList;
+  isCacheable = p: !(p.preferLocalBuild or false);
+
+  inherit shouldRecurseForDerivations flattenPkgs platformsOf;
 
   outputsOf = p: map (o: p.${o}) p.outputs;
 
@@ -130,30 +69,39 @@ rec {
     (builtins.any (s: s == system) (p.meta.platforms or [ system ]))
     && !(builtins.any (s: s == system) (p.meta.badPlatforms or [ ]));
 
-  flakeChecks =
-    system: ps:
-    listToAttrs (
-      map (n: nameValuePair (removePrefix "/nix/store/" (strings.unsafeDiscardStringContext n)) n) (
-        filter (p: isBuildable p && isCacheable p && forSystem system p) (
-          concatMap outputsOf (flattenPkgs ps)
-        )
-      )
-    );
+  mkWrappedProgram =
+    pkgs:
+    {
+      name,
+      package,
+      binaryName ? package.meta.mainProgram or (lib.getName package),
+      configDir ? null,
+      envVars ? { },
+      extraFlags ? [ ],
+      runtimeDeps ? [ ],
+      extraBinaries ? [ ],
+    }:
 
-  flakePackages =
-    system: ps:
-    foldl' mergeAttrs { } (
-      mapAttrsToList (
-        n: p:
-        if isDerivation p && forSystem system p then
-          { ${n} = p; }
-        else if shouldRecurseForDerivations p then
-          mapAttrs' (sn: sp: {
-            name = if sn == n then n else sn;
-            value = sp;
-          }) (filterAttrs (_: sp: isDerivation sp && forSystem system sp) p)
-        else
-          { }
-      ) ps
-    );
+    pkgs.runCommand name
+      {
+        nativeBuildInputs = [ pkgs.makeWrapper ];
+        meta = package.meta // {
+          description = "${package.meta.description or binaryName} with bundled configuration";
+          platforms = platformsOf ([ package ] ++ runtimeDeps);
+          maintainers = [ toyvo ];
+        };
+      }
+      ''
+        mkdir -p $out/bin
+
+        makeWrapper ${lib.getExe package} $out/bin/${binaryName} \
+          ${lib.optionalString (configDir != null) "--set XDG_CONFIG_HOME ${configDir}"} \
+          ${lib.optionalString (runtimeDeps != [ ]) "--prefix PATH : ${lib.makeBinPath runtimeDeps}"} \
+          ${lib.concatMapStringsSep " " (n: "--set ${n} \"${envVars.${n}}\"") (lib.attrNames envVars)} \
+          ${lib.concatMapStringsSep " " (flag: "--add-flags \"${flag}\"") extraFlags}
+
+        ${lib.concatMapStringsSep "\n" (
+          binName: "ln -s $out/bin/${binaryName} $out/bin/${binName}"
+        ) extraBinaries}
+      '';
 }

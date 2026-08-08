@@ -26,6 +26,20 @@
       url = "github:catppuccin/starship/5906cc369dd8207e063c0e6e2d27bd0c0b567cb8";
       flake = false;
     };
+    # Same IFD workaround as catppuccin-starship, for rio. Rev mirrors
+    # catppuccin/nix's pkgs/sources.json.
+    catppuccin-rio = {
+      url = "github:catppuccin/rio/4d37b8334a3e8f853fc6543dc2a60c295a66ddca";
+      flake = false;
+    };
+    # Same IFD workaround, for the palette (NixOS tty module reads
+    # palette.json at eval time). Rev mirrors catppuccin/nix's
+    # pkgs/sources.json.
+    catppuccin-palette = {
+      url = "github:catppuccin/palette/07d02aa110ef9eb7e7427afca5c73ba9cf7f8ebd";
+      flake = false;
+    };
+    deploy-rs.url = "github:serokell/deploy-rs";
     devshell = {
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixos-unstable";
@@ -82,6 +96,7 @@
 
   outputs =
     flake_inputs@{
+      deploy-rs,
       devshell,
       flake-parts,
       nixpkgs-esp-dev,
@@ -98,26 +113,6 @@
         nixcfg = self;
       };
       configurations = import ./configurations inputs;
-      import_nixpkgs =
-        system: nixpkgs:
-        import nixpkgs {
-          inherit system;
-          overlays = [
-            nixpkgs-esp-dev.overlays.default
-            nur.overlays.default
-            rust-overlay.overlays.default
-            # zed.overlays.default
-          ];
-          config = {
-            allowUnfree = true;
-            android_sdk.accept_license = true;
-          };
-        };
-      inherit (nixos-unstable) lib;
-      pkgsDir = "${self}/pkgs";
-      libDir = "${self}/lib";
-      # overlaysDir = "${self}/overlays";
-      modulesDir = "${self}/modules";
     in
     flake-parts.lib.mkFlake { inherit inputs; } (
       {
@@ -126,26 +121,36 @@
         withSystem,
         ...
       }:
-      let
-        ourLib = (import libDir { inherit lib inputs; }) // {
-          inherit import_nixpkgs;
-        };
-        lib' = lib.recursiveUpdate lib ourLib;
-      in
       {
         flake = {
-          lib = ourLib;
-          # overlays = lib'.importDirRecursive overlaysDir;
-          modules = lib'.importDirRecursive modulesDir;
+          lib = import ./lib {
+            lib = nixos-unstable.lib;
+            inherit inputs;
+          };
+          nixosModules = import ./modules/nixos;
+          homeModules = import ./modules/home;
+          darwinModules = import ./modules/darwin;
+          flakeModules = import ./modules/flake;
+          modules = {
+            nixos = self.nixosModules;
+            darwin = self.darwinModules;
+            flake = self.flakeModules;
+            home = self.homeModules;
+          };
+          overlays = import ./overlays;
           nixosConfigurations = configurations.nixosConfigurations;
           darwinConfigurations = configurations.darwinConfigurations;
           homeConfigurations = configurations.homeConfigurations;
+
+          deploy.nodes.nas = {
+            hostname = "nas";
+            profiles.system = {
+              user = "toyvo";
+              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nas;
+            };
+          };
         };
-        systems = [
-          "aarch64-darwin"
-          "aarch64-linux"
-          "x86_64-linux"
-        ];
+        systems = nixos-unstable.lib.systems.flakeExposed;
         imports = [
           devshell.flakeModule
           flake-parts.flakeModules.easyOverlay
@@ -154,20 +159,27 @@
         perSystem =
           {
             config,
+            lib,
             pkgs,
             system,
             self',
             ...
           }:
-          with lib';
-          let
-            basePkgs = import_nixpkgs system nixos-unstable;
-            pkgs' = recursiveUpdate basePkgs { lib = lib'; };
-            ourPackages = callDirPackageWithRecursive pkgs' pkgsDir { inherit inputs; };
-          in
           {
             _module.args = {
-              pkgs = pkgs';
+              pkgs = import nixos-unstable {
+                inherit system;
+                overlays = [
+                  nixpkgs-esp-dev.overlays.default
+                  nur.overlays.default
+                  rust-overlay.overlays.default
+                  # zed.overlays.default
+                ];
+                config = {
+                  allowUnfree = true;
+                  android_sdk.accept_license = true;
+                };
+              };
             };
 
             treefmt = {
@@ -178,12 +190,11 @@
                 mdformat.enable = true;
               };
             };
-            legacyPackages = ourPackages // {
-              # inherit (self) lib overlays modules;
-              inherit (self) lib modules;
+            legacyPackages = import ./default.nix {
+              inherit pkgs inputs;
             };
-            packages = flakePackages system ourPackages;
-            overlayAttrs.toyvo = ourPackages;
+            packages = lib.filterAttrs (_: v: lib.isDerivation v) self'.legacyPackages;
+            overlayAttrs.toyvo = self'.legacyPackages;
             devshells.default = {
               commands = [
                 {
@@ -197,11 +208,21 @@
                 pre-push.text = self'.legacyPackages.pre-push.text;
               };
             };
-            # we get infinite recursion on freebsd with `nix flake show`, not investigating
-            checks = lib.mkIf (system != "x86_64-freebsd") (
-              flakeChecks system self'.packages
-              // mapAttrs' (n: nameValuePair "devShells-${n}") (filterAttrs (n: v: isCacheable v) self'.devShells)
-            );
+
+            checks =
+              builtins.listToAttrs (
+                map
+                  (n: lib.nameValuePair (lib.removePrefix "/nix/store/" (lib.strings.unsafeDiscardStringContext n)) n)
+                  (
+                    builtins.filter (
+                      p: self.lib.isBuildable p && self.lib.isCacheable p && self.lib.forSystem system p
+                    ) (builtins.concatMap self.lib.outputsOf (self.lib.flattenPkgs self'.packages))
+                  )
+              )
+              // lib.mapAttrs' (n: lib.nameValuePair "devShells-${n}") (
+                lib.filterAttrs (n: v: self.lib.isCacheable v) self'.devShells
+              );
+
           };
       }
     );
