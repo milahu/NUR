@@ -1,0 +1,90 @@
+error:
+… while evaluating attribute 'nativeBuildInputs' of derivation 'uplink-0.1.0'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:719:11:
+   718|           depsBuildBuild = buildBuildOutputs;
+   719|           nativeBuildInputs = buildHostOutputs;
+      |           ^
+   720|           depsBuildTarget = buildTargetOutputs;
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:560:11:
+   559|         buildHostOutputs =
+   560|           if nativeBuildInputs' == [ ] then
+      |           ^
+   561|             [ ]
+
+… while calling the 'attrValues' builtin
+  at <nixpkgs> + /pkgs/build-support/dart/build-dart-application/default.nix:194:11:
+   193|           # Ensure that we inherit the propagated build inputs from the dependencies.
+   194|           builtins.attrValues pubspecLockData.dependencySources;
+      |           ^
+   195|
+
+… while evaluating the attribute 'dependencySources'
+  at <nixpkgs> + /pkgs/build-support/dart/pub2nix/pubspec-lock.nix:173:5:
+   172|     # An attribute set of package names to their sources.
+   173|     dependencySources
+      |     ^
+   174|     ;
+
+… from call site
+  at <nixpkgs> + /pkgs/build-support/dart/pub2nix/pubspec-lock.nix:139:23:
+   138|
+   139|   dependencySources = lib.filterAttrs (name: src: src != null) (
+      |                       ^
+   140|     builtins.mapAttrs (
+
+… while calling 'filterAttrs'
+  at <nixpkgs> + /lib/attrsets.nix:667:23:
+   666|   */
+   667|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                       ^
+   668|
+
+… while calling the 'removeAttrs' builtin
+  at <nixpkgs> + /lib/attrsets.nix:667:28:
+   666|   */
+   667|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                            ^
+   668|
+
+… while calling the 'mapAttrs' builtin
+  at <nixpkgs> + /pkgs/build-support/dart/pub2nix/pubspec-lock.nix:140:5:
+   139|   dependencySources = lib.filterAttrs (name: src: src != null) (
+   140|     builtins.mapAttrs (
+      |     ^
+   141|       name: details:
+
+… from call site
+  at <nixpkgs> + /pkgs/build-support/dart/build-dart-application/default.nix:75:11:
+    74|           assert builtins.pathExists autoPubspecLock || throw "The pubspec.lock file could not be found!";
+    75|           lib.importJSON (
+      |           ^
+    76|             runCommand "${lib.getName args}-pubspec-lock-json" {
+
+… while calling 'importJSON'
+  at <nixpkgs> + /lib/trivial.nix:794:16:
+   793|   */
+   794|   importJSON = path: fromJSON (readFile path);
+      |                ^
+   795|
+
+… while calling the 'fromJSON' builtin
+  at <nixpkgs> + /lib/trivial.nix:794:22:
+   793|   */
+   794|   importJSON = path: fromJSON (readFile path);
+      |                      ^
+   795|
+
+… while evaluating the first argument passed to builtins.fromJSON
+
+… while calling the 'readFile' builtin
+  at <nixpkgs> + /lib/trivial.nix:794:32:
+   793|   */
+   794|   importJSON = path: fromJSON (readFile path);
+      |                                ^
+   795|
+
+… while realising the context of path '/nix/store/0dbylzcrmg7pfsi1lbkqh5m0fw913ihx-uplink-pubspec-lock-json'
+
+error: path '/nix/store/x4dmn69bva6w3da8sgy1qg50x4wja2lr-uplink-pubspec-lock-json.drv' is not valid
