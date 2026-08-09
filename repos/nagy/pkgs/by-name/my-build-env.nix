@@ -50,7 +50,7 @@ let
             nur.repos.nagy.modules.nix
             nur.repos.nagy.modules.openstack
             nur.repos.nagy.modules.opentofu
-            nur.repos.nagy.modules.pi-coding-agent
+            nur.repos.nagy.modules.ai
             nur.repos.nagy.modules.python
             nur.repos.nagy.modules.pytr
             nur.repos.nagy.modules.restic
@@ -119,6 +119,20 @@ let
       ) diffedSessionVariables
     )
   );
+  gitConfigSystem =
+    if sys.config.environment.etc ? gitconfig then
+      pkgs.writeText "gitconfig-system" sys.config.environment.etc.gitconfig.text
+    else
+      null;
+  dockerConfigSystem =
+    if sys.config.environment.etc ? "docker/config.json" then
+      pkgs.writeTextFile {
+        name = "docker-config";
+        text = sys.config.environment.etc."docker/config.json".text;
+        destination = "/config.json";
+      }
+    else
+      null;
 in
 pkgs.writeText "my-build-env-script" ''
   export PATH="${buildEnv}/bin:$PATH"
@@ -126,6 +140,8 @@ pkgs.writeText "my-build-env-script" ''
   export INFOPATH="${buildEnv}/share/info:$INFOPATH"
   export NIX_PATH="nixpkgs=${lib.cleanSource pkgs.path}:$NIX_PATH"
   ${sessionVarExports}
+  ${lib.optionalString (gitConfigSystem != null) "export GIT_CONFIG_SYSTEM=\"${gitConfigSystem}\""}
+  ${lib.optionalString (dockerConfigSystem != null) "export DOCKER_CONFIG=\"${dockerConfigSystem}\""}
 
   export TYPST_FONT_PATHS="${lib.makeSearchPath "share/fonts/opentype" diffedFontPackages}"
 
