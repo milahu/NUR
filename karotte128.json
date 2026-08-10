@@ -1,19 +1,19 @@
 {
 "name":"karotte128",
-"fetch_time":0.878,
-"eval_time":0.759,
+"fetch_time":0.505,
+"eval_time":0.798,
 "source":{
 "url":"https://github.com/karotte128/nur-packages",
-"rev":"788522a3b29b26e4553c9e8e31fd555879236d17",
-"sha256":"1048vc1lnfsp9yh7nhrj2zm3ymxfr1c5isf5li1ahcsd4hkmczq5",
+"rev":"0f7338a5bf5e975701d0e1407a2c9c2750da93c0",
+"sha256":"1h0nxd0glka314d5xf3zbmcqingfv6j5k396vac2z4jnck9lac9h",
 "date":null
 },
-"source_storepath":"/nix/store/msxfi6y3apvb0ikahllp2qxfmp1mpzxj-source",
-"nixpkgs_storepath":"/nix/store/0s46vlv8krpc6wfspxzsdfxlyhkp8m2k-source",
-"nur_combined_rev":"d27492028365a2befef1f54f8ea3b1cd3cf0c659",
+"source_storepath":"/nix/store/nkicknyxxss0qqn83g7qrz9k6mlllzfq-source",
+"nixpkgs_storepath":"/nix/store/2lx56zljz71v0vgbdk485awdyhrl3f3a-source",
+"nur_combined_rev":"362b2cdb3bd330c6eb711013a3d30353e2424da6",
 "packages":{
 "botcraft":{
-"drvPath":"/nix/store/hip7fmbs5rj5hb6q1h0n1kbffx9pxv5p-botcraft-unstable-2026-05-21.drv",
+"drvPath":"/nix/store/y7jc66s3ck5x69kmbcrhyvx27c8hp93s-botcraft-unstable-2026-05-21.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -62,7 +62,7 @@
 "maintainers":[],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/msxfi6y3apvb0ikahllp2qxfmp1mpzxj-source/pkgs/botcraft/default.nix",
+"file":"/nix/store/nkicknyxxss0qqn83g7qrz9k6mlllzfq-source/pkgs/botcraft/default.nix",
 "line":99
 },
 "name":"botcraft-unstable-2026-05-21",
@@ -71,6 +71,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -93,10 +94,15 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/botcraft/default.nix:95",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -110,7 +116,7 @@
 "version":"2026-05-21"
 },
 "sniffcraft":{
-"drvPath":"/nix/store/wa2k3l0b068ykcs72gwpwyf3dcpxfbvw-sniffcraft-unstable-2026-04-11.drv",
+"drvPath":"/nix/store/rclxkbwcci627gm3a9nrc75yfgk1aagl-sniffcraft-unstable-2026-04-11.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -163,6 +169,7 @@
 "out"
 ],
 "platforms":[
+"x86_64-linux",
 "aarch64-linux",
 "arc-linux",
 "armv5tel-linux",
@@ -185,10 +192,15 @@
 "riscv32-linux",
 "riscv64-linux",
 "s390-linux",
-"s390x-linux",
-"x86_64-linux"
+"s390x-linux"
 ],
 "position":"./pkgs/sniffcraft/default.nix:83",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },

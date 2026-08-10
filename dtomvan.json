@@ -1,16 +1,16 @@
 {
 "name":"dtomvan",
-"fetch_time":0.625,
-"eval_time":1.009,
+"fetch_time":0.476,
+"eval_time":1.575,
 "source":{
 "url":"https://github.com/dtomvan/nur-packages",
-"rev":"1f2a3114e5479dcd7b2a7669451436442bdb052c",
-"sha256":"0pv5bfmyw795gp5gxsv9nmdhvlawgrxp6mgcshb11cxbmxyz8a1h",
+"rev":"4c7db6590e1aa066d42e49d1bc1550cf96bbb863",
+"sha256":"0avblc4mbyl7azzsvjnim1358fvs9qfsfhc9ncfcs5qxffh6rv29",
 "date":null
 },
-"source_storepath":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source",
-"nixpkgs_storepath":"/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source",
-"nur_combined_rev":"7a10a96ae51861d42d38b54bfd14459a412d659b",
+"source_storepath":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source",
+"nixpkgs_storepath":"/nix/store/2lx56zljz71v0vgbdk485awdyhrl3f3a-source",
+"nur_combined_rev":"f5ced8c6c33d55815364cf27b8872c4d1eb22411",
 "packages":{
 "alertmanager-matrix":{
 "drvPath":"/nix/store/5jsa3lva45r6chdpvkj8snmimfhxarsp-alertmanager-matrix-0.6.1.drv",
@@ -75,7 +75,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/alertmanager-matrix/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/alertmanager-matrix/package.nix",
 "line":51
 },
 "name":"alertmanager-matrix-0.6.1",
@@ -142,7 +142,7 @@
 "version":"0.6.1"
 },
 "aporetic-patched":{
-"drvPath":"/nix/store/vy3vhq4df1pk69fqpihkn05qhwq8c8bm-aporetic-patched-1.2.0.drv",
+"drvPath":"/nix/store/y444047ncc0vgs50lw7vsy6phc0r78fk-aporetic-patched-1.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -198,7 +198,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/grir922ynsi1acqkrxm6ijxfp5xnwdha-source/pkgs/by-name/ap/aporetic/package.nix",
+"file":"/nix/store/2lx56zljz71v0vgbdk485awdyhrl3f3a-source/pkgs/by-name/ap/aporetic/package.nix",
 "line":64
 },
 "name":"aporetic-1.2.0",
@@ -371,7 +371,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/caldavwarrior/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/caldavwarrior/package.nix",
 "line":37
 },
 "name":"caldavwarrior-0.3.0",
@@ -472,7 +472,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/cclip/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/cclip/package.nix",
 "line":53
 },
 "name":"cclip-3.3.1",
@@ -593,7 +593,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/darkreader/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/darkreader/package.nix",
 "line":49
 },
 "mozPermissions":[
@@ -790,7 +790,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/fsel/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/fsel/package.nix",
 "line":28
 },
 "name":"fsel-3.6.0",
@@ -847,11 +847,11 @@
 "version":"3.6.0"
 },
 "jorge":{
-"drvPath":"/nix/store/wcyrxahyp1q16bap8xlhjy7f933lg16l-jorge-0.10.1.drv",
+"drvPath":"/nix/store/1jmz76cxjw9gzf2ixqirjqmn5d1xakq9-jorge-0.10.1-unstable-2026-08-09.drv",
 "meta":{
 "available":true,
 "broken":false,
-"description":"A personal site generator with org-mode support",
+"description":"Personal site generator with org-mode support",
 "homepage":"https://github.com/facundoolano/jorge",
 "identifiers":{
 "cpeParts":{
@@ -909,10 +909,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/jorge/package.nix",
-"line":38
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/jorge/package.nix",
+"line":29
 },
-"name":"jorge-0.10.1",
+"name":"jorge-0.10.1-unstable-2026-08-09",
 "nonTeamMaintainers":[
 {
 "email":"18gatenmaker6@gmail.com",
@@ -961,19 +961,19 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/jorge/package.nix:35",
+"position":"./pkgs/jorge/package.nix:26",
 "problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"jorge-0.10.1",
+"name":"jorge-0.10.1-unstable-2026-08-09",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"jorge",
 "system":"x86_64-linux",
-"version":"0.10.1"
+"version":"0.10.1-unstable-2026-08-09"
 },
 "keepassxc-browser":{
 "drvPath":"/nix/store/83whwci43f93y7hill0p5z528lk2mw63-keepassxc-browser-1.10.3.drv",
@@ -1036,7 +1036,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/keepassxc-browser/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/keepassxc-browser/package.nix",
 "line":46
 },
 "mozPermissions":[
@@ -1243,7 +1243,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/lappverk/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/lappverk/package.nix",
 "line":49
 },
 "name":"lappverk-0.1.0",
@@ -1391,7 +1391,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/nie/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/nie/package.nix",
 "line":54
 },
 "name":"nie-0.1.3",
@@ -1528,7 +1528,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/obsidian-web-clipper/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/obsidian-web-clipper/package.nix",
 "line":44
 },
 "mozPermissions":[
@@ -1573,12 +1573,12 @@
 "version":"1.6.3"
 },
 "panix":{
-"drvPath":"/nix/store/yxax4k34svix1z90c68hifgz9h9bqjpa-panix-0.9.0.drv",
+"drvPath":"/nix/store/d61950asnxxrdhssk829r2188lm7rpg0-panix-0.9.0-unstable-2026-08-09.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/mihakrumpestar/panix/blob/v0.9.0/CHANGELOG.md",
-"description":"Universal NixOS Deployment Tool - inspect, bootstrap, build, transfer, secrets, activate, rollback",
+"changelog":"https://github.com/mihakrumpestar/panix/blob/v0.9.0-unstable-2026-08-09/CHANGELOG.md",
+"description":"Universal Nix deployment tool",
 "homepage":"https://github.com/mihakrumpestar/panix",
 "identifiers":{
 "cpeParts":{
@@ -1641,10 +1641,10 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/panix/package.nix",
-"line":47
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/panix/package.nix",
+"line":51
 },
-"name":"panix-0.9.0",
+"name":"panix-0.9.0-unstable-2026-08-09",
 "nonTeamMaintainers":[
 {
 "email":"18gatenmaker6@gmail.com",
@@ -1698,19 +1698,19 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/panix/package.nix:43",
+"position":"./pkgs/panix/package.nix:47",
 "problems":{},
 "unfree":false,
 "unsupported":false
 },
-"name":"panix-0.9.0",
+"name":"panix-0.9.0-unstable-2026-08-09",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"panix",
 "system":"x86_64-linux",
-"version":"0.9.0"
+"version":"0.9.0-unstable-2026-08-09"
 },
 "sshp":{
 "drvPath":"/nix/store/dpr04jdi0lvmwv9fdag2ybvy0lrwjmzz-sshp-1.1.3.drv",
@@ -1776,7 +1776,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/sshp/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/sshp/package.nix",
 "line":54
 },
 "name":"sshp-1.1.3",
@@ -1953,7 +1953,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/steam-database/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/steam-database/package.nix",
 "line":43
 },
 "mozPermissions":[
@@ -2173,7 +2173,7 @@
 ],
 "maintainersPosition":{
 "column":7,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/tabby-terminal/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/tabby-terminal/package.nix",
 "line":219
 },
 "name":"tabby-terminal-1.0.234",
@@ -2955,7 +2955,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/tsodingPackages/mine/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/tsodingPackages/mine/package.nix",
 "line":46
 },
 "name":"mine-0-unstable-2026-05-03",
@@ -3099,7 +3099,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/tsodingPackages/mujsc/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/tsodingPackages/mujsc/package.nix",
 "line":30
 },
 "name":"mujsc-0-unstable-2025-09-20",
@@ -4248,7 +4248,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/tsodingPackages/zoomer/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/tsodingPackages/zoomer/package.nix",
 "line":53
 },
 "name":"zoomer-0-unstable-2026-05-23",
@@ -4382,7 +4382,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/tyck/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/tyck/package.nix",
 "line":65
 },
 "name":"tyck-0.1.0-unstable-2026-07-12",
@@ -4498,7 +4498,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/ublock-origin/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/ublock-origin/package.nix",
 "line":75
 },
 "mozPermissions":[
@@ -4718,7 +4718,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/s38501vx1qyyf26ww9w7klij0m56jnss-source/pkgs/zotero-connector/package.nix",
+"file":"/nix/store/6l5cv2rsgc8xdzyiki3yfdaa9yax8s4s-source/pkgs/zotero-connector/package.nix",
 "line":85
 },
 "mozPermissions":[
