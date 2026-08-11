@@ -1,17 +1,17 @@
 error:
 … while evaluating the attribute 'cliproxyapiplus'
-  at ./internal/discover.nix:119:7:
-   118|       inherit name;
-   119|       value = pkgs.callPackage (dir + "/${name}/default.nix") (
+  at ./internal/discover.nix:122:7:
+   121|       inherit name;
+   122|       value = pkgs.callPackage (dir + "/${name}/default.nix") (
       |       ^
-   120|         autoArgsFor name
+   123|         autoArgsFor name
 
 … from call site
-  at ./internal/discover.nix:119:15:
-   118|       inherit name;
-   119|       value = pkgs.callPackage (dir + "/${name}/default.nix") (
+  at ./internal/discover.nix:122:15:
+   121|       inherit name;
+   122|       value = pkgs.callPackage (dir + "/${name}/default.nix") (
       |               ^
-   120|         autoArgsFor name
+   123|         autoArgsFor name
 
 … while calling anonymous lambda
   at <nixpkgs> + /lib/customisation.nix:307:19:
@@ -69,32 +69,32 @@ error:
      2|   lib,
 
 … from call site
-  at ./internal/discover.nix:114:17:
-   113|         name = arg;
-   114|         value = valueFor arg;
+  at ./internal/discover.nix:117:17:
+   116|         name = arg;
+   117|         value = valueFor arg;
       |                 ^
-   115|       }) (builtins.filter shouldInject (builtins.attrNames fargs)));
+   118|       }) (builtins.filter shouldInject (builtins.attrNames fargs)));
 
 … while calling 'valueFor'
-  at ./internal/discover.nix:101:18:
-   100|         || builtins.hasAttr arg inject;
-   101|       valueFor = arg:
+  at ./internal/discover.nix:104:18:
+   103|         || builtins.hasAttr arg inject;
+   104|       valueFor = arg:
       |                  ^
-   102|         if arg == "source" && builtins.hasAttr name sources
+   105|         if arg == "source" && builtins.hasAttr name sources
 
 … while calling the 'getAttr' builtin
-  at ./internal/discover.nix:110:14:
-   109|         then builtins.getAttr arg sources
-   110|         else builtins.getAttr arg inject;
+  at ./internal/discover.nix:113:14:
+   112|         then builtins.getAttr arg sources
+   113|         else builtins.getAttr arg inject;
       |              ^
-   111|     in
+   114|     in
 
 … from call site
-  at ./internal/discover.nix:70:16:
-    69|   defaultInject = pkgs: let
-    70|     overlaid = pkgs.extend (import ((import ./gomod2nix.nix) + "/overlay.nix"));
+  at ./internal/discover.nix:73:16:
+    72|   defaultInject = pkgs: let
+    73|     overlaid = pkgs.extend (import ((import ./gomod2nix.nix) + "/overlay.nix"));
       |                ^
-    71|   in {
+    74|   in {
 
 … while calling 'extend'
   at <nixpkgs> + /pkgs/top-level/stage.nix:281:14:
@@ -209,20 +209,20 @@ error:
   1132|
 
 … while calling the 'import' builtin
-  at ./internal/discover.nix:70:29:
-    69|   defaultInject = pkgs: let
-    70|     overlaid = pkgs.extend (import ((import ./gomod2nix.nix) + "/overlay.nix"));
+  at ./internal/discover.nix:73:29:
+    72|   defaultInject = pkgs: let
+    73|     overlaid = pkgs.extend (import ((import ./gomod2nix.nix) + "/overlay.nix"));
       |                             ^
-    71|   in {
+    74|   in {
 
 … while realising the context of a path
 
 … while calling the 'import' builtin
-  at ./internal/discover.nix:70:38:
-    69|   defaultInject = pkgs: let
-    70|     overlaid = pkgs.extend (import ((import ./gomod2nix.nix) + "/overlay.nix"));
+  at ./internal/discover.nix:73:38:
+    72|   defaultInject = pkgs: let
+    73|     overlaid = pkgs.extend (import ((import ./gomod2nix.nix) + "/overlay.nix"));
       |                                      ^
-    71|   in {
+    74|   in {
 
 … while evaluating the file './internal/gomod2nix.nix':
 
@@ -233,4 +233,4 @@ error:
       |   ^
     19|     type = "github";
 
-error: access to URI 'github:nix-community/gomod2nix/1201ddd1279c35497754f016ef33d5e060f3da8d?narHash=sha256-yBz9Ozd5Wb56i3e3cHZ8WcbzCQ9RlVaiW18qDYA/AzA%3D' is forbidden in restricted mode
+error: access to URI 'github:mzwing/gomod2nix/bbc0893e5708955f9da230e88a20562d67fa325e?narHash=sha256-NqK8A/MUJpcy61I3dNnqdgnm3Zq3fupitejMWqvoDec%3D' is forbidden in restricted mode
