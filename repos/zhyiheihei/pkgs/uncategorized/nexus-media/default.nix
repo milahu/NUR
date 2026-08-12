@@ -170,6 +170,7 @@ pkgs.python3Packages.buildPythonApplication (finalAttrs: {
     pyjwt
     pymysql
     pyquery
+    pyyaml
     pypushdeer
     python-dateutil
     python-hosts
@@ -198,6 +199,7 @@ pkgs.python3Packages.buildPythonApplication (finalAttrs: {
   ];
 
   nativeBuildInputs = [ makeWrapper ];
+  pythonEnv = python3.withPackages (_: finalAttrs.propagatedBuildInputs);
 
   dontWrapPythonPrograms = true;
   dontCheckRuntimeDeps = true;
@@ -207,11 +209,12 @@ pkgs.python3Packages.buildPythonApplication (finalAttrs: {
   postInstall = ''
     mkdir -p $out/bin $out/libexec/nexus-media $out/share/nexus-media
     cp ${finalAttrs.src}/run.py $out/libexec/nexus-media/run.py
+    cp -r ${finalAttrs.src}/src $out/libexec/nexus-media/src
     cp -r ${finalAttrs.src}/. $out/share/nexus-media/
-    makeWrapper ${python3.interpreter} $out/bin/nexus-media \
+    makeWrapper ${finalAttrs.pythonEnv.interpreter} $out/bin/nexus-media \
       --chdir $out/libexec/nexus-media \
       --run 'if [ -z "''${NEXUS_MEDIA_DATA:-}" ]; then export NEXUS_MEDIA_DATA="''${XDG_DATA_HOME:-$HOME/.local/share}/nexus-media"; fi; export NEXUS_MEDIA_CONFIG="''$NEXUS_MEDIA_DATA/config.yaml"; mkdir -p "''$NEXUS_MEDIA_DATA"' \
-      --set PROJECT_ROOT "$out/share/nexus-media" \
+      --set-default PROJECT_ROOT "$out/share/nexus-media" \
       --prefix PYTHONPATH : "$out/${python3.sitePackages}" \
       --add-flags "$out/libexec/nexus-media/run.py"
   '';

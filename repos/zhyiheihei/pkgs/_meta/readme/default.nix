@@ -23,7 +23,28 @@ let
   ];
 
   # Packages smoke-tested on aarch64 LubanCat-1 (home LAN).
-  testedPackages = [ ];
+  testedPackages = [
+    "aioshutil"
+    "cn2an"
+    "docker-proxy"
+    "docker-proxy-hubcmdui"
+    "filecodebox"
+    "jieba-next"
+    "moviepilot"
+    "nexus-media"
+    "pinyin2hanzi"
+    "proces"
+    "pypika-tortoise"
+    "pyromark"
+    "sublinkpro"
+    "sun-panel"
+    "tachidesk-server"
+    "telegramify-markdown"
+    "tortoise-orm"
+    "vaults3"
+    "vertex"
+    "zhconv-rs"
+  ];
 
   packageList =
     prefix: ps:
