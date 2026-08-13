@@ -10,12 +10,12 @@
 }:
 
 let
-  version = "0.21.0";
+  version = "0.23.0";
   src = fetchFromGitHub {
     owner = "wrvsrx";
     repo = "plumb";
     tag = version;
-    hash = "sha256-2NhpaNLTWSG8XI1BkUyEtwXk1ApRGAmZ+2DcceC8Btg=";
+    hash = "sha256-F6npfVsBw51SrjPzkBsyey1rMk42E9a5VPPAdPxeioY=";
   };
 
   generatedSource = stdenvNoCC.mkDerivation {
@@ -65,9 +65,13 @@ rustPlatform.buildRustPackage {
   pname = "plumb";
   inherit version src;
 
-  cargoHash = "sha256-BlB37dNrUC9USwklFw09RM/BNDjrNmmd6AeQiPUuxi4=";
+  cargoHash = "sha256-JxJzYAisF8gRjshdPiRmYv7c/7t6p6Fpr4C9vsjUP98=";
 
   nativeCheckInputs = [ pandoc ];
+
+  preCheck = ''
+    export PLUMB_CACHE_DIR="$TMPDIR/plumb-cache"
+  '';
 
   postInstall = ''
     mkdir -p $out/share/plumb
