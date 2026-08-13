@@ -6,14 +6,14 @@
   fetchPnpmDeps,
   pnpmConfigHook,
   nodejs,
-  electron_41,
+  electron_43,
   rustPlatform,
   cargo,
   rustc,
   python3,
   pkg-config,
   openssl,
-  ffmpeg,
+  ffmpeg-headless,
   alsa-lib,
   makeWrapper,
   copyDesktopItems,
@@ -22,19 +22,19 @@
   removeReferencesTo,
 }:
 let
-  electron = electron_41;
+  electron = electron_43;
   pnpm = pnpm_10;
   shareDir = "$out/share/SPlayer-Next";
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "splayer-next";
-  version = "";
+  version = "1.0.0";
 
   src = fetchFromGitHub {
     owner = "SPlayer-Dev";
     repo = "SPlayer-Next";
     tag = "v${finalAttrs.version}";
-    hash = "";
+    hash = "sha256-D2Ja/ZF5hKRVy/O33mCsl0iulYUqP/qRiQLjX0tl0dM=";
   };
 
   pnpmDeps = fetchPnpmDeps {
@@ -42,10 +42,11 @@ stdenv.mkDerivation (finalAttrs: {
       pname
       version
       src
+      prePatch
       ;
     inherit pnpm;
-    fetcherVersion = 3;
-    hash = "";
+    fetcherVersion = 4;
+    hash = "sha256-zCWX8N4VGZQirHjbseExOVdk4cjFUxJnjYwHFYbKWjM=";
   };
 
   cargoDeps = rustPlatform.fetchCargoVendor {
@@ -54,7 +55,7 @@ stdenv.mkDerivation (finalAttrs: {
       version
       src
       ;
-    hash = "";
+    hash = "sha256-iZtUPQ3yUomUNf6j+gV0HxcwsvjBPOVqwzwUvsP0CCY=";
   };
 
   nativeBuildInputs = [
@@ -69,23 +70,33 @@ stdenv.mkDerivation (finalAttrs: {
     makeWrapper
     copyDesktopItems
     pkg-config
+    removeReferencesTo
   ];
 
   buildInputs = [
     openssl
-    ffmpeg
+    ffmpeg-headless
     alsa-lib
-  ]
-  # make linker happy
-  ++ ffmpeg.buildInputs;
+  ];
 
-  ELECTRON_SKIP_BINARY_DOWNLOAD = "1";
-  CARGO_PROFILE_RELEASE_LTO = "false";
+  env = {
+    ELECTRON_SKIP_BINARY_DOWNLOAD = "1";
+    FFMPEG_MODE = "system";
+  };
+
+  strictDeps = true;
+  __structuredAttrs = true;
+
+  prePatch = ''
+    rm .npmrc
+  '';
 
   postPatch = ''
     # Workaround for https://github.com/electron/electron/issues/31121
     substituteInPlace electron/main/utils/nativeLoader.ts \
-      --replace-fail 'process.resourcesPath' "'${shareDir}/resources'";
+      --replace-fail 'process.resourcesPath' "'${shareDir}/resources'"
+
+    sed -i '/^[[:space:]]*\.atleast_version/d' "$cargoDepsCopy"/{.,*}/ffmpeg_audio_sys-*/build.rs
   '';
 
   buildPhase = ''
@@ -96,22 +107,23 @@ stdenv.mkDerivation (finalAttrs: {
     # script which is disallowed.
     # What's more, we need to use headers from electron to avoid ABI mismatches.
     for f in $(find . -path '*/node_modules/better-sqlite3' -type d); do
-        (cd "$f" && (
+      (cd "$f" && (
+        rm -rf prebuilds
         npm run build-release --offline --nodedir="${electron.headers}"
         rm -rf build/Release/{.deps,obj,obj.target,test_extension.node}
         find build -type f -exec \
-        ${lib.getExe removeReferencesTo} \
-        -t "${electron.headers}" {} \;
-        ))
+          remove-references-to -t "${electron.headers}" {} \;
+        )
+      )
     done
 
     pnpm build
 
     npm exec electron-builder -- \
-        --dir \
-        --config electron-builder.config.ts \
-        -c.electronDist=${electron.dist} \
-        -c.electronVersion=${electron.version}
+      --dir \
+      --config electron-builder.config.ts \
+      -c.electronDist=${electron.dist} \
+      -c.electronVersion=${electron.version}
 
     runHook postBuild
   '';
@@ -139,28 +151,28 @@ stdenv.mkDerivation (finalAttrs: {
 
   desktopItems = [
     (makeDesktopItem {
-      name = "splayer";
-      desktopName = "SPlayer Next";
+      name = "top.imsyy.splayer_next";
+      desktopName = "SPlayer-Next";
       exec = "SPlayer-Next %U";
       terminal = false;
       type = "Application";
       icon = "SPlayer-Next";
-      startupWMClass = "SPlayer Next";
-      comment = "A minimalist music player";
+      startupWMClass = "top.imsyy.splayer_next";
+      comment = "Cross-platform desktop music player with rich lyric support and wide audio format compatibility";
       categories = [
         "AudioVideo"
         "Audio"
         "Music"
       ];
-      # mimeTypes = [ "x-scheme-handler/orpheus" ];
-      # extraConfig.X-KDE-Protocols = "orpheus";
+      mimeTypes = [ "x-scheme-handler/orpheus" ];
+      extraConfig.X-KDE-Protocols = "orpheus";
     })
   ];
 
   passthru.updateScript = nix-update-script { extraArgs = [ "--use-github-releases" ]; };
 
   meta = {
-    description = "Simple Netease Cloud Music player";
+    description = "Cross-platform desktop music player with rich lyric support and wide audio format compatibility";
     homepage = "https://github.com/SPlayer-Dev/SPlayer-Next";
     changelog = "https://github.com/SPlayer-Dev/SPlayer-Next/releases/tag/v${finalAttrs.version}";
     license = lib.licenses.agpl3Only;
