@@ -14,18 +14,18 @@ error:
    123|         autoArgsFor name
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/customisation.nix:307:19:
-   306|     in
-   307|     autoArgs: fn: args:
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+   307|     in
+   308|     autoArgs: fn: args:
       |                   ^
-   308|     let
+   309|     let
 
 … while calling a functor (an attribute set with a '__functor' attribute)
-  at <nixpkgs> + /lib/customisation.nix:322:7:
-   321|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
-   322|       makeOverridable f allArgs
+  at <nixpkgs> + /lib/customisation.nix:323:7:
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   323|       makeOverridable f allArgs
       |       ^
-   323|     else
+   324|     else
 
 … from call site
   at <nixpkgs> + /lib/trivial.nix:1183:7:
@@ -35,32 +35,32 @@ error:
   1184|       __functionArgs = fArgs;
 
 … while calling 'f''
-  at <nixpkgs> + /lib/customisation.nix:158:9:
-   157|       f' =
-   158|         origArgs:
+  at <nixpkgs> + /lib/customisation.nix:159:9:
+   158|       f' =
+   159|         origArgs:
       |         ^
-   159|         let
+   160|         let
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/customisation.nix:174:9:
-   173|         in
-   174|         if isAttrs result then
+  at <nixpkgs> + /lib/customisation.nix:175:9:
+   174|         in
+   175|         if isAttrs result then
       |         ^
-   175|           result
+   176|           result
 
 … while calling the 'isAttrs' builtin
-  at <nixpkgs> + /lib/customisation.nix:174:12:
-   173|         in
-   174|         if isAttrs result then
+  at <nixpkgs> + /lib/customisation.nix:175:12:
+   174|         in
+   175|         if isAttrs result then
       |            ^
-   175|           result
+   176|           result
 
 … from call site
-  at <nixpkgs> + /lib/customisation.nix:160:20:
-   159|         let
-   160|           result = f origArgs;
+  at <nixpkgs> + /lib/customisation.nix:161:20:
+   160|         let
+   161|           result = f origArgs;
       |                    ^
-   161|
+   162|
 
 … while calling anonymous lambda
   at ./pkgs/cliproxyapiplus/default.nix:1:1:
@@ -125,18 +125,18 @@ error:
    273|
 
 … while calling 'nixpkgsFun'
-  at <nixpkgs> + /pkgs/top-level/default.nix:206:16:
-   205|   # experience here.)
-   206|   nixpkgsFun = newArgs: import ./. (args // newArgs);
+  at <nixpkgs> + /pkgs/top-level/default.nix:195:16:
+   194|   # experience here.)
+   195|   nixpkgsFun = newArgs: import ./. (args // newArgs);
       |                ^
-   207|
+   196|
 
 … from call site
-  at <nixpkgs> + /pkgs/top-level/default.nix:206:25:
-   205|   # experience here.)
-   206|   nixpkgsFun = newArgs: import ./. (args // newArgs);
+  at <nixpkgs> + /pkgs/top-level/default.nix:195:25:
+   194|   # experience here.)
+   195|   nixpkgsFun = newArgs: import ./. (args // newArgs);
       |                         ^
-   207|
+   196|
 
 … while calling anonymous lambda
   at <nixpkgs> + /pkgs/top-level/default.nix:21:1:
@@ -146,11 +146,11 @@ error:
     22|   # The system packages will be built on. See the manual for the
 
 … from call site
-  at <nixpkgs> + /pkgs/top-level/default.nix:113:6:
-   112|   checked =
-   113|     (throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list.")
+  at <nixpkgs> + /pkgs/top-level/default.nix:108:6:
+   107|   checked =
+   108|     (throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list.")
       |      ^
-   114|       (throwIfNot (lib.all lib.isFunction overlays) "All overlays passed to nixpkgs must be functions.")
+   109|       (throwIfNot (lib.all lib.isFunction overlays) "All overlays passed to nixpkgs must be functions.")
 
 … while calling anonymous lambda
   at <nixpkgs> + /lib/trivial.nix:982:40:
@@ -160,11 +160,11 @@ error:
    983|
 
 … from call site
-  at <nixpkgs> + /pkgs/top-level/default.nix:114:8:
-   113|     (throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list.")
-   114|       (throwIfNot (lib.all lib.isFunction overlays) "All overlays passed to nixpkgs must be functions.")
+  at <nixpkgs> + /pkgs/top-level/default.nix:109:8:
+   108|     (throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list.")
+   109|       (throwIfNot (lib.all lib.isFunction overlays) "All overlays passed to nixpkgs must be functions.")
       |        ^
-   115|       (throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list.")
+   110|       (throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list.")
 
 … while calling 'throwIfNot'
   at <nixpkgs> + /lib/trivial.nix:982:22:
@@ -181,11 +181,11 @@ error:
    983|
 
 … while calling the 'all' builtin
-  at <nixpkgs> + /pkgs/top-level/default.nix:114:20:
-   113|     (throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list.")
-   114|       (throwIfNot (lib.all lib.isFunction overlays) "All overlays passed to nixpkgs must be functions.")
+  at <nixpkgs> + /pkgs/top-level/default.nix:109:20:
+   108|     (throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list.")
+   109|       (throwIfNot (lib.all lib.isFunction overlays) "All overlays passed to nixpkgs must be functions.")
       |                    ^
-   115|       (throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list.")
+   110|       (throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list.")
 
 … while calling anonymous lambda
   at <nixpkgs> + /lib/trivial.nix:1131:5:

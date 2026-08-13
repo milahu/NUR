@@ -1,106 +1,111 @@
 error:
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/lib/customisation.nix:267:17:
-
-   266|     in commonAttrs // {
-   267|       drvPath = assert condition; drv.drvPath;
-      |                 ^
-   268|       outPath = assert condition; drv.outPath;
-
-… from call site
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/make-derivation.nix:535:14:
-
-   534|   meta = checkMeta.commonMeta { inherit validity attrs pos references; };
-   535|   validity = checkMeta.assertValidity { inherit meta attrs; };
-      |              ^
-   536|
-
-… while calling 'assertValidity'
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:484:20:
-
-   483|
-   484|   assertValidity = { meta, attrs }: let
-      |                    ^
-   485|       validity = checkValidity attrs;
-
-… from call site
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:485:18:
-
-   484|   assertValidity = { meta, attrs }: let
-   485|       validity = checkValidity attrs;
-      |                  ^
-   486|       inherit (validity) valid;
-
-… while calling 'checkValidity'
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:385:19:
-
-   384|   # Along with a boolean flag for each reason
-   385|   checkValidity = attrs:
-      |                   ^
-   386|     # Check meta attribute types first, to make sure it is always called even when there are other issues
-
-… from call site
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:404:13:
-
-   403|     # --- Put checks that can be ignored here ---
-   404|     else if hasDeniedUnfreeLicense attrs && !(hasAllowlistedLicense attrs) then
+… in the condition of the assert statement
+  at <nixpkgs> + /lib/customisation.nix:417:13:
+   416|           drvPath =
+   417|             assert condition;
       |             ^
-   405|       { valid = "no"; reason = "unfree"; errormsg = "has an unfree license (‘${showLicense attrs.meta.license}’)"; }
-
-… while calling 'hasDeniedUnfreeLicense'
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:113:28:
-
-   112|   # `allowUnfreePredicate` function.
-   113|   hasDeniedUnfreeLicense = attrs:
-      |                            ^
-   114|     hasUnfreeLicense attrs &&
+   418|             drv.drvPath;
 
 … from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:983:18:
+   982|       };
+   983|       validity = assertValidity { inherit meta attrs; };
+      |                  ^
+   984|
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:114:5:
-
-   113|   hasDeniedUnfreeLicense = attrs:
-   114|     hasUnfreeLicense attrs &&
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:747:5:
+   746|     in
+   747|     { meta, attrs }:
       |     ^
-   115|     !allowUnfree &&
+   748|     let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:752:5:
+   751|     in
+   752|     if invalid == null then
+      |     ^
+   753|       if problems == null then
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:749:17:
+   748|     let
+   749|       invalid = checkValidity' attrs;
+      |                 ^
+   750|       problems = checkProblems attrs;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:448:5:
+   447|     in
+   448|     attrs:
+      |     ^
+   449|     if !attrs ? meta then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:472:10:
+   471|     # --- Put checks that can be ignored here ---
+   472|     else if hasDeniedUnfreeLicense attrs && !(nonEmptyAllowList && hasAllowlistedLicense attrs) then
+      |          ^
+   473|       {
+
+… in the left operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:472:42:
+   471|     # --- Put checks that can be ignored here ---
+   472|     else if hasDeniedUnfreeLicense attrs && !(nonEmptyAllowList && hasAllowlistedLicense attrs) then
+      |                                          ^
+   473|       {
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:472:13:
+   471|     # --- Put checks that can be ignored here ---
+   472|     else if hasDeniedUnfreeLicense attrs && !(nonEmptyAllowList && hasAllowlistedLicense attrs) then
+      |             ^
+   473|       {
 
 … while calling 'hasUnfreeLicense'
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:89:22:
-
-    88|
-    89|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:133:22:
+   132|
+   133|   hasUnfreeLicense = attrs: attrs ? meta.license && isUnfree attrs.meta.license;
       |                      ^
-    90|
+   134|
+
+… in the right operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:133:50:
+   132|
+   133|   hasUnfreeLicense = attrs: attrs ? meta.license && isUnfree attrs.meta.license;
+      |                                                  ^
+   134|
 
 … from call site
-
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:89:49:
-
-    88|
-    89|   hasUnfreeLicense = attrs: hasLicense attrs && isUnfree attrs.meta.license;
-      |                                                 ^
-    90|
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:133:53:
+   132|
+   133|   hasUnfreeLicense = attrs: attrs ? meta.license && isUnfree attrs.meta.license;
+      |                                                     ^
+   134|
 
 … while calling 'isUnfree'
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:117:5:
+   116|   isUnfree =
+   117|     licenses:
+      |     ^
+   118|     # ? is non-strict in its type, so it doubles as performing an isAttrs check
 
-  at /nix/store/qj4mpzbis3syryphw71ywc8av4hhzp6y-source/pkgs/stdenv/generic/check-meta.nix:80:14:
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:119:5:
+   118|     # ? is non-strict in its type, so it doubles as performing an isAttrs check
+   119|     if licenses ? licenseType then
+      |     ^
+   120|       !(isFree licenses)
 
-    79|
-    80|   isUnfree = licenses:
-      |              ^
-    81|     if isAttrs licenses then !licenses.free or true
+… while evaluating the attribute 'meta.license'
+  at ./pkgs/jicofo/default.nix:39:5:
+    38|     homepage = "https://github.com/jitsi/jicofo";
+    39|     license = licenses.asl20;
+      |     ^
+    40|     maintainers = with maintainers; [ mmilata ];
 
 error: attribute 'lib' missing
-
-at /nix/store/rf03vbaipy1d6ggv662qn8dnc5ks2m9r-source/pkgs/jicofo/default.nix:33:15:
-
+at ./pkgs/jicofo/default.nix:33:15:
     32|
     33|   meta = with stdenv.lib; {
       |               ^
