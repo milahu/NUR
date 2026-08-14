@@ -16,6 +16,7 @@
   osu-tachyon = lib.callPackage ./pkgs/osu-tachyon {};
   moonplayer = lib.callPackage ./pkgs/moonplayer {};
   noisetorch = lib.callPackage ./pkgs/noisetorch {};
+  altersend = lib.callPackage ./pkgs/altersend {};
   equicord = lib.callPackage ./pkgs/equicord {};
   wg-nord = lib.callPackage ./pkgs/wg-nord {};
   sonixd = lib.callPackage ./pkgs/sonixd {};
@@ -54,6 +55,7 @@
   roblox = lib.callPackage ./pkgs/roblox {};
   figura = lib.callPackage ./pkgs/figura {};
   achico = lib.callPackage ./pkgs/achico {};
+  macsai = lib.callPackage ./pkgs/macsai {};
   nuvio = lib.callPackage ./pkgs/nuvio {};
   orca = lib.callPackage ./pkgs/orca {};
   muxy = lib.callPackage ./pkgs/muxy {};
