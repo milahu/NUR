@@ -1,4 +1,6 @@
-# pi-web: Web UI for persistent Pi Coding Agent sessions in real workspaces.
+# pi-web (jmfederico): Web UI for persistent Pi Coding Agent sessions in
+# real workspaces. The original pi-web (jmfederico lineage, 1.202608.x);
+# agegr's lineage is pkgs/pi-web.
 # Built from source (the NUR norm): tsc + vite build, node-pty compiled
 # against the nix nodejs. Peer dependencies (@earendil-works/pi-coding-agent
 # etc.) are pulled in by npm, so the `pi` binary comes along for free.
@@ -9,8 +11,8 @@ let
   src0 = fetchFromGitHub {
     owner = "jmfederico";
     repo = "pi-web";
-    rev = "v1.202608.0";
-    hash = "sha256-86OnGL+K6Y/EPRziQ1CMfX2kafqhOWb2auX+5yViatI=";
+    rev = "v1.202608.1";
+    hash = "sha256-Py60R6rzcn7KnX5f2jF341Qn8nNq1YuE6zUUpjknzK4=";
   };
   src = applyPatches {
     src = src0;
@@ -25,8 +27,8 @@ let
   };
 in
 buildNpmPackage rec {
-  pname = "pi-web";
-  version = "1.202608.0";
+  pname = "pi-web-jmfederico";
+  version = "1.202608.1";
 
   inherit src;
 
@@ -34,7 +36,7 @@ buildNpmPackage rec {
 
   npmDeps = fetchNpmDeps {
     inherit src;
-    hash = "sha256-n399bP48bp8JNWzroftJNc35AYUjhpIi/7Qpl/3ylKE=";
+    hash = "sha256-ZD/NoDWv7MG/BRD3k5WiVDpkffcQSjfZw/i67M8spgM=";
   };
 
   # node-pty (runtime dep) compiles against the nix nodejs during npm rebuild.
