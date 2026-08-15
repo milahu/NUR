@@ -7,22 +7,23 @@
 
 let
   inherit (lib)
+    mkEnableOption
     mkDefault
     mkIf
     const
     genAttrs
     ;
-  inherit (lib.abszero.modules) mkExternalEnableOption;
   cfg = config.abszero.profiles.base;
 in
 
 {
-  imports = [ ../../../lib/modules/config/abszero.nix ];
-
-  options.abszero.profiles.base.enable = mkExternalEnableOption config "base profile";
+  options.abszero.profiles.base.enable = mkEnableOption "base profile";
 
   config = mkIf cfg.enable {
-    abszero.boot.quiet = true;
+    abszero = {
+      boot.quiet = true;
+      services.tailscale.enable = true;
+    };
 
     nix = {
       package = pkgs.nixVersions.latest;
@@ -64,7 +65,7 @@ in
     nixpkgs.config.allowUnfree = true;
 
     system = {
-      stateVersion = "26.05";
+      stateVersion = "26.11";
       nixos-init.enable = true; # Initialise system with a Rust program
       etc.overlay.enable = true; # Mount /etc as overlay; required for nixos-init
     };
@@ -124,6 +125,16 @@ in
       packages = with pkgs; [ terminus_font ];
     };
 
+    networking = {
+      nftables.enable = true;
+      nameservers = [
+        "2606:4700:4700::1111" # Cloudflare
+        "2620:fe::fe" # Quad9
+        "1.1.1.1" # Cloudflare
+        "9.9.9.9" # Quad9
+      ];
+    };
+
     security.sudo-rs = {
       enable = true;
       wheelNeedsPassword = mkDefault false;
@@ -131,12 +142,18 @@ in
     };
 
     services = {
-      dbus.implementation = "broker";
       journald.console = "/dev/tty10";
       userborn.enable = true; # Manage users with userborn; required for nixos-init
     };
 
     # Allow unfree packages
-    environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
+    environment = {
+      sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
+      systemPackages = with pkgs; [
+        dnsutils
+        jq
+        wget
+      ];
+    };
   };
 }

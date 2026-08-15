@@ -1,20 +1,19 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkIf mkForce;
-  inherit (lib.abszero.modules) mkExternalEnableOption;
+  inherit (lib) mkEnableOption mkIf mkForce;
+  inherit (config.lib.catppuccin) toTitleCase;
   cfg = config.abszero.themes.catppuccin;
 in
 
 {
   imports = [
     ../../../../lib/modules/themes/catppuccin/catppuccin.nix
-    ../base/ghostty.nix
+    ../base/ghostty
     ./fonts.nix
   ];
 
-  options.abszero.themes.catppuccin.ghostty.enable =
-    mkExternalEnableOption config "Ghostty terminal emulator";
+  options.abszero.themes.catppuccin.ghostty.enable = mkEnableOption "Ghostty terminal emulator";
 
   config = mkIf cfg.ghostty.enable {
     abszero.themes = {
@@ -28,7 +27,7 @@ in
     programs.ghostty = {
       settings = {
         theme = mkIf cfg.useSystemPolarity (
-          mkForce "light:catppuccin-${cfg.lightFlavor}, dark:catppuccin-${cfg.darkFlavor}"
+          mkForce "light:Catppuccin ${toTitleCase cfg.lightFlavor}, dark:Catppuccin ${toTitleCase cfg.darkFlavor}"
         );
         font-family = "Iosevka Inconsolata";
         font-size = 13;

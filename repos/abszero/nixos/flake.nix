@@ -5,7 +5,7 @@
     # Repos
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-cachyos-kernel = {
-      url = "github:xddxdd/nix-cachyos-kernel";
+      url = "github:xddxdd/nix-cachyos-kernel/release";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
@@ -32,6 +32,10 @@
         flake-parts.follows = "flake-parts";
       };
     };
+    charmbracelet = {
+      url = "github:charmbracelet/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Utils
     flake-parts = {
@@ -43,11 +47,18 @@
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     lanzaboote = {
       # # Fork that adds an UKI mode
       # url = "github:linyinfeng/lanzaboote/uki";
@@ -67,22 +78,22 @@
       ...
     }@inputs:
     let
-      extendedLib = nixpkgs.lib.extend (
-        _: _: {
-          abszero = import ../lib {
-            inherit (nixpkgs) lib;
-          };
-        }
-      );
+      libAbszero = import ../lib { inherit (nixpkgs) lib; };
+      lib = nixpkgs.lib.extend (_: _: { abszero = libAbszero; });
+      inherit (lib.abszero.filesystem) toModuleList;
     in
     flake-parts.lib.mkFlake
       {
         inherit inputs;
-        specialArgs.lib = extendedLib;
+        specialArgs = { inherit lib; };
       }
       {
-        imports = [ ./flake-module.nix ];
+        imports = toModuleList ./flake-modules;
 
-        systems = [ "x86_64-linux" ];
+        systems = [
+          "x86_64-linux"
+          "aarch64-darwin"
+          "aarch64-linux"
+        ];
       };
 }

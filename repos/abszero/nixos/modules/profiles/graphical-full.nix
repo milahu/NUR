@@ -7,16 +7,14 @@
 }:
 
 let
-  inherit (lib) mkIf;
-  inherit (lib.abszero.modules) mkExternalEnableOption;
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.abszero.profiles.graphical-full;
 in
 
 {
   imports = [ ./graphical.nix ];
 
-  options.abszero.profiles.graphical-full.enable =
-    mkExternalEnableOption config "graphical-full profile";
+  options.abszero.profiles.graphical-full.enable = mkEnableOption "graphical-full profile";
 
   config = mkIf cfg.enable {
     abszero = {
@@ -39,7 +37,10 @@ in
       };
     };
 
-    nixpkgs.config.permittedInsecurePackages = [ "ventoy-1.1.12" ];
+    nixpkgs.config.permittedInsecurePackages = [
+      "idea-oss-2025.3.4"
+      "ventoy-1.1.12" # Chronic
+    ];
 
     hardware.keyboard.qmk.enable = true;
 
@@ -60,6 +61,7 @@ in
     environment = {
       defaultPackages = [ ];
       systemPackages = with pkgs; [
+        _7zip-zstd-rar
         anki-wayland
         aseprite
         ayugram-desktop
@@ -72,10 +74,9 @@ in
         inkscape
         inotify-tools
         jetbrains.idea-oss
-        jq
         kooha
         libreoffice-qt
-        # lutris
+        lutris
         minefair
         nautilus
         nudoku
@@ -84,7 +85,7 @@ in
         proton-vpn
         taisei
         tenacity
-        unzip
+        tetrio-desktop
         vial
         ventoy-full
         vesktop
@@ -92,10 +93,9 @@ in
         waydroid-helper
         waypipe
         wev
-        wget
+        wl-clipboard-rs
         xeyes
         ytmdesktop
-        zip
         zotero
       ];
     };

@@ -7,15 +7,14 @@
 }:
 
 let
-  inherit (lib) mkIf;
-  inherit (lib.abszero.modules) mkExternalEnableOption;
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.abszero.profiles.graphical;
 in
 
 {
   imports = [ ./base.nix ];
 
-  options.abszero.profiles.graphical.enable = mkExternalEnableOption config "graphical profile";
+  options.abszero.profiles.graphical.enable = mkEnableOption "graphical profile";
 
   config = mkIf cfg.enable {
     abszero = {
@@ -32,13 +31,6 @@ in
     };
 
     networking = {
-      nameservers = [
-        "1.1.1.1" # Cloudflare
-        "1.0.0.1" # Cloudflare
-        "9.9.9.9" # Quad9
-        "149.112.112.112" # Quad9
-      ];
-      search = [ "~." ]; # Always use global name servers (shouldn't affect VPNs)
       dhcpcd.enable = false;
       networkmanager = {
         enable = true;
@@ -67,17 +59,16 @@ in
       automatic-timezoned.enable = true;
       kmscon = {
         enable = true;
-        hwRender = true;
-        extraConfig = ''
+        config = {
           # Input
-          xkb-repeat-rate=40
-          xkb-repeat-delay=160
-          # mouse TODO: enable mouse support when it lands
+          xkb-repeat-rate = 40;
+          xkb-repeat-delay = 160;
 
           # Appearance
-          font-size=18
-          palette=base16-light
-        '';
+          font-size = 24;
+          palette = "base16-light";
+          hwaccel = true;
+        };
       };
       libinput = {
         enable = true;
@@ -90,10 +81,12 @@ in
       resolved = {
         enable = true;
         settings.Resolve = {
-          FallbackDNS = []; # Disable fallback DNS
-          DNSOverTLS = "true";
-          DNSSEC = "true";
-          LLMNR = "false"; # For security
+          FallbackDNS = [ ]; # Disable fallback DNS
+          # Always use global name servers (shouldn't affect VPNs)
+          Domains = config.networking.search ++ [ "~." ];
+          DNSOverTLS = true;
+          DNSSEC = true;
+          LLMNR = false; # For security
         };
       };
       scx = {
@@ -105,7 +98,7 @@ in
 
     xdg.terminal-exec = {
       enable = true;
-      settings.default = [ "foot.desktop" ];
+      settings.default = [ "ghostty.desktop" ];
     };
 
     programs = {

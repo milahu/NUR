@@ -1,19 +1,24 @@
 { config, lib, ... }:
 
 let
-  inherit (lib) mkIf;
-  inherit (lib.abszero.modules) mkExternalEnableOption;
+  inherit (lib) mkEnableOption mkIf mkDefault;
   cfg = config.abszero.themes.base.pointerCursor;
 in
 
 {
-  imports = [ ../../../../lib/modules/config/abszero.nix ];
+  options.abszero.themes.base.pointerCursor.enable = mkEnableOption "base cursor theme";
 
-  options.abszero.themes.base.pointerCursor.enable =
-    mkExternalEnableOption config "base cursor theme";
-
-  config.programs.niri.settings.cursor = mkIf cfg.enable {
-    theme = config.home.pointerCursor.name;
-    size = config.home.pointerCursor.size;
+  config = mkIf cfg.enable {
+    home.pointerCursor = {
+      enable = true;
+      size = mkDefault 48;
+      gtk.enable = true;
+      hyprcursor.enable = true;
+      x11.enable = true;
+    };
+    programs.niri.settings.cursor = {
+      theme = config.home.pointerCursor.name;
+      size = config.home.pointerCursor.size;
+    };
   };
 }

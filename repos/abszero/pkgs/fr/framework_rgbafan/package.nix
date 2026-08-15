@@ -10,13 +10,13 @@
 
 rustPlatform.buildRustPackage {
   pname = "framework_rgbafan";
-  version = "0-unstable-2026-04-03";
+  version = "0-unstable-2026-06-11";
 
   src = fetchFromGitHub {
     owner = "jazz-g";
     repo = "framework_rgbafan";
-    rev = "7601db5018888c8d9b4f2321160cccfa5f61fc53";
-    hash = "sha256-Eg4CpqdmkChPA0tQmlxkDHpM3BYUKBf6YEA+YN3xPgM=";
+    rev = "9863c12c706990eeef8b18b22ac0add7b5220c18";
+    hash = "sha256-2CDGHWTj03qLrhu1DAO/ysTPqblJSlkRCMpda4fGqgc=";
   };
 
   cargoLock = {
@@ -33,7 +33,10 @@ rustPlatform.buildRustPackage {
   buildInputs = [ systemdLibs.dev ]; # For libudev.pc
 
   patchPhase = ''
-    substituteInPlace src/consts.rs --replace-fail "N_LEDS: u8 = 8" "N_LEDS: u8 = ${toString nLeds}"
+    substituteInPlace src/consts.rs \
+      --replace-fail "N_LEDS: usize = 8" "N_LEDS: usize = ${toString nLeds}" \
+      --replace-fail "RAINBOW: [RgbS; N_LEDS]" "RAINBOW: [RgbS; 8]"
+    substituteInPlace src/effects.rs --replace-fail "SPINFADE_SCALES: [f32; N_LEDS]"  "SPINFADE_SCALES: [f32; 8]"
   '';
 
   meta = {
@@ -41,6 +44,6 @@ rustPlatform.buildRustPackage {
     homepage = "https://github.com/jazz-g/framework_rgbafan";
     license = lib.licenses.gpl3Only;
     maintainers = with lib.maintainers; [ weathercold ];
-    mainProgram = "framework_rgbafan";
+    mainProgram = "framework_rgbafan_daemon";
   };
 }

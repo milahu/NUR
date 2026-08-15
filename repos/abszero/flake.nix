@@ -10,7 +10,7 @@
     # Repos
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-cachyos-kernel = {
-      url = "github:xddxdd/nix-cachyos-kernel";
+      url = "github:xddxdd/nix-cachyos-kernel/release";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
@@ -24,7 +24,7 @@
       };
     };
     niri = {
-      url = "github:sodiboo/niri-flake/27e012b";
+      url = "github:sodiboo/niri-flake";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nixpkgs-stable.follows = "nixpkgs";
@@ -44,6 +44,14 @@
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
       };
+    };
+    charmbracelet = {
+      url = "github:charmbracelet/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     # bocchi-cursors = {
     #   url = "github:Weathercold/Bocchi-Cursors";
@@ -70,11 +78,18 @@
         flake-compat.follows = "flake-compat";
       };
     };
+    sops = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     lanzaboote = {
       # # Fork that adds an UKI mode
       # url = "github:linyinfeng/lanzaboote/uki";
@@ -89,10 +104,6 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -104,20 +115,22 @@
     }@inputs:
 
     let
-      lib = import ./lib { inherit (nixpkgs) lib; };
-      extLib = nixpkgs.lib.extend (_: _: { abszero = lib; });
+      libAbszero = import ./lib { inherit (nixpkgs) lib; };
+      lib = nixpkgs.lib.extend (_: _: { abszero = libAbszero; });
+      inherit (lib) flatten;
+      inherit (lib.abszero.filesystem) toModuleList;
     in
 
     flake-parts.lib.mkFlake
       {
         inherit inputs;
-        specialArgs.lib = extLib;
+        specialArgs = { inherit lib; };
       }
       {
-        imports = [
+        imports = flatten [
           ./pkgs/flake-module.nix
-          ./nixos/flake-module.nix
-          ./home/flake-module.nix
+          (toModuleList ./nixos/flake-modules)
+          (toModuleList ./home/flake-modules)
         ];
 
         # Expose flake-parts options for nixd
@@ -132,7 +145,6 @@
 
         systems = [
           "x86_64-linux"
-          "x86_64-darwin"
           "aarch64-darwin"
           "aarch64-linux"
         ];
