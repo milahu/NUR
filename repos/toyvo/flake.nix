@@ -1,19 +1,6 @@
 {
   description = "Collin Diekvoss Nix Configurations and NUR packages";
 
-  nixConfig = {
-    extra-substituters = [
-      "https://cache.nixos.org"
-      "https://nix-community.cachix.org"
-      "https://cache.toyvo.dev"
-    ];
-    extra-trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "cache.toyvo.dev:6bv4Qc2/SVaWnWzDOUcoB4pT3i3l4wcM+WrhRBFb7E4="
-    ];
-  };
-
   inputs = {
     apple-silicon-support.url = "github:tpwrules/nixos-apple-silicon";
     catppuccin.url = "github:catppuccin/nix";
@@ -382,7 +369,13 @@
               // lib.mapAttrs' (n: lib.nameValuePair "devShells-${n}") (
                 lib.filterAttrs (n: v: self.lib.isCacheable v) self'.devShells
               )
-              // (deploy-rs-checks.${system} or { });
+              // (deploy-rs-checks.${system} or { })
+              // {
+                # Aggregate of every check. Excludes itself by name to avoid infinite recursion.
+                all = pkgs.runCommand "checks-all" {
+                  buildInputs = builtins.attrValues (builtins.removeAttrs config.checks [ "all" ]);
+                } "touch $out";
+              };
           };
       }
     );

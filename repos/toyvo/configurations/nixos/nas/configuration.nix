@@ -97,6 +97,11 @@ in
   hardware.cpu.amd.updateMicrocode = true;
   networking = {
     hostName = "nas";
+    # Resolve the cache domain via the router over LAN. The nas itself is
+    # excluded from using it as a substituter (nixcfg.nix.excludeOwnCache),
+    # but trusted users and CI can still pick it up from this flake's public
+    # nixConfig, and the WAN path back in (hairpin) is broken.
+    hosts."${homelab.router.ip}" = [ "cache.toyvo.dev" ];
     firewall = {
       allowedTCPPorts = [
         80
@@ -104,6 +109,7 @@ in
         443
         5432
         8080
+        3000 # forgejo
         8642 # hermes-agent API (reachable from open-webui container via veth)
         9119 # hermes-dashboard
         8787 # hermes-webui
@@ -184,6 +190,46 @@ in
         PORT = homelab.${hostName}.services.discord_bot.port;
         BASE_URL = "https://toyvo.dev";
       };
+    };
+    forgejo = {
+      enable = true;
+      stateDir = "/mnt/POOL/forgejo";
+      database.type = "postgres";
+      settings = {
+        server = {
+          DOMAIN = "git.diekvoss.net";
+          ROOT_URL = "https://git.diekvoss.net/";
+          HTTP_PORT = homelab.${hostName}.services.forgejo.port;
+        };
+        # accounts are created by the admin via CLI, or log in via OAuth
+        service.DISABLE_REGISTRATION = true;
+      };
+    };
+    # Forgejo Actions runner (act runner works with both gitea and forgejo).
+    # Jobs run directly on the host so builds share the system nix store.
+    gitea-actions-runner.instances.nas = {
+      enable = true;
+      name = "nas";
+      url = "https://git.diekvoss.net";
+      tokenFile = config.sops.templates."forgejo-runner-token.env".path;
+      labels = [
+        "native:host"
+        "nix-latest:docker://nixos/nix"
+      ];
+      hostPackages = with pkgs; [
+        bash
+        cachix
+        config.nix.package
+        coreutils
+        curl
+        gawk
+        git
+        gnugrep
+        gnused
+        jq
+        nodejs
+        wget
+      ];
     };
     homepage-dashboard.enable = true;
     nix-serve = {
@@ -488,6 +534,14 @@ in
     "PATH=/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/etc/profiles/per-user/hermes/bin:/mnt/POOL/hermes/.nix-profile/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   ];
 
+  # Bare registration token from
+  # Forgejo Site Administration -> Actions -> Runners -> Create new runner.
+  # The template wraps it into the TOKEN= env file the runner module expects,
+  # so the secret can't accidentally be stored in the wrong format.
+  sops.secrets."forgejo-runner-token" = { };
+  sops.templates."forgejo-runner-token.env".content = ''
+    TOKEN=${config.sops.placeholder.forgejo-runner-token}
+  '';
   sops.secrets."hermes.env".owner = "hermes";
   sops.secrets."signal-cli.env".owner = "signal-cli";
   sops.secrets."cache-priv-key.pem" = { };
@@ -610,4 +664,5 @@ in
       toyvo
     ];
   };
+  zramSwap.enable = true;
 }
