@@ -8,11 +8,24 @@
 
 { pkgs ? import <nixpkgs> { } }:
 
+let
+  maintainer = {
+    github = "Adamekka";
+    githubId = 68786400;
+    name = "Adamekka";
+  };
+in
 {
-  # The `lib`, `modules`, and `overlay` names are special
-  lib = import ./lib { inherit pkgs; }; # functions
-  modules = import ./modules; # NixOS modules
-  overlays = import ./overlays; # nixpkgs overlays
+  lib = import ./lib { inherit pkgs; };
+  modules = import ./modules;
+  overlays = import ./overlays;
 
-  dotfile-manager = pkgs.callPackage ./pkgs/dotfile-manager { };
+  # MARK: Packages
+
+  gdstash = pkgs.callPackage ./pkgs/gdstash { inherit maintainer; };
+  github-desktop = pkgs.callPackage ./pkgs/github-desktop { inherit maintainer; };
+  lsfg-vk-git = pkgs.callPackage ./pkgs/lsfg-vk-git { inherit maintainer; };
+  lunar-tear = pkgs.callPackage ./pkgs/lunar-tear { inherit maintainer; };
+  rpcs3-git = pkgs.callPackage ./pkgs/rpcs3-git { inherit maintainer; };
+  wondershaper = pkgs.callPackage ./pkgs/wondershaper { inherit maintainer; };
 }

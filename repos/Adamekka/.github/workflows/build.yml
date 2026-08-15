@@ -6,7 +6,9 @@ on:
       - main
       - master
   schedule:
-    - cron: "00 4 * * *"
+    # Rebuild everyday at 10:00
+    - cron: "00 10 * * *"
+  workflow_dispatch:
 jobs:
   tests:
     strategy:
@@ -16,15 +18,13 @@ jobs:
         cachixName:
           - adamekka
         nixPath:
-          - nixpkgs=channel:nixos-unstable
-          - nixpkgs=channel:nixpkgs-unstable
-          - nixpkgs=channel:nixos-23.05
+          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable.tar.gz
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Install nix
-        uses: cachix/install-nix-action@v23
+        uses: cachix/install-nix-action@630ae543ea3a38a9a4166f03376c02c50f408342 # v31.11.0
         with:
           nix_path: "${{ matrix.nixPath }}"
           extra_nix_config: |
@@ -33,7 +33,7 @@ jobs:
       - name: Show nixpkgs version
         run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
       - name: Setup cachix
-        uses: cachix/cachix-action@v12
+        uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71 # v17
         # Don't replace <YOUR_CACHIX_NAME> here!
         if: ${{ matrix.cachixName != '<YOUR_CACHIX_NAME>' }}
         with:
