@@ -1,8 +1,10 @@
-name: "Update source and create PR"
+name: "Update source"
 on:
   schedule:
     - cron:  '0 3,15 * * *'
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   updates:
     runs-on: ubuntu-latest
@@ -16,6 +18,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v4.2.2
       with:
+        ref: staging
         token: ${{ steps.app-token.outputs.token }}
         persist-credentials: false
     - name: Install nix
@@ -36,6 +39,15 @@ jobs:
       run: nix run github:berberman/nvfetcher
     - name: update docs
       run: nix run .#docs
+
+    # Opens (or updates) a PR against staging rather than pushing directly.
+    # sign-commits creates the commit through the API under the app's own
+    # identity (auscyber-bot[bot]), rather than whatever local git config
+    # says -- staging is allowed to be transiently red, that's the point of
+    # it, and build.yml's `pull_request`/`push: staging` triggers pick this
+    # up either way. A GitHub App token (not GITHUB_TOKEN) is used so this
+    # can trigger build.yml at all -- GitHub blocks GITHUB_TOKEN-authored
+    # pushes from triggering other workflows.
     - name: Create Pull Request
       id: cpr
       uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
@@ -44,6 +56,7 @@ jobs:
         commit-message: "update source"
         title: "update source"
         branch: update-nvfetcher
+        base: staging
         sign-commits: true
     - name: Enable auto-merge
       if: steps.cpr.outputs.pull-request-number
