@@ -40,12 +40,12 @@
 }:
 
 stdenv.mkDerivation rec {
-  pname = "binance";
-  version = "latest";
+  pname = "streambert";
+  version = "2.6.0";
 
   src = fetchurl {
-    url = "https://download.binance.com/electron-desktop/linux/production/binance-amd64-linux.deb";
-    sha256 = "024snny1i34zg1r0qgyakkm8s1vlwr22igvrjj3vyv55fs5lrkr5";
+    url = "https://github.com/truelockmc/streambert/releases/download/${version}/streambert_${version}_amd64.deb";
+    sha256 = "sha256-QfmrSVrZdmyHnh7lTqDTWa4G7YXtDSONUFeZnw4xomI=";
   };
 
   nativeBuildInputs = [
@@ -93,25 +93,29 @@ stdenv.mkDerivation rec {
     dpkg -x $src .
   '';
 
+  dontConfigure = true;
+  dontBuild = true;
+
   installPhase = ''
     mkdir -p $out/bin $out/opt $out/share
 
-    cp -r opt/Binance $out/opt/
+    cp -r opt/Streambert $out/opt/
     cp -r usr/share/* $out/share/
 
-    makeWrapper $out/opt/Binance/binance $out/bin/binance \
-      --add-flags "--disable-gpu"
-      
-    substituteInPlace $out/share/applications/binance.desktop \
-      --replace "/opt/Binance/binance" "$out/bin/binance"
+    makeWrapper $out/opt/Streambert/streambert $out/bin/streambert \
+        --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ libglvnd ]}" \
+        --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}}"
+
+    substituteInPlace $out/share/applications/streambert.desktop \
+      --replace "/opt/Streambert/streambert" "$out/bin/streambert"
   '';
 
   meta = with lib; {
-    description = "Binance Desktop App";
-    homepage = "https://www.binance.com";
-    license = licenses.unfree;
+    description = "Streambert - A cross-platform Electron Desktop app for streaming";
+    homepage = "https://github.com/truelockmc/streambert";
+    license = licenses.gpl3;
     sourceProvenance = with sourceTypes; [ binaryNativeCode ];
-    mainProgram = "binance";
-    platforms = platforms.linux;
+    mainProgram = "streambert";
+    platforms = [ "x86_64-linux" ];
   };
 }
