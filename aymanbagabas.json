@@ -1,18 +1,19 @@
 {
 "name":"aymanbagabas",
-"fetch_time":0.831,
-"eval_time":0.275,
+"fetch_time":0.408,
+"eval_time":0.256,
 "source":{
 "url":"https://github.com/aymanbagabas/nur",
-"rev":"60f06de7e21b25278cd15e17c7965976270935e4",
-"sha256":"1jryzxzhnrsg0gsd61n3b5sy5yww05zqlccdpymibg9shv94dfil",
+"rev":"4e96adedfac25d1f61214699e35923a8b4b0f28b",
+"sha256":"0zcfdaz4cqd5y6zk45rl7465lwwdfnbl1bx7q7hdlzar97phy3ll",
 "date":null
 },
-"source_storepath":"/nix/store/jxpv0z6i8s6nnb6wcchcij4ilsv8ggx2-source",
-"nixpkgs_storepath":"/nix/store/5ys00hx6sylgdl3gzdd10js7bjaq0lrd-source",
-"nur_combined_rev":"aa235cfb67a9b71e8cc65fd550aada27e219ab15",
+"source_storepath":"/nix/store/l0sz13rhlb0x0kyfkqs7l03xmnqfaihk-source",
+"nixpkgs_storepath":"/nix/store/2kvvl97khd2qi6sriwkcp03v78v6f5zb-source",
+"nur_combined_rev":"c81c53f9d23efd71d68dcbb7461474dc7a591d86",
 "packages":{
 "shcopy":{
+"drvPath":"/nix/store/3vy7y8s754jp5349njjdk3vhyfc38nqz-shcopy-0.1.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -49,6 +53,7 @@
 "deprecated":false,
 "free":true,
 "fullName":"MIT License",
+"licenseType":"simple",
 "redistributable":true,
 "shortName":"mit",
 "spdxId":"MIT",
@@ -69,6 +74,12 @@
 "x86_64-linux"
 ],
 "position":"./pkgs/shcopy/default.nix:49",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "sourceProvenance":[
 {
 "isSource":false,

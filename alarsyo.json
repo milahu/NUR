@@ -1,18 +1,19 @@
 {
 "name":"alarsyo",
-"fetch_time":0.304,
-"eval_time":0.343,
+"fetch_time":0.507,
+"eval_time":0.311,
 "source":{
 "url":"https://github.com/alarsyo/nixos-config",
-"rev":"e2e349fb885f3c604b9372e93c9cad79f925b3e0",
-"sha256":"1vixwpfyaxxc63g78y7x0f7w6dbd0yp6w66vdnn0n4ncg6905s4c",
+"rev":"5877ca6a2aa9ab820cb28f50ccd0927b46524755",
+"sha256":"0hcfrr7ifbw54f1zbp1dh5kl11s087mzr2rrkq7cbja8lgk88idh",
 "date":null
 },
-"source_storepath":"/nix/store/7pglblzbxk64mgxcqxl867ninn3n4vms-source",
-"nixpkgs_storepath":"/nix/store/97dv672if5hmdlnwahnpb5i1d7dabi4y-source",
-"nur_combined_rev":"a225002624312483c384a12cac41de718d03a135",
+"source_storepath":"/nix/store/fv5bcxcjpc5299dwf9jxj3ngzxx41cwk-source",
+"nixpkgs_storepath":"/nix/store/2kvvl97khd2qi6sriwkcp03v78v6f5zb-source",
+"nur_combined_rev":"348c9c36dcfa8694dbf2b7c0ab77249c446fc347",
 "packages":{
 "grafanaDashboards.nginx":{
+"drvPath":"/nix/store/3h2d5i3z8l8di36brkyrdiivpwwiq5a8-grafana-dashboard-nginx-0.9.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -30,6 +31,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -41,7 +44,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -62,6 +66,12 @@
 "out"
 ],
 "position":"./pkgs/grafana-dashboards/nginx.nix:33",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -75,6 +85,7 @@
 "version":"0.9.0"
 },
 "grafanaDashboards.node-exporter":{
+"drvPath":"/nix/store/yrvjwcrpg1a10rqcmnyavg2cqdihg71y-grafana-dashboard-node-exporter-master-7d61c79619e5749e629758ecd96748c010028120.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -92,6 +103,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -103,7 +116,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -124,6 +138,12 @@
 "out"
 ],
 "position":"./pkgs/grafana-dashboards/node-exporter.nix:33",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -137,6 +157,7 @@
 "version":"7d61c79619e5749e629758ecd96748c010028120"
 },
 "kaleidoscope-udev-rules":{
+"drvPath":"/nix/store/1dmyjd0d8l2ym7vi8anq4vw3kjgicd2m-kaleidoscope-udev-rules-1.99.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -154,6 +175,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -165,7 +188,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -186,6 +210,12 @@
 "out"
 ],
 "position":"./pkgs/kaleidoscope-udev-rules/default.nix:32",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
 "unfree":false,
 "unsupported":false
 },
@@ -199,6 +229,7 @@
 "version":"1.99.3"
 },
 "sddm-sugar-candy":{
+"drvPath":"/nix/store/xfkjnfdpsaizk1amjmy1dp17fv9p5pwf-sddm-sugar-candy-2b72ef6c6f720fe0ffde5ea5c7c48152e02f6c4f.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -214,6 +245,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -225,7 +258,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -236,6 +270,7 @@
 "out"
 ],
 "position":"./pkgs/sddm-sugar-candy/default.nix:8",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },
@@ -249,6 +284,7 @@
 "version":"2b72ef6c6f720fe0ffde5ea5c7c48152e02f6c4f"
 },
 "spot":{
+"drvPath":"/nix/store/jfa1mysl0nngn2z6npivzzsq53l97fn6-spot-2.14.5.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -264,6 +300,8 @@
 "target_sw":"*"
 },
 "possibleCPEs":[],
+"purlParts":{},
+"purls":[],
 "v1":{
 "cpeParts":{
 "edition":"*",
@@ -275,7 +313,8 @@
 "target_hw":"*",
 "target_sw":"*"
 },
-"possibleCPEs":[]
+"possibleCPEs":[],
+"purls":[]
 }
 },
 "insecure":false,
@@ -286,6 +325,7 @@
 "out"
 ],
 "position":"./pkgs/spot/default.nix:9",
+"problems":{},
 "unfree":false,
 "unsupported":false
 },

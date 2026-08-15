@@ -1,16 +1,16 @@
 {
 "name":"josh",
-"fetch_time":0.77,
-"eval_time":2.167,
+"fetch_time":0.489,
+"eval_time":2.136,
 "source":{
 "url":"https://github.com/josh/nurpkgs",
-"rev":"2deeb0ffee2631f0bc04cb5d74aabd93886a608d",
-"sha256":"04l8bayv3rrwlsq2c6sxpxny70b9fmpmrv9yfzv1pw3yra5lk71i",
+"rev":"d97f01a07cfbdc3bb6a6d41e77a46cd2d3247f63",
+"sha256":"1p8app541czj9p93kaysg6134yyhdy1q5wl72n92mkcxizwx2xc6",
 "date":null
 },
-"source_storepath":"/nix/store/d4j34ymapxglh5yyh3s15ing5037gdqd-source",
-"nixpkgs_storepath":"/nix/store/ibbk85332vdp5l14d11a3cwvkws8pssh-source",
-"nur_combined_rev":"4a2609744612f4fe2855d7985eee3460a7b5488e",
+"source_storepath":"/nix/store/vrmpzn4zghlirxs4h47vjmrvi0yxr9lm-source",
+"nixpkgs_storepath":"/nix/store/2kvvl97khd2qi6sriwkcp03v78v6f5zb-source",
+"nur_combined_rev":"5cc4227a4b87e0b0a929acde719a8c33c7d81700",
 "packages":{
 "age-old":{
 "drvPath":"/nix/store/39wjyyxar6qvazkrzvpajz5wc0lhnmyv-age-1.2.1.drv",
@@ -2283,7 +2283,7 @@
 "version":"0.7.1"
 },
 "ceph-mgr-ts-gateway":{
-"drvPath":"/nix/store/gn753pyjm0qx66gm0n01g1ik8mlyljwg-ceph-mgr-ts-gateway-0.2.0.drv",
+"drvPath":"/nix/store/0zrzdgq3niiq3nxgfsyi387w2xgynhp4-ceph-mgr-ts-gateway-0.2.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2331,7 +2331,7 @@
 },
 "mainProgram":"ceph-mgr-ts-gateway",
 "maintainers":[],
-"name":"ceph-mgr-ts-gateway-0.2.0",
+"name":"ceph-mgr-ts-gateway-0.2.2",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -2368,7 +2368,7 @@
 "x86_64-freebsd",
 "aarch64-freebsd"
 ],
-"position":"./pkgs/josh/ceph-mgr-ts-gateway.nix:43",
+"position":"./pkgs/josh/ceph-mgr-ts-gateway.nix:44",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -2378,14 +2378,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"ceph-mgr-ts-gateway-0.2.0",
+"name":"ceph-mgr-ts-gateway-0.2.2",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"ceph-mgr-ts-gateway",
 "system":"x86_64-linux",
-"version":"0.2.0"
+"version":"0.2.2"
 },
 "cert-manager-chart":{
 "drvPath":"/nix/store/ndckd3y7g9lzlb2kjad9zjn5pkvjv5kh-cert-manager-chart-1.21.1.drv",
@@ -4783,7 +4783,7 @@
 "version":"2.0.2"
 },
 "gh-audit":{
-"drvPath":"/nix/store/ha3xjynavcz051nyyjywbrq0irz8z0w4-gh-audit-0.2.0-unstable-2026-08-07.drv",
+"drvPath":"/nix/store/h3s09988xk62fb28dnfpll08rmqlx395-gh-audit-0.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4864,7 +4864,7 @@
 },
 "mainProgram":"gh-audit",
 "maintainers":[],
-"name":"gh-audit-0.2.0-unstable-2026-08-07",
+"name":"gh-audit-0.3.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -4960,7 +4960,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"gh-audit-0.2.0-unstable-2026-08-07",
+"name":"gh-audit-0.3.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -4968,7 +4968,7 @@
 },
 "pname":"gh-audit",
 "system":"x86_64-linux",
-"version":"0.2.0-unstable-2026-08-07"
+"version":"0.3.0"
 },
 "gha-runner-scale-set-chart":{
 "drvPath":"/nix/store/hmi9v9f24fzarwhk9cgj7gv5mjxvbjdh-gha-runner-scale-set-chart-0.14.2.drv",
@@ -7029,7 +7029,7 @@
 "version":"1.0.4"
 },
 "imdb-data":{
-"drvPath":"/nix/store/y4m9jswgq3kyhdgzszk4msxlmm7w2c7m-imdb-data-0.1.0-unstable-2026-08-09.drv",
+"drvPath":"/nix/store/2985qjqqhzpcyssjpqywcfg8009avh5s-imdb-data-0.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7110,7 +7110,7 @@
 },
 "mainProgram":"imdb-data",
 "maintainers":[],
-"name":"imdb-data-0.1.0-unstable-2026-08-09",
+"name":"imdb-data-0.2.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -7206,7 +7206,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"imdb-data-0.1.0-unstable-2026-08-09",
+"name":"imdb-data-0.2.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -7214,7 +7214,7 @@
 },
 "pname":"imdb-data",
 "system":"x86_64-linux",
-"version":"0.1.0-unstable-2026-08-09"
+"version":"0.2.0"
 },
 "imdb-plex-sync":{
 "drvPath":"/nix/store/wbj3dl90nncz4kcmzd24v6k1faf7c6ig-imdb-plex-sync-0.2.0.drv",
@@ -7405,7 +7405,7 @@
 "version":"0.2.0"
 },
 "imdb-trakt-sync":{
-"drvPath":"/nix/store/hp7qv9jjvs5d0p23qmr4qwvfzmfz8hj5-imdb-trakt-sync-0.1.0-unstable-2026-08-10.drv",
+"drvPath":"/nix/store/kbk3yzxh3h376cxdq9dr2xp0h21nx69z-imdb-trakt-sync-0.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -7486,7 +7486,7 @@
 },
 "mainProgram":"imdb-trakt-sync",
 "maintainers":[],
-"name":"imdb-trakt-sync-0.1.0-unstable-2026-08-10",
+"name":"imdb-trakt-sync-0.2.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -7582,7 +7582,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"imdb-trakt-sync-0.1.0-unstable-2026-08-10",
+"name":"imdb-trakt-sync-0.2.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -7590,7 +7590,7 @@
 },
 "pname":"imdb-trakt-sync",
 "system":"x86_64-linux",
-"version":"0.1.0-unstable-2026-08-10"
+"version":"0.2.0"
 },
 "ioskeley-mono":{
 "drvPath":"/nix/store/3ppxxvzpj8pjy5a7l7i8f48gvlhq67fx-ioskeley-mono-2.0.0.drv",
@@ -11986,7 +11986,7 @@
 "version":"16.0.0"
 },
 "overcast-data":{
-"drvPath":"/nix/store/1lhm8w7d52akffdih5pjbdzvzl507gxy-overcast-data-0-unstable-2026-08-09.drv",
+"drvPath":"/nix/store/jgjslgghamn3yg64vi25chlvk6nfh7z6-overcast-data-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12067,7 +12067,7 @@
 },
 "mainProgram":"overcast-data",
 "maintainers":[],
-"name":"overcast-data-0-unstable-2026-08-09",
+"name":"overcast-data-0.1.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -12163,7 +12163,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"overcast-data-0-unstable-2026-08-09",
+"name":"overcast-data-0.1.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -12171,7 +12171,7 @@
 },
 "pname":"overcast-data",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-08-09"
+"version":"0.1.0"
 },
 "polars":{
 "drvPath":"/nix/store/6iq5kar0p7kzr106z0aq2kn75dg5v432-python3.14-polars-1.42.1.drv",
@@ -12273,7 +12273,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/ibbk85332vdp5l14d11a3cwvkws8pssh-source/pkgs/development/python-modules/polars/default.nix",
+"file":"/nix/store/2kvvl97khd2qi6sriwkcp03v78v6f5zb-source/pkgs/development/python-modules/polars/default.nix",
 "line":294
 },
 "name":"python3.14-polars-1.42.1",
@@ -17067,7 +17067,7 @@
 "version":"1.16.0"
 },
 "tmdb-index":{
-"drvPath":"/nix/store/k1jv7y0ahdbc4vxyx935pn382fd9glif-tmdb-index-1.1.0-unstable-2026-08-11.drv",
+"drvPath":"/nix/store/9hndg0pnkggwjm85ahkgxrx5pgxc8dsd-tmdb-index-1.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17148,7 +17148,7 @@
 },
 "mainProgram":"tmdb-index",
 "maintainers":[],
-"name":"tmdb-index-1.1.0-unstable-2026-08-11",
+"name":"tmdb-index-1.1.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -17244,7 +17244,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tmdb-index-1.1.0-unstable-2026-08-11",
+"name":"tmdb-index-1.1.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -17252,7 +17252,7 @@
 },
 "pname":"tmdb-index",
 "system":"x86_64-linux",
-"version":"1.1.0-unstable-2026-08-11"
+"version":"1.1.0"
 },
 "tmux-catppuccin":{
 "drvPath":"/nix/store/7hgwsq8griy7ycly8aww5r4xx6pyv2za-tmuxplugin-catppuccin-2.3.0.drv",
@@ -18052,7 +18052,7 @@
 "version":"41.2.0"
 },
 "trakt-data":{
-"drvPath":"/nix/store/xy5c1z0i9s5m25d7ch39sp438i07yhh5-trakt-data-0-unstable-2026-08-12.drv",
+"drvPath":"/nix/store/m8d9lf7v08lz0yljxggv1jkh2w52ffqf-trakt-data-0.1.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18133,7 +18133,7 @@
 },
 "mainProgram":"trakt-data",
 "maintainers":[],
-"name":"trakt-data-0-unstable-2026-08-12",
+"name":"trakt-data-0.1.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -18219,7 +18219,7 @@
 "aarch64-uefi",
 "x86_64-uefi"
 ],
-"position":"./pkgs/josh/trakt-data.nix:59",
+"position":"./pkgs/josh/trakt-data.nix:56",
 "problems":{
 "maintainerless":{
 "kind":"maintainerless",
@@ -18229,7 +18229,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"trakt-data-0-unstable-2026-08-12",
+"name":"trakt-data-0.1.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -18237,10 +18237,10 @@
 },
 "pname":"trakt-data",
 "system":"x86_64-linux",
-"version":"0-unstable-2026-08-12"
+"version":"0.1.0"
 },
 "trakt-plex-sync":{
-"drvPath":"/nix/store/78fkbydwxha97qcdvb375apya6sldsmh-trakt-plex-sync-0.2.0-unstable-2026-08-13.drv",
+"drvPath":"/nix/store/qh7pall6fpr0ifpgll645vcbkxhgl69l-trakt-plex-sync-0.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18321,7 +18321,7 @@
 },
 "mainProgram":"trakt-plex-sync",
 "maintainers":[],
-"name":"trakt-plex-sync-0.2.0-unstable-2026-08-13",
+"name":"trakt-plex-sync-0.3.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -18417,7 +18417,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"trakt-plex-sync-0.2.0-unstable-2026-08-13",
+"name":"trakt-plex-sync-0.3.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -18425,7 +18425,7 @@
 },
 "pname":"trakt-plex-sync",
 "system":"x86_64-linux",
-"version":"0.2.0-unstable-2026-08-13"
+"version":"0.3.0"
 },
 "trust-manager-chart":{
 "drvPath":"/nix/store/yx8q88vyr881w2b32k2z6rdlji0bmmbc-trust-manager-chart-0.24.0.drv",
