@@ -8,16 +8,16 @@
   widevine-cdm,
   enableWideVine ? false,
 }: let
-  version = "0.12.1.1";
+  version = "0.15.3.1";
   repo = "https://github.com/imputnet/helium-linux";
   sourceMap = {
     x86_64-linux = fetchurl {
       url = "${repo}/releases/download/${version}/helium-${version}-x86_64.AppImage";
-      hash = "sha256-+UE+JqQtxbA5szPvAohapXlES21VBOdNsV6Ej1dRRfs=";
+      hash = "sha256-ZCCm/prkgYgbDHW6OBPWvoIE77g7IYQpYdqc/PnIrSU=";
     };
     aarch64-linux = fetchurl {
       url = "${repo}/releases/download/${version}/helium-${version}-arm64.AppImage";
-      hash = "sha256-8TJ/1alUtEM7KgZOdc8cmVkIXjKdBbxtEZhO/08Pouo=";
+      hash = "sha256-3Ut6Mr5Spj9mPUuXgtRf2WVqlMzkOAWEyZXdXQiwb4k=";
     };
   };
 in
@@ -62,6 +62,7 @@ in
       '';
 
     meta = {
+      sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
       description = "Private, fast, and honest web browser based on Chromium";
       homepage = "https://github.com/imputnet/helium-chromium";
       changelog = "https://github.com/imputnet/helium-linux/releases/tag/${version}";

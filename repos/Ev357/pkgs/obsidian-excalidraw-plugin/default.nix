@@ -9,12 +9,12 @@
 in
   pkgs.buildNpmPackage rec {
     pname = "obsidian-excalidraw-plugin";
-    version = "2.22.3";
+    version = "2.26.4";
 
     src = pkgs.fetchFromGitHub {
       inherit owner repo;
       rev = version;
-      sha256 = "sha256-RDWmMckHN/xlwe9sZS4zFN/Tx3b4GoNZYZ0QNeP6yJ0=";
+      sha256 = "sha256-8A1s5pgiW6LtJndDW2C/niCEHet+sEVYpA7X7xZMFLU=";
     };
 
     passthru.updateScript =
@@ -26,20 +26,23 @@ in
 
         set -eu -o pipefail
 
-        TAG="$(curl -s "https://api.github.com/repos/${owner}/${repo}/releases/latest" | jq -r .tag_name)"
+        TAG="$(curl -s "https://api.github.com/repos/${owner}/${repo}/releases" | jq -r '.[0].tag_name')"
 
         WORKDIR=$(mktemp -d)
 
         git clone --quiet --config advice.detachedHead=false --depth 1 --branch "$TAG" "https://github.com/${owner}/${repo}" "$WORKDIR"
         pushd "$WORKDIR" > /dev/null
         npm install --package-lock-only --ignore-scripts
+
+        sed -i 's/\r$//' package-lock.json
+
         popd > /dev/null
         cp "$WORKDIR/package-lock.json" pkgs/${pname}/
 
-        nix-update ${pname} --flake
+        nix-update ${pname} --flake --version=unstable
       '';
 
-    npmDepsHash = "sha256-Mh25pA0eHG+seY6SfPnoFE73bEggJCa5O1LcdtTmlxs=";
+    npmDepsHash = "sha256-fHV4VCt2XKoFnBy0JLiTUYlEnhlSWBkmCzamoBxXAPQ=";
 
     patches =
       []
@@ -50,8 +53,6 @@ in
       ''
         cp ${./package-lock.json} package-lock.json
       '';
-
-    npmBuildScript = "build:all";
 
     installPhase =
       # bash
