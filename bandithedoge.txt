@@ -7,46 +7,46 @@ error:
    683|               if attrs ? name then
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/strings.nix:2909:5:
-  2908|     in
-  2909|     string:
+  at <nixpkgs> + /lib/strings.nix:2913:5:
+  2912|     in
+  2913|     string:
       |     ^
-  2910|     # First detect the common case of already valid strings, to speed those up
+  2914|     # First detect the common case of already valid strings, to speed those up
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/strings.nix:2911:5:
-  2910|     # First detect the common case of already valid strings, to speed those up
-  2911|     if stringLength string <= 207 && okRegex string != null then
+  at <nixpkgs> + /lib/strings.nix:2915:5:
+  2914|     # First detect the common case of already valid strings, to speed those up
+  2915|     if stringLength string <= 207 && okRegex string != null then
       |     ^
-  2912|       unsafeDiscardStringContext string
+  2916|       unsafeDiscardStringContext string
 
 … in the left operand of the AND (&&) operator
-  at <nixpkgs> + /lib/strings.nix:2911:35:
-  2910|     # First detect the common case of already valid strings, to speed those up
-  2911|     if stringLength string <= 207 && okRegex string != null then
+  at <nixpkgs> + /lib/strings.nix:2915:35:
+  2914|     # First detect the common case of already valid strings, to speed those up
+  2915|     if stringLength string <= 207 && okRegex string != null then
       |                                   ^
-  2912|       unsafeDiscardStringContext string
+  2916|       unsafeDiscardStringContext string
 
 … in the argument of the not operator
-  at <nixpkgs> + /lib/strings.nix:2911:28:
-  2910|     # First detect the common case of already valid strings, to speed those up
-  2911|     if stringLength string <= 207 && okRegex string != null then
+  at <nixpkgs> + /lib/strings.nix:2915:28:
+  2914|     # First detect the common case of already valid strings, to speed those up
+  2915|     if stringLength string <= 207 && okRegex string != null then
       |                            ^
-  2912|       unsafeDiscardStringContext string
+  2916|       unsafeDiscardStringContext string
 
 … while calling the 'lessThan' builtin
-  at <nixpkgs> + /lib/strings.nix:2911:28:
-  2910|     # First detect the common case of already valid strings, to speed those up
-  2911|     if stringLength string <= 207 && okRegex string != null then
+  at <nixpkgs> + /lib/strings.nix:2915:28:
+  2914|     # First detect the common case of already valid strings, to speed those up
+  2915|     if stringLength string <= 207 && okRegex string != null then
       |                            ^
-  2912|       unsafeDiscardStringContext string
+  2916|       unsafeDiscardStringContext string
 
 … while calling the 'stringLength' builtin
-  at <nixpkgs> + /lib/strings.nix:2911:8:
-  2910|     # First detect the common case of already valid strings, to speed those up
-  2911|     if stringLength string <= 207 && okRegex string != null then
+  at <nixpkgs> + /lib/strings.nix:2915:8:
+  2914|     # First detect the common case of already valid strings, to speed those up
+  2915|     if stringLength string <= 207 && okRegex string != null then
       |        ^
-  2912|       unsafeDiscardStringContext string
+  2916|       unsafeDiscardStringContext string
 
 … in the condition of the assert statement
   at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:687:17:
@@ -112,39 +112,39 @@ error:
     16|             (
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/customisation.nix:307:19:
-   306|     in
-   307|     autoArgs: fn: args:
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+   307|     in
+   308|     autoArgs: fn: args:
       |                   ^
-   308|     let
+   309|     let
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/customisation.nix:321:5:
-   320|     # if nonempty, check if the function has defaults for those other args
-   321|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+  at <nixpkgs> + /lib/customisation.nix:322:5:
+   321|     # if nonempty, check if the function has defaults for those other args
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
       |     ^
-   322|       makeOverridable f allArgs
+   323|       makeOverridable f allArgs
 
 … in the left operand of the OR (||) operator
-  at <nixpkgs> + /lib/customisation.nix:321:28:
-   320|     # if nonempty, check if the function has defaults for those other args
-   321|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+  at <nixpkgs> + /lib/customisation.nix:322:28:
+   321|     # if nonempty, check if the function has defaults for those other args
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
       |                            ^
-   322|       makeOverridable f allArgs
+   323|       makeOverridable f allArgs
 
 … while calling the 'removeAttrs' builtin
-  at <nixpkgs> + /lib/customisation.nix:317:22:
-   316|       # arguments that weren't passed automatically to the function
-   317|       unpassedArgs = removeAttrs fargs (attrNames allArgs);
+  at <nixpkgs> + /lib/customisation.nix:318:22:
+   317|       # arguments that weren't passed automatically to the function
+   318|       unpassedArgs = removeAttrs fargs (attrNames allArgs);
       |                      ^
-   318|
+   319|
 
 … from call site
-  at <nixpkgs> + /lib/customisation.nix:310:15:
-   309|       f = if isFunction fn then fn else import fn;
-   310|       fargs = functionArgs f;
+  at <nixpkgs> + /lib/customisation.nix:311:15:
+   310|       f = if isFunction fn then fn else import fn;
+   311|       fargs = functionArgs f;
       |               ^
-   311|
+   312|
 
 … while calling anonymous lambda
   at <nixpkgs> + /lib/trivial.nix:1109:5:
@@ -161,11 +161,11 @@ error:
   1110|
 
 … while calling the 'import' builtin
-  at <nixpkgs> + /lib/customisation.nix:309:41:
-   308|     let
-   309|       f = if isFunction fn then fn else import fn;
+  at <nixpkgs> + /lib/customisation.nix:310:41:
+   309|     let
+   310|       f = if isFunction fn then fn else import fn;
       |                                         ^
-   310|       fargs = functionArgs f;
+   311|       fargs = functionArgs f;
 
 … while realising the context of path './pkgs/actuate/_sources/generated.nix'
 

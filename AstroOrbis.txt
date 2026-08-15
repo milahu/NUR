@@ -1,20 +1,30 @@
 error:
+… while evaluating the attribute 'agave-platform-tools-bin'
+  at ./default.nix:13:3:
+    12|   agave-cli = pkgs.callPackage ./pkgs/agave-cli { inherit agave-platform-tools-bin; };
+    13|   agave-platform-tools-bin = pkgs.callPackage ./pkgs/agave-platform-tools-bin { };
+      |   ^
+    14|   mtgatool-desktop = pkgs.callPackage ./pkgs/mtgatool-desktop { };
+
 … from call site
-
   at ./default.nix:13:30:
-
     12|   agave-cli = pkgs.callPackage ./pkgs/agave-cli { inherit agave-platform-tools-bin; };
     13|   agave-platform-tools-bin = pkgs.callPackage ./pkgs/agave-platform-tools-bin { };
       |                              ^
     14|   mtgatool-desktop = pkgs.callPackage ./pkgs/mtgatool-desktop { };
 
 … while calling anonymous lambda
-
   at <nixpkgs> + /lib/customisation.nix:308:19:
-
    307|     in
    308|     autoArgs: fn: args:
       |                   ^
    309|     let
+
+… while calling the 'abort' builtin
+  at <nixpkgs> + /lib/customisation.nix:330:7:
+   329|       # which is especially relevant with allowAliases = false
+   330|       abort (makeErrorMessage autoArgs fn args fargs unpassedArgs);
+      |       ^
+   331|
 
 error: evaluation aborted with the following error message: 'lib.customisation.callPackageWith: Function called without required argument "python310" at ./pkgs/agave-platform-tools-bin/default.nix:14, did you mean "python311", "python312" or "python313"?'

@@ -1,0 +1,14 @@
+error:
+… while evaluating the attribute 'mpv'
+  at ./default.nix:78:3:
+    77|   # Overrides
+    78|   mpv = pkgs.mpv-unwrapped.wrapper {
+      |   ^
+    79|     mpv = (pkgs.mpv-unwrapped.override { cddaSupport = true; });
+
+error: attribute 'wrapper' missing
+at ./default.nix:78:9:
+    77|   # Overrides
+    78|   mpv = pkgs.mpv-unwrapped.wrapper {
+      |         ^
+    79|     mpv = (pkgs.mpv-unwrapped.override { cddaSupport = true; });

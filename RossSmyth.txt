@@ -1,119 +1,32 @@
 error:
-… from call site
+… while evaluating the attribute 'birdnet'
+  at ./default.nix:27:5:
+    26|
+    27|     birdnet = self.python3Packages.callPackage ./birdnet { };
+      |     ^
+    28|     birdnet-analyzer = self.callPackage ./birdnet-analyzer { };
 
-  at ./default.nix:22:20:
+… while evaluating the attribute 'python3Packages.callPackage'
+  at ./default.nix:56:5:
+    55|
+    56|     python3Packages = stable.python3Packages.overrideScope (
+      |     ^
+    57|       _: _: {
 
-    21|         # c2rust requires an old (2022) nightly
-    22|         old-rust = pkgs.extend (
-      |                    ^
-    23|           import (
+… while calling the 'import' builtin
+  at ./default.nix:11:5:
+    10|   stable =
+    11|     import
+      |     ^
+    12|       (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/refs/heads/release-25.11.tar.gz")
 
-… while calling 'extend'
+… while realising the context of a path
 
-  at <nixpkgs> + /pkgs/top-level/stage.nix:287:14:
-
-   286|     # Prefer appendOverlays if used repeatedly.
-   287|     extend = f: self.appendOverlays [ f ];
-      |              ^
-   288|
-
-… from call site
-
-  at <nixpkgs> + /pkgs/top-level/stage.nix:287:17:
-
-   286|     # Prefer appendOverlays if used repeatedly.
-   287|     extend = f: self.appendOverlays [ f ];
-      |                 ^
-   288|
-
-… while calling 'appendOverlays'
-
-  at <nixpkgs> + /pkgs/top-level/stage.nix:274:7:
-
-   273|     appendOverlays =
-   274|       extraOverlays:
-      |       ^
-   275|       if extraOverlays == [ ] then
-
-… from call site
-
-  at <nixpkgs> + /pkgs/top-level/stage.nix:278:9:
-
-   277|       else
-   278|         nixpkgsFun { overlays = args.overlays ++ extraOverlays; };
-      |         ^
-   279|
-
-… while calling 'nixpkgsFun'
-
-  at <nixpkgs> + /pkgs/top-level/default.nix:191:16:
-
-   190|   # experience here.)
-   191|   nixpkgsFun = newArgs: import ./. (args // newArgs);
-      |                ^
-   192|
-
-… from call site
-
-  at <nixpkgs> + /pkgs/top-level/default.nix:191:25:
-
-   190|   # experience here.)
-   191|   nixpkgsFun = newArgs: import ./. (args // newArgs);
-      |                         ^
-   192|
-
-… while calling anonymous lambda
-
-  at <nixpkgs> + /pkgs/top-level/default.nix:40:1:
-
-    39|
-    40| {
-      | ^
-    41|   # The system packages will be built on. See the manual for the
-
-… from call site
-
-  at <nixpkgs> + /pkgs/top-level/default.nix:99:6:
-
-    98|   checked =
-    99|     (throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list.")
-      |      ^
-   100|       (throwIfNot (lib.all lib.isFunction overlays) "All overlays passed to nixpkgs must be functions.")
-
-… while calling anonymous lambda
-
-  at <nixpkgs> + /lib/trivial.nix:980:40:
-
-   979|   */
-   980|   throwIfNot = cond: msg: if cond then x: x else throw msg;
-      |                                        ^
-   981|
-
-… from call site
-
-  at <nixpkgs> + /pkgs/top-level/default.nix:100:8:
-
-    99|     (throwIfNot (lib.isList overlays) "The overlays argument to nixpkgs must be a list.")
-   100|       (throwIfNot (lib.all lib.isFunction overlays) "All overlays passed to nixpkgs must be functions.")
+… while calling the 'fetchTarball' builtin
+  at ./default.nix:12:8:
+    11|     import
+    12|       (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/refs/heads/release-25.11.tar.gz")
       |        ^
-   101|       (throwIfNot (lib.isList crossOverlays) "The crossOverlays argument to nixpkgs must be a list.")
+    13|       { };
 
-… while calling 'throwIfNot'
-
-  at <nixpkgs> + /lib/trivial.nix:980:22:
-
-   979|   */
-   980|   throwIfNot = cond: msg: if cond then x: x else throw msg;
-      |                      ^
-   981|
-
-… while calling 'isFunction'
-
-  at <nixpkgs> + /lib/trivial.nix:1126:16:
-
-  1125|   */
-  1126|   isFunction = f: builtins.isFunction f || (f ? __functor && isFunction (f.__functor f));
-      |                ^
-  1127|
-
-error: access to URI 'https://github.com/oxalica/rust-overlay/archive/snapshot/2024-08-01.tar.gz' is forbidden in restricted mode
+error: access to URI 'https://github.com/NixOS/nixpkgs/archive/refs/heads/release-25.11.tar.gz' is forbidden in restricted mode

@@ -1,100 +1,151 @@
+evaluation warning: stdenv.isLinux is deprecated, use stdenv.hostPlatform.isLinux instead
 error:
+… while evaluating the attribute 'packages'
+  at ./nur.nix:12:3:
+    11| in arc // {
+    12|   packages = builtins.removeAttrs arc.packages [ "rustfmt-nightly" ];
+      |   ^
+    13| }
+
+… while evaluating the attribute 'github-label-sync'
+
+… from call site
+  at ./canon.nix:68:26:
+    67|     callPackageAttrs = attrs: extra:
+    68|       builtins.mapAttrs (key: pkg: arc.pkgs.callPackage pkg (self.callPackageOverrides.${key} or { } // extra)) attrs;
+      |                          ^
+    69|   };
+
 … while calling anonymous lambda
-
   at ./canon.nix:68:31:
-
     67|     callPackageAttrs = attrs: extra:
     68|       builtins.mapAttrs (key: pkg: arc.pkgs.callPackage pkg (self.callPackageOverrides.${key} or { } // extra)) attrs;
       |                               ^
     69|   };
 
 … from call site
-
   at ./canon.nix:68:36:
-
     67|     callPackageAttrs = attrs: extra:
     68|       builtins.mapAttrs (key: pkg: arc.pkgs.callPackage pkg (self.callPackageOverrides.${key} or { } // extra)) attrs;
       |                                    ^
     69|   };
 
 … while calling anonymous lambda
-
   at <nixpkgs> + /lib/customisation.nix:308:19:
-
    307|     in
    308|     autoArgs: fn: args:
       |                   ^
    309|     let
 
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:323:7:
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   323|       makeOverridable f allArgs
+      |       ^
+   324|     else
+
 … from call site
-
-  at <nixpkgs> + /lib/trivial.nix:1081:5:
-
-  1080|     # TODO: Should we add call-time "type" checking like built in?
-  1081|     __functor = self: f;
-      |     ^
-  1082|     __functionArgs = args;
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
 
 … while calling 'f''
-
   at <nixpkgs> + /lib/customisation.nix:159:9:
-
    158|       f' =
    159|         origArgs:
       |         ^
    160|         let
 
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:175:9:
+   174|         in
+   175|         if isAttrs result then
+      |         ^
+   176|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:175:12:
+   174|         in
+   175|         if isAttrs result then
+      |            ^
+   176|           result
+
 … from call site
-
   at <nixpkgs> + /lib/customisation.nix:161:20:
-
    160|         let
    161|           result = f origArgs;
       |                    ^
    162|
 
 … while calling anonymous lambda
-
   at ./pkgs/public/github-label-sync/default.nix:1:1:
-
      1| { nodeEnv, callPackage, fetchurl }: let
       | ^
      2|   nodePackages = callPackage ./node-packages.nix {
 
 … from call site
-
   at ./build-support/default.nix:30:17:
-
     29|
     30|       nodeEnv = self.callPackage (self.path + "/pkgs/development/node-packages/node-env.nix") { };
       |                 ^
     31|     };
 
 … while calling anonymous lambda
-
   at <nixpkgs> + /lib/customisation.nix:308:19:
-
    307|     in
    308|     autoArgs: fn: args:
       |                   ^
    309|     let
 
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:322:5:
+   321|     # if nonempty, check if the function has defaults for those other args
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |     ^
+   323|       makeOverridable f allArgs
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /lib/customisation.nix:322:28:
+   321|     # if nonempty, check if the function has defaults for those other args
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |                            ^
+   323|       makeOverridable f allArgs
+
+… while calling the 'removeAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:318:22:
+   317|       # arguments that weren't passed automatically to the function
+   318|       unpassedArgs = removeAttrs fargs (attrNames allArgs);
+      |                      ^
+   319|
+
 … from call site
-
   at <nixpkgs> + /lib/customisation.nix:311:15:
-
    310|       f = if isFunction fn then fn else import fn;
    311|       fargs = functionArgs f;
       |               ^
    312|
 
-… while calling 'functionArgs'
-
-  at <nixpkgs> + /lib/trivial.nix:1104:5:
-
-  1103|   functionArgs =
-  1104|     f:
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/trivial.nix:1109:5:
+  1108|     in
+  1109|     f: if f ? __functor then f.__functionArgs or (functionArgs (f.__functor f)) else functionArgs f;
       |     ^
-  1105|     if f ? __functor then
+  1110|
 
-error: getting status of '<nixpkgs> + /pkgs/development/node-packages': No such file or directory
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/trivial.nix:1109:8:
+  1108|     in
+  1109|     f: if f ? __functor then f.__functionArgs or (functionArgs (f.__functor f)) else functionArgs f;
+      |        ^
+  1110|
+
+… while calling the 'import' builtin
+  at <nixpkgs> + /lib/customisation.nix:310:41:
+   309|     let
+   310|       f = if isFunction fn then fn else import fn;
+      |                                         ^
+   311|       fargs = functionArgs f;
+
+error: path '<nixpkgs> + /pkgs/development/node-packages/node-env.nix' does not exist
