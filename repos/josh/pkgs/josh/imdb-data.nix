@@ -7,7 +7,7 @@
 }:
 python3Packages.buildPythonApplication (finalAttrs: {
   pname = "imdb-data";
-  version = "0.1.0-unstable-2026-08-09";
+  version = "0.2.0";
 
   pyproject = true;
   __structuredAttrs = true;
@@ -15,8 +15,8 @@ python3Packages.buildPythonApplication (finalAttrs: {
   src = fetchFromGitHub {
     owner = "josh";
     repo = "imdb-data";
-    rev = "89fcfd3c7a624d1b13885eb276162031f3835597";
-    hash = "sha256-G2yb0tjL/jd+bjd59IhG3IEILaYsODlOyUgP7yxhwwE=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-RAzIqObJM0xqlusdSCHhHjHngodEhmhWFUaYzyWMKaU=";
   };
 
   build-system = with python3Packages; [
@@ -30,7 +30,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
 
   pythonImportsCheck = [ "imdb_data" ];
 
-  passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
+  passthru.updateScript = nix-update-script { extraArgs = [ "--version=stable" ]; };
 
   passthru.tests = {
     # TODO: Add --version test

@@ -8,7 +8,7 @@
 }:
 python3Packages.buildPythonApplication (finalAttrs: {
   pname = "gh-audit";
-  version = "0.2.0-unstable-2026-08-07";
+  version = "0.3.0";
 
   pyproject = true;
   __structuredAttrs = true;
@@ -16,8 +16,8 @@ python3Packages.buildPythonApplication (finalAttrs: {
   src = fetchFromGitHub {
     owner = "josh";
     repo = "gh-audit";
-    rev = "fcc3d12d34a2c8ea0544baea2332aa51ef2964ab";
-    hash = "sha256-S/+kAJLwEB/WYURl0Z00oyLdPe3wJpxUS3jcVSrtU3Q=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-alUMZwu4HVXfQvoIeep/cOzTcl3umQZphd8xdzgqIYE=";
   };
 
   build-system = with python3Packages; [
@@ -32,12 +32,12 @@ python3Packages.buildPythonApplication (finalAttrs: {
 
   pythonImportsCheck = [ "gh_audit" ];
 
-  passthru.updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
+  passthru.updateScript = nix-update-script { extraArgs = [ "--version=stable" ]; };
 
   passthru.tests = {
     version = testers.testVersion {
       package = finalAttrs.finalPackage;
-      version = lib.lists.head (lib.strings.splitString "-unstable-" finalAttrs.version);
+      inherit (finalAttrs) version;
     };
 
     help =
