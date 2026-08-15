@@ -4,8 +4,6 @@ local wk = require("which-key")
 local detail = false
 
 oil.setup({
-    -- Don't show icons
-    columns = {},
     view_options = {
         -- Show files and directories that start with "." by default
         show_hidden = true,
@@ -26,6 +24,11 @@ oil.setup({
                 end
             end,
         },
+        -- Use better `cd` mappings
+        ["`"] = false,
+        ["~"] = false,
+        ["g`"] = { "actions.cd", mode = "n" },
+        ["g~"] = { "actions.cd", opts = { scope = "win" }, mode = "n" },
     },
 })
 
