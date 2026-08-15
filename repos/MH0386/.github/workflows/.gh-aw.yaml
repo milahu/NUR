@@ -18,18 +18,17 @@ jobs:
     environment: gh-aw
     steps:
       - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           token: ${{ secrets.GH_TOKEN }}
       - name: Install GH AW CLI
-        uses: github/gh-aw-actions/setup-cli@23453ecc01928d28ee1e773e403b216b29e89a5b # v0.74.2
+        uses: github/gh-aw-actions/setup-cli@c0338fef4749d08c21f8f975fb0e37efa17dda47 # v0.79.8
       - name: Compile
         run: gh aw compile
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
+        uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
         with:
           commit_message: "gh-aw: Compile"
           commit_options: --no-verify
           push_options: --force
           file_pattern: .github/
-          
