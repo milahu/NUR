@@ -2,16 +2,17 @@
   lib,
   stdenv,
   fetchFromGitHub,
+  nix-update-script,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "git-blame-someone-else";
-  version = "1.0.0";
+  version = "0-unstable-2018-01-13";
   src = fetchFromGitHub {
-    owner = "atlarator";
+    owner = "jayphelps";
     repo = "git-blame-someone-else";
-    rev = finalAttrs.version;
-    sha256 = "sha256-xraG1dR5Q8oDlUXARgh0ql8eRwH4bJWblJFjH1wJcys=";
+    rev = "8d854c2d78cb98afdb9f5a73240e06393260b327";
+    hash = "sha256-xraG1dR5Q8oDlUXARgh0ql8eRwH4bJWblJFjH1wJcys=";
   };
 
   buildPhase = ''
@@ -25,6 +26,8 @@ stdenv.mkDerivation (finalAttrs: {
       $out/bin/git-blame-someone-else
     runHook postInstall
   '';
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Blame someone else for your bad code";

@@ -8,15 +8,18 @@
 
 { pkgs ? import <nixpkgs> { } }:
 
+let
+  lib = pkgs.lib;
+in
 {
   # The `lib`, `modules`, and `overlays` names are special
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
-
-  avocado-framework = pkgs.callPackage ./pkgs/avocado-framework { };
-  git-blame-someone-else = pkgs.callPackage ./pkgs/git-blame-someone-else { };
-  pingfs = pkgs.callPackage ./pkgs/pingfs { };
-  ratty = pkgs.callPackage ./pkgs/ratty { };
-  runmat = pkgs.callPackage ./pkgs/runmat { };
 }
+//  lib.foldlAttrs (acc: _: shard: acc // shard) { } (
+      lib.packagesFromDirectoryRecursive {
+        callPackage = pkgs.callPackage;
+        directory = ./pkgs/by-name;
+      }
+    )

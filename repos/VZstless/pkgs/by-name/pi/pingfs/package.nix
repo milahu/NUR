@@ -4,16 +4,17 @@
   fetchFromGitHub,
   fuse,
   pkg-config,
+  nix-update-script,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "pingfs";
-  version = "1.0.0";
+  version = "0-unstable-2020-05-24";
   src = fetchFromGitHub {
-    owner = "atlarator";
+    owner = "yarrick";
     repo = "pingfs";
-    rev = finalAttrs.version;
-    sha256 = "sha256-G0j2vJ2cnmj9TgZ9WHAq/3a7ZD269rLbNtxgm2WHKMs=";
+    rev = "f2f2b5ff1893d0531d0a0d1ea2ae96b52dcf780e";
+    hash = "sha256-G0j2vJ2cnmj9TgZ9WHAq/3a7ZD269rLbNtxgm2WHKMs=";
   };
 
   nativeBuildInputs = [ 
@@ -34,6 +35,8 @@ stdenv.mkDerivation (finalAttrs: {
       $out/bin/pingfs
     runHook postInstall
   '';
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Stores your data in ICMP ping packets";
