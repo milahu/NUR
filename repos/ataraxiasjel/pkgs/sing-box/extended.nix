@@ -10,16 +10,16 @@
 
 buildGoModule (finalAttrs: {
   pname = "sing-box-extended";
-  version = "1.13.11-extended-2.1.0";
+  version = "1.13.18-extended-2.6.5";
 
   src = fetchFromGitHub {
     owner = "shtorm-7";
     repo = "sing-box-extended";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-jrfYpWo9TSHGIYEfIJytGoHxwUEo30R24pHnLiIC9LI=";
+    hash = "sha256-h2MXld776trOB7ZUARjvnc6EfzlErumvMOCk/hvd0AA=";
   };
 
-  vendorHash = "sha256-9wWCYscTALKBY8XnMyggPyyZ/RUOV8x1trAG/Pi1GpQ=";
+  vendorHash = "sha256-8Nkrk2RbbHnS4JwLm3Py7VONsQ3IZVL0qzzBDp86xvY=";
 
   tags = [
     "with_quic"
@@ -38,6 +38,11 @@ buildGoModule (finalAttrs: {
   subPackages = [
     "cmd/sing-box"
   ];
+
+  # TODO: remove after nixpkgs updates its go version
+  postPatch = ''
+    substituteInPlace go.mod --replace-fail "go 1.26.4" "go 1.26.3"
+  '';
 
   nativeBuildInputs = [ installShellFiles ];
 
