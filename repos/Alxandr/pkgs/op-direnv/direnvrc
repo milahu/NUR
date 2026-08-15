@@ -1,0 +1,156 @@
+# -*- mode: sh -*-
+# shellcheck shell=bash
+
+# min required versions
+BASH_MIN_VERSION=4.4
+DIRENV_MIN_VERSION=2.21.3
+OP_MIN_VERSION=2.33.1
+
+_OP_DIRENV_LOG_PREFIX="op-direnv: "
+_OP_DIRENV_OP=${OP_DIRENV_OP:-op}
+
+_op_direnv_info() {
+  log_status "${_OP_DIRENV_LOG_PREFIX}$*"
+}
+
+_op_direnv_warning() {
+  local msg=$*
+  local color_normal=""
+  local color_warning=""
+
+  if [[ -t 2 ]]; then
+    color_normal="\e[m"
+    color_warning="\e[33m"
+  fi
+
+  printf "%b" "$color_warning"
+  log_status "${_OP_DIRENV_LOG_PREFIX}${msg}"
+  printf "%b" "$color_normal"
+}
+
+_op_direnv_error() { log_error "${_OP_DIRENV_LOG_PREFIX}$*"; }
+
+_require_version() {
+  local cmd=$1 raw_version=$2 version=${2%%[^0-9.]*} required=$3
+  if ! printf "%s\n" "$required" "$version" | LC_ALL=C sort -c -V 2>/dev/null; then
+    _op_direnv_error \
+      "minimum required $(basename "$cmd") version is $required (installed: $raw_version)"
+    return 1
+  fi
+}
+
+_require_cmd_version() {
+  local cmd=$1 required=$2 version
+  if ! has "$cmd"; then
+    _op_direnv_error "command not found: $cmd"
+    return 1
+  fi
+  version=$($cmd --version)
+  [[ $version =~ ([0-9]+\.[0-9]+(\.[0-9]+)?) ]]
+  _require_version "$cmd" "${BASH_REMATCH[1]}" "$required"
+}
+
+_op_direnv_preflight() {
+  if [[ -z $direnv ]]; then
+    # shellcheck disable=2016
+    _op_direnv_error '$direnv environment variable was not defined. Was this script run inside direnv?'
+    return 1
+  fi
+
+  # check command min versions
+  if [[ -z ${NIX_DIRENV_SKIP_VERSION_CHECK:-} ]]; then
+    # bash check uses $BASH_VERSION with _require_version instead of
+    # _require_cmd_version because _require_cmd_version uses =~ operator which would be
+    # a syntax error on bash < 3
+    if ! _require_version bash "$BASH_VERSION" "$BASH_MIN_VERSION" ||
+      # direnv stdlib defines $direnv
+      ! _require_cmd_version "$direnv" "$DIRENV_MIN_VERSION"; then
+      return 1
+    fi
+  fi
+}
+
+_op_direnv_duration_seconds() {
+  local duration=${1,,}
+  local amount unit
+
+  duration=${duration// /}
+
+  if [[ ! $duration =~ ^([0-9]+)(s|sec|secs|second|seconds|m|min|mins|minute|minutes|h|hr|hrs|hour|hours|d|day|days|w|week|weeks)?$ ]]; then
+    _op_direnv_error "invalid USE_OP_MAX_AGE: $1"
+    return 1
+  fi
+
+  amount=${BASH_REMATCH[1]}
+  unit=${BASH_REMATCH[2]:-s}
+
+  case $unit in
+    s | sec | secs | second | seconds) printf "%s\n" "$amount" ;;
+    m | min | mins | minute | minutes) printf "%s\n" "$((amount * 60))" ;;
+    h | hr | hrs | hour | hours) printf "%s\n" "$((amount * 60 * 60))" ;;
+    d | day | days) printf "%s\n" "$((amount * 24 * 60 * 60))" ;;
+    w | week | weeks) printf "%s\n" "$((amount * 7 * 24 * 60 * 60))" ;;
+    *)
+      _op_direnv_error "invalid USE_OP_MAX_AGE: $1"
+      return 1
+      ;;
+  esac
+}
+
+_op_direnv_op_env_stale() {
+  local op_env=.direnv/op.env
+  local max_age=${USE_OP_MAX_AGE:-7d}
+  local max_age_seconds now modified
+
+  [[ -f $op_env ]] || return 1
+
+  if ! max_age_seconds=$(_op_direnv_duration_seconds "$max_age"); then
+    return 2
+  fi
+
+  now=$(date +%s)
+  modified=$(stat -c %Y "$op_env")
+
+  ((now - modified > max_age_seconds))
+}
+
+use_op() {
+  local run_reason=""
+
+  if ! _op_direnv_preflight; then
+    return 1
+  fi
+
+  watch_file .env.op
+
+  if [[ -f .env.op ]]; then
+    if [[ -z ${NIX_DIRENV_SKIP_VERSION_CHECK:-} ]]; then
+      if ! _require_cmd_version "$_OP_DIRENV_OP" "$OP_MIN_VERSION"; then
+        return 1
+      fi
+    elif ! has "$_OP_DIRENV_OP"; then
+      _op_direnv_error "command not found: $_OP_DIRENV_OP"
+      return 1
+    fi
+
+    if [[ ! -f .direnv/op.env ]]; then
+      run_reason=initial
+    elif [[ .env.op -nt .direnv/op.env ]]; then
+      run_reason=older
+    else
+      _op_direnv_op_env_stale
+      case $? in
+        0) run_reason=stale ;;
+        1) ;;
+        *) return 1 ;;
+      esac
+    fi
+  fi
+
+  if [[ -n $run_reason ]]; then
+    _op_direnv_info "Injecting secrets from op into .direnv/op.env (reason: $run_reason)"
+    "$_OP_DIRENV_OP" inject --in-file .env.op --out-file .direnv/op.env --force
+  fi
+
+  [[ -f .direnv/op.env ]] && dotenv .direnv/op.env
+}
