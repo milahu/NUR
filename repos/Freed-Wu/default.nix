@@ -70,6 +70,10 @@ let
     windows10-themes = callPackage ./pkgs/data/misc/windows10-themes { };
 
     pyrime = callPackage ./pkgs/development/python-modules/pyrime { };
+    python313-pyrime = callPackage ./pkgs/development/python-modules/pyrime {
+      python3 = pkgs.python313;
+    };
+    lsp-tree-sitter = callPackage ./pkgs/development/python-modules/lsp-tree-sitter { };
     tree-sitter-muttrc = callPackage ./pkgs/development/python-modules/tree-sitter-muttrc { };
     mutt-language-server = callPackage ./pkgs/development/python-modules/mutt-language-server { };
     tree-sitter-tmux = callPackage ./pkgs/development/python-modules/tree-sitter-tmux { };
@@ -84,11 +88,10 @@ let
         { };
     termux-language-server = callPackage ./pkgs/development/python-modules/termux-language-server { };
 
-    expect-language-server = callPackage ./pkgs/development/python-modules/expect-language-server { };
+    xilinx-language-server = callPackage ./pkgs/development/python-modules/xilinx-language-server { };
     sublime-syntax-language-server =
       callPackage ./pkgs/development/python-modules/sublime-syntax-language-server
         { };
-    xilinx-language-server = callPackage ./pkgs/development/python-modules/xilinx-language-server { };
   };
 in
 myPkgs
