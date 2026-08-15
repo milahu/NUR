@@ -2,26 +2,28 @@
   description = "My personal NUR repository";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # keep-sorted start block=yes newline_separated=yes
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
+    };
 
     flake-parts.url = "github:hercules-ci/flake-parts";
+
     import-tree.url = "github:vic/import-tree";
-    systems.url = "github:nix-systems/default";
+
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
+    # keep-sorted end
   };
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = import inputs.systems;
-      imports = [(inputs.import-tree ./parts)];
+      systems = inputs.nixpkgs.lib.systems.flakeExposed;
+      imports = [(inputs.import-tree ./flake)];
     };
 }

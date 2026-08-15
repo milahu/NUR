@@ -1,17 +1,19 @@
 {
+  # keep-sorted start
+  fetchFromGitHub,
   lib,
   stdenvNoCC,
-  fetchFromGitHub,
+  # keep-sorted end
 }:
 stdenvNoCC.mkDerivation {
   pname = "bat-syntax-just";
-  version = "4148-1.1.5-unstable-2025-05-08";
+  version = "4148-1.1.7-unstable-2026-04-12";
 
   src = fetchFromGitHub {
     owner = "nk9";
     repo = "just_sublime";
-    rev = "f42cdb012b6033035ee46bfeac1ecd7dca460e55";
-    hash = "sha256-VxI5BPrNVOwIRwdZKm8OhTuXCVKOdG8OGKiCne9cwc8=";
+    rev = "2dcc60286d1af6a4c6c2c03d50bc03230dc56ce3";
+    hash = "sha256-XlxItYVL9I612DhfCGHiUdv6U6Nv9LOlEbJVf1zTwPg=";
   };
 
   installPhase = ''
@@ -26,9 +28,11 @@ stdenvNoCC.mkDerivation {
   dontBuild = true;
 
   meta = with lib; {
+    # keep-sorted start
     description = "Just syntax definition for bat";
     homepage = "https://github.com/nk9/just_sublime";
     license = licenses.mit;
     platforms = platforms.all;
+    # keep-sorted end
   };
 }

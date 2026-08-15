@@ -1,17 +1,19 @@
 {
-  lib,
+  # keep-sorted start
   fetchFromGitHub,
+  lib,
   mkYaziPlugin,
+  # keep-sorted end
 }:
 mkYaziPlugin rec {
   pname = "spot-image.yazi";
-  version = "0-unstable-2026-04-08";
+  version = "0-unstable-2026-06-27";
 
   src = fetchFromGitHub {
     owner = "AminurAlam";
     repo = "yazi-plugins";
-    rev = "8483a29d2b056842468d2df42c780725550fdaed";
-    hash = "sha256-xQGzEqaXjBrcmalLFun9I/eCfj69szugHeo+AOW0CbU=";
+    rev = "ce325af662cbdd438194c68b6d69a3ff59c1b305";
+    hash = "sha256-5+Wopb+W0STi1JMTDnjmIXorZEzDzSdMfdHLK9vl8xs=";
   };
 
   installPhase = ''
@@ -23,8 +25,10 @@ mkYaziPlugin rec {
   '';
 
   meta = {
+    # keep-sorted start
     description = "image metadata and exif";
     homepage = "https://github.com/AminurAlam/yazi-plugins/tree/main/spot-image.yazi";
     license = lib.licenses.gpl3Only;
+    # keep-sorted end
   };
 }

@@ -7,18 +7,27 @@
 #     nix-build -A mypackage
 {pkgs ? import <nixpkgs> {}, ...}: let
   inherit (builtins) isAttrs;
+
+  localPkgs = pkgs.extend (final: _previous: {
+    fetchFromTangled = final.callPackage ./lib/fetch-from-tangled.nix {};
+  });
+
   inherit
-    (pkgs)
-    lib
+    (localPkgs)
+    # keep-sorted start
     callPackage
+    lib
+    # keep-sorted end
     ;
   inherit
     (lib)
-    isDerivation
-    recurseIntoAttrs
+    # keep-sorted start
     filesystem
     filterAttrs
+    isDerivation
     mapAttrs
+    recurseIntoAttrs
+    # keep-sorted end
     ;
 
   normalizePackage = v:
@@ -31,7 +40,7 @@
   recurseCallPackage = path: recurseIntoAttrs (callPackage path {});
 
   discoveredPackages = filesystem.packagesFromDirectoryRecursive {
-    inherit (pkgs) callPackage newScope;
+    inherit (localPkgs) callPackage newScope;
     directory = ./pkgs;
   };
 
@@ -39,14 +48,19 @@
 in
   {
     # The `lib`, `modules`, and `overlays` names are special
+    # keep-sorted start
+    hmModules = import ./hm-modules; # Home Manager modules.
     lib = import ./lib {inherit pkgs;}; # functions
     modules = import ./modules; # NixOS modules
     overlays = import ./overlays; # nixpkgs overlays
-    hmModules = import ./hm-modules; # Home Manager modules.
+    # keep-sorted end
 
-    fishPlugins = recurseCallPackage ./pkgs/fish-plugins;
-    opencodePlugins = recurseCallPackage ./pkgs/opencode/plugins;
-    spicetifyExtensions = recurseCallPackage ./pkgs/spicetify-extensions;
+    # keep-sorted start
+    ghosttyShaders = recurseCallPackage ./pkgs/ghostty-shaders;
+    gotifyPlugins = recurseIntoAttrs (callPackage ./pkgs/gotify-server/plugins {inherit (allPackages) gotify-server;});
+    hyprlandPlugins = recurseCallPackage ./pkgs/hyprland/plugins;
+    spicetifyExtensions = recurseCallPackage ./pkgs/spicetify/extensions;
     yaziPlugins = recurseCallPackage ./pkgs/yazi-plugins;
+    # keep-sorted end
   }
   // allPackages

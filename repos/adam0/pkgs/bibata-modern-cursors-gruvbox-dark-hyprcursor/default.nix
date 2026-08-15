@@ -1,12 +1,15 @@
 {
-  lib,
-  stdenvNoCC,
+  # keep-sorted start
+  bash,
+  clickgen,
   fetchFromGitHub,
   fetchzip,
-  clickgen,
   hyprcursor,
+  lib,
+  python3,
+  stdenvNoCC,
   xcur2png,
-  bash,
+  # keep-sorted end
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "bibata-cursors-gruvbox-dark-hyprcursor";
@@ -25,10 +28,13 @@ stdenvNoCC.mkDerivation rec {
   };
 
   nativeBuildInputs = [
+    # keep-sorted start
+    bash
     clickgen
     hyprcursor
+    python3
     xcur2png
-    bash
+    # keep-sorted end
   ];
 
   buildPhase = ''
@@ -38,7 +44,11 @@ stdenvNoCC.mkDerivation rec {
     ctgen build.toml -d $bitmaps -n 'Bibata-Modern-Gruvbox-Dark' -c 'Gruvbox dark Bibata modern XCursors'
 
     # Build hyprcursors
-    bash hyprcursor-build.sh
+    buildScript=hyprcursor-build.sh
+    if [[ -f scripts/build-hyprcursor.sh ]]; then
+      buildScript=scripts/build-hyprcursor.sh
+    fi
+    bash "$buildScript"
 
     # Ensure manifest names match the hyprcursor pack directories
     for manifest in bin/*-hyprcursor/manifest.hl; do
@@ -61,9 +71,11 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = with lib; {
+    # keep-sorted start
     description = "Bibata modern cursor (Gruvbox dark & left variant)";
     homepage = "https://github.com/adam01110/bibata-cursor";
     license = licenses.gpl3Only;
     platforms = platforms.linux;
+    # keep-sorted end
   };
 }
