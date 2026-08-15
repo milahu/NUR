@@ -1,14 +1,14 @@
-{ fetchFromGitHub, lib, enet, stdenvNoCC, maintainers }: rec {
+{ fetchFromGitHub, lib, enet, stdenvNoCC, gitUpdater, dub-to-nix, symlinkJoin, writeShellApplication, maintainers }: rec {
     pname = "lix-game";
-    version = "0.10.32";
+    version = "0.10.33";
     src = fetchFromGitHub {
         owner = "SimonN";
         repo = "LixD";
         tag = "v${version}";
-        hash = "sha256-UUiJIe+SRmmAVnZ7qBG7BEoP0D6YYmpVfu19DCSWTXg=";
+        hash = "sha256-0ZFog7B+6ixKdobL/4OH41A3rK4PuQGlK/3HQKx1FAI=";
     };
-    assetsHash = "sha256-Vc4rpXlXWFrTXJ7xbivzWQsqRmLJc6qvMiPZ05OUriU=";
-    assetsPNG32Hash = "sha256-P4S/rjj5b9TwfrW8Hn7XLg0czmiQxAItsnBsVfSpFd0=";
+    assetsHash = "sha256-HKkyiPYXrx+qMHvLT3LSDG+x6fiQBwnD5uK/McCifL4=";
+    assetsPNG32Hash = "sha256-tper2vrddJtienyxXIHKDWgH4W62WOCJ5GBfEu0Lk9M=";
     meta = {
         description = "Lemmings-like game with puzzles, editor, multiplayer";
         longDescription = ''
@@ -29,4 +29,74 @@
             substituteInPlace "$file" --replace-fail '"libenet${libExtension}"' '"${lib.getLib enet}/lib/libenet${libExtension}"'
         done
     '';
+    updateScript = let
+        fixUpdater = u: u.override (old: builtins.intersectAttrs old rec {
+            genericUpdater = old.genericUpdater.override { inherit common-updater-scripts; };
+            common-updater-scripts = symlinkJoin {
+                name = "lix-game-updater-scripts-wrapper";
+                paths = [
+                    (writeShellApplication {
+                        name = "update-source-version";
+                        runtimeInputs = [old.common-updater-scripts dub-to-nix];
+                        text = ''
+                            set -x
+                            args=()
+                            for arg in "$@"; do
+                                case "$arg" in
+                                    --print-changes)
+                                        printChanges=true
+                                        continue
+                                        ;;
+                                esac
+                                args+=("$arg")
+                            done
+                            set -- "''${args[@]}"
+                            changes="$(update-source-version "$@" --print-changes)"
+                            if [[ "$changes" == '[]' ]]; then
+                                if [[ -n "$printChanges" ]]; then
+                                    echo '[]'
+                                fi
+                                exit 0
+                            fi
+                            eval "$(jq -r '.[0].files[0] | @sh "file=\(.)"' <<< "$changes")"
+                            # shellcheck disable=SC2154
+                            args=("--file=$file")
+                            for arg in "$@"; do
+                                case "$arg" in
+                                    --rev=*)
+                                        continue
+                                        ;;
+                                esac
+                                args+=("$arg")
+                            done
+                            set -- "''${args[@]}"
+                            update-source-version "$@" --ignore-same-version --source-key=pkgs._toUpdate.assets
+                            update-source-version "$@" --ignore-same-version --source-key=pkgs._toUpdate.assets-PNG32
+                            
+                            dubLock="''${file%/*}/dub-lock.json"
+                            pushd "$(nix-build --no-out-link -A "$UPDATE_NIX_ATTR_PATH".src)"
+                            dub-to-nix > "$dubLock.cmp"
+                            popd
+                            if ! cmp -s "$dubLock.cmp" "$dubLock"; then
+                                mv -f "$dubLock.cmp" "$dubLock"
+                                changes="$(jq -c --arg dubLock "$dubLock" '.[0].files += [$dubLock]' <<< "$changes")"
+                            fi
+                            rm -f "$dubLock.cmp"
+                            
+                            # Until I figure out how to auto-update the music, at least check it and fail if it's changed:
+                            nix-build --no-out-link -A "$UPDATE_NIX_ATTR_PATH".pkgs._toUpdate.music-bin > /dev/null
+                            nix-build --no-out-link -A "$UPDATE_NIX_ATTR_PATH".pkgs._toUpdate.music-bin --check > /dev/null
+                            
+                            if [[ -n "$printChanges" ]]; then
+                                echo -E "$changes"
+                            fi
+                        '';
+                    })
+                    old.common-updater-scripts
+                ];
+            };
+        });
+    in fixUpdater gitUpdater {
+        rev-prefix = "v";
+    };
 }

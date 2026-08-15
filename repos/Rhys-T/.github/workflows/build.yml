@@ -2,22 +2,20 @@ name: "Build and populate cache"
 on:
   workflow_dispatch: # allows manual triggering
   pull_request:
-    paths-ignore:
-      - 'README.md'
-      - 'LICENSE'
-      - '.github/**'
-      - '!.github/workflows/build.yml'
-      - 'update.nix'
+    paths:
+      - '.github/workflows/build.yml'
+      - '**.nix'
+      - '!update.nix'
+      - 'pkgs/**'
   push:
     branches:
       - main
       - master
-    paths-ignore:
-      - 'README.md'
-      - 'LICENSE'
-      - '.github/**'
-      - '!.github/workflows/build.yml'
-      - 'update.nix'
+    paths:
+      - '.github/workflows/build.yml'
+      - '**.nix'
+      - '!update.nix'
+      - 'pkgs/**'
   schedule:
     # rebuild everyday at 3:30
     # TIP: Choose a random time here so not all repositories are build at once:
@@ -41,8 +39,8 @@ jobs:
             "rhys-t" as $cachixName |
             
             null    as $beta |
-            "25.11" as $stable |
-            null    as $oldStable |
+            "26.05" as $stable |
+            "25.11" as $oldStable |
             
             [
               "Lnx x64/ubuntu-latest",
@@ -67,8 +65,12 @@ jobs:
             
             {include: [
               $runners[] as $runner |
-              $nixpkgss[] as $nixpkgs |
               ($runner | split("/")) as [$displayRunner, $runner] |
+              (if ($runner | startswith("macos") and endswith("intel")) then [
+                "nixpkgs-26.05-darwin",
+                "e48b5f12dbcc02fe43d5c0a9f36b569981f41b45", # last commit on unstable before x86_64-darwin was removed
+              empty] else $nixpkgss end) as $nixpkgss |
+              $nixpkgss[] as $nixpkgs |
               (if ($runner | startswith("macos")) then
                 $nixpkgs | gsub("^nixos-(?<version>[0-9]+\\.[0-9]+)$"; "nixpkgs-\(.version)-darwin")
               else $nixpkgs end) as $nixpkgs |
@@ -92,7 +94,8 @@ jobs:
               ("\($displayRunner)-\($displayNixpkgs)-\($subset)" | gsub(" "; "-")) as $cacheName |
               (if $qemuSystem then "TODO make qemu builds work again" | error else . end) |
               ($subset == "lix-game-darwin") as $flaky |
-              {$displayRunner, $runner, $qemuSystem, $qemuSystemForAction, $displayNixpkgs, $nixpkgs, $nixpkgsPath, $subset, $nurRepo, $cachixName, $cacheName, $flaky}
+              ($runner | startswith("ubuntu") and endswith("arm")) as $needsOpenapvWorkaround |
+              {$displayRunner, $runner, $qemuSystem, $qemuSystemForAction, $displayNixpkgs, $nixpkgs, $nixpkgsPath, $subset, $nurRepo, $cachixName, $cacheName, $flaky, $needsOpenapvWorkaround}
             ]}
             
           EOF
@@ -103,7 +106,7 @@ jobs:
           echo -E "cachePrefix=$cachePrefix" >> "$GITHUB_OUTPUT"
       - name: Restore GHA cache of Nix cache
         id: cache
-        uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: |
             ~/.cache/nix/*
@@ -111,7 +114,7 @@ jobs:
           key: nixCache-${{ steps.matrix.outputs.cacheKey }}
           restore-keys: nixCache-${{ steps.matrix.outputs.cachePrefix }}
       - name: Install nix
-        uses: nixbuild/nix-quick-install-action@2c9db80fb984ceb1bcaa77cdda3fdf8cfba92035 # v34
+        uses: nixbuild/nix-quick-install-action@9f63be77f412a248c9d9a65a4c82cf066cdf8f0c # v35
       - name: Pre-cache Nixpkgs tarballs
         id: fetch
         run: |
@@ -139,11 +142,11 @@ jobs:
           "$result"
       - name: Get token for deleting cache
         if: ${{ steps.fetch.outputs.shouldDeleteCache == 'true' }}
-        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         id: app-token
         with:
           # required
-          app-id: ${{ vars.RHYS_T_UPDATE_APP_ID }}
+          client-id: ${{ vars.RHYS_T_UPDATE_APP_ID }}
           private-key: ${{ secrets.RHYS_T_UPDATE_APP_SECRET }}
       - name: Delete cache to update it
         if: ${{ steps.fetch.outputs.shouldDeleteCache == 'true' }}
@@ -152,7 +155,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
       - name: Save GHA cache of Nix cache
-        uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: |
             ~/.cache/nix/*
@@ -171,23 +174,23 @@ jobs:
     continue-on-error: ${{ matrix.flaky }}
     steps:
     - name: Checkout repository
-      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: Setup outputs
       id: outputs
       run: |
         echo 'nurRepo=${{ matrix.nurRepo }}' >> "$GITHUB_OUTPUT"
     - name: Install qemu-user-static
       if: ${{ matrix.qemuSystem != null }}
-      uses: docker/setup-qemu-action@ce360397dd3f832beb865e1373c09c0e9f86d70a # v4.0.0
+      uses: docker/setup-qemu-action@96fe6ef7f33517b61c61be40b68a1882f3264fb8 # v4.2.0
       with:
         platforms: ${{ matrix.qemuSystemForAction }}
     - name: Install nix
-      uses: nixbuild/nix-quick-install-action@2c9db80fb984ceb1bcaa77cdda3fdf8cfba92035 # v34
+      uses: nixbuild/nix-quick-install-action@9f63be77f412a248c9d9a65a4c82cf066cdf8f0c # v35
       with:
         nix_conf: |
           ${{ matrix.qemuSystem && format('extra-platforms = {0}', matrix.qemuSystem) || '' }}
     - name: Restore Nixpkgs cache
-      uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: |
             ~/.cache/nix/*
@@ -200,6 +203,23 @@ jobs:
         echo -E 'NIX_PATH=nixpkgs=flake:myNixpkgs' >> "$GITHUB_ENV"
     - name: Show nixpkgs version
       run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
+    - name: Manually grab openapv from cache.nixos.org
+      # See <https://github.com/NixOS/nixpkgs/issues/533028>
+      if: ${{ matrix.needsOpenapvWorkaround }}
+      run: |
+        set -x
+        brokenID='0mg3mag909yg8pk14cjsppxs2px7iqfv'
+        if [[ "$(nix-instantiate --eval --raw '<nixpkgs>' -A openapv.outPath)" == *"$brokenID"* ]]; then
+          mkdir -p /tmp/openapvCache/nar
+          pushd /tmp/openapvCache
+          curl -LO "https://cache.nixos.org/$brokenID.narinfo"
+          hash="$(grep -E '^NarHash:' "$brokenID.narinfo" | cut -d: -f3)"
+          sed -E -i.bak "/URL: / { s@nar/[^.]+@nar/$hash@; }" "$brokenID.narinfo"
+          pushd nar
+          curl -LO "https://cache.nixos.org/$(grep -E '^URL:' ../"$brokenID.narinfo" | cut -d' ' -f2)"
+          NIX_CONF_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/nix/nix.conf"
+          nix-build --no-out-link '<nixpkgs>' -A openapv --extra-substituters file:///tmp/openapvCache
+        fi
     - name: Setup cachix
       uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71 # v17
       # Don't replace <YOUR_CACHIX_NAME> here!
@@ -220,7 +240,7 @@ jobs:
           -I $PWD
     - name: Restore cached build failures
       id: restoreFailCache
-      uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: /tmp/buildFailures
         key: buildFailures-${{ github.run_id }}-${{ github.run_attempt }}
@@ -254,20 +274,20 @@ jobs:
           outputs = {self, Rhys-T, nixpkgs}: let inherit (nixpkgs) lib; in {
             cacheOutputs = lib.pipe Rhys-T.legacyPackages [
               (builtins.mapAttrs (system: ps: ps.ci.cacheOutputsAsAttrs or null))
-              (lib.filterAttrs (system: co: system == $(nix-instantiate --eval '<nixpkgs>' -A system) && co != null))
+              (lib.filterAttrs (system: co: system == $(nix-instantiate --eval '<nixpkgs>' -A stdenv.hostPlatform.system) && co != null))
             ];
           };
         }
         EOF
         # cat "$tempFlake/flake.nix"
         nix flake lock "$tempFlake"
-        nix shell github:Mic92/nix-fast-build 'nixpkgs#ansifilter' -c bash -c '
+        nix shell github:Mic92/nix-fast-build 'myNixpkgs#ansifilter' -c bash -c '
           set -o pipefail
           nix-fast-build -f "$tempFlake#cacheOutputs" --skip-cached --no-nom --result-file /tmp/build-status.json 2>&1 | \
             tee >(ansifilter > /tmp/build-uncached.log)
         '
     - name: Upload build logs
-      if: '!cancelled()'
+      if: 'always()'
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
       with:
         name: Rhys-T-nur-packages-build-logs-${{ matrix.runner }}${{ matrix.qemuSystem && format('+qemu-{0}', matrix.qemuSystem) || '' }}-${{ matrix.nixpkgs }}-${{ matrix.subset }}
@@ -284,7 +304,9 @@ jobs:
         mv /tmp/buildFailures{,-old} || true
         mkdir /tmp/buildFailures
         job_id=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs --jq '.jobs[] | select(.name == "${{ matrix.displayRunner }} ${{ matrix.displayNixpkgs }} ${{ matrix.subset }}") | .id')
-        grep -E 'error:.*/nix/store/[^/]*\.drv' /tmp/build-uncached.log | grep -Eo '/nix/store/[^/]*\.drv' | \
+        grep -E 'error:.*/nix/store/[^/]*\.drv' /tmp/build-uncached.log | \
+          grep -Fv 'some substitutes for the outputs of derivation' | \
+          grep -Eo '/nix/store/[^/]*\.drv' | \
           sort | uniq | \
           tee /dev/stderr | \
           while IFS= read -r drvPath; do
@@ -341,7 +363,7 @@ jobs:
           path: /tmp/buildFailures
           merge-multiple: true
       - name: Save merged build failure cache
-        uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: /tmp/buildFailures
           key: buildFailures-${{ github.run_id }}-${{ github.run_attempt }}

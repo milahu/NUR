@@ -6,13 +6,20 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {}, _disableWarnings ? false }:
 
 # Backported updates from <https://github.com/NixOS/nixpkgs/pull/404228>
 # See <https://github.com/NixOS/nixpkgs/issues/402811>
 let pkgs' = pkgs; in
 let
-overlays = pkgs'.lib.optional (with pkgs'; (
+overlays = pkgs'.lib.optional (pkgs'?sdl12-compat) (self: super: {
+    # Renamed in Nixpkgs, and I'm trying to make sure this all works with allowAliases = false.
+    # But I don't feel like rewriting all the individual packages right now.
+    # See: <https://github.com/NixOS/nixpkgs/pull/522006>
+    # Will probably need to be extended as the changes continue.
+    # See: <https://github.com/NixOS/nixpkgs/issues/522007>
+    SDL_compat = self.sdl12-compat;
+}) ++ pkgs'.lib.optional (with pkgs'; (
     lib.getName SDL2 == "sdl2-compat" &&
     lib.getVersion sdl2-compat == "2.32.54"
 )) (self: super: {
@@ -30,7 +37,7 @@ overlays = pkgs'.lib.optional (with pkgs'; (
             hash = "sha256-Xg886KX54vwGANIhTAFslzPw/sZs2SvpXzXUXcOKgMs=";
         };
     });
-}) ++ pkgs'.lib.optional (builtins.elem null pkgs'.SDL_compat.buildInputs) (self: super: {
+}) ++ pkgs'.lib.optional (builtins.elem null (pkgs'.sdl12-compat or pkgs'.SDL_compat).buildInputs) (self: super: {
     SDL_compat = super.SDL_compat.overrideAttrs (old: {
         buildInputs = builtins.filter (p: p != null) old.buildInputs;
     });
@@ -66,7 +73,7 @@ let result = pkgs.lib.makeScope pkgs.newScope (self: let
 in {
     # The `lib`, `modules`, and `overlays` names are special
     # Renamed here to avoid shadowing their builtin nixpkgs counterparts in callPackage
-    myLib = import ./lib { inherit pkgs; }; # functions
+    myLib = import ./lib { inherit pkgs _disableWarnings; }; # functions
     myModules = import ./modules; # NixOS modules
     myOverlays = import ./overlays; # nixpkgs overlays
     
@@ -257,12 +264,12 @@ in {
         inherit (pkgs) lib fetchFromGitHub;
         inherit (if myLib.isDeprecated.picolisp then pkgs else self) picolisp;
         picolisp' = picolisp.overrideAttrs (old: {
-            version = "26.5.4";
+            version = "26.8.6-unstable-2026-08-06";
             src = fetchFromGitHub {
                 owner = "picolisp";
                 repo = "pil21";
-                rev = "2c56c4774bc2f3cce02037bd19543acb114bcfd5";
-                hash = "sha256-5/Vuylg6/t9nJnoRWAeAgGWknwW6U0mR4Axwt6w3LoE=";
+                rev = "2687e2dba428b4551153ab694db1b888874d778d";
+                hash = "sha256-wG/UPoWvMR0PoUYDxwjBMYCoK8+I0hgN6Pcvoum1rks=";
             };
             sourceRoot = null;
             passthru = (old.passthru or {}) // {
@@ -338,6 +345,8 @@ in {
     xorcurses-git = callPackage ./pkgs/xorcurses/git.nix {};
     
     powder = callPackage ./pkgs/powder {};
+    
+    agent-safehouse = callPackage ./pkgs/agent-safehouse {};
     
     xinvaders3d = callPackage ./pkgs/xinvaders3d {};
     

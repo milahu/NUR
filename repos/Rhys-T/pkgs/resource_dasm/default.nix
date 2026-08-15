@@ -3,12 +3,12 @@
     needsFmt = fuzziqersoftwareFmtPatchHook.isNeeded;
 in stdenv.mkDerivation rec {
     pname = "resource_dasm";
-    version = "0-unstable-2026-04-18";
+    version = "0-unstable-2026-08-09";
     src = fetchFromGitHub {
         owner = "fuzziqersoftware";
         repo = "resource_dasm";
-        rev = "e4d08c5780dcb97fce0d61e9ef009d8fad04ff67";
-        hash = "sha256-YDz80Rie4dYT2BLc2N9d1EWw8gq1U8TahP/ishREvpQ=";
+        rev = "2fcd907b447efd321380916b6e7184185db7e256";
+        hash = "sha256-oc8dwzviaQeZgj6+9weMnF4z298aYwmrgfnPT12Tzgk=";
     };
     nativeBuildInputs =
         [cmake]
@@ -38,11 +38,6 @@ in stdenv.mkDerivation rec {
         substituteInPlace src/Audio/MODSynthesizer.cc --replace-fail '{:-2}' '{:<2}'
         substituteInPlace src/Audio/smssynth.cc --replace-fail '{:-7}' '{:<7}'
     '';
-    # HACK: clang is fine with using the default values in src/Audio/Instrument.*, but gcc isn't.
-    # Remove this once fixed upstream.
-    env = lib.optionalAttrs stdenv.cc.isGNU {
-        NIX_CFLAGS_COMPILE = "-Wno-error=missing-field-initializers";
-    };
     ${if useNetpbm then "postInstall" else null} = ''
         for file in "$out"/bin/*; do
             wrapProgram "$file" --prefix PATH : ${lib.makeBinPath [netpbm]}
@@ -63,10 +58,12 @@ in stdenv.mkDerivation rec {
                 * **replace_clut**: Remaps an existing image from one indexed color space to another.
                 * **assemble_images**: Combines multiple images into one. Useful for dealing with games that split large images into multiple smaller images due to format restrictions.
                 * **dupe_finder**: Finds duplicate resources across multiple resource files.
+                * **rsrc_info**: Displays information about the resources in resource files.
             * Tools for specific formats
                 * **render_text**: Renders text using bitmap fonts from FONT or NFNT resources.
                 * **hypercard_dasm**: Disassembles HyperCard stacks and draws card images.
                 * **decode_data**: Decodes some custom compression formats (see below).
+                * **macbinary_decode**: Decodes MacBinary files.
                 * **render_sprite**: Renders sprites from a variety of custom formats (see below).
                 * **icon_unarchiver**: Exports icons from an Icon Archiver archive to .icns (see below).
                 * **vrfsdump**: Extracts the contents of VRFS archives from Blobbo.

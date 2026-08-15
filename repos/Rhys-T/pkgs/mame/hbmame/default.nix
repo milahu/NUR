@@ -3,23 +3,43 @@
     writeShellScript,
     common-updater-scripts,
     coreutils,
-    curl,
+    qt6, sdl3, sdl3-ttf,
+    gitMinimal,
     jq,
     nix-prefetch-git,
     maintainers,
     myLib,
 }: let
-    mame' = if (lib.functionArgs mame.override)?papirus-icon-theme then mame.override {
-        papirus-icon-theme = "DUMMY";
-    } else mame;
-    hbmame' = mame'.overrideAttrs (old: rec {
+    mameArgs = lib.functionArgs mame.override;
+    mame' = mame.override (lib.intersectAttrs mameArgs {
+            papirus-icon-theme = "DUMMY";
+            
+            # Upstream MAME and HBMAME have both been updated to use Qt6 instead:
+            libsForQt5 = qt6;
+            inherit (qt6) qtbase wrapQtAppsHook;
+            
+            # <https://github.com/NixOS/nixpkgs/pull/495586>
+            SDL2 = sdl3;
+            SDL2_ttf = sdl3-ttf;
+    });
+    # <https://github.com/NixOS/nixpkgs/pull/495586>
+    needsSDL3Patch = !(mameArgs?sdl3);
+    mame'' = mame'.overrideAttrs (old: lib.optionalAttrs needsSDL3Patch {
+        makeFlags = (old.makeFlags or []) ++ ["OSD=sdl3"];
+        postPatch = (old.postPatch or "") + lib.optionalString stdenv.hostPlatform.isDarwin ''
+            substituteInPlace scripts/src/osd/sdl3.lua --replace-fail \
+              'backtick("sw_vers -productVersion")' \
+              "os.getenv('MACOSX_DEPLOYMENT_TARGET') or '$darwinMinVersion'"
+        '';
+    });
+    hbmame' = mame''.overrideAttrs (old: rec {
         pname = "hbmame";
-        version = "0.245.32";
+        version = "0.289";
         src = fetchFromGitHub {
             owner = "Robbbert";
             repo = "hbmame";
             tag = "tag${builtins.replaceStrings [ "." ] [ "" ] (lib.removePrefix "0." version)}";
-            hash = "sha256-gu6tT4rWPr2GgTnaK6BHN/Lxw33mQpJa/aNapPg6xl8=";
+            hash = "sha256-37aP59izvP/FomxUI/QLDU4M+/uqljk2Sx/CtUwRPg8=";
             forceFetchGit = true; # Avoids unstable hash issues - see:
             # https://github.com/NixOS/nixpkgs/issues/84312
             # https://github.com/NixOS/nixpkgs/issues/259488
@@ -41,9 +61,6 @@
         outputs = lib.lists.remove "tools" (old.outputs or ["out"]);
         patches = lib.pipe old.patches [
             (builtins.filter (patch: !(lib.hasSuffix "13890.patch" (""+patch))))
-            (map (patch: if lib.hasInfix "001-use-absolute-paths" (""+patch) then
-                ./patches/001-use-absolute-paths.diff
-            else patch))
         ];
         postPatch = builtins.replaceStrings [''
             substituteInPlace src/emu/emuopts.cpp \
@@ -90,21 +107,21 @@
             updateScript = writeShellScript "update-hbmame" ''
                 PATH=${lib.makeBinPath [
                     common-updater-scripts
-                    curl
+                    gitMinimal
                     jq
                 ]}
                 set -euo pipefail
                 latestVersion="$(
-                    curl ''${GITHUB_TOKEN:+-H "Authorization: bearer $GITHUB_TOKEN"} https://api.github.com/repos/${src.owner}/${src.repo}/tags | \
-                    jq -r '
+                    git ls-remote -t --refs https://github.com/Robbbert/hbmame | \
+                    jq -Rrn '
                         [
-                            .[].name |
-                            match("tag(?<minor>[0-9]{3})(?<patch>[0-9]*)") |
-                            .captures |
-                            .[] |= {key: .name, value: .string} |
-                            from_entries |
-                            "0." + .minor + (if .patch == "" then "" else "."+.patch end)
-                        ][0]
+                            inputs |
+                            match("tag(?<minor>[0-9]{3})(?<patch>[0-9]*)$")
+                        ] | max_by(.string) |
+                        .captures |
+                        .[] |= {key: .name, value: .string} |
+                        from_entries |
+                        "0." + .minor + (if .patch == "" then "" else "."+.patch end)
                     '
                 )"
                 update-source-version ''${UPDATE_NIX_ATTR_PATH:-hbmame} "$latestVersion"

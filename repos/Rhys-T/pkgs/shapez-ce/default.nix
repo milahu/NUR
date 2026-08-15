@@ -12,12 +12,12 @@
     maintainers,
 }: buildNpmPackage (finalAttrs: {
     pname = "shapez-ce";
-    version = "0-unstable-2026-05-05";
+    version = "0-unstable-2026-08-03";
     src = fetchFromGitHub {
         owner = "tobspr-games";
         repo = "shapez-community-edition";
-        rev = "841ad47da5fbb9ea1e1876af5664aca325a05ec9";
-        hash = "sha256-Ygjf2Gr8mXncg1XGlriGcuK5JKxC2QrxBIFgXh1uFtM=";
+        rev = "a3fdbf4f594772bbb8b72910987e7a23008fea8f";
+        hash = "sha256-SKJhoXyNS6dy68MvofN6kmMb/mOT/nVcX+1u6/r1FWM=";
     };
     texturePacker = fetchurl {
         url = "https://web.archive.org/web/20241202185338id_/https://libgdx-nightlies.s3.amazonaws.com/libgdx-runnables/runnable-texturepacker.jar";
@@ -27,7 +27,7 @@
     nodejs = nodejs_22;
     npmRebuildFlags = [ "--ignore-scripts" ];
     env.ELECTRON_SKIP_BINARY_DOWNLOAD = "1";
-    npmDepsHash = "sha256-lfL6Mc/FHaCxA1XSUChqwpGggkHyCssKkHOYUY62rfs=";
+    npmDepsHash = "sha256-1AGx2jiCXfgdie6ReC7hfEadS0/ijuCalgrE5o53IaA=";
     electronNpmDeps = fetchNpmDeps {
         name = "${finalAttrs.finalPackage.name}-electron-npm-deps";
         inherit (finalAttrs) src;
@@ -147,7 +147,8 @@
         ];
     };
     passthru.updateScript = let
-        fixUpdater = u: u.override (old: {
+        fixUpdater = u: u.override (old: builtins.intersectAttrs old rec {
+            genericUpdater = old.genericUpdater.override { inherit common-updater-scripts; };
             common-updater-scripts = symlinkJoin {
                 name = "shapez-ce-updater-scripts-wrapper";
                 paths = [
@@ -155,7 +156,24 @@
                         name = "update-source-version";
                         runtimeInputs = [old.common-updater-scripts];
                         text = ''
-                            update-source-version "$@"
+                            args=()
+                            for arg in "$@"; do
+                                case "$arg" in
+                                    --print-changes)
+                                        printChanges=true
+                                        continue
+                                        ;;
+                                esac
+                                args+=("$arg")
+                            done
+                            set -- "''${args[@]}"
+                            changes="$(update-source-version "$@" --print-changes)"
+                            if [[ "$changes" == '[]' ]]; then
+                                if [[ -n "$printChanges" ]]; then
+                                    echo '[]'
+                                fi
+                                exit 0
+                            fi
                             args=()
                             for arg in "$@"; do
                                 case "$arg" in
@@ -165,8 +183,13 @@
                                 esac
                                 args+=("$arg")
                             done
-                            update-source-version "''${args[@]}" --ignore-same-version --source-key=npmDeps
-                            update-source-version "''${args[@]}" --ignore-same-version --source-key=electronNpmDeps
+                            set -- "''${args[@]}"
+                            update-source-version "$@" --ignore-same-version --source-key=npmDeps
+                            update-source-version "$@" --ignore-same-version --source-key=electronNpmDeps
+                            
+                            if [[ -n "$printChanges" ]]; then
+                                echo -E "$changes"
+                            fi
                         '';
                     })
                     old.common-updater-scripts
