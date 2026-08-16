@@ -1,55 +1,72 @@
 error:
+… while evaluating the attribute 'akkoma-bin'
+  at ./default.nix:10:3:
+     9|   # talosctl-bin = pkgs.callPackage ./pkgs/talosctl-bin { };
+    10|   akkoma-bin = pkgs.callPackage ./pkgs/akkoma-bin { };
+      |   ^
+    11|   pleroma-ebooks = pkgs.callPackage ./pkgs/pleroma-ebooks { };
 
+… from call site
   at ./default.nix:10:16:
-
      9|   # talosctl-bin = pkgs.callPackage ./pkgs/talosctl-bin { };
     10|   akkoma-bin = pkgs.callPackage ./pkgs/akkoma-bin { };
       |                ^
     11|   pleroma-ebooks = pkgs.callPackage ./pkgs/pleroma-ebooks { };
 
-… while calling 'callPackageWith'
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+   307|     in
+   308|     autoArgs: fn: args:
+      |                   ^
+   309|     let
 
-  at <nixpkgs> + /lib/customisation.nix:212:35:
-
-   211|   */
-   212|   callPackageWith = autoArgs: fn: args:
-      |                                   ^
-   213|     let
-
-… from call site
-
-  at <nixpkgs> + /lib/customisation.nix:225:10:
-
-   224|         # Filter out arguments that have a default value
-   225|         (filterAttrs (name: value: ! value)
-      |          ^
-   226|         # Filter out arguments that would be passed
-
-… while calling 'filterAttrs'
-
-  at <nixpkgs> + /lib/attrsets.nix:646:5:
-
-   645|     pred:
-   646|     set:
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:322:5:
+   321|     # if nonempty, check if the function has defaults for those other args
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
       |     ^
-   647|     removeAttrs set (filter (name: ! pred name set.${name}) (attrNames set));
+   323|       makeOverridable f allArgs
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /lib/customisation.nix:322:28:
+   321|     # if nonempty, check if the function has defaults for those other args
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+      |                            ^
+   323|       makeOverridable f allArgs
+
+… while calling the 'removeAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:318:22:
+   317|       # arguments that weren't passed automatically to the function
+   318|       unpassedArgs = removeAttrs fargs (attrNames allArgs);
+      |                      ^
+   319|
 
 … from call site
-
-  at <nixpkgs> + /lib/customisation.nix:215:15:
-
-   214|       f = if isFunction fn then fn else import fn;
-   215|       fargs = functionArgs f;
+  at <nixpkgs> + /lib/customisation.nix:311:15:
+   310|       f = if isFunction fn then fn else import fn;
+   311|       fargs = functionArgs f;
       |               ^
-   216|
+   312|
 
-… while calling 'functionArgs'
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/trivial.nix:1109:5:
+  1108|     in
+  1109|     f: if f ? __functor then f.__functionArgs or (functionArgs (f.__functor f)) else functionArgs f;
+      |     ^
+  1110|
 
-  at <nixpkgs> + /lib/trivial.nix:984:18:
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/trivial.nix:1109:8:
+  1108|     in
+  1109|     f: if f ? __functor then f.__functionArgs or (functionArgs (f.__functor f)) else functionArgs f;
+      |        ^
+  1110|
 
-   983|   */
-   984|   functionArgs = f:
-      |                  ^
-   985|     if f ? __functor
+… while calling the 'import' builtin
+  at <nixpkgs> + /lib/customisation.nix:310:41:
+   309|     let
+   310|       f = if isFunction fn then fn else import fn;
+      |                                         ^
+   311|       fargs = functionArgs f;
 
-error: getting status of './pkgs/akkoma-bin': No such file or directory
+error: path './pkgs/akkoma-bin' does not exist
