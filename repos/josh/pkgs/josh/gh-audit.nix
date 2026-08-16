@@ -2,13 +2,14 @@
   lib,
   python3Packages,
   fetchFromGitHub,
+  nur,
   nix-update-script,
   runCommand,
   testers,
 }:
 python3Packages.buildPythonApplication (finalAttrs: {
   pname = "gh-audit";
-  version = "0.3.0";
+  version = "0.3.2";
 
   pyproject = true;
   __structuredAttrs = true;
@@ -17,7 +18,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
     owner = "josh";
     repo = "gh-audit";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-alUMZwu4HVXfQvoIeep/cOzTcl3umQZphd8xdzgqIYE=";
+    hash = "sha256-CcJX4OsvoLo5xT5g9fjvyLMbwC5v0OQIbgckUZVmMEc=";
   };
 
   build-system = with python3Packages; [
@@ -28,6 +29,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
     click
     pygithub
     pyyaml
+    nur.repos.josh.python3-pyproject-fmt
   ];
 
   pythonImportsCheck = [ "gh_audit" ];
