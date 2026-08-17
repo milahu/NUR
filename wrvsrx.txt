@@ -1,0 +1,25 @@
+error:
+… while evaluating the file '$tempdir/default.nix':
+
+… from call site
+  at $tempdir/default.nix:3:21:
+     2|                     with import <nixpkgs> {};
+     3|                     import $tempdir/evalRepo.nix {
+      |                     ^
+     4|                         name = "wrvsrx";
+
+… while calling anonymous lambda
+  at $tempdir/evalRepo.nix:1:1:
+     1| { name
+      | ^
+     2| , url
+
+… while calling the 'throw' builtin
+  at $tempdir/evalRepo.nix:30:28:
+    29|
+    30| in if usesCallPackage then throw ''
+      |                            ^
+    31|     NUR repository ${prettyName} is using the deprecated callPackage syntax which
+
+error: NUR repository wrvsrx is using the deprecated callPackage syntax which
+might result in infinite recursion when used with NixOS modules.
