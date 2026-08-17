@@ -1,16 +1,16 @@
 {
 "name":"josh",
-"fetch_time":0.995,
-"eval_time":2.161,
+"fetch_time":0.774,
+"eval_time":2.143,
 "source":{
 "url":"https://github.com/josh/nurpkgs",
-"rev":"7706b6db438587160bf688f33055dbcd02a2e949",
-"sha256":"1lh4yk089s0r57cp3wv0h6z10n1fcml9zcyc9kphhx3wps8hdxi6",
+"rev":"5ca00b515ef44e4c3fafbd0b35ccc7496ef1dcc2",
+"sha256":"1azrn83dmc8ws1kwlg0jqfc6x4vh5qjbrss29s3355aqxzv2skmq",
 "date":null
 },
-"source_storepath":"/nix/store/955pz61qb3jfr2i8g9kddxrcnspgq563-source",
-"nixpkgs_storepath":"/nix/store/2kvvl97khd2qi6sriwkcp03v78v6f5zb-source",
-"nur_combined_rev":"7c4a8717c52e26d71bfdbcb36bd40dba0e14d0e1",
+"source_storepath":"/nix/store/p0386dp2xav33cj7zap2r22cb3nvjjji-source",
+"nixpkgs_storepath":"/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source",
+"nur_combined_rev":"298c7ea4197a9c3c056cb974f6ba900f3f0d56bd",
 "packages":{
 "age-old":{
 "drvPath":"/nix/store/39wjyyxar6qvazkrzvpajz5wc0lhnmyv-age-1.2.1.drv",
@@ -593,8 +593,113 @@
 "system":"x86_64-linux",
 "version":"0-unstable-2025-11-05"
 },
+"aperture-cli":{
+"drvPath":"/nix/store/c75wrj7gqyb3h9l0n4zf8rgfykmvgvlv-aperture-cli-0.0.8.drv",
+"meta":{
+"available":true,
+"broken":false,
+"description":"Launch coding agents preconfigured against a Tailscale Aperture LLM gateway",
+"homepage":"https://github.com/tailscale/aperture-cli",
+"identifiers":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"aperture-cli",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purlParts":{},
+"purls":[],
+"v1":{
+"cpeParts":{
+"edition":"*",
+"language":"*",
+"other":"*",
+"part":"a",
+"product":"aperture-cli",
+"sw_edition":"*",
+"target_hw":"*",
+"target_sw":"*"
+},
+"possibleCPEs":[],
+"purls":[]
+}
+},
+"insecure":false,
+"license":{
+"deprecated":false,
+"free":true,
+"fullName":"BSD 3-clause \"New\" or \"Revised\" License",
+"licenseType":"simple",
+"redistributable":true,
+"shortName":"bsd3",
+"spdxId":"BSD-3-Clause",
+"url":"https://spdx.org/licenses/BSD-3-Clause.html"
+},
+"mainProgram":"aperture",
+"maintainers":[],
+"name":"aperture-cli-0.0.8",
+"nonTeamMaintainers":[],
+"outputsToInstall":[
+"out"
+],
+"platforms":[
+"aarch64-darwin",
+"x86_64-linux",
+"aarch64-linux",
+"arc-linux",
+"armv5tel-linux",
+"armv6l-linux",
+"armv7a-linux",
+"armv7l-linux",
+"i686-linux",
+"loongarch64-linux",
+"m68k-linux",
+"sh4-linux",
+"microblaze-linux",
+"microblazeel-linux",
+"mips-linux",
+"mips64-linux",
+"mips64el-linux",
+"mipsel-linux",
+"powerpc-linux",
+"powerpc64-linux",
+"powerpc64le-linux",
+"riscv32-linux",
+"riscv64-linux",
+"s390-linux",
+"s390x-linux",
+"wasm64-wasip1",
+"wasm32-wasip1",
+"i686-freebsd",
+"x86_64-freebsd",
+"aarch64-freebsd"
+],
+"position":"./pkgs/tailscale/aperture-cli.nix:49",
+"problems":{
+"maintainerless":{
+"kind":"maintainerless",
+"message":"This package has no declared maintainer, i.e. an empty `meta.maintainers` and `meta.teams` attribute."
+}
+},
+"unfree":false,
+"unsupported":false
+},
+"name":"aperture-cli-0.0.8",
+"outputName":"out",
+"outputs":{
+"out":null
+},
+"pname":"aperture-cli",
+"system":"x86_64-linux",
+"version":"0.0.8"
+},
 "argo-cd-chart":{
-"drvPath":"/nix/store/78y3b8xnj0dd5c7g3l65jvk8mia4caba-argo-cd-chart-10.3.3.drv",
+"drvPath":"/nix/store/3j6qw3g69nf478gr0nx56jx7ds30l9pr-argo-cd-chart-10.3.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1105,7 +1210,7 @@
 "version":"0-unstable-2026-01-06"
 },
 "ceph-csi-cephfs-chart":{
-"drvPath":"/nix/store/is41xw16hd7rjl6k2hqkx3pzz7fyysv6-ceph-csi-cephfs-chart-3.17.0.drv",
+"drvPath":"/nix/store/wm5cng89rjksk78n2yyvi3r412bxpqir-ceph-csi-cephfs-chart-3.17.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1253,7 +1358,7 @@
 "version":"3.17.0"
 },
 "ceph-csi-cephfs-manifests":{
-"drvPath":"/nix/store/ilbri299w08xlzdlcric592l037a3qvi-ceph-csi-cephfs-manifests-3.17.0.drv",
+"drvPath":"/nix/store/gl19lgiqc8lwclhrjskwvbm7d1f951mw-ceph-csi-cephfs-manifests-3.17.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1406,7 +1511,7 @@
 "version":"3.17.0"
 },
 "ceph-csi-rbd-chart":{
-"drvPath":"/nix/store/07hz4gx2grpa88l4adil2lvpyi87r7s3-ceph-csi-rbd-chart-3.17.0.drv",
+"drvPath":"/nix/store/b4lk8f6162hgy6pg96k9q9lnixc15xkl-ceph-csi-rbd-chart-3.17.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1554,7 +1659,7 @@
 "version":"3.17.0"
 },
 "ceph-csi-rbd-manifests":{
-"drvPath":"/nix/store/8zz3fyk0q1nh8423zbd7s3yif0sdbwrx-ceph-csi-rbd-manifests-3.17.0.drv",
+"drvPath":"/nix/store/ihaxw98jm6z3gkh2hnia6lrvx1b6rk1q-ceph-csi-rbd-manifests-3.17.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1707,7 +1812,7 @@
 "version":"3.17.0"
 },
 "ceph-dashboards":{
-"drvPath":"/nix/store/7pa777x6frmvb6g2l1cqy36p95i74f1n-ceph-dashboards-20.2.2.drv",
+"drvPath":"/nix/store/qskkr562sj55hzrxyk9bcmbcy4kd486n-ceph-dashboards-20.2.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -1900,7 +2005,7 @@
 "version":"20.2.2"
 },
 "ceph-mgr-endpoint-controller":{
-"drvPath":"/nix/store/0s02d9s7a1cnsnxd3868yxzidvj3v4cb-ceph-mgr-endpoint-controller-0.7.2.drv",
+"drvPath":"/nix/store/fd613l9dl8117n0qc84i3za6z1nabpsp-ceph-mgr-endpoint-controller-0.7.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2130,7 +2235,7 @@
 "version":"0.7.2"
 },
 "ceph-mgr-endpoint-controller-manifests":{
-"drvPath":"/nix/store/bfcrr79cg8bhvrx4dadl9vrq8a7v2wk0-ceph-mgr-endpoint-controller-manifests-0.7.2.drv",
+"drvPath":"/nix/store/8xj590wwn21krwyyaynva3s7433y6pa2-ceph-mgr-endpoint-controller-manifests-0.7.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2388,7 +2493,7 @@
 "version":"0.2.2"
 },
 "cert-manager-chart":{
-"drvPath":"/nix/store/ndckd3y7g9lzlb2kjad9zjn5pkvjv5kh-cert-manager-chart-1.21.1.drv",
+"drvPath":"/nix/store/x9qjz908fcgalwn8v0mp0binq4pk7f99-cert-manager-chart-1.21.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2536,7 +2641,7 @@
 "version":"1.21.1"
 },
 "cert-manager-manifests":{
-"drvPath":"/nix/store/j09sdqf8xnb8abhifxnz86fm44ngydwp-cert-manager-manifests-1.21.1.drv",
+"drvPath":"/nix/store/rnw24kfbwcv63y4d18xr08j2gp5bsz26-cert-manager-manifests-1.21.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2689,7 +2794,7 @@
 "version":"1.21.1"
 },
 "cilium-chart":{
-"drvPath":"/nix/store/l9isz7pm8wf159cynwzsnz93hbwz62fc-cilium-chart-1.20.0.drv",
+"drvPath":"/nix/store/9r57w4pdma10xnf104810bbw1plnanyi-cilium-chart-1.20.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2837,7 +2942,7 @@
 "version":"1.20.0"
 },
 "cilium-manifests":{
-"drvPath":"/nix/store/nrqd5kdwwb5nf9xjqq3i24045vvjsri9-cilium-manifests-1.20.0.drv",
+"drvPath":"/nix/store/jq8bj5gpdi91l7j0gxbzi26sncifaryl-cilium-manifests-1.20.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -2990,7 +3095,7 @@
 "version":"1.20.0"
 },
 "cloudnative-pg-chart":{
-"drvPath":"/nix/store/68vnbddy4nxr0x0kf9c004lhmr7h7i24-cloudnative-pg-chart-0.29.0.drv",
+"drvPath":"/nix/store/6l4qq323rxkscbalbkw1gbwx9az74xg5-cloudnative-pg-chart-0.29.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3138,7 +3243,7 @@
 "version":"0.29.0"
 },
 "cloudnative-pg-cluster-chart":{
-"drvPath":"/nix/store/06d5wgnkpwl2vfr0aq9z991hz2mbi1bh-cloudnative-pg-cluster-chart-0.8.1.drv",
+"drvPath":"/nix/store/j74q8xwhb3v4xyrimlw12kaq6lfmd2dk-cloudnative-pg-cluster-chart-0.8.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3286,7 +3391,7 @@
 "version":"0.8.1"
 },
 "cloudnative-pg-manifests":{
-"drvPath":"/nix/store/kr6km5cb8hh7svzc6mzsxpgr11ljvq5y-cloudnative-pg-manifests-0.29.0.drv",
+"drvPath":"/nix/store/q7cc486nh478nwn1fgx692s52bcm20jb-cloudnative-pg-manifests-0.29.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3449,7 +3554,7 @@
 "version":"1.2"
 },
 "ext-postgres-operator-chart":{
-"drvPath":"/nix/store/mjj667i4v263c7zvzfjlc849clix4313-ext-postgres-operator-chart-3.0.0.drv",
+"drvPath":"/nix/store/2r60h8mq1r15ay0zx4ka1jhpia555xwl-ext-postgres-operator-chart-3.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3597,7 +3702,7 @@
 "version":"3.0.0"
 },
 "external-dns-chart":{
-"drvPath":"/nix/store/i4ns80pnbbayw7jqm6hshmmjncagfnlj-external-dns-chart-1.21.1.drv",
+"drvPath":"/nix/store/lqkz6yqzj3qywz7nfcxb8i5bwi91airf-external-dns-chart-1.21.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3745,7 +3850,7 @@
 "version":"1.21.1"
 },
 "external-dns-manifests":{
-"drvPath":"/nix/store/ap7hr9dw343m12vh0iiba6n1ld03vb99-external-dns-manifests-1.21.1.drv",
+"drvPath":"/nix/store/14bkvk8i5667xp8vdwhp1721rmvr4ayr-external-dns-manifests-1.21.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -3898,7 +4003,7 @@
 "version":"1.21.1"
 },
 "external-secrets-chart":{
-"drvPath":"/nix/store/mlfmjhw4vgbbdqwdj7kjzhxw01nayvwz-external-secrets-chart-2.9.0.drv",
+"drvPath":"/nix/store/z0g3ifqr89qhqj1hrkly240gzb83iglw-external-secrets-chart-2.9.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4046,7 +4151,7 @@
 "version":"2.9.0"
 },
 "external-secrets-manifests":{
-"drvPath":"/nix/store/0n7b3qyxaxmlxmaz5fag7swad3bah2fq-external-secrets-manifests-2.9.0.drv",
+"drvPath":"/nix/store/kw1ybg5vilc15vpxxq4i5vgvq3j6alf7-external-secrets-manifests-2.9.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4471,7 +4576,7 @@
 "version":"0-unstable-2026-03-13"
 },
 "forgejo-chart":{
-"drvPath":"/nix/store/xqigmrrj4r232aw7jgfwnjyvd25x1yfd-forgejo-chart-17.1.4.drv",
+"drvPath":"/nix/store/s588sf2m8km9kbml1p08kipx08in1a1a-forgejo-chart-17.1.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4619,7 +4724,7 @@
 "version":"17.1.4"
 },
 "forgejo-manifests":{
-"drvPath":"/nix/store/hv46fin0qs0pmviabvhmmbhdlab121xm-forgejo-manifests-17.1.4.drv",
+"drvPath":"/nix/store/fbcd6mid2x576r110vqa64c355sj9jgf-forgejo-manifests-17.1.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4783,7 +4888,7 @@
 "version":"2.0.3"
 },
 "gh-audit":{
-"drvPath":"/nix/store/cjwhigawpww9qz4dkfrs9wr2sxkvvvb0-gh-audit-0.3.2.drv",
+"drvPath":"/nix/store/fic29z3x9p5pac5q1nibakqk1775fjz1-gh-audit-0.3.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -4971,7 +5076,7 @@
 "version":"0.3.2"
 },
 "gha-runner-scale-set-chart":{
-"drvPath":"/nix/store/hmi9v9f24fzarwhk9cgj7gv5mjxvbjdh-gha-runner-scale-set-chart-0.14.2.drv",
+"drvPath":"/nix/store/dakcjfisz7mlvlnpwrlg36hbakmi36y1-gha-runner-scale-set-chart-0.14.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5119,7 +5224,7 @@
 "version":"0.14.2"
 },
 "gha-runner-scale-set-controller-chart":{
-"drvPath":"/nix/store/g8phyjby5r5pmqjri1wh0byw9ny0wr0k-gha-runner-scale-set-controller-chart-0.14.2.drv",
+"drvPath":"/nix/store/n1wirnx0hp69dnyb638zh0pl5f1wkq9v-gha-runner-scale-set-controller-chart-0.14.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5267,7 +5372,7 @@
 "version":"0.14.2"
 },
 "gha-runner-scale-set-controller-manifests":{
-"drvPath":"/nix/store/6lb6f848i7n97px7wh8fdlk6pjhf4sy3-gha-runner-scale-set-controller-manifests-0.14.2.drv",
+"drvPath":"/nix/store/w44akl932yihzgmrlsj041r4i2rdhwfc-gha-runner-scale-set-controller-manifests-0.14.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5563,7 +5668,7 @@
 "version":"0-unstable-2026-04-30"
 },
 "gitea-actions-chart":{
-"drvPath":"/nix/store/7alhvib0yacn43f7ycd6grfskhxn8v2f-gitea-actions-chart-0.1.2.drv",
+"drvPath":"/nix/store/fgxcwp4jy74ls0nvv2d7vxgrcbp0azm5-gitea-actions-chart-0.1.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5711,7 +5816,7 @@
 "version":"0.1.2"
 },
 "gitea-chart":{
-"drvPath":"/nix/store/gb6n16an8pmxjwy710d4bw6v6p653nck-gitea-chart-12.7.0.drv",
+"drvPath":"/nix/store/fdd38dpydnr7cxvrgwfvc883l8q0da6i-gitea-chart-12.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -5859,7 +5964,7 @@
 "version":"12.7.0"
 },
 "gitea-manifests":{
-"drvPath":"/nix/store/zrjb2jg70rp82jjmwi18ascjrg6rdyfx-gitea-manifests-12.7.0.drv",
+"drvPath":"/nix/store/yvcw823nc4xykwsyvv6spzfk6cbm38q4-gitea-manifests-12.7.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6012,7 +6117,7 @@
 "version":"12.7.0"
 },
 "golink-chart":{
-"drvPath":"/nix/store/qk6dhzan8nnhd484s23siirzpvdzgj1r-golink-chart-0.8.0.drv",
+"drvPath":"/nix/store/fpmamj418mc20n7vrznw99kjpwr3gagz-golink-chart-0.8.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6160,7 +6265,7 @@
 "version":"0.8.0"
 },
 "grafana-chart":{
-"drvPath":"/nix/store/mhzfg0p1rvv54l9bgb4fzhdz8jz2gr9v-grafana-chart-12.10.4.drv",
+"drvPath":"/nix/store/iqk222mzp6pnj29wfxpwa0p1br7x1ykm-grafana-chart-12.10.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6308,7 +6413,7 @@
 "version":"12.10.4"
 },
 "grafana-operator-chart":{
-"drvPath":"/nix/store/y5xmw4zwy1763n2x76m2g1wx4vxvb2bd-grafana-operator-chart-5.24.0.drv",
+"drvPath":"/nix/store/jsgvg3689lkm3qx67s3ya8r2083i1c8y-grafana-operator-chart-5.24.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6456,7 +6561,7 @@
 "version":"5.24.0"
 },
 "harbor-chart":{
-"drvPath":"/nix/store/3026bwi6fzgp9wriyfkg9112sjvxj8ms-harbor-chart-1.19.2.drv",
+"drvPath":"/nix/store/p4fr3d0mzvhqj5p52kvk8vdpdka23qm0-harbor-chart-1.19.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6604,7 +6709,7 @@
 "version":"1.19.2"
 },
 "headlamp-chart":{
-"drvPath":"/nix/store/kf0a4lprd0fj95azjxlc4s271msna0sj-headlamp-chart-0.44.0.drv",
+"drvPath":"/nix/store/xzva252vw4cnq5qh68smpnvgyg4hdan9-headlamp-chart-0.44.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -6752,7 +6857,7 @@
 "version":"0.44.0"
 },
 "headlamp-manifests":{
-"drvPath":"/nix/store/gabvw33iv3661in8ia6vaizjladnyhcd-headlamp-manifests-0.44.0.drv",
+"drvPath":"/nix/store/va5ivrjsqmpa4m88800770lqazj6mbk9-headlamp-manifests-0.44.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8825,7 +8930,7 @@
 "version":"1.0.1"
 },
 "jmap2nats-manifests":{
-"drvPath":"/nix/store/3wrr88gs9iprjkk4a0sqygfdz8lbl4kc-jmap2nats-manifests-1.0.1.drv",
+"drvPath":"/nix/store/cm1jby6p25bxf5200vv8dm7al5ay9d81-jmap2nats-manifests-1.0.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -8978,7 +9083,7 @@
 "version":"1.0.1"
 },
 "kube-prometheus-stack-chart":{
-"drvPath":"/nix/store/iygksi0qb9jnwfpjccbp1fv0zccc5lvk-kube-prometheus-stack-chart-88.3.0.drv",
+"drvPath":"/nix/store/f6sv1h79yd5naqx756djail1w00ldffq-kube-prometheus-stack-chart-88.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9126,7 +9231,7 @@
 "version":"88.3.0"
 },
 "kube-state-metrics-chart":{
-"drvPath":"/nix/store/900rsy9gdb8wcdrd4mhz0dssra4hgipn-kube-state-metrics-chart-8.3.0.drv",
+"drvPath":"/nix/store/rjl609rxpqlbm79ya24wna3qpskj3f1v-kube-state-metrics-chart-8.3.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9389,7 +9494,7 @@
 "version":"1.0.0"
 },
 "librados":{
-"drvPath":"/nix/store/b3450ijyn4rs8gdzrif80g16jx1ld1lb-librados-20.2.2.drv",
+"drvPath":"/nix/store/gk3f4dx3g8gsmnmpqf5srhm72mvmp9hr-librados-20.2.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -9965,7 +10070,7 @@
 "version":"0.0.37"
 },
 "metallb-chart":{
-"drvPath":"/nix/store/6b1py6aq610bqic5circwwh78x5xbsbp-metallb-chart-0.16.1.drv",
+"drvPath":"/nix/store/pa1gcayqj1fsxandw58ffjq3ks1hqplq-metallb-chart-0.16.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10113,7 +10218,7 @@
 "version":"0.16.1"
 },
 "metrics-server-chart":{
-"drvPath":"/nix/store/l5xys90br7psa0xri515mdmg46cbmk04-metrics-server-chart-3.13.1.drv",
+"drvPath":"/nix/store/qga2pdkmpls132hndcrdk1q7jgqj9w34-metrics-server-chart-3.13.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10261,7 +10366,7 @@
 "version":"3.13.1"
 },
 "metrics-server-manifests":{
-"drvPath":"/nix/store/4v04kqgsljiim2fx1yidhrhzps25gm6h-metrics-server-manifests-3.13.1.drv",
+"drvPath":"/nix/store/znfq7845d8dmln38sqs3c9pn4481f7xm-metrics-server-manifests-3.13.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10672,7 +10777,7 @@
 "version":"0.0.3"
 },
 "mqtt2nats-manifests":{
-"drvPath":"/nix/store/wc23v3di24iyqw34nj9b8r7b8jd81gwc-mqtt2nats-manifests-0.0.3.drv",
+"drvPath":"/nix/store/73scmm1xdihbdprg07pn1446vbbqm32k-mqtt2nats-manifests-0.0.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10825,7 +10930,7 @@
 "version":"0.0.3"
 },
 "nack-chart":{
-"drvPath":"/nix/store/dnskb5siqcjqpn4a807s170sci9mv9r5-nack-chart-0.34.0.drv",
+"drvPath":"/nix/store/sna3chq48lp1dqyabp33sp37l8pl4pra-nack-chart-0.34.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -10973,7 +11078,7 @@
 "version":"0.34.0"
 },
 "nack-manifests":{
-"drvPath":"/nix/store/w9iqa226si2sma8ik16z2fpbpck00q8h-nack-manifests-0.34.0.drv",
+"drvPath":"/nix/store/wyin5pz20q6rsahyw30shw0xncjj6sk3-nack-manifests-0.34.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11136,7 +11241,7 @@
 "version":"0-unstable-2026-03-04"
 },
 "nats-chart":{
-"drvPath":"/nix/store/6lvx2sljinv8zbx047gdbc29ccqdv2jc-nats-chart-2.14.4.drv",
+"drvPath":"/nix/store/j7ym06l4w7qq73mzynqbl8ih6l2f814r-nats-chart-2.14.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11284,7 +11389,7 @@
 "version":"2.14.4"
 },
 "nats-manifests":{
-"drvPath":"/nix/store/gfdz2570jm92a9dbcvslsbpj0z53jmh6-nats-manifests-2.14.4.drv",
+"drvPath":"/nix/store/8klakjx6jrh5p6wln271fwfbjsr9n10m-nats-manifests-2.14.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11695,7 +11800,7 @@
 "version":"0.0.4"
 },
 "nats-static-manifests":{
-"drvPath":"/nix/store/3xbq0d38fk0f5644ricmwh3yh6d0cz2j-nats-static-manifests-0.0.4.drv",
+"drvPath":"/nix/store/k0rb4p55mvnd3dpccf0wxpzp346yp7pn-nats-static-manifests-0.0.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -11848,7 +11953,7 @@
 "version":"0.0.4"
 },
 "open-webui-chart":{
-"drvPath":"/nix/store/y5s2xkaaq0g967crqzmg2nzyh8s1azny-open-webui-chart-16.0.0.drv",
+"drvPath":"/nix/store/jq7v2rcng8lhcnyg3aidvhsz7i2ka91v-open-webui-chart-16.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12273,7 +12378,7 @@
 ],
 "maintainersPosition":{
 "column":5,
-"file":"/nix/store/2kvvl97khd2qi6sriwkcp03v78v6f5zb-source/pkgs/development/python-modules/polars/default.nix",
+"file":"/nix/store/jyhic4hzlffraa6l2dmbn6n6i5dfp21j-source/pkgs/development/python-modules/polars/default.nix",
 "line":294
 },
 "name":"python3.14-polars-1.42.1",
@@ -12393,7 +12498,7 @@
 "version":"1.42.1"
 },
 "prometheus-blackbox-exporter-chart":{
-"drvPath":"/nix/store/2b8f9v99dfsydc7cmzjwcdhryyi8a57i-prometheus-blackbox-exporter-chart-11.17.2.drv",
+"drvPath":"/nix/store/p7l3s51s3nc9mnj2la6w3pdl8r1m6ppb-prometheus-blackbox-exporter-chart-11.17.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12541,7 +12646,7 @@
 "version":"11.17.2"
 },
 "prometheus-chart":{
-"drvPath":"/nix/store/26hpzds5d58rkjv8h0q5xwhacvbvbqxm-prometheus-chart-29.24.0.drv",
+"drvPath":"/nix/store/3b9ysswm0a25fy3iabq0yqijwh3jxmma-prometheus-chart-29.24.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -12899,7 +13004,7 @@
 "version":"1.3.1"
 },
 "prometheus-node-exporter-chart":{
-"drvPath":"/nix/store/rc8vdiq4hlw0j9j3v30rh7xb8xjxkk7f-prometheus-node-exporter-chart-4.56.1.drv",
+"drvPath":"/nix/store/x75r9bvpc8x32d0bi125kaswwlqq5m8n-prometheus-node-exporter-chart-4.56.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -13599,7 +13704,7 @@
 "version":"1.0.2"
 },
 "python3-pyproject-fmt":{
-"drvPath":"/nix/store/pvxs9y98r2igd3s6ir4ychrfsphm0clv-python3.14-pyproject-fmt-2.27.1.drv",
+"drvPath":"/nix/store/1mpfax9xi53qvrspf9f0yfxzq376y89y-python3.14-pyproject-fmt-2.28.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -13680,7 +13785,7 @@
 },
 "mainProgram":"pyproject-fmt",
 "maintainers":[],
-"name":"python3.14-pyproject-fmt-2.27.1",
+"name":"python3.14-pyproject-fmt-2.28.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -13776,7 +13881,7 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"python3.14-pyproject-fmt-2.27.1",
+"name":"python3.14-pyproject-fmt-2.28.0",
 "outputName":"out",
 "outputs":{
 "dist":null,
@@ -13784,7 +13889,7 @@
 },
 "pname":"python3.14-pyproject-fmt",
 "system":"x86_64-linux",
-"version":"2.27.1"
+"version":"2.28.0"
 },
 "python3-toml-fmt-common":{
 "drvPath":"/nix/store/p03c8kfkh8f6hs8vgxs9aksmx5gzdpa9-python3.14-toml-fmt-common-1.3.5.drv",
@@ -14232,7 +14337,7 @@
 "version":"1.2.1"
 },
 "restic-rados-server":{
-"drvPath":"/nix/store/4cmz9a6iakrql6vqy38822v2cahgxg3n-restic-rados-server-0.10.1.drv",
+"drvPath":"/nix/store/7y491y28xa1kr4q6x6rd6khzxsaa4l9i-restic-rados-server-0.10.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -14615,7 +14720,7 @@
 "version":"0-unstable-2026-08-03"
 },
 "rook-ceph-chart":{
-"drvPath":"/nix/store/83sfma452xzfpwi4gqdj2lfq8c33bi2b-rook-ceph-chart-1.20.4.drv",
+"drvPath":"/nix/store/ganshgs18h0miap4mx3i4dfkbzmhhxwc-rook-ceph-chart-1.20.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -14763,7 +14868,7 @@
 "version":"1.20.4"
 },
 "rook-ceph-cluster-chart":{
-"drvPath":"/nix/store/xsmmy982akm6k0k29zrhhs610dmqcfr4-rook-ceph-cluster-chart-1.20.4.drv",
+"drvPath":"/nix/store/8iwlidf5n1i071ls48xvdw4nnasjcmsz-rook-ceph-cluster-chart-1.20.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -14911,7 +15016,7 @@
 "version":"1.20.4"
 },
 "rook-ceph-cluster-manifests":{
-"drvPath":"/nix/store/9p9mxa86ybyr8hp0sfw8xk0xhag950mh-rook-ceph-cluster-manifests-1.20.4.drv",
+"drvPath":"/nix/store/wdhghi9spjfphfcp7bndanijq16bmi0l-rook-ceph-cluster-manifests-1.20.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15064,7 +15169,7 @@
 "version":"1.20.4"
 },
 "rook-ceph-manifests":{
-"drvPath":"/nix/store/kkr4s774s5rrxsq57vish1sg9rbpp2rw-rook-ceph-manifests-1.20.4.drv",
+"drvPath":"/nix/store/wrsbv8fzr930ppsj7lv3qwflplpgj77c-rook-ceph-manifests-1.20.4.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15523,7 +15628,7 @@
 "version":"0-unstable-2026-06-22"
 },
 "rqlite-chart":{
-"drvPath":"/nix/store/zi69irpqpqy53pdqv1rlli0hj82ljmsj-rqlite-chart-2.0.0.drv",
+"drvPath":"/nix/store/4b0sz71c9dzi9d1ci11i27pm67aqi2p3-rqlite-chart-2.0.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15671,7 +15776,7 @@
 "version":"2.0.0"
 },
 "rsshub-chart":{
-"drvPath":"/nix/store/2rzjnyvz44dx4pf99g1lw6vpnhgq3w4w-rsshub-chart-0.2.9.drv",
+"drvPath":"/nix/store/c5fgwmp0iz1qg7y64wpj29jskd5vxbsd-rsshub-chart-0.2.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15809,7 +15914,7 @@
 "version":"0.2.9"
 },
 "rsshub-manifests":{
-"drvPath":"/nix/store/rigzsickyl8lj95wlgzsfcccczjnxgd8-rsshub-manifests-0.2.9.drv",
+"drvPath":"/nix/store/bg8ray0bh1pqsarnxa2kb1sqr5vrgkaf-rsshub-manifests-0.2.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -15952,7 +16057,7 @@
 "version":"0.2.9"
 },
 "snapshot-controller-chart":{
-"drvPath":"/nix/store/f3yz54c27ssc949pdw5s4c3bmwq2iapi-snapshot-controller-chart-5.2.0.drv",
+"drvPath":"/nix/store/2a0mixybglmka3n2py5jp7q7n9kcrr0q-snapshot-controller-chart-5.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -16100,7 +16205,7 @@
 "version":"5.2.0"
 },
 "sops-secrets-operator-chart":{
-"drvPath":"/nix/store/6ham4alhh4ycymnvr533bhyrxsyz5jfa-sops-secrets-operator-chart-0.28.1.drv",
+"drvPath":"/nix/store/w9l7khqicqkhbk9ak6h5b31xa51yslpl-sops-secrets-operator-chart-0.28.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -16248,7 +16353,7 @@
 "version":"0.28.1"
 },
 "sops-secrets-operator-manifests":{
-"drvPath":"/nix/store/bs4l4ksvv44fidr4rpbc4qmgzb24mxfs-sops-secrets-operator-manifests-0.28.1.drv",
+"drvPath":"/nix/store/54v9d32k2rqgx3a5av5inz7ydnkgf98b-sops-secrets-operator-manifests-0.28.1.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -16506,7 +16611,7 @@
 "version":"0-unstable-2025-10-30"
 },
 "tailscale-operator-chart":{
-"drvPath":"/nix/store/6l38gf11iw9avgnfqzh8lzvc4ahf4mdh-tailscale-operator-chart-1.102.2.drv",
+"drvPath":"/nix/store/nzk6xybvx8wn1md9yxqc3nl7ir9lz6zz-tailscale-operator-chart-1.102.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -16654,7 +16759,7 @@
 "version":"1.102.2"
 },
 "tailscale-operator-manifests":{
-"drvPath":"/nix/store/wjw1wx8j50yl7cp5sl4m0zsxcr72hq48-tailscale-operator-manifests-1.102.2.drv",
+"drvPath":"/nix/store/0495zg1jy1i9y9izzn0k28wa3ynvkx6a-tailscale-operator-manifests-1.102.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17868,7 +17973,7 @@
 "version":"7.0.2"
 },
 "tofu-age-encryption":{
-"drvPath":"/nix/store/kz17cny1xfkxc9ya1z08c70rkk9s76wd-tofu-age-encryption-1.1.2.drv",
+"drvPath":"/nix/store/85axpw6cia36iyfj7d56pxmlxnls9z38-tofu-age-encryption-1.1.3.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -17916,7 +18021,7 @@
 },
 "mainProgram":"tofu-age-encryption",
 "maintainers":[],
-"name":"tofu-age-encryption-1.1.2",
+"name":"tofu-age-encryption-1.1.3",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -17963,14 +18068,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"tofu-age-encryption-1.1.2",
+"name":"tofu-age-encryption-1.1.3",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"tofu-age-encryption",
 "system":"x86_64-linux",
-"version":"1.1.2"
+"version":"1.1.3"
 },
 "tokyonight-extras":{
 "drvPath":"/nix/store/996vzkcd99ha87fmrh9knvla3wzkzw9k-tokyonight-extras-4.14.1-unstable-2026-03-24.drv",
@@ -18126,7 +18231,7 @@
 "version":"4.14.1-unstable-2026-03-24"
 },
 "traefik-chart":{
-"drvPath":"/nix/store/44hy2lrzyzvz64y6c3qq9j6qg8z0b69h-traefik-chart-41.2.0.drv",
+"drvPath":"/nix/store/s9rj5fcmz3ay60vgc9hxrngfmpp7jl3s-traefik-chart-41.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18274,7 +18379,7 @@
 "version":"41.2.0"
 },
 "traefik-manifests":{
-"drvPath":"/nix/store/aaf0a97wa2f09ylzhaxpf3zfqxdzmywf-traefik-manifests-41.2.0.drv",
+"drvPath":"/nix/store/ha4razrl7p40g5wj38sfg43z9rk4dxl6-traefik-manifests-41.2.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18803,7 +18908,7 @@
 "version":"0.3.0"
 },
 "trust-manager-chart":{
-"drvPath":"/nix/store/yx8q88vyr881w2b32k2z6rdlji0bmmbc-trust-manager-chart-0.24.0.drv",
+"drvPath":"/nix/store/0v5zhqwhyzzvd88rvzd3mjrffb703mi5-trust-manager-chart-0.24.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -18951,7 +19056,7 @@
 "version":"0.24.0"
 },
 "tuppr-chart":{
-"drvPath":"/nix/store/hxdib0mf8wzfv1m0q174ah9kx1fmgsk4-tuppr-chart-0.5.0.drv",
+"drvPath":"/nix/store/zjnjkmn24awagn2kizi4pa3drw856465-tuppr-chart-0.5.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -19407,7 +19512,7 @@
 "version":"1.8.1"
 },
 "victoria-logs-agent-chart":{
-"drvPath":"/nix/store/nqmv4fq81fljx8lrp46qafz33y7zfszy-victoria-logs-agent-chart-0.2.9.drv",
+"drvPath":"/nix/store/dmsc582dxxiygprh6zbs3c9qzamss7r4-victoria-logs-agent-chart-0.2.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -19555,7 +19660,7 @@
 "version":"0.2.9"
 },
 "victoria-logs-agent-manifests":{
-"drvPath":"/nix/store/0qhliaifp989n03cmr7i9q5i7pwhl1m5-victoria-logs-agent-manifests-0.2.9.drv",
+"drvPath":"/nix/store/ky8wdif4sc17fvzbxhv68v61nm94ndns-victoria-logs-agent-manifests-0.2.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -19708,7 +19813,7 @@
 "version":"0.2.9"
 },
 "victoria-logs-cluster-chart":{
-"drvPath":"/nix/store/v7a69yjdvwq9lkz49fcw8ab22fa1bcp9-victoria-logs-cluster-chart-0.2.8.drv",
+"drvPath":"/nix/store/5mhyyhr00xrkfr4kb1jdlyhdfmv7743z-victoria-logs-cluster-chart-0.2.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -19856,7 +19961,7 @@
 "version":"0.2.8"
 },
 "victoria-logs-cluster-manifests":{
-"drvPath":"/nix/store/0mp393j24ncs2yk5p8mcz2yhzpdqrb17-victoria-logs-cluster-manifests-0.2.8.drv",
+"drvPath":"/nix/store/9a7bjhra5w8gvyvlvzcfp768p1h9vw1p-victoria-logs-cluster-manifests-0.2.8.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20009,7 +20114,7 @@
 "version":"0.2.8"
 },
 "victoria-logs-collector-chart":{
-"drvPath":"/nix/store/hlq75vqf8kpv6r1aqhwqf5nnjz6ph0sj-victoria-logs-collector-chart-0.3.7.drv",
+"drvPath":"/nix/store/jf5a20zjispgrhvlqnqwvjbn1dyl0j76-victoria-logs-collector-chart-0.3.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20157,7 +20262,7 @@
 "version":"0.3.7"
 },
 "victoria-logs-collector-manifests":{
-"drvPath":"/nix/store/8rw3g8fc1bs4axhax200lcmgs3k64lzz-victoria-logs-collector-manifests-0.3.7.drv",
+"drvPath":"/nix/store/3aq7ip6yxaf9lgpvkrxix25h21cfx353-victoria-logs-collector-manifests-0.3.7.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20465,7 +20570,7 @@
 "version":"1.52.0"
 },
 "victoria-logs-single-chart":{
-"drvPath":"/nix/store/hpzb6c4qzh2l0h0iqbi2x48c9mzin6is-victoria-logs-single-chart-0.13.9.drv",
+"drvPath":"/nix/store/5143wc2gjkavq5y0zn1p2a7flhhvwc1h-victoria-logs-single-chart-0.13.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20613,7 +20718,7 @@
 "version":"0.13.9"
 },
 "victoria-logs-single-manifests":{
-"drvPath":"/nix/store/vrc66dpdba238iglj3fd2fqp3frny1qk-victoria-logs-single-manifests-0.13.9.drv",
+"drvPath":"/nix/store/rdbbjl568nkhlwypx0vavlvx3vc0i9j5-victoria-logs-single-manifests-0.13.9.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20766,7 +20871,7 @@
 "version":"0.13.9"
 },
 "victoria-metrics-agent-chart":{
-"drvPath":"/nix/store/n9l833wwp4cbl68qbsfa0dqxb2x8d2zz-victoria-metrics-agent-chart-0.45.0.drv",
+"drvPath":"/nix/store/z74zyq495papcm8dqycn0a8n8iwklk1z-victoria-metrics-agent-chart-0.45.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -20914,7 +21019,7 @@
 "version":"0.45.0"
 },
 "victoria-metrics-agent-manifests":{
-"drvPath":"/nix/store/nlrgj6d8yyykjdin9fvi7lij6hw51lzs-victoria-metrics-agent-manifests-0.45.0.drv",
+"drvPath":"/nix/store/irx1f90r1p061qiz3x051jb5llai1v3c-victoria-metrics-agent-manifests-0.45.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21067,7 +21172,7 @@
 "version":"0.45.0"
 },
 "victoria-metrics-cluster-chart":{
-"drvPath":"/nix/store/ijgbk5sdy8fifnyrrzyl42r9ik2qspq2-victoria-metrics-cluster-chart-0.48.0.drv",
+"drvPath":"/nix/store/mj5544dmprb4r2giz5n5qs5dh9h6pqcz-victoria-metrics-cluster-chart-0.48.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21215,7 +21320,7 @@
 "version":"0.48.0"
 },
 "victoria-metrics-cluster-manifests":{
-"drvPath":"/nix/store/iyiksaxmsjz1vjy5yjkirw5s4nyn5b5g-victoria-metrics-cluster-manifests-0.48.0.drv",
+"drvPath":"/nix/store/xls4yisnh2h87z5r8i2xp2jk40jh22y0-victoria-metrics-cluster-manifests-0.48.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21523,7 +21628,7 @@
 "version":"1.149.0-cluster"
 },
 "victoria-metrics-k8s-stack-chart":{
-"drvPath":"/nix/store/w7rpy7g7452ggx4vilmmyhmp7566qbvm-victoria-metrics-k8s-stack-chart-0.90.2.drv",
+"drvPath":"/nix/store/lzq3clw0lv6wglyr1ch9g5c1qwa4lxz2-victoria-metrics-k8s-stack-chart-0.90.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21671,7 +21776,7 @@
 "version":"0.90.2"
 },
 "victoria-metrics-operator-chart":{
-"drvPath":"/nix/store/4qhvi2wr3zw4b87yixq77aj9874wgpxc-victoria-metrics-operator-chart-0.67.2.drv",
+"drvPath":"/nix/store/0hpq7jj1zn1jgnkcj3gqsfbycs3vx2km-victoria-metrics-operator-chart-0.67.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21819,7 +21924,7 @@
 "version":"0.67.2"
 },
 "victoria-metrics-operator-manifests":{
-"drvPath":"/nix/store/pnziqi9d1sbzmzzsqb5nv309vbxwnscr-victoria-metrics-operator-manifests-0.67.2.drv",
+"drvPath":"/nix/store/h7ald81xhwshy0i041gvnk9gj8bdwilv-victoria-metrics-operator-manifests-0.67.2.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -21972,7 +22077,7 @@
 "version":"0.67.2"
 },
 "victoria-metrics-single-chart":{
-"drvPath":"/nix/store/bb024w62rb181xma3nkw158qdf7fxr7n-victoria-metrics-single-chart-0.44.0.drv",
+"drvPath":"/nix/store/0pwpg76kmszwq3yykbl4vnmiid1k10x7-victoria-metrics-single-chart-0.44.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -22120,7 +22225,7 @@
 "version":"0.44.0"
 },
 "victoria-metrics-single-manifests":{
-"drvPath":"/nix/store/sja4ix6h47rf559r37h518c6mpg2vz1w-victoria-metrics-single-manifests-0.44.0.drv",
+"drvPath":"/nix/store/ybxhp6bndfmf2xcmq90hb2198f4d1h06-victoria-metrics-single-manifests-0.44.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -22273,7 +22378,7 @@
 "version":"0.44.0"
 },
 "volsync-chart":{
-"drvPath":"/nix/store/v95vprif77vpj95s35w2f5zrwybbvjbp-volsync-chart-0.16.0.drv",
+"drvPath":"/nix/store/23m9x1jpm3v6nddsxx981wwwzzfj6vpn-volsync-chart-0.16.0.drv",
 "meta":{
 "available":true,
 "broken":false,
