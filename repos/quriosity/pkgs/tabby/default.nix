@@ -29,7 +29,6 @@
 , libXfixes
 , libXrandr
 , libxcb
-, libdbusmenu-gtk2
 , libdbusmenu
 , gtk2
 , dbus-glib
@@ -46,7 +45,7 @@ let
     hash = "sha256-DKXcAV/l7nhA8rIGhkzDfFL3w2t6c06GU6Oa6KV23O8=";
   };
 
-  appimageContents = appimageTools.extractType2 {
+  appimageContents = appimageTools.extract {
     inherit pname version src;
   };
 
@@ -98,7 +97,6 @@ stdenv.mkDerivation {
     libXfixes
     libXrandr
     libxcb
-    libdbusmenu-gtk2
     libdbusmenu
     gtk2
     dbus-glib
@@ -108,6 +106,7 @@ stdenv.mkDerivation {
 
   dontConfigure = true;
   dontBuild = true;
+  autoPatchelfIgnoreMissingDeps = [ "libdbusmenu-gtk3.so.4" "libdbusmenu-gtk.so.4" ];
 
   installPhase = ''
     runHook preInstall
@@ -136,6 +135,5 @@ stdenv.mkDerivation {
     sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
     platforms = [ "x86_64-linux" ];
     mainProgram = "tabby";
-    broken = true;
   };
 }
