@@ -1,0 +1,304 @@
+error:
+… while evaluating the attribute 'bibman'
+  at ./default.nix:20:3:
+    19|   julia-mono-nf = pkgs.callPackage ./pkgs/julia-mono-nf.nix {};
+    20|   bibman = pkgs.callPackage ./pkgs/bibman.nix {};
+      |   ^
+    21| }
+
+… from call site
+  at ./default.nix:20:12:
+    19|   julia-mono-nf = pkgs.callPackage ./pkgs/julia-mono-nf.nix {};
+    20|   bibman = pkgs.callPackage ./pkgs/bibman.nix {};
+      |            ^
+    21| }
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/customisation.nix:308:19:
+   307|     in
+   308|     autoArgs: fn: args:
+      |                   ^
+   309|     let
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:323:7:
+   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+   323|       makeOverridable f allArgs
+      |       ^
+   324|     else
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:159:9:
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:175:9:
+   174|         in
+   175|         if isAttrs result then
+      |         ^
+   176|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:175:12:
+   174|         in
+   175|         if isAttrs result then
+      |            ^
+   176|           result
+
+… from call site
+  at <nixpkgs> + /lib/customisation.nix:161:20:
+   160|         let
+   161|           result = f origArgs;
+      |                    ^
+   162|
+
+… while calling anonymous lambda
+  at ./pkgs/bibman.nix:1:1:
+     1| {
+      | ^
+     2|   haskell,
+
+… from call site
+  at ./pkgs/bibman.nix:6:1:
+     5| }:
+     6| haskell.lib.justStaticExecutables (
+      | ^
+     7|   haskellPackages.callCabal2nix "bibman" (fetchFromGitea {
+
+… while calling 'overrideCabal'
+  at <nixpkgs> + /pkgs/development/haskell-modules/lib/compose.nix:40:8:
+    39|   overrideCabal =
+    40|     f: drv:
+      |        ^
+    41|     (drv.override (
+
+… in the left operand of the update (//) operator
+  at <nixpkgs> + /pkgs/development/haskell-modules/lib/compose.nix:41:6:
+    40|     f: drv:
+    41|     (drv.override (
+      |      ^
+    42|       args:
+
+… from call site
+  at ./pkgs/bibman.nix:7:3:
+     6| haskell.lib.justStaticExecutables (
+     7|   haskellPackages.callCabal2nix "bibman" (fetchFromGitea {
+      |   ^
+     8|     domain = "codeberg.org";
+
+… while calling 'callCabal2nix'
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:340:16:
+   339|   callCabal2nix =
+   340|     name: src: args:
+      |                ^
+   341|     self.callCabal2nixWithOptions name src "" args;
+
+… from call site
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:341:5:
+   340|     name: src: args:
+   341|     self.callCabal2nixWithOptions name src "" args;
+      |     ^
+   342|
+
+… while calling 'callCabal2nixWithOptions'
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:316:22:
+   315|   callCabal2nixWithOptions =
+   316|     name: src: opts: args:
+      |                      ^
+   317|     let
+
+… from call site
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:335:5:
+   334|     in
+   335|     overrideCabal (orig: {
+      |     ^
+   336|       inherit src;
+
+… while calling 'overrideCabal'
+  at <nixpkgs> + /pkgs/development/haskell-modules/lib/compose.nix:40:8:
+    39|   overrideCabal =
+    40|     f: drv:
+      |        ^
+    41|     (drv.override (
+
+… in the left operand of the update (//) operator
+  at <nixpkgs> + /pkgs/development/haskell-modules/lib/compose.nix:41:6:
+    40|     f: drv:
+    41|     (drv.override (
+      |      ^
+    42|       args:
+
+… from call site
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:337:9:
+   336|       inherit src;
+   337|     }) (callPackageKeepDeriver expr args);
+      |         ^
+   338|
+
+… while calling 'callPackageKeepDeriver'
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:246:10:
+   245|   callPackageKeepDeriver =
+   246|     src: args:
+      |          ^
+   247|     overrideCabal (orig: {
+
+… from call site
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:247:5:
+   246|     src: args:
+   247|     overrideCabal (orig: {
+      |     ^
+   248|       passthru = orig.passthru or { } // {
+
+… while calling 'overrideCabal'
+  at <nixpkgs> + /pkgs/development/haskell-modules/lib/compose.nix:40:8:
+    39|   overrideCabal =
+    40|     f: drv:
+      |        ^
+    41|     (drv.override (
+
+… in the left operand of the update (//) operator
+  at <nixpkgs> + /pkgs/development/haskell-modules/lib/compose.nix:41:6:
+    40|     f: drv:
+    41|     (drv.override (
+      |      ^
+    42|       args:
+
+… from call site
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:255:9:
+   254|       };
+   255|     }) (self.callPackage src args);
+      |         ^
+   256|
+
+… while calling 'callPackage'
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:180:22:
+   179|   defaultScope = mkScope self;
+   180|   callPackage = drv: args: callPackageWithScope defaultScope drv args;
+      |                      ^
+   181|
+
+… from call site
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:180:28:
+   179|   defaultScope = mkScope self;
+   180|   callPackage = drv: args: callPackageWithScope defaultScope drv args;
+      |                            ^
+   181|
+
+… while calling 'callPackageWithScope'
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:118:16:
+   117|   callPackageWithScope =
+   118|     scope: fn: manualArgs:
+      |                ^
+   119|     let
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:158:5:
+   157|     in
+   158|     lib.makeOverridable drvScope (auto // manualArgs);
+      |     ^
+   159|
+
+… from call site
+  at <nixpkgs> + /lib/trivial.nix:1183:7:
+  1182|     g: {
+  1183|       __functor = self: g;
+      |       ^
+  1184|       __functionArgs = fArgs;
+
+… while calling 'f''
+  at <nixpkgs> + /lib/customisation.nix:159:9:
+   158|       f' =
+   159|         origArgs:
+      |         ^
+   160|         let
+
+… while evaluating a branch condition
+  at <nixpkgs> + /lib/customisation.nix:175:9:
+   174|         in
+   175|         if isAttrs result then
+      |         ^
+   176|           result
+
+… while calling the 'isAttrs' builtin
+  at <nixpkgs> + /lib/customisation.nix:175:12:
+   174|         in
+   175|         if isAttrs result then
+      |            ^
+   176|           result
+
+… while calling a functor (an attribute set with a '__functor' attribute)
+  at <nixpkgs> + /lib/customisation.nix:161:20:
+   160|         let
+   161|           result = f origArgs;
+      |                    ^
+   162|
+
+… from call site
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:137:9:
+   136|       drvScope = {
+   137|         __functor =
+      |         ^
+   138|           _: allArgs:
+
+… while calling '__functor'
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:138:14:
+   137|         __functor =
+   138|           _: allArgs:
+      |              ^
+   139|           ensureAttrs (drv allArgs)
+
+… in the left operand of the update (//) operator
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:139:11:
+   138|           _: allArgs:
+   139|           ensureAttrs (drv allArgs)
+      |           ^
+   140|           // {
+
+… from call site
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:139:11:
+   138|           _: allArgs:
+   139|           ensureAttrs (drv allArgs)
+      |           ^
+   140|           // {
+
+… while calling 'ensureAttrs'
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:132:21:
+   131|       # Converts a returned function to a functor attribute set if necessary
+   132|       ensureAttrs = v: if builtins.isFunction v then { __functor = _: v; } else v;
+      |                     ^
+   133|
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:132:24:
+   131|       # Converts a returned function to a functor attribute set if necessary
+   132|       ensureAttrs = v: if builtins.isFunction v then { __functor = _: v; } else v;
+      |                        ^
+   133|
+
+… while calling the 'isFunction' builtin
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:132:27:
+   131|       # Converts a returned function to a functor attribute set if necessary
+   132|       ensureAttrs = v: if builtins.isFunction v then { __functor = _: v; } else v;
+      |                           ^
+   133|
+
+… while calling the 'import' builtin
+  at <nixpkgs> + /pkgs/development/haskell-modules/make-package-set.nix:127:47:
+   126|       # info that callPackage uses to determine the arguments).
+   127|       drv = if lib.isFunction fn then fn else import fn;
+      |                                               ^
+   128|       drvFunctionArgs = lib.functionArgs drv;
+
+… while realising the context of path '/nix/store/qgb4ir8d0zz2cfn092hd5g524gr0w373-cabal2nix-bibman'
+
+error: path '/nix/store/2xq2cjnrpzz44gik60lw7b2j4v26slx8-cabal2nix-bibman.drv' is not valid
