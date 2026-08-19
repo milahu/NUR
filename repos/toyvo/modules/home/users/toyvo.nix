@@ -21,18 +21,8 @@ in
 
   config = lib.mkIf cfg.users.toyvo.enable {
     home = {
-      file = {
-        ".opencommit".source = config.lib.file.mkOutOfStoreSymlink config.sops.templates.opencommit.path;
-        # ~/.opencommit is a read-only sops symlink, so opencommit's startup
-        # migrations (which rewrite the global config) fail with EACCES. Our
-        # config is fully managed above, so mark all known migrations complete.
-        ".opencommit_migrations".text = ''
-          ["00_use_single_api_key_and_url","01_remove_obsolete_config_keys_from_global_file","02_set_missing_default_values"]
-        '';
-      };
-      packages = with pkgs; [
+      packages = [
         inputs.nixcfg.packages.${system}.toyvo-neovim
-        opencommit
       ];
       sessionVariables.EDITOR = "nvim";
     };
@@ -103,7 +93,10 @@ in
         };
       };
       helix.enable = true;
-      herdr.enable = true;
+      herdr = {
+        enable = true;
+        settings.terminal.default_shell = lib.getExe pkgs.fish;
+      };
       hyper.enable = cfg.gui.enable;
       ideavim.enable = true;
       jujutsu = {
@@ -158,6 +151,8 @@ in
           enable = true;
           settings = {
             "github.com" = {
+              User = "git";
+              HostName = "github.com";
               IdentitiesOnly = "yes";
               IdentityFile = [
                 config.sops.secrets.github_toyvo_auth_ed25519.path
@@ -165,11 +160,17 @@ in
                 config.sops.secrets.yubikey_usba_ed25519_sk.path
               ];
             };
+            "git.toyvo.dev" = {
+              User = "forgejo";
+              HostName = "git.toyvo.dev";
+              IdentitiesOnly = "yes";
+              IdentityFile = [
+                config.sops.secrets.github_toyvo_auth_ed25519.path
+              ];
+            };
             "macmini-intel" = identityConfig // {
               User = "toyvo";
               HostName = "macmini-intel.internal";
-              RemoteCommand = "fish --login";
-              RequestTTY = "yes";
             };
             "macmini-m1" = identityConfig // {
               User = "toyvo";
@@ -192,6 +193,7 @@ in
             "router" = identityConfig // {
               User = "toyvo";
               HostName = "router.internal";
+              Port = "2222";
             };
             "steamdeck-nixos" = identityConfig // {
               User = "toyvo";
@@ -231,28 +233,6 @@ in
         opencode_api_key = { };
       };
       templates = {
-        # see https://models.dev/?search=opencode&sort=output-costper&order=asc if considering different models, same api key, but url is different https://opencode.ai/zen/v1 vs https://opencode.ai/zen/go/v1
-        opencommit.content = ''
-          OCO_MODEL=mimo-v2.5-free
-          OCO_API_URL=https://opencode.ai/zen/v1
-          OCO_PROXY=undefined
-          OCO_API_KEY=${config.sops.placeholder.opencode_api_key}
-          OCO_API_CUSTOM_HEADERS=undefined
-          OCO_AI_PROVIDER=openai
-          OCO_TOKENS_MAX_INPUT=8192
-          OCO_TOKENS_MAX_OUTPUT=500
-          OCO_DESCRIPTION=false
-          OCO_EMOJI=false
-          OCO_LANGUAGE=en
-          OCO_MESSAGE_TEMPLATE_PLACEHOLDER=$msg
-          OCO_PROMPT_MODULE=conventional-commit
-          OCO_ONE_LINE_COMMIT=false
-          OCO_TEST_MOCK_TYPE=commit-message
-          OCO_OMIT_SCOPE=false
-          OCO_GITPUSH=true
-          OCO_WHY=false
-          OCO_HOOK_AUTO_UNCOMMENT=false
-        '';
         "shell-secrets.env".content = ''
           OPENCODE_API_KEY=${config.sops.placeholder.opencode_api_key}
           ZED_OPEN_AI_COMPATIBLE_EDIT_PREDICTION_API_KEY=${config.sops.placeholder.opencode_api_key}

@@ -212,7 +212,7 @@ Cloudflare (manually, except `toyvo.dev`, which uses dyndns).
 Note on SSH: the router's admin sshd listens on port **2222** (client config in
 `modules/home/programs/ssh.nix`). TCP/22 on the router is relayed to the nas
 (`git-ssh-relay` service) so forgejo git-over-SSH works on the standard port:
-`forgejo@git.diekvoss.net:user/repo.git`.
+`forgejo@git.toyvo.dev:user/repo.git`.
 
 ### Domains and Public Exposure
 
@@ -290,6 +290,22 @@ Dev shell includes pre-commit and pre-push hooks (auto-enabled):
 - Pre-push: validation checks
 
 Hooks configured in `flake.nix` via `devshell` module.
+
+## Version Control (jj)
+
+This repo uses **jj** (Jujutsu) for version control, not git. When pushing changes:
+
+```bash
+# Move main bookmark to current commit and push
+jj bookmark set main -r @ && jj git push
+```
+
+**Never use `jj git push --all` or create new bookmarks without explicit user request.**
+
+The standard workflow is:
+1. Make changes
+2. `jj describe -m "commit message"`
+3. `jj bookmark set main -r @ && jj git push`
 
 ## Downstream Usage
 
