@@ -54,13 +54,13 @@
   };
   enimul = {
     pname = "enimul";
-    version = "v0.4.0-alpha.5";
+    version = "v0.4.0-alpha.6";
     src = fetchFromGitHub {
       owner = "lzpls";
       repo = "enimul";
-      rev = "v0.4.0-alpha.5";
+      rev = "v0.4.0-alpha.6";
       fetchSubmodules = false;
-      sha256 = "sha256-BVN1k2lDZwCpXp5pUS3bCLH0Qnx4TOIEXG3IsdO/19g=";
+      sha256 = "sha256-iiH4+3InrtChhqPyNGEQsk/mCJ0aLmh6du7jeu0WIEQ=";
     };
   };
   fast-nix-gc = {
@@ -261,15 +261,15 @@
   };
   nix-auth = {
     pname = "nix-auth";
-    version = "d43fad3e926493db26d915aba7c0284606e07782";
+    version = "8711fcb7ff3f6fcaf7f2bfda58c19634c619dae4";
     src = fetchFromGitHub {
       owner = "numtide";
       repo = "nix-auth";
-      rev = "d43fad3e926493db26d915aba7c0284606e07782";
+      rev = "8711fcb7ff3f6fcaf7f2bfda58c19634c619dae4";
       fetchSubmodules = false;
-      sha256 = "sha256-PHKMqGwfwniAHlbuZl5CUg1bEoSeIGUJHXwzHpHOQeA=";
+      sha256 = "sha256-3fbtONIV8NJas9UPcklZB3W8xIya6o+ig28l4lhB4o4=";
     };
-    date = "2026-08-06";
+    date = "2026-08-17";
   };
   ntfsprogs-plus = {
     pname = "ntfsprogs-plus";
@@ -353,21 +353,21 @@
   };
   splayer-next-dev = {
     pname = "splayer-next-dev";
-    version = "8a8536514ad5622ca2027722ae4c588758f3bb3b";
+    version = "72cfea2b7df4d9791f5a51dab8dff9e7db6de8d6";
     src = fetchFromGitHub {
       owner = "SPlayer-Dev";
       repo = "SPlayer-Next";
-      rev = "8a8536514ad5622ca2027722ae4c588758f3bb3b";
+      rev = "72cfea2b7df4d9791f5a51dab8dff9e7db6de8d6";
       fetchSubmodules = false;
-      sha256 = "sha256-qYIidNchMyHnYN4B3cpW8pHZzjIBNSwNzeuzrGcsmm8=";
+      sha256 = "sha256-o7rh6MmTzlIc4rowT7TQuO6FS/eub8Za0qvt8zGu2zs=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./. + "/sha256-qYIidNchMyHnYN4B3cpW8pHZzjIBNSwNzeuzrGcsmm8=/Cargo.lock";
+      lockFile = ./. + "/sha256-o7rh6MmTzlIc4rowT7TQuO6FS_eub8Za0qvt8zGu2zs=/Cargo.lock";
       outputHashes = {
         
       };
     };
-    date = "2026-08-15";
+    date = "2026-08-17";
   };
   svt-av1-essential = {
     pname = "svt-av1-essential";
