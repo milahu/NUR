@@ -1,235 +1,123 @@
 error:
-… while evaluating attribute 'buildCommand' of derivation 'toshy-main-26.08.0'
-  at <nixpkgs> + /pkgs/build-support/trivial-builders/default.nix:84:17:
-    83|         enableParallelBuilding = true;
-    84|         inherit buildCommand name;
-      |                 ^
-    85|         passAsFile = defaultPassAsFile ++ (derivationArgs.passAsFile or [ ]);
-
-… while calling the 'derivationStrict' builtin
-  at «nix-internal»/derivation-internal.nix:37:12:
-    36|
-    37|   strict = derivationStrict drvAttrs;
-      |            ^
-    38|
-
-… while evaluating derivation 'python3-3.14.7-env'
-  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:651:11
-
-… while evaluating attribute 'chosenOutputs' of derivation 'python3-3.14.7-env'
-  at <nixpkgs> + /pkgs/build-support/buildenv/default.nix:113:9:
-   112|
-   113|         chosenOutputs = map (drv: {
-      |         ^
-   114|           paths =
-
-… while calling the 'map' builtin
-  at <nixpkgs> + /pkgs/build-support/buildenv/default.nix:113:25:
-   112|
-   113|         chosenOutputs = map (drv: {
-      |                         ^
-   114|           paths =
-
-… while evaluating the attribute 'passthru.paths'
-  at <nixpkgs> + /pkgs/build-support/buildenv/default.nix:151:19:
-   150|           # The `paths` attribute is referenced and overridden from passthru
-   151|           inherit paths;
-      |                   ^
-   152|         }
-
-… from call site
-  at <nixpkgs> + /pkgs/development/interpreters/python/wrapper.nix:26:15:
-    25|     let
-    26|       paths = requiredPythonModules extraLibs ++ [
-      |               ^
-    27|         (runCommand "bin" { } ''
-
-… while calling 'requiredPythonModules'
-  at <nixpkgs> + /pkgs/development/interpreters/python/python-packages-base.nix:136:5:
-   135|   requiredPythonModules =
-   136|     drvs:
-      |     ^
-   137|     let
-
-… while calling the 'foldl'' builtin
-  at <nixpkgs> + /pkgs/development/interpreters/python/python-packages-base.nix:140:5:
-   139|     in
-   140|     lib.unique (
-      |     ^
-   141|       [ python ] ++ modules ++ lib.concatLists (lib.catAttrs "requiredPythonModules" modules)
-
-… while calling anonymous lambda
-  at <nixpkgs> + /lib/lists.nix:1956:25:
-  1955|   */
-  1956|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
-      |                         ^
-  1957|
-
-… while evaluating a branch condition
-  at <nixpkgs> + /lib/lists.nix:1956:28:
-  1955|   */
-  1956|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
-      |                            ^
-  1957|
-
-… while calling the 'elem' builtin
-  at <nixpkgs> + /lib/lists.nix:1956:31:
-  1955|   */
-  1956|   unique = foldl' (acc: e: if elem e acc then acc else acc ++ [ e ]) [ ];
-      |                               ^
-  1957|
-
-… while evaluating the attribute 'outPath'
-  at <nixpkgs> + /lib/customisation.nix:419:11:
-   418|             drv.drvPath;
-   419|           outPath =
-      |           ^
-   420|             assert condition;
-
-… while calling the 'derivationStrict' builtin
-  at «nix-internal»/derivation-internal.nix:37:12:
-    36|
-    37|   strict = derivationStrict drvAttrs;
-      |            ^
-    38|
-
-… while evaluating the derivation attribute 'name'
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:651:11:
-   650|         derivationArg = removeAttrs attrs removedOrReplacedAttrNames // {
-   651|           ${if (attrs ? name || (attrs ? pname && attrs ? version)) then "name" else null} =
-      |           ^
-   652|             let
-
-… while evaluating the `name` attribute passed to builtins.derivationStrict
-
-… from call site
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:682:13:
-   681|             in
-   682|             sanitizeDerivationName (
+… in the condition of the assert statement
+  at <nixpkgs> + /lib/customisation.nix:417:13:
+   416|           drvPath =
+   417|             assert condition;
       |             ^
-   683|               if attrs ? name then
+   418|             drv.drvPath;
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:983:18:
+   982|       };
+   983|       validity = assertValidity { inherit meta attrs; };
+      |                  ^
+   984|
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/strings.nix:2913:5:
-  2912|     in
-  2913|     string:
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:747:5:
+   746|     in
+   747|     { meta, attrs }:
       |     ^
-  2914|     # First detect the common case of already valid strings, to speed those up
+   748|     let
 
 … while evaluating a branch condition
-  at <nixpkgs> + /lib/strings.nix:2915:5:
-  2914|     # First detect the common case of already valid strings, to speed those up
-  2915|     if stringLength string <= 207 && okRegex string != null then
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:752:5:
+   751|     in
+   752|     if invalid == null then
       |     ^
-  2916|       unsafeDiscardStringContext string
+   753|       if problems == null then
 
-… in the left operand of the AND (&&) operator
-  at <nixpkgs> + /lib/strings.nix:2915:35:
-  2914|     # First detect the common case of already valid strings, to speed those up
-  2915|     if stringLength string <= 207 && okRegex string != null then
-      |                                   ^
-  2916|       unsafeDiscardStringContext string
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:749:17:
+   748|     let
+   749|       invalid = checkValidity' attrs;
+      |                 ^
+   750|       problems = checkProblems attrs;
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:448:5:
+   447|     in
+   448|     attrs:
+      |     ^
+   449|     if !attrs ? meta then
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:490:10:
+   489|       }
+   490|     else if hasUnsupportedPlatform' attrs then
+      |          ^
+   491|       let
+
+… from call site
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:490:13:
+   489|       }
+   490|     else if hasUnsupportedPlatform' attrs then
+      |             ^
+   491|       let
+
+… while calling anonymous lambda
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:147:7:
+   146|       in
+   147|       pkg:
+      |       ^
+   148|       # in almost all cases, platforms are a simple list of strings, and we
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:155:7:
+   154|       )
+   155|       || (
+      |       ^
+   156|         pkg ? meta.badPlatforms
+
+… in the right operand of the AND (&&) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:153:9:
+   152|         pkg ? meta.platforms
+   153|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
+      |         ^
+   154|       )
 
 … in the argument of the not operator
-  at <nixpkgs> + /lib/strings.nix:2915:28:
-  2914|     # First detect the common case of already valid strings, to speed those up
-  2915|     if stringLength string <= 207 && okRegex string != null then
-      |                            ^
-  2916|       unsafeDiscardStringContext string
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:153:52:
+   152|         pkg ? meta.platforms
+   153|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
+      |                                                    ^
+   154|       )
 
-… while calling the 'lessThan' builtin
-  at <nixpkgs> + /lib/strings.nix:2915:28:
-  2914|     # First detect the common case of already valid strings, to speed those up
-  2915|     if stringLength string <= 207 && okRegex string != null then
-      |                            ^
-  2916|       unsafeDiscardStringContext string
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:153:52:
+   152|         pkg ? meta.platforms
+   153|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
+      |                                                    ^
+   154|       )
 
-… while calling the 'stringLength' builtin
-  at <nixpkgs> + /lib/strings.nix:2915:8:
-  2914|     # First detect the common case of already valid strings, to speed those up
-  2915|     if stringLength string <= 207 && okRegex string != null then
-      |        ^
-  2916|       unsafeDiscardStringContext string
+… while calling the 'elem' builtin
+  at <nixpkgs> + /pkgs/stdenv/generic/check-meta.nix:153:14:
+   152|         pkg ? meta.platforms
+   153|         && !(containsHostSystem pkg.meta.platforms || matchesHostPlatform pkg.meta.platforms)
+      |              ^
+   154|       )
 
-… while evaluating the attribute 'name'
-  at <nixpkgs> + /pkgs/development/interpreters/python/mk-python-derivation.nix:298:15:
-   297|     {
-   298|       inherit name;
-      |               ^
-   299|
-
-… while evaluating the attribute 'version'
-  at ./by-name/to/toshy/package.nix:132:5:
-   131|     pname = "xwaykeyz";
-   132|     version = kmVersion;
-      |     ^
-   133|     pyproject = true;
-
-… while evaluating a branch condition
-  at ./by-name/to/toshy/package.nix:109:15:
-   108|   ) kmVersionLines;
-   109|   kmVersion = if kmVersionMatches == [ ] then "unknown" else builtins.head kmVersionMatches;
-      |               ^
-   110|
-
-… while calling the 'concatMap' builtin
-  at ./by-name/to/toshy/package.nix:102:22:
-   101|   kmVersionLines = lib.splitString "\n" (builtins.readFile "${kmSrcPath}/src/xwaykeyz/version.py");
-   102|   kmVersionMatches = lib.concatMap (
-      |                      ^
-   103|     line:
-
-… from call site
-  at ./by-name/to/toshy/package.nix:101:20:
-   100|   # Parse the vendored keymapper version from its version.py file.
-   101|   kmVersionLines = lib.splitString "\n" (builtins.readFile "${kmSrcPath}/src/xwaykeyz/version.py");
-      |                    ^
-   102|   kmVersionMatches = lib.concatMap (
-
-… while calling anonymous lambda
-  at <nixpkgs> + /lib/strings.nix:1747:5:
-  1746|     in
-  1747|     s: map (addContextFrom s) (filter isString (split escapedSep (toString s)));
-      |     ^
-  1748|
-
-… while calling the 'map' builtin
-  at <nixpkgs> + /lib/strings.nix:1747:8:
-  1746|     in
-  1747|     s: map (addContextFrom s) (filter isString (split escapedSep (toString s)));
-      |        ^
-  1748|
+… while evaluating the attribute 'meta.platforms'
+  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:181:9:
+   180|         # default to Rust's platforms
+   181|         platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
+      |         ^
+   182|       };
 
 … while calling the 'filter' builtin
-  at <nixpkgs> + /lib/strings.nix:1747:32:
-  1746|     in
-  1747|     s: map (addContextFrom s) (filter isString (split escapedSep (toString s)));
-      |                                ^
-  1748|
+  at <nixpkgs> + /pkgs/build-support/rust/build-rust-package/default.nix:181:21:
+   180|         # default to Rust's platforms
+   181|         platforms = lib.intersectLists meta.platforms or lib.platforms.all rustc.targetPlatforms;
+      |                     ^
+   182|       };
 
-… while calling the 'split' builtin
-  at <nixpkgs> + /lib/strings.nix:1747:49:
-  1746|     in
-  1747|     s: map (addContextFrom s) (filter isString (split escapedSep (toString s)));
-      |                                                 ^
-  1748|
+… while calling the 'import' builtin
+  at ./by-name/ca/cargo-kani/package.nix:17:11:
+    16|   };
+    17|   fenix = import fenix_repo { inherit pkgs; };
+      |           ^
+    18|   toolchain_components = fenix.targets.x86_64-unknown-linux-gnu.toolchainOf {
 
-… while evaluating the second argument passed to builtins.split
+… while realising the context of path '/nix/store/m59fpwh68il91pw6rcw038vig8d2ir2f-source'
 
-… while calling the 'toString' builtin
-  at <nixpkgs> + /lib/strings.nix:1747:67:
-  1746|     in
-  1747|     s: map (addContextFrom s) (filter isString (split escapedSep (toString s)));
-      |                                                                   ^
-  1748|
-
-… while calling the 'readFile' builtin
-  at ./by-name/to/toshy/package.nix:101:42:
-   100|   # Parse the vendored keymapper version from its version.py file.
-   101|   kmVersionLines = lib.splitString "\n" (builtins.readFile "${kmSrcPath}/src/xwaykeyz/version.py");
-      |                                          ^
-   102|   kmVersionMatches = lib.concatMap (
-
-… while realising the context of path '/nix/store/2330q9b9ymw4f4rhpc0ysy26mx810994-source/vendors/xwaykeyz-main/src/xwaykeyz/version.py'
-
-error: path '/nix/store/rha0k3g683g89r948pbr7zx2s55r5ab1-source.drv' is not valid
+error: path '/nix/store/qw61f1r04ykcrfj9h94an127ik9s3b6j-source.drv' is not valid
