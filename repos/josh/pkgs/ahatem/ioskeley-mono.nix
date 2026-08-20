@@ -8,12 +8,12 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "ioskeley-mono";
-  version = "2.0.0";
+  version = "2.1.0";
 
   src = fetchzip {
     url = "https://github.com/ahatem/IoskeleyMono/releases/download/v${finalAttrs.version}/IoskeleyMono.zip";
     stripRoot = false;
-    hash = "sha256-EJDlA18XZPq7vhtpw/74n5s1NmTy0/DLu2oYB7OuvbA=";
+    hash = "sha256-1WGAPwbfSG3fpssUTnHCTVI8eKNHSHWHdfdq4JUQ9ls=";
   };
 
   installPhase = ''
@@ -31,12 +31,11 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   passthru.tests = {
     files = runCommand "test-ioskeley-mono-files" { } ''
-      count=0
-      for f in ${finalAttrs.finalPackage}/share/fonts/truetype/*.ttf; do
-        test -s "$f"
-        count=$((count + 1))
-      done
-      test "$count" -eq 60
+      test -s ${finalAttrs.finalPackage}/share/fonts/truetype/IoskeleyMono-Regular.ttf
+      test -s ${finalAttrs.finalPackage}/share/fonts/truetype/IoskeleyMono-Bold.ttf
+      test -s ${finalAttrs.finalPackage}/share/fonts/truetype/IoskeleyMono-Italic.ttf
+      test -s ${finalAttrs.finalPackage}/share/fonts/truetype/IoskeleyMono-BoldItalic.ttf
+      test -s ${finalAttrs.finalPackage}/share/fonts/truetype/IoskeleyMono-SemiCondensed.ttf
       touch $out
     '';
 

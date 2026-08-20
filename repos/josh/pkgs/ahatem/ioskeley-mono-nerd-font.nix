@@ -8,12 +8,12 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "ioskeley-mono-nerd-font";
-  version = "2.0.0";
+  version = "2.1.0";
 
   src = fetchzip {
     url = "https://github.com/ahatem/IoskeleyMono/releases/download/v${finalAttrs.version}/IoskeleyMono-NerdFont.zip";
     stripRoot = false;
-    hash = "sha256-Nt8EaVhKvlb9BMKQe4l5iNGcPLzKba6KScIWZbcL8gA=";
+    hash = "sha256-b0mqhLeDT+uYPYiOKB+cxc5M1TtFkICKAmlcmW3IjDg=";
   };
 
   installPhase = ''
@@ -31,19 +31,18 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   passthru.tests = {
     files = runCommand "test-ioskeley-mono-nerd-font-files" { } ''
-      count=0
-      for f in ${finalAttrs.finalPackage}/share/fonts/truetype/*.ttf; do
-        test -s "$f"
-        count=$((count + 1))
-      done
-      test "$count" -eq 60
+      test -s ${finalAttrs.finalPackage}/share/fonts/truetype/IoskeleyMonoNerdFontMono-Regular.ttf
+      test -s ${finalAttrs.finalPackage}/share/fonts/truetype/IoskeleyMonoNerdFontMono-Bold.ttf
+      test -s ${finalAttrs.finalPackage}/share/fonts/truetype/IoskeleyMonoNerdFontMono-Italic.ttf
+      test -s ${finalAttrs.finalPackage}/share/fonts/truetype/IoskeleyMonoNerdFontMono-BoldItalic.ttf
+      test -s ${finalAttrs.finalPackage}/share/fonts/truetype/IoskeleyMonoNerdFontMono-SemiCondensed.ttf
       touch $out
     '';
 
     family = runCommand "test-ioskeley-mono-nerd-font-family" { nativeBuildInputs = [ fontconfig ]; } ''
       fc-scan --format '%{family}\n' ${finalAttrs.finalPackage}/share/fonts/truetype |
         tr ',' '\n' | sort -u >families.txt
-      grep -qx 'IoskeleyMono Nerd Font' families.txt
+      grep -qx 'IoskeleyMono Nerd Font Mono' families.txt
       touch $out
     '';
   };
