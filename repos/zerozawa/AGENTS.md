@@ -8,7 +8,7 @@ When updating code or documentation, treat these files as authoritative:
 
 - `default.nix` - exported packages plus reserved attrs `lib`, `modules`, `overlays`
 - `lib/default.nix` - exported library helpers (currently `fetchPixiv`)
-- `flake.nix` - flake outputs (`legacyPackages`, filtered `packages`)
+- `flake.nix` - flake outputs (`legacyPackages`, filtered `packages`, `ciJobs`)
 - `ci.nix` - CI build/cache filtering rules
 - `modules/default.nix` - current modules namespace (placeholder)
 - `overlays/default.nix` - current overlays namespace (placeholder)
@@ -86,7 +86,7 @@ This repo is not limited to one packaging style. Examples worth following:
 - Add new library helpers to `lib/default.nix`.
 - Reserved attrs `lib`, `modules`, and `overlays` are not normal package targets.
 
-### CI behavior (`ci.nix`)
+### CI behavior (`ci.nix` + `.github/workflows/build.yml`)
 
 CI excludes reserved attrs and flattens derivations recursively when `recurseForDerivations = true`.
 
@@ -96,10 +96,17 @@ Filtering behavior:
 - unfree licenses -> excluded from build/cache sets
 - `preferLocalBuild = true` -> buildable locally but excluded from cache set
 
+The GitHub Actions workflow builds `.#ciJobs.x86_64-linux` with `nix-fast-build`
+against the nixpkgs pinned in `flake.lock` (not a channel matrix), so cached
+paths match what flake users build locally. Scheduled and manually dispatched
+runs run `nix flake update` first and push the bumped `flake.lock` only after
+the build against it succeeds.
+
 ### Flake behavior (`flake.nix`)
 
 - `legacyPackages.<system>` imports `default.nix`
 - `packages.<system>` filters derivations by platform compatibility
+- `ciJobs.<system>` exposes the `ci.nix` `cachePkgs` set keyed by package name for `nix-fast-build`
 - `nixpkgs` is pinned to `nixpkgs-unstable`
 - the flake config also publishes Cachix substituters and trusted keys
 
@@ -115,7 +122,7 @@ Filtering behavior:
 - `banguminet` uses `buildDotnetModule` with a hand-generated `deps.json`; read `pkgs/banguminet/AGENTS.md` before updating
 - `wechat-web-devtools-linux` source-builds from the `continuous` branch (upstream only ships a rolling `continuous` release tag), mirroring its CI (`tools/setup-wechat-devtools.sh`): extracts `package.nw` from the official Windows installer FOD, rebuilds native npm modules with `node-gyp --nodedir` (nw headers for nwjs-side modules — upstream's `nw-gyp` needs python2 which nixpkgs dropped), and patches the nw `common.gypi` py2 syntax plus `-std=gnu89` for the bundled onig C library. Desktop entry is a `makeDesktopItem` mirroring upstream `res/deb.desktop` and icons come from upstream `res/icons`; native-module npm deps are pinned by hand-written lockfiles under `pkgs/wechat-web-devtools-linux/npm/` (upstream rebuilds from a floating `npm install` in `tools/rebuild-node-modules.sh` with no manifest)
 - `pctx` source-builds its Rust CLI and exposes a separately released Python SDK only as `pctx.passthru.py`; read `pkgs/pctx/AGENTS.md` before updating its V8, Swagger UI, or Python build inputs
-- `deepseek-harness` packages the npm-published `@deepseek-ai/dsh` prebuilt bundle from a stub `package.json` + checked-in `package-lock.json` under `pkgs/deepseek-harness/` (the upstream pnpm monorepo is not source-built). The `dsh` wrapper must keep `node --expose-internals`: the runtime's `node-addon-require-builtin` V8-layout probe only recognizes official nodejs.org builds and fails on Nix source-built Node (verified with 0.1.5; upstream discussions #690/#752/#1873), and Node rejects the flag via `NODE_OPTIONS`. `node-pty` has no linux prebuild, so `npm ci` runs `node-gyp rebuild` offline against `npm_config_nodedir = nodejs`; first `dsh web` boot materializes profile packages into `~/.dsh/profiles` over the network
+- `deepseek-harness` packages the npm-published `@deepseek-ai/dsh` prebuilt bundle from a stub `package.json` + checked-in `package-lock.json` under `pkgs/deepseek-harness/` (the upstream pnpm monorepo is not source-built). The `dsh` wrapper must keep `node --expose-internals`: the runtime's `node-addon-require-builtin` V8-layout probe only recognizes official nodejs.org builds and fails on Nix source-built Node (verified with 0.1.5; upstream discussions #690/#752/#1873), and Node rejects the flag via `NODE_OPTIONS`. `node-pty` has no linux prebuild, so `npm ci` runs `node-gyp rebuild` offline against `npm_config_nodedir = nodejs`; first `dsh web` boot materializes profile packages into `~/.dsh/profiles` over the network. The checked-in `package-lock.json` must use official `https://registry.npmjs.org/` `resolved` URLs (not a regional mirror such as mirrors.cloud.tencent.com — flaky from GitHub runners and broke the npm-deps FOD on CI); regenerating the lockfile with a mirror npmrc rewrites the URLs, so rewrite them back (`sed 's|https://<mirror>/npm/|https://registry.npmjs.org/|g'`) and recompute `npmDepsHash` afterwards
 
 ## Quick Commands
 
