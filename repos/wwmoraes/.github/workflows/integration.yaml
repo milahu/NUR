@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://www.schemastore.org/github-workflow.json
 name: Integration
 on:
   push:
@@ -15,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
     - name: checkout
       uses: actions/checkout@v4
@@ -24,6 +25,9 @@ jobs:
       with:
         install-nix: true
         cache-store: false
+        extra_nix_config: |
+          extra-experimental-features = flakes nix-command pipe-operators
+          sandbox = true
     - name: configure nix cache
       run: cachix use wwmoraes
     - name: run checks
@@ -34,6 +38,26 @@ jobs:
       run: remake push
       env:
         CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+        - os: macos-latest
+          system: aarch64-darwin
+        - os: ubuntu-24.04-arm
+          system: aarch64-linux
+        - os: ubuntu-latest
+          system: x86_64-linux
+        system:
+        - aarch64-darwin
+        - aarch64-linux
+        - x86_64-linux
+  refresh:
+    runs-on: ubuntu-latest
+    needs: check
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
     - name: queue NUR update
-      run: remake queue-refresh
+      run: make queue-refresh
       if: github.ref == 'refs/heads/main' || github.ref_type == 'tag'
