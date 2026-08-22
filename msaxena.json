@@ -1,19 +1,19 @@
 {
 "name":"msaxena",
-"fetch_time":0.832,
-"eval_time":1.33,
+"fetch_time":0.639,
+"eval_time":1.35,
 "source":{
 "url":"https://github.com/MayurSaxena/nurpkgs",
-"rev":"9973725225b911f42cdec5c33b7a42192cbc207a",
-"sha256":"0hlm773ljlk9z3mm77l0rm8h9qymykh0w0b65r3a0cyfkpigjx8i",
+"rev":"3328c37e6e6b42eb72549ebfb4e961e681a3f65f",
+"sha256":"0ys9gbhqg12z4cwlnxq79xrpa9zscr7admhnzci14s0r99v9w82p",
 "date":null
 },
-"source_storepath":"/nix/store/9c51szsn9vk173jbj16gv3kgv74lvvky-source",
-"nixpkgs_storepath":"/nix/store/6xivzi43zdnhfwpjr8cv0l9g3w2p8nzp-source",
-"nur_combined_rev":"c4365a681e5bd8775b971b99dfd6fced96c5bd2c",
+"source_storepath":"/nix/store/w32dla0bw5gayq9hqj3fhcbnw7vyrdaf-source",
+"nixpkgs_storepath":"/nix/store/k3l29h5zgrq9bg5m483v4di1v88y7ygp-source",
+"nur_combined_rev":"242f73eb999e769bb4f89fd56324ffe9e799d2c0",
 "packages":{
 "scrobblex":{
-"drvPath":"/nix/store/mfd57c8540ayn1dh9dfbs07gi59q6f10-scrobblex-1.5.1.drv",
+"drvPath":"/nix/store/f9b88akjqgk5ya4z4y3mhwvk2zv8wzx2-scrobblex-1.6.0.drv",
 "meta":{
 "available":true,
 "broken":false,
@@ -62,7 +62,7 @@
 "longDescription":"Scrobblex is a self-hosted Node.js application that listens for Plex (or\nTautulli) webhooks and scrobbles your watched media to Trakt. It also\nsupports pushing Plex ratings back to Trakt.\n",
 "mainProgram":"scrobblex",
 "maintainers":[],
-"name":"scrobblex-1.5.1",
+"name":"scrobblex-1.6.0",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -104,14 +104,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"scrobblex-1.5.1",
+"name":"scrobblex-1.6.0",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"scrobblex",
 "system":"x86_64-linux",
-"version":"1.5.1"
+"version":"1.6.0"
 },
 "trek":{
 "drvPath":"/nix/store/zlnvxw4gl0q5sfmc7590n2fkhyz8yash-trek-3.4.1.drv",
@@ -216,11 +216,11 @@
 "version":"3.4.1"
 },
 "yamtrack":{
-"drvPath":"/nix/store/az9absr1sxvbkpxfqp896v5alq8adzm9-yamtrack-0.25.3.drv",
+"drvPath":"/nix/store/q05xzzaanlp3gl525frazq92b23rk8yn-yamtrack-0.26.1.drv",
 "meta":{
 "available":true,
 "broken":false,
-"changelog":"https://github.com/FuzzyGrim/Yamtrack/releases/tag/v0.25.3",
+"changelog":"https://github.com/FuzzyGrim/Yamtrack/releases/tag/v0.26.1",
 "description":"Self hosted media tracker for movies, TV shows, anime, manga, games, books and more",
 "homepage":"https://github.com/FuzzyGrim/Yamtrack",
 "identifiers":{
@@ -265,7 +265,7 @@
 },
 "longDescription":"Yamtrack is a self-hosted Django application for tracking the media you\nwatch, read and play. It integrates with TMDB, MyAnimeList, IGDB,\nHardcover, ComicVine and other providers for metadata, and supports\nimporting from and scrobbling to Trakt, AniList, SIMKL and others.\n\nThis package builds Yamtrack from source against nixpkgs' Python\npackage set instead of using the upstream Docker image, so it does not\nitself include nginx or supervisord. Use the accompanying\n`nixosModules.yamtrack` NixOS module to run it as systemd services --\nas of the module's `port`/`host` breaking change (see that option's\ndescription), it provides its own co-located Caddy-based equivalent of\nupstream's bundled nginx layer (static-file serving, X-Real-IP), so\nnothing further is required for a working deployment.\n",
 "maintainers":[],
-"name":"yamtrack-0.25.3",
+"name":"yamtrack-0.26.1",
 "nonTeamMaintainers":[],
 "outputsToInstall":[
 "out"
@@ -307,14 +307,14 @@
 "unfree":false,
 "unsupported":false
 },
-"name":"yamtrack-0.25.3",
+"name":"yamtrack-0.26.1",
 "outputName":"out",
 "outputs":{
 "out":null
 },
 "pname":"yamtrack",
 "system":"x86_64-linux",
-"version":"0.25.3"
+"version":"0.26.1"
 }
 }
 }
