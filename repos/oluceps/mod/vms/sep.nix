@@ -57,7 +57,7 @@
                     8080
                     (config.services.prometheus.exporters.node.port)
                     (config.services.prometheus.exporters.wireguard.port)
-
+                    (config.services.prometheus.exporters.blackbox.port)
                   ];
                   allowedUDPPorts = [ 53 ];
                 };
@@ -114,6 +114,17 @@
                     disabledCollectors = [ "arp" ];
                   };
 
+                  blackbox = {
+                    enable = true;
+                    listenAddress = "10.255.0.1";
+                    configFile = (pkgs.formats.yaml { }).generate "config.yml" {
+                      modules = {
+                        icmp = {
+                          prober = "icmp";
+                        };
+                      };
+                    };
+                  };
                 };
                 services.openssh.hostKeys = [
                   {
@@ -213,11 +224,12 @@
                   htop
                   q
                   lsof
+                  mimic-bpf
                 ];
                 services.hysteria.instances = {
                   ext = {
                     enable = true;
-                    package = (import (inputs.nixpkgs-stable) { inherit (pkgs.stdenv.hostPlatform) system; }).hysteria;
+                    package = pkgs.hysteria;
                     configFile = "/var/lib/hy/config.yml";
                   };
                 };
