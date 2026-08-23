@@ -19,15 +19,13 @@ buildGoModule {
 
   vendorHash = "sha256-5RBA1JI0rXgFLx97sYozckt2w5R8qMxzMvzJWZzCDKc=";
 
-  ldflags = [
-    "-s"
-    "-w"
-  ];
+  ldflags = [ "-s" ];
 
   meta = {
     description = "Tracks storage server";
     homepage = "https://github.com/sikmir/tracks_storage_server";
     license = lib.licenses.free;
     maintainers = [ lib.maintainers.sikmir ];
+    mainProgram = "tracks_storage_server";
   };
 }
