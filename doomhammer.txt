@@ -1,0 +1,122 @@
+error:
+… while evaluating attribute 'goModules' of derivation 'awl-v0.19.0'
+  at <nixpkgs> + /pkgs/build-support/go/module.nix:79:7:
+    78|         ;
+    79|       goModules =
+      |       ^
+    80|         if (finalAttrs.vendorHash == null) then
+
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
+
+… while evaluating derivation 'awl-v0.19.0-go-modules'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:651:11
+
+… while evaluating attribute 'preBuild' of derivation 'awl-v0.19.0-go-modules'
+  at <nixpkgs> + /pkgs/build-support/go/module.nix:112:13:
+   111|             postPatch = finalAttrs.postPatch or "";
+   112|             preBuild = finalAttrs.preBuild or "";
+      |             ^
+   113|             postBuild = finalAttrs.modPostBuild or "";
+
+… while evaluating the attribute 'preBuild'
+  at ./pkgs/awl/default.nix:16:3:
+    15|
+    16|   preBuild = ''
+      |   ^
+    17|     cp -r ${common.awl_flutter} static
+
+… while calling the 'derivationStrict' builtin
+  at «nix-internal»/derivation-internal.nix:37:12:
+    36|
+    37|   strict = derivationStrict drvAttrs;
+      |            ^
+    38|
+
+… while evaluating derivation 'awl-flutter-v0.19.0'
+  whose name attribute is located at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:651:11
+
+… while evaluating attribute 'nativeBuildInputs' of derivation 'awl-flutter-v0.19.0'
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:719:11:
+   718|           depsBuildBuild = buildBuildOutputs;
+   719|           nativeBuildInputs = buildHostOutputs;
+      |           ^
+   720|           depsBuildTarget = buildTargetOutputs;
+
+… while evaluating a branch condition
+  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:560:11:
+   559|         buildHostOutputs =
+   560|           if nativeBuildInputs' == [ ] then
+      |           ^
+   561|             [ ]
+
+… while calling the 'attrValues' builtin
+  at <nixpkgs> + /pkgs/build-support/dart/build-dart-application/default.nix:194:11:
+   193|           # Ensure that we inherit the propagated build inputs from the dependencies.
+   194|           builtins.attrValues pubspecLockData.dependencySources;
+      |           ^
+   195|
+
+… while evaluating the attribute 'dependencySources'
+  at <nixpkgs> + /pkgs/build-support/dart/pub2nix/pubspec-lock.nix:173:5:
+   172|     # An attribute set of package names to their sources.
+   173|     dependencySources
+      |     ^
+   174|     ;
+
+… from call site
+  at <nixpkgs> + /pkgs/build-support/dart/pub2nix/pubspec-lock.nix:139:23:
+   138|
+   139|   dependencySources = lib.filterAttrs (name: src: src != null) (
+      |                       ^
+   140|     builtins.mapAttrs (
+
+… while calling 'filterAttrs'
+  at <nixpkgs> + /lib/attrsets.nix:667:23:
+   666|   */
+   667|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                       ^
+   668|
+
+… while calling the 'removeAttrs' builtin
+  at <nixpkgs> + /lib/attrsets.nix:667:28:
+   666|   */
+   667|   filterAttrs = pred: set: removeAttrs set (filter (name: !pred name set.${name}) (attrNames set));
+      |                            ^
+   668|
+
+… while calling the 'mapAttrs' builtin
+  at <nixpkgs> + /pkgs/build-support/dart/pub2nix/pubspec-lock.nix:140:5:
+   139|   dependencySources = lib.filterAttrs (name: src: src != null) (
+   140|     builtins.mapAttrs (
+      |     ^
+   141|       name: details:
+
+… in the condition of the assert statement
+  at <nixpkgs> + /pkgs/build-support/dart/build-dart-application/default.nix:74:11:
+    73|         else
+    74|           assert builtins.pathExists autoPubspecLock || throw "The pubspec.lock file could not be found!";
+      |           ^
+    75|           lib.importJSON (
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /pkgs/build-support/dart/build-dart-application/default.nix:74:54:
+    73|         else
+    74|           assert builtins.pathExists autoPubspecLock || throw "The pubspec.lock file could not be found!";
+      |                                                      ^
+    75|           lib.importJSON (
+
+… while calling the 'pathExists' builtin
+  at <nixpkgs> + /pkgs/build-support/dart/build-dart-application/default.nix:74:18:
+    73|         else
+    74|           assert builtins.pathExists autoPubspecLock || throw "The pubspec.lock file could not be found!";
+      |                  ^
+    75|           lib.importJSON (
+
+… while realising the context of path '/nix/store/175qi7kkf6mmjqm8mh944s7aq7mbnqnl-source/pubspec.lock'
+
+error: path '/nix/store/f4bwcpwq5874prx17301khya4wjs358c-source.drv' is not valid

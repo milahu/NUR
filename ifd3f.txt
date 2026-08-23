@@ -1,17 +1,17 @@
 error:
 … while evaluating the attribute 'akkoma-bin'
-  at ./default.nix:10:3:
-     9|   # talosctl-bin = pkgs.callPackage ./pkgs/talosctl-bin { };
-    10|   akkoma-bin = pkgs.callPackage ./pkgs/akkoma-bin { };
+  at ./default.nix:14:3:
+    13|   argen = pkgs.callPackage ./pkgs/argen { };
+    14|   akkoma-bin = pkgs.callPackage ./pkgs/akkoma-bin { };
       |   ^
-    11|   pleroma-ebooks = pkgs.callPackage ./pkgs/pleroma-ebooks { };
+    15|   pleroma-ebooks = pkgs.callPackage ./pkgs/pleroma-ebooks { };
 
 … from call site
-  at ./default.nix:10:16:
-     9|   # talosctl-bin = pkgs.callPackage ./pkgs/talosctl-bin { };
-    10|   akkoma-bin = pkgs.callPackage ./pkgs/akkoma-bin { };
+  at ./default.nix:14:16:
+    13|   argen = pkgs.callPackage ./pkgs/argen { };
+    14|   akkoma-bin = pkgs.callPackage ./pkgs/akkoma-bin { };
       |                ^
-    11|   pleroma-ebooks = pkgs.callPackage ./pkgs/pleroma-ebooks { };
+    15|   pleroma-ebooks = pkgs.callPackage ./pkgs/pleroma-ebooks { };
 
 … while calling anonymous lambda
   at <nixpkgs> + /lib/customisation.nix:308:19:

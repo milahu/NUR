@@ -1,0 +1,123 @@
+error:
+… while evaluating attribute 'postPatch' of derivation 'emacs-bruvtab-0-unstable-2026-08-22'
+  at ./pkgs/emacs-packages/bruvtab.nix:27:3:
+    26|   # of the bruvtab executable instead of a name looked up on $PATH.
+    27|   postPatch = ''
+      |   ^
+    28|     substituteInPlace bruvtab.el \
+
+… from call site
+  at ./pkgs/emacs-packages/bruvtab.nix:29:70:
+    28|     substituteInPlace bruvtab.el \
+    29|       --replace-fail 'bruvtab-program "bruvtab"' 'bruvtab-program "${lib.getExe' bruvtab "bruvtab"}"'
+      |                                                                      ^
+    30|   '';
+
+… while calling 'getExe''
+  at <nixpkgs> + /lib/meta.nix:572:8:
+   571|   getExe' =
+   572|     x: y:
+      |        ^
+   573|     assert
+
+… in the condition of the assert statement
+  at <nixpkgs> + /lib/meta.nix:573:5:
+   572|     x: y:
+   573|     assert
+      |     ^
+   574|       isDerivation x
+
+… in the left operand of the OR (||) operator
+  at <nixpkgs> + /lib/meta.nix:575:7:
+   574|       isDerivation x
+   575|       || throw "lib.meta.getExe': The first argument is of type ${typeOf x}, but it should be a derivation instead.";
+      |       ^
+   576|     assert
+
+… from call site
+  at <nixpkgs> + /lib/meta.nix:574:7:
+   573|     assert
+   574|       isDerivation x
+      |       ^
+   575|       || throw "lib.meta.getExe': The first argument is of type ${typeOf x}, but it should be a derivation instead.";
+
+… while calling 'isDerivation'
+  at <nixpkgs> + /lib/attrsets.nix:1427:18:
+  1426|   */
+  1427|   isDerivation = value: value.type or null == "derivation";
+      |                  ^
+  1428|
+
+… while evaluating the attribute 'packages.x86_64-linux.bruvtab'
+  at /nix/store/cpyfgy4wwbbxn1yrkbfjb82vxxm1ffhx-source/flake.nix:44:7:
+    43|     {
+    44|       packages = forAllSystems (system:
+      |       ^
+    45|         let
+
+… from call site
+  at /nix/store/cpyfgy4wwbbxn1yrkbfjb82vxxm1ffhx-source/flake.nix:44:18:
+    43|     {
+    44|       packages = forAllSystems (system:
+      |                  ^
+    45|         let
+
+… while calling 'forAllSystems'
+  at /nix/store/cpyfgy4wwbbxn1yrkbfjb82vxxm1ffhx-source/flake.nix:41:23:
+    40|       ];
+    41|       forAllSystems = f: lib.genAttrs systems (system: f system);
+      |                       ^
+    42|     in
+
+… from call site
+  at /nix/store/cpyfgy4wwbbxn1yrkbfjb82vxxm1ffhx-source/flake.nix:19:13:
+    18|       firefoxAppId = "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}";
+    19|       lib = nixpkgs.lib;
+      |             ^
+    20|       projectSource = lib.cleanSourceWith {
+
+… while calling anonymous lambda
+  at «flakes-internal»/call-flake.nix:68:37:
+    67|
+    68|       inputs = mapAttrs (inputName: inputSpec: allNodes.${resolveInput inputSpec}.result) (
+      |                                     ^
+    69|         node.inputs or { }
+
+… while evaluating the attribute 'nixpkgs.result'
+  at «flakes-internal»/call-flake.nix:94:7:
+    93|     {
+    94|       result =
+      |       ^
+    95|         if node.flake or true then
+
+… in the condition of the assert statement
+  at «flakes-internal»/call-flake.nix:96:11:
+    95|         if node.flake or true then
+    96|           assert builtins.isFunction flake.outputs;
+      |           ^
+    97|           result
+
+… while calling the 'isFunction' builtin
+  at «flakes-internal»/call-flake.nix:96:18:
+    95|         if node.flake or true then
+    96|           assert builtins.isFunction flake.outputs;
+      |                  ^
+    97|           result
+
+… while calling the 'import' builtin
+  at «flakes-internal»/call-flake.nix:66:15:
+    65|
+    66|       flake = import (outPath + "/flake.nix");
+      |               ^
+    67|
+
+… while realising the context of a path
+
+… while calling the 'fetchFinalTree' builtin
+  at «flakes-internal»/call-flake.nix:56:11:
+    55|           # Note: lock file entries are always final.
+    56|           fetchTreeFinal (node.info or { } // removeAttrs node.locked [ "dir" ]);
+      |           ^
+    57|
+
+error: access to URI 'github:NixOS/nixpkgs/549bd84d6279f9852cae6225e372cc67fb91a4c1?narHash=sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9%2BhrDTkDU%3D' is forbidden in restricted mode
