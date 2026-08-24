@@ -4,11 +4,12 @@
   fetchFromGitHub,
   git,
   dotnetCorePackages,
+  nix-update-script,
 }:
 
 buildDotnetModule (finalAttrs: {
   pname = "utmt-cli";
-  version = "0.9.1.2";
+  version = "0.9.2.0";
 
   src = fetchFromGitHub {
     owner = "UnderminersTeam";
@@ -35,6 +36,8 @@ buildDotnetModule (finalAttrs: {
   postFixup = ''
     ln -s $out/bin/UndertaleModCli $out/bin/utmt
   '';
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "The most complete tool for modding, decompiling and unpacking Undertale (and other GameMaker games!)";
