@@ -2,7 +2,7 @@
   lib,
   callPackage,
   buildGoModule,
-  fetchFromGitea,
+  fetchFromCodeberg,
   nix-update-script,
   go,
   mdbook,
@@ -12,20 +12,19 @@
 
 buildGoModule (finalAttrs: {
   pname = "venator";
-  version = "0.1.0a3-unstable-2026-08-15";
+  version = "0.1.0a3-unstable-2026-08-19";
 
   __structuredAttrs = true;
   strictDeps = true;
 
-  src = fetchFromGitea {
-    domain = "codeberg.org";
+  src = fetchFromCodeberg {
     owner = "matrix-venator";
     repo = "venator";
-    rev = "07d9acf55d13d2e0afa9df9f19a44c6c9667f671";
-    hash = "sha256-F1isjZ6ClY6AMkEgRZxlpNnOPahvtDutQvJ59x2fo4Q=";
+    rev = "c3e1e5c4172072b7fecfef5414229ecd3f96f20c";
+    hash = "sha256-CTBrmss+A2CWFG4cWo3i913v+M5X9FzdWtOnglfIt80=";
   };
 
-  vendorHash = "sha256-Q5IVe9qwncxLdxyHpWU7h4Tth9+Sl7wL+jnxVNvpwaQ=";
+  vendorHash = "sha256-nbbhxHxupLrWcb2VaTNUVax6Kezi41RJ2UsJ+YhKvX4=";
 
   preBuild = lib.optionalString withDocs ''
     if [ -d vendor ]; then
@@ -48,19 +47,19 @@ buildGoModule (finalAttrs: {
     "-s"
     "-w"
     "-X"
-    "codeberg.org/matrix-venator/venator/version.LatestTag=${finalAttrs.version}"
+    "kuat.thefifthfleet.net/venator/version.LatestTag=${finalAttrs.version}"
     "-X"
-    "codeberg.org/matrix-venator/venator/version.CurrentTag=${finalAttrs.version}"
+    "kuat.thefifthfleet.net/venator/version.CurrentTag=${finalAttrs.version}"
     "-X"
-    "codeberg.org/matrix-venator/venator/version.CommitHash=${finalAttrs.src.rev}"
+    "kuat.thefifthfleet.net/venator/version.CommitHash=${finalAttrs.src.rev}"
     "-X"
-    "codeberg.org/matrix-venator/venator/version.Dirty=false"
+    "kuat.thefifthfleet.net/venator/version.Dirty=false"
     "-X"
-    "codeberg.org/matrix-venator/venator/version.BuildDate=\"1970.01.01T00.00.00Z\""
+    "kuat.thefifthfleet.net/venator/version.BuildDate=\"1970.01.01T00.00.00Z\""
     "-X"
-    "codeberg.org/matrix-venator/venator/version.GoVersion=${go.version}"
+    "kuat.thefifthfleet.net/venator/version.GoVersion=${go.version}"
     "-X"
-    "codeberg.org/matrix-venator/venator/version.OSArch=${finalAttrs.goModules.GOARCH}"
+    "kuat.thefifthfleet.net/venator/version.OSArch=${finalAttrs.goModules.GOARCH}"
   ];
 
   passthru = {
