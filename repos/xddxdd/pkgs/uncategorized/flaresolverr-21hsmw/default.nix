@@ -1,6 +1,6 @@
 {
+  fetchFromGitHub,
   lib,
-  sources,
   stdenv,
   python3,
   makeWrapper,
@@ -43,9 +43,15 @@ let
     xorgserver
   ];
 in
-stdenv.mkDerivation {
-  inherit (sources.flaresolverr-21hsmw) pname version src;
-
+stdenv.mkDerivation (finalAttrs: {
+  pname = "flaresolverr-21hsmw";
+  version = "0-unstable-2025-03-04";
+  src = fetchFromGitHub {
+    owner = "21hsmw";
+    repo = "FlareSolverr";
+    rev = "008ff71315baa40761d9d6283a248e50c43db491";
+    hash = "sha256-Xf8eXXUV38Yl9fG+ToP0uNqBl+M6JdiRn3rUMltQ3a0=";
+  };
   nativeBuildInputs = [ makeWrapper ];
 
   postPatch = ''
@@ -76,4 +82,4 @@ stdenv.mkDerivation {
     # Platform depends on chromedriver
     inherit (undetected-chromedriver.meta) platforms;
   };
-}
+})

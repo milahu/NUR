@@ -1,11 +1,19 @@
 {
+  fetchFromGitHub,
+  nix-update-script,
   stdenv,
   lib,
-  sources,
   kernel,
 }:
-stdenv.mkDerivation rec {
-  inherit (sources.nft-fullcone) pname version src;
+stdenv.mkDerivation (finalAttrs: {
+  pname = "nft-fullcone";
+  version = "0-unstable-2023-05-17";
+  src = fetchFromGitHub {
+    owner = "fullcone-nat-nftables";
+    repo = "nft-fullcone";
+    rev = "07d93b626ce5ea885cd16f9ab07fac3213c355d9";
+    hash = "sha256-PJHKt7w72lYFAb2OSswX7QyLnSY0jB93DkBxGk8AwD4=";
+  };
   sourceRoot = "source/src";
 
   patches = [ ./nft-fullcone.patch ];
@@ -21,10 +29,16 @@ stdenv.mkDerivation rec {
 
   makeFlags = kernel.commonMakeFlags or kernel.makeFlags;
   preBuild = ''
-    makeFlags="$makeFlags -C ${KSRC} M=$(pwd)"
+    makeFlags="$makeFlags -C ${finalAttrs.KSRC} M=$(pwd)"
   '';
   installTargets = [ "modules_install" ];
 
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--version"
+      "branch"
+    ];
+  };
   meta = {
     maintainers = with lib.maintainers; [ xddxdd ];
     description = "Nftables fullcone expression kernel module";
@@ -32,4 +46,4 @@ stdenv.mkDerivation rec {
     license = lib.licenses.gpl3Only;
     platforms = lib.platforms.linux;
   };
-}
+})

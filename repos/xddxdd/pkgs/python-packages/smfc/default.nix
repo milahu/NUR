@@ -1,15 +1,22 @@
 {
-  lib,
-  sources,
   buildPythonPackage,
+  fetchFromGitHub,
+  lib,
+  nix-update-script,
   setuptools,
   pyudev,
 }:
-buildPythonPackage rec {
-  inherit (sources.smfc) pname version;
+buildPythonPackage (finalAttrs: {
+  pname = "smfc";
+  version = "6.2.0";
   pyproject = true;
 
-  inherit (sources.smfc) src;
+  src = fetchFromGitHub {
+    owner = "petersulyok";
+    repo = "smfc";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-4VbC1DrP4eqSy3xaK6WV2bpWRrcZHP4/AhlzRzOV2+o=";
+  };
 
   build-system = [ setuptools ];
 
@@ -36,14 +43,16 @@ buildPythonPackage rec {
   '';
 
   meta = {
-    changelog = "https://github.com/petersulyok/smfc/releases/tag/v${version}";
+    changelog = "https://github.com/petersulyok/smfc/releases/tag/v${finalAttrs.version}";
     maintainers = with lib.maintainers; [ xddxdd ];
     description = "Super Micro Fan Control";
     homepage = "https://github.com/petersulyok/smfc";
     license = with lib.licenses; [ gpl3Only ];
     mainProgram = "smfc";
   };
-}
+
+  passthru.updateScript = nix-update-script { };
+})
 
 # stdenv.mkDerivation (finalAttrs: {
 #   inherit (sources.smfc) pname version src;

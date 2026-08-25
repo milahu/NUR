@@ -1,19 +1,25 @@
 {
+  fetchFromGitHub,
   lib,
-  sources,
   buildPythonPackage,
   # Dependencies
   aiohttp,
+  nix-update-script,
   poetry-core,
   setuptools,
   websockets,
 }:
-buildPythonPackage rec {
-  inherit (sources.smartrent_py) pname version;
+buildPythonPackage (finalAttrs: {
+  pname = "smartrent_py";
+  version = "0.5.2";
   pyproject = true;
 
-  inherit (sources.smartrent_py) src;
-
+  src = fetchFromGitHub {
+    owner = "zacherythomas";
+    repo = "smartrent-py";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-UptzFqGpQtefvBE2X0ji1UvEOP8+f/E0w64XuVoVpSM=";
+  };
   postPatch = ''
     substituteInPlace pyproject.toml \
       --replace-fail '"poetry>=' '"poetry-core>='
@@ -31,11 +37,12 @@ buildPythonPackage rec {
   # Upstream dependency restriction is too strict
   dontCheckRuntimeDeps = true;
 
+  passthru.updateScript = nix-update-script { };
   meta = {
-    changelog = "https://github.com/zacherythomas/smartrent-py/releases/tag/v${version}";
+    changelog = "https://github.com/zacherythomas/smartrent-py/releases/tag/v${finalAttrs.version}";
     maintainers = with lib.maintainers; [ xddxdd ];
     description = "Api for SmartRent locks, thermostats, moisture sensors and switches";
     homepage = "https://github.com/ZacheryThomas/smartrent.py";
     license = with lib.licenses; [ mit ];
   };
-}
+})

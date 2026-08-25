@@ -1,8 +1,9 @@
 {
+  fetchFromGitHub,
   lib,
+  nix-update-script,
   stdenv,
   buildGoModule,
-  sources,
   cmake,
   ninja,
   perl,
@@ -22,8 +23,15 @@ let
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [ "-DCMAKE_OSX_ARCHITECTURES=" ];
 in
-buildGoModule rec {
-  inherit (sources.boringssl-oqs) pname version src;
+buildGoModule (finalAttrs: {
+  pname = "boringssl-oqs";
+  version = "OQS-BoringSSL-snapshot-2025-01";
+  src = fetchFromGitHub {
+    owner = "open-quantum-safe";
+    repo = "boringssl";
+    tag = finalAttrs.version;
+    hash = "sha256-zVZgAvq6V85hxO79Ct8s+VVyf9yPa/YbRL4D5z31qEs=";
+  };
   vendorHash = "sha256-jcV7dZZITkvzqKq1EQ4qLiGar568WsDPLtxMvBoh7B8=";
   proxyVendor = true;
 
@@ -81,8 +89,9 @@ buildGoModule rec {
     "dev"
   ];
 
+  passthru.updateScript = nix-update-script { };
   meta = {
-    changelog = "https://github.com/open-quantum-safe/boringssl/releases/tag/${version}";
+    changelog = "https://github.com/open-quantum-safe/boringssl/releases/tag/${finalAttrs.version}";
     mainProgram = "bssl";
     maintainers = with lib.maintainers; [ xddxdd ];
     description = "Fork of BoringSSL that includes prototype quantum-resistant key exchange and authentication in the TLS handshake based on liboqs";
@@ -95,4 +104,4 @@ buildGoModule rec {
       bsd3
     ];
   };
-}
+})

@@ -1,22 +1,19 @@
 {
+  fetchurl,
   lib,
-  sources,
   buildPythonPackage,
   setuptools,
 }:
-buildPythonPackage rec {
-  inherit (sources.xstatic-font-awesome) pname version;
+buildPythonPackage (finalAttrs: {
+  pname = "xstatic-font-awesome";
+  version = "6.2.1.2";
   pyproject = true;
 
-  inherit (sources.xstatic-font-awesome) src;
-
+  src = fetchurl {
+    url = "mirror://pypi/X/XStatic-Font-Awesome/xstatic_font_awesome-${finalAttrs.version}.tar.gz";
+    hash = "sha256-nzyy8Dj619NSciN10/Ja80banuCT7Z3CyMRr2RGrGXE=";
+  };
   build-system = [ setuptools ];
-
-  postPatch = ''
-    substituteInPlace xstatic/__init__.py xstatic/pkg/__init__.py \
-      --replace-fail "__import__('pkg_resources').declare_namespace(__name__)" ""
-    sed -i '/namespace_packages/d' setup.py
-  '';
 
   pythonImportsCheck = [ "xstatic.pkg.font_awesome" ];
 
@@ -26,4 +23,4 @@ buildPythonPackage rec {
     homepage = "https://github.com/FortAwesome/Font-Awesome";
     license = with lib.licenses; [ ofl ];
   };
-}
+})

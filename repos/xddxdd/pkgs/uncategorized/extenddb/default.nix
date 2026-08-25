@@ -1,18 +1,26 @@
 {
-  sources,
+  fetchFromGitHub,
   lib,
+  nix-update-script,
   rustPlatform,
   versionCheckHook,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
-  inherit (sources.extenddb) pname version src;
-
-  cargoHash = "sha256-aIePKcMAgNNyhzCThnU0xVi+26lpw2e+vNmgo26mlfk=";
+  pname = "extenddb";
+  version = "0.1.8";
+  src = fetchFromGitHub {
+    owner = "ExtendDB";
+    repo = "extenddb";
+    tag = "v0.1.8";
+    hash = "sha256-qQqdvwht8dDtrYSh4U6/Gi+zt7JpuhHxDaaS+D4V90U=";
+  };
+  cargoHash = "sha256-VlGMvtRhz8mluNHwBkEHVfpsly9mWZ7HPzLLb6qWTcs=";
 
   nativeInstallCheckInputs = [ versionCheckHook ];
   doInstallCheck = true;
   versionCheckProgramArg = "--version";
 
+  passthru.updateScript = nix-update-script { };
   meta = {
     changelog = "https://github.com/ExtendDB/extenddb/releases/tag/v${finalAttrs.version}";
     homepage = "https://github.com/ExtendDB/extenddb";

@@ -1,5 +1,5 @@
 {
-  sources,
+  fetchFromGitHub,
   lib,
   buildPythonPackage,
   # Dependencies
@@ -12,6 +12,7 @@
   fastapi,
   filelock,
   inquirerpy,
+  nix-update-script,
   paramiko,
   prettytable,
   psutil,
@@ -28,12 +29,17 @@
   watchdog,
 }:
 
-buildPythonPackage rec {
-  inherit (sources.runpod) pname version;
+buildPythonPackage (finalAttrs: {
+  pname = "runpod";
+  version = "1.12.0";
   pyproject = true;
 
-  inherit (sources.runpod) src;
-
+  src = fetchFromGitHub {
+    owner = "runpod";
+    repo = "runpod-python";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-6PnTrP5q8jP089+InKNizsZIHmUlZv8XrS/eFk5xbrk=";
+  };
   prePatch = ''
     cat requirements.txt | cut -d' ' -f1 > requirements2.txt
     mv requirements2.txt requirements.txt
@@ -67,12 +73,13 @@ buildPythonPackage rec {
 
   pythonImportsCheck = [ "runpod" ];
 
+  passthru.updateScript = nix-update-script { };
   meta = {
-    changelog = "https://github.com/runpod/runpod-python/releases/tag/${version}";
+    changelog = "https://github.com/runpod/runpod-python/releases/tag/v${finalAttrs.version}";
     description = "Python library for RunPod API and serverless worker SDK";
     homepage = "https://github.com/runpod/runpod-python";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ xddxdd ];
     mainProgram = "runpod";
   };
-}
+})

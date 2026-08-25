@@ -1,16 +1,21 @@
 {
-  sources,
+  fetchurl,
   lib,
   buildNpmPackage,
   nodejs,
+  nix-update-script,
 }:
 
 buildNpmPackage (finalAttrs: {
-  inherit (sources.waline) pname version src;
-
+  pname = "waline";
+  version = "1.41.5";
+  src = fetchurl {
+    url = "https://registry.npmjs.org/@waline/vercel/-/vercel-1.41.4.tgz";
+    hash = "sha256-7zU5WOzvftX0gdok1eYgTQ/CuCIEEle/ZC2oxqvmUng=";
+  };
   sourceRoot = "package";
 
-  npmDepsHash = "sha256-XZIi/cNdWjcmM4G1j19bPSbbhnL31wQa2SNr56ZBh2E=";
+  npmDepsHash = "sha256-O2Ralzuyt8AUJxhe1Gqlv2vRpSKtUGNTO3JFXmIg6QU=";
 
   patches = [ ./runtime-path.patch ];
 
@@ -36,4 +41,6 @@ buildNpmPackage (finalAttrs: {
     mainProgram = "waline";
     platforms = lib.platforms.linux;
   };
+
+  passthru.updateScript = nix-update-script { };
 })

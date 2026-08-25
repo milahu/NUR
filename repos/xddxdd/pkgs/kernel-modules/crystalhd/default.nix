@@ -1,13 +1,20 @@
 {
+  fetchFromGitHub,
+  nix-update-script,
   stdenv,
   lib,
-  sources,
   kernel,
   autoreconfHook,
 }:
-stdenv.mkDerivation rec {
-  inherit (sources.crystalhd) pname version src;
-
+stdenv.mkDerivation (finalAttrs: {
+  pname = "crystalhd";
+  version = "0-unstable-2021-01-26";
+  src = fetchFromGitHub {
+    owner = "dbason";
+    repo = "crystalhd";
+    rev = "af931d9ae5a63adfefe398defb99f225ae181c24";
+    hash = "sha256-5fsezV8OQjCKSr3m4jgEVMQhOfvfryBazWHeTcaUzUE=";
+  };
   patches = [ ./fix.patch ];
 
   postPatch = ''
@@ -29,10 +36,16 @@ stdenv.mkDerivation rec {
 
   makeFlags = kernel.commonMakeFlags or kernel.makeFlags;
   preBuild = ''
-    makeFlags="$makeFlags -C ${KSRC} M=$(pwd)"
+    makeFlags="$makeFlags -C ${finalAttrs.KSRC} M=$(pwd)"
   '';
   installTargets = [ "modules_install" ];
 
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--version"
+      "branch"
+    ];
+  };
   meta = {
     maintainers = with lib.maintainers; [ xddxdd ];
     description = "Broadcom Crystal HD Hardware Decoder (BCM70012/70015) driver";
@@ -40,4 +53,4 @@ stdenv.mkDerivation rec {
     license = lib.licenses.unfreeRedistributable;
     platforms = [ "x86_64-linux" ];
   };
-}
+})

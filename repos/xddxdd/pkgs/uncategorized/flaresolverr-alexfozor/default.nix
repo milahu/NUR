@@ -1,6 +1,6 @@
 {
+  fetchFromGitHub,
   lib,
-  sources,
   stdenv,
   python3,
   makeWrapper,
@@ -45,9 +45,15 @@ let
     xorgserver
   ];
 in
-stdenv.mkDerivation {
-  inherit (sources.flaresolverr-alexfozor) pname version src;
-
+stdenv.mkDerivation (finalAttrs: {
+  pname = "flaresolverr-alexfozor";
+  version = "0-unstable-2024-08-04";
+  src = fetchFromGitHub {
+    owner = "AlexFozor";
+    repo = "FlareSolverr";
+    rev = "aa768039d92b37b34467ddca9ab72d7e19ef67b9";
+    hash = "sha256-OQgt1SUl3prc2FBVBerElRpKbYwJTPNa7ToSEgWhZyg=";
+  };
   nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
@@ -70,4 +76,4 @@ stdenv.mkDerivation {
     homepage = "https://github.com/AlexFozor/FlareSolverr";
     license = licenses.mit;
   };
-}
+})

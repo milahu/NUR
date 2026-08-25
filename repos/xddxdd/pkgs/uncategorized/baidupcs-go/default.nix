@@ -1,12 +1,22 @@
 {
   buildGoModule,
+  fetchFromGitHub,
   lib,
-  sources,
+  nix-update-script,
   versionCheckHook,
 }:
 buildGoModule (finalAttrs: {
-  inherit (sources.baidupcs-go) pname version src;
+  pname = "baidupcs-go";
+  version = "4.0.2-unstable-2026-08-24";
+
+  src = fetchFromGitHub {
+    owner = "qjfoidnh";
+    repo = "BaiduPCS-Go";
+    rev = "d4366a7b98e19068e0e1b8361be52ca545d2ffb6";
+    hash = "sha256-YxdjMmPa/LP/Rx8vO7/XOa704s6/kUD+Sf60Ku46JZc=";
+  };
   vendorHash = "sha256-3kvB5QxtWuElhDIFFr3Awf5myf6l2Hx0M2k53ltQYeQ=";
+
   doCheck = false;
 
   ldflags = [
@@ -25,9 +35,12 @@ buildGoModule (finalAttrs: {
     rm -f $out/bin/AndroidNDKBuild
   '';
 
-  postVersionCheck = ''
-    rm -f $out/bin/pcs_config.json
-  '';
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--version"
+      "branch"
+    ];
+  };
 
   meta = {
     mainProgram = "BaiduPCS-Go";

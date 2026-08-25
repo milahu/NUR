@@ -1,7 +1,8 @@
 {
+  fetchFromGitHub,
+  nix-update-script,
   stdenv,
   lib,
-  sources,
   writeText,
   python3Packages,
   # nativeBuildInputs
@@ -15,12 +16,17 @@
   python3,
 }:
 let
-  osdlyricsPython = python3Packages.buildPythonPackage rec {
-    inherit (sources.osdlyrics) pname version;
+  osdlyricsPython = python3Packages.buildPythonPackage (finalAttrs: {
+    pname = "osdlyrics";
+    version = "0.5.16";
     pyproject = true;
 
-    inherit (sources.osdlyrics) src;
-
+    src = fetchFromGitHub {
+      owner = "osdlyrics";
+      repo = "osdlyrics";
+      tag = finalAttrs.version;
+      hash = "sha256-GvvFtpiuWuHh1dxd7Hd9F9M0WyVOtN0LxZJzGGB0mVA=";
+    };
     build-system = [ python3Packages.setuptools ];
 
     configurePhase =
@@ -28,15 +34,15 @@ let
         setupPy = writeText "setup.py" ''
           from setuptools import setup, find_packages
           setup(
-            name='${pname}',
-            version='${version}',
+            name='${finalAttrs.pname}',
+            version='${finalAttrs.version}',
             packages=['osdlyrics', 'osdlyrics/dbusext'],
           )
         '';
         initPy = writeText "__init__.py" ''
           PROGRAM_NAME = 'OSD Lyrics'
-          PACKAGE_NAME = '${pname}'
-          PACKAGE_VERSION = '${version}'
+          PACKAGE_NAME = '${finalAttrs.pname}'
+          PACKAGE_VERSION = '${finalAttrs.version}'
         '';
       in
       ''
@@ -46,7 +52,7 @@ let
       '';
 
     doCheck = false;
-  };
+  });
 
   python = python3.withPackages (
     p: with p; [
@@ -60,7 +66,14 @@ let
   );
 in
 stdenv.mkDerivation (finalAttrs: {
-  inherit (sources.osdlyrics) pname version src;
+  pname = "osdlyrics";
+  version = "0.5.16";
+  src = fetchFromGitHub {
+    owner = "osdlyrics";
+    repo = "osdlyrics";
+    tag = "0.5.16";
+    hash = "sha256-GvvFtpiuWuHh1dxd7Hd9F9M0WyVOtN0LxZJzGGB0mVA=";
+  };
   nativeBuildInputs = [
     autoreconfHook
     intltool
@@ -83,6 +96,7 @@ stdenv.mkDerivation (finalAttrs: {
     rm -rf $out/lib/python*
   '';
 
+  passthru.updateScript = nix-update-script { };
   meta = {
     changelog = "https://github.com/osdlyrics/osdlyrics/releases/tag/${finalAttrs.version}";
     maintainers = with lib.maintainers; [ xddxdd ];
