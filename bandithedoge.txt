@@ -1,172 +1,90 @@
 error:
 … from call site
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:682:13:
-   681|             in
-   682|             sanitizeDerivationName (
-      |             ^
-   683|               if attrs ? name then
+  at <nixpkgs> + /lib/attrsets.nix:1724:11:
+  1723|         zipAttrsWith (
+  1724|           name: values:
+      |           ^
+  1725|           let
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/strings.nix:2913:5:
-  2912|     in
-  2913|     string:
-      |     ^
-  2914|     # First detect the common case of already valid strings, to speed those up
-
-… while evaluating a branch condition
-  at <nixpkgs> + /lib/strings.nix:2915:5:
-  2914|     # First detect the common case of already valid strings, to speed those up
-  2915|     if stringLength string <= 207 && okRegex string != null then
-      |     ^
-  2916|       unsafeDiscardStringContext string
-
-… in the left operand of the AND (&&) operator
-  at <nixpkgs> + /lib/strings.nix:2915:35:
-  2914|     # First detect the common case of already valid strings, to speed those up
-  2915|     if stringLength string <= 207 && okRegex string != null then
-      |                                   ^
-  2916|       unsafeDiscardStringContext string
-
-… in the argument of the not operator
-  at <nixpkgs> + /lib/strings.nix:2915:28:
-  2914|     # First detect the common case of already valid strings, to speed those up
-  2915|     if stringLength string <= 207 && okRegex string != null then
-      |                            ^
-  2916|       unsafeDiscardStringContext string
-
-… while calling the 'lessThan' builtin
-  at <nixpkgs> + /lib/strings.nix:2915:28:
-  2914|     # First detect the common case of already valid strings, to speed those up
-  2915|     if stringLength string <= 207 && okRegex string != null then
-      |                            ^
-  2916|       unsafeDiscardStringContext string
-
-… while calling the 'stringLength' builtin
-  at <nixpkgs> + /lib/strings.nix:2915:8:
-  2914|     # First detect the common case of already valid strings, to speed those up
-  2915|     if stringLength string <= 207 && okRegex string != null then
-      |        ^
-  2916|       unsafeDiscardStringContext string
-
-… in the condition of the assert statement
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:687:17:
-   686|                 # we cannot coerce null to a string below
-   687|                 assert
+  at <nixpkgs> + /lib/attrsets.nix:1724:17:
+  1723|         zipAttrsWith (
+  1724|           name: values:
       |                 ^
-   688|                   (attrs ? version && attrs.version != null) || throw "The `version` attribute cannot be null.";
+  1725|           let
 
-… in the left operand of the OR (||) operator
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:688:62:
-   687|                 assert
-   688|                   (attrs ? version && attrs.version != null) || throw "The `version` attribute cannot be null.";
-      |                                                              ^
-   689|                 "${attrs.pname}${staticMarker}${hostSuffix}-${attrs.version}"
-
-… in the right operand of the AND (&&) operator
-  at <nixpkgs> + /pkgs/stdenv/generic/make-derivation.nix:688:36:
-   687|                 assert
-   688|                   (attrs ? version && attrs.version != null) || throw "The `version` attribute cannot be null.";
-      |                                    ^
-   689|                 "${attrs.pname}${staticMarker}${hostSuffix}-${attrs.version}"
-
-… while evaluating the attribute 'version'
-  at ./pkgs/actuate/package.nix:14:3:
-    13|   inherit (sources.actuate) pname src;
-    14|   version = lib.removePrefix "v" sources.actuate.version;
-      |   ^
-    15|   cargoLock = sources.actuate.cargoLock."Cargo.lock";
-
-… from call site
-  at ./pkgs/actuate/package.nix:14:13:
-    13|   inherit (sources.actuate) pname src;
-    14|   version = lib.removePrefix "v" sources.actuate.version;
+… while calling the 'head' builtin
+  at <nixpkgs> + /lib/attrsets.nix:1729:13:
+  1728|           if length values == 1 || pred here (elemAt values 1) (head values) then
+  1729|             head values
       |             ^
-    15|   cargoLock = sources.actuate.cargoLock."Cargo.lock";
+  1730|           else
 
 … while calling anonymous lambda
-  at <nixpkgs> + /lib/strings.nix:1879:7:
-  1878|     else
-  1879|       str:
-      |       ^
-  1880|       if substring 0 preLen str == prefix then
+  at <nixpkgs> + /lib/attrsets.nix:1724:17:
+  1723|         zipAttrsWith (
+  1724|           name: values:
+      |                 ^
+  1725|           let
 
-… while evaluating a branch condition
-  at <nixpkgs> + /lib/strings.nix:1880:7:
-  1879|       str:
-  1880|       if substring 0 preLen str == prefix then
-      |       ^
-  1881|         # -1 will take the string until the end
+… while calling the 'head' builtin
+  at <nixpkgs> + /lib/attrsets.nix:1729:13:
+  1728|           if length values == 1 || pred here (elemAt values 1) (head values) then
+  1729|             head values
+      |             ^
+  1730|           else
 
-… while calling the 'substring' builtin
-  at <nixpkgs> + /lib/strings.nix:1880:10:
-  1879|       str:
-  1880|       if substring 0 preLen str == prefix then
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/attrsets.nix:1724:17:
+  1723|         zipAttrsWith (
+  1724|           name: values:
+      |                 ^
+  1725|           let
+
+… while calling the 'head' builtin
+  at <nixpkgs> + /lib/attrsets.nix:1729:13:
+  1728|           if length values == 1 || pred here (elemAt values 1) (head values) then
+  1729|             head values
+      |             ^
+  1730|           else
+
+… while calling anonymous lambda
+  at <nixpkgs> + /lib/attrsets.nix:1195:17:
+  1194|         mapAttrs (
+  1195|           name: value:
+      |                 ^
+  1196|           if isAttrs value && cond value then recurse (path ++ [ name ]) value else f (path ++ [ name ]) value
+
+… from call site
+  at <nixpkgs> + /lib/attrsets.nix:1196:85:
+  1195|           name: value:
+  1196|           if isAttrs value && cond value then recurse (path ++ [ name ]) value else f (path ++ [ name ]) value
+      |                                                                                     ^
+  1197|         );
+
+… while calling anonymous lambda
+  at ./default.nix:12:10:
+    11|   (pkgs.lib.mapAttrsRecursive (
+    12|     old: new:
       |          ^
-  1881|         # -1 will take the string until the end
+    13|     pkgs.lib.warn "${concat old} has been renamed to ${concat new}" (pkgs.lib.attrByPath new null all)
 
-… from call site
-  at ./all.nix:15:21:
-    14|           inherit callPackage';
-    15|           sources = pkgs.callPackage (
-      |                     ^
-    16|             (
-
-… while calling anonymous lambda
-  at <nixpkgs> + /lib/customisation.nix:308:19:
-   307|     in
-   308|     autoArgs: fn: args:
-      |                   ^
-   309|     let
-
-… while evaluating a branch condition
-  at <nixpkgs> + /lib/customisation.nix:322:5:
-   321|     # if nonempty, check if the function has defaults for those other args
-   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
+… while calling the 'warn' builtin
+  at ./default.nix:13:5:
+    12|     old: new:
+    13|     pkgs.lib.warn "${concat old} has been renamed to ${concat new}" (pkgs.lib.attrByPath new null all)
       |     ^
-   323|       makeOverridable f allArgs
+    14|   ) (pkgs.callPackage ./_renamed.nix { }))
 
-… in the left operand of the OR (||) operator
-  at <nixpkgs> + /lib/customisation.nix:322:28:
-   321|     # if nonempty, check if the function has defaults for those other args
-   322|     if unpassedArgs == { } || all (value: value) (attrValues unpassedArgs) then
-      |                            ^
-   323|       makeOverridable f allArgs
+… while evaluating the first argument; the message passed to builtins.warn
 
-… while calling the 'removeAttrs' builtin
-  at <nixpkgs> + /lib/customisation.nix:318:22:
-   317|       # arguments that weren't passed automatically to the function
-   318|       unpassedArgs = removeAttrs fargs (attrNames allArgs);
-      |                      ^
-   319|
+… while calling the 'concatStringsSep' builtin
+  at ./default.nix:13:56:
+    12|     old: new:
+    13|     pkgs.lib.warn "${concat old} has been renamed to ${concat new}" (pkgs.lib.attrByPath new null all)
+      |                                                        ^
+    14|   ) (pkgs.callPackage ./_renamed.nix { }))
 
-… from call site
-  at <nixpkgs> + /lib/customisation.nix:311:15:
-   310|       f = if isFunction fn then fn else import fn;
-   311|       fargs = functionArgs f;
-      |               ^
-   312|
+… while evaluating the second argument (the list of strings to concat) passed to builtins.concatStringsSep
 
-… while calling anonymous lambda
-  at <nixpkgs> + /lib/trivial.nix:1109:5:
-  1108|     in
-  1109|     f: if f ? __functor then f.__functionArgs or (functionArgs (f.__functor f)) else functionArgs f;
-      |     ^
-  1110|
-
-… while evaluating a branch condition
-  at <nixpkgs> + /lib/trivial.nix:1109:8:
-  1108|     in
-  1109|     f: if f ? __functor then f.__functionArgs or (functionArgs (f.__functor f)) else functionArgs f;
-      |        ^
-  1110|
-
-… while calling the 'import' builtin
-  at <nixpkgs> + /lib/customisation.nix:310:41:
-   309|     let
-   310|       f = if isFunction fn then fn else import fn;
-      |                                         ^
-   311|       fargs = functionArgs f;
-
-… while realising the context of path './pkgs/actuate/_sources/generated.nix'
-
-error: path '/nix/store/jdiznbxq8isyvad0ay30wcj6d30ckxjg-package.nix' is not valid
+error: expected a list but found a function: «lambda overrideDerivation @ <nixpkgs> + /lib/customisation.nix:180:15»
