@@ -185,6 +185,8 @@ rec {
 
   sleef = pkgs.callPackage ./pkgs/sleef { tlfloat = tlfloat; };
 
+  slint = pkgs.callPackage ./pkgs/slint { };
+
   span-lite = pkgs.callPackage ./pkgs/span-lite { };
 
   taskflow = pkgs.callPackage ./pkgs/taskflow { };
